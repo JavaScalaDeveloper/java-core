@@ -51,7 +51,7 @@ bin/sqoop export \
 然后找了很多解决方案：
 1. 替换mysql-java的jar包，换个高版本的。
 2. 修改hadoop的`mapred-site.xml`文件（先更名`mv mapred-site.xml.template mapred-site.xml`）
-```
+```xml
 <configuration>
 	<property>
 		<name>mapreduce.framework.name</name>

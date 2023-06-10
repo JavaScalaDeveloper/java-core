@@ -21,7 +21,7 @@ export PATH=$PATH:$HIVE_HOME/bin
 #####    4.1 hive-site.xml
 更名：`mv hive-default.xml.template hive-site.xml`
 然后搜索关键字，把下面这部分做修改
-```
+```xml
 <property>
   <name>javax.jdo.option.ConnectionURL</name>
   <value>jdbc:mysql://192.168.27.166:3306/hive?createDatabaseIfNotExist=true</value>

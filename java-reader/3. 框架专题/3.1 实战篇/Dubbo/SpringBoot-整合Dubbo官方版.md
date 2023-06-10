@@ -1,7 +1,7 @@
 >上次的那个springboot和dubbo的整合版本中，dubbo的版本是2.5.3，它的Service注解和事务不能同时使用，会造成扫描失效，2.6.2的dubbo版本已经纠正了此不便，官方也给出了与springboot整合的quick start ，但是又缺少与zk的整合部分，所以我在这里只讲述在dubbo-spring-boot-starter依赖里，需要添加的zk依赖，只拿服务提供者来举例。
 
 ###   1. 导入依赖
-```
+```xml
 <dependency>
     <groupId>com.alibaba.boot</groupId>
     <artifactId>dubbo-spring-boot-starter</artifactId>

@@ -66,7 +66,7 @@ EnableSendfile on
 
 从`/usr/share/doc/httpd-2.4.6/httpd-vhosts.conf`中拷贝一份模版到`/etc/httpd/conf.d/`中
 
-```
+```xml
 <VirtualHost *:80>
     DocumentRoot "/var/www/html"
     ServerName fantj1.com

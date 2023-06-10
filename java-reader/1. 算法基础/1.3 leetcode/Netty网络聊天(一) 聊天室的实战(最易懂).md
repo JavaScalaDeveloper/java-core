@@ -326,7 +326,7 @@ public class Main {
 
 ###   5. 前端页面
 >要送就送一套。
-```
+```xml
 <!DOCTYPE html>
 <html lang="en">
 <head>

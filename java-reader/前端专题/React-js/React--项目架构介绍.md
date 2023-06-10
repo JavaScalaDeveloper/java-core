@@ -48,7 +48,7 @@
 就是网站的icon
 
 #####    3.2 index.html
-```
+```xml
 <!DOCTYPE html>
 <html lang="en">
   <head>

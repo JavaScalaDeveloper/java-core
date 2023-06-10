@@ -28,7 +28,7 @@ public class Book {
 ```
 ###   1. 读取核心配置文件
 ####    1.1 配置文件mybatis-config.xml
-```
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -52,7 +52,7 @@ public class Book {
 ```
 当然，还有很多可以在XML 文件中进行配置，上面的示例指出的则是最关键的部分。要注意 XML 头部的声明，用来验证 XML 文档正确性。environment 元素体中包含了事务管理和连接池的配置。mappers 元素则是包含一组 mapper 映射器（这些 mapper 的 XML 文件包含了 SQL 代码和映射定义信息）。
 ####    1.2 BookMapper.xml
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -119,7 +119,7 @@ public static InputStream getResourceAsStream(ClassLoader loader, String resourc
 }
 ```
 交给ClassLoader来加载, 如果classLoader为null, 则去"/" + resource 路径下装载流:
-```
+```java
 InputStream getResourceAsStream(String resource, ClassLoader[] classLoader) {
     ClassLoader[] arr$ = classLoader;
     int len$ = classLoader.length;

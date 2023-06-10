@@ -14,7 +14,7 @@
 
 #####    pom.xml
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -130,7 +130,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 ![](https://upload-images.jianshu.io/upload_images/5786888-9c11738863f84727.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #####    pom.xml
-```
+```xml
 <dependency>
     <groupId>com.fantj</groupId>
     <artifactId>simple-spring-boot-starter</artifactId>
@@ -139,7 +139,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 ```
 
 #####    application.yml
-```
+```yaml
 simple:
   service:
     config: fantj,java-reader

@@ -32,7 +32,7 @@ create.select(AUTHOR.FIRST_NAME, AUTHOR.LAST_NAME, count())
 ###  那从这里开始正式开始整合
 
 #####   1. pom修改
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -145,7 +145,7 @@ create.select(AUTHOR.FIRST_NAME, AUTHOR.LAST_NAME, count())
 
 #####    2.1 逆向配置文件
 JooqConfig.xml
-```
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration>
     <jdbc>

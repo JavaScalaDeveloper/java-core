@@ -1,7 +1,7 @@
 
 ###   1. 问题发现
 在1.0版本中，我们配置redis的cacheManager是这种方式：
-```
+```java
     //缓存管理器
     @Bean
     public CacheManager cacheManager(@SuppressWarnings("rawtypes") RedisTemplate redisTemplate) {

@@ -49,7 +49,7 @@ public void multiDBTX(){
 基本上所有的数据库都会支持XA事务，百度百科上说法：XA协议由Tuxedo首先提出的，并交给X/Open组织，作为资源管理器（数据库）与事务管理器的接口标准。简单的说，它是事务的标准，JTA也是它标准的java实现。
 
 #####    1.1 导入pom
-```
+```xml
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-jta-atomikos</artifactId>

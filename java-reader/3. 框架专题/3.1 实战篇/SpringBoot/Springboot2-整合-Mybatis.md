@@ -14,7 +14,7 @@ jdk1.8+maven3+IDEA
 ###  1. mybatis逆向攻城
 逆向工程方式很多，我目前接触到的就两种，一种是借助于ide开发工具，一种是在cmd中执行命令。（其实二者原理都一样，都是执行maven的generator命令，具体请看下文）。
 ######  1. 完善pom文件
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -117,7 +117,7 @@ jdk1.8+maven3+IDEA
 
 ```
 ######  2. 逆向所需配置文件generatorConfig.xml
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
@@ -166,7 +166,7 @@ jdk1.8+maven3+IDEA
 
 ######  6. application配置文件
 
-```
+```yaml
 server:
   port: 8080
 
@@ -291,7 +291,7 @@ public interface UserMapper {
 ```
 
 ######  UserMapper.xml
-```
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.fantj.mapper.UserMapper" >

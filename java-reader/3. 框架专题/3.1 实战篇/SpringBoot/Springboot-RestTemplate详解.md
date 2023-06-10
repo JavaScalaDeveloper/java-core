@@ -301,7 +301,7 @@ if (requestBody instanceof HttpEntity) {
 `excute()`的用法与`exchange()`大同小异了，它同样可以指定不同的`HttpMethod`，不同的是它返回的对象是响应体所映射成的对象`<T>`，而不是`ResponseEntity<T>`。
 
 需要强调的是，`execute()`方法是以上所有方法的底层调用。随便看一个：
-```
+```java
 	@Override
 	@Nullable
 	public <T> T postForObject(String url, @Nullable Object request, Class<T> responseType, Map<String, ?> uriVariables)

@@ -165,7 +165,7 @@ export default (state = defaultState,action) => {
 
 #####    4. 点击button，使数据加入到store中的list
 1. 添加事件
-```
+```xml
 <Button onClick={this.handleButtonClick}>提交</Button>
 
 并在构造器中进行绑定:

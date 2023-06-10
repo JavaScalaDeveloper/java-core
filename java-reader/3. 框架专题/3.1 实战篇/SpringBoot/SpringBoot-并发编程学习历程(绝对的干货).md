@@ -115,7 +115,7 @@ public class MockQueue {
 
 ```
 注意再setPlaceOrder(String placeOrder)方法里，我创建了一个新的线程来处理接单的操作（为什么要建立新线程，怕主线程在这挂起，此段逻辑也没有线程安全问题，况且异步处理更快）。传进来的参数是个 订单号 ，经过1s的处理成功后，把订单号传给completeOrder 字段，说明用户下单成功，我在下面付controller调用该方法的代码
-```
+```java
     //注入模拟消息队列类
     @Autowired
     private MockQueue mockQueue;

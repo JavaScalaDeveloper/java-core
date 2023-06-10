@@ -178,7 +178,7 @@ cache.directory=cache
 
 
 ######   5.1.2. 修改`/conf/`目录下的`azkaban-users.xml`
-```
+```xml
 <azkaban-users>
         <user username="azkaban" password="azkaban" roles="admin" groups="azkaban" />
         <user username="metrics" password="metrics" roles="metrics"/>

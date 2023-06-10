@@ -1,5 +1,5 @@
 第一步：在项目pom文件中导入依赖
-```
+```xml
 <dependency>
     <!--Spring 官方提供的热部署插件 -->
     <groupId>org.springframework.boot</groupId>

@@ -29,7 +29,7 @@ dangerouslySetInnerHTML={{__html:item}}
 
 ###   3. 组件对id锚点的支持方式
 
-```
+```xml
 <label htmlFor='insertText'>输入内容</label>
 <input id='insertText' className='input' >
 ```

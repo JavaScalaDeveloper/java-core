@@ -2,7 +2,7 @@
 ###   1. MVC使用
 >在研究源码之前，先来回顾以下springmvc 是如何配置的，这将能使我们更容易理解源码。
 ####    1.1 web.xml
-```
+```xml
 <servlet>
 	<servlet-name>mvc-dispatcher</servlet-name>
 	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -23,7 +23,7 @@
 ```
 值的注意的是`contextConfigLocation`和`DispatcherServlet`(用此类来拦截请求)的引用和配置。
 ####    1.2 spring-web.xml
-```
+```xml
 <!-- 配置SpringMVC -->
 <!-- 1.开启SpringMVC注解模式 -->
 <!-- 简化配置： 
