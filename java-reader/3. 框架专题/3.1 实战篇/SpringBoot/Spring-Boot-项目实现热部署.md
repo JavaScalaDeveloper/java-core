@@ -2,7 +2,7 @@
 
 Pom.xml中直接添加依赖即可：
 
-```
+```xml
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>

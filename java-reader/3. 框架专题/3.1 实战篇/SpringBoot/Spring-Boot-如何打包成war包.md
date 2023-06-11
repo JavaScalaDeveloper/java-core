@@ -1,6 +1,6 @@
 因为springboot内嵌tomcat，所以直接打的war包肯定不能使用，所以我们必须做以下操作。
 ###  1. 修改pom的package 为war
-```
+```xml
     <packaging>war</packaging>
 ```
 ###  2. 增加ServletInitializer 类

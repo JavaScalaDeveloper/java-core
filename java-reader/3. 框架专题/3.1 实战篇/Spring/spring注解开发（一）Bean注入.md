@@ -23,7 +23,7 @@ public class Student {
     setter and getter ...
 ```
 #####    1.2 添加xml配置
-```
+```xml
     <bean id="student" class="com.fantj.bean.Student">
         <property name="age" value="18"/>
         <property name="name" value="FantJ"/>

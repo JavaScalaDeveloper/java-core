@@ -4,7 +4,7 @@
 ###  1. Druid配置
 
 ######  1.1 修改pom.xml
-```
+```xml
 		<!-- alibaba的druid数据库连接池 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -164,7 +164,7 @@ public class DruidConfiguration {
 
 ###  2. FastJson配置
 ######  2.1 添加pom依赖
-```
+```xml
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>

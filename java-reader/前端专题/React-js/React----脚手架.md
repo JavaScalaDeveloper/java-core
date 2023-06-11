@@ -1,6 +1,6 @@
 ###   1. 创建项目
 
-```
+```roomsql
 create-react-app xxx
 ```
 

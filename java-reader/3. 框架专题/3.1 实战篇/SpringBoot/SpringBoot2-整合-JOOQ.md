@@ -15,7 +15,7 @@ ORDER BY AUTHOR.LAST_NAME ASC NULLS FIRST
   OFFSET 1  
 ```
 Java代码：
-```
+```roomsql
 create.select(AUTHOR.FIRST_NAME, AUTHOR.LAST_NAME, count())
       .from(AUTHOR)
       .join(BOOK).on(AUTHOR.ID.equal(BOOK.AUTHOR_ID))

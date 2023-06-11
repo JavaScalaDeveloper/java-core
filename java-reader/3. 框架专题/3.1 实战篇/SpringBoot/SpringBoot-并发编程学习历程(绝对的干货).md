@@ -237,7 +237,7 @@ public class QueueListener implements ApplicationListener<ContextRefreshedEvent>
 
 我们前面的代码中，有两部分有用new Thread()来创建线程，我们有自己的线程池后，就可以用线程池来分配线程任务了，我在自定义线程里有讲，我用的是第二种配置方法(用@Async注解来给线程 ）。
 修改如下：
-```
+```java
     @Async
     public void setPlaceOrder(String placeOrder) throws InterruptedException {
             log.info("接到下单请求"+placeOrder);

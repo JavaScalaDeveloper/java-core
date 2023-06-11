@@ -16,7 +16,7 @@ sqoop_export.txt
 `hadoop fs -put sqoop_export.txt /sqoop/export/`
 
 创建mysql数据库并增加授权:
-```
+```roomsql
 create database sqoopdb;
 grant all privileges on sqoopdb.* to 'sqoop'@'%' identified by 'sqoop';
 grant all privileges on sqoopdb.* to 'sqoop'@'localhost' identified by 'sqoop';

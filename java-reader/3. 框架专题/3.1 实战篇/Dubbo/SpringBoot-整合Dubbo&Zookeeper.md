@@ -12,7 +12,7 @@
 闲余之际我会把demo源码分享。
 
 #####    2.1 pom依赖
-```
+```xml
     <dependencies>
         <!-- Spring Boot Web 依赖 -->
         <dependency>

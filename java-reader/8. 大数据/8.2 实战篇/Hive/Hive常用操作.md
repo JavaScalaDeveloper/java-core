@@ -2,7 +2,7 @@
 
 
 ######   1.1 创建表&创建文本文件
-```
+```roomsql
 create table  fantj.t3(id int,name string,age int) row format delimited fields terminated by ','stored as textfile;
 ```
 ```shell
@@ -54,7 +54,7 @@ Time taken: 2.303 seconds, Fetched: 4 row(s)
 -rw-r--r--   3 root supergroup         46    /hdfs2hive/test.txt
 ```
 ######   进入hive，创建表t5
-```
+```roomsql
 create table  fantj.t5(id int,name string,age int) row format delimited fields terminated by ','stored as textfile;
 ```
 ```

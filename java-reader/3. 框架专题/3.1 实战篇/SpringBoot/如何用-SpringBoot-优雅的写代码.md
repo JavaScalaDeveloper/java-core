@@ -1,7 +1,7 @@
 ###   1. DTO的使用
 
 如果你的controller代码写成这样
-```
+```java
     @RequestMapping("/user")
     public List query(@RequestParam String username,
                       @RequestParam String password,
@@ -16,7 +16,7 @@
 那你就需要了解一下什么是DTO了。
 
 用DTO后的代码
-```
+```java
     @RequestMapping("/user")
     public List query(UserQueryCondition condition){
 
@@ -84,7 +84,7 @@ public class User {
 注意getUseranme方法上的注解和getPassword上注解的不同。
 ######  4.2 将实体类的get方法上的注解和Controller里相对应
 如果controller只想返回username字段，则
-```
+```java
     @RequestMapping("/user/{id:\\d+}")
     @JsonView(User.UserSimpleView.class)
     public User getInfo(@PathVariable int id){
@@ -95,7 +95,7 @@ public class User {
 ```
 如果想返回全部的User属性信息，则
 
-```
+```java
     @RequestMapping("/user/{id:\\d+}")
     @JsonView(User.UserDetailView.class)
     public User getInfo(@PathVariable int id){
@@ -109,7 +109,7 @@ public class User {
 ###   5. 判断某个字段不为空
 我们都知道，post方法，需要用@RequestBody接收实体类信息。如果我们再方法里判断某个属性是否为空然后再抛错，必然增加代码量，不美观。所以我们可以配合几个注解来达到我们的要求。
 ######  5.1 首先在实体类字段上添加注解@NotBlank
-```
+```java
     @NotBlank  //不为空的注解
     private String password;
 ```
@@ -120,13 +120,13 @@ public class User {
 ```
 但是光这两个注解作用下，如果密码出现了空值，程序会直接报错，我们希望程序可以正常运行，然后把报错信息打印出来就可以，于是我们还需要加一个类。BindingResult
 ######  5.3 添加BindingResult参数
-```
+```java
     @PostMapping("/user")
     public User create(@Valid @RequestBody User user, BindingResult errors){}
 ```
 那如何获取错误信息呢？看下面的完整代码。
 ######  5.4 完整代码
-```
+```java
     @PostMapping("/user")
     public User create(@Valid @RequestBody User user, BindingResult errors){
         user.setId("1");

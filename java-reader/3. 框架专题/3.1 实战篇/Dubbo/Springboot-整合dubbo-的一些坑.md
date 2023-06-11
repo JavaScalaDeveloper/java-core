@@ -3,12 +3,12 @@
 ###   1. 坑一：与jpa的不兼容
 
 如果你想写这样的jpasql
-```
+```java
     @Query("select g.userIdentity from  GroupMembers g where g.userId=?1 and g.groupId=?2")
     int selectIndentity(Integer userId,Integer groupId);
 ```
 恭喜你，你可以成功的运行它。但是如果你想要这样
-```
+```java
     @Transactional
     @Modifying
     @Query("update GroupMembers g set g.userIdentity=1 where g.userId=?1 and g.groupId=?2")

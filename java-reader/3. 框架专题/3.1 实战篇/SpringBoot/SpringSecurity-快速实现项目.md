@@ -3,7 +3,7 @@
 
 好的不多哔哔，直入正题。但是我还是想告诫一些没有sb读配置文件的经验的小司机。可能会不好理解，但是不要放弃，一步一步跟着我来，就可以
 ####   1. pom依赖
-```
+```xml
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -71,7 +71,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
  http.formLogin()  表示以表单的形式登录，authorizeRequests()表示什么请求需要验证呢？anyRequest()嗯，所有的请求都需要验证。authenticated();证明是有效的情况下。
 自己整段话连起来，大家就懂了这种写法的含义了。
 相信一些有心人在上面的类中看到了这段代码
-```
+```java
     @Bean
     protected UserDetailsService userDetailServiceImpl(){
         return new UserDetailServiceImpl();

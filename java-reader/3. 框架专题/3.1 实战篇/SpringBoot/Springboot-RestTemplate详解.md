@@ -276,7 +276,7 @@ if (requestBody instanceof HttpEntity) {
 
 
 ####    示例
-```
+```java
     @Test
     public void rtExchangeTest() throws JSONException {
         RestTemplate restTemplate = new RestTemplate();

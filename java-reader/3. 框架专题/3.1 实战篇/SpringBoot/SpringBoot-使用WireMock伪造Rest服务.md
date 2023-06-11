@@ -18,7 +18,7 @@
 ###   2. 向服务里注册Rest服务
 
 ######  2.1 导入依赖
-```
+```xml
 		<dependency>
 			<groupId>com.github.tomakehurst</groupId>
 			<artifactId>wiremock</artifactId>
