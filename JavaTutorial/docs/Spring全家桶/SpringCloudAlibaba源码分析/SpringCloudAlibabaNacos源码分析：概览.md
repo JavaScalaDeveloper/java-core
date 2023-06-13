@@ -1,19 +1,19 @@
-ÔÚ¿´ÕâÆªÎÄÕÂÖ®Ç°£¬×îºÃ¶ÔNACOSÏà¹Ø¹¦ÄÜÓÐËùÁË½â£¬ÍÆ¼ö¿´Íê[Spring Cloud Alibaba Nacos£¨¹¦ÄÜÆª£©](https://zhuanlan.zhihu.com/p/68700978)¡£
+åœ¨çœ‹è¿™ç¯‡æ–‡ç« ä¹‹å‰ï¼Œæœ€å¥½å¯¹NACOSç›¸å…³åŠŸèƒ½æœ‰æ‰€äº†è§£ï¼ŒæŽ¨èçœ‹å®Œ[Spring Cloud Alibaba Nacosï¼ˆåŠŸèƒ½ç¯‡ï¼‰](https://zhuanlan.zhihu.com/p/68700978)ã€‚
 
-Õë¶Ô¹¦ÄÜ£¬ÓÐÄ¿µÄµÄÈ¥ÕÒÏà¶ÔÓ¦µÄÔ´´úÂë£¬½øÒ»²½ÁË½â¹¦ÄÜÊÇÈçºÎ±»ÊµÏÖ³öÀ´µÄ¡£
+é’ˆå¯¹åŠŸèƒ½ï¼Œæœ‰ç›®çš„çš„åŽ»æ‰¾ç›¸å¯¹åº”çš„æºä»£ç ï¼Œè¿›ä¸€æ­¥äº†è§£åŠŸèƒ½æ˜¯å¦‚ä½•è¢«å®žçŽ°å‡ºæ¥çš„ã€‚
 
-±¾ÎÄÕë¶ÔÓÐÒ»¶¨Ô´´úÂëÔÄ¶Á¾­ÑéµÄÈËÈº£¬²»»áÉîÈëÌ«¶àµÄÏ¸½Ú£¬»¹ÐèÒª¶ÁÕß´ò¿ªÔ´Âë¸ú×Ù£¬×ÔÐÐÁì»á¡£
+æœ¬æ–‡é’ˆå¯¹æœ‰ä¸€å®šæºä»£ç é˜…è¯»ç»éªŒçš„äººç¾¤ï¼Œä¸ä¼šæ·±å…¥å¤ªå¤šçš„ç»†èŠ‚ï¼Œè¿˜éœ€è¦è¯»è€…æ‰“å¼€æºç è·Ÿè¸ªï¼Œè‡ªè¡Œé¢†ä¼šã€‚
 
-## Ò»¡¢Òý×Ó
+## ä¸€ã€å¼•å­
 
-½øÈëGitHub¶ÔÓ¦µÄ[Ò³Ãæ](https://link.zhihu.com/?target=https%3A//github.com/alibaba/nacos)£¬½«NACOS¹¤³ÌcloneÏÂÀ´¡£Ä¿Â¼ºÍÎÄ¼þ¿´ÆðÀ´ºÜÈß³¤£¬µ«ÊÇ¶ÔÓÚ¿´Ô´´úÂëÕæÕýÓÐ°ïÖúµÄ²¿·Ö²¢²»¶à¡£
+è¿›å…¥GitHubå¯¹åº”çš„[é¡µé¢](https://link.zhihu.com/?target=https%3A//github.com/alibaba/nacos)ï¼Œå°†NACOSå·¥ç¨‹cloneä¸‹æ¥ã€‚ç›®å½•å’Œæ–‡ä»¶çœ‹èµ·æ¥å¾ˆå†—é•¿ï¼Œä½†æ˜¯å¯¹äºŽçœ‹æºä»£ç çœŸæ­£æœ‰å¸®åŠ©çš„éƒ¨åˆ†å¹¶ä¸å¤šã€‚
 
 <figure data-size="normal">
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-e9966f158af7cfac39baf5bba456fd17_720w.webp)
 
-<figcaption>nacos¹¤³ÌÄ¿Â¼½á¹¹</figcaption>
+<figcaption>nacoså·¥ç¨‹ç›®å½•ç»“æž„</figcaption>
 
 </figure>
 
@@ -22,7 +22,7 @@
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-9195cfddde4e94b16f239bc101825a5a_720w.webp)
 
-<figcaption>Ä£¿éÒÀÀµÍ¼</figcaption>
+<figcaption>æ¨¡å—ä¾èµ–å›¾</figcaption>
 
 </figure>
 
@@ -31,19 +31,19 @@
 
 ![](https://pic4.zhimg.com/80/v2-6b30d0fc994745002ee7dcc7b04154d3_720w.webp)
 
-<figcaption>nacosÇëÇóÄ£ÐÍ</figcaption>
+<figcaption>nacosè¯·æ±‚æ¨¡åž‹</figcaption>
 
 </figure>
 
-ÓÐÁËÕâÈýÕÅÍ¼£¬¾ÍÄÜË³ÀûÕÒµ½Í»ÆÆ¿ÚÁË£¬ºËÐÄÄÚÈÝ¾Í¼¯ÖÐÔÚnacos-console£¬nacos-naming£¬nacos-config£¬Ë³ÌÙÃþ¹Ï£¬¾ÍÄÜ¿´µ½²»ÉÙÄÚÈÝÁË¡£
+æœ‰äº†è¿™ä¸‰å¼ å›¾ï¼Œå°±èƒ½é¡ºåˆ©æ‰¾åˆ°çªç ´å£äº†ï¼Œæ ¸å¿ƒå†…å®¹å°±é›†ä¸­åœ¨nacos-consoleï¼Œnacos-namingï¼Œnacos-configï¼Œé¡ºè—¤æ‘¸ç“œï¼Œå°±èƒ½çœ‹åˆ°ä¸å°‘å†…å®¹äº†ã€‚
 
-Èç¹û»¹ÊÇ¸Ð¾õÎÞ´ÓÏÂÊÖµÄ»°£¬ÄÇ¾ÍÒÆ²½nacos-example£¬ÀïÃæÓÐÖ÷ÒªÒµÎñµÄµ÷ÓÃÈë¿Ú£¬Ò»¿´±ãÖª¡£
+å¦‚æžœè¿˜æ˜¯æ„Ÿè§‰æ— ä»Žä¸‹æ‰‹çš„è¯ï¼Œé‚£å°±ç§»æ­¥nacos-exampleï¼Œé‡Œé¢æœ‰ä¸»è¦ä¸šåŠ¡çš„è°ƒç”¨å…¥å£ï¼Œä¸€çœ‹ä¾¿çŸ¥ã€‚
 
-## ¶þ¡¢ÅäÖÃ·þÎñ
+## äºŒã€é…ç½®æœåŠ¡
 
-Ê×ÏÈ´ÓÒ»¸ö¹¤³§ÀàËµÆð£ºcom.alibaba.nacos.api.NacosFactory¡£
+é¦–å…ˆä»Žä¸€ä¸ªå·¥åŽ‚ç±»è¯´èµ·ï¼šcom.alibaba.nacos.api.NacosFactoryã€‚
 
-ÀïÃæµÄ¾²Ì¬·½·¨ÓÃÓÚ´´½¨ConfigServiceºÍNamingService£¬´úÂëÀàËÆ£¬ÒÔ´´½¨ConfigServiceÎªÀý£º
+é‡Œé¢çš„é™æ€æ–¹æ³•ç”¨äºŽåˆ›å»ºConfigServiceå’ŒNamingServiceï¼Œä»£ç ç±»ä¼¼ï¼Œä»¥åˆ›å»ºConfigServiceä¸ºä¾‹ï¼š
 
 
 
@@ -62,9 +62,9 @@ public static ConfigService createConfigService(Properties properties) throws Na
 
 
 
-Ã»ÓÐÊ²Ã´¸´ÔÓµÄÂß¼­£¬Ê¹ÓÃµÄÊÇ»ù±¾µÄ·´ÉäÔ­Àí¡£¹¹Ôì²ÎÊý´«ÈëÁËproperties£¬ÕâÐ©ÊôÐÔ¿ÉÒÔÍ¨¹ýbootstrap.ymlÖÐÖ¸¶¨£¬¶ÔÓ¦µÄÊÇNacosConfigProperties¡£
+æ²¡æœ‰ä»€ä¹ˆå¤æ‚çš„é€»è¾‘ï¼Œä½¿ç”¨çš„æ˜¯åŸºæœ¬çš„åå°„åŽŸç†ã€‚æž„é€ å‚æ•°ä¼ å…¥äº†propertiesï¼Œè¿™äº›å±žæ€§å¯ä»¥é€šè¿‡bootstrap.ymlä¸­æŒ‡å®šï¼Œå¯¹åº”çš„æ˜¯NacosConfigPropertiesã€‚
 
-ÐèÒªÏ¸¿´µÄÊÇ¹¹Ôìº¯ÊýÖÐ¶ÔÓÚnamespace³õÊ¼»¯µÄÄÇ²¿·ÖÄÚÈÝ¡£
+éœ€è¦ç»†çœ‹çš„æ˜¯æž„é€ å‡½æ•°ä¸­å¯¹äºŽnamespaceåˆå§‹åŒ–çš„é‚£éƒ¨åˆ†å†…å®¹ã€‚
 
 
 
@@ -104,21 +104,21 @@ private void initNamespace(Properties properties) {
 
 
 
-´«ÈëµÄproperties»áÖ¸¶¨ÊÇ·ñ½âÎöÔÆ»·¾³ÖÐµÄnamespace²ÎÊý£¬Èç¹ûÊÇµÄ£¬¾ÍÊÇÈ¥¶ÁÈ¡°¢ÀïÔÆ»·¾³µÄÏµÍ³±äÁ¿£»Èç¹û²»ÊÇ£¬ÄÇÃ´¾Í¶ÁÈ¡propertiesÖÐÖ¸¶¨µÄnamespace£¬Ã»ÓÐÖ¸¶¨µÄ»°£¬×îÖÕ½âÎö³öÀ´µÄÊÇ¿Õ×Ö·û´®¡£´Ó´úÂëÉÏ¿´³öÀ´£¬»ñÈ¡ÔÆ»·¾³µÄnamespace×ö³ÉÁËÒì²½»¯µÄÐÎÊ½£¬µ«ÊÇÄ¿Ç°°æ±¾»¹ÊÇÊ¹ÓÃµÄÍ¬²½µ÷ÓÃ¡£
+ä¼ å…¥çš„propertiesä¼šæŒ‡å®šæ˜¯å¦è§£æžäº‘çŽ¯å¢ƒä¸­çš„namespaceå‚æ•°ï¼Œå¦‚æžœæ˜¯çš„ï¼Œå°±æ˜¯åŽ»è¯»å–é˜¿é‡Œäº‘çŽ¯å¢ƒçš„ç³»ç»Ÿå˜é‡ï¼›å¦‚æžœä¸æ˜¯ï¼Œé‚£ä¹ˆå°±è¯»å–propertiesä¸­æŒ‡å®šçš„namespaceï¼Œæ²¡æœ‰æŒ‡å®šçš„è¯ï¼Œæœ€ç»ˆè§£æžå‡ºæ¥çš„æ˜¯ç©ºå­—ç¬¦ä¸²ã€‚ä»Žä»£ç ä¸Šçœ‹å‡ºæ¥ï¼ŒèŽ·å–äº‘çŽ¯å¢ƒçš„namespaceåšæˆäº†å¼‚æ­¥åŒ–çš„å½¢å¼ï¼Œä½†æ˜¯ç›®å‰ç‰ˆæœ¬è¿˜æ˜¯ä½¿ç”¨çš„åŒæ­¥è°ƒç”¨ã€‚
 
-¼ÌÐø¸ú×ÙConfigService£¬ÀïÃæ¶¨ÒåÁËÒ»ÏµÁÐ½Ó¿Ú·½·¨£¬ÕýÊÇÎÒÃÇËùÒª¿´µÄ¡£
+ç»§ç»­è·Ÿè¸ªConfigServiceï¼Œé‡Œé¢å®šä¹‰äº†ä¸€ç³»åˆ—æŽ¥å£æ–¹æ³•ï¼Œæ­£æ˜¯æˆ‘ä»¬æ‰€è¦çœ‹çš„ã€‚
 
-Ã¿¸öÒµÎñÊµÏÖ×îÖÕ¶¼¹é½áÎªHttpÇëÇó£¬¾ÍÊÇÅäÖÃµÄserverAddr£¬¶à¸öµØÖ·»áÒÀ´ÎÂÖ×ªÊ¹ÓÃ£¬µ±È»ÊÇÔÚÒ»¶¨³¬Ê±Ê±¼äÄÚÒÀ´ÎÇëÇó£¬¶¼ÇëÇó²»³É¹¦ÁË£¬ÄÇ¾Í»áÅ×³öÒì³£¡£
+æ¯ä¸ªä¸šåŠ¡å®žçŽ°æœ€ç»ˆéƒ½å½’ç»“ä¸ºHttpè¯·æ±‚ï¼Œå°±æ˜¯é…ç½®çš„serverAddrï¼Œå¤šä¸ªåœ°å€ä¼šä¾æ¬¡è½®è½¬ä½¿ç”¨ï¼Œå½“ç„¶æ˜¯åœ¨ä¸€å®šè¶…æ—¶æ—¶é—´å†…ä¾æ¬¡è¯·æ±‚ï¼Œéƒ½è¯·æ±‚ä¸æˆåŠŸäº†ï¼Œé‚£å°±ä¼šæŠ›å‡ºå¼‚å¸¸ã€‚
 
-ÇëÇó·½ÊÇnacos-client£¬½ÓÊÕ·½×îÖÕ¶¼ÊÇÂäµ½nacos-config·þÎñÉÏ£¬×îºóÊ¹ÓÃJdbcTemplate½øÐÐÊý¾Ý³Ö¾Ã»¯¡£
+è¯·æ±‚æ–¹æ˜¯nacos-clientï¼ŒæŽ¥æ”¶æ–¹æœ€ç»ˆéƒ½æ˜¯è½åˆ°nacos-configæœåŠ¡ä¸Šï¼Œæœ€åŽä½¿ç”¨JdbcTemplateè¿›è¡Œæ•°æ®æŒä¹…åŒ–ã€‚
 
-ÕâÒ»²¿·ÖµÄ´úÂëÒ»¿´¾ÍÃ÷°×£¬·¢²¼ÅäÖÃ£¬»ñÈ¡ÅäÖÃºÍÉ¾³ýÅäÖÃ¶¼ÓÐËùÌåÏÖ£¬¾Í²»Õ¹¿ª²ûÊöÁË¡£
+è¿™ä¸€éƒ¨åˆ†çš„ä»£ç ä¸€çœ‹å°±æ˜Žç™½ï¼Œå‘å¸ƒé…ç½®ï¼ŒèŽ·å–é…ç½®å’Œåˆ é™¤é…ç½®éƒ½æœ‰æ‰€ä½“çŽ°ï¼Œå°±ä¸å±•å¼€é˜è¿°äº†ã€‚
 
-ÖØµã½âÎöÒ»ÏÂÅäÖÃ¼àÌý²¿·ÖµÄÔ´´úÂë¡£
+é‡ç‚¹è§£æžä¸€ä¸‹é…ç½®ç›‘å¬éƒ¨åˆ†çš„æºä»£ç ã€‚
 
-ÏÈ½«×¢ÒâÁ¦·ÅÔÚcom.alibaba.nacos.client.config.impl.CacheDataÕâ¸öÊý¾Ý½á¹¹ÉÏ£¬ÊÇ¸öµäÐÍµÄ³äÑªÄ£ÐÍ£¬Ö÷ÒªÊÇ³äµ±listener¹ÜÀíÕßµÄ½ÇÉ«£¬ÕâÑù¿´À´£¬ÀàÃûÈ¡µÃ²¢²»ÊÇÄÇÃ´ÓÑºÃÁË¡£
+å…ˆå°†æ³¨æ„åŠ›æ”¾åœ¨com.alibaba.nacos.client.config.impl.CacheDataè¿™ä¸ªæ•°æ®ç»“æž„ä¸Šï¼Œæ˜¯ä¸ªå…¸åž‹çš„å……è¡€æ¨¡åž‹ï¼Œä¸»è¦æ˜¯å……å½“listenerç®¡ç†è€…çš„è§’è‰²ï¼Œè¿™æ ·çœ‹æ¥ï¼Œç±»åå–å¾—å¹¶ä¸æ˜¯é‚£ä¹ˆå‹å¥½äº†ã€‚
 
-Êµ¼ÊÉÏ£¬¿ÉÒÔ¿´³öCacheData½«ÅäÖÃÐÅÏ¢£¨namespace, content£©ºÍlistener¾ÛºÏÔÚÒ»ÆðÁË£¬¿ÉÒÔÈÏÎªÒ»ÏîÅäÖÃ¿ÉÒÔ¸½¼Ó¶àÖÖlistenerÊµÊ©¼àÌý£¨ÒòÎªlistener½Ó¿Ú¿ÉÄÜÓÐ¶àÖÖÊµÏÖ£©£¬Ã¿ÖÖlistenerÖ»»áÓÐÒ»¸öÊµÀý¸½¼ÓÔÚÅäÖÃÉÏ¡£
+å®žé™…ä¸Šï¼Œå¯ä»¥çœ‹å‡ºCacheDataå°†é…ç½®ä¿¡æ¯ï¼ˆnamespace, contentï¼‰å’Œlistenerèšåˆåœ¨ä¸€èµ·äº†ï¼Œå¯ä»¥è®¤ä¸ºä¸€é¡¹é…ç½®å¯ä»¥é™„åŠ å¤šç§listenerå®žæ–½ç›‘å¬ï¼ˆå› ä¸ºlisteneræŽ¥å£å¯èƒ½æœ‰å¤šç§å®žçŽ°ï¼‰ï¼Œæ¯ç§listeneråªä¼šæœ‰ä¸€ä¸ªå®žä¾‹é™„åŠ åœ¨é…ç½®ä¸Šã€‚
 
 
 
@@ -137,7 +137,7 @@ public void addListener(Listener listener) {
 
 
 
-Ê¹ÓÃÁËCopyOnWriteArrayList.addIfAbsent·½·¨£¬Õâ¸ö·½·¨×îÖØÒª¾ÍÊÇequals·½·¨£¬ManagerListenerWrapÊÇ¶ÔlistenerµÄÁíÍâÒ»ÖÖÐÎÊ½µÄ°ü¹ü£¬ÆäÊµÏÖÁËequals·½·¨£º
+ä½¿ç”¨äº†CopyOnWriteArrayList.addIfAbsentæ–¹æ³•ï¼Œè¿™ä¸ªæ–¹æ³•æœ€é‡è¦å°±æ˜¯equalsæ–¹æ³•ï¼ŒManagerListenerWrapæ˜¯å¯¹listenerçš„å¦å¤–ä¸€ç§å½¢å¼çš„åŒ…è£¹ï¼Œå…¶å®žçŽ°äº†equalsæ–¹æ³•ï¼š
 
 
 
@@ -157,9 +157,9 @@ public boolean equals(Object obj) {
 
 
 
-ÔÙÍùÉÏ²ã·­£¬¿ÉÒÔÕÒµ½¶ÔÓÚlistener¸ü¸ß²ãµÄ¹ÜÀíAPI£ºcom.alibaba.nacos.client.config.impl.ClientWorker¡£
+å†å¾€ä¸Šå±‚ç¿»ï¼Œå¯ä»¥æ‰¾åˆ°å¯¹äºŽlisteneræ›´é«˜å±‚çš„ç®¡ç†APIï¼šcom.alibaba.nacos.client.config.impl.ClientWorkerã€‚
 
-Í¬ÑùÊÇ¶ÔlistenerµÄ¹ÜÀí£¬µ«ÊÇÔö¼ÓÁËÖØ¸´Ð£Ñé£¬ÆäÖÐcacheMapÊÇ¹Ø¼ü£¬ÈçÏÂ¶¨Òå£º
+åŒæ ·æ˜¯å¯¹listenerçš„ç®¡ç†ï¼Œä½†æ˜¯å¢žåŠ äº†é‡å¤æ ¡éªŒï¼Œå…¶ä¸­cacheMapæ˜¯å…³é”®ï¼Œå¦‚ä¸‹å®šä¹‰ï¼š
 
 
 
@@ -169,7 +169,7 @@ private final AtomicReference<Map<String, CacheData>> cacheMap = new AtomicRefer
 
 
 
-Ê¹ÓÃÁË¾ßÓÐÔ­×ÓÐÔ²Ù×÷ÌØÐÔµÄAtomicReference£¬¿ÉÒÔ±ÜÃâ²¢·¢´øÀ´µÄÊý¾Ý²»Ò»ÖÂµÄÎÊÌâ£¬ÀïÃæ°ü¹üµÄÊÇÒ»¸öHashMap£¬valueÊÇCacheData¶ÔÏó£¬¶økeyÊÇÓÐÒ»¶¨Éú³É¹æÔòµÄ£¬ÔÚGroupKeyÕâ¸öÀàÖÐ¿ÉÒÔÕÒµ½£º
+ä½¿ç”¨äº†å…·æœ‰åŽŸå­æ€§æ“ä½œç‰¹æ€§çš„AtomicReferenceï¼Œå¯ä»¥é¿å…å¹¶å‘å¸¦æ¥çš„æ•°æ®ä¸ä¸€è‡´çš„é—®é¢˜ï¼Œé‡Œé¢åŒ…è£¹çš„æ˜¯ä¸€ä¸ªHashMapï¼Œvalueæ˜¯CacheDataå¯¹è±¡ï¼Œè€Œkeyæ˜¯æœ‰ä¸€å®šç”Ÿæˆè§„åˆ™çš„ï¼Œåœ¨GroupKeyè¿™ä¸ªç±»ä¸­å¯ä»¥æ‰¾åˆ°ï¼š
 
 
 
@@ -189,13 +189,13 @@ static public String getKeyTenant(String dataId, String group, String tenant) {
 
 
 
-Êµ¼ÊÉÏÊÇ½«ÅäÖÃÐÅÏ¢ÓÃ¡°+¡±ºÅ½øÐÐÆ´½Ó£¬Èç¹ûÅäÖÃÐÅÏ¢ÖÐ±¾Éí´æÔÚÁË¡°+¡±ºÍ¡°%¡±£¬»áÊ¹ÓÃurlEncode·½·¨½øÐÐ±àÂë×ªÒå¡£µ±È»£¬Ò²ÓÐÅäÌ×µÄ½âÎö·½·¨£¬ÕâÀï¾Í²»ÔÙÕ¹¿ª½²½âÁË¡£
+å®žé™…ä¸Šæ˜¯å°†é…ç½®ä¿¡æ¯ç”¨â€œ+â€å·è¿›è¡Œæ‹¼æŽ¥ï¼Œå¦‚æžœé…ç½®ä¿¡æ¯ä¸­æœ¬èº«å­˜åœ¨äº†â€œ+â€å’Œâ€œ%â€ï¼Œä¼šä½¿ç”¨urlEncodeæ–¹æ³•è¿›è¡Œç¼–ç è½¬ä¹‰ã€‚å½“ç„¶ï¼Œä¹Ÿæœ‰é…å¥—çš„è§£æžæ–¹æ³•ï¼Œè¿™é‡Œå°±ä¸å†å±•å¼€è®²è§£äº†ã€‚
 
-½ÓÏÂÀ´µÄÎÞ·Ç¾ÍÊÇ¾ÍcacheMapµÄÒ»ÏµÁÐgetºÍset²Ù×÷£¬ÓÃÒÔÎ¬»¤listener¡£ÌØ±ð×¢ÒâµÄÊÇ£¬Ã¿´Î¸üÐÂ²Ù×÷¶¼ÊÇÏÈÉú³ÉÒ»¸öcopy¶ÔÏó£¬²Ù×÷´Ë¶ÔÏóÖ®ºó£¬ÔÙÕû¸öset£¨¸²¸Ç£©µ½cacheMapÖÐ¡£
+æŽ¥ä¸‹æ¥çš„æ— éžå°±æ˜¯å°±cacheMapçš„ä¸€ç³»åˆ—getå’Œsetæ“ä½œï¼Œç”¨ä»¥ç»´æŠ¤listenerã€‚ç‰¹åˆ«æ³¨æ„çš„æ˜¯ï¼Œæ¯æ¬¡æ›´æ–°æ“ä½œéƒ½æ˜¯å…ˆç”Ÿæˆä¸€ä¸ªcopyå¯¹è±¡ï¼Œæ“ä½œæ­¤å¯¹è±¡ä¹‹åŽï¼Œå†æ•´ä¸ªsetï¼ˆè¦†ç›–ï¼‰åˆ°cacheMapä¸­ã€‚
 
-×îºóËµÒ»ÏÂlistenerÊÇÈçºÎÔËÐÐÆðÀ´µÄ¡£
+æœ€åŽè¯´ä¸€ä¸‹listeneræ˜¯å¦‚ä½•è¿è¡Œèµ·æ¥çš„ã€‚
 
-ÈÔÈ»ÊÇÔÚClientWorkerµ±ÖÐ¿ÉÒÔÕÒµ½£¬½«×¢ÒâÁ¦×ªÒÆµ½¹¹Ôìº¯ÊýÖÐ¡£ÆäÖÐ£¬¿ÉÒÔ×¢Òâµ½£¬³õÊ¼»¯ÁËÁ½¸öÏß³Ì³Ø£º
+ä»ç„¶æ˜¯åœ¨ClientWorkerå½“ä¸­å¯ä»¥æ‰¾åˆ°ï¼Œå°†æ³¨æ„åŠ›è½¬ç§»åˆ°æž„é€ å‡½æ•°ä¸­ã€‚å…¶ä¸­ï¼Œå¯ä»¥æ³¨æ„åˆ°ï¼Œåˆå§‹åŒ–äº†ä¸¤ä¸ªçº¿ç¨‹æ± ï¼š
 
 
 
@@ -234,23 +234,23 @@ static public String getKeyTenant(String dataId, String group, String tenant) {
 
 
 
-Á½¸öÓÃÓÚÖ´ÐÐ¶¨Ê±ÈÎÎñµÄscheduledThreadPool£¬¶øÕâÁ½¸öÏß³Ì³ØµÄ·Ö¹¤Ò²ÊÇÇ¶Ì×µÄ£ºexecutorÓÃÓÚ·¢²¼ÅäÖÃ¼ì²éµÄÈÎÎñ£¬¶øexecutorServiceÔòÊÇÈÎÎñµÄ½ÓÊÕÕß£¬ÊÇÕæÕýÖ´ÐÐÈÎÎñµÄ½ÇÉ«¡£
+ä¸¤ä¸ªç”¨äºŽæ‰§è¡Œå®šæ—¶ä»»åŠ¡çš„scheduledThreadPoolï¼Œè€Œè¿™ä¸¤ä¸ªçº¿ç¨‹æ± çš„åˆ†å·¥ä¹Ÿæ˜¯åµŒå¥—çš„ï¼šexecutorç”¨äºŽå‘å¸ƒé…ç½®æ£€æŸ¥çš„ä»»åŠ¡ï¼Œè€ŒexecutorServiceåˆ™æ˜¯ä»»åŠ¡çš„æŽ¥æ”¶è€…ï¼Œæ˜¯çœŸæ­£æ‰§è¡Œä»»åŠ¡çš„è§’è‰²ã€‚
 
-ËùÒÔ·¢²¼ÈÎÎñµÄÏß³Ì³ØÖ»·ÖÅäÁË1¸öºËÐÄÏß³ÌÊý£¬¶øÖ´ÐÐÈÎÎñµÄÏß³Ì³ØµÄºËÐÄÏß³ÌÊÇCPUºËÊý¡£
+æ‰€ä»¥å‘å¸ƒä»»åŠ¡çš„çº¿ç¨‹æ± åªåˆ†é…äº†1ä¸ªæ ¸å¿ƒçº¿ç¨‹æ•°ï¼Œè€Œæ‰§è¡Œä»»åŠ¡çš„çº¿ç¨‹æ± çš„æ ¸å¿ƒçº¿ç¨‹æ˜¯CPUæ ¸æ•°ã€‚
 
-ÒòÎªÅäÖÃ¼ì²éÊÇÒ»¸ö³¤ÂÖÑ¯µÄ¹ý³Ì£¬Ò»¸öÈÎÎñÖ´ÐÐÕßÄÜ¼à²âµÄÅäÖÃÊýÁ¿ÐèÒªµÃµ½¿ØÖÆ£¬ËùÒÔNACOSÄ¿Ç°Ê¹ÓÃÁËÒ»¸ö±È½Ï¼òµ¥µÄ·ÖÈÎÎñ¹æÔò£º
+å› ä¸ºé…ç½®æ£€æŸ¥æ˜¯ä¸€ä¸ªé•¿è½®è¯¢çš„è¿‡ç¨‹ï¼Œä¸€ä¸ªä»»åŠ¡æ‰§è¡Œè€…èƒ½ç›‘æµ‹çš„é…ç½®æ•°é‡éœ€è¦å¾—åˆ°æŽ§åˆ¶ï¼Œæ‰€ä»¥NACOSç›®å‰ä½¿ç”¨äº†ä¸€ä¸ªæ¯”è¾ƒç®€å•çš„åˆ†ä»»åŠ¡è§„åˆ™ï¼š
 
 
 
 ```
 public void checkConfigInfo() {
-        // ·ÖÈÎÎñ
+        // åˆ†ä»»åŠ¡
         int listenerSize = cacheMap.get().size();
-        // ÏòÉÏÈ¡ÕûÎªÅúÊý
+        // å‘ä¸Šå–æ•´ä¸ºæ‰¹æ•°
         int longingTaskCount = (int) Math.ceil(listenerSize / ParamUtil.getPerTaskConfigSize());
         if (longingTaskCount > currentLongingTaskCount) {
             for (int i = (int) currentLongingTaskCount; i < longingTaskCount; i++) {
-                // ÒªÅÐ¶ÏÈÎÎñÊÇ·ñÔÚÖ´ÐÐ Õâ¿éÐèÒªºÃºÃÏëÏë¡£ ÈÎÎñÁÐ±íÏÖÔÚÊÇÎÞÐòµÄ¡£±ä»¯¹ý³Ì¿ÉÄÜÓÐÎÊÌâ
+                // è¦åˆ¤æ–­ä»»åŠ¡æ˜¯å¦åœ¨æ‰§è¡Œ è¿™å—éœ€è¦å¥½å¥½æƒ³æƒ³ã€‚ ä»»åŠ¡åˆ—è¡¨çŽ°åœ¨æ˜¯æ— åºçš„ã€‚å˜åŒ–è¿‡ç¨‹å¯èƒ½æœ‰é—®é¢˜
                 executorService.execute(new LongPollingRunnable(i));
             }
             currentLongingTaskCount = longingTaskCount;
@@ -260,24 +260,24 @@ public void checkConfigInfo() {
 
 
 
-ÔÚParamUtil.getPerTaskConfigSize()ÖÐ·µ»ØµÄÊÇÃ¿¸öÈÎÎñÄÜ¼à²âµÄÅäÖÃÊýÁ¿ÉÏÏÞ£¬Ä¬ÈÏÊÇ3000Ìõ£¬¿ÉÒÔÍ¨¹ýÏµÍ³±äÁ¿PER_TASK_CONFIG_SIZE¸ü¸ÄÕâ¸öÉÏÏÞ¡£
+åœ¨ParamUtil.getPerTaskConfigSize()ä¸­è¿”å›žçš„æ˜¯æ¯ä¸ªä»»åŠ¡èƒ½ç›‘æµ‹çš„é…ç½®æ•°é‡ä¸Šé™ï¼Œé»˜è®¤æ˜¯3000æ¡ï¼Œå¯ä»¥é€šè¿‡ç³»ç»Ÿå˜é‡PER_TASK_CONFIG_SIZEæ›´æ”¹è¿™ä¸ªä¸Šé™ã€‚
 
-´Ó´úÂëÉÏ¿ÉÒÔ¿´³ö£¬Èç¹ûµ±Ç°listenerµÄÊýÁ¿Ã»ÓÐ³¬¹ý3000¸ö£¬ÅäÖÃ¼à²âµÄÏß³Ì³Ø»¹ÔË×ª²»ÆðÀ´¡£Èç¹ûÏ¸¿´Õâ¸ö²¿·ÖµÄ´úÂë£¬»¹ÊÇ»á·¢ÏÖÒ»Ð©ÎÊÌâµÄ£¬Ö÷ÒªÊÇÎ§ÈÆ×ÅÈÎÎñ¹ÜÀíÑÜÉú³öÀ´µÄÒ»ÏµÁÐÎÊÌâ¡£
+ä»Žä»£ç ä¸Šå¯ä»¥çœ‹å‡ºï¼Œå¦‚æžœå½“å‰listenerçš„æ•°é‡æ²¡æœ‰è¶…è¿‡3000ä¸ªï¼Œé…ç½®ç›‘æµ‹çš„çº¿ç¨‹æ± è¿˜è¿è½¬ä¸èµ·æ¥ã€‚å¦‚æžœç»†çœ‹è¿™ä¸ªéƒ¨åˆ†çš„ä»£ç ï¼Œè¿˜æ˜¯ä¼šå‘çŽ°ä¸€äº›é—®é¢˜çš„ï¼Œä¸»è¦æ˜¯å›´ç»•ç€ä»»åŠ¡ç®¡ç†è¡ç”Ÿå‡ºæ¥çš„ä¸€ç³»åˆ—é—®é¢˜ã€‚
 
-³¤ÂÖÑ¯ÀïÃæÖ÷ÒªÓÐÁ½²¿·ÖÂß¼­£º
+é•¿è½®è¯¢é‡Œé¢ä¸»è¦æœ‰ä¸¤éƒ¨åˆ†é€»è¾‘ï¼š
 
-*   ¼ì²é±¾µØÅäÖÃ£¬ÓëCacheData´æ´¢µÄÐÅÏ¢±£³ÖÒ»ÖÂ£»
-*   ¼ì²éserver¶ËÅäÖÃ£¬¸üÐÂCacheData´æ´¢µÄÐÅÏ¢¡£
+*   æ£€æŸ¥æœ¬åœ°é…ç½®ï¼Œä¸ŽCacheDataå­˜å‚¨çš„ä¿¡æ¯ä¿æŒä¸€è‡´ï¼›
+*   æ£€æŸ¥serverç«¯é…ç½®ï¼Œæ›´æ–°CacheDataå­˜å‚¨çš„ä¿¡æ¯ã€‚
 
-## Èý¡¢·þÎñ×¢²áÓë·¢ÏÖ
+## ä¸‰ã€æœåŠ¡æ³¨å†Œä¸Žå‘çŽ°
 
-ÓÐÁËÉÏÊöµÄ»ù´¡£¬Õâ²¿·Ö´úÂë¿´ÆðÀ´»á±È½ÏÇáËÉÁË£¬½á¹¹ÉÏ»ù±¾ÏàËÆ¡£
+æœ‰äº†ä¸Šè¿°çš„åŸºç¡€ï¼Œè¿™éƒ¨åˆ†ä»£ç çœ‹èµ·æ¥ä¼šæ¯”è¾ƒè½»æ¾äº†ï¼Œç»“æž„ä¸ŠåŸºæœ¬ç›¸ä¼¼ã€‚
 
-Ö±½Ó½øÈëcom.alibaba.nacos.api.naming.NamingService£¬ÀïÃæÓÐ¶à¸öregisterInstanceÖØ¹¹·½·¨£¬ÓÃÓÚ·þÎñ×¢²á¡£
+ç›´æŽ¥è¿›å…¥com.alibaba.nacos.api.naming.NamingServiceï¼Œé‡Œé¢æœ‰å¤šä¸ªregisterInstanceé‡æž„æ–¹æ³•ï¼Œç”¨äºŽæœåŠ¡æ³¨å†Œã€‚
 
-ÏÈ¿´¿´InstanceÊµÌåÀà°üº¬µÄÄÚÈÝ£ºid£¬ip£¬port£¬serviceName£¬clusterName£¨ËùÔÚ¼¯Èº£©£¬weight£¨È¨ÖØ£©£¬healthy£¨ÊÇ·ñÕý³££©£¬enabled£¨ÊÇ·ñÆôÓÃ£©£¬ephemeral£¨ÊÇ·ñÊÇÁÙÊ±µÄ£©£¬Õâ9¸öÊôÐÔÈ«²¿¶¼¿ÉÒÔÔÚConsoleÖÐÓÐËùÌåÏÖ¡£
+å…ˆçœ‹çœ‹Instanceå®žä½“ç±»åŒ…å«çš„å†…å®¹ï¼šidï¼Œipï¼Œportï¼ŒserviceNameï¼ŒclusterNameï¼ˆæ‰€åœ¨é›†ç¾¤ï¼‰ï¼Œweightï¼ˆæƒé‡ï¼‰ï¼Œhealthyï¼ˆæ˜¯å¦æ­£å¸¸ï¼‰ï¼Œenabledï¼ˆæ˜¯å¦å¯ç”¨ï¼‰ï¼Œephemeralï¼ˆæ˜¯å¦æ˜¯ä¸´æ—¶çš„ï¼‰ï¼Œè¿™9ä¸ªå±žæ€§å…¨éƒ¨éƒ½å¯ä»¥åœ¨Consoleä¸­æœ‰æ‰€ä½“çŽ°ã€‚
 
-È»ºó£¬Ö±½Ó¿´×¢²á·þÎñµÄ·½·¨£º
+ç„¶åŽï¼Œç›´æŽ¥çœ‹æ³¨å†ŒæœåŠ¡çš„æ–¹æ³•ï¼š
 
 
 
@@ -302,11 +302,11 @@ public void checkConfigInfo() {
 
 
 
-Ç°ÃæÒ»´ó¶Î´úÂëÊÇ¶ÔÁÙÊ±·þÎñÊµÀýµÄ´¦Àí£¬¾ÍÊÇÔÚ¹¹ÔìÒ»¸öÐÄÌø°ü·¢ËÍ¸øNACOS·þÎñ¡£
+å‰é¢ä¸€å¤§æ®µä»£ç æ˜¯å¯¹ä¸´æ—¶æœåŠ¡å®žä¾‹çš„å¤„ç†ï¼Œå°±æ˜¯åœ¨æž„é€ ä¸€ä¸ªå¿ƒè·³åŒ…å‘é€ç»™NACOSæœåŠ¡ã€‚
 
-registerService·½·¨¾ÍÊÇ·â×°ÁËHTTPÇëÇó£¬×îÖÕÔÚInstanceControllerÖÐ´¦ÀíÇëÇó¡£
+registerServiceæ–¹æ³•å°±æ˜¯å°è£…äº†HTTPè¯·æ±‚ï¼Œæœ€ç»ˆåœ¨InstanceControllerä¸­å¤„ç†è¯·æ±‚ã€‚
 
-Èç¹ûÏîÄ¿¼¯³ÉÁËspring-cloud-starter-alibaba-nacos-discovery£¬·þÎñÆô¶¯ºóÄ¬ÈÏÊÇ×Ô¶¯×¢²áµÄ¡£Èç¹ûÏë¿´×Ô¶¯×¢²áµÄ¹ý³Ì£¬¿ÉÒÔ´ÓAbstractAutoServiceRegistration¿ªÊ¼×ÅÊÖ£¬µ±ÖÐÓÐÒ»¶Î´úÂë£º
+å¦‚æžœé¡¹ç›®é›†æˆäº†spring-cloud-starter-alibaba-nacos-discoveryï¼ŒæœåŠ¡å¯åŠ¨åŽé»˜è®¤æ˜¯è‡ªåŠ¨æ³¨å†Œçš„ã€‚å¦‚æžœæƒ³çœ‹è‡ªåŠ¨æ³¨å†Œçš„è¿‡ç¨‹ï¼Œå¯ä»¥ä»ŽAbstractAutoServiceRegistrationå¼€å§‹ç€æ‰‹ï¼Œå½“ä¸­æœ‰ä¸€æ®µä»£ç ï¼š
 
 
 
@@ -327,7 +327,7 @@ registerService·½·¨¾ÍÊÇ·â×°ÁËHTTPÇëÇó£¬×îÖÕÔÚInstanceControllerÖÐ´¦ÀíÇëÇó¡£
 
 
 
-¼àÌýÁËWeb·þÎñ³õÊ¼»¯Íê³ÉµÄÊÂ¼þ£¬×îÖÕ»áÖ´ÐÐstart·½·¨£º
+ç›‘å¬äº†WebæœåŠ¡åˆå§‹åŒ–å®Œæˆçš„äº‹ä»¶ï¼Œæœ€ç»ˆä¼šæ‰§è¡Œstartæ–¹æ³•ï¼š
 
 
 
@@ -355,7 +355,7 @@ registerService·½·¨¾ÍÊÇ·â×°ÁËHTTPÇëÇó£¬×îÖÕÔÚInstanceControllerÖÐ´¦ÀíÇëÇó¡£
 
 
 
-ÆäÖÐ£¬register·½·¨¾ÍÊÇ×îºËÐÄµÄ²¿·ÖÁË£¬À´Ô´ÓÚNacosServiceRegistryµÄÊµÏÖ£º
+å…¶ä¸­ï¼Œregisteræ–¹æ³•å°±æ˜¯æœ€æ ¸å¿ƒçš„éƒ¨åˆ†äº†ï¼Œæ¥æºäºŽNacosServiceRegistryçš„å®žçŽ°ï¼š
 
 
 
@@ -391,7 +391,7 @@ registerService·½·¨¾ÍÊÇ·â×°ÁËHTTPÇëÇó£¬×îÖÕÔÚInstanceControllerÖÐ´¦ÀíÇëÇó¡£
 
 
 
-Õâ¶Î´úÂë¾Í·Ç³£ÊìÏ¤ÁË£¬×îÖÕ¾Í»Øµ½ÁËÉÏÊöµÄnamingService.registerInstance·½·¨¡£
+è¿™æ®µä»£ç å°±éžå¸¸ç†Ÿæ‚‰äº†ï¼Œæœ€ç»ˆå°±å›žåˆ°äº†ä¸Šè¿°çš„namingService.registerInstanceæ–¹æ³•ã€‚
 
 
 
@@ -404,24 +404,24 @@ registerService·½·¨¾ÍÊÇ·â×°ÁËHTTPÇëÇó£¬×îÖÕÔÚInstanceControllerÖÐ´¦ÀíÇëÇó¡£
 
 
 
-ÒÔÉÏ³öÏÖÁËÁíÍâÒ»¸öÊµÌåÀà£ºcom.alibaba.nacos.naming.core.Service£¬ServiceÊÇ°üº¬ÁËInstance£¬Ò»¸öServiceÏÂÓÐ¶à¸öInstance£¬¼´¿É×é³ÉÒ»¸öCluster¡£
+ä»¥ä¸Šå‡ºçŽ°äº†å¦å¤–ä¸€ä¸ªå®žä½“ç±»ï¼šcom.alibaba.nacos.naming.core.Serviceï¼ŒServiceæ˜¯åŒ…å«äº†Instanceï¼Œä¸€ä¸ªServiceä¸‹æœ‰å¤šä¸ªInstanceï¼Œå³å¯ç»„æˆä¸€ä¸ªClusterã€‚
 
 <figure data-size="normal">
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-21ca2c51d56d6401dee0db0444df8ddf_720w.webp)
 
-<figcaption>¶àÊµÀý¼¯Èº</figcaption>
+<figcaption>å¤šå®žä¾‹é›†ç¾¤</figcaption>
 
 </figure>
 
-ÔÚµ÷ÓÃregisterInstance×¢²áÊµÀýµÄÊ±ºò£¬Èç¹û·¢ÏÖ¶ÔÓ¦µÄServiceÃ»ÓÐ±»×¢²á£¬ÄÇÃ´»áregisterService£¬²¢ÇÒ»á³õÊ¼»¯¶ÔÓ¦µÄCluster£¬Æô¶¯½¡¿µ¼ì²éµÄ¶¨Ê±Æ÷¡£
+åœ¨è°ƒç”¨registerInstanceæ³¨å†Œå®žä¾‹çš„æ—¶å€™ï¼Œå¦‚æžœå‘çŽ°å¯¹åº”çš„Serviceæ²¡æœ‰è¢«æ³¨å†Œï¼Œé‚£ä¹ˆä¼šregisterServiceï¼Œå¹¶ä¸”ä¼šåˆå§‹åŒ–å¯¹åº”çš„Clusterï¼Œå¯åŠ¨å¥åº·æ£€æŸ¥çš„å®šæ—¶å™¨ã€‚
 
-ºÍregisterInstanceÏà·´µÄÊÇderegisterInstance£¬¼´ÎªÈ¡Ïû×¢²á£¬Ò²¿ÉÒÔÈÏÎªÊÇ·þÎñÊµÀýÏÂÏß¡£
+å’ŒregisterInstanceç›¸åçš„æ˜¯deregisterInstanceï¼Œå³ä¸ºå–æ¶ˆæ³¨å†Œï¼Œä¹Ÿå¯ä»¥è®¤ä¸ºæ˜¯æœåŠ¡å®žä¾‹ä¸‹çº¿ã€‚
 
-×îºóÀ´¿´¿´NACOSÈçºÎÊµÏÖ·þÎñ·¢ÏÖ¹¦ÄÜ¡£
+æœ€åŽæ¥çœ‹çœ‹NACOSå¦‚ä½•å®žçŽ°æœåŠ¡å‘çŽ°åŠŸèƒ½ã€‚
 
-´ÓÏû·ÑÕß£¨µ÷ÓÃ·½£©µÄ½Ç¶ÈÀ´¿´£¬¼¯³ÉµÄstarterÏîÄ¿ÖÐÓÐ¸öÀà£ºNacosServerList£¬×îÖØÒªµÄÊÇ¼Ì³ÐÁËAbstractServerList£¬ÊµÏÖÁËÁ½¸ö¹Ø¼üµÄ½Ó¿Ú·½·¨£¬Ïàµ±ÓÚÊÇNACOSÓëRibbonµÄ¶Ô½Óµã¡£
+ä»Žæ¶ˆè´¹è€…ï¼ˆè°ƒç”¨æ–¹ï¼‰çš„è§’åº¦æ¥çœ‹ï¼Œé›†æˆçš„starteré¡¹ç›®ä¸­æœ‰ä¸ªç±»ï¼šNacosServerListï¼Œæœ€é‡è¦çš„æ˜¯ç»§æ‰¿äº†AbstractServerListï¼Œå®žçŽ°äº†ä¸¤ä¸ªå…³é”®çš„æŽ¥å£æ–¹æ³•ï¼Œç›¸å½“äºŽæ˜¯NACOSä¸ŽRibbonçš„å¯¹æŽ¥ç‚¹ã€‚
 
 
 
@@ -442,9 +442,9 @@ public interface ServerList<T extends Server> {
 
 
 
-NACOS¶ÔÓÚÕâ¸öÁ½¸ö½Ó¿ÚµÄÊµÏÖ£¬¶¼Ê¹ÓÃÁËgetServers·½·¨£¬¶ø½øÈëµ½getServers·½·¨ÌåÀïÃæ£¬ÆäÊµ¾ÍÊÇÀûÓÃÁËÉÏÊöËùËµµÄNacosNamingService.selectInstances·½·¨£¬Í¨¹ýserviceId»ñÈ¡µ½ServiceInfo¶ÔÏó£¬È»ºó»ñÈ¡µ½ServiceÏÂÃæµÄËùÓÐÓÐÐ§µÄInstance¡£
+NACOSå¯¹äºŽè¿™ä¸ªä¸¤ä¸ªæŽ¥å£çš„å®žçŽ°ï¼Œéƒ½ä½¿ç”¨äº†getServersæ–¹æ³•ï¼Œè€Œè¿›å…¥åˆ°getServersæ–¹æ³•ä½“é‡Œé¢ï¼Œå…¶å®žå°±æ˜¯åˆ©ç”¨äº†ä¸Šè¿°æ‰€è¯´çš„NacosNamingService.selectInstancesæ–¹æ³•ï¼Œé€šè¿‡serviceIdèŽ·å–åˆ°ServiceInfoå¯¹è±¡ï¼Œç„¶åŽèŽ·å–åˆ°Serviceä¸‹é¢çš„æ‰€æœ‰æœ‰æ•ˆçš„Instanceã€‚
 
-´ÓÌá¹©Õß£¨±»µ÷ÓÃ·½£©µÄ½Ç¶È¿´£¬NACOSÊÇÍ¨¹ý¶¨Ê±Æ÷À´ÊµÊ±¸üÐÂServiceInfo£¬Ö÷ÒªÒµÎñÂß¼­ÊÇÔÚHostReactorÖÐÊµÏÖµÄ¡£ÓëÇ°ÊöµÄserviceMap²»Ò»Ñù£¬HostReactorÖÐÎ¬»¤µÄÊÇserviceInfoMap¡£
+ä»Žæä¾›è€…ï¼ˆè¢«è°ƒç”¨æ–¹ï¼‰çš„è§’åº¦çœ‹ï¼ŒNACOSæ˜¯é€šè¿‡å®šæ—¶å™¨æ¥å®žæ—¶æ›´æ–°ServiceInfoï¼Œä¸»è¦ä¸šåŠ¡é€»è¾‘æ˜¯åœ¨HostReactorä¸­å®žçŽ°çš„ã€‚ä¸Žå‰è¿°çš„serviceMapä¸ä¸€æ ·ï¼ŒHostReactorä¸­ç»´æŠ¤çš„æ˜¯serviceInfoMapã€‚
 
 
 
@@ -454,7 +454,7 @@ private Map<String, ServiceInfo> serviceInfoMap;
 
 
 
-HostReactor½èÖúÁËFailoverReactor¶ÔServiceInfo×öÁË´ÅÅÌ»º´æ£¬ÈÔÈ»ÊÇÆô¶¯ÁË¶¨Ê±ÈÎÎñ£¬ÔÚÖ¸¶¨µÄÄ¿Â¼ÏÂÐòÁÐ»¯ServiceInfo£¬ÒÔ´ËÊµÏÖÁËFailover»úÖÆ¡£¶øÆô¶¯failover-modeÒ²ÊÇÓÐ¿ª¹ØµÄ£¬ÆäÊµ¾ÍÊÇÒ»¸öÌØ¶¨ÎÄ¼þµÄÒ»²¿·ÖÄÚÈÝ£¬ÕâÐ©ÅäÖÃµÄ¼à²âÒ²ÊÇÍ¨¹ý¶¨Ê±ÈÎÎñÀ´ÊµÏÖµÄ¡£
+HostReactorå€ŸåŠ©äº†FailoverReactorå¯¹ServiceInfoåšäº†ç£ç›˜ç¼“å­˜ï¼Œä»ç„¶æ˜¯å¯åŠ¨äº†å®šæ—¶ä»»åŠ¡ï¼Œåœ¨æŒ‡å®šçš„ç›®å½•ä¸‹åºåˆ—åŒ–ServiceInfoï¼Œä»¥æ­¤å®žçŽ°äº†Failoveræœºåˆ¶ã€‚è€Œå¯åŠ¨failover-modeä¹Ÿæ˜¯æœ‰å¼€å…³çš„ï¼Œå…¶å®žå°±æ˜¯ä¸€ä¸ªç‰¹å®šæ–‡ä»¶çš„ä¸€éƒ¨åˆ†å†…å®¹ï¼Œè¿™äº›é…ç½®çš„ç›‘æµ‹ä¹Ÿæ˜¯é€šè¿‡å®šæ—¶ä»»åŠ¡æ¥å®žçŽ°çš„ã€‚
 
 
 
@@ -464,35 +464,35 @@ File switchFile = new File(failoverDir + UtilAndComs.FAILOVER_SWITCH);
 
 
 
-Õû¸ö¹ý³ÌÈçÏÂÍ¼ËùÊ¾£º
+æ•´ä¸ªè¿‡ç¨‹å¦‚ä¸‹å›¾æ‰€ç¤ºï¼š
 
 <figure data-size="normal">
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-d16112ec6ff6dda0b029b019c313177c_720w.webp)
 
-<figcaption>·þÎñ·¢ÏÖ¸ú×ÙÍ¼</figcaption>
+<figcaption>æœåŠ¡å‘çŽ°è·Ÿè¸ªå›¾</figcaption>
 
 </figure>
 
-## ËÄ¡¢¹ÜÀí¿ØÖÆÌ¨(Console)
+## å››ã€ç®¡ç†æŽ§åˆ¶å°(Console)
 
-ÕâÒ»²¿·ÖÊÇ¹ÜÀí¿ØÖÆÌ¨µÄÊµÏÖ£¬ÆäÊµÊÇÒ»¸ö·Ç³£µäÐÍµÄWEBÏîÄ¿¡£
+è¿™ä¸€éƒ¨åˆ†æ˜¯ç®¡ç†æŽ§åˆ¶å°çš„å®žçŽ°ï¼Œå…¶å®žæ˜¯ä¸€ä¸ªéžå¸¸å…¸åž‹çš„WEBé¡¹ç›®ã€‚
 
-Ê¹ÓÃÁËSpring Security + JWT½øÐÐ°²È«¿ØÖÆ£¬Ç°¶Ë¼¼ÊõÊÇReactJs£¬ÀûÓÃJdbcTemplate½øÐÐÊý¾Ý¿â³Ö¾Ã»¯¡£
+ä½¿ç”¨äº†Spring Security + JWTè¿›è¡Œå®‰å…¨æŽ§åˆ¶ï¼Œå‰ç«¯æŠ€æœ¯æ˜¯ReactJsï¼Œåˆ©ç”¨JdbcTemplateè¿›è¡Œæ•°æ®åº“æŒä¹…åŒ–ã€‚
 
-ÐèÒª×¢ÒâµÄÊÇ£¬¿ØÖÆÌ¨Ìá¹©µÄ¹¦ÄÜ²¢²»¶¼ÊÇ´Ónacos-consoleÕâ¸ö·þÎñÖÐ»ñÈ¡µÄÊý¾Ý£¬¶øÊÇ·ÖÉ¢ÔÚÁË¸÷¸ö·þÎñÖÐ¡£
+éœ€è¦æ³¨æ„çš„æ˜¯ï¼ŒæŽ§åˆ¶å°æä¾›çš„åŠŸèƒ½å¹¶ä¸éƒ½æ˜¯ä»Žnacos-consoleè¿™ä¸ªæœåŠ¡ä¸­èŽ·å–çš„æ•°æ®ï¼Œè€Œæ˜¯åˆ†æ•£åœ¨äº†å„ä¸ªæœåŠ¡ä¸­ã€‚
 
-nacos-consoleÌá¹©ÁË¿ØÖÆÌ¨µÇÂ¼£¬namespace¹ÜÀí£¬¿ØÖÆÌ¨·þÎñ×´Ì¬ÕâÈý²¿·ÖÄÜÁ¦£¬¶øÅäÖÃ¹ÜÀíºÍ·þÎñ¹ÜÀí·Ö±ðÇëÇóµÄÊÇnacos-configºÍnacos-namingËùÌá¹©µÄAPI£¬¶øÕâÐ©API¾ÍÊÇ¹ÙÍøËùÌáµ½µÄOpen-API¡£
+nacos-consoleæä¾›äº†æŽ§åˆ¶å°ç™»å½•ï¼Œnamespaceç®¡ç†ï¼ŒæŽ§åˆ¶å°æœåŠ¡çŠ¶æ€è¿™ä¸‰éƒ¨åˆ†èƒ½åŠ›ï¼Œè€Œé…ç½®ç®¡ç†å’ŒæœåŠ¡ç®¡ç†åˆ†åˆ«è¯·æ±‚çš„æ˜¯nacos-configå’Œnacos-namingæ‰€æä¾›çš„APIï¼Œè€Œè¿™äº›APIå°±æ˜¯å®˜ç½‘æ‰€æåˆ°çš„Open-APIã€‚
 
-## Îå¡¢×Ü½á
+## äº”ã€æ€»ç»“
 
-NACOSÏà¹ØÔ´ÂëÍ¨Ë×Ò×¶®£¬Ã»ÓÐÊ²Ã´¸ßÉîµÄÀíÄî£¬Ò²Ã»ÓÐ½øÐÐ²ã²ã·â×°ºÍ°ü¹ü£¬ÓÐÒ»¶¨±à³Ì¾­ÑéµÄ³ÌÐòÔ±ÄÜÔÚ°ëÐ¡Ê±Ö®ÄÚ°ÑÎÕÕû¸öÏîÄ¿µÄÂöÂç¡£
+NACOSç›¸å…³æºç é€šä¿—æ˜“æ‡‚ï¼Œæ²¡æœ‰ä»€ä¹ˆé«˜æ·±çš„ç†å¿µï¼Œä¹Ÿæ²¡æœ‰è¿›è¡Œå±‚å±‚å°è£…å’ŒåŒ…è£¹ï¼Œæœ‰ä¸€å®šç¼–ç¨‹ç»éªŒçš„ç¨‹åºå‘˜èƒ½åœ¨åŠå°æ—¶ä¹‹å†…æŠŠæ¡æ•´ä¸ªé¡¹ç›®çš„è„‰ç»œã€‚
 
-µ±È»£¬Ò²»á´æÔÚÒ»Ð©²»¿ÉºöÊÓµÄÈ±µã£¬±ÈÈç£¬×¢ÊÍ¹ýÉÙ£¬´úÂë»¹ÓÐºÜ´óµÄÖØ¹¹¿Õ¼ä£¬tenantºÍnamespaceÁ½¸ö¸ÅÄî»ìÏýÊ¹ÓÃ¡£
+å½“ç„¶ï¼Œä¹Ÿä¼šå­˜åœ¨ä¸€äº›ä¸å¯å¿½è§†çš„ç¼ºç‚¹ï¼Œæ¯”å¦‚ï¼Œæ³¨é‡Šè¿‡å°‘ï¼Œä»£ç è¿˜æœ‰å¾ˆå¤§çš„é‡æž„ç©ºé—´ï¼Œtenantå’Œnamespaceä¸¤ä¸ªæ¦‚å¿µæ··æ·†ä½¿ç”¨ã€‚
 
-¹ØÓÚSpring Cloud Alibaba NacosµÄ½éÉÜµ½´Ë¾Í½áÊøÁË£¬Ï£Íû¶ÔÄãÓÐËù°ïÖú¡£
-# ²Î¿¼ÎÄÕÂ
+å…³äºŽSpring Cloud Alibaba Nacosçš„ä»‹ç»åˆ°æ­¤å°±ç»“æŸäº†ï¼Œå¸Œæœ›å¯¹ä½ æœ‰æ‰€å¸®åŠ©ã€‚
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

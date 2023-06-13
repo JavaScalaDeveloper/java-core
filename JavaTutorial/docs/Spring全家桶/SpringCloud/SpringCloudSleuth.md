@@ -1,16 +1,16 @@
-> Spring Cloud Sleuth ÊÇ·Ö²¼Ê½ÏµÍ³ÖĞ¸ú×Ù·şÎñ¼äµ÷ÓÃµÄ¹¤¾ß£¬Ëü¿ÉÒÔÖ±¹ÛµØÕ¹Ê¾³öÒ»´ÎÇëÇóµÄµ÷ÓÃ¹ı³Ì£¬±¾ÎÄ½«¶ÔÆäÓÃ·¨½øĞĞÏêÏ¸½éÉÜ¡£
+> Spring Cloud Sleuth æ˜¯åˆ†å¸ƒå¼ç³»ç»Ÿä¸­è·Ÿè¸ªæœåŠ¡é—´è°ƒç”¨çš„å·¥å…·ï¼Œå®ƒå¯ä»¥ç›´è§‚åœ°å±•ç¤ºå‡ºä¸€æ¬¡è¯·æ±‚çš„è°ƒç”¨è¿‡ç¨‹ï¼Œæœ¬æ–‡å°†å¯¹å…¶ç”¨æ³•è¿›è¡Œè¯¦ç»†ä»‹ç»ã€‚
 
-## [#](https://www.macrozheng.com/cloud/sleuth.html#spring-cloud-sleuth-%E7%AE%80%E4%BB%8B)Spring Cloud Sleuth ¼ò½é
+## [#](https://www.macrozheng.com/cloud/sleuth.html#spring-cloud-sleuth-%E7%AE%80%E4%BB%8B)Spring Cloud Sleuth ç®€ä»‹
 
-Ëæ×ÅÎÒÃÇµÄÏµÍ³Ô½À´Ô½ÅÓ´ó£¬¸÷¸ö·şÎñ¼äµÄµ÷ÓÃ¹ØÏµÒ²±äµÃÔ½À´Ô½¸´ÔÓ¡£µ±¿Í»§¶Ë·¢ÆğÒ»¸öÇëÇóÊ±£¬Õâ¸öÇëÇó¾­¹ı¶à¸ö·şÎñºó£¬×îÖÕ·µ»ØÁË½á¹û£¬¾­¹ıµÄÃ¿Ò»¸ö·şÎñ¶¼ÓĞ¿ÉÄÜ·¢ÉúÑÓ³Ù»ò´íÎó£¬´Ó¶øµ¼ÖÂÇëÇóÊ§°Ü¡£ÕâÊ±ºòÎÒÃÇ¾ÍĞèÒªÇëÇóÁ´Â·¸ú×Ù¹¤¾ßÀ´°ïÖúÎÒÃÇ£¬ÀíÇåÇëÇóµ÷ÓÃµÄ·şÎñÁ´Â·£¬½â¾öÎÊÌâ¡£
+éšç€æˆ‘ä»¬çš„ç³»ç»Ÿè¶Šæ¥è¶Šåºå¤§ï¼Œå„ä¸ªæœåŠ¡é—´çš„è°ƒç”¨å…³ç³»ä¹Ÿå˜å¾—è¶Šæ¥è¶Šå¤æ‚ã€‚å½“å®¢æˆ·ç«¯å‘èµ·ä¸€ä¸ªè¯·æ±‚æ—¶ï¼Œè¿™ä¸ªè¯·æ±‚ç»è¿‡å¤šä¸ªæœåŠ¡åï¼Œæœ€ç»ˆè¿”å›äº†ç»“æœï¼Œç»è¿‡çš„æ¯ä¸€ä¸ªæœåŠ¡éƒ½æœ‰å¯èƒ½å‘ç”Ÿå»¶è¿Ÿæˆ–é”™è¯¯ï¼Œä»è€Œå¯¼è‡´è¯·æ±‚å¤±è´¥ã€‚è¿™æ—¶å€™æˆ‘ä»¬å°±éœ€è¦è¯·æ±‚é“¾è·¯è·Ÿè¸ªå·¥å…·æ¥å¸®åŠ©æˆ‘ä»¬ï¼Œç†æ¸…è¯·æ±‚è°ƒç”¨çš„æœåŠ¡é“¾è·¯ï¼Œè§£å†³é—®é¢˜ã€‚
 
-## [#](https://www.macrozheng.com/cloud/sleuth.html#%E7%BB%99%E6%9C%8D%E5%8A%A1%E6%B7%BB%E5%8A%A0%E8%AF%B7%E6%B1%82%E9%93%BE%E8%B7%AF%E8%B7%9F%E8%B8%AA)¸ø·şÎñÌí¼ÓÇëÇóÁ´Â·¸ú×Ù
+## [#](https://www.macrozheng.com/cloud/sleuth.html#%E7%BB%99%E6%9C%8D%E5%8A%A1%E6%B7%BB%E5%8A%A0%E8%AF%B7%E6%B1%82%E9%93%BE%E8%B7%AF%E8%B7%9F%E8%B8%AA)ç»™æœåŠ¡æ·»åŠ è¯·æ±‚é“¾è·¯è·Ÿè¸ª
 
-> ÎÒÃÇ½«Í¨¹ıuser-serviceºÍribbon-serviceÖ®¼äµÄ·şÎñµ÷ÓÃÀ´ÑİÊ¾¸Ã¹¦ÄÜ£¬ÕâÀïÎÒÃÇµ÷ÓÃribbon-serviceµÄ½Ó¿ÚÊ±£¬ribbon-service»áÍ¨¹ıRestTemplateÀ´µ÷ÓÃuser-serviceÌá¹©µÄ½Ó¿Ú¡£
+> æˆ‘ä»¬å°†é€šè¿‡user-serviceå’Œribbon-serviceä¹‹é—´çš„æœåŠ¡è°ƒç”¨æ¥æ¼”ç¤ºè¯¥åŠŸèƒ½ï¼Œè¿™é‡Œæˆ‘ä»¬è°ƒç”¨ribbon-serviceçš„æ¥å£æ—¶ï¼Œribbon-serviceä¼šé€šè¿‡RestTemplateæ¥è°ƒç”¨user-serviceæä¾›çš„æ¥å£ã€‚
 
-*   Ê×ÏÈ¸øuser-serviceºÍribbon-serviceÌí¼ÓÇëÇóÁ´Â·¸ú×Ù¹¦ÄÜµÄÖ§³Ö£»
+*   é¦–å…ˆç»™user-serviceå’Œribbon-serviceæ·»åŠ è¯·æ±‚é“¾è·¯è·Ÿè¸ªåŠŸèƒ½çš„æ”¯æŒï¼›
 
-*   ÔÚuser-serviceºÍribbon-serviceÖĞÌí¼ÓÏà¹ØÒÀÀµ£º
+*   åœ¨user-serviceå’Œribbon-serviceä¸­æ·»åŠ ç›¸å…³ä¾èµ–ï¼š
 
 
 
@@ -25,7 +25,7 @@
 
 
 
-*   ĞŞ¸Äapplication.ymlÎÄ¼ş£¬ÅäÖÃÊÕ¼¯ÈÕÖ¾µÄzipkin-server·ÃÎÊµØÖ·£º
+*   ä¿®æ”¹application.ymlæ–‡ä»¶ï¼Œé…ç½®æ”¶é›†æ—¥å¿—çš„zipkin-serverè®¿é—®åœ°å€ï¼š
 
 
 
@@ -35,19 +35,19 @@ spring:
     base-url: http://localhost:9411
   sleuth:
     sampler:
-      probability: 0.1 #ÉèÖÃSleuthµÄ³éÑùÊÕ¼¯¸ÅÂÊ
+      probability: 0.1 #è®¾ç½®Sleuthçš„æŠ½æ ·æ”¶é›†æ¦‚ç‡
 
 ```
 
 
 
-## [#](https://www.macrozheng.com/cloud/sleuth.html#%E6%95%B4%E5%90%88zipkin%E8%8E%B7%E5%8F%96%E5%8F%8A%E5%88%86%E6%9E%90%E6%97%A5%E5%BF%97)ÕûºÏZipkin»ñÈ¡¼°·ÖÎöÈÕÖ¾
+## [#](https://www.macrozheng.com/cloud/sleuth.html#%E6%95%B4%E5%90%88zipkin%E8%8E%B7%E5%8F%96%E5%8F%8A%E5%88%86%E6%9E%90%E6%97%A5%E5%BF%97)æ•´åˆZipkinè·å–åŠåˆ†ææ—¥å¿—
 
-> ZipkinÊÇTwitterµÄÒ»¸ö¿ªÔ´ÏîÄ¿£¬¿ÉÒÔÓÃÀ´»ñÈ¡ºÍ·ÖÎöSpring Cloud Sleuth ÖĞ²úÉúµÄÇëÇóÁ´Â·¸ú×ÙÈÕÖ¾£¬ËüÌá¹©ÁËWeb½çÃæÀ´°ïÖúÎÒÃÇÖ±¹ÛµØ²é¿´ÇëÇóÁ´Â·¸ú×ÙĞÅÏ¢¡£
+> Zipkinæ˜¯Twitterçš„ä¸€ä¸ªå¼€æºé¡¹ç›®ï¼Œå¯ä»¥ç”¨æ¥è·å–å’Œåˆ†æSpring Cloud Sleuth ä¸­äº§ç”Ÿçš„è¯·æ±‚é“¾è·¯è·Ÿè¸ªæ—¥å¿—ï¼Œå®ƒæä¾›äº†Webç•Œé¢æ¥å¸®åŠ©æˆ‘ä»¬ç›´è§‚åœ°æŸ¥çœ‹è¯·æ±‚é“¾è·¯è·Ÿè¸ªä¿¡æ¯ã€‚
 
-*   SpringBoot 2.0ÒÔÉÏ°æ±¾ÒÑ¾­²»ĞèÒª×ÔĞĞ´î½¨zipkin-server£¬ÎÒÃÇ¿ÉÒÔ´Ó¸ÃµØÖ·ÏÂÔØzipkin-server£ºhttps://repo1.maven.org/maven2/io/zipkin/java/zipkin-server/2.12.9/zipkin-server-2.12.9-exec.jar
+*   SpringBoot 2.0ä»¥ä¸Šç‰ˆæœ¬å·²ç»ä¸éœ€è¦è‡ªè¡Œæ­å»ºzipkin-serverï¼Œæˆ‘ä»¬å¯ä»¥ä»è¯¥åœ°å€ä¸‹è½½zipkin-serverï¼šhttps://repo1.maven.org/maven2/io/zipkin/java/zipkin-server/2.12.9/zipkin-server-2.12.9-exec.jar
 
-*   ÏÂÔØÍê³ÉºóÊ¹ÓÃÒÔÏÂÃüÁîÔËĞĞzipkin-server£º
+*   ä¸‹è½½å®Œæˆåä½¿ç”¨ä»¥ä¸‹å‘½ä»¤è¿è¡Œzipkin-serverï¼š
 
 
 
@@ -61,79 +61,79 @@ java -jar zipkin-server-2.12.9-exec.jar
 
 
 
-*   ZipkinÒ³Ãæ·ÃÎÊµØÖ·£ºhttp://localhost:9411
+*   Zipkiné¡µé¢è®¿é—®åœ°å€ï¼šhttp://localhost:9411
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/springcloud_sleuth_01.625f37c3.png)
 
-*   Æô¶¯eureka-sever£¬ribbon-service£¬user-service£º
+*   å¯åŠ¨eureka-severï¼Œribbon-serviceï¼Œuser-serviceï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/springcloud_sleuth_02.baf7b77c.png)
 
-*   ¶à´Îµ÷ÓÃ£¨SleuthÎª³éÑùÊÕ¼¯£©ribbon-serviceµÄ½Ó¿Ú[http://localhost:8301/user/1open in new window](http://localhost:8301/user/1) £¬µ÷ÓÃÍêºó²é¿´ZipkinÊ×Ò³·¢ÏÖÒÑ¾­ÓĞÇëÇóÁ´Â·¸ú×ÙĞÅÏ¢ÁË£»
+*   å¤šæ¬¡è°ƒç”¨ï¼ˆSleuthä¸ºæŠ½æ ·æ”¶é›†ï¼‰ribbon-serviceçš„æ¥å£[http://localhost:8301/user/1open in new window](http://localhost:8301/user/1) ï¼Œè°ƒç”¨å®ŒåæŸ¥çœ‹Zipkiné¦–é¡µå‘ç°å·²ç»æœ‰è¯·æ±‚é“¾è·¯è·Ÿè¸ªä¿¡æ¯äº†ï¼›
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/springcloud_sleuth_03.a71d1cf1.png)
 
-*   µã»÷²é¿´ÏêÇé¿ÉÒÔÖ±¹ÛµØ¿´µ½ÇëÇóµ÷ÓÃÁ´Â·ºÍÍ¨¹ıÃ¿¸ö·şÎñµÄºÄÊ±£º
+*   ç‚¹å‡»æŸ¥çœ‹è¯¦æƒ…å¯ä»¥ç›´è§‚åœ°çœ‹åˆ°è¯·æ±‚è°ƒç”¨é“¾è·¯å’Œé€šè¿‡æ¯ä¸ªæœåŠ¡çš„è€—æ—¶ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/springcloud_sleuth_04.d13e3d99.png)
 
-## [#](https://www.macrozheng.com/cloud/sleuth.html#%E4%BD%BF%E7%94%A8elasticsearch%E5%AD%98%E5%82%A8%E8%B7%9F%E8%B8%AA%E4%BF%A1%E6%81%AF)Ê¹ÓÃElasticsearch´æ´¢¸ú×ÙĞÅÏ¢
+## [#](https://www.macrozheng.com/cloud/sleuth.html#%E4%BD%BF%E7%94%A8elasticsearch%E5%AD%98%E5%82%A8%E8%B7%9F%E8%B8%AA%E4%BF%A1%E6%81%AF)ä½¿ç”¨Elasticsearchå­˜å‚¨è·Ÿè¸ªä¿¡æ¯
 
-> Èç¹ûÎÒÃÇ°Ñzipkin-serverÖØÆôÒ»ÏÂ¾Í»á·¢ÏÖ¸Õ¸ÕµÄ´æ´¢µÄ¸ú×ÙĞÅÏ¢È«²¿¶ªÊ§ÁË£¬¿É¼ûÆäÊÇ´æ´¢ÔÚÄÚ´æÖĞµÄ£¬ÓĞÊ±ºòÎÒÃÇĞèÒª½«ËùÓĞĞÅÏ¢´æ´¢ÏÂÀ´£¬ÕâÀïÒÔ´æ´¢µ½ElasticsearchÎªÀı£¬À´ÑİÊ¾ÏÂ¸Ã¹¦ÄÜ¡£
+> å¦‚æœæˆ‘ä»¬æŠŠzipkin-serveré‡å¯ä¸€ä¸‹å°±ä¼šå‘ç°åˆšåˆšçš„å­˜å‚¨çš„è·Ÿè¸ªä¿¡æ¯å…¨éƒ¨ä¸¢å¤±äº†ï¼Œå¯è§å…¶æ˜¯å­˜å‚¨åœ¨å†…å­˜ä¸­çš„ï¼Œæœ‰æ—¶å€™æˆ‘ä»¬éœ€è¦å°†æ‰€æœ‰ä¿¡æ¯å­˜å‚¨ä¸‹æ¥ï¼Œè¿™é‡Œä»¥å­˜å‚¨åˆ°Elasticsearchä¸ºä¾‹ï¼Œæ¥æ¼”ç¤ºä¸‹è¯¥åŠŸèƒ½ã€‚
 
-### [#](https://www.macrozheng.com/cloud/sleuth.html#%E5%AE%89%E8%A3%85elasticsearch)°²×°Elasticsearch
+### [#](https://www.macrozheng.com/cloud/sleuth.html#%E5%AE%89%E8%A3%85elasticsearch)å®‰è£…Elasticsearch
 
-*   ÏÂÔØElasticsearch6.2.2µÄzip°ü£¬²¢½âÑ¹µ½Ö¸¶¨Ä¿Â¼£¬ÏÂÔØµØÖ·£º[https://www.elastic.co/cn/downloads/past-releases/elasticsearch-6-2-2open in new window](https://www.elastic.co/cn/downloads/past-releases/elasticsearch-6-2-2)
+*   ä¸‹è½½Elasticsearch6.2.2çš„zipåŒ…ï¼Œå¹¶è§£å‹åˆ°æŒ‡å®šç›®å½•ï¼Œä¸‹è½½åœ°å€ï¼š[https://www.elastic.co/cn/downloads/past-releases/elasticsearch-6-2-2open in new window](https://www.elastic.co/cn/downloads/past-releases/elasticsearch-6-2-2)
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/arch_screen_25.48daf958.png)
 
-*   ÔËĞĞbinÄ¿Â¼ÏÂµÄelasticsearch.batÆô¶¯Elasticsearch
+*   è¿è¡Œbinç›®å½•ä¸‹çš„elasticsearch.batå¯åŠ¨Elasticsearch
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/arch_screen_27.ba3cb8e0.png)
 
-### [#](https://www.macrozheng.com/cloud/sleuth.html#%E4%BF%AE%E6%94%B9%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0%E5%B0%86%E4%BF%A1%E6%81%AF%E5%AD%98%E5%82%A8%E5%88%B0elasticsearch)ĞŞ¸ÄÆô¶¯²ÎÊı½«ĞÅÏ¢´æ´¢µ½Elasticsearch
+### [#](https://www.macrozheng.com/cloud/sleuth.html#%E4%BF%AE%E6%94%B9%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0%E5%B0%86%E4%BF%A1%E6%81%AF%E5%AD%98%E5%82%A8%E5%88%B0elasticsearch)ä¿®æ”¹å¯åŠ¨å‚æ•°å°†ä¿¡æ¯å­˜å‚¨åˆ°Elasticsearch
 
-*   Ê¹ÓÃÒÔÏÂÃüÁîÔËĞĞ£¬¾Í¿ÉÒÔ°Ñ¸ú×ÙĞÅÏ¢´æ´¢µ½ElasticsearchÀïÃæÈ¥ÁË£¬ÖØĞÂÆô¶¯Ò²²»»á¶ªÊ§£»
+*   ä½¿ç”¨ä»¥ä¸‹å‘½ä»¤è¿è¡Œï¼Œå°±å¯ä»¥æŠŠè·Ÿè¸ªä¿¡æ¯å­˜å‚¨åˆ°Elasticsearché‡Œé¢å»äº†ï¼Œé‡æ–°å¯åŠ¨ä¹Ÿä¸ä¼šä¸¢å¤±ï¼›
 
 
 
 ```
-# STORAGE_TYPE£º±íÊ¾´æ´¢ÀàĞÍ ES_HOSTS£º±íÊ¾ESµÄ·ÃÎÊµØÖ·
+# STORAGE_TYPEï¼šè¡¨ç¤ºå­˜å‚¨ç±»å‹ ES_HOSTSï¼šè¡¨ç¤ºESçš„è®¿é—®åœ°å€
 java -jar zipkin-server-2.12.9-exec.jar --STORAGE_TYPE=elasticsearch --ES_HOSTS=localhost:9200 
 
 ```
 
 
-*   Ö®ºóĞèÒªÖØĞÂÆô¶¯user-serviceºÍribbon-service²ÅÄÜÉúĞ§£¬ÖØÆôºó¶à´Îµ÷ÓÃribbon-serviceµÄ½Ó¿Ú[http://localhost:8301/user/1open in new window](http://localhost:8301/user/1)£»
+*   ä¹‹åéœ€è¦é‡æ–°å¯åŠ¨user-serviceå’Œribbon-serviceæ‰èƒ½ç”Ÿæ•ˆï¼Œé‡å¯åå¤šæ¬¡è°ƒç”¨ribbon-serviceçš„æ¥å£[http://localhost:8301/user/1open in new window](http://localhost:8301/user/1)ï¼›
 
-*   Èç¹û°²×°ÁËElasticsearchµÄ¿ÉÊÓ»¯¹¤¾ßKibanaµÄ»°£¬¿ÉÒÔ¿´µ½ÀïÃæÒÑ¾­´æ´¢ÁË¸ú×ÙĞÅÏ¢£º
+*   å¦‚æœå®‰è£…äº†Elasticsearchçš„å¯è§†åŒ–å·¥å…·Kibanaçš„è¯ï¼Œå¯ä»¥çœ‹åˆ°é‡Œé¢å·²ç»å­˜å‚¨äº†è·Ÿè¸ªä¿¡æ¯ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/springcloud_sleuth_05.9929ce6a.png)
 
-### [#](https://www.macrozheng.com/cloud/sleuth.html#%E6%9B%B4%E5%A4%9A%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0%E5%8F%82%E8%80%83)¸ü¶àÆô¶¯²ÎÊı²Î¿¼
+### [#](https://www.macrozheng.com/cloud/sleuth.html#%E6%9B%B4%E5%A4%9A%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0%E5%8F%82%E8%80%83)æ›´å¤šå¯åŠ¨å‚æ•°å‚è€ƒ
 
 https://github.com/openzipkin/zipkin/tree/master/zipkin-server#elasticsearch-storage
 
-## [#](https://www.macrozheng.com/cloud/sleuth.html#%E4%BD%BF%E7%94%A8%E5%88%B0%E7%9A%84%E6%A8%A1%E5%9D%97)Ê¹ÓÃµ½µÄÄ£¿é
+## [#](https://www.macrozheng.com/cloud/sleuth.html#%E4%BD%BF%E7%94%A8%E5%88%B0%E7%9A%84%E6%A8%A1%E5%9D%97)ä½¿ç”¨åˆ°çš„æ¨¡å—
 
 
 
 ```
 springcloud-learning
-©À©¤©¤ eureka-server -- eureka×¢²áÖĞĞÄ
-©À©¤©¤ user-service -- Ìá¹©User¶ÔÏóCRUD½Ó¿ÚµÄ·şÎñ
-©¸©¤©¤ ribbon-service -- ribbon·şÎñµ÷ÓÃ²âÊÔ·şÎñ
+â”œâ”€â”€ eureka-server -- eurekaæ³¨å†Œä¸­å¿ƒ
+â”œâ”€â”€ user-service -- æä¾›Userå¯¹è±¡CRUDæ¥å£çš„æœåŠ¡
+â””â”€â”€ ribbon-service -- ribbonæœåŠ¡è°ƒç”¨æµ‹è¯•æœåŠ¡
 
 ```
 
 
 
 
-## [#](https://www.macrozheng.com/cloud/sleuth.html#%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E5%9C%B0%E5%9D%80)ÏîÄ¿Ô´ÂëµØÖ·
+## [#](https://www.macrozheng.com/cloud/sleuth.html#%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E5%9C%B0%E5%9D%80)é¡¹ç›®æºç åœ°å€
 
 [https://github.com/macrozheng/springcloud-learning](https://github.com/macrozheng/springcloud-learning)
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

@@ -1,22 +1,22 @@
 
 
-# Éú²ú¾ÍĞ÷¹¦ÄÜ
+# ç”Ÿäº§å°±ç»ªåŠŸèƒ½
 
 [Back to index](https://springdoc.cn/spring-boot/index.html)
 
-*   [1\. ÆôÓÃÉú²ú¾ÍĞ÷µÄ¹¦ÄÜ](https://springdoc.cn/spring-boot/actuator.html#actuator.enabling)
-*   [2\. ¶Ëµã£¨Endpoint£©](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints)
-*   [3\. Í¨¹ıHTTP½øĞĞ¼à¿ØºÍ¹ÜÀí](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring)
-*   [4\. Í¨¹ıJMX½øĞĞ¼à¿ØºÍ¹ÜÀí](https://springdoc.cn/spring-boot/actuator.html#actuator.jmx)
-*   [5\. ¿É¹Û²âĞÔ£¨Observability£©](https://springdoc.cn/spring-boot/actuator.html#actuator.observability)
-*   [6\. ÈÕÖ¾¼ÇÂ¼Æ÷£¨Logger£©](https://springdoc.cn/spring-boot/actuator.html#actuator.loggers)
-*   [7\. Ö¸±ê£¨Metrics£©](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics)
-*   [8\. ×·×Ù£¨Tracing£©](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing)
-*   [9\. Éó¼Æ](https://springdoc.cn/spring-boot/actuator.html#actuator.auditing)
-*   [10\. ¼ÇÂ¼ HTTP Exchange](https://springdoc.cn/spring-boot/actuator.html#actuator.http-exchanges)
-*   [11\. ½ø³Ì¼à¿Ø](https://springdoc.cn/spring-boot/actuator.html#actuator.process-monitoring)
-*   [12\. Cloud Foundry µÄÖ§³Ö](https://springdoc.cn/spring-boot/actuator.html#actuator.cloud-foundry)
-*   [13\. ½ÓÏÂÀ´¶ÁÊ²Ã´](https://springdoc.cn/spring-boot/actuator.html#actuator.whats-next)
+*   [1\. å¯ç”¨ç”Ÿäº§å°±ç»ªçš„åŠŸèƒ½](https://springdoc.cn/spring-boot/actuator.html#actuator.enabling)
+*   [2\. ç«¯ç‚¹ï¼ˆEndpointï¼‰](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints)
+*   [3\. é€šè¿‡HTTPè¿›è¡Œç›‘æ§å’Œç®¡ç†](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring)
+*   [4\. é€šè¿‡JMXè¿›è¡Œç›‘æ§å’Œç®¡ç†](https://springdoc.cn/spring-boot/actuator.html#actuator.jmx)
+*   [5\. å¯è§‚æµ‹æ€§ï¼ˆObservabilityï¼‰](https://springdoc.cn/spring-boot/actuator.html#actuator.observability)
+*   [6\. æ—¥å¿—è®°å½•å™¨ï¼ˆLoggerï¼‰](https://springdoc.cn/spring-boot/actuator.html#actuator.loggers)
+*   [7\. æŒ‡æ ‡ï¼ˆMetricsï¼‰](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics)
+*   [8\. è¿½è¸ªï¼ˆTracingï¼‰](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing)
+*   [9\. å®¡è®¡](https://springdoc.cn/spring-boot/actuator.html#actuator.auditing)
+*   [10\. è®°å½• HTTP Exchange](https://springdoc.cn/spring-boot/actuator.html#actuator.http-exchanges)
+*   [11\. è¿›ç¨‹ç›‘æ§](https://springdoc.cn/spring-boot/actuator.html#actuator.process-monitoring)
+*   [12\. Cloud Foundry çš„æ”¯æŒ](https://springdoc.cn/spring-boot/actuator.html#actuator.cloud-foundry)
+*   [13\. æ¥ä¸‹æ¥è¯»ä»€ä¹ˆ](https://springdoc.cn/spring-boot/actuator.html#actuator.whats-next)
 
 
 
@@ -30,14 +30,14 @@
 
 
 
-|  | ±¾Õ¾([springdoc.cn](https://springdoc.cn/))ÖĞµÄÄÚÈİÀ´Ô´ÓÚ [spring.io](https://spring.io/) £¬Ô­Ê¼°æÈ¨¹éÊôÓÚ [spring.io](https://spring.io/)¡£ÓÉ [springboot.io - Spring BootÖĞÎÄÉçÇø](https://springboot.io/) ½øĞĞ·­Òë£¬ÕûÀí¡£¿É¹©¸öÈËÑ§Ï°¡¢ÑĞ¾¿£¬Î´¾­Ğí¿É£¬²»µÃ½øĞĞÈÎºÎ×ªÔØ¡¢ÉÌÓÃ»òÓëÖ®Ïà¹ØµÄĞĞÎª¡£ ÉÌ±êÉùÃ÷£ºSpring ÊÇ Pivotal Software, Inc. ÔÚÃÀ¹úÒÔ¼°ÆäËû¹ú¼ÒµÄÉÌ±ê¡£ |
+|  | æœ¬ç«™([springdoc.cn](https://springdoc.cn/))ä¸­çš„å†…å®¹æ¥æºäº [spring.io](https://spring.io/) ï¼ŒåŸå§‹ç‰ˆæƒå½’å±äº [spring.io](https://spring.io/)ã€‚ç”± [springboot.io - Spring Bootä¸­æ–‡ç¤¾åŒº](https://springboot.io/) è¿›è¡Œç¿»è¯‘ï¼Œæ•´ç†ã€‚å¯ä¾›ä¸ªäººå­¦ä¹ ã€ç ”ç©¶ï¼Œæœªç»è®¸å¯ï¼Œä¸å¾—è¿›è¡Œä»»ä½•è½¬è½½ã€å•†ç”¨æˆ–ä¸ä¹‹ç›¸å…³çš„è¡Œä¸ºã€‚ å•†æ ‡å£°æ˜ï¼šSpring æ˜¯ Pivotal Software, Inc. åœ¨ç¾å›½ä»¥åŠå…¶ä»–å›½å®¶çš„å•†æ ‡ã€‚ |
 | --- | --- |
 
 
 
 
 
-Spring Boot°üÀ¨Ò»Ğ©¶îÍâµÄ¹¦ÄÜ£¬ÒÔ°ïÖúÄãÔÚ½«Ó¦ÓÃ³ÌĞò·¢²¼µ½Éú²úÊ±¼à¿ØºÍ¹ÜÀíÄãµÄÓ¦ÓÃ³ÌĞò¡£ Äã¿ÉÒÔÑ¡ÔñÍ¨¹ıÊ¹ÓÃHTTP¶Ëµã»òÊ¹ÓÃJMXÀ´¹ÜÀíºÍ¼à¿ØÄãµÄÓ¦ÓÃ³ÌĞò¡£ Éó¼Æ¡¢½¡¿µºÍÖ¸±êÊÕ¼¯Ò²¿ÉÒÔ×Ô¶¯Ó¦ÓÃÓÚÄãµÄÓ¦ÓÃ³ÌĞò¡£
+Spring BootåŒ…æ‹¬ä¸€äº›é¢å¤–çš„åŠŸèƒ½ï¼Œä»¥å¸®åŠ©ä½ åœ¨å°†åº”ç”¨ç¨‹åºå‘å¸ƒåˆ°ç”Ÿäº§æ—¶ç›‘æ§å’Œç®¡ç†ä½ çš„åº”ç”¨ç¨‹åºã€‚ ä½ å¯ä»¥é€‰æ‹©é€šè¿‡ä½¿ç”¨HTTPç«¯ç‚¹æˆ–ä½¿ç”¨JMXæ¥ç®¡ç†å’Œç›‘æ§ä½ çš„åº”ç”¨ç¨‹åºã€‚ å®¡è®¡ã€å¥åº·å’ŒæŒ‡æ ‡æ”¶é›†ä¹Ÿå¯ä»¥è‡ªåŠ¨åº”ç”¨äºä½ çš„åº”ç”¨ç¨‹åºã€‚
 
 
 
@@ -47,25 +47,13 @@ Spring Boot°üÀ¨Ò»Ğ©¶îÍâµÄ¹¦ÄÜ£¬ÒÔ°ïÖúÄãÔÚ½«Ó¦ÓÃ³ÌĞò·¢²¼µ½Éú²úÊ±¼à¿ØºÍ¹ÜÀíÄãµÄÓ¦Ó
 
 
 
-## [](https://springdoc.cn/spring-boot/actuator.html#actuator.enabling)1\. ÆôÓÃÉú²ú¾ÍĞ÷µÄ¹¦ÄÜ
+## [](https://springdoc.cn/spring-boot/actuator.html#actuator.enabling)1\. å¯ç”¨ç”Ÿäº§å°±ç»ªçš„åŠŸèƒ½
 
 
 
 
 
-[`spring-boot-actuator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator) Ä£¿éÌá¹©ÁËËùÓĞSpring BootµÄÉú²ú¾ÍĞ÷¹¦ÄÜ¡£ ÆôÓÃÕâĞ©¹¦ÄÜµÄÍÆ¼ö·½·¨ÊÇÌí¼Ó¶Ô `spring-boot-starter-actuator` ¡°Starter¡± µÄÒÀÀµ¡£
-
-
-
-
-
-
-
-ActuatorµÄ¶¨Òå
-
-
-
-actuator£¨Ö´ĞĞÆ÷£© ÊÇÒ»¸öÖÆÔìÊõÓï£¬Ö¸µÄÊÇÓÃÓÚÒÆ¶¯»ò¿ØÖÆÄ³ÎïµÄ»úĞµ×°ÖÃ¡£actuator ¿ÉÒÔ´ÓÒ»¸öĞ¡µÄ±ä»¯ÖĞ²úÉú´óÁ¿µÄÔË¶¯¡£
+[`spring-boot-actuator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator) æ¨¡å—æä¾›äº†æ‰€æœ‰Spring Bootçš„ç”Ÿäº§å°±ç»ªåŠŸèƒ½ã€‚ å¯ç”¨è¿™äº›åŠŸèƒ½çš„æ¨èæ–¹æ³•æ˜¯æ·»åŠ å¯¹ `spring-boot-starter-actuator` â€œStarterâ€ çš„ä¾èµ–ã€‚
 
 
 
@@ -73,9 +61,21 @@ actuator£¨Ö´ĞĞÆ÷£© ÊÇÒ»¸öÖÆÔìÊõÓï£¬Ö¸µÄÊÇÓÃÓÚÒÆ¶¯»ò¿ØÖÆÄ³ÎïµÄ»úĞµ×°ÖÃ¡£actuator 
 
 
 
+Actuatorçš„å®šä¹‰
 
 
-ÒªÔÚ»ùÓÚMavenµÄÏîÄ¿ÖĞÌí¼Óactuator£¬ÇëÌí¼ÓÒÔÏÂ ¡°Starter¡± ÒÀÀµ¡£
+
+actuatorï¼ˆæ‰§è¡Œå™¨ï¼‰ æ˜¯ä¸€ä¸ªåˆ¶é€ æœ¯è¯­ï¼ŒæŒ‡çš„æ˜¯ç”¨äºç§»åŠ¨æˆ–æ§åˆ¶æŸç‰©çš„æœºæ¢°è£…ç½®ã€‚actuator å¯ä»¥ä»ä¸€ä¸ªå°çš„å˜åŒ–ä¸­äº§ç”Ÿå¤§é‡çš„è¿åŠ¨ã€‚
+
+
+
+
+
+
+
+
+
+è¦åœ¨åŸºäºMavençš„é¡¹ç›®ä¸­æ·»åŠ actuatorï¼Œè¯·æ·»åŠ ä»¥ä¸‹ â€œStarterâ€ ä¾èµ–ã€‚
 
 
 
@@ -98,7 +98,7 @@ actuator£¨Ö´ĞĞÆ÷£© ÊÇÒ»¸öÖÆÔìÊõÓï£¬Ö¸µÄÊÇÓÃÓÚÒÆ¶¯»ò¿ØÖÆÄ³ÎïµÄ»úĞµ×°ÖÃ¡£actuator 
 
 
 
-¶ÔÓÚGradle£¬Ê¹ÓÃÒÔÏÂÉùÃ÷¡£
+å¯¹äºGradleï¼Œä½¿ç”¨ä»¥ä¸‹å£°æ˜ã€‚
 
 
 
@@ -122,80 +122,80 @@ dependencies {
 
 
 
-## [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints)2\. ¶Ëµã£¨Endpoint£©
+## [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints)2\. ç«¯ç‚¹ï¼ˆEndpointï¼‰
 
 
 
 
 
-Actuator ¶Ëµã£¨endpoint£©ÈÃÄã¿ÉÒÔ¼à¿Ø²¢ÓëÄãµÄÓ¦ÓÃ³ÌĞò»¥¶¯¡£ Spring Boot°üÀ¨Ò»Ğ©ÄÚÖÃµÄ¶Ëµã£¬²¢ÔÊĞíÄãÌí¼Ó×Ô¼ºµÄ¶Ëµã¡£ ÀıÈç£¬`health` ¶ËµãÌá¹©»ù±¾µÄÓ¦ÓÃ³ÌĞò½¡¿µĞÅÏ¢¡£
+Actuator ç«¯ç‚¹ï¼ˆendpointï¼‰è®©ä½ å¯ä»¥ç›‘æ§å¹¶ä¸ä½ çš„åº”ç”¨ç¨‹åºäº’åŠ¨ã€‚ Spring BootåŒ…æ‹¬ä¸€äº›å†…ç½®çš„ç«¯ç‚¹ï¼Œå¹¶å…è®¸ä½ æ·»åŠ è‡ªå·±çš„ç«¯ç‚¹ã€‚ ä¾‹å¦‚ï¼Œ`health` ç«¯ç‚¹æä¾›åŸºæœ¬çš„åº”ç”¨ç¨‹åºå¥åº·ä¿¡æ¯ã€‚
 
 
 
 
 
-Äã¿ÉÒÔ[ÆôÓÃ»ò½ûÓÃ](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.enabling)Ã¿¸öµ¥¶ÀµÄ¶Ëµã£¬²¢[Í¨¹ıHTTP»òJMX¹«¿ªËüÃÇ£¨Ê¹ËüÃÇ¿ÉÒÔÔ¶³Ì·ÃÎÊ£©](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.exposing)¡£µ±Ò»¸ö¶Ëµã±»ÆôÓÃºÍ±©Â¶Ê±£¬Ëü±»ÈÏÎªÊÇ¿ÉÓÃµÄ¡£ÄÚÖÃµÄ¶ËµãÖ»ÓĞÔÚËüÃÇ¿ÉÓÃÊ±²Å»á±»×Ô¶¯ÅäÖÃ¡£´ó¶àÊıÓ¦ÓÃ³ÌĞòÑ¡ÔñÍ¨¹ıHTTP±©Â¶£¬ÆäÖĞ¶ËµãµÄIDºÍ `/actuator` µÄÇ°×º±»Ó³Éäµ½Ò»¸öURL¡£ÀıÈç£¬Ä¬ÈÏÇé¿öÏÂ£¬`health` ¶Ëµã±»Ó³Éäµ½ `/actuator/health`¡£
+ä½ å¯ä»¥[å¯ç”¨æˆ–ç¦ç”¨](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.enabling)æ¯ä¸ªå•ç‹¬çš„ç«¯ç‚¹ï¼Œå¹¶[é€šè¿‡HTTPæˆ–JMXå…¬å¼€å®ƒä»¬ï¼ˆä½¿å®ƒä»¬å¯ä»¥è¿œç¨‹è®¿é—®ï¼‰](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.exposing)ã€‚å½“ä¸€ä¸ªç«¯ç‚¹è¢«å¯ç”¨å’Œæš´éœ²æ—¶ï¼Œå®ƒè¢«è®¤ä¸ºæ˜¯å¯ç”¨çš„ã€‚å†…ç½®çš„ç«¯ç‚¹åªæœ‰åœ¨å®ƒä»¬å¯ç”¨æ—¶æ‰ä¼šè¢«è‡ªåŠ¨é…ç½®ã€‚å¤§å¤šæ•°åº”ç”¨ç¨‹åºé€‰æ‹©é€šè¿‡HTTPæš´éœ²ï¼Œå…¶ä¸­ç«¯ç‚¹çš„IDå’Œ `/actuator` çš„å‰ç¼€è¢«æ˜ å°„åˆ°ä¸€ä¸ªURLã€‚ä¾‹å¦‚ï¼Œé»˜è®¤æƒ…å†µä¸‹ï¼Œ`health` ç«¯ç‚¹è¢«æ˜ å°„åˆ° `/actuator/health`ã€‚
 
 
 
 
 
-|  | ÒªÁË½â¸ü¶à¹ØÓÚactuatorµÄ¶ËµãÒÔ¼°ËüÃÇµÄÇëÇóºÍÏìÓ¦¸ñÊ½£¬Çë¿´µ¥¶ÀµÄAPIÎÄµµ£¨ [HTML](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/actuator-api/htmlsingle) »ò [PDF](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/actuator-api/pdf/spring-boot-actuator-web-api.pdf)£©¡£ |
+|  | è¦äº†è§£æ›´å¤šå…³äºactuatorçš„ç«¯ç‚¹ä»¥åŠå®ƒä»¬çš„è¯·æ±‚å’Œå“åº”æ ¼å¼ï¼Œè¯·çœ‹å•ç‹¬çš„APIæ–‡æ¡£ï¼ˆ [HTML](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/actuator-api/htmlsingle) æˆ– [PDF](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/actuator-api/pdf/spring-boot-actuator-web-api.pdf)ï¼‰ã€‚ |
 | --- | --- |
 
 
 
 
 
-ÒÔÏÂÊÇ¼¼ÊõÎŞ¹ØµÄÖÕ¶Ë¡£
+ä»¥ä¸‹æ˜¯æŠ€æœ¯æ— å…³çš„ç»ˆç«¯ã€‚
 
 
 
 <colgroup><col><col></colgroup>
-| ID | ËµÃ÷ |
+| ID | è¯´æ˜ |
 | --- | --- |
-| `auditevents` | ¹«¿ªµ±Ç°Ó¦ÓÃ³ÌĞòµÄÉó¼ÆÊÂ¼şĞÅÏ¢¡£ ĞèÒªÒ»¸ö `AuditEventRepository` bean¡£ |
-| `beans` | ÏÔÊ¾ÄãµÄÓ¦ÓÃ³ÌĞòÖĞËùÓĞSpring BeanµÄÍêÕûÁĞ±í¡£ |
-| `caches` | ÏÔÊ¾¿ÉÓÃµÄ»º´æ¡£ |
-| `conditions` | ÏÔÊ¾¶ÔÅäÖÃºÍ×Ô¶¯ÅäÖÃÀà½øĞĞÆÀ¹ÀµÄÌõ¼ş£¬ÒÔ¼°ËüÃÇ·ûºÏ»ò²»·ûºÏµÄÔ­Òò¡£ |
-| `configprops` | ÏÔÊ¾ËùÓĞ `@ConfigurationProperties` µÄÕûÀíÁĞ±í¡£ |
-| `env` | ±©Â¶SpringµÄ `ConfigurableEnvironment` ÖĞµÄÊôĞÔ¡£ |
-| `flyway` | ÏÔÊ¾ÈÎºÎÒÑ¾­Ó¦ÓÃµÄFlywayÊı¾İ¿âÇ¨ÒÆ¡£ ĞèÒªÒ»¸ö»ò¶à¸ö `Flyway` bean¡£ |
-| `health` | ÏÔÊ¾Ó¦ÓÃ³ÌĞòµÄ½¡¿µĞÅÏ¢¡£ |
-| `httpexchanges` | ÏÔÊ¾ HTTP exchange ĞÅÏ¢£¨Ä¬ÈÏÇé¿öÏÂ£¬×îºó 100 ¸ö HTTP request/response exchange£©¡£ ĞèÒªÒ»¸ö `HttpExchangeRepository` bean¡£ |
-| `info` | ÏÔÊ¾ÈÎÒâµÄÓ¦ÓÃ³ÌĞòĞÅÏ¢¡£ |
-| `integrationgraph` | ÏÔÊ¾Spring¼¯³ÉÍ¼¡£ ĞèÒªÒÀÀµ `spring-integration-core`¡£ |
-| `loggers` | ÏÔÊ¾ºÍĞŞ¸ÄÓ¦ÓÃ³ÌĞòÖĞloggerµÄÅäÖÃ¡£ |
-| `liquibase` | ÏÔÊ¾ÈÎºÎÒÑ¾­Ó¦ÓÃµÄLiquibaseÊı¾İ¿âÇ¨ÒÆ¡£ ĞèÒªÒ»¸ö»ò¶à¸ö `Liquibase` Bean¡£ |
-| `metrics` | ÏÔÊ¾µ±Ç°Ó¦ÓÃ³ÌĞòµÄ ¡°metrics¡± ĞÅÏ¢¡£ |
-| `mappings` | ÏÔÊ¾ËùÓĞ `@RequestMapping` Â·¾¶µÄÕûÀíÁĞ±í¡£ |
-| `quartz` | ÏÔÊ¾ÓĞ¹ØQuartz Scheduler JobµÄĞÅÏ¢¡£ |
-| `scheduledtasks` | ÏÔÊ¾ÄãµÄÓ¦ÓÃ³ÌĞòÖĞµÄ¼Æ»®ÈÎÎñ¡£ |
-| `sessions` | ÔÊĞí´ÓSpring SessionÖ§³ÖµÄ»á»°´æ´¢ÖĞ¼ìË÷ºÍÉ¾³ıÓÃ»§»á»°¡£ ĞèÒªÒ»¸öÊ¹ÓÃSpring SessionµÄ»ùÓÚServletµÄWebÓ¦ÓÃ³ÌĞò¡£ |
-| `shutdown` | ÈÃÓ¦ÓÃ³ÌĞòÓÅÑÅµØ¹Ø±Õ¡£Ö»ÔÚÊ¹ÓÃjar´ò°üÊ±ÓĞĞ§¡£Ä¬ÈÏÇé¿öÏÂÊÇ½ûÓÃµÄ¡£ |
-| `startup` | ÏÔÊ¾ÓÉ `ApplicationStartup` ÊÕ¼¯µÄ[Æô¶¯²½ÖèÊı¾İ](https://springdoc.cn/spring-boot/features.html#features.spring-application.startup-tracking)¡£ÒªÇó `SpringApplication` ±»ÅäÖÃÎª `BufferingApplicationStartup`¡£ |
+| `auditevents` | å…¬å¼€å½“å‰åº”ç”¨ç¨‹åºçš„å®¡è®¡äº‹ä»¶ä¿¡æ¯ã€‚ éœ€è¦ä¸€ä¸ª `AuditEventRepository` beanã€‚ |
+| `beans` | æ˜¾ç¤ºä½ çš„åº”ç”¨ç¨‹åºä¸­æ‰€æœ‰Spring Beançš„å®Œæ•´åˆ—è¡¨ã€‚ |
+| `caches` | æ˜¾ç¤ºå¯ç”¨çš„ç¼“å­˜ã€‚ |
+| `conditions` | æ˜¾ç¤ºå¯¹é…ç½®å’Œè‡ªåŠ¨é…ç½®ç±»è¿›è¡Œè¯„ä¼°çš„æ¡ä»¶ï¼Œä»¥åŠå®ƒä»¬ç¬¦åˆæˆ–ä¸ç¬¦åˆçš„åŸå› ã€‚ |
+| `configprops` | æ˜¾ç¤ºæ‰€æœ‰ `@ConfigurationProperties` çš„æ•´ç†åˆ—è¡¨ã€‚ |
+| `env` | æš´éœ²Springçš„ `ConfigurableEnvironment` ä¸­çš„å±æ€§ã€‚ |
+| `flyway` | æ˜¾ç¤ºä»»ä½•å·²ç»åº”ç”¨çš„Flywayæ•°æ®åº“è¿ç§»ã€‚ éœ€è¦ä¸€ä¸ªæˆ–å¤šä¸ª `Flyway` beanã€‚ |
+| `health` | æ˜¾ç¤ºåº”ç”¨ç¨‹åºçš„å¥åº·ä¿¡æ¯ã€‚ |
+| `httpexchanges` | æ˜¾ç¤º HTTP exchange ä¿¡æ¯ï¼ˆé»˜è®¤æƒ…å†µä¸‹ï¼Œæœ€å 100 ä¸ª HTTP request/response exchangeï¼‰ã€‚ éœ€è¦ä¸€ä¸ª `HttpExchangeRepository` beanã€‚ |
+| `info` | æ˜¾ç¤ºä»»æ„çš„åº”ç”¨ç¨‹åºä¿¡æ¯ã€‚ |
+| `integrationgraph` | æ˜¾ç¤ºSpringé›†æˆå›¾ã€‚ éœ€è¦ä¾èµ– `spring-integration-core`ã€‚ |
+| `loggers` | æ˜¾ç¤ºå’Œä¿®æ”¹åº”ç”¨ç¨‹åºä¸­loggerçš„é…ç½®ã€‚ |
+| `liquibase` | æ˜¾ç¤ºä»»ä½•å·²ç»åº”ç”¨çš„Liquibaseæ•°æ®åº“è¿ç§»ã€‚ éœ€è¦ä¸€ä¸ªæˆ–å¤šä¸ª `Liquibase` Beanã€‚ |
+| `metrics` | æ˜¾ç¤ºå½“å‰åº”ç”¨ç¨‹åºçš„ â€œmetricsâ€ ä¿¡æ¯ã€‚ |
+| `mappings` | æ˜¾ç¤ºæ‰€æœ‰ `@RequestMapping` è·¯å¾„çš„æ•´ç†åˆ—è¡¨ã€‚ |
+| `quartz` | æ˜¾ç¤ºæœ‰å…³Quartz Scheduler Jobçš„ä¿¡æ¯ã€‚ |
+| `scheduledtasks` | æ˜¾ç¤ºä½ çš„åº”ç”¨ç¨‹åºä¸­çš„è®¡åˆ’ä»»åŠ¡ã€‚ |
+| `sessions` | å…è®¸ä»Spring Sessionæ”¯æŒçš„ä¼šè¯å­˜å‚¨ä¸­æ£€ç´¢å’Œåˆ é™¤ç”¨æˆ·ä¼šè¯ã€‚ éœ€è¦ä¸€ä¸ªä½¿ç”¨Spring Sessionçš„åŸºäºServletçš„Webåº”ç”¨ç¨‹åºã€‚ |
+| `shutdown` | è®©åº”ç”¨ç¨‹åºä¼˜é›…åœ°å…³é—­ã€‚åªåœ¨ä½¿ç”¨jaræ‰“åŒ…æ—¶æœ‰æ•ˆã€‚é»˜è®¤æƒ…å†µä¸‹æ˜¯ç¦ç”¨çš„ã€‚ |
+| `startup` | æ˜¾ç¤ºç”± `ApplicationStartup` æ”¶é›†çš„[å¯åŠ¨æ­¥éª¤æ•°æ®](https://springdoc.cn/spring-boot/features.html#features.spring-application.startup-tracking)ã€‚è¦æ±‚ `SpringApplication` è¢«é…ç½®ä¸º `BufferingApplicationStartup`ã€‚ |
 | `threaddump` | Performs a thread dump. |
 
 
 
-Èç¹ûÄãµÄÓ¦ÓÃ³ÌĞòÊÇÒ»¸öWebÓ¦ÓÃ³ÌĞò£¨Spring MVC¡¢Spring WebFlux»òJersey£©£¬Äã¿ÉÒÔÊ¹ÓÃÒÔÏÂ¶îÍâµÄ¶Ëµã¡£
+å¦‚æœä½ çš„åº”ç”¨ç¨‹åºæ˜¯ä¸€ä¸ªWebåº”ç”¨ç¨‹åºï¼ˆSpring MVCã€Spring WebFluxæˆ–Jerseyï¼‰ï¼Œä½ å¯ä»¥ä½¿ç”¨ä»¥ä¸‹é¢å¤–çš„ç«¯ç‚¹ã€‚
 
 
 
 <colgroup><col><col></colgroup>
-| ID | ËµÃ÷ |
+| ID | è¯´æ˜ |
 | --- | --- |
-| `heapdump` | ·µ»ØÒ»¸ö¶ÑdumpÎÄ¼ş¡£ ÔÚHotSpot JVMÉÏ£¬·µ»ØÒ»¸ö `HPROF` ¸ñÊ½µÄÎÄ¼ş¡£ ÔÚOpenJ9 JVMÉÏ£¬·µ»ØÒ»¸ö `PHD` ¸ñÊ½µÄÎÄ¼ş¡£ |
-| `logfile` | ·µ»ØÈÕÖ¾ÎÄ¼şµÄÄÚÈİ£¨Èç¹û `logging.file.name` »ò `logging.file.path` ÊôĞÔÒÑ±»ÉèÖÃ£©¡£ Ö§³ÖÊ¹ÓÃHTTP `Range` Í·À´¼ìË÷ÈÕÖ¾ÎÄ¼şµÄ²¿·ÖÄÚÈİ¡£ |
-| `prometheus` | ÒÔ¿É±» Prometheus ·şÎñÆ÷×¥È¡µÄ¸ñÊ½Õ¹Ê¾¶ÈÁ¿£¨metric£©¡£ ÒÀÀµÓÚ `micrometer-registry-prometheus`¡£ |
+| `heapdump` | è¿”å›ä¸€ä¸ªå †dumpæ–‡ä»¶ã€‚ åœ¨HotSpot JVMä¸Šï¼Œè¿”å›ä¸€ä¸ª `HPROF` æ ¼å¼çš„æ–‡ä»¶ã€‚ åœ¨OpenJ9 JVMä¸Šï¼Œè¿”å›ä¸€ä¸ª `PHD` æ ¼å¼çš„æ–‡ä»¶ã€‚ |
+| `logfile` | è¿”å›æ—¥å¿—æ–‡ä»¶çš„å†…å®¹ï¼ˆå¦‚æœ `logging.file.name` æˆ– `logging.file.path` å±æ€§å·²è¢«è®¾ç½®ï¼‰ã€‚ æ”¯æŒä½¿ç”¨HTTP `Range` å¤´æ¥æ£€ç´¢æ—¥å¿—æ–‡ä»¶çš„éƒ¨åˆ†å†…å®¹ã€‚ |
+| `prometheus` | ä»¥å¯è¢« Prometheus æœåŠ¡å™¨æŠ“å–çš„æ ¼å¼å±•ç¤ºåº¦é‡ï¼ˆmetricï¼‰ã€‚ ä¾èµ–äº `micrometer-registry-prometheus`ã€‚ |
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.enabling)2.1\. ÆôÓÃ¶Ëµã
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.enabling)2.1\. å¯ç”¨ç«¯ç‚¹
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬³ı `shutdown` ÍâµÄËùÓĞ¶Ëµã¶¼±»ÆôÓÃ¡£ ÒªÅäÖÃÒ»¸ö¶ËµãµÄÆôÓÃ£¬ÇëÊ¹ÓÃÆä `management.endpoint.<id>.enabled` ÊôĞÔ¡£ ÏÂÃæµÄÀı×ÓÆôÓÃÁË `shutdown` ¶Ëµã¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼Œé™¤ `shutdown` å¤–çš„æ‰€æœ‰ç«¯ç‚¹éƒ½è¢«å¯ç”¨ã€‚ è¦é…ç½®ä¸€ä¸ªç«¯ç‚¹çš„å¯ç”¨ï¼Œè¯·ä½¿ç”¨å…¶ `management.endpoint.<id>.enabled` å±æ€§ã€‚ ä¸‹é¢çš„ä¾‹å­å¯ç”¨äº† `shutdown` ç«¯ç‚¹ã€‚
 
 
 
@@ -222,7 +222,7 @@ management.endpoint.shutdown.enabled=true
 
 
 
-Èç¹ûÄãÏ£Íû¶ËµãÆôÓÃÊÇ¡°Ñ¡ÔñÆôÓÃ¡±¶ø²»ÊÇ¡°Ñ¡Ôñ½ûÓÃ¡±£¬Çë½« `management.endpoints.enabled-by-default` ÊôĞÔÉèÖÃÎª `false`£¬²¢Ê¹ÓÃµ¥¸ö¶ËµãµÄ `enabled` ÊôĞÔÀ´Ñ¡ÔñÖØĞÂÆôÓÃ¡£ ÏÂÃæµÄÀı×ÓÆôÓÃÁË `info` ¶Ëµã£¬²¢½ûÓÃÁËËùÓĞÆäËû¶Ëµã¡£
+å¦‚æœä½ å¸Œæœ›ç«¯ç‚¹å¯ç”¨æ˜¯â€œé€‰æ‹©å¯ç”¨â€è€Œä¸æ˜¯â€œé€‰æ‹©ç¦ç”¨â€ï¼Œè¯·å°† `management.endpoints.enabled-by-default` å±æ€§è®¾ç½®ä¸º `false`ï¼Œå¹¶ä½¿ç”¨å•ä¸ªç«¯ç‚¹çš„ `enabled` å±æ€§æ¥é€‰æ‹©é‡æ–°å¯ç”¨ã€‚ ä¸‹é¢çš„ä¾‹å­å¯ç”¨äº† `info` ç«¯ç‚¹ï¼Œå¹¶ç¦ç”¨äº†æ‰€æœ‰å…¶ä»–ç«¯ç‚¹ã€‚
 
 
 
@@ -250,7 +250,7 @@ management.endpoint.info.enabled=true
 
 
 
-|  | ±»½ûÓÃµÄ¶Ëµã»á´ÓÓ¦ÓÃ³ÌĞòÉÏÏÂÎÄÖĞÍêÈ«É¾³ı¡£Èç¹ûÄãÏëÖ»¸Ä±ä±©Â¶¶ËµãµÄ¼¼Êõ£¬ÇëÊ¹ÓÃ [`include` ºÍ `exclude` ÊôĞÔ](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.exposing)À´´úÌæ¡£ |
+|  | è¢«ç¦ç”¨çš„ç«¯ç‚¹ä¼šä»åº”ç”¨ç¨‹åºä¸Šä¸‹æ–‡ä¸­å®Œå…¨åˆ é™¤ã€‚å¦‚æœä½ æƒ³åªæ”¹å˜æš´éœ²ç«¯ç‚¹çš„æŠ€æœ¯ï¼Œè¯·ä½¿ç”¨ [`include` å’Œ `exclude` å±æ€§](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.exposing)æ¥ä»£æ›¿ã€‚ |
 | --- | --- |
 
 
@@ -259,22 +259,22 @@ management.endpoint.info.enabled=true
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.exposing)2.2\. ±©Â¶¶Ëµã
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.exposing)2.2\. æš´éœ²ç«¯ç‚¹
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Ö»ÓĞhealth¶ËµãÊÇÍ¨¹ıHTTPºÍJMX±©Â¶µÄ¡£ ÓÉÓÚ¶Ëµã¿ÉÄÜ°üº¬Ãô¸ĞĞÅÏ¢£¬ÄãÓ¦¸Ã×ĞÏ¸¿¼ÂÇºÎÊ±±©Â¶ËüÃÇ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼Œåªæœ‰healthç«¯ç‚¹æ˜¯é€šè¿‡HTTPå’ŒJMXæš´éœ²çš„ã€‚ ç”±äºç«¯ç‚¹å¯èƒ½åŒ…å«æ•æ„Ÿä¿¡æ¯ï¼Œä½ åº”è¯¥ä»”ç»†è€ƒè™‘ä½•æ—¶æš´éœ²å®ƒä»¬ã€‚
 
 
 
 
 
-Òª¸Ä±äÄÄĞ©¶Ëµã±»±©Â¶£¬ÇëÊ¹ÓÃÒÔÏÂÌØ¶¨¼¼ÊõµÄ `include` ºÍ `exclude` ÊôĞÔ¡£
+è¦æ”¹å˜å“ªäº›ç«¯ç‚¹è¢«æš´éœ²ï¼Œè¯·ä½¿ç”¨ä»¥ä¸‹ç‰¹å®šæŠ€æœ¯çš„ `include` å’Œ `exclude` å±æ€§ã€‚
 
 
 
 <colgroup><col><col></colgroup>
-| ÊôĞÔ | Ä¬ÈÏ |
+| å±æ€§ | é»˜è®¤ |
 | --- | --- |
 | `management.endpoints.jmx.exposure.exclude` |  |
 | `management.endpoints.jmx.exposure.include` | `health` |
@@ -283,13 +283,13 @@ management.endpoint.info.enabled=true
 
 
 
-`include` ÊôĞÔÁĞ³öÁË±»±©Â¶µÄ¶ËµãµÄID¡£ `exclude` ÊôĞÔÁĞ³öÁË²»Ó¦¸Ã±»¹«¿ªµÄ¶ËµãµÄID¡£ `exclude` ÊôĞÔÓÅÏÈÓÚ `include` ÊôĞÔ¡£ Äã¿ÉÒÔÓÃÒ»¸ö¶ËµãIDÁĞ±íÀ´ÅäÖÃ `include` ºÍ `exclude` ÊôĞÔ¡£
+`include` å±æ€§åˆ—å‡ºäº†è¢«æš´éœ²çš„ç«¯ç‚¹çš„IDã€‚ `exclude` å±æ€§åˆ—å‡ºäº†ä¸åº”è¯¥è¢«å…¬å¼€çš„ç«¯ç‚¹çš„IDã€‚ `exclude` å±æ€§ä¼˜å…ˆäº `include` å±æ€§ã€‚ ä½ å¯ä»¥ç”¨ä¸€ä¸ªç«¯ç‚¹IDåˆ—è¡¨æ¥é…ç½® `include` å’Œ `exclude` å±æ€§ã€‚
 
 
 
 
 
-ÀıÈç£¬ÒªÍ¨¹ıJMXÖ»¹«¿ª `health` ºÍ `info` ¶Ëµã£¬ÇëÊ¹ÓÃÒÔÏÂÊôĞÔ¡£
+ä¾‹å¦‚ï¼Œè¦é€šè¿‡JMXåªå…¬å¼€ `health` å’Œ `info` ç«¯ç‚¹ï¼Œè¯·ä½¿ç”¨ä»¥ä¸‹å±æ€§ã€‚
 
 
 
@@ -316,7 +316,7 @@ management.endpoints.jmx.exposure.include=health,info
 
 
 
-`*` ¿ÉÒÔÓÃÀ´Ñ¡ÔñËùÓĞ¶Ëµã¡£ ÀıÈç£¬ÒªÍ¨¹ıHTTP¹«¿ªËùÓĞµÄ¶«Î÷£¬³ıÁË `env` ºÍ `beans` ¶Ëµã£¬Ê¹ÓÃÒÔÏÂÊôĞÔ¡£
+`*` å¯ä»¥ç”¨æ¥é€‰æ‹©æ‰€æœ‰ç«¯ç‚¹ã€‚ ä¾‹å¦‚ï¼Œè¦é€šè¿‡HTTPå…¬å¼€æ‰€æœ‰çš„ä¸œè¥¿ï¼Œé™¤äº† `env` å’Œ `beans` ç«¯ç‚¹ï¼Œä½¿ç”¨ä»¥ä¸‹å±æ€§ã€‚
 
 
 
@@ -344,21 +344,21 @@ management.endpoints.web.exposure.exclude=env,beans
 
 
 
-|  | `*` ÔÚYAMLÖĞ¾ßÓĞÌØÊâº¬Òå£¬ËùÒÔÈç¹ûÄãÏë°üÀ¨£¨»òÅÅ³ı£©ËùÓĞµÄ¶Ëµã£¬Ò»¶¨Òª¼ÓÒıºÅ¡£ |
+|  | `*` åœ¨YAMLä¸­å…·æœ‰ç‰¹æ®Šå«ä¹‰ï¼Œæ‰€ä»¥å¦‚æœä½ æƒ³åŒ…æ‹¬ï¼ˆæˆ–æ’é™¤ï¼‰æ‰€æœ‰çš„ç«¯ç‚¹ï¼Œä¸€å®šè¦åŠ å¼•å·ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | Èç¹ûÄãµÄÓ¦ÓÃ³ÌĞòÊÇ¹«¿ª±©Â¶µÄ£¬ÎÒÃÇÇ¿ÁÒ½¨ÒéÄãÒ²[±£»¤ÄãµÄ¶Ëµã](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.security)¡£ |
+|  | å¦‚æœä½ çš„åº”ç”¨ç¨‹åºæ˜¯å…¬å¼€æš´éœ²çš„ï¼Œæˆ‘ä»¬å¼ºçƒˆå»ºè®®ä½ ä¹Ÿ[ä¿æŠ¤ä½ çš„ç«¯ç‚¹](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.security)ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | Èç¹ûÄãÏëÔÚ¶Ëµã±©Â¶Ê±ÊµÊ©×Ô¼ºµÄ²ßÂÔ£¬Äã¿ÉÒÔ×¢²áÒ»¸ö `EndpointFilter` bean¡£ |
+|  | å¦‚æœä½ æƒ³åœ¨ç«¯ç‚¹æš´éœ²æ—¶å®æ–½è‡ªå·±çš„ç­–ç•¥ï¼Œä½ å¯ä»¥æ³¨å†Œä¸€ä¸ª `EndpointFilter` beanã€‚ |
 | --- | --- |
 
 
@@ -367,36 +367,36 @@ management.endpoints.web.exposure.exclude=env,beans
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.security)2.3\. °²È«£¨Security£©
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.security)2.3\. å®‰å…¨ï¼ˆSecurityï¼‰
 
 
 
-ÎªÁË°²È«Æğ¼û£¬Ä¬ÈÏÇé¿öÏÂÖ»ÓĞ `/health` ¶ËµãÍ¨¹ıHTTP¹«¿ª¡£ Äã¿ÉÒÔÊ¹ÓÃ `management.endpoints.web.exposure.include` ÊôĞÔÀ´ÅäÖÃ±»±©Â¶µÄ¶Ëµã¡£
+ä¸ºäº†å®‰å…¨èµ·è§ï¼Œé»˜è®¤æƒ…å†µä¸‹åªæœ‰ `/health` ç«¯ç‚¹é€šè¿‡HTTPå…¬å¼€ã€‚ ä½ å¯ä»¥ä½¿ç”¨ `management.endpoints.web.exposure.include` å±æ€§æ¥é…ç½®è¢«æš´éœ²çš„ç«¯ç‚¹ã€‚
 
 
 
 
 
-|  | ÔÚÉèÖÃ `management.endpoints.web.exposure.include` Ö®Ç°£¬ÇëÈ·±£±©Â¶µÄÖ´ĞĞÆ÷²»°üº¬Ãô¸ĞĞÅÏ¢£¬½«ÆäÖÃÓÚ·À»ğÇ½Ö®ºó£¬»òÓÉSpring SecurityÖ®ÀàµÄ¶«Î÷À´±£Ö¤°²È«¡£ |
+|  | åœ¨è®¾ç½® `management.endpoints.web.exposure.include` ä¹‹å‰ï¼Œè¯·ç¡®ä¿æš´éœ²çš„æ‰§è¡Œå™¨ä¸åŒ…å«æ•æ„Ÿä¿¡æ¯ï¼Œå°†å…¶ç½®äºé˜²ç«å¢™ä¹‹åï¼Œæˆ–ç”±Spring Securityä¹‹ç±»çš„ä¸œè¥¿æ¥ä¿è¯å®‰å…¨ã€‚ |
 | --- | --- |
 
 
 
 
 
-Èç¹ûSpring SecurityÔÚclasspathÉÏ£¬²¢ÇÒÃ»ÓĞÆäËû `SecurityFilterChain` bean£¬ÄÇÃ´³ıÁË `/health` Ö®ÍâµÄËùÓĞÖ´ĞĞÆ÷£¨actuator£©¶¼ÓÉSpring Boot×Ô¶¯ÅäÖÃÀ´±£Ö¤°²È«¡£ Èç¹ûÄã¶¨ÒåÁËÒ»¸ö×Ô¶¨ÒåµÄ `SecurityFilterChain` bean£¬Spring Boot×Ô¶¯ÅäÖÃ¾Í»áÍËËõ£¬ÈÃÄãÍêÈ«¿ØÖÆÖ´ĞĞÆ÷µÄ·ÃÎÊ¹æÔò¡£
+å¦‚æœSpring Securityåœ¨classpathä¸Šï¼Œå¹¶ä¸”æ²¡æœ‰å…¶ä»– `SecurityFilterChain` beanï¼Œé‚£ä¹ˆé™¤äº† `/health` ä¹‹å¤–çš„æ‰€æœ‰æ‰§è¡Œå™¨ï¼ˆactuatorï¼‰éƒ½ç”±Spring Bootè‡ªåŠ¨é…ç½®æ¥ä¿è¯å®‰å…¨ã€‚ å¦‚æœä½ å®šä¹‰äº†ä¸€ä¸ªè‡ªå®šä¹‰çš„ `SecurityFilterChain` beanï¼ŒSpring Bootè‡ªåŠ¨é…ç½®å°±ä¼šé€€ç¼©ï¼Œè®©ä½ å®Œå…¨æ§åˆ¶æ‰§è¡Œå™¨çš„è®¿é—®è§„åˆ™ã€‚
 
 
 
 
 
-Èç¹ûÄãÏëÎªHTTP¶ËµãÅäÖÃ×Ô¶¨Òå°²È«£¨ÀıÈç£¬Ö»ÔÊĞí¾ßÓĞÄ³ÖÖ½ÇÉ«µÄÓÃ»§·ÃÎÊ£©£¬Spring BootÌá¹©ÁËÒ»Ğ©·½±ãµÄ `RequestMatcher` ¶ÔÏó£¬Äã¿ÉÒÔÓëSpring Security½áºÏÊ¹ÓÃ¡£
+å¦‚æœä½ æƒ³ä¸ºHTTPç«¯ç‚¹é…ç½®è‡ªå®šä¹‰å®‰å…¨ï¼ˆä¾‹å¦‚ï¼Œåªå…è®¸å…·æœ‰æŸç§è§’è‰²çš„ç”¨æˆ·è®¿é—®ï¼‰ï¼ŒSpring Bootæä¾›äº†ä¸€äº›æ–¹ä¾¿çš„ `RequestMatcher` å¯¹è±¡ï¼Œä½ å¯ä»¥ä¸Spring Securityç»“åˆä½¿ç”¨ã€‚
 
 
 
 
 
-Ò»¸öµäĞÍµÄSpring SecurityÅäÖÃ¿ÉÄÜ¿´ÆğÀ´ÏñÏÂÃæµÄÀı×Ó¡£
+ä¸€ä¸ªå…¸å‹çš„Spring Securityé…ç½®å¯èƒ½çœ‹èµ·æ¥åƒä¸‹é¢çš„ä¾‹å­ã€‚
 
 
 
@@ -434,13 +434,13 @@ public class MySecurityConfiguration {
 
 
 
-Ç°ÃæµÄÀı×ÓÊ¹ÓÃ `EndpointRequest.toAnyEndpoint()` À´Æ¥ÅäÒ»¸öÇëÇóµ½ÈÎºÎ¶Ëµã£¬È»ºóÈ·±£ËùÓĞµÄ¶Ëµã¶¼ÓĞ `ENDPOINT_ADMIN` µÄ½ÇÉ«¡£ `EndpointRequest` ÉÏ»¹ÓĞÆäËû¼¸¸öÆ¥ÅäÆ÷·½·¨¡£ ÏêÇé¼ûAPIÎÄµµ£¨ [HTML](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/actuator-api/htmlsingle) »ò [PDF](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/actuator-api/pdf/spring-boot-actuator-web-api.pdf)£©¡£
+å‰é¢çš„ä¾‹å­ä½¿ç”¨ `EndpointRequest.toAnyEndpoint()` æ¥åŒ¹é…ä¸€ä¸ªè¯·æ±‚åˆ°ä»»ä½•ç«¯ç‚¹ï¼Œç„¶åç¡®ä¿æ‰€æœ‰çš„ç«¯ç‚¹éƒ½æœ‰ `ENDPOINT_ADMIN` çš„è§’è‰²ã€‚ `EndpointRequest` ä¸Šè¿˜æœ‰å…¶ä»–å‡ ä¸ªåŒ¹é…å™¨æ–¹æ³•ã€‚ è¯¦æƒ…è§APIæ–‡æ¡£ï¼ˆ [HTML](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/actuator-api/htmlsingle) æˆ– [PDF](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/actuator-api/pdf/spring-boot-actuator-web-api.pdf)ï¼‰ã€‚
 
 
 
 
 
-Èç¹ûÄãÔÚ·À»ğÇ½ºóÃæ²¿ÊğÓ¦ÓÃ³ÌĞò£¬Äã¿ÉÄÜÏ£ÍûÄãµÄËùÓĞÖ´ĞĞÆ÷¶Ëµã¶¼ÄÜ±»·ÃÎÊ£¬¶ø²»ĞèÒªÈÏÖ¤¡£ Äã¿ÉÒÔÍ¨¹ı¸Ä±ä `management.endpoints.web.exposure.include` ÊôĞÔÀ´×öµ½ÕâÒ»µã£¬ÈçÏÂËùÊ¾¡£
+å¦‚æœä½ åœ¨é˜²ç«å¢™åé¢éƒ¨ç½²åº”ç”¨ç¨‹åºï¼Œä½ å¯èƒ½å¸Œæœ›ä½ çš„æ‰€æœ‰æ‰§è¡Œå™¨ç«¯ç‚¹éƒ½èƒ½è¢«è®¿é—®ï¼Œè€Œä¸éœ€è¦è®¤è¯ã€‚ ä½ å¯ä»¥é€šè¿‡æ”¹å˜ `management.endpoints.web.exposure.include` å±æ€§æ¥åšåˆ°è¿™ä¸€ç‚¹ï¼Œå¦‚ä¸‹æ‰€ç¤ºã€‚
 
 
 
@@ -467,7 +467,7 @@ management.endpoints.web.exposure.include=*
 
 
 
-´ËÍâ£¬Èç¹û´æÔÚSpring Security£¬ÄãĞèÒªÌí¼Ó×Ô¶¨Òå°²È«ÅäÖÃ£¬ÔÊĞíÎ´¾­ÈÏÖ¤µÄ·ÃÎÊ¶Ëµã£¬ÈçÏÂÀıËùÊ¾¡£
+æ­¤å¤–ï¼Œå¦‚æœå­˜åœ¨Spring Securityï¼Œä½ éœ€è¦æ·»åŠ è‡ªå®šä¹‰å®‰å…¨é…ç½®ï¼Œå…è®¸æœªç»è®¤è¯çš„è®¿é—®ç«¯ç‚¹ï¼Œå¦‚ä¸‹ä¾‹æ‰€ç¤ºã€‚
 
 
 
@@ -504,31 +504,31 @@ public class MySecurityConfiguration {
 
 
 
-|  | ÔÚÇ°ÃæµÄÁ½¸öÀı×ÓÖĞ£¬ÅäÖÃÖ»ÊÊÓÃÓÚactuator¶Ëµã¡£ ÓÉÓÚSpring BootµÄ°²È«ÅäÖÃÔÚÓĞÈÎºÎ `SecurityFilterChain` beanµÄÇé¿öÏÂ¶¼»áÍêÈ«ÍË³ö£¬ËùÒÔÄãĞèÒªÅäÖÃÒ»¸ö¶îÍâµÄ `SecurityFilterChain` bean£¬Æä¹æÔòÊÊÓÃÓÚÓ¦ÓÃ³ÌĞòµÄÆäËû²¿·Ö¡£ |
+|  | åœ¨å‰é¢çš„ä¸¤ä¸ªä¾‹å­ä¸­ï¼Œé…ç½®åªé€‚ç”¨äºactuatorç«¯ç‚¹ã€‚ ç”±äºSpring Bootçš„å®‰å…¨é…ç½®åœ¨æœ‰ä»»ä½• `SecurityFilterChain` beançš„æƒ…å†µä¸‹éƒ½ä¼šå®Œå…¨é€€å‡ºï¼Œæ‰€ä»¥ä½ éœ€è¦é…ç½®ä¸€ä¸ªé¢å¤–çš„ `SecurityFilterChain` beanï¼Œå…¶è§„åˆ™é€‚ç”¨äºåº”ç”¨ç¨‹åºçš„å…¶ä»–éƒ¨åˆ†ã€‚ |
 | --- | --- |
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.security.csrf)2.3.1\. ¿çÍøÕ¾ÇëÇóÎ±Ôì±£»¤£¨CSRF£©
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.security.csrf)2.3.1\. è·¨ç½‘ç«™è¯·æ±‚ä¼ªé€ ä¿æŠ¤ï¼ˆCSRFï¼‰
 
 
 
-ÓÉÓÚSpring BootÒÀÀµSpring SecurityµÄÄ¬ÈÏÖµ£¬CSRF±£»¤ÔÚÄ¬ÈÏÇé¿öÏÂ±»´ò¿ª¡£ ÕâÒâÎ¶×ÅÔÚÊ¹ÓÃÄ¬ÈÏ°²È«ÅäÖÃÊ±£¬ĞèÒª `POST`£¨shutdownºÍloggers¶Ëµã£©¡¢`PUT` »ò `DELETE` µÄactuator¶Ëµã»á³öÏÖ403£¨½ûÖ¹£©µÄ´íÎó¡£
+ç”±äºSpring Bootä¾èµ–Spring Securityçš„é»˜è®¤å€¼ï¼ŒCSRFä¿æŠ¤åœ¨é»˜è®¤æƒ…å†µä¸‹è¢«æ‰“å¼€ã€‚ è¿™æ„å‘³ç€åœ¨ä½¿ç”¨é»˜è®¤å®‰å…¨é…ç½®æ—¶ï¼Œéœ€è¦ `POST`ï¼ˆshutdownå’Œloggersç«¯ç‚¹ï¼‰ã€`PUT` æˆ– `DELETE` çš„actuatorç«¯ç‚¹ä¼šå‡ºç°403ï¼ˆç¦æ­¢ï¼‰çš„é”™è¯¯ã€‚
 
 
 
 
 
-|  | ÎÒÃÇ½¨ÒéÖ»ÓĞÔÚÄã´´½¨µÄ·şÎñ±»·Çä¯ÀÀÆ÷¿Í»§¶ËÊ¹ÓÃÊ±²ÅÍêÈ«½ûÓÃCSRF±£»¤¡£ |
+|  | æˆ‘ä»¬å»ºè®®åªæœ‰åœ¨ä½ åˆ›å»ºçš„æœåŠ¡è¢«éæµè§ˆå™¨å®¢æˆ·ç«¯ä½¿ç”¨æ—¶æ‰å®Œå…¨ç¦ç”¨CSRFä¿æŠ¤ã€‚ |
 | --- | --- |
 
 
 
 
 
-Äã¿ÉÒÔÔÚ [Spring°²È«²Î¿¼Ö¸ÄÏ](https://docs.spring.io/spring-security/reference/6.1.0-M1/features/exploits/csrf.html) ÖĞÕÒµ½¹ØÓÚCSRF±£»¤µÄÆäËûĞÅÏ¢¡£
+ä½ å¯ä»¥åœ¨ [Springå®‰å…¨å‚è€ƒæŒ‡å—](https://docs.spring.io/spring-security/reference/6.1.0-M1/features/exploits/csrf.html) ä¸­æ‰¾åˆ°å…³äºCSRFä¿æŠ¤çš„å…¶ä»–ä¿¡æ¯ã€‚
 
 
 
@@ -538,11 +538,11 @@ public class MySecurityConfiguration {
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.caching)2.4\. ÅäÖÃ¶Ëµã
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.caching)2.4\. é…ç½®ç«¯ç‚¹
 
 
 
-¶Ëµã»á×Ô¶¯»º´æ²»ĞèÒªÈÎºÎ²ÎÊıµÄ¶ÁÈ¡²Ù×÷µÄÏìÓ¦¡£ ÒªÅäÖÃ¶Ëµã»º´æÏìÓ¦µÄÊ±¼ä£¬ÇëÊ¹ÓÃÆä `cache.time-to-live` ÊôĞÔ¡£ ÏÂÃæµÄÀı×Ó½« `beans` ¶ËµãµÄ»º´æÉú´æÊ±¼äÉèÖÃÎª10Ãë¡£
+ç«¯ç‚¹ä¼šè‡ªåŠ¨ç¼“å­˜ä¸éœ€è¦ä»»ä½•å‚æ•°çš„è¯»å–æ“ä½œçš„å“åº”ã€‚ è¦é…ç½®ç«¯ç‚¹ç¼“å­˜å“åº”çš„æ—¶é—´ï¼Œè¯·ä½¿ç”¨å…¶ `cache.time-to-live` å±æ€§ã€‚ ä¸‹é¢çš„ä¾‹å­å°† `beans` ç«¯ç‚¹çš„ç¼“å­˜ç”Ÿå­˜æ—¶é—´è®¾ç½®ä¸º10ç§’ã€‚
 
 
 
@@ -569,7 +569,7 @@ management.endpoint.beans.cache.time-to-live=10s
 
 
 
-|  | `management.endpoint.<name>` Ç°×ºÎ¨Ò»µØ±êÊ¶ÁËÕıÔÚÅäÖÃµÄ¶Ëµã¡£ |
+|  | `management.endpoint.<name>` å‰ç¼€å”¯ä¸€åœ°æ ‡è¯†äº†æ­£åœ¨é…ç½®çš„ç«¯ç‚¹ã€‚ |
 | --- | --- |
 
 
@@ -578,17 +578,17 @@ management.endpoint.beans.cache.time-to-live=10s
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.hypermedia)2.5\. ÓÃÓÚ Actuator Web ¶ËµãµÄ³¬Ã½Ìå£¨Hypermedia£©
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.hypermedia)2.5\. ç”¨äº Actuator Web ç«¯ç‚¹çš„è¶…åª’ä½“ï¼ˆHypermediaï¼‰
 
 
 
-Ò»¸ö ¡°discovery page¡± ±»Ìí¼Óµ½ËùÓĞ¶ËµãµÄÁ´½ÓÖĞ¡£ Ä¬ÈÏÇé¿öÏÂ£¬¡°discovery page¡± ÔÚ `/actuator` ÉÏÊÇ¿ÉÓÃµÄ¡£
+ä¸€ä¸ª â€œdiscovery pageâ€ è¢«æ·»åŠ åˆ°æ‰€æœ‰ç«¯ç‚¹çš„é“¾æ¥ä¸­ã€‚ é»˜è®¤æƒ…å†µä¸‹ï¼Œâ€œdiscovery pageâ€ åœ¨ `/actuator` ä¸Šæ˜¯å¯ç”¨çš„ã€‚
 
 
 
 
 
-Òª½ûÓÃ ¡°discovery page¡±£¬ÇëÔÚÄãµÄÓ¦ÓÃ³ÌĞòÊôĞÔÖĞÌí¼ÓÒÔÏÂÊôĞÔ¡£
+è¦ç¦ç”¨ â€œdiscovery pageâ€ï¼Œè¯·åœ¨ä½ çš„åº”ç”¨ç¨‹åºå±æ€§ä¸­æ·»åŠ ä»¥ä¸‹å±æ€§ã€‚
 
 
 
@@ -615,7 +615,7 @@ management.endpoints.web.discovery.enabled=false
 
 
 
-µ±ÅäÖÃÁËÒ»¸ö×Ô¶¨ÒåµÄ¹ÜÀíÉÏÏÂÎÄÂ·¾¶Ê±£¬¡°discovery page¡± »á×Ô¶¯´Ó `/actuator` ÒÆµ½¹ÜÀíÉÏÏÂÎÄµÄ¸ù²¿¡£ ÀıÈç£¬Èç¹û¹ÜÀíÉÏÏÂÎÄÂ·¾¶ÊÇ `/management`£¬discovery page¿ÉÒÔ´Ó `/management` »ñµÃ¡£ µ±¹ÜÀíÉÏÏÂÎÄÂ·¾¶±»ÉèÖÃÎª `/` Ê±£¬·¢ÏÖÒ³±»½ûÓÃ£¬ÒÔ·ÀÖ¹ÓëÆäËûmapping·¢Éú³åÍ»µÄ¿ÉÄÜĞÔ¡£
+å½“é…ç½®äº†ä¸€ä¸ªè‡ªå®šä¹‰çš„ç®¡ç†ä¸Šä¸‹æ–‡è·¯å¾„æ—¶ï¼Œâ€œdiscovery pageâ€ ä¼šè‡ªåŠ¨ä» `/actuator` ç§»åˆ°ç®¡ç†ä¸Šä¸‹æ–‡çš„æ ¹éƒ¨ã€‚ ä¾‹å¦‚ï¼Œå¦‚æœç®¡ç†ä¸Šä¸‹æ–‡è·¯å¾„æ˜¯ `/management`ï¼Œdiscovery pageå¯ä»¥ä» `/management` è·å¾—ã€‚ å½“ç®¡ç†ä¸Šä¸‹æ–‡è·¯å¾„è¢«è®¾ç½®ä¸º `/` æ—¶ï¼Œå‘ç°é¡µè¢«ç¦ç”¨ï¼Œä»¥é˜²æ­¢ä¸å…¶ä»–mappingå‘ç”Ÿå†²çªçš„å¯èƒ½æ€§ã€‚
 
 
 
@@ -623,17 +623,17 @@ management.endpoints.web.discovery.enabled=false
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.cors)2.6\. CORSµÄÖ§³Ö
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.cors)2.6\. CORSçš„æ”¯æŒ
 
 
 
-[¿çÔ´×ÊÔ´¹²Ïí](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)£¨CORS£©ÊÇ [W3CµÄÒ»¸ö¹æ·¶](https://www.w3.org/TR/cors/)£¬¿ÉÒÔÈÃÄãÒÔÁé»îµÄ·½Ê½Ö¸¶¨ÄÄÖÖ¿çÓòÇëÇó±»ÊÚÈ¨¡£Èç¹ûÄãÊ¹ÓÃSpring MVC»òSpring WebFlux£¬Äã¿ÉÒÔÅäÖÃActuatorµÄWeb¶ËµãÀ´Ö§³ÖÕâÖÖÇé¿ö¡£
+[è·¨æºèµ„æºå…±äº«](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)ï¼ˆCORSï¼‰æ˜¯ [W3Cçš„ä¸€ä¸ªè§„èŒƒ](https://www.w3.org/TR/cors/)ï¼Œå¯ä»¥è®©ä½ ä»¥çµæ´»çš„æ–¹å¼æŒ‡å®šå“ªç§è·¨åŸŸè¯·æ±‚è¢«æˆæƒã€‚å¦‚æœä½ ä½¿ç”¨Spring MVCæˆ–Spring WebFluxï¼Œä½ å¯ä»¥é…ç½®Actuatorçš„Webç«¯ç‚¹æ¥æ”¯æŒè¿™ç§æƒ…å†µã€‚
 
 
 
 
 
-CORSÖ§³ÖÔÚÄ¬ÈÏÇé¿öÏÂÊÇ½ûÓÃµÄ£¬Ö»ÓĞÔÚÄãÉèÖÃÁË `management.endpoints.web.cors.allowed-origins` ÊôĞÔºó²Å»áÆôÓÃ¡£ ÏÂÃæµÄÅäÖÃÔÊĞí´Ó `example.com` ÓòÃûÖĞµ÷ÓÃ `GET` ºÍ `POST`¡£
+CORSæ”¯æŒåœ¨é»˜è®¤æƒ…å†µä¸‹æ˜¯ç¦ç”¨çš„ï¼Œåªæœ‰åœ¨ä½ è®¾ç½®äº† `management.endpoints.web.cors.allowed-origins` å±æ€§åæ‰ä¼šå¯ç”¨ã€‚ ä¸‹é¢çš„é…ç½®å…è®¸ä» `example.com` åŸŸåä¸­è°ƒç”¨ `GET` å’Œ `POST`ã€‚
 
 
 
@@ -661,7 +661,7 @@ management.endpoints.web.cors.allowed-methods=GET,POST
 
 
 
-|  | ²Î¼û [`CorsEndpointProperties`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator-autoconfigure/src/main/java/org/springframework/boot/actuate/autoconfigure/endpoint/web/CorsEndpointProperties.java) ÒÔ»ñµÃÍêÕûµÄÑ¡ÏîÁĞ±í¡£ |
+|  | å‚è§ [`CorsEndpointProperties`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator-autoconfigure/src/main/java/org/springframework/boot/actuate/autoconfigure/endpoint/web/CorsEndpointProperties.java) ä»¥è·å¾—å®Œæ•´çš„é€‰é¡¹åˆ—è¡¨ã€‚ |
 | --- | --- |
 
 
@@ -670,17 +670,17 @@ management.endpoints.web.cors.allowed-methods=GET,POST
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom)2.7\. ÊµÏÖ×Ô¶¨Òå¶Ëµã
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom)2.7\. å®ç°è‡ªå®šä¹‰ç«¯ç‚¹
 
 
 
-Èç¹ûÄãÌí¼ÓÁËÒ»¸ö´øÓĞ `@Endpoint` ×¢½âµÄ `@Bean`£¬ÈÎºÎ´øÓĞ `@ReadOperation`¡¢`@WriteOperation` »ò `@DeleteOperation` ×¢ÊÍµÄ·½·¨¶¼»á×Ô¶¯Í¨¹ıJMX¹«¿ª£¬ÔÚWebÓ¦ÓÃ³ÌĞòÖĞÒ²»áÍ¨¹ıHTTP¹«¿ª¡£ Í¨¹ıÊ¹ÓÃJersey¡¢Spring MVC»òSpring WebFlux£¬¶Ëµã¿ÉÒÔÍ¨¹ıHTTP±©Â¶¡£ Èç¹ûJerseyºÍSpring MVC¶¼¿ÉÓÃ£¬ÔòÊ¹ÓÃSpring MVC¡£
+å¦‚æœä½ æ·»åŠ äº†ä¸€ä¸ªå¸¦æœ‰ `@Endpoint` æ³¨è§£çš„ `@Bean`ï¼Œä»»ä½•å¸¦æœ‰ `@ReadOperation`ã€`@WriteOperation` æˆ– `@DeleteOperation` æ³¨é‡Šçš„æ–¹æ³•éƒ½ä¼šè‡ªåŠ¨é€šè¿‡JMXå…¬å¼€ï¼Œåœ¨Webåº”ç”¨ç¨‹åºä¸­ä¹Ÿä¼šé€šè¿‡HTTPå…¬å¼€ã€‚ é€šè¿‡ä½¿ç”¨Jerseyã€Spring MVCæˆ–Spring WebFluxï¼Œç«¯ç‚¹å¯ä»¥é€šè¿‡HTTPæš´éœ²ã€‚ å¦‚æœJerseyå’ŒSpring MVCéƒ½å¯ç”¨ï¼Œåˆ™ä½¿ç”¨Spring MVCã€‚
 
 
 
 
 
-ÏÂÃæµÄÀı×Ó±©Â¶ÁËÒ»¸ö¶Á²Ù×÷£¬Ëü·µ»ØÒ»¸ö×Ô¶¨Òå¶ÔÏó¡£
+ä¸‹é¢çš„ä¾‹å­æš´éœ²äº†ä¸€ä¸ªè¯»æ“ä½œï¼Œå®ƒè¿”å›ä¸€ä¸ªè‡ªå®šä¹‰å¯¹è±¡ã€‚
 
 
 
@@ -710,35 +710,35 @@ public CustomData getData() {
 
 
 
-ÄãÒ²¿ÉÒÔÍ¨¹ıÊ¹ÓÃ `@JmxEndpoint` »ò `@WebEndpoint` À´±àĞ´ÌØ¶¨¼¼ÊõµÄ¶Ëµã¡£ ÕâĞ©¶Ëµã±»ÏŞÖÆÔÚËüÃÇ¸÷×ÔµÄ¼¼ÊõÉÏ¡£ ÀıÈç£¬`@WebEndpoint` Ö»Í¨¹ıHTTP±©Â¶£¬¶ø²»ÊÇÍ¨¹ıJMX¡£
+ä½ ä¹Ÿå¯ä»¥é€šè¿‡ä½¿ç”¨ `@JmxEndpoint` æˆ– `@WebEndpoint` æ¥ç¼–å†™ç‰¹å®šæŠ€æœ¯çš„ç«¯ç‚¹ã€‚ è¿™äº›ç«¯ç‚¹è¢«é™åˆ¶åœ¨å®ƒä»¬å„è‡ªçš„æŠ€æœ¯ä¸Šã€‚ ä¾‹å¦‚ï¼Œ`@WebEndpoint` åªé€šè¿‡HTTPæš´éœ²ï¼Œè€Œä¸æ˜¯é€šè¿‡JMXã€‚
 
 
 
 
 
-Äã¿ÉÒÔÍ¨¹ıÊ¹ÓÃ `@EndpointWebExtension` ºÍ `@EndpointJmxExtension` À´±àĞ´ÌØ¶¨µÄ¼¼ÊõÀ©Õ¹¡£ ÕâĞ©×¢½âÈÃÄãÌá¹©ÌØ¶¨¼¼ÊõµÄ²Ù×÷£¬ÒÔÔöÇ¿ÏÖÓĞµÄ¶Ëµã¡£
+ä½ å¯ä»¥é€šè¿‡ä½¿ç”¨ `@EndpointWebExtension` å’Œ `@EndpointJmxExtension` æ¥ç¼–å†™ç‰¹å®šçš„æŠ€æœ¯æ‰©å±•ã€‚ è¿™äº›æ³¨è§£è®©ä½ æä¾›ç‰¹å®šæŠ€æœ¯çš„æ“ä½œï¼Œä»¥å¢å¼ºç°æœ‰çš„ç«¯ç‚¹ã€‚
 
 
 
 
 
-×îºó£¬Èç¹ûÄãĞèÒª·ÃÎÊWeb¿ò¼ÜµÄÌØ¶¨¹¦ÄÜ£¬Äã¿ÉÒÔÊµÏÖservlet»òSpringµÄ `@Controller` ºÍ `@RestController` ¶Ëµã£¬´ú¼ÛÊÇËüÃÇ²»ÄÜÍ¨¹ıJMX»òÊ¹ÓÃ²»Í¬µÄWeb¿ò¼ÜÊ±¿ÉÓÃ¡£
+æœ€åï¼Œå¦‚æœä½ éœ€è¦è®¿é—®Webæ¡†æ¶çš„ç‰¹å®šåŠŸèƒ½ï¼Œä½ å¯ä»¥å®ç°servletæˆ–Springçš„ `@Controller` å’Œ `@RestController` ç«¯ç‚¹ï¼Œä»£ä»·æ˜¯å®ƒä»¬ä¸èƒ½é€šè¿‡JMXæˆ–ä½¿ç”¨ä¸åŒçš„Webæ¡†æ¶æ—¶å¯ç”¨ã€‚
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.input)2.7.1\. ½ÓÊÕÊäÈë
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.input)2.7.1\. æ¥æ”¶è¾“å…¥
 
 
 
-¶ËµãÉÏµÄ²Ù×÷Í¨¹ıÆä²ÎÊı½ÓÊÕÊäÈë¡£ µ±Í¨¹ıweb¹«¿ªÊ±£¬ÕâĞ©²ÎÊıµÄÖµÀ´×ÔURLµÄ²éÑ¯²ÎÊıºÍJSONÇëÇóÌå¡£ µ±Í¨¹ıJMX¹«¿ªÊ±£¬²ÎÊı±»Ó³Éäµ½MBean²Ù×÷µÄ²ÎÊıÖĞ¡£ Ä¬ÈÏÇé¿öÏÂ£¬²ÎÊıÊÇ±ØĞèµÄ¡£ ËüÃÇ¿ÉÒÔÍ¨¹ıÊ¹ÓÃ `@javax.annotation.Nullable` »ò `@org.springframework.lang.Nullable` ½øĞĞ×¢½â¶ø³ÉÎª¿ÉÑ¡Ïî¡£
+ç«¯ç‚¹ä¸Šçš„æ“ä½œé€šè¿‡å…¶å‚æ•°æ¥æ”¶è¾“å…¥ã€‚ å½“é€šè¿‡webå…¬å¼€æ—¶ï¼Œè¿™äº›å‚æ•°çš„å€¼æ¥è‡ªURLçš„æŸ¥è¯¢å‚æ•°å’ŒJSONè¯·æ±‚ä½“ã€‚ å½“é€šè¿‡JMXå…¬å¼€æ—¶ï¼Œå‚æ•°è¢«æ˜ å°„åˆ°MBeanæ“ä½œçš„å‚æ•°ä¸­ã€‚ é»˜è®¤æƒ…å†µä¸‹ï¼Œå‚æ•°æ˜¯å¿…éœ€çš„ã€‚ å®ƒä»¬å¯ä»¥é€šè¿‡ä½¿ç”¨ `@javax.annotation.Nullable` æˆ– `@org.springframework.lang.Nullable` è¿›è¡Œæ³¨è§£è€Œæˆä¸ºå¯é€‰é¡¹ã€‚
 
 
 
 
 
-Äã¿ÉÒÔ½«JSONÇëÇóÌåÖĞµÄÃ¿¸ö¸ùÊôĞÔÓ³Éäµ½¶ËµãµÄÒ»¸ö²ÎÊı¡£ ¿¼ÂÇÒ»ÏÂÏÂÃæµÄJSONÇëÇóÌå¡£
+ä½ å¯ä»¥å°†JSONè¯·æ±‚ä½“ä¸­çš„æ¯ä¸ªæ ¹å±æ€§æ˜ å°„åˆ°ç«¯ç‚¹çš„ä¸€ä¸ªå‚æ•°ã€‚ è€ƒè™‘ä¸€ä¸‹ä¸‹é¢çš„JSONè¯·æ±‚ä½“ã€‚
 
 
 
@@ -759,7 +759,7 @@ public CustomData getData() {
 
 
 
-Äã¿ÉÒÔÓÃËüÀ´µ÷ÓÃÒ»¸öĞ´²Ù×÷£¬¸Ã²Ù×÷ĞèÒª `String name` ºÍ `int counter` ²ÎÊı£¬ÈçÏÂÃæµÄÀı×ÓËùÊ¾¡£
+ä½ å¯ä»¥ç”¨å®ƒæ¥è°ƒç”¨ä¸€ä¸ªå†™æ“ä½œï¼Œè¯¥æ“ä½œéœ€è¦ `String name` å’Œ `int counter` å‚æ•°ï¼Œå¦‚ä¸‹é¢çš„ä¾‹å­æ‰€ç¤ºã€‚
 
 
 
@@ -789,49 +789,49 @@ public void updateData(String name, int counter) {
 
 
 
-|  | ÒòÎª¶ËµãÊÇ¼¼Êõ²»¿ÉÖªµÄ£¬ÔÚ·½·¨Ç©ÃûÖĞÖ»ÄÜÖ¸¶¨¼òµ¥µÄÀàĞÍ¡£ ÌØ±ğÊÇ£¬²»Ö§³ÖÓÃ `CustomData` ÀàĞÍÉùÃ÷Ò»¸ö¶¨ÒåÁË `name` ºÍ `counter` ÊôĞÔµÄµ¥Ò»²ÎÊı¡£ |
+|  | å› ä¸ºç«¯ç‚¹æ˜¯æŠ€æœ¯ä¸å¯çŸ¥çš„ï¼Œåœ¨æ–¹æ³•ç­¾åä¸­åªèƒ½æŒ‡å®šç®€å•çš„ç±»å‹ã€‚ ç‰¹åˆ«æ˜¯ï¼Œä¸æ”¯æŒç”¨ `CustomData` ç±»å‹å£°æ˜ä¸€ä¸ªå®šä¹‰äº† `name` å’Œ `counter` å±æ€§çš„å•ä¸€å‚æ•°ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | ÎªÁËÈÃÊäÈëÓ³Éäµ½²Ù×÷·½·¨µÄ²ÎÊı£¬ÊµÏÖ¶ËµãµÄJava´úÂëÓ¦¸ÃÓÃ `-parameters` ±àÒë£¬¶øÊµÏÖ¶ËµãµÄKotlin´úÂëÓ¦¸ÃÓÃ `-java-parameters` ±àÒë¡£ Èç¹ûÄãÊ¹ÓÃSpring BootµÄGradle²å¼ş»òÊ¹ÓÃMavenºÍ `spring-boot-starter-parent`£¬Õâ½«×Ô¶¯·¢Éú¡£ |
+|  | ä¸ºäº†è®©è¾“å…¥æ˜ å°„åˆ°æ“ä½œæ–¹æ³•çš„å‚æ•°ï¼Œå®ç°ç«¯ç‚¹çš„Javaä»£ç åº”è¯¥ç”¨ `-parameters` ç¼–è¯‘ï¼Œè€Œå®ç°ç«¯ç‚¹çš„Kotlinä»£ç åº”è¯¥ç”¨ `-java-parameters` ç¼–è¯‘ã€‚ å¦‚æœä½ ä½¿ç”¨Spring Bootçš„Gradleæ’ä»¶æˆ–ä½¿ç”¨Mavenå’Œ `spring-boot-starter-parent`ï¼Œè¿™å°†è‡ªåŠ¨å‘ç”Ÿã€‚ |
 | --- | --- |
 
 
 
 
 
-##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.input.conversion)ÊäÈëÀàĞÍ×ª»»
+##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.input.conversion)è¾“å…¥ç±»å‹è½¬æ¢
 
 
 
-Èç¹ûÓĞ±ØÒª£¬´«µİ¸ø¶Ëµã²Ù×÷·½·¨µÄ²ÎÊı»á×Ô¶¯×ª»»ÎªËùĞèÀàĞÍ¡£ ÔÚµ÷ÓÃ²Ù×÷·½·¨Ö®Ç°£¬Í¨¹ıJMX»òHTTPÊÕµ½µÄÊäÈë±»×ª»»ÎªËùĞèµÄÀàĞÍ£¬·½·¨ÊÇÊ¹ÓÃ `ApplicationConversionService` µÄÊµÀıÒÔ¼°ÈÎºÎ `Converter` »ò `GenericConverter` Bean£¬²¢ÒÔ `@EndpointConverter` ÏŞ¶¨¡£
-
-
-
-
+å¦‚æœæœ‰å¿…è¦ï¼Œä¼ é€’ç»™ç«¯ç‚¹æ“ä½œæ–¹æ³•çš„å‚æ•°ä¼šè‡ªåŠ¨è½¬æ¢ä¸ºæ‰€éœ€ç±»å‹ã€‚ åœ¨è°ƒç”¨æ“ä½œæ–¹æ³•ä¹‹å‰ï¼Œé€šè¿‡JMXæˆ–HTTPæ”¶åˆ°çš„è¾“å…¥è¢«è½¬æ¢ä¸ºæ‰€éœ€çš„ç±»å‹ï¼Œæ–¹æ³•æ˜¯ä½¿ç”¨ `ApplicationConversionService` çš„å®ä¾‹ä»¥åŠä»»ä½• `Converter` æˆ– `GenericConverter` Beanï¼Œå¹¶ä»¥ `@EndpointConverter` é™å®šã€‚
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.web)2.7.2\. ×Ô¶¨ÒåWEB¶Ëµã
-
-
-
-¶Ô `@Endpoint`¡¢`@WebEndpoint` »ò `@EndpointWebExtension` ²Ù×÷»á×Ô¶¯Ê¹ÓÃJersey¡¢Spring MVC»òSpring WebFluxÍ¨¹ıHTTP¹«¿ª¡£ Èç¹ûJerseyºÍSpring MVC¶¼¿ÉÓÃ£¬ÔòÊ¹ÓÃSpring MVC¡£
 
 
 
 
-
-##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.web.request-predicates)WEB¶ËµãÇëÇóÎ½´Ê£¨Predicates£©
-
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.web)2.7.2\. è‡ªå®šä¹‰WEBç«¯ç‚¹
 
 
-Ò»¸öÇëÇóÎ½´Ê»áÎªweb±©Â¶µÄ¶ËµãÉÏµÄÃ¿¸ö²Ù×÷£¨operation£©×Ô¶¯Éú³É¡£
+
+å¯¹ `@Endpoint`ã€`@WebEndpoint` æˆ– `@EndpointWebExtension` æ“ä½œä¼šè‡ªåŠ¨ä½¿ç”¨Jerseyã€Spring MVCæˆ–Spring WebFluxé€šè¿‡HTTPå…¬å¼€ã€‚ å¦‚æœJerseyå’ŒSpring MVCéƒ½å¯ç”¨ï¼Œåˆ™ä½¿ç”¨Spring MVCã€‚
+
+
+
+
+
+##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.web.request-predicates)WEBç«¯ç‚¹è¯·æ±‚è°“è¯ï¼ˆPredicatesï¼‰
+
+
+
+ä¸€ä¸ªè¯·æ±‚è°“è¯ä¼šä¸ºwebæš´éœ²çš„ç«¯ç‚¹ä¸Šçš„æ¯ä¸ªæ“ä½œï¼ˆoperationï¼‰è‡ªåŠ¨ç”Ÿæˆã€‚
 
 
 
@@ -843,13 +843,13 @@ public void updateData(String name, int counter) {
 
 
 
-pathÎ½´ÊÓÉ¶ËµãµÄIDºÍÍøÂç±©Â¶µÄ¶ËµãµÄ»ù±¾Â·¾¶¾ö¶¨¡£ Ä¬ÈÏµÄ»ù±¾Â·¾¶ÊÇ `/actuator`¡£ ÀıÈç£¬Ò»¸öIDÎª `sessions` µÄ¶ËµãÔÚÎ½´ÊÖĞÊ¹ÓÃ `/actuator/sessions` ×÷ÎªÆäÂ·¾¶¡£
+pathè°“è¯ç”±ç«¯ç‚¹çš„IDå’Œç½‘ç»œæš´éœ²çš„ç«¯ç‚¹çš„åŸºæœ¬è·¯å¾„å†³å®šã€‚ é»˜è®¤çš„åŸºæœ¬è·¯å¾„æ˜¯ `/actuator`ã€‚ ä¾‹å¦‚ï¼Œä¸€ä¸ªIDä¸º `sessions` çš„ç«¯ç‚¹åœ¨è°“è¯ä¸­ä½¿ç”¨ `/actuator/sessions` ä½œä¸ºå…¶è·¯å¾„ã€‚
 
 
 
 
 
-Äã¿ÉÒÔÍ¨¹ıÓÃ `@Selector` ×¢½â²Ù×÷·½·¨µÄÒ»¸ö»ò¶à¸ö²ÎÊıÀ´½øÒ»²½¶¨ÖÆÂ·¾¶¡£ ÕâÑùµÄ²ÎÊı»á×÷ÎªÒ»¸öÂ·¾¶±äÁ¿Ìí¼Óµ½Â·¾¶Î½´ÊÖĞ¡£ ÔÚµ÷ÓÃ¶Ëµã²Ù×÷Ê±£¬¸Ã±äÁ¿µÄÖµ»á±»´«Èë²Ù×÷·½·¨¡£ Èç¹ûÄãÏë²¶»ñËùÓĞÊ£ÓàµÄÂ·¾¶ÔªËØ£¬Äã¿ÉÒÔÔÚ×îºóÒ»¸ö²ÎÊıÉÏÌí¼Ó `@Selector(Match=ALL_REMAINING)`£¬²¢Ê¹Æä³ÉÎªÒ»¸öÓë `String[]` ×ª»»¼æÈİµÄÀàĞÍ¡£
+ä½ å¯ä»¥é€šè¿‡ç”¨ `@Selector` æ³¨è§£æ“ä½œæ–¹æ³•çš„ä¸€ä¸ªæˆ–å¤šä¸ªå‚æ•°æ¥è¿›ä¸€æ­¥å®šåˆ¶è·¯å¾„ã€‚ è¿™æ ·çš„å‚æ•°ä¼šä½œä¸ºä¸€ä¸ªè·¯å¾„å˜é‡æ·»åŠ åˆ°è·¯å¾„è°“è¯ä¸­ã€‚ åœ¨è°ƒç”¨ç«¯ç‚¹æ“ä½œæ—¶ï¼Œè¯¥å˜é‡çš„å€¼ä¼šè¢«ä¼ å…¥æ“ä½œæ–¹æ³•ã€‚ å¦‚æœä½ æƒ³æ•è·æ‰€æœ‰å‰©ä½™çš„è·¯å¾„å…ƒç´ ï¼Œä½ å¯ä»¥åœ¨æœ€åä¸€ä¸ªå‚æ•°ä¸Šæ·»åŠ  `@Selector(Match=ALL_REMAINING)`ï¼Œå¹¶ä½¿å…¶æˆä¸ºä¸€ä¸ªä¸ `String[]` è½¬æ¢å…¼å®¹çš„ç±»å‹ã€‚
 
 
 
@@ -857,11 +857,11 @@ pathÎ½´ÊÓÉ¶ËµãµÄIDºÍÍøÂç±©Â¶µÄ¶ËµãµÄ»ù±¾Â·¾¶¾ö¶¨¡£ Ä¬ÈÏµÄ»ù±¾Â·¾¶ÊÇ `/actuator`¡
 
 
 
-##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.web.method-predicates)HTTP method£¨·½·¨£©
+##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.web.method-predicates)HTTP methodï¼ˆæ–¹æ³•ï¼‰
 
 
 
-HTTP methodÎ½´ÊÊÇÓÉ²Ù×÷ÀàĞÍ¾ö¶¨µÄ£¬ÈçÏÂ±íËùÊ¾¡£
+HTTP methodè°“è¯æ˜¯ç”±æ“ä½œç±»å‹å†³å®šçš„ï¼Œå¦‚ä¸‹è¡¨æ‰€ç¤ºã€‚
 
 
 
@@ -880,7 +880,7 @@ HTTP methodÎ½´ÊÊÇÓÉ²Ù×÷ÀàĞÍ¾ö¶¨µÄ£¬ÈçÏÂ±íËùÊ¾¡£
 
 
 
-¶ÔÓÚÊ¹ÓÃrequest bodyµÄ `@WriteOperation`£¨HTTP `POST`£©£¬Î½´ÊµÄ `consumes` ×Ó¾äÊÇ `application/vnd.spring-boot.actuator.v2+json, application/json`¡£ ¶ÔÓÚËùÓĞÆäËû²Ù×÷£¬`consumes` ×Ó¾äÊÇ¿ÕµÄ¡£
+å¯¹äºä½¿ç”¨request bodyçš„ `@WriteOperation`ï¼ˆHTTP `POST`ï¼‰ï¼Œè°“è¯çš„ `consumes` å­å¥æ˜¯ `application/vnd.spring-boot.actuator.v2+json, application/json`ã€‚ å¯¹äºæ‰€æœ‰å…¶ä»–æ“ä½œï¼Œ`consumes` å­å¥æ˜¯ç©ºçš„ã€‚
 
 
 
@@ -892,43 +892,13 @@ HTTP methodÎ½´ÊÊÇÓÉ²Ù×÷ÀàĞÍ¾ö¶¨µÄ£¬ÈçÏÂ±íËùÊ¾¡£
 
 
 
-Î½´ÊµÄ `produces` ×Ó¾ä¿ÉÒÔÓÉ `@DeleteOperation`¡¢`@ReadOperation` ºÍ `@WriteOperation` ×¢ÊÍµÄ `produces` ÊôĞÔ¾ö¶¨¡£ ¸ÃÊôĞÔÊÇ¿ÉÑ¡µÄ¡£ Èç¹û²»Ê¹ÓÃËü£¬`produces` ×Ó¾ä»á×Ô¶¯È·¶¨¡£
+è°“è¯çš„ `produces` å­å¥å¯ä»¥ç”± `@DeleteOperation`ã€`@ReadOperation` å’Œ `@WriteOperation` æ³¨é‡Šçš„ `produces` å±æ€§å†³å®šã€‚ è¯¥å±æ€§æ˜¯å¯é€‰çš„ã€‚ å¦‚æœä¸ä½¿ç”¨å®ƒï¼Œ`produces` å­å¥ä¼šè‡ªåŠ¨ç¡®å®šã€‚
 
 
 
 
 
-Èç¹û²Ù×÷·½·¨·µ»Ø `void` »ò `Void`£¬Ôò `produces` ×Ó¾äÎª¿Õ¡£ Èç¹û²Ù×÷·½·¨·µ»Ø `org.springframework.core.io.Resource`£¬`produces` ×Ó¾äÊÇ `application/octet-stream`¡£ ¶ÔÓÚËùÓĞÆäËû²Ù×÷£¬`produces` ×Ó¾äÊÇ `application/vnd.spring-boot.actuator.v2+json, application/json`¡£
-
-
-
-
-
-
-
-##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.web.response-status)WEB¶ËµãÏìÓ¦×´Ì¬
-
-
-
-¶Ëµã²Ù×÷µÄÄ¬ÈÏÏìÓ¦×´Ì¬È¡¾öÓÚ²Ù×÷ÀàĞÍ£¨¶Á¡¢Ğ´»òÉ¾³ı£©ºÍ²Ù×÷·µ»ØµÄÄÚÈİ£¨Èç¹ûÓĞµÄ»°£©¡£
-
-
-
-
-
-Èç¹û `@ReadOperation` ·µ»ØÒ»¸öÖµ£¬ÏìÓ¦×´Ì¬½«ÊÇ200(Ok)¡£ Èç¹ûËüÃ»ÓĞ·µ»ØÒ»¸öÖµ£¬ÏìÓ¦×´Ì¬½«ÊÇ404(Not Found)¡£
-
-
-
-
-
-Èç¹û `@WriteOperation` »ò `@DeleteOperation` ·µ»ØÒ»¸öÖµ£¬ÏìÓ¦×´Ì¬½«ÊÇ200£¨OK£©¡£ Èç¹ûËüÃ»ÓĞ·µ»ØÒ»¸öÖµ£¬ÏìÓ¦×´Ì¬½«ÊÇ204£¨No Content£©¡£
-
-
-
-
-
-Èç¹ûÒ»¸ö²Ù×÷ÔÚµ÷ÓÃÊ±Ã»ÓĞËùĞèµÄ²ÎÊı£¬»òÕß²ÎÊı²»ÄÜ±»×ª»»ÎªËùĞèµÄÀàĞÍ£¬²Ù×÷·½·¨¾Í²»»á±»µ÷ÓÃ£¬ÏìÓ¦×´Ì¬½«ÊÇ400£¨Bad Request£©¡£
+å¦‚æœæ“ä½œæ–¹æ³•è¿”å› `void` æˆ– `Void`ï¼Œåˆ™ `produces` å­å¥ä¸ºç©ºã€‚ å¦‚æœæ“ä½œæ–¹æ³•è¿”å› `org.springframework.core.io.Resource`ï¼Œ`produces` å­å¥æ˜¯ `application/octet-stream`ã€‚ å¯¹äºæ‰€æœ‰å…¶ä»–æ“ä½œï¼Œ`produces` å­å¥æ˜¯ `application/vnd.spring-boot.actuator.v2+json, application/json`ã€‚
 
 
 
@@ -936,17 +906,47 @@ HTTP methodÎ½´ÊÊÇÓÉ²Ù×÷ÀàĞÍ¾ö¶¨µÄ£¬ÈçÏÂ±íËùÊ¾¡£
 
 
 
-##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.web.range-requests)WEB¶Ëµã Range ÇëÇó
+##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.web.response-status)WEBç«¯ç‚¹å“åº”çŠ¶æ€
 
 
 
-Äã¿ÉÒÔÊ¹ÓÃHTTP rangeÇëÇóÀ´ÇëÇóÒ»¸öHTTP×ÊÔ´µÄÒ»²¿·Ö¡£ µ±Ê¹ÓÃSpring MVC»òSpring Web FluxÊ±£¬·µ»Ø `org.springframework.core.io.Resource` µÄ²Ù×÷×Ô¶¯Ö§³Ö·¶Î§ÇëÇó¡£
+ç«¯ç‚¹æ“ä½œçš„é»˜è®¤å“åº”çŠ¶æ€å–å†³äºæ“ä½œç±»å‹ï¼ˆè¯»ã€å†™æˆ–åˆ é™¤ï¼‰å’Œæ“ä½œè¿”å›çš„å†…å®¹ï¼ˆå¦‚æœæœ‰çš„è¯ï¼‰ã€‚
 
 
 
 
 
-|  | Ê¹ÓÃJerseyÊ±²»Ö§³Ö Range ÇëÇó¡£ |
+å¦‚æœ `@ReadOperation` è¿”å›ä¸€ä¸ªå€¼ï¼Œå“åº”çŠ¶æ€å°†æ˜¯200(Ok)ã€‚ å¦‚æœå®ƒæ²¡æœ‰è¿”å›ä¸€ä¸ªå€¼ï¼Œå“åº”çŠ¶æ€å°†æ˜¯404(Not Found)ã€‚
+
+
+
+
+
+å¦‚æœ `@WriteOperation` æˆ– `@DeleteOperation` è¿”å›ä¸€ä¸ªå€¼ï¼Œå“åº”çŠ¶æ€å°†æ˜¯200ï¼ˆOKï¼‰ã€‚ å¦‚æœå®ƒæ²¡æœ‰è¿”å›ä¸€ä¸ªå€¼ï¼Œå“åº”çŠ¶æ€å°†æ˜¯204ï¼ˆNo Contentï¼‰ã€‚
+
+
+
+
+
+å¦‚æœä¸€ä¸ªæ“ä½œåœ¨è°ƒç”¨æ—¶æ²¡æœ‰æ‰€éœ€çš„å‚æ•°ï¼Œæˆ–è€…å‚æ•°ä¸èƒ½è¢«è½¬æ¢ä¸ºæ‰€éœ€çš„ç±»å‹ï¼Œæ“ä½œæ–¹æ³•å°±ä¸ä¼šè¢«è°ƒç”¨ï¼Œå“åº”çŠ¶æ€å°†æ˜¯400ï¼ˆBad Requestï¼‰ã€‚
+
+
+
+
+
+
+
+##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.web.range-requests)WEBç«¯ç‚¹ Range è¯·æ±‚
+
+
+
+ä½ å¯ä»¥ä½¿ç”¨HTTP rangeè¯·æ±‚æ¥è¯·æ±‚ä¸€ä¸ªHTTPèµ„æºçš„ä¸€éƒ¨åˆ†ã€‚ å½“ä½¿ç”¨Spring MVCæˆ–Spring Web Fluxæ—¶ï¼Œè¿”å› `org.springframework.core.io.Resource` çš„æ“ä½œè‡ªåŠ¨æ”¯æŒèŒƒå›´è¯·æ±‚ã€‚
+
+
+
+
+
+|  | ä½¿ç”¨Jerseyæ—¶ä¸æ”¯æŒ Range è¯·æ±‚ã€‚ |
 | --- | --- |
 
 
@@ -955,37 +955,11 @@ HTTP methodÎ½´ÊÊÇÓÉ²Ù×÷ÀàĞÍ¾ö¶¨µÄ£¬ÈçÏÂ±íËùÊ¾¡£
 
 
 
-##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.web.security)Web¶ËµãµÄ°²È«
+##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.web.security)Webç«¯ç‚¹çš„å®‰å…¨
 
 
 
-ÔÚweb¶Ëµã»òwebÌØ¶¨¶ËµãÀ©Õ¹ÉÏµÄ²Ù×÷¿ÉÒÔ½ÓÊÕµ±Ç°µÄ `java.security.Principal` »ò `org.springframework.boot.actuate.endpoint.SecurityContext` ×÷Îª·½·¨²ÎÊı¡£ Ç°ÕßÍ¨³£Óë `@Nullable` Ò»ÆğÊ¹ÓÃ£¬ÎªÒÑÈÏÖ¤ºÍÎ´ÈÏÖ¤µÄÓÃ»§Ìá¹©²»Í¬µÄĞĞÎª¡£ ºóÕßÍ¨³£ÓÃÓÚÍ¨¹ıÊ¹ÓÃÆä `isUserInRole(String)` ·½·¨À´Ö´ĞĞÊÚÈ¨¼ì²é¡£
-
-
-
-
-
-
-
-
-
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.servlet)2.7.3\. Servlet ¶Ëµã
-
-
-
-Ò»¸öServlet¿ÉÒÔ×÷ÎªÒ»¸ö¶Ëµã±©Â¶³öÀ´£¬·½·¨ÊÇÊµÏÖÒ»¸öÓÃ `@ServletEndpoint` ×¢½âµÄÀà£¬Í¬Ê±ÊµÏÖ `Supplier<EndpointServlet>`¡£ Servlet¶ËµãÌá¹©ÁËÓëservletÈİÆ÷µÄ¸üÉî²ã´ÎµÄÕûºÏ£¬µ«È´ÎşÉüÁË¿ÉÒÆÖ²ĞÔ¡£ ËüÃÇµÄÄ¿µÄÊÇÓÃÀ´½«ÏÖÓĞµÄServlet×÷ÎªÒ»¸ö¶ËµãÀ´¹«¿ª¡£ ¶ÔÓÚĞÂµÄ¶Ëµã£¬Ó¦¾¡¿ÉÄÜÑ¡Ôñ `@Endpoint` ºÍ `@WebEndpoint` ×¢½â¡£
-
-
-
-
-
-
-
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.controller)2.7.4\. Controller ¶Ëµã
-
-
-
-Äã¿ÉÒÔÊ¹ÓÃ `@ControllerEndpoint` ºÍ `@RestControllerEndpoint` À´ÊµÏÖÒ»¸ö½öÓÉSpring MVC»òSpring WebFlux¹«¿ªµÄ¶Ëµã¡£ ·½·¨Í¨¹ıÊ¹ÓÃSpring MVCºÍSpring WebFluxµÄ±ê×¼×¢½â½øĞĞÓ³Éä£¬Èç `@RequestMapping` ºÍ `@GetMapping`£¬¶ËµãµÄID±»ÓÃ×÷Â·¾¶µÄÇ°×º¡£ ¿ØÖÆÆ÷¶ËµãÌá¹©ÁËÓëSpringµÄWeb¿ò¼Ü¸üÉîÈëµÄ¼¯³É£¬µ«È´ÎşÉüÁË¿ÉÒÆÖ²ĞÔ¡£ Ó¦¾¡¿ÉÄÜÑ¡Ôñ `@Endpoint` ºÍ `@WebEndpoint` ×¢½â¡£
+åœ¨webç«¯ç‚¹æˆ–webç‰¹å®šç«¯ç‚¹æ‰©å±•ä¸Šçš„æ“ä½œå¯ä»¥æ¥æ”¶å½“å‰çš„ `java.security.Principal` æˆ– `org.springframework.boot.actuate.endpoint.SecurityContext` ä½œä¸ºæ–¹æ³•å‚æ•°ã€‚ å‰è€…é€šå¸¸ä¸ `@Nullable` ä¸€èµ·ä½¿ç”¨ï¼Œä¸ºå·²è®¤è¯å’Œæœªè®¤è¯çš„ç”¨æˆ·æä¾›ä¸åŒçš„è¡Œä¸ºã€‚ åè€…é€šå¸¸ç”¨äºé€šè¿‡ä½¿ç”¨å…¶ `isUserInRole(String)` æ–¹æ³•æ¥æ‰§è¡Œæˆæƒæ£€æŸ¥ã€‚
 
 
 
@@ -995,116 +969,142 @@ HTTP methodÎ½´ÊÊÇÓÉ²Ù×÷ÀàĞÍ¾ö¶¨µÄ£¬ÈçÏÂ±íËùÊ¾¡£
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health)2.8\. ½¡¿µĞÅÏ¢
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.servlet)2.7.3\. Servlet ç«¯ç‚¹
 
 
 
-Äã¿ÉÒÔÊ¹ÓÃ½¡¿µĞÅÏ¢À´¼ì²éÄãÔËĞĞµÄÓ¦ÓÃ³ÌĞòµÄ×´Ì¬¡£ Ëü¾­³£±»¼à¿ØÈí¼şÓÃÀ´ÔÚÉú²úÏµÍ³·¢Éú¹ÊÕÏÊ±ÌáĞÑ±ğÈË¡£ `health` ¶Ëµã±©Â¶µÄĞÅÏ¢È¡¾öÓÚ `management.endpoint.health.show-details` ºÍ `management.endpoint.health.show-components` ÊôĞÔ£¬ËüÃÇ¿ÉÒÔÅäÖÃÎªÒÔÏÂÖµÖ®Ò»¡£
+ä¸€ä¸ªServletå¯ä»¥ä½œä¸ºä¸€ä¸ªç«¯ç‚¹æš´éœ²å‡ºæ¥ï¼Œæ–¹æ³•æ˜¯å®ç°ä¸€ä¸ªç”¨ `@ServletEndpoint` æ³¨è§£çš„ç±»ï¼ŒåŒæ—¶å®ç° `Supplier<EndpointServlet>`ã€‚ Servletç«¯ç‚¹æä¾›äº†ä¸servletå®¹å™¨çš„æ›´æ·±å±‚æ¬¡çš„æ•´åˆï¼Œä½†å´ç‰ºç‰²äº†å¯ç§»æ¤æ€§ã€‚ å®ƒä»¬çš„ç›®çš„æ˜¯ç”¨æ¥å°†ç°æœ‰çš„Servletä½œä¸ºä¸€ä¸ªç«¯ç‚¹æ¥å…¬å¼€ã€‚ å¯¹äºæ–°çš„ç«¯ç‚¹ï¼Œåº”å°½å¯èƒ½é€‰æ‹© `@Endpoint` å’Œ `@WebEndpoint` æ³¨è§£ã€‚
+
+
+
+
+
+
+
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.implementing-custom.controller)2.7.4\. Controller ç«¯ç‚¹
+
+
+
+ä½ å¯ä»¥ä½¿ç”¨ `@ControllerEndpoint` å’Œ `@RestControllerEndpoint` æ¥å®ç°ä¸€ä¸ªä»…ç”±Spring MVCæˆ–Spring WebFluxå…¬å¼€çš„ç«¯ç‚¹ã€‚ æ–¹æ³•é€šè¿‡ä½¿ç”¨Spring MVCå’ŒSpring WebFluxçš„æ ‡å‡†æ³¨è§£è¿›è¡Œæ˜ å°„ï¼Œå¦‚ `@RequestMapping` å’Œ `@GetMapping`ï¼Œç«¯ç‚¹çš„IDè¢«ç”¨ä½œè·¯å¾„çš„å‰ç¼€ã€‚ æ§åˆ¶å™¨ç«¯ç‚¹æä¾›äº†ä¸Springçš„Webæ¡†æ¶æ›´æ·±å…¥çš„é›†æˆï¼Œä½†å´ç‰ºç‰²äº†å¯ç§»æ¤æ€§ã€‚ åº”å°½å¯èƒ½é€‰æ‹© `@Endpoint` å’Œ `@WebEndpoint` æ³¨è§£ã€‚
+
+
+
+
+
+
+
+
+
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health)2.8\. å¥åº·ä¿¡æ¯
+
+
+
+ä½ å¯ä»¥ä½¿ç”¨å¥åº·ä¿¡æ¯æ¥æ£€æŸ¥ä½ è¿è¡Œçš„åº”ç”¨ç¨‹åºçš„çŠ¶æ€ã€‚ å®ƒç»å¸¸è¢«ç›‘æ§è½¯ä»¶ç”¨æ¥åœ¨ç”Ÿäº§ç³»ç»Ÿå‘ç”Ÿæ•…éšœæ—¶æé†’åˆ«äººã€‚ `health` ç«¯ç‚¹æš´éœ²çš„ä¿¡æ¯å–å†³äº `management.endpoint.health.show-details` å’Œ `management.endpoint.health.show-components` å±æ€§ï¼Œå®ƒä»¬å¯ä»¥é…ç½®ä¸ºä»¥ä¸‹å€¼ä¹‹ä¸€ã€‚
 
 
 
 <colgroup><col><col></colgroup>
-| Öµ | ËµÃ÷ |
+| å€¼ | è¯´æ˜ |
 | --- | --- |
-| `never` | Ï¸½Ú´Ó²»ÏÔÊ¾¡£ |
-| `when-authorized` | Ï¸½ÚÖ»ÏÔÊ¾¸øÊÚÈ¨ÓÃ»§¡£ ÊÚÈ¨µÄ½ÇÉ«¿ÉÒÔÍ¨¹ıÊ¹ÓÃ `management.endpoint.health.roles` ½øĞĞÅäÖÃ¡£ |
-| `always` | ÏêÇéÏÔÊ¾¸øËùÓĞÓÃ»§¡£ |
+| `never` | ç»†èŠ‚ä»ä¸æ˜¾ç¤ºã€‚ |
+| `when-authorized` | ç»†èŠ‚åªæ˜¾ç¤ºç»™æˆæƒç”¨æˆ·ã€‚ æˆæƒçš„è§’è‰²å¯ä»¥é€šè¿‡ä½¿ç”¨ `management.endpoint.health.roles` è¿›è¡Œé…ç½®ã€‚ |
+| `always` | è¯¦æƒ…æ˜¾ç¤ºç»™æ‰€æœ‰ç”¨æˆ·ã€‚ |
 
 
 
-Ä¬ÈÏÖµÊÇ `never`¡£ µ±ÓÃ»§´¦ÓÚ¶ËµãµÄÒ»¸ö»ò¶à¸ö½ÇÉ«ÖĞÊ±£¬ËûÃÇ±»ÈÏÎªÊÇ±»ÊÚÈ¨µÄ¡£ Èç¹û¶ËµãÃ»ÓĞÅäÖÃ½ÇÉ«£¨Ä¬ÈÏÖµ£©£¬ËùÓĞÈÏÖ¤µÄÓÃ»§¶¼±»ÈÏÎªÊÇÊÚÈ¨µÄ¡£ Äã¿ÉÒÔÍ¨¹ıÊ¹ÓÃ `management.endpoint.health.roles` ÊôĞÔÀ´ÅäÖÃ½ÇÉ«¡£
-
-
-
-
-
-|  | Èç¹ûÄãÒÑ¾­±£»¤ÁËÄãµÄÓ¦ÓÃ³ÌĞò²¢Ï£ÍûÊ¹ÓÃ `always`£¬ÄãµÄ°²È«ÅäÖÃ£¨security configuration£©±ØĞëÔÊĞíÈÏÖ¤ºÍ·ÇÈÏÖ¤ÓÃ»§·ÃÎÊhealth¶Ëµã¡£ |
-| --- | --- |
+é»˜è®¤å€¼æ˜¯ `never`ã€‚ å½“ç”¨æˆ·å¤„äºç«¯ç‚¹çš„ä¸€ä¸ªæˆ–å¤šä¸ªè§’è‰²ä¸­æ—¶ï¼Œä»–ä»¬è¢«è®¤ä¸ºæ˜¯è¢«æˆæƒçš„ã€‚ å¦‚æœç«¯ç‚¹æ²¡æœ‰é…ç½®è§’è‰²ï¼ˆé»˜è®¤å€¼ï¼‰ï¼Œæ‰€æœ‰è®¤è¯çš„ç”¨æˆ·éƒ½è¢«è®¤ä¸ºæ˜¯æˆæƒçš„ã€‚ ä½ å¯ä»¥é€šè¿‡ä½¿ç”¨ `management.endpoint.health.roles` å±æ€§æ¥é…ç½®è§’è‰²ã€‚
 
 
 
 
 
-½¡¿µĞÅÏ¢ÊÇ´Ó [`HealthContributorRegistry`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/HealthContributorRegistry.java) µÄÄÚÈİÖĞÊÕ¼¯µÄ£¨Ä¬ÈÏÇé¿öÏÂ£¬ËùÓĞ [`HealthContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/HealthContributor.java) ÊµÀı¶¼¶¨ÒåÔÚÄãµÄ `ApplicationContext` ÖĞ£©¡£ Spring Boot°üÀ¨Ò»Ğ©×Ô¶¯ÅäÖÃµÄ `HealthContributor`£¬ÄãÒ²¿ÉÒÔ±àĞ´×Ô¼ºµÄ¡£
-
-
-
-
-
-Ò»¸ö `HealthContributor` ¿ÉÒÔÊÇÒ»¸ö `HealthIndicator` »òÒ»¸ö `CompositeHealthContributor`¡£ Ò»¸ö `HealthIndicator` Ìá¹©Êµ¼ÊµÄ½¡¿µĞÅÏ¢£¬°üÀ¨ `Status`¡£ Ò»¸ö `CompositeHealthContributor` Ìá¹©ÆäËû `HealthContributors` µÄ×éºÏ¡£ ×ÛºÏÆğÀ´£¬contributorĞÎ³ÉÒ»¸öÊ÷×´½á¹¹À´±íÊ¾Õû¸öÏµÍ³µÄ½¡¿µ×´¿ö¡£
-
-
-
-
-
-Ä¬ÈÏÇé¿öÏÂ£¬×îÖÕµÄÏµÍ³½¡¿µ×´¿öÊÇÓÉÒ»¸ö `StatusAggregator` µÃ³öµÄ£¬Ëü¸ù¾İÒ»¸öÓĞĞòµÄ×´Ì¬ÁĞ±í¶ÔÃ¿¸ö `HealthIndicator` µÄ×´Ì¬½øĞĞÅÅĞò¡£ ÅÅĞòÁĞ±íÖĞµÄµÚÒ»¸ö×´Ì¬±»ÓÃ×÷ÕûÌå½¡¿µ×´Ì¬¡£ Èç¹ûÃ»ÓĞ `HealthIndicator` ·µ»ØµÄ×´Ì¬ÊÇ `StatusAggregator` ËùÖªµÀµÄ£¬¾Í»áÊ¹ÓÃ `UNKNOWN` ×´Ì¬¡£
-
-
-
-
-
-|  | Äã¿ÉÒÔÊ¹ÓÃ `HealthContributorRegistry` À´ÔÚÔËĞĞÊ±×¢²áºÍÈ¡Ïû×¢²á½¡¿µÖ¸±ê¡£ |
+|  | å¦‚æœä½ å·²ç»ä¿æŠ¤äº†ä½ çš„åº”ç”¨ç¨‹åºå¹¶å¸Œæœ›ä½¿ç”¨ `always`ï¼Œä½ çš„å®‰å…¨é…ç½®ï¼ˆsecurity configurationï¼‰å¿…é¡»å…è®¸è®¤è¯å’Œéè®¤è¯ç”¨æˆ·è®¿é—®healthç«¯ç‚¹ã€‚ |
 | --- | --- |
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.auto-configured-health-indicators)2.8.1\. ×Ô¶¯ÅäÖÃµÄHealthIndicators
+å¥åº·ä¿¡æ¯æ˜¯ä» [`HealthContributorRegistry`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/HealthContributorRegistry.java) çš„å†…å®¹ä¸­æ”¶é›†çš„ï¼ˆé»˜è®¤æƒ…å†µä¸‹ï¼Œæ‰€æœ‰ [`HealthContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/HealthContributor.java) å®ä¾‹éƒ½å®šä¹‰åœ¨ä½ çš„ `ApplicationContext` ä¸­ï¼‰ã€‚ Spring BootåŒ…æ‹¬ä¸€äº›è‡ªåŠ¨é…ç½®çš„ `HealthContributor`ï¼Œä½ ä¹Ÿå¯ä»¥ç¼–å†™è‡ªå·±çš„ã€‚
 
 
 
-ÔÚÊÊµ±µÄÊ±ºò£¬Spring Boot»á×Ô¶¯ÅäÖÃÏÂ±íÖĞÁĞ³öµÄ `HealthIndicators`¡£ ÄãÒ²¿ÉÒÔÍ¨¹ıÅäÖÃ `management.health.key.enabled` À´ÆôÓÃ»òÍ£ÓÃËùÑ¡Ö¸±ê¡£ ºÍÏÂ±íÖĞÁĞ³öµÄ `key`¡£
+
+
+ä¸€ä¸ª `HealthContributor` å¯ä»¥æ˜¯ä¸€ä¸ª `HealthIndicator` æˆ–ä¸€ä¸ª `CompositeHealthContributor`ã€‚ ä¸€ä¸ª `HealthIndicator` æä¾›å®é™…çš„å¥åº·ä¿¡æ¯ï¼ŒåŒ…æ‹¬ `Status`ã€‚ ä¸€ä¸ª `CompositeHealthContributor` æä¾›å…¶ä»– `HealthContributors` çš„ç»„åˆã€‚ ç»¼åˆèµ·æ¥ï¼Œcontributorå½¢æˆä¸€ä¸ªæ ‘çŠ¶ç»“æ„æ¥è¡¨ç¤ºæ•´ä¸ªç³»ç»Ÿçš„å¥åº·çŠ¶å†µã€‚
+
+
+
+
+
+é»˜è®¤æƒ…å†µä¸‹ï¼Œæœ€ç»ˆçš„ç³»ç»Ÿå¥åº·çŠ¶å†µæ˜¯ç”±ä¸€ä¸ª `StatusAggregator` å¾—å‡ºçš„ï¼Œå®ƒæ ¹æ®ä¸€ä¸ªæœ‰åºçš„çŠ¶æ€åˆ—è¡¨å¯¹æ¯ä¸ª `HealthIndicator` çš„çŠ¶æ€è¿›è¡Œæ’åºã€‚ æ’åºåˆ—è¡¨ä¸­çš„ç¬¬ä¸€ä¸ªçŠ¶æ€è¢«ç”¨ä½œæ•´ä½“å¥åº·çŠ¶æ€ã€‚ å¦‚æœæ²¡æœ‰ `HealthIndicator` è¿”å›çš„çŠ¶æ€æ˜¯ `StatusAggregator` æ‰€çŸ¥é“çš„ï¼Œå°±ä¼šä½¿ç”¨ `UNKNOWN` çŠ¶æ€ã€‚
+
+
+
+
+
+|  | ä½ å¯ä»¥ä½¿ç”¨ `HealthContributorRegistry` æ¥åœ¨è¿è¡Œæ—¶æ³¨å†Œå’Œå–æ¶ˆæ³¨å†Œå¥åº·æŒ‡æ ‡ã€‚ |
+| --- | --- |
+
+
+
+
+
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.auto-configured-health-indicators)2.8.1\. è‡ªåŠ¨é…ç½®çš„HealthIndicators
+
+
+
+åœ¨é€‚å½“çš„æ—¶å€™ï¼ŒSpring Bootä¼šè‡ªåŠ¨é…ç½®ä¸‹è¡¨ä¸­åˆ—å‡ºçš„ `HealthIndicators`ã€‚ ä½ ä¹Ÿå¯ä»¥é€šè¿‡é…ç½® `management.health.key.enabled` æ¥å¯ç”¨æˆ–åœç”¨æ‰€é€‰æŒ‡æ ‡ã€‚ å’Œä¸‹è¡¨ä¸­åˆ—å‡ºçš„ `key`ã€‚
 
 
 
 <colgroup><col><col><col></colgroup>
-| Key | Name | ËµÃ÷ |
+| Key | Name | è¯´æ˜ |
 | --- | --- | --- |
-| `cassandra` | [`CassandraDriverHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/cassandra/CassandraDriverHealthIndicator.java) | ¼ì²éCassandraÊı¾İ¿âÊÇ·ñÒÑ¾­Æô¶¯¡£ |
-| `couchbase` | [`CouchbaseHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/couchbase/CouchbaseHealthIndicator.java) | ¼ì²éCouchbase¼¯ÈºÊÇ·ñÒÑ¾­Æô¶¯¡£ |
-| `db` | [`DataSourceHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/jdbc/DataSourceHealthIndicator.java) | ¼ì²éÊÇ·ñ¿ÉÒÔ»ñµÃÓë`DataSource`µÄÁ¬½Ó¡£ |
-| `diskspace` | [`DiskSpaceHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/system/DiskSpaceHealthIndicator.java) | ¼ì²é´ÅÅÌ¿Õ¼äÊÇ·ñ²»×ã¡£ |
-| `elasticsearch` | [`ElasticsearchRestHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/elasticsearch/ElasticsearchRestHealthIndicator.java) | ¼ì²éElasticsearch¼¯ÈºÊÇ·ñÒÑ¾­Æô¶¯¡£ |
-| `hazelcast` | [`HazelcastHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/hazelcast/HazelcastHealthIndicator.java) | ¼ì²éHazelcast·şÎñÆ÷ÊÇ·ñÒÑ¾­Æô¶¯¡£ |
-| `influxdb` | [`InfluxDbHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/influx/InfluxDbHealthIndicator.java) | ¼ì²éInfluxDB·şÎñÆ÷ÊÇ·ñÒÑ¾­Æô¶¯¡£ |
-| `jms` | [`JmsHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/jms/JmsHealthIndicator.java) | ¼ì²éÒ»¸öJMS´úÀíÊÇ·ñÒÑ¾­Æô¶¯¡£ |
-| `ldap` | [`LdapHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/ldap/LdapHealthIndicator.java) | ¼ì²éÒ»¸öLDAP·şÎñÆ÷ÊÇ·ñÕı³£¡£ |
-| `mail` | [`MailHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/mail/MailHealthIndicator.java) | ¼ì²éÒ»¸öÓÊ¼ş·şÎñÆ÷ÊÇ·ñÕı³£¡£ |
-| `mongo` | [`MongoHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/data/mongo/MongoHealthIndicator.java) | ¼ì²éMongoÊı¾İ¿âÊÇ·ñÒÑ¾­Æô¶¯¡£ |
-| `neo4j` | [`Neo4jHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/neo4j/Neo4jHealthIndicator.java) | ¼ì²éNeo4jÊı¾İ¿âÊÇ·ñÒÑ¾­Æô¶¯¡£ |
-| `ping` | [`PingHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/PingHealthIndicator.java) | ×ÜÊÇÏìÓ¦ `UP` ¡£ |
-| `rabbit` | [`RabbitHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/amqp/RabbitHealthIndicator.java) | ¼ì²éÒ»¸öRabbit·şÎñÆ÷ÊÇ·ñÒÑ¾­Æô¶¯¡£ |
-| `redis` | [`RedisHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/data/redis/RedisHealthIndicator.java) | ¼ì²éRedis·şÎñÆ÷ÊÇ·ñÒÑ¾­Æô¶¯¡£ |
+| `cassandra` | [`CassandraDriverHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/cassandra/CassandraDriverHealthIndicator.java) | æ£€æŸ¥Cassandraæ•°æ®åº“æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
+| `couchbase` | [`CouchbaseHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/couchbase/CouchbaseHealthIndicator.java) | æ£€æŸ¥Couchbaseé›†ç¾¤æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
+| `db` | [`DataSourceHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/jdbc/DataSourceHealthIndicator.java) | æ£€æŸ¥æ˜¯å¦å¯ä»¥è·å¾—ä¸`DataSource`çš„è¿æ¥ã€‚ |
+| `diskspace` | [`DiskSpaceHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/system/DiskSpaceHealthIndicator.java) | æ£€æŸ¥ç£ç›˜ç©ºé—´æ˜¯å¦ä¸è¶³ã€‚ |
+| `elasticsearch` | [`ElasticsearchRestHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/elasticsearch/ElasticsearchRestHealthIndicator.java) | æ£€æŸ¥Elasticsearché›†ç¾¤æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
+| `hazelcast` | [`HazelcastHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/hazelcast/HazelcastHealthIndicator.java) | æ£€æŸ¥HazelcastæœåŠ¡å™¨æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
+| `influxdb` | [`InfluxDbHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/influx/InfluxDbHealthIndicator.java) | æ£€æŸ¥InfluxDBæœåŠ¡å™¨æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
+| `jms` | [`JmsHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/jms/JmsHealthIndicator.java) | æ£€æŸ¥ä¸€ä¸ªJMSä»£ç†æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
+| `ldap` | [`LdapHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/ldap/LdapHealthIndicator.java) | æ£€æŸ¥ä¸€ä¸ªLDAPæœåŠ¡å™¨æ˜¯å¦æ­£å¸¸ã€‚ |
+| `mail` | [`MailHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/mail/MailHealthIndicator.java) | æ£€æŸ¥ä¸€ä¸ªé‚®ä»¶æœåŠ¡å™¨æ˜¯å¦æ­£å¸¸ã€‚ |
+| `mongo` | [`MongoHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/data/mongo/MongoHealthIndicator.java) | æ£€æŸ¥Mongoæ•°æ®åº“æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
+| `neo4j` | [`Neo4jHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/neo4j/Neo4jHealthIndicator.java) | æ£€æŸ¥Neo4jæ•°æ®åº“æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
+| `ping` | [`PingHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/PingHealthIndicator.java) | æ€»æ˜¯å“åº” `UP` ã€‚ |
+| `rabbit` | [`RabbitHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/amqp/RabbitHealthIndicator.java) | æ£€æŸ¥ä¸€ä¸ªRabbitæœåŠ¡å™¨æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
+| `redis` | [`RedisHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/data/redis/RedisHealthIndicator.java) | æ£€æŸ¥RedisæœåŠ¡å™¨æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
 
 
 
-|  | Äã¿ÉÒÔÍ¨¹ıÉèÖÃ `management.health.defaults.enabled` ÊôĞÔÀ´½ûÓÃËüÃÇ¡£ |
+|  | ä½ å¯ä»¥é€šè¿‡è®¾ç½® `management.health.defaults.enabled` å±æ€§æ¥ç¦ç”¨å®ƒä»¬ã€‚ |
 | --- | --- |
 
 
 
 
 
-¶îÍâµÄ `HealthIndicators` ÊÇ¿ÉÓÃµÄ£¬µ«ÔÚÄ¬ÈÏÇé¿öÏÂ²»ÆôÓÃ¡£
+é¢å¤–çš„ `HealthIndicators` æ˜¯å¯ç”¨çš„ï¼Œä½†åœ¨é»˜è®¤æƒ…å†µä¸‹ä¸å¯ç”¨ã€‚
 
 
 
 <colgroup><col><col><col></colgroup>
-| Key | Name | ËµÃ÷ |
+| Key | Name | è¯´æ˜ |
 | --- | --- | --- |
-| `livenessstate` | [`LivenessStateHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/availability/LivenessStateHealthIndicator.java) | ÏÔÊ¾ ¡°Liveness¡± Ó¦ÓÃ³ÌĞòµÄ¿ÉÓÃĞÔ×´Ì¬¡£ |
-| `readinessstate` | [`ReadinessStateHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/availability/ReadinessStateHealthIndicator.java) | ±©Â¶ ¡°Readiness¡± Ó¦ÓÃ³ÌĞòµÄ¿ÉÓÃĞÔ×´Ì¬¡£ |
+| `livenessstate` | [`LivenessStateHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/availability/LivenessStateHealthIndicator.java) | æ˜¾ç¤º â€œLivenessâ€ åº”ç”¨ç¨‹åºçš„å¯ç”¨æ€§çŠ¶æ€ã€‚ |
+| `readinessstate` | [`ReadinessStateHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/availability/ReadinessStateHealthIndicator.java) | æš´éœ² â€œReadinessâ€ åº”ç”¨ç¨‹åºçš„å¯ç”¨æ€§çŠ¶æ€ã€‚ |
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.writing-custom-health-indicators)2.8.2\. ±àĞ´×Ô¶¨ÒåHealthIndicators
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.writing-custom-health-indicators)2.8.2\. ç¼–å†™è‡ªå®šä¹‰HealthIndicators
 
 
 
-ÎªÁËÌá¹©×Ô¶¨ÒåµÄ½¡¿µĞÅÏ¢£¬Äã¿ÉÒÔ×¢²áÊµÏÖ [`HealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/HealthIndicator.java) ½Ó¿ÚµÄSpring Bean¡£ ÄãĞèÒªÌá¹©Ò»¸ö `health()` ·½·¨µÄÊµÏÖ£¬²¢·µ»ØÒ»¸ö `Health` ÏìÓ¦¡£ `Health` ÏìÓ¦Ó¦¸Ã°üÀ¨Ò»¸östatus£¬²¢¿ÉÒÔÑ¡Ôñ°üÀ¨ÒªÏÔÊ¾µÄÆäËûÏ¸½Ú¡£ ÏÂÃæµÄ´úÂëÏÔÊ¾ÁËÒ»¸ö `HealthIndicator` µÄÊµÏÖÑù±¾¡£
+ä¸ºäº†æä¾›è‡ªå®šä¹‰çš„å¥åº·ä¿¡æ¯ï¼Œä½ å¯ä»¥æ³¨å†Œå®ç° [`HealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/HealthIndicator.java) æ¥å£çš„Spring Beanã€‚ ä½ éœ€è¦æä¾›ä¸€ä¸ª `health()` æ–¹æ³•çš„å®ç°ï¼Œå¹¶è¿”å›ä¸€ä¸ª `Health` å“åº”ã€‚ `Health` å“åº”åº”è¯¥åŒ…æ‹¬ä¸€ä¸ªstatusï¼Œå¹¶å¯ä»¥é€‰æ‹©åŒ…æ‹¬è¦æ˜¾ç¤ºçš„å…¶ä»–ç»†èŠ‚ã€‚ ä¸‹é¢çš„ä»£ç æ˜¾ç¤ºäº†ä¸€ä¸ª `HealthIndicator` çš„å®ç°æ ·æœ¬ã€‚
 
 
 
@@ -1148,27 +1148,27 @@ public class MyHealthIndicator implements HealthIndicator {
 
 
 
-|  | Ò»¸ö¸ø¶¨µÄ `HealthIndicator` µÄ±êÊ¶·û£¨ID£©ÊÇÃ»ÓĞ `HealthIndicator` ºó×ºµÄBeanµÄÃû×Ö£¬Èç¹ûËü´æÔÚµÄ»°¡£ ÔÚÇ°ÃæµÄÀı×ÓÖĞ£¬½¡¿µĞÅÏ¢¿ÉÒÔÔÚÒ»¸öÃûÎª `my` µÄÌõÄ¿ÖĞÕÒµ½¡£ |
+|  | ä¸€ä¸ªç»™å®šçš„ `HealthIndicator` çš„æ ‡è¯†ç¬¦ï¼ˆIDï¼‰æ˜¯æ²¡æœ‰ `HealthIndicator` åç¼€çš„Beançš„åå­—ï¼Œå¦‚æœå®ƒå­˜åœ¨çš„è¯ã€‚ åœ¨å‰é¢çš„ä¾‹å­ä¸­ï¼Œå¥åº·ä¿¡æ¯å¯ä»¥åœ¨ä¸€ä¸ªåä¸º `my` çš„æ¡ç›®ä¸­æ‰¾åˆ°ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | ½¡¿µÖ¸±êÍ¨³£ÊÇÍ¨¹ıHTTPµ÷ÓÃµÄ£¬ĞèÒªÔÚÈÎºÎÁ¬½Ó³¬Ê±Ö®Ç°×ö³öÏìÓ¦¡£ Èç¹ûÈÎºÎ½¡¿µÖ¸±êµÄÏìÓ¦Ê±¼ä³¬¹ı10Ãë£¬Spring Boot½«¼ÇÂ¼Ò»Ìõ¾¯¸æĞÅÏ¢¡£ Èç¹ûÄãÏëÅäÖÃÕâ¸öãĞÖµ£¬Äã¿ÉÒÔÊ¹ÓÃ `management.endpoint.health.logging.slow-indicator-threshold` ÊôĞÔ¡£ |
+|  | å¥åº·æŒ‡æ ‡é€šå¸¸æ˜¯é€šè¿‡HTTPè°ƒç”¨çš„ï¼Œéœ€è¦åœ¨ä»»ä½•è¿æ¥è¶…æ—¶ä¹‹å‰åšå‡ºå“åº”ã€‚ å¦‚æœä»»ä½•å¥åº·æŒ‡æ ‡çš„å“åº”æ—¶é—´è¶…è¿‡10ç§’ï¼ŒSpring Bootå°†è®°å½•ä¸€æ¡è­¦å‘Šä¿¡æ¯ã€‚ å¦‚æœä½ æƒ³é…ç½®è¿™ä¸ªé˜ˆå€¼ï¼Œä½ å¯ä»¥ä½¿ç”¨ `management.endpoint.health.logging.slow-indicator-threshold` å±æ€§ã€‚ |
 | --- | --- |
 
 
 
 
 
-³ıÁËSpring BootÔ¤¶¨ÒåµÄ [`Status`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/Status.java) ÀàĞÍÍâ£¬`Health` ¿ÉÒÔ·µ»Ø´ú±íĞÂÏµÍ³×´Ì¬µÄ×Ô¶¨Òå `Status`¡£ ÔÚÕâÖÖÇé¿öÏÂ£¬Äã»¹ĞèÒªÌá¹© `StatusAggregator` ½Ó¿ÚµÄ×Ô¶¨ÒåÊµÏÖ£¬»òÕßÄã±ØĞëÍ¨¹ıÊ¹ÓÃ `management.endpoint.health.status.order` ÅäÖÃÊôĞÔÀ´ÅäÖÃÄ¬ÈÏÊµÏÖ¡£
+é™¤äº†Spring Booté¢„å®šä¹‰çš„ [`Status`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/Status.java) ç±»å‹å¤–ï¼Œ`Health` å¯ä»¥è¿”å›ä»£è¡¨æ–°ç³»ç»ŸçŠ¶æ€çš„è‡ªå®šä¹‰ `Status`ã€‚ åœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œä½ è¿˜éœ€è¦æä¾› `StatusAggregator` æ¥å£çš„è‡ªå®šä¹‰å®ç°ï¼Œæˆ–è€…ä½ å¿…é¡»é€šè¿‡ä½¿ç”¨ `management.endpoint.health.status.order` é…ç½®å±æ€§æ¥é…ç½®é»˜è®¤å®ç°ã€‚
 
 
 
 
 
-ÀıÈç£¬¼ÙÉèÔÚÄãµÄÒ»¸ö `HealthIndicator` ÊµÏÖÖĞÊ¹ÓÃÁËÒ»¸ö´úÂëÎª `FATAL` µÄĞÂ `Status`¡£ ÎªÁËÅäÖÃÑÏÖØĞÔË³Ğò£¬ÔÚÄãµÄÓ¦ÓÃ³ÌĞòÊôĞÔÖĞÌí¼ÓÒÔÏÂÊôĞÔ¡£
+ä¾‹å¦‚ï¼Œå‡è®¾åœ¨ä½ çš„ä¸€ä¸ª `HealthIndicator` å®ç°ä¸­ä½¿ç”¨äº†ä¸€ä¸ªä»£ç ä¸º `FATAL` çš„æ–° `Status`ã€‚ ä¸ºäº†é…ç½®ä¸¥é‡æ€§é¡ºåºï¼Œåœ¨ä½ çš„åº”ç”¨ç¨‹åºå±æ€§ä¸­æ·»åŠ ä»¥ä¸‹å±æ€§ã€‚
 
 
 
@@ -1195,7 +1195,7 @@ management.endpoint.health.status.order=fatal,down,out-of-service,unknown,up
 
 
 
-ÏìÓ¦ÖĞµÄHTTP×´Ì¬´úÂë·´Ó³ÁËÕûÌå½¡¿µ×´Ì¬¡£ Ä¬ÈÏÇé¿öÏÂ£¬`OUT_OF_SERVICE` ºÍ `DOWN` Ó³Éäµ½503¡£ ÈÎºÎÎ´Ó³ÉäµÄ½¡¿µ×´Ì¬£¬°üÀ¨ `UP`£¬¶¼Ó³ÉäÎª200¡£ Èç¹ûÄãÍ¨¹ıHTTP·ÃÎÊ½¡¿µ¶Ëµã£¬Äã¿ÉÄÜ»¹Ïë×¢²á×Ô¶¨Òå×´Ì¬Ó³Éä¡£ ÅäÖÃ×Ô¶¨ÒåÓ³Éä»á½ûÓÃ `DOWN` ºÍ `OUT_OF_SERVICE` µÄÄ¬ÈÏÓ³Éä¡£ Èç¹ûÄãÏë±£ÁôÄ¬ÈÏÓ³Éä£¬Äã±ØĞëÃ÷È·µØÅäÖÃËüÃÇ£¬ÒÔ¼°ÈÎºÎ×Ô¶¨ÒåÓ³Éä¡£ ÀıÈç£¬ÏÂÃæµÄÊôĞÔ½« `FATAL` Ó³ÉäÎª503£¨·şÎñ²»¿ÉÓÃ£©£¬²¢±£ÁôÁË `DOWN` ºÍ `OUT_OF_SERVICE` µÄÄ¬ÈÏÓ³Éä¡£
+å“åº”ä¸­çš„HTTPçŠ¶æ€ä»£ç åæ˜ äº†æ•´ä½“å¥åº·çŠ¶æ€ã€‚ é»˜è®¤æƒ…å†µä¸‹ï¼Œ`OUT_OF_SERVICE` å’Œ `DOWN` æ˜ å°„åˆ°503ã€‚ ä»»ä½•æœªæ˜ å°„çš„å¥åº·çŠ¶æ€ï¼ŒåŒ…æ‹¬ `UP`ï¼Œéƒ½æ˜ å°„ä¸º200ã€‚ å¦‚æœä½ é€šè¿‡HTTPè®¿é—®å¥åº·ç«¯ç‚¹ï¼Œä½ å¯èƒ½è¿˜æƒ³æ³¨å†Œè‡ªå®šä¹‰çŠ¶æ€æ˜ å°„ã€‚ é…ç½®è‡ªå®šä¹‰æ˜ å°„ä¼šç¦ç”¨ `DOWN` å’Œ `OUT_OF_SERVICE` çš„é»˜è®¤æ˜ å°„ã€‚ å¦‚æœä½ æƒ³ä¿ç•™é»˜è®¤æ˜ å°„ï¼Œä½ å¿…é¡»æ˜ç¡®åœ°é…ç½®å®ƒä»¬ï¼Œä»¥åŠä»»ä½•è‡ªå®šä¹‰æ˜ å°„ã€‚ ä¾‹å¦‚ï¼Œä¸‹é¢çš„å±æ€§å°† `FATAL` æ˜ å°„ä¸º503ï¼ˆæœåŠ¡ä¸å¯ç”¨ï¼‰ï¼Œå¹¶ä¿ç•™äº† `DOWN` å’Œ `OUT_OF_SERVICE` çš„é»˜è®¤æ˜ å°„ã€‚
 
 
 
@@ -1224,14 +1224,14 @@ management.endpoint.health.status.http-mapping.out-of-service=503
 
 
 
-|  | Èç¹ûÄãĞèÒª¸ü¶àµÄ¿ØÖÆ£¬Äã¿ÉÒÔ¶¨ÒåÄã×Ô¼ºµÄ `HttpCodeStatusMapper` bean¡£ |
+|  | å¦‚æœä½ éœ€è¦æ›´å¤šçš„æ§åˆ¶ï¼Œä½ å¯ä»¥å®šä¹‰ä½ è‡ªå·±çš„ `HttpCodeStatusMapper` beanã€‚ |
 | --- | --- |
 
 
 
 
 
-ÏÂ±íÏÔÊ¾ÁËÄÚÖÃ×´Ì¬µÄÄ¬ÈÏ×´Ì¬Ó³Éä¡£
+ä¸‹è¡¨æ˜¾ç¤ºäº†å†…ç½®çŠ¶æ€çš„é»˜è®¤çŠ¶æ€æ˜ å°„ã€‚
 
 
 
@@ -1240,37 +1240,37 @@ management.endpoint.health.status.http-mapping.out-of-service=503
 | --- | --- |
 | `DOWN` | `SERVICE_UNAVAILABLE` (`503`) |
 | `OUT_OF_SERVICE` | `SERVICE_UNAVAILABLE` (`503`) |
-| `UP` | Ä¬ÈÏÇé¿öÏÂÃ»ÓĞÓ³Éä£¬ËùÒÔHTTP×´Ì¬Îª `200`¡£ |
-| `UNKNOWN` | Ä¬ÈÏÇé¿öÏÂÃ»ÓĞÓ³Éä£¬ËùÒÔHTTP×´Ì¬Îª `200`¡£ |
+| `UP` | é»˜è®¤æƒ…å†µä¸‹æ²¡æœ‰æ˜ å°„ï¼Œæ‰€ä»¥HTTPçŠ¶æ€ä¸º `200`ã€‚ |
+| `UNKNOWN` | é»˜è®¤æƒ…å†µä¸‹æ²¡æœ‰æ˜ å°„ï¼Œæ‰€ä»¥HTTPçŠ¶æ€ä¸º `200`ã€‚ |
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.reactive-health-indicators)2.8.3\. ÏìÓ¦Ê½½¡¿µÖ¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.reactive-health-indicators)2.8.3\. å“åº”å¼å¥åº·æŒ‡æ ‡
 
 
 
-¶ÔÓÚÏìÓ¦Ê½Ó¦ÓÃ³ÌĞò£¬ÀıÈçÄÇĞ©Ê¹ÓÃSpring WebFluxµÄÓ¦ÓÃ³ÌĞò£¬`ReactiveHealthContributor` Ìá¹©ÁËÒ»¸ö·Ç×èÈûµÄÆõÔ¼À´»ñÈ¡Ó¦ÓÃ³ÌĞòµÄ½¡¿µ×´¿ö¡£ Óë´«Í³µÄ `HealthContributor` ÀàËÆ£¬½¡¿µĞÅÏ¢´Ó [`ReactiveHealthContributorRegistry`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/ReactiveHealthContributorRegistry.java) µÄÄÚÈİÖĞÊÕ¼¯£¨Ä¬ÈÏÇé¿öÏÂ£¬ËùÓĞ [`HealthContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/HealthContributor.java) ºÍ [`ReactiveHealthContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/ReactiveHealthContributor.java) µÄÊµÀı¶¨ÒåÔÚÄãµÄ `ApplicationContext` Àï£©¡£
-
-
-
-
-
-²»¶ÔÏìÓ¦Ê½API½øĞĞ¼ì²éµÄ³£¹æ `HealthContributors` ÔÚµ¯ĞÔµ÷¶ÈÆ÷ÉÏÖ´ĞĞ¡£
+å¯¹äºå“åº”å¼åº”ç”¨ç¨‹åºï¼Œä¾‹å¦‚é‚£äº›ä½¿ç”¨Spring WebFluxçš„åº”ç”¨ç¨‹åºï¼Œ`ReactiveHealthContributor` æä¾›äº†ä¸€ä¸ªéé˜»å¡çš„å¥‘çº¦æ¥è·å–åº”ç”¨ç¨‹åºçš„å¥åº·çŠ¶å†µã€‚ ä¸ä¼ ç»Ÿçš„ `HealthContributor` ç±»ä¼¼ï¼Œå¥åº·ä¿¡æ¯ä» [`ReactiveHealthContributorRegistry`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/ReactiveHealthContributorRegistry.java) çš„å†…å®¹ä¸­æ”¶é›†ï¼ˆé»˜è®¤æƒ…å†µä¸‹ï¼Œæ‰€æœ‰ [`HealthContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/HealthContributor.java) å’Œ [`ReactiveHealthContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/ReactiveHealthContributor.java) çš„å®ä¾‹å®šä¹‰åœ¨ä½ çš„ `ApplicationContext` é‡Œï¼‰ã€‚
 
 
 
 
 
-|  | ÔÚÒ»¸öÏìÓ¦Ê½Ó¦ÓÃ³ÌĞòÖĞ£¬ÄãÓ¦¸ÃÊ¹ÓÃ `ReactiveHealthContributorRegistry` À´ÔÚÔËĞĞÊ±×¢²áºÍÈ¡Ïû×¢²á½¡¿µÖ¸±ê¡£ Èç¹ûÄãĞèÒª×¢²áÒ»¸öÆÕÍ¨µÄ `HealthContributor`£¬ÄãÓ¦¸ÃÓÃ `ReactiveHealthContributor#adapt` À´°ü×°Ëü¡£ |
+ä¸å¯¹å“åº”å¼APIè¿›è¡Œæ£€æŸ¥çš„å¸¸è§„ `HealthContributors` åœ¨å¼¹æ€§è°ƒåº¦å™¨ä¸Šæ‰§è¡Œã€‚
+
+
+
+
+
+|  | åœ¨ä¸€ä¸ªå“åº”å¼åº”ç”¨ç¨‹åºä¸­ï¼Œä½ åº”è¯¥ä½¿ç”¨ `ReactiveHealthContributorRegistry` æ¥åœ¨è¿è¡Œæ—¶æ³¨å†Œå’Œå–æ¶ˆæ³¨å†Œå¥åº·æŒ‡æ ‡ã€‚ å¦‚æœä½ éœ€è¦æ³¨å†Œä¸€ä¸ªæ™®é€šçš„ `HealthContributor`ï¼Œä½ åº”è¯¥ç”¨ `ReactiveHealthContributor#adapt` æ¥åŒ…è£…å®ƒã€‚ |
 | --- | --- |
 
 
 
 
 
-ÎªÁË´ÓÏìÓ¦Ê½APIÖĞÌá¹©×Ô¶¨ÒåµÄ½¡¿µĞÅÏ¢£¬Äã¿ÉÒÔ×¢²áÊµÏÖ [`ReactiveHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/ReactiveHealthIndicator.java) ½Ó¿ÚµÄSpring Bean¡£ ÏÂÃæµÄ´úÂëÏÔÊ¾ÁËÒ»¸ö `ReactiveHealthIndicator` µÄÊ¾ÀıÊµÏÖ¡£
+ä¸ºäº†ä»å“åº”å¼APIä¸­æä¾›è‡ªå®šä¹‰çš„å¥åº·ä¿¡æ¯ï¼Œä½ å¯ä»¥æ³¨å†Œå®ç° [`ReactiveHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/health/ReactiveHealthIndicator.java) æ¥å£çš„Spring Beanã€‚ ä¸‹é¢çš„ä»£ç æ˜¾ç¤ºäº†ä¸€ä¸ª `ReactiveHealthIndicator` çš„ç¤ºä¾‹å®ç°ã€‚
 
 
 
@@ -1311,7 +1311,7 @@ public class MyReactiveHealthIndicator implements ReactiveHealthIndicator {
 
 
 
-|  | ÎªÁË×Ô¶¯´¦Àí´íÎó£¬¿ÉÒÔ¿¼ÂÇ´Ó `AbstractReactiveHealthIndicator` ÖĞÀ©Õ¹¡£ |
+|  | ä¸ºäº†è‡ªåŠ¨å¤„ç†é”™è¯¯ï¼Œå¯ä»¥è€ƒè™‘ä» `AbstractReactiveHealthIndicator` ä¸­æ‰©å±•ã€‚ |
 | --- | --- |
 
 
@@ -1320,27 +1320,27 @@ public class MyReactiveHealthIndicator implements ReactiveHealthIndicator {
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.auto-configured-reactive-health-indicators)2.8.4\. ×Ô¶¯ÅäÖÃµÄ ReactiveHealthIndicators
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.auto-configured-reactive-health-indicators)2.8.4\. è‡ªåŠ¨é…ç½®çš„ ReactiveHealthIndicators
 
 
 
-ÔÚÊÊµ±µÄÊ±ºò£¬Spring Boot»á×Ô¶¯ÅäÖÃÒÔÏÂµÄ `ReactiveHealthIndicators`¡£
+åœ¨é€‚å½“çš„æ—¶å€™ï¼ŒSpring Bootä¼šè‡ªåŠ¨é…ç½®ä»¥ä¸‹çš„ `ReactiveHealthIndicators`ã€‚
 
 
 
 <colgroup><col><col><col></colgroup>
-| Key | Name | ËµÃ÷ |
+| Key | Name | è¯´æ˜ |
 | --- | --- | --- |
-| `cassandra` | [`CassandraDriverReactiveHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/cassandra/CassandraDriverReactiveHealthIndicator.java) | ¼ì²éCassandraÊı¾İ¿âÊÇ·ñÒÑ¾­Æô¶¯¡£ |
-| `couchbase` | [`CouchbaseReactiveHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/couchbase/CouchbaseReactiveHealthIndicator.java) | ¼ì²éCouchbase¼¯ÈºÊÇ·ñÒÑ¾­Æô¶¯¡£ |
-| `elasticsearch` | [`ElasticsearchReactiveHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/data/elasticsearch/ElasticsearchReactiveHealthIndicator.java) | ¼ì²éElasticsearch¼¯ÈºÊÇ·ñÒÑ¾­Æô¶¯¡£ |
-| `mongo` | [`MongoReactiveHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/data/mongo/MongoReactiveHealthIndicator.java) | ¼ì²éMongoÊı¾İ¿âÊÇ·ñÒÑ¾­Æô¶¯¡£ |
-| `neo4j` | [`Neo4jReactiveHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/neo4j/Neo4jReactiveHealthIndicator.java) | ¼ì²éNeo4jÊı¾İ¿âÊÇ·ñÒÑ¾­Æô¶¯¡£ |
-| `redis` | [`RedisReactiveHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/data/redis/RedisReactiveHealthIndicator.java) | ¼ì²éRedis·şÎñÆ÷ÊÇ·ñÒÑ¾­Æô¶¯¡£ |
+| `cassandra` | [`CassandraDriverReactiveHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/cassandra/CassandraDriverReactiveHealthIndicator.java) | æ£€æŸ¥Cassandraæ•°æ®åº“æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
+| `couchbase` | [`CouchbaseReactiveHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/couchbase/CouchbaseReactiveHealthIndicator.java) | æ£€æŸ¥Couchbaseé›†ç¾¤æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
+| `elasticsearch` | [`ElasticsearchReactiveHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/data/elasticsearch/ElasticsearchReactiveHealthIndicator.java) | æ£€æŸ¥Elasticsearché›†ç¾¤æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
+| `mongo` | [`MongoReactiveHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/data/mongo/MongoReactiveHealthIndicator.java) | æ£€æŸ¥Mongoæ•°æ®åº“æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
+| `neo4j` | [`Neo4jReactiveHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/neo4j/Neo4jReactiveHealthIndicator.java) | æ£€æŸ¥Neo4jæ•°æ®åº“æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
+| `redis` | [`RedisReactiveHealthIndicator`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/data/redis/RedisReactiveHealthIndicator.java) | æ£€æŸ¥RedisæœåŠ¡å™¨æ˜¯å¦å·²ç»å¯åŠ¨ã€‚ |
 
 
 
-|  | Èç¹ûÓĞ±ØÒª£¬ÏìÓ¦Ê½Ö¸±ê»áÈ¡´ú³£¹æÖ¸±ê¡£ ÁíÍâ£¬ÈÎºÎÃ»ÓĞ±»Ã÷È·´¦ÀíµÄ `HealthIndicator` ¶¼»á±»×Ô¶¯°ü×°ÆğÀ´¡£ |
+|  | å¦‚æœæœ‰å¿…è¦ï¼Œå“åº”å¼æŒ‡æ ‡ä¼šå–ä»£å¸¸è§„æŒ‡æ ‡ã€‚ å¦å¤–ï¼Œä»»ä½•æ²¡æœ‰è¢«æ˜ç¡®å¤„ç†çš„ `HealthIndicator` éƒ½ä¼šè¢«è‡ªåŠ¨åŒ…è£…èµ·æ¥ã€‚ |
 | --- | --- |
 
 
@@ -1349,17 +1349,17 @@ public class MyReactiveHealthIndicator implements ReactiveHealthIndicator {
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.groups)2.8.5\. Health·Ö×é£¨Health Groups£©
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.groups)2.8.5\. Healthåˆ†ç»„ï¼ˆHealth Groupsï¼‰
 
 
 
-ÓĞÊ±£¬½«½¡¿µÖ¸±ê×éÖ¯³É¿ÉÒÔÓÃÓÚ²»Í¬Ä¿µÄµÄ×éÊÇºÜÓĞÓÃµÄ¡£
+æœ‰æ—¶ï¼Œå°†å¥åº·æŒ‡æ ‡ç»„ç»‡æˆå¯ä»¥ç”¨äºä¸åŒç›®çš„çš„ç»„æ˜¯å¾ˆæœ‰ç”¨çš„ã€‚
 
 
 
 
 
-Òª´´½¨Ò»¸ö½¡¿µÖ¸±ê×é£¬Äã¿ÉÒÔÊ¹ÓÃ `management.endpoint.health.group.<name>` ÊôĞÔ£¬²¢Ö¸¶¨Ò»¸ö½¡¿µÖ¸±êIDÁĞ±íÀ´ `include` »ò `exclude`¡£ ÀıÈç£¬Òª´´½¨Ò»¸öÖ»°üÀ¨Êı¾İ¿âÖ¸±êµÄ×é£¬Äã¿ÉÒÔ¶¨ÒåÈçÏÂ¡£
+è¦åˆ›å»ºä¸€ä¸ªå¥åº·æŒ‡æ ‡ç»„ï¼Œä½ å¯ä»¥ä½¿ç”¨ `management.endpoint.health.group.<name>` å±æ€§ï¼Œå¹¶æŒ‡å®šä¸€ä¸ªå¥åº·æŒ‡æ ‡IDåˆ—è¡¨æ¥ `include` æˆ– `exclude`ã€‚ ä¾‹å¦‚ï¼Œè¦åˆ›å»ºä¸€ä¸ªåªåŒ…æ‹¬æ•°æ®åº“æŒ‡æ ‡çš„ç»„ï¼Œä½ å¯ä»¥å®šä¹‰å¦‚ä¸‹ã€‚
 
 
 
@@ -1386,13 +1386,13 @@ management.endpoint.health.group.custom.include=db
 
 
 
-È»ºóÄã¿ÉÒÔÍ¨¹ıµã»÷ `[localhost:8080/actuator/health/custom](http://localhost:8080/actuator/health/custom)` À´¼ì²é½á¹û¡£
+ç„¶åä½ å¯ä»¥é€šè¿‡ç‚¹å‡» `[localhost:8080/actuator/health/custom](http://localhost:8080/actuator/health/custom)` æ¥æ£€æŸ¥ç»“æœã€‚
 
 
 
 
 
-Í¬Ñù£¬Òª´´½¨Ò»¸ö×é£¬½«Êı¾İ¿âÖ¸±êÅÅ³ıÔÚ¸Ã×éÖ®Íâ£¬²¢°üÀ¨ËùÓĞÆäËûÖ¸±ê£¬Äã¿ÉÒÔ¶¨ÒåÈçÏÂ¡£
+åŒæ ·ï¼Œè¦åˆ›å»ºä¸€ä¸ªç»„ï¼Œå°†æ•°æ®åº“æŒ‡æ ‡æ’é™¤åœ¨è¯¥ç»„ä¹‹å¤–ï¼Œå¹¶åŒ…æ‹¬æ‰€æœ‰å…¶ä»–æŒ‡æ ‡ï¼Œä½ å¯ä»¥å®šä¹‰å¦‚ä¸‹ã€‚
 
 
 
@@ -1419,7 +1419,7 @@ management.endpoint.health.group.custom.exclude=db
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬×é¼Ì³ĞÁËÓëÏµÍ³½¡¿µÏàÍ¬µÄ `StatusAggregator` ºÍ `HttpCodeStatusMapper` ÉèÖÃ¡£ È»¶ø£¬ÄãÒ²¿ÉÒÔÔÚÃ¿¸ö×éµÄ»ù´¡ÉÏ¶¨ÒåÕâĞ©¡£ Èç¹ûĞèÒª£¬ÄãÒ²¿ÉÒÔ¸²¸Ç `show-details` ºÍ `roles` ÊôĞÔ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼Œç»„ç»§æ‰¿äº†ä¸ç³»ç»Ÿå¥åº·ç›¸åŒçš„ `StatusAggregator` å’Œ `HttpCodeStatusMapper` è®¾ç½®ã€‚ ç„¶è€Œï¼Œä½ ä¹Ÿå¯ä»¥åœ¨æ¯ä¸ªç»„çš„åŸºç¡€ä¸Šå®šä¹‰è¿™äº›ã€‚ å¦‚æœéœ€è¦ï¼Œä½ ä¹Ÿå¯ä»¥è¦†ç›– `show-details` å’Œ `roles` å±æ€§ã€‚
 
 
 
@@ -1450,14 +1450,14 @@ management.endpoint.health.group.custom.status.http-mapping.out-of-service=500
 
 
 
-|  | Èç¹ûÄãĞèÒª×¢²á×Ô¶¨ÒåµÄ `StatusAggregator` »ò `HttpCodeStatusMapper` BeanÒÔÓÃÓÚ×é£¬Äã¿ÉÒÔÊ¹ÓÃ `@Qualifier("groupname")`¡£ |
+|  | å¦‚æœä½ éœ€è¦æ³¨å†Œè‡ªå®šä¹‰çš„ `StatusAggregator` æˆ– `HttpCodeStatusMapper` Beanä»¥ç”¨äºç»„ï¼Œä½ å¯ä»¥ä½¿ç”¨ `@Qualifier("groupname")`ã€‚ |
 | --- | --- |
 
 
 
 
 
-Ò»¸ö½¡¿µ×éÒ²¿ÉÒÔ°üÀ¨/ÅÅ³ıÒ»¸ö `CompositeHealthContributor`¡£ ÄúÒ²¿ÉÒÔÖ»°üÀ¨/ÅÅ³ıÒ»¸ö `CompositeHealthContributor` µÄÄ³¸ö×é¼ş¡£ Õâ¿ÉÒÔÊ¹ÓÃ×é¼şµÄÍêÈ«Ãû³ÆÀ´Íê³É£¬ÈçÏÂËùÊ¾¡£
+ä¸€ä¸ªå¥åº·ç»„ä¹Ÿå¯ä»¥åŒ…æ‹¬/æ’é™¤ä¸€ä¸ª `CompositeHealthContributor`ã€‚ æ‚¨ä¹Ÿå¯ä»¥åªåŒ…æ‹¬/æ’é™¤ä¸€ä¸ª `CompositeHealthContributor` çš„æŸä¸ªç»„ä»¶ã€‚ è¿™å¯ä»¥ä½¿ç”¨ç»„ä»¶çš„å®Œå…¨åç§°æ¥å®Œæˆï¼Œå¦‚ä¸‹æ‰€ç¤ºã€‚
 
 
 
@@ -1476,13 +1476,13 @@ management.endpoint.health.group.custom.exclude="test/primary/b"
 
 
 
-ÔÚÉÏÃæµÄÀı×ÓÖĞ£¬`custom` ×é½«°üÀ¨Ãû³ÆÎª `primary` µÄ `HealthContributor`£¬ËüÊÇ¸´ºÏ `test` µÄÒ»¸ö×é³É²¿·Ö¡£ ÔÚÕâÀï£¬`primary` ±¾Éí¾ÍÊÇÒ»¸ö¸´ºÏÌå£¬Ãû×ÖÎª `b` µÄ `HealthContributor` ½«±»ÅÅ³ıÔÚ `custom` ×éÖ®Íâ¡£
+åœ¨ä¸Šé¢çš„ä¾‹å­ä¸­ï¼Œ`custom` ç»„å°†åŒ…æ‹¬åç§°ä¸º `primary` çš„ `HealthContributor`ï¼Œå®ƒæ˜¯å¤åˆ `test` çš„ä¸€ä¸ªç»„æˆéƒ¨åˆ†ã€‚ åœ¨è¿™é‡Œï¼Œ`primary` æœ¬èº«å°±æ˜¯ä¸€ä¸ªå¤åˆä½“ï¼Œåå­—ä¸º `b` çš„ `HealthContributor` å°†è¢«æ’é™¤åœ¨ `custom` ç»„ä¹‹å¤–ã€‚
 
 
 
 
 
-½¡¿µ×é¿ÉÒÔÔÚÖ÷¶Ë¿Ú»ò¹ÜÀí¶Ë¿ÚµÄ¶îÍâÂ·¾¶ÉÏÌá¹©¡£ ÕâÔÚKubernetesµÈÔÆ»·¾³ÖĞºÜÓĞÓÃ£¬ÔÚÕâĞ©»·¾³ÖĞ£¬³öÓÚ°²È«¿¼ÂÇ£¬ÎªÖ´ĞĞÆ÷¶ËµãÊ¹ÓÃÒ»¸öµ¥¶ÀµÄ¹ÜÀí¶Ë¿ÚÊÇºÜ³£¼ûµÄ¡£ ÓĞÒ»¸öµ¥¶ÀµÄ¶Ë¿Ú¿ÉÄÜµ¼ÖÂ²»¿É¿¿µÄ½¡¿µ¼ì²é£¬ÒòÎª¼´Ê¹½¡¿µ¼ì²é³É¹¦£¬Ö÷Ó¦ÓÃ³ÌĞòÒ²¿ÉÄÜÎŞ·¨Õı³£¹¤×÷¡£ ½¡¿µ×é¿ÉÒÔÓÃÒ»¸ö¶îÍâµÄÂ·¾¶½øĞĞÅäÖÃ£¬ÈçÏÂËùÊ¾¡£
+å¥åº·ç»„å¯ä»¥åœ¨ä¸»ç«¯å£æˆ–ç®¡ç†ç«¯å£çš„é¢å¤–è·¯å¾„ä¸Šæä¾›ã€‚ è¿™åœ¨Kubernetesç­‰äº‘ç¯å¢ƒä¸­å¾ˆæœ‰ç”¨ï¼Œåœ¨è¿™äº›ç¯å¢ƒä¸­ï¼Œå‡ºäºå®‰å…¨è€ƒè™‘ï¼Œä¸ºæ‰§è¡Œå™¨ç«¯ç‚¹ä½¿ç”¨ä¸€ä¸ªå•ç‹¬çš„ç®¡ç†ç«¯å£æ˜¯å¾ˆå¸¸è§çš„ã€‚ æœ‰ä¸€ä¸ªå•ç‹¬çš„ç«¯å£å¯èƒ½å¯¼è‡´ä¸å¯é çš„å¥åº·æ£€æŸ¥ï¼Œå› ä¸ºå³ä½¿å¥åº·æ£€æŸ¥æˆåŠŸï¼Œä¸»åº”ç”¨ç¨‹åºä¹Ÿå¯èƒ½æ— æ³•æ­£å¸¸å·¥ä½œã€‚ å¥åº·ç»„å¯ä»¥ç”¨ä¸€ä¸ªé¢å¤–çš„è·¯å¾„è¿›è¡Œé…ç½®ï¼Œå¦‚ä¸‹æ‰€ç¤ºã€‚
 
 
 
@@ -1500,7 +1500,7 @@ management.endpoint.health.group.live.additional-path="server:/healthz"
 
 
 
-Õâ½«Ê¹ `live` ½¡¿µ×éÔÚÖ÷·şÎñÆ÷¶Ë¿Ú `/healthz` ÉÏ¿ÉÓÃ¡£ Ç°×ºÊÇÇ¿ÖÆĞÔµÄ£¬±ØĞëÊÇ `server:`£¨´ú±íÖ÷·şÎñÆ÷¶Ë¿Ú£©»ò `management:`£¨´ú±í¹ÜÀí¶Ë¿Ú£¬Èç¹ûÒÑÅäÖÃ£©¡£ Â·¾¶±ØĞëÊÇÒ»¸öµ¥Ò»µÄÂ·¾¶¶Î¡£
+è¿™å°†ä½¿ `live` å¥åº·ç»„åœ¨ä¸»æœåŠ¡å™¨ç«¯å£ `/healthz` ä¸Šå¯ç”¨ã€‚ å‰ç¼€æ˜¯å¼ºåˆ¶æ€§çš„ï¼Œå¿…é¡»æ˜¯ `server:`ï¼ˆä»£è¡¨ä¸»æœåŠ¡å™¨ç«¯å£ï¼‰æˆ– `management:`ï¼ˆä»£è¡¨ç®¡ç†ç«¯å£ï¼Œå¦‚æœå·²é…ç½®ï¼‰ã€‚ è·¯å¾„å¿…é¡»æ˜¯ä¸€ä¸ªå•ä¸€çš„è·¯å¾„æ®µã€‚
 
 
 
@@ -1508,37 +1508,37 @@ management.endpoint.health.group.live.additional-path="server:/healthz"
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.datasource)2.8.6\. Êı¾İÔ´½¡¿µ
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.datasource)2.8.6\. æ•°æ®æºå¥åº·
 
 
 
-`DataSource` ½¡¿µÖ¸±êÏÔÊ¾±ê×¼Êı¾İÔ´ºÍÂ·ÓÉÊı¾İÔ´BeanµÄ½¡¿µ×´¿ö¡£ Â·ÓÉÊı¾İÔ´µÄ½¡¿µ×´¿ö°üÀ¨ÆäÃ¿¸öÄ¿±êÊı¾İÔ´µÄ½¡¿µ×´¿ö¡£ ÔÚ½¡¿µ¶ËµãµÄÏìÓ¦ÖĞ£¬Â·ÓÉÊı¾İÔ´µÄÃ¿¸öÄ¿±ê¶¼ÊÇÍ¨¹ıÊ¹ÓÃÆäÂ·ÓÉ¼üÀ´ÃüÃûµÄ¡£ Èç¹ûÄã²»Ï£ÍûÔÚÖ¸±êµÄÊä³öÖĞ°üÀ¨Â·ÓÉÊı¾İÔ´£¬Çë½« `management.health.db.ignore-routing-data-sources` ÉèÖÃÎª `true`¡£
-
-
-
-
+`DataSource` å¥åº·æŒ‡æ ‡æ˜¾ç¤ºæ ‡å‡†æ•°æ®æºå’Œè·¯ç”±æ•°æ®æºBeançš„å¥åº·çŠ¶å†µã€‚ è·¯ç”±æ•°æ®æºçš„å¥åº·çŠ¶å†µåŒ…æ‹¬å…¶æ¯ä¸ªç›®æ ‡æ•°æ®æºçš„å¥åº·çŠ¶å†µã€‚ åœ¨å¥åº·ç«¯ç‚¹çš„å“åº”ä¸­ï¼Œè·¯ç”±æ•°æ®æºçš„æ¯ä¸ªç›®æ ‡éƒ½æ˜¯é€šè¿‡ä½¿ç”¨å…¶è·¯ç”±é”®æ¥å‘½åçš„ã€‚ å¦‚æœä½ ä¸å¸Œæœ›åœ¨æŒ‡æ ‡çš„è¾“å‡ºä¸­åŒ…æ‹¬è·¯ç”±æ•°æ®æºï¼Œè¯·å°† `management.health.db.ignore-routing-data-sources` è®¾ç½®ä¸º `true`ã€‚
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.kubernetes-probes)2.9\. Kubernetes Ì½Õë
-
-
-
-²¿ÊğÔÚKubernetesÉÏµÄÓ¦ÓÃ³ÌĞò¿ÉÒÔÍ¨¹ı [ÈİÆ÷Ì½Õë](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) Ìá¹©ÓĞ¹ØÆäÄÚ²¿×´Ì¬µÄĞÅÏ¢¡£¸ù¾İ [ÄãµÄKubernetesÅäÖÃ](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)£¬kubelet»áµ÷ÓÃÕâĞ©Ì½Õë²¢¶Ô½á¹û×ö³ö·´Ó¦¡£
 
 
 
 
-
-Ä¬ÈÏÇé¿öÏÂ£¬Spring Boot»á¹ÜÀíÄãµÄ[Ó¦ÓÃ¿ÉÓÃĞÔ×´Ì¬](https://springdoc.cn/spring-boot/features.html#features.spring-application.application-availability)¡£ Èç¹û²¿ÊğÔÚKubernetes»·¾³ÖĞ£¬actuator´Ó `ApplicationAvailability` ½Ó¿ÚÖĞÊÕ¼¯ ¡°Liveness¡± ºÍ ¡°Readiness¡± ĞÅÏ¢£¬²¢ÔÚ×¨ÓÃ[½¡¿µÖ¸±ê](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.auto-configured-health-indicators)ÖĞÊ¹ÓÃÕâĞ©ĞÅÏ¢¡£`LivenessStateHealthIndicator` ºÍ `ReadinessStateHealthIndicator`¡£ ÕâĞ©Ö¸±êÏÔÊ¾ÔÚÈ«¾Ö½¡¿µ¶Ëµã£¨`"/actuator/health"`£©¡£ ËüÃÇÒ²¿ÉÒÔÍ¨¹ıÊ¹ÓÃ[½¡¿µ×é](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.groups)×÷Îªµ¥¶ÀµÄHTTPÌ½Õë£º`"/actuator/health/liveness"` ºÍ `"/actuator/health/readiness"`¡£
-
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.kubernetes-probes)2.9\. Kubernetes æ¢é’ˆ
 
 
 
+éƒ¨ç½²åœ¨Kubernetesä¸Šçš„åº”ç”¨ç¨‹åºå¯ä»¥é€šè¿‡ [å®¹å™¨æ¢é’ˆ](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes) æä¾›æœ‰å…³å…¶å†…éƒ¨çŠ¶æ€çš„ä¿¡æ¯ã€‚æ ¹æ® [ä½ çš„Kubernetesé…ç½®](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)ï¼Œkubeletä¼šè°ƒç”¨è¿™äº›æ¢é’ˆå¹¶å¯¹ç»“æœåšå‡ºååº”ã€‚
 
-È»ºó£¬Äã¿ÉÒÔÓÃÒÔÏÂ¶ËµãĞÅÏ¢ÅäÖÃÄãµÄKubernetes»ù´¡ÉèÊ©¡£
+
+
+
+
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒSpring Bootä¼šç®¡ç†ä½ çš„[åº”ç”¨å¯ç”¨æ€§çŠ¶æ€](https://springdoc.cn/spring-boot/features.html#features.spring-application.application-availability)ã€‚ å¦‚æœéƒ¨ç½²åœ¨Kubernetesç¯å¢ƒä¸­ï¼Œactuatorä» `ApplicationAvailability` æ¥å£ä¸­æ”¶é›† â€œLivenessâ€ å’Œ â€œReadinessâ€ ä¿¡æ¯ï¼Œå¹¶åœ¨ä¸“ç”¨[å¥åº·æŒ‡æ ‡](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.auto-configured-health-indicators)ä¸­ä½¿ç”¨è¿™äº›ä¿¡æ¯ã€‚`LivenessStateHealthIndicator` å’Œ `ReadinessStateHealthIndicator`ã€‚ è¿™äº›æŒ‡æ ‡æ˜¾ç¤ºåœ¨å…¨å±€å¥åº·ç«¯ç‚¹ï¼ˆ`"/actuator/health"`ï¼‰ã€‚ å®ƒä»¬ä¹Ÿå¯ä»¥é€šè¿‡ä½¿ç”¨[å¥åº·ç»„](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.groups)ä½œä¸ºå•ç‹¬çš„HTTPæ¢é’ˆï¼š`"/actuator/health/liveness"` å’Œ `"/actuator/health/readiness"`ã€‚
+
+
+
+
+
+ç„¶åï¼Œä½ å¯ä»¥ç”¨ä»¥ä¸‹ç«¯ç‚¹ä¿¡æ¯é…ç½®ä½ çš„KubernetesåŸºç¡€è®¾æ–½ã€‚
 
 
 
@@ -1568,27 +1568,27 @@ readinessProbe:
 
 
 
-|  | `` Ó¦¸Ã±»ÉèÖÃÎªÖ´ĞĞÆ÷¶Ëµã¿ÉÓÃµÄ¶Ë¿Ú¡£ Ëü¿ÉÒÔÊÇÖ÷Web·şÎñÆ÷µÄ¶Ë¿Ú£¬Ò²¿ÉÒÔÊÇÒ»¸öµ¥¶ÀµÄ¹ÜÀí¶Ë¿Ú£¬Èç¹û `"management.server.port"` ÊôĞÔÒÑ¾­±»ÉèÖÃ¡£ |
+|  | `` åº”è¯¥è¢«è®¾ç½®ä¸ºæ‰§è¡Œå™¨ç«¯ç‚¹å¯ç”¨çš„ç«¯å£ã€‚ å®ƒå¯ä»¥æ˜¯ä¸»WebæœåŠ¡å™¨çš„ç«¯å£ï¼Œä¹Ÿå¯ä»¥æ˜¯ä¸€ä¸ªå•ç‹¬çš„ç®¡ç†ç«¯å£ï¼Œå¦‚æœ `"management.server.port"` å±æ€§å·²ç»è¢«è®¾ç½®ã€‚ |
 | --- | --- |
 
 
 
 
 
-Ö»ÓĞµ±Ó¦ÓÃ³ÌĞò[ÔÚKubernetes»·¾³ÖĞÔËĞĞÊ±](https://springdoc.cn/spring-boot/deployment.html#deployment.cloud.kubernetes)£¬ÕâĞ©½¡¿µ×é²Å»á×Ô¶¯ÆôÓÃ¡£ Äã¿ÉÒÔÍ¨¹ıÊ¹ÓÃ `management.endpoint.health.probes.enabled` ÅäÖÃÊôĞÔÔÚÈÎºÎ»·¾³ÖĞÆôÓÃËüÃÇ¡£
+åªæœ‰å½“åº”ç”¨ç¨‹åº[åœ¨Kubernetesç¯å¢ƒä¸­è¿è¡Œæ—¶](https://springdoc.cn/spring-boot/deployment.html#deployment.cloud.kubernetes)ï¼Œè¿™äº›å¥åº·ç»„æ‰ä¼šè‡ªåŠ¨å¯ç”¨ã€‚ ä½ å¯ä»¥é€šè¿‡ä½¿ç”¨ `management.endpoint.health.probes.enabled` é…ç½®å±æ€§åœ¨ä»»ä½•ç¯å¢ƒä¸­å¯ç”¨å®ƒä»¬ã€‚
 
 
 
 
 
-|  | Èç¹ûÒ»¸öÓ¦ÓÃ³ÌĞòµÄÆô¶¯Ê±¼ä³¬¹ıÁËÅäÖÃµÄÓĞĞ§ÆÚ£¬Kubernetes »áÌáµ½ `"startupProbe"` ×÷ÎªÒ»¸ö¿ÉÄÜµÄ½â¾ö·½°¸¡£Ò»°ãÀ´Ëµ£¬ÕâÀï²»Ò»¶¨ĞèÒª `"startupProbe"`£¬ÒòÎª `"readinessProbe"` »áÔÚËùÓĞÆô¶¯ÈÎÎñÍê³ÉÖ®Ç°Ê§Ğ§¡£ÕâÒâÎ¶×ÅÄãµÄÓ¦ÓÃ³ÌĞòÔÚ×¼±¸ºÃÖ®Ç°²»»áÊÕµ½Á÷Á¿¡£È»¶ø£¬Èç¹ûÄãµÄÓ¦ÓÃ³ÌĞòĞèÒªºÜ³¤Ê±¼ä²ÅÄÜÆô¶¯£¬¿ÉÒÔ¿¼ÂÇÊ¹ÓÃ `"startupProbe"` À´È·±£Kubernetes²»»áÔÚÄãµÄÓ¦ÓÃ³ÌĞòÆô¶¯¹ı³ÌÖĞÉ±ËÀËü¡£Çë²ÎÔÄÃèÊö[Ì½ÕëÔÚÓ¦ÓÃ³ÌĞòÉúÃüÖÜÆÚÖĞµÄĞĞÎª](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.kubernetes-probes.lifecycle)µÄ²¿·Ö¡£ |
+|  | å¦‚æœä¸€ä¸ªåº”ç”¨ç¨‹åºçš„å¯åŠ¨æ—¶é—´è¶…è¿‡äº†é…ç½®çš„æœ‰æ•ˆæœŸï¼ŒKubernetes ä¼šæåˆ° `"startupProbe"` ä½œä¸ºä¸€ä¸ªå¯èƒ½çš„è§£å†³æ–¹æ¡ˆã€‚ä¸€èˆ¬æ¥è¯´ï¼Œè¿™é‡Œä¸ä¸€å®šéœ€è¦ `"startupProbe"`ï¼Œå› ä¸º `"readinessProbe"` ä¼šåœ¨æ‰€æœ‰å¯åŠ¨ä»»åŠ¡å®Œæˆä¹‹å‰å¤±æ•ˆã€‚è¿™æ„å‘³ç€ä½ çš„åº”ç”¨ç¨‹åºåœ¨å‡†å¤‡å¥½ä¹‹å‰ä¸ä¼šæ”¶åˆ°æµé‡ã€‚ç„¶è€Œï¼Œå¦‚æœä½ çš„åº”ç”¨ç¨‹åºéœ€è¦å¾ˆé•¿æ—¶é—´æ‰èƒ½å¯åŠ¨ï¼Œå¯ä»¥è€ƒè™‘ä½¿ç”¨ `"startupProbe"` æ¥ç¡®ä¿Kubernetesä¸ä¼šåœ¨ä½ çš„åº”ç”¨ç¨‹åºå¯åŠ¨è¿‡ç¨‹ä¸­æ€æ­»å®ƒã€‚è¯·å‚é˜…æè¿°[æ¢é’ˆåœ¨åº”ç”¨ç¨‹åºç”Ÿå‘½å‘¨æœŸä¸­çš„è¡Œä¸º](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.kubernetes-probes.lifecycle)çš„éƒ¨åˆ†ã€‚ |
 | --- | --- |
 
 
 
 
 
-Èç¹ûÄãµÄActuator¶Ëµã±»²¿ÊğÔÚÒ»¸öµ¥¶ÀµÄ¹ÜÀíÉÏÏÂÎÄÖĞ£¬ÄÇÃ´ÕâĞ©¶Ëµã¾Í²»»áÏñÖ÷³ÌĞòÄÇÑùÊ¹ÓÃÏàÍ¬µÄÍøÂç»ù´¡ÉèÊ©£¨¶Ë¿Ú¡¢Á¬½Ó³Ø¡¢¿ò¼Ü×é¼ş£©¡£ ÔÚÕâÖÖÇé¿öÏÂ£¬¼´Ê¹Ö÷³ÌĞò²»ÄÜÕı³£¹¤×÷£¨ÀıÈç£¬Ëü²»ÄÜ½ÓÊÜĞÂµÄÁ¬½Ó£©£¬Ì½²â¼ì²éÒ²¿ÉÄÜ³É¹¦¡£ ÓÉÓÚÕâ¸öÔ­Òò£¬ÔÚÖ÷·şÎñÆ÷¶Ë¿ÚÉÏÉèÖÃ `liveness` ºÍ `readiness` ½¡¿µ×éÊÇ¸öºÃÖ÷Òâ¡£ Õâ¿ÉÒÔÍ¨¹ıÉèÖÃÒÔÏÂÊôĞÔÀ´ÊµÏÖ¡£
+å¦‚æœä½ çš„Actuatorç«¯ç‚¹è¢«éƒ¨ç½²åœ¨ä¸€ä¸ªå•ç‹¬çš„ç®¡ç†ä¸Šä¸‹æ–‡ä¸­ï¼Œé‚£ä¹ˆè¿™äº›ç«¯ç‚¹å°±ä¸ä¼šåƒä¸»ç¨‹åºé‚£æ ·ä½¿ç”¨ç›¸åŒçš„ç½‘ç»œåŸºç¡€è®¾æ–½ï¼ˆç«¯å£ã€è¿æ¥æ± ã€æ¡†æ¶ç»„ä»¶ï¼‰ã€‚ åœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œå³ä½¿ä¸»ç¨‹åºä¸èƒ½æ­£å¸¸å·¥ä½œï¼ˆä¾‹å¦‚ï¼Œå®ƒä¸èƒ½æ¥å—æ–°çš„è¿æ¥ï¼‰ï¼Œæ¢æµ‹æ£€æŸ¥ä¹Ÿå¯èƒ½æˆåŠŸã€‚ ç”±äºè¿™ä¸ªåŸå› ï¼Œåœ¨ä¸»æœåŠ¡å™¨ç«¯å£ä¸Šè®¾ç½® `liveness` å’Œ `readiness` å¥åº·ç»„æ˜¯ä¸ªå¥½ä¸»æ„ã€‚ è¿™å¯ä»¥é€šè¿‡è®¾ç½®ä»¥ä¸‹å±æ€§æ¥å®ç°ã€‚
 
 
 
@@ -1606,17 +1606,17 @@ management.endpoint.health.probes.add-additional-paths=true
 
 
 
-Õâ½«Ê¹ `liveness` ÔÚ `/livez` ¿ÉÓÃ£¬`readiness` ÔÚ `readyz` µÄÖ÷·şÎñÆ÷¶Ë¿Ú¿ÉÓÃ¡£
+è¿™å°†ä½¿ `liveness` åœ¨ `/livez` å¯ç”¨ï¼Œ`readiness` åœ¨ `readyz` çš„ä¸»æœåŠ¡å™¨ç«¯å£å¯ç”¨ã€‚
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.kubernetes-probes.external-state)2.9.1\. ÓÃKubernetesÌ½Õë¼ì²éÍâ²¿×´Ì¬
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.kubernetes-probes.external-state)2.9.1\. ç”¨Kubernetesæ¢é’ˆæ£€æŸ¥å¤–éƒ¨çŠ¶æ€
 
 
 
-Ö´ĞĞÆ÷½« ¡°liveness¡± ºÍ ¡°readiness¡± Ì½ÕëÅäÖÃÎª½¡¿µ×é¡£ÕâÒâÎ¶×ÅËùÓĞµÄ[½¡¿µ×éµÄ¹¦ÄÜ](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.groups)¶ÔËüÃÇ¶¼ÊÇ¿ÉÓÃµÄ¡£ÀıÈç£¬Äã¿ÉÒÔÅäÖÃ¶îÍâµÄ½¡¿µÖ¸±ê¡£
+æ‰§è¡Œå™¨å°† â€œlivenessâ€ å’Œ â€œreadinessâ€ æ¢é’ˆé…ç½®ä¸ºå¥åº·ç»„ã€‚è¿™æ„å‘³ç€æ‰€æœ‰çš„[å¥åº·ç»„çš„åŠŸèƒ½](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.health.groups)å¯¹å®ƒä»¬éƒ½æ˜¯å¯ç”¨çš„ã€‚ä¾‹å¦‚ï¼Œä½ å¯ä»¥é…ç½®é¢å¤–çš„å¥åº·æŒ‡æ ‡ã€‚
 
 
 
@@ -1643,32 +1643,32 @@ management.endpoint.health.group.readiness.include=readinessState,customCheck
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Spring Boot²»»áÏòÕâĞ©×éÌí¼ÓÆäËû½¡¿µÖ¸±ê¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒSpring Bootä¸ä¼šå‘è¿™äº›ç»„æ·»åŠ å…¶ä»–å¥åº·æŒ‡æ ‡ã€‚
 
 
 
 
 
-¡°liveness¡± Ì½Õë²»Ó¦¸ÃÒÀÀµÓÚÍâ²¿ÏµÍ³µÄ½¡¿µ¼ì²é¡£Èç¹û[Ó¦ÓÃ³ÌĞòµÄÓĞĞ§ĞÔ×´Ì¬](https://springdoc.cn/spring-boot/features.html#features.spring-application.application-availability.liveness)±»ÆÆ»µ£¬Kubernetes»á³¢ÊÔÍ¨¹ıÖØĞÂÆô¶¯Ó¦ÓÃ³ÌĞòÊµÀıÀ´½â¾öÕâ¸öÎÊÌâ¡£ÕâÒâÎ¶×Å£¬Èç¹ûÒ»¸öÍâ²¿ÏµÍ³£¨ÈçÊı¾İ¿â¡¢Web API»òÍâ²¿»º´æ£©³öÏÖ¹ÊÕÏ£¬Kubernetes¿ÉÄÜ»áÖØĞÂÆô¶¯ËùÓĞÓ¦ÓÃ³ÌĞòÊµÀı£¬²¢²úÉú¼¶Áª¹ÊÕÏ¡£
+â€œlivenessâ€ æ¢é’ˆä¸åº”è¯¥ä¾èµ–äºå¤–éƒ¨ç³»ç»Ÿçš„å¥åº·æ£€æŸ¥ã€‚å¦‚æœ[åº”ç”¨ç¨‹åºçš„æœ‰æ•ˆæ€§çŠ¶æ€](https://springdoc.cn/spring-boot/features.html#features.spring-application.application-availability.liveness)è¢«ç ´åï¼ŒKubernetesä¼šå°è¯•é€šè¿‡é‡æ–°å¯åŠ¨åº”ç”¨ç¨‹åºå®ä¾‹æ¥è§£å†³è¿™ä¸ªé—®é¢˜ã€‚è¿™æ„å‘³ç€ï¼Œå¦‚æœä¸€ä¸ªå¤–éƒ¨ç³»ç»Ÿï¼ˆå¦‚æ•°æ®åº“ã€Web APIæˆ–å¤–éƒ¨ç¼“å­˜ï¼‰å‡ºç°æ•…éšœï¼ŒKuberneteså¯èƒ½ä¼šé‡æ–°å¯åŠ¨æ‰€æœ‰åº”ç”¨ç¨‹åºå®ä¾‹ï¼Œå¹¶äº§ç”Ÿçº§è”æ•…éšœã€‚
 
 
 
 
 
-ÖÁÓÚ ¡°readiness¡± Ì½²â£¬¼ì²éÍâ²¿ÏµÍ³µÄÑ¡Ôñ±ØĞëÓÉÓ¦ÓÃ³ÌĞò¿ª·¢ÈËÔ±½÷É÷×÷³ö¡£³öÓÚÕâ¸öÔ­Òò£¬Spring BootÔÚ×¼±¸×´Ì¬Ì½²âÖĞ²»°üÀ¨ÈÎºÎ¶îÍâµÄ½¡¿µ¼ì²é¡£Èç¹û[Ó¦ÓÃ³ÌĞòÊµÀıµÄreadiness stateÊÇunready](https://springdoc.cn/spring-boot/features.html#features.spring-application.application-availability.readiness)£¬Kubernetes¾Í²»»á½«Á÷Á¿Â·ÓÉµ½¸ÃÊµÀı¡£Ò»Ğ©Íâ²¿ÏµÍ³¿ÉÄÜ²»±»Ó¦ÓÃÊµÀıËù¹²Ïí£¬ÔÚÕâÖÖÇé¿öÏÂ£¬ËüÃÇ¿ÉÒÔ±»°üÀ¨ÔÚ×¼±¸×´Ì¬Ì½²âÖĞ¡£ÆäËûÍâ²¿ÏµÍ³¿ÉÄÜ²»ÊÇÓ¦ÓÃ³ÌĞòµÄ¹Ø¼ü£¨Ó¦ÓÃ³ÌĞò¿ÉÄÜÓĞ¶ÏÂ·Æ÷ºÍ»ØÍË£©£¬ÔÚÕâÖÖÇé¿öÏÂ£¬ËüÃÇ¾ø¶Ô²»Ó¦¸Ã±»°üÀ¨ÔÚÄÚ¡£²»ĞÒµÄÊÇ£¬Ò»¸ö±»ËùÓĞÓ¦ÓÃÊµÀı¹²ÏíµÄÍâ²¿ÏµÍ³ºÜ³£¼û£¬Äã±ØĞë×ö³öÅĞ¶Ï¡£°ÑËü°üÀ¨ÔÚ×¼±¸¾ÍĞ÷Ì½ÕëÖĞ£¬²¢ÆÚÍûµ±Íâ²¿·şÎñ·¢Éú¹ÊÕÏÊ±£¬Ó¦ÓÃ³ÌĞò»á±»Í£Ö¹·şÎñ£¬»òÕß²»°üÀ¨Ëü£¬²¢´¦Àí¶ÑÕ»ÖĞ¸ü¸ß²ã´ÎµÄ¹ÊÕÏ£¬Ò²ĞíÍ¨¹ıÔÚµ÷ÓÃÕßÖĞÊ¹ÓÃ¶ÏÂ·Æ÷¡£
+è‡³äº â€œreadinessâ€ æ¢æµ‹ï¼Œæ£€æŸ¥å¤–éƒ¨ç³»ç»Ÿçš„é€‰æ‹©å¿…é¡»ç”±åº”ç”¨ç¨‹åºå¼€å‘äººå‘˜è°¨æ…ä½œå‡ºã€‚å‡ºäºè¿™ä¸ªåŸå› ï¼ŒSpring Bootåœ¨å‡†å¤‡çŠ¶æ€æ¢æµ‹ä¸­ä¸åŒ…æ‹¬ä»»ä½•é¢å¤–çš„å¥åº·æ£€æŸ¥ã€‚å¦‚æœ[åº”ç”¨ç¨‹åºå®ä¾‹çš„readiness stateæ˜¯unready](https://springdoc.cn/spring-boot/features.html#features.spring-application.application-availability.readiness)ï¼ŒKuberneteså°±ä¸ä¼šå°†æµé‡è·¯ç”±åˆ°è¯¥å®ä¾‹ã€‚ä¸€äº›å¤–éƒ¨ç³»ç»Ÿå¯èƒ½ä¸è¢«åº”ç”¨å®ä¾‹æ‰€å…±äº«ï¼Œåœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œå®ƒä»¬å¯ä»¥è¢«åŒ…æ‹¬åœ¨å‡†å¤‡çŠ¶æ€æ¢æµ‹ä¸­ã€‚å…¶ä»–å¤–éƒ¨ç³»ç»Ÿå¯èƒ½ä¸æ˜¯åº”ç”¨ç¨‹åºçš„å…³é”®ï¼ˆåº”ç”¨ç¨‹åºå¯èƒ½æœ‰æ–­è·¯å™¨å’Œå›é€€ï¼‰ï¼Œåœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œå®ƒä»¬ç»å¯¹ä¸åº”è¯¥è¢«åŒ…æ‹¬åœ¨å†…ã€‚ä¸å¹¸çš„æ˜¯ï¼Œä¸€ä¸ªè¢«æ‰€æœ‰åº”ç”¨å®ä¾‹å…±äº«çš„å¤–éƒ¨ç³»ç»Ÿå¾ˆå¸¸è§ï¼Œä½ å¿…é¡»åšå‡ºåˆ¤æ–­ã€‚æŠŠå®ƒåŒ…æ‹¬åœ¨å‡†å¤‡å°±ç»ªæ¢é’ˆä¸­ï¼Œå¹¶æœŸæœ›å½“å¤–éƒ¨æœåŠ¡å‘ç”Ÿæ•…éšœæ—¶ï¼Œåº”ç”¨ç¨‹åºä¼šè¢«åœæ­¢æœåŠ¡ï¼Œæˆ–è€…ä¸åŒ…æ‹¬å®ƒï¼Œå¹¶å¤„ç†å †æ ˆä¸­æ›´é«˜å±‚æ¬¡çš„æ•…éšœï¼Œä¹Ÿè®¸é€šè¿‡åœ¨è°ƒç”¨è€…ä¸­ä½¿ç”¨æ–­è·¯å™¨ã€‚
 
 
 
 
 
-|  | Èç¹ûÒ»¸öÓ¦ÓÃ³ÌĞòµÄËùÓĞÊµÀı¶¼Ã»ÓĞ×¼±¸ºÃ£¬`type=ClusterIP` »ò `NodePort` µÄKubernetes·şÎñ²»½ÓÊÜÈÎºÎ´«ÈëÁ¬½Ó¡£Ã»ÓĞHTTP´íÎóÏìÓ¦£¨503µÈ£©£¬ÒòÎªÃ»ÓĞÁ¬½Ó¡£`type=LoadBalancer` µÄ·şÎñ¿ÉÄÜ½ÓÊÜÒ²¿ÉÄÜ²»½ÓÊÜÁ¬½Ó£¬ÕâÈ¡¾öÓÚÌá¹©Õß¡£Ò»¸öÓĞÃ÷È· [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) µÄ·şÎñÒ²»áÒÔÒ»ÖÖÈ¡¾öÓÚÊµÏÖµÄ·½Ê½½øĞĞÏìÓ¦¡ª?Èë¿Ú·şÎñ±¾Éí±ØĞë¾ö¶¨ÈçºÎ´¦ÀíÀ´×ÔÏÂÓÎµÄ ¡°connection refused¡±¡£ÔÚ¸ºÔØ¾ùºâÆ÷ºÍÈë¿ÚµÄÇé¿öÏÂ£¬HTTP 503ÊÇºÜÓĞ¿ÉÄÜµÄ¡£ |
+|  | å¦‚æœä¸€ä¸ªåº”ç”¨ç¨‹åºçš„æ‰€æœ‰å®ä¾‹éƒ½æ²¡æœ‰å‡†å¤‡å¥½ï¼Œ`type=ClusterIP` æˆ– `NodePort` çš„KubernetesæœåŠ¡ä¸æ¥å—ä»»ä½•ä¼ å…¥è¿æ¥ã€‚æ²¡æœ‰HTTPé”™è¯¯å“åº”ï¼ˆ503ç­‰ï¼‰ï¼Œå› ä¸ºæ²¡æœ‰è¿æ¥ã€‚`type=LoadBalancer` çš„æœåŠ¡å¯èƒ½æ¥å—ä¹Ÿå¯èƒ½ä¸æ¥å—è¿æ¥ï¼Œè¿™å–å†³äºæä¾›è€…ã€‚ä¸€ä¸ªæœ‰æ˜ç¡® [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) çš„æœåŠ¡ä¹Ÿä¼šä»¥ä¸€ç§å–å†³äºå®ç°çš„æ–¹å¼è¿›è¡Œå“åº”â€”?å…¥å£æœåŠ¡æœ¬èº«å¿…é¡»å†³å®šå¦‚ä½•å¤„ç†æ¥è‡ªä¸‹æ¸¸çš„ â€œconnection refusedâ€ã€‚åœ¨è´Ÿè½½å‡è¡¡å™¨å’Œå…¥å£çš„æƒ…å†µä¸‹ï¼ŒHTTP 503æ˜¯å¾ˆæœ‰å¯èƒ½çš„ã€‚ |
 | --- | --- |
 
 
 
 
 
-ÁíÍâ£¬Èç¹ûÒ»¸öÓ¦ÓÃ³ÌĞòÊ¹ÓÃ Kubernetes [autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)£¬Ëü¿ÉÄÜ»á¶ÔÓ¦ÓÃ³ÌĞò±»´Ó¸ºÔØÆ½ºâÆ÷ÖĞÈ¡³ö×ö³ö²»Í¬µÄ·´Ó¦£¬ÕâÈ¡¾öÓÚÆäautoscalerµÄÅäÖÃ¡£
+å¦å¤–ï¼Œå¦‚æœä¸€ä¸ªåº”ç”¨ç¨‹åºä½¿ç”¨ Kubernetes [autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)ï¼Œå®ƒå¯èƒ½ä¼šå¯¹åº”ç”¨ç¨‹åºè¢«ä»è´Ÿè½½å¹³è¡¡å™¨ä¸­å–å‡ºåšå‡ºä¸åŒçš„ååº”ï¼Œè¿™å–å†³äºå…¶autoscalerçš„é…ç½®ã€‚
 
 
 
@@ -1676,55 +1676,55 @@ management.endpoint.health.group.readiness.include=readinessState,customCheck
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.kubernetes-probes.lifecycle)2.9.2\. Ó¦ÓÃ³ÌĞòÉúÃüÖÜÆÚºÍÌ½Õë×´Ì¬
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.kubernetes-probes.lifecycle)2.9.2\. åº”ç”¨ç¨‹åºç”Ÿå‘½å‘¨æœŸå’Œæ¢é’ˆçŠ¶æ€
 
 
 
-Kubernetes ProbesÖ§³ÖµÄÒ»¸öÖØÒª·½ÃæÊÇËüÓëÓ¦ÓÃ³ÌĞòÉúÃüÖÜÆÚµÄÒ»ÖÂĞÔ¡£ `AvailabilityState`£¨¼´Ó¦ÓÃ³ÌĞòµÄÄÚ´æÄÚ²¿×´Ì¬£©ºÍÊµ¼ÊµÄÌ½Õë£¨±©Â¶¸Ã×´Ì¬£©Ö®¼ä´æÔÚ×ÅÏÔÖøµÄÇø±ğ¡£ ºÍÊµ¼ÊµÄÌ½Õë£¨±©Â¶ÁË¸Ã×´Ì¬£©Ö®¼äÓĞºÜ´óµÄÇø±ğ¡£ ¸ù¾İÓ¦ÓÃ³ÌĞòÉúÃüÖÜÆÚµÄ²»Í¬½×¶Î£¬Ì½Õë¿ÉÄÜÎŞ·¨Ê¹ÓÃ¡£
-
-
-
-
-
-Spring BootÔÚ[Æô¶¯ºÍ¹Ø±ÕÆÚ¼ä·¢²¼application event](https://springdoc.cn/spring-boot/features.html#features.spring-application.application-events-and-listeners)£¬Ì½Õë¿ÉÒÔ¼àÌıÕâĞ©ÊÂ¼ş²¢±©Â¶³ö `AvailabilityState` ĞÅÏ¢¡£
+Kubernetes Probesæ”¯æŒçš„ä¸€ä¸ªé‡è¦æ–¹é¢æ˜¯å®ƒä¸åº”ç”¨ç¨‹åºç”Ÿå‘½å‘¨æœŸçš„ä¸€è‡´æ€§ã€‚ `AvailabilityState`ï¼ˆå³åº”ç”¨ç¨‹åºçš„å†…å­˜å†…éƒ¨çŠ¶æ€ï¼‰å’Œå®é™…çš„æ¢é’ˆï¼ˆæš´éœ²è¯¥çŠ¶æ€ï¼‰ä¹‹é—´å­˜åœ¨ç€æ˜¾è‘—çš„åŒºåˆ«ã€‚ å’Œå®é™…çš„æ¢é’ˆï¼ˆæš´éœ²äº†è¯¥çŠ¶æ€ï¼‰ä¹‹é—´æœ‰å¾ˆå¤§çš„åŒºåˆ«ã€‚ æ ¹æ®åº”ç”¨ç¨‹åºç”Ÿå‘½å‘¨æœŸçš„ä¸åŒé˜¶æ®µï¼Œæ¢é’ˆå¯èƒ½æ— æ³•ä½¿ç”¨ã€‚
 
 
 
 
 
-ÏÂ±íÏÔÊ¾ÁË²»Í¬½×¶ÎµÄ `AvailabilityState` ºÍHTTP connectorµÄ×´Ì¬¡£
+Spring Bootåœ¨[å¯åŠ¨å’Œå…³é—­æœŸé—´å‘å¸ƒapplication event](https://springdoc.cn/spring-boot/features.html#features.spring-application.application-events-and-listeners)ï¼Œæ¢é’ˆå¯ä»¥ç›‘å¬è¿™äº›äº‹ä»¶å¹¶æš´éœ²å‡º `AvailabilityState` ä¿¡æ¯ã€‚
 
 
 
 
 
-µ±Ò»¸öSpring BootÓ¦ÓÃ³ÌĞòÆô¶¯Ê±¡£
+ä¸‹è¡¨æ˜¾ç¤ºäº†ä¸åŒé˜¶æ®µçš„ `AvailabilityState` å’ŒHTTP connectorçš„çŠ¶æ€ã€‚
 
 
 
-<colgroup><col><col><col><col><col></colgroup>
-| Æô¶¯½×¶Î | LivenessState | ReadinessState | HTTP server | ±¸×¢ |
-| --- | --- | --- | --- | --- |
-| Starting | `BROKEN` | `REFUSING_TRAFFIC` | Î´Æô¶¯ | Kubernetes¼ì²é "liveness" Ì½Õë£¬Èç¹ûÊ±¼ä¹ı³¤£¬¾ÍÖØĞÂÆô¶¯Ó¦ÓÃ³ÌĞò¡£ |
-| Started | `CORRECT` | `REFUSING_TRAFFIC` | ¾Ü¾øÇëÇó | Ó¦ÓÃ³ÌĞòÉÏÏÂÎÄ±»Ë¢ĞÂ¡£Ó¦ÓÃ³ÌĞòÖ´ĞĞÆô¶¯ÈÎÎñ£¬»¹Ã»ÓĞÊÕµ½Á÷Á¿¡£ |
-| Ready | `CORRECT` | `ACCEPTING_TRAFFIC` | ½ÓÊÜÇëÇó | Æô¶¯ÈÎÎñÒÑ¾­Íê³É¡£¸ÃÓ¦ÓÃ³ÌĞòÕıÔÚ½ÓÊÕÁ÷Á¿¡£ |
 
 
-
-µ±Ò»¸öSpring BootÓ¦ÓÃ³ÌĞò¹Ø±ÕÊ±¡£
+å½“ä¸€ä¸ªSpring Bootåº”ç”¨ç¨‹åºå¯åŠ¨æ—¶ã€‚
 
 
 
 <colgroup><col><col><col><col><col></colgroup>
-| Í£»ú½×¶Î | Liveness State | Readiness State | HTTP server | ±¸×¢ |
+| å¯åŠ¨é˜¶æ®µ | LivenessState | ReadinessState | HTTP server | å¤‡æ³¨ |
 | --- | --- | --- | --- | --- |
-| Running | `CORRECT` | `ACCEPTING_TRAFFIC` | ½ÓÊÜÇëÇó | ÒÑÒªÇó¹Ø±Õ¡£ |
-| Graceful shutdown | `CORRECT` | `REFUSING_TRAFFIC` | ĞÂµÄÇëÇó±»¾Ü¾ø | Èç¹ûÆôÓÃ£¬ [ÓÅÑÅ¹Ø»ú»á´¦Àí¡°´¦ÀíÖĞ¡±µÄÇëÇó](https://springdoc.cn/spring-boot/web.html#web.graceful-shutdown)¡£ |
-| Shutdown complete | N/A | N/A | ·şÎñÆ÷±»¹Ø±Õ | Ó¦ÓÃ³ÌĞòÉÏÏÂÎÄ±»¹Ø±Õ£¬Ó¦ÓÃ³ÌĞò±»¹Ø±Õ¡£ |
+| Starting | `BROKEN` | `REFUSING_TRAFFIC` | æœªå¯åŠ¨ | Kubernetesæ£€æŸ¥ "liveness" æ¢é’ˆï¼Œå¦‚æœæ—¶é—´è¿‡é•¿ï¼Œå°±é‡æ–°å¯åŠ¨åº”ç”¨ç¨‹åºã€‚ |
+| Started | `CORRECT` | `REFUSING_TRAFFIC` | æ‹’ç»è¯·æ±‚ | åº”ç”¨ç¨‹åºä¸Šä¸‹æ–‡è¢«åˆ·æ–°ã€‚åº”ç”¨ç¨‹åºæ‰§è¡Œå¯åŠ¨ä»»åŠ¡ï¼Œè¿˜æ²¡æœ‰æ”¶åˆ°æµé‡ã€‚ |
+| Ready | `CORRECT` | `ACCEPTING_TRAFFIC` | æ¥å—è¯·æ±‚ | å¯åŠ¨ä»»åŠ¡å·²ç»å®Œæˆã€‚è¯¥åº”ç”¨ç¨‹åºæ­£åœ¨æ¥æ”¶æµé‡ã€‚ |
 
 
 
-|  | ¹ØÓÚKubernetes²¿ÊğµÄ¸ü¶àĞÅÏ¢£¬Çë²Î¼û[KubernetesÈİÆ÷ÉúÃüÖÜÆÚ](https://springdoc.cn/spring-boot/deployment.html#deployment.cloud.kubernetes.container-lifecycle)²¿·Ö¡£ |
+å½“ä¸€ä¸ªSpring Bootåº”ç”¨ç¨‹åºå…³é—­æ—¶ã€‚
+
+
+
+<colgroup><col><col><col><col><col></colgroup>
+| åœæœºé˜¶æ®µ | Liveness State | Readiness State | HTTP server | å¤‡æ³¨ |
+| --- | --- | --- | --- | --- |
+| Running | `CORRECT` | `ACCEPTING_TRAFFIC` | æ¥å—è¯·æ±‚ | å·²è¦æ±‚å…³é—­ã€‚ |
+| Graceful shutdown | `CORRECT` | `REFUSING_TRAFFIC` | æ–°çš„è¯·æ±‚è¢«æ‹’ç» | å¦‚æœå¯ç”¨ï¼Œ [ä¼˜é›…å…³æœºä¼šå¤„ç†â€œå¤„ç†ä¸­â€çš„è¯·æ±‚](https://springdoc.cn/spring-boot/web.html#web.graceful-shutdown)ã€‚ |
+| Shutdown complete | N/A | N/A | æœåŠ¡å™¨è¢«å…³é—­ | åº”ç”¨ç¨‹åºä¸Šä¸‹æ–‡è¢«å…³é—­ï¼Œåº”ç”¨ç¨‹åºè¢«å…³é—­ã€‚ |
+
+
+
+|  | å…³äºKuberneteséƒ¨ç½²çš„æ›´å¤šä¿¡æ¯ï¼Œè¯·å‚è§[Kuberneteså®¹å™¨ç”Ÿå‘½å‘¨æœŸ](https://springdoc.cn/spring-boot/deployment.html#deployment.cloud.kubernetes.container-lifecycle)éƒ¨åˆ†ã€‚ |
 | --- | --- |
 
 
@@ -1735,48 +1735,48 @@ Spring BootÔÚ[Æô¶¯ºÍ¹Ø±ÕÆÚ¼ä·¢²¼application event](https://springdoc.cn/spring-b
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info)2.10\. Ó¦ÓÃĞÅÏ¢
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info)2.10\. åº”ç”¨ä¿¡æ¯
 
 
 
-Ó¦ÓÃ³ÌĞòĞÅÏ¢¹«¿ªÁË´ÓÄãµÄ `ApplicationContext` ÖĞ¶¨ÒåµÄËùÓĞ [`InfoContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info/InfoContributor.java) BeanÊÕ¼¯µÄ¸÷ÖÖĞÅÏ¢¡£ Spring Boot°üÀ¨Ò»Ğ©×Ô¶¯ÅäÖÃµÄ `InfoContributor` Bean£¬ÄãÒ²¿ÉÒÔ±àĞ´×Ô¼ºµÄ¡£
+åº”ç”¨ç¨‹åºä¿¡æ¯å…¬å¼€äº†ä»ä½ çš„ `ApplicationContext` ä¸­å®šä¹‰çš„æ‰€æœ‰ [`InfoContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info/InfoContributor.java) Beanæ”¶é›†çš„å„ç§ä¿¡æ¯ã€‚ Spring BootåŒ…æ‹¬ä¸€äº›è‡ªåŠ¨é…ç½®çš„ `InfoContributor` Beanï¼Œä½ ä¹Ÿå¯ä»¥ç¼–å†™è‡ªå·±çš„ã€‚
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info.auto-configured-info-contributors)2.10.1\. ×Ô¶¯ÅäÖÃµÄ InfoContributor
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info.auto-configured-info-contributors)2.10.1\. è‡ªåŠ¨é…ç½®çš„ InfoContributor
 
 
 
-ÔÚÊÊµ±µÄÊ±ºò£¬Spring»á×Ô¶¯ÅäÖÃÒÔÏÂ `InfoContributor` Bean¡£
+åœ¨é€‚å½“çš„æ—¶å€™ï¼ŒSpringä¼šè‡ªåŠ¨é…ç½®ä»¥ä¸‹ `InfoContributor` Beanã€‚
 
 
 
 <colgroup><col><col><col><col></colgroup>
-| ID | Name | ËµÃ÷ | Ç°ÌáÌõ¼ş |
+| ID | Name | è¯´æ˜ | å‰ææ¡ä»¶ |
 | --- | --- | --- | --- |
-| `build` | [`BuildInfoContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info/BuildInfoContributor.java) | ±©Â¶ÁË¹¹½¨ĞÅÏ¢¡£ | Ò»¸ö `META-INF/build-info.properties` ×ÊÔ´¡£ |
-| `env` | [`EnvironmentInfoContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info/EnvironmentInfoContributor.java) | ±©Â¶ `Environment` ÖĞÃû³ÆÒÔ `info.` ¿ªÍ·µÄÈÎºÎÊôĞÔ¡£ | None. |
-| `git` | [`GitInfoContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info/GitInfoContributor.java) | ±©Â¶ÁËgitĞÅÏ¢¡£ | Ò»¸ö `git.properties` ×ÊÔ´¡£ |
-| `java` | [`JavaInfoContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info/JavaInfoContributor.java) | ±©Â¶JavaÔËĞĞÊ±£¨Runtime£©ĞÅÏ¢¡£ | None. |
-| `os` | [`OsInfoContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info/OsInfoContributor.java) | ±©Â¶²Ù×÷ÏµÍ³ĞÅÏ¢¡£ | None. |
+| `build` | [`BuildInfoContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info/BuildInfoContributor.java) | æš´éœ²äº†æ„å»ºä¿¡æ¯ã€‚ | ä¸€ä¸ª `META-INF/build-info.properties` èµ„æºã€‚ |
+| `env` | [`EnvironmentInfoContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info/EnvironmentInfoContributor.java) | æš´éœ² `Environment` ä¸­åç§°ä»¥ `info.` å¼€å¤´çš„ä»»ä½•å±æ€§ã€‚ | None. |
+| `git` | [`GitInfoContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info/GitInfoContributor.java) | æš´éœ²äº†gitä¿¡æ¯ã€‚ | ä¸€ä¸ª `git.properties` èµ„æºã€‚ |
+| `java` | [`JavaInfoContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info/JavaInfoContributor.java) | æš´éœ²Javaè¿è¡Œæ—¶ï¼ˆRuntimeï¼‰ä¿¡æ¯ã€‚ | None. |
+| `os` | [`OsInfoContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info/OsInfoContributor.java) | æš´éœ²æ“ä½œç³»ç»Ÿä¿¡æ¯ã€‚ | None. |
 
 
 
-¸öÈË¹±Ï×Õß£¨contributor£©ÊÇ·ñ±»ÆôÓÃÊÇÓÉÆä `management.info.<id>.enabled` ÊôĞÔ¿ØÖÆ¡£ ²»Í¬µÄcontributor¶ÔÕâ¸öÊôĞÔÓĞ²»Í¬µÄÄ¬ÈÏÖµ£¬ÕâÈ¡¾öÓÚËûÃÇµÄÏÈ¾öÌõ¼şºÍËûÃÇËù±©Â¶µÄĞÅÏ¢µÄĞÔÖÊ¡£
-
-
-
-
-
-ÓÉÓÚÃ»ÓĞÏÈ¾öÌõ¼ş±íÃ÷ËüÃÇÓ¦¸Ã±»ÆôÓÃ£¬`env`¡¢`java` ºÍ `os` contributor Ä¬ÈÏÊÇ½ûÓÃµÄ¡£ ¿ÉÒÔÍ¨¹ıÉèÖÃ `management.info.<id>.enabled` ÊôĞÔÎª `true` À´ÆôÓÃËüÃÇ¡£
+ä¸ªäººè´¡çŒ®è€…ï¼ˆcontributorï¼‰æ˜¯å¦è¢«å¯ç”¨æ˜¯ç”±å…¶ `management.info.<id>.enabled` å±æ€§æ§åˆ¶ã€‚ ä¸åŒçš„contributorå¯¹è¿™ä¸ªå±æ€§æœ‰ä¸åŒçš„é»˜è®¤å€¼ï¼Œè¿™å–å†³äºä»–ä»¬çš„å…ˆå†³æ¡ä»¶å’Œä»–ä»¬æ‰€æš´éœ²çš„ä¿¡æ¯çš„æ€§è´¨ã€‚
 
 
 
 
 
-`build` ºÍ `git` ĞÅÏ¢contributorÄ¬ÈÏÊÇÆôÓÃµÄ¡£ ¿ÉÒÔÍ¨¹ı½«Æä `management.info.<id>.enabled` ÊôĞÔÉèÖÃÎª `false` À´½ûÓÃ¡£ ÁíÍâ£¬Òª½ûÓÃÃ¿Ò»¸öÄ¬ÈÏÆôÓÃµÄcontributor£¬Çë½« `management.info.defaults.enabled` ÊôĞÔÉèÎª `false`¡£
+ç”±äºæ²¡æœ‰å…ˆå†³æ¡ä»¶è¡¨æ˜å®ƒä»¬åº”è¯¥è¢«å¯ç”¨ï¼Œ`env`ã€`java` å’Œ `os` contributor é»˜è®¤æ˜¯ç¦ç”¨çš„ã€‚ å¯ä»¥é€šè¿‡è®¾ç½® `management.info.<id>.enabled` å±æ€§ä¸º `true` æ¥å¯ç”¨å®ƒä»¬ã€‚
+
+
+
+
+
+`build` å’Œ `git` ä¿¡æ¯contributoré»˜è®¤æ˜¯å¯ç”¨çš„ã€‚ å¯ä»¥é€šè¿‡å°†å…¶ `management.info.<id>.enabled` å±æ€§è®¾ç½®ä¸º `false` æ¥ç¦ç”¨ã€‚ å¦å¤–ï¼Œè¦ç¦ç”¨æ¯ä¸€ä¸ªé»˜è®¤å¯ç”¨çš„contributorï¼Œè¯·å°† `management.info.defaults.enabled` å±æ€§è®¾ä¸º `false`ã€‚
 
 
 
@@ -1784,11 +1784,11 @@ Spring BootÔÚ[Æô¶¯ºÍ¹Ø±ÕÆÚ¼ä·¢²¼application event](https://springdoc.cn/spring-b
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info.custom-application-information)2.10.2\. ×Ô¶¨ÒåÓ¦ÓÃĞÅÏ¢£¨Application Information£©
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info.custom-application-information)2.10.2\. è‡ªå®šä¹‰åº”ç”¨ä¿¡æ¯ï¼ˆApplication Informationï¼‰
 
 
 
-µ± `env` contributor ±»ÆôÓÃÊ±£¬Äã¿ÉÒÔÍ¨¹ıÉèÖÃ `info.*` SpringÊôĞÔÀ´¶¨ÖÆ `info` ¶ËµãËù±©Â¶µÄÊı¾İ¡£ `info` keyÏÂµÄËùÓĞ `Environment` ÊôĞÔ¶¼»á×Ô¶¯±©Â¶¡£ ÀıÈç£¬Äã¿ÉÒÔÔÚÄãµÄ `application.properties` ÎÄ¼şÖĞÌí¼ÓÒÔÏÂÉèÖÃ¡£
+å½“ `env` contributor è¢«å¯ç”¨æ—¶ï¼Œä½ å¯ä»¥é€šè¿‡è®¾ç½® `info.*` Springå±æ€§æ¥å®šåˆ¶ `info` ç«¯ç‚¹æ‰€æš´éœ²çš„æ•°æ®ã€‚ `info` keyä¸‹çš„æ‰€æœ‰ `Environment` å±æ€§éƒ½ä¼šè‡ªåŠ¨æš´éœ²ã€‚ ä¾‹å¦‚ï¼Œä½ å¯ä»¥åœ¨ä½ çš„ `application.properties` æ–‡ä»¶ä¸­æ·»åŠ ä»¥ä¸‹è®¾ç½®ã€‚
 
 
 
@@ -1817,7 +1817,7 @@ info.app.java.target=17
 
 
 
-|  | ÓëÆäÓ²±àÂëÕâĞ©Öµ£¬Äã»¹¿ÉÒÔ [ÔÚ¹¹½¨Ê±À©Õ¹ĞÅÏ¢ÊôĞÔ](https://springdoc.cn/spring-boot/howto.html#howto.properties-and-configuration.expand-properties)¡£¼ÙÉèÄãÊ¹ÓÃMaven£¬Äã¿ÉÒÔ½«Ç°ÃæµÄÀı×Ó¸ÄĞ´ÈçÏÂ¡£PropertiesYaml```info.app.encoding=@project.build.sourceEncoding@info.app.java.source=@java.version@info.app.java.target=@java.version@``` |
+|  | ä¸å…¶ç¡¬ç¼–ç è¿™äº›å€¼ï¼Œä½ è¿˜å¯ä»¥ [åœ¨æ„å»ºæ—¶æ‰©å±•ä¿¡æ¯å±æ€§](https://springdoc.cn/spring-boot/howto.html#howto.properties-and-configuration.expand-properties)ã€‚å‡è®¾ä½ ä½¿ç”¨Mavenï¼Œä½ å¯ä»¥å°†å‰é¢çš„ä¾‹å­æ”¹å†™å¦‚ä¸‹ã€‚PropertiesYaml```info.app.encoding=@project.build.sourceEncoding@info.app.java.source=@java.version@info.app.java.target=@java.version@``` |
 | --- | --- |
 
 
@@ -1826,24 +1826,24 @@ info.app.java.target=17
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info.git-commit-information)2.10.3\. Git Commit ĞÅÏ¢
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info.git-commit-information)2.10.3\. Git Commit ä¿¡æ¯
 
 
 
-`info` ¶ËµãµÄÁíÒ»¸öÓĞÓÃµÄ¹¦ÄÜÊÇËüÄÜ¹»·¢²¼¹ØÓÚÄãµÄ `git` Ô´´úÂë¿âÔÚÏîÄ¿½¨Á¢Ê±µÄ×´Ì¬µÄĞÅÏ¢¡£ Èç¹ûÓĞÒ»¸ö `GitProperties` bean£¬Äã¿ÉÒÔÊ¹ÓÃ `info` ¶ËµãÀ´¹«²¼ÕâĞ©ÊôĞÔ¡£
+`info` ç«¯ç‚¹çš„å¦ä¸€ä¸ªæœ‰ç”¨çš„åŠŸèƒ½æ˜¯å®ƒèƒ½å¤Ÿå‘å¸ƒå…³äºä½ çš„ `git` æºä»£ç åº“åœ¨é¡¹ç›®å»ºç«‹æ—¶çš„çŠ¶æ€çš„ä¿¡æ¯ã€‚ å¦‚æœæœ‰ä¸€ä¸ª `GitProperties` beanï¼Œä½ å¯ä»¥ä½¿ç”¨ `info` ç«¯ç‚¹æ¥å…¬å¸ƒè¿™äº›å±æ€§ã€‚
 
 
 
 
 
-|  | Èç¹ûclasspathµÄ¸ù²¿ÓĞ `git.properties` ÎÄ¼ş£¬`GitProperties` Bean¾Í»á±»×Ô¶¯ÅäÖÃ¡£¸ü¶àÏ¸½Ú¼û "[ÈçºÎÉú³ÉgitĞÅÏ¢](https://springdoc.cn/spring-boot/howto.html#howto.build.generate-git-info)"¡£ |
+|  | å¦‚æœclasspathçš„æ ¹éƒ¨æœ‰ `git.properties` æ–‡ä»¶ï¼Œ`GitProperties` Beanå°±ä¼šè¢«è‡ªåŠ¨é…ç½®ã€‚æ›´å¤šç»†èŠ‚è§ "[å¦‚ä½•ç”Ÿæˆgitä¿¡æ¯](https://springdoc.cn/spring-boot/howto.html#howto.build.generate-git-info)"ã€‚ |
 | --- | --- |
 
 
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬¶Ëµã»á±©Â¶ `git.branch`¡¢`git.commit.id` ºÍ `git.commit.time` ÊôĞÔ£¨Èç¹û´æÔÚ£©¡£ Èç¹ûÄã²»ÏëÈÃÕâĞ©ÊôĞÔ³öÏÖÔÚ¶ËµãÏìÓ¦ÖĞ£¬ĞèÒª´Ó `git.properties` ÎÄ¼şÖĞÅÅ³ıËüÃÇ¡£ Èç¹ûÄãÏëÏÔÊ¾ÍêÕûµÄgitĞÅÏ¢£¨¼´ `git.properties` µÄÈ«²¿ÄÚÈİ£©£¬Ê¹ÓÃ `management.info.git.mode` ÊôĞÔ£¬ÈçÏÂËùÊ¾¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼Œç«¯ç‚¹ä¼šæš´éœ² `git.branch`ã€`git.commit.id` å’Œ `git.commit.time` å±æ€§ï¼ˆå¦‚æœå­˜åœ¨ï¼‰ã€‚ å¦‚æœä½ ä¸æƒ³è®©è¿™äº›å±æ€§å‡ºç°åœ¨ç«¯ç‚¹å“åº”ä¸­ï¼Œéœ€è¦ä» `git.properties` æ–‡ä»¶ä¸­æ’é™¤å®ƒä»¬ã€‚ å¦‚æœä½ æƒ³æ˜¾ç¤ºå®Œæ•´çš„gitä¿¡æ¯ï¼ˆå³ `git.properties` çš„å…¨éƒ¨å†…å®¹ï¼‰ï¼Œä½¿ç”¨ `management.info.git.mode` å±æ€§ï¼Œå¦‚ä¸‹æ‰€ç¤ºã€‚
 
 
 
@@ -1870,7 +1870,7 @@ management.info.git.mode=full
 
 
 
-Òª´Ó `info` ¶ËµãÍêÈ«½ûÓÃgitÌá½»ĞÅÏ¢£¬Çë `management.info.git.enabled` ÊôĞÔÉèÎª `false`£¬ÈçÏÂËùÊ¾¡£
+è¦ä» `info` ç«¯ç‚¹å®Œå…¨ç¦ç”¨gitæäº¤ä¿¡æ¯ï¼Œè¯· `management.info.git.enabled` å±æ€§è®¾ä¸º `false`ï¼Œå¦‚ä¸‹æ‰€ç¤ºã€‚
 
 
 
@@ -1899,17 +1899,17 @@ management.info.git.enabled=false
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info.build-information)2.10.4\. ¹¹½¨ĞÅÏ¢
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info.build-information)2.10.4\. æ„å»ºä¿¡æ¯
 
 
 
-Èç¹û `BuildProperties` BeanÊÇ¿ÉÓÃµÄ£¬`info` ¶ËµãÒ²¿ÉÒÔ·¢²¼¹ØÓÚÄãµÄ¹¹½¨ĞÅÏ¢¡£Èç¹ûclasspathÖĞµÄ `META-INF/build-info.properties` ÎÄ¼ş¿ÉÓÃ£¬¾Í»á·¢ÉúÕâÖÖÇé¿ö¡£
+å¦‚æœ `BuildProperties` Beanæ˜¯å¯ç”¨çš„ï¼Œ`info` ç«¯ç‚¹ä¹Ÿå¯ä»¥å‘å¸ƒå…³äºä½ çš„æ„å»ºä¿¡æ¯ã€‚å¦‚æœclasspathä¸­çš„ `META-INF/build-info.properties` æ–‡ä»¶å¯ç”¨ï¼Œå°±ä¼šå‘ç”Ÿè¿™ç§æƒ…å†µã€‚
 
 
 
 
 
-|  | MavenºÍGradle²å¼ş¶¼¿ÉÒÔÉú³É¸ÃÎÄ¼ş¡£Ïê¼û "[ÈçºÎÉú³É¹¹½¨ĞÅÏ¢](https://springdoc.cn/spring-boot/howto.html#howto.build.generate-info)"¡£ |
+|  | Mavenå’ŒGradleæ’ä»¶éƒ½å¯ä»¥ç”Ÿæˆè¯¥æ–‡ä»¶ã€‚è¯¦è§ "[å¦‚ä½•ç”Ÿæˆæ„å»ºä¿¡æ¯](https://springdoc.cn/spring-boot/howto.html#howto.build.generate-info)"ã€‚ |
 | --- | --- |
 
 
@@ -1918,23 +1918,11 @@ management.info.git.enabled=false
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info.java-information)2.10.5\. JavaĞÅÏ¢
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info.java-information)2.10.5\. Javaä¿¡æ¯
 
 
 
-`info` ¶Ëµã·¢²¼ÁË¹ØÓÚÄãµÄJavaÔËĞĞ»·¾³µÄĞÅÏ¢£¬¸ü¶àÏ¸½Ú¼û [`JavaInfo`](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/api/org/springframework/boot/info/JavaInfo.html)¡£
-
-
-
-
-
-
-
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info.os-information)2.10.6\. ²Ù×÷ÏµÍ³£¨OS£©ĞÅÏ¢
-
-
-
-`info` ¶Ëµã·¢²¼¹ØÓÚÄãµÄ²Ù×÷ÏµÍ³µÄĞÅÏ¢£¬¸ü¶àÏ¸½Ú¼û [`OsInfo`](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/api/org/springframework/boot/info/OsInfo.html)`¡£
+`info` ç«¯ç‚¹å‘å¸ƒäº†å…³äºä½ çš„Javaè¿è¡Œç¯å¢ƒçš„ä¿¡æ¯ï¼Œæ›´å¤šç»†èŠ‚è§ [`JavaInfo`](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/api/org/springframework/boot/info/JavaInfo.html)ã€‚
 
 
 
@@ -1942,17 +1930,29 @@ management.info.git.enabled=false
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info.writing-custom-info-contributors)2.10.7\. ±àĞ´×Ô¶¨Òå InfoContributor
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info.os-information)2.10.6\. æ“ä½œç³»ç»Ÿï¼ˆOSï¼‰ä¿¡æ¯
 
 
 
-ÎªÁËÌá¹©×Ô¶¨ÒåµÄÓ¦ÓÃ³ÌĞòĞÅÏ¢£¬Äã¿ÉÒÔ×¢²áÊµÏÖ [`InfoContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info/InfoContributor.java) ½Ó¿ÚµÄSpring Bean¡£
+`info` ç«¯ç‚¹å‘å¸ƒå…³äºä½ çš„æ“ä½œç³»ç»Ÿçš„ä¿¡æ¯ï¼Œæ›´å¤šç»†èŠ‚è§ [`OsInfo`](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/api/org/springframework/boot/info/OsInfo.html)`ã€‚
 
 
 
 
 
-ÏÂÃæµÄÀı×Ó¹±Ï×ÁËÒ»¸öÖ»ÓĞÒ»¸öÖµµÄ `example` ÌõÄ¿¡£
+
+
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.info.writing-custom-info-contributors)2.10.7\. ç¼–å†™è‡ªå®šä¹‰ InfoContributor
+
+
+
+ä¸ºäº†æä¾›è‡ªå®šä¹‰çš„åº”ç”¨ç¨‹åºä¿¡æ¯ï¼Œä½ å¯ä»¥æ³¨å†Œå®ç° [`InfoContributor`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-actuator/src/main/java/org/springframework/boot/actuate/info/InfoContributor.java) æ¥å£çš„Spring Beanã€‚
+
+
+
+
+
+ä¸‹é¢çš„ä¾‹å­è´¡çŒ®äº†ä¸€ä¸ªåªæœ‰ä¸€ä¸ªå€¼çš„ `example` æ¡ç›®ã€‚
 
 
 
@@ -1987,7 +1987,7 @@ public class MyInfoContributor implements InfoContributor {
 
 
 
-Èç¹ûÄãÇëÇó `info` ¶Ëµã£¬ÄãÓ¦¸Ã¿´µ½Ò»¸ö°üº¬ÒÔÏÂ¶îÍâÌõÄ¿µÄÏìÓ¦¡£
+å¦‚æœä½ è¯·æ±‚ `info` ç«¯ç‚¹ï¼Œä½ åº”è¯¥çœ‹åˆ°ä¸€ä¸ªåŒ…å«ä»¥ä¸‹é¢å¤–æ¡ç›®çš„å“åº”ã€‚
 
 
 
@@ -2017,37 +2017,37 @@ public class MyInfoContributor implements InfoContributor {
 
 
 
-## [](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring)3\. Í¨¹ıHTTP½øĞĞ¼à¿ØºÍ¹ÜÀí
+## [](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring)3\. é€šè¿‡HTTPè¿›è¡Œç›‘æ§å’Œç®¡ç†
 
 
 
 
 
-Èç¹ûÄãÕıÔÚ¿ª·¢Ò»¸öWebÓ¦ÓÃ³ÌĞò£¬Spring Boot Actuator»á×Ô¶¯ÅäÖÃËùÓĞÆôÓÃµÄ¶Ëµã£¬Ê¹ÆäÍ¨¹ıHTTP¹«¿ª¡£ Ä¬ÈÏµÄ¹ßÀıÊÇÊ¹ÓÃ¶ËµãµÄ `id` ºÍ `/actuator` µÄÇ°×º×÷ÎªURLÂ·¾¶¡£ ÀıÈç£¬`health` ÒÔ `/actuator/health` µÄĞÎÊ½¹«¿ª¡£
+å¦‚æœä½ æ­£åœ¨å¼€å‘ä¸€ä¸ªWebåº”ç”¨ç¨‹åºï¼ŒSpring Boot Actuatorä¼šè‡ªåŠ¨é…ç½®æ‰€æœ‰å¯ç”¨çš„ç«¯ç‚¹ï¼Œä½¿å…¶é€šè¿‡HTTPå…¬å¼€ã€‚ é»˜è®¤çš„æƒ¯ä¾‹æ˜¯ä½¿ç”¨ç«¯ç‚¹çš„ `id` å’Œ `/actuator` çš„å‰ç¼€ä½œä¸ºURLè·¯å¾„ã€‚ ä¾‹å¦‚ï¼Œ`health` ä»¥ `/actuator/health` çš„å½¢å¼å…¬å¼€ã€‚
 
 
 
 
 
-|  | Actuator Ö§³Ö Spring MVC¡¢Spring WebFluxºÍJersey¡£ Èç¹ûJerseyºÍSpring MVC¶¼¿ÉÓÃ£¬Ôò»áÊ¹ÓÃSpring MVC¡£ |
+|  | Actuator æ”¯æŒ Spring MVCã€Spring WebFluxå’ŒJerseyã€‚ å¦‚æœJerseyå’ŒSpring MVCéƒ½å¯ç”¨ï¼Œåˆ™ä¼šä½¿ç”¨Spring MVCã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | ÎªÁË»ñµÃAPIÎÄµµ£¨ [HTML](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/actuator-api/htmlsingle) »ò [PDF](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/actuator-api/pdf/spring-boot-actuator-web-api.pdf) £©ÖĞ¼ÇÔØµÄÕıÈ·µÄJSONÏìÓ¦£¬JacksonÊÇÒ»¸ö±ØÒªµÄÒÀÀµ¡£ |
+|  | ä¸ºäº†è·å¾—APIæ–‡æ¡£ï¼ˆ [HTML](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/actuator-api/htmlsingle) æˆ– [PDF](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/actuator-api/pdf/spring-boot-actuator-web-api.pdf) ï¼‰ä¸­è®°è½½çš„æ­£ç¡®çš„JSONå“åº”ï¼ŒJacksonæ˜¯ä¸€ä¸ªå¿…è¦çš„ä¾èµ–ã€‚ |
 | --- | --- |
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring.customizing-management-server-context-path)3.1\. ¶¨ÖÆ¹ÜÀí¶ËµãÂ·¾¶
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring.customizing-management-server-context-path)3.1\. å®šåˆ¶ç®¡ç†ç«¯ç‚¹è·¯å¾„
 
 
 
-ÓĞÊ±£¬Îª¹ÜÀí¶Ëµã¶¨ÖÆÇ°×ºÊÇºÜÓĞÓÃµÄ¡£ ÀıÈç£¬ÄãµÄÓ¦ÓÃ³ÌĞò¿ÉÄÜÒÑ¾­½« `/actuator` ÓÃÓÚÆäËûÄ¿µÄ¡£ Äã¿ÉÒÔÊ¹ÓÃ `management.endpoints.web.base-path` ÊôĞÔÀ´¸Ä±ä¹ÜÀí¶ËµãµÄÇ°×º£¬ÈçÏÂÃæµÄÀı×ÓËùÊ¾¡£
+æœ‰æ—¶ï¼Œä¸ºç®¡ç†ç«¯ç‚¹å®šåˆ¶å‰ç¼€æ˜¯å¾ˆæœ‰ç”¨çš„ã€‚ ä¾‹å¦‚ï¼Œä½ çš„åº”ç”¨ç¨‹åºå¯èƒ½å·²ç»å°† `/actuator` ç”¨äºå…¶ä»–ç›®çš„ã€‚ ä½ å¯ä»¥ä½¿ç”¨ `management.endpoints.web.base-path` å±æ€§æ¥æ”¹å˜ç®¡ç†ç«¯ç‚¹çš„å‰ç¼€ï¼Œå¦‚ä¸‹é¢çš„ä¾‹å­æ‰€ç¤ºã€‚
 
 
 
@@ -2074,26 +2074,26 @@ management.endpoints.web.base-path=/manage
 
 
 
-Ç°ÃæµÄ `application.properties` Àı×Ó½«¶Ëµã´Ó `/actuator/{id}` ¸ÄÎª `/manage/{id}` £¨ÀıÈç£¬`/manage/info`£©¡£
+å‰é¢çš„ `application.properties` ä¾‹å­å°†ç«¯ç‚¹ä» `/actuator/{id}` æ”¹ä¸º `/manage/{id}` ï¼ˆä¾‹å¦‚ï¼Œ`/manage/info`ï¼‰ã€‚
 
 
 
 
 
-|  | ³ı·Ç¹ÜÀí¶Ë¿Ú±»ÅäÖÃÎª[Ê¹ÓÃ²»Í¬µÄHTTP¶Ë¿Ú](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring.customizing-management-server-port)À´±©Â¶¶Ëµã£¬·ñÔò `management.endpoints.web.base-path` ÊÇÏà¶ÔÓÚ `server.servlet.context-path` £¨ÓÃÓÚServlet WebÓ¦ÓÃ£©»ò `spring.webflux.base-path` £¨ÓÃÓÚreactive WebÓ¦ÓÃ£©¡£Èç¹ûÅäÖÃÁË `management.server.port`£¬ `management.endpoints.web.base-path` ÊÇÏà¶ÔÓÚ `management.server.base-path` µÄ¡£ |
+|  | é™¤éç®¡ç†ç«¯å£è¢«é…ç½®ä¸º[ä½¿ç”¨ä¸åŒçš„HTTPç«¯å£](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring.customizing-management-server-port)æ¥æš´éœ²ç«¯ç‚¹ï¼Œå¦åˆ™ `management.endpoints.web.base-path` æ˜¯ç›¸å¯¹äº `server.servlet.context-path` ï¼ˆç”¨äºServlet Webåº”ç”¨ï¼‰æˆ– `spring.webflux.base-path` ï¼ˆç”¨äºreactive Webåº”ç”¨ï¼‰ã€‚å¦‚æœé…ç½®äº† `management.server.port`ï¼Œ `management.endpoints.web.base-path` æ˜¯ç›¸å¯¹äº `management.server.base-path` çš„ã€‚ |
 | --- | --- |
 
 
 
 
 
-Èç¹ûÄãÏë°Ñ¶ËµãÓ³Éäµ½²»Í¬µÄÂ·¾¶£¬Äã¿ÉÒÔÊ¹ÓÃ `management.endpoints.web.path-mapping` ÊôĞÔ¡£
+å¦‚æœä½ æƒ³æŠŠç«¯ç‚¹æ˜ å°„åˆ°ä¸åŒçš„è·¯å¾„ï¼Œä½ å¯ä»¥ä½¿ç”¨ `management.endpoints.web.path-mapping` å±æ€§ã€‚
 
 
 
 
 
-ÏÂÃæµÄÀı×Ó½« `/actuator/health` ÖØĞÂÓ³ÉäÎª `/healthcheck`¡£
+ä¸‹é¢çš„ä¾‹å­å°† `/actuator/health` é‡æ–°æ˜ å°„ä¸º `/healthcheck`ã€‚
 
 
 
@@ -2123,17 +2123,17 @@ management.endpoints.web.path-mapping.health=healthcheck
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring.customizing-management-server-port)3.2\. ¶¨ÖÆ¹ÜÀí·şÎñÆ÷¶Ë¿Ú
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring.customizing-management-server-port)3.2\. å®šåˆ¶ç®¡ç†æœåŠ¡å™¨ç«¯å£
 
 
 
-¶ÔÓÚ»ùÓÚÔÆµÄ²¿ÊğÀ´Ëµ£¬Í¨¹ıÊ¹ÓÃÄ¬ÈÏµÄHTTP¶Ë¿ÚÀ´±©Â¶¹ÜÀí¶ËµãÊÇÒ»¸öÃ÷ÖÇµÄÑ¡Ôñ¡£ È»¶ø£¬Èç¹ûÄãµÄÓ¦ÓÃ³ÌĞòÔÚÄã×Ô¼ºµÄÊı¾İÖĞĞÄÄÚÔËĞĞ£¬Äã¿ÉÄÜ¸üÏ²»¶Ê¹ÓÃ²»Í¬µÄHTTP¶Ë¿ÚÀ´±©Â¶¶Ëµã¡£
+å¯¹äºåŸºäºäº‘çš„éƒ¨ç½²æ¥è¯´ï¼Œé€šè¿‡ä½¿ç”¨é»˜è®¤çš„HTTPç«¯å£æ¥æš´éœ²ç®¡ç†ç«¯ç‚¹æ˜¯ä¸€ä¸ªæ˜æ™ºçš„é€‰æ‹©ã€‚ ç„¶è€Œï¼Œå¦‚æœä½ çš„åº”ç”¨ç¨‹åºåœ¨ä½ è‡ªå·±çš„æ•°æ®ä¸­å¿ƒå†…è¿è¡Œï¼Œä½ å¯èƒ½æ›´å–œæ¬¢ä½¿ç”¨ä¸åŒçš„HTTPç«¯å£æ¥æš´éœ²ç«¯ç‚¹ã€‚
 
 
 
 
 
-Äã¿ÉÒÔÉèÖÃ `management.server.port` ÊôĞÔÀ´¸Ä±äHTTP¶Ë¿Ú£¬ÈçÏÂÃæµÄÀı×ÓËùÊ¾¡£
+ä½ å¯ä»¥è®¾ç½® `management.server.port` å±æ€§æ¥æ”¹å˜HTTPç«¯å£ï¼Œå¦‚ä¸‹é¢çš„ä¾‹å­æ‰€ç¤ºã€‚
 
 
 
@@ -2160,7 +2160,7 @@ management.server.port=8081
 
 
 
-|  | ÔÚ Cloud Foundry ÉÏ£¬Ä¬ÈÏÇé¿öÏÂ£¬Ó¦ÓÃ³ÌĞò½öÔÚ¶Ë¿Ú 8080 ÉÏ½ÓÊÕ HTTP ºÍ TCP Â·ÓÉµÄÇëÇó¡£ Èç¹ûÄúÏëÔÚ Cloud Foundry ÉÏÊ¹ÓÃ×Ô¶¨Òå¹ÜÀí¶Ë¿Ú£¬ÄúĞèÒªÃ÷È·ÉèÖÃÓ¦ÓÃ³ÌĞòµÄÂ·ÓÉÒÔ½«Á÷Á¿×ª·¢µ½×Ô¶¨Òå¶Ë¿Ú¡£ |
+|  | åœ¨ Cloud Foundry ä¸Šï¼Œé»˜è®¤æƒ…å†µä¸‹ï¼Œåº”ç”¨ç¨‹åºä»…åœ¨ç«¯å£ 8080 ä¸Šæ¥æ”¶ HTTP å’Œ TCP è·¯ç”±çš„è¯·æ±‚ã€‚ å¦‚æœæ‚¨æƒ³åœ¨ Cloud Foundry ä¸Šä½¿ç”¨è‡ªå®šä¹‰ç®¡ç†ç«¯å£ï¼Œæ‚¨éœ€è¦æ˜ç¡®è®¾ç½®åº”ç”¨ç¨‹åºçš„è·¯ç”±ä»¥å°†æµé‡è½¬å‘åˆ°è‡ªå®šä¹‰ç«¯å£ã€‚ |
 | --- | --- |
 
 
@@ -2169,11 +2169,11 @@ management.server.port=8081
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring.management-specific-ssl)3.3\. ÅäÖÃÕë¶ÔManagement£¨¹ÜÀí£©²ãµÄSSL
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring.management-specific-ssl)3.3\. é…ç½®é’ˆå¯¹Managementï¼ˆç®¡ç†ï¼‰å±‚çš„SSL
 
 
 
-µ±ÅäÖÃÎªÊ¹ÓÃ×Ô¶¨Òå¶Ë¿ÚÊ±£¬ÄãÒ²¿ÉÒÔÍ¨¹ıÊ¹ÓÃ¸÷ÖÖ `management.server.ssl.*` ÊôĞÔÀ´ÅäÖÃ¹ÜÀí·şÎñÆ÷µÄSSL¡£ ÀıÈç£¬ÕâÑù×ö¿ÉÒÔÈÃ¹ÜÀí·şÎñÆ÷Í¨¹ıHTTPÌá¹©·şÎñ£¬¶øÖ÷Ó¦ÓÃ³ÌĞòÊ¹ÓÃHTTPS£¬ÈçÒÔÏÂÊôĞÔÉèÖÃËùÊ¾¡£
+å½“é…ç½®ä¸ºä½¿ç”¨è‡ªå®šä¹‰ç«¯å£æ—¶ï¼Œä½ ä¹Ÿå¯ä»¥é€šè¿‡ä½¿ç”¨å„ç§ `management.server.ssl.*` å±æ€§æ¥é…ç½®ç®¡ç†æœåŠ¡å™¨çš„SSLã€‚ ä¾‹å¦‚ï¼Œè¿™æ ·åšå¯ä»¥è®©ç®¡ç†æœåŠ¡å™¨é€šè¿‡HTTPæä¾›æœåŠ¡ï¼Œè€Œä¸»åº”ç”¨ç¨‹åºä½¿ç”¨HTTPSï¼Œå¦‚ä»¥ä¸‹å±æ€§è®¾ç½®æ‰€ç¤ºã€‚
 
 
 
@@ -2205,7 +2205,7 @@ management.server.ssl.enabled=false
 
 
 
-»òÕß£¬Ö÷·şÎñÆ÷ºÍ¹ÜÀí·şÎñÆ÷¶¼¿ÉÒÔÊ¹ÓÃSSL£¬µ«Ê¹ÓÃ²»Í¬µÄÃÜÔ¿´æ´¢£¬ÈçÏÂËùÊ¾¡£
+æˆ–è€…ï¼Œä¸»æœåŠ¡å™¨å’Œç®¡ç†æœåŠ¡å™¨éƒ½å¯ä»¥ä½¿ç”¨SSLï¼Œä½†ä½¿ç”¨ä¸åŒçš„å¯†é’¥å­˜å‚¨ï¼Œå¦‚ä¸‹æ‰€ç¤ºã€‚
 
 
 
@@ -2241,24 +2241,24 @@ management.server.ssl.key-password=secret
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring.customizing-management-server-address)3.4\. ¶¨ÖÆManagement£¨¹ÜÀí£©·şÎñÆ÷µØÖ·
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring.customizing-management-server-address)3.4\. å®šåˆ¶Managementï¼ˆç®¡ç†ï¼‰æœåŠ¡å™¨åœ°å€
 
 
 
-Äã¿ÉÒÔÍ¨¹ıÉèÖÃ `management.server.address` ĞÔÀ´¶¨ÖÆ¹ÜÀí¶ËµãµÄ¿ÉÓÃµØÖ·¡£ Èç¹ûÄãÏëÖ»ÔÚÄÚ²¿»òÃæÏòÔËÎ¬µÄÍøÂçÉÏ¼àÌı£¬»òÕßÖ»¼àÌıÀ´×Ô `localhost` µÄÁ¬½Ó£¬ÕâÑù×ö»áºÜÓĞÓÃ¡£
+ä½ å¯ä»¥é€šè¿‡è®¾ç½® `management.server.address` æ€§æ¥å®šåˆ¶ç®¡ç†ç«¯ç‚¹çš„å¯ç”¨åœ°å€ã€‚ å¦‚æœä½ æƒ³åªåœ¨å†…éƒ¨æˆ–é¢å‘è¿ç»´çš„ç½‘ç»œä¸Šç›‘å¬ï¼Œæˆ–è€…åªç›‘å¬æ¥è‡ª `localhost` çš„è¿æ¥ï¼Œè¿™æ ·åšä¼šå¾ˆæœ‰ç”¨ã€‚
 
 
 
 
 
-|  | Ö»ÓĞµ±¶Ë¿ÚÓëÖ÷·şÎñÆ÷¶Ë¿Ú²»Í¬Ê±£¬Äã²ÅÄÜÔÚ²»Í¬µÄµØÖ·ÉÏ½øĞĞ¼àÌı¡£ |
+|  | åªæœ‰å½“ç«¯å£ä¸ä¸»æœåŠ¡å™¨ç«¯å£ä¸åŒæ—¶ï¼Œä½ æ‰èƒ½åœ¨ä¸åŒçš„åœ°å€ä¸Šè¿›è¡Œç›‘å¬ã€‚ |
 | --- | --- |
 
 
 
 
 
-ÏÂÃæµÄÀı×Ó `application.properties` ²»ÔÊĞíÔ¶³Ì¹ÜÀíÁ¬½Ó¡£
+ä¸‹é¢çš„ä¾‹å­ `application.properties` ä¸å…è®¸è¿œç¨‹ç®¡ç†è¿æ¥ã€‚
 
 
 
@@ -2288,11 +2288,11 @@ management.server.address=127.0.0.1
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring.disabling-http-endpoints)3.5\. ½ûÓÃHTTP¶Ëµã
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.monitoring.disabling-http-endpoints)3.5\. ç¦ç”¨HTTPç«¯ç‚¹
 
 
 
-Èç¹ûÄã²»ÏëÍ¨¹ıHTTP±©Â¶¶Ëµã£¬Äã¿ÉÒÔ°Ñ¹ÜÀí¶Ë¿ÚÉèÖÃÎª `-1`£¬ÈçÏÂÀıËùÊ¾¡£
+å¦‚æœä½ ä¸æƒ³é€šè¿‡HTTPæš´éœ²ç«¯ç‚¹ï¼Œä½ å¯ä»¥æŠŠç®¡ç†ç«¯å£è®¾ç½®ä¸º `-1`ï¼Œå¦‚ä¸‹ä¾‹æ‰€ç¤ºã€‚
 
 
 
@@ -2319,7 +2319,7 @@ management.server.port=-1
 
 
 
-ÄãÒ²¿ÉÒÔÍ¨¹ıÊ¹ÓÃ `management.endpoints.web.exposure.exclude` ÊôĞÔÀ´ÊµÏÖ£¬ÈçÏÂÀıËùÊ¾¡£
+ä½ ä¹Ÿå¯ä»¥é€šè¿‡ä½¿ç”¨ `management.endpoints.web.exposure.exclude` å±æ€§æ¥å®ç°ï¼Œå¦‚ä¸‹ä¾‹æ‰€ç¤ºã€‚
 
 
 
@@ -2352,53 +2352,53 @@ management.endpoints.web.exposure.exclude=*
 
 
 
-## [](https://springdoc.cn/spring-boot/actuator.html#actuator.jmx)4\. Í¨¹ıJMX½øĞĞ¼à¿ØºÍ¹ÜÀí
+## [](https://springdoc.cn/spring-boot/actuator.html#actuator.jmx)4\. é€šè¿‡JMXè¿›è¡Œç›‘æ§å’Œç®¡ç†
 
 
 
 
 
-Java¹ÜÀíÀ©Õ¹£¨JMX£©Ìá¹©ÁËÒ»¸ö±ê×¼µÄ»úÖÆÀ´¼à¿ØºÍ¹ÜÀíÓ¦ÓÃ³ÌĞò¡£ Ä¬ÈÏÇé¿öÏÂ£¬¸Ã¹¦ÄÜÎ´±»ÆôÓÃ¡£ Äã¿ÉÒÔÍ¨¹ıÉèÖÃ `spring.jmx.enabled` ÅäÖÃÊôĞÔÎª `true` À´´ò¿ªËü¡£ Spring Boot½«×îºÏÊÊµÄ `MBeanServer` ×÷ÎªIDÎª `mbeanServer` µÄBean¹«¿ª¡£ ÄãµÄÈÎºÎ´øÓĞSpring JMX×¢½âµÄBean£¨`@ManagedResource`¡¢`@ManagedAttribute` »ò `@ManagedOperation`£©¶¼»á±©Â¶¸øËü¡£
+Javaç®¡ç†æ‰©å±•ï¼ˆJMXï¼‰æä¾›äº†ä¸€ä¸ªæ ‡å‡†çš„æœºåˆ¶æ¥ç›‘æ§å’Œç®¡ç†åº”ç”¨ç¨‹åºã€‚ é»˜è®¤æƒ…å†µä¸‹ï¼Œè¯¥åŠŸèƒ½æœªè¢«å¯ç”¨ã€‚ ä½ å¯ä»¥é€šè¿‡è®¾ç½® `spring.jmx.enabled` é…ç½®å±æ€§ä¸º `true` æ¥æ‰“å¼€å®ƒã€‚ Spring Bootå°†æœ€åˆé€‚çš„ `MBeanServer` ä½œä¸ºIDä¸º `mbeanServer` çš„Beanå…¬å¼€ã€‚ ä½ çš„ä»»ä½•å¸¦æœ‰Spring JMXæ³¨è§£çš„Beanï¼ˆ`@ManagedResource`ã€`@ManagedAttribute` æˆ– `@ManagedOperation`ï¼‰éƒ½ä¼šæš´éœ²ç»™å®ƒã€‚
 
 
 
 
 
-Èç¹ûÄãµÄÆ½Ì¨Ìá¹©ÁËÒ»¸ö±ê×¼µÄ `MBeanServer` £¬Spring Boot»áÊ¹ÓÃËü£¬²¢ÔÚ±ØÒªÊ±Ä¬ÈÏÎªVM `MBeanServer`¡£ Èç¹ûËùÓĞÕâĞ©¶¼Ê§°ÜÁË£¬¾Í»á´´½¨Ò»¸öĞÂµÄ `MBeanServer`¡£
+å¦‚æœä½ çš„å¹³å°æä¾›äº†ä¸€ä¸ªæ ‡å‡†çš„ `MBeanServer` ï¼ŒSpring Bootä¼šä½¿ç”¨å®ƒï¼Œå¹¶åœ¨å¿…è¦æ—¶é»˜è®¤ä¸ºVM `MBeanServer`ã€‚ å¦‚æœæ‰€æœ‰è¿™äº›éƒ½å¤±è´¥äº†ï¼Œå°±ä¼šåˆ›å»ºä¸€ä¸ªæ–°çš„ `MBeanServer`ã€‚
 
 
 
 
 
-¸ü¶àÏ¸½Ú¼û [`JmxAutoConfiguration`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/jmx/JmxAutoConfiguration.java) Àà¡£
+æ›´å¤šç»†èŠ‚è§ [`JmxAutoConfiguration`](https://github.com/spring-projects/spring-boot/tree/main/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/jmx/JmxAutoConfiguration.java) ç±»ã€‚
 
 
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Spring BootÒ²½«¹ÜÀí¶Ëµã×÷ÎªJMX MBeansÔÚ `org.springframework.boot` ÓòÏÂ¹«¿ª¡£ ÒªÍêÈ«¿ØÖÆJMXÓòÖĞµÄ¶Ëµã×¢²á£¬¿ÉÒÔ¿¼ÂÇ×¢²áÄã×Ô¼ºµÄ `EndpointObjectNameFactory` ÊµÏÖ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒSpring Bootä¹Ÿå°†ç®¡ç†ç«¯ç‚¹ä½œä¸ºJMX MBeansåœ¨ `org.springframework.boot` åŸŸä¸‹å…¬å¼€ã€‚ è¦å®Œå…¨æ§åˆ¶JMXåŸŸä¸­çš„ç«¯ç‚¹æ³¨å†Œï¼Œå¯ä»¥è€ƒè™‘æ³¨å†Œä½ è‡ªå·±çš„ `EndpointObjectNameFactory` å®ç°ã€‚
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.jmx.custom-mbean-names)4.1\. ×Ô¶¨ÒåMBeanÃû³Æ
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.jmx.custom-mbean-names)4.1\. è‡ªå®šä¹‰MBeanåç§°
 
 
 
-MBeanµÄÃû×ÖÍ¨³£ÓÉ¶ËµãµÄ `id` Éú³É¡£ ÀıÈç£¬ `health` ¶Ëµã±»±©Â¶Îª `org.springframework.boot:type=Endpoint,name=Health`¡£
-
-
-
-
-
-Èç¹ûÄãµÄÓ¦ÓÃ³ÌĞò°üº¬Ò»¸öÒÔÉÏµÄSpring `ApplicationContext`£¬Äã¿ÉÄÜ»á·¢ÏÖÃû×Ö·¢Éú³åÍ»¡£ ÎªÁË½â¾öÕâ¸öÎÊÌâ£¬Äã¿ÉÒÔ½« `spring.jmx.unique-names` ÊôĞÔÉèÖÃÎª `true`£¬ÕâÑùMBeanµÄÃû×Ö¾Í×ÜÊÇÎ¨Ò»µÄ¡£
+MBeançš„åå­—é€šå¸¸ç”±ç«¯ç‚¹çš„ `id` ç”Ÿæˆã€‚ ä¾‹å¦‚ï¼Œ `health` ç«¯ç‚¹è¢«æš´éœ²ä¸º `org.springframework.boot:type=Endpoint,name=Health`ã€‚
 
 
 
 
 
-Äã»¹¿ÉÒÔ×Ô¶¨Òå±©Â¶¶ËµãµÄJMXÓò¡£ ÏÂÃæµÄÉèÖÃÏÔÊ¾ÁËÔÚ `application.properties` ÖĞÕâÑù×öµÄÒ»¸öÀı×Ó¡£
+å¦‚æœä½ çš„åº”ç”¨ç¨‹åºåŒ…å«ä¸€ä¸ªä»¥ä¸Šçš„Spring `ApplicationContext`ï¼Œä½ å¯èƒ½ä¼šå‘ç°åå­—å‘ç”Ÿå†²çªã€‚ ä¸ºäº†è§£å†³è¿™ä¸ªé—®é¢˜ï¼Œä½ å¯ä»¥å°† `spring.jmx.unique-names` å±æ€§è®¾ç½®ä¸º `true`ï¼Œè¿™æ ·MBeançš„åå­—å°±æ€»æ˜¯å”¯ä¸€çš„ã€‚
+
+
+
+
+
+ä½ è¿˜å¯ä»¥è‡ªå®šä¹‰æš´éœ²ç«¯ç‚¹çš„JMXåŸŸã€‚ ä¸‹é¢çš„è®¾ç½®æ˜¾ç¤ºäº†åœ¨ `application.properties` ä¸­è¿™æ ·åšçš„ä¸€ä¸ªä¾‹å­ã€‚
 
 
 
@@ -2428,11 +2428,11 @@ management.endpoints.jmx.domain=com.example.myapp
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.jmx.disable-jmx-endpoints)4.2\. ½ûÓÃJMX¶Ëµã
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.jmx.disable-jmx-endpoints)4.2\. ç¦ç”¨JMXç«¯ç‚¹
 
 
 
-Èç¹ûÄã²»ÏëÍ¨¹ıJMX±©Â¶¶Ëµã£¬Äã¿ÉÒÔ°Ñ `management.endpoints.jmx.exposure.exclude` ÊôĞÔÉèÖÃÎª `*`£¬ÈçÏÂÀıËùÊ¾¡£
+å¦‚æœä½ ä¸æƒ³é€šè¿‡JMXæš´éœ²ç«¯ç‚¹ï¼Œä½ å¯ä»¥æŠŠ `management.endpoints.jmx.exposure.exclude` å±æ€§è®¾ç½®ä¸º `*`ï¼Œå¦‚ä¸‹ä¾‹æ‰€ç¤ºã€‚
 
 
 
@@ -2465,19 +2465,19 @@ management.endpoints.jmx.exposure.exclude=*
 
 
 
-## [](https://springdoc.cn/spring-boot/actuator.html#actuator.observability)5\. ¿É¹Û²âĞÔ£¨Observability£©
+## [](https://springdoc.cn/spring-boot/actuator.html#actuator.observability)5\. å¯è§‚æµ‹æ€§ï¼ˆObservabilityï¼‰
 
 
 
 
 
-¿É¹Û²ìĞÔÊÇÖ¸´ÓÍâ²¿¹Û²ìÒ»¸öÔËĞĞÖĞµÄÏµÍ³µÄÄÚ²¿×´Ì¬µÄÄÜÁ¦¡£ËüÓÉÈı¸öÖ§Öù×é³É£ºÈÕÖ¾¡¢¶ÈÁ¿ºÍ¸ú×Ù¡£
+å¯è§‚å¯Ÿæ€§æ˜¯æŒ‡ä»å¤–éƒ¨è§‚å¯Ÿä¸€ä¸ªè¿è¡Œä¸­çš„ç³»ç»Ÿçš„å†…éƒ¨çŠ¶æ€çš„èƒ½åŠ›ã€‚å®ƒç”±ä¸‰ä¸ªæ”¯æŸ±ç»„æˆï¼šæ—¥å¿—ã€åº¦é‡å’Œè·Ÿè¸ªã€‚
 
 
 
 
 
-¶ÔÓÚ¶ÈÁ¿ºÍ¸ú×Ù£¬Spring BootÊ¹ÓÃ [Micrometer Observation](https://micrometer.io/docs/observation)¡£Òª´´½¨Äã×Ô¼ºµÄ¹Û²ì£¨Õâ½«µ¼ÖÂ¶ÈÁ¿ºÍ¸ú×Ù£©£¬Äã¿ÉÒÔ×¢ÈëÒ»¸ö `ObservationRegistry`¡£
+å¯¹äºåº¦é‡å’Œè·Ÿè¸ªï¼ŒSpring Bootä½¿ç”¨ [Micrometer Observation](https://micrometer.io/docs/observation)ã€‚è¦åˆ›å»ºä½ è‡ªå·±çš„è§‚å¯Ÿï¼ˆè¿™å°†å¯¼è‡´åº¦é‡å’Œè·Ÿè¸ªï¼‰ï¼Œä½ å¯ä»¥æ³¨å…¥ä¸€ä¸ª `ObservationRegistry`ã€‚
 
 
 
@@ -2514,33 +2514,33 @@ public class MyCustomObservation {
 
 
 
-|  | µÍ¿¨¶ÈµÄ±êÇ©½«±»Ìí¼Óµ½Ö¸±êºÍ×·×ÙÖĞ£¬¶ø¸ß¿¨¶ÈµÄ±êÇ©½«Ö»±»Ìí¼Óµ½×·×ÙÖĞ¡£ |
+|  | ä½å¡åº¦çš„æ ‡ç­¾å°†è¢«æ·»åŠ åˆ°æŒ‡æ ‡å’Œè¿½è¸ªä¸­ï¼Œè€Œé«˜å¡åº¦çš„æ ‡ç­¾å°†åªè¢«æ·»åŠ åˆ°è¿½è¸ªä¸­ã€‚ |
 | --- | --- |
 
 
 
 
 
-`ObservationPredicate`¡¢`GlobalObservationConvention` ºÍ `ObservationHandler` ÀàĞÍµÄ Bean ½«±»×Ô¶¯×¢²áµ½ `ObservationRegistry` ÉÏ¡£Äã¿ÉÒÔÁíÍâ×¢²áÈÎÒâÊıÁ¿µÄ `ObservationRegistryCustomizer` BeanÀ´½øÒ»²½ÅäÖÃ×¢²á±í¡£
+`ObservationPredicate`ã€`GlobalObservationConvention` å’Œ `ObservationHandler` ç±»å‹çš„ Bean å°†è¢«è‡ªåŠ¨æ³¨å†Œåˆ° `ObservationRegistry` ä¸Šã€‚ä½ å¯ä»¥å¦å¤–æ³¨å†Œä»»æ„æ•°é‡çš„ `ObservationRegistryCustomizer` Beanæ¥è¿›ä¸€æ­¥é…ç½®æ³¨å†Œè¡¨ã€‚
 
 
 
 
 
-¸ü¶àÏ¸½ÚÇë¼û [Micrometer Observation ÎÄµµ](https://micrometer.io/docs/observation)¡£
+æ›´å¤šç»†èŠ‚è¯·è§ [Micrometer Observation æ–‡æ¡£](https://micrometer.io/docs/observation)ã€‚
 
 
 
 
 
-|  | JDBCºÍR2DBCµÄ¿É¹Û²ìĞÔ£¨Observability£©¿ÉÒÔÊ¹ÓÃµ¥¶ÀµÄÏîÄ¿½øĞĞÅäÖÃ¡£¶ÔÓÚ JDBC£¬ [Datasource Micrometer ÏîÄ¿](https://github.com/jdbc-observations/datasource-micrometer) Ìá¹©ÁËÒ»¸ö Spring Boot Starter£¬ÔÚµ÷ÓÃJDBC²Ù×÷Ê±×Ô¶¯´´½¨¹Û²ì¡£ÔÚ [²Î¿¼ÎÄµµ](https://jdbc-observations.github.io/datasource-micrometer/docs/current/docs/html/)ÖĞÔÄ¶Á¸ü¶à¹ØÓÚËüµÄĞÅÏ¢¡£¶ÔÓÚR2DBC£¬ [R2DBC¹Û²ìµÄSpring Boot×Ô¶¯ÅäÖÃ](https://github.com/spring-projects-experimental/r2dbc-micrometer-spring-boot) ¿ÉÒÔÎªR2DBC²éÑ¯µ÷ÓÃ´´½¨¹Û²ì¡£ |
+|  | JDBCå’ŒR2DBCçš„å¯è§‚å¯Ÿæ€§ï¼ˆObservabilityï¼‰å¯ä»¥ä½¿ç”¨å•ç‹¬çš„é¡¹ç›®è¿›è¡Œé…ç½®ã€‚å¯¹äº JDBCï¼Œ [Datasource Micrometer é¡¹ç›®](https://github.com/jdbc-observations/datasource-micrometer) æä¾›äº†ä¸€ä¸ª Spring Boot Starterï¼Œåœ¨è°ƒç”¨JDBCæ“ä½œæ—¶è‡ªåŠ¨åˆ›å»ºè§‚å¯Ÿã€‚åœ¨ [å‚è€ƒæ–‡æ¡£](https://jdbc-observations.github.io/datasource-micrometer/docs/current/docs/html/)ä¸­é˜…è¯»æ›´å¤šå…³äºå®ƒçš„ä¿¡æ¯ã€‚å¯¹äºR2DBCï¼Œ [R2DBCè§‚å¯Ÿçš„Spring Bootè‡ªåŠ¨é…ç½®](https://github.com/spring-projects-experimental/r2dbc-micrometer-spring-boot) å¯ä»¥ä¸ºR2DBCæŸ¥è¯¢è°ƒç”¨åˆ›å»ºè§‚å¯Ÿã€‚ |
 | --- | --- |
 
 
 
 
 
-½ÓÏÂÀ´µÄÕÂ½Ú½«Ìá¹©¹ØÓÚÈÕÖ¾¡¢Ö¸±êºÍ×·×ÙµÄ¸ü¶àÏ¸½Ú¡£
+æ¥ä¸‹æ¥çš„ç« èŠ‚å°†æä¾›å…³äºæ—¥å¿—ã€æŒ‡æ ‡å’Œè¿½è¸ªçš„æ›´å¤šç»†èŠ‚ã€‚
 
 
 
@@ -2550,13 +2550,13 @@ public class MyCustomObservation {
 
 
 
-## [](https://springdoc.cn/spring-boot/actuator.html#actuator.loggers)6\. ÈÕÖ¾¼ÇÂ¼Æ÷£¨Logger£©
+## [](https://springdoc.cn/spring-boot/actuator.html#actuator.loggers)6\. æ—¥å¿—è®°å½•å™¨ï¼ˆLoggerï¼‰
 
 
 
 
 
-Spring Boot Actuator°üÀ¨ÔÚÔËĞĞÊ±²é¿´ºÍÅäÖÃÓ¦ÓÃ³ÌĞòµÄÈÕÖ¾¼¶±ğµÄ¹¦ÄÜ¡£ Äã¿ÉÒÔ²é¿´Õû¸öÁĞ±í»òµ¥¸öÈÕÖ¾¼ÇÂ¼Æ÷µÄÅäÖÃ£¬ËüÓÉÃ÷È·ÅäÖÃµÄÈÕÖ¾¼¶±ğÒÔ¼°ÈÕÖ¾¿ò¼Ü¸³ÓèËüµÄÓĞĞ§ÈÕÖ¾¼¶±ğ×é³É¡£ ÕâĞ©¼¶±ğ¿ÉÒÔÊÇÒÔÏÂÖ®Ò»¡£
+Spring Boot ActuatoråŒ…æ‹¬åœ¨è¿è¡Œæ—¶æŸ¥çœ‹å’Œé…ç½®åº”ç”¨ç¨‹åºçš„æ—¥å¿—çº§åˆ«çš„åŠŸèƒ½ã€‚ ä½ å¯ä»¥æŸ¥çœ‹æ•´ä¸ªåˆ—è¡¨æˆ–å•ä¸ªæ—¥å¿—è®°å½•å™¨çš„é…ç½®ï¼Œå®ƒç”±æ˜ç¡®é…ç½®çš„æ—¥å¿—çº§åˆ«ä»¥åŠæ—¥å¿—æ¡†æ¶èµ‹äºˆå®ƒçš„æœ‰æ•ˆæ—¥å¿—çº§åˆ«ç»„æˆã€‚ è¿™äº›çº§åˆ«å¯ä»¥æ˜¯ä»¥ä¸‹ä¹‹ä¸€ã€‚
 
 
 
@@ -2582,17 +2582,17 @@ Spring Boot Actuator°üÀ¨ÔÚÔËĞĞÊ±²é¿´ºÍÅäÖÃÓ¦ÓÃ³ÌĞòµÄÈÕÖ¾¼¶±ğµÄ¹¦ÄÜ¡£ Äã¿ÉÒÔ²é¿´Õ
 
 
 
-`null` ±íÊ¾Ã»ÓĞÃ÷È·µÄÅäÖÃ¡£
+`null` è¡¨ç¤ºæ²¡æœ‰æ˜ç¡®çš„é…ç½®ã€‚
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.loggers.configure)6.1\. ÅäÖÃÒ»¸ö Logger
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.loggers.configure)6.1\. é…ç½®ä¸€ä¸ª Logger
 
 
 
-ÒªÅäÖÃÒ»¸ö¸ø¶¨µÄ¼ÇÂ¼Æ÷£¬`POST` Ò»¸ö²¿·ÖÊµÌåµ½×ÊÔ´µÄURI£¬ÈçÏÂÃæµÄÀı×ÓËùÊ¾¡£
+è¦é…ç½®ä¸€ä¸ªç»™å®šçš„è®°å½•å™¨ï¼Œ`POST` ä¸€ä¸ªéƒ¨åˆ†å®ä½“åˆ°èµ„æºçš„URIï¼Œå¦‚ä¸‹é¢çš„ä¾‹å­æ‰€ç¤ºã€‚
 
 
 
@@ -2612,7 +2612,7 @@ Spring Boot Actuator°üÀ¨ÔÚÔËĞĞÊ±²é¿´ºÍÅäÖÃÓ¦ÓÃ³ÌĞòµÄÈÕÖ¾¼¶±ğµÄ¹¦ÄÜ¡£ Äã¿ÉÒÔ²é¿´Õ
 
 
 
-|  | Òª ¡°reset¡± £¨ÖØÖÃ£©¼ÇÂ¼Æ÷µÄÌØ¶¨¼¶±ğ£¨²¢Ê¹ÓÃÄ¬ÈÏÅäÖÃ£©£¬Äã¿ÉÒÔ´«µİÒ»¸ö `null` µÄÖµ×÷Îª `configuredLevel`¡£ |
+|  | è¦ â€œresetâ€ ï¼ˆé‡ç½®ï¼‰è®°å½•å™¨çš„ç‰¹å®šçº§åˆ«ï¼ˆå¹¶ä½¿ç”¨é»˜è®¤é…ç½®ï¼‰ï¼Œä½ å¯ä»¥ä¼ é€’ä¸€ä¸ª `null` çš„å€¼ä½œä¸º `configuredLevel`ã€‚ |
 | --- | --- |
 
 
@@ -2625,13 +2625,13 @@ Spring Boot Actuator°üÀ¨ÔÚÔËĞĞÊ±²é¿´ºÍÅäÖÃÓ¦ÓÃ³ÌĞòµÄÈÕÖ¾¼¶±ğµÄ¹¦ÄÜ¡£ Äã¿ÉÒÔ²é¿´Õ
 
 
 
-## [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics)7\. Ö¸±ê£¨Metrics£©
+## [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics)7\. æŒ‡æ ‡ï¼ˆMetricsï¼‰
 
 
 
 
 
-Spring Boot ActuatorÎª [Micrometer](https://micrometer.io/) Ìá¹©ÁËÒÀÀµ¹ÜÀíºÍ×Ô¶¯ÅäÖÃ£¬MicrometerÊÇÒ»¸öÖ§³Ö [ÖÚ¶à¼à¿ØÏµÍ³](https://micrometer.io/docs) µÄÓ¦ÓÃ³ÌĞòÖ¸±ê½Ó¿Ú£¬°üÀ¨¡£
+Spring Boot Actuatorä¸º [Micrometer](https://micrometer.io/) æä¾›äº†ä¾èµ–ç®¡ç†å’Œè‡ªåŠ¨é…ç½®ï¼ŒMicrometeræ˜¯ä¸€ä¸ªæ”¯æŒ [ä¼—å¤šç›‘æ§ç³»ç»Ÿ](https://micrometer.io/docs) çš„åº”ç”¨ç¨‹åºæŒ‡æ ‡æ¥å£ï¼ŒåŒ…æ‹¬ã€‚
 
 
 
@@ -2679,24 +2679,24 @@ Spring Boot ActuatorÎª [Micrometer](https://micrometer.io/) Ìá¹©ÁËÒÀÀµ¹ÜÀíºÍ×Ô¶¯
 
 
 
-|  | ÒªÁË½â¸ü¶à¹ØÓÚMicrometerµÄ¹¦ÄÜ£¬Çë²Î¼ûÆä [²Î¿¼ÎÄµµ](https://micrometer.io/docs)£¬ÌØ±ğÊÇ [¸ÅÄî²¿·Ö](https://micrometer.io/docs/concepts)¡£ |
+|  | è¦äº†è§£æ›´å¤šå…³äºMicrometerçš„åŠŸèƒ½ï¼Œè¯·å‚è§å…¶ [å‚è€ƒæ–‡æ¡£](https://micrometer.io/docs)ï¼Œç‰¹åˆ«æ˜¯ [æ¦‚å¿µéƒ¨åˆ†](https://micrometer.io/docs/concepts)ã€‚ |
 | --- | --- |
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.getting-started)7.1\. ÈëÃÅ
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.getting-started)7.1\. å…¥é—¨
 
 
 
-Spring Boot»á×Ô¶¯ÅäÖÃÒ»¸ö¸´ºÏµÄ `MeterRegistry`£¬²¢ÎªËüÔÚclasspathÉÏ·¢ÏÖµÄÃ¿¸öÖ§³ÖµÄÊµÏÖÌí¼ÓÒ»¸ö×¢²á±í¡£ ÔÚÄãµÄÔËĞĞÊ±classpathÖĞÓĞ¶Ô `micrometer-registry-{system}` µÄÒÀÀµ¾Í×ãÒÔÈÃSpring BootÅäÖÃ×¢²á±íÁË¡£
+Spring Bootä¼šè‡ªåŠ¨é…ç½®ä¸€ä¸ªå¤åˆçš„ `MeterRegistry`ï¼Œå¹¶ä¸ºå®ƒåœ¨classpathä¸Šå‘ç°çš„æ¯ä¸ªæ”¯æŒçš„å®ç°æ·»åŠ ä¸€ä¸ªæ³¨å†Œè¡¨ã€‚ åœ¨ä½ çš„è¿è¡Œæ—¶classpathä¸­æœ‰å¯¹ `micrometer-registry-{system}` çš„ä¾èµ–å°±è¶³ä»¥è®©Spring Booté…ç½®æ³¨å†Œè¡¨äº†ã€‚
 
 
 
 
 
-´ó¶àÊı×¢²á±íÓĞ¹²Í¬µÄÌØµã¡£ ÀıÈç£¬¼´Ê¹ Micrometer ×¢²á±íµÄÊµÏÖÔÚclasspathÉÏ£¬ÄãÒ²¿ÉÒÔ½ûÓÃÒ»¸öÌØ¶¨µÄ×¢²á±í¡£ ÏÂÃæµÄÀı×Ó½ûÓÃÁËDatadog¡£
+å¤§å¤šæ•°æ³¨å†Œè¡¨æœ‰å…±åŒçš„ç‰¹ç‚¹ã€‚ ä¾‹å¦‚ï¼Œå³ä½¿ Micrometer æ³¨å†Œè¡¨çš„å®ç°åœ¨classpathä¸Šï¼Œä½ ä¹Ÿå¯ä»¥ç¦ç”¨ä¸€ä¸ªç‰¹å®šçš„æ³¨å†Œè¡¨ã€‚ ä¸‹é¢çš„ä¾‹å­ç¦ç”¨äº†Datadogã€‚
 
 
 
@@ -2723,7 +2723,7 @@ management.datadog.metrics.export.enabled=false
 
 
 
-ÄãÒ²¿ÉÒÔ½ûÓÃËùÓĞµÄ×¢²á±í£¬³ı·Ç×¢²á±íÌØ¶¨ÊôĞÔÁíÓĞËµÃ÷£¬ÈçÏÂÀıËùÊ¾¡£
+ä½ ä¹Ÿå¯ä»¥ç¦ç”¨æ‰€æœ‰çš„æ³¨å†Œè¡¨ï¼Œé™¤éæ³¨å†Œè¡¨ç‰¹å®šå±æ€§å¦æœ‰è¯´æ˜ï¼Œå¦‚ä¸‹ä¾‹æ‰€ç¤ºã€‚
 
 
 
@@ -2750,7 +2750,7 @@ management.defaults.metrics.export.enabled=false
 
 
 
-Spring Boot»¹½«ÈÎºÎ×Ô¶¯ÅäÖÃµÄ×¢²á±íÌí¼Óµ½ `Metrics` ÀàÉÏµÄÈ«¾Ö¾²Ì¬¸´ºÏ×¢²á±í£¬³ı·ÇÄãÃ÷È·¸æËßËü²»ÒªÕâÑù×ö¡£
+Spring Bootè¿˜å°†ä»»ä½•è‡ªåŠ¨é…ç½®çš„æ³¨å†Œè¡¨æ·»åŠ åˆ° `Metrics` ç±»ä¸Šçš„å…¨å±€é™æ€å¤åˆæ³¨å†Œè¡¨ï¼Œé™¤éä½ æ˜ç¡®å‘Šè¯‰å®ƒä¸è¦è¿™æ ·åšã€‚
 
 
 
@@ -2777,7 +2777,7 @@ management.metrics.use-global-registry=false
 
 
 
-Äã¿ÉÒÔ×¢²áÈÎÒâÊıÁ¿µÄ `MeterRegistryCustomizer` BeanÀ´½øÒ»²½ÅäÖÃ×¢²á±í£¬±ÈÈçÔÚÈÎºÎ±í±»×¢²áÖ®Ç°Ó¦ÓÃÆÕÍ¨±êÇ©¡£
+ä½ å¯ä»¥æ³¨å†Œä»»æ„æ•°é‡çš„ `MeterRegistryCustomizer` Beanæ¥è¿›ä¸€æ­¥é…ç½®æ³¨å†Œè¡¨ï¼Œæ¯”å¦‚åœ¨ä»»ä½•è¡¨è¢«æ³¨å†Œä¹‹å‰åº”ç”¨æ™®é€šæ ‡ç­¾ã€‚
 
 
 
@@ -2812,7 +2812,7 @@ public class MyMeterRegistryConfiguration {
 
 
 
-Äã¿ÉÒÔÍ¨¹ı¸ü¾ßÌåµÄ·ºĞÍ½«¶¨ÖÆÓ¦ÓÃÓÚÌØ¶¨µÄ×¢²á±íÊµÏÖ¡£
+ä½ å¯ä»¥é€šè¿‡æ›´å…·ä½“çš„æ³›å‹å°†å®šåˆ¶åº”ç”¨äºç‰¹å®šçš„æ³¨å†Œè¡¨å®ç°ã€‚
 
 
 
@@ -2851,7 +2851,7 @@ public class MyMeterRegistryConfiguration {
 
 
 
-Spring Boot»¹ [ÅäÖÃÁËÄÚÖÃ instrumentation](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported)£¬Äã¿ÉÒÔÍ¨¹ıÅäÖÃ»ò×¨ÓÃ×¢½â±ê¼ÇÀ´¿ØÖÆ¡£
+Spring Bootè¿˜ [é…ç½®äº†å†…ç½® instrumentation](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported)ï¼Œä½ å¯ä»¥é€šè¿‡é…ç½®æˆ–ä¸“ç”¨æ³¨è§£æ ‡è®°æ¥æ§åˆ¶ã€‚
 
 
 
@@ -2859,11 +2859,11 @@ Spring Boot»¹ [ÅäÖÃÁËÄÚÖÃ instrumentation](https://springdoc.cn/spring-boot/actu
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.export)7.2\. Ö§³ÖµÄ¼à¿ØÏµÍ³
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.export)7.2\. æ”¯æŒçš„ç›‘æ§ç³»ç»Ÿ
 
 
 
-±¾½Ú¼òÒª½éÉÜÃ¿¸öÖ§³ÖµÄ¼à¿ØÏµÍ³¡£
+æœ¬èŠ‚ç®€è¦ä»‹ç»æ¯ä¸ªæ”¯æŒçš„ç›‘æ§ç³»ç»Ÿã€‚
 
 
 
@@ -2873,7 +2873,7 @@ Spring Boot»¹ [ÅäÖÃÁËÄÚÖÃ instrumentation](https://springdoc.cn/spring-boot/actu
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬AppOptics×¢²áÖĞĞÄ»á¶¨ÆÚ½«Ö¸±êÍÆËÍµ½ `[api.appoptics.com/v1/measurements](https://api.appoptics.com/v1/measurements)`¡£Òª½«Ö¸±êµ¼³öµ½ SaaS [AppOptics](https://micrometer.io/docs/registry/appOptics)£¬±ØĞëÌá¹©ÄãµÄAPIÁîÅÆ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒAppOpticsæ³¨å†Œä¸­å¿ƒä¼šå®šæœŸå°†æŒ‡æ ‡æ¨é€åˆ° `[api.appoptics.com/v1/measurements](https://api.appoptics.com/v1/measurements)`ã€‚è¦å°†æŒ‡æ ‡å¯¼å‡ºåˆ° SaaS [AppOptics](https://micrometer.io/docs/registry/appOptics)ï¼Œå¿…é¡»æä¾›ä½ çš„APIä»¤ç‰Œã€‚
 
 
 
@@ -2906,7 +2906,7 @@ management.appoptics.metrics.export.api-token=YOUR_TOKEN
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±ê»á±»µ¼³öµ½ÔËĞĞÔÚÄã±¾µØ»úÆ÷ÉÏµÄ [Atlas](https://micrometer.io/docs/registry/atlas)¡£Äã¿ÉÒÔÌá¹© [Atlas server](https://github.com/Netflix/atlas) µÄÎ»ÖÃ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡ä¼šè¢«å¯¼å‡ºåˆ°è¿è¡Œåœ¨ä½ æœ¬åœ°æœºå™¨ä¸Šçš„ [Atlas](https://micrometer.io/docs/registry/atlas)ã€‚ä½ å¯ä»¥æä¾› [Atlas server](https://github.com/Netflix/atlas) çš„ä½ç½®ã€‚
 
 
 
@@ -2939,7 +2939,7 @@ management.atlas.metrics.export.uri=https://atlas.example.com:7101/api/v1/publis
 
 
 
-Ò»¸öDatadog×¢²áÖĞĞÄ»á¶¨ÆÚ½«Ö¸±êÍÆËÍµ½ [datadoghq](https://www.datadoghq.com/)¡£ Òªµ¼³öÖ¸±êµ½ [Datadog](https://micrometer.io/docs/registry/datadog)£¬Äã±ØĞëÌá¹©ÄãµÄAPIÃÜÔ¿¡£
+ä¸€ä¸ªDatadogæ³¨å†Œä¸­å¿ƒä¼šå®šæœŸå°†æŒ‡æ ‡æ¨é€åˆ° [datadoghq](https://www.datadoghq.com/)ã€‚ è¦å¯¼å‡ºæŒ‡æ ‡åˆ° [Datadog](https://micrometer.io/docs/registry/datadog)ï¼Œä½ å¿…é¡»æä¾›ä½ çš„APIå¯†é’¥ã€‚
 
 
 
@@ -2966,7 +2966,7 @@ management.datadog.metrics.export.api-key=YOUR_KEY
 
 
 
-Èç¹ûÄãÁíÍâÌá¹©Ò»¸öÓ¦ÓÃÃÜÔ¿£¨¿ÉÑ¡£©£¬ÄÇÃ´ÔªÊı¾İ£¬ÈçÒÇ±íÃèÊö¡¢ÀàĞÍºÍ»ù±¾µ¥Î»Ò²½«±»µ¼³ö¡£
+å¦‚æœä½ å¦å¤–æä¾›ä¸€ä¸ªåº”ç”¨å¯†é’¥ï¼ˆå¯é€‰ï¼‰ï¼Œé‚£ä¹ˆå…ƒæ•°æ®ï¼Œå¦‚ä»ªè¡¨æè¿°ã€ç±»å‹å’ŒåŸºæœ¬å•ä½ä¹Ÿå°†è¢«å¯¼å‡ºã€‚
 
 
 
@@ -2994,7 +2994,7 @@ management.datadog.metrics.export.application-key=YOUR_APPLICATION_KEY
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±ê±»·¢ËÍµ½DatadogÃÀ¹ú [site](https://docs.datadoghq.com/getting_started/site) £¨`[api.datadoghq.com](https://api.datadoghq.com/)`£©¡£ Èç¹ûÄãµÄDatadogÏîÄ¿ÍĞ¹ÜÔÚÆäËûÍøÕ¾ÉÏ£¬»òÕßÄãĞèÒªÍ¨¹ı´úÀí·¢ËÍÖ¸±ê£¬ÇëÏàÓ¦ÅäÖÃURI¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡è¢«å‘é€åˆ°Datadogç¾å›½ [site](https://docs.datadoghq.com/getting_started/site) ï¼ˆ`[api.datadoghq.com](https://api.datadoghq.com/)`ï¼‰ã€‚ å¦‚æœä½ çš„Datadogé¡¹ç›®æ‰˜ç®¡åœ¨å…¶ä»–ç½‘ç«™ä¸Šï¼Œæˆ–è€…ä½ éœ€è¦é€šè¿‡ä»£ç†å‘é€æŒ‡æ ‡ï¼Œè¯·ç›¸åº”é…ç½®URIã€‚
 
 
 
@@ -3021,7 +3021,7 @@ management.datadog.metrics.export.uri=https://api.datadoghq.eu
 
 
 
-Äã»¹¿ÉÒÔ¸Ä±äÏòDatadog·¢ËÍÖ¸±êµÄÊ±¼ä¼ä¸ô¡£
+ä½ è¿˜å¯ä»¥æ”¹å˜å‘Datadogå‘é€æŒ‡æ ‡çš„æ—¶é—´é—´éš”ã€‚
 
 
 
@@ -3054,7 +3054,7 @@ management.datadog.metrics.export.step=30s
 
 
 
-DynatraceÌá¹©ÁËÁ½¸öÖ¸±êÉãÈ¡API£¬¶¼ÊÇÎª [Micrometer](https://micrometer.io/docs/registry/dynatrace) ÊµÏÖµÄ¡£Äã¿ÉÒÔÔÚ [ÕâÀï](https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/metric-ingestion/ingestion-methods/micrometer) ÕÒµ½Dynatrace¹ØÓÚMicrometerÖ¸±êÉãÈëµÄÎÄµµ¡£`v1` ÃüÃû¿Õ¼äÖĞµÄÅäÖÃÊôĞÔÖ»ÊÊÓÃÓÚµ¼³öµ½ [Timeseries v1 API](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v1/) Ê±¡£`v2` ÃüÃû¿Õ¼äÖĞµÄÅäÖÃÊôĞÔÖ»ÊÊÓÃÓÚµ¼³öµ½ [Metrics v2 API](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v2/post-ingest-metrics/) Ê±¡£Çë×¢Òâ£¬¸Ã¼¯³ÉÃ¿´ÎÖ»ÄÜµ¼³öµ½APIµÄ `v1` »ò `v2` °æ±¾£¬`v2` °æ±¾ÊÇÊ×Ñ¡¡£Èç¹û `device-id`£¨v1°æĞèÒª£¬µ«ÔÚv2°æÖĞ²»Ê¹ÓÃ£©ÔÚ `v1` °æÃüÃû¿Õ¼äÖĞ±»ÉèÖÃ£¬ÄÇÃ´metric½«±»µ¼³öµ½ `v1` °æ¶Ëµã¡£·ñÔò£¬¾Í¼Ù¶¨ÊÇ `v2` °æ±¾¡£
+Dynatraceæä¾›äº†ä¸¤ä¸ªæŒ‡æ ‡æ‘„å–APIï¼Œéƒ½æ˜¯ä¸º [Micrometer](https://micrometer.io/docs/registry/dynatrace) å®ç°çš„ã€‚ä½ å¯ä»¥åœ¨ [è¿™é‡Œ](https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/metric-ingestion/ingestion-methods/micrometer) æ‰¾åˆ°Dynatraceå…³äºMicrometeræŒ‡æ ‡æ‘„å…¥çš„æ–‡æ¡£ã€‚`v1` å‘½åç©ºé—´ä¸­çš„é…ç½®å±æ€§åªé€‚ç”¨äºå¯¼å‡ºåˆ° [Timeseries v1 API](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v1/) æ—¶ã€‚`v2` å‘½åç©ºé—´ä¸­çš„é…ç½®å±æ€§åªé€‚ç”¨äºå¯¼å‡ºåˆ° [Metrics v2 API](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v2/post-ingest-metrics/) æ—¶ã€‚è¯·æ³¨æ„ï¼Œè¯¥é›†æˆæ¯æ¬¡åªèƒ½å¯¼å‡ºåˆ°APIçš„ `v1` æˆ– `v2` ç‰ˆæœ¬ï¼Œ`v2` ç‰ˆæœ¬æ˜¯é¦–é€‰ã€‚å¦‚æœ `device-id`ï¼ˆv1ç‰ˆéœ€è¦ï¼Œä½†åœ¨v2ç‰ˆä¸­ä¸ä½¿ç”¨ï¼‰åœ¨ `v1` ç‰ˆå‘½åç©ºé—´ä¸­è¢«è®¾ç½®ï¼Œé‚£ä¹ˆmetricå°†è¢«å¯¼å‡ºåˆ° `v1` ç‰ˆç«¯ç‚¹ã€‚å¦åˆ™ï¼Œå°±å‡å®šæ˜¯ `v2` ç‰ˆæœ¬ã€‚
 
 
 
@@ -3064,35 +3064,35 @@ DynatraceÌá¹©ÁËÁ½¸öÖ¸±êÉãÈ¡API£¬¶¼ÊÇÎª [Micrometer](https://micrometer.io/docs/r
 
 
 
-Äã¿ÉÒÔÍ¨¹ıÁ½ÖÖ·½Ê½Ê¹ÓÃv2 API¡£
+ä½ å¯ä»¥é€šè¿‡ä¸¤ç§æ–¹å¼ä½¿ç”¨v2 APIã€‚
 
 
 
 
 
-###### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.export.dynatrace.v2-api.auto-config)×Ô¶¯ÅäÖÃ
+###### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.export.dynatrace.v2-api.auto-config)è‡ªåŠ¨é…ç½®
 
 
 
-Dynatrace×Ô¶¯ÅäÖÃÊÊÓÃÓÚÓÉOneAgent»òDynatrace Operator for Kubernetes¼à¿ØµÄÖ÷»ú¡£
-
-
-
-
-
-**±¾µØOneAgent£º**Èç¹ûÖ÷»úÉÏÔËĞĞOneAgent£¬Ö¸±ê»á×Ô¶¯Êä³öµ½ [local OneAgent ingest endpoint](https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/metric-ingestion/ingestion-methods/local-api/) ¡£ ÉãÈ¡¶Ëµã½«Ö¸±ê×ª·¢µ½Dynatraceºó¶Ë¡£
+Dynatraceè‡ªåŠ¨é…ç½®é€‚ç”¨äºç”±OneAgentæˆ–Dynatrace Operator for Kubernetesç›‘æ§çš„ä¸»æœºã€‚
 
 
 
 
 
-**Dynatrace Kubernetes Operator£º**ÔÚ°²×°ÁËDynatrace OperatorµÄKubernetesÖĞÔËĞĞÊ±£¬×¢²á±í½«×Ô¶¯´Ó²Ù×÷Ô±ÄÇÀï»ñÈ¡ÄãµÄ¶ËµãURIºÍAPIÁîÅÆ¡£
+**æœ¬åœ°OneAgentï¼š**å¦‚æœä¸»æœºä¸Šè¿è¡ŒOneAgentï¼ŒæŒ‡æ ‡ä¼šè‡ªåŠ¨è¾“å‡ºåˆ° [local OneAgent ingest endpoint](https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/metric-ingestion/ingestion-methods/local-api/) ã€‚ æ‘„å–ç«¯ç‚¹å°†æŒ‡æ ‡è½¬å‘åˆ°Dynatraceåç«¯ã€‚
 
 
 
 
 
-ÕâÊÇÄ¬ÈÏĞĞÎª£¬³ıÁËÒÀÀµ `io.micrometer:micrometer-registry-dynatrace` Ö®Íâ£¬²»ĞèÒªÌØ±ğµÄÉèÖÃ¡£
+**Dynatrace Kubernetes Operatorï¼š**åœ¨å®‰è£…äº†Dynatrace Operatorçš„Kubernetesä¸­è¿è¡Œæ—¶ï¼Œæ³¨å†Œè¡¨å°†è‡ªåŠ¨ä»æ“ä½œå‘˜é‚£é‡Œè·å–ä½ çš„ç«¯ç‚¹URIå’ŒAPIä»¤ç‰Œã€‚
+
+
+
+
+
+è¿™æ˜¯é»˜è®¤è¡Œä¸ºï¼Œé™¤äº†ä¾èµ– `io.micrometer:micrometer-registry-dynatrace` ä¹‹å¤–ï¼Œä¸éœ€è¦ç‰¹åˆ«çš„è®¾ç½®ã€‚
 
 
 
@@ -3100,17 +3100,17 @@ Dynatrace×Ô¶¯ÅäÖÃÊÊÓÃÓÚÓÉOneAgent»òDynatrace Operator for Kubernetes¼à¿ØµÄÖ÷»ú¡£
 
 
 
-###### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.export.dynatrace.v2-api.manual-config)ÊÖ¶¯ÅäÖÃ
+###### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.export.dynatrace.v2-api.manual-config)æ‰‹åŠ¨é…ç½®
 
 
 
-Èç¹ûÃ»ÓĞ×Ô¶¯ÅäÖÃ£¬ÔòĞèÒª [Metrics v2 API](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v2/post-ingest-metrics/) µÄ¶ËµãºÍÒ»¸ö API ÁîÅÆ¡£APIÁîÅÆ±ØĞëÓĞ ¡°Ingest metrics¡± £¨`metrics.ingest`£©µÄÈ¨ÏŞÉèÖÃ¡£ÎÒÃÇ½¨Òé½«ÁîÅÆµÄ·¶Î§ÏŞÖÆÔÚÕâÒ»¸öÈ¨ÏŞÉÏ¡£Äã±ØĞëÈ·±£¶ËµãURI°üº¬Â·¾¶£¨ÀıÈç£¬`/api/v2/metrics/ingest`£©¡£
+å¦‚æœæ²¡æœ‰è‡ªåŠ¨é…ç½®ï¼Œåˆ™éœ€è¦ [Metrics v2 API](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v2/post-ingest-metrics/) çš„ç«¯ç‚¹å’Œä¸€ä¸ª API ä»¤ç‰Œã€‚APIä»¤ç‰Œå¿…é¡»æœ‰ â€œIngest metricsâ€ ï¼ˆ`metrics.ingest`ï¼‰çš„æƒé™è®¾ç½®ã€‚æˆ‘ä»¬å»ºè®®å°†ä»¤ç‰Œçš„èŒƒå›´é™åˆ¶åœ¨è¿™ä¸€ä¸ªæƒé™ä¸Šã€‚ä½ å¿…é¡»ç¡®ä¿ç«¯ç‚¹URIåŒ…å«è·¯å¾„ï¼ˆä¾‹å¦‚ï¼Œ`/api/v2/metrics/ingest`ï¼‰ã€‚
 
 
 
 
 
-Metrics API v2ÉãÈ¡¶ËµãµÄURL¸ù¾İÄãµÄ²¿ÊğÑ¡Ïî¶ø²»Í¬¡£
+Metrics API v2æ‘„å–ç«¯ç‚¹çš„URLæ ¹æ®ä½ çš„éƒ¨ç½²é€‰é¡¹è€Œä¸åŒã€‚
 
 
 
@@ -3124,7 +3124,7 @@ Metrics API v2ÉãÈ¡¶ËµãµÄURL¸ù¾İÄãµÄ²¿ÊğÑ¡Ïî¶ø²»Í¬¡£
 
 
 
-ÏÂÃæµÄÀı×ÓÊÇÓÃ `example` environment id ÅäÖÃ¶ÈÁ¿Öµµ¼³ö¡£
+ä¸‹é¢çš„ä¾‹å­æ˜¯ç”¨ `example` environment id é…ç½®åº¦é‡å€¼å¯¼å‡ºã€‚
 
 
 
@@ -3152,25 +3152,25 @@ management.dynatrace.metrics.export.api-token=YOUR_TOKEN
 
 
 
-ÔÚÊ¹ÓÃDynatrace v2 APIÊ±£¬¿ÉÒÔÊ¹ÓÃÒÔÏÂ¿ÉÑ¡¹¦ÄÜ£¨¸ü¶àÏ¸½Ú¿ÉÔÚ [DynatraceÎÄµµ](https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/metric-ingestion/ingestion-methods/micrometer#dt-configuration-properties) ÖĞÕÒµ½£©¡£
+åœ¨ä½¿ç”¨Dynatrace v2 APIæ—¶ï¼Œå¯ä»¥ä½¿ç”¨ä»¥ä¸‹å¯é€‰åŠŸèƒ½ï¼ˆæ›´å¤šç»†èŠ‚å¯åœ¨ [Dynatraceæ–‡æ¡£](https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/metric-ingestion/ingestion-methods/micrometer#dt-configuration-properties) ä¸­æ‰¾åˆ°ï¼‰ã€‚
 
 
 
 
 
-*   Metric key µÄÇ°×º¡£ÉèÖÃÒ»¸öÇ°×º£¬¸ÃÇ°×º½«±»Ìí¼Óµ½ËùÓĞµ¼³öµÄmetric keyÖĞ¡£
+*   Metric key çš„å‰ç¼€ã€‚è®¾ç½®ä¸€ä¸ªå‰ç¼€ï¼Œè¯¥å‰ç¼€å°†è¢«æ·»åŠ åˆ°æ‰€æœ‰å¯¼å‡ºçš„metric keyä¸­ã€‚
 
-*   ÓÃDynatraceÔªÊı¾İÀ´³äÊµ¡£Èç¹ûOneAgent»òDynatrace²Ù×÷Ô±ÕıÔÚÔËĞĞ£¬ÓÃ¶îÍâµÄÔªÊı¾İ£¨ÀıÈç£¬¹ØÓÚÖ÷»ú¡¢½ø³Ì»òPod£©À´·á¸»Ö¸±ê¡£
+*   ç”¨Dynatraceå…ƒæ•°æ®æ¥å……å®ã€‚å¦‚æœOneAgentæˆ–Dynatraceæ“ä½œå‘˜æ­£åœ¨è¿è¡Œï¼Œç”¨é¢å¤–çš„å…ƒæ•°æ®ï¼ˆä¾‹å¦‚ï¼Œå…³äºä¸»æœºã€è¿›ç¨‹æˆ–Podï¼‰æ¥ä¸°å¯ŒæŒ‡æ ‡ã€‚
 
-*   Ä¬ÈÏÎ¬¶È¡£Ö¸¶¨Ìí¼Óµ½ËùÓĞµ¼³ö¶ÈÁ¿µÄ¼üÖµ¶Ô¡£ Èç¹ûÓÃMicrometerÖ¸¶¨ÁË¾ßÓĞÏàÍ¬¼üµÄ±êÇ©£¬ËüÃÇ½«¸²¸ÇÄ¬ÈÏdimension¡£
+*   é»˜è®¤ç»´åº¦ã€‚æŒ‡å®šæ·»åŠ åˆ°æ‰€æœ‰å¯¼å‡ºåº¦é‡çš„é”®å€¼å¯¹ã€‚ å¦‚æœç”¨MicrometeræŒ‡å®šäº†å…·æœ‰ç›¸åŒé”®çš„æ ‡ç­¾ï¼Œå®ƒä»¬å°†è¦†ç›–é»˜è®¤dimensionã€‚
 
-*   Ê¹ÓÃDynatrace Summary instrument¡£ÔÚÄ³Ğ©Çé¿öÏÂ£¬Micrometer Dynatrace×¢²á±í´´½¨µÄÖ¸±ê±»¾Ü¾ø¡£ ÔÚMicrometer 1.9.xÖĞ£¬Í¨¹ıÒıÈëDynatraceÌØ¶¨µÄÕªÒª¹¤¾ßÀ´½â¾öÕâ¸öÎÊÌâ¡£ °ÑÕâ¸ö¿ª¹ØÉèÖÃÎª `false` »áÆÈÊ¹Micrometer»Øµ½1.9.xÖ®Ç°µÄÄ¬ÈÏĞĞÎª¡£ Ö»ÓĞÔÚ´ÓMicrometer 1.8.xÇ¨ÒÆµ½1.9.xÊ±Óöµ½ÎÊÌâÊ±²Å¿ÉÒÔÊ¹ÓÃ¡£
-
-
+*   ä½¿ç”¨Dynatrace Summary instrumentã€‚åœ¨æŸäº›æƒ…å†µä¸‹ï¼ŒMicrometer Dynatraceæ³¨å†Œè¡¨åˆ›å»ºçš„æŒ‡æ ‡è¢«æ‹’ç»ã€‚ åœ¨Micrometer 1.9.xä¸­ï¼Œé€šè¿‡å¼•å…¥Dynatraceç‰¹å®šçš„æ‘˜è¦å·¥å…·æ¥è§£å†³è¿™ä¸ªé—®é¢˜ã€‚ æŠŠè¿™ä¸ªå¼€å…³è®¾ç½®ä¸º `false` ä¼šè¿«ä½¿Micrometerå›åˆ°1.9.xä¹‹å‰çš„é»˜è®¤è¡Œä¸ºã€‚ åªæœ‰åœ¨ä»Micrometer 1.8.xè¿ç§»åˆ°1.9.xæ—¶é‡åˆ°é—®é¢˜æ—¶æ‰å¯ä»¥ä½¿ç”¨ã€‚
 
 
 
-¿ÉÒÔ²»Ö¸¶¨URIºÍAPIÁîÅÆ£¬ÈçÒÔÏÂÀı×ÓËùÊ¾¡£ ÔÚÕâÖÖÇé¿öÏÂ£¬»áÊ¹ÓÃ×Ô¶¯ÅäÖÃµÄ¶Ëµã¡£
+
+
+å¯ä»¥ä¸æŒ‡å®šURIå’ŒAPIä»¤ç‰Œï¼Œå¦‚ä»¥ä¸‹ä¾‹å­æ‰€ç¤ºã€‚ åœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œä¼šä½¿ç”¨è‡ªåŠ¨é…ç½®çš„ç«¯ç‚¹ã€‚
 
 
 
@@ -3209,7 +3209,7 @@ management.dynatrace.metrics.export.v2.use-dynatrace-summary-instruments=true
 
 
 
-Dynatrace v1 APIÖ¸±ê×¢²á±íÍ¨¹ıÊ¹ÓÃ [Timeseries v1 API](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v1/) ¶¨ÆÚ½«Ö¸±êÍÆËÍµ½ÅäÖÃµÄURI¡£ ÎªÁËÏòºó¼æÈİÏÖÓĞµÄÉèÖÃ£¬µ± `device-id` ±»ÉèÖÃÊ±£¨v1ĞèÒª£¬µ«ÔÚv2ÖĞ²»Ê¹ÓÃ£©£¬Ö¸±ê±»µ¼³öµ½Timeseries v1¶Ëµã¡£ ÒªÏò [Dynatrace](https://micrometer.io/docs/registry/dynatrace) µ¼³öÖ¸±ê£¬±ØĞëÌá¹©ÄãµÄAPIÁîÅÆ¡¢Éè±¸IDºÍURI¡£
+Dynatrace v1 APIæŒ‡æ ‡æ³¨å†Œè¡¨é€šè¿‡ä½¿ç”¨ [Timeseries v1 API](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/metric-v1/) å®šæœŸå°†æŒ‡æ ‡æ¨é€åˆ°é…ç½®çš„URIã€‚ ä¸ºäº†å‘åå…¼å®¹ç°æœ‰çš„è®¾ç½®ï¼Œå½“ `device-id` è¢«è®¾ç½®æ—¶ï¼ˆv1éœ€è¦ï¼Œä½†åœ¨v2ä¸­ä¸ä½¿ç”¨ï¼‰ï¼ŒæŒ‡æ ‡è¢«å¯¼å‡ºåˆ°Timeseries v1ç«¯ç‚¹ã€‚ è¦å‘ [Dynatrace](https://micrometer.io/docs/registry/dynatrace) å¯¼å‡ºæŒ‡æ ‡ï¼Œå¿…é¡»æä¾›ä½ çš„APIä»¤ç‰Œã€è®¾å¤‡IDå’ŒURIã€‚
 
 
 
@@ -3238,7 +3238,7 @@ management.dynatrace.metrics.export.v1.device-id=YOUR_DEVICE_ID
 
 
 
-¶ÔÓÚv1°æAPI£¬Äã±ØĞëÖ¸¶¨»ù±¾»·¾³URI£¬¶ø²»Ö¸¶¨Â·¾¶£¬ÒòÎªv1°æµÄ¶ËµãÂ·¾¶»á×Ô¶¯Ìí¼Ó¡£
+å¯¹äºv1ç‰ˆAPIï¼Œä½ å¿…é¡»æŒ‡å®šåŸºæœ¬ç¯å¢ƒURIï¼Œè€Œä¸æŒ‡å®šè·¯å¾„ï¼Œå› ä¸ºv1ç‰ˆçš„ç«¯ç‚¹è·¯å¾„ä¼šè‡ªåŠ¨æ·»åŠ ã€‚
 
 
 
@@ -3246,11 +3246,11 @@ management.dynatrace.metrics.export.v1.device-id=YOUR_DEVICE_ID
 
 
 
-##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.export.dynatrace.version-independent-settings)Óë°æ±¾ÎŞ¹ØµÄÉèÖÃ
+##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.export.dynatrace.version-independent-settings)ä¸ç‰ˆæœ¬æ— å…³çš„è®¾ç½®
 
 
 
-³ıÁËAPI¶ËµãºÍÁîÅÆÍâ£¬Äã»¹¿ÉÒÔ¸Ä±äÏòDynatrace·¢ËÍÖ¸±êµÄ¼ä¸ôÊ±¼ä¡£ Ä¬ÈÏµÄµ¼³öÊ±¼ä¼ä¸ôÊÇ `60s`¡£ ÏÂÃæµÄÀı×Ó½«µ¼³öÊ±¼ä¼ä¸ôÉèÖÃÎª30Ãë¡£
+é™¤äº†APIç«¯ç‚¹å’Œä»¤ç‰Œå¤–ï¼Œä½ è¿˜å¯ä»¥æ”¹å˜å‘Dynatraceå‘é€æŒ‡æ ‡çš„é—´éš”æ—¶é—´ã€‚ é»˜è®¤çš„å¯¼å‡ºæ—¶é—´é—´éš”æ˜¯ `60s`ã€‚ ä¸‹é¢çš„ä¾‹å­å°†å¯¼å‡ºæ—¶é—´é—´éš”è®¾ç½®ä¸º30ç§’ã€‚
 
 
 
@@ -3277,7 +3277,7 @@ management.dynatrace.metrics.export.step=30s
 
 
 
-Äã¿ÉÒÔÔÚ [MicrometerÎÄµµ](https://micrometer.io/docs/registry/dynatrace) ºÍ [DynatraceÎÄµµ](https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/metric-ingestion/ingestion-methods/micrometer) ÖĞÕÒµ½¹ØÓÚÈçºÎÎªMicrometerÉèÖÃDynatrace exporter£¨µ¼³öÆ÷£©µÄ¸ü¶àĞÅÏ¢¡£
+ä½ å¯ä»¥åœ¨ [Micrometeræ–‡æ¡£](https://micrometer.io/docs/registry/dynatrace) å’Œ [Dynatraceæ–‡æ¡£](https://www.dynatrace.com/support/help/how-to-use-dynatrace/metrics/metric-ingestion/ingestion-methods/micrometer) ä¸­æ‰¾åˆ°å…³äºå¦‚ä½•ä¸ºMicrometerè®¾ç½®Dynatrace exporterï¼ˆå¯¼å‡ºå™¨ï¼‰çš„æ›´å¤šä¿¡æ¯ã€‚
 
 
 
@@ -3291,7 +3291,7 @@ management.dynatrace.metrics.export.step=30s
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±ê±»µ¼³öµ½ÔËĞĞÔÚÄã±¾µØ»úÆ÷ÉÏµÄ [Elastic](https://micrometer.io/docs/registry/elastic) ¡£ Äã¿ÉÒÔÍ¨¹ıÊ¹ÓÃÒÔÏÂÊôĞÔÌá¹©ÒªÊ¹ÓÃµÄElastic·şÎñÆ÷µÄÎ»ÖÃ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡è¢«å¯¼å‡ºåˆ°è¿è¡Œåœ¨ä½ æœ¬åœ°æœºå™¨ä¸Šçš„ [Elastic](https://micrometer.io/docs/registry/elastic) ã€‚ ä½ å¯ä»¥é€šè¿‡ä½¿ç”¨ä»¥ä¸‹å±æ€§æä¾›è¦ä½¿ç”¨çš„ElasticæœåŠ¡å™¨çš„ä½ç½®ã€‚
 
 
 
@@ -3324,7 +3324,7 @@ management.elastic.metrics.export.host=https://elastic.example.com:8086
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±ê±»µ¼³öµ½ÔËĞĞÔÚÄã±¾µØ»úÆ÷ÉÏµÄ [Ganglia](https://micrometer.io/docs/registry/ganglia) ¡£Äã¿ÉÒÔÌá¹© [Ganglia server](http://ganglia.sourceforge.net/) µÄÖ÷»úºÍ¶Ë¿Ú£¬ÈçÏÂÀıËùÊ¾¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡è¢«å¯¼å‡ºåˆ°è¿è¡Œåœ¨ä½ æœ¬åœ°æœºå™¨ä¸Šçš„ [Ganglia](https://micrometer.io/docs/registry/ganglia) ã€‚ä½ å¯ä»¥æä¾› [Ganglia server](http://ganglia.sourceforge.net/) çš„ä¸»æœºå’Œç«¯å£ï¼Œå¦‚ä¸‹ä¾‹æ‰€ç¤ºã€‚
 
 
 
@@ -3358,7 +3358,7 @@ management.ganglia.metrics.export.port=9649
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±ê»á±»µ¼³öµ½ÔËĞĞÔÚÄã±¾µØ»úÆ÷ÉÏµÄ [Graphite](https://micrometer.io/docs/registry/graphite) ¡£Äã¿ÉÒÔÌá¹© [Graphite server](https://graphiteapp.org/) µÄÖ÷»úºÍ¶Ë¿Ú£¬ÈçÏÂÀıËùÊ¾¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡ä¼šè¢«å¯¼å‡ºåˆ°è¿è¡Œåœ¨ä½ æœ¬åœ°æœºå™¨ä¸Šçš„ [Graphite](https://micrometer.io/docs/registry/graphite) ã€‚ä½ å¯ä»¥æä¾› [Graphite server](https://graphiteapp.org/) çš„ä¸»æœºå’Œç«¯å£ï¼Œå¦‚ä¸‹ä¾‹æ‰€ç¤ºã€‚
 
 
 
@@ -3386,13 +3386,13 @@ management.graphite.metrics.export.port=9004
 
 
 
-MicrometerÌá¹©ÁËÒ»¸öÄ¬ÈÏµÄ `HierarchicalNameMapper`£¬¹ÜÀídimensional meter IDÈçºÎhttps://micrometer.io/docs/registry/graphite#_hierarchical_name_mapping[Ó³Éäµ½ flat hierarchical name]¡£
+Micrometeræä¾›äº†ä¸€ä¸ªé»˜è®¤çš„ `HierarchicalNameMapper`ï¼Œç®¡ç†dimensional meter IDå¦‚ä½•https://micrometer.io/docs/registry/graphite#_hierarchical_name_mapping[æ˜ å°„åˆ° flat hierarchical name]ã€‚
 
 
 
 
 
-|  | Òª¿ØÖÆÕâÖÖĞĞÎª£¬Çë¶¨ÒåÄãµÄ `GraphiteMeterRegistry` ²¢Ìá¹©Äã×Ô¼ºµÄ `HierarchicalNameMapper`¡£ ³ı·ÇÄã×Ô¼º¶¨Òå£¬·ñÔò»áÌá¹©Ò»¸ö×Ô¶¯ÅäÖÃµÄ `GraphiteConfig` ºÍ `Clock` Bean¡£JavaKotlin```@Configuration(proxyBeanMethods = false)public class MyGraphiteConfiguration {    @Bean    public GraphiteMeterRegistry graphiteMeterRegistry(GraphiteConfig config, Clock clock) {        return new GraphiteMeterRegistry(config, clock, this::toHierarchicalName);    }    private String toHierarchicalName(Meter.Id id, NamingConvention convention) {        return ...    }}``` |
+|  | è¦æ§åˆ¶è¿™ç§è¡Œä¸ºï¼Œè¯·å®šä¹‰ä½ çš„ `GraphiteMeterRegistry` å¹¶æä¾›ä½ è‡ªå·±çš„ `HierarchicalNameMapper`ã€‚ é™¤éä½ è‡ªå·±å®šä¹‰ï¼Œå¦åˆ™ä¼šæä¾›ä¸€ä¸ªè‡ªåŠ¨é…ç½®çš„ `GraphiteConfig` å’Œ `Clock` Beanã€‚JavaKotlin```@Configuration(proxyBeanMethods = false)public class MyGraphiteConfiguration {    @Bean    public GraphiteMeterRegistry graphiteMeterRegistry(GraphiteConfig config, Clock clock) {        return new GraphiteMeterRegistry(config, clock, this::toHierarchicalName);    }    private String toHierarchicalName(Meter.Id id, NamingConvention convention) {        return ...    }}``` |
 | --- | --- |
 
 
@@ -3405,7 +3405,7 @@ MicrometerÌá¹©ÁËÒ»¸öÄ¬ÈÏµÄ `HierarchicalNameMapper`£¬¹ÜÀídimensional meter IDÈçº
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Humio×¢²áÖĞĞÄ»á¶¨ÆÚ½«Ö¸±êÍÆËÍµ½ [cloud.humio.com](https://cloud.humio.com/) ¡£ Òª½«Ö¸±êµ¼³öµ½SaaS [Humio](https://micrometer.io/docs/registry/humio)£¬Äã±ØĞëÌá¹©ÄãµÄAPIÁîÅÆ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒHumioæ³¨å†Œä¸­å¿ƒä¼šå®šæœŸå°†æŒ‡æ ‡æ¨é€åˆ° [cloud.humio.com](https://cloud.humio.com/) ã€‚ è¦å°†æŒ‡æ ‡å¯¼å‡ºåˆ°SaaS [Humio](https://micrometer.io/docs/registry/humio)ï¼Œä½ å¿…é¡»æä¾›ä½ çš„APIä»¤ç‰Œã€‚
 
 
 
@@ -3432,7 +3432,7 @@ management.humio.metrics.export.api-token=YOUR_TOKEN
 
 
 
-Äã»¹Ó¦¸ÃÅäÖÃÒ»¸ö»ò¶à¸ö±êÇ©£¬ÒÔÈ·¶¨ÍÆËÍÖ¸±êµÄÊı¾İÔ´¡£
+ä½ è¿˜åº”è¯¥é…ç½®ä¸€ä¸ªæˆ–å¤šä¸ªæ ‡ç­¾ï¼Œä»¥ç¡®å®šæ¨é€æŒ‡æ ‡çš„æ•°æ®æºã€‚
 
 
 
@@ -3466,7 +3466,7 @@ management.humio.metrics.export.tags.bravo=b
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±ê»á±»µ¼³öµ½ÔËĞĞÔÚ±¾µØ»úÆ÷ÉÏµÄ [Influx](https://micrometer.io/docs/registry/influx) v1ÊµÀı£¬²¢²ÉÓÃÄ¬ÈÏÅäÖÃ¡£Òªµ¼³öÖ¸±êµ½InfluxDB v2£¬ÇëÅäÖÃ `org`¡¢`bucket` ºÍÓÃÓÚĞ´ÈëÖ¸±êµÄauthentication `token`¡£Äã¿ÉÒÔÍ¨¹ıÒÔÏÂ·½Ê½Ìá¹©ÒªÊ¹ÓÃµÄ [Influx server](https://www.influxdata.com/) µÄÎ»ÖÃ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡ä¼šè¢«å¯¼å‡ºåˆ°è¿è¡Œåœ¨æœ¬åœ°æœºå™¨ä¸Šçš„ [Influx](https://micrometer.io/docs/registry/influx) v1å®ä¾‹ï¼Œå¹¶é‡‡ç”¨é»˜è®¤é…ç½®ã€‚è¦å¯¼å‡ºæŒ‡æ ‡åˆ°InfluxDB v2ï¼Œè¯·é…ç½® `org`ã€`bucket` å’Œç”¨äºå†™å…¥æŒ‡æ ‡çš„authentication `token`ã€‚ä½ å¯ä»¥é€šè¿‡ä»¥ä¸‹æ–¹å¼æä¾›è¦ä½¿ç”¨çš„ [Influx server](https://www.influxdata.com/) çš„ä½ç½®ã€‚
 
 
 
@@ -3499,7 +3499,7 @@ management.influx.metrics.export.uri=https://influx.example.com:8086
 
 
 
-MicrometerÌá¹©ÁË¶Ô [JMX](https://micrometer.io/docs/registry/jmx) µÄ·Ö²ãÓ³Éä£¬Ö÷ÒªÊÇ×÷ÎªÒ»ÖÖÁ®¼ÛºÍ¿ÉÒÆÖ²µÄ·½Ê½À´²é¿´±¾µØµÄ¶ÈÁ¿¡£ Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±ê±»µ¼³öµ½ `metrics` JMXÓò¡£ Äã¿ÉÒÔÍ¨¹ıÒÔÏÂ·½Ê½Ìá¹©ÒªÊ¹ÓÃµÄÓò¡£
+Micrometeræä¾›äº†å¯¹ [JMX](https://micrometer.io/docs/registry/jmx) çš„åˆ†å±‚æ˜ å°„ï¼Œä¸»è¦æ˜¯ä½œä¸ºä¸€ç§å»‰ä»·å’Œå¯ç§»æ¤çš„æ–¹å¼æ¥æŸ¥çœ‹æœ¬åœ°çš„åº¦é‡ã€‚ é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡è¢«å¯¼å‡ºåˆ° `metrics` JMXåŸŸã€‚ ä½ å¯ä»¥é€šè¿‡ä»¥ä¸‹æ–¹å¼æä¾›è¦ä½¿ç”¨çš„åŸŸã€‚
 
 
 
@@ -3526,13 +3526,13 @@ management.jmx.metrics.export.domain=com.example.app.metrics
 
 
 
-MicrometerÌá¹©ÁËÒ»¸öÄ¬ÈÏµÄ `HierarchicalNameMapper`£¬¹ÜÀídimensional meter ID ÈçºÎ [Ó³Éäµ½ flat hierarchical name](https://micrometer.io/docs/registry/jmx#_hierarchical_name_mapping)¡£
+Micrometeræä¾›äº†ä¸€ä¸ªé»˜è®¤çš„ `HierarchicalNameMapper`ï¼Œç®¡ç†dimensional meter ID å¦‚ä½• [æ˜ å°„åˆ° flat hierarchical name](https://micrometer.io/docs/registry/jmx#_hierarchical_name_mapping)ã€‚
 
 
 
 
 
-|  | Òª¿ØÖÆÕâÖÖĞĞÎª£¬Çë¶¨ÒåÄãµÄ `JmxMeterRegistry` ²¢Ìá¹©Äã×Ô¼ºµÄ `HierarchicalNameMapper`¡£ ³ı·ÇÄã×Ô¼º¶¨Òå£¬·ñÔò»áÌá¹©Ò»¸ö×Ô¶¯ÅäÖÃµÄ `JmxConfig` ºÍ `Clock` Bean¡£JavaKotlin```@Configuration(proxyBeanMethods = false)public class MyJmxConfiguration {    @Bean    public JmxMeterRegistry jmxMeterRegistry(JmxConfig config, Clock clock) {        return new JmxMeterRegistry(config, clock, this::toHierarchicalName);    }    private String toHierarchicalName(Meter.Id id, NamingConvention convention) {        return ...    }}``` |
+|  | è¦æ§åˆ¶è¿™ç§è¡Œä¸ºï¼Œè¯·å®šä¹‰ä½ çš„ `JmxMeterRegistry` å¹¶æä¾›ä½ è‡ªå·±çš„ `HierarchicalNameMapper`ã€‚ é™¤éä½ è‡ªå·±å®šä¹‰ï¼Œå¦åˆ™ä¼šæä¾›ä¸€ä¸ªè‡ªåŠ¨é…ç½®çš„ `JmxConfig` å’Œ `Clock` Beanã€‚JavaKotlin```@Configuration(proxyBeanMethods = false)public class MyJmxConfiguration {    @Bean    public JmxMeterRegistry jmxMeterRegistry(JmxConfig config, Clock clock) {        return new JmxMeterRegistry(config, clock, this::toHierarchicalName);    }    private String toHierarchicalName(Meter.Id id, NamingConvention convention) {        return ...    }}``` |
 | --- | --- |
 
 
@@ -3545,7 +3545,7 @@ MicrometerÌá¹©ÁËÒ»¸öÄ¬ÈÏµÄ `HierarchicalNameMapper`£¬¹ÜÀídimensional meter ID Èç
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±ê±»µ¼³öµ½ÔËĞĞÔÚÄã±¾µØ»úÆ÷ÉÏµÄ [KairosDB](https://micrometer.io/docs/registry/kairos) ¡£Äã¿ÉÒÔÍ¨¹ıÒÔÏÂ·½Ê½Ìá¹©ÒªÊ¹ÓÃµÄ [KairosDB server](https://kairosdb.github.io/) µÄÎ»ÖÃ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡è¢«å¯¼å‡ºåˆ°è¿è¡Œåœ¨ä½ æœ¬åœ°æœºå™¨ä¸Šçš„ [KairosDB](https://micrometer.io/docs/registry/kairos) ã€‚ä½ å¯ä»¥é€šè¿‡ä»¥ä¸‹æ–¹å¼æä¾›è¦ä½¿ç”¨çš„ [KairosDB server](https://kairosdb.github.io/) çš„ä½ç½®ã€‚
 
 
 
@@ -3578,7 +3578,7 @@ management.kairos.metrics.export.uri=https://kairosdb.example.com:8080/api/v1/da
 
 
 
-New Relic×¢²áÖĞĞÄ»á¶¨ÆÚ½«Ö¸±êÍÆËÍµ½ [New Relic](https://micrometer.io/docs/registry/new-relic)¡£Òªµ¼³öÖ¸±êµ½ [New Relic](https://newrelic.com/)£¬Äã±ØĞëÌá¹©ÄãµÄAPIÃÜÔ¿ºÍÕË»§ID¡£
+New Relicæ³¨å†Œä¸­å¿ƒä¼šå®šæœŸå°†æŒ‡æ ‡æ¨é€åˆ° [New Relic](https://micrometer.io/docs/registry/new-relic)ã€‚è¦å¯¼å‡ºæŒ‡æ ‡åˆ° [New Relic](https://newrelic.com/)ï¼Œä½ å¿…é¡»æä¾›ä½ çš„APIå¯†é’¥å’Œè´¦æˆ·IDã€‚
 
 
 
@@ -3606,7 +3606,7 @@ management.newrelic.metrics.export.account-id=YOUR_ACCOUNT_ID
 
 
 
-Äã»¹¿ÉÒÔ¸Ä±äÏòNew Relic·¢ËÍÖ¸±êµÄÊ±¼ä¼ä¸ô¡£
+ä½ è¿˜å¯ä»¥æ”¹å˜å‘New Relicå‘é€æŒ‡æ ‡çš„æ—¶é—´é—´éš”ã€‚
 
 
 
@@ -3633,7 +3633,7 @@ management.newrelic.metrics.export.step=30s
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±êÊÇÍ¨¹ıRESTµ÷ÓÃ·¢²¼µÄ£¬µ«Èç¹ûÄãÔÚclasspathÉÏÓĞJava Agent API£¬ÄãÒ²¿ÉÒÔÊ¹ÓÃËü¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡æ˜¯é€šè¿‡RESTè°ƒç”¨å‘å¸ƒçš„ï¼Œä½†å¦‚æœä½ åœ¨classpathä¸Šæœ‰Java Agent APIï¼Œä½ ä¹Ÿå¯ä»¥ä½¿ç”¨å®ƒã€‚
 
 
 
@@ -3660,7 +3660,7 @@ management.newrelic.metrics.export.client-provider-type=insights-agent
 
 
 
-×îºó£¬Äã¿ÉÒÔÍ¨¹ı¶¨ÒåÄã×Ô¼ºµÄ `NewRelicClientProvider` ¶¹À´ÍêÈ«¿ØÖÆ¡£
+æœ€åï¼Œä½ å¯ä»¥é€šè¿‡å®šä¹‰ä½ è‡ªå·±çš„ `NewRelicClientProvider` è±†æ¥å®Œå…¨æ§åˆ¶ã€‚
 
 
 
@@ -3672,7 +3672,7 @@ management.newrelic.metrics.export.client-provider-type=insights-agent
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±ê±»µ¼³öµ½ÔËĞĞÔÚÄã±¾µØ»úÆ÷ÉÏµÄ [OpenTelemetry](https://micrometer.io/docs/registry/otlp) ¡£Äã¿ÉÒÔÍ¨¹ıÒÔÏÂ·½Ê½Ìá¹©ÒªÊ¹ÓÃµÄ [OpenTelemtry metric endpoint](https://opentelemetry.io/) µÄÎ»ÖÃ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡è¢«å¯¼å‡ºåˆ°è¿è¡Œåœ¨ä½ æœ¬åœ°æœºå™¨ä¸Šçš„ [OpenTelemetry](https://micrometer.io/docs/registry/otlp) ã€‚ä½ å¯ä»¥é€šè¿‡ä»¥ä¸‹æ–¹å¼æä¾›è¦ä½¿ç”¨çš„ [OpenTelemtry metric endpoint](https://opentelemetry.io/) çš„ä½ç½®ã€‚
 
 
 
@@ -3705,20 +3705,20 @@ management.otlp.metrics.export.url=https://otlp.example.com:4318/v1/metrics
 
 
 
-[Prometheus](https://micrometer.io/docs/registry/prometheus) Ï£Íûscrape»òÂÖÑ¯µ¥¸öÓ¦ÓÃ³ÌĞòÊµÀıµÄÖ¸±ê¡£Spring BootÔÚ `/actuator/prometheus` Ìá¹©ÁËÒ»¸öactuator¶Ëµã£¬ÒÔ±ãÒÔÊÊµ±µÄ¸ñÊ½³ÊÏÖ [Prometheus scrape](https://prometheus.io/)¡£
+[Prometheus](https://micrometer.io/docs/registry/prometheus) å¸Œæœ›scrapeæˆ–è½®è¯¢å•ä¸ªåº”ç”¨ç¨‹åºå®ä¾‹çš„æŒ‡æ ‡ã€‚Spring Bootåœ¨ `/actuator/prometheus` æä¾›äº†ä¸€ä¸ªactuatorç«¯ç‚¹ï¼Œä»¥ä¾¿ä»¥é€‚å½“çš„æ ¼å¼å‘ˆç° [Prometheus scrape](https://prometheus.io/)ã€‚
 
 
 
 
 
-|  | Ä¬ÈÏÇé¿öÏÂ£¬¸Ã¶ËµãÊÇ²»¿ÉÓÃµÄ£¬±ØĞë±»±©Â¶¡£¸ü¶àÏ¸½ÚÇë²Î¼û[±©Â¶¶Ëµã](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.exposing)¡£ |
+|  | é»˜è®¤æƒ…å†µä¸‹ï¼Œè¯¥ç«¯ç‚¹æ˜¯ä¸å¯ç”¨çš„ï¼Œå¿…é¡»è¢«æš´éœ²ã€‚æ›´å¤šç»†èŠ‚è¯·å‚è§[æš´éœ²ç«¯ç‚¹](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.exposing)ã€‚ |
 | --- | --- |
 
 
 
 
 
-ÏÂÃæµÄÀı×Ó `scrape_config` Ìí¼Óµ½ `prometheus.yml`¡£
+ä¸‹é¢çš„ä¾‹å­ `scrape_config` æ·»åŠ åˆ° `prometheus.yml`ã€‚
 
 
 
@@ -3740,13 +3740,13 @@ scrape_configs:
 
 
 
-Ò²Ö§³Ö [Prometheus Exemplars](https://prometheus.io/docs/prometheus/latest/feature_flags/#exemplars-storage)¡£ÒªÆôÓÃÕâ¸ö¹¦ÄÜ£¬Ó¦¸ÃÓĞÒ»¸ö `SpanContextSupplier` Bean¡£Èç¹ûÄãÊ¹ÓÃ [Micrometer Tracing](https://micrometer.io/docs/tracing)£¬Õâ½«ÎªÄã×Ô¶¯ÅäÖÃ£¬µ«Èç¹ûÄãÏë£¬Äã×ÜÊÇ¿ÉÒÔ´´½¨×Ô¼ºµÄ¡£Çë²é¿´ [Prometheus ÎÄµµ](https://prometheus.io/docs/prometheus/latest/feature_flags/#exemplars-storage) £¬ÒòÎªÕâ¸ö¹¦ÄÜĞèÒªÔÚPrometheusÕâ±ßÃ÷È·ÆôÓÃ£¬¶øÇÒÖ»Ö§³ÖÊ¹ÓÃ [OpenMetrics](https://github.com/OpenObservability/OpenMetrics/blob/v1.0.0/specification/OpenMetrics.md#exemplars) ¸ñÊ½¡£
+ä¹Ÿæ”¯æŒ [Prometheus Exemplars](https://prometheus.io/docs/prometheus/latest/feature_flags/#exemplars-storage)ã€‚è¦å¯ç”¨è¿™ä¸ªåŠŸèƒ½ï¼Œåº”è¯¥æœ‰ä¸€ä¸ª `SpanContextSupplier` Beanã€‚å¦‚æœä½ ä½¿ç”¨ [Micrometer Tracing](https://micrometer.io/docs/tracing)ï¼Œè¿™å°†ä¸ºä½ è‡ªåŠ¨é…ç½®ï¼Œä½†å¦‚æœä½ æƒ³ï¼Œä½ æ€»æ˜¯å¯ä»¥åˆ›å»ºè‡ªå·±çš„ã€‚è¯·æŸ¥çœ‹ [Prometheus æ–‡æ¡£](https://prometheus.io/docs/prometheus/latest/feature_flags/#exemplars-storage) ï¼Œå› ä¸ºè¿™ä¸ªåŠŸèƒ½éœ€è¦åœ¨Prometheusè¿™è¾¹æ˜ç¡®å¯ç”¨ï¼Œè€Œä¸”åªæ”¯æŒä½¿ç”¨ [OpenMetrics](https://github.com/OpenObservability/OpenMetrics/blob/v1.0.0/specification/OpenMetrics.md#exemplars) æ ¼å¼ã€‚
 
 
 
 
 
-¶ÔÓÚ¶ÌÔİµÄ»òÅú´¦ÀíµÄ×÷Òµ£¬¿ÉÄÜ´æÔÚµÄÊ±¼ä²»¹»³¤£¬ÎŞ·¨±»¹ÎÈ¡£¬Äã¿ÉÒÔÊ¹ÓÃ [Prometheus Pushgateway](https://github.com/prometheus/pushgateway) Ö§³Ö£¬½«Ö¸±ê±©Â¶¸øPrometheus¡£ÒªÆôÓÃPrometheus PushgatewayÖ§³Ö£¬ÇëÔÚÄãµÄÏîÄ¿ÖĞÌí¼ÓÒÔÏÂÒÀÀµ¡£
+å¯¹äºçŸ­æš‚çš„æˆ–æ‰¹å¤„ç†çš„ä½œä¸šï¼Œå¯èƒ½å­˜åœ¨çš„æ—¶é—´ä¸å¤Ÿé•¿ï¼Œæ— æ³•è¢«åˆ®å–ï¼Œä½ å¯ä»¥ä½¿ç”¨ [Prometheus Pushgateway](https://github.com/prometheus/pushgateway) æ”¯æŒï¼Œå°†æŒ‡æ ‡æš´éœ²ç»™Prometheusã€‚è¦å¯ç”¨Prometheus Pushgatewayæ”¯æŒï¼Œè¯·åœ¨ä½ çš„é¡¹ç›®ä¸­æ·»åŠ ä»¥ä¸‹ä¾èµ–ã€‚
 
 
 
@@ -3767,13 +3767,13 @@ scrape_configs:
 
 
 
-µ±Prometheus PushgatewayµÄÒÀÀµ³öÏÖÔÚclasspathÉÏ£¬²¢ÇÒ `management.prometheus.metrics.export.pushgateway.enabled` ÊôĞÔ±»ÉèÖÃÎª `true` Ê±£¬Ò»¸ö `PrometheusPushGatewayManager` bean¾Í±»×Ô¶¯ÅäÖÃÁË¡£ Ëü¸ºÔğ¹ÜÀíÏòPrometheus PushgatewayÍÆËÍÖ¸±êµÄ¹¤×÷¡£
+å½“Prometheus Pushgatewayçš„ä¾èµ–å‡ºç°åœ¨classpathä¸Šï¼Œå¹¶ä¸” `management.prometheus.metrics.export.pushgateway.enabled` å±æ€§è¢«è®¾ç½®ä¸º `true` æ—¶ï¼Œä¸€ä¸ª `PrometheusPushGatewayManager` beanå°±è¢«è‡ªåŠ¨é…ç½®äº†ã€‚ å®ƒè´Ÿè´£ç®¡ç†å‘Prometheus Pushgatewayæ¨é€æŒ‡æ ‡çš„å·¥ä½œã€‚
 
 
 
 
 
-Äã¿ÉÒÔÍ¨¹ıÊ¹ÓÃ `management.prometheus.metrics.export.pushgateway` ÏÂµÄÊôĞÔÀ´µ÷Õû `PrometheusPushGatewayManager`¡£ ¶ÔÓÚ¸ß¼¶ÅäÖÃ£¬ÄãÒ²¿ÉÒÔÌá¹©Äã×Ô¼ºµÄ `PrometheusPushGatewayManager` bean¡£
+ä½ å¯ä»¥é€šè¿‡ä½¿ç”¨ `management.prometheus.metrics.export.pushgateway` ä¸‹çš„å±æ€§æ¥è°ƒæ•´ `PrometheusPushGatewayManager`ã€‚ å¯¹äºé«˜çº§é…ç½®ï¼Œä½ ä¹Ÿå¯ä»¥æä¾›ä½ è‡ªå·±çš„ `PrometheusPushGatewayManager` beanã€‚
 
 
 
@@ -3785,7 +3785,7 @@ scrape_configs:
 
 
 
-SignalFx×¢²áÖĞĞÄ»á¶¨ÆÚ½«Ö¸±êÍÆËÍµ½ [SignalFx](https://micrometer.io/docs/registry/signalFx)¡£Òªµ¼³öÖ¸±êµ½ [SignalFx](https://www.signalfx.com/)£¬Äã±ØĞëÌá¹©ÄãµÄaccess token¡£
+SignalFxæ³¨å†Œä¸­å¿ƒä¼šå®šæœŸå°†æŒ‡æ ‡æ¨é€åˆ° [SignalFx](https://micrometer.io/docs/registry/signalFx)ã€‚è¦å¯¼å‡ºæŒ‡æ ‡åˆ° [SignalFx](https://www.signalfx.com/)ï¼Œä½ å¿…é¡»æä¾›ä½ çš„access tokenã€‚
 
 
 
@@ -3812,7 +3812,7 @@ management.signalfx.metrics.export.access-token=YOUR_ACCESS_TOKEN
 
 
 
-ÄãÒ²¿ÉÒÔ¸Ä±äÏòSignalFx·¢ËÍÖ¸±êµÄÊ±¼ä¼ä¸ô¡£
+ä½ ä¹Ÿå¯ä»¥æ”¹å˜å‘SignalFxå‘é€æŒ‡æ ‡çš„æ—¶é—´é—´éš”ã€‚
 
 
 
@@ -3845,13 +3845,13 @@ management.signalfx.metrics.export.step=30s
 
 
 
-MicrometerÌá¹©ÁËÒ»¸ö¼òµ¥µÄ¡¢ÄÚ´æÖĞµÄºó¶Ë£¬Èç¹ûÃ»ÓĞÅäÖÃÆäËû×¢²á±í£¬¸Ãºó¶Ë»á×Ô¶¯×÷Îª±¸ÓÃ¡£Õâ¿ÉÒÔÈÃÄã¿´µ½ÔÚ [metrics endpoint](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.endpoint) ÖĞÊÕ¼¯ÁËÄÄĞ©¶ÈÁ¿¡£
+Micrometeræä¾›äº†ä¸€ä¸ªç®€å•çš„ã€å†…å­˜ä¸­çš„åç«¯ï¼Œå¦‚æœæ²¡æœ‰é…ç½®å…¶ä»–æ³¨å†Œè¡¨ï¼Œè¯¥åç«¯ä¼šè‡ªåŠ¨ä½œä¸ºå¤‡ç”¨ã€‚è¿™å¯ä»¥è®©ä½ çœ‹åˆ°åœ¨ [metrics endpoint](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.endpoint) ä¸­æ”¶é›†äº†å“ªäº›åº¦é‡ã€‚
 
 
 
 
 
-Ò»µ©ÄãÊ¹ÓÃÈÎºÎÆäËû¿ÉÓÃµÄºó¶Ë£¬ÄÚ´æÖĞµÄºó¶Ë¾Í»á×Ô¶¯¹Ø±Õ¡£ÄãÒ²¿ÉÒÔÃ÷È·µØ½ûÓÃËü¡£
+ä¸€æ—¦ä½ ä½¿ç”¨ä»»ä½•å…¶ä»–å¯ç”¨çš„åç«¯ï¼Œå†…å­˜ä¸­çš„åç«¯å°±ä¼šè‡ªåŠ¨å…³é—­ã€‚ä½ ä¹Ÿå¯ä»¥æ˜ç¡®åœ°ç¦ç”¨å®ƒã€‚
 
 
 
@@ -3884,7 +3884,7 @@ management.simple.metrics.export.enabled=false
 
 
 
-Stackdriver×¢²áÖĞĞÄ»á¶¨ÆÚÏò [Stackdriver](https://cloud.google.com/stackdriver/) ÍÆËÍÖ¸±ê¡£Òªµ¼³öÖ¸±êµ½SaaS [Stackdriver](https://micrometer.io/docs/registry/stackdriver)£¬Äã±ØĞëÌá¹©ÄãµÄGoogle Cloud project ID¡£
+Stackdriveræ³¨å†Œä¸­å¿ƒä¼šå®šæœŸå‘ [Stackdriver](https://cloud.google.com/stackdriver/) æ¨é€æŒ‡æ ‡ã€‚è¦å¯¼å‡ºæŒ‡æ ‡åˆ°SaaS [Stackdriver](https://micrometer.io/docs/registry/stackdriver)ï¼Œä½ å¿…é¡»æä¾›ä½ çš„Google Cloud project IDã€‚
 
 
 
@@ -3911,7 +3911,7 @@ management.stackdriver.metrics.export.project-id=my-project
 
 
 
-Äã»¹¿ÉÒÔ¸Ä±äÏòStackdriver·¢ËÍÖ¸±êµÄÊ±¼ä¼ä¸ô¡£
+ä½ è¿˜å¯ä»¥æ”¹å˜å‘Stackdriverå‘é€æŒ‡æ ‡çš„æ—¶é—´é—´éš”ã€‚
 
 
 
@@ -3944,7 +3944,7 @@ management.stackdriver.metrics.export.step=30s
 
 
 
-StatsD×¢²á±í¼±ÇĞµØ½«Ö¸±êÍ¨¹ıUDPÍÆËÍ¸øStatsD agent¡£Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±ê±»µ¼³öµ½ÔËĞĞÔÚÄã±¾µØ»úÆ÷ÉÏµÄ [StatsD](https://micrometer.io/docs/registry/statsD) agent¡£Äã¿ÉÒÔÍ¨¹ıÒÔÏÂ·½Ê½Ìá¹©StatsD´úÀíµÄÖ÷»ú¡¢¶Ë¿ÚºÍĞ­Òé£¬ÒÔ±ãÊ¹ÓÃ¡£
+StatsDæ³¨å†Œè¡¨æ€¥åˆ‡åœ°å°†æŒ‡æ ‡é€šè¿‡UDPæ¨é€ç»™StatsD agentã€‚é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡è¢«å¯¼å‡ºåˆ°è¿è¡Œåœ¨ä½ æœ¬åœ°æœºå™¨ä¸Šçš„ [StatsD](https://micrometer.io/docs/registry/statsD) agentã€‚ä½ å¯ä»¥é€šè¿‡ä»¥ä¸‹æ–¹å¼æä¾›StatsDä»£ç†çš„ä¸»æœºã€ç«¯å£å’Œåè®®ï¼Œä»¥ä¾¿ä½¿ç”¨ã€‚
 
 
 
@@ -3973,7 +3973,7 @@ management.statsd.metrics.export.protocol=udp
 
 
 
-Äã»¹¿ÉÒÔ¸Ä±äÒªÊ¹ÓÃµÄStatsDÏßÂ·Ğ­Òé£¨Ä¬ÈÏÎªDatadog£©¡£
+ä½ è¿˜å¯ä»¥æ”¹å˜è¦ä½¿ç”¨çš„StatsDçº¿è·¯åè®®ï¼ˆé»˜è®¤ä¸ºDatadogï¼‰ã€‚
 
 
 
@@ -4006,7 +4006,7 @@ management.statsd.metrics.export.flavor=etsy
 
 
 
-Wavefront×¢²á±í¶¨ÆÚ½«Ö¸±êÍÆËÍµ½ [Wavefront](https://micrometer.io/docs/registry/wavefront)¡£Èç¹ûÄãÖ±½Ó½«Ö¸±êµ¼³öµ½ [Wavefront](https://www.wavefront.com/)£¬Äã±ØĞëÌá¹©ÄãµÄAPI token¡£
+Wavefrontæ³¨å†Œè¡¨å®šæœŸå°†æŒ‡æ ‡æ¨é€åˆ° [Wavefront](https://micrometer.io/docs/registry/wavefront)ã€‚å¦‚æœä½ ç›´æ¥å°†æŒ‡æ ‡å¯¼å‡ºåˆ° [Wavefront](https://www.wavefront.com/)ï¼Œä½ å¿…é¡»æä¾›ä½ çš„API tokenã€‚
 
 
 
@@ -4033,7 +4033,7 @@ management.wavefront.api-token=YOUR_API_TOKEN
 
 
 
-ÁíÍâ£¬Äú¿ÉÒÔÔÚÄúµÄ»·¾³ÖĞÊ¹ÓÃWavefront sidecar»òÄÚ²¿´úÀíÀ´×ª·¢Ö¸±êÊı¾İµ½Wavefront APIÖ÷»ú¡£
+å¦å¤–ï¼Œæ‚¨å¯ä»¥åœ¨æ‚¨çš„ç¯å¢ƒä¸­ä½¿ç”¨Wavefront sidecaræˆ–å†…éƒ¨ä»£ç†æ¥è½¬å‘æŒ‡æ ‡æ•°æ®åˆ°Wavefront APIä¸»æœºã€‚
 
 
 
@@ -4060,13 +4060,13 @@ management.wavefront.uri=proxy://localhost:2878
 
 
 
-Èç¹ûÄú½«Ö¸±ê·¢²¼µ½Wavefront´úÀí£¨Èç [WavefrontÎÄµµ](https://docs.wavefront.com/proxies_installing.html) ÖĞËùÊö£©£¬Ö÷»ú±ØĞëÊÇ `proxy://HOST:PORT` ¸ñÊ½¡£
+å¦‚æœæ‚¨å°†æŒ‡æ ‡å‘å¸ƒåˆ°Wavefrontä»£ç†ï¼ˆå¦‚ [Wavefrontæ–‡æ¡£](https://docs.wavefront.com/proxies_installing.html) ä¸­æ‰€è¿°ï¼‰ï¼Œä¸»æœºå¿…é¡»æ˜¯ `proxy://HOST:PORT` æ ¼å¼ã€‚
 
 
 
 
 
-ÄãÒ²¿ÉÒÔ¸Ä±äÏòWavefront·¢ËÍÖ¸±êµÄÊ±¼ä¼ä¸ô¡£
+ä½ ä¹Ÿå¯ä»¥æ”¹å˜å‘Wavefrontå‘é€æŒ‡æ ‡çš„æ—¶é—´é—´éš”ã€‚
 
 
 
@@ -4097,43 +4097,43 @@ management.wavefront.metrics.export.step=30s
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported)7.3\. Ö§³ÖµÄÖ¸±ê £¨Metric£©ºÍ¶ÈÁ¿£¨Meter£©
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported)7.3\. æ”¯æŒçš„æŒ‡æ ‡ ï¼ˆMetricï¼‰å’Œåº¦é‡ï¼ˆMeterï¼‰
 
 
 
-Spring BootÎª¸÷ÖÖ¸÷ÑùµÄ¼¼ÊõÌá¹©ÁË×Ô¶¯¼ÆÁ¿Æ÷×¢²á¡£ ÔÚ´ó¶àÊıÇé¿öÏÂ£¬Ä¬ÈÏÖµÌá¹©ÁËºÏÀíµÄÖ¸±ê£¬¿ÉÒÔ·¢²¼µ½ÈÎºÎÖ§³ÖµÄ¼à¿ØÏµÍ³ÖĞ¡£
+Spring Bootä¸ºå„ç§å„æ ·çš„æŠ€æœ¯æä¾›äº†è‡ªåŠ¨è®¡é‡å™¨æ³¨å†Œã€‚ åœ¨å¤§å¤šæ•°æƒ…å†µä¸‹ï¼Œé»˜è®¤å€¼æä¾›äº†åˆç†çš„æŒ‡æ ‡ï¼Œå¯ä»¥å‘å¸ƒåˆ°ä»»ä½•æ”¯æŒçš„ç›‘æ§ç³»ç»Ÿä¸­ã€‚
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.jvm)7.3.1\. JVMÖ¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.jvm)7.3.1\. JVMæŒ‡æ ‡
 
 
 
-×Ô¶¯ÅäÖÃÍ¨¹ıÊ¹ÓÃºËĞÄ Micrometer ÀàÆôÓÃJVM¶ÈÁ¿¡£ JVMÖ¸±êÔÚ `jvm.` meter name ÏÂ·¢²¼¡£
+è‡ªåŠ¨é…ç½®é€šè¿‡ä½¿ç”¨æ ¸å¿ƒ Micrometer ç±»å¯ç”¨JVMåº¦é‡ã€‚ JVMæŒ‡æ ‡åœ¨ `jvm.` meter name ä¸‹å‘å¸ƒã€‚
 
 
 
 
 
-Ìá¹©ÒÔÏÂJVMÖ¸±ê¡£
+æä¾›ä»¥ä¸‹JVMæŒ‡æ ‡ã€‚
 
 
 
 
 
-*   ¸÷ÖÖÄÚ´æºÍ»º³å³ØÏ¸½Ú
+*   å„ç§å†…å­˜å’Œç¼“å†²æ± ç»†èŠ‚
 
-*   ÓëÀ¬»øÊÕ¼¯ÓĞ¹ØµÄÍ³¼ÆÊı¾İ
+*   ä¸åƒåœ¾æ”¶é›†æœ‰å…³çš„ç»Ÿè®¡æ•°æ®
 
-*   Ïß³ÌÀûÓÃÂÊ
+*   çº¿ç¨‹åˆ©ç”¨ç‡
 
-*   ¼ÓÔØºÍĞ¶ÔØµÄÀàµÄÊıÁ¿
+*   åŠ è½½å’Œå¸è½½çš„ç±»çš„æ•°é‡
 
-*   JVMµÄ°æ±¾ĞÅÏ¢
+*   JVMçš„ç‰ˆæœ¬ä¿¡æ¯
 
-*   JIT ±àÒëÊ±¼ä
+*   JIT ç¼–è¯‘æ—¶é—´
 
 
 
@@ -4141,29 +4141,29 @@ Spring BootÎª¸÷ÖÖ¸÷ÑùµÄ¼¼ÊõÌá¹©ÁË×Ô¶¯¼ÆÁ¿Æ÷×¢²á¡£ ÔÚ´ó¶àÊıÇé¿öÏÂ£¬Ä¬ÈÏÖµÌá¹©ÁËºÏ
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.system)7.3.2\. ÏµÍ³Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.system)7.3.2\. ç³»ç»ŸæŒ‡æ ‡
 
 
 
-×Ô¶¯ÅäÖÃÍ¨¹ıÊ¹ÓÃºËĞÄMicrometerÀàÀ´ÊµÏÖÏµÍ³¶ÈÁ¿¡£ ÏµÍ³Ö¸±êÔÚ `system.`¡¢`process.` ºÍ `disk.` meter ÃûÏÂ·¢²¼¡£
+è‡ªåŠ¨é…ç½®é€šè¿‡ä½¿ç”¨æ ¸å¿ƒMicrometerç±»æ¥å®ç°ç³»ç»Ÿåº¦é‡ã€‚ ç³»ç»ŸæŒ‡æ ‡åœ¨ `system.`ã€`process.` å’Œ `disk.` meter åä¸‹å‘å¸ƒã€‚
 
 
 
 
 
-Ìá¹©ÒÔÏÂÏµÍ³Ö¸±ê¡£
+æä¾›ä»¥ä¸‹ç³»ç»ŸæŒ‡æ ‡ã€‚
 
 
 
 
 
-*   CPUÖ¸±ê
+*   CPUæŒ‡æ ‡
 
-*   ÎÄ¼şÃèÊö·ûÖ¸±ê
+*   æ–‡ä»¶æè¿°ç¬¦æŒ‡æ ‡
 
-*   Õı³£ÔËĞĞÊ±¼äÖ¸±ê£¨°üÀ¨Ó¦ÓÃ³ÌĞòÒÑ¾­ÔËĞĞµÄÊ±¼äºÍ¾ø¶ÔÆô¶¯Ê±¼äµÄ¹Ì¶¨²âÁ¿£©¡£
+*   æ­£å¸¸è¿è¡Œæ—¶é—´æŒ‡æ ‡ï¼ˆåŒ…æ‹¬åº”ç”¨ç¨‹åºå·²ç»è¿è¡Œçš„æ—¶é—´å’Œç»å¯¹å¯åŠ¨æ—¶é—´çš„å›ºå®šæµ‹é‡ï¼‰ã€‚
 
-*   ¿ÉÓÃµÄ´ÅÅÌ¿Õ¼ä
+*   å¯ç”¨çš„ç£ç›˜ç©ºé—´
 
 
 
@@ -4171,25 +4171,25 @@ Spring BootÎª¸÷ÖÖ¸÷ÑùµÄ¼¼ÊõÌá¹©ÁË×Ô¶¯¼ÆÁ¿Æ÷×¢²á¡£ ÔÚ´ó¶àÊıÇé¿öÏÂ£¬Ä¬ÈÏÖµÌá¹©ÁËºÏ
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.application-startup)7.3.3\. Ó¦ÓÃ³ÌĞòÆô¶¯Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.application-startup)7.3.3\. åº”ç”¨ç¨‹åºå¯åŠ¨æŒ‡æ ‡
 
 
 
-×Ô¶¯ÅäÖÃ±©Â¶ÁËÓ¦ÓÃ³ÌĞòµÄÆô¶¯Ê±¼äÖ¸±ê¡£
+è‡ªåŠ¨é…ç½®æš´éœ²äº†åº”ç”¨ç¨‹åºçš„å¯åŠ¨æ—¶é—´æŒ‡æ ‡ã€‚
 
 
 
 
 
-*   `application.started.time`: Æô¶¯Ó¦ÓÃ³ÌĞòµÄÊ±¼ä¡£
+*   `application.started.time`: å¯åŠ¨åº”ç”¨ç¨‹åºçš„æ—¶é—´ã€‚
 
-*   `application.ready.time`£ºÓ¦ÓÃ³ÌĞò×¼±¸ºÃÎªÇëÇóÌá¹©·şÎñËùĞèµÄÊ±¼ä¡£
+*   `application.ready.time`ï¼šåº”ç”¨ç¨‹åºå‡†å¤‡å¥½ä¸ºè¯·æ±‚æä¾›æœåŠ¡æ‰€éœ€çš„æ—¶é—´ã€‚
 
 
 
 
 
-Ö¸±êÊÇÓÉÓ¦ÓÃÀàµÄÍêÈ«Ãû³ÆÀ´±ê¼ÇµÄ¡£
+æŒ‡æ ‡æ˜¯ç”±åº”ç”¨ç±»çš„å®Œå…¨åç§°æ¥æ ‡è®°çš„ã€‚
 
 
 
@@ -4197,11 +4197,11 @@ Spring BootÎª¸÷ÖÖ¸÷ÑùµÄ¼¼ÊõÌá¹©ÁË×Ô¶¯¼ÆÁ¿Æ÷×¢²á¡£ ÔÚ´ó¶àÊıÇé¿öÏÂ£¬Ä¬ÈÏÖµÌá¹©ÁËºÏ
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.logger)7.3.4\. ÈÕÖ¾¼ÇÂ¼Æ÷Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.logger)7.3.4\. æ—¥å¿—è®°å½•å™¨æŒ‡æ ‡
 
 
 
-×Ô¶¯ÅäÖÃÆôÓÃÁËLogbackºÍLog4J2µÄÊÂ¼ş¶ÈÁ¿¡£ Ï¸½ÚÔÚ `log4j2.events.` »ò `logback.events.` meterÃûÏÂ¹«²¼¡£
+è‡ªåŠ¨é…ç½®å¯ç”¨äº†Logbackå’ŒLog4J2çš„äº‹ä»¶åº¦é‡ã€‚ ç»†èŠ‚åœ¨ `log4j2.events.` æˆ– `logback.events.` meteråä¸‹å…¬å¸ƒã€‚
 
 
 
@@ -4209,11 +4209,11 @@ Spring BootÎª¸÷ÖÖ¸÷ÑùµÄ¼¼ÊõÌá¹©ÁË×Ô¶¯¼ÆÁ¿Æ÷×¢²á¡£ ÔÚ´ó¶àÊıÇé¿öÏÂ£¬Ä¬ÈÏÖµÌá¹©ÁËºÏ
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.tasks)7.3.5\. ÈÎÎñÖ´ĞĞºÍµ÷¶ÈÖ¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.tasks)7.3.5\. ä»»åŠ¡æ‰§è¡Œå’Œè°ƒåº¦æŒ‡æ ‡
 
 
 
-×Ô¶¯ÅäÖÃÊ¹ËùÓĞ¿ÉÓÃµÄ `ThreadPoolTaskExecutor` ºÍ `ThreadPoolTaskScheduler` Bean¶¼ÄÜ±»²âÁ¿£¬Ö»Òªµ×²ãµÄ `ThreadPoolExecutor` ¿ÉÓÃ¡£ Ö¸±êÓÉexecutorµÄÃû³ÆÀ´±ê¼Ç£¬executorµÄÃû³ÆÀ´×ÔÓÚBeanµÄÃû³Æ¡£
+è‡ªåŠ¨é…ç½®ä½¿æ‰€æœ‰å¯ç”¨çš„ `ThreadPoolTaskExecutor` å’Œ `ThreadPoolTaskScheduler` Beanéƒ½èƒ½è¢«æµ‹é‡ï¼Œåªè¦åº•å±‚çš„ `ThreadPoolExecutor` å¯ç”¨ã€‚ æŒ‡æ ‡ç”±executorçš„åç§°æ¥æ ‡è®°ï¼Œexecutorçš„åç§°æ¥è‡ªäºBeançš„åç§°ã€‚
 
 
 
@@ -4221,36 +4221,36 @@ Spring BootÎª¸÷ÖÖ¸÷ÑùµÄ¼¼ÊõÌá¹©ÁË×Ô¶¯¼ÆÁ¿Æ÷×¢²á¡£ ÔÚ´ó¶àÊıÇé¿öÏÂ£¬Ä¬ÈÏÖµÌá¹©ÁËºÏ
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.spring-mvc)7.3.6\. Spring MVC Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.spring-mvc)7.3.6\. Spring MVC æŒ‡æ ‡
 
 
 
-×Ô¶¯ÅäÖÃÄÜ¹»¶Ô Spring MVC ControllerºÍ±à³ÌÊ½handler´¦ÀíµÄËùÓĞÇëÇó½øĞĞ¶ÈÁ¿¡£ Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±êÊÇÒÔ `http.server.requests` ÎªÃû³ÆÉú³ÉµÄ¡£ Äã¿ÉÒÔÍ¨¹ıÉèÖÃ `management.observations.http.server.requests.name` ÊôĞÔÀ´¶¨ÖÆ¸ÃÃû³Æ¡£
+è‡ªåŠ¨é…ç½®èƒ½å¤Ÿå¯¹ Spring MVC Controllerå’Œç¼–ç¨‹å¼handlerå¤„ç†çš„æ‰€æœ‰è¯·æ±‚è¿›è¡Œåº¦é‡ã€‚ é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡æ˜¯ä»¥ `http.server.requests` ä¸ºåç§°ç”Ÿæˆçš„ã€‚ ä½ å¯ä»¥é€šè¿‡è®¾ç½® `management.observations.http.server.requests.name` å±æ€§æ¥å®šåˆ¶è¯¥åç§°ã€‚
 
 
 
 
 
-¹ØÓÚ²úÉúµÄ¹Û²ì½á¹û£¨observation£©µÄ¸ü¶àĞÅÏ¢£¬Çë²Î¼û [Spring Framework ²Î¿¼ÎÄµµ](https://docs.spring.io/spring-framework/docs/6.0.5/reference/html/integration.html#integration.observability.http-server.servlet)¡£
+å…³äºäº§ç”Ÿçš„è§‚å¯Ÿç»“æœï¼ˆobservationï¼‰çš„æ›´å¤šä¿¡æ¯ï¼Œè¯·å‚è§ [Spring Framework å‚è€ƒæ–‡æ¡£](https://docs.spring.io/spring-framework/docs/6.0.5/reference/html/integration.html#integration.observability.http-server.servlet)ã€‚
 
 
 
 
 
-ÒªÌí¼Óµ½Ä¬ÈÏ±êÇ©ÖĞ£¬ÇëÌá¹©Ò»¸ö¼Ì³ĞÁË `org.springframework.http.server.observation` °üÖĞµÄ `DefaultServerRequestObservationConvention` µÄ `@Bean`¡£ÒªÌæ»»Ä¬ÈÏ±êÇ©£¬ÇëÌá¹©Ò»¸öÊµÏÖ `ServerRequestObservationConvention` µÄ `@Bean`¡£
+è¦æ·»åŠ åˆ°é»˜è®¤æ ‡ç­¾ä¸­ï¼Œè¯·æä¾›ä¸€ä¸ªç»§æ‰¿äº† `org.springframework.http.server.observation` åŒ…ä¸­çš„ `DefaultServerRequestObservationConvention` çš„ `@Bean`ã€‚è¦æ›¿æ¢é»˜è®¤æ ‡ç­¾ï¼Œè¯·æä¾›ä¸€ä¸ªå®ç° `ServerRequestObservationConvention` çš„ `@Bean`ã€‚
 
 
 
 
 
-|  | ÔÚÄ³Ğ©Çé¿öÏÂ£¬Web¿ØÖÆÆ÷ÖĞ´¦ÀíµÄÒì³£²»»á±»¼ÇÂ¼ÎªÇëÇó¶ÈÁ¿±êÇ©¡£Ó¦ÓÃ³ÌĞò¿ÉÒÔÑ¡Ôñ¼ÓÈë²¢Í¨¹ı½«[handled exception ÉèÖÃÎª request attribute](https://springdoc.cn/spring-boot/web.html#web.servlet.spring-mvc.error-handling)À´¼ÇÂ¼Òì³£¡£ |
+|  | åœ¨æŸäº›æƒ…å†µä¸‹ï¼ŒWebæ§åˆ¶å™¨ä¸­å¤„ç†çš„å¼‚å¸¸ä¸ä¼šè¢«è®°å½•ä¸ºè¯·æ±‚åº¦é‡æ ‡ç­¾ã€‚åº”ç”¨ç¨‹åºå¯ä»¥é€‰æ‹©åŠ å…¥å¹¶é€šè¿‡å°†[handled exception è®¾ç½®ä¸º request attribute](https://springdoc.cn/spring-boot/web.html#web.servlet.spring-mvc.error-handling)æ¥è®°å½•å¼‚å¸¸ã€‚ |
 | --- | --- |
 
 
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬ËùÓĞÇëÇó¶¼±»´¦Àí¡£ Òª×Ô¶¨Òå¹ıÂËÆ÷£¬ÇëÌá¹©Ò»¸öÊµÏÖ `FilterRegistrationBean<WebMvcMetricsFilter>` µÄ `@Bean`¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼Œæ‰€æœ‰è¯·æ±‚éƒ½è¢«å¤„ç†ã€‚ è¦è‡ªå®šä¹‰è¿‡æ»¤å™¨ï¼Œè¯·æä¾›ä¸€ä¸ªå®ç° `FilterRegistrationBean<WebMvcMetricsFilter>` çš„ `@Bean`ã€‚
 
 
 
@@ -4258,29 +4258,29 @@ Spring BootÎª¸÷ÖÖ¸÷ÑùµÄ¼¼ÊõÌá¹©ÁË×Ô¶¯¼ÆÁ¿Æ÷×¢²á¡£ ÔÚ´ó¶àÊıÇé¿öÏÂ£¬Ä¬ÈÏÖµÌá¹©ÁËºÏ
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.spring-webflux)7.3.7\. Spring WebFlux Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.spring-webflux)7.3.7\. Spring WebFlux æŒ‡æ ‡
 
 
 
-×Ô¶¯ÅäÖÃÄÜ¹»¶ÔSpring WebFlux controllerºÍ±à³ÌÊ½handlerµÄËùÓĞÇëÇó½øĞĞ¶ÈÁ¿¡£ Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±êÊÇÒÔ `http.server.requests` ÎªÃûÉú³ÉµÄ¡£ Äã¿ÉÒÔÍ¨¹ıÉèÖÃ `management.observations.http.server.requests.name` ÊôĞÔÀ´¶¨ÖÆ¸ÃÃû³Æ¡£
-
-
-
-
-
-¹ØÓÚ²úÉúµÄ¹Û²ì½á¹û£¨observation£©µÄ¸ü¶àĞÅÏ¢£¬Çë²Î¼û [Spring Framework ²Î¿¼ÎÄµµ](https://docs.spring.io/spring-framework/docs/6.0.5/reference/html/integration.html#integration.observability.http-server.reactive)¡£
+è‡ªåŠ¨é…ç½®èƒ½å¤Ÿå¯¹Spring WebFlux controllerå’Œç¼–ç¨‹å¼handlerçš„æ‰€æœ‰è¯·æ±‚è¿›è¡Œåº¦é‡ã€‚ é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡æ˜¯ä»¥ `http.server.requests` ä¸ºåç”Ÿæˆçš„ã€‚ ä½ å¯ä»¥é€šè¿‡è®¾ç½® `management.observations.http.server.requests.name` å±æ€§æ¥å®šåˆ¶è¯¥åç§°ã€‚
 
 
 
 
 
-ÒªÌí¼Óµ½Ä¬ÈÏ±êÇ©ÖĞ£¬ÇëÌá¹©¼Ì³ĞÁË `org.springframework.http.server.reactive.observation` °üÖĞµÄ `DefaultServerRequestObservationConvention` µÄ `@Bean`¡£ÒªÌæ»»Ä¬ÈÏ±êÇ©£¬ÇëÌá¹©Ò»¸öÊµÏÖ `ServerRequestObservationConvention` µÄ `@Bean`¡£
+å…³äºäº§ç”Ÿçš„è§‚å¯Ÿç»“æœï¼ˆobservationï¼‰çš„æ›´å¤šä¿¡æ¯ï¼Œè¯·å‚è§ [Spring Framework å‚è€ƒæ–‡æ¡£](https://docs.spring.io/spring-framework/docs/6.0.5/reference/html/integration.html#integration.observability.http-server.reactive)ã€‚
 
 
 
 
 
-|  | ÔÚÄ³Ğ©Çé¿öÏÂ£¬¿ØÖÆÆ÷ºÍ´¦Àíº¯ÊıÖĞ´¦ÀíµÄÒì³£²»»á±»¼ÇÂ¼ÎªÇëÇó¶ÈÁ¿±êÇ©¡£Ó¦ÓÃ³ÌĞò¿ÉÒÔÑ¡Ôñ¼ÓÈë²¢Í¨¹ı[½«handled exceptionÉèÖÃÎªrequest attribute](https://springdoc.cn/spring-boot/web.html#web.reactive.webflux.error-handling)À´¼ÇÂ¼Òì³£¡£ |
+è¦æ·»åŠ åˆ°é»˜è®¤æ ‡ç­¾ä¸­ï¼Œè¯·æä¾›ç»§æ‰¿äº† `org.springframework.http.server.reactive.observation` åŒ…ä¸­çš„ `DefaultServerRequestObservationConvention` çš„ `@Bean`ã€‚è¦æ›¿æ¢é»˜è®¤æ ‡ç­¾ï¼Œè¯·æä¾›ä¸€ä¸ªå®ç° `ServerRequestObservationConvention` çš„ `@Bean`ã€‚
+
+
+
+
+
+|  | åœ¨æŸäº›æƒ…å†µä¸‹ï¼Œæ§åˆ¶å™¨å’Œå¤„ç†å‡½æ•°ä¸­å¤„ç†çš„å¼‚å¸¸ä¸ä¼šè¢«è®°å½•ä¸ºè¯·æ±‚åº¦é‡æ ‡ç­¾ã€‚åº”ç”¨ç¨‹åºå¯ä»¥é€‰æ‹©åŠ å…¥å¹¶é€šè¿‡[å°†handled exceptionè®¾ç½®ä¸ºrequest attribute](https://springdoc.cn/spring-boot/web.html#web.reactive.webflux.error-handling)æ¥è®°å½•å¼‚å¸¸ã€‚ |
 | --- | --- |
 
 
@@ -4289,32 +4289,32 @@ Spring BootÎª¸÷ÖÖ¸÷ÑùµÄ¼¼ÊõÌá¹©ÁË×Ô¶¯¼ÆÁ¿Æ÷×¢²á¡£ ÔÚ´ó¶àÊıÇé¿öÏÂ£¬Ä¬ÈÏÖµÌá¹©ÁËºÏ
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.jersey)7.3.8\. Jersey Server Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.jersey)7.3.8\. Jersey Server æŒ‡æ ‡
 
 
 
-×Ô¶¯ÅäÖÃÊ¹Jersey JAX-RSÊµÏÖËù´¦ÀíµÄËùÓĞÇëÇó¶¼ÄÜ±»²âÁ¿¡£ Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±êÊÇÒÔ `http.server.requests` ÎªÃû³ÆÉú³ÉµÄ¡£ Äã¿ÉÒÔÍ¨¹ıÉèÖÃ `management.observations.http.server.requests.name` ÊôĞÔÀ´¶¨ÖÆÃû³Æ¡£
+è‡ªåŠ¨é…ç½®ä½¿Jersey JAX-RSå®ç°æ‰€å¤„ç†çš„æ‰€æœ‰è¯·æ±‚éƒ½èƒ½è¢«æµ‹é‡ã€‚ é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡æ˜¯ä»¥ `http.server.requests` ä¸ºåç§°ç”Ÿæˆçš„ã€‚ ä½ å¯ä»¥é€šè¿‡è®¾ç½® `management.observations.http.server.requests.name` å±æ€§æ¥å®šåˆ¶åç§°ã€‚
 
 
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Jersey·şÎñÆ÷Ö¸±ê±»±ê¼ÇÎªÒÔÏÂĞÅÏ¢¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒJerseyæœåŠ¡å™¨æŒ‡æ ‡è¢«æ ‡è®°ä¸ºä»¥ä¸‹ä¿¡æ¯ã€‚
 
 
 
 <colgroup><col><col></colgroup>
-| Tag | ËµÃ÷ |
+| Tag | è¯´æ˜ |
 | --- | --- |
-| `exception` | ´¦ÀíÇëÇóÊ±Å×³öµÄÈÎºÎÒì³£µÄ¼òµ¥ÀàÃû¡£ |
-| `method` | ÇëÇóµÄ·½·¨£¨ÀıÈç£¬`GET` »ò `POST`£©¡£ |
-| `outcome` | ÇëÇóµÄ½á¹û£¬»ùÓÚÏìÓ¦µÄ×´Ì¬´úÂë¡£ 1xxÊÇ `INFORMATIONAL`£¬2xxÊÇ `SUCCESS`£¬3xxÊÇ `REDIRECTION`£¬4xxÊÇ `CLIENT_ERROR`£¬5xxÊÇ `SERVER_ERROR`¡£ |
-| `status` | ÏìÓ¦µÄHTTP×´Ì¬´úÂë£¨ÀıÈç£¬`200` »ò `500`£©¡£ |
-| `uri` | Èç¹û¿ÉÄÜµÄ»°£¬ÔÚ½øĞĞ±äÁ¿Ìæ»»Ö®Ç°£¬ÇëÇóµÄURIÄ£°å£¨ÀıÈç£º`/api/person/{id}`£©¡£ |
+| `exception` | å¤„ç†è¯·æ±‚æ—¶æŠ›å‡ºçš„ä»»ä½•å¼‚å¸¸çš„ç®€å•ç±»åã€‚ |
+| `method` | è¯·æ±‚çš„æ–¹æ³•ï¼ˆä¾‹å¦‚ï¼Œ`GET` æˆ– `POST`ï¼‰ã€‚ |
+| `outcome` | è¯·æ±‚çš„ç»“æœï¼ŒåŸºäºå“åº”çš„çŠ¶æ€ä»£ç ã€‚ 1xxæ˜¯ `INFORMATIONAL`ï¼Œ2xxæ˜¯ `SUCCESS`ï¼Œ3xxæ˜¯ `REDIRECTION`ï¼Œ4xxæ˜¯ `CLIENT_ERROR`ï¼Œ5xxæ˜¯ `SERVER_ERROR`ã€‚ |
+| `status` | å“åº”çš„HTTPçŠ¶æ€ä»£ç ï¼ˆä¾‹å¦‚ï¼Œ`200` æˆ– `500`ï¼‰ã€‚ |
+| `uri` | å¦‚æœå¯èƒ½çš„è¯ï¼Œåœ¨è¿›è¡Œå˜é‡æ›¿æ¢ä¹‹å‰ï¼Œè¯·æ±‚çš„URIæ¨¡æ¿ï¼ˆä¾‹å¦‚ï¼š`/api/person/{id}`ï¼‰ã€‚ |
 
 
 
-Òª¶¨ÖÆ±êÇ©£¬ÇëÌá¹©Ò»¸öÊµÏÖ `JerseyTagsProvider` µÄ `@Bean`¡£
+è¦å®šåˆ¶æ ‡ç­¾ï¼Œè¯·æä¾›ä¸€ä¸ªå®ç° `JerseyTagsProvider` çš„ `@Bean`ã€‚
 
 
 
@@ -4322,49 +4322,49 @@ Spring BootÎª¸÷ÖÖ¸÷ÑùµÄ¼¼ÊõÌá¹©ÁË×Ô¶¯¼ÆÁ¿Æ÷×¢²á¡£ ÔÚ´ó¶àÊıÇé¿öÏÂ£¬Ä¬ÈÏÖµÌá¹©ÁËºÏ
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.http-clients)7.3.9\. HTTP Client Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.http-clients)7.3.9\. HTTP Client æŒ‡æ ‡
 
 
 
-Spring Boot Actuator¸ºÔğ¹ÜÀí `RestTemplate` ºÍ `WebClient` µÄ¹¤¾ß¡£Îª´Ë£¬Äã±ØĞë×¢Èë×Ô¶¯ÅäÖÃµÄ¹¹½¨Æ÷²¢Ê¹ÓÃËüÀ´´´½¨ÊµÀı¡£
+Spring Boot Actuatorè´Ÿè´£ç®¡ç† `RestTemplate` å’Œ `WebClient` çš„å·¥å…·ã€‚ä¸ºæ­¤ï¼Œä½ å¿…é¡»æ³¨å…¥è‡ªåŠ¨é…ç½®çš„æ„å»ºå™¨å¹¶ä½¿ç”¨å®ƒæ¥åˆ›å»ºå®ä¾‹ã€‚
 
 
 
 
 
-*   `RestTemplateBuilder` ÓÃÓÚ `RestTemplate`
+*   `RestTemplateBuilder` ç”¨äº `RestTemplate`
 
-*   `WebClient.Builder` ÓÃÓÚ `WebClient`
+*   `WebClient.Builder` ç”¨äº `WebClient`
 
 
 
 
 
-ÄãÒ²¿ÉÒÔÊÖ¶¯Ó¦ÓÃ¸ºÔğÕâ¸ö¹¤¾ßµÄcustomizer£¬¼´ `ObservationRestTemplateCustomizer` ºÍ `ObservationWebClientCustomizer`¡£
+ä½ ä¹Ÿå¯ä»¥æ‰‹åŠ¨åº”ç”¨è´Ÿè´£è¿™ä¸ªå·¥å…·çš„customizerï¼Œå³ `ObservationRestTemplateCustomizer` å’Œ `ObservationWebClientCustomizer`ã€‚
 
 
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±êÊÇÒÔ `http.client.requests` Õâ¸öÃû×ÖÉú³ÉµÄ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡æ˜¯ä»¥ `http.client.requests` è¿™ä¸ªåå­—ç”Ÿæˆçš„ã€‚
 
 
 
 
 
-Äã¿ÉÒÔÍ¨¹ıÉèÖÃ `management.observations.http.client.requests.name` ÊôĞÔÀ´¶¨ÖÆÕâ¸öÃû×Ö¡£
+ä½ å¯ä»¥é€šè¿‡è®¾ç½® `management.observations.http.client.requests.name` å±æ€§æ¥å®šåˆ¶è¿™ä¸ªåå­—ã€‚
 
 
 
 
 
-¹ØÓÚ²úÉúµÄ¹Û²ì½á¹û£¨observation£©µÄ¸ü¶àĞÅÏ¢£¬Çë²Î¼û [Spring Framework ²Î¿¼ÎÄµµ](https://docs.spring.io/spring-framework/docs/6.0.5/reference/html/integration.html#integration.observability.http-client)¡£
+å…³äºäº§ç”Ÿçš„è§‚å¯Ÿç»“æœï¼ˆobservationï¼‰çš„æ›´å¤šä¿¡æ¯ï¼Œè¯·å‚è§ [Spring Framework å‚è€ƒæ–‡æ¡£](https://docs.spring.io/spring-framework/docs/6.0.5/reference/html/integration.html#integration.observability.http-client)ã€‚
 
 
 
 
 
-ÒªÔÚÊ¹ÓÃ `RestTemplate` Ê±¶¨ÖÆ±êÇ©£¬ÇëÌá¹©Ò»¸öÊµÏÖÁË `org.springframework.http.client.observation` °üÖĞ `ClientRequestObservationConvention` µÄ `@Bean`¡£ÒªÔÚÊ¹ÓÃ `WebClient` Ê±×Ô¶¨Òå±êÇ©£¬ÇëÌá¹©Ò»¸öÊµÏÖÁË `org.springframework.web.reactive.function.client` °üÖĞ `ClientRequestObservationConvention` µÄ `@Bean`¡£
+è¦åœ¨ä½¿ç”¨ `RestTemplate` æ—¶å®šåˆ¶æ ‡ç­¾ï¼Œè¯·æä¾›ä¸€ä¸ªå®ç°äº† `org.springframework.http.client.observation` åŒ…ä¸­ `ClientRequestObservationConvention` çš„ `@Bean`ã€‚è¦åœ¨ä½¿ç”¨ `WebClient` æ—¶è‡ªå®šä¹‰æ ‡ç­¾ï¼Œè¯·æä¾›ä¸€ä¸ªå®ç°äº† `org.springframework.web.reactive.function.client` åŒ…ä¸­ `ClientRequestObservationConvention` çš„ `@Bean`ã€‚
 
 
 
@@ -4372,17 +4372,17 @@ Spring Boot Actuator¸ºÔğ¹ÜÀí `RestTemplate` ºÍ `WebClient` µÄ¹¤¾ß¡£Îª´Ë£¬Äã±ØĞë×
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.tomcat)7.3.10\. Tomcat Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.tomcat)7.3.10\. Tomcat æŒ‡æ ‡
 
 
 
-×Ô¶¯ÅäÖÃ½öÔÚ `MBeanRegistry` ±»ÆôÓÃÊ±²Å»áÆôÓÃTomcatµÄÒÇÆ÷¡£ Ä¬ÈÏÇé¿öÏÂ£¬`MBeanRegistry` ÊÇ½ûÓÃµÄ£¬µ«Äã¿ÉÒÔÍ¨¹ıÉèÖÃ `server.tomcat.mbeanregistry.enabled` Îª `true` À´ÆôÓÃËü¡£
+è‡ªåŠ¨é…ç½®ä»…åœ¨ `MBeanRegistry` è¢«å¯ç”¨æ—¶æ‰ä¼šå¯ç”¨Tomcatçš„ä»ªå™¨ã€‚ é»˜è®¤æƒ…å†µä¸‹ï¼Œ`MBeanRegistry` æ˜¯ç¦ç”¨çš„ï¼Œä½†ä½ å¯ä»¥é€šè¿‡è®¾ç½® `server.tomcat.mbeanregistry.enabled` ä¸º `true` æ¥å¯ç”¨å®ƒã€‚
 
 
 
 
 
-TomcatµÄÖ¸±êÔÚ `tomcat.` meter ÃûÏÂ·¢²¼¡£
+Tomcatçš„æŒ‡æ ‡åœ¨ `tomcat.` meter åä¸‹å‘å¸ƒã€‚
 
 
 
@@ -4390,29 +4390,29 @@ TomcatµÄÖ¸±êÔÚ `tomcat.` meter ÃûÏÂ·¢²¼¡£
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.cache)7.3.11\. Cache Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.cache)7.3.11\. Cache æŒ‡æ ‡
 
 
 
-×Ô¶¯ÅäÖÃ¿ÉÒÔÔÚÆô¶¯Ê±¶ÔËùÓĞ¿ÉÓÃµÄ `Cache` ÊµÀı½øĞĞ¼ì²â£¬ÆäÖ¸±êÒÔ `cache` ÎªÇ°×º¡£
+è‡ªåŠ¨é…ç½®å¯ä»¥åœ¨å¯åŠ¨æ—¶å¯¹æ‰€æœ‰å¯ç”¨çš„ `Cache` å®ä¾‹è¿›è¡Œæ£€æµ‹ï¼Œå…¶æŒ‡æ ‡ä»¥ `cache` ä¸ºå‰ç¼€ã€‚
 
 
 
 
 
-»º´æÒÇ±íÊÇ±ê×¼»¯µÄ»ù±¾Ö¸±ê¼¯¡£
+ç¼“å­˜ä»ªè¡¨æ˜¯æ ‡å‡†åŒ–çš„åŸºæœ¬æŒ‡æ ‡é›†ã€‚
 
 
 
 
 
-Ò²¿ÉÒÔÊ¹ÓÃ¶îÍâµÄ¡¢Õë¶Ô»º´æµÄÖ¸±ê¡£
+ä¹Ÿå¯ä»¥ä½¿ç”¨é¢å¤–çš„ã€é’ˆå¯¹ç¼“å­˜çš„æŒ‡æ ‡ã€‚
 
 
 
 
 
-Ö§³ÖÒÔÏÂ»º´æ¿â¡£
+æ”¯æŒä»¥ä¸‹ç¼“å­˜åº“ã€‚
 
 
 
@@ -4424,7 +4424,7 @@ TomcatµÄÖ¸±êÔÚ `tomcat.` meter ÃûÏÂ·¢²¼¡£
 
 *   Hazelcast
 
-*   ÈÎºÎ¼æÈİµÄJCache£¨JSR-107£©ÊµÏÖ
+*   ä»»ä½•å…¼å®¹çš„JCacheï¼ˆJSR-107ï¼‰å®ç°
 
 *   Redis
 
@@ -4432,13 +4432,13 @@ TomcatµÄÖ¸±êÔÚ `tomcat.` meter ÃûÏÂ·¢²¼¡£
 
 
 
-Ö¸±êÓÉ»º´æµÄÃû³ÆºÍ `CacheManager` µÄÃû³ÆÀ´±ê¼Ç£¬`CacheManager` µÄÃû³ÆÊÇÓÉBeanÃû³ÆÅÉÉúµÄ¡£
+æŒ‡æ ‡ç”±ç¼“å­˜çš„åç§°å’Œ `CacheManager` çš„åç§°æ¥æ ‡è®°ï¼Œ`CacheManager` çš„åç§°æ˜¯ç”±Beanåç§°æ´¾ç”Ÿçš„ã€‚
 
 
 
 
 
-|  | Ö»ÓĞÔÚÆô¶¯Ê±ÅäÖÃµÄ»º´æ±»°ó¶¨µ½×¢²á±í¡£ ¶ÔÓÚÃ»ÓĞÔÚ»º´æÅäÖÃÖĞ¶¨ÒåµÄ»º´æ£¬ÀıÈçÔÚÆô¶¯½×¶ÎºóÁÙÊ±´´½¨µÄ»º´æ»òÒÔ±à³Ì·½Ê½´´½¨µÄ»º´æ£¬ĞèÒªÃ÷È·×¢²á¡£ Ò»¸ö `CacheMetricsRegistrar` Bean¿ÉÒÔÊ¹Õâ¸ö¹ı³Ì¸üÈİÒ×¡£ |
+|  | åªæœ‰åœ¨å¯åŠ¨æ—¶é…ç½®çš„ç¼“å­˜è¢«ç»‘å®šåˆ°æ³¨å†Œè¡¨ã€‚ å¯¹äºæ²¡æœ‰åœ¨ç¼“å­˜é…ç½®ä¸­å®šä¹‰çš„ç¼“å­˜ï¼Œä¾‹å¦‚åœ¨å¯åŠ¨é˜¶æ®µåä¸´æ—¶åˆ›å»ºçš„ç¼“å­˜æˆ–ä»¥ç¼–ç¨‹æ–¹å¼åˆ›å»ºçš„ç¼“å­˜ï¼Œéœ€è¦æ˜ç¡®æ³¨å†Œã€‚ ä¸€ä¸ª `CacheMetricsRegistrar` Beanå¯ä»¥ä½¿è¿™ä¸ªè¿‡ç¨‹æ›´å®¹æ˜“ã€‚ |
 | --- | --- |
 
 
@@ -4447,42 +4447,42 @@ TomcatµÄÖ¸±êÔÚ `tomcat.` meter ÃûÏÂ·¢²¼¡£
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.spring-graphql)7.3.12\. Spring GraphQL Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.spring-graphql)7.3.12\. Spring GraphQL æŒ‡æ ‡
 
 
 
-²Î¼û [Spring GraphQL ²Î¿¼ÎÄµµ](https://docs.spring.io/spring-graphql/docs/1.1.2/reference/html/)¡£
-
-
-
-
-
-
-
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.jdbc)7.3.13\. DataSource Ö¸±ê
-
-
-
-×Ô¶¯ÅäÖÃÊ¹ËùÓĞ¿ÉÓÃµÄ `DataSource` ¶ÔÏóµÄÒÇÆ÷»¯£¬Ö¸±êÇ°×ºÎª `jdbc.connections`¡£ Êı¾İÔ´¼ì²âµÄ½á¹ûÊÇ±íÊ¾³ØÖĞµ±Ç°»î¶¯µÄ¡¢¿ÕÏĞµÄ¡¢×î´óÔÊĞíµÄºÍ×îĞ¡ÔÊĞíµÄÁ¬½ÓÊıµÄÒÇ±í¡£
+å‚è§ [Spring GraphQL å‚è€ƒæ–‡æ¡£](https://docs.spring.io/spring-graphql/docs/1.1.2/reference/html/)ã€‚
 
 
 
 
 
-ºâÁ¿±ê×¼Ò²ÓÉ»ùÓÚbeanÃû³Æ¼ÆËãµÄ `DataSource` µÄÃû³ÆÀ´±ê¼Ç¡£
+
+
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.jdbc)7.3.13\. DataSource æŒ‡æ ‡
+
+
+
+è‡ªåŠ¨é…ç½®ä½¿æ‰€æœ‰å¯ç”¨çš„ `DataSource` å¯¹è±¡çš„ä»ªå™¨åŒ–ï¼ŒæŒ‡æ ‡å‰ç¼€ä¸º `jdbc.connections`ã€‚ æ•°æ®æºæ£€æµ‹çš„ç»“æœæ˜¯è¡¨ç¤ºæ± ä¸­å½“å‰æ´»åŠ¨çš„ã€ç©ºé—²çš„ã€æœ€å¤§å…è®¸çš„å’Œæœ€å°å…è®¸çš„è¿æ¥æ•°çš„ä»ªè¡¨ã€‚
 
 
 
 
 
-|  | Ä¬ÈÏÇé¿öÏÂ£¬Spring BootÎªËùÓĞÖ§³ÖµÄÊı¾İÔ´Ìá¹©ÔªÊı¾İ¡£ Èç¹ûÄãÏ²»¶µÄÊı¾İÔ´²»±»Ö§³Ö£¬Äã¿ÉÒÔÌí¼Ó¶îÍâµÄ `DataSourcePoolMetadataProvider` Bean¡£ Çë²ÎÔÄ `DataSourcePoolMetadataProvidersConfiguration` ÒÔÁË½âÊµÀı¡£ |
+è¡¡é‡æ ‡å‡†ä¹Ÿç”±åŸºäºbeanåç§°è®¡ç®—çš„ `DataSource` çš„åç§°æ¥æ ‡è®°ã€‚
+
+
+
+
+
+|  | é»˜è®¤æƒ…å†µä¸‹ï¼ŒSpring Bootä¸ºæ‰€æœ‰æ”¯æŒçš„æ•°æ®æºæä¾›å…ƒæ•°æ®ã€‚ å¦‚æœä½ å–œæ¬¢çš„æ•°æ®æºä¸è¢«æ”¯æŒï¼Œä½ å¯ä»¥æ·»åŠ é¢å¤–çš„ `DataSourcePoolMetadataProvider` Beanã€‚ è¯·å‚é˜… `DataSourcePoolMetadataProvidersConfiguration` ä»¥äº†è§£å®ä¾‹ã€‚ |
 | --- | --- |
 
 
 
 
 
-´ËÍâ£¬HikariÌØ¶¨µÄÖ¸±êÒÔ `hikaricp` Ç°×º±©Â¶¡£ Ã¿¸öÖ¸±ê¶¼±»poolµÄÃû×ÖËù±ê¼Ç£¨Äã¿ÉÒÔÓÃ `spring.datasource.name` À´¿ØÖÆ£©¡£
+æ­¤å¤–ï¼ŒHikariç‰¹å®šçš„æŒ‡æ ‡ä»¥ `hikaricp` å‰ç¼€æš´éœ²ã€‚ æ¯ä¸ªæŒ‡æ ‡éƒ½è¢«poolçš„åå­—æ‰€æ ‡è®°ï¼ˆä½ å¯ä»¥ç”¨ `spring.datasource.name` æ¥æ§åˆ¶ï¼‰ã€‚
 
 
 
@@ -4490,23 +4490,23 @@ TomcatµÄÖ¸±êÔÚ `tomcat.` meter ÃûÏÂ·¢²¼¡£
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.hibernate)7.3.14\. Hibernate Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.hibernate)7.3.14\. Hibernate æŒ‡æ ‡
 
 
 
-Èç¹û `org.hibernate.orm:hibernate-micrometer` ÔÚclasspathÉÏ£¬ËùÓĞÆôÓÃÁËÍ³¼Æ¹¦ÄÜµÄHibernate `EntityManagerFactory` ÊµÀı¶¼»á±»Ò»¸öÃûÎª `hibernate` µÄÖ¸±êËù¼ì²â¡£
-
-
-
-
-
-ºâÁ¿±ê×¼Ò²ÓÉ `EntityManagerFactory` µÄÃû³ÆÀ´±ê¼Ç£¬¸ÃÃû³ÆÊÇÓÉBeanÃû³ÆÅÉÉúµÄ¡£
+å¦‚æœ `org.hibernate.orm:hibernate-micrometer` åœ¨classpathä¸Šï¼Œæ‰€æœ‰å¯ç”¨äº†ç»Ÿè®¡åŠŸèƒ½çš„Hibernate `EntityManagerFactory` å®ä¾‹éƒ½ä¼šè¢«ä¸€ä¸ªåä¸º `hibernate` çš„æŒ‡æ ‡æ‰€æ£€æµ‹ã€‚
 
 
 
 
 
-ÒªÆôÓÃÍ³¼Æ£¬±ê×¼JPAÊôĞÔ `hibernate.generate_statistics` ±ØĞëÉèÖÃÎª `true`¡£ Äã¿ÉÒÔÔÚ×Ô¶¯ÅäÖÃµÄ `EntityManagerFactory` ÉÏÆôÓÃ¡£
+è¡¡é‡æ ‡å‡†ä¹Ÿç”± `EntityManagerFactory` çš„åç§°æ¥æ ‡è®°ï¼Œè¯¥åç§°æ˜¯ç”±Beanåç§°æ´¾ç”Ÿçš„ã€‚
+
+
+
+
+
+è¦å¯ç”¨ç»Ÿè®¡ï¼Œæ ‡å‡†JPAå±æ€§ `hibernate.generate_statistics` å¿…é¡»è®¾ç½®ä¸º `true`ã€‚ ä½ å¯ä»¥åœ¨è‡ªåŠ¨é…ç½®çš„ `EntityManagerFactory` ä¸Šå¯ç”¨ã€‚
 
 
 
@@ -4535,56 +4535,44 @@ spring.jpa.properties[hibernate.generate_statistics]=true
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.spring-data-repository)7.3.15\. Spring Data Repository Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.spring-data-repository)7.3.15\. Spring Data Repository æŒ‡æ ‡
 
 
 
-×Ô¶¯ÅäÖÃÄÜ¹»¶ÔËùÓĞSpring Data `Repository` ·½·¨µÄµ÷ÓÃ½øĞĞ¶ÈÁ¿¡£ Ä¬ÈÏÇé¿öÏÂ£¬Ö¸±êÒÔ `spring.data.repository.invocations` ÎªÃûÉú³É¡£ Äã¿ÉÒÔÍ¨¹ıÉèÖÃ `management.metrics.data.repository.metric-name` ÊôĞÔÀ´×Ô¶¨ÒåÃû³Æ¡£
-
-
-
-
-
-`io.micrometer.core.annotation` °üÖĞµÄ `@Timed` ×¢½âÖ§³Ö `Repository` ½Ó¿ÚºÍ·½·¨¡£Èç¹ûÄã²»Ïë¼ÇÂ¼ËùÓĞ `Repository` µ÷ÓÃµÄ¶ÈÁ¿£¨metric£©£¬Äã¿ÉÒÔ½« `management.metrics.data.repository.autotime.enabled` ÉèÖÃÎª `false`£¬¶ø×¨ÃÅÊ¹ÓÃ `@Timed` ×¢½â¡£
+è‡ªåŠ¨é…ç½®èƒ½å¤Ÿå¯¹æ‰€æœ‰Spring Data `Repository` æ–¹æ³•çš„è°ƒç”¨è¿›è¡Œåº¦é‡ã€‚ é»˜è®¤æƒ…å†µä¸‹ï¼ŒæŒ‡æ ‡ä»¥ `spring.data.repository.invocations` ä¸ºåç”Ÿæˆã€‚ ä½ å¯ä»¥é€šè¿‡è®¾ç½® `management.metrics.data.repository.metric-name` å±æ€§æ¥è‡ªå®šä¹‰åç§°ã€‚
 
 
 
 
 
-|  | Ò»¸ö´øÓĞ `longTask = true` µÄ `@Timed` ×¢½â¿ÉÒÔÎª¸Ã·½·¨ÆôÓÃÒ»¸ö³¤ÈÎÎñ¼ÆÊ±Æ÷¡£³¤ÈÎÎñ¶¨Ê±Æ÷ĞèÒªÒ»¸öµ¥¶ÀµÄ metric name£¬²¢ÇÒ¿ÉÒÔÓë¶ÌÈÎÎñ¶¨Ê±Æ÷£¨task timer£©µş¼Ó¡£ |
+`io.micrometer.core.annotation` åŒ…ä¸­çš„ `@Timed` æ³¨è§£æ”¯æŒ `Repository` æ¥å£å’Œæ–¹æ³•ã€‚å¦‚æœä½ ä¸æƒ³è®°å½•æ‰€æœ‰ `Repository` è°ƒç”¨çš„åº¦é‡ï¼ˆmetricï¼‰ï¼Œä½ å¯ä»¥å°† `management.metrics.data.repository.autotime.enabled` è®¾ç½®ä¸º `false`ï¼Œè€Œä¸“é—¨ä½¿ç”¨ `@Timed` æ³¨è§£ã€‚
+
+
+
+
+
+|  | ä¸€ä¸ªå¸¦æœ‰ `longTask = true` çš„ `@Timed` æ³¨è§£å¯ä»¥ä¸ºè¯¥æ–¹æ³•å¯ç”¨ä¸€ä¸ªé•¿ä»»åŠ¡è®¡æ—¶å™¨ã€‚é•¿ä»»åŠ¡å®šæ—¶å™¨éœ€è¦ä¸€ä¸ªå•ç‹¬çš„ metric nameï¼Œå¹¶ä¸”å¯ä»¥ä¸çŸ­ä»»åŠ¡å®šæ—¶å™¨ï¼ˆtask timerï¼‰å åŠ ã€‚ |
 | --- | --- |
 
 
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬repositoryµ÷ÓÃÏà¹ØµÄ¶ÈÁ¿±ê×¼±»±ê¼ÇÎªÒÔÏÂĞÅÏ¢¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼Œrepositoryè°ƒç”¨ç›¸å…³çš„åº¦é‡æ ‡å‡†è¢«æ ‡è®°ä¸ºä»¥ä¸‹ä¿¡æ¯ã€‚
 
 
 
 <colgroup><col><col></colgroup>
-| Tag | ËµÃ÷ |
+| Tag | è¯´æ˜ |
 | --- | --- |
-| `repository` | Ô´ `Repository` µÄ¼òµ¥ÀàÃû¡£ |
-| `method` | ±»µ÷ÓÃµÄ `Repository` ·½·¨µÄÃû³Æ¡£ |
-| `state` | ½á¹û×´Ì¬£¨`SUCCESS`, `ERROR`, `CANCELED`, `RUNNING`£©¡£ |
-| `exception` | µ÷ÓÃÖĞÅ×³öµÄÈÎºÎÒì³£µÄ¼òµ¥ÀàÃû¡£ |
+| `repository` | æº `Repository` çš„ç®€å•ç±»åã€‚ |
+| `method` | è¢«è°ƒç”¨çš„ `Repository` æ–¹æ³•çš„åç§°ã€‚ |
+| `state` | ç»“æœçŠ¶æ€ï¼ˆ`SUCCESS`, `ERROR`, `CANCELED`, `RUNNING`ï¼‰ã€‚ |
+| `exception` | è°ƒç”¨ä¸­æŠ›å‡ºçš„ä»»ä½•å¼‚å¸¸çš„ç®€å•ç±»åã€‚ |
 
 
 
-ÒªÌæ»»Ä¬ÈÏ±êÇ©£¬ĞèÒªÌá¹©Ò»¸öÊµÏÖÁË `RepositoryTagsProvider` µÄ `@Bean`¡£
-
-
-
-
-
-
-
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.rabbitmq)7.3.16\. RabbitMQ Ö¸±ê
-
-
-
-×Ô¶¯ÅäÖÃÊ¹ËùÓĞ¿ÉÓÃµÄ RabbitMQ Á¬½Ó¹¤³§µÄÒÇÆ÷»¯£¬ÆäÖ¸±êÃûÎª `rabbitmq`¡£
+è¦æ›¿æ¢é»˜è®¤æ ‡ç­¾ï¼Œéœ€è¦æä¾›ä¸€ä¸ªå®ç°äº† `RepositoryTagsProvider` çš„ `@Bean`ã€‚
 
 
 
@@ -4592,23 +4580,11 @@ spring.jpa.properties[hibernate.generate_statistics]=true
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.spring-integration)7.3.17\. Spring Integration Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.rabbitmq)7.3.16\. RabbitMQ æŒ‡æ ‡
 
 
 
-Ö»ÒªÓĞ `MeterRegistry` bean£¬Spring Integration¾Í»á×Ô¶¯Ìá¹© [Micrometer support](https://docs.spring.io/spring-integration/docs/6.1.0-M1/reference/html/system-management.html#micrometer-integration)¡£ ¶ÈÁ¿±ê×¼ÔÚ `spring.integration.` meter Ãû³ÆÏÂ·¢²¼¡£
-
-
-
-
-
-
-
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.kafka)7.3.18\. Kafka Ö¸±ê
-
-
-
-×Ô¶¯ÅäÖÃÎª×Ô¶¯ÅäÖÃµÄÏû·ÑÕß¹¤³§ºÍÉú²úÕß¹¤³§·Ö±ğ×¢²áÁËÒ»¸ö `MicrometerConsumerListener` ºÍ `MicrometerProducerListener`¡£ Ëü»¹Îª `StreamsBuilderFactoryBean` ×¢²áÁËÒ»¸ö `KafkaStreamsMicrometerListener`¡£ ¸ü¶àÏ¸½Ú£¬Çë²ÎÔÄSpring KafkaÎÄµµÖĞµÄ [Micrometer Native Metrics](https://docs.spring.io/spring-kafka/docs/3.0.3/reference/html/#micrometer-native) ²¿·Ö¡£
+è‡ªåŠ¨é…ç½®ä½¿æ‰€æœ‰å¯ç”¨çš„ RabbitMQ è¿æ¥å·¥å‚çš„ä»ªå™¨åŒ–ï¼Œå…¶æŒ‡æ ‡åä¸º `rabbitmq`ã€‚
 
 
 
@@ -4616,41 +4592,65 @@ spring.jpa.properties[hibernate.generate_statistics]=true
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.mongodb)7.3.19\. MongoDB Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.spring-integration)7.3.17\. Spring Integration æŒ‡æ ‡
 
 
 
-±¾½Ú¼òÒª½éÉÜMongoDBµÄ¿ÉÓÃ¶ÈÁ¿¡£
-
-
-
-
-
-##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.mongodb.command)MongoDBÃüÁîÖ¸±ê
-
-
-
-×Ô¶¯ÅäÖÃ½« `MongoMetricsCommandListener` Óë×Ô¶¯ÅäÖÃµÄ `MongoClient` ×¢²á¡£
+åªè¦æœ‰ `MeterRegistry` beanï¼ŒSpring Integrationå°±ä¼šè‡ªåŠ¨æä¾› [Micrometer support](https://docs.spring.io/spring-integration/docs/6.1.0-M1/reference/html/system-management.html#micrometer-integration)ã€‚ åº¦é‡æ ‡å‡†åœ¨ `spring.integration.` meter åç§°ä¸‹å‘å¸ƒã€‚
 
 
 
 
 
-Ò»¸öÃûÎª `mongodb.driver.commands` µÄtimerÖ¸±ê±»´´½¨£¬ÓÃÓÚÏòµ×²ãMongoDB driver·¢³öµÄÃ¿ÌõÃüÁî¡£ Ä¬ÈÏÇé¿öÏÂ£¬Ã¿¸öÖ¸±ê¶¼±»±ê¼ÇÎªÒÔÏÂĞÅÏ¢¡£
+
+
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.kafka)7.3.18\. Kafka æŒ‡æ ‡
+
+
+
+è‡ªåŠ¨é…ç½®ä¸ºè‡ªåŠ¨é…ç½®çš„æ¶ˆè´¹è€…å·¥å‚å’Œç”Ÿäº§è€…å·¥å‚åˆ†åˆ«æ³¨å†Œäº†ä¸€ä¸ª `MicrometerConsumerListener` å’Œ `MicrometerProducerListener`ã€‚ å®ƒè¿˜ä¸º `StreamsBuilderFactoryBean` æ³¨å†Œäº†ä¸€ä¸ª `KafkaStreamsMicrometerListener`ã€‚ æ›´å¤šç»†èŠ‚ï¼Œè¯·å‚é˜…Spring Kafkaæ–‡æ¡£ä¸­çš„ [Micrometer Native Metrics](https://docs.spring.io/spring-kafka/docs/3.0.3/reference/html/#micrometer-native) éƒ¨åˆ†ã€‚
+
+
+
+
+
+
+
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.mongodb)7.3.19\. MongoDB æŒ‡æ ‡
+
+
+
+æœ¬èŠ‚ç®€è¦ä»‹ç»MongoDBçš„å¯ç”¨åº¦é‡ã€‚
+
+
+
+
+
+##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.mongodb.command)MongoDBå‘½ä»¤æŒ‡æ ‡
+
+
+
+è‡ªåŠ¨é…ç½®å°† `MongoMetricsCommandListener` ä¸è‡ªåŠ¨é…ç½®çš„ `MongoClient` æ³¨å†Œã€‚
+
+
+
+
+
+ä¸€ä¸ªåä¸º `mongodb.driver.commands` çš„timeræŒ‡æ ‡è¢«åˆ›å»ºï¼Œç”¨äºå‘åº•å±‚MongoDB driverå‘å‡ºçš„æ¯æ¡å‘½ä»¤ã€‚ é»˜è®¤æƒ…å†µä¸‹ï¼Œæ¯ä¸ªæŒ‡æ ‡éƒ½è¢«æ ‡è®°ä¸ºä»¥ä¸‹ä¿¡æ¯ã€‚
 
 
 
 <colgroup><col><col></colgroup>
-| Tag | ËµÃ÷ |
+| Tag | è¯´æ˜ |
 | --- | --- |
-| `command` | ·¢³öµÄÃüÁîµÄÃû³Æ¡£ |
-| `cluster.id` | ·¢ËÍ¸ÃÃüÁîµÄ¼¯ÈºµÄ±êÊ¶·û¡£ |
-| `server.address` | ·¢ËÍÃüÁîµÄ·şÎñÆ÷µÄµØÖ·¡£ |
-| `status` | ÃüÁîµÄ½á¹û£¨`SUCCESS` »ò `FAILED£©¡£ |
+| `command` | å‘å‡ºçš„å‘½ä»¤çš„åç§°ã€‚ |
+| `cluster.id` | å‘é€è¯¥å‘½ä»¤çš„é›†ç¾¤çš„æ ‡è¯†ç¬¦ã€‚ |
+| `server.address` | å‘é€å‘½ä»¤çš„æœåŠ¡å™¨çš„åœ°å€ã€‚ |
+| `status` | å‘½ä»¤çš„ç»“æœï¼ˆ`SUCCESS` æˆ– `FAILEDï¼‰ã€‚ |
 
 
 
-ÎªÁËÌæ»»Ä¬ÈÏµÄ¶ÈÁ¿ºâ±êÇ©£¬¶¨ÒåÒ»¸ö `MongoCommandTagsProvider` bean£¬ÈçÏÂÀıËùÊ¾¡£
+ä¸ºäº†æ›¿æ¢é»˜è®¤çš„åº¦é‡è¡¡æ ‡ç­¾ï¼Œå®šä¹‰ä¸€ä¸ª `MongoCommandTagsProvider` beanï¼Œå¦‚ä¸‹ä¾‹æ‰€ç¤ºã€‚
 
 
 
@@ -4685,7 +4685,7 @@ public class MyCommandTagsProviderConfiguration {
 
 
 
-Òª½ûÓÃ×Ô¶¯ÅäÖÃµÄÃüÁî¶ÈÁ¿£¬ÇëÉèÖÃÒÔÏÂÊôĞÔ¡£
+è¦ç¦ç”¨è‡ªåŠ¨é…ç½®çš„å‘½ä»¤åº¦é‡ï¼Œè¯·è®¾ç½®ä»¥ä¸‹å±æ€§ã€‚
 
 
 
@@ -4714,45 +4714,45 @@ management.metrics.mongo.command.enabled=false
 
 
 
-##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.mongodb.connection-pool)MongoDB Á¬½Ó³ØÖ¸±ê
+##### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.mongodb.connection-pool)MongoDB è¿æ¥æ± æŒ‡æ ‡
 
 
 
-×Ô¶¯ÅäÖÃ½« `MongoMetricsConnectionPoolListener` Óë×Ô¶¯ÅäÖÃµÄ `MongoClient` ×¢²á¡£
-
-
-
-
-
-ÒÔÏÂÊÇÎªÁ¬½Ó³Ø´´½¨µÄ²âÁ¿Ö¸±ê¡£
+è‡ªåŠ¨é…ç½®å°† `MongoMetricsConnectionPoolListener` ä¸è‡ªåŠ¨é…ç½®çš„ `MongoClient` æ³¨å†Œã€‚
 
 
 
 
 
-*   `mongodb.driver.pool.size` ±¨¸æÁ¬½Ó³ØµÄµ±Ç°´óĞ¡£¬°üÀ¨¿ÕÏĞºÍÕıÔÚÊ¹ÓÃµÄ³ÉÔ±¡£
-
-*   `mongodb.driver.pool.checkedout` ±¨¸æµ±Ç°Ê¹ÓÃÖĞµÄÁ¬½ÓÊı¡£
-
-*   `mongodb.driver.pool.waitqueuesize` ±¨¸æ³ØÖĞÁ¬½ÓµÄµÈ´ı¶ÓÁĞµÄµ±Ç°´óĞ¡¡£
+ä»¥ä¸‹æ˜¯ä¸ºè¿æ¥æ± åˆ›å»ºçš„æµ‹é‡æŒ‡æ ‡ã€‚
 
 
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Ã¿¸öÖ¸±ê¶¼±»±ê¼ÇÎªÒÔÏÂĞÅÏ¢¡£
+*   `mongodb.driver.pool.size` æŠ¥å‘Šè¿æ¥æ± çš„å½“å‰å¤§å°ï¼ŒåŒ…æ‹¬ç©ºé—²å’Œæ­£åœ¨ä½¿ç”¨çš„æˆå‘˜ã€‚
+
+*   `mongodb.driver.pool.checkedout` æŠ¥å‘Šå½“å‰ä½¿ç”¨ä¸­çš„è¿æ¥æ•°ã€‚
+
+*   `mongodb.driver.pool.waitqueuesize` æŠ¥å‘Šæ± ä¸­è¿æ¥çš„ç­‰å¾…é˜Ÿåˆ—çš„å½“å‰å¤§å°ã€‚
+
+
+
+
+
+é»˜è®¤æƒ…å†µä¸‹ï¼Œæ¯ä¸ªæŒ‡æ ‡éƒ½è¢«æ ‡è®°ä¸ºä»¥ä¸‹ä¿¡æ¯ã€‚
 
 
 
 <colgroup><col><col></colgroup>
-| Tag | ËµÃ÷ |
+| Tag | è¯´æ˜ |
 | --- | --- |
-| `cluster.id` | Á¬½Ó³ØËù¶ÔÓ¦µÄ¼¯ÈºµÄ±êÊ¶·û¡£ |
-| `server.address` | Á¬½Ó³ØËù¶ÔÓ¦µÄ·şÎñÆ÷µÄµØÖ·¡£ |
+| `cluster.id` | è¿æ¥æ± æ‰€å¯¹åº”çš„é›†ç¾¤çš„æ ‡è¯†ç¬¦ã€‚ |
+| `server.address` | è¿æ¥æ± æ‰€å¯¹åº”çš„æœåŠ¡å™¨çš„åœ°å€ã€‚ |
 
 
 
-ÒªÈ¡´úÄ¬ÈÏµÄ¶ÈÁ¿ºâ±êÇ©£¬Çë¶¨ÒåÒ»¸ö `MongoConnectionPoolTagsProvider` bean¡£
+è¦å–ä»£é»˜è®¤çš„åº¦é‡è¡¡æ ‡ç­¾ï¼Œè¯·å®šä¹‰ä¸€ä¸ª `MongoConnectionPoolTagsProvider` beanã€‚
 
 
 
@@ -4787,7 +4787,7 @@ public class MyConnectionPoolTagsProviderConfiguration {
 
 
 
-Òª½ûÓÃ×Ô¶¯ÅäÖÃµÄÁ¬½Ó³Ø¶ÈÁ¿£¬ÇëÉèÖÃÒÔÏÂÊôĞÔ¡£
+è¦ç¦ç”¨è‡ªåŠ¨é…ç½®çš„è¿æ¥æ± åº¦é‡ï¼Œè¯·è®¾ç½®ä»¥ä¸‹å±æ€§ã€‚
 
 
 
@@ -4818,23 +4818,11 @@ management.metrics.mongo.connectionpool.enabled=false
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.jetty)7.3.20\. Jetty Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.jetty)7.3.20\. Jetty æŒ‡æ ‡
 
 
 
-×Ô¶¯ÅäÖÃÍ¨¹ıÊ¹ÓÃMicrometerµÄ `JettyServerThreadPoolMetrics` ÎªJettyµÄ `ThreadPool` °ó¶¨Ö¸±ê¡£ JettyµÄ `Connector` ÊµÀıµÄÖ¸±êÍ¨¹ıÊ¹ÓÃMicrometerµÄ `JettyConnectionMetrics` À´°ó¶¨£¬µ± `server.ssl.enabled` ±»ÉèÖÃÎª `true` Ê±£¬MicrometerµÄ `JettySslHandshakeMetrics`¡£
-
-
-
-
-
-
-
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.timed-annotation)7.3.21\. @Timed ×¢½âµÄÖ§³Ö
-
-
-
-ÒªÔÚSpring Boot²»Ö±½ÓÖ§³ÖµÄµØ·½Ê¹ÓÃ `@Timed`£¬Çë²Î¿¼ [Micrometer ÎÄµµ](https://micrometer.io/docs/concepts#_the_timed_annotation)¡£
+è‡ªåŠ¨é…ç½®é€šè¿‡ä½¿ç”¨Micrometerçš„ `JettyServerThreadPoolMetrics` ä¸ºJettyçš„ `ThreadPool` ç»‘å®šæŒ‡æ ‡ã€‚ Jettyçš„ `Connector` å®ä¾‹çš„æŒ‡æ ‡é€šè¿‡ä½¿ç”¨Micrometerçš„ `JettyConnectionMetrics` æ¥ç»‘å®šï¼Œå½“ `server.ssl.enabled` è¢«è®¾ç½®ä¸º `true` æ—¶ï¼ŒMicrometerçš„ `JettySslHandshakeMetrics`ã€‚
 
 
 
@@ -4842,25 +4830,37 @@ management.metrics.mongo.connectionpool.enabled=false
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.redis)7.3.22\. Redis Ö¸±ê
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.timed-annotation)7.3.21\. @Timed æ³¨è§£çš„æ”¯æŒ
 
 
 
-×Ô¶¯ÅäÖÃÎª×Ô¶¯ÅäÖÃµÄ `LettuceConnectionFactory` ×¢²áÁËÒ»¸ö `MicrometerCommandLatencyRecorder`¡£ ¸ü¶àÏ¸½Ú£¬Çë²ÎÔÄLettuceÎÄµµµÄ [Micrometer Metrics²¿·Ö](https://lettuce.io/core/6.2.3.RELEASE/reference/index.html#command.latency.metrics.micrometer)¡£
-
-
-
+è¦åœ¨Spring Bootä¸ç›´æ¥æ”¯æŒçš„åœ°æ–¹ä½¿ç”¨ `@Timed`ï¼Œè¯·å‚è€ƒ [Micrometer æ–‡æ¡£](https://micrometer.io/docs/concepts#_the_timed_annotation)ã€‚
 
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.registering-custom)7.4\. ×¢²á×Ô¶¨ÒåÖ¸±ê
+
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.supported.redis)7.3.22\. Redis æŒ‡æ ‡
 
 
 
-Òª×¢²á×Ô¶¨Òå¶ÈÁ¿£¬Çë½« `MeterRegistry` ×¢ÈëÄãµÄ×é¼şÖĞ¡£
+è‡ªåŠ¨é…ç½®ä¸ºè‡ªåŠ¨é…ç½®çš„ `LettuceConnectionFactory` æ³¨å†Œäº†ä¸€ä¸ª `MicrometerCommandLatencyRecorder`ã€‚ æ›´å¤šç»†èŠ‚ï¼Œè¯·å‚é˜…Lettuceæ–‡æ¡£çš„ [Micrometer Metricséƒ¨åˆ†](https://lettuce.io/core/6.2.3.RELEASE/reference/index.html#command.latency.metrics.micrometer)ã€‚
+
+
+
+
+
+
+
+
+
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.registering-custom)7.4\. æ³¨å†Œè‡ªå®šä¹‰æŒ‡æ ‡
+
+
+
+è¦æ³¨å†Œè‡ªå®šä¹‰åº¦é‡ï¼Œè¯·å°† `MeterRegistry` æ³¨å…¥ä½ çš„ç»„ä»¶ä¸­ã€‚
 
 
 
@@ -4897,7 +4897,7 @@ public class MyBean {
 
 
 
-Èç¹ûÄãµÄ¶ÈÁ¿±ê×¼ÒÀÀµÓÚÆäËûBean£¬ÎÒÃÇ½¨ÒéÄãÊ¹ÓÃ `MeterBinder` À´×¢²áËüÃÇ¡£
+å¦‚æœä½ çš„åº¦é‡æ ‡å‡†ä¾èµ–äºå…¶ä»–Beanï¼Œæˆ‘ä»¬å»ºè®®ä½ ä½¿ç”¨ `MeterBinder` æ¥æ³¨å†Œå®ƒä»¬ã€‚
 
 
 
@@ -4931,13 +4931,13 @@ public class MyMeterBinderConfiguration {
 
 
 
-Ê¹ÓÃ `MeterBinder` ¿ÉÒÔÈ·±£½¨Á¢ÕıÈ·µÄÒÀÀµ¹ØÏµ£¬²¢ÇÒÔÚ¼ìË÷¶ÈÁ¿ÖµµÄÊ±ºò£¬BeanÊÇ¿ÉÓÃµÄ¡£ Èç¹ûÄã·¢ÏÖÄãÔÚ×é¼ş»òÓ¦ÓÃ³ÌĞòÖĞÖØ¸´²âÁ¿Ò»Ì×Ö¸±ê£¬ÄÇÃ´ `MeterBinder` µÄÊµÏÖÒ²»áºÜÓĞÓÃ¡£
+ä½¿ç”¨ `MeterBinder` å¯ä»¥ç¡®ä¿å»ºç«‹æ­£ç¡®çš„ä¾èµ–å…³ç³»ï¼Œå¹¶ä¸”åœ¨æ£€ç´¢åº¦é‡å€¼çš„æ—¶å€™ï¼ŒBeanæ˜¯å¯ç”¨çš„ã€‚ å¦‚æœä½ å‘ç°ä½ åœ¨ç»„ä»¶æˆ–åº”ç”¨ç¨‹åºä¸­é‡å¤æµ‹é‡ä¸€å¥—æŒ‡æ ‡ï¼Œé‚£ä¹ˆ `MeterBinder` çš„å®ç°ä¹Ÿä¼šå¾ˆæœ‰ç”¨ã€‚
 
 
 
 
 
-|  | Ä¬ÈÏÇé¿öÏÂ£¬ËùÓĞ `MeterBinder` BeanµÄÖ¸±ê¶¼»á×Ô¶¯°ó¶¨µ½Spring¹ÜÀíµÄ `MeterRegistry`¡£ |
+|  | é»˜è®¤æƒ…å†µä¸‹ï¼Œæ‰€æœ‰ `MeterBinder` Beançš„æŒ‡æ ‡éƒ½ä¼šè‡ªåŠ¨ç»‘å®šåˆ°Springç®¡ç†çš„ `MeterRegistry`ã€‚ |
 | --- | --- |
 
 
@@ -4946,17 +4946,17 @@ public class MyMeterBinderConfiguration {
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.customizing)7.5\. ¶¨ÖÆ¸ö±ğÖ¸±ê
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.customizing)7.5\. å®šåˆ¶ä¸ªåˆ«æŒ‡æ ‡
 
 
 
-Èç¹ûÄãĞèÒª¶ÔÌØ¶¨µÄ `Meter` ÊµÀı½øĞĞ×Ô¶¨Òå£¬Äã¿ÉÒÔÊ¹ÓÃ `io.micrometer.core.instrument.config.MeterFilter` ½Ó¿Ú¡£
+å¦‚æœä½ éœ€è¦å¯¹ç‰¹å®šçš„ `Meter` å®ä¾‹è¿›è¡Œè‡ªå®šä¹‰ï¼Œä½ å¯ä»¥ä½¿ç”¨ `io.micrometer.core.instrument.config.MeterFilter` æ¥å£ã€‚
 
 
 
 
 
-ÀıÈç£¬Èç¹ûÄãÏë°ÑËùÓĞÒÔ `com.example` ¿ªÍ·µÄÒÇ±íIDµÄ `mytag.region` ±êÇ©ÖØÃüÃûÎª `mytag.area`£¬Äã¿ÉÒÔ×öÒÔÏÂ¹¤×÷¡£
+ä¾‹å¦‚ï¼Œå¦‚æœä½ æƒ³æŠŠæ‰€æœ‰ä»¥ `com.example` å¼€å¤´çš„ä»ªè¡¨IDçš„ `mytag.region` æ ‡ç­¾é‡å‘½åä¸º `mytag.area`ï¼Œä½ å¯ä»¥åšä»¥ä¸‹å·¥ä½œã€‚
 
 
 
@@ -4991,18 +4991,18 @@ public class MyMetricsFilterConfiguration {
 
 
 
-|  | Ä¬ÈÏÇé¿öÏÂ£¬ËùÓĞµÄ `MeterFilter` Bean¶¼×Ô¶¯°ó¶¨µ½Spring¹ÜÀíµÄ `MeterRegistry`¡£ ÇëÈ·±£Ê¹ÓÃSpring¹ÜÀíµÄ `MeterRegistry` À´×¢²áÄãµÄÖ¸±ê£¬¶ø²»ÊÇÊ¹ÓÃ `Metrics` µÄÈÎºÎ¾²Ì¬·½·¨¡£ ÕâĞ©·½·¨Ê¹ÓÃµÄÊÇ²»±»Spring¹ÜÀíµÄÈ«¾Ö×¢²á±í¡£ |
+|  | é»˜è®¤æƒ…å†µä¸‹ï¼Œæ‰€æœ‰çš„ `MeterFilter` Beanéƒ½è‡ªåŠ¨ç»‘å®šåˆ°Springç®¡ç†çš„ `MeterRegistry`ã€‚ è¯·ç¡®ä¿ä½¿ç”¨Springç®¡ç†çš„ `MeterRegistry` æ¥æ³¨å†Œä½ çš„æŒ‡æ ‡ï¼Œè€Œä¸æ˜¯ä½¿ç”¨ `Metrics` çš„ä»»ä½•é™æ€æ–¹æ³•ã€‚ è¿™äº›æ–¹æ³•ä½¿ç”¨çš„æ˜¯ä¸è¢«Springç®¡ç†çš„å…¨å±€æ³¨å†Œè¡¨ã€‚ |
 | --- | --- |
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.customizing.common-tags)7.5.1\. ³£¼û±êÇ©£¨Tag£©
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.customizing.common-tags)7.5.1\. å¸¸è§æ ‡ç­¾ï¼ˆTagï¼‰
 
 
 
-Í¨ÓÃ±êÇ©Ò»°ãÓÃÓÚ¶ÔÔËĞĞ»·¾³½øĞĞÎ¬¶ÈÏÂ×ê£¬ÈçÖ÷»ú¡¢ÊµÀı¡¢ÇøÓò¡¢¶ÑÕ»µÈ¡£ ¹²ÓÃ±êÇ©ÊÊÓÃÓÚËùÓĞÒÇ±í£¬¿ÉÒÔ½øĞĞÅäÖÃ£¬ÈçÏÂÀıËùÊ¾¡£
+é€šç”¨æ ‡ç­¾ä¸€èˆ¬ç”¨äºå¯¹è¿è¡Œç¯å¢ƒè¿›è¡Œç»´åº¦ä¸‹é’»ï¼Œå¦‚ä¸»æœºã€å®ä¾‹ã€åŒºåŸŸã€å †æ ˆç­‰ã€‚ å…±ç”¨æ ‡ç­¾é€‚ç”¨äºæ‰€æœ‰ä»ªè¡¨ï¼Œå¯ä»¥è¿›è¡Œé…ç½®ï¼Œå¦‚ä¸‹ä¾‹æ‰€ç¤ºã€‚
 
 
 
@@ -5030,13 +5030,13 @@ management.metrics.tags.stack=prod
 
 
 
-Ç°ÃæµÄÀı×ÓÎªËùÓĞÖµÎª `us-east-1` ºÍ `prod` µÄÒÇ±íÌí¼ÓÁË `region` ºÍ `stack` ±êÇ©¡£
+å‰é¢çš„ä¾‹å­ä¸ºæ‰€æœ‰å€¼ä¸º `us-east-1` å’Œ `prod` çš„ä»ªè¡¨æ·»åŠ äº† `region` å’Œ `stack` æ ‡ç­¾ã€‚
 
 
 
 
 
-|  | Èç¹ûÄãÊ¹ÓÃGraphite£¬ÆÕÍ¨±êÇ©µÄË³ĞòÊÇºÜÖØÒªµÄ¡£ ÓÉÓÚÊ¹ÓÃÕâÖÖ·½·¨²»ÄÜ±£Ö¤³£¼û±êÇ©µÄË³Ğò£¬½¨ÒéGraphiteÓÃ»§¶¨ÒåÒ»¸ö×Ô¶¨ÒåµÄ `MeterFilter` À´´úÌæ¡£ |
+|  | å¦‚æœä½ ä½¿ç”¨Graphiteï¼Œæ™®é€šæ ‡ç­¾çš„é¡ºåºæ˜¯å¾ˆé‡è¦çš„ã€‚ ç”±äºä½¿ç”¨è¿™ç§æ–¹æ³•ä¸èƒ½ä¿è¯å¸¸è§æ ‡ç­¾çš„é¡ºåºï¼Œå»ºè®®Graphiteç”¨æˆ·å®šä¹‰ä¸€ä¸ªè‡ªå®šä¹‰çš„ `MeterFilter` æ¥ä»£æ›¿ã€‚ |
 | --- | --- |
 
 
@@ -5049,7 +5049,7 @@ management.metrics.tags.stack=prod
 
 
 
-³ıÁË `MeterFilter` Bean£¬Äã»¹¿ÉÒÔÊ¹ÓÃÊôĞÔÔÚÃ¿¸ö±íµÄ»ù´¡ÉÏÓ¦ÓÃÒ»×éÓĞÏŞµÄ×Ô¶¨Òå¹¦ÄÜ¡£ Ê¹ÓÃSpring BootµÄ `PropertiesMeterFilter`£¬Ã¿¸ö±íµÄ¶¨ÖÆ±»Ó¦ÓÃÓÚÒÔ¸ø¶¨Ãû³Æ¿ªÍ·µÄÈÎºÎ±íµÄID¡£ ÏÂÃæµÄÀı×Ó¹ıÂËµôÈÎºÎIDÒÔ `example.remote` ¿ªÍ·µÄÒÇ±í¡£
+é™¤äº† `MeterFilter` Beanï¼Œä½ è¿˜å¯ä»¥ä½¿ç”¨å±æ€§åœ¨æ¯ä¸ªè¡¨çš„åŸºç¡€ä¸Šåº”ç”¨ä¸€ç»„æœ‰é™çš„è‡ªå®šä¹‰åŠŸèƒ½ã€‚ ä½¿ç”¨Spring Bootçš„ `PropertiesMeterFilter`ï¼Œæ¯ä¸ªè¡¨çš„å®šåˆ¶è¢«åº”ç”¨äºä»¥ç»™å®šåç§°å¼€å¤´çš„ä»»ä½•è¡¨çš„IDã€‚ ä¸‹é¢çš„ä¾‹å­è¿‡æ»¤æ‰ä»»ä½•IDä»¥ `example.remote` å¼€å¤´çš„ä»ªè¡¨ã€‚
 
 
 
@@ -5076,118 +5076,75 @@ management.metrics.enable.example.remote=false
 
 
 
-ÏÂÃæµÄÊôĞÔÔÊĞíper-meterµÄ¶¨ÖÆ¡£
+ä¸‹é¢çš„å±æ€§å…è®¸per-meterçš„å®šåˆ¶ã€‚
 
 
 
 <caption>Table 1\. Per-meter customizations</caption><colgroup><col><col></colgroup>
-| Property | ËµÃ÷ |
+| Property | è¯´æ˜ |
 | --- | --- |
-| `management.metrics.enable` | ÊÇ·ñ½ÓÊÜ¾ßÓĞÌØ¶¨IDµÄMeter¡£ ²»½ÓÊÜµÄMeter½«´Ó `MeterRegistry` ÖĞ¹ıÂËµô¡£ |
-| `management.metrics.distribution.percentiles-histogram` | ÊÇ·ñ·¢²¼ÊÊºÏ¼ÆËã¿É¾Û¼¯£¨¿çÎ¬¶È£©µÄ°Ù·ÖÎ»Êı½üËÆÖµµÄÖ±·½Í¼¡£ |
-| `management.metrics.distribution.minimum-expected-value`, `management.metrics.distribution.maximum-expected-value` | Í¨¹ıÇ¯ÖÆÔ¤ÆÚÖµµÄ·¶Î§£¬·¢²¼¸üÉÙµÄÖ±·½Í¼Í°¡£ |
-| `management.metrics.distribution.percentiles` | ·¢²¼ÔÚÄãµÄÓ¦ÓÃ³ÌĞòÖĞ¼ÆËãµÄ°Ù·ÖÎ»Öµ |
-| `management.metrics.distribution.expiry`, `management.metrics.distribution.buffer-length` | Í¨¹ıÔÚ»·ĞÎ»º³åÇøÖĞ»ıÀÛ×î½üµÄÑù±¾£¬¸øËüÃÇ¸ü´óµÄÈ¨ÖØ£¬»·ĞÎ»º³åÇøÔÚ¿ÉÅäÖÃµÄ¹ıÆÚºóĞı×ª£¬»º³åÇø³¤¶ÈÎª ¿ÉÅäÖÃµÄ»º³åÇø³¤¶È¡£ |
-| `management.metrics.distribution.slo` | ·¢²¼Ò»¸öÀÛ»ıÖ±·½Í¼£¬ÆäÖĞµÄÍ°ÓÉÄãµÄ·şÎñË®Æ½Ä¿±ê¶¨Òå¡£ |
+| `management.metrics.enable` | æ˜¯å¦æ¥å—å…·æœ‰ç‰¹å®šIDçš„Meterã€‚ ä¸æ¥å—çš„Meterå°†ä» `MeterRegistry` ä¸­è¿‡æ»¤æ‰ã€‚ |
+| `management.metrics.distribution.percentiles-histogram` | æ˜¯å¦å‘å¸ƒé€‚åˆè®¡ç®—å¯èšé›†ï¼ˆè·¨ç»´åº¦ï¼‰çš„ç™¾åˆ†ä½æ•°è¿‘ä¼¼å€¼çš„ç›´æ–¹å›¾ã€‚ |
+| `management.metrics.distribution.minimum-expected-value`, `management.metrics.distribution.maximum-expected-value` | é€šè¿‡é’³åˆ¶é¢„æœŸå€¼çš„èŒƒå›´ï¼Œå‘å¸ƒæ›´å°‘çš„ç›´æ–¹å›¾æ¡¶ã€‚ |
+| `management.metrics.distribution.percentiles` | å‘å¸ƒåœ¨ä½ çš„åº”ç”¨ç¨‹åºä¸­è®¡ç®—çš„ç™¾åˆ†ä½å€¼ |
+| `management.metrics.distribution.expiry`, `management.metrics.distribution.buffer-length` | é€šè¿‡åœ¨ç¯å½¢ç¼“å†²åŒºä¸­ç§¯ç´¯æœ€è¿‘çš„æ ·æœ¬ï¼Œç»™å®ƒä»¬æ›´å¤§çš„æƒé‡ï¼Œç¯å½¢ç¼“å†²åŒºåœ¨å¯é…ç½®çš„è¿‡æœŸåæ—‹è½¬ï¼Œç¼“å†²åŒºé•¿åº¦ä¸º å¯é…ç½®çš„ç¼“å†²åŒºé•¿åº¦ã€‚ |
+| `management.metrics.distribution.slo` | å‘å¸ƒä¸€ä¸ªç´¯ç§¯ç›´æ–¹å›¾ï¼Œå…¶ä¸­çš„æ¡¶ç”±ä½ çš„æœåŠ¡æ°´å¹³ç›®æ ‡å®šä¹‰ã€‚ |
 
 
 
-¹ØÓÚ `percentiles-histogram` £¨°Ù·ÖÊı-Ö±·½Í¼£©¡¢`percentiles`£¨°Ù·ÖÊı£©ºÍ `slo` ±³ºóµÄ¸ÅÄîµÄ¸ü¶àÏ¸½Ú£¬Çë²Î¼ûMicrometerÎÄµµÖĞµÄ [¡°Histograms and percentiles¡± £¨Ö±·½Í¼ºÍ°Ù·ÖÊı£©²¿·Ö](https://micrometer.io/docs/concepts#_histograms_and_percentiles)¡£
-
-
-
-
+å…³äº `percentiles-histogram` ï¼ˆç™¾åˆ†æ•°-ç›´æ–¹å›¾ï¼‰ã€`percentiles`ï¼ˆç™¾åˆ†æ•°ï¼‰å’Œ `slo` èƒŒåçš„æ¦‚å¿µçš„æ›´å¤šç»†èŠ‚ï¼Œè¯·å‚è§Micrometeræ–‡æ¡£ä¸­çš„ [â€œHistograms and percentilesâ€ ï¼ˆç›´æ–¹å›¾å’Œç™¾åˆ†æ•°ï¼‰éƒ¨åˆ†](https://micrometer.io/docs/concepts#_histograms_and_percentiles)ã€‚
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.endpoint)7.6\. Ö¸±ê¶Ëµã
-
-
-
-Spring BootÌá¹©ÁËÒ»¸ö `metrics` ¶Ëµã£¬Äã¿ÉÒÔÕï¶ÏĞÔµØÊ¹ÓÃËüÀ´¼ì²éÓ¦ÓÃ³ÌĞòÊÕ¼¯µÄÖ¸±ê¡£¸Ã¶ËµãÄ¬ÈÏÇé¿öÏÂÊÇ²»¿ÉÓÃµÄ£¬±ØĞë¹«¿ª¡£¸ü¶àÏ¸½ÚÇë²Î¼û [±©Â¶¶Ëµã](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.exposing)¡£
 
 
 
 
-
-µ¼º½µ½ `/actuator/metrics` »áÏÔÊ¾Ò»¸ö¿ÉÓÃµÄÒÇ±íÃû³ÆÁĞ±í¡£ Äã¿ÉÒÔÍ¨¹ıÌá¹©Ãû³Æ×÷ÎªÑ¡ÔñÆ÷À´ÉîÈë²é¿´Ä³¸öÌØ¶¨ÒÇ±íµÄĞÅÏ¢£¬ÀıÈç£¬`/actuator/metrics/jvm.memory.max`¡£
-
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.endpoint)7.6\. æŒ‡æ ‡ç«¯ç‚¹
 
 
 
-
-|  | ÄãÔÚÕâÀïÊ¹ÓÃµÄÃû×ÖÓ¦¸ÃÓë´úÂëÖĞÊ¹ÓÃµÄÃû×ÖÒ»ÖÂ£¬¶ø²»ÊÇÔÚËü±»ÔËÍùµÄ¼à¿ØÏµÍ³ÖĞ¾­¹ıÃüÃû¹ßÀı¹æ·¶»¯ºóµÄÃû×Ö¡£ »»¾ä»°Ëµ£¬Èç¹û `jvm.memory.max` ÔÚPrometheusÖĞÏÔÊ¾Îª `jvm_memory_max`£¬ÒòÎªËüµÄÉßĞÎÃüÃû¹ßÀı£¬ÄãÈÔÈ»Ó¦¸ÃÊ¹ÓÃ `jvm.memory.max` ×÷ÎªÑ¡ÔñÆ÷£¬ÔÚ `metrics` ¶ËµãÖĞ¼ì²éÒÇ±í¡£ |
-| --- | --- |
+Spring Bootæä¾›äº†ä¸€ä¸ª `metrics` ç«¯ç‚¹ï¼Œä½ å¯ä»¥è¯Šæ–­æ€§åœ°ä½¿ç”¨å®ƒæ¥æ£€æŸ¥åº”ç”¨ç¨‹åºæ”¶é›†çš„æŒ‡æ ‡ã€‚è¯¥ç«¯ç‚¹é»˜è®¤æƒ…å†µä¸‹æ˜¯ä¸å¯ç”¨çš„ï¼Œå¿…é¡»å…¬å¼€ã€‚æ›´å¤šç»†èŠ‚è¯·å‚è§ [æš´éœ²ç«¯ç‚¹](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints.exposing)ã€‚
 
 
 
 
 
-ÄãÒ²¿ÉÒÔÔÚURLµÄÄ©Î²Ìí¼ÓÈÎÒâÊıÁ¿µÄ `tag=KEY:VALUE` ²éÑ¯²ÎÊı£¬ÒÔ¶ÔÒÇ±í½øĞĞÎ¬¶ÈÏÂ×ê?¡ª?ÀıÈç£¬`/actuator/metrics/jvm.memory.max?tag=area:nonheap`¡£
+å¯¼èˆªåˆ° `/actuator/metrics` ä¼šæ˜¾ç¤ºä¸€ä¸ªå¯ç”¨çš„ä»ªè¡¨åç§°åˆ—è¡¨ã€‚ ä½ å¯ä»¥é€šè¿‡æä¾›åç§°ä½œä¸ºé€‰æ‹©å™¨æ¥æ·±å…¥æŸ¥çœ‹æŸä¸ªç‰¹å®šä»ªè¡¨çš„ä¿¡æ¯ï¼Œä¾‹å¦‚ï¼Œ`/actuator/metrics/jvm.memory.max`ã€‚
 
 
 
 
 
-|  | ±¨¸æµÄ²âÁ¿ÖµÊÇËùÓĞÓëÒÇ±íÃû³ÆÏàÆ¥ÅäµÄÒÇ±íºÍÈÎºÎÒÑÓ¦ÓÃµÄ±êÇ©µÄÍ³¼ÆÁ¿µÄ _×ÜºÍ_¡£ ÔÚÇ°ÃæµÄÀı×ÓÖĞ£¬·µ»ØµÄ `Value` Í³¼ÆÊÇ¶ÑµÄ ¡°Code Cache¡±¡¢¡°Compressed Class Space¡± ºÍ ¡°Metaspace¡± ÇøÓòµÄ×î´óÄÚ´æ¡°×ã¼£¡±Ö®ºÍ¡£ Èç¹ûÄãÏëÖ»¿´µ½ ¡°Metaspace¡± µÄ×î´ó³ß´ç£¬Äã¿ÉÒÔÌí¼ÓÒ»¸ö¶îÍâµÄ `tag=id:Metaspace` --¼´ `/actuator/metrics/jvm.memory.max?tag=area:nonheap&tag=id:Metaspace`¡£ |
+|  | ä½ åœ¨è¿™é‡Œä½¿ç”¨çš„åå­—åº”è¯¥ä¸ä»£ç ä¸­ä½¿ç”¨çš„åå­—ä¸€è‡´ï¼Œè€Œä¸æ˜¯åœ¨å®ƒè¢«è¿å¾€çš„ç›‘æ§ç³»ç»Ÿä¸­ç»è¿‡å‘½åæƒ¯ä¾‹è§„èŒƒåŒ–åçš„åå­—ã€‚ æ¢å¥è¯è¯´ï¼Œå¦‚æœ `jvm.memory.max` åœ¨Prometheusä¸­æ˜¾ç¤ºä¸º `jvm_memory_max`ï¼Œå› ä¸ºå®ƒçš„è›‡å½¢å‘½åæƒ¯ä¾‹ï¼Œä½ ä»ç„¶åº”è¯¥ä½¿ç”¨ `jvm.memory.max` ä½œä¸ºé€‰æ‹©å™¨ï¼Œåœ¨ `metrics` ç«¯ç‚¹ä¸­æ£€æŸ¥ä»ªè¡¨ã€‚ |
 | --- | --- |
 
 
 
 
 
-
-
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.micrometer-observation)7.7\. ÕûºÏ Micrometer Observation
-
-
-
-Ò»¸ö `DefaultMeterObservationHandler` ±»×Ô¶¯×¢²áÔÚ `ObservationRegistry` ÉÏ£¬ËüÎªÃ¿¸öÍê³ÉµÄ¹Û²ì£¨completed observation£©´´½¨¶ÈÁ¿£¨metric£©¡£
+ä½ ä¹Ÿå¯ä»¥åœ¨URLçš„æœ«å°¾æ·»åŠ ä»»æ„æ•°é‡çš„ `tag=KEY:VALUE` æŸ¥è¯¢å‚æ•°ï¼Œä»¥å¯¹ä»ªè¡¨è¿›è¡Œç»´åº¦ä¸‹é’»?â€”?ä¾‹å¦‚ï¼Œ`/actuator/metrics/jvm.memory.max?tag=area:nonheap`ã€‚
 
 
 
 
 
-
-
-
-
-
-
-## [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing)8\. ×·×Ù£¨Tracing£©
-
-
-
-
-
-Spring Boot Actuator Îª Micrometer Tracing Ìá¹©ÁËÒÀÀµĞÔ¹ÜÀíºÍ×Ô¶¯ÅäÖÃ£¬ [Micrometer Tracing](https://micrometer.io/docs/tracing) ÊÇÁ÷ĞĞµÄ×·×ÙÆ÷£¨tracer£©¿âµÄÒ»¸ö½Ó¿Ú£¨facade£©¡£
-
-
-
-
-
-|  | ÒªÁË½â¸ü¶à¹ØÓÚ Micrometer Tracing ¹¦ÄÜµÄĞÅÏ¢£¬Çë²ÎÔÄÆä [²Î¿¼ÎÄµµ](https://micrometer.io/docs/tracing)¡£ |
+|  | æŠ¥å‘Šçš„æµ‹é‡å€¼æ˜¯æ‰€æœ‰ä¸ä»ªè¡¨åç§°ç›¸åŒ¹é…çš„ä»ªè¡¨å’Œä»»ä½•å·²åº”ç”¨çš„æ ‡ç­¾çš„ç»Ÿè®¡é‡çš„ _æ€»å’Œ_ã€‚ åœ¨å‰é¢çš„ä¾‹å­ä¸­ï¼Œè¿”å›çš„ `Value` ç»Ÿè®¡æ˜¯å †çš„ â€œCode Cacheâ€ã€â€œCompressed Class Spaceâ€ å’Œ â€œMetaspaceâ€ åŒºåŸŸçš„æœ€å¤§å†…å­˜â€œè¶³è¿¹â€ä¹‹å’Œã€‚ å¦‚æœä½ æƒ³åªçœ‹åˆ° â€œMetaspaceâ€ çš„æœ€å¤§å°ºå¯¸ï¼Œä½ å¯ä»¥æ·»åŠ ä¸€ä¸ªé¢å¤–çš„ `tag=id:Metaspace` --å³ `/actuator/metrics/jvm.memory.max?tag=area:nonheap&tag=id:Metaspace`ã€‚ |
 | --- | --- |
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.tracers)8.1\. Ö§³ÖµÄ×·×ÙÆ÷
+
+
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.metrics.micrometer-observation)7.7\. æ•´åˆ Micrometer Observation
 
 
 
-Spring BootÎªÒÔÏÂ×·×ÙÆ÷Ìá¹©ÁË×Ô¶¯ÅäÖÃ¡£
-
-
-
-
-
-*   Ê¹ÓÃ [Zipkin](https://zipkin.io/) »ò [Wavefront](https://docs.wavefront.com/) µÄ [OpenTelemetry](https://opentelemetry.io/)
-
-*   Ê¹ÓÃ [Zipkin](https://zipkin.io/) »ò [Wavefront](https://docs.wavefront.com/) µÄ [OpenZipkin Brave](https://github.com/openzipkin/brave)
+ä¸€ä¸ª `DefaultMeterObservationHandler` è¢«è‡ªåŠ¨æ³¨å†Œåœ¨ `ObservationRegistry` ä¸Šï¼Œå®ƒä¸ºæ¯ä¸ªå®Œæˆçš„è§‚å¯Ÿï¼ˆcompleted observationï¼‰åˆ›å»ºåº¦é‡ï¼ˆmetricï¼‰ã€‚
 
 
 
@@ -5195,17 +5152,60 @@ Spring BootÎªÒÔÏÂ×·×ÙÆ÷Ìá¹©ÁË×Ô¶¯ÅäÖÃ¡£
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.getting-started)8.2\. ÈëÃÅ
-
-
-
-ÎÒÃÇĞèÒªÒ»¸ö¿ÉÒÔÓÃÀ´¿ªÊ¼×·×ÙµÄÊ¾ÀıÓ¦ÓÃ³ÌĞò¡£¾ÍÎÒÃÇµÄÄ¿µÄ¶øÑÔ£¬¡°[getting-started.html](https://springdoc.cn/spring-boot/getting-started.html#getting-started.first-application)¡± ²¿·ÖËùÉæ¼°µÄ¼òµ¥µÄ ¡°Hello World!¡± web³ÌĞò¾Í×ã¹»ÁË¡£ÎÒÃÇ½«Ê¹ÓÃ `OpenTelemetry` ×·×ÙÆ÷ºÍ `Zipkin` ×÷Îª×·×Ùºó¶Ë¡£
 
 
 
 
+## [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing)8\. è¿½è¸ªï¼ˆTracingï¼‰
 
-»Ø¹ËÒ»ÏÂ£¬ÎÒÃÇµÄÖ÷ÒªÓ¦ÓÃ´úÂë¿´ÆğÀ´ÊÇÕâÑùµÄ¡£
+
+
+
+
+Spring Boot Actuator ä¸º Micrometer Tracing æä¾›äº†ä¾èµ–æ€§ç®¡ç†å’Œè‡ªåŠ¨é…ç½®ï¼Œ [Micrometer Tracing](https://micrometer.io/docs/tracing) æ˜¯æµè¡Œçš„è¿½è¸ªå™¨ï¼ˆtracerï¼‰åº“çš„ä¸€ä¸ªæ¥å£ï¼ˆfacadeï¼‰ã€‚
+
+
+
+
+
+|  | è¦äº†è§£æ›´å¤šå…³äº Micrometer Tracing åŠŸèƒ½çš„ä¿¡æ¯ï¼Œè¯·å‚é˜…å…¶ [å‚è€ƒæ–‡æ¡£](https://micrometer.io/docs/tracing)ã€‚ |
+| --- | --- |
+
+
+
+
+
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.tracers)8.1\. æ”¯æŒçš„è¿½è¸ªå™¨
+
+
+
+Spring Bootä¸ºä»¥ä¸‹è¿½è¸ªå™¨æä¾›äº†è‡ªåŠ¨é…ç½®ã€‚
+
+
+
+
+
+*   ä½¿ç”¨ [Zipkin](https://zipkin.io/) æˆ– [Wavefront](https://docs.wavefront.com/) çš„ [OpenTelemetry](https://opentelemetry.io/)
+
+*   ä½¿ç”¨ [Zipkin](https://zipkin.io/) æˆ– [Wavefront](https://docs.wavefront.com/) çš„ [OpenZipkin Brave](https://github.com/openzipkin/brave)
+
+
+
+
+
+
+
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.getting-started)8.2\. å…¥é—¨
+
+
+
+æˆ‘ä»¬éœ€è¦ä¸€ä¸ªå¯ä»¥ç”¨æ¥å¼€å§‹è¿½è¸ªçš„ç¤ºä¾‹åº”ç”¨ç¨‹åºã€‚å°±æˆ‘ä»¬çš„ç›®çš„è€Œè¨€ï¼Œâ€œ[getting-started.html](https://springdoc.cn/spring-boot/getting-started.html#getting-started.first-application)â€ éƒ¨åˆ†æ‰€æ¶‰åŠçš„ç®€å•çš„ â€œHello World!â€ webç¨‹åºå°±è¶³å¤Ÿäº†ã€‚æˆ‘ä»¬å°†ä½¿ç”¨ `OpenTelemetry` è¿½è¸ªå™¨å’Œ `Zipkin` ä½œä¸ºè¿½è¸ªåç«¯ã€‚
+
+
+
+
+
+å›é¡¾ä¸€ä¸‹ï¼Œæˆ‘ä»¬çš„ä¸»è¦åº”ç”¨ä»£ç çœ‹èµ·æ¥æ˜¯è¿™æ ·çš„ã€‚
 
 
 
@@ -5240,14 +5240,14 @@ public class MyApplication {
 
 
 
-|  | ÔÚ `home()` ·½·¨ÖĞ£¬ÓĞÒ»¸ö¸½¼ÓµÄloggerÓï¾ä£¬ÕâÔÚºóÃæ»áºÜÖØÒª¡£ |
+|  | åœ¨ `home()` æ–¹æ³•ä¸­ï¼Œæœ‰ä¸€ä¸ªé™„åŠ çš„loggerè¯­å¥ï¼Œè¿™åœ¨åé¢ä¼šå¾ˆé‡è¦ã€‚ |
 | --- | --- |
 
 
 
 
 
-ÏÖÔÚ£¬ÎÒÃÇ±ØĞëÌí¼ÓÒÔÏÂÒÀÀµÏî¡£
+ç°åœ¨ï¼Œæˆ‘ä»¬å¿…é¡»æ·»åŠ ä»¥ä¸‹ä¾èµ–é¡¹ã€‚
 
 
 
@@ -5255,15 +5255,15 @@ public class MyApplication {
 
 *   `org.springframework.boot:spring-boot-starter-actuator`
 
-*   `io.micrometer:micrometer-tracing-bridge-otel` - ÕâÊÇÁ¬½Ó Micrometer Observation API ºÍ OpenTelemetry µÄ±ØÒªÌõ¼ş¡£
+*   `io.micrometer:micrometer-tracing-bridge-otel` - è¿™æ˜¯è¿æ¥ Micrometer Observation API å’Œ OpenTelemetry çš„å¿…è¦æ¡ä»¶ã€‚
 
-*   `io.opentelemetry:opentelemetry-exporter-zipkin` - ÕâÊÇÏòZipkin±¨¸æ [traces](https://micrometer.io/docs/tracing#_glossary) ËùĞèÒªµÄ¡£
-
-
+*   `io.opentelemetry:opentelemetry-exporter-zipkin` - è¿™æ˜¯å‘ZipkinæŠ¥å‘Š [traces](https://micrometer.io/docs/tracing#_glossary) æ‰€éœ€è¦çš„ã€‚
 
 
 
-Ìí¼ÓÈçÏÂµÄ application properties:
+
+
+æ·»åŠ å¦‚ä¸‹çš„ application properties:
 
 
 
@@ -5290,25 +5290,25 @@ management.tracing.sampling.probability=1.0
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Spring BootÖ»¶Ô10%µÄÇëÇó½øĞĞ²ÉÑù£¬ÒÔ·ÀÖ¹×·×Ùºó¶Ë²»¿°ÖØ¸º¡£´ËÊôĞÔ½«ÆäÇĞ»»Îª100%£¬ÕâÑùÃ¿¸öÇëÇó¶¼»á±»·¢ËÍµ½¸ú×Ùºó¶Ë¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒSpring Bootåªå¯¹10%çš„è¯·æ±‚è¿›è¡Œé‡‡æ ·ï¼Œä»¥é˜²æ­¢è¿½è¸ªåç«¯ä¸å ªé‡è´Ÿã€‚æ­¤å±æ€§å°†å…¶åˆ‡æ¢ä¸º100%ï¼Œè¿™æ ·æ¯ä¸ªè¯·æ±‚éƒ½ä¼šè¢«å‘é€åˆ°è·Ÿè¸ªåç«¯ã€‚
 
 
 
 
 
-ÎªÁËÊÕ¼¯ºÍ¿ÉÊÓ»¯¸ú×Ù£¬ÎÒÃÇĞèÒªÒ»¸öÔËĞĞ¸ú×ÙµÄºó¶Ë¡£ÎÒÃÇÔÚÕâÀïÊ¹ÓÃZipkin×÷ÎªÎÒÃÇµÄ¸ú×Ùºó¶Ë¡£ [Zipkin¿ìËÙÈëÃÅÖ¸ÄÏ](https://zipkin.io/pages/quickstart) Ìá¹©ÁËÈçºÎÔÚ±¾µØÆô¶¯ZipkinµÄËµÃ÷¡£
+ä¸ºäº†æ”¶é›†å’Œå¯è§†åŒ–è·Ÿè¸ªï¼Œæˆ‘ä»¬éœ€è¦ä¸€ä¸ªè¿è¡Œè·Ÿè¸ªçš„åç«¯ã€‚æˆ‘ä»¬åœ¨è¿™é‡Œä½¿ç”¨Zipkinä½œä¸ºæˆ‘ä»¬çš„è·Ÿè¸ªåç«¯ã€‚ [Zipkinå¿«é€Ÿå…¥é—¨æŒ‡å—](https://zipkin.io/pages/quickstart) æä¾›äº†å¦‚ä½•åœ¨æœ¬åœ°å¯åŠ¨Zipkinçš„è¯´æ˜ã€‚
 
 
 
 
 
-ZipkinÔËĞĞºó£¬Äã¿ÉÒÔÆô¶¯ÄãµÄÓ¦ÓÃ³ÌĞò¡£
+Zipkinè¿è¡Œåï¼Œä½ å¯ä»¥å¯åŠ¨ä½ çš„åº”ç”¨ç¨‹åºã€‚
 
 
 
 
 
-Èç¹ûÄã´ò¿ªwebä¯ÀÀÆ÷·ÃÎÊ `[localhost:8080](http://localhost:8080/)`£¬ÄãÓ¦¸Ã¿´µ½ÒÔÏÂÊä³ö¡£
+å¦‚æœä½ æ‰“å¼€webæµè§ˆå™¨è®¿é—® `[localhost:8080](http://localhost:8080/)`ï¼Œä½ åº”è¯¥çœ‹åˆ°ä»¥ä¸‹è¾“å‡ºã€‚
 
 
 
@@ -5324,19 +5324,19 @@ ZipkinÔËĞĞºó£¬Äã¿ÉÒÔÆô¶¯ÄãµÄÓ¦ÓÃ³ÌĞò¡£
 
 
 
-ÔÚÄ»ºó£¬ÒÑ¾­ÎªHTTPÇëÇó´´½¨ÁËÒ»¸ö observation£¬Ëü·´¹ıÀ´±»ÇÅ½Óµ½ `OpenTelemetry`£¬ºóÕßÏòZipkin±¨¸æÒ»¸öĞÂµÄ¸ú×Ù£¨trace£©¡£
+åœ¨å¹•åï¼Œå·²ç»ä¸ºHTTPè¯·æ±‚åˆ›å»ºäº†ä¸€ä¸ª observationï¼Œå®ƒåè¿‡æ¥è¢«æ¡¥æ¥åˆ° `OpenTelemetry`ï¼Œåè€…å‘ZipkinæŠ¥å‘Šä¸€ä¸ªæ–°çš„è·Ÿè¸ªï¼ˆtraceï¼‰ã€‚
 
 
 
 
 
-ÏÖÔÚ£¬ÔÚ `[localhost:9411](http://localhost:9411/)` ´ò¿ªZipkinÓÃ»§½çÃæ£¬µã»÷ "Run Query" °´Å¥£¬ÁĞ³öËùÓĞÊÕ¼¯µ½µÄ¸ú×ÙĞÅÏ¢¡£ÄãÓ¦¸Ã¿´µ½Ò»¸ö×·×Ù¡£µã»÷ "Show" °´Å¥£¬²é¿´¸Ã×·×ÙµÄÏ¸½Ú¡£
+ç°åœ¨ï¼Œåœ¨ `[localhost:9411](http://localhost:9411/)` æ‰“å¼€Zipkinç”¨æˆ·ç•Œé¢ï¼Œç‚¹å‡» "Run Query" æŒ‰é’®ï¼Œåˆ—å‡ºæ‰€æœ‰æ”¶é›†åˆ°çš„è·Ÿè¸ªä¿¡æ¯ã€‚ä½ åº”è¯¥çœ‹åˆ°ä¸€ä¸ªè¿½è¸ªã€‚ç‚¹å‡» "Show" æŒ‰é’®ï¼ŒæŸ¥çœ‹è¯¥è¿½è¸ªçš„ç»†èŠ‚ã€‚
 
 
 
 
 
-|  | Äã¿ÉÒÔÍ¨¹ı½« `logging.pattern.level` ÊôĞÔÉèÖÃÎª `%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]`£¬ÔÚÈÕÖ¾ÖĞ°üº¬µ±Ç°µÄ¸ú×Ù£¨trace£©ºÍ span id¡£ |
+|  | ä½ å¯ä»¥é€šè¿‡å°† `logging.pattern.level` å±æ€§è®¾ç½®ä¸º `%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]`ï¼Œåœ¨æ—¥å¿—ä¸­åŒ…å«å½“å‰çš„è·Ÿè¸ªï¼ˆtraceï¼‰å’Œ span idã€‚ |
 | --- | --- |
 
 
@@ -5345,43 +5345,29 @@ ZipkinÔËĞĞºó£¬Äã¿ÉÒÔÆô¶¯ÄãµÄÓ¦ÓÃ³ÌĞò¡£
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.tracer-implementations)8.3\. ¸ú×ÙÆ÷£¨Tracer£©µÄÊµÏÖ
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.tracer-implementations)8.3\. è·Ÿè¸ªå™¨ï¼ˆTracerï¼‰çš„å®ç°
 
 
 
-ÓÉÓÚMicrometer TracerÖ§³Ö¶àÖÖÊ¾×ÙÆ÷µÄÊµÏÖ£¬Òò´ËSpring Boot¿ÉÄÜÓĞ¶àÖÖÒÀÀµ×éºÏ¡£
-
-
-
-
-
-ËùÓĞ×·×ÙÆ÷µÄÊµÏÖ¶¼ĞèÒª `org.springframework.boot:spring-boot-starter-actuator` ÒÀÀµ¡£
+ç”±äºMicrometer Traceræ”¯æŒå¤šç§ç¤ºè¸ªå™¨çš„å®ç°ï¼Œå› æ­¤Spring Bootå¯èƒ½æœ‰å¤šç§ä¾èµ–ç»„åˆã€‚
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.tracer-implementations.otel-zipkin)8.3.1\. Ê¹ÓÃ Zipkin µÄ OpenTelemetry
-
-
-
-*   `io.micrometer:micrometer-tracing-bridge-otel` - ÕâÊÇÁ¬½Ó Micrometer Observation API ºÍ OpenTelemetry µÄ±ØÒªÌõ¼ş¡£
-
-*   `io.opentelemetry:opentelemetry-exporter-zipkin` - ÕâÊÇÏòZipkin±¨¸ætraceËùĞèÒªµÄ¡£
+æ‰€æœ‰è¿½è¸ªå™¨çš„å®ç°éƒ½éœ€è¦ `org.springframework.boot:spring-boot-starter-actuator` ä¾èµ–ã€‚
 
 
 
 
 
-
-
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.tracer-implementations.otel-wavefront)8.3.2\. Ê¹ÓÃ Wavefront µÄ OpenTelemetry
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.tracer-implementations.otel-zipkin)8.3.1\. ä½¿ç”¨ Zipkin çš„ OpenTelemetry
 
 
 
-*   `io.micrometer:micrometer-tracing-bridge-otel` - ÕâÊÇÁ¬½Ó Micrometer Observation API ºÍ OpenTelemetry µÄ±ØÒªÌõ¼ş¡£
+*   `io.micrometer:micrometer-tracing-bridge-otel` - è¿™æ˜¯è¿æ¥ Micrometer Observation API å’Œ OpenTelemetry çš„å¿…è¦æ¡ä»¶ã€‚
 
-*   `io.micrometer:micrometer-tracing-reporter-wavefront` - ÕâÊÇÏòWavefront±¨¸ætraceËùĞèÒªµÄ¡£
+*   `io.opentelemetry:opentelemetry-exporter-zipkin` - è¿™æ˜¯å‘ZipkinæŠ¥å‘Štraceæ‰€éœ€è¦çš„ã€‚
 
 
 
@@ -5389,19 +5375,33 @@ ZipkinÔËĞĞºó£¬Äã¿ÉÒÔÆô¶¯ÄãµÄÓ¦ÓÃ³ÌĞò¡£
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.tracer-implementations.brave-zipkin)8.3.3\. Ê¹ÓÃ Zipkin µÄ OpenZipkin Brave
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.tracer-implementations.otel-wavefront)8.3.2\. ä½¿ç”¨ Wavefront çš„ OpenTelemetry
 
 
 
-*   `io.micrometer:micrometer-tracing-bridge-brave` - ÕâÊÇÁ¬½Ó Micrometer Observation API ºÍ Brave µÄ±ØÒªÌõ¼ş¡£
+*   `io.micrometer:micrometer-tracing-bridge-otel` - è¿™æ˜¯è¿æ¥ Micrometer Observation API å’Œ OpenTelemetry çš„å¿…è¦æ¡ä»¶ã€‚
 
-*   `io.zipkin.reporter2:zipkin-reporter-brave` - ÕâÊÇÏòZipkin±¨¸æ trace ËùĞèÒªµÄ¡£
-
-
+*   `io.micrometer:micrometer-tracing-reporter-wavefront` - è¿™æ˜¯å‘WavefrontæŠ¥å‘Štraceæ‰€éœ€è¦çš„ã€‚
 
 
 
-|  | Èç¹ûÄãµÄÏîÄ¿Ã»ÓĞÊ¹ÓÃSpring MVC»òSpring WebFlux£¬Ò²ĞèÒªÊ¹ÓÃ `io.zipkin.reporter2:zipkin-sender-urlconnection` ÒÀÀµÏî¡£ |
+
+
+
+
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.tracer-implementations.brave-zipkin)8.3.3\. ä½¿ç”¨ Zipkin çš„ OpenZipkin Brave
+
+
+
+*   `io.micrometer:micrometer-tracing-bridge-brave` - è¿™æ˜¯è¿æ¥ Micrometer Observation API å’Œ Brave çš„å¿…è¦æ¡ä»¶ã€‚
+
+*   `io.zipkin.reporter2:zipkin-reporter-brave` - è¿™æ˜¯å‘ZipkinæŠ¥å‘Š trace æ‰€éœ€è¦çš„ã€‚
+
+
+
+
+
+|  | å¦‚æœä½ çš„é¡¹ç›®æ²¡æœ‰ä½¿ç”¨Spring MVCæˆ–Spring WebFluxï¼Œä¹Ÿéœ€è¦ä½¿ç”¨ `io.zipkin.reporter2:zipkin-sender-urlconnection` ä¾èµ–é¡¹ã€‚ |
 | --- | --- |
 
 
@@ -5410,27 +5410,27 @@ ZipkinÔËĞĞºó£¬Äã¿ÉÒÔÆô¶¯ÄãµÄÓ¦ÓÃ³ÌĞò¡£
 
 
 
-#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.tracer-implementations.brave-wavefront)8.3.4\. Ê¹ÓÃWavefrontµÄOpenZipkin Brave
+#### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.tracer-implementations.brave-wavefront)8.3.4\. ä½¿ç”¨Wavefrontçš„OpenZipkin Brave
 
 
 
-*   `io.micrometer:micrometer-tracing-bridge-brave` - ÕâÊÇÁ¬½Ó²âMicrometer Observation APIºÍBraveµÄ±ØÒªÌõ¼ş¡£
+*   `io.micrometer:micrometer-tracing-bridge-brave` - è¿™æ˜¯è¿æ¥æµ‹Micrometer Observation APIå’ŒBraveçš„å¿…è¦æ¡ä»¶ã€‚
 
-*   `io.micrometer:micrometer-tracing-reporter-wavefront` - ÕâÊÇÏòWavefront±¨¸ætraceËùĞèÒªµÄ¡£
-
-
-
-
+*   `io.micrometer:micrometer-tracing-reporter-wavefront` - è¿™æ˜¯å‘WavefrontæŠ¥å‘Štraceæ‰€éœ€è¦çš„ã€‚
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.creating-spans)8.4\. ´´½¨×Ô¶¨Òå¿ç¶È£¨span£©
 
 
 
-Äã¿ÉÒÔÍ¨¹ıÆô¶¯Ò»¸ö observation À´´´½¨Äã×Ô¼ºµÄspan¡£Îª´Ë£¬½« `ObservationRegistry` ×¢Èëµ½ÄãµÄ×é¼şÖĞ¡£
+
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.micrometer-tracing.creating-spans)8.4\. åˆ›å»ºè‡ªå®šä¹‰è·¨åº¦ï¼ˆspanï¼‰
+
+
+
+ä½ å¯ä»¥é€šè¿‡å¯åŠ¨ä¸€ä¸ª observation æ¥åˆ›å»ºä½ è‡ªå·±çš„spanã€‚ä¸ºæ­¤ï¼Œå°† `ObservationRegistry` æ³¨å…¥åˆ°ä½ çš„ç»„ä»¶ä¸­ã€‚
 
 
 
@@ -5466,13 +5466,13 @@ class CustomObservation {
 
 
 
-Õâ½«´´½¨Ò»¸öÃûÎª "some-operation" µÄ observation£¬±êÇ©Îª£¬±êÇ©Îª "some-tag=some-value"¡£
+è¿™å°†åˆ›å»ºä¸€ä¸ªåä¸º "some-operation" çš„ observationï¼Œæ ‡ç­¾ä¸ºï¼Œæ ‡ç­¾ä¸º "some-tag=some-value"ã€‚
 
 
 
 
 
-|  | Èç¹ûÄãÏëÔÚ²»´´½¨metricµÄÇé¿öÏÂ´´½¨Ò»¸öspan£¬ÄãĞèÒªÊ¹ÓÃ Micrometer µÄ [µÍ¼¶Tracer API](https://micrometer.io/docs/tracing#_using_micrometer_tracing_directly)¡£ |
+|  | å¦‚æœä½ æƒ³åœ¨ä¸åˆ›å»ºmetricçš„æƒ…å†µä¸‹åˆ›å»ºä¸€ä¸ªspanï¼Œä½ éœ€è¦ä½¿ç”¨ Micrometer çš„ [ä½çº§Tracer API](https://micrometer.io/docs/tracing#_using_micrometer_tracing_directly)ã€‚ |
 | --- | --- |
 
 
@@ -5485,35 +5485,35 @@ class CustomObservation {
 
 
 
-## [](https://springdoc.cn/spring-boot/actuator.html#actuator.auditing)9\. Éó¼Æ
+## [](https://springdoc.cn/spring-boot/actuator.html#actuator.auditing)9\. å®¡è®¡
 
 
 
 
 
-Ò»µ©Spring Security·¢»Ó×÷ÓÃ£¬Spring Boot Actuator¾ÍÓĞÒ»¸öÁé»îµÄÉó¼Æ¿ò¼Ü£¬¿ÉÒÔ·¢²¼ÊÂ¼ş£¨Ä¬ÈÏÎª ¡°authentication success¡±, ¡°failure¡± ºÍ ¡°access denied¡± µÄÒì³££©¡£ ÕâÒ»¹¦ÄÜ¶ÔÓÚ±¨¸æºÍÊµÊ©»ùÓÚÈÏÖ¤Ê§°ÜµÄËø¶¨²ßÂÔ·Ç³£ÓĞÓÃ¡£
+ä¸€æ—¦Spring Securityå‘æŒ¥ä½œç”¨ï¼ŒSpring Boot Actuatorå°±æœ‰ä¸€ä¸ªçµæ´»çš„å®¡è®¡æ¡†æ¶ï¼Œå¯ä»¥å‘å¸ƒäº‹ä»¶ï¼ˆé»˜è®¤ä¸º â€œauthentication successâ€, â€œfailureâ€ å’Œ â€œaccess deniedâ€ çš„å¼‚å¸¸ï¼‰ã€‚ è¿™ä¸€åŠŸèƒ½å¯¹äºæŠ¥å‘Šå’Œå®æ–½åŸºäºè®¤è¯å¤±è´¥çš„é”å®šç­–ç•¥éå¸¸æœ‰ç”¨ã€‚
 
 
 
 
 
-Äã¿ÉÒÔÍ¨¹ıÔÚÓ¦ÓÃ³ÌĞòµÄÅäÖÃÖĞÌá¹©Ò»¸ö `AuditEventRepository` ÀàĞÍµÄbeanÀ´ÆôÓÃÉó¼Æ¡£ ÎªÁË·½±ã£¬Spring BootÌá¹©ÁËÒ»¸ö `InMemoryAuditEventRepository`¡£ `InMemoryAuditEventRepository` µÄ¹¦ÄÜÓĞÏŞ£¬ÎÒÃÇ½¨ÒéÖ»ÔÚ¿ª·¢»·¾³ÖĞÊ¹ÓÃËü¡£ ¶ÔÓÚÉú²ú»·¾³£¬Çë¿¼ÂÇ´´½¨Äã×Ô¼ºµÄÌæ´ú `AuditEventRepository` ÊµÏÖ¡£
+ä½ å¯ä»¥é€šè¿‡åœ¨åº”ç”¨ç¨‹åºçš„é…ç½®ä¸­æä¾›ä¸€ä¸ª `AuditEventRepository` ç±»å‹çš„beanæ¥å¯ç”¨å®¡è®¡ã€‚ ä¸ºäº†æ–¹ä¾¿ï¼ŒSpring Bootæä¾›äº†ä¸€ä¸ª `InMemoryAuditEventRepository`ã€‚ `InMemoryAuditEventRepository` çš„åŠŸèƒ½æœ‰é™ï¼Œæˆ‘ä»¬å»ºè®®åªåœ¨å¼€å‘ç¯å¢ƒä¸­ä½¿ç”¨å®ƒã€‚ å¯¹äºç”Ÿäº§ç¯å¢ƒï¼Œè¯·è€ƒè™‘åˆ›å»ºä½ è‡ªå·±çš„æ›¿ä»£ `AuditEventRepository` å®ç°ã€‚
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.auditing.custom)9.1\. ¶¨ÖÆÉó¼Æ
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.auditing.custom)9.1\. å®šåˆ¶å®¡è®¡
 
 
 
-ÎªÁË¶¨ÖÆ·¢²¼µÄ°²È«ÊÂ¼ş£¬Äã¿ÉÒÔÌá¹©Äã×Ô¼ºµÄ `AbstractAuthenticationAuditListener` ºÍ `AbstractAuthorizationAuditListener` µÄÊµÏÖ¡£
+ä¸ºäº†å®šåˆ¶å‘å¸ƒçš„å®‰å…¨äº‹ä»¶ï¼Œä½ å¯ä»¥æä¾›ä½ è‡ªå·±çš„ `AbstractAuthenticationAuditListener` å’Œ `AbstractAuthorizationAuditListener` çš„å®ç°ã€‚
 
 
 
 
 
-ÄãÒ²¿ÉÒÔÎªÄã×Ô¼ºµÄÒµÎñÊÂ¼şÊ¹ÓÃÉó¼Æ·şÎñ¡£ Òª×öµ½ÕâÒ»µã£¬ÒªÃ´½« `AuditEventRepository` bean×¢ÈëÄã×Ô¼ºµÄ×é¼ş²¢Ö±½ÓÊ¹ÓÃËü£¬ÒªÃ´ÓÃSpringµÄ `ApplicationEventPublisher` ·¢²¼ `AuditApplicationEvent`£¨Í¨¹ıÊµÏÖ `ApplicationEventPublisherAware`£©¡£
+ä½ ä¹Ÿå¯ä»¥ä¸ºä½ è‡ªå·±çš„ä¸šåŠ¡äº‹ä»¶ä½¿ç”¨å®¡è®¡æœåŠ¡ã€‚ è¦åšåˆ°è¿™ä¸€ç‚¹ï¼Œè¦ä¹ˆå°† `AuditEventRepository` beanæ³¨å…¥ä½ è‡ªå·±çš„ç»„ä»¶å¹¶ç›´æ¥ä½¿ç”¨å®ƒï¼Œè¦ä¹ˆç”¨Springçš„ `ApplicationEventPublisher` å‘å¸ƒ `AuditApplicationEvent`ï¼ˆé€šè¿‡å®ç° `ApplicationEventPublisherAware`ï¼‰ã€‚
 
 
 
@@ -5525,35 +5525,35 @@ class CustomObservation {
 
 
 
-## [](https://springdoc.cn/spring-boot/actuator.html#actuator.http-exchanges)10\. ¼ÇÂ¼ HTTP Exchange
+## [](https://springdoc.cn/spring-boot/actuator.html#actuator.http-exchanges)10\. è®°å½• HTTP Exchange
 
 
 
 
 
-Äã¿ÉÒÔÍ¨¹ıÔÚÓ¦ÓÃ³ÌĞòµÄÅäÖÃÖĞÌá¹©Ò»¸ö `HttpExchangeRepository` ÀàĞÍµÄ bean À´ÆôÓÃ HTTP exchange µÄ¼ÇÂ¼¡£ÎªÁË·½±ãÆğ¼û£¬Spring Boot Ìá¹©ÁË `InMemoryHttpExchangeRepository`£¬Ä¬ÈÏÇé¿öÏÂ£¬Ëü´æ´¢ÁË×îºó100¸ö request/response exchange¡£Óë×·×Ù½â¾ö·½°¸£¨tracing solutions£©Ïà±È£¬`InMemoryHttpExchangeRepository` ÊÇÓĞÏŞµÄ£¬ÎÒÃÇ½¨ÒéÖ»ÔÚ¿ª·¢»·¾³ÖĞÊ¹ÓÃËü¡£¶ÔÓÚÉú²ú»·¾³£¬ÎÒÃÇ½¨ÒéÊ¹ÓÃÒ»¸öÉú²ú¾ÍĞ÷µÄ¸ú×Ù»ò¹Û²ì½â¾ö·½°¸£¬Èç `Zipkin` »ò `OpenTelemetry`¡£ÁíÍâ£¬ÄãÒ²¿ÉÒÔ´´½¨Äã×Ô¼ºµÄ `HttpExchangeRepository`¡£
+ä½ å¯ä»¥é€šè¿‡åœ¨åº”ç”¨ç¨‹åºçš„é…ç½®ä¸­æä¾›ä¸€ä¸ª `HttpExchangeRepository` ç±»å‹çš„ bean æ¥å¯ç”¨ HTTP exchange çš„è®°å½•ã€‚ä¸ºäº†æ–¹ä¾¿èµ·è§ï¼ŒSpring Boot æä¾›äº† `InMemoryHttpExchangeRepository`ï¼Œé»˜è®¤æƒ…å†µä¸‹ï¼Œå®ƒå­˜å‚¨äº†æœ€å100ä¸ª request/response exchangeã€‚ä¸è¿½è¸ªè§£å†³æ–¹æ¡ˆï¼ˆtracing solutionsï¼‰ç›¸æ¯”ï¼Œ`InMemoryHttpExchangeRepository` æ˜¯æœ‰é™çš„ï¼Œæˆ‘ä»¬å»ºè®®åªåœ¨å¼€å‘ç¯å¢ƒä¸­ä½¿ç”¨å®ƒã€‚å¯¹äºç”Ÿäº§ç¯å¢ƒï¼Œæˆ‘ä»¬å»ºè®®ä½¿ç”¨ä¸€ä¸ªç”Ÿäº§å°±ç»ªçš„è·Ÿè¸ªæˆ–è§‚å¯Ÿè§£å†³æ–¹æ¡ˆï¼Œå¦‚ `Zipkin` æˆ– `OpenTelemetry`ã€‚å¦å¤–ï¼Œä½ ä¹Ÿå¯ä»¥åˆ›å»ºä½ è‡ªå·±çš„ `HttpExchangeRepository`ã€‚
 
 
 
 
 
-Äã¿ÉÒÔÊ¹ÓÃ `httpexchanges` ¶ËµãÀ´»ñÈ¡´æ´¢ÔÚ `HttpExchangeRepository` ÖĞµÄ request/response exchange µÄĞÅÏ¢¡£
+ä½ å¯ä»¥ä½¿ç”¨ `httpexchanges` ç«¯ç‚¹æ¥è·å–å­˜å‚¨åœ¨ `HttpExchangeRepository` ä¸­çš„ request/response exchange çš„ä¿¡æ¯ã€‚
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.http-exchanges.custom)10.1\. ×Ô¶¨Òå HTTP Exchange ¼ÇÂ¼
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.http-exchanges.custom)10.1\. è‡ªå®šä¹‰ HTTP Exchange è®°å½•
 
 
 
-Òª×Ô¶¨Òå°üÀ¨ÔÚÃ¿¸ö¼ÇÂ¼µÄ exchange ÏîÄ¿£¬ÇëÊ¹ÓÃ `management.httpexchanges.recording.include` ÅäÖÃÊôĞÔ¡£
+è¦è‡ªå®šä¹‰åŒ…æ‹¬åœ¨æ¯ä¸ªè®°å½•çš„ exchange é¡¹ç›®ï¼Œè¯·ä½¿ç”¨ `management.httpexchanges.recording.include` é…ç½®å±æ€§ã€‚
 
 
 
 
 
-ÒªÍêÈ«½ûÖ¹ÖØĞÂ±àÂë£¬Çë½« `management.httpexchanges.recording.enabled` ÉèÖÃÎª `false`¡£
+è¦å®Œå…¨ç¦æ­¢é‡æ–°ç¼–ç ï¼Œè¯·å°† `management.httpexchanges.recording.enabled` è®¾ç½®ä¸º `false`ã€‚
 
 
 
@@ -5565,45 +5565,45 @@ class CustomObservation {
 
 
 
-## [](https://springdoc.cn/spring-boot/actuator.html#actuator.process-monitoring)11\. ½ø³Ì¼à¿Ø
+## [](https://springdoc.cn/spring-boot/actuator.html#actuator.process-monitoring)11\. è¿›ç¨‹ç›‘æ§
 
 
 
 
 
-ÔÚ `spring-boot` Ä£¿éÖĞ£¬Äã¿ÉÒÔÕÒµ½Á½¸ö´´½¨ÎÄ¼şµÄÀà£¬ÕâĞ©ÎÄ¼şÔÚ½ø³Ì¼à¿ØÖĞÍ¨³£ºÜÓĞÓÃ¡£
+åœ¨ `spring-boot` æ¨¡å—ä¸­ï¼Œä½ å¯ä»¥æ‰¾åˆ°ä¸¤ä¸ªåˆ›å»ºæ–‡ä»¶çš„ç±»ï¼Œè¿™äº›æ–‡ä»¶åœ¨è¿›ç¨‹ç›‘æ§ä¸­é€šå¸¸å¾ˆæœ‰ç”¨ã€‚
 
 
 
 
 
-*   `ApplicationPidFileWriter` ´´½¨Ò»¸ö°üº¬Ó¦ÓÃ³ÌĞòPIDµÄÎÄ¼ş£¨Ä¬ÈÏÇé¿öÏÂ£¬ÔÚÓ¦ÓÃ³ÌĞòÄ¿Â¼ÏÂ£¬ÎÄ¼şÃûÎª `application.pid`£©¡£
+*   `ApplicationPidFileWriter` åˆ›å»ºä¸€ä¸ªåŒ…å«åº”ç”¨ç¨‹åºPIDçš„æ–‡ä»¶ï¼ˆé»˜è®¤æƒ…å†µä¸‹ï¼Œåœ¨åº”ç”¨ç¨‹åºç›®å½•ä¸‹ï¼Œæ–‡ä»¶åä¸º `application.pid`ï¼‰ã€‚
 
-*   `WebServerPortFileWriter` ´´½¨Ò»¸ö£¨»ò¶à¸ö£©ÎÄ¼ş£¬°üº¬ÔËĞĞÖĞµÄWeb·şÎñÆ÷µÄ¶Ë¿Ú£¨Ä¬ÈÏÇé¿öÏÂ£¬ÔÚÓ¦ÓÃ³ÌĞòÄ¿Â¼ÏÂ£¬ÎÄ¼şÃûÎª `application.port`£©¡£
+*   `WebServerPortFileWriter` åˆ›å»ºä¸€ä¸ªï¼ˆæˆ–å¤šä¸ªï¼‰æ–‡ä»¶ï¼ŒåŒ…å«è¿è¡Œä¸­çš„WebæœåŠ¡å™¨çš„ç«¯å£ï¼ˆé»˜è®¤æƒ…å†µä¸‹ï¼Œåœ¨åº”ç”¨ç¨‹åºç›®å½•ä¸‹ï¼Œæ–‡ä»¶åä¸º `application.port`ï¼‰ã€‚
 
 
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬ÕâĞ©Ğ´ÊÖÃ»ÓĞ±»¼¤»î£¬µ«Äã¿ÉÒÔÆôÓÃËüÃÇ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼Œè¿™äº›å†™æ‰‹æ²¡æœ‰è¢«æ¿€æ´»ï¼Œä½†ä½ å¯ä»¥å¯ç”¨å®ƒä»¬ã€‚
 
 
 
 
 
-*   [Í¨¹ıÀ©Õ¹ÅäÖÃ](https://springdoc.cn/spring-boot/actuator.html#actuator.process-monitoring.configuration)
+*   [é€šè¿‡æ‰©å±•é…ç½®](https://springdoc.cn/spring-boot/actuator.html#actuator.process-monitoring.configuration)
 
-*   [ÒÔ±à³Ì·½Ê½ÊµÏÖ½ø³Ì¼à¿Ø](https://springdoc.cn/spring-boot/actuator.html#actuator.process-monitoring.programmatically)
+*   [ä»¥ç¼–ç¨‹æ–¹å¼å®ç°è¿›ç¨‹ç›‘æ§](https://springdoc.cn/spring-boot/actuator.html#actuator.process-monitoring.programmatically)
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.process-monitoring.configuration)11.1\. À©Õ¹ÅäÖÃ
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.process-monitoring.configuration)11.1\. æ‰©å±•é…ç½®
 
 
 
-ÔÚ `META-INF/spring.factories` ÎÄ¼şÖĞ£¬Äã¿ÉÒÔ¼¤»îĞ´ÈëPIDÎÄ¼şµÄlistener£¨Ò»¸ö»òÕß¶à¸ö£©¡£
+åœ¨ `META-INF/spring.factories` æ–‡ä»¶ä¸­ï¼Œä½ å¯ä»¥æ¿€æ´»å†™å…¥PIDæ–‡ä»¶çš„listenerï¼ˆä¸€ä¸ªæˆ–è€…å¤šä¸ªï¼‰ã€‚
 
 
 
@@ -5623,15 +5623,11 @@ org.springframework.boot.web.context.WebServerPortFileWriter
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.process-monitoring.programmatically)11.2\. ÒÔ±à³Ì·½Ê½ÊµÏÖ½ø³Ì¼à¿Ø
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.process-monitoring.programmatically)11.2\. ä»¥ç¼–ç¨‹æ–¹å¼å®ç°è¿›ç¨‹ç›‘æ§
 
 
 
-ÄãÒ²¿ÉÒÔÍ¨¹ıµ÷ÓÃ `SpringApplication.addListeners(¡­?)` ·½·¨²¢´«µİÊÊµ±µÄ `Writer` ¶ÔÏóÀ´¼¤»îÒ»¸ö¼àÌıÆ÷¡£ Õâ¸ö·½·¨»¹¿ÉÒÔÈÃÄãÔÚ `Writer` ¹¹Ôìº¯ÊıÖĞ×Ô¶¨ÒåÎÄ¼şÃûºÍÂ·¾¶¡£
-
-
-
-
+ä½ ä¹Ÿå¯ä»¥é€šè¿‡è°ƒç”¨ `SpringApplication.addListeners(â€¦?)` æ–¹æ³•å¹¶ä¼ é€’é€‚å½“çš„ `Writer` å¯¹è±¡æ¥æ¿€æ´»ä¸€ä¸ªç›‘å¬å™¨ã€‚ è¿™ä¸ªæ–¹æ³•è¿˜å¯ä»¥è®©ä½ åœ¨ `Writer` æ„é€ å‡½æ•°ä¸­è‡ªå®šä¹‰æ–‡ä»¶åå’Œè·¯å¾„ã€‚
 
 
 
@@ -5639,36 +5635,40 @@ org.springframework.boot.web.context.WebServerPortFileWriter
 
 
 
-## [](https://springdoc.cn/spring-boot/actuator.html#actuator.cloud-foundry)12\. Cloud Foundry µÄÖ§³Ö
+
+
+
+
+## [](https://springdoc.cn/spring-boot/actuator.html#actuator.cloud-foundry)12\. Cloud Foundry çš„æ”¯æŒ
 
 
 
 
 
-Spring Boot µÄactuatorÄ£¿é°üÀ¨¶îÍâµÄÖ§³Ö£¬µ±Äú²¿Êğµ½¼æÈİµÄ Cloud Foundry ÊµÀıÊ±£¬¸ÃÖ§³Ö½«±»¼¤»î¡£ `/cloudfoundryapplication` Â·¾¶ÎªËùÓĞ `@Endpoint` BeanÌá¹©ÁËÁíÒ»Ìõ°²È«Â·Ïß¡£
+Spring Boot çš„actuatoræ¨¡å—åŒ…æ‹¬é¢å¤–çš„æ”¯æŒï¼Œå½“æ‚¨éƒ¨ç½²åˆ°å…¼å®¹çš„ Cloud Foundry å®ä¾‹æ—¶ï¼Œè¯¥æ”¯æŒå°†è¢«æ¿€æ´»ã€‚ `/cloudfoundryapplication` è·¯å¾„ä¸ºæ‰€æœ‰ `@Endpoint` Beanæä¾›äº†å¦ä¸€æ¡å®‰å…¨è·¯çº¿ã€‚
 
 
 
 
 
-À©Õ¹Ö§³ÖÊ¹ Cloud Foundry ¹ÜÀí UI£¨ÀıÈçÄú¿ÉÒÔÓÃÀ´²é¿´ÒÑ²¿ÊğµÄÓ¦ÓÃ³ÌĞòµÄ Web Ó¦ÓÃ³ÌĞò£©µÃµ½ Spring Boot Ö´ĞĞÆ÷ĞÅÏ¢µÄÔöÇ¿¡£ ÀıÈç£¬Ó¦ÓÃ³ÌĞò×´Ì¬Ò³Ãæ¿ÉÒÔ°üÀ¨ÍêÕûµÄ½¡¿µĞÅÏ¢£¬¶ø²»ÊÇµäĞÍµÄ ¡°running¡± »ò ¡°stopped¡± ×´Ì¬¡£
+æ‰©å±•æ”¯æŒä½¿ Cloud Foundry ç®¡ç† UIï¼ˆä¾‹å¦‚æ‚¨å¯ä»¥ç”¨æ¥æŸ¥çœ‹å·²éƒ¨ç½²çš„åº”ç”¨ç¨‹åºçš„ Web åº”ç”¨ç¨‹åºï¼‰å¾—åˆ° Spring Boot æ‰§è¡Œå™¨ä¿¡æ¯çš„å¢å¼ºã€‚ ä¾‹å¦‚ï¼Œåº”ç”¨ç¨‹åºçŠ¶æ€é¡µé¢å¯ä»¥åŒ…æ‹¬å®Œæ•´çš„å¥åº·ä¿¡æ¯ï¼Œè€Œä¸æ˜¯å…¸å‹çš„ â€œrunningâ€ æˆ– â€œstoppedâ€ çŠ¶æ€ã€‚
 
 
 
 
 
-|  | ÆÕÍ¨ÓÃ»§ÎŞ·¨Ö±½Ó·ÃÎÊ `/cloudfoundryapplication` Â·¾¶¡£ ÒªÊ¹ÓÃ¸Ã¶Ëµã£¬Äú±ØĞëÔÚÇëÇóÖĞ´«µİÒ»¸öÓĞĞ§µÄ UAA ÁîÅÆ¡£ |
+|  | æ™®é€šç”¨æˆ·æ— æ³•ç›´æ¥è®¿é—® `/cloudfoundryapplication` è·¯å¾„ã€‚ è¦ä½¿ç”¨è¯¥ç«¯ç‚¹ï¼Œæ‚¨å¿…é¡»åœ¨è¯·æ±‚ä¸­ä¼ é€’ä¸€ä¸ªæœ‰æ•ˆçš„ UAA ä»¤ç‰Œã€‚ |
 | --- | --- |
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.cloud-foundry.disable)12.1\. ½ûÓÃÀ©Õ¹µÄ Cloud Foundry Actuator Ö§³Ö
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.cloud-foundry.disable)12.1\. ç¦ç”¨æ‰©å±•çš„ Cloud Foundry Actuator æ”¯æŒ
 
 
 
-Èç¹ûÄúÏëÍêÈ«½ûÓÃ `/cloudfoundryapplication` ¶Ëµã£¬Äú¿ÉÒÔÔÚÄúµÄ `application.properties` ÎÄ¼şÖĞÌí¼ÓÒÔÏÂÉèÖÃ¡£
+å¦‚æœæ‚¨æƒ³å®Œå…¨ç¦ç”¨ `/cloudfoundryapplication` ç«¯ç‚¹ï¼Œæ‚¨å¯ä»¥åœ¨æ‚¨çš„ `application.properties` æ–‡ä»¶ä¸­æ·»åŠ ä»¥ä¸‹è®¾ç½®ã€‚
 
 
 
@@ -5697,11 +5697,11 @@ management.cloudfoundry.enabled=false
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.cloud-foundry.ssl)12.2\. Cloud Foundry×ÔÇ©ÃûÖ¤Êé
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.cloud-foundry.ssl)12.2\. Cloud Foundryè‡ªç­¾åè¯ä¹¦
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬`/cloudfoundryapplication` ¶ËµãµÄ°²È«ÑéÖ¤»á¶Ô¸÷ÖÖ Cloud Foundry ·şÎñ½øĞĞ SSL µ÷ÓÃ¡£ Èç¹ûÄúµÄ Cloud Foundry UAA »ò Cloud Controller ·şÎñÊ¹ÓÃ×ÔÇ©ÃûÖ¤Êé£¬ÄúĞèÒªÉèÖÃÒÔÏÂÊôĞÔ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼Œ`/cloudfoundryapplication` ç«¯ç‚¹çš„å®‰å…¨éªŒè¯ä¼šå¯¹å„ç§ Cloud Foundry æœåŠ¡è¿›è¡Œ SSL è°ƒç”¨ã€‚ å¦‚æœæ‚¨çš„ Cloud Foundry UAA æˆ– Cloud Controller æœåŠ¡ä½¿ç”¨è‡ªç­¾åè¯ä¹¦ï¼Œæ‚¨éœ€è¦è®¾ç½®ä»¥ä¸‹å±æ€§ã€‚
 
 
 
@@ -5730,17 +5730,17 @@ management.cloudfoundry.skip-ssl-validation=true
 
 
 
-### [](https://springdoc.cn/spring-boot/actuator.html#actuator.cloud-foundry.custom-context-path)12.3\. ×Ô¶¨Òå Context Path
+### [](https://springdoc.cn/spring-boot/actuator.html#actuator.cloud-foundry.custom-context-path)12.3\. è‡ªå®šä¹‰ Context Path
 
 
 
-Èç¹û·şÎñÆ÷µÄ context-path ±»ÅäÖÃÎª `/` ÒÔÍâµÄÈÎºÎÄÚÈİ£¬Ôò Cloud Foundry ¶ËµãÔÚÓ¦ÓÃ³ÌĞòµÄ¸ù²¿²»¿ÉÓÃ¡£ ÀıÈç£¬Èç¹û `server.servlet.context-path=/app`£¬Ôò Cloud Foundry ¶ËµãÔÚ `/app/cloudfoundryapplication/*` ´¦¿ÉÓÃ¡£
+å¦‚æœæœåŠ¡å™¨çš„ context-path è¢«é…ç½®ä¸º `/` ä»¥å¤–çš„ä»»ä½•å†…å®¹ï¼Œåˆ™ Cloud Foundry ç«¯ç‚¹åœ¨åº”ç”¨ç¨‹åºçš„æ ¹éƒ¨ä¸å¯ç”¨ã€‚ ä¾‹å¦‚ï¼Œå¦‚æœ `server.servlet.context-path=/app`ï¼Œåˆ™ Cloud Foundry ç«¯ç‚¹åœ¨ `/app/cloudfoundryapplication/*` å¤„å¯ç”¨ã€‚
 
 
 
 
 
-Èç¹ûÄúÏ£Íû Cloud Foundry ¶ËµãÊ¼ÖÕÔÚ `/cloudfoundryapplication/*` ´¦¿ÉÓÃ£¬ÎŞÂÛ·şÎñÆ÷µÄÉÏÏÂÎÄÂ·¾¶ÈçºÎ£¬ÄúĞèÒªÔÚÄúµÄÓ¦ÓÃ³ÌĞòÖĞÃ÷È·ÅäÖÃ¡£ ¸ÃÅäÖÃÒòÊ¹ÓÃµÄ Web ·şÎñÆ÷²»Í¬¶ø²»Í¬¡£ ¶ÔÓÚ Tomcat£¬Äú¿ÉÒÔÌí¼ÓÒÔÏÂÅäÖÃ¡£
+å¦‚æœæ‚¨å¸Œæœ› Cloud Foundry ç«¯ç‚¹å§‹ç»ˆåœ¨ `/cloudfoundryapplication/*` å¤„å¯ç”¨ï¼Œæ— è®ºæœåŠ¡å™¨çš„ä¸Šä¸‹æ–‡è·¯å¾„å¦‚ä½•ï¼Œæ‚¨éœ€è¦åœ¨æ‚¨çš„åº”ç”¨ç¨‹åºä¸­æ˜ç¡®é…ç½®ã€‚ è¯¥é…ç½®å› ä½¿ç”¨çš„ Web æœåŠ¡å™¨ä¸åŒè€Œä¸åŒã€‚ å¯¹äº Tomcatï¼Œæ‚¨å¯ä»¥æ·»åŠ ä»¥ä¸‹é…ç½®ã€‚
 
 
 
@@ -5810,19 +5810,19 @@ public class MyCloudFoundryConfiguration {
 
 
 
-## [](https://springdoc.cn/spring-boot/actuator.html#actuator.whats-next)13\. ½ÓÏÂÀ´¶ÁÊ²Ã´
+## [](https://springdoc.cn/spring-boot/actuator.html#actuator.whats-next)13\. æ¥ä¸‹æ¥è¯»ä»€ä¹ˆ
 
 
 
 
 
-Äã¿ÉÄÜÏë¶ÁÒ»ÏÂ [Graphite](https://graphiteapp.org/) µÈÍ¼ĞÎ¹¤¾ß¡£
+ä½ å¯èƒ½æƒ³è¯»ä¸€ä¸‹ [Graphite](https://graphiteapp.org/) ç­‰å›¾å½¢å·¥å…·ã€‚
 
 
 
 
 
-·ñÔò£¬Äã¿ÉÒÔ¼ÌĞøÔÄ¶Á [¡°²¿ÊğÑ¡Ïî¡±](https://springdoc.cn/spring-boot/deployment.html#deployment) £¬»òÕßÌøµ½Ç°ÃæÈ¥ÁË½âÓĞ¹ØSpring Boot [¹¹½¨¹¤¾ß²å](https://springdoc.cn/spring-boot/build-tool-plugins.html#build-tool-plugins)¼şµÄÒ»Ğ©ÉîÈëĞÅÏ¢¡£
+å¦åˆ™ï¼Œä½ å¯ä»¥ç»§ç»­é˜…è¯» [â€œéƒ¨ç½²é€‰é¡¹â€](https://springdoc.cn/spring-boot/deployment.html#deployment) ï¼Œæˆ–è€…è·³åˆ°å‰é¢å»äº†è§£æœ‰å…³Spring Boot [æ„å»ºå·¥å…·æ’](https://springdoc.cn/spring-boot/build-tool-plugins.html#build-tool-plugins)ä»¶çš„ä¸€äº›æ·±å…¥ä¿¡æ¯ã€‚
 
 
 

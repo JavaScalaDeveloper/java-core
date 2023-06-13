@@ -12,23 +12,23 @@
 
 **4\. 发送线程的工作原理**
 
-* * *
+---
 
 ## **客户端组件**
 
-*   **KafkaProducer:**
+* **KafkaProducer:**
 
 KafkaProducer 是一个生产者客户端的进程，通过该对象启动生产者来发送消息。
 
-*   **RecordAccumulator:**
+* **RecordAccumulator:**
 
 RecordAccumulator 是一个记录收集器，用于收集客户端发送的消息，并将收集到的消息暂存到客户端缓存中。
 
-*   **Sender:**
+* **Sender:**
 
 Sender 是一个发送线程，负责读取记录收集器中缓存的批量消息，经过一些中间转换操作，将要发送的数据准备好，然后交由 Selector 进行网络传输。
 
-*   **Selector:**
+* **Selector:**
 
 Selector 是一个选择器，用于处理网络连接和读写处理，使用网络连接处理客户端上的网络请求。
 
@@ -36,19 +36,17 @@ Selector 是一个选择器，用于处理网络连接和读写处理，使用�
 
 <figure data-size="normal">
 
-
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-7d57acd1d7dc5942e999e6ffebb28679_720w.webp)
 
 </figure>
 
 以上为发送消息的主流程，附上部分源码供大家参考，接下来分析下几个非常重要流程的具体实现原理。
 
-* * *
+---
 
 ## **客户端缓存存储模型**
 
 <figure data-size="normal">
-
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-5da65c5f9f8c0c9082e07c6431e78cd2_720w.webp)
 
@@ -58,13 +56,13 @@ Selector 是一个选择器，用于处理网络连接和读写处理，使用�
 
 了解了客户端存储模型后，来探讨下确定消息的 partition（分区）位置？
 
-* * *
+---
 
 ## **确定消息的 partition 位置**
 
 消息可分为两种，一种是指定了 key 的消息，一种是没有指定 key 的消息。
 
-对于指定了 key 的消息，partition 位置的计算方式为：**`Utils.murmur2(key) % numPartitions`**，即先对 key 进行哈希计算，然后在于 partition 个数求余，从而得到该条消息应该被存储在哪个 partition 上。
+对于指定了 key 的消息，partition 位置的计算方式为：**`Utils.murmur2(key) % numPartitions`**，即先对 key 进行哈希计算，然后在与 partition 个数求余，从而得到该条消息应该被存储在哪个 partition 上。
 
 对于没有指定 key 的消息，partition 位置的计算方式为：**采用 round-robin 方式确定 partition 位置**，即采用轮询的方式，平均的将消息分布到不同的 partition 上，从而避免某些 partition 数据量过大影响 Broker 和消费端性能。
 
@@ -76,7 +74,7 @@ Selector 是一个选择器，用于处理网络连接和读写处理，使用�
 
 消息被确定分配到某个 partition 对应记录收集器（即双端队列）后，接下来，发送线程（Sender）从记录收集器中收集满足条件的批数据发送给 Broker，那么发送线程是如何收集满足条件的批数据的？批数据是按照 partition 维度发送的还是按照 Broker 维度发送数据的？
 
-* * *
+---
 
 ## **发送线程的工作原理**
 
@@ -85,7 +83,6 @@ Sender 线程的主要工作是收集满足条件的批数据，何为满足条�
 partition 维度和 Broker 维度发送消息模型对比。
 
 <figure data-size="normal">
-
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-36b7c2761f17fb2d6481747523999011_720w.webp)
 
@@ -101,11 +98,11 @@ partition 维度和 Broker 维度发送消息模型对比。
 
 Sender 线程准备好要发送的数据后，交由 NetWorkClient 来进行网络相关操作。主要包括客户端与服务端的建连、发送客户端请求、接受服务端响应。完成如上一系列的工作主要由如下方法完成。
 
-1.  reday()方法。从记录收集器获取准备完毕的节点，并连接所有准备好的节点。
-2.  send()方法。为每个节点创建一个客户端请求，然后将请求暂时存到节点对应的 Channel（通道）中。
-3.  poll()方法。该方法会真正轮询网络请求，发送请求给服务端节点和接受服务端的响应。
+1. reday()方法。从记录收集器获取准备完毕的节点，并连接所有准备好的节点。
+2. send()方法。为每个节点创建一个客户端请求，然后将请求暂时存到节点对应的 Channel（通道）中。
+3. poll()方法。该方法会真正轮询网络请求，发送请求给服务端节点和接受服务端的响应。
 
-* * *
+---
 
 ## **总结**
 

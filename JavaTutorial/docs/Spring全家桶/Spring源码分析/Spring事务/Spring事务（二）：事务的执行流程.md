@@ -1,24 +1,24 @@
-ÔÚ [spring ÊÂÎñÖ®ÈÏÊ¶ÊÂÎñ×é¼ş](https://my.oschina.net/funcy/blog/4773454)Ò»ÎÄÖĞ£¬ÎÒÃÇÍ¨¹ıÒ»¸ö demo ÑİÊ¾ÁËÈçºÎÊ¹ÓÃ spring ÊÂÎñ¹ÜÀí¹¦ÄÜ£¬È»ºó·ÖÎöÁË `@EnableTransactionManagement` ×¢½âµÄ¹¦ÄÜ£¬±¾ÎÄ½«¼ÌĞø·ÖÎö spring ÊÂÎñÏà¹Ø´úÂë¡£
+åœ¨ [spring äº‹åŠ¡ä¹‹è®¤è¯†äº‹åŠ¡ç»„ä»¶](https://my.oschina.net/funcy/blog/4773454)ä¸€æ–‡ä¸­ï¼Œæˆ‘ä»¬é€šè¿‡ä¸€ä¸ª demo æ¼”ç¤ºäº†å¦‚ä½•ä½¿ç”¨ spring äº‹åŠ¡ç®¡ç†åŠŸèƒ½ï¼Œç„¶ååˆ†æäº† `@EnableTransactionManagement` æ³¨è§£çš„åŠŸèƒ½ï¼Œæœ¬æ–‡å°†ç»§ç»­åˆ†æ spring äº‹åŠ¡ç›¸å…³ä»£ç ã€‚
 
-### 1\. ´úÀí¶ÔÏó´´½¨Á÷³Ì
+### 1\. ä»£ç†å¯¹è±¡åˆ›å»ºæµç¨‹
 
-spring ÊÂÎñ¹ÜÀí¹¦ÄÜÊÇ»ùÓÚ aop µÄ£¬Ê¹ÓÃ´úÀí¶ÔÏóÀ´½øĞĞÊÂÎñµÄÒ»ÏµÁĞ²Ù×÷£¬±¾ÎÄ½«Í¨¹ıµ÷ÊÔµÄ·½Ê½À´·ÖÎö´úÀí¶ÔÏóµÄ´´½¨¹ı³Ì¡£
+spring äº‹åŠ¡ç®¡ç†åŠŸèƒ½æ˜¯åŸºäº aop çš„ï¼Œä½¿ç”¨ä»£ç†å¯¹è±¡æ¥è¿›è¡Œäº‹åŠ¡çš„ä¸€ç³»åˆ—æ“ä½œï¼Œæœ¬æ–‡å°†é€šè¿‡è°ƒè¯•çš„æ–¹å¼æ¥åˆ†æä»£ç†å¯¹è±¡çš„åˆ›å»ºè¿‡ç¨‹ã€‚
 
-ÔÚ [spring ÊÂÎñÖ®ÈÏÊ¶ÊÂÎñ×é¼ş](https://my.oschina.net/funcy/blog/4773454)ÖĞÎÒÃÇÍ¨¹ı·ÖÎö `@EnableTransactionManagement` ×¢½â£¬·¢ÏÖ¸Ã×¢½â»áÏò spring ÈİÆ÷ÖĞ×¢²á `InfrastructureAdvisorAutoProxyCreator`£¬Õâ¸öÀàÊÇ `AbstractAdvisorAutoProxyCreator` µÄ×ÓÀà£¬ÓÃÀ´Éú³É´úÀí¶ÔÏóµÄ£¬±¾½Ú½«»ùÓÚ `InfrastructureAdvisorAutoProxyCreator` À´·ÖÎö¶ÔÏóµÄ´´½¨¹ı³Ì¡£
+åœ¨ [spring äº‹åŠ¡ä¹‹è®¤è¯†äº‹åŠ¡ç»„ä»¶](https://my.oschina.net/funcy/blog/4773454)ä¸­æˆ‘ä»¬é€šè¿‡åˆ†æ `@EnableTransactionManagement` æ³¨è§£ï¼Œå‘ç°è¯¥æ³¨è§£ä¼šå‘ spring å®¹å™¨ä¸­æ³¨å†Œ `InfrastructureAdvisorAutoProxyCreator`ï¼Œè¿™ä¸ªç±»æ˜¯ `AbstractAdvisorAutoProxyCreator` çš„å­ç±»ï¼Œç”¨æ¥ç”Ÿæˆä»£ç†å¯¹è±¡çš„ï¼Œæœ¬èŠ‚å°†åŸºäº `InfrastructureAdvisorAutoProxyCreator` æ¥åˆ†æå¯¹è±¡çš„åˆ›å»ºè¿‡ç¨‹ã€‚
 
-> ¹ØÓÚ `AbstractAdvisorAutoProxyCreator` µÄ·ÖÎöÒÔ¼°´úÀí¶ÔÏóµÄÉú³É£¬ÔÚ [spring aop Ö® AnnotationAwareAspectJAutoProxyCreator ·ÖÎö£¨ÉÏ£©](https://my.oschina.net/funcy/blog/4678817) Óë [spring aop Ö® AnnotationAwareAspectJAutoProxyCreator ·ÖÎö£¨ÏÂ£©](https://my.oschina.net/funcy/blog/4687961)ÒÑ¾­×÷ÁËÏêÏ¸·ÖÎö£¬ÕâÀïÎÒÃÇÖ÷Òª·ÖÎöÓë aop ÓĞ²îÒìµÄµØ·½£¬ĞèÒªÏêÏ¸ÁË½â spring aop ´úÀí¶ÔÏóÈçºÎ²úÉúµÄĞ¡»ï°é£¬¿ÉÒÔÔÄ¶ÁÉÏÊöÁ½ÆªÎÄÕÂ¡£
+> å…³äº `AbstractAdvisorAutoProxyCreator` çš„åˆ†æä»¥åŠä»£ç†å¯¹è±¡çš„ç”Ÿæˆï¼Œåœ¨ [spring aop ä¹‹ AnnotationAwareAspectJAutoProxyCreator åˆ†æï¼ˆä¸Šï¼‰](https://my.oschina.net/funcy/blog/4678817) ä¸ [spring aop ä¹‹ AnnotationAwareAspectJAutoProxyCreator åˆ†æï¼ˆä¸‹ï¼‰](https://my.oschina.net/funcy/blog/4687961)å·²ç»ä½œäº†è¯¦ç»†åˆ†æï¼Œè¿™é‡Œæˆ‘ä»¬ä¸»è¦åˆ†æä¸ aop æœ‰å·®å¼‚çš„åœ°æ–¹ï¼Œéœ€è¦è¯¦ç»†äº†è§£ spring aop ä»£ç†å¯¹è±¡å¦‚ä½•äº§ç”Ÿçš„å°ä¼™ä¼´ï¼Œå¯ä»¥é˜…è¯»ä¸Šè¿°ä¸¤ç¯‡æ–‡ç« ã€‚
 
-ÎÒÃÇÒÀ¾ÉÊÇ½øÈë `AbstractAutoProxyCreator#postProcessBeforeInitialization`£º
+æˆ‘ä»¬ä¾æ—§æ˜¯è¿›å…¥ `AbstractAutoProxyCreator#postProcessBeforeInitialization`ï¼š
 
 ```
 public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) {
     ...
     if (...) {
         //1\. shouldSkip:
-        // - AspectJAwareAdvisorAutoProxyCreator µÄ shouldSkip ·½·¨»á´¦Àí @Aspect ×¢½âµÄÀà£¬
-        //   ½«ÆäÖĞµÄ@Before/@After/@AroundµÈ×¢½â°ü×°ÎªAdvisor£¬ÔÙµ÷ÓÃ¸¸Àà(Ò²¾ÍÊÇ
-        //   AbstractAutoProxyCreator)µÄshouldSkip·½·¨
-        // - InfrastructureAdvisorAutoProxyCreatorÖ±½ÓÖ´ĞĞAbstractAutoProxyCreatorµÄshouldSkip·½·¨
+        // - AspectJAwareAdvisorAutoProxyCreator çš„ shouldSkip æ–¹æ³•ä¼šå¤„ç† @Aspect æ³¨è§£çš„ç±»ï¼Œ
+        //   å°†å…¶ä¸­çš„@Before/@After/@Aroundç­‰æ³¨è§£åŒ…è£…ä¸ºAdvisorï¼Œå†è°ƒç”¨çˆ¶ç±»(ä¹Ÿå°±æ˜¯
+        //   AbstractAutoProxyCreator)çš„shouldSkipæ–¹æ³•
+        // - InfrastructureAdvisorAutoProxyCreatorç›´æ¥æ‰§è¡ŒAbstractAutoProxyCreatorçš„shouldSkipæ–¹æ³•
         if (isInfrastructureClass(beanClass) || shouldSkip(beanClass, beanName)) {
             this.advisedBeans.put(cacheKey, Boolean.FALSE);
             return null;
@@ -27,7 +27,7 @@ public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName
     if(...)  {
         ...
 
-        // 2\. getAdvicesAndAdvisorsForBean£º»ñÈ¡ÊÊÓÃÓÃÓÚµ±Ç°¶ÔÏóµÄadvisor
+        // 2\. getAdvicesAndAdvisorsForBeanï¼šè·å–é€‚ç”¨ç”¨äºå½“å‰å¯¹è±¡çš„advisor
         Object[] specificInterceptors = getAdvicesAndAdvisorsForBean(
             beanClass, beanName, targetSource);
         Object proxy = createProxy(beanClass, beanName, specificInterceptors, targetSource);
@@ -39,11 +39,11 @@ public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName
 
 ```
 
-Õâ¸ö·½·¨ÓĞÁ½´¦²»Í¬µã£¬´úÂëÖĞÒÑ¾­×¢Ã÷ÁËÆäÖĞµÄ²îÒì£¬¹ØÓÚ `shouldSkip`£¬Ã»É¶ºÃËµµÄ£¬ÎÒÃÇÖØµãÕ¹¿ª `getAdvicesAndAdvisorsForBean(...)` ·½·¨¡£
+è¿™ä¸ªæ–¹æ³•æœ‰ä¸¤å¤„ä¸åŒç‚¹ï¼Œä»£ç ä¸­å·²ç»æ³¨æ˜äº†å…¶ä¸­çš„å·®å¼‚ï¼Œå…³äº `shouldSkip`ï¼Œæ²¡å•¥å¥½è¯´çš„ï¼Œæˆ‘ä»¬é‡ç‚¹å±•å¼€ `getAdvicesAndAdvisorsForBean(...)` æ–¹æ³•ã€‚
 
 #### 1.1 `BeanFactoryAdvisorRetrievalHelper#findAdvisorBeans`
 
-Ò»Â·¸ú½ø `getAdvicesAndAdvisorsForBean(...)` ·½·¨£¬ÆäÖĞµÄ²Ù×÷Óë `AspectJAwareAdvisorAutoProxyCreator` µÄ²Ù×÷²¢²»Ì«´óÇø±ğ£¬²»¹ıÓĞ¸ö·½·¨¸öÈËÈÏÎªĞèÒªÇ¿µ÷ÏÂ£¬·½·¨ÈçÏÂ£º
+ä¸€è·¯è·Ÿè¿› `getAdvicesAndAdvisorsForBean(...)` æ–¹æ³•ï¼Œå…¶ä¸­çš„æ“ä½œä¸ `AspectJAwareAdvisorAutoProxyCreator` çš„æ“ä½œå¹¶ä¸å¤ªå¤§åŒºåˆ«ï¼Œä¸è¿‡æœ‰ä¸ªæ–¹æ³•ä¸ªäººè®¤ä¸ºéœ€è¦å¼ºè°ƒä¸‹ï¼Œæ–¹æ³•å¦‚ä¸‹ï¼š
 
 > BeanFactoryAdvisorRetrievalHelper#findAdvisorBeans
 
@@ -51,8 +51,8 @@ public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName
 public List<Advisor> findAdvisorBeans() {
     String[] advisorNames = this.cachedAdvisorBeanNames;
     if (advisorNames == null) {
-        // ²éÕÒµ±Ç°beanFactoryÖĞËùÓĞ Advisor µÄ bean class
-        // Advisor¿ÉÒÔÊÇÓÃ»§ÊµÏÖAdvisorÏà¹Ø½Ó¿Ú£¬Ò²¿ÉÒÔÊÇxmlÖ¸¶¨µÄ
+        // æŸ¥æ‰¾å½“å‰beanFactoryä¸­æ‰€æœ‰ Advisor çš„ bean class
+        // Advisorå¯ä»¥æ˜¯ç”¨æˆ·å®ç°Advisorç›¸å…³æ¥å£ï¼Œä¹Ÿå¯ä»¥æ˜¯xmlæŒ‡å®šçš„
         advisorNames = BeanFactoryUtils.beanNamesForTypeIncludingAncestors(
                 this.beanFactory, Advisor.class, true, false);
         this.cachedAdvisorBeanNames = advisorNames;
@@ -61,7 +61,7 @@ public List<Advisor> findAdvisorBeans() {
     List<Advisor> advisors = new ArrayList<>();
     for (String name : advisorNames) {
         ...
-        // ¸ù¾İadvisorµÄbean name£¬´ÓspringÈİÆ÷ÖĞ»ñÈ¡ bean
+        // æ ¹æ®advisorçš„bean nameï¼Œä»springå®¹å™¨ä¸­è·å– bean
         advisors.add(this.beanFactory.getBean(name, Advisor.class));
         ...
     }
@@ -71,54 +71,54 @@ public List<Advisor> findAdvisorBeans() {
 
 ```
 
-Õâ¸ö·½·¨Ö÷ÒªµÄ×÷ÓÃÊÇ»ñÈ¡ spring ÈİÆ÷ÖĞµÄËùÓĞ `advisor`£¬ÆäÊµÔÚ `AnnotationAwareAspectJAutoProxyCreator` ÖĞÒ²ÊÇÕâÃ´»ñÈ¡µÄ£¬Ö»²»¹ıÔÚ»ñÈ¡Ç°£¬`AnnotationAwareAspectJAutoProxyCreator` »áÔÚ `shouldSkip(...)` ·½·¨ÖĞ°Ñ `@Aspect` ÀàÖĞ°üº¬ `@Befor/@After/@Around` µÈ×¢½âµÄ·½·¨°ü×°³É¶ÔÓ¦µÄ `Advisor`£¬¶ø `InfrastructureAdvisorAutoProxyCreator` Ôò²»»á£¬±¾½ÚÒ»¿ªÊ¼Ò²Ìáµ½¹ıÁË¡£
+è¿™ä¸ªæ–¹æ³•ä¸»è¦çš„ä½œç”¨æ˜¯è·å– spring å®¹å™¨ä¸­çš„æ‰€æœ‰ `advisor`ï¼Œå…¶å®åœ¨ `AnnotationAwareAspectJAutoProxyCreator` ä¸­ä¹Ÿæ˜¯è¿™ä¹ˆè·å–çš„ï¼Œåªä¸è¿‡åœ¨è·å–å‰ï¼Œ`AnnotationAwareAspectJAutoProxyCreator` ä¼šåœ¨ `shouldSkip(...)` æ–¹æ³•ä¸­æŠŠ `@Aspect` ç±»ä¸­åŒ…å« `@Befor/@After/@Around` ç­‰æ³¨è§£çš„æ–¹æ³•åŒ…è£…æˆå¯¹åº”çš„ `Advisor`ï¼Œè€Œ `InfrastructureAdvisorAutoProxyCreator` åˆ™ä¸ä¼šï¼Œæœ¬èŠ‚ä¸€å¼€å§‹ä¹Ÿæåˆ°è¿‡äº†ã€‚
 
-ÔÚ [spring ÊÂÎñÖ®ÈÏÊ¶ÊÂÎñ×é¼ş](https://my.oschina.net/funcy/blog/4773454)Ò»ÎÄÖĞ£¬·ÖÎö `@EnableTransactionManagement` ×¢½â¹¦ÄÜÊ±£¬ÎÒÃÇ·ÖÎöµ½¸Ã×¢½â»áÍ¨¹ı `@Bean` ×¢½âÏò spring ÖĞÒıÈë `BeanFactoryTransactionAttributeSourceAdvisor`£¬Õâ¸ö bean ¾Í»áÔÚ `BeanFactoryAdvisorRetrievalHelper#findAdvisorBeans` ±»»ñÈ¡µ½¡£
+åœ¨ [spring äº‹åŠ¡ä¹‹è®¤è¯†äº‹åŠ¡ç»„ä»¶](https://my.oschina.net/funcy/blog/4773454)ä¸€æ–‡ä¸­ï¼Œåˆ†æ `@EnableTransactionManagement` æ³¨è§£åŠŸèƒ½æ—¶ï¼Œæˆ‘ä»¬åˆ†æåˆ°è¯¥æ³¨è§£ä¼šé€šè¿‡ `@Bean` æ³¨è§£å‘ spring ä¸­å¼•å…¥ `BeanFactoryTransactionAttributeSourceAdvisor`ï¼Œè¿™ä¸ª bean å°±ä¼šåœ¨ `BeanFactoryAdvisorRetrievalHelper#findAdvisorBeans` è¢«è·å–åˆ°ã€‚
 
 #### 1.2 `AopUtils#canApply(...)`
 
-¸ú×Å·½·¨Ò»Â·ÍùÏÂ×ß£¬½Ó×Å¾ÍÀ´µ½ÁËÅĞ¶Ï `advisor` ÄÜ·ñÊÊÓÃÓÚÄ¿±ê `class` µÄµØ·½ÁË£º
+è·Ÿç€æ–¹æ³•ä¸€è·¯å¾€ä¸‹èµ°ï¼Œæ¥ç€å°±æ¥åˆ°äº†åˆ¤æ–­ `advisor` èƒ½å¦é€‚ç”¨äºç›®æ ‡ `class` çš„åœ°æ–¹äº†ï¼š
 
 ```
 /**
- * ÅĞ¶ÏadvisorÄÜ·ñÊÊÓÃÓÚÄ¿±êclass
+ * åˆ¤æ–­advisorèƒ½å¦é€‚ç”¨äºç›®æ ‡class
  */
 public static boolean canApply(Advisor advisor, Class<?> targetClass, boolean hasIntroductions) {
     ...
-    // ÅĞ¶ÏÊÇ·ñÎª PointcutAdvisor£¬´¦ÀíÊÂÎñµÄadvisorÎªBeanFactoryTransactionAttributeSourceAdvisor£¬
-    // ËüÊµÏÖÁËPointcutAdvisor£¬Òò´ËÏÂÃæµÄ´úÂë»áÖ´ĞĞ
+    // åˆ¤æ–­æ˜¯å¦ä¸º PointcutAdvisorï¼Œå¤„ç†äº‹åŠ¡çš„advisorä¸ºBeanFactoryTransactionAttributeSourceAdvisorï¼Œ
+    // å®ƒå®ç°äº†PointcutAdvisorï¼Œå› æ­¤ä¸‹é¢çš„ä»£ç ä¼šæ‰§è¡Œ
     else if (advisor instanceof PointcutAdvisor) {
         PointcutAdvisor pca = (PointcutAdvisor) advisor;
-        //Ê¹ÓÃ PointcutAdvisor ¼ÌĞøÅĞ¶Ï
+        //ä½¿ç”¨ PointcutAdvisor ç»§ç»­åˆ¤æ–­
         return canApply(pca.getPointcut(), targetClass, hasIntroductions);
     }
     ...
 }
 
 /**
- * ÅĞ¶ÏadvisorÄÜ·ñÊÊÓÃÓÚÄ¿±êclass
+ * åˆ¤æ–­advisorèƒ½å¦é€‚ç”¨äºç›®æ ‡class
  */
 public static boolean canApply(Pointcut pc, Class<?> targetClass, boolean hasIntroductions) {
     Assert.notNull(pc, "Pointcut must not be null");
-    //1\. ÇĞµãÉÏÊÇ·ñ´æÔÚÅÅ³ıÀàµÄÅäÖÃ
+    //1\. åˆ‡ç‚¹ä¸Šæ˜¯å¦å­˜åœ¨æ’é™¤ç±»çš„é…ç½®
     if (!pc.getClassFilter().matches(targetClass)) {
         return false;
     }
-    // »ñÈ¡·½·¨Æ¥Åä¶ÔÏó£¬MethodMatcher.TRUE ÎªÄ¬ÈÏµÄ MethodMatcher ¶ÔÏó
+    // è·å–æ–¹æ³•åŒ¹é…å¯¹è±¡ï¼ŒMethodMatcher.TRUE ä¸ºé»˜è®¤çš„ MethodMatcher å¯¹è±¡
     MethodMatcher methodMatcher = pc.getMethodMatcher();
     if (methodMatcher == MethodMatcher.TRUE) {
         return true;
     }
     ...
-    // classes°üº¬targetClass¡¢³ıObjectµÄËùÓĞ¸¸Àà¡¢ËùÓĞ½Ó¿Ú
+    // classesåŒ…å«targetClassã€é™¤Objectçš„æ‰€æœ‰çˆ¶ç±»ã€æ‰€æœ‰æ¥å£
     Set<Class<?>> classes = new LinkedHashSet<>();
-    // Ê¡ÂÔ»ñÈ¡targetClassµÄ¸¸Àà²½Öè
+    // çœç•¥è·å–targetClassçš„çˆ¶ç±»æ­¥éª¤
     ...
     for (Class<?> clazz : classes) {
-        // »ñÈ¡ clazz ¶¨ÒåµÄ·½·¨£¬°üÀ¨µ±Ç°ÀàµÄ·½·¨¡¢³ıObjectÍâµÄËùÓĞ¸¸Àà·½·¨¡¢½Ó¿ÚµÄÄ¬ÈÏ·½·¨
+        // è·å– clazz å®šä¹‰çš„æ–¹æ³•ï¼ŒåŒ…æ‹¬å½“å‰ç±»çš„æ–¹æ³•ã€é™¤Objectå¤–çš„æ‰€æœ‰çˆ¶ç±»æ–¹æ³•ã€æ¥å£çš„é»˜è®¤æ–¹æ³•
         Method[] methods = ReflectionUtils.getAllDeclaredMethods(clazz);
         for (Method method : methods) {
-            // 2\. Æ¥ÅäµÄ¹Ø¼üÔÚÕâÀï
+            // 2\. åŒ¹é…çš„å…³é”®åœ¨è¿™é‡Œ
             if (introductionAwareMethodMatcher != null ?
                     introductionAwareMethodMatcher.matches(method, targetClass, hasIntroductions) :
                     methodMatcher.matches(method, targetClass)) {
@@ -131,18 +131,18 @@ public static boolean canApply(Pointcut pc, Class<?> targetClass, boolean hasInt
 
 ```
 
-ÕâÒ»¿éµÄ´úÂëÓë `AnnotationAwareAspectJAutoProxyCreator` Ò»Ä£Ò»Ñù£¬ËûÃÇ¶¼ÊÇµ÷ÓÃÍ¬ÑùµÄ·½·¨À´ÅĞ¶Ï£¬µ«ÓÉÓÚ´«ÈëµÄµÄ `advisor` ²»Í¬£¬×îÖÕµ÷ÓÃµ½µÄ¾ßÌåµÄÆ¥Åä¹æÔòÒ²²»ÏàÍ¬¡£
+è¿™ä¸€å—çš„ä»£ç ä¸ `AnnotationAwareAspectJAutoProxyCreator` ä¸€æ¨¡ä¸€æ ·ï¼Œä»–ä»¬éƒ½æ˜¯è°ƒç”¨åŒæ ·çš„æ–¹æ³•æ¥åˆ¤æ–­ï¼Œä½†ç”±äºä¼ å…¥çš„çš„ `advisor` ä¸åŒï¼Œæœ€ç»ˆè°ƒç”¨åˆ°çš„å…·ä½“çš„åŒ¹é…è§„åˆ™ä¹Ÿä¸ç›¸åŒã€‚
 
-´Ó´úÂëµÄ·ÖÎöÀ´¿´£¬Æ¥ÅäµÄÂß¼­¶¼ÔÚ `Pointcut` ÖĞ£¬¶ø `Pointcut` ÓÖÀ´×ÔÓÚ `Advisor`£¬¿É¼û `Advisor` Ê®·Ö¹Ø¼ü¡£´¦ÀíÊÂÎñµÄ `Advisor` Îª `BeanFactoryTransactionAttributeSourceAdvisor`£¬½ÓÏÂÀ´ÎÒÃÇ¾ÍÀ´·ÖÎöÕâ¸öÀà¡£
+ä»ä»£ç çš„åˆ†ææ¥çœ‹ï¼ŒåŒ¹é…çš„é€»è¾‘éƒ½åœ¨ `Pointcut` ä¸­ï¼Œè€Œ `Pointcut` åˆæ¥è‡ªäº `Advisor`ï¼Œå¯è§ `Advisor` ååˆ†å…³é”®ã€‚å¤„ç†äº‹åŠ¡çš„ `Advisor` ä¸º `BeanFactoryTransactionAttributeSourceAdvisor`ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬å°±æ¥åˆ†æè¿™ä¸ªç±»ã€‚
 
-#### 1.3 `BeanFactoryTransactionAttributeSourceAdvisor` Æ¥Åä¹æÔò·ÖÎö
+#### 1.3 `BeanFactoryTransactionAttributeSourceAdvisor` åŒ¹é…è§„åˆ™åˆ†æ
 
-´ÓÉÏÒ»Ğ¡ ½ÚµÄ·ÖÎöÖĞ£¬ÎÒÃÇÖªµÀÅĞ¶Ï `targetClass` ÄÜ·ñÓ¦ÓÃµ±Ç° `advisor` µÄ¹æÔòÀ´Ô´ÓÚ `advisor` µÄ `pointcut`£¬`pointcut` ÓĞÁ½¸öµØ·½°üº¬ÁËÅĞ¶Ï¹æÔò£º
+ä»ä¸Šä¸€å° èŠ‚çš„åˆ†æä¸­ï¼Œæˆ‘ä»¬çŸ¥é“åˆ¤æ–­ `targetClass` èƒ½å¦åº”ç”¨å½“å‰ `advisor` çš„è§„åˆ™æ¥æºäº `advisor` çš„ `pointcut`ï¼Œ`pointcut` æœ‰ä¸¤ä¸ªåœ°æ–¹åŒ…å«äº†åˆ¤æ–­è§„åˆ™ï¼š
 
-*   Æ¥ÅäÀà£º`pc.getClassFilter().matches(targetClass)`
-*   Æ¥Åä·½·¨£º`pc.getMethodMatcher().matches(method, targetClass)`
+*   åŒ¹é…ç±»ï¼š`pc.getClassFilter().matches(targetClass)`
+*   åŒ¹é…æ–¹æ³•ï¼š`pc.getMethodMatcher().matches(method, targetClass)`
 
-ÕâÒ»Ğ¡ ½ÚÎÒÃÇ´Ó `BeanFactoryTransactionAttributeSourceAdvisor` ÈëÊÖ£¬Ò»²½²½·ÖÎöÆ¥Åä¹æÔò¡£
+è¿™ä¸€å° èŠ‚æˆ‘ä»¬ä» `BeanFactoryTransactionAttributeSourceAdvisor` å…¥æ‰‹ï¼Œä¸€æ­¥æ­¥åˆ†æåŒ¹é…è§„åˆ™ã€‚
 
 ```
 public class BeanFactoryTransactionAttributeSourceAdvisor 
@@ -152,7 +152,7 @@ public class BeanFactoryTransactionAttributeSourceAdvisor
     private TransactionAttributeSource transactionAttributeSource;
 
     /**
-     * Õâ¸ö¾ÍÊÇ pointcut
+     * è¿™ä¸ªå°±æ˜¯ pointcut
      */
     private final TransactionAttributeSourcePointcut pointcut = 
             new TransactionAttributeSourcePointcut() {
@@ -164,7 +164,7 @@ public class BeanFactoryTransactionAttributeSourceAdvisor
     };
 
     /**
-     * ÉèÖÃ transactionAttributeSource
+     * è®¾ç½® transactionAttributeSource
      */
     public void setTransactionAttributeSource(TransactionAttributeSource 
             transactionAttributeSource) {
@@ -172,14 +172,14 @@ public class BeanFactoryTransactionAttributeSourceAdvisor
     }
 
     /**
-     * ÉèÖÃ ClassFilter
+     * è®¾ç½® ClassFilter
      */
     public void setClassFilter(ClassFilter classFilter) {
         this.pointcut.setClassFilter(classFilter);
     }
 
     /**
-     * »ñÈ¡ pointcut
+     * è·å– pointcut
      */
     @Override
     public Pointcut getPointcut() {
@@ -189,19 +189,19 @@ public class BeanFactoryTransactionAttributeSourceAdvisor
 
 ```
 
-ÉÏÃæµÄ´úÂë¹Ø¼ü²¿·ÖÒÑ¾­×¢ÊÍÁË£¬ÕâÀïÀ´×Ü½áÏÂ£º`BeanFactoryTransactionAttributeSourceAdvisor#getPointcut` µÃµ½µÄ `pointcut` Îª `TransactionAttributeSourcePointcut`£¬¾ÍÊÇÔÚ `private final TransactionAttributeSourcePointcut pointcut = new TransactionAttributeSourcePointcut() {...}` ÖĞ´´½¨µÄ¡£
+ä¸Šé¢çš„ä»£ç å…³é”®éƒ¨åˆ†å·²ç»æ³¨é‡Šäº†ï¼Œè¿™é‡Œæ¥æ€»ç»“ä¸‹ï¼š`BeanFactoryTransactionAttributeSourceAdvisor#getPointcut` å¾—åˆ°çš„ `pointcut` ä¸º `TransactionAttributeSourcePointcut`ï¼Œå°±æ˜¯åœ¨ `private final TransactionAttributeSourcePointcut pointcut = new TransactionAttributeSourcePointcut() {...}` ä¸­åˆ›å»ºçš„ã€‚
 
-`BeanFactoryTransactionAttributeSourceAdvisor` µÄ `transactionAttributeSource` ÊÇÊ²Ã´ÄØ£¿»ØÒäÏÂ `ProxyTransactionManagementConfiguration` ÖĞ´´½¨ `transactionAdvisor` µÄ´úÂë£º
+`BeanFactoryTransactionAttributeSourceAdvisor` çš„ `transactionAttributeSource` æ˜¯ä»€ä¹ˆå‘¢ï¼Ÿå›å¿†ä¸‹ `ProxyTransactionManagementConfiguration` ä¸­åˆ›å»º `transactionAdvisor` çš„ä»£ç ï¼š
 
 ```
 public class ProxyTransactionManagementConfiguration 
         extends AbstractTransactionManagementConfiguration {
 
-    // Ê¡ÂÔÆäËû
+    // çœç•¥å…¶ä»–
     ...
 
     /**
-     * ¶ÁÈ¡SpringµÄ @Transactional ×¢½â£¬²¢½«ÏàÓ¦µÄÊÂÎñÊôĞÔ¹«¿ª¸øSpringµÄÊÂÎñ»ù´¡½á¹¹
+     * è¯»å–Springçš„ @Transactional æ³¨è§£ï¼Œå¹¶å°†ç›¸åº”çš„äº‹åŠ¡å±æ€§å…¬å¼€ç»™Springçš„äº‹åŠ¡åŸºç¡€ç»“æ„
      */
     @Bean
     @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
@@ -210,8 +210,8 @@ public class ProxyTransactionManagementConfiguration
     }
 
     /**
-     * ÊÂÎñÔöÇ¿Æ÷.
-     * transactionAttributeSource£ºtransactionAttributeSource() ·µ»ØµÄ¶ÔÏó
+     * äº‹åŠ¡å¢å¼ºå™¨.
+     * transactionAttributeSourceï¼štransactionAttributeSource() è¿”å›çš„å¯¹è±¡
      */
     @Bean(name = TransactionManagementConfigUtils.TRANSACTION_ADVISOR_BEAN_NAME)
     @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
@@ -220,7 +220,7 @@ public class ProxyTransactionManagementConfiguration
             TransactionInterceptor transactionInterceptor) {
         BeanFactoryTransactionAttributeSourceAdvisor advisor = 
                 new BeanFactoryTransactionAttributeSourceAdvisor();
-        // ÉèÖÃÊÂÎñÊôĞÔÀà£¬ÓÃÀ´±£´æ @Transactional µÄÊôĞÔ
+        // è®¾ç½®äº‹åŠ¡å±æ€§ç±»ï¼Œç”¨æ¥ä¿å­˜ @Transactional çš„å±æ€§
         advisor.setTransactionAttributeSource(transactionAttributeSource);
         ...
         return advisor;
@@ -230,53 +230,53 @@ public class ProxyTransactionManagementConfiguration
 
 ```
 
-ÓÉ´Ë¿ÉÖª£¬`BeanFactoryTransactionAttributeSourceAdvisor` µÄ `transactionAttributeSource` ÊôĞÔÎª `AnnotationTransactionAttributeSource`.
+ç”±æ­¤å¯çŸ¥ï¼Œ`BeanFactoryTransactionAttributeSourceAdvisor` çš„ `transactionAttributeSource` å±æ€§ä¸º `AnnotationTransactionAttributeSource`.
 
-ÎÒÃÇÔÙ»Øµ½ `BeanFactoryTransactionAttributeSourceAdvisor`£¬´ÓÉÏÃæµÄ·ÖÎö¿ÉÖª£¬`getPointcut()` µÃµ½µÄÊÇ `TransactionAttributeSourcePointcut` ¶ÔÏó£¬È»ºó½øÈëÕâ¸öÀà£º
+æˆ‘ä»¬å†å›åˆ° `BeanFactoryTransactionAttributeSourceAdvisor`ï¼Œä»ä¸Šé¢çš„åˆ†æå¯çŸ¥ï¼Œ`getPointcut()` å¾—åˆ°çš„æ˜¯ `TransactionAttributeSourcePointcut` å¯¹è±¡ï¼Œç„¶åè¿›å…¥è¿™ä¸ªç±»ï¼š
 
 ```
 abstract class TransactionAttributeSourcePointcut 
         extends StaticMethodMatcherPointcut implements Serializable {
 
     protected TransactionAttributeSourcePointcut() {
-        // ÔÚ¹¹Ôì·½·¨ÖĞÉèÖÃ ClassFilter
+        // åœ¨æ„é€ æ–¹æ³•ä¸­è®¾ç½® ClassFilter
         setClassFilter(new TransactionAttributeSourceClassFilter());
     }
 
     /**
-     * pointcut µÄ matches ·½·¨
+     * pointcut çš„ matches æ–¹æ³•
      */
     @Override
     public boolean matches(Method method, Class<?> targetClass) {
-        // µÃµ½µÄ½á¹ûÎªAnnotationTransactionAttributeSource
+        // å¾—åˆ°çš„ç»“æœä¸ºAnnotationTransactionAttributeSource
         TransactionAttributeSource tas = getTransactionAttributeSource();
         return (tas == null || tas.getTransactionAttribute(method, targetClass) != null);
     }
 
     /**
-     * ÔÚ BeanFactoryTransactionAttributeSourceAdvisor ÖĞÒÑÖ¸¶¨
+     * åœ¨ BeanFactoryTransactionAttributeSourceAdvisor ä¸­å·²æŒ‡å®š
      */
     @Nullable
     protected abstract TransactionAttributeSource getTransactionAttributeSource();
 
     /**
-     * ÄÚ²¿Àà£¬ÊµÏÖÁË ClassFilter
+     * å†…éƒ¨ç±»ï¼Œå®ç°äº† ClassFilter
      */
     private class TransactionAttributeSourceClassFilter implements ClassFilter {
 
         /**
-         * ClassFilter µÄ matches
+         * ClassFilter çš„ matches
          */
         @Override
         public boolean matches(Class<?> clazz) {
-            // ÊÇ·ñÎªTransactionalProxy¡¢PlatformTransactionManager¡¢PersistenceExceptionTranslatorµÄÊµÏÖÀà
+            // æ˜¯å¦ä¸ºTransactionalProxyã€PlatformTransactionManagerã€PersistenceExceptionTranslatorçš„å®ç°ç±»
             if (TransactionalProxy.class.isAssignableFrom(clazz) ||
                     PlatformTransactionManager.class.isAssignableFrom(clazz) ||
                     PersistenceExceptionTranslator.class.isAssignableFrom(clazz)) {
                 return false;
             }
-            //ÅĞ¶Ï TransactionAttributeSource »ñÈ¡ÊÂÎñÊôĞÔÊÇ·ñÎª¿Õ
-            // µÃµ½µÄ½á¹ûÎªAnnotationTransactionAttributeSource
+            //åˆ¤æ–­ TransactionAttributeSource è·å–äº‹åŠ¡å±æ€§æ˜¯å¦ä¸ºç©º
+            // å¾—åˆ°çš„ç»“æœä¸ºAnnotationTransactionAttributeSource
             TransactionAttributeSource tas = getTransactionAttributeSource();
             return (tas == null || tas.isCandidateClass(clazz));
         }
@@ -286,16 +286,16 @@ abstract class TransactionAttributeSourcePointcut
 
 ```
 
-´ÓÉÏÃæµÄ·½·¨£¬ÎÒÃÇµÃµ½ÁËÒ»¸öÖØÒªµÄ¹æÔò£º
+ä»ä¸Šé¢çš„æ–¹æ³•ï¼Œæˆ‘ä»¬å¾—åˆ°äº†ä¸€ä¸ªé‡è¦çš„è§„åˆ™ï¼š
 
-*   Æ¥ÅäÀà£º`pc.getClassFilter().matches(targetClass)`£¬`ClassFilter` Îª `TransactionAttributeSourceClassFilter`
+*   åŒ¹é…ç±»ï¼š`pc.getClassFilter().matches(targetClass)`ï¼Œ`ClassFilter` ä¸º `TransactionAttributeSourceClassFilter`
 
-Æ¥ÅäÀàµÄ¹æÔòÊÇÕÒµ½ÁË£¬ÄÇÆ¥Åä·½·¨µÄ¹æÔòÄØ£¿ÎÒÃÇ½øÈë `TransactionAttributeSourcePointcut#getMethodMatcher()` ·½·¨£¬½øÈëµÄÊÇ `StaticMethodMatcherPointcut`£º
+åŒ¹é…ç±»çš„è§„åˆ™æ˜¯æ‰¾åˆ°äº†ï¼Œé‚£åŒ¹é…æ–¹æ³•çš„è§„åˆ™å‘¢ï¼Ÿæˆ‘ä»¬è¿›å…¥ `TransactionAttributeSourcePointcut#getMethodMatcher()` æ–¹æ³•ï¼Œè¿›å…¥çš„æ˜¯ `StaticMethodMatcherPointcut`ï¼š
 
 ```
 public abstract class StaticMethodMatcherPointcut 
         extends StaticMethodMatcher implements Pointcut {
-    // Ê¡ÂÔÁËÒ»Ğ©´úÂë
+    // çœç•¥äº†ä¸€äº›ä»£ç 
     ...
 
     @Override
@@ -306,51 +306,51 @@ public abstract class StaticMethodMatcherPointcut
 
 ```
 
-·µ»ØµÄ¾¹È»ÊÇ `this`£¡ÕâÊÇ¸öÉ¶£¿²»Òª»Å£¬ÔÙÏ¸¿´ `TransactionAttributeSourcePointcut`£¬·¢ÏÖËü¼Ì³ĞÁË `StaticMethodMatcherPointcut`£º
+è¿”å›çš„ç«Ÿç„¶æ˜¯ `this`ï¼è¿™æ˜¯ä¸ªå•¥ï¼Ÿä¸è¦æ…Œï¼Œå†ç»†çœ‹ `TransactionAttributeSourcePointcut`ï¼Œå‘ç°å®ƒç»§æ‰¿äº† `StaticMethodMatcherPointcut`ï¼š
 
 ```
 abstract class TransactionAttributeSourcePointcut 
         extends StaticMethodMatcherPointcut implements Serializable {
-    // Ê¡ÂÔÁËÒ»Ğ©´úÂë
+    // çœç•¥äº†ä¸€äº›ä»£ç 
     ...
 }
 
 ```
 
-ËùÒÔ£¬`pc.getMethodMatcher()` µÃµ½µÄ¾ÍÊÇ `TransactionAttributeSourcePointcut`£¬Æä `mathes(...)` ·½·¨¾ÍÊÇ `TransactionAttributeSourcePointcut#matches`.
+æ‰€ä»¥ï¼Œ`pc.getMethodMatcher()` å¾—åˆ°çš„å°±æ˜¯ `TransactionAttributeSourcePointcut`ï¼Œå…¶ `mathes(...)` æ–¹æ³•å°±æ˜¯ `TransactionAttributeSourcePointcut#matches`.
 
-ÔÚ±¾Ğ¡½ÚµÄ×îºó£¬ÎÒÃÇÀ´×Ü½áÏÂ·ÖÎöµÄ½á¹û£º
+åœ¨æœ¬å°èŠ‚çš„æœ€åï¼Œæˆ‘ä»¬æ¥æ€»ç»“ä¸‹åˆ†æçš„ç»“æœï¼š
 
-*   Æ¥ÅäÀà£º`pc.getClassFilter().matches(targetClass)`£¬`ClassFilter` Îª `TransactionAttributeSourceClassFilter`£»
-*   Æ¥Åä·½·¨£º`pc.getMethodMatcher().matches(method, targetClass)`£¬`methodMatcher` Îª `TransactionAttributeSourcePointcut`£»
-*   ÔÚÉÏÃæÁ½¸ö¹æÔòÖĞ£¬¶¼»áµ÷ÓÃ `TransactionAttributeSourcePointcut#getTransactionAttributeSource`£¬Õâ¸ö·½·¨·µ»ØµÄ½á¹ûÎª `AnnotationTransactionAttributeSource`.
+*   åŒ¹é…ç±»ï¼š`pc.getClassFilter().matches(targetClass)`ï¼Œ`ClassFilter` ä¸º `TransactionAttributeSourceClassFilter`ï¼›
+*   åŒ¹é…æ–¹æ³•ï¼š`pc.getMethodMatcher().matches(method, targetClass)`ï¼Œ`methodMatcher` ä¸º `TransactionAttributeSourcePointcut`ï¼›
+*   åœ¨ä¸Šé¢ä¸¤ä¸ªè§„åˆ™ä¸­ï¼Œéƒ½ä¼šè°ƒç”¨ `TransactionAttributeSourcePointcut#getTransactionAttributeSource`ï¼Œè¿™ä¸ªæ–¹æ³•è¿”å›çš„ç»“æœä¸º `AnnotationTransactionAttributeSource`.
 
-#### 1.4 Æ¥ÅäÁ÷³Ì
+#### 1.4 åŒ¹é…æµç¨‹
 
-ÔÚ 1.2 ²¿·Ö£¬ÎÒÃÇÖªµÀ£¬µ±Ç° `advisor` ÄÜ·ñÓ¦ÓÃÓÚÄ¿±ê class£¬ĞèÒªÍ¬Ê±Âú×ãÁ½¸öÆ¥Åä¹æÔò£º
+åœ¨ 1.2 éƒ¨åˆ†ï¼Œæˆ‘ä»¬çŸ¥é“ï¼Œå½“å‰ `advisor` èƒ½å¦åº”ç”¨äºç›®æ ‡ classï¼Œéœ€è¦åŒæ—¶æ»¡è¶³ä¸¤ä¸ªåŒ¹é…è§„åˆ™ï¼š
 
-*   Æ¥ÅäÀà£º`pc.getClassFilter().matches(targetClass)`£¬`ClassFilter` Îª `TransactionAttributeSourceClassFilter`£»
-*   Æ¥Åä·½·¨£º`pc.getMethodMatcher().matches(method, targetClass)`£¬`methodMatcher` Îª `TransactionAttributeSourcePointcut`£»
+*   åŒ¹é…ç±»ï¼š`pc.getClassFilter().matches(targetClass)`ï¼Œ`ClassFilter` ä¸º `TransactionAttributeSourceClassFilter`ï¼›
+*   åŒ¹é…æ–¹æ³•ï¼š`pc.getMethodMatcher().matches(method, targetClass)`ï¼Œ`methodMatcher` ä¸º `TransactionAttributeSourcePointcut`ï¼›
 
-ÎÒÃÇÀ´¿´ÏÂÕâÁ½¸ö·½·¨£º
+æˆ‘ä»¬æ¥çœ‹ä¸‹è¿™ä¸¤ä¸ªæ–¹æ³•ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-133740c93d470e16ec8dc9a34106adb8fc8.png)
 
-*   `TransactionAttributeSourceClassFilter#matches`£ºÏÈÅĞ¶Ïµ±Ç°ÀàÊÇ·ñÎªÊÇ·ñÎª `TransactionalProxy`¡¢`PlatformTransactionManager`¡¢`PersistenceExceptionTranslator` »òÆäÊµÏÖÀà£¬È»ºóµ÷ÓÃ `AnnotationTransactionAttributeSource#isCandidateClass` ¼ÌĞøÅĞ¶Ï£»
-*   `TransactionAttributeSourcePointcut#matches`£ºµ÷ÓÃ `AnnotationTransactionAttributeSource#getTransactionAttribute`£¨ÓÉÓÚ¼Ì³Ğ¹ØÏµ£¬Êµ¼Êµ÷ÓÃµÄÊÇ `AbstractFallbackTransactionAttributeSource#getTransactionAttribute`£©ÅĞ¶Ï¡£
+*   `TransactionAttributeSourceClassFilter#matches`ï¼šå…ˆåˆ¤æ–­å½“å‰ç±»æ˜¯å¦ä¸ºæ˜¯å¦ä¸º `TransactionalProxy`ã€`PlatformTransactionManager`ã€`PersistenceExceptionTranslator` æˆ–å…¶å®ç°ç±»ï¼Œç„¶åè°ƒç”¨ `AnnotationTransactionAttributeSource#isCandidateClass` ç»§ç»­åˆ¤æ–­ï¼›
+*   `TransactionAttributeSourcePointcut#matches`ï¼šè°ƒç”¨ `AnnotationTransactionAttributeSource#getTransactionAttribute`ï¼ˆç”±äºç»§æ‰¿å…³ç³»ï¼Œå®é™…è°ƒç”¨çš„æ˜¯ `AbstractFallbackTransactionAttributeSource#getTransactionAttribute`ï¼‰åˆ¤æ–­ã€‚
 
-½ÓÏÂÀ´ÎÒÃÇ¾ÍÀ´·ÖÎöÏÂ¾ßÌåÆ¥ÅäÁ÷³Ì¡£
+æ¥ä¸‹æ¥æˆ‘ä»¬å°±æ¥åˆ†æä¸‹å…·ä½“åŒ¹é…æµç¨‹ã€‚
 
 ##### `AnnotationTransactionAttributeSource#isCandidateClass`
 
-ÈÃÎÒÃÇÖ±±¼Ö÷Ìâ£¬½øÈë `isCandidateClass` ·½·¨£º
+è®©æˆ‘ä»¬ç›´å¥”ä¸»é¢˜ï¼Œè¿›å…¥ `isCandidateClass` æ–¹æ³•ï¼š
 
 > AnnotationTransactionAttributeSource#isCandidateClass
 
 ```
 @Override
 public boolean isCandidateClass(Class<?> targetClass) {
-    // ÕÒµ½ËùÓĞµÄannotationParsers£¬Ñ­»·Æ¥Åä
+    // æ‰¾åˆ°æ‰€æœ‰çš„annotationParsersï¼Œå¾ªç¯åŒ¹é…
     for (TransactionAnnotationParser parser : this.annotationParsers) {
         if (parser.isCandidateClass(targetClass)) {
             return true;
@@ -361,18 +361,18 @@ public boolean isCandidateClass(Class<?> targetClass) {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬ÕâÊÇÔÚÑ­»·Àïµ÷ÓÃ `TransactionAnnotationParser` µÄ `isCandidateClass` ·½·¨¡£`this.annotationParsers` ÊÇÉ¶ÄØ£¿Í¨¹ıµ÷ÊÔ£¬ÄÚÈİÈçÏÂ£º
+å¯ä»¥çœ‹åˆ°ï¼Œè¿™æ˜¯åœ¨å¾ªç¯é‡Œè°ƒç”¨ `TransactionAnnotationParser` çš„ `isCandidateClass` æ–¹æ³•ã€‚`this.annotationParsers` æ˜¯å•¥å‘¢ï¼Ÿé€šè¿‡è°ƒè¯•ï¼Œå†…å®¹å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-5e16d6769e5a74c2f3064afdd090de08d42.png)
 
-`this.annotationParsers` ÖĞÖ»ÓĞ `SpringTransactionAnnotationParser`£¬ÎÒÃÇ½øÈëÆä `isCandidateClass` ·½·¨£º
+`this.annotationParsers` ä¸­åªæœ‰ `SpringTransactionAnnotationParser`ï¼Œæˆ‘ä»¬è¿›å…¥å…¶ `isCandidateClass` æ–¹æ³•ï¼š
 
 ```
 public class SpringTransactionAnnotationParser 
         implements TransactionAnnotationParser, Serializable {
 
     /**
-     * ÅĞ¶ÏÀàÉÏÊÇ·ñÓĞ @Transactional ×¢½â
+     * åˆ¤æ–­ç±»ä¸Šæ˜¯å¦æœ‰ @Transactional æ³¨è§£
      */
     @Override
     public boolean isCandidateClass(Class<?> targetClass) {
@@ -382,20 +382,20 @@ public class SpringTransactionAnnotationParser
 
 ```
 
-Õâ¸ö·½·¨×îÖÕµ÷ÓÃµÄÊÇ `AnnotationUtils.isCandidateClass`£¬ÓÃÀ´ÅĞ¶ÏÖ¸¶¨µÄÀàÉÏÊÇ·ñÓĞ `@Transactional` ×¢½â¡£
+è¿™ä¸ªæ–¹æ³•æœ€ç»ˆè°ƒç”¨çš„æ˜¯ `AnnotationUtils.isCandidateClass`ï¼Œç”¨æ¥åˆ¤æ–­æŒ‡å®šçš„ç±»ä¸Šæ˜¯å¦æœ‰ `@Transactional` æ³¨è§£ã€‚
 
-µ½ÕâÀï£¬ÎÒÃÇ¾ÍÃ÷°×ÁË£¬`TransactionAttributeSourceClassFilter#matches` ÏÈÅÅ³ıÒ»Ğ©Àà (`TransactionalProxy`/`PlatformTransactionManager`/`PersistenceExceptionTranslator` ¼°Æä×ÓÀà) ºó£¬×îÖÕ»áÆ¥Åä´øÓĞ `@Transactional` ×¢½âµÄÀà¡£
+åˆ°è¿™é‡Œï¼Œæˆ‘ä»¬å°±æ˜ç™½äº†ï¼Œ`TransactionAttributeSourceClassFilter#matches` å…ˆæ’é™¤ä¸€äº›ç±» (`TransactionalProxy`/`PlatformTransactionManager`/`PersistenceExceptionTranslator` åŠå…¶å­ç±») åï¼Œæœ€ç»ˆä¼šåŒ¹é…å¸¦æœ‰ `@Transactional` æ³¨è§£çš„ç±»ã€‚
 
 ##### `AnnotationTransactionAttributeSource#getTransactionAttribute`
 
-ÉÏÃæµÄ·½·¨Æ¥Åä³É¹¦ºó£¬²¢²»ÄÜ±íÊ¾³É¹¦Æ¥Åä£¬»¹µÃÆ¥Åä `TransactionAttributeSourcePointcut#matches`£¬Á½ÕßÍ¬Ê±Âú×ã²Å»áÆ¥Åä³É¹¦¡£`TransactionAttributeSourcePointcut#matches` µ÷ÓÃ `AnnotationTransactionAttributeSource#getTransactionAttribute` Íê³ÉÆ¥ÅäµÄ£¬ÎÒÃÇ¸ú½øÈ¥£º
+ä¸Šé¢çš„æ–¹æ³•åŒ¹é…æˆåŠŸåï¼Œå¹¶ä¸èƒ½è¡¨ç¤ºæˆåŠŸåŒ¹é…ï¼Œè¿˜å¾—åŒ¹é… `TransactionAttributeSourcePointcut#matches`ï¼Œä¸¤è€…åŒæ—¶æ»¡è¶³æ‰ä¼šåŒ¹é…æˆåŠŸã€‚`TransactionAttributeSourcePointcut#matches` è°ƒç”¨ `AnnotationTransactionAttributeSource#getTransactionAttribute` å®ŒæˆåŒ¹é…çš„ï¼Œæˆ‘ä»¬è·Ÿè¿›å»ï¼š
 
 ```
 public abstract class AbstractFallbackTransactionAttributeSource 
         implements TransactionAttributeSource {
 
     /**
-     * »ñÈ¡ @Transactional ×¢½âµÄÊôĞÔ
+     * è·å– @Transactional æ³¨è§£çš„å±æ€§
      */
     public TransactionAttribute getTransactionAttribute(Method method, 
             @Nullable Class<?> targetClass) {
@@ -403,12 +403,12 @@ public abstract class AbstractFallbackTransactionAttributeSource
             return null;
         }
 
-        // Ê¡ÂÔ´Ó»º´æÖĞ»ñÈ¡
+        // çœç•¥ä»ç¼“å­˜ä¸­è·å–
         ...
         else {
-            // »ñÈ¡ Transaction ÊôĞÔ£¬¼´ @Transactional ×¢½âµÄÊôĞÔ
+            // è·å– Transaction å±æ€§ï¼Œå³ @Transactional æ³¨è§£çš„å±æ€§
             TransactionAttribute txAttr = computeTransactionAttribute(method, targetClass);
-            // Ê¡ÂÔ·ÅÈë»º´æ²Ù×÷
+            // çœç•¥æ”¾å…¥ç¼“å­˜æ“ä½œ
             ...
             return txAttr;
         }
@@ -417,76 +417,76 @@ public abstract class AbstractFallbackTransactionAttributeSource
 
 ```
 
-`AnnotationTransactionAttributeSource` µÄ `getTransactionAttribute` ÊÇ¼Ì³Ğ×Ô `AbstractFallbackTransactionAttributeSource` µÄ£¬Òò´ËÎÒÃÇ½øÈëµÄ·½·¨ÊÇ `AbstractFallbackTransactionAttributeSource#getTransactionAttribute`£¬Õâ¸ö·½·¨ÓÃÀ´»ñÈ¡·½·¨ÉÏµÄ `@Transactional` ×¢½âµÄÊôĞÔ£¬ÎÒÃÇ¸ú½ø `computeTransactionAttribute(...)`£º
+`AnnotationTransactionAttributeSource` çš„ `getTransactionAttribute` æ˜¯ç»§æ‰¿è‡ª `AbstractFallbackTransactionAttributeSource` çš„ï¼Œå› æ­¤æˆ‘ä»¬è¿›å…¥çš„æ–¹æ³•æ˜¯ `AbstractFallbackTransactionAttributeSource#getTransactionAttribute`ï¼Œè¿™ä¸ªæ–¹æ³•ç”¨æ¥è·å–æ–¹æ³•ä¸Šçš„ `@Transactional` æ³¨è§£çš„å±æ€§ï¼Œæˆ‘ä»¬è·Ÿè¿› `computeTransactionAttribute(...)`ï¼š
 
 > AbstractFallbackTransactionAttributeSource
 
 ```
 protected TransactionAttribute computeTransactionAttribute(Method method, 
         @Nullable Class<?> targetClass) {
-    // Ä¬ÈÏ±ØĞëÒª public ·½·¨²ÅÖ§³ÖÊÂÎñ
+    // é»˜è®¤å¿…é¡»è¦ public æ–¹æ³•æ‰æ”¯æŒäº‹åŠ¡
     if (allowPublicMethodsOnly() && !Modifier.isPublic(method.getModifiers())) {
         return null;
     }
-    // 1\. »ñÈ¡È·ÇĞµÄ·½·¨£¬ÀıÈç´«ÈëµÄclassÊÇIFoo£¬Êµ¼ÊµÄµÄclassÊÇDefaultFoo£¬
-    //    ÄÇÃ´Ó¦¸Ã½« IFoo#method ×ª»»Îª DefaultFoo#method
+    // 1\. è·å–ç¡®åˆ‡çš„æ–¹æ³•ï¼Œä¾‹å¦‚ä¼ å…¥çš„classæ˜¯IFooï¼Œå®é™…çš„çš„classæ˜¯DefaultFooï¼Œ
+    //    é‚£ä¹ˆåº”è¯¥å°† IFoo#method è½¬æ¢ä¸º DefaultFoo#method
     Method specificMethod = AopUtils.getMostSpecificMethod(method, targetClass);
-    // 2\. ´Ó·½·¨ÉÏ»ñÈ¡ @Transactional µÄÊôĞÔ
+    // 2\. ä»æ–¹æ³•ä¸Šè·å– @Transactional çš„å±æ€§
     TransactionAttribute txAttr = findTransactionAttribute(specificMethod);
     if (txAttr != null) {
         return txAttr;
     }
-    // 3\. ´ÓÀàÉÏ»ñÈ¡ @Transaction µÄÊôĞÔ
+    // 3\. ä»ç±»ä¸Šè·å– @Transaction çš„å±æ€§
     txAttr = findTransactionAttribute(specificMethod.getDeclaringClass());
     if (txAttr != null && ClassUtils.isUserLevelMethod(method)) {
         return txAttr;
     }
     if (specificMethod != method) {
-        // 4\. È·ÇĞµÄ·½·¨ÉÏÕÒ²»µ½£¬¾ÍÕÒ´«ÈëµÄ·½·¨ÉÏµÄ
+        // 4\. ç¡®åˆ‡çš„æ–¹æ³•ä¸Šæ‰¾ä¸åˆ°ï¼Œå°±æ‰¾ä¼ å…¥çš„æ–¹æ³•ä¸Šçš„
         txAttr = findTransactionAttribute(method);
         if (txAttr != null) {
             return txAttr;
         }
-        // 5\. ÒÔÉÏ¶¼Ã»ÕÒµ½£¬¾ÍÕÒÈ·ÇĞµÄÀàÉÏµÄ
+        // 5\. ä»¥ä¸Šéƒ½æ²¡æ‰¾åˆ°ï¼Œå°±æ‰¾ç¡®åˆ‡çš„ç±»ä¸Šçš„
         txAttr = findTransactionAttribute(method.getDeclaringClass());
         if (txAttr != null && ClassUtils.isUserLevelMethod(method)) {
             return txAttr;
         }
     }
-    // 6\. Ã»ÓĞ»ñÈ¡µ½£¬×îÖÕ·µ»Ønull
+    // 6\. æ²¡æœ‰è·å–åˆ°ï¼Œæœ€ç»ˆè¿”å›null
     return null;
 }
 
 ```
 
-´ÓÒÔÉÏ·½·¨µÄÁ÷³Ì£¬¿É×Ü½á»ñÈ¡ `@Transactional` ÊôĞÔÁ÷³ÌÈçÏÂ£º
+ä»ä»¥ä¸Šæ–¹æ³•çš„æµç¨‹ï¼Œå¯æ€»ç»“è·å– `@Transactional` å±æ€§æµç¨‹å¦‚ä¸‹ï¼š
 
-1.  ½«´«ÈëµÄ·½·¨×ª»»ÎªÈ·ÇĞµÄ·½·¨£¬ÀıÈç´«ÈëµÄ `class` ÊÇ `IFoo`£¬Êµ¼ÊµÄµÄ `class` ÊÇ `DefaultFoo`£¬ÕâÀï¾Í»á½« `IFoo#method` ×ª»»Îª `DefaultFoo#method`
-2.  ´ÓÈ·ÇĞµÄ·½·¨ÉÏ»ñÈ¡ `@Transactional` µÄÊôĞÔ
-3.  Èç¹ûÃ»ÓĞ»ñÈ¡µ½£¬¾Í´ÓÈ·ÇĞµÄ´ÓÀàÉÏ»ñÈ¡ `@Transaction` µÄÊôĞÔ
-4.  Èç¹ûÃ»ÓĞ»ñÈ¡µ½£¬¾Í´«ÈëµÄ·½·¨ÉÏ»ñÈ¡ `@Transaction` µÄÊôĞÔ
-5.  Èç¹ûÃ»ÓĞ»ñÈ¡µ½£¬¾Í´«ÈëµÄÀàÉÏ»ñÈ¡ `@Transaction` µÄÊôĞÔ
-6.  Èç¹ûÒÔÉÏ¶¼Ã»ÓĞ»ñÈ¡µ½£¬¾Í·µ»Ø `null`
+1.  å°†ä¼ å…¥çš„æ–¹æ³•è½¬æ¢ä¸ºç¡®åˆ‡çš„æ–¹æ³•ï¼Œä¾‹å¦‚ä¼ å…¥çš„ `class` æ˜¯ `IFoo`ï¼Œå®é™…çš„çš„ `class` æ˜¯ `DefaultFoo`ï¼Œè¿™é‡Œå°±ä¼šå°† `IFoo#method` è½¬æ¢ä¸º `DefaultFoo#method`
+2.  ä»ç¡®åˆ‡çš„æ–¹æ³•ä¸Šè·å– `@Transactional` çš„å±æ€§
+3.  å¦‚æœæ²¡æœ‰è·å–åˆ°ï¼Œå°±ä»ç¡®åˆ‡çš„ä»ç±»ä¸Šè·å– `@Transaction` çš„å±æ€§
+4.  å¦‚æœæ²¡æœ‰è·å–åˆ°ï¼Œå°±ä¼ å…¥çš„æ–¹æ³•ä¸Šè·å– `@Transaction` çš„å±æ€§
+5.  å¦‚æœæ²¡æœ‰è·å–åˆ°ï¼Œå°±ä¼ å…¥çš„ç±»ä¸Šè·å– `@Transaction` çš„å±æ€§
+6.  å¦‚æœä»¥ä¸Šéƒ½æ²¡æœ‰è·å–åˆ°ï¼Œå°±è¿”å› `null`
 
-spring ÓÖÊÇÈçºÎ´Ó·½·¨»òÀàÉÏ»ñÈ¡ `@Transactional` µÄÊôĞÔÄØ£¿¼ÌĞø¿´ÏÂÈ¥£º
+spring åˆæ˜¯å¦‚ä½•ä»æ–¹æ³•æˆ–ç±»ä¸Šè·å– `@Transactional` çš„å±æ€§å‘¢ï¼Ÿç»§ç»­çœ‹ä¸‹å»ï¼š
 
 > AnnotationTransactionAttributeSource
 
 ```
-    // ´Ó·½·¨ÉÏ»ñÈ¡ @Transactional ÊôĞÔ
+    // ä»æ–¹æ³•ä¸Šè·å– @Transactional å±æ€§
     protected TransactionAttribute findTransactionAttribute(Method method) {
         return determineTransactionAttribute(method);
     }
 
-    // ´ÓÀàÉÏ»ñÈ¡ @Transactional ÊôĞÔ
+    // ä»ç±»ä¸Šè·å– @Transactional å±æ€§
     protected TransactionAttribute findTransactionAttribute(Class<?> clazz) {
         return determineTransactionAttribute(clazz);
     }
 
-    // ×îÖÕµ÷ÓÃµÄ·½·¨
+    // æœ€ç»ˆè°ƒç”¨çš„æ–¹æ³•
     protected TransactionAttribute determineTransactionAttribute(AnnotatedElement element) {
         for (TransactionAnnotationParser parser : this.annotationParsers) {
-            // ½âÎö @Transactional ×¢½âµÄÊôĞÔ
+            // è§£æ @Transactional æ³¨è§£çš„å±æ€§
             TransactionAttribute attr = parser.parseTransactionAnnotation(element);
             if (attr != null) {
                 return attr;
@@ -497,16 +497,16 @@ spring ÓÖÊÇÈçºÎ´Ó·½·¨»òÀàÉÏ»ñÈ¡ `@Transactional` µÄÊôĞÔÄØ£¿¼ÌĞø¿´ÏÂÈ¥£º
 
 ```
 
-×îÖÕËûÃÇ¶¼ÊÇµ÷ÓÃ `AnnotationTransactionAttributeSource#determineTransactionAttribute` À´»ñÈ¡µÄ£¬¶øÔÚ `AnnotationTransactionAttributeSource#determineTransactionAttribute` µ÷ÓÃÁË `TransactionAnnotationParser#parseTransactionAnnotation` ·½·¨¡£¶ÔÓÚ `this.annotationParsers` »¹ÑÛÊìÂğ£¬ÔÚÇ°ÃæÒÑ¾­·ÖÎö¹ıÁË£¬ÀïÃæÖ»ÓĞÒ»¸öÀà£º`SpringTransactionAnnotationParser`£¬ÎÒÃÇ¸ú½øÈ¥£º
+æœ€ç»ˆä»–ä»¬éƒ½æ˜¯è°ƒç”¨ `AnnotationTransactionAttributeSource#determineTransactionAttribute` æ¥è·å–çš„ï¼Œè€Œåœ¨ `AnnotationTransactionAttributeSource#determineTransactionAttribute` è°ƒç”¨äº† `TransactionAnnotationParser#parseTransactionAnnotation` æ–¹æ³•ã€‚å¯¹äº `this.annotationParsers` è¿˜çœ¼ç†Ÿå—ï¼Œåœ¨å‰é¢å·²ç»åˆ†æè¿‡äº†ï¼Œé‡Œé¢åªæœ‰ä¸€ä¸ªç±»ï¼š`SpringTransactionAnnotationParser`ï¼Œæˆ‘ä»¬è·Ÿè¿›å»ï¼š
 
 > SpringTransactionAnnotationParser
 
 ```
     /**
-     * »ñÈ¡ Transactional ×¢½â£¬´æÔÚÔò¼ÌĞø½âÎö£¬²»´æÔÚÔò·µ»Ø null
+     * è·å– Transactional æ³¨è§£ï¼Œå­˜åœ¨åˆ™ç»§ç»­è§£æï¼Œä¸å­˜åœ¨åˆ™è¿”å› null
      */
     public TransactionAttribute parseTransactionAnnotation(AnnotatedElement element) {
-        // »ñÈ¡ Transactional ×¢½â£¬´æÔÚÔò¼ÌĞø½âÎö£¬²»´æÔÚÔò·µ»Ø null
+        // è·å– Transactional æ³¨è§£ï¼Œå­˜åœ¨åˆ™ç»§ç»­è§£æï¼Œä¸å­˜åœ¨åˆ™è¿”å› null
         AnnotationAttributes attributes = AnnotatedElementUtils.findMergedAnnotationAttributes(
                 element, Transactional.class, false, false);
         if (attributes != null) {
@@ -518,22 +518,22 @@ spring ÓÖÊÇÈçºÎ´Ó·½·¨»òÀàÉÏ»ñÈ¡ `@Transactional` µÄÊôĞÔÄØ£¿¼ÌĞø¿´ÏÂÈ¥£º
     }
 
     /**
-     * ½âÎö Transactional ×¢½âµÄ¾ßÌå²Ù×÷
+     * è§£æ Transactional æ³¨è§£çš„å…·ä½“æ“ä½œ
      */
     protected TransactionAttribute parseTransactionAnnotation(AnnotationAttributes attributes) {
         RuleBasedTransactionAttribute rbta = new RuleBasedTransactionAttribute();
-        // ÊÂÎñµÄ´«²¥·½Ê½
+        // äº‹åŠ¡çš„ä¼ æ’­æ–¹å¼
         Propagation propagation = attributes.getEnum("propagation");
         rbta.setPropagationBehavior(propagation.value());
-        // ÊÂÎñµÄ¸ôÀë¼¶±ğ
+        // äº‹åŠ¡çš„éš”ç¦»çº§åˆ«
         Isolation isolation = attributes.getEnum("isolation");
         rbta.setIsolationLevel(isolation.value());
-        // ÊÂÎñµÄ³¬Ê±Ê±¼ä
+        // äº‹åŠ¡çš„è¶…æ—¶æ—¶é—´
         rbta.setTimeout(attributes.getNumber("timeout").intValue());
-        // ÊÇ·ñÎªÖ»¶Á
+        // æ˜¯å¦ä¸ºåªè¯»
         rbta.setReadOnly(attributes.getBoolean("readOnly"));
         rbta.setQualifier(attributes.getString("value"));
-        // ´¦Àí»Ø¹öÒì³£
+        // å¤„ç†å›æ»šå¼‚å¸¸
         List<RollbackRuleAttribute> rollbackRules = new ArrayList<>();
         for (Class<?> rbRule : attributes.getClassArray("rollbackFor")) {
             rollbackRules.add(new RollbackRuleAttribute(rbRule));
@@ -541,7 +541,7 @@ spring ÓÖÊÇÈçºÎ´Ó·½·¨»òÀàÉÏ»ñÈ¡ `@Transactional` µÄÊôĞÔÄØ£¿¼ÌĞø¿´ÏÂÈ¥£º
         for (String rbRule : attributes.getStringArray("rollbackForClassName")) {
             rollbackRules.add(new RollbackRuleAttribute(rbRule));
         }
-        // ´¦Àí²»»Ø¹öÒì³£
+        // å¤„ç†ä¸å›æ»šå¼‚å¸¸
         for (Class<?> rbRule : attributes.getClassArray("noRollbackFor")) {
             rollbackRules.add(new NoRollbackRuleAttribute(rbRule));
         }
@@ -555,21 +555,21 @@ spring ÓÖÊÇÈçºÎ´Ó·½·¨»òÀàÉÏ»ñÈ¡ `@Transactional` µÄÊôĞÔÄØ£¿¼ÌĞø¿´ÏÂÈ¥£º
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`Transactional` ×¢½âµÄ¸÷ÊôĞÔ½âÎö³ÉÁË `RuleBasedTransactionAttribute`.
+å¯ä»¥çœ‹åˆ°ï¼Œ`Transactional` æ³¨è§£çš„å„å±æ€§è§£ææˆäº† `RuleBasedTransactionAttribute`.
 
-ÖÁ´Ë£¬ÎÒÃÇ¾ÍÃ÷°×ÁË£¬`TransactionAttributeSourcePointcut#matches` ¾ÍÊÇÓÃÀ´ÅĞ¶ÏÀà»ò·½·¨ÉÏÓĞÃ»ÓĞ `Transactional` ×¢½â¡£
+è‡³æ­¤ï¼Œæˆ‘ä»¬å°±æ˜ç™½äº†ï¼Œ`TransactionAttributeSourcePointcut#matches` å°±æ˜¯ç”¨æ¥åˆ¤æ–­ç±»æˆ–æ–¹æ³•ä¸Šæœ‰æ²¡æœ‰ `Transactional` æ³¨è§£ã€‚
 
-#### 1.5 ´úÀí¶ÔÏóµÄ´´½¨
+#### 1.5 ä»£ç†å¯¹è±¡çš„åˆ›å»º
 
-´úÀí¶ÔÏóµÄ´´½¨ÔÚ `AbstractAutoProxyCreator#postProcessAfterInitialization` ·½·¨ÖĞÍê³ÉµÄ£¬Õâ¸öÁ÷³ÌÍ¬ aop Á÷³ÌÕæµÄÊÇÒ»Ä£Ò»Ñù£¬ÕâÀï¾Í²»ÔÙ·ÖÎöÁË£¬ÏëÁË½âµÄĞ¡»ï°é¿É²é¿´ [spring aop Ö® AnnotationAwareAspectJAutoProxyCreator ·ÖÎö£¨ÏÂ£©](https://my.oschina.net/funcy/blog/4687961)¡£
+ä»£ç†å¯¹è±¡çš„åˆ›å»ºåœ¨ `AbstractAutoProxyCreator#postProcessAfterInitialization` æ–¹æ³•ä¸­å®Œæˆçš„ï¼Œè¿™ä¸ªæµç¨‹åŒ aop æµç¨‹çœŸçš„æ˜¯ä¸€æ¨¡ä¸€æ ·ï¼Œè¿™é‡Œå°±ä¸å†åˆ†æäº†ï¼Œæƒ³äº†è§£çš„å°ä¼™ä¼´å¯æŸ¥çœ‹ [spring aop ä¹‹ AnnotationAwareAspectJAutoProxyCreator åˆ†æï¼ˆä¸‹ï¼‰](https://my.oschina.net/funcy/blog/4687961)ã€‚
 
-### 2\. ·½·¨µÄÖ´ĞĞ
+### 2\. æ–¹æ³•çš„æ‰§è¡Œ
 
-·½·¨µÄÖ´ĞĞ·½Ãæ£¬ÊÂÎñÓë aop µÄÖ´ĞĞÁ÷³Ì²¢ÎŞÇø±ğ£¬Ò»ÑùÊÇÍ¨¹ı `Advisor` ÕÒµ½¶ÔÓ¦µÄ `Advice`£¬ÔÙÍ¨¹ı `Advice` ÕÒµ½¶ÔÓ¦µÄ `methodInterceptor`£¬×îÖÕÖ´ĞĞµÄÊÇ `MethodInterceptor#invoke` ·½·¨£¬ÔÚÊÂÎñÕâÀï `MethodInterceptor` Îª `TransactionInterceptor`£¬Õâ¸öÀàÊÇÔÚ `ProxyTransactionManagementConfiguration` ÖĞÍ¨¹ı `@Bean` ×¢½âÒıÈëµÄ¡£
+æ–¹æ³•çš„æ‰§è¡Œæ–¹é¢ï¼Œäº‹åŠ¡ä¸ aop çš„æ‰§è¡Œæµç¨‹å¹¶æ— åŒºåˆ«ï¼Œä¸€æ ·æ˜¯é€šè¿‡ `Advisor` æ‰¾åˆ°å¯¹åº”çš„ `Advice`ï¼Œå†é€šè¿‡ `Advice` æ‰¾åˆ°å¯¹åº”çš„ `methodInterceptor`ï¼Œæœ€ç»ˆæ‰§è¡Œçš„æ˜¯ `MethodInterceptor#invoke` æ–¹æ³•ï¼Œåœ¨äº‹åŠ¡è¿™é‡Œ `MethodInterceptor` ä¸º `TransactionInterceptor`ï¼Œè¿™ä¸ªç±»æ˜¯åœ¨ `ProxyTransactionManagementConfiguration` ä¸­é€šè¿‡ `@Bean` æ³¨è§£å¼•å…¥çš„ã€‚
 
-¹ØÓÚ aop µÄÁ÷³Ì£¬ÎÒÃÇ²¢²»´òËã·ÖÎö£¬Ïà¹Ø·ÖÎöÔÚ [spring aop Ö® jdk ¶¯Ì¬´úÀí](https://my.oschina.net/funcy/blog/4696654) Óë[ spring aop Ö® cglib ´úÀí](https://my.oschina.net/funcy/blog/4696655) ÒÑÓĞÏêÏ¸·ÖÎö£¬¸ĞĞËÈ¤µÄĞ¡»ï°é¿É×ÔĞĞ²éÔÄ£¬ÕâÀïÎÒÃÇÖ±½ÓÀ´¿´ `TransactionInterceptor#invoke` µÄÖ´ĞĞÁ÷³Ì¡£
+å…³äº aop çš„æµç¨‹ï¼Œæˆ‘ä»¬å¹¶ä¸æ‰“ç®—åˆ†æï¼Œç›¸å…³åˆ†æåœ¨ [spring aop ä¹‹ jdk åŠ¨æ€ä»£ç†](https://my.oschina.net/funcy/blog/4696654) ä¸[ spring aop ä¹‹ cglib ä»£ç†](https://my.oschina.net/funcy/blog/4696655) å·²æœ‰è¯¦ç»†åˆ†æï¼Œæ„Ÿå…´è¶£çš„å°ä¼™ä¼´å¯è‡ªè¡ŒæŸ¥é˜…ï¼Œè¿™é‡Œæˆ‘ä»¬ç›´æ¥æ¥çœ‹ `TransactionInterceptor#invoke` çš„æ‰§è¡Œæµç¨‹ã€‚
 
-ÊÂÎñµÄ´¦ÀíµÄÁ÷³ÌÔÚ `TransactionInterceptor#invoke` ·½·¨ÖĞ£º
+äº‹åŠ¡çš„å¤„ç†çš„æµç¨‹åœ¨ `TransactionInterceptor#invoke` æ–¹æ³•ä¸­ï¼š
 
 > TransactionInterceptor#invoke
 
@@ -577,13 +577,13 @@ spring ÓÖÊÇÈçºÎ´Ó·½·¨»òÀàÉÏ»ñÈ¡ `@Transactional` µÄÊôĞÔÄØ£¿¼ÌĞø¿´ÏÂÈ¥£º
 public Object invoke(MethodInvocation invocation) throws Throwable {
     Class<?> targetClass = (invocation.getThis() != null 
         ? AopUtils.getTargetClass(invocation.getThis()) : null);
-    // ¼ÌĞøÍùÏÂ¿´
+    // ç»§ç»­å¾€ä¸‹çœ‹
     return invokeWithinTransaction(invocation.getMethod(), targetClass, invocation::proceed);
 }
 
 ```
 
-ÕæÕıµÄ´¦ÀíÂß¼­ÔÚ `TransactionAspectSupport#invokeWithinTransaction` ·½·¨ÖĞ£º
+çœŸæ­£çš„å¤„ç†é€»è¾‘åœ¨ `TransactionAspectSupport#invokeWithinTransaction` æ–¹æ³•ä¸­ï¼š
 
 > TransactionAspectSupport#invokeWithinTransaction
 
@@ -591,35 +591,35 @@ public Object invoke(MethodInvocation invocation) throws Throwable {
 protected Object invokeWithinTransaction(Method method, @Nullable Class<?> targetClass,
         final InvocationCallback invocation) throws Throwable {
     TransactionAttributeSource tas = getTransactionAttributeSource();
-    // »ñÈ¡@TransactionalµÄÊôĞÔÅäÖÃ
+    // è·å–@Transactionalçš„å±æ€§é…ç½®
     final TransactionAttribute txAttr = (tas != null 
         ? tas.getTransactionAttribute(method, targetClass) : null);
-    // »ñÈ¡ÊÂÎñ¹ÜÀíÆ÷£¨IOCÈİÆ÷ÖĞ»ñÈ¡£©
+    // è·å–äº‹åŠ¡ç®¡ç†å™¨ï¼ˆIOCå®¹å™¨ä¸­è·å–ï¼‰
     final TransactionManager tm = determineTransactionManager(txAttr);
 
-    // Ê¡ÂÔ ReactiveTransactionManager µÄ´¦Àí
+    // çœç•¥ ReactiveTransactionManager çš„å¤„ç†
     ...
 
     PlatformTransactionManager ptm = asPlatformTransactionManager(tm);
-    // »ñÈ¡·½·¨µÄÈ«ÏŞ¶¨Ãû£¬¸ñÊ½Îª£º"°üÃû.ÀàĞÍ.·½·¨Ãû"
+    // è·å–æ–¹æ³•çš„å…¨é™å®šåï¼Œæ ¼å¼ä¸ºï¼š"åŒ…å.ç±»å‹.æ–¹æ³•å"
     final String joinpointIdentification = methodIdentification(method, targetClass, txAttr);
 
-    // ÊÂÎñµÄ´¦ÀíÂß¼­£¬ÕâÒ²ÊÇÎÒÃÇ½ÓÏÂÀ´Ö÷Òª·ÖÎöµÄµØ·½
+    // äº‹åŠ¡çš„å¤„ç†é€»è¾‘ï¼Œè¿™ä¹Ÿæ˜¯æˆ‘ä»¬æ¥ä¸‹æ¥ä¸»è¦åˆ†æçš„åœ°æ–¹
     if (txAttr == null || !(ptm instanceof CallbackPreferringPlatformTransactionManager)) {
-        // 1\. ¿ªÆôÊÂÎñ
+        // 1\. å¼€å¯äº‹åŠ¡
         TransactionInfo txInfo = createTransactionIfNecessary(ptm, txAttr, joinpointIdentification);
         Object retVal;
         try {
-            // 2\. Ö´ĞĞ¾ßÌåµÄÒµÎñ
+            // 2\. æ‰§è¡Œå…·ä½“çš„ä¸šåŠ¡
             retVal = invocation.proceedWithInvocation();
         }
         catch (Throwable ex) {
-            // 3\. Òì³£»Ø¹ö
+            // 3\. å¼‚å¸¸å›æ»š
             completeTransactionAfterThrowing(txInfo, ex);
             throw ex;
         }
         finally {
-            // ÖØÖÃÊÂÎñĞÅÏ¢
+            // é‡ç½®äº‹åŠ¡ä¿¡æ¯
             cleanupTransactionInfo(txInfo);
         }
         if (vavrPresent && VavrDelegate.isVavrTry(retVal)) {
@@ -628,37 +628,37 @@ protected Object invokeWithinTransaction(Method method, @Nullable Class<?> targe
                 retVal = VavrDelegate.evaluateTryFailure(retVal, txAttr, status);
             }
         }
-        // 4\. Ìá½»ÊÂÎñ£¬´úÂëÖĞ»áÅĞ¶ÏÊÇ·ñÄÜÖ§³Ö
+        // 4\. æäº¤äº‹åŠ¡ï¼Œä»£ç ä¸­ä¼šåˆ¤æ–­æ˜¯å¦èƒ½æ”¯æŒ
         commitTransactionAfterReturning(txInfo);
         return retVal;
     }
     else {
-        // Ê¡ÂÔÆäËû
+        // çœç•¥å…¶ä»–
         ...
     }
 }
 
 ```
 
-ÒÔÉÏ·½·¨¾ÍÊÇÊÂÎñµÄÈ«²¿Á÷³ÌÁË£¬²½ÖèÈçÏÂ£º
+ä»¥ä¸Šæ–¹æ³•å°±æ˜¯äº‹åŠ¡çš„å…¨éƒ¨æµç¨‹äº†ï¼Œæ­¥éª¤å¦‚ä¸‹ï¼š
 
-1.  ¿ªÆôÊÂÎñ
-2.  Ö´ĞĞÒµÎñ´úÂë
-3.  Òì³£»Ø¹ö
-4.  Ìá½»ÊÂÎñ
+1.  å¼€å¯äº‹åŠ¡
+2.  æ‰§è¡Œä¸šåŠ¡ä»£ç 
+3.  å¼‚å¸¸å›æ»š
+4.  æäº¤äº‹åŠ¡
 
-¹ØÓÚÊÂÎñµÄ¾ßÌå·ÖÎö£¬ÎÒÃÇ½«ÔÚÏÂÒ»ÆªÎÄÕÂ·ÖÎö£¬±¾ÎÄÖ»ĞèÒª¶ÔÊÂÎñµÄ´¦ÀíÁ÷³ÌÓĞ´óÖÂÁË½â¼´¿É¡£
+å…³äºäº‹åŠ¡çš„å…·ä½“åˆ†æï¼Œæˆ‘ä»¬å°†åœ¨ä¸‹ä¸€ç¯‡æ–‡ç« åˆ†æï¼Œæœ¬æ–‡åªéœ€è¦å¯¹äº‹åŠ¡çš„å¤„ç†æµç¨‹æœ‰å¤§è‡´äº†è§£å³å¯ã€‚
 
-### 3\. ×Ü½á
+### 3\. æ€»ç»“
 
-±¾ÎÄÖ÷Òª·ÖÎöÁËÊÂÎñÖĞ´úÀí¶ÔÏóµÄ´´½¨¼°Ö´ĞĞÁ÷³Ì£¬Êµ¼ÊÉÏÕâĞ©²½ÖèÍ¬ aop »ù±¾Ò»ÖÂ£¬±¾ÎÄ×ÅÖØ·ÖÎöÁËÓë aop ²»Í¬µÄ²¿·Ö£º
+æœ¬æ–‡ä¸»è¦åˆ†æäº†äº‹åŠ¡ä¸­ä»£ç†å¯¹è±¡çš„åˆ›å»ºåŠæ‰§è¡Œæµç¨‹ï¼Œå®é™…ä¸Šè¿™äº›æ­¥éª¤åŒ aop åŸºæœ¬ä¸€è‡´ï¼Œæœ¬æ–‡ç€é‡åˆ†æäº†ä¸ aop ä¸åŒçš„éƒ¨åˆ†ï¼š
 
-*   ÔÚ´úÀí¶ÔÏóµÄ´´½¨·½Ãæ£¬·ÖÎöÁËÈçºÎÅĞ¶Ïµ±Ç°·½·¨ÄÜ·ñÊ¹ÓÃ `BeanFactoryTransactionAttributeSourceAdvisor`£¬ÖØµã·ÖÎöÁË `TransactionAttributeSourceClassFilter#matches` Óë `TransactionAttributeSourcePointcut#matches` ·½·¨£¬ÕâÊÇÅĞ¶ÏµÄºËĞÄËùÔÚ£»
+*   åœ¨ä»£ç†å¯¹è±¡çš„åˆ›å»ºæ–¹é¢ï¼Œåˆ†æäº†å¦‚ä½•åˆ¤æ–­å½“å‰æ–¹æ³•èƒ½å¦ä½¿ç”¨ `BeanFactoryTransactionAttributeSourceAdvisor`ï¼Œé‡ç‚¹åˆ†æäº† `TransactionAttributeSourceClassFilter#matches` ä¸ `TransactionAttributeSourcePointcut#matches` æ–¹æ³•ï¼Œè¿™æ˜¯åˆ¤æ–­çš„æ ¸å¿ƒæ‰€åœ¨ï¼›
 
-*   ÔÚ·½·¨µÄÖ´ĞĞÉÏµÄ£¬´ÖÂÔ·ÖÎöÁË `TransactionInterceptor#invoke` µÄÖ´ĞĞÁ÷³Ì£¬ÕâĞ©ÊÂÎñµÄ¿ªÆô¡¢Ìá½»¡¢Òì³£»Ø¹öµÈÁ÷³Ì¸úÎÒÃÇÆ½³£Ê¹ÓÃµÄ²î±ğ²»´ó£¬²»¹ıÀïÃæµÄ¾ßÌåÏ¸½ÚÎÒÃÇ²¢Ã»ÓĞ·ÖÎö¡£
+*   åœ¨æ–¹æ³•çš„æ‰§è¡Œä¸Šçš„ï¼Œç²—ç•¥åˆ†æäº† `TransactionInterceptor#invoke` çš„æ‰§è¡Œæµç¨‹ï¼Œè¿™äº›äº‹åŠ¡çš„å¼€å¯ã€æäº¤ã€å¼‚å¸¸å›æ»šç­‰æµç¨‹è·Ÿæˆ‘ä»¬å¹³å¸¸ä½¿ç”¨çš„å·®åˆ«ä¸å¤§ï¼Œä¸è¿‡é‡Œé¢çš„å…·ä½“ç»†èŠ‚æˆ‘ä»¬å¹¶æ²¡æœ‰åˆ†æã€‚
 
-±¾ÎÄÖØµãÊÇ´úÀí¶ÔÏóµÄ´´½¨¼°Ö´ĞĞÁ÷³Ì£¬ÊÂÎñÖ´ĞĞµÄ¾ßÌåÏ¸½ÚÎÒÃÇÏÂÆªÔÙ·ÖÎö¡£
+æœ¬æ–‡é‡ç‚¹æ˜¯ä»£ç†å¯¹è±¡çš„åˆ›å»ºåŠæ‰§è¡Œæµç¨‹ï¼Œäº‹åŠ¡æ‰§è¡Œçš„å…·ä½“ç»†èŠ‚æˆ‘ä»¬ä¸‹ç¯‡å†åˆ†æã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4773457](https://my.oschina.net/funcy/blog/4773457) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4773457](https://my.oschina.net/funcy/blog/4773457) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

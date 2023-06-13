@@ -1,24 +1,24 @@
-Æ½Ê±¹¤×÷ÖĞ£¬springboot ¾ø´ó¶àÊıÇé¿öÏÂÔËĞĞµÄÊÇ web ÏîÄ¿£¬±¾ÎÄ½«·ÖÎö springboot ×Ô¶¯ springMvc ÏîÄ¿µÄÁ÷³Ì¡£
+å¹³æ—¶å·¥ä½œä¸­ï¼Œspringboot ç»å¤§å¤šæ•°æƒ…å†µä¸‹è¿è¡Œçš„æ˜¯ web é¡¹ç›®ï¼Œæœ¬æ–‡å°†åˆ†æ springboot è‡ªåŠ¨ springMvc é¡¹ç›®çš„æµç¨‹ã€‚
 
-### 1\. springMvc µÄ×Ô¶¯×°ÅäÀà
+### 1\. springMvc çš„è‡ªåŠ¨è£…é…ç±»
 
-springMvc µÄ×Ô¶¯×°ÅäÀàÎª
+springMvc çš„è‡ªåŠ¨è£…é…ç±»ä¸º
 
 ```
 @Configuration(proxyBeanMethods = false)
-// ¼¸¸ö×°ÅäÌõ¼ş
+// å‡ ä¸ªè£…é…æ¡ä»¶
 @ConditionalOnWebApplication(type = Type.SERVLET)
 @ConditionalOnClass({ Servlet.class, DispatcherServlet.class, WebMvcConfigurer.class })
-// Èç¹ûÃ»ÓĞ×Ô¶¨ÒåWebMvcµÄÅäÖÃÀà£¬ÔòÊ¹ÓÃ±¾ÅäÖÃ
+// å¦‚æœæ²¡æœ‰è‡ªå®šä¹‰WebMvcçš„é…ç½®ç±»ï¼Œåˆ™ä½¿ç”¨æœ¬é…ç½®
 @ConditionalOnMissingBean(WebMvcConfigurationSupport.class)
-// ×°ÅäË³Ğò
+// è£…é…é¡ºåº
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE + 10)
 @AutoConfigureAfter({ 
-        // DispatcherServlet µÄ×Ô¶¯×°Åä
+        // DispatcherServlet çš„è‡ªåŠ¨è£…é…
         DispatcherServletAutoConfiguration.class, 
-        // Ïß³Ì³ØµÄ×Ô¶¯×°Åä
+        // çº¿ç¨‹æ± çš„è‡ªåŠ¨è£…é…
         TaskExecutionAutoConfiguration.class,
-        // jsr 303 ÑéÖ¤¿ò¼ÜµÄ×Ô¶¯×°Åä
+        // jsr 303 éªŒè¯æ¡†æ¶çš„è‡ªåŠ¨è£…é…
         ValidationAutoConfiguration.class })
 public class WebMvcAutoConfiguration {
     ...
@@ -26,20 +26,20 @@ public class WebMvcAutoConfiguration {
 
 ```
 
-´ÓÉÏÃæµÄ `@AutoConfigureAfter` ×¢½âÖĞ£¬`WebMvcAutoConfiguration` ĞèÒªÔÚ `DispatcherServletAutoConfiguration`¡¢`TaskExecutionAutoConfiguration`¡¢`ValidationAutoConfiguration` µÈÀà×°ÅäÍê³ÉÖ®ºóÔÙ×°Åä£¬¶ÔÕâĞ©ÀàµÄ×÷ÓÃÁĞ¾ÙÈçÏÂ£º
+ä»ä¸Šé¢çš„ `@AutoConfigureAfter` æ³¨è§£ä¸­ï¼Œ`WebMvcAutoConfiguration` éœ€è¦åœ¨ `DispatcherServletAutoConfiguration`ã€`TaskExecutionAutoConfiguration`ã€`ValidationAutoConfiguration` ç­‰ç±»è£…é…å®Œæˆä¹‹åå†è£…é…ï¼Œå¯¹è¿™äº›ç±»çš„ä½œç”¨åˆ—ä¸¾å¦‚ä¸‹ï¼š
 
-*   `DispatcherServletAutoConfiguration`£º`DispatcherServlet` ×Ô¶¯×°Åä
-*   `TaskExecutionAutoConfiguration`£ºÈÎÎñÖ´ĞĞÆ÷£¬ÆäÊµ¾ÍÊÇ´´½¨ÁËÒ»¸öÏß³Ì³Ø
-*   `ValidationAutoConfiguration`£ºjsr 303 ÑéÖ¤Æ÷µÄ×Ô¶¯×°Åä£¬ÑéÖ¤Æ÷ÓÃÀ´´¦Àí `@NotNull`¡¢`@NotEmpty` µÈ×¢½âµÄÑéÖ¤¹¦ÄÜ
+*   `DispatcherServletAutoConfiguration`ï¼š`DispatcherServlet` è‡ªåŠ¨è£…é…
+*   `TaskExecutionAutoConfiguration`ï¼šä»»åŠ¡æ‰§è¡Œå™¨ï¼Œå…¶å®å°±æ˜¯åˆ›å»ºäº†ä¸€ä¸ªçº¿ç¨‹æ± 
+*   `ValidationAutoConfiguration`ï¼šjsr 303 éªŒè¯å™¨çš„è‡ªåŠ¨è£…é…ï¼ŒéªŒè¯å™¨ç”¨æ¥å¤„ç† `@NotNull`ã€`@NotEmpty` ç­‰æ³¨è§£çš„éªŒè¯åŠŸèƒ½
 
-Õâ 3 ¸öÀàÖĞ£¬Óë springMvc ÓĞ¹ØµÄÖ»ÓĞ `DispatcherServletAutoConfiguration`£¬ÎÒÃÇÀ´ÈÏÊ¶Ò»ÏÂËü£º
+è¿™ 3 ä¸ªç±»ä¸­ï¼Œä¸ springMvc æœ‰å…³çš„åªæœ‰ `DispatcherServletAutoConfiguration`ï¼Œæˆ‘ä»¬æ¥è®¤è¯†ä¸€ä¸‹å®ƒï¼š
 
 ```
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnWebApplication(type = Type.SERVLET)
 @ConditionalOnClass(DispatcherServlet.class)
-// ĞèÒªÔÚ ServletWebServerFactoryAutoConfiguration ×Ô¶¯×°ÅäÍê³Éºó´¦Àí
+// éœ€è¦åœ¨ ServletWebServerFactoryAutoConfiguration è‡ªåŠ¨è£…é…å®Œæˆåå¤„ç†
 @AutoConfigureAfter(ServletWebServerFactoryAutoConfiguration.class)
 public class DispatcherServletAutoConfiguration {
     ...
@@ -47,7 +47,7 @@ public class DispatcherServletAutoConfiguration {
 
 ```
 
-`DispatcherServletAutoConfiguration` ĞèÒªµÈ `ServletWebServerFactoryAutoConfiguration` ×Ô¶¯×°ÅäÍê³É²Å½øĞĞ×°Åä£¬Õâ¸öÀàÊÇ×öÊ²Ã´µÄÄØ£¿¾çÍ¸ÏÂ£¬ËüÊÇ´¦Àí servlet ÈİÆ÷£¨`tomcat`, `jetty`, `undertow` µÈ£©µÄÉú³ÉµÄ£¬ÎÒÃÇÔÙÀ´¿´¿´ `ServletWebServerFactoryAutoConfiguration`£º
+`DispatcherServletAutoConfiguration` éœ€è¦ç­‰ `ServletWebServerFactoryAutoConfiguration` è‡ªåŠ¨è£…é…å®Œæˆæ‰è¿›è¡Œè£…é…ï¼Œè¿™ä¸ªç±»æ˜¯åšä»€ä¹ˆçš„å‘¢ï¼Ÿå‰§é€ä¸‹ï¼Œå®ƒæ˜¯å¤„ç† servlet å®¹å™¨ï¼ˆ`tomcat`, `jetty`, `undertow` ç­‰ï¼‰çš„ç”Ÿæˆçš„ï¼Œæˆ‘ä»¬å†æ¥çœ‹çœ‹ `ServletWebServerFactoryAutoConfiguration`ï¼š
 
 ```
 @Configuration(proxyBeanMethods = false)
@@ -55,9 +55,9 @@ public class DispatcherServletAutoConfiguration {
 @ConditionalOnClass(ServletRequest.class)
 @ConditionalOnWebApplication(type = Type.SERVLET)
 @EnableConfigurationProperties(ServerProperties.class)
-// ÒıÈëÁËÒ»Ğ©Àà
+// å¼•å…¥äº†ä¸€äº›ç±»
 @Import({ ServletWebServerFactoryAutoConfiguration.BeanPostProcessorsRegistrar.class,
-        // 3¸ö web ÈİÆ÷
+        // 3ä¸ª web å®¹å™¨
         ServletWebServerFactoryConfiguration.EmbeddedTomcat.class,
         ServletWebServerFactoryConfiguration.EmbeddedJetty.class,
         ServletWebServerFactoryConfiguration.EmbeddedUndertow.class })
@@ -67,19 +67,19 @@ public class ServletWebServerFactoryAutoConfiguration {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬Õâ¸öÀàÖĞ×ÜËãÊÇÃ»ÓĞ `@AutoConfigureAfter` ×¢½âÁË£¬Òò´ËÕâ¸öÀà springMvc ¾ÍÊÇ×î³õ×Ô¶¯×°ÅäµÄÀà£¬ÎÒÃÇµÄ·ÖÎö¾Í´ÓÕâ¸öÀà¿ªÊ¼¡£
+å¯ä»¥çœ‹åˆ°ï¼Œè¿™ä¸ªç±»ä¸­æ€»ç®—æ˜¯æ²¡æœ‰ `@AutoConfigureAfter` æ³¨è§£äº†ï¼Œå› æ­¤è¿™ä¸ªç±» springMvc å°±æ˜¯æœ€åˆè‡ªåŠ¨è£…é…çš„ç±»ï¼Œæˆ‘ä»¬çš„åˆ†æå°±ä»è¿™ä¸ªç±»å¼€å§‹ã€‚
 
-×Ü½áÏÂÒÔÉÏ¼¸¸öÀàµÄ×°ÅäË³Ğò£º
+æ€»ç»“ä¸‹ä»¥ä¸Šå‡ ä¸ªç±»çš„è£…é…é¡ºåºï¼š
 
 1.  `ServletWebServerFactoryAutoConfiguration`
 2.  `DispatcherServletAutoConfiguration`
 3.  `WebMvcAutoConfiguration`
 
-½ÓÏÂÀ´ÎÒÃÇµÄ·ÖÎöÒ²°´ÕâÑùµÄË³Ğò£¬ÖğÒ»·ÖÎöÕâĞ©×Ô¶¯×°ÅäÀà¡£
+æ¥ä¸‹æ¥æˆ‘ä»¬çš„åˆ†æä¹ŸæŒ‰è¿™æ ·çš„é¡ºåºï¼Œé€ä¸€åˆ†æè¿™äº›è‡ªåŠ¨è£…é…ç±»ã€‚
 
-### 2. `ServletWebServerFactoryAutoConfiguration` µÄ×Ô¶¯×°Åä
+### 2. `ServletWebServerFactoryAutoConfiguration` çš„è‡ªåŠ¨è£…é…
 
-`ServletWebServerFactoryAutoConfiguration` ÀàÈçÏÂ£º
+`ServletWebServerFactoryAutoConfiguration` ç±»å¦‚ä¸‹ï¼š
 
 ```
 @Configuration(proxyBeanMethods = false)
@@ -87,9 +87,9 @@ public class ServletWebServerFactoryAutoConfiguration {
 @ConditionalOnClass(ServletRequest.class)
 @ConditionalOnWebApplication(type = Type.SERVLET)
 @EnableConfigurationProperties(ServerProperties.class)
-// ÒıÈëÁËÒ»Ğ©Àà
+// å¼•å…¥äº†ä¸€äº›ç±»
 @Import({ ServletWebServerFactoryAutoConfiguration.BeanPostProcessorsRegistrar.class,
-        // 3¸ö web ÈİÆ÷
+        // 3ä¸ª web å®¹å™¨
         ServletWebServerFactoryConfiguration.EmbeddedTomcat.class,
         ServletWebServerFactoryConfiguration.EmbeddedJetty.class,
         ServletWebServerFactoryConfiguration.EmbeddedUndertow.class })
@@ -99,11 +99,11 @@ public class ServletWebServerFactoryAutoConfiguration {
 
 ```
 
-Õâ¸öÀàÒıÈëÁË `BeanPostProcessorsRegistrar`¡¢`EmbeddedTomcat`¡¢`EmbeddedJetty`¡¢`EmbeddedUndertow`£¬ÎÒÃÇÀ´ÖğÒ»·ÖÎö°É£¡
+è¿™ä¸ªç±»å¼•å…¥äº† `BeanPostProcessorsRegistrar`ã€`EmbeddedTomcat`ã€`EmbeddedJetty`ã€`EmbeddedUndertow`ï¼Œæˆ‘ä»¬æ¥é€ä¸€åˆ†æå§ï¼
 
 #### 2.1 `BeanPostProcessorsRegistrar`
 
-`BeanPostProcessorsRegistrar` ÊÇ `ServletWebServerFactoryAutoConfiguration` µÄÄÚ²¿Àà£¬´úÂëÈçÏÂ£º
+`BeanPostProcessorsRegistrar` æ˜¯ `ServletWebServerFactoryAutoConfiguration` çš„å†…éƒ¨ç±»ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public static class BeanPostProcessorsRegistrar 
@@ -112,7 +112,7 @@ public static class BeanPostProcessorsRegistrar
     ...
 
     /**
-     * À´×Ô ImportBeanDefinitionRegistrar µÄ·½·¨
+     * æ¥è‡ª ImportBeanDefinitionRegistrar çš„æ–¹æ³•
      */
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata,
@@ -120,7 +120,7 @@ public static class BeanPostProcessorsRegistrar
         if (this.beanFactory == null) {
             return;
         }
-        // ×¢²á×é¼ş
+        // æ³¨å†Œç»„ä»¶
         registerSyntheticBeanIfMissing(registry, "webServerFactoryCustomizerBeanPostProcessor",
                 WebServerFactoryCustomizerBeanPostProcessor.class);
         registerSyntheticBeanIfMissing(registry, "errorPageRegistrarBeanPostProcessor",
@@ -128,7 +128,7 @@ public static class BeanPostProcessorsRegistrar
     }
 
     /**
-     * ¾ßÌåµÄ×¢²á²Ù×÷
+     * å…·ä½“çš„æ³¨å†Œæ“ä½œ
      */
     private void registerSyntheticBeanIfMissing(BeanDefinitionRegistry registry, 
             String name, Class<?> beanClass) {
@@ -142,11 +142,11 @@ public static class BeanPostProcessorsRegistrar
 
 ```
 
-Õâ¸öÀàÖ÷ÒªÊÇÏò spring ÈİÆ÷ÖĞ×¢²áÁËÁ½¸öÀà£º`WebServerFactoryCustomizerBeanPostProcessor`¡¢`ErrorPageRegistrarBeanPostProcessor`£¬ÎÒÃÇÀ´¿´ÏÂËüÃÇ·Ö±ğÊÇ¸öÉ¶¡£
+è¿™ä¸ªç±»ä¸»è¦æ˜¯å‘ spring å®¹å™¨ä¸­æ³¨å†Œäº†ä¸¤ä¸ªç±»ï¼š`WebServerFactoryCustomizerBeanPostProcessor`ã€`ErrorPageRegistrarBeanPostProcessor`ï¼Œæˆ‘ä»¬æ¥çœ‹ä¸‹å®ƒä»¬åˆ†åˆ«æ˜¯ä¸ªå•¥ã€‚
 
 ##### 1. `WebServerFactoryCustomizerBeanPostProcessor`
 
-`WebServerFactoryCustomizerBeanPostProcessor` µÄ´úÂëÈçÏÂ£º
+`WebServerFactoryCustomizerBeanPostProcessor` çš„ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public class WebServerFactoryCustomizerBeanPostProcessor 
@@ -157,7 +157,7 @@ public class WebServerFactoryCustomizerBeanPostProcessor
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) 
             throws BeansException {
-        // bean µÄÀàĞÍÊÇ WebServerFactory ²Å´¦Àí
+        // bean çš„ç±»å‹æ˜¯ WebServerFactory æ‰å¤„ç†
         if (bean instanceof WebServerFactory) {
             postProcessBeforeInitialization((WebServerFactory) bean);
         }
@@ -168,12 +168,12 @@ public class WebServerFactoryCustomizerBeanPostProcessor
     private void postProcessBeforeInitialization(WebServerFactory webServerFactory) {
         LambdaSafe.callbacks(WebServerFactoryCustomizer.class, getCustomizers(), webServerFactory)
                 .withLogger(WebServerFactoryCustomizerBeanPostProcessor.class)
-                // ´¦ÀíÅäÖÃ
+                // å¤„ç†é…ç½®
                 .invoke((customizer) -> customizer.customize(webServerFactory));
     }
 
     /**
-     * »ñÈ¡ WebServerFactoryCustomizer£¬µÃµ½µÄÊÇÒ»¸ö²»¿É±äµÄ List
+     * è·å– WebServerFactoryCustomizerï¼Œå¾—åˆ°çš„æ˜¯ä¸€ä¸ªä¸å¯å˜çš„ List
      */
     private Collection<WebServerFactoryCustomizer<?>> getCustomizers() {
         if (this.customizers == null) {
@@ -185,7 +185,7 @@ public class WebServerFactoryCustomizerBeanPostProcessor
     }
 
     /**
-     * »ñÈ¡ beanFactory ÖĞËùÓĞµÄ WebServerFactoryCustomizer
+     * è·å– beanFactory ä¸­æ‰€æœ‰çš„ WebServerFactoryCustomizer
      */
     private Collection<WebServerFactoryCustomizer<?>> getWebServerFactoryCustomizerBeans() {
         return (Collection) this.beanFactory.getBeansOfType(
@@ -196,11 +196,11 @@ public class WebServerFactoryCustomizerBeanPostProcessor
 
 ```
 
-Õâ¸öÀàÊÇÓÃÀ´´¦Àí `WebServerFactory` µÄ×Ô¶¨ÒåÅäÖÃµÄ£¬ËüÊµÏÖÁË `BeanPostProcessor`£¬ ÎÒÃÇÖ÷Òª¹Ø×¢ËüµÄ `postProcessBeforeInitialization(...)` ·½·¨¡£
+è¿™ä¸ªç±»æ˜¯ç”¨æ¥å¤„ç† `WebServerFactory` çš„è‡ªå®šä¹‰é…ç½®çš„ï¼Œå®ƒå®ç°äº† `BeanPostProcessor`ï¼Œ æˆ‘ä»¬ä¸»è¦å…³æ³¨å®ƒçš„ `postProcessBeforeInitialization(...)` æ–¹æ³•ã€‚
 
-ÔÚ `WebServerFactoryCustomizerBeanPostProcessor` µÄ `postProcessBeforeInitialization(...)` ·½·¨ÖĞ£¬Èç¹ûµ±Ç° bean µÄÀàĞÍÊÇ `WebServerFactory`£¬»áÏÈ»ñÈ¡ `beanFactory` ÖĞËùÓĞÀàĞÍÎª `WebServerFactoryCustomizer` µÄ bean£¬È»ºó½«ÕâĞ© `WebServerFactoryCustomizer` ÅäÖÃµ½ `WebServerFactory`bean ÖĞ¡£
+åœ¨ `WebServerFactoryCustomizerBeanPostProcessor` çš„ `postProcessBeforeInitialization(...)` æ–¹æ³•ä¸­ï¼Œå¦‚æœå½“å‰ bean çš„ç±»å‹æ˜¯ `WebServerFactory`ï¼Œä¼šå…ˆè·å– `beanFactory` ä¸­æ‰€æœ‰ç±»å‹ä¸º `WebServerFactoryCustomizer` çš„ beanï¼Œç„¶åå°†è¿™äº› `WebServerFactoryCustomizer` é…ç½®åˆ° `WebServerFactory`bean ä¸­ã€‚
 
-Èç¹ûÎÒÃÇÒª×Ô¶¨Òå `Tomcat` µÄÅäÖÃ£¬¿ÉÒÔÕâÑù´¦Àí£º
+å¦‚æœæˆ‘ä»¬è¦è‡ªå®šä¹‰ `Tomcat` çš„é…ç½®ï¼Œå¯ä»¥è¿™æ ·å¤„ç†ï¼š
 
 ```
 @Component
@@ -210,7 +210,7 @@ public class MyCustomizer implements WebServerFactoryCustomizer<TomcatServletWeb
     public void customize(TomcatServletWebServerFactory factory) {
         factory.setPort(8091);
         factory.setContextPath("/");
-        // ÉèÖÃÆäËûÅäÖÃ
+        // è®¾ç½®å…¶ä»–é…ç½®
         ...
     }
 
@@ -218,7 +218,7 @@ public class MyCustomizer implements WebServerFactoryCustomizer<TomcatServletWeb
 
 ```
 
-ÔÚ `ServletWebServerFactoryAutoConfiguration` ÖĞÌá¹©ÁËÁ½¸ö `WebServerFactoryCustomizer`:
+åœ¨ `ServletWebServerFactoryAutoConfiguration` ä¸­æä¾›äº†ä¸¤ä¸ª `WebServerFactoryCustomizer`:
 
 ```
 public class ServletWebServerFactoryAutoConfiguration {
@@ -242,7 +242,7 @@ public class ServletWebServerFactoryAutoConfiguration {
 
 ```
 
-´Ó·½·¨²ÎÊıÀ´¿´£¬ÕâÁ½¸öÀàµÄÅäÖÃ¶¼À´×ÔÓÚ `ServerProperties`£º
+ä»æ–¹æ³•å‚æ•°æ¥çœ‹ï¼Œè¿™ä¸¤ä¸ªç±»çš„é…ç½®éƒ½æ¥è‡ªäº `ServerProperties`ï¼š
 
 ```
 @ConfigurationProperties(prefix = "server", ignoreUnknownFields = true)
@@ -252,34 +252,34 @@ public class ServerProperties {
 
 ```
 
-ËüÉÏÃæÁË `ConfigurationProperties` ×¢½â£¬`prefix` Îª "server"£¬Õâ±íÃ÷ËüµÄÅäÖÃ¶¼ÊÇÒÔ `server` ¿ªÍ·£¬Ö§³ÖµÄÅäÖÃÈçÏÂ£º
+å®ƒä¸Šé¢äº† `ConfigurationProperties` æ³¨è§£ï¼Œ`prefix` ä¸º "server"ï¼Œè¿™è¡¨æ˜å®ƒçš„é…ç½®éƒ½æ˜¯ä»¥ `server` å¼€å¤´ï¼Œæ”¯æŒçš„é…ç½®å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-586d95875e2eeefd295643c3e6acf0091e1.png)
 
-ÀıÈç£¬ÎÒÃÇÒªÅäÖÃËüµÄ¶Ë¿Ú£¬Ö»ĞèÔÚ `application.properties` ÖĞÕâÑùÅäÖÃ¼´¿É£º
+ä¾‹å¦‚ï¼Œæˆ‘ä»¬è¦é…ç½®å®ƒçš„ç«¯å£ï¼Œåªéœ€åœ¨ `application.properties` ä¸­è¿™æ ·é…ç½®å³å¯ï¼š
 
 ```
 server.port=8080
 
 ```
 
-ÖÁÓÚÆäËûÅäÖÃ£¬ÕâÀï¾Í²»¶à×÷·ÖÎöÁË¡£
+è‡³äºå…¶ä»–é…ç½®ï¼Œè¿™é‡Œå°±ä¸å¤šä½œåˆ†æäº†ã€‚
 
 ##### 2. `ErrorPageRegistrarBeanPostProcessor`
 
-`ErrorPageRegistrarBeanPostProcessor` µÄ´úÂëÈçÏÂ£º
+`ErrorPageRegistrarBeanPostProcessor` çš„ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public class ErrorPageRegistrarBeanPostProcessor implements BeanPostProcessor, BeanFactoryAware {
 
     /**
-     * À´×ÔBeanPostProcessorµÄ·½·¨£¬ÔÚbean³õÊ¼»¯Ç°Ö´ĞĞ
+     * æ¥è‡ªBeanPostProcessorçš„æ–¹æ³•ï¼Œåœ¨beanåˆå§‹åŒ–å‰æ‰§è¡Œ
      */
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) 
             throws BeansException {
         if (bean instanceof ErrorPageRegistry) {
-            // Èç¹û bean ÊÇ ErrorPageRegistry
+            // å¦‚æœ bean æ˜¯ ErrorPageRegistry
             postProcessBeforeInitialization((ErrorPageRegistry) bean);
         }
         return bean;
@@ -287,14 +287,14 @@ public class ErrorPageRegistrarBeanPostProcessor implements BeanPostProcessor, B
 
     private void postProcessBeforeInitialization(ErrorPageRegistry registry) {
         for (ErrorPageRegistrar registrar : getRegistrars()) {
-            // ×¢²á´íÎóÒ³
+            // æ³¨å†Œé”™è¯¯é¡µ
             registrar.registerErrorPages(registry);
         }
     }
 
     private Collection<ErrorPageRegistrar> getRegistrars() {
         if (this.registrars == null) {
-            // »ñÈ¡ËùÓĞµÄ´íÎóÒ³
+            // è·å–æ‰€æœ‰çš„é”™è¯¯é¡µ
             this.registrars = new ArrayList<>(this.beanFactory.getBeansOfType(
                     ErrorPageRegistrar.class, false, false).values());
             this.registrars.sort(AnnotationAwareOrderComparator.INSTANCE);
@@ -308,29 +308,29 @@ public class ErrorPageRegistrarBeanPostProcessor implements BeanPostProcessor, B
 
 ```
 
-ÎÒÃÇÖ÷Òª¹Ø×¢ `postProcessBeforeInitialization` µÄÁ÷³Ì£º
+æˆ‘ä»¬ä¸»è¦å…³æ³¨ `postProcessBeforeInitialization` çš„æµç¨‹ï¼š
 
-1.  Èç¹û bean µÄÀàĞÍÊÇ `ErrorPageRegistry`£¬½øĞĞµÚ 2 ²½
-2.  »ñÈ¡ beanFactory ÖĞËùÓĞ `ErrorPageRegistrar` ÀàĞÍµÄ bean£¬±éÀú½øĞĞµÚ 3 ²½
-3.  µ÷ÓÃ `registrar.registerErrorPages(registry)` ½øĞĞ´íÎóÒ³²Ù×÷
+1.  å¦‚æœ bean çš„ç±»å‹æ˜¯ `ErrorPageRegistry`ï¼Œè¿›è¡Œç¬¬ 2 æ­¥
+2.  è·å– beanFactory ä¸­æ‰€æœ‰ `ErrorPageRegistrar` ç±»å‹çš„ beanï¼Œéå†è¿›è¡Œç¬¬ 3 æ­¥
+3.  è°ƒç”¨ `registrar.registerErrorPages(registry)` è¿›è¡Œé”™è¯¯é¡µæ“ä½œ
 
-ÕâÀïÓĞÁ½¸öÀàĞèÒªËµÃ÷£º
+è¿™é‡Œæœ‰ä¸¤ä¸ªç±»éœ€è¦è¯´æ˜ï¼š
 
-*   `ErrorPageRegistrar`£º´íÎóÒ³×¢²áÆ÷£¨ÈÃ `ErrorPageRegistry` ¸É»îµÄÀà£©
-*   `ErrorPageRegistry`£º´íÎóµÄ×¢²áÆ÷Àà£¨Êµ¼Ê¸É»îµÄÀà£©
+*   `ErrorPageRegistrar`ï¼šé”™è¯¯é¡µæ³¨å†Œå™¨ï¼ˆè®© `ErrorPageRegistry` å¹²æ´»çš„ç±»ï¼‰
+*   `ErrorPageRegistry`ï¼šé”™è¯¯çš„æ³¨å†Œå™¨ç±»ï¼ˆå®é™…å¹²æ´»çš„ç±»ï¼‰
 
-Èç¹ûÎÒÃÇÏëÒª×Ô¶¨Òå´íÎóÒ³£¬¿ÉÒÔÊµÏÖ `ErrorPageRegistry` ½Ó¿Ú£º
+å¦‚æœæˆ‘ä»¬æƒ³è¦è‡ªå®šä¹‰é”™è¯¯é¡µï¼Œå¯ä»¥å®ç° `ErrorPageRegistry` æ¥å£ï¼š
 
 ```
 @Component
 public class MyErrorPage implements ErrorPageRegistrar {
 
     /**
-     * ×¢²á´íÎóÒ³
+     * æ³¨å†Œé”™è¯¯é¡µ
      */
     @Override
     public void registerErrorPages(ErrorPageRegistry errorPageRegistry) {
-        // ×îÖÕµ÷ÓÃµÄÊÇ ErrorPageRegistry#addErrorPages ½øĞĞ×¢²á
+        // æœ€ç»ˆè°ƒç”¨çš„æ˜¯ ErrorPageRegistry#addErrorPages è¿›è¡Œæ³¨å†Œ
         errorPageRegistry.addErrorPages(new ErrorPage("/error/page"));
     }
 }
@@ -339,16 +339,16 @@ public class MyErrorPage implements ErrorPageRegistrar {
 
 #### 2.2 `EmbeddedTomcat`
 
-½øÈë `ServletWebServerFactoryConfiguration.EmbeddedTomcat` Àà£º
+è¿›å…¥ `ServletWebServerFactoryConfiguration.EmbeddedTomcat` ç±»ï¼š
 
 ```
 @Configuration(proxyBeanMethods = false)
 class ServletWebServerFactoryConfiguration {
 
     @Configuration(proxyBeanMethods = false)
-    // Ìõ¼ş×¢½â£¬Ìõ¼ş´æÔÚÊ±²ÅÒıÈë
+    // æ¡ä»¶æ³¨è§£ï¼Œæ¡ä»¶å­˜åœ¨æ—¶æ‰å¼•å…¥
     @ConditionalOnClass({ Servlet.class, Tomcat.class, UpgradeProtocol.class })
-    // ×¢Òâ ServletWebServerFactory£¬ÎÒÃÇ¿ÉÒÔ×ÔÖ÷ÊµÏÖ tomcat ÈİÆ÷µÄ×°Åä
+    // æ³¨æ„ ServletWebServerFactoryï¼Œæˆ‘ä»¬å¯ä»¥è‡ªä¸»å®ç° tomcat å®¹å™¨çš„è£…é…
     @ConditionalOnMissingBean(value = ServletWebServerFactory.class, 
         search = SearchStrategy.CURRENT)
     public static class EmbeddedTomcat {
@@ -359,7 +359,7 @@ class ServletWebServerFactoryConfiguration {
                 ObjectProvider<TomcatContextCustomizer> contextCustomizers,
                 ObjectProvider<TomcatProtocolHandlerCustomizer<?>> protocolHandlerCustomizers) {
             TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
-            // ÅäÖÃÒ»Ğ©²ÎÊı
+            // é…ç½®ä¸€äº›å‚æ•°
             factory.getTomcatConnectorCustomizers()
                     .addAll(connectorCustomizers.orderedStream().collect(Collectors.toList()));
             factory.getTomcatContextCustomizers()
@@ -377,28 +377,28 @@ class ServletWebServerFactoryConfiguration {
 
 ```
 
-Õâ¸öÀàÖ÷Òª¾ÍÊÇ·µ»Ø `TomcatServletWebServerFactory` bean£¬¿ÉÒÔ×¢ÈëÒ»Ğ© `connectorCustomizers`¡¢`contextCustomizers`¡¢`protocolHandlerCustomizers` µÈ²ÎÊı½øĞĞ×Ô¶¨ÒåÅäÖÃ£¬ÕâĞ©²ÎÊı¾ÍÊÇ´Ó `BeanPostProcessorsRegistrar` ÖĞÀ´µÄ¡£
+è¿™ä¸ªç±»ä¸»è¦å°±æ˜¯è¿”å› `TomcatServletWebServerFactory` beanï¼Œå¯ä»¥æ³¨å…¥ä¸€äº› `connectorCustomizers`ã€`contextCustomizers`ã€`protocolHandlerCustomizers` ç­‰å‚æ•°è¿›è¡Œè‡ªå®šä¹‰é…ç½®ï¼Œè¿™äº›å‚æ•°å°±æ˜¯ä» `BeanPostProcessorsRegistrar` ä¸­æ¥çš„ã€‚
 
-ÕâÀïÓĞ¸öµØ·½ĞèÒªÌáÒ»ÏÂ£¬Èç¹û²»ÏëÊ¹ÓÃ springboot Ìá¹©µÄ `TomcatServletWebServerFactory`£¬ÎÒÃÇ¿ÉÒÔ×Ô¼ºÊµÏÖ `TomcatServletWebServerFactory`£¬ÏñÕâÑù£º
+è¿™é‡Œæœ‰ä¸ªåœ°æ–¹éœ€è¦æä¸€ä¸‹ï¼Œå¦‚æœä¸æƒ³ä½¿ç”¨ springboot æä¾›çš„ `TomcatServletWebServerFactory`ï¼Œæˆ‘ä»¬å¯ä»¥è‡ªå·±å®ç° `TomcatServletWebServerFactory`ï¼Œåƒè¿™æ ·ï¼š
 
 ```
 @Bean
 public ServletWebServerFactory servletWebServerFactory() {
     TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
-    // ´¦Àí×Ô¶¨ÒåµÄ¸÷ÖÖÅäÖÃ
+    // å¤„ç†è‡ªå®šä¹‰çš„å„ç§é…ç½®
     ...
     return tomcat;
 }
 
 ```
 
-ÕâÑù´¦ÀíÖ®ºó£¬springboot Ìá¹©µÄ `tomcatServletWebServerFactory` ¾Í²»»á´¦ÀíÁË¡£
+è¿™æ ·å¤„ç†ä¹‹åï¼Œspringboot æä¾›çš„ `tomcatServletWebServerFactory` å°±ä¸ä¼šå¤„ç†äº†ã€‚
 
-ÆäËûÁ½¸öÀà `EmbeddedJetty`¡¢`EmbeddedUndertow`£¬¸ú `EmbeddedTomcat` µÄ´¦Àí»ù±¾ÏàËÆ£¬¾Í²»¶àËµÁË¡£
+å…¶ä»–ä¸¤ä¸ªç±» `EmbeddedJetty`ã€`EmbeddedUndertow`ï¼Œè·Ÿ `EmbeddedTomcat` çš„å¤„ç†åŸºæœ¬ç›¸ä¼¼ï¼Œå°±ä¸å¤šè¯´äº†ã€‚
 
 ### 3. `DispatcherServletAutoConfiguration`
 
-ÎÒÃÇÔÙÀ´¿´¿´ `DispatcherServletAutoConfiguration`£¬¹Ø¼ü´úÂëÈçÏÂ£º
+æˆ‘ä»¬å†æ¥çœ‹çœ‹ `DispatcherServletAutoConfiguration`ï¼Œå…³é”®ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public class DispatcherServletAutoConfiguration {
@@ -415,10 +415,10 @@ public class DispatcherServletAutoConfiguration {
     protected static class DispatcherServletConfiguration {
 
         /**
-         * ´óÃû¶¦¶¦µÄ DispatcherServlet.
-         * @param httpProperties httpÊôĞÔ.
-         * @param webMvcProperties webMvc ÊôĞÔ.
-         * @return ·µ»Ø¶ÔÏó
+         * å¤§åé¼é¼çš„ DispatcherServlet.
+         * @param httpProperties httpå±æ€§.
+         * @param webMvcProperties webMvc å±æ€§.
+         * @return è¿”å›å¯¹è±¡
          */
         @Bean(name = DEFAULT_DISPATCHER_SERVLET_BEAN_NAME)
         public DispatcherServlet dispatcherServlet(HttpProperties httpProperties, 
@@ -435,9 +435,9 @@ public class DispatcherServletAutoConfiguration {
         }
 
         /**
-         * ÎÄ¼şÉÏ´«×é¼ş.
-         * @param resolver ²ÎÊı.
-         * @return ·µ»ØÖµ.
+         * æ–‡ä»¶ä¸Šä¼ ç»„ä»¶.
+         * @param resolver å‚æ•°.
+         * @return è¿”å›å€¼.
          */
         @Bean
         @ConditionalOnBean(MultipartResolver.class)
@@ -449,8 +449,8 @@ public class DispatcherServletAutoConfiguration {
     }
 
     /**
-     * Éú³É DispatcherServletRegistrationBean
-     * Ëü»á½«dispatcherServlet×¢²áµ½servletÈİÆ÷
+     * ç”Ÿæˆ DispatcherServletRegistrationBean
+     * å®ƒä¼šå°†dispatcherServletæ³¨å†Œåˆ°servletå®¹å™¨
      */
     @Configuration(proxyBeanMethods = false)
     @Conditional(DispatcherServletRegistrationCondition.class)
@@ -465,7 +465,7 @@ public class DispatcherServletAutoConfiguration {
         public DispatcherServletRegistrationBean dispatcherServletRegistration(
                 DispatcherServlet dispatcherServlet, WebMvcProperties webMvcProperties, 
                 ObjectProvider<MultipartConfigElement> multipartConfig) {
-            // Éú³É DispatcherServletRegistrationBean£¨Ëü»á½«dispatcherServlet×¢²áµ½servletÈİÆ÷£©
+            // ç”Ÿæˆ DispatcherServletRegistrationBeanï¼ˆå®ƒä¼šå°†dispatcherServletæ³¨å†Œåˆ°servletå®¹å™¨ï¼‰
             DispatcherServletRegistrationBean registration = 
                     new DispatcherServletRegistrationBean(dispatcherServlet, 
                     webMvcProperties.getServlet().getPath());
@@ -483,20 +483,20 @@ public class DispatcherServletAutoConfiguration {
 
 ```
 
-ËüÖ÷ÒªÊÇ×¢²áÁË 3 ¸ö bean£º
+å®ƒä¸»è¦æ˜¯æ³¨å†Œäº† 3 ä¸ª beanï¼š
 
-*   `dispatcherServlet`£ºspringMvc µÄÇëÇóÈë¿Ú£¬url ÇëÇóÓÉ´Ë½øÈë£¬È»ºó×ª»¯µ½ `requestMapping`
-*   `multipartResolver`£º´¦ÀíÎÄ¼şÉÏ´«
-*   `dispatcherServletRegistration`£º´¦Àí `dispatcherServlet` µÄ×¢²á£¬Ëü»á½« `dispatcherServlet` ×¢²áµ½ servlet ÈİÆ÷ÖĞ£¨¹ØÓÚ springboot ×¢²á servlet ×é¼şµÄÄÚÈİ£¬¿ÉÒÔ²Î¿¼ [springboot web Ó¦ÓÃÖ® servlet ×é¼şµÄ×¢²áÁ÷³Ì](https://my.oschina.net/funcy/blog/4951050)£©
+*   `dispatcherServlet`ï¼šspringMvc çš„è¯·æ±‚å…¥å£ï¼Œurl è¯·æ±‚ç”±æ­¤è¿›å…¥ï¼Œç„¶åè½¬åŒ–åˆ° `requestMapping`
+*   `multipartResolver`ï¼šå¤„ç†æ–‡ä»¶ä¸Šä¼ 
+*   `dispatcherServletRegistration`ï¼šå¤„ç† `dispatcherServlet` çš„æ³¨å†Œï¼Œå®ƒä¼šå°† `dispatcherServlet` æ³¨å†Œåˆ° servlet å®¹å™¨ä¸­ï¼ˆå…³äº springboot æ³¨å†Œ servlet ç»„ä»¶çš„å†…å®¹ï¼Œå¯ä»¥å‚è€ƒ [springboot web åº”ç”¨ä¹‹ servlet ç»„ä»¶çš„æ³¨å†Œæµç¨‹](https://my.oschina.net/funcy/blog/4951050)ï¼‰
 
 ### 4. `WebMvcAutoConfiguration`
 
-¼ÌĞø¿´ `WebMvcAutoConfiguration`:
+ç»§ç»­çœ‹ `WebMvcAutoConfiguration`:
 
 ```
 @Configuration(proxyBeanMethods = false)
 ...
-// Èç¹ûÃ»ÓĞ×Ô¶¨ÒåWebMvcµÄÅäÖÃÀà£¬ÔòÊ¹ÓÃ±¾ÅäÖÃ
+// å¦‚æœæ²¡æœ‰è‡ªå®šä¹‰WebMvcçš„é…ç½®ç±»ï¼Œåˆ™ä½¿ç”¨æœ¬é…ç½®
 @ConditionalOnMissingBean(WebMvcConfigurationSupport.class)
 ...
 public class WebMvcAutoConfiguration {
@@ -505,31 +505,31 @@ public class WebMvcAutoConfiguration {
 
 ```
 
-`WebMvcAutoConfiguration` ÉÏÓĞ¸ö×¢½âĞèÒª×¢ÒâÏÂ£º
+`WebMvcAutoConfiguration` ä¸Šæœ‰ä¸ªæ³¨è§£éœ€è¦æ³¨æ„ä¸‹ï¼š
 
 ```
 @ConditionalOnMissingBean(WebMvcConfigurationSupport.class)
 
 ```
 
-ÕâĞĞ´úÂë±íÃ÷ÁË `WebMvcAutoConfiguration` Ö»ÓĞÔÚ `WebMvcConfigurationSupport` ÀàĞÍµÄ bean ²»´æÔÚÊ±£¬Ëü²Å»á½øĞĞ×Ô¶¯×°Åä¡£
+è¿™è¡Œä»£ç è¡¨æ˜äº† `WebMvcAutoConfiguration` åªæœ‰åœ¨ `WebMvcConfigurationSupport` ç±»å‹çš„ bean ä¸å­˜åœ¨æ—¶ï¼Œå®ƒæ‰ä¼šè¿›è¡Œè‡ªåŠ¨è£…é…ã€‚
 
-`WebMvcConfigurationSupport` ÊÇ¸öÉ¶ÄØ£¿ÔÚ [springmvc demo Óë @EnableWebMvc ×¢½â](https://my.oschina.net/funcy/blog/4696657)Ò»ÎÄÖĞ£¬ÎÒÃÇÌáµ½ÒıÈë springMvc ×é¼şµÄÁ½ÖÖ·½Ê½£º
+`WebMvcConfigurationSupport` æ˜¯ä¸ªå•¥å‘¢ï¼Ÿåœ¨ [springmvc demo ä¸ @EnableWebMvc æ³¨è§£](https://my.oschina.net/funcy/blog/4696657)ä¸€æ–‡ä¸­ï¼Œæˆ‘ä»¬æåˆ°å¼•å…¥ springMvc ç»„ä»¶çš„ä¸¤ç§æ–¹å¼ï¼š
 
-*   Ê¹ÓÃ `@EnableWebMvc` ×¢½â
-*   ¼Ì³Ğ `WebMvcConfigurationSupport` Àà
+*   ä½¿ç”¨ `@EnableWebMvc` æ³¨è§£
+*   ç»§æ‰¿ `WebMvcConfigurationSupport` ç±»
 
-¶øÕâÖÖ·½·¨×îÖÕ¶¼»áÏò spring ÈİÆ÷ÖĞÒıÈëÀàĞÍÎª `WebMvcConfigurationSupport` µÄ bean£¬Òò´ËÔÚ `springboot` ÏîÄ¿ÖĞ£¬Èç¹ûÎÒÃÇ½øĞĞÁËÒÔÉÏÁ½ÖÖ²Ù×÷Ö®Ò»£¬ÄÇÃ´¾ÍÒıÈëÁË `WebMvcConfigurationSupport`£¬`WebMvcAutoConfiguration` µÄ×Ô¶¯×°Åä¾Í²»Ö´ĞĞÁË¡£
+è€Œè¿™ç§æ–¹æ³•æœ€ç»ˆéƒ½ä¼šå‘ spring å®¹å™¨ä¸­å¼•å…¥ç±»å‹ä¸º `WebMvcConfigurationSupport` çš„ beanï¼Œå› æ­¤åœ¨ `springboot` é¡¹ç›®ä¸­ï¼Œå¦‚æœæˆ‘ä»¬è¿›è¡Œäº†ä»¥ä¸Šä¸¤ç§æ“ä½œä¹‹ä¸€ï¼Œé‚£ä¹ˆå°±å¼•å…¥äº† `WebMvcConfigurationSupport`ï¼Œ`WebMvcAutoConfiguration` çš„è‡ªåŠ¨è£…é…å°±ä¸æ‰§è¡Œäº†ã€‚
 
-ÎÒÃÇÔÙÀ´¿´¿´ `WebMvcAutoConfiguration` ×°ÅäµÄ bean¡£
+æˆ‘ä»¬å†æ¥çœ‹çœ‹ `WebMvcAutoConfiguration` è£…é…çš„ beanã€‚
 
 #### 4.1 `WebMvcAutoConfigurationAdapter`
 
-`WebMvcAutoConfigurationAdapter` ÊÇ `WebMvcAutoConfiguration` µÄÄÚ²¿Àà£¬¶¨ÒåÈçÏÂ£º
+`WebMvcAutoConfigurationAdapter` æ˜¯ `WebMvcAutoConfiguration` çš„å†…éƒ¨ç±»ï¼Œå®šä¹‰å¦‚ä¸‹ï¼š
 
 ```
 @Configuration(proxyBeanMethods = false)
-// ÒıÈëÁË EnableWebMvcConfiguration
+// å¼•å…¥äº† EnableWebMvcConfiguration
 @Import(EnableWebMvcConfiguration.class)
 @EnableConfigurationProperties({ WebMvcProperties.class, ResourceProperties.class })
 @Order(0)
@@ -539,7 +539,7 @@ public static class WebMvcAutoConfigurationAdapter implements WebMvcConfigurer {
 
 ```
 
-ËüÊµÏÖÁË `WebMvcConfigurer`£¬ÇÒÒıÈëÁË `EnableWebMvcConfiguration`¡£`WebMvcConfigurer` ¿ÉÒÔÓÃÀ´´¦Àí springMvc µÄÅäÖÃ£¬Ö»ĞèÒªÖØĞ´ÆäÖĞ¶ÔÓ¦µÄ·½·¨¼´¿É£¬`EnableWebMvcConfiguration` ´ÓÃû³ÆÀ´¿´£¬ÊÇ ¡°ÆôÓÃ webMvc ÅäÖÃ¡±£¬ËüÒ²ÊÇ `WebMvcAutoConfiguration` µÄÄÚ²¿Àà£¬ÎÒÃÇÀ´¿´¿´Ëü×öÁËÉ¶£º
+å®ƒå®ç°äº† `WebMvcConfigurer`ï¼Œä¸”å¼•å…¥äº† `EnableWebMvcConfiguration`ã€‚`WebMvcConfigurer` å¯ä»¥ç”¨æ¥å¤„ç† springMvc çš„é…ç½®ï¼Œåªéœ€è¦é‡å†™å…¶ä¸­å¯¹åº”çš„æ–¹æ³•å³å¯ï¼Œ`EnableWebMvcConfiguration` ä»åç§°æ¥çœ‹ï¼Œæ˜¯ â€œå¯ç”¨ webMvc é…ç½®â€ï¼Œå®ƒä¹Ÿæ˜¯ `WebMvcAutoConfiguration` çš„å†…éƒ¨ç±»ï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹å®ƒåšäº†å•¥ï¼š
 
 ```
 @Configuration(proxyBeanMethods = false)
@@ -550,7 +550,7 @@ public static class EnableWebMvcConfiguration extends DelegatingWebMvcConfigurat
 
 ```
 
-¿ÉÒÔ¿´µ½£¬ËüÊÇ `DelegatingWebMvcConfiguration` µÄ×ÓÀà£¬¶ø `DelegatingWebMvcConfiguration` ÓÖÊÇ¸öÉ¶ÄØ£¿ÎÒÃÇÒ²À´¿´¿´ËüµÄ¶¨Òå£º
+å¯ä»¥çœ‹åˆ°ï¼Œå®ƒæ˜¯ `DelegatingWebMvcConfiguration` çš„å­ç±»ï¼Œè€Œ `DelegatingWebMvcConfiguration` åˆæ˜¯ä¸ªå•¥å‘¢ï¼Ÿæˆ‘ä»¬ä¹Ÿæ¥çœ‹çœ‹å®ƒçš„å®šä¹‰ï¼š
 
 ```
 @Configuration(proxyBeanMethods = false)
@@ -560,15 +560,15 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
 
 ```
 
-`DelegatingWebMvcConfiguration` ÊÇÓÉ springMvc Ìá¹©µÄ£¬¿ÉÒÔ¿´µ½£¬ËüÊµÏÖÁË `WebMvcConfigurationSupport`£¬Òò´Ë£¬springboot Í¨¹ı `@Import(EnableWebMvcConfiguration.class)` µÄ·½Ê½Ïò spring ÈİÆ÷ÖĞÒıÈëÁË `WebMvcConfigurationSupport` ÀàĞÍµÄ bean¡£
+`DelegatingWebMvcConfiguration` æ˜¯ç”± springMvc æä¾›çš„ï¼Œå¯ä»¥çœ‹åˆ°ï¼Œå®ƒå®ç°äº† `WebMvcConfigurationSupport`ï¼Œå› æ­¤ï¼Œspringboot é€šè¿‡ `@Import(EnableWebMvcConfiguration.class)` çš„æ–¹å¼å‘ spring å®¹å™¨ä¸­å¼•å…¥äº† `WebMvcConfigurationSupport` ç±»å‹çš„ beanã€‚
 
-ÊÂÊµÉÏ£¬`DelegatingWebMvcConfiguration` ÕıÊÇ `@EnableWebMvc` ÒıÈëµÄ bean£º
+äº‹å®ä¸Šï¼Œ`DelegatingWebMvcConfiguration` æ­£æ˜¯ `@EnableWebMvc` å¼•å…¥çš„ beanï¼š
 
 ```
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Documented
-// ÒıÈëÁË DelegatingWebMvcConfiguration
+// å¼•å…¥äº† DelegatingWebMvcConfiguration
 @Import(DelegatingWebMvcConfiguration.class)
 public @interface EnableWebMvc {
     ...
@@ -576,13 +576,13 @@ public @interface EnableWebMvc {
 
 ```
 
-springbot ²»Ö±½ÓÒıÈë `DelegatingWebMvcConfiguration` ¶øÊÇÒıÈëËüµÄ×ÓÀà `EnableWebMvcConfiguration`£¬ËäÈ»ËüÊÇ×öÁËÒ»Ğ©×Ô¶¨ÒåÅäÖÃµÄ¡£
+springbot ä¸ç›´æ¥å¼•å…¥ `DelegatingWebMvcConfiguration` è€Œæ˜¯å¼•å…¥å®ƒçš„å­ç±» `EnableWebMvcConfiguration`ï¼Œè™½ç„¶å®ƒæ˜¯åšäº†ä¸€äº›è‡ªå®šä¹‰é…ç½®çš„ã€‚
 
-¹ØÓÚ `EnableWebMvcConfiguration` ÅäÖÃÁËĞ©É¶£¬ÎÒÃÇÒ»»áÔÙ·ÖÎö£¬¼ÌĞø·ÖÎö `WebMvcAutoConfigurationAdapter` µÄÒıÈë bean£º
+å…³äº `EnableWebMvcConfiguration` é…ç½®äº†äº›å•¥ï¼Œæˆ‘ä»¬ä¸€ä¼šå†åˆ†æï¼Œç»§ç»­åˆ†æ `WebMvcAutoConfigurationAdapter` çš„å¼•å…¥ beanï¼š
 
 ```
 /**
- * http ÏûÏ¢×ª»»Æ÷.
+ * http æ¶ˆæ¯è½¬æ¢å™¨.
  */
 @Override
 public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
@@ -591,7 +591,7 @@ public void configureMessageConverters(List<HttpMessageConverter<?>> converters)
 }
 
 /**
- * ÊÓÍ¼½âÎöÆ÷.
+ * è§†å›¾è§£æå™¨.
  */
 @Bean
 @ConditionalOnMissingBean
@@ -622,7 +622,7 @@ public ContentNegotiatingViewResolver viewResolver(BeanFactory beanFactory) {
 }
 
 /**
- * ÒıÈë¹ú¼Ê»¯ÅäÖÃ.
+ * å¼•å…¥å›½é™…åŒ–é…ç½®.
  */
 @Bean
 @ConditionalOnMissingBean
@@ -637,7 +637,7 @@ public LocaleResolver localeResolver() {
 }
 
 /**
- * ¾²Ì¬×ÊÔ´Ó³Éä
+ * é™æ€èµ„æºæ˜ å°„
  */
 @Override
 public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -645,7 +645,7 @@ public void addResourceHandlers(ResourceHandlerRegistry registry) {
         logger.debug("Default resource handling disabled");
         return;
     }
-    // Ó³Éäwebjars
+    // æ˜ å°„webjars
     Duration cachePeriod = this.resourceProperties.getCache().getPeriod();
     CacheControl cacheControl = this.resourceProperties.getCache()
             .getCachecontrol().toHttpCacheControl();
@@ -654,11 +654,11 @@ public void addResourceHandlers(ResourceHandlerRegistry registry) {
                 .addResourceLocations("classpath:/META-INF/resources/webjars/")
                 .setCachePeriod(getSeconds(cachePeriod)).setCacheControl(cacheControl));
     }
-    // Ó³Éä¾²Ì¬×ÊÔ´Â·¾¶
+    // æ˜ å°„é™æ€èµ„æºè·¯å¾„
     String staticPathPattern = this.mvcProperties.getStaticPathPattern();
     if (!registry.hasMappingForPattern(staticPathPattern)) {
         customizeResourceHandlerRegistration(registry.addResourceHandler(staticPathPattern)
-                // staticLocations Ä¬ÈÏÎª classpath:[/META-INF/resources/,
+                // staticLocations é»˜è®¤ä¸º classpath:[/META-INF/resources/,
                 // /resources/, /static/, /public/]
                 .addResourceLocations(getResourceLocations(
                     this.resourceProperties.getStaticLocations()))
@@ -668,15 +668,15 @@ public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`WebMvcAutoConfigurationAdapter` ÒıÈëÁËÈıÀà bean:
+å¯ä»¥çœ‹åˆ°ï¼Œ`WebMvcAutoConfigurationAdapter` å¼•å…¥äº†ä¸‰ç±» bean:
 
-1.  http ÏûÏ¢×ª»»Æ÷
-2.  ÊÓÍ¼½âÎöÆ÷
-3.  ¹ú¼Ê»¯ÅäÖÃ
+1.  http æ¶ˆæ¯è½¬æ¢å™¨
+2.  è§†å›¾è§£æå™¨
+3.  å›½é™…åŒ–é…ç½®
 
-ÕâÀïÎÒÃÇÖØµãÀ´¿´¿´ `httpÏûÏ¢×ª»»Æ÷`¡£ÔÚÊ¹ÓÃ springMvc Ê±£¬Í¨¹ıÔÚ `Controller` Àà»òÆäÖĞµÄ·½·¨ÉÏ±ê¼Ç `@ResponseBody`£¬·µ»Ø²ÎÊı¾Í»á×ª»»Îª json£¬Õâ¾ÍÊÇ `httpÏûÏ¢×ª»»Æ÷`Ëù×öµÄ¹¤×÷ÁË¡£springboot Ä¬ÈÏµÄ jaon ´¦ÀíÊÇ `jackson`£¬ËüµÄÊµÀı»¯ÔÚ `JacksonAutoConfiguration` ÖĞ£¬×°ÅäÎª `HttpMessageConverter` µÄ´¦ÀíÔÚ `JacksonHttpMessageConvertersConfiguration`£¬ÕâÀï¾Í²»Õ¹¿ªÁË¡£
+è¿™é‡Œæˆ‘ä»¬é‡ç‚¹æ¥çœ‹çœ‹ `httpæ¶ˆæ¯è½¬æ¢å™¨`ã€‚åœ¨ä½¿ç”¨ springMvc æ—¶ï¼Œé€šè¿‡åœ¨ `Controller` ç±»æˆ–å…¶ä¸­çš„æ–¹æ³•ä¸Šæ ‡è®° `@ResponseBody`ï¼Œè¿”å›å‚æ•°å°±ä¼šè½¬æ¢ä¸º jsonï¼Œè¿™å°±æ˜¯ `httpæ¶ˆæ¯è½¬æ¢å™¨`æ‰€åšçš„å·¥ä½œäº†ã€‚springboot é»˜è®¤çš„ jaon å¤„ç†æ˜¯ `jackson`ï¼Œå®ƒçš„å®ä¾‹åŒ–åœ¨ `JacksonAutoConfiguration` ä¸­ï¼Œè£…é…ä¸º `HttpMessageConverter` çš„å¤„ç†åœ¨ `JacksonHttpMessageConvertersConfiguration`ï¼Œè¿™é‡Œå°±ä¸å±•å¼€äº†ã€‚
 
-ÔÚÉÏÃæ µÄ·ÖÎöÖĞ£¬¶à´Î³öÏÖÁË `WebMvcProperties` ÅäÖÃ£¬ÎÒÃÇÀ´¿´¿´ËüÊÇ¸öÉ¶£º
+åœ¨ä¸Šé¢ çš„åˆ†æä¸­ï¼Œå¤šæ¬¡å‡ºç°äº† `WebMvcProperties` é…ç½®ï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹å®ƒæ˜¯ä¸ªå•¥ï¼š
 
 ```
 @ConfigurationProperties(prefix = "spring.mvc")
@@ -686,20 +686,20 @@ public class WebMvcProperties {
 
 ```
 
-ºÜÃ÷ÏÔ£¬ËüÊÇ¸öÅäÖÃÀà £¬¿ÉÒÔ¿´µ½£¬ËüµÄÅäÖÃÇ°×ºÎª `spring.mvc`£¬Ö§³ÖµÄÅäÖÃÈçÏÂ£º
+å¾ˆæ˜æ˜¾ï¼Œå®ƒæ˜¯ä¸ªé…ç½®ç±» ï¼Œå¯ä»¥çœ‹åˆ°ï¼Œå®ƒçš„é…ç½®å‰ç¼€ä¸º `spring.mvc`ï¼Œæ”¯æŒçš„é…ç½®å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-062f490afbb74e496f50f4cad4bd13ede82.png)
 
 #### 4.2 `EnableWebMvcConfiguration`
 
-ÎÒÃÇÀ´¿´¿´ `EnableWebMvcConfiguration` ×Ô¶¨ÒåµÄÅäÖÃ£º
+æˆ‘ä»¬æ¥çœ‹çœ‹ `EnableWebMvcConfiguration` è‡ªå®šä¹‰çš„é…ç½®ï¼š
 
 ```
 public static class EnableWebMvcConfiguration extends DelegatingWebMvcConfiguration 
         implements ResourceLoaderAware {
 
     /**
-     * ÅäÖÃÊÊÅäÆ÷
+     * é…ç½®é€‚é…å™¨
      */
     @Bean
     @Override
@@ -716,7 +716,7 @@ public static class EnableWebMvcConfiguration extends DelegatingWebMvcConfigurat
     }
 
     /**
-     * Â·¾¶Ó³Éä
+     * è·¯å¾„æ˜ å°„
      */
     @Bean
     @Primary
@@ -732,7 +732,7 @@ public static class EnableWebMvcConfiguration extends DelegatingWebMvcConfigurat
     }
 
     /**
-     * »¶Ó­Ò³
+     * æ¬¢è¿é¡µ
      */
     @Bean
     public WelcomePageHandlerMapping welcomePageHandlerMapping(
@@ -748,7 +748,7 @@ public static class EnableWebMvcConfiguration extends DelegatingWebMvcConfigurat
     }
 
     /**
-     * mvcÅäÖÃ£¬Ìí¼ÓÁËÈÕÆÚ¸ñÊ½µÄ´¦Àí
+     * mvcé…ç½®ï¼Œæ·»åŠ äº†æ—¥æœŸæ ¼å¼çš„å¤„ç†
      */
     @Bean
     @Override
@@ -760,7 +760,7 @@ public static class EnableWebMvcConfiguration extends DelegatingWebMvcConfigurat
     }
 
     /**
-     * ²ÎÊıĞ£ÑéÆ÷
+     * å‚æ•°æ ¡éªŒå™¨
      */
     @Bean
     @Override
@@ -772,7 +772,7 @@ public static class EnableWebMvcConfiguration extends DelegatingWebMvcConfigurat
     }
 
     /**
-     * Òì³£´¦Àí
+     * å¼‚å¸¸å¤„ç†
      */
     @Override
     protected ExceptionHandlerExceptionResolver createExceptionHandlerExceptionResolver() {
@@ -801,15 +801,15 @@ public static class EnableWebMvcConfiguration extends DelegatingWebMvcConfigurat
 
 ```
 
-Ïà±ÈÓÚÔ­ÉúµÄ springMvc£¬Ëü¶îÍâÅäÖÃÁËÊÊÅäÆ÷¡¢Â·¾¶Ó³Éä¡¢²ÎÊıĞ£Ñé¡¢Òì³£´¦ÀíµÈ¡£
+ç›¸æ¯”äºåŸç”Ÿçš„ springMvcï¼Œå®ƒé¢å¤–é…ç½®äº†é€‚é…å™¨ã€è·¯å¾„æ˜ å°„ã€å‚æ•°æ ¡éªŒã€å¼‚å¸¸å¤„ç†ç­‰ã€‚
 
-### 5\. ×Ü½á
+### 5\. æ€»ç»“
 
-1.  `webMvc` ÔÚ×°ÅäÊ±£¬ÏÈ×°Åä `ServletWebServerFactoryAutoConfiguration`£¬ÔÙ×°Åä `DispatcherServletAutoConfiguration`£¬×îºó×°Åä `WebMvcAutoConfiguration`
-2.  `ServletWebServerFactoryAutoConfiguration` ´¦Àí servlet ÈİÆ÷µÄ×°Åä£¬`DispatcherServletAutoConfiguration` ´¦Àí `DispatcherServlet` µÄ×°Åä£¬`WebMvcAutoConfiguration` ´¦Àí `webMvc` ×é¼ş£¨ÏûÏ¢×ª»»Æ÷¡¢ÊÓÍ¼½âÎöÆ÷¡¢¾²Ì¬×ÊÔ´Ó³ÉäµÈ£©µÄ×°Åä
-3.  Èç¹ûÏò spring ÈİÆ÷ÖĞÒıÈëÁË `WebMvcConfigurationSupport`£¬ `WebMvcAutoConfiguration` µÄ×°Åä²Ù×÷½«²»»áÖ´ĞĞ
-4.  `servlet` µÄÏà¹ØÅäÖÃÒÔ `servlet` ÎªÇ°×º£¬`webMvc` µÄÅäÖÃÒÔ `spring.mvc` ÎªÇ°×º£¬ÎÒÃÇ¿ÉÒÔÔÚÅäÖÃÎÄ¼ş£¨Ò»°ãÎª `application.properties/application.yml`£©ÖĞ½øĞĞÅäÖÃ
+1.  `webMvc` åœ¨è£…é…æ—¶ï¼Œå…ˆè£…é… `ServletWebServerFactoryAutoConfiguration`ï¼Œå†è£…é… `DispatcherServletAutoConfiguration`ï¼Œæœ€åè£…é… `WebMvcAutoConfiguration`
+2.  `ServletWebServerFactoryAutoConfiguration` å¤„ç† servlet å®¹å™¨çš„è£…é…ï¼Œ`DispatcherServletAutoConfiguration` å¤„ç† `DispatcherServlet` çš„è£…é…ï¼Œ`WebMvcAutoConfiguration` å¤„ç† `webMvc` ç»„ä»¶ï¼ˆæ¶ˆæ¯è½¬æ¢å™¨ã€è§†å›¾è§£æå™¨ã€é™æ€èµ„æºæ˜ å°„ç­‰ï¼‰çš„è£…é…
+3.  å¦‚æœå‘ spring å®¹å™¨ä¸­å¼•å…¥äº† `WebMvcConfigurationSupport`ï¼Œ `WebMvcAutoConfiguration` çš„è£…é…æ“ä½œå°†ä¸ä¼šæ‰§è¡Œ
+4.  `servlet` çš„ç›¸å…³é…ç½®ä»¥ `servlet` ä¸ºå‰ç¼€ï¼Œ`webMvc` çš„é…ç½®ä»¥ `spring.mvc` ä¸ºå‰ç¼€ï¼Œæˆ‘ä»¬å¯ä»¥åœ¨é…ç½®æ–‡ä»¶ï¼ˆä¸€èˆ¬ä¸º `application.properties/application.yml`ï¼‰ä¸­è¿›è¡Œé…ç½®
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4921595](https://my.oschina.net/funcy/blog/4921595) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4921595](https://my.oschina.net/funcy/blog/4921595) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

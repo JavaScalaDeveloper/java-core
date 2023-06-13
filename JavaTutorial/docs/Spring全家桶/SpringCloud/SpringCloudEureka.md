@@ -1,52 +1,52 @@
-Eureka Ò»´ÊÀ´Ô´ÓÚ¹ÅÏ£À°´Ê»ã£¬ÊÇ¡°·¢ÏÖÁË¡±µÄÒâË¼¡£ÔÚÈí¼şÁìÓò£¬Eureka ÊÇ Netflix ¹«Ë¾¿ª·¢µÄÒ»¿î¿ªÔ´µÄ·şÎñ×¢²áÓë·¢ÏÖ×é¼ş¡£
+Eureka ä¸€è¯æ¥æºäºå¤å¸Œè…Šè¯æ±‡ï¼Œæ˜¯â€œå‘ç°äº†â€çš„æ„æ€ã€‚åœ¨è½¯ä»¶é¢†åŸŸï¼ŒEureka æ˜¯ Netflix å…¬å¸å¼€å‘çš„ä¸€æ¬¾å¼€æºçš„æœåŠ¡æ³¨å†Œä¸å‘ç°ç»„ä»¶ã€‚
 
-Spring Cloud ½« Eureka Óë Netflix ÖĞµÄÆäËû¿ªÔ´·şÎñ×é¼ş£¨ÀıÈç Ribbon¡¢Feign ÒÔ¼° Hystrix µÈ£©Ò»ÆğÕûºÏ½ø Spring Cloud Netflix Ä£¿éÖĞ£¬ÕûºÏºóµÄ×é¼şÈ«³ÆÎª Spring Cloud Netflix Eureka¡£
+Spring Cloud å°† Eureka ä¸ Netflix ä¸­çš„å…¶ä»–å¼€æºæœåŠ¡ç»„ä»¶ï¼ˆä¾‹å¦‚ Ribbonã€Feign ä»¥åŠ Hystrix ç­‰ï¼‰ä¸€èµ·æ•´åˆè¿› Spring Cloud Netflix æ¨¡å—ä¸­ï¼Œæ•´åˆåçš„ç»„ä»¶å…¨ç§°ä¸º Spring Cloud Netflix Eurekaã€‚
 
-Eureka ÊÇ Spring Cloud Netflix Ä£¿éµÄ×ÓÄ£¿é£¬ËüÊÇ Spring Cloud ¶Ô Netflix Eureka µÄ¶ş´Î·â×°£¬Ö÷Òª¸ºÔğ Spring Cloud µÄ·şÎñ×¢²áÓë·¢ÏÖ¹¦ÄÜ¡£
+Eureka æ˜¯ Spring Cloud Netflix æ¨¡å—çš„å­æ¨¡å—ï¼Œå®ƒæ˜¯ Spring Cloud å¯¹ Netflix Eureka çš„äºŒæ¬¡å°è£…ï¼Œä¸»è¦è´Ÿè´£ Spring Cloud çš„æœåŠ¡æ³¨å†Œä¸å‘ç°åŠŸèƒ½ã€‚
 
-Spring Cloud Ê¹ÓÃ Spring Boot Ë¼ÏëÎª Eureka Ôö¼ÓÁË×Ô¶¯»¯ÅäÖÃ£¬¿ª·¢ÈËÔ±Ö»ĞèÒªÒıÈëÏà¹ØÒÀÀµºÍ×¢½â£¬¾ÍÄÜ½« Spring Boot ¹¹½¨µÄÎ¢·şÎñÇáËÉµØÓë Eureka ½øĞĞÕûºÏ¡£
+Spring Cloud ä½¿ç”¨ Spring Boot æ€æƒ³ä¸º Eureka å¢åŠ äº†è‡ªåŠ¨åŒ–é…ç½®ï¼Œå¼€å‘äººå‘˜åªéœ€è¦å¼•å…¥ç›¸å…³ä¾èµ–å’Œæ³¨è§£ï¼Œå°±èƒ½å°† Spring Boot æ„å»ºçš„å¾®æœåŠ¡è½»æ¾åœ°ä¸ Eureka è¿›è¡Œæ•´åˆã€‚
 
-## Eureka Á½´ó×é¼ş
+## Eureka ä¸¤å¤§ç»„ä»¶
 
-Eureka ²ÉÓÃ CS£¨Client/Server£¬¿Í»§¶Ë/·şÎñÆ÷£© ¼Ü¹¹£¬Ëü°üÀ¨ÒÔÏÂÁ½´ó×é¼ş£º
+Eureka é‡‡ç”¨ CSï¼ˆClient/Serverï¼Œå®¢æˆ·ç«¯/æœåŠ¡å™¨ï¼‰ æ¶æ„ï¼Œå®ƒåŒ…æ‹¬ä»¥ä¸‹ä¸¤å¤§ç»„ä»¶ï¼š
 
-*   **Eureka Server**£ºEureka ·şÎñ×¢²áÖĞĞÄ£¬Ö÷ÒªÓÃÓÚÌá¹©·şÎñ×¢²á¹¦ÄÜ¡£µ±Î¢·şÎñÆô¶¯Ê±£¬»á½«×Ô¼ºµÄ·şÎñ×¢²áµ½ Eureka Server¡£Eureka Server Î¬»¤ÁËÒ»¸ö¿ÉÓÃ·şÎñÁĞ±í£¬´æ´¢ÁËËùÓĞ×¢²áµ½ Eureka Server µÄ¿ÉÓÃ·şÎñµÄĞÅÏ¢£¬ÕâĞ©¿ÉÓÃ·şÎñ¿ÉÒÔÔÚ Eureka Server µÄ¹ÜÀí½çÃæÖĞÖ±¹Û¿´µ½¡£
-*   **Eureka Client**£ºEureka ¿Í»§¶Ë£¬Í¨³£Ö¸µÄÊÇÎ¢·şÎñÏµÍ³ÖĞ¸÷¸öÎ¢·şÎñ£¬Ö÷ÒªÓÃÓÚºÍ Eureka Server ½øĞĞ½»»¥¡£ÔÚÎ¢·şÎñÓ¦ÓÃÆô¶¯ºó£¬Eureka Client »áÏò Eureka Server ·¢ËÍĞÄÌø£¨Ä¬ÈÏÖÜÆÚÎª 30 Ãë£©¡£Èô Eureka Server ÔÚ¶à¸öĞÄÌøÖÜÆÚÄÚÃ»ÓĞ½ÓÊÕµ½Ä³¸ö Eureka Client µÄĞÄÌø£¬Eureka Server ½«Ëü´Ó¿ÉÓÃ·şÎñÁĞ±íÖĞÒÆ³ı£¨Ä¬ÈÏ 90 Ãë£©¡£
+*   **Eureka Server**ï¼šEureka æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼Œä¸»è¦ç”¨äºæä¾›æœåŠ¡æ³¨å†ŒåŠŸèƒ½ã€‚å½“å¾®æœåŠ¡å¯åŠ¨æ—¶ï¼Œä¼šå°†è‡ªå·±çš„æœåŠ¡æ³¨å†Œåˆ° Eureka Serverã€‚Eureka Server ç»´æŠ¤äº†ä¸€ä¸ªå¯ç”¨æœåŠ¡åˆ—è¡¨ï¼Œå­˜å‚¨äº†æ‰€æœ‰æ³¨å†Œåˆ° Eureka Server çš„å¯ç”¨æœåŠ¡çš„ä¿¡æ¯ï¼Œè¿™äº›å¯ç”¨æœåŠ¡å¯ä»¥åœ¨ Eureka Server çš„ç®¡ç†ç•Œé¢ä¸­ç›´è§‚çœ‹åˆ°ã€‚
+*   **Eureka Client**ï¼šEureka å®¢æˆ·ç«¯ï¼Œé€šå¸¸æŒ‡çš„æ˜¯å¾®æœåŠ¡ç³»ç»Ÿä¸­å„ä¸ªå¾®æœåŠ¡ï¼Œä¸»è¦ç”¨äºå’Œ Eureka Server è¿›è¡Œäº¤äº’ã€‚åœ¨å¾®æœåŠ¡åº”ç”¨å¯åŠ¨åï¼ŒEureka Client ä¼šå‘ Eureka Server å‘é€å¿ƒè·³ï¼ˆé»˜è®¤å‘¨æœŸä¸º 30 ç§’ï¼‰ã€‚è‹¥ Eureka Server åœ¨å¤šä¸ªå¿ƒè·³å‘¨æœŸå†…æ²¡æœ‰æ¥æ”¶åˆ°æŸä¸ª Eureka Client çš„å¿ƒè·³ï¼ŒEureka Server å°†å®ƒä»å¯ç”¨æœåŠ¡åˆ—è¡¨ä¸­ç§»é™¤ï¼ˆé»˜è®¤ 90 ç§’ï¼‰ã€‚
 
-> ×¢£º¡°ĞÄÌø¡±Ö¸µÄÊÇÒ»¶Î¶¨Ê±·¢ËÍµÄ×Ô¶¨ÒåĞÅÏ¢£¬ÈÃ¶Ô·½ÖªµÀ×Ô¼º¡°´æ»î¡±£¬ÒÔÈ·±£Á¬½ÓµÄÓĞĞ§ĞÔ¡£´ó²¿·Ö CS ¼Ü¹¹µÄÓ¦ÓÃ³ÌĞò¶¼²ÉÓÃÁËĞÄÌø»úÖÆ£¬·şÎñ¶ËºÍ¿Í»§¶Ë¶¼¿ÉÒÔ·¢ĞÄÌø¡£Í¨³£Çé¿öÏÂÊÇ¿Í»§¶ËÏò·şÎñÆ÷¶Ë·¢ËÍĞÄÌø°ü£¬·şÎñ¶ËÓÃÓÚÅĞ¶Ï¿Í»§¶ËÊÇ·ñÔÚÏß¡£
+> æ³¨ï¼šâ€œå¿ƒè·³â€æŒ‡çš„æ˜¯ä¸€æ®µå®šæ—¶å‘é€çš„è‡ªå®šä¹‰ä¿¡æ¯ï¼Œè®©å¯¹æ–¹çŸ¥é“è‡ªå·±â€œå­˜æ´»â€ï¼Œä»¥ç¡®ä¿è¿æ¥çš„æœ‰æ•ˆæ€§ã€‚å¤§éƒ¨åˆ† CS æ¶æ„çš„åº”ç”¨ç¨‹åºéƒ½é‡‡ç”¨äº†å¿ƒè·³æœºåˆ¶ï¼ŒæœåŠ¡ç«¯å’Œå®¢æˆ·ç«¯éƒ½å¯ä»¥å‘å¿ƒè·³ã€‚é€šå¸¸æƒ…å†µä¸‹æ˜¯å®¢æˆ·ç«¯å‘æœåŠ¡å™¨ç«¯å‘é€å¿ƒè·³åŒ…ï¼ŒæœåŠ¡ç«¯ç”¨äºåˆ¤æ–­å®¢æˆ·ç«¯æ˜¯å¦åœ¨çº¿ã€‚
 
-## Eureka ·şÎñ×¢²áÓë·¢ÏÖ
+## Eureka æœåŠ¡æ³¨å†Œä¸å‘ç°
 
-Eureka ÊµÏÖ·şÎñ×¢²áÓë·¢ÏÖµÄÔ­Àí£¬ÈçÏÂÍ¼ËùÊ¾¡£
+Eureka å®ç°æœåŠ¡æ³¨å†Œä¸å‘ç°çš„åŸç†ï¼Œå¦‚ä¸‹å›¾æ‰€ç¤ºã€‚
 
-![Eureka ·şÎñ×¢²áÓë·¢ÏÖ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010305209-0.png)
-Í¼1£ºEureka Ô­ÀíÍ¼
+![Eureka æœåŠ¡æ³¨å†Œä¸å‘ç°](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010305209-0.png)
+å›¾1ï¼šEureka åŸç†å›¾
 
-ÉÏÍ¼ÖĞ¹²Éæ¼°µ½ÒÔÏÂ 3 ¸ö½ÇÉ«£º
+ä¸Šå›¾ä¸­å…±æ¶‰åŠåˆ°ä»¥ä¸‹ 3 ä¸ªè§’è‰²ï¼š
 
-*   **·şÎñ×¢²áÖĞĞÄ£¨Register Service£©**£ºËüÊÇÒ»¸ö Eureka Server£¬ÓÃÓÚÌá¹©·şÎñ×¢²áºÍ·¢ÏÖ¹¦ÄÜ¡£
-*   **·şÎñÌá¹©Õß£¨Provider Service£©**£ºËüÊÇÒ»¸ö Eureka Client£¬ÓÃÓÚÌá¹©·şÎñ¡£Ëü½«×Ô¼ºÌá¹©µÄ·şÎñ×¢²áµ½·şÎñ×¢²áÖĞĞÄ£¬ÒÔ¹©·şÎñÏû·ÑÕß·¢ÏÖ¡£
-*   **·şÎñÏû·ÑÕß£¨Consumer Service£©**£ºËüÊÇÒ»¸ö Eureka Client£¬ÓÃÓÚÏû·Ñ·şÎñ¡£Ëü¿ÉÒÔ´Ó·şÎñ×¢²áÖĞĞÄ»ñÈ¡·şÎñÁĞ±í£¬µ÷ÓÃËùĞèµÄ·şÎñ¡£
+*   **æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼ˆRegister Serviceï¼‰**ï¼šå®ƒæ˜¯ä¸€ä¸ª Eureka Serverï¼Œç”¨äºæä¾›æœåŠ¡æ³¨å†Œå’Œå‘ç°åŠŸèƒ½ã€‚
+*   **æœåŠ¡æä¾›è€…ï¼ˆProvider Serviceï¼‰**ï¼šå®ƒæ˜¯ä¸€ä¸ª Eureka Clientï¼Œç”¨äºæä¾›æœåŠ¡ã€‚å®ƒå°†è‡ªå·±æä¾›çš„æœåŠ¡æ³¨å†Œåˆ°æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼Œä»¥ä¾›æœåŠ¡æ¶ˆè´¹è€…å‘ç°ã€‚
+*   **æœåŠ¡æ¶ˆè´¹è€…ï¼ˆConsumer Serviceï¼‰**ï¼šå®ƒæ˜¯ä¸€ä¸ª Eureka Clientï¼Œç”¨äºæ¶ˆè´¹æœåŠ¡ã€‚å®ƒå¯ä»¥ä»æœåŠ¡æ³¨å†Œä¸­å¿ƒè·å–æœåŠ¡åˆ—è¡¨ï¼Œè°ƒç”¨æ‰€éœ€çš„æœåŠ¡ã€‚
 
-Eureka ÊµÏÖ·şÎñ×¢²áÓë·¢ÏÖµÄÁ÷³ÌÈçÏÂ£º
+Eureka å®ç°æœåŠ¡æ³¨å†Œä¸å‘ç°çš„æµç¨‹å¦‚ä¸‹ï¼š
 
-1.  ´î½¨Ò»¸ö Eureka Server ×÷Îª·şÎñ×¢²áÖĞĞÄ£»
-2.  ·şÎñÌá¹©Õß Eureka Client Æô¶¯Ê±£¬»á°Ñµ±Ç°·şÎñÆ÷µÄĞÅÏ¢ÒÔ·şÎñÃû£¨spring.application.name£©µÄ·½Ê½×¢²áµ½·şÎñ×¢²áÖĞĞÄ£»
-3.  ·şÎñÏû·ÑÕß Eureka Client Æô¶¯Ê±£¬Ò²»áÏò·şÎñ×¢²áÖĞĞÄ×¢²á£»
-4.  ·şÎñÏû·ÑÕß»¹»á»ñÈ¡Ò»·İ¿ÉÓÃ·şÎñÁĞ±í£¬¸ÃÁĞ±íÖĞ°üº¬ÁËËùÓĞ×¢²áµ½·şÎñ×¢²áÖĞĞÄµÄ·şÎñĞÅÏ¢£¨°üÀ¨·şÎñÌá¹©ÕßºÍ×ÔÉíµÄĞÅÏ¢£©£»
-5.  ÔÚ»ñµÃÁË¿ÉÓÃ·şÎñÁĞ±íºó£¬·şÎñÏû·ÑÕßÍ¨¹ı HTTP »òÏûÏ¢ÖĞ¼ä¼şÔ¶³Ìµ÷ÓÃ·şÎñÌá¹©ÕßÌá¹©µÄ·şÎñ¡£
+1.  æ­å»ºä¸€ä¸ª Eureka Server ä½œä¸ºæœåŠ¡æ³¨å†Œä¸­å¿ƒï¼›
+2.  æœåŠ¡æä¾›è€… Eureka Client å¯åŠ¨æ—¶ï¼Œä¼šæŠŠå½“å‰æœåŠ¡å™¨çš„ä¿¡æ¯ä»¥æœåŠ¡åï¼ˆspring.application.nameï¼‰çš„æ–¹å¼æ³¨å†Œåˆ°æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼›
+3.  æœåŠ¡æ¶ˆè´¹è€… Eureka Client å¯åŠ¨æ—¶ï¼Œä¹Ÿä¼šå‘æœåŠ¡æ³¨å†Œä¸­å¿ƒæ³¨å†Œï¼›
+4.  æœåŠ¡æ¶ˆè´¹è€…è¿˜ä¼šè·å–ä¸€ä»½å¯ç”¨æœåŠ¡åˆ—è¡¨ï¼Œè¯¥åˆ—è¡¨ä¸­åŒ…å«äº†æ‰€æœ‰æ³¨å†Œåˆ°æœåŠ¡æ³¨å†Œä¸­å¿ƒçš„æœåŠ¡ä¿¡æ¯ï¼ˆåŒ…æ‹¬æœåŠ¡æä¾›è€…å’Œè‡ªèº«çš„ä¿¡æ¯ï¼‰ï¼›
+5.  åœ¨è·å¾—äº†å¯ç”¨æœåŠ¡åˆ—è¡¨åï¼ŒæœåŠ¡æ¶ˆè´¹è€…é€šè¿‡ HTTP æˆ–æ¶ˆæ¯ä¸­é—´ä»¶è¿œç¨‹è°ƒç”¨æœåŠ¡æä¾›è€…æä¾›çš„æœåŠ¡ã€‚
 
-·şÎñ×¢²áÖĞĞÄ£¨Eureka Server£©Ëù°çÑİµÄ½ÇÉ«Ê®·ÖÖØÒª£¬ËüÊÇ·şÎñÌá¹©ÕßºÍ·şÎñÏû·ÑÕßÖ®¼äµÄÇÅÁº¡£·şÎñÌá¹©ÕßÖ»ÓĞ½«×Ô¼ºµÄ·şÎñ×¢²áµ½·şÎñ×¢²áÖĞĞÄ²Å¿ÉÄÜ±»·şÎñÏû·ÑÕßµ÷ÓÃ£¬¶ø·şÎñÏû·ÑÕßÒ²Ö»ÓĞÍ¨¹ı·şÎñ×¢²áÖĞĞÄ»ñÈ¡¿ÉÓÃ·şÎñÁĞ±íºó£¬²ÅÄÜµ÷ÓÃËùĞèµÄ·şÎñ¡£
+æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼ˆEureka Serverï¼‰æ‰€æ‰®æ¼”çš„è§’è‰²ååˆ†é‡è¦ï¼Œå®ƒæ˜¯æœåŠ¡æä¾›è€…å’ŒæœåŠ¡æ¶ˆè´¹è€…ä¹‹é—´çš„æ¡¥æ¢ã€‚æœåŠ¡æä¾›è€…åªæœ‰å°†è‡ªå·±çš„æœåŠ¡æ³¨å†Œåˆ°æœåŠ¡æ³¨å†Œä¸­å¿ƒæ‰å¯èƒ½è¢«æœåŠ¡æ¶ˆè´¹è€…è°ƒç”¨ï¼Œè€ŒæœåŠ¡æ¶ˆè´¹è€…ä¹Ÿåªæœ‰é€šè¿‡æœåŠ¡æ³¨å†Œä¸­å¿ƒè·å–å¯ç”¨æœåŠ¡åˆ—è¡¨åï¼Œæ‰èƒ½è°ƒç”¨æ‰€éœ€çš„æœåŠ¡ã€‚
 
-## Ê¾Àı 1
+## ç¤ºä¾‹ 1
 
-ÏÂÃæ£¬ÎÒÃÇÍ¨¹ıÒ»¸ö°¸ÀıÀ´Õ¹Ê¾ÏÂ Eureka ÊÇÈçºÎÊµÏÖ·şÎñ×¢²áÓë·¢ÏÖµÄ¡£
+ä¸‹é¢ï¼Œæˆ‘ä»¬é€šè¿‡ä¸€ä¸ªæ¡ˆä¾‹æ¥å±•ç¤ºä¸‹ Eureka æ˜¯å¦‚ä½•å®ç°æœåŠ¡æ³¨å†Œä¸å‘ç°çš„ã€‚
 
-#### 1\. ´´½¨Ö÷¹¤³Ì£¨Maven Project£©
+#### 1\. åˆ›å»ºä¸»å·¥ç¨‹ï¼ˆMaven Projectï¼‰
 
-ÓÉÓÚ±¾°¸ÀıÖĞ£¬»áÉæ¼°µ½¶à¸öÓÉ Spring Boot ´´½¨µÄÎ¢·şÎñ£¬ÎªÁË·½±ã¹ÜÀí£¬ÕâÀïÎÒÃÇ²ÉÓÃ Maven µÄ¶à Module ½á¹¹£¨¼´Ò»¸ö Project °üº¬¶à¸ö Module£©À´¹¹½¨¹¤³Ì¡£
+ç”±äºæœ¬æ¡ˆä¾‹ä¸­ï¼Œä¼šæ¶‰åŠåˆ°å¤šä¸ªç”± Spring Boot åˆ›å»ºçš„å¾®æœåŠ¡ï¼Œä¸ºäº†æ–¹ä¾¿ç®¡ç†ï¼Œè¿™é‡Œæˆ‘ä»¬é‡‡ç”¨ Maven çš„å¤š Module ç»“æ„ï¼ˆå³ä¸€ä¸ª Project åŒ…å«å¤šä¸ª Moduleï¼‰æ¥æ„å»ºå·¥ç¨‹ã€‚
 
-´´½¨Ò»¸öÃûÎª spring-cloud-demo2 µÄ Maven Ö÷¹¤³Ì £¬È»ºóÔÚ¸ÃÖ÷¹¤³ÌµÄ pom.xml ÖĞÊ¹ÓÃ dependencyManagement À´¹ÜÀí Spring Cloud µÄ°æ±¾£¬ÄÚÈİÈçÏÂ¡£
+åˆ›å»ºä¸€ä¸ªåä¸º spring-cloud-demo2 çš„ Maven ä¸»å·¥ç¨‹ ï¼Œç„¶ååœ¨è¯¥ä¸»å·¥ç¨‹çš„ pom.xml ä¸­ä½¿ç”¨ dependencyManagement æ¥ç®¡ç† Spring Cloud çš„ç‰ˆæœ¬ï¼Œå†…å®¹å¦‚ä¸‹ã€‚
 
 
 
@@ -84,9 +84,9 @@ Eureka ÊµÏÖ·şÎñ×¢²áÓë·¢ÏÖµÄÁ÷³ÌÈçÏÂ£º
     </properties>
     <dependencyManagement>
         <dependencies>
-            <!--ÔÚÖ÷¹¤³ÌÖĞÊ¹ÓÃ dependencyManagement ÉùÃ÷ Spring Cloud µÄ°æ±¾£¬
-            ÕâÑù¹¤³ÌÄÚµÄ Module ÖĞÒıÈë Spring Cloud ×é¼şÒÀÀµÊ±£¬¾Í²»±ØÔÚÉùÃ÷×é¼şµÄ°æ±¾ĞÅÏ¢
-            ±£Ö¤ Spring Cloud ¸÷¸ö×é¼şÒ»ÖÂĞÔ-->
+            <!--åœ¨ä¸»å·¥ç¨‹ä¸­ä½¿ç”¨ dependencyManagement å£°æ˜ Spring Cloud çš„ç‰ˆæœ¬ï¼Œ
+            è¿™æ ·å·¥ç¨‹å†…çš„ Module ä¸­å¼•å…¥ Spring Cloud ç»„ä»¶ä¾èµ–æ—¶ï¼Œå°±ä¸å¿…åœ¨å£°æ˜ç»„ä»¶çš„ç‰ˆæœ¬ä¿¡æ¯
+            ä¿è¯ Spring Cloud å„ä¸ªç»„ä»¶ä¸€è‡´æ€§-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -124,9 +124,9 @@ Eureka ÊµÏÖ·şÎñ×¢²áÓë·¢ÏÖµÄÁ÷³ÌÈçÏÂ£º
 
 
 
-#### 2\. ´´½¨¹«¹²×ÓÄ£¿é£¨Maven Module£©
+#### 2\. åˆ›å»ºå…¬å…±å­æ¨¡å—ï¼ˆMaven Moduleï¼‰
 
-1) ÔÚÖ÷¹¤³ÌÏÂ£¬´´½¨Ò»¸öÃûÎª micro-service-cloud-api µÄ Maven Module£ºmicro-service-cloud-api£¬Æä pom.xml ÅäÖÃÈçÏÂ¡£
+1) åœ¨ä¸»å·¥ç¨‹ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º micro-service-cloud-api çš„ Maven Moduleï¼šmicro-service-cloud-apiï¼Œå…¶ pom.xml é…ç½®å¦‚ä¸‹ã€‚
 
 
 
@@ -162,9 +162,9 @@ Eureka ÊµÏÖ·şÎñ×¢²áÓë·¢ÏÖµÄÁ÷³ÌÈçÏÂ£º
 
 
 
-> ×¢£ºmicro-service-cloud-api ÊÇÕû¸ö¹¤³ÌµÄ¹«¹²×ÓÄ£¿é£¬Ëü°üº¬ÁËÒ»Ğ©ÆäËû×ÓÄ£¿é¹²ÓĞµÄÄÚÈİ£¬ÀıÈçÊµÌåÀà¡¢¹«¹²¹¤¾ßÀà¡¢¹«¹²ÒÀÀµÏîµÈ¡£µ±ÆäËû×ÓÄ£¿éĞèÒªÊ¹ÓÃ¹«¹²×ÓÄ£¿éÖĞµÄÄÚÈİÊ±£¬Ö»ĞèÒªÔÚÆä pom.xml ÒıÈë¹«¹²×ÓÄ£¿éµÄÒÀÀµ¼´¿É¡£
+> æ³¨ï¼šmicro-service-cloud-api æ˜¯æ•´ä¸ªå·¥ç¨‹çš„å…¬å…±å­æ¨¡å—ï¼Œå®ƒåŒ…å«äº†ä¸€äº›å…¶ä»–å­æ¨¡å—å…±æœ‰çš„å†…å®¹ï¼Œä¾‹å¦‚å®ä½“ç±»ã€å…¬å…±å·¥å…·ç±»ã€å…¬å…±ä¾èµ–é¡¹ç­‰ã€‚å½“å…¶ä»–å­æ¨¡å—éœ€è¦ä½¿ç”¨å…¬å…±å­æ¨¡å—ä¸­çš„å†…å®¹æ—¶ï¼Œåªéœ€è¦åœ¨å…¶ pom.xml å¼•å…¥å…¬å…±å­æ¨¡å—çš„ä¾èµ–å³å¯ã€‚
 
-2) ÔÚ micro-service-cloud-api µÄ net.biancheng.c.entity °üÏÂ£¬´´½¨Ò»¸öÃûÎª Dept µÄÊµÌåÀà£¬´úÂëÈçÏÂ¡£
+2) åœ¨ micro-service-cloud-api çš„ net.biancheng.c.entity åŒ…ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º Dept çš„å®ä½“ç±»ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -180,8 +180,8 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
-@NoArgsConstructor //ÎŞ²Î¹¹Ôìº¯Êı
-@Data // Ìá¹©ÀàµÄget¡¢set¡¢equals¡¢hashCode¡¢canEqual¡¢toString ·½·¨
+@NoArgsConstructor //æ— å‚æ„é€ å‡½æ•°
+@Data // æä¾›ç±»çš„getã€setã€equalsã€hashCodeã€canEqualã€toString æ–¹æ³•
 @Accessors(chain = true)
 public class Dept implements Serializable {
     private Integer deptNo;
@@ -195,9 +195,9 @@ public class Dept implements Serializable {
 
 
 
-#### 3\. ´î½¨·şÎñ×¢²áÖĞĞÄ
+#### 3\. æ­å»ºæœåŠ¡æ³¨å†Œä¸­å¿ƒ
 
-1) ÔÚÖ÷¹¤³ÌÏÂ´´½¨Ò»¸öÃûÎª micro-service-cloud-eureka-7001 µÄ Spring Boot Module ×÷Îª·şÎñ×¢²áÖĞĞÄ£¬²¢ÔÚÆä pom.xml ÖĞÒıÈëÒÔÏÂÒÀÀµ¡£
+1) åœ¨ä¸»å·¥ç¨‹ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º micro-service-cloud-eureka-7001 çš„ Spring Boot Module ä½œä¸ºæœåŠ¡æ³¨å†Œä¸­å¿ƒï¼Œå¹¶åœ¨å…¶ pom.xml ä¸­å¼•å…¥ä»¥ä¸‹ä¾èµ–ã€‚
 
 
 
@@ -209,7 +209,7 @@ public class Dept implements Serializable {
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!--¼Ì³ĞÖ÷¹¤³ÌµÄ POM-->
+    <!--ç»§æ‰¿ä¸»å·¥ç¨‹çš„ POM-->
     <parent>
         <artifactId>spring-cloud-demo2</artifactId>
         <groupId>net.biancheng.c</groupId>
@@ -230,12 +230,12 @@ public class Dept implements Serializable {
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--Îª·şÎñ×¢²áÖĞĞÄÒıÈë Eureka Server µÄÒÀÀµ-->
+        <!--ä¸ºæœåŠ¡æ³¨å†Œä¸­å¿ƒå¼•å…¥ Eureka Server çš„ä¾èµ–-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
-        <!--devtools ºÍ lombok ¾ùÎª¿ª·¢¸¨ÖúÄ£¿é£¬¸ù¾İĞèÇóÊÊµ±Ñ¡Ôñ-->
+        <!--devtools å’Œ lombok å‡ä¸ºå¼€å‘è¾…åŠ©æ¨¡å—ï¼Œæ ¹æ®éœ€æ±‚é€‚å½“é€‰æ‹©-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -277,7 +277,7 @@ public class Dept implements Serializable {
 
 
 
-2) ÔÚ micro-service-cloud-eureka-7001 µÄÀàÂ·¾¶£¨/resouces Ä¿Â¼£©ÏÂ£¬Ìí¼ÓÒ»¸öÅäÖÃÎÄ¼ş application.yml£¬ÅäÖÃÄÚÈİÈçÏÂ¡£
+2) åœ¨ micro-service-cloud-eureka-7001 çš„ç±»è·¯å¾„ï¼ˆ/resouces ç›®å½•ï¼‰ä¸‹ï¼Œæ·»åŠ ä¸€ä¸ªé…ç½®æ–‡ä»¶ application.ymlï¼Œé…ç½®å†…å®¹å¦‚ä¸‹ã€‚
 
 
 
@@ -285,24 +285,24 @@ public class Dept implements Serializable {
 
 ```
 server:
-  port: 7001  #¸Ã Module µÄ¶Ë¿ÚºÅ
+  port: 7001  #è¯¥ Module çš„ç«¯å£å·
 
 eureka:
   instance:
-    hostname: localhost #eureka·şÎñ¶ËµÄÊµÀıÃû³Æ£¬
+    hostname: localhost #eurekaæœåŠ¡ç«¯çš„å®ä¾‹åç§°ï¼Œ
 
   client:
-    register-with-eureka: false #false±íÊ¾²»Ïò×¢²áÖĞĞÄ×¢²á×Ô¼º¡£
-    fetch-registry: false #false±íÊ¾×Ô¼º¶Ë¾ÍÊÇ×¢²áÖĞĞÄ£¬ÎÒµÄÖ°Ôğ¾ÍÊÇÎ¬»¤·şÎñÊµÀı£¬²¢²»ĞèÒªÈ¥¼ìË÷·şÎñ
+    register-with-eureka: false #falseè¡¨ç¤ºä¸å‘æ³¨å†Œä¸­å¿ƒæ³¨å†Œè‡ªå·±ã€‚
+    fetch-registry: false #falseè¡¨ç¤ºè‡ªå·±ç«¯å°±æ˜¯æ³¨å†Œä¸­å¿ƒï¼Œæˆ‘çš„èŒè´£å°±æ˜¯ç»´æŠ¤æœåŠ¡å®ä¾‹ï¼Œå¹¶ä¸éœ€è¦å»æ£€ç´¢æœåŠ¡
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #µ¥»ú°æ·şÎñ×¢²áÖĞĞÄ
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #å•æœºç‰ˆæœåŠ¡æ³¨å†Œä¸­å¿ƒ
 ```
 
 
 
 
 
-3) ÔÚ micro-service-cloud-eureka-7001 µÄÖ÷Æô¶¯ÀàÉÏÊ¹ÓÃ @EnableEurekaServer ×¢½â¿ªÆô·şÎñ×¢²áÖĞĞÄ¹¦ÄÜ£¬½ÓÊÜÆäËû·şÎñµÄ×¢²á£¬´úÂëÈçÏÂ¡£
+3) åœ¨ micro-service-cloud-eureka-7001 çš„ä¸»å¯åŠ¨ç±»ä¸Šä½¿ç”¨ @EnableEurekaServer æ³¨è§£å¼€å¯æœåŠ¡æ³¨å†Œä¸­å¿ƒåŠŸèƒ½ï¼Œæ¥å—å…¶ä»–æœåŠ¡çš„æ³¨å†Œï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -315,7 +315,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 @SpringBootApplication
-@EnableEurekaServer //¿ªÆô Eureka server,½ÓÊÜÆäËûÎ¢·şÎñµÄ×¢²á
+@EnableEurekaServer //å¼€å¯ Eureka server,æ¥å—å…¶ä»–å¾®æœåŠ¡çš„æ³¨å†Œ
 public class MicroServiceCloudEureka7001Application {
     public static void main(String[] args) {
         SpringApplication.run(MicroServiceCloudEureka7001Application.class, args);
@@ -328,15 +328,15 @@ public class MicroServiceCloudEureka7001Application {
 
 
 
-4) Æô¶¯ micro-service-cloud-eureka-7001£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ Eureka ·şÎñ×¢²áÖĞĞÄÖ÷Ò³£¬µØÖ·Îª¡°http://localhost:7001/¡±£¬½á¹ûÈçÏÂÍ¼¡£
+4) å¯åŠ¨ micro-service-cloud-eureka-7001ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—® Eureka æœåŠ¡æ³¨å†Œä¸­å¿ƒä¸»é¡µï¼Œåœ°å€ä¸ºâ€œhttp://localhost:7001/â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Eureka Server 7001 ·şÎñ×¢²áÖĞĞÄ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010306360-1.png)
+![Eureka Server 7001 æœåŠ¡æ³¨å†Œä¸­å¿ƒ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010306360-1.png)
 
-Í¼2£ºEureka 7001 ·şÎñ×¢²áÖĞĞÄ
+å›¾2ï¼šEureka 7001 æœåŠ¡æ³¨å†Œä¸­å¿ƒ
 
-#### 4\. ´î½¨·şÎñÌá¹©Õß
+#### 4\. æ­å»ºæœåŠ¡æä¾›è€…
 
-1) ÔÚÖ÷¹¤³ÌÏÂ´´½¨Ò»¸öÃûÎª micro-service-cloud-provider-dept-8001 µÄ Spring Boot Module£¬²¢ÔÚÆä pom.xml ÖĞÒıÈëÒÔÏÂÒÀÀµ¡£
+1) åœ¨ä¸»å·¥ç¨‹ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º micro-service-cloud-provider-dept-8001 çš„ Spring Boot Moduleï¼Œå¹¶åœ¨å…¶ pom.xml ä¸­å¼•å…¥ä»¥ä¸‹ä¾èµ–ã€‚
 
 
 
@@ -348,7 +348,7 @@ public class MicroServiceCloudEureka7001Application {
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!--ÒıÈë¸¸¹¤³Ìpom-->
+    <!--å¼•å…¥çˆ¶å·¥ç¨‹pom-->
     <parent>
         <artifactId>spring-cloud-demo2</artifactId>
         <groupId>net.biancheng.c</groupId>
@@ -370,60 +370,60 @@ public class MicroServiceCloudEureka7001Application {
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--devtools ¿ª·¢¹¤¾ß-->
+        <!--devtools å¼€å‘å·¥å…·-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-        <!--Spring Boot ²âÊÔ-->
+        <!--Spring Boot æµ‹è¯•-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--ÒıÈë¹«¹²×ÓÄ£¿é-->
+        <!--å¼•å…¥å…¬å…±å­æ¨¡å—-->
         <dependency>
             <groupId>net.biancheng.c</groupId>
             <artifactId>micro-service-cloud-api</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!--junit ²âÊÔ-->
+        <!--junit æµ‹è¯•-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
-        <!--mysql Çı¶¯-->
+        <!--mysql é©±åŠ¨-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.49</version>
         </dependency>
-        <!--logback ÈÕÖ¾-->
+        <!--logback æ—¥å¿—-->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
         </dependency>
-        <!--ÕûºÏ mybatis -->
+        <!--æ•´åˆ mybatis -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.2.0</version>
         </dependency>
-        <!-- ĞŞ¸ÄºóÁ¢¼´ÉúĞ§£¬ÈÈ²¿Êğ -->
+        <!-- ä¿®æ”¹åç«‹å³ç”Ÿæ•ˆï¼Œçƒ­éƒ¨ç½² -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>springloaded</artifactId>
             <version>1.2.8.RELEASE</version>
         </dependency>
-        <!--ÒıÈë Eureka Client µÄÒÀÀµ£¬½«·şÎñ×¢²áµ½ Eureka Server-->
+        <!--å¼•å…¥ Eureka Client çš„ä¾èµ–ï¼Œå°†æœåŠ¡æ³¨å†Œåˆ° Eureka Server-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <!-- Spring Boot ¼à¿ØÄ£¿é-->
+        <!-- Spring Boot ç›‘æ§æ¨¡å—-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -432,7 +432,7 @@ public class MicroServiceCloudEureka7001Application {
 
     <build>
         <plugins>
-            <!--mybatis×Ô¶¯Éú³É´úÂë²å¼ş-->
+            <!--mybatisè‡ªåŠ¨ç”Ÿæˆä»£ç æ’ä»¶-->
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
@@ -440,11 +440,11 @@ public class MicroServiceCloudEureka7001Application {
                 <configuration>
                     <configurationFile>src/main/resources/mybatis-generator/generatorConfig.xml</configurationFile>
                     <verbose>true</verbose>
-                    <!-- ÊÇ·ñ¸²¸Ç£¬true±íÊ¾»áÌæ»»Éú³ÉµÄJAVAÎÄ¼ş£¬falseÔò²»¸²¸Ç -->
+                    <!-- æ˜¯å¦è¦†ç›–ï¼Œtrueè¡¨ç¤ºä¼šæ›¿æ¢ç”Ÿæˆçš„JAVAæ–‡ä»¶ï¼Œfalseåˆ™ä¸è¦†ç›– -->
                     <overwrite>true</overwrite>
                 </configuration>
                 <dependencies>
-                    <!--mysqlÇı¶¯°ü-->
+                    <!--mysqlé©±åŠ¨åŒ…-->
                     <dependency>
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
@@ -471,7 +471,7 @@ public class MicroServiceCloudEureka7001Application {
 
 
 
-2) ÔÚ micro-service-cloud-provider-dept-8001 ÀàÂ·¾¶£¨/resources Ä¿Â¼£©ÏÂ£¬Ìí¼ÓÅäÖÃÎÄ¼ş application.yml£¬ÅäÖÃÄÚÈİÈçÏÂ¡£
+2) åœ¨ micro-service-cloud-provider-dept-8001 ç±»è·¯å¾„ï¼ˆ/resources ç›®å½•ï¼‰ä¸‹ï¼Œæ·»åŠ é…ç½®æ–‡ä»¶ application.ymlï¼Œé…ç½®å†…å®¹å¦‚ä¸‹ã€‚
 
 
 
@@ -480,46 +480,46 @@ public class MicroServiceCloudEureka7001Application {
 ```
 
 server:
-  port: 8001 #·şÎñ¶Ë¿ÚºÅ
+  port: 8001 #æœåŠ¡ç«¯å£å·
 spring:
   application:
-    name: microServiceCloudProviderDept  #Î¢·şÎñÃû³Æ£¬¶ÔÍâ±©Â©µÄÎ¢·şÎñÃû³Æ£¬Ê®·ÖÖØÒª
-################################################## JDBC Í¨ÓÃÅäÖÃ  ##########################################
+    name: microServiceCloudProviderDept  #å¾®æœåŠ¡åç§°ï¼Œå¯¹å¤–æš´æ¼çš„å¾®æœåŠ¡åç§°ï¼Œååˆ†é‡è¦
+################################################## JDBC é€šç”¨é…ç½®  ##########################################
   datasource:
-    username: root        #Êı¾İ¿âµÇÂ½ÓÃ»§Ãû
-    password: root        #Êı¾İ¿âµÇÂ½ÃÜÂë
-    url: jdbc:mysql://127.0.0.1:3306/bianchengbang_jdbc       #Êı¾İ¿âurl
-    driver-class-name: com.mysql.jdbc.Driver                  #Êı¾İ¿âÇı¶¯
+    username: root        #æ•°æ®åº“ç™»é™†ç”¨æˆ·å
+    password: root        #æ•°æ®åº“ç™»é™†å¯†ç 
+    url: jdbc:mysql://127.0.0.1:3306/bianchengbang_jdbc       #æ•°æ®åº“url
+    driver-class-name: com.mysql.jdbc.Driver                  #æ•°æ®åº“é©±åŠ¨
 
-############################### ²»¼ì²é spring.config.import=configserver:##################
+############################### ä¸æ£€æŸ¥ spring.config.import=configserver:##################
 #  cloud:
 #    config:
 #      enabled: false
-###################################### MyBatis ÅäÖÃ ######################################
+###################################### MyBatis é…ç½® ######################################
 mybatis:
-  # Ö¸¶¨ mapper.xml µÄÎ»ÖÃ
+  # æŒ‡å®š mapper.xml çš„ä½ç½®
   mapper-locations: classpath:mybatis/mapper/*.xml
-  #É¨ÃèÊµÌåÀàµÄÎ»ÖÃ,ÔÚ´Ë´¦Ö¸Ã÷É¨ÃèÊµÌåÀàµÄ°ü£¬ÔÚ mapper.xml ÖĞ¾Í¿ÉÒÔ²»Ğ´ÊµÌåÀàµÄÈ«Â·¾¶Ãû
+  #æ‰«æå®ä½“ç±»çš„ä½ç½®,åœ¨æ­¤å¤„æŒ‡æ˜æ‰«æå®ä½“ç±»çš„åŒ…ï¼Œåœ¨ mapper.xml ä¸­å°±å¯ä»¥ä¸å†™å®ä½“ç±»çš„å…¨è·¯å¾„å
   type-aliases-package: net.biancheng.c.entity
   configuration:
-    #Ä¬ÈÏ¿ªÆôÍÕ·åÃüÃû·¨£¬¿ÉÒÔ²»ÓÃÉèÖÃ¸ÃÊôĞÔ
+    #é»˜è®¤å¼€å¯é©¼å³°å‘½åæ³•ï¼Œå¯ä»¥ä¸ç”¨è®¾ç½®è¯¥å±æ€§
     map-underscore-to-camel-case: true
-########################################### Spring cloud ×Ô¶¨Òå·şÎñÃû³ÆºÍ ip µØÖ·###############################################
+########################################### Spring cloud è‡ªå®šä¹‰æœåŠ¡åç§°å’Œ ip åœ°å€###############################################
 eureka:
-  client: #½«¿Í»§¶Ë×¢²áµ½ eureka ·şÎñÁĞ±íÄÚ
+  client: #å°†å®¢æˆ·ç«¯æ³¨å†Œåˆ° eureka æœåŠ¡åˆ—è¡¨å†…
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka  #Õâ¸öµØÖ·ÊÇ 7001×¢²áÖĞĞÄÔÚ application.yml ÖĞ±©Â¶³öÀ´¶î×¢²áµØÖ· £¨µ¥»ú°æ£©
+      defaultZone: http://eureka7001.com:7001/eureka  #è¿™ä¸ªåœ°å€æ˜¯ 7001æ³¨å†Œä¸­å¿ƒåœ¨ application.yml ä¸­æš´éœ²å‡ºæ¥é¢æ³¨å†Œåœ°å€ ï¼ˆå•æœºç‰ˆï¼‰
 
   instance:
-    instance-id: spring-cloud-provider-8001 #×Ô¶¨Òå·şÎñÃû³ÆĞÅÏ¢
-    prefer-ip-address: true  #ÏÔÊ¾·ÃÎÊÂ·¾¶µÄ ip µØÖ·
-########################################## spring cloud Ê¹ÓÃ Spring Boot actuator ¼à¿ØÍêÉÆĞÅÏ¢###################################
-# Spring Boot 2.50¶Ô actuator ¼à¿ØÆÁ±ÎÁË´ó¶àÊıµÄ½Úµã£¬Ö»±©Â¶ÁË heath ½Úµã£¬±¾¶ÎÅäÖÃ£¨*£©¾ÍÊÇÎªÁË¿ªÆôËùÓĞµÄ½Úµã
+    instance-id: spring-cloud-provider-8001 #è‡ªå®šä¹‰æœåŠ¡åç§°ä¿¡æ¯
+    prefer-ip-address: true  #æ˜¾ç¤ºè®¿é—®è·¯å¾„çš„ ip åœ°å€
+########################################## spring cloud ä½¿ç”¨ Spring Boot actuator ç›‘æ§å®Œå–„ä¿¡æ¯###################################
+# Spring Boot 2.50å¯¹ actuator ç›‘æ§å±è”½äº†å¤§å¤šæ•°çš„èŠ‚ç‚¹ï¼Œåªæš´éœ²äº† heath èŠ‚ç‚¹ï¼Œæœ¬æ®µé…ç½®ï¼ˆ*ï¼‰å°±æ˜¯ä¸ºäº†å¼€å¯æ‰€æœ‰çš„èŠ‚ç‚¹
 management:
   endpoints:
     web:
       exposure:
-        include: "*"   # * ÔÚyaml ÎÄ¼şÊôÓÚ¹Ø¼ü×Ö£¬ËùÒÔĞèÒª¼ÓÒıºÅ
+        include: "*"   # * åœ¨yaml æ–‡ä»¶å±äºå…³é”®å­—ï¼Œæ‰€ä»¥éœ€è¦åŠ å¼•å·
 info:
   app.name: micro-service-cloud-provider-dept
   company.name: c.biancheng.net
@@ -531,7 +531,7 @@ info:
 
 
 
-3) ÔÚ net.biancheng.c.mapper °üÏÂ´´½¨Ò»¸öÃûÎª DeptMapper µÄ½Ó¿Ú£¬´úÂëÈçÏÂ¡£
+3) åœ¨ net.biancheng.c.mapper åŒ…ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º DeptMapper çš„æ¥å£ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -545,9 +545,9 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 @Mapper
 public interface DeptMapper {
-    //¸ù¾İÖ÷¼ü»ñÈ¡Êı¾İ
+    //æ ¹æ®ä¸»é”®è·å–æ•°æ®
     Dept selectByPrimaryKey(Integer deptNo);
-    //»ñÈ¡±íÖĞµÄÈ«²¿Êı¾İ
+    //è·å–è¡¨ä¸­çš„å…¨éƒ¨æ•°æ®
     List<Dept> GetAll();
 }
 
@@ -557,7 +557,7 @@ public interface DeptMapper {
 
 
 
-4) ÔÚ resources/mybatis/mapper/ Ä¿Â¼ÏÂ£¬´´½¨Ò»¸öÃûÎª DeptMapper.xml µÄ MyBatis Ó³ÉäÎÄ¼ş£¬ÅäÖÃÄÚÈİÈçÏÂ¡£
+4) åœ¨ resources/mybatis/mapper/ ç›®å½•ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º DeptMapper.xml çš„ MyBatis æ˜ å°„æ–‡ä»¶ï¼Œé…ç½®å†…å®¹å¦‚ä¸‹ã€‚
 
 
 
@@ -597,7 +597,7 @@ public interface DeptMapper {
 
 
 
-5) ÔÚ net.biancheng.c.service °üÏÂ´´½¨Ò»¸öÃûÎª DeptService µÄ½Ó¿Ú£¬´úÂëÈçÏÂ¡£
+5) åœ¨ net.biancheng.c.service åŒ…ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º DeptService çš„æ¥å£ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -620,7 +620,7 @@ public interface DeptService {
 
 
 
-6) ÔÚ net.biancheng.c.service.impl °üÏÂ´´½¨ DeptService ½Ó¿ÚµÄÊµÏÖÀà DeptServiceImpl£¬´úÂëÈçÏÂ¡£
+6) åœ¨ net.biancheng.c.service.impl åŒ…ä¸‹åˆ›å»º DeptService æ¥å£çš„å®ç°ç±» DeptServiceImplï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -659,7 +659,7 @@ public class DeptServiceImpl implements DeptService {
 
 
 
-7) ÔÚ net.biancheng.c.controller °üÏÂ´´½¨Ò»¸öÃûÎª DeptController µÄ Controller Àà£¬´úÂëÈçÏÂ¡£
+7) åœ¨ net.biancheng.c.controller åŒ…ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º DeptController çš„ Controller ç±»ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -679,8 +679,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
-* ·şÎñÌá¹©ÕßµÄ¿ØÖÆ²ã
-* author:cÓïÑÔÖĞÎÄÍø c.biancheng.net
+* æœåŠ¡æä¾›è€…çš„æ§åˆ¶å±‚
+* author:cè¯­è¨€ä¸­æ–‡ç½‘ c.biancheng.net
 */
 @RestController
 @Slf4j
@@ -707,7 +707,7 @@ public class DeptController {
 
 
 
-8) ÔÚ micro-service-cloud-provider-dept-8001 µÄÖ÷Æô¶¯ÀàÉÏ£¬Ê¹ÓÃ @EnableEurekaClient ×¢½â¿ªÆô Eureka ¿Í»§¶Ë¹¦ÄÜ£¬½«·şÎñ×¢²áµ½·şÎñ×¢²áÖĞĞÄ£¨Eureka Server£©£¬´úÂëÈçÏÂ¡£
+8) åœ¨ micro-service-cloud-provider-dept-8001 çš„ä¸»å¯åŠ¨ç±»ä¸Šï¼Œä½¿ç”¨ @EnableEurekaClient æ³¨è§£å¼€å¯ Eureka å®¢æˆ·ç«¯åŠŸèƒ½ï¼Œå°†æœåŠ¡æ³¨å†Œåˆ°æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼ˆEureka Serverï¼‰ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -723,7 +723,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableEurekaClient // Spring cloud Eureka ¿Í»§¶Ë£¬×Ô¶¯½«±¾·şÎñ×¢²áµ½ Eureka Server ×¢²áÖĞĞÄÖĞ
+@EnableEurekaClient // Spring cloud Eureka å®¢æˆ·ç«¯ï¼Œè‡ªåŠ¨å°†æœ¬æœåŠ¡æ³¨å†Œåˆ° Eureka Server æ³¨å†Œä¸­å¿ƒä¸­
 public class MicroServiceCloudProviderDept8001Application {
 
     public static void main(String[] args) {
@@ -737,19 +737,19 @@ public class MicroServiceCloudProviderDept8001Application {
 
 
 
-9) ÒÀ´ÎÆô¶¯ micro-service-cloud-eureka-7001 ºÍ micro-service-cloud-provider-dept-8001£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÔÙ´ÎÎÊ Eureka ·şÎñ×¢²áÖĞĞÄÖ÷Ò³£¨http://localhost:7001/£©£¬ÈçÏÂÍ¼¡£
+9) ä¾æ¬¡å¯åŠ¨ micro-service-cloud-eureka-7001 å’Œ micro-service-cloud-provider-dept-8001ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿å†æ¬¡é—® Eureka æœåŠ¡æ³¨å†Œä¸­å¿ƒä¸»é¡µï¼ˆhttp://localhost:7001/ï¼‰ï¼Œå¦‚ä¸‹å›¾ã€‚
 
-![Eureka Client ×¢²áµ½·şÎñ×¢²áÖĞĞÄ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010304436-2.png)
-Í¼3£º·şÎñÌá¹©Õß×¢²áµ½·şÎñ×¢²áÖĞĞÄ
+![Eureka Client æ³¨å†Œåˆ°æœåŠ¡æ³¨å†Œä¸­å¿ƒ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010304436-2.png)
+å›¾3ï¼šæœåŠ¡æä¾›è€…æ³¨å†Œåˆ°æœåŠ¡æ³¨å†Œä¸­å¿ƒ
 
-´ÓÍ¼ 3 ¿ÉÒÔ¿´µ½£¬ Instances currently registered with Eureka £¨×¢²áµ½ Eureka Server µÄÊµÀı£©Ñ¡ÏîÖĞÒÑ¾­°üº¬ÁËÒ»Ìõ·şÎñĞÅÏ¢£¬¼´ÒÑ¾­ÓĞ·şÎñ×¢²áµ½ Eureka Server ÉÏÁË¡£
+ä»å›¾ 3 å¯ä»¥çœ‹åˆ°ï¼Œ Instances currently registered with Eureka ï¼ˆæ³¨å†Œåˆ° Eureka Server çš„å®ä¾‹ï¼‰é€‰é¡¹ä¸­å·²ç»åŒ…å«äº†ä¸€æ¡æœåŠ¡ä¿¡æ¯ï¼Œå³å·²ç»æœ‰æœåŠ¡æ³¨å†Œåˆ° Eureka Server ä¸Šäº†ã€‚
 
-Instances currently registered with Eureka Ñ¡ÏîÖĞ°üº¬ÒÔÏÂÄÚÈİ£º
+Instances currently registered with Eureka é€‰é¡¹ä¸­åŒ…å«ä»¥ä¸‹å†…å®¹ï¼š
 
-*   Application£ºMICROSERVICECLOUDPROVIDERDEPT£¬¸ÃÈ¡ÖµÎª micro-service-cloud-provider-dept-8001 ÅäÖÃÎÄ¼ş application.yml ÖĞ spring.application.name µÄÈ¡Öµ¡£
-*   Status£º UP (1) - spring-cloud-provider-8001£¬UP ±íÊ¾·şÎñÔÚÏß£¬ (1) ±íÊ¾ÓĞ¼¯ÈºÖĞ·şÎñµÄÊıÁ¿£¬spring-cloud-provider-8001 ÔòÊÇ micro-service-cloud-provider-dept-8001 ÅäÖÃÎÄ¼ş application.yml ÖĞ eureka.instance.instance-id µÄÈ¡Öµ¡£
+*   Applicationï¼šMICROSERVICECLOUDPROVIDERDEPTï¼Œè¯¥å–å€¼ä¸º micro-service-cloud-provider-dept-8001 é…ç½®æ–‡ä»¶ application.yml ä¸­ spring.application.name çš„å–å€¼ã€‚
+*   Statusï¼š UP (1) - spring-cloud-provider-8001ï¼ŒUP è¡¨ç¤ºæœåŠ¡åœ¨çº¿ï¼Œ (1) è¡¨ç¤ºæœ‰é›†ç¾¤ä¸­æœåŠ¡çš„æ•°é‡ï¼Œspring-cloud-provider-8001 åˆ™æ˜¯ micro-service-cloud-provider-dept-8001 é…ç½®æ–‡ä»¶ application.yml ä¸­ eureka.instance.instance-id çš„å–å€¼ã€‚
 
-10) ÔÚ MySQL µÄ bianchengbang_jdbc Êı¾İ¿âÖĞÖ´ĞĞÒÔÏÂ SQL£¬×¼±¸²âÊÔÊı¾İ¡£
+10) åœ¨ MySQL çš„ bianchengbang_jdbc æ•°æ®åº“ä¸­æ‰§è¡Œä»¥ä¸‹ SQLï¼Œå‡†å¤‡æµ‹è¯•æ•°æ®ã€‚
 
 ```
 DROP TABLE IF EXISTS `dept`;
@@ -761,25 +761,25 @@ CREATE TABLE `dept` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
-INSERT INTO `dept` VALUES ('1', '¿ª·¢²¿', 'bianchengbang_jdbc');
-INSERT INTO `dept` VALUES ('2', 'ÈËÊÂ²¿', 'bianchengbang_jdbc');
-INSERT INTO `dept` VALUES ('3', '²ÆÎñ²¿', 'bianchengbang_jdbc');
-INSERT INTO `dept` VALUES ('4', 'ÊĞ³¡²¿', 'bianchengbang_jdbc');
-INSERT INTO `dept` VALUES ('5', 'ÔËÎ¬²¿', 'bianchengbang_jdbc');
+INSERT INTO `dept` VALUES ('1', 'å¼€å‘éƒ¨', 'bianchengbang_jdbc');
+INSERT INTO `dept` VALUES ('2', 'äººäº‹éƒ¨', 'bianchengbang_jdbc');
+INSERT INTO `dept` VALUES ('3', 'è´¢åŠ¡éƒ¨', 'bianchengbang_jdbc');
+INSERT INTO `dept` VALUES ('4', 'å¸‚åœºéƒ¨', 'bianchengbang_jdbc');
+INSERT INTO `dept` VALUES ('5', 'è¿ç»´éƒ¨', 'bianchengbang_jdbc');
 ```
 
-11) Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://localhost:8001/dept/list¡±£¬½á¹ûÈçÏÂÍ¼¡£
+11) ä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://localhost:8001/dept/listâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Eureka Client 8001 ·ÃÎÊÊı¾İ¿â](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010301b2-3.png)
-Í¼4£º·şÎñÌá¹©ÕßÌá¹©·şÎñ·ÃÎÊÊı¾İ¿â
+![Eureka Client 8001 è®¿é—®æ•°æ®åº“](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010301b2-3.png)
+å›¾4ï¼šæœåŠ¡æä¾›è€…æä¾›æœåŠ¡è®¿é—®æ•°æ®åº“
 
-## Eureka Server ¼¯Èº
+## Eureka Server é›†ç¾¤
 
-ÔÚÎ¢·şÎñ¼Ü¹¹ÖĞ£¬Ò»¸öÏµÍ³ÍùÍùÓÉÊ®¼¸ÉõÖÁ¼¸Ê®¸ö·şÎñ×é³É£¬Èô½«ÕâĞ©·şÎñÈ«²¿×¢²áµ½Í¬Ò»¸ö Eureka Server ÖĞ£¬¾Í¼«ÓĞ¿ÉÄÜµ¼ÖÂ Eureka Server Òò²»¿°ÖØ¸º¶ø±ÀÀ££¬×îÖÕµ¼ÖÂÕû¸öÏµÍ³Ì±»¾¡£½â¾öÕâ¸öÎÊÌâ×îÖ±½ÓµÄ°ì·¨¾ÍÊÇ²¿Êğ Eureka Server ¼¯Èº¡£
+åœ¨å¾®æœåŠ¡æ¶æ„ä¸­ï¼Œä¸€ä¸ªç³»ç»Ÿå¾€å¾€ç”±åå‡ ç”šè‡³å‡ åä¸ªæœåŠ¡ç»„æˆï¼Œè‹¥å°†è¿™äº›æœåŠ¡å…¨éƒ¨æ³¨å†Œåˆ°åŒä¸€ä¸ª Eureka Server ä¸­ï¼Œå°±ææœ‰å¯èƒ½å¯¼è‡´ Eureka Server å› ä¸å ªé‡è´Ÿè€Œå´©æºƒï¼Œæœ€ç»ˆå¯¼è‡´æ•´ä¸ªç³»ç»Ÿç˜«ç—ªã€‚è§£å†³è¿™ä¸ªé—®é¢˜æœ€ç›´æ¥çš„åŠæ³•å°±æ˜¯éƒ¨ç½² Eureka Server é›†ç¾¤ã€‚
 
-ÎÒÃÇÖªµÀ£¬ÔÚ Eureka ÊµÏÖ·şÎñ×¢²áÓë·¢ÏÖÊ±Ò»¹²Éæ¼°ÁË 3 ¸ö½ÇÉ«£º·şÎñ×¢²áÖĞĞÄ¡¢·şÎñÌá¹©ÕßÒÔ¼°·şÎñÏû·ÑÕß£¬ÕâÈı¸ö½ÇÉ«·Ö¹¤Ã÷È·£¬¸÷Ë¾ÆäÖ°¡£µ«ÊÇÆäÊµÔÚ Eureka ÖĞ£¬ËùÓĞ·şÎñ¶¼¼ÈÊÇ·şÎñÏû·ÑÕßÒ²ÊÇ·şÎñÌá¹©Õß£¬·şÎñ×¢²áÖĞĞÄ Eureka Server Ò²²»ÀıÍâ¡£
+æˆ‘ä»¬çŸ¥é“ï¼Œåœ¨ Eureka å®ç°æœåŠ¡æ³¨å†Œä¸å‘ç°æ—¶ä¸€å…±æ¶‰åŠäº† 3 ä¸ªè§’è‰²ï¼šæœåŠ¡æ³¨å†Œä¸­å¿ƒã€æœåŠ¡æä¾›è€…ä»¥åŠæœåŠ¡æ¶ˆè´¹è€…ï¼Œè¿™ä¸‰ä¸ªè§’è‰²åˆ†å·¥æ˜ç¡®ï¼Œå„å¸å…¶èŒã€‚ä½†æ˜¯å…¶å®åœ¨ Eureka ä¸­ï¼Œæ‰€æœ‰æœåŠ¡éƒ½æ—¢æ˜¯æœåŠ¡æ¶ˆè´¹è€…ä¹Ÿæ˜¯æœåŠ¡æä¾›è€…ï¼ŒæœåŠ¡æ³¨å†Œä¸­å¿ƒ Eureka Server ä¹Ÿä¸ä¾‹å¤–ã€‚
 
-ÎÒÃÇÔÚ´î½¨·şÎñ×¢²áÖĞĞÄÊ±£¬ÔÚ application.yml ÖĞÉæ¼°ÁËÕâÑùµÄÅäÖÃ£º
+æˆ‘ä»¬åœ¨æ­å»ºæœåŠ¡æ³¨å†Œä¸­å¿ƒæ—¶ï¼Œåœ¨ application.yml ä¸­æ¶‰åŠäº†è¿™æ ·çš„é…ç½®ï¼š
 
 
 
@@ -790,31 +790,31 @@ INSERT INTO `dept` VALUES ('5', 'ÔËÎ¬²¿', 'bianchengbang_jdbc');
 
 eureka:
   client:
-    register-with-eureka: false  #false ±íÊ¾²»Ïò×¢²áÖĞĞÄ×¢²á×Ô¼º¡£
-    fetch-registry: false  #false±íÊ¾×Ô¼º¶Ë¾ÍÊÇ×¢²áÖĞĞÄ£¬Ö°Ôğ¾ÍÊÇÎ¬»¤·şÎñÊµÀı£¬²¢²»ĞèÒªÈ¥¼ìË÷·şÎñ
+    register-with-eureka: false  #false è¡¨ç¤ºä¸å‘æ³¨å†Œä¸­å¿ƒæ³¨å†Œè‡ªå·±ã€‚
+    fetch-registry: false  #falseè¡¨ç¤ºè‡ªå·±ç«¯å°±æ˜¯æ³¨å†Œä¸­å¿ƒï¼ŒèŒè´£å°±æ˜¯ç»´æŠ¤æœåŠ¡å®ä¾‹ï¼Œå¹¶ä¸éœ€è¦å»æ£€ç´¢æœåŠ¡
 ```
 
 
 
 
 
-ÕâÑùÉèÖÃµÄÔ­ÒòÊÇ micro-service-cloud-eureka-7001 ±¾Éí×Ô¼º¾ÍÊÇ·şÎñ×¢²áÖĞĞÄ£¬·şÎñ×¢²áÖĞĞÄÊÇ²»ÄÜ½«×Ô¼º×¢²áµ½×Ô¼ºÉíÉÏµÄ£¬µ«·şÎñ×¢²áÖĞĞÄÊÇ¿ÉÒÔ½«×Ô¼º×÷Îª·şÎñÏòÆäËûµÄ·şÎñ×¢²áÖĞĞÄ×¢²á×Ô¼ºµÄ¡£
+è¿™æ ·è®¾ç½®çš„åŸå› æ˜¯ micro-service-cloud-eureka-7001 æœ¬èº«è‡ªå·±å°±æ˜¯æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼ŒæœåŠ¡æ³¨å†Œä¸­å¿ƒæ˜¯ä¸èƒ½å°†è‡ªå·±æ³¨å†Œåˆ°è‡ªå·±èº«ä¸Šçš„ï¼Œä½†æœåŠ¡æ³¨å†Œä¸­å¿ƒæ˜¯å¯ä»¥å°†è‡ªå·±ä½œä¸ºæœåŠ¡å‘å…¶ä»–çš„æœåŠ¡æ³¨å†Œä¸­å¿ƒæ³¨å†Œè‡ªå·±çš„ã€‚
 
-¾Ù¸öÀı×Ó£¬ÓĞÁ½¸ö Eureka Server ·Ö±ğÎª A ºÍ B£¬ËäÈ» A ²»ÄÜ½«×Ô¼º×¢²áµ½ A ÉÏ£¬B Ò²²»ÄÜ½«×Ô¼º×¢²áµ½ B ÉÏ£¬µ« A ÊÇ¿ÉÒÔ×÷ÎªÒ»¸ö·şÎñ°Ñ×Ô¼º×¢²áµ½ B ÉÏµÄ£¬Í¬Àí B Ò²¿ÉÒÔ½«×Ô¼º×¢²áµ½ A ÉÏ¡£
+ä¸¾ä¸ªä¾‹å­ï¼Œæœ‰ä¸¤ä¸ª Eureka Server åˆ†åˆ«ä¸º A å’Œ Bï¼Œè™½ç„¶ A ä¸èƒ½å°†è‡ªå·±æ³¨å†Œåˆ° A ä¸Šï¼ŒB ä¹Ÿä¸èƒ½å°†è‡ªå·±æ³¨å†Œåˆ° B ä¸Šï¼Œä½† A æ˜¯å¯ä»¥ä½œä¸ºä¸€ä¸ªæœåŠ¡æŠŠè‡ªå·±æ³¨å†Œåˆ° B ä¸Šçš„ï¼ŒåŒç† B ä¹Ÿå¯ä»¥å°†è‡ªå·±æ³¨å†Œåˆ° A ä¸Šã€‚
 
-ÕâÑù¾Í¿ÉÒÔĞÎ³ÉÒ»×é»¥Ïà×¢²áµÄ Eureka Server ¼¯Èº£¬µ±·şÎñÌá¹©Õß·¢ËÍ×¢²áÇëÇóµ½ Eureka Server Ê±£¬Eureka Server »á½«ÇëÇó×ª·¢¸ø¼¯ÈºÖĞËùÓĞÓëÖ®ÏàÁ¬µÄ Eureka Server ÉÏ£¬ÒÔÊµÏÖ Eureka Server Ö®¼äµÄ·şÎñÍ¬²½¡£
+è¿™æ ·å°±å¯ä»¥å½¢æˆä¸€ç»„äº’ç›¸æ³¨å†Œçš„ Eureka Server é›†ç¾¤ï¼Œå½“æœåŠ¡æä¾›è€…å‘é€æ³¨å†Œè¯·æ±‚åˆ° Eureka Server æ—¶ï¼ŒEureka Server ä¼šå°†è¯·æ±‚è½¬å‘ç»™é›†ç¾¤ä¸­æ‰€æœ‰ä¸ä¹‹ç›¸è¿çš„ Eureka Server ä¸Šï¼Œä»¥å®ç° Eureka Server ä¹‹é—´çš„æœåŠ¡åŒæ­¥ã€‚
 
-Í¨¹ı·şÎñÍ¬²½£¬·şÎñÏû·ÑÕß¿ÉÒÔÔÚ¼¯ÈºÖĞµÄÈÎÒâÒ»Ì¨ Eureka Server ÉÏ»ñÈ¡·şÎñÌá¹©ÕßÌá¹©µÄ·şÎñ¡£ÕâÑù£¬¼´Ê¹¼¯ÈºÖĞµÄÄ³¸ö·şÎñ×¢²áÖĞĞÄ·¢Éú¹ÊÕÏ£¬·şÎñÏû·ÑÕßÈÔÈ»¿ÉÒÔ´Ó¼¯ÈºÖĞµÄÆäËû Eureka Server ÖĞ»ñÈ¡·şÎñĞÅÏ¢²¢µ÷ÓÃ£¬¶ø²»»áµ¼ÖÂÏµÍ³µÄÕûÌåÌ±»¾£¬Õâ¾ÍÊÇ Eureka Server ¼¯ÈºµÄ¸ß¿ÉÓÃĞÔ¡£
+é€šè¿‡æœåŠ¡åŒæ­¥ï¼ŒæœåŠ¡æ¶ˆè´¹è€…å¯ä»¥åœ¨é›†ç¾¤ä¸­çš„ä»»æ„ä¸€å° Eureka Server ä¸Šè·å–æœåŠ¡æä¾›è€…æä¾›çš„æœåŠ¡ã€‚è¿™æ ·ï¼Œå³ä½¿é›†ç¾¤ä¸­çš„æŸä¸ªæœåŠ¡æ³¨å†Œä¸­å¿ƒå‘ç”Ÿæ•…éšœï¼ŒæœåŠ¡æ¶ˆè´¹è€…ä»ç„¶å¯ä»¥ä»é›†ç¾¤ä¸­çš„å…¶ä»– Eureka Server ä¸­è·å–æœåŠ¡ä¿¡æ¯å¹¶è°ƒç”¨ï¼Œè€Œä¸ä¼šå¯¼è‡´ç³»ç»Ÿçš„æ•´ä½“ç˜«ç—ªï¼Œè¿™å°±æ˜¯ Eureka Server é›†ç¾¤çš„é«˜å¯ç”¨æ€§ã€‚
 
-## Ê¾Àı 2
+## ç¤ºä¾‹ 2
 
-ÏÂÃæÎÒÃÇÔÚÊ¾Àı 1 µÄ»ù´¡ÉÏ½øĞĞÀ©Õ¹£¬¹¹½¨Ò»¸öÓµÓĞ 3 ¸ö Eureka Server ÊµÀıµÄ¼¯Èº¡£
+ä¸‹é¢æˆ‘ä»¬åœ¨ç¤ºä¾‹ 1 çš„åŸºç¡€ä¸Šè¿›è¡Œæ‰©å±•ï¼Œæ„å»ºä¸€ä¸ªæ‹¥æœ‰ 3 ä¸ª Eureka Server å®ä¾‹çš„é›†ç¾¤ã€‚
 
-1\. ²ÎÕÕ micro-service-cloud-eureka-7001 µÄ´î½¨¹ı³Ì£¬ÔÚÖ÷¹¤³ÌÏÂÁíÍâÔÙ´´½¨Á½¸ö Eureka Server£ºmicro-service-cloud-eureka-7002 ºÍ micro-service-cloud-eureka-7003£¬´ËÊ±Õâ 3 ¸ö Eureka Server ÎŞÂÛÊÇ Maven ÒÀÀµ¡¢´úÂë»¹ÊÇÅäÖÃ¶¼ÊÇÒ»Ä£Ò»ÑùµÄ¡£
+1\. å‚ç…§ micro-service-cloud-eureka-7001 çš„æ­å»ºè¿‡ç¨‹ï¼Œåœ¨ä¸»å·¥ç¨‹ä¸‹å¦å¤–å†åˆ›å»ºä¸¤ä¸ª Eureka Serverï¼šmicro-service-cloud-eureka-7002 å’Œ micro-service-cloud-eureka-7003ï¼Œæ­¤æ—¶è¿™ 3 ä¸ª Eureka Server æ— è®ºæ˜¯ Maven ä¾èµ–ã€ä»£ç è¿˜æ˜¯é…ç½®éƒ½æ˜¯ä¸€æ¨¡ä¸€æ ·çš„ã€‚
 
-2\. ĞŞ¸Ä micro-service-cloud-eureka-7001¡¢micro-service-cloud-eureka-7002¡¢micro-service-cloud-eureka-7003 ÖĞ application.yml µÄÅäÖÃ£¬¾ßÌåÅäÖÃÈçÏÂ ¡£
+2\. ä¿®æ”¹ micro-service-cloud-eureka-7001ã€micro-service-cloud-eureka-7002ã€micro-service-cloud-eureka-7003 ä¸­ application.yml çš„é…ç½®ï¼Œå…·ä½“é…ç½®å¦‚ä¸‹ ã€‚
 
-micro-service-cloud-eureka-7001 ÖĞ application.yml µÄÅäÖÃÈçÏÂ¡£
+micro-service-cloud-eureka-7001 ä¸­ application.yml çš„é…ç½®å¦‚ä¸‹ã€‚
 
 
 
@@ -822,49 +822,23 @@ micro-service-cloud-eureka-7001 ÖĞ application.yml µÄÅäÖÃÈçÏÂ¡£
 
 ```
 server:
-  port: 7001  #¶Ë¿ÚºÅ
+  port: 7001  #ç«¯å£å·
 eureka:
   instance:
-    hostname: eureka7001.com #eureka·şÎñ¶ËµÄÊµÀıÃû³Æ
+    hostname: eureka7001.com #eurekaæœåŠ¡ç«¯çš„å®ä¾‹åç§°
   client:
-    register-with-eureka: false #false ±íÊ¾²»Ïò×¢²áÖĞĞÄ×¢²á×Ô¼º¡£
-    fetch-registry: false #false ±íÊ¾×Ô¼º¶Ë¾ÍÊÇ×¢²áÖĞĞÄ£¬ÎÒµÄÖ°Ôğ¾ÍÊÇÎ¬»¤·şÎñÊµÀı£¬²¢²»ĞèÒªÈ¥¼ìË÷·şÎñ
+    register-with-eureka: false #false è¡¨ç¤ºä¸å‘æ³¨å†Œä¸­å¿ƒæ³¨å†Œè‡ªå·±ã€‚
+    fetch-registry: false #false è¡¨ç¤ºè‡ªå·±ç«¯å°±æ˜¯æ³¨å†Œä¸­å¿ƒï¼Œæˆ‘çš„èŒè´£å°±æ˜¯ç»´æŠ¤æœåŠ¡å®ä¾‹ï¼Œå¹¶ä¸éœ€è¦å»æ£€ç´¢æœåŠ¡
     service-url:
-      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #µ¥»ú°æ
-      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/ #¼¯Èº°æ ½«µ±Ç°µÄ Eureka Server ×¢²áµ½ 7003 ºÍ 7003 ÉÏ£¬ĞÎ³ÉÒ»×é»¥Ïà×¢²áµÄ Eureka Server ¼¯Èº
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #å•æœºç‰ˆ
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/ #é›†ç¾¤ç‰ˆ å°†å½“å‰çš„ Eureka Server æ³¨å†Œåˆ° 7003 å’Œ 7003 ä¸Šï¼Œå½¢æˆä¸€ç»„äº’ç›¸æ³¨å†Œçš„ Eureka Server é›†ç¾¤
 ```
 
 
 
 
 
-micro-service-cloud-eureka-7002 ÖĞ application.yml µÄÅäÖÃÈçÏÂ¡£
-
-
-
-
-
-```
-
-server:
-  port: 7002 #¶Ë¿ÚºÅ
-
-eureka:
-  instance:
-    hostname: eureka7002.com #Eureka Server ÊµÀıÃû³Æ
-
-  client:
-    register-with-eureka: false #false ±íÊ¾²»Ïò×¢²áÖĞĞÄ×¢²á×Ô¼º¡£
-    fetch-registry: false  #false ±íÊ¾×Ô¼º¶Ë¾ÍÊÇ×¢²áÖĞĞÄ£¬ÎÒµÄÖ°Ôğ¾ÍÊÇÎ¬»¤·şÎñÊµÀı£¬²¢²»ĞèÒªÈ¥¼ìË÷·şÎñ
-    service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7003.com:7003/eureka/ #½«Õâ¸ö Eureka Server ×¢²áµ½ 7001 ºÍ 7003 ÉÏ
-```
-
-
-
-
-
-micro-service-cloud-eureka-7003 ÖĞ application.yml µÄÅäÖÃÈçÏÂ¡£
+micro-service-cloud-eureka-7002 ä¸­ application.yml çš„é…ç½®å¦‚ä¸‹ã€‚
 
 
 
@@ -873,34 +847,60 @@ micro-service-cloud-eureka-7003 ÖĞ application.yml µÄÅäÖÃÈçÏÂ¡£
 ```
 
 server:
-  port: 7003 #¶Ë¿ÚºÅ
+  port: 7002 #ç«¯å£å·
 
 eureka:
   instance:
-    hostname: eureka7003.com #Eureka Server ÊµÀıÃû³Æ
+    hostname: eureka7002.com #Eureka Server å®ä¾‹åç§°
 
   client:
-    register-with-eureka: false #false ±íÊ¾²»Ïò×¢²áÖĞĞÄ×¢²á×Ô¼º¡£
-    fetch-registry: false  #false ±íÊ¾×Ô¼º¶Ë¾ÍÊÇ×¢²áÖĞĞÄ£¬ÎÒµÄÖ°Ôğ¾ÍÊÇÎ¬»¤·şÎñÊµÀı£¬²¢²»ĞèÒªÈ¥¼ìË÷·şÎñ
+    register-with-eureka: false #false è¡¨ç¤ºä¸å‘æ³¨å†Œä¸­å¿ƒæ³¨å†Œè‡ªå·±ã€‚
+    fetch-registry: false  #false è¡¨ç¤ºè‡ªå·±ç«¯å°±æ˜¯æ³¨å†Œä¸­å¿ƒï¼Œæˆ‘çš„èŒè´£å°±æ˜¯ç»´æŠ¤æœåŠ¡å®ä¾‹ï¼Œå¹¶ä¸éœ€è¦å»æ£€ç´¢æœåŠ¡
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/ #½«Õâ¸ö Eureka Server ×¢²áµ½ 7001 ºÍ 7002 ÉÏ
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7003.com:7003/eureka/ #å°†è¿™ä¸ª Eureka Server æ³¨å†Œåˆ° 7001 å’Œ 7003 ä¸Š
 ```
 
 
 
 
 
-3\. ÓÉÓÚÎÒÃÇÊÇÔÚ±¾µØ´î½¨µÄ Eureka Server ¼¯Èº£¬Òò´ËÎÒÃÇĞèÒªĞŞ¸Ä±¾µØµÄ host ÎÄ¼ş£¬Windows ²Ù×÷ÏµÍ³µÄµçÄÔÔÚ C:/Windows/System/drivers/etc/hosts ÖĞĞŞ¸Ä£¬Mac ÏµÍ³µÄµçÄÔÔòĞèÒªÔÚ vim/etc/hosts ÖĞĞŞ¸Ä£¬ĞŞ¸ÄÄÚÈİÈçÏÂ¡£
+micro-service-cloud-eureka-7003 ä¸­ application.yml çš„é…ç½®å¦‚ä¸‹ã€‚
+
+
+
+
 
 ```
-#Spring Cloud eureka ¼¯Èº
+
+server:
+  port: 7003 #ç«¯å£å·
+
+eureka:
+  instance:
+    hostname: eureka7003.com #Eureka Server å®ä¾‹åç§°
+
+  client:
+    register-with-eureka: false #false è¡¨ç¤ºä¸å‘æ³¨å†Œä¸­å¿ƒæ³¨å†Œè‡ªå·±ã€‚
+    fetch-registry: false  #false è¡¨ç¤ºè‡ªå·±ç«¯å°±æ˜¯æ³¨å†Œä¸­å¿ƒï¼Œæˆ‘çš„èŒè´£å°±æ˜¯ç»´æŠ¤æœåŠ¡å®ä¾‹ï¼Œå¹¶ä¸éœ€è¦å»æ£€ç´¢æœåŠ¡
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/ #å°†è¿™ä¸ª Eureka Server æ³¨å†Œåˆ° 7001 å’Œ 7002 ä¸Š
+```
+
+
+
+
+
+3\. ç”±äºæˆ‘ä»¬æ˜¯åœ¨æœ¬åœ°æ­å»ºçš„ Eureka Server é›†ç¾¤ï¼Œå› æ­¤æˆ‘ä»¬éœ€è¦ä¿®æ”¹æœ¬åœ°çš„ host æ–‡ä»¶ï¼ŒWindows æ“ä½œç³»ç»Ÿçš„ç”µè„‘åœ¨ C:/Windows/System/drivers/etc/hosts ä¸­ä¿®æ”¹ï¼ŒMac ç³»ç»Ÿçš„ç”µè„‘åˆ™éœ€è¦åœ¨ vim/etc/hosts ä¸­ä¿®æ”¹ï¼Œä¿®æ”¹å†…å®¹å¦‚ä¸‹ã€‚
+
+```
+#Spring Cloud eureka é›†ç¾¤
 127.0.0.1 eureka7001.com
 127.0.0.1 eureka7002.com
 127.0.0.1 eureka7003.com
 ```
 
 
-4\. ĞŞ¸Ä micro-service-cloud-provider-dept-8001£¨·şÎñÌá¹©Õß£©ÅäÖÃÎÄ¼ş application.yml ÖĞ eureka.client.service-url.defaultZone µÄÈ¡Öµ£¬½«·şÎñ×¢²áµ½ Eureka Server ¼¯ÈºÉÏ£¬¾ßÌåÅäÖÃÈçÏÂ¡£
+4\. ä¿®æ”¹ micro-service-cloud-provider-dept-8001ï¼ˆæœåŠ¡æä¾›è€…ï¼‰é…ç½®æ–‡ä»¶ application.yml ä¸­ eureka.client.service-url.defaultZone çš„å–å€¼ï¼Œå°†æœåŠ¡æ³¨å†Œåˆ° Eureka Server é›†ç¾¤ä¸Šï¼Œå…·ä½“é…ç½®å¦‚ä¸‹ã€‚
 
 
 
@@ -909,83 +909,60 @@ eureka:
 ```
 
 eureka:
-  client: #½«¿Í»§¶Ë×¢²áµ½ eureka ·şÎñÁĞ±íÄÚ
+  client: #å°†å®¢æˆ·ç«¯æ³¨å†Œåˆ° eureka æœåŠ¡åˆ—è¡¨å†…
     service-url:
-      #defaultZone: http://eureka7001.com:7001/eureka  #Õâ¸öµØÖ·ÊÇ 7001 ×¢²áÖĞĞÄÔÚ application.yml ÖĞ±©Â¶³öÀ´µÄ×¢²áµØÖ· £¨µ¥»ú°æ£©
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  #½«·şÎñ×¢²áµ½ Eureka Server ¼¯Èº
+      #defaultZone: http://eureka7001.com:7001/eureka  #è¿™ä¸ªåœ°å€æ˜¯ 7001 æ³¨å†Œä¸­å¿ƒåœ¨ application.yml ä¸­æš´éœ²å‡ºæ¥çš„æ³¨å†Œåœ°å€ ï¼ˆå•æœºç‰ˆï¼‰
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  #å°†æœåŠ¡æ³¨å†Œåˆ° Eureka Server é›†ç¾¤
 ```
 
 
 
 
 
-5\. Æô¶¯ micro-service-cloud-eureka-7001£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com:7001/¡±£¬½á¹ûÈçÏÂÍ¼¡£
+5\. å¯åŠ¨ micro-service-cloud-eureka-7001ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com:7001/â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Eureka ¼¯Èº 7001](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010302b3-4.png)
+![Eureka é›†ç¾¤ 7001](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010302b3-4.png)
 
-Í¼5£ºEureka Server ¼¯Èº -7001
+å›¾5ï¼šEureka Server é›†ç¾¤ -7001
 
-´ÓÉÏÍ¼¿ÉÒÔ¿´µ½£¬ ·şÎñÌá¹©Õß£¨micro-service-cloud-provider-dept-8001£©µÄ·şÎñÒÑ¾­×¢²áµ½ÁË Eureka Server 7001£¬²¢ÇÒÔÚ DS Replicas Ñ¡ÏîÖĞÒ²ÏÔÊ¾ÁË¼¯ÈºÖĞµÄÁíÍâÁ½¸ö Eureka Server£ºEureka Server 7002 ºÍ Eureka Server 7003¡£
+ä»ä¸Šå›¾å¯ä»¥çœ‹åˆ°ï¼Œ æœåŠ¡æä¾›è€…ï¼ˆmicro-service-cloud-provider-dept-8001ï¼‰çš„æœåŠ¡å·²ç»æ³¨å†Œåˆ°äº† Eureka Server 7001ï¼Œå¹¶ä¸”åœ¨ DS Replicas é€‰é¡¹ä¸­ä¹Ÿæ˜¾ç¤ºäº†é›†ç¾¤ä¸­çš„å¦å¤–ä¸¤ä¸ª Eureka Serverï¼šEureka Server 7002 å’Œ Eureka Server 7003ã€‚
 
-6\. Æô¶¯ micro-service-cloud-eureka-7002£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7002.com:7002/¡±£¬½á¹ûÈçÏÂÍ¼¡£
+6\. å¯åŠ¨ micro-service-cloud-eureka-7002ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7002.com:7002/â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Eureka ¼¯Èº 7002](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101030E36-5.png)
-Í¼6£ºEureka Server ¼¯Èº -7002
-
-
-´ÓÉÏÍ¼¿ÉÒÔ¿´µ½£¬ ·şÎñÌá¹©Õß£¨micro-service-cloud-provider-dept-8001£©ËùÌá¹©µÄ·şÎñÒÑ¾­×¢²áµ½ÁË Eureka Server 7002£¬²¢ÇÒÔÚ DS Replicas Ñ¡ÏîÖĞÒ²ÏÔÊ¾ÁË¼¯ÈºÖĞµÄÁíÍâÁ½¸ö Eureka Server£ºEureka Server 7001 ºÍ Eureka Server 7003¡£
-
-7. Æô¶¯ micro-service-cloud-eureka-7003£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7003.com:7003/¡±£¬½á¹ûÈçÏÂÍ¼¡£
-
-![Eureka ¼¯Èº 7003](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010306034-6.png)
-Í¼7£ºEureka Server ¼¯Èº -7003
-
-´ÓÉÏÍ¼¿ÉÒÔ¿´µ½£¬ ·şÎñÌá¹©Õß£¨micro-service-cloud-provider-dept-8001£©ËùÌá¹©µÄ·şÎñÒÑ¾­×¢²áµ½ÁË Eureka Server 7003£¬²¢ÇÒÔÚ DS Replicas Ñ¡ÏîÖĞÒ²ÏÔÊ¾ÁË¼¯ÈºÖĞµÄÁíÍâÁ½¸ö Eureka Server£ºEureka Server 7001 ºÍ Eureka Server 7002¡£
-
-×Ô´ËÎÒÃÇ¾ÍÍê³ÉÁË Eureka Server ¼¯ÈºµÄ´î½¨ºÍÊ¹ÓÃ¡£
-
-## Eureka ×ÔÎÒ±£»¤»úÖÆ
-
-µ±ÎÒÃÇÔÚ±¾µØµ÷ÊÔ»ùÓÚ Eureka µÄ³ÌĞòÊ±£¬Eureka ·şÎñ×¢²áÖĞĞÄºÜÓĞ¿ÉÄÜ»á³öÏÖÈçÏÂÍ¼ËùÊ¾µÄºìÉ«¾¯¸æ¡£
-
-![Eureka ×ÔÎÒ±£»¤»úÖÆ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10103014a-7.png)
-Í¼8£ºEureka ×ÔÎÒ±£»¤ÌáÊ¾
+![Eureka é›†ç¾¤ 7002](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101030E36-5.png)
+å›¾6ï¼šEureka Server é›†ç¾¤ -7002
 
 
-Êµ¼ÊÉÏ£¬Õâ¸ö¾¯¸æÊÇ´¥·¢ÁË Eureka µÄ×ÔÎÒ±£»¤»úÖÆ¶ø³öÏÖµÄ¡£Ä¬ÈÏÇé¿öÏÂ£¬Èç¹û Eureka Server ÔÚÒ»¶ÎÊ±¼äÄÚ£¨Ä¬ÈÏÎª 90 Ãë£©Ã»ÓĞ½ÓÊÕµ½Ä³¸ö·şÎñÌá¹©Õß£¨Eureka Client£©µÄĞÄÌø£¬¾Í»á½«Õâ¸ö·şÎñÌá¹©ÕßÌá¹©µÄ·şÎñ´Ó·şÎñ×¢²á±íÖĞÒÆ³ı¡£ ÕâÑù·şÎñÏû·ÑÕß¾ÍÔÙÒ²ÎŞ·¨´Ó·şÎñ×¢²áÖĞĞÄÖĞ»ñÈ¡µ½Õâ¸ö·şÎñÁË£¬¸üÎŞ·¨µ÷ÓÃ¸Ã·şÎñ¡£
+ä»ä¸Šå›¾å¯ä»¥çœ‹åˆ°ï¼Œ æœåŠ¡æä¾›è€…ï¼ˆmicro-service-cloud-provider-dept-8001ï¼‰æ‰€æä¾›çš„æœåŠ¡å·²ç»æ³¨å†Œåˆ°äº† Eureka Server 7002ï¼Œå¹¶ä¸”åœ¨ DS Replicas é€‰é¡¹ä¸­ä¹Ÿæ˜¾ç¤ºäº†é›†ç¾¤ä¸­çš„å¦å¤–ä¸¤ä¸ª Eureka Serverï¼šEureka Server 7001 å’Œ Eureka Server 7003ã€‚
 
-µ«ÔÚÊµ¼ÊµÄ·Ö²¼Ê½Î¢·şÎñÏµÍ³ÖĞ£¬½¡¿µµÄ·şÎñ£¨Eureka Client£©Ò²ÓĞ¿ÉÄÜ»áÓÉÓÚÍøÂç¹ÊÕÏ£¨ÀıÈçÍøÂçÑÓ³Ù¡¢¿¨¶Ù¡¢Óµ¼·µÈÔ­Òò£©¶øÎŞ·¨Óë Eureka Server Õı³£Í¨Ñ¶¡£Èô´ËÊ± Eureka Server ÒòÎªÃ»ÓĞ½ÓÊÕĞÄÌø¶øÎó½«½¡¿µµÄ·şÎñ´Ó·şÎñÁĞ±íÖĞÒÆ³ı£¬ÕâÏÔÈ»ÊÇ²»ºÏÀíµÄ¡£¶ø Eureka µÄ×ÔÎÒ±£»¤»úÖÆ¾ÍÊÇÀ´½â¾ö´ËÎÊÌâµÄ¡£
+7. å¯åŠ¨ micro-service-cloud-eureka-7003ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7003.com:7003/â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-ËùÎ½ ¡°Eureka µÄ×ÔÎÒ±£»¤»úÖÆ¡±£¬ÆäÖĞĞÄË¼Ïë¾ÍÊÇ¡°ºÃËÀ²»ÈçÀµ»î×Å¡±¡£Èç¹û Eureka Server ÔÚÒ»¶ÎÊ±¼äÄÚÃ»ÓĞ½ÓÊÕµ½ Eureka Client µÄĞÄÌø£¬ÄÇÃ´ Eureka Server ¾Í»á¿ªÆô×ÔÎÒ±£»¤Ä£Ê½£¬½«ËùÓĞµÄ Eureka Client µÄ×¢²áĞÅÏ¢±£»¤ÆğÀ´£¬¶ø²»ÊÇÖ±½Ó´Ó·şÎñ×¢²á±íÖĞÒÆ³ı¡£Ò»µ©ÍøÂç»Ö¸´£¬ÕâĞ© Eureka Client Ìá¹©µÄ·şÎñ»¹¿ÉÒÔ¼ÌĞø±»·şÎñÏû·ÑÕßÏû·Ñ¡£
+![Eureka é›†ç¾¤ 7003](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010306034-6.png)
+å›¾7ï¼šEureka Server é›†ç¾¤ -7003
 
-×ÛÉÏ£¬Eureka µÄ×ÔÎÒ±£»¤»úÖÆÊÇÒ»ÖÖÓ¦¶ÔÍøÂçÒì³£µÄ°²È«±£»¤´ëÊ©¡£ËüµÄ¼Ü¹¹ÕÜÑ§ÊÇ£ºÄş¿ÉÍ¬Ê±±£ÁôËùÓĞÎ¢·şÎñ£¨½¡¿µµÄ·şÎñºÍ²»½¡¿µµÄ·şÎñ¶¼»á±£Áô£©Ò²²»Ã¤Ä¿ÒÆ³ıÈÎºÎ½¡¿µµÄ·şÎñ¡£Í¨¹ı Eureka µÄ×ÔÎÒ±£»¤»úÖÆ£¬¿ÉÒÔÈÃ Eureka Server ¼¯Èº¸ü¼ÓµÄ½¡×³¡¢ÎÈ¶¨¡£
+ä»ä¸Šå›¾å¯ä»¥çœ‹åˆ°ï¼Œ æœåŠ¡æä¾›è€…ï¼ˆmicro-service-cloud-provider-dept-8001ï¼‰æ‰€æä¾›çš„æœåŠ¡å·²ç»æ³¨å†Œåˆ°äº† Eureka Server 7003ï¼Œå¹¶ä¸”åœ¨ DS Replicas é€‰é¡¹ä¸­ä¹Ÿæ˜¾ç¤ºäº†é›†ç¾¤ä¸­çš„å¦å¤–ä¸¤ä¸ª Eureka Serverï¼šEureka Server 7001 å’Œ Eureka Server 7002ã€‚
 
-> Eureka µÄ×ÔÎÒ±£»¤»úÖÆÒ²´æÔÚ±×¶Ë¡£Èç¹ûÔÚ Eureka ×ÔÎÒ±£»¤»úÖÆ´¥·¢ÆÚ¼ä£¬·şÎñÌá¹©ÕßÌá¹©µÄ·şÎñ³öÏÖÎÊÌâ£¬ÄÇÃ´·şÎñÏû·ÑÕß¾ÍºÜÈİÒ×»ñÈ¡µ½ÒÑ¾­²»´æÔÚµÄ·şÎñ½ø¶ø³öÏÖµ÷ÓÃÊ§°ÜµÄÇé¿ö£¬´ËÊ±£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ı¿Í»§¶ËµÄÈİ´í»úÖÆÀ´½â¾ö´ËÎÊÌâ£¬ÏêÇéÇë²Î¿¼ [Spring Cloud Netflix Ribbon](http://c.biancheng.net/springcloud/ribbon.html) ºÍ [Spring Cloud Netflix Hystrix](http://c.biancheng.net/springcloud/hystrix.html)¡£
+è‡ªæ­¤æˆ‘ä»¬å°±å®Œæˆäº† Eureka Server é›†ç¾¤çš„æ­å»ºå’Œä½¿ç”¨ã€‚
 
-Ä¬ÈÏÇé¿öÏÂ£¬Eureka µÄ×ÔÎÒ±£»¤»úÖÆÊÇ¿ªÆôµÄ£¬Èç¹ûÏëÒª¹Ø±Õ£¬ÔòĞèÒªÔÚÅäÖÃÎÄ¼şÖĞÌí¼ÓÒÔÏÂÅäÖÃ¡£
+## Eureka è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶
 
+å½“æˆ‘ä»¬åœ¨æœ¬åœ°è°ƒè¯•åŸºäº Eureka çš„ç¨‹åºæ—¶ï¼ŒEureka æœåŠ¡æ³¨å†Œä¸­å¿ƒå¾ˆæœ‰å¯èƒ½ä¼šå‡ºç°å¦‚ä¸‹å›¾æ‰€ç¤ºçš„çº¢è‰²è­¦å‘Šã€‚
 
-
-
-
-```
-
-
-eureka:
-server:
-enable-self-preservation: false # false ¹Ø±Õ Eureka µÄ×ÔÎÒ±£»¤»úÖÆ£¬Ä¬ÈÏÊÇ¿ªÆô,Ò»°ã²»½¨Òé´ó¼ÒĞŞ¸Ä
-
-```
+![Eureka è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10103014a-7.png)
+å›¾8ï¼šEureka è‡ªæˆ‘ä¿æŠ¤æç¤º
 
 
+å®é™…ä¸Šï¼Œè¿™ä¸ªè­¦å‘Šæ˜¯è§¦å‘äº† Eureka çš„è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶è€Œå‡ºç°çš„ã€‚é»˜è®¤æƒ…å†µä¸‹ï¼Œå¦‚æœ Eureka Server åœ¨ä¸€æ®µæ—¶é—´å†…ï¼ˆé»˜è®¤ä¸º 90 ç§’ï¼‰æ²¡æœ‰æ¥æ”¶åˆ°æŸä¸ªæœåŠ¡æä¾›è€…ï¼ˆEureka Clientï¼‰çš„å¿ƒè·³ï¼Œå°±ä¼šå°†è¿™ä¸ªæœåŠ¡æä¾›è€…æä¾›çš„æœåŠ¡ä»æœåŠ¡æ³¨å†Œè¡¨ä¸­ç§»é™¤ã€‚ è¿™æ ·æœåŠ¡æ¶ˆè´¹è€…å°±å†ä¹Ÿæ— æ³•ä»æœåŠ¡æ³¨å†Œä¸­å¿ƒä¸­è·å–åˆ°è¿™ä¸ªæœåŠ¡äº†ï¼Œæ›´æ— æ³•è°ƒç”¨è¯¥æœåŠ¡ã€‚
 
+ä½†åœ¨å®é™…çš„åˆ†å¸ƒå¼å¾®æœåŠ¡ç³»ç»Ÿä¸­ï¼Œå¥åº·çš„æœåŠ¡ï¼ˆEureka Clientï¼‰ä¹Ÿæœ‰å¯èƒ½ä¼šç”±äºç½‘ç»œæ•…éšœï¼ˆä¾‹å¦‚ç½‘ç»œå»¶è¿Ÿã€å¡é¡¿ã€æ‹¥æŒ¤ç­‰åŸå› ï¼‰è€Œæ— æ³•ä¸ Eureka Server æ­£å¸¸é€šè®¯ã€‚è‹¥æ­¤æ—¶ Eureka Server å› ä¸ºæ²¡æœ‰æ¥æ”¶å¿ƒè·³è€Œè¯¯å°†å¥åº·çš„æœåŠ¡ä»æœåŠ¡åˆ—è¡¨ä¸­ç§»é™¤ï¼Œè¿™æ˜¾ç„¶æ˜¯ä¸åˆç†çš„ã€‚è€Œ Eureka çš„è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶å°±æ˜¯æ¥è§£å†³æ­¤é—®é¢˜çš„ã€‚
 
+æ‰€è°“ â€œEureka çš„è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶â€ï¼Œå…¶ä¸­å¿ƒæ€æƒ³å°±æ˜¯â€œå¥½æ­»ä¸å¦‚èµ–æ´»ç€â€ã€‚å¦‚æœ Eureka Server åœ¨ä¸€æ®µæ—¶é—´å†…æ²¡æœ‰æ¥æ”¶åˆ° Eureka Client çš„å¿ƒè·³ï¼Œé‚£ä¹ˆ Eureka Server å°±ä¼šå¼€å¯è‡ªæˆ‘ä¿æŠ¤æ¨¡å¼ï¼Œå°†æ‰€æœ‰çš„ Eureka Client çš„æ³¨å†Œä¿¡æ¯ä¿æŠ¤èµ·æ¥ï¼Œè€Œä¸æ˜¯ç›´æ¥ä»æœåŠ¡æ³¨å†Œè¡¨ä¸­ç§»é™¤ã€‚ä¸€æ—¦ç½‘ç»œæ¢å¤ï¼Œè¿™äº› Eureka Client æä¾›çš„æœåŠ¡è¿˜å¯ä»¥ç»§ç»­è¢«æœåŠ¡æ¶ˆè´¹è€…æ¶ˆè´¹ã€‚
 
-## Ê¾Àı 3
+ç»¼ä¸Šï¼ŒEureka çš„è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶æ˜¯ä¸€ç§åº”å¯¹ç½‘ç»œå¼‚å¸¸çš„å®‰å…¨ä¿æŠ¤æªæ–½ã€‚å®ƒçš„æ¶æ„å“²å­¦æ˜¯ï¼šå®å¯åŒæ—¶ä¿ç•™æ‰€æœ‰å¾®æœåŠ¡ï¼ˆå¥åº·çš„æœåŠ¡å’Œä¸å¥åº·çš„æœåŠ¡éƒ½ä¼šä¿ç•™ï¼‰ä¹Ÿä¸ç›²ç›®ç§»é™¤ä»»ä½•å¥åº·çš„æœåŠ¡ã€‚é€šè¿‡ Eureka çš„è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶ï¼Œå¯ä»¥è®© Eureka Server é›†ç¾¤æ›´åŠ çš„å¥å£®ã€ç¨³å®šã€‚
 
-ÏÂÃæÎÒÃÇÍ¨¹ıÒ»¸öÊµÀı£¬À´ÑéÖ¤ÏÂ Eureka µÄ×ÔÎÒ±£»¤»úÖÆ¡£
+> Eureka çš„è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶ä¹Ÿå­˜åœ¨å¼Šç«¯ã€‚å¦‚æœåœ¨ Eureka è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶è§¦å‘æœŸé—´ï¼ŒæœåŠ¡æä¾›è€…æä¾›çš„æœåŠ¡å‡ºç°é—®é¢˜ï¼Œé‚£ä¹ˆæœåŠ¡æ¶ˆè´¹è€…å°±å¾ˆå®¹æ˜“è·å–åˆ°å·²ç»ä¸å­˜åœ¨çš„æœåŠ¡è¿›è€Œå‡ºç°è°ƒç”¨å¤±è´¥çš„æƒ…å†µï¼Œæ­¤æ—¶ï¼Œæˆ‘ä»¬å¯ä»¥é€šè¿‡å®¢æˆ·ç«¯çš„å®¹é”™æœºåˆ¶æ¥è§£å†³æ­¤é—®é¢˜ï¼Œè¯¦æƒ…è¯·å‚è€ƒ [Spring Cloud Netflix Ribbon](http://c.biancheng.net/springcloud/ribbon.html) å’Œ [Spring Cloud Netflix Hystrix](http://c.biancheng.net/springcloud/hystrix.html)ã€‚
 
-1\. ÔÚ micro-service-cloud-eureka-7001 µÄÅäÖÃÎÄ¼ş application.yml ÖĞÌí¼ÓÒÔÏÂÅäÖÃ£¬¹Ø±Õ Eureka µÄ×ÔÎÒ±£»¤»úÖÆ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒEureka çš„è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶æ˜¯å¼€å¯çš„ï¼Œå¦‚æœæƒ³è¦å…³é—­ï¼Œåˆ™éœ€è¦åœ¨é…ç½®æ–‡ä»¶ä¸­æ·»åŠ ä»¥ä¸‹é…ç½®ã€‚
 
 
 
@@ -996,7 +973,7 @@ enable-self-preservation: false # false ¹Ø±Õ Eureka µÄ×ÔÎÒ±£»¤»úÖÆ£¬Ä¬ÈÏÊÇ¿ªÆô,Ò
 
 eureka:
 server:
-enable-self-preservation: false # false ¹Ø±Õ Eureka µÄ×ÔÎÒ±£»¤»úÖÆ£¬Ä¬ÈÏÊÇ¿ªÆô,Ò»°ã²»½¨Òé´ó¼ÒĞŞ¸Ä
+enable-self-preservation: false # false å…³é—­ Eureka çš„è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶ï¼Œé»˜è®¤æ˜¯å¼€å¯,ä¸€èˆ¬ä¸å»ºè®®å¤§å®¶ä¿®æ”¹
 
 ```
 
@@ -1004,46 +981,69 @@ enable-self-preservation: false # false ¹Ø±Õ Eureka µÄ×ÔÎÒ±£»¤»úÖÆ£¬Ä¬ÈÏÊÇ¿ªÆô,Ò
 
 
 
-2\. ¼¯ÈºÖĞµÄ micro-service-cloud-eureka-7002 ºÍ micro-service-cloud-eureka-7002 ²»×÷ÈÎºÎĞŞ¸Ä£¬¼´ËüÃÇµÄ×ÔÎÒ±£»¤»úÖÆÊÇ¿ªÆôµÄ¡£
+## ç¤ºä¾‹ 3
 
-3\. ÖØÆô Eureka Server ¼¯ÈºÒÔ¼° micro-service-cloud-provider-dept-8001£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com:7001/¡±£¬½á¹ûÈçÏÂÍ¼¡£
+ä¸‹é¢æˆ‘ä»¬é€šè¿‡ä¸€ä¸ªå®ä¾‹ï¼Œæ¥éªŒè¯ä¸‹ Eureka çš„è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶ã€‚
 
-![Eureka ×ÔÎÒ±£»¤»úÖÆ 7001](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101030J48-8.png)
-Í¼9£ºEureka ¹Ø±Õ×ÔÎÒ±£»¤»úÖÆ
+1\. åœ¨ micro-service-cloud-eureka-7001 çš„é…ç½®æ–‡ä»¶ application.yml ä¸­æ·»åŠ ä»¥ä¸‹é…ç½®ï¼Œå…³é—­ Eureka çš„è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶ã€‚
 
-´ÓÍ¼ 8 £¬Äú¿ÉÒÔ¿´µ½ÒÔÏÂÄÚÈİ£º
 
-*   ÔÚ DS Replicas Ñ¡ÏîÉÏÃæ³öÏÖÁËºìÉ«¾¯¸æĞÅÏ¢¡°THE SELF PRESERVATION MODE IS TURNED OFF. THIS MAY NOT PROTECT INSTANCE EXPIRY IN CASE OF NETWORK/OTHER PROBLEMS.¡±£¬³öÏÖ¸ÃĞÅÏ¢Ôò±íÊ¾¡° Eureka ×ÔÎÒ±£»¤Ä£Ê½ÒÑ¹Ø±Õ¡£¡±
-*   micro-service-cloud-provider-dept-8001 Ìá¹©µÄ·şÎñÒÑ¾­×¢²áµ½¸Ã Eureka Server ÖĞ¡£
 
-4\. Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7002.com:7002/¡±£¬½á¹ûÈçÏÂÍ¼¡£
 
-![Eureka ×ÔÎÒ±£»¤»úÖÆ 7002](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010301938-9.png)
-Í¼10£ºEureka ×ÔÎÒ±£»¤»úÖÆ
 
-´ÓÍ¼ 9 ¿ÉÒÔ¿´³ö£¬micro-service-cloud-provider-dept-8001 Ìá¹©µÄ·şÎñÒ²ÒÑ¾­×¢²áµ½µ±Ç° Eureka Server ÖĞ£¬µ« DS Replicas Ñ¡ÏîÉÏ·½Ã»ÓĞÈÎºÎ¾¯¸æÌáÊ¾¡£
+```
 
-5\. ¹Ø±Õ micro-service-cloud-provider-dept-8001£¬µÈ´ı¼¸·ÖÖÓ£¬ÔÙ´Î·ÃÎÊ¡°http://eureka7001.com:7001/¡±£¬½á¹ûÈçÏÂÍ¼¡£
 
-![Eureka ×ÔÎÒ±£»¤»úÖÆ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10103014J-10.png)
-Í¼11£ºEureka ¹Ø±Õ×ÔÎÒ±£»¤»úÖÆ-2
+eureka:
+server:
+enable-self-preservation: false # false å…³é—­ Eureka çš„è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶ï¼Œé»˜è®¤æ˜¯å¼€å¯,ä¸€èˆ¬ä¸å»ºè®®å¤§å®¶ä¿®æ”¹
 
-ÔÚÍ¼ 10 ÖĞ £¬ÎÒÃÇ¿ÉÒÔ¿´µ½ÒÔÏÂÄÚÈİ£º
+```
 
-*   ÔÚ DS Replicas Ñ¡ÏîÉÏÃæ³öÏÖÁËºìÉ«¾¯¸æĞÅÏ¢¡°RENEWALS ARE LESSER THAN THE THRESHOLD. THE SELF PRESERVATION MODE IS TURNED OFF. THIS MAY NOT PROTECT INSTANCE EXPIRY IN CASE OF NETWORK/OTHER PROBLEMS.¡±£¬³öÏÖ¸ÃĞÅÏ¢Ôò±íÊ¾ Eureka µÄ×ÔÎÒ±£»¤Ä£Ê½ÒÑ¹Ø±Õ£¬ÇÒÒÑ¾­ÓĞ·şÎñ±»ÒÆ³ı¡£
-*   micro-service-cloud-provider-dept-8001 Ìá¹©µÄ·şÎñÒÑ¾­´Ó·şÎñÁĞ±íÖĞÒÆ³ı¡£
 
-6\. ÔÙ´Î·ÃÎÊ¡°http://eureka7002.com:7002/¡±£¬½á¹ûÈçÏÂÍ¼¡£
 
-![Eureka ×ÔÎÒ±£»¤»úÖÆ¿ªÆô](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010301210-11.png)
-Í¼12£ºEureka ×ÔÎÒ±£»¤»úÖÆÉúĞ§
 
-ÔÚÍ¼ 11 ÖĞ £¬Äú¿ÉÒÔ¿´µ½ÒÔÏÂÄÚÈİ£º
 
-*   ÔÚ DS Replicas Ñ¡ÏîÉÏÃæ³öÏÖÁËºìÉ«¾¯¸æĞÅÏ¢¡°EMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT. RENEWALS ARE LESSER THAN THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE.¡±£¬³öÏÖ¸ÃĞÅÏ¢±íÃ÷ Eureka µÄ×ÔÎÒ±£»¤»úÖÆ´¦ÓÚ¿ªÆô×´Ì¬£¬ÇÒÒÑ¾­±»´¥·¢¡£
-*   micro-service-cloud-provider-dept-8001 µÄ·şÎñĞÅÏ¢ÒÀÈ»±£´æ Eureka Server ·şÎñ×¢²á±íÖĞ£¬²¢Î´±»ÒÆ³ı¡£
+2\. é›†ç¾¤ä¸­çš„ micro-service-cloud-eureka-7002 å’Œ micro-service-cloud-eureka-7002 ä¸ä½œä»»ä½•ä¿®æ”¹ï¼Œå³å®ƒä»¬çš„è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶æ˜¯å¼€å¯çš„ã€‚
 
-# ²Î¿¼ÎÄÕÂ
+3\. é‡å¯ Eureka Server é›†ç¾¤ä»¥åŠ micro-service-cloud-provider-dept-8001ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com:7001/â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
+
+![Eureka è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶ 7001](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101030J48-8.png)
+å›¾9ï¼šEureka å…³é—­è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶
+
+ä»å›¾ 8 ï¼Œæ‚¨å¯ä»¥çœ‹åˆ°ä»¥ä¸‹å†…å®¹ï¼š
+
+*   åœ¨ DS Replicas é€‰é¡¹ä¸Šé¢å‡ºç°äº†çº¢è‰²è­¦å‘Šä¿¡æ¯â€œTHE SELF PRESERVATION MODE IS TURNED OFF. THIS MAY NOT PROTECT INSTANCE EXPIRY IN CASE OF NETWORK/OTHER PROBLEMS.â€ï¼Œå‡ºç°è¯¥ä¿¡æ¯åˆ™è¡¨ç¤ºâ€œ Eureka è‡ªæˆ‘ä¿æŠ¤æ¨¡å¼å·²å…³é—­ã€‚â€
+*   micro-service-cloud-provider-dept-8001 æä¾›çš„æœåŠ¡å·²ç»æ³¨å†Œåˆ°è¯¥ Eureka Server ä¸­ã€‚
+
+4\. ä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7002.com:7002/â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
+
+![Eureka è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶ 7002](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010301938-9.png)
+å›¾10ï¼šEureka è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶
+
+ä»å›¾ 9 å¯ä»¥çœ‹å‡ºï¼Œmicro-service-cloud-provider-dept-8001 æä¾›çš„æœåŠ¡ä¹Ÿå·²ç»æ³¨å†Œåˆ°å½“å‰ Eureka Server ä¸­ï¼Œä½† DS Replicas é€‰é¡¹ä¸Šæ–¹æ²¡æœ‰ä»»ä½•è­¦å‘Šæç¤ºã€‚
+
+5\. å…³é—­ micro-service-cloud-provider-dept-8001ï¼Œç­‰å¾…å‡ åˆ†é’Ÿï¼Œå†æ¬¡è®¿é—®â€œhttp://eureka7001.com:7001/â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
+
+![Eureka è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10103014J-10.png)
+å›¾11ï¼šEureka å…³é—­è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶-2
+
+åœ¨å›¾ 10 ä¸­ ï¼Œæˆ‘ä»¬å¯ä»¥çœ‹åˆ°ä»¥ä¸‹å†…å®¹ï¼š
+
+*   åœ¨ DS Replicas é€‰é¡¹ä¸Šé¢å‡ºç°äº†çº¢è‰²è­¦å‘Šä¿¡æ¯â€œRENEWALS ARE LESSER THAN THE THRESHOLD. THE SELF PRESERVATION MODE IS TURNED OFF. THIS MAY NOT PROTECT INSTANCE EXPIRY IN CASE OF NETWORK/OTHER PROBLEMS.â€ï¼Œå‡ºç°è¯¥ä¿¡æ¯åˆ™è¡¨ç¤º Eureka çš„è‡ªæˆ‘ä¿æŠ¤æ¨¡å¼å·²å…³é—­ï¼Œä¸”å·²ç»æœ‰æœåŠ¡è¢«ç§»é™¤ã€‚
+*   micro-service-cloud-provider-dept-8001 æä¾›çš„æœåŠ¡å·²ç»ä»æœåŠ¡åˆ—è¡¨ä¸­ç§»é™¤ã€‚
+
+6\. å†æ¬¡è®¿é—®â€œhttp://eureka7002.com:7002/â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
+
+![Eureka è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶å¼€å¯](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010301210-11.png)
+å›¾12ï¼šEureka è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶ç”Ÿæ•ˆ
+
+åœ¨å›¾ 11 ä¸­ ï¼Œæ‚¨å¯ä»¥çœ‹åˆ°ä»¥ä¸‹å†…å®¹ï¼š
+
+*   åœ¨ DS Replicas é€‰é¡¹ä¸Šé¢å‡ºç°äº†çº¢è‰²è­¦å‘Šä¿¡æ¯â€œEMERGENCY! EUREKA MAY BE INCORRECTLY CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT. RENEWALS ARE LESSER THAN THRESHOLD AND HENCE THE INSTANCES ARE NOT BEING EXPIRED JUST TO BE SAFE.â€ï¼Œå‡ºç°è¯¥ä¿¡æ¯è¡¨æ˜ Eureka çš„è‡ªæˆ‘ä¿æŠ¤æœºåˆ¶å¤„äºå¼€å¯çŠ¶æ€ï¼Œä¸”å·²ç»è¢«è§¦å‘ã€‚
+*   micro-service-cloud-provider-dept-8001 çš„æœåŠ¡ä¿¡æ¯ä¾ç„¶ä¿å­˜ Eureka Server æœåŠ¡æ³¨å†Œè¡¨ä¸­ï¼Œå¹¶æœªè¢«ç§»é™¤ã€‚
+
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

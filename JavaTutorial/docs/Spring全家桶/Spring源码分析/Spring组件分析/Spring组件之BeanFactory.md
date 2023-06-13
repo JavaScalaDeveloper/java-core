@@ -1,87 +1,87 @@
 public interface BeanFactory {
 
     /**
-     * factoryBeanÊ¹ÓÃ
+     * factoryBeanä½¿ç”¨
      */
     String FACTORY_BEAN_PREFIX = "&";
 
     /**
-     * ¸ù¾İÃû³Æ»ñÈ¡bean
+     * æ ¹æ®åç§°è·å–bean
      */
     Object getBean(String name) throws BeansException;
 
     /**
-     * ¸ù¾İÃû³Æ»ñÈ¡bean
+     * æ ¹æ®åç§°è·å–bean
      */
     <T> T getBean(String name, Class<T> requiredType) throws BeansException;
 
     /**
-     * ¸ù¾İÃû³Æ»ñÈ¡bean
+     * æ ¹æ®åç§°è·å–bean
      */
     Object getBean(String name, Object... args) throws BeansException;
 
     /**
-     * ¸ù¾İÀàĞÍ»ñÈ¡bean
+     * æ ¹æ®ç±»å‹è·å–bean
      */
     <T> T getBean(Class<T> requiredType) throws BeansException;
 
     /**
-     * ¸ù¾İÀàĞÍ»ñÈ¡bean
+     * æ ¹æ®ç±»å‹è·å–bean
      */
     <T> T getBean(Class<T> requiredType, Object... args) throws BeansException;
 
     /**
-     * »ñÈ¡BeanProvider
+     * è·å–BeanProvider
      */
     <T> ObjectProvider<T> getBeanProvider(Class<T> requiredType);
 
     /**
-     * »ñÈ¡BeanProvider
+     * è·å–BeanProvider
      */
     <T> ObjectProvider<T> getBeanProvider(ResolvableType requiredType);
 
     /**
-     * ÊÇ·ñ°üº¬bean
+     * æ˜¯å¦åŒ…å«bean
      */
     boolean containsBean(String name);
 
     /**
-     * ÊÇ·ñÎªµ¥Àıbean
+     * æ˜¯å¦ä¸ºå•ä¾‹bean
      */
     boolean isSingleton(String name) throws NoSuchBeanDefinitionException;
 
     /**
-     * ÊÇ·ñÎªÔ­ĞÍbean
+     * æ˜¯å¦ä¸ºåŸå‹bean
      */
     boolean isPrototype(String name) throws NoSuchBeanDefinitionException;
 
     /**
-     * ÅĞ¶ÏÀàĞÍÊÇ·ñÆ¥Åä
+     * åˆ¤æ–­ç±»å‹æ˜¯å¦åŒ¹é…
      */
     boolean isTypeMatch(String name, ResolvableType typeToMatch) 
             throws NoSuchBeanDefinitionException;
 
     /**
-     * ÅĞ¶ÏÀàĞÍÊÇ·ñÆ¥Åä
+     * åˆ¤æ–­ç±»å‹æ˜¯å¦åŒ¹é…
      */
     boolean isTypeMatch(String name, Class<?> typeToMatch) 
             throws NoSuchBeanDefinitionException;
 
     /**
-     * ¸ù¾İÃû³Æ»ñÈ¡beanµÄÀàĞÍ
+     * æ ¹æ®åç§°è·å–beançš„ç±»å‹
      */
     @Nullable
     Class<?> getType(String name) throws NoSuchBeanDefinitionException;
 
     /**
-     * ¸ù¾İÃû³Æ»ñÈ¡beanµÄÀàĞÍ
+     * æ ¹æ®åç§°è·å–beançš„ç±»å‹
      */
     @Nullable
     Class<?> getType(String name, boolean allowFactoryBeanInit) 
             throws NoSuchBeanDefinitionException;
 
     /**
-     * ¸ù¾İbeanÃû³Æ»ñÈ¡beanµÄ±ğÃû
+     * æ ¹æ®beanåç§°è·å–beançš„åˆ«å
      */
     String[] getAliases(String name);
 

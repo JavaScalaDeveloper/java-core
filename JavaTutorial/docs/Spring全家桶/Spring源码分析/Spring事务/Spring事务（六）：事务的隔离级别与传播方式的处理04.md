@@ -1,27 +1,27 @@
-±¾ÎÄÊÇ¡¶ÊÂÎñµÄ¸ôÀë¼¶±ğÓë´«²¥·½Ê½µÄ´¦Àí¡··ÖÎöµÄµÚ 4 Æª£¬½ÓÉÏÎÄ£¬ÎÒÃÇ¼ÌĞø¡£
+æœ¬æ–‡æ˜¯ã€Šäº‹åŠ¡çš„éš”ç¦»çº§åˆ«ä¸ä¼ æ’­æ–¹å¼çš„å¤„ç†ã€‹åˆ†æçš„ç¬¬ 4 ç¯‡ï¼Œæ¥ä¸Šæ–‡ï¼Œæˆ‘ä»¬ç»§ç»­ã€‚
 
-#### 3.6 Ö´ĞĞ¾ßÌåµÄÒµÎñ
+#### 3.6 æ‰§è¡Œå…·ä½“çš„ä¸šåŠ¡
 
-Õâ¿é´úÂëÈçÏÂ£º
+è¿™å—ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 retVal = invocation.proceedWithInvocation();
 
 ```
 
-ÕâÀï×îÖÕ»áµ÷ÓÃµ½ÒµÎñ·½·¨ `UserService#insert`£¬±¾ÎÄ²¢²»»áÌ½¾¿ÕâÆäÖĞÊÇÈçºÎÒ»²½²½µ÷ÓÃ¹ıÈ¥µÄ£¬ÒªÁË½âµ÷ÓÃ¹ı³ÌµÄĞ¡»ï°é¿ÉÒÔ²Î¿¼ aop Ïà¹Ø²Ù×÷£º
+è¿™é‡Œæœ€ç»ˆä¼šè°ƒç”¨åˆ°ä¸šåŠ¡æ–¹æ³• `UserService#insert`ï¼Œæœ¬æ–‡å¹¶ä¸ä¼šæ¢ç©¶è¿™å…¶ä¸­æ˜¯å¦‚ä½•ä¸€æ­¥æ­¥è°ƒç”¨è¿‡å»çš„ï¼Œè¦äº†è§£è°ƒç”¨è¿‡ç¨‹çš„å°ä¼™ä¼´å¯ä»¥å‚è€ƒ aop ç›¸å…³æ“ä½œï¼š
 
-*   [spring aop Ö® jdk ¶¯Ì¬´úÀí](https://my.oschina.net/funcy/blog/4696654)
-*   [spring aop Ö® cglib ´úÀí](https://my.oschina.net/funcy/blog/4696655)
+*   [spring aop ä¹‹ jdk åŠ¨æ€ä»£ç†](https://my.oschina.net/funcy/blog/4696654)
+*   [spring aop ä¹‹ cglib ä»£ç†](https://my.oschina.net/funcy/blog/4696655)
 
-#### 3.7 Òì³£»Ø¹ö
+#### 3.7 å¼‚å¸¸å›æ»š
 
-´¦ÀíÒì³£µÄ·½·¨Îª `TransactionAspectSupport#completeTransactionAfterThrowing`£¬´úÂëÈçÏÂ£º
+å¤„ç†å¼‚å¸¸çš„æ–¹æ³•ä¸º `TransactionAspectSupport#completeTransactionAfterThrowing`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 protected void completeTransactionAfterThrowing(@Nullable TransactionInfo txInfo, Throwable ex) {
     if (txInfo != null && txInfo.getTransactionStatus() != null) {
-        // Òì³£·ûºÏ²Å»Ø¹ö
+        // å¼‚å¸¸ç¬¦åˆæ‰å›æ»š
         if (txInfo.transactionAttribute != null && txInfo.transactionAttribute.rollbackOn(ex)) {
             try {
                 txInfo.getTransactionManager().rollback(txInfo.getTransactionStatus());
@@ -32,7 +32,7 @@ protected void completeTransactionAfterThrowing(@Nullable TransactionInfo txInfo
         }
         else {
             try {
-                // Òì³£²»·ûºÏ£¬¼´Ê¹Ö´ĞĞ³ö´íÒ²»áÌá½»
+                // å¼‚å¸¸ä¸ç¬¦åˆï¼Œå³ä½¿æ‰§è¡Œå‡ºé”™ä¹Ÿä¼šæäº¤
                 txInfo.getTransactionManager().commit(txInfo.getTransactionStatus());
             }
             catch (...) {
@@ -44,11 +44,11 @@ protected void completeTransactionAfterThrowing(@Nullable TransactionInfo txInfo
 
 ```
 
-´ÓÕâ¸ö·½·¨À´¿´£¬³öÏÖÁËÒì³£²¢²»»áÖ±½Ó½øĞĞ»Ø¹öµÄ£¬¶øÊÇÏÈÒªÅĞ¶ÏÒì³£ÀàĞÍ£¬¶ÔÓÚĞèÒª»Ø¹öµÄÒì³£²Å»Ø¹ö¡£
+ä»è¿™ä¸ªæ–¹æ³•æ¥çœ‹ï¼Œå‡ºç°äº†å¼‚å¸¸å¹¶ä¸ä¼šç›´æ¥è¿›è¡Œå›æ»šçš„ï¼Œè€Œæ˜¯å…ˆè¦åˆ¤æ–­å¼‚å¸¸ç±»å‹ï¼Œå¯¹äºéœ€è¦å›æ»šçš„å¼‚å¸¸æ‰å›æ»šã€‚
 
-##### ÅĞ¶Ïµ±Ç°Òì³£ÊÇ·ñÒª»Ø¹ö
+##### åˆ¤æ–­å½“å‰å¼‚å¸¸æ˜¯å¦è¦å›æ»š
 
-ÅĞ¶ÏÒì³£ÊÇ·ñ·ûºÏµÄ·½·¨Îª `RuleBasedTransactionAttribute#rollbackOn`£º
+åˆ¤æ–­å¼‚å¸¸æ˜¯å¦ç¬¦åˆçš„æ–¹æ³•ä¸º `RuleBasedTransactionAttribute#rollbackOn`ï¼š
 
 ```
 public boolean rollbackOn(Throwable ex) {
@@ -56,9 +56,9 @@ public boolean rollbackOn(Throwable ex) {
     int deepest = Integer.MAX_VALUE;
     if (this.rollbackRules != null) {
         for (RollbackRuleAttribute rule : this.rollbackRules) {
-            // »ñÈ¡Òì³£µÄÉî¶È
+            // è·å–å¼‚å¸¸çš„æ·±åº¦
             int depth = rule.getDepth(ex);
-            // Éî¶ÈÂú×ãÌõ¼ş£¬±íÊ¾µ±Ç°Òì³£ĞèÒª»Ø¹ö
+            // æ·±åº¦æ»¡è¶³æ¡ä»¶ï¼Œè¡¨ç¤ºå½“å‰å¼‚å¸¸éœ€è¦å›æ»š
             if (depth >= 0 && depth < deepest) {
                 deepest = depth;
                 winner = rule;
@@ -73,7 +73,7 @@ public boolean rollbackOn(Throwable ex) {
 
 ```
 
-»ñÈ¡Ê÷ÉîµÄ·½·¨Îª `RollbackRuleAttribute#getDepth(Throwable)`£¬´úÂëÈçÏÂ£º
+è·å–æ ‘æ·±çš„æ–¹æ³•ä¸º `RollbackRuleAttribute#getDepth(Throwable)`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public int getDepth(Throwable ex) {
@@ -89,35 +89,35 @@ private int getDepth(Class<?> exceptionClass, int depth) {
     if (exceptionClass == Throwable.class) {
         return -1;
     }
-    // µİ¹é»ñÈ¡
+    // é€’å½’è·å–
     return getDepth(exceptionClass.getSuperclass(), depth + 1);
 }
 
 ```
 
-Õâ¸öÊµÏÖºÜ¼òµ¥£¬¾ÍÊÇµİ¹é»ñÈ¡ `exception` µÄ¸¸Àà£¬ÕÒµ½ÁË¾Í·µ»Øµİ¹éµÄ´ÎÊı£¬Èç¹û×îÖÕÕÒµ½µÄÊÇ `Throwable`£¬¾Í·µ»Ø - 1.
+è¿™ä¸ªå®ç°å¾ˆç®€å•ï¼Œå°±æ˜¯é€’å½’è·å– `exception` çš„çˆ¶ç±»ï¼Œæ‰¾åˆ°äº†å°±è¿”å›é€’å½’çš„æ¬¡æ•°ï¼Œå¦‚æœæœ€ç»ˆæ‰¾åˆ°çš„æ˜¯ `Throwable`ï¼Œå°±è¿”å› - 1.
 
-Ö®ËùÒÔÊ¹ÓÃÊ÷ÉîÀ´ÅĞ¶ÏÊÇ·ñĞèÒª»Ø¹ö£¬Ô­ÒòÊÇÉèÖÃ»Ø¹öµÄÒì³£Ê±£¬¿ÉÒÔÉèÖÃÒì³£Ãû³Æ£º
+ä¹‹æ‰€ä»¥ä½¿ç”¨æ ‘æ·±æ¥åˆ¤æ–­æ˜¯å¦éœ€è¦å›æ»šï¼ŒåŸå› æ˜¯è®¾ç½®å›æ»šçš„å¼‚å¸¸æ—¶ï¼Œå¯ä»¥è®¾ç½®å¼‚å¸¸åç§°ï¼š
 
 ```
 public @interface Transactional {
     ...
 
-    // ×¢ÒâÕâ¸öÀàĞÍÊÇ×Ö·û´®
+    // æ³¨æ„è¿™ä¸ªç±»å‹æ˜¯å­—ç¬¦ä¸²
     String[] rollbackForClassName() default {};
 }
 
 ```
 
-Òò´Ë²»ÄÜÊ¹ÓÃ `ex instanceof Exception` µÄ·½Ê½À´ÅĞ¶ÏÄÜ·ñ»Ø¹ö¡£
+å› æ­¤ä¸èƒ½ä½¿ç”¨ `ex instanceof Exception` çš„æ–¹å¼æ¥åˆ¤æ–­èƒ½å¦å›æ»šã€‚
 
-`RuleBasedTransactionAttribute#rollbackOn` ÖĞµÄ `RollbackRuleAttribute` Óë `NoRollbackRuleAttribute` ÓÖÊÇÉ¶ÄØ£¿ËüÃÇ `rollbackFor` Óë `noRollbackFor` µÄ°ü×°Àà£¬ÔÚ `SpringTransactionAnnotationParser#parseTransactionAnnotation(AnnotationAttributes)` ·½·¨ÖĞÉèÖÃ£¬´úÂëÈçÏÂ£º
+`RuleBasedTransactionAttribute#rollbackOn` ä¸­çš„ `RollbackRuleAttribute` ä¸ `NoRollbackRuleAttribute` åˆæ˜¯å•¥å‘¢ï¼Ÿå®ƒä»¬ `rollbackFor` ä¸ `noRollbackFor` çš„åŒ…è£…ç±»ï¼Œåœ¨ `SpringTransactionAnnotationParser#parseTransactionAnnotation(AnnotationAttributes)` æ–¹æ³•ä¸­è®¾ç½®ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 protected TransactionAttribute parseTransactionAnnotation(AnnotationAttributes attributes) {
     RuleBasedTransactionAttribute rbta = new RuleBasedTransactionAttribute();
     ...
-    // ´¦Àí»Ø¹öÒì³£
+    // å¤„ç†å›æ»šå¼‚å¸¸
     List<RollbackRuleAttribute> rollbackRules = new ArrayList<>();
     for (Class<?> rbRule : attributes.getClassArray("rollbackFor")) {
         rollbackRules.add(new RollbackRuleAttribute(rbRule));
@@ -125,32 +125,32 @@ protected TransactionAttribute parseTransactionAnnotation(AnnotationAttributes a
     for (String rbRule : attributes.getStringArray("rollbackForClassName")) {
         rollbackRules.add(new RollbackRuleAttribute(rbRule));
     }
-    // ´¦Àí²»»Ø¹öÒì³£
+    // å¤„ç†ä¸å›æ»šå¼‚å¸¸
     for (Class<?> rbRule : attributes.getClassArray("noRollbackFor")) {
         rollbackRules.add(new NoRollbackRuleAttribute(rbRule));
     }
     for (String rbRule : attributes.getStringArray("noRollbackForClassName")) {
         rollbackRules.add(new NoRollbackRuleAttribute(rbRule));
     }
-    // ´¦Àí¹æÔò
+    // å¤„ç†è§„åˆ™
     rbta.setRollbackRules(rollbackRules);
     return rbta;
 }
 
 ```
 
-##### »Ø¹ö²Ù×÷
+##### å›æ»šæ“ä½œ
 
-»Ø¹ö²Ù×÷ÔÚ `AbstractPlatformTransactionManager#rollback` ·½·¨ÖĞ´¦Àí£¬³ıÁËÊı¾İ¿âµÄ»Ø¹ö²Ù×÷Íâ£¬Õâ¸ö·½·¨»¹´¦ÀíÁËÒ»Ğ©»Øµ÷´¦Àí£¬ÕâÀïÎÒÃÇ¾Í²»·ÖÎöÁË£¬Ö±½Ó¿´¹Ø¼üµÄ»Ø¹ö´úÂë¡£ÔÚÇ°ÃæµÄ·ÖÎöÊÂÎñµÄ´«²¥ÀàĞÍÊ±£¬´ó¶à´«²¥ÀàĞÍÊÇ»Ø¹öÊÂÎñ£¬²»¹ı `PROPAGATION_NESTED` ÀıÍâ£¬ËüÊÇ»Ø¹öµ½±£´æµã£¬ÕâÀïÎÒÃÇ·Ö±ğÀ´¿´¿´¹Ø¼ü´úÂë£º
+å›æ»šæ“ä½œåœ¨ `AbstractPlatformTransactionManager#rollback` æ–¹æ³•ä¸­å¤„ç†ï¼Œé™¤äº†æ•°æ®åº“çš„å›æ»šæ“ä½œå¤–ï¼Œè¿™ä¸ªæ–¹æ³•è¿˜å¤„ç†äº†ä¸€äº›å›è°ƒå¤„ç†ï¼Œè¿™é‡Œæˆ‘ä»¬å°±ä¸åˆ†æäº†ï¼Œç›´æ¥çœ‹å…³é”®çš„å›æ»šä»£ç ã€‚åœ¨å‰é¢çš„åˆ†æäº‹åŠ¡çš„ä¼ æ’­ç±»å‹æ—¶ï¼Œå¤§å¤šä¼ æ’­ç±»å‹æ˜¯å›æ»šäº‹åŠ¡ï¼Œä¸è¿‡ `PROPAGATION_NESTED` ä¾‹å¤–ï¼Œå®ƒæ˜¯å›æ»šåˆ°ä¿å­˜ç‚¹ï¼Œè¿™é‡Œæˆ‘ä»¬åˆ†åˆ«æ¥çœ‹çœ‹å…³é”®ä»£ç ï¼š
 
-1. ÊÂÎñ»Ø¹ö
+1. äº‹åŠ¡å›æ»š
 
-   ´¦ÀíÊÂÎñ»Ø¹öµÄ·½·¨Îª `DataSourceTransactionManager#doRollback`£¬×îÖÕµ÷ÓÃµÄÊÇ `java.sql.Connection` µÄ·½·¨£º
+   å¤„ç†äº‹åŠ¡å›æ»šçš„æ–¹æ³•ä¸º `DataSourceTransactionManager#doRollback`ï¼Œæœ€ç»ˆè°ƒç”¨çš„æ˜¯ `java.sql.Connection` çš„æ–¹æ³•ï¼š
 
    ```
    protected void doRollback(DefaultTransactionStatus status) {
        DataSourceTransactionObject txObject = (DataSourceTransactionObject) status.getTransaction();
-       // »ñÈ¡Á¬½Ó£¬Connection Îª java.sql.Connection
+       // è·å–è¿æ¥ï¼ŒConnection ä¸º java.sql.Connection
        Connection con = txObject.getConnectionHolder().getConnection();
        try {
            con.rollback();
@@ -162,7 +162,7 @@ protected TransactionAttribute parseTransactionAnnotation(AnnotationAttributes a
    
    ```
 
-2. »Ø¹öµ½±£´æµã ´¦Àí»Ø¹öµ½±£´æµãµÄ²Ù×÷ÔÚ `AbstractTransactionStatus#rollbackToHeldSavepoint` ·½·¨ÖĞ£º
+2. å›æ»šåˆ°ä¿å­˜ç‚¹ å¤„ç†å›æ»šåˆ°ä¿å­˜ç‚¹çš„æ“ä½œåœ¨ `AbstractTransactionStatus#rollbackToHeldSavepoint` æ–¹æ³•ä¸­ï¼š
 
    ```
    public void rollbackToHeldSavepoint() throws TransactionException {
@@ -170,19 +170,19 @@ protected TransactionAttribute parseTransactionAnnotation(AnnotationAttributes a
        if (savepoint == null) {
            throw new TransactionUsageException(...);
        }
-       // »Ø¹öµ½±£´æµã
+       // å›æ»šåˆ°ä¿å­˜ç‚¹
        getSavepointManager().rollbackToSavepoint(savepoint);
-       // ÊÍ·Å±£´æµã
+       // é‡Šæ”¾ä¿å­˜ç‚¹
        getSavepointManager().releaseSavepoint(savepoint);
-       // ½«±£´æµãÖÃÎªnull
+       // å°†ä¿å­˜ç‚¹ç½®ä¸ºnull
        setSavepoint(null);
    }
    
    ```
 
-   Õâ¸ö·½·¨Ö÷ÒªÓĞÁ½¸ö²Ù×÷£º»Ø¹öµ½±£´æµãÓëÊÍ·Å±£´æµã¡£
+   è¿™ä¸ªæ–¹æ³•ä¸»è¦æœ‰ä¸¤ä¸ªæ“ä½œï¼šå›æ»šåˆ°ä¿å­˜ç‚¹ä¸é‡Šæ”¾ä¿å­˜ç‚¹ã€‚
 
-   »Ø¹öµ½±£´æµãµÄ²Ù×÷ÔÚ `JdbcTransactionObjectSupport#rollbackToSavepoint` ·½·¨£º
+   å›æ»šåˆ°ä¿å­˜ç‚¹çš„æ“ä½œåœ¨ `JdbcTransactionObjectSupport#rollbackToSavepoint` æ–¹æ³•ï¼š
 
    ```
    public void rollbackToSavepoint(Object savepoint) throws TransactionException {
@@ -198,7 +198,7 @@ protected TransactionAttribute parseTransactionAnnotation(AnnotationAttributes a
    
    ```
 
-   ÊÍ·Å±£´æµãµÄ²Ù×÷ÔÚ `JdbcTransactionObjectSupport#releaseSavepoint` ·½·¨£º
+   é‡Šæ”¾ä¿å­˜ç‚¹çš„æ“ä½œåœ¨ `JdbcTransactionObjectSupport#releaseSavepoint` æ–¹æ³•ï¼š
 
    ```
    public void releaseSavepoint(Object savepoint) throws TransactionException {
@@ -213,18 +213,18 @@ protected TransactionAttribute parseTransactionAnnotation(AnnotationAttributes a
    
    ```
 
-   ×îÖÕ¶¼ÊÇµ÷ÓÃ `java.sql.Connection` Ìá¹©µÄ·½·¨À´Íê³É²Ù×÷¡£
+   æœ€ç»ˆéƒ½æ˜¯è°ƒç”¨ `java.sql.Connection` æä¾›çš„æ–¹æ³•æ¥å®Œæˆæ“ä½œã€‚
 
-##### Ìá½»²Ù×÷
+##### æäº¤æ“ä½œ
 
-ÔÙÀ´¿´¿´Ìá½»²Ù×÷£¬´¦ÀíÌá½»²Ù×÷µÄ´úÂëÎª
+å†æ¥çœ‹çœ‹æäº¤æ“ä½œï¼Œå¤„ç†æäº¤æ“ä½œçš„ä»£ç ä¸º
 
 ```
 txInfo.getTransactionManager().commit(txInfo.getTransactionStatus());
 
 ```
 
-ÎÒÃÇ¸ú½øÕâ¸ö·½·¨£¬Ò»Ö±¸úµ½ `AbstractPlatformTransactionManager#processCommit`£º
+æˆ‘ä»¬è·Ÿè¿›è¿™ä¸ªæ–¹æ³•ï¼Œä¸€ç›´è·Ÿåˆ° `AbstractPlatformTransactionManager#processCommit`ï¼š
 
 ```
 private void processCommit(DefaultTransactionStatus status) throws TransactionException {
@@ -235,13 +235,13 @@ private void processCommit(DefaultTransactionStatus status) throws TransactionEx
             if (status.hasSavepoint()) {
                 ...
                 unexpectedRollback = status.isGlobalRollbackOnly();
-                // 1\. ÊÍ·Å±£´æµã
+                // 1\. é‡Šæ”¾ä¿å­˜ç‚¹
                 status.releaseHeldSavepoint();
             }
             else if (status.isNewTransaction()) {
                 ...
                 unexpectedRollback = status.isGlobalRollbackOnly();
-                // 2\. ´¦ÀíÌá½»²Ù×÷
+                // 2\. å¤„ç†æäº¤æ“ä½œ
                 doCommit(status);
             }
             else if (isFailEarlyOnGlobalRollbackOnly()) {
@@ -255,28 +255,28 @@ private void processCommit(DefaultTransactionStatus status) throws TransactionEx
         }
     }
     finally {
-        // 3\. ´¦ÀíÍê³É²Ù×÷£¬ÔÚÕâÀï»á»Ö¸´¹ÒÆğµÄÊÂÎñ(»Ö¸´Êı¾İ¿âÁ¬½Ó)
+        // 3\. å¤„ç†å®Œæˆæ“ä½œï¼Œåœ¨è¿™é‡Œä¼šæ¢å¤æŒ‚èµ·çš„äº‹åŠ¡(æ¢å¤æ•°æ®åº“è¿æ¥)
         cleanupAfterCompletion(status);
     }
 }
 
 ```
 
-ÒÔÉÏ·½·¨Ê¡ÂÔÁË´óÁ¿´úÂë£¬´ó¶àÊÇÓë `TransactionSynchronization` »Øµ÷Ïà¹ØµÄ£¬ÎÒÃÇ¾Û¼¯Ö÷Òª²Ù×÷£º
+ä»¥ä¸Šæ–¹æ³•çœç•¥äº†å¤§é‡ä»£ç ï¼Œå¤§å¤šæ˜¯ä¸ `TransactionSynchronization` å›è°ƒç›¸å…³çš„ï¼Œæˆ‘ä»¬èšé›†ä¸»è¦æ“ä½œï¼š
 
-1.  ÊÍ·Å±£´æµã£ºÕâ¸ö²Ù×÷ÔÚÉÏÃæÒÑ¾­·ÖÎö¹ıÁË£¬ÕâÀï¾Í²»ÔÙ·ÖÎöÁË
-2.  ´¦ÀíÌá½»²Ù×÷£ºÌá½»ÔÚÕâÀï½øĞĞ£¬Ò»»á·ÖÎö£¬×îºóÎÒÃÇ»á·¢ÏÖËüÊÇµ÷ÓÃÁË `java.sql.Connection` Ìá¹©µÄ·½·¨
-3.  ´¦ÀíÍê³É²Ù×÷£ºÕâ¸ö²Ù×÷±È½ÏÖØÒª£¬ÖØÖÃÁ¬½ÓµÄĞÅÏ¢¡¢»Ö¸´¹ÒÆğÊÂÎñÁ¬½Ó¾ÍÊÇÔÚÕâÀï½øĞĞµÄ
+1.  é‡Šæ”¾ä¿å­˜ç‚¹ï¼šè¿™ä¸ªæ“ä½œåœ¨ä¸Šé¢å·²ç»åˆ†æè¿‡äº†ï¼Œè¿™é‡Œå°±ä¸å†åˆ†æäº†
+2.  å¤„ç†æäº¤æ“ä½œï¼šæäº¤åœ¨è¿™é‡Œè¿›è¡Œï¼Œä¸€ä¼šåˆ†æï¼Œæœ€åæˆ‘ä»¬ä¼šå‘ç°å®ƒæ˜¯è°ƒç”¨äº† `java.sql.Connection` æä¾›çš„æ–¹æ³•
+3.  å¤„ç†å®Œæˆæ“ä½œï¼šè¿™ä¸ªæ“ä½œæ¯”è¾ƒé‡è¦ï¼Œé‡ç½®è¿æ¥çš„ä¿¡æ¯ã€æ¢å¤æŒ‚èµ·äº‹åŠ¡è¿æ¥å°±æ˜¯åœ¨è¿™é‡Œè¿›è¡Œçš„
 
-ÎÒÃÇÏÈÀ´¿´Ìá½»²Ù×÷£¬Ö±½Ó½øÈë×îÖÕ´úÂë£º`DataSourceTransactionManager#doCommit`
+æˆ‘ä»¬å…ˆæ¥çœ‹æäº¤æ“ä½œï¼Œç›´æ¥è¿›å…¥æœ€ç»ˆä»£ç ï¼š`DataSourceTransactionManager#doCommit`
 
 ```
 protected void doCommit(DefaultTransactionStatus status) {
     DataSourceTransactionObject txObject = (DataSourceTransactionObject) status.getTransaction();
-    // »ñÈ¡Á¬½Ó£¬Connection Îª java.sql.Connection
+    // è·å–è¿æ¥ï¼ŒConnection ä¸º java.sql.Connection
     Connection con = txObject.getConnectionHolder().getConnection();
     try {
-        // Ìá½»ÊÂÎñ
+        // æäº¤äº‹åŠ¡
         con.commit();
     }
     catch (SQLException ex) {
@@ -286,9 +286,9 @@ protected void doCommit(DefaultTransactionStatus status) {
 
 ```
 
-×îÖÕÒ²ÊÇµ÷ÓÃ `java.sql.Connection` Ìá¹©µÄ·½·¨¡£
+æœ€ç»ˆä¹Ÿæ˜¯è°ƒç”¨ `java.sql.Connection` æä¾›çš„æ–¹æ³•ã€‚
 
-ÔÙÀ´¿´ÏÂÍê³É²Ù×÷µÄ´¦Àí£¬½øÈë `AbstractPlatformTransactionManager#cleanupAfterCompletion` ·½·¨£º
+å†æ¥çœ‹ä¸‹å®Œæˆæ“ä½œçš„å¤„ç†ï¼Œè¿›å…¥ `AbstractPlatformTransactionManager#cleanupAfterCompletion` æ–¹æ³•ï¼š
 
 ```
 private void cleanupAfterCompletion(DefaultTransactionStatus status) {
@@ -297,31 +297,31 @@ private void cleanupAfterCompletion(DefaultTransactionStatus status) {
         TransactionSynchronizationManager.clear();
     }
     if (status.isNewTransaction()) {
-        // ÕâÀï»áÖØÖÃÁ¬½Ó£¬Èç¹ûÊÇĞÂÁ¬½Ó£¬ÔÚÕâÀï»á¹Ø±ÕÁ¬½Ó
+        // è¿™é‡Œä¼šé‡ç½®è¿æ¥ï¼Œå¦‚æœæ˜¯æ–°è¿æ¥ï¼Œåœ¨è¿™é‡Œä¼šå…³é—­è¿æ¥
         doCleanupAfterCompletion(status.getTransaction());
     }
-    // Èç¹ûÓĞ¹ÒÆğµÄÊÂÎñ£¬ÔÚÕâÀï½øĞĞ»Ö¸´
+    // å¦‚æœæœ‰æŒ‚èµ·çš„äº‹åŠ¡ï¼Œåœ¨è¿™é‡Œè¿›è¡Œæ¢å¤
     if (status.getSuspendedResources() != null) {
         Object transaction = (status.hasTransaction() ? status.getTransaction() : null);
-        // »Ö¸´¹ÒÆğµÄÊÂÎñ
+        // æ¢å¤æŒ‚èµ·çš„äº‹åŠ¡
         resume(transaction, (SuspendedResourcesHolder) status.getSuspendedResources());
     }
 }
 
 ```
 
-ÎÒÃÇÏÈÀ´¿´ `DataSourceTransactionManager#doCleanupAfterCompletion` ·½·¨:
+æˆ‘ä»¬å…ˆæ¥çœ‹ `DataSourceTransactionManager#doCleanupAfterCompletion` æ–¹æ³•:
 
 ```
 protected void doCleanupAfterCompletion(Object transaction) {
     DataSourceTransactionObject txObject = (DataSourceTransactionObject) transaction;
 
-    // ÒÆ³ıÊı¾İÔ´ÓëÁ¬½ÓµÄ°ó¶¨¹ØÏµ
+    // ç§»é™¤æ•°æ®æºä¸è¿æ¥çš„ç»‘å®šå…³ç³»
     if (txObject.isNewConnectionHolder()) {
         TransactionSynchronizationManager.unbindResource(obtainDataSource());
     }
 
-    // ÖØÖÃÁ¬½Ó£¬¾ÍÊÇ½«Á¬½ÓĞÅÏ¢»Ö¸´µ½Ö´ĞĞÊÂÎñÇ°µÄ×´Ì¬
+    // é‡ç½®è¿æ¥ï¼Œå°±æ˜¯å°†è¿æ¥ä¿¡æ¯æ¢å¤åˆ°æ‰§è¡Œäº‹åŠ¡å‰çš„çŠ¶æ€
     Connection con = txObject.getConnectionHolder().getConnection();
     try {
         if (txObject.isMustRestoreAutoCommit()) {
@@ -333,9 +333,9 @@ protected void doCleanupAfterCompletion(Object transaction) {
     catch (Throwable ex) {
         logger.debug("Could not reset JDBC Connection after transaction", ex);
     }
-    // Èç¹ûÊÇĞÂÁ¬½Ó£¬ÓÃÍê¾ÍÔÚÕâÀï¹Ø±ÕÁ¬½Ó
+    // å¦‚æœæ˜¯æ–°è¿æ¥ï¼Œç”¨å®Œå°±åœ¨è¿™é‡Œå…³é—­è¿æ¥
     if (txObject.isNewConnectionHolder()) {
-        // ×îÖÕµ÷ÓÃµÄÊÇ java.sql.Connection#close
+        // æœ€ç»ˆè°ƒç”¨çš„æ˜¯ java.sql.Connection#close
         DataSourceUtils.releaseConnection(con, this.dataSource);
     }
 
@@ -344,31 +344,31 @@ protected void doCleanupAfterCompletion(Object transaction) {
 
 ```
 
-ÔÙÀ´¿´¿´ÊÂÎñµÄ»Ö¸´²Ù×÷£¬Ò²¾ÍÊÇ `resume(...)` ·½·¨£¬¸ú½øÕâ¸ö·½·¨ºó£¬·¢ÏÖ×îÖÕµ÷ÓÃµÄÊÇ `DataSourceTransactionManager#doResume` ·½·¨£¬´úÂëÈçÏÂ£º
+å†æ¥çœ‹çœ‹äº‹åŠ¡çš„æ¢å¤æ“ä½œï¼Œä¹Ÿå°±æ˜¯ `resume(...)` æ–¹æ³•ï¼Œè·Ÿè¿›è¿™ä¸ªæ–¹æ³•åï¼Œå‘ç°æœ€ç»ˆè°ƒç”¨çš„æ˜¯ `DataSourceTransactionManager#doResume` æ–¹æ³•ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 @Override
 protected void doResume(@Nullable Object transaction, Object suspendedResources) {
-    // ½«Êı¾İÔ´¡¢¹ÒÆğµÄÊı¾İ¿âÁ¬½ÓÓëµ±Ç°Ïß³Ì°ó¶¨
+    // å°†æ•°æ®æºã€æŒ‚èµ·çš„æ•°æ®åº“è¿æ¥ä¸å½“å‰çº¿ç¨‹ç»‘å®š
     TransactionSynchronizationManager.bindResource(obtainDataSource(), suspendedResources);
 }
 
 ```
 
-´¦ÀíÍêÕâÒ»²½ºó£¬´ËÊ±µÄÊı¾İÔ´¾ÍÊÇÖ®Ç°¹ÒÆğµÄÊı¾İÔ´ÁË¡£
+å¤„ç†å®Œè¿™ä¸€æ­¥åï¼Œæ­¤æ—¶çš„æ•°æ®æºå°±æ˜¯ä¹‹å‰æŒ‚èµ·çš„æ•°æ®æºäº†ã€‚
 
-#### 3.8 ÖØÖÃÊÂÎñĞÅÏ¢
+#### 3.8 é‡ç½®äº‹åŠ¡ä¿¡æ¯
 
-ÔÚÄ³Ğ©´«²¥·½Ê½ÏÂ£¬±ÈÈç `PROPAGATION_REQUIRES_NEW`£¬ÎÒÃÇĞèÒª¹ÒÆğµ±Ç°ÊÂÎñ£¬È»ºó´´½¨ĞÂµÄÊÂÎñ£¬ÔÚĞÂÊÂÎñÖ´ĞĞÍê³Éºó£¬ĞèÒª»Ö¸´Ô­À´µÄÊÂÎñ£¬ÕâÀïµÄÖØÖÃÊÂÎñĞÅÏ¢¾ÍÊÇ½«µ±Ç°ÊÂÎñĞÅÏ¢»Ö¸´Îª¹ÒÆğµÄÊÂÎñµÄĞÅÏ¢£¨Ö»ÊÇ»Ö¸´ÁËÊÂÎñĞÅÏ¢£¬¹ÒÆğµÄÊı¾İ¿âÁ¬½Ó²»ÊÇÔÚÕâÀï»Ö¸´£©£º
+åœ¨æŸäº›ä¼ æ’­æ–¹å¼ä¸‹ï¼Œæ¯”å¦‚ `PROPAGATION_REQUIRES_NEW`ï¼Œæˆ‘ä»¬éœ€è¦æŒ‚èµ·å½“å‰äº‹åŠ¡ï¼Œç„¶ååˆ›å»ºæ–°çš„äº‹åŠ¡ï¼Œåœ¨æ–°äº‹åŠ¡æ‰§è¡Œå®Œæˆåï¼Œéœ€è¦æ¢å¤åŸæ¥çš„äº‹åŠ¡ï¼Œè¿™é‡Œçš„é‡ç½®äº‹åŠ¡ä¿¡æ¯å°±æ˜¯å°†å½“å‰äº‹åŠ¡ä¿¡æ¯æ¢å¤ä¸ºæŒ‚èµ·çš„äº‹åŠ¡çš„ä¿¡æ¯ï¼ˆåªæ˜¯æ¢å¤äº†äº‹åŠ¡ä¿¡æ¯ï¼ŒæŒ‚èµ·çš„æ•°æ®åº“è¿æ¥ä¸æ˜¯åœ¨è¿™é‡Œæ¢å¤ï¼‰ï¼š
 
 ```
 public abstract class TransactionAspectSupport implements BeanFactoryAware, InitializingBean {
 
-    // ´æ·Åµ±Ç°Ê¹ÓÃµÄÊÂÎïĞÅÏ¢
+    // å­˜æ”¾å½“å‰ä½¿ç”¨çš„äº‹ç‰©ä¿¡æ¯
     private static final ThreadLocal<TransactionInfo> transactionInfoHolder =
             new NamedThreadLocal<>("Current aspect-driven transaction");
 
-    // ÖØÖÃÎª¾ÉµÄÊÂÎñĞÅÏ¢
+    // é‡ç½®ä¸ºæ—§çš„äº‹åŠ¡ä¿¡æ¯
     protected void cleanupTransactionInfo(@Nullable TransactionInfo txInfo) {
         if (txInfo != null) {
             txInfo.restoreThreadLocalStatus();
@@ -376,22 +376,22 @@ public abstract class TransactionAspectSupport implements BeanFactoryAware, Init
     }
 
     /**
-     * TransactionInfo: ±£´æÊÂÎñĞÅÏ¢
+     * TransactionInfo: ä¿å­˜äº‹åŠ¡ä¿¡æ¯
      */
     protected static final class TransactionInfo {
 
-        // µ±Ç°µÄÊÂÎñ×´Ì¬¶ÔÏó
+        // å½“å‰çš„äº‹åŠ¡çŠ¶æ€å¯¹è±¡
         @Nullable
         private TransactionStatus transactionStatus;
 
-        // ¾ÉµÄÊÂÎñĞÅÏ¢£¨Ò²¾ÍÊÇ¹ÒÆğµÄÊÂÎñĞÅÏ¢£©
+        // æ—§çš„äº‹åŠ¡ä¿¡æ¯ï¼ˆä¹Ÿå°±æ˜¯æŒ‚èµ·çš„äº‹åŠ¡ä¿¡æ¯ï¼‰
         @Nullable
         private TransactionInfo oldTransactionInfo;
 
         ...
 
         private void restoreThreadLocalStatus() {
-            // ÉèÖÃÎª¾ÉµÄÊÂÎñĞÅÏ¢
+            // è®¾ç½®ä¸ºæ—§çš„äº‹åŠ¡ä¿¡æ¯
             transactionInfoHolder.set(this.oldTransactionInfo);
         }
 
@@ -402,32 +402,32 @@ public abstract class TransactionAspectSupport implements BeanFactoryAware, Init
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`TransactionInfo` ¶Ô»»³ÖÓĞÉÏÒ»¸öÊÂÎñµÄĞÅÏ¢£¨`oldTransactionInfo` µÄ³ÉÔ±±äÁ¿£©£¬ÖØÖÃ»ØÉÏÒ»¸öÊÂÎñĞÅÏ¢Ê±£¬Ö»ÊÇ¼òµ¥µØ½« `oldTransactionInfo` ÉèÖÃµ½ÃûÎª `transactionInfoHolder` µÄ `ThreadLocal` Àï¡£
+å¯ä»¥çœ‹åˆ°ï¼Œ`TransactionInfo` å¯¹æ¢æŒæœ‰ä¸Šä¸€ä¸ªäº‹åŠ¡çš„ä¿¡æ¯ï¼ˆ`oldTransactionInfo` çš„æˆå‘˜å˜é‡ï¼‰ï¼Œé‡ç½®å›ä¸Šä¸€ä¸ªäº‹åŠ¡ä¿¡æ¯æ—¶ï¼Œåªæ˜¯ç®€å•åœ°å°† `oldTransactionInfo` è®¾ç½®åˆ°åä¸º `transactionInfoHolder` çš„ `ThreadLocal` é‡Œã€‚
 
-#### 3.9 Ìá½»ÊÂÎñ
+#### 3.9 æäº¤äº‹åŠ¡
 
-´¦ÀíÊÂÎñÌá½»µÄ´úÂëÎª `TransactionAspectSupport#commitTransactionAfterReturning`£¬´úÂëÈçÏÂ£º
+å¤„ç†äº‹åŠ¡æäº¤çš„ä»£ç ä¸º `TransactionAspectSupport#commitTransactionAfterReturning`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 protected void commitTransactionAfterReturning(@Nullable TransactionInfo txInfo) {
-    // ÅĞ¶ÏÏÂÊÂÎñµÄ×´Ì¬
+    // åˆ¤æ–­ä¸‹äº‹åŠ¡çš„çŠ¶æ€
     if (txInfo != null && txInfo.getTransactionStatus() != null) {
-        // ´¦ÀíÌá½»²Ù×÷£¬ÕâÇ°ÃæÒÑ¾­·ÖÎö¹ıÁË
+        // å¤„ç†æäº¤æ“ä½œï¼Œè¿™å‰é¢å·²ç»åˆ†æè¿‡äº†
         txInfo.getTransactionManager().commit(txInfo.getTransactionStatus());
     }
 }
 
 ```
 
-ÔÚ¸Ã·½·¨ÖĞ£¬ÎÒÃÇÓÖ¿´µ½ÁËÕâĞĞ´úÂë£º
+åœ¨è¯¥æ–¹æ³•ä¸­ï¼Œæˆ‘ä»¬åˆçœ‹åˆ°äº†è¿™è¡Œä»£ç ï¼š
 
 ```
 txInfo.getTransactionManager().commit(txInfo.getTransactionStatus());
 
 ```
 
-Õâ¸öÒÑ¾­ÔÚÓÉ**Òì³£ÒıÆğµÄÊÂÎñÌá½»**ÖĞ·ÖÎö¹ıÁË£¬¾Í²»ÔÙ·ÖÎöÁË¡£
+è¿™ä¸ªå·²ç»åœ¨ç”±**å¼‚å¸¸å¼•èµ·çš„äº‹åŠ¡æäº¤**ä¸­åˆ†æè¿‡äº†ï¼Œå°±ä¸å†åˆ†æäº†ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4947800](https://my.oschina.net/funcy/blog/4947800) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4947800](https://my.oschina.net/funcy/blog/4947800) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

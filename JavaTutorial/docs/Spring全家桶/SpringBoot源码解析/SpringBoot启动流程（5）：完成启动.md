@@ -1,43 +1,43 @@
-ÉÏÒ»ÆªÎÄÕÂ×Ü½á springboot Æô¶¯Á÷³ÌÈçÏÂ£º
+ä¸Šä¸€ç¯‡æ–‡ç« æ€»ç»“ springboot å¯åŠ¨æµç¨‹å¦‚ä¸‹ï¼š
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-07a6b491fbe69b8dcbd41e59a8543f06671.png)
 
-½ÓÉÏÎÄ£¬ÎÒÃÇ¼ÌĞø·ÖÎö½ÓÏÂÀ´µÄ²½Öè¡£
+æ¥ä¸Šæ–‡ï¼Œæˆ‘ä»¬ç»§ç»­åˆ†ææ¥ä¸‹æ¥çš„æ­¥éª¤ã€‚
 
-### 3.11 Ë¢ĞÂºóµÄ´¦Àí
+### 3.11 åˆ·æ–°åçš„å¤„ç†
 
-Ë¢ĞÂºóµÄ´¦Àí·½·¨Îª `SpringApplication#afterRefresh`£¬ÄÚÈİÈçÏÂ£º
+åˆ·æ–°åçš„å¤„ç†æ–¹æ³•ä¸º `SpringApplication#afterRefresh`ï¼Œå†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 protected void afterRefresh(ConfigurableApplicationContext context, ApplicationArguments args) {
 }
 ```
 
-¿ÉÒÔ¿´µ½£¬ÕâÊÇÒ»¸ö¿Õ·½·¨£¬springboot Ìá¹©µÄÀ©Õ¹¡£
+å¯ä»¥çœ‹åˆ°ï¼Œè¿™æ˜¯ä¸€ä¸ªç©ºæ–¹æ³•ï¼Œspringboot æä¾›çš„æ‰©å±•ã€‚
 
-### 3.12 ·¢²¼ `started` ÊÂ¼ş
+### 3.12 å‘å¸ƒ `started` äº‹ä»¶
 
-¸Ã²Ù×÷µÄ·½·¨Îª `listeners.started(context)`£¬·¢²¼Âß¼­Ç°ÃæÒÑ¾­·ÖÎö¹ı£¬ÕâÀï¾Í²»ÔÙ·ÖÎöÁË¡£
+è¯¥æ“ä½œçš„æ–¹æ³•ä¸º `listeners.started(context)`ï¼Œå‘å¸ƒé€»è¾‘å‰é¢å·²ç»åˆ†æè¿‡ï¼Œè¿™é‡Œå°±ä¸å†åˆ†æäº†ã€‚
 
-### 3.13 ÔËĞĞÆ÷»Øµ÷
+### 3.13 è¿è¡Œå™¨å›è°ƒ
 
-´¦ÀíÔËĞĞÆ÷µÄ·½·¨ÊÇ `SpringApplication#callRunners`£¬´úÂëÈçÏÂ£º
+å¤„ç†è¿è¡Œå™¨çš„æ–¹æ³•æ˜¯ `SpringApplication#callRunners`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 private void callRunners(ApplicationContext context, ApplicationArguments args) {
     List<Object> runners = new ArrayList<>();
-    // »ñÈ¡ËùÓĞµÄ ApplicationRunner Óë CommandLineRunner
+    // è·å–æ‰€æœ‰çš„ ApplicationRunner ä¸ CommandLineRunner
     runners.addAll(context.getBeansOfType(ApplicationRunner.class).values());
     runners.addAll(context.getBeansOfType(CommandLineRunner.class).values());
-    // ÅÅĞò
+    // æ’åº
     AnnotationAwareOrderComparator.sort(runners);
-    // ±éÀúµ÷ÓÃ
+    // éå†è°ƒç”¨
     for (Object runner : new LinkedHashSet<>(runners)) {
-        // µ÷ÓÃ ApplicationRunner#run ·½·¨
+        // è°ƒç”¨ ApplicationRunner#run æ–¹æ³•
         if (runner instanceof ApplicationRunner) {
             callRunner((ApplicationRunner) runner, args);
         }
-        // µ÷ÓÃ CommandLineRunner#run ·½·¨
+        // è°ƒç”¨ CommandLineRunner#run æ–¹æ³•
         if (runner instanceof CommandLineRunner) {
             callRunner((CommandLineRunner) runner, args);
         }
@@ -45,7 +45,7 @@ private void callRunners(ApplicationContext context, ApplicationArguments args) 
 }
 
 /**
- * µ÷ÓÃ ApplicationRunner#run ·½·¨
+ * è°ƒç”¨ ApplicationRunner#run æ–¹æ³•
  */
 private void callRunner(ApplicationRunner runner, ApplicationArguments args) {
     try {
@@ -57,7 +57,7 @@ private void callRunner(ApplicationRunner runner, ApplicationArguments args) {
 }
 
 /**
- * µ÷ÓÃ CommandLineRunner#run ·½·¨
+ * è°ƒç”¨ CommandLineRunner#run æ–¹æ³•
  */
 private void callRunner(CommandLineRunner runner, ApplicationArguments args) {
     try {
@@ -69,11 +69,11 @@ private void callRunner(CommandLineRunner runner, ApplicationArguments args) {
 }
 ```
 
-ÕâÁ½¸ö·½·¨±íÊ¾£¬springboot ÎªÎÒÃÇÌá¹©ÁËÁ½¸ö½Ó¿Ú£º`ApplicationRunner` Óë `CommandLineRunner`£¬ÎÒÃÇ¿ÉÒÔÊµÏÖËüÀ´Íê³ÉÒ»Ğ©²Ù×÷£¬Ó¦ÓÃÊ¾ÀıÈçÏÂ£º
+è¿™ä¸¤ä¸ªæ–¹æ³•è¡¨ç¤ºï¼Œspringboot ä¸ºæˆ‘ä»¬æä¾›äº†ä¸¤ä¸ªæ¥å£ï¼š`ApplicationRunner` ä¸ `CommandLineRunner`ï¼Œæˆ‘ä»¬å¯ä»¥å®ç°å®ƒæ¥å®Œæˆä¸€äº›æ“ä½œï¼Œåº”ç”¨ç¤ºä¾‹å¦‚ä¸‹ï¼š
 
 ```
 /**
- * ApplicationRunner Ê¾Àı
+ * ApplicationRunner ç¤ºä¾‹
  */
 @Component
 public class MyApplicationRunner implements ApplicationRunner {
@@ -84,7 +84,7 @@ public class MyApplicationRunner implements ApplicationRunner {
 }
 
 /**
- * CommandLineRunner Ê¾Àı
+ * CommandLineRunner ç¤ºä¾‹
  */
 @Component
 public class MyCommandLineRunner implements CommandLineRunner {
@@ -95,14 +95,14 @@ public class MyCommandLineRunner implements CommandLineRunner {
 }
 ```
 
-### 3.14 ÔËĞĞ¼àÌıÆ÷·½·¨£º `listeners.running(...)`
+### 3.14 è¿è¡Œç›‘å¬å™¨æ–¹æ³•ï¼š `listeners.running(...)`
 
-Õâ¸ö·½·¨µÄÔËĞĞÍ¬Ç°Ãæ·ÖÎöµÄ `listeners.starting()` Ì×Â·Ò»Ñù£¬ÕâÀï¾Í²»·ÖÎöÁË¡£
+è¿™ä¸ªæ–¹æ³•çš„è¿è¡ŒåŒå‰é¢åˆ†æçš„ `listeners.starting()` å¥—è·¯ä¸€æ ·ï¼Œè¿™é‡Œå°±ä¸åˆ†æäº†ã€‚
 
-ºÃÁË£¬±¾ÎÄµÄ·ÖÎö¾Íµ½ÕâÀïÁË£¬¹ØÓÚ springboot µÄÆô¶¯Á÷³ÌµÄ·ÖÎöÒ²µ½ÕâÀïÁË¡£
+å¥½äº†ï¼Œæœ¬æ–‡çš„åˆ†æå°±åˆ°è¿™é‡Œäº†ï¼Œå…³äº springboot çš„å¯åŠ¨æµç¨‹çš„åˆ†æä¹Ÿåˆ°è¿™é‡Œäº†ã€‚
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-9b539b547c6004c40d2b6f8bd59481b8e34.png)
 
 ------
 
-*±¾ÎÄÔ­ÎÄÁ´½Ó£ºhttps://my.oschina.net/funcy/blog/4906553 £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£*
+*æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼šhttps://my.oschina.net/funcy/blog/4906553 ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚*

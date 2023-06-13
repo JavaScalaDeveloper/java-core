@@ -1,19 +1,19 @@
-### 1\. demo ×¼±¸
+### 1\. demo å‡†å¤‡
 
-ÎªÁË¸üºÃµØ·ÖÎö springmvc Ïà¹ØÔ´Âë£¬ÎÒÃÇĞèÒªÏÈ×¼±¸Ò»¸ö springmvc µÄ demo£¬ÕâÀïµÄ demo »¹ÊÇ·ÅÔÚ `spring-learn` Ä£¿é¡£
+ä¸ºäº†æ›´å¥½åœ°åˆ†æ springmvc ç›¸å…³æºç ï¼Œæˆ‘ä»¬éœ€è¦å…ˆå‡†å¤‡ä¸€ä¸ª springmvc çš„ demoï¼Œè¿™é‡Œçš„ demo è¿˜æ˜¯æ”¾åœ¨ `spring-learn` æ¨¡å—ã€‚
 
-#### 1\. ÒıÈë tomcat °ü
+#### 1\. å¼•å…¥ tomcat åŒ…
 
-ÔÚ tomcat 8 Ö®ºó£¬tomcat Ìá¹©ÁË¶ÀÁ¢µÄÔËĞĞ°ü£¬ĞèÒªÊ±Ö±½ÓÒıÈëÏà¹ØÒÀÀµ¾Í¿ÉÒÔÁË£¬¶ÔÓ¦µÄ gradle ÒÀÀµÈçÏÂ:
+åœ¨ tomcat 8 ä¹‹åï¼Œtomcat æä¾›äº†ç‹¬ç«‹çš„è¿è¡ŒåŒ…ï¼Œéœ€è¦æ—¶ç›´æ¥å¼•å…¥ç›¸å…³ä¾èµ–å°±å¯ä»¥äº†ï¼Œå¯¹åº”çš„ gradle ä¾èµ–å¦‚ä¸‹:
 
 ```
 optional("org.apache.tomcat.embed:tomcat-embed-core")
 
 ```
 
-ÔÚ spring ÏîÄ¿µÄ `build.gradle` ÖĞ£¬ÒÑ¾­ÒıÈëÁË `tomcat-embed-core-9.0.29.jar`£¬Òò´ËÔÚ `spring-learn` Ä£¿éÖĞÒıÈëÊ±²»ÓÃÔÙÖ¸¶¨°æ±¾¡£
+åœ¨ spring é¡¹ç›®çš„ `build.gradle` ä¸­ï¼Œå·²ç»å¼•å…¥äº† `tomcat-embed-core-9.0.29.jar`ï¼Œå› æ­¤åœ¨ `spring-learn` æ¨¡å—ä¸­å¼•å…¥æ—¶ä¸ç”¨å†æŒ‡å®šç‰ˆæœ¬ã€‚
 
-#### 2\. ×¼±¸ÅäÖÃÀà
+#### 2\. å‡†å¤‡é…ç½®ç±»
 
 ```
 package org.springframework.learn.mvc.demo01;
@@ -31,9 +31,9 @@ public class MvcConfig {
 
 ```
 
-ÅäÖÃÀàÎª `MvcConfig`£¬¸ÃÀàÖ¸¶¨ÁËÏîÄ¿µÄ°üÉ¨ÃèÂ·¾¶£¬ÒÔ¼°Í¨¹ı `@EnableWebMvc` ¿ªÆô mvc ¹¦ÄÜ¡£
+é…ç½®ç±»ä¸º `MvcConfig`ï¼Œè¯¥ç±»æŒ‡å®šäº†é¡¹ç›®çš„åŒ…æ‰«æè·¯å¾„ï¼Œä»¥åŠé€šè¿‡ `@EnableWebMvc` å¼€å¯ mvc åŠŸèƒ½ã€‚
 
-#### 3\. ÊµÏÖ `WebApplicationInitializer`
+#### 3\. å®ç° `WebApplicationInitializer`
 
 ```
 package org.springframework.learn.mvc.demo01;
@@ -61,9 +61,9 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
 ```
 
-spring Ìá¹©ÁËÒ»¸ö½Ó¿Ú ¡ª¡ª`WebApplicationInitializer`£¬ÊµÏÖ¸Ã½Ó¿ÚÊ±£¬ÎÒÃÇÔÚ `onStartup(...)` ·½·¨ÖĞ´´½¨ spring µÄ `applicationContext`£¬È»ºóÍù servelet ÖĞ×¢²á `DispatcherServlet`¡£
+spring æä¾›äº†ä¸€ä¸ªæ¥å£ â€”â€”`WebApplicationInitializer`ï¼Œå®ç°è¯¥æ¥å£æ—¶ï¼Œæˆ‘ä»¬åœ¨ `onStartup(...)` æ–¹æ³•ä¸­åˆ›å»º spring çš„ `applicationContext`ï¼Œç„¶åå¾€ servelet ä¸­æ³¨å†Œ `DispatcherServlet`ã€‚
 
-#### 4\. ×¼±¸ controller
+#### 4\. å‡†å¤‡ controller
 
 ```
 package org.springframework.learn.mvc.demo01;
@@ -84,11 +84,11 @@ public class TestController {
 
 ```
 
-ÕâÀï×¼±¸ÁËÒ»¸ö¼òµ¥µÄ controller£¬·µ»ØÒ»¸ö×Ö·û´® "hello world".
+è¿™é‡Œå‡†å¤‡äº†ä¸€ä¸ªç®€å•çš„ controllerï¼Œè¿”å›ä¸€ä¸ªå­—ç¬¦ä¸² "hello world".
 
-#### 5\. Ö÷Àà
+#### 5\. ä¸»ç±»
 
-½ÓÏÂÀ´¾ÍÊÇÖ÷ÀàÁË£º
+æ¥ä¸‹æ¥å°±æ˜¯ä¸»ç±»äº†ï¼š
 
 ```
 package org.springframework.learn.mvc.demo01;
@@ -120,35 +120,35 @@ public class MvcDemo01Main {
 
 ```
 
-ÔÚ `main` ·½·¨ÖĞ£¬Ö÷Òª´¦Àí tomcat Æô¶¯Âß¼­¡£
+åœ¨ `main` æ–¹æ³•ä¸­ï¼Œä¸»è¦å¤„ç† tomcat å¯åŠ¨é€»è¾‘ã€‚
 
-ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+è¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
-¿ØÖÆÌ¨£º
+æ§åˆ¶å°ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8d13bb650364488f8ce5e593eff00448ee1.png)
 
-Ò³Ãæ·µ»Ø£º
+é¡µé¢è¿”å›ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-6a8407a1945dccd6e4ef217a383d4309ec5.png)
 
-¿ÉÒÔ¿´µ½£¬Ò»¸ö¼òµ¥µÄ springmvc ÏîÄ¿¾Í´î½¨Íê³ÉÁË¡£
+å¯ä»¥çœ‹åˆ°ï¼Œä¸€ä¸ªç®€å•çš„ springmvc é¡¹ç›®å°±æ­å»ºå®Œæˆäº†ã€‚
 
-### 2. `servlet 3.0` ¹æ·¶½éÉÜ
+### 2. `servlet 3.0` è§„èŒƒä»‹ç»
 
-»ØÒäÏÂ¹ÅÀÏµÄ springmvc ÏîÄ¿£¬Ò»°ãÓĞÕâ¼¸¸ö xml ÅäÖÃÎÄ¼ş£º
+å›å¿†ä¸‹å¤è€çš„ springmvc é¡¹ç›®ï¼Œä¸€èˆ¬æœ‰è¿™å‡ ä¸ª xml é…ç½®æ–‡ä»¶ï¼š
 
-*   `web.xml`£»servlet ÅäÖÃÎÄ¼ş£¬ÅäÖÃ web Æô¶¯Ê±µÄ²Ù×÷£¬ÒÔ¼° `servlet`/`listener`/`filter`;
-*   `spring.xml`£ºspring ÈİÆ÷µÄÅäÖÃÎÄ¼ş£¬Ö÷ÒªÓÃÀ´ÅäÖÃ spring bean.
-*   `spring-mvc.xml`£ºspringmvc ÅäÖÃÎÄ¼ş£¬ÓÃÀ´ÅäÖÃ mvc Ïà¹ØµÄ bean£¬ÈçÎÄ¼şÉÏ´«Ïà¹ØµÄ bean£¬ÊÓÍ¼½âÎö bean£¬controller °üÂ·¾¶µÈ¡£
+*   `web.xml`ï¼›servlet é…ç½®æ–‡ä»¶ï¼Œé…ç½® web å¯åŠ¨æ—¶çš„æ“ä½œï¼Œä»¥åŠ `servlet`/`listener`/`filter`;
+*   `spring.xml`ï¼šspring å®¹å™¨çš„é…ç½®æ–‡ä»¶ï¼Œä¸»è¦ç”¨æ¥é…ç½® spring bean.
+*   `spring-mvc.xml`ï¼šspringmvc é…ç½®æ–‡ä»¶ï¼Œç”¨æ¥é…ç½® mvc ç›¸å…³çš„ beanï¼Œå¦‚æ–‡ä»¶ä¸Šä¼ ç›¸å…³çš„ beanï¼Œè§†å›¾è§£æ beanï¼Œcontroller åŒ…è·¯å¾„ç­‰ã€‚
 
-ÏîÄ¿ÔÚÆô¶¯Ê±£¬»áÏÈ¼ÓÔØ `web.xml`£¬ÔÚ `web.xml` ÖĞ¼ÓÔØ spring Ïà¹ØÅäÖÃ£¬Æô¶¯ spring ÈİÆ÷¡£
+é¡¹ç›®åœ¨å¯åŠ¨æ—¶ï¼Œä¼šå…ˆåŠ è½½ `web.xml`ï¼Œåœ¨ `web.xml` ä¸­åŠ è½½ spring ç›¸å…³é…ç½®ï¼Œå¯åŠ¨ spring å®¹å™¨ã€‚
 
-ÔÚÉÏÃæµÄ demo ÖĞ£¬ÎÒÃÇ·¢ÏÖ²¢ Ã»ÓĞÕâĞ©ÅäÖÃ£¬ÉõÖÁÁ¬ `web.xml` ÎÄ¼ş¶¼Ã»ÓĞ£¡ÄÇÃ´£¬ÉÏÃæµÄ web ÏîÄ¿ÊÇÔõÃ´Æô¶¯µÄÄØ£¿
+åœ¨ä¸Šé¢çš„ demo ä¸­ï¼Œæˆ‘ä»¬å‘ç°å¹¶ æ²¡æœ‰è¿™äº›é…ç½®ï¼Œç”šè‡³è¿ `web.xml` æ–‡ä»¶éƒ½æ²¡æœ‰ï¼é‚£ä¹ˆï¼Œä¸Šé¢çš„ web é¡¹ç›®æ˜¯æ€ä¹ˆå¯åŠ¨çš„å‘¢ï¼Ÿ
 
-ÔÚ `servlet` ÔÚ `3.0` Ö®ºó£¬Ìá¹©ÁËÒ»¸ö spi ¹æ·¶£¬spring ¶ÔÆäÊµÏÖÈçÏÂ£º
+åœ¨ `servlet` åœ¨ `3.0` ä¹‹åï¼Œæä¾›äº†ä¸€ä¸ª spi è§„èŒƒï¼Œspring å¯¹å…¶å®ç°å¦‚ä¸‹ï¼š
 
-1.  ÔÚ `spring-web` Ä£¿éµÄ `/src/main/resources/META-INF/services/` ÎÄ¼ş¼ĞÏÂ£¬´´½¨ÎÄ¼ş `javax.servlet.ServletContainerInitializer`£¬ÄÚÈİÈçÏÂ
+1.  åœ¨ `spring-web` æ¨¡å—çš„ `/src/main/resources/META-INF/services/` æ–‡ä»¶å¤¹ä¸‹ï¼Œåˆ›å»ºæ–‡ä»¶ `javax.servlet.ServletContainerInitializer`ï¼Œå†…å®¹å¦‚ä¸‹
 
 ```
 org.springframework.web.SpringServletContainerInitializer
@@ -157,19 +157,19 @@ org.springframework.web.SpringServletContainerInitializer
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-92853ebc9c4388d325244b81557ecf80ddd.png)
 
-1.  `org.springframework.web.SpringServletContainerInitializer` ÊµÏÖÁË servlet ¹æ·¶£º
+1.  `org.springframework.web.SpringServletContainerInitializer` å®ç°äº† servlet è§„èŒƒï¼š
 
 ```
-// @HandlesTypes ×¢½âÀ´×ÔÓÚservlet¹æ·¶£¬±íÊ¾ webAppInitializerClass Îª WebApplicationInitializer.class
+// @HandlesTypes æ³¨è§£æ¥è‡ªäºservletè§„èŒƒï¼Œè¡¨ç¤º webAppInitializerClass ä¸º WebApplicationInitializer.class
 @HandlesTypes(WebApplicationInitializer.class)
 public class SpringServletContainerInitializer implements ServletContainerInitializer {
 
     /*
-     * ÖØĞ´ ServletContainerInitializer µÄ onStartup ·½·¨
-     * ÔÚÕâ¸ö·½·¨Àï£¬Ö÷ÒªÊÇÊµÀı»¯ spring Ìá¹©µÄ WebApplicationInitializer.class£¬È»ºóÖ´ĞĞÆä onStartup ·½·¨
+     * é‡å†™ ServletContainerInitializer çš„ onStartup æ–¹æ³•
+     * åœ¨è¿™ä¸ªæ–¹æ³•é‡Œï¼Œä¸»è¦æ˜¯å®ä¾‹åŒ– spring æä¾›çš„ WebApplicationInitializer.classï¼Œç„¶åæ‰§è¡Œå…¶ onStartup æ–¹æ³•
      *
-     * Set<Class<?>> webAppInitializerClasses ÖĞµÄÀàĞÍÎª WebApplicationInitializer.class£¬
-     * Õâ¸öÀàĞÍÓÉ @HandlesTypes ×¢½âÖ¸¶¨
+     * Set<Class<?>> webAppInitializerClasses ä¸­çš„ç±»å‹ä¸º WebApplicationInitializer.classï¼Œ
+     * è¿™ä¸ªç±»å‹ç”± @HandlesTypes æ³¨è§£æŒ‡å®š
      */
     @Override
     public void onStartup(@Nullable Set<Class<?>> webAppInitializerClasses, ServletContext servletContext)
@@ -182,7 +182,7 @@ public class SpringServletContainerInitializer implements ServletContainerInitia
                 if (!waiClass.isInterface() && !Modifier.isAbstract(waiClass.getModifiers()) &&
                         WebApplicationInitializer.class.isAssignableFrom(waiClass)) {
                     try {
-                       // Ê¹ÓÃ·´ÉäÊµÀı»¯ WebApplicationInitializer µÄÊµÏÖÀà£¬Ìí¼Óµ½ initializers ÖĞ
+                       // ä½¿ç”¨åå°„å®ä¾‹åŒ– WebApplicationInitializer çš„å®ç°ç±»ï¼Œæ·»åŠ åˆ° initializers ä¸­
                         initializers.add((WebApplicationInitializer)
                                 ReflectionUtils.accessibleConstructor(waiClass).newInstance());
                     }
@@ -194,10 +194,10 @@ public class SpringServletContainerInitializer implements ServletContainerInitia
         }
 
         servletContext.log(initializers.size() + " ...");
-        // ÅÅĞò£¬ÊµÏÖÁËOrderd½Ó¿Ú£¬±ê×¢ @Order ×¢½â£¬»òÊµÏÖÁË PriorityOrderd ½Ó¿Ú
+        // æ’åºï¼Œå®ç°äº†Orderdæ¥å£ï¼Œæ ‡æ³¨ @Order æ³¨è§£ï¼Œæˆ–å®ç°äº† PriorityOrderd æ¥å£
         AnnotationAwareOrderComparator.sort(initializers);
         for (WebApplicationInitializer initializer : initializers) {
-           // µ÷ÓÃ WebApplicationInitializer ÊµÏÖÀàµÄonStartup·½·¨
+           // è°ƒç”¨ WebApplicationInitializer å®ç°ç±»çš„onStartupæ–¹æ³•
            initializer.onStartup(servletContext);
         }
     }
@@ -206,7 +206,7 @@ public class SpringServletContainerInitializer implements ServletContainerInitia
 
 ```
 
-1.  `WebApplicationInitializer` µÄÊµÏÖ ÎÒÃÇÀ´¿´¿´ demo ÖĞ¶Ô `WebApplicationInitializer` µÄÊµÏÖ£º
+1.  `WebApplicationInitializer` çš„å®ç° æˆ‘ä»¬æ¥çœ‹çœ‹ demo ä¸­å¯¹ `WebApplicationInitializer` çš„å®ç°ï¼š
 
 ```
 package org.springframework.learn.mvc.demo01;
@@ -221,15 +221,15 @@ import javax.servlet.ServletRegistration;
 public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
     /*
-     * ÔÚÕâÀïÆô¶¯ spring ÏîÄ¿
+     * åœ¨è¿™é‡Œå¯åŠ¨ spring é¡¹ç›®
      */
     @Override
     public void onStartup(ServletContext servletContext) {
-        // ´´½¨ spring µÄ ApplicationContext
+        // åˆ›å»º spring çš„ ApplicationContext
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.register(MvcConfig.class);
 
-        // Ìí¼Ó DispatcherServlet µ½ servlet ÖĞ
+        // æ·»åŠ  DispatcherServlet åˆ° servlet ä¸­
         DispatcherServlet servlet = new DispatcherServlet(context);
         ServletRegistration.Dynamic registration = servletContext.addServlet("app", servlet);
         registration.setLoadOnStartup(1);
@@ -239,15 +239,15 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
 ```
 
-×îÖÕÖ´ĞĞ¹ı³ÌÈçÏÂ£º
+æœ€ç»ˆæ‰§è¡Œè¿‡ç¨‹å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0874fa7ef39ca9c405cdf55d99ca891ebf2.png)
 
-ÓÉ´Ë£¬spring ÈİÆ÷¾ÍÆô¶¯ÁË¡£
+ç”±æ­¤ï¼Œspring å®¹å™¨å°±å¯åŠ¨äº†ã€‚
 
-### 3\. @EnableWebMvc ×÷ÓÃ
+### 3\. @EnableWebMvc ä½œç”¨
 
-ÔÚ demo ÖĞ£¬ÎÒÃÇÍ¨¹ı `@EnableWebMvc` À´Æô¶¯ mvc ¹¦ÄÜ£¬ÄÇÃ´Õâ¸ö×¢½â×öÁËÊ²Ã´ÄØ£¿ÎÒÃÇ½øÈë `EnableWebMvc` Àà£º
+åœ¨ demo ä¸­ï¼Œæˆ‘ä»¬é€šè¿‡ `@EnableWebMvc` æ¥å¯åŠ¨ mvc åŠŸèƒ½ï¼Œé‚£ä¹ˆè¿™ä¸ªæ³¨è§£åšäº†ä»€ä¹ˆå‘¢ï¼Ÿæˆ‘ä»¬è¿›å…¥ `EnableWebMvc` ç±»ï¼š
 
 ```
 @Retention(RetentionPolicy.RUNTIME)
@@ -259,7 +259,7 @@ public @interface EnableWebMvc {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬Õâ¸ö×¢½âÍ¨¹ı `@Import` ×¢½âÒıÈëÁË `DelegatingWebMvcConfiguration.class`£¬ÎÒÃÇÔÙÀ´¿´¿´ `DelegatingWebMvcConfiguration`:
+å¯ä»¥çœ‹åˆ°ï¼Œè¿™ä¸ªæ³¨è§£é€šè¿‡ `@Import` æ³¨è§£å¼•å…¥äº† `DelegatingWebMvcConfiguration.class`ï¼Œæˆ‘ä»¬å†æ¥çœ‹çœ‹ `DelegatingWebMvcConfiguration`:
 
 ```
 @Configuration(proxyBeanMethods = false)
@@ -270,27 +270,27 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
 
 ```
 
-Õâ¸öÀà±êÓĞ `@Configuration` ×¢½â£¬±íÃ÷ÕâÊÇ¸öÅäÖÃÀà£¬Õâ¸öÀà¼Ì³ĞµÄÊÇ `WebMvcConfigurationSupport`£¬´ÓÃû×ÖÀ´¿´£¬`WebMvcConfigurationSupport` Îª "mvc ÅäÖÃÖ§³Ö"£¬Õâ±íÃ÷Õâ¸öÀàÊÇÓÃÀ´ÖÃ´¦Àí mvc Ïà¹ØµÄÅäÖÃµÄ¡£
+è¿™ä¸ªç±»æ ‡æœ‰ `@Configuration` æ³¨è§£ï¼Œè¡¨æ˜è¿™æ˜¯ä¸ªé…ç½®ç±»ï¼Œè¿™ä¸ªç±»ç»§æ‰¿çš„æ˜¯ `WebMvcConfigurationSupport`ï¼Œä»åå­—æ¥çœ‹ï¼Œ`WebMvcConfigurationSupport` ä¸º "mvc é…ç½®æ”¯æŒ"ï¼Œè¿™è¡¨æ˜è¿™ä¸ªç±»æ˜¯ç”¨æ¥ç½®å¤„ç† mvc ç›¸å…³çš„é…ç½®çš„ã€‚
 
-ÎªÁË¸üºÃµØ·ÖÎö£¬ÕâÀïÏÈ½éÉÜ¼¸¸öÀà£º
+ä¸ºäº†æ›´å¥½åœ°åˆ†æï¼Œè¿™é‡Œå…ˆä»‹ç»å‡ ä¸ªç±»ï¼š
 
-1. `DelegatingWebMvcConfiguration`£ºÓÉ `@EnableWebMvc` ÒıÈëµÄÀà£¬ÊÇ `WebMvcConfigurationSupport` µÄ×ÓÀà£¬ÖØĞ´ÁË `WebMvcConfigurationSupport` Ìá¹©µÄÅäÖÃ·½·¨£º
+1. `DelegatingWebMvcConfiguration`ï¼šç”± `@EnableWebMvc` å¼•å…¥çš„ç±»ï¼Œæ˜¯ `WebMvcConfigurationSupport` çš„å­ç±»ï¼Œé‡å†™äº† `WebMvcConfigurationSupport` æä¾›çš„é…ç½®æ–¹æ³•ï¼š
 
    ```
    /*
-    * @Configuration£º±íÃ÷ÕâÊÇ¸öÅäÖÃÀà
-    * extends WebMvcConfigurationSupport£º¼Ì³ĞÁËWebMvcConfigurationSupportÀà
+    * @Configurationï¼šè¡¨æ˜è¿™æ˜¯ä¸ªé…ç½®ç±»
+    * extends WebMvcConfigurationSupportï¼šç»§æ‰¿äº†WebMvcConfigurationSupportç±»
     */
    @Configuration(proxyBeanMethods = false)
    public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
    
-       // WebMvcConfigurerComposite ÊÇ WebMvcConfigurer µÄ×éºÏ£¬ÏÂÃæ»áÌáµ½
+       // WebMvcConfigurerComposite æ˜¯ WebMvcConfigurer çš„ç»„åˆï¼Œä¸‹é¢ä¼šæåˆ°
        private final WebMvcConfigurerComposite configurers = new WebMvcConfigurerComposite();
    
        /**
-        * ÉèÖÃconfigurers
-        * Ìí¼ÓÁË@Autowired×¢½â£¬±íÊ¾½«springÈİÆ÷ÖĞµÄËùÓĞWebMvcConfigurer bean ×÷Îª
-        * ²ÎÊıconfigurersµÄÖµ £¬È»ºóµ÷ÓÃ¸Ã·½·¨
+        * è®¾ç½®configurers
+        * æ·»åŠ äº†@Autowiredæ³¨è§£ï¼Œè¡¨ç¤ºå°†springå®¹å™¨ä¸­çš„æ‰€æœ‰WebMvcConfigurer bean ä½œä¸º
+        * å‚æ•°configurersçš„å€¼ ï¼Œç„¶åè°ƒç”¨è¯¥æ–¹æ³•
         */
        @Autowired(required = false)
        public void setConfigurers(List<WebMvcConfigurer> configurers) {
@@ -300,35 +300,35 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
        }
    
        /**
-        * ÅäÖÃPathMatch
+        * é…ç½®PathMatch
         */
        @Override
        protected void configurePathMatch(PathMatchConfigurer configurer) {
-           // µ÷ÓÃ WebMvcConfigurerComposite µÄ·½·¨½øĞĞÅäÖÃ
+           // è°ƒç”¨ WebMvcConfigurerComposite çš„æ–¹æ³•è¿›è¡Œé…ç½®
            this.configurers.configurePathMatch(configurer);
        }
    
-       // ÆäËûÅäÖÃ·½·¨Ò²ÊÇµ÷ÓÃ WebMvcConfigurerComposite ¶ÔÓ¦µÄ·½·¨½øĞĞÅäÖÃµÄ
+       // å…¶ä»–é…ç½®æ–¹æ³•ä¹Ÿæ˜¯è°ƒç”¨ WebMvcConfigurerComposite å¯¹åº”çš„æ–¹æ³•è¿›è¡Œé…ç½®çš„
        ...
    
    }
    
    ```
 
-2. `WebMvcConfigurerComposite`£º`WebMvcConfigurer` µÄ×éºÏ£º
+2. `WebMvcConfigurerComposite`ï¼š`WebMvcConfigurer` çš„ç»„åˆï¼š
 
    ```
    /**
-    * ÊµÏÖÁË WebMvcConfigurer
+    * å®ç°äº† WebMvcConfigurer
     */
    class WebMvcConfigurerComposite implements WebMvcConfigurer {
    
-       // delegatesÊôĞÔÎª WebMvcConfigurer µÄ¼¯ºÏ
+       // delegateså±æ€§ä¸º WebMvcConfigurer çš„é›†åˆ
        private final List<WebMvcConfigurer> delegates = new ArrayList<>();
    
        /*
-        * ±»DelegatingWebMvcConfiguration#setConfigurersµ÷ÓÃ
-        * ×îÖÕÊÇ°Ñ´«ÈëµÄconfigurersÌí¼Óµ½delegates(Ò²¾ÍÊÇWebMvcConfigurer¼¯ºÏ)ÖĞ
+        * è¢«DelegatingWebMvcConfiguration#setConfigurersè°ƒç”¨
+        * æœ€ç»ˆæ˜¯æŠŠä¼ å…¥çš„configurersæ·»åŠ åˆ°delegates(ä¹Ÿå°±æ˜¯WebMvcConfigureré›†åˆ)ä¸­
         */
        public void addWebMvcConfigurers(List<WebMvcConfigurer> configurers) {
            if (!CollectionUtils.isEmpty(configurers)) {
@@ -337,8 +337,8 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
        }
    
        /**
-        * ÅäÖÃÊ±£¬»á±éÀúdelegates(Ò²¾ÍÊÇWebMvcConfigurer¼¯ºÏ)£¬½«´«ÈëµÄÅäÖÃÉèÖÃµ½
-        * ¼¯ºÏÖĞµÄÃ¿Ò»¸öWebMvcConfigurer
+        * é…ç½®æ—¶ï¼Œä¼šéå†delegates(ä¹Ÿå°±æ˜¯WebMvcConfigureré›†åˆ)ï¼Œå°†ä¼ å…¥çš„é…ç½®è®¾ç½®åˆ°
+        * é›†åˆä¸­çš„æ¯ä¸€ä¸ªWebMvcConfigurer
         */
        @Override
        public void configurePathMatch(PathMatchConfigurer configurer) {
@@ -347,13 +347,13 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
            }
        }
    
-       // ÆäËûÅäÖÃÀàËÆ£¬Ê¡ÂÔ
+       // å…¶ä»–é…ç½®ç±»ä¼¼ï¼Œçœç•¥
        ...
    }
    
    ```
 
-3. `WebMvcConfigurer`£ºspringmvc µÄÅäÖÃ½Ó¿Ú£¬Ìá¹©ÁË·Ç³£¶àµÄÅäÖÃ
+3. `WebMvcConfigurer`ï¼šspringmvc çš„é…ç½®æ¥å£ï¼Œæä¾›äº†éå¸¸å¤šçš„é…ç½®
 
    ```
    public interface WebMvcConfigurer {
@@ -372,15 +372,15 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
    
    ```
 
-4. `WebMvcConfigurationSupport`£ºspringmvc µÄÅäÖÃÖ§³ÖÀà
+4. `WebMvcConfigurationSupport`ï¼šspringmvc çš„é…ç½®æ”¯æŒç±»
 
    ```
    /**
-    * ÊµÏÖÁËÁ½¸öaware½Ó¿Ú
+    * å®ç°äº†ä¸¤ä¸ªawareæ¥å£
     */
    public class WebMvcConfigurationSupport implements ApplicationContextAware, ServletContextAware {
    
-       //================= À´×Ô XxxAware ½Ó¿ÚµÄ·½·¨ =================
+       //================= æ¥è‡ª XxxAware æ¥å£çš„æ–¹æ³• =================
        @Override
        public void setApplicationContext(@Nullable ApplicationContext applicationContext) {
            this.applicationContext = applicationContext;
@@ -391,17 +391,17 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
            this.servletContext = servletContext;
        }
    
-       //================= @Bean ·½·¨£¬ÏòspringÖĞÌí¼Ó bean =================
+       //================= @Bean æ–¹æ³•ï¼Œå‘springä¸­æ·»åŠ  bean =================
        @Bean
        public RequestMappingHandlerMapping requestMappingHandlerMapping(...) {
            RequestMappingHandlerMapping mapping = createRequestMappingHandlerMapping();
            mapping.setOrder(0);
-           // getInterceptors(...) »ñÈ¡ interceptors£¬ÍùÏÂ¿´
+           // getInterceptors(...) è·å– interceptorsï¼Œå¾€ä¸‹çœ‹
            mapping.setInterceptors(getInterceptors(conversionService, resourceUrlProvider));
            mapping.setContentNegotiationManager(contentNegotiationManager);
-           // getCorsConfigurations(...) »ñÈ¡CorsÅäÖÃ£¬ÍùÏÂ¿´
+           // getCorsConfigurations(...) è·å–Corsé…ç½®ï¼Œå¾€ä¸‹çœ‹
            mapping.setCorsConfigurations(getCorsConfigurations());
-           // getPathMatchConfigurer(...) »ñÈ¡PathMatchÅäÖÃ£¬ÍùÏÂ¿´
+           // getPathMatchConfigurer(...) è·å–PathMatché…ç½®ï¼Œå¾€ä¸‹çœ‹
            PathMatchConfigurer configurer = getPathMatchConfigurer();
    
            ...
@@ -409,14 +409,14 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
            return mapping;
        }
        ...
-       //================= get xxx ÅäÖÃ·½·¨£¬Ìí¼ÓspringÌá¹©µÄÄ¬ÈÏÅäÖÃ£¬Ìí¼Ó×Ô¶¨ÒåÅäÖÃ =======
-       // »ñÈ¡ interceptors
+       //================= get xxx é…ç½®æ–¹æ³•ï¼Œæ·»åŠ springæä¾›çš„é»˜è®¤é…ç½®ï¼Œæ·»åŠ è‡ªå®šä¹‰é…ç½® =======
+       // è·å– interceptors
        protected final Object[] getInterceptors(
                FormattingConversionService mvcConversionService,
                ResourceUrlProvider mvcResourceUrlProvider) {
            if (this.interceptors == null) {
                InterceptorRegistry registry = new InterceptorRegistry();
-               // µ÷ÓÃÅäÖÃ·½·¨£¬Ìí¼Ó interceptor£¬ÍùÏÂ¿´
+               // è°ƒç”¨é…ç½®æ–¹æ³•ï¼Œæ·»åŠ  interceptorï¼Œå¾€ä¸‹çœ‹
                addInterceptors(registry);
                registry.addInterceptor(new ConversionServiceExposingInterceptor(mvcConversionService));
                registry.addInterceptor(new ResourceUrlProviderExposingInterceptor(mvcResourceUrlProvider));
@@ -425,18 +425,18 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
            return this.interceptors.toArray();
        }
    
-       // »ñÈ¡CorsÅäÖÃ
+       // è·å–Corsé…ç½®
        protected final Map<String, CorsConfiguration> getCorsConfigurations() {
            if (this.corsConfigurations == null) {
                CorsRegistry registry = new CorsRegistry();
-               // µ÷ÓÃÅäÖÃ·½·¨£¬Ìí¼Ó CorsMapping£¬ÍùÏÂ¿´
+               // è°ƒç”¨é…ç½®æ–¹æ³•ï¼Œæ·»åŠ  CorsMappingï¼Œå¾€ä¸‹çœ‹
                addCorsMappings(registry);
                this.corsConfigurations = registry.getCorsConfigurations();
            }
            return this.corsConfigurations;
        }
    
-       // »ñÈ¡PathMatchÅäÖÃ
+       // è·å–PathMatché…ç½®
        protected PathMatchConfigurer getPathMatchConfigurer() {
            if (this.pathMatchConfigurer == null) {
                this.pathMatchConfigurer = new PathMatchConfigurer();
@@ -447,16 +447,16 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
    
        ...
    
-       //================= ÅäÖÃ·½·¨£¬Áô´ı×ÓÀàÊµÏÖ =================
-       // Ìí¼Ó×Ô¶¨Òå Interceptor£¬´ı×ÓÀàÊµÏÖ
+       //================= é…ç½®æ–¹æ³•ï¼Œç•™å¾…å­ç±»å®ç° =================
+       // æ·»åŠ è‡ªå®šä¹‰ Interceptorï¼Œå¾…å­ç±»å®ç°
        protected void addInterceptors(InterceptorRegistry registry) {
        }
    
-       // Ìí¼Ó×Ô¶¨Òå CorsMapping£¬´ı×ÓÀàÊµÏÖ
+       // æ·»åŠ è‡ªå®šä¹‰ CorsMappingï¼Œå¾…å­ç±»å®ç°
        protected void addCorsMappings(CorsRegistry registry) {
        }
    
-       // ÅäÖÃ×Ô¶¨Òå PathMatch
+       // é…ç½®è‡ªå®šä¹‰ PathMatch
        protected void configurePathMatch(PathMatchConfigurer configurer) {
        }
        ...
@@ -465,91 +465,91 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
    
    ```
 
-   ¿ÉÒÔ¿´µ½£¬Õâ¸öÀàµÄ·½·¨·ÖÎªËÄÀà£º
+   å¯ä»¥çœ‹åˆ°ï¼Œè¿™ä¸ªç±»çš„æ–¹æ³•åˆ†ä¸ºå››ç±»ï¼š
 
-    *   À´×Ô `XxxAware` µÄ·½·¨£º`XxxAware` ½Ó¿ÚÓÉ spring Ìá¹©£¬bean ³õÊ¼»¯Íê³ÉÊ±´¦Àí»Øµ÷£»
-    *   ÓĞ `@Bean` ×¢½âµÄ·½·¨£ºÍù spring ÖĞÌí¼Ó bean£¬Éú³É bean Ê±»áµ÷ÓÃ `getXxx` ·½·¨£»
-    *   `getXxx` ·½·¨£º»ñÈ¡ÅäÖÃ·½·¨£¬ÔÚ¸Ã·½·¨ÖĞ£¬»áÌí¼Ó spring Ìá¹©µÄÄ¬ÈÏÅäÖÃ£¬ÒÔ¼°µ÷ÓÃ `addXxx/configureXxx` ·½·¨Ìí¼Ó×Ô¶¨ÒåÅäÖÃ£»
-    *   `addXxx/configureXxx` ·½·¨£ºÓÉ×ÓÀàÊµÏÖ£¬¿ÉÒÔÏò springmvc ÖĞÌí¼Ó×Ô¶¨ÒåÅäÖÃ¡£
+    *   æ¥è‡ª `XxxAware` çš„æ–¹æ³•ï¼š`XxxAware` æ¥å£ç”± spring æä¾›ï¼Œbean åˆå§‹åŒ–å®Œæˆæ—¶å¤„ç†å›è°ƒï¼›
+    *   æœ‰ `@Bean` æ³¨è§£çš„æ–¹æ³•ï¼šå¾€ spring ä¸­æ·»åŠ  beanï¼Œç”Ÿæˆ bean æ—¶ä¼šè°ƒç”¨ `getXxx` æ–¹æ³•ï¼›
+    *   `getXxx` æ–¹æ³•ï¼šè·å–é…ç½®æ–¹æ³•ï¼Œåœ¨è¯¥æ–¹æ³•ä¸­ï¼Œä¼šæ·»åŠ  spring æä¾›çš„é»˜è®¤é…ç½®ï¼Œä»¥åŠè°ƒç”¨ `addXxx/configureXxx` æ–¹æ³•æ·»åŠ è‡ªå®šä¹‰é…ç½®ï¼›
+    *   `addXxx/configureXxx` æ–¹æ³•ï¼šç”±å­ç±»å®ç°ï¼Œå¯ä»¥å‘ springmvc ä¸­æ·»åŠ è‡ªå®šä¹‰é…ç½®ã€‚
 
-ÕâÀï×Ü½áÏÂÕâ 4 ¸öÀàµÄ¹ØÏµ£º
+è¿™é‡Œæ€»ç»“ä¸‹è¿™ 4 ä¸ªç±»çš„å…³ç³»ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-5e25e6e7303044e7282b3472492c04cf656.png)
 
-ÀíÇåÁËÕâËÄ¸öÀàµÄ¹ØÏµ£¬`@EnableWebMvc` µÄÖ´ĞĞÁ÷³Ì¾ÍÒ»Ä¿ÁËÈ»ÁË£¬ÕâÀï×Ü½áÈçÏÂ£º
+ç†æ¸…äº†è¿™å››ä¸ªç±»çš„å…³ç³»ï¼Œ`@EnableWebMvc` çš„æ‰§è¡Œæµç¨‹å°±ä¸€ç›®äº†ç„¶äº†ï¼Œè¿™é‡Œæ€»ç»“å¦‚ä¸‹ï¼š
 
-1.  `@EnableWebMvc` Ïò spring ÈİÆ÷ÖĞÒıÈëÁË` DelegatingWebMvcConfiguration`£»
+1.  `@EnableWebMvc` å‘ spring å®¹å™¨ä¸­å¼•å…¥äº†` DelegatingWebMvcConfiguration`ï¼›
 
-2.  `DelegatingWebMvcConfiguration` ÖĞÓĞ°üº¬ `@Autowired` ×¢½âµÄ·½·¨ `setConfigurers(List<WebMvcConfigurer>)`£¬ÔÚ spring bean µÄÖÜÆÚÖĞ»á¶ÔÆäÖ´ĞĞ£¬×÷ÓÃÎª»ñÈ¡ÈİÆ÷ÖĞËùÓĞ `WebMvcConfigurer` µÄ bean ½«ÆäÉèÖÃµ½` DelegatingWebMvcConfiguration` µÄÊôĞÔÖĞ£»
+2.  `DelegatingWebMvcConfiguration` ä¸­æœ‰åŒ…å« `@Autowired` æ³¨è§£çš„æ–¹æ³• `setConfigurers(List<WebMvcConfigurer>)`ï¼Œåœ¨ spring bean çš„å‘¨æœŸä¸­ä¼šå¯¹å…¶æ‰§è¡Œï¼Œä½œç”¨ä¸ºè·å–å®¹å™¨ä¸­æ‰€æœ‰ `WebMvcConfigurer` çš„ bean å°†å…¶è®¾ç½®åˆ°` DelegatingWebMvcConfiguration` çš„å±æ€§ä¸­ï¼›
 
-3.  `DelegatingWebMvcConfiguration` ¼Ì³ĞÁË `WebMvcConfigurationSupport`£¬ÔÚ spring bean µÄÖÜÆÚÖĞ»á´¦Àí `WebMvcConfigurationSupport` ÖĞÓĞ `@Bean` ×¢½âµÄ·½·¨£¬ÕâÖÖ·½·¨±È½Ï¶à£¬Èç `requestMappingHandlerMapping()`¡¢`mvcPathMatcher` µÈ£¬ÕâĞ©¶¼ÊÇ smvc µÄ¹¦ÄÜ×é¼ş£»
+3.  `DelegatingWebMvcConfiguration` ç»§æ‰¿äº† `WebMvcConfigurationSupport`ï¼Œåœ¨ spring bean çš„å‘¨æœŸä¸­ä¼šå¤„ç† `WebMvcConfigurationSupport` ä¸­æœ‰ `@Bean` æ³¨è§£çš„æ–¹æ³•ï¼Œè¿™ç§æ–¹æ³•æ¯”è¾ƒå¤šï¼Œå¦‚ `requestMappingHandlerMapping()`ã€`mvcPathMatcher` ç­‰ï¼Œè¿™äº›éƒ½æ˜¯ smvc çš„åŠŸèƒ½ç»„ä»¶ï¼›
 
-4.  ÔÚ´¦Àí `WebMvcConfigurationSupport` ÖĞÓĞ `@Bean` ×¢½âµÄ·½·¨Ê±£¬»áµ÷ÓÃ `getXxx()` »ñÈ¡Ïà¹ØÅäÖÃ£¬¸ÃÅäÖÃ°üÀ¨ spring Ìá¹©µÄÄ¬ÈÏÅäÖÃ¼°×Ô¶¨ÒåÅäÖÃ£¬`getXxx()` ÓÉ `WebMvcConfigurationSupport` Ìá¹©£»
+4.  åœ¨å¤„ç† `WebMvcConfigurationSupport` ä¸­æœ‰ `@Bean` æ³¨è§£çš„æ–¹æ³•æ—¶ï¼Œä¼šè°ƒç”¨ `getXxx()` è·å–ç›¸å…³é…ç½®ï¼Œè¯¥é…ç½®åŒ…æ‹¬ spring æä¾›çš„é»˜è®¤é…ç½®åŠè‡ªå®šä¹‰é…ç½®ï¼Œ`getXxx()` ç”± `WebMvcConfigurationSupport` æä¾›ï¼›
 
-5.  ÔÚµ÷ÓÃ `WebMvcConfigurationSupport#getXxx()` »ñÈ¡×Ô¶¨ÒåÅäÖÃÊ±£¬»áµ÷ÓÃ `addXxx()/configureXxx()`£¬¸Ã·½·¨ÔÚ `WebMvcConfigurationSupport` ÖĞÊÇ¿Õ·½·¨£¬¾ßÌåĞİÂß¼­ÓÉ×ÓÀà (Ò²¾ÍÊÇ` DelegatingWebMvcConfiguration`) Ìá¹©£¬×îÖÕµ÷ÓÃ·½Ê½ÊÇ**±éÀúÖ´ĞĞµÚ 2 ²½»ñÈ¡µÄ `WebMvcConfigurer` µÄ `addXxx()/configureXxx()`**£»
+5.  åœ¨è°ƒç”¨ `WebMvcConfigurationSupport#getXxx()` è·å–è‡ªå®šä¹‰é…ç½®æ—¶ï¼Œä¼šè°ƒç”¨ `addXxx()/configureXxx()`ï¼Œè¯¥æ–¹æ³•åœ¨ `WebMvcConfigurationSupport` ä¸­æ˜¯ç©ºæ–¹æ³•ï¼Œå…·ä½“ä¼‘é€»è¾‘ç”±å­ç±» (ä¹Ÿå°±æ˜¯` DelegatingWebMvcConfiguration`) æä¾›ï¼Œæœ€ç»ˆè°ƒç”¨æ–¹å¼æ˜¯**éå†æ‰§è¡Œç¬¬ 2 æ­¥è·å–çš„ `WebMvcConfigurer` çš„ `addXxx()/configureXxx()`**ï¼›
 
-Õû¸öÁ÷³ÌÈçÏÂÍ¼ËùÊ¾£º
+æ•´ä¸ªæµç¨‹å¦‚ä¸‹å›¾æ‰€ç¤ºï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-4057f913076f01ba0b507b4654e5031391c.png)
 
-ÔÚÆôÓÃ springmvc ¹¦ÄÜ£¬²¢Ìí¼Ó×Ô¶¨ÒåÅäÖÃÊ±£¬ÎÒÃÇ¿ÉÒÔÕâÃ´×ö:
+åœ¨å¯ç”¨ springmvc åŠŸèƒ½ï¼Œå¹¶æ·»åŠ è‡ªå®šä¹‰é…ç½®æ—¶ï¼Œæˆ‘ä»¬å¯ä»¥è¿™ä¹ˆåš:
 
-1. ·½Ê½ 1£ºÊ¹ÓÃ @EnableWebMvc ×¢½âÆôÓÃ mvc ¹¦ÄÜ£¬ÊµÏÖ WebMvcConfigurer£¬Ìí¼Ó×Ô¶¨ÒåÅäÖÃ
+1. æ–¹å¼ 1ï¼šä½¿ç”¨ @EnableWebMvc æ³¨è§£å¯ç”¨ mvc åŠŸèƒ½ï¼Œå®ç° WebMvcConfigurerï¼Œæ·»åŠ è‡ªå®šä¹‰é…ç½®
 
    ```
-   // Ê¹ÓÃ@EnableWebMvc×¢½âÆôÓÃmvc¹¦ÄÜ
+   // ä½¿ç”¨@EnableWebMvcæ³¨è§£å¯ç”¨mvcåŠŸèƒ½
    @Component
    @EnableWebMvc
    public class MvcConfig {
        ...
    }
    
-   // ÊµÏÖ WebMvcConfigurer£¬Ìí¼Ó×Ô¶¨ÒåÅäÖÃ
+   // å®ç° WebMvcConfigurerï¼Œæ·»åŠ è‡ªå®šä¹‰é…ç½®
    @Component
    public class MyWebMvcConfigurer implements WebMvcConfigurer {
    
-       // ÖØĞ´WebMvcConfigurer·½·¨£¬´¦Àí×Ô¶¨ÒåÅäÖÃ
+       // é‡å†™WebMvcConfigureræ–¹æ³•ï¼Œå¤„ç†è‡ªå®šä¹‰é…ç½®
    }
    
    ```
 
-2. ·½Ê½ 2£ºÊµÏÖ `WebMvcConfigurationSupport` Àà£¬ÖØĞ´ÆäÖĞµÄÅäÖÃ·½·¨
+2. æ–¹å¼ 2ï¼šå®ç° `WebMvcConfigurationSupport` ç±»ï¼Œé‡å†™å…¶ä¸­çš„é…ç½®æ–¹æ³•
 
    ```
    @Component
    public class MyWebMvcConfigurationSupport extends WebMvcConfigurationSupport {
-       // ÖØĞ´ÅäÖÃ·½·¨£¬´¦Àí×Ô¶¨ÒåÅäÖÃ
+       // é‡å†™é…ç½®æ–¹æ³•ï¼Œå¤„ç†è‡ªå®šä¹‰é…ç½®
    
    }
    
    ```
 
-   ²»¹ı²ÉÓÃÕâÖÖ·½Ê½ºó£¬ÔÙÊµÏÖ `WebMvcConfigurer` Ìí¼Ó×Ô¶¨ÒåÅäÖÃ¾Í²»ÉúĞ§ÁË£¬×Ô¶¨ÒåÅäÖÃÖ»ÄÜÔÚ `WebMvcConfigurationSupport` ½øĞĞÅäÖÃ¡£
+   ä¸è¿‡é‡‡ç”¨è¿™ç§æ–¹å¼åï¼Œå†å®ç° `WebMvcConfigurer` æ·»åŠ è‡ªå®šä¹‰é…ç½®å°±ä¸ç”Ÿæ•ˆäº†ï¼Œè‡ªå®šä¹‰é…ç½®åªèƒ½åœ¨ `WebMvcConfigurationSupport` è¿›è¡Œé…ç½®ã€‚
 
-springmvc Ìá¹©ÁËÄÄĞ©ÅäÖÃÏîÄØ£¿ÎÒÃÇÀ´¿´¿´ `WebMvcConfigurer` Ìá¹©µÄ·½·¨£º
+springmvc æä¾›äº†å“ªäº›é…ç½®é¡¹å‘¢ï¼Ÿæˆ‘ä»¬æ¥çœ‹çœ‹ `WebMvcConfigurer` æä¾›çš„æ–¹æ³•ï¼š
 
-*   `configurePathMatch`£ºÅäÖÃÂ·ÓÉÇëÇó¹æÔò
-*   `configureContentNegotiation`£ºÄÚÈİĞ­ÉÌÅäÖÃ
-*   `configureAsyncSupport`£º
-*   `configureDefaultServletHandling`£ºÄ¬ÈÏ¾²Ì¬×ÊÔ´´¦ÀíÆ÷
-*   `addFormatters`£º×¢²á×Ô¶¨Òå×ª»¯Æ÷
-*   `addInterceptors`£ºÀ¹½ØÆ÷ÅäÖÃ
-*   `addResourceHandlers`£º×ÊÔ´´¦Àí
-*   `addCorsMappings`£ºCORS ÅäÖÃ
-*   `addViewControllers`£ºÊÓÍ¼Ìø×ª¿ØÖÆÆ÷
-*   `configureViewResolvers`£ºÅäÖÃÊÓÍ¼½âÎö
-*   `addArgumentResolvers`£ºÌí¼Ó×Ô¶¨Òå·½·¨²ÎÊı´¦ÀíÆ÷
-*   `addReturnValueHandlers`£ºÌí¼Ó×Ô¶¨Òå·µ»Ø½á¹û´¦ÀíÆ÷
-*   `configureMessageConverters`£ºÅäÖÃÏûÏ¢×ª»»Æ÷¡£ÖØÔØ»á¸²¸ÇÄ¬ÈÏ×¢²áµÄ `HttpMessageConverter`
-*   `extendMessageConverters`£ºÅäÖÃÏûÏ¢×ª»»Æ÷¡£½öÌí¼ÓÒ»¸ö×Ô¶¨ÒåµÄ `HttpMessageConverter`.
-*   `configureHandlerExceptionResolvers`£ºÅäÖÃÒì³£×ª»»Æ÷
-*   `extendHandlerExceptionResolvers`£ºÌí¼ÓÒì³£×ª»¯Æ÷
+*   `configurePathMatch`ï¼šé…ç½®è·¯ç”±è¯·æ±‚è§„åˆ™
+*   `configureContentNegotiation`ï¼šå†…å®¹åå•†é…ç½®
+*   `configureAsyncSupport`ï¼š
+*   `configureDefaultServletHandling`ï¼šé»˜è®¤é™æ€èµ„æºå¤„ç†å™¨
+*   `addFormatters`ï¼šæ³¨å†Œè‡ªå®šä¹‰è½¬åŒ–å™¨
+*   `addInterceptors`ï¼šæ‹¦æˆªå™¨é…ç½®
+*   `addResourceHandlers`ï¼šèµ„æºå¤„ç†
+*   `addCorsMappings`ï¼šCORS é…ç½®
+*   `addViewControllers`ï¼šè§†å›¾è·³è½¬æ§åˆ¶å™¨
+*   `configureViewResolvers`ï¼šé…ç½®è§†å›¾è§£æ
+*   `addArgumentResolvers`ï¼šæ·»åŠ è‡ªå®šä¹‰æ–¹æ³•å‚æ•°å¤„ç†å™¨
+*   `addReturnValueHandlers`ï¼šæ·»åŠ è‡ªå®šä¹‰è¿”å›ç»“æœå¤„ç†å™¨
+*   `configureMessageConverters`ï¼šé…ç½®æ¶ˆæ¯è½¬æ¢å™¨ã€‚é‡è½½ä¼šè¦†ç›–é»˜è®¤æ³¨å†Œçš„ `HttpMessageConverter`
+*   `extendMessageConverters`ï¼šé…ç½®æ¶ˆæ¯è½¬æ¢å™¨ã€‚ä»…æ·»åŠ ä¸€ä¸ªè‡ªå®šä¹‰çš„ `HttpMessageConverter`.
+*   `configureHandlerExceptionResolvers`ï¼šé…ç½®å¼‚å¸¸è½¬æ¢å™¨
+*   `extendHandlerExceptionResolvers`ï¼šæ·»åŠ å¼‚å¸¸è½¬åŒ–å™¨
 *   `getValidator`:
-*   `getMessageCodesResolver`£º
+*   `getMessageCodesResolver`ï¼š
 
-Èç¹ûĞèÒªÅäÖÃÏà¹ØÏî£¬Ö»ĞèÒªÖØĞ´Ïà¹Ø·½·¨ ¼´¿É¡£
+å¦‚æœéœ€è¦é…ç½®ç›¸å…³é¡¹ï¼Œåªéœ€è¦é‡å†™ç›¸å…³æ–¹æ³• å³å¯ã€‚
 
-×îºóÎÒÃÇÔÙÀ´¿´¿´ `WebMvcConfigurationSupport` ÖĞÒıÈëÁËÄÄĞ© Bean£¬ÓĞ `@Bean` ×¢½âµÄ·½·¨ÈçÏÂ£º
+æœ€åæˆ‘ä»¬å†æ¥çœ‹çœ‹ `WebMvcConfigurationSupport` ä¸­å¼•å…¥äº†å“ªäº› Beanï¼Œæœ‰ `@Bean` æ³¨è§£çš„æ–¹æ³•å¦‚ä¸‹ï¼š
 
 *   `public RequestMappingHandlerMapping requestMappingHandlerMapping(...)`
 *   `public PathMatcher mvcPathMatcher()`
@@ -572,12 +572,12 @@ springmvc Ìá¹©ÁËÄÄĞ©ÅäÖÃÏîÄØ£¿ÎÒÃÇÀ´¿´¿´ `WebMvcConfigurer` Ìá¹©µÄ·½·¨£º
 *   `public ViewResolver mvcViewResolver(...)`
 *   `HandlerMappingIntrospector mvcHandlerMappingIntrospector()`
 
-ÕâĞ©¶¼ÊÇ springmvc ÖĞÓÃµ½µÄÒ»Ğ©×é¼ş£¬¾ßÌåµÄ¾ßÌåÄÚÈİ¾Í²»Õ¹¿ªÁË¡£
+è¿™äº›éƒ½æ˜¯ springmvc ä¸­ç”¨åˆ°çš„ä¸€äº›ç»„ä»¶ï¼Œå…·ä½“çš„å…·ä½“å†…å®¹å°±ä¸å±•å¼€äº†ã€‚
 
-### 4\. ×Ü½á
+### 4\. æ€»ç»“
 
-±¾ÎÄÄÚÈİ±È½ÏÔÓ£¬ÏÈÌá¹©ÁËÒ»¸ö springmvc µÄ demo£¬È»ºó½éÉÜÁË demo ÖĞ `0 xml` ÅäÖÃÔ­Àí (Ò²¾ÍÊÇ `servlet 3.0` ¹æ·¶£©£¬½Ó×Å½éÉÜÁË `@EnableWebMvc` µÄ¹¦ÄÜ£¬×ÅÖØ½éÉÜÁË `WebMvcConfigurationSupport` µÄ×÷ÓÃ¡£
+æœ¬æ–‡å†…å®¹æ¯”è¾ƒæ‚ï¼Œå…ˆæä¾›äº†ä¸€ä¸ª springmvc çš„ demoï¼Œç„¶åä»‹ç»äº† demo ä¸­ `0 xml` é…ç½®åŸç† (ä¹Ÿå°±æ˜¯ `servlet 3.0` è§„èŒƒï¼‰ï¼Œæ¥ç€ä»‹ç»äº† `@EnableWebMvc` çš„åŠŸèƒ½ï¼Œç€é‡ä»‹ç»äº† `WebMvcConfigurationSupport` çš„ä½œç”¨ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4696657](https://my.oschina.net/funcy/blog/4696657) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4696657](https://my.oschina.net/funcy/blog/4696657) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

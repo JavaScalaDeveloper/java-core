@@ -1,20 +1,20 @@
-×÷Õß | Ò»Æğß£Java
-À´Ô´ |½ñÈÕÍ·Ìõ
+ä½œè€… | ä¸€èµ·æ’¸Java
+æ¥æº |ä»Šæ—¥å¤´æ¡
 
-**Ñ§Ï°Ä¿±ê**
+**å­¦ä¹ ç›®æ ‡**
 
-*   Seata ATÄ£Ê½Ô´ÂëÁ÷³Ì
-    **µÚ1ÕÂ ATÄ£Ê½Á÷³Ì**
-    **1.1 Ë¼Î¬Á÷³ÌÍÆµ¼**
-    ÉÏÎÄÖĞÒÑ¾­½²ÁËATÄ£Ê½µÄ´óÌåÔ­Àí£¬ÔÚÔ´ÂëÖĞ£¬Í¨¹ıREADMEÒ²ÄÜ¿´³öÀ´ATÄ£Ê½µÄÊ¹ÓÃ£¬ÄÇ±¾ÎÄ½«´Óµ×²ãÔ´Âë²ãÃæÈ¥·ÖÎöATÄ£Ê½µÄÔ­Àí£¬ÔÚ·ÖÎöÔ­ÀíÖ®Ç°ÔÛÃÇÏÈÀ´¿´Èı·ùÍ¼£¬Àí½âÒ»ÏÂËûµÄ¹¤×÷Ë¼Â·ºÍÄ£Ê½£º
+*   Seata ATæ¨¡å¼æºç æµç¨‹
+    **ç¬¬1ç«  ATæ¨¡å¼æµç¨‹**
+    **1.1 æ€ç»´æµç¨‹æ¨å¯¼**
+    ä¸Šæ–‡ä¸­å·²ç»è®²äº†ATæ¨¡å¼çš„å¤§ä½“åŸç†ï¼Œåœ¨æºç ä¸­ï¼Œé€šè¿‡READMEä¹Ÿèƒ½çœ‹å‡ºæ¥ATæ¨¡å¼çš„ä½¿ç”¨ï¼Œé‚£æœ¬æ–‡å°†ä»åº•å±‚æºç å±‚é¢å»åˆ†æATæ¨¡å¼çš„åŸç†ï¼Œåœ¨åˆ†æåŸç†ä¹‹å‰å’±ä»¬å…ˆæ¥çœ‹ä¸‰å¹…å›¾ï¼Œç†è§£ä¸€ä¸‹ä»–çš„å·¥ä½œæ€è·¯å’Œæ¨¡å¼ï¼š
 
-ÏÈ¿´¿´Ë¼Î¬ÍÆµ¼Í¼![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÉÏ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/0388859932ccee17ed32246e2e5f4e0a88dee6.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÉÏ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")1.2 ³õÊ¼»¯Á÷³ÌÍÆµ¼
-![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÉÏ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f24e8bd05e84b683e3f3227490146155bf5b17.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÉÏ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")1.3 Ö´ĞĞÁ÷³ÌÍÆµ¼
-![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÉÏ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/93dea0538eba8be5778699ea2af8f71c0e396c.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÉÏ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")**µÚ2ÕÂ Ô´Âë·ÖÎö**
+å…ˆçœ‹çœ‹æ€ç»´æ¨å¯¼å›¾![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸Šï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/0388859932ccee17ed32246e2e5f4e0a88dee6.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸Šï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")1.2 åˆå§‹åŒ–æµç¨‹æ¨å¯¼
+![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸Šï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f24e8bd05e84b683e3f3227490146155bf5b17.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸Šï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")1.3 æ‰§è¡Œæµç¨‹æ¨å¯¼
+![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸Šï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/93dea0538eba8be5778699ea2af8f71c0e396c.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸Šï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")**ç¬¬2ç«  æºç åˆ†æ**
 **2.1 SeataAutoConfiguration**
-¶ÔÓÚseataÔ´ÂëµÄÑĞ¾¿Ö÷Òª¿´seataÈçºÎÀ¹½ØÒµÎñSQLÉú³Éundo_logÊı¾İ£¬ÈçºÎÔÚÒ»½×¶ÎÍê³ÉºóÌá½»È«¾ÖÊÂÎñ£¬ÈçºÎÔÚÒ»½×¶ÎÒµÎñÊ§°ÜºóÍ¨¹ıundo_log»Ø¹öÊÂÎñ£¬½øĞĞÊÂÎñ²¹³¥¡£
+å¯¹äºseataæºç çš„ç ”ç©¶ä¸»è¦çœ‹seataå¦‚ä½•æ‹¦æˆªä¸šåŠ¡SQLç”Ÿæˆundo_logæ•°æ®ï¼Œå¦‚ä½•åœ¨ä¸€é˜¶æ®µå®Œæˆåæäº¤å…¨å±€äº‹åŠ¡ï¼Œå¦‚ä½•åœ¨ä¸€é˜¶æ®µä¸šåŠ¡å¤±è´¥åé€šè¿‡undo_logå›æ»šäº‹åŠ¡ï¼Œè¿›è¡Œäº‹åŠ¡è¡¥å¿ã€‚
 
-seataÒ²ÊÇÓëspringÕûºÏÊ¹ÓÃµÄ£¬½áºÏSpringBoot£¬seataÒ²ÊÇ×öÁËÒ»Ğ©×Ô¶¯ÅäÖÃ![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÉÏ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/719ef4a775ece0688c929227415e97f68f1c58.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÉÏ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")seataµÄ×Ô¶¯ÅäÖÃÀàÃüÃû·Ç³£µÄÖ±½Ó£¬¾Í½Ğ×ö£ºSeataAutoConfiguration£¬ÎÒÃÇ´ò¿ªÕâ¸öÀà
+seataä¹Ÿæ˜¯ä¸springæ•´åˆä½¿ç”¨çš„ï¼Œç»“åˆSpringBootï¼Œseataä¹Ÿæ˜¯åšäº†ä¸€äº›è‡ªåŠ¨é…ç½®![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸Šï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/719ef4a775ece0688c929227415e97f68f1c58.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸Šï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")seataçš„è‡ªåŠ¨é…ç½®ç±»å‘½åéå¸¸çš„ç›´æ¥ï¼Œå°±å«åšï¼šSeataAutoConfigurationï¼Œæˆ‘ä»¬æ‰“å¼€è¿™ä¸ªç±»
 
 
 
@@ -30,15 +30,15 @@ seataÒ²ÊÇÓëspringÕûºÏÊ¹ÓÃµÄ£¬½áºÏSpringBoot£¬seataÒ²ÊÇ×öÁËÒ»Ğ©×Ô¶¯ÅäÖÃ![SpringCl
 
 
 
-Ê×ÏÈ£¬@ComponentScanÉ¨ÃèÁËÒ»ÏÂproperties°ü£¬¼ÓÔØÁËÒ»´ó¶ÑÀàËÆSeataPropertiesµÄBean¶ÔÏó¡£
+é¦–å…ˆï¼Œ@ComponentScanæ‰«æäº†ä¸€ä¸‹propertiesåŒ…ï¼ŒåŠ è½½äº†ä¸€å¤§å †ç±»ä¼¼SeataPropertiesçš„Beanå¯¹è±¡ã€‚
 
-@ConditionalOnProperty½«ÅäÖÃÀàÉúĞ§Ìõ¼şÉèÖÃÎªseata.enabled=true£¬Ä¬ÈÏÖµÊÇtrue£¬ËùÒÔ¿ÉÒÔ¿ª¹Ø·Ö²¼Ê½ÊÂÎñ¹¦ÄÜ£¨ÔÚclient¶ËµÄfile.confÀïÃæ¿ÉÒÔÅäÖÃ£©¡£
+@ConditionalOnPropertyå°†é…ç½®ç±»ç”Ÿæ•ˆæ¡ä»¶è®¾ç½®ä¸ºseata.enabled=trueï¼Œé»˜è®¤å€¼æ˜¯trueï¼Œæ‰€ä»¥å¯ä»¥å¼€å…³åˆ†å¸ƒå¼äº‹åŠ¡åŠŸèƒ½ï¼ˆåœ¨clientç«¯çš„file.confé‡Œé¢å¯ä»¥é…ç½®ï¼‰ã€‚
 
-@Configuration±íÃ÷£¬SeataAutoConfiguration±»¶¨ÒåÎªÁËspringµÄÅäÖÃÀà¡£
+@Configurationè¡¨æ˜ï¼ŒSeataAutoConfigurationè¢«å®šä¹‰ä¸ºäº†springçš„é…ç½®ç±»ã€‚
 
-@EnableConfigurationProperties½«ÅäÖÃ°ü×ª³ÉÁËÒ»¸öSeataPropertiesµÄBean¶ÔÏóÀ´Ê¹ÓÃ¡£
+@EnableConfigurationPropertieså°†é…ç½®åŒ…è½¬æˆäº†ä¸€ä¸ªSeataPropertiesçš„Beanå¯¹è±¡æ¥ä½¿ç”¨ã€‚
 
-½ÓÏÂÀ´ÔÄ¶ÁSeataAutoConfigurationµÄÄÚ²¿´úÂë
+æ¥ä¸‹æ¥é˜…è¯»SeataAutoConfigurationçš„å†…éƒ¨ä»£ç 
 
 
 
@@ -54,31 +54,31 @@ seataÒ²ÊÇÓëspringÕûºÏÊ¹ÓÃµÄ£¬½áºÏSpringBoot£¬seataÒ²ÊÇ×öÁËÒ»Ğ©×Ô¶¯ÅäÖÃ![SpringCl
 
 
 
-×Ô¶¯ÅäÖÃµÄºËĞÄµãÂäÔÚÁËÏÂÃæµÄÒ»¸öBean£¬GlobalTransactionScanner¡£
+è‡ªåŠ¨é…ç½®çš„æ ¸å¿ƒç‚¹è½åœ¨äº†ä¸‹é¢çš„ä¸€ä¸ªBeanï¼ŒGlobalTransactionScannerã€‚
 
-ÎÒÃÇ¿´µ½¹¹ÔìÕâ¸öBean·Ç³£µÄ¼òµ¥£¬¹¹Ôì·½·¨Ö»ĞèÒªÒ»¸öapplicationIdºÍtxServiceGroup¡£
+æˆ‘ä»¬çœ‹åˆ°æ„é€ è¿™ä¸ªBeanéå¸¸çš„ç®€å•ï¼Œæ„é€ æ–¹æ³•åªéœ€è¦ä¸€ä¸ªapplicationIdå’ŒtxServiceGroupã€‚
 
-applicationId: ¾ÍÊÇspring.application.name=Äã¶¨ÒåµÄµ±Ç°Ó¦ÓÃµÄÃû×Ö£¬ÀıÈç£ºuserService
+applicationId: å°±æ˜¯spring.application.name=ä½ å®šä¹‰çš„å½“å‰åº”ç”¨çš„åå­—ï¼Œä¾‹å¦‚ï¼šuserService
 
-txServiceGroup: ¾ÍÊÇÒÔapplicationId ¼ÓÉÏ -seata-service-groupÃüÃûµÄ£¬ÀıÈç£º
-userService-seata-service-group¡£Èç¹û°æ±¾½ÏµÍµÄ»°£¬ÄÇÊ±ºò¿ÉÄÜ»¹²»½Ğseata¶øÊÇfescar£¬Òò´ËÄ¬ÈÏÃüÃû¾ÍÊÇÒÔfescarÎªºó×º¡£
+txServiceGroup: å°±æ˜¯ä»¥applicationId åŠ ä¸Š -seata-service-groupå‘½åçš„ï¼Œä¾‹å¦‚ï¼š
+userService-seata-service-groupã€‚å¦‚æœç‰ˆæœ¬è¾ƒä½çš„è¯ï¼Œé‚£æ—¶å€™å¯èƒ½è¿˜ä¸å«seataè€Œæ˜¯fescarï¼Œå› æ­¤é»˜è®¤å‘½åå°±æ˜¯ä»¥fescarä¸ºåç¼€ã€‚
 
-newÁËÒ»¸öGlobalTransactionScanner¶ÔÏó£¬SeataAutoConfigurationÕâ¸ö×Ô¶¯ÅäÖÃÀàµÄ×÷ÓÃ¾Í½áÊøÁË¡£SeataAutoConfigurationÖ»ÊÇ×öÁËÒ»¸öÆô¶¯Òıµ¼µÄ×÷ÓÃ¡£
+newäº†ä¸€ä¸ªGlobalTransactionScannerå¯¹è±¡ï¼ŒSeataAutoConfigurationè¿™ä¸ªè‡ªåŠ¨é…ç½®ç±»çš„ä½œç”¨å°±ç»“æŸäº†ã€‚SeataAutoConfigurationåªæ˜¯åšäº†ä¸€ä¸ªå¯åŠ¨å¼•å¯¼çš„ä½œç”¨ã€‚
 
 **2.2 GlobalTransactionScanner**
-¼ÈÈ»ºËĞÄµãÂäÔÚGlobalTransactionScannerÕâ¸öÀà£¬ÎÒÃÇ¼ÌĞø¹Ø×¢Ëü¡£¿´Õâ¸öÃû×ÖÆäÊµ¾Í¿ÉÒÔ²Â²âµ½Ò»µãËüµÄ×÷ÓÃ£¬É¨Ãè@GlobalTransactionalÕâ¸ö×¢½â£¬²¢¶Ô´úÀí·½·¨½øĞĞÀ¹½ØÔöÇ¿ÊÂÎñµÄ¹¦ÄÜ¡£
+æ—¢ç„¶æ ¸å¿ƒç‚¹è½åœ¨GlobalTransactionScannerè¿™ä¸ªç±»ï¼Œæˆ‘ä»¬ç»§ç»­å…³æ³¨å®ƒã€‚çœ‹è¿™ä¸ªåå­—å…¶å®å°±å¯ä»¥çŒœæµ‹åˆ°ä¸€ç‚¹å®ƒçš„ä½œç”¨ï¼Œæ‰«æ@GlobalTransactionalè¿™ä¸ªæ³¨è§£ï¼Œå¹¶å¯¹ä»£ç†æ–¹æ³•è¿›è¡Œæ‹¦æˆªå¢å¼ºäº‹åŠ¡çš„åŠŸèƒ½ã€‚
 
-ÒªÁË½âÕâ¸öÀà£¬²»µÃ²»ÏÈÔÄ¶ÁÒ»ÏÂËüµÄUMLÍ¼![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÉÏ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/83cb3ed76073a33cb19242ffe542b615346d16.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÉÏ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")¿ÉÒÔ¿´µ½£¬GlobalTransactionScannerÖ÷ÒªÓĞ4¸öµãÖµµÃ¹Ø×¢£º
+è¦äº†è§£è¿™ä¸ªç±»ï¼Œä¸å¾—ä¸å…ˆé˜…è¯»ä¸€ä¸‹å®ƒçš„UMLå›¾![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸Šï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/83cb3ed76073a33cb19242ffe542b615346d16.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸Šï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")å¯ä»¥çœ‹åˆ°ï¼ŒGlobalTransactionScannerä¸»è¦æœ‰4ä¸ªç‚¹å€¼å¾—å…³æ³¨ï¼š
 
-1£©ApplicationContextAware±íÊ¾¿ÉÒÔÄÃµ½springÈİÆ÷
+1ï¼‰ApplicationContextAwareè¡¨ç¤ºå¯ä»¥æ‹¿åˆ°springå®¹å™¨
 
-2£©InitializingBean½Ó¿Ú£¬±í´ïÁË³õÊ¼»¯µÄÊ±ºò»á½øĞĞÒ»Ğ©²Ù×÷
+2ï¼‰InitializingBeanæ¥å£ï¼Œè¡¨è¾¾äº†åˆå§‹åŒ–çš„æ—¶å€™ä¼šè¿›è¡Œä¸€äº›æ“ä½œ
 
-3£©AbstractAutoProxyCreator±íÊ¾Ëü»á¶ÔspringÈİÆ÷ÖĞµÄBean½øĞĞÇĞÃæÔöÇ¿£¬Ò²¾ÍÊÇÎÒÃÇÉÏÃæµÄÀ¹½ØÊÂÎñÔöÇ¿µÄ²Â²â¡£
+3ï¼‰AbstractAutoProxyCreatorè¡¨ç¤ºå®ƒä¼šå¯¹springå®¹å™¨ä¸­çš„Beanè¿›è¡Œåˆ‡é¢å¢å¼ºï¼Œä¹Ÿå°±æ˜¯æˆ‘ä»¬ä¸Šé¢çš„æ‹¦æˆªäº‹åŠ¡å¢å¼ºçš„çŒœæµ‹ã€‚
 
-4£©Disposable½Ó¿Ú£¬±í´ïÁËspringÈİÆ÷Ïú»ÙµÄÊ±ºò»á½øĞĞÒ»Ğ©²Ù×÷
+4ï¼‰Disposableæ¥å£ï¼Œè¡¨è¾¾äº†springå®¹å™¨é”€æ¯çš„æ—¶å€™ä¼šè¿›è¡Œä¸€äº›æ“ä½œ
 
-ÕâÀïÎÒÃÇÉÔÎ¢¹Ø×¢Ò»ÏÂÕâ4¸öµÄÖ´ĞĞË³Ğò£º
+è¿™é‡Œæˆ‘ä»¬ç¨å¾®å…³æ³¨ä¸€ä¸‹è¿™4ä¸ªçš„æ‰§è¡Œé¡ºåºï¼š
 
 ApplicationContextAware -> InitializingBean -> AbstractAutoProxyCreator -> DisposableBean
 
@@ -98,9 +98,9 @@ ApplicationContextAware -> InitializingBean -> AbstractAutoProxyCreator -> Dispo
 
 
 
-³õÊ¼»¯SeataµÄClient¶ËµÄ¶«Î÷£¬Client¶ËÖ÷Òª°üÀ¨TransactionManagerºÍResourceManager¡£»òĞíÊÇÎªÁË¼ò»¯°É£¬²¢Ã»ÓĞ°ÑinitClientÕâ¼şÊÂ´ÓGlobalTransactionScannerÀïÃæ¶ÀÁ¢³öÀ´Ò»¸öÀà¡£
+åˆå§‹åŒ–Seataçš„Clientç«¯çš„ä¸œè¥¿ï¼ŒClientç«¯ä¸»è¦åŒ…æ‹¬TransactionManagerå’ŒResourceManagerã€‚æˆ–è®¸æ˜¯ä¸ºäº†ç®€åŒ–å§ï¼Œå¹¶æ²¡æœ‰æŠŠinitClientè¿™ä»¶äº‹ä»GlobalTransactionScanneré‡Œé¢ç‹¬ç«‹å‡ºæ¥ä¸€ä¸ªç±»ã€‚
 
-¸ú½øinitClient·½·¨
+è·Ÿè¿›initClientæ–¹æ³•
 
 
 
@@ -116,9 +116,9 @@ private void initClient() {    //init TM    TMClient.init(applicationId, txServi
 
 
 
-initClientÂß¼­²¢²»¸´ÔÓ£¬µ¥´¿µ÷ÓÃTMClient.init³õÊ¼»¯TransactionManagerµÄRPC¿Í»§¶Ë£¬RMClient.init³õÊ¼»¯ResourceManagerµÄRPC¿Í»§¶Ë¡£seataµÄRPC²ÉÓÃnettyÀ´ÊµÏÖ£¬seata·â×°¼ò»¯ÁËÒ»ÏÂÊ¹ÓÃ¡£²¢×¢²áÁËÒ»¸öSpringµÄShutdownHook¹³×Óº¯Êı
+initClienté€»è¾‘å¹¶ä¸å¤æ‚ï¼Œå•çº¯è°ƒç”¨TMClient.initåˆå§‹åŒ–TransactionManagerçš„RPCå®¢æˆ·ç«¯ï¼ŒRMClient.initåˆå§‹åŒ–ResourceManagerçš„RPCå®¢æˆ·ç«¯ã€‚seataçš„RPCé‡‡ç”¨nettyæ¥å®ç°ï¼Œseataå°è£…ç®€åŒ–äº†ä¸€ä¸‹ä½¿ç”¨ã€‚å¹¶æ³¨å†Œäº†ä¸€ä¸ªSpringçš„ShutdownHooké’©å­å‡½æ•°
 
-**2.3.1 TMClient³õÊ¼»¯**
+**2.3.1 TMClientåˆå§‹åŒ–**
 
 
 
@@ -134,8 +134,8 @@ initClientÂß¼­²¢²»¸´ÔÓ£¬µ¥´¿µ÷ÓÃTMClient.init³õÊ¼»¯TransactionManagerµÄRPC¿Í»§¶Ë
 
 
 
-Æô¶¯ÁËÒ»¸ö¶¨Ê±Æ÷²»¶Ï½øĞĞÖØÁ¬²Ù×÷£¬µ÷ÓÃ
-clientChannelManager.reconnect·½·¨½øĞĞÖØÁ¬
+å¯åŠ¨äº†ä¸€ä¸ªå®šæ—¶å™¨ä¸æ–­è¿›è¡Œé‡è¿æ“ä½œï¼Œè°ƒç”¨
+clientChannelManager.reconnectæ–¹æ³•è¿›è¡Œé‡è¿
 
 
 
@@ -151,7 +151,7 @@ void reconnect(String transactionServiceGroup) {    List<String> availList = nul
 
 
 
-¸ù¾İtransactionServiceGroup»ñÈ¡seata-serverµÄipµØÖ·ÁĞ±í£¬È»ºó½øĞĞÖØÁ¬
+æ ¹æ®transactionServiceGroupè·å–seata-serverçš„ipåœ°å€åˆ—è¡¨ï¼Œç„¶åè¿›è¡Œé‡è¿
 
 
 
@@ -167,7 +167,7 @@ private List<String> getAvailServerList(String transactionServiceGroup) throws E
 
 
 
-RegistryFactory.getInstance().lookup(transactionServiceGroup);ÊÇ¶Ô²»Í¬×¢²áÖĞĞÄ×öÁËÊÊÅäµÄ£¬Ä¬ÈÏ¿´ÏÂNacosĞÎÊ½µÄÊµÏÖ![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÉÏ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/745b802128d80980a6e082f91406451526cbb3.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÉÏ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")ÏÈ¸ù¾İÊÂÎñ·Ö×éÕÒµ½·Ö×éËùÊôµÄserver¼¯ÈºÃû³Æ£¬ÕâÀïÊÇdefault£¬È»ºó¸ù¾İ¼¯ÈºÃû³ÆÕÒµ½server¶ÔÓ¦ip¶Ë¿ÚµØÖ·
+RegistryFactory.getInstance().lookup(transactionServiceGroup);æ˜¯å¯¹ä¸åŒæ³¨å†Œä¸­å¿ƒåšäº†é€‚é…çš„ï¼Œé»˜è®¤çœ‹ä¸‹Nacoså½¢å¼çš„å®ç°![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸Šï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/745b802128d80980a6e082f91406451526cbb3.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸Šï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")å…ˆæ ¹æ®äº‹åŠ¡åˆ†ç»„æ‰¾åˆ°åˆ†ç»„æ‰€å±çš„serveré›†ç¾¤åç§°ï¼Œè¿™é‡Œæ˜¯defaultï¼Œç„¶åæ ¹æ®é›†ç¾¤åç§°æ‰¾åˆ°serverå¯¹åº”ipç«¯å£åœ°å€
 
 
 
@@ -183,7 +183,7 @@ RegistryFactory.getInstance().lookup(transactionServiceGroup);ÊÇ¶Ô²»Í¬×¢²áÖĞĞÄ×ö
 
 
 
-Seata-serverµÄIPµØÖ·ÒÑ»ñÈ¡µ½,È»ºóµ÷ÓÃacquireChannel
+Seata-serverçš„IPåœ°å€å·²è·å–åˆ°,ç„¶åè°ƒç”¨acquireChannel
 
 
 
@@ -199,20 +199,20 @@ Channel acquireChannel(String serverAddress) {    Channel channelToServer = chan
 
 
 
-×îºó½«»ñÈ¡µ½µÄseata-serverµÄIPµØÖ··Åµ½NettyÖĞ·â×°£¬TmClient¾Í³õÊ¼»¯Íê±Ï
+æœ€åå°†è·å–åˆ°çš„seata-serverçš„IPåœ°å€æ”¾åˆ°Nettyä¸­å°è£…ï¼ŒTmClientå°±åˆå§‹åŒ–å®Œæ¯•
 
-TmClient³õÊ¼»¯×Ü½á£º
+TmClientåˆå§‹åŒ–æ€»ç»“ï¼š
 
-*   Æô¶¯¶¨Ê±Æ÷£¬³¢ÊÔ½øĞĞÒ»´ÎÖØÁ¬seata-server
-*   ÖØÁ¬Ê±£¬ÏÈ´Ónacos£¨»òÔòÆäËûÅäÖÃ£©ÖĞ¸ù¾İ·Ö×éÃû³Æ(service_group)ÕÒµ½¼¯ÈºÃû³Æ(cluster_name)
-*   ÔÙ¸ù¾İ¼¯ÈºÃû³ÆÕÒµ½¼¯Èºip¶Ë¿ÚÁĞ±í
-*   ´ÓipÁĞ±íÖĞÑ¡ÔñÒ»¸öÓÃnetty½øĞĞÁ¬½Ó
-    **2.3.2 RMClient³õÊ¼»¯**
+*   å¯åŠ¨å®šæ—¶å™¨ï¼Œå°è¯•è¿›è¡Œä¸€æ¬¡é‡è¿seata-server
+*   é‡è¿æ—¶ï¼Œå…ˆä»nacosï¼ˆæˆ–åˆ™å…¶ä»–é…ç½®ï¼‰ä¸­æ ¹æ®åˆ†ç»„åç§°(service_group)æ‰¾åˆ°é›†ç¾¤åç§°(cluster_name)
+*   å†æ ¹æ®é›†ç¾¤åç§°æ‰¾åˆ°é›†ç¾¤ipç«¯å£åˆ—è¡¨
+*   ä»ipåˆ—è¡¨ä¸­é€‰æ‹©ä¸€ä¸ªç”¨nettyè¿›è¡Œè¿æ¥
+    **2.3.2 RMClientåˆå§‹åŒ–**
 
 
 
 ```
-public static void init(String applicationId, String transactionServiceGroup) {    // »ñÈ¡µ¥Àı¶ÔÏó    RmRpcClient rmRpcClient = RmRpcClient.getInstance(applicationId, transactionServiceGroup);    // ÉèÖÃResourceManagerµÄµ¥Àı¶ÔÏó    rmRpcClient.setResourceManager(DefaultResourceManager.get());    // Ìí¼Ó¼àÌıÆ÷£¬¼àÌıServer¶ËµÄÏûÏ¢ÍÆËÍ    rmRpcClient.setClientMessageListener(new RmMessageListener(DefaultRMHandler.get()));    // ³õÊ¼»¯RPC    rmRpcClient.init();}
+public static void init(String applicationId, String transactionServiceGroup) {    // è·å–å•ä¾‹å¯¹è±¡    RmRpcClient rmRpcClient = RmRpcClient.getInstance(applicationId, transactionServiceGroup);    // è®¾ç½®ResourceManagerçš„å•ä¾‹å¯¹è±¡    rmRpcClient.setResourceManager(DefaultResourceManager.get());    // æ·»åŠ ç›‘å¬å™¨ï¼Œç›‘å¬Serverç«¯çš„æ¶ˆæ¯æ¨é€    rmRpcClient.setClientMessageListener(new RmMessageListener(DefaultRMHandler.get()));    // åˆå§‹åŒ–RPC    rmRpcClient.init();}
 ```
 
 
@@ -223,11 +223,11 @@ public static void init(String applicationId, String transactionServiceGroup) { 
 
 
 
-ºÍTMClientÏë±È£¬RMClient¶à³öÁËÒ»¸ö¼àÌıServer¶ËÏûÏ¢²¢´¦ÀíµÄ»úÖÆ¡£Ò²¾ÍÊÇËµTMµÄÖ°Ôğ¸ü¶àµÄÊÇÖ÷¶¯ÓëServer¶ËÍ¨ĞÅ£¬±ÈÈç£ºÈ«¾ÖÊÂÎñµÄbegin¡¢commit¡¢rollbackµÈ¡£
+å’ŒTMClientæƒ³æ¯”ï¼ŒRMClientå¤šå‡ºäº†ä¸€ä¸ªç›‘å¬Serverç«¯æ¶ˆæ¯å¹¶å¤„ç†çš„æœºåˆ¶ã€‚ä¹Ÿå°±æ˜¯è¯´TMçš„èŒè´£æ›´å¤šçš„æ˜¯ä¸»åŠ¨ä¸Serverç«¯é€šä¿¡ï¼Œæ¯”å¦‚ï¼šå…¨å±€äº‹åŠ¡çš„beginã€commitã€rollbackç­‰ã€‚
 
-¶øRM³ıÁËÖ÷¶¯²Ù×÷±¾µØ×ÊÔ´Íâ£¬»¹»áÒòÎªÈ«¾ÖÊÂÎñµÄcommit¡¢rollbackµÈµÄÏûÏ¢ÍÆËÍ£¬´Ó¶ø¶Ô±¾µØ×ÊÔ´½øĞĞÏà¹Ø²Ù×÷¡£
+è€ŒRMé™¤äº†ä¸»åŠ¨æ“ä½œæœ¬åœ°èµ„æºå¤–ï¼Œè¿˜ä¼šå› ä¸ºå…¨å±€äº‹åŠ¡çš„commitã€rollbackç­‰çš„æ¶ˆæ¯æ¨é€ï¼Œä»è€Œå¯¹æœ¬åœ°èµ„æºè¿›è¡Œç›¸å…³æ“ä½œã€‚
 
-ÉèÖÃ×ÊÔ´¹ÜÀíÆ÷resourceManager£¬ÉèÖÃÏûÏ¢»Øµ÷¼àÌıÆ÷ÓÃÓÚ½ÓÊÕTCÔÚ¶ş½×¶Î·¢³öµÄÌá½»»òÕß»Ø¹öÇëÇó£¬SeataÖĞ¶ÔResourceManager£¬AbstractRMHandler×öÁËSPIÊÊÅä£¬ÒÔResouceManagerÎªÀı£º
+è®¾ç½®èµ„æºç®¡ç†å™¨resourceManagerï¼Œè®¾ç½®æ¶ˆæ¯å›è°ƒç›‘å¬å™¨ç”¨äºæ¥æ”¶TCåœ¨äºŒé˜¶æ®µå‘å‡ºçš„æäº¤æˆ–è€…å›æ»šè¯·æ±‚ï¼ŒSeataä¸­å¯¹ResourceManagerï¼ŒAbstractRMHandleråšäº†SPIé€‚é…ï¼Œä»¥ResouceManagerä¸ºä¾‹ï¼š
 
 
 
@@ -243,35 +243,35 @@ public class DefaultResourceManager implements ResourceManager {    protected vo
 
 
 
-¿ÉÒÔ¿´µ½³õÊ¼»¯DefaultResouceManagerÊ±»áÊ¹ÓÃClassLoaderÈ¥¼ÓÔØ¶ÔÓ¦JarÏÂµÄÊµÏÖ£¬¶øÄ¬ÈÏATÄ£Ê½Ê¹ÓÃµÄÊµÏÖÊÇÊı¾İ¿â£¬Ò²¾ÍÊÇrm-datasource°üÏÂµÄÊµÏÖ£¬ÕÒÊµÏÖÀàÂ·¾¶ĞèÒª¶¨Î»µ½/resources/META-INF/À©Õ¹½Ó¿ÚÈ«Â·¾¶È¥ÕÒ£¬¾Í»áÕÒµ½¶ÔÓ¦µÄÊµÏÖÀà ![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÉÏ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/84399f558194f3dce18275c72cb9a92219db25.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÉÏ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")ResourceManager¶ÔÓ¦ÊµÏÖÀàÈ«Â·¾¶
-io.seata.rm.datasource.DataSourceManager£¬¸ÃÀàÖĞÖ¸¶¨ÁËÁËÌá½»ºÍ»Ø¹öµÄ·½·¨£¬DefaultRMHandler¶ÔÓ¦ÊµÏÖÀàÈ«Â·¾¶io.seata.rm.RMHandlerAT£¬ÊÇ¸ö½ÓÊÕserverÏûÏ¢²¢×ö¶ÔÓ¦Ìá½»»òÕß»Ø¹ö²Ù×÷µÄ»Øµ÷´¦ÀíÀà¡£
+å¯ä»¥çœ‹åˆ°åˆå§‹åŒ–DefaultResouceManageræ—¶ä¼šä½¿ç”¨ClassLoaderå»åŠ è½½å¯¹åº”Jarä¸‹çš„å®ç°ï¼Œè€Œé»˜è®¤ATæ¨¡å¼ä½¿ç”¨çš„å®ç°æ˜¯æ•°æ®åº“ï¼Œä¹Ÿå°±æ˜¯rm-datasourceåŒ…ä¸‹çš„å®ç°ï¼Œæ‰¾å®ç°ç±»è·¯å¾„éœ€è¦å®šä½åˆ°/resources/META-INF/æ‰©å±•æ¥å£å…¨è·¯å¾„å»æ‰¾ï¼Œå°±ä¼šæ‰¾åˆ°å¯¹åº”çš„å®ç°ç±» ![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸Šï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/84399f558194f3dce18275c72cb9a92219db25.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸Šï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")ResourceManagerå¯¹åº”å®ç°ç±»å…¨è·¯å¾„
+io.seata.rm.datasource.DataSourceManagerï¼Œè¯¥ç±»ä¸­æŒ‡å®šäº†äº†æäº¤å’Œå›æ»šçš„æ–¹æ³•ï¼ŒDefaultRMHandlerå¯¹åº”å®ç°ç±»å…¨è·¯å¾„io.seata.rm.RMHandlerATï¼Œæ˜¯ä¸ªæ¥æ”¶serveræ¶ˆæ¯å¹¶åšå¯¹åº”æäº¤æˆ–è€…å›æ»šæ“ä½œçš„å›è°ƒå¤„ç†ç±»ã€‚
 
-RMClinetµÄinit()·½·¨ÓëTMClient»ù±¾Ò»ÖÂ
+RMClinetçš„init()æ–¹æ³•ä¸TMClientåŸºæœ¬ä¸€è‡´
 
-**2.3.3 ×Ü½á**
+**2.3.3 æ€»ç»“**
 
-*   SpringÆô¶¯Ê±£¬³õÊ¼»¯ÁË2¸ö¿Í»§¶ËTmClient¡¢RmClient
-*   TmClientÓëseata-serverÍ¨¹ıNetty½¨Á¢Á¬½Ó²¢·¢ËÍÏûÏ¢
-*   RmClientÓëseata-serverÍ¨¹ıNetty½¨Á¢Á¬½Ó£¬¸ºÔğ½ÓÊÕ¶ş½×¶ÎÌá½»¡¢»Ø¹öÏûÏ¢²¢ÔÚ»Øµ÷Æ÷(RmHandler)ÖĞ×ö´¦Àí
+*   Springå¯åŠ¨æ—¶ï¼Œåˆå§‹åŒ–äº†2ä¸ªå®¢æˆ·ç«¯TmClientã€RmClient
+*   TmClientä¸seata-serveré€šè¿‡Nettyå»ºç«‹è¿æ¥å¹¶å‘é€æ¶ˆæ¯
+*   RmClientä¸seata-serveré€šè¿‡Nettyå»ºç«‹è¿æ¥ï¼Œè´Ÿè´£æ¥æ”¶äºŒé˜¶æ®µæäº¤ã€å›æ»šæ¶ˆæ¯å¹¶åœ¨å›è°ƒå™¨(RmHandler)ä¸­åšå¤„ç†
 
-×÷Õß | Ò»Æğß£Java
-À´Ô´ |½ñÈÕÍ·Ìõ
+ä½œè€… | ä¸€èµ·æ’¸Java
+æ¥æº |ä»Šæ—¥å¤´æ¡
 
 **2.4 AbstractAutoProxyCreator**
-GlobalTransactionScanner³õÊ¼»¯ÍêÁËTMºÍRMÒÔºó£¬ÎÒÃÇÔÙ¹Ø×¢Ò»ÏÂAbstractAutoProxyCreator£¬×Ô¶¯´úÀí¡£
+GlobalTransactionScanneråˆå§‹åŒ–å®Œäº†TMå’ŒRMä»¥åï¼Œæˆ‘ä»¬å†å…³æ³¨ä¸€ä¸‹AbstractAutoProxyCreatorï¼Œè‡ªåŠ¨ä»£ç†ã€‚
 
-×Ô¶¯´úÀí£¬Ëü´úÀíÉ¶¶«Î÷ÄØ£¿»òÕßËµËü¸øspringÖĞµÄBeanÔöÇ¿ÁËÊ²Ã´¹¦ÄÜ£¿
+è‡ªåŠ¨ä»£ç†ï¼Œå®ƒä»£ç†å•¥ä¸œè¥¿å‘¢ï¼Ÿæˆ–è€…è¯´å®ƒç»™springä¸­çš„Beanå¢å¼ºäº†ä»€ä¹ˆåŠŸèƒ½ï¼Ÿ
 
-GlobalTransactionScannerÖ÷ÒªÀ©Õ¹ÁËAbstractAutoProxyCreatorµÄwrapIfNecessary
+GlobalTransactionScannerä¸»è¦æ‰©å±•äº†AbstractAutoProxyCreatorçš„wrapIfNecessary
 
-´úÀíÔöÇ¿µÄÇ°ÖÃÅĞ¶Ï´¦Àí£¬±íÊ¾ÊÇ·ñ¸ÃBeanĞèÒªÔöÇ¿£¬Èç¹ûÔöÇ¿µÄ»°´´½¨´úÀíÀà
+ä»£ç†å¢å¼ºçš„å‰ç½®åˆ¤æ–­å¤„ç†ï¼Œè¡¨ç¤ºæ˜¯å¦è¯¥Beanéœ€è¦å¢å¼ºï¼Œå¦‚æœå¢å¼ºçš„è¯åˆ›å»ºä»£ç†ç±»
 
 **2.4.1 wrapIfNecessary**
 
 
 
 ```
-@Overrideprotected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) {    if (disableGlobalTransaction) {        return bean;    }    try {        synchronized (PROXYED_SET) {            // ÏàÍ¬BeanÅÅÖØ            if (PROXYED_SET.contains(beanName)) {                return bean;            }             interceptor = null;            // ÅĞ¶ÏÊÇ·ñ¿ªÆôTCCÄ£Ê½            if (TCCBeanParserUtils.isTccAutoProxy(bean, beanName, applicationContext)) {                // TCCÊµÏÖµÄÀ¹½ØÆ÷                interceptor = new TccActionInterceptor(TCCBeanParserUtils.getRemotingDesc(beanName));            } else {                Class<?> serviceInterface = SpringProxyUtils.findTargetClass(bean);                Class<?>[] interfacesIfJdk = SpringProxyUtils.findInterfaces(bean);                 // ÅĞ¶ÏÊÇ·ñ´æÔÚ@GlobalTransactional»òÕß@GlobalLock×¢½â                if (!existsAnnotation(new Class[]{serviceInterface})                    && !existsAnnotation(interfacesIfJdk)) {                    return bean;                }                 if (interceptor == null) {                    // ·ÇTCCµÄÀ¹½ØÆ÷                    if (globalTransactionalInterceptor == null) {                        globalTransactionalInterceptor = new GlobalTransactionalInterceptor(failureHandlerHook);                        ConfigurationCache.addConfigListener(                            ConfigurationKeys.DISABLE_GLOBAL_TRANSACTION,                            (ConfigurationChangeListener)globalTransactionalInterceptor);                    }                    interceptor = globalTransactionalInterceptor;                }            }            // ÅĞ¶Ïµ±Ç°BeanÊÇ·ñÒÑ¾­ÊÇspringµÄ´úÀíÀàÁË            if (!AopUtils.isAopProxy(bean)) {                // Èç¹û»¹²»ÊÇ£¬ÄÇÃ´×ßÒ»ÂÖspringµÄ´úÀí¹ı³Ì¼´¿É                bean = super.wrapIfNecessary(bean, beanName, cacheKey);            } else {                // Èç¹ûÊÇÒ»¸öspringµÄ´úÀíÀà£¬ÄÇÃ´·´Éä»ñÈ¡´úÀíÀàÖĞÒÑ¾­´æÔÚµÄÀ¹½ØÆ÷¼¯ºÏ£¬È»ºóÌí¼Óµ½¸Ã¼¯ºÏµ±ÖĞ                AdvisedSupport advised = SpringProxyUtils.getAdvisedSupport(bean);                Advisor[] advisor = buildAdvisors(beanName, getAdvicesAndAdvisorsForBean(null, null, null));                for (Advisor avr : advisor) {                    advised.addAdvisor(0, avr);                }            }             PROXYED_SET.add(beanName);            return bean;        }    } catch (Exception exx) {}}
+@Overrideprotected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) {    if (disableGlobalTransaction) {        return bean;    }    try {        synchronized (PROXYED_SET) {            // ç›¸åŒBeanæ’é‡            if (PROXYED_SET.contains(beanName)) {                return bean;            }             interceptor = null;            // åˆ¤æ–­æ˜¯å¦å¼€å¯TCCæ¨¡å¼            if (TCCBeanParserUtils.isTccAutoProxy(bean, beanName, applicationContext)) {                // TCCå®ç°çš„æ‹¦æˆªå™¨                interceptor = new TccActionInterceptor(TCCBeanParserUtils.getRemotingDesc(beanName));            } else {                Class<?> serviceInterface = SpringProxyUtils.findTargetClass(bean);                Class<?>[] interfacesIfJdk = SpringProxyUtils.findInterfaces(bean);                 // åˆ¤æ–­æ˜¯å¦å­˜åœ¨@GlobalTransactionalæˆ–è€…@GlobalLockæ³¨è§£                if (!existsAnnotation(new Class[]{serviceInterface})                    && !existsAnnotation(interfacesIfJdk)) {                    return bean;                }                 if (interceptor == null) {                    // éTCCçš„æ‹¦æˆªå™¨                    if (globalTransactionalInterceptor == null) {                        globalTransactionalInterceptor = new GlobalTransactionalInterceptor(failureHandlerHook);                        ConfigurationCache.addConfigListener(                            ConfigurationKeys.DISABLE_GLOBAL_TRANSACTION,                            (ConfigurationChangeListener)globalTransactionalInterceptor);                    }                    interceptor = globalTransactionalInterceptor;                }            }            // åˆ¤æ–­å½“å‰Beanæ˜¯å¦å·²ç»æ˜¯springçš„ä»£ç†ç±»äº†            if (!AopUtils.isAopProxy(bean)) {                // å¦‚æœè¿˜ä¸æ˜¯ï¼Œé‚£ä¹ˆèµ°ä¸€è½®springçš„ä»£ç†è¿‡ç¨‹å³å¯                bean = super.wrapIfNecessary(bean, beanName, cacheKey);            } else {                // å¦‚æœæ˜¯ä¸€ä¸ªspringçš„ä»£ç†ç±»ï¼Œé‚£ä¹ˆåå°„è·å–ä»£ç†ç±»ä¸­å·²ç»å­˜åœ¨çš„æ‹¦æˆªå™¨é›†åˆï¼Œç„¶åæ·»åŠ åˆ°è¯¥é›†åˆå½“ä¸­                AdvisedSupport advised = SpringProxyUtils.getAdvisedSupport(bean);                Advisor[] advisor = buildAdvisors(beanName, getAdvicesAndAdvisorsForBean(null, null, null));                for (Advisor avr : advisor) {                    advised.addAdvisor(0, avr);                }            }             PROXYED_SET.add(beanName);            return bean;        }    } catch (Exception exx) {}}
 ```
 
 
@@ -282,42 +282,25 @@ GlobalTransactionScannerÖ÷ÒªÀ©Õ¹ÁËAbstractAutoProxyCreatorµÄwrapIfNecessary
 
 
 
-wrapIfNecessary·½·¨½Ï³¤ÎÒÃÇ·Ö²½Öè¿´¿´
+wrapIfNecessaryæ–¹æ³•è¾ƒé•¿æˆ‘ä»¬åˆ†æ­¥éª¤çœ‹çœ‹
 
-1£©isTccAutoProxyÅĞ¶ÏÊÇ·ñ¿ªÆôtccÄ£Ê½£¬¿ªÆôµÄ»°Ñ¡ÔñÁËTccActionInterceptorÀ¹½ØÆ÷£¬·ÇtccÄ£Ê½Ñ¡Ôñ
-GlobalTransactionalInterceptorÀ¹½ØÆ÷£¬Ä¬ÈÏ²»¿ªÆô
+1ï¼‰isTccAutoProxyåˆ¤æ–­æ˜¯å¦å¼€å¯tccæ¨¡å¼ï¼Œå¼€å¯çš„è¯é€‰æ‹©äº†TccActionInterceptoræ‹¦æˆªå™¨ï¼Œétccæ¨¡å¼é€‰æ‹©
+GlobalTransactionalInterceptoræ‹¦æˆªå™¨ï¼Œé»˜è®¤ä¸å¼€å¯
 
-2£©existAnnotationÅĞ¶Ïµ±Ç°BeanÊÇ·ñÓĞÀà»òÕß½Ó¿ÚµÄ·½·¨´æÔÚ@GlobalTransactional»òÕß@GlobalLock×¢½â£¬Èç¹ûÃ»ÓĞÔòÖ±½Ó·µ»Ø
+2ï¼‰existAnnotationåˆ¤æ–­å½“å‰Beanæ˜¯å¦æœ‰ç±»æˆ–è€…æ¥å£çš„æ–¹æ³•å­˜åœ¨@GlobalTransactionalæˆ–è€…@GlobalLockæ³¨è§£ï¼Œå¦‚æœæ²¡æœ‰åˆ™ç›´æ¥è¿”å›
 
-3£©isAopProxy·½·¨ÊÇÅĞ¶Ïµ±Ç°µÄBeanÊÇ·ñÒÑ¾­ÊÇspringµÄ´úÀíÀàÁË£¬ÎŞÂÛÊÇJDK¶¯Ì¬´úÀí»¹ÊÇCglibÀà´úÀí¡£Èç¹ûÊÇÆÕÍ¨µÄBean£¬×ßÔ­ÓĞµÄÉú³É´úÀíÂß¼­¼´¿É£¬Èç¹ûÒÑ¾­ÊÇ´úÀíÀà£¬ÄÇÃ´ÒªÍ¨¹ı·´Éä»ñÈ¡´úÀí¶ÔÏóÄÚµÄÀ¹½ØÆ÷¼¯ºÏÒ²½Ğ×öAdvisor£¬Ö±½ÓÌí¼Óµ½¸Ã¼¯ºÏµ±ÖĞ¡£
+3ï¼‰isAopProxyæ–¹æ³•æ˜¯åˆ¤æ–­å½“å‰çš„Beanæ˜¯å¦å·²ç»æ˜¯springçš„ä»£ç†ç±»äº†ï¼Œæ— è®ºæ˜¯JDKåŠ¨æ€ä»£ç†è¿˜æ˜¯Cglibç±»ä»£ç†ã€‚å¦‚æœæ˜¯æ™®é€šçš„Beanï¼Œèµ°åŸæœ‰çš„ç”Ÿæˆä»£ç†é€»è¾‘å³å¯ï¼Œå¦‚æœå·²ç»æ˜¯ä»£ç†ç±»ï¼Œé‚£ä¹ˆè¦é€šè¿‡åå°„è·å–ä»£ç†å¯¹è±¡å†…çš„æ‹¦æˆªå™¨é›†åˆä¹Ÿå«åšAdvisorï¼Œç›´æ¥æ·»åŠ åˆ°è¯¥é›†åˆå½“ä¸­ã€‚
 
-wrapIfNecessaryµÄ·½·¨²¢²»¸´ÔÓ£¬µ«ÊÇÈç¹û¶Ô´úÀí²»ÊÇºÜÊìÏ¤»òĞí¶ÔÏ¸½Úµã»áÓĞĞ©À§»ó¡£
+wrapIfNecessaryçš„æ–¹æ³•å¹¶ä¸å¤æ‚ï¼Œä½†æ˜¯å¦‚æœå¯¹ä»£ç†ä¸æ˜¯å¾ˆç†Ÿæ‚‰æˆ–è®¸å¯¹ç»†èŠ‚ç‚¹ä¼šæœ‰äº›å›°æƒ‘ã€‚
 
-**2.4.1.1 ATÒ»½×¶Î¿ªÆôÈ«¾ÖÊÂÎñ**
-ÔÚĞèÒª½øĞĞÈ«¾ÖÊÂÎñ¹ÜÀíµÄ½Ó¿ÚÉÏ£¬»á¼Ó@GlobalTransactional×¢½â£¬Õâ¸ö×¢½â»áÓÖÒ»¸ö¶ÔÓ¦µÄÀ¹½ØÆ÷½øĞĞÀ¹½Ø
-GlobalTransactionalInterceptor£¬invoke¾ÍÊÇÀ¹½Ø·½·¨
-
-
-
-```
-@Overridepublic Object invoke(final MethodInvocation methodInvocation) throws Throwable {    Class<?> targetClass =        methodInvocation.getThis() != null ? AopUtils.getTargetClass(methodInvocation.getThis()) : null;    Method specificMethod = ClassUtils.getMostSpecificMethod(methodInvocation.getMethod(), targetClass);    if (specificMethod != null && !specificMethod.getDeclaringClass().equals(Object.class)) {        final Method method = BridgeMethodResolver.findBridgedMethod(specificMethod);        //»ñÈ¡·½·¨ÉÏµÄÈ«¾ÖÊÂÎñ×¢½â        final GlobalTransactional globalTransactionalAnnotation =            getAnnotation(method, targetClass, GlobalTransactional.class);        //»ñÈ¡·½·¨ÉÏµÄÈ«¾ÖËø×¢½â        final GlobalLock globalLockAnnotation = getAnnotation(method, targetClass, GlobalLock.class);        boolean localDisable = disable || (degradeCheck && degradeNum >= degradeCheckAllowTimes);        if (!localDisable) {            //Èç¹û·½·¨ÉÏÓĞÈ«¾ÖÊÂÎñ×¢½â£¬µ÷ÓÃhandleGlobalTransaction¿ªÆôÈ«¾ÖÊÂÎñ            if (globalTransactionalAnnotation != null) {                return handleGlobalTransaction(methodInvocation, globalTransactionalAnnotation);            //Èç¹û·½·¨ÉÏÓĞÈ«¾ÖËø×¢½â£¬µ÷ÓÃhandleGlobalLock¿ªÆôÈ«¾ÖËø            } else if (globalLockAnnotation != null) {                return handleGlobalLock(methodInvocation);            }        }    }    //Èç¹ûÉ¶¶¼Ã»ÓĞ£¬°´ÆÕÍ¨·½·¨Ö´ĞĞ£¬ÌáÉıĞÔÄÜ    return methodInvocation.proceed();}
-```
-
-
-
-
-
-
-
-
-
-ÔÚhandleGlobalTransaction·½·¨ÖĞµ÷ÓÃÁË
-transactionalTemplate.execute·½·¨
+**2.4.1.1 ATä¸€é˜¶æ®µå¼€å¯å…¨å±€äº‹åŠ¡**
+åœ¨éœ€è¦è¿›è¡Œå…¨å±€äº‹åŠ¡ç®¡ç†çš„æ¥å£ä¸Šï¼Œä¼šåŠ @GlobalTransactionalæ³¨è§£ï¼Œè¿™ä¸ªæ³¨è§£ä¼šåˆä¸€ä¸ªå¯¹åº”çš„æ‹¦æˆªå™¨è¿›è¡Œæ‹¦æˆª
+GlobalTransactionalInterceptorï¼Œinvokeå°±æ˜¯æ‹¦æˆªæ–¹æ³•
 
 
 
 ```
-// 2\. ¿ªÆôÈ«¾ÖÊÂÎñbeginTransactionbeginTransaction(txInfo, tx); Object rs = null;try {     // Ö´ĞĞÒµÎñ·½·¨business.execute()    rs = business.execute(); } catch (Throwable ex) {     // 3.³öÏÖÒì³£Ö´ĞĞcompleteTransactionAfterThrowing»Ø¹ö    completeTransactionAfterThrowing(txInfo, tx, ex);    throw ex;} // 4\. Ã»ÓĞÒì³£Ìá½»ÊÂÎñcommitTransactioncommitTransaction(tx);
+@Overridepublic Object invoke(final MethodInvocation methodInvocation) throws Throwable {    Class<?> targetClass =        methodInvocation.getThis() != null ? AopUtils.getTargetClass(methodInvocation.getThis()) : null;    Method specificMethod = ClassUtils.getMostSpecificMethod(methodInvocation.getMethod(), targetClass);    if (specificMethod != null && !specificMethod.getDeclaringClass().equals(Object.class)) {        final Method method = BridgeMethodResolver.findBridgedMethod(specificMethod);        //è·å–æ–¹æ³•ä¸Šçš„å…¨å±€äº‹åŠ¡æ³¨è§£        final GlobalTransactional globalTransactionalAnnotation =            getAnnotation(method, targetClass, GlobalTransactional.class);        //è·å–æ–¹æ³•ä¸Šçš„å…¨å±€é”æ³¨è§£        final GlobalLock globalLockAnnotation = getAnnotation(method, targetClass, GlobalLock.class);        boolean localDisable = disable || (degradeCheck && degradeNum >= degradeCheckAllowTimes);        if (!localDisable) {            //å¦‚æœæ–¹æ³•ä¸Šæœ‰å…¨å±€äº‹åŠ¡æ³¨è§£ï¼Œè°ƒç”¨handleGlobalTransactionå¼€å¯å…¨å±€äº‹åŠ¡            if (globalTransactionalAnnotation != null) {                return handleGlobalTransaction(methodInvocation, globalTransactionalAnnotation);            //å¦‚æœæ–¹æ³•ä¸Šæœ‰å…¨å±€é”æ³¨è§£ï¼Œè°ƒç”¨handleGlobalLockå¼€å¯å…¨å±€é”            } else if (globalLockAnnotation != null) {                return handleGlobalLock(methodInvocation);            }        }    }    //å¦‚æœå•¥éƒ½æ²¡æœ‰ï¼ŒæŒ‰æ™®é€šæ–¹æ³•æ‰§è¡Œï¼Œæå‡æ€§èƒ½    return methodInvocation.proceed();}
 ```
 
 
@@ -328,30 +311,13 @@ transactionalTemplate.execute·½·¨
 
 
 
-¿ªÆôÈ«¾ÖÊÂÎñ×îÖÕµ÷ÓÃ
-io.seata.tm.api.DefaultGlobalTransaction#begin(int, java.lang.String)·½·¨
+åœ¨handleGlobalTransactionæ–¹æ³•ä¸­è°ƒç”¨äº†
+transactionalTemplate.executeæ–¹æ³•
 
 
 
 ```
-@Overridepublic void begin(int timeout, String name) throws TransactionException {    //´Ë´¦µÄ½ÇÉ«ÅĞ¶ÏÓĞ¹Ø¼üµÄ×÷ÓÃ//±íÃ÷µ±Ç°ÊÇÈ«¾ÖÊÂÎñµÄ·¢ÆğÕß£¨Launcher£©»¹ÊÇ²ÎÓëÕß£¨Participant£©//Èç¹ûÔÚ·Ö²¼Ê½ÊÂÎñµÄÏÂÓÎÏµÍ³·½·¨ÖĞÒ²¼ÓÉÏGlobalTransactional×¢½â//ÄÇÃ´ËüµÄ½ÇÉ«¾ÍÊÇParticipant£¬¼´»áºöÂÔºóÃæµÄbegin¾ÍÍË³öÁË    //¶øÅĞ¶ÏÊÇ·¢ÆğÕß£¨Launcher£©»¹ÊÇ²ÎÓëÕß£¨Participant£©ÊÇ¸ù¾İµ±Ç°ÉÏÏÂÎÄÊÇ·ñÒÑ´æÔÚXIDÀ´ÅĞ¶Ï    //Ã»ÓĞXIDµÄ¾ÍÊÇLauncher£¬ÒÑ¾­´æÔÚXIDµÄ¾ÍÊÇParticipant    if (role != GlobalTransactionRole.Launcher) {        assertXIDNotNull();        if (LOGGER.isDebugEnabled()) {            LOGGER.debug("Ignore Begin(): just involved in global transaction [{}]", xid);        }        return;    }    assertXIDNull();    if (RootContext.getXID() != null) {        throw new IllegalStateException();    }    xid = transactionManager.begin(null, null, name, timeout);    status = GlobalStatus.Begin;    RootContext.bind(xid);    if (LOGGER.isInfoEnabled()) {        LOGGER.info("Begin new global transaction [{}]", xid);    } }
-```
-
-
-
-
-
-
-
-
-
-ÇëÇóseata-server»ñÈ¡È«¾ÖÊÂÎñXID
-
-
-
-```
-@Overridepublic String begin(String applicationId, String transactionServiceGroup, String name, int timeout)    throws TransactionException {    GlobalBeginRequest request = new GlobalBeginRequest();    request.setTransactionName(name);    request.setTimeout(timeout);    //¸ú½ø    GlobalBeginResponse response = (GlobalBeginResponse) syncCall(request);    if (response.getResultCode() == ResultCode.Failed) {        throw new TmTransactionException(TransactionExceptionCode.BeginFailed, response.getMsg());    }    return response.getXid();}
-private AbstractTransactionResponse syncCall(AbstractTransactionRequest request) throws TransactionException {    try {        //TMClient·â×°µÄNetty¶ÔÏó        return (AbstractTransactionResponse) TmNettyRemotingClient.getInstance().sendSyncRequest(request);    } catch (TimeoutException toe) {        throw new TmTransactionException(TransactionExceptionCode.IO, "RPC timeout", toe);    }}
+// 2\. å¼€å¯å…¨å±€äº‹åŠ¡beginTransactionbeginTransaction(txInfo, tx); Object rs = null;try {     // æ‰§è¡Œä¸šåŠ¡æ–¹æ³•business.execute()    rs = business.execute(); } catch (Throwable ex) {     // 3.å‡ºç°å¼‚å¸¸æ‰§è¡ŒcompleteTransactionAfterThrowingå›æ»š    completeTransactionAfterThrowing(txInfo, tx, ex);    throw ex;} // 4\. æ²¡æœ‰å¼‚å¸¸æäº¤äº‹åŠ¡commitTransactioncommitTransaction(tx);
 ```
 
 
@@ -362,28 +328,13 @@ private AbstractTransactionResponse syncCall(AbstractTransactionRequest request)
 
 
 
-½«XID°ó¶¨ÔÚRootContextÖĞ£¬ÓÉ´Ë¿ÉÒÔ¿´³öÈ«¾ÖÊÂÎñÊÇÓÉTM·¢ÆğµÄ£¬TM·¢ÆğÈ«¾ÖÊÂÎñÇëÇó¸øseata-server·şÎñ£¬seata-server·şÎñ½ÓÊÜµ½ÇëÇóºó´¦Àí£¨ÒÔÏÂÊÇseata·şÎñ´úÂë£©£º
+å¼€å¯å…¨å±€äº‹åŠ¡æœ€ç»ˆè°ƒç”¨
+io.seata.tm.api.DefaultGlobalTransaction#begin(int, java.lang.String)æ–¹æ³•
 
 
 
 ```
-@Overrideprotected void doGlobalBegin(GlobalBeginRequest request, GlobalBeginResponse response, RpcContext rpcContext)    throws TransactionException {    //½øÈëbegin    response.setXid(core.begin(rpcContext.getApplicationId(), rpcContext.getTransactionServiceGroup(),                               request.getTransactionName(), request.getTimeout()));    if (LOGGER.isInfoEnabled()) {        LOGGER.info("Begin new global transaction applicationId: {},transactionServiceGroup: {}, transactionName: {},timeout:{},xid:{}",                    rpcContext.getApplicationId(), rpcContext.getTransactionServiceGroup(), request.getTransactionName(), request.getTimeout(), response.getXid());    }}
-```
-
-
-
-
-
-
-
-
-
-io.seata.server.coordinator.DefaultCoordinator#doGlobalBegin·½·¨½ÓÊÜ¿Í»§¶Ë¿ªÆôÈ«¾ÖÊÂÎñµÄÇëÇó£¬µ÷ÓÃio.seata.server.coordinator.DefaultCore#begin¿ªÆôÈ«¾ÖÊÂÎñ
-
-
-
-```
-@Overridepublic String begin(String applicationId, String transactionServiceGroup, String name, int timeout)    throws TransactionException {    GlobalSession session = GlobalSession.createGlobalSession(applicationId, transactionServiceGroup, name,                                                              timeout);    MDC.put(RootContext.MDC_KEY_XID, session.getXid());    session.addSessionLifecycleListener(SessionHolder.getRootSessionManager());//¿ªÆô»á»°    session.begin();     // transaction start event    eventBus.post(new GlobalTransactionEvent(session.getTransactionId(), GlobalTransactionEvent.ROLE_TC,                                             session.getTransactionName(), applicationId, transactionServiceGroup, session.getBeginTime(), null, session.getStatus()));     return session.getXid();}
+@Overridepublic void begin(int timeout, String name) throws TransactionException {    //æ­¤å¤„çš„è§’è‰²åˆ¤æ–­æœ‰å…³é”®çš„ä½œç”¨//è¡¨æ˜å½“å‰æ˜¯å…¨å±€äº‹åŠ¡çš„å‘èµ·è€…ï¼ˆLauncherï¼‰è¿˜æ˜¯å‚ä¸è€…ï¼ˆParticipantï¼‰//å¦‚æœåœ¨åˆ†å¸ƒå¼äº‹åŠ¡çš„ä¸‹æ¸¸ç³»ç»Ÿæ–¹æ³•ä¸­ä¹ŸåŠ ä¸ŠGlobalTransactionalæ³¨è§£//é‚£ä¹ˆå®ƒçš„è§’è‰²å°±æ˜¯Participantï¼Œå³ä¼šå¿½ç•¥åé¢çš„beginå°±é€€å‡ºäº†    //è€Œåˆ¤æ–­æ˜¯å‘èµ·è€…ï¼ˆLauncherï¼‰è¿˜æ˜¯å‚ä¸è€…ï¼ˆParticipantï¼‰æ˜¯æ ¹æ®å½“å‰ä¸Šä¸‹æ–‡æ˜¯å¦å·²å­˜åœ¨XIDæ¥åˆ¤æ–­    //æ²¡æœ‰XIDçš„å°±æ˜¯Launcherï¼Œå·²ç»å­˜åœ¨XIDçš„å°±æ˜¯Participant    if (role != GlobalTransactionRole.Launcher) {        assertXIDNotNull();        if (LOGGER.isDebugEnabled()) {            LOGGER.debug("Ignore Begin(): just involved in global transaction [{}]", xid);        }        return;    }    assertXIDNull();    if (RootContext.getXID() != null) {        throw new IllegalStateException();    }    xid = transactionManager.begin(null, null, name, timeout);    status = GlobalStatus.Begin;    RootContext.bind(xid);    if (LOGGER.isInfoEnabled()) {        LOGGER.info("Begin new global transaction [{}]", xid);    } }
 ```
 
 
@@ -394,7 +345,56 @@ io.seata.server.coordinator.DefaultCoordinator#doGlobalBegin·½·¨½ÓÊÜ¿Í»§¶Ë¿ªÆôÈ«
 
 
 
-Í¨¹ıµ±Ç°»á»°¿ªÆô
+è¯·æ±‚seata-serverè·å–å…¨å±€äº‹åŠ¡XID
+
+
+
+```
+@Overridepublic String begin(String applicationId, String transactionServiceGroup, String name, int timeout)    throws TransactionException {    GlobalBeginRequest request = new GlobalBeginRequest();    request.setTransactionName(name);    request.setTimeout(timeout);    //è·Ÿè¿›    GlobalBeginResponse response = (GlobalBeginResponse) syncCall(request);    if (response.getResultCode() == ResultCode.Failed) {        throw new TmTransactionException(TransactionExceptionCode.BeginFailed, response.getMsg());    }    return response.getXid();}
+private AbstractTransactionResponse syncCall(AbstractTransactionRequest request) throws TransactionException {    try {        //TMClientå°è£…çš„Nettyå¯¹è±¡        return (AbstractTransactionResponse) TmNettyRemotingClient.getInstance().sendSyncRequest(request);    } catch (TimeoutException toe) {        throw new TmTransactionException(TransactionExceptionCode.IO, "RPC timeout", toe);    }}
+```
+
+
+
+
+
+
+
+
+
+å°†XIDç»‘å®šåœ¨RootContextä¸­ï¼Œç”±æ­¤å¯ä»¥çœ‹å‡ºå…¨å±€äº‹åŠ¡æ˜¯ç”±TMå‘èµ·çš„ï¼ŒTMå‘èµ·å…¨å±€äº‹åŠ¡è¯·æ±‚ç»™seata-serveræœåŠ¡ï¼Œseata-serveræœåŠ¡æ¥å—åˆ°è¯·æ±‚åå¤„ç†ï¼ˆä»¥ä¸‹æ˜¯seataæœåŠ¡ä»£ç ï¼‰ï¼š
+
+
+
+```
+@Overrideprotected void doGlobalBegin(GlobalBeginRequest request, GlobalBeginResponse response, RpcContext rpcContext)    throws TransactionException {    //è¿›å…¥begin    response.setXid(core.begin(rpcContext.getApplicationId(), rpcContext.getTransactionServiceGroup(),                               request.getTransactionName(), request.getTimeout()));    if (LOGGER.isInfoEnabled()) {        LOGGER.info("Begin new global transaction applicationId: {},transactionServiceGroup: {}, transactionName: {},timeout:{},xid:{}",                    rpcContext.getApplicationId(), rpcContext.getTransactionServiceGroup(), request.getTransactionName(), request.getTimeout(), response.getXid());    }}
+```
+
+
+
+
+
+
+
+
+
+io.seata.server.coordinator.DefaultCoordinator#doGlobalBeginæ–¹æ³•æ¥å—å®¢æˆ·ç«¯å¼€å¯å…¨å±€äº‹åŠ¡çš„è¯·æ±‚ï¼Œè°ƒç”¨io.seata.server.coordinator.DefaultCore#beginå¼€å¯å…¨å±€äº‹åŠ¡
+
+
+
+```
+@Overridepublic String begin(String applicationId, String transactionServiceGroup, String name, int timeout)    throws TransactionException {    GlobalSession session = GlobalSession.createGlobalSession(applicationId, transactionServiceGroup, name,                                                              timeout);    MDC.put(RootContext.MDC_KEY_XID, session.getXid());    session.addSessionLifecycleListener(SessionHolder.getRootSessionManager());//å¼€å¯ä¼šè¯    session.begin();     // transaction start event    eventBus.post(new GlobalTransactionEvent(session.getTransactionId(), GlobalTransactionEvent.ROLE_TC,                                             session.getTransactionName(), applicationId, transactionServiceGroup, session.getBeginTime(), null, session.getStatus()));     return session.getXid();}
+```
+
+
+
+
+
+
+
+
+
+é€šè¿‡å½“å‰ä¼šè¯å¼€å¯
 
 
 
@@ -410,15 +410,15 @@ io.seata.server.coordinator.DefaultCoordinator#doGlobalBegin·½·¨½ÓÊÜ¿Í»§¶Ë¿ªÆôÈ«
 
 
 
-![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/e7c784186f75581eba83325a0fc4708602dadf.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")
+![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/e7c784186f75581eba83325a0fc4708602dadf.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")
 
-µ÷ÓÃ
-io.seata.server.session.AbstractSessionManager#onBegin·½·¨£¬ÓÖµ÷ÓÃio.seata.server.storage.db.session.DataBaseSessionManager#addGlobalSession·½·¨
+è°ƒç”¨
+io.seata.server.session.AbstractSessionManager#onBeginæ–¹æ³•ï¼Œåˆè°ƒç”¨io.seata.server.storage.db.session.DataBaseSessionManager#addGlobalSessionæ–¹æ³•
 
 
 
 ```
-@Overridepublic void addGlobalSession(GlobalSession session) throws TransactionException {    if (StringUtils.isBlank(taskName)) {        //½øÈë        boolean ret = transactionStoreManager.writeSession(LogOperation.GLOBAL_ADD, session);        if (!ret) {            throw new StoreException("addGlobalSession failed.");        }    } else {        boolean ret = transactionStoreManager.writeSession(LogOperation.GLOBAL_UPDATE, session);        if (!ret) {            throw new StoreException("addGlobalSession failed.");        }    }}
+@Overridepublic void addGlobalSession(GlobalSession session) throws TransactionException {    if (StringUtils.isBlank(taskName)) {        //è¿›å…¥        boolean ret = transactionStoreManager.writeSession(LogOperation.GLOBAL_ADD, session);        if (!ret) {            throw new StoreException("addGlobalSession failed.");        }    } else {        boolean ret = transactionStoreManager.writeSession(LogOperation.GLOBAL_UPDATE, session);        if (!ret) {            throw new StoreException("addGlobalSession failed.");        }    }}
 ```
 
 
@@ -429,7 +429,7 @@ io.seata.server.session.AbstractSessionManager#onBegin·½·¨£¬ÓÖµ÷ÓÃio.seata.serve
 
 
 
-ÕâÀïÍùÊı¾İ¿âÀïĞ´ÈëÊı¾İ
+è¿™é‡Œå¾€æ•°æ®åº“é‡Œå†™å…¥æ•°æ®
 
 
 
@@ -445,15 +445,15 @@ io.seata.server.session.AbstractSessionManager#onBegin·½·¨£¬ÓÖµ÷ÓÃio.seata.serve
 
 
 
-ÕâÀïÏòseata¿âglobal_tab²åÈëÊı¾İ£¬µ½´ËÈ«¾ÖÊÂÎñÒÑ¿ªÆô
+è¿™é‡Œå‘seataåº“global_tabæ’å…¥æ•°æ®ï¼Œåˆ°æ­¤å…¨å±€äº‹åŠ¡å·²å¼€å¯
 
-**2.4.1.2 ATÒ»½×¶ÎÖ´ĞĞÒµÎñSQL**
-È«¾ÖÊÂÎñÒÑ¿ªÆô£¬ÏÂÃæĞèÒªÖ´ĞĞÒµÎñSQL£¬Éú³Éundo_logÊı¾İ£¬È«¾ÖÊÂÎñÀ¹½Ø³É¹¦ºó×îÖÕ»¹ÊÇÖ´ĞĞÁËÒµÎñ·½·¨µÄ£¬µ«ÊÇÓÉÓÚSeata¶ÔÊı¾İÔ´×öÁË´úÀí£¬ËùÒÔsql½âÎöÓëundo_logÈë¿â²Ù×÷ÊÇÔÚÊı¾İÔ´´úÀíÖĞÖ´ĞĞµÄ£¬´úÀí¾ÍÊÇSeata¶ÔDataSource£¬Connection£¬Statement×öµÄ´úÀí·â×°Àà
+**2.4.1.2 ATä¸€é˜¶æ®µæ‰§è¡Œä¸šåŠ¡SQL**
+å…¨å±€äº‹åŠ¡å·²å¼€å¯ï¼Œä¸‹é¢éœ€è¦æ‰§è¡Œä¸šåŠ¡SQLï¼Œç”Ÿæˆundo_logæ•°æ®ï¼Œå…¨å±€äº‹åŠ¡æ‹¦æˆªæˆåŠŸåæœ€ç»ˆè¿˜æ˜¯æ‰§è¡Œäº†ä¸šåŠ¡æ–¹æ³•çš„ï¼Œä½†æ˜¯ç”±äºSeataå¯¹æ•°æ®æºåšäº†ä»£ç†ï¼Œæ‰€ä»¥sqlè§£æä¸undo_logå…¥åº“æ“ä½œæ˜¯åœ¨æ•°æ®æºä»£ç†ä¸­æ‰§è¡Œçš„ï¼Œä»£ç†å°±æ˜¯Seataå¯¹DataSourceï¼ŒConnectionï¼ŒStatementåšçš„ä»£ç†å°è£…ç±»
 
 
 
 ```
-/*** ¹¹Ôìdatasource´úÀí¶ÔÏó£¬Ìæ»»Ô­À´µÄµÄdatasource*/@Primary@Bean("dataSource")public DataSourceProxy dataSourceProxy(DataSource druidDataSource){    return new DataSourceProxy(druidDataSource);}
+/*** æ„é€ datasourceä»£ç†å¯¹è±¡ï¼Œæ›¿æ¢åŸæ¥çš„çš„datasource*/@Primary@Bean("dataSource")public DataSourceProxy dataSourceProxy(DataSource druidDataSource){    return new DataSourceProxy(druidDataSource);}
 ```
 
 
@@ -464,7 +464,7 @@ io.seata.server.session.AbstractSessionManager#onBegin·½·¨£¬ÓÖµ÷ÓÃio.seata.serve
 
 
 
-ÏîÄ¿ÖĞÊ¹ÓÃµÄÊı¾İÔ´¾ùÓÃseataµÄDataSourceProxy´úÌæ![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c8a7a189816e282015a950bfd3c13b7d859974.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")×îÖÕ¶ÔSql½øĞĞ½âÎö²Ù×÷£¬·¢ÉúÔÚStatementProxyÀàÖĞ
+é¡¹ç›®ä¸­ä½¿ç”¨çš„æ•°æ®æºå‡ç”¨seataçš„DataSourceProxyä»£æ›¿![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c8a7a189816e282015a950bfd3c13b7d859974.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")æœ€ç»ˆå¯¹Sqlè¿›è¡Œè§£ææ“ä½œï¼Œå‘ç”Ÿåœ¨StatementProxyç±»ä¸­
 
 
 
@@ -483,7 +483,7 @@ io.seata.server.session.AbstractSessionManager#onBegin·½·¨£¬ÓÖµ÷ÓÃio.seata.serve
 
 
 ```
-public static <T, S extends Statement> T execute(List<SQLRecognizer> sqlRecognizers,                                                     StatementProxy<S> statementProxy,                                                     StatementCallback<T, S> statementCallback,                                                     Object... args) throws SQLException {         if (!RootContext.requireGlobalLock() && !StringUtils.equals(BranchType.AT.name(), RootContext.getBranchType())) {            //²»ÊÇÈ«¾ÖÊÂÎñµÄÖ±½ÓÖ´ĞĞ£¬ÌáÉıĞÔÄÜ            return statementCallback.execute(statementProxy.getTargetStatement(), args);        }         String dbType = statementProxy.getConnectionProxy().getDbType();        if (CollectionUtils.isEmpty(sqlRecognizers)) {            sqlRecognizers = SQLVisitorFactory.get(                    statementProxy.getTargetSQL(),                    dbType);        }        Executor<T> executor;        if (CollectionUtils.isEmpty(sqlRecognizers)) {            executor = new PlainExecutor<>(statementProxy, statementCallback);        } else {            if (sqlRecognizers.size() == 1) {                SQLRecognizer sqlRecognizer = sqlRecognizers.get(0);                //²»Í¬SQLÀàĞÍ£¬²»Í¬´¦Àí                switch (sqlRecognizer.getSQLType()) {                    case INSERT:                        executor = EnhancedServiceLoader.load(InsertExecutor.class, dbType,                                new Class[]{StatementProxy.class, StatementCallback.class, SQLRecognizer.class},                                new Object[]{statementProxy, statementCallback, sqlRecognizer});                        break;                    case UPDATE:                        executor = new UpdateExecutor<>(statementProxy, statementCallback, sqlRecognizer);                        break;                    case DELETE:                        executor = new DeleteExecutor<>(statementProxy, statementCallback, sqlRecognizer);                        break;                    case SELECT_FOR_UPDATE:                        executor = new SelectForUpdateExecutor<>(statementProxy, statementCallback, sqlRecognizer);                        break;                    default:                        executor = new PlainExecutor<>(statementProxy, statementCallback);                        break;                }            } else {                executor = new MultiExecutor<>(statementProxy, statementCallback, sqlRecognizers);            }        }        T rs;        try {            //Ö´ĞĞSQL            rs = executor.execute(args);        } catch (Throwable ex) {            if (!(ex instanceof SQLException)) {                // Turn other exception into SQLException                ex = new SQLException(ex);            }            throw (SQLException) ex;        }        return rs;    }
+public static <T, S extends Statement> T execute(List<SQLRecognizer> sqlRecognizers,                                                     StatementProxy<S> statementProxy,                                                     StatementCallback<T, S> statementCallback,                                                     Object... args) throws SQLException {         if (!RootContext.requireGlobalLock() && !StringUtils.equals(BranchType.AT.name(), RootContext.getBranchType())) {            //ä¸æ˜¯å…¨å±€äº‹åŠ¡çš„ç›´æ¥æ‰§è¡Œï¼Œæå‡æ€§èƒ½            return statementCallback.execute(statementProxy.getTargetStatement(), args);        }         String dbType = statementProxy.getConnectionProxy().getDbType();        if (CollectionUtils.isEmpty(sqlRecognizers)) {            sqlRecognizers = SQLVisitorFactory.get(                    statementProxy.getTargetSQL(),                    dbType);        }        Executor<T> executor;        if (CollectionUtils.isEmpty(sqlRecognizers)) {            executor = new PlainExecutor<>(statementProxy, statementCallback);        } else {            if (sqlRecognizers.size() == 1) {                SQLRecognizer sqlRecognizer = sqlRecognizers.get(0);                //ä¸åŒSQLç±»å‹ï¼Œä¸åŒå¤„ç†                switch (sqlRecognizer.getSQLType()) {                    case INSERT:                        executor = EnhancedServiceLoader.load(InsertExecutor.class, dbType,                                new Class[]{StatementProxy.class, StatementCallback.class, SQLRecognizer.class},                                new Object[]{statementProxy, statementCallback, sqlRecognizer});                        break;                    case UPDATE:                        executor = new UpdateExecutor<>(statementProxy, statementCallback, sqlRecognizer);                        break;                    case DELETE:                        executor = new DeleteExecutor<>(statementProxy, statementCallback, sqlRecognizer);                        break;                    case SELECT_FOR_UPDATE:                        executor = new SelectForUpdateExecutor<>(statementProxy, statementCallback, sqlRecognizer);                        break;                    default:                        executor = new PlainExecutor<>(statementProxy, statementCallback);                        break;                }            } else {                executor = new MultiExecutor<>(statementProxy, statementCallback, sqlRecognizers);            }        }        T rs;        try {            //æ‰§è¡ŒSQL            rs = executor.execute(args);        } catch (Throwable ex) {            if (!(ex instanceof SQLException)) {                // Turn other exception into SQLException                ex = new SQLException(ex);            }            throw (SQLException) ex;        }        return rs;    }
 ```
 
 
@@ -494,14 +494,14 @@ public static <T, S extends Statement> T execute(List<SQLRecognizer> sqlRecogniz
 
 
 
-*   ÏÈÅĞ¶ÏÊÇ·ñ¿ªÆôÁËÈ«¾ÖÊÂÎñ£¬Èç¹ûÃ»ÓĞ£¬²»×ß´úÀí£¬²»½âÎösql£¬ÌáÉıĞÔÄÜ
-*   µ÷ÓÃSQLVisitorFactory¶ÔÄ¿±êsql½øĞĞ½âÎö
-*   Õë¶ÔÌØ¶¨ÀàĞÍsql²Ù×÷(INSERT,UPDATE,DELETE,SELECT_FOR_UPDATE)µÈ½øĞĞÌØÊâ½âÎö
-*   Ö´ĞĞsql²¢·µ»Ø½á¹û
-    ²»Í¬ÀàĞÍµÄSQL´¦Àí·½·¨²»Ò»Ñù£¬ÕâÀïÒÔinsertÎªÀı
+*   å…ˆåˆ¤æ–­æ˜¯å¦å¼€å¯äº†å…¨å±€äº‹åŠ¡ï¼Œå¦‚æœæ²¡æœ‰ï¼Œä¸èµ°ä»£ç†ï¼Œä¸è§£æsqlï¼Œæå‡æ€§èƒ½
+*   è°ƒç”¨SQLVisitorFactoryå¯¹ç›®æ ‡sqlè¿›è¡Œè§£æ
+*   é’ˆå¯¹ç‰¹å®šç±»å‹sqlæ“ä½œ(INSERT,UPDATE,DELETE,SELECT_FOR_UPDATE)ç­‰è¿›è¡Œç‰¹æ®Šè§£æ
+*   æ‰§è¡Œsqlå¹¶è¿”å›ç»“æœ
+    ä¸åŒç±»å‹çš„SQLå¤„ç†æ–¹æ³•ä¸ä¸€æ ·ï¼Œè¿™é‡Œä»¥insertä¸ºä¾‹
 
-![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b1eb1b610beb647b230995f19ecbb4bbc98602.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")insertÊ¹ÓÃµÄÊÇInsertExecutor.execute·½·¨£¬µ«ÆäÊµ×îÖÕ»¹ÊÇÊ¹ÓÃ
-io.seata.rm.datasource.exec.BaseTransactionalExecutor#execute·½·¨
+![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b1eb1b610beb647b230995f19ecbb4bbc98602.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")insertä½¿ç”¨çš„æ˜¯InsertExecutor.executeæ–¹æ³•ï¼Œä½†å…¶å®æœ€ç»ˆè¿˜æ˜¯ä½¿ç”¨
+io.seata.rm.datasource.exec.BaseTransactionalExecutor#executeæ–¹æ³•
 
 
 
@@ -517,7 +517,7 @@ io.seata.rm.datasource.exec.BaseTransactionalExecutor#execute·½·¨
 
 
 
-½«ÉÏÏÂÎÄÖĞµÄxid°ó¶¨µ½ÁËstatementProxyÖĞ£¬²¢µ÷ÓÃÁËdoExecute·½·¨£¬¿´ÏÂAbstractDMLBaseExecutorÖĞµÄdoExecute·½·¨
+å°†ä¸Šä¸‹æ–‡ä¸­çš„xidç»‘å®šåˆ°äº†statementProxyä¸­ï¼Œå¹¶è°ƒç”¨äº†doExecuteæ–¹æ³•ï¼Œçœ‹ä¸‹AbstractDMLBaseExecutorä¸­çš„doExecuteæ–¹æ³•
 
 
 
@@ -533,7 +533,7 @@ io.seata.rm.datasource.exec.BaseTransactionalExecutor#execute·½·¨
 
 
 
-·½·¨ÖĞµ÷ÓÃÁË
+æ–¹æ³•ä¸­è°ƒç”¨äº†
 executeAutoCommitTrue/executeAutoCommitFalse
 
 
@@ -550,28 +550,12 @@ protected T executeAutoCommitTrue(Object[] args) throws Throwable {    Connectio
 
 
 
-µ«×ĞÏ¸·¢ÏÖ£¬×îÖÕ¶¼ÊÇµ÷ÓÃexecuteAutoCommitFalse·½·¨
+ä½†ä»”ç»†å‘ç°ï¼Œæœ€ç»ˆéƒ½æ˜¯è°ƒç”¨executeAutoCommitFalseæ–¹æ³•
 
 
 
 ```
-protected T executeAutoCommitFalse(Object[] args) throws Exception {    //¸úÈëgetTableMeta·½·¨    if (!JdbcConstants.MYSQL.equalsIgnoreCase(getDbType()) && getTableMeta().getPrimaryKeyOnlyName().size() > 1)    {        throw new NotSupportYetException("multi pk only support mysql!");    }    //»ñÈ¡beforeImage    TableRecords beforeImage = beforeImage();    //Ö´ĞĞÒµÎñsql    T result = statementCallback.execute(statementProxy.getTargetStatement(), args);    //»ñÈ¡afterImage    TableRecords afterImage = afterImage(beforeImage);    //±£´æimage    prepareUndoLog(beforeImage, afterImage);    return result;}
-```
-
-
-
-
-
-
-
-
-
-»ñÈ¡beforeImage
-
-
-
-```
-//tableMetaÀïÃæ°üº¬±íÃû¡¢ÁĞ¡¢Ë÷ÒıµÈÊı¾İprotected TableMeta getTableMeta(String tableName) {    if (tableMeta != null) {        return tableMeta;    }    ConnectionProxy connectionProxy = statementProxy.getConnectionProxy();    tableMeta = TableMetaCacheFactory.getTableMetaCache(connectionProxy.getDbType())        .getTableMeta(connectionProxy.getTargetConnection(), tableName, connectionProxy.getDataSourceProxy().getResourceId());    return tableMeta;}
+protected T executeAutoCommitFalse(Object[] args) throws Exception {    //è·Ÿå…¥getTableMetaæ–¹æ³•    if (!JdbcConstants.MYSQL.equalsIgnoreCase(getDbType()) && getTableMeta().getPrimaryKeyOnlyName().size() > 1)    {        throw new NotSupportYetException("multi pk only support mysql!");    }    //è·å–beforeImage    TableRecords beforeImage = beforeImage();    //æ‰§è¡Œä¸šåŠ¡sql    T result = statementCallback.execute(statementProxy.getTargetStatement(), args);    //è·å–afterImage    TableRecords afterImage = afterImage(beforeImage);    //ä¿å­˜image    prepareUndoLog(beforeImage, afterImage);    return result;}
 ```
 
 
@@ -582,15 +566,12 @@ protected T executeAutoCommitFalse(Object[] args) throws Exception {    //¸úÈëge
 
 
 
-Ö´ĞĞÒµÎñsql»¹ÊÇÊ¹ÓÃ
-com.alibaba.druid.pool.DruidPooledPreparedStatement#execute·½·¨Ö´ĞĞ
-
-»ñÈ¡afterImage![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/540ff5c254dde029bed208247025e97bd1f497.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")ÔÚÌá½»ÊÂÎñÊ±£¬²åÈëundo_logÈÕÖ¾
+è·å–beforeImage
 
 
 
 ```
-protected T executeAutoCommitTrue(Object[] args) throws Throwable {    ConnectionProxy connectionProxy = statementProxy.getConnectionProxy();    try {        connectionProxy.setAutoCommit(false);        return new LockRetryPolicy(connectionProxy).execute(() -> {            T result = executeAutoCommitFalse(args);            //¸úÈë            connectionProxy.commit();            return result;        });    } catch (Exception e) {        ...    } finally {        connectionProxy.getContext().reset();        connectionProxy.setAutoCommit(true);    }}
+//tableMetaé‡Œé¢åŒ…å«è¡¨åã€åˆ—ã€ç´¢å¼•ç­‰æ•°æ®protected TableMeta getTableMeta(String tableName) {    if (tableMeta != null) {        return tableMeta;    }    ConnectionProxy connectionProxy = statementProxy.getConnectionProxy();    tableMeta = TableMetaCacheFactory.getTableMetaCache(connectionProxy.getDbType())        .getTableMeta(connectionProxy.getTargetConnection(), tableName, connectionProxy.getDataSourceProxy().getResourceId());    return tableMeta;}
 ```
 
 
@@ -601,10 +582,15 @@ protected T executeAutoCommitTrue(Object[] args) throws Throwable {    Connectio
 
 
 
+æ‰§è¡Œä¸šåŠ¡sqlè¿˜æ˜¯ä½¿ç”¨
+com.alibaba.druid.pool.DruidPooledPreparedStatement#executeæ–¹æ³•æ‰§è¡Œ
+
+è·å–afterImage![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/540ff5c254dde029bed208247025e97bd1f497.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")åœ¨æäº¤äº‹åŠ¡æ—¶ï¼Œæ’å…¥undo_logæ—¥å¿—
+
 
 
 ```
-public void commit() throws SQLException {    try {        LOCK_RETRY_POLICY.execute(() -> {            //¸úÈë            doCommit();            return null;        });    } catch (SQLException e) {        throw e;    } catch (Exception e) {        throw new SQLException(e);    }}
+protected T executeAutoCommitTrue(Object[] args) throws Throwable {    ConnectionProxy connectionProxy = statementProxy.getConnectionProxy();    try {        connectionProxy.setAutoCommit(false);        return new LockRetryPolicy(connectionProxy).execute(() -> {            T result = executeAutoCommitFalse(args);            //è·Ÿå…¥            connectionProxy.commit();            return result;        });    } catch (Exception e) {        ...    } finally {        connectionProxy.getContext().reset();        connectionProxy.setAutoCommit(true);    }}
 ```
 
 
@@ -618,7 +604,7 @@ public void commit() throws SQLException {    try {        LOCK_RETRY_POLICY.exe
 
 
 ```
-private void doCommit() throws SQLException {    if (context.inGlobalTransaction()) {        //¸úÈë        processGlobalTransactionCommit();    } else if (context.isGlobalLockRequire()) {        processLocalCommitWithGlobalLocks();    } else {        targetConnection.commit();    }}
+public void commit() throws SQLException {    try {        LOCK_RETRY_POLICY.execute(() -> {            //è·Ÿå…¥            doCommit();            return null;        });    } catch (SQLException e) {        throw e;    } catch (Exception e) {        throw new SQLException(e);    }}
 ```
 
 
@@ -632,7 +618,7 @@ private void doCommit() throws SQLException {    if (context.inGlobalTransaction
 
 
 ```
-private void processGlobalTransactionCommit() throws SQLException {    try {        //Ïòseata-server×¢²á·ÖÖ§ĞÅÏ¢        register();    } catch (TransactionException e) {        recognizeLockKeyConflictException(e, context.buildLockKeys());    }    try {        //Ìá½»ÊÂÎñÖ®Ç°£¬²åÈëundo_log,¸úÈëflushUndoLogs        UndoLogManagerFactory.getUndoLogManager(this.getDbType()).flushUndoLogs(this);        targetConnection.commit();    } catch (Throwable ex) {       ...    }    if (IS_REPORT_SUCCESS_ENABLE) {        report(true);    }    context.reset();}
+private void doCommit() throws SQLException {    if (context.inGlobalTransaction()) {        //è·Ÿå…¥        processGlobalTransactionCommit();    } else if (context.isGlobalLockRequire()) {        processLocalCommitWithGlobalLocks();    } else {        targetConnection.commit();    }}
 ```
 
 
@@ -646,25 +632,7 @@ private void processGlobalTransactionCommit() throws SQLException {    try {    
 
 
 ```
-public void flushUndoLogs(ConnectionProxy cp) throws SQLException {    ConnectionContext connectionContext = cp.getContext();    if (!connectionContext.hasUndoLog()) {        return;    }     String xid = connectionContext.getXid();    long branchId = connectionContext.getBranchId();     ...//¸Ã·½·¨²åÈëundo_log    insertUndoLogWithNormal(xid, branchId, buildContext(parser.getName()), undoLogContent,                            cp.getTargetConnection());}
-```
-
-
-
-
-
-
-
-
-
-ÔÚ¸Ã·½·¨ÖĞ×¢²á·ÖÖ§ÊÂÎñ![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/92309a950c73829078a3170c585fc58fb03b0d.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")Ìá½»ÊÂÎñ£¬Ïòseata-server×¢²á·ÖÖ§ĞÅÏ¢£¬seata-server½ÓÊÕµ½ÇëÇó£¨seataÔ´Âë£©![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c116df5929a1116e61e683298e14b953450bb7.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")
-
-io.seata.server.coordinator.DefaultCoordinator#doBranchRegister·½·¨
-
-
-
-```
-public Long branchRegister(BranchType branchType, String resourceId, String clientId, String xid,                           String applicationData, String lockKeys) throws TransactionException {    GlobalSession globalSession = assertGlobalSessionNotNull(xid, false);    return SessionHolder.lockAndExecute(globalSession, () -> {        ...        try {            //½øĞĞ×¢²á            globalSession.addBranch(branchSession);        } catch (RuntimeException ex) {            ...        }        ...        return branchSession.getBranchId();    });}
+private void processGlobalTransactionCommit() throws SQLException {    try {        //å‘seata-serveræ³¨å†Œåˆ†æ”¯ä¿¡æ¯        register();    } catch (TransactionException e) {        recognizeLockKeyConflictException(e, context.buildLockKeys());    }    try {        //æäº¤äº‹åŠ¡ä¹‹å‰ï¼Œæ’å…¥undo_log,è·Ÿå…¥flushUndoLogs        UndoLogManagerFactory.getUndoLogManager(this.getDbType()).flushUndoLogs(this);        targetConnection.commit();    } catch (Throwable ex) {       ...    }    if (IS_REPORT_SUCCESS_ENABLE) {        report(true);    }    context.reset();}
 ```
 
 
@@ -678,7 +646,7 @@ public Long branchRegister(BranchType branchType, String resourceId, String clie
 
 
 ```
-@Overridepublic void addBranch(BranchSession branchSession) throws TransactionException {    for (SessionLifecycleListener lifecycleListener : lifecycleListeners) {        //¸úÈëonAddBranch£¬Ñ¡ÔñAbstractSessionManager        lifecycleListener.onAddBranch(this, branchSession);    }    branchSession.setStatus(BranchStatus.Registered);    add(branchSession);}
+public void flushUndoLogs(ConnectionProxy cp) throws SQLException {    ConnectionContext connectionContext = cp.getContext();    if (!connectionContext.hasUndoLog()) {        return;    }     String xid = connectionContext.getXid();    long branchId = connectionContext.getBranchId();     ...//è¯¥æ–¹æ³•æ’å…¥undo_log    insertUndoLogWithNormal(xid, branchId, buildContext(parser.getName()), undoLogContent,                            cp.getTargetConnection());}
 ```
 
 
@@ -689,12 +657,14 @@ public Long branchRegister(BranchType branchType, String resourceId, String clie
 
 
 
-io.seata.server.storage.db.session.DataBaseSessionManager#addBranchSession·½·¨
+åœ¨è¯¥æ–¹æ³•ä¸­æ³¨å†Œåˆ†æ”¯äº‹åŠ¡![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/92309a950c73829078a3170c585fc58fb03b0d.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")æäº¤äº‹åŠ¡ï¼Œå‘seata-serveræ³¨å†Œåˆ†æ”¯ä¿¡æ¯ï¼Œseata-serveræ¥æ”¶åˆ°è¯·æ±‚ï¼ˆseataæºç ï¼‰![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c116df5929a1116e61e683298e14b953450bb7.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")
+
+io.seata.server.coordinator.DefaultCoordinator#doBranchRegisteræ–¹æ³•
 
 
 
 ```
-@Overridepublic void onAddBranch(GlobalSession globalSession, BranchSession branchSession) throws TransactionException {    //¸úÈë£¬Ñ¡ÔñDataBaseSessionManager    addBranchSession(globalSession, branchSession);}
+public Long branchRegister(BranchType branchType, String resourceId, String clientId, String xid,                           String applicationData, String lockKeys) throws TransactionException {    GlobalSession globalSession = assertGlobalSessionNotNull(xid, false);    return SessionHolder.lockAndExecute(globalSession, () -> {        ...        try {            //è¿›è¡Œæ³¨å†Œ            globalSession.addBranch(branchSession);        } catch (RuntimeException ex) {            ...        }        ...        return branchSession.getBranchId();    });}
 ```
 
 
@@ -708,7 +678,37 @@ io.seata.server.storage.db.session.DataBaseSessionManager#addBranchSession·½·¨
 
 
 ```
-@Overridepublic void addBranchSession(GlobalSession globalSession, BranchSession session) throws TransactionException {    if (StringUtils.isNotBlank(taskName)) {        return;    }    //¸úÈë    boolean ret = transactionStoreManager.writeSession(LogOperation.BRANCH_ADD, session);    if (!ret) {        throw new StoreException("addBranchSession failed.");    }}
+@Overridepublic void addBranch(BranchSession branchSession) throws TransactionException {    for (SessionLifecycleListener lifecycleListener : lifecycleListeners) {        //è·Ÿå…¥onAddBranchï¼Œé€‰æ‹©AbstractSessionManager        lifecycleListener.onAddBranch(this, branchSession);    }    branchSession.setStatus(BranchStatus.Registered);    add(branchSession);}
+```
+
+
+
+
+
+
+
+
+
+io.seata.server.storage.db.session.DataBaseSessionManager#addBranchSessionæ–¹æ³•
+
+
+
+```
+@Overridepublic void onAddBranch(GlobalSession globalSession, BranchSession branchSession) throws TransactionException {    //è·Ÿå…¥ï¼Œé€‰æ‹©DataBaseSessionManager    addBranchSession(globalSession, branchSession);}
+```
+
+
+
+
+
+
+
+
+
+
+
+```
+@Overridepublic void addBranchSession(GlobalSession globalSession, BranchSession session) throws TransactionException {    if (StringUtils.isNotBlank(taskName)) {        return;    }    //è·Ÿå…¥    boolean ret = transactionStoreManager.writeSession(LogOperation.BRANCH_ADD, session);    if (!ret) {        throw new StoreException("addBranchSession failed.");    }}
 ```
 
 
@@ -747,34 +747,16 @@ io.seata.server.storage.db.session.DataBaseSessionManager#addBranchSession·½·¨
 
 
 
-Seata-serverÌí¼Ó·ÖÖ§ĞÅÏ¢Íê³É£¬µ½ÕâÀï£¬Ò»½×¶Î½áÊø£¬ÒµÎñÊı¾İ£¬undo_log£¬·ÖÖ§ĞÅÏ¢¶¼ÒÑ¾­Ğ´ÈëÊı¾İ¿â
+Seata-serveræ·»åŠ åˆ†æ”¯ä¿¡æ¯å®Œæˆï¼Œåˆ°è¿™é‡Œï¼Œä¸€é˜¶æ®µç»“æŸï¼Œä¸šåŠ¡æ•°æ®ï¼Œundo_logï¼Œåˆ†æ”¯ä¿¡æ¯éƒ½å·²ç»å†™å…¥æ•°æ®åº“
 
-**2.4.1.3 AT¶ş½×¶ÎÌá½»**
-»Øµ½handleGlobalTransaction·½·¨ÖĞ£¬µ÷ÓÃÁË
-transactionalTemplate.execute·½·¨
-
-
-
-```
-// 2\. ¿ªÆôÈ«¾ÖÊÂÎñbeginTransactionbeginTransaction(txInfo, tx); Object rs = null;try {     // Ö´ĞĞÒµÎñ·½·¨business.execute()    rs = business.execute(); } catch (Throwable ex) {     //ÉÏÃæÊÇÒ»½×¶Î    //ÏÂÃæÊÇ¶ş½×¶Î    // 3.³öÏÖÒì³£Ö´ĞĞcompleteTransactionAfterThrowing»Ø¹ö    completeTransactionAfterThrowing(txInfo, tx, ex);    throw ex;} // 4\. Ã»ÓĞÒì³£Ìá½»ÊÂÎñcommitTransactioncommitTransaction(tx);
-```
-
-
-
-
-
-
-
-
-
-¶ş½×¶ÎÌá½»
-
-commitTransaction(tx);¸ú½ø
+**2.4.1.3 ATäºŒé˜¶æ®µæäº¤**
+å›åˆ°handleGlobalTransactionæ–¹æ³•ä¸­ï¼Œè°ƒç”¨äº†
+transactionalTemplate.executeæ–¹æ³•
 
 
 
 ```
-private void commitTransaction(GlobalTransaction tx) throws TransactionalExecutor.ExecutionException {    try {        triggerBeforeCommit();        //¸úÈë        tx.commit();        triggerAfterCommit();    } catch (TransactionException txe) {        // 4.1 Failed to commit        throw new TransactionalExecutor.ExecutionException(tx, txe,                                                           TransactionalExecutor.Code.CommitFailure);    }}
+// 2\. å¼€å¯å…¨å±€äº‹åŠ¡beginTransactionbeginTransaction(txInfo, tx); Object rs = null;try {     // æ‰§è¡Œä¸šåŠ¡æ–¹æ³•business.execute()    rs = business.execute(); } catch (Throwable ex) {     //ä¸Šé¢æ˜¯ä¸€é˜¶æ®µ    //ä¸‹é¢æ˜¯äºŒé˜¶æ®µ    // 3.å‡ºç°å¼‚å¸¸æ‰§è¡ŒcompleteTransactionAfterThrowingå›æ»š    completeTransactionAfterThrowing(txInfo, tx, ex);    throw ex;} // 4\. æ²¡æœ‰å¼‚å¸¸æäº¤äº‹åŠ¡commitTransactioncommitTransaction(tx);
 ```
 
 
@@ -785,12 +767,30 @@ private void commitTransaction(GlobalTransaction tx) throws TransactionalExecuto
 
 
 
-![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/61b35980530bd17bff9025f1112baa9e3e93e5.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")
+äºŒé˜¶æ®µæäº¤
+
+commitTransaction(tx);è·Ÿè¿›
 
 
 
 ```
-@Overridepublic GlobalStatus commit(String xid) throws TransactionException {    GlobalCommitRequest globalCommit = new GlobalCommitRequest();    globalCommit.setXid(xid);    //¸úÈësyncCall    GlobalCommitResponse response = (GlobalCommitResponse) syncCall(globalCommit);    return response.getGlobalStatus();}
+private void commitTransaction(GlobalTransaction tx) throws TransactionalExecutor.ExecutionException {    try {        triggerBeforeCommit();        //è·Ÿå…¥        tx.commit();        triggerAfterCommit();    } catch (TransactionException txe) {        // 4.1 Failed to commit        throw new TransactionalExecutor.ExecutionException(tx, txe,                                                           TransactionalExecutor.Code.CommitFailure);    }}
+```
+
+
+
+
+
+
+
+
+
+![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/61b35980530bd17bff9025f1112baa9e3e93e5.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")
+
+
+
+```
+@Overridepublic GlobalStatus commit(String xid) throws TransactionException {    GlobalCommitRequest globalCommit = new GlobalCommitRequest();    globalCommit.setXid(xid);    //è·Ÿå…¥syncCall    GlobalCommitResponse response = (GlobalCommitResponse) syncCall(globalCommit);    return response.getGlobalStatus();}
 ```
 
 
@@ -815,33 +815,33 @@ private AbstractTransactionResponse syncCall(AbstractTransactionRequest request)
 
 
 
-×îÖÕÍ¨¹ıTMÇëÇóseata-server£¬Seata-server½ÓÊÕµ½È«¾ÖÌá½»ÇëÇó£¨seataÔ´Âë£©
+æœ€ç»ˆé€šè¿‡TMè¯·æ±‚seata-serverï¼ŒSeata-serveræ¥æ”¶åˆ°å…¨å±€æäº¤è¯·æ±‚ï¼ˆseataæºç ï¼‰
 
-DefaultCoordinatorÖĞ
-
-
-
-```
-@Overrideprotected void doGlobalCommit(GlobalCommitRequest request, GlobalCommitResponse response, RpcContext rpcContext)    throws TransactionException {    MDC.put(RootContext.MDC_KEY_XID, request.getXid());    //¸úÈëcommit    response.setGlobalStatus(core.commit(request.getXid()));}
-```
-
-
-
-
-
-
-
-
-
-![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/185262d74acd3a723a7770d5771c19fa9fa5cf.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/51249f8944b29b9ffc82897a818cb4c33ed06a.png "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/14a2f2b58ad3f11be518376d5e6f68cc678af9.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")
-Seata-server½ÓÊÕµ½¿Í»§¶ËÈ«¾ÖÌá½»ÇëÇóºó£¬ÏÈ»Øµ÷¿Í»§¶Ë£¬É¾³ıundo_log£¬seataÔÚÉ¾³ı·ÖÖ§¼°È«¾ÖÊÂÎñ
-
-Ö®Ç°Ëµ¹ıRMClientÔÚ³õÊ¼»¯Ê±£¬ÉèÖÃ×ÊÔ´¹ÜÀíÆ÷resourceManager£¬ÉèÖÃÏûÏ¢»Øµ÷¼àÌıÆ÷ÓÃÓÚ½ÓÊÕTCÔÚ¶ş½×¶Î·¢³öµÄÌá½»»òÕß»Ø¹öÇëÇó![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/884c07085b1230a1aab1883d691532ccf6b79c.png "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")Seata-serverÉ¾³ı·ÖÖ§Êı¾İ¼°È«¾ÖÊÂÎñÊı¾İ
+DefaultCoordinatorä¸­
 
 
 
 ```
-@Overridepublic void removeBranch(BranchSession branchSession) throws TransactionException {    // do not unlock if global status in (Committing, CommitRetrying, AsyncCommitting),    // because it's already unlocked in 'DefaultCore.commit()'    if (status != Committing && status != CommitRetrying && status != AsyncCommitting) {        if (!branchSession.unlock()) {            throw new TransactionException("Unlock branch lock failed, xid = " + this.xid + ", branchId = " + branchSession.getBranchId());        }    }    for (SessionLifecycleListener lifecycleListener : lifecycleListeners) {        //¸úÈë        lifecycleListener.onRemoveBranch(this, branchSession);    }    remove(branchSession);}
+@Overrideprotected void doGlobalCommit(GlobalCommitRequest request, GlobalCommitResponse response, RpcContext rpcContext)    throws TransactionException {    MDC.put(RootContext.MDC_KEY_XID, request.getXid());    //è·Ÿå…¥commit    response.setGlobalStatus(core.commit(request.getXid()));}
+```
+
+
+
+
+
+
+
+
+
+![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/185262d74acd3a723a7770d5771c19fa9fa5cf.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/51249f8944b29b9ffc82897a818cb4c33ed06a.png "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/14a2f2b58ad3f11be518376d5e6f68cc678af9.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")
+Seata-serveræ¥æ”¶åˆ°å®¢æˆ·ç«¯å…¨å±€æäº¤è¯·æ±‚åï¼Œå…ˆå›è°ƒå®¢æˆ·ç«¯ï¼Œåˆ é™¤undo_logï¼Œseataåœ¨åˆ é™¤åˆ†æ”¯åŠå…¨å±€äº‹åŠ¡
+
+ä¹‹å‰è¯´è¿‡RMClientåœ¨åˆå§‹åŒ–æ—¶ï¼Œè®¾ç½®èµ„æºç®¡ç†å™¨resourceManagerï¼Œè®¾ç½®æ¶ˆæ¯å›è°ƒç›‘å¬å™¨ç”¨äºæ¥æ”¶TCåœ¨äºŒé˜¶æ®µå‘å‡ºçš„æäº¤æˆ–è€…å›æ»šè¯·æ±‚![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/884c07085b1230a1aab1883d691532ccf6b79c.png "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")Seata-serveråˆ é™¤åˆ†æ”¯æ•°æ®åŠå…¨å±€äº‹åŠ¡æ•°æ®
+
+
+
+```
+@Overridepublic void removeBranch(BranchSession branchSession) throws TransactionException {    // do not unlock if global status in (Committing, CommitRetrying, AsyncCommitting),    // because it's already unlocked in 'DefaultCore.commit()'    if (status != Committing && status != CommitRetrying && status != AsyncCommitting) {        if (!branchSession.unlock()) {            throw new TransactionException("Unlock branch lock failed, xid = " + this.xid + ", branchId = " + branchSession.getBranchId());        }    }    for (SessionLifecycleListener lifecycleListener : lifecycleListeners) {        //è·Ÿå…¥        lifecycleListener.onRemoveBranch(this, branchSession);    }    remove(branchSession);}
 ```
 
 
@@ -869,7 +869,7 @@ private void writeSession(LogOperation logOperation, SessionStorable sessionStor
 
 
 ```
-public static void endCommitted(GlobalSession globalSession) throws TransactionException {    globalSession.changeStatus(GlobalStatus.Committed);    //É¾³ıÈ«¾ÖÊÂÎñ    globalSession.end();}
+public static void endCommitted(GlobalSession globalSession) throws TransactionException {    globalSession.changeStatus(GlobalStatus.Committed);    //åˆ é™¤å…¨å±€äº‹åŠ¡    globalSession.end();}
 ```
 
 
@@ -880,14 +880,14 @@ public static void endCommitted(GlobalSession globalSession) throws TransactionE
 
 
 
-¿Í»§¶ËÉ¾³ıundo_logÊı¾İ
+å®¢æˆ·ç«¯åˆ é™¤undo_logæ•°æ®
 
-ÔÚ½ÓÊÕÌá½»ÀïÃæ
+åœ¨æ¥æ”¶æäº¤é‡Œé¢
 
 
 
 ```
-protected void doBranchCommit(BranchCommitRequest request, BranchCommitResponse response)    throws TransactionException {    String xid = request.getXid();    long branchId = request.getBranchId();    String resourceId = request.getResourceId();    String applicationData = request.getApplicationData();    if (LOGGER.isInfoEnabled()) {        LOGGER.info("Branch committing: " + xid + " " + branchId + " " + resourceId + " " + applicationData);    }    //¸úÈë    BranchStatus status = getResourceManager().branchCommit(request.getBranchType(), xid, branchId, resourceId,                                                            applicationData);    response.setXid(xid);    response.setBranchId(branchId);    response.setBranchStatus(status);    if (LOGGER.isInfoEnabled()) {        LOGGER.info("Branch commit result: " + status);    } }
+protected void doBranchCommit(BranchCommitRequest request, BranchCommitResponse response)    throws TransactionException {    String xid = request.getXid();    long branchId = request.getBranchId();    String resourceId = request.getResourceId();    String applicationData = request.getApplicationData();    if (LOGGER.isInfoEnabled()) {        LOGGER.info("Branch committing: " + xid + " " + branchId + " " + resourceId + " " + applicationData);    }    //è·Ÿå…¥    BranchStatus status = getResourceManager().branchCommit(request.getBranchType(), xid, branchId, resourceId,                                                            applicationData);    response.setXid(xid);    response.setBranchId(branchId);    response.setBranchStatus(status);    if (LOGGER.isInfoEnabled()) {        LOGGER.info("Branch commit result: " + status);    } }
 ```
 
 
@@ -898,7 +898,7 @@ protected void doBranchCommit(BranchCommitRequest request, BranchCommitResponse 
 
 
 
-getResourceManager»ñÈ¡µÄ¾ÍÊÇRMClient³õÊ¼»¯Ê±ÉèÖÃµÄ×ÊÔ´¹ÜÀíÆ÷DataSourceManager
+getResourceManagerè·å–çš„å°±æ˜¯RMClientåˆå§‹åŒ–æ—¶è®¾ç½®çš„èµ„æºç®¡ç†å™¨DataSourceManager
 
 
 
@@ -928,32 +928,12 @@ public BranchStatus branchCommit(BranchType branchType, String xid, long branchI
 
 
 
-Õâ±ßÖ»ÊÇÍùÒ»¸öASYNC_COMMIT_BUFFER»º³åListÖĞĞÂÔöÁËÒ»¸ö¶ş½×¶ÎÌá½»µÄcontext£¬µ«ÕæÕıÌá½»ÔÚAsyncWorkerµÄinit()·½·¨
+è¿™è¾¹åªæ˜¯å¾€ä¸€ä¸ªASYNC_COMMIT_BUFFERç¼“å†²Listä¸­æ–°å¢äº†ä¸€ä¸ªäºŒé˜¶æ®µæäº¤çš„contextï¼Œä½†çœŸæ­£æäº¤åœ¨AsyncWorkerçš„init()æ–¹æ³•
 
 
 
 ```
-public synchronized void init() {    LOGGER.info("Async Commit Buffer Limit: {}", ASYNC_COMMIT_BUFFER_LIMIT);    ScheduledExecutorService timerExecutor = new ScheduledThreadPoolExecutor(1, new NamedThreadFactory("AsyncWorker", 1, true));    timerExecutor.scheduleAtFixedRate(() -> {        try {//¸úÈë            doBranchCommits();         } catch (Throwable e) {            LOGGER.info("Failed at async committing ... {}", e.getMessage());         }    }, 10, 1000 * 1, TimeUnit.MILLISECONDS);}
-```
-
-
-
-
-
-
-
-
-
-![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/a730eb7781ec4bd3ad2578fb7855aa02d45fbc.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")É¾³ıUndo_log
-
-**¶ş½×¶Î»Ø¹ö**
-
-¶ş½×¶Î»Ø¹öseata-server¶Ë´úÂëÓë¶ş½×¶ÎÌá½»ÀàËÆ£¬ÕâÀïÊ¡ÂÔ
-
-
-
-```
-protected void doGlobalRollback(GlobalRollbackRequest request, GlobalRollbackResponse response,                                RpcContext rpcContext) throws TransactionException {    MDC.put(RootContext.MDC_KEY_XID, request.getXid());    //È«¾Ö»Ø¹öseaËû½ÓÊÕÇëÇó    response.setGlobalStatus(core.rollback(request.getXid()));}
+public synchronized void init() {    LOGGER.info("Async Commit Buffer Limit: {}", ASYNC_COMMIT_BUFFER_LIMIT);    ScheduledExecutorService timerExecutor = new ScheduledThreadPoolExecutor(1, new NamedThreadFactory("AsyncWorker", 1, true));    timerExecutor.scheduleAtFixedRate(() -> {        try {//è·Ÿå…¥            doBranchCommits();         } catch (Throwable e) {            LOGGER.info("Failed at async committing ... {}", e.getMessage());         }    }, 10, 1000 * 1, TimeUnit.MILLISECONDS);}
 ```
 
 
@@ -964,12 +944,32 @@ protected void doGlobalRollback(GlobalRollbackRequest request, GlobalRollbackRes
 
 
 
-Ö÷Òª¿´»Ø¹ö¿Í»§¶ËÈçºÎ½øĞĞÊÂÎñ²¹³¥
+![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/a730eb7781ec4bd3ad2578fb7855aa02d45fbc.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")åˆ é™¤Undo_log
+
+**äºŒé˜¶æ®µå›æ»š**
+
+äºŒé˜¶æ®µå›æ»šseata-serverç«¯ä»£ç ä¸äºŒé˜¶æ®µæäº¤ç±»ä¼¼ï¼Œè¿™é‡Œçœç•¥
 
 
 
 ```
-@Overridepublic BranchRollbackResponse handle(BranchRollbackRequest request) {    BranchRollbackResponse response = new BranchRollbackResponse();    exceptionHandleTemplate(new AbstractCallback<BranchRollbackRequest, BranchRollbackResponse>() {        @Override        public void execute(BranchRollbackRequest request, BranchRollbackResponse response)            throws TransactionException {            //¸úÈë            doBranchRollback(request, response);        }    }, request, response);    return response;}
+protected void doGlobalRollback(GlobalRollbackRequest request, GlobalRollbackResponse response,                                RpcContext rpcContext) throws TransactionException {    MDC.put(RootContext.MDC_KEY_XID, request.getXid());    //å…¨å±€å›æ»šseaä»–æ¥æ”¶è¯·æ±‚    response.setGlobalStatus(core.rollback(request.getXid()));}
+```
+
+
+
+
+
+
+
+
+
+ä¸»è¦çœ‹å›æ»šå®¢æˆ·ç«¯å¦‚ä½•è¿›è¡Œäº‹åŠ¡è¡¥å¿
+
+
+
+```
+@Overridepublic BranchRollbackResponse handle(BranchRollbackRequest request) {    BranchRollbackResponse response = new BranchRollbackResponse();    exceptionHandleTemplate(new AbstractCallback<BranchRollbackRequest, BranchRollbackResponse>() {        @Override        public void execute(BranchRollbackRequest request, BranchRollbackResponse response)            throws TransactionException {            //è·Ÿå…¥            doBranchRollback(request, response);        }    }, request, response);    return response;}
 ```
 
 
@@ -994,9 +994,9 @@ public BranchStatus branchRollback(BranchType branchType, String xid, long branc
 
 
 
-×îÖÕ»Ø¹ö·½·¨µ÷ÓÃµÄÊÇUndoLogManager.undo(dataSourceProxy, xid, branchId);![SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/4842a0701546824cf2720855d8310a1274c576.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª17Seata ATÄ£Ê½Ô´Âë·ÖÎö£¨ÏÂ£©-¿ªÔ´»ù´¡Èí¼şÉçÇø")ÅĞ¶ÏundologÊÇ·ñ´æÔÚ£¬´æÔÚÔòÉ¾³ı¶ÔÓ¦undolog£¬²¢Ò»ÆğÌá½»£¬µ½´ËseataµÄATÄ£Ê½Ô´Âë½âÎöÍê±Ï¡£
+æœ€ç»ˆå›æ»šæ–¹æ³•è°ƒç”¨çš„æ˜¯UndoLogManager.undo(dataSourceProxy, xid, branchId);![SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/4842a0701546824cf2720855d8310a1274c576.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”17Seata ATæ¨¡å¼æºç åˆ†æï¼ˆä¸‹ï¼‰-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")åˆ¤æ–­undologæ˜¯å¦å­˜åœ¨ï¼Œå­˜åœ¨åˆ™åˆ é™¤å¯¹åº”undologï¼Œå¹¶ä¸€èµ·æäº¤ï¼Œåˆ°æ­¤seataçš„ATæ¨¡å¼æºç è§£æå®Œæ¯•ã€‚
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

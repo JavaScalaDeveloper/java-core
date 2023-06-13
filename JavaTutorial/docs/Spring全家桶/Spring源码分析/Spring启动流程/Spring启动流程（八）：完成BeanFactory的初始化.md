@@ -1,12 +1,12 @@
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-1f1ac8f3d8241fad9693d9684048ab7f3ae.png)
 
-½ÓÉÏÎÄ£¬±¾ÎÄ¼ÌĞø·ÖÎö spring µÄÆô¶¯ Á÷³Ì¡£
+æ¥ä¸Šæ–‡ï¼Œæœ¬æ–‡ç»§ç»­åˆ†æ spring çš„å¯åŠ¨ æµç¨‹ã€‚
 
-### 11\. ³õÊ¼»¯µ¥Àı bean: `finishBeanFactoryInitialization(beanFactory)`
+### 11\. åˆå§‹åŒ–å•ä¾‹ bean: `finishBeanFactoryInitialization(beanFactory)`
 
-±¾ÎÄ½«·ÖÎöÒ»¸ö**·Ç³£ÖØÒª**µÄ·½·¨ `AbstractApplicationContext#finishBeanFactoryInitialization` ÁË¡£
+æœ¬æ–‡å°†åˆ†æä¸€ä¸ª**éå¸¸é‡è¦**çš„æ–¹æ³• `AbstractApplicationContext#finishBeanFactoryInitialization` äº†ã€‚
 
-·½·¨µÄµ÷ÓÃÈçÏÂ£º
+æ–¹æ³•çš„è°ƒç”¨å¦‚ä¸‹ï¼š
 
 ```
 |-AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
@@ -16,25 +16,25 @@
 
 ```
 
-ÎÒÃÇÖ±½Ó½øÈë `DefaultListableBeanFactory#preInstantiateSingletons`:
+æˆ‘ä»¬ç›´æ¥è¿›å…¥ `DefaultListableBeanFactory#preInstantiateSingletons`:
 
 ```
 public void preInstantiateSingletons() throws BeansException {
-    // this.beanDefinitionNames ±£´æÁËËùÓĞµÄ beanNames
+    // this.beanDefinitionNames ä¿å­˜äº†æ‰€æœ‰çš„ beanNames
     List<String> beanNames = new ArrayList<>(this.beanDefinitionNames);
 
     for (String beanName : beanNames) {
-        // ºÏ²¢¸¸ Bean ÖĞµÄÅäÖÃ£¬×¢Òâ<bean id=""  parent="" /> ÖĞµÄ parentÊôĞÔ
+        // åˆå¹¶çˆ¶ Bean ä¸­çš„é…ç½®ï¼Œæ³¨æ„<bean id=""  parent="" /> ä¸­çš„ parentå±æ€§
         RootBeanDefinition bd = getMergedLocalBeanDefinition(beanName);
-        // ²»ÊÇ³éÏóÀà¡¢ÊÇµ¥ÀıµÄÇÒ²»ÊÇÀÁ¼ÓÔØµÄ
+        // ä¸æ˜¯æŠ½è±¡ç±»ã€æ˜¯å•ä¾‹çš„ä¸”ä¸æ˜¯æ‡’åŠ è½½çš„
         if (!bd.isAbstract() && bd.isSingleton() && !bd.isLazyInit()) {
-            // ´¦Àí FactoryBean
+            // å¤„ç† FactoryBean
             if (isFactoryBean(beanName)) {
-                //ÔÚ beanName Ç°Ãæ¼ÓÉÏ¡°&¡± ·ûºÅ
+                //åœ¨ beanName å‰é¢åŠ ä¸Šâ€œ&â€ ç¬¦å·
                 Object bean = getBean(FACTORY_BEAN_PREFIX + beanName);
                 if (bean instanceof FactoryBean) {
                      final FactoryBean<?> factory = (FactoryBean<?>) bean;
-                     // ÅĞ¶Ïµ±Ç° FactoryBean ÊÇ·ñÊÇ SmartFactoryBean µÄÊµÏÖ
+                     // åˆ¤æ–­å½“å‰ FactoryBean æ˜¯å¦æ˜¯ SmartFactoryBean çš„å®ç°
                      boolean isEagerInit;
                      if (System.getSecurityManager() != null 
                             && factory instanceof SmartFactoryBean) {
@@ -47,7 +47,7 @@ public void preInstantiateSingletons() throws BeansException {
                              ((SmartFactoryBean<?>) factory).isEagerInit());
                      }
                      if (isEagerInit) {
-                           // ²»ÊÇFactoryBeanµÄÖ±½ÓÊ¹ÓÃ´Ë·½·¨½øĞĞ³õÊ¼»¯
+                           // ä¸æ˜¯FactoryBeançš„ç›´æ¥ä½¿ç”¨æ­¤æ–¹æ³•è¿›è¡Œåˆå§‹åŒ–
                            getBean(beanName);
                      }
                 }
@@ -59,7 +59,7 @@ public void preInstantiateSingletons() throws BeansException {
     }
 
     // Trigger post-initialization callback for all applicable beans...
-    // Èç¹ûbeanÊµÏÖÁË SmartInitializingSingleton ½Ó¿ÚµÄ£¬ÄÇÃ´ÔÚÕâÀïµÃµ½»Øµ÷
+    // å¦‚æœbeanå®ç°äº† SmartInitializingSingleton æ¥å£çš„ï¼Œé‚£ä¹ˆåœ¨è¿™é‡Œå¾—åˆ°å›è°ƒ
     for (String beanName : beanNames) {
         Object singletonInstance = getSingleton(beanName);
         if (singletonInstance instanceof SmartInitializingSingleton) {
@@ -80,7 +80,7 @@ public void preInstantiateSingletons() throws BeansException {
 
 ```
 
-ÒÔÉÏ´úÂë£¬¿´ËÆºÜ¶à£¬µ«¹Ø¼ü´úÂë¿É¼ò»¯ÈçÏÂ£º
+ä»¥ä¸Šä»£ç ï¼Œçœ‹ä¼¼å¾ˆå¤šï¼Œä½†å…³é”®ä»£ç å¯ç®€åŒ–å¦‚ä¸‹ï¼š
 
 ```
 List<String> beanNames = new ArrayList<>(this.beanDefinitionNames);
@@ -93,15 +93,15 @@ for (String beanName : beanNames) {
 
 ```
 
-> ÒÔÉÏ´úÂëµÄ¼ò»¯ÖĞ£¬Ê¡ÂÔÁËĞí¶àÏ¸½Ú£¬ÀıÈçÅĞ¶ÏÊÇ·ñ¿ÉÒÔÊµÀı»¯Ê±£¬ĞèÒªÅĞ¶ÏÊÇ·ñÎª³éÏóÀà£¬ÊÇ·ñÎªµ¥Àı£¬ÊÇ·ñÎªÀÁ¼ÓÔØµÈ£¬Í¬Ê±¶Ô bean Ò²ÅĞ¶ÏÁËÊÇ·ñÎªÆÕÍ¨ bean »¹ÊÇ `FactoryBean`£¬Èç¹ûÊµÏÖÁË `SmartInitializingSingleton` ½Ó¿ÚµÄ bean£¬ĞèÒªÁíÍâ´¦ÀíµÈ¡£¶ÔÓÚÎÒÃÇ³õ´ÎÔÄ¶Á´úÂëÀ´Ëµ£¬°Ñ¾«Á¦¾Û¼¯Ö÷ÒªÁ÷³Ì¾ÍĞĞÁË£¬¶ÔÓÚÒ»Ğ©ÌØÀı¼°Ï¸½Ú£¬¿ÉÒÔÏÈ²»¾À½á£¬ÏëÁË½â¸ü¶àÏ¸½Ú£¬¿ÉÒÔÔÚ°ÑÎÕÖ÷ÒªÁ÷³ÌµÄÇé¿öÏÂ£¬ºóÃæÔÙ¿´¡£¹ıÓÚ¾À½áÌØÀı¼°Ï¸½Ú£¬·´µ¹ÈÃ×Ô¼º×¥²»×¡ÖØµã£¬ÃÔÊ§ÓÚÔ´ÂëÖĞ¡£
+> ä»¥ä¸Šä»£ç çš„ç®€åŒ–ä¸­ï¼Œçœç•¥äº†è®¸å¤šç»†èŠ‚ï¼Œä¾‹å¦‚åˆ¤æ–­æ˜¯å¦å¯ä»¥å®ä¾‹åŒ–æ—¶ï¼Œéœ€è¦åˆ¤æ–­æ˜¯å¦ä¸ºæŠ½è±¡ç±»ï¼Œæ˜¯å¦ä¸ºå•ä¾‹ï¼Œæ˜¯å¦ä¸ºæ‡’åŠ è½½ç­‰ï¼ŒåŒæ—¶å¯¹ bean ä¹Ÿåˆ¤æ–­äº†æ˜¯å¦ä¸ºæ™®é€š bean è¿˜æ˜¯ `FactoryBean`ï¼Œå¦‚æœå®ç°äº† `SmartInitializingSingleton` æ¥å£çš„ beanï¼Œéœ€è¦å¦å¤–å¤„ç†ç­‰ã€‚å¯¹äºæˆ‘ä»¬åˆæ¬¡é˜…è¯»ä»£ç æ¥è¯´ï¼ŒæŠŠç²¾åŠ›èšé›†ä¸»è¦æµç¨‹å°±è¡Œäº†ï¼Œå¯¹äºä¸€äº›ç‰¹ä¾‹åŠç»†èŠ‚ï¼Œå¯ä»¥å…ˆä¸çº ç»“ï¼Œæƒ³äº†è§£æ›´å¤šç»†èŠ‚ï¼Œå¯ä»¥åœ¨æŠŠæ¡ä¸»è¦æµç¨‹çš„æƒ…å†µä¸‹ï¼Œåé¢å†çœ‹ã€‚è¿‡äºçº ç»“ç‰¹ä¾‹åŠç»†èŠ‚ï¼Œåå€’è®©è‡ªå·±æŠ“ä¸ä½é‡ç‚¹ï¼Œè¿·å¤±äºæºç ä¸­ã€‚
 
-ÕâÑùÒ»¼ò»¯£¬¾Í¿ÉÒÔÇåÎú¿´³ö¸Ã·½·¨µÄ¹¦ÄÜ£º
+è¿™æ ·ä¸€ç®€åŒ–ï¼Œå°±å¯ä»¥æ¸…æ™°çœ‹å‡ºè¯¥æ–¹æ³•çš„åŠŸèƒ½ï¼š
 
-1.  »ñÈ¡ `beanFactory` ÖĞµÄ `beanNames` ²¢±éÀú£»
-2.  Í¨¹ı `beanName` »ñÈ¡ `BeanDefinition`£¬½øĞĞÌõ¼şÅĞ¶Ï£¬ÈçÊÇ·ñÎªµ¥Àı£»
-3.  ±éÀúµ÷ÓÃ `getBean(beanName)` ´´½¨ bean ²¢½«ÆäÌí¼Óµ½ spring ÖĞ¡£
+1.  è·å– `beanFactory` ä¸­çš„ `beanNames` å¹¶éå†ï¼›
+2.  é€šè¿‡ `beanName` è·å– `BeanDefinition`ï¼Œè¿›è¡Œæ¡ä»¶åˆ¤æ–­ï¼Œå¦‚æ˜¯å¦ä¸ºå•ä¾‹ï¼›
+3.  éå†è°ƒç”¨ `getBean(beanName)` åˆ›å»º bean å¹¶å°†å…¶æ·»åŠ åˆ° spring ä¸­ã€‚
 
-´Ó¼ò»¯ºóµÄ´úÂë¿ÉÒÔ¿´³ö£¬¿´ËÆÆ½Æ½ÎŞÆæµÄ `getBean(beanName)`£¬¾ÍÊÇ spring ÊµÀı»¯ bean µÄ¹Ø¼ü¡£½ÓÏÂÀ´£¬ÎÒÃÇ»¹ÊÇºöÂÔÆäËû´úÂë£¬Ö»¹Ø×¢Ö÷ÒªÁ÷³Ì£¬¼ÌĞø·ÖÎöÏÂÈ¥£º
+ä»ç®€åŒ–åçš„ä»£ç å¯ä»¥çœ‹å‡ºï¼Œçœ‹ä¼¼å¹³å¹³æ— å¥‡çš„ `getBean(beanName)`ï¼Œå°±æ˜¯ spring å®ä¾‹åŒ– bean çš„å…³é”®ã€‚æ¥ä¸‹æ¥ï¼Œæˆ‘ä»¬è¿˜æ˜¯å¿½ç•¥å…¶ä»–ä»£ç ï¼Œåªå…³æ³¨ä¸»è¦æµç¨‹ï¼Œç»§ç»­åˆ†æä¸‹å»ï¼š
 
 ```
 |-AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
@@ -119,25 +119,25 @@ for (String beanName : beanNames) {
 protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredType,
          @Nullable final Object[] args, boolean typeCheckOnly) throws BeansException {
 
-    // Ö÷ÒªÂß¼­¾ÍÊÇÈç¹ûÊÇFactoryBean¾Í°Ñ&È¥µô,Èç¹ûÊÇ±ğÃû¾Í°Ñ¸ù¾İ±ğÃû»ñÈ¡ÕæÊµÃû³Æ
+    // ä¸»è¦é€»è¾‘å°±æ˜¯å¦‚æœæ˜¯FactoryBeanå°±æŠŠ&å»æ‰,å¦‚æœæ˜¯åˆ«åå°±æŠŠæ ¹æ®åˆ«åè·å–çœŸå®åç§°
     final String beanName = transformedBeanName(name);
-    //×îºóµÄ·µ»ØÖµ
+    //æœ€åçš„è¿”å›å€¼
     Object bean;
 
-    // ¼ì²éÊÇ·ñÒÑ³õÊ¼»¯
+    // æ£€æŸ¥æ˜¯å¦å·²åˆå§‹åŒ–
     Object sharedInstance = getSingleton(beanName);
-    // Èç¹ûÒÑ¾­³õÊ¼»¯¹ıÁË£¬ÇÒÃ»ÓĞ´«args²ÎÊı¾Í´ú±íÊÇget£¬Ö±½ÓÈ¡³ö·µ»Ø
+    // å¦‚æœå·²ç»åˆå§‹åŒ–è¿‡äº†ï¼Œä¸”æ²¡æœ‰ä¼ argså‚æ•°å°±ä»£è¡¨æ˜¯getï¼Œç›´æ¥å–å‡ºè¿”å›
     if (sharedInstance != null && args == null) {
-        // ÕâÀïÈç¹ûÊÇÆÕÍ¨Bean µÄ»°£¬Ö±½Ó·µ»Ø£¬Èç¹ûÊÇ FactoryBean µÄ»°£¬·µ»ØËü´´½¨µÄÄÇ¸öÊµÀı¶ÔÏó
+        // è¿™é‡Œå¦‚æœæ˜¯æ™®é€šBean çš„è¯ï¼Œç›´æ¥è¿”å›ï¼Œå¦‚æœæ˜¯ FactoryBean çš„è¯ï¼Œè¿”å›å®ƒåˆ›å»ºçš„é‚£ä¸ªå®ä¾‹å¯¹è±¡
         bean = getObjectForBeanInstance(sharedInstance, name, beanName, null);
     }
     else {
-        // Èç¹û´æÔÚprototypeÀàĞÍµÄÕâ¸öbean
+        // å¦‚æœå­˜åœ¨prototypeç±»å‹çš„è¿™ä¸ªbean
         if (isPrototypeCurrentlyInCreation(beanName)) {
             throw new BeanCurrentlyInCreationException(beanName);
         }
 
-        // Èç¹ûµ±Ç°BeanDefinition²»´æÔÚÕâ¸öbeanÇÒ¾ßÓĞ¸¸BeanFactory
+        // å¦‚æœå½“å‰BeanDefinitionä¸å­˜åœ¨è¿™ä¸ªbeanä¸”å…·æœ‰çˆ¶BeanFactory
         BeanFactory parentBeanFactory = getParentBeanFactory();
         if (parentBeanFactory != null && !containsBeanDefinition(beanName)) {
             String nameToLookup = originalBeanName(name);
@@ -146,7 +146,7 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
                    nameToLookup, requiredType, args, typeCheckOnly);
             }
             else if (args != null) {.
-                 // ·µ»Ø¸¸ÈİÆ÷µÄ²éÑ¯½á¹û
+                 // è¿”å›çˆ¶å®¹å™¨çš„æŸ¥è¯¢ç»“æœ
                  return (T) parentBeanFactory.getBean(nameToLookup, args);
             }
             else if (requiredType != null) {
@@ -158,26 +158,26 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
         }
 
         if (!typeCheckOnly) {
-            // typeCheckOnly Îª false£¬½«µ±Ç° beanName ·ÅÈëÒ»¸ö alreadyCreated µÄ Set ¼¯ºÏÖĞ¡£
+            // typeCheckOnly ä¸º falseï¼Œå°†å½“å‰ beanName æ”¾å…¥ä¸€ä¸ª alreadyCreated çš„ Set é›†åˆä¸­ã€‚
             markBeanAsCreated(beanName);
         }
 
-        // µ½Õâ¾ÍÒª´´½¨beanÁË
+        // åˆ°è¿™å°±è¦åˆ›å»ºbeanäº†
         try {
             final RootBeanDefinition mbd = getMergedLocalBeanDefinition(beanName);
             checkMergedBeanDefinition(mbd, beanName, args);    
-            // ÏÈ³õÊ¼»¯ÒÀÀµµÄËùÓĞ Bean£¬ depends-on ÖĞ¶¨ÒåµÄÒÀÀµ
+            // å…ˆåˆå§‹åŒ–ä¾èµ–çš„æ‰€æœ‰ Beanï¼Œ depends-on ä¸­å®šä¹‰çš„ä¾èµ–
             String[] dependsOn = mbd.getDependsOn();
             if (dependsOn != null) {
                 for (String dep : dependsOn) {
-                    // ¼ì²éÊÇ²»ÊÇÓĞÑ­»·ÒÀÀµ
+                    // æ£€æŸ¥æ˜¯ä¸æ˜¯æœ‰å¾ªç¯ä¾èµ–
                     if (isDependent(beanName, dep)) {
                         throw new BeanCreationException(...);
                     }
-                    // ×¢²áÒ»ÏÂÒÀÀµ¹ØÏµ
+                    // æ³¨å†Œä¸€ä¸‹ä¾èµ–å…³ç³»
                     registerDependentBean(dep, beanName);
                     try {
-                        // ÏÈ³õÊ¼»¯±»ÒÀÀµÏî
+                        // å…ˆåˆå§‹åŒ–è¢«ä¾èµ–é¡¹
                         getBean(dep);
                     }
                     catch (NoSuchBeanDefinitionException ex) {
@@ -186,11 +186,11 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
                 }
             }
 
-            // Èç¹ûÊÇµ¥ÀıµÄ
+            // å¦‚æœæ˜¯å•ä¾‹çš„
             if (mbd.isSingleton()) {
                 sharedInstance = getSingleton(beanName, () -> {
                     try {
-                        // Ö´ĞĞ´´½¨ Bean
+                        // æ‰§è¡Œåˆ›å»º Bean
                         return createBean(beanName, mbd, args);
                     }
                     catch (BeansException ex) {
@@ -200,12 +200,12 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
                 });
                 bean = getObjectForBeanInstance(sharedInstance, name, beanName, mbd);
             }
-            // Èç¹ûÊÇprototype
+            // å¦‚æœæ˜¯prototype
             else if (mbd.isPrototype()) {
                 Object prototypeInstance = null;
                 try {
                     beforePrototypeCreation(beanName);
-                    // Ö´ĞĞ´´½¨ Bean
+                    // æ‰§è¡Œåˆ›å»º Bean
                     prototypeInstance = createBean(beanName, mbd, args);
                 }
                 finally {
@@ -213,8 +213,8 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
                 }
                 bean = getObjectForBeanInstance(prototypeInstance, name, beanName, mbd);
             }
-            // Èç¹û²»ÊÇ singleton ºÍ prototype, ÄÇÃ´¾ÍÊÇ×Ô¶¨ÒåµÄscope(ÀıÈçWebÏîÄ¿ÖĞµÄsessionµÈÀàĞÍ)£¬
-            // ÕâÀï¾Í½»¸ø×Ô¶¨ÒåscopeµÄÓ¦ÓÃ·½È¥ÊµÏÖ
+            // å¦‚æœä¸æ˜¯ singleton å’Œ prototype, é‚£ä¹ˆå°±æ˜¯è‡ªå®šä¹‰çš„scope(ä¾‹å¦‚Webé¡¹ç›®ä¸­çš„sessionç­‰ç±»å‹)ï¼Œ
+            // è¿™é‡Œå°±äº¤ç»™è‡ªå®šä¹‰scopeçš„åº”ç”¨æ–¹å»å®ç°
             else {
                 String scopeName = mbd.getScope();
                 final Scope scope = this.scopes.get(scopeName);
@@ -225,7 +225,7 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
                     Object scopedInstance = scope.get(beanName, () -> {
                         beforePrototypeCreation(beanName);
                         try {
-                            // Ö´ĞĞ´´½¨ Bean
+                            // æ‰§è¡Œåˆ›å»º Bean
                             return createBean(beanName, mbd, args);
                         }
                         finally {
@@ -245,7 +245,7 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
         }
     }
 
-    //¼ì²ébeanµÄÀàĞÍ
+    //æ£€æŸ¥beançš„ç±»å‹
     if (requiredType != null && !requiredType.isInstance(bean)) {
         try {
             T convertedBean = getTypeConverter().convertIfNecessary(bean, requiredType);
@@ -263,17 +263,17 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
 
 ```
 
-ÉÏÃæµÄ´úÂë»ù±¾ÉÏ¸ø³öÁË×¢ÊÍ£¬ ÔÚÕâ¾Í²»¶à×ö ½âÊÍÁË¡£spring ¹¦ÄÜ±È½Ï¸´ÔÓ£¬¿¼ÂÇµÄ¶«Î÷Ò²±È½Ï¶à£¬Òò´ËÉÏÊö´úÂë»á¶à×ö¶àÖÖÅĞ¶Ï£¬Ó¦¶Ô¶àÖÖÇé¿ö¡£Èç¹ûÎÒÃÇ½ö¿¼ÂÇ demo01 µÄÇé¿ö (`singleton` Çé¿ö)£¬ÒÔÉÏ´úÂë¹Ø¼üÈçÏÂ£º
+ä¸Šé¢çš„ä»£ç åŸºæœ¬ä¸Šç»™å‡ºäº†æ³¨é‡Šï¼Œ åœ¨è¿™å°±ä¸å¤šåš è§£é‡Šäº†ã€‚spring åŠŸèƒ½æ¯”è¾ƒå¤æ‚ï¼Œè€ƒè™‘çš„ä¸œè¥¿ä¹Ÿæ¯”è¾ƒå¤šï¼Œå› æ­¤ä¸Šè¿°ä»£ç ä¼šå¤šåšå¤šç§åˆ¤æ–­ï¼Œåº”å¯¹å¤šç§æƒ…å†µã€‚å¦‚æœæˆ‘ä»¬ä»…è€ƒè™‘ demo01 çš„æƒ…å†µ (`singleton` æƒ…å†µ)ï¼Œä»¥ä¸Šä»£ç å…³é”®å¦‚ä¸‹ï¼š
 
 ```
-//×îºóµÄ·µ»ØÖµ
+//æœ€åçš„è¿”å›å€¼
 Object bean;
 
-// ÕâÀï½ö¸ø³öµ¥ÀıµÄÇé¿ö
-// 1\. »ñÈ¡µ¥Àı¶ÔÏó£¬Í¬Ê±Ò²Ìá¹©ÁËÒ»¸ölambda±í´ïÊ½£¬ÓÃÀ´½øĞĞbeanµÄ´´½¨
+// è¿™é‡Œä»…ç»™å‡ºå•ä¾‹çš„æƒ…å†µ
+// 1\. è·å–å•ä¾‹å¯¹è±¡ï¼ŒåŒæ—¶ä¹Ÿæä¾›äº†ä¸€ä¸ªlambdaè¡¨è¾¾å¼ï¼Œç”¨æ¥è¿›è¡Œbeançš„åˆ›å»º
 sharedInstance = getSingleton(beanName, () -> {
     try {
-        // Ö´ĞĞ´´½¨ Bean
+        // æ‰§è¡Œåˆ›å»º Bean
         return createBean(beanName, mbd, args);
     }
     catch (BeansException ex) {
@@ -282,15 +282,15 @@ sharedInstance = getSingleton(beanName, () -> {
     }
 });
 
-// 2\. ½øÒ»²½´¦ÀísharedInstance£¬È»ºó·µ»Øbean¡£ÊÂÊµÉÏ£¬Õâ¸ö·½·¨Ö÷Òª´¦ÀíµÄÊÇ£¬
-// Èç¹ûÊÇFactoryBean£¬¾Í·µ»Ø·µ»ØËü´´½¨µÄÄÇ¸öÊµÀı¶ÔÏó£¬·ñÔò¾ÍÖ±½Ó·µ»Ø
+// 2\. è¿›ä¸€æ­¥å¤„ç†sharedInstanceï¼Œç„¶åè¿”å›beanã€‚äº‹å®ä¸Šï¼Œè¿™ä¸ªæ–¹æ³•ä¸»è¦å¤„ç†çš„æ˜¯ï¼Œ
+// å¦‚æœæ˜¯FactoryBeanï¼Œå°±è¿”å›è¿”å›å®ƒåˆ›å»ºçš„é‚£ä¸ªå®ä¾‹å¯¹è±¡ï¼Œå¦åˆ™å°±ç›´æ¥è¿”å›
 bean = getObjectForBeanInstance(sharedInstance, name, beanName, mbd);
 
 return (T) bean;
 
 ```
 
-¾«¼òºóµÄ´úÂë£¬¾ÍÊÇ spring ´´½¨ bean µÄÁ÷³Ì¡£½Ó×ÅÎÒÃÇ¾Í·Ö±ğ¿´¿´ÕâÁ½¸ö·½·¨µÄÄÚÈİ£¬ÕâÀïÉ¾³ıÁËÒ»Ğ©²»±ØÒªµÄ´úÂë£º
+ç²¾ç®€åçš„ä»£ç ï¼Œå°±æ˜¯ spring åˆ›å»º bean çš„æµç¨‹ã€‚æ¥ç€æˆ‘ä»¬å°±åˆ†åˆ«çœ‹çœ‹è¿™ä¸¤ä¸ªæ–¹æ³•çš„å†…å®¹ï¼Œè¿™é‡Œåˆ é™¤äº†ä¸€äº›ä¸å¿…è¦çš„ä»£ç ï¼š
 
 > `DefaultSingletonBeanRegistry#getSingleton(String, ObjectFactory<?>)`
 
@@ -299,7 +299,7 @@ public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
     synchronized (this.singletonObjects) {
         boolean newSingleton = false;
         try {
-            // ¶ÔÏó¾ÍÊÇÔÚÕâÀï½øĞĞ´´½¨µÄ
+            // å¯¹è±¡å°±æ˜¯åœ¨è¿™é‡Œè¿›è¡Œåˆ›å»ºçš„
             singletonObject = singletonFactory.getObject();
             newSingleton = true;
         }
@@ -307,11 +307,11 @@ public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
             ...
         }
         finally {
-            // ´´½¨Íê³Éºó£¬×öÒ»Ğ©ÅĞ¶Ï²Ù×÷£¬Óë´´½¨¹ı³Ì¹ØÏµ²»´ó
+            // åˆ›å»ºå®Œæˆåï¼Œåšä¸€äº›åˆ¤æ–­æ“ä½œï¼Œä¸åˆ›å»ºè¿‡ç¨‹å…³ç³»ä¸å¤§
             afterSingletonCreation(beanName);
         }
         if (newSingleton) {
-            // Ìí¼Óµ½  beanFactory »º´æ
+            // æ·»åŠ åˆ°  beanFactory ç¼“å­˜
             addSingleton(beanName, singletonObject);
         }
         return singletonObject;
@@ -320,9 +320,9 @@ public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
 
 ```
 
-´ÓÒÔÉÏ´úÂë¿ÉÒÔ¿´³ö£¬bean µÄ´´½¨¾ÍÊÇÔÚ `singletonFactory.getObject()`£¬¹ØÓÚÕâ¸ö·½·¨Ö´ĞĞÁËÊ²Ã´£¬ÎÒÃÇ»¹Ó¦¸Ã½áºÏ `AbstractBeanFactory#doGetBean`.
+ä»ä»¥ä¸Šä»£ç å¯ä»¥çœ‹å‡ºï¼Œbean çš„åˆ›å»ºå°±æ˜¯åœ¨ `singletonFactory.getObject()`ï¼Œå…³äºè¿™ä¸ªæ–¹æ³•æ‰§è¡Œäº†ä»€ä¹ˆï¼Œæˆ‘ä»¬è¿˜åº”è¯¥ç»“åˆ `AbstractBeanFactory#doGetBean`.
 
-Ê×ÏÈ£¬ÎÒÃÇ½øÈë `ObjectFactory#getObject`£¬·¢ÏÖ´úÂëÈçÏÂ£º
+é¦–å…ˆï¼Œæˆ‘ä»¬è¿›å…¥ `ObjectFactory#getObject`ï¼Œå‘ç°ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 @FunctionalInterface
@@ -332,12 +332,12 @@ public interface ObjectFactory<T> {
 
 ```
 
-ÕâÊÇÒ»¸öº¯ÊıÊ½±à³Ì½Ó¿Ú£¬jdk8 Ìá¹©µÄĞÂÓï·¨¡£ÔÙ¿´¿´ `AbstractBeanFactory#doGetBean` ·½·¨´«ÈëµÄ¶ÔÏó£º
+è¿™æ˜¯ä¸€ä¸ªå‡½æ•°å¼ç¼–ç¨‹æ¥å£ï¼Œjdk8 æä¾›çš„æ–°è¯­æ³•ã€‚å†çœ‹çœ‹ `AbstractBeanFactory#doGetBean` æ–¹æ³•ä¼ å…¥çš„å¯¹è±¡ï¼š
 
 ```
 sharedInstance = getSingleton(beanName, () -> {
     try {
-        // Ö´ĞĞ´´½¨ Bean
+        // æ‰§è¡Œåˆ›å»º Bean
         return createBean(beanName, mbd, args);
     }
     catch (BeansException ex) {
@@ -348,11 +348,11 @@ sharedInstance = getSingleton(beanName, () -> {
 
 ```
 
-ÕâÀï´«ÈëµÄÊÇÒ»¸ö lambda ±í´ïÊ½£¬µ±´úÂëÖ´ĞĞ `singletonFactory.getObject()` Ê±£¬Êµ¼ÊÉÏÖ´ĞĞµÄÊÇ
+è¿™é‡Œä¼ å…¥çš„æ˜¯ä¸€ä¸ª lambda è¡¨è¾¾å¼ï¼Œå½“ä»£ç æ‰§è¡Œ `singletonFactory.getObject()` æ—¶ï¼Œå®é™…ä¸Šæ‰§è¡Œçš„æ˜¯
 
 ```
 try {
-    // Ö´ĞĞ´´½¨ Bean
+    // æ‰§è¡Œåˆ›å»º Bean
     return createBean(beanName, mbd, args);
 }
 catch (BeansException ex) {
@@ -362,16 +362,16 @@ catch (BeansException ex) {
 
 ```
 
-¼´ `AbstractAutowireCapableBeanFactory#createBean(String, RootBeanDefinition, Object[])`£¬Ç°ÃæÍäÍäÈÆÈÆÁËÄÇÃ´¶à£¬spring ÖÕÓÚÒª½øÈë bean µÄ´´½¨ÁË£¡
+å³ `AbstractAutowireCapableBeanFactory#createBean(String, RootBeanDefinition, Object[])`ï¼Œå‰é¢å¼¯å¼¯ç»•ç»•äº†é‚£ä¹ˆå¤šï¼Œspring ç»ˆäºè¦è¿›å…¥ bean çš„åˆ›å»ºäº†ï¼
 
-¹ØÓÚ spring ¶ÔÏóµÄ´´½¨£¬ÎÒÃÇ»áÔÚºóÃæµÄÎÄÕÂ¼ÌĞø·ÖÎö£¬±¾ÎÄÎÒÃÇÖ»¹Ø×¢ `AbstractBeanFactory#getBean` Óë `DefaultSingletonBeanRegistry#getSingleton`£¬½áºÏÒÔÉÏ·ÖÎö£¬ÎÒÃÇ¶ÔÕâÁ½¸ö·½·¨×öÒ»¸ö×Ü½á£º
+å…³äº spring å¯¹è±¡çš„åˆ›å»ºï¼Œæˆ‘ä»¬ä¼šåœ¨åé¢çš„æ–‡ç« ç»§ç»­åˆ†æï¼Œæœ¬æ–‡æˆ‘ä»¬åªå…³æ³¨ `AbstractBeanFactory#getBean` ä¸ `DefaultSingletonBeanRegistry#getSingleton`ï¼Œç»“åˆä»¥ä¸Šåˆ†æï¼Œæˆ‘ä»¬å¯¹è¿™ä¸¤ä¸ªæ–¹æ³•åšä¸€ä¸ªæ€»ç»“ï¼š
 
-*   `AbstractBeanFactory#getBean`£º¶ÔÓÚ scope Îª `PropertyType` µÄ bean À´Ëµ£¬¸Ã·½·¨»áÖ±½Ó´´½¨ bean£»¶ÔÓÚ scope Îª `singleton` µÄ bean À´Ëµ£¬¸Ã·½·¨»áÏÈÅĞ¶Ï `beanFactory` ÊÇ·ñ´æÔÚ¸Ã bean£¬Èô´æÔÚÔòÖ±½Ó·µ»Ø£¬·ñÔò¾ÍÏÈ´´½¨ÔÙ·µ»Ø¡£
+*   `AbstractBeanFactory#getBean`ï¼šå¯¹äº scope ä¸º `PropertyType` çš„ bean æ¥è¯´ï¼Œè¯¥æ–¹æ³•ä¼šç›´æ¥åˆ›å»º beanï¼›å¯¹äº scope ä¸º `singleton` çš„ bean æ¥è¯´ï¼Œè¯¥æ–¹æ³•ä¼šå…ˆåˆ¤æ–­ `beanFactory` æ˜¯å¦å­˜åœ¨è¯¥ beanï¼Œè‹¥å­˜åœ¨åˆ™ç›´æ¥è¿”å›ï¼Œå¦åˆ™å°±å…ˆåˆ›å»ºå†è¿”å›ã€‚
 
-*   `DefaultSingletonBeanRegistry#getSingleton`£ºÕâ¸ö·½·¨¾ÍÊÇ´Ó `beanFactory` »ñÈ¡ singleton bean µÄ·½·¨£ºÈô´æÔÚÔòÖ±½Ó·µ»Ø£¬·ñÔò¾ÍÏÈ´´½¨ÔÙ·µ»Ø¡£
+*   `DefaultSingletonBeanRegistry#getSingleton`ï¼šè¿™ä¸ªæ–¹æ³•å°±æ˜¯ä» `beanFactory` è·å– singleton bean çš„æ–¹æ³•ï¼šè‹¥å­˜åœ¨åˆ™ç›´æ¥è¿”å›ï¼Œå¦åˆ™å°±å…ˆåˆ›å»ºå†è¿”å›ã€‚
 
-±¾ÎÄ¾ÍÏÈ·ÖÎöµ½ÕâÀïÁË£¬ÏÂÆªÎÄÕÂÎÒÃÇÔÙ·ÖÎö spring bean ´´½¨¹ı³Ì¡£
+æœ¬æ–‡å°±å…ˆåˆ†æåˆ°è¿™é‡Œäº†ï¼Œä¸‹ç¯‡æ–‡ç« æˆ‘ä»¬å†åˆ†æ spring bean åˆ›å»ºè¿‡ç¨‹ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4658230](https://my.oschina.net/funcy/blog/4658230) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4658230](https://my.oschina.net/funcy/blog/4658230) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

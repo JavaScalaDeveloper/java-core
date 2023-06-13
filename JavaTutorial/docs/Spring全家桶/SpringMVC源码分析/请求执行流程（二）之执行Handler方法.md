@@ -1,21 +1,21 @@
-±¾ÎÄÊÇ **springmvc ÇëÇóÖ´ĞĞÁ÷³Ì**µÄµÚ¶şÆªÎÄÕÂ£¬ÔÚÉÏÒ»ÆªÎÄÕÂÖĞ£¬ÎÒÃÇ·ÖÎöÁË `DispatcherServlet#doDispatch` ·½·¨£¬×Ü½á³öÇëÇóÖ´ĞĞ·ÖÎªÈçÏÂ²½Öè£º
+æœ¬æ–‡æ˜¯ **springmvc è¯·æ±‚æ‰§è¡Œæµç¨‹**çš„ç¬¬äºŒç¯‡æ–‡ç« ï¼Œåœ¨ä¸Šä¸€ç¯‡æ–‡ç« ä¸­ï¼Œæˆ‘ä»¬åˆ†æäº† `DispatcherServlet#doDispatch` æ–¹æ³•ï¼Œæ€»ç»“å‡ºè¯·æ±‚æ‰§è¡Œåˆ†ä¸ºå¦‚ä¸‹æ­¥éª¤ï¼š
 
-1.  »ñÈ¡¶ÔÓ¦µÄ `HandlerExecutionChain`, »ñÈ¡µÄ `HandlerExecutionChain` ÖĞ°üº¬ÕæÕıµØ´¦ÀíÆ÷£¨`Controller` ÖĞµÄ·½·¨£©ºÍÒ»×é `HandlerInterceptor` À¹½ØÆ÷£»
-2.  »ñÈ¡¶ÔÓ¦µÄ `handlerAdapter`£¬¸Ã¶ÔÏóÓÃÀ´ÔËĞĞ `handler(xxx)` ·½·¨£»
-3.  Ö´ĞĞ spring µÄÀ¹½ØÆ÷£¬ÔËĞĞ `HandlerInterceptor#preHandle` ·½·¨£»
-4.  ´¦ÀíÇëÇó£¬Ò²¾ÍÊÇÍ¨¹ıÉÏÃæ»ñÈ¡µ½µÄ `handlerAdapter` À´µ÷ÓÃ `handle(xxx)` ·½·¨£»
-5.  Ö´ĞĞ spring µÄÀ¹½ØÆ÷£¬ÔËĞĞ `HandlerInterceptor#postHandle` ·½·¨£»
-6.  ´¦Àí·µ»Ø½á¹û£¬ÕâÀï»áäÖÈ¾ÊÓÍ¼£¬ÒÔ¼°Ö´ĞĞ spring À¹½ØÆ÷µÄ `HandlerInterceptor#afterCompletion`¡£
+1.  è·å–å¯¹åº”çš„ `HandlerExecutionChain`, è·å–çš„ `HandlerExecutionChain` ä¸­åŒ…å«çœŸæ­£åœ°å¤„ç†å™¨ï¼ˆ`Controller` ä¸­çš„æ–¹æ³•ï¼‰å’Œä¸€ç»„ `HandlerInterceptor` æ‹¦æˆªå™¨ï¼›
+2.  è·å–å¯¹åº”çš„ `handlerAdapter`ï¼Œè¯¥å¯¹è±¡ç”¨æ¥è¿è¡Œ `handler(xxx)` æ–¹æ³•ï¼›
+3.  æ‰§è¡Œ spring çš„æ‹¦æˆªå™¨ï¼Œè¿è¡Œ `HandlerInterceptor#preHandle` æ–¹æ³•ï¼›
+4.  å¤„ç†è¯·æ±‚ï¼Œä¹Ÿå°±æ˜¯é€šè¿‡ä¸Šé¢è·å–åˆ°çš„ `handlerAdapter` æ¥è°ƒç”¨ `handle(xxx)` æ–¹æ³•ï¼›
+5.  æ‰§è¡Œ spring çš„æ‹¦æˆªå™¨ï¼Œè¿è¡Œ `HandlerInterceptor#postHandle` æ–¹æ³•ï¼›
+6.  å¤„ç†è¿”å›ç»“æœï¼Œè¿™é‡Œä¼šæ¸²æŸ“è§†å›¾ï¼Œä»¥åŠæ‰§è¡Œ spring æ‹¦æˆªå™¨çš„ `HandlerInterceptor#afterCompletion`ã€‚
 
-½Ó×Å£¬ÎÒÃÇ¼ÌĞø·ÖÎö `HandlerExecutionChain` µÄ»ñÈ¡ÒÔ¼° `handlerAdapter` µÄ»ñÈ¡£¬Êé½ÓÉÏ»Ø£¬±¾ÎÄ½«¼ÌĞø·ÖÎö½ÓÏÂÀ´µÄ²½Öè¡£
+æ¥ç€ï¼Œæˆ‘ä»¬ç»§ç»­åˆ†æ `HandlerExecutionChain` çš„è·å–ä»¥åŠ `handlerAdapter` çš„è·å–ï¼Œä¹¦æ¥ä¸Šå›ï¼Œæœ¬æ–‡å°†ç»§ç»­åˆ†ææ¥ä¸‹æ¥çš„æ­¥éª¤ã€‚
 
-### 5\. Ö´ĞĞ spring µÄÀ¹½ØÆ÷£º`HandlerInterceptor#preHandle`
+### 5\. æ‰§è¡Œ spring çš„æ‹¦æˆªå™¨ï¼š`HandlerInterceptor#preHandle`
 
 ```
 protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
     ...
-    // 3\. ÔËĞĞspringµÄÀ¹½ØÆ÷, ÔËĞĞ HandlerInterceptor#preHandle ·½·¨
-    // Õâ¸ömappedHandler£¬¾ÍÊÇµÚ1²½»ñÈ¡µÄHandlerExecutionChain
+    // 3\. è¿è¡Œspringçš„æ‹¦æˆªå™¨, è¿è¡Œ HandlerInterceptor#preHandle æ–¹æ³•
+    // è¿™ä¸ªmappedHandlerï¼Œå°±æ˜¯ç¬¬1æ­¥è·å–çš„HandlerExecutionChain
     if (!mappedHandler.applyPreHandle(processedRequest, response)) {
         return;
     }
@@ -24,24 +24,24 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 
 ```
 
-ÉÏÃæµÄ `mappedHandler`£¬¾ÍÊÇµÚ 1 ²½»ñÈ¡µÄ `HandlerExecutionChain`£¬½øÈë `HandlerExecutionChain#applyPreHandle`£º
+ä¸Šé¢çš„ `mappedHandler`ï¼Œå°±æ˜¯ç¬¬ 1 æ­¥è·å–çš„ `HandlerExecutionChain`ï¼Œè¿›å…¥ `HandlerExecutionChain#applyPreHandle`ï¼š
 
 > HandlerExecutionChain#applyPreHandle
 
 ```
 /**
- * Ö´ĞĞ HandlerInterceptor#preHandle ·½·¨
+ * æ‰§è¡Œ HandlerInterceptor#preHandle æ–¹æ³•
  */
 boolean applyPreHandle(HttpServletRequest request, HttpServletResponse response) 
         throws Exception {
-    // »ñÈ¡ËùÓĞµÄÀ¹½ØÆ÷
+    // è·å–æ‰€æœ‰çš„æ‹¦æˆªå™¨
     HandlerInterceptor[] interceptors = getInterceptors();
     if (!ObjectUtils.isEmpty(interceptors)) {
-        // ±éÀúÖ´ĞĞ preHandle ·½·¨
+        // éå†æ‰§è¡Œ preHandle æ–¹æ³•
         for (int i = 0; i < interceptors.length; i++) {
             HandlerInterceptor interceptor = interceptors[i];
             if (!interceptor.preHandle(request, response, this.handler)) {
-                // Ê§°ÜÁË£¬»¹»á¼ÌĞøÖ´ĞĞ HandlerInterceptor#afterCompletion ·½·¨
+                // å¤±è´¥äº†ï¼Œè¿˜ä¼šç»§ç»­æ‰§è¡Œ HandlerInterceptor#afterCompletion æ–¹æ³•
                 triggerAfterCompletion(request, response, null);
                 return false;
             }
@@ -52,15 +52,15 @@ boolean applyPreHandle(HttpServletRequest request, HttpServletResponse response)
 }
 
 /**
- * Ö´ĞĞ HandlerInterceptor#afterCompletion ·½·¨
- * ÎªÁË±£Ö¤HandlerInterceptor#afterCompletionµÄÖ´ĞĞ£¬
- * ½ÓÏÂÀ´µÄ·ÖÎö»á¿´µ½£¬Õâ¸ö·½·¨»áÔÚ¶à¸ö·½·¨µ÷ÓÃµ½
+ * æ‰§è¡Œ HandlerInterceptor#afterCompletion æ–¹æ³•
+ * ä¸ºäº†ä¿è¯HandlerInterceptor#afterCompletionçš„æ‰§è¡Œï¼Œ
+ * æ¥ä¸‹æ¥çš„åˆ†æä¼šçœ‹åˆ°ï¼Œè¿™ä¸ªæ–¹æ³•ä¼šåœ¨å¤šä¸ªæ–¹æ³•è°ƒç”¨åˆ°
  */
 void triggerAfterCompletion(HttpServletRequest request, 
         HttpServletResponse response, @Nullable Exception ex) throws Exception {
     HandlerInterceptor[] interceptors = getInterceptors();
     if (!ObjectUtils.isEmpty(interceptors)) {
-        // ±éÀúÖ´ĞĞ HandlerInterceptor#afterCompletion ·½·¨
+        // éå†æ‰§è¡Œ HandlerInterceptor#afterCompletion æ–¹æ³•
         for (int i = this.interceptorIndex; i >= 0; i--) {
             HandlerInterceptor interceptor = interceptors[i];
             try {
@@ -75,45 +75,45 @@ void triggerAfterCompletion(HttpServletRequest request,
 
 ```
 
-ÎÒÃÇÀ´¿´Ò»ÑÛ `HandlerExecutionChain`£º
+æˆ‘ä»¬æ¥çœ‹ä¸€çœ¼ `HandlerExecutionChain`ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-40ba62630b5d83a16ed9aba35aba48af8be.png)
 
-ÔÙÀ´¿´¿´´«Èë `HandlerInterceptor` µÄ `handler` ÊÇÉ¶£º
+å†æ¥çœ‹çœ‹ä¼ å…¥ `HandlerInterceptor` çš„ `handler` æ˜¯å•¥ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-6c50a936804c1db4a7b817dbb5ff417034d.png)
 
-Õâ¸ö `handler` ¾ÍÊÇ `HandlerMethod`£¬ÀïÃæ°üº¬µÄĞÅÏ¢»¹ÊÇÍ¦·á¸»µÄ£¬Ïñ `bean`/`beanFactory`/`method`£¬ÀûÓÃÕâ¼¸¸öÊôĞÔ£¬ÎÒÃÇ¿ÉÒÔ¶ÔÆä½øĞĞ¸÷ÖÖ²Ù×÷¡£
+è¿™ä¸ª `handler` å°±æ˜¯ `HandlerMethod`ï¼Œé‡Œé¢åŒ…å«çš„ä¿¡æ¯è¿˜æ˜¯æŒºä¸°å¯Œçš„ï¼Œåƒ `bean`/`beanFactory`/`method`ï¼Œåˆ©ç”¨è¿™å‡ ä¸ªå±æ€§ï¼Œæˆ‘ä»¬å¯ä»¥å¯¹å…¶è¿›è¡Œå„ç§æ“ä½œã€‚
 
-### 6\. ·½·¨µÄÖ´ĞĞ£º`AbstractHandlerMethodAdapter#handle`
+### 6\. æ–¹æ³•çš„æ‰§è¡Œï¼š`AbstractHandlerMethodAdapter#handle`
 
-ÎÒÃÇÔÙ»Øµ½ `DispatcherServlet#doDispatch`£¬Ö´ĞĞÍê `HandlerInterceptor#preHandle` ·½·¨ºó£¬¾ÍÀ´µ½ËùÓĞÁ÷³ÌÖĞµÄÖØÍ·Ï·£º`handler` µÄÖ´ĞĞ£¬Ò²¾ÍÊÇ `controller` ÖĞ£¬`url` ¶ÔÓ¦µÄ·½·¨Ö´ĞĞ£º
+æˆ‘ä»¬å†å›åˆ° `DispatcherServlet#doDispatch`ï¼Œæ‰§è¡Œå®Œ `HandlerInterceptor#preHandle` æ–¹æ³•åï¼Œå°±æ¥åˆ°æ‰€æœ‰æµç¨‹ä¸­çš„é‡å¤´æˆï¼š`handler` çš„æ‰§è¡Œï¼Œä¹Ÿå°±æ˜¯ `controller` ä¸­ï¼Œ`url` å¯¹åº”çš„æ–¹æ³•æ‰§è¡Œï¼š
 
 ```
 protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
     ...
-    // 4\. Í¨¹ıÉÏÃæ»ñÈ¡µ½µÄhandlerAdapterÀ´µ÷ÓÃhandle
+    // 4\. é€šè¿‡ä¸Šé¢è·å–åˆ°çš„handlerAdapteræ¥è°ƒç”¨handle
     mv = ha.handle(processedRequest, response, mappedHandler.getHandler());
     ...
 }
 
 ```
 
-Ò»Â·¸ú½øÈ¥£¬×îÖÕÀ´µ½ÁË `RequestMappingHandlerAdapter#invokeHandlerMethod` ·½·¨£º
+ä¸€è·¯è·Ÿè¿›å»ï¼Œæœ€ç»ˆæ¥åˆ°äº† `RequestMappingHandlerAdapter#invokeHandlerMethod` æ–¹æ³•ï¼š
 
 ```
 protected ModelAndView invokeHandlerMethod(HttpServletRequest request,
         HttpServletResponse response, HandlerMethod handlerMethod) throws Exception {
-    // °ü×°requesÓërequest¶ÔÏó
+    // åŒ…è£…requesä¸requestå¯¹è±¡
     ServletWebRequest webRequest = new ServletWebRequest(request, response);
     try {
-        // »ñÈ¡ @InitBinder ×¢½âµÄ·½·¨£¬
-        // °üº¬µ±Ç°controllerÓë @ControllerAdvice ±ê×¢µÄÀàÀïµÄ @InitBinder ×¢½âµÄ·½·¨
+        // è·å– @InitBinder æ³¨è§£çš„æ–¹æ³•ï¼Œ
+        // åŒ…å«å½“å‰controllerä¸ @ControllerAdvice æ ‡æ³¨çš„ç±»é‡Œçš„ @InitBinder æ³¨è§£çš„æ–¹æ³•
         WebDataBinderFactory binderFactory = getDataBinderFactory(handlerMethod);
-        // »ñÈ¡ @ModelAttribute ×¢½âµÄ·½·¨£¬
-        // °üº¬µ±Ç°controllerÓë @ControllerAdvice ±ê×¢µÄÀàÀïµÄ @ModelAttribute ×¢½âµÄ·½·¨
+        // è·å– @ModelAttribute æ³¨è§£çš„æ–¹æ³•ï¼Œ
+        // åŒ…å«å½“å‰controllerä¸ @ControllerAdvice æ ‡æ³¨çš„ç±»é‡Œçš„ @ModelAttribute æ³¨è§£çš„æ–¹æ³•
         ModelFactory modelFactory = getModelFactory(handlerMethod, binderFactory);
-        // ´´½¨·½·¨Ö´ĞĞ¶ÔÏó
+        // åˆ›å»ºæ–¹æ³•æ‰§è¡Œå¯¹è±¡
         ServletInvocableHandlerMethod invocableMethod = createInvocableHandlerMethod(handlerMethod);
         if (this.argumentResolvers != null) {
             invocableMethod.setHandlerMethodArgumentResolvers(this.argumentResolvers);
@@ -123,12 +123,12 @@ protected ModelAndView invokeHandlerMethod(HttpServletRequest request,
         }
         invocableMethod.setDataBinderFactory(binderFactory);
         invocableMethod.setParameterNameDiscoverer(this.parameterNameDiscoverer);
-        // ´´½¨ModelAndViewµÄÈİÆ÷
+        // åˆ›å»ºModelAndViewçš„å®¹å™¨
         ModelAndViewContainer mavContainer = new ModelAndViewContainer();
         mavContainer.addAllAttributes(RequestContextUtils.getInputFlashMap(request));
         modelFactory.initModel(webRequest, mavContainer, invocableMethod);
         mavContainer.setIgnoreDefaultModelOnRedirect(this.ignoreDefaultModelOnRedirect);
-        // ´¦ÀíÒì²½ÇëÇó
+        // å¤„ç†å¼‚æ­¥è¯·æ±‚
         AsyncWebRequest asyncWebRequest = WebAsyncUtils.createAsyncWebRequest(request, response);
         asyncWebRequest.setTimeout(this.asyncRequestTimeout);
         WebAsyncManager asyncManager = WebAsyncUtils.getAsyncManager(request);
@@ -146,12 +146,12 @@ protected ModelAndView invokeHandlerMethod(HttpServletRequest request,
             });
             invocableMethod = invocableMethod.wrapConcurrentResult(result);
         }
-        // Ö´ĞĞControllerµÄ·½·¨£¨ÖØµã£©
+        // æ‰§è¡ŒControllerçš„æ–¹æ³•ï¼ˆé‡ç‚¹ï¼‰
         invocableMethod.invokeAndHandle(webRequest, mavContainer);
         if (asyncManager.isConcurrentHandlingStarted()) {
             return null;
         }
-        // ´¦Àí·µ»Ø½á¹û
+        // å¤„ç†è¿”å›ç»“æœ
         return getModelAndView(mavContainer, modelFactory, webRequest);
     }
     finally {
@@ -161,16 +161,16 @@ protected ModelAndView invokeHandlerMethod(HttpServletRequest request,
 
 ```
 
-Õâ¸ö·½·¨ÓĞµã³¤£¬µ«ÖØµã·½·¨Ö»ÓĞÒ»ĞĞ£º`invocableMethod.invokeAndHandle(webRequest, mavContainer);`£¬ÔÚÕâ¸ö·½·¨Ç°µÄ²¿·Ö¶¼ÊÇÔÚ×ö·½·¨Ö´ĞĞÇ°µÄ×¼±¸¹¤×÷£¬Èç»ñÈ¡ `@InitBinder` ×¢½âµÄ·½·¨¡¢»ñÈ¡ `@ModelAttribute` ×¢½âµÄ·½·¨£¬×¼±¸·½·¨²ÎÊı `webRequest`(°ü×° `request` Óë `response` ¶ÔÏó) Óë `mavContainer`(`ModelAndView` °ü×°¶ÔÏó) µÈ¡£ÕâÀïÎÒÃÇÖ±½Ó½øÈë `invocableMethod.invokeAndHandle`£¬¿´¿´·½·¨ÊÇÈçºÎÖ´ĞĞµÄ£º
+è¿™ä¸ªæ–¹æ³•æœ‰ç‚¹é•¿ï¼Œä½†é‡ç‚¹æ–¹æ³•åªæœ‰ä¸€è¡Œï¼š`invocableMethod.invokeAndHandle(webRequest, mavContainer);`ï¼Œåœ¨è¿™ä¸ªæ–¹æ³•å‰çš„éƒ¨åˆ†éƒ½æ˜¯åœ¨åšæ–¹æ³•æ‰§è¡Œå‰çš„å‡†å¤‡å·¥ä½œï¼Œå¦‚è·å– `@InitBinder` æ³¨è§£çš„æ–¹æ³•ã€è·å– `@ModelAttribute` æ³¨è§£çš„æ–¹æ³•ï¼Œå‡†å¤‡æ–¹æ³•å‚æ•° `webRequest`(åŒ…è£… `request` ä¸ `response` å¯¹è±¡) ä¸ `mavContainer`(`ModelAndView` åŒ…è£…å¯¹è±¡) ç­‰ã€‚è¿™é‡Œæˆ‘ä»¬ç›´æ¥è¿›å…¥ `invocableMethod.invokeAndHandle`ï¼Œçœ‹çœ‹æ–¹æ³•æ˜¯å¦‚ä½•æ‰§è¡Œçš„ï¼š
 
 > ServletInvocableHandlerMethod#invokeAndHandle
 
 ```
 public void invokeAndHandle(ServletWebRequest webRequest, ModelAndViewContainer mavContainer,
         Object... providedArgs) throws Exception {
-    // Ö´ĞĞhandler·½·¨
+    // æ‰§è¡Œhandleræ–¹æ³•
     Object returnValue = invokeForRequest(webRequest, mavContainer, providedArgs);
-    // ÉèÖÃ RequestHandled ÊôĞÔÖµ£¬springmvc»á¸ù¾İ¸ÃÖµÅĞ¶ÏÒª²»ÒªÌø×ª
+    // è®¾ç½® RequestHandled å±æ€§å€¼ï¼Œspringmvcä¼šæ ¹æ®è¯¥å€¼åˆ¤æ–­è¦ä¸è¦è·³è½¬
     if (returnValue == null) {
         if (isRequestNotModified(webRequest) || getResponseStatus() != null 
                 || mavContainer.isRequestHandled()) {
@@ -186,7 +186,7 @@ public void invokeAndHandle(ServletWebRequest webRequest, ModelAndViewContainer 
     mavContainer.setRequestHandled(false);
     Assert.state(this.returnValueHandlers != null, "No return value handlers");
     try {
-        // ´¦Àí·µ»Ø½á¹û
+        // å¤„ç†è¿”å›ç»“æœ
         this.returnValueHandlers.handleReturnValue(
                 returnValue, getReturnValueType(returnValue), mavContainer, webRequest);
     }
@@ -197,7 +197,7 @@ public void invokeAndHandle(ServletWebRequest webRequest, ModelAndViewContainer 
 
 ```
 
-ÕâÀï·½·¨ÏÈÊÇµ÷ÓÃÁË `invokeForRequest` Ö´ĞĞ·½·¨£¬È»ºóÔÙ¸ù¾İ·½·¨µÄ·µ»ØÖµÀ´ÉèÖÃ `mavContainer` µÄ `RequestHandled` Öµ£¬×îºó´¦Àí·µ»Ø½á¹û¡£¼ÌĞø¸ú½ø `invokeForRequest` ·½·¨£º
+è¿™é‡Œæ–¹æ³•å…ˆæ˜¯è°ƒç”¨äº† `invokeForRequest` æ‰§è¡Œæ–¹æ³•ï¼Œç„¶åå†æ ¹æ®æ–¹æ³•çš„è¿”å›å€¼æ¥è®¾ç½® `mavContainer` çš„ `RequestHandled` å€¼ï¼Œæœ€åå¤„ç†è¿”å›ç»“æœã€‚ç»§ç»­è·Ÿè¿› `invokeForRequest` æ–¹æ³•ï¼š
 
 > InvocableHandlerMethod#invokeForRequest
 
@@ -205,38 +205,38 @@ public void invokeAndHandle(ServletWebRequest webRequest, ModelAndViewContainer 
 @Nullable
 public Object invokeForRequest(NativeWebRequest request, @Nullable ModelAndViewContainermavContainer,
         Object... providedArgs) throws Exception {
-    // ´¦Àí²ÎÊı°ó¶¨
+    // å¤„ç†å‚æ•°ç»‘å®š
     Object[] args = getMethodArgumentValues(request, mavContainer, providedArgs);
-    // ·´Éäµ÷ÓÃ·½·¨
+    // åå°„è°ƒç”¨æ–¹æ³•
     return doInvoke(args);
 }
 
 ```
 
-Õâ¸ö·½·¨ÀïÏÈÊÇ´¦ÀíÁË²ÎÊı½âÎö£¬È»ºóÊ¹ÓÃ·´Éä½øĞĞ·½·¨µ÷ÓÃ¡£ÊÂÊµÉÏ£¬Õû¸öÖ´ĞĞÁ÷³ÌÖĞ£¬×îºËĞÄµÄ¾ÍÊÇ²ÎÊı½âÎöÁË£¬ÔÚ controller ÀïµÄ handler ·½·¨ÖĞ£¬ÎÒÃÇ¿ÉÒÔÕâÑùÖ¸¶¨²ÎÊı£º
+è¿™ä¸ªæ–¹æ³•é‡Œå…ˆæ˜¯å¤„ç†äº†å‚æ•°è§£æï¼Œç„¶åä½¿ç”¨åå°„è¿›è¡Œæ–¹æ³•è°ƒç”¨ã€‚äº‹å®ä¸Šï¼Œæ•´ä¸ªæ‰§è¡Œæµç¨‹ä¸­ï¼Œæœ€æ ¸å¿ƒçš„å°±æ˜¯å‚æ•°è§£æäº†ï¼Œåœ¨ controller é‡Œçš„ handler æ–¹æ³•ä¸­ï¼Œæˆ‘ä»¬å¯ä»¥è¿™æ ·æŒ‡å®šå‚æ•°ï¼š
 
 ```
-// Ö±½Ó´«²Î
+// ç›´æ¥ä¼ å‚
 @RequestMapping("xxx")
 public Object test(String name) {
     ...
 }
 
-// ÔÚ²ÎÊıÉÏ±êÓĞ@RequestParam¡¢@RequestHeaderµÈ×¢½â
+// åœ¨å‚æ•°ä¸Šæ ‡æœ‰@RequestParamã€@RequestHeaderç­‰æ³¨è§£
 @RequestMapping("xxx")
 public Object test(@RequestParam("name") String name, 
                    @RequestHeader("uid") String uid) {
     ...
 }
 
-// ½«´«ÈëµÄ²ÎÊı·â×°Îª¶ÔÏó
+// å°†ä¼ å…¥çš„å‚æ•°å°è£…ä¸ºå¯¹è±¡
 @RequestMapping("xxx")
 public Object test(User user) {
     ...
 }
 
-// ÉÏÃæµÄ·½·¨¶¼ÊÇÊ¹ÓÃform±íµ¥´«²Î(Ò²¾ÍÊÇk1=v1&2=v2&...µÄ·½·¨)
-// Õâ¸ö·½·¨Ê¹ÓÃ RequestBody ·½Ê½´«²Î£¬½«²ÎÊıÄÚÈİ·ÅÈëÏûÏ¢ÌåÖĞ
+// ä¸Šé¢çš„æ–¹æ³•éƒ½æ˜¯ä½¿ç”¨formè¡¨å•ä¼ å‚(ä¹Ÿå°±æ˜¯k1=v1&2=v2&...çš„æ–¹æ³•)
+// è¿™ä¸ªæ–¹æ³•ä½¿ç”¨ RequestBody æ–¹å¼ä¼ å‚ï¼Œå°†å‚æ•°å†…å®¹æ”¾å…¥æ¶ˆæ¯ä½“ä¸­
 @RequestMapping("xxx")
 public Object test(@RequestBody User user) {
     ...
@@ -246,24 +246,24 @@ public Object test(@RequestBody User user) {
 
 ```
 
-µ±ÎÒÃÇ°´¹æ·¶´«Èë²ÎÊıÊ±£¬springmvc ¶¼ÄÜÕı³£´¦Àí£¬ÎÒÃÇÀ´¿´¿´ springmvc ÊÇÈçºÎ×öµ½ÕâÒ»µãµÄ¡£
+å½“æˆ‘ä»¬æŒ‰è§„èŒƒä¼ å…¥å‚æ•°æ—¶ï¼Œspringmvc éƒ½èƒ½æ­£å¸¸å¤„ç†ï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹ springmvc æ˜¯å¦‚ä½•åšåˆ°è¿™ä¸€ç‚¹çš„ã€‚
 
-#### ²ÎÊı½âÎö
+#### å‚æ•°è§£æ
 
-¼ÌĞø£¬½øÈë `InvocableHandlerMethod#getMethodArgumentValues` ·½·¨£º
+ç»§ç»­ï¼Œè¿›å…¥ `InvocableHandlerMethod#getMethodArgumentValues` æ–¹æ³•ï¼š
 
 > InvocableHandlerMethod#getMethodArgumentValues
 
 ```
 protected Object[] getMethodArgumentValues(NativeWebRequest request, 
         @Nullable ModelAndViewContainer mavContainer, Object... providedArgs) throws Exception {
-    // »ñÈ¡·½·¨µÄËùÓĞ²ÎÊı£¬¿ÉÒÔ¼òµ¥Àí½âÎªÀûÓÃ·´Éä»ñÈ¡handler·½·¨²ÎÊı£¬È»ºó°ü×°Îª MethodParameter
+    // è·å–æ–¹æ³•çš„æ‰€æœ‰å‚æ•°ï¼Œå¯ä»¥ç®€å•ç†è§£ä¸ºåˆ©ç”¨åå°„è·å–handleræ–¹æ³•å‚æ•°ï¼Œç„¶ååŒ…è£…ä¸º MethodParameter
     MethodParameter[] parameters = getMethodParameters();
     if (ObjectUtils.isEmpty(parameters)) {
         return EMPTY_ARGS;
     }
     Object[] args = new Object[parameters.length];
-    // ÒÀ´Î´¦ÀíÃ¿¸ö²ÎÊı
+    // ä¾æ¬¡å¤„ç†æ¯ä¸ªå‚æ•°
     for (int i = 0; i < parameters.length; i++) {
         MethodParameter parameter = parameters[i];
         parameter.initParameterNameDiscovery(this.parameterNameDiscoverer);
@@ -271,12 +271,12 @@ protected Object[] getMethodArgumentValues(NativeWebRequest request,
         if (args[i] != null) {
             continue;
         }
-        // ÅĞ¶ÏÊÇ·ñÓĞ²ÎÊı½âÎöÀàÖ§³Öµ±Ç°²ÎÊıµÄ½âÎö
+        // åˆ¤æ–­æ˜¯å¦æœ‰å‚æ•°è§£æç±»æ”¯æŒå½“å‰å‚æ•°çš„è§£æ
         if (!this.resolvers.supportsParameter(parameter)) {
             throw new IllegalStateException(formatArgumentError(parameter, "No suitable resolver"));
         }
         try {
-            // ´¦Àí²ÎÊı½âÎö
+            // å¤„ç†å‚æ•°è§£æ
             args[i] = this.resolvers.resolveArgument(parameter, mavContainer, request, 
                     this.dataBinderFactory);
         }
@@ -289,7 +289,7 @@ protected Object[] getMethodArgumentValues(NativeWebRequest request,
 
 ```
 
-Õâ¸ö·½·¨ÏÈ»ñÈ¡ÁË handler ·½·¨µÄ²ÎÊı (¿ÉÒÔ¼òµ¥Àí½âÎªÀûÓÃ·´Éä»ñÈ¡ handler ·½·¨²ÎÊı£¬È»ºó°ü×°Îª `MethodParameter`)£¬È»ºó¶ÔÕâĞ©²ÎÊıÖğ¸ö½âÎö¡£½âÎöÊ±£¬»áÓÃµ½Á½¸öÖØÒªµÄ·½·¨£º`resolvers.supportsParameter(...)` Óë `resolvers.resolveArgument(...)`£¬ÕâÁ½¸ö·½·¨×îÖÕµ÷ÓÃµÄ·½·¨ÔÚ `HandlerMethodArgumentResolverComposite` ÖĞ£º
+è¿™ä¸ªæ–¹æ³•å…ˆè·å–äº† handler æ–¹æ³•çš„å‚æ•° (å¯ä»¥ç®€å•ç†è§£ä¸ºåˆ©ç”¨åå°„è·å– handler æ–¹æ³•å‚æ•°ï¼Œç„¶ååŒ…è£…ä¸º `MethodParameter`)ï¼Œç„¶åå¯¹è¿™äº›å‚æ•°é€ä¸ªè§£æã€‚è§£ææ—¶ï¼Œä¼šç”¨åˆ°ä¸¤ä¸ªé‡è¦çš„æ–¹æ³•ï¼š`resolvers.supportsParameter(...)` ä¸ `resolvers.resolveArgument(...)`ï¼Œè¿™ä¸¤ä¸ªæ–¹æ³•æœ€ç»ˆè°ƒç”¨çš„æ–¹æ³•åœ¨ `HandlerMethodArgumentResolverComposite` ä¸­ï¼š
 
 > HandlerMethodArgumentResolverComposite
 
@@ -297,22 +297,22 @@ protected Object[] getMethodArgumentValues(NativeWebRequest request,
 @Nullable
 public Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewContainermavContainer,
         NativeWebRequest webRequest, @Nullable WebDataBinderFactory binderFactory) throws Exception {
-    // »ñÈ¡Ò»¸ö½âÎöÆ÷
+    // è·å–ä¸€ä¸ªè§£æå™¨
     HandlerMethodArgumentResolver resolver = getArgumentResolver(parameter);
     if (resolver == null) {
         throw new IllegalArgumentException(...);
     }
-    // ½âÎö²ÎÊı£¬µ÷ÓÃ HandlerMethodArgumentResolver#resolveArgument ·½·¨
+    // è§£æå‚æ•°ï¼Œè°ƒç”¨ HandlerMethodArgumentResolver#resolveArgument æ–¹æ³•
     return resolver.resolveArgument(parameter, mavContainer, webRequest, binderFactory);
 }
 
 private HandlerMethodArgumentResolver getArgumentResolver(MethodParameter parameter) {
     HandlerMethodArgumentResolver result = this.argumentResolverCache.get(parameter);
     if (result == null) {
-        // ±éÀúËùÓĞµÄ½âÎöÆ÷
+        // éå†æ‰€æœ‰çš„è§£æå™¨
         for (HandlerMethodArgumentResolver resolver : this.argumentResolvers) {
-            // ÕÒµ½ÆäÖĞÒ»¸ö½âÎöÆ÷£¬·µ»Ø
-            // µ÷ÓÃ HandlerMethodArgumentResolver#supportsParameter ·½·¨
+            // æ‰¾åˆ°å…¶ä¸­ä¸€ä¸ªè§£æå™¨ï¼Œè¿”å›
+            // è°ƒç”¨ HandlerMethodArgumentResolver#supportsParameter æ–¹æ³•
             if (resolver.supportsParameter(parameter)) {
                 result = resolver;
                 this.argumentResolverCache.put(parameter, result);
@@ -325,17 +325,17 @@ private HandlerMethodArgumentResolver getArgumentResolver(MethodParameter parame
 
 ```
 
-ÕâÁ½¸ö·½·¨Ö÷ÒªÊÇ±éÀú½âÎöÆ÷£¬È»ºóµ÷ÓÃ `HandlerMethodArgumentResolver#supportsParameter` Óë `HandlerMethodArgumentResolver#resolveArgument` ´¦Àí¾ßÌåµÄ²Ù×÷¡£`HandlerMethodArgumentResolver` ÊÇ¸ö½Ó¿Ú£¬ÀïÃæ½öÓĞÁ½¸ö·½·¨£º
+è¿™ä¸¤ä¸ªæ–¹æ³•ä¸»è¦æ˜¯éå†è§£æå™¨ï¼Œç„¶åè°ƒç”¨ `HandlerMethodArgumentResolver#supportsParameter` ä¸ `HandlerMethodArgumentResolver#resolveArgument` å¤„ç†å…·ä½“çš„æ“ä½œã€‚`HandlerMethodArgumentResolver` æ˜¯ä¸ªæ¥å£ï¼Œé‡Œé¢ä»…æœ‰ä¸¤ä¸ªæ–¹æ³•ï¼š
 
 ```
 public interface HandlerMethodArgumentResolver {
     /**
-     * µ±Ç°ÊÇ·ñÖ§³Ö´¦Àíµ±Ç°²ÎÊı
+     * å½“å‰æ˜¯å¦æ”¯æŒå¤„ç†å½“å‰å‚æ•°
      */
     boolean supportsParameter(MethodParameter parameter);
 
     /**
-     * ¾ßÌåµÄ½âÎö²Ù×÷
+     * å…·ä½“çš„è§£ææ“ä½œ
      */
     @Nullable
     Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewContainer mavContainer,
@@ -344,15 +344,15 @@ public interface HandlerMethodArgumentResolver {
 
 ```
 
-Õâ¸ö¾ÍÊÇÕæÕıµÄ²ÎÊı½âÎöÆ÷ÁË¡£ÔÚ springmvc ÖĞ£¬Ìá¹©ÁË¶àÉÙÖÖ²ÎÊı½âÎöÆ÷ÄØ£¿¾­¹ı±¾ÈËµÄµ÷ÊÔ£¬·¢ÏÖ¶à´ï 26 ¸ö£º
+è¿™ä¸ªå°±æ˜¯çœŸæ­£çš„å‚æ•°è§£æå™¨äº†ã€‚åœ¨ springmvc ä¸­ï¼Œæä¾›äº†å¤šå°‘ç§å‚æ•°è§£æå™¨å‘¢ï¼Ÿç»è¿‡æœ¬äººçš„è°ƒè¯•ï¼Œå‘ç°å¤šè¾¾ 26 ä¸ªï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-fd30bc847fc2cf7082de3731e68df6ae5f9.png) ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-894b391bbe4567734ee7237d900bc55ee31.png)
 
-ÕıÊÇÔÚÕâĞ©²ÎÊı½âÎöÆ÷µÄ°ïÖúÏÂ£¬springmvc ÄÜÖ§³Ö¶àÖÖ²ÎÊı½ÓÊÕ·½Ê½£¡¶ÔÓÚ²ÎÊı½âÎöÆ÷£¬ÓÉÓÚÉè¼Æ±È½Ï¸´ÔÓ£¬Éæ¼°¶àÖÖ´«²Î·½Ê½£¬±¾ÎÄ²¢²»ÏëÕ¹¿ªÌÖÂÛ£¬¸ĞĞËÈ¤µÄĞ¡»ï°é¿É×ÔĞĞ²éÔÄÏà¹ØÎÄµµ¡£
+æ­£æ˜¯åœ¨è¿™äº›å‚æ•°è§£æå™¨çš„å¸®åŠ©ä¸‹ï¼Œspringmvc èƒ½æ”¯æŒå¤šç§å‚æ•°æ¥æ”¶æ–¹å¼ï¼å¯¹äºå‚æ•°è§£æå™¨ï¼Œç”±äºè®¾è®¡æ¯”è¾ƒå¤æ‚ï¼Œæ¶‰åŠå¤šç§ä¼ å‚æ–¹å¼ï¼Œæœ¬æ–‡å¹¶ä¸æƒ³å±•å¼€è®¨è®ºï¼Œæ„Ÿå…´è¶£çš„å°ä¼™ä¼´å¯è‡ªè¡ŒæŸ¥é˜…ç›¸å…³æ–‡æ¡£ã€‚
 
-#### Ö´ĞĞ handler ·½·¨
+#### æ‰§è¡Œ handler æ–¹æ³•
 
-´¦ÀíÍê²ÎÊı½âÎöºó£¬¾Í¿ªÊ¼Ö´ĞĞ handler ·½·¨ÁË¡£ÈÃÎÒÃÇ»Øµ½ `InvocableHandlerMethod#invokeForRequest` ·½·¨£º
+å¤„ç†å®Œå‚æ•°è§£æåï¼Œå°±å¼€å§‹æ‰§è¡Œ handler æ–¹æ³•äº†ã€‚è®©æˆ‘ä»¬å›åˆ° `InvocableHandlerMethod#invokeForRequest` æ–¹æ³•ï¼š
 
 > InvocableHandlerMethod#invokeForRequest
 
@@ -360,23 +360,23 @@ public interface HandlerMethodArgumentResolver {
 @Nullable
 public Object invokeForRequest(NativeWebRequest request, @Nullable ModelAndViewContainermavContainer,
         Object... providedArgs) throws Exception {
-    // ´¦Àí²ÎÊı°ó¶¨
+    // å¤„ç†å‚æ•°ç»‘å®š
     Object[] args = getMethodArgumentValues(request, mavContainer, providedArgs);
-    // ·´Éäµ÷ÓÃ·½·¨
+    // åå°„è°ƒç”¨æ–¹æ³•
     return doInvoke(args);
 }
 
 ```
 
-½øÈë `doInvoke` ·½·¨£º
+è¿›å…¥ `doInvoke` æ–¹æ³•ï¼š
 
 ```
 @Nullable
 protected Object doInvoke(Object... args) throws Exception {
-    // Ê¹ÓÃ·´ÉäÖ´ĞĞ·½·¨
+    // ä½¿ç”¨åå°„æ‰§è¡Œæ–¹æ³•
     ReflectionUtils.makeAccessible(getBridgedMethod());
     try {
-        // ÕâÀï¾ÍÊÇ·´Éä²Ù×÷
+        // è¿™é‡Œå°±æ˜¯åå°„æ“ä½œ
         return getBridgedMethod().invoke(getBean(), args);
     }
     catch (...) {
@@ -386,22 +386,22 @@ protected Object doInvoke(Object... args) throws Exception {
 
 ```
 
-Õâ¸ö·½·¨ºÜ¼òµ¥£¬¾ÍÊÇÀûÓÃ·´ÉäÀ´½øĞĞ·½·¨Ö´ĞĞµÄ£¬¾Í²»¹ı¶à·ÖÎöÁË¡£
+è¿™ä¸ªæ–¹æ³•å¾ˆç®€å•ï¼Œå°±æ˜¯åˆ©ç”¨åå°„æ¥è¿›è¡Œæ–¹æ³•æ‰§è¡Œçš„ï¼Œå°±ä¸è¿‡å¤šåˆ†æäº†ã€‚
 
-#### ´¦Àí·µ»Ø²ÎÊı
+#### å¤„ç†è¿”å›å‚æ•°
 
-ÈÃÎÒÃÇ»Øµ½ `ServletInvocableHandlerMethod#invokeAndHandle` ·½·¨£º
+è®©æˆ‘ä»¬å›åˆ° `ServletInvocableHandlerMethod#invokeAndHandle` æ–¹æ³•ï¼š
 
 > ServletInvocableHandlerMethod#invokeAndHandle
 
 ```
 public void invokeAndHandle(ServletWebRequest webRequest, ModelAndViewContainer mavContainer,
         Object... providedArgs) throws Exception {
-    // Ö´ĞĞhandle·½·¨
+    // æ‰§è¡Œhandleæ–¹æ³•
     Object returnValue = invokeForRequest(webRequest, mavContainer, providedArgs);
     ...
     try {
-        // ´¦Àí·µ»Ø½á¹û
+        // å¤„ç†è¿”å›ç»“æœ
         this.returnValueHandlers.handleReturnValue(
                 returnValue, getReturnValueType(returnValue), mavContainer, webRequest);
     }
@@ -412,7 +412,7 @@ public void invokeAndHandle(ServletWebRequest webRequest, ModelAndViewContainer 
 
 ```
 
-´¦ÀíÍê·½·¨Ö´ĞĞºó£¬½Ó×Å¾Í´¦Àí·µ»Ø½á¹û£º
+å¤„ç†å®Œæ–¹æ³•æ‰§è¡Œåï¼Œæ¥ç€å°±å¤„ç†è¿”å›ç»“æœï¼š
 
 > HandlerMethodReturnValueHandlerComposite#handleReturnValue
 
@@ -420,7 +420,7 @@ public void invokeAndHandle(ServletWebRequest webRequest, ModelAndViewContainer 
 @Override
 public void handleReturnValue(@Nullable Object returnValue, MethodParameter returnType,
         ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception {
-    // ¸ù¾İ·µ»ØÀàĞÍÕÒÒ»¸öºÏÊÊµÄhandlerÀ´´¦Àí·µ»ØÊı¾İ
+    // æ ¹æ®è¿”å›ç±»å‹æ‰¾ä¸€ä¸ªåˆé€‚çš„handleræ¥å¤„ç†è¿”å›æ•°æ®
     HandlerMethodReturnValueHandler handler = selectHandler(returnValue, returnType);
     if (handler == null) {
         throw new IllegalArgumentException(...);
@@ -431,7 +431,7 @@ public void handleReturnValue(@Nullable Object returnValue, MethodParameter retu
 @Nullable
 private HandlerMethodReturnValueHandler selectHandler(@Nullable Object value, MethodParameterreturnType) {
     boolean isAsyncValue = isAsyncReturnValue(value, returnType);
-    // ±éÀú£¬Öğ¸öÅĞ¶ÏÊÇ·ñÄÜ´¦Àíµ±Ç°·µ»ØÀàĞÍ
+    // éå†ï¼Œé€ä¸ªåˆ¤æ–­æ˜¯å¦èƒ½å¤„ç†å½“å‰è¿”å›ç±»å‹
     for (HandlerMethodReturnValueHandler handler : this.returnValueHandlers) {
         if (isAsyncValue && !(handler instanceof AsyncHandlerMethodReturnValueHandler)) {
             continue;
@@ -445,18 +445,18 @@ private HandlerMethodReturnValueHandler selectHandler(@Nullable Object value, Me
 
 ```
 
-»ñÈ¡ `ReturnValueHandler` µÄÌ×Â·ÓëÇ°Ãæ»ñÈ¡ `ArgumentResolver` µÄÌ×Â·Ïà¹ØÎŞ¼¸£¬`ReturnValueHandler` ÊÇ `HandlerMethodReturnValueHandler` µÄ×ÓÀà£¬`HandlerMethodReturnValueHandler` ´úÂëÈçÏÂ£º
+è·å– `ReturnValueHandler` çš„å¥—è·¯ä¸å‰é¢è·å– `ArgumentResolver` çš„å¥—è·¯ç›¸å…³æ— å‡ ï¼Œ`ReturnValueHandler` æ˜¯ `HandlerMethodReturnValueHandler` çš„å­ç±»ï¼Œ`HandlerMethodReturnValueHandler` ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public interface HandlerMethodReturnValueHandler {
 
     /**
-     * ÅĞ¶Ïµ±Ç°ReturnValueHandlerÄÜ·ñ´¦Àí´«ÈëµÄreturnType
+     * åˆ¤æ–­å½“å‰ReturnValueHandlerèƒ½å¦å¤„ç†ä¼ å…¥çš„returnType
      */
     boolean supportsReturnType(MethodParameter returnType);
 
     /**
-     * ¾ßÌåµÄ´¦ÀíÂß¼­
+     * å…·ä½“çš„å¤„ç†é€»è¾‘
      */
     void handleReturnValue(@Nullable Object returnValue, MethodParameter returnType,
             ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception;
@@ -465,18 +465,18 @@ public interface HandlerMethodReturnValueHandler {
 
 ```
 
-Í¬Ç°Ãæ²ÎÊı½âÎöÆ÷Ò»Ñù£¬Õâ¸ö½Ó¿ÚÀïÒ²ÓĞÁ½¸ö·½·¨£º
+åŒå‰é¢å‚æ•°è§£æå™¨ä¸€æ ·ï¼Œè¿™ä¸ªæ¥å£é‡Œä¹Ÿæœ‰ä¸¤ä¸ªæ–¹æ³•ï¼š
 
-*   `boolean supportsReturnType(xxx)`£ºÅĞ¶Ïµ±Ç° `ReturnValueHandler` ÄÜ·ñ´¦Àí´«ÈëµÄ `returnType`
-*   `void handleReturnValue(xxx)`£º¾ßÌåµÄ´¦ÀíÂß¼­
+*   `boolean supportsReturnType(xxx)`ï¼šåˆ¤æ–­å½“å‰ `ReturnValueHandler` èƒ½å¦å¤„ç†ä¼ å…¥çš„ `returnType`
+*   `void handleReturnValue(xxx)`ï¼šå…·ä½“çš„å¤„ç†é€»è¾‘
 
-Í¬ÑùµØ£¬springmvc Ò²Ìá¹©ÁË·Ç³£¶àµÄÊµÏÖÀ´´¦Àí·µ»Ø²ÎÊı£º
+åŒæ ·åœ°ï¼Œspringmvc ä¹Ÿæä¾›äº†éå¸¸å¤šçš„å®ç°æ¥å¤„ç†è¿”å›å‚æ•°ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8e3c1fd4dca7c13efbceac5800e26145963.png)
 
-¶ÔÓÚ²ÎÊıµÄ·µ»Ø£¬ÎÒÃÇÀ´¿´Ò»¸ö¼òµ¥µÄÊ¾Àı£º
+å¯¹äºå‚æ•°çš„è¿”å›ï¼Œæˆ‘ä»¬æ¥çœ‹ä¸€ä¸ªç®€å•çš„ç¤ºä¾‹ï¼š
 
-Èç¹ûÎÒÃÇÏñÕâÑù·µ»ØÖµÊ±£º
+å¦‚æœæˆ‘ä»¬åƒè¿™æ ·è¿”å›å€¼æ—¶ï¼š
 
 ```
 @Controller
@@ -491,7 +491,7 @@ public class XxxController {
 
 ```
 
-·µ»Øµ½Ò³ÃæµÄ½«ÊÇÒ»¸öÊÓÍ¼£¬¶ÔÓ¦µÄ `HandlerMethodReturnValueHandler` Îª `ViewNameMethodReturnValueHandler`£º
+è¿”å›åˆ°é¡µé¢çš„å°†æ˜¯ä¸€ä¸ªè§†å›¾ï¼Œå¯¹åº”çš„ `HandlerMethodReturnValueHandler` ä¸º `ViewNameMethodReturnValueHandler`ï¼š
 
 ```
 public class ViewNameMethodReturnValueHandler implements HandlerMethodReturnValueHandler {
@@ -499,29 +499,29 @@ public class ViewNameMethodReturnValueHandler implements HandlerMethodReturnValu
     @Nullable
     private String[] redirectPatterns;
 
-    // Ê¡ÂÔ redirectPatterns µÄsetterÓëgetter·½·¨
+    // çœç•¥ redirectPatterns çš„setterä¸getteræ–¹æ³•
     ...
 
     @Override
     public boolean supportsReturnType(MethodParameter returnType) {
         Class<?> paramType = returnType.getParameterType();
-        // Ö§³Ö´¦ÀíµÄ·µ»ØÖµÀàĞÍ£º·µ»ØÖµÀàĞÍÎªvoid£¬»òÕßÎª×Ö·û´®ÀàĞÍ
+        // æ”¯æŒå¤„ç†çš„è¿”å›å€¼ç±»å‹ï¼šè¿”å›å€¼ç±»å‹ä¸ºvoidï¼Œæˆ–è€…ä¸ºå­—ç¬¦ä¸²ç±»å‹
         return (void.class == paramType || CharSequence.class.isAssignableFrom(paramType));
     }
 
     /**
-     * ¾ßÌåµÄ´¦ÀíÂß¼­
+     * å…·ä½“çš„å¤„ç†é€»è¾‘
      */
     @Override
     public void handleReturnValue(@Nullable Object returnValue, MethodParameter returnType,
             ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception {
 
         if (returnValue instanceof CharSequence) {
-            // viewName ¾ÍÊÇ·µ»ØÖµ
+            // viewName å°±æ˜¯è¿”å›å€¼
             String viewName = returnValue.toString();
             mavContainer.setViewName(viewName);
             if (isRedirectViewName(viewName)) {
-                // ÊÇ·ñĞèÒªÌø×ª
+                // æ˜¯å¦éœ€è¦è·³è½¬
                 mavContainer.setRedirectModelScenario(true);
             }
         }
@@ -531,12 +531,12 @@ public class ViewNameMethodReturnValueHandler implements HandlerMethodReturnValu
     }
 
     /**
-     * ÅĞ¶ÏÊÇ·ñĞèÒªÌø×ª
+     * åˆ¤æ–­æ˜¯å¦éœ€è¦è·³è½¬
      */
     protected boolean isRedirectViewName(String viewName) {
-        // this.redirectPatterns Ä¬ÈÏÎªnull£¬¿ÉÒÔ×ÔĞĞµ÷ÓÃ setter ·½·¨ÉèÖÃ
+        // this.redirectPatterns é»˜è®¤ä¸ºnullï¼Œå¯ä»¥è‡ªè¡Œè°ƒç”¨ setter æ–¹æ³•è®¾ç½®
         return (PatternMatchUtils.simpleMatch(this.redirectPatterns, viewName) 
-            // Æ¥Åä redirect: ¿ªÍ·£¬Ò²¾ÍÊÇËµ£¬Èç¹ûÎÒÃÇ·µ»Ø "redirect:index"£¬¾Í±íÃ÷¸Ã½á¹ûĞèÒªÌø×ª
+            // åŒ¹é… redirect: å¼€å¤´ï¼Œä¹Ÿå°±æ˜¯è¯´ï¼Œå¦‚æœæˆ‘ä»¬è¿”å› "redirect:index"ï¼Œå°±è¡¨æ˜è¯¥ç»“æœéœ€è¦è·³è½¬
             || viewName.startsWith("redirect:"));
     }
 
@@ -544,11 +544,11 @@ public class ViewNameMethodReturnValueHandler implements HandlerMethodReturnValu
 
 ```
 
-Õâ¸öÀà±È½Ï¼òµ¥£¬¹Ø¼ü²¿·ÖÒÑÔÚ´úÂëÖĞ×÷ÁË×¢ÊÍ£¬ÕâÀï¾Í²»¶àËµÁË¡£ÖµµÃÒ»ÌáµÄÊÇ£¬ÔÚ `handleReturnValue(xxx)` ·½·¨ÖĞ£¬springmvc ½«·µ»ØµÄ×Ö·û´®ÉèÖÃÎª `viewName` ĞèÒª×¢ÒâÏÂ£¬ºóÃæÔÚ´¦ÀíÊÓÍ¼Ê±£¬»áÀûÓÃÕâ¸ö `viewName` ÄÃµ½¶ÔÓ¦µÄ `View`¡£
+è¿™ä¸ªç±»æ¯”è¾ƒç®€å•ï¼Œå…³é”®éƒ¨åˆ†å·²åœ¨ä»£ç ä¸­ä½œäº†æ³¨é‡Šï¼Œè¿™é‡Œå°±ä¸å¤šè¯´äº†ã€‚å€¼å¾—ä¸€æçš„æ˜¯ï¼Œåœ¨ `handleReturnValue(xxx)` æ–¹æ³•ä¸­ï¼Œspringmvc å°†è¿”å›çš„å­—ç¬¦ä¸²è®¾ç½®ä¸º `viewName` éœ€è¦æ³¨æ„ä¸‹ï¼Œåé¢åœ¨å¤„ç†è§†å›¾æ—¶ï¼Œä¼šåˆ©ç”¨è¿™ä¸ª `viewName` æ‹¿åˆ°å¯¹åº”çš„ `View`ã€‚
 
-#### »ñÈ¡ ModelAndView
+#### è·å– ModelAndView
 
-ÈÃÎÒÃÇ»Øµ½ `RequestMappingHandlerAdapter#invokeHandlerMethod` ·½·¨£º
+è®©æˆ‘ä»¬å›åˆ° `RequestMappingHandlerAdapter#invokeHandlerMethod` æ–¹æ³•ï¼š
 
 ```
 @Nullable
@@ -557,12 +557,12 @@ protected ModelAndView invokeHandlerMethod(HttpServletRequest request,
     ServletWebRequest webRequest = new ServletWebRequest(request, response);
     try {
         ...
-        // Ö´ĞĞControllerµÄ·½·¨
+        // æ‰§è¡ŒControllerçš„æ–¹æ³•
         invocableMethod.invokeAndHandle(webRequest, mavContainer);
         if (asyncManager.isConcurrentHandlingStarted()) {
             return null;
         }
-        // ´¦ÀíÖ´ĞĞ½á¹û£¬´ÓÖĞÄÃµ½ ModelAndView
+        // å¤„ç†æ‰§è¡Œç»“æœï¼Œä»ä¸­æ‹¿åˆ° ModelAndView
         return getModelAndView(mavContainer, modelFactory, webRequest);
     }
     finally {
@@ -572,24 +572,24 @@ protected ModelAndView invokeHandlerMethod(HttpServletRequest request,
 
 ```
 
-Ö´ĞĞÍê `invocableMethod.invokeAndHandle(webRequest, mavContainer)` ·½·¨ºó½Ó×Å¾ÍÊÇ´ÓÖ´ĞĞ½á¹ûÖĞÄÃµ½ `ModelAndView` ÁË£¬½øÈë `RequestMappingHandlerAdapter#getModelAndView` ·½·¨£º
+æ‰§è¡Œå®Œ `invocableMethod.invokeAndHandle(webRequest, mavContainer)` æ–¹æ³•åæ¥ç€å°±æ˜¯ä»æ‰§è¡Œç»“æœä¸­æ‹¿åˆ° `ModelAndView` äº†ï¼Œè¿›å…¥ `RequestMappingHandlerAdapter#getModelAndView` æ–¹æ³•ï¼š
 
 ```
 private ModelAndView getModelAndView(ModelAndViewContainer mavContainer,
         ModelFactory modelFactory, NativeWebRequest webRequest) throws Exception {
-    // Õâ¸ö ModelFactory£¬¾ÍÊÇÇ°Ãæ»ñÈ¡µÄ °üº¬@ModelAttribute ×¢½âµÄ·½·¨
+    // è¿™ä¸ª ModelFactoryï¼Œå°±æ˜¯å‰é¢è·å–çš„ åŒ…å«@ModelAttribute æ³¨è§£çš„æ–¹æ³•
     modelFactory.updateModel(webRequest, mavContainer);
     if (mavContainer.isRequestHandled()) {
         return null;
     }
     ModelMap model = mavContainer.getModel();
-    // ´´½¨ÊÓÍ¼¶ÔÏó£¬°ÑmavContainer.getViewName()´«Èëµ½ModelAndViewµÄ¹¹Ôì·½·¨ÖĞ
+    // åˆ›å»ºè§†å›¾å¯¹è±¡ï¼ŒæŠŠmavContainer.getViewName()ä¼ å…¥åˆ°ModelAndViewçš„æ„é€ æ–¹æ³•ä¸­
     ModelAndView mav = new ModelAndView(mavContainer.getViewName(), 
             model, mavContainer.getStatus());
     if (!mavContainer.isViewReference()) {
         mav.setView((View) mavContainer.getView());
     }
-    // ´¦ÀíÖØ¶¨Ïò²ÎÊı
+    // å¤„ç†é‡å®šå‘å‚æ•°
     if (model instanceof RedirectAttributes) {
         Map<String, ?> flashAttributes = ((RedirectAttributes) model).getFlashAttributes();
         HttpServletRequest request = webRequest.getNativeRequest(HttpServletRequest.class);
@@ -602,13 +602,13 @@ private ModelAndView getModelAndView(ModelAndViewContainer mavContainer,
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`ModelAndView` ¾ÍÊÇ´ÓÇ°ÃæÖ´ĞĞ½á¹ûµÄ `viewName` µÃµ½µÄ¡£
+å¯ä»¥çœ‹åˆ°ï¼Œ`ModelAndView` å°±æ˜¯ä»å‰é¢æ‰§è¡Œç»“æœçš„ `viewName` å¾—åˆ°çš„ã€‚
 
-ÖÁ´Ë£¬`AbstractHandlerMethodAdapter#handle` Ö´ĞĞÍê±Ï¡£
+è‡³æ­¤ï¼Œ`AbstractHandlerMethodAdapter#handle` æ‰§è¡Œå®Œæ¯•ã€‚
 
-### 7\. Ö´ĞĞÀ¹½ØÆ÷£º`HandlerInterceptor#postHandle`
+### 7\. æ‰§è¡Œæ‹¦æˆªå™¨ï¼š`HandlerInterceptor#postHandle`
 
-ÈÃÎÒÃÇÔÙ»Øµ½ `DispatcherServlet#doDispatch` ·½·¨£º
+è®©æˆ‘ä»¬å†å›åˆ° `DispatcherServlet#doDispatch` æ–¹æ³•ï¼š
 
 > DispatcherServlet#doDispatch
 
@@ -620,17 +620,17 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
         ...
         try {
             ...
-            // 4.Í¨¹ıÉÏÃæ»ñÈ¡µ½µÄhandlerAdapterÀ´µ÷ÓÃhandle
+            // 4.é€šè¿‡ä¸Šé¢è·å–åˆ°çš„handlerAdapteræ¥è°ƒç”¨handle
             mv = ha.handle(processedRequest, response, mappedHandler.getHandler());
-            // 5.Èç¹ûº¯Êıµ÷ÓÃÃ»ÓĞ·µ»ØÊÓÍ¼ÔòÊ¹ÓÃÄ¬ÈÏµÄ
+            // 5.å¦‚æœå‡½æ•°è°ƒç”¨æ²¡æœ‰è¿”å›è§†å›¾åˆ™ä½¿ç”¨é»˜è®¤çš„
             applyDefaultViewName(processedRequest, mv);
-            // 6\. Ö´ĞĞÀ¹½ØÆ÷£¬ÔËĞĞ HandlerInterceptor#postHandle ·½·¨
+            // 6\. æ‰§è¡Œæ‹¦æˆªå™¨ï¼Œè¿è¡Œ HandlerInterceptor#postHandle æ–¹æ³•
             mappedHandler.applyPostHandle(processedRequest, response, mv);
         }
         catch (...) {
             ...
         }
-        // 7\. ´¦Àí·µ»Ø½á¹û£¬ÔÚÕâ¸ö·½·¨Àï»áÖ´ĞĞ HandlerInterceptor.afterCompletion
+        // 7\. å¤„ç†è¿”å›ç»“æœï¼Œåœ¨è¿™ä¸ªæ–¹æ³•é‡Œä¼šæ‰§è¡Œ HandlerInterceptor.afterCompletion
         processDispatchResult(processedRequest, response, mappedHandler, mv, dispatchException);
     }
     catch (...) {
@@ -640,7 +640,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 
 ```
 
-Ö´ĞĞÍê `handler` ·½·¨ºó£¬¾Í¿ªÊ¼Ö´ĞĞÀ¹½ØÆ÷µÄ `HandlerInterceptor#postHandle` ·½·¨ÁË£º
+æ‰§è¡Œå®Œ `handler` æ–¹æ³•åï¼Œå°±å¼€å§‹æ‰§è¡Œæ‹¦æˆªå™¨çš„ `HandlerInterceptor#postHandle` æ–¹æ³•äº†ï¼š
 
 > HandlerExecutionChain#applyPostHandle
 
@@ -649,7 +649,7 @@ void applyPostHandle(HttpServletRequest request, HttpServletResponse response,
         @NullableModelAndView mv) throws Exception {
     HandlerInterceptor[] interceptors = getInterceptors();
     if (!ObjectUtils.isEmpty(interceptors)) {
-        // ±éÀúÖ´ĞĞ postHandle(...) ·½·¨
+        // éå†æ‰§è¡Œ postHandle(...) æ–¹æ³•
         for (int i = interceptors.length - 1; i >= 0; i--) {
             HandlerInterceptor interceptor = interceptors[i];
             interceptor.postHandle(request, response, this.handler, mv);
@@ -659,10 +659,10 @@ void applyPostHandle(HttpServletRequest request, HttpServletResponse response,
 
 ```
 
-Õâ¸öÍ¬Ç°ÃæÖ´ĞĞÀ¹½ØÆ÷·½·¨ÀàËÆ£¬ÕâÀï¾Í²»¹ı¶à·ÖÎöÁË¡£ĞèÒªÇ¿µ÷µÄÊÇ£¬`HandlerInterceptor#postHandle` µÄÖ´ĞĞÊ±»úÊÇ**ÔÚÖ´ĞĞÍê `handler` ·½·¨ºóÖ®ºó£¬ÔÚÊÓÍ¼½âÎöÖ®Ç°**¡£Òò´Ë£¬ÎÒÃÇ¿ÉÒÔÔÚÀ¹½ØÆ÷µÄÕâ¸ö·½·¨Àï´¦ÀíÒ»Ğ©¶îÍâµÄäÖÈ¾²ÎÊı¡£
+è¿™ä¸ªåŒå‰é¢æ‰§è¡Œæ‹¦æˆªå™¨æ–¹æ³•ç±»ä¼¼ï¼Œè¿™é‡Œå°±ä¸è¿‡å¤šåˆ†æäº†ã€‚éœ€è¦å¼ºè°ƒçš„æ˜¯ï¼Œ`HandlerInterceptor#postHandle` çš„æ‰§è¡Œæ—¶æœºæ˜¯**åœ¨æ‰§è¡Œå®Œ `handler` æ–¹æ³•åä¹‹åï¼Œåœ¨è§†å›¾è§£æä¹‹å‰**ã€‚å› æ­¤ï¼Œæˆ‘ä»¬å¯ä»¥åœ¨æ‹¦æˆªå™¨çš„è¿™ä¸ªæ–¹æ³•é‡Œå¤„ç†ä¸€äº›é¢å¤–çš„æ¸²æŸ“å‚æ•°ã€‚
 
-ÏŞÓÚÆª·ù£¬±¾ÎÄ¾ÍÏÈµ½ÕâÀïÁË£¬request Ö´ĞĞµÄºóĞøÁ÷³Ì£¬ÎÒÃÇÏÂÆªÎÄÕÂÔÙ·ÖÎö¡£
+é™äºç¯‡å¹…ï¼Œæœ¬æ–‡å°±å…ˆåˆ°è¿™é‡Œäº†ï¼Œrequest æ‰§è¡Œçš„åç»­æµç¨‹ï¼Œæˆ‘ä»¬ä¸‹ç¯‡æ–‡ç« å†åˆ†æã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4741104](https://my.oschina.net/funcy/blog/4741104) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4741104](https://my.oschina.net/funcy/blog/4741104) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

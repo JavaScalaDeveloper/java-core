@@ -1,19 +1,19 @@
-Ç°ÃæµÄÎÄÕÂÖĞ£¬ÎÒÃÇ·ÖÎöÁË `DispatcherServlet` ³õÊ¼»¯Á÷³Ì£¬±¾ÎÄ½«À´·ÖÎö `RequestMapping` ³õÊ¼»¯Á÷³Ì¡£ÕâÀïËùËµµÄ `RequestMapping` ³õÊ¼»¯Á÷³Ì£¬Ö±¹ÛÀ´Ëµ£¬¾ÍÊÇ spring ´¦Àí `@RequestMaping` ×¢½âµÄ¹ı³Ì¡£
+å‰é¢çš„æ–‡ç« ä¸­ï¼Œæˆ‘ä»¬åˆ†æäº† `DispatcherServlet` åˆå§‹åŒ–æµç¨‹ï¼Œæœ¬æ–‡å°†æ¥åˆ†æ `RequestMapping` åˆå§‹åŒ–æµç¨‹ã€‚è¿™é‡Œæ‰€è¯´çš„ `RequestMapping` åˆå§‹åŒ–æµç¨‹ï¼Œç›´è§‚æ¥è¯´ï¼Œå°±æ˜¯ spring å¤„ç† `@RequestMaping` æ³¨è§£çš„è¿‡ç¨‹ã€‚
 
-### 1\. ÔÙÌ¸ `@EnableWebMvc`
+### 1\. å†è°ˆ `@EnableWebMvc`
 
-ÔÚ [spring mvc Ö® springmvc demo Óë @EnableWebMvc ×¢½â ](https://my.oschina.net/funcy/blog/4696657)Ò»ÎÄÖĞÌáµ½£¬spring Í¨¹ı `@EnableWebMvc` ×¢½âÀ´ÆôÓÃ mvc ¹¦ÄÜ£¬×îÖÕÍ¨¹ı `@Import` ×¢½âÎªÏîÄ¿ÒıÈëÁË `DelegatingWebMvcConfiguration.class`£¬¸ÃÀàÍ¨¹ı `@Bean` ×¢½âµÄ·½·¨Ïò spring ÖĞÒıÈë´óÁ¿µÄ mvc ×é¼ş£º
+åœ¨ [spring mvc ä¹‹ springmvc demo ä¸ @EnableWebMvc æ³¨è§£ ](https://my.oschina.net/funcy/blog/4696657)ä¸€æ–‡ä¸­æåˆ°ï¼Œspring é€šè¿‡ `@EnableWebMvc` æ³¨è§£æ¥å¯ç”¨ mvc åŠŸèƒ½ï¼Œæœ€ç»ˆé€šè¿‡ `@Import` æ³¨è§£ä¸ºé¡¹ç›®å¼•å…¥äº† `DelegatingWebMvcConfiguration.class`ï¼Œè¯¥ç±»é€šè¿‡ `@Bean` æ³¨è§£çš„æ–¹æ³•å‘ spring ä¸­å¼•å…¥å¤§é‡çš„ mvc ç»„ä»¶ï¼š
 
 *   `public RequestMappingHandlerMapping requestMappingHandlerMapping(...)`
 *   `public PathMatcher mvcPathMatcher()`
 *   `public UrlPathHelper mvcUrlPathHelper()`
 *   ...
 
-ÕâÃ´×é¼şÖĞ£¬Óë `@RequestMaping` ×¢½âÏà¹ØµÄÀà¾ÍÊÇ `RequestMappingHandlerMapping`.
+è¿™ä¹ˆç»„ä»¶ä¸­ï¼Œä¸ `@RequestMaping` æ³¨è§£ç›¸å…³çš„ç±»å°±æ˜¯ `RequestMappingHandlerMapping`.
 
-### 2. `RequestMappingHandlerMapping#afterPropertiesSet` ·½·¨
+### 2. `RequestMappingHandlerMapping#afterPropertiesSet` æ–¹æ³•
 
-`RequestMappingHandlerMapping` ÊÇ´´½¨ÊÇÔÚ `WebMvcConfigurationSupport` ÖĞ£º
+`RequestMappingHandlerMapping` æ˜¯åˆ›å»ºæ˜¯åœ¨ `WebMvcConfigurationSupport` ä¸­ï¼š
 
 ```
 @Bean
@@ -22,14 +22,14 @@ public RequestMappingHandlerMapping requestMappingHandlerMapping(
         @Qualifier("mvcConversionService") FormattingConversionService conversionService,
         @Qualifier("mvcResourceUrlProvider") ResourceUrlProvider resourceUrlProvider) {
 
-    // ´´½¨bean
+    // åˆ›å»ºbean
     RequestMappingHandlerMapping mapping = createRequestMappingHandlerMapping();
     mapping.setOrder(0);
     mapping.setInterceptors(getInterceptors(conversionService, resourceUrlProvider));
     mapping.setContentNegotiationManager(contentNegotiationManager);
     mapping.setCorsConfigurations(getCorsConfigurations());
 
-    // ´¦Àí¸÷ÖÖÅäÖÃ£¬ÕâÀï¾ÍÊÇÉÏÒ»ÆªÎÄÕÂÖĞÌáµ½µÄgetXxx()·½·¨»ñÈ¡ÅäÖÃ
+    // å¤„ç†å„ç§é…ç½®ï¼Œè¿™é‡Œå°±æ˜¯ä¸Šä¸€ç¯‡æ–‡ç« ä¸­æåˆ°çš„getXxx()æ–¹æ³•è·å–é…ç½®
     PathMatchConfigurer configurer = getPathMatchConfigurer();
     Boolean useSuffixPatternMatch = configurer.isUseSuffixPatternMatch();
     if (useSuffixPatternMatch != null) {
@@ -59,19 +59,19 @@ public RequestMappingHandlerMapping requestMappingHandlerMapping(
     return mapping;
 }
 
-// ´´½¨¶ÔÏó
+// åˆ›å»ºå¯¹è±¡
 protected RequestMappingHandlerMapping createRequestMappingHandlerMapping() {
     return new RequestMappingHandlerMapping();
 }
 
 ```
 
-Õâ¸ö·½·¨¾ÍÊÇÓÃÀ´´´½¨¶ÔÏó `RequestMappingHandlerMapping` ¶ÔÏóµÄ£¬ÏÈÊÇ´´½¨ÁËÒ»¸ö¶ÔÏó£¬È»ºóÉèÖÃÁË¸÷ÖÖÊôĞÔ¡£¶ÔÏó´´½¨ºó£¬¼ÌĞø½øĞĞ spring bean µÄÉúÃüÖÜÆÚ£¬¼Ì¶øµ÷ÓÃ `RequestMappingHandlerMapping#afterPropertiesSet` ·½·¨£º
+è¿™ä¸ªæ–¹æ³•å°±æ˜¯ç”¨æ¥åˆ›å»ºå¯¹è±¡ `RequestMappingHandlerMapping` å¯¹è±¡çš„ï¼Œå…ˆæ˜¯åˆ›å»ºäº†ä¸€ä¸ªå¯¹è±¡ï¼Œç„¶åè®¾ç½®äº†å„ç§å±æ€§ã€‚å¯¹è±¡åˆ›å»ºåï¼Œç»§ç»­è¿›è¡Œ spring bean çš„ç”Ÿå‘½å‘¨æœŸï¼Œç»§è€Œè°ƒç”¨ `RequestMappingHandlerMapping#afterPropertiesSet` æ–¹æ³•ï¼š
 
 ```
 @Override
 public void afterPropertiesSet() {
-    // ÅäÖÃÁËÒ»Ğ©ÊôĞÔ
+    // é…ç½®äº†ä¸€äº›å±æ€§
     this.config = new RequestMappingInfo.BuilderConfiguration();
     this.config.setUrlPathHelper(getUrlPathHelper());
     this.config.setPathMatcher(getPathMatcher());
@@ -79,13 +79,13 @@ public void afterPropertiesSet() {
     this.config.setTrailingSlashMatch(this.useTrailingSlashMatch);
     this.config.setRegisteredSuffixPatternMatch(this.useRegisteredSuffixPatternMatch);
     this.config.setContentNegotiationManager(getContentNegotiationManager());
-    // µ÷ÓÃ¸¸ÀàµÄ·½·¨
+    // è°ƒç”¨çˆ¶ç±»çš„æ–¹æ³•
     super.afterPropertiesSet();
 }
 
 ```
 
-Õâ¸ö·½·¨ÏÈÊÇ ÅäÖÃÁËÒ»Ğ©ÊôĞÔ£¬È»ºóÔÙµ÷ÓÃ¸¸ÀàµÄ `afterPropertiesSet()`£¬¼ÌĞø×·ÏÂÈ¥£º
+è¿™ä¸ªæ–¹æ³•å…ˆæ˜¯ é…ç½®äº†ä¸€äº›å±æ€§ï¼Œç„¶åå†è°ƒç”¨çˆ¶ç±»çš„ `afterPropertiesSet()`ï¼Œç»§ç»­è¿½ä¸‹å»ï¼š
 
 > AbstractHandlerMethodMapping#afterPropertiesSet
 
@@ -96,28 +96,28 @@ public void afterPropertiesSet() {
 }
 
 protected void initHandlerMethods() {
-    // µ÷ÓÃgetCandidateBeanNames()»ñÈ¡ÈİÆ÷ÖĞËùÓĞbeanµÄbeanName£¬
-    // È»ºó°¤¸ö´¦ÀíÈİÆ÷ÖĞËùÓĞ bean
+    // è°ƒç”¨getCandidateBeanNames()è·å–å®¹å™¨ä¸­æ‰€æœ‰beançš„beanNameï¼Œ
+    // ç„¶åæŒ¨ä¸ªå¤„ç†å®¹å™¨ä¸­æ‰€æœ‰ bean
     for (String beanName : getCandidateBeanNames()) {
         if (!beanName.startsWith(SCOPED_TARGET_NAME_PREFIX)) {
-            // Öğ¸ö bean ´¦Àí£¬¼ÌĞøÍùÏÂ¿´
+            // é€ä¸ª bean å¤„ç†ï¼Œç»§ç»­å¾€ä¸‹çœ‹
             processCandidateBean(beanName);
         }
     }
-    // Õâ¸ö·½·¨½ö´òÁËÒ»¸öÈÕÖ¾£¬Ã»Ê²Ã´¹¦ÄÜ
+    // è¿™ä¸ªæ–¹æ³•ä»…æ‰“äº†ä¸€ä¸ªæ—¥å¿—ï¼Œæ²¡ä»€ä¹ˆåŠŸèƒ½
     handlerMethodsInitialized(getHandlerMethods());
 }
 
 ```
 
-spring ÔÚ´¦ÀíÊ±£¬»ñÈ¡ÁËÈİÆ÷ÖĞËùÓĞ bean µÄ beanName£¬È»ºó¶Ô beanName ½øĞĞ°¤¸ö´¦Àí£¬¼ÌĞø¿´ `AbstractHandlerMethodMapping#processCandidateBean`£º
+spring åœ¨å¤„ç†æ—¶ï¼Œè·å–äº†å®¹å™¨ä¸­æ‰€æœ‰ bean çš„ beanNameï¼Œç„¶åå¯¹ beanName è¿›è¡ŒæŒ¨ä¸ªå¤„ç†ï¼Œç»§ç»­çœ‹ `AbstractHandlerMethodMapping#processCandidateBean`ï¼š
 
 ```
-// ´¦ÀíbeanµÄ¾ßÌåÂß¼­
+// å¤„ç†beançš„å…·ä½“é€»è¾‘
 protected void processCandidateBean(String beanName) {
-    // »ñÈ¡ beanName ¶ÔÓ¦µÄ beanType
-    // 1\. Èç¹ûÊÇcglib´úÀí£¬beanType Îª Xxx$$EnhancerBySpringCGLIB
-    // 2\. Èç¹ûÊÇjdk¶¯Ì¬´úÀí£¬beanType Îª com.sum.proxy.$Proxy
+    // è·å– beanName å¯¹åº”çš„ beanType
+    // 1\. å¦‚æœæ˜¯cglibä»£ç†ï¼ŒbeanType ä¸º Xxx$$EnhancerBySpringCGLIB
+    // 2\. å¦‚æœæ˜¯jdkåŠ¨æ€ä»£ç†ï¼ŒbeanType ä¸º com.sum.proxy.$Proxy
     Class<?> beanType = null;
     try {
         beanType = obtainApplicationContext().getType(beanName);
@@ -125,60 +125,60 @@ protected void processCandidateBean(String beanName) {
     catch (Throwable ex) {
         ...
     }
-    // isHandler: beanTypeÉÏÊÇ·ñÓĞ @Controller »ò @RequestMapping ×¢½â
+    // isHandler: beanTypeä¸Šæ˜¯å¦æœ‰ @Controller æˆ– @RequestMapping æ³¨è§£
     if (beanType != null && isHandler(beanType)) {
-        // ´¦Àí handlerMethods
+        // å¤„ç† handlerMethods
         detectHandlerMethods(beanName);
     }
 }
 
 ```
 
-Õâ¸ö·½·¨»¹ÊÇ±È½Ï¼òµ¥£¬Ö÷ÒªÊÇ»ñÈ¡ `beanName` ¶ÔÓ¦µÄ `beanType`£¬È»ºóÅĞ¶ÏÊÇ·ñÓĞ `@Controller/@RequestMapping` ×¢½â£¬Ö®ºó¾Íµ÷ÓÃ `AbstractHandlerMethodMapping#detectHandlerMethods` ½øÒ»²½´¦Àí¡£
+è¿™ä¸ªæ–¹æ³•è¿˜æ˜¯æ¯”è¾ƒç®€å•ï¼Œä¸»è¦æ˜¯è·å– `beanName` å¯¹åº”çš„ `beanType`ï¼Œç„¶ååˆ¤æ–­æ˜¯å¦æœ‰ `@Controller/@RequestMapping` æ³¨è§£ï¼Œä¹‹åå°±è°ƒç”¨ `AbstractHandlerMethodMapping#detectHandlerMethods` è¿›ä¸€æ­¥å¤„ç†ã€‚
 
-²»¹ı¶ÔÓÚ `isHandler(Class)` ĞèÒª×ÅÖØËµÃ÷ÏÂ£º
+ä¸è¿‡å¯¹äº `isHandler(Class)` éœ€è¦ç€é‡è¯´æ˜ä¸‹ï¼š
 
-1. ÄÜÊ¶±ğ `@Controller`£¬Í¬ÑùÄÜÊ¶±ğ `@RestController`£¬ÉõÖÁÆäËû±ê×¢ `@Controller` µÄ×¢½â£¬¼´ÄÜÊ¶±ğÈçÏÂ×¢½â£º
+1. èƒ½è¯†åˆ« `@Controller`ï¼ŒåŒæ ·èƒ½è¯†åˆ« `@RestController`ï¼Œç”šè‡³å…¶ä»–æ ‡æ³¨ `@Controller` çš„æ³¨è§£ï¼Œå³èƒ½è¯†åˆ«å¦‚ä¸‹æ³¨è§£ï¼š
 
    ```
-   // ±ê¼ÇÁË @Controller
+   // æ ‡è®°äº† @Controller
    @Controller
-   // Ê¡ÂÔÆäËû×¢½â
+   // çœç•¥å…¶ä»–æ³¨è§£
    public @interface XxxController {
        ...
    }
    
    ```
 
-2. Èç¹û `beanName` ¶ÔÓ¦ bean ÊÇ cglib ´úÀí bean£¬beanType Îª `Xxx$$EnhancerBySpringCGLIB`£¬ÄÜÊ¶±ğÆä¸¸Àà (Ò²¾ÍÊÇÄ¿±êÀà) ÉÏµÄ `@Controller/@ReestMapping`;
+2. å¦‚æœ `beanName` å¯¹åº” bean æ˜¯ cglib ä»£ç† beanï¼ŒbeanType ä¸º `Xxx$$EnhancerBySpringCGLIB`ï¼Œèƒ½è¯†åˆ«å…¶çˆ¶ç±» (ä¹Ÿå°±æ˜¯ç›®æ ‡ç±») ä¸Šçš„ `@Controller/@ReestMapping`;
 
-3. Èç¹û `beanName` ¶ÔÓ¦µÄ bean ÊÇ jdk ¶¯Ì¬´úÀí bean£¬beanType Îª `com.sum.proxy.$Proxy`£¬ÄÜÊ¶±ğÆä¸¸½Ó¿ÚÉÏµÄ `@Controller/@RequestMapping`;
+3. å¦‚æœ `beanName` å¯¹åº”çš„ bean æ˜¯ jdk åŠ¨æ€ä»£ç† beanï¼ŒbeanType ä¸º `com.sum.proxy.$Proxy`ï¼Œèƒ½è¯†åˆ«å…¶çˆ¶æ¥å£ä¸Šçš„ `@Controller/@RequestMapping`;
 
-4. Èç¹û beanType ÊÇ `com.sum.proxy.$Proxy`(jdk ¶¯Ì¬´úÀíÀà)£¬** ÎŞ·¨Ê¶±ğÆäÄ¿±êÀàÉÏµÄ `@Controller/@RequestMapping` ** µÄ£»
+4. å¦‚æœ beanType æ˜¯ `com.sum.proxy.$Proxy`(jdk åŠ¨æ€ä»£ç†ç±»)ï¼Œ** æ— æ³•è¯†åˆ«å…¶ç›®æ ‡ç±»ä¸Šçš„ `@Controller/@RequestMapping` ** çš„ï¼›
 
-5. ±ê×¢ `@Controller/@RequestMapping` µÄÀàÒªÊµÏÖ jdk ¶¯Ì¬´úÀí£¬ĞèÒª½« `@Controller/@RequestMapping` ·ÅÔÚ½Ó¿Ú¼°½Ó¿ÚµÄ·½·¨ÉÏ¡£
+5. æ ‡æ³¨ `@Controller/@RequestMapping` çš„ç±»è¦å®ç° jdk åŠ¨æ€ä»£ç†ï¼Œéœ€è¦å°† `@Controller/@RequestMapping` æ”¾åœ¨æ¥å£åŠæ¥å£çš„æ–¹æ³•ä¸Šã€‚
 
-µ½ÁËÕâÀï£¬´«Èë `AbstractHandlerMethodMapping#detectHandlerMethods` µÄ `beanType` ¶¼ÊÇ±ê×¢ÁË `@Controller/@RequestMapping` µÄÀà»ò½Ó¿ÚÁË¡£
+åˆ°äº†è¿™é‡Œï¼Œä¼ å…¥ `AbstractHandlerMethodMapping#detectHandlerMethods` çš„ `beanType` éƒ½æ˜¯æ ‡æ³¨äº† `@Controller/@RequestMapping` çš„ç±»æˆ–æ¥å£äº†ã€‚
 
 ### 3. `AbstractHandlerMethodMapping#detectHandlerMethods`
 
-¼ÌĞø¿´¿´ `AbstractHandlerMethodMapping#detectHandlerMethods` µÄÄÚÈİ£º
+ç»§ç»­çœ‹çœ‹ `AbstractHandlerMethodMapping#detectHandlerMethods` çš„å†…å®¹ï¼š
 
 ```
-// ¼ì²âhandler·½·¨
+// æ£€æµ‹handleræ–¹æ³•
 protected void detectHandlerMethods(Object handler) {
     Class<?> handlerType = (handler instanceof String ?
             obtainApplicationContext().getType((String) handler) : handler.getClass());
     if (handlerType != null) {
-        // 1\. Õë¶Ôcglib´úÀí¶ÔÏó£¬µÃµ½Æä¸¸Àà£¬Ò²¾ÍÊÇÄ¿±ê¶ÔÏóµÄÀà
+        // 1\. é’ˆå¯¹cglibä»£ç†å¯¹è±¡ï¼Œå¾—åˆ°å…¶çˆ¶ç±»ï¼Œä¹Ÿå°±æ˜¯ç›®æ ‡å¯¹è±¡çš„ç±»
         Class<?> userType = ClassUtils.getUserClass(handlerType);
-        // 2\. ÕâÀï»á´¦Àí userType¡¢userTypeµÄ²»°üÀ¨ObjectµÄËùÓĞ¸¸Àà¼° userType µÄËùÓĞ½Ó¿ÚµÄ·½·¨
+        // 2\. è¿™é‡Œä¼šå¤„ç† userTypeã€userTypeçš„ä¸åŒ…æ‹¬Objectçš„æ‰€æœ‰çˆ¶ç±»åŠ userType çš„æ‰€æœ‰æ¥å£çš„æ–¹æ³•
         Map<Method, T> methods = MethodIntrospector.selectMethods(userType,
-                // 3\. ¶ÔÃ¿¸ö·½·¨£¬Èç¹ûÓĞ @RequestMapping£¬Ôò´´½¨ RequestMappingInfo
-                // ½« @RequestMapping ĞÅÏ¢·â×°µ½¸Ã¶ÔÏóÖĞ
+                // 3\. å¯¹æ¯ä¸ªæ–¹æ³•ï¼Œå¦‚æœæœ‰ @RequestMappingï¼Œåˆ™åˆ›å»º RequestMappingInfo
+                // å°† @RequestMapping ä¿¡æ¯å°è£…åˆ°è¯¥å¯¹è±¡ä¸­
                 (MethodIntrospector.MetadataLookup<T>) method -> {
                     try {
-                        // ÔÚÕâÀï´¦Àí·½·¨ÉÏµÄ @RequestMapping ×¢½â
+                        // åœ¨è¿™é‡Œå¤„ç†æ–¹æ³•ä¸Šçš„ @RequestMapping æ³¨è§£
                         return getMappingForMethod(method, userType);
                     }
                     catch (Throwable ex) {
@@ -187,7 +187,7 @@ protected void detectHandlerMethods(Object handler) {
                 });
         methods.forEach((method, mapping) -> {
             Method invocableMethod = AopUtils.selectInvocableMethod(method, userType);
-            // 4\. ÔÚÕâÀï½«handler¡¢mappingÓëmethod±£´æÆğÀ´
+            // 4\. åœ¨è¿™é‡Œå°†handlerã€mappingä¸methodä¿å­˜èµ·æ¥
             registerHandlerMethod(handler, invocableMethod, mapping);
         });
     }
@@ -195,16 +195,16 @@ protected void detectHandlerMethods(Object handler) {
 
 ```
 
-Õâ¸ö·½·¨×öÁËÈçÏÂ¼¸¼şÊÂ£º
+è¿™ä¸ªæ–¹æ³•åšäº†å¦‚ä¸‹å‡ ä»¶äº‹ï¼š
 
-1.  Õë¶Ô cglib ´úÀí¶ÔÏó£¬µÃµ½Æä¸¸Àà£¬Ò²¾ÍÊÇÄ¿±ê¶ÔÏóµÄÀà£¨**ÕâÀïÎªºÎÖ»´¦Àí cglib ´úÀí¶ÔÏó£¬¶ø²»´¦Àí jdk ¶¯Ì¬´úÀí¶ÔÏóÄØ£¿** ´ÓÉÏÃæ¶Ô `isHandler(Class)` µÄËµÃ÷¿ÉÖª£¬spring ²¢²»ÄÜÊ¶±ğ jdk ¶¯Ì¬´úÀí¶ÔÏó¶ÔÓ¦ÀàÉÏµÄ `@Controller/@RequestMapping` ×¢½â£¬Òò´Ë²»»áÖ´ĞĞµ½ÕâÀï£©£»
-2.  ´¦Àí `userType`¡¢`userType` µÄ²»°üÀ¨ Object µÄËùÓĞ¸¸Àà¼° `userType` µÄËùÓĞ½Ó¿ÚµÄ·½·¨£»
-3.  ¶ÔÃ¿¸ö·½·¨£¬Èç¹ûÓĞ `@RequestMapping`£¬Ôò´´½¨ `RequestMappingInfo`£¬½« `@RequestMapping` ĞÅÏ¢·â×°µ½¸Ã¶ÔÏóÖĞ£»
-4.  ×¢²á£¬½« `handler`¡¢`mapping` Óë `method` ±£´æµ½ Map ÖĞ¡£
+1.  é’ˆå¯¹ cglib ä»£ç†å¯¹è±¡ï¼Œå¾—åˆ°å…¶çˆ¶ç±»ï¼Œä¹Ÿå°±æ˜¯ç›®æ ‡å¯¹è±¡çš„ç±»ï¼ˆ**è¿™é‡Œä¸ºä½•åªå¤„ç† cglib ä»£ç†å¯¹è±¡ï¼Œè€Œä¸å¤„ç† jdk åŠ¨æ€ä»£ç†å¯¹è±¡å‘¢ï¼Ÿ** ä»ä¸Šé¢å¯¹ `isHandler(Class)` çš„è¯´æ˜å¯çŸ¥ï¼Œspring å¹¶ä¸èƒ½è¯†åˆ« jdk åŠ¨æ€ä»£ç†å¯¹è±¡å¯¹åº”ç±»ä¸Šçš„ `@Controller/@RequestMapping` æ³¨è§£ï¼Œå› æ­¤ä¸ä¼šæ‰§è¡Œåˆ°è¿™é‡Œï¼‰ï¼›
+2.  å¤„ç† `userType`ã€`userType` çš„ä¸åŒ…æ‹¬ Object çš„æ‰€æœ‰çˆ¶ç±»åŠ `userType` çš„æ‰€æœ‰æ¥å£çš„æ–¹æ³•ï¼›
+3.  å¯¹æ¯ä¸ªæ–¹æ³•ï¼Œå¦‚æœæœ‰ `@RequestMapping`ï¼Œåˆ™åˆ›å»º `RequestMappingInfo`ï¼Œå°† `@RequestMapping` ä¿¡æ¯å°è£…åˆ°è¯¥å¯¹è±¡ä¸­ï¼›
+4.  æ³¨å†Œï¼Œå°† `handler`ã€`mapping` ä¸ `method` ä¿å­˜åˆ° Map ä¸­ã€‚
 
-#### 3.1 ²éÕÒ·½·¨
+#### 3.1 æŸ¥æ‰¾æ–¹æ³•
 
-ÔÚ `detectHandlerMethods` ·½·¨µÄ´¦Àí¹ı³ÌÖĞ£¬»á²éÕÒ `userType`¡¢`userType` µÄËùÓĞ¸¸Àà£¨²»°üÀ¨ Object£©¼° `userType` µÄËùÓĞ½Ó¿ÚµÄ·½·¨£¬¹ı³ÌÈçÏÂ£º
+åœ¨ `detectHandlerMethods` æ–¹æ³•çš„å¤„ç†è¿‡ç¨‹ä¸­ï¼Œä¼šæŸ¥æ‰¾ `userType`ã€`userType` çš„æ‰€æœ‰çˆ¶ç±»ï¼ˆä¸åŒ…æ‹¬ Objectï¼‰åŠ `userType` çš„æ‰€æœ‰æ¥å£çš„æ–¹æ³•ï¼Œè¿‡ç¨‹å¦‚ä¸‹ï¼š
 
 > MethodIntrospector#selectMethods(Class, MethodIntrospector.MetadataLookup)
 
@@ -214,20 +214,20 @@ public static <T> Map<Method, T> selectMethods(Class<?> targetType, final
     final Map<Method, T> methodMap = new LinkedHashMap<>();
     Set<Class<?>> handlerTypes = new LinkedHashSet<>();
     Class<?> specificHandlerType = null;
-    // ·Çjdk¶¯Ì¬´úÀíÀà
+    // éjdkåŠ¨æ€ä»£ç†ç±»
     if (!Proxy.isProxyClass(targetType)) {
-        // Èç¹ûÊÇcglib´úÀíÀà£¬»ñÈ¡Æä¾ßÌåµÄ¸¸Àà class
+        // å¦‚æœæ˜¯cglibä»£ç†ç±»ï¼Œè·å–å…¶å…·ä½“çš„çˆ¶ç±» class
         specificHandlerType = ClassUtils.getUserClass(targetType);
         handlerTypes.add(specificHandlerType);
     }
-    // »ñÈ¡ÀàµÄËùÓĞ½Ó¿Ú£¬°üÀ¨½Ó¿ÚµÄ¸¸½Ó¿Ú.
+    // è·å–ç±»çš„æ‰€æœ‰æ¥å£ï¼ŒåŒ…æ‹¬æ¥å£çš„çˆ¶æ¥å£.
     handlerTypes.addAll(ClassUtils.getAllInterfacesForClassAsSet(targetType));
     for (Class<?> currentHandlerType : handlerTypes) {
         final Class<?> targetClass = (specificHandlerType != null 
                       ? specificHandlerType : currentHandlerType);
-        // ´¦ÀícurrentHandlerType¡¢currentHandlerTypeµÄ²»°üÀ¨ObjectµÄËùÓĞ¸¸Àà¡¢
-        // currentHandlerTypeµÄËùÓĞ½Ó¿ÚµÄ·½·¨
-        // ´¦ÀíaopÊ±£¬µ÷ÓÃµÄÒ²ÊÇÕâ¸ö·½·¨
+        // å¤„ç†currentHandlerTypeã€currentHandlerTypeçš„ä¸åŒ…æ‹¬Objectçš„æ‰€æœ‰çˆ¶ç±»ã€
+        // currentHandlerTypeçš„æ‰€æœ‰æ¥å£çš„æ–¹æ³•
+        // å¤„ç†aopæ—¶ï¼Œè°ƒç”¨çš„ä¹Ÿæ˜¯è¿™ä¸ªæ–¹æ³•
         ReflectionUtils.doWithMethods(currentHandlerType, method -> {
             Method specificMethod = ClassUtils.getMostSpecificMethod(method, targetClass);
             T result = metadataLookup.inspect(specificMethod);
@@ -245,23 +245,23 @@ public static <T> Map<Method, T> selectMethods(Class<?> targetType, final
 
 ```
 
-#### 3.2 ´´½¨ `RequestMappingInfo`
+#### 3.2 åˆ›å»º `RequestMappingInfo`
 
-¶ÔÃ¿¸ö·½·¨£¬Èç¹ûÓĞ `@RequestMapping`£¬Ôò´´½¨ `RequestMappingInfo`£¬½« `@RequestMapping` ĞÅÏ¢·â×°µ½¸Ã¶ÔÏóÖĞ£º
+å¯¹æ¯ä¸ªæ–¹æ³•ï¼Œå¦‚æœæœ‰ `@RequestMapping`ï¼Œåˆ™åˆ›å»º `RequestMappingInfo`ï¼Œå°† `@RequestMapping` ä¿¡æ¯å°è£…åˆ°è¯¥å¯¹è±¡ä¸­ï¼š
 
 > RequestMappingHandlerMapping#getMappingForMethod
 
 ```
 protected RequestMappingInfo getMappingForMethod(Method method, Class<?> handlerType) {
-    // ´¦Àí·½·¨ÉÏµÄ @RequestMapping
+    // å¤„ç†æ–¹æ³•ä¸Šçš„ @RequestMapping
     RequestMappingInfo info = createRequestMappingInfo(method);
     if (info != null) {
-        // ´¦ÀíÀàÉÏµÄ @RequestMapping
+        // å¤„ç†ç±»ä¸Šçš„ @RequestMapping
         RequestMappingInfo typeInfo = createRequestMappingInfo(handlerType);
         if (typeInfo != null) {
-            // ºÏ²¢·½·¨ÓëÀàÉÏµÄ @RequestMapping ½á¹û
-            // ÈçÀàµÄ @RequestMapping("/test")£¬·½·¨ÉÏµÄ @RequestMapping("/hello")
-            // ºÏ²¢ºóµÄ½á¹ûÎª /test/hello
+            // åˆå¹¶æ–¹æ³•ä¸ç±»ä¸Šçš„ @RequestMapping ç»“æœ
+            // å¦‚ç±»çš„ @RequestMapping("/test")ï¼Œæ–¹æ³•ä¸Šçš„ @RequestMapping("/hello")
+            // åˆå¹¶åçš„ç»“æœä¸º /test/hello
             info = typeInfo.combine(info);
         }
         String prefix = getPathPrefix(handlerType);
@@ -274,22 +274,22 @@ protected RequestMappingInfo getMappingForMethod(Method method, Class<?> handler
 
 @Nullable
 private RequestMappingInfo createRequestMappingInfo(AnnotatedElement element) {
-    // »ñÈ¡ @RequestMapping ×¢½â
+    // è·å– @RequestMapping æ³¨è§£
     RequestMapping requestMapping = AnnotatedElementUtils
             .findMergedAnnotation(element, RequestMapping.class);
-    // ´¦ÀíÇëÇóÌõ¼ş£¬Êµ¼ÊÉÏÕâ¸ö·½·¨Îª¿Õ
+    // å¤„ç†è¯·æ±‚æ¡ä»¶ï¼Œå®é™…ä¸Šè¿™ä¸ªæ–¹æ³•ä¸ºç©º
     RequestCondition<?> condition = (element instanceof Class ?
             getCustomTypeCondition((Class<?>) element) : getCustomMethodCondition((Method) element));
     return (requestMapping != null ? createRequestMappingInfo(requestMapping, condition) : null);
 }
 
-// ´´½¨ RequestMappingInfo£¬Õâ¸ö RequestMapping ¾ÍÊÇ @RequestMapping ×¢½â
+// åˆ›å»º RequestMappingInfoï¼Œè¿™ä¸ª RequestMapping å°±æ˜¯ @RequestMapping æ³¨è§£
 protected RequestMappingInfo createRequestMappingInfo(
         RequestMapping requestMapping, @Nullable RequestCondition<?> customCondition) {
-    // ÆäÊµ¾ÍÊÇ½« @RequestMapping ×¢½â·â×°ÎªRequestMappingInfo¶ÔÏó
+    // å…¶å®å°±æ˜¯å°† @RequestMapping æ³¨è§£å°è£…ä¸ºRequestMappingInfoå¯¹è±¡
     RequestMappingInfo.Builder builder = RequestMappingInfo
             .paths(resolveEmbeddedValuesInPatterns(requestMapping.path()))
-            // ÏÂÃæµÄÊôĞÔ½ÔÀ´×Ô @RequestMapping ×¢½â
+            // ä¸‹é¢çš„å±æ€§çš†æ¥è‡ª @RequestMapping æ³¨è§£
             .methods(requestMapping.method())
             .params(requestMapping.params())
             .headers(requestMapping.headers())
@@ -304,13 +304,13 @@ protected RequestMappingInfo createRequestMappingInfo(
 
 ```
 
-µ½ÁËÕâÀï£¬ÎÒÃÇ¾ÍÍê³ÉÁËÓÉ `@RequestMapping` µ½ `RequestMappingInfo¶ÔÏó`µÄ×ª»¯¡£
+åˆ°äº†è¿™é‡Œï¼Œæˆ‘ä»¬å°±å®Œæˆäº†ç”± `@RequestMapping` åˆ° `RequestMappingInfoå¯¹è±¡`çš„è½¬åŒ–ã€‚
 
-ÔÙÀ´¿´¿´ `RequestMappingInfo` ³¤Ê²Ã´Ñù£º
+å†æ¥çœ‹çœ‹ `RequestMappingInfo` é•¿ä»€ä¹ˆæ ·ï¼š
 
 ```
 public final class RequestMappingInfo implements RequestCondition<RequestMappingInfo> {
-    // Ìá¹©ÁËºÜ¶àÊôĞÔ£¬¶ÔÓ¦×Å @RequestMappingµÄÊôĞÔ
+    // æä¾›äº†å¾ˆå¤šå±æ€§ï¼Œå¯¹åº”ç€ @RequestMappingçš„å±æ€§
     @Nullable
     private final String name;
     private final PatternsRequestCondition patternsCondition;
@@ -321,7 +321,7 @@ public final class RequestMappingInfo implements RequestCondition<RequestMapping
     private final ProducesRequestCondition producesCondition;
     private final RequestConditionHolder customConditionHolder;
 
-    // ¹¹Ôì·½·¨£¬¾ÍÊÇÔÚ
+    // æ„é€ æ–¹æ³•ï¼Œå°±æ˜¯åœ¨
     public RequestMappingInfo(@Nullable String name, @Nullable PatternsRequestCondition patterns,
             @Nullable RequestMethodsRequestCondition methods, @Nullable ParamsRequestCondition params,
             @Nullable HeadersRequestCondition headers, @Nullable ConsumesRequestCondition consumes,
@@ -337,12 +337,12 @@ public final class RequestMappingInfo implements RequestCondition<RequestMapping
         this.customConditionHolder = new RequestConditionHolder(custom);
     }
 
-    // builder ¹¹½¨Ä£Ê½£¬Ç°ÃæÕıÊÇÊ¹ÓÃbuilderÀ´´´½¨RequestMappingInfo¶ÔÏóµÄ
+    // builder æ„å»ºæ¨¡å¼ï¼Œå‰é¢æ­£æ˜¯ä½¿ç”¨builderæ¥åˆ›å»ºRequestMappingInfoå¯¹è±¡çš„
     private static class DefaultBuilder implements Builder {
-        // Ê¡ÂÔÆäËû
+        // çœç•¥å…¶ä»–
         ...
 
-        //  Ê¹ÓÃbuilder()·½·¨À´´´½¨¶ÔÏó
+        //  ä½¿ç”¨builder()æ–¹æ³•æ¥åˆ›å»ºå¯¹è±¡
         @Override
         public RequestMappingInfo build() {
             ContentNegotiationManager manager = this.options.getContentNegotiationManager();
@@ -350,7 +350,7 @@ public final class RequestMappingInfo implements RequestCondition<RequestMapping
                     this.paths, this.options.getUrlPathHelper(), this.options.getPathMatcher(),
                     this.options.useSuffixPatternMatch(), this.options.useTrailingSlashMatch(),
                     this.options.getFileExtensions());
-            // µ÷ÓÃ RequestMappingInfo ¹¹Ôì·½·¨
+            // è°ƒç”¨ RequestMappingInfo æ„é€ æ–¹æ³•
             return new RequestMappingInfo(this.mappingName, patternsCondition,
                     new RequestMethodsRequestCondition(this.methods),
                     new ParamsRequestCondition(this.params),
@@ -360,31 +360,31 @@ public final class RequestMappingInfo implements RequestCondition<RequestMapping
                     this.customCondition);
         }
     }
-    // Ê¡ÂÔÆäËû
+    // çœç•¥å…¶ä»–
     ...
 }
 
 ```
 
-#### 3.3 ×¢²á
+#### 3.3 æ³¨å†Œ
 
-·â×°Íê `@RequestMapping` ĞÅÏ¢ºó£¬½ÓÏÂÀ´¾ÍÊÇ½«½Ó¿ÚĞÅÏ¢×¢²áµ½ springmvc ÖĞÁË£º
+å°è£…å®Œ `@RequestMapping` ä¿¡æ¯åï¼Œæ¥ä¸‹æ¥å°±æ˜¯å°†æ¥å£ä¿¡æ¯æ³¨å†Œåˆ° springmvc ä¸­äº†ï¼š
 
 > RequestMappingHandlerMapping#registerHandlerMethod
 
 ```
 @Override
 protected void registerHandlerMethod(Object handler, Method method, RequestMappingInfo mapping) {
-    // µ÷ÓÃ¸¸ÀàµÄ·½·¨£¬×¢²áÏà¹ØÂß¼­ÔÚÕâÀï
+    // è°ƒç”¨çˆ¶ç±»çš„æ–¹æ³•ï¼Œæ³¨å†Œç›¸å…³é€»è¾‘åœ¨è¿™é‡Œ
     super.registerHandlerMethod(handler, method, mapping);
     updateConsumesCondition(mapping, method);
 }
-// ´¦Àí·½·¨²ÎÊıµÄ @RequestBody ×¢½â
+// å¤„ç†æ–¹æ³•å‚æ•°çš„ @RequestBody æ³¨è§£
 private void updateConsumesCondition(RequestMappingInfo info, Method method) {
     ConsumesRequestCondition condition = info.getConsumesCondition();
     if (!condition.isEmpty()) {
         for (Parameter parameter : method.getParameters()) {
-            // ´¦Àí ·½·¨²ÎÊıµÄ @RequestBody ×¢½â£¬ÉèÖÃ BodyRequired µÄÖµ
+            // å¤„ç† æ–¹æ³•å‚æ•°çš„ @RequestBody æ³¨è§£ï¼Œè®¾ç½® BodyRequired çš„å€¼
             MergedAnnotation<RequestBody> annot = MergedAnnotations.from(parameter)
                     .get(RequestBody.class);
             if (annot.isPresent()) {
@@ -397,15 +397,15 @@ private void updateConsumesCondition(RequestMappingInfo info, Method method) {
 
 ```
 
-×îÖÕ£¬·¢ÏÖ¾ßÌåµÄ×¢²áÂß¼­ÊÇÔÚ `AbstractHandlerMethodMapping#registerHandlerMethod` ÖĞÍê³ÉµÄ£¬¿´À´Õâ¸ö¾ÍÊÇ×îÖÕ·½·¨ÁË¡£ÔÚ·ÖÎöÕâ¸ö·½·¨Ç°£¬ÎÒÃÇÏÈÀ´¿´¿´ÕâÒ»²½µÃµ½µÄ `Map<Method, T> methods`:
+æœ€ç»ˆï¼Œå‘ç°å…·ä½“çš„æ³¨å†Œé€»è¾‘æ˜¯åœ¨ `AbstractHandlerMethodMapping#registerHandlerMethod` ä¸­å®Œæˆçš„ï¼Œçœ‹æ¥è¿™ä¸ªå°±æ˜¯æœ€ç»ˆæ–¹æ³•äº†ã€‚åœ¨åˆ†æè¿™ä¸ªæ–¹æ³•å‰ï¼Œæˆ‘ä»¬å…ˆæ¥çœ‹çœ‹è¿™ä¸€æ­¥å¾—åˆ°çš„ `Map<Method, T> methods`:
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-ec6b4b2d2156e0e041982425173feda38fc.png)
 
-¿ÉÒÔ¿´µ½£¬¶ÔÓ¦µÄ `T` ¾ÍÊÇ `RequestMappingInfo` ÁË¡£
+å¯ä»¥çœ‹åˆ°ï¼Œå¯¹åº”çš„ `T` å°±æ˜¯ `RequestMappingInfo` äº†ã€‚
 
-### 3. `AbstractHandlerMethodMapping#registerHandlerMethod` ·½·¨
+### 3. `AbstractHandlerMethodMapping#registerHandlerMethod` æ–¹æ³•
 
-½ÓÏÂÀ´ÎÒÃÇÀ´¿´¿´ `AbstractHandlerMethodMapping#registerHandlerMethod` ´úÂë£º
+æ¥ä¸‹æ¥æˆ‘ä»¬æ¥çœ‹çœ‹ `AbstractHandlerMethodMapping#registerHandlerMethod` ä»£ç ï¼š
 
 ```
 public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMapping 
@@ -415,34 +415,34 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
         this.mappingRegistry.register(mapping, handler, method);
     }
 
-    // Ê¡ÂÔÁËºÃ¶à´úÂë
+    // çœç•¥äº†å¥½å¤šä»£ç 
     ... 
 
     class MappingRegistry {
-        // ĞÅÏ¢×îÈ«µÄmap£¬°üº¬mapping, handlerMethod, directUrls, nameµÈĞÅÏ¢
+        // ä¿¡æ¯æœ€å…¨çš„mapï¼ŒåŒ…å«mapping, handlerMethod, directUrls, nameç­‰ä¿¡æ¯
         private final Map<T, MappingRegistration<T>> registry = new HashMap<>();
-        // ËùÓĞµÄ mapping map£¬/test/hello¡¢/test/{name}
+        // æ‰€æœ‰çš„ mapping mapï¼Œ/test/helloã€/test/{name}
         private final Map<T, HandlerMethod> mappingLookup = new LinkedHashMap<>();
-        // Ã÷È·µÄurl map£¬Èç /test/hello
+        // æ˜ç¡®çš„url mapï¼Œå¦‚ /test/hello
         private final MultiValueMap<String, T> urlLookup = new LinkedMultiValueMap<>();
 
-        // Ê¡ÂÔÁËºÃ¶à´úÂë
+        // çœç•¥äº†å¥½å¤šä»£ç 
         ...
 
         public void register(T mapping, Object handler, Method method) {
             ...
-            // »ñÈ¡¶ÁĞ´ËøµÄĞ´Ëø
+            // è·å–è¯»å†™é”çš„å†™é”
             this.readWriteLock.writeLock().lock();
             try {
-                // 1\. »ñÈ¡ÁË handlerMethod£¬ÆäÊµ¾ÍÊÇ½«handler Óë method °ü×°ÁËÒ»²ã
+                // 1\. è·å–äº† handlerMethodï¼Œå…¶å®å°±æ˜¯å°†handler ä¸ method åŒ…è£…äº†ä¸€å±‚
                 HandlerMethod handlerMethod = createHandlerMethod(handler, method);
                 validateMethodMapping(handlerMethod, mapping);
-                // 2\. ·ÅÈë mappingLookup ÖĞ£¬ÀàĞÍÎª LinkedHashMap
-                // ÕâÊÇspringmvcÖĞÒ»¸öÖØÒªµÄmap
+                // 2\. æ”¾å…¥ mappingLookup ä¸­ï¼Œç±»å‹ä¸º LinkedHashMap
+                // è¿™æ˜¯springmvcä¸­ä¸€ä¸ªé‡è¦çš„map
                 this.mappingLookup.put(mapping, handlerMethod);
 
-                // 3\. »ñÈ¡url£¬·ÅÈëurlLookup£¬ÀàĞÍÎªMultiValueMap£¬Õâ¸ömap Í¬Ò»key¿ÉÒÔÓĞ¶à¸övalue
-                // ÕâÊÇspringmvcÖĞÁíÒ»¸öÖØÒªµÄmap
+                // 3\. è·å–urlï¼Œæ”¾å…¥urlLookupï¼Œç±»å‹ä¸ºMultiValueMapï¼Œè¿™ä¸ªmap åŒä¸€keyå¯ä»¥æœ‰å¤šä¸ªvalue
+                // è¿™æ˜¯springmvcä¸­å¦ä¸€ä¸ªé‡è¦çš„map
                 List<String> directUrls = getDirectUrls(mapping);
                 for (String url : directUrls) {
                     this.urlLookup.add(url, mapping);
@@ -457,8 +457,8 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
                     this.corsLookup.put(handlerMethod, corsConfig);
                 }
 
-                // 4\. ½«mapping, handlerMethod, directUrls, nameµÈ·â×°·ÅÈëregistry£¬
-                // registry ÀàĞÍÎªHashMap£¬ÕâÊÇspringmvc ÖĞ½Ó¿ÚĞÅÏ¢×îÈ«µÄÒ»¸ömap
+                // 4\. å°†mapping, handlerMethod, directUrls, nameç­‰å°è£…æ”¾å…¥registryï¼Œ
+                // registry ç±»å‹ä¸ºHashMapï¼Œè¿™æ˜¯springmvc ä¸­æ¥å£ä¿¡æ¯æœ€å…¨çš„ä¸€ä¸ªmap
                 this.registry.put(mapping, new MappingRegistration<>(mapping, 
                         handlerMethod, directUrls, name));
             }
@@ -471,11 +471,11 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 
 ```
 
-¿ÉÒÔ¿´µ½£¬×¢²áµÄÂß¼­×îÖÕÊÇÔÚ `AbstractHandlerMethodMapping.MappingRegistry#register` ÖĞÍê³ÉµÄ¡£½ÓÏÂÀ´ÎÒÃÇ¾ÍÒ»²½²½·ÖÎö×¢²áÂß¼­¡£
+å¯ä»¥çœ‹åˆ°ï¼Œæ³¨å†Œçš„é€»è¾‘æœ€ç»ˆæ˜¯åœ¨ `AbstractHandlerMethodMapping.MappingRegistry#register` ä¸­å®Œæˆçš„ã€‚æ¥ä¸‹æ¥æˆ‘ä»¬å°±ä¸€æ­¥æ­¥åˆ†ææ³¨å†Œé€»è¾‘ã€‚
 
-#### 3.1 »ñÈ¡ `HandlerMethod`
+#### 3.1 è·å– `HandlerMethod`
 
-Ïà¹Ø´úÂëÈçÏÂ£º
+ç›¸å…³ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 protected HandlerMethod createHandlerMethod(Object handler, Method method) {
@@ -488,12 +488,12 @@ protected HandlerMethod createHandlerMethod(Object handler, Method method) {
 
 ```
 
-Õâ¶Î·½·¨¾ÍÊÇ¼òµ¥µØµ÷ÓÃÁË `HandlerMethod` µÄ¹¹Ôì·½·¨£¬¼ÌĞø£º
+è¿™æ®µæ–¹æ³•å°±æ˜¯ç®€å•åœ°è°ƒç”¨äº† `HandlerMethod` çš„æ„é€ æ–¹æ³•ï¼Œç»§ç»­ï¼š
 
 ```
 public class HandlerMethod {
 
-    // Ìá¹©ÁË·Ç³£¶àµÄÊôĞÔ
+    // æä¾›äº†éå¸¸å¤šçš„å±æ€§
     protected final Log logger = LogFactory.getLog(getClass());
     private final Object bean;
     @Nullable
@@ -512,7 +512,7 @@ public class HandlerMethod {
     private volatile List<Annotation[][]> interfaceParameterAnnotations;
     private final String description;
 
-    // ¹¹Ôì·½·¨
+    // æ„é€ æ–¹æ³•
     public HandlerMethod(Object bean, Method method) {
         Assert.notNull(bean, "Bean is required");
         Assert.notNull(method, "Method is required");
@@ -526,17 +526,17 @@ public class HandlerMethod {
         this.description = initDescription(this.beanType, this.method);
     }
 
-    // Ê¡ÂÔÆäËû
+    // çœç•¥å…¶ä»–
     ...
 }
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`HandlerMethod` ÖĞÓĞ·Ç³£¶àµÄÊôĞÔ£¬¹¹Ôì·½·¨Ëù×öµÄÊÂÒ²½ö½öÊÇ¸³Öµ¶øÒÑ¡£ÓÉ´Ë¿É¿´³ö£¬`HandlerMethod` ¾ÍÊÇ¶Ô `handler` Óë `method` µÄÒ»¸ö°ü×°¡£
+å¯ä»¥çœ‹åˆ°ï¼Œ`HandlerMethod` ä¸­æœ‰éå¸¸å¤šçš„å±æ€§ï¼Œæ„é€ æ–¹æ³•æ‰€åšçš„äº‹ä¹Ÿä»…ä»…æ˜¯èµ‹å€¼è€Œå·²ã€‚ç”±æ­¤å¯çœ‹å‡ºï¼Œ`HandlerMethod` å°±æ˜¯å¯¹ `handler` ä¸ `method` çš„ä¸€ä¸ªåŒ…è£…ã€‚
 
-#### 3.2 ÑéÖ¤ mapping ÊÇ·ñÖØ¸´
+#### 3.2 éªŒè¯ mapping æ˜¯å¦é‡å¤
 
-ÔÚ springmvc Ê¹ÓÃÖĞ£¬Èç¹û²»Ğ¡ĞÄ¶¨ÒåÁËÁ½¸öÏàÍ¬µÄ `requestMapping`£¬»á³öÏÖÈçÏÂÒì³££º
+åœ¨ springmvc ä½¿ç”¨ä¸­ï¼Œå¦‚æœä¸å°å¿ƒå®šä¹‰äº†ä¸¤ä¸ªç›¸åŒçš„ `requestMapping`ï¼Œä¼šå‡ºç°å¦‚ä¸‹å¼‚å¸¸ï¼š
 
 ```
 Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 
@@ -545,16 +545,16 @@ bean method xxxMethod mapped.
 
 ```
 
-Õâ¸öÒì³£¾ÍÊÇÔÚÑéÖ¤ mapping Ê±£¬·¢ÏÖÁËÖØ¸´ÁË mapping ¶ø´¥·¢µÄ£¬´úÂëÈçÏÂ£º
+è¿™ä¸ªå¼‚å¸¸å°±æ˜¯åœ¨éªŒè¯ mapping æ—¶ï¼Œå‘ç°äº†é‡å¤äº† mapping è€Œè§¦å‘çš„ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
-// ËùÓĞµÄ mapping map£¬/test/hello¡¢/test/{name}
+// æ‰€æœ‰çš„ mapping mapï¼Œ/test/helloã€/test/{name}
 private final Map<T, HandlerMethod> mappingLookup = new LinkedHashMap<>();
 
 private void validateMethodMapping(HandlerMethod handlerMethod, T mapping) {
-    // ÕÒµ½ÒÑ´æÔÚµÄ method
+    // æ‰¾åˆ°å·²å­˜åœ¨çš„ method
     HandlerMethod existingHandlerMethod = this.mappingLookup.get(mapping);
-    // ÒÑ´æÔÚµÄhandlerMethod²»Îª¿Õ£¬ÇÒ²»µÈÓÚµ±Ç° handlerMethod
+    // å·²å­˜åœ¨çš„handlerMethodä¸ä¸ºç©ºï¼Œä¸”ä¸ç­‰äºå½“å‰ handlerMethod
     if (existingHandlerMethod != null && !existingHandlerMethod.equals(handlerMethod)) {
         throw new IllegalStateException(
                 "Ambiguous mapping. Cannot map '" + handlerMethod.getBean() + "' method \n" +
@@ -566,9 +566,9 @@ private void validateMethodMapping(HandlerMethod handlerMethod, T mapping) {
 
 ```
 
-Ê×ÏÈÊÇ¸ù¾İ `mapping` ´Ó `mappingLookup` ÖĞ²éÕÒ `HandlerMethod`£¬Èç¹ûÕÒµ½ÁËÇÒÕÒµ½µÄ `handlerMethod` ²»ÊÇµ±Ç° `handlerMethod`£¬Ôò±íÊ¾ÖØ¸´£¬¾Í±¨Òì³£ÁË¡£
+é¦–å…ˆæ˜¯æ ¹æ® `mapping` ä» `mappingLookup` ä¸­æŸ¥æ‰¾ `HandlerMethod`ï¼Œå¦‚æœæ‰¾åˆ°äº†ä¸”æ‰¾åˆ°çš„ `handlerMethod` ä¸æ˜¯å½“å‰ `handlerMethod`ï¼Œåˆ™è¡¨ç¤ºé‡å¤ï¼Œå°±æŠ¥å¼‚å¸¸äº†ã€‚
 
-×îºó·Ö±ğÀ´¿´¿´ÅĞ¶Ï `HandlerMethod` Óë `RequestMappingInfo` ÊÇÈçºÎÅĞ¶ÏÏàµÈµÄ£º
+æœ€ååˆ†åˆ«æ¥çœ‹çœ‹åˆ¤æ–­ `HandlerMethod` ä¸ `RequestMappingInfo` æ˜¯å¦‚ä½•åˆ¤æ–­ç›¸ç­‰çš„ï¼š
 
 > HandlerMethod#equals
 
@@ -610,11 +610,11 @@ public boolean equals(@Nullable Object other) {
 
 ```
 
-`RequestMappingInfo` ĞèÒª¸÷ÊôĞÔÏàÍ¬²ÅÅĞ¶ÏÏàµÈ£¬Òò´ËÏñÏÂÃæÕâÑùµÄ `@RequestMapping`£¬µÃµ½µÄ `RequestMappingInfo` ²¢²»ÏàµÈ£º
+`RequestMappingInfo` éœ€è¦å„å±æ€§ç›¸åŒæ‰åˆ¤æ–­ç›¸ç­‰ï¼Œå› æ­¤åƒä¸‹é¢è¿™æ ·çš„ `@RequestMapping`ï¼Œå¾—åˆ°çš„ `RequestMappingInfo` å¹¶ä¸ç›¸ç­‰ï¼š
 
 ```
-// ÒÔÏÂÈı¸ö @RequestMapping£¬ËäÈ»ÇëÇóÂ·¾¶¶¼ÊÇ¡°/hello¡±£¬µ«Ö§³ÖµÄÇëÇó·½·¨¸÷²»ÏàÍ¬
-// Òò´ËµÃµ½µÄ RequestMappingInfo ²¢²»ÏàµÈ
+// ä»¥ä¸‹ä¸‰ä¸ª @RequestMappingï¼Œè™½ç„¶è¯·æ±‚è·¯å¾„éƒ½æ˜¯â€œ/helloâ€ï¼Œä½†æ”¯æŒçš„è¯·æ±‚æ–¹æ³•å„ä¸ç›¸åŒ
+// å› æ­¤å¾—åˆ°çš„ RequestMappingInfo å¹¶ä¸ç›¸ç­‰
 
 @RequestMapping(path = "/hello")
 public String hello1() {
@@ -633,11 +633,11 @@ public String hello3() {
 
 ```
 
-#### 3.3 »ñÈ¡ `directUrls`
+#### 3.3 è·å– `directUrls`
 
-springmvc ÖĞ£¬ÓĞÁ½ÖÖ url ÀàĞÍ:
+springmvc ä¸­ï¼Œæœ‰ä¸¤ç§ url ç±»å‹:
 
-1. Ã÷È·µÄ url£¬Èç
+1. æ˜ç¡®çš„ urlï¼Œå¦‚
 
    ```
    @RequestMapping("/hello")
@@ -647,7 +647,7 @@ springmvc ÖĞ£¬ÓĞÁ½ÖÖ url ÀàĞÍ:
    
    ```
 
-2. ²»Ã÷È·µÄ url£¬Èç
+2. ä¸æ˜ç¡®çš„ urlï¼Œå¦‚
 
    ```
    @RequestMapping("/{name}")
@@ -657,27 +657,27 @@ springmvc ÖĞ£¬ÓĞÁ½ÖÖ url ÀàĞÍ:
    
    ```
 
-springmvc Ìá¹©ÁË×¨ÃÅµÄ `urlLookup` À´±£´æÃ÷È·µÄ url£¬½á¹¹ÈçÏÂ£º
+springmvc æä¾›äº†ä¸“é—¨çš„ `urlLookup` æ¥ä¿å­˜æ˜ç¡®çš„ urlï¼Œç»“æ„å¦‚ä¸‹ï¼š
 
 ```
 MultiValueMap<String, LinkedList<RequestMappingInfo>>
 
 ```
 
-ÔÙÀ´¿´¿´ springmvc ÊÇÈçºÎ»ñÈ¡Ã÷È·µÄ url µÄ:
+å†æ¥çœ‹çœ‹ springmvc æ˜¯å¦‚ä½•è·å–æ˜ç¡®çš„ url çš„:
 
 ```
 List<String> directUrls = getDirectUrls(mapping);
 
 /**
  * AbstractHandlerMethodMapping.MappingRegistry#getDirectUrls
- * »ñÈ¡Ã÷È·µÄurl
+ * è·å–æ˜ç¡®çš„url
  */
 private List<String> getDirectUrls(T mapping) {
     List<String> urls = new ArrayList<>(1);
-    // ´ÓRequestMappingInfo»ñÈ¡ËùÓĞµÄ MappingPathPattern
+    // ä»RequestMappingInfoè·å–æ‰€æœ‰çš„ MappingPathPattern
     for (String path : getMappingPathPatterns(mapping)) {
-        // ÅĞ¶ÏµÃµ½µÄ MappingPathPattern ÊÇ·ñÎªÃ÷È·µÄurl
+        // åˆ¤æ–­å¾—åˆ°çš„ MappingPathPattern æ˜¯å¦ä¸ºæ˜ç¡®çš„url
         if (!getPathMatcher().isPattern(path)) {
             urls.add(path);
         }
@@ -687,8 +687,8 @@ private List<String> getDirectUrls(T mapping) {
 
 /**
  * RequestMappingInfoHandlerMapping#getMappingPathPatterns
- * »ñÈ¡ patterns, ´Ó RequestMappingInfo »ñÈ¡
- * Êµ¼ÊÉÏ¾ÍÊÇ @RequestMapping ÖĞµÄ path() Öµ
+ * è·å– patterns, ä» RequestMappingInfo è·å–
+ * å®é™…ä¸Šå°±æ˜¯ @RequestMapping ä¸­çš„ path() å€¼
  */
 @Override
 protected Set<String> getMappingPathPatterns(RequestMappingInfo info) {
@@ -697,8 +697,8 @@ protected Set<String> getMappingPathPatterns(RequestMappingInfo info) {
 
 /**
  * AntPathMatcher#isPattern
- * ÅĞ¶ÏÊÇ·ñÎªÃ÷È·µÄ url
- * Ö»Òª°üº¬ÁË *¡¢£¿Ö®Ò»£¬»òÍ¬Ê±°üº¬{¡¢}£¬¾Í²»ÊÇÃ÷È·µÄurl
+ * åˆ¤æ–­æ˜¯å¦ä¸ºæ˜ç¡®çš„ url
+ * åªè¦åŒ…å«äº† *ã€ï¼Ÿä¹‹ä¸€ï¼Œæˆ–åŒæ—¶åŒ…å«{ã€}ï¼Œå°±ä¸æ˜¯æ˜ç¡®çš„url
  */
 @Override
 public boolean isPattern(@Nullable String path) {
@@ -724,39 +724,39 @@ public boolean isPattern(@Nullable String path) {
 
 ```
 
-Á÷³ÌÈçÏÂ£º
+æµç¨‹å¦‚ä¸‹ï¼š
 
-1.  »ñÈ¡µ±Ç° `mapping` µÄËùÓĞ `path`£¬Ò²¾ÍÊÇ `@RequestMapping` µÄ `path()` Öµ£»
-2.  ±éÀúµÃµ½µÄ `path`£¬ÖğÒ»ÅĞ¶ÏÊÇ·ñÎªÃ÷È·µÄ url (Ö»Òª°üº¬ÁË `*`¡¢`?` Ö®Ò»£¬»òÍ¬Ê±°üº¬ `{`¡¢`}`£¬¾Í²»ÊÇÃ÷È·µÄ url).
+1.  è·å–å½“å‰ `mapping` çš„æ‰€æœ‰ `path`ï¼Œä¹Ÿå°±æ˜¯ `@RequestMapping` çš„ `path()` å€¼ï¼›
+2.  éå†å¾—åˆ°çš„ `path`ï¼Œé€ä¸€åˆ¤æ–­æ˜¯å¦ä¸ºæ˜ç¡®çš„ url (åªè¦åŒ…å«äº† `*`ã€`?` ä¹‹ä¸€ï¼Œæˆ–åŒæ—¶åŒ…å« `{`ã€`}`ï¼Œå°±ä¸æ˜¯æ˜ç¡®çš„ url).
 
-#### 3.4 ×¢²á½Ó¿ÚĞÅÏ¢
+#### 3.4 æ³¨å†Œæ¥å£ä¿¡æ¯
 
-×¢²á½Ó¿ÚĞÅÏ¢¾Í±È½Ï¼òµ¥ÁË£¬ÆäÊµ¾ÍÊÇÍù map ÖĞÌí¼ÓÊı¾İ£¬ÕâÀï½éÉÜÈı¸ö map£º
+æ³¨å†Œæ¥å£ä¿¡æ¯å°±æ¯”è¾ƒç®€å•äº†ï¼Œå…¶å®å°±æ˜¯å¾€ map ä¸­æ·»åŠ æ•°æ®ï¼Œè¿™é‡Œä»‹ç»ä¸‰ä¸ª mapï¼š
 
-*   `urlLookup`£ºÃ÷È·µÄ `url map`£¬ÀàĞÍÎª `MultiValueMap<String, LinkedList<RequestMappingInfo>>`£¬`key` ÎªÃ÷È·µÄ url£¬Èç `/test/hello`£¬`value` Îª `LinkedList<RequestMappingInfo>`£»
+*   `urlLookup`ï¼šæ˜ç¡®çš„ `url map`ï¼Œç±»å‹ä¸º `MultiValueMap<String, LinkedList<RequestMappingInfo>>`ï¼Œ`key` ä¸ºæ˜ç¡®çš„ urlï¼Œå¦‚ `/test/hello`ï¼Œ`value` ä¸º `LinkedList<RequestMappingInfo>`ï¼›
 
-*   `mappingLookup`£ºËùÓĞµÄ `mapping map`£¬ËùÓĞµÄ `@RequestMapping` ¶ÔÓ¦µÄ `RequestMappingInfo` ¶¼ÄÜÔÚÕâÀïÕÒµ½£¬°üÀ¨ `/test/hello`¡¢`/test/{name}` ¶ÔÓ¦µÄ `RequestMappingInfo`£¬ÀàĞÍÎª `Map<RequestMappingInfo, HandlerMethod>`£»
+*   `mappingLookup`ï¼šæ‰€æœ‰çš„ `mapping map`ï¼Œæ‰€æœ‰çš„ `@RequestMapping` å¯¹åº”çš„ `RequestMappingInfo` éƒ½èƒ½åœ¨è¿™é‡Œæ‰¾åˆ°ï¼ŒåŒ…æ‹¬ `/test/hello`ã€`/test/{name}` å¯¹åº”çš„ `RequestMappingInfo`ï¼Œç±»å‹ä¸º `Map<RequestMappingInfo, HandlerMethod>`ï¼›
 
-*   `registry`£ºĞÅÏ¢×îÈ«µÄ map£¬ÀàĞÍÎª `Map<RequestMappingInfo, MappingRegistration<RequestMappingInfo>>`£¬°üº¬ËùÓĞµÄ `RequestMappingInfo`£¬key Îª `RequestMappingInfo`£¬value Îª `MappingRegistration<RequestMappingInfo>`£¬¶ø `MappingRegistration` Îª `mapping`, `handlerMethod`, `directUrls`, `name` µÄ°ü×°Àà£¬Ò²¾ÍÊÇËµ `MappingRegistration` °üº¬ÁË `mapping`, `handlerMethod`, `directUrls`, `name` µÈĞÅÏ¢¡£
+*   `registry`ï¼šä¿¡æ¯æœ€å…¨çš„ mapï¼Œç±»å‹ä¸º `Map<RequestMappingInfo, MappingRegistration<RequestMappingInfo>>`ï¼ŒåŒ…å«æ‰€æœ‰çš„ `RequestMappingInfo`ï¼Œkey ä¸º `RequestMappingInfo`ï¼Œvalue ä¸º `MappingRegistration<RequestMappingInfo>`ï¼Œè€Œ `MappingRegistration` ä¸º `mapping`, `handlerMethod`, `directUrls`, `name` çš„åŒ…è£…ç±»ï¼Œä¹Ÿå°±æ˜¯è¯´ `MappingRegistration` åŒ…å«äº† `mapping`, `handlerMethod`, `directUrls`, `name` ç­‰ä¿¡æ¯ã€‚
 
-Àí½âÕâĞ© map ºó£¬×¢²á¾ÍÏàµ±¼òµ¥ÁË£¬¾ÍÊÇ¼òµ¥µØµ÷ÓÃÏÂ `Map#put` ·½·¨£¬¾Í²»¶àËµÁË¡£
+ç†è§£è¿™äº› map åï¼Œæ³¨å†Œå°±ç›¸å½“ç®€å•äº†ï¼Œå°±æ˜¯ç®€å•åœ°è°ƒç”¨ä¸‹ `Map#put` æ–¹æ³•ï¼Œå°±ä¸å¤šè¯´äº†ã€‚
 
-### 4\. ×Ü½á
+### 4\. æ€»ç»“
 
-±¾ÎÄ·ÖÎöÁË spring ´¦Àí´¦Àí `@RequestMapping` ×¢½âµÄÁ÷³Ì£¬Õâ²¿·ÖÁ÷³ÌÔÚ `RequestMappingHandlerMapping#afterPropertiesSet` ·½·¨ÖĞ£¬Á÷³ÌÈçÏÂ£º
+æœ¬æ–‡åˆ†æäº† spring å¤„ç†å¤„ç† `@RequestMapping` æ³¨è§£çš„æµç¨‹ï¼Œè¿™éƒ¨åˆ†æµç¨‹åœ¨ `RequestMappingHandlerMapping#afterPropertiesSet` æ–¹æ³•ä¸­ï¼Œæµç¨‹å¦‚ä¸‹ï¼š
 
-1.  »ñÈ¡ÈİÆ÷ÖĞËùÓĞ bean µÄ `beanName`£¬Öğ¸ö´¦Àí£¬´¦Àí·½·¨¼ûµÚ 2 ²½£»
-2.  ÕÒµ½Óë `beanName` ¶ÔÓ¦µÄ `beanType`£¬ÅĞ¶ÏÆäÉÏÊÇ·ñÓĞ `@Controller/@RequestMapping` ×¢½â£»
-3.  ¶Ô°üº¬ `@Controller/@RequestMapping` µÄ `beanType`£¬ÕÒµ½ÓĞ `@RequestMapping` ×¢½âµÄ·½·¨£¬½«Æä `@RequestMapping` ×¢½â·â×°Îª `RequestMappingInfo`£¬ÕâÒ»²½µÃµ½µÄ½á¹ûÎªÒ»¸ö map£º`Map<Method, RequestMappingInfo>`£»
-4.  ½« `beanName`¡¢`beanType` Óë `Map<Method, RequestMappingInfo>` ×¢²áµ½ springmvc ÖĞ£¬ÕâÀïÓĞÈı¸ö±È½ÏÖØÒªµÄ map£º
-   *   `MultiValueMap<String, LinkedList<RequestMappingInfo>>`¡¢
-   *   `Map<RequestMappingInfo, HandlerMethod>`(`HandlerMethod` Îª `Method` µÄ°ü×°Àà)
-   *   `Map<RequestMappingInfo, MappingRegistration<RequestMappingInfo>>`(`MappingRegistration` Îª `RequestMappingInfo`, `HandlerMethod`, `directUrls`, `beanName` µÄ°ü×°Àà)£»
+1.  è·å–å®¹å™¨ä¸­æ‰€æœ‰ bean çš„ `beanName`ï¼Œé€ä¸ªå¤„ç†ï¼Œå¤„ç†æ–¹æ³•è§ç¬¬ 2 æ­¥ï¼›
+2.  æ‰¾åˆ°ä¸ `beanName` å¯¹åº”çš„ `beanType`ï¼Œåˆ¤æ–­å…¶ä¸Šæ˜¯å¦æœ‰ `@Controller/@RequestMapping` æ³¨è§£ï¼›
+3.  å¯¹åŒ…å« `@Controller/@RequestMapping` çš„ `beanType`ï¼Œæ‰¾åˆ°æœ‰ `@RequestMapping` æ³¨è§£çš„æ–¹æ³•ï¼Œå°†å…¶ `@RequestMapping` æ³¨è§£å°è£…ä¸º `RequestMappingInfo`ï¼Œè¿™ä¸€æ­¥å¾—åˆ°çš„ç»“æœä¸ºä¸€ä¸ª mapï¼š`Map<Method, RequestMappingInfo>`ï¼›
+4.  å°† `beanName`ã€`beanType` ä¸ `Map<Method, RequestMappingInfo>` æ³¨å†Œåˆ° springmvc ä¸­ï¼Œè¿™é‡Œæœ‰ä¸‰ä¸ªæ¯”è¾ƒé‡è¦çš„ mapï¼š
+   *   `MultiValueMap<String, LinkedList<RequestMappingInfo>>`ã€
+   *   `Map<RequestMappingInfo, HandlerMethod>`(`HandlerMethod` ä¸º `Method` çš„åŒ…è£…ç±»)
+   *   `Map<RequestMappingInfo, MappingRegistration<RequestMappingInfo>>`(`MappingRegistration` ä¸º `RequestMappingInfo`, `HandlerMethod`, `directUrls`, `beanName` çš„åŒ…è£…ç±»)ï¼›
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-fe807564e60040b262b28977a46a74f60e9.png)
 
-×ÜµÄÀ´Ëµ£¬`RequestMapping` µÄ´¦ÀíÁ÷³ÌÒş²Ø±È½ÏÉî£¬±¾ÈËÒ²ÊÇµ÷ÊÔÁËºÃ¶à´Î²ÅÕÒµ½¡£
+æ€»çš„æ¥è¯´ï¼Œ`RequestMapping` çš„å¤„ç†æµç¨‹éšè—æ¯”è¾ƒæ·±ï¼Œæœ¬äººä¹Ÿæ˜¯è°ƒè¯•äº†å¥½å¤šæ¬¡æ‰æ‰¾åˆ°ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4715079](https://my.oschina.net/funcy/blog/4715079) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4715079](https://my.oschina.net/funcy/blog/4715079) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

@@ -1,8 +1,8 @@
-×î½üÔÚÊáÀí `BeanFactoryPostProcessor` ¹¦ÄÜÊ±£¬·¢ÏÖÁË´¦ÀíÊÂ¼ş¼àÌıµÄÁíÒ»ÖÖ´¦Àí·½Ê½£ºÊ¹ÓÃ `@EventListener` ×¢½â£¬´¦ÀíÀàµÄÊÇ `EventListenerMethodProcessor`£¬ÎÒÃÇÏÈ´ÓÒ»¸öÊ¾Àı³ö·¢£¬ÔÙÖğ²½·ÖÎö `@EventListener` µÄ´¦Àí¹ı³Ì¡£
+æœ€è¿‘åœ¨æ¢³ç† `BeanFactoryPostProcessor` åŠŸèƒ½æ—¶ï¼Œå‘ç°äº†å¤„ç†äº‹ä»¶ç›‘å¬çš„å¦ä¸€ç§å¤„ç†æ–¹å¼ï¼šä½¿ç”¨ `@EventListener` æ³¨è§£ï¼Œå¤„ç†ç±»çš„æ˜¯ `EventListenerMethodProcessor`ï¼Œæˆ‘ä»¬å…ˆä»ä¸€ä¸ªç¤ºä¾‹å‡ºå‘ï¼Œå†é€æ­¥åˆ†æ `@EventListener` çš„å¤„ç†è¿‡ç¨‹ã€‚
 
-### 1. `@EventListener` Ê¹ÓÃÊ¾Àı
+### 1. `@EventListener` ä½¿ç”¨ç¤ºä¾‹
 
-ÏÈ¶¨ÒåÒ»¸öÊÂ¼ş£º
+å…ˆå®šä¹‰ä¸€ä¸ªäº‹ä»¶ï¼š
 
 ```
 public class MyApplicationEvent extends ApplicationEvent {
@@ -16,25 +16,25 @@ public class MyApplicationEvent extends ApplicationEvent {
 
 ```
 
-ÔÙ×¼±¸Ò»¸öÊÂ¼ş¼àÌıÆ÷£¬Õâ´ÎÊ¹ÓÃ `@EventListener` Ö¸¶¨¼àÌıÆ÷£º
+å†å‡†å¤‡ä¸€ä¸ªäº‹ä»¶ç›‘å¬å™¨ï¼Œè¿™æ¬¡ä½¿ç”¨ `@EventListener` æŒ‡å®šç›‘å¬å™¨ï¼š
 
 ```
 @Configuration
 public class Demo08Config {
 
     /**
-     * ÕâÊÇ¸öÊÂ¼ş¼àÌıÆ÷
+     * è¿™æ˜¯ä¸ªäº‹ä»¶ç›‘å¬å™¨
      */
     @EventListener(MyApplicationEvent.class)
     public void listener(MyApplicationEvent event) {
-        System.out.println("@EventListener¼àÌıµ½ÁËÊÂ¼ş£º"
+        System.out.println("@EventListenerç›‘å¬åˆ°äº†äº‹ä»¶ï¼š"
                 + Thread.currentThread().getName() + " | " + event.getSource());
     }
 }
 
 ```
 
-È»ºó·¢²¼ÊÂ¼ş£º
+ç„¶åå‘å¸ƒäº‹ä»¶ï¼š
 
 ```
 @ComponentScan
@@ -42,28 +42,28 @@ public class Demo08Main {
 
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(Demo08Config.class);
-        // ·¢²¼ÊÂ¼ş
+        // å‘å¸ƒäº‹ä»¶
         context.publishEvent(new MyApplicationEvent(
-            Thread.currentThread().getName() + " | ×Ô¶¨ÒåÊÂ¼ş ..."));
+            Thread.currentThread().getName() + " | è‡ªå®šä¹‰äº‹ä»¶ ..."));
     }
 }
 
 ```
 
-ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+è¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
-@EventListener¼àÌıµ½ÁËÊÂ¼ş£ºmain | main | ×Ô¶¨ÒåÊÂ¼ş ...
+@EventListenerç›‘å¬åˆ°äº†äº‹ä»¶ï¼šmain | main | è‡ªå®šä¹‰äº‹ä»¶ ...
 
 ```
 
-¿ÉÒÔ¿´µ½£¬±» `@EventListener` ±ê¼ÇµÄ·½·¨È·ÊµÍê³ÉÁËÊÂ¼şµÄ¼àÌı¡£
+å¯ä»¥çœ‹åˆ°ï¼Œè¢« `@EventListener` æ ‡è®°çš„æ–¹æ³•ç¡®å®å®Œæˆäº†äº‹ä»¶çš„ç›‘å¬ã€‚
 
-### 2. `@EventListener` ¸ÅÀÀ
+### 2. `@EventListener` æ¦‚è§ˆ
 
-Ê¹ÓÃ `@EventListener` ÈÃÎÒÃÇÃâ³ıÁËÊµÏÖ `ApplicationListener` ¾ÍÄÜÊµÏÖÊÂ¼ş¼àÌı£¬¼ò»¯ÁË´úÂëµÄ¿ª·¢¡£±¾½ÚÎÒÃÇÀ´¿´¿´ `@EventListener` ÄÜÎªÎÒÃÇ×öĞ©Ê²Ã´¡£
+ä½¿ç”¨ `@EventListener` è®©æˆ‘ä»¬å…é™¤äº†å®ç° `ApplicationListener` å°±èƒ½å®ç°äº‹ä»¶ç›‘å¬ï¼Œç®€åŒ–äº†ä»£ç çš„å¼€å‘ã€‚æœ¬èŠ‚æˆ‘ä»¬æ¥çœ‹çœ‹ `@EventListener` èƒ½ä¸ºæˆ‘ä»¬åšäº›ä»€ä¹ˆã€‚
 
-`@EventListener` µÄ´úÂëÈçÏÂ£º
+`@EventListener` çš„ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 @Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
@@ -72,22 +72,22 @@ public class Demo08Main {
 public @interface EventListener {
 
     /**
-     * classes µÄ±ğÃû
-     * ÓÃÀ´Ö¸¶¨¼àÌıµÄÊÂ¼ş£¬¿ÉÒÔÍ¬Ê±¼àÌı¶à¸öÊÂ¼ş 
+     * classes çš„åˆ«å
+     * ç”¨æ¥æŒ‡å®šç›‘å¬çš„äº‹ä»¶ï¼Œå¯ä»¥åŒæ—¶ç›‘å¬å¤šä¸ªäº‹ä»¶ 
      */
     @AliasFor("classes")
     Class<?>[] value() default {};
 
     /**
-     * value µÄ±ğÃû
-     * ÓÃÀ´Ö¸¶¨¼àÌıµÄÊÂ¼ş£¬¿ÉÒÔÍ¬Ê±¼àÌı¶à¸öÊÂ¼ş 
+     * value çš„åˆ«å
+     * ç”¨æ¥æŒ‡å®šç›‘å¬çš„äº‹ä»¶ï¼Œå¯ä»¥åŒæ—¶ç›‘å¬å¤šä¸ªäº‹ä»¶ 
      */
     @AliasFor("value")
     Class<?>[] classes() default {};
 
     /**
-     * ¿ÉÒÔÖ¸¶¨Ò»¸öÌõ¼ş£¬Ìõ¼ş³ÉÁ¢Ê±·½·¨²Å»áÖ´ĞĞ
-     * Ö§³Öspring el ±í´ïÊ½
+     * å¯ä»¥æŒ‡å®šä¸€ä¸ªæ¡ä»¶ï¼Œæ¡ä»¶æˆç«‹æ—¶æ–¹æ³•æ‰ä¼šæ‰§è¡Œ
+     * æ”¯æŒspring el è¡¨è¾¾å¼
      */
     String condition() default "";
 
@@ -95,18 +95,18 @@ public @interface EventListener {
 
 ```
 
-´Ó´úÂëÀ´¿´£¬`@EventListener` Ìá¹©ÁËÁ½´ó¹¦ÄÜ£º
+ä»ä»£ç æ¥çœ‹ï¼Œ`@EventListener` æä¾›äº†ä¸¤å¤§åŠŸèƒ½ï¼š
 
-*   Ö¸¶¨¼àÌıµÄÊÂ¼ş£¬¿ÉÒÔÖ¸¶¨¶à¸öÊÂ¼ş
-*   Ö¸¶¨Ò»¸öÌõ¼ş£¬Ìõ¼ş³ÉÁ¢Ê±·½·¨²Å»áÖ´ĞĞ£¬Ìõ¼şÖ§³Ö spring EL ±í´ïÊ½
+*   æŒ‡å®šç›‘å¬çš„äº‹ä»¶ï¼Œå¯ä»¥æŒ‡å®šå¤šä¸ªäº‹ä»¶
+*   æŒ‡å®šä¸€ä¸ªæ¡ä»¶ï¼Œæ¡ä»¶æˆç«‹æ—¶æ–¹æ³•æ‰ä¼šæ‰§è¡Œï¼Œæ¡ä»¶æ”¯æŒ spring EL è¡¨è¾¾å¼
 
-ÁË½â `@EventListener` Ìá¹©µÄ¹¦ÄÜºó£¬½ÓÏÂÀ´ÎÒÃÇÀ´¿´¿´ spring ÊÇÈçºÎ´¦ÀíÕâ¸ö×¢½âµÄ¡£
+äº†è§£ `@EventListener` æä¾›çš„åŠŸèƒ½åï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬æ¥çœ‹çœ‹ spring æ˜¯å¦‚ä½•å¤„ç†è¿™ä¸ªæ³¨è§£çš„ã€‚
 
-### 3. `@EventListener` µÄ´¦Àí£º`EventListenerMethodProcessor`
+### 3. `@EventListener` çš„å¤„ç†ï¼š`EventListenerMethodProcessor`
 
-ÎÄÕÂ¿ªÆª±ãËµ¹ı£¬¹ØÓÚ `@EventListener` µÄ¹¦ÄÜ£¬ÎÒÊÇÔÚÊáÀí `BeanFactoryPostProcessor` ¹¦ÄÜÊ±·¢ÏÖµÄ£¬µ±Ê±·¢ÏÖ `BeanFactoryPostProcessor` µÄÊµÏÖÀà `EventListenerMethodProcessor` »á´¦Àí `@EventListener` ×¢½â£¬½ÓÏÂÀ´¾Í´Ó´úÂë½Ç¶ÈÀ´·ÖÎö `EventListenerMethodProcessor` ´¦Àí `@EventListener` µÄÁ÷³Ì¡£
+æ–‡ç« å¼€ç¯‡ä¾¿è¯´è¿‡ï¼Œå…³äº `@EventListener` çš„åŠŸèƒ½ï¼Œæˆ‘æ˜¯åœ¨æ¢³ç† `BeanFactoryPostProcessor` åŠŸèƒ½æ—¶å‘ç°çš„ï¼Œå½“æ—¶å‘ç° `BeanFactoryPostProcessor` çš„å®ç°ç±» `EventListenerMethodProcessor` ä¼šå¤„ç† `@EventListener` æ³¨è§£ï¼Œæ¥ä¸‹æ¥å°±ä»ä»£ç è§’åº¦æ¥åˆ†æ `EventListenerMethodProcessor` å¤„ç† `@EventListener` çš„æµç¨‹ã€‚
 
-Ê×ÏÈÎÒÃÇÀ´ÈÏÊ¶ÏÂ `EventListenerMethodProcessor`£º
+é¦–å…ˆæˆ‘ä»¬æ¥è®¤è¯†ä¸‹ `EventListenerMethodProcessor`ï¼š
 
 ```
 public class EventListenerMethodProcessor
@@ -116,24 +116,24 @@ public class EventListenerMethodProcessor
 
 ```
 
-ËüÖ÷ÒªÊÇÊµÏÖÁËÁ½¸ö½Ó¿Ú£º
+å®ƒä¸»è¦æ˜¯å®ç°äº†ä¸¤ä¸ªæ¥å£ï¼š
 
-*   `BeanFactoryPostProcessor`£º´óÃû¶¦¶¦µÄ `BeanFactoryPostProcessor` °¡£¬¿ÉÒÔ¶¨ÖÆ»¯ `BeanFactory` µÄÒ»Ğ©ĞĞÎª£»
-*   `SmartInitializingSingleton`£º´¦Àíµ¥Àı bean µÄ³õÊ¼»¯²Ù×÷£¬Ö´ĞĞÊ±»úÊÇÔÚ `bean` ³õÊ¼»¯Íê³ÉÖ®ºó¡£
+*   `BeanFactoryPostProcessor`ï¼šå¤§åé¼é¼çš„ `BeanFactoryPostProcessor` å•Šï¼Œå¯ä»¥å®šåˆ¶åŒ– `BeanFactory` çš„ä¸€äº›è¡Œä¸ºï¼›
+*   `SmartInitializingSingleton`ï¼šå¤„ç†å•ä¾‹ bean çš„åˆå§‹åŒ–æ“ä½œï¼Œæ‰§è¡Œæ—¶æœºæ˜¯åœ¨ `bean` åˆå§‹åŒ–å®Œæˆä¹‹åã€‚
 
-ÎÒÃÇÏÈÀ´¿´¿´Ëü¶Ô `BeanFactoryPostProcessor#postProcessBeanFactory` µÄÊµÏÖ£º
+æˆ‘ä»¬å…ˆæ¥çœ‹çœ‹å®ƒå¯¹ `BeanFactoryPostProcessor#postProcessBeanFactory` çš„å®ç°ï¼š
 
 ```
     @Nullable
     private List<EventListenerFactory> eventListenerFactories;
 
     /**
-     * ÕâÊÇ BeanFactoryPostProcessor µÄ postProcessBeanFactory(...) ·½·¨.
-     * ÔÚÕâ¸ö·½·¨Àï£¬½öÊÇ»ñÈ¡ÁË EventListenerFactory£¬È»ºó±£´æÔÚ eventListenerFactoriesÖĞ.
-     * spring Ä¬ÈÏÌá¹©µÄ EventListenerFactory ÓĞÁ½¸ö£º
-     *     1\. DefaultEventListenerFactory£ºspring Ä¬ÈÏµÄ
-     *     2\. TransactionalEventListenerFactory£º´¦ÀíÊÂÎñ¼àÌıµÄ
-     * Õâ²¿·Ö²¢Ã»ÓĞ×öÊ²Ã´¡£
+     * è¿™æ˜¯ BeanFactoryPostProcessor çš„ postProcessBeanFactory(...) æ–¹æ³•.
+     * åœ¨è¿™ä¸ªæ–¹æ³•é‡Œï¼Œä»…æ˜¯è·å–äº† EventListenerFactoryï¼Œç„¶åä¿å­˜åœ¨ eventListenerFactoriesä¸­.
+     * spring é»˜è®¤æä¾›çš„ EventListenerFactory æœ‰ä¸¤ä¸ªï¼š
+     *     1\. DefaultEventListenerFactoryï¼šspring é»˜è®¤çš„
+     *     2\. TransactionalEventListenerFactoryï¼šå¤„ç†äº‹åŠ¡ç›‘å¬çš„
+     * è¿™éƒ¨åˆ†å¹¶æ²¡æœ‰åšä»€ä¹ˆã€‚
      */
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
@@ -142,27 +142,27 @@ public class EventListenerMethodProcessor
         Map<String, EventListenerFactory> beans = beanFactory
                 .getBeansOfType(EventListenerFactory.class, false, false);
         List<EventListenerFactory> factories = new ArrayList<>(beans.values());
-        // ÅÅĞò
+        // æ’åº
         AnnotationAwareOrderComparator.sort(factories);
         this.eventListenerFactories = factories;
     }
 
 ```
 
-Õâ¸ö·½·¨»¹ÊÇ±È½Ï¼òµ¥µÄ£¬¾ÍÖ»ÊÇ´ÓÈİÆ÷ÖĞ»ñÈ¡ÁË `EventListenerFactory` ²¢¸³Öµ¸øÁË `eventListenerFactories`¡£
+è¿™ä¸ªæ–¹æ³•è¿˜æ˜¯æ¯”è¾ƒç®€å•çš„ï¼Œå°±åªæ˜¯ä»å®¹å™¨ä¸­è·å–äº† `EventListenerFactory` å¹¶èµ‹å€¼ç»™äº† `eventListenerFactories`ã€‚
 
-`EventListenerFactory` µÄ¹¦ÄÜÊÇÓÃÀ´Éú³É `ApplicationListener`£¬ºóÃæÎÒÃÇ»á·ÖÎö spring ÊÇÈçºÎ°Ñ `@EventListener` ±ê¼ÇµÄ·½·¨×ª»»³É `ApplicationListener` ¶ÔÏóµÄ¡£´Ó´úÂëÀ´¿´£¬spring Ìá¹©µÄ `EventListenerFactory` ÓĞÁ½¸ö£º
+`EventListenerFactory` çš„åŠŸèƒ½æ˜¯ç”¨æ¥ç”Ÿæˆ `ApplicationListener`ï¼Œåé¢æˆ‘ä»¬ä¼šåˆ†æ spring æ˜¯å¦‚ä½•æŠŠ `@EventListener` æ ‡è®°çš„æ–¹æ³•è½¬æ¢æˆ `ApplicationListener` å¯¹è±¡çš„ã€‚ä»ä»£ç æ¥çœ‹ï¼Œspring æä¾›çš„ `EventListenerFactory` æœ‰ä¸¤ä¸ªï¼š
 
-*   `DefaultEventListenerFactory`£ºspring Ä¬ÈÏµÄ
-*   `TransactionalEventListenerFactory`£º´¦ÀíÊÂÎñ¼àÌıµÄ
+*   `DefaultEventListenerFactory`ï¼šspring é»˜è®¤çš„
+*   `TransactionalEventListenerFactory`ï¼šå¤„ç†äº‹åŠ¡ç›‘å¬çš„
 
-½ÓÏÂÀ´ÎÒÃÇÔÙÀ´¿´¿´Ëü¶Ô `SmartInitializingSingleton#afterSingletonsInstantiated()` µÄÊµÏÖ£º
+æ¥ä¸‹æ¥æˆ‘ä»¬å†æ¥çœ‹çœ‹å®ƒå¯¹ `SmartInitializingSingleton#afterSingletonsInstantiated()` çš„å®ç°ï¼š
 
 ```
     /**
-     * Õâ¸ö·½·¨ÊÇ SmartInitializingSingleton µÄ afterSingletonsInstantiated() ·½·¨.
-     * »áÔÚbean³õÊ¼»¯Íê³Éºóµ÷ÓÃ¡£
-     * ÔÚÕâ¸ö·½·¨ÖĞ£¬Ö÷ÒªÊÇ½«±ê¼ÇÁË @EventListener µÄ·½·¨×ª»»³É ApplicationListener ¶ÔÏó£¬²¢×¢²áµ½¼àÌıÆ÷ÖĞ
+     * è¿™ä¸ªæ–¹æ³•æ˜¯ SmartInitializingSingleton çš„ afterSingletonsInstantiated() æ–¹æ³•.
+     * ä¼šåœ¨beanåˆå§‹åŒ–å®Œæˆåè°ƒç”¨ã€‚
+     * åœ¨è¿™ä¸ªæ–¹æ³•ä¸­ï¼Œä¸»è¦æ˜¯å°†æ ‡è®°äº† @EventListener çš„æ–¹æ³•è½¬æ¢æˆ ApplicationListener å¯¹è±¡ï¼Œå¹¶æ³¨å†Œåˆ°ç›‘å¬å™¨ä¸­
      */
     @Override
     public void afterSingletonsInstantiated() {
@@ -173,8 +173,8 @@ public class EventListenerMethodProcessor
             if (!ScopedProxyUtils.isScopedTarget(beanName)) {
                 Class<?> type = null;
                 try {
-                    // »ñÈ¡ aop ´úÀí¶ÔÓ¦µÄÄ¿±êÀà£¬´Ó beanName ¶ÔÓ¦µÄ BeanDefinition ÖĞ»ñÈ¡.
-                    // Èç¹û»ñÈ¡²»µ½£¬±íÊ¾ÊÇ²»ÊÇ´úÀí¶ÔÏó£¬Ê¹ÓÃ beanFactory.getType(beanName) »ñÈ¡
+                    // è·å– aop ä»£ç†å¯¹åº”çš„ç›®æ ‡ç±»ï¼Œä» beanName å¯¹åº”çš„ BeanDefinition ä¸­è·å–.
+                    // å¦‚æœè·å–ä¸åˆ°ï¼Œè¡¨ç¤ºæ˜¯ä¸æ˜¯ä»£ç†å¯¹è±¡ï¼Œä½¿ç”¨ beanFactory.getType(beanName) è·å–
                     type = AutoProxyUtils.determineTargetClass(beanFactory, beanName);
                 }
                 catch (Throwable ex) {
@@ -194,7 +194,7 @@ public class EventListenerMethodProcessor
                         }
                     }
                     try {
-                        // ¾ßÌåµÄ´¦Àí²Ù×÷
+                        // å…·ä½“çš„å¤„ç†æ“ä½œ
                         processBean(beanName, type);
                     }
                     catch (Throwable ex) {
@@ -207,17 +207,17 @@ public class EventListenerMethodProcessor
 
 ```
 
-Õâ¸ö·½·¨µÄÖ´ĞĞÁ÷³ÌÈçÏÂ£º
+è¿™ä¸ªæ–¹æ³•çš„æ‰§è¡Œæµç¨‹å¦‚ä¸‹ï¼š
 
-1.  »ñÈ¡µ±Ç° `beanFactory` ÖĞµÄËùÓĞ `bean`£¬µ÷ÓÃµÄÊÇ `beanFactory.getBeanNamesForType(Object.class)` ·½·¨£¬×¢Òâ´«ÈëµÄ `class` ÊÇ `Object`£¬ÕâÑù¾ÍÄÃ³öÁËËùÓĞµÄ `bean`£»
-2.  ±éÀúÕâĞ© `bean`£¬¶ÔÃ¿Ò»¸ö `bean`£¬Èç¹ûÊÇ´úÀí¶ÔÏó£¬Ôòµ÷ÓÃ `AutoProxyUtils.determineTargetClass(beanFactory, beanName)` ·½·¨»ñÈ¡ÆäÄ¿±êÀà£¬ÎÒÃÇÖªµÀ×¢½âÊÇ²»ÄÜ¼Ì³ĞµÄ£¬Òª»ñÈ¡ `@EventListener` ±ê¼ÇµÄ·½·¨£¬ĞèÒª´ÓÄ¿±êÀàÈ¥»ñÈ¡£»Èç¹û²»ÊÇ´úÀí¶ÔÏó£¬ÔòÄ¿±êÀà¾ÍÊÇ `bean` ¶ÔÓ¦µÄÀà£»
-3.  µ÷ÓÃ `processBean(beanName, type)` ·½·¨½øÒ»²½´¦Àí.
+1.  è·å–å½“å‰ `beanFactory` ä¸­çš„æ‰€æœ‰ `bean`ï¼Œè°ƒç”¨çš„æ˜¯ `beanFactory.getBeanNamesForType(Object.class)` æ–¹æ³•ï¼Œæ³¨æ„ä¼ å…¥çš„ `class` æ˜¯ `Object`ï¼Œè¿™æ ·å°±æ‹¿å‡ºäº†æ‰€æœ‰çš„ `bean`ï¼›
+2.  éå†è¿™äº› `bean`ï¼Œå¯¹æ¯ä¸€ä¸ª `bean`ï¼Œå¦‚æœæ˜¯ä»£ç†å¯¹è±¡ï¼Œåˆ™è°ƒç”¨ `AutoProxyUtils.determineTargetClass(beanFactory, beanName)` æ–¹æ³•è·å–å…¶ç›®æ ‡ç±»ï¼Œæˆ‘ä»¬çŸ¥é“æ³¨è§£æ˜¯ä¸èƒ½ç»§æ‰¿çš„ï¼Œè¦è·å– `@EventListener` æ ‡è®°çš„æ–¹æ³•ï¼Œéœ€è¦ä»ç›®æ ‡ç±»å»è·å–ï¼›å¦‚æœä¸æ˜¯ä»£ç†å¯¹è±¡ï¼Œåˆ™ç›®æ ‡ç±»å°±æ˜¯ `bean` å¯¹åº”çš„ç±»ï¼›
+3.  è°ƒç”¨ `processBean(beanName, type)` æ–¹æ³•è¿›ä¸€æ­¥å¤„ç†.
 
-¿´À´¹Ø¼üÊÇÔÚ `EventListenerMethodProcessor#processBean` ·½·¨ÁË£º
+çœ‹æ¥å…³é”®æ˜¯åœ¨ `EventListenerMethodProcessor#processBean` æ–¹æ³•äº†ï¼š
 
 ```
 /**
- * ´¦Àí bean£¬ Õâ¸ö·½·¨»á½« @EventListener ×¢½â±ê¼ÇµÄ·½·¨×ª»»Îª ApplicationListener ¶ÔÏó£¬²¢×¢²áµ½¼àÌıÆ÷.
+ * å¤„ç† beanï¼Œ è¿™ä¸ªæ–¹æ³•ä¼šå°† @EventListener æ³¨è§£æ ‡è®°çš„æ–¹æ³•è½¬æ¢ä¸º ApplicationListener å¯¹è±¡ï¼Œå¹¶æ³¨å†Œåˆ°ç›‘å¬å™¨.
  * @param beanName
  * @param targetType
  */
@@ -228,7 +228,7 @@ private void processBean(final String beanName, final Class<?> targetType) {
         Map<Method, EventListener> annotatedMethods = null;
 
         try {
-            // 1\. ÕÒµ½±ê¼Ç @EventListener µÄ·½·¨
+            // 1\. æ‰¾åˆ°æ ‡è®° @EventListener çš„æ–¹æ³•
             annotatedMethods = MethodIntrospector.selectMethods(targetType,
                 (MethodIntrospector.MetadataLookup<EventListener>) method ->
                     AnnotatedElementUtils.findMergedAnnotation(method, EventListener.class));
@@ -245,27 +245,27 @@ private void processBean(final String beanName, final Class<?> targetType) {
             Assert.state(context != null, "No ApplicationContext set");
             List<EventListenerFactory> factories = this.eventListenerFactories;
             Assert.state(factories != null, "EventListenerFactory List not initialized");
-            // 2\. Ê¹ÓÃ EventListenerFactory À´²úÉú ApplicationListener ¶ÔÏó
+            // 2\. ä½¿ç”¨ EventListenerFactory æ¥äº§ç”Ÿ ApplicationListener å¯¹è±¡
             for (Method method : annotatedMethods.keySet()) {
                 for (EventListenerFactory factory : factories) {
-                    // ÅĞ¶Ïµ±Ç° EventListenerFactory ÊÇ·ñÖ§³Öµ±Ç°·½·¨
+                    // åˆ¤æ–­å½“å‰ EventListenerFactory æ˜¯å¦æ”¯æŒå½“å‰æ–¹æ³•
                     if (factory.supportsMethod(method)) {
-                        // Èç¹ûÊÇ´úÀí¶ÔÏó£¬ÔòµÃµ½´úÀíÀàµÄ·½·¨
+                        // å¦‚æœæ˜¯ä»£ç†å¯¹è±¡ï¼Œåˆ™å¾—åˆ°ä»£ç†ç±»çš„æ–¹æ³•
                         Method methodToUse = AopUtils.selectInvocableMethod(
                                 method, context.getType(beanName));
-                        // Éú³É ApplicationListener£¬´«ÈëµÄÊÇ´úÀíÀàµÄ·½·¨
+                        // ç”Ÿæˆ ApplicationListenerï¼Œä¼ å…¥çš„æ˜¯ä»£ç†ç±»çš„æ–¹æ³•
                         ApplicationListener<?> applicationListener = factory
                                 .createApplicationListener(beanName, targetType, methodToUse);
-                        // ³õÊ¼»¯²Ù×÷£¬ÕâÒ»²½Ö÷ÒªÊÇ¶ÔÌõ¼şÅĞ¶ÏÆ÷¸³Öµ£ºthis.evaluator
+                        // åˆå§‹åŒ–æ“ä½œï¼Œè¿™ä¸€æ­¥ä¸»è¦æ˜¯å¯¹æ¡ä»¶åˆ¤æ–­å™¨èµ‹å€¼ï¼šthis.evaluator
                         if (applicationListener instanceof ApplicationListenerMethodAdapter) {
                             ((ApplicationListenerMethodAdapter) applicationListener)
                                     .init(context, this.evaluator);
                         }
-                        // Ìí¼Óµ½¼àÌıÆ÷ÖĞ£¬±£´æ Listener ÊÇSet£¬»á×Ô¶¯È¥ÖØ
+                        // æ·»åŠ åˆ°ç›‘å¬å™¨ä¸­ï¼Œä¿å­˜ Listener æ˜¯Setï¼Œä¼šè‡ªåŠ¨å»é‡
                         context.addApplicationListener(applicationListener);
-                        // Âú×ãÆäÒ»£¬ºóÃæµÄ EventListenerFactory ¾Í²»»áÔÙÖ´ĞĞÁË£¬
-                        // ÕâÖÖÊ±ºò¾Í»á·¢ÏÖ factories µÄË³ĞòºÜÖØÒª
-                        // ¿ÉÒÔÔÚ EventListenerFactory ÖĞÖ¸¶¨Ë³Ğò
+                        // æ»¡è¶³å…¶ä¸€ï¼Œåé¢çš„ EventListenerFactory å°±ä¸ä¼šå†æ‰§è¡Œäº†ï¼Œ
+                        // è¿™ç§æ—¶å€™å°±ä¼šå‘ç° factories çš„é¡ºåºå¾ˆé‡è¦
+                        // å¯ä»¥åœ¨ EventListenerFactory ä¸­æŒ‡å®šé¡ºåº
                         break;
                     }
                 }
@@ -276,22 +276,22 @@ private void processBean(final String beanName, final Class<?> targetType) {
 
 ```
 
-ÔÚ `processBean(...)` ·½·¨µÄ¹Ø¼ü´¦Àí¶¼×÷ÁË×¢ÊÍ£¬ÎÒÃÇÔÙ×Ü½áÏÂ´¦ÀíÁ÷³Ì£º
+åœ¨ `processBean(...)` æ–¹æ³•çš„å…³é”®å¤„ç†éƒ½ä½œäº†æ³¨é‡Šï¼Œæˆ‘ä»¬å†æ€»ç»“ä¸‹å¤„ç†æµç¨‹ï¼š
 
-1.  ÕÒµ½±ê¼Ç `@EventListener` µÄ·½·¨£¬ÕâÀïÊ¹ÓÃµÄÊÇ `MethodIntrospector#selectMethods(...)` ·½·¨½øĞĞ²éÕÒ£¬Õâ¸ö·½·¨»á²éµ½µ±Ç°ÀàµÄ·½·¨¡¢Æä¸¸ÀàµÄ·½·¨ÒÔ¼°½Ó¿ÚµÄÄ¬ÈÏ·½·¨£¬Ò»Ö±µ½ Object ÎªÖ¹£¬ÕâĞ©·½·¨ÖĞÈç¹û±ê¼ÇÁË `@EventListener`£¬¶¼»á±»ÕÒµ½£¬×îÖÕ»á°ÑÕÒµ½µÄËùÓĞ·½·¨·Åµ½Ò»¸ö Map ÖĞ£»
-2.  ±éÀúÉÏÊöµÃµ½µÄ map£¬½«Ã¿¸ö·½·¨×ª»»Îª `ApplicationListener` ¶ÔÏó£¬ÔÙÌí¼Óµ½ `applicationContext` µÄ `ApplicationListener` ÖĞ£¬¾ßÌåÁ÷³ÌÈçÏÂ£º
-    1.  ±éÀúÇ°ÃæµÃµ½µÄ `EventListenerFactory`£»
-    2.  ±éÀúµ±Ç°µÄ `EventListenerFactory` ÊÇ·ñÖ§³Ö¸Ã·½·¨£¬Ö§³ÖÔò½øĞĞÏÂÒ»²½£¬²»Ö§³ÖÔò²»´¦Àí£»
-    3.  ¶ÔÓÚ´úÀí¶ÔÏó£¬ÕÒµ½µ±Ç°·½·¨µÄ´úÀí·½·¨£¬×îÖÕÖ´ĞĞµÄÒ²ÊÇ´úÀí·½·¨£»
-    4.  ´´½¨ `ApplicationListener` ¶ÔÏó£¬¹¹Ôì·½·¨µÄ²ÎÊı»á´«Èë `method`£¬¶ÔÓÚ´úÀí¶ÔÏó£¬Õâ¸ö `method` ÊÇ´úÀí¶ÔÏóµÄ `method`£»
-    5.  ¶ÔÓÚ `ApplicationListenerMethodAdapter` ÊµÀı£¬½øĞĞ³õÊ¼»¯²Ù×÷£¬Ö÷ÒªÊÇ¸³Öµ£ºthis.evaluator£»
-    6.  ½«µÃµ½µÄ `ApplicationListener` Ìí¼Óµ½¼àÌıÆ÷ÖĞ£¬±£´æ `Listener` ÊÇÒ»¸ö `Set`£¬»á×Ô¶¯È¥ÖØ¡£
+1.  æ‰¾åˆ°æ ‡è®° `@EventListener` çš„æ–¹æ³•ï¼Œè¿™é‡Œä½¿ç”¨çš„æ˜¯ `MethodIntrospector#selectMethods(...)` æ–¹æ³•è¿›è¡ŒæŸ¥æ‰¾ï¼Œè¿™ä¸ªæ–¹æ³•ä¼šæŸ¥åˆ°å½“å‰ç±»çš„æ–¹æ³•ã€å…¶çˆ¶ç±»çš„æ–¹æ³•ä»¥åŠæ¥å£çš„é»˜è®¤æ–¹æ³•ï¼Œä¸€ç›´åˆ° Object ä¸ºæ­¢ï¼Œè¿™äº›æ–¹æ³•ä¸­å¦‚æœæ ‡è®°äº† `@EventListener`ï¼Œéƒ½ä¼šè¢«æ‰¾åˆ°ï¼Œæœ€ç»ˆä¼šæŠŠæ‰¾åˆ°çš„æ‰€æœ‰æ–¹æ³•æ”¾åˆ°ä¸€ä¸ª Map ä¸­ï¼›
+2.  éå†ä¸Šè¿°å¾—åˆ°çš„ mapï¼Œå°†æ¯ä¸ªæ–¹æ³•è½¬æ¢ä¸º `ApplicationListener` å¯¹è±¡ï¼Œå†æ·»åŠ åˆ° `applicationContext` çš„ `ApplicationListener` ä¸­ï¼Œå…·ä½“æµç¨‹å¦‚ä¸‹ï¼š
+    1.  éå†å‰é¢å¾—åˆ°çš„ `EventListenerFactory`ï¼›
+    2.  éå†å½“å‰çš„ `EventListenerFactory` æ˜¯å¦æ”¯æŒè¯¥æ–¹æ³•ï¼Œæ”¯æŒåˆ™è¿›è¡Œä¸‹ä¸€æ­¥ï¼Œä¸æ”¯æŒåˆ™ä¸å¤„ç†ï¼›
+    3.  å¯¹äºä»£ç†å¯¹è±¡ï¼Œæ‰¾åˆ°å½“å‰æ–¹æ³•çš„ä»£ç†æ–¹æ³•ï¼Œæœ€ç»ˆæ‰§è¡Œçš„ä¹Ÿæ˜¯ä»£ç†æ–¹æ³•ï¼›
+    4.  åˆ›å»º `ApplicationListener` å¯¹è±¡ï¼Œæ„é€ æ–¹æ³•çš„å‚æ•°ä¼šä¼ å…¥ `method`ï¼Œå¯¹äºä»£ç†å¯¹è±¡ï¼Œè¿™ä¸ª `method` æ˜¯ä»£ç†å¯¹è±¡çš„ `method`ï¼›
+    5.  å¯¹äº `ApplicationListenerMethodAdapter` å®ä¾‹ï¼Œè¿›è¡Œåˆå§‹åŒ–æ“ä½œï¼Œä¸»è¦æ˜¯èµ‹å€¼ï¼šthis.evaluatorï¼›
+    6.  å°†å¾—åˆ°çš„ `ApplicationListener` æ·»åŠ åˆ°ç›‘å¬å™¨ä¸­ï¼Œä¿å­˜ `Listener` æ˜¯ä¸€ä¸ª `Set`ï¼Œä¼šè‡ªåŠ¨å»é‡ã€‚
 
-×ÛÉÏËùÊö£¬±» `@EventListener` ±ê¼ÇµÄ·½·¨Ö®ËùÒÔÄÜ¶ÔÊÂ¼ş½øĞĞ¼àÌı£¬ÊÇÒòÎª spring ½«¸Ã·½·¨°ü×°³ÉÒ»¸ö `ApplicationListener` Ìí¼Óµ½¼àÌıÆ÷ÁË£¬Ö®ºóÕâ¸ö¼àÌıÆ÷¾Í¸úÊµÏÖÁË `ApplicationListener` ½Ó¿ÚµÄ¼àÌıÆ÷Ò»ÑùÄÜ¶ÔÊÂ¼ş½øĞĞ¼àÌıÁË¡£
+ç»¼ä¸Šæ‰€è¿°ï¼Œè¢« `@EventListener` æ ‡è®°çš„æ–¹æ³•ä¹‹æ‰€ä»¥èƒ½å¯¹äº‹ä»¶è¿›è¡Œç›‘å¬ï¼Œæ˜¯å› ä¸º spring å°†è¯¥æ–¹æ³•åŒ…è£…æˆä¸€ä¸ª `ApplicationListener` æ·»åŠ åˆ°ç›‘å¬å™¨äº†ï¼Œä¹‹åè¿™ä¸ªç›‘å¬å™¨å°±è·Ÿå®ç°äº† `ApplicationListener` æ¥å£çš„ç›‘å¬å™¨ä¸€æ ·èƒ½å¯¹äº‹ä»¶è¿›è¡Œç›‘å¬äº†ã€‚
 
-### 5. `ApplicationListener` ¶ÔÏóµÄÉú³É
+### 5. `ApplicationListener` å¯¹è±¡çš„ç”Ÿæˆ
 
-Ç°Ãæ·ÖÎöÁË `@EventListener` µÄ´¦ÀíÁ÷³Ì£¬±¾½Ú½«À´·ÖÎö `ApplicationListener` ¶ÔÏóµÄÉú³É£¬¶ÔÓ¦µÄ´úÂëÎª£º
+å‰é¢åˆ†æäº† `@EventListener` çš„å¤„ç†æµç¨‹ï¼Œæœ¬èŠ‚å°†æ¥åˆ†æ `ApplicationListener` å¯¹è±¡çš„ç”Ÿæˆï¼Œå¯¹åº”çš„ä»£ç ä¸ºï¼š
 
 ```
 // EventListenerMethodProcessor#processBean
@@ -300,12 +300,12 @@ ApplicationListener<?> applicationListener = factory
 
 ```
 
-Ç°ÃæÎÒÃÇ½éÉÜ¹ı spring Ìá¹©µÄ `EventListenerFactory` ÓĞÁ½¸ö£º
+å‰é¢æˆ‘ä»¬ä»‹ç»è¿‡ spring æä¾›çš„ `EventListenerFactory` æœ‰ä¸¤ä¸ªï¼š
 
-*   `DefaultEventListenerFactory`£ºspring Ä¬ÈÏµÄ
-*   `TransactionalEventListenerFactory`£º´¦ÀíÊÂÎñ¼àÌıµÄ
+*   `DefaultEventListenerFactory`ï¼šspring é»˜è®¤çš„
+*   `TransactionalEventListenerFactory`ï¼šå¤„ç†äº‹åŠ¡ç›‘å¬çš„
 
-½ÓÏÂÀ´ÎÒÃÇ¾ÍÀ´·ÖÎöÕâÁ½¸ö `EventListenerFactory`¡£
+æ¥ä¸‹æ¥æˆ‘ä»¬å°±æ¥åˆ†æè¿™ä¸¤ä¸ª `EventListenerFactory`ã€‚
 
 #### 5.1 `DefaultEventListenerFactory`
 
@@ -314,7 +314,7 @@ public class DefaultEventListenerFactory implements EventListenerFactory, Ordere
     ...
 
     /**
-     * ²»À¢ÊÇÄ¬ÈÏµÄÊµÏÖ£¬ÄÜÖ§³ÖËùÓĞµÄ·½·¨
+     * ä¸æ„§æ˜¯é»˜è®¤çš„å®ç°ï¼Œèƒ½æ”¯æŒæ‰€æœ‰çš„æ–¹æ³•
      */
     @Override
     public boolean supportsMethod(Method method) {
@@ -322,7 +322,7 @@ public class DefaultEventListenerFactory implements EventListenerFactory, Ordere
     }
 
     /**
-     * ´´½¨²Ù×÷
+     * åˆ›å»ºæ“ä½œ
      */ 
     @Override
     public ApplicationListener<?> createApplicationListener(String beanName, 
@@ -333,12 +333,12 @@ public class DefaultEventListenerFactory implements EventListenerFactory, Ordere
 
 ```
 
-¶ÔÒÔÉÏ´úÂëËµÃ÷ÈçÏÂ£º
+å¯¹ä»¥ä¸Šä»£ç è¯´æ˜å¦‚ä¸‹ï¼š
 
-1.  `DefaultEventListenerFactory` ÊÇ spring Ìá¹©µÄÄ¬ÈÏÊµÏÖ£¬ÄÜÖ§³ÖËùÓĞ±ê¼ÇÁË `@EventListener` µÄ·½·¨£»
-2.  ´´½¨ `ApplicationListener` µÄ·½·¨ÊÇ `createApplicationListener`£¬Ëüµ÷ÓÃµÄÊÇ `ApplicationListenerMethodAdapter` µÄ¹¹Ôì·½·¨¡£
+1.  `DefaultEventListenerFactory` æ˜¯ spring æä¾›çš„é»˜è®¤å®ç°ï¼Œèƒ½æ”¯æŒæ‰€æœ‰æ ‡è®°äº† `@EventListener` çš„æ–¹æ³•ï¼›
+2.  åˆ›å»º `ApplicationListener` çš„æ–¹æ³•æ˜¯ `createApplicationListener`ï¼Œå®ƒè°ƒç”¨çš„æ˜¯ `ApplicationListenerMethodAdapter` çš„æ„é€ æ–¹æ³•ã€‚
 
-ÎÒÃÇ¼ÌĞø¿´ `ApplicationListenerMethodAdapter`£º
+æˆ‘ä»¬ç»§ç»­çœ‹ `ApplicationListenerMethodAdapter`ï¼š
 
 ```
 public class ApplicationListenerMethodAdapter implements GenericApplicationListener {
@@ -347,7 +347,7 @@ public class ApplicationListenerMethodAdapter implements GenericApplicationListe
 
     public ApplicationListenerMethodAdapter(String beanName, Class<?> targetClass, Method method) {
         this.beanName = beanName;
-        // ´¦Àí·½·¨
+        // å¤„ç†æ–¹æ³•
         this.method = BridgeMethodResolver.findBridgedMethod(method);
         this.targetMethod = (!Proxy.isProxyClass(targetClass) ?
                 AopUtils.getMostSpecificMethod(method, targetClass) : this.method);
@@ -355,9 +355,9 @@ public class ApplicationListenerMethodAdapter implements GenericApplicationListe
 
         EventListener ann = AnnotatedElementUtils
                 .findMergedAnnotation(this.targetMethod, EventListener.class);
-        // ½âÎöÖ§³ÖµÄÊÂ¼ş
+        // è§£ææ”¯æŒçš„äº‹ä»¶
         this.declaredEventTypes = resolveDeclaredEventTypes(method, ann);
-        // ×¢½âÖ¸¶¨µÄÌõ¼ş
+        // æ³¨è§£æŒ‡å®šçš„æ¡ä»¶
         this.condition = (ann != null ? ann.condition() : null);
         this.order = resolveOrder(this.targetMethod);
     }
@@ -367,7 +367,7 @@ public class ApplicationListenerMethodAdapter implements GenericApplicationListe
 
 ```
 
-`ApplicationListenerMethodAdapter` µÄ¹¹Ôì·½·¨¾ÍÊÇÒ»¶ÑµÄ¸³Öµ²Ù×÷£¬ÕâÀïÎÒÃÇÖØµãÀ´¹Ø×¢ÏÂÊÂ¼şµÄ´¦Àí£º
+`ApplicationListenerMethodAdapter` çš„æ„é€ æ–¹æ³•å°±æ˜¯ä¸€å †çš„èµ‹å€¼æ“ä½œï¼Œè¿™é‡Œæˆ‘ä»¬é‡ç‚¹æ¥å…³æ³¨ä¸‹äº‹ä»¶çš„å¤„ç†ï¼š
 
 ```
 public class ApplicationListenerMethodAdapter implements GenericApplicationListener {
@@ -375,11 +375,11 @@ public class ApplicationListenerMethodAdapter implements GenericApplicationListe
     ...
 
     /**
-     * ½âÎö·½·¨ÄÜ¼àÌıµÄÊÂ¼şÀàĞÍ
+     * è§£ææ–¹æ³•èƒ½ç›‘å¬çš„äº‹ä»¶ç±»å‹
      */
     private static List<ResolvableType> resolveDeclaredEventTypes(Method method, 
             @Nullable EventListener ann) {
-        // ·½·¨×î¶àÖ»ÄÜÓĞÒ»¸ö²ÎÊı£¬¼àÌıµÄÊÂ¼şÀàĞÍÓÉ @EventListener Ö¸¶¨
+        // æ–¹æ³•æœ€å¤šåªèƒ½æœ‰ä¸€ä¸ªå‚æ•°ï¼Œç›‘å¬çš„äº‹ä»¶ç±»å‹ç”± @EventListener æŒ‡å®š
         int count = method.getParameterCount();
         if (count > 1) {
             throw new IllegalStateException(
@@ -387,7 +387,7 @@ public class ApplicationListenerMethodAdapter implements GenericApplicationListe
         }
 
         if (ann != null) {
-            // ÊÂ¼ş¿ÉÒÔÖ¸¶¨¶à¸ö£¬»ñÈ¡µÄÊÇ classes ÊôĞÔÖµ
+            // äº‹ä»¶å¯ä»¥æŒ‡å®šå¤šä¸ªï¼Œè·å–çš„æ˜¯ classes å±æ€§å€¼
             Class<?>[] classes = ann.classes();
             if (classes.length > 0) {
                 List<ResolvableType> types = new ArrayList<>(classes.length);
@@ -408,14 +408,14 @@ public class ApplicationListenerMethodAdapter implements GenericApplicationListe
 
 ```
 
-´Ó´úÂë¿ÉÒÔµÃ³öÈçÏÂ½áÂÛ£º
+ä»ä»£ç å¯ä»¥å¾—å‡ºå¦‚ä¸‹ç»“è®ºï¼š
 
-1.  ±» `@EventListener` ±ê¼ÇµÄ·½·¨£¬²ÎÊı×î¶àÖ»ÄÜÓĞÒ»¸ö
-2.  ·½·¨ÄÜ¼àÌıµÄÊÂ¼ş¿ÉÒÔÓĞ¶à¸ö£¬ÓÉ `@EventListener` Ö¸¶¨
+1.  è¢« `@EventListener` æ ‡è®°çš„æ–¹æ³•ï¼Œå‚æ•°æœ€å¤šåªèƒ½æœ‰ä¸€ä¸ª
+2.  æ–¹æ³•èƒ½ç›‘å¬çš„äº‹ä»¶å¯ä»¥æœ‰å¤šä¸ªï¼Œç”± `@EventListener` æŒ‡å®š
 
 #### 5.2 `TransactionalEventListenerFactory`
 
-½ÓÏÂÀ´ÎÒÃÇÔÙÀ´¿´¿´ `TransactionalEventListenerFactory`£º
+æ¥ä¸‹æ¥æˆ‘ä»¬å†æ¥çœ‹çœ‹ `TransactionalEventListenerFactory`ï¼š
 
 ```
 public class TransactionalEventListenerFactory implements EventListenerFactory, Ordered {
@@ -423,7 +423,7 @@ public class TransactionalEventListenerFactory implements EventListenerFactory, 
     ...
 
     /**
-     * Ö»Ö§³Ö±ê¼ÇÁË @TransactionalEventListener ×¢½âµÄ·½·¨
+     * åªæ”¯æŒæ ‡è®°äº† @TransactionalEventListener æ³¨è§£çš„æ–¹æ³•
      */
     @Override
     public boolean supportsMethod(Method method) {
@@ -431,7 +431,7 @@ public class TransactionalEventListenerFactory implements EventListenerFactory, 
     }
 
     /**
-     * ´´½¨µÄ¶ÔÏóÊÇ ApplicationListenerMethodTransactionalAdapter
+     * åˆ›å»ºçš„å¯¹è±¡æ˜¯ ApplicationListenerMethodTransactionalAdapter
      */
     @Override
     public ApplicationListener<?> createApplicationListener(String beanName, 
@@ -442,59 +442,59 @@ public class TransactionalEventListenerFactory implements EventListenerFactory, 
 
 ```
 
-´Ó´úÂëÀ´¿´£¬`TransactionalEventListenerFactory` Óë `DefaultEventListenerFactory` ²î±ğÈçÏÂ£º
+ä»ä»£ç æ¥çœ‹ï¼Œ`TransactionalEventListenerFactory` ä¸ `DefaultEventListenerFactory` å·®åˆ«å¦‚ä¸‹ï¼š
 
-*   `ApplicationListenerMethodTransactionalAdapter` Ö»Ö§³Ö±ê¼ÇÁË `@TransactionalEventListener` µÄ·½·¨£»
-*   ´´½¨µÄ `ApplicationListener` Êµ¼ÊÀàĞÍÎª `ApplicationListenerMethodTransactionalAdapter`¡£
+*   `ApplicationListenerMethodTransactionalAdapter` åªæ”¯æŒæ ‡è®°äº† `@TransactionalEventListener` çš„æ–¹æ³•ï¼›
+*   åˆ›å»ºçš„ `ApplicationListener` å®é™…ç±»å‹ä¸º `ApplicationListenerMethodTransactionalAdapter`ã€‚
 
-ÎÒÃÇÏÈÀ´¿´¿´ `@TransactionalEventListener` ÊÇ¸öÉ¶£º
+æˆ‘ä»¬å…ˆæ¥çœ‹çœ‹ `@TransactionalEventListener` æ˜¯ä¸ªå•¥ï¼š
 
 ```
 @Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 /**
- * ±ê¼ÇÁË @EventListener ×¢½â
+ * æ ‡è®°äº† @EventListener æ³¨è§£
  */
 @EventListener
 public @interface TransactionalEventListener {
     /**
-     * ÊÂÎñ´¦Àí
+     * äº‹åŠ¡å¤„ç†
      */
     TransactionPhase phase() default TransactionPhase.AFTER_COMMIT;
 
     /**
-     * ÊÂÎñ´¦Àí
+     * äº‹åŠ¡å¤„ç†
      */
     boolean fallbackExecution() default false;
 
     /**
-     * Ö¸¶¨¼àÌıÊÂ¼ş
+     * æŒ‡å®šç›‘å¬äº‹ä»¶
      */
     @AliasFor(annotation = EventListener.class, attribute = "classes")
     Class<?>[] value() default {};
 
     /**
-     * Ö¸¶¨¼àÌıÊÂ¼ş
+     * æŒ‡å®šç›‘å¬äº‹ä»¶
      */
     @AliasFor(annotation = EventListener.class, attribute = "classes")
     Class<?>[] classes() default {};
 
     /**
-     * Ö¸¶¨Ìõ¼ş
+     * æŒ‡å®šæ¡ä»¶
      */
     String condition() default "";
 }
 
 ```
 
-¿ÉÒÔ¿´µ½£¬Õâ¸ö×¢½â±ê¼ÇÁË `@EventListener`£¬Òò´Ë¾ßÓĞÓë `@EventListener` ÏàÍ¬µÄ¹¦ÄÜ¡£ÁíÍâ£¬Óë `@EventListener` Ïà±È£¬¶àÁËÁ½¸öÊôĞÔ£º`phase()` Óë `fallbackExecution()`£¬¿´À´ÊÇÓÃÀ´¿ØÖÆÊÂÎñµÄ¡£
+å¯ä»¥çœ‹åˆ°ï¼Œè¿™ä¸ªæ³¨è§£æ ‡è®°äº† `@EventListener`ï¼Œå› æ­¤å…·æœ‰ä¸ `@EventListener` ç›¸åŒçš„åŠŸèƒ½ã€‚å¦å¤–ï¼Œä¸ `@EventListener` ç›¸æ¯”ï¼Œå¤šäº†ä¸¤ä¸ªå±æ€§ï¼š`phase()` ä¸ `fallbackExecution()`ï¼Œçœ‹æ¥æ˜¯ç”¨æ¥æ§åˆ¶äº‹åŠ¡çš„ã€‚
 
-ÁË½âÁË `TransactionalEventListener` Ö®ºó£¬ÎÒÃÇÔÙÀ´¿´¿´ `ApplicationListenerMethodTransactionalAdapter`£º
+äº†è§£äº† `TransactionalEventListener` ä¹‹åï¼Œæˆ‘ä»¬å†æ¥çœ‹çœ‹ `ApplicationListenerMethodTransactionalAdapter`ï¼š
 
 ```
 /**
- * ¼Ì³ĞÁË ApplicationListenerMethodAdapter
+ * ç»§æ‰¿äº† ApplicationListenerMethodAdapter
  */
 class ApplicationListenerMethodTransactionalAdapter extends ApplicationListenerMethodAdapter {
     ...
@@ -503,9 +503,9 @@ class ApplicationListenerMethodTransactionalAdapter extends ApplicationListenerM
 
     public ApplicationListenerMethodTransactionalAdapter(String beanName, 
             Class<?> targetClass, Method method) {
-        // µ÷ÓÃ¸¸ÀàµÄ·½·¨
+        // è°ƒç”¨çˆ¶ç±»çš„æ–¹æ³•
         super(beanName, targetClass, method);
-        // ÕâÀïµÄ×¢½âÊÇ @TransactionalEventListener
+        // è¿™é‡Œçš„æ³¨è§£æ˜¯ @TransactionalEventListener
         TransactionalEventListener ann = AnnotatedElementUtils
                 .findMergedAnnotation(method, TransactionalEventListener.class);
         if (ann == null) {
@@ -519,20 +519,20 @@ class ApplicationListenerMethodTransactionalAdapter extends ApplicationListenerM
 
 ```
 
-´Ó´úÂëÉÏÀ´¿´£¬`ApplicationListenerMethodTransactionalAdapter` ¼Ì³ĞÁË `ApplicationListenerMethodAdapter`£¬Æä¹¹Ôì·½·¨Ò²ÊÇÏÈµ÷ÓÃ `ApplicationListenerMethodAdapter` µÄ¹¹Ôì·½·¨£¬È»ºóÔÙ¸ø `annotation` ¸³Öµ¡£
+ä»ä»£ç ä¸Šæ¥çœ‹ï¼Œ`ApplicationListenerMethodTransactionalAdapter` ç»§æ‰¿äº† `ApplicationListenerMethodAdapter`ï¼Œå…¶æ„é€ æ–¹æ³•ä¹Ÿæ˜¯å…ˆè°ƒç”¨ `ApplicationListenerMethodAdapter` çš„æ„é€ æ–¹æ³•ï¼Œç„¶åå†ç»™ `annotation` èµ‹å€¼ã€‚
 
-### 6\. ÊÂ¼ş¼àÌı
+### 6\. äº‹ä»¶ç›‘å¬
 
-½ÓÏÂÀ´ÎÒÃÇÀ´¿´¿´ÊÂ¼şµÄ¼àÌı²Ù×÷¡£
+æ¥ä¸‹æ¥æˆ‘ä»¬æ¥çœ‹çœ‹äº‹ä»¶çš„ç›‘å¬æ“ä½œã€‚
 
-#### 6.1 `ApplicationListenerMethodAdapter` ¼àÌıÊÂ¼ş
+#### 6.1 `ApplicationListenerMethodAdapter` ç›‘å¬äº‹ä»¶
 
-ÔÚÇ°ÃæµÄÎÄÕÂÖĞ£¬ÎÒÃÇÖªµÀ `ApplicationListener` Òª´¦ÀíÒ»¸öÊÂ¼ş£¬±ØĞë°üº¬Á½¸ö²Ù×÷£º
+åœ¨å‰é¢çš„æ–‡ç« ä¸­ï¼Œæˆ‘ä»¬çŸ¥é“ `ApplicationListener` è¦å¤„ç†ä¸€ä¸ªäº‹ä»¶ï¼Œå¿…é¡»åŒ…å«ä¸¤ä¸ªæ“ä½œï¼š
 
-1.  ÅĞ¶Ïµ±Ç° `ApplicationListener` ÊÇ·ñÖ§³Öµ±Ç°ÊÂ¼ş
-2.  Èç¹ûÖ§³Ö£¬Ôò½øĞĞÊÂ¼ş´¦Àí
+1.  åˆ¤æ–­å½“å‰ `ApplicationListener` æ˜¯å¦æ”¯æŒå½“å‰äº‹ä»¶
+2.  å¦‚æœæ”¯æŒï¼Œåˆ™è¿›è¡Œäº‹ä»¶å¤„ç†
 
-ÎÒÃÇÀ´¿´¿´ `ApplicationListenerMethodAdapter` µÄÕâÁ½¸ö²Ù×÷£º
+æˆ‘ä»¬æ¥çœ‹çœ‹ `ApplicationListenerMethodAdapter` çš„è¿™ä¸¤ä¸ªæ“ä½œï¼š
 
 ```
 public class ApplicationListenerMethodAdapter implements GenericApplicationListener {
@@ -540,9 +540,9 @@ public class ApplicationListenerMethodAdapter implements GenericApplicationListe
     ...
 
     /**
-     * µ±Ç° listener ÊÇ·ñÖ§³Ö´«ÈëµÄÊÂ¼ş.
-     * Ê¹ÓÃµÄ·½·¨ÊÇ ResolvableType#isAssignableFrom(ResolvableType)£¬¿ÉÒÔ½«¸Ã·½·¨¼òµ¥Àí½â
-     * ÎªÊÇ¶Ô Class#isAssignableFrom ¹¦ÄÜµÄÀ©Õ¹
+     * å½“å‰ listener æ˜¯å¦æ”¯æŒä¼ å…¥çš„äº‹ä»¶.
+     * ä½¿ç”¨çš„æ–¹æ³•æ˜¯ ResolvableType#isAssignableFrom(ResolvableType)ï¼Œå¯ä»¥å°†è¯¥æ–¹æ³•ç®€å•ç†è§£
+     * ä¸ºæ˜¯å¯¹ Class#isAssignableFrom åŠŸèƒ½çš„æ‰©å±•
      */
     @Override
     public boolean supportsEventType(ResolvableType eventType) {
@@ -562,7 +562,7 @@ public class ApplicationListenerMethodAdapter implements GenericApplicationListe
     }
 
     /**
-     * ÊÂ¼ş´¦Àí
+     * äº‹ä»¶å¤„ç†
      */
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
@@ -570,14 +570,14 @@ public class ApplicationListenerMethodAdapter implements GenericApplicationListe
     }
 
     public void processEvent(ApplicationEvent event) {
-        // ½âÎö²ÎÊı
+        // è§£æå‚æ•°
         Object[] args = resolveArguments(event);
-        // shouldHandle£ºÅĞ¶ÏÌõ¼ş£¬ÓÉ EventListener.condition() Ìá¹©
+        // shouldHandleï¼šåˆ¤æ–­æ¡ä»¶ï¼Œç”± EventListener.condition() æä¾›
         if (shouldHandle(event, args)) {
-            // ·´Éäµ÷ÓÃ·½·¨
+            // åå°„è°ƒç”¨æ–¹æ³•
             Object result = doInvoke(args);
             if (result != null) {
-                // ´¦ÀíÖ´ĞĞ½á¹û£¬½«·µ»ØµÄ½á¹ûµ±×÷ÊÂ¼ş·¢²¼³öÈ¥
+                // å¤„ç†æ‰§è¡Œç»“æœï¼Œå°†è¿”å›çš„ç»“æœå½“ä½œäº‹ä»¶å‘å¸ƒå‡ºå»
                 handleResult(result);
             }
             else {
@@ -590,36 +590,36 @@ public class ApplicationListenerMethodAdapter implements GenericApplicationListe
 
 ```
 
-¿ÉÒÔ¿´µ½£¬ÅĞ¶Ïµ±Ç°µ±Ç° `ApplicationListener` ÊÇ·ñÖ§³Öµ±Ç°ÊÂ¼şÊ±£¬Ê¹ÓÃµÄÊÇ `ResolvableType#isAssignableFrom(ResolvableType)`£¬¹ØÓÚÕâ¸ö·½·¨±¾ÎÄ²¢²»´òËãÉîÈë·ÖÎö£¬¿ÉÒÔ¼òµ¥µØ½«¸Ã·½·¨Àí½âÎªÊÇ¶Ô `Class#isAssignableFrom` ¹¦ÄÜµÄÀ©Õ¹¡£
+å¯ä»¥çœ‹åˆ°ï¼Œåˆ¤æ–­å½“å‰å½“å‰ `ApplicationListener` æ˜¯å¦æ”¯æŒå½“å‰äº‹ä»¶æ—¶ï¼Œä½¿ç”¨çš„æ˜¯ `ResolvableType#isAssignableFrom(ResolvableType)`ï¼Œå…³äºè¿™ä¸ªæ–¹æ³•æœ¬æ–‡å¹¶ä¸æ‰“ç®—æ·±å…¥åˆ†æï¼Œå¯ä»¥ç®€å•åœ°å°†è¯¥æ–¹æ³•ç†è§£ä¸ºæ˜¯å¯¹ `Class#isAssignableFrom` åŠŸèƒ½çš„æ‰©å±•ã€‚
 
-`ApplicationListenerMethodAdapter` ´¦ÀíÊÂ¼ş¼àÌıµÄÁ÷³ÌÈçÏÂ£º
+`ApplicationListenerMethodAdapter` å¤„ç†äº‹ä»¶ç›‘å¬çš„æµç¨‹å¦‚ä¸‹ï¼š
 
-1.  ½âÎö²ÎÊı£¬½«´«ÈëµÄ `event` ×ª»»Îª·½·¨²ÎÊıÖĞ¾ßÌåµÄÖµ
-2.  Í¨¹ı·´Éäµ÷ÓÃ±» `@EventListener` ±ê¼ÇµÄ·½·¨
-3.  ´¦Àí `@EventListener` ·½·¨µÄ·µ»Ø½á¹û£¬ÔÚ `handleResult(...)` ·½·¨Àï¿ÉÒÔ½«·µ»ØµÄ½á¹ûµ±×÷ÊÂ¼şÔÙ·¢²¼³öÈ¥
+1.  è§£æå‚æ•°ï¼Œå°†ä¼ å…¥çš„ `event` è½¬æ¢ä¸ºæ–¹æ³•å‚æ•°ä¸­å…·ä½“çš„å€¼
+2.  é€šè¿‡åå°„è°ƒç”¨è¢« `@EventListener` æ ‡è®°çš„æ–¹æ³•
+3.  å¤„ç† `@EventListener` æ–¹æ³•çš„è¿”å›ç»“æœï¼Œåœ¨ `handleResult(...)` æ–¹æ³•é‡Œå¯ä»¥å°†è¿”å›çš„ç»“æœå½“ä½œäº‹ä»¶å†å‘å¸ƒå‡ºå»
 
-¹ØÓÚ `ApplicationListenerMethodAdapter` ´¦ÀíÊÂ¼ş¼àÌı¾Í·ÖÎöµ½ÕâÀïÁË¡£
+å…³äº `ApplicationListenerMethodAdapter` å¤„ç†äº‹ä»¶ç›‘å¬å°±åˆ†æåˆ°è¿™é‡Œäº†ã€‚
 
-#### 6.2 `ApplicationListenerMethodTransactionalAdapter` ¼àÌıÊÂ¼ş
+#### 6.2 `ApplicationListenerMethodTransactionalAdapter` ç›‘å¬äº‹ä»¶
 
-`ApplicationListenerMethodTransactionalAdapter` µÄÊÂ¼ş¼àÌı±È `ApplicationListenerMethodAdapter` Òª¼òµ¥Ò»Ğ©£º
+`ApplicationListenerMethodTransactionalAdapter` çš„äº‹ä»¶ç›‘å¬æ¯” `ApplicationListenerMethodAdapter` è¦ç®€å•ä¸€äº›ï¼š
 
 ```
 /**
- * ¼Ì³ĞÁË ApplicationListenerMethodAdapter
+ * ç»§æ‰¿äº† ApplicationListenerMethodAdapter
  */
 class ApplicationListenerMethodTransactionalAdapter extends ApplicationListenerMethodAdapter {
 
     ...
 
-    // supportsEventType(...) Ò²ÊÇ¼Ì³Ğ×ÔÄãÀàµÄ·½·¨£¬×ÔÉí²¢ÎŞÊµÏÖ
+    // supportsEventType(...) ä¹Ÿæ˜¯ç»§æ‰¿è‡ªä½ ç±»çš„æ–¹æ³•ï¼Œè‡ªèº«å¹¶æ— å®ç°
 
     /**
-     * ÊÂ¼ş´¦Àí
+     * äº‹ä»¶å¤„ç†
      */
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
-        // ´ó¸ÅÊÇÔÚ´¦ÀíÊÂÎñµÄ²Ù×÷£¬ºóÃæÓĞ»ú»áÔÙÑĞ¾¿
+        // å¤§æ¦‚æ˜¯åœ¨å¤„ç†äº‹åŠ¡çš„æ“ä½œï¼Œåé¢æœ‰æœºä¼šå†ç ”ç©¶
         if (TransactionSynchronizationManager.isSynchronizationActive()
                 && TransactionSynchronizationManager.isActualTransactionActive()) {
             TransactionSynchronization transactionSynchronization 
@@ -627,11 +627,11 @@ class ApplicationListenerMethodTransactionalAdapter extends ApplicationListenerM
             TransactionSynchronizationManager.registerSynchronization(transactionSynchronization);
         }
         else if (this.annotation.fallbackExecution()) {
-            // µ÷ÓÃµÄÊÇ¸¸ÀàµÄ·½·¨
+            // è°ƒç”¨çš„æ˜¯çˆ¶ç±»çš„æ–¹æ³•
             processEvent(event);
         }
         else {
-            // Ö»ÊÇlog ´òÓ¡£¬Ê¡ÂÔ
+            // åªæ˜¯log æ‰“å°ï¼Œçœç•¥
             ...
         }
     }
@@ -641,22 +641,22 @@ class ApplicationListenerMethodTransactionalAdapter extends ApplicationListenerM
 
 ```
 
-¶ÔÒÔÉÏ´úÂëËµÃ÷ÈçÏÂ£º
+å¯¹ä»¥ä¸Šä»£ç è¯´æ˜å¦‚ä¸‹ï¼š
 
-1.  `ApplicationListenerMethodTransactionalAdapter` ÊÇ `ApplicationListenerMethodAdapter` µÄ×ÓÀà£¬»á¼Ì³ĞÀ´×Ô `ApplicationListenerMethodAdapter` µÄ·½·¨
-2.  `ApplicationListenerMethodTransactionalAdapter` ²¢Ã»ÓĞÖØĞ´ `supportsEventType(...)` ·½·¨£¬Òò´ËÒ²ÊÇÊ¹ÓÃ `ApplicationListenerMethodAdapter` µÄ `supportsEventType(...)` ·½·¨À´ÅĞ¶ÏÊÂ¼şµÄÖ§³ÖÇé¿ö
-3.  ÔÚ´¦ÀíÊÂ¼şÊ±£¬`ApplicationListenerMethodTransactionalAdapter` »á½øĞĞÊÂÎñÏà¹ØµÄ´¦Àí£¬¾ßÌåµÄ´¦ÀíÂß¼­±¾ÎÄ¾Í²»ÉîÈëÁË
+1.  `ApplicationListenerMethodTransactionalAdapter` æ˜¯ `ApplicationListenerMethodAdapter` çš„å­ç±»ï¼Œä¼šç»§æ‰¿æ¥è‡ª `ApplicationListenerMethodAdapter` çš„æ–¹æ³•
+2.  `ApplicationListenerMethodTransactionalAdapter` å¹¶æ²¡æœ‰é‡å†™ `supportsEventType(...)` æ–¹æ³•ï¼Œå› æ­¤ä¹Ÿæ˜¯ä½¿ç”¨ `ApplicationListenerMethodAdapter` çš„ `supportsEventType(...)` æ–¹æ³•æ¥åˆ¤æ–­äº‹ä»¶çš„æ”¯æŒæƒ…å†µ
+3.  åœ¨å¤„ç†äº‹ä»¶æ—¶ï¼Œ`ApplicationListenerMethodTransactionalAdapter` ä¼šè¿›è¡Œäº‹åŠ¡ç›¸å…³çš„å¤„ç†ï¼Œå…·ä½“çš„å¤„ç†é€»è¾‘æœ¬æ–‡å°±ä¸æ·±å…¥äº†
 
-### 7\. ×Ü½á
+### 7\. æ€»ç»“
 
-±¾ÎÄÖ÷Òª·ÖÎöÁË `@EventListener` µÄ´¦ÀíÁ÷³Ì£¬×Ü½áÈçÏÂ£º
+æœ¬æ–‡ä¸»è¦åˆ†æäº† `@EventListener` çš„å¤„ç†æµç¨‹ï¼Œæ€»ç»“å¦‚ä¸‹ï¼š
 
-1.  `@EventListener` ¿ÉÒÔÖ¸¶¨¼àÌıµÄÊÂ¼ş¡¢ÊÂ¼ş´¦ÀíµÄÌõ¼ş
-2.  ´¦Àí `@EventListener` µÄÀàÊÇ `EventListenerMethodProcessor`£¬¸ÃÀà»á°Ñ±» `@EventListener` ±ê¼ÇµÄ·½·¨×ª»»³ÉÒ»¸ö `ApplicationListener` ¶ÔÏó£¬È»ºóÌí¼Óµ½ `ApplicationContext` µÄ¼àÌıÆ÷ÖĞ
-3.  ·½·¨×ª»»³É `ApplicationListener` ¶ÔÏóµÄ²Ù×÷ÓÉ `EventListenerFactory` Ìá¹©£¬spring Ìá¹©ÁËÁ½¸ö `EventListenerFactory`£º
-    *   `DefaultEventListenerFactory`£ºspring Ä¬ÈÏµÄ£¬×ª»»³ÉµÄ `ApplicationListener` Îª `ApplicationListenerMethodAdapter`
-    *   `TransactionalEventListenerFactory`£º´¦ÀíÊÂÎñ¼àÌıµÄ£¬×ª»»³ÉµÄ `ApplicationListener` Îª `ApplicationListenerMethodTransactionalAdapter`
+1.  `@EventListener` å¯ä»¥æŒ‡å®šç›‘å¬çš„äº‹ä»¶ã€äº‹ä»¶å¤„ç†çš„æ¡ä»¶
+2.  å¤„ç† `@EventListener` çš„ç±»æ˜¯ `EventListenerMethodProcessor`ï¼Œè¯¥ç±»ä¼šæŠŠè¢« `@EventListener` æ ‡è®°çš„æ–¹æ³•è½¬æ¢æˆä¸€ä¸ª `ApplicationListener` å¯¹è±¡ï¼Œç„¶åæ·»åŠ åˆ° `ApplicationContext` çš„ç›‘å¬å™¨ä¸­
+3.  æ–¹æ³•è½¬æ¢æˆ `ApplicationListener` å¯¹è±¡çš„æ“ä½œç”± `EventListenerFactory` æä¾›ï¼Œspring æä¾›äº†ä¸¤ä¸ª `EventListenerFactory`ï¼š
+    *   `DefaultEventListenerFactory`ï¼šspring é»˜è®¤çš„ï¼Œè½¬æ¢æˆçš„ `ApplicationListener` ä¸º `ApplicationListenerMethodAdapter`
+    *   `TransactionalEventListenerFactory`ï¼šå¤„ç†äº‹åŠ¡ç›‘å¬çš„ï¼Œè½¬æ¢æˆçš„ `ApplicationListener` ä¸º `ApplicationListenerMethodTransactionalAdapter`
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4926344](https://my.oschina.net/funcy/blog/4926344) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4926344](https://my.oschina.net/funcy/blog/4926344) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

@@ -1,115 +1,115 @@
-Nacos Ó¢ÎÄÈ«³ÆÎª Dynamic Naming and Configuration Service£¬ÊÇÒ»¸öÓÉ°¢Àï°Í°ÍÍÅ¶ÓÊ¹ÓÃ Java ÓïÑÔ¿ª·¢µÄ¿ªÔ´ÏîÄ¿¡£
+Nacos è‹±æ–‡å…¨ç§°ä¸º Dynamic Naming and Configuration Serviceï¼Œæ˜¯ä¸€ä¸ªç”±é˜¿é‡Œå·´å·´å›¢é˜Ÿä½¿ç”¨ Java è¯­è¨€å¼€å‘çš„å¼€æºé¡¹ç›®ã€‚
 
-Nacos ÊÇÒ»¸ö¸üÒ×ÓÚ°ïÖú¹¹½¨ÔÆÔ­ÉúÓ¦ÓÃµÄ¶¯Ì¬·şÎñ·¢ÏÖ¡¢ÅäÖÃºÍ·şÎñ¹ÜÀíÆ½Ì¨£¨²Î¿¼×Ô [Nacos ¹ÙÍø](https://nacos.io/zh-cn/index.html)£©¡£
+Nacos æ˜¯ä¸€ä¸ªæ›´æ˜“äºå¸®åŠ©æ„å»ºäº‘åŸç”Ÿåº”ç”¨çš„åŠ¨æ€æœåŠ¡å‘ç°ã€é…ç½®å’ŒæœåŠ¡ç®¡ç†å¹³å°ï¼ˆå‚è€ƒè‡ª [Nacos å®˜ç½‘](https://nacos.io/zh-cn/index.html)ï¼‰ã€‚
 
-Nacos µÄÃüÃûÊÇÓÉ 3 ²¿·Ö×é³É£º
+Nacos çš„å‘½åæ˜¯ç”± 3 éƒ¨åˆ†ç»„æˆï¼š
 
-| ×é³É²¿·Ö | È«³Æ              | ÃèÊö                                                         |
+| ç»„æˆéƒ¨åˆ† | å…¨ç§°              | æè¿°                                                         |
 | -------- | ----------------- | ------------------------------------------------------------ |
-| Na       | naming/nameServer | ¼´·şÎñ×¢²áÖĞĞÄ£¬Óë Spring Cloud Eureka µÄ¹¦ÄÜÀàËÆ¡£          |
-| co       | configuration     | ¼´ÅäÖÃÖĞĞÄ£¬Óë Spring Cloud Config+Spring Cloud Bus µÄ¹¦ÄÜÀàËÆ¡£ |
-| s        | service           | ¼´·şÎñ£¬±íÊ¾ Nacos ÊµÏÖµÄ·şÎñ×¢²áÖĞĞÄºÍÅäÖÃÖĞĞÄ¶¼ÊÇÒÔ·şÎñÎªºËĞÄµÄ¡£ |
+| Na       | naming/nameServer | å³æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼Œä¸ Spring Cloud Eureka çš„åŠŸèƒ½ç±»ä¼¼ã€‚          |
+| co       | configuration     | å³é…ç½®ä¸­å¿ƒï¼Œä¸ Spring Cloud Config+Spring Cloud Bus çš„åŠŸèƒ½ç±»ä¼¼ã€‚ |
+| s        | service           | å³æœåŠ¡ï¼Œè¡¨ç¤º Nacos å®ç°çš„æœåŠ¡æ³¨å†Œä¸­å¿ƒå’Œé…ç½®ä¸­å¿ƒéƒ½æ˜¯ä»¥æœåŠ¡ä¸ºæ ¸å¿ƒçš„ã€‚ |
 
-ÎÒÃÇ¿ÉÒÔ½« Nacos Àí½â³É·şÎñ×¢²áÖĞĞÄºÍÅäÖÃÖĞĞÄµÄ×éºÏÌå£¬Ëü¿ÉÒÔÌæ»» [Eureka](http://c.biancheng.net/springcloud/eureka.html) ×÷Îª·şÎñ×¢²áÖĞĞÄ£¬ÊµÏÖ·şÎñµÄ×¢²áÓë·¢ÏÖ£»»¹¿ÉÒÔÌæ»» [Spring Cloud Config](http://c.biancheng.net/springcloud/config.html) ×÷ÎªÅäÖÃÖĞĞÄ£¬ÊµÏÖÅäÖÃµÄ¶¯Ì¬Ë¢ĞÂ¡£
+æˆ‘ä»¬å¯ä»¥å°† Nacos ç†è§£æˆæœåŠ¡æ³¨å†Œä¸­å¿ƒå’Œé…ç½®ä¸­å¿ƒçš„ç»„åˆä½“ï¼Œå®ƒå¯ä»¥æ›¿æ¢ [Eureka](http://c.biancheng.net/springcloud/eureka.html) ä½œä¸ºæœåŠ¡æ³¨å†Œä¸­å¿ƒï¼Œå®ç°æœåŠ¡çš„æ³¨å†Œä¸å‘ç°ï¼›è¿˜å¯ä»¥æ›¿æ¢ [Spring Cloud Config](http://c.biancheng.net/springcloud/config.html) ä½œä¸ºé…ç½®ä¸­å¿ƒï¼Œå®ç°é…ç½®çš„åŠ¨æ€åˆ·æ–°ã€‚
 
-Nacos ×÷Îª·şÎñ×¢²áÖĞĞÄ¾­ÀúÁËÊ®Äê¡°Ë«Ê®Ò»¡±µÄºé·å¿¼Ñé£¬¾ßÓĞ¼òµ¥Ò×ÓÃ¡¢ÎÈ¶¨¿É¿¿¡¢ĞÔÄÜ×¿Ô½µÈÓÅµã£¬¿ÉÒÔ°ïÖúÓÃ»§¸üÃô½İ¡¢ÈİÒ×µØ¹¹½¨ºÍ¹ÜÀíÎ¢·şÎñÓ¦ÓÃ¡£
+Nacos ä½œä¸ºæœåŠ¡æ³¨å†Œä¸­å¿ƒç»å†äº†åå¹´â€œåŒåä¸€â€çš„æ´ªå³°è€ƒéªŒï¼Œå…·æœ‰ç®€å•æ˜“ç”¨ã€ç¨³å®šå¯é ã€æ€§èƒ½å“è¶Šç­‰ä¼˜ç‚¹ï¼Œå¯ä»¥å¸®åŠ©ç”¨æˆ·æ›´æ•æ·ã€å®¹æ˜“åœ°æ„å»ºå’Œç®¡ç†å¾®æœåŠ¡åº”ç”¨ã€‚
 
-Nacos Ö§³Ö¼¸ºõËùÓĞÖ÷Á÷ÀàĞÍ¡°·şÎñ¡±µÄ·¢ÏÖ¡¢ÅäÖÃºÍ¹ÜÀí£º
+Nacos æ”¯æŒå‡ ä¹æ‰€æœ‰ä¸»æµç±»å‹â€œæœåŠ¡â€çš„å‘ç°ã€é…ç½®å’Œç®¡ç†ï¼š
 
 *   [Kubernetes Service](https://kubernetes.io/docs/concepts/services-networking/service/)
 *   [gRPC ](https://grpc.io/docs/what-is-grpc/core-concepts#service-definition)& [Dubbo RPC Service](https://dubbo.apache.org/zh/)
 *   Spring Cloud RESTful Service
 
-## Nacos µÄÌØĞÔ
+## Nacos çš„ç‰¹æ€§
 
-Nacos Ìá¹©ÁËÒ»ÏµÁĞ¼òµ¥Ò×ÓÃµÄÌØĞÔ£¬ÄÜ¹»°ïÖúÎÒÃÇ¿ìËÙµØÊµÏÖ¶¯Ì¬·şÎñ·¢ÏÖ¡¢·şÎñÅäÖÃµÈ¹¦ÄÜ¡£
+Nacos æä¾›äº†ä¸€ç³»åˆ—ç®€å•æ˜“ç”¨çš„ç‰¹æ€§ï¼Œèƒ½å¤Ÿå¸®åŠ©æˆ‘ä»¬å¿«é€Ÿåœ°å®ç°åŠ¨æ€æœåŠ¡å‘ç°ã€æœåŠ¡é…ç½®ç­‰åŠŸèƒ½ã€‚
 
-#### ·şÎñ·¢ÏÖ
+#### æœåŠ¡å‘ç°
 
-Nacos Ö§³Ö»ùÓÚ DNS ºÍ RPC µÄ·şÎñ·¢ÏÖ¡£µ±·şÎñÌá¹©ÕßÊ¹ÓÃÔ­Éú SDK¡¢OpenAPI »òÒ»¸ö¶ÀÁ¢µÄ Agent TODO Ïò Nacos ×¢²á·şÎñºó£¬·şÎñÏû·ÑÕß¿ÉÒÔÔÚ Nacos ÉÏÍ¨¹ı DNS TODO »ò HTTP&API ²éÕÒ¡¢·¢ÏÖ·şÎñ¡£
+Nacos æ”¯æŒåŸºäº DNS å’Œ RPC çš„æœåŠ¡å‘ç°ã€‚å½“æœåŠ¡æä¾›è€…ä½¿ç”¨åŸç”Ÿ SDKã€OpenAPI æˆ–ä¸€ä¸ªç‹¬ç«‹çš„ Agent TODO å‘ Nacos æ³¨å†ŒæœåŠ¡åï¼ŒæœåŠ¡æ¶ˆè´¹è€…å¯ä»¥åœ¨ Nacos ä¸Šé€šè¿‡ DNS TODO æˆ– HTTP&API æŸ¥æ‰¾ã€å‘ç°æœåŠ¡ã€‚
 
-#### ·şÎñ½¡¿µ¼à²â
+#### æœåŠ¡å¥åº·ç›‘æµ‹
 
-Nacos Ìá¹©¶Ô·şÎñµÄÊµÊ±½¡¿µ¼ì²é£¬ÄÜ¹»×èÖ¹ÇëÇó·¢ËÍµ½²»½¡¿µÖ÷»ú»ò·şÎñÊµÀıÉÏ¡£Nacos »¹Ìá¹©ÁËÒ»¸ö½¡¿µ¼ì²éÒÇ±íÅÌ£¬ÄÜ¹»°ïÖúÎÒÃÇ¸ù¾İ½¡¿µ×´Ì¬¹ÜÀí·şÎñµÄ¿ÉÓÃĞÔ¼°Á÷Á¿¡£
+Nacos æä¾›å¯¹æœåŠ¡çš„å®æ—¶å¥åº·æ£€æŸ¥ï¼Œèƒ½å¤Ÿé˜»æ­¢è¯·æ±‚å‘é€åˆ°ä¸å¥åº·ä¸»æœºæˆ–æœåŠ¡å®ä¾‹ä¸Šã€‚Nacos è¿˜æä¾›äº†ä¸€ä¸ªå¥åº·æ£€æŸ¥ä»ªè¡¨ç›˜ï¼Œèƒ½å¤Ÿå¸®åŠ©æˆ‘ä»¬æ ¹æ®å¥åº·çŠ¶æ€ç®¡ç†æœåŠ¡çš„å¯ç”¨æ€§åŠæµé‡ã€‚
 
-#### ¶¯Ì¬ÅäÖÃ·şÎñ
+#### åŠ¨æ€é…ç½®æœåŠ¡
 
-¶¯Ì¬ÅäÖÃ·şÎñ¿ÉÒÔÈÃÎÒÃÇÒÔÖĞĞÄ»¯¡¢Íâ²¿»¯ºÍ¶¯Ì¬»¯µÄ·½Ê½£¬¹ÜÀíËùÓĞ»·¾³µÄÓ¦ÓÃÅäÖÃºÍ·şÎñÅäÖÃ¡£
+åŠ¨æ€é…ç½®æœåŠ¡å¯ä»¥è®©æˆ‘ä»¬ä»¥ä¸­å¿ƒåŒ–ã€å¤–éƒ¨åŒ–å’ŒåŠ¨æ€åŒ–çš„æ–¹å¼ï¼Œç®¡ç†æ‰€æœ‰ç¯å¢ƒçš„åº”ç”¨é…ç½®å’ŒæœåŠ¡é…ç½®ã€‚
 
-¶¯Ì¬ÅäÖÃÏû³ıÁËÅäÖÃ±ä¸üÊ±ÖØĞÂ²¿ÊğÓ¦ÓÃºÍ·şÎñµÄĞèÒª£¬ÈÃÅäÖÃ¹ÜÀí±äµÃ¸ü¼Ó¸ßĞ§¡¢Ãô½İ¡£
+åŠ¨æ€é…ç½®æ¶ˆé™¤äº†é…ç½®å˜æ›´æ—¶é‡æ–°éƒ¨ç½²åº”ç”¨å’ŒæœåŠ¡çš„éœ€è¦ï¼Œè®©é…ç½®ç®¡ç†å˜å¾—æ›´åŠ é«˜æ•ˆã€æ•æ·ã€‚
 
-ÅäÖÃÖĞĞÄ»¯¹ÜÀíÈÃÊµÏÖÎŞ×´Ì¬·şÎñ±äµÃ¸ü¼òµ¥£¬ÈÃ·şÎñ°´Ğèµ¯ĞÔÀ©Õ¹±äµÃ¸üÈİÒ×¡£
+é…ç½®ä¸­å¿ƒåŒ–ç®¡ç†è®©å®ç°æ— çŠ¶æ€æœåŠ¡å˜å¾—æ›´ç®€å•ï¼Œè®©æœåŠ¡æŒ‰éœ€å¼¹æ€§æ‰©å±•å˜å¾—æ›´å®¹æ˜“ã€‚
 
-Nacos Ìá¹©ÁËÒ»¸ö¼ò½àÒ×ÓÃµÄ UI °ïÖúÎÒÃÇ¹ÜÀíËùÓĞ·şÎñºÍÓ¦ÓÃµÄÅäÖÃ¡£Nacos »¹Ìá¹©°üÀ¨ÅäÖÃ°æ±¾¸ú×Ù¡¢½ğË¿È¸·¢²¼¡¢Ò»¼ü»Ø¹öÅäÖÃÒÔ¼°¿Í»§¶ËÅäÖÃ¸üĞÂ×´Ì¬¸ú×ÙÔÚÄÚµÄÒ»ÏµÁĞ¿ªÏä¼´ÓÃµÄÅäÖÃ¹ÜÀíÌØĞÔ£¬°ïÖúÎÒÃÇ¸ü°²È«µØÔÚÉú²ú»·¾³ÖĞ¹ÜÀíÅäÖÃ±ä¸üºÍ½µµÍÅäÖÃ±ä¸ü´øÀ´µÄ·çÏÕ¡£
+Nacos æä¾›äº†ä¸€ä¸ªç®€æ´æ˜“ç”¨çš„ UI å¸®åŠ©æˆ‘ä»¬ç®¡ç†æ‰€æœ‰æœåŠ¡å’Œåº”ç”¨çš„é…ç½®ã€‚Nacos è¿˜æä¾›åŒ…æ‹¬é…ç½®ç‰ˆæœ¬è·Ÿè¸ªã€é‡‘ä¸é›€å‘å¸ƒã€ä¸€é”®å›æ»šé…ç½®ä»¥åŠå®¢æˆ·ç«¯é…ç½®æ›´æ–°çŠ¶æ€è·Ÿè¸ªåœ¨å†…çš„ä¸€ç³»åˆ—å¼€ç®±å³ç”¨çš„é…ç½®ç®¡ç†ç‰¹æ€§ï¼Œå¸®åŠ©æˆ‘ä»¬æ›´å®‰å…¨åœ°åœ¨ç”Ÿäº§ç¯å¢ƒä¸­ç®¡ç†é…ç½®å˜æ›´å’Œé™ä½é…ç½®å˜æ›´å¸¦æ¥çš„é£é™©ã€‚
 
-#### ¶¯Ì¬ DNS ·şÎñ
+#### åŠ¨æ€ DNS æœåŠ¡
 
-Nacos Ìá¹©ÁË¶¯Ì¬ DNS ·şÎñ£¬ÄÜ¹»ÈÃÎÒÃÇ¸üÈİÒ×µØÊµÏÖ¸ºÔØ¾ùºâ¡¢Á÷Á¿¿ØÖÆÒÔ¼°Êı¾İÖĞĞÄÄÚÍøµÄ¼òµ¥ DNS ½âÎö·şÎñ¡£
+Nacos æä¾›äº†åŠ¨æ€ DNS æœåŠ¡ï¼Œèƒ½å¤Ÿè®©æˆ‘ä»¬æ›´å®¹æ˜“åœ°å®ç°è´Ÿè½½å‡è¡¡ã€æµé‡æ§åˆ¶ä»¥åŠæ•°æ®ä¸­å¿ƒå†…ç½‘çš„ç®€å• DNS è§£ææœåŠ¡ã€‚
 
-Nacos Ìá¹©ÁËÒ»Ğ©¼òµ¥µÄ DNS APIs TODO£¬¿ÉÒÔ°ïÖúÎÒÃÇ¹ÜÀí·şÎñµÄ¹ØÁªÓòÃûºÍ¿ÉÓÃµÄ IP:PORT ÁĞ±í¡£
+Nacos æä¾›äº†ä¸€äº›ç®€å•çš„ DNS APIs TODOï¼Œå¯ä»¥å¸®åŠ©æˆ‘ä»¬ç®¡ç†æœåŠ¡çš„å…³è”åŸŸåå’Œå¯ç”¨çš„ IP:PORT åˆ—è¡¨ã€‚
 
-#### ·şÎñ¼°ÆäÔªÊı¾İ¹ÜÀí
+#### æœåŠ¡åŠå…¶å…ƒæ•°æ®ç®¡ç†
 
-Nacos ÄÜÈÃÎÒÃÇ´ÓÎ¢·şÎñÆ½Ì¨½¨ÉèµÄÊÓ½Ç¹ÜÀíÊı¾İÖĞĞÄµÄËùÓĞ·şÎñ¼°ÔªÊı¾İ£¬°üÀ¨¹ÜÀí·şÎñµÄÃèÊö¡¢ÉúÃüÖÜÆÚ¡¢·şÎñµÄ¾²Ì¬ÒÀÀµ·ÖÎö¡¢·şÎñµÄ½¡¿µ×´Ì¬¡¢·şÎñµÄÁ÷Á¿¹ÜÀí¡¢Â·ÓÉ¼°°²È«²ßÂÔ¡¢·şÎñµÄ SLA ÒÔ¼° metrics Í³¼ÆÊı¾İ¡£
+Nacos èƒ½è®©æˆ‘ä»¬ä»å¾®æœåŠ¡å¹³å°å»ºè®¾çš„è§†è§’ç®¡ç†æ•°æ®ä¸­å¿ƒçš„æ‰€æœ‰æœåŠ¡åŠå…ƒæ•°æ®ï¼ŒåŒ…æ‹¬ç®¡ç†æœåŠ¡çš„æè¿°ã€ç”Ÿå‘½å‘¨æœŸã€æœåŠ¡çš„é™æ€ä¾èµ–åˆ†æã€æœåŠ¡çš„å¥åº·çŠ¶æ€ã€æœåŠ¡çš„æµé‡ç®¡ç†ã€è·¯ç”±åŠå®‰å…¨ç­–ç•¥ã€æœåŠ¡çš„ SLA ä»¥åŠ metrics ç»Ÿè®¡æ•°æ®ã€‚
 
-## Nacos Á½´ó×é¼ş
+## Nacos ä¸¤å¤§ç»„ä»¶
 
-Óë Eureka ÀàËÆ£¬Nacos Ò²²ÉÓÃ CS£¨Client/Server£¬¿Í»§¶Ë/·şÎñÆ÷£©¼Ü¹¹£¬Ëü°üº¬Á½´ó×é¼ş£¬ÈçÏÂ±í¡£
-¡¢
+ä¸ Eureka ç±»ä¼¼ï¼ŒNacos ä¹Ÿé‡‡ç”¨ CSï¼ˆClient/Serverï¼Œå®¢æˆ·ç«¯/æœåŠ¡å™¨ï¼‰æ¶æ„ï¼Œå®ƒåŒ…å«ä¸¤å¤§ç»„ä»¶ï¼Œå¦‚ä¸‹è¡¨ã€‚
+ã€
 
-| ×é¼ş                                                         | ÃèÊö                                                         | ¹¦ÄÜ                                                         |
+| ç»„ä»¶                                                         | æè¿°                                                         | åŠŸèƒ½                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Nacos Server                                                 | Nacos ·şÎñ¶Ë£¬Óë Eureka Server ²»Í¬£¬Nacos Server ÓÉ°¢Àï°Í°ÍÍÅ¶ÓÊ¹ÓÃ Java ÓïÑÔ±àĞ´²¢½« Nacos Server µÄÏÂÔØµØÖ·¸øÓÃ»§£¬ÓÃ»§Ö»ĞèÒªÖ±½ÓÏÂÔØ²¢ÔËĞĞ¼´¿É¡£ | Nacos Server ¿ÉÒÔ×÷Îª·şÎñ×¢²áÖĞĞÄ£¬°ïÖú Nacos Client ÊµÏÖ·şÎñµÄ×¢²áÓë·¢ÏÖ¡£ |
-| Nacos Server ¿ÉÒÔ×÷ÎªÅäÖÃÖĞĞÄ£¬°ïÖú Nacos Client ÔÚ²»ÖØÆôµÄÇé¿öÏÂ£¬ÊµÏÖÅäÖÃµÄ¶¯Ì¬Ë¢ĞÂ¡£ |                                                              |                                                              |
-| Nacos Client                                                 | Nacos ¿Í»§¶Ë£¬Í¨³£Ö¸µÄÊÇÎ¢·şÎñ¼Ü¹¹ÖĞµÄ¸÷¸ö·şÎñ£¬ÓÉÓÃ»§×Ô¼º´î½¨£¬¿ÉÒÔÊ¹ÓÃ¶àÖÖÓïÑÔ±àĞ´¡£ | Nacos Client Í¨¹ıÌí¼ÓÒÀÀµ spring-cloud-starter-alibaba-nacos-discovery£¬ÔÚ·şÎñ×¢²áÖĞĞÄ£¨Nacos Server£©ÖĞÊµÏÖ·şÎñµÄ×¢²áÓë·¢ÏÖ¡£ |
-| Nacos Client Í¨¹ıÌí¼ÓÒÀÀµ spring-cloud-starter-alibaba-nacos-config£¬ÔÚÅäÖÃÖĞĞÄ£¨Nacos Server£©ÖĞÊµÏÖÅäÖÃµÄ¶¯Ì¬Ë¢ĞÂ¡£ |                                                              |                                                              |
+| Nacos Server                                                 | Nacos æœåŠ¡ç«¯ï¼Œä¸ Eureka Server ä¸åŒï¼ŒNacos Server ç”±é˜¿é‡Œå·´å·´å›¢é˜Ÿä½¿ç”¨ Java è¯­è¨€ç¼–å†™å¹¶å°† Nacos Server çš„ä¸‹è½½åœ°å€ç»™ç”¨æˆ·ï¼Œç”¨æˆ·åªéœ€è¦ç›´æ¥ä¸‹è½½å¹¶è¿è¡Œå³å¯ã€‚ | Nacos Server å¯ä»¥ä½œä¸ºæœåŠ¡æ³¨å†Œä¸­å¿ƒï¼Œå¸®åŠ© Nacos Client å®ç°æœåŠ¡çš„æ³¨å†Œä¸å‘ç°ã€‚ |
+| Nacos Server å¯ä»¥ä½œä¸ºé…ç½®ä¸­å¿ƒï¼Œå¸®åŠ© Nacos Client åœ¨ä¸é‡å¯çš„æƒ…å†µä¸‹ï¼Œå®ç°é…ç½®çš„åŠ¨æ€åˆ·æ–°ã€‚ |                                                              |                                                              |
+| Nacos Client                                                 | Nacos å®¢æˆ·ç«¯ï¼Œé€šå¸¸æŒ‡çš„æ˜¯å¾®æœåŠ¡æ¶æ„ä¸­çš„å„ä¸ªæœåŠ¡ï¼Œç”±ç”¨æˆ·è‡ªå·±æ­å»ºï¼Œå¯ä»¥ä½¿ç”¨å¤šç§è¯­è¨€ç¼–å†™ã€‚ | Nacos Client é€šè¿‡æ·»åŠ ä¾èµ– spring-cloud-starter-alibaba-nacos-discoveryï¼Œåœ¨æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼ˆNacos Serverï¼‰ä¸­å®ç°æœåŠ¡çš„æ³¨å†Œä¸å‘ç°ã€‚ |
+| Nacos Client é€šè¿‡æ·»åŠ ä¾èµ– spring-cloud-starter-alibaba-nacos-configï¼Œåœ¨é…ç½®ä¸­å¿ƒï¼ˆNacos Serverï¼‰ä¸­å®ç°é…ç½®çš„åŠ¨æ€åˆ·æ–°ã€‚ |                                                              |                                                              |
 
-## Nacos ·şÎñ×¢²áÖĞĞÄ
+## Nacos æœåŠ¡æ³¨å†Œä¸­å¿ƒ
 
-Nacos ×÷Îª·şÎñ×¢²áÖĞĞÄ¿ÉÒÔÊµÏÖ·şÎñµÄ×¢²áÓë·¢ÏÖ£¬Á÷³ÌÈçÏÂÍ¼¡£
+Nacos ä½œä¸ºæœåŠ¡æ³¨å†Œä¸­å¿ƒå¯ä»¥å®ç°æœåŠ¡çš„æ³¨å†Œä¸å‘ç°ï¼Œæµç¨‹å¦‚ä¸‹å›¾ã€‚
 
-![Nacos ·şÎñ×¢²áÓë·¢ÏÖ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022563360-0.png)
-Í¼1£ºNacos ·şÎñ×¢²áÓë·¢ÏÖ
+![Nacos æœåŠ¡æ³¨å†Œä¸å‘ç°](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022563360-0.png)
+å›¾1ï¼šNacos æœåŠ¡æ³¨å†Œä¸å‘ç°
 
-ÔÚÍ¼ 1 ÖĞ¹²Éæ¼°µ½ÒÔÏÂ 3 ¸ö½ÇÉ«£º
+åœ¨å›¾ 1 ä¸­å…±æ¶‰åŠåˆ°ä»¥ä¸‹ 3 ä¸ªè§’è‰²ï¼š
 
-*   ·şÎñ×¢²áÖĞĞÄ£¨Register Service£©£ºËüÊÇÒ»¸ö Nacos Server£¬¿ÉÒÔÎª·şÎñÌá¹©ÕßºÍ·şÎñÏû·ÑÕßÌá¹©·şÎñ×¢²áºÍ·¢ÏÖ¹¦ÄÜ¡£
-*   ·şÎñÌá¹©Õß£¨Provider Service£©£ºËüÊÇÒ»¸ö Nacos Client£¬ÓÃÓÚ¶ÔÍâ·şÎñ¡£Ëü½«×Ô¼ºÌá¹©µÄ·şÎñ×¢²áµ½·şÎñ×¢²áÖĞĞÄ£¬ÒÔ¹©·şÎñÏû·ÑÕß·¢ÏÖºÍµ÷ÓÃ¡£
-*   ·şÎñÏû·ÑÕß£¨Consumer Service£©£ºËüÊÇÒ»¸ö Nacos Client£¬ÓÃÓÚÏû·Ñ·şÎñ¡£Ëü¿ÉÒÔ´Ó·şÎñ×¢²áÖĞĞÄ»ñÈ¡·şÎñÁĞ±í£¬µ÷ÓÃËùĞèµÄ·şÎñ¡£
+*   æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼ˆRegister Serviceï¼‰ï¼šå®ƒæ˜¯ä¸€ä¸ª Nacos Serverï¼Œå¯ä»¥ä¸ºæœåŠ¡æä¾›è€…å’ŒæœåŠ¡æ¶ˆè´¹è€…æä¾›æœåŠ¡æ³¨å†Œå’Œå‘ç°åŠŸèƒ½ã€‚
+*   æœåŠ¡æä¾›è€…ï¼ˆProvider Serviceï¼‰ï¼šå®ƒæ˜¯ä¸€ä¸ª Nacos Clientï¼Œç”¨äºå¯¹å¤–æœåŠ¡ã€‚å®ƒå°†è‡ªå·±æä¾›çš„æœåŠ¡æ³¨å†Œåˆ°æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼Œä»¥ä¾›æœåŠ¡æ¶ˆè´¹è€…å‘ç°å’Œè°ƒç”¨ã€‚
+*   æœåŠ¡æ¶ˆè´¹è€…ï¼ˆConsumer Serviceï¼‰ï¼šå®ƒæ˜¯ä¸€ä¸ª Nacos Clientï¼Œç”¨äºæ¶ˆè´¹æœåŠ¡ã€‚å®ƒå¯ä»¥ä»æœåŠ¡æ³¨å†Œä¸­å¿ƒè·å–æœåŠ¡åˆ—è¡¨ï¼Œè°ƒç”¨æ‰€éœ€çš„æœåŠ¡ã€‚
 
-Nacos ÊµÏÖ·şÎñ×¢²áÓë·¢ÏÖµÄÁ÷³ÌÈçÏÂ£º
+Nacos å®ç°æœåŠ¡æ³¨å†Œä¸å‘ç°çš„æµç¨‹å¦‚ä¸‹ï¼š
 
-1.  ´Ó Nacos ¹Ù·½Ìá¹©µÄÏÂÔØÒ³ÃæÖĞ£¬ÏÂÔØ Nacos Server ²¢ÔËĞĞ¡£
-2.  ·şÎñÌá¹©Õß Nacos Client Æô¶¯Ê±£¬»á°Ñ·şÎñÒÔ·şÎñÃû£¨spring.application.name£©µÄ·½Ê½×¢²áµ½·şÎñ×¢²áÖĞĞÄ£¨Nacos Server£©£»
-3.  ·şÎñÏû·ÑÕß Nacos Client Æô¶¯Ê±£¬Ò²»á½«×Ô¼ºµÄ·şÎñ×¢²áµ½·şÎñ×¢²áÖĞĞÄ£»
-4.  ·şÎñÏû·ÑÕßÔÚ×¢²á·şÎñµÄÍ¬Ê±£¬Ëü»¹»á´Ó·şÎñ×¢²áÖĞĞÄ»ñÈ¡Ò»·İ·şÎñ×¢²áÁĞ±íĞÅÏ¢£¬¸ÃÁĞ±íÖĞ°üº¬ÁËËùÓĞ×¢²áµ½·şÎñ×¢²áÖĞĞÄÉÏµÄ·şÎñµÄĞÅÏ¢£¨°üÀ¨·şÎñÌá¹©ÕßºÍ×ÔÉíµÄĞÅÏ¢£©£»
-5.  ÔÚ»ñÈ¡ÁË·şÎñÌá¹©ÕßµÄĞÅÏ¢ºó£¬·şÎñÏû·ÑÕßÍ¨¹ı HTTP »òÏûÏ¢ÖĞ¼ä¼şÔ¶³Ìµ÷ÓÃ·şÎñÌá¹©ÕßÌá¹©µÄ·şÎñ¡£
+1.  ä» Nacos å®˜æ–¹æä¾›çš„ä¸‹è½½é¡µé¢ä¸­ï¼Œä¸‹è½½ Nacos Server å¹¶è¿è¡Œã€‚
+2.  æœåŠ¡æä¾›è€… Nacos Client å¯åŠ¨æ—¶ï¼Œä¼šæŠŠæœåŠ¡ä»¥æœåŠ¡åï¼ˆspring.application.nameï¼‰çš„æ–¹å¼æ³¨å†Œåˆ°æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼ˆNacos Serverï¼‰ï¼›
+3.  æœåŠ¡æ¶ˆè´¹è€… Nacos Client å¯åŠ¨æ—¶ï¼Œä¹Ÿä¼šå°†è‡ªå·±çš„æœåŠ¡æ³¨å†Œåˆ°æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼›
+4.  æœåŠ¡æ¶ˆè´¹è€…åœ¨æ³¨å†ŒæœåŠ¡çš„åŒæ—¶ï¼Œå®ƒè¿˜ä¼šä»æœåŠ¡æ³¨å†Œä¸­å¿ƒè·å–ä¸€ä»½æœåŠ¡æ³¨å†Œåˆ—è¡¨ä¿¡æ¯ï¼Œè¯¥åˆ—è¡¨ä¸­åŒ…å«äº†æ‰€æœ‰æ³¨å†Œåˆ°æœåŠ¡æ³¨å†Œä¸­å¿ƒä¸Šçš„æœåŠ¡çš„ä¿¡æ¯ï¼ˆåŒ…æ‹¬æœåŠ¡æä¾›è€…å’Œè‡ªèº«çš„ä¿¡æ¯ï¼‰ï¼›
+5.  åœ¨è·å–äº†æœåŠ¡æä¾›è€…çš„ä¿¡æ¯åï¼ŒæœåŠ¡æ¶ˆè´¹è€…é€šè¿‡ HTTP æˆ–æ¶ˆæ¯ä¸­é—´ä»¶è¿œç¨‹è°ƒç”¨æœåŠ¡æä¾›è€…æä¾›çš„æœåŠ¡ã€‚
 
-#### °²×°ºÍÔËĞĞ Nacos Server
+#### å®‰è£…å’Œè¿è¡Œ Nacos Server
 
-ÏÂÃæÎÒÃÇÒÔ Nacos 2.0.3 ÎªÀı£¬ÑİÊ¾ÏÂÈçºÎ°²×°ºÍÔËĞĞ Nacos Server£¬²½ÖèÈçÏÂ¡£
+ä¸‹é¢æˆ‘ä»¬ä»¥ Nacos 2.0.3 ä¸ºä¾‹ï¼Œæ¼”ç¤ºä¸‹å¦‚ä½•å®‰è£…å’Œè¿è¡Œ Nacos Serverï¼Œæ­¥éª¤å¦‚ä¸‹ã€‚
 
-1\. Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ [Nacos Server ÏÂÔØÒ³Ãæ](https://github.com/alibaba/nacos/releases/tag/2.0.3)£¬²¢ÔÚÒ³Ãæ×îÏÂ·½µã»÷Á´½Ó nacos-server-2.0.3.zip£¬ÈçÏÂÍ¼¡£
+1\. ä½¿ç”¨æµè§ˆå™¨è®¿é—® [Nacos Server ä¸‹è½½é¡µé¢](https://github.com/alibaba/nacos/releases/tag/2.0.3)ï¼Œå¹¶åœ¨é¡µé¢æœ€ä¸‹æ–¹ç‚¹å‡»é“¾æ¥ nacos-server-2.0.3.zipï¼Œå¦‚ä¸‹å›¾ã€‚
 
-![Nacos ÏÂÔØ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022562c6-1.png)
-Í¼2£ºNacos Server ÏÂÔØ
+![Nacos ä¸‹è½½](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022562c6-1.png)
+å›¾2ï¼šNacos Server ä¸‹è½½
 
-2\. ÏÂÔØÍê³Éºó£¬½âÑ¹ nacos-server-2.0.3.zip£¬Ä¿Â¼½á¹¹ÈçÏÂ¡£
+2\. ä¸‹è½½å®Œæˆåï¼Œè§£å‹ nacos-server-2.0.3.zipï¼Œç›®å½•ç»“æ„å¦‚ä¸‹ã€‚
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022563922-2.png)
-Í¼3£ºNacos Server Ä¿Â¼½á¹¹
+å›¾3ï¼šNacos Server ç›®å½•ç»“æ„
 
-Nacos Server ÏÂ¸÷Ä¿Â¼ËµÃ÷ÈçÏÂ£º
+Nacos Server ä¸‹å„ç›®å½•è¯´æ˜å¦‚ä¸‹ï¼š
 
-*   bin£ºÓÃÓÚ´æ·Å Nacos µÄ¿ÉÖ´ĞĞÃüÁî¡£
-*   conf£ºÓÃÓÚ´æ·Å Nacos ÅäÖÃÎÄ¼ş¡£
-*   target£ºÓÃÓÚ´æ·Å Nacos Ó¦ÓÃµÄ jar °ü¡£
+*   binï¼šç”¨äºå­˜æ”¾ Nacos çš„å¯æ‰§è¡Œå‘½ä»¤ã€‚
+*   confï¼šç”¨äºå­˜æ”¾ Nacos é…ç½®æ–‡ä»¶ã€‚
+*   targetï¼šç”¨äºå­˜æ”¾ Nacos åº”ç”¨çš„ jar åŒ…ã€‚
 
-3\. ´ò¿ªÃüÁîĞĞ´°¿Ú£¬Ìø×ªµ½ Nacos Server °²×°Ä¿Â¼µÄ bin ÏÂ£¬Ö´ĞĞÒÔÏÂÃüÁî£¬ÒÔµ¥»úÄ£Ê½Æô¶¯ Nacos Server¡£
+3\. æ‰“å¼€å‘½ä»¤è¡Œçª—å£ï¼Œè·³è½¬åˆ° Nacos Server å®‰è£…ç›®å½•çš„ bin ä¸‹ï¼Œæ‰§è¡Œä»¥ä¸‹å‘½ä»¤ï¼Œä»¥å•æœºæ¨¡å¼å¯åŠ¨ Nacos Serverã€‚
 
 startup.cmd -m standalone
 
-4\. Nacos Server Æô¶¯ÈÕÖ¾ÈçÏÂ¡£
+4\. Nacos Server å¯åŠ¨æ—¥å¿—å¦‚ä¸‹ã€‚
 
 "nacos is starting with standalone"
 
@@ -149,23 +149,23 @@ ramework.security.web.access.ExceptionTranslationFilter@3727f0ee]
 2021-11-08 16:16:55,309 INFO Tomcat started on port(s): 8848 (http) with context path '/nacos'
 2021-11-08 16:16:55,319 INFO Nacos started successfully in stand alone mode. use embedded storage
 ````
-5\. Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://localhost:8848/nacos¡±£¬Ìø×ªµ½ Nacos Server µÇÂ½Ò³Ãæ£¬ÈçÏÂÍ¼¡£
+5\. ä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://localhost:8848/nacosâ€ï¼Œè·³è½¬åˆ° Nacos Server ç™»é™†é¡µé¢ï¼Œå¦‚ä¸‹å›¾ã€‚
 
-![Nacos µÇÂ½Ò³Ãæ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022562045-3.png)
-Í¼4£ºNacos Server µÇÂ½Ò³Ãæ
+![Nacos ç™»é™†é¡µé¢](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022562045-3.png)
+å›¾4ï¼šNacos Server ç™»é™†é¡µé¢
 
-6\. ÔÚµÇÂ½Ò³ÊäÈëµÇÂ¼ÃûºÍÃÜÂë£¨Ä¬ÈÏ¶¼ÊÇ nacos£©£¬µã»÷Ìá½»°´Å¥£¬Ìø×ªµ½ Nacos Server ¿ØÖÆÌ¨Ö÷Ò³£¬ÈçÏÂÍ¼¡£
+6\. åœ¨ç™»é™†é¡µè¾“å…¥ç™»å½•åå’Œå¯†ç ï¼ˆé»˜è®¤éƒ½æ˜¯ nacosï¼‰ï¼Œç‚¹å‡»æäº¤æŒ‰é’®ï¼Œè·³è½¬åˆ° Nacos Server æ§åˆ¶å°ä¸»é¡µï¼Œå¦‚ä¸‹å›¾ã€‚
 
-![Nacos Server Ö÷Ò³](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225633C-4.png)
-Í¼5£ºNacos Server ¿ØÖÆÌ¨
+![Nacos Server ä¸»é¡µ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225633C-4.png)
+å›¾5ï¼šNacos Server æ§åˆ¶å°
 
-×Ô´Ë£¬ÎÒÃÇ¾ÍÍê³ÉÁË Nacos Server µÄÏÂÔØ¡¢°²×°ºÍÔËĞĞ¹¤×÷¡£
+è‡ªæ­¤ï¼Œæˆ‘ä»¬å°±å®Œæˆäº† Nacos Server çš„ä¸‹è½½ã€å®‰è£…å’Œè¿è¡Œå·¥ä½œã€‚
 
-#### ´î½¨·şÎñÌá¹©Õß
+#### æ­å»ºæœåŠ¡æä¾›è€…
 
-½ÓÏÂÀ´£¬ÎÒÃÇÀ´´î½¨Ò»¸ö·şÎñÌá¹©Õß£¬²½ÖèÈçÏÂ¡£
+æ¥ä¸‹æ¥ï¼Œæˆ‘ä»¬æ¥æ­å»ºä¸€ä¸ªæœåŠ¡æä¾›è€…ï¼Œæ­¥éª¤å¦‚ä¸‹ã€‚
 
-1. ´´½¨Ò»¸öÃûÎª spring-cloud-alibaba-demo µÄ Maven ¹¤³Ì £¬¸Ã¹¤³ÌµÄ pom.xml ÄÚÈİÈçÏÂ¡£
+1. åˆ›å»ºä¸€ä¸ªåä¸º spring-cloud-alibaba-demo çš„ Maven å·¥ç¨‹ ï¼Œè¯¥å·¥ç¨‹çš„ pom.xml å†…å®¹å¦‚ä¸‹ã€‚
 
 
 
@@ -201,7 +201,7 @@ ramework.security.web.access.ExceptionTranslationFilter@3727f0ee]
     </properties>
     <dependencyManagement>
         <dependencies>
-            <!--Spring Cloud Alibaba µÄ°æ±¾ĞÅÏ¢-->
+            <!--Spring Cloud Alibaba çš„ç‰ˆæœ¬ä¿¡æ¯-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 spring-cloud-alibaba-dependencies
@@ -209,7 +209,7 @@ ramework.security.web.access.ExceptionTranslationFilter@3727f0ee]
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--Spring Cloud µÄ°æ±¾ĞÅÏ¢-->
+            <!--Spring Cloud çš„ç‰ˆæœ¬ä¿¡æ¯-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 spring-cloud-dependencies
@@ -226,9 +226,9 @@ ramework.security.web.access.ExceptionTranslationFilter@3727f0ee]
 
 
 
-> ÔÚ¸Ã¹¤³ÌµÄ pom.xml ÖĞ£¬ÎÒÃÇÍ¨¹ı dependencyManagement ¶Ô Spring Cloud Alibaba µÄ°æ±¾ĞÅÏ¢½øĞĞ¹ÜÀí£¬¸Ã¹¤³ÌÏÂµÄ¸÷¸ö×ÓÄ£¿éÔÚÒıÈë Spring Cloud Alibaba µÄ¸÷¸ö×é¼şÊ±¾Í²»Òªµ¥¶ÀÖ¸¶¨°æ±¾ºÅÁË¡£
+> åœ¨è¯¥å·¥ç¨‹çš„ pom.xml ä¸­ï¼Œæˆ‘ä»¬é€šè¿‡ dependencyManagement å¯¹ Spring Cloud Alibaba çš„ç‰ˆæœ¬ä¿¡æ¯è¿›è¡Œç®¡ç†ï¼Œè¯¥å·¥ç¨‹ä¸‹çš„å„ä¸ªå­æ¨¡å—åœ¨å¼•å…¥ Spring Cloud Alibaba çš„å„ä¸ªç»„ä»¶æ—¶å°±ä¸è¦å•ç‹¬æŒ‡å®šç‰ˆæœ¬å·äº†ã€‚
 
-2\. ÔÚ spring-cloud-alibaba-demo ÏÂ£¬´´½¨Ò»¸öÃûÎª spring-cloud-alibaba-provider-8001 µÄ Spring Boot Ä£¿é£¬²¢ÔÚÆä pom.xml ÖĞÌí¼ÓÒÔÏÂÒÀÀµ£¬ÄÚÈİÈçÏÂ¡£
+2\. åœ¨ spring-cloud-alibaba-demo ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º spring-cloud-alibaba-provider-8001 çš„ Spring Boot æ¨¡å—ï¼Œå¹¶åœ¨å…¶ pom.xml ä¸­æ·»åŠ ä»¥ä¸‹ä¾èµ–ï¼Œå†…å®¹å¦‚ä¸‹ã€‚
 
 
 
@@ -238,7 +238,7 @@ ramework.security.web.access.ExceptionTranslationFilter@3727f0ee]
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!--¸¸¹¤³Ì-->
+    <!--çˆ¶å·¥ç¨‹-->
     <parent>
         <groupId>net.biancheng.c</groupId>
         <version>1.0-SNAPSHOT</version>
@@ -305,18 +305,18 @@ ramework.security.web.access.ExceptionTranslationFilter@3727f0ee]
 
 
 
-3\. ÔÚ spring-cloud-alibaba-provider-8001 µÄÅäÖÃÎÄ¼ş application.properties ÖĞÌí¼ÓÒÔÏÂÅäÖÃ£¬ÄÚÈİÈçÏÂ¡£
+3\. åœ¨ spring-cloud-alibaba-provider-8001 çš„é…ç½®æ–‡ä»¶ application.properties ä¸­æ·»åŠ ä»¥ä¸‹é…ç½®ï¼Œå†…å®¹å¦‚ä¸‹ã€‚
 ````
-#¶Ë¿ÚºÅ
+#ç«¯å£å·
 server.port=8001
-#·şÎñÃû
+#æœåŠ¡å
 spring.application.name=spring-cloud-alibaba-provider
-#Nacos Server µÄµØÖ·
+#Nacos Server çš„åœ°å€
 spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848
 management.endpoints.web.exposure.include=*
 ````
 
-4\. ÔÚ net.biacheng.c.controller °üÏÂ£¬´´½¨Ò»¸öÃûÎª DeptController µÄ Controller Àà£¬´úÂëÈçÏÂ¡£
+4\. åœ¨ net.biacheng.c.controller åŒ…ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º DeptController çš„ Controller ç±»ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -339,7 +339,7 @@ public class DeptController {
 
     @GetMapping(value = "/dept/nacos/{id}")
     public String getPayment(@PathVariable("id") Integer id) {
-        return "<h2>cÓïÑÔÖĞÎÄÍøÌáĞÑÄú£¬·şÎñ·ÃÎÊ³É¹¦£¡</h2>·şÎñÃû£ºspring-cloud-alibaba-provider<br /> ¶Ë¿ÚºÅ£º " + serverPort + "<br /> ´«ÈëµÄ²ÎÊı£º" + id;
+        return "<h2>cè¯­è¨€ä¸­æ–‡ç½‘æé†’æ‚¨ï¼ŒæœåŠ¡è®¿é—®æˆåŠŸï¼</h2>æœåŠ¡åï¼šspring-cloud-alibaba-provider<br /> ç«¯å£å·ï¼š " + serverPort + "<br /> ä¼ å…¥çš„å‚æ•°ï¼š" + id;
     }
 
 }
@@ -348,7 +348,7 @@ public class DeptController {
 
 
 
-5\. ÔÚ spring-cloud-alibaba-provider-8001 µÄÖ÷Æô¶¯ÀàÉÏ£¬Ê¹ÓÃ @EnableDiscoveryClient ×¢½â¿ªÆô Nacos ·şÎñ·¢ÏÖ¹¦ÄÜ£¬´úÂëÈçÏÂ¡£
+5\. åœ¨ spring-cloud-alibaba-provider-8001 çš„ä¸»å¯åŠ¨ç±»ä¸Šï¼Œä½¿ç”¨ @EnableDiscoveryClient æ³¨è§£å¼€å¯ Nacos æœåŠ¡å‘ç°åŠŸèƒ½ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -362,7 +362,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-@EnableDiscoveryClient //¿ªÆô·şÎñ·¢ÏÖ¹¦ÄÜ
+@EnableDiscoveryClient //å¼€å¯æœåŠ¡å‘ç°åŠŸèƒ½
 public class SpringCloudAlibabaProvider8001Application {
 
     public static void main(String[] args) {
@@ -375,23 +375,23 @@ public class SpringCloudAlibabaProvider8001Application {
 
 
 
-6\. Æô¶¯ spring-cloud-alibaba-provider-8001£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://localhost:8001/dept/nacos/1¡±£¬½á¹ûÈçÏÂÍ¼¡£
+6\. å¯åŠ¨ spring-cloud-alibaba-provider-8001ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://localhost:8001/dept/nacos/1â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![·ÃÎÊ·şÎñÌá¹©ÕßµÄ·şÎñ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225C033-5.png)
-Í¼6£º·şÎñÌá¹©Õß
+![è®¿é—®æœåŠ¡æä¾›è€…çš„æœåŠ¡](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225C033-5.png)
+å›¾6ï¼šæœåŠ¡æä¾›è€…
 
-7\. Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://localhost:8848/nacos¡±£¬²é¿´¡°·şÎñ¹ÜÀí¡±ÏÂµÄ¡°·şÎñÁĞ±í¡±£¬ÈçÏÂÍ¼¡£
+7\. ä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://localhost:8848/nacosâ€ï¼ŒæŸ¥çœ‹â€œæœåŠ¡ç®¡ç†â€ä¸‹çš„â€œæœåŠ¡åˆ—è¡¨â€ï¼Œå¦‚ä¸‹å›¾ã€‚
 
-[![Nacos ·şÎñÁĞ±í](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225Ab5-6.png)](http://new-local.weixueyuan.net/uploads/allimg/211108/6-21110QJ12b02.png)
-Í¼7£º·şÎñ×¢²áÁĞ±í
+[![Nacos æœåŠ¡åˆ—è¡¨](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225Ab5-6.png)](http://new-local.weixueyuan.net/uploads/allimg/211108/6-21110QJ12b02.png)
+å›¾7ï¼šæœåŠ¡æ³¨å†Œåˆ—è¡¨
 
-´ÓÍ¼ 7 ¿ÉÒÔ¿´µ½£¬ÎÒÃÇ´î½¨µÄ·şÎñÌá¹©Õß spring-cloud-alibaba-provider-8001 ËùÌá¹©µÄ·şÎñÒÑ¾­±»×¢²áµ½ÁË Nacos Server ÉÏÁË¡£
+ä»å›¾ 7 å¯ä»¥çœ‹åˆ°ï¼Œæˆ‘ä»¬æ­å»ºçš„æœåŠ¡æä¾›è€… spring-cloud-alibaba-provider-8001 æ‰€æä¾›çš„æœåŠ¡å·²ç»è¢«æ³¨å†Œåˆ°äº† Nacos Server ä¸Šäº†ã€‚
 
-#### ´î½¨·şÎñÏû·ÑÕß
+#### æ­å»ºæœåŠ¡æ¶ˆè´¹è€…
 
-ÏÂÃæ£¬ÎÒÃÇ¾ÍÀ´´î½¨Ò»¸ö·şÎñÏû·ÑÕßÀ´Ïû·Ñ spring-cloud-alibaba-provider-8001 Ìá¹©µÄ·şÎñ£¬²½ÖèÈçÏÂ¡£
+ä¸‹é¢ï¼Œæˆ‘ä»¬å°±æ¥æ­å»ºä¸€ä¸ªæœåŠ¡æ¶ˆè´¹è€…æ¥æ¶ˆè´¹ spring-cloud-alibaba-provider-8001 æä¾›çš„æœåŠ¡ï¼Œæ­¥éª¤å¦‚ä¸‹ã€‚
 
-1\. ÔÚÖ÷¹¤³Ì spring-cloud-alibaba-demo ÏÂ£¬´´½¨Ò»¸öÃûÎª spring-cloud-alibaba-consumer-nacos-8801 µÄ Spring Boot Ä£¿é£¬²¢ÔÚÆä pom.xml ÖĞÌí¼ÓÒÔÏÂÒÀÀµ¡£
+1\. åœ¨ä¸»å·¥ç¨‹ spring-cloud-alibaba-demo ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º spring-cloud-alibaba-consumer-nacos-8801 çš„ Spring Boot æ¨¡å—ï¼Œå¹¶åœ¨å…¶ pom.xml ä¸­æ·»åŠ ä»¥ä¸‹ä¾èµ–ã€‚
 
 
 
@@ -420,7 +420,7 @@ public class SpringCloudAlibabaProvider8001Application {
             <groupId>com.alibaba.cloud</groupId>
             spring-cloud-starter-alibaba-nacos-discovery
         </dependency>
-        <!--ÓÉÓÚ Netflix Ribbon ½øÈëÍ£¸üÎ¬»¤½×¶Î£¬Òò´ËĞÂ°æ±¾µÄ Nacos discovery ¶¼ÒÑ¾­ÒÆ³ıÁË Ribbon £¬´ËÊ±ÎÒÃÇĞèÒªÒıÈë loadbalancer ´úÌæ -->
+        <!--ç”±äº Netflix Ribbon è¿›å…¥åœæ›´ç»´æŠ¤é˜¶æ®µï¼Œå› æ­¤æ–°ç‰ˆæœ¬çš„ Nacos discovery éƒ½å·²ç»ç§»é™¤äº† Ribbon ï¼Œæ­¤æ—¶æˆ‘ä»¬éœ€è¦å¼•å…¥ loadbalancer ä»£æ›¿ -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             spring-cloud-loadbalancer
@@ -473,35 +473,35 @@ public class SpringCloudAlibabaProvider8001Application {
 
 
 
-> ×¢Òâ£ºÓÉÓÚ Netflix Ribbon ÒÑ¾­½øÈëÍ£¸üÎ¬»¤×´Ì¬£¬Nacos Discovery ÒÑ¾­Í£ÁË¶Ô Ribbon µÄÖ§³Ö£¬Òò´ËÎÒÃÇĞèÒªÔÚ·şÎñÏû·ÑÕßµÄ pom.xml ÖĞÒıÈë spring-cloud-loadbalancer ²ÅÄÜµ÷ÓÃ·şÎñÌá¹©ÕßÌá¹©µÄ·şÎñ¡£
+> æ³¨æ„ï¼šç”±äº Netflix Ribbon å·²ç»è¿›å…¥åœæ›´ç»´æŠ¤çŠ¶æ€ï¼ŒNacos Discovery å·²ç»åœäº†å¯¹ Ribbon çš„æ”¯æŒï¼Œå› æ­¤æˆ‘ä»¬éœ€è¦åœ¨æœåŠ¡æ¶ˆè´¹è€…çš„ pom.xml ä¸­å¼•å…¥ spring-cloud-loadbalancer æ‰èƒ½è°ƒç”¨æœåŠ¡æä¾›è€…æä¾›çš„æœåŠ¡ã€‚
 
-2\. ÔÚ spring-cloud-alibaba-consumer-nacos-8801 µÄÅäÖÃÎÄ¼ş application.yml ÖĞ£¬Ìí¼ÓÒÔÏÂÅäÖÃ¡£
+2\. åœ¨ spring-cloud-alibaba-consumer-nacos-8801 çš„é…ç½®æ–‡ä»¶ application.yml ä¸­ï¼Œæ·»åŠ ä»¥ä¸‹é…ç½®ã€‚
 
 
 ````
 
 
 server:
-  port: 8801  #¶Ë¿ÚºÅ
+  port: 8801  #ç«¯å£å·
 spring:
   application:
-    name: spring-cloud-alibaba-consumer #·şÎñÃû
+    name: spring-cloud-alibaba-consumer #æœåŠ¡å
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848  #Nacos server µÄµØÖ·
+        server-addr: localhost:8848  #Nacos server çš„åœ°å€
 ````
 
-#ÒÔÏÂÅäÖÃĞÅÏ¢²¢²»ÊÇÄ¬ÈÏÅäÖÃ£¬¶øÊÇÎÒÃÇ×Ô¶¨ÒåµÄÅäÖÃ£¬Ä¿µÄÊÇ²»ÔÚ Controller ÄÚÓ²±àÂë·şÎñÌá¹©ÕßµÄ·şÎñÃû
+#ä»¥ä¸‹é…ç½®ä¿¡æ¯å¹¶ä¸æ˜¯é»˜è®¤é…ç½®ï¼Œè€Œæ˜¯æˆ‘ä»¬è‡ªå®šä¹‰çš„é…ç½®ï¼Œç›®çš„æ˜¯ä¸åœ¨ Controller å†…ç¡¬ç¼–ç æœåŠ¡æä¾›è€…çš„æœåŠ¡å
 ````
 service-url:
-  nacos-user-service: http://spring-cloud-alibaba-provider #·şÎñÌá¹©ÕßµÄ·şÎñÃû
+  nacos-user-service: http://spring-cloud-alibaba-provider #æœåŠ¡æä¾›è€…çš„æœåŠ¡å
 ````
 
 
 
 
-3\. ÔÚ spring-cloud-alibaba-consumer-nacos-8801 µÄÖ÷Æô¶¯ÀàÉÏ£¬Ê¹ÓÃ @EnableDiscoveryClient ×¢½â¿ªÆô·şÎñ·¢ÏÖ¹¦ÄÜ£¬´úÂëÈçÏÂ¡£
+3\. åœ¨ spring-cloud-alibaba-consumer-nacos-8801 çš„ä¸»å¯åŠ¨ç±»ä¸Šï¼Œä½¿ç”¨ @EnableDiscoveryClient æ³¨è§£å¼€å¯æœåŠ¡å‘ç°åŠŸèƒ½ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -515,7 +515,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-@EnableDiscoveryClient // ¿ªÆô·şÎñ×¢²áÓë·¢ÏÖ¹¦ÄÜ
+@EnableDiscoveryClient // å¼€å¯æœåŠ¡æ³¨å†Œä¸å‘ç°åŠŸèƒ½
 public class SpringCloudAlibabaConsumerNacos8801Application {
 
     public static void main(String[] args) {
@@ -528,7 +528,7 @@ public class SpringCloudAlibabaConsumerNacos8801Application {
 
 
 
-4\. ÔÚ net.biancheng.c.config °üÏÂ´´½¨Ò»¸öÃûÎª ApplicationContextBean µÄÅäÖÃÀà£¬²¢Ê¹ÓÃ @LoadBalanced ×¢½âÓë Ribbon ½øĞĞ¼¯³É¿ªÆô¸ºÔØ¾ùºâ¹¦ÄÜ£¬´úÂëÈçÏÂ¡£
+4\. åœ¨ net.biancheng.c.config åŒ…ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º ApplicationContextBean çš„é…ç½®ç±»ï¼Œå¹¶ä½¿ç”¨ @LoadBalanced æ³¨è§£ä¸ Ribbon è¿›è¡Œé›†æˆå¼€å¯è´Ÿè½½å‡è¡¡åŠŸèƒ½ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -546,7 +546,7 @@ import org.springframework.web.client.RestTemplate;
 public class ApplicationContextBean {
 
     @Bean
-    @LoadBalanced //Óë Ribbon ¼¯³É£¬²¢¿ªÆô¸ºÔØ¾ùºâ¹¦ÄÜ
+    @LoadBalanced //ä¸ Ribbon é›†æˆï¼Œå¹¶å¼€å¯è´Ÿè½½å‡è¡¡åŠŸèƒ½
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
@@ -557,7 +557,7 @@ public class ApplicationContextBean {
 
 
 
-5\. ÔÚ net.biancheng.c.controller °üÏÂ£¬´´½¨Ò»¸öÃûÎª DeptController_Consumer µÄ Controller Àà£¬´úÂëÈçÏÂ¡£
+5\. åœ¨ net.biancheng.c.controller åŒ…ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º DeptController_Consumer çš„ Controller ç±»ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -583,7 +583,7 @@ public class DeptController_Consumer {
     private RestTemplate restTemplate;
     
     @Value("${service-url.nacos-user-service}")
-    private String serverURL; //·şÎñÌá¹©ÕßµÄ·şÎñÃû
+    private String serverURL; //æœåŠ¡æä¾›è€…çš„æœåŠ¡å
     
     @GetMapping("/consumer/dept/nacos/{id}")
     public String paymentInfo(@PathVariable("id") Long id) {
@@ -596,25 +596,25 @@ public class DeptController_Consumer {
 
 
 
-6\. Æô¶¯ spring-cloud-alibaba-consumer-nacos-8801£¬²é¿´ Nacos Server µÄ·şÎñÁĞ±í£¬ÈçÏÂÍ¼¡£
+6\. å¯åŠ¨ spring-cloud-alibaba-consumer-nacos-8801ï¼ŒæŸ¥çœ‹ Nacos Server çš„æœåŠ¡åˆ—è¡¨ï¼Œå¦‚ä¸‹å›¾ã€‚
 
-[![·şÎñÏû·ÑÕßÕâ Nacos Server ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225621N-7.png)](http://new-local.weixueyuan.net/uploads/allimg/211109/6-21110Z91435H1.png)
-Í¼8£º·şÎñÏû·ÑÕß
+[![æœåŠ¡æ¶ˆè´¹è€…è¿™ Nacos Server ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225621N-7.png)](http://new-local.weixueyuan.net/uploads/allimg/211109/6-21110Z91435H1.png)
+å›¾8ï¼šæœåŠ¡æ¶ˆè´¹è€…
 
-7\. Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://localhost:8801/consumer/dept/nacos/1¡±£¬½á¹ûÈçÏÂÍ¼¡£
+7\. ä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://localhost:8801/consumer/dept/nacos/1â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Nacos ·şÎñÏû·ÑÕßÏû·Ñ·şÎñ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225B156-8.png)
-Í¼9£º·şÎñÏû·ÑÕßµ÷ÓÃ·şÎñ
+![Nacos æœåŠ¡æ¶ˆè´¹è€…æ¶ˆè´¹æœåŠ¡](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225B156-8.png)
+å›¾9ï¼šæœåŠ¡æ¶ˆè´¹è€…è°ƒç”¨æœåŠ¡
 
-## Nacos ÅäÖÃÖĞĞÄ
+## Nacos é…ç½®ä¸­å¿ƒ
 
-Nacos Server »¹¿ÉÒÔ×÷ÎªÅäÖÃÖĞĞÄ£¬¶Ô Spring Cloud Ó¦ÓÃµÄÍâ²¿ÅäÖÃ½øĞĞÍ³Ò»µØ¼¯ÖĞ»¯¹ÜÀí¡£¶øÎÒÃÇÖ»ĞèÒªÔÚÓ¦ÓÃµÄ POM ÎÄ¼şÖĞÒıÈë spring-cloud-starter-alibaba-nacos-config ¼´¿ÉÊµÏÖÅäÖÃµÄ»ñÈ¡Óë¶¯Ì¬Ë¢ĞÂ¡£
+Nacos Server è¿˜å¯ä»¥ä½œä¸ºé…ç½®ä¸­å¿ƒï¼Œå¯¹ Spring Cloud åº”ç”¨çš„å¤–éƒ¨é…ç½®è¿›è¡Œç»Ÿä¸€åœ°é›†ä¸­åŒ–ç®¡ç†ã€‚è€Œæˆ‘ä»¬åªéœ€è¦åœ¨åº”ç”¨çš„ POM æ–‡ä»¶ä¸­å¼•å…¥ spring-cloud-starter-alibaba-nacos-config å³å¯å®ç°é…ç½®çš„è·å–ä¸åŠ¨æ€åˆ·æ–°ã€‚
 
-´ÓÅäÖÃ¹ÜÀíµÄ½Ç¶È¿´£¬Nacos ¿ÉÒÔËµÊÇ Spring Cloud Config µÄÌæ´ú·½°¸£¬µ«Ïà±ÈºóÕß Nacos µÄÊ¹ÓÃ¸ü¼òµ¥£¬²Ù×÷²½ÖèÒ²¸üÉÙ¡£
+ä»é…ç½®ç®¡ç†çš„è§’åº¦çœ‹ï¼ŒNacos å¯ä»¥è¯´æ˜¯ Spring Cloud Config çš„æ›¿ä»£æ–¹æ¡ˆï¼Œä½†ç›¸æ¯”åè€… Nacos çš„ä½¿ç”¨æ›´ç®€å•ï¼Œæ“ä½œæ­¥éª¤ä¹Ÿæ›´å°‘ã€‚
 
-½ÓÏÂÀ´£¬ÎÒÃÇÍ¨¹ıÒ»¸öÊµÀıÀ´ÑİÊ¾ÏÂ Nacos ÊÇÈçºÎÊµÏÖÅäÖÃµÄÍ³Ò»¹ÜÀíºÍ¶¯Ì¬Ë¢ĞÂµÄ¡£
+æ¥ä¸‹æ¥ï¼Œæˆ‘ä»¬é€šè¿‡ä¸€ä¸ªå®ä¾‹æ¥æ¼”ç¤ºä¸‹ Nacos æ˜¯å¦‚ä½•å®ç°é…ç½®çš„ç»Ÿä¸€ç®¡ç†å’ŒåŠ¨æ€åˆ·æ–°çš„ã€‚
 
-1\. ÔÚÖ÷¹¤³Ì spring-cloud-alibaba-demo ÏÂ£¬´´½¨Ò»¸öÃûÎª spring-cloud-alibaba-config-client-3377 µÄ Spring Boot Ä£¿é£¬²¢ÔÚÆä pom.xml ÖĞÌí¼ÓÒÔÏÂÒÀÀµ¡£
+1\. åœ¨ä¸»å·¥ç¨‹ spring-cloud-alibaba-demo ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º spring-cloud-alibaba-config-client-3377 çš„ Spring Boot æ¨¡å—ï¼Œå¹¶åœ¨å…¶ pom.xml ä¸­æ·»åŠ ä»¥ä¸‹ä¾èµ–ã€‚
 
 
 
@@ -642,7 +642,7 @@ Nacos Server »¹¿ÉÒÔ×÷ÎªÅäÖÃÖĞĞÄ£¬¶Ô Spring Cloud Ó¦ÓÃµÄÍâ²¿ÅäÖÃ½øĞĞÍ³Ò»µØ¼¯ÖĞ»¯¹
             <groupId>org.springframework.boot</groupId>
             spring-boot-starter-web
         </dependency>
-        <!--SpringCloud2020¼°ÒÔºóµÄ°æ±¾Ä¬ÈÏ²»ÆôÓÃ bootstrap ÅäÖÃ£¬ÎÒÃÇĞèÒªÔÚpomÀïÃæÏÔÊ½µØÒıÈë£º-->
+        <!--SpringCloud2020åŠä»¥åçš„ç‰ˆæœ¬é»˜è®¤ä¸å¯ç”¨ bootstrap é…ç½®ï¼Œæˆ‘ä»¬éœ€è¦åœ¨pomé‡Œé¢æ˜¾å¼åœ°å¼•å…¥ï¼š-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             spring-cloud-starter-bootstrap
@@ -665,17 +665,17 @@ Nacos Server »¹¿ÉÒÔ×÷ÎªÅäÖÃÖĞĞÄ£¬¶Ô Spring Cloud Ó¦ÓÃµÄÍâ²¿ÅäÖÃ½øĞĞÍ³Ò»µØ¼¯ÖĞ»¯¹
             spring-boot-starter-test
             <scope>test</scope>
         </dependency>
-        <!--Spring Cloud Alibaba Config ÒÀÀµ-->
+        <!--Spring Cloud Alibaba Config ä¾èµ–-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             spring-cloud-starter-alibaba-nacos-config
         </dependency>
-        <!--SpringCloud ailibaba nacos ·şÎñ×¢²áÓë·¢ÏÖÄ£¿é -->
+        <!--SpringCloud ailibaba nacos æœåŠ¡æ³¨å†Œä¸å‘ç°æ¨¡å— -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             spring-cloud-starter-alibaba-nacos-discovery
         </dependency>
-        <!--Spring Boot ¼à¿ØÄ£¿é-->
+        <!--Spring Boot ç›‘æ§æ¨¡å—-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             spring-boot-starter-actuator
@@ -705,34 +705,34 @@ Nacos Server »¹¿ÉÒÔ×÷ÎªÅäÖÃÖĞĞÄ£¬¶Ô Spring Cloud Ó¦ÓÃµÄÍâ²¿ÅäÖÃ½øĞĞÍ³Ò»µØ¼¯ÖĞ»¯¹
 
 
 
-> ×¢Òâ£ºÎÒÃÇÊ¹ÓÃµÄ Spring Cloud 2020 °æ±¾Ä¬ÈÏ²»ÆôÓÃ bootstrap£¬ÈôÏëÒªÔÚÓ¦ÓÃÆô¶¯Ê±¼ÓÔØ bootstrap ÅäÖÃ£¨ÀıÈç bootstrap.yml »ò bootstrap.properties£©£¬¾ÍĞèÒªÎÒÃÇÔÚ pom.xml ÖĞÏÔÊ½µÄÒıÈë spring-cloud-starter-bootstrap ÒÀÀµ¡£
+> æ³¨æ„ï¼šæˆ‘ä»¬ä½¿ç”¨çš„ Spring Cloud 2020 ç‰ˆæœ¬é»˜è®¤ä¸å¯ç”¨ bootstrapï¼Œè‹¥æƒ³è¦åœ¨åº”ç”¨å¯åŠ¨æ—¶åŠ è½½ bootstrap é…ç½®ï¼ˆä¾‹å¦‚ bootstrap.yml æˆ– bootstrap.propertiesï¼‰ï¼Œå°±éœ€è¦æˆ‘ä»¬åœ¨ pom.xml ä¸­æ˜¾å¼çš„å¼•å…¥ spring-cloud-starter-bootstrap ä¾èµ–ã€‚
 
-2\. ÔÚ spring-cloud-alibaba-config-client-3377 µÄÀàÂ·¾¶£¨ÀıÈç /resources Ä¿Â¼£©ÏÂ£¬Ìí¼ÓÒ»¸ö bootstrap.yml£¬ÅäÖÃÄÚÈİÈçÏÂ¡£
+2\. åœ¨ spring-cloud-alibaba-config-client-3377 çš„ç±»è·¯å¾„ï¼ˆä¾‹å¦‚ /resources ç›®å½•ï¼‰ä¸‹ï¼Œæ·»åŠ ä¸€ä¸ª bootstrap.ymlï¼Œé…ç½®å†…å®¹å¦‚ä¸‹ã€‚
 
 
 
 
 ````
 server:
-  port: 3377 #¶Ë¿ÚºÅ
+  port: 3377 #ç«¯å£å·
 spring:
   application:
-    name: config-client #·şÎñÃû
+    name: config-client #æœåŠ¡å
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848 #Nacos·şÎñ×¢²áÖĞĞÄµØÖ·
+        server-addr: 127.0.0.1:8848 #NacosæœåŠ¡æ³¨å†Œä¸­å¿ƒåœ°å€
 
 
       config:
-        server-addr: 127.0.0.1:8848 #Nacos×÷ÎªÅäÖÃÖĞĞÄµØÖ·
-        file-extension: yaml #Ö¸¶¨yaml¸ñÊ½µÄÅäÖÃ
+        server-addr: 127.0.0.1:8848 #Nacosä½œä¸ºé…ç½®ä¸­å¿ƒåœ°å€
+        file-extension: yaml #æŒ‡å®šyamlæ ¼å¼çš„é…ç½®
 
 ````
 
 
 
-3\. ÔÚ spring-cloud-alibaba-config-client-3377 µÄÀàÂ·¾¶£¨ÀıÈç /resources Ä¿Â¼£©ÏÂ£¬Ìí¼ÓÒ»¸ö application.yml£¬ÅäÖÃÄÚÈİÈçÏÂ¡£
+3\. åœ¨ spring-cloud-alibaba-config-client-3377 çš„ç±»è·¯å¾„ï¼ˆä¾‹å¦‚ /resources ç›®å½•ï¼‰ä¸‹ï¼Œæ·»åŠ ä¸€ä¸ª application.ymlï¼Œé…ç½®å†…å®¹å¦‚ä¸‹ã€‚
 
 
 
@@ -740,14 +740,14 @@ spring:
 ````
 spring:
   profiles:
-    active: dev #¼¤»î dev µÄÅäÖÃ
+    active: dev #æ¿€æ´» dev çš„é…ç½®
 
 ````
 
 
 
 
-4\. ÔÚ net.biancheng.c.controller °üÏÂ£¬´´½¨Ò»¸öÃûÎª ConfigClientController µÄ Controller Àà£¬²¢ÔÚ¸ÃÀàÉÏÊ¹ÓÃ @RefreshScope ×¢½âÊµÏÖÅäÖÃµÄ×Ô¶¯¸üĞÂ£¬´úÂëÈçÏÂ¡£
+4\. åœ¨ net.biancheng.c.controller åŒ…ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º ConfigClientController çš„ Controller ç±»ï¼Œå¹¶åœ¨è¯¥ç±»ä¸Šä½¿ç”¨ @RefreshScope æ³¨è§£å®ç°é…ç½®çš„è‡ªåŠ¨æ›´æ–°ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -779,7 +779,7 @@ public class ConfigClientController {
 
 
 
-5\. ÔÚ spring-cloud-alibaba-config-client-3377 µÄÖ÷Æô¶¯ÀàÉÏ£¬Ê¹ÓÃ @EnableDiscoveryClient ×¢½â¿ªÆô·şÎñ·¢ÏÖ¹¦ÄÜ£¬´úÂëÈçÏÂ¡£
+5\. åœ¨ spring-cloud-alibaba-config-client-3377 çš„ä¸»å¯åŠ¨ç±»ä¸Šï¼Œä½¿ç”¨ @EnableDiscoveryClient æ³¨è§£å¼€å¯æœåŠ¡å‘ç°åŠŸèƒ½ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -806,62 +806,62 @@ public class SpringCloudAlibabaNacosConfigClient3377Application {
 
 
 
-6\. Æô¶¯ Nacos Server£¬²¢ÔÚ Nacos Server ¿ØÖÆÌ¨µÄ¡°ÅäÖÃ¹ÜÀí¡±ÏÂµÄ¡°ÅäÖÃÁĞ±í¡±ÖĞ£¬µã»÷¡°+¡±°´Å¥£¬ĞÂ½¨ÈçÏÂÅäÖÃ¡£
+6\. å¯åŠ¨ Nacos Serverï¼Œå¹¶åœ¨ Nacos Server æ§åˆ¶å°çš„â€œé…ç½®ç®¡ç†â€ä¸‹çš„â€œé…ç½®åˆ—è¡¨â€ä¸­ï¼Œç‚¹å‡»â€œ+â€æŒ‰é’®ï¼Œæ–°å»ºå¦‚ä¸‹é…ç½®ã€‚
 ````
 Data ID:        config-client-dev.yaml
 
 
 Group  :        DEFAULT_GROUP
 
-ÅäÖÃ¸ñÊ½:        YAML
+é…ç½®æ ¼å¼:        YAML
 
-ÅäÖÃÄÚÈİ:      config:
+é…ç½®å†…å®¹:      config:
                   info: c.biancheng.net
 ````
-ÔÚ Nacos Server ÖĞ£¬ÅäÖÃµÄ dataId£¨¼´ Data ID£©µÄÍêÕû¸ñÊ½ÈçÏÂ£º
+åœ¨ Nacos Server ä¸­ï¼Œé…ç½®çš„ dataIdï¼ˆå³ Data IDï¼‰çš„å®Œæ•´æ ¼å¼å¦‚ä¸‹ï¼š
 ````
 ${prefix}-${spring.profiles.active}.${file-extension}
 ````
-dataId ¸ñÊ½ÖĞ¸÷²ÎÊıËµÃ÷ÈçÏÂ£º
+dataId æ ¼å¼ä¸­å„å‚æ•°è¯´æ˜å¦‚ä¸‹ï¼š
 
-*   ${prefix}£ºÄ¬ÈÏÈ¡ÖµÎªÎ¢·şÎñµÄ·şÎñÃû£¬¼´ÅäÖÃÎÄ¼şÖĞ spring.application.name µÄÖµ£¬ÎÒÃÇ¿ÉÒÔÔÚÅäÖÃÎÄ¼şÖĞÍ¨¹ıÅäÖÃ spring.cloud.nacos.config.prefix À´Ö¸¶¨¡£
-*   ${spring.profiles.active}£º±íÊ¾µ±Ç°»·¾³¶ÔÓ¦µÄ Profile£¬ÀıÈç dev¡¢test¡¢prod µÈ¡£µ±Ã»ÓĞÖ¸¶¨»·¾³µÄ Profile Ê±£¬Æä¶ÔÓ¦µÄÁ¬½Ó·ûÒ²½«²»´æÔÚ£¬ dataId µÄ¸ñÊ½±ä³É ${prefix}.${file-extension}¡£
-*   ${file-extension}£º±íÊ¾ÅäÖÃÄÚÈİµÄÊı¾İ¸ñÊ½£¬ÎÒÃÇ¿ÉÒÔÔÚÅäÖÃÎÄ¼şÖĞÍ¨¹ıÅäÖÃÏî spring.cloud.nacos.config.file-extension À´ÅäÖÃ£¬ÀıÈç properties ºÍ yaml¡£
+*   ${prefix}ï¼šé»˜è®¤å–å€¼ä¸ºå¾®æœåŠ¡çš„æœåŠ¡åï¼Œå³é…ç½®æ–‡ä»¶ä¸­ spring.application.name çš„å€¼ï¼Œæˆ‘ä»¬å¯ä»¥åœ¨é…ç½®æ–‡ä»¶ä¸­é€šè¿‡é…ç½® spring.cloud.nacos.config.prefix æ¥æŒ‡å®šã€‚
+*   ${spring.profiles.active}ï¼šè¡¨ç¤ºå½“å‰ç¯å¢ƒå¯¹åº”çš„ Profileï¼Œä¾‹å¦‚ devã€testã€prod ç­‰ã€‚å½“æ²¡æœ‰æŒ‡å®šç¯å¢ƒçš„ Profile æ—¶ï¼Œå…¶å¯¹åº”çš„è¿æ¥ç¬¦ä¹Ÿå°†ä¸å­˜åœ¨ï¼Œ dataId çš„æ ¼å¼å˜æˆ ${prefix}.${file-extension}ã€‚
+*   ${file-extension}ï¼šè¡¨ç¤ºé…ç½®å†…å®¹çš„æ•°æ®æ ¼å¼ï¼Œæˆ‘ä»¬å¯ä»¥åœ¨é…ç½®æ–‡ä»¶ä¸­é€šè¿‡é…ç½®é¡¹ spring.cloud.nacos.config.file-extension æ¥é…ç½®ï¼Œä¾‹å¦‚ properties å’Œ yamlã€‚
 
-7\. Æô¶¯ spring-cloud-alibaba-config-client-3377£¬²¢Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://localhost:3377/config/info¡±£¬½á¹ûÈçÏÂÍ¼¡£
+7\. å¯åŠ¨ spring-cloud-alibaba-config-client-3377ï¼Œå¹¶ä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://localhost:3377/config/infoâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
 ![Nacos Config](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225B3C-9.png)
-Í¼10£ºNacos Config
+å›¾10ï¼šNacos Config
 
-8\. ÔÚ Nacos Server ÖĞ£¬½« config-client-dev.yaml ÖĞµÄÅäÖÃĞŞ¸Ä³ÉÈçÏÂÄÚÈİ¡£
+8\. åœ¨ Nacos Server ä¸­ï¼Œå°† config-client-dev.yaml ä¸­çš„é…ç½®ä¿®æ”¹æˆå¦‚ä¸‹å†…å®¹ã€‚
 ````
 config:
     info: this is c.biancheng.net
 ````
 
-9\. ÔÚ²»ÖØÆô spring-cloud-alibaba-config-client-3377 µÄÇé¿öÏÂ£¬Ê¹ÓÃä¯ÀÀÆ÷ÔÙ´Î·ÃÎÊ¡°http://localhost:3377/config/info¡±£¬½á¹ûÈçÏÂÍ¼¡£
+9\. åœ¨ä¸é‡å¯ spring-cloud-alibaba-config-client-3377 çš„æƒ…å†µä¸‹ï¼Œä½¿ç”¨æµè§ˆå™¨å†æ¬¡è®¿é—®â€œhttp://localhost:3377/config/infoâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022563A7-10.png)
-Í¼11£ºNacos Cofig
+å›¾11ï¼šNacos Cofig
 
-## Nacos Server ¼¯Èº»¯²¿Êğ
+## Nacos Server é›†ç¾¤åŒ–éƒ¨ç½²
 
-ÔÚÊµ¼ÊµÄÏîÄ¿¿ª·¢ÖĞ£¬Ò»¸öÎ¢·şÎñÏµÍ³ÍùÍùÓÉÊ®¼¸£¬¼¸Ê®¸öÉõÖÁ¼¸°Ù¸öÎ¢·şÎñ×é³É¡£ ÕâĞ©·şÎñÈôÈ«²¿×¢²áµ½Í¬Ò»Ì¨ Nacos Server£¬¾Í¼«ÓĞ¿ÉÄÜµ¼ÖÂ Nacos Server ÒòÎª²»¿°ÖØ¸º¶ø±ÀÀ££¬×îÖÕµ¼ÖÂÕû¸öÎ¢·şÎñÏµÍ³Ì±»¾¡£½â¾öÕâ¸öÎÊÌâ×îÖ±½ÓµÄ°ì·¨¾ÍÊÇÊ¹ÓÃ Nacos Server ¼¯Èº¡£
+åœ¨å®é™…çš„é¡¹ç›®å¼€å‘ä¸­ï¼Œä¸€ä¸ªå¾®æœåŠ¡ç³»ç»Ÿå¾€å¾€ç”±åå‡ ï¼Œå‡ åä¸ªç”šè‡³å‡ ç™¾ä¸ªå¾®æœåŠ¡ç»„æˆã€‚ è¿™äº›æœåŠ¡è‹¥å…¨éƒ¨æ³¨å†Œåˆ°åŒä¸€å° Nacos Serverï¼Œå°±ææœ‰å¯èƒ½å¯¼è‡´ Nacos Server å› ä¸ºä¸å ªé‡è´Ÿè€Œå´©æºƒï¼Œæœ€ç»ˆå¯¼è‡´æ•´ä¸ªå¾®æœåŠ¡ç³»ç»Ÿç˜«ç—ªã€‚è§£å†³è¿™ä¸ªé—®é¢˜æœ€ç›´æ¥çš„åŠæ³•å°±æ˜¯ä½¿ç”¨ Nacos Server é›†ç¾¤ã€‚
 
-Nacos Server µÄ¼¯Èº»¯²¿ÊğÓĞÒ»¸öÊ®·ÖÃ÷ÏÔµÄÓÅµã£¬ÄÇ¾ÍÊÇ¿ÉÒÔ±£ÕÏÏµÍ³µÄ¸ß¿ÉÓÃĞÔ¡£ÔÚ¼¯Èº»¯²¿ÊğÖĞ£¬Ö»Òª²»ÊÇËùÓĞµÄ Nacos Server ¶¼Í£Ö¹¹¤×÷£¬Nacos Client ¾Í»¹¿ÉÒÔ´Ó¼¯ÈºÖĞÕı³£µÄ Nacos Server ÉÏ»ñÈ¡·şÎñĞÅÏ¢¼°ÅäÖÃ£¬¶ø²»»áµ¼ÖÂÏµÍ³µÄÕûÌåÌ±»¾£¬Õâ¾ÍÊÇ Nacos Server ¼¯Èº»¯²¿ÊğµÄ¸ß¿ÉÓÃĞÔ¡£
+Nacos Server çš„é›†ç¾¤åŒ–éƒ¨ç½²æœ‰ä¸€ä¸ªååˆ†æ˜æ˜¾çš„ä¼˜ç‚¹ï¼Œé‚£å°±æ˜¯å¯ä»¥ä¿éšœç³»ç»Ÿçš„é«˜å¯ç”¨æ€§ã€‚åœ¨é›†ç¾¤åŒ–éƒ¨ç½²ä¸­ï¼Œåªè¦ä¸æ˜¯æ‰€æœ‰çš„ Nacos Server éƒ½åœæ­¢å·¥ä½œï¼ŒNacos Client å°±è¿˜å¯ä»¥ä»é›†ç¾¤ä¸­æ­£å¸¸çš„ Nacos Server ä¸Šè·å–æœåŠ¡ä¿¡æ¯åŠé…ç½®ï¼Œè€Œä¸ä¼šå¯¼è‡´ç³»ç»Ÿçš„æ•´ä½“ç˜«ç—ªï¼Œè¿™å°±æ˜¯ Nacos Server é›†ç¾¤åŒ–éƒ¨ç½²çš„é«˜å¯ç”¨æ€§ã€‚
 
-ÏÂÍ¼Õ¹Ê¾ÁË Nacos Server ¼¯Èº»¯²¿ÊğµÄ»ù±¾¼Ü¹¹¡£
+ä¸‹å›¾å±•ç¤ºäº† Nacos Server é›†ç¾¤åŒ–éƒ¨ç½²çš„åŸºæœ¬æ¶æ„ã€‚
 
-![Nacos Server ¼¯Èº¼Ü¹¹](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022563543-11.png)
-Í¼12£ºNacos Server ¼¯Èº¼Ü¹¹
+![Nacos Server é›†ç¾¤æ¶æ„](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022563543-11.png)
+å›¾12ï¼šNacos Server é›†ç¾¤æ¶æ„
 
-ÏÂÃæÎÒÃÇÒÔ Windows ÏµÍ³ÎªÀı£¬ÑİÊ¾ÈçºÎ²¿Êğ Nacos Server ¼¯Èº¡£
+ä¸‹é¢æˆ‘ä»¬ä»¥ Windows ç³»ç»Ÿä¸ºä¾‹ï¼Œæ¼”ç¤ºå¦‚ä½•éƒ¨ç½² Nacos Server é›†ç¾¤ã€‚
 
-1\. ÔÚ MySQL ÖĞ£¬ĞÂ½¨Ò»¸öÃûÎª nacos_config µÄÊı¾İ¿âÊµÀı£¬²¢ÔÚ¸ÃÊı¾İ¿âÏÂÖ´ĞĞÒÔÏÂ SQL Óï¾ä¡£
+1\. åœ¨ MySQL ä¸­ï¼Œæ–°å»ºä¸€ä¸ªåä¸º nacos_config çš„æ•°æ®åº“å®ä¾‹ï¼Œå¹¶åœ¨è¯¥æ•°æ®åº“ä¸‹æ‰§è¡Œä»¥ä¸‹ SQL è¯­å¥ã€‚
 ````
 /******************************************/
-/*   Êı¾İ¿âÈ«Ãû = nacos_config   */
-/*   ±íÃû³Æ = config_info   */
+/*   æ•°æ®åº“å…¨å = nacos_config   */
+/*   è¡¨åç§° = config_info   */
 /******************************************/
 CREATE TABLE `config_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
@@ -869,12 +869,12 @@ CREATE TABLE `config_info` (
   `group_id` varchar(255) DEFAULT NULL,
   `content` longtext NOT NULL COMMENT 'content',
   `md5` varchar(32) DEFAULT NULL COMMENT 'md5',
-  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '´´½¨Ê±¼ä',
-  `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ĞŞ¸ÄÊ±¼ä',
+  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'åˆ›å»ºæ—¶é—´',
+  `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ä¿®æ”¹æ—¶é—´',
   `src_user` text COMMENT 'source user',
   `src_ip` varchar(50) DEFAULT NULL COMMENT 'source ip',
   `app_name` varchar(128) DEFAULT NULL,
-  `tenant_id` varchar(128) DEFAULT '' COMMENT '×â»§×Ö¶Î',
+  `tenant_id` varchar(128) DEFAULT '' COMMENT 'ç§Ÿæˆ·å­—æ®µ',
   `c_desc` varchar(256) DEFAULT NULL,
   `c_use` varchar(64) DEFAULT NULL,
   `effect` varchar(64) DEFAULT NULL,
@@ -886,25 +886,25 @@ CREATE TABLE `config_info` (
 
 
 /******************************************/
-/*   Êı¾İ¿âÈ«Ãû = nacos_config   */
-/*   ±íÃû³Æ = config_info_aggr   */
+/*   æ•°æ®åº“å…¨å = nacos_config   */
+/*   è¡¨åç§° = config_info_aggr   */
 /******************************************/
 CREATE TABLE `config_info_aggr` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `data_id` varchar(255) NOT NULL COMMENT 'data_id',
   `group_id` varchar(255) NOT NULL COMMENT 'group_id',
   `datum_id` varchar(255) NOT NULL COMMENT 'datum_id',
-  `content` longtext NOT NULL COMMENT 'ÄÚÈİ',
-  `gmt_modified` datetime NOT NULL COMMENT 'ĞŞ¸ÄÊ±¼ä',
+  `content` longtext NOT NULL COMMENT 'å†…å®¹',
+  `gmt_modified` datetime NOT NULL COMMENT 'ä¿®æ”¹æ—¶é—´',
   `app_name` varchar(128) DEFAULT NULL,
-  `tenant_id` varchar(128) DEFAULT '' COMMENT '×â»§×Ö¶Î',
+  `tenant_id` varchar(128) DEFAULT '' COMMENT 'ç§Ÿæˆ·å­—æ®µ',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_configinfoaggr_datagrouptenantdatum` (`data_id`,`group_id`,`tenant_id`,`datum_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Ôö¼Ó×â»§×Ö¶Î';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='å¢åŠ ç§Ÿæˆ·å­—æ®µ';
 
 /******************************************/
-/*   Êı¾İ¿âÈ«Ãû = nacos_config   */
-/*   ±íÃû³Æ = config_info_beta   */
+/*   æ•°æ®åº“å…¨å = nacos_config   */
+/*   è¡¨åç§° = config_info_beta   */
 /******************************************/
 CREATE TABLE `config_info_beta` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
@@ -914,18 +914,18 @@ CREATE TABLE `config_info_beta` (
   `content` longtext NOT NULL COMMENT 'content',
   `beta_ips` varchar(1024) DEFAULT NULL COMMENT 'betaIps',
   `md5` varchar(32) DEFAULT NULL COMMENT 'md5',
-  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '´´½¨Ê±¼ä',
-  `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ĞŞ¸ÄÊ±¼ä',
+  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'åˆ›å»ºæ—¶é—´',
+  `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ä¿®æ”¹æ—¶é—´',
   `src_user` text COMMENT 'source user',
   `src_ip` varchar(50) DEFAULT NULL COMMENT 'source ip',
-  `tenant_id` varchar(128) DEFAULT '' COMMENT '×â»§×Ö¶Î',
+  `tenant_id` varchar(128) DEFAULT '' COMMENT 'ç§Ÿæˆ·å­—æ®µ',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_configinfobeta_datagrouptenant` (`data_id`,`group_id`,`tenant_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='config_info_beta';
 
 /******************************************/
-/*   Êı¾İ¿âÈ«Ãû = nacos_config   */
-/*   ±íÃû³Æ = config_info_tag   */
+/*   æ•°æ®åº“å…¨å = nacos_config   */
+/*   è¡¨åç§° = config_info_tag   */
 /******************************************/
 CREATE TABLE `config_info_tag` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
@@ -936,8 +936,8 @@ CREATE TABLE `config_info_tag` (
   `app_name` varchar(128) DEFAULT NULL COMMENT 'app_name',
   `content` longtext NOT NULL COMMENT 'content',
   `md5` varchar(32) DEFAULT NULL COMMENT 'md5',
-  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '´´½¨Ê±¼ä',
-  `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ĞŞ¸ÄÊ±¼ä',
+  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'åˆ›å»ºæ—¶é—´',
+  `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ä¿®æ”¹æ—¶é—´',
   `src_user` text COMMENT 'source user',
   `src_ip` varchar(50) DEFAULT NULL COMMENT 'source ip',
   PRIMARY KEY (`id`),
@@ -945,8 +945,8 @@ CREATE TABLE `config_info_tag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='config_info_tag';
 
 /******************************************/
-/*   Êı¾İ¿âÈ«Ãû = nacos_config   */
-/*   ±íÃû³Æ = config_tags_relation   */
+/*   æ•°æ®åº“å…¨å = nacos_config   */
+/*   è¡¨åç§° = config_tags_relation   */
 /******************************************/
 CREATE TABLE `config_tags_relation` (
   `id` bigint(20) NOT NULL COMMENT 'id',
@@ -962,27 +962,27 @@ CREATE TABLE `config_tags_relation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='config_tag_relation';
 
 /******************************************/
-/*   Êı¾İ¿âÈ«Ãû = nacos_config   */
-/*   ±íÃû³Æ = group_capacity   */
+/*   æ•°æ®åº“å…¨å = nacos_config   */
+/*   è¡¨åç§° = group_capacity   */
 /******************************************/
 CREATE TABLE `group_capacity` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Ö÷¼üID',
-  `group_id` varchar(128) NOT NULL DEFAULT '' COMMENT 'Group ID£¬¿Õ×Ö·û±íÊ¾Õû¸ö¼¯Èº',
-  `quota` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Åä¶î£¬0±íÊ¾Ê¹ÓÃÄ¬ÈÏÖµ',
-  `usage` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Ê¹ÓÃÁ¿',
-  `max_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'µ¥¸öÅäÖÃ´óĞ¡ÉÏÏŞ£¬µ¥Î»Îª×Ö½Ú£¬0±íÊ¾Ê¹ÓÃÄ¬ÈÏÖµ',
-  `max_aggr_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '¾ÛºÏ×ÓÅäÖÃ×î´ó¸öÊı£¬£¬0±íÊ¾Ê¹ÓÃÄ¬ÈÏÖµ',
-  `max_aggr_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'µ¥¸ö¾ÛºÏÊı¾İµÄ×ÓÅäÖÃ´óĞ¡ÉÏÏŞ£¬µ¥Î»Îª×Ö½Ú£¬0±íÊ¾Ê¹ÓÃÄ¬ÈÏÖµ',
-  `max_history_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '×î´ó±ä¸üÀúÊ·ÊıÁ¿',
-  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '´´½¨Ê±¼ä',
-  `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ĞŞ¸ÄÊ±¼ä',
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ä¸»é”®ID',
+  `group_id` varchar(128) NOT NULL DEFAULT '' COMMENT 'Group IDï¼Œç©ºå­—ç¬¦è¡¨ç¤ºæ•´ä¸ªé›†ç¾¤',
+  `quota` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'é…é¢ï¼Œ0è¡¨ç¤ºä½¿ç”¨é»˜è®¤å€¼',
+  `usage` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'ä½¿ç”¨é‡',
+  `max_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'å•ä¸ªé…ç½®å¤§å°ä¸Šé™ï¼Œå•ä½ä¸ºå­—èŠ‚ï¼Œ0è¡¨ç¤ºä½¿ç”¨é»˜è®¤å€¼',
+  `max_aggr_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'èšåˆå­é…ç½®æœ€å¤§ä¸ªæ•°ï¼Œï¼Œ0è¡¨ç¤ºä½¿ç”¨é»˜è®¤å€¼',
+  `max_aggr_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'å•ä¸ªèšåˆæ•°æ®çš„å­é…ç½®å¤§å°ä¸Šé™ï¼Œå•ä½ä¸ºå­—èŠ‚ï¼Œ0è¡¨ç¤ºä½¿ç”¨é»˜è®¤å€¼',
+  `max_history_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'æœ€å¤§å˜æ›´å†å²æ•°é‡',
+  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'åˆ›å»ºæ—¶é—´',
+  `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ä¿®æ”¹æ—¶é—´',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_group_id` (`group_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='¼¯Èº¡¢¸÷GroupÈİÁ¿ĞÅÏ¢±í';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='é›†ç¾¤ã€å„Groupå®¹é‡ä¿¡æ¯è¡¨';
 
 /******************************************/
-/*   Êı¾İ¿âÈ«Ãû = nacos_config   */
-/*   ±íÃû³Æ = his_config_info   */
+/*   æ•°æ®åº“å…¨å = nacos_config   */
+/*   è¡¨åç§° = his_config_info   */
 /******************************************/
 CREATE TABLE `his_config_info` (
   `id` bigint(64) unsigned NOT NULL,
@@ -997,31 +997,31 @@ CREATE TABLE `his_config_info` (
   `src_user` text,
   `src_ip` varchar(50) DEFAULT NULL,
   `op_type` char(10) DEFAULT NULL,
-  `tenant_id` varchar(128) DEFAULT '' COMMENT '×â»§×Ö¶Î',
+  `tenant_id` varchar(128) DEFAULT '' COMMENT 'ç§Ÿæˆ·å­—æ®µ',
   PRIMARY KEY (`nid`),
   KEY `idx_gmt_create` (`gmt_create`),
   KEY `idx_gmt_modified` (`gmt_modified`),
   KEY `idx_did` (`data_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='¶à×â»§¸ÄÔì';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='å¤šç§Ÿæˆ·æ”¹é€ ';
 
 /******************************************/
-/*   Êı¾İ¿âÈ«Ãû = nacos_config   */
-/*   ±íÃû³Æ = tenant_capacity   */
+/*   æ•°æ®åº“å…¨å = nacos_config   */
+/*   è¡¨åç§° = tenant_capacity   */
 /******************************************/
 CREATE TABLE `tenant_capacity` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Ö÷¼üID',
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ä¸»é”®ID',
   `tenant_id` varchar(128) NOT NULL DEFAULT '' COMMENT 'Tenant ID',
-  `quota` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Åä¶î£¬0±íÊ¾Ê¹ÓÃÄ¬ÈÏÖµ',
-  `usage` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Ê¹ÓÃÁ¿',
-  `max_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'µ¥¸öÅäÖÃ´óĞ¡ÉÏÏŞ£¬µ¥Î»Îª×Ö½Ú£¬0±íÊ¾Ê¹ÓÃÄ¬ÈÏÖµ',
-  `max_aggr_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '¾ÛºÏ×ÓÅäÖÃ×î´ó¸öÊı',
-  `max_aggr_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'µ¥¸ö¾ÛºÏÊı¾İµÄ×ÓÅäÖÃ´óĞ¡ÉÏÏŞ£¬µ¥Î»Îª×Ö½Ú£¬0±íÊ¾Ê¹ÓÃÄ¬ÈÏÖµ',
-  `max_history_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '×î´ó±ä¸üÀúÊ·ÊıÁ¿',
-  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '´´½¨Ê±¼ä',
-  `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ĞŞ¸ÄÊ±¼ä',
+  `quota` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'é…é¢ï¼Œ0è¡¨ç¤ºä½¿ç”¨é»˜è®¤å€¼',
+  `usage` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'ä½¿ç”¨é‡',
+  `max_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'å•ä¸ªé…ç½®å¤§å°ä¸Šé™ï¼Œå•ä½ä¸ºå­—èŠ‚ï¼Œ0è¡¨ç¤ºä½¿ç”¨é»˜è®¤å€¼',
+  `max_aggr_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'èšåˆå­é…ç½®æœ€å¤§ä¸ªæ•°',
+  `max_aggr_size` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'å•ä¸ªèšåˆæ•°æ®çš„å­é…ç½®å¤§å°ä¸Šé™ï¼Œå•ä½ä¸ºå­—èŠ‚ï¼Œ0è¡¨ç¤ºä½¿ç”¨é»˜è®¤å€¼',
+  `max_history_count` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'æœ€å¤§å˜æ›´å†å²æ•°é‡',
+  `gmt_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'åˆ›å»ºæ—¶é—´',
+  `gmt_modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'ä¿®æ”¹æ—¶é—´',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_tenant_id` (`tenant_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='×â»§ÈİÁ¿ĞÅÏ¢±í';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='ç§Ÿæˆ·å®¹é‡ä¿¡æ¯è¡¨';
 
 CREATE TABLE `tenant_info` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
@@ -1030,8 +1030,8 @@ CREATE TABLE `tenant_info` (
   `tenant_name` varchar(128) default '' COMMENT 'tenant_name',
   `tenant_desc` varchar(256) DEFAULT NULL COMMENT 'tenant_desc',
   `create_source` varchar(32) DEFAULT NULL COMMENT 'create_source',
-  `gmt_create` bigint(20) NOT NULL COMMENT '´´½¨Ê±¼ä',
-  `gmt_modified` bigint(20) NOT NULL COMMENT 'ĞŞ¸ÄÊ±¼ä',
+  `gmt_create` bigint(20) NOT NULL COMMENT 'åˆ›å»ºæ—¶é—´',
+  `gmt_modified` bigint(20) NOT NULL COMMENT 'ä¿®æ”¹æ—¶é—´',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_tenant_info_kptenantid` (`kp`,`tenant_id`),
   KEY `idx_tenant_id` (`tenant_id`)
@@ -1060,22 +1060,22 @@ INSERT INTO users (username, password, enabled) VALUES ('nacos', '$2a$10$EuWPZHz
 
 INSERT INTO roles (username, role) VALUES ('nacos', 'ROLE_ADMIN');
 ````
-2\. ÔÚ Nacos Server °²×°Ä¿Â¼ÏÂµÄ conf ÎÄ¼ş¼ĞÖĞ£¬½« cluster.conf.example ÖØÃüÃûÎª cluster.conf£¬È»ºóÔÚ¸ÃÎÄ¼şÖĞÌí¼ÓÒÔÏÂÄÚÈİ¡£
+2\. åœ¨ Nacos Server å®‰è£…ç›®å½•ä¸‹çš„ conf æ–‡ä»¶å¤¹ä¸­ï¼Œå°† cluster.conf.example é‡å‘½åä¸º cluster.confï¼Œç„¶ååœ¨è¯¥æ–‡ä»¶ä¸­æ·»åŠ ä»¥ä¸‹å†…å®¹ã€‚
 
     192.168.3.138:3333
     192.168.3.138:4444
     192.168.3.138:5555
 
 
-ÅäÖÃËµÃ÷ÈçÏÂ£º
+é…ç½®è¯´æ˜å¦‚ä¸‹ï¼š
 
-*   192.168.138 Îª±¾µØµçÄÔÖ÷»úµÄ IP µØÖ·£¬ÕâÀï×îºÃ²»ÒªĞ´³É localhost »ò 127.0.0.1£¬·ñÔò Nacos Server ¼¯Èº¿ÉÄÜ»á´î½¨Ê§°Ü£¡
-*   ±¾´Î´î½¨µÄ Nacos Server ¼¯ÈºµÄ¶Ë¿Ú·Ö±ğÎª£º3333¡¢4444¡¢5555¡£
+*   192.168.138 ä¸ºæœ¬åœ°ç”µè„‘ä¸»æœºçš„ IP åœ°å€ï¼Œè¿™é‡Œæœ€å¥½ä¸è¦å†™æˆ localhost æˆ– 127.0.0.1ï¼Œå¦åˆ™ Nacos Server é›†ç¾¤å¯èƒ½ä¼šæ­å»ºå¤±è´¥ï¼
+*   æœ¬æ¬¡æ­å»ºçš„ Nacos Server é›†ç¾¤çš„ç«¯å£åˆ†åˆ«ä¸ºï¼š3333ã€4444ã€5555ã€‚
 
-3\. ÔÚ config Ä¿Â¼ÏÂµÄ application.properties ÖĞ£¬½« server.port£¨¶Ë¿ÚºÅ£©ĞŞ¸ÄÎª 3333£¬²¢ÔÚ¸ÃÎÄ¼şÖĞÌí¼Ó MySQL Êı¾İ¿âÅäÖÃ£¬¾ßÌåĞŞ¸ÄÄÚÈİÈçÏÂ¡£
+3\. åœ¨ config ç›®å½•ä¸‹çš„ application.properties ä¸­ï¼Œå°† server.portï¼ˆç«¯å£å·ï¼‰ä¿®æ”¹ä¸º 3333ï¼Œå¹¶åœ¨è¯¥æ–‡ä»¶ä¸­æ·»åŠ  MySQL æ•°æ®åº“é…ç½®ï¼Œå…·ä½“ä¿®æ”¹å†…å®¹å¦‚ä¸‹ã€‚
 ````
 server.port=3333
-################ MySQL Êı¾İ¿âÅäÖÃ##################
+################ MySQL æ•°æ®åº“é…ç½®##################
 spring.datasource.platform=mysql
 
 
@@ -1084,9 +1084,9 @@ db.url.0=jdbc:mysql://127.0.0.1:3306/nacos_config?characterEncoding=utf8&connect
 db.user=root
 db.password=root
 ````
-4\. ½«¸Ã Nacos Server Ä¿Â¼¸´ÖÆµ½ÁíÍâÁ½Ì¨»úÆ÷ÉÏ£¬²¢½«ËüÃÇµÄ¶Ë¿ÚºÅ·Ö±ğĞŞ¸ÄÎª£º 4444 ºÍ 5555¡£
+4\. å°†è¯¥ Nacos Server ç›®å½•å¤åˆ¶åˆ°å¦å¤–ä¸¤å°æœºå™¨ä¸Šï¼Œå¹¶å°†å®ƒä»¬çš„ç«¯å£å·åˆ†åˆ«ä¿®æ”¹ä¸ºï¼š 4444 å’Œ 5555ã€‚
 
-5\. ÏÂÔØ Nginx£¬²¢ĞŞ¸Ä Nginx ÖĞ conf Ä¿Â¼ÏÂµÄ nginx.conf µÄÅäÖÃ£¬ÄÚÈİÈçÏÂ¡£
+5\. ä¸‹è½½ Nginxï¼Œå¹¶ä¿®æ”¹ Nginx ä¸­ conf ç›®å½•ä¸‹çš„ nginx.conf çš„é…ç½®ï¼Œå†…å®¹å¦‚ä¸‹ã€‚
 ````
 #user  nobody;
 worker_processes  1;
@@ -1129,7 +1129,7 @@ http {
 
 }
 ````
-6\. Æô¶¯¼¯ÈºÖĞËùÓĞµÄ Nacos Server£¬µ±³öÏÖÒÔÏÂÄÚÈİÊ±£¬±íÊ¾ Nacos Server Æô¶¯³É¹¦¡£
+6\. å¯åŠ¨é›†ç¾¤ä¸­æ‰€æœ‰çš„ Nacos Serverï¼Œå½“å‡ºç°ä»¥ä¸‹å†…å®¹æ—¶ï¼Œè¡¨ç¤º Nacos Server å¯åŠ¨æˆåŠŸã€‚
 ````
 "nacos is starting with cluster"
 
@@ -1162,49 +1162,49 @@ http {
 
 2021-11-09 16:27:10,742 INFO Nacos started successfully in cluster mode. use external storage
 ````
-7\. µ±¼¯ÈºÖĞµÄËùÓĞ Nacos Server ¶¼Æô¶¯³É¹¦ºó£¬Ë«»÷ Nignx °²×°Ä¿Â¼ÏÂµÄ nginx.exe£¬Æô¶¯ Nginx¡£
+7\. å½“é›†ç¾¤ä¸­çš„æ‰€æœ‰ Nacos Server éƒ½å¯åŠ¨æˆåŠŸåï¼ŒåŒå‡» Nignx å®‰è£…ç›®å½•ä¸‹çš„ nginx.exeï¼Œå¯åŠ¨ Nginxã€‚
 
 ![Nginx ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225BO0-12.png)
-Í¼13£ºNginx Æô¶¯½Å±¾
+å›¾13ï¼šNginx å¯åŠ¨è„šæœ¬
 
-8\. Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://localhost:1111/nacos/¡±£¬Èô³É¹¦·ÃÎÊ Nacos Server µÄ¿ØÖÆÌ¨£¬ÔòËµÃ÷ Nacos ¼¯Èº²¿Êğ³É¹¦£¬ÈçÏÂÍ¼¡£
+8\. ä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://localhost:1111/nacos/â€ï¼Œè‹¥æˆåŠŸè®¿é—® Nacos Server çš„æ§åˆ¶å°ï¼Œåˆ™è¯´æ˜ Nacos é›†ç¾¤éƒ¨ç½²æˆåŠŸï¼Œå¦‚ä¸‹å›¾ã€‚
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225C554-13.png)
-Í¼14£ºNacos ¼¯Èº
+å›¾14ï¼šNacos é›†ç¾¤
 
-9\. ½«Ö÷¹¤³Ì spring-cloud-alibaba-demo ÏÂËùÓĞ×ÓÄ£¿éÅäÖÃÎÄ¼şÖĞµÄ Nacos Server µØÖ·Í³Ò»ĞŞ¸ÄÎª£ºlocalhost:1111¡£ÎÒÃÇÒÔ spring-cloud-alibaba-consumer-nacos-8801 ÎªÀı£¬ÅäÖÃÎÄ¼ş application.yml µÄÅäÖÃÄÚÈİÈçÏÂ¡£
+9\. å°†ä¸»å·¥ç¨‹ spring-cloud-alibaba-demo ä¸‹æ‰€æœ‰å­æ¨¡å—é…ç½®æ–‡ä»¶ä¸­çš„ Nacos Server åœ°å€ç»Ÿä¸€ä¿®æ”¹ä¸ºï¼šlocalhost:1111ã€‚æˆ‘ä»¬ä»¥ spring-cloud-alibaba-consumer-nacos-8801 ä¸ºä¾‹ï¼Œé…ç½®æ–‡ä»¶ application.yml çš„é…ç½®å†…å®¹å¦‚ä¸‹ã€‚
 
 
 
 
 ````
 server:
-  port: 8801  #¶Ë¿ÚºÅ
+  port: 8801  #ç«¯å£å·
 spring:
   application:
-    name: spring-cloud-alibaba-consumer #·şÎñÃû
+    name: spring-cloud-alibaba-consumer #æœåŠ¡å
   cloud:
     nacos:
       discovery:
-        #server-addr: localhost:8848  #µ¥»ú°æ Nacos Server µÄµØÖ·
-        server-addr: localhost:1111  #¼¯Èº°æ Nacos Server µÄµØÖ·
+        #server-addr: localhost:8848  #å•æœºç‰ˆ Nacos Server çš„åœ°å€
+        server-addr: localhost:1111  #é›†ç¾¤ç‰ˆ Nacos Server çš„åœ°å€
 ````
 
-#ÒÔÏÂÅäÖÃĞÅÏ¢²¢²»ÊÇÄ¬ÈÏÅäÖÃ£¬¶øÊÇÎÒÃÇ×Ô¶¨ÒåµÄÅäÖÃ£¬Ä¿µÄÊÇ²»ÔÚ Controller ÄÚÓ²±àÂë·şÎñÌá¹©ÕßµÄ·şÎñÃû
+#ä»¥ä¸‹é…ç½®ä¿¡æ¯å¹¶ä¸æ˜¯é»˜è®¤é…ç½®ï¼Œè€Œæ˜¯æˆ‘ä»¬è‡ªå®šä¹‰çš„é…ç½®ï¼Œç›®çš„æ˜¯ä¸åœ¨ Controller å†…ç¡¬ç¼–ç æœåŠ¡æä¾›è€…çš„æœåŠ¡å
 ````
 service-url:
-  nacos-user-service: http://spring-cloud-alibaba-provider #·şÎñÌá¹©ÕßµÄ·şÎñÃû
+  nacos-user-service: http://spring-cloud-alibaba-provider #æœåŠ¡æä¾›è€…çš„æœåŠ¡å
 ````
 
 
 
 
-10\. ÖØÆô spring-cloud-alibaba-consumer-nacos-8801£¬²¢Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://localhost:1111/nacos¡±£¬²é¿´¡°·şÎñ¹ÜÀí¡±ÏÂµÄ¡°·şÎñÁĞ±í¡±£¬½á¹ûÈçÏÂÍ¼¡£
+10\. é‡å¯ spring-cloud-alibaba-consumer-nacos-8801ï¼Œå¹¶ä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://localhost:1111/nacosâ€ï¼ŒæŸ¥çœ‹â€œæœåŠ¡ç®¡ç†â€ä¸‹çš„â€œæœåŠ¡åˆ—è¡¨â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-[![Nacos ¼¯Èº 2](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225A913-14.png)](http://new-local.weixueyuan.net/uploads/allimg/211109/6-2111091H412N8.png)
-Í¼15£º·şÎñ×¢²áµ½ Nacos Server ¼¯ÈºÉÏ
+[![Nacos é›†ç¾¤ 2](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225A913-14.png)](http://new-local.weixueyuan.net/uploads/allimg/211109/6-2111091H412N8.png)
+å›¾15ï¼šæœåŠ¡æ³¨å†Œåˆ° Nacos Server é›†ç¾¤ä¸Š
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

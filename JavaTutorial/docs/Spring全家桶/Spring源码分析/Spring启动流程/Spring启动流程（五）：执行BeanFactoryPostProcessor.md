@@ -1,10 +1,10 @@
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-c8c446fca94a382109bdc7b6babd6db4c0d.png)
 
-½ÓÉÏÎÄ£¬ÎÒÃÇ¼ÌĞø·ÖÎö¡£
+æ¥ä¸Šæ–‡ï¼Œæˆ‘ä»¬ç»§ç»­åˆ†æã€‚
 
-### 4\. À©Õ¹µã£º`postProcessBeanFactory(beanFactory)`
+### 4\. æ‰©å±•ç‚¹ï¼š`postProcessBeanFactory(beanFactory)`
 
-Õâ¸öÀàÊÇ spring Ìá¹©µÄÀ©Õ¹µã£¬±¾Éí²¢ÎŞÈÎºÎ¹¦ÄÜ£¬Áô´ı×ÓÀàÊµÏÖ£¬`AbstractApplicationContext` µÄ `postProcessBeanFactory` ·½·¨´úÂëÈçÏÂ£º
+è¿™ä¸ªç±»æ˜¯ spring æä¾›çš„æ‰©å±•ç‚¹ï¼Œæœ¬èº«å¹¶æ— ä»»ä½•åŠŸèƒ½ï¼Œç•™å¾…å­ç±»å®ç°ï¼Œ`AbstractApplicationContext` çš„ `postProcessBeanFactory` æ–¹æ³•ä»£ç å¦‚ä¸‹ï¼š
 
 ```
     protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
@@ -12,19 +12,19 @@
 
 ```
 
-µ±Ç°ÎÒÃÇÊ¹ÓÃµÄ `ApplicationContext` ÊÇ `AnnotationConfigApplicationContext`£¬²¢Ã»ÓĞÊµÏÖÕâ¸ö·½·¨¡£
+å½“å‰æˆ‘ä»¬ä½¿ç”¨çš„ `ApplicationContext` æ˜¯ `AnnotationConfigApplicationContext`ï¼Œå¹¶æ²¡æœ‰å®ç°è¿™ä¸ªæ–¹æ³•ã€‚
 
-### 5\. Ö´ĞĞ `BeanFactoryPostProcessors`: `invokeBeanFactoryPostProcessors(beanFactory)`
+### 5\. æ‰§è¡Œ `BeanFactoryPostProcessors`: `invokeBeanFactoryPostProcessors(beanFactory)`
 
-> `BeanFactoryPostProcessor` ³ÆÎª beanFactory µÄºóÖÃ´¦Àí£¬ÓÃÀ´ĞŞ¸Ä beanFactory µÄÒ»Ğ©ĞĞÎª¡£¹ØÓÚ `BeanFactoryPostProcessor` µÄÏêÏ¸·ÖÎö£¬¿ÉÒÔ²Î¿¼ [spring ×é¼şÖ® BeanFactoryPostProcessors](https://my.oschina.net/funcy/blog/4597545)¡£
+> `BeanFactoryPostProcessor` ç§°ä¸º beanFactory çš„åç½®å¤„ç†ï¼Œç”¨æ¥ä¿®æ”¹ beanFactory çš„ä¸€äº›è¡Œä¸ºã€‚å…³äº `BeanFactoryPostProcessor` çš„è¯¦ç»†åˆ†æï¼Œå¯ä»¥å‚è€ƒ [spring ç»„ä»¶ä¹‹ BeanFactoryPostProcessors](https://my.oschina.net/funcy/blog/4597545)ã€‚
 
-¹ØÓÚ `BeanFactoryPostProcessor`£¬ÕâÀïÌá¼¸µã£º
+å…³äº `BeanFactoryPostProcessor`ï¼Œè¿™é‡Œæå‡ ç‚¹ï¼š
 
-*   `BeanFactoryPostProcessor` ·ÖÎªÁ½ÖÖ£º`BeanFactoryPostProcessor` Óë `BeanDefinitionRegistryPostProcessor`
-*   `BeanDefinitionRegistryPostProcessor` ÊÇ `BeanFactoryPostProcessor` µÄ×ÓÀà
-*   ÏÈÖ´ĞĞ `BeanDefinitionRegistryPostProcessor` µÄ·½·¨£¬ÔÙÖ´ĞĞ `BeanFactoryPostProcessor` µÄ·½·¨
+*   `BeanFactoryPostProcessor` åˆ†ä¸ºä¸¤ç§ï¼š`BeanFactoryPostProcessor` ä¸ `BeanDefinitionRegistryPostProcessor`
+*   `BeanDefinitionRegistryPostProcessor` æ˜¯ `BeanFactoryPostProcessor` çš„å­ç±»
+*   å…ˆæ‰§è¡Œ `BeanDefinitionRegistryPostProcessor` çš„æ–¹æ³•ï¼Œå†æ‰§è¡Œ `BeanFactoryPostProcessor` çš„æ–¹æ³•
 
-ÁË½âÕâĞ©ºó£¬ÎÒÃÇ¸ú½ø´úÂë£¬ÕâÀï¶Ô²»ÖØÒª´úÂëÒÀ¾ÉÖ»¸ø³öµ÷ÓÃÁ´£¬ÈçÏÂ£º
+äº†è§£è¿™äº›åï¼Œæˆ‘ä»¬è·Ÿè¿›ä»£ç ï¼Œè¿™é‡Œå¯¹ä¸é‡è¦ä»£ç ä¾æ—§åªç»™å‡ºè°ƒç”¨é“¾ï¼Œå¦‚ä¸‹ï¼š
 
 ```
 |-AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
@@ -35,34 +35,34 @@
 
 ```
 
-ÎÒÃÇÖ±½Ó¿´ `invokeBeanFactoryPostProcessors` ·½·¨£º
+æˆ‘ä»¬ç›´æ¥çœ‹ `invokeBeanFactoryPostProcessors` æ–¹æ³•ï¼š
 
 ```
 public static void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory, 
             List<BeanFactoryPostProcessor> beanFactoryPostProcessors) {
 
-    // ËùÓĞ´æÔÚµÄBeanDefinitionRegistryPostProcessorµÄÃû×Ö
+    // æ‰€æœ‰å­˜åœ¨çš„BeanDefinitionRegistryPostProcessorçš„åå­—
     Set<String> processedBeans = new HashSet<>();
 
-    //beanFactoryÊÇDefaultListableBeanFactory£¬ÊÇBeanDefinitionRegistryµÄÊµÏÖÀà£¬ËùÒÔ¿Ï¶¨Âú×ãif
+    //beanFactoryæ˜¯DefaultListableBeanFactoryï¼Œæ˜¯BeanDefinitionRegistryçš„å®ç°ç±»ï¼Œæ‰€ä»¥è‚¯å®šæ»¡è¶³if
     if (beanFactory instanceof BeanDefinitionRegistry) {
         BeanDefinitionRegistry registry = (BeanDefinitionRegistry) beanFactory;
 
-        //regularPostProcessors ÓÃÀ´´æ·ÅBeanFactoryPostProcessor
+        //regularPostProcessors ç”¨æ¥å­˜æ”¾BeanFactoryPostProcessor
         List<BeanFactoryPostProcessor> regularPostProcessors = new ArrayList<>();
 
-        //registryProcessors ÓÃÀ´´æ·ÅBeanDefinitionRegistryPostProcessor
-        //BeanDefinitionRegistryPostProcessor À©Õ¹ÁË BeanFactoryPostProcessor
+        //registryProcessors ç”¨æ¥å­˜æ”¾BeanDefinitionRegistryPostProcessor
+        //BeanDefinitionRegistryPostProcessor æ‰©å±•äº† BeanFactoryPostProcessor
         List<BeanDefinitionRegistryPostProcessor> registryProcessors = new ArrayList<>();
 
-        // Ñ­»·´«½øÀ´µÄbeanFactoryPostProcessors£¬Õı³£Çé¿öÏÂ£¬beanFactoryPostProcessors¿Ï¶¨Ã»ÓĞÊı¾İ
-        // ÒòÎªbeanFactoryPostProcessorsÊÇ»ñµÃÊÖ¶¯Ìí¼ÓµÄ£¬¶ø²»ÊÇspringÉ¨ÃèµÄ
-        // Ö»ÓĞÊÖ¶¯µ÷ÓÃannotationConfigApplicationContext.addBeanFactoryPostProcessor(XXX)²Å»áÓĞÊı¾İ
+        // å¾ªç¯ä¼ è¿›æ¥çš„beanFactoryPostProcessorsï¼Œæ­£å¸¸æƒ…å†µä¸‹ï¼ŒbeanFactoryPostProcessorsè‚¯å®šæ²¡æœ‰æ•°æ®
+        // å› ä¸ºbeanFactoryPostProcessorsæ˜¯è·å¾—æ‰‹åŠ¨æ·»åŠ çš„ï¼Œè€Œä¸æ˜¯springæ‰«æçš„
+        // åªæœ‰æ‰‹åŠ¨è°ƒç”¨annotationConfigApplicationContext.addBeanFactoryPostProcessor(XXX)æ‰ä¼šæœ‰æ•°æ®
         for (BeanFactoryPostProcessor postProcessor : beanFactoryPostProcessors) {
-            // ÅĞ¶ÏpostProcessorÊÇ²»ÊÇBeanDefinitionRegistryPostProcessor£¬
-            // ÒòÎªBeanDefinitionRegistryPostProcessor À©Õ¹ÁËBeanFactoryPostProcessor£¬
-            // ËùÒÔÕâÀïÏÈÒªÅĞ¶ÏÊÇ²»ÊÇBeanDefinitionRegistryPostProcessor, ÊÇµÄ»°£¬Ö±½ÓÖ´ĞĞ
-            // postProcessBeanDefinitionRegistry·½·¨£¬È»ºó°Ñ¶ÔÏó×°µ½registryProcessorsÀïÃæÈ¥
+            // åˆ¤æ–­postProcessoræ˜¯ä¸æ˜¯BeanDefinitionRegistryPostProcessorï¼Œ
+            // å› ä¸ºBeanDefinitionRegistryPostProcessor æ‰©å±•äº†BeanFactoryPostProcessorï¼Œ
+            // æ‰€ä»¥è¿™é‡Œå…ˆè¦åˆ¤æ–­æ˜¯ä¸æ˜¯BeanDefinitionRegistryPostProcessor, æ˜¯çš„è¯ï¼Œç›´æ¥æ‰§è¡Œ
+            // postProcessBeanDefinitionRegistryæ–¹æ³•ï¼Œç„¶åæŠŠå¯¹è±¡è£…åˆ°registryProcessorsé‡Œé¢å»
             if (postProcessor instanceof BeanDefinitionRegistryPostProcessor) {
                 BeanDefinitionRegistryPostProcessor registryProcessor =
                         (BeanDefinitionRegistryPostProcessor) postProcessor;
@@ -70,56 +70,56 @@ public static void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFacto
                 registryProcessors.add(registryProcessor);
             }
             else {
-                //²»ÊÇµÄ»°£¬¾Í×°µ½regularPostProcessors
+                //ä¸æ˜¯çš„è¯ï¼Œå°±è£…åˆ°regularPostProcessors
                 regularPostProcessors.add(postProcessor);
             }
         }
 
-        // Ò»¸öÁÙÊ±±äÁ¿£¬ÓÃÀ´×°ÔØBeanDefinitionRegistryPostProcessor
-        // BeanDefinitionRegistry¼Ì³ĞÁËPostProcessorBeanFactoryPostProcessor
+        // ä¸€ä¸ªä¸´æ—¶å˜é‡ï¼Œç”¨æ¥è£…è½½BeanDefinitionRegistryPostProcessor
+        // BeanDefinitionRegistryç»§æ‰¿äº†PostProcessorBeanFactoryPostProcessor
         List<BeanDefinitionRegistryPostProcessor> currentRegistryProcessors = new ArrayList<>();
 
-        // »ñµÃÊµÏÖBeanDefinitionRegistryPostProcessor½Ó¿ÚµÄÀàµÄBeanName
-        // ÕâÀï°üº¬ÁËspringÄÚ²¿Ìá¹©µÄBeanDefinitionRegistryPostProcessor
-        // ÒÔ¼°¿ª·¢Õß×Ô¼ºÊµÏÖµÄBeanDefinitionRegistryPostProcessor
+        // è·å¾—å®ç°BeanDefinitionRegistryPostProcessoræ¥å£çš„ç±»çš„BeanName
+        // è¿™é‡ŒåŒ…å«äº†springå†…éƒ¨æä¾›çš„BeanDefinitionRegistryPostProcessor
+        // ä»¥åŠå¼€å‘è€…è‡ªå·±å®ç°çš„BeanDefinitionRegistryPostProcessor
         String[] postProcessorNames =
             beanFactory.getBeanNamesForType(BeanDefinitionRegistryPostProcessor.class, true, false);
         for (String ppName : postProcessorNames) {
             if (beanFactory.isTypeMatch(ppName, PriorityOrdered.class)) {
-               //»ñµÃConfigurationClassPostProcessorÀà£¬²¢ÇÒ·Åµ½currentRegistryProcessors
-               //ConfigurationClassPostProcessorÊÇºÜÖØÒªµÄÒ»¸öÀà£¬ËüÊµÏÖÁË
-               //BeanDefinitionRegistryPostProcessor½Ó¿Ú£¬
-               //BeanDefinitionRegistryPostProcessor½Ó¿ÚÓÖÊµÏÖÁËBeanFactoryPostProcessor½Ó¿Ú
-               //ConfigurationClassPostProcessorÊÇ¼«ÆäÖØÒªµÄÀà, ÀïÃæÖ´ĞĞÁË
-               //É¨Ãè @Bean£¬@Import£¬@ImportResource µÈ¸÷ÖÖ²Ù×÷
+               //è·å¾—ConfigurationClassPostProcessorç±»ï¼Œå¹¶ä¸”æ”¾åˆ°currentRegistryProcessors
+               //ConfigurationClassPostProcessoræ˜¯å¾ˆé‡è¦çš„ä¸€ä¸ªç±»ï¼Œå®ƒå®ç°äº†
+               //BeanDefinitionRegistryPostProcessoræ¥å£ï¼Œ
+               //BeanDefinitionRegistryPostProcessoræ¥å£åˆå®ç°äº†BeanFactoryPostProcessoræ¥å£
+               //ConfigurationClassPostProcessoræ˜¯æå…¶é‡è¦çš„ç±», é‡Œé¢æ‰§è¡Œäº†
+               //æ‰«æ @Beanï¼Œ@Importï¼Œ@ImportResource ç­‰å„ç§æ“ä½œ
                currentRegistryProcessors.add(beanFactory.getBean(
                    ppName, BeanDefinitionRegistryPostProcessor.class));
                processedBeans.add(ppName);
             }
         }
 
-       //´¦ÀíÅÅĞò
+       //å¤„ç†æ’åº
        sortPostProcessors(currentRegistryProcessors, beanFactory);
 
-       //ºÏ²¢Processors£¬ÎªÊ²Ã´ÒªºÏ²¢£¬ÒòÎªregistryProcessorsÊÇ
-       //×°ÔØBeanDefinitionRegistryPostProcessorµÄ
-       //Ò»¿ªÊ¼µÄÊ±ºò£¬springÖ»»áÖ´ĞĞBeanDefinitionRegistryPostProcessor¶ÀÓĞµÄ·½·¨
-       //¶ø²»»áÖ´ĞĞBeanDefinitionRegistryPostProcessor¸¸ÀàµÄ·½·¨£¬¼´BeanFactoryProcessorµÄ·½·¨
-       //ËùÒÔÕâÀïĞèÒª°Ñ´¦ÀíÆ÷·ÅÈëÒ»¸ö¼¯ºÏÖĞ£¬ºóĞøÍ³Ò»Ö´ĞĞ¸¸ÀàµÄ·½·¨
+       //åˆå¹¶Processorsï¼Œä¸ºä»€ä¹ˆè¦åˆå¹¶ï¼Œå› ä¸ºregistryProcessorsæ˜¯
+       //è£…è½½BeanDefinitionRegistryPostProcessorçš„
+       //ä¸€å¼€å§‹çš„æ—¶å€™ï¼Œspringåªä¼šæ‰§è¡ŒBeanDefinitionRegistryPostProcessorç‹¬æœ‰çš„æ–¹æ³•
+       //è€Œä¸ä¼šæ‰§è¡ŒBeanDefinitionRegistryPostProcessorçˆ¶ç±»çš„æ–¹æ³•ï¼Œå³BeanFactoryProcessorçš„æ–¹æ³•
+       //æ‰€ä»¥è¿™é‡Œéœ€è¦æŠŠå¤„ç†å™¨æ”¾å…¥ä¸€ä¸ªé›†åˆä¸­ï¼Œåç»­ç»Ÿä¸€æ‰§è¡Œçˆ¶ç±»çš„æ–¹æ³•
        registryProcessors.addAll(currentRegistryProcessors);
 
-       //¿ÉÒÔÀí½âÎªÖ´ĞĞConfigurationClassPostProcessorµÄpostProcessBeanDefinitionRegistry·½·¨
+       //å¯ä»¥ç†è§£ä¸ºæ‰§è¡ŒConfigurationClassPostProcessorçš„postProcessBeanDefinitionRegistryæ–¹æ³•
        invokeBeanDefinitionRegistryPostProcessors(currentRegistryProcessors, registry);
-       //ÒòÎªcurrentRegistryProcessorsÊÇÒ»¸öÁÙÊ±±äÁ¿£¬ËùÒÔĞèÒªÇå³ı
+       //å› ä¸ºcurrentRegistryProcessorsæ˜¯ä¸€ä¸ªä¸´æ—¶å˜é‡ï¼Œæ‰€ä»¥éœ€è¦æ¸…é™¤
        currentRegistryProcessors.clear();
 
-       // ÔÙ´Î¸ù¾İBeanDefinitionRegistryPostProcessor»ñµÃBeanName£¬
-       // ¿´Õâ¸öBeanNameÊÇ·ñÒÑ¾­±»Ö´ĞĞ¹ıÁË£¬ÓĞÃ»ÓĞÊµÏÖOrdered½Ó¿Ú
-       // Èç¹ûÃ»ÓĞ±»Ö´ĞĞ¹ı£¬Ò²ÊµÏÖÁËOrdered½Ó¿ÚµÄ»°£¬°Ñ¶ÔÏóÍÆËÍµ½currentRegistryProcessors£¬
-       // Ãû³ÆÍÆËÍµ½processedBeans
-       // Èç¹ûÃ»ÓĞÊµÏÖOrdered½Ó¿ÚµÄ»°£¬ÕâÀï²»°ÑÊı¾İ¼Óµ½currentRegistryProcessors£¬
-       // processedBeansÖĞ£¬ºóĞøÔÙ×ö´¦Àí
-       // ÕâÀï²Å¿ÉÒÔ»ñµÃÎÒÃÇ¶¨ÒåµÄÊµÏÖÁËBeanDefinitionRegistryPostProcessorµÄBean
+       // å†æ¬¡æ ¹æ®BeanDefinitionRegistryPostProcessorè·å¾—BeanNameï¼Œ
+       // çœ‹è¿™ä¸ªBeanNameæ˜¯å¦å·²ç»è¢«æ‰§è¡Œè¿‡äº†ï¼Œæœ‰æ²¡æœ‰å®ç°Orderedæ¥å£
+       // å¦‚æœæ²¡æœ‰è¢«æ‰§è¡Œè¿‡ï¼Œä¹Ÿå®ç°äº†Orderedæ¥å£çš„è¯ï¼ŒæŠŠå¯¹è±¡æ¨é€åˆ°currentRegistryProcessorsï¼Œ
+       // åç§°æ¨é€åˆ°processedBeans
+       // å¦‚æœæ²¡æœ‰å®ç°Orderedæ¥å£çš„è¯ï¼Œè¿™é‡Œä¸æŠŠæ•°æ®åŠ åˆ°currentRegistryProcessorsï¼Œ
+       // processedBeansä¸­ï¼Œåç»­å†åšå¤„ç†
+       // è¿™é‡Œæ‰å¯ä»¥è·å¾—æˆ‘ä»¬å®šä¹‰çš„å®ç°äº†BeanDefinitionRegistryPostProcessorçš„Bean
        postProcessorNames = beanFactory.getBeanNamesForType(
               BeanDefinitionRegistryPostProcessor.class, true, false);
        for (String ppName : postProcessorNames) {
@@ -129,16 +129,16 @@ public static void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFacto
               processedBeans.add(ppName);
            }
        }
-       //´¦ÀíÅÅĞò
+       //å¤„ç†æ’åº
        sortPostProcessors(currentRegistryProcessors, beanFactory);
-       //ºÏ²¢Processors
+       //åˆå¹¶Processors
        registryProcessors.addAll(currentRegistryProcessors);
-       //Ö´ĞĞÎÒÃÇ×Ô¶¨ÒåµÄBeanDefinitionRegistryPostProcessor
+       //æ‰§è¡Œæˆ‘ä»¬è‡ªå®šä¹‰çš„BeanDefinitionRegistryPostProcessor
        invokeBeanDefinitionRegistryPostProcessors(currentRegistryProcessors, registry);
-       //Çå¿ÕÁÙÊ±±äÁ¿
+       //æ¸…ç©ºä¸´æ—¶å˜é‡
        currentRegistryProcessors.clear();
-       // ÉÏÃæµÄ´úÂëÊÇÖ´ĞĞÁËÊµÏÖÁËOrdered½Ó¿ÚµÄBeanDefinitionRegistryPostProcessor£¬
-       // ÏÂÃæµÄ´úÂë¾ÍÊÇÖ´ĞĞÃ»ÓĞÊµÏÖOrdered½Ó¿ÚµÄBeanDefinitionRegistryPostProcessor
+       // ä¸Šé¢çš„ä»£ç æ˜¯æ‰§è¡Œäº†å®ç°äº†Orderedæ¥å£çš„BeanDefinitionRegistryPostProcessorï¼Œ
+       // ä¸‹é¢çš„ä»£ç å°±æ˜¯æ‰§è¡Œæ²¡æœ‰å®ç°Orderedæ¥å£çš„BeanDefinitionRegistryPostProcessor
        boolean reiterate = true;
        while (reiterate) {
            reiterate = false;
@@ -158,16 +158,16 @@ public static void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFacto
            currentRegistryProcessors.clear();
        }
 
-       // registryProcessors¼¯ºÏ×°ÔØBeanDefinitionRegistryPostProcessor
-       // ÉÏÃæµÄ´úÂëÊÇÖ´ĞĞ×ÓÀà¶ÀÓĞµÄ·½·¨£¬ÕâÀïĞèÒªÔÙ°Ñ¸¸ÀàµÄ·½·¨Ò²Ö´ĞĞÒ»´Î
+       // registryProcessorsé›†åˆè£…è½½BeanDefinitionRegistryPostProcessor
+       // ä¸Šé¢çš„ä»£ç æ˜¯æ‰§è¡Œå­ç±»ç‹¬æœ‰çš„æ–¹æ³•ï¼Œè¿™é‡Œéœ€è¦å†æŠŠçˆ¶ç±»çš„æ–¹æ³•ä¹Ÿæ‰§è¡Œä¸€æ¬¡
        invokeBeanFactoryPostProcessors(registryProcessors, beanFactory);
        invokeBeanFactoryPostProcessors(regularPostProcessors, beanFactory);
     }
 
     else {
-        //regularPostProcessors×°ÔØBeanFactoryPostProcessor£¬Ö´ĞĞBeanFactoryPostProcessorµÄ·½·¨
-        //µ«ÊÇregularPostProcessorsÒ»°ãÇé¿öÏÂ£¬ÊÇ²»»áÓĞÊı¾İµÄ£¬
-        //Ö»ÓĞÔÚÍâÃæÊÖ¶¯Ìí¼ÓBeanFactoryPostProcessor£¬²Å»áÓĞÊı¾İ
+        //regularPostProcessorsè£…è½½BeanFactoryPostProcessorï¼Œæ‰§è¡ŒBeanFactoryPostProcessorçš„æ–¹æ³•
+        //ä½†æ˜¯regularPostProcessorsä¸€èˆ¬æƒ…å†µä¸‹ï¼Œæ˜¯ä¸ä¼šæœ‰æ•°æ®çš„ï¼Œ
+        //åªæœ‰åœ¨å¤–é¢æ‰‹åŠ¨æ·»åŠ BeanFactoryPostProcessorï¼Œæ‰ä¼šæœ‰æ•°æ®
         invokeBeanFactoryPostProcessors(beanFactoryPostProcessors, beanFactory);
     }
 
@@ -177,34 +177,34 @@ public static void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFacto
     List<BeanFactoryPostProcessor> priorityOrderedPostProcessors = new ArrayList<>();
     List<String> orderedPostProcessorNames = new ArrayList<>();
     List<String> nonOrderedPostProcessorNames = new ArrayList<>();
-    //Ñ­»·BeanNameÊı×é
+    //å¾ªç¯BeanNameæ•°ç»„
     for (String ppName : postProcessorNames) {
-        //Èç¹ûÕâ¸öBean±»Ö´ĞĞ¹ıÁË£¬Ìø¹ı
+        //å¦‚æœè¿™ä¸ªBeanè¢«æ‰§è¡Œè¿‡äº†ï¼Œè·³è¿‡
         if (processedBeans.contains(ppName)) {
 
         }
-        //Èç¹ûÊµÏÖÁËPriorityOrdered½Ó¿Ú£¬¼ÓÈëµ½priorityOrderedPostProcessors
+        //å¦‚æœå®ç°äº†PriorityOrderedæ¥å£ï¼ŒåŠ å…¥åˆ°priorityOrderedPostProcessors
         else if (beanFactory.isTypeMatch(ppName, PriorityOrdered.class)) {
             priorityOrderedPostProcessors.add(beanFactory
                 .getBean(ppName, BeanFactoryPostProcessor.class));
         }
-        //Èç¹ûÊµÏÖÁËOrdered½Ó¿Ú£¬¼ÓÈëµ½orderedPostProcessorNames
+        //å¦‚æœå®ç°äº†Orderedæ¥å£ï¼ŒåŠ å…¥åˆ°orderedPostProcessorNames
         else if (beanFactory.isTypeMatch(ppName, Ordered.class)) {
             orderedPostProcessorNames.add(ppName);
         }
-        //Èç¹û¼ÈÃ»ÓĞÊµÏÖPriorityOrdered£¬Ò²Ã»ÓĞÊµÏÖOrdered¡£¼ÓÈëµ½nonOrderedPostProcessorNames
+        //å¦‚æœæ—¢æ²¡æœ‰å®ç°PriorityOrderedï¼Œä¹Ÿæ²¡æœ‰å®ç°Orderedã€‚åŠ å…¥åˆ°nonOrderedPostProcessorNames
         else {
             nonOrderedPostProcessorNames.add(ppName);
         }
     }
 
-    // ÅÅĞò´¦ÀípriorityOrderedPostProcessors£¬¼´ÊµÏÖÁËPriorityOrdered½Ó¿ÚµÄBeanFactoryPostProcessor
+    // æ’åºå¤„ç†priorityOrderedPostProcessorsï¼Œå³å®ç°äº†PriorityOrderedæ¥å£çš„BeanFactoryPostProcessor
     sortPostProcessors(priorityOrderedPostProcessors, beanFactory);
 
-    // Ö´ĞĞpriorityOrderedPostProcessors
+    // æ‰§è¡ŒpriorityOrderedPostProcessors
     invokeBeanFactoryPostProcessors(priorityOrderedPostProcessors, beanFactory);
 
-    // Ö´ĞĞÊµÏÖÁËOrdered½Ó¿ÚµÄBeanFactoryPostProcessor
+    // æ‰§è¡Œå®ç°äº†Orderedæ¥å£çš„BeanFactoryPostProcessor
     List<BeanFactoryPostProcessor> orderedPostProcessors 
             = new ArrayList<>(orderedPostProcessorNames.size());
     for (String postProcessorName : orderedPostProcessorNames) {
@@ -214,7 +214,7 @@ public static void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFacto
     sortPostProcessors(orderedPostProcessors, beanFactory);
     invokeBeanFactoryPostProcessors(orderedPostProcessors, beanFactory);
 
-    // Ö´ĞĞ¼ÈÃ»ÓĞÊµÏÖPriorityOrdered½Ó¿Ú£¬Ò²Ã»ÓĞÊµÏÖOrdered½Ó¿ÚµÄBeanFactoryPostProcessor
+    // æ‰§è¡Œæ—¢æ²¡æœ‰å®ç°PriorityOrderedæ¥å£ï¼Œä¹Ÿæ²¡æœ‰å®ç°Orderedæ¥å£çš„BeanFactoryPostProcessor
     List<BeanFactoryPostProcessor> nonOrderedPostProcessors 
             = new ArrayList<>(nonOrderedPostProcessorNames.size());
     for (String postProcessorName : nonOrderedPostProcessorNames) {
@@ -228,47 +228,47 @@ public static void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFacto
 
 ```
 
-Õâ¸ö·½·¨·Ç³£·Ç³£³¤£¬µ«Àí½âÆğÀ´²¢²»ÄÑ£¬Ö´ĞĞÆğÀ´×ñÑ­Õâ¼¸Ìõ¹æÔò£º
+è¿™ä¸ªæ–¹æ³•éå¸¸éå¸¸é•¿ï¼Œä½†ç†è§£èµ·æ¥å¹¶ä¸éš¾ï¼Œæ‰§è¡Œèµ·æ¥éµå¾ªè¿™å‡ æ¡è§„åˆ™ï¼š
 
-*   ÏÈÖ´ĞĞ `BeanDefinitionRegistryPostProcessor`£¬ÔÙÖ´ĞĞ `BeanFactoryPostProcessor`
-*   Ö´ĞĞ `BeanDefinitionRegistryPostProcessor` µÄË³ĞòÈçÏÂ£º
-    1.  Ö´ĞĞ²ÎÊı´«ÈëµÄ `BeanDefinitionRegistryPostProcessor`
-    2.  Ö´ĞĞ spring ÄÚ²¿Ìá¹©µÄ£¬ÕâÀï»áÖ´ĞĞÒ»¸ö·Ç³£ÖØÒªµÄ `BeanDefinitionRegistryPostProcessor`¡ª¡ª`ConfigurationClassPostProcessor`£¬Ëü»á´¦ÀíÏîÄ¿ÖĞµÄ `@ComponentScan`¡¢`@Component`¡¢`@Import`¡¢`@Bean` µÈ×¢½â£¬¼ÓÔØÓÃ»§×Ô¶¨ÒåµÄ `BeanDefinitionRegistryPostProcessor`¡¢`BeanFactoryPostProcessor`
-    3.  Ö´ĞĞÊ£ÏÂµÄ `BeanDefinitionRegistryPostProcessor`£¬Ò²¾ÍÊÇÔÚÉÏÒ»²½ÖĞ¼ÓÔØµ½µÄ `BeanDefinitionRegistryPostProcessor`
-*   Ö´ĞĞ `BeanFactoryPostProcessor` µÄË³ĞòÈçÏÂ£º
-    1.  Ö´ĞĞÊµÏÖÁË `PriorityOrdered` ½Ó¿ÚµÄ `BeanFactoryPostProcessor`
-    2.  Ö´ĞĞÊµÏÖÁË `Ordered` ½Ó¿ÚµÄ `BeanFactoryPostProcessor`
-    3.  Ö´ĞĞÊ£ÏÂµÄ `BeanFactoryPostProcessor`
-*   `BeanDefinitionRegistryPostProcessor` ÊÇ `BeanFactoryPostProcessor` µÄ×ÓÀà£¬Í¬ÑùÒªÖ´ĞĞ `BeanFactoryPostProcessor` µÄ·½·¨
+*   å…ˆæ‰§è¡Œ `BeanDefinitionRegistryPostProcessor`ï¼Œå†æ‰§è¡Œ `BeanFactoryPostProcessor`
+*   æ‰§è¡Œ `BeanDefinitionRegistryPostProcessor` çš„é¡ºåºå¦‚ä¸‹ï¼š
+    1.  æ‰§è¡Œå‚æ•°ä¼ å…¥çš„ `BeanDefinitionRegistryPostProcessor`
+    2.  æ‰§è¡Œ spring å†…éƒ¨æä¾›çš„ï¼Œè¿™é‡Œä¼šæ‰§è¡Œä¸€ä¸ªéå¸¸é‡è¦çš„ `BeanDefinitionRegistryPostProcessor`â€”â€”`ConfigurationClassPostProcessor`ï¼Œå®ƒä¼šå¤„ç†é¡¹ç›®ä¸­çš„ `@ComponentScan`ã€`@Component`ã€`@Import`ã€`@Bean` ç­‰æ³¨è§£ï¼ŒåŠ è½½ç”¨æˆ·è‡ªå®šä¹‰çš„ `BeanDefinitionRegistryPostProcessor`ã€`BeanFactoryPostProcessor`
+    3.  æ‰§è¡Œå‰©ä¸‹çš„ `BeanDefinitionRegistryPostProcessor`ï¼Œä¹Ÿå°±æ˜¯åœ¨ä¸Šä¸€æ­¥ä¸­åŠ è½½åˆ°çš„ `BeanDefinitionRegistryPostProcessor`
+*   æ‰§è¡Œ `BeanFactoryPostProcessor` çš„é¡ºåºå¦‚ä¸‹ï¼š
+    1.  æ‰§è¡Œå®ç°äº† `PriorityOrdered` æ¥å£çš„ `BeanFactoryPostProcessor`
+    2.  æ‰§è¡Œå®ç°äº† `Ordered` æ¥å£çš„ `BeanFactoryPostProcessor`
+    3.  æ‰§è¡Œå‰©ä¸‹çš„ `BeanFactoryPostProcessor`
+*   `BeanDefinitionRegistryPostProcessor` æ˜¯ `BeanFactoryPostProcessor` çš„å­ç±»ï¼ŒåŒæ ·è¦æ‰§è¡Œ `BeanFactoryPostProcessor` çš„æ–¹æ³•
 
-ÒÔÉÏËµµÄÖ´ĞĞ `BeanDefinitionRegistryPostProcessor`£¬ÊÇÖ¸Ö´ĞĞ `PostProcessorRegistrationDelegate#invokeBeanDefinitionRegistryPostProcessors`£¬Ö´ĞĞ `BeanFactoryPostProcessor` ÊÇÖ¸Ö´ĞĞ `BeanFactoryPostProcessor#postProcessBeanFactory`
+ä»¥ä¸Šè¯´çš„æ‰§è¡Œ `BeanDefinitionRegistryPostProcessor`ï¼Œæ˜¯æŒ‡æ‰§è¡Œ `PostProcessorRegistrationDelegate#invokeBeanDefinitionRegistryPostProcessors`ï¼Œæ‰§è¡Œ `BeanFactoryPostProcessor` æ˜¯æŒ‡æ‰§è¡Œ `BeanFactoryPostProcessor#postProcessBeanFactory`
 
-Àí½âÒÔÉÏÄÚÈİºó£¬½ÓÏÂÀ´¾ÍÊÇ¶ÔÒÔÉÏ·½·¨µÄÏêÏ¸½âÊÍÁË£º
+ç†è§£ä»¥ä¸Šå†…å®¹åï¼Œæ¥ä¸‹æ¥å°±æ˜¯å¯¹ä»¥ä¸Šæ–¹æ³•çš„è¯¦ç»†è§£é‡Šäº†ï¼š
 
-1.  Ö´ĞĞ `BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry`:
-    1.  Ö´ĞĞ¿ª·¢ÕßÊÖ¶¯µ÷ÓÃ `applicationContext.addBeanFactoryPostProcessor` Ìí¼ÓµÄ `BeanDefinitionRegistryPostProcessor` µÄ `postProcessBeanDefinitionRegistry` ·½·¨£¨Ò»°ãÇé¿öÏÂ£¬¿ª·¢Õß²»»áÊÖ¶¯µ÷ÓÃ¸Ã·½·¨£©;
-    2.  Ö´ĞĞ spring ÄÚ²¿Ìá¹©µÄ¡¢ÊµÏÖÁË `PriorityOrdered` ½Ó¿ÚµÄ `BeanDefinitionRegistryPostProcessor` µÄ `postProcessBeanDefinitionRegistry` ·½·¨£»
-    3.  Ö´ĞĞÊµÏÖÁË `Ordered` ½Ó¿ÚÇÒÎ´Ö´ĞĞ¹ıµÄ `BeanDefinitionRegistryPostProcessor` µÄ `postProcessBeanDefinitionRegistry` ·½·¨£»
-    4.  Ö´ĞĞÒÔÉÏÎ´Ö´ĞĞ¹ıµÄ `BeanDefinitionRegistryPostProcessor` µÄ `postProcessBeanDefinitionRegistry` ·½·¨£»
-2.  Ö´ĞĞ `BeanFactoryPostProcessor#postProcessBeanFactory` ·½·¨£º
-    1.  Ö´ĞĞ¿ª·¢Õßµ÷ÓÃ `applicationContext.addBeanFactoryPostProcessor` Ìí¼ÓµÄ `BeanDefinitionRegistryPostProcessor` µÄ `postProcessBeanFactory` ·½·¨£¨Ò»°ãÇé¿öÏÂ£¬¿ª·¢Õß²»»áÊÖ¶¯µ÷ÓÃ¸Ã·½·¨£©;
-    2.  Ö´ĞĞÒÔÉÏ´ÓÎ´Ö´ĞĞ¹ıµÄ¡¢ÊµÏÖÁË `PriorityOrdered` µÄ `BeanFactoryPostProcessor` µÄ `postProcessBeanFactory` ·½·¨£»
-    3.  Ö´ĞĞÒÔÉÏ´ÓÎ´Ö´ĞĞ¹ıµÄ¡¢ÊµÏÖÁË `Ordered` µÄ `BeanFactoryPostProcessor` µÄ `postProcessBeanFactory` ·½·¨£»
-    4.  Ö´ĞĞÒÔÉÏ´ÓÎ´Ö´ĞĞ¹ıµÄ `BeanFactoryPostProcessor` µÄ `postProcessBeanFactory` ·½·¨
+1.  æ‰§è¡Œ `BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry`:
+    1.  æ‰§è¡Œå¼€å‘è€…æ‰‹åŠ¨è°ƒç”¨ `applicationContext.addBeanFactoryPostProcessor` æ·»åŠ çš„ `BeanDefinitionRegistryPostProcessor` çš„ `postProcessBeanDefinitionRegistry` æ–¹æ³•ï¼ˆä¸€èˆ¬æƒ…å†µä¸‹ï¼Œå¼€å‘è€…ä¸ä¼šæ‰‹åŠ¨è°ƒç”¨è¯¥æ–¹æ³•ï¼‰;
+    2.  æ‰§è¡Œ spring å†…éƒ¨æä¾›çš„ã€å®ç°äº† `PriorityOrdered` æ¥å£çš„ `BeanDefinitionRegistryPostProcessor` çš„ `postProcessBeanDefinitionRegistry` æ–¹æ³•ï¼›
+    3.  æ‰§è¡Œå®ç°äº† `Ordered` æ¥å£ä¸”æœªæ‰§è¡Œè¿‡çš„ `BeanDefinitionRegistryPostProcessor` çš„ `postProcessBeanDefinitionRegistry` æ–¹æ³•ï¼›
+    4.  æ‰§è¡Œä»¥ä¸Šæœªæ‰§è¡Œè¿‡çš„ `BeanDefinitionRegistryPostProcessor` çš„ `postProcessBeanDefinitionRegistry` æ–¹æ³•ï¼›
+2.  æ‰§è¡Œ `BeanFactoryPostProcessor#postProcessBeanFactory` æ–¹æ³•ï¼š
+    1.  æ‰§è¡Œå¼€å‘è€…è°ƒç”¨ `applicationContext.addBeanFactoryPostProcessor` æ·»åŠ çš„ `BeanDefinitionRegistryPostProcessor` çš„ `postProcessBeanFactory` æ–¹æ³•ï¼ˆä¸€èˆ¬æƒ…å†µä¸‹ï¼Œå¼€å‘è€…ä¸ä¼šæ‰‹åŠ¨è°ƒç”¨è¯¥æ–¹æ³•ï¼‰;
+    2.  æ‰§è¡Œä»¥ä¸Šä»æœªæ‰§è¡Œè¿‡çš„ã€å®ç°äº† `PriorityOrdered` çš„ `BeanFactoryPostProcessor` çš„ `postProcessBeanFactory` æ–¹æ³•ï¼›
+    3.  æ‰§è¡Œä»¥ä¸Šä»æœªæ‰§è¡Œè¿‡çš„ã€å®ç°äº† `Ordered` çš„ `BeanFactoryPostProcessor` çš„ `postProcessBeanFactory` æ–¹æ³•ï¼›
+    4.  æ‰§è¡Œä»¥ä¸Šä»æœªæ‰§è¡Œè¿‡çš„ `BeanFactoryPostProcessor` çš„ `postProcessBeanFactory` æ–¹æ³•
 
-¿ÉÒÔ¿´µ½£¬Õâ¸ö·½·¨Êµ¼Ê¾ÍÊÇÎªÁËÖ´ĞĞÁ½¸ö·½·¨£º`BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry` Óë `BeanFactoryPostProcessor#postProcessBeanFactory`¡£ĞèÒª×¢ÒâµÄÊÇ£¬`BeanDefinitionRegistryPostProcessor` ÊÇ `BeanFactoryPostProcessor` µÄ×ÓÀà£¬ÔÚµ÷ÓÃ `BeanFactoryPostProcessor#postProcessBeanFactory` Ê± £¬Êµ¼ÊÉÏÒ²µ÷ÓÃÁË `BeanDefinitionRegistryPostProcessor` µÄ `postProcessBeanFactory` ·½·¨.
+å¯ä»¥çœ‹åˆ°ï¼Œè¿™ä¸ªæ–¹æ³•å®é™…å°±æ˜¯ä¸ºäº†æ‰§è¡Œä¸¤ä¸ªæ–¹æ³•ï¼š`BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry` ä¸ `BeanFactoryPostProcessor#postProcessBeanFactory`ã€‚éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œ`BeanDefinitionRegistryPostProcessor` æ˜¯ `BeanFactoryPostProcessor` çš„å­ç±»ï¼Œåœ¨è°ƒç”¨ `BeanFactoryPostProcessor#postProcessBeanFactory` æ—¶ ï¼Œå®é™…ä¸Šä¹Ÿè°ƒç”¨äº† `BeanDefinitionRegistryPostProcessor` çš„ `postProcessBeanFactory` æ–¹æ³•.
 
-ÔÚÒÔÉÏµÄ `BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry` Óë `BeanFactoryPostProcessor#postProcessBeanFactory` Ö´ĞĞÖĞ£¬¾¿¾¹Ö´ĞĞÁËÄÄĞ©´úÂëÄØ£¿ÕâÀïÎÒÃÇÍ¨¹ıµ÷ÊÔ `demo01`£¬·¢ÏÖÖ´ĞĞµÄ´úÂëÈçÏÂ£º
+åœ¨ä»¥ä¸Šçš„ `BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry` ä¸ `BeanFactoryPostProcessor#postProcessBeanFactory` æ‰§è¡Œä¸­ï¼Œç©¶ç«Ÿæ‰§è¡Œäº†å“ªäº›ä»£ç å‘¢ï¼Ÿè¿™é‡Œæˆ‘ä»¬é€šè¿‡è°ƒè¯• `demo01`ï¼Œå‘ç°æ‰§è¡Œçš„ä»£ç å¦‚ä¸‹ï¼š
 
-1.  ÔÚ `1.2` ²½ÖèÊ±£¬Ö´ĞĞÁË `ConfigurationClassPostProcessor#postProcessBeanDefinitionRegistry`
-2.  ÔÚ `1.4` ²½ÖèÊ±£¬Ö´ĞĞÁË `ConfigurationClassPostProcessor#postProcessBeanFactory`
-3.  ÔÚ `2.4` ²½ÖèÊ±£¬Ö´ĞĞÁË `EventListenerMethodProcessor#postProcessBeanFactory`
+1.  åœ¨ `1.2` æ­¥éª¤æ—¶ï¼Œæ‰§è¡Œäº† `ConfigurationClassPostProcessor#postProcessBeanDefinitionRegistry`
+2.  åœ¨ `1.4` æ­¥éª¤æ—¶ï¼Œæ‰§è¡Œäº† `ConfigurationClassPostProcessor#postProcessBeanFactory`
+3.  åœ¨ `2.4` æ­¥éª¤æ—¶ï¼Œæ‰§è¡Œäº† `EventListenerMethodProcessor#postProcessBeanFactory`
 
-½Ó×Å£¬ÎÒÃÇ±ã¶ÔÒÔÉÏÈı¸ö·½·¨½øĞĞÕ¹¿ª£¬¿´¿´¾¿¾¹×öÁËÊ²Ã´¡£
+æ¥ç€ï¼Œæˆ‘ä»¬ä¾¿å¯¹ä»¥ä¸Šä¸‰ä¸ªæ–¹æ³•è¿›è¡Œå±•å¼€ï¼Œçœ‹çœ‹ç©¶ç«Ÿåšäº†ä»€ä¹ˆã€‚
 
-#### 5.1 `ConfigurationClassPostProcessor#postProcessBeanDefinitionRegistry` µÄÖ´ĞĞÁ÷³Ì
+#### 5.1 `ConfigurationClassPostProcessor#postProcessBeanDefinitionRegistry` çš„æ‰§è¡Œæµç¨‹
 
-ÎÒÃÇÒ»¸úÏÂÈ¥£¬¶Ô²»ÖØÒªµÄ·½·¨Ö»ÏÔÊ¾µ÷ÓÃÕ»£º
+æˆ‘ä»¬ä¸€è·Ÿä¸‹å»ï¼Œå¯¹ä¸é‡è¦çš„æ–¹æ³•åªæ˜¾ç¤ºè°ƒç”¨æ ˆï¼š
 
 ```
 AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(java.lang.String...)
@@ -282,48 +282,48 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(java.lang.
 
 ```
 
-ÎÒÃÇÖ±½Ó½øÈë `ConfigurationClassPostProcessor#processConfigBeanDefinitions`£º
+æˆ‘ä»¬ç›´æ¥è¿›å…¥ `ConfigurationClassPostProcessor#processConfigBeanDefinitions`ï¼š
 
 ```
 public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
     List<BeanDefinitionHolder> configCandidates = new ArrayList<>();
     String[] candidateNames = registry.getBeanDefinitionNames();
 
-    //Ñ­»·candidateNamesÊı×é
+    //å¾ªç¯candidateNamesæ•°ç»„
     for (String beanName : candidateNames) {
     BeanDefinition beanDef = registry.getBeanDefinition(beanName);
 
-    // ÄÚ²¿ÓĞÁ½¸ö±ê¼ÇÎ»À´±ê¼ÇÊÇ·ñÒÑ¾­´¦Àí¹ıÁË
-    // ÕâÀï»áÒı·¢Ò»Á¬´®ÖªÊ¶Ã¤µã
-    // µ±ÎÒÃÇ×¢²áÅäÖÃÀàµÄÊ±ºò£¬¿ÉÒÔ²»¼ÓConfiguration×¢½â£¬
-    // Ö±½ÓÊ¹ÓÃComponent ComponentScan Import ImportResource×¢½â£¬³ÆÖ®ÎªLiteÅäÖÃÀà
-    // Èç¹û¼ÓÁËConfiguration×¢½â£¬¾Í³ÆÖ®ÎªFullÅäÖÃÀà
-    // Èç¹ûÎÒÃÇ×¢²áÁËLiteÅäÖÃÀà£¬ÎÒÃÇgetBeanÕâ¸öÅäÖÃÀà£¬»á·¢ÏÖËü¾ÍÊÇÔ­±¾µÄÄÇ¸öÅäÖÃÀà
-    // Èç¹ûÎÒÃÇ×¢²áÁËFullÅäÖÃÀà£¬ÎÒÃÇgetBeanÕâ¸öÅäÖÃÀà£¬»á·¢ÏÖËüÒÑ¾­²»ÊÇÔ­±¾ÄÇ¸öÅäÖÃÀàÁË£¬
-    // ¶øÊÇÒÑ¾­±»cgilb´úÀíµÄÀàÁË
+    // å†…éƒ¨æœ‰ä¸¤ä¸ªæ ‡è®°ä½æ¥æ ‡è®°æ˜¯å¦å·²ç»å¤„ç†è¿‡äº†
+    // è¿™é‡Œä¼šå¼•å‘ä¸€è¿ä¸²çŸ¥è¯†ç›²ç‚¹
+    // å½“æˆ‘ä»¬æ³¨å†Œé…ç½®ç±»çš„æ—¶å€™ï¼Œå¯ä»¥ä¸åŠ Configurationæ³¨è§£ï¼Œ
+    // ç›´æ¥ä½¿ç”¨Component ComponentScan Import ImportResourceæ³¨è§£ï¼Œç§°ä¹‹ä¸ºLiteé…ç½®ç±»
+    // å¦‚æœåŠ äº†Configurationæ³¨è§£ï¼Œå°±ç§°ä¹‹ä¸ºFullé…ç½®ç±»
+    // å¦‚æœæˆ‘ä»¬æ³¨å†Œäº†Liteé…ç½®ç±»ï¼Œæˆ‘ä»¬getBeanè¿™ä¸ªé…ç½®ç±»ï¼Œä¼šå‘ç°å®ƒå°±æ˜¯åŸæœ¬çš„é‚£ä¸ªé…ç½®ç±»
+    // å¦‚æœæˆ‘ä»¬æ³¨å†Œäº†Fullé…ç½®ç±»ï¼Œæˆ‘ä»¬getBeanè¿™ä¸ªé…ç½®ç±»ï¼Œä¼šå‘ç°å®ƒå·²ç»ä¸æ˜¯åŸæœ¬é‚£ä¸ªé…ç½®ç±»äº†ï¼Œ
+    // è€Œæ˜¯å·²ç»è¢«cgilbä»£ç†çš„ç±»äº†
     if (beanDef.getAttribute(ConfigurationClassUtils.CONFIGURATION_CLASS_ATTRIBUTE) != null) {
             if (logger.isDebugEnabled()) {
                 logger.debug(...);
             }
         }
-        // ÅĞ¶ÏÊÇ·ñÎªÅäÖÃÀà£¬ÕâÀï·ÖÁ½ÖÖÇé¿ö£º
-       // 1\. ´øÓĞ @Configuration ×¢½â ÇÒ proxyBeanMethods != false µÄÀà£¬spring ³ÆÆäÎª Full ÅäÖÃÀà
-       // 2\. ´øÓĞ @Configuration ×¢½â ÇÒ proxyBeanMethods == false,
-       // »ò ´øÓĞ @Component¡¢@ComponentScan¡¢@Import¡¢@ImportResource¡¢
-       // @Bean ÆäÖĞÖ®Ò»×¢½âµÄÀà£¬spring ³ÆÆäÎª Lite ÅäÖÃÀà
-       // FullÓëLite£¬beanDef»á½øĞĞ±êÊ¶
+        // åˆ¤æ–­æ˜¯å¦ä¸ºé…ç½®ç±»ï¼Œè¿™é‡Œåˆ†ä¸¤ç§æƒ…å†µï¼š
+       // 1\. å¸¦æœ‰ @Configuration æ³¨è§£ ä¸” proxyBeanMethods != false çš„ç±»ï¼Œspring ç§°å…¶ä¸º Full é…ç½®ç±»
+       // 2\. å¸¦æœ‰ @Configuration æ³¨è§£ ä¸” proxyBeanMethods == false,
+       // æˆ– å¸¦æœ‰ @Componentã€@ComponentScanã€@Importã€@ImportResourceã€
+       // @Bean å…¶ä¸­ä¹‹ä¸€æ³¨è§£çš„ç±»ï¼Œspring ç§°å…¶ä¸º Lite é…ç½®ç±»
+       // Fullä¸Liteï¼ŒbeanDefä¼šè¿›è¡Œæ ‡è¯†
        else if (ConfigurationClassUtils
                .checkConfigurationClassCandidate(beanDef, this.metadataReaderFactory)) {
            configCandidates.add(new BeanDefinitionHolder(beanDef, beanName));
        }
     }
 
-    // Èç¹ûÃ»ÓĞÅäÖÃÀà£¬Ö±½Ó·µ»Ø
+    // å¦‚æœæ²¡æœ‰é…ç½®ç±»ï¼Œç›´æ¥è¿”å›
     if (configCandidates.isEmpty()) {
          return;
     }
 
-    // ´¦ÀíÅÅĞò
+    // å¤„ç†æ’åº
     configCandidates.sort((bd1, bd2) -> {
          int i1 = ConfigurationClassUtils.getOrder(bd1.getBeanDefinition());
          int i2 = ConfigurationClassUtils.getOrder(bd2.getBeanDefinition());
@@ -331,11 +331,11 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
     });
 
     SingletonBeanRegistry sbr = null;
-    // DefaultListableBeanFactory×îÖÕ»áÊµÏÖSingletonBeanRegistry½Ó¿Ú£¬ËùÒÔ¿ÉÒÔ½øÈëµ½Õâ¸öif
+    // DefaultListableBeanFactoryæœ€ç»ˆä¼šå®ç°SingletonBeanRegistryæ¥å£ï¼Œæ‰€ä»¥å¯ä»¥è¿›å…¥åˆ°è¿™ä¸ªif
     if (registry instanceof SingletonBeanRegistry) {
         sbr = (SingletonBeanRegistry) registry;
         if (!this.localBeanNameGeneratorSet) {
-            //springÖĞ¿ÉÒÔĞŞ¸ÄÄ¬ÈÏµÄbeanÃüÃû·½Ê½£¬ÕâÀï¾ÍÊÇ¿´ÓÃ»§ÓĞÃ»ÓĞ×Ô¶¨ÒåbeanÃüÃû·½Ê½
+            //springä¸­å¯ä»¥ä¿®æ”¹é»˜è®¤çš„beanå‘½åæ–¹å¼ï¼Œè¿™é‡Œå°±æ˜¯çœ‹ç”¨æˆ·æœ‰æ²¡æœ‰è‡ªå®šä¹‰beanå‘½åæ–¹å¼
             BeanNameGenerator generator = (BeanNameGenerator) sbr.getSingleton(
                      AnnotationConfigUtils.CONFIGURATION_BEAN_NAME_GENERATOR);
             if (generator != null) {
@@ -356,8 +356,8 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
     Set<BeanDefinitionHolder> candidates = new LinkedHashSet<>(configCandidates);
     Set<ConfigurationClass> alreadyParsed = new HashSet<>(configCandidates.size());
     do {
-        //½âÎöÅäÖÃÀà£¬Õâ¸öÀà×öÁËºÜ¶àÊÂ£¬
-        //Èç£º¶Ô@Component£¬@PropertySources£¬@ComponentScans£¬@ImportResourceµÈµÄ´¦Àí
+        //è§£æé…ç½®ç±»ï¼Œè¿™ä¸ªç±»åšäº†å¾ˆå¤šäº‹ï¼Œ
+        //å¦‚ï¼šå¯¹@Componentï¼Œ@PropertySourcesï¼Œ@ComponentScansï¼Œ@ImportResourceç­‰çš„å¤„ç†
         parser.parse(candidates);
         parser.validate();
 
@@ -370,19 +370,19 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
                 registry, this.sourceExtractor, this.resourceLoader, this.environment,
                 this.importBeanNameGenerator, parser.getImportRegistry());
         }
-        // Ö±µ½ÕâÒ»²½²Å°ÑImportµÄÀà£¬@Bean @ImportRosource ×ª»»³ÉBeanDefinition
+        // ç›´åˆ°è¿™ä¸€æ­¥æ‰æŠŠImportçš„ç±»ï¼Œ@Bean @ImportRosource è½¬æ¢æˆBeanDefinition
         this.reader.loadBeanDefinitions(configClasses);
-        // °ÑconfigClasses¼ÓÈëµ½alreadyParsed
+        // æŠŠconfigClassesåŠ å…¥åˆ°alreadyParsed
         alreadyParsed.addAll(configClasses);
 
         candidates.clear();
-        // »ñµÃ×¢²áÆ÷ÀïÃæBeanDefinitionµÄÊıÁ¿ ºÍ candidateNames½øĞĞ±È½Ï
-        // Èç¹û´óÓÚµÄ»°£¬ËµÃ÷ÓĞĞÂµÄBeanDefinition×¢²á½øÀ´ÁË
+        // è·å¾—æ³¨å†Œå™¨é‡Œé¢BeanDefinitionçš„æ•°é‡ å’Œ candidateNamesè¿›è¡Œæ¯”è¾ƒ
+        // å¦‚æœå¤§äºçš„è¯ï¼Œè¯´æ˜æœ‰æ–°çš„BeanDefinitionæ³¨å†Œè¿›æ¥äº†
         if (registry.getBeanDefinitionCount() > candidateNames.length) {
             String[] newCandidateNames = registry.getBeanDefinitionNames();
             Set<String> oldCandidateNames = new HashSet<>(Arrays.asList(candidateNames));
             Set<String> alreadyParsedClasses = new HashSet<>();
-            // Ñ­»·alreadyParsed¡£°ÑÀàÃû¼ÓÈëµ½alreadyParsedClasses
+            // å¾ªç¯alreadyParsedã€‚æŠŠç±»ååŠ å…¥åˆ°alreadyParsedClasses
             for (ConfigurationClass configurationClass : alreadyParsed) {
                 alreadyParsedClasses.add(configurationClass.getMetadata().getClassName());
             }
@@ -412,33 +412,33 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
 
 ```
 
-ÒÔÉÏ·½·¨»¹ÊÇ¶Ô `BeanDefinition` ĞÅÏ¢µÄ½øÒ»²½ÍêÉÆ£¬°üÀ¨¶Ô `@Configuration`¡¢`@PropertySources`¡¢`@ComponentScans`¡¢`@ImportResource` µÈµÄ´¦Àí¡£ÓÉÓÚ demo01 Ã»ÓĞÕâĞ©×¢½â£¬ÕâÀïÎÒÃÇ¾Í²»Õ¹¿ªÁË£¬ºóÃæÎÒÃÇÔÙ·ÖÎö¡£
+ä»¥ä¸Šæ–¹æ³•è¿˜æ˜¯å¯¹ `BeanDefinition` ä¿¡æ¯çš„è¿›ä¸€æ­¥å®Œå–„ï¼ŒåŒ…æ‹¬å¯¹ `@Configuration`ã€`@PropertySources`ã€`@ComponentScans`ã€`@ImportResource` ç­‰çš„å¤„ç†ã€‚ç”±äº demo01 æ²¡æœ‰è¿™äº›æ³¨è§£ï¼Œè¿™é‡Œæˆ‘ä»¬å°±ä¸å±•å¼€äº†ï¼Œåé¢æˆ‘ä»¬å†åˆ†æã€‚
 
-#### 5.2 Ö´ĞĞ `ConfigurationClassPostProcessor#postProcessBeanFactory` µÄÁ÷³Ì
+#### 5.2 æ‰§è¡Œ `ConfigurationClassPostProcessor#postProcessBeanFactory` çš„æµç¨‹
 
-`ConfigurationClassPostProcessor` µÄ `postProcessBeanFactory` ·½·¨±È½Ï¼òµ¥£¬Ëù×öµÄÊÂ»¹ÊÇ¶Ô `@Configuration` µÄÔöÇ¿£º
+`ConfigurationClassPostProcessor` çš„ `postProcessBeanFactory` æ–¹æ³•æ¯”è¾ƒç®€å•ï¼Œæ‰€åšçš„äº‹è¿˜æ˜¯å¯¹ `@Configuration` çš„å¢å¼ºï¼š
 
 ```
 @Override
 public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
-    // Ê¡ÂÔÆäËû´úÂë
+    // çœç•¥å…¶ä»–ä»£ç 
 
-    // ¶Ô ConfigurationClasses µÄÔöÇ¿
+    // å¯¹ ConfigurationClasses çš„å¢å¼º
     enhanceConfigurationClasses(beanFactory);
     beanFactory.addBeanPostProcessor(new ImportAwareBeanPostProcessor(beanFactory));
 }
 
 public void enhanceConfigurationClasses(ConfigurableListableBeanFactory beanFactory) {
-    // Ê¡ÂÔÆäËû´úÂë
+    // çœç•¥å…¶ä»–ä»£ç 
 
-    // È«ÅäÖÃÀà£º´¦Àí´úÀí
+    // å…¨é…ç½®ç±»ï¼šå¤„ç†ä»£ç†
     ConfigurationClassEnhancer enhancer = new ConfigurationClassEnhancer();
     for (Map.Entry<String, AbstractBeanDefinition> entry : configBeanDefs.entrySet()) {
         AbstractBeanDefinition beanDef = entry.getValue();
         // If a @Configuration class gets proxied, always proxy the target class
         beanDef.setAttribute(AutoProxyUtils.PRESERVE_TARGET_CLASS_ATTRIBUTE, Boolean.TRUE);
         // Set enhanced subclass of the user-specified bean class
-        // ÔÚÕâÀï½øĞĞÔöÇ¿µÄ
+        // åœ¨è¿™é‡Œè¿›è¡Œå¢å¼ºçš„
         Class<?> configClass = beanDef.getBeanClass();
         Class<?> enhancedClass = enhancer.enhance(configClass, this.beanClassLoader);
         if (configClass != enhancedClass) {
@@ -449,11 +449,11 @@ public void enhanceConfigurationClasses(ConfigurableListableBeanFactory beanFact
 
 ```
 
-ÓÉÓÚ demo01 Ã»ÓĞÅäÖÃ `@Configuration`£¬ÕâÀï¾Í²»Õ¹¿ªÁË£¬ºóÃæÎÒÃÇÔÙ·ÖÎö¡£
+ç”±äº demo01 æ²¡æœ‰é…ç½® `@Configuration`ï¼Œè¿™é‡Œå°±ä¸å±•å¼€äº†ï¼Œåé¢æˆ‘ä»¬å†åˆ†æã€‚
 
-#### 5.3 Ö´ĞĞ `EventListenerMethodProcessor#postProcessBeanFactory` µÄÁ÷³Ì
+#### 5.3 æ‰§è¡Œ `EventListenerMethodProcessor#postProcessBeanFactory` çš„æµç¨‹
 
-Õâ¸ö·½·¨ÊÇÓÃÀ´´¦ÀíÊÂ¼ş¼àÌıÆ÷µÄ£¬ÎÒÃÇÖ±½ÓÉÏ´úÂë£º
+è¿™ä¸ªæ–¹æ³•æ˜¯ç”¨æ¥å¤„ç†äº‹ä»¶ç›‘å¬å™¨çš„ï¼Œæˆ‘ä»¬ç›´æ¥ä¸Šä»£ç ï¼š
 
 ```
 @Override
@@ -469,27 +469,27 @@ public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) 
 
 ```
 
-¿ÉÒÔ¿´µ½£¬ÕâÀï´Ó spring ÈİÆ÷ÖĞ£¬ÄÃ³öÁËËùÓĞµÄ `EventListenerFactory`£¬È»ºó¸³Öµ¸ø `this.eventListenerFactories`£¬Õâ¸ö¾Í²»Õ¹¿ªÁË¡£
+å¯ä»¥çœ‹åˆ°ï¼Œè¿™é‡Œä» spring å®¹å™¨ä¸­ï¼Œæ‹¿å‡ºäº†æ‰€æœ‰çš„ `EventListenerFactory`ï¼Œç„¶åèµ‹å€¼ç»™ `this.eventListenerFactories`ï¼Œè¿™ä¸ªå°±ä¸å±•å¼€äº†ã€‚
 
-#### 5.4 ×Ü½á
+#### 5.4 æ€»ç»“
 
-±¾ÎÄ½éÉÜÁË `invokeBeanFactoryPostProcessors` µÄÖ´ĞĞÁ÷³Ì£¬Õû¸öÀàÏÂÀ´¾ÍÊÇÎªÁËÖ´ĞĞÁ½¸ö·½·¨£º`BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry` Óë `BeanFactoryPostProcessor#postProcessBeanFactory`£¬ÕâÁ½¸ö·½·¨µÄÖ´ĞĞ¹ı³ÌÈçÏÂ£º
+æœ¬æ–‡ä»‹ç»äº† `invokeBeanFactoryPostProcessors` çš„æ‰§è¡Œæµç¨‹ï¼Œæ•´ä¸ªç±»ä¸‹æ¥å°±æ˜¯ä¸ºäº†æ‰§è¡Œä¸¤ä¸ªæ–¹æ³•ï¼š`BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry` ä¸ `BeanFactoryPostProcessor#postProcessBeanFactory`ï¼Œè¿™ä¸¤ä¸ªæ–¹æ³•çš„æ‰§è¡Œè¿‡ç¨‹å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b6188601112b2b2c031b0a70f64f2cc885f.png)
 
-Í¨¹ıµ÷ÊÔ·¢ÏÖ£¬`invokeBeanFactoryPostProcessors` Ò»¹²Ö´ĞĞÁË `BeanFactoryPostProcessor`£º
+é€šè¿‡è°ƒè¯•å‘ç°ï¼Œ`invokeBeanFactoryPostProcessors` ä¸€å…±æ‰§è¡Œäº† `BeanFactoryPostProcessor`ï¼š
 
 1.  `ConfigurationClassPostProcessor#postProcessBeanDefinitionRegistry`
 2.  `ConfigurationClassPostProcessor#postProcessBeanFactory`
 3.  `EventListenerMethodProcessor#postProcessBeanFactory`
 
-ÆäÖĞ£¬`ConfigurationClassPostProcessor` ÊÇÒ»¸ö·Ç³£·Ç³£ÖØÒªµÄ `BeanFactoryPostProcessor`£¬¹ØÓÚËüµÄ½øÒ»²½·ÖÎö¿ÉÒÔ²Î¿¼ÒÔÏÂÎÄÕÂ£º
+å…¶ä¸­ï¼Œ`ConfigurationClassPostProcessor` æ˜¯ä¸€ä¸ªéå¸¸éå¸¸é‡è¦çš„ `BeanFactoryPostProcessor`ï¼Œå…³äºå®ƒçš„è¿›ä¸€æ­¥åˆ†æå¯ä»¥å‚è€ƒä»¥ä¸‹æ–‡ç« ï¼š
 
-*   [spring Ì½ÃØÖ® ConfigurationClassPostProcessor Ö®´¦Àí @ComponentScan ×¢½â](https://my.oschina.net/funcy/blog/4836178)
-*   [spring Ì½ÃØÖ® ConfigurationClassPostProcessor Ö®´¦Àí @Bean ×¢½â](https://my.oschina.net/funcy/blog/4492878)
-*   [spring Ì½ÃØÖ® ConfigurationClassPostProcessor Ö®´¦Àí @Import ×¢½â](https://my.oschina.net/funcy/blog/4678152)
-*   [spring Ì½ÃØÖ® ConfigurationClassPostProcessor Ö®´¦Àí @Conditional ×¢½â](https://my.oschina.net/funcy/blog/4873444)
+*   [spring æ¢ç§˜ä¹‹ ConfigurationClassPostProcessor ä¹‹å¤„ç† @ComponentScan æ³¨è§£](https://my.oschina.net/funcy/blog/4836178)
+*   [spring æ¢ç§˜ä¹‹ ConfigurationClassPostProcessor ä¹‹å¤„ç† @Bean æ³¨è§£](https://my.oschina.net/funcy/blog/4492878)
+*   [spring æ¢ç§˜ä¹‹ ConfigurationClassPostProcessor ä¹‹å¤„ç† @Import æ³¨è§£](https://my.oschina.net/funcy/blog/4678152)
+*   [spring æ¢ç§˜ä¹‹ ConfigurationClassPostProcessor ä¹‹å¤„ç† @Conditional æ³¨è§£](https://my.oschina.net/funcy/blog/4873444)
 
 *   * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4641114](https://my.oschina.net/funcy/blog/4641114) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4641114](https://my.oschina.net/funcy/blog/4641114) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

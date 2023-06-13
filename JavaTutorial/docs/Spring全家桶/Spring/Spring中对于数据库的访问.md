@@ -1,13 +1,13 @@
 
-## ÅäÖÃÊı¾İÔ´
+## é…ç½®æ•°æ®æº
 
-### Spring ÅäÖÃÊı¾İÔ´
+### Spring é…ç½®æ•°æ®æº
 
-Spring ÅäÖÃÊı¾İÔ´ÓĞ¶àÖÖ·½Ê½£¬ÏÂÃæÒ»Ò»ÁĞ¾Ù£º
+Spring é…ç½®æ•°æ®æºæœ‰å¤šç§æ–¹å¼ï¼Œä¸‹é¢ä¸€ä¸€åˆ—ä¸¾ï¼š
 
-#### [#](https://dunwu.github.io/spring-tutorial/pages/1b774c/#%E4%BD%BF%E7%94%A8-jndi-%E6%95%B0%E6%8D%AE%E6%BA%90)Ê¹ÓÃ JNDI Êı¾İÔ´
+#### [#](https://dunwu.github.io/spring-tutorial/pages/1b774c/#%E4%BD%BF%E7%94%A8-jndi-%E6%95%B0%E6%8D%AE%E6%BA%90)ä½¿ç”¨ JNDI æ•°æ®æº
 
-Èç¹û Spring Ó¦ÓÃ²¿ÊğÔÚÖ§³Ö JNDI µÄ WEB ·şÎñÆ÷ÉÏ£¨Èç WebSphere¡¢JBoss¡¢Tomcat µÈ£©£¬¾Í¿ÉÒÔÊ¹ÓÃ JNDI »ñÈ¡Êı¾İÔ´¡£
+å¦‚æœ Spring åº”ç”¨éƒ¨ç½²åœ¨æ”¯æŒ JNDI çš„ WEB æœåŠ¡å™¨ä¸Šï¼ˆå¦‚ WebSphereã€JBossã€Tomcat ç­‰ï¼‰ï¼Œå°±å¯ä»¥ä½¿ç”¨ JNDI è·å–æ•°æ®æºã€‚
 
 
 
@@ -20,12 +20,12 @@ Spring ÅäÖÃÊı¾İÔ´ÓĞ¶àÖÖ·½Ê½£¬ÏÂÃæÒ»Ò»ÁĞ¾Ù£º
 http://www.springframework.org/schema/jee
 http://www.springframework.org/schema/jee/spring-jee-3.2.xsd">
 
-  <!-- 1.Ê¹ÓÃbeanÅäÖÃjndiÊı¾İÔ´ -->
+  <!-- 1.ä½¿ç”¨beané…ç½®jndiæ•°æ®æº -->
   <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
     <property name="jndiName" value="java:comp/env/jdbc/orclight" />
   </bean>
 
-  <!-- 2.Ê¹ÓÃjee±êÇ©ÅäÖÃjndiÊı¾İÔ´£¬Óë1µÈ¼Û£¬µ«ÊÇĞèÒªÒıÈëÃüÃû¿Õ¼ä -->
+  <!-- 2.ä½¿ç”¨jeeæ ‡ç­¾é…ç½®jndiæ•°æ®æºï¼Œä¸1ç­‰ä»·ï¼Œä½†æ˜¯éœ€è¦å¼•å…¥å‘½åç©ºé—´ -->
   <jee:jndi-lookup id="dataSource" jndi-name=" java:comp/env/jdbc/orclight" />
 </beans>
 
@@ -33,9 +33,9 @@ http://www.springframework.org/schema/jee/spring-jee-3.2.xsd">
 
 
 
-#### [#](https://dunwu.github.io/spring-tutorial/pages/1b774c/#%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0)Ê¹ÓÃÊı¾İ¿âÁ¬½Ó³Ø
+#### [#](https://dunwu.github.io/spring-tutorial/pages/1b774c/#%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0)ä½¿ç”¨æ•°æ®åº“è¿æ¥æ± 
 
-Spring ±¾Éí²¢Ã»ÓĞÌá¹©Êı¾İ¿âÁ¬½Ó³ØµÄÊµÏÖ£¬ĞèÒª×ÔĞĞÑ¡ÔñºÏÊÊµÄÊı¾İ¿âÁ¬½Ó³Ø¡£ÏÂÃæÊÇÒ»¸öÊ¹ÓÃ [Druid (opens new window)](https://github.com/alibaba/druid)×÷ÎªÊı¾İ¿âÁ¬½Ó³ØµÄÊ¾Àı£º
+Spring æœ¬èº«å¹¶æ²¡æœ‰æä¾›æ•°æ®åº“è¿æ¥æ± çš„å®ç°ï¼Œéœ€è¦è‡ªè¡Œé€‰æ‹©åˆé€‚çš„æ•°æ®åº“è¿æ¥æ± ã€‚ä¸‹é¢æ˜¯ä¸€ä¸ªä½¿ç”¨ [Druid (opens new window)](https://github.com/alibaba/druid)ä½œä¸ºæ•°æ®åº“è¿æ¥æ± çš„ç¤ºä¾‹ï¼š
 
 
 
@@ -47,36 +47,36 @@ Spring ±¾Éí²¢Ã»ÓĞÌá¹©Êı¾İ¿âÁ¬½Ó³ØµÄÊµÏÖ£¬ĞèÒª×ÔĞĞÑ¡ÔñºÏÊÊµÄÊı¾İ¿âÁ¬½Ó³Ø¡£ÏÂÃæÊÇÒ
     <property name="username" value="${jdbc.username}"/>
     <property name="password" value="${jdbc.password}"/>
 
-    <!-- ÅäÖÃ³õÊ¼»¯´óĞ¡¡¢×îĞ¡¡¢×î´ó -->
+    <!-- é…ç½®åˆå§‹åŒ–å¤§å°ã€æœ€å°ã€æœ€å¤§ -->
     <property name="initialSize" value="1"/>
     <property name="minIdle" value="1"/>
     <property name="maxActive" value="10"/>
 
-    <!-- ÅäÖÃ»ñÈ¡Á¬½ÓµÈ´ı³¬Ê±µÄÊ±¼ä -->
+    <!-- é…ç½®è·å–è¿æ¥ç­‰å¾…è¶…æ—¶çš„æ—¶é—´ -->
     <property name="maxWait" value="10000"/>
 
-    <!-- ÅäÖÃ¼ä¸ô¶à¾Ã²Å½øĞĞÒ»´Î¼ì²â£¬¼ì²âĞèÒª¹Ø±ÕµÄ¿ÕÏĞÁ¬½Ó£¬µ¥Î»ÊÇºÁÃë -->
+    <!-- é…ç½®é—´éš”å¤šä¹…æ‰è¿›è¡Œä¸€æ¬¡æ£€æµ‹ï¼Œæ£€æµ‹éœ€è¦å…³é—­çš„ç©ºé—²è¿æ¥ï¼Œå•ä½æ˜¯æ¯«ç§’ -->
     <property name="timeBetweenEvictionRunsMillis" value="60000"/>
 
-    <!-- ÅäÖÃÒ»¸öÁ¬½ÓÔÚ³ØÖĞ×îĞ¡Éú´æµÄÊ±¼ä£¬µ¥Î»ÊÇºÁÃë -->
+    <!-- é…ç½®ä¸€ä¸ªè¿æ¥åœ¨æ± ä¸­æœ€å°ç”Ÿå­˜çš„æ—¶é—´ï¼Œå•ä½æ˜¯æ¯«ç§’ -->
     <property name="minEvictableIdleTimeMillis" value="300000"/>
 
     <property name="testWhileIdle" value="true"/>
 
-    <!-- ÕâÀï½¨ÒéÅäÖÃÎªTRUE£¬·ÀÖ¹È¡µ½µÄÁ¬½Ó²»¿ÉÓÃ -->
+    <!-- è¿™é‡Œå»ºè®®é…ç½®ä¸ºTRUEï¼Œé˜²æ­¢å–åˆ°çš„è¿æ¥ä¸å¯ç”¨ -->
     <property name="testOnBorrow" value="true"/>
     <property name="testOnReturn" value="false"/>
 
-    <!-- ´ò¿ªPSCache£¬²¢ÇÒÖ¸¶¨Ã¿¸öÁ¬½ÓÉÏPSCacheµÄ´óĞ¡ -->
+    <!-- æ‰“å¼€PSCacheï¼Œå¹¶ä¸”æŒ‡å®šæ¯ä¸ªè¿æ¥ä¸ŠPSCacheçš„å¤§å° -->
     <property name="poolPreparedStatements" value="true"/>
     <property name="maxPoolPreparedStatementPerConnectionSize"
               value="20"/>
 
-    <!-- ÕâÀïÅäÖÃÌá½»·½Ê½£¬Ä¬ÈÏ¾ÍÊÇTRUE£¬¿ÉÒÔ²»ÓÃÅäÖÃ -->
+    <!-- è¿™é‡Œé…ç½®æäº¤æ–¹å¼ï¼Œé»˜è®¤å°±æ˜¯TRUEï¼Œå¯ä»¥ä¸ç”¨é…ç½® -->
 
     <property name="defaultAutoCommit" value="true"/>
 
-    <!-- ÑéÖ¤Á¬½ÓÓĞĞ§Óë·ñµÄSQL£¬²»Í¬µÄÊı¾İÅäÖÃ²»Í¬ -->
+    <!-- éªŒè¯è¿æ¥æœ‰æ•ˆä¸å¦çš„SQLï¼Œä¸åŒçš„æ•°æ®é…ç½®ä¸åŒ -->
     <property name="validationQuery" value="select 1 "/>
     <property name="filters" value="stat"/>
   </bean>
@@ -85,7 +85,7 @@ Spring ±¾Éí²¢Ã»ÓĞÌá¹©Êı¾İ¿âÁ¬½Ó³ØµÄÊµÏÖ£¬ĞèÒª×ÔĞĞÑ¡ÔñºÏÊÊµÄÊı¾İ¿âÁ¬½Ó³Ø¡£ÏÂÃæÊÇÒ
 
 
 
-#### [#](https://dunwu.github.io/spring-tutorial/pages/1b774c/#%E5%9F%BA%E4%BA%8E-jdbc-%E9%A9%B1%E5%8A%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E6%BA%90)»ùÓÚ JDBC Çı¶¯µÄÊı¾İÔ´
+#### [#](https://dunwu.github.io/spring-tutorial/pages/1b774c/#%E5%9F%BA%E4%BA%8E-jdbc-%E9%A9%B1%E5%8A%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E6%BA%90)åŸºäº JDBC é©±åŠ¨çš„æ•°æ®æº
 
 
 
@@ -99,29 +99,29 @@ Spring ±¾Éí²¢Ã»ÓĞÌá¹©Êı¾İ¿âÁ¬½Ó³ØµÄÊµÏÖ£¬ĞèÒª×ÔĞĞÑ¡ÔñºÏÊÊµÄÊı¾İ¿âÁ¬½Ó³Ø¡£ÏÂÃæÊÇÒ
 ```
 
 
-#### Ê¹ÓÃJDBC
+#### ä½¿ç”¨JDBC
 
-×îºó¸üĞÂ: 2022/11/16 20:10 / ÔÄ¶Á: 946668
+æœ€åæ›´æ–°: 2022/11/16 20:10 / é˜…è¯»: 946668
 
 * * *
 
 
 
-ÎÒÃÇÔÚÇ°Ãæ½éÉÜ[JDBC±à³Ì](https://www.liaoxuefeng.com/wiki/1252599548343744/1255943820274272)Ê±ÒÑ¾­½²¹ı£¬Java³ÌĞòÊ¹ÓÃJDBC½Ó¿Ú·ÃÎÊ¹ØÏµÊı¾İ¿âµÄÊ±ºò£¬ĞèÒªÒÔÏÂ¼¸²½£º
+æˆ‘ä»¬åœ¨å‰é¢ä»‹ç»[JDBCç¼–ç¨‹](https://www.liaoxuefeng.com/wiki/1252599548343744/1255943820274272)æ—¶å·²ç»è®²è¿‡ï¼ŒJavaç¨‹åºä½¿ç”¨JDBCæ¥å£è®¿é—®å…³ç³»æ•°æ®åº“çš„æ—¶å€™ï¼Œéœ€è¦ä»¥ä¸‹å‡ æ­¥ï¼š
 
-*   ´´½¨È«¾Ö`DataSource`ÊµÀı£¬±íÊ¾Êı¾İ¿âÁ¬½Ó³Ø£»
-*   ÔÚĞèÒª¶ÁĞ´Êı¾İ¿âµÄ·½·¨ÄÚ²¿£¬°´ÈçÏÂ²½Öè·ÃÎÊÊı¾İ¿â£º
-    *   ´ÓÈ«¾Ö`DataSource`ÊµÀı»ñÈ¡`Connection`ÊµÀı£»
-    *   Í¨¹ı`Connection`ÊµÀı´´½¨`PreparedStatement`ÊµÀı£»
-    *   Ö´ĞĞSQLÓï¾ä£¬Èç¹ûÊÇ²éÑ¯£¬ÔòÍ¨¹ı`ResultSet`¶ÁÈ¡½á¹û¼¯£¬Èç¹ûÊÇĞŞ¸Ä£¬Ôò»ñµÃ`int`½á¹û¡£
+*   åˆ›å»ºå…¨å±€`DataSource`å®ä¾‹ï¼Œè¡¨ç¤ºæ•°æ®åº“è¿æ¥æ± ï¼›
+*   åœ¨éœ€è¦è¯»å†™æ•°æ®åº“çš„æ–¹æ³•å†…éƒ¨ï¼ŒæŒ‰å¦‚ä¸‹æ­¥éª¤è®¿é—®æ•°æ®åº“ï¼š
+    *   ä»å…¨å±€`DataSource`å®ä¾‹è·å–`Connection`å®ä¾‹ï¼›
+    *   é€šè¿‡`Connection`å®ä¾‹åˆ›å»º`PreparedStatement`å®ä¾‹ï¼›
+    *   æ‰§è¡ŒSQLè¯­å¥ï¼Œå¦‚æœæ˜¯æŸ¥è¯¢ï¼Œåˆ™é€šè¿‡`ResultSet`è¯»å–ç»“æœé›†ï¼Œå¦‚æœæ˜¯ä¿®æ”¹ï¼Œåˆ™è·å¾—`int`ç»“æœã€‚
 
-ÕıÈ·±àĞ´JDBC´úÂëµÄ¹Ø¼üÊÇÊ¹ÓÃ`try ... finally`ÊÍ·Å×ÊÔ´£¬Éæ¼°µ½ÊÂÎñµÄ´úÂëĞèÒªÕıÈ·Ìá½»»ò»Ø¹öÊÂÎñ¡£
+æ­£ç¡®ç¼–å†™JDBCä»£ç çš„å…³é”®æ˜¯ä½¿ç”¨`try ... finally`é‡Šæ”¾èµ„æºï¼Œæ¶‰åŠåˆ°äº‹åŠ¡çš„ä»£ç éœ€è¦æ­£ç¡®æäº¤æˆ–å›æ»šäº‹åŠ¡ã€‚
 
-ÔÚSpringÊ¹ÓÃJDBC£¬Ê×ÏÈÎÒÃÇÍ¨¹ıIoCÈİÆ÷´´½¨²¢¹ÜÀíÒ»¸ö`DataSource`ÊµÀı£¬È»ºó£¬SpringÌá¹©ÁËÒ»¸ö`JdbcTemplate`£¬¿ÉÒÔ·½±ãµØÈÃÎÒÃÇ²Ù×÷JDBC£¬Òò´Ë£¬Í¨³£Çé¿öÏÂ£¬ÎÒÃÇ»áÊµÀı»¯Ò»¸ö`JdbcTemplate`¡£¹ËÃûË¼Òå£¬Õâ¸öÀàÖ÷ÒªÊ¹ÓÃÁË[TemplateÄ£Ê½](https://www.liaoxuefeng.com/wiki/1252599548343744/1281319636041762)¡£
+åœ¨Springä½¿ç”¨JDBCï¼Œé¦–å…ˆæˆ‘ä»¬é€šè¿‡IoCå®¹å™¨åˆ›å»ºå¹¶ç®¡ç†ä¸€ä¸ª`DataSource`å®ä¾‹ï¼Œç„¶åï¼ŒSpringæä¾›äº†ä¸€ä¸ª`JdbcTemplate`ï¼Œå¯ä»¥æ–¹ä¾¿åœ°è®©æˆ‘ä»¬æ“ä½œJDBCï¼Œå› æ­¤ï¼Œé€šå¸¸æƒ…å†µä¸‹ï¼Œæˆ‘ä»¬ä¼šå®ä¾‹åŒ–ä¸€ä¸ª`JdbcTemplate`ã€‚é¡¾åæ€ä¹‰ï¼Œè¿™ä¸ªç±»ä¸»è¦ä½¿ç”¨äº†[Templateæ¨¡å¼](https://www.liaoxuefeng.com/wiki/1252599548343744/1281319636041762)ã€‚
 
-±àĞ´Ê¾Àı´úÂë»òÕß²âÊÔ´úÂëÊ±£¬ÎÒÃÇÇ¿ÁÒÍÆ¼öÊ¹ÓÃ[HSQLDB](http://hsqldb.org/)Õâ¸öÊı¾İ¿â£¬ËüÊÇÒ»¸öÓÃJava±àĞ´µÄ¹ØÏµÊı¾İ¿â£¬¿ÉÒÔÒÔÄÚ´æÄ£Ê½»òÕßÎÄ¼şÄ£Ê½ÔËĞĞ£¬±¾ÉíÖ»ÓĞÒ»¸öjar°ü£¬·Ç³£ÊÊºÏÑİÊ¾´úÂë»òÕß²âÊÔ´úÂë¡£
+ç¼–å†™ç¤ºä¾‹ä»£ç æˆ–è€…æµ‹è¯•ä»£ç æ—¶ï¼Œæˆ‘ä»¬å¼ºçƒˆæ¨èä½¿ç”¨[HSQLDB](http://hsqldb.org/)è¿™ä¸ªæ•°æ®åº“ï¼Œå®ƒæ˜¯ä¸€ä¸ªç”¨Javaç¼–å†™çš„å…³ç³»æ•°æ®åº“ï¼Œå¯ä»¥ä»¥å†…å­˜æ¨¡å¼æˆ–è€…æ–‡ä»¶æ¨¡å¼è¿è¡Œï¼Œæœ¬èº«åªæœ‰ä¸€ä¸ªjaråŒ…ï¼Œéå¸¸é€‚åˆæ¼”ç¤ºä»£ç æˆ–è€…æµ‹è¯•ä»£ç ã€‚
 
-ÎÒÃÇÒÔÊµ¼Ê¹¤³ÌÎªÀı£¬ÏÈ´´½¨Maven¹¤³Ì`spring-data-jdbc`£¬È»ºóÒıÈëÒÔÏÂÒÀÀµ£º
+æˆ‘ä»¬ä»¥å®é™…å·¥ç¨‹ä¸ºä¾‹ï¼Œå…ˆåˆ›å»ºMavenå·¥ç¨‹`spring-data-jdbc`ï¼Œç„¶åå¼•å…¥ä»¥ä¸‹ä¾èµ–ï¼š
 
 *   org.springframework:spring-context:6.0.0
 *   org.springframework:spring-jdbc:6.0.0
@@ -129,7 +129,7 @@ Spring ±¾Éí²¢Ã»ÓĞÌá¹©Êı¾İ¿âÁ¬½Ó³ØµÄÊµÏÖ£¬ĞèÒª×ÔĞĞÑ¡ÔñºÏÊÊµÄÊı¾İ¿âÁ¬½Ó³Ø¡£ÏÂÃæÊÇÒ
 *   com.zaxxer:HikariCP:5.0.1
 *   org.hsqldb:hsqldb:2.7.1
 
-ÔÚ`AppConfig`ÖĞ£¬ÎÒÃÇĞèÒª´´½¨ÒÔÏÂ¼¸¸ö±ØĞëµÄBean£º
+åœ¨`AppConfig`ä¸­ï¼Œæˆ‘ä»¬éœ€è¦åˆ›å»ºä»¥ä¸‹å‡ ä¸ªå¿…é¡»çš„Beanï¼š
 
 ```
 @Configuration
@@ -166,26 +166,26 @@ public class AppConfig {
 
 ```
 
-ÔÚÉÏÊöÅäÖÃÖĞ£º
+åœ¨ä¸Šè¿°é…ç½®ä¸­ï¼š
 
-1.  Í¨¹ı`@PropertySource("jdbc.properties")`¶ÁÈ¡Êı¾İ¿âÅäÖÃÎÄ¼ş£»
-2.  Í¨¹ı`@Value("${jdbc.url}")`×¢ÈëÅäÖÃÎÄ¼şµÄÏà¹ØÅäÖÃ£»
-3.  ´´½¨Ò»¸öDataSourceÊµÀı£¬ËüµÄÊµ¼ÊÀàĞÍÊÇ`HikariDataSource`£¬´´½¨Ê±ĞèÒªÓÃµ½×¢ÈëµÄÅäÖÃ£»
-4.  ´´½¨Ò»¸öJdbcTemplateÊµÀı£¬ËüĞèÒª×¢Èë`DataSource`£¬ÕâÊÇÍ¨¹ı·½·¨²ÎÊıÍê³É×¢ÈëµÄ¡£
+1.  é€šè¿‡`@PropertySource("jdbc.properties")`è¯»å–æ•°æ®åº“é…ç½®æ–‡ä»¶ï¼›
+2.  é€šè¿‡`@Value("${jdbc.url}")`æ³¨å…¥é…ç½®æ–‡ä»¶çš„ç›¸å…³é…ç½®ï¼›
+3.  åˆ›å»ºä¸€ä¸ªDataSourceå®ä¾‹ï¼Œå®ƒçš„å®é™…ç±»å‹æ˜¯`HikariDataSource`ï¼Œåˆ›å»ºæ—¶éœ€è¦ç”¨åˆ°æ³¨å…¥çš„é…ç½®ï¼›
+4.  åˆ›å»ºä¸€ä¸ªJdbcTemplateå®ä¾‹ï¼Œå®ƒéœ€è¦æ³¨å…¥`DataSource`ï¼Œè¿™æ˜¯é€šè¿‡æ–¹æ³•å‚æ•°å®Œæˆæ³¨å…¥çš„ã€‚
 
-×îºó£¬Õë¶ÔHSQLDBĞ´Ò»¸öÅäÖÃÎÄ¼ş`jdbc.properties`£º
+æœ€åï¼Œé’ˆå¯¹HSQLDBå†™ä¸€ä¸ªé…ç½®æ–‡ä»¶`jdbc.properties`ï¼š
 
 ```
-# Êı¾İ¿âÎÄ¼şÃûÎªtestdb:
+# æ•°æ®åº“æ–‡ä»¶åä¸ºtestdb:
 jdbc.url=jdbc:hsqldb:file:testdb
 
-# HsqldbÄ¬ÈÏµÄÓÃ»§ÃûÊÇsa£¬¿ÚÁîÊÇ¿Õ×Ö·û´®:
+# Hsqldbé»˜è®¤çš„ç”¨æˆ·åæ˜¯saï¼Œå£ä»¤æ˜¯ç©ºå­—ç¬¦ä¸²:
 jdbc.username=sa
 jdbc.password=
 
 ```
 
-¿ÉÒÔÍ¨¹ıHSQLDB×Ô´øµÄ¹¤¾ßÀ´³õÊ¼»¯Êı¾İ¿â±í£¬ÕâÀïÎÒÃÇĞ´Ò»¸öBean£¬ÔÚSpringÈİÆ÷Æô¶¯Ê±×Ô¶¯´´½¨Ò»¸ö`users`±í£º
+å¯ä»¥é€šè¿‡HSQLDBè‡ªå¸¦çš„å·¥å…·æ¥åˆå§‹åŒ–æ•°æ®åº“è¡¨ï¼Œè¿™é‡Œæˆ‘ä»¬å†™ä¸€ä¸ªBeanï¼Œåœ¨Springå®¹å™¨å¯åŠ¨æ—¶è‡ªåŠ¨åˆ›å»ºä¸€ä¸ª`users`è¡¨ï¼š
 
 ```
 @Component
@@ -206,7 +206,7 @@ public class DatabaseInitializer {
 
 ```
 
-ÏÖÔÚ£¬ËùÓĞ×¼±¸¹¤×÷¶¼ÒÑÍê±Ï¡£ÎÒÃÇÖ»ĞèÒªÔÚĞèÒª·ÃÎÊÊı¾İ¿âµÄBeanÖĞ£¬×¢Èë`JdbcTemplate`¼´¿É£º
+ç°åœ¨ï¼Œæ‰€æœ‰å‡†å¤‡å·¥ä½œéƒ½å·²å®Œæ¯•ã€‚æˆ‘ä»¬åªéœ€è¦åœ¨éœ€è¦è®¿é—®æ•°æ®åº“çš„Beanä¸­ï¼Œæ³¨å…¥`JdbcTemplate`å³å¯ï¼š
 
 ```
 @Component
@@ -218,20 +218,20 @@ public class UserService {
 
 ```
 
-### JdbcTemplateÓÃ·¨
+### JdbcTemplateç”¨æ³•
 
-SpringÌá¹©µÄ`JdbcTemplate`²ÉÓÃTemplateÄ£Ê½£¬Ìá¹©ÁËÒ»ÏµÁĞÒÔ»Øµ÷ÎªÌØµãµÄ¹¤¾ß·½·¨£¬Ä¿µÄÊÇ±ÜÃâ·±ËöµÄ`try...catch`Óï¾ä¡£
+Springæä¾›çš„`JdbcTemplate`é‡‡ç”¨Templateæ¨¡å¼ï¼Œæä¾›äº†ä¸€ç³»åˆ—ä»¥å›è°ƒä¸ºç‰¹ç‚¹çš„å·¥å…·æ–¹æ³•ï¼Œç›®çš„æ˜¯é¿å…ç¹ççš„`try...catch`è¯­å¥ã€‚
 
-ÎÒÃÇÒÔ¾ßÌåµÄÊ¾ÀıÀ´ËµÃ÷JdbcTemplateµÄÓÃ·¨¡£
+æˆ‘ä»¬ä»¥å…·ä½“çš„ç¤ºä¾‹æ¥è¯´æ˜JdbcTemplateçš„ç”¨æ³•ã€‚
 
-Ê×ÏÈÎÒÃÇ¿´`T execute(ConnectionCallback<T> action)`·½·¨£¬ËüÌá¹©ÁËJdbcµÄ`Connection`¹©ÎÒÃÇÊ¹ÓÃ£º
+é¦–å…ˆæˆ‘ä»¬çœ‹`T execute(ConnectionCallback<T> action)`æ–¹æ³•ï¼Œå®ƒæä¾›äº†Jdbcçš„`Connection`ä¾›æˆ‘ä»¬ä½¿ç”¨ï¼š
 
 ```
 public User getUserById(long id) {
-    // ×¢Òâ´«ÈëµÄÊÇConnectionCallback:
+    // æ³¨æ„ä¼ å…¥çš„æ˜¯ConnectionCallback:
     return jdbcTemplate.execute((Connection conn) -> {
-        // ¿ÉÒÔÖ±½ÓÊ¹ÓÃconnÊµÀı£¬²»ÒªÊÍ·ÅËü£¬»Øµ÷½áÊøºóJdbcTemplate×Ô¶¯ÊÍ·Å:
-        // ÔÚÄÚ²¿ÊÖ¶¯´´½¨µÄPreparedStatement¡¢ResultSet±ØĞëÓÃtry(...)ÊÍ·Å:
+        // å¯ä»¥ç›´æ¥ä½¿ç”¨connå®ä¾‹ï¼Œä¸è¦é‡Šæ”¾å®ƒï¼Œå›è°ƒç»“æŸåJdbcTemplateè‡ªåŠ¨é‡Šæ”¾:
+        // åœ¨å†…éƒ¨æ‰‹åŠ¨åˆ›å»ºçš„PreparedStatementã€ResultSetå¿…é¡»ç”¨try(...)é‡Šæ”¾:
         try (var ps = conn.prepareStatement("SELECT * FROM users WHERE id = ?")) {
             ps.setObject(1, id);
             try (var rs = ps.executeQuery()) {
@@ -250,15 +250,15 @@ public User getUserById(long id) {
 
 ```
 
-Ò²¾ÍÊÇËµ£¬ÉÏÊö»Øµ÷·½·¨ÔÊĞí»ñÈ¡Connection£¬È»ºó×öÈÎºÎ»ùÓÚConnectionµÄ²Ù×÷¡£
+ä¹Ÿå°±æ˜¯è¯´ï¼Œä¸Šè¿°å›è°ƒæ–¹æ³•å…è®¸è·å–Connectionï¼Œç„¶ååšä»»ä½•åŸºäºConnectionçš„æ“ä½œã€‚
 
-ÎÒÃÇÔÙ¿´`T execute(String sql, PreparedStatementCallback<T> action)`µÄÓÃ·¨£º
+æˆ‘ä»¬å†çœ‹`T execute(String sql, PreparedStatementCallback<T> action)`çš„ç”¨æ³•ï¼š
 
 ```
 public User getUserByName(String name) {
-    // ĞèÒª´«ÈëSQLÓï¾ä£¬ÒÔ¼°PreparedStatementCallback:
+    // éœ€è¦ä¼ å…¥SQLè¯­å¥ï¼Œä»¥åŠPreparedStatementCallback:
     return jdbcTemplate.execute("SELECT * FROM users WHERE name = ?", (PreparedStatement ps) -> {
-        // PreparedStatementÊµÀıÒÑ¾­ÓÉJdbcTemplate´´½¨£¬²¢ÔÚ»Øµ÷ºó×Ô¶¯ÊÍ·Å:
+        // PreparedStatementå®ä¾‹å·²ç»ç”±JdbcTemplateåˆ›å»ºï¼Œå¹¶åœ¨å›è°ƒåè‡ªåŠ¨é‡Šæ”¾:
         ps.setObject(1, name);
         try (var rs = ps.executeQuery()) {
             if (rs.next()) {
@@ -275,14 +275,14 @@ public User getUserByName(String name) {
 
 ```
 
-×îºó£¬ÎÒÃÇ¿´`T queryForObject(String sql, RowMapper<T> rowMapper, Object... args)`·½·¨£º
+æœ€åï¼Œæˆ‘ä»¬çœ‹`T queryForObject(String sql, RowMapper<T> rowMapper, Object... args)`æ–¹æ³•ï¼š
 
 ```
 public User getUserByEmail(String email) {
-    // ´«ÈëSQL£¬²ÎÊıºÍRowMapperÊµÀı:
+    // ä¼ å…¥SQLï¼Œå‚æ•°å’ŒRowMapperå®ä¾‹:
     return jdbcTemplate.queryForObject("SELECT * FROM users WHERE email = ?",
             (ResultSet rs, int rowNum) -> {
-                // ½«ResultSetµÄµ±Ç°ĞĞÓ³ÉäÎªÒ»¸öJavaBean:
+                // å°†ResultSetçš„å½“å‰è¡Œæ˜ å°„ä¸ºä¸€ä¸ªJavaBean:
                 return new User( // new User object:
                         rs.getLong("id"), // id
                         rs.getString("email"), // email
@@ -294,21 +294,21 @@ public User getUserByEmail(String email) {
 
 ```
 
-ÔÚ`queryForObject()`·½·¨ÖĞ£¬´«ÈëSQLÒÔ¼°SQL²ÎÊıºó£¬`JdbcTemplate`»á×Ô¶¯´´½¨`PreparedStatement`£¬×Ô¶¯Ö´ĞĞ²éÑ¯²¢·µ»Ø`ResultSet`£¬ÎÒÃÇÌá¹©µÄ`RowMapper`ĞèÒª×öµÄÊÂÇé¾ÍÊÇ°Ñ`ResultSet`µÄµ±Ç°ĞĞÓ³Éä³ÉÒ»¸öJavaBean²¢·µ»Ø¡£Õû¸ö¹ı³ÌÖĞ£¬Ê¹ÓÃ`Connection`¡¢`PreparedStatement`ºÍ`ResultSet`¶¼²»ĞèÒªÎÒÃÇÊÖ¶¯¹ÜÀí¡£
+åœ¨`queryForObject()`æ–¹æ³•ä¸­ï¼Œä¼ å…¥SQLä»¥åŠSQLå‚æ•°åï¼Œ`JdbcTemplate`ä¼šè‡ªåŠ¨åˆ›å»º`PreparedStatement`ï¼Œè‡ªåŠ¨æ‰§è¡ŒæŸ¥è¯¢å¹¶è¿”å›`ResultSet`ï¼Œæˆ‘ä»¬æä¾›çš„`RowMapper`éœ€è¦åšçš„äº‹æƒ…å°±æ˜¯æŠŠ`ResultSet`çš„å½“å‰è¡Œæ˜ å°„æˆä¸€ä¸ªJavaBeanå¹¶è¿”å›ã€‚æ•´ä¸ªè¿‡ç¨‹ä¸­ï¼Œä½¿ç”¨`Connection`ã€`PreparedStatement`å’Œ`ResultSet`éƒ½ä¸éœ€è¦æˆ‘ä»¬æ‰‹åŠ¨ç®¡ç†ã€‚
 
-`RowMapper`²»Ò»¶¨·µ»ØJavaBean£¬Êµ¼ÊÉÏËü¿ÉÒÔ·µ»ØÈÎºÎJava¶ÔÏó¡£ÀıÈç£¬Ê¹ÓÃ`SELECT COUNT(*)`²éÑ¯Ê±£¬¿ÉÒÔ·µ»Ø`Long`£º
+`RowMapper`ä¸ä¸€å®šè¿”å›JavaBeanï¼Œå®é™…ä¸Šå®ƒå¯ä»¥è¿”å›ä»»ä½•Javaå¯¹è±¡ã€‚ä¾‹å¦‚ï¼Œä½¿ç”¨`SELECT COUNT(*)`æŸ¥è¯¢æ—¶ï¼Œå¯ä»¥è¿”å›`Long`ï¼š
 
 ```
 public long getUsers() {
     return jdbcTemplate.queryForObject("SELECT COUNT(*) FROM users", (ResultSet rs, int rowNum) -> {
-        // SELECT COUNT(*)²éÑ¯Ö»ÓĞÒ»ÁĞ£¬È¡µÚÒ»ÁĞÊı¾İ:
+        // SELECT COUNT(*)æŸ¥è¯¢åªæœ‰ä¸€åˆ—ï¼Œå–ç¬¬ä¸€åˆ—æ•°æ®:
         return rs.getLong(1);
     });
 }
 
 ```
 
-Èç¹ûÎÒÃÇÆÚÍû·µ»Ø¶àĞĞ¼ÇÂ¼£¬¶ø²»ÊÇÒ»ĞĞ£¬¿ÉÒÔÓÃ`query()`·½·¨£º
+å¦‚æœæˆ‘ä»¬æœŸæœ›è¿”å›å¤šè¡Œè®°å½•ï¼Œè€Œä¸æ˜¯ä¸€è¡Œï¼Œå¯ä»¥ç”¨`query()`æ–¹æ³•ï¼š
 
 ```
 public List<User> getUsers(int pageIndex) {
@@ -321,13 +321,13 @@ public List<User> getUsers(int pageIndex) {
 
 ```
 
-ÉÏÊö`query()`·½·¨´«ÈëµÄ²ÎÊıÈÔÈ»ÊÇSQL¡¢SQL²ÎÊıÒÔ¼°`RowMapper`ÊµÀı¡£ÕâÀïÎÒÃÇÖ±½ÓÊ¹ÓÃSpringÌá¹©µÄ`BeanPropertyRowMapper`¡£Èç¹ûÊı¾İ¿â±íµÄ½á¹¹Ç¡ºÃºÍJavaBeanµÄÊôĞÔÃû³ÆÒ»ÖÂ£¬ÄÇÃ´`BeanPropertyRowMapper`¾Í¿ÉÒÔÖ±½Ó°ÑÒ»ĞĞ¼ÇÂ¼°´ÁĞÃû×ª»»ÎªJavaBean¡£
+ä¸Šè¿°`query()`æ–¹æ³•ä¼ å…¥çš„å‚æ•°ä»ç„¶æ˜¯SQLã€SQLå‚æ•°ä»¥åŠ`RowMapper`å®ä¾‹ã€‚è¿™é‡Œæˆ‘ä»¬ç›´æ¥ä½¿ç”¨Springæä¾›çš„`BeanPropertyRowMapper`ã€‚å¦‚æœæ•°æ®åº“è¡¨çš„ç»“æ„æ°å¥½å’ŒJavaBeançš„å±æ€§åç§°ä¸€è‡´ï¼Œé‚£ä¹ˆ`BeanPropertyRowMapper`å°±å¯ä»¥ç›´æ¥æŠŠä¸€è¡Œè®°å½•æŒ‰åˆ—åè½¬æ¢ä¸ºJavaBeanã€‚
 
-Èç¹ûÎÒÃÇÖ´ĞĞµÄ²»ÊÇ²éÑ¯£¬¶øÊÇ²åÈë¡¢¸üĞÂºÍÉ¾³ı²Ù×÷£¬ÄÇÃ´ĞèÒªÊ¹ÓÃ`update()`·½·¨£º
+å¦‚æœæˆ‘ä»¬æ‰§è¡Œçš„ä¸æ˜¯æŸ¥è¯¢ï¼Œè€Œæ˜¯æ’å…¥ã€æ›´æ–°å’Œåˆ é™¤æ“ä½œï¼Œé‚£ä¹ˆéœ€è¦ä½¿ç”¨`update()`æ–¹æ³•ï¼š
 
 ```
 public void updateUser(User user) {
-    // ´«ÈëSQL£¬SQL²ÎÊı£¬·µ»Ø¸üĞÂµÄĞĞÊı:
+    // ä¼ å…¥SQLï¼ŒSQLå‚æ•°ï¼Œè¿”å›æ›´æ–°çš„è¡Œæ•°:
     if (1 != jdbcTemplate.update("UPDATE users SET name = ? WHERE id = ?", user.getName(), user.getId())) {
         throw new RuntimeException("User not found by id");
     }
@@ -335,16 +335,16 @@ public void updateUser(User user) {
 
 ```
 
-Ö»ÓĞÒ»ÖÖ`INSERT`²Ù×÷±È½ÏÌØÊâ£¬ÄÇ¾ÍÊÇÈç¹ûÄ³Ò»ÁĞÊÇ×ÔÔöÁĞ£¨ÀıÈç×ÔÔöÖ÷¼ü£©£¬Í¨³££¬ÎÒÃÇĞèÒª»ñÈ¡²åÈëºóµÄ×ÔÔöÖµ¡£`JdbcTemplate`Ìá¹©ÁËÒ»¸ö`KeyHolder`À´¼ò»¯ÕâÒ»²Ù×÷£º
+åªæœ‰ä¸€ç§`INSERT`æ“ä½œæ¯”è¾ƒç‰¹æ®Šï¼Œé‚£å°±æ˜¯å¦‚æœæŸä¸€åˆ—æ˜¯è‡ªå¢åˆ—ï¼ˆä¾‹å¦‚è‡ªå¢ä¸»é”®ï¼‰ï¼Œé€šå¸¸ï¼Œæˆ‘ä»¬éœ€è¦è·å–æ’å…¥åçš„è‡ªå¢å€¼ã€‚`JdbcTemplate`æä¾›äº†ä¸€ä¸ª`KeyHolder`æ¥ç®€åŒ–è¿™ä¸€æ“ä½œï¼š
 
 ```
 public User register(String email, String password, String name) {
-    // ´´½¨Ò»¸öKeyHolder:
+    // åˆ›å»ºä¸€ä¸ªKeyHolder:
     KeyHolder holder = new GeneratedKeyHolder();
     if (1 != jdbcTemplate.update(
-        // ²ÎÊı1:PreparedStatementCreator
+        // å‚æ•°1:PreparedStatementCreator
         (conn) -> {
-            // ´´½¨PreparedStatementÊ±£¬±ØĞëÖ¸¶¨RETURN_GENERATED_KEYS:
+            // åˆ›å»ºPreparedStatementæ—¶ï¼Œå¿…é¡»æŒ‡å®šRETURN_GENERATED_KEYS:
             var ps = conn.prepareStatement("INSERT INTO users(email, password, name) VALUES(?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS);
             ps.setObject(1, email);
@@ -352,42 +352,42 @@ public User register(String email, String password, String name) {
             ps.setObject(3, name);
             return ps;
         },
-        // ²ÎÊı2:KeyHolder
+        // å‚æ•°2:KeyHolder
         holder)
     ) {
         throw new RuntimeException("Insert failed.");
     }
-    // ´ÓKeyHolderÖĞ»ñÈ¡·µ»ØµÄ×ÔÔöÖµ:
+    // ä»KeyHolderä¸­è·å–è¿”å›çš„è‡ªå¢å€¼:
     return new User(holder.getKey().longValue(), email, password, name);
 }
 
 ```
 
-`JdbcTemplate`»¹ÓĞĞí¶àÖØÔØ·½·¨£¬ÕâÀïÎÒÃÇ²»Ò»Ò»½éÉÜ¡£ĞèÒªÇ¿µ÷µÄÊÇ£¬`JdbcTemplate`Ö»ÊÇ¶ÔJDBC²Ù×÷µÄÒ»¸ö¼òµ¥·â×°£¬ËüµÄÄ¿µÄÊÇ¾¡Á¿¼õÉÙÊÖ¶¯±àĞ´`try(resource) {...}`µÄ´úÂë£¬¶ÔÓÚ²éÑ¯£¬Ö÷ÒªÍ¨¹ı`RowMapper`ÊµÏÖÁËJDBC½á¹û¼¯µ½Java¶ÔÏóµÄ×ª»»¡£
+`JdbcTemplate`è¿˜æœ‰è®¸å¤šé‡è½½æ–¹æ³•ï¼Œè¿™é‡Œæˆ‘ä»¬ä¸ä¸€ä¸€ä»‹ç»ã€‚éœ€è¦å¼ºè°ƒçš„æ˜¯ï¼Œ`JdbcTemplate`åªæ˜¯å¯¹JDBCæ“ä½œçš„ä¸€ä¸ªç®€å•å°è£…ï¼Œå®ƒçš„ç›®çš„æ˜¯å°½é‡å‡å°‘æ‰‹åŠ¨ç¼–å†™`try(resource) {...}`çš„ä»£ç ï¼Œå¯¹äºæŸ¥è¯¢ï¼Œä¸»è¦é€šè¿‡`RowMapper`å®ç°äº†JDBCç»“æœé›†åˆ°Javaå¯¹è±¡çš„è½¬æ¢ã€‚
 
-ÎÒÃÇ×Ü½áÒ»ÏÂ`JdbcTemplate`µÄÓÃ·¨£¬ÄÇ¾ÍÊÇ£º
+æˆ‘ä»¬æ€»ç»“ä¸€ä¸‹`JdbcTemplate`çš„ç”¨æ³•ï¼Œé‚£å°±æ˜¯ï¼š
 
-*   Õë¶Ô¼òµ¥²éÑ¯£¬ÓÅÑ¡`query()`ºÍ`queryForObject()`£¬ÒòÎªÖ»ĞèÌá¹©SQLÓï¾ä¡¢²ÎÊıºÍ`RowMapper`£»
-*   Õë¶Ô¸üĞÂ²Ù×÷£¬ÓÅÑ¡`update()`£¬ÒòÎªÖ»ĞèÌá¹©SQLÓï¾äºÍ²ÎÊı£»
-*   ÈÎºÎ¸´ÔÓµÄ²Ù×÷£¬×îÖÕÒ²¿ÉÒÔÍ¨¹ı`execute(ConnectionCallback)`ÊµÏÖ£¬ÒòÎªÄÃµ½`Connection`¾Í¿ÉÒÔ×öÈÎºÎJDBC²Ù×÷¡£
+*   é’ˆå¯¹ç®€å•æŸ¥è¯¢ï¼Œä¼˜é€‰`query()`å’Œ`queryForObject()`ï¼Œå› ä¸ºåªéœ€æä¾›SQLè¯­å¥ã€å‚æ•°å’Œ`RowMapper`ï¼›
+*   é’ˆå¯¹æ›´æ–°æ“ä½œï¼Œä¼˜é€‰`update()`ï¼Œå› ä¸ºåªéœ€æä¾›SQLè¯­å¥å’Œå‚æ•°ï¼›
+*   ä»»ä½•å¤æ‚çš„æ“ä½œï¼Œæœ€ç»ˆä¹Ÿå¯ä»¥é€šè¿‡`execute(ConnectionCallback)`å®ç°ï¼Œå› ä¸ºæ‹¿åˆ°`Connection`å°±å¯ä»¥åšä»»ä½•JDBCæ“ä½œã€‚
 
-Êµ¼ÊÉÏÎÒÃÇÊ¹ÓÃ×î¶àµÄÈÔÈ»ÊÇ¸÷ÖÖ²éÑ¯¡£Èç¹ûÔÚÉè¼Æ±í½á¹¹µÄÊ±ºò£¬ÄÜ¹»ºÍJavaBeanµÄÊôĞÔÒ»Ò»¶ÔÓ¦£¬ÄÇÃ´Ö±½ÓÊ¹ÓÃ`BeanPropertyRowMapper`¾ÍºÜ·½±ã¡£Èç¹û±í½á¹¹ºÍJavaBean²»Ò»ÖÂÔõÃ´°ì£¿ÄÇ¾ÍĞèÒªÉÔÎ¢¸ÄĞ´Ò»ÏÂ²éÑ¯£¬Ê¹½á¹û¼¯µÄ½á¹¹ºÍJavaBean±£³ÖÒ»ÖÂ¡£
+å®é™…ä¸Šæˆ‘ä»¬ä½¿ç”¨æœ€å¤šçš„ä»ç„¶æ˜¯å„ç§æŸ¥è¯¢ã€‚å¦‚æœåœ¨è®¾è®¡è¡¨ç»“æ„çš„æ—¶å€™ï¼Œèƒ½å¤Ÿå’ŒJavaBeançš„å±æ€§ä¸€ä¸€å¯¹åº”ï¼Œé‚£ä¹ˆç›´æ¥ä½¿ç”¨`BeanPropertyRowMapper`å°±å¾ˆæ–¹ä¾¿ã€‚å¦‚æœè¡¨ç»“æ„å’ŒJavaBeanä¸ä¸€è‡´æ€ä¹ˆåŠï¼Ÿé‚£å°±éœ€è¦ç¨å¾®æ”¹å†™ä¸€ä¸‹æŸ¥è¯¢ï¼Œä½¿ç»“æœé›†çš„ç»“æ„å’ŒJavaBeanä¿æŒä¸€è‡´ã€‚
 
-ÀıÈç£¬±íµÄÁĞÃûÊÇ`office_address`£¬¶øJavaBeanÊôĞÔÊÇ`workAddress`£¬¾ÍĞèÒªÖ¸¶¨±ğÃû£¬¸ÄĞ´²éÑ¯ÈçÏÂ£º
+ä¾‹å¦‚ï¼Œè¡¨çš„åˆ—åæ˜¯`office_address`ï¼Œè€ŒJavaBeanå±æ€§æ˜¯`workAddress`ï¼Œå°±éœ€è¦æŒ‡å®šåˆ«åï¼Œæ”¹å†™æŸ¥è¯¢å¦‚ä¸‹ï¼š
 
 ```
 SELECT id, email, office_address AS workAddress, name FROM users WHERE email = ?
 ```
 
-Ê¹ÓÃ`JdbcTemplate`µÄÊ±ºò£¬ÎÒÃÇÓÃµÃ×î¶àµÄ·½·¨¾ÍÊÇ`List<T> query(String, RowMapper, Object...)`¡£Õâ¸ö`RowMapper`µÄ×÷ÓÃ¾ÍÊÇ°Ñ`ResultSet`µÄÒ»ĞĞ¼ÇÂ¼Ó³ÉäÎªJava Bean¡£
+ä½¿ç”¨`JdbcTemplate`çš„æ—¶å€™ï¼Œæˆ‘ä»¬ç”¨å¾—æœ€å¤šçš„æ–¹æ³•å°±æ˜¯`List<T> query(String, RowMapper, Object...)`ã€‚è¿™ä¸ª`RowMapper`çš„ä½œç”¨å°±æ˜¯æŠŠ`ResultSet`çš„ä¸€è¡Œè®°å½•æ˜ å°„ä¸ºJava Beanã€‚
 
-ÕâÖÖ°Ñ¹ØÏµÊı¾İ¿âµÄ±í¼ÇÂ¼Ó³ÉäÎªJava¶ÔÏóµÄ¹ı³Ì¾ÍÊÇORM£ºObject-Relational Mapping¡£ORM¼È¿ÉÒÔ°Ñ¼ÇÂ¼×ª»»³ÉJava¶ÔÏó£¬Ò²¿ÉÒÔ°ÑJava¶ÔÏó×ª»»ÎªĞĞ¼ÇÂ¼¡£
+è¿™ç§æŠŠå…³ç³»æ•°æ®åº“çš„è¡¨è®°å½•æ˜ å°„ä¸ºJavaå¯¹è±¡çš„è¿‡ç¨‹å°±æ˜¯ORMï¼šObject-Relational Mappingã€‚ORMæ—¢å¯ä»¥æŠŠè®°å½•è½¬æ¢æˆJavaå¯¹è±¡ï¼Œä¹Ÿå¯ä»¥æŠŠJavaå¯¹è±¡è½¬æ¢ä¸ºè¡Œè®°å½•ã€‚
 
-Ê¹ÓÃ`JdbcTemplate`ÅäºÏ`RowMapper`¿ÉÒÔ¿´×÷ÊÇ×îÔ­Ê¼µÄORM¡£Èç¹ûÒªÊµÏÖ¸ü×Ô¶¯»¯µÄORM£¬¿ÉÒÔÑ¡Ôñ³ÉÊìµÄORM¿ò¼Ü£¬ÀıÈç[Hibernate](https://hibernate.org/)¡£
+ä½¿ç”¨`JdbcTemplate`é…åˆ`RowMapper`å¯ä»¥çœ‹ä½œæ˜¯æœ€åŸå§‹çš„ORMã€‚å¦‚æœè¦å®ç°æ›´è‡ªåŠ¨åŒ–çš„ORMï¼Œå¯ä»¥é€‰æ‹©æˆç†Ÿçš„ORMæ¡†æ¶ï¼Œä¾‹å¦‚[Hibernate](https://hibernate.org/)ã€‚
 
-ÎÒÃÇÀ´¿´¿´ÈçºÎÔÚSpringÖĞ¼¯³ÉHibernate¡£
+æˆ‘ä»¬æ¥çœ‹çœ‹å¦‚ä½•åœ¨Springä¸­é›†æˆHibernateã€‚
 
-Hibernate×÷ÎªORM¿ò¼Ü£¬Ëü¿ÉÒÔÌæ´ú`JdbcTemplate`£¬µ«HibernateÈÔÈ»ĞèÒªJDBCÇı¶¯£¬ËùÒÔ£¬ÎÒÃÇĞèÒªÒıÈëJDBCÇı¶¯¡¢Á¬½Ó³Ø£¬ÒÔ¼°Hibernate±¾Éí¡£ÔÚMavenÖĞ£¬ÎÒÃÇ¼ÓÈëÒÔÏÂÒÀÀµÏî£º
+Hibernateä½œä¸ºORMæ¡†æ¶ï¼Œå®ƒå¯ä»¥æ›¿ä»£`JdbcTemplate`ï¼Œä½†Hibernateä»ç„¶éœ€è¦JDBCé©±åŠ¨ï¼Œæ‰€ä»¥ï¼Œæˆ‘ä»¬éœ€è¦å¼•å…¥JDBCé©±åŠ¨ã€è¿æ¥æ± ï¼Œä»¥åŠHibernateæœ¬èº«ã€‚åœ¨Mavenä¸­ï¼Œæˆ‘ä»¬åŠ å…¥ä»¥ä¸‹ä¾èµ–é¡¹ï¼š
 
 *   org.springframework:spring-context:6.0.0
 *   org.springframework:spring-orm:6.0.0
@@ -397,7 +397,7 @@ Hibernate×÷ÎªORM¿ò¼Ü£¬Ëü¿ÉÒÔÌæ´ú`JdbcTemplate`£¬µ«HibernateÈÔÈ»ĞèÒªJDBCÇı¶¯£¬ËùÒ
 *   com.zaxxer:HikariCP:5.0.1
 *   org.hsqldb:hsqldb:2.7.1
 
-ÔÚ`AppConfig`ÖĞ£¬ÎÒÃÇÈÔÈ»ĞèÒª´´½¨`DataSource`¡¢ÒıÈëJDBCÅäÖÃÎÄ¼ş£¬ÒÔ¼°ÆôÓÃÉùÃ÷Ê½ÊÂÎñ£º
+åœ¨`AppConfig`ä¸­ï¼Œæˆ‘ä»¬ä»ç„¶éœ€è¦åˆ›å»º`DataSource`ã€å¼•å…¥JDBCé…ç½®æ–‡ä»¶ï¼Œä»¥åŠå¯ç”¨å£°æ˜å¼äº‹åŠ¡ï¼š
 
 ```
 @Configuration
@@ -413,19 +413,19 @@ public class AppConfig {
 
 ```
 
-ÎªÁËÆôÓÃHibernate£¬ÎÒÃÇĞèÒª´´½¨Ò»¸ö`LocalSessionFactoryBean`£º
+ä¸ºäº†å¯ç”¨Hibernateï¼Œæˆ‘ä»¬éœ€è¦åˆ›å»ºä¸€ä¸ª`LocalSessionFactoryBean`ï¼š
 
 ```
 public class AppConfig {
     @Bean
     LocalSessionFactoryBean createSessionFactory(@Autowired DataSource dataSource) {
         var props = new Properties();
-        props.setProperty("hibernate.hbm2ddl.auto", "update"); // Éú²ú»·¾³²»ÒªÊ¹ÓÃ
+        props.setProperty("hibernate.hbm2ddl.auto", "update"); // ç”Ÿäº§ç¯å¢ƒä¸è¦ä½¿ç”¨
         props.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
         props.setProperty("hibernate.show_sql", "true");
         var sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource);
-        // É¨ÃèÖ¸¶¨µÄpackage»ñÈ¡ËùÓĞentity class:
+        // æ‰«ææŒ‡å®šçš„packageè·å–æ‰€æœ‰entity class:
         sessionFactoryBean.setPackagesToScan("com.itranswarp.learnjava.entity");
         sessionFactoryBean.setHibernateProperties(props);
         return sessionFactoryBean;
@@ -434,17 +434,17 @@ public class AppConfig {
 
 ```
 
-×¢ÒâÎÒÃÇÔÚ[¶¨ÖÆBean](https://www.liaoxuefeng.com/wiki/1252599548343744/1308043627200545)ÖĞ½²µ½¹ı`FactoryBean`£¬`LocalSessionFactoryBean`ÊÇÒ»¸ö`FactoryBean`£¬Ëü»áÔÙ×Ô¶¯´´½¨Ò»¸ö`SessionFactory`£¬ÔÚHibernateÖĞ£¬`Session`ÊÇ·â×°ÁËÒ»¸öJDBC `Connection`µÄÊµÀı£¬¶ø`SessionFactory`ÊÇ·â×°ÁËJDBC `DataSource`µÄÊµÀı£¬¼´`SessionFactory`³ÖÓĞÁ¬½Ó³Ø£¬Ã¿´ÎĞèÒª²Ù×÷Êı¾İ¿âµÄÊ±ºò£¬`SessionFactory`´´½¨Ò»¸öĞÂµÄ`Session`£¬Ïàµ±ÓÚ´ÓÁ¬½Ó³Ø»ñÈ¡µ½Ò»¸öĞÂµÄ`Connection`¡£`SessionFactory`¾ÍÊÇHibernateÌá¹©µÄ×îºËĞÄµÄÒ»¸ö¶ÔÏó£¬µ«`LocalSessionFactoryBean`ÊÇSpringÌá¹©µÄÎªÁËÈÃÎÒÃÇ·½±ã´´½¨`SessionFactory`µÄÀà¡£
+æ³¨æ„æˆ‘ä»¬åœ¨[å®šåˆ¶Bean](https://www.liaoxuefeng.com/wiki/1252599548343744/1308043627200545)ä¸­è®²åˆ°è¿‡`FactoryBean`ï¼Œ`LocalSessionFactoryBean`æ˜¯ä¸€ä¸ª`FactoryBean`ï¼Œå®ƒä¼šå†è‡ªåŠ¨åˆ›å»ºä¸€ä¸ª`SessionFactory`ï¼Œåœ¨Hibernateä¸­ï¼Œ`Session`æ˜¯å°è£…äº†ä¸€ä¸ªJDBC `Connection`çš„å®ä¾‹ï¼Œè€Œ`SessionFactory`æ˜¯å°è£…äº†JDBC `DataSource`çš„å®ä¾‹ï¼Œå³`SessionFactory`æŒæœ‰è¿æ¥æ± ï¼Œæ¯æ¬¡éœ€è¦æ“ä½œæ•°æ®åº“çš„æ—¶å€™ï¼Œ`SessionFactory`åˆ›å»ºä¸€ä¸ªæ–°çš„`Session`ï¼Œç›¸å½“äºä»è¿æ¥æ± è·å–åˆ°ä¸€ä¸ªæ–°çš„`Connection`ã€‚`SessionFactory`å°±æ˜¯Hibernateæä¾›çš„æœ€æ ¸å¿ƒçš„ä¸€ä¸ªå¯¹è±¡ï¼Œä½†`LocalSessionFactoryBean`æ˜¯Springæä¾›çš„ä¸ºäº†è®©æˆ‘ä»¬æ–¹ä¾¿åˆ›å»º`SessionFactory`çš„ç±»ã€‚
 
-×¢Òâµ½ÉÏÃæ´´½¨`LocalSessionFactoryBean`µÄ´úÂë£¬Ê×ÏÈÓÃ`Properties`³ÖÓĞHibernate³õÊ¼»¯`SessionFactory`Ê±ÓÃµ½µÄËùÓĞÉèÖÃ£¬³£ÓÃµÄÉèÖÃÇë²Î¿¼[HibernateÎÄµµ](https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#configurations)£¬ÕâÀïÎÒÃÇÖ»¶¨ÒåÁË3¸öÉèÖÃ£º
+æ³¨æ„åˆ°ä¸Šé¢åˆ›å»º`LocalSessionFactoryBean`çš„ä»£ç ï¼Œé¦–å…ˆç”¨`Properties`æŒæœ‰Hibernateåˆå§‹åŒ–`SessionFactory`æ—¶ç”¨åˆ°çš„æ‰€æœ‰è®¾ç½®ï¼Œå¸¸ç”¨çš„è®¾ç½®è¯·å‚è€ƒ[Hibernateæ–‡æ¡£](https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#configurations)ï¼Œè¿™é‡Œæˆ‘ä»¬åªå®šä¹‰äº†3ä¸ªè®¾ç½®ï¼š
 
-*   `hibernate.hbm2ddl.auto=update`£º±íÊ¾×Ô¶¯´´½¨Êı¾İ¿âµÄ±í½á¹¹£¬×¢Òâ²»ÒªÔÚÉú²ú»·¾³ÖĞÆôÓÃ£»
-*   `hibernate.dialect=org.hibernate.dialect.HSQLDialect`£ºÖ¸Ê¾HibernateÊ¹ÓÃµÄÊı¾İ¿âÊÇHSQLDB¡£HibernateÊ¹ÓÃÒ»ÖÖHQLµÄ²éÑ¯Óï¾ä£¬ËüºÍSQLÀàËÆ£¬µ«ÕæÕıÔÚ¡°·­Òë¡±³ÉSQLÊ±£¬»á¸ù¾İÉè¶¨µÄÊı¾İ¿â¡°·½ÑÔ¡±À´Éú³ÉÕë¶ÔÊı¾İ¿âÓÅ»¯µÄSQL£»
-*   `hibernate.show_sql=true`£ºÈÃHibernate´òÓ¡Ö´ĞĞµÄSQL£¬Õâ¶ÔÓÚµ÷ÊÔ·Ç³£ÓĞÓÃ£¬ÎÒÃÇ¿ÉÒÔ·½±ãµØ¿´µ½HibernateÉú³ÉµÄSQLÓï¾äÊÇ·ñ·ûºÏÎÒÃÇµÄÔ¤ÆÚ¡£
+*   `hibernate.hbm2ddl.auto=update`ï¼šè¡¨ç¤ºè‡ªåŠ¨åˆ›å»ºæ•°æ®åº“çš„è¡¨ç»“æ„ï¼Œæ³¨æ„ä¸è¦åœ¨ç”Ÿäº§ç¯å¢ƒä¸­å¯ç”¨ï¼›
+*   `hibernate.dialect=org.hibernate.dialect.HSQLDialect`ï¼šæŒ‡ç¤ºHibernateä½¿ç”¨çš„æ•°æ®åº“æ˜¯HSQLDBã€‚Hibernateä½¿ç”¨ä¸€ç§HQLçš„æŸ¥è¯¢è¯­å¥ï¼Œå®ƒå’ŒSQLç±»ä¼¼ï¼Œä½†çœŸæ­£åœ¨â€œç¿»è¯‘â€æˆSQLæ—¶ï¼Œä¼šæ ¹æ®è®¾å®šçš„æ•°æ®åº“â€œæ–¹è¨€â€æ¥ç”Ÿæˆé’ˆå¯¹æ•°æ®åº“ä¼˜åŒ–çš„SQLï¼›
+*   `hibernate.show_sql=true`ï¼šè®©Hibernateæ‰“å°æ‰§è¡Œçš„SQLï¼Œè¿™å¯¹äºè°ƒè¯•éå¸¸æœ‰ç”¨ï¼Œæˆ‘ä»¬å¯ä»¥æ–¹ä¾¿åœ°çœ‹åˆ°Hibernateç”Ÿæˆçš„SQLè¯­å¥æ˜¯å¦ç¬¦åˆæˆ‘ä»¬çš„é¢„æœŸã€‚
 
-³ıÁËÉèÖÃ`DataSource`ºÍ`Properties`Ö®Íâ£¬×¢Òâµ½`setPackagesToScan()`ÎÒÃÇ´«ÈëÁËÒ»¸ö`package`Ãû³Æ£¬ËüÖ¸Ê¾HibernateÉ¨ÃèÕâ¸ö°üÏÂÃæµÄËùÓĞJavaÀà£¬×Ô¶¯ÕÒ³öÄÜÓ³ÉäÎªÊı¾İ¿â±í¼ÇÂ¼µÄJavaBean¡£ºóÃæÎÒÃÇ»á×ĞÏ¸ÌÖÂÛÈçºÎ±àĞ´·ûºÏHibernateÒªÇóµÄJavaBean¡£
+é™¤äº†è®¾ç½®`DataSource`å’Œ`Properties`ä¹‹å¤–ï¼Œæ³¨æ„åˆ°`setPackagesToScan()`æˆ‘ä»¬ä¼ å…¥äº†ä¸€ä¸ª`package`åç§°ï¼Œå®ƒæŒ‡ç¤ºHibernateæ‰«æè¿™ä¸ªåŒ…ä¸‹é¢çš„æ‰€æœ‰Javaç±»ï¼Œè‡ªåŠ¨æ‰¾å‡ºèƒ½æ˜ å°„ä¸ºæ•°æ®åº“è¡¨è®°å½•çš„JavaBeanã€‚åé¢æˆ‘ä»¬ä¼šä»”ç»†è®¨è®ºå¦‚ä½•ç¼–å†™ç¬¦åˆHibernateè¦æ±‚çš„JavaBeanã€‚
 
-½ô½Ó×Å£¬ÎÒÃÇ»¹ĞèÒª´´½¨`HibernateTransactionManager`£º
+ç´§æ¥ç€ï¼Œæˆ‘ä»¬è¿˜éœ€è¦åˆ›å»º`HibernateTransactionManager`ï¼š
 
 ```
 public class AppConfig {
@@ -456,9 +456,9 @@ public class AppConfig {
 
 ```
 
-`HibernateTransactionManager`ÊÇÅäºÏHibernateÊ¹ÓÃÉùÃ÷Ê½ÊÂÎñËù±ØĞëµÄ¡£µ½´ËÎªÖ¹£¬ËùÓĞµÄÅäÖÃ¶¼¶¨ÒåÍê±Ï£¬ÎÒÃÇÀ´¿´¿´ÈçºÎ½«Êı¾İ¿â±í½á¹¹Ó³ÉäÎªJava¶ÔÏó¡£
+`HibernateTransactionManager`æ˜¯é…åˆHibernateä½¿ç”¨å£°æ˜å¼äº‹åŠ¡æ‰€å¿…é¡»çš„ã€‚åˆ°æ­¤ä¸ºæ­¢ï¼Œæ‰€æœ‰çš„é…ç½®éƒ½å®šä¹‰å®Œæ¯•ï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹å¦‚ä½•å°†æ•°æ®åº“è¡¨ç»“æ„æ˜ å°„ä¸ºJavaå¯¹è±¡ã€‚
 
-¿¼²ìÈçÏÂµÄÊı¾İ¿â±í£º
+è€ƒå¯Ÿå¦‚ä¸‹çš„æ•°æ®åº“è¡¨ï¼š
 
 ```
 CREATE TABLE user
@@ -473,7 +473,7 @@ CREATE TABLE user
 
 ```
 
-ÆäÖĞ£¬`id`ÊÇ×ÔÔöÖ÷¼ü£¬`email`¡¢`password`¡¢`name`ÊÇ`VARCHAR`ÀàĞÍ£¬`email`´øÎ¨Ò»Ë÷ÒıÒÔÈ·±£Î¨Ò»ĞÔ£¬`createdAt`´æ´¢ÕûĞÍÀàĞÍµÄÊ±¼ä´Á¡£ÓÃJavaBean±íÊ¾ÈçÏÂ£º
+å…¶ä¸­ï¼Œ`id`æ˜¯è‡ªå¢ä¸»é”®ï¼Œ`email`ã€`password`ã€`name`æ˜¯`VARCHAR`ç±»å‹ï¼Œ`email`å¸¦å”¯ä¸€ç´¢å¼•ä»¥ç¡®ä¿å”¯ä¸€æ€§ï¼Œ`createdAt`å­˜å‚¨æ•´å‹ç±»å‹çš„æ—¶é—´æˆ³ã€‚ç”¨JavaBeanè¡¨ç¤ºå¦‚ä¸‹ï¼š
 
 ```
 public class User {
@@ -489,7 +489,7 @@ public class User {
 
 ```
 
-ÕâÖÖÓ³Éä¹ØÏµÊ®·ÖÒ×¶®£¬µ«ÎÒÃÇĞèÒªÌí¼ÓÒ»Ğ©×¢½âÀ´¸æËßHibernateÈçºÎ°Ñ`User`ÀàÓ³Éäµ½±í¼ÇÂ¼£º
+è¿™ç§æ˜ å°„å…³ç³»ååˆ†æ˜“æ‡‚ï¼Œä½†æˆ‘ä»¬éœ€è¦æ·»åŠ ä¸€äº›æ³¨è§£æ¥å‘Šè¯‰Hibernateå¦‚ä½•æŠŠ`User`ç±»æ˜ å°„åˆ°è¡¨è®°å½•ï¼š
 
 ```
 @Entity
@@ -514,7 +514,7 @@ public class User {
 
 ```
 
-Èç¹ûÒ»¸öJavaBean±»ÓÃÓÚÓ³Éä£¬ÎÒÃÇ¾Í±ê¼ÇÒ»¸ö`@Entity`¡£Ä¬ÈÏÇé¿öÏÂ£¬Ó³ÉäµÄ±íÃûÊÇ`user`£¬Èç¹ûÊµ¼ÊµÄ±íÃû²»Í¬£¬ÀıÈçÊµ¼Ê±íÃûÊÇ`users`£¬¿ÉÒÔ×·¼ÓÒ»¸ö`@Table(name="users")`±íÊ¾£º
+å¦‚æœä¸€ä¸ªJavaBeanè¢«ç”¨äºæ˜ å°„ï¼Œæˆ‘ä»¬å°±æ ‡è®°ä¸€ä¸ª`@Entity`ã€‚é»˜è®¤æƒ…å†µä¸‹ï¼Œæ˜ å°„çš„è¡¨åæ˜¯`user`ï¼Œå¦‚æœå®é™…çš„è¡¨åä¸åŒï¼Œä¾‹å¦‚å®é™…è¡¨åæ˜¯`users`ï¼Œå¯ä»¥è¿½åŠ ä¸€ä¸ª`@Table(name="users")`è¡¨ç¤ºï¼š
 
 ```
 @Entity
@@ -525,17 +525,17 @@ public class User {
 
 ```
 
-Ã¿¸öÊôĞÔµ½Êı¾İ¿âÁĞµÄÓ³ÉäÓÃ`@Column()`±êÊ¶£¬`nullable`Ö¸Ê¾ÁĞÊÇ·ñÔÊĞíÎª`NULL`£¬`updatable`Ö¸Ê¾¸ÃÁĞÊÇ·ñÔÊĞí±»ÓÃÔÚ`UPDATE`Óï¾ä£¬`length`Ö¸Ê¾`String`ÀàĞÍµÄÁĞµÄ³¤¶È£¨Èç¹ûÃ»ÓĞÖ¸¶¨£¬Ä¬ÈÏÊÇ`255`£©¡£
+æ¯ä¸ªå±æ€§åˆ°æ•°æ®åº“åˆ—çš„æ˜ å°„ç”¨`@Column()`æ ‡è¯†ï¼Œ`nullable`æŒ‡ç¤ºåˆ—æ˜¯å¦å…è®¸ä¸º`NULL`ï¼Œ`updatable`æŒ‡ç¤ºè¯¥åˆ—æ˜¯å¦å…è®¸è¢«ç”¨åœ¨`UPDATE`è¯­å¥ï¼Œ`length`æŒ‡ç¤º`String`ç±»å‹çš„åˆ—çš„é•¿åº¦ï¼ˆå¦‚æœæ²¡æœ‰æŒ‡å®šï¼Œé»˜è®¤æ˜¯`255`ï¼‰ã€‚
 
-¶ÔÓÚÖ÷¼ü£¬»¹ĞèÒªÓÃ`@Id`±êÊ¶£¬×ÔÔöÖ÷¼üÔÙ×·¼ÓÒ»¸ö`@GeneratedValue`£¬ÒÔ±ãHibernateÄÜ¶ÁÈ¡µ½×ÔÔöÖ÷¼üµÄÖµ¡£
+å¯¹äºä¸»é”®ï¼Œè¿˜éœ€è¦ç”¨`@Id`æ ‡è¯†ï¼Œè‡ªå¢ä¸»é”®å†è¿½åŠ ä¸€ä¸ª`@GeneratedValue`ï¼Œä»¥ä¾¿Hibernateèƒ½è¯»å–åˆ°è‡ªå¢ä¸»é”®çš„å€¼ã€‚
 
-Ï¸ĞÄµÄÍ¯Ğ¬¿ÉÄÜ»¹×¢Òâµ½£¬Ö÷¼ü`id`¶¨ÒåµÄÀàĞÍ²»ÊÇ`long`£¬¶øÊÇ`Long`¡£ÕâÊÇÒòÎªHibernateÈç¹û¼ì²âµ½Ö÷¼üÎª`null`£¬¾Í²»»áÔÚ`INSERT`Óï¾äÖĞÖ¸¶¨Ö÷¼üµÄÖµ£¬¶øÊÇ·µ»ØÓÉÊı¾İ¿âÉú³ÉµÄ×ÔÔöÖµ£¬·ñÔò£¬HibernateÈÏÎªÎÒÃÇµÄ³ÌĞòÖ¸¶¨ÁËÖ÷¼üµÄÖµ£¬»áÔÚ`INSERT`Óï¾äÖĞÖ±½ÓÁĞ³ö¡£`long`ĞÍ×Ö¶Î×ÜÊÇ¾ßÓĞÄ¬ÈÏÖµ`0`£¬Òò´Ë£¬Ã¿´Î²åÈëµÄÖ÷¼üÖµ×ÜÊÇ0£¬µ¼ÖÂ³ıµÚÒ»´ÎÍâºóĞø²åÈë¶¼½«Ê§°Ü¡£
+ç»†å¿ƒçš„ç«¥é‹å¯èƒ½è¿˜æ³¨æ„åˆ°ï¼Œä¸»é”®`id`å®šä¹‰çš„ç±»å‹ä¸æ˜¯`long`ï¼Œè€Œæ˜¯`Long`ã€‚è¿™æ˜¯å› ä¸ºHibernateå¦‚æœæ£€æµ‹åˆ°ä¸»é”®ä¸º`null`ï¼Œå°±ä¸ä¼šåœ¨`INSERT`è¯­å¥ä¸­æŒ‡å®šä¸»é”®çš„å€¼ï¼Œè€Œæ˜¯è¿”å›ç”±æ•°æ®åº“ç”Ÿæˆçš„è‡ªå¢å€¼ï¼Œå¦åˆ™ï¼ŒHibernateè®¤ä¸ºæˆ‘ä»¬çš„ç¨‹åºæŒ‡å®šäº†ä¸»é”®çš„å€¼ï¼Œä¼šåœ¨`INSERT`è¯­å¥ä¸­ç›´æ¥åˆ—å‡ºã€‚`long`å‹å­—æ®µæ€»æ˜¯å…·æœ‰é»˜è®¤å€¼`0`ï¼Œå› æ­¤ï¼Œæ¯æ¬¡æ’å…¥çš„ä¸»é”®å€¼æ€»æ˜¯0ï¼Œå¯¼è‡´é™¤ç¬¬ä¸€æ¬¡å¤–åç»­æ’å…¥éƒ½å°†å¤±è´¥ã€‚
 
-`createdAt`ËäÈ»ÊÇÕûĞÍ£¬µ«ÎÒÃÇ²¢Ã»ÓĞÊ¹ÓÃ`long`£¬¶øÊÇ`Long`£¬ÕâÊÇÒòÎªÊ¹ÓÃ»ù±¾ÀàĞÍ»áµ¼ÖÂfindByExample²éÑ¯»áÌí¼ÓÒâÍâµÄÌõ¼ş£¬ÕâÀïÖ»ĞèÀÎ¼Ç£¬×÷ÎªÓ³ÉäÊ¹ÓÃµÄJavaBean£¬ËùÓĞÊôĞÔ¶¼Ê¹ÓÃ°ü×°ÀàĞÍ¶ø²»ÊÇ»ù±¾ÀàĞÍ¡£
+`createdAt`è™½ç„¶æ˜¯æ•´å‹ï¼Œä½†æˆ‘ä»¬å¹¶æ²¡æœ‰ä½¿ç”¨`long`ï¼Œè€Œæ˜¯`Long`ï¼Œè¿™æ˜¯å› ä¸ºä½¿ç”¨åŸºæœ¬ç±»å‹ä¼šå¯¼è‡´findByExampleæŸ¥è¯¢ä¼šæ·»åŠ æ„å¤–çš„æ¡ä»¶ï¼Œè¿™é‡Œåªéœ€ç‰¢è®°ï¼Œä½œä¸ºæ˜ å°„ä½¿ç”¨çš„JavaBeanï¼Œæ‰€æœ‰å±æ€§éƒ½ä½¿ç”¨åŒ…è£…ç±»å‹è€Œä¸æ˜¯åŸºæœ¬ç±»å‹ã€‚
 
-Ê¹ÓÃHibernateÊ±£¬²»ÒªÊ¹ÓÃ»ù±¾ÀàĞÍµÄÊôĞÔ£¬×ÜÊÇÊ¹ÓÃ°ü×°ÀàĞÍ£¬ÈçLong»òInteger¡£
+ä½¿ç”¨Hibernateæ—¶ï¼Œä¸è¦ä½¿ç”¨åŸºæœ¬ç±»å‹çš„å±æ€§ï¼Œæ€»æ˜¯ä½¿ç”¨åŒ…è£…ç±»å‹ï¼Œå¦‚Longæˆ–Integerã€‚
 
-ÀàËÆµÄ£¬ÎÒÃÇÔÙ¶¨ÒåÒ»¸ö`Book`Àà£º
+ç±»ä¼¼çš„ï¼Œæˆ‘ä»¬å†å®šä¹‰ä¸€ä¸ª`Book`ç±»ï¼š
 
 ```
 @Entity
@@ -554,9 +554,9 @@ public class Book {
 
 ```
 
-Èç¹û×ĞÏ¸¹Û²ì`User`ºÍ`Book`£¬»á·¢ÏÖËüÃÇ¶¨ÒåµÄ`id`¡¢`createdAt`ÊôĞÔÊÇÒ»ÑùµÄ£¬ÕâÔÚÊı¾İ¿â±í½á¹¹µÄÉè¼ÆÖĞºÜ³£¼û£º¶ÔÓÚÃ¿¸ö±í£¬Í¨³£ÎÒÃÇ»áÍ³Ò»Ê¹ÓÃÒ»ÖÖÖ÷¼üÉú³É»úÖÆ£¬²¢Ìí¼Ó`createdAt`±íÊ¾´´½¨Ê±¼ä£¬`updatedAt`±íÊ¾ĞŞ¸ÄÊ±¼äµÈÍ¨ÓÃ×Ö¶Î¡£
+å¦‚æœä»”ç»†è§‚å¯Ÿ`User`å’Œ`Book`ï¼Œä¼šå‘ç°å®ƒä»¬å®šä¹‰çš„`id`ã€`createdAt`å±æ€§æ˜¯ä¸€æ ·çš„ï¼Œè¿™åœ¨æ•°æ®åº“è¡¨ç»“æ„çš„è®¾è®¡ä¸­å¾ˆå¸¸è§ï¼šå¯¹äºæ¯ä¸ªè¡¨ï¼Œé€šå¸¸æˆ‘ä»¬ä¼šç»Ÿä¸€ä½¿ç”¨ä¸€ç§ä¸»é”®ç”Ÿæˆæœºåˆ¶ï¼Œå¹¶æ·»åŠ `createdAt`è¡¨ç¤ºåˆ›å»ºæ—¶é—´ï¼Œ`updatedAt`è¡¨ç¤ºä¿®æ”¹æ—¶é—´ç­‰é€šç”¨å­—æ®µã€‚
 
-²»±ØÔÚ`User`ºÍ`Book`ÖĞÖØ¸´¶¨ÒåÕâĞ©Í¨ÓÃ×Ö¶Î£¬ÎÒÃÇ¿ÉÒÔ°ÑËüÃÇÌáµ½Ò»¸ö³éÏóÀàÖĞ£º
+ä¸å¿…åœ¨`User`å’Œ`Book`ä¸­é‡å¤å®šä¹‰è¿™äº›é€šç”¨å­—æ®µï¼Œæˆ‘ä»¬å¯ä»¥æŠŠå®ƒä»¬æåˆ°ä¸€ä¸ªæŠ½è±¡ç±»ä¸­ï¼š
 
 ```
 @MappedSuperclass
@@ -586,11 +586,11 @@ public abstract class AbstractEntity {
 
 ```
 
-¶ÔÓÚ`AbstractEntity`À´Ëµ£¬ÎÒÃÇÒª±ê×¢Ò»¸ö`@MappedSuperclass`±íÊ¾ËüÓÃÓÚ¼Ì³Ğ¡£´ËÍâ£¬×¢Òâµ½ÎÒÃÇ¶¨ÒåÁËÒ»¸ö`@Transient`·½·¨£¬Ëü·µ»ØÒ»¸ö¡°ĞéÄâ¡±µÄÊôĞÔ¡£ÒòÎª`getCreatedDateTime()`ÊÇ¼ÆËãµÃ³öµÄÊôĞÔ£¬¶ø²»ÊÇ´ÓÊı¾İ¿â±í¶Á³öµÄÖµ£¬Òò´Ë±ØĞëÒª±ê×¢`@Transient`£¬·ñÔòHibernate»á³¢ÊÔ´ÓÊı¾İ¿â¶ÁÈ¡ÃûÎª`createdDateTime`Õâ¸ö²»´æÔÚµÄ×Ö¶Î´Ó¶ø³ö´í¡£
+å¯¹äº`AbstractEntity`æ¥è¯´ï¼Œæˆ‘ä»¬è¦æ ‡æ³¨ä¸€ä¸ª`@MappedSuperclass`è¡¨ç¤ºå®ƒç”¨äºç»§æ‰¿ã€‚æ­¤å¤–ï¼Œæ³¨æ„åˆ°æˆ‘ä»¬å®šä¹‰äº†ä¸€ä¸ª`@Transient`æ–¹æ³•ï¼Œå®ƒè¿”å›ä¸€ä¸ªâ€œè™šæ‹Ÿâ€çš„å±æ€§ã€‚å› ä¸º`getCreatedDateTime()`æ˜¯è®¡ç®—å¾—å‡ºçš„å±æ€§ï¼Œè€Œä¸æ˜¯ä»æ•°æ®åº“è¡¨è¯»å‡ºçš„å€¼ï¼Œå› æ­¤å¿…é¡»è¦æ ‡æ³¨`@Transient`ï¼Œå¦åˆ™Hibernateä¼šå°è¯•ä»æ•°æ®åº“è¯»å–åä¸º`createdDateTime`è¿™ä¸ªä¸å­˜åœ¨çš„å­—æ®µä»è€Œå‡ºé”™ã€‚
 
-ÔÙ×¢Òâµ½`@PrePersist`±êÊ¶µÄ·½·¨£¬Ëü±íÊ¾ÔÚÎÒÃÇ½«Ò»¸öJavaBean³Ö¾Ã»¯µ½Êı¾İ¿âÖ®Ç°£¨¼´Ö´ĞĞINSERTÓï¾ä£©£¬Hibernate»áÏÈÖ´ĞĞ¸Ã·½·¨£¬ÕâÑùÎÒÃÇ¾Í¿ÉÒÔ×Ô¶¯ÉèÖÃºÃ`createdAt`ÊôĞÔ¡£
+å†æ³¨æ„åˆ°`@PrePersist`æ ‡è¯†çš„æ–¹æ³•ï¼Œå®ƒè¡¨ç¤ºåœ¨æˆ‘ä»¬å°†ä¸€ä¸ªJavaBeanæŒä¹…åŒ–åˆ°æ•°æ®åº“ä¹‹å‰ï¼ˆå³æ‰§è¡ŒINSERTè¯­å¥ï¼‰ï¼ŒHibernateä¼šå…ˆæ‰§è¡Œè¯¥æ–¹æ³•ï¼Œè¿™æ ·æˆ‘ä»¬å°±å¯ä»¥è‡ªåŠ¨è®¾ç½®å¥½`createdAt`å±æ€§ã€‚
 
-ÓĞÁË`AbstractEntity`£¬ÎÒÃÇ¾Í¿ÉÒÔ´ó·ù¼ò»¯`User`ºÍ`Book`£º
+æœ‰äº†`AbstractEntity`ï¼Œæˆ‘ä»¬å°±å¯ä»¥å¤§å¹…ç®€åŒ–`User`å’Œ`Book`ï¼š
 
 ```
 @Entity
@@ -608,13 +608,13 @@ public class User extends AbstractEntity {
 
 ```
 
-×¢Òâµ½Ê¹ÓÃµÄËùÓĞ×¢½â¾ùÀ´×Ô`jakarta.persistence`£¬ËüÊÇJPA¹æ·¶µÄÒ»²¿·Ö¡£ÕâÀïÎÒÃÇÖ»½éÉÜÊ¹ÓÃ×¢½âµÄ·½Ê½ÅäÖÃHibernateÓ³Éä¹ØÏµ£¬²»ÔÙ½éÉÜ´«Í³µÄ±È½Ï·±ËöµÄXMLÅäÖÃ¡£Í¨¹ıSpring¼¯³ÉHibernateÊ±£¬Ò²²»ÔÙĞèÒª`hibernate.cfg.xml`ÅäÖÃÎÄ¼ş£¬ÓÃÒ»¾ä»°×Ü½á£º
+æ³¨æ„åˆ°ä½¿ç”¨çš„æ‰€æœ‰æ³¨è§£å‡æ¥è‡ª`jakarta.persistence`ï¼Œå®ƒæ˜¯JPAè§„èŒƒçš„ä¸€éƒ¨åˆ†ã€‚è¿™é‡Œæˆ‘ä»¬åªä»‹ç»ä½¿ç”¨æ³¨è§£çš„æ–¹å¼é…ç½®Hibernateæ˜ å°„å…³ç³»ï¼Œä¸å†ä»‹ç»ä¼ ç»Ÿçš„æ¯”è¾ƒç¹ççš„XMLé…ç½®ã€‚é€šè¿‡Springé›†æˆHibernateæ—¶ï¼Œä¹Ÿä¸å†éœ€è¦`hibernate.cfg.xml`é…ç½®æ–‡ä»¶ï¼Œç”¨ä¸€å¥è¯æ€»ç»“ï¼š
 
-Ê¹ÓÃSpring¼¯³ÉHibernate£¬ÅäºÏJPA×¢½â£¬ÎŞĞèÈÎºÎ¶îÍâµÄXMLÅäÖÃ¡£
+ä½¿ç”¨Springé›†æˆHibernateï¼Œé…åˆJPAæ³¨è§£ï¼Œæ— éœ€ä»»ä½•é¢å¤–çš„XMLé…ç½®ã€‚
 
-ÀàËÆ`User`¡¢`Book`ÕâÑùµÄÓÃÓÚORMµÄJava Bean£¬ÎÒÃÇÍ¨³£³ÆÖ®ÎªEntity Bean¡£
+ç±»ä¼¼`User`ã€`Book`è¿™æ ·çš„ç”¨äºORMçš„Java Beanï¼Œæˆ‘ä»¬é€šå¸¸ç§°ä¹‹ä¸ºEntity Beanã€‚
 
-×îºó£¬ÎÒÃÇÀ´¿´¿´Èç¹û¶Ô`user`±í½øĞĞÔöÉ¾¸Ä²é¡£ÒòÎªÊ¹ÓÃÁËHibernate£¬Òò´Ë£¬ÎÒÃÇÒª×öµÄ£¬Êµ¼ÊÉÏÊÇ¶Ô`User`Õâ¸öJavaBean½øĞĞ¡°ÔöÉ¾¸Ä²é¡±¡£ÎÒÃÇ±àĞ´Ò»¸ö`UserService`£¬×¢Èë`SessionFactory`£º
+æœ€åï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹å¦‚æœå¯¹`user`è¡¨è¿›è¡Œå¢åˆ æ”¹æŸ¥ã€‚å› ä¸ºä½¿ç”¨äº†Hibernateï¼Œå› æ­¤ï¼Œæˆ‘ä»¬è¦åšçš„ï¼Œå®é™…ä¸Šæ˜¯å¯¹`User`è¿™ä¸ªJavaBeanè¿›è¡Œâ€œå¢åˆ æ”¹æŸ¥â€ã€‚æˆ‘ä»¬ç¼–å†™ä¸€ä¸ª`UserService`ï¼Œæ³¨å…¥`SessionFactory`ï¼š
 
 ```
 @Component
@@ -626,31 +626,31 @@ public class UserService {
 
 ```
 
-### Insert²Ù×÷
+### Insertæ“ä½œ
 
-Òª³Ö¾Ã»¯Ò»¸ö`User`ÊµÀı£¬ÎÒÃÇÖ»Ğèµ÷ÓÃ`persist()`·½·¨¡£ÒÔ`register()`·½·¨ÎªÀı£¬´úÂëÈçÏÂ£º
+è¦æŒä¹…åŒ–ä¸€ä¸ª`User`å®ä¾‹ï¼Œæˆ‘ä»¬åªéœ€è°ƒç”¨`persist()`æ–¹æ³•ã€‚ä»¥`register()`æ–¹æ³•ä¸ºä¾‹ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public User register(String email, String password, String name) {
-    // ´´½¨Ò»¸öUser¶ÔÏó:
+    // åˆ›å»ºä¸€ä¸ªUserå¯¹è±¡:
     User user = new User();
-    // ÉèÖÃºÃ¸÷¸öÊôĞÔ:
+    // è®¾ç½®å¥½å„ä¸ªå±æ€§:
     user.setEmail(email);
     user.setPassword(password);
     user.setName(name);
-    // ²»ÒªÉèÖÃid£¬ÒòÎªÊ¹ÓÃÁË×ÔÔöÖ÷¼ü
-    // ±£´æµ½Êı¾İ¿â:
+    // ä¸è¦è®¾ç½®idï¼Œå› ä¸ºä½¿ç”¨äº†è‡ªå¢ä¸»é”®
+    // ä¿å­˜åˆ°æ•°æ®åº“:
     sessionFactory.getCurrentSession().persist(user);
-    // ÏÖÔÚÒÑ¾­×Ô¶¯»ñµÃÁËid:
+    // ç°åœ¨å·²ç»è‡ªåŠ¨è·å¾—äº†id:
     System.out.println(user.getId());
     return user;
 }
 
 ```
 
-### Delete²Ù×÷
+### Deleteæ“ä½œ
 
-É¾³ıÒ»¸ö`User`Ïàµ±ÓÚ´Ó±íÖĞÉ¾³ı¶ÔÓ¦µÄ¼ÇÂ¼¡£×¢ÒâHibernate×ÜÊÇÓÃ`id`À´É¾³ı¼ÇÂ¼£¬Òò´Ë£¬ÒªÕıÈ·ÉèÖÃ`User`µÄ`id`ÊôĞÔ²ÅÄÜÕı³£É¾³ı¼ÇÂ¼£º
+åˆ é™¤ä¸€ä¸ª`User`ç›¸å½“äºä»è¡¨ä¸­åˆ é™¤å¯¹åº”çš„è®°å½•ã€‚æ³¨æ„Hibernateæ€»æ˜¯ç”¨`id`æ¥åˆ é™¤è®°å½•ï¼Œå› æ­¤ï¼Œè¦æ­£ç¡®è®¾ç½®`User`çš„`id`å±æ€§æ‰èƒ½æ­£å¸¸åˆ é™¤è®°å½•ï¼š
 
 ```
 public boolean deleteUser(Long id) {
@@ -664,11 +664,11 @@ public boolean deleteUser(Long id) {
 
 ```
 
-Í¨¹ıÖ÷¼üÉ¾³ı¼ÇÂ¼Ê±£¬Ò»¸ö³£¼ûµÄÓÃ·¨ÊÇÏÈ¸ù¾İÖ÷¼ü¼ÓÔØ¸Ã¼ÇÂ¼£¬ÔÙÉ¾³ı¡£×¢Òâµ½µ±¼ÇÂ¼²»´æÔÚÊ±£¬`load()`·µ»Ø`null`¡£
+é€šè¿‡ä¸»é”®åˆ é™¤è®°å½•æ—¶ï¼Œä¸€ä¸ªå¸¸è§çš„ç”¨æ³•æ˜¯å…ˆæ ¹æ®ä¸»é”®åŠ è½½è¯¥è®°å½•ï¼Œå†åˆ é™¤ã€‚æ³¨æ„åˆ°å½“è®°å½•ä¸å­˜åœ¨æ—¶ï¼Œ`load()`è¿”å›`null`ã€‚
 
-### Update²Ù×÷
+### Updateæ“ä½œ
 
-¸üĞÂ¼ÇÂ¼Ïàµ±ÓÚÏÈ¸üĞÂ`User`µÄÖ¸¶¨ÊôĞÔ£¬È»ºóµ÷ÓÃ`merge()`·½·¨£º
+æ›´æ–°è®°å½•ç›¸å½“äºå…ˆæ›´æ–°`User`çš„æŒ‡å®šå±æ€§ï¼Œç„¶åè°ƒç”¨`merge()`æ–¹æ³•ï¼š
 
 ```
 public void updateUser(Long id, String name) {
@@ -679,20 +679,20 @@ public void updateUser(Long id, String name) {
 
 ```
 
-Ç°ÃæÎÒÃÇÔÚ¶¨Òå`User`Ê±£¬¶ÔÓĞµÄÊôĞÔ±ê×¢ÁË`@Column(updatable=false)`¡£HibernateÔÚ¸üĞÂ¼ÇÂ¼Ê±£¬ËüÖ»»á°Ñ`@Column(updatable=true)`µÄÊôĞÔ¼ÓÈëµ½`UPDATE`Óï¾äÖĞ£¬ÕâÑù¿ÉÒÔÌá¹©Ò»²ã¶îÍâµÄ°²È«ĞÔ£¬¼´Èç¹û²»Ğ¡ĞÄĞŞ¸ÄÁË`User`µÄ`email`¡¢`createdAt`µÈÊôĞÔ£¬Ö´ĞĞ`update()`Ê±²¢²»»á¸üĞÂ¶ÔÓ¦µÄÊı¾İ¿âÁĞ¡£µ«Ò²±ØĞëÀÎ¼Ç£ºÕâ¸ö¹¦ÄÜÊÇHibernateÌá¹©µÄ£¬Èç¹ûÈÆ¹ıHibernateÖ±½ÓÍ¨¹ıJDBCÖ´ĞĞ`UPDATE`Óï¾äÈÔÈ»¿ÉÒÔ¸üĞÂÊı¾İ¿âµÄÈÎÒâÁĞµÄÖµ¡£
+å‰é¢æˆ‘ä»¬åœ¨å®šä¹‰`User`æ—¶ï¼Œå¯¹æœ‰çš„å±æ€§æ ‡æ³¨äº†`@Column(updatable=false)`ã€‚Hibernateåœ¨æ›´æ–°è®°å½•æ—¶ï¼Œå®ƒåªä¼šæŠŠ`@Column(updatable=true)`çš„å±æ€§åŠ å…¥åˆ°`UPDATE`è¯­å¥ä¸­ï¼Œè¿™æ ·å¯ä»¥æä¾›ä¸€å±‚é¢å¤–çš„å®‰å…¨æ€§ï¼Œå³å¦‚æœä¸å°å¿ƒä¿®æ”¹äº†`User`çš„`email`ã€`createdAt`ç­‰å±æ€§ï¼Œæ‰§è¡Œ`update()`æ—¶å¹¶ä¸ä¼šæ›´æ–°å¯¹åº”çš„æ•°æ®åº“åˆ—ã€‚ä½†ä¹Ÿå¿…é¡»ç‰¢è®°ï¼šè¿™ä¸ªåŠŸèƒ½æ˜¯Hibernateæä¾›çš„ï¼Œå¦‚æœç»•è¿‡Hibernateç›´æ¥é€šè¿‡JDBCæ‰§è¡Œ`UPDATE`è¯­å¥ä»ç„¶å¯ä»¥æ›´æ–°æ•°æ®åº“çš„ä»»æ„åˆ—çš„å€¼ã€‚
 
-×îºó£¬ÎÒÃÇ±àĞ´µÄ´ó²¿·Ö·½·¨¶¼ÊÇ¸÷ÖÖ¸÷ÑùµÄ²éÑ¯¡£¸ù¾İ`id`²éÑ¯ÎÒÃÇ¿ÉÒÔÖ±½Óµ÷ÓÃ`load()`£¬Èç¹ûÒªÊ¹ÓÃÌõ¼ş²éÑ¯£¬ÀıÈç£¬¼ÙÉèÎÒÃÇÏëÖ´ĞĞÒÔÏÂ²éÑ¯£º
+æœ€åï¼Œæˆ‘ä»¬ç¼–å†™çš„å¤§éƒ¨åˆ†æ–¹æ³•éƒ½æ˜¯å„ç§å„æ ·çš„æŸ¥è¯¢ã€‚æ ¹æ®`id`æŸ¥è¯¢æˆ‘ä»¬å¯ä»¥ç›´æ¥è°ƒç”¨`load()`ï¼Œå¦‚æœè¦ä½¿ç”¨æ¡ä»¶æŸ¥è¯¢ï¼Œä¾‹å¦‚ï¼Œå‡è®¾æˆ‘ä»¬æƒ³æ‰§è¡Œä»¥ä¸‹æŸ¥è¯¢ï¼š
 
 ```
 SELECT * FROM user WHERE email = ? AND password = ?
 
 ```
 
-ÎÒÃÇÀ´¿´¿´¿ÉÒÔÊ¹ÓÃÊ²Ã´²éÑ¯¡£
+æˆ‘ä»¬æ¥çœ‹çœ‹å¯ä»¥ä½¿ç”¨ä»€ä¹ˆæŸ¥è¯¢ã€‚
 
-### Ê¹ÓÃHQL²éÑ¯
+### ä½¿ç”¨HQLæŸ¥è¯¢
 
-Ò»ÖÖ³£ÓÃµÄ²éÑ¯ÊÇÖ±½Ó±àĞ´HibernateÄÚÖÃµÄHQL²éÑ¯£º
+ä¸€ç§å¸¸ç”¨çš„æŸ¥è¯¢æ˜¯ç›´æ¥ç¼–å†™Hibernateå†…ç½®çš„HQLæŸ¥è¯¢ï¼š
 
 ```
 List<User> list = sessionFactory.getCurrentSession()
@@ -702,16 +702,16 @@ List<User> list = sessionFactory.getCurrentSession()
 
 ```
 
-ºÍSQLÏà±È£¬HQLÊ¹ÓÃÀàÃûºÍÊôĞÔÃû£¬ÓÉHibernate×Ô¶¯×ª»»ÎªÊµ¼ÊµÄ±íÃûºÍÁĞÃû¡£ÏêÏ¸µÄHQLÓï·¨¿ÉÒÔ²Î¿¼[HibernateÎÄµµ](https://docs.jboss.org/hibernate/orm/6.1/userguide/html_single/Hibernate_User_Guide.html#query-language)¡£
+å’ŒSQLç›¸æ¯”ï¼ŒHQLä½¿ç”¨ç±»åå’Œå±æ€§åï¼Œç”±Hibernateè‡ªåŠ¨è½¬æ¢ä¸ºå®é™…çš„è¡¨åå’Œåˆ—åã€‚è¯¦ç»†çš„HQLè¯­æ³•å¯ä»¥å‚è€ƒ[Hibernateæ–‡æ¡£](https://docs.jboss.org/hibernate/orm/6.1/userguide/html_single/Hibernate_User_Guide.html#query-language)ã€‚
 
-³ıÁË¿ÉÒÔÖ±½Ó´«ÈëHQL×Ö·û´®Íâ£¬Hibernate»¹¿ÉÒÔÊ¹ÓÃÒ»ÖÖ`NamedQuery`£¬Ëü¸ø²éÑ¯Æğ¸öÃû×Ö£¬È»ºó±£´æÔÚ×¢½âÖĞ¡£Ê¹ÓÃ`NamedQuery`Ê±£¬ÎÒÃÇÒªÏÈÔÚ`User`Àà±ê×¢£º
+é™¤äº†å¯ä»¥ç›´æ¥ä¼ å…¥HQLå­—ç¬¦ä¸²å¤–ï¼ŒHibernateè¿˜å¯ä»¥ä½¿ç”¨ä¸€ç§`NamedQuery`ï¼Œå®ƒç»™æŸ¥è¯¢èµ·ä¸ªåå­—ï¼Œç„¶åä¿å­˜åœ¨æ³¨è§£ä¸­ã€‚ä½¿ç”¨`NamedQuery`æ—¶ï¼Œæˆ‘ä»¬è¦å…ˆåœ¨`User`ç±»æ ‡æ³¨ï¼š
 
 ```
 @NamedQueries(
     @NamedQuery(
-        // ²éÑ¯Ãû³Æ:
+        // æŸ¥è¯¢åç§°:
         name = "login",
-        // ²éÑ¯Óï¾ä:
+        // æŸ¥è¯¢è¯­å¥:
         query = "SELECT u FROM User u WHERE u.email = :e AND u.password = :pwd"
     )
 )
@@ -722,33 +722,33 @@ public class User extends AbstractEntity {
 
 ```
 
-×¢Òâµ½ÒıÈëµÄ`NamedQuery`ÊÇ`jakarta.persistence.NamedQuery`£¬ËüºÍÖ±½Ó´«ÈëHQLÓĞµã²»Í¬µÄÊÇ£¬Õ¼Î»·ûÊ¹ÓÃ`:e`ºÍ`:pwd`¡£
+æ³¨æ„åˆ°å¼•å…¥çš„`NamedQuery`æ˜¯`jakarta.persistence.NamedQuery`ï¼Œå®ƒå’Œç›´æ¥ä¼ å…¥HQLæœ‰ç‚¹ä¸åŒçš„æ˜¯ï¼Œå ä½ç¬¦ä½¿ç”¨`:e`å’Œ`:pwd`ã€‚
 
-Ê¹ÓÃ`NamedQuery`Ö»ĞèÒªÒıÈë²éÑ¯ÃûºÍ²ÎÊı£º
+ä½¿ç”¨`NamedQuery`åªéœ€è¦å¼•å…¥æŸ¥è¯¢åå’Œå‚æ•°ï¼š
 
 ```
 public User login(String email, String password) {
     List<User> list = sessionFactory.getCurrentSession()
-        .createNamedQuery("login", User.class) // ´´½¨NamedQuery
-        .setParameter("e", email) // °ó¶¨e²ÎÊı
-        .setParameter("pwd", password) // °ó¶¨pwd²ÎÊı
+        .createNamedQuery("login", User.class) // åˆ›å»ºNamedQuery
+        .setParameter("e", email) // ç»‘å®šeå‚æ•°
+        .setParameter("pwd", password) // ç»‘å®špwdå‚æ•°
         .list();
     return list.isEmpty() ? null : list.get(0);
 }
 
 ```
 
-Ö±½ÓĞ´HQLºÍÊ¹ÓÃ`NamedQuery`¸÷ÓĞÓÅÁÓ¡£Ç°Õß¿ÉÒÔÔÚ´úÂëÖĞÖ±¹ÛµØ¿´µ½²éÑ¯Óï¾ä£¬ºóÕß¿ÉÒÔÔÚ`User`ÀàÍ³Ò»¹ÜÀíËùÓĞÏà¹Ø²éÑ¯¡£
+ç›´æ¥å†™HQLå’Œä½¿ç”¨`NamedQuery`å„æœ‰ä¼˜åŠ£ã€‚å‰è€…å¯ä»¥åœ¨ä»£ç ä¸­ç›´è§‚åœ°çœ‹åˆ°æŸ¥è¯¢è¯­å¥ï¼Œåè€…å¯ä»¥åœ¨`User`ç±»ç»Ÿä¸€ç®¡ç†æ‰€æœ‰ç›¸å…³æŸ¥è¯¢ã€‚
 
-ÉÏÒ»½ÚÎÒÃÇ½²ÁËÔÚSpringÖĞ¼¯³ÉHibernate¡£HibernateÊÇµÚÒ»¸ö±»¹ã·ºÊ¹ÓÃµÄORM¿ò¼Ü£¬µ«ÊÇºÜ¶àĞ¡»ï°é»¹ÌıËµ¹ıJPA£ºJava Persistence API£¬ÕâÓÖÊÇÉ¶£¿
+ä¸Šä¸€èŠ‚æˆ‘ä»¬è®²äº†åœ¨Springä¸­é›†æˆHibernateã€‚Hibernateæ˜¯ç¬¬ä¸€ä¸ªè¢«å¹¿æ³›ä½¿ç”¨çš„ORMæ¡†æ¶ï¼Œä½†æ˜¯å¾ˆå¤šå°ä¼™ä¼´è¿˜å¬è¯´è¿‡JPAï¼šJava Persistence APIï¼Œè¿™åˆæ˜¯å•¥ï¼Ÿ
 
-ÔÚÌÖÂÛJPAÖ®Ç°£¬ÎÒÃÇÒª×¢Òâµ½JavaEEÔçÔÚ1999Äê¾Í·¢²¼ÁË£¬²¢ÇÒÓĞServlet¡¢JMSµÈÖî¶à±ê×¼¡£ºÍÆäËûÆ½Ì¨²»Í¬£¬JavaÊÀ½çÔçÆÚ·Ç³£ÈÈÖÔÓÚ±ê×¼ÏÈĞĞ£¬¸÷¼Ò¸ú½ø£º´ó¼ÒÏÈ×øÏÂÀ´°Ñ½Ó¿Ú¶¨ÁË£¬È»ºó£¬¸÷×Ô»Ø¼Ò¸É»îÈ¥ÊµÏÖ½Ó¿Ú£¬ÕâÑù£¬ÓÃ»§¾Í¿ÉÒÔÔÚ²»Í¬µÄ³§¼ÒÌá¹©µÄ²úÆ·½øĞĞÑ¡Ôñ£¬»¹¿ÉÒÔËæÒâÇĞ»»£¬ÒòÎªÓÃ»§±àĞ´´úÂëµÄÊ±ºòÖ»ĞèÒªÒıÓÃ½Ó¿Ú£¬²¢²»ĞèÒªÒıÓÃ¾ßÌåµÄµ×²ãÊµÏÖ£¨ÏëÏëJDBC£©¡£
+åœ¨è®¨è®ºJPAä¹‹å‰ï¼Œæˆ‘ä»¬è¦æ³¨æ„åˆ°JavaEEæ—©åœ¨1999å¹´å°±å‘å¸ƒäº†ï¼Œå¹¶ä¸”æœ‰Servletã€JMSç­‰è¯¸å¤šæ ‡å‡†ã€‚å’Œå…¶ä»–å¹³å°ä¸åŒï¼ŒJavaä¸–ç•Œæ—©æœŸéå¸¸çƒ­è¡·äºæ ‡å‡†å…ˆè¡Œï¼Œå„å®¶è·Ÿè¿›ï¼šå¤§å®¶å…ˆåä¸‹æ¥æŠŠæ¥å£å®šäº†ï¼Œç„¶åï¼Œå„è‡ªå›å®¶å¹²æ´»å»å®ç°æ¥å£ï¼Œè¿™æ ·ï¼Œç”¨æˆ·å°±å¯ä»¥åœ¨ä¸åŒçš„å‚å®¶æä¾›çš„äº§å“è¿›è¡Œé€‰æ‹©ï¼Œè¿˜å¯ä»¥éšæ„åˆ‡æ¢ï¼Œå› ä¸ºç”¨æˆ·ç¼–å†™ä»£ç çš„æ—¶å€™åªéœ€è¦å¼•ç”¨æ¥å£ï¼Œå¹¶ä¸éœ€è¦å¼•ç”¨å…·ä½“çš„åº•å±‚å®ç°ï¼ˆæƒ³æƒ³JDBCï¼‰ã€‚
 
-JPA¾ÍÊÇJavaEEµÄÒ»¸öORM±ê×¼£¬ËüµÄÊµÏÖÆäÊµºÍHibernateÃ»É¶±¾ÖÊÇø±ğ£¬µ«ÊÇÓÃ»§Èç¹ûÊ¹ÓÃJPA£¬ÄÇÃ´ÒıÓÃµÄ¾ÍÊÇ`jakarta.persistence`Õâ¸ö¡°±ê×¼¡±°ü£¬¶ø²»ÊÇ`org.hibernate`ÕâÑùµÄµÚÈı·½°ü¡£ÒòÎªJPAÖ»ÊÇ½Ó¿Ú£¬ËùÒÔ£¬»¹ĞèÒªÑ¡ÔñÒ»¸öÊµÏÖ²úÆ·£¬¸úJDBC½Ó¿ÚºÍMySQLÇı¶¯Ò»¸öµÀÀí¡£
+JPAå°±æ˜¯JavaEEçš„ä¸€ä¸ªORMæ ‡å‡†ï¼Œå®ƒçš„å®ç°å…¶å®å’ŒHibernateæ²¡å•¥æœ¬è´¨åŒºåˆ«ï¼Œä½†æ˜¯ç”¨æˆ·å¦‚æœä½¿ç”¨JPAï¼Œé‚£ä¹ˆå¼•ç”¨çš„å°±æ˜¯`jakarta.persistence`è¿™ä¸ªâ€œæ ‡å‡†â€åŒ…ï¼Œè€Œä¸æ˜¯`org.hibernate`è¿™æ ·çš„ç¬¬ä¸‰æ–¹åŒ…ã€‚å› ä¸ºJPAåªæ˜¯æ¥å£ï¼Œæ‰€ä»¥ï¼Œè¿˜éœ€è¦é€‰æ‹©ä¸€ä¸ªå®ç°äº§å“ï¼Œè·ŸJDBCæ¥å£å’ŒMySQLé©±åŠ¨ä¸€ä¸ªé“ç†ã€‚
 
-ÎÒÃÇÊ¹ÓÃJPAÊ±Ò²ÍêÈ«¿ÉÒÔÑ¡ÔñHibernate×÷Îªµ×²ãÊµÏÖ£¬µ«Ò²¿ÉÒÔÑ¡ÔñÆäËüµÄJPAÌá¹©·½£¬±ÈÈç[EclipseLink](https://www.eclipse.org/eclipselink/)¡£SpringÄÚÖÃÁËJPAµÄ¼¯³É£¬²¢Ö§³ÖÑ¡ÔñHibernate»òEclipseLink×÷ÎªÊµÏÖ¡£ÕâÀïÎÒÃÇÈÔÈ»ÒÔÖ÷Á÷µÄHibernate×÷ÎªJPAÊµÏÖÎªÀı×Ó£¬ÑİÊ¾JPAµÄ»ù±¾ÓÃ·¨¡£
+æˆ‘ä»¬ä½¿ç”¨JPAæ—¶ä¹Ÿå®Œå…¨å¯ä»¥é€‰æ‹©Hibernateä½œä¸ºåº•å±‚å®ç°ï¼Œä½†ä¹Ÿå¯ä»¥é€‰æ‹©å…¶å®ƒçš„JPAæä¾›æ–¹ï¼Œæ¯”å¦‚[EclipseLink](https://www.eclipse.org/eclipselink/)ã€‚Springå†…ç½®äº†JPAçš„é›†æˆï¼Œå¹¶æ”¯æŒé€‰æ‹©Hibernateæˆ–EclipseLinkä½œä¸ºå®ç°ã€‚è¿™é‡Œæˆ‘ä»¬ä»ç„¶ä»¥ä¸»æµçš„Hibernateä½œä¸ºJPAå®ç°ä¸ºä¾‹å­ï¼Œæ¼”ç¤ºJPAçš„åŸºæœ¬ç”¨æ³•ã€‚
 
-ºÍÊ¹ÓÃHibernateÒ»Ñù£¬ÎÒÃÇÖ»ĞèÒªÒıÈëÈçÏÂÒÀÀµ£º
+å’Œä½¿ç”¨Hibernateä¸€æ ·ï¼Œæˆ‘ä»¬åªéœ€è¦å¼•å…¥å¦‚ä¸‹ä¾èµ–ï¼š
 
 *   org.springframework:spring-context:6.0.0
 *   org.springframework:spring-orm:6.0.0
@@ -758,9 +758,9 @@ JPA¾ÍÊÇJavaEEµÄÒ»¸öORM±ê×¼£¬ËüµÄÊµÏÖÆäÊµºÍHibernateÃ»É¶±¾ÖÊÇø±ğ£¬µ«ÊÇÓÃ»§Èç¹ûÊ¹Ó
 *   com.zaxxer:HikariCP:5.0.1
 *   org.hsqldb:hsqldb:2.7.1
 
-Êµ¼ÊÉÏÎÒÃÇÕâÀïÒıÈëµÄÒÀÀµºÍÉÏÒ»½Ú¼¯³ÉHibernateÒıÈëµÄÒÀÀµÍêÈ«Ò»Ñù£¬ÒòÎªHibernate¼ÈÌá¹©ÁËËü×Ô¼ºµÄ½Ó¿Ú£¬Ò²Ìá¹©ÁËJPA½Ó¿Ú£¬ÎÒÃÇÓÃJPA½Ó¿Ú¾ÍÏàµ±ÓÚÍ¨¹ıJPA²Ù×÷Hibernate¡£
+å®é™…ä¸Šæˆ‘ä»¬è¿™é‡Œå¼•å…¥çš„ä¾èµ–å’Œä¸Šä¸€èŠ‚é›†æˆHibernateå¼•å…¥çš„ä¾èµ–å®Œå…¨ä¸€æ ·ï¼Œå› ä¸ºHibernateæ—¢æä¾›äº†å®ƒè‡ªå·±çš„æ¥å£ï¼Œä¹Ÿæä¾›äº†JPAæ¥å£ï¼Œæˆ‘ä»¬ç”¨JPAæ¥å£å°±ç›¸å½“äºé€šè¿‡JPAæ“ä½œHibernateã€‚
 
-È»ºó£¬ÔÚ`AppConfig`ÖĞÆôÓÃÉùÃ÷Ê½ÊÂÎñ¹ÜÀí£¬´´½¨`DataSource`£º
+ç„¶åï¼Œåœ¨`AppConfig`ä¸­å¯ç”¨å£°æ˜å¼äº‹åŠ¡ç®¡ç†ï¼Œåˆ›å»º`DataSource`ï¼š
 
 ```
 @Configuration
@@ -774,21 +774,21 @@ public class AppConfig {
 
 ```
 
-Ê¹ÓÃHibernateÊ±£¬ÎÒÃÇĞèÒª´´½¨Ò»¸ö`LocalSessionFactoryBean`£¬²¢ÈÃËüÔÙ×Ô¶¯´´½¨Ò»¸ö`SessionFactory`¡£Ê¹ÓÃJPAÒ²ÊÇÀàËÆµÄ£¬ÎÒÃÇÒ²´´½¨Ò»¸ö`LocalContainerEntityManagerFactoryBean`£¬²¢ÈÃËüÔÙ×Ô¶¯´´½¨Ò»¸ö`EntityManagerFactory`£º
+ä½¿ç”¨Hibernateæ—¶ï¼Œæˆ‘ä»¬éœ€è¦åˆ›å»ºä¸€ä¸ª`LocalSessionFactoryBean`ï¼Œå¹¶è®©å®ƒå†è‡ªåŠ¨åˆ›å»ºä¸€ä¸ª`SessionFactory`ã€‚ä½¿ç”¨JPAä¹Ÿæ˜¯ç±»ä¼¼çš„ï¼Œæˆ‘ä»¬ä¹Ÿåˆ›å»ºä¸€ä¸ª`LocalContainerEntityManagerFactoryBean`ï¼Œå¹¶è®©å®ƒå†è‡ªåŠ¨åˆ›å»ºä¸€ä¸ª`EntityManagerFactory`ï¼š
 
 ```
 @Bean
 public LocalContainerEntityManagerFactoryBean createEntityManagerFactory(@Autowired DataSource dataSource) {
     var emFactory = new LocalContainerEntityManagerFactoryBean();
-    // ×¢ÈëDataSource:
+    // æ³¨å…¥DataSource:
     emFactory.setDataSource(dataSource);
-    // É¨ÃèÖ¸¶¨µÄpackage»ñÈ¡ËùÓĞentity class:
+    // æ‰«ææŒ‡å®šçš„packageè·å–æ‰€æœ‰entity class:
     emFactory.setPackagesToScan(AbstractEntity.class.getPackageName());
-    // Ê¹ÓÃHibernate×÷ÎªJPAÊµÏÖ:
+    // ä½¿ç”¨Hibernateä½œä¸ºJPAå®ç°:
     emFactory.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-    // ÆäËûÅäÖÃÏî:
+    // å…¶ä»–é…ç½®é¡¹:
     var props = new Properties();
-    props.setProperty("hibernate.hbm2ddl.auto", "update"); // Éú²ú»·¾³²»ÒªÊ¹ÓÃ
+    props.setProperty("hibernate.hbm2ddl.auto", "update"); // ç”Ÿäº§ç¯å¢ƒä¸è¦ä½¿ç”¨
     props.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
     props.setProperty("hibernate.show_sql", "true");
     emFactory.setJpaProperties(props);
@@ -797,9 +797,9 @@ public LocalContainerEntityManagerFactoryBean createEntityManagerFactory(@Autowi
 
 ```
 
-¹Û²ìÉÏÊö´úÂë£¬³ıÁËĞèÒª×¢Èë`DataSource`ºÍÉè¶¨×Ô¶¯É¨ÃèµÄ`package`Íâ£¬»¹ĞèÒªÖ¸¶¨JPAµÄÌá¹©ÉÌ£¬ÕâÀïÊ¹ÓÃSpringÌá¹©µÄÒ»¸ö`HibernateJpaVendorAdapter`£¬×îºó£¬Õë¶ÔHibernate×Ô¼ºĞèÒªµÄÅäÖÃ£¬ÒÔ`Properties`µÄĞÎÊ½×¢Èë¡£
+è§‚å¯Ÿä¸Šè¿°ä»£ç ï¼Œé™¤äº†éœ€è¦æ³¨å…¥`DataSource`å’Œè®¾å®šè‡ªåŠ¨æ‰«æçš„`package`å¤–ï¼Œè¿˜éœ€è¦æŒ‡å®šJPAçš„æä¾›å•†ï¼Œè¿™é‡Œä½¿ç”¨Springæä¾›çš„ä¸€ä¸ª`HibernateJpaVendorAdapter`ï¼Œæœ€åï¼Œé’ˆå¯¹Hibernateè‡ªå·±éœ€è¦çš„é…ç½®ï¼Œä»¥`Properties`çš„å½¢å¼æ³¨å…¥ã€‚
 
-×îºó£¬ÎÒÃÇ»¹ĞèÒªÊµÀı»¯Ò»¸ö`JpaTransactionManager`£¬ÒÔÊµÏÖÉùÃ÷Ê½ÊÂÎñ£º
+æœ€åï¼Œæˆ‘ä»¬è¿˜éœ€è¦å®ä¾‹åŒ–ä¸€ä¸ª`JpaTransactionManager`ï¼Œä»¥å®ç°å£°æ˜å¼äº‹åŠ¡ï¼š
 
 ```
 @Bean
@@ -809,11 +809,11 @@ PlatformTransactionManager createTxManager(@Autowired EntityManagerFactory entit
 
 ```
 
-ÕâÑù£¬ÎÒÃÇ¾ÍÍê³ÉÁËJPAµÄÈ«²¿³õÊ¼»¯¹¤×÷¡£ÓĞĞ©Í¯Ğ¬¿ÉÄÜ´ÓÍøÉÏËÑË÷µÃÖªJPAĞèÒª`persistence.xml`ÅäÖÃÎÄ¼ş£¬ÒÔ¼°¸´ÔÓµÄ`orm.xml`ÎÄ¼ş¡£ÕâÀïÎÒÃÇ¸ºÔğµØ¸æËß´ó¼Ò£¬Ê¹ÓÃSpring+Hibernate×÷ÎªJPAÊµÏÖ£¬ÎŞĞèÈÎºÎÅäÖÃÎÄ¼ş¡£
+è¿™æ ·ï¼Œæˆ‘ä»¬å°±å®Œæˆäº†JPAçš„å…¨éƒ¨åˆå§‹åŒ–å·¥ä½œã€‚æœ‰äº›ç«¥é‹å¯èƒ½ä»ç½‘ä¸Šæœç´¢å¾—çŸ¥JPAéœ€è¦`persistence.xml`é…ç½®æ–‡ä»¶ï¼Œä»¥åŠå¤æ‚çš„`orm.xml`æ–‡ä»¶ã€‚è¿™é‡Œæˆ‘ä»¬è´Ÿè´£åœ°å‘Šè¯‰å¤§å®¶ï¼Œä½¿ç”¨Spring+Hibernateä½œä¸ºJPAå®ç°ï¼Œæ— éœ€ä»»ä½•é…ç½®æ–‡ä»¶ã€‚
 
-ËùÓĞEntity BeanµÄÅäÖÃºÍÉÏÒ»½ÚÍêÈ«ÏàÍ¬£¬È«²¿²ÉÓÃAnnotation±ê×¢¡£ÎÒÃÇÏÖÔÚÖ»Ğè¹ØĞÄ¾ßÌåµÄÒµÎñÀàÈçºÎÍ¨¹ıJPA½Ó¿Ú²Ù×÷Êı¾İ¿â¡£
+æ‰€æœ‰Entity Beançš„é…ç½®å’Œä¸Šä¸€èŠ‚å®Œå…¨ç›¸åŒï¼Œå…¨éƒ¨é‡‡ç”¨Annotationæ ‡æ³¨ã€‚æˆ‘ä»¬ç°åœ¨åªéœ€å…³å¿ƒå…·ä½“çš„ä¸šåŠ¡ç±»å¦‚ä½•é€šè¿‡JPAæ¥å£æ“ä½œæ•°æ®åº“ã€‚
 
-»¹ÊÇÒÔ`UserService`ÎªÀı£¬³ıÁË±ê×¢`@Component`ºÍ`@Transactional`Íâ£¬ÎÒÃÇĞèÒª×¢ÈëÒ»¸ö`EntityManager`£¬µ«ÊÇ²»ÒªÊ¹ÓÃ`Autowired`£¬¶øÊÇ`@PersistenceContext`£º
+è¿˜æ˜¯ä»¥`UserService`ä¸ºä¾‹ï¼Œé™¤äº†æ ‡æ³¨`@Component`å’Œ`@Transactional`å¤–ï¼Œæˆ‘ä»¬éœ€è¦æ³¨å…¥ä¸€ä¸ª`EntityManager`ï¼Œä½†æ˜¯ä¸è¦ä½¿ç”¨`Autowired`ï¼Œè€Œæ˜¯`@PersistenceContext`ï¼š
 
 ```
 @Component
@@ -825,18 +825,18 @@ public class UserService {
 
 ```
 
-ÎÒÃÇ»Ø¹ËÒ»ÏÂJDBC¡¢HibernateºÍJPAÌá¹©µÄ½Ó¿Ú£¬Êµ¼ÊÉÏ£¬ËüÃÇµÄ¹ØÏµÈçÏÂ£º
+æˆ‘ä»¬å›é¡¾ä¸€ä¸‹JDBCã€Hibernateå’ŒJPAæä¾›çš„æ¥å£ï¼Œå®é™…ä¸Šï¼Œå®ƒä»¬çš„å…³ç³»å¦‚ä¸‹ï¼š
 
 | JDBC | Hibernate | JPA |
 | --- | --- | --- |
 | DataSource | SessionFactory | EntityManagerFactory |
 | Connection | Session | EntityManager |
 
-`SessionFactory`ºÍ`EntityManagerFactory`Ïàµ±ÓÚ`DataSource`£¬`Session`ºÍ`EntityManager`Ïàµ±ÓÚ`Connection`¡£Ã¿´ÎĞèÒª·ÃÎÊÊı¾İ¿âµÄÊ±ºò£¬ĞèÒª»ñÈ¡ĞÂµÄ`Session`ºÍ`EntityManager`£¬ÓÃÍêºóÔÙ¹Ø±Õ¡£
+`SessionFactory`å’Œ`EntityManagerFactory`ç›¸å½“äº`DataSource`ï¼Œ`Session`å’Œ`EntityManager`ç›¸å½“äº`Connection`ã€‚æ¯æ¬¡éœ€è¦è®¿é—®æ•°æ®åº“çš„æ—¶å€™ï¼Œéœ€è¦è·å–æ–°çš„`Session`å’Œ`EntityManager`ï¼Œç”¨å®Œåå†å…³é—­ã€‚
 
-µ«ÊÇ£¬×¢Òâµ½`UserService`×¢ÈëµÄ²»ÊÇ`EntityManagerFactory`£¬¶øÊÇ`EntityManager`£¬²¢ÇÒ±ê×¢ÁË`@PersistenceContext`¡£ÄÑµÀÊ¹ÓÃJPA¿ÉÒÔÔÊĞí¶àÏß³Ì²Ù×÷Í¬Ò»¸ö`EntityManager`£¿
+ä½†æ˜¯ï¼Œæ³¨æ„åˆ°`UserService`æ³¨å…¥çš„ä¸æ˜¯`EntityManagerFactory`ï¼Œè€Œæ˜¯`EntityManager`ï¼Œå¹¶ä¸”æ ‡æ³¨äº†`@PersistenceContext`ã€‚éš¾é“ä½¿ç”¨JPAå¯ä»¥å…è®¸å¤šçº¿ç¨‹æ“ä½œåŒä¸€ä¸ª`EntityManager`ï¼Ÿ
 
-Êµ¼ÊÉÏÕâÀï×¢ÈëµÄ²¢²»ÊÇÕæÕıµÄ`EntityManager`£¬¶øÊÇÒ»¸ö`EntityManager`µÄ´úÀíÀà£¬Ïàµ±ÓÚ£º
+å®é™…ä¸Šè¿™é‡Œæ³¨å…¥çš„å¹¶ä¸æ˜¯çœŸæ­£çš„`EntityManager`ï¼Œè€Œæ˜¯ä¸€ä¸ª`EntityManager`çš„ä»£ç†ç±»ï¼Œç›¸å½“äºï¼š
 
 ```
 public class EntityManagerProxy implements EntityManager {
@@ -845,11 +845,11 @@ public class EntityManagerProxy implements EntityManager {
 
 ```
 
-SpringÓöµ½±ê×¢ÁË`@PersistenceContext`µÄ`EntityManager`»á×Ô¶¯×¢Èë´úÀí£¬¸Ã´úÀí»áÔÚ±ØÒªµÄÊ±ºò×Ô¶¯´ò¿ª`EntityManager`¡£»»¾ä»°Ëµ£¬¶àÏß³ÌÒıÓÃµÄ`EntityManager`ËäÈ»ÊÇÍ¬Ò»¸ö´úÀíÀà£¬µ«¸Ã´úÀíÀàÄÚ²¿Õë¶Ô²»Í¬Ïß³Ì»á´´½¨²»Í¬µÄ`EntityManager`ÊµÀı¡£
+Springé‡åˆ°æ ‡æ³¨äº†`@PersistenceContext`çš„`EntityManager`ä¼šè‡ªåŠ¨æ³¨å…¥ä»£ç†ï¼Œè¯¥ä»£ç†ä¼šåœ¨å¿…è¦çš„æ—¶å€™è‡ªåŠ¨æ‰“å¼€`EntityManager`ã€‚æ¢å¥è¯è¯´ï¼Œå¤šçº¿ç¨‹å¼•ç”¨çš„`EntityManager`è™½ç„¶æ˜¯åŒä¸€ä¸ªä»£ç†ç±»ï¼Œä½†è¯¥ä»£ç†ç±»å†…éƒ¨é’ˆå¯¹ä¸åŒçº¿ç¨‹ä¼šåˆ›å»ºä¸åŒçš„`EntityManager`å®ä¾‹ã€‚
 
-¼òµ¥×Ü½áÒ»ÏÂ£¬±ê×¢ÁË`@PersistenceContext`µÄ`EntityManager`¿ÉÒÔ±»¶àÏß³Ì°²È«µØ¹²Ïí¡£
+ç®€å•æ€»ç»“ä¸€ä¸‹ï¼Œæ ‡æ³¨äº†`@PersistenceContext`çš„`EntityManager`å¯ä»¥è¢«å¤šçº¿ç¨‹å®‰å…¨åœ°å…±äº«ã€‚
 
-Òò´Ë£¬ÔÚ`UserService`µÄÃ¿¸öÒµÎñ·½·¨Àï£¬Ö±½ÓÊ¹ÓÃ`EntityManager`¾ÍºÜ·½±ã¡£ÒÔÖ÷¼ü²éÑ¯ÎªÀı£º
+å› æ­¤ï¼Œåœ¨`UserService`çš„æ¯ä¸ªä¸šåŠ¡æ–¹æ³•é‡Œï¼Œç›´æ¥ä½¿ç”¨`EntityManager`å°±å¾ˆæ–¹ä¾¿ã€‚ä»¥ä¸»é”®æŸ¥è¯¢ä¸ºä¾‹ï¼š
 
 ```
 public User getUserById(long id) {
@@ -862,11 +862,11 @@ public User getUserById(long id) {
 
 ```
 
-ÓëHQL²éÑ¯ÀàËÆ£¬JPAÊ¹ÓÃJPQL²éÑ¯£¬ËüµÄÓï·¨ºÍHQL»ù±¾²î²»¶à£º
+ä¸HQLæŸ¥è¯¢ç±»ä¼¼ï¼ŒJPAä½¿ç”¨JPQLæŸ¥è¯¢ï¼Œå®ƒçš„è¯­æ³•å’ŒHQLåŸºæœ¬å·®ä¸å¤šï¼š
 
 ```
 public User fetchUserByEmail(String email) {
-    // JPQL²éÑ¯:
+    // JPQLæŸ¥è¯¢:
     TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.email = :e", User.class);
     query.setParameter("e", email);
     List<User> list = query.getResultList();
@@ -878,7 +878,7 @@ public User fetchUserByEmail(String email) {
 
 ```
 
-Í¬ÑùµÄ£¬JPAÒ²Ö§³Ö`NamedQuery`£¬¼´ÏÈ¸ø²éÑ¯Æğ¸öÃû×Ö£¬ÔÙ°´Ãû×Ö´´½¨²éÑ¯£º
+åŒæ ·çš„ï¼ŒJPAä¹Ÿæ”¯æŒ`NamedQuery`ï¼Œå³å…ˆç»™æŸ¥è¯¢èµ·ä¸ªåå­—ï¼Œå†æŒ‰åå­—åˆ›å»ºæŸ¥è¯¢ï¼š
 
 ```
 public User login(String email, String password) {
@@ -891,7 +891,7 @@ public User login(String email, String password) {
 
 ```
 
-`NamedQuery`Í¨¹ı×¢½â±ê×¢ÔÚ`User`ÀàÉÏ£¬ËüµÄ¶¨ÒåºÍÉÏÒ»½ÚµÄ`User`ÀàÒ»Ñù£º
+`NamedQuery`é€šè¿‡æ³¨è§£æ ‡æ³¨åœ¨`User`ç±»ä¸Šï¼Œå®ƒçš„å®šä¹‰å’Œä¸Šä¸€èŠ‚çš„`User`ç±»ä¸€æ ·ï¼š
 
 ```
 @NamedQueries(
@@ -907,23 +907,23 @@ public class User {
 
 ```
 
-¶ÔÊı¾İ¿â½øĞĞÔöÉ¾¸ÄµÄ²Ù×÷£¬¿ÉÒÔ·Ö±ğÊ¹ÓÃ`persist()`¡¢`remove()`ºÍ`merge()`·½·¨£¬²ÎÊı¾ùÎªEntity Bean±¾Éí£¬Ê¹ÓÃ·Ç³£¼òµ¥£¬ÕâÀï²»ÔÙ¶àÊö¡£
+å¯¹æ•°æ®åº“è¿›è¡Œå¢åˆ æ”¹çš„æ“ä½œï¼Œå¯ä»¥åˆ†åˆ«ä½¿ç”¨`persist()`ã€`remove()`å’Œ`merge()`æ–¹æ³•ï¼Œå‚æ•°å‡ä¸ºEntity Beanæœ¬èº«ï¼Œä½¿ç”¨éå¸¸ç®€å•ï¼Œè¿™é‡Œä¸å†å¤šè¿°ã€‚
 
-#### ¼¯³ÉMyBatis
+#### é›†æˆMyBatis
 
-×îºó¸üĞÂ: 2022/11/16 21:07 / ÔÄ¶Á: 601258
+æœ€åæ›´æ–°: 2022/11/16 21:07 / é˜…è¯»: 601258
 
 * * *
 
 
 
-Ê¹ÓÃHibernate»òJPA²Ù×÷Êı¾İ¿âÊ±£¬ÕâÀàORM¸ÉµÄÖ÷Òª¹¤×÷¾ÍÊÇ°ÑResultSetµÄÃ¿Ò»ĞĞ±ä³ÉJava Bean£¬»òÕß°ÑJava Bean×Ô¶¯×ª»»µ½INSERT»òUPDATEÓï¾äµÄ²ÎÊıÖĞ£¬´Ó¶øÊµÏÖORM¡£
+ä½¿ç”¨Hibernateæˆ–JPAæ“ä½œæ•°æ®åº“æ—¶ï¼Œè¿™ç±»ORMå¹²çš„ä¸»è¦å·¥ä½œå°±æ˜¯æŠŠResultSetçš„æ¯ä¸€è¡Œå˜æˆJava Beanï¼Œæˆ–è€…æŠŠJava Beanè‡ªåŠ¨è½¬æ¢åˆ°INSERTæˆ–UPDATEè¯­å¥çš„å‚æ•°ä¸­ï¼Œä»è€Œå®ç°ORMã€‚
 
-¶øORM¿ò¼ÜÖ®ËùÒÔÖªµÀÈçºÎ°ÑĞĞÊı¾İÓ³Éäµ½Java Bean£¬ÊÇÒòÎªÎÒÃÇÔÚJava BeanµÄÊôĞÔÉÏ¸øÁË×ã¹»µÄ×¢½â×÷ÎªÔªÊı¾İ£¬ORM¿ò¼Ü»ñÈ¡Java BeanµÄ×¢½âºó£¬¾ÍÖªµÀÈçºÎ½øĞĞË«ÏòÓ³Éä¡£
+è€ŒORMæ¡†æ¶ä¹‹æ‰€ä»¥çŸ¥é“å¦‚ä½•æŠŠè¡Œæ•°æ®æ˜ å°„åˆ°Java Beanï¼Œæ˜¯å› ä¸ºæˆ‘ä»¬åœ¨Java Beançš„å±æ€§ä¸Šç»™äº†è¶³å¤Ÿçš„æ³¨è§£ä½œä¸ºå…ƒæ•°æ®ï¼ŒORMæ¡†æ¶è·å–Java Beançš„æ³¨è§£åï¼Œå°±çŸ¥é“å¦‚ä½•è¿›è¡ŒåŒå‘æ˜ å°„ã€‚
 
-ÄÇÃ´£¬ORM¿ò¼ÜÊÇÈçºÎ¸ú×ÙJava BeanµÄĞŞ¸Ä£¬ÒÔ±ãÔÚ`update()`²Ù×÷ÖĞ¸üĞÂ±ØÒªµÄÊôĞÔ£¿
+é‚£ä¹ˆï¼ŒORMæ¡†æ¶æ˜¯å¦‚ä½•è·Ÿè¸ªJava Beançš„ä¿®æ”¹ï¼Œä»¥ä¾¿åœ¨`update()`æ“ä½œä¸­æ›´æ–°å¿…è¦çš„å±æ€§ï¼Ÿ
 
-´ğ°¸ÊÇÊ¹ÓÃ[ProxyÄ£Ê½](https://www.liaoxuefeng.com/wiki/1252599548343744/1281319432618017)£¬´ÓORM¿ò¼Ü¶ÁÈ¡µÄUserÊµÀıÊµ¼ÊÉÏ²¢²»ÊÇUserÀà£¬¶øÊÇ´úÀíÀà£¬´úÀíÀà¼Ì³Ğ×ÔUserÀà£¬µ«Õë¶ÔÃ¿¸ösetter·½·¨×öÁË¸²Ğ´£º
+ç­”æ¡ˆæ˜¯ä½¿ç”¨[Proxyæ¨¡å¼](https://www.liaoxuefeng.com/wiki/1252599548343744/1281319432618017)ï¼Œä»ORMæ¡†æ¶è¯»å–çš„Userå®ä¾‹å®é™…ä¸Šå¹¶ä¸æ˜¯Userç±»ï¼Œè€Œæ˜¯ä»£ç†ç±»ï¼Œä»£ç†ç±»ç»§æ‰¿è‡ªUserç±»ï¼Œä½†é’ˆå¯¹æ¯ä¸ªsetteræ–¹æ³•åšäº†è¦†å†™ï¼š
 
 ```
 public class UserProxy extends User {
@@ -937,9 +937,9 @@ public class UserProxy extends User {
 
 ```
 
-ÕâÑù£¬´úÀíÀà¿ÉÒÔ¸ú×Ùµ½Ã¿¸öÊôĞÔµÄ±ä»¯¡£
+è¿™æ ·ï¼Œä»£ç†ç±»å¯ä»¥è·Ÿè¸ªåˆ°æ¯ä¸ªå±æ€§çš„å˜åŒ–ã€‚
 
-Õë¶ÔÒ»¶Ô¶à»ò¶à¶ÔÒ»¹ØÏµÊ±£¬´úÀíÀà¿ÉÒÔÖ±½ÓÍ¨¹ıgetter·½·¨²éÑ¯Êı¾İ¿â£º
+é’ˆå¯¹ä¸€å¯¹å¤šæˆ–å¤šå¯¹ä¸€å…³ç³»æ—¶ï¼Œä»£ç†ç±»å¯ä»¥ç›´æ¥é€šè¿‡getteræ–¹æ³•æŸ¥è¯¢æ•°æ®åº“ï¼š
 
 ```
 public class UserProxy extends User {
@@ -952,7 +952,7 @@ public class UserProxy extends User {
     }
 
     /**
-     * »ñÈ¡User¶ÔÏó¹ØÁªµÄAddress¶ÔÏó:
+     * è·å–Userå¯¹è±¡å…³è”çš„Addresså¯¹è±¡:
      */
     public Address getAddress() {
         Query q = _session.createQuery("from Address where userId = :userId");
@@ -964,11 +964,11 @@ public class UserProxy extends User {
 
 ```
 
-ÎªÁËÊµÏÖÕâÑùµÄ²éÑ¯£¬UserProxy±ØĞë±£´æHibernateµÄµ±Ç°Session¡£µ«ÊÇ£¬µ±ÊÂÎñÌá½»ºó£¬Session×Ô¶¯¹Ø±Õ£¬´ËÊ±ÔÙ»ñÈ¡`getAddress()`½«ÎŞ·¨·ÃÎÊÊı¾İ¿â£¬»òÕß»ñÈ¡µÄ²»ÊÇÊÂÎñÒ»ÖÂµÄÊı¾İ¡£Òò´Ë£¬ORM¿ò¼Ü×ÜÊÇÒıÈëÁËAttached/Detached×´Ì¬£¬±íÊ¾µ±Ç°´ËJava Beanµ½µ×ÊÇÔÚSessionµÄ·¶Î§ÄÚ£¬»¹ÊÇÍÑÀëÁËSession±ä³ÉÁËÒ»¸ö¡°ÓÎÀë¡±¶ÔÏó¡£ºÜ¶à³õÑ§ÕßÎŞ·¨ÕıÈ·Àí½â×´Ì¬±ä»¯ºÍÊÂÎñ±ß½ç£¬¾Í»áÔì³É´óÁ¿µÄ`PersistentObjectException`Òì³£¡£ÕâÖÖÒşÊ½×´Ì¬Ê¹µÃÆÕÍ¨Java BeanµÄÉúÃüÖÜÆÚ±äµÃ¸´ÔÓ¡£
+ä¸ºäº†å®ç°è¿™æ ·çš„æŸ¥è¯¢ï¼ŒUserProxyå¿…é¡»ä¿å­˜Hibernateçš„å½“å‰Sessionã€‚ä½†æ˜¯ï¼Œå½“äº‹åŠ¡æäº¤åï¼ŒSessionè‡ªåŠ¨å…³é—­ï¼Œæ­¤æ—¶å†è·å–`getAddress()`å°†æ— æ³•è®¿é—®æ•°æ®åº“ï¼Œæˆ–è€…è·å–çš„ä¸æ˜¯äº‹åŠ¡ä¸€è‡´çš„æ•°æ®ã€‚å› æ­¤ï¼ŒORMæ¡†æ¶æ€»æ˜¯å¼•å…¥äº†Attached/DetachedçŠ¶æ€ï¼Œè¡¨ç¤ºå½“å‰æ­¤Java Beanåˆ°åº•æ˜¯åœ¨Sessionçš„èŒƒå›´å†…ï¼Œè¿˜æ˜¯è„±ç¦»äº†Sessionå˜æˆäº†ä¸€ä¸ªâ€œæ¸¸ç¦»â€å¯¹è±¡ã€‚å¾ˆå¤šåˆå­¦è€…æ— æ³•æ­£ç¡®ç†è§£çŠ¶æ€å˜åŒ–å’Œäº‹åŠ¡è¾¹ç•Œï¼Œå°±ä¼šé€ æˆå¤§é‡çš„`PersistentObjectException`å¼‚å¸¸ã€‚è¿™ç§éšå¼çŠ¶æ€ä½¿å¾—æ™®é€šJava Beançš„ç”Ÿå‘½å‘¨æœŸå˜å¾—å¤æ‚ã€‚
 
-´ËÍâ£¬HibernateºÍJPAÎªÁËÊµÏÖ¼æÈİ¶àÖÖÊı¾İ¿â£¬ËüÊ¹ÓÃHQL»òJPQL²éÑ¯£¬¾­¹ıÒ»µÀ×ª»»£¬±ä³ÉÌØ¶¨Êı¾İ¿âµÄSQL£¬ÀíÂÛÉÏÕâÑù¿ÉÒÔ×öµ½ÎŞ·ìÇĞ»»Êı¾İ¿â£¬µ«ÕâÒ»²ã×Ô¶¯×ª»»³ıÁËÉÙĞíµÄĞÔÄÜ¿ªÏúÍâ£¬¸øSQL¼¶±ğµÄÓÅ»¯´øÀ´ÁËÂé·³¡£
+æ­¤å¤–ï¼ŒHibernateå’ŒJPAä¸ºäº†å®ç°å…¼å®¹å¤šç§æ•°æ®åº“ï¼Œå®ƒä½¿ç”¨HQLæˆ–JPQLæŸ¥è¯¢ï¼Œç»è¿‡ä¸€é“è½¬æ¢ï¼Œå˜æˆç‰¹å®šæ•°æ®åº“çš„SQLï¼Œç†è®ºä¸Šè¿™æ ·å¯ä»¥åšåˆ°æ— ç¼åˆ‡æ¢æ•°æ®åº“ï¼Œä½†è¿™ä¸€å±‚è‡ªåŠ¨è½¬æ¢é™¤äº†å°‘è®¸çš„æ€§èƒ½å¼€é”€å¤–ï¼Œç»™SQLçº§åˆ«çš„ä¼˜åŒ–å¸¦æ¥äº†éº»çƒ¦ã€‚
 
-×îºó£¬ORM¿ò¼ÜÍ¨³£Ìá¹©ÁË»º´æ£¬²¢ÇÒ»¹·ÖÎªÒ»¼¶»º´æºÍ¶ş¼¶»º´æ¡£Ò»¼¶»º´æÊÇÖ¸ÔÚÒ»¸öSession·¶Î§ÄÚµÄ»º´æ£¬³£¼ûµÄÇé¾°ÊÇ¸ù¾İÖ÷¼ü²éÑ¯Ê±£¬Á½´Î²éÑ¯¿ÉÒÔ·µ»ØÍ¬Ò»ÊµÀı£º
+æœ€åï¼ŒORMæ¡†æ¶é€šå¸¸æä¾›äº†ç¼“å­˜ï¼Œå¹¶ä¸”è¿˜åˆ†ä¸ºä¸€çº§ç¼“å­˜å’ŒäºŒçº§ç¼“å­˜ã€‚ä¸€çº§ç¼“å­˜æ˜¯æŒ‡åœ¨ä¸€ä¸ªSessionèŒƒå›´å†…çš„ç¼“å­˜ï¼Œå¸¸è§çš„æƒ…æ™¯æ˜¯æ ¹æ®ä¸»é”®æŸ¥è¯¢æ—¶ï¼Œä¸¤æ¬¡æŸ¥è¯¢å¯ä»¥è¿”å›åŒä¸€å®ä¾‹ï¼š
 
 ```
 User user1 = session.load(User.class, 123);
@@ -976,46 +976,46 @@ User user2 = session.load(User.class, 123);
 
 ```
 
-¶ş¼¶»º´æÊÇÖ¸¿çSessionµÄ»º´æ£¬Ò»°ãÄ¬ÈÏ¹Ø±Õ£¬ĞèÒªÊÖ¶¯ÅäÖÃ¡£¶ş¼¶»º´æ¼«´óµÄÔö¼ÓÁËÊı¾İµÄ²»Ò»ÖÂĞÔ£¬Ô­ÒòÔÚÓÚSQL·Ç³£Áé»î£¬³£³£»áµ¼ÖÂÒâÍâµÄ¸üĞÂ¡£ÀıÈç£º
+äºŒçº§ç¼“å­˜æ˜¯æŒ‡è·¨Sessionçš„ç¼“å­˜ï¼Œä¸€èˆ¬é»˜è®¤å…³é—­ï¼Œéœ€è¦æ‰‹åŠ¨é…ç½®ã€‚äºŒçº§ç¼“å­˜æå¤§çš„å¢åŠ äº†æ•°æ®çš„ä¸ä¸€è‡´æ€§ï¼ŒåŸå› åœ¨äºSQLéå¸¸çµæ´»ï¼Œå¸¸å¸¸ä¼šå¯¼è‡´æ„å¤–çš„æ›´æ–°ã€‚ä¾‹å¦‚ï¼š
 
 ```
-// Ïß³Ì1¶ÁÈ¡:
+// çº¿ç¨‹1è¯»å–:
 User user1 = session1.load(User.class, 123);
 ...
-// Ò»¶ÎÊ±¼äºó£¬Ïß³Ì2¶ÁÈ¡:
+// ä¸€æ®µæ—¶é—´åï¼Œçº¿ç¨‹2è¯»å–:
 User user2 = session2.load(User.class, 123);
 
 ```
 
-µ±¶ş¼¶»º´æÉúĞ§µÄÊ±ºò£¬Á½¸öÏß³Ì¶ÁÈ¡µÄUserÊµÀıÊÇÒ»ÑùµÄ£¬µ«ÊÇ£¬Êı¾İ¿â¶ÔÓ¦µÄĞĞ¼ÇÂ¼ÍêÈ«¿ÉÄÜ±»ĞŞ¸Ä£¬ÀıÈç£º
+å½“äºŒçº§ç¼“å­˜ç”Ÿæ•ˆçš„æ—¶å€™ï¼Œä¸¤ä¸ªçº¿ç¨‹è¯»å–çš„Userå®ä¾‹æ˜¯ä¸€æ ·çš„ï¼Œä½†æ˜¯ï¼Œæ•°æ®åº“å¯¹åº”çš„è¡Œè®°å½•å®Œå…¨å¯èƒ½è¢«ä¿®æ”¹ï¼Œä¾‹å¦‚ï¼š
 
 ```
--- ¸øÀÏÓÃ»§Ôö¼Ó100»ı·Ö:
+-- ç»™è€ç”¨æˆ·å¢åŠ 100ç§¯åˆ†:
 UPDATE users SET bonus = bonus + 100 WHERE createdAt <= ?
 
 ```
 
-ORMÎŞ·¨ÅĞ¶Ï`id=123`µÄÓÃ»§ÊÇ·ñÊÜ¸Ã`UPDATE`Óï¾äÓ°Ïì¡£¿¼ÂÇµ½Êı¾İ¿âÍ¨³£»áÖ§³Ö¶à¸öÓ¦ÓÃ³ÌĞò£¬´ËUPDATEÓï¾ä¿ÉÄÜÓÉÆäËû½ø³ÌÖ´ĞĞ£¬ORM¿ò¼Ü¾Í¸ü²»ÖªµÀÁË¡£
+ORMæ— æ³•åˆ¤æ–­`id=123`çš„ç”¨æˆ·æ˜¯å¦å—è¯¥`UPDATE`è¯­å¥å½±å“ã€‚è€ƒè™‘åˆ°æ•°æ®åº“é€šå¸¸ä¼šæ”¯æŒå¤šä¸ªåº”ç”¨ç¨‹åºï¼Œæ­¤UPDATEè¯­å¥å¯èƒ½ç”±å…¶ä»–è¿›ç¨‹æ‰§è¡Œï¼ŒORMæ¡†æ¶å°±æ›´ä¸çŸ¥é“äº†ã€‚
 
-ÎÒÃÇ°ÑÕâÖÖORM¿ò¼Ü³ÆÖ®ÎªÈ«×Ô¶¯ORM¿ò¼Ü¡£
+æˆ‘ä»¬æŠŠè¿™ç§ORMæ¡†æ¶ç§°ä¹‹ä¸ºå…¨è‡ªåŠ¨ORMæ¡†æ¶ã€‚
 
-¶Ô±ÈSpringÌá¹©µÄJdbcTemplate£¬ËüºÍORM¿ò¼ÜÏà±È£¬Ö÷ÒªÓĞ¼¸µã²î±ğ£º
+å¯¹æ¯”Springæä¾›çš„JdbcTemplateï¼Œå®ƒå’ŒORMæ¡†æ¶ç›¸æ¯”ï¼Œä¸»è¦æœ‰å‡ ç‚¹å·®åˆ«ï¼š
 
-1.  ²éÑ¯ºóĞèÒªÊÖ¶¯Ìá¹©MapperÊµÀıÒÔ±ã°ÑResultSetµÄÃ¿Ò»ĞĞ±äÎªJava¶ÔÏó£»
-2.  ÔöÉ¾¸Ä²Ù×÷ËùĞèµÄ²ÎÊıÁĞ±í£¬ĞèÒªÊÖ¶¯´«Èë£¬¼´°ÑUserÊµÀı±äÎª[user.id, user.name, user.email]ÕâÑùµÄÁĞ±í£¬±È½ÏÂé·³¡£
+1.  æŸ¥è¯¢åéœ€è¦æ‰‹åŠ¨æä¾›Mapperå®ä¾‹ä»¥ä¾¿æŠŠResultSetçš„æ¯ä¸€è¡Œå˜ä¸ºJavaå¯¹è±¡ï¼›
+2.  å¢åˆ æ”¹æ“ä½œæ‰€éœ€çš„å‚æ•°åˆ—è¡¨ï¼Œéœ€è¦æ‰‹åŠ¨ä¼ å…¥ï¼Œå³æŠŠUserå®ä¾‹å˜ä¸º[user.id, user.name, user.email]è¿™æ ·çš„åˆ—è¡¨ï¼Œæ¯”è¾ƒéº»çƒ¦ã€‚
 
-µ«ÊÇJdbcTemplateµÄÓÅÊÆÔÚÓÚËüµÄÈ·¶¨ĞÔ£º¼´Ã¿´Î¶ÁÈ¡²Ù×÷Ò»¶¨ÊÇÊı¾İ¿â²Ù×÷¶ø²»ÊÇ»º´æ£¬ËùÖ´ĞĞµÄSQLÊÇÍêÈ«È·¶¨µÄ£¬È±µã¾ÍÊÇ´úÂë±È½Ï·±Ëö£¬¹¹Ôì`INSERT INTO users VALUES (?,?,?)`¸üÊÇ¸´ÔÓ¡£
+ä½†æ˜¯JdbcTemplateçš„ä¼˜åŠ¿åœ¨äºå®ƒçš„ç¡®å®šæ€§ï¼šå³æ¯æ¬¡è¯»å–æ“ä½œä¸€å®šæ˜¯æ•°æ®åº“æ“ä½œè€Œä¸æ˜¯ç¼“å­˜ï¼Œæ‰€æ‰§è¡Œçš„SQLæ˜¯å®Œå…¨ç¡®å®šçš„ï¼Œç¼ºç‚¹å°±æ˜¯ä»£ç æ¯”è¾ƒç¹çï¼Œæ„é€ `INSERT INTO users VALUES (?,?,?)`æ›´æ˜¯å¤æ‚ã€‚
 
-ËùÒÔ£¬½éÓÚÈ«×Ô¶¯ORMÈçHibernateºÍÊÖĞ´È«²¿ÈçJdbcTemplateÖ®¼ä£¬»¹ÓĞÒ»ÖÖ°ë×Ô¶¯µÄORM£¬ËüÖ»¸ºÔğ°ÑResultSet×Ô¶¯Ó³Éäµ½Java Bean£¬»òÕß×Ô¶¯Ìî³äJava Bean²ÎÊı£¬µ«ÈÔĞè×Ô¼ºĞ´³öSQL¡£[MyBatis](https://mybatis.org/)¾ÍÊÇÕâÑùÒ»ÖÖ°ë×Ô¶¯»¯ORM¿ò¼Ü¡£
+æ‰€ä»¥ï¼Œä»‹äºå…¨è‡ªåŠ¨ORMå¦‚Hibernateå’Œæ‰‹å†™å…¨éƒ¨å¦‚JdbcTemplateä¹‹é—´ï¼Œè¿˜æœ‰ä¸€ç§åŠè‡ªåŠ¨çš„ORMï¼Œå®ƒåªè´Ÿè´£æŠŠResultSetè‡ªåŠ¨æ˜ å°„åˆ°Java Beanï¼Œæˆ–è€…è‡ªåŠ¨å¡«å……Java Beanå‚æ•°ï¼Œä½†ä»éœ€è‡ªå·±å†™å‡ºSQLã€‚[MyBatis](https://mybatis.org/)å°±æ˜¯è¿™æ ·ä¸€ç§åŠè‡ªåŠ¨åŒ–ORMæ¡†æ¶ã€‚
 
-ÎÒÃÇÀ´¿´¿´ÈçºÎÔÚSpringÖĞ¼¯³ÉMyBatis¡£
+æˆ‘ä»¬æ¥çœ‹çœ‹å¦‚ä½•åœ¨Springä¸­é›†æˆMyBatisã€‚
 
-Ê×ÏÈ£¬ÎÒÃÇÒªÒıÈëMyBatis±¾Éí£¬Æä´Î£¬ÓÉÓÚSpring²¢Ã»ÓĞÏñHibernateÄÇÑùÄÚÖÃ¶ÔMyBatisµÄ¼¯³É£¬ËùÒÔ£¬ÎÒÃÇĞèÒªÔÙÒıÈëMyBatis¹Ù·½×Ô¼º¿ª·¢µÄÒ»¸öÓëSpring¼¯³ÉµÄ¿â£º
+é¦–å…ˆï¼Œæˆ‘ä»¬è¦å¼•å…¥MyBatisæœ¬èº«ï¼Œå…¶æ¬¡ï¼Œç”±äºSpringå¹¶æ²¡æœ‰åƒHibernateé‚£æ ·å†…ç½®å¯¹MyBatisçš„é›†æˆï¼Œæ‰€ä»¥ï¼Œæˆ‘ä»¬éœ€è¦å†å¼•å…¥MyBatiså®˜æ–¹è‡ªå·±å¼€å‘çš„ä¸€ä¸ªä¸Springé›†æˆçš„åº“ï¼š
 
 *   org.mybatis:mybatis:3.5.11
 *   org.mybatis:mybatis-spring:3.0.0
 
-ºÍÇ°ÃæÒ»Ñù£¬ÏÈ´´½¨`DataSource`ÊÇ±Ø²»¿ÉÉÙµÄ£º
+å’Œå‰é¢ä¸€æ ·ï¼Œå…ˆåˆ›å»º`DataSource`æ˜¯å¿…ä¸å¯å°‘çš„ï¼š
 
 ```
 @Configuration
@@ -1029,14 +1029,14 @@ public class AppConfig {
 
 ```
 
-ÔÙ»Ø¹ËÒ»ÏÂHibernateºÍJPAµÄ`SessionFactory`Óë`EntityManagerFactory`£¬MyBatisÓëÖ®¶ÔÓ¦µÄÊÇ`SqlSessionFactory`ºÍ`SqlSession`£º
+å†å›é¡¾ä¸€ä¸‹Hibernateå’ŒJPAçš„`SessionFactory`ä¸`EntityManagerFactory`ï¼ŒMyBatisä¸ä¹‹å¯¹åº”çš„æ˜¯`SqlSessionFactory`å’Œ`SqlSession`ï¼š
 
 | JDBC | Hibernate | JPA | MyBatis |
 | --- | --- | --- | --- |
 | DataSource | SessionFactory | EntityManagerFactory | SqlSessionFactory |
 | Connection | Session | EntityManager | SqlSession |
 
-¿É¼û£¬ORMµÄÉè¼ÆÌ×Â·¶¼ÊÇÀàËÆµÄ¡£Ê¹ÓÃMyBatisµÄºËĞÄ¾ÍÊÇ´´½¨`SqlSessionFactory`£¬ÕâÀïÎÒÃÇĞèÒª´´½¨µÄÊÇ`SqlSessionFactoryBean`£º
+å¯è§ï¼ŒORMçš„è®¾è®¡å¥—è·¯éƒ½æ˜¯ç±»ä¼¼çš„ã€‚ä½¿ç”¨MyBatisçš„æ ¸å¿ƒå°±æ˜¯åˆ›å»º`SqlSessionFactory`ï¼Œè¿™é‡Œæˆ‘ä»¬éœ€è¦åˆ›å»ºçš„æ˜¯`SqlSessionFactoryBean`ï¼š
 
 ```
 @Bean
@@ -1048,7 +1048,7 @@ SqlSessionFactoryBean createSqlSessionFactoryBean(@Autowired DataSource dataSour
 
 ```
 
-ÒòÎªMyBatis¿ÉÒÔÖ±½ÓÊ¹ÓÃSpring¹ÜÀíµÄÉùÃ÷Ê½ÊÂÎñ£¬Òò´Ë£¬´´½¨ÊÂÎñ¹ÜÀíÆ÷ºÍÊ¹ÓÃJDBCÊÇÒ»ÑùµÄ£º
+å› ä¸ºMyBatiså¯ä»¥ç›´æ¥ä½¿ç”¨Springç®¡ç†çš„å£°æ˜å¼äº‹åŠ¡ï¼Œå› æ­¤ï¼Œåˆ›å»ºäº‹åŠ¡ç®¡ç†å™¨å’Œä½¿ç”¨JDBCæ˜¯ä¸€æ ·çš„ï¼š
 
 ```
 @Bean
@@ -1058,7 +1058,7 @@ PlatformTransactionManager createTxManager(@Autowired DataSource dataSource) {
 
 ```
 
-ºÍHibernate²»Í¬µÄÊÇ£¬MyBatisÊ¹ÓÃMapperÀ´ÊµÏÖÓ³Éä£¬¶øÇÒMapper±ØĞëÊÇ½Ó¿Ú¡£ÎÒÃÇÒÔ`User`ÀàÎªÀı£¬ÔÚ`User`ÀàºÍ`users`±íÖ®¼äÓ³ÉäµÄ`UserMapper`±àĞ´ÈçÏÂ£º
+å’ŒHibernateä¸åŒçš„æ˜¯ï¼ŒMyBatisä½¿ç”¨Mapperæ¥å®ç°æ˜ å°„ï¼Œè€Œä¸”Mapperå¿…é¡»æ˜¯æ¥å£ã€‚æˆ‘ä»¬ä»¥`User`ç±»ä¸ºä¾‹ï¼Œåœ¨`User`ç±»å’Œ`users`è¡¨ä¹‹é—´æ˜ å°„çš„`UserMapper`ç¼–å†™å¦‚ä¸‹ï¼š
 
 ```
 public interface UserMapper {
@@ -1068,9 +1068,9 @@ public interface UserMapper {
 
 ```
 
-×¢Òâ£ºÕâÀïµÄMapper²»ÊÇ`JdbcTemplate`µÄ`RowMapper`µÄ¸ÅÄî£¬ËüÊÇ¶¨Òå·ÃÎÊ`users`±íµÄ½Ó¿Ú·½·¨¡£±ÈÈçÎÒÃÇ¶¨ÒåÁËÒ»¸ö`User getById(long)`µÄÖ÷¼ü²éÑ¯·½·¨£¬²»½öÒª¶¨Òå½Ó¿Ú·½·¨±¾Éí£¬»¹ÒªÃ÷È·Ğ´³ö²éÑ¯µÄSQL£¬ÕâÀïÓÃ×¢½â`@Select`±ê¼Ç¡£SQLÓï¾äµÄÈÎºÎ²ÎÊı£¬¶¼Óë·½·¨²ÎÊı°´Ãû³Æ¶ÔÓ¦¡£ÀıÈç£¬·½·¨²ÎÊıidµÄÃû×ÖÍ¨¹ı×¢½â`@Param()`±ê¼ÇÎª`id`£¬ÔòSQLÓï¾äÀï½«À´Ìæ»»µÄÕ¼Î»·û¾ÍÊÇ`#{id}`¡£
+æ³¨æ„ï¼šè¿™é‡Œçš„Mapperä¸æ˜¯`JdbcTemplate`çš„`RowMapper`çš„æ¦‚å¿µï¼Œå®ƒæ˜¯å®šä¹‰è®¿é—®`users`è¡¨çš„æ¥å£æ–¹æ³•ã€‚æ¯”å¦‚æˆ‘ä»¬å®šä¹‰äº†ä¸€ä¸ª`User getById(long)`çš„ä¸»é”®æŸ¥è¯¢æ–¹æ³•ï¼Œä¸ä»…è¦å®šä¹‰æ¥å£æ–¹æ³•æœ¬èº«ï¼Œè¿˜è¦æ˜ç¡®å†™å‡ºæŸ¥è¯¢çš„SQLï¼Œè¿™é‡Œç”¨æ³¨è§£`@Select`æ ‡è®°ã€‚SQLè¯­å¥çš„ä»»ä½•å‚æ•°ï¼Œéƒ½ä¸æ–¹æ³•å‚æ•°æŒ‰åç§°å¯¹åº”ã€‚ä¾‹å¦‚ï¼Œæ–¹æ³•å‚æ•°idçš„åå­—é€šè¿‡æ³¨è§£`@Param()`æ ‡è®°ä¸º`id`ï¼Œåˆ™SQLè¯­å¥é‡Œå°†æ¥æ›¿æ¢çš„å ä½ç¬¦å°±æ˜¯`#{id}`ã€‚
 
-Èç¹ûÓĞ¶à¸ö²ÎÊı£¬ÄÇÃ´Ã¿¸ö²ÎÊıÃüÃûºóÖ±½ÓÔÚSQLÖĞĞ´³ö¶ÔÓ¦µÄÕ¼Î»·û¼´¿É£º
+å¦‚æœæœ‰å¤šä¸ªå‚æ•°ï¼Œé‚£ä¹ˆæ¯ä¸ªå‚æ•°å‘½ååç›´æ¥åœ¨SQLä¸­å†™å‡ºå¯¹åº”çš„å ä½ç¬¦å³å¯ï¼š
 
 ```
 @Select("SELECT * FROM users LIMIT #{offset}, #{maxResults}")
@@ -1078,15 +1078,15 @@ List<User> getAll(@Param("offset") int offset, @Param("maxResults") int maxResul
 
 ```
 
-×¢Òâ£ºMyBatisÖ´ĞĞ²éÑ¯ºó£¬½«¸ù¾İ·½·¨µÄ·µ»ØÀàĞÍ×Ô¶¯°ÑResultSetµÄÃ¿Ò»ĞĞ×ª»»ÎªUserÊµÀı£¬×ª»»¹æÔòµ±È»ÊÇ°´ÁĞÃûºÍÊôĞÔÃû¶ÔÓ¦¡£Èç¹ûÁĞÃûºÍÊôĞÔÃû²»Í¬£¬×î¼òµ¥µÄ·½Ê½ÊÇ±àĞ´SELECTÓï¾äµÄ±ğÃû£º
+æ³¨æ„ï¼šMyBatisæ‰§è¡ŒæŸ¥è¯¢åï¼Œå°†æ ¹æ®æ–¹æ³•çš„è¿”å›ç±»å‹è‡ªåŠ¨æŠŠResultSetçš„æ¯ä¸€è¡Œè½¬æ¢ä¸ºUserå®ä¾‹ï¼Œè½¬æ¢è§„åˆ™å½“ç„¶æ˜¯æŒ‰åˆ—åå’Œå±æ€§åå¯¹åº”ã€‚å¦‚æœåˆ—åå’Œå±æ€§åä¸åŒï¼Œæœ€ç®€å•çš„æ–¹å¼æ˜¯ç¼–å†™SELECTè¯­å¥çš„åˆ«åï¼š
 
 ```
--- ÁĞÃûÊÇcreated_time£¬ÊôĞÔÃûÊÇcreatedAt:
+-- åˆ—åæ˜¯created_timeï¼Œå±æ€§åæ˜¯createdAt:
 SELECT id, name, email, created_time AS createdAt FROM users
 
 ```
 
-Ö´ĞĞINSERTÓï¾ä¾ÍÉÔÎ¢Âé·³µã£¬ÒòÎªÎÒÃÇÏ£Íû´«ÈëUserÊµÀı£¬Òò´Ë£¬¶¨ÒåµÄ·½·¨½Ó¿ÚÓë`@Insert`×¢½âÈçÏÂ£º
+æ‰§è¡ŒINSERTè¯­å¥å°±ç¨å¾®éº»çƒ¦ç‚¹ï¼Œå› ä¸ºæˆ‘ä»¬å¸Œæœ›ä¼ å…¥Userå®ä¾‹ï¼Œå› æ­¤ï¼Œå®šä¹‰çš„æ–¹æ³•æ¥å£ä¸`@Insert`æ³¨è§£å¦‚ä¸‹ï¼š
 
 ```
 @Insert("INSERT INTO users (email, password, name, createdAt) VALUES (#{user.email}, #{user.password}, #{user.name}, #{user.createdAt})")
@@ -1094,9 +1094,9 @@ void insert(@Param("user") User user);
 
 ```
 
-ÉÏÊö·½·¨´«ÈëµÄ²ÎÊıÃû³ÆÊÇ`user`£¬²ÎÊıÀàĞÍÊÇUserÀà£¬ÔÚSQLÖĞÒıÓÃµÄÊ±ºò£¬ÒÔ`#{obj.property}`µÄ·½Ê½Ğ´Õ¼Î»·û¡£ºÍHibernateÕâÑùµÄÈ«×Ô¶¯»¯ORMÏà±È£¬MyBatis±ØĞëĞ´³öÍêÕûµÄINSERTÓï¾ä¡£
+ä¸Šè¿°æ–¹æ³•ä¼ å…¥çš„å‚æ•°åç§°æ˜¯`user`ï¼Œå‚æ•°ç±»å‹æ˜¯Userç±»ï¼Œåœ¨SQLä¸­å¼•ç”¨çš„æ—¶å€™ï¼Œä»¥`#{obj.property}`çš„æ–¹å¼å†™å ä½ç¬¦ã€‚å’ŒHibernateè¿™æ ·çš„å…¨è‡ªåŠ¨åŒ–ORMç›¸æ¯”ï¼ŒMyBatiså¿…é¡»å†™å‡ºå®Œæ•´çš„INSERTè¯­å¥ã€‚
 
-Èç¹û`users`±íµÄ`id`ÊÇ×ÔÔöÖ÷¼ü£¬ÄÇÃ´£¬ÎÒÃÇÔÚSQLÖĞ²»´«Èë`id`£¬µ«Ï£Íû»ñÈ¡²åÈëºóµÄÖ÷¼ü£¬ĞèÒªÔÙ¼ÓÒ»¸ö`@Options`×¢½â£º
+å¦‚æœ`users`è¡¨çš„`id`æ˜¯è‡ªå¢ä¸»é”®ï¼Œé‚£ä¹ˆï¼Œæˆ‘ä»¬åœ¨SQLä¸­ä¸ä¼ å…¥`id`ï¼Œä½†å¸Œæœ›è·å–æ’å…¥åçš„ä¸»é”®ï¼Œéœ€è¦å†åŠ ä¸€ä¸ª`@Options`æ³¨è§£ï¼š
 
 ```
 @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
@@ -1105,9 +1105,9 @@ void insert(@Param("user") User user);
 
 ```
 
-`keyProperty`ºÍ`keyColumn`·Ö±ğÖ¸³öJavaBeanµÄÊôĞÔºÍÊı¾İ¿âµÄÖ÷¼üÁĞÃû¡£
+`keyProperty`å’Œ`keyColumn`åˆ†åˆ«æŒ‡å‡ºJavaBeançš„å±æ€§å’Œæ•°æ®åº“çš„ä¸»é”®åˆ—åã€‚
 
-Ö´ĞĞ`UPDATE`ºÍ`DELETE`Óï¾äÏà¶Ô±È½Ï¼òµ¥£¬ÎÒÃÇ¶¨Òå·½·¨ÈçÏÂ£º
+æ‰§è¡Œ`UPDATE`å’Œ`DELETE`è¯­å¥ç›¸å¯¹æ¯”è¾ƒç®€å•ï¼Œæˆ‘ä»¬å®šä¹‰æ–¹æ³•å¦‚ä¸‹ï¼š
 
 ```
 @Update("UPDATE users SET name = #{user.name}, createdAt = #{user.createdAt} WHERE id = #{user.id}")
@@ -1118,29 +1118,29 @@ void deleteById(@Param("id") long id);
 
 ```
 
-ÓĞÁË`UserMapper`½Ó¿Ú£¬»¹ĞèÒª¶ÔÓ¦µÄÊµÏÖÀà²ÅÄÜÕæÕıÖ´ĞĞÕâĞ©Êı¾İ¿â²Ù×÷µÄ·½·¨¡£ËäÈ»¿ÉÒÔ×Ô¼ºĞ´ÊµÏÖÀà£¬µ«ÎÒÃÇ³ıÁË±àĞ´`UserMapper`½Ó¿ÚÍâ£¬»¹ÓĞ`BookMapper`¡¢`BonusMapper`¡­¡­Ò»¸öÒ»¸öĞ´Ì«Âé·³£¬Òò´Ë£¬MyBatisÌá¹©ÁËÒ»¸ö`MapperFactoryBean`À´×Ô¶¯´´½¨ËùÓĞMapperµÄÊµÏÖÀà¡£¿ÉÒÔÓÃÒ»¸ö¼òµ¥µÄ×¢½âÀ´ÆôÓÃËü£º
+æœ‰äº†`UserMapper`æ¥å£ï¼Œè¿˜éœ€è¦å¯¹åº”çš„å®ç°ç±»æ‰èƒ½çœŸæ­£æ‰§è¡Œè¿™äº›æ•°æ®åº“æ“ä½œçš„æ–¹æ³•ã€‚è™½ç„¶å¯ä»¥è‡ªå·±å†™å®ç°ç±»ï¼Œä½†æˆ‘ä»¬é™¤äº†ç¼–å†™`UserMapper`æ¥å£å¤–ï¼Œè¿˜æœ‰`BookMapper`ã€`BonusMapper`â€¦â€¦ä¸€ä¸ªä¸€ä¸ªå†™å¤ªéº»çƒ¦ï¼Œå› æ­¤ï¼ŒMyBatisæä¾›äº†ä¸€ä¸ª`MapperFactoryBean`æ¥è‡ªåŠ¨åˆ›å»ºæ‰€æœ‰Mapperçš„å®ç°ç±»ã€‚å¯ä»¥ç”¨ä¸€ä¸ªç®€å•çš„æ³¨è§£æ¥å¯ç”¨å®ƒï¼š
 
 ```
 @MapperScan("com.itranswarp.learnjava.mapper")
-...ÆäËû×¢½â...
+...å…¶ä»–æ³¨è§£...
 public class AppConfig {
     ...
 }
 
 ```
 
-ÓĞÁË`@MapperScan`£¬¾Í¿ÉÒÔÈÃMyBatis×Ô¶¯É¨ÃèÖ¸¶¨°üµÄËùÓĞMapper²¢´´½¨ÊµÏÖÀà¡£ÔÚÕæÕıµÄÒµÎñÂß¼­ÖĞ£¬ÎÒÃÇ¿ÉÒÔÖ±½Ó×¢Èë£º
+æœ‰äº†`@MapperScan`ï¼Œå°±å¯ä»¥è®©MyBatisè‡ªåŠ¨æ‰«ææŒ‡å®šåŒ…çš„æ‰€æœ‰Mapperå¹¶åˆ›å»ºå®ç°ç±»ã€‚åœ¨çœŸæ­£çš„ä¸šåŠ¡é€»è¾‘ä¸­ï¼Œæˆ‘ä»¬å¯ä»¥ç›´æ¥æ³¨å…¥ï¼š
 
 ```
 @Component
 @Transactional
 public class UserService {
-    // ×¢ÈëUserMapper:
+    // æ³¨å…¥UserMapper:
     @Autowired
     UserMapper userMapper;
 
     public User getUserById(long id) {
-        // µ÷ÓÃMapper·½·¨:
+        // è°ƒç”¨Mapperæ–¹æ³•:
         User user = userMapper.getById(id);
         if (user == null) {
             throw new RuntimeException("User not found by id.");
@@ -1151,11 +1151,11 @@ public class UserService {
 
 ```
 
-¿É¼û£¬ÒµÎñÂß¼­Ö÷Òª¾ÍÊÇÍ¨¹ı`XxxMapper`¶¨ÒåµÄÊı¾İ¿â·½·¨À´·ÃÎÊÊı¾İ¿â¡£
+å¯è§ï¼Œä¸šåŠ¡é€»è¾‘ä¸»è¦å°±æ˜¯é€šè¿‡`XxxMapper`å®šä¹‰çš„æ•°æ®åº“æ–¹æ³•æ¥è®¿é—®æ•°æ®åº“ã€‚
 
-### XMLÅäÖÃ
+### XMLé…ç½®
 
-ÉÏÊöÔÚSpringÖĞ¼¯³ÉMyBatisµÄ·½Ê½£¬ÎÒÃÇÖ»ĞèÒªÓÃµ½×¢½â£¬²¢Ã»ÓĞÈÎºÎXMLÅäÖÃÎÄ¼ş¡£MyBatisÒ²ÔÊĞíÊ¹ÓÃXMLÅäÖÃÓ³Éä¹ØÏµºÍSQLÓï¾ä£¬ÀıÈç£¬¸üĞÂ`User`Ê±¸ù¾İÊôĞÔÖµ¹¹Ôì¶¯Ì¬SQL£º
+ä¸Šè¿°åœ¨Springä¸­é›†æˆMyBatisçš„æ–¹å¼ï¼Œæˆ‘ä»¬åªéœ€è¦ç”¨åˆ°æ³¨è§£ï¼Œå¹¶æ²¡æœ‰ä»»ä½•XMLé…ç½®æ–‡ä»¶ã€‚MyBatisä¹Ÿå…è®¸ä½¿ç”¨XMLé…ç½®æ˜ å°„å…³ç³»å’ŒSQLè¯­å¥ï¼Œä¾‹å¦‚ï¼Œæ›´æ–°`User`æ—¶æ ¹æ®å±æ€§å€¼æ„é€ åŠ¨æ€SQLï¼š
 
 ```
 <update id="updateUser">
@@ -1170,11 +1170,11 @@ public class UserService {
 
 ```
 
-±àĞ´XMLÅäÖÃµÄÓÅµãÊÇ¿ÉÒÔ×é×°³ö¶¯Ì¬SQL£¬²¢ÇÒ°ÑËùÓĞSQL²Ù×÷¼¯ÖĞÔÚÒ»Æğ¡£È±µãÊÇÅäÖÃÆğÀ´Ì«·±Ëö£¬µ÷ÓÃ·½·¨Ê±Èç¹ûÏë²é¿´SQL»¹ĞèÒª¶¨Î»µ½XMLÅäÖÃÖĞ¡£ÕâÀïÎÒÃÇ²»½éÉÜXMLµÄÅäÖÃ·½Ê½£¬ĞèÒªÁË½âµÄÍ¯Ğ¬Çë×ÔĞĞÔÄ¶Á[¹Ù·½ÎÄµµ](https://mybatis.org/mybatis-3/zh/configuration.html)¡£
+ç¼–å†™XMLé…ç½®çš„ä¼˜ç‚¹æ˜¯å¯ä»¥ç»„è£…å‡ºåŠ¨æ€SQLï¼Œå¹¶ä¸”æŠŠæ‰€æœ‰SQLæ“ä½œé›†ä¸­åœ¨ä¸€èµ·ã€‚ç¼ºç‚¹æ˜¯é…ç½®èµ·æ¥å¤ªç¹çï¼Œè°ƒç”¨æ–¹æ³•æ—¶å¦‚æœæƒ³æŸ¥çœ‹SQLè¿˜éœ€è¦å®šä½åˆ°XMLé…ç½®ä¸­ã€‚è¿™é‡Œæˆ‘ä»¬ä¸ä»‹ç»XMLçš„é…ç½®æ–¹å¼ï¼Œéœ€è¦äº†è§£çš„ç«¥é‹è¯·è‡ªè¡Œé˜…è¯»[å®˜æ–¹æ–‡æ¡£](https://mybatis.org/mybatis-3/zh/configuration.html)ã€‚
 
-Ê¹ÓÃMyBatis×î´óµÄÎÊÌâÊÇËùÓĞSQL¶¼ĞèÒªÈ«²¿ÊÖĞ´£¬ÓÅµãÊÇÖ´ĞĞµÄSQL¾ÍÊÇÎÒÃÇ×Ô¼ºĞ´µÄSQL£¬¶ÔSQL½øĞĞÓÅ»¯·Ç³£¼òµ¥£¬Ò²¿ÉÒÔ±àĞ´ÈÎÒâ¸´ÔÓµÄSQL£¬»òÕßÊ¹ÓÃÊı¾İ¿âµÄÌØ¶¨Óï·¨£¬µ«ÇĞ»»Êı¾İ¿â¿ÉÄÜ¾Í²»Ì«ÈİÒ×¡£ºÃÏûÏ¢ÊÇ´ó²¿·ÖÏîÄ¿²¢Ã»ÓĞÇĞ»»Êı¾İ¿âµÄĞèÇó£¬ÍêÈ«¿ÉÒÔÕë¶ÔÄ³¸öÊı¾İ¿â±àĞ´¾¡¿ÉÄÜÓÅ»¯µÄSQL¡£
+ä½¿ç”¨MyBatisæœ€å¤§çš„é—®é¢˜æ˜¯æ‰€æœ‰SQLéƒ½éœ€è¦å…¨éƒ¨æ‰‹å†™ï¼Œä¼˜ç‚¹æ˜¯æ‰§è¡Œçš„SQLå°±æ˜¯æˆ‘ä»¬è‡ªå·±å†™çš„SQLï¼Œå¯¹SQLè¿›è¡Œä¼˜åŒ–éå¸¸ç®€å•ï¼Œä¹Ÿå¯ä»¥ç¼–å†™ä»»æ„å¤æ‚çš„SQLï¼Œæˆ–è€…ä½¿ç”¨æ•°æ®åº“çš„ç‰¹å®šè¯­æ³•ï¼Œä½†åˆ‡æ¢æ•°æ®åº“å¯èƒ½å°±ä¸å¤ªå®¹æ˜“ã€‚å¥½æ¶ˆæ¯æ˜¯å¤§éƒ¨åˆ†é¡¹ç›®å¹¶æ²¡æœ‰åˆ‡æ¢æ•°æ®åº“çš„éœ€æ±‚ï¼Œå®Œå…¨å¯ä»¥é’ˆå¯¹æŸä¸ªæ•°æ®åº“ç¼–å†™å°½å¯èƒ½ä¼˜åŒ–çš„SQLã€‚
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://www.w3cschool.cn/wkspring
 https://www.runoob.com/w3cnote/basic-knowledge-summary-of-spring.html
 http://codepub.cn/2015/06/21/Basic-knowledge-summary-of-Spring

@@ -1,15 +1,15 @@
-spring aop Ö´ĞĞÊ±£¬Ë³ĞòÊÇÔõÑùµÄ£¬ÈçºÎ¸Ä±äÖ´ĞĞµÄÓÅÏÈ¼¶£¿±¾ÎÄ½«´ÓÔ´ÂëÉÏÀ´Ì½¾¿ aop Ö´ĞĞË³ĞòµÄÃØÃÜ¡£
+spring aop æ‰§è¡Œæ—¶ï¼Œé¡ºåºæ˜¯æ€æ ·çš„ï¼Œå¦‚ä½•æ”¹å˜æ‰§è¡Œçš„ä¼˜å…ˆçº§ï¼Ÿæœ¬æ–‡å°†ä»æºç ä¸Šæ¥æ¢ç©¶ aop æ‰§è¡Œé¡ºåºçš„ç§˜å¯†ã€‚
 
-ÔÚ [spring aop Ö® AnnotationAwareAspectJAutoProxyCreator ·ÖÎö£¨ÉÏ£©](https://my.oschina.net/funcy/blog/4678817) Óë [spring aop Ö® AnnotationAwareAspectJAutoProxyCreator ·ÖÎö£¨ÏÂ£©](https://my.oschina.net/funcy/blog/4687961)ÖĞ£¬×İ¹Û spring aop ´´½¨ÓëÖ´ĞĞ¹ı³Ì£¬ÎÒÃÇÒ»¹²Óöµ½Á½´Î¹ØÓÚ aop µÄÅÅĞò²Ù×÷£º
+åœ¨ [spring aop ä¹‹ AnnotationAwareAspectJAutoProxyCreator åˆ†æï¼ˆä¸Šï¼‰](https://my.oschina.net/funcy/blog/4678817) ä¸ [spring aop ä¹‹ AnnotationAwareAspectJAutoProxyCreator åˆ†æï¼ˆä¸‹ï¼‰](https://my.oschina.net/funcy/blog/4687961)ä¸­ï¼Œçºµè§‚ spring aop åˆ›å»ºä¸æ‰§è¡Œè¿‡ç¨‹ï¼Œæˆ‘ä»¬ä¸€å…±é‡åˆ°ä¸¤æ¬¡å…³äº aop çš„æ’åºæ“ä½œï¼š
 
-*   `ReflectiveAspectJAdvisorFactory#getAdvisorMethods`£º¶Ô `aspect` ÖĞµÄ `@Around/@Before/@After` µÈ·½·¨½øĞĞÅÅĞò£»
-*   `AspectJAwareAdvisorAutoProxyCreator#sortAdvisors`£º¶Ô `advisor` ½øĞĞÅÅĞò¡£
+*   `ReflectiveAspectJAdvisorFactory#getAdvisorMethods`ï¼šå¯¹ `aspect` ä¸­çš„ `@Around/@Before/@After` ç­‰æ–¹æ³•è¿›è¡Œæ’åºï¼›
+*   `AspectJAwareAdvisorAutoProxyCreator#sortAdvisors`ï¼šå¯¹ `advisor` è¿›è¡Œæ’åºã€‚
 
-½ÓÏÂÀ´ÎÒÃÇÖØµãÀ´·ÖÎöÕâÁ½¸ö·½·¨¡£
+æ¥ä¸‹æ¥æˆ‘ä»¬é‡ç‚¹æ¥åˆ†æè¿™ä¸¤ä¸ªæ–¹æ³•ã€‚
 
 #### 1 `ReflectiveAspectJAdvisorFactory#getAdvisorMethods`
 
-µÚÒ»´ÎÅÅĞòÔÚ `ReflectiveAspectJAdvisorFactory#getAdvisorMethods`£¬µ÷ÓÃ½á¹¹ÈçÏÂ£º
+ç¬¬ä¸€æ¬¡æ’åºåœ¨ `ReflectiveAspectJAdvisorFactory#getAdvisorMethods`ï¼Œè°ƒç”¨ç»“æ„å¦‚ä¸‹ï¼š
 
 ```
 |-AbstractAutoProxyCreator#postProcessBeforeInstantiation
@@ -21,91 +21,91 @@ spring aop Ö´ĞĞÊ±£¬Ë³ĞòÊÇÔõÑùµÄ£¬ÈçºÎ¸Ä±äÖ´ĞĞµÄÓÅÏÈ¼¶£¿±¾ÎÄ½«´ÓÔ´ÂëÉÏÀ´Ì½¾¿ aop 
 
 ```
 
-´úÂëÈçÏÂ£º
+ä»£ç å¦‚ä¸‹ï¼š
 
 > ReflectiveAspectJAdvisorFactory
 
 ```
-// »ñÈ¡ @Aspect ÀàÖĞµÄ·½·¨
+// è·å– @Aspect ç±»ä¸­çš„æ–¹æ³•
 private List<Method> getAdvisorMethods(Class<?> aspectClass) {
     final List<Method> methods = new ArrayList<>();
-    // Ê¡ÂÔ»ñÈ¡·½·¨µÄ²Ù×÷
+    // çœç•¥è·å–æ–¹æ³•çš„æ“ä½œ
     ...
 
-    //¶ÔµÃµ½µÄËùÓĞ·½·¨ÅÅĞò£¬
+    //å¯¹å¾—åˆ°çš„æ‰€æœ‰æ–¹æ³•æ’åºï¼Œ
     methods.sort(METHOD_COMPARATOR);
     return methods;
 }
 
 ```
 
-Õâ¸ö·½·¨µÄ²Ù×÷ÔÚ [spring aop Ö® AnnotationAwareAspectJAutoProxyCreator ·ÖÎö£¨ÉÏ£©](https://my.oschina.net/funcy/blog/4678817) Ò»ÎÄÒÑ×÷ÁËÏêÏ¸·ÖÎö£¬ÕâÀïÎÒÃÇ½ö¹Ø×¢ÅÅĞò¹æÔò£º
+è¿™ä¸ªæ–¹æ³•çš„æ“ä½œåœ¨ [spring aop ä¹‹ AnnotationAwareAspectJAutoProxyCreator åˆ†æï¼ˆä¸Šï¼‰](https://my.oschina.net/funcy/blog/4678817) ä¸€æ–‡å·²ä½œäº†è¯¦ç»†åˆ†æï¼Œè¿™é‡Œæˆ‘ä»¬ä»…å…³æ³¨æ’åºè§„åˆ™ï¼š
 
 > ReflectiveAspectJAdvisorFactory
 
 ```
 /**
- * METHOD_COMPARATOR Ïê½â
+ * METHOD_COMPARATOR è¯¦è§£
  */
 private static final Comparator<Method> METHOD_COMPARATOR;
 static {
     Comparator<Method> adviceKindComparator = new ConvertingComparator<>(
-            // ±È½ÏÆ÷£¬°´´«ÈëË³Ğò½øĞĞ±È½Ï
+            // æ¯”è¾ƒå™¨ï¼ŒæŒ‰ä¼ å…¥é¡ºåºè¿›è¡Œæ¯”è¾ƒ
             new InstanceComparator<>(
                     Around.class, Before.class, After.class, AfterReturning.class, AfterThrowing.class),
-            // ×ª»»Æ÷£¬½«·½·¨×ª»¯Îª @Around, @Before, @After, @AfterReturning, @AfterThrowing µÈ×¢½â
+            // è½¬æ¢å™¨ï¼Œå°†æ–¹æ³•è½¬åŒ–ä¸º @Around, @Before, @After, @AfterReturning, @AfterThrowing ç­‰æ³¨è§£
             (Converter<Method, Annotation>) method -> {
                 AspectJAnnotation<?> annotation =
                     AbstractAspectJAdvisorFactory.findAspectJAnnotationOnMethod(method);
                 return (annotation != null ? annotation.getAnnotation() : null);
             });
-    // ×ª»»±È½ÏÆ÷£¬
-    // 1\. ×ª»»£º½«´«ÈëµÄ·½·¨(Method)×ª»»Îª·½·¨Ãû(String)
-    // 2\. ±È½Ï£º°´´«ÈëÀàĞÍ½øĞĞ±È½Ï£¬ÕâÀï´«ÈëµÄµÄÀàĞÍÎªString£¬Ô­ÒòÊÇ×ª»»Æ÷½«´«ÈëµÄMethod×ª»»³ÉStringÁË
+    // è½¬æ¢æ¯”è¾ƒå™¨ï¼Œ
+    // 1\. è½¬æ¢ï¼šå°†ä¼ å…¥çš„æ–¹æ³•(Method)è½¬æ¢ä¸ºæ–¹æ³•å(String)
+    // 2\. æ¯”è¾ƒï¼šæŒ‰ä¼ å…¥ç±»å‹è¿›è¡Œæ¯”è¾ƒï¼Œè¿™é‡Œä¼ å…¥çš„çš„ç±»å‹ä¸ºStringï¼ŒåŸå› æ˜¯è½¬æ¢å™¨å°†ä¼ å…¥çš„Methodè½¬æ¢æˆStringäº†
     Comparator<Method> methodNameComparator = new ConvertingComparator<>(Method::getName);
     /*
-     * METHOD_COMPARATOR ±È½Ï¹æÔò£º
-     * 1\. Èç¹û·½·¨±êÊ¶ÁËÇĞÃæ×¢½â, Ôò°´ @Around, @Before, @After, @AfterReturning,
-     *       @AfterThrowing Ë³ĞòÅÅĞò (`adviceKindComparator`)
-     * 2\. Èç¹ûÃ»ÓĞ±êÊ¶ÕâĞ©×¢½â£¬Ôò°´·½·¨Ãû³ÆµÄ×Ö·û´®ÅÅĞò(`methodNameComparator`)
+     * METHOD_COMPARATOR æ¯”è¾ƒè§„åˆ™ï¼š
+     * 1\. å¦‚æœæ–¹æ³•æ ‡è¯†äº†åˆ‡é¢æ³¨è§£, åˆ™æŒ‰ @Around, @Before, @After, @AfterReturning,
+     *       @AfterThrowing é¡ºåºæ’åº (`adviceKindComparator`)
+     * 2\. å¦‚æœæ²¡æœ‰æ ‡è¯†è¿™äº›æ³¨è§£ï¼Œåˆ™æŒ‰æ–¹æ³•åç§°çš„å­—ç¬¦ä¸²æ’åº(`methodNameComparator`)
      */
     METHOD_COMPARATOR = adviceKindComparator.thenComparing(methodNameComparator);
 }
 
 ```
 
-ÕâÀï¶ÔÕâ¸ö·½·¨µÄÅÅĞò¹æÔò×Ü½áÈçÏÂ£º
+è¿™é‡Œå¯¹è¿™ä¸ªæ–¹æ³•çš„æ’åºè§„åˆ™æ€»ç»“å¦‚ä¸‹ï¼š
 
-1.  Õâ¸ö·½·¨ÅÅĞòµÄ¶ÔÏóÊÇÍ¬Ò»¸ö `@Aspect` ÖĞµÄ·½·¨£»
-2.  ¶ÔÓÚÇĞÃæ·½·¨£¬ÅÅĞòÈçÏÂ£º`@Around`, `@Before`, `@After`, `@AfterReturning`, `@AfterThrowing`£»
-3.  ¶ÔÓÚ·ÇÇĞÃæ·½·¨£¬°´·½·¨Ãû£¨String µÄÅÅĞò¹æÔò£©ÅÅĞò¡£
+1.  è¿™ä¸ªæ–¹æ³•æ’åºçš„å¯¹è±¡æ˜¯åŒä¸€ä¸ª `@Aspect` ä¸­çš„æ–¹æ³•ï¼›
+2.  å¯¹äºåˆ‡é¢æ–¹æ³•ï¼Œæ’åºå¦‚ä¸‹ï¼š`@Around`, `@Before`, `@After`, `@AfterReturning`, `@AfterThrowing`ï¼›
+3.  å¯¹äºéåˆ‡é¢æ–¹æ³•ï¼ŒæŒ‰æ–¹æ³•åï¼ˆString çš„æ’åºè§„åˆ™ï¼‰æ’åºã€‚
 
-¸Ã·½·¨ÅÅĞòÇ°ºóµÄ±ä»¯ÈçÏÂ£º
+è¯¥æ–¹æ³•æ’åºå‰åçš„å˜åŒ–å¦‚ä¸‹ï¼š
 
-ÅÅĞòÇ°£º
+æ’åºå‰ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-23df6d6a46f37badb1017ceee8dcfa6533e.png)
 
-ÅÅĞòºó£º
+æ’åºåï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-85bdb16953c1c6348d39578de6b6144c1cc.png)
 
-ÅÅĞòºóÓëÎÒÃÇ·ÖÎöµÄ `@Around, @Before, @After, @AfterReturning,@AfterThrowing` µÄË³ĞòÒ»ÖÂ¡£
+æ’åºåä¸æˆ‘ä»¬åˆ†æçš„ `@Around, @Before, @After, @AfterReturning,@AfterThrowing` çš„é¡ºåºä¸€è‡´ã€‚
 
-µÃµ½ `List<Method>` ºó£¬½Ó×Å»á±éÀúÕâĞ© `method`£¬½«Æä°ü×°ÎªÒ»¸ö¸ö `advisor`£º
+å¾—åˆ° `List<Method>` åï¼Œæ¥ç€ä¼šéå†è¿™äº› `method`ï¼Œå°†å…¶åŒ…è£…ä¸ºä¸€ä¸ªä¸ª `advisor`ï¼š
 
 > ReflectiveAspectJAdvisorFactory
 
 ```
 public List<Advisor> getAdvisors(MetadataAwareAspectInstanceFactory aspectInstanceFactory) {
-    // Ê¡ÂÔÁËÒ»Ğ©´úÂë
+    // çœç•¥äº†ä¸€äº›ä»£ç 
     ...
 
     List<Advisor> advisors = new ArrayList<>();
-    //»ñÈ¡Õâ¸öÀàËùÓĞµÄÔöÇ¿·½·¨
+    //è·å–è¿™ä¸ªç±»æ‰€æœ‰çš„å¢å¼ºæ–¹æ³•
     for (Method method : getAdvisorMethods(aspectClass)) {
-        // Éú³ÉÔöÇ¿ÊµÀı£¬advisors.size() ÒÀ´ÎÎª 0£¬1£¬2£¬... ÕâÊÇ
-        // declarationOrderInAspect µÄÖµ£¬ºóÃæÅÅĞò»áÓÃµ½
+        // ç”Ÿæˆå¢å¼ºå®ä¾‹ï¼Œadvisors.size() ä¾æ¬¡ä¸º 0ï¼Œ1ï¼Œ2ï¼Œ... è¿™æ˜¯
+        // declarationOrderInAspect çš„å€¼ï¼Œåé¢æ’åºä¼šç”¨åˆ°
         Advisor advisor = getAdvisor(method, lazySingletonAspectInstanceFactory, 
                 advisors.size(), aspectName);
         if (advisor != null) {
@@ -113,17 +113,17 @@ public List<Advisor> getAdvisors(MetadataAwareAspectInstanceFactory aspectInstan
         }
     }
 
-    // Ê¡ÂÔÁËÒ»Ğ©´úÂë
+    // çœç•¥äº†ä¸€äº›ä»£ç 
     ...
 }
 
 ```
 
-°ü×°³É `Advisor` Ê±£¬»á´«Èë `declarationOrderInAspect` Öµ£¬¸ÃÖµÎª `advisors.size()`£¬ÒÀ´ÎÎª `0£¬1£¬2£¬...`£¬Õâ¸öÖµÔÚºóÃæµÄÅÅĞòÖĞ»áÓÃµ½¡£
+åŒ…è£…æˆ `Advisor` æ—¶ï¼Œä¼šä¼ å…¥ `declarationOrderInAspect` å€¼ï¼Œè¯¥å€¼ä¸º `advisors.size()`ï¼Œä¾æ¬¡ä¸º `0ï¼Œ1ï¼Œ2ï¼Œ...`ï¼Œè¿™ä¸ªå€¼åœ¨åé¢çš„æ’åºä¸­ä¼šç”¨åˆ°ã€‚
 
-### 2\. advisor µÄÅÅĞò£º`AspectJAwareAdvisorAutoProxyCreator#sortAdvisors`
+### 2\. advisor çš„æ’åºï¼š`AspectJAwareAdvisorAutoProxyCreator#sortAdvisors`
 
-`@Aspect` ÀàÖĞµÄÇĞÃæ·½·¨°ü×°³É `advisor` ºó£¬»òÕß»ñÈ¡Íê×Ô¶¨Òå `advisor` ºó£¬½Ó×Å¾Í½øĞĞÁËµÚ¶ş´ÎÅÅĞò£º`AspectJAwareAdvisorAutoProxyCreator#sortAdvisors`£¬·½·¨µÄµ÷ÓÃÁ´ÈçÏÂ£º
+`@Aspect` ç±»ä¸­çš„åˆ‡é¢æ–¹æ³•åŒ…è£…æˆ `advisor` åï¼Œæˆ–è€…è·å–å®Œè‡ªå®šä¹‰ `advisor` åï¼Œæ¥ç€å°±è¿›è¡Œäº†ç¬¬äºŒæ¬¡æ’åºï¼š`AspectJAwareAdvisorAutoProxyCreator#sortAdvisors`ï¼Œæ–¹æ³•çš„è°ƒç”¨é“¾å¦‚ä¸‹ï¼š
 
 ```
 |-AbstractAutoProxyCreator#postProcessAfterInitialization
@@ -142,10 +142,10 @@ protected List<Advisor> sortAdvisors(List<Advisor> advisors) {
             = new ArrayList<>(advisors.size());
     for (Advisor element : advisors) {
         partiallyComparableAdvisors.add(
-            // ±È½Ï¹æÔòÎª DEFAULT_PRECEDENCE_COMPARATOR,ÆäÊµÊÇAspectJPrecedenceComparator
+            // æ¯”è¾ƒè§„åˆ™ä¸º DEFAULT_PRECEDENCE_COMPARATOR,å…¶å®æ˜¯AspectJPrecedenceComparator
             new PartiallyComparableAdvisorHolder(element, DEFAULT_PRECEDENCE_COMPARATOR));
     }
-    // ¾ßÌåµÄ±È½Ï²Ù×÷£¬±È½Ï¹æÔòÓÉ AspectJPrecedenceComparator Ìá¹©
+    // å…·ä½“çš„æ¯”è¾ƒæ“ä½œï¼Œæ¯”è¾ƒè§„åˆ™ç”± AspectJPrecedenceComparator æä¾›
     List<PartiallyComparableAdvisorHolder> sorted 
             = PartialOrder.sort(partiallyComparableAdvisors);
     if (sorted != null) {
@@ -162,11 +162,11 @@ protected List<Advisor> sortAdvisors(List<Advisor> advisors) {
 
 ```
 
-ÕâÀï½øĞĞÁËÁ½¸öÅÅĞò£¬Ò»¸öÊÇ `PartialOrder.sort(...)`£¬Ò»¸öÊÇ `super.sortAdvisors(...)`£¬ÎÒÃÇÏÈÀ´·ÖÎö `PartialOrder.sort(...)`¡£
+è¿™é‡Œè¿›è¡Œäº†ä¸¤ä¸ªæ’åºï¼Œä¸€ä¸ªæ˜¯ `PartialOrder.sort(...)`ï¼Œä¸€ä¸ªæ˜¯ `super.sortAdvisors(...)`ï¼Œæˆ‘ä»¬å…ˆæ¥åˆ†æ `PartialOrder.sort(...)`ã€‚
 
-#### 2.1 `PartialOrder.sort(...)` µÄ±È½ÏÆ÷£º`AspectJPrecedenceComparator`
+#### 2.1 `PartialOrder.sort(...)` çš„æ¯”è¾ƒå™¨ï¼š`AspectJPrecedenceComparator`
 
-Êµ¼ÊÉÏ£¬`PartialOrder.sort(...)` Ö»Òª×öÁËÒ»¸öÅÅĞò¶øÒÑ£¬Õâ¸ö·½·¨Ã»É¶·ÖÎöµÄ£¬ÎÒÃÇÕæÕıÒª·ÖÎöµÄÓ¦¸ÃÊÇ´«ÈëµÄÅÅĞò¹æÔò£¬Ò²¾ÍÊÇ `DEFAULT_PRECEDENCE_COMPARATOR`£º
+å®é™…ä¸Šï¼Œ`PartialOrder.sort(...)` åªè¦åšäº†ä¸€ä¸ªæ’åºè€Œå·²ï¼Œè¿™ä¸ªæ–¹æ³•æ²¡å•¥åˆ†æçš„ï¼Œæˆ‘ä»¬çœŸæ­£è¦åˆ†æçš„åº”è¯¥æ˜¯ä¼ å…¥çš„æ’åºè§„åˆ™ï¼Œä¹Ÿå°±æ˜¯ `DEFAULT_PRECEDENCE_COMPARATOR`ï¼š
 
 ```
 private static final Comparator<Advisor> DEFAULT_PRECEDENCE_COMPARATOR 
@@ -174,18 +174,18 @@ private static final Comparator<Advisor> DEFAULT_PRECEDENCE_COMPARATOR
 
 ```
 
-`DEFAULT_PRECEDENCE_COMPARATOR` µÄÀàĞÍÊÇ `AspectJPrecedenceComparator`£¬ÎÒÃÇÖ±½Ó²é¿´Æä `compare(xxx)` ·½·¨£º
+`DEFAULT_PRECEDENCE_COMPARATOR` çš„ç±»å‹æ˜¯ `AspectJPrecedenceComparator`ï¼Œæˆ‘ä»¬ç›´æ¥æŸ¥çœ‹å…¶ `compare(xxx)` æ–¹æ³•ï¼š
 
 > AspectJPrecedenceComparator
 
 ```
 @Override
 public int compare(Advisor o1, Advisor o2) {
-    // ±È½Ï¹æÔò£ºAnnotationAwareOrderComparator
+    // æ¯”è¾ƒè§„åˆ™ï¼šAnnotationAwareOrderComparator
     int advisorPrecedence = this.advisorComparator.compare(o1, o2);
-    // Ë³ĞòÏàÍ¬£¬ÇÒÀ´Ô´ÓÚÍ¬Ò» aspect£¬µ÷ÓÃ comparePrecedenceWithinAspect ÔÙ´Î±È½Ï
+    // é¡ºåºç›¸åŒï¼Œä¸”æ¥æºäºåŒä¸€ aspectï¼Œè°ƒç”¨ comparePrecedenceWithinAspect å†æ¬¡æ¯”è¾ƒ
     if (advisorPrecedence == SAME_PRECEDENCE && declaredInSameAspect(o1, o2)) {
-        // ±È½ÏÉùÃ÷Ë³Ğò£¬Èç¹ûÆäÖĞÓĞÒ»¸öÊÇafterÍ¨Öª£¬ÔòºóÉùÃ÷µÄÓÅÏÈ¼¶¸ß£»·ñÔòÏÈÉùÃ÷µÄÓÅÏÈ¼¶¸ß
+        // æ¯”è¾ƒå£°æ˜é¡ºåºï¼Œå¦‚æœå…¶ä¸­æœ‰ä¸€ä¸ªæ˜¯afteré€šçŸ¥ï¼Œåˆ™åå£°æ˜çš„ä¼˜å…ˆçº§é«˜ï¼›å¦åˆ™å…ˆå£°æ˜çš„ä¼˜å…ˆçº§é«˜
         advisorPrecedence = comparePrecedenceWithinAspect(o1, o2);
     }
     return advisorPrecedence;
@@ -193,14 +193,14 @@ public int compare(Advisor o1, Advisor o2) {
 
 ```
 
-`AspectJPrecedenceComparator#compare` ±È½Ï¼òµ¥£¬¹ı³ÌÈçÏÂ£º
+`AspectJPrecedenceComparator#compare` æ¯”è¾ƒç®€å•ï¼Œè¿‡ç¨‹å¦‚ä¸‹ï¼š
 
-1.  µ÷ÓÃ `advisorComparator.compare` ½øĞĞ±È½Ï£¬Õâ¸ö±È½Ï¹æÔòÎÒÃÇ½ÓÏÂÀ´»á·ÖÎö£»
-2.  Èç¹ûÓÉÉÏÊö±È½Ï¹æÔòµÃµ½µÄÓÅÏÈ¼¶ÏàÍ¬£¬ÇÒÁ½¸ö `advisor` ÊÇÔÚÍ¬Ò» aspect ÖĞ¶¨ÒåµÄ£¬Ôòµ÷ÓÃ `comparePrecedenceWithinAspect` ¼ÌĞø±È½Ï.
+1.  è°ƒç”¨ `advisorComparator.compare` è¿›è¡Œæ¯”è¾ƒï¼Œè¿™ä¸ªæ¯”è¾ƒè§„åˆ™æˆ‘ä»¬æ¥ä¸‹æ¥ä¼šåˆ†æï¼›
+2.  å¦‚æœç”±ä¸Šè¿°æ¯”è¾ƒè§„åˆ™å¾—åˆ°çš„ä¼˜å…ˆçº§ç›¸åŒï¼Œä¸”ä¸¤ä¸ª `advisor` æ˜¯åœ¨åŒä¸€ aspect ä¸­å®šä¹‰çš„ï¼Œåˆ™è°ƒç”¨ `comparePrecedenceWithinAspect` ç»§ç»­æ¯”è¾ƒ.
 
 ##### `this.advisorComparator.compare`
 
-ÎÒÃÇÀ´¿´¿´ `this.advisorComparator.compare` µÄ±È½Ï¹æÔò£º
+æˆ‘ä»¬æ¥çœ‹çœ‹ `this.advisorComparator.compare` çš„æ¯”è¾ƒè§„åˆ™ï¼š
 
 ```
 private final Comparator<? super Advisor> advisorComparator;
@@ -210,14 +210,14 @@ public AspectJPrecedenceComparator() {
 }
 
 public int compare(Advisor o1, Advisor o2) {
-    // ±È½Ï¹æÔò£ºAnnotationAwareOrderComparator
+    // æ¯”è¾ƒè§„åˆ™ï¼šAnnotationAwareOrderComparator
     int advisorPrecedence = this.advisorComparator.compare(o1, o2);
     ...
 }
 
 ```
 
-`this.advisorComparator.compare` µÄ±È½Ï¹æÔòÓÉ `AnnotationAwareOrderComparator` Ìá¹©£º
+`this.advisorComparator.compare` çš„æ¯”è¾ƒè§„åˆ™ç”± `AnnotationAwareOrderComparator` æä¾›ï¼š
 
 ```
 public int compare(@Nullable Object o1, @Nullable Object o2) {
@@ -225,11 +225,11 @@ public int compare(@Nullable Object o1, @Nullable Object o2) {
 }
 
 /**
- * ¾ßÌåµÄ±È½Ï²Ù×÷£¬ÏÈ±È½Ï PriorityOrdered£¬ÔÙ±È½Ï Ordered
+ * å…·ä½“çš„æ¯”è¾ƒæ“ä½œï¼Œå…ˆæ¯”è¾ƒ PriorityOrderedï¼Œå†æ¯”è¾ƒ Ordered
  */
 private int doCompare(@Nullable Object o1, @Nullable Object o2, 
         @Nullable OrderSourceProvider sourceProvider) {
-    // Á½ÕßÖ®Ò»Îª PriorityOrdered£¬Ë­ÊÇPriorityOrdered£¬Ë­µÄÓÅÏÈ¼¶¸ß
+    // ä¸¤è€…ä¹‹ä¸€ä¸º PriorityOrderedï¼Œè°æ˜¯PriorityOrderedï¼Œè°çš„ä¼˜å…ˆçº§é«˜
     boolean p1 = (o1 instanceof PriorityOrdered);
     boolean p2 = (o2 instanceof PriorityOrdered);
     if (p1 && !p2) {
@@ -238,37 +238,37 @@ private int doCompare(@Nullable Object o1, @Nullable Object o2,
     else if (p2 && !p1) {
         return 1;
     }
-    // ²éÕÒorderµÄÖµ£¬ÏÈ²éÕÒOrdered½Ó¿Ú£¬Èç¹ûÃ»ÕÒµ½£¬ÔÙ²éÕÒ @Order ×¢½â
+    // æŸ¥æ‰¾orderçš„å€¼ï¼Œå…ˆæŸ¥æ‰¾Orderedæ¥å£ï¼Œå¦‚æœæ²¡æ‰¾åˆ°ï¼Œå†æŸ¥æ‰¾ @Order æ³¨è§£
     int i1 = getOrder(o1, sourceProvider);
     int i2 = getOrder(o2, sourceProvider);
-    // °´Integer¹æÔò½øĞĞ±È½Ï
+    // æŒ‰Integerè§„åˆ™è¿›è¡Œæ¯”è¾ƒ
     return Integer.compare(i1, i2);
 }
 
 ```
 
-´ÓÉÏÃæµÄ´úÂë¿ÉÖª£¬ÏÈ±È½Ï `PriorityOrdered`£¬ÔÙ±È½Ï `Ordered`£¬±È½Ï¹æÔòÈçÏÂ£º
+ä»ä¸Šé¢çš„ä»£ç å¯çŸ¥ï¼Œå…ˆæ¯”è¾ƒ `PriorityOrdered`ï¼Œå†æ¯”è¾ƒ `Ordered`ï¼Œæ¯”è¾ƒè§„åˆ™å¦‚ä¸‹ï¼š
 
-1.  `PriorityOrdered` ±È½Ï£ºÁ½ÕßÖ®ÖĞ£¬Ö»ÓĞÆäÒ»ÊµÏÖÁË `PriorityOrdered` ½Ó¿Ú£¬ÄÇÃ´ÀàĞÍÎª `PriorityOrdered` ÓÅÏÈ¼¶¸ß£¬ ÆäËûÇé¿öÔò°´ `Ordered` µÄ¹æÔò±È½Ï£»
-2.  `Ordered` ±È½Ï¹æÔò£º
-    1.  Èç¹ûÊµÏÖÁË `Ordered` »ò `PriorityOrdered` ½Ó¿Ú£¬Ôò¸ù¾İ `getOrder()` ·µ»ØÖµ½øĞĞ±È½Ï£¬ÖµÔ½Ğ¡ÓÅÏÈ¼¶Ô½¸ß£»
-    2.  Èç¹û±ê×¢ÁË `@Order/@Priority` ×¢½â£¬Ôò¸ù¾İÆä `value()` ·µ»ØÖµ½øĞĞ±È½Ï£¬ÖµÔ½Ğ¡ÓÅÏÈ¼¶Ô½¸ß£»
-    3.  Èç¹ûÃ»ÓĞÊµÏÖ `Ordered/PriorityOrdered`£¬Ò²Ã»ÓĞ±ê×¢ `@Order/@Priority` ×¢½â£¬ÔòÎª×îµÍÓÅÏÈ¼¶ (`Integer.MAX_VALUE`).
+1.  `PriorityOrdered` æ¯”è¾ƒï¼šä¸¤è€…ä¹‹ä¸­ï¼Œåªæœ‰å…¶ä¸€å®ç°äº† `PriorityOrdered` æ¥å£ï¼Œé‚£ä¹ˆç±»å‹ä¸º `PriorityOrdered` ä¼˜å…ˆçº§é«˜ï¼Œ å…¶ä»–æƒ…å†µåˆ™æŒ‰ `Ordered` çš„è§„åˆ™æ¯”è¾ƒï¼›
+2.  `Ordered` æ¯”è¾ƒè§„åˆ™ï¼š
+    1.  å¦‚æœå®ç°äº† `Ordered` æˆ– `PriorityOrdered` æ¥å£ï¼Œåˆ™æ ¹æ® `getOrder()` è¿”å›å€¼è¿›è¡Œæ¯”è¾ƒï¼Œå€¼è¶Šå°ä¼˜å…ˆçº§è¶Šé«˜ï¼›
+    2.  å¦‚æœæ ‡æ³¨äº† `@Order/@Priority` æ³¨è§£ï¼Œåˆ™æ ¹æ®å…¶ `value()` è¿”å›å€¼è¿›è¡Œæ¯”è¾ƒï¼Œå€¼è¶Šå°ä¼˜å…ˆçº§è¶Šé«˜ï¼›
+    3.  å¦‚æœæ²¡æœ‰å®ç° `Ordered/PriorityOrdered`ï¼Œä¹Ÿæ²¡æœ‰æ ‡æ³¨ `@Order/@Priority` æ³¨è§£ï¼Œåˆ™ä¸ºæœ€ä½ä¼˜å…ˆçº§ (`Integer.MAX_VALUE`).
 
 ##### `comparePrecedenceWithinAspect`
 
-¶ÔÓÚ `@Aspect` ±ê×¢µÄÀà£¬Èç¹ûÍ¬Ò» `aspect` Àï¶¨ÒåÁËÍ¬ÑùµÄ `advice`£¬spring aop Ò²Ìá¹©ÁËÒ»Ì×±È½Ï¹æÔò£º
+å¯¹äº `@Aspect` æ ‡æ³¨çš„ç±»ï¼Œå¦‚æœåŒä¸€ `aspect` é‡Œå®šä¹‰äº†åŒæ ·çš„ `advice`ï¼Œspring aop ä¹Ÿæä¾›äº†ä¸€å¥—æ¯”è¾ƒè§„åˆ™ï¼š
 
 ```
 /**
- * Õë¶Ô @Aspect£¬ Í¬Ò»aspectÀï¶¨ÒåÁËÍ¬ÑùµÄ advice£¬ÔÙ´Î±È½Ï
+ * é’ˆå¯¹ @Aspectï¼Œ åŒä¸€aspecté‡Œå®šä¹‰äº†åŒæ ·çš„ adviceï¼Œå†æ¬¡æ¯”è¾ƒ
  */
 private int comparePrecedenceWithinAspect(Advisor advisor1, Advisor advisor2) {
     boolean oneOrOtherIsAfterAdvice = (AspectJAopUtils.isAfterAdvice(advisor1) 
             || AspectJAopUtils.isAfterAdvice(advisor2));
     int adviceDeclarationOrderDelta = getAspectDeclarationOrder(advisor1) 
             - getAspectDeclarationOrder(advisor2);
-    // ÆäÖĞÓĞÒ»¸öÊÇafterÍ¨Öª£¬declarationOrderInAspect´óµÄÓÅÏÈ¼¶¸ß
+    // å…¶ä¸­æœ‰ä¸€ä¸ªæ˜¯afteré€šçŸ¥ï¼ŒdeclarationOrderInAspectå¤§çš„ä¼˜å…ˆçº§é«˜
     if (oneOrOtherIsAfterAdvice) {
         if (adviceDeclarationOrderDelta < 0) {
             return LOWER_PRECEDENCE;
@@ -280,7 +280,7 @@ private int comparePrecedenceWithinAspect(Advisor advisor1, Advisor advisor2) {
             return HIGHER_PRECEDENCE;
         }
     }
-    // Á½Õß¶¼²»ÊÇafterÍ¨Öª£¬declarationOrderInAspectĞ¡µÄÓÅÏÈ¼¶¸ß
+    // ä¸¤è€…éƒ½ä¸æ˜¯afteré€šçŸ¥ï¼ŒdeclarationOrderInAspectå°çš„ä¼˜å…ˆçº§é«˜
     else {
         if (adviceDeclarationOrderDelta < 0) {
             return HIGHER_PRECEDENCE;
@@ -296,22 +296,22 @@ private int comparePrecedenceWithinAspect(Advisor advisor1, Advisor advisor2) {
 
 ```
 
-±È½Ï¹æÔòÈçÏÂ£º±È½ÏÁ½ÕßµÄ `declarationOrderInAspect` Öµ£¬Èç¹ûÁ½ÕßÖ®Ò»Îª `after` Í¨Öª£¬`declarationOrderInAspect` ´óµÄÓÅÏÈ¼¶¸ß£»Èç¹ûÁ½Õß¶¼²»ÊÇ `after` Í¨Öª£¬`declarationOrderInAspect` Ğ¡µÄÓÅÏÈ¼¶¸ß¡£
+æ¯”è¾ƒè§„åˆ™å¦‚ä¸‹ï¼šæ¯”è¾ƒä¸¤è€…çš„ `declarationOrderInAspect` å€¼ï¼Œå¦‚æœä¸¤è€…ä¹‹ä¸€ä¸º `after` é€šçŸ¥ï¼Œ`declarationOrderInAspect` å¤§çš„ä¼˜å…ˆçº§é«˜ï¼›å¦‚æœä¸¤è€…éƒ½ä¸æ˜¯ `after` é€šçŸ¥ï¼Œ`declarationOrderInAspect` å°çš„ä¼˜å…ˆçº§é«˜ã€‚
 
-ÕâÀïµÄ `declarationOrderInAspect` ÊÇÊ²Ã´ÄØ£¿ÕâÊÇÉÏÒ»Ğ¡½ÚÌáµ½µÄ `advisor.size()`£¬´úÂëÈçÏÂ£º
+è¿™é‡Œçš„ `declarationOrderInAspect` æ˜¯ä»€ä¹ˆå‘¢ï¼Ÿè¿™æ˜¯ä¸Šä¸€å°èŠ‚æåˆ°çš„ `advisor.size()`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 > ReflectiveAspectJAdvisorFactory
 
 ```
 public List<Advisor> getAdvisors(MetadataAwareAspectInstanceFactory aspectInstanceFactory) {
-    // Ê¡ÂÔÁËÒ»Ğ©´úÂë
+    // çœç•¥äº†ä¸€äº›ä»£ç 
     ...
 
     List<Advisor> advisors = new ArrayList<>();
-    //»ñÈ¡Õâ¸öÀàËùÓĞµÄÔöÇ¿·½·¨
+    //è·å–è¿™ä¸ªç±»æ‰€æœ‰çš„å¢å¼ºæ–¹æ³•
     for (Method method : getAdvisorMethods(aspectClass)) {
-        // Éú³ÉÔöÇ¿ÊµÀı£¬advisors.size() ÒÀ´ÎÎª 0£¬1£¬2£¬... ÕâÊÇ
-        // declarationOrderInAspect µÄÖµ£¬ºóÃæÅÅĞò»áÓÃµ½
+        // ç”Ÿæˆå¢å¼ºå®ä¾‹ï¼Œadvisors.size() ä¾æ¬¡ä¸º 0ï¼Œ1ï¼Œ2ï¼Œ... è¿™æ˜¯
+        // declarationOrderInAspect çš„å€¼ï¼Œåé¢æ’åºä¼šç”¨åˆ°
         Advisor advisor = getAdvisor(method, lazySingletonAspectInstanceFactory, 
                 advisors.size(), aspectName);
         if (advisor != null) {
@@ -319,13 +319,13 @@ public List<Advisor> getAdvisors(MetadataAwareAspectInstanceFactory aspectInstan
         }
     }
 
-    // Ê¡ÂÔÁËÒ»Ğ©´úÂë
+    // çœç•¥äº†ä¸€äº›ä»£ç 
     ...
 }
 
 ```
 
-ÌØ±ğÇ¿µ÷µÄÊÇ£¬Õâ¸ö¹æÔòÖ»ÊÊÓÃÓÚÍ¬Ò» `@Aspect` Àà¶¨ÒåµÄ¡¢Í¬ÑùµÄÍ¨Öª·½·¨£¬Èç£º
+ç‰¹åˆ«å¼ºè°ƒçš„æ˜¯ï¼Œè¿™ä¸ªè§„åˆ™åªé€‚ç”¨äºåŒä¸€ `@Aspect` ç±»å®šä¹‰çš„ã€åŒæ ·çš„é€šçŸ¥æ–¹æ³•ï¼Œå¦‚ï¼š
 
 ```
 @Aspect
@@ -344,7 +344,7 @@ public class AspectTest {
 
 ```
 
-ÕâÀïµÄ `before1()` Óë `before2()` ¶ÔÓ¦µÄ `advisor` ÊÊÓÃÓÚ `comparePrecedenceWithinAspect` ÅÅĞò£¬¶øÒÔÏÂ´úÂë¾Í²»ÊÊÓÃÁË£¬Ô­ÒòÊÇÔÚ²»Í¬µÄ `@Aspect` ÀàÖĞ¶¨ÒåµÄ£º
+è¿™é‡Œçš„ `before1()` ä¸ `before2()` å¯¹åº”çš„ `advisor` é€‚ç”¨äº `comparePrecedenceWithinAspect` æ’åºï¼Œè€Œä»¥ä¸‹ä»£ç å°±ä¸é€‚ç”¨äº†ï¼ŒåŸå› æ˜¯åœ¨ä¸åŒçš„ `@Aspect` ç±»ä¸­å®šä¹‰çš„ï¼š
 
 ```
 @Aspect
@@ -369,7 +369,7 @@ public class AspectTest2 {
 
 #### 2. `super.sortAdvisors`
 
-ÎÒÃÇÔÙ»Ø¹ıÍ·À´¿´ `super.sortAdvisors(advisors)`:
+æˆ‘ä»¬å†å›è¿‡å¤´æ¥çœ‹ `super.sortAdvisors(advisors)`:
 
 > AspectJAwareAdvisorAutoProxyCreator
 
@@ -383,7 +383,7 @@ protected List<Advisor> sortAdvisors(List<Advisor> advisors) {
 
 ```
 
-ÎÒÃÇ¸ú½øÈ¥£º
+æˆ‘ä»¬è·Ÿè¿›å»ï¼š
 
 > AbstractAdvisorAutoProxyCreator
 
@@ -395,20 +395,20 @@ protected List<Advisor> sortAdvisors(List<Advisor> advisors) {
 
 ```
 
-·¢ÏÖ×îºóÊ¹ÓÃµÄÊÇ `AnnotationAwareOrderComparator.sort(advisors)`£¬Êµ¼ÊÉÏ£¬Õâ¸ö¾ÍÊÇÉÏÃæ·ÖÎöµÄ `this.advisorComparator.compare` µÄ±È½Ï¹æÔò£¬ÕâÀï¾Í²»ÔÙ·ÖÎöÁË¡£
+å‘ç°æœ€åä½¿ç”¨çš„æ˜¯ `AnnotationAwareOrderComparator.sort(advisors)`ï¼Œå®é™…ä¸Šï¼Œè¿™ä¸ªå°±æ˜¯ä¸Šé¢åˆ†æçš„ `this.advisorComparator.compare` çš„æ¯”è¾ƒè§„åˆ™ï¼Œè¿™é‡Œå°±ä¸å†åˆ†æäº†ã€‚
 
-### 3. `getOrder()` ÖµµÄÓÉÀ´
+### 3. `getOrder()` å€¼çš„ç”±æ¥
 
 #### `BeanFactoryTransactionAttributeSourceAdvisor#getOrder()`
 
-`BeanFactoryTransactionAttributeSourceAdvisor` Ã»ÓĞ `@Order/@Priority`£¬µ«ËüÊµÏÖÁË `Ordered` ½Ó¿Ú£¬Òò´ËËüµÄÖ´ĞĞË³ĞòÓÉ `getOrder()` ·½·¨µÄ·µ»ØÖµ¾ö¶¨£¬¶ÔÓ¦µÄ `getOrder()` ·½·¨ÈçÏÂ£º
+`BeanFactoryTransactionAttributeSourceAdvisor` æ²¡æœ‰ `@Order/@Priority`ï¼Œä½†å®ƒå®ç°äº† `Ordered` æ¥å£ï¼Œå› æ­¤å®ƒçš„æ‰§è¡Œé¡ºåºç”± `getOrder()` æ–¹æ³•çš„è¿”å›å€¼å†³å®šï¼Œå¯¹åº”çš„ `getOrder()` æ–¹æ³•å¦‚ä¸‹ï¼š
 
 ```
     /**
-     * »ñÈ¡ order£¬·½·¨ÈçÏÂ£º
-     * 1\. Èç¹ûÒÑÖ¸¶¨ÁË order£¬Ö±½Ó·µ»Ø£»
-     * 2\. »ñÈ¡ advisor µÄ advice£¬Èç¹û advice ÊµÏÖÁË Ordered ½Ó¿Ú£¬µ÷ÓÃ getOrder()£»
-     * 3\. Èç¹ûÒÔÉÏ¶¼²»Âú×ã£¬Ôò·µ»Ø Ordered.LOWEST_PRECEDENCE (×îµÍÓÅÏÈ¼¶)¡£
+     * è·å– orderï¼Œæ–¹æ³•å¦‚ä¸‹ï¼š
+     * 1\. å¦‚æœå·²æŒ‡å®šäº† orderï¼Œç›´æ¥è¿”å›ï¼›
+     * 2\. è·å– advisor çš„ adviceï¼Œå¦‚æœ advice å®ç°äº† Ordered æ¥å£ï¼Œè°ƒç”¨ getOrder()ï¼›
+     * 3\. å¦‚æœä»¥ä¸Šéƒ½ä¸æ»¡è¶³ï¼Œåˆ™è¿”å› Ordered.LOWEST_PRECEDENCE (æœ€ä½ä¼˜å…ˆçº§)ã€‚
      * @return
      */
     @Override
@@ -425,25 +425,25 @@ protected List<Advisor> sortAdvisors(List<Advisor> advisors) {
 
 ```
 
-`Ordered.LOWEST_PRECEDENCE` Îª `Integer.MAX_VALUE`£¬¼´ `2147483647`£¬ÎÒÃÇÔÙ¿´¿´ `BeanFactoryTransactionAttributeSourceAdvisor` µÄ `getOrder()` ·½·¨·µ»ØµÄÖµ£º
+`Ordered.LOWEST_PRECEDENCE` ä¸º `Integer.MAX_VALUE`ï¼Œå³ `2147483647`ï¼Œæˆ‘ä»¬å†çœ‹çœ‹ `BeanFactoryTransactionAttributeSourceAdvisor` çš„ `getOrder()` æ–¹æ³•è¿”å›çš„å€¼ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d05044b7dcd41855ab6e59727c4be74bdb9.png)
 
-¿É¼û£¬`BeanFactoryTransactionAttributeSourceAdvisor` µÄÖ´ĞĞË³ĞòÊÇÄ¬ÈÏµÄ `Integer.MAX_VALUE`¡£Èç¹ûµ÷¶ÈµÄ»°£¬·¢ÏÖÕâ¸öÖµÊÇÔÚ `return this.order` ·µ»ØµÄ£º
+å¯è§ï¼Œ`BeanFactoryTransactionAttributeSourceAdvisor` çš„æ‰§è¡Œé¡ºåºæ˜¯é»˜è®¤çš„ `Integer.MAX_VALUE`ã€‚å¦‚æœè°ƒåº¦çš„è¯ï¼Œå‘ç°è¿™ä¸ªå€¼æ˜¯åœ¨ `return this.order` è¿”å›çš„ï¼š
 
 ```
 public int getOrder() {
-    // Í¨¹ıµ÷¶È·¢ÏÖ£¬this.order ²¢²»Îªnull
+    // é€šè¿‡è°ƒåº¦å‘ç°ï¼Œthis.order å¹¶ä¸ä¸ºnull
     if (this.order != null) {
         return this.order;
     }
-    // Ê¡ÂÔÒ»Ğ©´úÂë
+    // çœç•¥ä¸€äº›ä»£ç 
     ...
 }
 
 ```
 
-ÄÇÃ´ÕâÖµÊÇ´ÓÄÄÀïÀ´µÄÄØ£¿¾­¹ıÖØÖØ·ÖÎö£¬·¢ÏÖÊÇÔÚ´´½¨ `BeanFactoryTransactionAttributeSourceAdvisor` ¶ÔÏóÊ±£¬µ÷ÓÃ `BeanFactoryTransactionAttributeSourceAdvisor#setOrder` ÉèÖÃµÄ£º
+é‚£ä¹ˆè¿™å€¼æ˜¯ä»å“ªé‡Œæ¥çš„å‘¢ï¼Ÿç»è¿‡é‡é‡åˆ†æï¼Œå‘ç°æ˜¯åœ¨åˆ›å»º `BeanFactoryTransactionAttributeSourceAdvisor` å¯¹è±¡æ—¶ï¼Œè°ƒç”¨ `BeanFactoryTransactionAttributeSourceAdvisor#setOrder` è®¾ç½®çš„ï¼š
 
 > ProxyTransactionManagementConfiguration
 
@@ -456,7 +456,7 @@ public BeanFactoryTransactionAttributeSourceAdvisor transactionAdvisor() {
     advisor.setTransactionAttributeSource(transactionAttributeSource());
     advisor.setAdvice(transactionInterceptor());
     if (this.enableTx != null) {
-        // ÕâÀï»ñÈ¡µÄÊÇ @EnableTransactionManagement ×¢½âµÄ order() Öµ
+        // è¿™é‡Œè·å–çš„æ˜¯ @EnableTransactionManagement æ³¨è§£çš„ order() å€¼
         advisor.setOrder(this.enableTx.<Integer>getNumber("order"));
     }
     return advisor;
@@ -464,7 +464,7 @@ public BeanFactoryTransactionAttributeSourceAdvisor transactionAdvisor() {
 
 ```
 
-µ½ÕâÀïÎÒÃÇ¾ÍÃ÷°×ÁË£¬ÊÂÎñ advisor µÄÖ´ĞĞË³Ğò¿ÉÒÔÔÚ `@EnableTransactionManagement` ÖĞÖ¸¶¨£º
+åˆ°è¿™é‡Œæˆ‘ä»¬å°±æ˜ç™½äº†ï¼Œäº‹åŠ¡ advisor çš„æ‰§è¡Œé¡ºåºå¯ä»¥åœ¨ `@EnableTransactionManagement` ä¸­æŒ‡å®šï¼š
 
 ```
 public @interface EnableTransactionManagement {
@@ -474,7 +474,7 @@ public @interface EnableTransactionManagement {
     AdviceMode mode() default AdviceMode.PROXY;
 
     /**
-     * ÕâÀïÖ¸¶¨advisorÖ´ĞĞË³Ğò£¬Ä¬ÈÏÊÇ×îµÍÓÅÏÈ¼¶
+     * è¿™é‡ŒæŒ‡å®šadvisoræ‰§è¡Œé¡ºåºï¼Œé»˜è®¤æ˜¯æœ€ä½ä¼˜å…ˆçº§
      */
     int order() default Ordered.LOWEST_PRECEDENCE;
 
@@ -482,11 +482,11 @@ public @interface EnableTransactionManagement {
 
 ```
 
-½áÂÛ£º`@EnableTransactionManagement` ×¢½âµÄ `order()` ·½·¨¿ÉÒÔÖ¸¶¨ `advisor` µÄÖ´ĞĞË³Ğò¡£
+ç»“è®ºï¼š`@EnableTransactionManagement` æ³¨è§£çš„ `order()` æ–¹æ³•å¯ä»¥æŒ‡å®š `advisor` çš„æ‰§è¡Œé¡ºåºã€‚
 
 #### `InstantiationModelAwarePointcutAdvisorImpl#getOrder()`
 
-´ÓÇ°ÃæµÄ·ÖÎö¿ÉÖª£¬`@Aspect` ÀàÖĞµÄÃ¿Ò»¸ö·½·¨×îÖÕ¶¼»á×ª»¯Îª `advisor`£¬ÀàĞÍÎª `InstantiationModelAwarePointcutAdvisorImpl`£¬ËüÒ²ÊµÏÖÁË `Ordered` ½Ó¿Ú£¬Òò´ËÖ´ĞĞË³ĞòÒ²ÊÇÓÉ `InstantiationModelAwarePointcutAdvisorImpl#getOrder()` ·½·¨¾ö¶¨£¬ËüµÄ `getOrder()` ·½·¨ÈçÏÂ£º
+ä»å‰é¢çš„åˆ†æå¯çŸ¥ï¼Œ`@Aspect` ç±»ä¸­çš„æ¯ä¸€ä¸ªæ–¹æ³•æœ€ç»ˆéƒ½ä¼šè½¬åŒ–ä¸º `advisor`ï¼Œç±»å‹ä¸º `InstantiationModelAwarePointcutAdvisorImpl`ï¼Œå®ƒä¹Ÿå®ç°äº† `Ordered` æ¥å£ï¼Œå› æ­¤æ‰§è¡Œé¡ºåºä¹Ÿæ˜¯ç”± `InstantiationModelAwarePointcutAdvisorImpl#getOrder()` æ–¹æ³•å†³å®šï¼Œå®ƒçš„ `getOrder()` æ–¹æ³•å¦‚ä¸‹ï¼š
 
 > InstantiationModelAwarePointcutAdvisorImpl
 
@@ -498,11 +498,11 @@ public int getOrder() {
 
 ```
 
-ÔÚ [spring aop Ö® AnnotationAwareAspectJAutoProxyCreator ·ÖÎö£¨ÉÏ£©](https://my.oschina.net/funcy/blog/4678817)ÎÒÃÇÒÑ¾­ÏêÏ¸·ÖÎöÁË `method` µ½ `advisor` µÄ×ª±ä¹ı³Ì£¬ÄÜ´Ó´úÂëÉÏÇáËÉÕÒµ½ `aspectInstanceFactory` µÄÀàĞÍ£¬ÕâÀïÎÒÃÇ¾Í²»ÔÙÒ»²½²½·ÖÎöÔ´ÂëÁË£¬Ö±½ÓÍ¨¹ıµ÷ÊÔµÄ·½·¨»ñÈ¡ `aspectInstanceFactory` µÄÀàĞÍ£º
+åœ¨ [spring aop ä¹‹ AnnotationAwareAspectJAutoProxyCreator åˆ†æï¼ˆä¸Šï¼‰](https://my.oschina.net/funcy/blog/4678817)æˆ‘ä»¬å·²ç»è¯¦ç»†åˆ†æäº† `method` åˆ° `advisor` çš„è½¬å˜è¿‡ç¨‹ï¼Œèƒ½ä»ä»£ç ä¸Šè½»æ¾æ‰¾åˆ° `aspectInstanceFactory` çš„ç±»å‹ï¼Œè¿™é‡Œæˆ‘ä»¬å°±ä¸å†ä¸€æ­¥æ­¥åˆ†ææºç äº†ï¼Œç›´æ¥é€šè¿‡è°ƒè¯•çš„æ–¹æ³•è·å– `aspectInstanceFactory` çš„ç±»å‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-e2784fc573474f56e8555ef60d57a07bcbf.png)
 
-´Óµ÷ÊÔµÄ½á¹ûÀ´¿´£¬`aspectInstanceFactory` ÀàĞÍÎª `LazySingletonAspectInstanceFactoryDecorator`£¬ÎÒÃÇ¸ú½øÆä `getOrder()` ·½·¨£º
+ä»è°ƒè¯•çš„ç»“æœæ¥çœ‹ï¼Œ`aspectInstanceFactory` ç±»å‹ä¸º `LazySingletonAspectInstanceFactoryDecorator`ï¼Œæˆ‘ä»¬è·Ÿè¿›å…¶ `getOrder()` æ–¹æ³•ï¼š
 
 > LazySingletonAspectInstanceFactoryDecorator
 
@@ -514,27 +514,27 @@ public int getOrder() {
 
 ```
 
-ÎÒÃÇÒÀÈ»Ê¹ÓÃµ÷ÊÔµÄ·½Ê½»ñÈ¡ `maaif` µÄÀàĞÍ£º
+æˆ‘ä»¬ä¾ç„¶ä½¿ç”¨è°ƒè¯•çš„æ–¹å¼è·å– `maaif` çš„ç±»å‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-2a4b87b6c8c824c55c4a3d86d736796def0.png)
 
-`maaif` ÀàĞÍÎª `BeanFactoryAspectInstanceFactory`£¬ÎÒÃÇ¼ÌĞø¸ú½ø£º
+`maaif` ç±»å‹ä¸º `BeanFactoryAspectInstanceFactory`ï¼Œæˆ‘ä»¬ç»§ç»­è·Ÿè¿›ï¼š
 
 > BeanFactoryAspectInstanceFactory
 
 ```
 public int getOrder() {
-    // this.name Ö¸µÄÊÇ±ê×¢ÁË @Aspect ×¢½âµÄÀà
+    // this.name æŒ‡çš„æ˜¯æ ‡æ³¨äº† @Aspect æ³¨è§£çš„ç±»
     Class<?> type = this.beanFactory.getType(this.name);
     if (type != null) {
-        // Èç¹ûÊµÏÖÁË Ordered ½Ó¿Ú£¬¾Íµ÷ÓÃ getOrder() ·½·¨»ñÈ¡
-        // PriorityOrdered ÊÇ Ordered µÄ×Ó½Ó¿Ú£¬Ò²ÓĞ getOrder() ·½·¨£¬Òò´ËÕâÀïÒ²»á»ñÈ¡µ½
+        // å¦‚æœå®ç°äº† Ordered æ¥å£ï¼Œå°±è°ƒç”¨ getOrder() æ–¹æ³•è·å–
+        // PriorityOrdered æ˜¯ Ordered çš„å­æ¥å£ï¼Œä¹Ÿæœ‰ getOrder() æ–¹æ³•ï¼Œå› æ­¤è¿™é‡Œä¹Ÿä¼šè·å–åˆ°
         if (Ordered.class.isAssignableFrom(type) && this.beanFactory.isSingleton(this.name)) {
             return ((Ordered) this.beanFactory.getBean(this.name)).getOrder();
         }
-        // 1\. ²éÕÒÀàÊÇÊÇ·ñÓĞ @Order ×¢½â£¬Èç¹ûÓĞ£¬Ôò·µ»Ø @Order ×¢½âÖ¸¶¨µÄÖµ£»
-        // 2\. ·ñÔò²éÑ¯ÀàÊÇ·ñÓĞ @Priority ×¢½â£¬Èç¹ûÓĞ£¬Ôò·µ»Ø @Priority ×¢½âÖ¸¶¨µÄÖµ£»
-        // 3\. Èç¹ûÒÔÉÏ¶¼²»Âú×ã£¬·µ»Ø Ordered.LOWEST_PRECEDENCE£¬ÖµÎª Integer.MAX_VALUE
+        // 1\. æŸ¥æ‰¾ç±»æ˜¯æ˜¯å¦æœ‰ @Order æ³¨è§£ï¼Œå¦‚æœæœ‰ï¼Œåˆ™è¿”å› @Order æ³¨è§£æŒ‡å®šçš„å€¼ï¼›
+        // 2\. å¦åˆ™æŸ¥è¯¢ç±»æ˜¯å¦æœ‰ @Priority æ³¨è§£ï¼Œå¦‚æœæœ‰ï¼Œåˆ™è¿”å› @Priority æ³¨è§£æŒ‡å®šçš„å€¼ï¼›
+        // 3\. å¦‚æœä»¥ä¸Šéƒ½ä¸æ»¡è¶³ï¼Œè¿”å› Ordered.LOWEST_PRECEDENCEï¼Œå€¼ä¸º Integer.MAX_VALUE
         return OrderUtils.getOrder(type, Ordered.LOWEST_PRECEDENCE);
     }
     return Ordered.LOWEST_PRECEDENCE;
@@ -542,22 +542,22 @@ public int getOrder() {
 
 ```
 
-´Ó´úÂëÉÏÀ´¿´£¬`getOrder()` Âß¼­ÈçÏÂ£º
+ä»ä»£ç ä¸Šæ¥çœ‹ï¼Œ`getOrder()` é€»è¾‘å¦‚ä¸‹ï¼š
 
-1.  Í¨¹ıÃû³Æ»ñÈ¡ÇĞÃæÀà£¬Ò²¾ÍÊÇ±ê×¢ÁË `@Aspect` µÄÀà£»
-2.  Èç¹ûÇĞÃæÀàÊµÏÖÁË `Ordered` ½Ó¿Ú£¬¾Íµ÷ÓÃ `getOrder()` ·½·¨»ñÈ¡£¬·µ»Ø£¨ÖµµÃÒ»ÌáµÄÊÇ£¬`PriorityOrdered` ÊÇ `Ordered` µÄ×Ó½Ó¿Ú£¬Ò²ÓĞ `getOrder()` ·½·¨£¬ÕâÀïÒ²»á»ñÈ¡µ½£©£»
-3.  Èç¹ûÉÏÃæÃ»ÓĞ»ñÈ¡µ½£¬Ôò²éÕÒÇĞÃæÀàÊÇÊÇ·ñÓĞ `@Order` ×¢½â£¬Èç¹ûÓĞ£¬Ôò·µ»Ø `@Order` ×¢½âÖ¸¶¨µÄÖµ£»Èç¹ûÃ»ÓĞ£¬²éÕÒÇĞÃæÀàÊÇ·ñÓĞ `@Priority` ×¢½â£¬Èç¹ûÓĞ£¬Ôò·µ»Ø `@Priority` ×¢½âÖ¸¶¨µÄÖµ£»
-4.  Èç¹ûÒÔÉÏÃ»ÓĞ»ñÈ¡µ½Öµ£¬¾Í·µ»ØÄ¬ÈÏÖµ£º`Ordered.LOWEST_PRECEDENCE`¡£
+1.  é€šè¿‡åç§°è·å–åˆ‡é¢ç±»ï¼Œä¹Ÿå°±æ˜¯æ ‡æ³¨äº† `@Aspect` çš„ç±»ï¼›
+2.  å¦‚æœåˆ‡é¢ç±»å®ç°äº† `Ordered` æ¥å£ï¼Œå°±è°ƒç”¨ `getOrder()` æ–¹æ³•è·å–ï¼Œè¿”å›ï¼ˆå€¼å¾—ä¸€æçš„æ˜¯ï¼Œ`PriorityOrdered` æ˜¯ `Ordered` çš„å­æ¥å£ï¼Œä¹Ÿæœ‰ `getOrder()` æ–¹æ³•ï¼Œè¿™é‡Œä¹Ÿä¼šè·å–åˆ°ï¼‰ï¼›
+3.  å¦‚æœä¸Šé¢æ²¡æœ‰è·å–åˆ°ï¼Œåˆ™æŸ¥æ‰¾åˆ‡é¢ç±»æ˜¯æ˜¯å¦æœ‰ `@Order` æ³¨è§£ï¼Œå¦‚æœæœ‰ï¼Œåˆ™è¿”å› `@Order` æ³¨è§£æŒ‡å®šçš„å€¼ï¼›å¦‚æœæ²¡æœ‰ï¼ŒæŸ¥æ‰¾åˆ‡é¢ç±»æ˜¯å¦æœ‰ `@Priority` æ³¨è§£ï¼Œå¦‚æœæœ‰ï¼Œåˆ™è¿”å› `@Priority` æ³¨è§£æŒ‡å®šçš„å€¼ï¼›
+4.  å¦‚æœä»¥ä¸Šæ²¡æœ‰è·å–åˆ°å€¼ï¼Œå°±è¿”å›é»˜è®¤å€¼ï¼š`Ordered.LOWEST_PRECEDENCE`ã€‚
 
-µ½ÕâÀï¾ÍÃ÷°×ÁË£¬`@Aspect` Àà¿ÉÒÔÍ¨¹ıÊµÏÖ `Ordered/PriorityOrdered` ½Ó¿ÚÀ´Ö¸¶¨Ö´ĞĞÓÅÏÈ¼¶£¬Ò²¿ÉÒÔÍ¨¹ı `@Order/@Priority` ×¢½âÀ´Ö¸¶¨Ö´ĞĞÓÅÏÈ¼¶¡£
+åˆ°è¿™é‡Œå°±æ˜ç™½äº†ï¼Œ`@Aspect` ç±»å¯ä»¥é€šè¿‡å®ç° `Ordered/PriorityOrdered` æ¥å£æ¥æŒ‡å®šæ‰§è¡Œä¼˜å…ˆçº§ï¼Œä¹Ÿå¯ä»¥é€šè¿‡ `@Order/@Priority` æ³¨è§£æ¥æŒ‡å®šæ‰§è¡Œä¼˜å…ˆçº§ã€‚
 
-**ĞèÒªÌØ±ğÖ¸³öµÄÊÇ**£¬´Ó `getOrder()` ´úÂëÀ´¿´£¬Õâ²¿·Ö ´úÂëÖ» ÊÇ°Ñ `PriorityOrdered/@Priority` µ±×÷ `Order` À´´¦Àí£¬ÓÅÏÈ¼¶²¢²»±È `Ordered/@Order` ¸ß¡£Ò²¾ÍÊÇËµ£¬Èç¹û `AspectA` ±ê×¢ÁËµÄÁË `@Priority`£¬`AspectB` ±ê×¢ÁËµÄÁË `@Order`£¬`AspectA` µÄÓÅÏÈ¼¶²¢²»Ò»¶¨±È `AspectB` ¸ß£¬ÕæÕı¾ö¶¨ÓÅÏÈ¼¶µÄÊÇ×¢½â ÀïµÄ `value()` Öµ¡£
+**éœ€è¦ç‰¹åˆ«æŒ‡å‡ºçš„æ˜¯**ï¼Œä» `getOrder()` ä»£ç æ¥çœ‹ï¼Œè¿™éƒ¨åˆ† ä»£ç åª æ˜¯æŠŠ `PriorityOrdered/@Priority` å½“ä½œ `Order` æ¥å¤„ç†ï¼Œä¼˜å…ˆçº§å¹¶ä¸æ¯” `Ordered/@Order` é«˜ã€‚ä¹Ÿå°±æ˜¯è¯´ï¼Œå¦‚æœ `AspectA` æ ‡æ³¨äº†çš„äº† `@Priority`ï¼Œ`AspectB` æ ‡æ³¨äº†çš„äº† `@Order`ï¼Œ`AspectA` çš„ä¼˜å…ˆçº§å¹¶ä¸ä¸€å®šæ¯” `AspectB` é«˜ï¼ŒçœŸæ­£å†³å®šä¼˜å…ˆçº§çš„æ˜¯æ³¨è§£ é‡Œçš„ `value()` å€¼ã€‚
 
-### 4\. ÈçºÎ×Ô¶¨ÒåÓÅÏÈ¼¶
+### 4\. å¦‚ä½•è‡ªå®šä¹‰ä¼˜å…ˆçº§
 
-ÎÒÃÇÔÚ×Ô¼ºĞ´´úÂëÊ±£¬ÈçºÎÖ¸¶¨ÓÅÏÈ¼¶ÄØ£¿
+æˆ‘ä»¬åœ¨è‡ªå·±å†™ä»£ç æ—¶ï¼Œå¦‚ä½•æŒ‡å®šä¼˜å…ˆçº§å‘¢ï¼Ÿ
 
-1. Èç¹ûÊÇ×ÔÖ÷ÊµÏÖ `advisor`£¬¿ÉÊµÏÖ `Ordered` ½Ó¿Ú£¬Ò²¿ÉÒÔÔÚ `advisor` ÀàÉÏ±ê×¢ `@Order` ×¢½â£º
+1. å¦‚æœæ˜¯è‡ªä¸»å®ç° `advisor`ï¼Œå¯å®ç° `Ordered` æ¥å£ï¼Œä¹Ÿå¯ä»¥åœ¨ `advisor` ç±»ä¸Šæ ‡æ³¨ `@Order` æ³¨è§£ï¼š
 
    ```
    public class MyAdvisor extends AbstractBeanFactoryPointcutAdvisor implements Ordered {
@@ -581,7 +581,7 @@ public int getOrder() {
    
    ```
 
-2. Èç¹ûÊÇµ¥¸öÇĞÃæÀà (`@Aspect` ±ê×¢µÄÀà)£¬ÇÒÎŞÖØ¸´µÄ `@Around/@Before/@After` µÈ
+2. å¦‚æœæ˜¯å•ä¸ªåˆ‡é¢ç±» (`@Aspect` æ ‡æ³¨çš„ç±»)ï¼Œä¸”æ— é‡å¤çš„ `@Around/@Before/@After` ç­‰
 
    ```
    @Aspect
@@ -615,9 +615,9 @@ public int getOrder() {
    
    ```
 
-   ¶ÔÓÚÍ¬Ò»ÇĞÃæµÄ²»Í¬Í¨Öª£¬spring ÒÑ¾­°ïÎÒÃÇÉèÖÃºÃÁËÖ´ĞĞË³Ğò£¬ÎÒÃÇÎŞ´Ó¸ü¸Ä£¬Ö´ĞĞË³ĞòÒÀ´ÎÎª `Around, Before, After, AfterReturning, AfterThrowing`.
+   å¯¹äºåŒä¸€åˆ‡é¢çš„ä¸åŒé€šçŸ¥ï¼Œspring å·²ç»å¸®æˆ‘ä»¬è®¾ç½®å¥½äº†æ‰§è¡Œé¡ºåºï¼Œæˆ‘ä»¬æ— ä»æ›´æ”¹ï¼Œæ‰§è¡Œé¡ºåºä¾æ¬¡ä¸º `Around, Before, After, AfterReturning, AfterThrowing`.
 
-3. µ¥¸öÇĞÃæÀà (`@Aspect` ±ê×¢µÄÀà) ÄÚÓĞÖØ¸´µÄ `@Around/@Before/@After` µÈ£¬Çé¿öÈçÏÂ£º
+3. å•ä¸ªåˆ‡é¢ç±» (`@Aspect` æ ‡æ³¨çš„ç±») å†…æœ‰é‡å¤çš„ `@Around/@Before/@After` ç­‰ï¼Œæƒ…å†µå¦‚ä¸‹ï¼š
 
    ```
    @Aspect
@@ -647,9 +647,9 @@ public int getOrder() {
    
    ```
 
-   ÕâÖÖÇé¿öÎÒÃÇÔÚ `AspectJPrecedenceComparator#comparePrecedenceWithinAspect` ·½·¨Ê±ÓĞ·ÖÎö¹ı£¬µÃµ½µÄ½áÂÛÊÇ£º±È½ÏÁ½ÕßµÄ `declarationOrderInAspect` Öµ£¬Èç¹ûÁ½ÕßÖ®Ò»Îª `after` Í¨Öª£¬`declarationOrderInAspect` ´óµÄÓÅÏÈ¼¶¸ß£»Èç¹ûÁ½Õß¶¼²»ÊÇ `after` Í¨Öª£¬`declarationOrderInAspect` Ğ¡µÄÓÅÏÈ¼¶¸ß¡£Õâ¸ö `declarationOrderInAspect` ÍêÈ«ÒÀÀµÓÚ jdk µÄ·´Éä»úÖÆ£¬ÏÈ»ñÈ¡µ½µÄÊÇÄÄ¸ö·½·¨£¬ÄÄ¸ö·½·¨µÄ `declarationOrderInAspect` ¾ÍĞ¡£¬²»Í¬ jdK °æ±¾Ö®¼ä£¬ÄÑÒÔ±£Ö¤»ñµÃµÄË³ĞòÒ»ÖÂ¡£
+   è¿™ç§æƒ…å†µæˆ‘ä»¬åœ¨ `AspectJPrecedenceComparator#comparePrecedenceWithinAspect` æ–¹æ³•æ—¶æœ‰åˆ†æè¿‡ï¼Œå¾—åˆ°çš„ç»“è®ºæ˜¯ï¼šæ¯”è¾ƒä¸¤è€…çš„ `declarationOrderInAspect` å€¼ï¼Œå¦‚æœä¸¤è€…ä¹‹ä¸€ä¸º `after` é€šçŸ¥ï¼Œ`declarationOrderInAspect` å¤§çš„ä¼˜å…ˆçº§é«˜ï¼›å¦‚æœä¸¤è€…éƒ½ä¸æ˜¯ `after` é€šçŸ¥ï¼Œ`declarationOrderInAspect` å°çš„ä¼˜å…ˆçº§é«˜ã€‚è¿™ä¸ª `declarationOrderInAspect` å®Œå…¨ä¾èµ–äº jdk çš„åå°„æœºåˆ¶ï¼Œå…ˆè·å–åˆ°çš„æ˜¯å“ªä¸ªæ–¹æ³•ï¼Œå“ªä¸ªæ–¹æ³•çš„ `declarationOrderInAspect` å°±å°ï¼Œä¸åŒ jdK ç‰ˆæœ¬ä¹‹é—´ï¼Œéš¾ä»¥ä¿è¯è·å¾—çš„é¡ºåºä¸€è‡´ã€‚
 
-4. ¶à¸öÇĞÃæÀà (`@Aspect` ±ê×¢µÄÀà) µÄÖ´ĞĞË³Ğò¿ÉÒÔÍ¨¹ı `@Order` ×¢½â£¬»òÊµÏÖ `Ordered` ½Ó¿ÚÀ´Ö¸¶¨£º
+4. å¤šä¸ªåˆ‡é¢ç±» (`@Aspect` æ ‡æ³¨çš„ç±») çš„æ‰§è¡Œé¡ºåºå¯ä»¥é€šè¿‡ `@Order` æ³¨è§£ï¼Œæˆ–å®ç° `Ordered` æ¥å£æ¥æŒ‡å®šï¼š
 
    ```
    @Order(xxx)
@@ -664,8 +664,8 @@ public int getOrder() {
    
    ```
 
-ÁíÍâ£¬`getOrder()` ·µ»ØµÄÖµ»ò `@Order(xxx)` Ö¸¶¨µÄÖµÔ½Ğ¡£¬±íÃ÷ÓÅÏÈ¼¶Ô½¸ß¡£
+å¦å¤–ï¼Œ`getOrder()` è¿”å›çš„å€¼æˆ– `@Order(xxx)` æŒ‡å®šçš„å€¼è¶Šå°ï¼Œè¡¨æ˜ä¼˜å…ˆçº§è¶Šé«˜ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4784828](https://my.oschina.net/funcy/blog/4784828) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4784828](https://my.oschina.net/funcy/blog/4784828) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

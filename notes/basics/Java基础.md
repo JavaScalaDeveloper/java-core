@@ -51,3 +51,72 @@ jvm的Survivor1区和2区的区别是什么？为什么大小比例是1:1?
 JVM中的Survivor区是一个用于存放新生代对象的区域，它被划分为两个部分：Survivor1区和Survivor2区。这两个区域的作用是相同的，它们都用于存放新生代存活下来的对象。
 
 Survivor1区和Survivor2区的大小比例通常是1:1。这是因为，在垃圾回收过程中，JVM会将某个Survivor区中存活的对象复制到另一个Survivor区中，同时清空原Survivor区。如果两个Survivor区大小不一致，那么复制过程会非常复杂。而且，如果一个Survivor区非常小，那么其中的对象很可能无法得到充分的利用，从而导致频繁的垃圾回收，影响性能。因此，通常设置Survivor1区和Survivor2区的大小比例为1:1，保证它们能够充分利用，同时也方便垃圾回收过程的实现。
+
+## Java如何自定义一个类加载器？
+Java 中的类加载器（Class Loader）是用于将 Java 类文件加载到 JVM 中并生成对应的 Class 对象的重要组件。在 Java 中，默认提供了三种类加载器：BootstrapClassLoader、ExtensionClassLoader 和 AppClassLoader。如果需要实现特定的需求，比如从指定位置加载类，或者实现代码隔离等，就需要自定义一个类加载器。
+
+以下是自定义类加载器的基本步骤：
+
+- 继承ClassLoader类，重写findClass()方法：继承java.lang.ClassLoader类，通过重写它的protected findClass(String name)方法来完成自定义加载逻辑。
+
+- 实现findClass()方法：在该方法中实现类加载的具体逻辑，此处可以通过文件系统、网络等方式获取字节码，并使用defineClass()方法将字节数组转化为Class对象。
+
+- 覆盖loadClass()方法：覆盖ClassLoader类中的protected loadClass(String name, boolean resolve)方法，改变父类加载器的委派机制，逐级向上查找时优先使用自定义类加载器进行加载。
+
+- 创建自定义类加载器对象：创建自定义类加载器的实例，通过重载loadClass方法和findClass方法获得类对象。
+
+下面是一个简单的自定义类加载器实现的示例代码：
+
+```java
+public class CustomClassLoader extends ClassLoader {
+@Override
+protected Class<?> findClass(String name) throws ClassNotFoundException {
+byte[] data = getClassData(name);
+if (data == null) {
+throw new ClassNotFoundException();
+}
+return defineClass(name, data, 0, data.length);
+}
+
+    private byte[] getClassData(String name) {
+        // 从指定位置读取字节码文件
+        // 返回字节数组
+        return null;
+    }
+
+    @Override
+    protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
+        synchronized (getClassLoadingLock(name)) {
+            //若类已经被加载，直接返回该类对应的Class对象
+            Class<?> c = findLoadedClass(name);
+            if (c == null) {
+                try {
+                    //先使用自定义加载器进行查找
+                    c = findClass(name);
+                } catch (ClassNotFoundException e) {
+                    //如果自定义加载器未加载到，则使用父类加载器进行查找
+                    c = super.loadClass(name, resolve);
+                }
+            }
+            if (resolve) {
+                resolveClass(c);
+            }
+            return c;
+        }
+    }
+}
+```
+需要注意的是，在实现自定义类加载器时，需要考虑很多因素，如命名空间的隔离、安全性、防止字节码篡改等。建议在开发过程中参考相关文档和最佳实践，并进行充分的测试和验证。
+## 什么情况下需要使用自定义加载器？
+
+在 Java 应用程序中，通常情况下使用默认的系统类加载器是完全足够的。但是，在某些特定的场景中，需要使用自定义的类加载器来满足特定的需求，比如：
+
+- 实现类隔离：当应用程序需要同时运行多个版本的同一个类或者不同的类库时，使用自定义类加载器可以隔离不同版本的类或类库，避免类之间的冲突。
+
+- 动态加载类：某些情况下需要动态地加载类，比如通过网络传输字节码来实现类的动态扩展。
+
+- 加密和解密：为了保护一些关键的 Java 类，可以使用一些加密技术，以自定义的方式加载这些加密的类，从而增强安全性。
+
+- 跟踪类的加载信息： 通过自定义类加载器可以对类的加载过程进行跟踪和记录，便于开发人员进行调试和分析。
+
+需要注意的是，在使用自定义类加载器时需要谨慎对待，要考虑到安全性、版权问题等因素，并进行充分的测试和验证。自定义加载器的开发人员需要具备深入了解 Java 类加载机制及其相关知识的能力和经验。

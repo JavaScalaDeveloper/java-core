@@ -1,68 +1,68 @@
 
 
-Ä¿Â¼
+ç›®å½•
 
-*   [SwaggerµÄ½éÉÜ](https://www.cnblogs.com/progor/p/13297904.html#swagger%E7%9A%84%E4%BB%8B%E7%BB%8D)
-    *   [ÓÅµãÓëÈ±µã](https://www.cnblogs.com/progor/p/13297904.html#%E4%BC%98%E7%82%B9%E4%B8%8E%E7%BC%BA%E7%82%B9)
-*   [Ìí¼Óswagger](https://www.cnblogs.com/progor/p/13297904.html#%E6%B7%BB%E5%8A%A0swagger)
-    *   [1.Ìí¼ÓÒÀÀµ°ü£º](https://www.cnblogs.com/progor/p/13297904.html#1%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96%E5%8C%85)
-    *   [2.ÅäÖÃSwagger:](https://www.cnblogs.com/progor/p/13297904.html#2%E9%85%8D%E7%BD%AEswagger)
-    *   [3.²âÊÔ](https://www.cnblogs.com/progor/p/13297904.html#3%E6%B5%8B%E8%AF%95)
-*   [³¡¾°£º](https://www.cnblogs.com/progor/p/13297904.html#%E5%9C%BA%E6%99%AF)
-    *   [¶¨Òå½Ó¿Ú×é](https://www.cnblogs.com/progor/p/13297904.html#%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3%E7%BB%84)
-    *   [¶¨Òå½Ó¿Ú](https://www.cnblogs.com/progor/p/13297904.html#%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3)
-    *   [¶¨Òå½Ó¿ÚÇëÇó²ÎÊı](https://www.cnblogs.com/progor/p/13297904.html#%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0)
-        *   [³¡¾°Ò»£ºÇëÇó²ÎÊıÊÇÊµÌåÀà¡£](https://www.cnblogs.com/progor/p/13297904.html#%E5%9C%BA%E6%99%AF%E4%B8%80%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%98%AF%E5%AE%9E%E4%BD%93%E7%B1%BB)
-        *   [³¡¾°¶ş£ºÇëÇó²ÎÊıÊÇ·ÇÊµÌåÀà¡£](https://www.cnblogs.com/progor/p/13297904.html#%E5%9C%BA%E6%99%AF%E4%BA%8C%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%98%AF%E9%9D%9E%E5%AE%9E%E4%BD%93%E7%B1%BB)
-    *   [¶¨Òå½Ó¿ÚÏìÓ¦](https://www.cnblogs.com/progor/p/13297904.html#%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3%E5%93%8D%E5%BA%94)
-        *   [ÏìÓ¦ÊÇÊµÌåÀà£º](https://www.cnblogs.com/progor/p/13297904.html#%E5%93%8D%E5%BA%94%E6%98%AF%E5%AE%9E%E4%BD%93%E7%B1%BB)
-        *   [ÏìÓ¦ÊÇ·ÇÊµÌåÀà£º](https://www.cnblogs.com/progor/p/13297904.html#%E5%93%8D%E5%BA%94%E6%98%AF%E9%9D%9E%E5%AE%9E%E4%BD%93%E7%B1%BB)
-*   [Swagger UIÔöÇ¿](https://www.cnblogs.com/progor/p/13297904.html#swagger-ui%E5%A2%9E%E5%BC%BA)
-    *   [UI¶Ô±È£º](https://www.cnblogs.com/progor/p/13297904.html#ui%E5%AF%B9%E6%AF%94)
-    *   [Ê¹ÓÃ](https://www.cnblogs.com/progor/p/13297904.html#%E4%BD%BF%E7%94%A8)
-    *   [ÓÅµã](https://www.cnblogs.com/progor/p/13297904.html#%E4%BC%98%E7%82%B9)
-*   [ÕûºÏSpring Security×¢Òâ](https://www.cnblogs.com/progor/p/13297904.html#%E6%95%B4%E5%90%88spring-security%E6%B3%A8%E6%84%8F)
-*   [¶ÔÓÚtokenµÄ´¦Àí](https://www.cnblogs.com/progor/p/13297904.html#%E5%AF%B9%E4%BA%8Etoken%E7%9A%84%E5%A4%84%E7%90%86)
-*   [SwaggerµÄ°²È«¹ÜÀí](https://www.cnblogs.com/progor/p/13297904.html#swagger%E7%9A%84%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86)
+*   [Swaggerçš„ä»‹ç»](https://www.cnblogs.com/progor/p/13297904.html#swagger%E7%9A%84%E4%BB%8B%E7%BB%8D)
+    *   [ä¼˜ç‚¹ä¸ç¼ºç‚¹](https://www.cnblogs.com/progor/p/13297904.html#%E4%BC%98%E7%82%B9%E4%B8%8E%E7%BC%BA%E7%82%B9)
+*   [æ·»åŠ swagger](https://www.cnblogs.com/progor/p/13297904.html#%E6%B7%BB%E5%8A%A0swagger)
+    *   [1.æ·»åŠ ä¾èµ–åŒ…ï¼š](https://www.cnblogs.com/progor/p/13297904.html#1%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96%E5%8C%85)
+    *   [2.é…ç½®Swagger:](https://www.cnblogs.com/progor/p/13297904.html#2%E9%85%8D%E7%BD%AEswagger)
+    *   [3.æµ‹è¯•](https://www.cnblogs.com/progor/p/13297904.html#3%E6%B5%8B%E8%AF%95)
+*   [åœºæ™¯ï¼š](https://www.cnblogs.com/progor/p/13297904.html#%E5%9C%BA%E6%99%AF)
+    *   [å®šä¹‰æ¥å£ç»„](https://www.cnblogs.com/progor/p/13297904.html#%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3%E7%BB%84)
+    *   [å®šä¹‰æ¥å£](https://www.cnblogs.com/progor/p/13297904.html#%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3)
+    *   [å®šä¹‰æ¥å£è¯·æ±‚å‚æ•°](https://www.cnblogs.com/progor/p/13297904.html#%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0)
+        *   [åœºæ™¯ä¸€ï¼šè¯·æ±‚å‚æ•°æ˜¯å®ä½“ç±»ã€‚](https://www.cnblogs.com/progor/p/13297904.html#%E5%9C%BA%E6%99%AF%E4%B8%80%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%98%AF%E5%AE%9E%E4%BD%93%E7%B1%BB)
+        *   [åœºæ™¯äºŒï¼šè¯·æ±‚å‚æ•°æ˜¯éå®ä½“ç±»ã€‚](https://www.cnblogs.com/progor/p/13297904.html#%E5%9C%BA%E6%99%AF%E4%BA%8C%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E6%98%AF%E9%9D%9E%E5%AE%9E%E4%BD%93%E7%B1%BB)
+    *   [å®šä¹‰æ¥å£å“åº”](https://www.cnblogs.com/progor/p/13297904.html#%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3%E5%93%8D%E5%BA%94)
+        *   [å“åº”æ˜¯å®ä½“ç±»ï¼š](https://www.cnblogs.com/progor/p/13297904.html#%E5%93%8D%E5%BA%94%E6%98%AF%E5%AE%9E%E4%BD%93%E7%B1%BB)
+        *   [å“åº”æ˜¯éå®ä½“ç±»ï¼š](https://www.cnblogs.com/progor/p/13297904.html#%E5%93%8D%E5%BA%94%E6%98%AF%E9%9D%9E%E5%AE%9E%E4%BD%93%E7%B1%BB)
+*   [Swagger UIå¢å¼º](https://www.cnblogs.com/progor/p/13297904.html#swagger-ui%E5%A2%9E%E5%BC%BA)
+    *   [UIå¯¹æ¯”ï¼š](https://www.cnblogs.com/progor/p/13297904.html#ui%E5%AF%B9%E6%AF%94)
+    *   [ä½¿ç”¨](https://www.cnblogs.com/progor/p/13297904.html#%E4%BD%BF%E7%94%A8)
+    *   [ä¼˜ç‚¹](https://www.cnblogs.com/progor/p/13297904.html#%E4%BC%98%E7%82%B9)
+*   [æ•´åˆSpring Securityæ³¨æ„](https://www.cnblogs.com/progor/p/13297904.html#%E6%95%B4%E5%90%88spring-security%E6%B3%A8%E6%84%8F)
+*   [å¯¹äºtokençš„å¤„ç†](https://www.cnblogs.com/progor/p/13297904.html#%E5%AF%B9%E4%BA%8Etoken%E7%9A%84%E5%A4%84%E7%90%86)
+*   [Swaggerçš„å®‰å…¨ç®¡ç†](https://www.cnblogs.com/progor/p/13297904.html#swagger%E7%9A%84%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86)
 
 
-
-* * *
-
-# SwaggerµÄ½éÉÜ
-
-?Äã¿ÉÄÜ³¢ÊÔ¹ıĞ´ÍêÒ»¸ö½Ó¿Úºó£¬×Ô¼ºÈ¥´´½¨½Ó¿ÚÎÄµµ£¬»òÕßĞŞ¸Ä½Ó¿ÚºóĞŞ¸Ä½Ó¿ÚÎÄµµ¡£¶àÁËÖ®ºó£¬Äã¿Ï¶¨»á·¢ÉúÒ»¸ö²Ù×÷£¬ÄÇ¾ÍÊÇÍü¼ÇÁËĞŞ¸ÄÎÄµµ»òÕß´´½¨ÎÄµµ£¨³ı·ÇÄãÃÇ¹«Ë¾°Ñ½Ó¿ÚÎÄµµºÍĞ´½Ó¿ÚÒªÇóµÃºÜ½ôÃÜ?Íü¼ÇĞ´ÎÄµµ¾Í¿Û¹¤×Ê£¿£¬·ñÔòÁ½¸ö·ÖÀëµÄ¹¤×÷×ÜÊÇÓĞ¿ÉÄÜÒÅÂ©µÄ£©¡£¶øswagger¾ÍÊÇÒ»¸öÔÚÄãĞ´½Ó¿ÚµÄÊ±ºò×Ô¶¯°ïÄãÉú³É½Ó¿ÚÎÄµµµÄ¶«Î÷£¬Ö»ÒªÄã×ñÑ­ËüµÄ¹æ·¶²¢Ğ´Ò»Ğ©½Ó¿ÚµÄËµÃ÷×¢½â¼´¿É¡£
-
-## ÓÅµãÓëÈ±µã
-
-?ÓÅµã£º
-
-*   ×Ô¶¯Éú³ÉÎÄµµ£¬Ö»ĞèÒªÔÚ½Ó¿ÚÖĞÊ¹ÓÃ×¢½â½øĞĞ±ê×¢£¬¾ÍÄÜÉú³É¶ÔÓ¦µÄ½Ó¿ÚÎÄµµ¡£
-*   ×Ô¶¯¸üĞÂÎÄµµ£¬ÓÉÓÚÊÇ¶¯Ì¬Éú³ÉµÄ£¬ËùÒÔÈç¹ûÄãĞŞ¸ÄÁË½Ó¿Ú£¬ÎÄµµÒ²»á×Ô¶¯¶ÔÓ¦ĞŞ¸Ä£¨Èç¹ûÄãÒ²¸üĞÂÁË×¢½âµÄ»°£©¡£ÕâÑù¾Í²»»á·¢ËÍÎÒĞŞ¸ÄÁË½Ó¿Ú£¬È´Íü¼Ç¸üĞÂ½Ó¿ÚÎÄµµµÄÇé¿ö¡£
-*   Ö§³ÖÔÚÏßµ÷ÊÔ£¬swaggerÌá¹©ÁËÔÚÏßµ÷ÓÃ½Ó¿ÚµÄ¹¦ÄÜ¡£
-
-?È±µã£º
-
-*   ²»ÄÜ´´½¨²âÊÔÓÃÀı£¬ËùÒÔËûÔİÊ±²»ÄÜ°ïÄã´¦ÀíÍêËùÓĞµÄÊÂÇé¡£ËûÖ»ÄÜÌá¹©Ò»¸ö¼òµ¥µÄÔÚÏßµ÷ÊÔ£¬Èç¹ûÄãÏë´æ´¢ÄãµÄ²âÊÔÓÃÀı£¬¿ÉÒÔÊ¹ÓÃPostman»òÕßYAPIÕâÑùÖ§³Ö´´½¨²âÊÔÓÃ»§µÄ¹¦ÄÜ¡£
-*   Òª×ñÑ­Ò»Ğ©¹æ·¶£¬Ëü²»ÊÇÈÎÒâ¹æ·¶µÄ¡£±ÈÈçËµ£¬Äã¿ÉÄÜ»á·µ»ØÒ»¸öjsonÊı¾İ£¬¶øÕâ¸öÊı¾İ¿ÉÄÜÊÇÒ»¸öMap¸ñÊ½µÄ£¬ÄÇÃ´ÎÒÃÇ´ËÊ±²»ÄÜ±ê×¢Õâ¸öMap¸ñÊ½µÄ·µ»ØÊı¾İµÄÃ¿¸ö×Ö¶ÎµÄËµÃ÷£¬¶øÈç¹ûËüÊÇÒ»¸öÊµÌåÀàµÄ»°£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ı±ê×¢ÀàµÄÊôĞÔÀ´¸ø·µ»Ø×Ö¶Î¼ÓËµÃ÷¡£Ò²±ÈÈçËµ£¬¶ÔÓÚswagger£¬²»ÍÆ¼öÔÚÊ¹ÓÃGET·½Ê½Ìá½»Êı¾İµÄÊ±ºò»¹Ê¹ÓÃBody£¬½öÍÆ¼öÊ¹ÓÃquery²ÎÊı¡¢header²ÎÊı»òÕßÂ·¾¶²ÎÊı£¬µ±È»ÁËÕâ¸öÏŞÖÆÖ»ÊÊÓÃÓÚÔÚÏßµ÷ÊÔ¡£
-*   Ã»ÓĞ½Ó¿ÚÎÄµµ¸üĞÂ¹ÜÀí£¬ËäÈ»Ò»¸ö½Ó¿Ú¸üĞÂÖ®ºó£¬¿ÉÄÜ²»»á¹ØĞÄ¾É°æµÄ½Ó¿ÚĞÅÏ¢£¬µ«Äã¡°¿ÉÄÜ¡±Ïë¿´¿´¾É°æµÄ½Ó¿ÚĞÅÏ¢£¬ÀıÈçÓĞĞ©»Ò¶È¸üĞÂ·¢²¼µÄÊ±ºò¿ÉÄÜ»¹»á¹ØĞÄ¾É°æµÄ½Ó¿Ú¡£ÄÇÃ´´ËÊ±Ö»ÄÜÓÉºó¶ËÈ¥¿´¿´ÓĞÃ»ÓĞ×¢ÊÍÁôÏÂÁË£¬ËùÒÔ¿ÉÒÔ¿¼ÂÇ½Ó¿ÚÎÄµµ´ó¸üĞÂµÄÊ±ºò×¢ÊÍ¾É°æµÄ£¬È»ºóĞ´ÏÂĞÂ°æµÄ¡£¡¾µ±È»Õâ¸öÎÊÌâ¿ÉÒÔÍ¨¹ıµ¼³ö½Ó¿ÚÎÄµµÀ´¶Ô±È¡£¡¿
-*   ËäÈ»ÏÖÔÚJavaµÄÊµÌåÀàÖĞÓĞ²»ÉÙÄ£ĞÍ£¬po,dto,voµÈ£¬Ä£ĞÍµÄÇø·ÖÊÇÎªÁËÆÁ±ÎÒ»Ğ©¶àÓà²ÎÊı£¬±ÈÈçÒ»¸öÓÃ»§µÇÂ¼µÄÊ±ºòÖ»ĞèÒªusername,password£¬µ«²éÈ¨ÏŞµÄÊ±ºòĞèÒªÁ¬½ÓÉÏÈ¨ÏŞ±íµÄĞÅÏ¢£¬¶øÈç¹ûÉÏÊöÁ½¸ö²Ù×÷¶¼ÊÇÊ¹ÓÃÁËUserÕâ¸öÊµÌåµÄ»°£¬ÔÚÎÄµµÖĞ¾Í»á×Ô¶¯Éú³ÉÁË¶àÓàµÄĞÅÏ¢£¬Õâ¾ÍÒªÇóÁËÄã»ùÓÚÄ£ĞÍÀ´´´½¨¶à¸öÊµÌåÀà£¬±ÈÈçµÇÂ¼µÄÊ±ºòÒ»¸öLoginForm£¬ĞèÒªÓÃ»§-È¨ÏŞµÈĞÅÏ¢µÄÊ±ºò²ÅÊ¹ÓÃUserÀà¡££¨µ±È»ÁË£¬Õâ¸öÎÊÌâµÈÄã»áswaggerÖ®ºóÄã¾Í´ó¸Å¾Í»áÔõÃ´¹æ±ÜÕâ¸öÎÊÌâÁË¡££©
-
-?ÉÏÃæµÄÈ±µãºÃÏñĞ´µÄÓĞµã¶à£¬Äã¿ÉÄÜ»á¾õµÃswaggerÕâ¸ö¿ÓÓĞµã´ó¡£µ«ÆäÊµÖ÷ÒªÊÇ¹æ·¶ÎÊÌâ£¬¶ø¹æ·¶ÎÊÌâÓĞÊ±ºòÓÖ»áÌá¸ßÄãµÄ´úÂë¹æ·¶ĞÔ£¬Õâ¸ö¾Í¼ûÈÊ¼ûÖÇÁË£¬ÄãÒÔÇ°¿ÉÄÜÊ²Ã´½Ó¿ÚµÄ²ÎÊı¶¼Ê¹ÓÃÒ»¸öÀà£¬¶øÏÖÔÚswaggerÒªÇóÄã·Ö¿ªºó£¬Ä³ÖÖ²ã´ÎÉÏÌá¸ßÁËÄãµÄ´úÂë¹æ·¶ĞÔ¡£
-
-?×¢£ºÒÔÏÂ´úÂëÊ¾Àı»ùÓÚSpring Boot¡£ÍêÕû´úÂë¿ÉÒÔ²Î¿¼£º[swagger-demo](https://github.com/alprogor/swagger-demo)
 
 * * *
 
-# Ìí¼Óswagger
+# Swaggerçš„ä»‹ç»
 
-?ÕâÀïÏÈ½²Ìí¼Óswagger£¬Ò²¾ÍÊÇÏÈÕûºÏ½øÀ´£¬ÖÁÓÚÔõÃ´Ê¹ÓÃ£¬ÏÂÃæµÄ¡°³¡¾°¡±ÖĞÔÙ½²½â¡£
+?ä½ å¯èƒ½å°è¯•è¿‡å†™å®Œä¸€ä¸ªæ¥å£åï¼Œè‡ªå·±å»åˆ›å»ºæ¥å£æ–‡æ¡£ï¼Œæˆ–è€…ä¿®æ”¹æ¥å£åä¿®æ”¹æ¥å£æ–‡æ¡£ã€‚å¤šäº†ä¹‹åï¼Œä½ è‚¯å®šä¼šå‘ç”Ÿä¸€ä¸ªæ“ä½œï¼Œé‚£å°±æ˜¯å¿˜è®°äº†ä¿®æ”¹æ–‡æ¡£æˆ–è€…åˆ›å»ºæ–‡æ¡£ï¼ˆé™¤éä½ ä»¬å…¬å¸æŠŠæ¥å£æ–‡æ¡£å’Œå†™æ¥å£è¦æ±‚å¾—å¾ˆç´§å¯†?å¿˜è®°å†™æ–‡æ¡£å°±æ‰£å·¥èµ„ï¼Ÿï¼Œå¦åˆ™ä¸¤ä¸ªåˆ†ç¦»çš„å·¥ä½œæ€»æ˜¯æœ‰å¯èƒ½é—æ¼çš„ï¼‰ã€‚è€Œswaggerå°±æ˜¯ä¸€ä¸ªåœ¨ä½ å†™æ¥å£çš„æ—¶å€™è‡ªåŠ¨å¸®ä½ ç”Ÿæˆæ¥å£æ–‡æ¡£çš„ä¸œè¥¿ï¼Œåªè¦ä½ éµå¾ªå®ƒçš„è§„èŒƒå¹¶å†™ä¸€äº›æ¥å£çš„è¯´æ˜æ³¨è§£å³å¯ã€‚
 
-## 1.Ìí¼ÓÒÀÀµ°ü£º
+## ä¼˜ç‚¹ä¸ç¼ºç‚¹
 
-?×¢Òâ£¬ÕâÀïµÄÇ°ÌáÊÇÒÑ¾­µ¼ÈëÁËspring bootµÄweb°ü¡£
+?ä¼˜ç‚¹ï¼š
 
-¸´ÖÆ´úÂë
+*   è‡ªåŠ¨ç”Ÿæˆæ–‡æ¡£ï¼Œåªéœ€è¦åœ¨æ¥å£ä¸­ä½¿ç”¨æ³¨è§£è¿›è¡Œæ ‡æ³¨ï¼Œå°±èƒ½ç”Ÿæˆå¯¹åº”çš„æ¥å£æ–‡æ¡£ã€‚
+*   è‡ªåŠ¨æ›´æ–°æ–‡æ¡£ï¼Œç”±äºæ˜¯åŠ¨æ€ç”Ÿæˆçš„ï¼Œæ‰€ä»¥å¦‚æœä½ ä¿®æ”¹äº†æ¥å£ï¼Œæ–‡æ¡£ä¹Ÿä¼šè‡ªåŠ¨å¯¹åº”ä¿®æ”¹ï¼ˆå¦‚æœä½ ä¹Ÿæ›´æ–°äº†æ³¨è§£çš„è¯ï¼‰ã€‚è¿™æ ·å°±ä¸ä¼šå‘é€æˆ‘ä¿®æ”¹äº†æ¥å£ï¼Œå´å¿˜è®°æ›´æ–°æ¥å£æ–‡æ¡£çš„æƒ…å†µã€‚
+*   æ”¯æŒåœ¨çº¿è°ƒè¯•ï¼Œswaggeræä¾›äº†åœ¨çº¿è°ƒç”¨æ¥å£çš„åŠŸèƒ½ã€‚
+
+?ç¼ºç‚¹ï¼š
+
+*   ä¸èƒ½åˆ›å»ºæµ‹è¯•ç”¨ä¾‹ï¼Œæ‰€ä»¥ä»–æš‚æ—¶ä¸èƒ½å¸®ä½ å¤„ç†å®Œæ‰€æœ‰çš„äº‹æƒ…ã€‚ä»–åªèƒ½æä¾›ä¸€ä¸ªç®€å•çš„åœ¨çº¿è°ƒè¯•ï¼Œå¦‚æœä½ æƒ³å­˜å‚¨ä½ çš„æµ‹è¯•ç”¨ä¾‹ï¼Œå¯ä»¥ä½¿ç”¨Postmanæˆ–è€…YAPIè¿™æ ·æ”¯æŒåˆ›å»ºæµ‹è¯•ç”¨æˆ·çš„åŠŸèƒ½ã€‚
+*   è¦éµå¾ªä¸€äº›è§„èŒƒï¼Œå®ƒä¸æ˜¯ä»»æ„è§„èŒƒçš„ã€‚æ¯”å¦‚è¯´ï¼Œä½ å¯èƒ½ä¼šè¿”å›ä¸€ä¸ªjsonæ•°æ®ï¼Œè€Œè¿™ä¸ªæ•°æ®å¯èƒ½æ˜¯ä¸€ä¸ªMapæ ¼å¼çš„ï¼Œé‚£ä¹ˆæˆ‘ä»¬æ­¤æ—¶ä¸èƒ½æ ‡æ³¨è¿™ä¸ªMapæ ¼å¼çš„è¿”å›æ•°æ®çš„æ¯ä¸ªå­—æ®µçš„è¯´æ˜ï¼Œè€Œå¦‚æœå®ƒæ˜¯ä¸€ä¸ªå®ä½“ç±»çš„è¯ï¼Œæˆ‘ä»¬å¯ä»¥é€šè¿‡æ ‡æ³¨ç±»çš„å±æ€§æ¥ç»™è¿”å›å­—æ®µåŠ è¯´æ˜ã€‚ä¹Ÿæ¯”å¦‚è¯´ï¼Œå¯¹äºswaggerï¼Œä¸æ¨èåœ¨ä½¿ç”¨GETæ–¹å¼æäº¤æ•°æ®çš„æ—¶å€™è¿˜ä½¿ç”¨Bodyï¼Œä»…æ¨èä½¿ç”¨queryå‚æ•°ã€headerå‚æ•°æˆ–è€…è·¯å¾„å‚æ•°ï¼Œå½“ç„¶äº†è¿™ä¸ªé™åˆ¶åªé€‚ç”¨äºåœ¨çº¿è°ƒè¯•ã€‚
+*   æ²¡æœ‰æ¥å£æ–‡æ¡£æ›´æ–°ç®¡ç†ï¼Œè™½ç„¶ä¸€ä¸ªæ¥å£æ›´æ–°ä¹‹åï¼Œå¯èƒ½ä¸ä¼šå…³å¿ƒæ—§ç‰ˆçš„æ¥å£ä¿¡æ¯ï¼Œä½†ä½ â€œå¯èƒ½â€æƒ³çœ‹çœ‹æ—§ç‰ˆçš„æ¥å£ä¿¡æ¯ï¼Œä¾‹å¦‚æœ‰äº›ç°åº¦æ›´æ–°å‘å¸ƒçš„æ—¶å€™å¯èƒ½è¿˜ä¼šå…³å¿ƒæ—§ç‰ˆçš„æ¥å£ã€‚é‚£ä¹ˆæ­¤æ—¶åªèƒ½ç”±åç«¯å»çœ‹çœ‹æœ‰æ²¡æœ‰æ³¨é‡Šç•™ä¸‹äº†ï¼Œæ‰€ä»¥å¯ä»¥è€ƒè™‘æ¥å£æ–‡æ¡£å¤§æ›´æ–°çš„æ—¶å€™æ³¨é‡Šæ—§ç‰ˆçš„ï¼Œç„¶åå†™ä¸‹æ–°ç‰ˆçš„ã€‚ã€å½“ç„¶è¿™ä¸ªé—®é¢˜å¯ä»¥é€šè¿‡å¯¼å‡ºæ¥å£æ–‡æ¡£æ¥å¯¹æ¯”ã€‚ã€‘
+*   è™½ç„¶ç°åœ¨Javaçš„å®ä½“ç±»ä¸­æœ‰ä¸å°‘æ¨¡å‹ï¼Œpo,dto,voç­‰ï¼Œæ¨¡å‹çš„åŒºåˆ†æ˜¯ä¸ºäº†å±è”½ä¸€äº›å¤šä½™å‚æ•°ï¼Œæ¯”å¦‚ä¸€ä¸ªç”¨æˆ·ç™»å½•çš„æ—¶å€™åªéœ€è¦username,passwordï¼Œä½†æŸ¥æƒé™çš„æ—¶å€™éœ€è¦è¿æ¥ä¸Šæƒé™è¡¨çš„ä¿¡æ¯ï¼Œè€Œå¦‚æœä¸Šè¿°ä¸¤ä¸ªæ“ä½œéƒ½æ˜¯ä½¿ç”¨äº†Userè¿™ä¸ªå®ä½“çš„è¯ï¼Œåœ¨æ–‡æ¡£ä¸­å°±ä¼šè‡ªåŠ¨ç”Ÿæˆäº†å¤šä½™çš„ä¿¡æ¯ï¼Œè¿™å°±è¦æ±‚äº†ä½ åŸºäºæ¨¡å‹æ¥åˆ›å»ºå¤šä¸ªå®ä½“ç±»ï¼Œæ¯”å¦‚ç™»å½•çš„æ—¶å€™ä¸€ä¸ªLoginFormï¼Œéœ€è¦ç”¨æˆ·-æƒé™ç­‰ä¿¡æ¯çš„æ—¶å€™æ‰ä½¿ç”¨Userç±»ã€‚ï¼ˆå½“ç„¶äº†ï¼Œè¿™ä¸ªé—®é¢˜ç­‰ä½ ä¼šswaggerä¹‹åä½ å°±å¤§æ¦‚å°±ä¼šæ€ä¹ˆè§„é¿è¿™ä¸ªé—®é¢˜äº†ã€‚ï¼‰
+
+?ä¸Šé¢çš„ç¼ºç‚¹å¥½åƒå†™çš„æœ‰ç‚¹å¤šï¼Œä½ å¯èƒ½ä¼šè§‰å¾—swaggerè¿™ä¸ªå‘æœ‰ç‚¹å¤§ã€‚ä½†å…¶å®ä¸»è¦æ˜¯è§„èŒƒé—®é¢˜ï¼Œè€Œè§„èŒƒé—®é¢˜æœ‰æ—¶å€™åˆä¼šæé«˜ä½ çš„ä»£ç è§„èŒƒæ€§ï¼Œè¿™ä¸ªå°±è§ä»è§æ™ºäº†ï¼Œä½ ä»¥å‰å¯èƒ½ä»€ä¹ˆæ¥å£çš„å‚æ•°éƒ½ä½¿ç”¨ä¸€ä¸ªç±»ï¼Œè€Œç°åœ¨swaggerè¦æ±‚ä½ åˆ†å¼€åï¼ŒæŸç§å±‚æ¬¡ä¸Šæé«˜äº†ä½ çš„ä»£ç è§„èŒƒæ€§ã€‚
+
+?æ³¨ï¼šä»¥ä¸‹ä»£ç ç¤ºä¾‹åŸºäºSpring Bootã€‚å®Œæ•´ä»£ç å¯ä»¥å‚è€ƒï¼š[swagger-demo](https://github.com/alprogor/swagger-demo)
+
+* * *
+
+# æ·»åŠ swagger
+
+?è¿™é‡Œå…ˆè®²æ·»åŠ swaggerï¼Œä¹Ÿå°±æ˜¯å…ˆæ•´åˆè¿›æ¥ï¼Œè‡³äºæ€ä¹ˆä½¿ç”¨ï¼Œä¸‹é¢çš„â€œåœºæ™¯â€ä¸­å†è®²è§£ã€‚
+
+## 1.æ·»åŠ ä¾èµ–åŒ…ï¼š
+
+?æ³¨æ„ï¼Œè¿™é‡Œçš„å‰ææ˜¯å·²ç»å¯¼å…¥äº†spring bootçš„webåŒ…ã€‚
+
+å¤åˆ¶ä»£ç 
 
 ```
         <dependency>
@@ -78,11 +78,11 @@
 
 ```
 
-## 2.ÅäÖÃSwagger:
+## 2.é…ç½®Swagger:
 
-ÒªÊ¹ÓÃswagger£¬ÎÒÃÇ±ØĞë¶Ôswagger½øĞĞÅäÖÃ£¬ÎÒÃÇĞèÒª´´½¨Ò»¸öswaggerµÄÅäÖÃÀà£¬±ÈÈç¿ÉÒÔÃüÃûÎªSwaggerConfig.java
+è¦ä½¿ç”¨swaggerï¼Œæˆ‘ä»¬å¿…é¡»å¯¹swaggerè¿›è¡Œé…ç½®ï¼Œæˆ‘ä»¬éœ€è¦åˆ›å»ºä¸€ä¸ªswaggerçš„é…ç½®ç±»ï¼Œæ¯”å¦‚å¯ä»¥å‘½åä¸ºSwaggerConfig.java
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
 package com.example.config;
@@ -97,92 +97,92 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@Configuration // ±êÃ÷ÊÇÅäÖÃÀà
-@EnableSwagger2 //¿ªÆôswagger¹¦ÄÜ
+@Configuration // æ ‡æ˜æ˜¯é…ç½®ç±»
+@EnableSwagger2 //å¼€å¯swaggeråŠŸèƒ½
 public class SwaggerConfig {
     @Bean
     public Docket createRestApi() {
-        return new Docket(DocumentationType.SWAGGER_2)  // DocumentationType.SWAGGER_2 ¹Ì¶¨µÄ£¬´ú±íswagger2
-//                .groupName("·Ö²¼Ê½ÈÎÎñÏµÍ³") // Èç¹ûÅäÖÃ¶à¸öÎÄµµµÄÊ±ºò£¬ÄÇÃ´ĞèÒªÅäÖÃgroupNameÀ´·Ö×é±êÊ¶
-                .apiInfo(apiInfo()) // ÓÃÓÚÉú³ÉAPIĞÅÏ¢
-                .select() // select()º¯Êı·µ»ØÒ»¸öApiSelectorBuilderÊµÀı,ÓÃÀ´¿ØÖÆ½Ó¿Ú±»swagger×ö³ÉÎÄµµ
-                .apis(RequestHandlerSelectors.basePackage("com.example.controller")) // ÓÃÓÚÖ¸¶¨É¨ÃèÄÄ¸ö°üÏÂµÄ½Ó¿Ú
-                .paths(PathSelectors.any())// Ñ¡ÔñËùÓĞµÄAPI,Èç¹ûÄãÏëÖ»Îª²¿·ÖAPIÉú³ÉÎÄµµ£¬¿ÉÒÔÅäÖÃÕâÀï
+        return new Docket(DocumentationType.SWAGGER_2)  // DocumentationType.SWAGGER_2 å›ºå®šçš„ï¼Œä»£è¡¨swagger2
+//                .groupName("åˆ†å¸ƒå¼ä»»åŠ¡ç³»ç»Ÿ") // å¦‚æœé…ç½®å¤šä¸ªæ–‡æ¡£çš„æ—¶å€™ï¼Œé‚£ä¹ˆéœ€è¦é…ç½®groupNameæ¥åˆ†ç»„æ ‡è¯†
+                .apiInfo(apiInfo()) // ç”¨äºç”ŸæˆAPIä¿¡æ¯
+                .select() // select()å‡½æ•°è¿”å›ä¸€ä¸ªApiSelectorBuilderå®ä¾‹,ç”¨æ¥æ§åˆ¶æ¥å£è¢«swaggeråšæˆæ–‡æ¡£
+                .apis(RequestHandlerSelectors.basePackage("com.example.controller")) // ç”¨äºæŒ‡å®šæ‰«æå“ªä¸ªåŒ…ä¸‹çš„æ¥å£
+                .paths(PathSelectors.any())// é€‰æ‹©æ‰€æœ‰çš„API,å¦‚æœä½ æƒ³åªä¸ºéƒ¨åˆ†APIç”Ÿæˆæ–‡æ¡£ï¼Œå¯ä»¥é…ç½®è¿™é‡Œ
                 .build();
     }
 
     /**
-     * ÓÃÓÚ¶¨ÒåAPIÖ÷½çÃæµÄĞÅÏ¢£¬±ÈÈç¿ÉÒÔÉùÃ÷ËùÓĞµÄAPIµÄ×Ü±êÌâ¡¢ÃèÊö¡¢°æ±¾
+     * ç”¨äºå®šä¹‰APIä¸»ç•Œé¢çš„ä¿¡æ¯ï¼Œæ¯”å¦‚å¯ä»¥å£°æ˜æ‰€æœ‰çš„APIçš„æ€»æ ‡é¢˜ã€æè¿°ã€ç‰ˆæœ¬
      * @return
      */
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("XXÏîÄ¿API") //  ¿ÉÒÔÓÃÀ´×Ô¶¨ÒåAPIµÄÖ÷±êÌâ
-                .description("XXÏîÄ¿SwaggerAPI¹ÜÀí") // ¿ÉÒÔÓÃÀ´ÃèÊöÕûÌåµÄAPI
-                .termsOfServiceUrl("") // ÓÃÓÚ¶¨Òå·şÎñµÄÓòÃû
-                .version("1.0") // ¿ÉÒÔÓÃÀ´¶¨Òå°æ±¾¡£
+                .title("XXé¡¹ç›®API") //  å¯ä»¥ç”¨æ¥è‡ªå®šä¹‰APIçš„ä¸»æ ‡é¢˜
+                .description("XXé¡¹ç›®SwaggerAPIç®¡ç†") // å¯ä»¥ç”¨æ¥æè¿°æ•´ä½“çš„API
+                .termsOfServiceUrl("") // ç”¨äºå®šä¹‰æœåŠ¡çš„åŸŸå
+                .version("1.0") // å¯ä»¥ç”¨æ¥å®šä¹‰ç‰ˆæœ¬ã€‚
                 .build(); //
     }
 }
 
 ```
 
-## 3.²âÊÔ
+## 3.æµ‹è¯•
 
-ÔËĞĞÎÒÃÇµÄSpring BootÏîÄ¿£¬£¨ÎÒÄ¬ÈÏÊÇ8080¶Ë¿Ú£¬Èç¹ûÄã²»Ò»Ñù£¬Çë×¢ÒâĞŞ¸ÄºóĞøµÄurl£©£¬·ÃÎÊ`http://localhost:8080/swagger-ui.html`
-È»ºóÄã¾Í¿ÉÒÔ¿´µ½Ò»¸öÈçÏÂµÄ½çÃæ£¬ÓÉÓÚÎÒÃÇÔİÊ±Ã»ÓĞÅäÖÃ½Ó¿ÚÊı¾İ£¬ËùÒÔÏÂÃæÏÔÊ¾`No operations defined in spec!`
+è¿è¡Œæˆ‘ä»¬çš„Spring Booté¡¹ç›®ï¼Œï¼ˆæˆ‘é»˜è®¤æ˜¯8080ç«¯å£ï¼Œå¦‚æœä½ ä¸ä¸€æ ·ï¼Œè¯·æ³¨æ„ä¿®æ”¹åç»­çš„urlï¼‰ï¼Œè®¿é—®`http://localhost:8080/swagger-ui.html`
+ç„¶åä½ å°±å¯ä»¥çœ‹åˆ°ä¸€ä¸ªå¦‚ä¸‹çš„ç•Œé¢ï¼Œç”±äºæˆ‘ä»¬æš‚æ—¶æ²¡æœ‰é…ç½®æ¥å£æ•°æ®ï¼Œæ‰€ä»¥ä¸‹é¢æ˜¾ç¤º`No operations defined in spec!`
 
 ![20200711013419](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200711013419.png)
 
-?ÏÂÃæÎÒÃÇ½«½éÉÜÈçºÎ¶¨Òå½Ó¿Ú£¬ÒÔ¼°ÔÚswagger UI½çÃæÖĞµÄÄÚÈİ¡£
+?ä¸‹é¢æˆ‘ä»¬å°†ä»‹ç»å¦‚ä½•å®šä¹‰æ¥å£ï¼Œä»¥åŠåœ¨swagger UIç•Œé¢ä¸­çš„å†…å®¹ã€‚
 
 * * *
 
-# ³¡¾°£º
+# åœºæ™¯ï¼š
 
-## ¶¨Òå½Ó¿Ú×é
+## å®šä¹‰æ¥å£ç»„
 
-½Ó¿ÚÓĞÊ±ºòÓ¦¸ÃÊÇ·Ö×éµÄ£¬¶øÇÒ´ó²¿·Ö¶¼ÊÇÔÚÒ»¸öcontrollerÖĞµÄ£¬±ÈÈçÓÃ»§¹ÜÀíÏà¹ØµÄ½Ó¿ÚÓ¦¸Ã¶¼ÔÚUserControllerÖĞ£¬ÄÇÃ´²»Í¬µÄÒµÎñµÄÊ±ºò£¬Ó¦¸Ã¶¨Òå/»®·Ö²»Í¬µÄ½Ó¿Ú×é¡£½Ó¿Ú×é¿ÉÒÔÊ¹ÓÃ`@Api`À´»®·Ö¡£
-±ÈÈç£º
+æ¥å£æœ‰æ—¶å€™åº”è¯¥æ˜¯åˆ†ç»„çš„ï¼Œè€Œä¸”å¤§éƒ¨åˆ†éƒ½æ˜¯åœ¨ä¸€ä¸ªcontrollerä¸­çš„ï¼Œæ¯”å¦‚ç”¨æˆ·ç®¡ç†ç›¸å…³çš„æ¥å£åº”è¯¥éƒ½åœ¨UserControllerä¸­ï¼Œé‚£ä¹ˆä¸åŒçš„ä¸šåŠ¡çš„æ—¶å€™ï¼Œåº”è¯¥å®šä¹‰/åˆ’åˆ†ä¸åŒçš„æ¥å£ç»„ã€‚æ¥å£ç»„å¯ä»¥ä½¿ç”¨`@Api`æ¥åˆ’åˆ†ã€‚
+æ¯”å¦‚ï¼š
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-@Api(tags = "½ÇÉ«¹ÜÀí") //  tags£ºÄã¿ÉÒÔµ±×÷ÊÇÕâ¸ö×éµÄÃû×Ö¡£
+@Api(tags = "è§’è‰²ç®¡ç†") //  tagsï¼šä½ å¯ä»¥å½“ä½œæ˜¯è¿™ä¸ªç»„çš„åå­—ã€‚
 @RestController
 public class RoleController {
 }
 
 ```
 
-ºÍ
+å’Œ
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-@Api(tags = "ÓÃ»§¹ÜÀí") //  tags£ºÄã¿ÉÒÔµ±×÷ÊÇÕâ¸ö×éµÄÃû×Ö¡£
+@Api(tags = "ç”¨æˆ·ç®¡ç†") //  tagsï¼šä½ å¯ä»¥å½“ä½œæ˜¯è¿™ä¸ªç»„çš„åå­—ã€‚
 @RestController
 public class UserController {
 }
 
 ```
 
-?ÄãÒ²¿ÉÒÔÀí½â³É»ùÓÚtagsÀ´·Ö×é£¬¾ÍºÃÏñÒ»Ğ©ÎÄÕÂÀïÃæµÄ±êÇ©Ò»Ñù£¬Ê¹ÓÃ±êÇ©À´·ÖÀà¡£
-?Èç¹ûÕâ¸öControllerÏÂ£¨½Ó¿Ú×é£©ÏÂÃæÃ»ÓĞ½Ó¿Ú£¬ÄÇÃ´ÔÚswagger uiÖĞÊÇ²»»áÏÔÊ¾µÄ£¬Èç¹ûÓĞµÄ»°¾Í»áÕâÑùÏÔÊ¾£º
+?ä½ ä¹Ÿå¯ä»¥ç†è§£æˆåŸºäºtagsæ¥åˆ†ç»„ï¼Œå°±å¥½åƒä¸€äº›æ–‡ç« é‡Œé¢çš„æ ‡ç­¾ä¸€æ ·ï¼Œä½¿ç”¨æ ‡ç­¾æ¥åˆ†ç±»ã€‚
+?å¦‚æœè¿™ä¸ªControllerä¸‹ï¼ˆæ¥å£ç»„ï¼‰ä¸‹é¢æ²¡æœ‰æ¥å£ï¼Œé‚£ä¹ˆåœ¨swagger uiä¸­æ˜¯ä¸ä¼šæ˜¾ç¤ºçš„ï¼Œå¦‚æœæœ‰çš„è¯å°±ä¼šè¿™æ ·æ˜¾ç¤ºï¼š
 ![20200712022545](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712022545.png)
 
-## ¶¨Òå½Ó¿Ú
+## å®šä¹‰æ¥å£
 
-Ê¹ÓÃÁË`@Api`À´±ê×¢Ò»¸öControllerÖ®ºó£¬Èç¹ûÏÂÃæÓĞ½Ó¿Ú£¬ÄÇÃ´¾Í»áÄ¬ÈÏÉú³ÉÎÄµµ£¬µ«Ã»ÓĞÎÒÃÇ×Ô¶¨ÒåµÄËµÃ÷£º
+ä½¿ç”¨äº†`@Api`æ¥æ ‡æ³¨ä¸€ä¸ªControllerä¹‹åï¼Œå¦‚æœä¸‹é¢æœ‰æ¥å£ï¼Œé‚£ä¹ˆå°±ä¼šé»˜è®¤ç”Ÿæˆæ–‡æ¡£ï¼Œä½†æ²¡æœ‰æˆ‘ä»¬è‡ªå®šä¹‰çš„è¯´æ˜ï¼š
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-@Api(tags = "ÓÃ»§¹ÜÀí")
+@Api(tags = "ç”¨æˆ·ç®¡ç†")
 @RestController
 public class UserController {
-    // ×¢Òâ£¬¶ÔÓÚswagger£¬²»ÒªÊ¹ÓÃ@RequestMapping£¬
-    // ÒòÎª@RequestMappingÖ§³ÖÈÎÒâÇëÇó·½Ê½£¬swagger»áÎªÕâ¸ö½Ó¿ÚÉú³É7ÖÖÇëÇó·½Ê½µÄ½Ó¿ÚÎÄµµ
+    // æ³¨æ„ï¼Œå¯¹äºswaggerï¼Œä¸è¦ä½¿ç”¨@RequestMappingï¼Œ
+    // å› ä¸º@RequestMappingæ”¯æŒä»»æ„è¯·æ±‚æ–¹å¼ï¼Œswaggerä¼šä¸ºè¿™ä¸ªæ¥å£ç”Ÿæˆ7ç§è¯·æ±‚æ–¹å¼çš„æ¥å£æ–‡æ¡£
     @GetMapping("/info") 
     public String info(String id){
         return "aaa";
@@ -195,12 +195,12 @@ public class UserController {
 
 ![20200711020149](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200711020149.png)
 
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ`@ApiOperation`À´ÃèÊö½Ó¿Ú£¬±ÈÈç£º
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨`@ApiOperation`æ¥æè¿°æ¥å£ï¼Œæ¯”å¦‚ï¼š
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-    @ApiOperation(value = "ÓÃ»§²âÊÔ",notes = "ÓÃ»§²âÊÔnotes")
+    @ApiOperation(value = "ç”¨æˆ·æµ‹è¯•",notes = "ç”¨æˆ·æµ‹è¯•notes")
     @GetMapping("/test")
     public String test(String id){
         return "test";
@@ -209,57 +209,57 @@ public class UserController {
 ```
 
 ![20200711021112](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200711021112.png)
-³£ÓÃÅäÖÃÏî£º
+å¸¸ç”¨é…ç½®é¡¹ï¼š
 
-*   value£º¿ÉÒÔµ±×÷ÊÇ½Ó¿ÚµÄ¼ò³Æ
-*   notes£º½Ó¿ÚµÄÃèÊö
-*   tags£º¿ÉÒÔ¶îÍâ¶¨Òå½Ó¿Ú×é£¬±ÈÈçÕâ¸ö½Ó¿ÚÍâ²ãÒÑ¾­ÓĞ`@Api(tags = "ÓÃ»§¹ÜÀí")`£¬½«½Ó¿Ú»®·Öµ½ÁË¡°ÓÃ»§¹ÜÀí¡±ÖĞ£¬µ«Äã¿ÉÒÔ¶îÍâµÄÊ¹ÓÃtags£¬ÀıÈç`tags = "½ÇÉ«¹ÜÀí"`ÈÃ½ÇÉ«¹ÜÀíÖĞÒ²ÓĞÕâ¸ö½Ó¿ÚÎÄµµ¡£
+*   valueï¼šå¯ä»¥å½“ä½œæ˜¯æ¥å£çš„ç®€ç§°
+*   notesï¼šæ¥å£çš„æè¿°
+*   tagsï¼šå¯ä»¥é¢å¤–å®šä¹‰æ¥å£ç»„ï¼Œæ¯”å¦‚è¿™ä¸ªæ¥å£å¤–å±‚å·²ç»æœ‰`@Api(tags = "ç”¨æˆ·ç®¡ç†")`ï¼Œå°†æ¥å£åˆ’åˆ†åˆ°äº†â€œç”¨æˆ·ç®¡ç†â€ä¸­ï¼Œä½†ä½ å¯ä»¥é¢å¤–çš„ä½¿ç”¨tagsï¼Œä¾‹å¦‚`tags = "è§’è‰²ç®¡ç†"`è®©è§’è‰²ç®¡ç†ä¸­ä¹Ÿæœ‰è¿™ä¸ªæ¥å£æ–‡æ¡£ã€‚
 
-## ¶¨Òå½Ó¿ÚÇëÇó²ÎÊı
+## å®šä¹‰æ¥å£è¯·æ±‚å‚æ•°
 
-ÉÏÃæÊ¹ÓÃÁË`@ApiOperation`À´ÁËÃèÊö½Ó¿Ú£¬µ«ÆäÊµ»¹È±ÉÙ½Ó¿ÚÇëÇó²ÎÊıµÄËµÃ÷£¬ÏÂÃæÎÒÃÇ·Ö³¡¾°À´½²¡£
-?×¢ÒâÒ»ÏÂ£¬**¶ÔÓÚGET·½Ê½£¬swagger²»ÍÆ¼öÊ¹ÓÃbody·½Ê½À´´«µİÊı¾İ**£¬Ò²¾ÍÊÇ²»Ï£ÍûÔÚGET·½Ê½Ê±Ê¹ÓÃjson¡¢form-dataµÈ·½Ê½À´´«µİ£¬ÕâÊ±ºò×îºÃÊ¹ÓÃÂ·¾¶²ÎÊı»òÕßurl²ÎÊı¡£(?ËäÈ»POSTMANµÈÊÇÖ§³ÖµÄ)£¬ËùÒÔÈç¹û½Ó¿Ú´«µİµÄÊı¾İÊÇjson»òÕßform-data·½Ê½µÄ£¬»¹ÊÇÊ¹ÓÃPOST·½Ê½ºÃ¡£
+ä¸Šé¢ä½¿ç”¨äº†`@ApiOperation`æ¥äº†æè¿°æ¥å£ï¼Œä½†å…¶å®è¿˜ç¼ºå°‘æ¥å£è¯·æ±‚å‚æ•°çš„è¯´æ˜ï¼Œä¸‹é¢æˆ‘ä»¬åˆ†åœºæ™¯æ¥è®²ã€‚
+?æ³¨æ„ä¸€ä¸‹ï¼Œ**å¯¹äºGETæ–¹å¼ï¼Œswaggerä¸æ¨èä½¿ç”¨bodyæ–¹å¼æ¥ä¼ é€’æ•°æ®**ï¼Œä¹Ÿå°±æ˜¯ä¸å¸Œæœ›åœ¨GETæ–¹å¼æ—¶ä½¿ç”¨jsonã€form-dataç­‰æ–¹å¼æ¥ä¼ é€’ï¼Œè¿™æ—¶å€™æœ€å¥½ä½¿ç”¨è·¯å¾„å‚æ•°æˆ–è€…urlå‚æ•°ã€‚(?è™½ç„¶POSTMANç­‰æ˜¯æ”¯æŒçš„)ï¼Œæ‰€ä»¥å¦‚æœæ¥å£ä¼ é€’çš„æ•°æ®æ˜¯jsonæˆ–è€…form-dataæ–¹å¼çš„ï¼Œè¿˜æ˜¯ä½¿ç”¨POSTæ–¹å¼å¥½ã€‚
 
-### ³¡¾°Ò»£ºÇëÇó²ÎÊıÊÇÊµÌåÀà¡£
+### åœºæ™¯ä¸€ï¼šè¯·æ±‚å‚æ•°æ˜¯å®ä½“ç±»ã€‚
 
-´ËÊ±ÎÒÃÇĞèÒªÊ¹ÓÃ`@ApiModel`À´±ê×¢ÊµÌåÀà£¬È»ºóÔÚ½Ó¿ÚÖĞ¶¨ÒåÈë²ÎÎªÊµÌåÀà¼´¿É£º
+æ­¤æ—¶æˆ‘ä»¬éœ€è¦ä½¿ç”¨`@ApiModel`æ¥æ ‡æ³¨å®ä½“ç±»ï¼Œç„¶ååœ¨æ¥å£ä¸­å®šä¹‰å…¥å‚ä¸ºå®ä½“ç±»å³å¯ï¼š
 
-*   @ApiModel£ºÓÃÀ´±êÀà
-    *   ³£ÓÃÅäÖÃÏî£º
-        *   value£ºÊµÌåÀà¼ò³Æ
-        *   description£ºÊµÌåÀàËµÃ÷
-*   @ApiModelProperty£ºÓÃÀ´ÃèÊöÀàµÄ×Ö¶ÎµÄÒâÒå¡£
-    *   ³£ÓÃÅäÖÃÏî£º
-        *   value£º×Ö¶ÎËµÃ÷
-        *   example£ºÉèÖÃÇëÇóÊ¾Àı£¨Example Value£©µÄÄ¬ÈÏÖµ£¬Èç¹û²»ÅäÖÃ£¬µ±×Ö¶ÎÎªstringµÄÊ±ºò£¬´ËÊ±ÇëÇóÊ¾ÀıÖĞÄ¬ÈÏÖµÎª"".
-        *   name£ºÓÃĞÂµÄ×Ö¶ÎÃûÀ´Ìæ´ú¾ÉµÄ×Ö¶ÎÃû¡£
-        *   allowableValues£ºÏŞÖÆÖµµÃ·¶Î§£¬ÀıÈç`{1,2,3}`´ú±íÖ»ÄÜÈ¡ÕâÈı¸öÖµ£»`[1,5]`´ú±íÈ¡1µ½5µÄÖµ£»`(1,5)`´ú±í1µ½5µÄÖµ£¬²»°üÀ¨1ºÍ5£»»¹¿ÉÒÔÊ¹ÓÃinfinity»ò-infinityÀ´ÎŞÏŞÖµ£¬±ÈÈç`[1, infinity]`´ú±í×îĞ¡ÖµÎª1£¬×î´óÖµÎŞÇî´ó¡£
-        *   required£º±ê¼Ç×Ö¶ÎÊÇ·ñ±ØÌî£¬Ä¬ÈÏÊÇfalse,
-        *   hidden£ºÓÃÀ´Òş²Ø×Ö¶Î£¬Ä¬ÈÏÊÇfalse£¬Èç¹ûÒªÒş²ØĞèÒªÊ¹ÓÃtrue£¬ÒòÎª×Ö¶ÎÄ¬ÈÏ¶¼»áÏÔÊ¾£¬¾ÍËãÃ»ÓĞ`@ApiModelProperty`¡£
+*   @ApiModelï¼šç”¨æ¥æ ‡ç±»
+    *   å¸¸ç”¨é…ç½®é¡¹ï¼š
+        *   valueï¼šå®ä½“ç±»ç®€ç§°
+        *   descriptionï¼šå®ä½“ç±»è¯´æ˜
+*   @ApiModelPropertyï¼šç”¨æ¥æè¿°ç±»çš„å­—æ®µçš„æ„ä¹‰ã€‚
+    *   å¸¸ç”¨é…ç½®é¡¹ï¼š
+        *   valueï¼šå­—æ®µè¯´æ˜
+        *   exampleï¼šè®¾ç½®è¯·æ±‚ç¤ºä¾‹ï¼ˆExample Valueï¼‰çš„é»˜è®¤å€¼ï¼Œå¦‚æœä¸é…ç½®ï¼Œå½“å­—æ®µä¸ºstringçš„æ—¶å€™ï¼Œæ­¤æ—¶è¯·æ±‚ç¤ºä¾‹ä¸­é»˜è®¤å€¼ä¸º"".
+        *   nameï¼šç”¨æ–°çš„å­—æ®µåæ¥æ›¿ä»£æ—§çš„å­—æ®µåã€‚
+        *   allowableValuesï¼šé™åˆ¶å€¼å¾—èŒƒå›´ï¼Œä¾‹å¦‚`{1,2,3}`ä»£è¡¨åªèƒ½å–è¿™ä¸‰ä¸ªå€¼ï¼›`[1,5]`ä»£è¡¨å–1åˆ°5çš„å€¼ï¼›`(1,5)`ä»£è¡¨1åˆ°5çš„å€¼ï¼Œä¸åŒ…æ‹¬1å’Œ5ï¼›è¿˜å¯ä»¥ä½¿ç”¨infinityæˆ–-infinityæ¥æ— é™å€¼ï¼Œæ¯”å¦‚`[1, infinity]`ä»£è¡¨æœ€å°å€¼ä¸º1ï¼Œæœ€å¤§å€¼æ— ç©·å¤§ã€‚
+        *   requiredï¼šæ ‡è®°å­—æ®µæ˜¯å¦å¿…å¡«ï¼Œé»˜è®¤æ˜¯false,
+        *   hiddenï¼šç”¨æ¥éšè—å­—æ®µï¼Œé»˜è®¤æ˜¯falseï¼Œå¦‚æœè¦éšè—éœ€è¦ä½¿ç”¨trueï¼Œå› ä¸ºå­—æ®µé»˜è®¤éƒ½ä¼šæ˜¾ç¤ºï¼Œå°±ç®—æ²¡æœ‰`@ApiModelProperty`ã€‚
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-// ÏÈÊ¹ÓÃ@ApiModelÀ´±ê×¢Àà
-@ApiModel(value="ÓÃ»§µÇÂ¼±íµ¥¶ÔÏó",description="ÓÃ»§µÇÂ¼±íµ¥¶ÔÏó")
+// å…ˆä½¿ç”¨@ApiModelæ¥æ ‡æ³¨ç±»
+@ApiModel(value="ç”¨æˆ·ç™»å½•è¡¨å•å¯¹è±¡",description="ç”¨æˆ·ç™»å½•è¡¨å•å¯¹è±¡")
 public class LoginForm {
-    // Ê¹ÓÃApiModelPropertyÀ´±ê×¢×Ö¶ÎÊôĞÔ¡£
-    @ApiModelProperty(value = "ÓÃ»§Ãû",required = true,example = "root")
+    // ä½¿ç”¨ApiModelPropertyæ¥æ ‡æ³¨å­—æ®µå±æ€§ã€‚
+    @ApiModelProperty(value = "ç”¨æˆ·å",required = true,example = "root")
     private String username;
-    @ApiModelProperty(value = "ÃÜÂë",required = true,example = "123456")
+    @ApiModelProperty(value = "å¯†ç ",required = true,example = "123456")
     private String password;
 
-    // ´Ë´¦Ê¡ÂÔÈë²Î¸³ÖµÊ±ĞèÒªµÄgetter,setter,swaggerÒ²ĞèÒªÕâ¸ö
+    // æ­¤å¤„çœç•¥å…¥å‚èµ‹å€¼æ—¶éœ€è¦çš„getter,setter,swaggerä¹Ÿéœ€è¦è¿™ä¸ª
 }
 
 ```
 
-¶¨Òå³ÉÈë²Î£º
+å®šä¹‰æˆå…¥å‚ï¼š
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-    @ApiOperation(value = "µÇÂ¼½Ó¿Ú",notes = "µÇÂ¼½Ó¿ÚµÄËµÃ÷")
+    @ApiOperation(value = "ç™»å½•æ¥å£",notes = "ç™»å½•æ¥å£çš„è¯´æ˜")
     @PostMapping("/login")
     public LoginForm login(@RequestBody LoginForm loginForm){
         return loginForm;
@@ -267,40 +267,40 @@ public class LoginForm {
 
 ```
 
-Ğ§¹û£º
+æ•ˆæœï¼š
 
 ![20200711181038](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200711181038.png)
 
-### ³¡¾°¶ş£ºÇëÇó²ÎÊıÊÇ·ÇÊµÌåÀà¡£
+### åœºæ™¯äºŒï¼šè¯·æ±‚å‚æ•°æ˜¯éå®ä½“ç±»ã€‚
 
-£¨**ÔÙËµÒ»´Î£º¶ÔÓÚGET·½Ê½£¬swagger²»ÍÆ¼öÊ¹ÓÃbody·½Ê½À´´«µİÊı¾İ£¬ËùÒÔËäÈ»Spring MVC¿ÉÒÔ×Ô¶¯·â×°²ÎÊı£¬µ«¶ÔÓÚGETÇëÇó»¹ÊÇ²»ÒªÊ¹ÓÃform-data£¬jsonµÈ·½Ê½´«µİ²ÎÊı£¬³ı·ÇÄãÊ¹ÓÃPostmanÀ´²âÊÔ½Ó¿Ú£¬swaggerÔÚÏß²âÊÔÊÇ²»Ö§³ÖÕâ¸ö²Ù×÷µÄ**£©
-¶ÔÓÚ·ÇÊµÌåÀà²ÎÊı£¬¿ÉÒÔÊ¹ÓÃ`@ApiImplicitParams`ºÍ`@ApiImplicitParam`À´ÉùÃ÷ÇëÇó²ÎÊı¡£
-`@ApiImplicitParams`ÓÃÔÚ·½·¨Í·ÉÏ£¬`@ApiImplicitParam`¶¨ÒåÔÚ`@ApiImplicitParams`ÀïÃæ£¬Ò»¸ö`@ApiImplicitParam`¶ÔÓ¦Ò»¸ö²ÎÊı¡£
-`@ApiImplicitParam`³£ÓÃÅäÖÃÏî£º
+ï¼ˆ**å†è¯´ä¸€æ¬¡ï¼šå¯¹äºGETæ–¹å¼ï¼Œswaggerä¸æ¨èä½¿ç”¨bodyæ–¹å¼æ¥ä¼ é€’æ•°æ®ï¼Œæ‰€ä»¥è™½ç„¶Spring MVCå¯ä»¥è‡ªåŠ¨å°è£…å‚æ•°ï¼Œä½†å¯¹äºGETè¯·æ±‚è¿˜æ˜¯ä¸è¦ä½¿ç”¨form-dataï¼Œjsonç­‰æ–¹å¼ä¼ é€’å‚æ•°ï¼Œé™¤éä½ ä½¿ç”¨Postmanæ¥æµ‹è¯•æ¥å£ï¼Œswaggeråœ¨çº¿æµ‹è¯•æ˜¯ä¸æ”¯æŒè¿™ä¸ªæ“ä½œçš„**ï¼‰
+å¯¹äºéå®ä½“ç±»å‚æ•°ï¼Œå¯ä»¥ä½¿ç”¨`@ApiImplicitParams`å’Œ`@ApiImplicitParam`æ¥å£°æ˜è¯·æ±‚å‚æ•°ã€‚
+`@ApiImplicitParams`ç”¨åœ¨æ–¹æ³•å¤´ä¸Šï¼Œ`@ApiImplicitParam`å®šä¹‰åœ¨`@ApiImplicitParams`é‡Œé¢ï¼Œä¸€ä¸ª`@ApiImplicitParam`å¯¹åº”ä¸€ä¸ªå‚æ•°ã€‚
+`@ApiImplicitParam`å¸¸ç”¨é…ç½®é¡¹ï¼š
 
-*   name£ºÓÃÀ´¶¨Òå²ÎÊıµÄÃû×Ö£¬Ò²¾ÍÊÇ×Ö¶ÎµÄÃû×Ö,¿ÉÒÔÓë½Ó¿ÚµÄÈë²ÎÃû¶ÔÓ¦¡£**Èç¹û²»¶ÔÓ¦£¬Ò²»áÉú³É£¬ËùÒÔ¿ÉÒÔÓÃÀ´¶¨Òå¶îÍâ²ÎÊı£¡**
-*   value£ºÓÃÀ´ÃèÊö²ÎÊı
-*   required£ºÓÃÀ´±ê×¢²ÎÊıÊÇ·ñ±ØÌî
-*   paramTypeÓĞpath,query,body,form,headerµÈ·½Ê½£¬µ«¶ÔÓÚ¶ÔÓÚ·ÇÊµÌåÀà²ÎÊıµÄÊ±ºò£¬³£ÓÃµÄÖ»ÓĞpath,query,header£»bodyºÍformÊÇ²»³£ÓÃµÄ¡£body²»ÊÊÓÃÓÚ¶à¸öÁãÉ¢²ÎÊıµÄÇé¿ö£¬Ö»ÊÊÓÃÓÚjson¶ÔÏóµÈÇé¿ö¡£¡¾Èç¹ûÄãµÄ½Ó¿ÚÊÇ`form-data`,`x-www-form-urlencoded`µÄÊ±ºò¿ÉÄÜ²»ÄÜÊ¹ÓÃswaggerÒ³ÃæAPIµ÷ÊÔ£¬µ«¿ÉÒÔÔÚºóÃæ½²µ½»ùÓÚBootstrapUIµÄswaggerÔöÇ¿ÖĞµ÷ÊÔ£¬»ùÓÚBootstrapUIµÄswaggerÖ§³ÖÖ¸¶¨`form-data`»ò`x-www-form-urlencoded`¡¿
+*   nameï¼šç”¨æ¥å®šä¹‰å‚æ•°çš„åå­—ï¼Œä¹Ÿå°±æ˜¯å­—æ®µçš„åå­—,å¯ä»¥ä¸æ¥å£çš„å…¥å‚åå¯¹åº”ã€‚**å¦‚æœä¸å¯¹åº”ï¼Œä¹Ÿä¼šç”Ÿæˆï¼Œæ‰€ä»¥å¯ä»¥ç”¨æ¥å®šä¹‰é¢å¤–å‚æ•°ï¼**
+*   valueï¼šç”¨æ¥æè¿°å‚æ•°
+*   requiredï¼šç”¨æ¥æ ‡æ³¨å‚æ•°æ˜¯å¦å¿…å¡«
+*   paramTypeæœ‰path,query,body,form,headerç­‰æ–¹å¼ï¼Œä½†å¯¹äºå¯¹äºéå®ä½“ç±»å‚æ•°çš„æ—¶å€™ï¼Œå¸¸ç”¨çš„åªæœ‰path,query,headerï¼›bodyå’Œformæ˜¯ä¸å¸¸ç”¨çš„ã€‚bodyä¸é€‚ç”¨äºå¤šä¸ªé›¶æ•£å‚æ•°çš„æƒ…å†µï¼Œåªé€‚ç”¨äºjsonå¯¹è±¡ç­‰æƒ…å†µã€‚ã€å¦‚æœä½ çš„æ¥å£æ˜¯`form-data`,`x-www-form-urlencoded`çš„æ—¶å€™å¯èƒ½ä¸èƒ½ä½¿ç”¨swaggeré¡µé¢APIè°ƒè¯•ï¼Œä½†å¯ä»¥åœ¨åé¢è®²åˆ°åŸºäºBootstrapUIçš„swaggerå¢å¼ºä¸­è°ƒè¯•ï¼ŒåŸºäºBootstrapUIçš„swaggeræ”¯æŒæŒ‡å®š`form-data`æˆ–`x-www-form-urlencoded`ã€‘
 
-Ê¾ÀıÒ»£ºÉùÃ÷Èë²ÎÊÇURL²ÎÊı
+ç¤ºä¾‹ä¸€ï¼šå£°æ˜å…¥å‚æ˜¯URLå‚æ•°
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-    // Ê¹ÓÃURL query²ÎÊı
-    @ApiOperation(value = "µÇÂ¼½Ó¿Ú2",notes = "µÇÂ¼½Ó¿ÚµÄËµÃ÷2")
+    // ä½¿ç”¨URL queryå‚æ•°
+    @ApiOperation(value = "ç™»å½•æ¥å£2",notes = "ç™»å½•æ¥å£çš„è¯´æ˜2")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "username",//²ÎÊıÃû×Ö
-                    value = "ÓÃ»§Ãû",//²ÎÊıµÄÃèÊö
-                    required = true,//ÊÇ·ñ±ØĞë´«Èë
-                    //paramType¶¨Òå²ÎÊı´«µİÀàĞÍ£ºÓĞpath,query,body,form,header
+            @ApiImplicitParam(name = "username",//å‚æ•°åå­—
+                    value = "ç”¨æˆ·å",//å‚æ•°çš„æè¿°
+                    required = true,//æ˜¯å¦å¿…é¡»ä¼ å…¥
+                    //paramTypeå®šä¹‰å‚æ•°ä¼ é€’ç±»å‹ï¼šæœ‰path,query,body,form,header
                     paramType = "query"
                     )
             ,
-            @ApiImplicitParam(name = "password",//²ÎÊıÃû×Ö
-                    value = "ÃÜÂë",//²ÎÊıµÄÃèÊö
-                    required = true,//ÊÇ·ñ±ØĞë´«Èë
+            @ApiImplicitParam(name = "password",//å‚æ•°åå­—
+                    value = "å¯†ç ",//å‚æ•°çš„æè¿°
+                    required = true,//æ˜¯å¦å¿…é¡»ä¼ å…¥
                     paramType = "query"
                     )
     })
@@ -315,25 +315,25 @@ public class LoginForm {
 
 ```
 
-Ê¾Àı¶ş£ºÉùÃ÷Èë²ÎÊÇURLÂ·¾¶²ÎÊı
+ç¤ºä¾‹äºŒï¼šå£°æ˜å…¥å‚æ˜¯URLè·¯å¾„å‚æ•°
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-    // Ê¹ÓÃÂ·¾¶²ÎÊı
+    // ä½¿ç”¨è·¯å¾„å‚æ•°
     @PostMapping("/login3/{id1}/{id2}")
-    @ApiOperation(value = "µÇÂ¼½Ó¿Ú3",notes = "µÇÂ¼½Ó¿ÚµÄËµÃ÷3")
+    @ApiOperation(value = "ç™»å½•æ¥å£3",notes = "ç™»å½•æ¥å£çš„è¯´æ˜3")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "id1",//²ÎÊıÃû×Ö
-                    value = "ÓÃ»§Ãû",//²ÎÊıµÄÃèÊö
-                    required = true,//ÊÇ·ñ±ØĞë´«Èë
-                    //paramType¶¨Òå²ÎÊı´«µİÀàĞÍ£ºÓĞpath,query,body,form,header
+            @ApiImplicitParam(name = "id1",//å‚æ•°åå­—
+                    value = "ç”¨æˆ·å",//å‚æ•°çš„æè¿°
+                    required = true,//æ˜¯å¦å¿…é¡»ä¼ å…¥
+                    //paramTypeå®šä¹‰å‚æ•°ä¼ é€’ç±»å‹ï¼šæœ‰path,query,body,form,header
                     paramType = "path"
             )
             ,
-            @ApiImplicitParam(name = "id2",//²ÎÊıÃû×Ö
-                    value = "ÃÜÂë",//²ÎÊıµÄÃèÊö
-                    required = true,//ÊÇ·ñ±ØĞë´«Èë
+            @ApiImplicitParam(name = "id2",//å‚æ•°åå­—
+                    value = "å¯†ç ",//å‚æ•°çš„æè¿°
+                    required = true,//æ˜¯å¦å¿…é¡»ä¼ å…¥
                     paramType = "path"
             )
     })
@@ -343,25 +343,25 @@ public class LoginForm {
 
 ```
 
-Ê¾ÀıÈı£ºÉùÃ÷Èë²ÎÊÇheader²ÎÊı
+ç¤ºä¾‹ä¸‰ï¼šå£°æ˜å…¥å‚æ˜¯headerå‚æ•°
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-    // ÓÃheader´«µİ²ÎÊı
+    // ç”¨headerä¼ é€’å‚æ•°
     @PostMapping("/login4")
-    @ApiOperation(value = "µÇÂ¼½Ó¿Ú4",notes = "µÇÂ¼½Ó¿ÚµÄËµÃ÷4")
+    @ApiOperation(value = "ç™»å½•æ¥å£4",notes = "ç™»å½•æ¥å£çš„è¯´æ˜4")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "username",//²ÎÊıÃû×Ö
-                    value = "ÓÃ»§Ãû",//²ÎÊıµÄÃèÊö
-                    required = true,//ÊÇ·ñ±ØĞë´«Èë
-                    //paramType¶¨Òå²ÎÊı´«µİÀàĞÍ£ºÓĞpath,query,body,form,header
+            @ApiImplicitParam(name = "username",//å‚æ•°åå­—
+                    value = "ç”¨æˆ·å",//å‚æ•°çš„æè¿°
+                    required = true,//æ˜¯å¦å¿…é¡»ä¼ å…¥
+                    //paramTypeå®šä¹‰å‚æ•°ä¼ é€’ç±»å‹ï¼šæœ‰path,query,body,form,header
                     paramType = "header"
             )
             ,
-            @ApiImplicitParam(name = "password",//²ÎÊıÃû×Ö
-                    value = "ÃÜÂë",//²ÎÊıµÄÃèÊö
-                    required = true,//ÊÇ·ñ±ØĞë´«Èë
+            @ApiImplicitParam(name = "password",//å‚æ•°åå­—
+                    value = "å¯†ç ",//å‚æ•°çš„æè¿°
+                    required = true,//æ˜¯å¦å¿…é¡»ä¼ å…¥
                     paramType = "header"
             )
     })
@@ -372,25 +372,25 @@ public class LoginForm {
 
 ```
 
-Ê¾ÀıËÄ£ºÉùÃ÷ÎÄ¼şÉÏ´«²ÎÊı
+ç¤ºä¾‹å››ï¼šå£°æ˜æ–‡ä»¶ä¸Šä¼ å‚æ•°
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-    // ÓĞÎÄ¼şÉÏ´«Ê±ÒªÓÃ@ApiParam£¬ÓÃ·¨»ù±¾Óë@ApiImplicitParamÒ»Ñù£¬²»¹ı@ApiParamÓÃÔÚ²ÎÊıÉÏ
-    // »òÕßÄãÒ²¿ÉÒÔ²»×¢½â£¬swagger»á×Ô¶¯Éú³ÉËµÃ÷
-    @ApiOperation(value = "ÉÏ´«ÎÄ¼ş",notes = "ÉÏ´«ÎÄ¼ş")
+    // æœ‰æ–‡ä»¶ä¸Šä¼ æ—¶è¦ç”¨@ApiParamï¼Œç”¨æ³•åŸºæœ¬ä¸@ApiImplicitParamä¸€æ ·ï¼Œä¸è¿‡@ApiParamç”¨åœ¨å‚æ•°ä¸Š
+    // æˆ–è€…ä½ ä¹Ÿå¯ä»¥ä¸æ³¨è§£ï¼Œswaggerä¼šè‡ªåŠ¨ç”Ÿæˆè¯´æ˜
+    @ApiOperation(value = "ä¸Šä¼ æ–‡ä»¶",notes = "ä¸Šä¼ æ–‡ä»¶")
     @PostMapping(value = "/upload")
-    public String upload(@ApiParam(value = "Í¼Æ¬ÎÄ¼ş", required = true)MultipartFile uploadFile){
+    public String upload(@ApiParam(value = "å›¾ç‰‡æ–‡ä»¶", required = true)MultipartFile uploadFile){
         String originalFilename = uploadFile.getOriginalFilename();
 
         return originalFilename;
     }
 
-    // ¶à¸öÎÄ¼şÉÏ´«Ê±£¬**swaggerÖ»ÄÜ²âÊÔµ¥ÎÄ¼şÉÏ´«**
-    @ApiOperation(value = "ÉÏ´«¶à¸öÎÄ¼ş",notes = "ÉÏ´«¶à¸öÎÄ¼ş")
+    // å¤šä¸ªæ–‡ä»¶ä¸Šä¼ æ—¶ï¼Œ**swaggeråªèƒ½æµ‹è¯•å•æ–‡ä»¶ä¸Šä¼ **
+    @ApiOperation(value = "ä¸Šä¼ å¤šä¸ªæ–‡ä»¶",notes = "ä¸Šä¼ å¤šä¸ªæ–‡ä»¶")
     @PostMapping(value = "/upload2",consumes = "multipart/*", headers = "content-type=multipart/form-data")
-    public String upload2(@ApiParam(value = "Í¼Æ¬ÎÄ¼ş", required = true,allowMultiple = true)MultipartFile[] uploadFile){
+    public String upload2(@ApiParam(value = "å›¾ç‰‡æ–‡ä»¶", required = true,allowMultiple = true)MultipartFile[] uploadFile){
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < uploadFile.length; i++) {
             System.out.println(uploadFile[i].getOriginalFilename());
@@ -400,16 +400,16 @@ public class LoginForm {
         return sb.toString();
     }
 
-    // ¼ÈÓĞÎÄ¼ş£¬ÓÖÓĞ²ÎÊı
-    @ApiOperation(value = "¼ÈÓĞÎÄ¼ş£¬ÓÖÓĞ²ÎÊı",notes = "¼ÈÓĞÎÄ¼ş£¬ÓÖÓĞ²ÎÊı")
+    // æ—¢æœ‰æ–‡ä»¶ï¼Œåˆæœ‰å‚æ•°
+    @ApiOperation(value = "æ—¢æœ‰æ–‡ä»¶ï¼Œåˆæœ‰å‚æ•°",notes = "æ—¢æœ‰æ–‡ä»¶ï¼Œåˆæœ‰å‚æ•°")
     @PostMapping(value = "/upload3")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "name",
-                    value = "Í¼Æ¬ĞÂÃû×Ö",
+                    value = "å›¾ç‰‡æ–°åå­—",
                     required = true
             )
     })
-    public String upload3(@ApiParam(value = "Í¼Æ¬ÎÄ¼ş", required = true)MultipartFile uploadFile,
+    public String upload3(@ApiParam(value = "å›¾ç‰‡æ–‡ä»¶", required = true)MultipartFile uploadFile,
                           String name){
         String originalFilename = uploadFile.getOriginalFilename();
 
@@ -418,19 +418,19 @@ public class LoginForm {
 
 ```
 
-## ¶¨Òå½Ó¿ÚÏìÓ¦
+## å®šä¹‰æ¥å£å“åº”
 
-¶¨Òå½Ó¿ÚÏìÓ¦£¬ÊÇ·½±ã²é¿´½Ó¿ÚÎÄµµµÄÈËÄÜ¹»ÖªµÀ½Ó¿Ú·µ»ØµÄÊı¾İµÄÒâÒå¡£
+å®šä¹‰æ¥å£å“åº”ï¼Œæ˜¯æ–¹ä¾¿æŸ¥çœ‹æ¥å£æ–‡æ¡£çš„äººèƒ½å¤ŸçŸ¥é“æ¥å£è¿”å›çš„æ•°æ®çš„æ„ä¹‰ã€‚
 
-### ÏìÓ¦ÊÇÊµÌåÀà£º
+### å“åº”æ˜¯å®ä½“ç±»ï¼š
 
-Ç°ÃæÔÚ¶¨Òå½Ó¿ÚÇëÇó²ÎÊıµÄÊ±ºòÓĞÌáµ½Ê¹ÓÃ`@ApiModel`À´±ê×¢Àà£¬Èç¹û½Ó¿Ú·µ»ØÁËÕâ¸öÀà£¬ÄÇÃ´Õâ¸öÀàÉÏµÄËµÃ÷Ò²»á×÷ÎªÏìÓ¦µÄËµÃ÷£º
+å‰é¢åœ¨å®šä¹‰æ¥å£è¯·æ±‚å‚æ•°çš„æ—¶å€™æœ‰æåˆ°ä½¿ç”¨`@ApiModel`æ¥æ ‡æ³¨ç±»ï¼Œå¦‚æœæ¥å£è¿”å›äº†è¿™ä¸ªç±»ï¼Œé‚£ä¹ˆè¿™ä¸ªç±»ä¸Šçš„è¯´æ˜ä¹Ÿä¼šä½œä¸ºå“åº”çš„è¯´æ˜ï¼š
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-    // ·µ»Ø±»@ApiModel±ê×¢µÄÀà¶ÔÏó
-    @ApiOperation(value = "ÊµÌåÀàÏìÓ¦",notes = "·µ»ØÊı¾İÎªÊµÌåÀàµÄ½Ó¿Ú")
+    // è¿”å›è¢«@ApiModelæ ‡æ³¨çš„ç±»å¯¹è±¡
+    @ApiOperation(value = "å®ä½“ç±»å“åº”",notes = "è¿”å›æ•°æ®ä¸ºå®ä½“ç±»çš„æ¥å£")
     @PostMapping("/role1")
     public LoginForm role1(@RequestBody LoginForm loginForm){
         return loginForm;
@@ -440,27 +440,27 @@ public class LoginForm {
 
 ![20200712000406](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712000406.png)
 
-### ÏìÓ¦ÊÇ·ÇÊµÌåÀà£º
+### å“åº”æ˜¯éå®ä½“ç±»ï¼š
 
-swaggerÎŞ·¨¶Ô·ÇÊµÌåÀàµÄÏìÓ¦½øĞĞÏêÏ¸ËµÃ÷£¬Ö»ÄÜ±ê×¢ÏìÓ¦ÂëµÈĞÅÏ¢¡£ÊÇÍ¨¹ı`@ApiResponses`ºÍ`@ApiResponse`À´ÊµÏÖµÄ¡£
-`@ApiResponses`ºÍ`@ApiResponse`¿ÉÒÔÓë`@ApiModel`Ò»ÆğÊ¹ÓÃ¡£
+swaggeræ— æ³•å¯¹éå®ä½“ç±»çš„å“åº”è¿›è¡Œè¯¦ç»†è¯´æ˜ï¼Œåªèƒ½æ ‡æ³¨å“åº”ç ç­‰ä¿¡æ¯ã€‚æ˜¯é€šè¿‡`@ApiResponses`å’Œ`@ApiResponse`æ¥å®ç°çš„ã€‚
+`@ApiResponses`å’Œ`@ApiResponse`å¯ä»¥ä¸`@ApiModel`ä¸€èµ·ä½¿ç”¨ã€‚
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-    // ÆäËûÀàĞÍµÄ,´ËÊ±²»ÄÜÔö¼Ó×Ö¶Î×¢ÊÍ£¬ËùÒÔÆäÊµswaggerÍÆ¼öÊ¹ÓÃÊµÌåÀà
-    @ApiOperation(value = "·ÇÊµÌåÀà",notes = "·ÇÊµÌåÀà")
+    // å…¶ä»–ç±»å‹çš„,æ­¤æ—¶ä¸èƒ½å¢åŠ å­—æ®µæ³¨é‡Šï¼Œæ‰€ä»¥å…¶å®swaggeræ¨èä½¿ç”¨å®ä½“ç±»
+    @ApiOperation(value = "éå®ä½“ç±»",notes = "éå®ä½“ç±»")
     @ApiResponses({
-            @ApiResponse(code=200,message = "µ÷ÓÃ³É¹¦"),
-            @ApiResponse(code=401,message = "ÎŞÈ¨ÏŞ" )
+            @ApiResponse(code=200,message = "è°ƒç”¨æˆåŠŸ"),
+            @ApiResponse(code=401,message = "æ— æƒé™" )
     }
     )
     @PostMapping("/role2")
     public String role2(){
         return " {\n" +
-                " name:\"¹ã¶«\",\n" +
+                " name:\"å¹¿ä¸œ\",\n" +
                 "     citys:{\n" +
-                "         city:[\"¹ãÖİ\",\"ÉîÛÚ\",\"Öéº£\"]\n" +
+                "         city:[\"å¹¿å·\",\"æ·±åœ³\",\"ç æµ·\"]\n" +
                 "     }\n" +
                 " }";
     }
@@ -471,24 +471,24 @@ swaggerÎŞ·¨¶Ô·ÇÊµÌåÀàµÄÏìÓ¦½øĞĞÏêÏ¸ËµÃ÷£¬Ö»ÄÜ±ê×¢ÏìÓ¦ÂëµÈĞÅÏ¢¡£ÊÇÍ¨¹ı`@ApiRespon
 
 * * *
 
-# Swagger UIÔöÇ¿
+# Swagger UIå¢å¼º
 
-Äã¿ÉÄÜ»á¾õµÃÏÖÔÚÕâ¸öUI²»ÊÇºÜºÃ¿´£¬ÏÖÔÚÓĞÒ»Ğ©µÚÈı·½Ìá¹©ÁËÒ»Ğ©Swagger UIÔöÇ¿£¬±È½ÏÁ÷ĞĞµÄÊÇ`swagger-bootstrap-ui`£¬ÎÒÃÇÕâÀïÒÔ`swagger-bootstrap-ui`ÎªÀı¡£
+ä½ å¯èƒ½ä¼šè§‰å¾—ç°åœ¨è¿™ä¸ªUIä¸æ˜¯å¾ˆå¥½çœ‹ï¼Œç°åœ¨æœ‰ä¸€äº›ç¬¬ä¸‰æ–¹æä¾›äº†ä¸€äº›Swagger UIå¢å¼ºï¼Œæ¯”è¾ƒæµè¡Œçš„æ˜¯`swagger-bootstrap-ui`ï¼Œæˆ‘ä»¬è¿™é‡Œä»¥`swagger-bootstrap-ui`ä¸ºä¾‹ã€‚
 
-## UI¶Ô±È£º
+## UIå¯¹æ¯”ï¼š
 
 ![20200712013653](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712013653.png)
 
 ![20200712013723](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712013723.png)
 
-## Ê¹ÓÃ
+## ä½¿ç”¨
 
-1.Ìí¼ÓÒÀÀµ°ü£º
+1.æ·»åŠ ä¾èµ–åŒ…ï¼š
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-        <!--ÒıÈëswagger-->
+        <!--å¼•å…¥swagger-->
         <dependency>
             <groupId>io.springfox</groupId>
             springfox-swagger2
@@ -499,7 +499,7 @@ swaggerÎŞ·¨¶Ô·ÇÊµÌåÀàµÄÏìÓ¦½øĞĞÏêÏ¸ËµÃ÷£¬Ö»ÄÜ±ê×¢ÏìÓ¦ÂëµÈĞÅÏ¢¡£ÊÇÍ¨¹ı`@ApiRespon
             springfox-swagger-ui
             <version>2.9.2</version>
         </dependency>
-        <!-- ÒıÈëswagger-bootstrap-uiÒÀÀµ°ü-->
+        <!-- å¼•å…¥swagger-bootstrap-uiä¾èµ–åŒ…-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             swagger-bootstrap-ui
@@ -508,96 +508,96 @@ swaggerÎŞ·¨¶Ô·ÇÊµÌåÀàµÄÏìÓ¦½øĞĞÏêÏ¸ËµÃ÷£¬Ö»ÄÜ±ê×¢ÏìÓ¦ÂëµÈĞÅÏ¢¡£ÊÇÍ¨¹ı`@ApiRespon
 
 ```
 
-2.ÔÚswaggerÅäÖÃÀàÖĞÔö¼Ó×¢½â`@EnableSwaggerBootstrapUI`:
+2.åœ¨swaggeré…ç½®ç±»ä¸­å¢åŠ æ³¨è§£`@EnableSwaggerBootstrapUI`:
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-@Configuration // ±êÃ÷ÊÇÅäÖÃÀà
-@EnableSwagger2 //¿ªÆôswagger¹¦ÄÜ
-@EnableSwaggerBootstrapUI // ¿ªÆôSwaggerBootstrapUI
+@Configuration // æ ‡æ˜æ˜¯é…ç½®ç±»
+@EnableSwagger2 //å¼€å¯swaggeråŠŸèƒ½
+@EnableSwaggerBootstrapUI // å¼€å¯SwaggerBootstrapUI
 public class SwaggerConfig {
-    // Ê¡ÂÔÅäÖÃÄÚÈİ
+    // çœç•¥é…ç½®å†…å®¹
 }
 
 ```
 
-3.·ÃÎÊAPI£º`http://localhost:8080/doc.html`£¬¼´¿ÉÔ¤ÀÀµ½»ùÓÚbootstarpµÄSwagger UI½çÃæ¡£
+3.è®¿é—®APIï¼š`http://localhost:8080/doc.html`ï¼Œå³å¯é¢„è§ˆåˆ°åŸºäºbootstarpçš„Swagger UIç•Œé¢ã€‚
 
-## ÓÅµã
+## ä¼˜ç‚¹
 
-1.?½çÃæºÃ¿´ÁËÒ»µã
+1.?ç•Œé¢å¥½çœ‹äº†ä¸€ç‚¹
 
-2.ÉÏÃæËµ¹ıÁË£¬»ùÓÚBootstrapUIµÄswaggerÖ§³ÖÖ¸¶¨`form-data`»ò`x-www-form-urlencoded`£º
+2.ä¸Šé¢è¯´è¿‡äº†ï¼ŒåŸºäºBootstrapUIçš„swaggeræ”¯æŒæŒ‡å®š`form-data`æˆ–`x-www-form-urlencoded`ï¼š
 ![20200712024858](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712024858.png)
 
-3.Ö§³Ö¸´ÖÆµ¥¸öAPIÎÄµµºÍµ¼³öÈ«²¿APIÎÄµµ£º
+3.æ”¯æŒå¤åˆ¶å•ä¸ªAPIæ–‡æ¡£å’Œå¯¼å‡ºå…¨éƒ¨APIæ–‡æ¡£ï¼š
 ![20200712025020](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712025020.png)
 
 ![20200712025044](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712025044.png)
 
 * * *
 
-# ÕûºÏSpring Security×¢Òâ
+# æ•´åˆSpring Securityæ³¨æ„
 
-ÔÚSpring BootÕûºÏSpring SecurityºÍSwaggerµÄÊ±ºò£¬ĞèÒªÅäÖÃÀ¹½ØµÄÂ·¾¶ºÍ·ÅĞĞµÄÂ·¾¶£¬×¢ÒâÊÇ·ÅĞĞÒÔÏÂ¼¸¸öÂ·¾¶¡£
+åœ¨Spring Bootæ•´åˆSpring Securityå’ŒSwaggerçš„æ—¶å€™ï¼Œéœ€è¦é…ç½®æ‹¦æˆªçš„è·¯å¾„å’Œæ”¾è¡Œçš„è·¯å¾„ï¼Œæ³¨æ„æ˜¯æ”¾è¡Œä»¥ä¸‹å‡ ä¸ªè·¯å¾„ã€‚
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
 .antMatchers("/swagger**/**").permitAll()
 .antMatchers("/webjars/**").permitAll()
 .antMatchers("/v2/**").permitAll()
-.antMatchers("/doc.html").permitAll() // Èç¹ûÄãÓÃÁËbootstarpµÄSwagger UI½çÃæ£¬¼ÓÒ»¸öÕâ¸ö¡£
+.antMatchers("/doc.html").permitAll() // å¦‚æœä½ ç”¨äº†bootstarpçš„Swagger UIç•Œé¢ï¼ŒåŠ ä¸€ä¸ªè¿™ä¸ªã€‚
 
 ```
 
 * * *
 
-# ¶ÔÓÚtokenµÄ´¦Àí
+# å¯¹äºtokençš„å¤„ç†
 
-ÔÚswaggerÖĞÖ»Ö§³ÖÁË¼òµ¥µÄµ÷ÊÔ£¬µ«¶ÔÓÚÒ»Ğ©½Ó¿Ú£¬ÎÒÃÇ²âÊÔµÄÊ±ºò¿ÉÄÜĞèÒª°ÑtokenĞÅÏ¢Ğ´µ½headerÖĞ£¬Ä¿Ç°ºÃÏñÃ»¿´µ½¿ÉÒÔ×Ô¶¨Òå¼ÓÇëÇóÍ·µÄµØ·½£¿
-?·½·¨Ò»£º
-¡¡¡¡Èç¹ûÄãÊ¹ÓÃÁËSwagger BootstrapUI£¬ÄÇÃ´Äã¿ÉÒÔÔÚ¡°ÎÄµµ¹ÜÀí¡±ÖĞÔö¼ÓÈ«¾Ö²ÎÊı£¬Õâ°üÀ¨ÁËÌí¼Óheader²ÎÊı¡£
+åœ¨swaggerä¸­åªæ”¯æŒäº†ç®€å•çš„è°ƒè¯•ï¼Œä½†å¯¹äºä¸€äº›æ¥å£ï¼Œæˆ‘ä»¬æµ‹è¯•çš„æ—¶å€™å¯èƒ½éœ€è¦æŠŠtokenä¿¡æ¯å†™åˆ°headerä¸­ï¼Œç›®å‰å¥½åƒæ²¡çœ‹åˆ°å¯ä»¥è‡ªå®šä¹‰åŠ è¯·æ±‚å¤´çš„åœ°æ–¹ï¼Ÿ
+?æ–¹æ³•ä¸€ï¼š
+ã€€ã€€å¦‚æœä½ ä½¿ç”¨äº†Swagger BootstrapUIï¼Œé‚£ä¹ˆä½ å¯ä»¥åœ¨â€œæ–‡æ¡£ç®¡ç†â€ä¸­å¢åŠ å…¨å±€å‚æ•°ï¼Œè¿™åŒ…æ‹¬äº†æ·»åŠ headerå‚æ•°ã€‚
 
-?·½·¨¶ş£ºÔÚswaggerÅäÖÃÀàÖĞÔö¼ÓÈ«¾Ö²ÎÊıÅäÖÃ£º
+?æ–¹æ³•äºŒï¼šåœ¨swaggeré…ç½®ç±»ä¸­å¢åŠ å…¨å±€å‚æ•°é…ç½®ï¼š
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-        //Èç¹ûÓĞ¶îÍâµÄÈ«¾Ö²ÎÊı£¬±ÈÈçËµÇëÇóÍ·²ÎÊı£¬¿ÉÒÔÕâÑùÌí¼Ó
+        //å¦‚æœæœ‰é¢å¤–çš„å…¨å±€å‚æ•°ï¼Œæ¯”å¦‚è¯´è¯·æ±‚å¤´å‚æ•°ï¼Œå¯ä»¥è¿™æ ·æ·»åŠ 
         ParameterBuilder parameterBuilder = new ParameterBuilder();
         List<Parameter> parameters = new ArrayList<Parameter>();
-        parameterBuilder.name("authorization").description("ÁîÅÆ")
+        parameterBuilder.name("authorization").description("ä»¤ç‰Œ")
                 .modelRef(new ModelRef("string")).parameterType("header").required(false).build();
         parameters.add(parameterBuilder.build());
-        return new Docket(DocumentationType.SWAGGER_2)  // DocumentationType.SWAGGER_2 ¹Ì¶¨µÄ£¬´ú±íswagger2
-                .apiInfo(apiInfo()) // ÓÃÓÚÉú³ÉAPIĞÅÏ¢
-                .select() // select()º¯Êı·µ»ØÒ»¸öApiSelectorBuilderÊµÀı,ÓÃÀ´¿ØÖÆ½Ó¿Ú±»swagger×ö³ÉÎÄµµ
-                .apis(RequestHandlerSelectors.basePackage("com.example.controller")) // ÓÃÓÚÖ¸¶¨É¨ÃèÄÄ¸ö°üÏÂµÄ½Ó¿Ú
-                .paths(PathSelectors.any())// Ñ¡ÔñËùÓĞµÄAPI,Èç¹ûÄãÏëÖ»Îª²¿·ÖAPIÉú³ÉÎÄµµ£¬¿ÉÒÔÅäÖÃÕâÀï
+        return new Docket(DocumentationType.SWAGGER_2)  // DocumentationType.SWAGGER_2 å›ºå®šçš„ï¼Œä»£è¡¨swagger2
+                .apiInfo(apiInfo()) // ç”¨äºç”ŸæˆAPIä¿¡æ¯
+                .select() // select()å‡½æ•°è¿”å›ä¸€ä¸ªApiSelectorBuilderå®ä¾‹,ç”¨æ¥æ§åˆ¶æ¥å£è¢«swaggeråšæˆæ–‡æ¡£
+                .apis(RequestHandlerSelectors.basePackage("com.example.controller")) // ç”¨äºæŒ‡å®šæ‰«æå“ªä¸ªåŒ…ä¸‹çš„æ¥å£
+                .paths(PathSelectors.any())// é€‰æ‹©æ‰€æœ‰çš„API,å¦‚æœä½ æƒ³åªä¸ºéƒ¨åˆ†APIç”Ÿæˆæ–‡æ¡£ï¼Œå¯ä»¥é…ç½®è¿™é‡Œ
                 .build().globalOperationParameters(parameters);
 
 ```
 
-?·½·¨Èı£ºÊ¹ÓÃ`@ApiImplicitParams`À´¶îÍâ±ê×¢Ò»¸öÇëÇóÍ·²ÎÊı£¬ÀıÈç£º
+?æ–¹æ³•ä¸‰ï¼šä½¿ç”¨`@ApiImplicitParams`æ¥é¢å¤–æ ‡æ³¨ä¸€ä¸ªè¯·æ±‚å¤´å‚æ•°ï¼Œä¾‹å¦‚ï¼š
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
-    // Èç¹ûĞèÒª¶îÍâµÄ²ÎÊı£¬·Ç±¾·½·¨ÓÃµ½£¬µ«¹ıÂËÆ÷ÒªÓÃ,ÀàËÆÓÚÈ¨ÏŞtoken
+    // å¦‚æœéœ€è¦é¢å¤–çš„å‚æ•°ï¼Œéæœ¬æ–¹æ³•ç”¨åˆ°ï¼Œä½†è¿‡æ»¤å™¨è¦ç”¨,ç±»ä¼¼äºæƒé™token
     @PostMapping("/login6")
-    @ApiOperation(value = "´øtokenµÄ½Ó¿Ú",notes = "´øtokenµÄ½Ó¿Ú")
+    @ApiOperation(value = "å¸¦tokençš„æ¥å£",notes = "å¸¦tokençš„æ¥å£")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "authorization",//²ÎÊıÃû×Ö
-                    value = "ÊÚÈ¨token",//²ÎÊıµÄÃèÊö
-                    required = true,//ÊÇ·ñ±ØĞë´«Èë
+            @ApiImplicitParam(name = "authorization",//å‚æ•°åå­—
+                    value = "æˆæƒtoken",//å‚æ•°çš„æè¿°
+                    required = true,//æ˜¯å¦å¿…é¡»ä¼ å…¥
                     paramType = "header"
             )
             ,
-            @ApiImplicitParam(name = "username",//²ÎÊıÃû×Ö
-                    value = "ÓÃ»§Ãû",//²ÎÊıµÄÃèÊö
-                    required = true,//ÊÇ·ñ±ØĞë´«Èë
+            @ApiImplicitParam(name = "username",//å‚æ•°åå­—
+                    value = "ç”¨æˆ·å",//å‚æ•°çš„æè¿°
+                    required = true,//æ˜¯å¦å¿…é¡»ä¼ å…¥
                     paramType = "query"
             )
     })
@@ -609,17 +609,17 @@ public class SwaggerConfig {
 
 * * *
 
-# SwaggerµÄ°²È«¹ÜÀí
+# Swaggerçš„å®‰å…¨ç®¡ç†
 
-1.Èç¹ûÄãÕûºÏÁËÈ¨ÏŞ¹ÜÀí£¬¿ÉÒÔ¸øswagger¼ÓÉÏÈ¨ÏŞ¹ÜÀí£¬ÒªÇó·ÃÎÊswaggerÒ³ÃæÊäÈëÓÃ»§ÃûºÍÃÜÂë£¬ÕâĞ©ÊÇspring securityºÍshiroµÄÊÂÁË£¬ÕâÀï²»½²¡£
+1.å¦‚æœä½ æ•´åˆäº†æƒé™ç®¡ç†ï¼Œå¯ä»¥ç»™swaggeråŠ ä¸Šæƒé™ç®¡ç†ï¼Œè¦æ±‚è®¿é—®swaggeré¡µé¢è¾“å…¥ç”¨æˆ·åå’Œå¯†ç ï¼Œè¿™äº›æ˜¯spring securityå’Œshiroçš„äº‹äº†ï¼Œè¿™é‡Œä¸è®²ã€‚
 
-2.Èç¹ûÄã½ö½öÊÇ²»ÏëÔÚÕıÊ½»·¾³ÖĞ¿ÉÒÔ·ÃÎÊ£¬¿ÉÒÔÔÚÕıÊ½»·¾³ÖĞ¹Ø±ÕSwagger×Ô¶¯ÅäÖÃ£¬Õâ¾Í²»»áÓĞswaggerÒ³ÃæÁË¡£Ê¹ÓÃ`@Profile({"dev","test"})`×¢½âÀ´ÏŞÖÆÖ»ÔÚdev»òÕßtestÏÂÆôÓÃSwagger×Ô¶¯ÅäÖÃ¡£
-È»ºóÔÚSpring BootÅäÖÃÎÄ¼şÖĞĞŞ¸Äµ±Ç°profile`spring.profiles.active=release`£¬ÖØÆôÖ®ºó£¬´ËÊ±ÎŞ·¨·ÃÎÊ`http://localhost:8080/swagger-ui.html`
+2.å¦‚æœä½ ä»…ä»…æ˜¯ä¸æƒ³åœ¨æ­£å¼ç¯å¢ƒä¸­å¯ä»¥è®¿é—®ï¼Œå¯ä»¥åœ¨æ­£å¼ç¯å¢ƒä¸­å…³é—­Swaggerè‡ªåŠ¨é…ç½®ï¼Œè¿™å°±ä¸ä¼šæœ‰swaggeré¡µé¢äº†ã€‚ä½¿ç”¨`@Profile({"dev","test"})`æ³¨è§£æ¥é™åˆ¶åªåœ¨devæˆ–è€…testä¸‹å¯ç”¨Swaggerè‡ªåŠ¨é…ç½®ã€‚
+ç„¶ååœ¨Spring Booté…ç½®æ–‡ä»¶ä¸­ä¿®æ”¹å½“å‰profile`spring.profiles.active=release`ï¼Œé‡å¯ä¹‹åï¼Œæ­¤æ—¶æ— æ³•è®¿é—®`http://localhost:8080/swagger-ui.html`
 
 * * *
 
 
 
-×÷Õß£º[progor](https://www.cnblogs.com/progor/)
-±¾ÎÄÎª×÷ÕßÔ­´´£¬×ªÔØÇë×¢Ã÷³ö´¦
+ä½œè€…ï¼š[progor](https://www.cnblogs.com/progor/)
+æœ¬æ–‡ä¸ºä½œè€…åŸåˆ›ï¼Œè½¬è½½è¯·æ³¨æ˜å‡ºå¤„
 

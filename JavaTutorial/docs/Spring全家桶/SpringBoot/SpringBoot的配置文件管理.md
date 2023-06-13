@@ -1,68 +1,68 @@
-## 1.SpringBootÅäÖÃ¹ÜÀíµÄ±³¾°Óë»ù´¡
+## 1.SpringBooté…ç½®ç®¡ç†çš„èƒŒæ™¯ä¸åŸºç¡€
 
-ÎªÊµÏÖ¿ìËÙ´î½¨ºÍ¿ª·¢£¬ÏîÄ¿ÒÔSpringboot¿ò¼Ü´î½¨£¬springboot´î½¨µÄÏîÄ¿¿ÉÒÔ½«ÏîÄ¿Ö±½Ó´ò³Éjar°ü²¢ÔËĞĞ£¬ÎŞĞè×Ô¼º°²×°ÅäÖÃTomcat»òÕßÆäËû·şÎñÆ÷£¬ÊÇÒ»ÖÖ·½±ã¿ì½İµÄ²¿Êğ·½Ê½¡£
+ä¸ºå®ç°å¿«é€Ÿæ­å»ºå’Œå¼€å‘ï¼Œé¡¹ç›®ä»¥Springbootæ¡†æ¶æ­å»ºï¼Œspringbootæ­å»ºçš„é¡¹ç›®å¯ä»¥å°†é¡¹ç›®ç›´æ¥æ‰“æˆjaråŒ…å¹¶è¿è¡Œï¼Œæ— éœ€è‡ªå·±å®‰è£…é…ç½®Tomcatæˆ–è€…å…¶ä»–æœåŠ¡å™¨ï¼Œæ˜¯ä¸€ç§æ–¹ä¾¿å¿«æ·çš„éƒ¨ç½²æ–¹å¼ã€‚
 
-¼ÙÉèÏîÄ¿ÒÔ×î³£¹æµÄ·½Ê½´ò°ü³ÉÒ»¸öÕûÌåµÄjar°ü²¿Êğ£¬¼´ÅäÖÃÎÄ¼şºÍµÚÈı·½ÒÀÀµ°ü¶¼°üº¬ÔÚjar°üÀï£¬¾Í»áÓĞÈçÏÂÁ½¸öÎÊÌâ
+å‡è®¾é¡¹ç›®ä»¥æœ€å¸¸è§„çš„æ–¹å¼æ‰“åŒ…æˆä¸€ä¸ªæ•´ä½“çš„jaråŒ…éƒ¨ç½²ï¼Œå³é…ç½®æ–‡ä»¶å’Œç¬¬ä¸‰æ–¹ä¾èµ–åŒ…éƒ½åŒ…å«åœ¨jaråŒ…é‡Œï¼Œå°±ä¼šæœ‰å¦‚ä¸‹ä¸¤ä¸ªé—®é¢˜
 
-ÎÊÌâÒ»£ºÏîÄ¿ÔËĞĞ¹ı³ÌÖĞ£¬Òª¸Ä¶¯ÅäÖÃÎÄ¼şµÄ»°ĞèÒªÖØĞÂ´ò°ü²¢²¿Êğ¡£
+é—®é¢˜ä¸€ï¼šé¡¹ç›®è¿è¡Œè¿‡ç¨‹ä¸­ï¼Œè¦æ”¹åŠ¨é…ç½®æ–‡ä»¶çš„è¯éœ€è¦é‡æ–°æ‰“åŒ…å¹¶éƒ¨ç½²ã€‚
 
-ÎÊÌâ¶ş£º¶à¸öµÚÈı·½ÒÀÀµ°ü¶¼Ïà½üµÄÏîÄ¿Òª²¿ÊğÔÚÍ¬Ò»Ì¨·şÎñÆ÷Ê±£¬¸÷×ÔµÄjar°ü¶¼°üº¬ÁËÏàÍ¬µÄµÚÈı·½ÒÀÀµ°ü£¨¼ÙÉèÏîÄ¿jar°üÓĞ100M£¬µÚÈı·½ÒÀÀµ°ü¿ÉÄÜ¾ÍÕ¼ÓÃÁË99M£©£¬ÕâÑùµÚÈı·½ÒÀÀµ°üÈßÓàÔì³ÉÁË·şÎñÆ÷×ÊÔ´µÄÀË·ÑÒÔ¼°½µµÍÁËÏîÄ¿²¿ÊğµÄĞ§ÂÊ¡£
+é—®é¢˜äºŒï¼šå¤šä¸ªç¬¬ä¸‰æ–¹ä¾èµ–åŒ…éƒ½ç›¸è¿‘çš„é¡¹ç›®è¦éƒ¨ç½²åœ¨åŒä¸€å°æœåŠ¡å™¨æ—¶ï¼Œå„è‡ªçš„jaråŒ…éƒ½åŒ…å«äº†ç›¸åŒçš„ç¬¬ä¸‰æ–¹ä¾èµ–åŒ…ï¼ˆå‡è®¾é¡¹ç›®jaråŒ…æœ‰100Mï¼Œç¬¬ä¸‰æ–¹ä¾èµ–åŒ…å¯èƒ½å°±å ç”¨äº†99Mï¼‰ï¼Œè¿™æ ·ç¬¬ä¸‰æ–¹ä¾èµ–åŒ…å†—ä½™é€ æˆäº†æœåŠ¡å™¨èµ„æºçš„æµªè´¹ä»¥åŠé™ä½äº†é¡¹ç›®éƒ¨ç½²çš„æ•ˆç‡ã€‚
 
-Èç¹û½«¸÷ÏîÄ¿µÄÅäÖÃÎÄ¼ş¡¢µÚÈı·½ÒÀÀµ°ü¶¼ÌáÈ¡µ½jar°üÍâÍ³Ò»¹ÜÀí£¬ÕâÑù¼´ÌáÉıÁËÏîÄ¿´ò°üĞ§ÂÊÓÖ½ÚÔ¼ÁË·şÎñÆ÷µÄ´ÅÅÌÏûºÄ£¬Í¬Ê±ÏîÄ¿µÄÔËÎ¬Ò²ÊÇ·Ç³£·½±ãµÄ£¬¸Ä¶¯ÁËÅäÖÃÎÄ¼şÖØÆôÏÂ·şÎñ¾Í¿ÉÒÔÁË£¬ÎŞĞèÖØĞÂ¹¹½¨²¿Êğ¡£
+å¦‚æœå°†å„é¡¹ç›®çš„é…ç½®æ–‡ä»¶ã€ç¬¬ä¸‰æ–¹ä¾èµ–åŒ…éƒ½æå–åˆ°jaråŒ…å¤–ç»Ÿä¸€ç®¡ç†ï¼Œè¿™æ ·å³æå‡äº†é¡¹ç›®æ‰“åŒ…æ•ˆç‡åˆèŠ‚çº¦äº†æœåŠ¡å™¨çš„ç£ç›˜æ¶ˆè€—ï¼ŒåŒæ—¶é¡¹ç›®çš„è¿ç»´ä¹Ÿæ˜¯éå¸¸æ–¹ä¾¿çš„ï¼Œæ”¹åŠ¨äº†é…ç½®æ–‡ä»¶é‡å¯ä¸‹æœåŠ¡å°±å¯ä»¥äº†ï¼Œæ— éœ€é‡æ–°æ„å»ºéƒ¨ç½²ã€‚
 
-ÏÂÃæÊÇ¾ßÌåµÄÊµÏÖ·½°¸
+ä¸‹é¢æ˜¯å…·ä½“çš„å®ç°æ–¹æ¡ˆ
 
-### 1.1 **ÅäÖÃÎÄ¼şÍ³Ò»¹ÜÀí**
-
-```
-	- springbootºËĞÄÅäÖÃÎÄ¼ş
-	- Springboot¶ÁÈ¡ºËĞÄÅäÖÃÎÄ¼ş£¨application.properties£©µÄÓÅÏÈ¼¶Îª
-	- Jar°üÍ¬¼¶Ä¿Â¼µÄconfigÄ¿Â¼
-	- Jar°üÍ¬¼¶Ä¿Â¼
-	- classPath(¼´resourcesÄ¿Â¼)µÄconfigÄ¿Â¼
-	- classpathÄ¿Â¼
+### 1.1 **é…ç½®æ–‡ä»¶ç»Ÿä¸€ç®¡ç†**
 
 ```
-
-ÉÏÃæÊÇspringbootÄ¬ÈÏÈ¥ÄÃ×Ô¼ºµÄºËĞÄÅäÖÃÎÄ¼şµÄÓÅÏÈ¼¶£¬»¹ÓĞÒ»ÖÖ×î¸ßÓÅÏÈ¼¶µÄ·½Ê½ÊÇÏîÄ¿Æô¶¯Ê±Í¨¹ıÃüÁîµÄ·½Ê½Ö¸¶¨ÏîÄ¿¼ÓÔØºËĞÄÅäÖÃÎÄ¼ş£¬ÃüÁîÈçÏÂ
-java ¨Cjar -Dspring.config.location=xxx/xxx/xxxx.properties xxxx.jar
-
-Èç¹ûSpring BootÔÚÓÅÏÈ¼¶¸ü¸ßµÄÎ»ÖÃÕÒµ½ÁËÅäÖÃ£¬ÄÇÃ´Ëü»áÎŞÊÓÓÅÏÈ¼¶¸üµÍµÄÅäÖÃ
-
-### 1.2 **ÆäËû×ÊÔ´ÅäÖÃÎÄ¼ş**
-
-ÉÏÃæÃèÊöµÄSpringbootºËĞÄÎÄ¼şÒÑ¾­ÄÜ¹»ÌáÈ¡³öjar°üÍâ½øĞĞ¹ÜÀíÁË£¬µ«ÊÇ»¹ÓĞÆäËûÒ»Ğ©ÒµÎñÉÏµÄÅäÖÃÎÄ¼ş£¬ÈçÊı¾İÔ´ÅäÖÃÎÄ¼ş£¬¹«¹²×ÊÔ´¶¨ÒåÅäÖÃÎÄ¼ş£¨³£Á¿£¬FTPĞÅÏ¢µÈ£©£¬quartz¶¨Ê±Æ÷£¬ÈÕÖ¾µÈÅäÖÃÎÄ¼şÎÒÃÇÈçºÎÈ¥ÌáÈ¡³öÀ´²¢È·±£ÄÜÔÚ´úÂëÖĞÒıÓÃµ½ÄØ
-
-ÎÒÃÇÖªµÀSpringbootÏîÄ¿¿ÉÒÔÍ¨¹ı×¢½â·½Ê½À´»ñÈ¡Ïà¹ØÅäÖÃÎÄ¼ş£¬ËùÒÔÎÒÃÇÒ²ÊÇÍ¨¹ı×¢½â·½Ê½ÈÃÏîÄ¿ÄÜ¹»ÒıÓÃµ½jar°üÍâ²¿µÄÅäÖÃÎÄ¼şµÄ£¬ÈçÏÂÍ¼£º
-![ÔÚÕâÀï²åÈëÍ¼Æ¬ÃèÊö](https://img-blog.csdnimg.cn/20190121170400864.png)
-
-@PropertySourceÀïÃæµÄvalueÓĞÁ½¸öÖµ£¬µÚÒ»¸öÊÇclasspathÏÂconfigÄ¿Â¼ÏÂµÄÊı¾İÔ´ÅäÖÃÎÄ¼ş£¬µÚ¶ş¸öÔòÊÇ¸ù¾İspring.profiles.path¶¯Ì¬»ñÈ¡µÄÄ¿Â¼£¬spring.profiles.pathÊÇÎÒÃÇÔÚºËĞÄÎÄ¼ş×Ô¶¨ÒåµÄÒ»¸öÅäÖÃÏî£¬ËüµÄÖµÊÇÎÒÃÇÅäÖÃÎÄ¼şÍ³Ò»¹ÜÀíµÄÎÄ¼ş¼ĞÂ·¾¶£¬ºóÃæµÄignoreResourceNotFound=trueÔòÊÇÉè¶¨¼ÙÈç¸ù¾İÇ°ÃæÒ»¸öÂ·¾¶Ã»ÓĞÕÒµ½Ïà¹ØÅäÖÃÎÄ¼ş£¬Ôò¸ù¾İµÚ¶ş¸öÂ·¾¶È¥ÕÒ¡£
-
-ÎÒÃÇ»¹¿ÉÒÔÖ±½Ó¸ù¾İÂ·¾¶£¬ÓÃFileSystemResourceÀàÈ¥¼ÓÔØÒ»¸öÅäÖÃÎÄ¼şÊµÀı³öÀ´£¬ÈçÏÂÍ¼
-![ÔÚÕâÀï²åÈëÍ¼Æ¬ÃèÊö](https://img-blog.csdnimg.cn/20190121170338934.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dlZUxvb25n,size_16,color_FFFFFF,t_70)
-
-Ô­ÀíÀàËÆ£¬¸ù¾İÔÚºËĞÄÎÄ¼ş×Ô¶¨ÒåµÄÍ³Ò»ÅäÖÃÄ¿Â¼µÄÂ·¾¶À´¼ÓÔØÅäÖÃÎÄ¼ş
-
-ÁíÍâlogbackÈÕÖ¾ÅäÖÃÎÄ¼ş¼ÓÔØ·½Ê½ÈçÏÂ£º
-![ÔÚÕâÀï²åÈëÍ¼Æ¬ÃèÊö](https://img-blog.csdnimg.cn/20190121170306979.png)
-
-×ÛÉÏËùÊö£¬ÎÒÃÇÊáÀíÒ»ÏÂÊµÏÖ·½°¸µÄË¼Â·
+	- springbootæ ¸å¿ƒé…ç½®æ–‡ä»¶
+	- Springbootè¯»å–æ ¸å¿ƒé…ç½®æ–‡ä»¶ï¼ˆapplication.propertiesï¼‰çš„ä¼˜å…ˆçº§ä¸º
+	- JaråŒ…åŒçº§ç›®å½•çš„configç›®å½•
+	- JaråŒ…åŒçº§ç›®å½•
+	- classPath(å³resourcesç›®å½•)çš„configç›®å½•
+	- classpathç›®å½•
 
 ```
-	- ÔÚspringbootºËĞÄÎÄ¼şÀï¶¨ÒåÒ»¸öspring.profiles.pathÅäÖÃÏî£¬ËüµÄÖµÖ¸ÏòÎÒÃÇËùÓĞÅäÖÃÎÄ¼şÍ³Ò»·ÅÖÃµÄÄ¿Â¼£¬°üº¬ºËĞÄÎÄ¼ş×ÔÉíÒ²ÊÇ·ÅÖÃÔÚÀïÃæµÄ
 
-	- ´úÂë»òÕßÅäÖÃÎÄ¼şÀï¼ÓÔØÅäÖÃÎÄ¼şµÄµØ·½Ò²Ó¦¸Ã»ñÈ¡spring.profiles.pathÅäÖÃÏîÀ´¶¯Ì¬¼ÓÔØ¸ÃÂ·¾¶ÏÂµÄÅäÖÃÎÄ¼ş
+ä¸Šé¢æ˜¯springbooté»˜è®¤å»æ‹¿è‡ªå·±çš„æ ¸å¿ƒé…ç½®æ–‡ä»¶çš„ä¼˜å…ˆçº§ï¼Œè¿˜æœ‰ä¸€ç§æœ€é«˜ä¼˜å…ˆçº§çš„æ–¹å¼æ˜¯é¡¹ç›®å¯åŠ¨æ—¶é€šè¿‡å‘½ä»¤çš„æ–¹å¼æŒ‡å®šé¡¹ç›®åŠ è½½æ ¸å¿ƒé…ç½®æ–‡ä»¶ï¼Œå‘½ä»¤å¦‚ä¸‹
+java â€“jar -Dspring.config.location=xxx/xxx/xxxx.properties xxxx.jar
 
-	- Pom.xmlÎÄ¼şĞŞ¸Ä´ò°üÏà¹ØÄ£¿é£¬½«ÅäÖÃÎÄ¼şÅÅ³ı£¬ÕâÑùÎÒÃÇ´ò³öµÄjar°üÊÇ²»º¬ÅäÖÃÎÄ¼şµÄ£¬´ò°üÅäÖÃÇë²Î¿¼ÎÄµµ½Úµã3
+å¦‚æœSpring Bootåœ¨ä¼˜å…ˆçº§æ›´é«˜çš„ä½ç½®æ‰¾åˆ°äº†é…ç½®ï¼Œé‚£ä¹ˆå®ƒä¼šæ— è§†ä¼˜å…ˆçº§æ›´ä½çš„é…ç½®
 
-	- Æô¶¯jar°üÊ±£¬Í¨¹ıÃüÁîÖ¸¶¨¼ÓÔØµÄºËĞÄÎÄ¼şÎªspring.profiles.pathÏÂµÄºËĞÄÎÄ¼ş
+### 1.2 **å…¶ä»–èµ„æºé…ç½®æ–‡ä»¶**
+
+ä¸Šé¢æè¿°çš„Springbootæ ¸å¿ƒæ–‡ä»¶å·²ç»èƒ½å¤Ÿæå–å‡ºjaråŒ…å¤–è¿›è¡Œç®¡ç†äº†ï¼Œä½†æ˜¯è¿˜æœ‰å…¶ä»–ä¸€äº›ä¸šåŠ¡ä¸Šçš„é…ç½®æ–‡ä»¶ï¼Œå¦‚æ•°æ®æºé…ç½®æ–‡ä»¶ï¼Œå…¬å…±èµ„æºå®šä¹‰é…ç½®æ–‡ä»¶ï¼ˆå¸¸é‡ï¼ŒFTPä¿¡æ¯ç­‰ï¼‰ï¼Œquartzå®šæ—¶å™¨ï¼Œæ—¥å¿—ç­‰é…ç½®æ–‡ä»¶æˆ‘ä»¬å¦‚ä½•å»æå–å‡ºæ¥å¹¶ç¡®ä¿èƒ½åœ¨ä»£ç ä¸­å¼•ç”¨åˆ°å‘¢
+
+æˆ‘ä»¬çŸ¥é“Springbooté¡¹ç›®å¯ä»¥é€šè¿‡æ³¨è§£æ–¹å¼æ¥è·å–ç›¸å…³é…ç½®æ–‡ä»¶ï¼Œæ‰€ä»¥æˆ‘ä»¬ä¹Ÿæ˜¯é€šè¿‡æ³¨è§£æ–¹å¼è®©é¡¹ç›®èƒ½å¤Ÿå¼•ç”¨åˆ°jaråŒ…å¤–éƒ¨çš„é…ç½®æ–‡ä»¶çš„ï¼Œå¦‚ä¸‹å›¾ï¼š
+![åœ¨è¿™é‡Œæ’å…¥å›¾ç‰‡æè¿°](https://img-blog.csdnimg.cn/20190121170400864.png)
+
+@PropertySourceé‡Œé¢çš„valueæœ‰ä¸¤ä¸ªå€¼ï¼Œç¬¬ä¸€ä¸ªæ˜¯classpathä¸‹configç›®å½•ä¸‹çš„æ•°æ®æºé…ç½®æ–‡ä»¶ï¼Œç¬¬äºŒä¸ªåˆ™æ˜¯æ ¹æ®spring.profiles.pathåŠ¨æ€è·å–çš„ç›®å½•ï¼Œspring.profiles.pathæ˜¯æˆ‘ä»¬åœ¨æ ¸å¿ƒæ–‡ä»¶è‡ªå®šä¹‰çš„ä¸€ä¸ªé…ç½®é¡¹ï¼Œå®ƒçš„å€¼æ˜¯æˆ‘ä»¬é…ç½®æ–‡ä»¶ç»Ÿä¸€ç®¡ç†çš„æ–‡ä»¶å¤¹è·¯å¾„ï¼Œåé¢çš„ignoreResourceNotFound=trueåˆ™æ˜¯è®¾å®šå‡å¦‚æ ¹æ®å‰é¢ä¸€ä¸ªè·¯å¾„æ²¡æœ‰æ‰¾åˆ°ç›¸å…³é…ç½®æ–‡ä»¶ï¼Œåˆ™æ ¹æ®ç¬¬äºŒä¸ªè·¯å¾„å»æ‰¾ã€‚
+
+æˆ‘ä»¬è¿˜å¯ä»¥ç›´æ¥æ ¹æ®è·¯å¾„ï¼Œç”¨FileSystemResourceç±»å»åŠ è½½ä¸€ä¸ªé…ç½®æ–‡ä»¶å®ä¾‹å‡ºæ¥ï¼Œå¦‚ä¸‹å›¾
+![åœ¨è¿™é‡Œæ’å…¥å›¾ç‰‡æè¿°](https://img-blog.csdnimg.cn/20190121170338934.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dlZUxvb25n,size_16,color_FFFFFF,t_70)
+
+åŸç†ç±»ä¼¼ï¼Œæ ¹æ®åœ¨æ ¸å¿ƒæ–‡ä»¶è‡ªå®šä¹‰çš„ç»Ÿä¸€é…ç½®ç›®å½•çš„è·¯å¾„æ¥åŠ è½½é…ç½®æ–‡ä»¶
+
+å¦å¤–logbackæ—¥å¿—é…ç½®æ–‡ä»¶åŠ è½½æ–¹å¼å¦‚ä¸‹ï¼š
+![åœ¨è¿™é‡Œæ’å…¥å›¾ç‰‡æè¿°](https://img-blog.csdnimg.cn/20190121170306979.png)
+
+ç»¼ä¸Šæ‰€è¿°ï¼Œæˆ‘ä»¬æ¢³ç†ä¸€ä¸‹å®ç°æ–¹æ¡ˆçš„æ€è·¯
 
 ```
-**µÚÈı·½ÒÀÀµ°üÍ³Ò»¹ÜÀí**
+	- åœ¨springbootæ ¸å¿ƒæ–‡ä»¶é‡Œå®šä¹‰ä¸€ä¸ªspring.profiles.pathé…ç½®é¡¹ï¼Œå®ƒçš„å€¼æŒ‡å‘æˆ‘ä»¬æ‰€æœ‰é…ç½®æ–‡ä»¶ç»Ÿä¸€æ”¾ç½®çš„ç›®å½•ï¼ŒåŒ…å«æ ¸å¿ƒæ–‡ä»¶è‡ªèº«ä¹Ÿæ˜¯æ”¾ç½®åœ¨é‡Œé¢çš„
 
-Í¨³£µÚÈı·½jar°ü¿ÉÒÔ´ò½øjar°üÀï£¬Ò²¿ÉÒÔ·ÅÔÚÏîÄ¿jar°üÍ¬¼¶Ä¿Â¼ÏÂµÄlibÄ¿Â¼£¬ÎÒÃÇ¿ÉÒÔ¸ù¾İĞŞ¸Äpom.xml´ò°üÅäÖÃÀ´ÊµÏÖ£¬Çë²Î¿¼ÎÄµµ½Úµã3´ò°üÅäÖÃ
+	- ä»£ç æˆ–è€…é…ç½®æ–‡ä»¶é‡ŒåŠ è½½é…ç½®æ–‡ä»¶çš„åœ°æ–¹ä¹Ÿåº”è¯¥è·å–spring.profiles.pathé…ç½®é¡¹æ¥åŠ¨æ€åŠ è½½è¯¥è·¯å¾„ä¸‹çš„é…ç½®æ–‡ä»¶
 
-**´ò°üÅäÖÃ**
+	- Pom.xmlæ–‡ä»¶ä¿®æ”¹æ‰“åŒ…ç›¸å…³æ¨¡å—ï¼Œå°†é…ç½®æ–‡ä»¶æ’é™¤ï¼Œè¿™æ ·æˆ‘ä»¬æ‰“å‡ºçš„jaråŒ…æ˜¯ä¸å«é…ç½®æ–‡ä»¶çš„ï¼Œæ‰“åŒ…é…ç½®è¯·å‚è€ƒæ–‡æ¡£èŠ‚ç‚¹3
+
+	- å¯åŠ¨jaråŒ…æ—¶ï¼Œé€šè¿‡å‘½ä»¤æŒ‡å®šåŠ è½½çš„æ ¸å¿ƒæ–‡ä»¶ä¸ºspring.profiles.pathä¸‹çš„æ ¸å¿ƒæ–‡ä»¶
+
+```
+**ç¬¬ä¸‰æ–¹ä¾èµ–åŒ…ç»Ÿä¸€ç®¡ç†**
+
+é€šå¸¸ç¬¬ä¸‰æ–¹jaråŒ…å¯ä»¥æ‰“è¿›jaråŒ…é‡Œï¼Œä¹Ÿå¯ä»¥æ”¾åœ¨é¡¹ç›®jaråŒ…åŒçº§ç›®å½•ä¸‹çš„libç›®å½•ï¼Œæˆ‘ä»¬å¯ä»¥æ ¹æ®ä¿®æ”¹pom.xmlæ‰“åŒ…é…ç½®æ¥å®ç°ï¼Œè¯·å‚è€ƒæ–‡æ¡£èŠ‚ç‚¹3æ‰“åŒ…é…ç½®
+
+**æ‰“åŒ…é…ç½®**
 
 ```
 <build>
@@ -77,7 +77,7 @@ java ¨Cjar -Dspring.config.location=xxx/xxx/xxxx.properties xxxx.jar
 			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
-				<!¡ª´ò°üÊ±ÅÅ³ıÅäÖÃÎÄ¼ş-->
+				<!â€”æ‰“åŒ…æ—¶æ’é™¤é…ç½®æ–‡ä»¶-->
                                 <excludes>
 					<exclude>**/*.properties</exclude>
 					<exclude>**/*.xml</exclude>
@@ -145,33 +145,33 @@ java ¨Cjar -Dspring.config.location=xxx/xxx/xxxx.properties xxxx.jar
 
 ```
 
-¸ÄºÃpom.xmlµÄbuildÄ£¿éºó£¬¾Í¿ÉÒÔÍ¨¹ımvn package »òÕßmvn install´ò³öÎÒÃÇµÄjar°üÁË
+æ”¹å¥½pom.xmlçš„buildæ¨¡å—åï¼Œå°±å¯ä»¥é€šè¿‡mvn package æˆ–è€…mvn installæ‰“å‡ºæˆ‘ä»¬çš„jaråŒ…äº†
 
-1.  **ÏîÄ¿¹ÜÀíshell½Å±¾±àĞ´**
-    ×Ô¶¨Òåshell½Å±¾£¬ÊµÏÖÏîÄ¿µÄÆô¶¯£¬Í£Ö¹£¬×´Ì¬£¬ÖØÆô²Ù×÷£º
+1.  **é¡¹ç›®ç®¡ç†shellè„šæœ¬ç¼–å†™**
+    è‡ªå®šä¹‰shellè„šæœ¬ï¼Œå®ç°é¡¹ç›®çš„å¯åŠ¨ï¼Œåœæ­¢ï¼ŒçŠ¶æ€ï¼Œé‡å¯æ“ä½œï¼š
 
 ```
 #!/bin/bash 
-#ÕâÀï¿ÉÌæ»»ÎªÄã×Ô¼ºµÄÖ´ĞĞ³ÌĞò,ÆäËû´úÂëÎŞĞè¸ü¸Ä 
+#è¿™é‡Œå¯æ›¿æ¢ä¸ºä½ è‡ªå·±çš„æ‰§è¡Œç¨‹åº,å…¶ä»–ä»£ç æ— éœ€æ›´æ”¹ 
 APP_NAME=demo1-0.0.1-SNAPSHOT.jar 
 JVM="-server -Xms512m -Xmx512m -XX:PermSize=64M -XX:MaxNewSize=128m -XX:MaxPermSize=128m -Djava.awt.headless=true -XX:+CMSClassUnloadingEnabled -XX:+CMSPermGenSweepingEnabled"
 APPFILE_PATH="-Dspring.config.location=/usr/local/demo/config/application-demo1.properties"
-#Ê¹ÓÃËµÃ÷,ÓÃÀ´ÌáÊ¾ÊäÈë²ÎÊı 
+#ä½¿ç”¨è¯´æ˜,ç”¨æ¥æç¤ºè¾“å…¥å‚æ•° 
 usage() { 
-echo "Usage: sh Ö´ĞĞ½Å±¾.sh [start|stop|restart|status]" 
+echo "Usage: sh æ‰§è¡Œè„šæœ¬.sh [start|stop|restart|status]" 
 exit 1 
 } 
-#¼ì²é³ÌĞòÊÇ·ñÔÚÔËĞĞ 
+#æ£€æŸ¥ç¨‹åºæ˜¯å¦åœ¨è¿è¡Œ 
 is_exist(){ 
 pid=`ps -ef|grep $APP_NAME|grep -v grep|awk '{print $2}' ` 
-#Èç¹û²»´æÔÚ·µ»Ø1,´æÔÚ·µ»Ø0 
+#å¦‚æœä¸å­˜åœ¨è¿”å›1,å­˜åœ¨è¿”å›0 
 if [ -z "${pid}" ]; then 
 return 1 
 else 
 return 0 
 fi 
 } 
-#Æô¶¯·½·¨ 
+#å¯åŠ¨æ–¹æ³• 
 start(){ 
 is_exist 
 if [ $? -eq "0" ]; then 
@@ -180,7 +180,7 @@ else
 nohup java $JVM -jar $APPFILE_PATH $APP_NAME > /dev/null 2>&1 
 fi
 } 
-#Í£Ö¹·½·¨ 
+#åœæ­¢æ–¹æ³• 
 stop(){ 
 is_exist 
 if [ $? -eq "0" ]; then 
@@ -189,7 +189,7 @@ else
 echo "${APP_NAME} is not running" 
 fi 
 } 
-#Êä³öÔËĞĞ×´Ì¬ 
+#è¾“å‡ºè¿è¡ŒçŠ¶æ€ 
 status(){ 
 is_exist 
 if [ $? -eq "0" ]; then 
@@ -198,12 +198,12 @@ else
 echo "${APP_NAME} is NOT running." 
 fi 
 } 
-#ÖØÆô 
+#é‡å¯ 
 restart(){ 
 stop 
 start 
 } 
-#¸ù¾İÊäÈë²ÎÊı,Ñ¡ÔñÖ´ĞĞ¶ÔÓ¦·½·¨,²»ÊäÈëÔòÖ´ĞĞÊ¹ÓÃËµÃ÷ 
+#æ ¹æ®è¾“å…¥å‚æ•°,é€‰æ‹©æ‰§è¡Œå¯¹åº”æ–¹æ³•,ä¸è¾“å…¥åˆ™æ‰§è¡Œä½¿ç”¨è¯´æ˜ 
 case "$1" in 
 "start") 
 start 
@@ -224,114 +224,114 @@ esac
 
 ```
 
-**²¿Êğ**
+**éƒ¨ç½²**
 
-linux·şÎñÆ÷ÉÏĞÂ½¨¸öÎÄ¼ş¼Ğ£¬½«ÎÒÃÇ´òºÃµÄÏîÄ¿jar°ü¶¼¶ª½øÈ¥£¬ÔÚjar°üµÄÍ¬¼¶Ä¿Â¼ĞÂ½¨configºÍlibÎÄ¼ş¼Ğ£¬·Ö±ğ½«ÅäÖÃÎÄ¼şºÍµÚÈı·½ÒÀÀµ°ü¶ª½øÈ¥£¬Æä½á¹¹ÈçÏÂÍ¼£¬*.shÎª×Ô¼ºĞ´µÄÏîÄ¿Æô¶¯shell½Å±¾
+linuxæœåŠ¡å™¨ä¸Šæ–°å»ºä¸ªæ–‡ä»¶å¤¹ï¼Œå°†æˆ‘ä»¬æ‰“å¥½çš„é¡¹ç›®jaråŒ…éƒ½ä¸¢è¿›å»ï¼Œåœ¨jaråŒ…çš„åŒçº§ç›®å½•æ–°å»ºconfigå’Œlibæ–‡ä»¶å¤¹ï¼Œåˆ†åˆ«å°†é…ç½®æ–‡ä»¶å’Œç¬¬ä¸‰æ–¹ä¾èµ–åŒ…ä¸¢è¿›å»ï¼Œå…¶ç»“æ„å¦‚ä¸‹å›¾ï¼Œ*.shä¸ºè‡ªå·±å†™çš„é¡¹ç›®å¯åŠ¨shellè„šæœ¬
 
-![ÔÚÕâÀï²åÈëÍ¼Æ¬ÃèÊö](https://img-blog.csdnimg.cn/20190121170223384.png)
+![åœ¨è¿™é‡Œæ’å…¥å›¾ç‰‡æè¿°](https://img-blog.csdnimg.cn/20190121170223384.png)
 
-´ò¿ªconfigÄÚµÄspringbootºËĞÄÎÄ¼ş£¨Èçapplication-demo1.propertiesÎÄ¼ş£©£¬
+æ‰“å¼€configå†…çš„springbootæ ¸å¿ƒæ–‡ä»¶ï¼ˆå¦‚application-demo1.propertiesæ–‡ä»¶ï¼‰ï¼Œ
 
-spring.profiles.pathÅäÖÃÏî¸Ä³Éµ±Ç°ÅäÖÃÎÄ¼şËùÔÚµÄÄ¿Â¼£¬¼ÙÉèÎª/usr/local/demo/config
+spring.profiles.pathé…ç½®é¡¹æ”¹æˆå½“å‰é…ç½®æ–‡ä»¶æ‰€åœ¨çš„ç›®å½•ï¼Œå‡è®¾ä¸º/usr/local/demo/config
 
-´ò¿ª*.sh½Å±¾£¬ĞŞ¸ÄAPPFILE_PATHµÄÖµ£¬ÈçÏÂ
+æ‰“å¼€*.shè„šæœ¬ï¼Œä¿®æ”¹APPFILE_PATHçš„å€¼ï¼Œå¦‚ä¸‹
 
 APPFILE_PATH="-Dspring.config.location=/usr/local/demo/config/application-demo1.properties"
 
-**ÏîÄ¿¹ÜÀí**
+**é¡¹ç›®ç®¡ç†**
 
-½øÈëjar°üËùÔÚÄ¿Â¼Ö´ĞĞÏÂÃæÃüÁî
+è¿›å…¥jaråŒ…æ‰€åœ¨ç›®å½•æ‰§è¡Œä¸‹é¢å‘½ä»¤
 
-sh [demo1.sh](http://demo1.sh/) start Æô¶¯ÏîÄ¿
+sh [demo1.sh](http://demo1.sh/) start å¯åŠ¨é¡¹ç›®
 
-sh [demo1.sh](http://demo1.sh/) stop Í£Ö¹ÏîÄ¿
+sh [demo1.sh](http://demo1.sh/) stop åœæ­¢é¡¹ç›®
 
-sh [demo1.sh](http://demo1.sh/) restartÖØÆôÏîÄ¿
+sh [demo1.sh](http://demo1.sh/) restarté‡å¯é¡¹ç›®
 
-sh [demo1.sh](http://demo1.sh/) statusÏîÄ¿×´Ì¬
+sh [demo1.sh](http://demo1.sh/) statusé¡¹ç›®çŠ¶æ€
 
-## 2\. Íâ²¿»¯µÄÅäÖÃ
-
-
-
-
-
-Spring Boot¿ÉÒÔÈÃÄã½«ÅäÖÃÍâ²¿»¯£¬ÕâÑùÄã¾Í¿ÉÒÔÔÚ²»Í¬µÄ»·¾³ÖĞÊ¹ÓÃÏàÍ¬µÄÓ¦ÓÃ³ÌĞò´úÂë¡£ Äã¿ÉÒÔÊ¹ÓÃ¸÷ÖÖÍâ²¿ÅäÖÃÔ´£¬°üÀ¨Java properties ÎÄ¼ş¡¢YAMLÎÄ¼ş¡¢»·¾³±äÁ¿ºÍÃüÁîĞĞ²ÎÊı¡£
+## 2\. å¤–éƒ¨åŒ–çš„é…ç½®
 
 
 
 
 
-ÊôĞÔÖµ¿ÉÒÔÍ¨¹ıÊ¹ÓÃ `@Value` ×¢½âÖ±½Ó×¢ÈëÄãµÄBean£¬Ò²¿ÉÒÔÍ¨¹ıSpring µÄ `Environment` ·ÃÎÊ£¬»òÕßÍ¨¹ı `@ConfigurationProperties` [°ó¶¨µ½¶ÔÏó](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties)¡£
+Spring Bootå¯ä»¥è®©ä½ å°†é…ç½®å¤–éƒ¨åŒ–ï¼Œè¿™æ ·ä½ å°±å¯ä»¥åœ¨ä¸åŒçš„ç¯å¢ƒä¸­ä½¿ç”¨ç›¸åŒçš„åº”ç”¨ç¨‹åºä»£ç ã€‚ ä½ å¯ä»¥ä½¿ç”¨å„ç§å¤–éƒ¨é…ç½®æºï¼ŒåŒ…æ‹¬Java properties æ–‡ä»¶ã€YAMLæ–‡ä»¶ã€ç¯å¢ƒå˜é‡å’Œå‘½ä»¤è¡Œå‚æ•°ã€‚
 
 
 
 
 
-Spring Boot Ê¹ÓÃÒ»¸ö·Ç³£ÌØ±ğµÄ `PropertySource` Ë³Ğò£¬Ö¼ÔÚÔÊĞíºÏÀíµØÖØĞ´Öµ¡£ ºóÃæµÄ property source ¿ÉÒÔ¸²¸ÇÇ°ÃæÊôĞÔÔ´ÖĞ¶¨ÒåµÄÖµ¡£ °´ÒÔÏÂË³Ğò¿¼ÂÇ¡£
+å±æ€§å€¼å¯ä»¥é€šè¿‡ä½¿ç”¨ `@Value` æ³¨è§£ç›´æ¥æ³¨å…¥ä½ çš„Beanï¼Œä¹Ÿå¯ä»¥é€šè¿‡Spring çš„ `Environment` è®¿é—®ï¼Œæˆ–è€…é€šè¿‡ `@ConfigurationProperties` [ç»‘å®šåˆ°å¯¹è±¡](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties)ã€‚
 
 
 
 
 
-1.  Ä¬ÈÏÊôĞÔ£¨Í¨¹ı `SpringApplication.setDefaultProperties` Ö¸¶¨£©¡£
+Spring Boot ä½¿ç”¨ä¸€ä¸ªéå¸¸ç‰¹åˆ«çš„ `PropertySource` é¡ºåºï¼Œæ—¨åœ¨å…è®¸åˆç†åœ°é‡å†™å€¼ã€‚ åé¢çš„ property source å¯ä»¥è¦†ç›–å‰é¢å±æ€§æºä¸­å®šä¹‰çš„å€¼ã€‚ æŒ‰ä»¥ä¸‹é¡ºåºè€ƒè™‘ã€‚
 
-2.  @Configuration ÀàÉÏµÄ [`@PropertySource`](https://docs.spring.io/spring-framework/docs/6.0.5/javadoc-api/org/springframework/context/annotation/PropertySource.html) ×¢½â¡£Çë×¢Òâ£¬ÕâÑùµÄÊôĞÔÔ´Ö±µ½application context±»Ë¢ĞÂÊ±²Å»á±»Ìí¼Óµ½»·¾³ÖĞ¡£Õâ¶ÔÓÚÅäÖÃÄ³Ğ©ÊôĞÔÀ´ËµÒÑ¾­Ì«ÍíÁË£¬±ÈÈç `logging.*` ºÍ `spring.main.*` £¬ËüÃÇÔÚË¢ĞÂ¿ªÊ¼Ç°¾ÍÒÑ¾­±»¶ÁÈ¡ÁË¡£
 
-3.  ÅäÖÃÊı¾İ£¨Èç `application.properties` ÎÄ¼ş£©¡£
 
-4.  `RandomValuePropertySource`£¬ËüÖ»ÓĞ `random.*` ÊôĞÔ¡£
 
-5.  ²Ù×÷ÏµÍ³»·¾³±äÁ¿
+
+1.  é»˜è®¤å±æ€§ï¼ˆé€šè¿‡ `SpringApplication.setDefaultProperties` æŒ‡å®šï¼‰ã€‚
+
+2.  @Configuration ç±»ä¸Šçš„ [`@PropertySource`](https://docs.spring.io/spring-framework/docs/6.0.5/javadoc-api/org/springframework/context/annotation/PropertySource.html) æ³¨è§£ã€‚è¯·æ³¨æ„ï¼Œè¿™æ ·çš„å±æ€§æºç›´åˆ°application contextè¢«åˆ·æ–°æ—¶æ‰ä¼šè¢«æ·»åŠ åˆ°ç¯å¢ƒä¸­ã€‚è¿™å¯¹äºé…ç½®æŸäº›å±æ€§æ¥è¯´å·²ç»å¤ªæ™šäº†ï¼Œæ¯”å¦‚ `logging.*` å’Œ `spring.main.*` ï¼Œå®ƒä»¬åœ¨åˆ·æ–°å¼€å§‹å‰å°±å·²ç»è¢«è¯»å–äº†ã€‚
+
+3.  é…ç½®æ•°æ®ï¼ˆå¦‚ `application.properties` æ–‡ä»¶ï¼‰ã€‚
+
+4.  `RandomValuePropertySource`ï¼Œå®ƒåªæœ‰ `random.*` å±æ€§ã€‚
+
+5.  æ“ä½œç³»ç»Ÿç¯å¢ƒå˜é‡
 
 6.  Java System properties (`System.getProperties()`).
 
-7.  `java:comp/env` ÖĞµÄ JNDI ÊôĞÔ¡£
+7.  `java:comp/env` ä¸­çš„ JNDI å±æ€§ã€‚
 
 8.  `ServletContext` init parameters.
 
 9.  `ServletConfig` init parameters.
 
-10.  À´×Ô `SPRING_APPLICATION_JSON` µÄÊôĞÔ£¨Ç¶Èë»·¾³±äÁ¿»òÏµÍ³ÊôĞÔÖĞµÄÄÚÁªJSON£©¡£
+10.  æ¥è‡ª `SPRING_APPLICATION_JSON` çš„å±æ€§ï¼ˆåµŒå…¥ç¯å¢ƒå˜é‡æˆ–ç³»ç»Ÿå±æ€§ä¸­çš„å†…è”JSONï¼‰ã€‚
 
-11.  ÃüÁîĞĞ²ÎÊı
+11.  å‘½ä»¤è¡Œå‚æ•°
 
-12.  ÄãÔÚ²âÊÔÖĞµÄ `properties` ÊôĞÔ¡£ÔÚ [`@SpringBootTest`](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/api/org/springframework/boot/test/context/SpringBootTest.html) ºÍ²âÊÔ×¢½âÖĞ¿ÉÓÃ£¬[ÓÃÓÚ²âÊÔÄãµÄÓ¦ÓÃ³ÌĞòµÄÒ»¸öÌØ¶¨Æ¬¶Ï](https://springdoc.cn/spring-boot/features.html#features.testing.spring-boot-applications.autoconfigured-tests)¡£
+12.  ä½ åœ¨æµ‹è¯•ä¸­çš„ `properties` å±æ€§ã€‚åœ¨ [`@SpringBootTest`](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/api/org/springframework/boot/test/context/SpringBootTest.html) å’Œæµ‹è¯•æ³¨è§£ä¸­å¯ç”¨ï¼Œ[ç”¨äºæµ‹è¯•ä½ çš„åº”ç”¨ç¨‹åºçš„ä¸€ä¸ªç‰¹å®šç‰‡æ–­](https://springdoc.cn/spring-boot/features.html#features.testing.spring-boot-applications.autoconfigured-tests)ã€‚
 
-13.  Äã²âÊÔÖĞµÄhttps://docs.spring.io/spring-framework/docs/6.0.5/javadoc-api/org/springframework/test/context/TestPropertySource.html[`@TestPropertySource`] ×¢½â.
+13.  ä½ æµ‹è¯•ä¸­çš„https://docs.spring.io/spring-framework/docs/6.0.5/javadoc-api/org/springframework/test/context/TestPropertySource.html[`@TestPropertySource`] æ³¨è§£.
 
-14.  µ±devtools´¦ÓÚ»î¶¯×´Ì¬Ê±£¬`$HOME/.config/spring-boot` Ä¿Â¼ÏÂµÄ[DevtoolsÈ«¾ÖÉèÖÃÊôĞÔ](https://springdoc.cn/spring-boot/using.html#using.devtools.globalsettings)¡£
-
-
-
-
-
-ÅäÖÃÊı¾İÎÄ¼ş°´ÒÔÏÂË³Ğò¿¼ÂÇ¡£
+14.  å½“devtoolså¤„äºæ´»åŠ¨çŠ¶æ€æ—¶ï¼Œ`$HOME/.config/spring-boot` ç›®å½•ä¸‹çš„[Devtoolså…¨å±€è®¾ç½®å±æ€§](https://springdoc.cn/spring-boot/using.html#using.devtools.globalsettings)ã€‚
 
 
 
 
 
-1.  ÔÚÄãµÄjarÖĞ´ò°üµÄ[Application properties](https://springdoc.cn/spring-boot/features.html#features.external-config.files)£¨application.properties ºÍ YAML£©¡£
-
-2.  ÔÚÄãµÄjarÖĞ´ò°üµÄ [ÌØ¶¨µÄ Profile application properties](https://springdoc.cn/spring-boot/features.html#features.external-config.files.profile-specific)£¨`application-{profile}.properties` ºÍ YAML£©¡£
-
-3.  ÔÚÄã´ò°üµÄjarÖ®ÍâµÄ[Application properties](https://springdoc.cn/spring-boot/features.html#features.external-config.files)ĞÔ£¨application.propertiesºÍYAML£©¡£
-
-4.  ÔÚÄã´ò°üµÄjarÖ®ÍâµÄ[ÌØ¶¨µÄ Profile application properties](https://springdoc.cn/spring-boot/features.html#features.external-config.files.profile-specific)£¨ `application-{profile}.properties` ºÍYAML£©¡£
+é…ç½®æ•°æ®æ–‡ä»¶æŒ‰ä»¥ä¸‹é¡ºåºè€ƒè™‘ã€‚
 
 
 
 
 
-|  | ½¨ÒéÄãÔÚÕû¸öÓ¦ÓÃ³ÌĞòÖĞ¼á³ÖÊ¹ÓÃÒ»ÖÖ¸ñÊ½¡£ Èç¹ûÄãÔÚÍ¬Ò»¸öµØ·½ÓĞ `.properties` ºÍ `.yml` ¸ñÊ½µÄÅäÖÃÎÄ¼ş£¬`.properties` ÓÅÏÈ¡£ |
+1.  åœ¨ä½ çš„jarä¸­æ‰“åŒ…çš„[Application properties](https://springdoc.cn/spring-boot/features.html#features.external-config.files)ï¼ˆapplication.properties å’Œ YAMLï¼‰ã€‚
+
+2.  åœ¨ä½ çš„jarä¸­æ‰“åŒ…çš„ [ç‰¹å®šçš„ Profile application properties](https://springdoc.cn/spring-boot/features.html#features.external-config.files.profile-specific)ï¼ˆ`application-{profile}.properties` å’Œ YAMLï¼‰ã€‚
+
+3.  åœ¨ä½ æ‰“åŒ…çš„jarä¹‹å¤–çš„[Application properties](https://springdoc.cn/spring-boot/features.html#features.external-config.files)æ€§ï¼ˆapplication.propertieså’ŒYAMLï¼‰ã€‚
+
+4.  åœ¨ä½ æ‰“åŒ…çš„jarä¹‹å¤–çš„[ç‰¹å®šçš„ Profile application properties](https://springdoc.cn/spring-boot/features.html#features.external-config.files.profile-specific)ï¼ˆ `application-{profile}.properties` å’ŒYAMLï¼‰ã€‚
+
+
+
+
+
+|  | å»ºè®®ä½ åœ¨æ•´ä¸ªåº”ç”¨ç¨‹åºä¸­åšæŒä½¿ç”¨ä¸€ç§æ ¼å¼ã€‚ å¦‚æœä½ åœ¨åŒä¸€ä¸ªåœ°æ–¹æœ‰ `.properties` å’Œ `.yml` æ ¼å¼çš„é…ç½®æ–‡ä»¶ï¼Œ`.properties` ä¼˜å…ˆã€‚ |
 | --- | --- |
 
 
 
 
 
-ÎªÁËÌá¹©Ò»¸ö¾ßÌåµÄÀı×Ó£¬¼ÙÉèÄã¿ª·¢ÁËÒ»¸ö `@Component`£¬Ê¹ÓÃÁËÒ»¸ö `name` ÊôĞÔ£¬ÈçÏÂÃæµÄÀı×ÓËùÊ¾¡£
+ä¸ºäº†æä¾›ä¸€ä¸ªå…·ä½“çš„ä¾‹å­ï¼Œå‡è®¾ä½ å¼€å‘äº†ä¸€ä¸ª `@Component`ï¼Œä½¿ç”¨äº†ä¸€ä¸ª `name` å±æ€§ï¼Œå¦‚ä¸‹é¢çš„ä¾‹å­æ‰€ç¤ºã€‚
 
 
 
@@ -366,30 +366,30 @@ public class MyBean {
 
 
 
-ÔÚÄãµÄÓ¦ÓÃ³ÌĞòµÄclasspath£¨ÀıÈç£¬ÔÚÄãµÄjarÖĞ£©£¬Äã¿ÉÒÔÓĞÒ»¸ö `application.properties` ÎÄ¼ş£¬Îª `name` Ìá¹©Ò»¸öºÏÀíµÄÄ¬ÈÏÊôĞÔÖµ¡£µ±ÔÚÒ»¸öĞÂµÄ»·¾³ÖĞÔËĞĞÊ±£¬¿ÉÒÔÔÚÄãµÄjarÖ®ÍâÌá¹©Ò»¸ö `application.properties` ÎÄ¼şÀ´¸²¸Ç `name` ¡£¶ÔÓÚÒ»´ÎĞÔµÄ²âÊÔ£¬Äã¿ÉÒÔÓÃÒ»¸öÌØ¶¨µÄÃüÁîĞĞ²ÎÊıÀ´Æô¶¯£¨ÀıÈç£¬`java -jar app.jar --name="Spring"`£©¡£
+åœ¨ä½ çš„åº”ç”¨ç¨‹åºçš„classpathï¼ˆä¾‹å¦‚ï¼Œåœ¨ä½ çš„jarä¸­ï¼‰ï¼Œä½ å¯ä»¥æœ‰ä¸€ä¸ª `application.properties` æ–‡ä»¶ï¼Œä¸º `name` æä¾›ä¸€ä¸ªåˆç†çš„é»˜è®¤å±æ€§å€¼ã€‚å½“åœ¨ä¸€ä¸ªæ–°çš„ç¯å¢ƒä¸­è¿è¡Œæ—¶ï¼Œå¯ä»¥åœ¨ä½ çš„jarä¹‹å¤–æä¾›ä¸€ä¸ª `application.properties` æ–‡ä»¶æ¥è¦†ç›– `name` ã€‚å¯¹äºä¸€æ¬¡æ€§çš„æµ‹è¯•ï¼Œä½ å¯ä»¥ç”¨ä¸€ä¸ªç‰¹å®šçš„å‘½ä»¤è¡Œå‚æ•°æ¥å¯åŠ¨ï¼ˆä¾‹å¦‚ï¼Œ`java -jar app.jar --name="Spring"`ï¼‰ã€‚
 
 
 
 
 
-|  | `env` ºÍ `configprops` ¶ËµãÔÚÈ·¶¨Ò»¸öÊôĞÔÎªÊ²Ã´ÓĞÒ»¸öÌØ¶¨µÄÖµÊ±·Ç³£ÓĞÓÃ¡£Äã¿ÉÒÔÊ¹ÓÃÕâÁ½¸ö¶ËµãÀ´Õï¶ÏÒâÍâµÄÊôĞÔÖµ¡£Ïê¼û "[Éú²ú¾ÍĞ÷¹¦ÄÜ](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints)" ²¿·Ö¡£ |
+|  | `env` å’Œ `configprops` ç«¯ç‚¹åœ¨ç¡®å®šä¸€ä¸ªå±æ€§ä¸ºä»€ä¹ˆæœ‰ä¸€ä¸ªç‰¹å®šçš„å€¼æ—¶éå¸¸æœ‰ç”¨ã€‚ä½ å¯ä»¥ä½¿ç”¨è¿™ä¸¤ä¸ªç«¯ç‚¹æ¥è¯Šæ–­æ„å¤–çš„å±æ€§å€¼ã€‚è¯¦è§ "[ç”Ÿäº§å°±ç»ªåŠŸèƒ½](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints)" éƒ¨åˆ†ã€‚ |
 | --- | --- |
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.external-config.command-line-args)2.1\. ·ÃÎÊÃüÁîĞĞÊôĞÔ
+### [](https://springdoc.cn/spring-boot/features.html#features.external-config.command-line-args)2.1\. è®¿é—®å‘½ä»¤è¡Œå±æ€§
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬`SpringApplication` »á½«ÈÎºÎÃüÁîĞĞÑ¡Ïî²ÎÊı£¨¼´ÒÔ `--` ¿ªÍ·µÄ²ÎÊı£¬Èç `--server.port=9000` £©×ª»»Îª `property` ²¢½«ÆäÌí¼Óµ½Spring `Environment` ÖĞ¡£ ÈçÇ°ËùÊö£¬ÃüÁîĞĞÊôĞÔ×ÜÊÇÓÅÏÈÓÚ»ùÓÚÎÄ¼şµÄÊôĞÔÔ´¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼Œ`SpringApplication` ä¼šå°†ä»»ä½•å‘½ä»¤è¡Œé€‰é¡¹å‚æ•°ï¼ˆå³ä»¥ `--` å¼€å¤´çš„å‚æ•°ï¼Œå¦‚ `--server.port=9000` ï¼‰è½¬æ¢ä¸º `property` å¹¶å°†å…¶æ·»åŠ åˆ°Spring `Environment` ä¸­ã€‚ å¦‚å‰æ‰€è¿°ï¼Œå‘½ä»¤è¡Œå±æ€§æ€»æ˜¯ä¼˜å…ˆäºåŸºäºæ–‡ä»¶çš„å±æ€§æºã€‚
 
 
 
 
 
-Èç¹ûÄã²»Ï£ÍûÃüÁîĞĞÊôĞÔ±»Ìí¼Óµ½ `Environment` ÖĞ£¬Äã¿ÉÒÔÍ¨¹ı `SpringApplication.setAddCommandLineProperties(false)` ½ûÓÃËüÃÇ¡£
+å¦‚æœä½ ä¸å¸Œæœ›å‘½ä»¤è¡Œå±æ€§è¢«æ·»åŠ åˆ° `Environment` ä¸­ï¼Œä½ å¯ä»¥é€šè¿‡ `SpringApplication.setAddCommandLineProperties(false)` ç¦ç”¨å®ƒä»¬ã€‚
 
 
 
@@ -401,19 +401,19 @@ public class MyBean {
 
 
 
-»·¾³±äÁ¿ºÍÏµÍ³ÊôĞÔÍùÍùÓĞÏŞÖÆ£¬ÕâÒâÎ¶×ÅÓĞĞ©ÊôĞÔÃû³Æ²»ÄÜÊ¹ÓÃ¡£ ÎªÁË°ïÖú½â¾öÕâ¸öÎÊÌâ£¬Spring BootÔÊĞíÄã½«Ò»¸öÊôĞÔ¿é±àÂëÎªÒ»¸öµ¥Ò»µÄJSON½á¹¹¡£
+ç¯å¢ƒå˜é‡å’Œç³»ç»Ÿå±æ€§å¾€å¾€æœ‰é™åˆ¶ï¼Œè¿™æ„å‘³ç€æœ‰äº›å±æ€§åç§°ä¸èƒ½ä½¿ç”¨ã€‚ ä¸ºäº†å¸®åŠ©è§£å†³è¿™ä¸ªé—®é¢˜ï¼ŒSpring Bootå…è®¸ä½ å°†ä¸€ä¸ªå±æ€§å—ç¼–ç ä¸ºä¸€ä¸ªå•ä¸€çš„JSONç»“æ„ã€‚
 
 
 
 
 
-µ±ÄãµÄÓ¦ÓÃ³ÌĞòÆô¶¯Ê±£¬ÈÎºÎ `spring.application.json` »ò `SPRING_APPLICATION_JSON` ÊôĞÔ½«±»½âÎö²¢Ìí¼Óµ½ `Environment` ÖĞ¡£
+å½“ä½ çš„åº”ç”¨ç¨‹åºå¯åŠ¨æ—¶ï¼Œä»»ä½• `spring.application.json` æˆ– `SPRING_APPLICATION_JSON` å±æ€§å°†è¢«è§£æå¹¶æ·»åŠ åˆ° `Environment` ä¸­ã€‚
 
 
 
 
 
-ÀıÈç£¬`SPRING_APPLICATION_JSON` ÊôĞÔ¿ÉÒÔÔÚ UN*X shell µÄÃüÁîĞĞÖĞ×÷Îª»·¾³±äÁ¿Ìá¹©¡£
+ä¾‹å¦‚ï¼Œ`SPRING_APPLICATION_JSON` å±æ€§å¯ä»¥åœ¨ UN*X shell çš„å‘½ä»¤è¡Œä¸­ä½œä¸ºç¯å¢ƒå˜é‡æä¾›ã€‚
 
 
 
@@ -431,13 +431,13 @@ $ SPRING_APPLICATION_JSON='{"my":{"name":"test"}}' java -jar myapp.jar
 
 
 
-ÔÚÇ°ÃæµÄÀı×ÓÖĞ£¬ÄãÔÚSpringµÄ `Environment` ÖĞ×îÖÕµÃµ½ÁË `my.name=test`¡£
+åœ¨å‰é¢çš„ä¾‹å­ä¸­ï¼Œä½ åœ¨Springçš„ `Environment` ä¸­æœ€ç»ˆå¾—åˆ°äº† `my.name=test`ã€‚
 
 
 
 
 
-Í¬ÑùµÄJSONÒ²¿ÉÒÔ×÷ÎªÒ»¸öÏµÍ³ÊôĞÔÌá¹©¡£
+åŒæ ·çš„JSONä¹Ÿå¯ä»¥ä½œä¸ºä¸€ä¸ªç³»ç»Ÿå±æ€§æä¾›ã€‚
 
 
 
@@ -455,7 +455,7 @@ $ java -Dspring.application.json='{"my":{"name":"test"}}' -jar myapp.jar
 
 
 
-»òÕßÄã¿ÉÒÔÍ¨¹ıÊ¹ÓÃÒ»¸öÃüÁîĞĞ²ÎÊıÀ´Ìá¹©JSON¡£
+æˆ–è€…ä½ å¯ä»¥é€šè¿‡ä½¿ç”¨ä¸€ä¸ªå‘½ä»¤è¡Œå‚æ•°æ¥æä¾›JSONã€‚
 
 
 
@@ -473,13 +473,13 @@ $ java -jar myapp.jar --spring.application.json='{"my":{"name":"test"}}'
 
 
 
-Èç¹ûÄãÒª²¿Êğµ½Ò»¸ö¾­µäµÄÓ¦ÓÃ·şÎñÆ÷ÖĞ£¬ÄãÒ²¿ÉÒÔÊ¹ÓÃÒ»¸öÃûÎª `java:comp/env/spring.application.json` µÄJNDI±äÁ¿¡£
+å¦‚æœä½ è¦éƒ¨ç½²åˆ°ä¸€ä¸ªç»å…¸çš„åº”ç”¨æœåŠ¡å™¨ä¸­ï¼Œä½ ä¹Ÿå¯ä»¥ä½¿ç”¨ä¸€ä¸ªåä¸º `java:comp/env/spring.application.json` çš„JNDIå˜é‡ã€‚
 
 
 
 
 
-|  | ¾¡¹ÜJSONÖĞµÄ `null` Öµ½«±»Ìí¼Óµ½Éú³ÉµÄÊôĞÔÔ´ÖĞ£¬µ« `PropertySourcesPropertyResolver` ½« `null` ÊôĞÔÊÓÎªÈ±Ê§Öµ¡£ ÕâÒâÎ¶×ÅJSON²»ÄÜÓÃ `null` Öµ¸²¸ÇÀ´×ÔµÍ½×ÊôĞÔÔ´µÄÊôĞÔ¡£ |
+|  | å°½ç®¡JSONä¸­çš„ `null` å€¼å°†è¢«æ·»åŠ åˆ°ç”Ÿæˆçš„å±æ€§æºä¸­ï¼Œä½† `PropertySourcesPropertyResolver` å°† `null` å±æ€§è§†ä¸ºç¼ºå¤±å€¼ã€‚ è¿™æ„å‘³ç€JSONä¸èƒ½ç”¨ `null` å€¼è¦†ç›–æ¥è‡ªä½é˜¶å±æ€§æºçš„å±æ€§ã€‚ |
 | --- | --- |
 
 
@@ -488,11 +488,11 @@ $ java -jar myapp.jar --spring.application.json='{"my":{"name":"test"}}'
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files)2.3\. Íâ²¿µÄ Application Properties
+### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files)2.3\. å¤–éƒ¨çš„ Application Properties
 
 
 
-µ±ÄãµÄÓ¦ÓÃ³ÌĞòÆô¶¯Ê±£¬Spring Boot»á×Ô¶¯´ÓÒÔÏÂÎ»ÖÃÕÒµ½²¢¼ÓÔØ `application.properties` ºÍ `application.yaml` ÎÄ¼ş¡£
+å½“ä½ çš„åº”ç”¨ç¨‹åºå¯åŠ¨æ—¶ï¼ŒSpring Bootä¼šè‡ªåŠ¨ä»ä»¥ä¸‹ä½ç½®æ‰¾åˆ°å¹¶åŠ è½½ `application.properties` å’Œ `application.yaml` æ–‡ä»¶ã€‚
 
 
 
@@ -502,35 +502,35 @@ $ java -jar myapp.jar --spring.application.json='{"my":{"name":"test"}}'
 
 
 
-    1.  classpath ¸ùÂ·¾¶
+    1.  classpath æ ¹è·¯å¾„
 
-    2.  classpath ÏÂµÄ `/config` °ü
-
-
-
-2.  µ±Ç°Ä¿Â¼
+    2.  classpath ä¸‹çš„ `/config` åŒ…
 
 
 
-    1.  µ±Ç°Ä¿Â¼ÏÂ
-
-    2.  µ±Ç°Ä¿Â¼ÏÂµÄ `config/` ×ÓÄ¿Â¼
-
-    3.  `config/` ×ÓÄ¿Â¼µÄÖ±½Ó×ÓÄ¿Â¼
+2.  å½“å‰ç›®å½•
 
 
+
+    1.  å½“å‰ç›®å½•ä¸‹
+
+    2.  å½“å‰ç›®å½•ä¸‹çš„ `config/` å­ç›®å½•
+
+    3.  `config/` å­ç›®å½•çš„ç›´æ¥å­ç›®å½•
 
 
 
 
 
-ÁĞ±í°´ÓÅÏÈ¼¶ÅÅĞò£¨½ÏµÍÏîÄ¿µÄÖµ¸²¸Ç½ÏÔçÏîÄ¿µÄÖµ£©¡£ ¼ÓÔØµÄÎÄ¼ş±»×÷Îª `PropertySources` Ìí¼Óµ½SpringµÄ `Environment` ÖĞ¡£
+
+
+åˆ—è¡¨æŒ‰ä¼˜å…ˆçº§æ’åºï¼ˆè¾ƒä½é¡¹ç›®çš„å€¼è¦†ç›–è¾ƒæ—©é¡¹ç›®çš„å€¼ï¼‰ã€‚ åŠ è½½çš„æ–‡ä»¶è¢«ä½œä¸º `PropertySources` æ·»åŠ åˆ°Springçš„ `Environment` ä¸­ã€‚
 
 
 
 
 
-Èç¹ûÄã²»Ï²»¶ `application` ×÷ÎªÅäÖÃÎÄ¼şÃû³Æ£¬Äã¿ÉÒÔÍ¨¹ıÖ¸¶¨ `spring.config.name` »·¾³ÊôĞÔÇĞ»»µ½ÁíÒ»¸öÎÄ¼şÃû³Æ¡£ ÀıÈç£¬ÎªÁËÑ°ÕÒ `myproject.properties` ºÍ `myproject.yaml` ÎÄ¼ş£¬Äã¿ÉÒÔ°´ÒÔÏÂ·½Ê½ÔËĞĞÄãµÄÓ¦ÓÃ³ÌĞò¡£
+å¦‚æœä½ ä¸å–œæ¬¢ `application` ä½œä¸ºé…ç½®æ–‡ä»¶åç§°ï¼Œä½ å¯ä»¥é€šè¿‡æŒ‡å®š `spring.config.name` ç¯å¢ƒå±æ€§åˆ‡æ¢åˆ°å¦ä¸€ä¸ªæ–‡ä»¶åç§°ã€‚ ä¾‹å¦‚ï¼Œä¸ºäº†å¯»æ‰¾ `myproject.properties` å’Œ `myproject.yaml` æ–‡ä»¶ï¼Œä½ å¯ä»¥æŒ‰ä»¥ä¸‹æ–¹å¼è¿è¡Œä½ çš„åº”ç”¨ç¨‹åºã€‚
 
 
 
@@ -548,13 +548,13 @@ $ java -jar myproject.jar --spring.config.name=myproject
 
 
 
-ÄãÒ²¿ÉÒÔÍ¨¹ıÊ¹ÓÃ `spring.config.location` »·¾³ÊôĞÔÀ´ÒıÓÃÒ»¸öÃ÷È·µÄÎ»ÖÃ¡£ ¸ÃÊôĞÔ½ÓÊÜÒ»¸ö¶ººÅ·Ö¸ôµÄÁĞ±í£¬ÆäÖĞ°üº¬Ò»¸ö»ò¶à¸öÒª¼ì²éµÄÎ»ÖÃ¡£
+ä½ ä¹Ÿå¯ä»¥é€šè¿‡ä½¿ç”¨ `spring.config.location` ç¯å¢ƒå±æ€§æ¥å¼•ç”¨ä¸€ä¸ªæ˜ç¡®çš„ä½ç½®ã€‚ è¯¥å±æ€§æ¥å—ä¸€ä¸ªé€—å·åˆ†éš”çš„åˆ—è¡¨ï¼Œå…¶ä¸­åŒ…å«ä¸€ä¸ªæˆ–å¤šä¸ªè¦æ£€æŸ¥çš„ä½ç½®ã€‚
 
 
 
 
 
-ÏÂÃæµÄÀı×ÓÏÔÊ¾ÁËÈçºÎÖ¸¶¨Á½¸ö²»Í¬µÄÎÄ¼ş¡£
+ä¸‹é¢çš„ä¾‹å­æ˜¾ç¤ºäº†å¦‚ä½•æŒ‡å®šä¸¤ä¸ªä¸åŒçš„æ–‡ä»¶ã€‚
 
 
 
@@ -574,46 +574,46 @@ $ java -jar myproject.jar --spring.config.location=\
 
 
 
-|  | Èç¹û [ÅäÖÃÎÄ¼şÊÇ¿ÉÑ¡µÄ](https://springdoc.cn/spring-boot/features.html#features.external-config.files.optional-prefix)£¬²¢ÇÒ¿ÉÒÔÊÇ²»´æÔÚµÄ£¬ÄÇÃ´ÇëÊ¹ÓÃ `optional:` Ç°×º¡£ |
+|  | å¦‚æœ [é…ç½®æ–‡ä»¶æ˜¯å¯é€‰çš„](https://springdoc.cn/spring-boot/features.html#features.external-config.files.optional-prefix)ï¼Œå¹¶ä¸”å¯ä»¥æ˜¯ä¸å­˜åœ¨çš„ï¼Œé‚£ä¹ˆè¯·ä½¿ç”¨ `optional:` å‰ç¼€ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | `spring.config.name`, `spring.config.location`, ºÍ `spring.config.extra-location` ºÜÔç¾ÍÓÃÀ´È·¶¨ÄÄĞ©ÎÄ¼ş±ØĞë±»¼ÓÔØ¡£ ËüÃÇ±ØĞë±»¶¨ÒåÎª»·¾³ÊôĞÔ£¨Í¨³£ÊÇ²Ù×÷ÏµÍ³»·¾³±äÁ¿£¬ÏµÍ³ÊôĞÔ£¬»òÃüÁîĞĞ²ÎÊı£©¡£ |
+|  | `spring.config.name`, `spring.config.location`, å’Œ `spring.config.extra-location` å¾ˆæ—©å°±ç”¨æ¥ç¡®å®šå“ªäº›æ–‡ä»¶å¿…é¡»è¢«åŠ è½½ã€‚ å®ƒä»¬å¿…é¡»è¢«å®šä¹‰ä¸ºç¯å¢ƒå±æ€§ï¼ˆé€šå¸¸æ˜¯æ“ä½œç³»ç»Ÿç¯å¢ƒå˜é‡ï¼Œç³»ç»Ÿå±æ€§ï¼Œæˆ–å‘½ä»¤è¡Œå‚æ•°ï¼‰ã€‚ |
 | --- | --- |
 
 
 
 
 
-Èç¹û `spring.config.location` °üº¬Ä¿Â¼£¨¶ø²»ÊÇÎÄ¼ş£©£¬ËüÃÇÓ¦¸ÃÒÔ `/` ½áÎ²¡£ ÔÚÔËĞĞÊ±£¬ËüÃÇ½«±»¸½¼ÓÉÏÓÉ `spring.config.name` Éú³ÉµÄÃû³Æ£¬È»ºó±»¼ÓÔØ¡£ ÔÚ `spring.config.location` ÖĞÖ¸¶¨µÄÎÄ¼ş±»Ö±½Óµ¼Èë¡£
+å¦‚æœ `spring.config.location` åŒ…å«ç›®å½•ï¼ˆè€Œä¸æ˜¯æ–‡ä»¶ï¼‰ï¼Œå®ƒä»¬åº”è¯¥ä»¥ `/` ç»“å°¾ã€‚ åœ¨è¿è¡Œæ—¶ï¼Œå®ƒä»¬å°†è¢«é™„åŠ ä¸Šç”± `spring.config.name` ç”Ÿæˆçš„åç§°ï¼Œç„¶åè¢«åŠ è½½ã€‚ åœ¨ `spring.config.location` ä¸­æŒ‡å®šçš„æ–‡ä»¶è¢«ç›´æ¥å¯¼å…¥ã€‚
 
 
 
 
 
-|  | Ä¿Â¼ºÍÎÄ¼şÎ»ÖÃÖµÒ²±»À©Õ¹£¬ÒÔ¼ì²é[ÌØ¶¨µÄÅäÖÃÎÄ¼ş](https://springdoc.cn/spring-boot/features.html#features.external-config.files.profile-specific)¡£ÀıÈç£¬Èç¹ûÄãµÄ `spring.config.location` ÊÇ `classpath:myconfig.properties`£¬ÄãÒ²»á·¢ÏÖÊÊµ±µÄ `classpath:myconfig-<profile>.properties` ÎÄ¼ş±»¼ÓÔØ¡£ |
+|  | ç›®å½•å’Œæ–‡ä»¶ä½ç½®å€¼ä¹Ÿè¢«æ‰©å±•ï¼Œä»¥æ£€æŸ¥[ç‰¹å®šçš„é…ç½®æ–‡ä»¶](https://springdoc.cn/spring-boot/features.html#features.external-config.files.profile-specific)ã€‚ä¾‹å¦‚ï¼Œå¦‚æœä½ çš„ `spring.config.location` æ˜¯ `classpath:myconfig.properties`ï¼Œä½ ä¹Ÿä¼šå‘ç°é€‚å½“çš„ `classpath:myconfig-<profile>.properties` æ–‡ä»¶è¢«åŠ è½½ã€‚ |
 | --- | --- |
 
 
 
 
 
-ÔÚ´ó¶àÊıÇé¿öÏÂ£¬ÄãÌí¼ÓµÄÃ¿¸ö `spring.config.location` Ïî½«ÒıÓÃÒ»¸öÎÄ¼ş»òÄ¿Â¼¡£ Î»ÖÃÊÇ°´ÕÕËüÃÇ±»¶¨ÒåµÄË³ĞòÀ´´¦ÀíµÄ£¬ºóÃæµÄÎ»ÖÃ¿ÉÒÔ¸²¸ÇÇ°ÃæµÄÎ»ÖÃµÄÖµ¡£
+åœ¨å¤§å¤šæ•°æƒ…å†µä¸‹ï¼Œä½ æ·»åŠ çš„æ¯ä¸ª `spring.config.location` é¡¹å°†å¼•ç”¨ä¸€ä¸ªæ–‡ä»¶æˆ–ç›®å½•ã€‚ ä½ç½®æ˜¯æŒ‰ç…§å®ƒä»¬è¢«å®šä¹‰çš„é¡ºåºæ¥å¤„ç†çš„ï¼Œåé¢çš„ä½ç½®å¯ä»¥è¦†ç›–å‰é¢çš„ä½ç½®çš„å€¼ã€‚
 
 
 
 
 
-Èç¹ûÄãÓĞÒ»¸ö¸´ÔÓµÄÎ»ÖÃÉèÖÃ£¬¶øÇÒÄãÊ¹ÓÃÌØ¶¨µÄÅäÖÃÎÄ¼ş£¬Äã¿ÉÄÜĞèÒªÌá¹©½øÒ»²½µÄÌáÊ¾£¬ÒÔ±ãSpring BootÖªµÀËüÃÇÓ¦¸ÃÈçºÎ·Ö×é¡£Ò»¸öÎ»ÖÃ×éÊÇÒ»¸öÎ»ÖÃµÄ¼¯ºÏ£¬ÕâĞ©Î»ÖÃ¶¼±»ÈÏÎªÊÇÔÚÍ¬Ò»¼¶±ğ¡£ÀıÈç£¬Äã¿ÉÄÜÏë°ÑËùÓĞclasspathÎ»ÖÃ·Ö×é£¬È»ºóÊÇËùÓĞÍâ²¿Î»ÖÃ¡£Ò»¸öÎ»ÖÃ×éÄÚµÄÏîÄ¿Ó¦¸ÃÓÃ `;` ·Ö¸ô¡£¸ü¶àÏ¸½Ú¼û ¡°[Ö¸¶¨ profile](https://springdoc.cn/spring-boot/features.html#features.external-config.files.profile-specific)¡± ²¿·ÖµÄÀı×Ó¡£
+å¦‚æœä½ æœ‰ä¸€ä¸ªå¤æ‚çš„ä½ç½®è®¾ç½®ï¼Œè€Œä¸”ä½ ä½¿ç”¨ç‰¹å®šçš„é…ç½®æ–‡ä»¶ï¼Œä½ å¯èƒ½éœ€è¦æä¾›è¿›ä¸€æ­¥çš„æç¤ºï¼Œä»¥ä¾¿Spring BootçŸ¥é“å®ƒä»¬åº”è¯¥å¦‚ä½•åˆ†ç»„ã€‚ä¸€ä¸ªä½ç½®ç»„æ˜¯ä¸€ä¸ªä½ç½®çš„é›†åˆï¼Œè¿™äº›ä½ç½®éƒ½è¢«è®¤ä¸ºæ˜¯åœ¨åŒä¸€çº§åˆ«ã€‚ä¾‹å¦‚ï¼Œä½ å¯èƒ½æƒ³æŠŠæ‰€æœ‰classpathä½ç½®åˆ†ç»„ï¼Œç„¶åæ˜¯æ‰€æœ‰å¤–éƒ¨ä½ç½®ã€‚ä¸€ä¸ªä½ç½®ç»„å†…çš„é¡¹ç›®åº”è¯¥ç”¨ `;` åˆ†éš”ã€‚æ›´å¤šç»†èŠ‚è§ â€œ[æŒ‡å®š profile](https://springdoc.cn/spring-boot/features.html#features.external-config.files.profile-specific)â€ éƒ¨åˆ†çš„ä¾‹å­ã€‚
 
 
 
 
 
-Í¨¹ıÊ¹ÓÃ `spring.config.location` ÅäÖÃµÄÎ»ÖÃÈ¡´úÄ¬ÈÏÎ»ÖÃ¡£ ÀıÈç£¬Èç¹û `spring.config.location` ±»ÅäÖÃÎª `optional:classpath:/custom-config/,optional:file:./custom-config/` £¬¿¼ÂÇµÄÍêÕûÎ»ÖÃ¼¯ÈçÏÂ¡£
+é€šè¿‡ä½¿ç”¨ `spring.config.location` é…ç½®çš„ä½ç½®å–ä»£é»˜è®¤ä½ç½®ã€‚ ä¾‹å¦‚ï¼Œå¦‚æœ `spring.config.location` è¢«é…ç½®ä¸º `optional:classpath:/custom-config/,optional:file:./custom-config/` ï¼Œè€ƒè™‘çš„å®Œæ•´ä½ç½®é›†å¦‚ä¸‹ã€‚
 
 
 
@@ -627,7 +627,7 @@ $ java -jar myproject.jar --spring.config.location=\
 
 
 
-Èç¹ûÄãÏ²»¶Ìí¼Ó¶îÍâµÄÎ»ÖÃ£¬¶ø²»ÊÇÌæ»»ËüÃÇ£¬Äã¿ÉÒÔÊ¹ÓÃ `spring.config.extra-location` ¡£ ´Ó¸½¼ÓÎ»ÖÃ¼ÓÔØµÄÊôĞÔ¿ÉÒÔ¸²¸ÇÄ¬ÈÏÎ»ÖÃµÄÊôĞÔ¡£ ÀıÈç£¬Èç¹û `spring.config.extra-location` ±»ÅäÖÃÎª `optional:classpath:/custom-config/,optional:file:./custom-config/` £¬¿¼ÂÇµÄÍêÕûÎ»ÖÃ¼¯ÈçÏÂ¡£
+å¦‚æœä½ å–œæ¬¢æ·»åŠ é¢å¤–çš„ä½ç½®ï¼Œè€Œä¸æ˜¯æ›¿æ¢å®ƒä»¬ï¼Œä½ å¯ä»¥ä½¿ç”¨ `spring.config.extra-location` ã€‚ ä»é™„åŠ ä½ç½®åŠ è½½çš„å±æ€§å¯ä»¥è¦†ç›–é»˜è®¤ä½ç½®çš„å±æ€§ã€‚ ä¾‹å¦‚ï¼Œå¦‚æœ `spring.config.extra-location` è¢«é…ç½®ä¸º `optional:classpath:/custom-config/,optional:file:./custom-config/` ï¼Œè€ƒè™‘çš„å®Œæ•´ä½ç½®é›†å¦‚ä¸‹ã€‚
 
 
 
@@ -645,49 +645,49 @@ $ java -jar myproject.jar --spring.config.location=\
 
 
 
-ÕâÖÖËÑË÷ÅÅĞòÈÃÄãÔÚÒ»¸öÅäÖÃÎÄ¼şÖĞÖ¸¶¨Ä¬ÈÏÖµ£¬È»ºóÔÚÁíÒ»¸öÎÄ¼şÖĞÑ¡ÔñĞÔµØ¸²¸ÇÕâĞ©Öµ¡£ Äã¿ÉÒÔÔÚÆäÖĞÒ»¸öÄ¬ÈÏÎ»ÖÃµÄ `application.properties` £¨»òÄãÓÃ `spring.config.name` Ñ¡ÔñµÄÆäËûbasename£©ÖĞÎªÄãµÄÓ¦ÓÃ³ÌĞòÌá¹©Ä¬ÈÏÖµ¡£ È»ºó£¬ÕâĞ©Ä¬ÈÏÖµ¿ÉÒÔÔÚÔËĞĞÊ±±»Î»ÓÚÆäÖĞÒ»¸ö×Ô¶¨ÒåÎ»ÖÃµÄ²»Í¬ÎÄ¼ş¸²¸Ç¡£
+è¿™ç§æœç´¢æ’åºè®©ä½ åœ¨ä¸€ä¸ªé…ç½®æ–‡ä»¶ä¸­æŒ‡å®šé»˜è®¤å€¼ï¼Œç„¶ååœ¨å¦ä¸€ä¸ªæ–‡ä»¶ä¸­é€‰æ‹©æ€§åœ°è¦†ç›–è¿™äº›å€¼ã€‚ ä½ å¯ä»¥åœ¨å…¶ä¸­ä¸€ä¸ªé»˜è®¤ä½ç½®çš„ `application.properties` ï¼ˆæˆ–ä½ ç”¨ `spring.config.name` é€‰æ‹©çš„å…¶ä»–basenameï¼‰ä¸­ä¸ºä½ çš„åº”ç”¨ç¨‹åºæä¾›é»˜è®¤å€¼ã€‚ ç„¶åï¼Œè¿™äº›é»˜è®¤å€¼å¯ä»¥åœ¨è¿è¡Œæ—¶è¢«ä½äºå…¶ä¸­ä¸€ä¸ªè‡ªå®šä¹‰ä½ç½®çš„ä¸åŒæ–‡ä»¶è¦†ç›–ã€‚
 
 
 
 
 
-|  | Èç¹ûÄãÊ¹ÓÃ»·¾³±äÁ¿¶ø²»ÊÇÏµÍ³ÊôĞÔ£¬´ó¶àÊı²Ù×÷ÏµÍ³²»ÔÊĞíÊ¹ÓÃ¾äµã·Ö¸ôµÄ¼üÃû£¬µ«Äã¿ÉÒÔÊ¹ÓÃÏÂ»®Ïß´úÌæ£¨ÀıÈç£¬ `SPRING_CONFIG_NAME` ¶ø²»ÊÇ `spring.config.name` £©¡£ ²Î¼û[´Ó»·¾³±äÁ¿°ó¶¨](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding.environment-variables) ÁË½âÏêÇé¡£ |
+|  | å¦‚æœä½ ä½¿ç”¨ç¯å¢ƒå˜é‡è€Œä¸æ˜¯ç³»ç»Ÿå±æ€§ï¼Œå¤§å¤šæ•°æ“ä½œç³»ç»Ÿä¸å…è®¸ä½¿ç”¨å¥ç‚¹åˆ†éš”çš„é”®åï¼Œä½†ä½ å¯ä»¥ä½¿ç”¨ä¸‹åˆ’çº¿ä»£æ›¿ï¼ˆä¾‹å¦‚ï¼Œ `SPRING_CONFIG_NAME` è€Œä¸æ˜¯ `spring.config.name` ï¼‰ã€‚ å‚è§[ä»ç¯å¢ƒå˜é‡ç»‘å®š](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding.environment-variables) äº†è§£è¯¦æƒ…ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | Èç¹ûÄãµÄÓ¦ÓÃ³ÌĞòÔÚservletÈİÆ÷»òÓ¦ÓÃ·şÎñÆ÷ÖĞÔËĞĞ£¬ÄÇÃ´JNDIÊôĞÔ£¨ÔÚ `java:comp/env` ÖĞ£©»òservletÉÏÏÂÎÄ³õÊ¼»¯²ÎÊı¿ÉÒÔ´úÌæ»·¾³±äÁ¿»òÏµÍ³ÊôĞÔ£¬»òÕßÓëÖ®Ò»Ñù¡£ |
+|  | å¦‚æœä½ çš„åº”ç”¨ç¨‹åºåœ¨servletå®¹å™¨æˆ–åº”ç”¨æœåŠ¡å™¨ä¸­è¿è¡Œï¼Œé‚£ä¹ˆJNDIå±æ€§ï¼ˆåœ¨ `java:comp/env` ä¸­ï¼‰æˆ–servletä¸Šä¸‹æ–‡åˆå§‹åŒ–å‚æ•°å¯ä»¥ä»£æ›¿ç¯å¢ƒå˜é‡æˆ–ç³»ç»Ÿå±æ€§ï¼Œæˆ–è€…ä¸ä¹‹ä¸€æ ·ã€‚ |
 | --- | --- |
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.optional-prefix)2.3.1\. ¿ÉÑ¡µÄÎ»ÖÃ(Optional Locations)
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.optional-prefix)2.3.1\. å¯é€‰çš„ä½ç½®(Optional Locations)
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬µ±Ö¸¶¨µÄÅäÖÃÊı¾İÎ»ÖÃ²»´æÔÚÊ±£¬Spring Boot½«Å×³öÒ»¸ö `ConfigDataLocationNotFoundException` £¬ÄãµÄÓ¦ÓÃ³ÌĞò½«ÎŞ·¨Æô¶¯¡£
-
-
-
-
-
-Èç¹ûÄãÏëÖ¸¶¨Ò»¸öÎ»ÖÃ£¬µ«Äã²»½éÒâËü²¢²»×ÜÊÇ´æÔÚ£¬Äã¿ÉÒÔÊ¹ÓÃ `optional:` Ç°×º¡£Äã¿ÉÒÔÔÚ `spring.config.locationºÍspring.config.extra-location` ÊôĞÔÖĞÊ¹ÓÃÕâ¸öÇ°×º£¬Ò²¿ÉÒÔÔÚ [`spring.config.import`](https://springdoc.cn/spring-boot/features.html#features.external-config.files.importing) ÉùÃ÷ÖĞÊ¹ÓÃ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼Œå½“æŒ‡å®šçš„é…ç½®æ•°æ®ä½ç½®ä¸å­˜åœ¨æ—¶ï¼ŒSpring Bootå°†æŠ›å‡ºä¸€ä¸ª `ConfigDataLocationNotFoundException` ï¼Œä½ çš„åº”ç”¨ç¨‹åºå°†æ— æ³•å¯åŠ¨ã€‚
 
 
 
 
 
-ÀıÈç£¬`spring.config.import` ÖµÎª `optional:file:./myconfig.properties` ÔÊĞíÄãµÄÓ¦ÓÃ³ÌĞòÆô¶¯£¬¼´Ê¹ `myconfig.properties` ÎÄ¼ş¶ªÊ§¡£
+å¦‚æœä½ æƒ³æŒ‡å®šä¸€ä¸ªä½ç½®ï¼Œä½†ä½ ä¸ä»‹æ„å®ƒå¹¶ä¸æ€»æ˜¯å­˜åœ¨ï¼Œä½ å¯ä»¥ä½¿ç”¨ `optional:` å‰ç¼€ã€‚ä½ å¯ä»¥åœ¨ `spring.config.locationå’Œspring.config.extra-location` å±æ€§ä¸­ä½¿ç”¨è¿™ä¸ªå‰ç¼€ï¼Œä¹Ÿå¯ä»¥åœ¨ [`spring.config.import`](https://springdoc.cn/spring-boot/features.html#features.external-config.files.importing) å£°æ˜ä¸­ä½¿ç”¨ã€‚
 
 
 
 
 
-Èç¹ûÄãÏëºöÂÔËùÓĞµÄ `ConfigDataLocationNotFoundExceptions` ²¢Ê¼ÖÕ¼ÌĞøÆô¶¯ÄãµÄÓ¦ÓÃ³ÌĞò£¬Äã¿ÉÒÔÊ¹ÓÃ `spring.config.on-not-found` ÊôĞÔ¡£ Ê¹ÓÃ `SpringApplication.setDefaultProperties(..)` »òÊ¹ÓÃÏµÍ³/»·¾³±äÁ¿½«ÆäÖµÉèÖÃÎª `ignore`¡£
+ä¾‹å¦‚ï¼Œ`spring.config.import` å€¼ä¸º `optional:file:./myconfig.properties` å…è®¸ä½ çš„åº”ç”¨ç¨‹åºå¯åŠ¨ï¼Œå³ä½¿ `myconfig.properties` æ–‡ä»¶ä¸¢å¤±ã€‚
+
+
+
+
+
+å¦‚æœä½ æƒ³å¿½ç•¥æ‰€æœ‰çš„ `ConfigDataLocationNotFoundExceptions` å¹¶å§‹ç»ˆç»§ç»­å¯åŠ¨ä½ çš„åº”ç”¨ç¨‹åºï¼Œä½ å¯ä»¥ä½¿ç”¨ `spring.config.on-not-found` å±æ€§ã€‚ ä½¿ç”¨ `SpringApplication.setDefaultProperties(..)` æˆ–ä½¿ç”¨ç³»ç»Ÿ/ç¯å¢ƒå˜é‡å°†å…¶å€¼è®¾ç½®ä¸º `ignore`ã€‚
 
 
 
@@ -695,86 +695,48 @@ $ java -jar myproject.jar --spring.config.location=\
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.wildcard-locations)2.3.2\. Í¨Åä·ûµØÖ·
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.wildcard-locations)2.3.2\. é€šé…ç¬¦åœ°å€
 
 
 
-Èç¹ûÒ»¸öÅäÖÃÎÄ¼şµÄÎ»ÖÃÔÚ×îºóÒ»¸öÂ·¾¶¶ÎÖĞ°üº¬ `*` ×Ö·û£¬Ëü¾Í±»ÈÏÎªÊÇÒ»¸öÍ¨Åä·ûÎ»ÖÃ¡£ Í¨Åä·ûÔÚ¼ÓÔØÅäÖÃÊ±±»À©Õ¹£¬Òò´Ë£¬Ö±½ÓµÄ×ÓÄ¿Â¼Ò²±»¼ì²é¡£ Í¨Åä·ûÎ»ÖÃÔÚKubernetesÕâÖÖÓĞ¶à¸öÅäÖÃÊôĞÔµÄÀ´Ô´µÄ»·¾³ÖĞÌØ±ğÓĞÓÃ¡£
-
-
-
-
-
-ÀıÈç£¬Èç¹ûÄãÓĞÒ»Ğ©RedisÅäÖÃºÍÒ»Ğ©MySQLÅäÖÃ£¬Äã¿ÉÄÜÏë°ÑÕâÁ½²¿·ÖÅäÖÃ·Ö¿ª£¬Í¬Ê±ÒªÇóÕâÁ½²¿·Ö¶¼´æÔÚÓÚÒ»¸ö `application.properties` ÎÄ¼şÖĞ¡£
+å¦‚æœä¸€ä¸ªé…ç½®æ–‡ä»¶çš„ä½ç½®åœ¨æœ€åä¸€ä¸ªè·¯å¾„æ®µä¸­åŒ…å« `*` å­—ç¬¦ï¼Œå®ƒå°±è¢«è®¤ä¸ºæ˜¯ä¸€ä¸ªé€šé…ç¬¦ä½ç½®ã€‚ é€šé…ç¬¦åœ¨åŠ è½½é…ç½®æ—¶è¢«æ‰©å±•ï¼Œå› æ­¤ï¼Œç›´æ¥çš„å­ç›®å½•ä¹Ÿè¢«æ£€æŸ¥ã€‚ é€šé…ç¬¦ä½ç½®åœ¨Kubernetesè¿™ç§æœ‰å¤šä¸ªé…ç½®å±æ€§çš„æ¥æºçš„ç¯å¢ƒä¸­ç‰¹åˆ«æœ‰ç”¨ã€‚
 
 
 
 
 
-Õâ¿ÉÄÜ»áµ¼ÖÂÁ½¸ö¶ÀÁ¢µÄ `application.properties` ÎÄ¼ş¹ÒÔØÔÚ²»Í¬µÄÎ»ÖÃ£¬Èç `/config/redis/application.properties` ºÍ `/config/mysql/application.properties` ¡£ ÔÚÕâÖÖÇé¿öÏÂ£¬ÓĞÒ»¸öÍ¨Åä·ûÎ»ÖÃ `config/*/` £¬½«µ¼ÖÂÁ½¸öÎÄ¼ş±»´¦Àí¡£
+ä¾‹å¦‚ï¼Œå¦‚æœä½ æœ‰ä¸€äº›Redisé…ç½®å’Œä¸€äº›MySQLé…ç½®ï¼Œä½ å¯èƒ½æƒ³æŠŠè¿™ä¸¤éƒ¨åˆ†é…ç½®åˆ†å¼€ï¼ŒåŒæ—¶è¦æ±‚è¿™ä¸¤éƒ¨åˆ†éƒ½å­˜åœ¨äºä¸€ä¸ª `application.properties` æ–‡ä»¶ä¸­ã€‚
 
 
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Spring Boot½« `config/*/` ÁĞÈëÄ¬ÈÏËÑË÷Î»ÖÃ¡£ ÕâÒâÎ¶×ÅÄãµÄjarÖ®ÍâµÄ `/config` Ä¿Â¼µÄËùÓĞ×ÓÄ¿Â¼¶¼»á±»ËÑË÷µ½¡£
+è¿™å¯èƒ½ä¼šå¯¼è‡´ä¸¤ä¸ªç‹¬ç«‹çš„ `application.properties` æ–‡ä»¶æŒ‚è½½åœ¨ä¸åŒçš„ä½ç½®ï¼Œå¦‚ `/config/redis/application.properties` å’Œ `/config/mysql/application.properties` ã€‚ åœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œæœ‰ä¸€ä¸ªé€šé…ç¬¦ä½ç½® `config/*/` ï¼Œå°†å¯¼è‡´ä¸¤ä¸ªæ–‡ä»¶è¢«å¤„ç†ã€‚
 
 
 
 
 
-Äã¿ÉÒÔÔÚ `spring.config.location` ºÍ `spring.config.extra-location` ÊôĞÔÖĞÊ¹ÓÃÍ¨Åä·ûÎ»ÖÃ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒSpring Bootå°† `config/*/` åˆ—å…¥é»˜è®¤æœç´¢ä½ç½®ã€‚ è¿™æ„å‘³ç€ä½ çš„jarä¹‹å¤–çš„ `/config` ç›®å½•çš„æ‰€æœ‰å­ç›®å½•éƒ½ä¼šè¢«æœç´¢åˆ°ã€‚
 
 
 
 
 
-|  | Í¨Åä·ûÎ»ÖÃ±ØĞëÖ»°üº¬Ò»¸ö `*` ²¢ÒÔ `*/` ½áÎ²£¬ÓÃÓÚËÑË÷ÊôÓÚÄ¿Â¼µÄÎ»ÖÃ£¬»ò `*/<filename>` ÓÃÓÚËÑË÷ÊôÓÚÎÄ¼şµÄÎ»ÖÃ¡£ ´øÓĞÍ¨Åä·ûµÄÎ»ÖÃ½«¸ù¾İÎÄ¼şÃûµÄ¾ø¶ÔÂ·¾¶°´×ÖÄ¸Ë³ĞòÅÅĞò¡£ |
+ä½ å¯ä»¥åœ¨ `spring.config.location` å’Œ `spring.config.extra-location` å±æ€§ä¸­ä½¿ç”¨é€šé…ç¬¦ä½ç½®ã€‚
+
+
+
+
+
+|  | é€šé…ç¬¦ä½ç½®å¿…é¡»åªåŒ…å«ä¸€ä¸ª `*` å¹¶ä»¥ `*/` ç»“å°¾ï¼Œç”¨äºæœç´¢å±äºç›®å½•çš„ä½ç½®ï¼Œæˆ– `*/<filename>` ç”¨äºæœç´¢å±äºæ–‡ä»¶çš„ä½ç½®ã€‚ å¸¦æœ‰é€šé…ç¬¦çš„ä½ç½®å°†æ ¹æ®æ–‡ä»¶åçš„ç»å¯¹è·¯å¾„æŒ‰å­—æ¯é¡ºåºæ’åºã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | Í¨Åä·ûÎ»ÖÃÖ»¶ÔÍâ²¿Ä¿Â¼Æğ×÷ÓÃ¡£ Äã²»ÄÜÔÚ `classpath:` Î»ÖÃÖĞÊ¹ÓÃÍ¨Åä·û¡£ |
-| --- | --- |
-
-
-
-
-
-
-
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.profile-specific)2.3.3\. ÌØ¶¨ÎÄ¼ş£¨Profile Specific Files£©
-
-
-
-³ıÁË `application` ÊôĞÔÎÄ¼ş£¬Spring Boot»¹½«³¢ÊÔÊ¹ÓÃ `application-{profile}` µÄÃüÃû¹ßÀı¼ÓÔØprofileÌØ¶¨µÄÎÄ¼ş¡£ ÀıÈç£¬Èç¹ûÄãµÄÓ¦ÓÃ³ÌĞò¼¤»îÁËÃûÎª `prod` µÄÅäÖÃÎÄ¼ş£¨`spring.profiles.active=prod`£©²¢Ê¹ÓÃYAMLÎÄ¼ş£¬ÄÇÃ´ `application.yml` ºÍ `application-prod.yml` ¶¼½«±»¿¼ÂÇ¡£
-
-
-
-
-
-ÌØ¶¨ÎÄ¼ş(`profiles`)µÄÊôĞÔÓë±ê×¼µÄ `application.properties` µÄÎ»ÖÃÏàÍ¬£¬ÌØ¶¨ÎÄ¼ş×ÜÊÇÓÅÏÈÓÚ·ÇÌØ¶¨ÎÄ¼ş¡£ Èç¹ûÖ¸¶¨ÁË¼¸¸öÅäÖÃÎÄ¼ş£¬Ôò²ÉÓÃ×îºóÊ¤³öµÄ²ßÂÔ¡£ ÀıÈç£¬Èç¹ûÅäÖÃÎÄ¼ş `prod,live` ÊÇÓÉ `spring.profiles.active` ÊôĞÔÖ¸¶¨µÄ£¬`application-prod.properties` ÖĞµÄÖµ¿ÉÒÔ±» `application-live.properties` ÖĞµÄÖµËù¸²¸Ç¡£
-
-
-
-
-
-|  | ×îºóÊ¤³öµÄ²ßÂÔÊÊÓÃÓÚ[location group](https://springdoc.cn/spring-boot/features.html#features.external-config.files.location-groups)¼¶±ğ¡£ `spring.config.location` µÄ `classpath:/cfg/,classpath:/ext/` ½«²»»áÓĞÓë `classpath:/cfg/;classpath:/ext/` ÏàÍ¬µÄ¸²¸Ç¹æÔò¡£ÀıÈç£¬ÄÃÎÒÃÇÉÏÃæµÄ `prod,live` Àı×ÓÀ´Ëµ£¬ÎÒÃÇ¿ÉÄÜÓĞÒÔÏÂÎÄ¼ş¡£ /cfg  application-live.properties/ext  application-live.properties  application-prod.properties µ±ÎÒÃÇÓĞÒ»¸ö `spring.config.location` Îª `classpath:/cfg/,classpath:/ext/` Ê±£¬ÎÒÃÇ»áÔÚËùÓĞ `/ext` ÎÄ¼şÖ®Ç°´¦ÀíËùÓĞ `/cfg` ÎÄ¼ş¡£1.  `/cfg/application-live.properties`        2.  `/ext/application-prod.properties`        3.  `/ext/application-live.properties`        µ±ÎÒÃÇÓÃ `classpath:/cfg/;classpath:/ext/` ´úÌæÊ±£¨ÓÃ `;` ·Ö¸ô·û£©£¬ÎÒÃÇÔÚÍ¬Ò»¼¶±ğ´¦Àí `/cfg` ºÍ `/ext` ¡£1.  `/ext/application-prod.properties`        2.  `/cfg/application-live.properties`        3.  `/ext/application-live.properties`         |
-| --- | --- |
-
-
-
-
-
-`Environment` ÓĞÒ»×éÄ¬ÈÏµÄÅäÖÃÎÄ¼ş£¨Ä¬ÈÏÎª `[default]` £©£¬Èç¹ûÃ»ÓĞÉèÖÃ»î¶¯µÄÅäÖÃÎÄ¼ş£¬¾Í»áÊ¹ÓÃÕâĞ©ÅäÖÃÎÄ¼ş¡£ »»¾ä»°Ëµ£¬Èç¹ûÃ»ÓĞÃ÷È·¼¤»îµÄÅäÖÃÎÄ¼ş£¬ÄÇÃ´¾Í»á¿¼ÂÇÀ´×Ô `application-default` µÄÊôĞÔ¡£
-
-
-
-
-
-|  | ÊôĞÔÎÄ¼şÖ»±»¼ÓÔØÒ»´Î¡£ Èç¹ûÄãÒÑ¾­Ö±½Ó[µ¼ÈëÁË](https://springdoc.cn/spring-boot/features.html#features.external-config.files.importing)Ò»¸öÅäÖÃÎÄ¼şµÄÌØ¶¨ÊôĞÔÎÄ¼ş£¬ÄÇÃ´Ëü½«²»»á±»µÚ¶ş´Îµ¼Èë¡£ |
+|  | é€šé…ç¬¦ä½ç½®åªå¯¹å¤–éƒ¨ç›®å½•èµ·ä½œç”¨ã€‚ ä½ ä¸èƒ½åœ¨ `classpath:` ä½ç½®ä¸­ä½¿ç”¨é€šé…ç¬¦ã€‚ |
 | --- | --- |
 
 
@@ -783,17 +745,55 @@ $ java -jar myproject.jar --spring.config.location=\
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.importing)2.3.4\. µ¼Èë¶îÍâµÄÊı¾İ
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.profile-specific)2.3.3\. ç‰¹å®šæ–‡ä»¶ï¼ˆProfile Specific Filesï¼‰
 
 
 
-application properties ÖĞ¿ÉÒÔÊ¹ÓÃ `spring.config.import` ÊôĞÔ´ÓÆäËûµØ·½µ¼Èë¸ü¶àµÄÅäÖÃÊı¾İ¡£ µ¼ÈëÔÚ±»·¢ÏÖÊ±±»´¦Àí£¬²¢±»ÊÓÎª½ô½Ó×ÅÉùÃ÷µ¼ÈëµÄÎÄ¼şÏÂÃæ²åÈëµÄ¶îÍâÎÄ¼ş¡£
+é™¤äº† `application` å±æ€§æ–‡ä»¶ï¼ŒSpring Bootè¿˜å°†å°è¯•ä½¿ç”¨ `application-{profile}` çš„å‘½åæƒ¯ä¾‹åŠ è½½profileç‰¹å®šçš„æ–‡ä»¶ã€‚ ä¾‹å¦‚ï¼Œå¦‚æœä½ çš„åº”ç”¨ç¨‹åºæ¿€æ´»äº†åä¸º `prod` çš„é…ç½®æ–‡ä»¶ï¼ˆ`spring.profiles.active=prod`ï¼‰å¹¶ä½¿ç”¨YAMLæ–‡ä»¶ï¼Œé‚£ä¹ˆ `application.yml` å’Œ `application-prod.yml` éƒ½å°†è¢«è€ƒè™‘ã€‚
 
 
 
 
 
-ÀıÈç£¬Äã¿ÉÄÜÔÚÄãµÄ classpath `application.properties` ÎÄ¼şÖĞÓĞÒÔÏÂÄÚÈİ¡£
+ç‰¹å®šæ–‡ä»¶(`profiles`)çš„å±æ€§ä¸æ ‡å‡†çš„ `application.properties` çš„ä½ç½®ç›¸åŒï¼Œç‰¹å®šæ–‡ä»¶æ€»æ˜¯ä¼˜å…ˆäºéç‰¹å®šæ–‡ä»¶ã€‚ å¦‚æœæŒ‡å®šäº†å‡ ä¸ªé…ç½®æ–‡ä»¶ï¼Œåˆ™é‡‡ç”¨æœ€åèƒœå‡ºçš„ç­–ç•¥ã€‚ ä¾‹å¦‚ï¼Œå¦‚æœé…ç½®æ–‡ä»¶ `prod,live` æ˜¯ç”± `spring.profiles.active` å±æ€§æŒ‡å®šçš„ï¼Œ`application-prod.properties` ä¸­çš„å€¼å¯ä»¥è¢« `application-live.properties` ä¸­çš„å€¼æ‰€è¦†ç›–ã€‚
+
+
+
+
+
+|  | æœ€åèƒœå‡ºçš„ç­–ç•¥é€‚ç”¨äº[location group](https://springdoc.cn/spring-boot/features.html#features.external-config.files.location-groups)çº§åˆ«ã€‚ `spring.config.location` çš„ `classpath:/cfg/,classpath:/ext/` å°†ä¸ä¼šæœ‰ä¸ `classpath:/cfg/;classpath:/ext/` ç›¸åŒçš„è¦†ç›–è§„åˆ™ã€‚ä¾‹å¦‚ï¼Œæ‹¿æˆ‘ä»¬ä¸Šé¢çš„ `prod,live` ä¾‹å­æ¥è¯´ï¼Œæˆ‘ä»¬å¯èƒ½æœ‰ä»¥ä¸‹æ–‡ä»¶ã€‚ /cfg  application-live.properties/ext  application-live.properties  application-prod.properties å½“æˆ‘ä»¬æœ‰ä¸€ä¸ª `spring.config.location` ä¸º `classpath:/cfg/,classpath:/ext/` æ—¶ï¼Œæˆ‘ä»¬ä¼šåœ¨æ‰€æœ‰ `/ext` æ–‡ä»¶ä¹‹å‰å¤„ç†æ‰€æœ‰ `/cfg` æ–‡ä»¶ã€‚1.  `/cfg/application-live.properties`        2.  `/ext/application-prod.properties`        3.  `/ext/application-live.properties`        å½“æˆ‘ä»¬ç”¨ `classpath:/cfg/;classpath:/ext/` ä»£æ›¿æ—¶ï¼ˆç”¨ `;` åˆ†éš”ç¬¦ï¼‰ï¼Œæˆ‘ä»¬åœ¨åŒä¸€çº§åˆ«å¤„ç† `/cfg` å’Œ `/ext` ã€‚1.  `/ext/application-prod.properties`        2.  `/cfg/application-live.properties`        3.  `/ext/application-live.properties`         |
+| --- | --- |
+
+
+
+
+
+`Environment` æœ‰ä¸€ç»„é»˜è®¤çš„é…ç½®æ–‡ä»¶ï¼ˆé»˜è®¤ä¸º `[default]` ï¼‰ï¼Œå¦‚æœæ²¡æœ‰è®¾ç½®æ´»åŠ¨çš„é…ç½®æ–‡ä»¶ï¼Œå°±ä¼šä½¿ç”¨è¿™äº›é…ç½®æ–‡ä»¶ã€‚ æ¢å¥è¯è¯´ï¼Œå¦‚æœæ²¡æœ‰æ˜ç¡®æ¿€æ´»çš„é…ç½®æ–‡ä»¶ï¼Œé‚£ä¹ˆå°±ä¼šè€ƒè™‘æ¥è‡ª `application-default` çš„å±æ€§ã€‚
+
+
+
+
+
+|  | å±æ€§æ–‡ä»¶åªè¢«åŠ è½½ä¸€æ¬¡ã€‚ å¦‚æœä½ å·²ç»ç›´æ¥[å¯¼å…¥äº†](https://springdoc.cn/spring-boot/features.html#features.external-config.files.importing)ä¸€ä¸ªé…ç½®æ–‡ä»¶çš„ç‰¹å®šå±æ€§æ–‡ä»¶ï¼Œé‚£ä¹ˆå®ƒå°†ä¸ä¼šè¢«ç¬¬äºŒæ¬¡å¯¼å…¥ã€‚ |
+| --- | --- |
+
+
+
+
+
+
+
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.importing)2.3.4\. å¯¼å…¥é¢å¤–çš„æ•°æ®
+
+
+
+application properties ä¸­å¯ä»¥ä½¿ç”¨ `spring.config.import` å±æ€§ä»å…¶ä»–åœ°æ–¹å¯¼å…¥æ›´å¤šçš„é…ç½®æ•°æ®ã€‚ å¯¼å…¥åœ¨è¢«å‘ç°æ—¶è¢«å¤„ç†ï¼Œå¹¶è¢«è§†ä¸ºç´§æ¥ç€å£°æ˜å¯¼å…¥çš„æ–‡ä»¶ä¸‹é¢æ’å…¥çš„é¢å¤–æ–‡ä»¶ã€‚
+
+
+
+
+
+ä¾‹å¦‚ï¼Œä½ å¯èƒ½åœ¨ä½ çš„ classpath `application.properties` æ–‡ä»¶ä¸­æœ‰ä»¥ä¸‹å†…å®¹ã€‚
 
 
 
@@ -821,13 +821,13 @@ spring.config.import=optional:file:./dev.properties
 
 
 
-Õâ½«´¥·¢µ¼Èëµ±Ç°Ä¿Â¼ÏÂµÄ `dev.properties` ÎÄ¼ş£¨Èç¹û´æÔÚÕâÑùµÄÎÄ¼ş£©¡£ µ¼ÈëµÄ `dev.properties` ÖĞµÄÖµ½«ÓÅÏÈÓÚ´¥·¢µ¼ÈëµÄÎÄ¼ş¡£ ÔÚÉÏÃæµÄÀı×ÓÖĞ£¬`dev.properties` ¿ÉÒÔ½« `spring.application.name` ÖØĞÂ¶¨ÒåÎªÒ»¸ö²»Í¬µÄÖµ¡£
+è¿™å°†è§¦å‘å¯¼å…¥å½“å‰ç›®å½•ä¸‹çš„ `dev.properties` æ–‡ä»¶ï¼ˆå¦‚æœå­˜åœ¨è¿™æ ·çš„æ–‡ä»¶ï¼‰ã€‚ å¯¼å…¥çš„ `dev.properties` ä¸­çš„å€¼å°†ä¼˜å…ˆäºè§¦å‘å¯¼å…¥çš„æ–‡ä»¶ã€‚ åœ¨ä¸Šé¢çš„ä¾‹å­ä¸­ï¼Œ`dev.properties` å¯ä»¥å°† `spring.application.name` é‡æ–°å®šä¹‰ä¸ºä¸€ä¸ªä¸åŒçš„å€¼ã€‚
 
 
 
 
 
-Ò»¸öµ¼ÈëÖ»»á±»µ¼ÈëÒ»´Î£¬ÎŞÂÛËü±»ÉùÃ÷¶àÉÙ´Î¡£ Ò»¸öµ¼ÈëÔÚproperties/yamlÎÄ¼şÄÚµÄµ¥¸öÎÄ¼şÖĞ±»¶¨ÒåµÄË³Ğò²¢²»ÖØÒª¡£ ÀıÈç£¬ÏÂÃæµÄÁ½¸öÀı×Ó²úÉúÏàÍ¬µÄ½á¹û¡£
+ä¸€ä¸ªå¯¼å…¥åªä¼šè¢«å¯¼å…¥ä¸€æ¬¡ï¼Œæ— è®ºå®ƒè¢«å£°æ˜å¤šå°‘æ¬¡ã€‚ ä¸€ä¸ªå¯¼å…¥åœ¨properties/yamlæ–‡ä»¶å†…çš„å•ä¸ªæ–‡ä»¶ä¸­è¢«å®šä¹‰çš„é¡ºåºå¹¶ä¸é‡è¦ã€‚ ä¾‹å¦‚ï¼Œä¸‹é¢çš„ä¸¤ä¸ªä¾‹å­äº§ç”Ÿç›¸åŒçš„ç»“æœã€‚
 
 
 
@@ -877,26 +877,26 @@ spring.config.import=my.properties
 
 
 
-ÔÚÉÏÊöÁ½¸öÀı×ÓÖĞ£¬`my.properties` ÎÄ¼şµÄÖµ½«ÓÅÏÈÓÚ´¥·¢Æäµ¼ÈëµÄÎÄ¼ş¡£
+åœ¨ä¸Šè¿°ä¸¤ä¸ªä¾‹å­ä¸­ï¼Œ`my.properties` æ–‡ä»¶çš„å€¼å°†ä¼˜å…ˆäºè§¦å‘å…¶å¯¼å…¥çš„æ–‡ä»¶ã€‚
 
 
 
 
 
-ÔÚÒ»¸öµ¥Ò»µÄ `spring.config.import` ÊôĞÔÏÂ¿ÉÒÔÖ¸¶¨¶à¸öÎ»ÖÃ¡£ Î»ÖÃ½«°´ÕÕËüÃÇ±»¶¨ÒåµÄË³Ğò±»´¦Àí£¬ºóÀ´µÄµ¼Èë½«±»ÓÅÏÈ´¦Àí¡£
+åœ¨ä¸€ä¸ªå•ä¸€çš„ `spring.config.import` å±æ€§ä¸‹å¯ä»¥æŒ‡å®šå¤šä¸ªä½ç½®ã€‚ ä½ç½®å°†æŒ‰ç…§å®ƒä»¬è¢«å®šä¹‰çš„é¡ºåºè¢«å¤„ç†ï¼Œåæ¥çš„å¯¼å…¥å°†è¢«ä¼˜å…ˆå¤„ç†ã€‚
 
 
 
 
 
-|  | ÔÚÊÊµ±µÄÊ±ºò£¬[ÌØ¶¨ÅäÖÃÎÄ¼şµÄ±äÌå](https://springdoc.cn/spring-boot/features.html#features.external-config.files.profile-specific)Ò²±»¿¼ÂÇµ¼Èë¡£ ÉÏÃæµÄÀı×Ó½«µ¼Èë `my.properties` ÒÔ¼°ÈÎºÎ `my-<profile>.properties` ±äÌå¡£ |
+|  | åœ¨é€‚å½“çš„æ—¶å€™ï¼Œ[ç‰¹å®šé…ç½®æ–‡ä»¶çš„å˜ä½“](https://springdoc.cn/spring-boot/features.html#features.external-config.files.profile-specific)ä¹Ÿè¢«è€ƒè™‘å¯¼å…¥ã€‚ ä¸Šé¢çš„ä¾‹å­å°†å¯¼å…¥ `my.properties` ä»¥åŠä»»ä½• `my-<profile>.properties` å˜ä½“ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | Spring Boot Ìá¹©ÁË¿É²å°ÎµÄAPI£¨²å¼ş£©£¬ÔÊĞíÖ§³Ö¸÷ÖÖ²»Í¬µÄÎ»ÖÃµØÖ·¡£ Ä¬ÈÏÇé¿öÏÂ£¬Äã¿ÉÒÔµ¼ÈëJava Properties¡¢YAMLºÍ ¡°[ÅäÖÃÊ÷](https://springdoc.cn/spring-boot/features.html#features.external-config.files.configtree)¡± ¡£µÚÈı·½jar¿ÉÒÔÌá¹©¶ÔÆäËû¼¼ÊõµÄÖ§³Ö£¨²»ÒªÇó±ØĞëÊÇ±¾µØÎÄ¼ş£©¡£ ÀıÈç£¬Äã¿ÉÒÔÏëÏóÅäÖÃÊı¾İÀ´×ÔÍâ²¿´æ´¢£¬ÈçConsul¡¢Apache ZooKeeper»òNetflix Archaius£¨°üÀ¨Nacos£©¡£Èç¹ûÄãÏëÖ§³ÖÄã×Ô¼ºµÄÎ»ÖÃ£¨ÊµÏÖ×Ô¼º¶¨ÒåµÄÅäÖÃ¼ÓÔØ£©£¬Çë²ÎÔÄ `org.springframework.boot.context.config` °üÖĞµÄ `ConfigDataLocationResolver` ºÍ `ConfigDataLoader` Àà¡£ |
+|  | Spring Boot æä¾›äº†å¯æ’æ‹”çš„APIï¼ˆæ’ä»¶ï¼‰ï¼Œå…è®¸æ”¯æŒå„ç§ä¸åŒçš„ä½ç½®åœ°å€ã€‚ é»˜è®¤æƒ…å†µä¸‹ï¼Œä½ å¯ä»¥å¯¼å…¥Java Propertiesã€YAMLå’Œ â€œ[é…ç½®æ ‘](https://springdoc.cn/spring-boot/features.html#features.external-config.files.configtree)â€ ã€‚ç¬¬ä¸‰æ–¹jarå¯ä»¥æä¾›å¯¹å…¶ä»–æŠ€æœ¯çš„æ”¯æŒï¼ˆä¸è¦æ±‚å¿…é¡»æ˜¯æœ¬åœ°æ–‡ä»¶ï¼‰ã€‚ ä¾‹å¦‚ï¼Œä½ å¯ä»¥æƒ³è±¡é…ç½®æ•°æ®æ¥è‡ªå¤–éƒ¨å­˜å‚¨ï¼Œå¦‚Consulã€Apache ZooKeeperæˆ–Netflix Archaiusï¼ˆåŒ…æ‹¬Nacosï¼‰ã€‚å¦‚æœä½ æƒ³æ”¯æŒä½ è‡ªå·±çš„ä½ç½®ï¼ˆå®ç°è‡ªå·±å®šä¹‰çš„é…ç½®åŠ è½½ï¼‰ï¼Œè¯·å‚é˜… `org.springframework.boot.context.config` åŒ…ä¸­çš„ `ConfigDataLocationResolver` å’Œ `ConfigDataLoader` ç±»ã€‚ |
 | --- | --- |
 
 
@@ -905,17 +905,17 @@ spring.config.import=my.properties
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.importing-extensionless)2.3.5\. µ¼ÈëÎŞÀ©Õ¹ÃûµÄÎÄ¼ş
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.importing-extensionless)2.3.5\. å¯¼å…¥æ— æ‰©å±•åçš„æ–‡ä»¶
 
 
 
-ÓĞĞ©ÔÆÆ½Ì¨²»ÄÜÎª¾í×°ÎÄ¼ş£¨volume mounted files£©Ìí¼ÓÎÄ¼şÀ©Õ¹Ãû¡£ Òªµ¼ÈëÕâĞ©ÎŞÀ©Õ¹ÃûµÄÎÄ¼ş£¬ÄãĞèÒª¸øSpring BootÒ»¸öÌáÊ¾£¬ÒÔ±ãËüÖªµÀÈçºÎ¼ÓÔØËüÃÇ¡£ Äã¿ÉÒÔÍ¨¹ı°ÑÀ©Õ¹ÃûÌáÊ¾·ÅÔÚ·½À¨ºÅÀïÀ´×öµ½ÕâÒ»µã¡£
+æœ‰äº›äº‘å¹³å°ä¸èƒ½ä¸ºå·è£…æ–‡ä»¶ï¼ˆvolume mounted filesï¼‰æ·»åŠ æ–‡ä»¶æ‰©å±•åã€‚ è¦å¯¼å…¥è¿™äº›æ— æ‰©å±•åçš„æ–‡ä»¶ï¼Œä½ éœ€è¦ç»™Spring Bootä¸€ä¸ªæç¤ºï¼Œä»¥ä¾¿å®ƒçŸ¥é“å¦‚ä½•åŠ è½½å®ƒä»¬ã€‚ ä½ å¯ä»¥é€šè¿‡æŠŠæ‰©å±•åæç¤ºæ”¾åœ¨æ–¹æ‹¬å·é‡Œæ¥åšåˆ°è¿™ä¸€ç‚¹ã€‚
 
 
 
 
 
-ÀıÈç£¬¼ÙÉèÄãÓĞÒ»¸ö `/etc/config/myconfig` ÎÄ¼ş£¬ÄãÏ£ÍûÒÔyamlĞÎÊ½µ¼Èë¡£ Äã¿ÉÒÔÓÃÏÂÃæµÄ·½·¨´ÓÄãµÄ `application.properties` ÖĞµ¼ÈëËü¡£
+ä¾‹å¦‚ï¼Œå‡è®¾ä½ æœ‰ä¸€ä¸ª `/etc/config/myconfig` æ–‡ä»¶ï¼Œä½ å¸Œæœ›ä»¥yamlå½¢å¼å¯¼å…¥ã€‚ ä½ å¯ä»¥ç”¨ä¸‹é¢çš„æ–¹æ³•ä»ä½ çš„ `application.properties` ä¸­å¯¼å…¥å®ƒã€‚
 
 
 
@@ -944,43 +944,43 @@ spring.config.import=file:/etc/config/myconfig[.yaml]
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.configtree)2.3.6\. Ê¹ÓÃÅäÖÃÊ÷£¨Configuration Trees£©
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.configtree)2.3.6\. ä½¿ç”¨é…ç½®æ ‘ï¼ˆConfiguration Treesï¼‰
 
 
 
-µ±ÔÚÔÆÆ½Ì¨£¨ÈçKubernetes£©ÉÏÔËĞĞÓ¦ÓÃ³ÌĞòÊ±£¬Äã¾­³£ĞèÒª¶ÁÈ¡Æ½Ì¨Ìá¹©µÄÅäÖÃÖµ¡£ ½«»·¾³±äÁ¿ÓÃÓÚ´ËÀàÄ¿µÄ²¢²»ÉÙ¼û£¬µ«Õâ¿ÉÄÜÓĞÈ±µã£¬ÌØ±ğÊÇÈç¹û¸ÃÖµÊÇ secret µÄ¡£
-
-
-
-
-
-×÷Îª»·¾³±äÁ¿µÄÌæ´ú·½°¸£¬Ğí¶àÔÆÆ½Ì¨ÏÖÔÚÔÊĞíÄã½«ÅäÖÃÓ³Éäµ½¹ÒÔØµÄÊı¾İ¾í¡£ ÀıÈç£¬Kubernetes ¿ÉÒÔ¾í¹ÒÔØ [`ConfigMaps`](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#populate-a-volume-with-data-stored-in-a-configmap) ºÍ [`Secrets`](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-files-from-a-pod)¡£
+å½“åœ¨äº‘å¹³å°ï¼ˆå¦‚Kubernetesï¼‰ä¸Šè¿è¡Œåº”ç”¨ç¨‹åºæ—¶ï¼Œä½ ç»å¸¸éœ€è¦è¯»å–å¹³å°æä¾›çš„é…ç½®å€¼ã€‚ å°†ç¯å¢ƒå˜é‡ç”¨äºæ­¤ç±»ç›®çš„å¹¶ä¸å°‘è§ï¼Œä½†è¿™å¯èƒ½æœ‰ç¼ºç‚¹ï¼Œç‰¹åˆ«æ˜¯å¦‚æœè¯¥å€¼æ˜¯ secret çš„ã€‚
 
 
 
 
 
-¿ÉÒÔÊ¹ÓÃÁ½ÖÖ³£¼ûµÄ volume ¹ÒÔØÄ£Ê½£º
+ä½œä¸ºç¯å¢ƒå˜é‡çš„æ›¿ä»£æ–¹æ¡ˆï¼Œè®¸å¤šäº‘å¹³å°ç°åœ¨å…è®¸ä½ å°†é…ç½®æ˜ å°„åˆ°æŒ‚è½½çš„æ•°æ®å·ã€‚ ä¾‹å¦‚ï¼ŒKubernetes å¯ä»¥å·æŒ‚è½½ [`ConfigMaps`](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#populate-a-volume-with-data-stored-in-a-configmap) å’Œ [`Secrets`](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-files-from-a-pod)ã€‚
 
 
 
 
 
-1.  Ò»¸öÎÄ¼ş°üº¬Ò»Ì×ÍêÕûµÄÊôĞÔ£¨Í¨³£Ğ´³ÉYAML£©¡£
-
-2.  ¶à¸öÎÄ¼ş±»Ğ´ÈëÒ»¸öÄ¿Â¼Ê÷ÖĞ£¬ÎÄ¼şÃû³ÉÎª ¡®key¡¯£¬ÄÚÈİ³ÉÎª ¡®value¡¯¡£
+å¯ä»¥ä½¿ç”¨ä¸¤ç§å¸¸è§çš„ volume æŒ‚è½½æ¨¡å¼ï¼š
 
 
 
 
 
-¶ÔÓÚµÚÒ»ÖÖÇé¿ö£¬Äã¿ÉÒÔÊ¹ÓÃ `spring.config.import` Ö±½Óµ¼ÈëYAML»òÊôĞÔÎÄ¼ş£¬[ÈçÉÏËùÊö](https://springdoc.cn/spring-boot/features.html#features.external-config.files.importing)¡£ ¶ÔÓÚµÚ¶şÖÖÇé¿ö£¬ÄãĞèÒªÊ¹ÓÃ `configtree:` Ç°×º£¬ÒÔ±ãSpring BootÖªµÀËüĞèÒª½«ËùÓĞÎÄ¼ş×÷ÎªÊôĞÔ¹«¿ª¡£
+1.  ä¸€ä¸ªæ–‡ä»¶åŒ…å«ä¸€å¥—å®Œæ•´çš„å±æ€§ï¼ˆé€šå¸¸å†™æˆYAMLï¼‰ã€‚
+
+2.  å¤šä¸ªæ–‡ä»¶è¢«å†™å…¥ä¸€ä¸ªç›®å½•æ ‘ä¸­ï¼Œæ–‡ä»¶åæˆä¸º â€˜keyâ€™ï¼Œå†…å®¹æˆä¸º â€˜valueâ€™ã€‚
 
 
 
 
 
-¾Ù¸öÀı×Ó£¬ÈÃÎÒÃÇÏëÏóÒ»ÏÂ£¬KubernetesÒÑ¾­¹ÒÔØÁËÒÔÏÂvolume¡£
+å¯¹äºç¬¬ä¸€ç§æƒ…å†µï¼Œä½ å¯ä»¥ä½¿ç”¨ `spring.config.import` ç›´æ¥å¯¼å…¥YAMLæˆ–å±æ€§æ–‡ä»¶ï¼Œ[å¦‚ä¸Šæ‰€è¿°](https://springdoc.cn/spring-boot/features.html#features.external-config.files.importing)ã€‚ å¯¹äºç¬¬äºŒç§æƒ…å†µï¼Œä½ éœ€è¦ä½¿ç”¨ `configtree:` å‰ç¼€ï¼Œä»¥ä¾¿Spring BootçŸ¥é“å®ƒéœ€è¦å°†æ‰€æœ‰æ–‡ä»¶ä½œä¸ºå±æ€§å…¬å¼€ã€‚
+
+
+
+
+
+ä¸¾ä¸ªä¾‹å­ï¼Œè®©æˆ‘ä»¬æƒ³è±¡ä¸€ä¸‹ï¼ŒKuberneteså·²ç»æŒ‚è½½äº†ä»¥ä¸‹volumeã€‚
 
 
 
@@ -1000,13 +1000,13 @@ spring.config.import=file:/etc/config/myconfig[.yaml]
 
 
 
-`username` ÎÄ¼şµÄÄÚÈİ½«ÊÇÒ»¸öÅäÖÃÖµ£¬¶ø `password` µÄÄÚÈİ½«ÊÇÒ»¸ö secret¡£
+`username` æ–‡ä»¶çš„å†…å®¹å°†æ˜¯ä¸€ä¸ªé…ç½®å€¼ï¼Œè€Œ `password` çš„å†…å®¹å°†æ˜¯ä¸€ä¸ª secretã€‚
 
 
 
 
 
-Òªµ¼ÈëÕâĞ©ÊôĞÔ£¬Äã¿ÉÒÔÔÚÄãµÄ `application.properties` »ò `application.yaml` ÎÄ¼şÖĞÌí¼ÓÒÔÏÂÄÚÈİ¡£
+è¦å¯¼å…¥è¿™äº›å±æ€§ï¼Œä½ å¯ä»¥åœ¨ä½ çš„ `application.properties` æˆ– `application.yaml` æ–‡ä»¶ä¸­æ·»åŠ ä»¥ä¸‹å†…å®¹ã€‚
 
 
 
@@ -1033,40 +1033,40 @@ spring.config.import=optional:configtree:/etc/config/
 
 
 
-È»ºóÄã¿ÉÒÔ´Ó `Environment` ÖĞÒÔ³£¹æ·½Ê½·ÃÎÊ»ò×¢Èë `myapp.username` ºÍ `myapp.password` ÊôĞÔ¡£
+ç„¶åä½ å¯ä»¥ä» `Environment` ä¸­ä»¥å¸¸è§„æ–¹å¼è®¿é—®æˆ–æ³¨å…¥ `myapp.username` å’Œ `myapp.password` å±æ€§ã€‚
 
 
 
 
 
-|  | ÅäÖÃÊ÷ÏÂµÄÎÄ¼ş¼Ğ¹¹³ÉÁËÊôĞÔÃû³Æ¡£ ÔÚÉÏÃæµÄÀı×ÓÖĞ£¬ÎªÁË·ÃÎÊÊôĞÔÎª `username` ºÍ `password`£¬Äã¿ÉÒÔ½« `spring.config.import` ÉèÖÃÎª `optional:configtree:/etc/config/myapp` ¡£ |
+|  | é…ç½®æ ‘ä¸‹çš„æ–‡ä»¶å¤¹æ„æˆäº†å±æ€§åç§°ã€‚ åœ¨ä¸Šé¢çš„ä¾‹å­ä¸­ï¼Œä¸ºäº†è®¿é—®å±æ€§ä¸º `username` å’Œ `password`ï¼Œä½ å¯ä»¥å°† `spring.config.import` è®¾ç½®ä¸º `optional:configtree:/etc/config/myapp` ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | ´øÓĞµã·ûºÅµÄÎÄ¼şÃûÒ²»á±»ÕıÈ·Ó³Éä¡£ ÀıÈç£¬ÔÚÉÏÃæµÄÀı×ÓÖĞ£¬`/etc/config` ÖĞÃûÎª `myapp.username` µÄÎÄ¼şÔÚ `Environment` ÖĞµÄÊôĞÔÃû½«»áÊÇ `myapp.username` ¡£ |
+|  | å¸¦æœ‰ç‚¹ç¬¦å·çš„æ–‡ä»¶åä¹Ÿä¼šè¢«æ­£ç¡®æ˜ å°„ã€‚ ä¾‹å¦‚ï¼Œåœ¨ä¸Šé¢çš„ä¾‹å­ä¸­ï¼Œ`/etc/config` ä¸­åä¸º `myapp.username` çš„æ–‡ä»¶åœ¨ `Environment` ä¸­çš„å±æ€§åå°†ä¼šæ˜¯ `myapp.username` ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | ÅäÖÃÊ÷µÄÖµ¿ÉÒÔ±»°ó¶¨µ½×Ö·û´® `String` ºÍ `byte[]` ÀàĞÍ£¬ÕâÈ¡¾öÓÚÔ¤ÆÚµÄÄÚÈİ¡£ |
+|  | é…ç½®æ ‘çš„å€¼å¯ä»¥è¢«ç»‘å®šåˆ°å­—ç¬¦ä¸² `String` å’Œ `byte[]` ç±»å‹ï¼Œè¿™å–å†³äºé¢„æœŸçš„å†…å®¹ã€‚ |
 | --- | --- |
 
 
 
 
 
-Èç¹ûÄãÓĞ¶à¸öÅäÖÃÊ÷Òª´ÓÍ¬Ò»¸ö¸¸ÎÄ¼ş¼Ğµ¼Èë£¬Äã¿ÉÒÔÊ¹ÓÃÍ¨Åä·û¿ì½İ·½Ê½¡£ ÈÎºÎÒÔ `/*/` ½áÎ²µÄ `configtree:` Î»ÖÃ½«µ¼ÈëËùÓĞÖ±½ÓµÄ×ÓÎÄ¼ş¼Ğ×÷ÎªÅäÖÃÊ÷¡£
+å¦‚æœä½ æœ‰å¤šä¸ªé…ç½®æ ‘è¦ä»åŒä¸€ä¸ªçˆ¶æ–‡ä»¶å¤¹å¯¼å…¥ï¼Œä½ å¯ä»¥ä½¿ç”¨é€šé…ç¬¦å¿«æ·æ–¹å¼ã€‚ ä»»ä½•ä»¥ `/*/` ç»“å°¾çš„ `configtree:` ä½ç½®å°†å¯¼å…¥æ‰€æœ‰ç›´æ¥çš„å­æ–‡ä»¶å¤¹ä½œä¸ºé…ç½®æ ‘ã€‚
 
 
 
 
 
-ÀıÈç£¬¸ø¶¨ÒÔÏÂvolume£º
+ä¾‹å¦‚ï¼Œç»™å®šä»¥ä¸‹volumeï¼š
 
 
 
@@ -1091,7 +1091,7 @@ spring.config.import=optional:configtree:/etc/config/
 
 
 
-Äã¿ÉÒÔÊ¹ÓÃ `configtree:/etc/config/*/` ×÷Îªµ¼ÈëÎ»ÖÃ¡£
+ä½ å¯ä»¥ä½¿ç”¨ `configtree:/etc/config/*/` ä½œä¸ºå¯¼å…¥ä½ç½®ã€‚
 
 
 
@@ -1118,20 +1118,20 @@ spring.config.import=optional:configtree:/etc/config/*/
 
 
 
-Õâ½«Ìí¼Ó `db.username`¡¢`db.password`¡¢`mq.username` ºÍ `mq.password` ÊôĞÔ¡£
+è¿™å°†æ·»åŠ  `db.username`ã€`db.password`ã€`mq.username` å’Œ `mq.password` å±æ€§ã€‚
 
 
 
 
 
-|  | Ê¹ÓÃÍ¨Åä·û¼ÓÔØµÄÄ¿Â¼ÊÇ°´×ÖÄ¸Ë³ĞòÅÅÁĞµÄ¡£ Èç¹ûÄãĞèÒªÒ»¸ö²»Í¬µÄË³Ğò£¬ÄÇÃ´ÄãÓ¦¸Ã°ÑÃ¿¸öÎ»ÖÃ×÷ÎªÒ»¸öµ¥¶ÀµÄµ¼ÈëÁĞ³ö¡£ |
+|  | ä½¿ç”¨é€šé…ç¬¦åŠ è½½çš„ç›®å½•æ˜¯æŒ‰å­—æ¯é¡ºåºæ’åˆ—çš„ã€‚ å¦‚æœä½ éœ€è¦ä¸€ä¸ªä¸åŒçš„é¡ºåºï¼Œé‚£ä¹ˆä½ åº”è¯¥æŠŠæ¯ä¸ªä½ç½®ä½œä¸ºä¸€ä¸ªå•ç‹¬çš„å¯¼å…¥åˆ—å‡ºã€‚ |
 | --- | --- |
 
 
 
 
 
-ÅäÖÃÊ÷Ò²¿ÉÓÃÓÚDocker secret¡£ µ±Docker swarm·şÎñ±»ÊÚÓè¶ÔsecretµÄ·ÃÎÊÈ¨Ê±£¬¸Ãsecret»á±»×°ÔØµ½ÈİÆ÷ÖĞ¡£ ÀıÈç£¬Èç¹ûÒ»¸öÃûÎª `db.password` µÄsecret¡£±»¹ÒÔØÔÚ `/run/secrets/` µÄÎ»ÖÃ£¬Äã¿ÉÒÔÓÃÒÔÏÂ·½·¨ÈÃ `db.password` ¶ÔSpring»·¾³¿ÉÓÃ¡£
+é…ç½®æ ‘ä¹Ÿå¯ç”¨äºDocker secretã€‚ å½“Docker swarmæœåŠ¡è¢«æˆäºˆå¯¹secretçš„è®¿é—®æƒæ—¶ï¼Œè¯¥secretä¼šè¢«è£…è½½åˆ°å®¹å™¨ä¸­ã€‚ ä¾‹å¦‚ï¼Œå¦‚æœä¸€ä¸ªåä¸º `db.password` çš„secretã€‚è¢«æŒ‚è½½åœ¨ `/run/secrets/` çš„ä½ç½®ï¼Œä½ å¯ä»¥ç”¨ä»¥ä¸‹æ–¹æ³•è®© `db.password` å¯¹Springç¯å¢ƒå¯ç”¨ã€‚
 
 
 
@@ -1160,17 +1160,17 @@ spring.config.import=optional:configtree:/run/secrets/
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.property-placeholders)2.3.7\. ÊôĞÔÕ¼Î»·û
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.property-placeholders)2.3.7\. å±æ€§å ä½ç¬¦
 
 
 
-`application.properties` ºÍ `application.yml` ÖĞµÄÖµÔÚÊ¹ÓÃÊ±Í¨¹ıÏÖÓĞµÄ `Environment` ¹ıÂË£¬ËùÒÔÄã¿ÉÒÔ²Î¿¼ÒÔÇ°¶¨ÒåµÄÖµ£¨ÀıÈç£¬À´×ÔÏµÍ³ÊôĞÔ»ò»·¾³±äÁ¿£©¡£ ±ê×¼µÄ `${name}` ÊôĞÔÕ¼Î»·ûÓï·¨¿ÉÒÔÓÃÔÚÒ»¸öÖµµÄÈÎºÎµØ·½¡£ ÊôĞÔÕ¼Î»·ûÒ²¿ÉÒÔÖ¸¶¨Ò»¸öÄ¬ÈÏÖµ£¬Ê¹ÓÃ `:` À´·Ö¸ôÄ¬ÈÏÖµºÍÊôĞÔÃû³Æ£¬ÀıÈç `${name:default}` ¡£
+`application.properties` å’Œ `application.yml` ä¸­çš„å€¼åœ¨ä½¿ç”¨æ—¶é€šè¿‡ç°æœ‰çš„ `Environment` è¿‡æ»¤ï¼Œæ‰€ä»¥ä½ å¯ä»¥å‚è€ƒä»¥å‰å®šä¹‰çš„å€¼ï¼ˆä¾‹å¦‚ï¼Œæ¥è‡ªç³»ç»Ÿå±æ€§æˆ–ç¯å¢ƒå˜é‡ï¼‰ã€‚ æ ‡å‡†çš„ `${name}` å±æ€§å ä½ç¬¦è¯­æ³•å¯ä»¥ç”¨åœ¨ä¸€ä¸ªå€¼çš„ä»»ä½•åœ°æ–¹ã€‚ å±æ€§å ä½ç¬¦ä¹Ÿå¯ä»¥æŒ‡å®šä¸€ä¸ªé»˜è®¤å€¼ï¼Œä½¿ç”¨ `:` æ¥åˆ†éš”é»˜è®¤å€¼å’Œå±æ€§åç§°ï¼Œä¾‹å¦‚ `${name:default}` ã€‚
 
 
 
 
 
-ÏÂÃæµÄÀı×ÓÏÔÊ¾ÁË´øÄ¬ÈÏÖµºÍ²»´øÄ¬ÈÏÖµµÄÕ¼Î»·ûµÄÊ¹ÓÃÇé¿ö¡£
+ä¸‹é¢çš„ä¾‹å­æ˜¾ç¤ºäº†å¸¦é»˜è®¤å€¼å’Œä¸å¸¦é»˜è®¤å€¼çš„å ä½ç¬¦çš„ä½¿ç”¨æƒ…å†µã€‚
 
 
 
@@ -1198,20 +1198,20 @@ app.description=${app.name} is a Spring Boot application written by ${username:U
 
 
 
-¼ÙÉè `username` ÊôĞÔÃ»ÓĞÔÚÆäËûµØ·½ÉèÖÃ£¬`app.description` µÄÖµ½«ÊÇ `MyApp is a Spring Boot application written by Unknown`¡£
+å‡è®¾ `username` å±æ€§æ²¡æœ‰åœ¨å…¶ä»–åœ°æ–¹è®¾ç½®ï¼Œ`app.description` çš„å€¼å°†æ˜¯ `MyApp is a Spring Boot application written by Unknown`ã€‚
 
 
 
 
 
-|  | ÄãÓ¦¸ÃÊ¼ÖÕÊ¹ÓÃÕ¼Î»·ûÖĞµÄÊôĞÔÃû³ÆµÄ¹æ·¶ĞÎÊ½£¨½öÊ¹ÓÃĞ¡Ğ´×ÖÄ¸µÄkebab-case£©À´ÒıÓÃËüÃÇ¡£ Õâ½«ÔÊĞíSpring BootÊ¹ÓÃÓë[¿íËÉ°ó¶¨](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) `@ConfigurationProperties` Ê±ÏàÍ¬µÄÂß¼­¡£ÀıÈç£¬`${demo.item-price}` ½«´Ó `application.properties` ÎÄ¼şÖĞ»ñÈ¡ `demo.item-price` ºÍ `demo.itemPrice` ĞÎÊ½µÄÊôĞÔ£¬ÒÔ¼°´ÓÏµÍ³»·¾³ÖĞ»ñÈ¡ `DEMO_ITEMPRICE` ¡£ Èç¹ûÄãÓÃ `${demo.itemPrice}` µÄ»°£¬ `demo.item-price` ºÍ `DEMO_ITEMPRICE` ¾Í²»»á±»¿¼ÂÇ¡£ |
+|  | ä½ åº”è¯¥å§‹ç»ˆä½¿ç”¨å ä½ç¬¦ä¸­çš„å±æ€§åç§°çš„è§„èŒƒå½¢å¼ï¼ˆä»…ä½¿ç”¨å°å†™å­—æ¯çš„kebab-caseï¼‰æ¥å¼•ç”¨å®ƒä»¬ã€‚ è¿™å°†å…è®¸Spring Bootä½¿ç”¨ä¸[å®½æ¾ç»‘å®š](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) `@ConfigurationProperties` æ—¶ç›¸åŒçš„é€»è¾‘ã€‚ä¾‹å¦‚ï¼Œ`${demo.item-price}` å°†ä» `application.properties` æ–‡ä»¶ä¸­è·å– `demo.item-price` å’Œ `demo.itemPrice` å½¢å¼çš„å±æ€§ï¼Œä»¥åŠä»ç³»ç»Ÿç¯å¢ƒä¸­è·å– `DEMO_ITEMPRICE` ã€‚ å¦‚æœä½ ç”¨ `${demo.itemPrice}` çš„è¯ï¼Œ `demo.item-price` å’Œ `DEMO_ITEMPRICE` å°±ä¸ä¼šè¢«è€ƒè™‘ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | ÄãÒ²¿ÉÒÔÊ¹ÓÃÕâÖÖ¼¼ÊõÀ´´´½¨ÏÖÓĞSpring BootÊôĞÔµÄ ¡°short¡± ±äÌå¡£ ÏêÇéÇë²Î¼û_[howto.html](https://springdoc.cn/spring-boot/howto.html#howto.properties-and-configuration.short-command-line-arguments)_µÄ·½·¨¡£ |
+|  | ä½ ä¹Ÿå¯ä»¥ä½¿ç”¨è¿™ç§æŠ€æœ¯æ¥åˆ›å»ºç°æœ‰Spring Bootå±æ€§çš„ â€œshortâ€ å˜ä½“ã€‚ è¯¦æƒ…è¯·å‚è§_[howto.html](https://springdoc.cn/spring-boot/howto.html#howto.properties-and-configuration.short-command-line-arguments)_çš„æ–¹æ³•ã€‚ |
 | --- | --- |
 
 
@@ -1220,23 +1220,23 @@ app.description=${app.name} is a Spring Boot application written by ${username:U
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.multi-document)2.3.8\. Ê¹ÓÃ¶àÎÄµµÎÄ¼ş£¨Working with Multi-Document Files£©
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.multi-document)2.3.8\. ä½¿ç”¨å¤šæ–‡æ¡£æ–‡ä»¶ï¼ˆWorking with Multi-Document Filesï¼‰
 
 
 
-Spring BootÔÊĞíÄã½«Ò»¸öÎïÀíÎÄ¼ş·Ö³É¶à¸öÂß¼­ÎÄ¼ş£¬Ã¿¸öÎÄ¼ş¶¼ÊÇ¶ÀÁ¢Ìí¼ÓµÄ¡£ ÎÄ¼şÊÇ°´Ë³Ğò´¦ÀíµÄ£¬´ÓÉÏµ½ÏÂ¡£ ºóÃæµÄÎÄ¼ş¿ÉÒÔ¸²¸ÇÇ°ÃæÎÄ¼şÖĞ¶¨ÒåµÄÊôĞÔ¡£
-
-
-
-
-
-¶ÔÓÚ `application.yml` ÎÄ¼ş£¬Ê¹ÓÃ±ê×¼µÄYAML¶àÎÄµµÓï·¨¡£ Èı¸öÁ¬ĞøµÄÁ¬×Ö·û£¨`---`£©´ú±íÒ»¸öÎÄ¼şµÄ½áÊø£¬ºÍÏÂÒ»¸öÎÄ¼şµÄ¿ªÊ¼¡£
+Spring Bootå…è®¸ä½ å°†ä¸€ä¸ªç‰©ç†æ–‡ä»¶åˆ†æˆå¤šä¸ªé€»è¾‘æ–‡ä»¶ï¼Œæ¯ä¸ªæ–‡ä»¶éƒ½æ˜¯ç‹¬ç«‹æ·»åŠ çš„ã€‚ æ–‡ä»¶æ˜¯æŒ‰é¡ºåºå¤„ç†çš„ï¼Œä»ä¸Šåˆ°ä¸‹ã€‚ åé¢çš„æ–‡ä»¶å¯ä»¥è¦†ç›–å‰é¢æ–‡ä»¶ä¸­å®šä¹‰çš„å±æ€§ã€‚
 
 
 
 
 
-ÀıÈç£¬ÏÂÃæµÄÎÄ¼şÓĞÁ½¸öÂß¼­ÎÄµµ¡£
+å¯¹äº `application.yml` æ–‡ä»¶ï¼Œä½¿ç”¨æ ‡å‡†çš„YAMLå¤šæ–‡æ¡£è¯­æ³•ã€‚ ä¸‰ä¸ªè¿ç»­çš„è¿å­—ç¬¦ï¼ˆ`---`ï¼‰ä»£è¡¨ä¸€ä¸ªæ–‡ä»¶çš„ç»“æŸï¼Œå’Œä¸‹ä¸€ä¸ªæ–‡ä»¶çš„å¼€å§‹ã€‚
+
+
+
+
+
+ä¾‹å¦‚ï¼Œä¸‹é¢çš„æ–‡ä»¶æœ‰ä¸¤ä¸ªé€»è¾‘æ–‡æ¡£ã€‚
 
 
 
@@ -1263,7 +1263,7 @@ spring:
 
 
 
-¶ÔÓÚ `application.properties` ÎÄ¼ş£¬Ò»¸öÌØÊâµÄ `#---` »ò `!---` ×¢ÊÍ±»ÓÃÀ´±ê¼ÇÎÄ¼şµÄ·Ö¸î¡£
+å¯¹äº `application.properties` æ–‡ä»¶ï¼Œä¸€ä¸ªç‰¹æ®Šçš„ `#---` æˆ– `!---` æ³¨é‡Šè¢«ç”¨æ¥æ ‡è®°æ–‡ä»¶çš„åˆ†å‰²ã€‚
 
 
 
@@ -1284,21 +1284,21 @@ spring.config.activate.on-cloud-platform=kubernetes
 
 
 
-|  | properties ÎÄ¼şµÄ·Ö¸ô·û²»ÄÜÓĞÈÎºÎÇ°µ¼¿Õ°×£¬²¢ÇÒ±ØĞëÕıºÃÓĞÈı¸öÁ¬×Ö·û¡£ ·Ö¸ô·ûµÄÇ°ºóÁ½ĞĞ²»ÄÜÊÇÏàÍ¬µÄ×¢ÊÍÇ°×º¡£ |
+|  | properties æ–‡ä»¶çš„åˆ†éš”ç¬¦ä¸èƒ½æœ‰ä»»ä½•å‰å¯¼ç©ºç™½ï¼Œå¹¶ä¸”å¿…é¡»æ­£å¥½æœ‰ä¸‰ä¸ªè¿å­—ç¬¦ã€‚ åˆ†éš”ç¬¦çš„å‰åä¸¤è¡Œä¸èƒ½æ˜¯ç›¸åŒçš„æ³¨é‡Šå‰ç¼€ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | ¶àÎÄµµÊôĞÔÎÄ¼şÍ¨³£Óë¼¤»îÊôĞÔÒ»ÆğÊ¹ÓÃ£¬Èç `spring.config.activated.on-profile`¡£ Ïê¼û[ÏÂÒ»½Ú](https://springdoc.cn/spring-boot/features.html#features.external-config.files.activation-properties)¡£ |
+|  | å¤šæ–‡æ¡£å±æ€§æ–‡ä»¶é€šå¸¸ä¸æ¿€æ´»å±æ€§ä¸€èµ·ä½¿ç”¨ï¼Œå¦‚ `spring.config.activated.on-profile`ã€‚ è¯¦è§[ä¸‹ä¸€èŠ‚](https://springdoc.cn/spring-boot/features.html#features.external-config.files.activation-properties)ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | ¶àÎÄµµÊôĞÔÎÄ¼ş²»ÄÜÍ¨¹ıÊ¹ÓÃ `@PropertySource` »ò `@TestPropertySource` ×¢½â¼ÓÔØ¡£ |
+|  | å¤šæ–‡æ¡£å±æ€§æ–‡ä»¶ä¸èƒ½é€šè¿‡ä½¿ç”¨ `@PropertySource` æˆ– `@TestPropertySource` æ³¨è§£åŠ è½½ã€‚ |
 | --- | --- |
 
 
@@ -1307,35 +1307,35 @@ spring.config.activate.on-cloud-platform=kubernetes
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.activation-properties)2.3.9\. ¼¤»îÊôĞÔ£¨Activation Properties£©
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.files.activation-properties)2.3.9\. æ¿€æ´»å±æ€§ï¼ˆActivation Propertiesï¼‰
 
 
 
-ÓĞÊ±£¬Ö»ÔÚÂú×ãÄ³Ğ©Ìõ¼şÊ±¼¤»îÒ»×éÌØ¶¨µÄÊôĞÔÊÇºÜÓĞÓÃµÄ¡£ ÀıÈç£¬Äã¿ÉÄÜÓĞÒ»Ğ©ÊôĞÔÖ»ÓĞÔÚÌØ¶¨µÄÅäÖÃÎÄ¼ş±»¼¤»îÊ±²ÅÏà¹Ø¡£
-
-
-
-
-
-Äã¿ÉÒÔÊ¹ÓÃ `spring.config.activation.*` ÓĞÌõ¼şµØ¼¤»îÒ»¸öÊôĞÔÎÄ¼ş¡£
+æœ‰æ—¶ï¼Œåªåœ¨æ»¡è¶³æŸäº›æ¡ä»¶æ—¶æ¿€æ´»ä¸€ç»„ç‰¹å®šçš„å±æ€§æ˜¯å¾ˆæœ‰ç”¨çš„ã€‚ ä¾‹å¦‚ï¼Œä½ å¯èƒ½æœ‰ä¸€äº›å±æ€§åªæœ‰åœ¨ç‰¹å®šçš„é…ç½®æ–‡ä»¶è¢«æ¿€æ´»æ—¶æ‰ç›¸å…³ã€‚
 
 
 
 
 
-¼¤»îÊôĞÔÓĞÈçÏÂ¡£
+ä½ å¯ä»¥ä½¿ç”¨ `spring.config.activation.*` æœ‰æ¡ä»¶åœ°æ¿€æ´»ä¸€ä¸ªå±æ€§æ–‡ä»¶ã€‚
+
+
+
+
+
+æ¿€æ´»å±æ€§æœ‰å¦‚ä¸‹ã€‚
 
 
 
 <caption>Table 2\. activation properties</caption><colgroup><col><col></colgroup>
-| ÊôĞÔ | ËµÃ÷ |
+| å±æ€§ | è¯´æ˜ |
 | --- | --- |
-| `on-profile` | Ò»¸ö±ØĞëÓëÖ®Æ¥ÅäµÄÅäÖÃÎÄ¼ş±í´ïÊ½£¬ÒÔÊ¹ÎÄ¼ş´¦ÓÚ»î¶¯×´Ì¬£¨¼¤»îÖ¸¶¨µÄÅäÖÃÎÄ¼şÊ±ÓĞĞ§£©¡£ |
-| `on-cloud-platform` | ±ØĞë¼ì²âµ½µÄ `CloudPlatform`£¬ÒÔÊ¹ÎÄ¼ş´¦ÓÚ»î¶¯×´Ì¬¡££¨ÔÆÆ½Ì¨×´Ì¬ÏÂÓĞĞ§£© |
+| `on-profile` | ä¸€ä¸ªå¿…é¡»ä¸ä¹‹åŒ¹é…çš„é…ç½®æ–‡ä»¶è¡¨è¾¾å¼ï¼Œä»¥ä½¿æ–‡ä»¶å¤„äºæ´»åŠ¨çŠ¶æ€ï¼ˆæ¿€æ´»æŒ‡å®šçš„é…ç½®æ–‡ä»¶æ—¶æœ‰æ•ˆï¼‰ã€‚ |
+| `on-cloud-platform` | å¿…é¡»æ£€æµ‹åˆ°çš„ `CloudPlatform`ï¼Œä»¥ä½¿æ–‡ä»¶å¤„äºæ´»åŠ¨çŠ¶æ€ã€‚ï¼ˆäº‘å¹³å°çŠ¶æ€ä¸‹æœ‰æ•ˆï¼‰ |
 
 
 
-ÀıÈç£¬ÏÂÃæÖ¸¶¨µÚ¶ş¸öÎÄ¼şÖ»ÓĞÔÚKubernetesÉÏÔËĞĞÊ±²ÅÓĞĞ§£¬²¢ÇÒÖ»ÓĞÔÚ ¡°prod¡± »ò ¡°staging¡± ÅäÖÃÎÄ¼ş´¦ÓÚ»î¶¯×´Ì¬Ê±²ÅÓĞĞ§¡£
+ä¾‹å¦‚ï¼Œä¸‹é¢æŒ‡å®šç¬¬äºŒä¸ªæ–‡ä»¶åªæœ‰åœ¨Kubernetesä¸Šè¿è¡Œæ—¶æ‰æœ‰æ•ˆï¼Œå¹¶ä¸”åªæœ‰åœ¨ â€œprodâ€ æˆ– â€œstagingâ€ é…ç½®æ–‡ä»¶å¤„äºæ´»åŠ¨çŠ¶æ€æ—¶æ‰æœ‰æ•ˆã€‚
 
 
 
@@ -1370,46 +1370,46 @@ myotherprop=sometimes-set
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.external-config.encrypting)2.4\. ¼ÓÃÜÅäÖÃÊôĞÔ£¨Encrypting Properties£©
+### [](https://springdoc.cn/spring-boot/features.html#features.external-config.encrypting)2.4\. åŠ å¯†é…ç½®å±æ€§ï¼ˆEncrypting Propertiesï¼‰
 
 
 
-Spring BootÃ»ÓĞÎª¼ÓÃÜÊôĞÔÖµÌá¹©ÈÎºÎÄÚÖÃÖ§³Ö£¬µ«ËüÌá¹©ÁËHookm£¬¿ÉÒÔÓÃÀ´ĞŞ¸ÄSpring `Environment` ÖĞ°üº¬µÄÖµ¡£ `EnvironmentPostProcessor` ½Ó¿ÚÔÊĞíÄãÔÚÓ¦ÓÃ³ÌĞòÆô¶¯Ç°²Ù×÷ `Environment`¡£ ²Î¼û[howto.html](https://springdoc.cn/spring-boot/howto.html#howto.application.customize-the-environment-or-application-context)ÒÔÁË½âÏêÇé¡£
-
-
-
-
-
-Èç¹ûÄãĞèÒªÒ»ÖÖ°²È«µÄ·½Ê½À´´æ´¢Æ¾Ö¤ºÍÃÜÂë£¬ [Spring Cloud Vault](https://cloud.spring.io/spring-cloud-vault/) ÏîÄ¿Ìá¹©ÁË¶ÔÔÚ [HashiCorp Vault](https://www.vaultproject.io/)ÖĞ´æ´¢Íâ²¿»¯ÅäÖÃµÄÖ§³Ö¡£
+Spring Bootæ²¡æœ‰ä¸ºåŠ å¯†å±æ€§å€¼æä¾›ä»»ä½•å†…ç½®æ”¯æŒï¼Œä½†å®ƒæä¾›äº†Hookmï¼Œå¯ä»¥ç”¨æ¥ä¿®æ”¹Spring `Environment` ä¸­åŒ…å«çš„å€¼ã€‚ `EnvironmentPostProcessor` æ¥å£å…è®¸ä½ åœ¨åº”ç”¨ç¨‹åºå¯åŠ¨å‰æ“ä½œ `Environment`ã€‚ å‚è§[howto.html](https://springdoc.cn/spring-boot/howto.html#howto.application.customize-the-environment-or-application-context)ä»¥äº†è§£è¯¦æƒ…ã€‚
 
 
 
 
 
-
-
-### [](https://springdoc.cn/spring-boot/features.html#features.external-config.yaml)2.5\. Ê¹ÓÃ YAML
-
-
-
-[YAML](https://yaml.org/) ÊÇJSONµÄ³¬¼¯£¬Òò´ËÊÇÖ¸¶¨·Ö²ãÅäÖÃÊı¾İµÄ·½±ã¸ñÊ½¡£ Ö»ÒªÄãµÄclasspathÉÏÓĞ [SnakeYAML](https://github.com/snakeyaml/snakeyaml) ¿â£¬`SpringApplication` Àà¾Í»á×Ô¶¯Ö§³ÖYAML×÷ÎªpropertiesµÄÌæ´úÆ·¡£
+å¦‚æœä½ éœ€è¦ä¸€ç§å®‰å…¨çš„æ–¹å¼æ¥å­˜å‚¨å‡­è¯å’Œå¯†ç ï¼Œ [Spring Cloud Vault](https://cloud.spring.io/spring-cloud-vault/) é¡¹ç›®æä¾›äº†å¯¹åœ¨ [HashiCorp Vault](https://www.vaultproject.io/)ä¸­å­˜å‚¨å¤–éƒ¨åŒ–é…ç½®çš„æ”¯æŒã€‚
 
 
 
 
 
-|  | Èç¹ûÄãÊ¹ÓÃ ¡°Starter¡±£¬SnakeYAML½«ÓÉ `spring-boot-starter` ×Ô¶¯Ìá¹©¡£ |
+
+
+### [](https://springdoc.cn/spring-boot/features.html#features.external-config.yaml)2.5\. ä½¿ç”¨ YAML
+
+
+
+[YAML](https://yaml.org/) æ˜¯JSONçš„è¶…é›†ï¼Œå› æ­¤æ˜¯æŒ‡å®šåˆ†å±‚é…ç½®æ•°æ®çš„æ–¹ä¾¿æ ¼å¼ã€‚ åªè¦ä½ çš„classpathä¸Šæœ‰ [SnakeYAML](https://github.com/snakeyaml/snakeyaml) åº“ï¼Œ`SpringApplication` ç±»å°±ä¼šè‡ªåŠ¨æ”¯æŒYAMLä½œä¸ºpropertiesçš„æ›¿ä»£å“ã€‚
+
+
+
+
+
+|  | å¦‚æœä½ ä½¿ç”¨ â€œStarterâ€ï¼ŒSnakeYAMLå°†ç”± `spring-boot-starter` è‡ªåŠ¨æä¾›ã€‚ |
 | --- | --- |
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.yaml.mapping-to-properties)2.5.1\. ½«YAMLÓ³Éäµ½Properties
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.yaml.mapping-to-properties)2.5.1\. å°†YAMLæ˜ å°„åˆ°Properties
 
 
 
-YAML ÎÄµµĞèÒª´ÓÆä·Ö²ã¸ñÊ½×ª»»Îª¿ÉÓë Spring `Environment` Ò»ÆğÊ¹ÓÃµÄ±âÆ½½á¹¹¡£ ÀıÈç£¬¿¼ÂÇÏÂÃæÕâ¸öYAMLÎÄµµ¡£
+YAML æ–‡æ¡£éœ€è¦ä»å…¶åˆ†å±‚æ ¼å¼è½¬æ¢ä¸ºå¯ä¸ Spring `Environment` ä¸€èµ·ä½¿ç”¨çš„æ‰å¹³ç»“æ„ã€‚ ä¾‹å¦‚ï¼Œè€ƒè™‘ä¸‹é¢è¿™ä¸ªYAMLæ–‡æ¡£ã€‚
 
 
 
@@ -1433,7 +1433,7 @@ environments:
 
 
 
-ÎªÁË´Ó `Environment` ÖĞ·ÃÎÊÕâĞ©ÊôĞÔ£¬ËüÃÇ½«±»±âÆ½»¯£¬ÈçÏÂËùÊ¾¡£
+ä¸ºäº†ä» `Environment` ä¸­è®¿é—®è¿™äº›å±æ€§ï¼Œå®ƒä»¬å°†è¢«æ‰å¹³åŒ–ï¼Œå¦‚ä¸‹æ‰€ç¤ºã€‚
 
 
 
@@ -1454,7 +1454,7 @@ environments.prod.name=My Cool App
 
 
 
-Í¬ÑùµØ£¬YAMLÖĞµÄÁĞ±íÒ²ĞèÒª½øĞĞ±âÆ½»¯´¦Àí¡£ ËüÃÇ±»±íÊ¾Îª´øÓĞ `[index]` Ë÷ÒıµÄkey¡£ ÀıÈç£¬¿¼ÂÇÏÂÃæµÄYAML¡£
+åŒæ ·åœ°ï¼ŒYAMLä¸­çš„åˆ—è¡¨ä¹Ÿéœ€è¦è¿›è¡Œæ‰å¹³åŒ–å¤„ç†ã€‚ å®ƒä»¬è¢«è¡¨ç¤ºä¸ºå¸¦æœ‰ `[index]` ç´¢å¼•çš„keyã€‚ ä¾‹å¦‚ï¼Œè€ƒè™‘ä¸‹é¢çš„YAMLã€‚
 
 
 
@@ -1475,7 +1475,7 @@ my:
 
 
 
-Ç°ÃæµÄÀı×Ó½«±»×ª»¯ÎªÈçÏÂÊôĞÔ¡£
+å‰é¢çš„ä¾‹å­å°†è¢«è½¬åŒ–ä¸ºå¦‚ä¸‹å±æ€§ã€‚
 
 
 
@@ -1494,14 +1494,14 @@ my.servers[1]=another.example.com
 
 
 
-|  | Ê¹ÓÃ `[index]` ·ûºÅµÄÊôĞÔ¿ÉÒÔÊ¹ÓÃSpring BootµÄ `Binder` Àà°ó¶¨µ½Java `List` »ò `Set` ¶ÔÏó¡£ ¸ü¶àÏ¸½Ú¼ûÏÂÃæµÄ ¡°[ÀàĞÍ°²È«µÄÅäÖÃÊôĞÔ](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties)¡± ²¿·Ö¡£ |
+|  | ä½¿ç”¨ `[index]` ç¬¦å·çš„å±æ€§å¯ä»¥ä½¿ç”¨Spring Bootçš„ `Binder` ç±»ç»‘å®šåˆ°Java `List` æˆ– `Set` å¯¹è±¡ã€‚ æ›´å¤šç»†èŠ‚è§ä¸‹é¢çš„ â€œ[ç±»å‹å®‰å…¨çš„é…ç½®å±æ€§](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties)â€ éƒ¨åˆ†ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | YAMLÎÄ¼ş²»ÄÜÍ¨¹ıÊ¹ÓÃ `@PropertySource` »ò `@TestPropertySource` ×¢½âÀ´¼ÓÔØ¡£ ËùÒÔ£¬ÔÚÄãĞèÒªÒÔÕâÖÖ·½Ê½¼ÓÔØÖµµÄÇé¿öÏÂ£¬ÄãĞèÒªÊ¹ÓÃÒ»¸ö properties ÎÄ¼ş¡£ |
+|  | YAMLæ–‡ä»¶ä¸èƒ½é€šè¿‡ä½¿ç”¨ `@PropertySource` æˆ– `@TestPropertySource` æ³¨è§£æ¥åŠ è½½ã€‚ æ‰€ä»¥ï¼Œåœ¨ä½ éœ€è¦ä»¥è¿™ç§æ–¹å¼åŠ è½½å€¼çš„æƒ…å†µä¸‹ï¼Œä½ éœ€è¦ä½¿ç”¨ä¸€ä¸ª properties æ–‡ä»¶ã€‚ |
 | --- | --- |
 
 
@@ -1510,27 +1510,27 @@ my.servers[1]=another.example.com
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.yaml.directly-loading)2.5.2\. Ö±½Ó¼ÓÔØYAML
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.yaml.directly-loading)2.5.2\. ç›´æ¥åŠ è½½YAML
 
 
 
-Spring FrameworkÌá¹©ÁËÁ½¸ö·½±ãµÄÀà£¬¿ÉÒÔÓÃÀ´¼ÓÔØYAMLÎÄµµ¡£ `YamlPropertiesFactoryBean` ½«YAML×÷Îª `Properties` ¼ÓÔØ£¬`YamlMapFactoryBean` ½«YAML×÷Îª `Map` ¼ÓÔØ¡£
-
-
-
-
-
-Èç¹ûÄãÏë°ÑYAML¼ÓÔØÎªSpringµÄ `PropertySource` £¬ÄãÒ²¿ÉÒÔÊ¹ÓÃ `YamlPropertySourceLoader` Àà¡£
+Spring Frameworkæä¾›äº†ä¸¤ä¸ªæ–¹ä¾¿çš„ç±»ï¼Œå¯ä»¥ç”¨æ¥åŠ è½½YAMLæ–‡æ¡£ã€‚ `YamlPropertiesFactoryBean` å°†YAMLä½œä¸º `Properties` åŠ è½½ï¼Œ`YamlMapFactoryBean` å°†YAMLä½œä¸º `Map` åŠ è½½ã€‚
 
 
 
 
 
+å¦‚æœä½ æƒ³æŠŠYAMLåŠ è½½ä¸ºSpringçš„ `PropertySource` ï¼Œä½ ä¹Ÿå¯ä»¥ä½¿ç”¨ `YamlPropertySourceLoader` ç±»ã€‚
 
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.external-config.random-values)2.6\. ÅäÖÃËæ»úÖµ
+
+
+
+
+
+### [](https://springdoc.cn/spring-boot/features.html#features.external-config.random-values)2.6\. é…ç½®éšæœºå€¼
 
 
 
@@ -1540,7 +1540,7 @@ The `RandomValuePropertySource` is useful for injecting random values (for examp
 
 
 
-`RandomValuePropertySource` ¶ÔÓÚ×¢ÈëËæ»úÖµºÜÓĞÓÃ£¨ÀıÈç£¬×¢ÈëÃÜÂë»ò²âÊÔ°¸Àı£©¡£ Ëü¿ÉÒÔ²úÉúInteger¡¢Long¡¢UUID£¬»òString£¬ÈçÏÂÃæµÄÀı×ÓËùÊ¾¡£
+`RandomValuePropertySource` å¯¹äºæ³¨å…¥éšæœºå€¼å¾ˆæœ‰ç”¨ï¼ˆä¾‹å¦‚ï¼Œæ³¨å…¥å¯†ç æˆ–æµ‹è¯•æ¡ˆä¾‹ï¼‰ã€‚ å®ƒå¯ä»¥äº§ç”ŸIntegerã€Longã€UUIDï¼Œæˆ–Stringï¼Œå¦‚ä¸‹é¢çš„ä¾‹å­æ‰€ç¤ºã€‚
 
 
 
@@ -1572,7 +1572,7 @@ my.number-in-range=${random.int[1024,65536]}
 
 
 
-`random.int*` µÄÓï·¨ÊÇ `OPEN value (,max) CLOSE`£¬ÆäÖĞ `OPEN,CLOSE` ÊÇÈÎºÎ×Ö·û£¬ `value,max` ÊÇÕûÊı¡£ Èç¹ûÌá¹©ÁË `max`£¬ÄÇÃ´ `value` ÊÇ×îĞ¡Öµ£¬ `max` ÊÇ×î´óÖµ£¨¶ÀÕ¼£©¡£
+`random.int*` çš„è¯­æ³•æ˜¯ `OPEN value (,max) CLOSE`ï¼Œå…¶ä¸­ `OPEN,CLOSE` æ˜¯ä»»ä½•å­—ç¬¦ï¼Œ `value,max` æ˜¯æ•´æ•°ã€‚ å¦‚æœæä¾›äº† `max`ï¼Œé‚£ä¹ˆ `value` æ˜¯æœ€å°å€¼ï¼Œ `max` æ˜¯æœ€å¤§å€¼ï¼ˆç‹¬å ï¼‰ã€‚
 
 
 
@@ -1580,46 +1580,46 @@ my.number-in-range=${random.int[1024,65536]}
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.external-config.system-environment)2.7\. ÅäÖÃÏµÍ³»·¾³ÊôĞÔ
+### [](https://springdoc.cn/spring-boot/features.html#features.external-config.system-environment)2.7\. é…ç½®ç³»ç»Ÿç¯å¢ƒå±æ€§
 
 
 
-Spring BootÖ§³ÖÎª»·¾³ÊôĞÔÉèÖÃÒ»¸öÇ°×º¡£ Èç¹ûÏµÍ³»·¾³±»¶à¸ö¾ßÓĞ²»Í¬ÅäÖÃÒªÇóµÄSpring BootÓ¦ÓÃ³ÌĞò¹²Ïí£¬Õâ¾ÍºÜÓĞÓÃ¡£ ÏµÍ³»·¾³ÊôĞÔµÄÇ°×º¿ÉÒÔÖ±½ÓÔÚ `SpringApplication` ÉÏÉèÖÃ¡£
-
-
-
-
-
-ÀıÈç£¬Èç¹ûÄã½«Ç°×ºÉèÖÃÎª `input` £¬ÖîÈç `remote.timeout` ÕâÑùµÄÊôĞÔÔÚÏµÍ³»·¾³ÖĞÒ²½«±»½âÎöÎª `input.remote.timeout`¡£
+Spring Bootæ”¯æŒä¸ºç¯å¢ƒå±æ€§è®¾ç½®ä¸€ä¸ªå‰ç¼€ã€‚ å¦‚æœç³»ç»Ÿç¯å¢ƒè¢«å¤šä¸ªå…·æœ‰ä¸åŒé…ç½®è¦æ±‚çš„Spring Bootåº”ç”¨ç¨‹åºå…±äº«ï¼Œè¿™å°±å¾ˆæœ‰ç”¨ã€‚ ç³»ç»Ÿç¯å¢ƒå±æ€§çš„å‰ç¼€å¯ä»¥ç›´æ¥åœ¨ `SpringApplication` ä¸Šè®¾ç½®ã€‚
 
 
 
 
 
-
-
-### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties)2.8\. ÀàĞÍ°²È«µÄÅäÖÃÊôĞÔ
-
-
-
-Ê¹ÓÃ `@Value("${property}")` ×¢½âÀ´×¢ÈëÅäÖÃÊôĞÔÓĞÊ±»áºÜÂé·³£¬ÌØ±ğÊÇµ±ÄãÒª´¦Àí¶à¸öÊôĞÔ»òÄãµÄÊı¾İÊÇ·Ö²ãµÄ¡£ Spring BootÌá¹©ÁËÒ»ÖÖ´¦ÀíÊôĞÔµÄÌæ´ú·½·¨£¬ÈÃÇ¿ÀàĞÍµÄBean¹ÜÀíºÍÑéÖ¤ÄãµÄÓ¦ÓÃ³ÌĞòµÄÅäÖÃ¡£
+ä¾‹å¦‚ï¼Œå¦‚æœä½ å°†å‰ç¼€è®¾ç½®ä¸º `input` ï¼Œè¯¸å¦‚ `remote.timeout` è¿™æ ·çš„å±æ€§åœ¨ç³»ç»Ÿç¯å¢ƒä¸­ä¹Ÿå°†è¢«è§£æä¸º `input.remote.timeout`ã€‚
 
 
 
 
 
-|  | ÁíÇë²Î¼û[`@Value` ºÍÀàĞÍ°²È«ÅäÖÃÊôĞÔÖ®¼äµÄÇø±ğ](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.vs-value-annotation)¡£ |
+
+
+### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties)2.8\. ç±»å‹å®‰å…¨çš„é…ç½®å±æ€§
+
+
+
+ä½¿ç”¨ `@Value("${property}")` æ³¨è§£æ¥æ³¨å…¥é…ç½®å±æ€§æœ‰æ—¶ä¼šå¾ˆéº»çƒ¦ï¼Œç‰¹åˆ«æ˜¯å½“ä½ è¦å¤„ç†å¤šä¸ªå±æ€§æˆ–ä½ çš„æ•°æ®æ˜¯åˆ†å±‚çš„ã€‚ Spring Bootæä¾›äº†ä¸€ç§å¤„ç†å±æ€§çš„æ›¿ä»£æ–¹æ³•ï¼Œè®©å¼ºç±»å‹çš„Beanç®¡ç†å’ŒéªŒè¯ä½ çš„åº”ç”¨ç¨‹åºçš„é…ç½®ã€‚
+
+
+
+
+
+|  | å¦è¯·å‚è§[`@Value` å’Œç±»å‹å®‰å…¨é…ç½®å±æ€§ä¹‹é—´çš„åŒºåˆ«](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.vs-value-annotation)ã€‚ |
 | --- | --- |
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.java-bean-binding)2.8.1\. JavaBean ÊôĞÔ°ó¶¨
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.java-bean-binding)2.8.1\. JavaBean å±æ€§ç»‘å®š
 
 
 
-ÈçÏÂÃæµÄÀı×ÓËùÊ¾£¬¿ÉÒÔ°ó¶¨Ò»¸öÉùÃ÷ÁË±ê×¼JavaBeanÊôĞÔµÄbean¡£
+å¦‚ä¸‹é¢çš„ä¾‹å­æ‰€ç¤ºï¼Œå¯ä»¥ç»‘å®šä¸€ä¸ªå£°æ˜äº†æ ‡å‡†JavaBeanå±æ€§çš„beanã€‚
 
 
 
@@ -1669,34 +1669,34 @@ public class MyProperties {
 
 
 
-Ç°ÃæµÄPOJO¶¨ÒåÁËÒÔÏÂÊôĞÔ¡£
+å‰é¢çš„POJOå®šä¹‰äº†ä»¥ä¸‹å±æ€§ã€‚
 
 
 
 
 
-*   `my.service.enabled`£¬Ä¬ÈÏÖµÎª`false`¡£
+*   `my.service.enabled`ï¼Œé»˜è®¤å€¼ä¸º`false`ã€‚
 
-*   `my.service.remote-address`£¬ÆäÀàĞÍ¿ÉÓÉ`String`Ç¿ÖÆÌá¹©¡£
+*   `my.service.remote-address`ï¼Œå…¶ç±»å‹å¯ç”±`String`å¼ºåˆ¶æä¾›ã€‚
 
-*   `my.service.security.username`£¬ÓĞÒ»¸öÇ¶Ì×µÄ `security` ¶ÔÏó£¬ÆäÃû³ÆÓÉ¸ÃÊôĞÔµÄÃû³Æ¾ö¶¨¡£ ÌØ±ğÊÇ£¬ÄÇÀïÍêÈ«Ã»ÓĞÊ¹ÓÃÀàĞÍ£¬¿ÉÒÔÊÇ `SecurityProperties`¡£
+*   `my.service.security.username`ï¼Œæœ‰ä¸€ä¸ªåµŒå¥—çš„ `security` å¯¹è±¡ï¼Œå…¶åç§°ç”±è¯¥å±æ€§çš„åç§°å†³å®šã€‚ ç‰¹åˆ«æ˜¯ï¼Œé‚£é‡Œå®Œå…¨æ²¡æœ‰ä½¿ç”¨ç±»å‹ï¼Œå¯ä»¥æ˜¯ `SecurityProperties`ã€‚
 
 *   `my.service.security.password`.
 
-*   `my.service.security.role`£¬ÓĞÒ»¸ö `String` µÄ¼¯ºÏ£¬Ä¬ÈÏÎª `USER`¡£
+*   `my.service.security.role`ï¼Œæœ‰ä¸€ä¸ª `String` çš„é›†åˆï¼Œé»˜è®¤ä¸º `USER`ã€‚
 
 
 
 
 
-|  | Ó³Éäµ½Spring BootÖĞ¿ÉÓÃµÄ `@ConfigurationProperties` ÀàµÄÊôĞÔ£¬Í¨¹ıpropertiesÎÄ¼ş¡¢YAMLÎÄ¼ş¡¢»·¾³±äÁ¿ºÍÆäËû»úÖÆ½øĞĞÅäÖÃ£¬ÕâĞ©ÊôĞÔÊÇ¹«¹²API£¬µ«Àà±¾ÉíµÄ getters/setters ²¢²»ÒâÎ¶×Å¿ÉÒÔÖ±½ÓÊ¹ÓÃ£¨Ò»¾ä»°£¬SpringÒ²ÊÇÍ¨¹ıgetter/setterÕâĞ©public·½·¨½øĞĞÉèÖÃÖµµÄ£¬Äã±ğÓÃ£©¡£ |
+|  | æ˜ å°„åˆ°Spring Bootä¸­å¯ç”¨çš„ `@ConfigurationProperties` ç±»çš„å±æ€§ï¼Œé€šè¿‡propertiesæ–‡ä»¶ã€YAMLæ–‡ä»¶ã€ç¯å¢ƒå˜é‡å’Œå…¶ä»–æœºåˆ¶è¿›è¡Œé…ç½®ï¼Œè¿™äº›å±æ€§æ˜¯å…¬å…±APIï¼Œä½†ç±»æœ¬èº«çš„ getters/setters å¹¶ä¸æ„å‘³ç€å¯ä»¥ç›´æ¥ä½¿ç”¨ï¼ˆä¸€å¥è¯ï¼ŒSpringä¹Ÿæ˜¯é€šè¿‡getter/setterè¿™äº›publicæ–¹æ³•è¿›è¡Œè®¾ç½®å€¼çš„ï¼Œä½ åˆ«ç”¨ï¼‰ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | ÕâÑùµÄÉè¼ÆÒÀÀµÓÚÒ»¸öÄ¬ÈÏµÄÎŞ²Î¹¹Ôìº¯Êı£¬getterºÍsetterÍ¨³£ÊÇ±ØĞëµÄ£¬ÒòÎª°ó¶¨ÊÇÍ¨¹ı±ê×¼µÄJava Beans property descriptor£¨JavaÄÚÊ¡£©ÊµÏÖµÄ£¬¾ÍÏñÔÚSpring MVCÖĞÒ»Ñù¡£ ÔÚÒÔÏÂÇé¿öÏÂ£¬¿ÉÒÔÊ¡ÂÔsetter¡£*   Map, Ö»ÒªËüÃÇ±»³õÊ¼»¯£¬¾ÍĞèÒªÒ»¸ögetter£¬µ«²»Ò»¶¨ĞèÒªÒ»¸ösetter£¬ÒòÎªËüÃÇ¿ÉÒÔ±»°ó¶¨Æ÷Í»±ä¡£        *   CollectionºÍarray ¿ÉÒÔÍ¨¹ıË÷Òı£¨Í¨³£ÓÃYAML£©»òÊ¹ÓÃµ¥¸ö¶ººÅ·Ö¸ôµÄÖµ£¨ÊôĞÔ£©À´·ÃÎÊ¡£ ÔÚºóÒ»ÖÖÇé¿öÏÂ£¬Ò»¸ösetterÊÇ±ØĞëµÄ¡£ ÎÒÃÇ½¨Òé×ÜÊÇÎªÕâÀàÀàĞÍÌí¼ÓÒ»¸ösetter¡£ Èç¹ûÄã³õÊ¼»¯Ò»¸ö¼¯ºÏ£¬È·±£Ëü²»ÊÇ²»¿É±äµÄ£¨ÈçÇ°ÃæµÄÀı×Ó£©¡£        *   Èç¹ûÇ¶Ì×µÄPOJOÊôĞÔ±»³õÊ¼»¯£¨¾ÍÏñÇ°ÃæÀı×ÓÖĞµÄ `Security` ×Ö¶Î£©£¬¾Í²»ĞèÒªsetter¡£ Èç¹ûÄãÏëÈÃ°ó¶¨Æ÷Í¨¹ıÊ¹ÓÃËüµÄÄ¬ÈÏ¹¹Ôìº¯ÊıÀ´¼´Ê±´´½¨ÊµÀı£¬ÄãĞèÒªÒ»¸ösetter¡£        ÓĞĞ©ÈËÊ¹ÓÃProject LombokÀ´×Ô¶¯Ìí¼ÓgetterºÍsetter¡£ ÇëÈ·±£Lombok²»»áÎªÕâÑùµÄÀàĞÍÉú³ÉÈÎºÎÌØ¶¨µÄ¹¹Ôìº¯Êı£¬ÒòÎªËü±»ÈİÆ÷×Ô¶¯ÓÃÀ´ÊµÀı»¯¶ÔÏó¡£×îºó£¬Ö»¿¼ÂÇ±ê×¼µÄJava BeanÊôĞÔ£¬²»Ö§³Ö¶Ô¾²Ì¬ÊôĞÔµÄ°ó¶¨¡£ |
+|  | è¿™æ ·çš„è®¾è®¡ä¾èµ–äºä¸€ä¸ªé»˜è®¤çš„æ— å‚æ„é€ å‡½æ•°ï¼Œgetterå’Œsetteré€šå¸¸æ˜¯å¿…é¡»çš„ï¼Œå› ä¸ºç»‘å®šæ˜¯é€šè¿‡æ ‡å‡†çš„Java Beans property descriptorï¼ˆJavaå†…çœï¼‰å®ç°çš„ï¼Œå°±åƒåœ¨Spring MVCä¸­ä¸€æ ·ã€‚ åœ¨ä»¥ä¸‹æƒ…å†µä¸‹ï¼Œå¯ä»¥çœç•¥setterã€‚*   Map, åªè¦å®ƒä»¬è¢«åˆå§‹åŒ–ï¼Œå°±éœ€è¦ä¸€ä¸ªgetterï¼Œä½†ä¸ä¸€å®šéœ€è¦ä¸€ä¸ªsetterï¼Œå› ä¸ºå®ƒä»¬å¯ä»¥è¢«ç»‘å®šå™¨çªå˜ã€‚        *   Collectionå’Œarray å¯ä»¥é€šè¿‡ç´¢å¼•ï¼ˆé€šå¸¸ç”¨YAMLï¼‰æˆ–ä½¿ç”¨å•ä¸ªé€—å·åˆ†éš”çš„å€¼ï¼ˆå±æ€§ï¼‰æ¥è®¿é—®ã€‚ åœ¨åä¸€ç§æƒ…å†µä¸‹ï¼Œä¸€ä¸ªsetteræ˜¯å¿…é¡»çš„ã€‚ æˆ‘ä»¬å»ºè®®æ€»æ˜¯ä¸ºè¿™ç±»ç±»å‹æ·»åŠ ä¸€ä¸ªsetterã€‚ å¦‚æœä½ åˆå§‹åŒ–ä¸€ä¸ªé›†åˆï¼Œç¡®ä¿å®ƒä¸æ˜¯ä¸å¯å˜çš„ï¼ˆå¦‚å‰é¢çš„ä¾‹å­ï¼‰ã€‚        *   å¦‚æœåµŒå¥—çš„POJOå±æ€§è¢«åˆå§‹åŒ–ï¼ˆå°±åƒå‰é¢ä¾‹å­ä¸­çš„ `Security` å­—æ®µï¼‰ï¼Œå°±ä¸éœ€è¦setterã€‚ å¦‚æœä½ æƒ³è®©ç»‘å®šå™¨é€šè¿‡ä½¿ç”¨å®ƒçš„é»˜è®¤æ„é€ å‡½æ•°æ¥å³æ—¶åˆ›å»ºå®ä¾‹ï¼Œä½ éœ€è¦ä¸€ä¸ªsetterã€‚        æœ‰äº›äººä½¿ç”¨Project Lombokæ¥è‡ªåŠ¨æ·»åŠ getterå’Œsetterã€‚ è¯·ç¡®ä¿Lombokä¸ä¼šä¸ºè¿™æ ·çš„ç±»å‹ç”Ÿæˆä»»ä½•ç‰¹å®šçš„æ„é€ å‡½æ•°ï¼Œå› ä¸ºå®ƒè¢«å®¹å™¨è‡ªåŠ¨ç”¨æ¥å®ä¾‹åŒ–å¯¹è±¡ã€‚æœ€åï¼Œåªè€ƒè™‘æ ‡å‡†çš„Java Beanå±æ€§ï¼Œä¸æ”¯æŒå¯¹é™æ€å±æ€§çš„ç»‘å®šã€‚ |
 | --- | --- |
 
 
@@ -1705,11 +1705,11 @@ public class MyProperties {
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.constructor-binding)2.8.2\. ¹¹Ôìº¯Êı°ó¶¨
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.constructor-binding)2.8.2\. æ„é€ å‡½æ•°ç»‘å®š
 
 
 
-ÉÏÒ»½ÚµÄÀı×Ó¿ÉÒÔÓÃ²»¿É±äµÄ·½Ê½ÖØĞ´£¬ÈçÏÂÀıËùÊ¾¡£
+ä¸Šä¸€èŠ‚çš„ä¾‹å­å¯ä»¥ç”¨ä¸å¯å˜çš„æ–¹å¼é‡å†™ï¼Œå¦‚ä¸‹ä¾‹æ‰€ç¤ºã€‚
 
 
 
@@ -1763,25 +1763,25 @@ public class MyProperties {
 
 
 
-ÔÚÕâÖÖÉèÖÃÖĞ£¬Î¨Ò»µÄ¡°´ø²ÎÊı¹¹Ôìº¯Êı¡±µÄ´æÔÚÒâÎ¶×ÅÓ¦¸ÃÊ¹ÓÃ¸Ã¹¹Ôìº¯Êı½øĞĞ°ó¶¨¡£ ÕâÒâÎ¶×Å°ó¶¨Æ÷»áÕÒµ½Ò»¸ö´øÓĞÄãÏ£Íû°ó¶¨µÄ²ÎÊıµÄ¹¹Ôìº¯Êı¡£ Èç¹ûÄãµÄÀàÓĞ¶à¸ö¹¹Ôìº¯Êı£¬¿ÉÒÔÊ¹ÓÃ `@ConstructorBinding` ×¢½âÀ´Ö¸¶¨Ê¹ÓÃÄÄ¸ö¹¹Ôìº¯Êı½øĞĞ¹¹Ôìº¯Êı°ó¶¨¡£ Èç¹ûÒªÎªÒ»¸öÖ»ÓĞÒ»¸ö¡°´ø²ÎÊı¹¹Ôìº¯Êı¡±µÄÀàÑ¡Ôñ²»°ó¶¨¹¹Ôìº¯Êı£¬¸Ã¹¹Ôìº¯Êı±ØĞëÓÃ `@Autowired` À´×¢½â¡£ ¹¹Ôìº¯Êı°ó¶¨¿ÉÒÔÓë `Record` Ò»ÆğÊ¹ÓÃ¡£ ³ı·ÇÄãµÄ¼ÇÂ¼ÓĞ¶à¸ö¹¹Ôìº¯Êı£¬·ñÔòÃ»ÓĞ±ØÒªÊ¹ÓÃ `@ConstructorBinding`¡£
+åœ¨è¿™ç§è®¾ç½®ä¸­ï¼Œå”¯ä¸€çš„â€œå¸¦å‚æ•°æ„é€ å‡½æ•°â€çš„å­˜åœ¨æ„å‘³ç€åº”è¯¥ä½¿ç”¨è¯¥æ„é€ å‡½æ•°è¿›è¡Œç»‘å®šã€‚ è¿™æ„å‘³ç€ç»‘å®šå™¨ä¼šæ‰¾åˆ°ä¸€ä¸ªå¸¦æœ‰ä½ å¸Œæœ›ç»‘å®šçš„å‚æ•°çš„æ„é€ å‡½æ•°ã€‚ å¦‚æœä½ çš„ç±»æœ‰å¤šä¸ªæ„é€ å‡½æ•°ï¼Œå¯ä»¥ä½¿ç”¨ `@ConstructorBinding` æ³¨è§£æ¥æŒ‡å®šä½¿ç”¨å“ªä¸ªæ„é€ å‡½æ•°è¿›è¡Œæ„é€ å‡½æ•°ç»‘å®šã€‚ å¦‚æœè¦ä¸ºä¸€ä¸ªåªæœ‰ä¸€ä¸ªâ€œå¸¦å‚æ•°æ„é€ å‡½æ•°â€çš„ç±»é€‰æ‹©ä¸ç»‘å®šæ„é€ å‡½æ•°ï¼Œè¯¥æ„é€ å‡½æ•°å¿…é¡»ç”¨ `@Autowired` æ¥æ³¨è§£ã€‚ æ„é€ å‡½æ•°ç»‘å®šå¯ä»¥ä¸ `Record` ä¸€èµ·ä½¿ç”¨ã€‚ é™¤éä½ çš„è®°å½•æœ‰å¤šä¸ªæ„é€ å‡½æ•°ï¼Œå¦åˆ™æ²¡æœ‰å¿…è¦ä½¿ç”¨ `@ConstructorBinding`ã€‚
 
 
 
 
 
-¹¹Ôìº¯Êı°ó¶¨ÀàµÄÇ¶Ì×³ÉÔ±£¨ÈçÉÏÃæÀı×ÓÖĞµÄ `Security`£©Ò²½«Í¨¹ıÆä¹¹Ôìº¯Êı±»°ó¶¨¡£
+æ„é€ å‡½æ•°ç»‘å®šç±»çš„åµŒå¥—æˆå‘˜ï¼ˆå¦‚ä¸Šé¢ä¾‹å­ä¸­çš„ `Security`ï¼‰ä¹Ÿå°†é€šè¿‡å…¶æ„é€ å‡½æ•°è¢«ç»‘å®šã€‚
 
 
 
 
 
-Ä¬ÈÏÖµ¿ÉÒÔÔÚ¹¹Ôìº¯Êı²ÎÊıºÍRecord×é¼şÉÏÊ¹ÓÃ `@DefaultValue` À´Ö¸¶¨¡£ ×ª»»·şÎñ½«±»Ó¦ÓÃÓÚ½«×¢½âµÄ `String` ÖµÇ¿ÖÆ×ª»»ÎªÈ±Ê§ÊôĞÔµÄÄ¿±êÀàĞÍ¡£
+é»˜è®¤å€¼å¯ä»¥åœ¨æ„é€ å‡½æ•°å‚æ•°å’ŒRecordç»„ä»¶ä¸Šä½¿ç”¨ `@DefaultValue` æ¥æŒ‡å®šã€‚ è½¬æ¢æœåŠ¡å°†è¢«åº”ç”¨äºå°†æ³¨è§£çš„ `String` å€¼å¼ºåˆ¶è½¬æ¢ä¸ºç¼ºå¤±å±æ€§çš„ç›®æ ‡ç±»å‹ã€‚
 
 
 
 
 
-²Î¿¼Ç°ÃæµÄÀı×Ó£¬Èç¹ûÃ»ÓĞÊôĞÔ°ó¶¨µ½ `Security` £¬ `MyProperties` ÊµÀı½«°üº¬Ò»¸ö `security` ÀàĞÍµÄ `null` Öµ¡£ ÎªÁËÊ¹Ëü°üº¬Ò»¸ö·Ç null µÄ `Security` ÊµÀı£¬¼´Ê¹Ã»ÓĞÊôĞÔÓëÖ®°ó¶¨£¨µ±Ê¹ÓÃKotlinÊ±£¬Õâ½«ÒªÇó `Security` µÄ `username` ºÍ `password` ²ÎÊı±»ÉùÃ÷Îª nullable£¬ÒòÎªËüÃÇÃ»ÓĞÄ¬ÈÏÖµ£©£¬Ê¹ÓÃÒ»¸ö¿ÕµÄ `@DefaultValue` ×¢½â¡£
+å‚è€ƒå‰é¢çš„ä¾‹å­ï¼Œå¦‚æœæ²¡æœ‰å±æ€§ç»‘å®šåˆ° `Security` ï¼Œ `MyProperties` å®ä¾‹å°†åŒ…å«ä¸€ä¸ª `security` ç±»å‹çš„ `null` å€¼ã€‚ ä¸ºäº†ä½¿å®ƒåŒ…å«ä¸€ä¸ªé null çš„ `Security` å®ä¾‹ï¼Œå³ä½¿æ²¡æœ‰å±æ€§ä¸ä¹‹ç»‘å®šï¼ˆå½“ä½¿ç”¨Kotlinæ—¶ï¼Œè¿™å°†è¦æ±‚ `Security` çš„ `username` å’Œ `password` å‚æ•°è¢«å£°æ˜ä¸º nullableï¼Œå› ä¸ºå®ƒä»¬æ²¡æœ‰é»˜è®¤å€¼ï¼‰ï¼Œä½¿ç”¨ä¸€ä¸ªç©ºçš„ `@DefaultValue` æ³¨è§£ã€‚
 
 
 
@@ -1812,21 +1812,21 @@ public MyProperties(boolean enabled, InetAddress remoteAddress, @DefaultValue Se
 
 
 
-|  | ÒªÊ¹ÓÃ¹¹Ôìº¯Êı°ó¶¨£¬¸ÃÀà±ØĞëÊ¹ÓÃ `@EnableConfigurationProperties` »òÅäÖÃÊôĞÔÉ¨ÃèÀ´ÆôÓÃ¡£ Äã²»ÄÜ¶ÔÍ¨¹ı³£¹æSpring»úÖÆ´´½¨µÄBeanÊ¹ÓÃ¹¹Ôìº¯Êı°ó¶¨£¨ÀıÈç `@Component` Bean£¬Í¨¹ıÊ¹ÓÃ `@Bean` ·½·¨´´½¨µÄBean»òÍ¨¹ıÊ¹ÓÃ `@Import` ¼ÓÔØµÄBean£©¡£ |
+|  | è¦ä½¿ç”¨æ„é€ å‡½æ•°ç»‘å®šï¼Œè¯¥ç±»å¿…é¡»ä½¿ç”¨ `@EnableConfigurationProperties` æˆ–é…ç½®å±æ€§æ‰«ææ¥å¯ç”¨ã€‚ ä½ ä¸èƒ½å¯¹é€šè¿‡å¸¸è§„Springæœºåˆ¶åˆ›å»ºçš„Beanä½¿ç”¨æ„é€ å‡½æ•°ç»‘å®šï¼ˆä¾‹å¦‚ `@Component` Beanï¼Œé€šè¿‡ä½¿ç”¨ `@Bean` æ–¹æ³•åˆ›å»ºçš„Beanæˆ–é€šè¿‡ä½¿ç”¨ `@Import` åŠ è½½çš„Beanï¼‰ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | ÒªÔÚÔ­Éú¾µÏñÖĞÊ¹ÓÃ¹¹Ôìº¯Êı°ó¶¨£¬±ØĞëÓÃ `-parameters` ²ÎÊı±àÒë¸ÃÀà¡£Èç¹ûÄãÊ¹ÓÃ Spring Boot µÄ Gradle ²å¼ş»òÊ¹ÓÃ Maven ºÍ `spring-boot-starter-parent`£¬Õâ½«×Ô¶¯ÅäÖÃ¡£ |
+|  | è¦åœ¨åŸç”Ÿé•œåƒä¸­ä½¿ç”¨æ„é€ å‡½æ•°ç»‘å®šï¼Œå¿…é¡»ç”¨ `-parameters` å‚æ•°ç¼–è¯‘è¯¥ç±»ã€‚å¦‚æœä½ ä½¿ç”¨ Spring Boot çš„ Gradle æ’ä»¶æˆ–ä½¿ç”¨ Maven å’Œ `spring-boot-starter-parent`ï¼Œè¿™å°†è‡ªåŠ¨é…ç½®ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | ²»½¨Òé½« `java.util.Optional` Óë `@ConfigurationProperties` Ò»ÆğÊ¹ÓÃ£¬ÒòÎªËüÖ÷ÒªÊÇ×÷ÎªÒ»¸ö·µ»ØÀàĞÍÊ¹ÓÃ¡£ Òò´Ë£¬Ëü²¢²»ÊÊºÏÅäÖÃÊôĞÔ×¢Èë¡£ ÎªÁËÓëÆäËûÀàĞÍµÄÊôĞÔ±£³ÖÒ»ÖÂ£¬Èç¹ûÄãÈ·ÊµÉùÃ÷ÁËÒ»¸ö `Optional` ÊôĞÔ£¬µ«ËüÃ»ÓĞÖµ£¬`null` ¶ø²»ÊÇÒ»¸ö¿ÕµÄ `Optional` ½«±»°ó¶¨¡£ |
+|  | ä¸å»ºè®®å°† `java.util.Optional` ä¸ `@ConfigurationProperties` ä¸€èµ·ä½¿ç”¨ï¼Œå› ä¸ºå®ƒä¸»è¦æ˜¯ä½œä¸ºä¸€ä¸ªè¿”å›ç±»å‹ä½¿ç”¨ã€‚ å› æ­¤ï¼Œå®ƒå¹¶ä¸é€‚åˆé…ç½®å±æ€§æ³¨å…¥ã€‚ ä¸ºäº†ä¸å…¶ä»–ç±»å‹çš„å±æ€§ä¿æŒä¸€è‡´ï¼Œå¦‚æœä½ ç¡®å®å£°æ˜äº†ä¸€ä¸ª `Optional` å±æ€§ï¼Œä½†å®ƒæ²¡æœ‰å€¼ï¼Œ`null` è€Œä¸æ˜¯ä¸€ä¸ªç©ºçš„ `Optional` å°†è¢«ç»‘å®šã€‚ |
 | --- | --- |
 
 
@@ -1835,17 +1835,17 @@ public MyProperties(boolean enabled, InetAddress remoteAddress, @DefaultValue Se
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.enabling-annotated-types)2.8.3\. ÆôÓÃ @ConfigurationProperties Àà
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.enabling-annotated-types)2.8.3\. å¯ç”¨ @ConfigurationProperties ç±»
 
 
 
-Spring BootÌá¹©ÁË°ó¶¨ `@ConfigurationProperties` ÀàĞÍ²¢½«Æä×¢²áÎªBeanµÄ»ù´¡ÉèÊ©¡£ Äã¿ÉÒÔÔÚÖğ¸öÀàµÄ»ù´¡ÉÏÆôÓÃÅäÖÃÊôĞÔ£¬»òÕßÆôÓÃÅäÖÃÊôĞÔÉ¨Ãè£¬Æä¹¤×÷·½Ê½Óë×é¼şÉ¨ÃèÀàËÆ¡£
+Spring Bootæä¾›äº†ç»‘å®š `@ConfigurationProperties` ç±»å‹å¹¶å°†å…¶æ³¨å†Œä¸ºBeançš„åŸºç¡€è®¾æ–½ã€‚ ä½ å¯ä»¥åœ¨é€ä¸ªç±»çš„åŸºç¡€ä¸Šå¯ç”¨é…ç½®å±æ€§ï¼Œæˆ–è€…å¯ç”¨é…ç½®å±æ€§æ‰«æï¼Œå…¶å·¥ä½œæ–¹å¼ä¸ç»„ä»¶æ‰«æç±»ä¼¼ã€‚
 
 
 
 
 
-ÓĞÊ±£¬ÓÃ `@ConfigurationProperties` ×¢½âµÄÀà¿ÉÄÜ²»ÊÊºÏÉ¨Ãè£¬ÀıÈç£¬Èç¹ûÄãÕıÔÚ¿ª·¢Äã×Ô¼ºµÄ×Ô¶¯ÅäÖÃ»òÕßÄãÏëÓĞÌõ¼şµØÆôÓÃËüÃÇ¡£ ÔÚÕâĞ©Çé¿öÏÂ£¬Ê¹ÓÃ `@EnableConfigurationProperties` ×¢½âÖ¸¶¨Òª´¦ÀíµÄÀàĞÍÁĞ±í£¬ Ëü¿ÉÒÔ×¢½âÔÚÈÎºÎ `@Configuration` ÀàÉÏ£¬ÈçÏÂÃæµÄÀı×ÓËùÊ¾¡£
+æœ‰æ—¶ï¼Œç”¨ `@ConfigurationProperties` æ³¨è§£çš„ç±»å¯èƒ½ä¸é€‚åˆæ‰«æï¼Œä¾‹å¦‚ï¼Œå¦‚æœä½ æ­£åœ¨å¼€å‘ä½ è‡ªå·±çš„è‡ªåŠ¨é…ç½®æˆ–è€…ä½ æƒ³æœ‰æ¡ä»¶åœ°å¯ç”¨å®ƒä»¬ã€‚ åœ¨è¿™äº›æƒ…å†µä¸‹ï¼Œä½¿ç”¨ `@EnableConfigurationProperties` æ³¨è§£æŒ‡å®šè¦å¤„ç†çš„ç±»å‹åˆ—è¡¨ï¼Œ å®ƒå¯ä»¥æ³¨è§£åœ¨ä»»ä½• `@Configuration` ç±»ä¸Šï¼Œå¦‚ä¸‹é¢çš„ä¾‹å­æ‰€ç¤ºã€‚
 
 
 
@@ -1900,7 +1900,7 @@ public class SomeProperties {
 
 
 
-ÒªÊ¹ÓÃÅäÖÃÊôĞÔÉ¨Ãè£¬ÇëÏòÄãµÄapplicationÌí¼Ó `@ConfigurationPropertiesScan` ×¢½â¡£ Í¨³££¬Ëü±»Ìí¼Óµ½ÓÃ `@SpringBootApplication` ×¢½âµÄmainÀàÖĞ£¬µ«ËüÒ²¿ÉÒÔ±»Ìí¼Óµ½ÈÎºÎ `@Configuration` ÀàÉÏ¡£ Ä¬ÈÏÇé¿öÏÂ£¬É¨Ãè»á´Ó×¢½âËùÔÚµÄ°ü¿ªÊ¼£¬ÄãÈç¹ûÏë×Ô¶¨ÒåÉ¨ÃèÆäËû°ü£¬¿ÉÒÔ²Î¿¼ÈçÏÂ¡£
+è¦ä½¿ç”¨é…ç½®å±æ€§æ‰«æï¼Œè¯·å‘ä½ çš„applicationæ·»åŠ  `@ConfigurationPropertiesScan` æ³¨è§£ã€‚ é€šå¸¸ï¼Œå®ƒè¢«æ·»åŠ åˆ°ç”¨ `@SpringBootApplication` æ³¨è§£çš„mainç±»ä¸­ï¼Œä½†å®ƒä¹Ÿå¯ä»¥è¢«æ·»åŠ åˆ°ä»»ä½• `@Configuration` ç±»ä¸Šã€‚ é»˜è®¤æƒ…å†µä¸‹ï¼Œæ‰«æä¼šä»æ³¨è§£æ‰€åœ¨çš„åŒ…å¼€å§‹ï¼Œä½ å¦‚æœæƒ³è‡ªå®šä¹‰æ‰«æå…¶ä»–åŒ…ï¼Œå¯ä»¥å‚è€ƒå¦‚ä¸‹ã€‚
 
 
 
@@ -1931,14 +1931,14 @@ public class MyApplication {
 
 
 
-|  | µ± `@ConfigurationProperties` BeanÊ¹ÓÃÅäÖÃÊôĞÔÉ¨Ãè»òÍ¨¹ı `@EnableConfigurationProperties` ×¢²áÊ±£¬¸ÃBeanÓĞÒ»¸ö³£¹æÃû³Æ£º`<prefix>-<fqn>`£¬ÆäÖĞ `<prefix>` ÊÇ `@ConfigurationProperties` ×¢½âÖĞÖ¸¶¨µÄ»·¾³¼üÇ°×º£¬ `<fqn>` ÊÇBeanµÄÍêÈ«ÏŞ¶¨Ãû³Æ¡£ Èç¹û×¢½âÃ»ÓĞÌá¹©ÈÎºÎÇ°×º£¬ÔòÖ»Ê¹ÓÃBeanµÄÍêÈ«ÏŞ¶¨Ãû³Æ¡£¼ÙÉèËüÔÚ `com.example.app` °üÖĞ£¬ÉÏÃæµÄ `SomeProperties` Àı×ÓµÄ bean Ãû³ÆÊÇ `some.properties-com.example.app.SomeProperties`¡£ |
+|  | å½“ `@ConfigurationProperties` Beanä½¿ç”¨é…ç½®å±æ€§æ‰«ææˆ–é€šè¿‡ `@EnableConfigurationProperties` æ³¨å†Œæ—¶ï¼Œè¯¥Beanæœ‰ä¸€ä¸ªå¸¸è§„åç§°ï¼š`<prefix>-<fqn>`ï¼Œå…¶ä¸­ `<prefix>` æ˜¯ `@ConfigurationProperties` æ³¨è§£ä¸­æŒ‡å®šçš„ç¯å¢ƒé”®å‰ç¼€ï¼Œ `<fqn>` æ˜¯Beançš„å®Œå…¨é™å®šåç§°ã€‚ å¦‚æœæ³¨è§£æ²¡æœ‰æä¾›ä»»ä½•å‰ç¼€ï¼Œåˆ™åªä½¿ç”¨Beançš„å®Œå…¨é™å®šåç§°ã€‚å‡è®¾å®ƒåœ¨ `com.example.app` åŒ…ä¸­ï¼Œä¸Šé¢çš„ `SomeProperties` ä¾‹å­çš„ bean åç§°æ˜¯ `some.properties-com.example.app.SomeProperties`ã€‚ |
 | --- | --- |
 
 
 
 
 
-ÎÒÃÇ½¨Òé `@ConfigurationProperties` Ö»´¦Àí environment£¬ÌØ±ğÊÇ²»´ÓÉÏÏÂÎÄ×¢ÈëÆäËûBean¡£ ¶ÔÓÚ±ß½Ç°¸Àı£¨ÌØÊâÇé¿ö£©£¬¿ÉÒÔÊ¹ÓÃ setter ×¢Èë»ò¿ò¼ÜÌá¹©µÄÈÎºÎ `*Aware` ½Ó¿Ú£¨Èç `EnvironmentAware` £¬Èç¹ûÄãĞèÒª·ÃÎÊ `Environment`£©¡£ Èç¹ûÄãÈÔÈ»ÏëÊ¹ÓÃ¹¹ÔìÆ÷×¢ÈëÆäËûBean£¬ÅäÖÃÊôĞÔBean±ØĞëÓÃ `@Component` À´×¢½â£¬²¢Ê¹ÓÃ»ùÓÚJavaBeanµÄÊôĞÔ°ó¶¨¡£
+æˆ‘ä»¬å»ºè®® `@ConfigurationProperties` åªå¤„ç† environmentï¼Œç‰¹åˆ«æ˜¯ä¸ä»ä¸Šä¸‹æ–‡æ³¨å…¥å…¶ä»–Beanã€‚ å¯¹äºè¾¹è§’æ¡ˆä¾‹ï¼ˆç‰¹æ®Šæƒ…å†µï¼‰ï¼Œå¯ä»¥ä½¿ç”¨ setter æ³¨å…¥æˆ–æ¡†æ¶æä¾›çš„ä»»ä½• `*Aware` æ¥å£ï¼ˆå¦‚ `EnvironmentAware` ï¼Œå¦‚æœä½ éœ€è¦è®¿é—® `Environment`ï¼‰ã€‚ å¦‚æœä½ ä»ç„¶æƒ³ä½¿ç”¨æ„é€ å™¨æ³¨å…¥å…¶ä»–Beanï¼Œé…ç½®å±æ€§Beanå¿…é¡»ç”¨ `@Component` æ¥æ³¨è§£ï¼Œå¹¶ä½¿ç”¨åŸºäºJavaBeançš„å±æ€§ç»‘å®šã€‚
 
 
 
@@ -1946,11 +1946,11 @@ public class MyApplication {
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.using-annotated-types)2.8.4\. Ê¹ÓÃ @ConfigurationProperties Àà
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.using-annotated-types)2.8.4\. ä½¿ç”¨ @ConfigurationProperties ç±»
 
 
 
-ÕâÖÖÅäÖÃ·½Ê½Óë `SpringApplication` Íâ²¿YAMLÅäÖÃÅäºÏµÃÌØ±ğºÃ£¬ÈçÒÔÏÂÀı×ÓËùÊ¾¡£
+è¿™ç§é…ç½®æ–¹å¼ä¸ `SpringApplication` å¤–éƒ¨YAMLé…ç½®é…åˆå¾—ç‰¹åˆ«å¥½ï¼Œå¦‚ä»¥ä¸‹ä¾‹å­æ‰€ç¤ºã€‚
 
 
 
@@ -1975,7 +1975,7 @@ my:
 
 
 
-ÒªÊ¹ÓÃ `@ConfigurationProperties` Bean£¬Äã¿ÉÒÔÓÃÓëÆäËûBeanÏàÍ¬µÄ·½Ê½×¢ÈëËüÃÇ£¬ÈçÏÂÀıËùÊ¾¡£
+è¦ä½¿ç”¨ `@ConfigurationProperties` Beanï¼Œä½ å¯ä»¥ç”¨ä¸å…¶ä»–Beanç›¸åŒçš„æ–¹å¼æ³¨å…¥å®ƒä»¬ï¼Œå¦‚ä¸‹ä¾‹æ‰€ç¤ºã€‚
 
 
 
@@ -2019,7 +2019,7 @@ public class MyService {
 
 
 
-|  | Ê¹ÓÃ `@ConfigurationProperties` »¹¿ÉÒÔÈÃÄãÉú³ÉÔªÊı¾İÎÄ¼ş£¬ÕâĞ©ÎÄ¼ş¿ÉÒÔ±»IDEÓÃÀ´ÅäÖÃÊôĞÔµÄ¡°×Ô¶¯²¹È«¡±¹¦ÄÜ¡£ ÏêÇé¼û[¸½Â¼](https://springdoc.cn/spring-boot/configuration-metadata.html#appendix.configuration-metadata)¡£ |
+|  | ä½¿ç”¨ `@ConfigurationProperties` è¿˜å¯ä»¥è®©ä½ ç”Ÿæˆå…ƒæ•°æ®æ–‡ä»¶ï¼Œè¿™äº›æ–‡ä»¶å¯ä»¥è¢«IDEç”¨æ¥é…ç½®å±æ€§çš„â€œè‡ªåŠ¨è¡¥å…¨â€åŠŸèƒ½ã€‚ è¯¦æƒ…è§[é™„å½•](https://springdoc.cn/spring-boot/configuration-metadata.html#appendix.configuration-metadata)ã€‚ |
 | --- | --- |
 
 
@@ -2028,17 +2028,17 @@ public class MyService {
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.third-party-configuration)2.8.5\. µÚÈı·½ÅäÖÃ
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.third-party-configuration)2.8.5\. ç¬¬ä¸‰æ–¹é…ç½®
 
 
 
-³ıÁËÊ¹ÓÃ `@ConfigurationProperties` À´×¢½âÒ»¸öÀàÖ®Íâ£¬Äã»¹¿ÉÒÔÔÚ¹«¹²µÄ `@Bean` ·½·¨ÉÏÊ¹ÓÃËü¡£ µ±ÄãÏë°ÑÊôĞÔ°ó¶¨µ½Äã¿ØÖÆÖ®ÍâµÄµÚÈı·½×é¼şÊ±£¬ÕâÑù×öÌØ±ğÓĞÓÃ¡£
+é™¤äº†ä½¿ç”¨ `@ConfigurationProperties` æ¥æ³¨è§£ä¸€ä¸ªç±»ä¹‹å¤–ï¼Œä½ è¿˜å¯ä»¥åœ¨å…¬å…±çš„ `@Bean` æ–¹æ³•ä¸Šä½¿ç”¨å®ƒã€‚ å½“ä½ æƒ³æŠŠå±æ€§ç»‘å®šåˆ°ä½ æ§åˆ¶ä¹‹å¤–çš„ç¬¬ä¸‰æ–¹ç»„ä»¶æ—¶ï¼Œè¿™æ ·åšç‰¹åˆ«æœ‰ç”¨ã€‚
 
 
 
 
 
-Òª´Ó `Environment` ÊôĞÔÖĞÅäÖÃÒ»¸öBean£¬ÇëÔÚÆäBean×¢²áÖĞÌí¼Ó `@ConfigurationProperties` £¬ÈçÏÂÀıËùÊ¾¡£
+è¦ä» `Environment` å±æ€§ä¸­é…ç½®ä¸€ä¸ªBeanï¼Œè¯·åœ¨å…¶Beanæ³¨å†Œä¸­æ·»åŠ  `@ConfigurationProperties` ï¼Œå¦‚ä¸‹ä¾‹æ‰€ç¤ºã€‚
 
 
 
@@ -2074,7 +2074,7 @@ public class ThirdPartyConfiguration {
 
 
 
-ÈÎºÎÓÃ `another` Ç°×º¶¨ÒåµÄJavaBeanÊôĞÔ¶¼»á±»Ó³Éäµ½ `AnotherComponent` BeanÉÏ£¬Æä·½Ê½ÀàËÆÓÚÇ°ÃæµÄ `SomeProperties` Àı×Ó¡£
+ä»»ä½•ç”¨ `another` å‰ç¼€å®šä¹‰çš„JavaBeanå±æ€§éƒ½ä¼šè¢«æ˜ å°„åˆ° `AnotherComponent` Beanä¸Šï¼Œå…¶æ–¹å¼ç±»ä¼¼äºå‰é¢çš„ `SomeProperties` ä¾‹å­ã€‚
 
 
 
@@ -2082,17 +2082,17 @@ public class ThirdPartyConfiguration {
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding)2.8.6\. ¿íËÉµÄ°ó¶¨
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding)2.8.6\. å®½æ¾çš„ç»‘å®š
 
 
 
-Spring BootÔÚ½« `Environment` ÊôĞÔ°ó¶¨µ½ `@ConfigurationProperties` beanÊ±Ê¹ÓÃÁËÒ»Ğ©¿íËÉµÄ¹æÔò£¬Òò´Ë `Environment` ÊôĞÔÃû³ÆºÍbeanÊôĞÔÃû³ÆÖ®¼ä²»ĞèÒªÍêÈ«Æ¥Åä¡£ ÕâºÜÓĞÓÃ£¬³£¼ûµÄÀı×Ó°üÀ¨ÆÆÕÛºÅ·Ö¸ôµÄÊôĞÔÃû³Æ£¨ÀıÈç£¬ `context-path` °ó¶¨µ½ `contextPath` £©£¬ºÍ´óĞ´µÄÊôĞÔÃû³Æ£¨ÀıÈç£¬`PORT` °ó¶¨µ½ `port` £©¡£
+Spring Bootåœ¨å°† `Environment` å±æ€§ç»‘å®šåˆ° `@ConfigurationProperties` beanæ—¶ä½¿ç”¨äº†ä¸€äº›å®½æ¾çš„è§„åˆ™ï¼Œå› æ­¤ `Environment` å±æ€§åç§°å’Œbeanå±æ€§åç§°ä¹‹é—´ä¸éœ€è¦å®Œå…¨åŒ¹é…ã€‚ è¿™å¾ˆæœ‰ç”¨ï¼Œå¸¸è§çš„ä¾‹å­åŒ…æ‹¬ç ´æŠ˜å·åˆ†éš”çš„å±æ€§åç§°ï¼ˆä¾‹å¦‚ï¼Œ `context-path` ç»‘å®šåˆ° `contextPath` ï¼‰ï¼Œå’Œå¤§å†™çš„å±æ€§åç§°ï¼ˆä¾‹å¦‚ï¼Œ`PORT` ç»‘å®šåˆ° `port` ï¼‰ã€‚
 
 
 
 
 
-ÑİÊ¾Ò»¸öÀı×Ó£¬¿¼ÂÇÒÔÏÂ `@ConfigurationProperties` Àà¡£
+æ¼”ç¤ºä¸€ä¸ªä¾‹å­ï¼Œè€ƒè™‘ä»¥ä¸‹ `@ConfigurationProperties` ç±»ã€‚
 
 
 
@@ -2132,53 +2132,53 @@ public class MyPersonProperties {
 
 
 
-¶ÔÒÔÉÏµÄ´úÂëÀ´Ëµ£¬ÒÔÏÂµÄÊôĞÔÃû³Æ¶¼¿ÉÒÔÊ¹ÓÃ¡£
+å¯¹ä»¥ä¸Šçš„ä»£ç æ¥è¯´ï¼Œä»¥ä¸‹çš„å±æ€§åç§°éƒ½å¯ä»¥ä½¿ç”¨ã€‚
 
 
 
 <caption>Table 3\. relaxed binding</caption><colgroup><col><col></colgroup>
 | Property | Note |
 | --- | --- |
-| `my.main-project.person.first-name` | Kebab ·ç¸ñ£¨¶ÌºáÏß¸ô¿ª£©£¬½¨ÒéÔÚ `.properties` ºÍ `.yml` ÎÄ¼şÖĞÊ¹ÓÃ¡£ |
-| `my.main-project.person.firstName` | ±ê×¼µÄÍÕ·åÓï·¨¡£ |
-| `my.main-project.person.first_name` | ÏÂ»®Ïß£¬ÕâÊÇÒ»ÖÖÓÃÓÚ `.properties` ºÍ `.yml` ÎÄ¼şµÄÌæ´ú¸ñÊ½¡£ |
-| `MY_MAINPROJECT_PERSON_FIRSTNAME` | ´óĞ´¸ñÊ½£¬ÔÚÊ¹ÓÃÏµÍ³»·¾³±äÁ¿Ê±½¨ÒéÊ¹ÓÃ´óĞ´¸ñÊ½¡£ |
+| `my.main-project.person.first-name` | Kebab é£æ ¼ï¼ˆçŸ­æ¨ªçº¿éš”å¼€ï¼‰ï¼Œå»ºè®®åœ¨ `.properties` å’Œ `.yml` æ–‡ä»¶ä¸­ä½¿ç”¨ã€‚ |
+| `my.main-project.person.firstName` | æ ‡å‡†çš„é©¼å³°è¯­æ³•ã€‚ |
+| `my.main-project.person.first_name` | ä¸‹åˆ’çº¿ï¼Œè¿™æ˜¯ä¸€ç§ç”¨äº `.properties` å’Œ `.yml` æ–‡ä»¶çš„æ›¿ä»£æ ¼å¼ã€‚ |
+| `MY_MAINPROJECT_PERSON_FIRSTNAME` | å¤§å†™æ ¼å¼ï¼Œåœ¨ä½¿ç”¨ç³»ç»Ÿç¯å¢ƒå˜é‡æ—¶å»ºè®®ä½¿ç”¨å¤§å†™æ ¼å¼ã€‚ |
 
 
 
-|  | ×¢½âµÄ `prefix` Öµ _±ØĞë_ ÊÇkebab·ç¸ñ£¨Ğ¡Ğ´²¢ÒÔ `-` ·Ö¸ô£¬Èç `my.main-project.person` £©¡£ |
+|  | æ³¨è§£çš„ `prefix` å€¼ _å¿…é¡»_ æ˜¯kebabé£æ ¼ï¼ˆå°å†™å¹¶ä»¥ `-` åˆ†éš”ï¼Œå¦‚ `my.main-project.person` ï¼‰ã€‚ |
 | --- | --- |
 
 
 
-<caption>Table 4\. Ã¿ÖÖÊôĞÔÔ´µÄ¿íËÉ°ó¶¨¹æÔò</caption><colgroup><col><col><col></colgroup>
-| ÊôĞÔÔ´ | ¼òµ¥µÄ | ÁĞ±í |
+<caption>Table 4\. æ¯ç§å±æ€§æºçš„å®½æ¾ç»‘å®šè§„åˆ™</caption><colgroup><col><col><col></colgroup>
+| å±æ€§æº | ç®€å•çš„ | åˆ—è¡¨ |
 | --- | --- | --- |
-| Properties ÎÄ¼ş | ÍÕ·å, kebab , ÏÂ»®Ïß | Ê¹ÓÃ `[ ]` »ò¶ººÅ·Ö¸ôÖµµÄ±ê×¼ÁĞ±íÓï·¨ |
-| YAML ÎÄ¼ş | ÍÕ·å, kebab , ÏÂ»®Ïß | ±ê×¼YAMLÁĞ±íÓï·¨»ò¶ººÅ·Ö¸ôµÄÖµ |
-| »·¾³±äÁ¿ | ´óĞ´£¬ÏÂ»®ÏßÎª·Ö¸ô·û(¼û [´Ó»·¾³±äÁ¿°ó¶¨](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding.environment-variables)). | Numeric values surrounded by underscores (see [´Ó»·¾³±äÁ¿°ó¶¨](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding.environment-variables)) |
-| ÏµÍ³ÊôĞÔ£¨System properties£© | ÍÕ·å, kebab , ÏÂ»®Ïß | Ê¹ÓÃ `[ ]` »ò¶ººÅ·Ö¸ôÖµµÄ±ê×¼ÁĞ±íÓï·¨ |
+| Properties æ–‡ä»¶ | é©¼å³°, kebab , ä¸‹åˆ’çº¿ | ä½¿ç”¨ `[ ]` æˆ–é€—å·åˆ†éš”å€¼çš„æ ‡å‡†åˆ—è¡¨è¯­æ³• |
+| YAML æ–‡ä»¶ | é©¼å³°, kebab , ä¸‹åˆ’çº¿ | æ ‡å‡†YAMLåˆ—è¡¨è¯­æ³•æˆ–é€—å·åˆ†éš”çš„å€¼ |
+| ç¯å¢ƒå˜é‡ | å¤§å†™ï¼Œä¸‹åˆ’çº¿ä¸ºåˆ†éš”ç¬¦(è§ [ä»ç¯å¢ƒå˜é‡ç»‘å®š](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding.environment-variables)). | Numeric values surrounded by underscores (see [ä»ç¯å¢ƒå˜é‡ç»‘å®š](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding.environment-variables)) |
+| ç³»ç»Ÿå±æ€§ï¼ˆSystem propertiesï¼‰ | é©¼å³°, kebab , ä¸‹åˆ’çº¿ | ä½¿ç”¨ `[ ]` æˆ–é€—å·åˆ†éš”å€¼çš„æ ‡å‡†åˆ—è¡¨è¯­æ³• |
 
 
 
-|  | ÎÒÃÇ½¨Òé£¬ÔÚ¿ÉÄÜµÄÇé¿öÏÂ£¬ÊôĞÔÓ¦ÒÔĞ¡Ğ´µÄkebab¸ñÊ½´æ´¢£¬ÀıÈç `my.person.first-name=Rod` ¡£ |
+|  | æˆ‘ä»¬å»ºè®®ï¼Œåœ¨å¯èƒ½çš„æƒ…å†µä¸‹ï¼Œå±æ€§åº”ä»¥å°å†™çš„kebabæ ¼å¼å­˜å‚¨ï¼Œä¾‹å¦‚ `my.person.first-name=Rod` ã€‚ |
 | --- | --- |
 
 
 
 
 
-##### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding.maps)°ó¶¨Map
+##### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding.maps)ç»‘å®šMap
 
 
 
-µ±°ó¶¨µ½ `Map` ÊôĞÔÊ±£¬Äã¿ÉÄÜĞèÒªÊ¹ÓÃÒ»¸öÌØÊâµÄÀ¨ºÅ·ûºÅ£¬ÒÔ±ã±£ÁôÔ­Ê¼µÄ `key` Öµ¡£ Èç¹ûkeyÃ»ÓĞ±» `[ ]` °ü¹ü£¬ÈÎºÎ·Ç×ÖÄ¸Êı×Ö¡¢`-` »ò `.` µÄ×Ö·û½«±»É¾³ı¡£
+å½“ç»‘å®šåˆ° `Map` å±æ€§æ—¶ï¼Œä½ å¯èƒ½éœ€è¦ä½¿ç”¨ä¸€ä¸ªç‰¹æ®Šçš„æ‹¬å·ç¬¦å·ï¼Œä»¥ä¾¿ä¿ç•™åŸå§‹çš„ `key` å€¼ã€‚ å¦‚æœkeyæ²¡æœ‰è¢« `[ ]` åŒ…è£¹ï¼Œä»»ä½•éå­—æ¯æ•°å­—ã€`-` æˆ– `.` çš„å­—ç¬¦å°†è¢«åˆ é™¤ã€‚
 
 
 
 
 
-ÀıÈç£¬¿¼ÂÇ½«ÒÔÏÂÊôĞÔ°ó¶¨µ½Ò»¸ö `Map<String,String>`¡£
+ä¾‹å¦‚ï¼Œè€ƒè™‘å°†ä»¥ä¸‹å±æ€§ç»‘å®šåˆ°ä¸€ä¸ª `Map<String,String>`ã€‚
 
 
 
@@ -2206,20 +2206,20 @@ my.map./key3=value3
 
 
 
-|  | ¶ÔÓÚYAMLÎÄ¼ş£¬À¨ºÅĞèÒªÓÃÒıºÅ°ü¹ü£¬ÒÔÊ¹key±»ÕıÈ·½âÎö¡£ |
+|  | å¯¹äºYAMLæ–‡ä»¶ï¼Œæ‹¬å·éœ€è¦ç”¨å¼•å·åŒ…è£¹ï¼Œä»¥ä½¿keyè¢«æ­£ç¡®è§£æã€‚ |
 | --- | --- |
 
 
 
 
 
-ÉÏÃæµÄÊôĞÔ½«°ó¶¨µ½Ò»¸ö `Map` £¬`/key1`£¬`/key2` ºÍ `key3` ×÷ÎªmapµÄkey¡£ Ğ±ÏßÒÑ¾­´Ó `key3` ÖĞÉ¾³ı£¬ÒòÎªËüÃ»ÓĞ±»·½À¨ºÅ°ü¹ü¡£
+ä¸Šé¢çš„å±æ€§å°†ç»‘å®šåˆ°ä¸€ä¸ª `Map` ï¼Œ`/key1`ï¼Œ`/key2` å’Œ `key3` ä½œä¸ºmapçš„keyã€‚ æ–œçº¿å·²ç»ä» `key3` ä¸­åˆ é™¤ï¼Œå› ä¸ºå®ƒæ²¡æœ‰è¢«æ–¹æ‹¬å·åŒ…è£¹ã€‚
 
 
 
 
 
-µ±°ó¶¨µ½±êÁ¿ÖµÊ±£¬´øÓĞ `.` µÄ¼ü²»ĞèÒªÓÃ `[]` °ü¹ü¡£ ±êÁ¿Öµ°üÀ¨Ã¶¾ÙºÍËùÓĞ `java.lang` °üÖĞµÄÀàĞÍ£¬³ıÁË `Object` ¡£ ½« `a.b=c` °ó¶¨µ½ `Map<String, String>` ½«±£Áô¼üÖĞµÄ `.` £¬²¢·µ»ØÒ»¸ö´øÓĞ `{"a.b"="c"}` EntryµÄMap¡£ ¶ÔÓÚÈÎºÎÆäËûÀàĞÍ£¬Èç¹ûÄãµÄ `key` °üº¬ `.` £¬ÄãĞèÒªÊ¹ÓÃÀ¨ºÅ·ûºÅ¡£ ÀıÈç£¬½« `a.b=c` °ó¶¨µ½ `Map<String, Object>` ½«·µ»ØÒ»¸ö´øÓĞ `{"a"={"b"="c"}` entryµÄMap£¬¶ø `[a.b]=c` ½«·µ»ØÒ»¸ö´øÓĞ `{"a.b"="c"}` entry µÄMap¡£
+å½“ç»‘å®šåˆ°æ ‡é‡å€¼æ—¶ï¼Œå¸¦æœ‰ `.` çš„é”®ä¸éœ€è¦ç”¨ `[]` åŒ…è£¹ã€‚ æ ‡é‡å€¼åŒ…æ‹¬æšä¸¾å’Œæ‰€æœ‰ `java.lang` åŒ…ä¸­çš„ç±»å‹ï¼Œé™¤äº† `Object` ã€‚ å°† `a.b=c` ç»‘å®šåˆ° `Map<String, String>` å°†ä¿ç•™é”®ä¸­çš„ `.` ï¼Œå¹¶è¿”å›ä¸€ä¸ªå¸¦æœ‰ `{"a.b"="c"}` Entryçš„Mapã€‚ å¯¹äºä»»ä½•å…¶ä»–ç±»å‹ï¼Œå¦‚æœä½ çš„ `key` åŒ…å« `.` ï¼Œä½ éœ€è¦ä½¿ç”¨æ‹¬å·ç¬¦å·ã€‚ ä¾‹å¦‚ï¼Œå°† `a.b=c` ç»‘å®šåˆ° `Map<String, Object>` å°†è¿”å›ä¸€ä¸ªå¸¦æœ‰ `{"a"={"b"="c"}` entryçš„Mapï¼Œè€Œ `[a.b]=c` å°†è¿”å›ä¸€ä¸ªå¸¦æœ‰ `{"a.b"="c"}` entry çš„Mapã€‚
 
 
 
@@ -2227,51 +2227,51 @@ my.map./key3=value3
 
 
 
-##### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding.environment-variables)´Ó»·¾³±äÁ¿°ó¶¨
+##### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding.environment-variables)ä»ç¯å¢ƒå˜é‡ç»‘å®š
 
 
 
-ÀıÈç£¬Linux shell±äÁ¿Ö»ÄÜ°üº¬×ÖÄ¸£¨`a` µ½ `z` »ò `A` µ½ `Z` £©¡¢Êı×Ö£¨ `0` µ½ `9` £©»òÏÂ»®Ïß×Ö·û£¨ `_` £©¡£ °´ÕÕ¹ßÀı£¬Unix shell±äÁ¿µÄÃû³ÆÒ²½«²ÉÓÃ´óĞ´×ÖÄ¸¡£
+ä¾‹å¦‚ï¼ŒLinux shellå˜é‡åªèƒ½åŒ…å«å­—æ¯ï¼ˆ`a` åˆ° `z` æˆ– `A` åˆ° `Z` ï¼‰ã€æ•°å­—ï¼ˆ `0` åˆ° `9` ï¼‰æˆ–ä¸‹åˆ’çº¿å­—ç¬¦ï¼ˆ `_` ï¼‰ã€‚ æŒ‰ç…§æƒ¯ä¾‹ï¼ŒUnix shellå˜é‡çš„åç§°ä¹Ÿå°†é‡‡ç”¨å¤§å†™å­—æ¯ã€‚
 
 
 
 
 
-Spring Boot¿íËÉµÄ°ó¶¨¹æÔò±»Éè¼ÆÎª¾¡¿ÉÄÜµØÓëÕâĞ©ÃüÃûÏŞÖÆ¼æÈİ¡£
+Spring Bootå®½æ¾çš„ç»‘å®šè§„åˆ™è¢«è®¾è®¡ä¸ºå°½å¯èƒ½åœ°ä¸è¿™äº›å‘½åé™åˆ¶å…¼å®¹ã€‚
 
 
 
 
 
-Òª½«¹æ·¶ĞÎÊ½µÄÊôĞÔÃû³Æ×ª»»Îª»·¾³±äÁ¿Ãû³Æ£¬Äã¿ÉÒÔ×ñÑ­ÕâĞ©¹æÔò¡£
+è¦å°†è§„èŒƒå½¢å¼çš„å±æ€§åç§°è½¬æ¢ä¸ºç¯å¢ƒå˜é‡åç§°ï¼Œä½ å¯ä»¥éµå¾ªè¿™äº›è§„åˆ™ã€‚
 
 
 
 
 
-*   ÓÃÏÂ»®Ïß£¨`_`£©Ìæ»»µã£¨`.`£©¡£
+*   ç”¨ä¸‹åˆ’çº¿ï¼ˆ`_`ï¼‰æ›¿æ¢ç‚¹ï¼ˆ`.`ï¼‰ã€‚
 
-*   É¾³ıÈÎºÎÆÆÕÛºÅ£¨`-`£©¡£
+*   åˆ é™¤ä»»ä½•ç ´æŠ˜å·ï¼ˆ`-`ï¼‰ã€‚
 
-*   ×ª»»Îª´óĞ´×ÖÄ¸¡£
+*   è½¬æ¢ä¸ºå¤§å†™å­—æ¯ã€‚
 
 
 
 
 
-ÀıÈç£¬ÅäÖÃÊôĞÔ `spring.main.log-startup-info` ½«ÊÇÒ»¸öÃûÎª `SPRING_MAIN_LOGSTARTUPINFO` µÄ»·¾³±äÁ¿¡£
+ä¾‹å¦‚ï¼Œé…ç½®å±æ€§ `spring.main.log-startup-info` å°†æ˜¯ä¸€ä¸ªåä¸º `SPRING_MAIN_LOGSTARTUPINFO` çš„ç¯å¢ƒå˜é‡ã€‚
 
 
 
 
 
-»·¾³±äÁ¿Ò²¿ÉÒÔÔÚ°ó¶¨µ½¶ÔÏóÁĞ±í£¨List£©Ê±Ê¹ÓÃ¡£ Òª°ó¶¨µ½Ò»¸ö `List`£¬ÔÚ±äÁ¿Ãû³ÆÖĞ£¬ÔªËØ±àºÅ£¨Ë÷Òı£©Ó¦¸ÃÓÃÏÂ»®Ïß°ü¹ü¡£
+ç¯å¢ƒå˜é‡ä¹Ÿå¯ä»¥åœ¨ç»‘å®šåˆ°å¯¹è±¡åˆ—è¡¨ï¼ˆListï¼‰æ—¶ä½¿ç”¨ã€‚ è¦ç»‘å®šåˆ°ä¸€ä¸ª `List`ï¼Œåœ¨å˜é‡åç§°ä¸­ï¼Œå…ƒç´ ç¼–å·ï¼ˆç´¢å¼•ï¼‰åº”è¯¥ç”¨ä¸‹åˆ’çº¿åŒ…è£¹ã€‚
 
 
 
 
 
-ÀıÈç£¬ÅäÖÃÊôĞÔ `my.service[0].other` ½«Ê¹ÓÃÒ»¸öÃûÎª `MY_SERVICE_0_OTHER` µÄ»·¾³±äÁ¿¡£
+ä¾‹å¦‚ï¼Œé…ç½®å±æ€§ `my.service[0].other` å°†ä½¿ç”¨ä¸€ä¸ªåä¸º `MY_SERVICE_0_OTHER` çš„ç¯å¢ƒå˜é‡ã€‚
 
 
 
@@ -2281,17 +2281,17 @@ Spring Boot¿íËÉµÄ°ó¶¨¹æÔò±»Éè¼ÆÎª¾¡¿ÉÄÜµØÓëÕâĞ©ÃüÃûÏŞÖÆ¼æÈİ¡£
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.merging-complex-types)2.8.7\. ºÏ²¢¸´ÔÓµÄÀàĞÍ
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.merging-complex-types)2.8.7\. åˆå¹¶å¤æ‚çš„ç±»å‹
 
 
 
-µ±List±»ÅäÖÃÔÚ¶à¸öµØ·½Ê±£¬¸²¸ÇµÄ×÷ÓÃÊÇÌæ»»Õû¸ölist¡£
+å½“Listè¢«é…ç½®åœ¨å¤šä¸ªåœ°æ–¹æ—¶ï¼Œè¦†ç›–çš„ä½œç”¨æ˜¯æ›¿æ¢æ•´ä¸ªlistã€‚
 
 
 
 
 
-ÀıÈç£¬¼ÙÉèÒ»¸ö `MyPojo` ¶ÔÏóµÄ `name` ºÍ `description` ÊôĞÔÄ¬ÈÏÎª `null`¡£ ÏÂÃæµÄÀı×Ó´Ó `MyProperties` ÖĞ±©Â¶ÁËÒ»¸ö `MyPojo` ¶ÔÏóµÄÁĞ±í¡£
+ä¾‹å¦‚ï¼Œå‡è®¾ä¸€ä¸ª `MyPojo` å¯¹è±¡çš„ `name` å’Œ `description` å±æ€§é»˜è®¤ä¸º `null`ã€‚ ä¸‹é¢çš„ä¾‹å­ä» `MyProperties` ä¸­æš´éœ²äº†ä¸€ä¸ª `MyPojo` å¯¹è±¡çš„åˆ—è¡¨ã€‚
 
 
 
@@ -2327,7 +2327,7 @@ public class MyProperties {
 
 
 
-¿¼ÂÇÒÔÏÂÅäÖÃ¡£
+è€ƒè™‘ä»¥ä¸‹é…ç½®ã€‚
 
 
 
@@ -2358,13 +2358,13 @@ my.list[0].name=my another name
 
 
 
-Èç¹û `dev` ÅäÖÃÎÄ¼şÎ´±»¼¤»î£¬`MyProperties.list` °üº¬Ò»¸ö `MyPojo` ÌõÄ¿£¬ÈçÖ®Ç°¶¨ÒåµÄÄÇÑù¡£ È»¶ø£¬Èç¹û `dev` ÅäÖÃÎÄ¼ş±»¼¤»î£¬`list` ÈÔÈ»Ö»°üº¬Ò»¸öÌõÄ¿£¨name Îª `my another name`£¬descriptionÎª `null`£©¡£ ÕâÖÖÅäÖÃ²»»áÔÚÁĞ±íÖĞÌí¼ÓµÚ¶ş¸ö `MyPojo` ÊµÀı£¬Ò²²»»áºÏ²¢ÏîÄ¿¡£
+å¦‚æœ `dev` é…ç½®æ–‡ä»¶æœªè¢«æ¿€æ´»ï¼Œ`MyProperties.list` åŒ…å«ä¸€ä¸ª `MyPojo` æ¡ç›®ï¼Œå¦‚ä¹‹å‰å®šä¹‰çš„é‚£æ ·ã€‚ ç„¶è€Œï¼Œå¦‚æœ `dev` é…ç½®æ–‡ä»¶è¢«æ¿€æ´»ï¼Œ`list` ä»ç„¶åªåŒ…å«ä¸€ä¸ªæ¡ç›®ï¼ˆname ä¸º `my another name`ï¼Œdescriptionä¸º `null`ï¼‰ã€‚ è¿™ç§é…ç½®ä¸ä¼šåœ¨åˆ—è¡¨ä¸­æ·»åŠ ç¬¬äºŒä¸ª `MyPojo` å®ä¾‹ï¼Œä¹Ÿä¸ä¼šåˆå¹¶é¡¹ç›®ã€‚
 
 
 
 
 
-µ±Ò»¸ö `List` ÔÚ¶à¸öÅäÖÃÎÄ¼şÖĞ±»Ö¸¶¨Ê±£¬½«Ê¹ÓÃ¾ßÓĞ×î¸ßÓÅÏÈ¼¶µÄÄÇ¸ö£¨²¢ÇÒÖ»ÓĞÄÇ¸ö£©¡£ ¿¼ÂÇÏÂÃæµÄÀı×Ó¡£
+å½“ä¸€ä¸ª `List` åœ¨å¤šä¸ªé…ç½®æ–‡ä»¶ä¸­è¢«æŒ‡å®šæ—¶ï¼Œå°†ä½¿ç”¨å…·æœ‰æœ€é«˜ä¼˜å…ˆçº§çš„é‚£ä¸ªï¼ˆå¹¶ä¸”åªæœ‰é‚£ä¸ªï¼‰ã€‚ è€ƒè™‘ä¸‹é¢çš„ä¾‹å­ã€‚
 
 
 
@@ -2397,13 +2397,13 @@ my.list[0].name=my another name
 
 
 
-ÔÚÇ°ÃæµÄÀı×ÓÖĞ£¬Èç¹û `dev` ÅäÖÃÎÄ¼şÊÇ¼¤»îµÄ£¬`MyProperties.list` °üº¬ _Ò»¸ö_ `MyPojo` ÌõÄ¿£¨name ÊÇ `my another name`£¬descriptionÊÇ `null`£©¡£ ¶ÔÓÚYAML£¬¶ººÅ·Ö¸ôµÄÁĞ±íºÍYAMLÁĞ±í¶¼¿ÉÒÔÓÃÀ´ÍêÈ«¸²¸ÇÁĞ±íµÄÄÚÈİ¡£
+åœ¨å‰é¢çš„ä¾‹å­ä¸­ï¼Œå¦‚æœ `dev` é…ç½®æ–‡ä»¶æ˜¯æ¿€æ´»çš„ï¼Œ`MyProperties.list` åŒ…å« _ä¸€ä¸ª_ `MyPojo` æ¡ç›®ï¼ˆname æ˜¯ `my another name`ï¼Œdescriptionæ˜¯ `null`ï¼‰ã€‚ å¯¹äºYAMLï¼Œé€—å·åˆ†éš”çš„åˆ—è¡¨å’ŒYAMLåˆ—è¡¨éƒ½å¯ä»¥ç”¨æ¥å®Œå…¨è¦†ç›–åˆ—è¡¨çš„å†…å®¹ã€‚
 
 
 
 
 
-¶ÔÓÚ `Map` ÊôĞÔ£¬Äã¿ÉÒÔÓÃ´Ó¶à¸öÀ´Ô´»ñÈ¡µÄÊôĞÔÖµ½øĞĞ°ó¶¨¡£ È»¶ø£¬¶ÔÓÚ¶à¸öÀ´Ô´ÖĞµÄÍ¬Ò»ÊôĞÔ£¬Ê¹ÓÃ¾ßÓĞ×î¸ßÓÅÏÈ¼¶µÄÄÇ¸ö¡£ ÏÂÃæµÄÀı×Ó´Ó `MyProperties` ±©Â¶ÁËÒ»¸ö `Map<String, MyPojo>`¡£
+å¯¹äº `Map` å±æ€§ï¼Œä½ å¯ä»¥ç”¨ä»å¤šä¸ªæ¥æºè·å–çš„å±æ€§å€¼è¿›è¡Œç»‘å®šã€‚ ç„¶è€Œï¼Œå¯¹äºå¤šä¸ªæ¥æºä¸­çš„åŒä¸€å±æ€§ï¼Œä½¿ç”¨å…·æœ‰æœ€é«˜ä¼˜å…ˆçº§çš„é‚£ä¸ªã€‚ ä¸‹é¢çš„ä¾‹å­ä» `MyProperties` æš´éœ²äº†ä¸€ä¸ª `Map<String, MyPojo>`ã€‚
 
 
 
@@ -2439,7 +2439,7 @@ public class MyProperties {
 
 
 
-¿¼ÂÇÒÔÏÂÅäÖÃ¡£
+è€ƒè™‘ä»¥ä¸‹é…ç½®ã€‚
 
 
 
@@ -2472,13 +2472,13 @@ my.map.key2.description=dev description 2
 
 
 
-Èç¹û `dev` ÅäÖÃÎÄ¼şÃ»ÓĞ¼¤»î£¬`MyProperties.map` °üº¬Ò»¸ökeyÎª `key1` µÄÌõÄ¿£¨nameÎª `my name 1` £¬descriptionÎª `my description 1` £©¡£ È»¶ø£¬Èç¹û `dev` ÅäÖÃÎÄ¼ş±»¼¤»î£¬`map` °üº¬Á½¸öÌõÄ¿£¬keyÎª `key1` £¨nameÎª `dev name 1`£¬descriptionÎª `my description 1` £©ºÍ `key2`£¨nameÎª `dev name 2`£¬descriptionÎª `dev description 2`£©¡£
+å¦‚æœ `dev` é…ç½®æ–‡ä»¶æ²¡æœ‰æ¿€æ´»ï¼Œ`MyProperties.map` åŒ…å«ä¸€ä¸ªkeyä¸º `key1` çš„æ¡ç›®ï¼ˆnameä¸º `my name 1` ï¼Œdescriptionä¸º `my description 1` ï¼‰ã€‚ ç„¶è€Œï¼Œå¦‚æœ `dev` é…ç½®æ–‡ä»¶è¢«æ¿€æ´»ï¼Œ`map` åŒ…å«ä¸¤ä¸ªæ¡ç›®ï¼Œkeyä¸º `key1` ï¼ˆnameä¸º `dev name 1`ï¼Œdescriptionä¸º `my description 1` ï¼‰å’Œ `key2`ï¼ˆnameä¸º `dev name 2`ï¼Œdescriptionä¸º `dev description 2`ï¼‰ã€‚
 
 
 
 
 
-|  | Ç°ÃæµÄºÏ²¢¹æÔòÊÊÓÃÓÚËùÓĞÊôĞÔÔ´µÄÊôĞÔ£¬¶ø²»½ö½öÊÇÎÄ¼ş¡£ |
+|  | å‰é¢çš„åˆå¹¶è§„åˆ™é€‚ç”¨äºæ‰€æœ‰å±æ€§æºçš„å±æ€§ï¼Œè€Œä¸ä»…ä»…æ˜¯æ–‡ä»¶ã€‚ |
 | --- | --- |
 
 
@@ -2487,44 +2487,44 @@ my.map.key2.description=dev description 2
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.conversion)2.8.8\. ÊôĞÔ£¨Properties£©×ª»»
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.conversion)2.8.8\. å±æ€§ï¼ˆPropertiesï¼‰è½¬æ¢
 
 
 
-µ±Spring BootÓë `@ConfigurationProperties` Bean°ó¶¨Ê±£¬ËüÊÔÍ¼½«Íâ²¿application propertiesÇ¿ÖÆ¸ÄÎªÕıÈ·µÄÀàĞÍ¡£ Èç¹ûÄãĞèÒª×Ô¶¨ÒåÀàĞÍ×ª»»£¬Äã¿ÉÒÔÌá¹©Ò»¸ö `ConversionService` bean£¨BeanµÄÃû³ÆÎª `conversionService` £©»ò×Ô¶¨ÒåÊôĞÔ±à¼­Æ÷£¨Í¨¹ı `CustomEditorConfigurer` bean£©»ò×Ô¶¨Òå `Converters` Bean£¨Ê¹ÓÃ `@ConfigurationPropertiesBinding` ×¢½â£©¡£
+å½“Spring Bootä¸ `@ConfigurationProperties` Beanç»‘å®šæ—¶ï¼Œå®ƒè¯•å›¾å°†å¤–éƒ¨application propertieså¼ºåˆ¶æ”¹ä¸ºæ­£ç¡®çš„ç±»å‹ã€‚ å¦‚æœä½ éœ€è¦è‡ªå®šä¹‰ç±»å‹è½¬æ¢ï¼Œä½ å¯ä»¥æä¾›ä¸€ä¸ª `ConversionService` beanï¼ˆBeançš„åç§°ä¸º `conversionService` ï¼‰æˆ–è‡ªå®šä¹‰å±æ€§ç¼–è¾‘å™¨ï¼ˆé€šè¿‡ `CustomEditorConfigurer` beanï¼‰æˆ–è‡ªå®šä¹‰ `Converters` Beanï¼ˆä½¿ç”¨ `@ConfigurationPropertiesBinding` æ³¨è§£ï¼‰ã€‚
 
 
 
 
 
-|  | ÓÉÓÚÕâ¸öBeanÊÇÔÚÓ¦ÓÃ³ÌĞòÉúÃüÖÜÆÚµÄÔçÆÚ±»ÇëÇóµÄ£¬ÇëÈ·±£ÏŞÖÆÄãµÄ `ConversionService` ËùÊ¹ÓÃµÄÒÀÀµ¹ØÏµ¡£ Í¨³£Çé¿öÏÂ£¬ÄãËùĞèÒªµÄÈÎºÎÒÀÀµ¹ØÏµÔÚ´´½¨Ê±¿ÉÄÜÃ»ÓĞÍêÈ«³õÊ¼»¯¡£ Èç¹ûÄãµÄ×Ô¶¨Òå `ConversionService` ²»ĞèÒªÅäÖÃkeys coercion£¬Äã¿ÉÄÜÏëÖØÃüÃûËü£¬²¢ÇÒÖ»ÒÀÀµÓÃ `@ConfigurationPropertiesBinding` ÏŞ¶¨µÄ×Ô¶¨Òå×ª»»Æ÷¡£ |
+|  | ç”±äºè¿™ä¸ªBeanæ˜¯åœ¨åº”ç”¨ç¨‹åºç”Ÿå‘½å‘¨æœŸçš„æ—©æœŸè¢«è¯·æ±‚çš„ï¼Œè¯·ç¡®ä¿é™åˆ¶ä½ çš„ `ConversionService` æ‰€ä½¿ç”¨çš„ä¾èµ–å…³ç³»ã€‚ é€šå¸¸æƒ…å†µä¸‹ï¼Œä½ æ‰€éœ€è¦çš„ä»»ä½•ä¾èµ–å…³ç³»åœ¨åˆ›å»ºæ—¶å¯èƒ½æ²¡æœ‰å®Œå…¨åˆå§‹åŒ–ã€‚ å¦‚æœä½ çš„è‡ªå®šä¹‰ `ConversionService` ä¸éœ€è¦é…ç½®keys coercionï¼Œä½ å¯èƒ½æƒ³é‡å‘½åå®ƒï¼Œå¹¶ä¸”åªä¾èµ–ç”¨ `@ConfigurationPropertiesBinding` é™å®šçš„è‡ªå®šä¹‰è½¬æ¢å™¨ã€‚ |
 | --- | --- |
 
 
 
 
 
-##### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.conversion.durations)×ª»»Îª Duration
+##### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.conversion.durations)è½¬æ¢ä¸º Duration
 
 
 
-Spring Boot¶Ô±í´ï³ÖĞøÊ±¼äÓĞ×¨ÃÅµÄÖ§³Ö¡£ Èç¹ûÄã¹«¿ªÁËÒ»¸ö `java.time.Duration` ÊôĞÔ£¬application propertiesÖĞµÄÒÔÏÂ¸ñÊ½¾Í¿ÉÓÃ¡£
-
-
-
-
-
-*   ÆÕÍ¨µÄ `long` £¨Ê¹ÓÃºÁÃë×÷ÎªÄ¬ÈÏµ¥Î»£¬³ı·ÇÖ¸¶¨ÁË `@DurationUnit` £©¡£
-
-*   ±ê×¼µÄISO-8601¸ñÊ½ [ÓÉ `java.time.Duration` Ê¹ÓÃ](https://docs.oracle.com/javase/17/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-)¡£
-
-*   Ò»¸ö¸üÒ×¶ÁµÄ¸ñÊ½£¬ÆäÖĞÖµºÍµ¥Î»ÊÇñîºÏµÄ£¨`10s` ±íÊ¾10Ãë£©¡£
+Spring Bootå¯¹è¡¨è¾¾æŒç»­æ—¶é—´æœ‰ä¸“é—¨çš„æ”¯æŒã€‚ å¦‚æœä½ å…¬å¼€äº†ä¸€ä¸ª `java.time.Duration` å±æ€§ï¼Œapplication propertiesä¸­çš„ä»¥ä¸‹æ ¼å¼å°±å¯ç”¨ã€‚
 
 
 
 
 
-Çë¿¼ÂÇÒÔÏÂÀı×Ó¡£
+*   æ™®é€šçš„ `long` ï¼ˆä½¿ç”¨æ¯«ç§’ä½œä¸ºé»˜è®¤å•ä½ï¼Œé™¤éæŒ‡å®šäº† `@DurationUnit` ï¼‰ã€‚
+
+*   æ ‡å‡†çš„ISO-8601æ ¼å¼ [ç”± `java.time.Duration` ä½¿ç”¨](https://docs.oracle.com/javase/17/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-)ã€‚
+
+*   ä¸€ä¸ªæ›´æ˜“è¯»çš„æ ¼å¼ï¼Œå…¶ä¸­å€¼å’Œå•ä½æ˜¯è€¦åˆçš„ï¼ˆ`10s` è¡¨ç¤º10ç§’ï¼‰ã€‚
+
+
+
+
+
+è¯·è€ƒè™‘ä»¥ä¸‹ä¾‹å­ã€‚
 
 
 
@@ -2561,43 +2561,43 @@ public class MyProperties {
 
 
 
-ÒªÖ¸¶¨Ò»¸ö30ÃëµÄ»á»°³¬Ê±£¬ `30` ¡¢ `PT30S` ºÍ `30s` ¶¼ÊÇµÈ¼ÛµÄ¡£ ¶ÁÈ¡³¬Ê±Îª500ms£¬¿ÉÒÔÓÃÒÔÏÂÈÎºÎÒ»ÖÖĞÎÊ½Ö¸¶¨¡£ `500`, `PT0.5S` ºÍ `500ms`.
+è¦æŒ‡å®šä¸€ä¸ª30ç§’çš„ä¼šè¯è¶…æ—¶ï¼Œ `30` ã€ `PT30S` å’Œ `30s` éƒ½æ˜¯ç­‰ä»·çš„ã€‚ è¯»å–è¶…æ—¶ä¸º500msï¼Œå¯ä»¥ç”¨ä»¥ä¸‹ä»»ä½•ä¸€ç§å½¢å¼æŒ‡å®šã€‚ `500`, `PT0.5S` å’Œ `500ms`.
 
 
 
 
 
-ÄãÒ²¿ÉÒÔÊ¹ÓÃÈçÏÂÖ§³ÖµÄÊ±¼äµ¥Î»¡£
+ä½ ä¹Ÿå¯ä»¥ä½¿ç”¨å¦‚ä¸‹æ”¯æŒçš„æ—¶é—´å•ä½ã€‚
 
 
 
 
 
-*   `ns` ÄÉÃë
+*   `ns` çº³ç§’
 
-*   `us` Î¢Ãë
+*   `us` å¾®ç§’
 
-*   `ms` ºÁÃë
+*   `ms` æ¯«ç§’
 
-*   `s` Ãë
+*   `s` ç§’
 
-*   `m` ·Ö
+*   `m` åˆ†
 
-*   `h` Ğ¡Ê±
+*   `h` å°æ—¶
 
-*   `d` Ìì
-
-
-
-
-
-Ä¬ÈÏµ¥Î»ÊÇºÁÃë£¬¿ÉÒÔÊ¹ÓÃ `@DurationUnit` À´ÖØĞ´£¬ÈçÉÏÃæµÄÀı×ÓËùÊ¾¡£
+*   `d` å¤©
 
 
 
 
 
-Èç¹ûÄãÏ²»¶Ê¹ÓÃ¹¹Ôìº¯Êı°ó¶¨£¬Í¬ÑùµÄÊôĞÔ¿ÉÒÔ±»±©Â¶³öÀ´£¬ÈçÏÂÃæµÄÀı×ÓËùÊ¾¡£
+é»˜è®¤å•ä½æ˜¯æ¯«ç§’ï¼Œå¯ä»¥ä½¿ç”¨ `@DurationUnit` æ¥é‡å†™ï¼Œå¦‚ä¸Šé¢çš„ä¾‹å­æ‰€ç¤ºã€‚
+
+
+
+
+
+å¦‚æœä½ å–œæ¬¢ä½¿ç”¨æ„é€ å‡½æ•°ç»‘å®šï¼ŒåŒæ ·çš„å±æ€§å¯ä»¥è¢«æš´éœ²å‡ºæ¥ï¼Œå¦‚ä¸‹é¢çš„ä¾‹å­æ‰€ç¤ºã€‚
 
 
 
@@ -2637,7 +2637,7 @@ public class MyProperties {
 
 
 
-|  | Èç¹ûÄãÒªÉı¼¶Ò»¸ö `Long` µÄÊôĞÔ£¬Èç¹ûËü²»ÊÇºÁÃë£¬ÇëÈ·±£¶¨Òåµ¥Î»£¨Ê¹ÓÃ `@DurationUnit` £©¡£ ÕâÑù×öÌá¹©ÁËÒ»¸öÍ¸Ã÷µÄÉı¼¶Â·¾¶£¬Í¬Ê±Ö§³Ö¸ü·á¸»µÄ¸ñÊ½ |
+|  | å¦‚æœä½ è¦å‡çº§ä¸€ä¸ª `Long` çš„å±æ€§ï¼Œå¦‚æœå®ƒä¸æ˜¯æ¯«ç§’ï¼Œè¯·ç¡®ä¿å®šä¹‰å•ä½ï¼ˆä½¿ç”¨ `@DurationUnit` ï¼‰ã€‚ è¿™æ ·åšæä¾›äº†ä¸€ä¸ªé€æ˜çš„å‡çº§è·¯å¾„ï¼ŒåŒæ—¶æ”¯æŒæ›´ä¸°å¯Œçš„æ ¼å¼ |
 | --- | --- |
 
 
@@ -2646,45 +2646,45 @@ public class MyProperties {
 
 
 
-##### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.conversion.periods)×ª»»ÎªÆÚ¼ä£¨Period£©
+##### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.conversion.periods)è½¬æ¢ä¸ºæœŸé—´ï¼ˆPeriodï¼‰
 
 
 
-³ıÁËduration£¬Spring Boot»¹¿ÉÒÔÊ¹ÓÃ `java.time.Period` ÀàĞÍ¡£ ÒÔÏÂ¸ñÊ½¿ÉÒÔÔÚapplication propertiesÖĞÊ¹ÓÃ¡£
-
-
-
-
-
-*   Ò»¸ö³£¹æµÄ `int` ±íÊ¾·¨£¨Ê¹ÓÃÌì×÷ÎªÄ¬ÈÏµ¥Î»£¬³ı·ÇÖ¸¶¨ÁË `@PeriodUnit` £©¡£
-
-*   ±ê×¼µÄISO-8601¸ñÊ½ [ÓÉ `java.time.Period` Ê¹ÓÃ](https://docs.oracle.com/javase/17/docs/api/java/time/Period.html#parse-java.lang.CharSequence-)¡£
-
-*   Ò»¸ö¸ü¼òµ¥µÄ¸ñÊ½£¬ÆäÖĞÖµºÍµ¥Î»¶ÔÊÇñîºÏµÄ£¨ `1y3d` ±íÊ¾1Äê3Ìì£©¡£
+é™¤äº†durationï¼ŒSpring Bootè¿˜å¯ä»¥ä½¿ç”¨ `java.time.Period` ç±»å‹ã€‚ ä»¥ä¸‹æ ¼å¼å¯ä»¥åœ¨application propertiesä¸­ä½¿ç”¨ã€‚
 
 
 
 
 
-Ö§³ÖÏÂÁĞ¼òµ¥µÄµ¥Î»¸ñÊ½¡£
+*   ä¸€ä¸ªå¸¸è§„çš„ `int` è¡¨ç¤ºæ³•ï¼ˆä½¿ç”¨å¤©ä½œä¸ºé»˜è®¤å•ä½ï¼Œé™¤éæŒ‡å®šäº† `@PeriodUnit` ï¼‰ã€‚
+
+*   æ ‡å‡†çš„ISO-8601æ ¼å¼ [ç”± `java.time.Period` ä½¿ç”¨](https://docs.oracle.com/javase/17/docs/api/java/time/Period.html#parse-java.lang.CharSequence-)ã€‚
+
+*   ä¸€ä¸ªæ›´ç®€å•çš„æ ¼å¼ï¼Œå…¶ä¸­å€¼å’Œå•ä½å¯¹æ˜¯è€¦åˆçš„ï¼ˆ `1y3d` è¡¨ç¤º1å¹´3å¤©ï¼‰ã€‚
 
 
 
 
 
-*   `y` Äê
-
-*   `m` ÔÂ
-
-*   `w` ÖÜ
-
-*   `d` ÈÕ
+æ”¯æŒä¸‹åˆ—ç®€å•çš„å•ä½æ ¼å¼ã€‚
 
 
 
 
 
-|  | `java.time.Period` ÀàĞÍÊµ¼ÊÉÏ´ÓÎ´´æ´¢¹ıÖÜÊı£¬ËüÊÇÒ»¸ö¿ì½İ·½Ê½£¬ÒâÎ¶×Å ¡°7Ìì¡±¡£ |
+*   `y` å¹´
+
+*   `m` æœˆ
+
+*   `w` å‘¨
+
+*   `d` æ—¥
+
+
+
+
+
+|  | `java.time.Period` ç±»å‹å®é™…ä¸Šä»æœªå­˜å‚¨è¿‡å‘¨æ•°ï¼Œå®ƒæ˜¯ä¸€ä¸ªå¿«æ·æ–¹å¼ï¼Œæ„å‘³ç€ â€œ7å¤©â€ã€‚ |
 | --- | --- |
 
 
@@ -2693,25 +2693,25 @@ public class MyProperties {
 
 
 
-##### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.conversion.data-sizes)×ª»»ÎªÊı¾İ´óĞ¡£¨Data Sizes£©
+##### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.conversion.data-sizes)è½¬æ¢ä¸ºæ•°æ®å¤§å°ï¼ˆData Sizesï¼‰
 
 
 
-Spring FrameworkÓĞÒ»¸ö `DataSize` ÖµÀàĞÍ£¬ÒÔ×Ö½ÚÎªµ¥Î»±í´ï´óĞ¡¡£ Èç¹ûÄã¹«¿ªÁËÒ»¸ö `DataSize` ÊôĞÔ£¬application propertiesÖĞµÄÒÔÏÂ¸ñÊ½¾Í¿ÉÓÃ¡£
-
-
-
-
-
-*   Ò»¸ö³£¹æµÄ `long` ±íÊ¾£¨Ê¹ÓÃ×Ö½Ú×÷ÎªÄ¬ÈÏµ¥Î»£¬³ı·ÇÖ¸¶¨ÁË `@DataSizeUnit`£©¡£
-
-*   Ò»¸ö¸üÒ×¶ÁµÄ¸ñÊ½£¬ÆäÖĞÖµºÍµ¥Î»ÊÇñîºÏµÄ£¨`10MB` ÒâÎ¶×Å10Õ××Ö½Ú£©¡£
+Spring Frameworkæœ‰ä¸€ä¸ª `DataSize` å€¼ç±»å‹ï¼Œä»¥å­—èŠ‚ä¸ºå•ä½è¡¨è¾¾å¤§å°ã€‚ å¦‚æœä½ å…¬å¼€äº†ä¸€ä¸ª `DataSize` å±æ€§ï¼Œapplication propertiesä¸­çš„ä»¥ä¸‹æ ¼å¼å°±å¯ç”¨ã€‚
 
 
 
 
 
-¿¼ÂÇÒÔÏÂÀı×Ó¡£
+*   ä¸€ä¸ªå¸¸è§„çš„ `long` è¡¨ç¤ºï¼ˆä½¿ç”¨å­—èŠ‚ä½œä¸ºé»˜è®¤å•ä½ï¼Œé™¤éæŒ‡å®šäº† `@DataSizeUnit`ï¼‰ã€‚
+
+*   ä¸€ä¸ªæ›´æ˜“è¯»çš„æ ¼å¼ï¼Œå…¶ä¸­å€¼å’Œå•ä½æ˜¯è€¦åˆçš„ï¼ˆ`10MB` æ„å‘³ç€10å…†å­—èŠ‚ï¼‰ã€‚
+
+
+
+
+
+è€ƒè™‘ä»¥ä¸‹ä¾‹å­ã€‚
 
 
 
@@ -2748,19 +2748,19 @@ public class MyProperties {
 
 
 
-ÒªÖ¸¶¨Ò»¸ö10Õ××Ö½Ú£¨Mb£©µÄ»º³åÇø´óĞ¡£¬ `10` ºÍ `10MB` ÊÇµÈ¼ÛµÄ¡£ 256×Ö½ÚµÄ´óĞ¡ãĞÖµ¿ÉÒÔÖ¸¶¨Îª `256` »ò `256B`¡£
+è¦æŒ‡å®šä¸€ä¸ª10å…†å­—èŠ‚ï¼ˆMbï¼‰çš„ç¼“å†²åŒºå¤§å°ï¼Œ `10` å’Œ `10MB` æ˜¯ç­‰ä»·çš„ã€‚ 256å­—èŠ‚çš„å¤§å°é˜ˆå€¼å¯ä»¥æŒ‡å®šä¸º `256` æˆ– `256B`ã€‚
 
 
 
 
 
-ÄãÒ²¿ÉÒÔÊ¹ÓÃÈçÏÂÕâĞ©Ö§³ÖµÄµ¥Î»¡£
+ä½ ä¹Ÿå¯ä»¥ä½¿ç”¨å¦‚ä¸‹è¿™äº›æ”¯æŒçš„å•ä½ã€‚
 
 
 
 
 
-*   `B` ×Ö½Ú
+*   `B` å­—èŠ‚
 
 *   `KB` KB
 
@@ -2774,13 +2774,13 @@ public class MyProperties {
 
 
 
-Ä¬ÈÏµ¥Î»ÊÇ×Ö½Ú£¬¿ÉÒÔÊ¹ÓÃ `@DataSizeUnit` À´ÖØĞ´£¬ÈçÉÏÃæµÄÀı×ÓËùÊ¾¡£
+é»˜è®¤å•ä½æ˜¯å­—èŠ‚ï¼Œå¯ä»¥ä½¿ç”¨ `@DataSizeUnit` æ¥é‡å†™ï¼Œå¦‚ä¸Šé¢çš„ä¾‹å­æ‰€ç¤ºã€‚
 
 
 
 
 
-Èç¹ûÄãÏ²»¶Ê¹ÓÃ¹¹Ôìº¯Êı°ó¶¨£¬Í¬ÑùµÄÊôĞÔ¿ÉÒÔ±»±©Â¶³öÀ´£¬ÈçÏÂÃæµÄÀı×ÓËùÊ¾¡£
+å¦‚æœä½ å–œæ¬¢ä½¿ç”¨æ„é€ å‡½æ•°ç»‘å®šï¼ŒåŒæ ·çš„å±æ€§å¯ä»¥è¢«æš´éœ²å‡ºæ¥ï¼Œå¦‚ä¸‹é¢çš„ä¾‹å­æ‰€ç¤ºã€‚
 
 
 
@@ -2820,7 +2820,7 @@ public class MyProperties {
 
 
 
-|  | Èç¹ûÄãÕıÔÚÉı¼¶Ò»¸ö `Long` ÊôĞÔ£¬È·±£¶¨Òåµ¥Î»£¨Ê¹ÓÃ `@DataSizeUnit`£©£¬Èç¹ûËü²»ÊÇ×Ö½Ú¡£ ÕâÑù×öÌá¹©ÁËÒ»¸öÍ¸Ã÷µÄÉı¼¶Â·¾¶£¬Í¬Ê±Ö§³Ö¸ü·á¸»µÄ¸ñÊ½¡£ |
+|  | å¦‚æœä½ æ­£åœ¨å‡çº§ä¸€ä¸ª `Long` å±æ€§ï¼Œç¡®ä¿å®šä¹‰å•ä½ï¼ˆä½¿ç”¨ `@DataSizeUnit`ï¼‰ï¼Œå¦‚æœå®ƒä¸æ˜¯å­—èŠ‚ã€‚ è¿™æ ·åšæä¾›äº†ä¸€ä¸ªé€æ˜çš„å‡çº§è·¯å¾„ï¼ŒåŒæ—¶æ”¯æŒæ›´ä¸°å¯Œçš„æ ¼å¼ã€‚ |
 | --- | --- |
 
 
@@ -2831,11 +2831,11 @@ public class MyProperties {
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.validation)2.8.9\. @ConfigurationProperties Ğ£Ñé
+#### [](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.validation)2.8.9\. @ConfigurationProperties æ ¡éªŒ
 
 
 
-Ö»ÒªÊ¹ÓÃSpringµÄ `@Validated` ×¢½â£¬Spring Boot¾Í»á³¢ÊÔÑéÖ¤ `@ConfigurationProperties` Àà¡£ Äã¿ÉÒÔÖ±½ÓÔÚÄãµÄÅäÖÃÀàÉÏÊ¹ÓÃJSR-303µÄ `jakarta.validation` Ô¼Êø×¢½â¡£ Òª×öµ½ÕâÒ»µã£¬ÇëÈ·±£ÄãµÄclasspathÉÏÓĞÒ»¸ö¼æÈİµÄJSR-303ÊµÏÖ£¬È»ºó½«Ô¼Êø×¢½âÌí¼Óµ½ÄãµÄ×Ö¶ÎÖĞ£¬ÈçÏÂÃæµÄÀı×ÓËùÊ¾¡£
+åªè¦ä½¿ç”¨Springçš„ `@Validated` æ³¨è§£ï¼ŒSpring Bootå°±ä¼šå°è¯•éªŒè¯ `@ConfigurationProperties` ç±»ã€‚ ä½ å¯ä»¥ç›´æ¥åœ¨ä½ çš„é…ç½®ç±»ä¸Šä½¿ç”¨JSR-303çš„ `jakarta.validation` çº¦æŸæ³¨è§£ã€‚ è¦åšåˆ°è¿™ä¸€ç‚¹ï¼Œè¯·ç¡®ä¿ä½ çš„classpathä¸Šæœ‰ä¸€ä¸ªå…¼å®¹çš„JSR-303å®ç°ï¼Œç„¶åå°†çº¦æŸæ³¨è§£æ·»åŠ åˆ°ä½ çš„å­—æ®µä¸­ï¼Œå¦‚ä¸‹é¢çš„ä¾‹å­æ‰€ç¤ºã€‚
 
 
 
@@ -2871,14 +2871,14 @@ public class MyProperties {
 
 
 
-|  | ÄãÒ²¿ÉÒÔÍ¨¹ıÔÚ configuration properties µÄ `@Bean` ·½·¨ÉÏ×¢½â `@Validated` À´´¥·¢ÑéÖ¤¡£ |
+|  | ä½ ä¹Ÿå¯ä»¥é€šè¿‡åœ¨ configuration properties çš„ `@Bean` æ–¹æ³•ä¸Šæ³¨è§£ `@Validated` æ¥è§¦å‘éªŒè¯ã€‚ |
 | --- | --- |
 
 
 
 
 
-ÎªÁËÈ·±£×ÜÊÇÎªÇ¶Ì×µÄÊôĞÔ´¥·¢ÑéÖ¤£¬¼´Ê¹Ã»ÓĞÕÒµ½ÊôĞÔ£¬Ïà¹ØµÄ×Ö¶Î±ØĞëÓÃ `@Valid` À´×¢ÊÍ¡£ ÏÂÃæµÄÀı×Ó½¨Á¢ÔÚÇ°ÃæµÄ `MyProperties` µÄ»ù´¡ÉÏ¡£
+ä¸ºäº†ç¡®ä¿æ€»æ˜¯ä¸ºåµŒå¥—çš„å±æ€§è§¦å‘éªŒè¯ï¼Œå³ä½¿æ²¡æœ‰æ‰¾åˆ°å±æ€§ï¼Œç›¸å…³çš„å­—æ®µå¿…é¡»ç”¨ `@Valid` æ¥æ³¨é‡Šã€‚ ä¸‹é¢çš„ä¾‹å­å»ºç«‹åœ¨å‰é¢çš„ `MyProperties` çš„åŸºç¡€ä¸Šã€‚
 
 
 
@@ -2926,13 +2926,13 @@ public class MyProperties {
 
 
 
-ÄãÒ²¿ÉÒÔÍ¨¹ı´´½¨Ò»¸öÃûÎª `configurationPropertiesValidator` µÄbean¶¨ÒåÀ´Ìí¼ÓÒ»¸ö×Ô¶¨ÒåµÄSpring `Validator`¡£ `@Bean` ·½·¨Ó¦¸Ã±»ÉùÃ÷Îª `static`¡£ ÅäÖÃÊôĞÔÑéÖ¤Æ÷ÊÇÔÚÓ¦ÓÃ³ÌĞòÉúÃüÖÜÆÚµÄÔçÆÚ´´½¨µÄ£¬½« `@Bean` ·½·¨ÉùÃ÷Îª¾²Ì¬£¬¿ÉÒÔÈÃBeanµÄ´´½¨²»ĞèÒªÊµÀı»¯ `@Configuration` Àà¡£ ÕâÑù×ö¿ÉÒÔ±ÜÃâ¹ıÔçÊµÀı»¯¿ÉÄÜÒıÆğµÄÈÎºÎÎÊÌâ¡£
+ä½ ä¹Ÿå¯ä»¥é€šè¿‡åˆ›å»ºä¸€ä¸ªåä¸º `configurationPropertiesValidator` çš„beanå®šä¹‰æ¥æ·»åŠ ä¸€ä¸ªè‡ªå®šä¹‰çš„Spring `Validator`ã€‚ `@Bean` æ–¹æ³•åº”è¯¥è¢«å£°æ˜ä¸º `static`ã€‚ é…ç½®å±æ€§éªŒè¯å™¨æ˜¯åœ¨åº”ç”¨ç¨‹åºç”Ÿå‘½å‘¨æœŸçš„æ—©æœŸåˆ›å»ºçš„ï¼Œå°† `@Bean` æ–¹æ³•å£°æ˜ä¸ºé™æ€ï¼Œå¯ä»¥è®©Beançš„åˆ›å»ºä¸éœ€è¦å®ä¾‹åŒ– `@Configuration` ç±»ã€‚ è¿™æ ·åšå¯ä»¥é¿å…è¿‡æ—©å®ä¾‹åŒ–å¯èƒ½å¼•èµ·çš„ä»»ä½•é—®é¢˜ã€‚
 
 
 
 
 
-|  | `spring-boot-actuator` Ä£¿é°üÀ¨Ò»¸ö±©Â¶ËùÓĞ `@ConfigurationProperties` Bean µÄ¶Ëµã¡£ Äã¿ÉÒÔÍ¨¹ıä¯ÀÀÆ÷·ÃÎÊ `/actuator/configprops` »òÊ¹ÓÃÏàÓ¦µÄJMX¶Ëµã¡£ ÏêÇé¼û"[Éú²ú¾ÍĞ÷](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints)"²¿·Ö¡£ |
+|  | `spring-boot-actuator` æ¨¡å—åŒ…æ‹¬ä¸€ä¸ªæš´éœ²æ‰€æœ‰ `@ConfigurationProperties` Bean çš„ç«¯ç‚¹ã€‚ ä½ å¯ä»¥é€šè¿‡æµè§ˆå™¨è®¿é—® `/actuator/configprops` æˆ–ä½¿ç”¨ç›¸åº”çš„JMXç«¯ç‚¹ã€‚ è¯¦æƒ…è§"[ç”Ÿäº§å°±ç»ª](https://springdoc.cn/spring-boot/actuator.html#actuator.endpoints)"éƒ¨åˆ†ã€‚ |
 | --- | --- |
 
 
@@ -2945,33 +2945,33 @@ public class MyProperties {
 
 
 
-`@Value` ×¢½âÊÇÒ»¸öºËĞÄµÄÈİÆ÷¹¦ÄÜ£¬Ëü²»Ìá¹©ÓëÀàĞÍ°²È«µÄÅäÖÃÊôĞÔÏàÍ¬µÄ¹¦ÄÜ¡£ ÏÂ±í×Ü½áÁË `@ConfigurationProperties` ºÍ `@Value` ËùÖ§³ÖµÄ¹¦ÄÜ¡£
+`@Value` æ³¨è§£æ˜¯ä¸€ä¸ªæ ¸å¿ƒçš„å®¹å™¨åŠŸèƒ½ï¼Œå®ƒä¸æä¾›ä¸ç±»å‹å®‰å…¨çš„é…ç½®å±æ€§ç›¸åŒçš„åŠŸèƒ½ã€‚ ä¸‹è¡¨æ€»ç»“äº† `@ConfigurationProperties` å’Œ `@Value` æ‰€æ”¯æŒçš„åŠŸèƒ½ã€‚
 
 
 
 <colgroup><col><col><col></colgroup>
-| ¹¦ÄÜ | `@ConfigurationProperties` | `@Value` |
+| åŠŸèƒ½ | `@ConfigurationProperties` | `@Value` |
 | --- | --- | --- |
-| [¿íËÉ°ó¶¨](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) | Yes | ÓĞÏŞÖÆ (¼û [ÏÂÎÄ×¢ÊÍ](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.vs-value-annotation.note)) |
-| [Ö§³Ö Meta-data](https://springdoc.cn/spring-boot/configuration-metadata.html#appendix.configuration-metadata) | Yes | No |
-| `SpEL` ±í´ïÊ½ | No | Yes |
+| [å®½æ¾ç»‘å®š](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) | Yes | æœ‰é™åˆ¶ (è§ [ä¸‹æ–‡æ³¨é‡Š](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.vs-value-annotation.note)) |
+| [æ”¯æŒ Meta-data](https://springdoc.cn/spring-boot/configuration-metadata.html#appendix.configuration-metadata) | Yes | No |
+| `SpEL` è¡¨è¾¾å¼ | No | Yes |
 
 
 
-|  | Èç¹ûÄãÈ·ÊµÏëÊ¹ÓÃ `@Value`£¬ÎÒÃÇ½¨ÒéÄãÊ¹ÓÃÊôĞÔÃû³ÆµÄ¹æ·¶ĞÎÊ½£¨½öÊ¹ÓÃĞ¡Ğ´×ÖÄ¸µÄkebab-case£©À´ÒıÓÃÊôĞÔÃû³Æ¡£ Õâ½«ÔÊĞíSpring BootÊ¹ÓÃÓë [¿íËÉ°ó¶¨](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) `@ConfigurationProperties` Ê±ÏàÍ¬µÄÂß¼­¡£ÀıÈç£¬`@Value("${demo.item-price}")` ½«´Ó `application.properties` ÎÄ¼şÖĞ»ñÈ¡ `demo.item-price` ºÍ `demo.itemPrice` ĞÎÊ½£¬ÒÔ¼°´ÓÏµÍ³»·¾³ÖĞ»ñÈ¡ `DEMO_ITEMPRICE`¡£ Èç¹ûÄãÓÃ `@Value("${demo.itemPrice}")` ´úÌæ£¬`demo.item-price` ºÍ `DEMO_ITEMPRICE` ½«²»»á±»¿¼ÂÇ¡£ |
+|  | å¦‚æœä½ ç¡®å®æƒ³ä½¿ç”¨ `@Value`ï¼Œæˆ‘ä»¬å»ºè®®ä½ ä½¿ç”¨å±æ€§åç§°çš„è§„èŒƒå½¢å¼ï¼ˆä»…ä½¿ç”¨å°å†™å­—æ¯çš„kebab-caseï¼‰æ¥å¼•ç”¨å±æ€§åç§°ã€‚ è¿™å°†å…è®¸Spring Bootä½¿ç”¨ä¸ [å®½æ¾ç»‘å®š](https://springdoc.cn/spring-boot/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) `@ConfigurationProperties` æ—¶ç›¸åŒçš„é€»è¾‘ã€‚ä¾‹å¦‚ï¼Œ`@Value("${demo.item-price}")` å°†ä» `application.properties` æ–‡ä»¶ä¸­è·å– `demo.item-price` å’Œ `demo.itemPrice` å½¢å¼ï¼Œä»¥åŠä»ç³»ç»Ÿç¯å¢ƒä¸­è·å– `DEMO_ITEMPRICE`ã€‚ å¦‚æœä½ ç”¨ `@Value("${demo.itemPrice}")` ä»£æ›¿ï¼Œ`demo.item-price` å’Œ `DEMO_ITEMPRICE` å°†ä¸ä¼šè¢«è€ƒè™‘ã€‚ |
 | --- | --- |
 
 
 
 
 
-Èç¹ûÄãÎªÄã×Ô¼ºµÄ×é¼ş¶¨ÒåÁËÒ»×éÅäÖÃ¼ü£¬ÎÒÃÇ½¨ÒéÄã½«ËüÃÇ·Ö×éÔÚÒ»¸öÓÃ `@ConfigurationProperties` ×¢½âµÄPOJOÖĞ¡£ ÕâÑù×ö½«ÎªÄãÌá¹©½á¹¹»¯µÄ¡¢ÀàĞÍ°²È«µÄ¶ÔÏó£¬Äã¿ÉÒÔ½«Æä×¢Èëµ½Äã×Ô¼ºµÄbeanÖĞ¡£
+å¦‚æœä½ ä¸ºä½ è‡ªå·±çš„ç»„ä»¶å®šä¹‰äº†ä¸€ç»„é…ç½®é”®ï¼Œæˆ‘ä»¬å»ºè®®ä½ å°†å®ƒä»¬åˆ†ç»„åœ¨ä¸€ä¸ªç”¨ `@ConfigurationProperties` æ³¨è§£çš„POJOä¸­ã€‚ è¿™æ ·åšå°†ä¸ºä½ æä¾›ç»“æ„åŒ–çš„ã€ç±»å‹å®‰å…¨çš„å¯¹è±¡ï¼Œä½ å¯ä»¥å°†å…¶æ³¨å…¥åˆ°ä½ è‡ªå·±çš„beanä¸­ã€‚
 
 
 
 
 
-À´×ÔÓ¦ÓÃ[application property](https://springdoc.cn/spring-boot/features.html#features.external-config.files) ÎÄ¼şµÄ `SpEL` ±í´ïÊ½ÔÚ½âÎöÕâĞ©ÎÄ¼şºÍÌî³äenvironmentÊ±²»»á±»´¦Àí¡£ È»¶ø£¬¿ÉÒÔÔÚ `@Value` ÖĞĞ´Ò»¸ö `SpEL` ±í´ïÊ½¡£ Èç¹ûÀ´×ÔÓ¦ÓÃ³ÌĞòÊôĞÔÎÄ¼şµÄÊôĞÔÖµÊÇÒ»¸ö `SpEL` ±í´ïÊ½£¬Ëü½«ÔÚ±» `@Value` Ïû·ÑÊ±±»½âÎö¡£
+æ¥è‡ªåº”ç”¨[application property](https://springdoc.cn/spring-boot/features.html#features.external-config.files) æ–‡ä»¶çš„ `SpEL` è¡¨è¾¾å¼åœ¨è§£æè¿™äº›æ–‡ä»¶å’Œå¡«å……environmentæ—¶ä¸ä¼šè¢«å¤„ç†ã€‚ ç„¶è€Œï¼Œå¯ä»¥åœ¨ `@Value` ä¸­å†™ä¸€ä¸ª `SpEL` è¡¨è¾¾å¼ã€‚ å¦‚æœæ¥è‡ªåº”ç”¨ç¨‹åºå±æ€§æ–‡ä»¶çš„å±æ€§å€¼æ˜¯ä¸€ä¸ª `SpEL` è¡¨è¾¾å¼ï¼Œå®ƒå°†åœ¨è¢« `@Value` æ¶ˆè´¹æ—¶è¢«è§£æã€‚
 
 
 

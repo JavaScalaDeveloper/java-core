@@ -1,5 +1,5 @@
-## Ìí¼ÓÒÀÀµ
-ÕâÀïÎÒÃÇ¿ÉÒÔÏÈ°Ñ Spring »ù´¡ Jar °üÒÔ¼° Commons-loggin µ¼Èëµ½ÏîÄ¿ÖĞ£¬ÈôºóĞø¹¦ÄÜÔö¼Ó£¬Ôò¸ù¾İĞèÒªÔÙµ¼Èë Spring µÄÆäËû Jar¡£
+## æ·»åŠ ä¾èµ–
+è¿™é‡Œæˆ‘ä»¬å¯ä»¥å…ˆæŠŠ Spring åŸºç¡€ Jar åŒ…ä»¥åŠ Commons-loggin å¯¼å…¥åˆ°é¡¹ç›®ä¸­ï¼Œè‹¥åç»­åŠŸèƒ½å¢åŠ ï¼Œåˆ™æ ¹æ®éœ€è¦å†å¯¼å…¥ Spring çš„å…¶ä»– Jarã€‚
 
 ````
 org.springframework.core-5.3.13.jar
@@ -8,12 +8,12 @@ spring-context-5.3.13.jar
 spring-expression-5.3.13.jar
 commons.logging-1.2.jar
 ````
-µ±È»ÕâÀïÎÒÃÇÍÆ¼öÊ¹ÓÃmaven¹ÜÀíÒÀÀµ
+å½“ç„¶è¿™é‡Œæˆ‘ä»¬æ¨èä½¿ç”¨mavenç®¡ç†ä¾èµ–
 
-## ´´½¨ Java Àà
-   ÔÚ HelloSpring ÖĞ´´½¨ net.biancheng.c °ü£¬È»ºóÔÚÕâ¸ö°üÏÂ´´½¨ HelloWorld.java ºÍ MainApp.java Àà¡£
+## åˆ›å»º Java ç±»
+   åœ¨ HelloSpring ä¸­åˆ›å»º net.biancheng.c åŒ…ï¼Œç„¶ååœ¨è¿™ä¸ªåŒ…ä¸‹åˆ›å»º HelloWorld.java å’Œ MainApp.java ç±»ã€‚
 
-HelloWorld.java ÀàµÄ´úÂëÈçÏÂ
+HelloWorld.java ç±»çš„ä»£ç å¦‚ä¸‹
 ````
 package net.biancheng.c;
 public class HelloWorld {
@@ -26,7 +26,7 @@ public class HelloWorld {
     }
 }
 ````
-MainApp.java ÀàµÄ´úÂëÈçÏÂ
+MainApp.java ç±»çš„ä»£ç å¦‚ä¸‹
 ````
 package net.biancheng.c;
 import org.springframework.context.ApplicationContext;
@@ -40,14 +40,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
         }
     }
 ````
-¹ØÓÚÒÔÉÏ´úÂë£¬ĞèÒª×¢ÒâÒÔÏÂÁ½µã£º
+å…³äºä»¥ä¸Šä»£ç ï¼Œéœ€è¦æ³¨æ„ä»¥ä¸‹ä¸¤ç‚¹ï¼š
 
-´´½¨ ApplicationContext ¶ÔÏóÊ±Ê¹ÓÃÁË ClassPathXmlApplicationContext Àà£¬Õâ¸öÀàÓÃÓÚ¼ÓÔØ Spring ÅäÖÃÎÄ¼ş¡¢´´½¨ºÍ³õÊ¼»¯ËùÓĞ¶ÔÏó£¨Bean£©¡£
-ApplicationContext.getBean() ·½·¨ÓÃÀ´»ñÈ¡ Bean£¬¸Ã·½·¨·µ»ØÖµÀàĞÍÎª Object£¬Í¨¹ıÇ¿ÖÆÀàĞÍ×ª»»Îª HelloWorld µÄÊµÀı¶ÔÏó£¬µ÷ÓÃÆäÖĞµÄ getMessage() ·½·¨¡£
+åˆ›å»º ApplicationContext å¯¹è±¡æ—¶ä½¿ç”¨äº† ClassPathXmlApplicationContext ç±»ï¼Œè¿™ä¸ªç±»ç”¨äºåŠ è½½ Spring é…ç½®æ–‡ä»¶ã€åˆ›å»ºå’Œåˆå§‹åŒ–æ‰€æœ‰å¯¹è±¡ï¼ˆBeanï¼‰ã€‚
+ApplicationContext.getBean() æ–¹æ³•ç”¨æ¥è·å– Beanï¼Œè¯¥æ–¹æ³•è¿”å›å€¼ç±»å‹ä¸º Objectï¼Œé€šè¿‡å¼ºåˆ¶ç±»å‹è½¬æ¢ä¸º HelloWorld çš„å®ä¾‹å¯¹è±¡ï¼Œè°ƒç”¨å…¶ä¸­çš„ getMessage() æ–¹æ³•ã€‚
 
-## ´´½¨ÅäÖÃÎÄ¼ş
+## åˆ›å»ºé…ç½®æ–‡ä»¶
 
-ÔÚ src Ä¿Â¼ÏÂ£¬´´½¨Ò»¸ö Spring ÅäÖÃÎÄ¼ş Beans.xml£¬ÄÚÈİÈçÏÂ¡£
+åœ¨ src ç›®å½•ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ª Spring é…ç½®æ–‡ä»¶ Beans.xmlï¼Œå†…å®¹å¦‚ä¸‹ã€‚
 ````
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -59,12 +59,12 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
     </bean>
 </beans>
 ````
-ÎÒÃÇÒ²¿ÉÒÔ½«¸ÃÅäÖÃÎÄ¼şÃüÃûÎªÆäËüÓĞĞ§µÄÃû³Æ£¬µ«ĞèÒª×¢ÒâµÄÊÇ£¬¸ÃÎÄ¼şÃû±ØĞëÓë MainApp.java ÖĞ¶ÁÈ¡µÄÅäÖÃÎÄ¼şÃû³ÆÒ»ÖÂ¡£
+æˆ‘ä»¬ä¹Ÿå¯ä»¥å°†è¯¥é…ç½®æ–‡ä»¶å‘½åä¸ºå…¶å®ƒæœ‰æ•ˆçš„åç§°ï¼Œä½†éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œè¯¥æ–‡ä»¶åå¿…é¡»ä¸ MainApp.java ä¸­è¯»å–çš„é…ç½®æ–‡ä»¶åç§°ä¸€è‡´ã€‚
 
-Beans.xml ÓÃÓÚ¸ø²»Í¬µÄ Bean ·ÖÅäÎ¨Ò»µÄ ID£¬²¢¸øÏàÓ¦µÄ Bean ÊôĞÔ¸³Öµ¡£ÀıÈç£¬ÔÚÒÔÉÏ´úÂëÖĞ£¬ÎÒÃÇ¿ÉÒÔÔÚ²»Ó°ÏìÆäËüÀàµÄÇé¿öÏÂ£¬¸ø message ±äÁ¿¸³Öµ¡£
-## ÔËĞĞ³ÌĞò
+Beans.xml ç”¨äºç»™ä¸åŒçš„ Bean åˆ†é…å”¯ä¸€çš„ IDï¼Œå¹¶ç»™ç›¸åº”çš„ Bean å±æ€§èµ‹å€¼ã€‚ä¾‹å¦‚ï¼Œåœ¨ä»¥ä¸Šä»£ç ä¸­ï¼Œæˆ‘ä»¬å¯ä»¥åœ¨ä¸å½±å“å…¶å®ƒç±»çš„æƒ…å†µä¸‹ï¼Œç»™ message å˜é‡èµ‹å€¼ã€‚
+## è¿è¡Œç¨‹åº
 
-   ÔËĞĞ MainApp.java£¬Eclipse IDE ¿ØÖÆÌ¨ÖĞÏÔÊ¾ĞÅÏ¢ÈçÏÂ¡£
+   è¿è¡Œ MainApp.javaï¼ŒEclipse IDE æ§åˆ¶å°ä¸­æ˜¾ç¤ºä¿¡æ¯å¦‚ä¸‹ã€‚
    message : Hello World!
 
-ÖÁ´Ë£¬ÎÒÃÇ¾Í³É¹¦´´½¨ÁËµÚÒ»¸ö Spring Ó¦ÓÃ³ÌĞò¡£
+è‡³æ­¤ï¼Œæˆ‘ä»¬å°±æˆåŠŸåˆ›å»ºäº†ç¬¬ä¸€ä¸ª Spring åº”ç”¨ç¨‹åºã€‚

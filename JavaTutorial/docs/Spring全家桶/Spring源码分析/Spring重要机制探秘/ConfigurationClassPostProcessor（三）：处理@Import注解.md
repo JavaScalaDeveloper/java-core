@@ -1,12 +1,12 @@
-±¾ÎÄÊÇ `ConfigurationClassPostProcessor` ·ÖÎöµÄµÚÈıÆª£¬Ö÷ÒªÊÇ·ÖÎö spring ¶Ô `@Import` ×¢½âµÄ´¦ÀíÁ÷³Ì¡£
+æœ¬æ–‡æ˜¯ `ConfigurationClassPostProcessor` åˆ†æçš„ç¬¬ä¸‰ç¯‡ï¼Œä¸»è¦æ˜¯åˆ†æ spring å¯¹ `@Import` æ³¨è§£çš„å¤„ç†æµç¨‹ã€‚
 
-## 4. spring ÊÇÈçºÎ´¦Àí @Import ×¢½âµÄ£¿
+## 4. spring æ˜¯å¦‚ä½•å¤„ç† @Import æ³¨è§£çš„ï¼Ÿ
 
-³Ğ½ÓÉÏÎÄ£¬ÎÒÃÇ¼ÌĞø·ÖÎö spring ¶Ô `@Import` ×¢½âµÄ´¦ÀíÁ÷³Ì¡£
+æ‰¿æ¥ä¸Šæ–‡ï¼Œæˆ‘ä»¬ç»§ç»­åˆ†æ spring å¯¹ `@Import` æ³¨è§£çš„å¤„ç†æµç¨‹ã€‚
 
-### 4.1 ÁË½â `@Import` ×¢½â
+### 4.1 äº†è§£ `@Import` æ³¨è§£
 
-ÎÒÃÇÀ´¿´ÏÂ `@Import` ×¢½âµÄ¶¨Òå£º
+æˆ‘ä»¬æ¥çœ‹ä¸‹ `@Import` æ³¨è§£çš„å®šä¹‰ï¼š
 
 ```
 @Target(ElementType.TYPE)
@@ -21,18 +21,18 @@ public @interface Import {
 }
 ```
 
-`@Import` ÀïÓĞÒ»¸ö·½·¨£º`value()`£¬Ö§³ÖµÄÀàĞÍÊÇ `Class`£¬´ÓÉÏÃæµÄÎÄµµÀ´¿´£¬¿ÉÒÔÖ§³ÖÀàĞÍÓĞ 4 ÖÖ£º
+`@Import` é‡Œæœ‰ä¸€ä¸ªæ–¹æ³•ï¼š`value()`ï¼Œæ”¯æŒçš„ç±»å‹æ˜¯ `Class`ï¼Œä»ä¸Šé¢çš„æ–‡æ¡£æ¥çœ‹ï¼Œå¯ä»¥æ”¯æŒç±»å‹æœ‰ 4 ç§ï¼š
 
-- ±» `@Configuration` ×¢½â±ê¼ÇµÄÀà
-- ÊµÏÖÁË `ImportSelector` µÄÀà
-- ÊµÏÖÁË `ImportBeanDefinitionRegistrar` µÄÀà
-- ÆÕÍ¨Àà
+- è¢« `@Configuration` æ³¨è§£æ ‡è®°çš„ç±»
+- å®ç°äº† `ImportSelector` çš„ç±»
+- å®ç°äº† `ImportBeanDefinitionRegistrar` çš„ç±»
+- æ™®é€šç±»
 
-½ÓÏÂÀ´£¬ÎÒÃÇÍ¨¹ıÒ»¸ö demo À´Õ¹Ê¾Ê¹ÓÃ `@Import` ÈçºÎ½«ÕâËÄÖÖÀàµ¼Èëµ½ spring ÖĞ¡£
+æ¥ä¸‹æ¥ï¼Œæˆ‘ä»¬é€šè¿‡ä¸€ä¸ª demo æ¥å±•ç¤ºä½¿ç”¨ `@Import` å¦‚ä½•å°†è¿™å››ç§ç±»å¯¼å…¥åˆ° spring ä¸­ã€‚
 
-### 4.2 demo ×¼±¸
+### 4.2 demo å‡†å¤‡
 
-1. Ê×ÏÈ×¼±¸ 4 ¸ö bean£º
+1. é¦–å…ˆå‡†å¤‡ 4 ä¸ª beanï¼š
 
 ```
 /**
@@ -72,15 +72,15 @@ public class Element04 {
 }
 ```
 
-1. ×¼±¸ÊµÏÖ `ImportBeanDefinitionRegistrar` µÄÀà£¬½« `element02` ×¢ÈëÆäÖĞ
+1. å‡†å¤‡å®ç° `ImportBeanDefinitionRegistrar` çš„ç±»ï¼Œå°† `element02` æ³¨å…¥å…¶ä¸­
 
 ```
 public class Element02ImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
 
     /**
-     * ÔÚ registerBeanDefinitions ÖĞ×¢²áelement02¶ÔÓ¦µÄBeanDefinition
-     * Ò²¾ÍÊÇ°Ñ Element02 ¶ÔÓ¦µÄ beanDefinition ÊÖ¶¯×¢²áµ½beanFactory 
-     * µÄ beanDefinitionMap ÖĞ
+     * åœ¨ registerBeanDefinitions ä¸­æ³¨å†Œelement02å¯¹åº”çš„BeanDefinition
+     * ä¹Ÿå°±æ˜¯æŠŠ Element02 å¯¹åº”çš„ beanDefinition æ‰‹åŠ¨æ³¨å†Œåˆ°beanFactory 
+     * çš„ beanDefinitionMap ä¸­
      */
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, 
@@ -90,13 +90,13 @@ public class Element02ImportBeanDefinitionRegistrar implements ImportBeanDefinit
 }
 ```
 
-1. ×¼±¸ÊµÏÖ `ImportSelector` µÄÀà£¬ÔÚ `selectImports(...)` ·½·¨ÖĞ£¬·µ»Ø `Element03` µÄ "°üÃû¡£ÀàÃû"
+1. å‡†å¤‡å®ç° `ImportSelector` çš„ç±»ï¼Œåœ¨ `selectImports(...)` æ–¹æ³•ä¸­ï¼Œè¿”å› `Element03` çš„ "åŒ…åã€‚ç±»å"
 
 ```
 public class Element03Selector implements ImportSelector {
     /**
-     * ·µ»ØString Îª °üÃû.ÀàÃû
-     * ÓÉÓÚºóÃæÒªÓÃµ½·´Éä£¬Òò´Ë±ØĞëÊÇ"°üÃû.ÀàÃû"
+     * è¿”å›String ä¸º åŒ…å.ç±»å
+     * ç”±äºåé¢è¦ç”¨åˆ°åå°„ï¼Œå› æ­¤å¿…é¡»æ˜¯"åŒ…å.ç±»å"
      * @param importingClassMetadata
      * @return
      */
@@ -107,7 +107,7 @@ public class Element03Selector implements ImportSelector {
 }
 ```
 
-1. ×¼±¸Ò»¸ö±» `@Configuration` ×¢½â±ê¼ÇÀà£¬Í¨¹ıÀàÖĞ±» `@Bean` ±ê¼ÇµÄ·½·¨·µ»Ø `Element04`
+1. å‡†å¤‡ä¸€ä¸ªè¢« `@Configuration` æ³¨è§£æ ‡è®°ç±»ï¼Œé€šè¿‡ç±»ä¸­è¢« `@Bean` æ ‡è®°çš„æ–¹æ³•è¿”å› `Element04`
 
 ```
 @Configuration
@@ -120,20 +120,20 @@ public class Element04Configuration {
 }
 ```
 
-1. ¶¨Òå `@EnableElement` ×¢½â£¬ÆäÖĞµÄ `@Import` ×¢½âÒÀ´ÎÒıÈë `Element01.class`¡¢`Element02ImportBeanDefinitionRegistrar.class`¡¢`Element03Selector.class`¡¢`Element04Configuration.class`
+1. å®šä¹‰ `@EnableElement` æ³¨è§£ï¼Œå…¶ä¸­çš„ `@Import` æ³¨è§£ä¾æ¬¡å¼•å…¥ `Element01.class`ã€`Element02ImportBeanDefinitionRegistrar.class`ã€`Element03Selector.class`ã€`Element04Configuration.class`
 
 ```
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Import({
-        // ÆÕÍ¨Àà 
+        // æ™®é€šç±» 
         Element01.class,
-        // ÊµÏÖÁË ImportBeanDefinitionRegistrar µÄÀà
+        // å®ç°äº† ImportBeanDefinitionRegistrar çš„ç±»
         Element02ImportBeanDefinitionRegistrar.class,
-        // ÊµÏÖÁË ImportSelector µÄÀà
+        // å®ç°äº† ImportSelector çš„ç±»
         Element03Selector.class,
-        // ±» @Configuration ±ê¼ÇµÄÀà
+        // è¢« @Configuration æ ‡è®°çš„ç±»
         Element04Configuration.class
 })
 public @interface EnableElement {
@@ -141,15 +141,15 @@ public @interface EnableElement {
 }
 ```
 
-1. Ö÷Àà£º
+1. ä¸»ç±»ï¼š
 
 ```
-// Ö»ĞèÒª @EnableElement ×¢½â
+// åªéœ€è¦ @EnableElement æ³¨è§£
 @EnableElement
 public class Demo04Main {
 
     public static void main(String[] args) {
-        // ´«ÈëµÄÊÇ Demo04Main.class
+        // ä¼ å…¥çš„æ˜¯ Demo04Main.class
         ApplicationContext context = new AnnotationConfigApplicationContext(Demo04Main.class);
 
         Element01 element01 = context.getBean(Element01.class);
@@ -167,9 +167,9 @@ public class Demo04Main {
 }
 ```
 
-ÍêÕû´úÂë¼û [gitee/funcy](https://gitee.com/funcy/spring-framework/tree/v5.2.2.RELEASE_learn/spring-learn/src/main/java/org/springframework/learn/explore/demo04).
+å®Œæ•´ä»£ç è§ [gitee/funcy](https://gitee.com/funcy/spring-framework/tree/v5.2.2.RELEASE_learn/spring-learn/src/main/java/org/springframework/learn/explore/demo04).
 
-ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+è¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
 this is element 01
@@ -178,13 +178,13 @@ this is element 03
 this is element 04
 ```
 
-¿ÉÒÔ¿´µ½£¬4 ¸ö bean ¶¼³É¹¦ÒıÈëÁË spring ÈİÆ÷¡£½ÓÏÂÀ´£¬ÎÒÃÇÍ¨¹ı´úÂëÀ´¿´¿´ spring ÊÇÈçºÎ´¦ÀíµÄ¡£
+å¯ä»¥çœ‹åˆ°ï¼Œ4 ä¸ª bean éƒ½æˆåŠŸå¼•å…¥äº† spring å®¹å™¨ã€‚æ¥ä¸‹æ¥ï¼Œæˆ‘ä»¬é€šè¿‡ä»£ç æ¥çœ‹çœ‹ spring æ˜¯å¦‚ä½•å¤„ç†çš„ã€‚
 
-×¢£º±¾ÎÄÊÇ `ConfigurationClassPostProcessor` ·ÖÎöµÄµÚÈıÆª£¬¶ÔÓëÇ°ÃæÁ½ÆªÎÄÕÂ£¨[´¦Àí @ComponentScan ×¢½â](https://my.oschina.net/funcy/blog/4836178)¡¢[´¦Àí @Bean ×¢½â](https://my.oschina.net/funcy/blog/4492878)£©À×Í¬µÄ´úÂë£¬±¾ÎÄ»áÒ»±Ê´ø¹ı£¬²»»á¾ßÌå·ÖÎöÁË¡£
+æ³¨ï¼šæœ¬æ–‡æ˜¯ `ConfigurationClassPostProcessor` åˆ†æçš„ç¬¬ä¸‰ç¯‡ï¼Œå¯¹ä¸å‰é¢ä¸¤ç¯‡æ–‡ç« ï¼ˆ[å¤„ç† @ComponentScan æ³¨è§£](https://my.oschina.net/funcy/blog/4836178)ã€[å¤„ç† @Bean æ³¨è§£](https://my.oschina.net/funcy/blog/4492878)ï¼‰é›·åŒçš„ä»£ç ï¼Œæœ¬æ–‡ä¼šä¸€ç¬”å¸¦è¿‡ï¼Œä¸ä¼šå…·ä½“åˆ†æäº†ã€‚
 
-### 4.3 ´¦ÀíÅäÖÃÀà£º`ConfigurationClassPostProcessor#processConfigBeanDefinitions`
+### 4.3 å¤„ç†é…ç½®ç±»ï¼š`ConfigurationClassPostProcessor#processConfigBeanDefinitions`
 
-¹ØÓÚÅäÖÃÀàµÄ½âÁ÷³Ì£¬Ç°Á½ÆªÒÑ¾­¶à´ÎÌáµ½¹ıÁË£¬ÕâÀïÎÒÃÇÖ±½Ó¿´¹Ø¼ü´úÂë£º
+å…³äºé…ç½®ç±»çš„è§£æµç¨‹ï¼Œå‰ä¸¤ç¯‡å·²ç»å¤šæ¬¡æåˆ°è¿‡äº†ï¼Œè¿™é‡Œæˆ‘ä»¬ç›´æ¥çœ‹å…³é”®ä»£ç ï¼š
 
 ```
 public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
@@ -192,28 +192,28 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
     Set<BeanDefinitionHolder> candidates = new LinkedHashSet<>(configCandidates);
     Set<ConfigurationClass> alreadyParsed = new HashSet<>(configCandidates.size());
     do {
-        // 1. ½âÎöÅäÖÃÀà, ¶Ô@Component£¬@PropertySources£¬@ComponentScans£¬
-        // @ImportResourceµÈµÄ½âÎö
+        // 1. è§£æé…ç½®ç±», å¯¹@Componentï¼Œ@PropertySourcesï¼Œ@ComponentScansï¼Œ
+        // @ImportResourceç­‰çš„è§£æ
         parser.parse(candidates);
         parser.validate();
-        // ½âÎöÍê³Éºó£¬µÃµ½µÄÅäÖÃÀà£¬ÅäÖÃÀà±£´æÔÚ parser µÄ configurationClasses ÊôĞÔÖĞ
+        // è§£æå®Œæˆåï¼Œå¾—åˆ°çš„é…ç½®ç±»ï¼Œé…ç½®ç±»ä¿å­˜åœ¨ parser çš„ configurationClasses å±æ€§ä¸­
         Set<ConfigurationClass> configClasses 
                 = new LinkedHashSet<>(parser.getConfigurationClasses());
         ...
 
-        // 2. °Ñ @Import ÒıÈëµÄÀà¡¢ÅäÖÃÀàÖĞ´ø@BeanµÄ·½·¨¡¢
-        // @ImportResource ÒıÈëµÄ×ÊÔ´µÈ×ª»»³ÉBeanDefinition
+        // 2. æŠŠ @Import å¼•å…¥çš„ç±»ã€é…ç½®ç±»ä¸­å¸¦@Beançš„æ–¹æ³•ã€
+        // @ImportResource å¼•å…¥çš„èµ„æºç­‰è½¬æ¢æˆBeanDefinition
         this.reader.loadBeanDefinitions(configClasses);
         ...
-        // »ñµÃ×¢²áÆ÷ÀïÃæBeanDefinitionµÄÊıÁ¿ ºÍ candidateNames½øĞĞ±È½Ï
-        // Èç¹û´óÓÚµÄ»°£¬ËµÃ÷ÓĞĞÂµÄBeanDefinition×¢²á½øÀ´ÁË
+        // è·å¾—æ³¨å†Œå™¨é‡Œé¢BeanDefinitionçš„æ•°é‡ å’Œ candidateNamesè¿›è¡Œæ¯”è¾ƒ
+        // å¦‚æœå¤§äºçš„è¯ï¼Œè¯´æ˜æœ‰æ–°çš„BeanDefinitionæ³¨å†Œè¿›æ¥äº†
         if (registry.getBeanDefinitionCount() > candidateNames.length) {
             ...
             for (String candidateName : newCandidateNames) {
-                // ¹ıÂË±¾´ÎĞÂÔöµÄBeanDefinition
+                // è¿‡æ»¤æœ¬æ¬¡æ–°å¢çš„BeanDefinition
                 if (!oldCandidateNames.contains(candidateName)) {
                     BeanDefinition bd = registry.getBeanDefinition(candidateName);
-                    // 3. ¶ÔĞÂÌí¼ÓµÄÀà£¬Èç¹ûÊÇÅäÖÃÀà£¬ÇÒÎ´½âÎö£¬Ìí¼Óµ½candidatesÖĞ£¬µÈ´ıÏÂ´ÎÑ­»·´¦Àí
+                    // 3. å¯¹æ–°æ·»åŠ çš„ç±»ï¼Œå¦‚æœæ˜¯é…ç½®ç±»ï¼Œä¸”æœªè§£æï¼Œæ·»åŠ åˆ°candidatesä¸­ï¼Œç­‰å¾…ä¸‹æ¬¡å¾ªç¯å¤„ç†
                     if (ConfigurationClassUtils.checkConfigurationClassCandidate(
                             bd, this.metadataReaderFactory) 
                             &&!alreadyParsedClasses.contains(bd.getBeanClassName())) {
@@ -229,80 +229,80 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
 }
 ```
 
-ÒÔÉÏ´úÂë¾­¹ıÁËÒ»Ğ©¾«¼ò£¬Ö»±£ÁôÁË´¦Àí `@Import` ¹Ø¼ü²½Öè£¬×Ü½áÈçÏÂ£º
+ä»¥ä¸Šä»£ç ç»è¿‡äº†ä¸€äº›ç²¾ç®€ï¼Œåªä¿ç•™äº†å¤„ç† `@Import` å…³é”®æ­¥éª¤ï¼Œæ€»ç»“å¦‚ä¸‹ï¼š
 
-1. ½âÎöÅäÖÃÀà£¬¶Ô `@Component`£¬`@PropertySources`£¬`@ComponentScans`£¬`@ImportResource` µÈµÄ½âÎö£¬Õâ¸ö ·½·¨Ç°Á½ÆªÎÄÕÂÒ²·ÖÎöÁË£¬Õâ´ÎÎÒÃÇ¾Û¼¯ÓÚ `@Import` »áÔÙ´Î·ÖÎö£¬ÔÚÕâÒ»²½£¬Òª½âÎöµÄÅäÖÃÀàÖ»ÓĞÒ»¸ö£¬¾ÍÊÇÎÒÃÇÔÚ `main()` ·½·¨ÖĞ×¢²áµÄ `Demo04.class`£º
+1. è§£æé…ç½®ç±»ï¼Œå¯¹ `@Component`ï¼Œ`@PropertySources`ï¼Œ`@ComponentScans`ï¼Œ`@ImportResource` ç­‰çš„è§£æï¼Œè¿™ä¸ª æ–¹æ³•å‰ä¸¤ç¯‡æ–‡ç« ä¹Ÿåˆ†æäº†ï¼Œè¿™æ¬¡æˆ‘ä»¬èšé›†äº `@Import` ä¼šå†æ¬¡åˆ†æï¼Œåœ¨è¿™ä¸€æ­¥ï¼Œè¦è§£æçš„é…ç½®ç±»åªæœ‰ä¸€ä¸ªï¼Œå°±æ˜¯æˆ‘ä»¬åœ¨ `main()` æ–¹æ³•ä¸­æ³¨å†Œçš„ `Demo04.class`ï¼š
 
    ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-840c14685be569012b54d94aad67ee48825.png)
 
-2. °Ñ `@Import` ÒıÈëµÄÀà¡¢ÅäÖÃÀàÖĞ´ø `@Bean` µÄ·½·¨¡¢`@ImportResource` ÒıÈëµÄ×ÊÔ´µÈ×ª»»³É `BeanDefinition`£¬Õâ¸ö·½·¨ÔÚÇ°Ãæ·ÖÎö `@Bean` µÄÊ±ºòÒ²·ÖÎö¹ıÁË£¬Õâ´ÎÎÒÃÇÒ²»á·ÖÎöµ½£»
+2. æŠŠ `@Import` å¼•å…¥çš„ç±»ã€é…ç½®ç±»ä¸­å¸¦ `@Bean` çš„æ–¹æ³•ã€`@ImportResource` å¼•å…¥çš„èµ„æºç­‰è½¬æ¢æˆ `BeanDefinition`ï¼Œè¿™ä¸ªæ–¹æ³•åœ¨å‰é¢åˆ†æ `@Bean` çš„æ—¶å€™ä¹Ÿåˆ†æè¿‡äº†ï¼Œè¿™æ¬¡æˆ‘ä»¬ä¹Ÿä¼šåˆ†æåˆ°ï¼›
 
-3. ¶ÔĞÂÌí¼ÓµÄÀà£¬Èç¹ûÊÇÅäÖÃÀà£¬ÇÒÎ´½âÎö£¬Ìí¼Óµ½ `candidates` ÖĞ£¬µÈ´ıÏÂ´ÎÑ­»·´¦Àí¡£
+3. å¯¹æ–°æ·»åŠ çš„ç±»ï¼Œå¦‚æœæ˜¯é…ç½®ç±»ï¼Œä¸”æœªè§£æï¼Œæ·»åŠ åˆ° `candidates` ä¸­ï¼Œç­‰å¾…ä¸‹æ¬¡å¾ªç¯å¤„ç†ã€‚
 
-### 4.4 ½âÎöÅäÖÃÀà£º`ConfigurationClassParser#doProcessConfigurationClass`
+### 4.4 è§£æé…ç½®ç±»ï¼š`ConfigurationClassParser#doProcessConfigurationClass`
 
-ÎÒÃÇÀ´¿´¿´ `@Import` ÊÇÈçºÎ½âÎöµÄ£¬½øÈë `ConfigurationClassParser#doProcessConfigurationClass`£º
+æˆ‘ä»¬æ¥çœ‹çœ‹ `@Import` æ˜¯å¦‚ä½•è§£æçš„ï¼Œè¿›å…¥ `ConfigurationClassParser#doProcessConfigurationClass`ï¼š
 
 ```
 /**
- * Õâ¸ö·½·¨²ÅÊÇÕæÕı´¦Àí½âÎöµÄ·½·¨
+ * è¿™ä¸ªæ–¹æ³•æ‰æ˜¯çœŸæ­£å¤„ç†è§£æçš„æ–¹æ³•
  */
 protected final SourceClass doProcessConfigurationClass(ConfigurationClass configClass, 
         SourceClass sourceClass) throws IOException {
-    // 1. Èç¹ûÊÇ @Component ×¢½â£¬µİ¹é´¦ÀíÄÚ²¿Àà£¬±¾ÎÄ²»¹Ø×¢
+    // 1. å¦‚æœæ˜¯ @Component æ³¨è§£ï¼Œé€’å½’å¤„ç†å†…éƒ¨ç±»ï¼Œæœ¬æ–‡ä¸å…³æ³¨
     ...
 
-    // 2. ´¦Àí@PropertySource×¢½â£¬±¾ÎÄ²»¹Ø×¢
+    // 2. å¤„ç†@PropertySourceæ³¨è§£ï¼Œæœ¬æ–‡ä¸å…³æ³¨
     ...
 
-    // 3. ´¦Àí @ComponentScan/@ComponentScans ×¢½â£¬±¾ÎÄ²»¹Ø×¢
+    // 3. å¤„ç† @ComponentScan/@ComponentScans æ³¨è§£ï¼Œæœ¬æ–‡ä¸å…³æ³¨
     ...
 
-    // 4. ´¦Àí@Import×¢½â
+    // 4. å¤„ç†@Importæ³¨è§£
     processImports(configClass, sourceClass, getImports(sourceClass), true);
 
-    // 5. ´¦Àí@ImportResource×¢½â£¬±¾ÎÄ²»¹Ø×¢
+    // 5. å¤„ç†@ImportResourceæ³¨è§£ï¼Œæœ¬æ–‡ä¸å…³æ³¨
     ...
 
-    // 6. ´¦Àí@BeanµÄ×¢½â£¬±¾ÎÄ²»¹Ø×¢
+    // 6. å¤„ç†@Beançš„æ³¨è§£ï¼Œæœ¬æ–‡ä¸å…³æ³¨
     ...
 
-    // 7. ·µ»ØÅäÖÃÀàµÄ¸¸Àà£¬»áÔÚ processConfigurationClass(...) ·½·¨µÄÏÂÒ»´ÎÑ­»·Ê±½âÎö
+    // 7. è¿”å›é…ç½®ç±»çš„çˆ¶ç±»ï¼Œä¼šåœ¨ processConfigurationClass(...) æ–¹æ³•çš„ä¸‹ä¸€æ¬¡å¾ªç¯æ—¶è§£æ
     ...
     return null;
 }
 ```
 
-´¦Àí `@Import` ×¢½âµ÷ÓÃµÄÊÇ `processImports(...)` ·½·¨£¬ÎÒÃÇ¼ÌĞø£º
+å¤„ç† `@Import` æ³¨è§£è°ƒç”¨çš„æ˜¯ `processImports(...)` æ–¹æ³•ï¼Œæˆ‘ä»¬ç»§ç»­ï¼š
 
-#### 1. »ñÈ¡ `@Import` µ¼ÈëµÄÀà
+#### 1. è·å– `@Import` å¯¼å…¥çš„ç±»
 
-ÈÃÎÒÃÇ°ÑÄ¿±ê·Åµ½ `processImports(...)` ·½·¨£º
+è®©æˆ‘ä»¬æŠŠç›®æ ‡æ”¾åˆ° `processImports(...)` æ–¹æ³•ï¼š
 
 ```
 processImports(configClass, sourceClass, getImports(sourceClass), true);
 ```
 
-Õâ¸ö·½·¨¹²´«ÈëÁË 4 ¸ö²ÎÊı£º
+è¿™ä¸ªæ–¹æ³•å…±ä¼ å…¥äº† 4 ä¸ªå‚æ•°ï¼š
 
-- `configClass`£ºÅäÖÃÀà£¬¾ÍÊÇ `demo04Main` ¶ÔÓ¦µÄÅäÖÃÀà£»
-- `sourceClass`£º¶Ô `demo04Main` ¼°ÆäÉÏµÄ×¢½âµÄ°ü×°£»
-- `getImports(sourceClass)`£º`getImports(...)` ÓÃÀ´»ñÈ¡´«Èë `sourceClass` µÄËùÓĞ `@Import` ×¢½âÒıÈëµÄÀà£»
-- `true`£º²¼¶ûÖµ£¬ÊÇ·ñ¼ì²éÑ­»·ÒıÈë¡£
+- `configClass`ï¼šé…ç½®ç±»ï¼Œå°±æ˜¯ `demo04Main` å¯¹åº”çš„é…ç½®ç±»ï¼›
+- `sourceClass`ï¼šå¯¹ `demo04Main` åŠå…¶ä¸Šçš„æ³¨è§£çš„åŒ…è£…ï¼›
+- `getImports(sourceClass)`ï¼š`getImports(...)` ç”¨æ¥è·å–ä¼ å…¥ `sourceClass` çš„æ‰€æœ‰ `@Import` æ³¨è§£å¼•å…¥çš„ç±»ï¼›
+- `true`ï¼šå¸ƒå°”å€¼ï¼Œæ˜¯å¦æ£€æŸ¥å¾ªç¯å¼•å…¥ã€‚
 
-ÆäÖĞ£¬»ñÈ¡ `@Import` ×¢½âÒıÈëµÄÀàÊÇ `getImports(...)` µÄ¹¦ÄÜ£¬ÎÒÃÇÏÈÀ´¿´¿´Õâ¸ö·½·¨ÊÇÈçºÎ»ñÈ¡µÄ£º
+å…¶ä¸­ï¼Œè·å– `@Import` æ³¨è§£å¼•å…¥çš„ç±»æ˜¯ `getImports(...)` çš„åŠŸèƒ½ï¼Œæˆ‘ä»¬å…ˆæ¥çœ‹çœ‹è¿™ä¸ªæ–¹æ³•æ˜¯å¦‚ä½•è·å–çš„ï¼š
 
 ```
 private Set<SourceClass> getImports(SourceClass sourceClass) throws IOException {
     Set<SourceClass> imports = new LinkedHashSet<>();
     Set<SourceClass> visited = new LinkedHashSet<>();
-    // ÔÚÕâÀï»ñÈ¡
+    // åœ¨è¿™é‡Œè·å–
     collectImports(sourceClass, imports, visited);
     return imports;
 }
 
 /**
- * ¾ßÌåµÄ»ñÈ¡²Ù×÷
+ * å…·ä½“çš„è·å–æ“ä½œ
  */
 private void collectImports(SourceClass sourceClass, Set<SourceClass> imports, 
         Set<SourceClass> visited) throws IOException {
@@ -310,24 +310,24 @@ private void collectImports(SourceClass sourceClass, Set<SourceClass> imports,
         for (SourceClass annotation : sourceClass.getAnnotations()) {
             String annName = annotation.getMetadata().getClassName();
             if (!annName.equals(Import.class.getName())) {
-                // Èç¹ûannotationµÄÃû³Æ²»ÊÇimport£¬Ôòµİ¹éµ÷ÓÃ collectImports(...) ·½·¨
+                // å¦‚æœannotationçš„åç§°ä¸æ˜¯importï¼Œåˆ™é€’å½’è°ƒç”¨ collectImports(...) æ–¹æ³•
                 collectImports(annotation, imports, visited);
             }
         }
-        // »ñÈ¡µ±Ç°ÀàµÄ @Import ×¢½â
+        // è·å–å½“å‰ç±»çš„ @Import æ³¨è§£
         imports.addAll(sourceClass.getAnnotationAttributes(Import.class.getName(), "value"));
     }
 }
 ```
 
-»ñÈ¡ `@Import` µÄ·½·¨ÊÇ `ConfigurationClassParser#collectImports`£¬Õâ¸ö·½·¨Àï»á»ñÈ¡»ñÈ¡£¬²Ù×÷·½Ê½ÈçÏÂ£º
+è·å– `@Import` çš„æ–¹æ³•æ˜¯ `ConfigurationClassParser#collectImports`ï¼Œè¿™ä¸ªæ–¹æ³•é‡Œä¼šè·å–è·å–ï¼Œæ“ä½œæ–¹å¼å¦‚ä¸‹ï¼š
 
-1. »ñÈ¡´«ÈëÀàµÄËùÓĞ×¢½â£»
-2. ±éÀúÕâĞ©×¢½â£¬Èç¹ûÊÇ `@Import` ×¢½â£¬Ôò»ñÈ¡ `@Import` µÄ `value` Öµ£»·ñÔò£¬»Øµ½µÚÒ»²½£¬¼ÌĞø´¦Àí¡£
+1. è·å–ä¼ å…¥ç±»çš„æ‰€æœ‰æ³¨è§£ï¼›
+2. éå†è¿™äº›æ³¨è§£ï¼Œå¦‚æœæ˜¯ `@Import` æ³¨è§£ï¼Œåˆ™è·å– `@Import` çš„ `value` å€¼ï¼›å¦åˆ™ï¼Œå›åˆ°ç¬¬ä¸€æ­¥ï¼Œç»§ç»­å¤„ç†ã€‚
 
-ÕâÑùÖ®ºó£¬ÅäÖÃÀàÉÏ `demo04Main` ÉÏµÄ `@EnableElement` ×¢½â»á±»»ñÈ¡µ½£¬ÓÉÓÚÕâ¸ö×¢½â²»ÊÇ `@Import` ×¢½â£¬¾Í¼ÌĞø»ñÈ¡ `@EnableElement` ÆäÉÏµÄ×¢½â£¬´ËÊ±·¢ÏÖ `@EnableElement` ÓĞ `@Import` ×¢½â£¬ÕâÊ±¾Í»á»ñÈ¡ `@Import` µÄ `value()` Öµ£¬Ò²¾ÍÊÇ `@Import` ×¢½âÒıÈëµÄÀà¡£
+è¿™æ ·ä¹‹åï¼Œé…ç½®ç±»ä¸Š `demo04Main` ä¸Šçš„ `@EnableElement` æ³¨è§£ä¼šè¢«è·å–åˆ°ï¼Œç”±äºè¿™ä¸ªæ³¨è§£ä¸æ˜¯ `@Import` æ³¨è§£ï¼Œå°±ç»§ç»­è·å– `@EnableElement` å…¶ä¸Šçš„æ³¨è§£ï¼Œæ­¤æ—¶å‘ç° `@EnableElement` æœ‰ `@Import` æ³¨è§£ï¼Œè¿™æ—¶å°±ä¼šè·å– `@Import` çš„ `value()` å€¼ï¼Œä¹Ÿå°±æ˜¯ `@Import` æ³¨è§£å¼•å…¥çš„ç±»ã€‚
 
-Õâ¸ö·½·¨ÔËĞĞºó £¬µÃµ½µÄ½á¹ûÈçÏÂ£º
+è¿™ä¸ªæ–¹æ³•è¿è¡Œå ï¼Œå¾—åˆ°çš„ç»“æœå¦‚ä¸‹ï¼š
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-05c7fb442b4bb84d13ff6688e5fbf31cfa5.png)
 
@@ -337,50 +337,50 @@ private void collectImports(SourceClass sourceClass, Set<SourceClass> imports,
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d7e2063676e6e19850c35893b62f4ab76a9.png)
 
-µÃµ½µÄ½á¹ûÎª `LinkedHashSet`£¬Ò»´Î½ØÍ¼²»·½±ã£¬Òò´Ë·ÖÎªÁË 4 ÕÅÍ¼¡£¿ÉÒÔ¿´µ½£¬`@Import` ×¢½âÒıÈëµÄ 4 ¸öÀà¶¼»ñÈ¡µ½ÁË£º
+å¾—åˆ°çš„ç»“æœä¸º `LinkedHashSet`ï¼Œä¸€æ¬¡æˆªå›¾ä¸æ–¹ä¾¿ï¼Œå› æ­¤åˆ†ä¸ºäº† 4 å¼ å›¾ã€‚å¯ä»¥çœ‹åˆ°ï¼Œ`@Import` æ³¨è§£å¼•å…¥çš„ 4 ä¸ªç±»éƒ½è·å–åˆ°äº†ï¼š
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d615198a8f6dbef1ac6a800526311f36078.png)
 
-#### 2. ´¦Àí `@Import` µ¼ÈëµÄÀà
+#### 2. å¤„ç† `@Import` å¯¼å…¥çš„ç±»
 
-»ñÈ¡µ½ `@Import` ×¢½âµ¼ÈëµÄÀàºó£¬ÎÒÃÇÔÙÀ´¿´ `processImports(...)` ·½·¨£º
+è·å–åˆ° `@Import` æ³¨è§£å¯¼å…¥çš„ç±»åï¼Œæˆ‘ä»¬å†æ¥çœ‹ `processImports(...)` æ–¹æ³•ï¼š
 
 ```
 private void processImports(ConfigurationClass configClass, SourceClass currentSourceClass,
         Collection<SourceClass> importCandidates, boolean checkForCircularImports) {
     ...
     for (SourceClass candidate : importCandidates) {
-        // 1. ÒıÈëÀàµÄÀàĞÍÊÇ ImportSelector
+        // 1. å¼•å…¥ç±»çš„ç±»å‹æ˜¯ ImportSelector
         if (candidate.isAssignable(ImportSelector.class)) {
             Class<?> candidateClass = candidate.loadClass();
-            // ÊµÀı»¯ÒıÈëµÄ ImportSelector£¬²¢ÇÒ»áÖ´ĞĞ Aware ½Ó¿Ú·½·¨
-            // Ö§³ÖµÄAwareÓĞBeanClassLoaderAware£¬BeanFactoryAware£¬EnvironmentAware£¬ResourceLoaderAware
+            // å®ä¾‹åŒ–å¼•å…¥çš„ ImportSelectorï¼Œå¹¶ä¸”ä¼šæ‰§è¡Œ Aware æ¥å£æ–¹æ³•
+            // æ”¯æŒçš„Awareæœ‰BeanClassLoaderAwareï¼ŒBeanFactoryAwareï¼ŒEnvironmentAwareï¼ŒResourceLoaderAware
             ImportSelector selector = ParserStrategyUtils.instantiateClass(candidateClass, 
                     ImportSelector.class, this.environment, this.resourceLoader, this.registry);
             if (selector instanceof DeferredImportSelector) {
                 this.deferredImportSelectorHandler.handle(configClass, (DeferredImportSelector) selector);
             }
             else {
-                // Ö´ĞĞ selectImports ·½·¨£¬»ñÈ¡ÒıÈëµÄÀà£¬Êı×éÖĞÎªÒıÈëÀàµÄ"°üÃû.ÀàÃû"
+                // æ‰§è¡Œ selectImports æ–¹æ³•ï¼Œè·å–å¼•å…¥çš„ç±»ï¼Œæ•°ç»„ä¸­ä¸ºå¼•å…¥ç±»çš„"åŒ…å.ç±»å"
                 String[] importClassNames = selector.selectImports(currentSourceClass.getMetadata());
                 Collection<SourceClass> importSourceClasses = asSourceClasses(importClassNames);
-                // µİ¹éµ÷ÓÃ processImports(...) ·½·¨£¬ÔÙÒ»´Î´¦ÀíÒıÈëµÄÀà
+                // é€’å½’è°ƒç”¨ processImports(...) æ–¹æ³•ï¼Œå†ä¸€æ¬¡å¤„ç†å¼•å…¥çš„ç±»
                 processImports(configClass, currentSourceClass, importSourceClasses, false);
             }
         }
-        // 2. ÒıÈëÀàµÄÀàĞÍÊÇ ImportBeanDefinitionRegistrar
+        // 2. å¼•å…¥ç±»çš„ç±»å‹æ˜¯ ImportBeanDefinitionRegistrar
         else if (candidate.isAssignable(ImportBeanDefinitionRegistrar.class)) {
             Class<?> candidateClass = candidate.loadClass();
-            // ÊµÀı»¯ ImportBeanDefinitionRegistrar£¬²¢ÇÒÖ´ĞĞ Aware ½Ó¿ÚµÄ·½·¨
-            // Ö§³ÖµÄAwareÓĞBeanClassLoaderAware£¬BeanFactoryAware£¬EnvironmentAware£¬ResourceLoaderAware
+            // å®ä¾‹åŒ– ImportBeanDefinitionRegistrarï¼Œå¹¶ä¸”æ‰§è¡Œ Aware æ¥å£çš„æ–¹æ³•
+            // æ”¯æŒçš„Awareæœ‰BeanClassLoaderAwareï¼ŒBeanFactoryAwareï¼ŒEnvironmentAwareï¼ŒResourceLoaderAware
             ImportBeanDefinitionRegistrar registrar = ParserStrategyUtils
                     .instantiateClass(candidateClass, ImportBeanDefinitionRegistrar.class, 
                     this.environment, this.resourceLoader, this.registry);
-            // ½« ImportBeanDefinitionRegistrar ±£´æÆğÀ´
+            // å°† ImportBeanDefinitionRegistrar ä¿å­˜èµ·æ¥
             configClass.addImportBeanDefinitionRegistrar(registrar, currentSourceClass.getMetadata());
         }
-        // 3. ²»ÊÇÒÔÉÏÁ½Õß£¬µ÷ÓÃ processConfigurationClass(...) Ö±½Ó½âÎö
-        // Èç¹ûÒıÈëµÄÀàÊÇÅäÖÃÀà£¨°üº¬ @Component¡¢@Configuration¡¢@Import µÈ×¢½â£©£¬»áÔÚÕâÀï½øĞĞ½âÎö
+        // 3. ä¸æ˜¯ä»¥ä¸Šä¸¤è€…ï¼Œè°ƒç”¨ processConfigurationClass(...) ç›´æ¥è§£æ
+        // å¦‚æœå¼•å…¥çš„ç±»æ˜¯é…ç½®ç±»ï¼ˆåŒ…å« @Componentã€@Configurationã€@Import ç­‰æ³¨è§£ï¼‰ï¼Œä¼šåœ¨è¿™é‡Œè¿›è¡Œè§£æ
         else {
             this.importStack.registerImport(
                     currentSourceClass.getMetadata(), candidate.getMetadata().getClassName());
@@ -392,12 +392,12 @@ private void processImports(ConfigurationClass configClass, SourceClass currentS
 }
 ```
 
-ÒÔÉÏÊÇ¾­¹ı¾«¼òºóµÄ´úÂë£¬ÎÒÃÇÖ»¿´´¦Àí `@Import` µÄ¹Ø¼ü²½Öè£º
+ä»¥ä¸Šæ˜¯ç»è¿‡ç²¾ç®€åçš„ä»£ç ï¼Œæˆ‘ä»¬åªçœ‹å¤„ç† `@Import` çš„å…³é”®æ­¥éª¤ï¼š
 
-1. Èç¹ûÒıÈëÀàµÄÀàĞÍÊÇ `ImportSelector`£¬´¦ÀíÁ÷³ÌÈçÏÂ£º
+1. å¦‚æœå¼•å…¥ç±»çš„ç±»å‹æ˜¯ `ImportSelector`ï¼Œå¤„ç†æµç¨‹å¦‚ä¸‹ï¼š
 
-    1. Ê¹ÓÃ·´ÉäÊµÀı»¯ `ImportSelector`£¬Ö®ºóÔÙÖ´ĞĞ `Aware` ½Ó¿Ú·½·¨£¬ËùÒÔÎÒÃÇÔÚ´¦Àí `ImportSelector` Ê±£¬»¹¿ÉÒÔÊµÏÖ `Aware` ½Ó¿Ú£¬Ö§³ÖµÄ `Aware` ÓĞ `BeanClassLoaderAware`£¬`BeanFactoryAware`£¬`EnvironmentAware`£¬`ResourceLoaderAware`£»
-    2. Ö´ĞĞ `ImportSelector` ÊµÀıµÄ `selectImports` ·½·¨£¬ÕâÒ»²½ÊÇÎªÁË»ñÈ¡ÒıÈëµÄÀà£¬½á¹ûÎª `Class[]`£¬ÒıÈëÀàµÄ "°üÃû¡£ÀàÃû"£¬`Element03Selector` ÖĞ¸Ã·½·¨´úÂëÈçÏÂ£º
+    1. ä½¿ç”¨åå°„å®ä¾‹åŒ– `ImportSelector`ï¼Œä¹‹åå†æ‰§è¡Œ `Aware` æ¥å£æ–¹æ³•ï¼Œæ‰€ä»¥æˆ‘ä»¬åœ¨å¤„ç† `ImportSelector` æ—¶ï¼Œè¿˜å¯ä»¥å®ç° `Aware` æ¥å£ï¼Œæ”¯æŒçš„ `Aware` æœ‰ `BeanClassLoaderAware`ï¼Œ`BeanFactoryAware`ï¼Œ`EnvironmentAware`ï¼Œ`ResourceLoaderAware`ï¼›
+    2. æ‰§è¡Œ `ImportSelector` å®ä¾‹çš„ `selectImports` æ–¹æ³•ï¼Œè¿™ä¸€æ­¥æ˜¯ä¸ºäº†è·å–å¼•å…¥çš„ç±»ï¼Œç»“æœä¸º `Class[]`ï¼Œå¼•å…¥ç±»çš„ "åŒ…åã€‚ç±»å"ï¼Œ`Element03Selector` ä¸­è¯¥æ–¹æ³•ä»£ç å¦‚ä¸‹ï¼š
 
    ```
    @Override
@@ -406,68 +406,68 @@ private void processImports(ConfigurationClass configClass, SourceClass currentS
    }
    ```
 
-   ÕâÒ»²½»á»ñÈ¡µ½ `Element03.class`; 3. ½«»ñÈ¡µ½µÄ `Class` Êı×é£¬×ª»»³É `SourceClass` ¼¯ºÏ£¬ÔÙÒ»´Îµ÷ÓÃ `processImports(...)`£¬ÔÚµÚ¶ş´Îµ÷ÓÃÊ±£¬²ÅÊÇÕæÕı´¦Àí `Element03`¡£
+   è¿™ä¸€æ­¥ä¼šè·å–åˆ° `Element03.class`; 3. å°†è·å–åˆ°çš„ `Class` æ•°ç»„ï¼Œè½¬æ¢æˆ `SourceClass` é›†åˆï¼Œå†ä¸€æ¬¡è°ƒç”¨ `processImports(...)`ï¼Œåœ¨ç¬¬äºŒæ¬¡è°ƒç”¨æ—¶ï¼Œæ‰æ˜¯çœŸæ­£å¤„ç† `Element03`ã€‚
 
-2. Èç¹ûÒıÈëÀàµÄÀàĞÍÊÇ `ImportBeanDefinitionRegistrar`£¬´¦ÀíÁ÷³ÌÈçÏÂ£º
+2. å¦‚æœå¼•å…¥ç±»çš„ç±»å‹æ˜¯ `ImportBeanDefinitionRegistrar`ï¼Œå¤„ç†æµç¨‹å¦‚ä¸‹ï¼š
 
-    1. ÊµÀı»¯ `ImportBeanDefinitionRegistrar`£¬²¢ÇÒÖ´ĞĞ `Aware` ½Ó¿ÚµÄ·½·¨£¬ÕâÒ»²½Í¬ `ImportSelector` µÄÊµÀı»¯²Ù×÷Ò»Ñù£¬²»ÔÙ×¸Êö£»
-    2. ½«ÉÏÒ»²½µÃµ½µÄ `ImportBeanDefinitionRegistrar` ÊµÀı±£´æµ½ `configClass` ÖĞ£¬ºóÃæÎÒÃÇÔÙ·ÖÎö±£´æÆğÀ´µÄÊµÀıÊÇÈçºÎ´¦ÀíµÄ£»
+    1. å®ä¾‹åŒ– `ImportBeanDefinitionRegistrar`ï¼Œå¹¶ä¸”æ‰§è¡Œ `Aware` æ¥å£çš„æ–¹æ³•ï¼Œè¿™ä¸€æ­¥åŒ `ImportSelector` çš„å®ä¾‹åŒ–æ“ä½œä¸€æ ·ï¼Œä¸å†èµ˜è¿°ï¼›
+    2. å°†ä¸Šä¸€æ­¥å¾—åˆ°çš„ `ImportBeanDefinitionRegistrar` å®ä¾‹ä¿å­˜åˆ° `configClass` ä¸­ï¼Œåé¢æˆ‘ä»¬å†åˆ†æä¿å­˜èµ·æ¥çš„å®ä¾‹æ˜¯å¦‚ä½•å¤„ç†çš„ï¼›
 
-3. Èç¹ûÒıÈëÀàµÄÀàĞÍ²»ÊÇÒÔÉÏÁ½Õß£¬µ÷ÓÃ `processConfigurationClass(...)` Ö±½Ó½âÎö£¬Õâ¸ö·½·¨Ç°Á½ÆªÎÄÕÂÒÑ¾­¶à´ÎÌá¼°ÁË£¬¾ÍÊÇÓÃÀ´½âÎö `@Component`¡¢`@Import`¡¢`@ComponentScan`¡¢`@Configuration`¡¢`@Bean` µÈ×¢½âµÄ£¬ÕâÒ»²½ÊÇÎªÁË½âÎöÒıÈëÀàÖĞµÄÕâĞ©×¢½â£¬ÒıÈëµÄ `Element01`¡¢`Element02`¡¢`Element03`(ÉÏÃæµÚ 1 ²½ÖĞÌáµ½µÄ£¬´Ó `Element03Selector` ÖĞ»ñÈ¡µ½ `Element03.class` ºó£¬½«Æä×ª»»³É `SourceClass`£¬ÔÙ´Îµ÷ÓÃ `processImports(...)` µÄ¹ı³Ì) ¶¼ÊÇÔÚÕâÒ»²½½âÎöµÄ¡£
+3. å¦‚æœå¼•å…¥ç±»çš„ç±»å‹ä¸æ˜¯ä»¥ä¸Šä¸¤è€…ï¼Œè°ƒç”¨ `processConfigurationClass(...)` ç›´æ¥è§£æï¼Œè¿™ä¸ªæ–¹æ³•å‰ä¸¤ç¯‡æ–‡ç« å·²ç»å¤šæ¬¡æåŠäº†ï¼Œå°±æ˜¯ç”¨æ¥è§£æ `@Component`ã€`@Import`ã€`@ComponentScan`ã€`@Configuration`ã€`@Bean` ç­‰æ³¨è§£çš„ï¼Œè¿™ä¸€æ­¥æ˜¯ä¸ºäº†è§£æå¼•å…¥ç±»ä¸­çš„è¿™äº›æ³¨è§£ï¼Œå¼•å…¥çš„ `Element01`ã€`Element02`ã€`Element03`(ä¸Šé¢ç¬¬ 1 æ­¥ä¸­æåˆ°çš„ï¼Œä» `Element03Selector` ä¸­è·å–åˆ° `Element03.class` åï¼Œå°†å…¶è½¬æ¢æˆ `SourceClass`ï¼Œå†æ¬¡è°ƒç”¨ `processImports(...)` çš„è¿‡ç¨‹) éƒ½æ˜¯åœ¨è¿™ä¸€æ­¥è§£æçš„ã€‚
 
-µ½ÁËÕâÀï£¬ÎÒÃÇ·¢ÏÖ£¬³ıÁË `ImportBeanDefinitionRegistrar` µÄ·½Ê½Íâ£¬ÆäËûÈıÖÖÒıÈë·½Ê½£¨ÆÕÍ¨Àà¡¢ÅäÖÃÀà¡¢`ImportSelector` µÄÊµÏÖÀà£©¶¼ÊÇÒ»ÑùµÄ´¦Àí·½Ê½£¬¶¼ÊÇ°´**ÅäÖÃÀàµÄ½âÎö·½Ê½À´´¦Àí**£¬×îÖÕµ÷ÓÃµÄÊÇ `processConfigurationClass(...)` ·½·¨£¡ÕâÒ» ¿éÎÒÃÇÇ°Á½ÆªÎÄÕÂÒÑ¾­¶à´Î·ÖÎöÁË£¬ÕâÀï¾Í²»ÔÙ·ÖÎöÁË£¬½ÓÏÂÀ´ÎÒÃÇÀ´¼ÌĞøÀ´¿´ `ImportBeanDefinitionRegistrar` µÄ´¦Àí¡£
+åˆ°äº†è¿™é‡Œï¼Œæˆ‘ä»¬å‘ç°ï¼Œé™¤äº† `ImportBeanDefinitionRegistrar` çš„æ–¹å¼å¤–ï¼Œå…¶ä»–ä¸‰ç§å¼•å…¥æ–¹å¼ï¼ˆæ™®é€šç±»ã€é…ç½®ç±»ã€`ImportSelector` çš„å®ç°ç±»ï¼‰éƒ½æ˜¯ä¸€æ ·çš„å¤„ç†æ–¹å¼ï¼Œéƒ½æ˜¯æŒ‰**é…ç½®ç±»çš„è§£ææ–¹å¼æ¥å¤„ç†**ï¼Œæœ€ç»ˆè°ƒç”¨çš„æ˜¯ `processConfigurationClass(...)` æ–¹æ³•ï¼è¿™ä¸€ å—æˆ‘ä»¬å‰ä¸¤ç¯‡æ–‡ç« å·²ç»å¤šæ¬¡åˆ†æäº†ï¼Œè¿™é‡Œå°±ä¸å†åˆ†æäº†ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬æ¥ç»§ç»­æ¥çœ‹ `ImportBeanDefinitionRegistrar` çš„å¤„ç†ã€‚
 
-### 4.5 ¼ÓÔØ `BeanDefinitions`£º`ConfigurationClassBeanDefinitionReader#loadBeanDefinitions`
+### 4.5 åŠ è½½ `BeanDefinitions`ï¼š`ConfigurationClassBeanDefinitionReader#loadBeanDefinitions`
 
-ÔÚ·ÖÎö `@Bean` ·½·¨Ê±£¬ÎÒÃÇ·ÖÎö¹ı `ConfigurationClassBeanDefinitionReader#loadBeanDefinitions` ¼ÓÔØ `@Bean` ·½·¨µÄÁ÷³Ì£¬ÕâÀïÎÒÃÇÀ´¿´¼ÓÔØ `@Import` µÄÁ÷³Ì£¬ÎÒÃÇÖ±½Ó½øÈë¹Ø¼ü·½·¨ `ConfigurationClassBeanDefinitionReader#loadBeanDefinitionsForConfigurationClass`£º
+åœ¨åˆ†æ `@Bean` æ–¹æ³•æ—¶ï¼Œæˆ‘ä»¬åˆ†æè¿‡ `ConfigurationClassBeanDefinitionReader#loadBeanDefinitions` åŠ è½½ `@Bean` æ–¹æ³•çš„æµç¨‹ï¼Œè¿™é‡Œæˆ‘ä»¬æ¥çœ‹åŠ è½½ `@Import` çš„æµç¨‹ï¼Œæˆ‘ä»¬ç›´æ¥è¿›å…¥å…³é”®æ–¹æ³• `ConfigurationClassBeanDefinitionReader#loadBeanDefinitionsForConfigurationClass`ï¼š
 
 ```
 private void loadBeanDefinitionsForConfigurationClass(
         ConfigurationClass configClass, TrackedConditionEvaluator trackedConditionEvaluator) {
     ...
 
-    // ´¦Àí @Import ÒıÈëµÄÅäÖÃÀà
+    // å¤„ç† @Import å¼•å…¥çš„é…ç½®ç±»
     if (configClass.isImported()) {
         registerBeanDefinitionForImportedConfigurationClass(configClass);
     }
-    // ´¦Àí @Bean ·½·¨
+    // å¤„ç† @Bean æ–¹æ³•
     for (BeanMethod beanMethod : configClass.getBeanMethods()) {
         loadBeanDefinitionsForBeanMethod(beanMethod);
     }
-    // ´¦Àí @ImportResource ÒıÈëµÄ×ÊÔ´
+    // å¤„ç† @ImportResource å¼•å…¥çš„èµ„æº
     loadBeanDefinitionsFromImportedResources(configClass.getImportedResources());
-    // ´¦Àí @Import ÒıÈëµÄ ImportBeanDefinitionRegistrar
-    // Ç°Ãæ±£´æÔÚconfigClassÖĞµÄImportBeanDefinitionRegistrars£¬ÔÚÕâÀïÊ¹ÓÃÁË
+    // å¤„ç† @Import å¼•å…¥çš„ ImportBeanDefinitionRegistrar
+    // å‰é¢ä¿å­˜åœ¨configClassä¸­çš„ImportBeanDefinitionRegistrarsï¼Œåœ¨è¿™é‡Œä½¿ç”¨äº†
     loadBeanDefinitionsFromRegistrars(configClass.getImportBeanDefinitionRegistrars());
 }
 ```
 
-´¦Àí `@Import` µÄµØ·½ÓĞÁ½´¦£º
+å¤„ç† `@Import` çš„åœ°æ–¹æœ‰ä¸¤å¤„ï¼š
 
-1. ´¦Àí `@Import` ÒıÈëµÄÅäÖÃÀà
-2. ´¦Àí `@Import` ÒıÈëµÄ `ImportBeanDefinitionRegistrar`
+1. å¤„ç† `@Import` å¼•å…¥çš„é…ç½®ç±»
+2. å¤„ç† `@Import` å¼•å…¥çš„ `ImportBeanDefinitionRegistrar`
 
-ÎÒÃÇ·Ö±ğÀ´¿´¿´ÕâÁ½´¦ÊÇÈçºÎ´¦ÀíµÄ¡£
+æˆ‘ä»¬åˆ†åˆ«æ¥çœ‹çœ‹è¿™ä¸¤å¤„æ˜¯å¦‚ä½•å¤„ç†çš„ã€‚
 
-#### 1. ´¦Àí `@Import` ÒıÈëµÄÅäÖÃÀà
+#### 1. å¤„ç† `@Import` å¼•å…¥çš„é…ç½®ç±»
 
-´¦Àí `@Import` ÒıÈëµÄÅäÖÃÀàµÄÏà¹Ø´úÂëÎª£º
+å¤„ç† `@Import` å¼•å…¥çš„é…ç½®ç±»çš„ç›¸å…³ä»£ç ä¸ºï¼š
 
 ```
-    // ´¦Àí @Import ÒıÈëµÄÅäÖÃÀà
+    // å¤„ç† @Import å¼•å…¥çš„é…ç½®ç±»
     if (configClass.isImported()) {
         registerBeanDefinitionForImportedConfigurationClass(configClass);
     }
 ```
 
-ÎÒÃÇ½øÈëÆäÖĞÒ»Ì½¾¿¾¹£º
+æˆ‘ä»¬è¿›å…¥å…¶ä¸­ä¸€æ¢ç©¶ç«Ÿï¼š
 
 ```
 private void registerBeanDefinitionForImportedConfigurationClass(ConfigurationClass configClass) {
     AnnotationMetadata metadata = configClass.getMetadata();
-    // ´´½¨ BeanDefinition£¬ÀàĞÍÎª AnnotatedGenericBeanDefinition
+    // åˆ›å»º BeanDefinitionï¼Œç±»å‹ä¸º AnnotatedGenericBeanDefinition
     AnnotatedGenericBeanDefinition configBeanDef = new AnnotatedGenericBeanDefinition(metadata);
-    // ´¦ÀíÒ»ÏµÁĞµÄÊôĞÔ
+    // å¤„ç†ä¸€ç³»åˆ—çš„å±æ€§
     ScopeMetadata scopeMetadata = scopeMetadataResolver.resolveScopeMetadata(configBeanDef);
     configBeanDef.setScope(scopeMetadata.getScopeName());
     String configBeanName = this.importBeanNameGenerator.generateBeanName(configBeanDef, this.registry);
@@ -475,18 +475,18 @@ private void registerBeanDefinitionForImportedConfigurationClass(ConfigurationCl
     BeanDefinitionHolder definitionHolder = new BeanDefinitionHolder(configBeanDef, configBeanName);
     definitionHolder = AnnotationConfigUtils
             .applyScopedProxyMode(scopeMetadata, definitionHolder, this.registry);
-    // ×¢²á
+    // æ³¨å†Œ
     this.registry.registerBeanDefinition(definitionHolder.getBeanName(), 
             definitionHolder.getBeanDefinition());
     configClass.setBeanName(configBeanName);
 }
 ```
 
-Õâ¾ÍÊÇÒ»¸ö½«Àà×¢²áµ½ `BeanDefinition` ÖĞµÄ¹ı³Ì£¬Ê¹ÓÃµÄ `BeanDefinition` ÊÇ `AnnotatedGenericBeanDefinition`¡£
+è¿™å°±æ˜¯ä¸€ä¸ªå°†ç±»æ³¨å†Œåˆ° `BeanDefinition` ä¸­çš„è¿‡ç¨‹ï¼Œä½¿ç”¨çš„ `BeanDefinition` æ˜¯ `AnnotatedGenericBeanDefinition`ã€‚
 
-#### 2. ´¦Àí `@Import` ÒıÈëµÄ `ImportBeanDefinitionRegistrar`
+#### 2. å¤„ç† `@Import` å¼•å…¥çš„ `ImportBeanDefinitionRegistrar`
 
-´¦Àí¸Ã¹ı³ÌµÄ·½·¨Îª `loadBeanDefinitionsFromRegistrars(...)`£¬´úÂëÈçÏÂ£º
+å¤„ç†è¯¥è¿‡ç¨‹çš„æ–¹æ³•ä¸º `loadBeanDefinitionsFromRegistrars(...)`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 private void loadBeanDefinitionsFromRegistrars(Map<ImportBeanDefinitionRegistrar, 
@@ -497,13 +497,13 @@ private void loadBeanDefinitionsFromRegistrars(Map<ImportBeanDefinitionRegistrar
 }
 ```
 
-¸Ã·½·¨ÏÈÊÇ±éÀú´«ÈëµÄ `ImportBeanDefinitionRegistrar` ¼¯ºÏ£¬È»ºóÖğÒ»µ÷ÓÃÆäÖĞµÄ `ImportBeanDefinitionRegistrar#registerBeanDefinitions(AnnotationMetadata, BeanDefinitionRegistry, BeanNameGenerator)` ·½·¨£¬¸Ã·½·¨Î»ÓÚ `ImportBeanDefinitionRegistrar` ½Ó¿Ú£¬´úÂëÈçÏÂ£º
+è¯¥æ–¹æ³•å…ˆæ˜¯éå†ä¼ å…¥çš„ `ImportBeanDefinitionRegistrar` é›†åˆï¼Œç„¶åé€ä¸€è°ƒç”¨å…¶ä¸­çš„ `ImportBeanDefinitionRegistrar#registerBeanDefinitions(AnnotationMetadata, BeanDefinitionRegistry, BeanNameGenerator)` æ–¹æ³•ï¼Œè¯¥æ–¹æ³•ä½äº `ImportBeanDefinitionRegistrar` æ¥å£ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public interface ImportBeanDefinitionRegistrar {
 
     /**
-     * Ä¬ÈÏ·½·¨£¬Ä¬ÈÏÊµÏÖ½ö½ö×öÁËÒ»¸öµ÷ÓÃ
+     * é»˜è®¤æ–¹æ³•ï¼Œé»˜è®¤å®ç°ä»…ä»…åšäº†ä¸€ä¸ªè°ƒç”¨
      */
     default void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, 
             BeanDefinitionRegistry registry,BeanNameGenerator importBeanNameGenerator) {
@@ -511,7 +511,7 @@ public interface ImportBeanDefinitionRegistrar {
     }
 
     /**
-     * ÔÚ Element02ImportBeanDefinitionRegistrar ÖĞÊµÏÖµÄ·½·¨
+     * åœ¨ Element02ImportBeanDefinitionRegistrar ä¸­å®ç°çš„æ–¹æ³•
      */
     default void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, 
             BeanDefinitionRegistry registry) {
@@ -520,7 +520,7 @@ public interface ImportBeanDefinitionRegistrar {
 }
 ```
 
-`ImportBeanDefinitionRegistrar#registerBeanDefinitions(AnnotationMetadata, BeanDefinitionRegistry, BeanNameGenerator)` ½öÊÇ×öÁËÒ»¸öµ÷ÓÃ£¬×îÖÕµ÷ÓÃµÄÊÇ `ImportBeanDefinitionRegistrar#registerBeanDefinitions(AnnotationMetadata, BeanDefinitionRegistry)`£¬¶øÎÒÃÇµÄ `Element02ImportBeanDefinitionRegistrar` ÕıÊÇÊµÏÖÁË¸Ã·½·¨£º
+`ImportBeanDefinitionRegistrar#registerBeanDefinitions(AnnotationMetadata, BeanDefinitionRegistry, BeanNameGenerator)` ä»…æ˜¯åšäº†ä¸€ä¸ªè°ƒç”¨ï¼Œæœ€ç»ˆè°ƒç”¨çš„æ˜¯ `ImportBeanDefinitionRegistrar#registerBeanDefinitions(AnnotationMetadata, BeanDefinitionRegistry)`ï¼Œè€Œæˆ‘ä»¬çš„ `Element02ImportBeanDefinitionRegistrar` æ­£æ˜¯å®ç°äº†è¯¥æ–¹æ³•ï¼š
 
 ```
 public class Element02ImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
@@ -532,71 +532,71 @@ public class Element02ImportBeanDefinitionRegistrar implements ImportBeanDefinit
 }
 ```
 
-ÈÆÁË´ó°ëÌì£¬×îÖÕ·¢ÏÖ `ImportBeanDefinitionRegistrar` ×¢²áµ½ `beanDefinitionMap` µÄÂß¼­ÊÇÎÒÃÇ×Ô¼ºĞ´µÄ£¡
+ç»•äº†å¤§åŠå¤©ï¼Œæœ€ç»ˆå‘ç° `ImportBeanDefinitionRegistrar` æ³¨å†Œåˆ° `beanDefinitionMap` çš„é€»è¾‘æ˜¯æˆ‘ä»¬è‡ªå·±å†™çš„ï¼
 
-#### 3. ´ÓÈİÆ÷ÖĞ»ñÈ¡ `ElementXx`
+#### 3. ä»å®¹å™¨ä¸­è·å– `ElementXx`
 
-µ½ÁËÕâÀï£¬`Element01`¡¢`Element02`¡¢`Element03`¡¢`Element04` ¾Íµ½×¢²áµ½ `beanDefinitionMap` ÖĞÁË£¬ÈÃÎÒÃÇ¿´Ò»ÑÛ `beanDefinitionNames` ÖĞµÄÄÚÈİ£º
+åˆ°äº†è¿™é‡Œï¼Œ`Element01`ã€`Element02`ã€`Element03`ã€`Element04` å°±åˆ°æ³¨å†Œåˆ° `beanDefinitionMap` ä¸­äº†ï¼Œè®©æˆ‘ä»¬çœ‹ä¸€çœ¼ `beanDefinitionNames` ä¸­çš„å†…å®¹ï¼š
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-68171a4af503b3e80b23d10a91834e231aa.png)
 
-¿ÉÒÔ·¢ÏÖ£¬`Element01` Óë `Element03` beanName ²»Í¬Ñ°³££¬ÕâÁ½¸ö bean µÄÒıÈë·½Ê½Îª
+å¯ä»¥å‘ç°ï¼Œ`Element01` ä¸ `Element03` beanName ä¸åŒå¯»å¸¸ï¼Œè¿™ä¸¤ä¸ª bean çš„å¼•å…¥æ–¹å¼ä¸º
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0e07154a732c2a884803531e54aa10a0ef9.png)
 
-ÕâµãÔÚÊ¹ÓÃ `beanFactory.get(¡°beanName¡±)` Ê±ĞèÒª×¢Òâ£º
+è¿™ç‚¹åœ¨ä½¿ç”¨ `beanFactory.get(â€œbeanNameâ€)` æ—¶éœ€è¦æ³¨æ„ï¼š
 
 ```
-// »ñÈ¡²»µ½£¬»á±¨´í
+// è·å–ä¸åˆ°ï¼Œä¼šæŠ¥é”™
 beanFactory.get("element01");
-// ÄÜ»ñÈ¡µ½
+// èƒ½è·å–åˆ°
 beanFactory.get("element02");
-// »ñÈ¡²»µ½£¬»á±¨´í
+// è·å–ä¸åˆ°ï¼Œä¼šæŠ¥é”™
 beanFactory.get("element03");
-// ÄÜ»ñÈ¡µ½
+// èƒ½è·å–åˆ°
 beanFactory.get("element04");
 ```
 
-Ê¹ÓÃ `beanFactory.get(¡°beanName¡±)` »ñÈ¡ `element01` Óë `element03` ĞèÒªÕâÑù»ñÈ¡£º
+ä½¿ç”¨ `beanFactory.get(â€œbeanNameâ€)` è·å– `element01` ä¸ `element03` éœ€è¦è¿™æ ·è·å–ï¼š
 
 ```
-// ÄÜ»ñÈ¡µ½
+// èƒ½è·å–åˆ°
 beanFactory.get("org.springframework.learn.explore.demo04.element.Element01");
-// ÄÜ»ñÈ¡µ½
+// èƒ½è·å–åˆ°
 beanFactory.get("org.springframework.learn.explore.demo04.element.Element03");
 ```
 
-µ±È»£¬ÎÒÃÇÒ²¿ÉÒÔÊ¹ÓÃ `beanFactory.get(Class)` µÄ·½Ê½»ñÈ¡£º
+å½“ç„¶ï¼Œæˆ‘ä»¬ä¹Ÿå¯ä»¥ä½¿ç”¨ `beanFactory.get(Class)` çš„æ–¹å¼è·å–ï¼š
 
 ```
-// ÄÜ»ñÈ¡µ½
+// èƒ½è·å–åˆ°
 beanFactory.get(Element01.class);
-// ÄÜ»ñÈ¡µ½
+// èƒ½è·å–åˆ°
 beanFactory.get(Element02.class);
-// ÄÜ»ñÈ¡µ½
+// èƒ½è·å–åˆ°
 beanFactory.get(Element03.class);
-// ÄÜ»ñÈ¡µ½
+// èƒ½è·å–åˆ°
 beanFactory.get(Element04.class);
 ```
 
-### 4.6 ²¹³ä£º`DeferredImportSelector` µÄ´¦Àí
+### 4.6 è¡¥å……ï¼š`DeferredImportSelector` çš„å¤„ç†
 
-ÔÚ·ÖÎö `ConfigurationClassParser#processImports` ·½·¨Ê±£¬´¦Àí `ImportSelector` µÄÀàĞÍÊ±£¬ÓĞÕâÃ´Ò»¶Î´úÂë£º
+åœ¨åˆ†æ `ConfigurationClassParser#processImports` æ–¹æ³•æ—¶ï¼Œå¤„ç† `ImportSelector` çš„ç±»å‹æ—¶ï¼Œæœ‰è¿™ä¹ˆä¸€æ®µä»£ç ï¼š
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-4fb0dddcbf45d84ad5260c43a5b55e85a0a.png)
 
-Õâ¶Î´úÂë»áÏÈÅĞ¶Ï `selector` ÊÇ·ñÎª `DeferredImportSelector` µÄÊµÀı£¬Èç¹ûÊÇ¾Í°´ `DeferredImportSelector` ÀàĞÍµÄÊµÀı½øĞĞ´¦Àí£¬·ñÔò¾Í°´ÆÕÍ¨µÄ `ImportSelector` ÀàĞÍÀ´´¦Àí¡£±¾½ÚÎÒÃÇÀ´¿´¿´ `DeferredImportSelector` ÓëÆÕÍ¨µÄ `ImportSelector` ÓĞºÎ²»Í¬¡£
+è¿™æ®µä»£ç ä¼šå…ˆåˆ¤æ–­ `selector` æ˜¯å¦ä¸º `DeferredImportSelector` çš„å®ä¾‹ï¼Œå¦‚æœæ˜¯å°±æŒ‰ `DeferredImportSelector` ç±»å‹çš„å®ä¾‹è¿›è¡Œå¤„ç†ï¼Œå¦åˆ™å°±æŒ‰æ™®é€šçš„ `ImportSelector` ç±»å‹æ¥å¤„ç†ã€‚æœ¬èŠ‚æˆ‘ä»¬æ¥çœ‹çœ‹ `DeferredImportSelector` ä¸æ™®é€šçš„ `ImportSelector` æœ‰ä½•ä¸åŒã€‚
 
-`DeferredImportSelector` µÄ´úÂëÈçÏÂ£º
+`DeferredImportSelector` çš„ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 /**
- * DeferredImportSelector ÊÇ ImportSelectorµÄ×Ó½Ó¿Ú
+ * DeferredImportSelector æ˜¯ ImportSelectorçš„å­æ¥å£
  */
 public interface DeferredImportSelector extends ImportSelector {
 
     /**
-     * ·µ»Øµ¼Èë·Ö×é
+     * è¿”å›å¯¼å…¥åˆ†ç»„
      */
     @Nullable
     default Class<? extends Group> getImportGroup() {
@@ -605,33 +605,33 @@ public interface DeferredImportSelector extends ImportSelector {
 
 
     /**
-     * ·Ö×éµÄ¶¨Òå
+     * åˆ†ç»„çš„å®šä¹‰
      */
     interface Group {
 
         /**
-         * ¸Ã·Ö×éµÄ´¦Àí·½·¨
+         * è¯¥åˆ†ç»„çš„å¤„ç†æ–¹æ³•
          */
         void process(AnnotationMetadata metadata, DeferredImportSelector selector);
 
         /**
-         * ·µ»Ø¸Ã·Ö×éµÄÄÚÈİ
+         * è¿”å›è¯¥åˆ†ç»„çš„å†…å®¹
          */
         Iterable<Entry> selectImports();
 
 
         /**
-         * ·Ö×éµÄÔªËØ¶¨Òå
+         * åˆ†ç»„çš„å…ƒç´ å®šä¹‰
          */
         class Entry {
 
             /**
-             * ×¢½âÊı¾İ
+             * æ³¨è§£æ•°æ®
              */
             private final AnnotationMetadata metadata;
 
             /**
-             * µ¼ÈëµÄÀàÃû
+             * å¯¼å…¥çš„ç±»å
              */
             private final String importClassName;
 
@@ -640,7 +640,7 @@ public interface DeferredImportSelector extends ImportSelector {
                 this.importClassName = importClassName;
             }
 
-            // Ê¡ÂÔ get/set ·½·¨£¬Ê¡ÂÔ equals/toString/hashCode ·½·¨
+            // çœç•¥ get/set æ–¹æ³•ï¼Œçœç•¥ equals/toString/hashCode æ–¹æ³•
             ...
 
         }
@@ -648,18 +648,18 @@ public interface DeferredImportSelector extends ImportSelector {
 }
 ```
 
-´ÓÉÏÃæµÄ´úÂë¿ÉÒÔ¿´³ö£¬
+ä»ä¸Šé¢çš„ä»£ç å¯ä»¥çœ‹å‡ºï¼Œ
 
-- `DeferredImportSelector` ÊÇ `ImportSelector` µÄ×Ó½Ó¿Ú£¬¾ß±¸ `ImportSelector` µÄ¹¦ÄÜ
-- `DeferredImportSelector` Ìá¹©ÁËÒ»¸ö·½·¨£º`Class<? extends Group> getImportGroup()`£¬¸Ã·½·¨·µ»ØµÄÊÇµ±Ç° `DeferredImportSelector` ÊµÀıËùÔÚµÄ·Ö×é¡£
+- `DeferredImportSelector` æ˜¯ `ImportSelector` çš„å­æ¥å£ï¼Œå…·å¤‡ `ImportSelector` çš„åŠŸèƒ½
+- `DeferredImportSelector` æä¾›äº†ä¸€ä¸ªæ–¹æ³•ï¼š`Class<? extends Group> getImportGroup()`ï¼Œè¯¥æ–¹æ³•è¿”å›çš„æ˜¯å½“å‰ `DeferredImportSelector` å®ä¾‹æ‰€åœ¨çš„åˆ†ç»„ã€‚
 
-½ÓÏÂÀ´ÎÒÃÇÀ´¹Ø×¢ÕâĞĞ´úÂë£º
+æ¥ä¸‹æ¥æˆ‘ä»¬æ¥å…³æ³¨è¿™è¡Œä»£ç ï¼š
 
 ```
 this.deferredImportSelectorHandler.handle(configClass, (DeferredImportSelector) selector);
 ```
 
-À´¿´¿´ÕâĞĞ´úÂë×ö×öÁËÊ²Ã´£¬½øÈë `ConfigurationClassParser#handler·½·¨`£º
+æ¥çœ‹çœ‹è¿™è¡Œä»£ç åšåšäº†ä»€ä¹ˆï¼Œè¿›å…¥ `ConfigurationClassParser#handleræ–¹æ³•`ï¼š
 
 ```
 class ConfigurationClassParser {
@@ -672,7 +672,7 @@ class ConfigurationClassParser {
         private List<DeferredImportSelectorHolder> deferredImportSelectors = new ArrayList<>();
 
         public void handle(ConfigurationClass configClass, DeferredImportSelector importSelector) {
-            // ½« configClass Óë importSelector °ü×°³É DeferredImportSelectorHolder
+            // å°† configClass ä¸ importSelector åŒ…è£…æˆ DeferredImportSelectorHolder
             DeferredImportSelectorHolder holder = new DeferredImportSelectorHolder(
                     configClass, importSelector);
             if (this.deferredImportSelectors == null) {
@@ -682,7 +682,7 @@ class ConfigurationClassParser {
                 handler.processGroupImports();
             }
             else {
-                // Ìí¼Óµ½ deferredImportSelectors ÖĞ
+                // æ·»åŠ åˆ° deferredImportSelectors ä¸­
                 this.deferredImportSelectors.add(holder);
             }
         }
@@ -692,18 +692,18 @@ class ConfigurationClassParser {
 }
 ```
 
-¿ÉÒÔ¿´µ½£¬Õâ¸ö·½Ï´ÏÈ½« `configClass` Óë `importSelector` °ü×°³É `DeferredImportSelector`£¬È»ºóÔÙÌí¼Óµ½ `deferredImportSelectors`¡£
+å¯ä»¥çœ‹åˆ°ï¼Œè¿™ä¸ªæ–¹æ´—å…ˆå°† `configClass` ä¸ `importSelector` åŒ…è£…æˆ `DeferredImportSelector`ï¼Œç„¶åå†æ·»åŠ åˆ° `deferredImportSelectors`ã€‚
 
-µ½Ä¿Ç°ÎªÖ¹£¬`DeferredImportSelector` ÒıÈëµÄÀà²¢Ã»ÓĞ½øĞĞ´¦Àí£¬ÄÇÃ´ `DeferredImportSelector` ÒıÈëµÄÀàÊÇÔÚÄÄÀï´¦ÀíµÄÄØ£¿ÈÃÎÒÃÇ»Øµ½ `ConfigurationClassParser#parse(Set<BeanDefinitionHolder>)` ·½·¨£º
+åˆ°ç›®å‰ä¸ºæ­¢ï¼Œ`DeferredImportSelector` å¼•å…¥çš„ç±»å¹¶æ²¡æœ‰è¿›è¡Œå¤„ç†ï¼Œé‚£ä¹ˆ `DeferredImportSelector` å¼•å…¥çš„ç±»æ˜¯åœ¨å“ªé‡Œå¤„ç†çš„å‘¢ï¼Ÿè®©æˆ‘ä»¬å›åˆ° `ConfigurationClassParser#parse(Set<BeanDefinitionHolder>)` æ–¹æ³•ï¼š
 
 ```
 public class  ConfigurationClassParser {
     public void parse(Set<BeanDefinitionHolder> configCandidates) {
-        // Ñ­»·´«½øÀ´µÄÅäÖÃÀà
+        // å¾ªç¯ä¼ è¿›æ¥çš„é…ç½®ç±»
         for (BeanDefinitionHolder holder : configCandidates) {
             BeanDefinition bd = holder.getBeanDefinition();
             try {
-                // Èç¹û»ñµÃBeanDefinitionÊÇAnnotatedBeanDefinitionµÄÊµÀı
+                // å¦‚æœè·å¾—BeanDefinitionæ˜¯AnnotatedBeanDefinitionçš„å®ä¾‹
                 if (bd instanceof AnnotatedBeanDefinition) {
                     parse(((AnnotatedBeanDefinition) bd).getMetadata(), holder.getBeanName());
                 }
@@ -716,16 +716,16 @@ public class  ConfigurationClassParser {
                 ...
             }
         }
-        // ÔÚÕâÀï´¦Àí DeferredImportSelector
+        // åœ¨è¿™é‡Œå¤„ç† DeferredImportSelector
         this.deferredImportSelectorHandler.process();
     }
     ...
 }
 ```
 
-¿ÉÒÔ¿´µ½£¬ÔÚ´¦ÀíÍêÅäÖÃÀàµÄ½âÎöºó£¬×îºóÔÙÀ´´¦Àí `DeferredImportSelector`£¬Ò²¾ÍÊÇÉÏÃæÌí¼Óµ½ `deferredImportSelectors` µÄÄÚÈİ£¬µ÷ÓÃµÄÊÇ `deferredImportSelectorHandler.process()`.
+å¯ä»¥çœ‹åˆ°ï¼Œåœ¨å¤„ç†å®Œé…ç½®ç±»çš„è§£æåï¼Œæœ€åå†æ¥å¤„ç† `DeferredImportSelector`ï¼Œä¹Ÿå°±æ˜¯ä¸Šé¢æ·»åŠ åˆ° `deferredImportSelectors` çš„å†…å®¹ï¼Œè°ƒç”¨çš„æ˜¯ `deferredImportSelectorHandler.process()`.
 
-ÎÒÃÇ¼ÌĞø£º
+æˆ‘ä»¬ç»§ç»­ï¼š
 
 ```
 class ConfigurationClassParser {
@@ -739,11 +739,11 @@ class ConfigurationClassParser {
                 if (deferredImports != null) {
                     DeferredImportSelectorGroupingHandler handler 
                         = new DeferredImportSelectorGroupingHandler();
-                    // ÅÅĞò£¬DeferredImportSelector ¿ÉÒÔÖ¸¶¨´¦ÀíË³Ğò£¬@Order/Orderd
+                    // æ’åºï¼ŒDeferredImportSelector å¯ä»¥æŒ‡å®šå¤„ç†é¡ºåºï¼Œ@Order/Orderd
                     deferredImports.sort(DEFERRED_IMPORT_COMPARATOR);
-                    // ±éÀúµ÷ÓÃ DeferredImportSelectorGroupingHandler#register ·½·¨
+                    // éå†è°ƒç”¨ DeferredImportSelectorGroupingHandler#register æ–¹æ³•
                     deferredImports.forEach(handler::register);
-                    // ´¦Àíµ¼Èë
+                    // å¤„ç†å¯¼å…¥
                     handler.processGroupImports();
                 }
             }
@@ -757,13 +757,13 @@ class ConfigurationClassParser {
 }
 ```
 
-`process()` ·½·¨²½ÖèÈçÏÂ£º
+`process()` æ–¹æ³•æ­¥éª¤å¦‚ä¸‹ï¼š
 
-1. ÅÅĞò£¬Õâ¸öÖ÷ÒªÊÇ¸ù¾İ `@Order` ×¢½â£¬»òÕßÊµÏÖÁË `Orderd` ½Ó¿ÚÀ´ÅÅĞò£»
-2. ±éÀúµ÷ÓÃ `DeferredImportSelectorGroupingHandler#register` ·½·¨£¬ÆäÊµ¾ÍÊÇ½« `deferredImports` ÖĞµÄÔªËØ×¢²áµ½ `handler` ÖĞ£»
-3. µ÷ÓÃ `handler.processGroupImports()` ·½·¨À´´¦Àíµ¼Èë¡£
+1. æ’åºï¼Œè¿™ä¸ªä¸»è¦æ˜¯æ ¹æ® `@Order` æ³¨è§£ï¼Œæˆ–è€…å®ç°äº† `Orderd` æ¥å£æ¥æ’åºï¼›
+2. éå†è°ƒç”¨ `DeferredImportSelectorGroupingHandler#register` æ–¹æ³•ï¼Œå…¶å®å°±æ˜¯å°† `deferredImports` ä¸­çš„å…ƒç´ æ³¨å†Œåˆ° `handler` ä¸­ï¼›
+3. è°ƒç”¨ `handler.processGroupImports()` æ–¹æ³•æ¥å¤„ç†å¯¼å…¥ã€‚
 
-ÎÒÃÇÔÙÀ´¿´¿´ `handler.processGroupImports()` ·½·¨£º
+æˆ‘ä»¬å†æ¥çœ‹çœ‹ `handler.processGroupImports()` æ–¹æ³•ï¼š
 
 ```
 class ConfigurationClassParser {
@@ -773,19 +773,19 @@ class ConfigurationClassParser {
     private class DeferredImportSelectorGroupingHandler {
         ...
         /**
-         * ×îÖÕµÄ´¦ÀíÀà
-         * ÔÚÕâÀï´¦Àí·Ö×éµ¼Èë
+         * æœ€ç»ˆçš„å¤„ç†ç±»
+         * åœ¨è¿™é‡Œå¤„ç†åˆ†ç»„å¯¼å…¥
          */
         public void processGroupImports() {
             for (DeferredImportSelectorGrouping grouping : this.groupings.values()) {
-                // ±éÀú·Ö×é£¬ grouping.getImports()ÊÇ¹Ø¼ü
+                // éå†åˆ†ç»„ï¼Œ grouping.getImports()æ˜¯å…³é”®
                 grouping.getImports().forEach(entry -> {
                     ConfigurationClass configurationClass = this.configurationClasses.get(
                             entry.getMetadata());
                     try {
-                        // Í¬ImportSelectorµÄÊµÏÖÀàÒ»Ñù£¬×îÖÕÒ²ÊÇµ÷ÓÃ processImports(...) ´¦Àíµ¼Èë
-                        // ×¢Òâ entry.getImportClassName()£¬ÕâÒ»´Îµ÷ÓÃ processImports(...) µÄ²Î
-                        // ÊıÊÇImportSelectorÒıÈëµÄÀà
+                        // åŒImportSelectorçš„å®ç°ç±»ä¸€æ ·ï¼Œæœ€ç»ˆä¹Ÿæ˜¯è°ƒç”¨ processImports(...) å¤„ç†å¯¼å…¥
+                        // æ³¨æ„ entry.getImportClassName()ï¼Œè¿™ä¸€æ¬¡è°ƒç”¨ processImports(...) çš„å‚
+                        // æ•°æ˜¯ImportSelectorå¼•å…¥çš„ç±»
                         processImports(configurationClass, asSourceClass(configurationClass),
                                 asSourceClasses(entry.getImportClassName()), false);
                     }
@@ -802,48 +802,48 @@ class ConfigurationClassParser {
 }
 ```
 
-`processGroupImports(...)` Ö÷ÒªÂß¼­ÈçÏÂ£º
+`processGroupImports(...)` ä¸»è¦é€»è¾‘å¦‚ä¸‹ï¼š
 
-1. ±éÀú·Ö×é
-2. µ÷ÓÃ `grouping.getImports()` »ñÈ¡·Ö×éµÄÀà
-3. µ÷ÓÃ `processImports` ´¦Àí·Ö×éÀàµÄµ¼Èë£¬ÕâµãÍ¬´¦Àí `ImportSelector` ½Ó¿ÚÁ÷³ÌÊÇÒ»ÑùµÄ
+1. éå†åˆ†ç»„
+2. è°ƒç”¨ `grouping.getImports()` è·å–åˆ†ç»„çš„ç±»
+3. è°ƒç”¨ `processImports` å¤„ç†åˆ†ç»„ç±»çš„å¯¼å…¥ï¼Œè¿™ç‚¹åŒå¤„ç† `ImportSelector` æ¥å£æµç¨‹æ˜¯ä¸€æ ·çš„
 
-ÎÒÃÇÀ´¿´¿´ `grouping.getImports()` ·½·¨£¬¸Ã·½·¨Îª `ConfigurationClassParser.DeferredImportSelectorGrouping#getImports`£¬´úÂëÈçÏÂ£º
+æˆ‘ä»¬æ¥çœ‹çœ‹ `grouping.getImports()` æ–¹æ³•ï¼Œè¯¥æ–¹æ³•ä¸º `ConfigurationClassParser.DeferredImportSelectorGrouping#getImports`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public Iterable<Group.Entry> getImports() {
     for (DeferredImportSelectorHolder deferredImport : this.deferredImports) {
-        // Ö´ĞĞ Group#process
+        // æ‰§è¡Œ Group#process
         this.group.process(deferredImport.getConfigurationClass().getMetadata(),
                 deferredImport.getImportSelector());
     }
-    // Ö´ĞĞ Group#selectImports
+    // æ‰§è¡Œ Group#selectImports
     return this.group.selectImports();
 }
 ```
 
-ÔÚÕâ¸ö·½·¨Àï£¬»áµ÷ÓÃ `DeferredImportSelector.Group` µÄÁ½¸ö·½·¨£º
+åœ¨è¿™ä¸ªæ–¹æ³•é‡Œï¼Œä¼šè°ƒç”¨ `DeferredImportSelector.Group` çš„ä¸¤ä¸ªæ–¹æ³•ï¼š
 
 - `DeferredImportSelector.Group#process`
 - `DeferredImportSelector.Group#selectImports`
 
-¹ØÓÚÕâÁ½¸ö·½·¨£¬±¾Ğ¡½ÚµÄÒ»¿ªÊ¼¾ÍÌù³öÁËÆä´úÂë¼°Æä×¢ÊÍ£¬¶øÒıÈëÀàÕıÊÇÓÉ `DeferredImportSelector.Group#selectImports` ·½·¨·µ»ØµÄ.
+å…³äºè¿™ä¸¤ä¸ªæ–¹æ³•ï¼Œæœ¬å°èŠ‚çš„ä¸€å¼€å§‹å°±è´´å‡ºäº†å…¶ä»£ç åŠå…¶æ³¨é‡Šï¼Œè€Œå¼•å…¥ç±»æ­£æ˜¯ç”± `DeferredImportSelector.Group#selectImports` æ–¹æ³•è¿”å›çš„.
 
-·ÖÎöÁËÀÏ°ëÌì£¬×Ü½áÏÂ `DeferredImportSelector` Óë `ImportSelector` Á½ÕßµÄÇø±ğ£º
+åˆ†æäº†è€åŠå¤©ï¼Œæ€»ç»“ä¸‹ `DeferredImportSelector` ä¸ `ImportSelector` ä¸¤è€…çš„åŒºåˆ«ï¼š
 
-- `DeferredImportSelector` ¿ÉÒÔÖ¸¶¨·Ö×é£ºÔÚ´¦ÀíÊ±£¬¿ÉÒÔ¸ù¾İ·Ö×éÍ³Ò»´¦Àí£»
-- `DeferredImportSelector` ´¦ÀíÊ±»ú£º»áÔÚËùÔÚÅäÖÃÀà½âÎöÍêÖ®ºóÔÙ´¦Àí£»
-- `DeferredImportSelector` ÒıÈëÀàµÄ·µ»Ø£º²»Í¬ÓÚ `ImportSelector`£¨ÆäÒıÈëÀàÓÉ `ImportSelector#selectImports` ·½·¨·µ»Ø£©£¬ËüµÄÒıÈëÀàÓÉ `DeferredImportSelector.Group#selectImports` ·½·¨·µ»Ø¡£
+- `DeferredImportSelector` å¯ä»¥æŒ‡å®šåˆ†ç»„ï¼šåœ¨å¤„ç†æ—¶ï¼Œå¯ä»¥æ ¹æ®åˆ†ç»„ç»Ÿä¸€å¤„ç†ï¼›
+- `DeferredImportSelector` å¤„ç†æ—¶æœºï¼šä¼šåœ¨æ‰€åœ¨é…ç½®ç±»è§£æå®Œä¹‹åå†å¤„ç†ï¼›
+- `DeferredImportSelector` å¼•å…¥ç±»çš„è¿”å›ï¼šä¸åŒäº `ImportSelector`ï¼ˆå…¶å¼•å…¥ç±»ç”± `ImportSelector#selectImports` æ–¹æ³•è¿”å›ï¼‰ï¼Œå®ƒçš„å¼•å…¥ç±»ç”± `DeferredImportSelector.Group#selectImports` æ–¹æ³•è¿”å›ã€‚
 
-### 4.7 ×Ü½á
+### 4.7 æ€»ç»“
 
-±¾ÎÄÖ÷Òª·ÖÎöÁË `ConfigurationClassPostProcessor` ¶Ô `@Import` ×¢½âµÄ´¦Àí£¬×Ü½áÈçÏÂ:
+æœ¬æ–‡ä¸»è¦åˆ†æäº† `ConfigurationClassPostProcessor` å¯¹ `@Import` æ³¨è§£çš„å¤„ç†ï¼Œæ€»ç»“å¦‚ä¸‹:
 
-1. `@Import` ¿Éµ¼ÈëµÄÀàÓĞ 4 ÖÖ£¬·Ö±ğÊÇÆÕÍ¨Àà¡¢ÅäÖÃÀà¡¢ÊµÏÖÁË `ImportSelector` µÄÀàÒÔ¼°ÊµÏÖÁË `ImportBeanDefinitionRegistrar` µÄÀà£»
-2. »ñÈ¡ `@Import` ×¢½â£ºspring ÔÚ»ñÈ¡ÀàÉÏµÄ `@Import` Ê±£¬ÏÈ»ñÈ¡ÀàÉÏµÄËùÓĞ×¢½â£¬È»ºóÖğÒ»ÅĞ¶Ï£¬Èç¹ûµ±Ç°×¢½âÊÇ `@Import`£¬Ôò»ñÈ¡ `@Import` µÄÒıÈëµÄÀà (·½·¨Îª `Import#value`)£¬·ñÔò»ñÈ¡µ±Ç°×¢½âÉÏµÄËùÓĞ×¢½â£¬ÖØ¸´ÒÔÉÏ´¦Àí£»
-3. ´¦Àí `@Import` ÒıÈëµÄÀà£ºÆÕÍ¨Àà¡¢ÅäÖÃÀàÍ³Ò»°´ÅäÖÃÀàÀ´½âÎö£»ÊµÏÖÁË `ImportSelector` µÄÀà£¬»á´Ó `selectImports(...)` ·½·¨·µ»ØµÄ ¡°°üÃû¡£ÀàÃû¡± ÖĞÄÃµ½ class£¬È»ºóÒ²ÊÇ°´ÅäÖÃÀà½âÎö£»ÊµÏÖ `ImportBeanDefinitionRegistrar` µÄÀà£¬»á°Ñ¶ÔÓ¦ÀàµÄÊµÀı±£´æµ½µ±Ç°ÅäÖÃÀàÖĞ£¬ºóÃæ×¢²áµ½ `beanDefinitionMap` Ê±£¬¾ÍÊÇ´ÓÕâÀï»ñÈ¡µÄ£»
-4. ½«ÒıÈëÀà×¢²áµ½ `beanDefinitionMap`£ºÊµÏÖÁË `ImportSelector` µÄÀà×îÖÕµÃµ½µÄÊÇÒ»¸öÆÕÍ¨Àà»òÅäÖÃÀà£¬Í¬ÒıÈëµÄÆÕÍ¨ÀàÓëÅäÖÃÀàÒ»Ñù£¬Ö±½Ó×¢²á£»ÊµÏÖ `ImportBeanDefinitionRegistrar` µÄÀà£¬µ÷ÓÃÆä `ImportBeanDefinitionRegistrar#registerBeanDefinitions(AnnotationMetadata, BeanDefinitionRegistry)` ·½·¨½øĞĞ×¢²á£¬×¢²áÂß¼­ÓÉÊµÏÖÀà×ÔĞĞ¶¨Òå¡£
+1. `@Import` å¯å¯¼å…¥çš„ç±»æœ‰ 4 ç§ï¼Œåˆ†åˆ«æ˜¯æ™®é€šç±»ã€é…ç½®ç±»ã€å®ç°äº† `ImportSelector` çš„ç±»ä»¥åŠå®ç°äº† `ImportBeanDefinitionRegistrar` çš„ç±»ï¼›
+2. è·å– `@Import` æ³¨è§£ï¼šspring åœ¨è·å–ç±»ä¸Šçš„ `@Import` æ—¶ï¼Œå…ˆè·å–ç±»ä¸Šçš„æ‰€æœ‰æ³¨è§£ï¼Œç„¶åé€ä¸€åˆ¤æ–­ï¼Œå¦‚æœå½“å‰æ³¨è§£æ˜¯ `@Import`ï¼Œåˆ™è·å– `@Import` çš„å¼•å…¥çš„ç±» (æ–¹æ³•ä¸º `Import#value`)ï¼Œå¦åˆ™è·å–å½“å‰æ³¨è§£ä¸Šçš„æ‰€æœ‰æ³¨è§£ï¼Œé‡å¤ä»¥ä¸Šå¤„ç†ï¼›
+3. å¤„ç† `@Import` å¼•å…¥çš„ç±»ï¼šæ™®é€šç±»ã€é…ç½®ç±»ç»Ÿä¸€æŒ‰é…ç½®ç±»æ¥è§£æï¼›å®ç°äº† `ImportSelector` çš„ç±»ï¼Œä¼šä» `selectImports(...)` æ–¹æ³•è¿”å›çš„ â€œåŒ…åã€‚ç±»åâ€ ä¸­æ‹¿åˆ° classï¼Œç„¶åä¹Ÿæ˜¯æŒ‰é…ç½®ç±»è§£æï¼›å®ç° `ImportBeanDefinitionRegistrar` çš„ç±»ï¼Œä¼šæŠŠå¯¹åº”ç±»çš„å®ä¾‹ä¿å­˜åˆ°å½“å‰é…ç½®ç±»ä¸­ï¼Œåé¢æ³¨å†Œåˆ° `beanDefinitionMap` æ—¶ï¼Œå°±æ˜¯ä»è¿™é‡Œè·å–çš„ï¼›
+4. å°†å¼•å…¥ç±»æ³¨å†Œåˆ° `beanDefinitionMap`ï¼šå®ç°äº† `ImportSelector` çš„ç±»æœ€ç»ˆå¾—åˆ°çš„æ˜¯ä¸€ä¸ªæ™®é€šç±»æˆ–é…ç½®ç±»ï¼ŒåŒå¼•å…¥çš„æ™®é€šç±»ä¸é…ç½®ç±»ä¸€æ ·ï¼Œç›´æ¥æ³¨å†Œï¼›å®ç° `ImportBeanDefinitionRegistrar` çš„ç±»ï¼Œè°ƒç”¨å…¶ `ImportBeanDefinitionRegistrar#registerBeanDefinitions(AnnotationMetadata, BeanDefinitionRegistry)` æ–¹æ³•è¿›è¡Œæ³¨å†Œï¼Œæ³¨å†Œé€»è¾‘ç”±å®ç°ç±»è‡ªè¡Œå®šä¹‰ã€‚
 
 ------
 
-*±¾ÎÄÔ­ÎÄÁ´½Ó£ºhttps://my.oschina.net/funcy/blog/4678152 £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£*
+*æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼šhttps://my.oschina.net/funcy/blog/4678152 ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚*

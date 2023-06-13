@@ -1,30 +1,30 @@
-# ¿ìËÙ¹¹½¨SpringBootÓ¦ÓÃ
+# å¿«é€Ÿæž„å»ºSpringBootåº”ç”¨
 
-Õâ¸ö½Ì³ÌÀ´×ÔÓÚspringboot¹ÙÍø£¬×ã¹»È¨Íþ£¬Ò²×ã¹»¼òµ¥¡£
+è¿™ä¸ªæ•™ç¨‹æ¥è‡ªäºŽspringbootå®˜ç½‘ï¼Œè¶³å¤Ÿæƒå¨ï¼Œä¹Ÿè¶³å¤Ÿç®€å•ã€‚
 
-##  µÚÒ»¸ö hello world ³ÌÐò
+##  ç¬¬ä¸€ä¸ª hello world ç¨‹åº
 
-Äú½«¹¹½¨Ò»¸ö¾­µäµÄ¡°Hello World£¡¡±ÈÎºÎä¯ÀÀÆ÷¶¼¿ÉÒÔÁ¬½Óµ½µÄ¶Ëµã¡£ÄãÉõÖÁ¿ÉÒÔ¸æËßËüÄãµÄÃû×Ö£¬Ëü»áÒÔ¸üÓÑºÃµÄ·½Ê½»ØÓ¦¡£
+æ‚¨å°†æž„å»ºä¸€ä¸ªç»å…¸çš„â€œHello Worldï¼â€ä»»ä½•æµè§ˆå™¨éƒ½å¯ä»¥è¿žæŽ¥åˆ°çš„ç«¯ç‚¹ã€‚ä½ ç”šè‡³å¯ä»¥å‘Šè¯‰å®ƒä½ çš„åå­—ï¼Œå®ƒä¼šä»¥æ›´å‹å¥½çš„æ–¹å¼å›žåº”ã€‚
 
-## »ù±¾»·¾³ÒªÇó
+## åŸºæœ¬çŽ¯å¢ƒè¦æ±‚
 
-1¡¢Ê×ÏÈÄã×îºÃÓÐÒ»¸ö³ÃÊÖµÄIDE,ÈÈÃÅÑ¡Ôñ°üÀ¨ IntelliJ IDEA¡¢Spring Tools¡¢Visual Studio Code »ò Eclipse µÈµÈ¡£
+1ã€é¦–å…ˆä½ æœ€å¥½æœ‰ä¸€ä¸ªè¶æ‰‹çš„IDE,çƒ­é—¨é€‰æ‹©åŒ…æ‹¬ IntelliJ IDEAã€Spring Toolsã€Visual Studio Code æˆ– Eclipse ç­‰ç­‰ã€‚
 
-2¡¢JDK£¬ÖÁÓÚ°æ±¾µÄ»°£¬8-17¶¼ÊÇ²»´íµÄÑ¡Ôñ
+2ã€JDKï¼Œè‡³äºŽç‰ˆæœ¬çš„è¯ï¼Œ8-17éƒ½æ˜¯ä¸é”™çš„é€‰æ‹©
 
-3¡¢µ±È»ÕâÀï»¹ÐèÒªµ¼ÈëmavenµÄpomÒÀÀµ£¬ËùÒÔÎÒÃÇÒ²ÐèÒªmaven£¬maven²å¼þÔÚidea×Ô´øÁË¡£ÎÒÃÇ»áÔÚ½ÓÏÂÀ´µÄ²¿·Ö½øÐÐ½éÉÜ£¬ÐèÒªÒýÈëÄÄÐ©ÒÀÀµ
+3ã€å½“ç„¶è¿™é‡Œè¿˜éœ€è¦å¯¼å…¥mavençš„pomä¾èµ–ï¼Œæ‰€ä»¥æˆ‘ä»¬ä¹Ÿéœ€è¦mavenï¼Œmavenæ’ä»¶åœ¨ideaè‡ªå¸¦äº†ã€‚æˆ‘ä»¬ä¼šåœ¨æŽ¥ä¸‹æ¥çš„éƒ¨åˆ†è¿›è¡Œä»‹ç»ï¼Œéœ€è¦å¼•å…¥å“ªäº›ä¾èµ–
 
-## µÚÒ»²½£ºÆô¶¯Ò»¸öÐÂµÄSpring BootÏîÄ¿
+## ç¬¬ä¸€æ­¥ï¼šå¯åŠ¨ä¸€ä¸ªæ–°çš„Spring Booté¡¹ç›®
 
-Ê¹ÓÃ[start.spring.io](http://start.spring.io/)´´½¨Ò»¸ö¡°web¡±ÏîÄ¿¡£ÔÚ¡°dependencies¡±¶Ô»°¿òÖÐËÑË÷²¢Ìí¼Ó¡°web¡±ÒÀÀµÏî£¬ÈçÆÁÄ»½ØÍ¼ËùÊ¾¡£
+ä½¿ç”¨[start.spring.io](http://start.spring.io/)åˆ›å»ºä¸€ä¸ªâ€œwebâ€é¡¹ç›®ã€‚åœ¨â€œdependenciesâ€å¯¹è¯æ¡†ä¸­æœç´¢å¹¶æ·»åŠ â€œwebâ€ä¾èµ–é¡¹ï¼Œå¦‚å±å¹•æˆªå›¾æ‰€ç¤ºã€‚
 
-µã»÷¡°Éú³É¡±°´Å¥£¬ÏÂÔØ zip ÎÄ¼þ£¬²¢½«Æä½âÑ¹µ½Äú¼ÆËã»úÉÏµÄÒ»¸öÎÄ¼þ¼ÐÖÐ¡£
+ç‚¹å‡»â€œç”Ÿæˆâ€æŒ‰é’®ï¼Œä¸‹è½½ zip æ–‡ä»¶ï¼Œå¹¶å°†å…¶è§£åŽ‹åˆ°æ‚¨è®¡ç®—æœºä¸Šçš„ä¸€ä¸ªæ–‡ä»¶å¤¹ä¸­ã€‚
 
-![Start.spring.io ¿ìËÙÈëÃÅ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/quickstart-1.png)
+![Start.spring.io å¿«é€Ÿå…¥é—¨](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/quickstart-1.png)
 
-[start.spring.io](http://start.spring.io/)´´½¨µÄÏîÄ¿°üº¬[Spring Boot](https://spring.io/projects/spring-boot)£¬Ò»¸öÈÃSpring×¼±¸ºÃÔÚÄúµÄÓ¦ÓÃ³ÌÐòÄÚ²¿¹¤×÷£¬µ«²»ÐèÒªÌ«¶à´úÂë»òÅäÖÃ¡£ Spring Boot ÊÇÆô¶¯ Spring ÏîÄ¿µÄ×î¿ìºÍ×îÁ÷ÐÐµÄ·½Ê½¡£
+[start.spring.io](http://start.spring.io/)åˆ›å»ºçš„é¡¹ç›®åŒ…å«[Spring Boot](https://spring.io/projects/spring-boot)ï¼Œä¸€ä¸ªè®©Springå‡†å¤‡å¥½åœ¨æ‚¨çš„åº”ç”¨ç¨‹åºå†…éƒ¨å·¥ä½œï¼Œä½†ä¸éœ€è¦å¤ªå¤šä»£ç æˆ–é…ç½®ã€‚ Spring Boot æ˜¯å¯åŠ¨ Spring é¡¹ç›®çš„æœ€å¿«å’Œæœ€æµè¡Œçš„æ–¹å¼ã€‚
 
-ÕâÀïÎÒÃÇÑ¡ÔñÊ¹ÓÃmaven×÷Îª°ü¹ÜÀí¹¤¾ß£¬ÏÂÔØÏÂÀ´µÄÏîÄ¿Àï»á°üº¬pomÎÄ¼þ£¬pomÎÄ¼þÀï°üº¬ÁËÄãµÄÌí¼ÓµÄÒÀÀµ¡£
+è¿™é‡Œæˆ‘ä»¬é€‰æ‹©ä½¿ç”¨mavenä½œä¸ºåŒ…ç®¡ç†å·¥å…·ï¼Œä¸‹è½½ä¸‹æ¥çš„é¡¹ç›®é‡Œä¼šåŒ…å«pomæ–‡ä»¶ï¼Œpomæ–‡ä»¶é‡ŒåŒ…å«äº†ä½ çš„æ·»åŠ çš„ä¾èµ–ã€‚
 
 ````  
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -36,11 +36,11 @@
 ````  
 
 
-## µÚ¶þ²½£ºÌí¼ÓÄãµÄ´úÂë
+## ç¬¬äºŒæ­¥ï¼šæ·»åŠ ä½ çš„ä»£ç 
 
-ÔÚÄúµÄ IDE ÖÐ´ò¿ªÏîÄ¿²¢ÔÚ `src/main/java/com/example/demo` ÎÄ¼þ¼ÐÖÐÕÒµ½ `DemoApplication.java` ÎÄ¼þ¡£
+åœ¨æ‚¨çš„ IDE ä¸­æ‰“å¼€é¡¹ç›®å¹¶åœ¨ `src/main/java/com/example/demo` æ–‡ä»¶å¤¹ä¸­æ‰¾åˆ° `DemoApplication.java` æ–‡ä»¶ã€‚
 
-ÏÖÔÚÍ¨¹ýÌí¼ÓÏÂÃæ´úÂëÖÐÏÔÊ¾µÄ¶îÍâ·½·¨ºÍ×¢ÊÍÀ´¸ü¸ÄÎÄ¼þµÄÄÚÈÝ¡£Äú¿ÉÒÔ¸´ÖÆ²¢Õ³Ìù´úÂë»òÖ±½Ó¼üÈë´úÂë¡£
+çŽ°åœ¨é€šè¿‡æ·»åŠ ä¸‹é¢ä»£ç ä¸­æ˜¾ç¤ºçš„é¢å¤–æ–¹æ³•å’Œæ³¨é‡Šæ¥æ›´æ”¹æ–‡ä»¶çš„å†…å®¹ã€‚æ‚¨å¯ä»¥å¤åˆ¶å¹¶ç²˜è´´ä»£ç æˆ–ç›´æŽ¥é”®å…¥ä»£ç ã€‚
 ```  
 package com.example.demo;  
 import org.springframework.boot.SpringApplication;  
@@ -56,22 +56,22 @@ public class DemoApplication {
   
 ```  
 
-ÕâÊÇÔÚ Spring Boot ÖÐ´´½¨Ò»¸ö¼òµ¥µÄ¡°Hello World¡± Web ·þÎñËùÐèµÄËùÓÐ´úÂë¡£
+è¿™æ˜¯åœ¨ Spring Boot ä¸­åˆ›å»ºä¸€ä¸ªç®€å•çš„â€œHello Worldâ€ Web æœåŠ¡æ‰€éœ€çš„æ‰€æœ‰ä»£ç ã€‚
 
-ÎÒÃÇÌí¼ÓµÄ`hello()`·½·¨Ö¼ÔÚ»ñÈ¡Ò»¸öÃûÎªnameµÄString²ÎÊý£¬È»ºó½«´Ë²ÎÊýÓë´úÂëÖÐµÄµ¥´Ê`"Hello"`½áºÏÆðÀ´¡£
+æˆ‘ä»¬æ·»åŠ çš„`hello()`æ–¹æ³•æ—¨åœ¨èŽ·å–ä¸€ä¸ªåä¸ºnameçš„Stringå‚æ•°ï¼Œç„¶åŽå°†æ­¤å‚æ•°ä¸Žä»£ç ä¸­çš„å•è¯`"Hello"`ç»“åˆèµ·æ¥ã€‚
 
-ÕâÒâÎ¶×ÅÈç¹ûÄúÔÚÇëÇóÖÐ½«ÄúµÄÃû×ÖÉèÖÃÎª¡°Amy¡±£¬ÔòÏìÓ¦½«ÊÇ¡°Hello Amy¡±¡£
+è¿™æ„å‘³ç€å¦‚æžœæ‚¨åœ¨è¯·æ±‚ä¸­å°†æ‚¨çš„åå­—è®¾ç½®ä¸ºâ€œAmyâ€ï¼Œåˆ™å“åº”å°†æ˜¯â€œHello Amyâ€ã€‚
 
-`@RestController` ×¢ÊÍ¸æËß Spring£¬´Ë´úÂëÃèÊöÁËÒ»¸ö¶Ëµã£¬¸Ã¶ËµãÓ¦ÔÚ Web ÉÏ¿ÉÓÃ¡£   
-@GetMapping(¡°/hello¡±) ¸æËß Spring Ê¹ÓÃÎÒÃÇµÄ hello() ·½·¨À´ÏìÓ¦·¢ËÍµ½ http://localhost:8080/hello µØÖ·µÄÇëÇó¡£
+`@RestController` æ³¨é‡Šå‘Šè¯‰ Springï¼Œæ­¤ä»£ç æè¿°äº†ä¸€ä¸ªç«¯ç‚¹ï¼Œè¯¥ç«¯ç‚¹åº”åœ¨ Web ä¸Šå¯ç”¨ã€‚   
+@GetMapping(â€œ/helloâ€) å‘Šè¯‰ Spring ä½¿ç”¨æˆ‘ä»¬çš„ hello() æ–¹æ³•æ¥å“åº”å‘é€åˆ° http://localhost:8080/hello åœ°å€çš„è¯·æ±‚ã€‚
 
-×îºó£¬@RequestParam ¸æËß Spring ÔÚÇëÇóÖÐÆÚÍûÒ»¸öÃû³ÆÖµ£¬µ«Èç¹û²»´æÔÚ£¬Ëü½«Ä¬ÈÏÊ¹ÓÃµ¥´Ê¡°World¡±¡£
+æœ€åŽï¼Œ@RequestParam å‘Šè¯‰ Spring åœ¨è¯·æ±‚ä¸­æœŸæœ›ä¸€ä¸ªåç§°å€¼ï¼Œä½†å¦‚æžœä¸å­˜åœ¨ï¼Œå®ƒå°†é»˜è®¤ä½¿ç”¨å•è¯â€œWorldâ€ã€‚
 
-## µÚÈý²½£ºÆô¶¯
+## ç¬¬ä¸‰æ­¥ï¼šå¯åŠ¨
 
-ÈÃÎÒÃÇ¹¹½¨²¢ÔËÐÐ³ÌÐò¡£´ò¿ªÃüÁîÐÐ£¨»òÖÕ¶Ë£©²¢µ¼º½µ½ÄúÓµÓÐÏîÄ¿ÎÄ¼þµÄÎÄ¼þ¼Ð¡£
+è®©æˆ‘ä»¬æž„å»ºå¹¶è¿è¡Œç¨‹åºã€‚æ‰“å¼€å‘½ä»¤è¡Œï¼ˆæˆ–ç»ˆç«¯ï¼‰å¹¶å¯¼èˆªåˆ°æ‚¨æ‹¥æœ‰é¡¹ç›®æ–‡ä»¶çš„æ–‡ä»¶å¤¹ã€‚
 
-ÎÒÃÇ¿ÉÒÔÍ¨¹ý·¢³öÒÔÏÂÃüÁîÀ´¹¹½¨ºÍÔËÐÐÓ¦ÓÃ³ÌÐò£º
+æˆ‘ä»¬å¯ä»¥é€šè¿‡å‘å‡ºä»¥ä¸‹å‘½ä»¤æ¥æž„å»ºå’Œè¿è¡Œåº”ç”¨ç¨‹åºï¼š
 
 **MacOS/Linux:**
 
@@ -87,22 +87,22 @@ COPY.\gradlew.bat bootRun
   
 ```  
 
-ÄúÓ¦¸Ã»á¿´µ½Ò»Ð©Óë´Ë·Ç³£ÏàËÆµÄÊä³ö£º  
+æ‚¨åº”è¯¥ä¼šçœ‹åˆ°ä¸€äº›ä¸Žæ­¤éžå¸¸ç›¸ä¼¼çš„è¾“å‡ºï¼š  
 ![Quick Start On Start.spring.io](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/quickstart-2.png)
 
-ÕâÀïµÄ×îºó¼¸ÐÐ¸æËßÎÒÃÇ£¬SpringÓ¦ÓÃÒÑ¾­¿ªÊ¼ÔËÐÐÁË¡£ Spring Boot µÄÇ¶ÈëÊ½ Apache Tomcat ·þÎñÆ÷³äµ±ÍøÂç·þÎñÆ÷£¬²¢ÕýÔÚ¼àÌý¡°localhost¡±¶Ë¿Ú¡°8080¡±ÉÏµÄÇëÇó¡£
+è¿™é‡Œçš„æœ€åŽå‡ è¡Œå‘Šè¯‰æˆ‘ä»¬ï¼ŒSpringåº”ç”¨å·²ç»å¼€å§‹è¿è¡Œäº†ã€‚ Spring Boot çš„åµŒå…¥å¼ Apache Tomcat æœåŠ¡å™¨å……å½“ç½‘ç»œæœåŠ¡å™¨ï¼Œå¹¶æ­£åœ¨ç›‘å¬â€œlocalhostâ€ç«¯å£â€œ8080â€ä¸Šçš„è¯·æ±‚ã€‚
 
-´ò¿ªä¯ÀÀÆ÷£¬ÔÚ¶¥²¿µÄµØÖ·À¸ÖÐÊäÈë`http://localhost:8080/hello`¡£
+æ‰“å¼€æµè§ˆå™¨ï¼Œåœ¨é¡¶éƒ¨çš„åœ°å€æ ä¸­è¾“å…¥`http://localhost:8080/hello`ã€‚
 
-ÄãÓ¦¸ÃµÃµ½ÕâÑùÒ»¸öÓÑºÃµÄ»ØÓ¦£º  
+ä½ åº”è¯¥å¾—åˆ°è¿™æ ·ä¸€ä¸ªå‹å¥½çš„å›žåº”ï¼š  
 ![Quick Start On Start.spring.io](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/quickstart-3.png)
 
-# ×Ü½á
-¾ÍÊÇÈç´Ë¼òµ¥£¬µÚÒ»¸öSpringBootÓ¦ÓÃ¾ÍÕâÃ´¹¹½¨Íê³ÉÁË£¬Äã²»ÐèÒª¶îÍâµÄÅäÖÃÎÄ¼þ£¬¶îÍâµÄÒÀÀµ£¬ÉõÖÁÊÇ¶îÍâµÄ·þÎñÆ÷¡£  
-Ö»ÐèÒªÒ»¸öÆô¶¯Àà£¬¾Í¿ÉÒÔÊµÏÖÒ»¸ö×î»ù±¾µÄSpringBootµÄÓ¦ÓÃ¡£
+# æ€»ç»“
+å°±æ˜¯å¦‚æ­¤ç®€å•ï¼Œç¬¬ä¸€ä¸ªSpringBootåº”ç”¨å°±è¿™ä¹ˆæž„å»ºå®Œæˆäº†ï¼Œä½ ä¸éœ€è¦é¢å¤–çš„é…ç½®æ–‡ä»¶ï¼Œé¢å¤–çš„ä¾èµ–ï¼Œç”šè‡³æ˜¯é¢å¤–çš„æœåŠ¡å™¨ã€‚  
+åªéœ€è¦ä¸€ä¸ªå¯åŠ¨ç±»ï¼Œå°±å¯ä»¥å®žçŽ°ä¸€ä¸ªæœ€åŸºæœ¬çš„SpringBootçš„åº”ç”¨ã€‚
 
-ÕâÒ²ÊÇÎªÊ²Ã´springboot¿ÉÒÔÓÃÀ´¿ìËÙ¹¹½¨Ò»¸öÎ¢·þÎñ£¬ÒòÎªËüÊµÔÚÊÇÌ«·½±ãÁË¡£  
-µ±È»£¬Êµ¼Ê¿ª·¢ÖÐÎÒÃÇÐèÒªÓÃµ½¸ü¶àspringbootµÄ¹¦ÄÜºÍÌØÐÔ£¬ÎÒÃÇ½«»áÔÚ½ÓÏÂÀ´µÄÕÂ½ÚÖÐÖð½¥Õ¹¿ª½éÉÜ¡£
+è¿™ä¹Ÿæ˜¯ä¸ºä»€ä¹ˆspringbootå¯ä»¥ç”¨æ¥å¿«é€Ÿæž„å»ºä¸€ä¸ªå¾®æœåŠ¡ï¼Œå› ä¸ºå®ƒå®žåœ¨æ˜¯å¤ªæ–¹ä¾¿äº†ã€‚  
+å½“ç„¶ï¼Œå®žé™…å¼€å‘ä¸­æˆ‘ä»¬éœ€è¦ç”¨åˆ°æ›´å¤šspringbootçš„åŠŸèƒ½å’Œç‰¹æ€§ï¼Œæˆ‘ä»¬å°†ä¼šåœ¨æŽ¥ä¸‹æ¥çš„ç« èŠ‚ä¸­é€æ¸å±•å¼€ä»‹ç»ã€‚
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://spring.io/quickstart

@@ -1,17 +1,17 @@
-## 1. ¸ÅÊö
-   ÔÚ±¾½Ì³ÌÖÐ£¬ÎÒÃÇ½«Ì½Ë÷ org.springframework.web.bind.annotation °üÖÐµÄ Spring Web ×¢ÊÍ¡£
+## 1. æ¦‚è¿°
+   åœ¨æœ¬æ•™ç¨‹ä¸­ï¼Œæˆ‘ä»¬å°†æŽ¢ç´¢ org.springframework.web.bind.annotation åŒ…ä¸­çš„ Spring Web æ³¨é‡Šã€‚
 
 ## 2. @RequestMapping
 
-¼òµ¥µØËµ£¬@RequestMapping ±ê¼Ç@Controller ÀàÄÚ²¿µÄÇëÇó´¦Àí³ÌÐò·½·¨£» Ëü¿ÉÒÔÊ¹ÓÃÅäÖÃ£º
+ç®€å•åœ°è¯´ï¼Œ@RequestMapping æ ‡è®°@Controller ç±»å†…éƒ¨çš„è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•ï¼› å®ƒå¯ä»¥ä½¿ç”¨é…ç½®ï¼š
 
-Â·¾¶£¬»òÆä±ðÃû¡¢Ãû³ÆºÍÖµ£º·½·¨Ó³Éäµ½ÄÄ¸ö URL
-·½·¨£º¼æÈÝµÄ HTTP ·½·¨
-params£º¸ù¾Ý HTTP ²ÎÊýµÄ´æÔÚ¡¢²»´æÔÚ»òÖµ¹ýÂËÇëÇó
-headers£º¸ù¾Ý HTTP ±êÍ·µÄ´æÔÚ¡¢²»´æÔÚ»òÖµ¹ýÂËÇëÇó
-ÏûºÄ£º¸Ã·½·¨¿ÉÒÔÔÚ HTTP ÇëÇóÕýÎÄÖÐÏûºÄÄÄÐ©Ã½ÌåÀàÐÍ
-produces£º¸Ã·½·¨¿ÉÒÔÔÚ HTTP ÏìÓ¦ÕýÎÄÖÐÉú³ÉÄÄÐ©Ã½ÌåÀàÐÍ
-ÕâÊÇÒ»¸ö¼òµ¥µÄÊ¾Àý£º
+è·¯å¾„ï¼Œæˆ–å…¶åˆ«åã€åç§°å’Œå€¼ï¼šæ–¹æ³•æ˜ å°„åˆ°å“ªä¸ª URL
+æ–¹æ³•ï¼šå…¼å®¹çš„ HTTP æ–¹æ³•
+paramsï¼šæ ¹æ® HTTP å‚æ•°çš„å­˜åœ¨ã€ä¸å­˜åœ¨æˆ–å€¼è¿‡æ»¤è¯·æ±‚
+headersï¼šæ ¹æ® HTTP æ ‡å¤´çš„å­˜åœ¨ã€ä¸å­˜åœ¨æˆ–å€¼è¿‡æ»¤è¯·æ±‚
+æ¶ˆè€—ï¼šè¯¥æ–¹æ³•å¯ä»¥åœ¨ HTTP è¯·æ±‚æ­£æ–‡ä¸­æ¶ˆè€—å“ªäº›åª’ä½“ç±»åž‹
+producesï¼šè¯¥æ–¹æ³•å¯ä»¥åœ¨ HTTP å“åº”æ­£æ–‡ä¸­ç”Ÿæˆå“ªäº›åª’ä½“ç±»åž‹
+è¿™æ˜¯ä¸€ä¸ªç®€å•çš„ç¤ºä¾‹ï¼š
 
 ````
 @Controller
@@ -23,9 +23,9 @@ class VehicleController {
     }
 }
 ````
-Èç¹ûÎÒÃÇÔÚÀà¼¶±ðÓ¦ÓÃ´Ë×¢ÊÍ£¬ÎÒÃÇ¿ÉÒÔÎª @Controller ÀàÖÐµÄËùÓÐ´¦Àí³ÌÐò·½·¨Ìá¹©Ä¬ÈÏÉèÖÃ¡£ Î¨Ò»µÄÀýÍâÊÇ Spring ²»»áÊ¹ÓÃ·½·¨¼¶±ðÉèÖÃ¸²¸Çµ«»á¸½¼ÓÁ½¸öÂ·¾¶²¿·ÖµÄ URL¡£
+å¦‚æžœæˆ‘ä»¬åœ¨ç±»çº§åˆ«åº”ç”¨æ­¤æ³¨é‡Šï¼Œæˆ‘ä»¬å¯ä»¥ä¸º @Controller ç±»ä¸­çš„æ‰€æœ‰å¤„ç†ç¨‹åºæ–¹æ³•æä¾›é»˜è®¤è®¾ç½®ã€‚ å”¯ä¸€çš„ä¾‹å¤–æ˜¯ Spring ä¸ä¼šä½¿ç”¨æ–¹æ³•çº§åˆ«è®¾ç½®è¦†ç›–ä½†ä¼šé™„åŠ ä¸¤ä¸ªè·¯å¾„éƒ¨åˆ†çš„ URLã€‚
 
-ÀýÈç£¬ÏÂÃæµÄÅäÖÃºÍÉÏÃæµÄÐ§¹ûÊÇÒ»ÑùµÄ£º
+ä¾‹å¦‚ï¼Œä¸‹é¢çš„é…ç½®å’Œä¸Šé¢çš„æ•ˆæžœæ˜¯ä¸€æ ·çš„ï¼š
 
 ````
 @Controller
@@ -39,13 +39,13 @@ class VehicleController {
 }
 ````
 
-´ËÍâ£¬@GetMapping¡¢@PostMapping¡¢@PutMapping¡¢@DeleteMapping ºÍ@PatchMapping ÊÇ@RequestMapping µÄ²»Í¬±äÌå£¬ÆäHTTP ·½·¨ÒÑ·Ö±ðÉèÖÃÎªGET¡¢POST¡¢PUT¡¢DELETE ºÍPATCH¡£
+æ­¤å¤–ï¼Œ@GetMappingã€@PostMappingã€@PutMappingã€@DeleteMapping å’Œ@PatchMapping æ˜¯@RequestMapping çš„ä¸åŒå˜ä½“ï¼Œå…¶HTTP æ–¹æ³•å·²åˆ†åˆ«è®¾ç½®ä¸ºGETã€POSTã€PUTã€DELETE å’ŒPATCHã€‚
 
-ÕâÐ©´Ó Spring 4.3 °æ±¾¿ªÊ¼¿ÉÓÃ¡£
+è¿™äº›ä»Ž Spring 4.3 ç‰ˆæœ¬å¼€å§‹å¯ç”¨ã€‚
 
 ## 3 @RequestBody
 
-ÈÃÎÒÃÇ¼ÌÐø@RequestBody¡ª¡ªËü½« HTTP ÇëÇóµÄÖ÷ÌåÓ³Éäµ½Ò»¸ö¶ÔÏó£º
+è®©æˆ‘ä»¬ç»§ç»­@RequestBodyâ€”â€”å®ƒå°† HTTP è¯·æ±‚çš„ä¸»ä½“æ˜ å°„åˆ°ä¸€ä¸ªå¯¹è±¡ï¼š
 
 ````
 @PostMapping("/save")
@@ -53,14 +53,14 @@ void saveVehicle(@RequestBody Vehicle vehicle) {
 // ...
 }
 ````
-·´ÐòÁÐ»¯ÊÇ×Ô¶¯µÄ£¬È¡¾öÓÚÇëÇóµÄÄÚÈÝÀàÐÍ¡£
+ååºåˆ—åŒ–æ˜¯è‡ªåŠ¨çš„ï¼Œå–å†³äºŽè¯·æ±‚çš„å†…å®¹ç±»åž‹ã€‚
 
 ## 4 @PathVariable
-½ÓÏÂÀ´ËµËµ@PathVariable¡£
+æŽ¥ä¸‹æ¥è¯´è¯´@PathVariableã€‚
 
-´Ë×¢ÊÍÖ¸Ê¾·½·¨²ÎÊý°ó¶¨µ½ URI Ä£°å±äÁ¿¡£ ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ @RequestMapping ×¢ÊÍÖ¸¶¨ URI Ä£°å£¬²¢Ê¹ÓÃ @PathVariable ½«·½·¨²ÎÊý°ó¶¨µ½Ä£°å²¿·ÖÖ®Ò»¡£
+æ­¤æ³¨é‡ŠæŒ‡ç¤ºæ–¹æ³•å‚æ•°ç»‘å®šåˆ° URI æ¨¡æ¿å˜é‡ã€‚ æˆ‘ä»¬å¯ä»¥ä½¿ç”¨ @RequestMapping æ³¨é‡ŠæŒ‡å®š URI æ¨¡æ¿ï¼Œå¹¶ä½¿ç”¨ @PathVariable å°†æ–¹æ³•å‚æ•°ç»‘å®šåˆ°æ¨¡æ¿éƒ¨åˆ†ä¹‹ä¸€ã€‚
 
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃÃû³Æ»òÆä±ðÃû£¬¼´Öµ²ÎÊýÀ´ÊµÏÖÕâÒ»µã£º
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨åç§°æˆ–å…¶åˆ«åï¼Œå³å€¼å‚æ•°æ¥å®žçŽ°è¿™ä¸€ç‚¹ï¼š
 
 ````
 @RequestMapping("/{id}")
@@ -68,7 +68,7 @@ Vehicle getVehicle(@PathVariable("id") long id) {
 // ...
 }
 ````
-Èç¹ûÄ£°åÖÐ²¿·ÖµÄÃû³ÆÓë·½·¨²ÎÊýµÄÃû³ÆÏàÆ¥Åä£¬ÎÒÃÇ¾Í²»±ØÔÚ×¢ÊÍÖÐÖ¸¶¨Ëü£º
+å¦‚æžœæ¨¡æ¿ä¸­éƒ¨åˆ†çš„åç§°ä¸Žæ–¹æ³•å‚æ•°çš„åç§°ç›¸åŒ¹é…ï¼Œæˆ‘ä»¬å°±ä¸å¿…åœ¨æ³¨é‡Šä¸­æŒ‡å®šå®ƒï¼š
 
 ````
 @RequestMapping("/{id}")
@@ -76,7 +76,7 @@ Vehicle getVehicle(@PathVariable long id) {
 // ...
 }
 ````
-´ËÍâ£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ý½«ËùÐèµÄ²ÎÊýÉèÖÃÎª false À´½«Â·¾¶±äÁ¿±ê¼ÇÎª¿ÉÑ¡£º
+æ­¤å¤–ï¼Œæˆ‘ä»¬å¯ä»¥é€šè¿‡å°†æ‰€éœ€çš„å‚æ•°è®¾ç½®ä¸º false æ¥å°†è·¯å¾„å˜é‡æ ‡è®°ä¸ºå¯é€‰ï¼š
 
 ````
 @RequestMapping("/{id}")
@@ -92,27 +92,27 @@ Vehicle getVehicleByParam(@RequestParam("id") long id) {
 // ...
 }
 ````
-Ëü¾ßÓÐÓë @PathVariable ×¢ÊÍÏàÍ¬µÄÅäÖÃÑ¡Ïî¡£
+å®ƒå…·æœ‰ä¸Ž @PathVariable æ³¨é‡Šç›¸åŒçš„é…ç½®é€‰é¡¹ã€‚
 
-³ýÁËÕâÐ©ÉèÖÃÖ®Íâ£¬µ± Spring ÔÚÇëÇóÖÐ·¢ÏÖÃ»ÓÐÖµ»òÎª¿ÕÖµÊ±£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ @RequestParam Ö¸¶¨×¢ÈëÖµ¡£ Îª´Ë£¬ÎÒÃÇ±ØÐëÉèÖÃ defaultValue ²ÎÊý¡£
+é™¤äº†è¿™äº›è®¾ç½®ä¹‹å¤–ï¼Œå½“ Spring åœ¨è¯·æ±‚ä¸­å‘çŽ°æ²¡æœ‰å€¼æˆ–ä¸ºç©ºå€¼æ—¶ï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨ @RequestParam æŒ‡å®šæ³¨å…¥å€¼ã€‚ ä¸ºæ­¤ï¼Œæˆ‘ä»¬å¿…é¡»è®¾ç½® defaultValue å‚æ•°ã€‚
 
-Ìá¹©Ä¬ÈÏÖµÒþÊ½ÉèÖÃ required Îª false£º
+æä¾›é»˜è®¤å€¼éšå¼è®¾ç½® required ä¸º falseï¼š
 ````
 @RequestMapping("/buy")
 Car buyCar(@RequestParam(defaultValue = "5") int seatCount) {
 // ...
 }
 ````
-³ýÁË²ÎÊýÖ®Íâ£¬ÎÒÃÇ»¹¿ÉÒÔ·ÃÎÊÆäËû HTTP ÇëÇó²¿·Ö£ºcookie ºÍ±êÍ·¡£ 
+é™¤äº†å‚æ•°ä¹‹å¤–ï¼Œæˆ‘ä»¬è¿˜å¯ä»¥è®¿é—®å…¶ä»– HTTP è¯·æ±‚éƒ¨åˆ†ï¼šcookie å’Œæ ‡å¤´ã€‚ 
 
-ÎÒÃÇ¿ÉÒÔ·Ö±ðÊ¹ÓÃ×¢½â@CookieValue ºÍ@RequestHeader À´·ÃÎÊËüÃÇ¡£
+æˆ‘ä»¬å¯ä»¥åˆ†åˆ«ä½¿ç”¨æ³¨è§£@CookieValue å’Œ@RequestHeader æ¥è®¿é—®å®ƒä»¬ã€‚
 
 
 ## 6. Response Handling Annotations
-ÔÚ½ÓÏÂÀ´µÄ²¿·ÖÖÐ£¬ÎÒÃÇ½«¿´µ½ÔÚ Spring MVC ÖÐ²Ù×÷ HTTP ÏìÓ¦µÄ×î³£¼û×¢ÊÍ¡£
+åœ¨æŽ¥ä¸‹æ¥çš„éƒ¨åˆ†ä¸­ï¼Œæˆ‘ä»¬å°†çœ‹åˆ°åœ¨ Spring MVC ä¸­æ“ä½œ HTTP å“åº”çš„æœ€å¸¸è§æ³¨é‡Šã€‚
 
 ### 6.1 @ResponseBody
-Èç¹ûÎÒÃÇÓÃ@ResponseBody ±ê¼ÇÇëÇó´¦Àí³ÌÐò·½·¨£¬Spring »á½«·½·¨µÄ½á¹ûÊÓÎªÏìÓ¦±¾Éí£º
+å¦‚æžœæˆ‘ä»¬ç”¨@ResponseBody æ ‡è®°è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•ï¼ŒSpring ä¼šå°†æ–¹æ³•çš„ç»“æžœè§†ä¸ºå“åº”æœ¬èº«ï¼š
 
 ````
 @ResponseBody
@@ -121,13 +121,13 @@ String hello() {
 return "Hello World!";
 }
 ````
-Èç¹ûÎÒÃÇÓÃÕâ¸ö×¢½âÀ´×¢½â @Controller Àà£¬ËùÓÐÇëÇó´¦Àí³ÌÐò·½·¨¶¼½«Ê¹ÓÃËü¡£
+å¦‚æžœæˆ‘ä»¬ç”¨è¿™ä¸ªæ³¨è§£æ¥æ³¨è§£ @Controller ç±»ï¼Œæ‰€æœ‰è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•éƒ½å°†ä½¿ç”¨å®ƒã€‚
 
 ### 6.2 @ExceptionHandler
 
-Ê¹ÓÃ´Ë×¢ÊÍ£¬ÎÒÃÇ¿ÉÒÔÉùÃ÷Ò»¸ö×Ô¶¨Òå´íÎó´¦Àí³ÌÐò·½·¨¡£ µ±ÇëÇó´¦Àí³ÌÐò·½·¨Å×³öÈÎºÎÖ¸¶¨µÄÒì³£Ê±£¬Spring µ÷ÓÃ´Ë·½·¨¡£
+ä½¿ç”¨æ­¤æ³¨é‡Šï¼Œæˆ‘ä»¬å¯ä»¥å£°æ˜Žä¸€ä¸ªè‡ªå®šä¹‰é”™è¯¯å¤„ç†ç¨‹åºæ–¹æ³•ã€‚ å½“è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•æŠ›å‡ºä»»ä½•æŒ‡å®šçš„å¼‚å¸¸æ—¶ï¼ŒSpring è°ƒç”¨æ­¤æ–¹æ³•ã€‚
 
-²¶»ñµÄÒì³£¿ÉÒÔ×÷Îª²ÎÊý´«µÝ¸ø·½·¨£º
+æ•èŽ·çš„å¼‚å¸¸å¯ä»¥ä½œä¸ºå‚æ•°ä¼ é€’ç»™æ–¹æ³•ï¼š
 ````
 @ExceptionHandler(IllegalArgumentException.class)
 void onIllegalArgumentException(IllegalArgumentException exception) {
@@ -136,11 +136,11 @@ void onIllegalArgumentException(IllegalArgumentException exception) {
 ````
 
 ### 6.3 @ResponseStatus
-Èç¹ûÎÒÃÇÊ¹ÓÃ´Ë×¢ÊÍ¶ÔÇëÇó´¦Àí³ÌÐò·½·¨½øÐÐ×¢ÊÍ£¬Ôò¿ÉÒÔÖ¸¶¨ÏìÓ¦µÄËùÐè HTTP ×´Ì¬¡£ ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ code ²ÎÊý»òÆä±ðÃû value ²ÎÊýÀ´ÉùÃ÷×´Ì¬´úÂë¡£
+å¦‚æžœæˆ‘ä»¬ä½¿ç”¨æ­¤æ³¨é‡Šå¯¹è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•è¿›è¡Œæ³¨é‡Šï¼Œåˆ™å¯ä»¥æŒ‡å®šå“åº”çš„æ‰€éœ€ HTTP çŠ¶æ€ã€‚ æˆ‘ä»¬å¯ä»¥ä½¿ç”¨ code å‚æ•°æˆ–å…¶åˆ«å value å‚æ•°æ¥å£°æ˜ŽçŠ¶æ€ä»£ç ã€‚
 
-´ËÍâ£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ reason ²ÎÊýÌá¹©Ô­Òò¡£
+æ­¤å¤–ï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨ reason å‚æ•°æä¾›åŽŸå› ã€‚
 
-ÎÒÃÇÒ²¿ÉÒÔ½«ËüÓë@ExceptionHandler Ò»ÆðÊ¹ÓÃ£º
+æˆ‘ä»¬ä¹Ÿå¯ä»¥å°†å®ƒä¸Ž@ExceptionHandler ä¸€èµ·ä½¿ç”¨ï¼š
 
 @ExceptionHandler(IllegalArgumentException.class)
 @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -148,18 +148,18 @@ void onIllegalArgumentException(IllegalArgumentException exception) {
 // ...
 }
 
-ÓÐ¹Ø HTTP ÏìÓ¦×´Ì¬µÄ¸ü¶àÐÅÏ¢£¬Çë·ÃÎÊ±¾ÎÄ¡£
+æœ‰å…³ HTTP å“åº”çŠ¶æ€çš„æ›´å¤šä¿¡æ¯ï¼Œè¯·è®¿é—®æœ¬æ–‡ã€‚
 
-## 7 ÆäËû Web×¢½â
-Ò»Ð©×¢ÊÍ²»Ö±½Ó¹ÜÀí HTTP ÇëÇó»òÏìÓ¦¡£ ÔÚ½ÓÏÂÀ´µÄ²¿·ÖÖÐ£¬ÎÒÃÇ½«½éÉÜ×î³£¼ûµÄ¡£
+## 7 å…¶ä»– Webæ³¨è§£
+ä¸€äº›æ³¨é‡Šä¸ç›´æŽ¥ç®¡ç† HTTP è¯·æ±‚æˆ–å“åº”ã€‚ åœ¨æŽ¥ä¸‹æ¥çš„éƒ¨åˆ†ä¸­ï¼Œæˆ‘ä»¬å°†ä»‹ç»æœ€å¸¸è§çš„ã€‚
 
 ### 7.1 @Controller
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ@Controller ¶¨ÒåÒ»¸öSpring MVC ¿ØÖÆÆ÷¡£ ÓÐ¹Ø¸ü¶àÐÅÏ¢£¬Çë·ÃÎÊÎÒÃÇ¹ØÓÚ Spring Bean Annotations µÄÎÄÕÂ¡£
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨@Controller å®šä¹‰ä¸€ä¸ªSpring MVC æŽ§åˆ¶å™¨ã€‚ æœ‰å…³æ›´å¤šä¿¡æ¯ï¼Œè¯·è®¿é—®æˆ‘ä»¬å…³äºŽ Spring Bean Annotations çš„æ–‡ç« ã€‚
 
 ### 7.2 @RestController
-@RestController ½áºÏÁË@Controller ºÍ@ResponseBody¡£
+@RestController ç»“åˆäº†@Controller å’Œ@ResponseBodyã€‚
 
-Òò´Ë£¬ÒÔÏÂÉùÃ÷ÊÇµÈÐ§µÄ£º
+å› æ­¤ï¼Œä»¥ä¸‹å£°æ˜Žæ˜¯ç­‰æ•ˆçš„ï¼š
 
 ````
 @Controller
@@ -176,7 +176,7 @@ class VehicleRestController {
 }
 ````
 ### 7.3 @ModelAttribute
-Í¨¹ýÕâ¸ö×¢½â£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ýÌá¹©Ä£ÐÍ¼üÀ´·ÃÎÊÒÑ¾­´æÔÚÓÚ MVC @Controller Ä£ÐÍÖÐµÄÔªËØ£º
+é€šè¿‡è¿™ä¸ªæ³¨è§£ï¼Œæˆ‘ä»¬å¯ä»¥é€šè¿‡æä¾›æ¨¡åž‹é”®æ¥è®¿é—®å·²ç»å­˜åœ¨äºŽ MVC @Controller æ¨¡åž‹ä¸­çš„å…ƒç´ ï¼š
 
 ````
 @PostMapping("/assemble")
@@ -184,7 +184,7 @@ void assembleVehicle(@ModelAttribute("vehicle") Vehicle vehicleInModel) {
 // ...
 }
 ````
-Óë@PathVariable ºÍ@RequestParam Ò»Ñù£¬Èç¹û²ÎÊý¾ßÓÐÏàÍ¬µÄÃû³Æ£¬ÎÒÃÇ²»±ØÖ¸¶¨Ä£ÐÍ¼ü£º
+ä¸Ž@PathVariable å’Œ@RequestParam ä¸€æ ·ï¼Œå¦‚æžœå‚æ•°å…·æœ‰ç›¸åŒçš„åç§°ï¼Œæˆ‘ä»¬ä¸å¿…æŒ‡å®šæ¨¡åž‹é”®ï¼š
 
 ````
 @PostMapping("/assemble")
@@ -192,7 +192,7 @@ void assembleVehicle(@ModelAttribute Vehicle vehicle) {
 // ...
 }
 ````
-´ËÍâ£¬@ModelAttribute»¹ÓÐÒ»¸öÓÃÍ¾£ºÈç¹ûÎÒÃÇÓÃËü×¢½âÒ»¸ö·½·¨£¬Spring»á×Ô¶¯½«·½·¨µÄ·µ»ØÖµÌí¼Óµ½Ä£ÐÍÖÐ£º
+æ­¤å¤–ï¼Œ@ModelAttributeè¿˜æœ‰ä¸€ä¸ªç”¨é€”ï¼šå¦‚æžœæˆ‘ä»¬ç”¨å®ƒæ³¨è§£ä¸€ä¸ªæ–¹æ³•ï¼ŒSpringä¼šè‡ªåŠ¨å°†æ–¹æ³•çš„è¿”å›žå€¼æ·»åŠ åˆ°æ¨¡åž‹ä¸­ï¼š
 
 ````
 @ModelAttribute("vehicle")
@@ -200,19 +200,19 @@ Vehicle getVehicle() {
 // ...
 }
 ````
-ºÍÒÔÇ°Ò»Ñù£¬ÎÒÃÇ²»±ØÖ¸¶¨Ä£ÐÍ¼ü£¬Spring Ä¬ÈÏÊ¹ÓÃ·½·¨µÄÃû³Æ£º
+å’Œä»¥å‰ä¸€æ ·ï¼Œæˆ‘ä»¬ä¸å¿…æŒ‡å®šæ¨¡åž‹é”®ï¼ŒSpring é»˜è®¤ä½¿ç”¨æ–¹æ³•çš„åç§°ï¼š
 ````
 @ModelAttribute
 Vehicle vehicle() {
 // ...
 }
 ````
-ÔÚ Spring µ÷ÓÃÇëÇó´¦Àí³ÌÐò·½·¨Ö®Ç°£¬Ëü»áµ÷ÓÃÀàÖÐËùÓÐ @ModelAttribute ×¢ÊÍµÄ·½·¨¡£
+åœ¨ Spring è°ƒç”¨è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•ä¹‹å‰ï¼Œå®ƒä¼šè°ƒç”¨ç±»ä¸­æ‰€æœ‰ @ModelAttribute æ³¨é‡Šçš„æ–¹æ³•ã€‚
 
-ÓÐ¹Ø @ModelAttribute µÄ¸ü¶àÐÅÏ¢£¬Çë²ÎÔÄ±¾ÎÄ¡£
+æœ‰å…³ @ModelAttribute çš„æ›´å¤šä¿¡æ¯ï¼Œè¯·å‚é˜…æœ¬æ–‡ã€‚
 
 ### 7.4 @CrossOrigin
-@CrossOrigin Îª´ø×¢ÊÍµÄÇëÇó´¦Àí³ÌÐò·½·¨ÆôÓÃ¿çÓòÍ¨ÐÅ£º
+@CrossOrigin ä¸ºå¸¦æ³¨é‡Šçš„è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•å¯ç”¨è·¨åŸŸé€šä¿¡ï¼š
 
 ````
 @CrossOrigin
@@ -221,12 +221,12 @@ String hello() {
 return "Hello World!";
 }
 ````
-Èç¹ûÎÒÃÇÓÃËü±ê¼ÇÒ»¸öÀà£¬ËüÊÊÓÃÓÚÆäÖÐµÄËùÓÐÇëÇó´¦Àí³ÌÐò·½·¨¡£
+å¦‚æžœæˆ‘ä»¬ç”¨å®ƒæ ‡è®°ä¸€ä¸ªç±»ï¼Œå®ƒé€‚ç”¨äºŽå…¶ä¸­çš„æ‰€æœ‰è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•ã€‚
 
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ´Ë×¢ÊÍµÄ²ÎÊýÎ¢µ÷ CORS ÐÐÎª¡£
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨æ­¤æ³¨é‡Šçš„å‚æ•°å¾®è°ƒ CORS è¡Œä¸ºã€‚
 
-ÓÐ¹ØÏêÏ¸ÐÅÏ¢£¬Çë·ÃÎÊ±¾ÎÄ¡£
+æœ‰å…³è¯¦ç»†ä¿¡æ¯ï¼Œè¯·è®¿é—®æœ¬æ–‡ã€‚
 
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://www.baeldung.com/spring-annotations

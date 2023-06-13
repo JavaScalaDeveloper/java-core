@@ -1,30 +1,30 @@
-# 1\. SkyWalking ¼ò½é
+# 1\. SkyWalking ç®€ä»‹
 
-> Skywalking ÊÇÓÉ¹úÄÚ¿ªÔ´°®ºÃÕßÎâêÉ£¨Ô­ OneAPM ¹¤³ÌÊ¦£¬Ä¿Ç°ÔÚ»ªÎª£©¿ªÔ´²¢Ìá½»µ½ Apache ·õ»¯Æ÷µÄ²úÆ·£¬ËüÍ¬Ê±ÎüÊÕÁË Zipkin/Pinpoint/CAT µÄÉè¼ÆË¼Â·£¬Ö§³Ö·ÇÇÖÈëÊ½Âñµã¡£ÊÇÒ»¿î»ùÓÚ·Ö²¼Ê½¸ú×ÙµÄÓ¦ÓÃ³ÌĞòĞÔÄÜ¼à¿ØÏµÍ³¡£ÁíÍâÉçÇø»¹·¢Õ¹³öÁËÒ»¸ö½Ğ OpenTracing µÄ×éÖ¯£¬Ö¼ÔÚÍÆ½øµ÷ÓÃÁ´¼à¿ØµÄÒ»Ğ©¹æ·¶ºÍ±ê×¼¹¤×÷¡£
+> Skywalking æ˜¯ç”±å›½å†…å¼€æºçˆ±å¥½è€…å´æ™Ÿï¼ˆåŸ OneAPM å·¥ç¨‹å¸ˆï¼Œç›®å‰åœ¨åä¸ºï¼‰å¼€æºå¹¶æäº¤åˆ° Apache å­µåŒ–å™¨çš„äº§å“ï¼Œå®ƒåŒæ—¶å¸æ”¶äº† Zipkin/Pinpoint/CAT çš„è®¾è®¡æ€è·¯ï¼Œæ”¯æŒéä¾µå…¥å¼åŸ‹ç‚¹ã€‚æ˜¯ä¸€æ¬¾åŸºäºåˆ†å¸ƒå¼è·Ÿè¸ªçš„åº”ç”¨ç¨‹åºæ€§èƒ½ç›‘æ§ç³»ç»Ÿã€‚å¦å¤–ç¤¾åŒºè¿˜å‘å±•å‡ºäº†ä¸€ä¸ªå« OpenTracing çš„ç»„ç»‡ï¼Œæ—¨åœ¨æ¨è¿›è°ƒç”¨é“¾ç›‘æ§çš„ä¸€äº›è§„èŒƒå’Œæ ‡å‡†å·¥ä½œã€‚
 
-*   SkyWalking ÊÇÒ»¸ö¿ªÔ´¼à¿ØÆ½Ì¨£¬ÓÃÓÚ´Ó·şÎñºÍÔÆÔ­Éú»ù´¡ÉèÊ©ÊÕ¼¯¡¢·ÖÎö¡¢¾ÛºÏºÍ¿ÉÊÓ»¯Êı¾İ¡£
-*   SkyWalking Ìá¹©ÁËÒ»ÖÖ¼òµ¥µÄ·½·¨À´Î¬»¤·Ö²¼Ê½ÏµÍ³µÄÇåÎúÊÓÍ¼£¬ÉõÖÁ¿ÉÒÔ¿çÔÆ²é¿´¡£ËüÊÇÒ»ÖÖÏÖ´úAPM£¬×¨ÃÅÎªÔÆÔ­Éú¡¢»ùÓÚÈİÆ÷µÄ·Ö²¼Ê½ÏµÍ³Éè¼Æ¡£
-*   SkyWalking ´ÓÈı¸öÎ¬¶È¶ÔÓ¦ÓÃ½øĞĞ¼àÊÓ£ºservice£¨·şÎñ£©, service instance£¨ÊµÀı£©, endpoint£¨¶Ëµã£©¡£·şÎñºÍÊµÀı¾Í²»¶àËµÁË£¬¶ËµãÊÇ·şÎñÖĞµÄÄ³¸öÂ·¾¶»òÕßËµURI¡£
-*   SkyWalking ÔÊĞíÓÃ»§ÁË½â·şÎñºÍ¶ËµãÖ®¼äµÄÍØÆË¹ØÏµ£¬²é¿´Ã¿¸ö·şÎñ/·şÎñÊµÀı/¶ËµãµÄ¶ÈÁ¿£¬²¢ÉèÖÃ¾¯±¨¹æÔò¡£
+*   SkyWalking æ˜¯ä¸€ä¸ªå¼€æºç›‘æ§å¹³å°ï¼Œç”¨äºä»æœåŠ¡å’Œäº‘åŸç”ŸåŸºç¡€è®¾æ–½æ”¶é›†ã€åˆ†æã€èšåˆå’Œå¯è§†åŒ–æ•°æ®ã€‚
+*   SkyWalking æä¾›äº†ä¸€ç§ç®€å•çš„æ–¹æ³•æ¥ç»´æŠ¤åˆ†å¸ƒå¼ç³»ç»Ÿçš„æ¸…æ™°è§†å›¾ï¼Œç”šè‡³å¯ä»¥è·¨äº‘æŸ¥çœ‹ã€‚å®ƒæ˜¯ä¸€ç§ç°ä»£APMï¼Œä¸“é—¨ä¸ºäº‘åŸç”Ÿã€åŸºäºå®¹å™¨çš„åˆ†å¸ƒå¼ç³»ç»Ÿè®¾è®¡ã€‚
+*   SkyWalking ä»ä¸‰ä¸ªç»´åº¦å¯¹åº”ç”¨è¿›è¡Œç›‘è§†ï¼šserviceï¼ˆæœåŠ¡ï¼‰, service instanceï¼ˆå®ä¾‹ï¼‰, endpointï¼ˆç«¯ç‚¹ï¼‰ã€‚æœåŠ¡å’Œå®ä¾‹å°±ä¸å¤šè¯´äº†ï¼Œç«¯ç‚¹æ˜¯æœåŠ¡ä¸­çš„æŸä¸ªè·¯å¾„æˆ–è€…è¯´URIã€‚
+*   SkyWalking å…è®¸ç”¨æˆ·äº†è§£æœåŠ¡å’Œç«¯ç‚¹ä¹‹é—´çš„æ‹“æ‰‘å…³ç³»ï¼ŒæŸ¥çœ‹æ¯ä¸ªæœåŠ¡/æœåŠ¡å®ä¾‹/ç«¯ç‚¹çš„åº¦é‡ï¼Œå¹¶è®¾ç½®è­¦æŠ¥è§„åˆ™ã€‚
 
-## SkyWalkingµÄ×é³É
+## SkyWalkingçš„ç»„æˆ
 
-SkyWalkingÖ÷ÒªµÄ¼¸¸ö×é³ÉÄ£¿é:
+SkyWalkingä¸»è¦çš„å‡ ä¸ªç»„æˆæ¨¡å—:
 
-1.  Agent Ö÷Òª¸ºÔğ´ÓÏµÍ³ÖĞ²É¼¯¸÷ÖÖÖ¸±ê£¬Á´Â·Êı¾İ£¬·¢ËÍ¸ø oap ·şÎñ¡£
-2.  oap ·şÎñ½ÓÊÕ Agent ·¢ËÍ¹ıÀ´µÄÊı¾İ£¬´æ´¢£¬Ö´ĞĞ·ÖÎö£¬Ìá¹©²éÑ¯ºÍ±¨¾¯¹¦ÄÜ¡£
-3.  Storage ºÍ UI ¸ºÔğ´æ´¢Êı¾İÒÔ¼°²é¿´Êı¾İ¡£
+1.  Agent ä¸»è¦è´Ÿè´£ä»ç³»ç»Ÿä¸­é‡‡é›†å„ç§æŒ‡æ ‡ï¼Œé“¾è·¯æ•°æ®ï¼Œå‘é€ç»™ oap æœåŠ¡ã€‚
+2.  oap æœåŠ¡æ¥æ”¶ Agent å‘é€è¿‡æ¥çš„æ•°æ®ï¼Œå­˜å‚¨ï¼Œæ‰§è¡Œåˆ†æï¼Œæä¾›æŸ¥è¯¢å’ŒæŠ¥è­¦åŠŸèƒ½ã€‚
+3.  Storage å’Œ UI è´Ÿè´£å­˜å‚¨æ•°æ®ä»¥åŠæŸ¥çœ‹æ•°æ®ã€‚
 
-# 2\. Ê¹ÓÃ Docker ¿ìËÙ´î½¨ SkyWalking 8.0
+# 2\. ä½¿ç”¨ Docker å¿«é€Ÿæ­å»º SkyWalking 8.0
 
-1.  **ÔÚ linux ·şÎñÆ÷ÉÏÑ¡Ôñ²¢½¨Á¢Ä¿Â¼**£»
+1.  **åœ¨ linux æœåŠ¡å™¨ä¸Šé€‰æ‹©å¹¶å»ºç«‹ç›®å½•**ï¼›
 
 ```
 mkdir skywalking-docker
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-1.  **½øÈë skywalking-docker Ä¿Â¼£¬½¨Á¢Ò»¸öÃûÎª skywalking.yaml µÄ½Å±¾ÎÄ¼ş£¬ÄÚÈİÈçÏÂ**£º
+1.  **è¿›å…¥ skywalking-docker ç›®å½•ï¼Œå»ºç«‹ä¸€ä¸ªåä¸º skywalking.yaml çš„è„šæœ¬æ–‡ä»¶ï¼Œå†…å®¹å¦‚ä¸‹**ï¼š
 
 ```
 version: '3'
@@ -85,34 +85,34 @@ networks:
 volumes:
   elasticsearch7:
     driver: local
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-**×¢Òâ**£ºÈç¹ûÎÒÃÇÏë¸²¸Ç oap ¾µÏñÖĞµÄ /skywalking/config Ä¿Â¼ÏÂµÄÅäÖÃÎÄ¼ş£¬ÎÒÃÇ¿ÉÒÔÔÚ docker ÖĞ¹ÒÔØÒ»¸ö /skywalking/ext-config Ä¿Â¼£¬½«ÅäÖÃÎÄ¼ş¶ªµ½´ËÄ¿Â¼ÖĞ¼´¿É¡£
+**æ³¨æ„**ï¼šå¦‚æœæˆ‘ä»¬æƒ³è¦†ç›– oap é•œåƒä¸­çš„ /skywalking/config ç›®å½•ä¸‹çš„é…ç½®æ–‡ä»¶ï¼Œæˆ‘ä»¬å¯ä»¥åœ¨ docker ä¸­æŒ‚è½½ä¸€ä¸ª /skywalking/ext-config ç›®å½•ï¼Œå°†é…ç½®æ–‡ä»¶ä¸¢åˆ°æ­¤ç›®å½•ä¸­å³å¯ã€‚
 
 ![image-20230423174422281](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174422281.png)
 
-1.  **Ö´ĞĞ skywalking.yaml ½Å±¾Æô¶¯ÈİÆ÷**£º
+1.  **æ‰§è¡Œ skywalking.yaml è„šæœ¬å¯åŠ¨å®¹å™¨**ï¼š
 
 ```
 docker-compose -f skywalking.yaml up
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-1.  **½øÈë skywalking µÄ¿ØÖÆÌ¨£¬·¢ÏÖ¸÷ÖÖÒÇ±íÅÌ£¬¿ªÊ¼µ±È»ÊÇ¿ÕµÄ**£º
+1.  **è¿›å…¥ skywalking çš„æ§åˆ¶å°ï¼Œå‘ç°å„ç§ä»ªè¡¨ç›˜ï¼Œå¼€å§‹å½“ç„¶æ˜¯ç©ºçš„**ï¼š
 
 ```
-http://(°²×°SkyWalking»úÆ÷µÄIP):9020
-¸´ÖÆ´úÂë
+http://(å®‰è£…SkyWalkingæœºå™¨çš„IP):9020
+å¤åˆ¶ä»£ç 
 ```
 
 ![image-20230423174444272](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174444272.png)
 
-# 3\. ÔÚ Spring ÏîÄ¿ÖĞÒıÈë SkyWalking ¿Í»§¶Ë
+# 3\. åœ¨ Spring é¡¹ç›®ä¸­å¼•å…¥ SkyWalking å®¢æˆ·ç«¯
 
-È«¾ÖÈÕÖ¾×·×Ù traceId µÄÊ¹ÓÃ£º
+å…¨å±€æ—¥å¿—è¿½è¸ª traceId çš„ä½¿ç”¨ï¼š
 
-1.  **Ìí¼Ó pom ÎÄ¼şÒÀÀµ**£º
+1.  **æ·»åŠ  pom æ–‡ä»¶ä¾èµ–**ï¼š
 
 ```
         <dependency>
@@ -125,28 +125,28 @@ http://(°²×°SkyWalking»úÆ÷µÄIP):9020
             apm-toolkit-trace
             <version>8.0.1</version>
         </dependency>
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-1.  **ÔÚ resources Ä¿Â¼ÏÂ Ìí¼Ó logback-spring.xml ÎÄ¼ş£¬ÄÚÈİÈçÏÂ**:
+1.  **åœ¨ resources ç›®å½•ä¸‹ æ·»åŠ  logback-spring.xml æ–‡ä»¶ï¼Œå†…å®¹å¦‚ä¸‹**:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <property name="logger.path" value="/mnt/logs"/>
 
-    <!-- ²ÊÉ«ÈÕÖ¾ -->
-    <!-- ²ÊÉ«ÈÕÖ¾ÒÀÀµµÄäÖÈ¾Àà -->
+    <!-- å½©è‰²æ—¥å¿— -->
+    <!-- å½©è‰²æ—¥å¿—ä¾èµ–çš„æ¸²æŸ“ç±» -->
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
     <conversionRule conversionWord="wex"
                     converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
     <conversionRule conversionWord="wEx"
                     converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
-    <!-- ²ÊÉ«ÈÕÖ¾¸ñÊ½ -->
+    <!-- å½©è‰²æ—¥å¿—æ ¼å¼ -->
     <property name="CONSOLE_LOG_PATTERN"
               value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
 
-    <!-- Êä³öµ½¿ØÖÆÌ¨ -->
+    <!-- è¾“å‡ºåˆ°æ§åˆ¶å° -->
     
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>info</level>
@@ -157,7 +157,7 @@ http://(°²×°SkyWalking»úÆ÷µÄIP):9020
         </encoder>
     
 
-    <!-- ConsoleAppender£º°ÑÈÕÖ¾Êä³öµ½¿ØÖÆÌ¨ -->
+    <!-- ConsoleAppenderï¼šæŠŠæ—¥å¿—è¾“å‡ºåˆ°æ§åˆ¶å° -->
     
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
             <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.mdc.TraceIdMDCPatternLogbackLayout">
@@ -167,26 +167,26 @@ http://(°²×°SkyWalking»úÆ÷µÄIP):9020
         </encoder>
     
 
-    <!-- Êä³öµ½ÎÄ¼ş -->
-    <!-- Ê±¼ä¹ö¶¯Êä³ö levelÎª DEBUG ÈÕÖ¾ -->
+    <!-- è¾“å‡ºåˆ°æ–‡ä»¶ -->
+    <!-- æ—¶é—´æ»šåŠ¨è¾“å‡º levelä¸º DEBUG æ—¥å¿— -->
     <!-- 
         <file>${logger.path}/log_debug.log</file>
-        &lt;!&ndash;ÈÕÖ¾ÎÄ¼şÊä³ö¸ñÊ½&ndash;&gt;
+        &lt;!&ndash;æ—¥å¿—æ–‡ä»¶è¾“å‡ºæ ¼å¼&ndash;&gt;
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
-            <charset>UTF-8</charset> &lt;!&ndash; ÉèÖÃ×Ö·û¼¯ &ndash;&gt;
+            <charset>UTF-8</charset> &lt;!&ndash; è®¾ç½®å­—ç¬¦é›† &ndash;&gt;
         </encoder>
-        &lt;!&ndash; ÈÕÖ¾¼ÇÂ¼Æ÷µÄ¹ö¶¯²ßÂÔ£¬°´ÈÕÆÚ£¬°´´óĞ¡¼ÇÂ¼ &ndash;&gt;
+        &lt;!&ndash; æ—¥å¿—è®°å½•å™¨çš„æ»šåŠ¨ç­–ç•¥ï¼ŒæŒ‰æ—¥æœŸï¼ŒæŒ‰å¤§å°è®°å½• &ndash;&gt;
         <rollingPolicy >
-            &lt;!&ndash; ÈÕÖ¾¹éµµ &ndash;&gt;
+            &lt;!&ndash; æ—¥å¿—å½’æ¡£ &ndash;&gt;
             <fileNamePattern>${logger.path}/debug/log-debug-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy >
                 <maxFileSize>100MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
-            &lt;!&ndash;ÈÕÖ¾ÎÄ¼ş±£ÁôÌìÊı&ndash;&gt;
+            &lt;!&ndash;æ—¥å¿—æ–‡ä»¶ä¿ç•™å¤©æ•°&ndash;&gt;
             <maxHistory>15</maxHistory>
         </rollingPolicy>
-        &lt;!&ndash; ´ËÈÕÖ¾ÎÄ¼şÖ»¼ÇÂ¼debug¼¶±ğµÄ &ndash;&gt;
+        &lt;!&ndash; æ­¤æ—¥å¿—æ–‡ä»¶åªè®°å½•debugçº§åˆ«çš„ &ndash;&gt;
         <filter >
             <level>debug</level>
             <onMatch>ACCEPT</onMatch>
@@ -194,26 +194,26 @@ http://(°²×°SkyWalking»úÆ÷µÄIP):9020
         </filter>
      -->
 
-    <!-- Ê±¼ä¹ö¶¯Êä³ö levelÎª INFO ÈÕÖ¾ -->
+    <!-- æ—¶é—´æ»šåŠ¨è¾“å‡º levelä¸º INFO æ—¥å¿— -->
     
-        <!-- ÕıÔÚ¼ÇÂ¼µÄÈÕÖ¾ÎÄ¼şµÄÂ·¾¶¼°ÎÄ¼şÃû -->
+        <!-- æ­£åœ¨è®°å½•çš„æ—¥å¿—æ–‡ä»¶çš„è·¯å¾„åŠæ–‡ä»¶å -->
         <file>${logger.path}/log_info.log</file>
-        <!--ÈÕÖ¾ÎÄ¼şÊä³ö¸ñÊ½-->
+        <!--æ—¥å¿—æ–‡ä»¶è¾“å‡ºæ ¼å¼-->
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
             <charset>UTF-8</charset>
         </encoder>
-        <!-- ÈÕÖ¾¼ÇÂ¼Æ÷µÄ¹ö¶¯²ßÂÔ£¬°´ÈÕÆÚ£¬°´´óĞ¡¼ÇÂ¼ -->
+        <!-- æ—¥å¿—è®°å½•å™¨çš„æ»šåŠ¨ç­–ç•¥ï¼ŒæŒ‰æ—¥æœŸï¼ŒæŒ‰å¤§å°è®°å½• -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- Ã¿ÌìÈÕÖ¾¹éµµÂ·¾¶ÒÔ¼°¸ñÊ½ -->
+            <!-- æ¯å¤©æ—¥å¿—å½’æ¡£è·¯å¾„ä»¥åŠæ ¼å¼ -->
             <fileNamePattern>${logger.path}/info/log-info-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>100MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
-            <!--ÈÕÖ¾ÎÄ¼ş±£ÁôÌìÊı-->
+            <!--æ—¥å¿—æ–‡ä»¶ä¿ç•™å¤©æ•°-->
             <maxHistory>15</maxHistory>
         </rollingPolicy>
-        <!-- ´ËÈÕÖ¾ÎÄ¼şÖ»¼ÇÂ¼info¼¶±ğµÄ -->
+        <!-- æ­¤æ—¥å¿—æ–‡ä»¶åªè®°å½•infoçº§åˆ«çš„ -->
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>info</level>
             <onMatch>ACCEPT</onMatch>
@@ -221,25 +221,25 @@ http://(°²×°SkyWalking»úÆ÷µÄIP):9020
         </filter>
     
 
-    <!-- Ê±¼ä¹ö¶¯Êä³ö levelÎª WARN ÈÕÖ¾ -->
+    <!-- æ—¶é—´æ»šåŠ¨è¾“å‡º levelä¸º WARN æ—¥å¿— -->
     <!-- 
-        &lt;!&ndash; ÕıÔÚ¼ÇÂ¼µÄÈÕÖ¾ÎÄ¼şµÄÂ·¾¶¼°ÎÄ¼şÃû &ndash;&gt;
+        &lt;!&ndash; æ­£åœ¨è®°å½•çš„æ—¥å¿—æ–‡ä»¶çš„è·¯å¾„åŠæ–‡ä»¶å &ndash;&gt;
         <file>${logger.path}/log_warn.log</file>
-        &lt;!&ndash;ÈÕÖ¾ÎÄ¼şÊä³ö¸ñÊ½&ndash;&gt;
+        &lt;!&ndash;æ—¥å¿—æ–‡ä»¶è¾“å‡ºæ ¼å¼&ndash;&gt;
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
-            <charset>UTF-8</charset> &lt;!&ndash; ´Ë´¦ÉèÖÃ×Ö·û¼¯ &ndash;&gt;
+            <charset>UTF-8</charset> &lt;!&ndash; æ­¤å¤„è®¾ç½®å­—ç¬¦é›† &ndash;&gt;
         </encoder>
-        &lt;!&ndash; ÈÕÖ¾¼ÇÂ¼Æ÷µÄ¹ö¶¯²ßÂÔ£¬°´ÈÕÆÚ£¬°´´óĞ¡¼ÇÂ¼ &ndash;&gt;
+        &lt;!&ndash; æ—¥å¿—è®°å½•å™¨çš„æ»šåŠ¨ç­–ç•¥ï¼ŒæŒ‰æ—¥æœŸï¼ŒæŒ‰å¤§å°è®°å½• &ndash;&gt;
         <rollingPolicy >
             <fileNamePattern>${logger.path}/warn/log-warn-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy >
                 <maxFileSize>100MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
-            &lt;!&ndash;ÈÕÖ¾ÎÄ¼ş±£ÁôÌìÊı&ndash;&gt;
+            &lt;!&ndash;æ—¥å¿—æ–‡ä»¶ä¿ç•™å¤©æ•°&ndash;&gt;
             <maxHistory>15</maxHistory>
         </rollingPolicy>
-        &lt;!&ndash; ´ËÈÕÖ¾ÎÄ¼şÖ»¼ÇÂ¼warn¼¶±ğµÄ &ndash;&gt;
+        &lt;!&ndash; æ­¤æ—¥å¿—æ–‡ä»¶åªè®°å½•warnçº§åˆ«çš„ &ndash;&gt;
         <filter >
             <level>warn</level>
             <onMatch>ACCEPT</onMatch>
@@ -247,25 +247,25 @@ http://(°²×°SkyWalking»úÆ÷µÄIP):9020
         </filter>
      -->
 
-    <!-- Ê±¼ä¹ö¶¯Êä³ö levelÎª ERROR ÈÕÖ¾ -->
+    <!-- æ—¶é—´æ»šåŠ¨è¾“å‡º levelä¸º ERROR æ—¥å¿— -->
     
-        <!-- ÕıÔÚ¼ÇÂ¼µÄÈÕÖ¾ÎÄ¼şµÄÂ·¾¶¼°ÎÄ¼şÃû -->
+        <!-- æ­£åœ¨è®°å½•çš„æ—¥å¿—æ–‡ä»¶çš„è·¯å¾„åŠæ–‡ä»¶å -->
         <file>${logger.path}/log_error.log</file>
-        <!--ÈÕÖ¾ÎÄ¼şÊä³ö¸ñÊ½-->
+        <!--æ—¥å¿—æ–‡ä»¶è¾“å‡ºæ ¼å¼-->
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
-            <charset>UTF-8</charset> <!-- ´Ë´¦ÉèÖÃ×Ö·û¼¯ -->
+            <charset>UTF-8</charset> <!-- æ­¤å¤„è®¾ç½®å­—ç¬¦é›† -->
         </encoder>
-        <!-- ÈÕÖ¾¼ÇÂ¼Æ÷µÄ¹ö¶¯²ßÂÔ£¬°´ÈÕÆÚ£¬°´´óĞ¡¼ÇÂ¼ -->
+        <!-- æ—¥å¿—è®°å½•å™¨çš„æ»šåŠ¨ç­–ç•¥ï¼ŒæŒ‰æ—¥æœŸï¼ŒæŒ‰å¤§å°è®°å½• -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${logger.path}/error/log-error-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>100MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
-            <!--ÈÕÖ¾ÎÄ¼ş±£ÁôÌìÊı-->
+            <!--æ—¥å¿—æ–‡ä»¶ä¿ç•™å¤©æ•°-->
             <maxHistory>15</maxHistory>
         </rollingPolicy>
-        <!-- ´ËÈÕÖ¾ÎÄ¼şÖ»¼ÇÂ¼ERROR¼¶±ğµÄ -->
+        <!-- æ­¤æ—¥å¿—æ–‡ä»¶åªè®°å½•ERRORçº§åˆ«çš„ -->
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>ERROR</level>
             <onMatch>ACCEPT</onMatch>
@@ -274,10 +274,10 @@ http://(°²×°SkyWalking»úÆ÷µÄIP):9020
     
 
     <!--
-        root½ÚµãÊÇ±ØÑ¡½Úµã£¬ÓÃÀ´Ö¸¶¨×î»ù´¡µÄÈÕÖ¾Êä³ö¼¶±ğ£¬Ö»ÓĞÒ»¸ölevelÊôĞÔ
-        level:ÓÃÀ´ÉèÖÃ´òÓ¡¼¶±ğ£¬´óĞ¡Ğ´ÎŞ¹Ø£ºTRACE, DEBUG, INFO, WARN, ERROR, ALL ºÍ OFF£¬
-        ²»ÄÜÉèÖÃÎªINHERITED»òÕßÍ¬Òå´ÊNULL¡£Ä¬ÈÏÊÇDEBUG
-        ¿ÉÒÔ°üº¬Áã¸ö»ò¶à¸öÔªËØ£¬±êÊ¶Õâ¸öappender½«»áÌí¼Óµ½Õâ¸ölogger¡£
+        rootèŠ‚ç‚¹æ˜¯å¿…é€‰èŠ‚ç‚¹ï¼Œç”¨æ¥æŒ‡å®šæœ€åŸºç¡€çš„æ—¥å¿—è¾“å‡ºçº§åˆ«ï¼Œåªæœ‰ä¸€ä¸ªlevelå±æ€§
+        level:ç”¨æ¥è®¾ç½®æ‰“å°çº§åˆ«ï¼Œå¤§å°å†™æ— å…³ï¼šTRACE, DEBUG, INFO, WARN, ERROR, ALL å’Œ OFFï¼Œ
+        ä¸èƒ½è®¾ç½®ä¸ºINHERITEDæˆ–è€…åŒä¹‰è¯NULLã€‚é»˜è®¤æ˜¯DEBUG
+        å¯ä»¥åŒ…å«é›¶ä¸ªæˆ–å¤šä¸ªå…ƒç´ ï¼Œæ ‡è¯†è¿™ä¸ªappenderå°†ä¼šæ·»åŠ åˆ°è¿™ä¸ªloggerã€‚
     -->
     <root level="info">
         
@@ -289,60 +289,60 @@ http://(°²×°SkyWalking»úÆ÷µÄIP):9020
     </root>
 
 </configuration>
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-**×¢Òâ**£ºÆäËû¶¼ÊÇÈÕÖ¾³£¹æÅäÖÃ£¬Ö÷ÒªÊÇÕâ²¿·Ö `` µÄÅäÖÃ¡£
+**æ³¨æ„**ï¼šå…¶ä»–éƒ½æ˜¯æ—¥å¿—å¸¸è§„é…ç½®ï¼Œä¸»è¦æ˜¯è¿™éƒ¨åˆ† `` çš„é…ç½®ã€‚
 
-1.  **½øÈë skywalking ¹ÙÍøÏÂÔØ SkyWalking APM£¬Ö÷ÒªÊÇÒªÓÃµ½ agent**£º
+1.  **è¿›å…¥ skywalking å®˜ç½‘ä¸‹è½½ SkyWalking APMï¼Œä¸»è¦æ˜¯è¦ç”¨åˆ° agent**ï¼š
 
-skywalking ¹ÙÍøÏÂÔØµØÖ·£º[skywalking.apache.org/downloads/](https://link.juejin.cn?target=http%3A%2F%2Fskywalking.apache.org%2Fdownloads%2F "http://skywalking.apache.org/downloads/")
+skywalking å®˜ç½‘ä¸‹è½½åœ°å€ï¼š[skywalking.apache.org/downloads/](https://link.juejin.cn?target=http%3A%2F%2Fskywalking.apache.org%2Fdownloads%2F "http://skywalking.apache.org/downloads/")
 
 ![image-20230423174506711](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174506711.png)
 
-1.  **½âÑ¹ÏÂÔØµÄ apache-skywalking-apm-es7-8.0.1.tar.gz °ü£¬Ä¿Â¼½á¹¹ÈçÍ¼**£º
+1.  **è§£å‹ä¸‹è½½çš„ apache-skywalking-apm-es7-8.0.1.tar.gz åŒ…ï¼Œç›®å½•ç»“æ„å¦‚å›¾**ï¼š
 
 ![image-20230423174522153](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174522153.png)
 
-ÎÒÃÇÖ»ÒªÆäÖĞµÄ agent Ä¿Â¼¾ÍĞĞ£¬agent ÀïµÄ¶«Î÷´ó¸ÅÓĞÕâĞ©£º
+æˆ‘ä»¬åªè¦å…¶ä¸­çš„ agent ç›®å½•å°±è¡Œï¼Œagent é‡Œçš„ä¸œè¥¿å¤§æ¦‚æœ‰è¿™äº›ï¼š
 
 ![image-20230423174533023](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174533023.png)
 
-°Ñ agent Ä¿Â¼¸´ÖÆµ½Ò»¸öÍ×ÉÆµÄÄ¿Â¼ÏÂ£¬Ò»»á¶ùĞèÒªÅäÖÃ JVM Æô¶¯²ÎÊıÄ¿Â¼£¬µ±È»×÷ÕßÖ±½Ó·Åµ½ÁËÏîÄ¿Àï£º
+æŠŠ agent ç›®å½•å¤åˆ¶åˆ°ä¸€ä¸ªå¦¥å–„çš„ç›®å½•ä¸‹ï¼Œä¸€ä¼šå„¿éœ€è¦é…ç½® JVM å¯åŠ¨å‚æ•°ç›®å½•ï¼Œå½“ç„¶ä½œè€…ç›´æ¥æ”¾åˆ°äº†é¡¹ç›®é‡Œï¼š
 
 ![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8deaee160419423e9a71e710d3b2c3dd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
 
-1.  **ÔÚ idea ³ÌĞòÆô¶¯ÃüÁîÔö¼ÓÈçÏÂ JVM Æô¶¯²ÎÊı**£º
+1.  **åœ¨ idea ç¨‹åºå¯åŠ¨å‘½ä»¤å¢åŠ å¦‚ä¸‹ JVM å¯åŠ¨å‚æ•°**ï¼š
 
 ```
--javaagent:(agentÎÄ¼ş¼ĞËùÔÚµÄÄ¿Â¼)\agent\skywalking-agent.jar -Dskywalking.agent.service_name=(·şÎñÃû)-service -Dskywalking.agent.instance_name=(·şÎñÃû)-instance -Dskywalking.collector.backend_service=(°²×°SkyWalking»úÆ÷µÄIP):9022
-¸´ÖÆ´úÂë
+-javaagent:(agentæ–‡ä»¶å¤¹æ‰€åœ¨çš„ç›®å½•)\agent\skywalking-agent.jar -Dskywalking.agent.service_name=(æœåŠ¡å)-service -Dskywalking.agent.instance_name=(æœåŠ¡å)-instance -Dskywalking.collector.backend_service=(å®‰è£…SkyWalkingæœºå™¨çš„IP):9022
+å¤åˆ¶ä»£ç 
 ```
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96e9d5a3aa5c44c3b0b948929609ae1f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
 
-ÒòÎª skywalking ÊÇ·ÇÇÖÈëÊ½ÂñµãÊµÏÖ·Ö²¼Ê½Á´Â·¸ú×ÙºÍĞÔÄÜ¼à¿Ø£¬ËùÒÔÒ»°ã²ÉÓÃ javaagent µÄ·½Ê½¡£
+å› ä¸º skywalking æ˜¯éä¾µå…¥å¼åŸ‹ç‚¹å®ç°åˆ†å¸ƒå¼é“¾è·¯è·Ÿè¸ªå’Œæ€§èƒ½ç›‘æ§ï¼Œæ‰€ä»¥ä¸€èˆ¬é‡‡ç”¨ javaagent çš„æ–¹å¼ã€‚
 
-> **Javaagent ÊÇÊ²Ã´**£¨JVM Æô¶¯Ç°¾²Ì¬ Instrument£©£¿
+> **Javaagent æ˜¯ä»€ä¹ˆ**ï¼ˆJVM å¯åŠ¨å‰é™æ€ Instrumentï¼‰ï¼Ÿ
 >
-> Javaagent ÊÇ java ÃüÁîµÄÒ»¸ö²ÎÊı¡£²ÎÊı javaagent ¿ÉÒÔÓÃÓÚÖ¸¶¨Ò»¸ö jar °ü£¬²¢ÇÒ¶Ô¸Ã java °üÓĞÁ½¸öÒªÇó£º
+> Javaagent æ˜¯ java å‘½ä»¤çš„ä¸€ä¸ªå‚æ•°ã€‚å‚æ•° javaagent å¯ä»¥ç”¨äºæŒ‡å®šä¸€ä¸ª jar åŒ…ï¼Œå¹¶ä¸”å¯¹è¯¥ java åŒ…æœ‰ä¸¤ä¸ªè¦æ±‚ï¼š
 >
-> 1.  Õâ¸ö jar °üµÄ MANIFEST.MF ÎÄ¼ş±ØĞëÖ¸¶¨ Premain-Class Ïî¡£
-> 2.  Premain-Class Ö¸¶¨µÄÄÇ¸öÀà±ØĞëÊµÏÖ premain() ·½·¨¡£
+> 1.  è¿™ä¸ª jar åŒ…çš„ MANIFEST.MF æ–‡ä»¶å¿…é¡»æŒ‡å®š Premain-Class é¡¹ã€‚
+> 2.  Premain-Class æŒ‡å®šçš„é‚£ä¸ªç±»å¿…é¡»å®ç° premain() æ–¹æ³•ã€‚
 >
-> premain() ·½·¨£¬´Ó×ÖÃæÉÏÀí½â£¬¾ÍÊÇÔËĞĞÔÚ main() º¯ÊıÖ®Ç°µÄµÄÀà¡£µ± Java ĞéÄâ»úÆô¶¯Ê±£¬ÔÚÖ´ĞĞ main() º¯ÊıÖ®Ç°£¬jvm »áÏÈÔËĞĞ -javaagent ËùÖ¸¶¨ jar °üÄÚ Premain-Class Õâ¸öÀàµÄ premain() ·½·¨ ¡£
+> premain() æ–¹æ³•ï¼Œä»å­—é¢ä¸Šç†è§£ï¼Œå°±æ˜¯è¿è¡Œåœ¨ main() å‡½æ•°ä¹‹å‰çš„çš„ç±»ã€‚å½“ Java è™šæ‹Ÿæœºå¯åŠ¨æ—¶ï¼Œåœ¨æ‰§è¡Œ main() å‡½æ•°ä¹‹å‰ï¼Œjvm ä¼šå…ˆè¿è¡Œ -javaagent æ‰€æŒ‡å®š jar åŒ…å†… Premain-Class è¿™ä¸ªç±»çš„ premain() æ–¹æ³• ã€‚
 
-1.  **ÎÒÃÇÇ°¼¸ÆªÎÄÕÂÖĞ´î½¨ÁËÍêÕûµÄÏîÄ¿£¬ÔÚÕâĞ©ÏîÄ¿ÖĞÈ«²¿°´ÕÕÉÏ±ßµÄÅäÖÃÒ»±é£¬Æô¶¯¿´ÏÂĞ§¹û**£º
+1.  **æˆ‘ä»¬å‰å‡ ç¯‡æ–‡ç« ä¸­æ­å»ºäº†å®Œæ•´çš„é¡¹ç›®ï¼Œåœ¨è¿™äº›é¡¹ç›®ä¸­å…¨éƒ¨æŒ‰ç…§ä¸Šè¾¹çš„é…ç½®ä¸€éï¼Œå¯åŠ¨çœ‹ä¸‹æ•ˆæœ**ï¼š
 
-*   Íø¹Ø·şÎñ£ºherring-gateway£¬zuul Í³Ò»Íø¹ØÎ¢·şÎñ¡£
-*   ÈÏÖ¤·şÎñ£ºherring-oauth2£¬oauth2 ÈÏÖ¤ÖĞĞÄÎ¢·şÎñ¡£
-*   »áÔ±·şÎñ£ºherring-member-service£¬Î¢·şÎñÖ®Ò»£¬½ÓÊÕµ½ÇëÇóºó»áµ½ÈÏÖ¤ÖĞĞÄÑéÖ¤¡£
-*   ¶©µ¥·şÎñ£ºherring-orders-service£¬Î¢·şÎñÖ®¶ş£¬½ÓÊÕµ½ÇëÇóºó»áµ½ÈÏÖ¤ÖĞĞÄÑéÖ¤¡£
-*   ÉÌÆ··şÎñ£ºherring-product-service£¬Î¢·şÎñÖ®Èı£¬½ÓÊÕµ½ÇëÇóºó»áµ½ÈÏÖ¤ÖĞĞÄÑéÖ¤¡£
+*   ç½‘å…³æœåŠ¡ï¼šherring-gatewayï¼Œzuul ç»Ÿä¸€ç½‘å…³å¾®æœåŠ¡ã€‚
+*   è®¤è¯æœåŠ¡ï¼šherring-oauth2ï¼Œoauth2 è®¤è¯ä¸­å¿ƒå¾®æœåŠ¡ã€‚
+*   ä¼šå‘˜æœåŠ¡ï¼šherring-member-serviceï¼Œå¾®æœåŠ¡ä¹‹ä¸€ï¼Œæ¥æ”¶åˆ°è¯·æ±‚åä¼šåˆ°è®¤è¯ä¸­å¿ƒéªŒè¯ã€‚
+*   è®¢å•æœåŠ¡ï¼šherring-orders-serviceï¼Œå¾®æœåŠ¡ä¹‹äºŒï¼Œæ¥æ”¶åˆ°è¯·æ±‚åä¼šåˆ°è®¤è¯ä¸­å¿ƒéªŒè¯ã€‚
+*   å•†å“æœåŠ¡ï¼šherring-product-serviceï¼Œå¾®æœåŠ¡ä¹‹ä¸‰ï¼Œæ¥æ”¶åˆ°è¯·æ±‚åä¼šåˆ°è®¤è¯ä¸­å¿ƒéªŒè¯ã€‚
 
 ![image-20230423174600279](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174600279.png)
 
-1.  **ÎÒÃÇÀ´²âÊÔÒ»ÏÂ£¬ÏÈÇëÇóÏÂ token£¬È»ºóÔÙÇëÇó /api/member/update**£º
+1.  **æˆ‘ä»¬æ¥æµ‹è¯•ä¸€ä¸‹ï¼Œå…ˆè¯·æ±‚ä¸‹ tokenï¼Œç„¶åå†è¯·æ±‚ /api/member/update**ï¼š
 
 ```
 #### 
@@ -350,10 +350,10 @@ skywalking ¹ÙÍøÏÂÔØµØÖ·£º[skywalking.apache.org/downloads/](https://link.juejin.
 POST http://localhost:8080/oauth2-service/oauth/token?grant_type=password&username=admin&password=123456&client_id=app-client&client_secret=client-secret-8888&scope=all
 Accept: */*
 Cache-Control: no-cache
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-µÃµ½·µ»Ø½á¹û token£º
+å¾—åˆ°è¿”å›ç»“æœ tokenï¼š
 
 ```
 {
@@ -362,13 +362,13 @@ Cache-Control: no-cache
   "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiZ2F0ZXdheS1zZXJ2aWNlIl0sInVzZXJfbmFtZSI6ImFkbWluIiwiand0LWV4dCI6IkpXVCDmianlsZXkv6Hmga8iLCJzY29wZSI6WyJhbGwiXSwiYXRpIjoiNTgwNjk4OWEtZTI0NC00ZDIzLThhNTktMGM4NGJjMTRiOTk5IiwiZXhwIjoxNjE0MDM0ODk2LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6IjQxZGM1ZDc1LTZmZDgtNDU3My04YmRjLWI4ZTMwNWEzMThmMyIsImNsaWVudF9pZCI6ImFwcC1jbGllbnQifQ.CGmGx_msqJBHxa95bBROY2SAO14RyeRklVPYrRxZ7pQ",
   "expires_in": 7199,
   "scope": "all",
-  "jwt-ext": "JWT À©Õ¹ĞÅÏ¢",
+  "jwt-ext": "JWT æ‰©å±•ä¿¡æ¯",
   "jti": "5806989a-e244-4d23-8a59-0c84bc14b999"
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-ÇëÇóÖ´ĞĞ /api/member/update
+è¯·æ±‚æ‰§è¡Œ /api/member/update
 
 ```
 ####
@@ -377,10 +377,10 @@ GET http://localhost:8080/member-service/api/member/update
 Accept: */*
 Cache-Control: no-cache
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiZ2F0ZXdheS1zZXJ2aWNlIl0sInVzZXJfbmFtZSI6ImFkbWluIiwiand0LWV4dCI6IkpXVCDmianlsZXkv6Hmga8iLCJzY29wZSI6WyJhbGwiXSwiZXhwIjoxNjEzOTcwMDk2LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6IjU4MDY5ODlhLWUyNDQtNGQyMy04YTU5LTBjODRiYzE0Yjk5OSIsImNsaWVudF9pZCI6ImFwcC1jbGllbnQifQ.EP4acam0tkJQ9kSGRGk_mQsfi1y4M_hhiBL0H931v60
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-**ÒÇ±íÅÌ½á¹ûÕ¹Ê¾**:
+**ä»ªè¡¨ç›˜ç»“æœå±•ç¤º**:
 
 ![image-20230423174639471](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174639471.png)
 
@@ -388,24 +388,24 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiZ2F0ZXdhe
 
 ![image-20230423174742703](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174742703.png)
 
-**ÍØÆËÍ¼½á¹ûÕ¹Ê¾**£º
+**æ‹“æ‰‘å›¾ç»“æœå±•ç¤º**ï¼š
 
 ![image-20230423174809108](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174809108.png)
 
 ![image-20230423174831290](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174831290.png)
 
-**Á´Â·×·×Ù½á¹ûÕ¹Ê¾**£º
+**é“¾è·¯è¿½è¸ªç»“æœå±•ç¤º**ï¼š
 
 ![image-20230423174845526](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174845526.png)
 
 
 
-×÷Õß£º°×²ËËµ¼¼Êõ
-Á´½Ó£ºhttps://juejin.cn/post/6931922457741770760
-À´Ô´£ºÏ¡ÍÁ¾ò½ğ
-Öø×÷È¨¹é×÷ÕßËùÓĞ¡£ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+ä½œè€…ï¼šç™½èœè¯´æŠ€æœ¯
+é“¾æ¥ï¼šhttps://juejin.cn/post/6931922457741770760
+æ¥æºï¼šç¨€åœŸæ˜é‡‘
+è‘—ä½œæƒå½’ä½œè€…æ‰€æœ‰ã€‚å•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

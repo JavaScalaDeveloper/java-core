@@ -1,31 +1,31 @@
-### Ò»¡¢NameServerÆô¶¯
+### ä¸€ã€NameServerå¯åŠ¨
 
-Ô´ÂëÈë¿Ú£ºNamesrvStartup#main
+æºç å…¥å£ï¼šNamesrvStartup#main
 
 ##### 1.NamesrvController controller = createNamesrvController(args);
 
-*   ¼ì²âÃüÁîĞĞ²ÎÊı
-*   ´´½¨ºËĞÄÅäÖÃ¶ÔÏó£¬NamesrvConfig¡¢NettyServerConfig
-*   ½âÎö -c ¡¢-p²ÎÊı
-*   ¼ì²éRocketMQ_HOME»·¾³±äÁ¿
-*   final NamesrvController controller = new NamesrvController(namesrvConfig, nettyServerConfig);´´½¨controller
-*   controller.getConfiguration().registerConfig(properties); ×¢²áËùÓĞÅäÖÃĞÅÏ¢
+*   æ£€æµ‹å‘½ä»¤è¡Œå‚æ•°
+*   åˆ›å»ºæ ¸å¿ƒé…ç½®å¯¹è±¡ï¼ŒNamesrvConfigã€NettyServerConfig
+*   è§£æ -c ã€-på‚æ•°
+*   æ£€æŸ¥RocketMQ_HOMEç¯å¢ƒå˜é‡
+*   final NamesrvController controller = new NamesrvController(namesrvConfig, nettyServerConfig);åˆ›å»ºcontroller
+*   controller.getConfiguration().registerConfig(properties); æ³¨å†Œæ‰€æœ‰é…ç½®ä¿¡æ¯
 
 ##### 2.start(controller);
 
-*   controller.initialize()£» Ö´ĞĞ³õÊ¼»¯
-    ¡ğ this.kvConfigManager.load(); ¼ÓÔØKVÅäÖÃ
-    ¡ğ this.remotingServer = new NettyRemotingServer(this.nettyServerConfig, this.brokerHousekeepingService);´´½¨NettyServerÍøÂç´¦Àí¶ÔÏó
-    ¡ğ this.remotingExecutor =Executors.newFixedThreadPool(nettyServerConfig.getServerWorkerThreads(), new ThreadFactoryImpl("RemotingExecutorThread_")); ´´½¨Netty·şÎñÆ÷¹¤×÷Ïß³Ì³Ø
-    ¡ğ this.registerProcessor(); ×¢²áNameServerµÄProcessor ×¢²áµ½RemotingServerÖĞ
-    ¡ğ NamesrvController.this.routeInfoManager.scanNotActiveBroker() Æô¶¯¶¨Ê±ÈÎÎñ£¬ÒÆ³ı²»»îÔ¾µÄBroker
-    ¡ğ NamesrvController.this.kvConfigManager.printAllPeriodically() ¶¨Ê±´òÓ¡KVÅäÖÃĞÅÏ¢
-*   Runtime.getRuntime().addShutdownHook ×¢²á¹Ø±Õ¹³×Ó£¬ÔÚ¹Ø±Õ·şÎñÊ±ÊÍ·Å×ÊÔ´
-*   controller.start()£» Æô¶¯controller
+*   controller.initialize()ï¼› æ‰§è¡Œåˆå§‹åŒ–
+    â—‹ this.kvConfigManager.load(); åŠ è½½KVé…ç½®
+    â—‹ this.remotingServer = new NettyRemotingServer(this.nettyServerConfig, this.brokerHousekeepingService);åˆ›å»ºNettyServerç½‘ç»œå¤„ç†å¯¹è±¡
+    â—‹ this.remotingExecutor =Executors.newFixedThreadPool(nettyServerConfig.getServerWorkerThreads(), new ThreadFactoryImpl("RemotingExecutorThread_")); åˆ›å»ºNettyæœåŠ¡å™¨å·¥ä½œçº¿ç¨‹æ± 
+    â—‹ this.registerProcessor(); æ³¨å†ŒNameServerçš„Processor æ³¨å†Œåˆ°RemotingServerä¸­
+    â—‹ NamesrvController.this.routeInfoManager.scanNotActiveBroker() å¯åŠ¨å®šæ—¶ä»»åŠ¡ï¼Œç§»é™¤ä¸æ´»è·ƒçš„Broker
+    â—‹ NamesrvController.this.kvConfigManager.printAllPeriodically() å®šæ—¶æ‰“å°KVé…ç½®ä¿¡æ¯
+*   Runtime.getRuntime().addShutdownHook æ³¨å†Œå…³é—­é’©å­ï¼Œåœ¨å…³é—­æœåŠ¡æ—¶é‡Šæ”¾èµ„æº
+*   controller.start()ï¼› å¯åŠ¨controller
 
-NameServerµÄ×÷ÓÃÖ÷ÒªÓĞÁ½¸ö£º
-1.Î¬»¤brokerµÄ·şÎñµØÖ·ĞÅÏ¢£¬²¢½øĞĞ¸üĞÂ
-2.¸øProducer¡¢consumerÌá¹©BrokerµÄ·şÎñÁĞ±í
+NameServerçš„ä½œç”¨ä¸»è¦æœ‰ä¸¤ä¸ªï¼š
+1.ç»´æŠ¤brokerçš„æœåŠ¡åœ°å€ä¿¡æ¯ï¼Œå¹¶è¿›è¡Œæ›´æ–°
+2.ç»™Producerã€consumeræä¾›Brokerçš„æœåŠ¡åˆ—è¡¨
 
 
 
@@ -39,49 +39,49 @@ image.png
 
 
 
-### ¶ş¡¢BrokerÆô¶¯
+### äºŒã€Brokerå¯åŠ¨
 
-Ô´ÂëÈë¿Ú£ºBrokerstartup#main
+æºç å…¥å£ï¼šBrokerstartup#main
 
 ##### 1.createBrokerController(args)
 
-*   ¹¹½¨ËÄ¸öºËĞÄÅäÖÃ¶ÔÏó£ºBrokerConfig¡¢NettyServerConfig¡¢NettyClientConfig¡¢MessageStoreConfig
-*   BrokerConfigÖ»½âÎö -c²ÎÊı
-*   RocketMq_HOME»·¾³±äÁ¿¼ì²é
-*   RemotingUtil.string2SocketAddress(addr) ½«namesrvAddrµØÖ·½øĞĞ²ğ·Ö
-*   messageStoreConfig.getBrokerRole() Í¨¹ıBrokerIdÅĞ¶ÏÖ÷´Ó£ºmasterId=0£¬Deldger¼¯ÈºµÄËùÓĞBroker½ÚµãID¶¼ÊÇ-1
-*   ½âÎö -p¡¢-m²ÎÊı£¬²¢½«½âÎöµÄ²ÎÊıÌí¼Óµ½ËÄ¸öºËĞÄÅäÖÃ¶ÔÏóÖĞ
-*   BrokerController controller = new BrokerController ´´½¨brokerController£¬½«ËÄ¸öºËĞÄÅäÖÃÀà´«Èë
-*   controller.getConfiguration().registerConfig(properties); ÖØĞÂ×¢²á£¨¸üĞÂ£©ÅäÖÃ
-*   controller.initialize(); ³õÊ¼»¯controller
-    ¡ğ ¼ÓÔØ´ÅÅÌÉÏµÄÅäÖÃÎÄ¼ş£ºtopicConfigManager¡¢consumerOffsetManager¡¢subscriptionGroupManager¡¢consumerFilterManager
-    ¡ğ this.messageStore =new DefaultMessageStore() ¹¹½¨ÏûÏ¢´æ´¢×é¼ş
-    ¡ğ this.messageStore.load() ¼ÓÔØ´ÅÅÌÎÄ¼ş
-    ¡ğ this.remotingServer = new NettyRemotingServer ¹¹½¨NettyÍøÂç×é¼ş
-    ¡ğ this.fastRemotingServer = new NettyRemotingServer Õâ¸öfastRemotingServerÓëRemotingServer¹¦ÄÜ»ù±¾²î²»¶à£¬´¦ÀíVIP¶Ë¿ÚÇëÇó
-    ¡ğ ºóÃæ¾ÍÊÇ³õÊ¼»¯Ò»Ğ©Ïß³Ì³Ø
-    ¡ğ this.registerProcessor(); broker×¢²áÒ»Ğ©Processor´¦Àí·½·¨
-*   Runtime.getRuntime().addShutdownHook ×¢²á¹Ø±Õ¹³×Ó
+*   æ„å»ºå››ä¸ªæ ¸å¿ƒé…ç½®å¯¹è±¡ï¼šBrokerConfigã€NettyServerConfigã€NettyClientConfigã€MessageStoreConfig
+*   BrokerConfigåªè§£æ -cå‚æ•°
+*   RocketMq_HOMEç¯å¢ƒå˜é‡æ£€æŸ¥
+*   RemotingUtil.string2SocketAddress(addr) å°†namesrvAddråœ°å€è¿›è¡Œæ‹†åˆ†
+*   messageStoreConfig.getBrokerRole() é€šè¿‡BrokerIdåˆ¤æ–­ä¸»ä»ï¼šmasterId=0ï¼ŒDeldgeré›†ç¾¤çš„æ‰€æœ‰BrokerèŠ‚ç‚¹IDéƒ½æ˜¯-1
+*   è§£æ -pã€-må‚æ•°ï¼Œå¹¶å°†è§£æçš„å‚æ•°æ·»åŠ åˆ°å››ä¸ªæ ¸å¿ƒé…ç½®å¯¹è±¡ä¸­
+*   BrokerController controller = new BrokerController åˆ›å»ºbrokerControllerï¼Œå°†å››ä¸ªæ ¸å¿ƒé…ç½®ç±»ä¼ å…¥
+*   controller.getConfiguration().registerConfig(properties); é‡æ–°æ³¨å†Œï¼ˆæ›´æ–°ï¼‰é…ç½®
+*   controller.initialize(); åˆå§‹åŒ–controller
+    â—‹ åŠ è½½ç£ç›˜ä¸Šçš„é…ç½®æ–‡ä»¶ï¼štopicConfigManagerã€consumerOffsetManagerã€subscriptionGroupManagerã€consumerFilterManager
+    â—‹ this.messageStore =new DefaultMessageStore() æ„å»ºæ¶ˆæ¯å­˜å‚¨ç»„ä»¶
+    â—‹ this.messageStore.load() åŠ è½½ç£ç›˜æ–‡ä»¶
+    â—‹ this.remotingServer = new NettyRemotingServer æ„å»ºNettyç½‘ç»œç»„ä»¶
+    â—‹ this.fastRemotingServer = new NettyRemotingServer è¿™ä¸ªfastRemotingServerä¸RemotingServeråŠŸèƒ½åŸºæœ¬å·®ä¸å¤šï¼Œå¤„ç†VIPç«¯å£è¯·æ±‚
+    â—‹ åé¢å°±æ˜¯åˆå§‹åŒ–ä¸€äº›çº¿ç¨‹æ± 
+    â—‹ this.registerProcessor(); brokeræ³¨å†Œä¸€äº›Processorå¤„ç†æ–¹æ³•
+*   Runtime.getRuntime().addShutdownHook æ³¨å†Œå…³é—­é’©å­
 
 ##### 2.start(BrokerController controller)
 
-*   this.messageStore.start(); ÕâÀïÆô¶¯·şÎñÖ÷ÒªÊÇÎªÁË½«CommitLogµÄĞ´ÈëÊÂ¼ş·Ö·¢¸øComsumeQueueºÍIndexFile
-*   Æô¶¯Á½¸öNetty·şÎñ£ºremotingServer¡¢fastRemotingServer
-*   this.fileWatchService.start(); ÎÄ¼ş¼àÌı·şÎñ
-*   this.brokerOuterAPI.start(); brokerOuterAPI¿ÉÒÔÀí½âÎªÒ»¸öNetty¿Í»§¶Ë£¬ÍùÍâ·¢ÇëÇóµÄ×é¼ş£¬ÀıÈç·¢ËÍĞÄÌø
-*   this.pullRequestHoldService.start(); ³¤ÂÖÑ¯ÇëÇóÔİÍ£·şÎñ
-*   this.filterServerManager.start(); Ê¹ÓÃfilter½øĞĞ¹ıÂË
-*   BrokerController.this.registerBrokerAll() BrokerºËĞÄµÄĞÄÌø×¢²áÈÎÎñ,Ö÷Òª×÷ÓÃ¾ÍÊÇ½«broker×¢²áµ½NamesrvÖĞ
+*   this.messageStore.start(); è¿™é‡Œå¯åŠ¨æœåŠ¡ä¸»è¦æ˜¯ä¸ºäº†å°†CommitLogçš„å†™å…¥äº‹ä»¶åˆ†å‘ç»™ComsumeQueueå’ŒIndexFile
+*   å¯åŠ¨ä¸¤ä¸ªNettyæœåŠ¡ï¼šremotingServerã€fastRemotingServer
+*   this.fileWatchService.start(); æ–‡ä»¶ç›‘å¬æœåŠ¡
+*   this.brokerOuterAPI.start(); brokerOuterAPIå¯ä»¥ç†è§£ä¸ºä¸€ä¸ªNettyå®¢æˆ·ç«¯ï¼Œå¾€å¤–å‘è¯·æ±‚çš„ç»„ä»¶ï¼Œä¾‹å¦‚å‘é€å¿ƒè·³
+*   this.pullRequestHoldService.start(); é•¿è½®è¯¢è¯·æ±‚æš‚åœæœåŠ¡
+*   this.filterServerManager.start(); ä½¿ç”¨filterè¿›è¡Œè¿‡æ»¤
+*   BrokerController.this.registerBrokerAll() Brokeræ ¸å¿ƒçš„å¿ƒè·³æ³¨å†Œä»»åŠ¡,ä¸»è¦ä½œç”¨å°±æ˜¯å°†brokeræ³¨å†Œåˆ°Namesrvä¸­
 
-brokerµÄºËĞÄ×÷ÓÃ£º
-**1.×÷ÎªclientÊ±£¬ÏònameServer·¢ËÍĞÄÌøĞÅÏ¢¡¢·¢ÆğÊÂÎñµÄ×´Ì¬¼ì²é**
-**2.×÷Îª·şÎñ¶ËÊ±£¬ÓÃÓÚ´æ´¢ÏûÏ¢¡¢ÏìÓ¦consumer¶ËµÄÇëÇó**
+brokerçš„æ ¸å¿ƒä½œç”¨ï¼š
+**1.ä½œä¸ºclientæ—¶ï¼Œå‘nameServerå‘é€å¿ƒè·³ä¿¡æ¯ã€å‘èµ·äº‹åŠ¡çš„çŠ¶æ€æ£€æŸ¥**
+**2.ä½œä¸ºæœåŠ¡ç«¯æ—¶ï¼Œç”¨äºå­˜å‚¨æ¶ˆæ¯ã€å“åº”consumerç«¯çš„è¯·æ±‚**
 
-### Èı¡¢Netty·şÎñ×¢²á¿ò¼Ü
+### ä¸‰ã€NettyæœåŠ¡æ³¨å†Œæ¡†æ¶
 
-### ËÄ¡¢BrokerĞÄÌø×¢²á¹ı³Ì
+### å››ã€Brokerå¿ƒè·³æ³¨å†Œè¿‡ç¨‹
 
-Ô´ÂëÈë¿Ú£ºBrokerController.this.registerBrokerAll(true, false, brokerConfig.isForceRegister())
+æºç å…¥å£ï¼šBrokerController.this.registerBrokerAll(true, false, brokerConfig.isForceRegister())
 
 
 
@@ -100,7 +100,7 @@ public synchronized void registerBrokerAll(final boolean checkOrderConfig, boole
         }
         topicConfigWrapper.setTopicConfigTable(topicConfigTable);
     }
-    //ÕâÀï²ÅÊÇ±È½Ï¹Ø¼üµÄµØ·½¡£ÏÈÅĞ¶ÏÊÇ·ñĞèÒª×¢²á£¬È»ºóµ÷ÓÃdoRegisterBrokerAll·½·¨ÕæÕıÈ¥×¢²á¡£
+    //è¿™é‡Œæ‰æ˜¯æ¯”è¾ƒå…³é”®çš„åœ°æ–¹ã€‚å…ˆåˆ¤æ–­æ˜¯å¦éœ€è¦æ³¨å†Œï¼Œç„¶åè°ƒç”¨doRegisterBrokerAllæ–¹æ³•çœŸæ­£å»æ³¨å†Œã€‚
     if (forceRegister || needRegister(this.brokerConfig.getBrokerClusterName(),
                                       this.getBrokerAddr(),
                                       this.brokerConfig.getBrokerName(),
@@ -117,10 +117,10 @@ public synchronized void registerBrokerAll(final boolean checkOrderConfig, boole
 
 
 ```
-// Broker×¢²á×îºËĞÄµÄ²¿·Ö
+// Brokeræ³¨å†Œæœ€æ ¸å¿ƒçš„éƒ¨åˆ†
 private void doRegisterBrokerAll(boolean checkOrderConfig, boolean oneway,
                                  TopicConfigSerializeWrapper topicConfigWrapper) {
-    // ×¢²ábroker·½·¨
+    // æ³¨å†Œbrokeræ–¹æ³•
     List<RegisterBrokerResult> registerBrokerResultList = this.brokerOuterAPI.registerBrokerAll(
         this.brokerConfig.getBrokerClusterName(),
         this.getBrokerAddr(),
@@ -136,7 +136,7 @@ private void doRegisterBrokerAll(boolean checkOrderConfig, boolean oneway,
     if (registerBrokerResultList.size() > 0) {
         RegisterBrokerResult registerBrokerResult = registerBrokerResultList.get(0);
         if (registerBrokerResult != null) {
-            //×¢²áÍê±£´æÖ÷´Ó½ÚµãµÄµØÖ·
+            //æ³¨å†Œå®Œä¿å­˜ä¸»ä»èŠ‚ç‚¹çš„åœ°å€
             if (this.updateMasterHAServerAddrPeriodically && registerBrokerResult.getHaServerAddr() != null) {
                 this.messageStore.updateHaMasterAddress(registerBrokerResult.getHaServerAddr());
             }
@@ -168,9 +168,9 @@ public List<RegisterBrokerResult> registerBrokerAll(
     final boolean oneway,
     final int timeoutMills,
     final boolean compressed) {
-    //Ê¹ÓÃCopyOnWriteArrayListÌáÉı²¢·¢°²È«ĞÔ
+    //ä½¿ç”¨CopyOnWriteArrayListæå‡å¹¶å‘å®‰å…¨æ€§
     final List<RegisterBrokerResult> registerBrokerResultList = new CopyOnWriteArrayList<>();
-    // »ñÈ¡ËùÓĞnameServerµÄµØÖ·ĞÅÏ¢
+    // è·å–æ‰€æœ‰nameServerçš„åœ°å€ä¿¡æ¯
     List<String> nameServerAddressList = this.remotingClient.getNameServerAddressList();
     if (nameServerAddressList != null && nameServerAddressList.size() > 0) {
 
@@ -188,7 +188,7 @@ public List<RegisterBrokerResult> registerBrokerAll(
         final byte[] body = requestBody.encode(compressed);
         final int bodyCrc32 = UtilAll.crc32(body);
         requestHeader.setBodyCrc32(bodyCrc32);
-        //Í¨¹ıCountDownLatch£¬±£Ö¤ÔÚËùÓĞNameServerÉÏÍê³É×¢²áºóÔÙÒ»Æğ½áÊø¡£
+        //é€šè¿‡CountDownLatchï¼Œä¿è¯åœ¨æ‰€æœ‰NameServerä¸Šå®Œæˆæ³¨å†Œåå†ä¸€èµ·ç»“æŸã€‚
         final CountDownLatch countDownLatch = new CountDownLatch(nameServerAddressList.size());
         for (final String namesrvAddr : nameServerAddressList) {
             brokerOuterExecutor.execute(new Runnable() {
@@ -223,12 +223,12 @@ public List<RegisterBrokerResult> registerBrokerAll(
 
 
 
-NameServer´¦ÀíÇëÇó£º
+NameServerå¤„ç†è¯·æ±‚ï¼š
 
 
 
 ```
-//NameServer´¦ÀíÇëÇóµÄºËĞÄ´úÂë
+//NameServerå¤„ç†è¯·æ±‚çš„æ ¸å¿ƒä»£ç 
 @Override
     public RemotingCommand processRequest(ChannelHandlerContext ctx,
                                           RemotingCommand request) throws RemotingCommandException {
@@ -249,10 +249,10 @@ NameServer´¦ÀíÇëÇó£º
             return this.deleteKVConfig(ctx, request);
         case RequestCode.QUERY_DATA_VERSION:
             return queryBrokerTopicConfig(ctx, request);
-        case RequestCode.REGISTER_BROKER: //Broker×¢²áÇëÇó´¦Àí¡£°æ±¾Ä¬ÈÏÊÇµ±Ç°¿ò¼Ü°æ±¾
+        case RequestCode.REGISTER_BROKER: //Brokeræ³¨å†Œè¯·æ±‚å¤„ç†ã€‚ç‰ˆæœ¬é»˜è®¤æ˜¯å½“å‰æ¡†æ¶ç‰ˆæœ¬
             Version brokerVersion = MQVersion.value2Version(request.getVersion());
             if (brokerVersion.ordinal() >= MQVersion.Version.V3_0_11.ordinal()) {
-                return this.registerBrokerWithFilterServer(ctx, request); //µ±Ç°°æ±¾
+                return this.registerBrokerWithFilterServer(ctx, request); //å½“å‰ç‰ˆæœ¬
             } else {
                 return this.registerBroker(ctx, request);
             }
@@ -294,7 +294,7 @@ NameServer´¦ÀíÇëÇó£º
 
 
 
-Êµ¼Ê¾ÍÊÇ½«brokerĞÅÏ¢×¢²áµ½routeInfoÖĞ£º
+å®é™…å°±æ˜¯å°†brokerä¿¡æ¯æ³¨å†Œåˆ°routeInfoä¸­ï¼š
 
 
 
@@ -324,7 +324,7 @@ public RemotingCommand registerBrokerWithFilterServer(ChannelHandlerContext ctx,
         registerBrokerBody.getTopicConfigSerializeWrapper().getDataVersion().setCounter(new AtomicLong(0));
         registerBrokerBody.getTopicConfigSerializeWrapper().getDataVersion().setTimestamp(0);
     }
-    //routeInfoManager¾ÍÊÇ¹ÜÀíÂ·ÓÉĞÅÏ¢µÄºËĞÄ×é¼ş¡£
+    //routeInfoManagerå°±æ˜¯ç®¡ç†è·¯ç”±ä¿¡æ¯çš„æ ¸å¿ƒç»„ä»¶ã€‚
     RegisterBrokerResult result = this.namesrvController.getRouteInfoManager().registerBroker(
         requestHeader.getClusterName(),
         requestHeader.getBrokerAddr(),
@@ -350,10 +350,10 @@ public RemotingCommand registerBrokerWithFilterServer(ChannelHandlerContext ctx,
 
 
 
-### Îå¡¢Producer·¢ËÍÏûÏ¢
+### äº”ã€Producerå‘é€æ¶ˆæ¯
 
-Ô´ÂëÈë¿Ú£ºDefaultMQProducer#start
-1.this.defaultMQProducerImpl.start(); Éú²ú¶ËÆô¶¯
+æºç å…¥å£ï¼šDefaultMQProducer#start
+1.this.defaultMQProducerImpl.start(); ç”Ÿäº§ç«¯å¯åŠ¨
 
 
 
@@ -361,17 +361,17 @@ public RemotingCommand registerBrokerWithFilterServer(ChannelHandlerContext ctx,
 public void start(final boolean startFactory) throws MQClientException {
     switch (this.serviceState) {
         case CREATE_JUST:
-            // Ä¬ÈÏ¾ÍÊÇCREATE_JUST
+            // é»˜è®¤å°±æ˜¯CREATE_JUST
             this.serviceState = ServiceState.START_FAILED;
 
             this.checkConfig();
-            //ĞŞ¸Äµ±Ç°µÄinstanceNameÎªµ±Ç°½ø³ÌID
+            //ä¿®æ”¹å½“å‰çš„instanceNameä¸ºå½“å‰è¿›ç¨‹ID
             if (!this.defaultMQProducer.getProducerGroup().equals(MixAll.CLIENT_INNER_PRODUCER_GROUP)) {
                 this.defaultMQProducer.changeInstanceNameToPID();
             }
-            //¿Í»§¶ËºËĞÄµÄMQ¿Í»§¶Ë¹¤³§ ¶ÔÓÚÊÂÎñÏûÏ¢·¢ËÍÕß£¬ÔÚÕâÀïÃæ»áÍê³ÉÊÂÎñÏûÏ¢µÄ·¢ËÍÕßµÄ·şÎñ×¢²á
+            //å®¢æˆ·ç«¯æ ¸å¿ƒçš„MQå®¢æˆ·ç«¯å·¥å‚ å¯¹äºäº‹åŠ¡æ¶ˆæ¯å‘é€è€…ï¼Œåœ¨è¿™é‡Œé¢ä¼šå®Œæˆäº‹åŠ¡æ¶ˆæ¯çš„å‘é€è€…çš„æœåŠ¡æ³¨å†Œ
             this.mQClientFactory = MQClientManager.getInstance().getOrCreateMQClientInstance(this.defaultMQProducer, rpcHook);
-            //×¢²áMQ¿Í»§¶Ë¹¤³§Ê¾Àı
+            //æ³¨å†ŒMQå®¢æˆ·ç«¯å·¥å‚ç¤ºä¾‹
             boolean registerOK = mQClientFactory.registerProducer(this.defaultMQProducer.getProducerGroup(), this);
             if (!registerOK) {
                 this.serviceState = ServiceState.CREATE_JUST;
@@ -381,7 +381,7 @@ public void start(final boolean startFactory) throws MQClientException {
             }
 
             this.topicPublishInfoTable.put(this.defaultMQProducer.getCreateTopicKey(), new TopicPublishInfo());
-            //Æô¶¯Ê¾Àı --ËùÓĞ¿Í»§¶Ë×é¼ş¶¼½»ÓÉmQClientFactoryÆô¶¯
+            //å¯åŠ¨ç¤ºä¾‹ --æ‰€æœ‰å®¢æˆ·ç«¯ç»„ä»¶éƒ½äº¤ç”±mQClientFactoryå¯åŠ¨
             if (startFactory) {
                 mQClientFactory.start();
             }
@@ -400,7 +400,7 @@ public void start(final boolean startFactory) throws MQClientException {
         default:
             break;
     }
-    // ÏòËùÓĞµÄbroker·¢ËÍĞÄÌø
+    // å‘æ‰€æœ‰çš„brokerå‘é€å¿ƒè·³
     this.mQClientFactory.sendHeartbeatToAllBrokerWithLock();
 
     this.startScheduledTask();
@@ -411,9 +411,9 @@ public void start(final boolean startFactory) throws MQClientException {
 
 
 
-### Áù¡¢ConsumerÏû·ÑÏûÏ¢
+### å…­ã€Consumeræ¶ˆè´¹æ¶ˆæ¯
 
-Ïû·Ñ¶ËÈë¿Ú£ºDefaultMQPushConsumer#start
+æ¶ˆè´¹ç«¯å…¥å£ï¼šDefaultMQPushConsumer#start
 this.defaultMQPushConsumerImpl.start();
 
 
@@ -433,9 +433,9 @@ public synchronized void start() throws MQClientException {
             if (this.defaultMQPushConsumer.getMessageModel() == MessageModel.CLUSTERING) {
                 this.defaultMQPushConsumer.changeInstanceNameToPID();
             }
-            //¿Í»§¶ËÊ¾Àı¹¤³§£¬Éú²úÕßÒ²ÊÇ½»ÓÉÕâ¸ö¹¤³§Æô¶¯µÄ¡£
+            //å®¢æˆ·ç«¯ç¤ºä¾‹å·¥å‚ï¼Œç”Ÿäº§è€…ä¹Ÿæ˜¯äº¤ç”±è¿™ä¸ªå·¥å‚å¯åŠ¨çš„ã€‚
             this.mQClientFactory = MQClientManager.getInstance().getOrCreateMQClientInstance(this.defaultMQPushConsumer, this.rpcHook);
-            //¸ºÔØ¾ùºâ²ßÂÔ
+            //è´Ÿè½½å‡è¡¡ç­–ç•¥
             this.rebalanceImpl.setConsumerGroup(this.defaultMQPushConsumer.getConsumerGroup());
             this.rebalanceImpl.setMessageModel(this.defaultMQPushConsumer.getMessageModel());
             this.rebalanceImpl.setAllocateMessageQueueStrategy(this.defaultMQPushConsumer.getAllocateMessageQueueStrategy());
@@ -449,13 +449,13 @@ public synchronized void start() throws MQClientException {
             if (this.defaultMQPushConsumer.getOffsetStore() != null) {
                 this.offsetStore = this.defaultMQPushConsumer.getOffsetStore();
             } else {
-                //´ÓÕâÀï¿ÉÒÔ¿´³ö£¬¹ã²¥Ä£Ê½Óë¼¯ÈºÄ£Ê½µÄ×î±¾ÖÊÇø±ğ¾ÍÊÇoffset´æ´¢µÄµØ·½²»Ò»Ñù¡£
+                //ä»è¿™é‡Œå¯ä»¥çœ‹å‡ºï¼Œå¹¿æ’­æ¨¡å¼ä¸é›†ç¾¤æ¨¡å¼çš„æœ€æœ¬è´¨åŒºåˆ«å°±æ˜¯offsetå­˜å‚¨çš„åœ°æ–¹ä¸ä¸€æ ·ã€‚
                 switch (this.defaultMQPushConsumer.getMessageModel()) {
-                        //¹ã²¥Ä£Ê½ÊÇÔÚÏû·ÑÕß±¾µØ´æ´¢offset
+                        //å¹¿æ’­æ¨¡å¼æ˜¯åœ¨æ¶ˆè´¹è€…æœ¬åœ°å­˜å‚¨offset
                     case BROADCASTING:
                         this.offsetStore = new LocalFileOffsetStore(this.mQClientFactory, this.defaultMQPushConsumer.getConsumerGroup());
                         break;
-                        //¼¯ÈºÄ£Ê½ÊÇÔÚBrokerÔ¶¶Ë´æ´¢offset
+                        //é›†ç¾¤æ¨¡å¼æ˜¯åœ¨Brokerè¿œç«¯å­˜å‚¨offset
                     case CLUSTERING:
                         this.offsetStore = new RemoteBrokerOffsetStore(this.mQClientFactory, this.defaultMQPushConsumer.getConsumerGroup());
                         break;
@@ -465,12 +465,12 @@ public synchronized void start() throws MQClientException {
                 this.defaultMQPushConsumer.setOffsetStore(this.offsetStore);
             }
             this.offsetStore.load();
-            //Ë³ĞòÏû·Ñ¼àÌı´´½¨ConsumeMessageOrderlyService
+            //é¡ºåºæ¶ˆè´¹ç›‘å¬åˆ›å»ºConsumeMessageOrderlyService
             if (this.getMessageListenerInner() instanceof MessageListenerOrderly) {
                 this.consumeOrderly = true;
                 this.consumeMessageService =
                     new ConsumeMessageOrderlyService(this, (MessageListenerOrderly) this.getMessageListenerInner());
-                //²¢·¢Ïû·Ñ¼àÌı´´½¨ConsumeMessageConcurrentlyService
+                //å¹¶å‘æ¶ˆè´¹ç›‘å¬åˆ›å»ºConsumeMessageConcurrentlyService
             } else if (this.getMessageListenerInner() instanceof MessageListenerConcurrently) {
                this.consumeOrderly = false;
                this.consumeMessageService =
@@ -478,7 +478,7 @@ public synchronized void start() throws MQClientException {
             }
 
            this.consumeMessageService.start();
-           //×¢²áÏû·ÑÕß¡£ÓëÉú²úÕßÀàËÆ£¬¿Í»§¶ËÖ»Òª°´ÒªÇó×¢²á¼´¿É£¬ºóĞø»áËæmQClientFactoryÒ»ÆğÆô¶¯¡£
+           //æ³¨å†Œæ¶ˆè´¹è€…ã€‚ä¸ç”Ÿäº§è€…ç±»ä¼¼ï¼Œå®¢æˆ·ç«¯åªè¦æŒ‰è¦æ±‚æ³¨å†Œå³å¯ï¼Œåç»­ä¼šéšmQClientFactoryä¸€èµ·å¯åŠ¨ã€‚
            boolean registerOK = mQClientFactory.registerConsumer(this.defaultMQPushConsumer.getConsumerGroup(), this);
            if (!registerOK) {
                this.serviceState = ServiceState.CREATE_JUST;
@@ -512,20 +512,20 @@ public synchronized void start() throws MQClientException {
 
 
 
-**1¡¢consumer¶ËµÄÏû·ÑÄ£Ê½£º**
-¡ñ ¼¯ÈºÄ£Ê½£º¼¯ÈºÄ£Ê½ÏÂÃ¿¸öconsumer¶¼»á·ÖÅä²»Í¬µÄÏûÏ¢
-¡ñ ¹ã²¥Ä£Ê½£º¹ã²¥Ä£Ê½ÏÂÃ¿¸öÏûÏ¢¶¼ÍÆËÍ¸øËùÓĞconsumer
-**2¡¢¹ØÓÚoffset´æ´¢£º**
-¡ñ ¹ã²¥Ä£Ê½£ºthis.offsetStore = new LocalFileOffsetStore(); ´æ´¢ÔÚÃ¿¸öconsumerÖĞ
-¡ñ ¼¯ÈºÄ£Ê½£ºthis.offsetStore = new RemoteBrokerOffsetStore(); ´æ´¢ÔÚbroker¶Ë
+**1ã€consumerç«¯çš„æ¶ˆè´¹æ¨¡å¼ï¼š**
+â— é›†ç¾¤æ¨¡å¼ï¼šé›†ç¾¤æ¨¡å¼ä¸‹æ¯ä¸ªconsumeréƒ½ä¼šåˆ†é…ä¸åŒçš„æ¶ˆæ¯
+â— å¹¿æ’­æ¨¡å¼ï¼šå¹¿æ’­æ¨¡å¼ä¸‹æ¯ä¸ªæ¶ˆæ¯éƒ½æ¨é€ç»™æ‰€æœ‰consumer
+**2ã€å…³äºoffsetå­˜å‚¨ï¼š**
+â— å¹¿æ’­æ¨¡å¼ï¼šthis.offsetStore = new LocalFileOffsetStore(); å­˜å‚¨åœ¨æ¯ä¸ªconsumerä¸­
+â— é›†ç¾¤æ¨¡å¼ï¼šthis.offsetStore = new RemoteBrokerOffsetStore(); å­˜å‚¨åœ¨brokerç«¯
 
 
 
-×÷Õß£º·ãÒ¶ºì»¨
-Á´½Ó£ºhttps://www.jianshu.com/p/8dd4cfeae39d
-À´Ô´£º¼òÊé
-Öø×÷È¨¹é×÷ÕßËùÓĞ¡£ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
-# ²Î¿¼ÎÄÕÂ
+ä½œè€…ï¼šæ«å¶çº¢èŠ±
+é“¾æ¥ï¼šhttps://www.jianshu.com/p/8dd4cfeae39d
+æ¥æºï¼šç®€ä¹¦
+è‘—ä½œæƒå½’ä½œè€…æ‰€æœ‰ã€‚å•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

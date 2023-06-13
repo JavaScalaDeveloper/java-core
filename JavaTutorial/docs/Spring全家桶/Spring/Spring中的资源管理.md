@@ -1,6 +1,6 @@
-## Resource ½Ó¿Ú
+## Resource æ¥å£
 
-Ïà¶Ô±ê×¼ URL ·ÃÎÊ»úÖÆ£¬Spring µÄ `org.springframework.core.io.Resource` ½Ó¿Ú³éÏóÁË¶Ôµ×²ã×ÊÔ´µÄ·ÃÎÊ½Ó¿Ú£¬Ìá¹©ÁËÒ»Ì×¸üºÃµÄ·ÃÎÊ·½Ê½¡£
+ç›¸å¯¹æ ‡å‡† URL è®¿é—®æœºåˆ¶ï¼ŒSpring çš„ `org.springframework.core.io.Resource` æ¥å£æŠ½è±¡äº†å¯¹åº•å±‚èµ„æºçš„è®¿é—®æ¥å£ï¼Œæä¾›äº†ä¸€å¥—æ›´å¥½çš„è®¿é—®æ–¹å¼ã€‚
 
 
 
@@ -38,46 +38,46 @@ public interface Resource extends InputStreamSource {
 
 
 
-ÕıÈç `Resource` ½Ó¿ÚµÄ¶¨ÒåËùÊ¾£¬ËüÀ©Õ¹ÁË `InputStreamSource` ½Ó¿Ú¡£`Resource` ×îºËĞÄµÄ·½·¨ÈçÏÂ£º
+æ­£å¦‚ `Resource` æ¥å£çš„å®šä¹‰æ‰€ç¤ºï¼Œå®ƒæ‰©å±•äº† `InputStreamSource` æ¥å£ã€‚`Resource` æœ€æ ¸å¿ƒçš„æ–¹æ³•å¦‚ä¸‹ï¼š
 
-*   `getInputStream()` - ¶¨Î»²¢ÇÒ´ò¿ªµ±Ç°×ÊÔ´£¬·µ»Øµ±Ç°×ÊÔ´µÄ `InputStream`¡£Ã¿´Îµ÷ÓÃ¶¼»á·µ»ØÒ»¸öĞÂµÄ `InputStream`¡£µ÷ÓÃÕßĞèÒª¸ºÔğ¹Ø±ÕÁ÷¡£
-*   `exists()` - ÅĞ¶Ïµ±Ç°×ÊÔ´ÊÇ·ñÕæµÄ´æÔÚ¡£
-*   `isOpen()` - ÅĞ¶Ïµ±Ç°×ÊÔ´ÊÇ·ñÊÇÒ»¸öÒÑ´ò¿ªµÄ `InputStream`¡£Èç¹ûÎª true£¬Ôò `InputStream` ²»ÄÜ±»¶à´Î¶ÁÈ¡£¬±ØĞëÖ»¶ÁÈ¡Ò»´ÎÈ»ºó¹Ø±ÕÒÔ±ÜÃâ×ÊÔ´Ğ¹Â©¡£¶ÔËùÓĞ³£ÓÃ×ÊÔ´ÊµÏÖ·µ»Ø false£¬`InputStreamResource` ³ıÍâ¡£
-*   `getDescription()` - ·µ»Øµ±Ç°×ÊÔ´µÄÃèÊö£¬µ±´¦Àí×ÊÔ´³ö´íÊ±£¬×ÊÔ´µÄÃèÊö»áÓÃÓÚ´íÎóĞÅÏ¢µÄÊä³ö¡£Ò»°ãÀ´Ëµ£¬×ÊÔ´µÄÃèÊöÊÇÒ»¸öÍêÈ«ÏŞ¶¨µÄÎÄ¼şÃû³Æ£¬»òÕßÊÇµ±Ç°×ÊÔ´µÄÕæÊµ URL¡£
+*   `getInputStream()` - å®šä½å¹¶ä¸”æ‰“å¼€å½“å‰èµ„æºï¼Œè¿”å›å½“å‰èµ„æºçš„ `InputStream`ã€‚æ¯æ¬¡è°ƒç”¨éƒ½ä¼šè¿”å›ä¸€ä¸ªæ–°çš„ `InputStream`ã€‚è°ƒç”¨è€…éœ€è¦è´Ÿè´£å…³é—­æµã€‚
+*   `exists()` - åˆ¤æ–­å½“å‰èµ„æºæ˜¯å¦çœŸçš„å­˜åœ¨ã€‚
+*   `isOpen()` - åˆ¤æ–­å½“å‰èµ„æºæ˜¯å¦æ˜¯ä¸€ä¸ªå·²æ‰“å¼€çš„ `InputStream`ã€‚å¦‚æœä¸º trueï¼Œåˆ™ `InputStream` ä¸èƒ½è¢«å¤šæ¬¡è¯»å–ï¼Œå¿…é¡»åªè¯»å–ä¸€æ¬¡ç„¶åå…³é—­ä»¥é¿å…èµ„æºæ³„æ¼ã€‚å¯¹æ‰€æœ‰å¸¸ç”¨èµ„æºå®ç°è¿”å› falseï¼Œ`InputStreamResource` é™¤å¤–ã€‚
+*   `getDescription()` - è¿”å›å½“å‰èµ„æºçš„æè¿°ï¼Œå½“å¤„ç†èµ„æºå‡ºé”™æ—¶ï¼Œèµ„æºçš„æè¿°ä¼šç”¨äºé”™è¯¯ä¿¡æ¯çš„è¾“å‡ºã€‚ä¸€èˆ¬æ¥è¯´ï¼Œèµ„æºçš„æè¿°æ˜¯ä¸€ä¸ªå®Œå…¨é™å®šçš„æ–‡ä»¶åç§°ï¼Œæˆ–è€…æ˜¯å½“å‰èµ„æºçš„çœŸå® URLã€‚
 
-³£¼û Spring ×ÊÔ´½Ó¿Ú£º
+å¸¸è§ Spring èµ„æºæ¥å£ï¼š
 
-| ÀàĞÍ | ½Ó¿Ú |
+| ç±»å‹ | æ¥å£ |
 | --- | --- |
-| ÊäÈëÁ÷ | `org.springframework.core.io.InputStreamSource` |
-| Ö»¶Á×ÊÔ´ | `org.springframework.core.io.Resource` |
-| ¿ÉĞ´×ÊÔ´ | `org.springframework.core.io.WritableResource` |
-| ±àÂë×ÊÔ´ | `org.springframework.core.io.support.EncodedResource` |
-| ÉÏÏÂÎÄ×ÊÔ´ | `org.springframework.core.io.ContextResource` |
+| è¾“å…¥æµ | `org.springframework.core.io.InputStreamSource` |
+| åªè¯»èµ„æº | `org.springframework.core.io.Resource` |
+| å¯å†™èµ„æº | `org.springframework.core.io.WritableResource` |
+| ç¼–ç èµ„æº | `org.springframework.core.io.support.EncodedResource` |
+| ä¸Šä¸‹æ–‡èµ„æº | `org.springframework.core.io.ContextResource` |
 
 
 
 ![](https://raw.githubusercontent.com/dunwu/images/dev/snap/20221223155859.png)
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E5%86%85%E7%BD%AE%E7%9A%84-resource-%E5%AE%9E%E7%8E%B0)ÄÚÖÃµÄ Resource ÊµÏÖ
+## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E5%86%85%E7%BD%AE%E7%9A%84-resource-%E5%AE%9E%E7%8E%B0)å†…ç½®çš„ Resource å®ç°
 
-Spring °üÀ¨¼¸¸öÄÚÖÃµÄ Resource ÊµÏÖ£º
+Spring åŒ…æ‹¬å‡ ä¸ªå†…ç½®çš„ Resource å®ç°ï¼š
 
-| ×ÊÔ´À´Ô´ | Ç°×º | ËµÃ÷ |
+| èµ„æºæ¥æº | å‰ç¼€ | è¯´æ˜ |
 | --- | --- | --- |
-| [`UrlResource`(opens new window)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-implementations-urlresource) | `file:`¡¢`https:`¡¢`ftp:` µÈ | `UrlResource` ·â×°ÁËÒ»¸ö `java.net.URL` ¶ÔÏó£¬**ÓÃÓÚ·ÃÎÊ¿ÉÍ¨¹ı URL ·ÃÎÊµÄÈÎºÎ¶ÔÏó**£¬ÀıÈçÎÄ¼ş¡¢HTTPS Ä¿±ê¡¢FTP Ä¿±êµÈ¡£ËùÓĞ URL ¶¼¿ÉÒÔÍ¨¹ı±ê×¼»¯µÄ×Ö·û´®ĞÎÊ½±íÊ¾£¬Òò´Ë¿ÉÒÔÊ¹ÓÃÊÊµ±µÄ±ê×¼»¯Ç°×ºÀ´Ö¸Ê¾Ò»ÖÖ URL ÀàĞÍÓëÁíÒ»ÖÖ URL ÀàĞÍµÄÇø±ğ¡£ Õâ°üÀ¨£º`file`£ºÓÃÓÚ·ÃÎÊÎÄ¼şÏµÍ³Â·¾¶£»`https`£ºÓÃÓÚÍ¨¹ı HTTPS Ğ­Òé·ÃÎÊ×ÊÔ´£»`ftp`£ºÓÃÓÚÍ¨¹ı FTP ·ÃÎÊ×ÊÔ´µÈµÈ¡£ |
-| [`ClassPathResource`(opens new window)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-implementations-classpathresource) | `classpath:` | `ClassPathResource` **´ÓÀàÂ·¾¶ÉÏ¼ÓÔØ×ÊÔ´**¡£ËüÊ¹ÓÃÏß³ÌÉÏÏÂÎÄ¼ÓÔØÆ÷¡¢¸ø¶¨µÄÀà¼ÓÔØÆ÷»òÖ¸¶¨µÄ class ÀàĞÍÖĞµÄÈÎÒâÒ»¸öÀ´¼ÓÔØ×ÊÔ´¡£ |
-| [`FileSystemResource`(opens new window)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-implementations-filesystemresource) | `file:` | `FileSystemResource` **ÊÇ `java.io.File` µÄ×ÊÔ´ÊµÏÖ**¡£Ëü»¹Ö§³Ö `java.nio.file.Path` £¬Ó¦ÓÃ Spring µÄ±ê×¼¶Ô×Ö·û´®Â·¾¶½øĞĞ×ª»»¡£`FileSystemResource` Ö§³Ö½âÎöÎªÎÄ¼şºÍ URL¡£ |
-| [`PathResource`(opens new window)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-implementations-pathresource) | ÎŞ | `PathResource` ÊÇ `java.nio.file.Path` µÄ×ÊÔ´ÊµÏÖ¡£ |
-| [`ServletContextResource`(opens new window)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-implementations-servletcontextresource) | ÎŞ | `ServletContextResource` **ÊÇ `ServletContext` µÄ×ÊÔ´ÊµÏÖ**¡£Ëü±íÊ¾ÏàÓ¦ Web Ó¦ÓÃ³ÌĞò¸ùÄ¿Â¼ÖĞµÄÏà¶ÔÂ·¾¶¡£ |
-| [`InputStreamResource`(opens new window)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-implementations-inputstreamresource) | ÎŞ | `InputStreamResource` **ÊÇÖ¸¶¨ `InputStream` µÄ×ÊÔ´ÊµÏÖ**¡£×¢Òâ£ºÈç¹û¸Ã `InputStream` ÒÑ±»´ò¿ª£¬Ôò²»¿ÉÒÔ¶à´Î¶ÁÈ¡¸ÃÁ÷¡£ |
-| [`ByteArrayResource`(opens new window)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-implementations-bytearrayresource) | ÎŞ | `ByteArrayResource` ÊÇÖ¸¶¨µÄ¶ş½øÖÆÊı×éµÄ×ÊÔ´ÊµÏÖ¡£Ëü»áÎª¸ø¶¨µÄ×Ö½ÚÊı×é´´½¨Ò»¸ö `ByteArrayInputStream`¡£ |
+| [`UrlResource`(opens new window)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-implementations-urlresource) | `file:`ã€`https:`ã€`ftp:` ç­‰ | `UrlResource` å°è£…äº†ä¸€ä¸ª `java.net.URL` å¯¹è±¡ï¼Œ**ç”¨äºè®¿é—®å¯é€šè¿‡ URL è®¿é—®çš„ä»»ä½•å¯¹è±¡**ï¼Œä¾‹å¦‚æ–‡ä»¶ã€HTTPS ç›®æ ‡ã€FTP ç›®æ ‡ç­‰ã€‚æ‰€æœ‰ URL éƒ½å¯ä»¥é€šè¿‡æ ‡å‡†åŒ–çš„å­—ç¬¦ä¸²å½¢å¼è¡¨ç¤ºï¼Œå› æ­¤å¯ä»¥ä½¿ç”¨é€‚å½“çš„æ ‡å‡†åŒ–å‰ç¼€æ¥æŒ‡ç¤ºä¸€ç§ URL ç±»å‹ä¸å¦ä¸€ç§ URL ç±»å‹çš„åŒºåˆ«ã€‚ è¿™åŒ…æ‹¬ï¼š`file`ï¼šç”¨äºè®¿é—®æ–‡ä»¶ç³»ç»Ÿè·¯å¾„ï¼›`https`ï¼šç”¨äºé€šè¿‡ HTTPS åè®®è®¿é—®èµ„æºï¼›`ftp`ï¼šç”¨äºé€šè¿‡ FTP è®¿é—®èµ„æºç­‰ç­‰ã€‚ |
+| [`ClassPathResource`(opens new window)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-implementations-classpathresource) | `classpath:` | `ClassPathResource` **ä»ç±»è·¯å¾„ä¸ŠåŠ è½½èµ„æº**ã€‚å®ƒä½¿ç”¨çº¿ç¨‹ä¸Šä¸‹æ–‡åŠ è½½å™¨ã€ç»™å®šçš„ç±»åŠ è½½å™¨æˆ–æŒ‡å®šçš„ class ç±»å‹ä¸­çš„ä»»æ„ä¸€ä¸ªæ¥åŠ è½½èµ„æºã€‚ |
+| [`FileSystemResource`(opens new window)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-implementations-filesystemresource) | `file:` | `FileSystemResource` **æ˜¯ `java.io.File` çš„èµ„æºå®ç°**ã€‚å®ƒè¿˜æ”¯æŒ `java.nio.file.Path` ï¼Œåº”ç”¨ Spring çš„æ ‡å‡†å¯¹å­—ç¬¦ä¸²è·¯å¾„è¿›è¡Œè½¬æ¢ã€‚`FileSystemResource` æ”¯æŒè§£æä¸ºæ–‡ä»¶å’Œ URLã€‚ |
+| [`PathResource`(opens new window)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-implementations-pathresource) | æ—  | `PathResource` æ˜¯ `java.nio.file.Path` çš„èµ„æºå®ç°ã€‚ |
+| [`ServletContextResource`(opens new window)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-implementations-servletcontextresource) | æ—  | `ServletContextResource` **æ˜¯ `ServletContext` çš„èµ„æºå®ç°**ã€‚å®ƒè¡¨ç¤ºç›¸åº” Web åº”ç”¨ç¨‹åºæ ¹ç›®å½•ä¸­çš„ç›¸å¯¹è·¯å¾„ã€‚ |
+| [`InputStreamResource`(opens new window)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-implementations-inputstreamresource) | æ—  | `InputStreamResource` **æ˜¯æŒ‡å®š `InputStream` çš„èµ„æºå®ç°**ã€‚æ³¨æ„ï¼šå¦‚æœè¯¥ `InputStream` å·²è¢«æ‰“å¼€ï¼Œåˆ™ä¸å¯ä»¥å¤šæ¬¡è¯»å–è¯¥æµã€‚ |
+| [`ByteArrayResource`(opens new window)](https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#resources-implementations-bytearrayresource) | æ—  | `ByteArrayResource` æ˜¯æŒ‡å®šçš„äºŒè¿›åˆ¶æ•°ç»„çš„èµ„æºå®ç°ã€‚å®ƒä¼šä¸ºç»™å®šçš„å­—èŠ‚æ•°ç»„åˆ›å»ºä¸€ä¸ª `ByteArrayInputStream`ã€‚ |
 
 
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#resourceloader-%E6%8E%A5%E5%8F%A3)ResourceLoader ½Ó¿Ú
+## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#resourceloader-%E6%8E%A5%E5%8F%A3)ResourceLoader æ¥å£
 
-`ResourceLoader` ½Ó¿ÚÓÃÓÚ¼ÓÔØ `Resource` ¶ÔÏó¡£Æä¶¨ÒåÈçÏÂ£º
+`ResourceLoader` æ¥å£ç”¨äºåŠ è½½ `Resource` å¯¹è±¡ã€‚å…¶å®šä¹‰å¦‚ä¸‹ï¼š
 
 
 
@@ -93,22 +93,22 @@ public interface ResourceLoader {
 
 
 
-Spring ÖĞÖ÷ÒªµÄ ResourceLoader ÊµÏÖ£º
+Spring ä¸­ä¸»è¦çš„ ResourceLoader å®ç°ï¼š
 
 ![](https://raw.githubusercontent.com/dunwu/images/dev/snap/20221223164745.png)
 
-Spring ÖĞ£¬ËùÓĞµÄ `ApplicationContext` ¶¼ÊµÏÖÁË `ResourceLoader` ½Ó¿Ú¡£Òò´Ë£¬ËùÓĞ `ApplicationContext` ¶¼¿ÉÒÔÍ¨¹ı `getResource()` ·½·¨»ñÈ¡ `Resource` ÊµÀı¡£
+Spring ä¸­ï¼Œæ‰€æœ‰çš„ `ApplicationContext` éƒ½å®ç°äº† `ResourceLoader` æ¥å£ã€‚å› æ­¤ï¼Œæ‰€æœ‰ `ApplicationContext` éƒ½å¯ä»¥é€šè¿‡ `getResource()` æ–¹æ³•è·å– `Resource` å®ä¾‹ã€‚
 
-¡¾Ê¾Àı¡¿
+ã€ç¤ºä¾‹ã€‘
 
 
 
 ```
-// Èç¹ûÃ»ÓĞÖ¸¶¨×ÊÔ´Ç°×º£¬Spring »á³¢ÊÔ·µ»ØºÏÊÊµÄ×ÊÔ´
+// å¦‚æœæ²¡æœ‰æŒ‡å®šèµ„æºå‰ç¼€ï¼ŒSpring ä¼šå°è¯•è¿”å›åˆé€‚çš„èµ„æº
 Resource template = ctx.getResource("some/resource/path/myTemplate.txt");
-// Èç¹ûÖ¸¶¨ classpath: Ç°×º£¬Spring »áÇ¿ÖÆÊ¹ÓÃ ClassPathResource
+// å¦‚æœæŒ‡å®š classpath: å‰ç¼€ï¼ŒSpring ä¼šå¼ºåˆ¶ä½¿ç”¨ ClassPathResource
 Resource template = ctx.getResource("classpath:some/resource/path/myTemplate.txt");
-// Èç¹ûÖ¸¶¨ file:¡¢http µÈ URL Ç°×º£¬Spring »áÇ¿ÖÆÊ¹ÓÃ UrlResource
+// å¦‚æœæŒ‡å®š file:ã€http ç­‰ URL å‰ç¼€ï¼ŒSpring ä¼šå¼ºåˆ¶ä½¿ç”¨ UrlResource
 Resource template = ctx.getResource("file:///some/resource/path/myTemplate.txt");
 Resource template = ctx.getResource("http://myhost.com/resource/path/myTemplate.txt");
 
@@ -116,20 +116,20 @@ Resource template = ctx.getResource("http://myhost.com/resource/path/myTemplate.
 
 
 
-ÏÂ±íÁĞ¾ÙÁË Spring ¸ù¾İ¸÷ÖÖÎ»ÖÃÂ·¾¶¼ÓÔØ×ÊÔ´µÄ²ßÂÔ£º
+ä¸‹è¡¨åˆ—ä¸¾äº† Spring æ ¹æ®å„ç§ä½ç½®è·¯å¾„åŠ è½½èµ„æºçš„ç­–ç•¥ï¼š
 
-| Ç°×º | ÑùÀı | ËµÃ÷ |
+| å‰ç¼€ | æ ·ä¾‹ | è¯´æ˜ |
 | --- | --- | --- |
-| `classpath:` | `classpath:com/myapp/config.xml` | ´ÓÀàÂ·¾¶¼ÓÔØ |
-| `file:` | `file:///data/config.xml` | ÒÔ URL ĞÎÊ½´ÓÎÄ¼şÏµÍ³¼ÓÔØ |
-| `http:` | `http://myserver/logo.png` | ÒÔ URL ĞÎÊ½¼ÓÔØ |
-| ÎŞ | `/data/config.xml` | ÓÉµ×²ãµÄ ApplicationContext ÊµÏÖ¾ö¶¨ |
+| `classpath:` | `classpath:com/myapp/config.xml` | ä»ç±»è·¯å¾„åŠ è½½ |
+| `file:` | `file:///data/config.xml` | ä»¥ URL å½¢å¼ä»æ–‡ä»¶ç³»ç»ŸåŠ è½½ |
+| `http:` | `http://myserver/logo.png` | ä»¥ URL å½¢å¼åŠ è½½ |
+| æ—  | `/data/config.xml` | ç”±åº•å±‚çš„ ApplicationContext å®ç°å†³å®š |
 
 
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#resourcepatternresolver-%E6%8E%A5%E5%8F%A3)ResourcePatternResolver ½Ó¿Ú
+## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#resourcepatternresolver-%E6%8E%A5%E5%8F%A3)ResourcePatternResolver æ¥å£
 
-`ResourcePatternResolver` ½Ó¿ÚÊÇ `ResourceLoader` ½Ó¿ÚµÄÀ©Õ¹£¬ËüµÄ×÷ÓÃÊÇ¶¨Òå²ßÂÔ£¬¸ù¾İÎ»ÖÃÄ£Ê½½âÎö `Resource` ¶ÔÏó¡£
+`ResourcePatternResolver` æ¥å£æ˜¯ `ResourceLoader` æ¥å£çš„æ‰©å±•ï¼Œå®ƒçš„ä½œç”¨æ˜¯å®šä¹‰ç­–ç•¥ï¼Œæ ¹æ®ä½ç½®æ¨¡å¼è§£æ `Resource` å¯¹è±¡ã€‚
 
 
 
@@ -145,13 +145,13 @@ public interface ResourcePatternResolver extends ResourceLoader {
 
 
 
-`PathMatchingResourcePatternResolver` ÊÇÒ»¸ö¶ÀÁ¢µÄÊµÏÖ£¬¿ÉÒÔÔÚ `ApplicationContext` Ö®ÍâÊ¹ÓÃ£¬Ò²¿ÉÒÔ±» `ResourceArrayPropertyEditor` ÓÃÓÚÌî³ä `Resource[]` bean ÊôĞÔ¡£`PathMatchingResourcePatternResolver` ÄÜ¹»½«Ö¸¶¨µÄ×ÊÔ´Î»ÖÃÂ·¾¶½âÎöÎªÒ»¸ö»ò¶à¸öÆ¥ÅäµÄ `Resource` ¶ÔÏó¡£
+`PathMatchingResourcePatternResolver` æ˜¯ä¸€ä¸ªç‹¬ç«‹çš„å®ç°ï¼Œå¯ä»¥åœ¨ `ApplicationContext` ä¹‹å¤–ä½¿ç”¨ï¼Œä¹Ÿå¯ä»¥è¢« `ResourceArrayPropertyEditor` ç”¨äºå¡«å…… `Resource[]` bean å±æ€§ã€‚`PathMatchingResourcePatternResolver` èƒ½å¤Ÿå°†æŒ‡å®šçš„èµ„æºä½ç½®è·¯å¾„è§£æä¸ºä¸€ä¸ªæˆ–å¤šä¸ªåŒ¹é…çš„ `Resource` å¯¹è±¡ã€‚
 
-> ×¢Òâ£ºÈÎºÎ±ê×¼ `ApplicationContext` ÖĞµÄÄ¬ÈÏ `ResourceLoader` Êµ¼ÊÉÏÊÇ `PathMatchingResourcePatternResolver` µÄÒ»¸öÊµÀı£¬ËüÊµÏÖÁË `ResourcePatternResolver` ½Ó¿Ú¡£
+> æ³¨æ„ï¼šä»»ä½•æ ‡å‡† `ApplicationContext` ä¸­çš„é»˜è®¤ `ResourceLoader` å®é™…ä¸Šæ˜¯ `PathMatchingResourcePatternResolver` çš„ä¸€ä¸ªå®ä¾‹ï¼Œå®ƒå®ç°äº† `ResourcePatternResolver` æ¥å£ã€‚
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#resourceloaderaware-%E6%8E%A5%E5%8F%A3)ResourceLoaderAware ½Ó¿Ú
+## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#resourceloaderaware-%E6%8E%A5%E5%8F%A3)ResourceLoaderAware æ¥å£
 
-`ResourceLoaderAware` ½Ó¿ÚÊÇÒ»¸öÌØÊâµÄ»Øµ÷½Ó¿Ú£¬ÓÃÀ´±ê¼ÇÌá¹© `ResourceLoader` ÒıÓÃµÄ¶ÔÏó¡£`ResourceLoaderAware` ½Ó¿Ú¶¨ÒåÈçÏÂ£º
+`ResourceLoaderAware` æ¥å£æ˜¯ä¸€ä¸ªç‰¹æ®Šçš„å›è°ƒæ¥å£ï¼Œç”¨æ¥æ ‡è®°æä¾› `ResourceLoader` å¼•ç”¨çš„å¯¹è±¡ã€‚`ResourceLoaderAware` æ¥å£å®šä¹‰å¦‚ä¸‹ï¼š
 
 
 
@@ -164,19 +164,19 @@ public interface ResourceLoaderAware {
 
 
 
-µ±Ò»¸öÀàÊµÏÖ `ResourceLoaderAware` ²¢²¿Êğµ½Ó¦ÓÃ³ÌĞòÉÏÏÂÎÄÖĞ£¨×÷Îª Spring ¹ÜÀíµÄ bean£©Ê±£¬Ëü»á±»Ó¦ÓÃ³ÌĞòÉÏÏÂÎÄÊ¶±ğÎª `ResourceLoaderAware`£¬È»ºó£¬Ó¦ÓÃ³ÌĞòÉÏÏÂÎÄ»áµ÷ÓÃ `setResourceLoader(ResourceLoader)`£¬½«×ÔÉí×÷Îª²ÎÊıÌá¹©£¨Çë¼Ç×¡£¬Spring ÖĞµÄËùÓĞÓ¦ÓÃ³ÌĞòÉÏÏÂÎÄ¶¼ÊµÏÖ `ResourceLoader` ½Ó¿Ú£©¡£
+å½“ä¸€ä¸ªç±»å®ç° `ResourceLoaderAware` å¹¶éƒ¨ç½²åˆ°åº”ç”¨ç¨‹åºä¸Šä¸‹æ–‡ä¸­ï¼ˆä½œä¸º Spring ç®¡ç†çš„ beanï¼‰æ—¶ï¼Œå®ƒä¼šè¢«åº”ç”¨ç¨‹åºä¸Šä¸‹æ–‡è¯†åˆ«ä¸º `ResourceLoaderAware`ï¼Œç„¶åï¼Œåº”ç”¨ç¨‹åºä¸Šä¸‹æ–‡ä¼šè°ƒç”¨ `setResourceLoader(ResourceLoader)`ï¼Œå°†è‡ªèº«ä½œä¸ºå‚æ•°æä¾›ï¼ˆè¯·è®°ä½ï¼ŒSpring ä¸­çš„æ‰€æœ‰åº”ç”¨ç¨‹åºä¸Šä¸‹æ–‡éƒ½å®ç° `ResourceLoader` æ¥å£ï¼‰ã€‚
 
-ÓÉÓÚ `ApplicationContext` ÊÇÒ»¸ö `ResourceLoader`£¬¸Ã bean »¹¿ÉÒÔÊµÏÖ `ApplicationContextAware` ½Ó¿Ú²¢Ö±½ÓÊ¹ÓÃÌá¹©µÄÓ¦ÓÃ³ÌĞòÉÏÏÂÎÄÀ´¼ÓÔØ×ÊÔ´¡£ µ«ÊÇ£¬Ò»°ãÀ´Ëµ£¬Èç¹ûÄúÖ»ĞèÒªÕâĞ©£¬×îºÃÊ¹ÓÃ×¨ÃÅµÄ `ResourceLoader` ½Ó¿Ú¡£ ¸Ã´úÂë½«½öñîºÏµ½×ÊÔ´¼ÓÔØ½Ó¿Ú£¨¿ÉÒÔ±»ÊÓÎªÊµÓÃ³ÌĞò½Ó¿Ú£©£¬¶ø²»ñîºÏµ½Õû¸ö Spring `ApplicationContext` ½Ó¿Ú¡£
+ç”±äº `ApplicationContext` æ˜¯ä¸€ä¸ª `ResourceLoader`ï¼Œè¯¥ bean è¿˜å¯ä»¥å®ç° `ApplicationContextAware` æ¥å£å¹¶ç›´æ¥ä½¿ç”¨æä¾›çš„åº”ç”¨ç¨‹åºä¸Šä¸‹æ–‡æ¥åŠ è½½èµ„æºã€‚ ä½†æ˜¯ï¼Œä¸€èˆ¬æ¥è¯´ï¼Œå¦‚æœæ‚¨åªéœ€è¦è¿™äº›ï¼Œæœ€å¥½ä½¿ç”¨ä¸“é—¨çš„ `ResourceLoader` æ¥å£ã€‚ è¯¥ä»£ç å°†ä»…è€¦åˆåˆ°èµ„æºåŠ è½½æ¥å£ï¼ˆå¯ä»¥è¢«è§†ä¸ºå®ç”¨ç¨‹åºæ¥å£ï¼‰ï¼Œè€Œä¸è€¦åˆåˆ°æ•´ä¸ª Spring `ApplicationContext` æ¥å£ã€‚
 
-ÔÚÓ¦ÓÃ³ÌĞòÖĞ£¬»¹¿ÉÒÔÊ¹ÓÃ `ResourceLoader` µÄ×Ô¶¯×°Åä×÷ÎªÊµÏÖ `ResourceLoaderAware` ½Ó¿ÚµÄÌæ´ú·½·¨¡£´«Í³µÄ¹¹Ôìº¯ÊıºÍ `byType` ×Ô¶¯×°ÅäÄ£Ê½ÄÜ¹»·Ö±ğÎª¹¹Ôìº¯Êı²ÎÊı»ò setter ·½·¨²ÎÊıÌá¹© `ResourceLoader`¡£ ÎªÁË»ñµÃ¸ü´óµÄÁé»îĞÔ£¨°üÀ¨×Ô¶¯×°Åä×Ö¶ÎºÍ¶à²ÎÊı·½·¨µÄÄÜÁ¦£©£¬Çë¿¼ÂÇÊ¹ÓÃ»ùÓÚ×¢½âµÄ×Ô¶¯×°Åä¹¦ÄÜ¡£ ÔÚÕâÖÖÇé¿öÏÂ£¬`ResourceLoader` »á×Ô¶¯Á¬½Óµ½ĞèÒª `ResourceLoader` ÀàĞÍµÄ×Ö¶Î¡¢¹¹Ôìº¯Êı²ÎÊı»ò·½·¨²ÎÊıÖĞ£¬Ö»ÒªÏà¹Ø×Ö¶Î¡¢¹¹Ôìº¯Êı»ò·½·¨´øÓĞ `@Autowired` ×¢½â¼´¿É¡£
+åœ¨åº”ç”¨ç¨‹åºä¸­ï¼Œè¿˜å¯ä»¥ä½¿ç”¨ `ResourceLoader` çš„è‡ªåŠ¨è£…é…ä½œä¸ºå®ç° `ResourceLoaderAware` æ¥å£çš„æ›¿ä»£æ–¹æ³•ã€‚ä¼ ç»Ÿçš„æ„é€ å‡½æ•°å’Œ `byType` è‡ªåŠ¨è£…é…æ¨¡å¼èƒ½å¤Ÿåˆ†åˆ«ä¸ºæ„é€ å‡½æ•°å‚æ•°æˆ– setter æ–¹æ³•å‚æ•°æä¾› `ResourceLoader`ã€‚ ä¸ºäº†è·å¾—æ›´å¤§çš„çµæ´»æ€§ï¼ˆåŒ…æ‹¬è‡ªåŠ¨è£…é…å­—æ®µå’Œå¤šå‚æ•°æ–¹æ³•çš„èƒ½åŠ›ï¼‰ï¼Œè¯·è€ƒè™‘ä½¿ç”¨åŸºäºæ³¨è§£çš„è‡ªåŠ¨è£…é…åŠŸèƒ½ã€‚ åœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œ`ResourceLoader` ä¼šè‡ªåŠ¨è¿æ¥åˆ°éœ€è¦ `ResourceLoader` ç±»å‹çš„å­—æ®µã€æ„é€ å‡½æ•°å‚æ•°æˆ–æ–¹æ³•å‚æ•°ä¸­ï¼Œåªè¦ç›¸å…³å­—æ®µã€æ„é€ å‡½æ•°æˆ–æ–¹æ³•å¸¦æœ‰ `@Autowired` æ³¨è§£å³å¯ã€‚
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E8%B5%84%E6%BA%90%E4%BE%9D%E8%B5%96)×ÊÔ´ÒÀÀµ
+## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E8%B5%84%E6%BA%90%E4%BE%9D%E8%B5%96)èµ„æºä¾èµ–
 
-Èç¹û bean ±¾ÉíÒªÍ¨¹ıÄ³ÖÖ¶¯Ì¬¹ı³ÌÀ´È·¶¨ºÍÌá¹©×ÊÔ´Â·¾¶£¬ÄÇÃ´ bean ¿ÉÒÔÊ¹ÓÃ `ResourceLoader` »ò `ResourcePatternResolver` ½Ó¿ÚÀ´¼ÓÔØ×ÊÔ´¡£ ÀıÈç£¬¿¼ÂÇ¼ÓÔØÄ³ÖÖÄ£°å£¬ÆäÖĞËùĞèµÄÌØ¶¨×ÊÔ´È¡¾öÓÚÓÃ»§µÄ½ÇÉ«¡£ Èç¹û×ÊÔ´ÊÇ¾²Ì¬µÄ£¬ÍêÈ«Ïû³ı `ResourceLoader` ½Ó¿Ú£¨»ò `ResourcePatternResolver` ½Ó¿Ú£©µÄÊ¹ÓÃ£¬ÈÃ bean ¹«¿ªËüĞèÒªµÄ `Resource` ÊôĞÔ£¬²¢ÆÚÍû½«ËüÃÇ×¢ÈëÆäÖĞÊÇÓĞÒâÒåµÄ¡£
+å¦‚æœ bean æœ¬èº«è¦é€šè¿‡æŸç§åŠ¨æ€è¿‡ç¨‹æ¥ç¡®å®šå’Œæä¾›èµ„æºè·¯å¾„ï¼Œé‚£ä¹ˆ bean å¯ä»¥ä½¿ç”¨ `ResourceLoader` æˆ– `ResourcePatternResolver` æ¥å£æ¥åŠ è½½èµ„æºã€‚ ä¾‹å¦‚ï¼Œè€ƒè™‘åŠ è½½æŸç§æ¨¡æ¿ï¼Œå…¶ä¸­æ‰€éœ€çš„ç‰¹å®šèµ„æºå–å†³äºç”¨æˆ·çš„è§’è‰²ã€‚ å¦‚æœèµ„æºæ˜¯é™æ€çš„ï¼Œå®Œå…¨æ¶ˆé™¤ `ResourceLoader` æ¥å£ï¼ˆæˆ– `ResourcePatternResolver` æ¥å£ï¼‰çš„ä½¿ç”¨ï¼Œè®© bean å…¬å¼€å®ƒéœ€è¦çš„ `Resource` å±æ€§ï¼Œå¹¶æœŸæœ›å°†å®ƒä»¬æ³¨å…¥å…¶ä¸­æ˜¯æœ‰æ„ä¹‰çš„ã€‚
 
-Ê¹×¢ÈëÕâĞ©ÊôĞÔ±äµÃ¼òµ¥µÄÔ­ÒòÊÇËùÓĞÓ¦ÓÃ³ÌĞòÉÏÏÂÎÄ¶¼×¢²á²¢Ê¹ÓÃÒ»¸öÌØÊâµÄ JavaBeans `PropertyEditor`£¬Ëü¿ÉÒÔ½« `String` Â·¾¶×ª»»Îª `Resource` ¶ÔÏó¡£ ÀıÈç£¬ÏÂÃæµÄ MyBean ÀàÓĞÒ»¸ö `Resource` ÀàĞÍµÄÄ£°åÊôĞÔ¡£
+ä½¿æ³¨å…¥è¿™äº›å±æ€§å˜å¾—ç®€å•çš„åŸå› æ˜¯æ‰€æœ‰åº”ç”¨ç¨‹åºä¸Šä¸‹æ–‡éƒ½æ³¨å†Œå¹¶ä½¿ç”¨ä¸€ä¸ªç‰¹æ®Šçš„ JavaBeans `PropertyEditor`ï¼Œå®ƒå¯ä»¥å°† `String` è·¯å¾„è½¬æ¢ä¸º `Resource` å¯¹è±¡ã€‚ ä¾‹å¦‚ï¼Œä¸‹é¢çš„ MyBean ç±»æœ‰ä¸€ä¸ª `Resource` ç±»å‹çš„æ¨¡æ¿å±æ€§ã€‚
 
-¡¾Ê¾Àı¡¿
+ã€ç¤ºä¾‹ã€‘
 
 
 
@@ -189,9 +189,9 @@ public interface ResourceLoaderAware {
 
 
 
-Çë×¢Òâ£¬ÅäÖÃÖĞÒıÓÃµÄÄ£°å×ÊÔ´Â·¾¶Ã»ÓĞÇ°×º£¬ÒòÎªÓ¦ÓÃ³ÌĞòÉÏÏÂÎÄ±¾Éí½«ÓÃ×÷ `ResourceLoader`£¬×ÊÔ´±¾Éí½«¸ù¾İĞèÒªÍ¨¹ı `ClassPathResource`£¬`FileSystemResource` »ò ServletContextResource ¼ÓÔØ£¬¾ßÌåÈ¡¾öÓÚÉÏÏÂÎÄµÄÈ·ÇĞÀàĞÍ¡£
+è¯·æ³¨æ„ï¼Œé…ç½®ä¸­å¼•ç”¨çš„æ¨¡æ¿èµ„æºè·¯å¾„æ²¡æœ‰å‰ç¼€ï¼Œå› ä¸ºåº”ç”¨ç¨‹åºä¸Šä¸‹æ–‡æœ¬èº«å°†ç”¨ä½œ `ResourceLoader`ï¼Œèµ„æºæœ¬èº«å°†æ ¹æ®éœ€è¦é€šè¿‡ `ClassPathResource`ï¼Œ`FileSystemResource` æˆ– ServletContextResource åŠ è½½ï¼Œå…·ä½“å–å†³äºä¸Šä¸‹æ–‡çš„ç¡®åˆ‡ç±»å‹ã€‚
 
-Èç¹ûĞèÒªÇ¿ÖÆÊ¹ÓÃÌØ¶¨µÄ×ÊÔ´ÀàĞÍ£¬Ôò¿ÉÒÔÊ¹ÓÃÇ°×º¡£ ÒÔÏÂÁ½¸öÊ¾ÀıÏÔÊ¾ÈçºÎÇ¿ÖÆÊ¹ÓÃ `ClassPathResource` ºÍ `UrlResource`£¨ºóÕßÓÃÓÚ·ÃÎÊÎÄ¼şÏµÍ³ÎÄ¼ş£©¡£
+å¦‚æœéœ€è¦å¼ºåˆ¶ä½¿ç”¨ç‰¹å®šçš„èµ„æºç±»å‹ï¼Œåˆ™å¯ä»¥ä½¿ç”¨å‰ç¼€ã€‚ ä»¥ä¸‹ä¸¤ä¸ªç¤ºä¾‹æ˜¾ç¤ºå¦‚ä½•å¼ºåˆ¶ä½¿ç”¨ `ClassPathResource` å’Œ `UrlResource`ï¼ˆåè€…ç”¨äºè®¿é—®æ–‡ä»¶ç³»ç»Ÿæ–‡ä»¶ï¼‰ã€‚
 
 
 
@@ -203,7 +203,7 @@ public interface ResourceLoaderAware {
 
 
 
-¿ÉÒÔÍ¨¹ı `@Value` ×¢½â¼ÓÔØ×ÊÔ´ÎÄ¼ş `myTemplate.txt`£¬Ê¾ÀıÈçÏÂ£º
+å¯ä»¥é€šè¿‡ `@Value` æ³¨è§£åŠ è½½èµ„æºæ–‡ä»¶ `myTemplate.txt`ï¼Œç¤ºä¾‹å¦‚ä¸‹ï¼š
 
 
 
@@ -224,9 +224,9 @@ public class MyBean {
 
 
 
-Spring µÄ `PropertyEditor` »á¸ù¾İ×ÊÔ´ÎÄ¼şµÄÂ·¾¶×Ö·û´®£¬¼ÓÔØ `Resource` ¶ÔÏó£¬²¢½«Æä×¢Èëµ½ MyBean µÄ¹¹Ôì·½·¨¡£
+Spring çš„ `PropertyEditor` ä¼šæ ¹æ®èµ„æºæ–‡ä»¶çš„è·¯å¾„å­—ç¬¦ä¸²ï¼ŒåŠ è½½ `Resource` å¯¹è±¡ï¼Œå¹¶å°†å…¶æ³¨å…¥åˆ° MyBean çš„æ„é€ æ–¹æ³•ã€‚
 
-Èç¹ûÏëÒª¼ÓÔØ¶à¸ö×ÊÔ´ÎÄ¼ş£¬¿ÉÒÔÊ¹ÓÃ `classpath*:` Ç°×º£¬ÀıÈç£º`classpath*:/config/templates/*.txt`¡£
+å¦‚æœæƒ³è¦åŠ è½½å¤šä¸ªèµ„æºæ–‡ä»¶ï¼Œå¯ä»¥ä½¿ç”¨ `classpath*:` å‰ç¼€ï¼Œä¾‹å¦‚ï¼š`classpath*:/config/templates/*.txt`ã€‚
 
 
 
@@ -247,13 +247,13 @@ public class MyBean {
 
 
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C%E8%B5%84%E6%BA%90%E8%B7%AF%E5%BE%84)Ó¦ÓÃÉÏÏÂÎÄºÍ×ÊÔ´Â·¾¶
+## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C%E8%B5%84%E6%BA%90%E8%B7%AF%E5%BE%84)åº”ç”¨ä¸Šä¸‹æ–‡å’Œèµ„æºè·¯å¾„
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E6%9E%84%E9%80%A0%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87)¹¹ÔìÓ¦ÓÃÉÏÏÂÎÄ
+### [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E6%9E%84%E9%80%A0%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87)æ„é€ åº”ç”¨ä¸Šä¸‹æ–‡
 
-Ó¦ÓÃÉÏÏÂÎÄ¹¹Ôìº¯Êı£¨Õë¶ÔÌØ¶¨µÄÓ¦ÓÃÉÏÏÂÎÄÀàĞÍ£©Í¨³£½«×Ö·û´®»ò×Ö·û´®Êı×é×÷Îª×ÊÔ´µÄÎ»ÖÃÂ·¾¶£¬ÀıÈç¹¹³ÉÉÏÏÂÎÄ¶¨ÒåµÄ XML ÎÄ¼ş¡£
+åº”ç”¨ä¸Šä¸‹æ–‡æ„é€ å‡½æ•°ï¼ˆé’ˆå¯¹ç‰¹å®šçš„åº”ç”¨ä¸Šä¸‹æ–‡ç±»å‹ï¼‰é€šå¸¸å°†å­—ç¬¦ä¸²æˆ–å­—ç¬¦ä¸²æ•°ç»„ä½œä¸ºèµ„æºçš„ä½ç½®è·¯å¾„ï¼Œä¾‹å¦‚æ„æˆä¸Šä¸‹æ–‡å®šä¹‰çš„ XML æ–‡ä»¶ã€‚
 
-¡¾Ê¾Àı¡¿
+ã€ç¤ºä¾‹ã€‘
 
 
 
@@ -268,11 +268,11 @@ ApplicationContext ctx = new ClassPathXmlApplicationContext(
 
 
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E4%BD%BF%E7%94%A8%E9%80%9A%E9%85%8D%E7%AC%A6%E6%9E%84%E9%80%A0%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87)Ê¹ÓÃÍ¨Åä·û¹¹ÔìÓ¦ÓÃÉÏÏÂÎÄ
+### [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E4%BD%BF%E7%94%A8%E9%80%9A%E9%85%8D%E7%AC%A6%E6%9E%84%E9%80%A0%E5%BA%94%E7%94%A8%E4%B8%8A%E4%B8%8B%E6%96%87)ä½¿ç”¨é€šé…ç¬¦æ„é€ åº”ç”¨ä¸Šä¸‹æ–‡
 
-ApplicationContext ¹¹ÔìÆ÷µÄÖĞµÄ×ÊÔ´Â·¾¶¿ÉÒÔÊÇµ¥Ò»µÄÂ·¾¶£¨¼´Ò»¶ÔÒ»µØÓ³Éäµ½Ä¿±ê×ÊÔ´£©£»Ò²¿ÉÒÔÊÇÍ¨Åä·ûĞÎÊ½¡ª¡ª¿É°üº¬ classpath*£ºÒ²¿ÉÒÔÊÇÇ°×º»ò ant ·ç¸ñµÄÕıÔò±í´ïÊ½£¨Ê¹ÓÃ spring µÄ PathMatcher À´Æ¥Åä£©¡£
+ApplicationContext æ„é€ å™¨çš„ä¸­çš„èµ„æºè·¯å¾„å¯ä»¥æ˜¯å•ä¸€çš„è·¯å¾„ï¼ˆå³ä¸€å¯¹ä¸€åœ°æ˜ å°„åˆ°ç›®æ ‡èµ„æºï¼‰ï¼›ä¹Ÿå¯ä»¥æ˜¯é€šé…ç¬¦å½¢å¼â€”â€”å¯åŒ…å« classpath*ï¼šä¹Ÿå¯ä»¥æ˜¯å‰ç¼€æˆ– ant é£æ ¼çš„æ­£åˆ™è¡¨è¾¾å¼ï¼ˆä½¿ç”¨ spring çš„ PathMatcher æ¥åŒ¹é…ï¼‰ã€‚
 
-Ê¾Àı£º
+ç¤ºä¾‹ï¼š
 
 
 
@@ -283,24 +283,24 @@ ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath*:conf/app
 
 
 
-Ê¹ÓÃ `classpath*` ±íÊ¾ÀàÂ·¾¶ÏÂËùÓĞÆ¥ÅäÎÄ¼şÃû³ÆµÄ×ÊÔ´¶¼»á±»»ñÈ¡(±¾ÖÊÉÏ¾ÍÊÇµ÷ÓÃÁË ClassLoader.getResources(¡­) ·½·¨£©£¬½Ó×Å½«»ñÈ¡µ½µÄ×ÊÔ´×é×°³É×îÖÕµÄÓ¦ÓÃÉÏÏÂÎÄ¡£
+ä½¿ç”¨ `classpath*` è¡¨ç¤ºç±»è·¯å¾„ä¸‹æ‰€æœ‰åŒ¹é…æ–‡ä»¶åç§°çš„èµ„æºéƒ½ä¼šè¢«è·å–(æœ¬è´¨ä¸Šå°±æ˜¯è°ƒç”¨äº† ClassLoader.getResources(â€¦) æ–¹æ³•ï¼‰ï¼Œæ¥ç€å°†è·å–åˆ°çš„èµ„æºç»„è£…æˆæœ€ç»ˆçš„åº”ç”¨ä¸Šä¸‹æ–‡ã€‚
 
-ÔÚÎ»ÖÃÂ·¾¶µÄÆäÓà²¿·Ö£¬`classpath*:` Ç°×º¿ÉÒÔÓë PathMatcher ½áºÏÊ¹ÓÃ£¬Èç£º`classpath*:META-INF/*-beans.xml`¡£
+åœ¨ä½ç½®è·¯å¾„çš„å…¶ä½™éƒ¨åˆ†ï¼Œ`classpath*:` å‰ç¼€å¯ä»¥ä¸ PathMatcher ç»“åˆä½¿ç”¨ï¼Œå¦‚ï¼š`classpath*:META-INF/*-beans.xml`ã€‚
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E9%97%AE%E9%A2%98)ÎÊÌâ
+## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E9%97%AE%E9%A2%98)é—®é¢˜
 
-Spring ÅäÖÃ×ÊÔ´ÖĞÓĞÄÄĞ©³£¼ûÀàĞÍ£¿
+Spring é…ç½®èµ„æºä¸­æœ‰å“ªäº›å¸¸è§ç±»å‹ï¼Ÿ
 
-*   XML ×ÊÔ´
-*   Properties ×ÊÔ´
-*   YAML ×ÊÔ´
+*   XML èµ„æº
+*   Properties èµ„æº
+*   YAML èµ„æº
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99)²Î¿¼×ÊÁÏ
+## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99)å‚è€ƒèµ„æ–™
 
-*   [Spring ¹Ù·½ÎÄµµÖ® Core Technologies(opens new window)](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans)
-*   [¡¶Ğ¡Âí¸ç½² Spring ºËĞÄ±à³ÌË¼Ïë¡·](https://time.geekbang.org/course/intro/265)
+*   [Spring å®˜æ–¹æ–‡æ¡£ä¹‹ Core Technologies(opens new window)](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans)
+*   [ã€Šå°é©¬å“¥è®² Spring æ ¸å¿ƒç¼–ç¨‹æ€æƒ³ã€‹](https://time.geekbang.org/course/intro/265)
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://www.w3cschool.cn/wkspring
 https://www.runoob.com/w3cnote/basic-knowledge-summary-of-spring.html
 http://codepub.cn/2015/06/21/Basic-knowledge-summary-of-Spring

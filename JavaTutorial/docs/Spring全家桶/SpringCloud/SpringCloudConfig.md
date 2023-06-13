@@ -1,58 +1,58 @@
-ÔÚ·Ö²¼Ê½Î¢·şÎñÏµÍ³ÖĞ£¬¼¸ºõËùÓĞ·şÎñµÄÔËĞĞ¶¼Àë²»¿ªÅäÖÃÎÄ¼şµÄÖ§³Ö£¬ÕâĞ©ÅäÖÃÎÄ¼şÍ¨³£ÓÉ¸÷¸ö·şÎñ×ÔĞĞ¹ÜÀí£¬ÒÔ properties »ò yml ¸ñÊ½±£´æÔÚ¸÷¸öÎ¢·şÎñµÄÀàÂ·¾¶ÏÂ£¬ÀıÈç application.properties »ò application.yml µÈ¡£
+åœ¨åˆ†å¸ƒå¼å¾®æœåŠ¡ç³»ç»Ÿä¸­ï¼Œå‡ ä¹æ‰€æœ‰æœåŠ¡çš„è¿è¡Œéƒ½ç¦»ä¸å¼€é…ç½®æ–‡ä»¶çš„æ”¯æŒï¼Œè¿™äº›é…ç½®æ–‡ä»¶é€šå¸¸ç”±å„ä¸ªæœåŠ¡è‡ªè¡Œç®¡ç†ï¼Œä»¥ properties æˆ– yml æ ¼å¼ä¿å­˜åœ¨å„ä¸ªå¾®æœåŠ¡çš„ç±»è·¯å¾„ä¸‹ï¼Œä¾‹å¦‚ application.properties æˆ– application.yml ç­‰ã€‚
 
-ÕâÖÖ½«ÅäÖÃÎÄ¼şÉ¢ÂäÔÚ¸÷¸ö·şÎñÖĞµÄ¹ÜÀí·½Ê½£¬´æÔÚÒÔÏÂÎÊÌâ£º
+è¿™ç§å°†é…ç½®æ–‡ä»¶æ•£è½åœ¨å„ä¸ªæœåŠ¡ä¸­çš„ç®¡ç†æ–¹å¼ï¼Œå­˜åœ¨ä»¥ä¸‹é—®é¢˜ï¼š
 
-*   **¹ÜÀíÄÑ¶È´ó**£ºÅäÖÃÎÄ¼şÉ¢ÂäÔÚ¸÷¸öÎ¢·şÎñÖĞ£¬ÄÑÒÔ¹ÜÀí¡£
-*   **°²È«ĞÔµÍ**£ºÅäÖÃ¸úËæÔ´´úÂë±£´æÔÚ´úÂë¿âÖĞ£¬ÈİÒ×Ôì³ÉÅäÖÃĞ¹Â©¡£
-*   **Ê±Ğ§ĞÔ²î**£ºÎ¢·şÎñÖĞµÄÅäÖÃĞŞ¸Äºó£¬±ØĞëÖØÆô·şÎñ£¬·ñÔòÎŞ·¨ÉúĞ§¡£
-*   **¾ÖÏŞĞÔÃ÷ÏÔ**£ºÎŞ·¨Ö§³Ö¶¯Ì¬µ÷Õû£¬ÀıÈçÈÕÖ¾¿ª¹Ø¡¢¹¦ÄÜ¿ª¹Ø¡£
+*   **ç®¡ç†éš¾åº¦å¤§**ï¼šé…ç½®æ–‡ä»¶æ•£è½åœ¨å„ä¸ªå¾®æœåŠ¡ä¸­ï¼Œéš¾ä»¥ç®¡ç†ã€‚
+*   **å®‰å…¨æ€§ä½**ï¼šé…ç½®è·Ÿéšæºä»£ç ä¿å­˜åœ¨ä»£ç åº“ä¸­ï¼Œå®¹æ˜“é€ æˆé…ç½®æ³„æ¼ã€‚
+*   **æ—¶æ•ˆæ€§å·®**ï¼šå¾®æœåŠ¡ä¸­çš„é…ç½®ä¿®æ”¹åï¼Œå¿…é¡»é‡å¯æœåŠ¡ï¼Œå¦åˆ™æ— æ³•ç”Ÿæ•ˆã€‚
+*   **å±€é™æ€§æ˜æ˜¾**ï¼šæ— æ³•æ”¯æŒåŠ¨æ€è°ƒæ•´ï¼Œä¾‹å¦‚æ—¥å¿—å¼€å…³ã€åŠŸèƒ½å¼€å…³ã€‚
 
-ÎªÁË½â¾öÕâĞ©ÎÊÌâ£¬Í¨³£ÎÒÃÇ¶¼»áÊ¹ÓÃÅäÖÃÖĞĞÄ¶ÔÅäÖÃ½øĞĞÍ³Ò»¹ÜÀí¡£ÊĞÃæÉÏ¿ªÔ´µÄÅäÖÃÖĞĞÄÓĞºÜ¶à£¬ÀıÈç°Ù¶ÈµÄ Disconf¡¢ÌÔ±¦µÄ diamond¡¢360 µÄ QConf¡¢Ğ¯³ÌµÄ Apollo µÈ¶¼ÊÇ½â¾öÕâÀàÎÊÌâµÄ¡£Spring Cloud Ò²ÓĞ×Ô¼ºµÄ·Ö²¼Ê½ÅäÖÃÖĞĞÄ£¬ÄÇ¾ÍÊÇ Spring Cloud Config¡£
+ä¸ºäº†è§£å†³è¿™äº›é—®é¢˜ï¼Œé€šå¸¸æˆ‘ä»¬éƒ½ä¼šä½¿ç”¨é…ç½®ä¸­å¿ƒå¯¹é…ç½®è¿›è¡Œç»Ÿä¸€ç®¡ç†ã€‚å¸‚é¢ä¸Šå¼€æºçš„é…ç½®ä¸­å¿ƒæœ‰å¾ˆå¤šï¼Œä¾‹å¦‚ç™¾åº¦çš„ Disconfã€æ·˜å®çš„ diamondã€360 çš„ QConfã€æºç¨‹çš„ Apollo ç­‰éƒ½æ˜¯è§£å†³è¿™ç±»é—®é¢˜çš„ã€‚Spring Cloud ä¹Ÿæœ‰è‡ªå·±çš„åˆ†å¸ƒå¼é…ç½®ä¸­å¿ƒï¼Œé‚£å°±æ˜¯ Spring Cloud Configã€‚
 
 ## Spring Cloud Config
 
-Spring Cloud Config ÊÇÓÉ Spring Cloud ÍÅ¶Ó¿ª·¢µÄÏîÄ¿£¬Ëü¿ÉÒÔÎªÎ¢·şÎñ¼Ü¹¹ÖĞ¸÷¸öÎ¢·şÎñÌá¹©¼¯ÖĞ»¯µÄÍâ²¿ÅäÖÃÖ§³Ö¡£
+Spring Cloud Config æ˜¯ç”± Spring Cloud å›¢é˜Ÿå¼€å‘çš„é¡¹ç›®ï¼Œå®ƒå¯ä»¥ä¸ºå¾®æœåŠ¡æ¶æ„ä¸­å„ä¸ªå¾®æœåŠ¡æä¾›é›†ä¸­åŒ–çš„å¤–éƒ¨é…ç½®æ”¯æŒã€‚
 
-¼òµ¥µãËµ¾ÍÊÇ£¬Spring Cloud Config ¿ÉÒÔ½«¸÷¸öÎ¢·şÎñµÄÅäÖÃÎÄ¼ş¼¯ÖĞ´æ´¢ÔÚÒ»¸öÍâ²¿µÄ´æ´¢²Ö¿â»òÏµÍ³£¨ÀıÈç Git ¡¢SVN µÈ£©ÖĞ£¬¶ÔÅäÖÃµÄÍ³Ò»¹ÜÀí£¬ÒÔÖ§³Ö¸÷¸öÎ¢·şÎñµÄÔËĞĞ¡£
-Spring Cloud Config °üº¬ÒÔÏÂÁ½¸ö²¿·Ö£º
+ç®€å•ç‚¹è¯´å°±æ˜¯ï¼ŒSpring Cloud Config å¯ä»¥å°†å„ä¸ªå¾®æœåŠ¡çš„é…ç½®æ–‡ä»¶é›†ä¸­å­˜å‚¨åœ¨ä¸€ä¸ªå¤–éƒ¨çš„å­˜å‚¨ä»“åº“æˆ–ç³»ç»Ÿï¼ˆä¾‹å¦‚ Git ã€SVN ç­‰ï¼‰ä¸­ï¼Œå¯¹é…ç½®çš„ç»Ÿä¸€ç®¡ç†ï¼Œä»¥æ”¯æŒå„ä¸ªå¾®æœåŠ¡çš„è¿è¡Œã€‚
+Spring Cloud Config åŒ…å«ä»¥ä¸‹ä¸¤ä¸ªéƒ¨åˆ†ï¼š
 
-*   Config Server£ºÒ²±»³ÆÎª·Ö²¼Ê½ÅäÖÃÖĞĞÄ£¬ËüÊÇÒ»¸ö¶ÀÁ¢ÔËĞĞµÄÎ¢·şÎñÓ¦ÓÃ£¬ÓÃÀ´Á¬½ÓÅäÖÃ²Ö¿â²¢Îª¿Í»§¶ËÌá¹©»ñÈ¡ÅäÖÃĞÅÏ¢¡¢¼ÓÃÜĞÅÏ¢ºÍ½âÃÜĞÅÏ¢µÄ·ÃÎÊ½Ó¿Ú¡£
-*   Config Client£ºÖ¸µÄÊÇÎ¢·şÎñ¼Ü¹¹ÖĞµÄ¸÷¸öÎ¢·şÎñ£¬ËüÃÇÍ¨¹ı Config Server ¶ÔÅäÖÃ½øĞĞ¹ÜÀí£¬²¢´Ó Config Sever ÖĞ»ñÈ¡ºÍ¼ÓÔØÅäÖÃĞÅÏ¢¡£
+*   Config Serverï¼šä¹Ÿè¢«ç§°ä¸ºåˆ†å¸ƒå¼é…ç½®ä¸­å¿ƒï¼Œå®ƒæ˜¯ä¸€ä¸ªç‹¬ç«‹è¿è¡Œçš„å¾®æœåŠ¡åº”ç”¨ï¼Œç”¨æ¥è¿æ¥é…ç½®ä»“åº“å¹¶ä¸ºå®¢æˆ·ç«¯æä¾›è·å–é…ç½®ä¿¡æ¯ã€åŠ å¯†ä¿¡æ¯å’Œè§£å¯†ä¿¡æ¯çš„è®¿é—®æ¥å£ã€‚
+*   Config Clientï¼šæŒ‡çš„æ˜¯å¾®æœåŠ¡æ¶æ„ä¸­çš„å„ä¸ªå¾®æœåŠ¡ï¼Œå®ƒä»¬é€šè¿‡ Config Server å¯¹é…ç½®è¿›è¡Œç®¡ç†ï¼Œå¹¶ä» Config Sever ä¸­è·å–å’ŒåŠ è½½é…ç½®ä¿¡æ¯ã€‚
 
-Spring Cloud Config Ä¬ÈÏÊ¹ÓÃ Git ´æ´¢ÅäÖÃĞÅÏ¢£¬Òò´ËÊ¹ÓÃ Spirng Cloud Config ¹¹½¨µÄÅäÖÃ·şÎñÆ÷ÌìÈ»¾ÍÖ§³Ö¶ÔÎ¢·şÎñÅäÖÃµÄ°æ±¾¹ÜÀí¡£ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ Git ¿Í»§¶Ë¹¤¾ß·½±ãµØ¶ÔÅäÖÃÄÚÈİ½øĞĞ¹ÜÀíºÍ·ÃÎÊ¡£³ıÁË Git Íâ£¬Spring Cloud Config »¹Ìá¹©ÁË¶ÔÆäËû´æ´¢·½Ê½µÄÖ§³Ö£¬ÀıÈç SVN¡¢±¾µØ»¯ÎÄ¼şÏµÍ³µÈ¡£
+Spring Cloud Config é»˜è®¤ä½¿ç”¨ Git å­˜å‚¨é…ç½®ä¿¡æ¯ï¼Œå› æ­¤ä½¿ç”¨ Spirng Cloud Config æ„å»ºçš„é…ç½®æœåŠ¡å™¨å¤©ç„¶å°±æ”¯æŒå¯¹å¾®æœåŠ¡é…ç½®çš„ç‰ˆæœ¬ç®¡ç†ã€‚æˆ‘ä»¬å¯ä»¥ä½¿ç”¨ Git å®¢æˆ·ç«¯å·¥å…·æ–¹ä¾¿åœ°å¯¹é…ç½®å†…å®¹è¿›è¡Œç®¡ç†å’Œè®¿é—®ã€‚é™¤äº† Git å¤–ï¼ŒSpring Cloud Config è¿˜æä¾›äº†å¯¹å…¶ä»–å­˜å‚¨æ–¹å¼çš„æ”¯æŒï¼Œä¾‹å¦‚ SVNã€æœ¬åœ°åŒ–æ–‡ä»¶ç³»ç»Ÿç­‰ã€‚
 
-## Spring Cloud Config ¹¤×÷Ô­Àí
+## Spring Cloud Config å·¥ä½œåŸç†
 
-Spring Cloud Config ¹¤×÷Ô­ÀíÈçÏÂÍ¼¡£
+Spring Cloud Config å·¥ä½œåŸç†å¦‚ä¸‹å›¾ã€‚
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019425240-0.png)
-Í¼1£ºSpring Cloud Config ¹¤×÷Ô­Àí
+å›¾1ï¼šSpring Cloud Config å·¥ä½œåŸç†
 
-Spring Cloud Config ¹¤×÷Á÷³ÌÈçÏÂ£º
+Spring Cloud Config å·¥ä½œæµç¨‹å¦‚ä¸‹ï¼š
 
-1.  ¿ª·¢»òÔËÎ¬ÈËÔ±Ìá½»ÅäÖÃÎÄ¼şµ½Ô¶³ÌµÄ Git ²Ö¿â¡£
-2.  Config ·şÎñ¶Ë£¨·Ö²¼Ê½ÅäÖÃÖĞĞÄ£©¸ºÔğÁ¬½ÓÅäÖÃ²Ö¿â Git£¬²¢¶Ô Config ¿Í»§¶Ë±©Â¶»ñÈ¡ÅäÖÃµÄ½Ó¿Ú¡£
-3.  Config ¿Í»§¶ËÍ¨¹ı Config ·şÎñ¶Ë±©Â¶³öÀ´µÄ½Ó¿Ú£¬À­È¡ÅäÖÃ²Ö¿âÖĞµÄÅäÖÃ¡£
-4.  Config ¿Í»§¶Ë»ñÈ¡µ½ÅäÖÃĞÅÏ¢£¬ÒÔÖ§³Ö·şÎñµÄÔËĞĞ¡£
+1.  å¼€å‘æˆ–è¿ç»´äººå‘˜æäº¤é…ç½®æ–‡ä»¶åˆ°è¿œç¨‹çš„ Git ä»“åº“ã€‚
+2.  Config æœåŠ¡ç«¯ï¼ˆåˆ†å¸ƒå¼é…ç½®ä¸­å¿ƒï¼‰è´Ÿè´£è¿æ¥é…ç½®ä»“åº“ Gitï¼Œå¹¶å¯¹ Config å®¢æˆ·ç«¯æš´éœ²è·å–é…ç½®çš„æ¥å£ã€‚
+3.  Config å®¢æˆ·ç«¯é€šè¿‡ Config æœåŠ¡ç«¯æš´éœ²å‡ºæ¥çš„æ¥å£ï¼Œæ‹‰å–é…ç½®ä»“åº“ä¸­çš„é…ç½®ã€‚
+4.  Config å®¢æˆ·ç«¯è·å–åˆ°é…ç½®ä¿¡æ¯ï¼Œä»¥æ”¯æŒæœåŠ¡çš„è¿è¡Œã€‚
 
-## Spring Cloud Config µÄÌØµã
+## Spring Cloud Config çš„ç‰¹ç‚¹
 
-Spring Cloud Config ¾ßÓĞÒÔÏÂÌØµã£º
+Spring Cloud Config å…·æœ‰ä»¥ä¸‹ç‰¹ç‚¹ï¼š
 
-*   Spring Cloud Config ÓÉ Spring Cloud ÍÅ¶Ó¿ª·¢£¬¿ÉÒÔËµÊÇ Spring µÄÇ×¶ù×Ó£¬ÄÜ¹»Óë Spring µÄÉúÌ¬ÌåÏµÎŞ·ì¼¯³É¡£
-*   Spring Cloud Config ½«ËùÓĞÎ¢·şÎñµÄÅäÖÃÎÄ¼ş¼¯ÖĞ´æ´¢ÔÚÒ»¸öÍâ²¿µÄ´æ´¢²Ö¿â»òÏµÍ³£¨ÀıÈç Git£©ÖĞ£¬Í³Ò»¹ÜÀí¡£
-*   Spring Cloud Config ÅäÖÃÖĞĞÄ½«ÅäÖÃÒÔ REST ½Ó¿ÚµÄĞÎÊ½±©Â¶¸ø¸÷¸öÎ¢·şÎñ£¬ÒÔ·½±ã¸÷¸öÎ¢·şÎñ»ñÈ¡¡£
-*   Î¢·şÎñ¿ÉÒÔÍ¨¹ı Spring Cloud Config ÏòÅäÖÃÖĞĞÄÍ³Ò»À­È¡ÊôÓÚËüÃÇ×Ô¼ºµÄÅäÖÃĞÅÏ¢¡£
-*   µ±ÅäÖÃ·¢Éú±ä»¯Ê±£¬Î¢·şÎñ²»ĞèÒªÖØÆô¼´¿É¸ĞÖªµ½ÅäÖÃµÄ±ä»¯£¬²¢×Ô¶¯»ñÈ¡ºÍÓ¦ÓÃ×îĞÂÅäÖÃ¡£
-*   Ò»¸öÓ¦ÓÃ¿ÉÄÜÓĞ¶à¸ö»·¾³£¬ÀıÈç¿ª·¢£¨dev£©»·¾³¡¢²âÊÔ£¨test£©»·¾³¡¢Éú²ú£¨prod£©»·¾³µÈµÈ£¬¿ª·¢ÈËÔ±¿ÉÒÔÍ¨¹ı Spring Cloud Config ¶Ô²»Í¬»·¾³µÄ¸÷ÅäÖÃ½øĞĞ¹ÜÀí£¬ÇÒÄÜ¹»È·±£Ó¦ÓÃÔÚ»·¾³Ç¨ÒÆºóÈÔÈ»ÓĞÍêÕûµÄÅäÖÃÖ§³ÖÆäÕı³£ÔËĞĞ¡£
+*   Spring Cloud Config ç”± Spring Cloud å›¢é˜Ÿå¼€å‘ï¼Œå¯ä»¥è¯´æ˜¯ Spring çš„äº²å„¿å­ï¼Œèƒ½å¤Ÿä¸ Spring çš„ç”Ÿæ€ä½“ç³»æ— ç¼é›†æˆã€‚
+*   Spring Cloud Config å°†æ‰€æœ‰å¾®æœåŠ¡çš„é…ç½®æ–‡ä»¶é›†ä¸­å­˜å‚¨åœ¨ä¸€ä¸ªå¤–éƒ¨çš„å­˜å‚¨ä»“åº“æˆ–ç³»ç»Ÿï¼ˆä¾‹å¦‚ Gitï¼‰ä¸­ï¼Œç»Ÿä¸€ç®¡ç†ã€‚
+*   Spring Cloud Config é…ç½®ä¸­å¿ƒå°†é…ç½®ä»¥ REST æ¥å£çš„å½¢å¼æš´éœ²ç»™å„ä¸ªå¾®æœåŠ¡ï¼Œä»¥æ–¹ä¾¿å„ä¸ªå¾®æœåŠ¡è·å–ã€‚
+*   å¾®æœåŠ¡å¯ä»¥é€šè¿‡ Spring Cloud Config å‘é…ç½®ä¸­å¿ƒç»Ÿä¸€æ‹‰å–å±äºå®ƒä»¬è‡ªå·±çš„é…ç½®ä¿¡æ¯ã€‚
+*   å½“é…ç½®å‘ç”Ÿå˜åŒ–æ—¶ï¼Œå¾®æœåŠ¡ä¸éœ€è¦é‡å¯å³å¯æ„ŸçŸ¥åˆ°é…ç½®çš„å˜åŒ–ï¼Œå¹¶è‡ªåŠ¨è·å–å’Œåº”ç”¨æœ€æ–°é…ç½®ã€‚
+*   ä¸€ä¸ªåº”ç”¨å¯èƒ½æœ‰å¤šä¸ªç¯å¢ƒï¼Œä¾‹å¦‚å¼€å‘ï¼ˆdevï¼‰ç¯å¢ƒã€æµ‹è¯•ï¼ˆtestï¼‰ç¯å¢ƒã€ç”Ÿäº§ï¼ˆprodï¼‰ç¯å¢ƒç­‰ç­‰ï¼Œå¼€å‘äººå‘˜å¯ä»¥é€šè¿‡ Spring Cloud Config å¯¹ä¸åŒç¯å¢ƒçš„å„é…ç½®è¿›è¡Œç®¡ç†ï¼Œä¸”èƒ½å¤Ÿç¡®ä¿åº”ç”¨åœ¨ç¯å¢ƒè¿ç§»åä»ç„¶æœ‰å®Œæ•´çš„é…ç½®æ”¯æŒå…¶æ­£å¸¸è¿è¡Œã€‚
 
-ÏÂÃæÎÒÃÇ¾ÍÍ¨¹ı¼¸¸öÊµÀıÀ´ÑİÊ¾ Spring Cloud Config µÄÊ¹ÓÃ¡£
+ä¸‹é¢æˆ‘ä»¬å°±é€šè¿‡å‡ ä¸ªå®ä¾‹æ¥æ¼”ç¤º Spring Cloud Config çš„ä½¿ç”¨ã€‚
 
-## ´î½¨ Config ·şÎñ¶Ë
+## æ­å»º Config æœåŠ¡ç«¯
 
-1\. ÔÚ Github ÉÏ´´½¨Ò»¸öÃûÎª springcloud-config µÄ²Ö¿â£¨Repository£©²¢»ñÈ¡¸Ã²Ö¿âµÄµØÖ·¡£ÓÉÓÚ Github Õ¾µã¶ÔÓÚ¹úÄÚÓÃ»§À´Ëµ²»¹»ÎÈ¶¨£¬ºÜ¿ÉÄÜ´æÔÚ¼ÓÔØ»ºÂıµÈÎÊÌâ£¬Òò´ËÎÒÃÇ¿ÉÒÔÔÚ[ÂëÔÆ](https://gitee.com/)ÉÏÖ´ĞĞ¸Ã²Ù×÷¡£
+1\. åœ¨ Github ä¸Šåˆ›å»ºä¸€ä¸ªåä¸º springcloud-config çš„ä»“åº“ï¼ˆRepositoryï¼‰å¹¶è·å–è¯¥ä»“åº“çš„åœ°å€ã€‚ç”±äº Github ç«™ç‚¹å¯¹äºå›½å†…ç”¨æˆ·æ¥è¯´ä¸å¤Ÿç¨³å®šï¼Œå¾ˆå¯èƒ½å­˜åœ¨åŠ è½½ç¼“æ…¢ç­‰é—®é¢˜ï¼Œå› æ­¤æˆ‘ä»¬å¯ä»¥åœ¨[ç äº‘](https://gitee.com/)ä¸Šæ‰§è¡Œè¯¥æ“ä½œã€‚
 
-2\. ÔÚ¸¸¹¤³Ì spring-cloud-demo2 ÏÂ£¬´´½¨Ò»¸öÃûÎª micro-service-cloud-config-center-3344 µÄ Spring Boot Ä£¿é£¬²¢ÔÚ pom.xml ÖĞÌí¼Ó Spring Cloud Config ·şÎñ¶ËÒÀÀµ£¬ÅäÖÃÈçÏÂ¡£
+2\. åœ¨çˆ¶å·¥ç¨‹ spring-cloud-demo2 ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º micro-service-cloud-config-center-3344 çš„ Spring Boot æ¨¡å—ï¼Œå¹¶åœ¨ pom.xml ä¸­æ·»åŠ  Spring Cloud Config æœåŠ¡ç«¯ä¾èµ–ï¼Œé…ç½®å¦‚ä¸‹ã€‚
 
 
 
@@ -87,7 +87,7 @@ Spring Cloud Config ¾ßÓĞÒÔÏÂÌØµã£º
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--ÅäÖÃÖĞĞÄ·şÎñÆ÷ÒÀÀµ-->
+        <!--é…ç½®ä¸­å¿ƒæœåŠ¡å™¨ä¾èµ–-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
@@ -119,7 +119,7 @@ Spring Cloud Config ¾ßÓĞÒÔÏÂÌØµã£º
 
 
 
-3\. ÔÚ micro-service-cloud-config-center-3344 ÀàÂ·¾¶£¨/resources Ä¿Â¼£©ÏÂ£¬´´½¨Ò»¸öÃûÎª application.yml µÄÅäÖÃÎÄ¼ş£¬ÅäÖÃÈçÏÂ¡£
+3\. åœ¨ micro-service-cloud-config-center-3344 ç±»è·¯å¾„ï¼ˆ/resources ç›®å½•ï¼‰ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º application.yml çš„é…ç½®æ–‡ä»¶ï¼Œé…ç½®å¦‚ä¸‹ã€‚
 
 
 
@@ -128,38 +128,38 @@ Spring Cloud Config ¾ßÓĞÒÔÏÂÌØµã£º
 ```
 
 server:
-  port: 3344 #¶Ë¿ÚºÅ
+  port: 3344 #ç«¯å£å·
 spring:
   application:
-    name: spring-cloud-config-center #·şÎñÃû
+    name: spring-cloud-config-center #æœåŠ¡å
   cloud:
     config:
       server:
         git:
-          # Git µØÖ·£¬https://gitee.com/java-mohan/springcloud-config.git
-          # ÂëÔÆ£¨gitee£©µØÖ· uri: https://github.com/javmohan/springcloud-config.git  (github Õ¾µã·ÃÎÊ½ÏÂı£¬Òò´ËÕâÀïÎÒÃÇÊ¹ÓÃ gitee)
+          # Git åœ°å€ï¼Œhttps://gitee.com/java-mohan/springcloud-config.git
+          # ç äº‘ï¼ˆgiteeï¼‰åœ°å€ uri: https://github.com/javmohan/springcloud-config.git  (github ç«™ç‚¹è®¿é—®è¾ƒæ…¢ï¼Œå› æ­¤è¿™é‡Œæˆ‘ä»¬ä½¿ç”¨ gitee)
           uri: https://gitee.com/java-mohan/springcloud-config.git
-          #²Ö¿âÃû
+          #ä»“åº“å
           search-paths:
             - springcloud-config
           force-pull: true
-          # Èç¹ûGit²Ö¿âÎª¹«¿ª²Ö¿â£¬¿ÉÒÔ²»ÌîĞ´ÓÃ»§ÃûºÍÃÜÂë£¬Èç¹ûÊÇË½ÓĞ²Ö¿âĞèÒªÌîĞ´
+          # å¦‚æœGitä»“åº“ä¸ºå…¬å¼€ä»“åº“ï¼Œå¯ä»¥ä¸å¡«å†™ç”¨æˆ·åå’Œå¯†ç ï¼Œå¦‚æœæ˜¯ç§æœ‰ä»“åº“éœ€è¦å¡«å†™
           # username: ********
           # password: ********
-      #·ÖÖ§Ãû
+      #åˆ†æ”¯å
       label: master
 
 eureka:                                            
-  client: #½«¿Í»§¶Ë×¢²áµ½ eureka ·şÎñÁĞ±íÄÚ
+  client: #å°†å®¢æˆ·ç«¯æ³¨å†Œåˆ° eureka æœåŠ¡åˆ—è¡¨å†…
     service-url: 
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  #½«·şÎñ×¢²áµ½ Eureka ¼¯Èº
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  #å°†æœåŠ¡æ³¨å†Œåˆ° Eureka é›†ç¾¤
 ```
 
 
 
 
 
-4\. ÔÚ micro-service-cloud-config-center-3344 µÄÖ÷Æô¶¯ÀàÉÏ£¬Ê¹ÓÃ @EnableConfigServer ×¢½â¿ªÆô Spring Cloud Config ÅäÖÃÖĞĞÄ¹¦ÄÜ£¬´úÂëÈçÏÂ¡£
+4\. åœ¨ micro-service-cloud-config-center-3344 çš„ä¸»å¯åŠ¨ç±»ä¸Šï¼Œä½¿ç”¨ @EnableConfigServer æ³¨è§£å¼€å¯ Spring Cloud Config é…ç½®ä¸­å¿ƒåŠŸèƒ½ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -190,7 +190,7 @@ public class MicroServiceCloudConfigCenter3344Application {
 
 
 
-5\. ĞÂ½¨Ò»¸öÃûÎª config-dev.yml µÄÎÄ¼ş£¬²¢½«ÆäÉÏ´«µ½ springcloud-config ²Ö¿â master ·ÖÖ§ÏÂ£¬config-dev.yml µÄÄÚÈİÈçÏÂ¡£
+5\. æ–°å»ºä¸€ä¸ªåä¸º config-dev.yml çš„æ–‡ä»¶ï¼Œå¹¶å°†å…¶ä¸Šä¼ åˆ° springcloud-config ä»“åº“ master åˆ†æ”¯ä¸‹ï¼Œconfig-dev.yml çš„å†…å®¹å¦‚ä¸‹ã€‚
 
 ```
 config:
@@ -199,44 +199,44 @@ config:
 ```
 
 
-6\. ÒÀ´ÎÆô¶¯·şÎñ×¢²áÖĞĞÄ£¨¼¯Èº£©ºÍ micro-service-cloud-config-center-3344£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://localhost:3344/master/config-dev.yml¡±£¬½á¹ûÈçÏÂÍ¼¡£
+6\. ä¾æ¬¡å¯åŠ¨æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼ˆé›†ç¾¤ï¼‰å’Œ micro-service-cloud-config-center-3344ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://localhost:3344/master/config-dev.ymlâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Spring Cloud Config ·ÃÎÊÅäÖÃÎÄ¼ş](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019423313-2.png)
-Í¼2£º·ÃÎÊÅäÖÃÎÄ¼ş
+![Spring Cloud Config è®¿é—®é…ç½®æ–‡ä»¶](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019423313-2.png)
+å›¾2ï¼šè®¿é—®é…ç½®æ–‡ä»¶
 
-Spring Cloud Config ¹æ¶¨ÁËÒ»Ì×ÅäÖÃÎÄ¼ş·ÃÎÊ¹æÔò£¬ÈçÏÂ±í¡£
+Spring Cloud Config è§„å®šäº†ä¸€å¥—é…ç½®æ–‡ä»¶è®¿é—®è§„åˆ™ï¼Œå¦‚ä¸‹è¡¨ã€‚
 
-| ·ÃÎÊ¹æÔò                                  | Ê¾Àı                   |
+| è®¿é—®è§„åˆ™                                  | ç¤ºä¾‹                   |
 | ----------------------------------------- | ---------------------- |
 | /{application}/{profile}[/{label}]        | /config/dev/master     |
 | /{application}-{profile}.{suffix}         | /config-dev.yml        |
 | /{label}/{application}-{profile}.{suffix} | /master/config-dev.yml |
 
-·ÃÎÊ¹æÔòÄÚ¸÷²ÎÊıËµÃ÷ÈçÏÂ¡£
+è®¿é—®è§„åˆ™å†…å„å‚æ•°è¯´æ˜å¦‚ä¸‹ã€‚
 
-*   {application}£ºÓ¦ÓÃÃû³Æ£¬¼´ÅäÖÃÎÄ¼şµÄÃû³Æ£¬ÀıÈç config-dev¡£
-*   {profile}£º»·¾³Ãû£¬Ò»¸öÏîÄ¿Í¨³£¶¼ÓĞ¿ª·¢£¨dev£©°æ±¾¡¢²âÊÔ£¨test£©»·¾³°æ±¾¡¢Éú²ú£¨prod£©»·¾³°æ±¾£¬ÅäÖÃÎÄ¼şÔòÒÔ application-{profile}.yml µÄĞÎÊ½½øĞĞÇø·Ö£¬ÀıÈç application-dev.yml¡¢application-test.yml¡¢application-prod.yml µÈ¡£
-*   {label}£ºGit ·ÖÖ§Ãû£¬Ä¬ÈÏÊÇ master ·ÖÖ§£¬µ±·ÃÎÊÄ¬ÈÏ·ÖÖ§ÏÂµÄÅäÖÃÎÄ¼şÊ±£¬¸Ã²ÎÊı¿ÉÒÔÊ¡ÂÔ£¬¼´µÚ¶şÖÖ·ÃÎÊ·½Ê½¡£
-*   {suffix}£ºÅäÖÃÎÄ¼şµÄºó×º£¬ÀıÈç config-dev.yml µÄºó×ºÎª yml¡£
+*   {application}ï¼šåº”ç”¨åç§°ï¼Œå³é…ç½®æ–‡ä»¶çš„åç§°ï¼Œä¾‹å¦‚ config-devã€‚
+*   {profile}ï¼šç¯å¢ƒåï¼Œä¸€ä¸ªé¡¹ç›®é€šå¸¸éƒ½æœ‰å¼€å‘ï¼ˆdevï¼‰ç‰ˆæœ¬ã€æµ‹è¯•ï¼ˆtestï¼‰ç¯å¢ƒç‰ˆæœ¬ã€ç”Ÿäº§ï¼ˆprodï¼‰ç¯å¢ƒç‰ˆæœ¬ï¼Œé…ç½®æ–‡ä»¶åˆ™ä»¥ application-{profile}.yml çš„å½¢å¼è¿›è¡ŒåŒºåˆ†ï¼Œä¾‹å¦‚ application-dev.ymlã€application-test.ymlã€application-prod.yml ç­‰ã€‚
+*   {label}ï¼šGit åˆ†æ”¯åï¼Œé»˜è®¤æ˜¯ master åˆ†æ”¯ï¼Œå½“è®¿é—®é»˜è®¤åˆ†æ”¯ä¸‹çš„é…ç½®æ–‡ä»¶æ—¶ï¼Œè¯¥å‚æ•°å¯ä»¥çœç•¥ï¼Œå³ç¬¬äºŒç§è®¿é—®æ–¹å¼ã€‚
+*   {suffix}ï¼šé…ç½®æ–‡ä»¶çš„åç¼€ï¼Œä¾‹å¦‚ config-dev.yml çš„åç¼€ä¸º ymlã€‚
 
-Í¨¹ıÕâÌ×¹æÔò£¬ÎÒÃÇÔÚä¯ÀÀÆ÷ÉÏ¾ÍÖ±½Ó¶ÔÅäÖÃÎÄ¼ş½øĞĞ·ÃÎÊ¡£
+é€šè¿‡è¿™å¥—è§„åˆ™ï¼Œæˆ‘ä»¬åœ¨æµè§ˆå™¨ä¸Šå°±ç›´æ¥å¯¹é…ç½®æ–‡ä»¶è¿›è¡Œè®¿é—®ã€‚
 
-7\. ÔÚä¯ÀÀÆ÷ÉÏ·ÃÎÊ¡°http://localhost:3344/config-dev.yml¡±£¬½á¹ûÈçÏÂÍ¼¡£
+7\. åœ¨æµè§ˆå™¨ä¸Šè®¿é—®â€œhttp://localhost:3344/config-dev.ymlâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Spring Cloud Config ·ÃÎÊÅäÖÃÎÄ¼ş2](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019422606-3.png)
-Í¼3£ºSpring Cloud Config ·ÃÎÊÅäÖÃÎÄ¼ş
+![Spring Cloud Config è®¿é—®é…ç½®æ–‡ä»¶2](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019422606-3.png)
+å›¾3ï¼šSpring Cloud Config è®¿é—®é…ç½®æ–‡ä»¶
 
-8\. ÔÚä¯ÀÀÆ÷ÉÏ·ÃÎÊ¡°http://localhost:3344/config/dev/master¡±£¬½á¹ûÈçÏÂ¡£
+8\. åœ¨æµè§ˆå™¨ä¸Šè®¿é—®â€œhttp://localhost:3344/config/dev/masterâ€ï¼Œç»“æœå¦‚ä¸‹ã€‚
 
 ```
 {"name":"config","profiles":["dev"],"label":"master","version":"9caafcc3498e04147463482f8b29e925e8afcc3a","state":null,"propertySources":[{"name":"https://gitee.com/java-mohan/springcloud-config.git/config-dev.yml","source":{"config.info":"c.biancheng.net","config.version":1.0}}]}
 ```
 
-×Ô´ËÎÒÃÇ¾ÍÍê³ÉÁË¶Ô Spring Cloud Config ·şÎñ¶ËµÄ´î½¨ºÍ²âÊÔ¡£
+è‡ªæ­¤æˆ‘ä»¬å°±å®Œæˆäº†å¯¹ Spring Cloud Config æœåŠ¡ç«¯çš„æ­å»ºå’Œæµ‹è¯•ã€‚
 
-## ´î½¨ Config ¿Í»§¶Ë
+## æ­å»º Config å®¢æˆ·ç«¯
 
-1\. ÔÚ¸¸¹¤³Ì spring-cloud-demo2 ÏÂ£¬´´½¨Ò»¸öÃûÎª micro-service-cloud-config-client-3355 µÄ Spring Boot Ä£¿é£¬²¢ÔÚÆä pom.xml ÖĞÌí¼Ó Spring Cloud Config ¿Í»§¶ËµÄÒÀÀµ£¬ÅäÖÃÄÚÈİÈçÏÂ¡£
+1\. åœ¨çˆ¶å·¥ç¨‹ spring-cloud-demo2 ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º micro-service-cloud-config-client-3355 çš„ Spring Boot æ¨¡å—ï¼Œå¹¶åœ¨å…¶ pom.xml ä¸­æ·»åŠ  Spring Cloud Config å®¢æˆ·ç«¯çš„ä¾èµ–ï¼Œé…ç½®å†…å®¹å¦‚ä¸‹ã€‚
 
 
 
@@ -283,7 +283,7 @@ Spring Cloud Config ¹æ¶¨ÁËÒ»Ì×ÅäÖÃÎÄ¼ş·ÃÎÊ¹æÔò£¬ÈçÏÂ±í¡£
             <scope>test</scope>
         </dependency>
 
-        <!--Spring Cloud Config ¿Í»§¶ËÒÀÀµ-->
+        <!--Spring Cloud Config å®¢æˆ·ç«¯ä¾èµ–-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
@@ -317,38 +317,38 @@ Spring Cloud Config ¹æ¶¨ÁËÒ»Ì×ÅäÖÃÎÄ¼ş·ÃÎÊ¹æÔò£¬ÈçÏÂ±í¡£
 
 
 
-2\. ÔÚ micro-service-cloud-config-client-3355 ÖĞÀàÂ·¾¶£¨/resources Ä¿Â¼£©ÏÂ£¬´´½¨Ò»¸öÃûÎª bootstrap.yml µÄÅäÖÃÎÄ¼ş£¬ÅäÖÃÈçÏÂ¡£
+2\. åœ¨ micro-service-cloud-config-client-3355 ä¸­ç±»è·¯å¾„ï¼ˆ/resources ç›®å½•ï¼‰ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º bootstrap.yml çš„é…ç½®æ–‡ä»¶ï¼Œé…ç½®å¦‚ä¸‹ã€‚
 
 
 
 
 
 ```
-#bootstrap.yml ÊÇÏµÍ³¼¶±ğµÄ£¬¼ÓÔØÓÅÏÈ¼¶¸ßÓÚ application.yml £¬¸ºÔğ´ÓÍâ²¿¼ÓÔØÅäÖÃ²¢½âÎö
+#bootstrap.yml æ˜¯ç³»ç»Ÿçº§åˆ«çš„ï¼ŒåŠ è½½ä¼˜å…ˆçº§é«˜äº application.yml ï¼Œè´Ÿè´£ä»å¤–éƒ¨åŠ è½½é…ç½®å¹¶è§£æ
 server:
-  port: 3355 #¶Ë¿ÚºÅ
+  port: 3355 #ç«¯å£å·
 spring:
   application:
-    name: spring-cloud-config-client #·şÎñÃû
+    name: spring-cloud-config-client #æœåŠ¡å
   cloud:
     config:
-      label: master #·ÖÖ§Ãû³Æ
-      name: config  #ÅäÖÃÎÄ¼şÃû³Æ£¬config-dev.yml ÖĞµÄ config
-      profile: dev  #»·¾³Ãû  config-dev.yml ÖĞµÄ dev
-      #ÕâÀï²»ÒªÍü¼ÇÌí¼Ó http:// ·ñÔòÎŞ·¨¶ÁÈ¡
-      uri: http://localhost:3344 #Spring Cloud Config ·şÎñ¶Ë£¨ÅäÖÃÖĞĞÄ£©µØÖ·
+      label: master #åˆ†æ”¯åç§°
+      name: config  #é…ç½®æ–‡ä»¶åç§°ï¼Œconfig-dev.yml ä¸­çš„ config
+      profile: dev  #ç¯å¢ƒå  config-dev.yml ä¸­çš„ dev
+      #è¿™é‡Œä¸è¦å¿˜è®°æ·»åŠ  http:// å¦åˆ™æ— æ³•è¯»å–
+      uri: http://localhost:3344 #Spring Cloud Config æœåŠ¡ç«¯ï¼ˆé…ç½®ä¸­å¿ƒï¼‰åœ°å€
 
 eureka:
-  client: #½«¿Í»§¶Ë×¢²áµ½ eureka ·şÎñÁĞ±íÄÚ
+  client: #å°†å®¢æˆ·ç«¯æ³¨å†Œåˆ° eureka æœåŠ¡åˆ—è¡¨å†…
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  #½«·şÎñ×¢²áµ½ Eureka ¼¯Èº
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  #å°†æœåŠ¡æ³¨å†Œåˆ° Eureka é›†ç¾¤
 ```
 
 
 
 
 
-3\. ÔÚ net.biancheng.c.controller °üÏÂ£¬´´½¨Ò»¸öÃûÎª ConfigClientController µÄÀà£¬Í¨¹ı¸ÃÀà»ñÈ¡ÅäÖÃÎÄ¼şÖĞµÄÅäÖÃ£¬´úÂëÈçÏÂ¡£
+3\. åœ¨ net.biancheng.c.controller åŒ…ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º ConfigClientController çš„ç±»ï¼Œé€šè¿‡è¯¥ç±»è·å–é…ç½®æ–‡ä»¶ä¸­çš„é…ç½®ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -362,7 +362,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//¶ÁÈ¡ÅäÖÃÖĞĞÄÖ¸¶¨ÅäÖÃÎÄ¼şµÄÄÚÈİ£¬²¢Õ¹Ê¾µ½Ò³Ãæ
+//è¯»å–é…ç½®ä¸­å¿ƒæŒ‡å®šé…ç½®æ–‡ä»¶çš„å†…å®¹ï¼Œå¹¶å±•ç¤ºåˆ°é¡µé¢
 @RestController
 public class ConfigClientController {
     @Value("${server.port}")
@@ -376,7 +376,7 @@ public class ConfigClientController {
 
     @GetMapping(value = "/getConfig")
     public String getConfig() {
-        return "info£º" + configInfo + "<br/>version£º" + configVersion + "<br/>port£º" + serverPort;
+        return "infoï¼š" + configInfo + "<br/>versionï¼š" + configVersion + "<br/>portï¼š" + serverPort;
     }
 }
 ```
@@ -385,7 +385,7 @@ public class ConfigClientController {
 
 
 
-4\. ÔÚ micro-service-cloud-config-client-3355 µÄÖ÷Æô¶¯ÀàÉÏ£¬Ê¹ÓÃ @EnableEurekaClient ×¢½â¿ªÆô Eureka ¿Í»§¶Ë¹¦ÄÜ£¬´úÂëÈçÏÂ¡£
+4\. åœ¨ micro-service-cloud-config-client-3355 çš„ä¸»å¯åŠ¨ç±»ä¸Šï¼Œä½¿ç”¨ @EnableEurekaClient æ³¨è§£å¼€å¯ Eureka å®¢æˆ·ç«¯åŠŸèƒ½ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -415,12 +415,12 @@ public class MicroServiceCloudConfigClient3355Application {
 
 
 
-5\. Æô¶¯ micro-service-cloud-config-client-3355£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://localhost:3355/getConfig¡±,½á¹ûÈçÏÂÍ¼¡£
+5\. å¯åŠ¨ micro-service-cloud-config-client-3355ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://localhost:3355/getConfigâ€,ç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Config ¿Í»§¶Ë»ñÈ¡ÅäÖÃĞÅÏ¢](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019422604-4.png)
-Í¼4£ºSpring Cloud Config ¿Í»§¶Ë»ñÈ¡ÅäÖÃĞÅÏ¢
+![Config å®¢æˆ·ç«¯è·å–é…ç½®ä¿¡æ¯](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019422604-4.png)
+å›¾4ï¼šSpring Cloud Config å®¢æˆ·ç«¯è·å–é…ç½®ä¿¡æ¯
 
-6\. ½«ÅäÖÃÎÄ¼ş config-dev.yml ÖĞ config.version µÄÖµĞŞ¸ÄÎª 2.0£¬ÅäÖÃÈçÏÂ¡£
+6\. å°†é…ç½®æ–‡ä»¶ config-dev.yml ä¸­ config.version çš„å€¼ä¿®æ”¹ä¸º 2.0ï¼Œé…ç½®å¦‚ä¸‹ã€‚
 
 ```
 config:
@@ -429,33 +429,33 @@ config:
 ```
 
 
-7\. ÒÀ´ÎÆô¶¯ Eureka ·şÎñ×¢²áÖĞĞÄ£¨¼¯Èº£©ºÍ micro-service-cloud-config-center-3344£¬ Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://localhost:3344/master/config-dev.yml¡±£¬½á¹ûÈçÏÂÍ¼¡£
+7\. ä¾æ¬¡å¯åŠ¨ Eureka æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼ˆé›†ç¾¤ï¼‰å’Œ micro-service-cloud-config-center-3344ï¼Œ ä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://localhost:3344/master/config-dev.ymlâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![ÅäÖÃÖĞĞÄ»ñÈ¡ĞŞ¸ÄºóµÄÅäÖÃÎÄ¼ş](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10194255O-5.png)
-Í¼5£ºÅäÖÃÖĞĞÄ»ñÈ¡ĞŞ¸ÄºóµÄÅäÖÃÎÄ¼ş
+![é…ç½®ä¸­å¿ƒè·å–ä¿®æ”¹åçš„é…ç½®æ–‡ä»¶](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10194255O-5.png)
+å›¾5ï¼šé…ç½®ä¸­å¿ƒè·å–ä¿®æ”¹åçš„é…ç½®æ–‡ä»¶
 
-´ÓÍ¼ 6 ¿ÉÒÔ¿´³ö£¬ÅäÖÃÖĞĞÄÒÑ¾­³É¹¦µØ»ñÈ¡µ½ÁËĞŞ¸ÄºóµÄÅäÖÃ¡£
+ä»å›¾ 6 å¯ä»¥çœ‹å‡ºï¼Œé…ç½®ä¸­å¿ƒå·²ç»æˆåŠŸåœ°è·å–åˆ°äº†ä¿®æ”¹åçš„é…ç½®ã€‚
 
-8\. ÔÙ´Î·ÃÎÊ¡°http://localhost:3355/getConfig¡±£¬³¢ÊÔÍ¨¹ı Spring Cloud Config ¿Í»§¶Ë»ñÈ¡ĞŞ¸ÄºóµÄÅäÖÃĞÅÏ¢£¬½á¹ûÈçÏÂÍ¼¡£
+8\. å†æ¬¡è®¿é—®â€œhttp://localhost:3355/getConfigâ€ï¼Œå°è¯•é€šè¿‡ Spring Cloud Config å®¢æˆ·ç«¯è·å–ä¿®æ”¹åçš„é…ç½®ä¿¡æ¯ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Config ¿Í»§¶Ë»ñÈ¡ÅäÖÃĞÅÏ¢](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019422604-4.png)
-Í¼6£ºSpring Cloud Config ¿Í»§¶Ë»ñÈ¡ĞŞ¸ÄºóµÄÅäÖÃĞÅÏ¢
+![Config å®¢æˆ·ç«¯è·å–é…ç½®ä¿¡æ¯](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019422604-4.png)
+å›¾6ï¼šSpring Cloud Config å®¢æˆ·ç«¯è·å–ä¿®æ”¹åçš„é…ç½®ä¿¡æ¯
 
-9\. ÖØÆô micro-service-cloud-config-client-3355£¬ÔÙ´ÎÊ¹ÓÃ·ÃÎÊ¡°http://localhost:3355/getConfig¡±£¬½á¹ûÈçÏÂÍ¼¡£
+9\. é‡å¯ micro-service-cloud-config-client-3355ï¼Œå†æ¬¡ä½¿ç”¨è®¿é—®â€œhttp://localhost:3355/getConfigâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![ÖØÆôConfig ¿Í»§¶Ë](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019425023-7.png)
-Í¼7£ºÖØÆô Spring Cloud Config ¿Í»§¶Ë»ñÈ¡ÅäÖÃ
+![é‡å¯Config å®¢æˆ·ç«¯](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019425023-7.png)
+å›¾7ï¼šé‡å¯ Spring Cloud Config å®¢æˆ·ç«¯è·å–é…ç½®
 
-Í¨¹ı¸ÃÊµÀı£¬ÎÒÃÇ¿ÉÒÔµÃµ½ÒÔÏÂ 2 µã½áÂÛ£¬
+é€šè¿‡è¯¥å®ä¾‹ï¼Œæˆ‘ä»¬å¯ä»¥å¾—åˆ°ä»¥ä¸‹ 2 ç‚¹ç»“è®ºï¼Œ
 
-*   ÅäÖÃ¸üĞÂºó£¬Spring Cloud Config ·şÎñ¶Ë£¨Server£©¿ÉÒÔÖ±½Ó´Ó Git ²Ö¿âÖĞ»ñÈ¡×îĞÂµÄÅäÖÃ¡£
-*   ³ı·ÇÖØÆô Spring Cloud Config ¿Í»§¶Ë£¨Client£©£¬·ñÔòÎŞ·¨Í¨¹ı Spring Cloud Config ·şÎñ¶Ë»ñÈ¡×îĞÂµÄÅäÖÃĞÅÏ¢¡£
+*   é…ç½®æ›´æ–°åï¼ŒSpring Cloud Config æœåŠ¡ç«¯ï¼ˆServerï¼‰å¯ä»¥ç›´æ¥ä» Git ä»“åº“ä¸­è·å–æœ€æ–°çš„é…ç½®ã€‚
+*   é™¤éé‡å¯ Spring Cloud Config å®¢æˆ·ç«¯ï¼ˆClientï¼‰ï¼Œå¦åˆ™æ— æ³•é€šè¿‡ Spring Cloud Config æœåŠ¡ç«¯è·å–æœ€æ–°çš„é…ç½®ä¿¡æ¯ã€‚
 
-## ÊÖ¶¯Ë¢ĞÂÅäÖÃ
+## æ‰‹åŠ¨åˆ·æ–°é…ç½®
 
-ÎªÁË½â¾ö²»ÖØÆô Config ¿Í»§¶ËÎŞ·¨»ñÈ¡×îĞÂÅäÖÃµÄÎÊÌâ£¬½ÓÏÂÀ´£¬ÎÒÃÇ¾Í¶Ô micro-service-cloud-config-client-3355 ½øĞĞ¸ÄÔì£¬¸ÄÔì²½ÖèÈçÏÂ¡£
+ä¸ºäº†è§£å†³ä¸é‡å¯ Config å®¢æˆ·ç«¯æ— æ³•è·å–æœ€æ–°é…ç½®çš„é—®é¢˜ï¼Œæ¥ä¸‹æ¥ï¼Œæˆ‘ä»¬å°±å¯¹ micro-service-cloud-config-client-3355 è¿›è¡Œæ”¹é€ ï¼Œæ”¹é€ æ­¥éª¤å¦‚ä¸‹ã€‚
 
-1\. ÔÚ micro-service-cloud-config-client-3355 µÄ pom.xml ÖĞÌí¼ÓÒÔÏÂÒÀÀµ£¬ÒıÈë Spring Boot actuator ¼à¿ØÄ£¿é¡£
+1\. åœ¨ micro-service-cloud-config-client-3355 çš„ pom.xml ä¸­æ·»åŠ ä»¥ä¸‹ä¾èµ–ï¼Œå¼•å…¥ Spring Boot actuator ç›‘æ§æ¨¡å—ã€‚
 
 
 
@@ -475,7 +475,7 @@ config:
 
 
 
-2\. ÔÚÅäÖÃÎÄ¼ş bootstrap.yml ÖĞÌí¼ÓÒÔÏÂÅäÖÃ£¬¶ÔÍâ±©Â¶ Spring Boot actuator µÄ¼à¿Ø½Úµã¡£
+2\. åœ¨é…ç½®æ–‡ä»¶ bootstrap.yml ä¸­æ·»åŠ ä»¥ä¸‹é…ç½®ï¼Œå¯¹å¤–æš´éœ² Spring Boot actuator çš„ç›‘æ§èŠ‚ç‚¹ã€‚
 
 
 
@@ -483,12 +483,12 @@ config:
 
 ```
 
-# Spring Boot 2.50¶Ô actuator ¼à¿ØÆÁ±ÎÁË´ó¶àÊıµÄ½Úµã£¬Ö»±©Â¶ÁË health ½Úµã£¬±¾¶ÎÅäÖÃ£¨*£©¾ÍÊÇÎªÁË¿ªÆôËùÓĞµÄ½Úµã
+# Spring Boot 2.50å¯¹ actuator ç›‘æ§å±è”½äº†å¤§å¤šæ•°çš„èŠ‚ç‚¹ï¼Œåªæš´éœ²äº† health èŠ‚ç‚¹ï¼Œæœ¬æ®µé…ç½®ï¼ˆ*ï¼‰å°±æ˜¯ä¸ºäº†å¼€å¯æ‰€æœ‰çš„èŠ‚ç‚¹
 management:
   endpoints:
     web:
       exposure:
-        include: "*"   # * ÔÚyaml ÎÄ¼şÊôÓÚ¹Ø¼ü×Ö£¬ËùÒÔĞèÒª¼ÓÒıºÅ
+        include: "*"   # * åœ¨yaml æ–‡ä»¶å±äºå…³é”®å­—ï¼Œæ‰€ä»¥éœ€è¦åŠ å¼•å·
 
 ```
 
@@ -497,7 +497,7 @@ management:
 
 
 
-3\. ÔÚ ConfigClientController ÀàÉÏÊ¹ÓÃ @RefreshScope ×¢½â¿ªÆôÅäÖÃË¢ĞÂ£¬´úÂëÈçÏÂ¡£
+3\. åœ¨ ConfigClientController ç±»ä¸Šä½¿ç”¨ @RefreshScope æ³¨è§£å¼€å¯é…ç½®åˆ·æ–°ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -512,8 +512,8 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-// ¶ÁÈ¡ÅäÖÃÖĞĞÄÖ¸¶¨ÅäÖÃÎÄ¼şµÄÄÚÈİ£¬²¢Õ¹Ê¾µ½Ò³Ãæ
-@RefreshScope //ÎªÁËÈÃ¶¯Ì¬£¨ÊÖ¶¯£©µÄ»ñÈ¡×îĞÂµÄgit ÅäÖÃ£¬ÔÚÌí¼Ó actuator ¼à¿Ø¼ÓÔØ RefreshScope£¬
+// è¯»å–é…ç½®ä¸­å¿ƒæŒ‡å®šé…ç½®æ–‡ä»¶çš„å†…å®¹ï¼Œå¹¶å±•ç¤ºåˆ°é¡µé¢
+@RefreshScope //ä¸ºäº†è®©åŠ¨æ€ï¼ˆæ‰‹åŠ¨ï¼‰çš„è·å–æœ€æ–°çš„git é…ç½®ï¼Œåœ¨æ·»åŠ  actuator ç›‘æ§åŠ è½½ RefreshScopeï¼Œ
 @RestController
 public class ConfigClientController {
     @Value("${server.port}")
@@ -527,7 +527,7 @@ public class ConfigClientController {
 
     @GetMapping(value = "/getConfig")
     public String getConfig() {
-        return "info£º" + configInfo + "<br/> version£º" + configVersion + "<br/>port£º" + serverPort;
+        return "infoï¼š" + configInfo + "<br/> versionï¼š" + configVersion + "<br/>portï¼š" + serverPort;
     }
 }
 ```
@@ -536,7 +536,7 @@ public class ConfigClientController {
 
 
 
-4\. ÖØÆô micro-service-cloud-config-client-3355£¬È»ºó½«ÅäÖÃÎÄ¼ş config-dev.yml ÖĞµÄ config.version ĞŞ¸ÄÎª 3.0£¬ÅäÖÃÈçÏÂ¡£
+4\. é‡å¯ micro-service-cloud-config-client-3355ï¼Œç„¶åå°†é…ç½®æ–‡ä»¶ config-dev.yml ä¸­çš„ config.version ä¿®æ”¹ä¸º 3.0ï¼Œé…ç½®å¦‚ä¸‹ã€‚
 
 ```
 config:
@@ -545,69 +545,69 @@ config:
 ```
 
 
-5\. Ê¹ÓÃä¯ÀÀÆ÷ÔÙ´Î·ÃÎÊ¡°http://localhost:3355/getConfig¡±£¬½á¹ûÈçÏÂÍ¼¡£
+5\. ä½¿ç”¨æµè§ˆå™¨å†æ¬¡è®¿é—®â€œhttp://localhost:3355/getConfigâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![ÖØÆôConfig ¿Í»§¶Ë](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019425023-7.png)
-Í¼8£ºÖØÆô Spring Cloud Config ¿Í»§¶Ëºó»ñÈ¡ÅäÖÃ
+![é‡å¯Config å®¢æˆ·ç«¯](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019425023-7.png)
+å›¾8ï¼šé‡å¯ Spring Cloud Config å®¢æˆ·ç«¯åè·å–é…ç½®
 
-´ÓÍ¼ 9 ¿ÉÒÔ¿´³ö£¬¼´Ê¹ÎÒÃÇ¶Ô Spring Cloud Config ¿Í»§¶Ë½øĞĞÁË¸ÄÔì£¬Ò²ÒÀÈ»ÎŞ·¨Ö±½Ó»ñÈ¡µ½×îĞÂÅäÖÃ¡£
+ä»å›¾ 9 å¯ä»¥çœ‹å‡ºï¼Œå³ä½¿æˆ‘ä»¬å¯¹ Spring Cloud Config å®¢æˆ·ç«¯è¿›è¡Œäº†æ”¹é€ ï¼Œä¹Ÿä¾ç„¶æ— æ³•ç›´æ¥è·å–åˆ°æœ€æ–°é…ç½®ã€‚
 
-6\. ´ò¿ªÃüÁîĞĞ´°¿Ú£¬Ê¹ÓÃÒÔÏÂÃüÁî·¢ËÍÒ»¸ö POST ÇëÇóË¢ĞÂ Spring Cloud Config 3355 ¿Í»§¶Ë£¬Í¨Öª¿Í»§¶ËÅäÖÃÎÄ¼şÒÑ¾­ĞŞ¸Ä£¬ĞèÒªÖØĞÂÀ­È¥ÅäÖÃ¡£
+6\. æ‰“å¼€å‘½ä»¤è¡Œçª—å£ï¼Œä½¿ç”¨ä»¥ä¸‹å‘½ä»¤å‘é€ä¸€ä¸ª POST è¯·æ±‚åˆ·æ–° Spring Cloud Config 3355 å®¢æˆ·ç«¯ï¼Œé€šçŸ¥å®¢æˆ·ç«¯é…ç½®æ–‡ä»¶å·²ç»ä¿®æ”¹ï¼Œéœ€è¦é‡æ–°æ‹‰å»é…ç½®ã€‚
 
 ```curl -X POST "http://localhost:3355/actuator/refresh"```
 
-7. Ê¹ÓÃä¯ÀÀÆ÷ÔÙ´Î·ÃÎÊ¡°http://localhost:3355/getConfig¡±£¬½á¹ûÈçÏÂÍ¼¡£
+7. ä½¿ç”¨æµè§ˆå™¨å†æ¬¡è®¿é—®â€œhttp://localhost:3355/getConfigâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![ÊÖ¶¯Ë¢ĞÂ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101942C62-9.png)
-Í¼9£ºÊÖ¶¯Ë¢ĞÂ¿Í»§¶Ë
+![æ‰‹åŠ¨åˆ·æ–°](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101942C62-9.png)
+å›¾9ï¼šæ‰‹åŠ¨åˆ·æ–°å®¢æˆ·ç«¯
 
-#### ÊÖ¶¯Ë¢ĞÂÅäÖÃµÄÎÊÌâ
+#### æ‰‹åŠ¨åˆ·æ–°é…ç½®çš„é—®é¢˜
 
-ÔÚÉÏÃæµÄÊµÀıÖĞ£¬ÎÒÃÇÍ¨¹ıÔÚ Config ¿Í»§¶Ë£¨¶Ë¿ÚºÅ£º3355£©ÖĞÒıÈë Spring Boot actuator ¼à¿Ø×é¼şÀ´¼à¿ØÅäÖÃµÄ±ä»¯£¬Ê¹ÎÒÃÇ¿ÉÒÔÔÚ²»ÖØÆô Config ¿Í»§¶ËµÄÇé¿öÏÂ»ñÈ¡µ½ÁË×îĞÂÅäÖÃ£¬Ô­ÀíÈçÏÂÍ¼¡£
+åœ¨ä¸Šé¢çš„å®ä¾‹ä¸­ï¼Œæˆ‘ä»¬é€šè¿‡åœ¨ Config å®¢æˆ·ç«¯ï¼ˆç«¯å£å·ï¼š3355ï¼‰ä¸­å¼•å…¥ Spring Boot actuator ç›‘æ§ç»„ä»¶æ¥ç›‘æ§é…ç½®çš„å˜åŒ–ï¼Œä½¿æˆ‘ä»¬å¯ä»¥åœ¨ä¸é‡å¯ Config å®¢æˆ·ç«¯çš„æƒ…å†µä¸‹è·å–åˆ°äº†æœ€æ–°é…ç½®ï¼ŒåŸç†å¦‚ä¸‹å›¾ã€‚
 
-![Spring Cloud Config ÊÖ¶¯Ë¢ĞÂ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019424S8-10.png)
-Í¼10£ºSpring Cloud Congfig ÊÖ¶¯Ë¢ĞÂ
+![Spring Cloud Config æ‰‹åŠ¨åˆ·æ–°](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019424S8-10.png)
+å›¾10ï¼šSpring Cloud Congfig æ‰‹åŠ¨åˆ·æ–°
 
-ÕâÖÖ·½Ê½ËäÈ»½â¾öÁËÖØÆô Config ¿Í»§¶Ë²ÅÄÜ»ñÈ¡×îĞÂÅäÖÃµÄÎÊÌâ£¬µ«ÁíÒ»¸öÎÊÌâÈ´Ò²½Óõà¶øÖÁ£¬ÄÇ¾ÍÊÇÖ»ÒªÅäÖÃ²Ö¿âÖĞµÄÅäÖÃ·¢Éú¸Ä±ä£¬¾ÍĞèÒªÎÒÃÇ°¤¸öÏò Config ¿Í»§¶ËÊÖ¶¯·¢ËÍ POST ÇëÇó£¬Í¨ÖªËüÃÇÖØĞÂÀ­È¡ÅäÖÃ¡£
+è¿™ç§æ–¹å¼è™½ç„¶è§£å†³äº†é‡å¯ Config å®¢æˆ·ç«¯æ‰èƒ½è·å–æœ€æ–°é…ç½®çš„é—®é¢˜ï¼Œä½†å¦ä¸€ä¸ªé—®é¢˜å´ä¹Ÿæ¥è¸µè€Œè‡³ï¼Œé‚£å°±æ˜¯åªè¦é…ç½®ä»“åº“ä¸­çš„é…ç½®å‘ç”Ÿæ”¹å˜ï¼Œå°±éœ€è¦æˆ‘ä»¬æŒ¨ä¸ªå‘ Config å®¢æˆ·ç«¯æ‰‹åŠ¨å‘é€ POST è¯·æ±‚ï¼Œé€šçŸ¥å®ƒä»¬é‡æ–°æ‹‰å–é…ç½®ã€‚
 
-ÎÒÃÇÖªµÀ£¬ËùÎ½µÄ Config ¿Í»§¶ËÆäÊµ¾ÍÊÇÒ»¸öÒ»¸öµÄ·şÎñ¡£ÔÚÎ¢·şÎñ¼Ü¹¹ÖĞ£¬Ò»¸öÏµÍ³ÍùÍù°üº¬Ê®¼¸ÉõÖÁ¼¸Ê®¸ö·şÎñ£¬Èç¹ûÒòÎªÄ³Ò»¸öÅäÖÃÎÄ¼şµÄĞŞ¸Ä¶øÏò¼¸Ê®¸öÎ¢·şÎñ·¢ËÍ POST ÇëÇó£¬ÕâÏÔÈ»ÊÇ²»ºÏÀíµÄ¡£
+æˆ‘ä»¬çŸ¥é“ï¼Œæ‰€è°“çš„ Config å®¢æˆ·ç«¯å…¶å®å°±æ˜¯ä¸€ä¸ªä¸€ä¸ªçš„æœåŠ¡ã€‚åœ¨å¾®æœåŠ¡æ¶æ„ä¸­ï¼Œä¸€ä¸ªç³»ç»Ÿå¾€å¾€åŒ…å«åå‡ ç”šè‡³å‡ åä¸ªæœåŠ¡ï¼Œå¦‚æœå› ä¸ºæŸä¸€ä¸ªé…ç½®æ–‡ä»¶çš„ä¿®æ”¹è€Œå‘å‡ åä¸ªå¾®æœåŠ¡å‘é€ POST è¯·æ±‚ï¼Œè¿™æ˜¾ç„¶æ˜¯ä¸åˆç†çš„ã€‚
 
-ÄÇÃ´ÓĞÃ»ÓĞ¡°Ò»´ÎÍ¨Öª£¬´¦´¦ÉúĞ§¡±µÄ·½Ê½ÄØ£¿´ğ°¸ÊÇ¿Ï¶¨µÄ¡£Spring Cloud Config ÅäºÏ Bus ¾Í¿ÉÒÔÊµÏÖÅäÖÃµÄ¶¯Ì¬Ë¢ĞÂ¡£
+é‚£ä¹ˆæœ‰æ²¡æœ‰â€œä¸€æ¬¡é€šçŸ¥ï¼Œå¤„å¤„ç”Ÿæ•ˆâ€çš„æ–¹å¼å‘¢ï¼Ÿç­”æ¡ˆæ˜¯è‚¯å®šçš„ã€‚Spring Cloud Config é…åˆ Bus å°±å¯ä»¥å®ç°é…ç½®çš„åŠ¨æ€åˆ·æ–°ã€‚
 
-## Config+Bus ÊµÏÖÅäÖÃµÄ¶¯Ì¬Ë¢ĞÂ
+## Config+Bus å®ç°é…ç½®çš„åŠ¨æ€åˆ·æ–°
 
-Spring Cloud Bus ÓÖ±»³ÆÎªÏûÏ¢×ÜÏß£¬ËüÄÜ¹»Í¨¹ıÇáÁ¿¼¶µÄÏûÏ¢´úÀí£¨ÀıÈç RabbitMQ¡¢Kafka µÈ£©½«Î¢·şÎñ¼Ü¹¹ÖĞµÄ¸÷¸ö·şÎñÁ¬½ÓÆğÀ´£¬ÊµÏÖ¹ã²¥×´Ì¬¸ü¸Ä¡¢ÊÂ¼şÍÆËÍµÈ¹¦ÄÜ£¬»¹¿ÉÒÔÊµÏÖÎ¢·şÎñÖ®¼äµÄÍ¨ĞÅ¹¦ÄÜ¡£
+Spring Cloud Bus åˆè¢«ç§°ä¸ºæ¶ˆæ¯æ€»çº¿ï¼Œå®ƒèƒ½å¤Ÿé€šè¿‡è½»é‡çº§çš„æ¶ˆæ¯ä»£ç†ï¼ˆä¾‹å¦‚ RabbitMQã€Kafka ç­‰ï¼‰å°†å¾®æœåŠ¡æ¶æ„ä¸­çš„å„ä¸ªæœåŠ¡è¿æ¥èµ·æ¥ï¼Œå®ç°å¹¿æ’­çŠ¶æ€æ›´æ”¹ã€äº‹ä»¶æ¨é€ç­‰åŠŸèƒ½ï¼Œè¿˜å¯ä»¥å®ç°å¾®æœåŠ¡ä¹‹é—´çš„é€šä¿¡åŠŸèƒ½ã€‚
 
-Ä¿Ç° Spring Cloud Bus Ö§³ÖÁ½ÖÖÏûÏ¢´úÀí£ºRabbitMQ ºÍ Kafka¡£
+ç›®å‰ Spring Cloud Bus æ”¯æŒä¸¤ç§æ¶ˆæ¯ä»£ç†ï¼šRabbitMQ å’Œ Kafkaã€‚
 
-#### Spring Cloud Bus µÄ»ù±¾Ô­Àí
+#### Spring Cloud Bus çš„åŸºæœ¬åŸç†
 
-Spring Cloud Bus »áÊ¹ÓÃÒ»¸öÇáÁ¿¼¶µÄÏûÏ¢´úÀíÀ´¹¹½¨Ò»¸ö¹«¹²µÄÏûÏ¢Ö÷Ìâ Topic£¨Ä¬ÈÏÎª¡°springCloudBus¡±£©£¬Õâ¸ö Topic ÖĞµÄÏûÏ¢»á±»ËùÓĞ·şÎñÊµÀı¼àÌıºÍÏû·Ñ¡£µ±ÆäÖĞµÄÒ»¸ö·şÎñË¢ĞÂÊı¾İÊ±£¬Spring Cloud Bus »á°ÑĞÅÏ¢±£´æµ½ Topic ÖĞ£¬ÕâÑù¼àÌıÕâ¸ö Topic µÄ·şÎñ¾ÍÊÕµ½ÏûÏ¢²¢×Ô¶¯Ïû·Ñ¡£
+Spring Cloud Bus ä¼šä½¿ç”¨ä¸€ä¸ªè½»é‡çº§çš„æ¶ˆæ¯ä»£ç†æ¥æ„å»ºä¸€ä¸ªå…¬å…±çš„æ¶ˆæ¯ä¸»é¢˜ Topicï¼ˆé»˜è®¤ä¸ºâ€œspringCloudBusâ€ï¼‰ï¼Œè¿™ä¸ª Topic ä¸­çš„æ¶ˆæ¯ä¼šè¢«æ‰€æœ‰æœåŠ¡å®ä¾‹ç›‘å¬å’Œæ¶ˆè´¹ã€‚å½“å…¶ä¸­çš„ä¸€ä¸ªæœåŠ¡åˆ·æ–°æ•°æ®æ—¶ï¼ŒSpring Cloud Bus ä¼šæŠŠä¿¡æ¯ä¿å­˜åˆ° Topic ä¸­ï¼Œè¿™æ ·ç›‘å¬è¿™ä¸ª Topic çš„æœåŠ¡å°±æ”¶åˆ°æ¶ˆæ¯å¹¶è‡ªåŠ¨æ¶ˆè´¹ã€‚
 
-#### Spring Cloud Bus ¶¯Ì¬Ë¢ĞÂÅäÖÃµÄÔ­Àí
+#### Spring Cloud Bus åŠ¨æ€åˆ·æ–°é…ç½®çš„åŸç†
 
-ÀûÓÃ Spring Cloud Bus µÄÌØÊâ»úÖÆ¿ÉÒÔÊµÏÖºÜ¶à¹¦ÄÜ£¬ÆäÖĞÅäºÏ Spring Cloud Config ÊµÏÖÅäÖÃµÄ¶¯Ì¬Ë¢ĞÂ¾ÍÊÇ×îµäĞÍµÄÓ¦ÓÃ³¡¾°Ö®Ò»¡£
+åˆ©ç”¨ Spring Cloud Bus çš„ç‰¹æ®Šæœºåˆ¶å¯ä»¥å®ç°å¾ˆå¤šåŠŸèƒ½ï¼Œå…¶ä¸­é…åˆ Spring Cloud Config å®ç°é…ç½®çš„åŠ¨æ€åˆ·æ–°å°±æ˜¯æœ€å…¸å‹çš„åº”ç”¨åœºæ™¯ä¹‹ä¸€ã€‚
 
-µ± Git ²Ö¿âÖĞµÄÅäÖÃ·¢ÉúÁË¸Ä±ä£¬ÎÒÃÇÖ»ĞèÒªÏòÄ³Ò»¸ö·şÎñ£¨¼È¿ÉÒÔÊÇ Config ·şÎñ¶Ë£¬Ò²¿ÉÒÔÊÇ Config ¿Í»§¶Ë£©·¢ËÍÒ»¸ö POST ÇëÇó£¬Spring Cloud Bus ¾Í¿ÉÒÔÍ¨¹ıÏûÏ¢´úÀíÍ¨ÖªÆäËû·şÎñÖØĞÂÀ­È¡×îĞÂÅäÖÃ£¬ÒÔÊµÏÖÅäÖÃµÄ¶¯Ì¬Ë¢ĞÂ¡£
+å½“ Git ä»“åº“ä¸­çš„é…ç½®å‘ç”Ÿäº†æ”¹å˜ï¼Œæˆ‘ä»¬åªéœ€è¦å‘æŸä¸€ä¸ªæœåŠ¡ï¼ˆæ—¢å¯ä»¥æ˜¯ Config æœåŠ¡ç«¯ï¼Œä¹Ÿå¯ä»¥æ˜¯ Config å®¢æˆ·ç«¯ï¼‰å‘é€ä¸€ä¸ª POST è¯·æ±‚ï¼ŒSpring Cloud Bus å°±å¯ä»¥é€šè¿‡æ¶ˆæ¯ä»£ç†é€šçŸ¥å…¶ä»–æœåŠ¡é‡æ–°æ‹‰å–æœ€æ–°é…ç½®ï¼Œä»¥å®ç°é…ç½®çš„åŠ¨æ€åˆ·æ–°ã€‚
 
-Spring Cloud Bus ¶¯Ì¬Ë¢ĞÂÅäÖÃµÄ¹¤×÷Ô­Àí£¬ÈçÏÂÍ¼ËùÊ¾¡£
+Spring Cloud Bus åŠ¨æ€åˆ·æ–°é…ç½®çš„å·¥ä½œåŸç†ï¼Œå¦‚ä¸‹å›¾æ‰€ç¤ºã€‚
 
-![bus+config ¶¯Ì¬Ë¢ĞÂÅäÖÃ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101942GY-11.png)
-Í¼11£ºBus+Config ÊµÏÖÅäÖÃµÄ¶¯Ì¬Ë¢ĞÂ
+![bus+config åŠ¨æ€åˆ·æ–°é…ç½®](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101942GY-11.png)
+å›¾11ï¼šBus+Config å®ç°é…ç½®çš„åŠ¨æ€åˆ·æ–°
 
-¸ù¾İÍ¼ 12£¬ÀûÓÃ Spring Cloud Bus ÊµÏÖÅäÖÃµÄ¶¯Ì¬Ë¢ĞÂĞèÒªÒÔÏÂ²½Öè:
+æ ¹æ®å›¾ 12ï¼Œåˆ©ç”¨ Spring Cloud Bus å®ç°é…ç½®çš„åŠ¨æ€åˆ·æ–°éœ€è¦ä»¥ä¸‹æ­¥éª¤:
 
-1.  µ± Git ²Ö¿âÖĞµÄÅäÖÃ·¢Éú¸Ä±äºó£¬ÔËÎ¬ÈËÔ±Ïò Config ·şÎñ¶Ë·¢ËÍÒ»¸ö POST ÇëÇó£¬ÇëÇóÂ·¾¶Îª¡°/actuator/refresh¡±¡£
-2.  Config ·şÎñ¶Ë½ÓÊÕµ½ÇëÇóºó£¬»á½«¸ÃÇëÇó×ª·¢¸ø·şÎñ×ÜÏß Spring Cloud Bus¡£
-3.  Spring Cloud Bus ½Óµ½ÏûÏ¢ºó£¬»áÍ¨Öª¸øËùÓĞ Config ¿Í»§¶Ë¡£
-4.  Config ¿Í»§¶Ë½ÓÊÕµ½Í¨Öª£¬ÇëÇó Config ·şÎñ¶ËÀ­È¡×îĞÂÅäÖÃ¡£
-5.  ËùÓĞ Config ¿Í»§¶Ë¶¼»ñÈ¡µ½×îĞÂµÄÅäÖÃ¡£
+1.  å½“ Git ä»“åº“ä¸­çš„é…ç½®å‘ç”Ÿæ”¹å˜åï¼Œè¿ç»´äººå‘˜å‘ Config æœåŠ¡ç«¯å‘é€ä¸€ä¸ª POST è¯·æ±‚ï¼Œè¯·æ±‚è·¯å¾„ä¸ºâ€œ/actuator/refreshâ€ã€‚
+2.  Config æœåŠ¡ç«¯æ¥æ”¶åˆ°è¯·æ±‚åï¼Œä¼šå°†è¯¥è¯·æ±‚è½¬å‘ç»™æœåŠ¡æ€»çº¿ Spring Cloud Busã€‚
+3.  Spring Cloud Bus æ¥åˆ°æ¶ˆæ¯åï¼Œä¼šé€šçŸ¥ç»™æ‰€æœ‰ Config å®¢æˆ·ç«¯ã€‚
+4.  Config å®¢æˆ·ç«¯æ¥æ”¶åˆ°é€šçŸ¥ï¼Œè¯·æ±‚ Config æœåŠ¡ç«¯æ‹‰å–æœ€æ–°é…ç½®ã€‚
+5.  æ‰€æœ‰ Config å®¢æˆ·ç«¯éƒ½è·å–åˆ°æœ€æ–°çš„é…ç½®ã€‚
 
-#### Spring Cloud Bus ¶¯Ì¬Ë¢ĞÂÅäÖÃ£¨È«¾Ö¹ã²¥£©
+#### Spring Cloud Bus åŠ¨æ€åˆ·æ–°é…ç½®ï¼ˆå…¨å±€å¹¿æ’­ï¼‰
 
-ÏÂÃæÎÒÃÇÒÔ RabbitMQ ÎªÀı£¬À´ÑİÊ¾ÈçºÎÊ¹ÓÃ Config+Bus ÊµÏÖÅäÖÃµÄ¶¯Ì¬Ë¢ĞÂ¡£
+ä¸‹é¢æˆ‘ä»¬ä»¥ RabbitMQ ä¸ºä¾‹ï¼Œæ¥æ¼”ç¤ºå¦‚ä½•ä½¿ç”¨ Config+Bus å®ç°é…ç½®çš„åŠ¨æ€åˆ·æ–°ã€‚
 
-1\. ÔÚ micro-service-cloud-config-center-3344 µÄ pom.xml ÖĞ£¬Ìí¼Ó Spring Boot actuator ¼à¿ØÄ£¿éºÍ Spring Cloud Bus µÄÒÀÀµ£¬´úÂëÈçÏÂ¡£
+1\. åœ¨ micro-service-cloud-config-center-3344 çš„ pom.xml ä¸­ï¼Œæ·»åŠ  Spring Boot actuator ç›‘æ§æ¨¡å—å’Œ Spring Cloud Bus çš„ä¾èµ–ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -615,12 +615,12 @@ Spring Cloud Bus ¶¯Ì¬Ë¢ĞÂÅäÖÃµÄ¹¤×÷Ô­Àí£¬ÈçÏÂÍ¼ËùÊ¾¡£
 
 ```
 
-<!--Ìí¼ÓÏûÏ¢×ÜÏß£¨Bus£©¶Ô RabbitMQ µÄÖ§³Ö-->
+<!--æ·»åŠ æ¶ˆæ¯æ€»çº¿ï¼ˆBusï¼‰å¯¹ RabbitMQ çš„æ”¯æŒ-->
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-bus-amqp</artifactId>
 </dependency>
-<!--Ìí¼ÓSpring Boot actuator ¼à¿ØÄ£¿éµÄÒÀÀµ-->
+<!--æ·»åŠ Spring Boot actuator ç›‘æ§æ¨¡å—çš„ä¾èµ–-->
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-actuator</artifactId>
@@ -632,14 +632,14 @@ Spring Cloud Bus ¶¯Ì¬Ë¢ĞÂÅäÖÃµÄ¹¤×÷Ô­Àí£¬ÈçÏÂÍ¼ËùÊ¾¡£
 
 
 
-2\. ÔÚ micro-service-cloud-config-center-3344 µÄÅäÖÃÎÄ¼ş application.yml ÖĞ£¬Ìí¼Ó RabbitMQ ºÍ Spring Boot actuator µÄÏà¹ØÅäÖÃ£¬ÅäÖÃÄÚÈİÈçÏÂ¡£
+2\. åœ¨ micro-service-cloud-config-center-3344 çš„é…ç½®æ–‡ä»¶ application.yml ä¸­ï¼Œæ·»åŠ  RabbitMQ å’Œ Spring Boot actuator çš„ç›¸å…³é…ç½®ï¼Œé…ç½®å†…å®¹å¦‚ä¸‹ã€‚
 
 
 
 
 
 ```
-##### RabbitMQ Ïà¹ØÅäÖÃ£¬15672 ÊÇweb ¹ÜÀí½çÃæµÄ¶Ë¿Ú£¬5672 ÊÇ MQ µÄ·ÃÎÊ¶Ë¿Ú###########
+##### RabbitMQ ç›¸å…³é…ç½®ï¼Œ15672 æ˜¯web ç®¡ç†ç•Œé¢çš„ç«¯å£ï¼Œ5672 æ˜¯ MQ çš„è®¿é—®ç«¯å£###########
 spring:
   rabbitmq:
     host: 127.0.0.1
@@ -647,7 +647,7 @@ spring:
     username: guest
     password: guest
 
-# Spring Boot 2.50¶Ô actuator ¼à¿ØÆÁ±ÎÁË´ó¶àÊıµÄ½Úµã£¬Ö»±©Â¶ÁË heath ½Úµã£¬±¾¶ÎÅäÖÃ£¨*£©¾ÍÊÇÎªÁË¿ªÆôËùÓĞµÄ½Úµã
+# Spring Boot 2.50å¯¹ actuator ç›‘æ§å±è”½äº†å¤§å¤šæ•°çš„èŠ‚ç‚¹ï¼Œåªæš´éœ²äº† heath èŠ‚ç‚¹ï¼Œæœ¬æ®µé…ç½®ï¼ˆ*ï¼‰å°±æ˜¯ä¸ºäº†å¼€å¯æ‰€æœ‰çš„èŠ‚ç‚¹
 management:
   endpoints:
     web:
@@ -660,7 +660,7 @@ management:
 
 
 
-3\. ÔÚ micro-service-cloud-config-client-3355 µÄ pom.xml ÖĞ£¬Ìí¼Ó Spring Cloud Bus µÄÏà¹ØÒÀÀµ£¬´úÂëÈçÏÂ¡£
+3\. åœ¨ micro-service-cloud-config-client-3355 çš„ pom.xml ä¸­ï¼Œæ·»åŠ  Spring Cloud Bus çš„ç›¸å…³ä¾èµ–ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -669,7 +669,7 @@ management:
 ```
 
 
-1.  <!--Ìí¼ÓÏûÏ¢×ÜÏß£¨Bus£©¶Ô RabbitMQ µÄÖ§³Ö-->
+1.  <!--æ·»åŠ æ¶ˆæ¯æ€»çº¿ï¼ˆBusï¼‰å¯¹ RabbitMQ çš„æ”¯æŒ-->
 2.  <dependency>
 3.  <groupId>org.springframework.cloud</groupId>
 4.  spring-cloud-starter-bus-amqp
@@ -681,7 +681,7 @@ management:
 
 
 
-4. ÔÚ micro-service-cloud-config-client-3355 µÄÅäÖÃÎÄ¼ş bootstrap.yml ÖĞÌí¼ÓÒÔÏÂÅäÖÃ¡£
+4. åœ¨ micro-service-cloud-config-client-3355 çš„é…ç½®æ–‡ä»¶ bootstrap.yml ä¸­æ·»åŠ ä»¥ä¸‹é…ç½®ã€‚
 
 
 
@@ -689,7 +689,7 @@ management:
 
 ```
 
-<!--Ìí¼ÓÏûÏ¢×ÜÏß£¨Bus£©¶Ô RabbitMQ µÄÖ§³Ö-->
+<!--æ·»åŠ æ¶ˆæ¯æ€»çº¿ï¼ˆBusï¼‰å¯¹ RabbitMQ çš„æ”¯æŒ-->
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-bus-amqp</artifactId>
@@ -701,7 +701,7 @@ management:
 
 
 
-5\. ²ÎÕÕ micro-service-cloud-config-client-3355£¬ĞÂ½¨Ò»¸öÃûÎª micro-service-cloud-config-client-bus-3366 µÄ Spring Boot Ä£¿é£¨¶Ë¿ÚºÅÎª 3366£©£¬²¢ÔÚÆäÅäÖÃÎÄ¼ş bootstrap.yml ÖĞÌí¼ÓÒÔÏÂÅäÖÃ¡£
+5\. å‚ç…§ micro-service-cloud-config-client-3355ï¼Œæ–°å»ºä¸€ä¸ªåä¸º micro-service-cloud-config-client-bus-3366 çš„ Spring Boot æ¨¡å—ï¼ˆç«¯å£å·ä¸º 3366ï¼‰ï¼Œå¹¶åœ¨å…¶é…ç½®æ–‡ä»¶ bootstrap.yml ä¸­æ·»åŠ ä»¥ä¸‹é…ç½®ã€‚
 
 
 
@@ -709,39 +709,39 @@ management:
 
 ```
 
-#bootstrap.yml ÊÇÏµÍ³¼¶±ğµÄ£¬¼ÓÔØÓÅÏÈ¼¶¸ßÓÚ application.yml £¬¸ºÔğ´ÓÍâ²¿¼ÓÔØÅäÖÃ²¢½âÎö
+#bootstrap.yml æ˜¯ç³»ç»Ÿçº§åˆ«çš„ï¼ŒåŠ è½½ä¼˜å…ˆçº§é«˜äº application.yml ï¼Œè´Ÿè´£ä»å¤–éƒ¨åŠ è½½é…ç½®å¹¶è§£æ
 server:
-  port: 3366  #¶Ë¿ÚºÅÎª 3366
+  port: 3366  #ç«¯å£å·ä¸º 3366
 spring:
   application:
     name: spring-cloud-config-client-bus
 
   cloud:
     config:
-      label: master #·ÖÖ§Ãû³Æ
-      name: config  #ÅäÖÃÎÄ¼şÃû³Æ£¬config-dev.yml ÖĞµÄ config
-      profile: dev  #ÅäÖÃÎÄ¼şµÄºó×ºÃû  config-dev.yml ÖĞµÄ dev
-      #ÕâÀï²»ÒªÍü¼ÇÌí¼Ó http:// ·ñÔòÎŞ·¨¶ÁÈ¡
-      uri: http://localhost:3344 #spring cloud ÅäÖÃÖĞĞÄµØÖ·
+      label: master #åˆ†æ”¯åç§°
+      name: config  #é…ç½®æ–‡ä»¶åç§°ï¼Œconfig-dev.yml ä¸­çš„ config
+      profile: dev  #é…ç½®æ–‡ä»¶çš„åç¼€å  config-dev.yml ä¸­çš„ dev
+      #è¿™é‡Œä¸è¦å¿˜è®°æ·»åŠ  http:// å¦åˆ™æ— æ³•è¯»å–
+      uri: http://localhost:3344 #spring cloud é…ç½®ä¸­å¿ƒåœ°å€
 
-##### RabbitMQ Ïà¹ØÅäÖÃ£¬15672 ÊÇweb ¹ÜÀí½çÃæµÄ¶Ë¿Ú£¬5672 ÊÇ MQ µÄ·ÃÎÊ¶Ë¿Ú###########
+##### RabbitMQ ç›¸å…³é…ç½®ï¼Œ15672 æ˜¯web ç®¡ç†ç•Œé¢çš„ç«¯å£ï¼Œ5672 æ˜¯ MQ çš„è®¿é—®ç«¯å£###########
   rabbitmq:
     host: 127.0.0.1
     port: 5672
     username: guest
     password: guest
-###################### eureka ÅäÖÃ ####################
+###################### eureka é…ç½® ####################
 eureka:
-  client: #½«¿Í»§¶Ë×¢²áµ½ eureka ·şÎñÁĞ±íÄÚ
+  client: #å°†å®¢æˆ·ç«¯æ³¨å†Œåˆ° eureka æœåŠ¡åˆ—è¡¨å†…
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  #½«·şÎñ×¢²áµ½ Eureka ¼¯Èº
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  #å°†æœåŠ¡æ³¨å†Œåˆ° Eureka é›†ç¾¤
 
-# Spring Boot 2.50¶Ô actuator ¼à¿ØÆÁ±ÎÁË´ó¶àÊıµÄ½Úµã£¬Ö»±©Â¶ÁË heath ½Úµã£¬±¾¶ÎÅäÖÃ£¨*£©¾ÍÊÇÎªÁË¿ªÆôËùÓĞµÄ½Úµã
+# Spring Boot 2.50å¯¹ actuator ç›‘æ§å±è”½äº†å¤§å¤šæ•°çš„èŠ‚ç‚¹ï¼Œåªæš´éœ²äº† heath èŠ‚ç‚¹ï¼Œæœ¬æ®µé…ç½®ï¼ˆ*ï¼‰å°±æ˜¯ä¸ºäº†å¼€å¯æ‰€æœ‰çš„èŠ‚ç‚¹
 management:
   endpoints:
     web:
       exposure:
-        include: "*"   # * ÔÚyaml ÎÄ¼şÊôÓÚ¹Ø¼ü×Ö£¬ËùÒÔĞèÒª¼ÓÒıºÅ
+        include: "*"   # * åœ¨yaml æ–‡ä»¶å±äºå…³é”®å­—ï¼Œæ‰€ä»¥éœ€è¦åŠ å¼•å·
 
 ```
 
@@ -749,17 +749,17 @@ management:
 
 
 
-6\. ÒÀ´ÎÖØÆô micro-service-cloud-config-center-3344¡¢micro-service-cloud-config-client-3355£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://localhost:3355/getConfig¡±£¬½á¹ûÈçÏÂÍ¼¡£
+6\. ä¾æ¬¡é‡å¯ micro-service-cloud-config-center-3344ã€micro-service-cloud-config-client-3355ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://localhost:3355/getConfigâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Bus ¶¯Ì¬ÅäÖÃ¸üĞÂ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019422S4-12.png)
-Í¼12£ºSpring Cloud Bus ¶¯Ì¬Ë¢ĞÂÅäÖÃ
+![Bus åŠ¨æ€é…ç½®æ›´æ–°](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019422S4-12.png)
+å›¾12ï¼šSpring Cloud Bus åŠ¨æ€åˆ·æ–°é…ç½®
 
-7\. Æô¶¯ micro-service-cloud-config-client-bus-3366£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://localhost:3366/getConfig¡±£¬½á¹ûÈçÏÂÍ¼¡£
+7\. å¯åŠ¨ micro-service-cloud-config-client-bus-3366ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://localhost:3366/getConfigâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Bus ¶¯Ì¬¸üĞÂ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10194254S-13.png)
-Í¼13£ºSpring Cloud Bus ¶¯Ì¬Ë¢ĞÂÅäÖÃ
+![Bus åŠ¨æ€æ›´æ–°](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10194254S-13.png)
+å›¾13ï¼šSpring Cloud Bus åŠ¨æ€åˆ·æ–°é…ç½®
 
-8.  ½«ÅäÖÃÎÄ¼ş config-dev.yml ÖĞµÄ config.version ĞŞ¸ÄÎª 4.0£¬ÅäÖÃÈçÏÂ¡£
+8.  å°†é…ç½®æ–‡ä»¶ config-dev.yml ä¸­çš„ config.version ä¿®æ”¹ä¸º 4.0ï¼Œé…ç½®å¦‚ä¸‹ã€‚
 
 ```
 config:
@@ -768,39 +768,39 @@ config:
 ```
 
 
-9\. ´ò¿ªÃüÁîĞĞ´°¿Ú£¬Ê¹ÓÃÒÔÏÂÃüÁîÏò micro-service-cloud-config-center-3344£¨Config Server£©·¢ËÍÒ»¸ö POST ÇëÇó£¬Ë¢ĞÂÅäÖÃ¡£
+9\. æ‰“å¼€å‘½ä»¤è¡Œçª—å£ï¼Œä½¿ç”¨ä»¥ä¸‹å‘½ä»¤å‘ micro-service-cloud-config-center-3344ï¼ˆConfig Serverï¼‰å‘é€ä¸€ä¸ª POST è¯·æ±‚ï¼Œåˆ·æ–°é…ç½®ã€‚
 
 ```curl -X POST "http://localhost:3344/actuator/bus-refresh"```
 
-10. Ê¹ÓÃä¯ÀÀÆ÷ÔÙ´Î·ÃÎÊ¡°http://localhost:3355/getConfig¡±£¬½á¹ûÈçÏÂÍ¼¡£
+10. ä½¿ç”¨æµè§ˆå™¨å†æ¬¡è®¿é—®â€œhttp://localhost:3355/getConfigâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![bus ¶¯Ì¬Ë¢ĞÂÅäÖÃ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019423453-14.png)
-Í¼14£ºSpring Cloud Bus ¶¯Ì¬Ë¢ĞÂ
+![bus åŠ¨æ€åˆ·æ–°é…ç½®](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019423453-14.png)
+å›¾14ï¼šSpring Cloud Bus åŠ¨æ€åˆ·æ–°
 
-11. Ê¹ÓÃä¯ÀÀÆ÷ÔÙ´Î·ÃÎÊ¡°http://localhost:3366/getConfig¡±£¬½á¹ûÈçÏÂÍ¼¡£
+11. ä½¿ç”¨æµè§ˆå™¨å†æ¬¡è®¿é—®â€œhttp://localhost:3366/getConfigâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10194222Y-15.png)
-Í¼15£ºSpring Cloud Bus ¶¯Ì¬Ë¢ĞÂ
+å›¾15ï¼šSpring Cloud Bus åŠ¨æ€åˆ·æ–°
 
-> ×¢Òâ£ºÔÚÊ¹ÓÃ Spring Cloud Bus Ê±£¬±ØĞë±£Ö¤ Bus ËùÁ¬½ÓµÄÏûÏ¢´úÀíÈí¼ş£¨ÀıÈç RabbitMQ£©ÒÑ¾­ÕıÈ·°²×°ÇÒÔËĞĞÕı³£¡£
+> æ³¨æ„ï¼šåœ¨ä½¿ç”¨ Spring Cloud Bus æ—¶ï¼Œå¿…é¡»ä¿è¯ Bus æ‰€è¿æ¥çš„æ¶ˆæ¯ä»£ç†è½¯ä»¶ï¼ˆä¾‹å¦‚ RabbitMQï¼‰å·²ç»æ­£ç¡®å®‰è£…ä¸”è¿è¡Œæ­£å¸¸ã€‚
 
-#### Spring Cloud Bus ¶¯Ì¬Ë¢ĞÂÅäÖÃ£¨¶¨µãÍ¨Öª£©
+#### Spring Cloud Bus åŠ¨æ€åˆ·æ–°é…ç½®ï¼ˆå®šç‚¹é€šçŸ¥ï¼‰
 
-ËùÎ½¶¨µãÍ¨Öª£¬¾ÍÊÇ²»ÔÙÍ¨ÖªËùÓĞµÄ Config ¿Í»§¶Ë£¬¶øÊÇ¸ù¾İĞèÇóÖ»Í¨ÖªÆäÖĞÄ³Ò»¸ö Config ¿Í»§¶Ë¡£
+æ‰€è°“å®šç‚¹é€šçŸ¥ï¼Œå°±æ˜¯ä¸å†é€šçŸ¥æ‰€æœ‰çš„ Config å®¢æˆ·ç«¯ï¼Œè€Œæ˜¯æ ¹æ®éœ€æ±‚åªé€šçŸ¥å…¶ä¸­æŸä¸€ä¸ª Config å®¢æˆ·ç«¯ã€‚
 
-Ê¹ÓÃ Spring Cloud Bus ÊµÏÖ¶¨µãÍ¨ÖªµÄ·½·¨Ê®·Ö¼òµ¥£¬Ö»ÒªÎÒÃÇÔÚ·¢ËÍ POST ÇëÇóÊ±Ê¹ÓÃÒÔÏÂ¸ñÊ½¼´¿É¡£
+ä½¿ç”¨ Spring Cloud Bus å®ç°å®šç‚¹é€šçŸ¥çš„æ–¹æ³•ååˆ†ç®€å•ï¼Œåªè¦æˆ‘ä»¬åœ¨å‘é€ POST è¯·æ±‚æ—¶ä½¿ç”¨ä»¥ä¸‹æ ¼å¼å³å¯ã€‚
 
 ```http://{hostname}:{port}/actuator/bus-refresh/{destination}```
 
-²ÎÊıËµÃ÷ÈçÏÂ£º
+å‚æ•°è¯´æ˜å¦‚ä¸‹ï¼š
 
-*   {hostname}£º ±íÊ¾ Config ·şÎñ¶ËµÄÖ÷»úµØÖ·£¬¼È¿ÉÒÔÊÇÓòÃû£¬Ò²¿ÉÒÔÊÇ IP µØÖ·¡£
-*   {port}£º±íÊ¾ Config ·şÎñ¶ËµÄ¶Ë¿ÚºÅ.
-*   {destination}£º±íÊ¾ĞèÒª¶¨µãÍ¨ÖªµÄ Config ¿Í»§¶Ë£¨Î¢·şÎñ£©£¬ÓÉ Config ¿Í»§¶ËµÄ·şÎñÃû£¨spring.application.name£©+¶Ë¿ÚºÅ£¨server.port£©×é³É£¬ÀıÈçÖ»Í¨Öª micro-service-cloud-config-client-3355 Ë¢ĞÂÅäÖÃ£¬ÔòÈ¡ÖµÎª spring-cloud-config-client:3355¡£
+*   {hostname}ï¼š è¡¨ç¤º Config æœåŠ¡ç«¯çš„ä¸»æœºåœ°å€ï¼Œæ—¢å¯ä»¥æ˜¯åŸŸåï¼Œä¹Ÿå¯ä»¥æ˜¯ IP åœ°å€ã€‚
+*   {port}ï¼šè¡¨ç¤º Config æœåŠ¡ç«¯çš„ç«¯å£å·.
+*   {destination}ï¼šè¡¨ç¤ºéœ€è¦å®šç‚¹é€šçŸ¥çš„ Config å®¢æˆ·ç«¯ï¼ˆå¾®æœåŠ¡ï¼‰ï¼Œç”± Config å®¢æˆ·ç«¯çš„æœåŠ¡åï¼ˆspring.application.nameï¼‰+ç«¯å£å·ï¼ˆserver.portï¼‰ç»„æˆï¼Œä¾‹å¦‚åªé€šçŸ¥ micro-service-cloud-config-client-3355 åˆ·æ–°é…ç½®ï¼Œåˆ™å–å€¼ä¸º spring-cloud-config-client:3355ã€‚
 
-ÏÂÃæÎÒÃÇ¾ÍÍ¨¹ıÒ»¸ö¼òµ¥µÄÊµÀı£¬À´ÑİÊ¾ÏÂ Spring Cloud Bus ¶¯Ì¬Ë¢ĞÂµÄ¶¨µãÍ¨Öª¡£
+ä¸‹é¢æˆ‘ä»¬å°±é€šè¿‡ä¸€ä¸ªç®€å•çš„å®ä¾‹ï¼Œæ¥æ¼”ç¤ºä¸‹ Spring Cloud Bus åŠ¨æ€åˆ·æ–°çš„å®šç‚¹é€šçŸ¥ã€‚
 
-1\. ½«ÅäÖÃÎÄ¼ş config-dev.yml ÖĞµÄ config.version ĞŞ¸ÄÎª 5.0£¬ÅäÖÃÈçÏÂ¡£
+1\. å°†é…ç½®æ–‡ä»¶ config-dev.yml ä¸­çš„ config.version ä¿®æ”¹ä¸º 5.0ï¼Œé…ç½®å¦‚ä¸‹ã€‚
 
 ```
 config:
@@ -809,22 +809,22 @@ config:
 ```
 
 
-2\. ´ò¿ªÃüÁîĞĞ´°¿Ú£¬Ê¹ÓÃÒÔÏÂÃüÁîÏò micro-service-cloud-config-center-3344 ·¢ËÍÒ»¸ö POST ÇëÇó¡£
+2\. æ‰“å¼€å‘½ä»¤è¡Œçª—å£ï¼Œä½¿ç”¨ä»¥ä¸‹å‘½ä»¤å‘ micro-service-cloud-config-center-3344 å‘é€ä¸€ä¸ª POST è¯·æ±‚ã€‚
 
 ```curl -X POST "http://localhost:3344/actuator/bus-refresh/spring-cloud-config-client:3355"```
 
-3\. Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://localhost:3355/getConfig¡±£¬½á¹ûÈçÏÂÍ¼¡£
+3\. ä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://localhost:3355/getConfigâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Bus ¶¨µãÍ¨Öª 3355](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10194233O-16.png)
-Í¼16£ºSpring Cloud Bus ¶¨µãÍ¨Öª
+![Bus å®šç‚¹é€šçŸ¥ 3355](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10194233O-16.png)
+å›¾16ï¼šSpring Cloud Bus å®šç‚¹é€šçŸ¥
 
-4\. Ê¹ÓÃä¯ÀÀÆ÷ÔÙ´Î·ÃÎÊ¡°http://localhost:3366/getConfig¡±£¬½á¹ûÈçÏÂÍ¼¡£
+4\. ä½¿ç”¨æµè§ˆå™¨å†æ¬¡è®¿é—®â€œhttp://localhost:3366/getConfigâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10194222Y-15.png)
-Í¼17£ºSpring Cloud Bus ¶¨µãÍ¨Öª
+å›¾17ï¼šSpring Cloud Bus å®šç‚¹é€šçŸ¥
 
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

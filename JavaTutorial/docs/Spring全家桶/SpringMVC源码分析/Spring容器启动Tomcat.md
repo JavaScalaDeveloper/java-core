@@ -1,13 +1,13 @@
-''ÔÚ [spring mvc Ö® springmvc demo Óë @EnableWebMvc ×¢½â](https://my.oschina.net/funcy/blog/4696657)Ò»ÎÄÖĞ£¬ÎÒÃÇÌá¹©ÁËÒ»¸öÊ¾Àı demo£¬¸Ã demo »áÏÈÆô¶¯ servlet ÈİÆ÷£¬È»ºóÍ¨¹ı `servlet3.0` ¹æ·¶½« `DispatcherServlet` ×¢²áµ½ `servlet` ÈİÆ÷ÖĞ£¬È»ºóÔÚ `DispatcherServlet#init` ·½·¨ÖĞÆô¶¯ spring ÈİÆ÷£¬Õû¸öÁ÷³Ì¾ÍÏñÕâÑù£º
+''åœ¨ [spring mvc ä¹‹ springmvc demo ä¸ @EnableWebMvc æ³¨è§£](https://my.oschina.net/funcy/blog/4696657)ä¸€æ–‡ä¸­ï¼Œæˆ‘ä»¬æä¾›äº†ä¸€ä¸ªç¤ºä¾‹ demoï¼Œè¯¥ demo ä¼šå…ˆå¯åŠ¨ servlet å®¹å™¨ï¼Œç„¶åé€šè¿‡ `servlet3.0` è§„èŒƒå°† `DispatcherServlet` æ³¨å†Œåˆ° `servlet` å®¹å™¨ä¸­ï¼Œç„¶ååœ¨ `DispatcherServlet#init` æ–¹æ³•ä¸­å¯åŠ¨ spring å®¹å™¨ï¼Œæ•´ä¸ªæµç¨‹å°±åƒè¿™æ ·ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0874fa7ef39ca9c405cdf55d99ca891ebf2.png)
 
-ÕâÃ»Ê²Ã´ÎÊÌâ£¬ÄÜÕı³£Æô¶¯Ò²ÔËĞĞÁ¼ºÃ£¬Ö»²»¹ıÎÒÃÇÔÚ spring ÈİÆ÷ÖĞÎŞ·¨»ñÈ¡ `DispatcherServlet`£¬ÏñÕâÑù£º
+è¿™æ²¡ä»€ä¹ˆé—®é¢˜ï¼Œèƒ½æ­£å¸¸å¯åŠ¨ä¹Ÿè¿è¡Œè‰¯å¥½ï¼Œåªä¸è¿‡æˆ‘ä»¬åœ¨ spring å®¹å™¨ä¸­æ— æ³•è·å– `DispatcherServlet`ï¼Œåƒè¿™æ ·ï¼š
 
 ```
 @Component
 public class Test {
-    // ÔÚÇ°ÃæÌá¹©µÄÊ¾Àı£¨tomcatÀïÆô¶¯springÈİÆ÷£©ÊÇ×¢Èë²»ÁËµÄ
+    // åœ¨å‰é¢æä¾›çš„ç¤ºä¾‹ï¼ˆtomcaté‡Œå¯åŠ¨springå®¹å™¨ï¼‰æ˜¯æ³¨å…¥ä¸äº†çš„
     @Autowired
     public DispatcherServlet dispatcherServlet;
 
@@ -17,11 +17,11 @@ public class Test {
 
 ```
 
-Æô¶¯Ê±£¬spring ¿Ï¶¨»á±¨´í£¬ÒòÎªÕÒ²»µ½ `DispatcherServlet` ¶ÔÓ¦µÄ bean¡£
+å¯åŠ¨æ—¶ï¼Œspring è‚¯å®šä¼šæŠ¥é”™ï¼Œå› ä¸ºæ‰¾ä¸åˆ° `DispatcherServlet` å¯¹åº”çš„ beanã€‚
 
-×î½üÔÚ¿´ springboot Ô´ÂëÊ±£¬·¢ÏÖ spring ÈİÆ÷²¢²»ÊÇÓÉ tomcat ÈİÆ÷Æô¶¯µÄ£¬Ïà·´£¬springboot ÊÇÏÈÆô¶¯ spring ÈİÆ÷£¬È»ºóÓÉ spring ÈİÆ÷Æô¶¯ tomcat Æô¶¯£¬ÕâÊÇÈçºÎ×öµ½µÄÄØ£¿ÕâÀï±¾ÈËÌá¹©Ò»¸ö demo Ä£ÄâÏÂ¡£
+æœ€è¿‘åœ¨çœ‹ springboot æºç æ—¶ï¼Œå‘ç° spring å®¹å™¨å¹¶ä¸æ˜¯ç”± tomcat å®¹å™¨å¯åŠ¨çš„ï¼Œç›¸åï¼Œspringboot æ˜¯å…ˆå¯åŠ¨ spring å®¹å™¨ï¼Œç„¶åç”± spring å®¹å™¨å¯åŠ¨ tomcat å¯åŠ¨ï¼Œè¿™æ˜¯å¦‚ä½•åšåˆ°çš„å‘¢ï¼Ÿè¿™é‡Œæœ¬äººæä¾›ä¸€ä¸ª demo æ¨¡æ‹Ÿä¸‹ã€‚
 
-### 1\. ×¼±¸ `DispatcherServlet`
+### 1\. å‡†å¤‡ `DispatcherServlet`
 
 ```
 @Component
@@ -50,13 +50,13 @@ public class MvcConfig implements WebMvcConfigurer {
 
 ```
 
-¶Ô¸ÃÀàËµÃ÷ÈçÏÂ£º
+å¯¹è¯¥ç±»è¯´æ˜å¦‚ä¸‹ï¼š
 
-*   `MvcConfig` Àà±» `@EnableWebMvc` ×¢½â±ê¼Ç£¬±íÊ¾ĞèÒªÆô¶¯ÓÃ `web mvc` ¹¦ÄÜ
-*   `MvcConfig` ÊµÏÖÁË `WebMvcConfigurer`£¬¿ÉÒÔÍ¨¹ıÖØĞ´ `WebMvcConfigurer` µÄ·½·¨À´ÊµÏÖ×Ô¶¨Òå `web mvc` µÄÅäÖÃ
-*   `MvcConfig` ÖĞ»áÉú³É `DispatcherServlet` bean£¬¸Ã bean »á±£´æµ½ spring ÈİÆ÷ÖĞ
+*   `MvcConfig` ç±»è¢« `@EnableWebMvc` æ³¨è§£æ ‡è®°ï¼Œè¡¨ç¤ºéœ€è¦å¯åŠ¨ç”¨ `web mvc` åŠŸèƒ½
+*   `MvcConfig` å®ç°äº† `WebMvcConfigurer`ï¼Œå¯ä»¥é€šè¿‡é‡å†™ `WebMvcConfigurer` çš„æ–¹æ³•æ¥å®ç°è‡ªå®šä¹‰ `web mvc` çš„é…ç½®
+*   `MvcConfig` ä¸­ä¼šç”Ÿæˆ `DispatcherServlet` beanï¼Œè¯¥ bean ä¼šä¿å­˜åˆ° spring å®¹å™¨ä¸­
 
-### 2\. ×¼±¸Ò»¸ö `WebApplicationInitializer` ÊµÏÖÀà
+### 2\. å‡†å¤‡ä¸€ä¸ª `WebApplicationInitializer` å®ç°ç±»
 
 ```
 @Component
@@ -68,20 +68,20 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
     @Override
     public void onStartup(ServletContext servletContext) {
-        // ´Ó beanFactory ÖĞ»ñÈ¡ DispatcherServlet ²¢×¢²áµ½servletÈİÆ÷
+        // ä» beanFactory ä¸­è·å– DispatcherServlet å¹¶æ³¨å†Œåˆ°servletå®¹å™¨
         DispatcherServlet servlet = beanFactory.getBean(DispatcherServlet.class);
         ServletRegistration.Dynamic registration = servletContext.addServlet("app", servlet);
-        // loadOnStartup ÉèÖÃ³É -1 Ê±£¬Ö»ÓĞÔÚµÚÒ»´ÎÇëÇóÊ±£¬²Å»áµ÷ÓÃ init ·½·¨
+        // loadOnStartup è®¾ç½®æˆ -1 æ—¶ï¼Œåªæœ‰åœ¨ç¬¬ä¸€æ¬¡è¯·æ±‚æ—¶ï¼Œæ‰ä¼šè°ƒç”¨ init æ–¹æ³•
         registration.setLoadOnStartup(-1);
         registration.addMapping("/*");
 
-        // Îª applicationContext ÉèÖÃ servletContext
+        // ä¸º applicationContext è®¾ç½® servletContext
         applicationContext.setServletContext(servletContext);
     }
 
     /**
-     * ÉèÖÃ beanFactory
-     * ÎªÊ²Ã´ÒªÉèÖÃ beanFactoryµÄÖµ£¿ÒòÎª DispatcherServlet Òª´Ó beanFactory ÖĞ»ñÈ¡
+     * è®¾ç½® beanFactory
+     * ä¸ºä»€ä¹ˆè¦è®¾ç½® beanFactoryçš„å€¼ï¼Ÿå› ä¸º DispatcherServlet è¦ä» beanFactory ä¸­è·å–
      * @param beanFactory
      * @throws BeansException
      */
@@ -90,8 +90,8 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
     }
 
     /**
-     * ÉèÖÃ applicationContext
-     * ÎªÊ²Ã´ÒªÉèÖÃ applicationContext µÄÖµ£¿ÒòÎª servletContext ÒªÉèÖÃµ½ applicationContext
+     * è®¾ç½® applicationContext
+     * ä¸ºä»€ä¹ˆè¦è®¾ç½® applicationContext çš„å€¼ï¼Ÿå› ä¸º servletContext è¦è®¾ç½®åˆ° applicationContext
      * @param applicationContext
      */
     public static void setApplicationContext(
@@ -102,14 +102,14 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
 ```
 
-`WebApplicationInitializer` ÊÇ spring ¶Ô servlet 3.0 ¹æ·¶µÄÊµÏÖ£¬ÔÚ [spring mvc Ö® springmvc demo Óë @EnableWebMvc ×¢½â](https://my.oschina.net/funcy/blog/4696657)Ò»ÎÄÒ²ÏêÏ¸·ÖÎö¹ı£¬tomcat ÔÚÆô¶¯Ê±£¬»áÖ´ĞĞ `WebApplicationInitializer#onStartup` ·½·¨¡£
+`WebApplicationInitializer` æ˜¯ spring å¯¹ servlet 3.0 è§„èŒƒçš„å®ç°ï¼Œåœ¨ [spring mvc ä¹‹ springmvc demo ä¸ @EnableWebMvc æ³¨è§£](https://my.oschina.net/funcy/blog/4696657)ä¸€æ–‡ä¹Ÿè¯¦ç»†åˆ†æè¿‡ï¼Œtomcat åœ¨å¯åŠ¨æ—¶ï¼Œä¼šæ‰§è¡Œ `WebApplicationInitializer#onStartup` æ–¹æ³•ã€‚
 
-¶Ô `MyWebApplicationInitializer` ËµÃ÷ÈçÏÂ£º
+å¯¹ `MyWebApplicationInitializer` è¯´æ˜å¦‚ä¸‹ï¼š
 
-*   `MyWebApplicationInitializer` ÖĞÓĞÁ½¸ö¾²Ì¬³ÉÔ±±äÁ¿£º`beanFactory` Óë `applicationContext`£¬¶ÔÓ¦µØÌá¹©ÁËÁ½¸ö¾²Ì¬ `set` ·½·¨£¬ĞèÒª×¢ÒâµÄÊÇ£¬ÕâÁ½¸ö¾²Ì¬ `set` ·½·¨ÒªÔÚ `onStartup()` ·½·¨Ç°µ÷ÓÃ£¬Ò²¾ÍÊÇ tomcat Æô¶¯Ç°µ÷ÓÃµ÷ÓÃ£»
-*   ÔÚ `MyWebApplicationInitializer#onStartup` ·½·¨ÖĞ£¬ÎÒÃÇÏÈÊÇ´Ó `beanFactory` ÖĞ»ñÈ¡ÁË `DispatcherServlet`£¬È»ºó½«Æä×¢²áµ½ `servlet` ÈİÆ÷ÖĞ£¬È»ºó½« `onStartup(...)` ·½·¨µÄ²ÎÊı `servletContext` ÉèÖÃµ½ `applicationContext` ÖĞ
+*   `MyWebApplicationInitializer` ä¸­æœ‰ä¸¤ä¸ªé™æ€æˆå‘˜å˜é‡ï¼š`beanFactory` ä¸ `applicationContext`ï¼Œå¯¹åº”åœ°æä¾›äº†ä¸¤ä¸ªé™æ€ `set` æ–¹æ³•ï¼Œéœ€è¦æ³¨æ„çš„æ˜¯ï¼Œè¿™ä¸¤ä¸ªé™æ€ `set` æ–¹æ³•è¦åœ¨ `onStartup()` æ–¹æ³•å‰è°ƒç”¨ï¼Œä¹Ÿå°±æ˜¯ tomcat å¯åŠ¨å‰è°ƒç”¨è°ƒç”¨ï¼›
+*   åœ¨ `MyWebApplicationInitializer#onStartup` æ–¹æ³•ä¸­ï¼Œæˆ‘ä»¬å…ˆæ˜¯ä» `beanFactory` ä¸­è·å–äº† `DispatcherServlet`ï¼Œç„¶åå°†å…¶æ³¨å†Œåˆ° `servlet` å®¹å™¨ä¸­ï¼Œç„¶åå°† `onStartup(...)` æ–¹æ³•çš„å‚æ•° `servletContext` è®¾ç½®åˆ° `applicationContext` ä¸­
 
-### 3\. ×¼±¸Ò»¸ö `ServletContextAwareProcessor` µÄ×ÓÀà
+### 3\. å‡†å¤‡ä¸€ä¸ª `ServletContextAwareProcessor` çš„å­ç±»
 
 ```
 public class MyServletContextAwareProcessor extends ServletContextAwareProcessor {
@@ -117,7 +117,7 @@ public class MyServletContextAwareProcessor extends ServletContextAwareProcessor
 	AbstractRefreshableWebApplicationContext webApplicationContext;
 
 	/**
-	 * ´«Èë webApplicationContext
+	 * ä¼ å…¥ webApplicationContext
 	 * @param webApplicationContext
 	 */
 	public MyServletContextAwareProcessor(
@@ -126,8 +126,8 @@ public class MyServletContextAwareProcessor extends ServletContextAwareProcessor
 	}
 
 	/**
-	 * ·µ»Ø ServletContext
-	 * ÏÈ´Ó webApplicationContext ÖĞ»ñÈ¡£¬Èç¹û»ñÈ¡²»µ½£¬ÔÙ´Ó¸¸Àà·½·¨ÖĞ»ñÈ¡
+	 * è¿”å› ServletContext
+	 * å…ˆä» webApplicationContext ä¸­è·å–ï¼Œå¦‚æœè·å–ä¸åˆ°ï¼Œå†ä»çˆ¶ç±»æ–¹æ³•ä¸­è·å–
 	 * @return
 	 */
 	@Override
@@ -145,11 +145,11 @@ public class MyServletContextAwareProcessor extends ServletContextAwareProcessor
 
 ```
 
-ÔÚ `MyWebApplicationInitializer#onStartup` ·½·¨ÖĞ¶Ô `applicationContext` ÉèÖÃµÄ `servletContext` ¾ÍÊÇÔÚÕâÀïÊ¹ÓÃµÄ£¬`MyServletContextAwareProcessor` µÄ¹¹Ôì·½·¨´«ÈëÁË `webApplicationContext`£¬È»ºóÖØĞ´ÁË `getServletContext()` ·½·¨£¬»ñÈ¡ `servletContext` Ê±£¬ÏÈ´Ó `webApplicationContext` ÖĞ»ñÈ¡£¬Èç¹û»ñÈ¡²»µ½£¬ÔÙ´Ó¸¸Àà·½·¨ÖĞ»ñÈ¡¡£
+åœ¨ `MyWebApplicationInitializer#onStartup` æ–¹æ³•ä¸­å¯¹ `applicationContext` è®¾ç½®çš„ `servletContext` å°±æ˜¯åœ¨è¿™é‡Œä½¿ç”¨çš„ï¼Œ`MyServletContextAwareProcessor` çš„æ„é€ æ–¹æ³•ä¼ å…¥äº† `webApplicationContext`ï¼Œç„¶åé‡å†™äº† `getServletContext()` æ–¹æ³•ï¼Œè·å– `servletContext` æ—¶ï¼Œå…ˆä» `webApplicationContext` ä¸­è·å–ï¼Œå¦‚æœè·å–ä¸åˆ°ï¼Œå†ä»çˆ¶ç±»æ–¹æ³•ä¸­è·å–ã€‚
 
-### 4\. ×¼±¸Ò»¸ö `ApplicationContext` µÄÊµÏÖÀà
+### 4\. å‡†å¤‡ä¸€ä¸ª `ApplicationContext` çš„å®ç°ç±»
 
-`ApplicationContext` ÖÁ¹ØÖØÒª£¬ÕâÀïÎÒÃÇÑ¡ÔñÖ±½ÓÀ©Õ¹ `AnnotationConfigWebApplicationContext`£º
+`ApplicationContext` è‡³å…³é‡è¦ï¼Œè¿™é‡Œæˆ‘ä»¬é€‰æ‹©ç›´æ¥æ‰©å±• `AnnotationConfigWebApplicationContext`ï¼š
 
 ```
 public class MyWebApplicationContext extends AnnotationConfigWebApplicationContext {
@@ -157,8 +157,8 @@ public class MyWebApplicationContext extends AnnotationConfigWebApplicationConte
     private Tomcat tomcat;
 
     /**
-     * ÖØĞ´ postProcessBeanFactory ·½·¨
-     * ÔÚÕâ¸ö·½·¨ÀïÌí¼ÓÎÒÃÇ×Ô¶¨ÒåµÄ MyServletContextAwareProcessor
+     * é‡å†™ postProcessBeanFactory æ–¹æ³•
+     * åœ¨è¿™ä¸ªæ–¹æ³•é‡Œæ·»åŠ æˆ‘ä»¬è‡ªå®šä¹‰çš„ MyServletContextAwareProcessor
      * @param beanFactory
      */
     @Override
@@ -169,17 +169,17 @@ public class MyWebApplicationContext extends AnnotationConfigWebApplicationConte
     }
 
     /**
-     * ÔÚÕâ¸ö·½·¨ÀïÆô¶¯ tomcat
+     * åœ¨è¿™ä¸ªæ–¹æ³•é‡Œå¯åŠ¨ tomcat
      */
     @Override
     protected void onRefresh() {
-        // ÏÈµ÷ÓÃ¸¸ÀàµÄ·½·¨
+        // å…ˆè°ƒç”¨çˆ¶ç±»çš„æ–¹æ³•
         super.onRefresh();
-        // ÉèÖÃ MyWebApplicationInitializer µÄ beanFactory Óë applicationContext
+        // è®¾ç½® MyWebApplicationInitializer çš„ beanFactory ä¸ applicationContext
         MyWebApplicationInitializer.setBeanFactory(getBeanFactory());
         MyWebApplicationInitializer.setApplicationContext(this);
 
-        // tomcatµÄ´´½¨¼°Æô¶¯
+        // tomcatçš„åˆ›å»ºåŠå¯åŠ¨
         tomcat = new Tomcat();
         Connector connector = new Connector();
         connector.setPort(8080);
@@ -193,10 +193,10 @@ public class MyWebApplicationContext extends AnnotationConfigWebApplicationConte
                     Class.forName(tomcat.getHost().getConfigClass())
                     .getDeclaredConstructor().newInstance();
             context.addLifecycleListener(lifecycleListener);
-            // Æô¶¯tomcat
+            // å¯åŠ¨tomcat
             tomcat.start();
         } catch (Exception e) {
-            System.out.println("Æô¶¯Òì³££º");
+            System.out.println("å¯åŠ¨å¼‚å¸¸ï¼š");
             e.printStackTrace();
         }
     }
@@ -205,14 +205,14 @@ public class MyWebApplicationContext extends AnnotationConfigWebApplicationConte
 
 ```
 
-Õâ¸öÀàÀ©Õ¹ÁË spring µÄÆô¶¯Á÷³Ì£¬ÕâÀïÒ»¹²ÖØĞ´ÁËÁ½¸ö·½·¨£¬ÕâÀïÒ»Ò»½éÉÜÏÂ:
+è¿™ä¸ªç±»æ‰©å±•äº† spring çš„å¯åŠ¨æµç¨‹ï¼Œè¿™é‡Œä¸€å…±é‡å†™äº†ä¸¤ä¸ªæ–¹æ³•ï¼Œè¿™é‡Œä¸€ä¸€ä»‹ç»ä¸‹:
 
-*   `postProcessBeanFactory()`£ºÕâ¸ö·½·¨Ö÷ÒªÊÇÎªÁË×¢²á `MyServletContextAwareProcessor`£¬Ç°ÃæÎÒÃÇ×¼±¸µÄ `MyServletContextAwareProcessor` ¾ÍÊÇÔÚÕâÀï×¢²áµÄ£¬Ö®ËùÒÔÖØĞ´£¬»¹ÊÇÎªÁËÊ¹ÓÃ `tomcat` Ìá¹©µÄ `ServletContext`£»
-*   `onRefresh()`£ºÔÚÕâ¸ö·½·¨Àï£¬ÏÈÊÇÉèÖÃ `MyWebApplicationInitializer` µÄ `beanFactory` Óë `applicationContext` ÊôĞÔÖµ£¬È»ºóÆô¶¯ `tomcat`£»
+*   `postProcessBeanFactory()`ï¼šè¿™ä¸ªæ–¹æ³•ä¸»è¦æ˜¯ä¸ºäº†æ³¨å†Œ `MyServletContextAwareProcessor`ï¼Œå‰é¢æˆ‘ä»¬å‡†å¤‡çš„ `MyServletContextAwareProcessor` å°±æ˜¯åœ¨è¿™é‡Œæ³¨å†Œçš„ï¼Œä¹‹æ‰€ä»¥é‡å†™ï¼Œè¿˜æ˜¯ä¸ºäº†ä½¿ç”¨ `tomcat` æä¾›çš„ `ServletContext`ï¼›
+*   `onRefresh()`ï¼šåœ¨è¿™ä¸ªæ–¹æ³•é‡Œï¼Œå…ˆæ˜¯è®¾ç½® `MyWebApplicationInitializer` çš„ `beanFactory` ä¸ `applicationContext` å±æ€§å€¼ï¼Œç„¶åå¯åŠ¨ `tomcat`ï¼›
 
-### 5\. ×¼±¸Ò»¸ö¼òµ¥µÄ `Controller`
+### 5\. å‡†å¤‡ä¸€ä¸ªç®€å•çš„ `Controller`
 
-×¼±¸Ò»¸ö `Controller`£¬Ö÷ÒªÊÇ°ïÖúÎÒÃÇÑéÖ¤ÏîÄ¿ÊÇ·ñÆô¶¯Õı³££º
+å‡†å¤‡ä¸€ä¸ª `Controller`ï¼Œä¸»è¦æ˜¯å¸®åŠ©æˆ‘ä»¬éªŒè¯é¡¹ç›®æ˜¯å¦å¯åŠ¨æ­£å¸¸ï¼š
 
 ```
 @RestController
@@ -229,9 +229,9 @@ public class TestController {
 
 ```
 
-### 6\. Ö÷Àà
+### 6\. ä¸»ç±»
 
-×îºó¾ÍÊÇÖ÷ÀàÁË£¬Ö÷ÒªÊÇ´¦Àí spring µÄÆô¶¯²Ù×÷£¬Ò²ÊÇÏàµ±¼òµ¥£º
+æœ€åå°±æ˜¯ä¸»ç±»äº†ï¼Œä¸»è¦æ˜¯å¤„ç† spring çš„å¯åŠ¨æ“ä½œï¼Œä¹Ÿæ˜¯ç›¸å½“ç®€å•ï¼š
 
 ```
 @ComponentScan
@@ -246,43 +246,43 @@ public class MvcDemo03Main {
 
 ```
 
-ÔËĞĞ£¬·ÃÎÊ `http://localhost:8080/test/hello`£¬½á¹ûÈçÏÂ£º
+è¿è¡Œï¼Œè®¿é—® `http://localhost:8080/test/hello`ï¼Œç»“æœå¦‚ä¸‹ï¼š
 
-Ò³Ãæ£º
+é¡µé¢ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d87b4a09e7a87e0535eb52a09759fcc6534.png)
 
-¿ØÖÆÌ¨£º
+æ§åˆ¶å°ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-c608886c751dcf595d74efb8506e5d67306.png)
 
-### 7\. ÎÊÌâ£ºÆô¶¯ºó£¬`DispatcherServlet#init` ·½·¨»áÔÙ´ÎÆô¶¯ spring ÈİÆ÷Âğ£¿
+### 7\. é—®é¢˜ï¼šå¯åŠ¨åï¼Œ`DispatcherServlet#init` æ–¹æ³•ä¼šå†æ¬¡å¯åŠ¨ spring å®¹å™¨å—ï¼Ÿ
 
-Ç°ÃæÎÒÃÇ·ÖÎöµ½£¬Ê¹ÓÃ tomcat Æô¶¯ spring ÈİÆ÷µÄ·½Ê½Ê±£¬spring ÈİÆ÷ÊÇÔÚ `DispatcherServlet#init` ·½·¨ÖĞÆô¶¯µÄ£¬ÔÚÎÒÃÇÊ¹ÓÃ **spring ÈİÆ÷Æô¶¯ tomcat** µÄÆô¶¯·½Ê½Ê±£¬tomcat Ö´ĞĞ `DispatcherServlet#init` ·½·¨Ê±£¬»áÔÙ´ÎÆô¶¯ spring ÈİÆ÷Âğ£¿
+å‰é¢æˆ‘ä»¬åˆ†æåˆ°ï¼Œä½¿ç”¨ tomcat å¯åŠ¨ spring å®¹å™¨çš„æ–¹å¼æ—¶ï¼Œspring å®¹å™¨æ˜¯åœ¨ `DispatcherServlet#init` æ–¹æ³•ä¸­å¯åŠ¨çš„ï¼Œåœ¨æˆ‘ä»¬ä½¿ç”¨ **spring å®¹å™¨å¯åŠ¨ tomcat** çš„å¯åŠ¨æ–¹å¼æ—¶ï¼Œtomcat æ‰§è¡Œ `DispatcherServlet#init` æ–¹æ³•æ—¶ï¼Œä¼šå†æ¬¡å¯åŠ¨ spring å®¹å™¨å—ï¼Ÿ
 
-ÕâÀïÎÒÃÇÖ±½Ó½øÈë `FrameworkServlet#initWebApplicationContext` ·½·¨£¬´òÉÏ¶Ïµã£º
+è¿™é‡Œæˆ‘ä»¬ç›´æ¥è¿›å…¥ `FrameworkServlet#initWebApplicationContext` æ–¹æ³•ï¼Œæ‰“ä¸Šæ–­ç‚¹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-64ee29f90ef5683f7968f782b9175d42e0f.png)
 
-ÕâÀïµÄ `wac` Óë `this.webApplicationContext` ¾ÍÊÇ `MyWebApplicationContext` µÄÊµÀı£¬ÔÚ´´½¨ `DispatcherServlet` Ê±´«ÈëµÄ:
+è¿™é‡Œçš„ `wac` ä¸ `this.webApplicationContext` å°±æ˜¯ `MyWebApplicationContext` çš„å®ä¾‹ï¼Œåœ¨åˆ›å»º `DispatcherServlet` æ—¶ä¼ å…¥çš„:
 
 ```
 @Bean
 public DispatcherServlet dispatcherServlet(WebApplicationContext webApplicationContext) {
-    // ÔÚ¹¹Ôì·½·¨µÄ²ÎÊıÖĞ´«ÈëÁË webApplicationContext
+    // åœ¨æ„é€ æ–¹æ³•çš„å‚æ•°ä¸­ä¼ å…¥äº† webApplicationContext
     return new DispatcherServlet(webApplicationContext);
 }
 
 ```
 
-µ½ÓÚÎªÊ²Ã´´òµ½Õâ¸ö·½·¨£¬ÄÇÊÇÒòÎª `DispatcherServlet#init` ¾­¹ı²ã²ãµ÷ÓÃºó£¬×îÖÕÊÇÔÚÕâ¸ö·½·¨Àï´¦Àí spring ÈİÆ÷µÄÆô¶¯µÄ£¬µ±¶ÏµãÔËĞĞµ½ `if (!cwac.isActive()) {...` Ê±£¬`!cwac.isActive()` ·µ»Ø½á¹ûÎª `false`£¬Òò´Ë `if` ¿éÀïµÄÆô¶¯ spring ÈİÆ÷¾Í²»»áÖ´ĞĞµ½ÁË¡£
+åˆ°äºä¸ºä»€ä¹ˆæ‰“åˆ°è¿™ä¸ªæ–¹æ³•ï¼Œé‚£æ˜¯å› ä¸º `DispatcherServlet#init` ç»è¿‡å±‚å±‚è°ƒç”¨åï¼Œæœ€ç»ˆæ˜¯åœ¨è¿™ä¸ªæ–¹æ³•é‡Œå¤„ç† spring å®¹å™¨çš„å¯åŠ¨çš„ï¼Œå½“æ–­ç‚¹è¿è¡Œåˆ° `if (!cwac.isActive()) {...` æ—¶ï¼Œ`!cwac.isActive()` è¿”å›ç»“æœä¸º `false`ï¼Œå› æ­¤ `if` å—é‡Œçš„å¯åŠ¨ spring å®¹å™¨å°±ä¸ä¼šæ‰§è¡Œåˆ°äº†ã€‚
 
-×ÛÉÏËùÊö£¬Í¨¹ı spring ÈİÆ÷Æô¶¯ tomcat ºó£¬ÔÚ `DispatcherServlet#init` Àï²»»áÔÙ´ÎÆô¶¯ spring ÈİÆ÷¡£ÕâÑùÆô¶¯ºó£¬`DispatcherServlet` ¾ÍÊÇÒ»¸ö spring bean£¬ÎÒÃÇ¾Í¿ÉÒÔÔÚ´úÂëÀïÊ¹ÓÃ `@Autowired` ×¢½â½«Æä×¢Èëµ½ÆäËûÀàÖĞÁË£º
+ç»¼ä¸Šæ‰€è¿°ï¼Œé€šè¿‡ spring å®¹å™¨å¯åŠ¨ tomcat åï¼Œåœ¨ `DispatcherServlet#init` é‡Œä¸ä¼šå†æ¬¡å¯åŠ¨ spring å®¹å™¨ã€‚è¿™æ ·å¯åŠ¨åï¼Œ`DispatcherServlet` å°±æ˜¯ä¸€ä¸ª spring beanï¼Œæˆ‘ä»¬å°±å¯ä»¥åœ¨ä»£ç é‡Œä½¿ç”¨ `@Autowired` æ³¨è§£å°†å…¶æ³¨å…¥åˆ°å…¶ä»–ç±»ä¸­äº†ï¼š
 
 ```
 @Component
 public class Test {
-    // ±¾ÎÄµÄÊ¾Àı£¨ÔÚ spring ÈİÆ÷ÖĞÆô¶¯ tomcat£©ÊÇ¿ÉÒÔ×¢Èë³É¹¦µÄ
+    // æœ¬æ–‡çš„ç¤ºä¾‹ï¼ˆåœ¨ spring å®¹å™¨ä¸­å¯åŠ¨ tomcatï¼‰æ˜¯å¯ä»¥æ³¨å…¥æˆåŠŸçš„
     @Autowired
     public DispatcherServlet dispatcherServlet;
 
@@ -292,8 +292,8 @@ public class Test {
 
 ```
 
-¹ØÓÚ `spring` Æô¶¯ `tomcat` µÄ·ÖÎö¾Íµ½ÕâÀï£¬ÆäÖĞµÄÄÑµãÔÚÓÚ**ÈçºÎ½« `tomcat` Ìá¹©µÄ `ServletContext` ÉèÖÃµ½ `ServletContextAwareProcessor` ÖĞ**£¬ÆäÖĞµÄ½â¾ö·½Ê½×¢ÒâÌå»á¡£
+å…³äº `spring` å¯åŠ¨ `tomcat` çš„åˆ†æå°±åˆ°è¿™é‡Œï¼Œå…¶ä¸­çš„éš¾ç‚¹åœ¨äº**å¦‚ä½•å°† `tomcat` æä¾›çš„ `ServletContext` è®¾ç½®åˆ° `ServletContextAwareProcessor` ä¸­**ï¼Œå…¶ä¸­çš„è§£å†³æ–¹å¼æ³¨æ„ä½“ä¼šã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4928222](https://my.oschina.net/funcy/blog/4928222) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4928222](https://my.oschina.net/funcy/blog/4928222) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

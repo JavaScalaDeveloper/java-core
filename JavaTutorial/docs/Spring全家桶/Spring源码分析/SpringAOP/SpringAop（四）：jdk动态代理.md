@@ -1,10 +1,10 @@
 
 
-ÉÏÒ»ÆªÎÄÕÂµÄ×îºó£¬ÎÒÃÇ·ÖÎöµ½ spring ÖÕÓÚ´´½¨ÁË´úÀí¶ÔÏó£¬ÆäÖĞ´úÀí¶ÔÏóµÄ·½Ê½Îª `jdk¶¯Ì¬´úÀí`Óë `cglib´úÀí`£¬±¾ÎÄÎÒÃÇ½«·ÖÎö spring µÄ¶¯Ì¬´úÀí¡£
+ä¸Šä¸€ç¯‡æ–‡ç« çš„æœ€åï¼Œæˆ‘ä»¬åˆ†æåˆ° spring ç»ˆäºåˆ›å»ºäº†ä»£ç†å¯¹è±¡ï¼Œå…¶ä¸­ä»£ç†å¯¹è±¡çš„æ–¹å¼ä¸º `jdkåŠ¨æ€ä»£ç†`ä¸ `cglibä»£ç†`ï¼Œæœ¬æ–‡æˆ‘ä»¬å°†åˆ†æ spring çš„åŠ¨æ€ä»£ç†ã€‚
 
-### 1. jdk ¶¯Ì¬´úÀí½éÉÜ
+### 1. jdk åŠ¨æ€ä»£ç†ä»‹ç»
 
-À´·ÖÎö spring µÄ¶¯Ì¬´úÀíÇ°£¬ÎÒÃÇÏÈÀ´ÁË½âÏÂ jdk µÄ¶¯Ì¬´úÀí¡£jdk ¶¯Ì¬´úÀíĞèÒª½Ó¿Ú£¬Îª´ËÎÒÃÇÏÈ×¼±¸Á½¸ö½Ó¿Ú£º
+æ¥åˆ†æ spring çš„åŠ¨æ€ä»£ç†å‰ï¼Œæˆ‘ä»¬å…ˆæ¥äº†è§£ä¸‹ jdk çš„åŠ¨æ€ä»£ç†ã€‚jdk åŠ¨æ€ä»£ç†éœ€è¦æ¥å£ï¼Œä¸ºæ­¤æˆ‘ä»¬å…ˆå‡†å¤‡ä¸¤ä¸ªæ¥å£ï¼š
 
 > IJdkDynamicProxy01
 
@@ -26,7 +26,7 @@ public interface IJdkDynamicProxy02 {
 }
 ```
 
-ÔÙÀ´×¼±¸Á½¸öÊµÏÖÀà£º
+å†æ¥å‡†å¤‡ä¸¤ä¸ªå®ç°ç±»ï¼š
 
 > JdkDynamicProxyImpl01
 
@@ -61,9 +61,9 @@ public class JdkDynamicProxyImpl02 implements IJdkDynamicProxy01 {
 }
 ```
 
-ÕâÀïĞèÒª×¢ÒâµÄÊÇ£¬`JdkDynamicProxyImpl01` ÊµÏÖÁË `IJdkDynamicProxy01` Óë `IJdkDynamicProxy02` Á½¸ö½Ó¿Ú£¬`JdkDynamicProxyImpl02` Ö»ÊµÏÖÁË `IJdkDynamicProxy01` Ò»¸ö ½Ó¿Ú¡£
+è¿™é‡Œéœ€è¦æ³¨æ„çš„æ˜¯ï¼Œ`JdkDynamicProxyImpl01` å®ç°äº† `IJdkDynamicProxy01` ä¸ `IJdkDynamicProxy02` ä¸¤ä¸ªæ¥å£ï¼Œ`JdkDynamicProxyImpl02` åªå®ç°äº† `IJdkDynamicProxy01` ä¸€ä¸ª æ¥å£ã€‚
 
-½Ó×Å×¼±¸Ò»¸ö `InvocationHandler`:
+æ¥ç€å‡†å¤‡ä¸€ä¸ª `InvocationHandler`:
 
 > MyInvocationHandler
 
@@ -75,7 +75,7 @@ import java.lang.reflect.Method;
 
 public class MyInvocationHandler implements InvocationHandler {
 
-     /** Ä¿±ê¶ÔÏó */
+     /** ç›®æ ‡å¯¹è±¡ */
      private Object target;
 
     public MyInvocationHandler(Object target){
@@ -84,8 +84,8 @@ public class MyInvocationHandler implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("Ö´ĞĞ·½·¨Îª:" + method.getName());
-        // ·½·¨µÄÕæÕıÖ´ĞĞÔÚÕâÀï
+        System.out.println("æ‰§è¡Œæ–¹æ³•ä¸º:" + method.getName());
+        // æ–¹æ³•çš„çœŸæ­£æ‰§è¡Œåœ¨è¿™é‡Œ
         Object rs = method.invoke(target,args);
         return rs;
     }
@@ -93,7 +93,7 @@ public class MyInvocationHandler implements InvocationHandler {
 }
 ```
 
-×îºóÊÇÖ÷Àà:
+æœ€åæ˜¯ä¸»ç±»:
 
 ```java
 package org.springframework.learn.demo03;
@@ -106,85 +106,85 @@ public class Demo03Main {
         System.out.println("------------bean01------------");
         JdkDynamicProxyImpl01 bean01 = new JdkDynamicProxyImpl01();
         Object obj1 = Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
-                // JdkDynamicProxyImpl01ÊµÏÖÁË IJdkDynamicProxy01, IJdkDynamicProxy02
-                // ´«ÈëµÄclassÎª IJdkDynamicProxy01, IJdkDynamicProxy02
+                // JdkDynamicProxyImpl01å®ç°äº† IJdkDynamicProxy01, IJdkDynamicProxy02
+                // ä¼ å…¥çš„classä¸º IJdkDynamicProxy01, IJdkDynamicProxy02
                 new Class<?>[]{ IJdkDynamicProxy01.class, IJdkDynamicProxy02.class },
                 new MyInvocationHandler(bean01));
-        // ¿ÉÒÔ½øĞĞÀàĞÍÇ¿ÖÆ×ª»»
+        // å¯ä»¥è¿›è¡Œç±»å‹å¼ºåˆ¶è½¬æ¢
         ((IJdkDynamicProxy01) obj1).hello01();
         ((IJdkDynamicProxy02) obj1).hello02();
 
         System.out.println("------------bean01------------");
         Object obj2 = Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
-                 // JdkDynamicProxyImpl01ÊµÏÖÁË IJdkDynamicProxy01, IJdkDynamicProxy02
-                 // ´«ÈëµÄclassÎª IJdkDynamicProxy01
+                 // JdkDynamicProxyImpl01å®ç°äº† IJdkDynamicProxy01, IJdkDynamicProxy02
+                 // ä¼ å…¥çš„classä¸º IJdkDynamicProxy01
                  new Class<?>[]{ IJdkDynamicProxy01.class },
                  new MyInvocationHandler(bean01));
         ((IJdkDynamicProxy01) obj2).hello01();
-        // ±¨Òì³££ºjava.lang.ClassCastException: class com.sun.proxy.$Proxy1 cannot be cast to class xxx
+        // æŠ¥å¼‚å¸¸ï¼šjava.lang.ClassCastException: class com.sun.proxy.$Proxy1 cannot be cast to class xxx
         //((IJdkDynamicProxy02) obj2).hello02();
 
         System.out.println("-----------bean02-------------");
         JdkDynamicProxyImpl02 bean02 = new JdkDynamicProxyImpl02();
         Object obj3 = Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
-                 // JdkDynamicProxyImpl01ÊµÏÖÁË IJdkDynamicProxy01
-                 // ´«ÈëµÄclassÎª IJdkDynamicProxy01, IJdkDynamicProxy02
+                 // JdkDynamicProxyImpl01å®ç°äº† IJdkDynamicProxy01
+                 // ä¼ å…¥çš„classä¸º IJdkDynamicProxy01, IJdkDynamicProxy02
                  new Class<?>[]{ IJdkDynamicProxy01.class, IJdkDynamicProxy02.class },
                  new MyInvocationHandler(bean02));
         ((IJdkDynamicProxy01) obj3).hello01();
         IJdkDynamicProxy02 proxy02 = (IJdkDynamicProxy02) obj3;
-        // ±¨Òì³££ºjava.lang.IllegalArgumentException: object is not an instance of declaring class
+        // æŠ¥å¼‚å¸¸ï¼šjava.lang.IllegalArgumentException: object is not an instance of declaring class
         //proxy02.hello02();
 
     }
 }
 ```
 
-ÔËĞĞ½á¹û£º
+è¿è¡Œç»“æœï¼š
 
 ```
-Ö´ĞĞ·½·¨Îª:hello01
+æ‰§è¡Œæ–¹æ³•ä¸º:hello01
 hello01
-Ö´ĞĞ·½·¨Îª:hello02
+æ‰§è¡Œæ–¹æ³•ä¸º:hello02
 hello02
 ------------bean01------------
-Ö´ĞĞ·½·¨Îª:hello01
+æ‰§è¡Œæ–¹æ³•ä¸º:hello01
 hello01
 -----------bean02-------------
-Ö´ĞĞ·½·¨Îª:hello01
+æ‰§è¡Œæ–¹æ³•ä¸º:hello01
 hello01
 ```
 
-¶Ô½á¹û·ÖÎöÈçÏÂ£º
+å¯¹ç»“æœåˆ†æå¦‚ä¸‹ï¼š
 
-1. `Proxy#newProxyInstance(ClassLoader, Class<?>[], InvocationHandler)` µÄµÚ¶ş¸ö²ÎÊı´«ÈëµÄ½Ó¿Ú£¬ÉùÃ÷µÄÊÇ´úÀí¶ÔÏóËùÊôµÄ½Ó¿ÚÀàĞÍ£¬µÚÈı¸ö²ÎÊıÊÇÖ´ĞĞÆ÷£¬´úÀíÀà¶ÔÏóµÄÖ´ĞĞÎªÆä `invoke()` ·½·¨£»
-2. `JdkDynamicProxyImpl01` Í¬Ê±ÊµÏÖÁË `IJdkDynamicProxy01` Óë `IJdkDynamicProxy02` ½Ó¿Ú£¬µ«´«Èë½Ó¿ÚÀàĞÍÊ±£¬Ö»´«ÈëÁË `IJdkDynamicProxy01`£¬µ±´úÀí¶ÔÏó obj2 Ç¿×ªÎª `IJdkDynamicProxy02` Ê±£¬¾Í»á±¨ `ClassCastException`£¬Ç¿×ªÊ§°Ü£¬Õâ±íÃ÷ `Proxy#newProxyInstance(ClassLoader, Class<?>[], InvocationHandler)` ÉùÃ÷µÄÊÇ´úÀí¶ÔÏóËùÊôµÄ½Ó¿ÚÀàĞÍ£»
-3. `JdkDynamicProxyImpl02` Ö»ÊµÏÖÁË `IJdkDynamicProxy01` ½Ó¿Ú£¬µ«´«Èë½Ó¿ÚÀàĞÍÊ±£¬´«ÈëÁË `IJdkDynamicProxy01` Óë `IJdkDynamicProxy02`£¬µ±´úÀí¶ÔÏó `obj3` Ç¿×ªÎª `IJdkDynamicProxy02` Ê±£¬²¢Î´±¨Òì³££¬µ«ÊÇÔÚÖ´ĞĞ `proxy02.hello02()` Ê±£¬È´±¨ÁË `java.lang.IllegalArgumentException: object is not an instance of declaring class`£¬Í¬Ñù±íÃ÷ÁË `Proxy#newProxyInstance(ClassLoader, Class<?>[], InvocationHandler)` ÉùÃ÷µÄÊÇ´úÀí¶ÔÏóËùÊôµÄ½Ó¿ÚÀàĞÍ£¬¸úÄ¿±ê¶ÔÏóµÄÀàĞÍÎŞ¹Ø¡£
+1. `Proxy#newProxyInstance(ClassLoader, Class<?>[], InvocationHandler)` çš„ç¬¬äºŒä¸ªå‚æ•°ä¼ å…¥çš„æ¥å£ï¼Œå£°æ˜çš„æ˜¯ä»£ç†å¯¹è±¡æ‰€å±çš„æ¥å£ç±»å‹ï¼Œç¬¬ä¸‰ä¸ªå‚æ•°æ˜¯æ‰§è¡Œå™¨ï¼Œä»£ç†ç±»å¯¹è±¡çš„æ‰§è¡Œä¸ºå…¶ `invoke()` æ–¹æ³•ï¼›
+2. `JdkDynamicProxyImpl01` åŒæ—¶å®ç°äº† `IJdkDynamicProxy01` ä¸ `IJdkDynamicProxy02` æ¥å£ï¼Œä½†ä¼ å…¥æ¥å£ç±»å‹æ—¶ï¼Œåªä¼ å…¥äº† `IJdkDynamicProxy01`ï¼Œå½“ä»£ç†å¯¹è±¡ obj2 å¼ºè½¬ä¸º `IJdkDynamicProxy02` æ—¶ï¼Œå°±ä¼šæŠ¥ `ClassCastException`ï¼Œå¼ºè½¬å¤±è´¥ï¼Œè¿™è¡¨æ˜ `Proxy#newProxyInstance(ClassLoader, Class<?>[], InvocationHandler)` å£°æ˜çš„æ˜¯ä»£ç†å¯¹è±¡æ‰€å±çš„æ¥å£ç±»å‹ï¼›
+3. `JdkDynamicProxyImpl02` åªå®ç°äº† `IJdkDynamicProxy01` æ¥å£ï¼Œä½†ä¼ å…¥æ¥å£ç±»å‹æ—¶ï¼Œä¼ å…¥äº† `IJdkDynamicProxy01` ä¸ `IJdkDynamicProxy02`ï¼Œå½“ä»£ç†å¯¹è±¡ `obj3` å¼ºè½¬ä¸º `IJdkDynamicProxy02` æ—¶ï¼Œå¹¶æœªæŠ¥å¼‚å¸¸ï¼Œä½†æ˜¯åœ¨æ‰§è¡Œ `proxy02.hello02()` æ—¶ï¼Œå´æŠ¥äº† `java.lang.IllegalArgumentException: object is not an instance of declaring class`ï¼ŒåŒæ ·è¡¨æ˜äº† `Proxy#newProxyInstance(ClassLoader, Class<?>[], InvocationHandler)` å£°æ˜çš„æ˜¯ä»£ç†å¯¹è±¡æ‰€å±çš„æ¥å£ç±»å‹ï¼Œè·Ÿç›®æ ‡å¯¹è±¡çš„ç±»å‹æ— å…³ã€‚
 
-### 2. ÔÙ´Î·ÖÎö spring jdk ¶¯Ì¬´úÀí¶ÔÏóµÄ´´½¨
+### 2. å†æ¬¡åˆ†æ spring jdk åŠ¨æ€ä»£ç†å¯¹è±¡çš„åˆ›å»º
 
-ÓĞÁËÉÏÃæµÄ·ÖÎö£¬ÎÒÃÇÔÙÀ´¿´¿´ spring ÊÇÈçºÎ´´½¨´úÀí¶ÔÏóµÄ£º
+æœ‰äº†ä¸Šé¢çš„åˆ†æï¼Œæˆ‘ä»¬å†æ¥çœ‹çœ‹ spring æ˜¯å¦‚ä½•åˆ›å»ºä»£ç†å¯¹è±¡çš„ï¼š
 
 ```java
 @Override
 public Object getProxy(@Nullable ClassLoader classLoader) {
-    // »ñÈ¡Ä¿±ê¶ÔÏóÊµÏÖµÄ½Ó¿Ú
+    // è·å–ç›®æ ‡å¯¹è±¡å®ç°çš„æ¥å£
     Class<?>[] proxiedInterfaces = AopProxyUtils.completeProxiedInterfaces(this.advised, true);
-    // ÊÇ·ñÓĞequals()ÓëhashCode()·½·¨
+    // æ˜¯å¦æœ‰equals()ä¸hashCode()æ–¹æ³•
     findDefinedEqualsAndHashCodeMethods(proxiedInterfaces);
-    // µ÷ÓÃ jdk ·½·¨ ´´½¨¶ÔÏó
+    // è°ƒç”¨ jdk æ–¹æ³• åˆ›å»ºå¯¹è±¡
     return Proxy.newProxyInstance(classLoader, proxiedInterfaces, this);
 }
 ```
 
-1. ´«ÈëµÄ½Ó¿ÚÎª `proxiedInterfaces`£¬Õâ¸öÖµ°üº¬ÁËÄ¿±êÀàÊµÏÖµÄËùÓĞ½Ó¿Ú£¬Í¬Ê± spring Ò²»áÌí¼Ó×ÔÉíµÄ½Ó¿Ú£¬Èç `SpringProxy`¡¢`Advised`£¬ÕâĞ©ÔÚÉÏÒ»ÆªÎÄÕÂÒÑ¾­ÏêÏ¸·ÖÎö¹ıÁË£»
-2. Ö¸¶¨ `InvocationHandler` Îª `this`£¬Ò²¾ÍÊÇ `JdkDynamicAopProxy` µÄ¶ÔÏó£¬Êµ¼ÊÉÏ `JdkDynamicAopProxy` ÊµÏÖÁË `InvocationHandler`.
+1. ä¼ å…¥çš„æ¥å£ä¸º `proxiedInterfaces`ï¼Œè¿™ä¸ªå€¼åŒ…å«äº†ç›®æ ‡ç±»å®ç°çš„æ‰€æœ‰æ¥å£ï¼ŒåŒæ—¶ spring ä¹Ÿä¼šæ·»åŠ è‡ªèº«çš„æ¥å£ï¼Œå¦‚ `SpringProxy`ã€`Advised`ï¼Œè¿™äº›åœ¨ä¸Šä¸€ç¯‡æ–‡ç« å·²ç»è¯¦ç»†åˆ†æè¿‡äº†ï¼›
+2. æŒ‡å®š `InvocationHandler` ä¸º `this`ï¼Œä¹Ÿå°±æ˜¯ `JdkDynamicAopProxy` çš„å¯¹è±¡ï¼Œå®é™…ä¸Š `JdkDynamicAopProxy` å®ç°äº† `InvocationHandler`.
 
-ÓÉµÚÒ»²¿·ÖµÄ·ÖÎö¿ÉÖª£¬jdk ¶¯Ì¬´úÀí¶ÔÏóµÄ·½·¨×îÖÕÊÇÔÚ `java.lang.reflect.InvocationHandler#invoke` ÖĞÖ´ĞĞµÄ£¬Ò²¾ÍÊÇ `JdkDynamicAopProxy#invoke`£¬½ÓÏÂÀ´ÎÒÃÇ¾ÍÀ´·ÖÎö `JdkDynamicAopProxy#invoke` ·½·¨£¬À´¿´¿´ spring ÊÇÈçºÎÖ´ĞĞ´úÀí·½·¨µÄ¡£
+ç”±ç¬¬ä¸€éƒ¨åˆ†çš„åˆ†æå¯çŸ¥ï¼Œjdk åŠ¨æ€ä»£ç†å¯¹è±¡çš„æ–¹æ³•æœ€ç»ˆæ˜¯åœ¨ `java.lang.reflect.InvocationHandler#invoke` ä¸­æ‰§è¡Œçš„ï¼Œä¹Ÿå°±æ˜¯ `JdkDynamicAopProxy#invoke`ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬å°±æ¥åˆ†æ `JdkDynamicAopProxy#invoke` æ–¹æ³•ï¼Œæ¥çœ‹çœ‹ spring æ˜¯å¦‚ä½•æ‰§è¡Œä»£ç†æ–¹æ³•çš„ã€‚
 
-### 3. jdk ¶¯Ì¬´úÀí·½·¨µÄÖ´ĞĞ
+### 3. jdk åŠ¨æ€ä»£ç†æ–¹æ³•çš„æ‰§è¡Œ
 
-spring jdk ¶¯Ì¬´úÀí·½·¨µÄÖ´ĞĞÔÚ `JdkDynamicAopProxy#invoke`£º
+spring jdk åŠ¨æ€ä»£ç†æ–¹æ³•çš„æ‰§è¡Œåœ¨ `JdkDynamicAopProxy#invoke`ï¼š
 
 > JdkDynamicAopProxy#invoke
 
@@ -197,15 +197,15 @@ public Object invoke(Object proxy, Method method, Object[] args) throws Throwabl
     Object target = null;
 
     try {
-        // ÈôÖ´ĞĞµÄ equals ·½·¨£¬²»ĞèÒª´úÀíÖ´ĞĞ
+        // è‹¥æ‰§è¡Œçš„ equals æ–¹æ³•ï¼Œä¸éœ€è¦ä»£ç†æ‰§è¡Œ
         if (!this.equalsDefined && AopUtils.isEqualsMethod(method)) {
             return equals(args[0]);
         }
-        // ÈôÖ´ĞĞµÄ hashCode ·½·¨£¬²»ĞèÒª´úÀíÖ´ĞĞ
+        // è‹¥æ‰§è¡Œçš„ hashCode æ–¹æ³•ï¼Œä¸éœ€è¦ä»£ç†æ‰§è¡Œ
         else if (!this.hashCodeDefined && AopUtils.isHashCodeMethod(method)) {
             return hashCode();
         }
-        // Èç¹ûÖ´ĞĞµÄclass¶ÔÏóÊÇDecoratingProxy£¬Ò²²»ĞèÒª´úÀíÖ´ĞĞ
+        // å¦‚æœæ‰§è¡Œçš„classå¯¹è±¡æ˜¯DecoratingProxyï¼Œä¹Ÿä¸éœ€è¦ä»£ç†æ‰§è¡Œ
         else if (method.getDeclaringClass() == DecoratingProxy.class) {
             return AopProxyUtils.ultimateTargetClass(this.advised);
         }
@@ -216,33 +216,33 @@ public Object invoke(Object proxy, Method method, Object[] args) throws Throwabl
 
         Object retVal;
 
-        // ÅĞ¶Ï advisedµÄexposeProxy ÖµÊÇ·ñÎª true
-        // advisedµÄexposeProxyÀ´Ô´ÓÚ @EnableAspectJAutoProxy µÄ exposeProxy
-        // ¼´ ÏñÕâÑùÖ¸¶¨Ê±£¬@EnableAspectJAutoProxy(exposeProxy = true)£¬ÒÔÏÂ´úÂëÖ´ĞĞ
+        // åˆ¤æ–­ advisedçš„exposeProxy å€¼æ˜¯å¦ä¸º true
+        // advisedçš„exposeProxyæ¥æºäº @EnableAspectJAutoProxy çš„ exposeProxy
+        // å³ åƒè¿™æ ·æŒ‡å®šæ—¶ï¼Œ@EnableAspectJAutoProxy(exposeProxy = true)ï¼Œä»¥ä¸‹ä»£ç æ‰§è¡Œ
         if (this.advised.exposeProxy) {
-            // ½«µ±Ç°µÄ proxy ¶ÔÏó·Åµ½ threadLocal ÖĞ
-            // ºóĞø¿ÉÒÔ (UserService (AopContext.currentProxy)).getUser() ·½Ê½µ÷ÓÃ
+            // å°†å½“å‰çš„ proxy å¯¹è±¡æ”¾åˆ° threadLocal ä¸­
+            // åç»­å¯ä»¥ (UserService (AopContext.currentProxy)).getUser() æ–¹å¼è°ƒç”¨
             oldProxy = AopContext.setCurrentProxy(proxy);
             setProxyContext = true;
         }
 
-        // »ñÈ¡Ä¿±ê¶ÔÏó¼°Ä¿±ê¶ÔÏóµÄclass
+        // è·å–ç›®æ ‡å¯¹è±¡åŠç›®æ ‡å¯¹è±¡çš„class
         target = targetSource.getTarget();
         Class<?> targetClass = (target != null ? target.getClass() : null);
 
-        // ½« aop µÄ advisor ×ª»¯ÎªÀ¹½ØÆ÷£¬ÔÚÕâÀïÅĞ¶Ï¸Ã·½·¨¿ÉÒÔÊ¹ÓÃÄÄĞ©ÇĞÃæ·½·¨
+        // å°† aop çš„ advisor è½¬åŒ–ä¸ºæ‹¦æˆªå™¨ï¼Œåœ¨è¿™é‡Œåˆ¤æ–­è¯¥æ–¹æ³•å¯ä»¥ä½¿ç”¨å“ªäº›åˆ‡é¢æ–¹æ³•
         List<Object> chain = this.advised.getInterceptorsAndDynamicInterceptionAdvice(
                 method, targetClass);
         if (chain.isEmpty()) {
-            // Èç¹û¼ÓÈëµÄÀ¹½ØÆ÷Á´Îª¿Õ£¬±íÃ÷¸Ã·½·¨Ã»ÓĞ±»À¹½Ø£¬Í¨¹ı·´ÉäÖ±½ÓÖ´ĞĞ
+            // å¦‚æœåŠ å…¥çš„æ‹¦æˆªå™¨é“¾ä¸ºç©ºï¼Œè¡¨æ˜è¯¥æ–¹æ³•æ²¡æœ‰è¢«æ‹¦æˆªï¼Œé€šè¿‡åå°„ç›´æ¥æ‰§è¡Œ
             Object[] argsToUse = AopProxyUtils.adaptArgumentsIfNecessary(method, args);
             retVal = AopUtils.invokeJoinpointUsingReflection(target, method, argsToUse);
         }
         else {
-            // ´´½¨Ò»¸ö·½·¨µ÷ÓÃ¶ÔÏó
+            // åˆ›å»ºä¸€ä¸ªæ–¹æ³•è°ƒç”¨å¯¹è±¡
             MethodInvocation invocation =
                    new ReflectiveMethodInvocation(proxy, target, method, args, targetClass, chain);
-            // µ÷ÓÃÖ´ĞĞ£¬ÖØµã
+            // è°ƒç”¨æ‰§è¡Œï¼Œé‡ç‚¹
             retVal = invocation.proceed();
         }
 
@@ -268,28 +268,28 @@ public Object invoke(Object proxy, Method method, Object[] args) throws Throwabl
 }
 ```
 
-ÒÔÉÏ·½·¨Á÷³ÌÈçÏÂ£º
+ä»¥ä¸Šæ–¹æ³•æµç¨‹å¦‚ä¸‹ï¼š
 
-1. ÅĞ¶ÏÒªÖ´ĞĞµÄ·½·¨ÊÇ·ñÎª `equals`¡¢`hashcode` µÈ£¬ÕâĞ©·½·¨²»ĞèÒª´úÀí£»
-2. »ñÈ¡¿ÉÓÃÓÚÒªÖ´ĞĞµÄ·½·¨µÄËùÓĞÇĞÃæ·½·¨£¬µÃµ½Ò»¸öÀ¹½ØÆ÷¼¯ºÏ£»
-3. µ÷ÓÃÇĞÃæ·½·¨¼¯ºÏÓë¼°Ä¿±ê·½·¨¡£
+1. åˆ¤æ–­è¦æ‰§è¡Œçš„æ–¹æ³•æ˜¯å¦ä¸º `equals`ã€`hashcode` ç­‰ï¼Œè¿™äº›æ–¹æ³•ä¸éœ€è¦ä»£ç†ï¼›
+2. è·å–å¯ç”¨äºè¦æ‰§è¡Œçš„æ–¹æ³•çš„æ‰€æœ‰åˆ‡é¢æ–¹æ³•ï¼Œå¾—åˆ°ä¸€ä¸ªæ‹¦æˆªå™¨é›†åˆï¼›
+3. è°ƒç”¨åˆ‡é¢æ–¹æ³•é›†åˆä¸åŠç›®æ ‡æ–¹æ³•ã€‚
 
-ÕâÀïÎÒÃÇÖØµã¹Ø×¢ÇĞÃæ·½·¨ÓëÄ¿±ê·½·¨µÄÖ´ĞĞ£¬¹Ø¼ü´úÂëÈçÏÂ£º
+è¿™é‡Œæˆ‘ä»¬é‡ç‚¹å…³æ³¨åˆ‡é¢æ–¹æ³•ä¸ç›®æ ‡æ–¹æ³•çš„æ‰§è¡Œï¼Œå…³é”®ä»£ç å¦‚ä¸‹ï¼š
 
 ```java
-// ½« aop µÄ advisor ×ª»¯ÎªÀ¹½ØÆ÷£¬ÔÚÕâÀïÅĞ¶Ï¸Ã·½·¨¿ÉÒÔÊ¹ÓÃÄÄĞ©ÇĞÃæ·½·¨
+// å°† aop çš„ advisor è½¬åŒ–ä¸ºæ‹¦æˆªå™¨ï¼Œåœ¨è¿™é‡Œåˆ¤æ–­è¯¥æ–¹æ³•å¯ä»¥ä½¿ç”¨å“ªäº›åˆ‡é¢æ–¹æ³•
 List<Object> chain = this.advised.getInterceptorsAndDynamicInterceptionAdvice(
         method, targetClass);
-// ´´½¨Ò»¸ö·½·¨µ÷ÓÃ¶ÔÏó
+// åˆ›å»ºä¸€ä¸ªæ–¹æ³•è°ƒç”¨å¯¹è±¡
 MethodInvocation invocation =
        new ReflectiveMethodInvocation(proxy, target, method, args, targetClass, chain);
-// µ÷ÓÃÖ´ĞĞ£¬ÖØµã
+// è°ƒç”¨æ‰§è¡Œï¼Œé‡ç‚¹
 retVal = invocation.proceed();
 ```
 
-#### »ñÈ¡ `MethodInterceptor`
+#### è·å– `MethodInterceptor`
 
-ÔÚ·ÖÎö·½·¨µÄÖ´ĞĞÇ°£¬ÎÒÃÇÏÈÀ´¿´¿´ `getInterceptorsAndDynamicInterceptionAdvice(...)`£¬Õâ¸ö·½·¨ÊÇÓÃÀ´»ñÈ¡Ö´ĞĞµÄÇĞÃæ·½·¨µÄ£¬Ò²¾ÍÊÇ `MethodInterceptor`£º
+åœ¨åˆ†ææ–¹æ³•çš„æ‰§è¡Œå‰ï¼Œæˆ‘ä»¬å…ˆæ¥çœ‹çœ‹ `getInterceptorsAndDynamicInterceptionAdvice(...)`ï¼Œè¿™ä¸ªæ–¹æ³•æ˜¯ç”¨æ¥è·å–æ‰§è¡Œçš„åˆ‡é¢æ–¹æ³•çš„ï¼Œä¹Ÿå°±æ˜¯ `MethodInterceptor`ï¼š
 
 > AdvisedSupport#getInterceptorsAndDynamicInterceptionAdvice
 
@@ -299,7 +299,7 @@ public List<Object> getInterceptorsAndDynamicInterceptionAdvice(Method method,
     MethodCacheKey cacheKey = new MethodCacheKey(method);
     List<Object> cached = this.methodCache.get(cacheKey);
     if (cached == null) {
-        // ÔÚÕâ¸ö·½·¨Àï¼ÌĞø»ñÈ¡£¬ÏÂÃæ»áÔÙ·ÖÎö
+        // åœ¨è¿™ä¸ªæ–¹æ³•é‡Œç»§ç»­è·å–ï¼Œä¸‹é¢ä¼šå†åˆ†æ
         cached = this.advisorChainFactory.getInterceptorsAndDynamicInterceptionAdvice(
                 this, method, targetClass);
         this.methodCache.put(cacheKey, cached);
@@ -308,27 +308,27 @@ public List<Object> getInterceptorsAndDynamicInterceptionAdvice(Method method,
 }
 ```
 
-¼ÌĞø£¬
+ç»§ç»­ï¼Œ
 
 ```java
 /**
- * »ñÈ¡ Interceptor£¬¹ı³ÌÈçÏÂ£º
+ * è·å– Interceptorï¼Œè¿‡ç¨‹å¦‚ä¸‹ï¼š
  */
 @Override
 public List<Object> getInterceptorsAndDynamicInterceptionAdvice(
         Advised config, Method method, @Nullable Class<?> targetClass) {
     AdvisorAdapterRegistry registry = GlobalAdvisorAdapterRegistry.getInstance();
-    // »ñÈ¡ advisors£¬aopµÄadvisorsÈçÏÂ£º
+    // è·å– advisorsï¼Œaopçš„advisorså¦‚ä¸‹ï¼š
     Advisor[] advisors = config.getAdvisors();
     List<Object> interceptorList = new ArrayList<>(advisors.length);
     Class<?> actualClass = (targetClass != null ? targetClass : method.getDeclaringClass());
     Boolean hasIntroductions = null;
     for (Advisor advisor : advisors) {
-        // Èç¹ûadvisorÊÇPointcutAdvisor£¬ÔòÊ¹ÓÃPointcutAdvisorÀïµÄPointcut½øĞĞÆ¥Åä
+        // å¦‚æœadvisoræ˜¯PointcutAdvisorï¼Œåˆ™ä½¿ç”¨PointcutAdvisoré‡Œçš„Pointcutè¿›è¡ŒåŒ¹é…
         if (advisor instanceof PointcutAdvisor) {
             PointcutAdvisor pointcutAdvisor = (PointcutAdvisor) advisor;
-            // ÕâÀïÅĞ¶ÏÇĞÃæÂß¼­µÄµ÷ÓÃÁ´ÊÇ·ñÌáÇ°½øĞĞ¹ı¹ıÂË£¬Èç¹û½øĞĞ¹ı£¬Ôò²»ÔÙ½øĞĞÄ¿±ê·½·¨µÄÆ¥Åä£¬
-            // Èç¹ûÃ»ÓĞ£¬ÔòÔÙ½øĞĞÒ»´ÎÆ¥Åä¡£
+            // è¿™é‡Œåˆ¤æ–­åˆ‡é¢é€»è¾‘çš„è°ƒç”¨é“¾æ˜¯å¦æå‰è¿›è¡Œè¿‡è¿‡æ»¤ï¼Œå¦‚æœè¿›è¡Œè¿‡ï¼Œåˆ™ä¸å†è¿›è¡Œç›®æ ‡æ–¹æ³•çš„åŒ¹é…ï¼Œ
+            // å¦‚æœæ²¡æœ‰ï¼Œåˆ™å†è¿›è¡Œä¸€æ¬¡åŒ¹é…ã€‚
             if (config.isPreFiltered() 
                     || pointcutAdvisor.getPointcut().getClassFilter().matches(actualClass)) {
                 MethodMatcher mm = pointcutAdvisor.getPointcut().getMethodMatcher();
@@ -344,11 +344,11 @@ public List<Object> getInterceptorsAndDynamicInterceptionAdvice(
                     match = mm.matches(method, actualClass);
                 }
                 if (match) {
-                    // ½«Advisor¶ÔÏó×ª»»ÎªMethodInterceptorÊı×é
+                    // å°†Advisorå¯¹è±¡è½¬æ¢ä¸ºMethodInterceptoræ•°ç»„
                     MethodInterceptor[] interceptors = registry.getInterceptors(advisor);
                     if (mm.isRuntime()) {
                         for (MethodInterceptor interceptor : interceptors) {
-                            // ½« interceptorÓëmethodMatcher°ü×°³ÉInterceptorAndDynamicMethodMatcher
+                            // å°† interceptorä¸methodMatcheråŒ…è£…æˆInterceptorAndDynamicMethodMatcher
                             interceptorList.add(new InterceptorAndDynamicMethodMatcher(interceptor, mm));
                         }
                     }
@@ -359,7 +359,7 @@ public List<Object> getInterceptorsAndDynamicInterceptionAdvice(
             }
         }
         else if (advisor instanceof IntroductionAdvisor) {
-            // ÅĞ¶ÏÈç¹ûÎªIntroductionAdvisorÀàĞÍµÄAdvisor£¬Ôò½«µ÷ÓÃÁ´·â×°ÎªInterceptorÊı×é
+            // åˆ¤æ–­å¦‚æœä¸ºIntroductionAdvisorç±»å‹çš„Advisorï¼Œåˆ™å°†è°ƒç”¨é“¾å°è£…ä¸ºInterceptoræ•°ç»„
             IntroductionAdvisor ia = (IntroductionAdvisor) advisor;
             if (config.isPreFiltered() || ia.getClassFilter().matches(actualClass)) {
                 Interceptor[] interceptors = registry.getInterceptors(advisor);
@@ -367,9 +367,9 @@ public List<Object> getInterceptorsAndDynamicInterceptionAdvice(
             }
         }
         else {
-            // ÕâÀïÊÇÌá¹©µÄÊ¹ÓÃ×Ô¶¨ÒåµÄ×ª»»Æ÷¶ÔAdvisor½øĞĞ×ª»»µÄÂß¼­£¬ÒòÎªgetInterceptors()·½·¨ÖĞ
-            // »áÊ¹ÓÃÏàÓ¦µÄAdapter¶ÔÄ¿±êAdvisor½øĞĞÆ¥Åä£¬Èç¹ûÄÜÆ¥ÅäÉÏ£¬Í¨¹ıÆägetInterceptor()·½·¨
-            // ½«×Ô¶¨ÒåµÄAdvice×ª»»ÎªMethodInterceptor¶ÔÏó
+            // è¿™é‡Œæ˜¯æä¾›çš„ä½¿ç”¨è‡ªå®šä¹‰çš„è½¬æ¢å™¨å¯¹Advisorè¿›è¡Œè½¬æ¢çš„é€»è¾‘ï¼Œå› ä¸ºgetInterceptors()æ–¹æ³•ä¸­
+            // ä¼šä½¿ç”¨ç›¸åº”çš„Adapterå¯¹ç›®æ ‡Advisorè¿›è¡ŒåŒ¹é…ï¼Œå¦‚æœèƒ½åŒ¹é…ä¸Šï¼Œé€šè¿‡å…¶getInterceptor()æ–¹æ³•
+            // å°†è‡ªå®šä¹‰çš„Adviceè½¬æ¢ä¸ºMethodInterceptorå¯¹è±¡
             Interceptor[] interceptors = registry.getInterceptors(advisor);
             interceptorList.addAll(Arrays.asList(interceptors));
         }
@@ -378,11 +378,11 @@ public List<Object> getInterceptorsAndDynamicInterceptionAdvice(
 }
 ```
 
-ÎÒÃÇ¸ù¾İÒÔÉÏ·½·¨À´×Ü½áÏÂ»ñÈ¡ `MethodInterceptor` µÄ¹ı³Ì¹ı³ÌÈçÏÂ£º
+æˆ‘ä»¬æ ¹æ®ä»¥ä¸Šæ–¹æ³•æ¥æ€»ç»“ä¸‹è·å– `MethodInterceptor` çš„è¿‡ç¨‹è¿‡ç¨‹å¦‚ä¸‹ï¼š
 
-1. »ñÈ¡ÏîÄ¿ÖĞËùÓĞµÄ `advisors`
+1. è·å–é¡¹ç›®ä¸­æ‰€æœ‰çš„ `advisors`
 
-2. ±éÀú£¬¶ÔÃ¿¸ö
+2. éå†ï¼Œå¯¹æ¯ä¸ª
 
 
 
@@ -392,19 +392,19 @@ public List<Object> getInterceptorsAndDynamicInterceptionAdvice(
 
 
 
-¼ÌĞø°´ÒÔÏÂÁ÷³Ì´¦Àí£º
+ç»§ç»­æŒ‰ä»¥ä¸‹æµç¨‹å¤„ç†ï¼š
 
-1. Èç¹û `advisor` ÊÇ `PointcutAdvisor`£¬ÔòÊ¹ÓÃÆäÖĞµÄ `Pointcut` ½øĞĞÆ¥Åä£¬Æ¥Åä³É¹¦ºó£¬»ñÈ¡ `MethodInterceptor` ·µ»Ø£»
-2. Èç¹û `advisor` ÊÇ `IntroductionAdvisor`£¬ÔòÊ¹ÓÃÆäÖĞµÄ `ClassFilter` ½øĞĞÆ¥Åä£¬Æ¥Åä³É¹¦ºó£¬»ñÈ¡ `MethodInterceptor` ·µ»Ø£»
-3. Èç¹ûÒÔÉÏÌõ¼ş²»Âú×ã£¬Ö±½Ó»ñÈ¡ `MethodInterceptor` ·µ»Ø£»
+1. å¦‚æœ `advisor` æ˜¯ `PointcutAdvisor`ï¼Œåˆ™ä½¿ç”¨å…¶ä¸­çš„ `Pointcut` è¿›è¡ŒåŒ¹é…ï¼ŒåŒ¹é…æˆåŠŸåï¼Œè·å– `MethodInterceptor` è¿”å›ï¼›
+2. å¦‚æœ `advisor` æ˜¯ `IntroductionAdvisor`ï¼Œåˆ™ä½¿ç”¨å…¶ä¸­çš„ `ClassFilter` è¿›è¡ŒåŒ¹é…ï¼ŒåŒ¹é…æˆåŠŸåï¼Œè·å– `MethodInterceptor` è¿”å›ï¼›
+3. å¦‚æœä»¥ä¸Šæ¡ä»¶ä¸æ»¡è¶³ï¼Œç›´æ¥è·å– `MethodInterceptor` è¿”å›ï¼›
 
-ÄÇÃ´ `MethodInterceptor` ÊÇÈçºÎ»ñÈ¡µÄÄØ£¿ÎÒÃÇ¼ÌĞøÍùÏÂ¿´£º
+é‚£ä¹ˆ `MethodInterceptor` æ˜¯å¦‚ä½•è·å–çš„å‘¢ï¼Ÿæˆ‘ä»¬ç»§ç»­å¾€ä¸‹çœ‹ï¼š
 
 ```java
-// ´æ·Å AdvisorAdapter µÄµØ·½
+// å­˜æ”¾ AdvisorAdapter çš„åœ°æ–¹
 private final List<AdvisorAdapter> adapters = new ArrayList<>(3);
 
-// Ìí¼Ó adapter
+// æ·»åŠ  adapter
 public DefaultAdvisorAdapterRegistry() {
     // @Before
     registerAdvisorAdapter(new MethodBeforeAdviceAdapter());
@@ -415,20 +415,20 @@ public DefaultAdvisorAdapterRegistry() {
 }
 
 /**
- * »ñÈ¡advisor¶ÔÓ¦µÄMethodInterceptor
+ * è·å–advisorå¯¹åº”çš„MethodInterceptor
  */
 @Override
 public MethodInterceptor[] getInterceptors(Advisor advisor) throws UnknownAdviceTypeException {
     List<MethodInterceptor> interceptors = new ArrayList<>(3);
-    // »ñÈ¡µ±Ç°advisorÀïµÄMethodInterceptor
+    // è·å–å½“å‰advisoré‡Œçš„MethodInterceptor
     Advice advice = advisor.getAdvice();
-    // Èç¹û advice ÊÇ MethodInterceptorµÄÊµÀı£¬Ìí¼Ó
+    // å¦‚æœ advice æ˜¯ MethodInterceptorçš„å®ä¾‹ï¼Œæ·»åŠ 
     if (advice instanceof MethodInterceptor) {
         interceptors.add((MethodInterceptor) advice);
     }
     // 
-    // Ê¹ÓÃ AdvisorAdapter ½« advice ×ª»»Îª MethodInterceptor
-    // Èç¹ûadviceÂú×ãadapter£¬µ÷ÓÃ adapter.getInterceptor »ñÈ¡ MethodInterceptor
+    // ä½¿ç”¨ AdvisorAdapter å°† advice è½¬æ¢ä¸º MethodInterceptor
+    // å¦‚æœadviceæ»¡è¶³adapterï¼Œè°ƒç”¨ adapter.getInterceptor è·å– MethodInterceptor
     for (AdvisorAdapter adapter : this.adapters) {
         if (adapter.supportsAdvice(advice)) {
             interceptors.add(adapter.getInterceptor(advisor));
@@ -441,23 +441,23 @@ public MethodInterceptor[] getInterceptors(Advisor advisor) throws UnknownAdvice
 }
 ```
 
-¶ÔÕâ¸ö·½·¨µÄÁ÷³Ì×Ü½áÈçÏÂ£º
+å¯¹è¿™ä¸ªæ–¹æ³•çš„æµç¨‹æ€»ç»“å¦‚ä¸‹ï¼š
 
-1. Èç¹û `advice` ÊÇ `MethodInterceptor`£¬Ö±½Ó½«Æä×ª»»³É `MethodInterceptor`£»
-2. Èç¹ûÒÔÉÏ²»Âú×ã£¬ÔòÊ¹ÓÃ `AdvisorAdapter` ½« advice ×ª»»³É `MethodInterceptor`.
+1. å¦‚æœ `advice` æ˜¯ `MethodInterceptor`ï¼Œç›´æ¥å°†å…¶è½¬æ¢æˆ `MethodInterceptor`ï¼›
+2. å¦‚æœä»¥ä¸Šä¸æ»¡è¶³ï¼Œåˆ™ä½¿ç”¨ `AdvisorAdapter` å°† advice è½¬æ¢æˆ `MethodInterceptor`.
 
-¹ØÓÚ `adapters`£¬spring ÎªÌá¹©ÁËÈı¸ö `Adapter`£º
+å…³äº `adapters`ï¼Œspring ä¸ºæä¾›äº†ä¸‰ä¸ª `Adapter`ï¼š
 
-- MethodBeforeAdviceAdapter£º´¦Àí `@Before`
-- AfterReturningAdviceAdapter£º´¦Àí `@AfterReturning`
-- ThrowsAdviceAdapter£º´¦Àí `@AfterThrowing`
+- MethodBeforeAdviceAdapterï¼šå¤„ç† `@Before`
+- AfterReturningAdviceAdapterï¼šå¤„ç† `@AfterReturning`
+- ThrowsAdviceAdapterï¼šå¤„ç† `@AfterThrowing`
 
-ÕâÈı¸ö `Adapter` ¾ÍÖ»ÓĞÒ»¸ö¹¦ÄÜ£º·µ»Ø `advice` ¶ÔÓ¦µÄ `MethodInterceptor`£¬ÎÒÃÇÀ´¿´ÏÂ `MethodBeforeAdviceAdapter` µÄ´úÂë¾ÍÃ÷°×ÁË£º
+è¿™ä¸‰ä¸ª `Adapter` å°±åªæœ‰ä¸€ä¸ªåŠŸèƒ½ï¼šè¿”å› `advice` å¯¹åº”çš„ `MethodInterceptor`ï¼Œæˆ‘ä»¬æ¥çœ‹ä¸‹ `MethodBeforeAdviceAdapter` çš„ä»£ç å°±æ˜ç™½äº†ï¼š
 
 ```java
 class MethodBeforeAdviceAdapter implements AdvisorAdapter, Serializable {
     /**
-     * ÊÇ·ñÄÜ´¦Àíµ±Ç°advice
+     * æ˜¯å¦èƒ½å¤„ç†å½“å‰advice
      */
     @Override
     public boolean supportsAdvice(Advice advice) {
@@ -465,7 +465,7 @@ class MethodBeforeAdviceAdapter implements AdvisorAdapter, Serializable {
     }
 
     /**
-     * ·µ»Ø¶ÔÓ¦µÄMethodInterceptor
+     * è¿”å›å¯¹åº”çš„MethodInterceptor
      */
     @Override
     public MethodInterceptor getInterceptor(Advisor advisor) {
@@ -475,9 +475,9 @@ class MethodBeforeAdviceAdapter implements AdvisorAdapter, Serializable {
 }
 ```
 
-ÆäËûÁ½¸ö `Adapter` µÄ¹¦ÄÜ¼«ÆäÏàËÆ£¬¾Í²»·ÖÎöÁË£¬ÕâÀï×Ü½áÏÂ¸÷×¢½â¶ÔÓ¦µÄ `advice`¡¢`methodInterceptor`£º
+å…¶ä»–ä¸¤ä¸ª `Adapter` çš„åŠŸèƒ½æå…¶ç›¸ä¼¼ï¼Œå°±ä¸åˆ†æäº†ï¼Œè¿™é‡Œæ€»ç»“ä¸‹å„æ³¨è§£å¯¹åº”çš„ `advice`ã€`methodInterceptor`ï¼š
 
-| ×¢½â            | advice                      | methodInterceptor               |
+| æ³¨è§£            | advice                      | methodInterceptor               |
 | --------------- | --------------------------- | ------------------------------- |
 | @Before         | AspectJMethodBeforeAdvice   | MethodBeforeAdviceInterceptor   |
 | @After          | AspectJAfterAdvice          | AspectJAfterAdvice              |
@@ -487,17 +487,17 @@ class MethodBeforeAdviceAdapter implements AdvisorAdapter, Serializable {
 
 #### ReflectiveMethodInvocation#proceed
 
-»ñÈ¡Íê `MethodInterceptor` ºó£¬¾Í¿ªÊ¼½øĞĞ·½·¨µÄÖ´ĞĞÁË£¬ÎÒÃÇÖ±½Ó½øÈë `ReflectiveMethodInvocation#proceed` ·½·¨£º
+è·å–å®Œ `MethodInterceptor` åï¼Œå°±å¼€å§‹è¿›è¡Œæ–¹æ³•çš„æ‰§è¡Œäº†ï¼Œæˆ‘ä»¬ç›´æ¥è¿›å…¥ `ReflectiveMethodInvocation#proceed` æ–¹æ³•ï¼š
 
 ```java
 public Object proceed() throws Throwable {
-    // Ö´ĞĞÍêËùÓĞµÄÔöÇ¿ºóÖ´ĞĞÄ¿±ê·½·¨
-    // ÕâÀïÊ¹ÓÃÁËÔğÈÎÁ´Ä£Ê½£¬Õâ¸ö·½·¨ÔÚÔğÈÎÁ´ÖĞµ÷ÓÃ£¬Âú×ãÌõ¼ş±íÊ¾µ±Ç°ÔğÈÎÁ´ÒÑ¾­Ö´ĞĞµ½×îºóÁË
+    // æ‰§è¡Œå®Œæ‰€æœ‰çš„å¢å¼ºåæ‰§è¡Œç›®æ ‡æ–¹æ³•
+    // è¿™é‡Œä½¿ç”¨äº†è´£ä»»é“¾æ¨¡å¼ï¼Œè¿™ä¸ªæ–¹æ³•åœ¨è´£ä»»é“¾ä¸­è°ƒç”¨ï¼Œæ»¡è¶³æ¡ä»¶è¡¨ç¤ºå½“å‰è´£ä»»é“¾å·²ç»æ‰§è¡Œåˆ°æœ€åäº†
     if (this.currentInterceptorIndex == this.interceptorsAndDynamicMethodMatchers.size() - 1) {
         return invokeJoinpoint();
     }
 
-    // »ñÈ¡ÏÂÒ»¸öÒªÖ´ĞĞµÄÀ¹½ØÆ÷
+    // è·å–ä¸‹ä¸€ä¸ªè¦æ‰§è¡Œçš„æ‹¦æˆªå™¨
     Object interceptorOrInterceptionAdvice =
            this.interceptorsAndDynamicMethodMatchers.get(++this.currentInterceptorIndex);
     if (interceptorOrInterceptionAdvice instanceof InterceptorAndDynamicMethodMatcher) {
@@ -506,37 +506,37 @@ public Object proceed() throws Throwable {
         Class<?> targetClass = (this.targetClass != null 
                 ? this.targetClass : this.method.getDeclaringClass());
         if (dm.methodMatcher.matches(this.method, targetClass, this.arguments)) {
-            // Æ¥Åä£¬¾Íµ÷ÓÃÀ¹½ØÆ÷µÄ·½·¨£¬Ò²¾ÍÊÇÇĞÃæ·½·¨
-            // ÔÚ MethodInterceptor#invokeÀï£¬»áÔÙ´Î ReflectiveMethodInvocation#proceed£¬ÓÖµ÷»ØÁËµ±Ç°·½·¨
+            // åŒ¹é…ï¼Œå°±è°ƒç”¨æ‹¦æˆªå™¨çš„æ–¹æ³•ï¼Œä¹Ÿå°±æ˜¯åˆ‡é¢æ–¹æ³•
+            // åœ¨ MethodInterceptor#invokeé‡Œï¼Œä¼šå†æ¬¡ ReflectiveMethodInvocation#proceedï¼Œåˆè°ƒå›äº†å½“å‰æ–¹æ³•
             return dm.interceptor.invoke(this);
         }
         else {
-            // ²»Æ¥Åä£¬Ôòµİ¹éµ÷ÓÃµ±Ç°·½·¨
+            // ä¸åŒ¹é…ï¼Œåˆ™é€’å½’è°ƒç”¨å½“å‰æ–¹æ³•
             return proceed();
         }
     }
     else {
-        // ×¢Òâ£¬Õâ¸ö·½·¨´«ÈëµÄ²ÎÊıÊÇ this£¬±íÊ¾µ±Ç°¶ÔÏó
-        // ÔÚ MethodInterceptor#invokeÀï£¬»áÔÙ´Î ReflectiveMethodInvocation#proceed£¬ÓÖµ÷»ØÁËµ±Ç°·½·¨
+        // æ³¨æ„ï¼Œè¿™ä¸ªæ–¹æ³•ä¼ å…¥çš„å‚æ•°æ˜¯ thisï¼Œè¡¨ç¤ºå½“å‰å¯¹è±¡
+        // åœ¨ MethodInterceptor#invokeé‡Œï¼Œä¼šå†æ¬¡ ReflectiveMethodInvocation#proceedï¼Œåˆè°ƒå›äº†å½“å‰æ–¹æ³•
         return ((MethodInterceptor) interceptorOrInterceptionAdvice).invoke(this);
     }
 }
 
 /**
- * µ÷ÓÃÄ¿±ê·½·¨
+ * è°ƒç”¨ç›®æ ‡æ–¹æ³•
  */
 protected Object invokeJoinpoint() throws Throwable {
-    // Ê¹ÓÃ·´Éäµ÷ÓÃÄ¿±ê¶ÔÏó·½·¨£¬×¢ÒâÕâÀï´«ÈëµÄÓ¦¸ÃÊÇÄ¿±ê¶ÔÏó£¬¶ø²»ÊÇ´úÀí¶ÔÏó
+    // ä½¿ç”¨åå°„è°ƒç”¨ç›®æ ‡å¯¹è±¡æ–¹æ³•ï¼Œæ³¨æ„è¿™é‡Œä¼ å…¥çš„åº”è¯¥æ˜¯ç›®æ ‡å¯¹è±¡ï¼Œè€Œä¸æ˜¯ä»£ç†å¯¹è±¡
     return AopUtils.invokeJoinpointUsingReflection(this.target, this.method, this.arguments);
 }
 ```
 
-ÒÔÉÏ´úÂëµÄµ÷ÓÃÊ¹ÓÃÁËÔğÈÎÁ´Ä£Ê½£¬Ö´ĞĞÂß¼­ÈçÏÂ£º
+ä»¥ä¸Šä»£ç çš„è°ƒç”¨ä½¿ç”¨äº†è´£ä»»é“¾æ¨¡å¼ï¼Œæ‰§è¡Œé€»è¾‘å¦‚ä¸‹ï¼š
 
-1. ÅĞ¶ÏÊÇ·ñÖ´ĞĞÍêËùÓĞµÄÇĞÃæ·½·¨£¬ÈôÊÇ£¬ÔòÖ´ĞĞÄ¿±ê·½·¨£¬·ñÔòÖ´ĞĞÏÂÒ»²½£»
-2. »ñÈ¡ÏÂÒ»¸öÀ¹½ØÆ÷£¬ÅĞ¶ÏÄÜ·ñÖ´ĞĞ£¬ÈôÄÜ£¬Ôòµ÷ÓÃÀ¹½ØÆ÷·½·¨£¬·ñÔòÖ´ĞĞµÚ Ò»²½²Ù×÷£»
+1. åˆ¤æ–­æ˜¯å¦æ‰§è¡Œå®Œæ‰€æœ‰çš„åˆ‡é¢æ–¹æ³•ï¼Œè‹¥æ˜¯ï¼Œåˆ™æ‰§è¡Œç›®æ ‡æ–¹æ³•ï¼Œå¦åˆ™æ‰§è¡Œä¸‹ä¸€æ­¥ï¼›
+2. è·å–ä¸‹ä¸€ä¸ªæ‹¦æˆªå™¨ï¼Œåˆ¤æ–­èƒ½å¦æ‰§è¡Œï¼Œè‹¥èƒ½ï¼Œåˆ™è°ƒç”¨æ‹¦æˆªå™¨æ–¹æ³•ï¼Œå¦åˆ™æ‰§è¡Œç¬¬ ä¸€æ­¥æ“ä½œï¼›
 
-ÒÔÉÏÂß¼­¿´×ÅÍ¦¼òµ¥£¬µ«¾ßÌåÊÇÔõÃ´Ö´ĞĞµÄÄØ£¿ÔÚ spring ÖĞ£¬ÇĞÃæÍ¨ÖªÓĞÎåÖÖÀàĞÍ£º`@Before`¡¢`@After`¡¢`@AfterReturning`¡¢`@AfterThrowing` Óë `@Around`£¬ÕâÀïÎÒÃÇÒ»Ò»À´¿´¿´ÕâÎåÖÖÍ¨ÖªÊÇÈçºÎµ÷ÓÃµÄ¡£
+ä»¥ä¸Šé€»è¾‘çœ‹ç€æŒºç®€å•ï¼Œä½†å…·ä½“æ˜¯æ€ä¹ˆæ‰§è¡Œçš„å‘¢ï¼Ÿåœ¨ spring ä¸­ï¼Œåˆ‡é¢é€šçŸ¥æœ‰äº”ç§ç±»å‹ï¼š`@Before`ã€`@After`ã€`@AfterReturning`ã€`@AfterThrowing` ä¸ `@Around`ï¼Œè¿™é‡Œæˆ‘ä»¬ä¸€ä¸€æ¥çœ‹çœ‹è¿™äº”ç§é€šçŸ¥æ˜¯å¦‚ä½•è°ƒç”¨çš„ã€‚
 
 #### 1. `@Before`
 
@@ -545,14 +545,14 @@ protected Object invokeJoinpoint() throws Throwable {
 ```java
 @Override
 public Object invoke(MethodInvocation mi) throws Throwable {
-    // Ö´ĞĞÇ°ÖÃÍ¨Öª£¬¿´ÏÂÃæ
+    // æ‰§è¡Œå‰ç½®é€šçŸ¥ï¼Œçœ‹ä¸‹é¢
     this.advice.before(mi.getMethod(), mi.getArguments(), mi.getThis());
-    // ¼ÌĞøÖ´ĞĞÏÂÒ»¸öÀ¹½ØÆ÷
+    // ç»§ç»­æ‰§è¡Œä¸‹ä¸€ä¸ªæ‹¦æˆªå™¨
     return mi.proceed();
 }
 ```
 
-½øÈë `advice.before(xxx)` ·½·¨£º
+è¿›å…¥ `advice.before(xxx)` æ–¹æ³•ï¼š
 
 > AspectJMethodBeforeAdvice#before
 
@@ -563,7 +563,7 @@ public void before(Method method, Object[] args, @Nullable Object target) throws
 }
 ```
 
-¼ÌĞø¸úÏÂÈ¥£º
+ç»§ç»­è·Ÿä¸‹å»ï¼š
 
 > AbstractAspectJAdvice#invokeAdviceMethod(JoinPointMatch, Object, Throwable)
 
@@ -576,7 +576,7 @@ protected Object invokeAdviceMethod(
 }
 
 /**
-  *  µ÷ÓÃ·´ÉäÖ´ĞĞ
+  *  è°ƒç”¨åå°„æ‰§è¡Œ
   */
 protected Object invokeAdviceMethodWithGivenArgs(Object[] args) throws Throwable {
     Object[] actualArgs = args;
@@ -584,7 +584,7 @@ protected Object invokeAdviceMethodWithGivenArgs(Object[] args) throws Throwable
         actualArgs = null;
     }
     try {
-        // ÊìÏ¤µÄjdk·´Éä´úÂë
+        // ç†Ÿæ‚‰çš„jdkåå°„ä»£ç 
         ReflectionUtils.makeAccessible(this.aspectJAdviceMethod);
         return this.aspectJAdviceMethod.invoke(
                 this.aspectInstanceFactory.getAspectInstance(), actualArgs);
@@ -594,7 +594,7 @@ protected Object invokeAdviceMethodWithGivenArgs(Object[] args) throws Throwable
 }
 ```
 
-¿ÉÒÔ¿´µ½£¬×îÖÕÊÇµ÷ÓÃ jdk ·´ÉäÀ´µ÷ÓÃµÄ¡£
+å¯ä»¥çœ‹åˆ°ï¼Œæœ€ç»ˆæ˜¯è°ƒç”¨ jdk åå°„æ¥è°ƒç”¨çš„ã€‚
 
 #### 2. `@After`
 
@@ -604,11 +604,11 @@ protected Object invokeAdviceMethodWithGivenArgs(Object[] args) throws Throwable
 @Override
 public Object invoke(MethodInvocation mi) throws Throwable {
     try {
-        // ¼ÌĞøÖ´ĞĞÏÂÒ»¸öÀ¹½ØÆ÷
+        // ç»§ç»­æ‰§è¡Œä¸‹ä¸€ä¸ªæ‹¦æˆªå™¨
         return mi.proceed();
     }
     finally {
-        // µ÷ÓÃÇĞÃæ·½·¨£º·ÅÔÚ finally ¿é£¬±íÊ¾Ò»¶¨»áÖ´ĞĞ£¬×îÖÕÒ²ÊÇÊ¹ÓÃ·´Éäµ÷ÓÃ
+        // è°ƒç”¨åˆ‡é¢æ–¹æ³•ï¼šæ”¾åœ¨ finally å—ï¼Œè¡¨ç¤ºä¸€å®šä¼šæ‰§è¡Œï¼Œæœ€ç»ˆä¹Ÿæ˜¯ä½¿ç”¨åå°„è°ƒç”¨
         invokeAdviceMethod(getJoinPointMatch(), null, null);
     }
 }
@@ -621,9 +621,9 @@ public Object invoke(MethodInvocation mi) throws Throwable {
 ```java
 @Override
 public Object invoke(MethodInvocation mi) throws Throwable {
-    // ¼ÌĞøÖ´ĞĞÏÂÒ»¸öÀ¹½ØÆ÷
+    // ç»§ç»­æ‰§è¡Œä¸‹ä¸€ä¸ªæ‹¦æˆªå™¨
     Object retVal = mi.proceed();
-    // µ÷ÓÃÇĞÃæ·½·¨£¬¼ÌĞøÍùÏÂ¿´
+    // è°ƒç”¨åˆ‡é¢æ–¹æ³•ï¼Œç»§ç»­å¾€ä¸‹çœ‹
     this.advice.afterReturning(retVal, mi.getMethod(), mi.getArguments(), mi.getThis());
     return retVal;
 }
@@ -635,7 +635,7 @@ public Object invoke(MethodInvocation mi) throws Throwable {
 public void afterReturning(@Nullable Object returnValue, Method method, 
             Object[] args, @Nullable Object target) throws Throwable {
     if (shouldInvokeOnReturnValueOf(method, returnValue)) {
-        // µ÷ÓÃÇĞÃæ·½·¨£¬ÒÀÈ»ÊÇµ÷ÓÃ·´ÉäÖ´ĞĞ
+        // è°ƒç”¨åˆ‡é¢æ–¹æ³•ï¼Œä¾ç„¶æ˜¯è°ƒç”¨åå°„æ‰§è¡Œ
         invokeAdviceMethod(getJoinPointMatch(), returnValue, null);
     }
 }
@@ -649,12 +649,12 @@ public void afterReturning(@Nullable Object returnValue, Method method,
 @Override
 public Object invoke(MethodInvocation mi) throws Throwable {
     try {
-        // µ÷ÓÃ ReflectiveMethodInvocation#proceed
+        // è°ƒç”¨ ReflectiveMethodInvocation#proceed
         return mi.proceed();
     }
     catch (Throwable ex) {
         if (shouldInvokeOnThrowing(ex)) {
-            // µ÷ÓÃÇĞÃæ·½·¨£¬Ö»ÓĞÔÚÅ×³öÒì³£Ê±²Å»á±»µ÷ÓÃ
+            // è°ƒç”¨åˆ‡é¢æ–¹æ³•ï¼Œåªæœ‰åœ¨æŠ›å‡ºå¼‚å¸¸æ—¶æ‰ä¼šè¢«è°ƒç”¨
             invokeAdviceMethod(getJoinPointMatch(), null, ex);
         }
         throw ex;
@@ -675,68 +675,68 @@ public Object invoke(MethodInvocation mi) throws Throwable {
     ProxyMethodInvocation pmi = (ProxyMethodInvocation) mi;
     ProceedingJoinPoint pjp = lazyGetProceedingJoinPoint(pmi);
     JoinPointMatch jpm = getJoinPointMatch(pmi);
-    // µ÷ÓÃÇĞÃæ·½·¨
+    // è°ƒç”¨åˆ‡é¢æ–¹æ³•
     return invokeAdviceMethod(pjp, jpm, null, null);
 }
 ```
 
-ÎÒÃÇÔÚÊµÏÖ»·ÈÆÍ¨ÖªÊ±£¬Ò»°ãÏñÕâÑùÊµÏÖ£º
+æˆ‘ä»¬åœ¨å®ç°ç¯ç»•é€šçŸ¥æ—¶ï¼Œä¸€èˆ¬åƒè¿™æ ·å®ç°ï¼š
 
 ```java
 @Around(xxx)
 public Object around(ProceedingJoinPoint p){
-    // Ö´ĞĞÄ¿±ê·½·¨Ç°µÄ²Ù×÷
+    // æ‰§è¡Œç›®æ ‡æ–¹æ³•å‰çš„æ“ä½œ
     ...
 
-    // Ö´ĞĞÄ¿±ê·½·¨£¬ÕâÒ»¾äÊÇ¹Ø¼ü
-    // Êµ¼ÊÕâÀï²¢²»½ö½öÊÇÖ´ĞĞÄ¿±ê·½·¨£¬×îÖÕµ÷ÓÃµÄÊÇ ReflectiveMethodInvocation#proceed
-    // ¼´Èç¹ûÓĞÀ¹½ØÆ÷£¬Ôò¼ÌĞøÖ´ĞĞÏÂÒ»¸öÀ¹½ØÆ÷£¬·ñÔòÖ´ĞĞÄ¿±ê·½·¨
+    // æ‰§è¡Œç›®æ ‡æ–¹æ³•ï¼Œè¿™ä¸€å¥æ˜¯å…³é”®
+    // å®é™…è¿™é‡Œå¹¶ä¸ä»…ä»…æ˜¯æ‰§è¡Œç›®æ ‡æ–¹æ³•ï¼Œæœ€ç»ˆè°ƒç”¨çš„æ˜¯ ReflectiveMethodInvocation#proceed
+    // å³å¦‚æœæœ‰æ‹¦æˆªå™¨ï¼Œåˆ™ç»§ç»­æ‰§è¡Œä¸‹ä¸€ä¸ªæ‹¦æˆªå™¨ï¼Œå¦åˆ™æ‰§è¡Œç›®æ ‡æ–¹æ³•
     Object o = p.proceed();
 
-    // Ö´ĞĞÄ¿±ê·½·¨ºóµÄ²Ù×÷
+    // æ‰§è¡Œç›®æ ‡æ–¹æ³•åçš„æ“ä½œ
     ...
     return o;
 }
 ```
 
-spring ¶ÔÒÔÉÏÎåÖÖÍ¨ÖªµÄÖ´ĞĞ£¬Ö÷Òª·ÖÎªÁ½¸ö²¿·Ö£º
+spring å¯¹ä»¥ä¸Šäº”ç§é€šçŸ¥çš„æ‰§è¡Œï¼Œä¸»è¦åˆ†ä¸ºä¸¤ä¸ªéƒ¨åˆ†ï¼š
 
-1. Ê¹ÓÃ·´Éä·½Ê½Ö´ĞĞÇĞÃæ·½·¨£¬Ò²¾ÍÊÇËùÎ½µÄ ¡°ÔöÇ¿¡±£»
-2. µ÷ÓÃ `ReflectiveMethodInvocation#proceed` ¼ÌĞøÖ´ĞĞÏÂÒ»¸öÀ¹½ØÆ÷£¬»òÖ´ĞĞÄ¿±ê·½·¨¡£
+1. ä½¿ç”¨åå°„æ–¹å¼æ‰§è¡Œåˆ‡é¢æ–¹æ³•ï¼Œä¹Ÿå°±æ˜¯æ‰€è°“çš„ â€œå¢å¼ºâ€ï¼›
+2. è°ƒç”¨ `ReflectiveMethodInvocation#proceed` ç»§ç»­æ‰§è¡Œä¸‹ä¸€ä¸ªæ‹¦æˆªå™¨ï¼Œæˆ–æ‰§è¡Œç›®æ ‡æ–¹æ³•ã€‚
 
-ÒÔÉÏÁ½¸ö²¿·ÖµÄ²î±ğ½öÔÚÓÚÖ´ĞĞ´ÎĞò¼°Ö´ĞĞµÄÎ»ÖÃ£¬Èç
+ä»¥ä¸Šä¸¤ä¸ªéƒ¨åˆ†çš„å·®åˆ«ä»…åœ¨äºæ‰§è¡Œæ¬¡åºåŠæ‰§è¡Œçš„ä½ç½®ï¼Œå¦‚
 
-- `@Before` Í¨Öª£¬`1` ÔÚÇ°£¬`2` ÔÚºó£»
-- `@AfterReturning` Í¨Öª£¬`2` ÔÚÇ°£¬`1` ÔÚºó£¬Èç¹ûÖ´ĞĞ `2` Ê±·¢ÉúÁËÒì³££¬`1` ¾Í²»»áÖ´ĞĞÁË£»
-- `@AfterThrowing` Í¨Öª£¬`2` ÔÚÇ°£¬`1` ÔÚºó£¬ÇÒ `1` ÊÇ·ÅÔÚ `catch` ¿éÖĞÖ´ĞĞ£¬¼´Ö»ÓĞ·¢ÉúÁËÒì³££¬`1` ²Å»áÖ´ĞĞ£»
-- `@After` Í¨Öª£¬`2` ÔÚÇ°£¬`1` ÔÚºó£¬`1` ÊÇ·ÅÔÚ `finally` ¿éÖĞÖ´ĞĞ£¬ÓÉÓÚ `finally` µÄÌØÊâĞÔ£¬¼´Ê¹·¢ÉúÁËÒì³££¬`1` Í¬Ñù»áÖ´ĞĞ£»
-- `@Around` Í¨Öª£¬ÔÚÇĞÃæ·½·¨ÖĞ×ÔĞĞÖ¸¶¨ÁË `2` µÄÖ´ĞĞÊ±»ú¡£
+- `@Before` é€šçŸ¥ï¼Œ`1` åœ¨å‰ï¼Œ`2` åœ¨åï¼›
+- `@AfterReturning` é€šçŸ¥ï¼Œ`2` åœ¨å‰ï¼Œ`1` åœ¨åï¼Œå¦‚æœæ‰§è¡Œ `2` æ—¶å‘ç”Ÿäº†å¼‚å¸¸ï¼Œ`1` å°±ä¸ä¼šæ‰§è¡Œäº†ï¼›
+- `@AfterThrowing` é€šçŸ¥ï¼Œ`2` åœ¨å‰ï¼Œ`1` åœ¨åï¼Œä¸” `1` æ˜¯æ”¾åœ¨ `catch` å—ä¸­æ‰§è¡Œï¼Œå³åªæœ‰å‘ç”Ÿäº†å¼‚å¸¸ï¼Œ`1` æ‰ä¼šæ‰§è¡Œï¼›
+- `@After` é€šçŸ¥ï¼Œ`2` åœ¨å‰ï¼Œ`1` åœ¨åï¼Œ`1` æ˜¯æ”¾åœ¨ `finally` å—ä¸­æ‰§è¡Œï¼Œç”±äº `finally` çš„ç‰¹æ®Šæ€§ï¼Œå³ä½¿å‘ç”Ÿäº†å¼‚å¸¸ï¼Œ`1` åŒæ ·ä¼šæ‰§è¡Œï¼›
+- `@Around` é€šçŸ¥ï¼Œåœ¨åˆ‡é¢æ–¹æ³•ä¸­è‡ªè¡ŒæŒ‡å®šäº† `2` çš„æ‰§è¡Œæ—¶æœºã€‚
 
-×¢ÒâÇø±ğ `@AfterReturning`¡¢`@AfterThrowing` Óë `@After` Í¨ÖªµÄÖ´ĞĞÊ±»ú¡£
+æ³¨æ„åŒºåˆ« `@AfterReturning`ã€`@AfterThrowing` ä¸ `@After` é€šçŸ¥çš„æ‰§è¡Œæ—¶æœºã€‚
 
-×îºó£¬ÎÒÃÇÔÙÀ´¿´¿´Õâ¼¸¸öÍ¨ÖªÊÇÈçºÎÖ´ĞĞµÄ¡£
+æœ€åï¼Œæˆ‘ä»¬å†æ¥çœ‹çœ‹è¿™å‡ ä¸ªé€šçŸ¥æ˜¯å¦‚ä½•æ‰§è¡Œçš„ã€‚
 
-Í¨¹ıµ÷ÊÔµÄ·½Ê½£¬·¢ÏÖ spring Ö´ĞĞÍ¨ÖªµÄË³ĞòÈçÏÂ£º
+é€šè¿‡è°ƒè¯•çš„æ–¹å¼ï¼Œå‘ç° spring æ‰§è¡Œé€šçŸ¥çš„é¡ºåºå¦‚ä¸‹ï¼š
 
-1. Ê×ÏÈÖ´ĞĞ `@AfterThrowing` Í¨Öª£¬ÏÈµ÷ÓÃ `mi.proceed()` Ö´ĞĞÏÂÒ»¸öÀ¹½ØÆ÷£¬È»ºóÔÚ `catch` ¿éÖĞÖ´ĞĞÇĞÃæ·½·¨£¬±íÃ÷Ö»ÓĞ³öÏÖÒì³£Ê±£¬¸ÃÇĞÃæ·½·¨²Å»áÖ´ĞĞ£»
-2. ÉÏÒ»²½²Ù×÷ÖĞ£¬µ÷ÓÃ `mi.proceed()` Ê±»áÖ´ĞĞ `@AfterReturning` Í¨Öª£¬Ö´ĞĞÊ±ÏÈµ÷ÓÃ `mi.proceed()` Ö´ĞĞÏÂÒ»¸öÀ¹½ØÆ÷£¬È»ºóÔÙÖ´ĞĞÇĞÃæ·½·¨£»
-3. ÉÏÒ»²½²Ù×÷ÖĞ£¬µ÷ÓÃ `mi.proceed()` Ê±»áÖ´ĞĞ `@After` Í¨Öª£¬Ö´ĞĞÊ±ÏÈµ÷ÓÃ `mi.proceed()` Ö´ĞĞÏÂÒ»¸öÀ¹½ØÆ÷£¬È»ºóÔÚ `finally` ¿éÖĞÖ´ĞĞÇĞÃæ·½·¨£¬±íÃ÷¼´Ê¹³öÏÖÒì³££¬ÇĞÃæ·½·¨»¹ÊÇ»áÖ´ĞĞ£»
-4. ÉÏÒ»²½²Ù×÷ÖĞ£¬µ÷ÓÃ `mi.proceed()` Ê±»áÖ´ĞĞ `@Around` Í¨Öª£¬Ö´ĞĞÊ±Ö±½ÓÖ´ĞĞÇĞÃæ·½·¨£¬ÓÉÓÚ `@Around` Í¨ÖªµÄÇĞÃæ·½·¨Àï»áµ÷ÓÃ `ProceedingJoinPoint#proceed()`£¬×îÖÕ»¹ÊÇ»áÖ´ĞĞÏÂÒ»¸öÀ¹½ØÆ÷£»
-5. ÉÏÒ»²½²Ù×÷ÖĞ£¬µ÷ÓÃ `mi.proceed()` Ê±»áÖ´ĞĞ `@Before` Í¨Öª£¬Ö´ĞĞÊ±»áÏÈÖ´ĞĞÇĞÃæ·½·¨£¬ÔÙµ÷ÓÃ `mi.proceed()` Ö´ĞĞÏÂÒ»¸öÀ¹½ØÆ÷£»
-6. À¹½ØÆ÷Á´Ö´ĞĞµ½×îºó£¬·¢ÏÖÃ»ÓĞ¿ÉÖ´ĞĞµÄÀ¹½ØÆ÷ÁË£¬´ËÊ±¾Í¿ªÊ¼Ö´ĞĞÄ¿±ê·½·¨¡£
+1. é¦–å…ˆæ‰§è¡Œ `@AfterThrowing` é€šçŸ¥ï¼Œå…ˆè°ƒç”¨ `mi.proceed()` æ‰§è¡Œä¸‹ä¸€ä¸ªæ‹¦æˆªå™¨ï¼Œç„¶ååœ¨ `catch` å—ä¸­æ‰§è¡Œåˆ‡é¢æ–¹æ³•ï¼Œè¡¨æ˜åªæœ‰å‡ºç°å¼‚å¸¸æ—¶ï¼Œè¯¥åˆ‡é¢æ–¹æ³•æ‰ä¼šæ‰§è¡Œï¼›
+2. ä¸Šä¸€æ­¥æ“ä½œä¸­ï¼Œè°ƒç”¨ `mi.proceed()` æ—¶ä¼šæ‰§è¡Œ `@AfterReturning` é€šçŸ¥ï¼Œæ‰§è¡Œæ—¶å…ˆè°ƒç”¨ `mi.proceed()` æ‰§è¡Œä¸‹ä¸€ä¸ªæ‹¦æˆªå™¨ï¼Œç„¶åå†æ‰§è¡Œåˆ‡é¢æ–¹æ³•ï¼›
+3. ä¸Šä¸€æ­¥æ“ä½œä¸­ï¼Œè°ƒç”¨ `mi.proceed()` æ—¶ä¼šæ‰§è¡Œ `@After` é€šçŸ¥ï¼Œæ‰§è¡Œæ—¶å…ˆè°ƒç”¨ `mi.proceed()` æ‰§è¡Œä¸‹ä¸€ä¸ªæ‹¦æˆªå™¨ï¼Œç„¶ååœ¨ `finally` å—ä¸­æ‰§è¡Œåˆ‡é¢æ–¹æ³•ï¼Œè¡¨æ˜å³ä½¿å‡ºç°å¼‚å¸¸ï¼Œåˆ‡é¢æ–¹æ³•è¿˜æ˜¯ä¼šæ‰§è¡Œï¼›
+4. ä¸Šä¸€æ­¥æ“ä½œä¸­ï¼Œè°ƒç”¨ `mi.proceed()` æ—¶ä¼šæ‰§è¡Œ `@Around` é€šçŸ¥ï¼Œæ‰§è¡Œæ—¶ç›´æ¥æ‰§è¡Œåˆ‡é¢æ–¹æ³•ï¼Œç”±äº `@Around` é€šçŸ¥çš„åˆ‡é¢æ–¹æ³•é‡Œä¼šè°ƒç”¨ `ProceedingJoinPoint#proceed()`ï¼Œæœ€ç»ˆè¿˜æ˜¯ä¼šæ‰§è¡Œä¸‹ä¸€ä¸ªæ‹¦æˆªå™¨ï¼›
+5. ä¸Šä¸€æ­¥æ“ä½œä¸­ï¼Œè°ƒç”¨ `mi.proceed()` æ—¶ä¼šæ‰§è¡Œ `@Before` é€šçŸ¥ï¼Œæ‰§è¡Œæ—¶ä¼šå…ˆæ‰§è¡Œåˆ‡é¢æ–¹æ³•ï¼Œå†è°ƒç”¨ `mi.proceed()` æ‰§è¡Œä¸‹ä¸€ä¸ªæ‹¦æˆªå™¨ï¼›
+6. æ‹¦æˆªå™¨é“¾æ‰§è¡Œåˆ°æœ€åï¼Œå‘ç°æ²¡æœ‰å¯æ‰§è¡Œçš„æ‹¦æˆªå™¨äº†ï¼Œæ­¤æ—¶å°±å¼€å§‹æ‰§è¡Œç›®æ ‡æ–¹æ³•ã€‚
 
-»­Í¼Ê¾ÒâÍ¨ÖªµÄÖ´ĞĞ¹ı³ÌÈçÏÂ£º
+ç”»å›¾ç¤ºæ„é€šçŸ¥çš„æ‰§è¡Œè¿‡ç¨‹å¦‚ä¸‹ï¼š
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-e88e0cec49c47648005e5d3160663425739.png)
 
-×îÖÕµÄÖ´ĞĞË³Ğò£º
+æœ€ç»ˆçš„æ‰§è¡Œé¡ºåºï¼š
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-97026239d0b2dc02abbe87a9b76325c3cc0.png)
 
-### 4. ×Ü½á
+### 4. æ€»ç»“
 
-±¾ÎÄÖ÷Òª·ÖÎöÁË jdk ¶¯Ì¬´úÀíµÄÖ´ĞĞ¹ı³Ì£¬ÊáÀíÁË¸÷¸öÇĞÃæÍ¨ÖªµÄÖ´ĞĞË³Ğò¡£±¾ÎÄ¾ÍÏÈµ½ÕâÀïÁË£¬ÏÂÒ»ÆªÎÄÕÂ½«½éÉÜ cglib µÄÖ´ĞĞ¹ı³Ì¡£
+æœ¬æ–‡ä¸»è¦åˆ†æäº† jdk åŠ¨æ€ä»£ç†çš„æ‰§è¡Œè¿‡ç¨‹ï¼Œæ¢³ç†äº†å„ä¸ªåˆ‡é¢é€šçŸ¥çš„æ‰§è¡Œé¡ºåºã€‚æœ¬æ–‡å°±å…ˆåˆ°è¿™é‡Œäº†ï¼Œä¸‹ä¸€ç¯‡æ–‡ç« å°†ä»‹ç» cglib çš„æ‰§è¡Œè¿‡ç¨‹ã€‚
 
 ------
 
-*±¾ÎÄÔ­ÎÄÁ´½Ó£ºhttps://my.oschina.net/funcy/blog/4696654 £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£*
+*æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼šhttps://my.oschina.net/funcy/blog/4696654 ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚*

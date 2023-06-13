@@ -1,18 +1,18 @@
-Ñ§Ï°Ä¿±ê
+å­¦ä¹ ç›®æ ‡
 
-1. ÊÖĞ´Mini°æµÄHystrix
-2. RxJavaÖªÊ¶ÊáÀí
-3. HystrixµÄºËĞÄÁ÷³Ì·ÖÎö
-4. Ô´ÂëÑéÖ¤
-   µÚ1ÕÂ ÊÖĞ´Mini°æ
-   ÉÏÎÄÖĞÒÑ¾­¸ø´ó¼Ò½éÉÜ¹ıÁËHystrixµÄºËĞÄ¹¦ÄÜºÍÊ¹ÓÃÁË£¬ËüÎŞ·Ç¾ÍÊÇÌá¹©ÁËÈÛ¶Ï¡¢½µ¼¶¡¢¸ôÀëµÈ¹¦ÄÜ£¬ÆäÖĞÈÛ¶ÏºÍ¸ôÀëÊÇÄ¿µÄ£¬½µ¼¶ÊÇ½á¹û¡£ÔÚÊ¹ÓÃ¹ı³ÌÖĞÆäÊµ×îºËĞÄµÄÓĞÈı¸ö×¢½â£º@EnableHystrix¡¢@HystrixCommandºÍ@HystrixCollapser¡£¿ÉÒÔÍ¨¹ı×¢½â @HystrixCommand¡¢»òÕß¼Ì³Ğ HystrixCommand À´ÊµÏÖ½µ¼¶£¬ÒÔ¼°Ò»Ğ©ÇëÇóºÏ²¢µÈ²Ù×÷¡£
+1. æ‰‹å†™Miniç‰ˆçš„Hystrix
+2. RxJavaçŸ¥è¯†æ¢³ç†
+3. Hystrixçš„æ ¸å¿ƒæµç¨‹åˆ†æ
+4. æºç éªŒè¯
+   ç¬¬1ç«  æ‰‹å†™Miniç‰ˆ
+   ä¸Šæ–‡ä¸­å·²ç»ç»™å¤§å®¶ä»‹ç»è¿‡äº†Hystrixçš„æ ¸å¿ƒåŠŸèƒ½å’Œä½¿ç”¨äº†ï¼Œå®ƒæ— éå°±æ˜¯æä¾›äº†ç†”æ–­ã€é™çº§ã€éš”ç¦»ç­‰åŠŸèƒ½ï¼Œå…¶ä¸­ç†”æ–­å’Œéš”ç¦»æ˜¯ç›®çš„ï¼Œé™çº§æ˜¯ç»“æœã€‚åœ¨ä½¿ç”¨è¿‡ç¨‹ä¸­å…¶å®æœ€æ ¸å¿ƒçš„æœ‰ä¸‰ä¸ªæ³¨è§£ï¼š@EnableHystrixã€@HystrixCommandå’Œ@HystrixCollapserã€‚å¯ä»¥é€šè¿‡æ³¨è§£ @HystrixCommandã€æˆ–è€…ç»§æ‰¿ HystrixCommand æ¥å®ç°é™çº§ï¼Œä»¥åŠä¸€äº›è¯·æ±‚åˆå¹¶ç­‰æ“ä½œã€‚
 
-ÔÚÕıÊ½½²½âÔ­ÀíÖ®Ç°£¬ÎÒÃÇÊ×ÏÈÒªÃ÷È·Ò»¸öµã£¬µ±²ÉÓÃ @HystrixCommand ×¢½âÀ´ÊµÏÖ·şÎñ½µ¼¶£¬ÔÚHystrix µÄÄÚ²¿ÊÇ²ÉÓÃAOPµÄ·½Ê½½øĞĞÀ¹½Ø´¦ÀíÇëÇóµÄ£¬Õâ¿éÄÚÈİ£¬ºóÃæÒ²»áÏêÏ¸·ÖÎö¡£ÎÒÃÇÕâÀï¾ÍÏÈÀ´ÊµÏÖÒ»ÏÂ¼òÒ×°æµÄ Hystrix À´Ìå»áÒ»ÏÂ£¬Ö÷Òª·ÖÎªÒÔÏÂ²½Öè
+åœ¨æ­£å¼è®²è§£åŸç†ä¹‹å‰ï¼Œæˆ‘ä»¬é¦–å…ˆè¦æ˜ç¡®ä¸€ä¸ªç‚¹ï¼Œå½“é‡‡ç”¨ @HystrixCommand æ³¨è§£æ¥å®ç°æœåŠ¡é™çº§ï¼Œåœ¨Hystrix çš„å†…éƒ¨æ˜¯é‡‡ç”¨AOPçš„æ–¹å¼è¿›è¡Œæ‹¦æˆªå¤„ç†è¯·æ±‚çš„ï¼Œè¿™å—å†…å®¹ï¼Œåé¢ä¹Ÿä¼šè¯¦ç»†åˆ†æã€‚æˆ‘ä»¬è¿™é‡Œå°±å…ˆæ¥å®ç°ä¸€ä¸‹ç®€æ˜“ç‰ˆçš„ Hystrix æ¥ä½“ä¼šä¸€ä¸‹ï¼Œä¸»è¦åˆ†ä¸ºä»¥ä¸‹æ­¥éª¤
 
-- ¶¨Òå×Ô¼ºµÄ@HystrixCommand ×¢½â¡£
-- ÊµÏÖÀ¹½ØÇëÇóµÄ´¦ÀíÂß¼­¡£
-- ²âÊÔµ÷ÓÃ¡£
-  1.×Ô¶¨Òå×¢½â
+- å®šä¹‰è‡ªå·±çš„@HystrixCommand æ³¨è§£ã€‚
+- å®ç°æ‹¦æˆªè¯·æ±‚çš„å¤„ç†é€»è¾‘ã€‚
+- æµ‹è¯•è°ƒç”¨ã€‚
+  1.è‡ªå®šä¹‰æ³¨è§£
 
 
 
@@ -20,9 +20,9 @@
     @Retention(RetentionPolicy.RUNTIME)
     @Documented
     public @interface MyHystrixCommand {
-        //Ä¬ÈÏ³¬Ê±Ê±¼ä
+        //é»˜è®¤è¶…æ—¶æ—¶é—´
         int timeout() default 1000;
-        //»ØÍË·½·¨
+        //å›é€€æ–¹æ³•
         String fallback() default "";
     }
 
@@ -34,27 +34,27 @@
 
 
 
-2.×Ô¶¨ÒåÇĞÃæÀà
+2.è‡ªå®šä¹‰åˆ‡é¢ç±»
 
 
 
-    @Aspect  //¿ªÆôAspectÖ§³Ö²¢ÇÒ±ê¼ÇÎªÒ»¸öÇĞÃæÀà
+    @Aspect  //å¼€å¯Aspectæ”¯æŒå¹¶ä¸”æ ‡è®°ä¸ºä¸€ä¸ªåˆ‡é¢ç±»
     @Component
     public class MyHystrixCommandAspect {
         ExecutorService executorService= Executors.newFixedThreadPool(10);
     
-        //¶¨ÒåÇĞµã
+        //å®šä¹‰åˆ‡ç‚¹
         @Pointcut(value = "@annotation(MyHystrixCommand)")
         public void pointCut(){
     
         }
-        //ÔÚÇĞµã·½·¨Íâ»·ÈÆÖ´ĞĞ  @AroundÏàµ±ÓÚ@BeforeºÍ@AfterReturning¹¦ÄÜµÄ×ÜºÍ
+        //åœ¨åˆ‡ç‚¹æ–¹æ³•å¤–ç¯ç»•æ‰§è¡Œ  @Aroundç›¸å½“äº@Beforeå’Œ@AfterReturningåŠŸèƒ½çš„æ€»å’Œ
         @Around(value = "pointCut()&&@annotation(hystrixCommand)")
         public Object doPointCut(ProceedingJoinPoint joinPoint, MyHystrixCommand hystrixCommand) throws Exception {
             int timeout=hystrixCommand.timeout();
             Future future=executorService.submit(()->{
                 try {
-                    //Ö´ĞĞproceed·½·¨µÄ×÷ÓÃÊÇÈÃÄ¿±ê·½·¨Ö´ĞĞ
+                    //æ‰§è¡Œproceedæ–¹æ³•çš„ä½œç”¨æ˜¯è®©ç›®æ ‡æ–¹æ³•æ‰§è¡Œ
                     return joinPoint.proceed();
                 } catch (Throwable throwable) {
                     throwable.printStackTrace();
@@ -63,28 +63,28 @@
             });
             Object rs;
             try {
-                //Í¨¹ıgetµÄÒì²½µÈ´ıÀ´ÊµÏÖ³¬Ê±
+                //é€šè¿‡getçš„å¼‚æ­¥ç­‰å¾…æ¥å®ç°è¶…æ—¶
                 rs=future.get(timeout, TimeUnit.MILLISECONDS);
             } catch (InterruptedException | ExecutionException | TimeoutException e) {
                 future.cancel(true);
                 if(StringUtils.isBlank(hystrixCommand.fallback())){
                     throw new Exception("fallback is null");
                 }
-                //µ÷ÓÃfallback
+                //è°ƒç”¨fallback
                 rs=invokeFallback(joinPoint,hystrixCommand.fallback());
             }
             return rs;
         }
         private Object invokeFallback(ProceedingJoinPoint joinPoint,String fallback) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-            //»ñÈ¡±»´úÀíµÄ·½·¨²ÎÊıºÍMethod
-            MethodSignature signature=(MethodSignature)joinPoint.getSignature(); //»ñÈ¡´úÀíÀàºÍ±»´úÀíÀàµÄĞÅÏ¢
+            //è·å–è¢«ä»£ç†çš„æ–¹æ³•å‚æ•°å’ŒMethod
+            MethodSignature signature=(MethodSignature)joinPoint.getSignature(); //è·å–ä»£ç†ç±»å’Œè¢«ä»£ç†ç±»çš„ä¿¡æ¯
             Method method=signature.getMethod();
             Class<?>[] parameterTypes=method.getParameterTypes();
-            //µÃµ½»Øµ÷·½·¨
+            //å¾—åˆ°å›è°ƒæ–¹æ³•
             try {
                 Method fallbackMethod=joinPoint.getTarget().getClass().getMethod(fallback,parameterTypes);
                 method.setAccessible(true);
-                //Í¨¹ı·´Éä»Øµ÷
+                //é€šè¿‡åå°„å›è°ƒ
                 return fallbackMethod.invoke(joinPoint.getTarget(),joinPoint.getArgs());
             } catch (Exception e) {
                 throw e;
@@ -100,7 +100,7 @@
 
 
 
-3.×Ô¶¨Òå²âÊÔ
+3.è‡ªå®šä¹‰æµ‹è¯•
 
 
 
@@ -114,7 +114,7 @@
             return orderServiceClient.orderLists(num);
         }
         public String fallback(int num){
-            return "×Ô¶¨Òå×¢½â·½·¨±»½µ¼¶";
+            return "è‡ªå®šä¹‰æ³¨è§£æ–¹æ³•è¢«é™çº§";
         }
     }
 
@@ -126,21 +126,21 @@
 
 
 
-µ±ÇëÇóhttp://localhost:8080/myhystrix/get/1Ê±»á´¥·¢½µ¼¶£¬ÒòÎªÔÚ·şÎñ¶Ë£¬µ±num=1Ê±»áĞİÃß3s¡£
+å½“è¯·æ±‚http://localhost:8080/myhystrix/get/1æ—¶ä¼šè§¦å‘é™çº§ï¼Œå› ä¸ºåœ¨æœåŠ¡ç«¯ï¼Œå½“num=1æ—¶ä¼šä¼‘çœ 3sã€‚
 
-OK£¬ÕâÑùÎÒÃÇ¾ÍÊµÏÖÁËÒ»¸ö¼òÒ×°æµÄHystrixCommand£¬µ«ÊÇÎÒÃÇÖ»ÊÇÊµÏÖÁËHystrixµÄµÚÒ»²½£¬¶¨ÒåÁËÒ»¸ö×¢½âºÍÇĞÃæ£¬µ«ÊÇËüµÄµ×²ãÂß¼­Ô¶Ô¶Ã»ÓĞÕâÃ´¼òµ¥£¬ÔÚ½²Ô´ÂëÖ®Ç°£¬ÎÒÃÇÏÈÀ´ŞÛÒ»ŞÛRxJavaÊÇÊ²Ã´£¬ÒòÎªHystrixµ×²ãÂß¼­ÊÇ»ùÓÚÏìÓ¦Ê½±à³ÌÊµÏÖµÄ¡£
+OKï¼Œè¿™æ ·æˆ‘ä»¬å°±å®ç°äº†ä¸€ä¸ªç®€æ˜“ç‰ˆçš„HystrixCommandï¼Œä½†æ˜¯æˆ‘ä»¬åªæ˜¯å®ç°äº†Hystrixçš„ç¬¬ä¸€æ­¥ï¼Œå®šä¹‰äº†ä¸€ä¸ªæ³¨è§£å’Œåˆ‡é¢ï¼Œä½†æ˜¯å®ƒçš„åº•å±‚é€»è¾‘è¿œè¿œæ²¡æœ‰è¿™ä¹ˆç®€å•ï¼Œåœ¨è®²æºç ä¹‹å‰ï¼Œæˆ‘ä»¬å…ˆæ¥æ‹ä¸€æ‹RxJavaæ˜¯ä»€ä¹ˆï¼Œå› ä¸ºHystrixåº•å±‚é€»è¾‘æ˜¯åŸºäºå“åº”å¼ç¼–ç¨‹å®ç°çš„ã€‚
 
-µÚ2ÕÂ RxJavaÌåÑé
-2.1 RxJava¸ÅÊö
-RxJava ÊÇÒ»ÖÖÏìÓ¦Ê½±à³Ì£¬À´´´½¨»ùÓÚÊÂ¼şµÄÒì²½²Ù×÷¿â¡£»ùÓÚÊÂ¼şÁ÷µÄÁ´Ê½µ÷ÓÃ¡¢Âß¼­ÇåÎú¼ò½à¡£
+ç¬¬2ç«  RxJavaä½“éªŒ
+2.1 RxJavaæ¦‚è¿°
+RxJava æ˜¯ä¸€ç§å“åº”å¼ç¼–ç¨‹ï¼Œæ¥åˆ›å»ºåŸºäºäº‹ä»¶çš„å¼‚æ­¥æ“ä½œåº“ã€‚åŸºäºäº‹ä»¶æµçš„é“¾å¼è°ƒç”¨ã€é€»è¾‘æ¸…æ™°ç®€æ´ã€‚
 
-RxJava¹Û²ìÕßÄ£Ê½µÄ¶Ô±È
+RxJavaè§‚å¯Ÿè€…æ¨¡å¼çš„å¯¹æ¯”
 
-- ´«Í³¹Û²ìÕßÊÇÒ»¸ö±»¹Û²ìÕß¶à¹ı¹Û²ìÕß£¬µ±±»¹Û²ìÕß·¢Éú¸Ä±äÊ±ºò¼°Ê±Í¨ÖªËùÓĞ¹Û²ìÕß
-- RxJavaÊÇÒ»¸ö¹Û²ìÕß¶à¸ö±»¹Û²ìÕß£¬±»¹Û²ìÕßÏñÁ´ÌõÒ»Ñù´®ÆğÀ´£¬Êı¾İÔÚ±»¹Û²ìÕßÖ®¼ä³¯×ÅÒ»¸ö·½Ïò´«µİ£¬Ö±µ½´«µİ¸ø¹Û²ìÕß ¡£
-  ÆäÊµËµ°×ÁË£¬¾ÍÊÇÔÚRxJavaÖĞ´æÔÚ2ÖÖ¸ÅÄî£¬Ò»ÖÖÊÇ±»¹Û²ìÕß£¬Ò»ÖÖÊÇ¹Û²ìÕß£¬µ±¶à¸ö±»¹Û²ìÕß¶©ÔÄÁËÍ¬Ò»¸ö¹Û²ìÕßµÄÊ±ºò£¬ÄÇÃ´Ëæ×Å±»¹Û²ìÕßÍê³ÉÄ³¸öÊÂ¼şµÄÊ±ºò¾Í»áÈ¥»Øµ÷¹Û²ìÕß¡£
+- ä¼ ç»Ÿè§‚å¯Ÿè€…æ˜¯ä¸€ä¸ªè¢«è§‚å¯Ÿè€…å¤šè¿‡è§‚å¯Ÿè€…ï¼Œå½“è¢«è§‚å¯Ÿè€…å‘ç”Ÿæ”¹å˜æ—¶å€™åŠæ—¶é€šçŸ¥æ‰€æœ‰è§‚å¯Ÿè€…
+- RxJavaæ˜¯ä¸€ä¸ªè§‚å¯Ÿè€…å¤šä¸ªè¢«è§‚å¯Ÿè€…ï¼Œè¢«è§‚å¯Ÿè€…åƒé“¾æ¡ä¸€æ ·ä¸²èµ·æ¥ï¼Œæ•°æ®åœ¨è¢«è§‚å¯Ÿè€…ä¹‹é—´æœç€ä¸€ä¸ªæ–¹å‘ä¼ é€’ï¼Œç›´åˆ°ä¼ é€’ç»™è§‚å¯Ÿè€… ã€‚
+  å…¶å®è¯´ç™½äº†ï¼Œå°±æ˜¯åœ¨RxJavaä¸­å­˜åœ¨2ç§æ¦‚å¿µï¼Œä¸€ç§æ˜¯è¢«è§‚å¯Ÿè€…ï¼Œä¸€ç§æ˜¯è§‚å¯Ÿè€…ï¼Œå½“å¤šä¸ªè¢«è§‚å¯Ÿè€…è®¢é˜…äº†åŒä¸€ä¸ªè§‚å¯Ÿè€…çš„æ—¶å€™ï¼Œé‚£ä¹ˆéšç€è¢«è§‚å¯Ÿè€…å®ŒæˆæŸä¸ªäº‹ä»¶çš„æ—¶å€™å°±ä¼šå»å›è°ƒè§‚å¯Ÿè€…ã€‚
 
-2.2 ¹Û²ìÕß
+2.2 è§‚å¯Ÿè€…
 
 Observer
 
@@ -149,15 +149,15 @@ Observer
     Observer observer = new Observer() {
         @Override
         public void onCompleted() {
-            System.out.println("µ±±»¹Û²ìÕßÉú²úCompleteÊÂ¼ş£¬µ÷ÓÃ¸Ã·½·¨");
+            System.out.println("å½“è¢«è§‚å¯Ÿè€…ç”Ÿäº§Completeäº‹ä»¶ï¼Œè°ƒç”¨è¯¥æ–¹æ³•");
         }
         @Override
         public void onError(Throwable throwable) {
-            System.out.println("¶ÔErrorÊÂ¼ş×÷³öÏìÓ¦");
+            System.out.println("å¯¹Erroräº‹ä»¶ä½œå‡ºå“åº”");
         }
         @Override
         public void onNext(Object o) {
-            System.out.println("¶ÔNextÊÂ¼ş×÷³öÏìÓ¦:" + o);
+            System.out.println("å¯¹Nextäº‹ä»¶ä½œå‡ºå“åº”:" + o);
         }
     };
 
@@ -171,19 +171,19 @@ Observer
 
 
 
-    //SubscriberÀà = RxJava ÄÚÖÃµÄÒ»¸öÊµÏÖÁË Observer µÄ³éÏóÀà£¬¶Ô Observer ½Ó¿Ú½øĞĞÁËÀ©Õ¹
+    //Subscriberç±» = RxJava å†…ç½®çš„ä¸€ä¸ªå®ç°äº† Observer çš„æŠ½è±¡ç±»ï¼Œå¯¹ Observer æ¥å£è¿›è¡Œäº†æ‰©å±•
     Subscriber subscriber = new Subscriber() {
         @Override
         public void onCompleted() {
-            System.out.println("µ±±»¹Û²ìÕßÉú²úCompleteÊÂ¼ş£¬µ÷ÓÃ¸Ã·½·¨");
+            System.out.println("å½“è¢«è§‚å¯Ÿè€…ç”Ÿäº§Completeäº‹ä»¶ï¼Œè°ƒç”¨è¯¥æ–¹æ³•");
         }
         @Override
         public void onError(Throwable throwable) {
-            System.out.println("¶ÔErrorÊÂ¼ş×÷³öÏìÓ¦");
+            System.out.println("å¯¹Erroräº‹ä»¶ä½œå‡ºå“åº”");
         }
         @Override
         public void onNext(Object o) {
-            System.out.println("¶ÔNextÊÂ¼ş×÷³öÏìÓ¦:" + o);
+            System.out.println("å¯¹Nextäº‹ä»¶ä½œå‡ºå“åº”:" + o);
         }
     };
 
@@ -195,29 +195,29 @@ Observer
 
 
 
-Subscriber ³éÏóÀàÓëObserver ½Ó¿ÚµÄÇø±ğ
+Subscriber æŠ½è±¡ç±»ä¸Observer æ¥å£çš„åŒºåˆ«
 
-¶şÕß»ù±¾Ê¹ÓÃ·½Ê½Ò»ÖÂ£¨ÔÚRxJavaµÄsubscribe¹ı³ÌÖĞ£¬Observer»áÏÈ±»×ª»»³ÉSubscriberÔÙÊ¹ÓÃ£©
-Subscriber³éÏóÀà¶Ô Observer ½Ó¿Ú½øĞĞÁËÀ©Õ¹£¬ĞÂÔöÁËÁ½¸ö·½·¨£º
+äºŒè€…åŸºæœ¬ä½¿ç”¨æ–¹å¼ä¸€è‡´ï¼ˆåœ¨RxJavaçš„subscribeè¿‡ç¨‹ä¸­ï¼ŒObserverä¼šå…ˆè¢«è½¬æ¢æˆSubscriberå†ä½¿ç”¨ï¼‰
+SubscriberæŠ½è±¡ç±»å¯¹ Observer æ¥å£è¿›è¡Œäº†æ‰©å±•ï¼Œæ–°å¢äº†ä¸¤ä¸ªæ–¹æ³•ï¼š
 
-- onStart()£ºÔÚ»¹Î´ÏìÓ¦ÊÂ¼şÇ°µ÷ÓÃ£¬ÓÃÓÚ×öÒ»Ğ©³õÊ¼»¯¹¤×÷£¬ËûÊÇÔÚsubscribe ËùÔÚµÄÏß³Ìµ÷ÓÃ£¬²»ÄÜÇĞ»»Ïß³Ì£¬ËùÒÔ²»ÄÜ½øĞĞ½çÃæUI¸üĞÂ±ÈÈçµ¯¿òÕâĞ©¡£
-- unsubscribe()£ºÓÃÓÚÈ¡Ïû¶©ÔÄ¡£ÔÚ¸Ã·½·¨±»µ÷ÓÃºó£¬¹Û²ìÕß½«²»ÔÙ½ÓÊÕÏìÓ¦ÊÂ¼ş£¬±ÈÈçÔÚonStop·½·¨ÖĞ¿ÉÒÔµ÷ÓÃ´Ë·½·¨½áÊø¶©ÔÄ¡£µ÷ÓÃ¸Ã·½·¨Ç°£¬ÏÈÊ¹ÓÃ isUnsubscribed() ÅĞ¶Ï×´Ì¬£¬È·¶¨±»¹Û²ìÕßObservableÊÇ·ñ»¹³ÖÓĞ¹Û²ìÕßSubscriberµÄÒıÓÃ¡£
-  2.3 ±»¹Û²ìÕß
-  RxJava Ìá¹©ÁË¶àÖÖ·½·¨ÓÃÓÚ ´´½¨±»¹Û²ìÕß¶ÔÏóObservable£¬ÕâÀï½éÉÜÁ½ÖÖ
+- onStart()ï¼šåœ¨è¿˜æœªå“åº”äº‹ä»¶å‰è°ƒç”¨ï¼Œç”¨äºåšä¸€äº›åˆå§‹åŒ–å·¥ä½œï¼Œä»–æ˜¯åœ¨subscribe æ‰€åœ¨çš„çº¿ç¨‹è°ƒç”¨ï¼Œä¸èƒ½åˆ‡æ¢çº¿ç¨‹ï¼Œæ‰€ä»¥ä¸èƒ½è¿›è¡Œç•Œé¢UIæ›´æ–°æ¯”å¦‚å¼¹æ¡†è¿™äº›ã€‚
+- unsubscribe()ï¼šç”¨äºå–æ¶ˆè®¢é˜…ã€‚åœ¨è¯¥æ–¹æ³•è¢«è°ƒç”¨åï¼Œè§‚å¯Ÿè€…å°†ä¸å†æ¥æ”¶å“åº”äº‹ä»¶ï¼Œæ¯”å¦‚åœ¨onStopæ–¹æ³•ä¸­å¯ä»¥è°ƒç”¨æ­¤æ–¹æ³•ç»“æŸè®¢é˜…ã€‚è°ƒç”¨è¯¥æ–¹æ³•å‰ï¼Œå…ˆä½¿ç”¨ isUnsubscribed() åˆ¤æ–­çŠ¶æ€ï¼Œç¡®å®šè¢«è§‚å¯Ÿè€…Observableæ˜¯å¦è¿˜æŒæœ‰è§‚å¯Ÿè€…Subscriberçš„å¼•ç”¨ã€‚
+  2.3 è¢«è§‚å¯Ÿè€…
+  RxJava æä¾›äº†å¤šç§æ–¹æ³•ç”¨äº åˆ›å»ºè¢«è§‚å¯Ÿè€…å¯¹è±¡Observableï¼Œè¿™é‡Œä»‹ç»ä¸¤ç§
 
 
 
-    // ·½·¨1£ºjust(T...)£ºÖ±½Ó½«´«ÈëµÄ²ÎÊıÒÀ´Î·¢ËÍ³öÀ´
+    // æ–¹æ³•1ï¼šjust(T...)ï¼šç›´æ¥å°†ä¼ å…¥çš„å‚æ•°ä¾æ¬¡å‘é€å‡ºæ¥
     Observable observable = Observable.just("A", "B", "C");
-    // ½«»áÒÀ´Îµ÷ÓÃ£º
+    // å°†ä¼šä¾æ¬¡è°ƒç”¨ï¼š
     // onNext("A");
     // onNext("B");
     // onNext("C");
     // onCompleted();
-    // ·½·¨2£ºfromArray(T[]) / from(Iterable<? extends T>) : ½«´«ÈëµÄÊı×é / Iterable ²ğ·Ö³É¾ßÌå¶ÔÏóºó£¬ÒÀ´Î·¢ËÍ³öÀ´
+    // æ–¹æ³•2ï¼šfromArray(T[]) / from(Iterable<? extends T>) : å°†ä¼ å…¥çš„æ•°ç»„ / Iterable æ‹†åˆ†æˆå…·ä½“å¯¹è±¡åï¼Œä¾æ¬¡å‘é€å‡ºæ¥
     String[] words = {"A", "B", "C"};
     Observable observable = Observable.fromArray(words);
-    // ½«»áÒÀ´Îµ÷ÓÃ£º
+    // å°†ä¼šä¾æ¬¡è°ƒç”¨ï¼š
     // onNext("A");
     // onNext("B");
     // onNext("C");
@@ -231,39 +231,39 @@ Subscriber³éÏóÀà¶Ô Observer ½Ó¿Ú½øĞĞÁËÀ©Õ¹£¬ĞÂÔöÁËÁ½¸ö·½·¨£º
 
 
 
-2.4 ¶©ÔÄ
+2.4 è®¢é˜…
 
 
 
-    observable.subscribe(observer); //½¨Á¢¶©ÔÄ¹ØÏµ
-
-
-
-
+    observable.subscribe(observer); //å»ºç«‹è®¢é˜…å…³ç³»
 
 
 
 
 
-2.5 °¸Àı
+
+
+
+
+2.5 æ¡ˆä¾‹
 
 
 
     public class RxJavaDemo {
-        // ReactiveX Java  ÏìÓ¦Ê½±à³Ì¿ò¼Ü(android£©
+        // ReactiveX Java  å“åº”å¼ç¼–ç¨‹æ¡†æ¶(androidï¼‰
         // Java stream() java8
-        //¹Û²ìÕßÄ£Ê½
+        //è§‚å¯Ÿè€…æ¨¡å¼
         public static void main(String[] args) throws ExecutionException, InterruptedException {
-            final String[] datas = new String[]{"ÊÂ¼ş1"};
-            // ÃüÁîÖ´ĞĞÍêµÄ»Øµ÷²Ù×÷ ÖÕÖ¹ÃüÁîÇåÀí
-            //»áÔÚObservable½áÊøÇ°´¥·¢»Øµ÷¸Ãcall·½·¨£¬ÎŞÂÛÊÇÕı³£»¹ÊÇÒì³£ÖÕÖ¹
+            final String[] datas = new String[]{"äº‹ä»¶1"};
+            // å‘½ä»¤æ‰§è¡Œå®Œçš„å›è°ƒæ“ä½œ ç»ˆæ­¢å‘½ä»¤æ¸…ç†
+            //ä¼šåœ¨Observableç»“æŸå‰è§¦å‘å›è°ƒè¯¥callæ–¹æ³•ï¼Œæ— è®ºæ˜¯æ­£å¸¸è¿˜æ˜¯å¼‚å¸¸ç»ˆæ­¢
             final Action0 onComplated = new Action0() {
                 @Override
                 public void call() {
-                    System.out.println("±»¹Û²ìÕßÒª½áÊøÁË");
+                    System.out.println("è¢«è§‚å¯Ÿè€…è¦ç»“æŸäº†");
                 }
             };
-            //±»¹Û²ìÕß
+            //è¢«è§‚å¯Ÿè€…
             Observable<String> observable = Observable.defer(new Func0<Observable<String>>() {
                 @Override
                 public Observable<String> call() {
@@ -271,25 +271,25 @@ Subscriber³éÏóÀà¶Ô Observer ½Ó¿Ú½øĞĞÁËÀ©Õ¹£¬ĞÂÔöÁËÁ½¸ö·½·¨£º
                     return observable1.doOnCompleted(onComplated);
                 }
             });
-    //        Observable<String> observable = Observable.just("ÊÂ¼ş1","ÊÂ¼ş2","½áÊø");
-            //¹Û²ìÕß
+    //        Observable<String> observable = Observable.just("äº‹ä»¶1","äº‹ä»¶2","ç»“æŸ");
+            //è§‚å¯Ÿè€…
             Observer observer = new Observer() {
                 @Override
                 public void onCompleted() {
-                    System.out.println("¶ÔComlateÊÂ¼ş×ö³öÏìÓ¦");
+                    System.out.println("å¯¹Comlateäº‹ä»¶åšå‡ºå“åº”");
                 }
                 @Override
                 public void onError(Throwable throwable) {
-                    System.out.println("¶ÔErrorÊÂ¼ş×÷³öÏìÓ¦");
+                    System.out.println("å¯¹Erroräº‹ä»¶ä½œå‡ºå“åº”");
                 }
                 @Override
                 public void onNext(Object o) {
-                    System.out.println("¶ÔNextÊÂ¼ş×÷³öÏìÓ¦:" + o);
+                    System.out.println("å¯¹Nextäº‹ä»¶ä½œå‡ºå“åº”:" + o);
                 }
             };
-            observable.subscribe(observer); //½¨Á¢¶©ÔÄ¹ØÏµ
+            observable.subscribe(observer); //å»ºç«‹è®¢é˜…å…³ç³»
     
-    //        String s = observable.toBlocking().toFuture().get();//Òì²½µÈ´ı½á¹û
+    //        String s = observable.toBlocking().toFuture().get();//å¼‚æ­¥ç­‰å¾…ç»“æœ
     //        System.out.println(s);
         }
     }
@@ -302,17 +302,17 @@ Subscriber³éÏóÀà¶Ô Observer ½Ó¿Ú½øĞĞÁËÀ©Õ¹£¬ĞÂÔöÁËÁ½¸ö·½·¨£º
 
 
 
-OK£¬´óÌåµÄÖ¸µ¼ÈçºÎÊ¹ÓÃRxJava±à³ÌÁË£¬¼ÇÏÂÀ´ÎÒÃÇ¿ªÊ¼ß£Ô´Âë¡£
+OKï¼Œå¤§ä½“çš„æŒ‡å¯¼å¦‚ä½•ä½¿ç”¨RxJavaç¼–ç¨‹äº†ï¼Œè®°ä¸‹æ¥æˆ‘ä»¬å¼€å§‹æ’¸æºç ã€‚
 
-µÚ3ÕÂ Ô´Âë½âÎö
-ÏÈÉÏ¹ÙÍøÌá¹©µÄÔ´ÂëÁ÷³ÌÍ¼£¬´ÓÍ¼ÉÏ¿ÉÒÔ¿´³öÀ´£¬ÆäÊµ¾ÍÊÇÏÈÈ¥É¨Ãè´øÓĞHystrixCommand×¢½âµÄ·½·¨£¬È»ºó½øĞĞÇĞÃæÀ¹½Ø£¬Ö´ĞĞÇĞÃæµÄÂß¼­¡£Õâ¸öÇĞÃæ¶¨ÒåÁËÁ½¸ö·½·¨£ºexecuteºÍqueue£¬¶şÑ¡Ò»½øĞĞµ÷ÓÃ£¬È»ºó½øÈëÕæÕıµÄÀ¹½ØÂß¼­¡£ËùÒÔÈë¿ÚÊÇHystrixCommand×¢½â£¬¶ø¿ªÆôHystrixÊÇ@EnableHystrix×¢½â¡£
+ç¬¬3ç«  æºç è§£æ
+å…ˆä¸Šå®˜ç½‘æä¾›çš„æºç æµç¨‹å›¾ï¼Œä»å›¾ä¸Šå¯ä»¥çœ‹å‡ºæ¥ï¼Œå…¶å®å°±æ˜¯å…ˆå»æ‰«æå¸¦æœ‰HystrixCommandæ³¨è§£çš„æ–¹æ³•ï¼Œç„¶åè¿›è¡Œåˆ‡é¢æ‹¦æˆªï¼Œæ‰§è¡Œåˆ‡é¢çš„é€»è¾‘ã€‚è¿™ä¸ªåˆ‡é¢å®šä¹‰äº†ä¸¤ä¸ªæ–¹æ³•ï¼šexecuteå’Œqueueï¼ŒäºŒé€‰ä¸€è¿›è¡Œè°ƒç”¨ï¼Œç„¶åè¿›å…¥çœŸæ­£çš„æ‹¦æˆªé€»è¾‘ã€‚æ‰€ä»¥å…¥å£æ˜¯HystrixCommandæ³¨è§£ï¼Œè€Œå¼€å¯Hystrixæ˜¯@EnableHystrixæ³¨è§£ã€‚
 
 
 
     @SpringBootApplication
     @EnableFeignClients("com.example.clients")
-    //@EnableDiscoveryClient //×¢Ïú±íÊ¾User·şÎñ²»×¢²á
-    @EnableHystrix //×¢½â·½Ê½¿ªÆôHystrix
+    //@EnableDiscoveryClient //æ³¨é”€è¡¨ç¤ºUseræœåŠ¡ä¸æ³¨å†Œ
+    @EnableHystrix //æ³¨è§£æ–¹å¼å¼€å¯Hystrix
     public class HystrixEclipseUserApplication {
     
         public static void main(String[] args) {
@@ -329,7 +329,7 @@ OK£¬´óÌåµÄÖ¸µ¼ÈçºÎÊ¹ÓÃRxJava±à³ÌÁË£¬¼ÇÏÂÀ´ÎÒÃÇ¿ªÊ¼ß£Ô´Âë¡£
 
 
 
-½øÈëµ½@EnableHystrix×¢½âÖĞ
+è¿›å…¥åˆ°@EnableHystrixæ³¨è§£ä¸­
 
 
 
@@ -340,7 +340,7 @@ OK£¬´óÌåµÄÖ¸µ¼ÈçºÎÊ¹ÓÃRxJava±à³ÌÁË£¬¼ÇÏÂÀ´ÎÒÃÇ¿ªÊ¼ß£Ô´Âë¡£
     @EnableCircuitBreaker
     public @interface EnableHystrix {
     }
-    //×îÖÕ@EnableHystrix¼Ì³ĞÁË@EnableCircuitBreaker
+    //æœ€ç»ˆ@EnableHystrixç»§æ‰¿äº†@EnableCircuitBreaker
     @Target(ElementType.TYPE)
     @Retention(RetentionPolicy.RUNTIME)
     @Documented
@@ -357,8 +357,8 @@ OK£¬´óÌåµÄÖ¸µ¼ÈçºÎÊ¹ÓÃRxJava±à³ÌÁË£¬¼ÇÏÂÀ´ÎÒÃÇ¿ªÊ¼ß£Ô´Âë¡£
 
 
 
-¿´µ½Õâ²½´úÂë£¬ÎÒÏàĞÅºÜ¶àÑ§¹ıspringbootµÄÍ¬Ñ§¶¼ºÜÊìÏ¤ÁË£¬ÕâÀïÓÃµ½ÁËImport×¢½â£¬ÄÇ¿Ï¶¨ÊÇÒı½øÀ´Ò»Ğ©ÅäÖÃÀàÁË£¬È»ºóÎÒÃÇÔÙ½ø
-EnableCircuitBreakerImportSelectorÀàÖĞ;
+çœ‹åˆ°è¿™æ­¥ä»£ç ï¼Œæˆ‘ç›¸ä¿¡å¾ˆå¤šå­¦è¿‡springbootçš„åŒå­¦éƒ½å¾ˆç†Ÿæ‚‰äº†ï¼Œè¿™é‡Œç”¨åˆ°äº†Importæ³¨è§£ï¼Œé‚£è‚¯å®šæ˜¯å¼•è¿›æ¥ä¸€äº›é…ç½®ç±»äº†ï¼Œç„¶åæˆ‘ä»¬å†è¿›
+EnableCircuitBreakerImportSelectorç±»ä¸­;
 
 
 
@@ -380,7 +380,7 @@ EnableCircuitBreakerImportSelectorÀàÖĞ;
 
 
 
-EnableCircuitBreakerImportSelector¼Ì³ĞÁËSpringFactoryImportSelector£¬½øÈëSpringFactoryImportSelectorÀàºó·¢ÏÖÊÇÎÒÃÇÊìÏ¤µÄ´úÂë£¬ËüÊµÏÖÁËDeferredImportSelector½Ó¿Ú£¬ÊµÏÖÁËselectImports·½·¨£¬selectImports·½·¨»á´ÓÅäÖÃÎÄ¼şspring.factoriesÀï¼ÓÔØ¶ÔÓ¦µÄÀà org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker£¬ÎÒÃÇÀ´¿´¿´spring.facotriesÎÄ¼ş¡£
+EnableCircuitBreakerImportSelectorç»§æ‰¿äº†SpringFactoryImportSelectorï¼Œè¿›å…¥SpringFactoryImportSelectorç±»åå‘ç°æ˜¯æˆ‘ä»¬ç†Ÿæ‚‰çš„ä»£ç ï¼Œå®ƒå®ç°äº†DeferredImportSelectoræ¥å£ï¼Œå®ç°äº†selectImportsæ–¹æ³•ï¼ŒselectImportsæ–¹æ³•ä¼šä»é…ç½®æ–‡ä»¶spring.factoriesé‡ŒåŠ è½½å¯¹åº”çš„ç±» org.springframework.cloud.client.circuitbreaker.EnableCircuitBreakerï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹spring.facotriesæ–‡ä»¶ã€‚
 
 
 
@@ -400,14 +400,14 @@ EnableCircuitBreakerImportSelector¼Ì³ĞÁËSpringFactoryImportSelector£¬½øÈëSpringF
 
 
 
-¶ÔÓ¦EnableAutoConfigurationµÄÕâĞ©ÊµÏÖÀàÔÚspringÆô¶¯µÄÊ±ºòÍ¨¹ı×Ô¶¯×°Åä»úÖÆ»áÈ¥ÊµÀı»¯²¢ÇÒ×¢Èëµ½IoCÈİÆ÷ÖĞ£¬ÕâÀïÎÒÃÇºËĞÄ¹Ø×¢
-HystrixCircuitBreakerConfigurationÀà¡£
+å¯¹åº”EnableAutoConfigurationçš„è¿™äº›å®ç°ç±»åœ¨springå¯åŠ¨çš„æ—¶å€™é€šè¿‡è‡ªåŠ¨è£…é…æœºåˆ¶ä¼šå»å®ä¾‹åŒ–å¹¶ä¸”æ³¨å…¥åˆ°IoCå®¹å™¨ä¸­ï¼Œè¿™é‡Œæˆ‘ä»¬æ ¸å¿ƒå…³æ³¨
+HystrixCircuitBreakerConfigurationç±»ã€‚
 
 
 
     @Configuration(proxyBeanMethods = false)
     public class HystrixCircuitBreakerConfiguration {
-        //ÕâÀïÊÇºËĞÄµÄÇĞÃæbean
+        //è¿™é‡Œæ˜¯æ ¸å¿ƒçš„åˆ‡é¢bean
     	@Bean
     	public HystrixCommandAspect hystrixCommandAspect() {
     		return new HystrixCommandAspect();
@@ -423,7 +423,7 @@ HystrixCircuitBreakerConfigurationÀà¡£
 
 
 
-½øÈëµ½Õâ¸öÇĞÃæÀàÖĞ»á·¢ÏÖ£¬Õâ¸öÇĞÃæÖ÷ÒªÕë¶ÔÁËÁ½¸ö×¢½â×÷ÎªÇĞÈëµã@HystrixCommandºÍ@HystrixCollapser£¬µ±Ö´ĞĞÕâÁ½¸ö×¢½âĞŞÊÎµÄ·½·¨Ê±£¬»á±»À¹½ØÖ´ĞĞ
+è¿›å…¥åˆ°è¿™ä¸ªåˆ‡é¢ç±»ä¸­ä¼šå‘ç°ï¼Œè¿™ä¸ªåˆ‡é¢ä¸»è¦é’ˆå¯¹äº†ä¸¤ä¸ªæ³¨è§£ä½œä¸ºåˆ‡å…¥ç‚¹@HystrixCommandå’Œ@HystrixCollapserï¼Œå½“æ‰§è¡Œè¿™ä¸¤ä¸ªæ³¨è§£ä¿®é¥°çš„æ–¹æ³•æ—¶ï¼Œä¼šè¢«æ‹¦æˆªæ‰§è¡Œ
 methodsAnnotatedWithHystrixCommand
 
 3.1 HystrixCommandAspect
@@ -434,53 +434,53 @@ methodsAnnotatedWithHystrixCommand
     public class HystrixCommandAspect {
         private static final Map<HystrixPointcutType, MetaHolderFactory> META_HOLDER_FACTORY_MAP;
         static {
-            //Í¨¹ı¾²Ì¬·½·¨½«Á½¸ö×¢½âµÄÁ½¸ö¹¤³§ÊµÀı»¯
+            //é€šè¿‡é™æ€æ–¹æ³•å°†ä¸¤ä¸ªæ³¨è§£çš„ä¸¤ä¸ªå·¥å‚å®ä¾‹åŒ–
             META_HOLDER_FACTORY_MAP = ImmutableMap.<HystrixPointcutType, MetaHolderFactory>builder()
                 .put(HystrixPointcutType.COMMAND, new CommandMetaHolderFactory())
                 .put(HystrixPointcutType.COLLAPSER, new CollapserMetaHolderFactory())
                 .build();
         }
-        //¶¨ÒåÇĞÈëµã×¢½âHystrixCommand
+        //å®šä¹‰åˆ‡å…¥ç‚¹æ³¨è§£HystrixCommand
         @Pointcut("@annotation(com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand)")
         public void hystrixCommandAnnotationPointcut() {
         }
-        //¶¨ÒåÇĞÈëµã×¢½âHystrixCollapser£¨ÇëÇóºÏ²¢£©
+        //å®šä¹‰åˆ‡å…¥ç‚¹æ³¨è§£HystrixCollapserï¼ˆè¯·æ±‚åˆå¹¶ï¼‰
         @Pointcut("@annotation(com.netflix.hystrix.contrib.javanica.annotation.HystrixCollapser)")
         public void hystrixCollapserAnnotationPointcut() {
         }
-        //»·ÈÆÍ¨Öª
+        //ç¯ç»•é€šçŸ¥
         @Around("hystrixCommandAnnotationPointcut() || hystrixCollapserAnnotationPointcut()")
         public Object methodsAnnotatedWithHystrixCommand(final ProceedingJoinPoint joinPoint) throws Throwable {
-            //»ñÈ¡Ä¿±ê·½·¨
+            //è·å–ç›®æ ‡æ–¹æ³•
             Method method = getMethodFromTarget(joinPoint);
             Validate.notNull(method, "failed to get method from joinPoint: %s", joinPoint);
-            //Ö»´¦ÀíÕâÁ½ÖÖ×¢½â±ê×¢µÄ·½·¨
+            //åªå¤„ç†è¿™ä¸¤ç§æ³¨è§£æ ‡æ³¨çš„æ–¹æ³•
             if (method.isAnnotationPresent(HystrixCommand.class) && method.isAnnotationPresent(HystrixCollapser.class)) {
                 throw new IllegalStateException("method cannot be annotated with HystrixCommand and HystrixCollapser " +
                                                 "annotations at the same time");
             }
-            //¸ù¾İ²»Í¬µÄ×¢½â£¬Ñ¡Ôñ¶ÔÓ¦µÄmetaHolderFactory, ´´½¨MetaHolder, MetaHolder ÀïÃæ°üº¬ÁËËùÓĞĞÅÏ¢
+            //æ ¹æ®ä¸åŒçš„æ³¨è§£ï¼Œé€‰æ‹©å¯¹åº”çš„metaHolderFactory, åˆ›å»ºMetaHolder, MetaHolder é‡Œé¢åŒ…å«äº†æ‰€æœ‰ä¿¡æ¯
             MetaHolderFactory metaHolderFactory = META_HOLDER_FACTORY_MAP.get(HystrixPointcutType.of(method));
-            //»ñÈ¡Ä¿±ê·½·¨µÄµÄÔªÊı¾İ£¬·½·¨Ç©Ãû£¬²ÎÊıµÈ
+            //è·å–ç›®æ ‡æ–¹æ³•çš„çš„å…ƒæ•°æ®ï¼Œæ–¹æ³•ç­¾åï¼Œå‚æ•°ç­‰
             MetaHolder metaHolder = metaHolderFactory.create(joinPoint);
             /**
-             * ´´½¨´¦ÀíÆ÷CommandCollapser »ò GenericCommand £¨Í¬²½£© »òGenericObservableCommand£¨Òì²½£©
-             * GenericCommandÀïÓĞºÜ¶àsuper£¬×îÖÕÍ¨¹ıHystrixCommandBuilderFactory.getInstance().create(metaHolder) ¹¹½¨ÁËÒ»¸öHystrixCommandBuilder×÷ÎªGenericCommadµÄ²ÎÊı
-             * new  GenericCommand Í¨¹ısuperµ½AbstractHystrixCommand£¬
-             * AbstractHystrixCommand Í¨¹ısuperµ½HystrixCommand£¬
-             * HystrixCommand×îÖÕµ½ÁËAbstractCommand  Ò»Â·´«µİ
-             * Ò»»áÔÚAbstractCommandÖĞ·ÖÎöÏÂ
+             * åˆ›å»ºå¤„ç†å™¨CommandCollapser æˆ– GenericCommand ï¼ˆåŒæ­¥ï¼‰ æˆ–GenericObservableCommandï¼ˆå¼‚æ­¥ï¼‰
+             * GenericCommandé‡Œæœ‰å¾ˆå¤šsuperï¼Œæœ€ç»ˆé€šè¿‡HystrixCommandBuilderFactory.getInstance().create(metaHolder) æ„å»ºäº†ä¸€ä¸ªHystrixCommandBuilderä½œä¸ºGenericCommadçš„å‚æ•°
+             * new  GenericCommand é€šè¿‡superåˆ°AbstractHystrixCommandï¼Œ
+             * AbstractHystrixCommand é€šè¿‡superåˆ°HystrixCommandï¼Œ
+             * HystrixCommandæœ€ç»ˆåˆ°äº†AbstractCommand  ä¸€è·¯ä¼ é€’
+             * ä¸€ä¼šåœ¨AbstractCommandä¸­åˆ†æä¸‹
              */
             HystrixInvokable invokable = HystrixCommandFactory.getInstance().create(metaHolder);
-            //¸ù¾İ·µ»ØÖµÍÆ¶ÏÖ´ĞĞÀàĞÍ
+            //æ ¹æ®è¿”å›å€¼æ¨æ–­æ‰§è¡Œç±»å‹
             ExecutionType executionType = metaHolder.isCollapserAnnotationPresent() ?
                 metaHolder.getCollapserExecutionType() : metaHolder.getExecutionType();
-            //¸ù¾İ²»Í¬µÄÃüÁîÀàĞÍ£¬Ö´ĞĞÃüÁî£¬·µ»Ø½á¹û
+            //æ ¹æ®ä¸åŒçš„å‘½ä»¤ç±»å‹ï¼Œæ‰§è¡Œå‘½ä»¤ï¼Œè¿”å›ç»“æœ
             Object result;
             try {
-                //ÊÇ·ñÊÇÏìÓ¦Ê½µÄ£¨ÓÉÓÚÎÒÃÇÕâĞ©¶¼ÊÇÍ¬²½µÄ»á×ßÕâ¸öÂß¼­£©
+                //æ˜¯å¦æ˜¯å“åº”å¼çš„ï¼ˆç”±äºæˆ‘ä»¬è¿™äº›éƒ½æ˜¯åŒæ­¥çš„ä¼šèµ°è¿™ä¸ªé€»è¾‘ï¼‰
                 if (!metaHolder.isObservable()) {
-                    //executeÖ´ĞĞ
+                    //executeæ‰§è¡Œ
                     result = CommandExecutor.execute(invokable, executionType, metaHolder);
                 } else {
                     result = executeObservable(invokable, executionType, metaHolder);
@@ -492,29 +492,29 @@ methodsAnnotatedWithHystrixCommand
             }
             return result;
         }
-        //HystrixCommandµÄÊ±ºòMetaHolderµÄ´´½¨
+        //HystrixCommandçš„æ—¶å€™MetaHolderçš„åˆ›å»º
         private static class CommandMetaHolderFactory extends MetaHolderFactory {
             @Override
             public MetaHolder create(Object proxy, Method method, Object obj, Object[] args, final ProceedingJoinPoint joinPoint) {
-                //»ñÈ¡×¢½âHystrixCommand
+                //è·å–æ³¨è§£HystrixCommand
                 HystrixCommand hystrixCommand = method.getAnnotation(HystrixCommand.class);
-                //¸ù¾İ·µ»Ø½á¹ûÍÆ¶ÏÈÎÎñÀàĞÍ£¬¿ÉÒÔÖªµÀÒÔÄÄÖÖ·½Ê½Ö´ĞĞ
+                //æ ¹æ®è¿”å›ç»“æœæ¨æ–­ä»»åŠ¡ç±»å‹ï¼Œå¯ä»¥çŸ¥é“ä»¥å“ªç§æ–¹å¼æ‰§è¡Œ
                 ExecutionType executionType = ExecutionType.getExecutionType(method.getReturnType());
                 MetaHolder.Builder builder = metaHolderBuilder(proxy, method, obj, args, joinPoint);
                 if (isCompileWeaving()) {
                     builder.ajcMethod(getAjcMethodFromTarget(joinPoint));
                 }
-                //ÕâÀïÃ»ÓĞ¶àÉÙ²ÎÊı£¬×îÖØÒªµÄÒ»¸öhystrixCommand£¬ÄãÔÚ×¢½âÀï¼ÓÁËÊ²Ã´
+                //è¿™é‡Œæ²¡æœ‰å¤šå°‘å‚æ•°ï¼Œæœ€é‡è¦çš„ä¸€ä¸ªhystrixCommandï¼Œä½ åœ¨æ³¨è§£é‡ŒåŠ äº†ä»€ä¹ˆ
                 return builder.defaultCommandKey(method.getName())
                     .hystrixCommand(hystrixCommand)
-                    .observableExecutionMode(hystrixCommand.observableExecutionMode())  //Ö´ĞĞÄ£Ê½
-                    .executionType(executionType) //Ö´ĞĞ·½Ê½
+                    .observableExecutionMode(hystrixCommand.observableExecutionMode())  //æ‰§è¡Œæ¨¡å¼
+                    .executionType(executionType) //æ‰§è¡Œæ–¹å¼
                     .observable(ExecutionType.OBSERVABLE == executionType)
                     .build();
             }
         }
     }
-    //ÔÚÃ¶¾ÙExecutionTypeÀàÀï
+    //åœ¨æšä¸¾ExecutionTypeç±»é‡Œ
     public static ExecutionType getExecutionType(Class<?> type) {
         if (Future.class.isAssignableFrom(type)) {
             return ExecutionType.ASYNCHRONOUS;
@@ -533,7 +533,7 @@ methodsAnnotatedWithHystrixCommand
 
 
 
-ÎÒÃÇÖØµã·ÖÎöÏÂÍ¬²½´¦Àí£¬Í¨¹ı´úÂëÎÒÃÇ¿ÉÒÔ¿´µ½HystrixInvokable ÊÇ GenericCommand£¬ÎÒÃÇÍ¬²½ÀïµÄ¿´ÏÂ CommandExecutor.execute(invokable, executionType, metaHolder)
+æˆ‘ä»¬é‡ç‚¹åˆ†æä¸‹åŒæ­¥å¤„ç†ï¼Œé€šè¿‡ä»£ç æˆ‘ä»¬å¯ä»¥çœ‹åˆ°HystrixInvokable æ˜¯ GenericCommandï¼Œæˆ‘ä»¬åŒæ­¥é‡Œçš„çœ‹ä¸‹ CommandExecutor.execute(invokable, executionType, metaHolder)
 
 
 
@@ -544,13 +544,13 @@ methodsAnnotatedWithHystrixCommand
     
             switch (executionType) {
                 case SYNCHRONOUS: {
-                    //ÖØµã¿´Í¬²½´¦ÀíÕâ¸ö£¬ÏÈ°ÑGenericCommand ×ª³ÉHystrixExecutable ÔÙÖ´ĞĞexecute
+                    //é‡ç‚¹çœ‹åŒæ­¥å¤„ç†è¿™ä¸ªï¼Œå…ˆæŠŠGenericCommand è½¬æˆHystrixExecutable å†æ‰§è¡Œexecute
                     return castToExecutable(invokable, executionType).execute();
                 }
                 case ASYNCHRONOUS: {
-                    // Ç¿×ª³ÉHystrixExecutable  Òì²½Ö´ĞĞ
+                    // å¼ºè½¬æˆHystrixExecutable  å¼‚æ­¥æ‰§è¡Œ
                     HystrixExecutable executable = castToExecutable(invokable, executionType);
-                    // Èç¹ûÓĞ fallback·½·¨£¬ÇÒÊÇÒì²½Ö´ĞĞ£¬ÔòÖ´ĞĞ²¢·µ»Ø°ü×°½á¹û
+                    // å¦‚æœæœ‰ fallbackæ–¹æ³•ï¼Œä¸”æ˜¯å¼‚æ­¥æ‰§è¡Œï¼Œåˆ™æ‰§è¡Œå¹¶è¿”å›åŒ…è£…ç»“æœ
                     if (metaHolder.hasFallbackMethodCommand()
                             && ExecutionType.ASYNCHRONOUS == metaHolder.getFallbackExecutionType()) {
                         return new FutureDecorator(executable.queue());
@@ -558,9 +558,9 @@ methodsAnnotatedWithHystrixCommand
                     return executable.queue();
                 }
                 case OBSERVABLE: {
-                    // Ç¿×ª³É HystrixObservable
+                    // å¼ºè½¬æˆ HystrixObservable
                     HystrixObservable observable = castToObservable(invokable);
-                    // ÅĞ¶ÏÖ´ĞĞÄ£Ê½ÊÇ²»ÊÇ¼±ÇĞ/ÀÁ¶è£¬À´Ñ¡ÔñÄ£Ê½Ö´ĞĞ
+                    // åˆ¤æ–­æ‰§è¡Œæ¨¡å¼æ˜¯ä¸æ˜¯æ€¥åˆ‡/æ‡’æƒ°ï¼Œæ¥é€‰æ‹©æ¨¡å¼æ‰§è¡Œ
                     return ObservableExecutionMode.EAGER == metaHolder.getObservableExecutionMode() ? observable.observe() : observable.toObservable();
                 }
                 default:
@@ -577,33 +577,33 @@ methodsAnnotatedWithHystrixCommand
 
 
 
-Õâ¸ö·½·¨Ö÷ÒªÓÃÀ´Ö´ĞĞÃüÁî£¬´Ó´úÂëÖĞ¿ÉÒÔ¿´³öÕâÀïÓĞÈı¸öÖ´ĞĞÀàĞÍ£¬·Ö±ğÊÇÍ¬²½¡¢Òì²½¡¢ÒÔ¼°ÏìÓ¦Ê½¡£ÆäÖĞ£¬ÏìÓ¦Ê½ÓÖ·ÖÎªCold Observable£¨observable.toObservable()£© ºÍ HotObservable£¨observable.observe()£©Ä¬ÈÏµÄexecutionType=SYNCHRONOUS £¬Í¬²½ÇëÇó¡£
+è¿™ä¸ªæ–¹æ³•ä¸»è¦ç”¨æ¥æ‰§è¡Œå‘½ä»¤ï¼Œä»ä»£ç ä¸­å¯ä»¥çœ‹å‡ºè¿™é‡Œæœ‰ä¸‰ä¸ªæ‰§è¡Œç±»å‹ï¼Œåˆ†åˆ«æ˜¯åŒæ­¥ã€å¼‚æ­¥ã€ä»¥åŠå“åº”å¼ã€‚å…¶ä¸­ï¼Œå“åº”å¼åˆåˆ†ä¸ºCold Observableï¼ˆobservable.toObservable()ï¼‰ å’Œ HotObservableï¼ˆobservable.observe()ï¼‰é»˜è®¤çš„executionType=SYNCHRONOUS ï¼ŒåŒæ­¥è¯·æ±‚ã€‚
 
-- execute()£ºÍ¬²½Ö´ĞĞ£¬·µ»ØÒ»¸öµ¥Ò»µÄ¶ÔÏó½á¹û£¬·¢Éú´íÎóÊ±Å×³öÒì³£¡£
-- queue()£ºÒì²½Ö´ĞĞ£¬·µ»ØÒ»¸ö Future ¶ÔÏó£¬°üº¬×ÅÖ´ĞĞ½áÊøºó·µ»ØµÄµ¥Ò»½á¹û¡£
-- observe()£ºÕâ¸ö·½·¨·µ»ØÒ»¸ö Observable ¶ÔÏó£¬Ëü´ú±í²Ù×÷µÄ¶à¸ö½á¹û£¬µ«ÊÇÒÑ¾­±»¶©ÔÄÕßÏû·ÑµôÁË¡£
-- toObservable()£ºÕâ¸ö·½·¨·µ»ØÒ»¸ö Observable ¶ÔÏó£¬Ëü´ú±í²Ù×÷µÄ¶à¸ö½á¹û£¬ĞèÒªÔÛÃÇ×Ô¼ºÊÖ¶¯¶©ÔÄ²¢Ïû·Ñµô¡£
-  ÀàÍ¼¹ØÏµÈçÏÂ£º
+- execute()ï¼šåŒæ­¥æ‰§è¡Œï¼Œè¿”å›ä¸€ä¸ªå•ä¸€çš„å¯¹è±¡ç»“æœï¼Œå‘ç”Ÿé”™è¯¯æ—¶æŠ›å‡ºå¼‚å¸¸ã€‚
+- queue()ï¼šå¼‚æ­¥æ‰§è¡Œï¼Œè¿”å›ä¸€ä¸ª Future å¯¹è±¡ï¼ŒåŒ…å«ç€æ‰§è¡Œç»“æŸåè¿”å›çš„å•ä¸€ç»“æœã€‚
+- observe()ï¼šè¿™ä¸ªæ–¹æ³•è¿”å›ä¸€ä¸ª Observable å¯¹è±¡ï¼Œå®ƒä»£è¡¨æ“ä½œçš„å¤šä¸ªç»“æœï¼Œä½†æ˜¯å·²ç»è¢«è®¢é˜…è€…æ¶ˆè´¹æ‰äº†ã€‚
+- toObservable()ï¼šè¿™ä¸ªæ–¹æ³•è¿”å›ä¸€ä¸ª Observable å¯¹è±¡ï¼Œå®ƒä»£è¡¨æ“ä½œçš„å¤šä¸ªç»“æœï¼Œéœ€è¦å’±ä»¬è‡ªå·±æ‰‹åŠ¨è®¢é˜…å¹¶æ¶ˆè´¹æ‰ã€‚
+  ç±»å›¾å…³ç³»å¦‚ä¸‹ï¼š
 
-Í¨¹ıGenericCommandÒ»²ã²ãµÄÍùÉÏ·­£¬×îÖÕ¶¨Î»µ½HystrixCommandÓĞ¸öexecute()
+é€šè¿‡GenericCommandä¸€å±‚å±‚çš„å¾€ä¸Šç¿»ï¼Œæœ€ç»ˆå®šä½åˆ°HystrixCommandæœ‰ä¸ªexecute()
 
 
 
     public abstract class HystrixCommand<R> extends AbstractCommand<R> implements HystrixExecutable<R>, HystrixInvokableInfo<R>, HystrixObservable<R> {
-        //Í¬²½Ö´ĞĞ
+        //åŒæ­¥æ‰§è¡Œ
         public R execute() {
             try {
-                //Í¨¹ıqueue().get()À´Í¬²½Ö´ĞĞ£¨·â×°Òì²½´¦ÀíµÄ½á¹û£©
+                //é€šè¿‡queue().get()æ¥åŒæ­¥æ‰§è¡Œï¼ˆå°è£…å¼‚æ­¥å¤„ç†çš„ç»“æœï¼‰
                 return queue().get();
             } catch (Exception e) {
                 throw Exceptions.sneakyThrow(decomposeException(e));
             }
         }
-       //Òì²½Ö´ĞĞ£¬Ê²Ã´Ê±ºòget()£¬ÓÉµ÷ÓÃÕß¾ö¶¨£¬get()µÄÊ±ºò»á×èÈû
+       //å¼‚æ­¥æ‰§è¡Œï¼Œä»€ä¹ˆæ—¶å€™get()ï¼Œç”±è°ƒç”¨è€…å†³å®šï¼Œget()çš„æ—¶å€™ä¼šé˜»å¡
        public Future<R> queue() {
-            //ºËĞÄ´¦Àí£¬×îÖÕ¶¨Î»µ½ÁËAbstractCommandÀïµÄtoObservable()Àï
-            // toObservable×ª»»ÎªObservable,toBlocking×ª»»ÎªBlockingObservable, 
-            // toFuture×ª»»ÎªFuture,Íê³ÉÁËObservableµÄ´´½¨ºÍ¶©ÔÄ
+            //æ ¸å¿ƒå¤„ç†ï¼Œæœ€ç»ˆå®šä½åˆ°äº†AbstractCommandé‡Œçš„toObservable()é‡Œ
+            // toObservableè½¬æ¢ä¸ºObservable,toBlockingè½¬æ¢ä¸ºBlockingObservable, 
+            // toFutureè½¬æ¢ä¸ºFuture,å®Œæˆäº†Observableçš„åˆ›å»ºå’Œè®¢é˜…
             final Future<R> delegate = toObservable().toBlocking().toFuture();   	
             final Future<R> f = new Future<R>() {
                 .....
@@ -616,7 +616,7 @@ methodsAnnotatedWithHystrixCommand
                     return delegate.get(timeout, unit);
                 }       	
             };
-            //ÌØÊâ´¦ÀíÁËÏÂ£¬ÒÑ¾­Ö´ĞĞÍêÁË£¬get()Ò²²»»á×èÈûÁË
+            //ç‰¹æ®Šå¤„ç†äº†ä¸‹ï¼Œå·²ç»æ‰§è¡Œå®Œäº†ï¼Œget()ä¹Ÿä¸ä¼šé˜»å¡äº†
             if (f.isDone()) {
                 try {
                     f.get();
@@ -637,44 +637,44 @@ methodsAnnotatedWithHystrixCommand
 
 
 
-ÔÚÉÏÊö´úÂëÖĞ£¬ÖØµãÀ´ÁË£¬¹¹½¨ÁËÒ»¸ö
-java.util.concurrent.Future £¬È»ºóµ÷ÓÃ getµÄÊ±ºòÎ¯ÅÉ¸ø delegate£¬¶ø delegateÀ´×ÔÓÚ toObservable().toBlocking().toFuture(); ÕâÕıÊÇÎÒÃÇÉÏÃæÀı×ÓÀïÃæµÃ´úÂë¡£ËùÒÔÏÖÔÚµÄÖØµãÓ¦¸Ã·ÅÔÚ toObservable() ·½·¨ÖĞ£º
+åœ¨ä¸Šè¿°ä»£ç ä¸­ï¼Œé‡ç‚¹æ¥äº†ï¼Œæ„å»ºäº†ä¸€ä¸ª
+java.util.concurrent.Future ï¼Œç„¶åè°ƒç”¨ getçš„æ—¶å€™å§”æ´¾ç»™ delegateï¼Œè€Œ delegateæ¥è‡ªäº toObservable().toBlocking().toFuture(); è¿™æ­£æ˜¯æˆ‘ä»¬ä¸Šé¢ä¾‹å­é‡Œé¢å¾—ä»£ç ã€‚æ‰€ä»¥ç°åœ¨çš„é‡ç‚¹åº”è¯¥æ”¾åœ¨ toObservable() æ–¹æ³•ä¸­ï¼š
 
 3.2 toObservable
-Í¨¹ıObservable¶¨ÒåÒ»¸ö±»¹Û²ìÕß£¬Õâ¸ö±»¹Û²ìÕß»á±»toObservable().toBlocking().toFuture() £¬Êµ¼ÊÉÏÕâĞĞ´úÂëµÄºËĞÄº¬Òå¾ÍÊÇÈ¥¸ù¾İÒ»Ğ©ÈÛ¶ÏÂß¼­ÅĞ¶ÏÊÇÖ´ĞĞÕæÊµµÄÒµÎñÂß¼­»¹ÊÇÖ´ĞĞfallbackµÄ»Øµ÷·½·¨£¬È»ºó½«½á¹û·µ»Ø¸øFuture¡£ÀïÃæµÄ run() ·½·¨¾ÍÊÇÖ´ĞĞÕı³£µÄÒµÎñÂß¼­¡£Õâ¸ö·½·¨Ö÷Òª×öÁËÒÔÏÂ¼¸¼şÊÂ£º
+é€šè¿‡Observableå®šä¹‰ä¸€ä¸ªè¢«è§‚å¯Ÿè€…ï¼Œè¿™ä¸ªè¢«è§‚å¯Ÿè€…ä¼šè¢«toObservable().toBlocking().toFuture() ï¼Œå®é™…ä¸Šè¿™è¡Œä»£ç çš„æ ¸å¿ƒå«ä¹‰å°±æ˜¯å»æ ¹æ®ä¸€äº›ç†”æ–­é€»è¾‘åˆ¤æ–­æ˜¯æ‰§è¡ŒçœŸå®çš„ä¸šåŠ¡é€»è¾‘è¿˜æ˜¯æ‰§è¡Œfallbackçš„å›è°ƒæ–¹æ³•ï¼Œç„¶åå°†ç»“æœè¿”å›ç»™Futureã€‚é‡Œé¢çš„ run() æ–¹æ³•å°±æ˜¯æ‰§è¡Œæ­£å¸¸çš„ä¸šåŠ¡é€»è¾‘ã€‚è¿™ä¸ªæ–¹æ³•ä¸»è¦åšäº†ä»¥ä¸‹å‡ ä»¶äº‹ï¼š
 
-- ´´½¨Ò»¶ÑµÄ¶¯×÷£¬ÎÒÒ²²»ÖªµÀÕâĞ©¶¯×÷ÊÇ¸ÉÉ¶µÄ£¬²»ÖØÒª¡£
-- ÅĞ¶ÏÊÇ·ñ¿ªÆôÁË»º´æ£¬Èç¹û¿ªÁË£¬¶øÇÒÒ²ÃüÖĞÁË£¬¾ÍÈ¥»º´æÀïÃæÒÔObservableĞÎÊ½·µ»ØÒ»¸ö»º´æ½á¹û
-- ´´½¨Ò»¸ö±»¹Û²ìÕß£¬Õâ¸ö±»¹Û²ìÕßºóÃæ»áÈ¥»Øµ÷ÕæÊµÒµÎñÂß¼­»òÕßfallback¡£
+- åˆ›å»ºä¸€å †çš„åŠ¨ä½œï¼Œæˆ‘ä¹Ÿä¸çŸ¥é“è¿™äº›åŠ¨ä½œæ˜¯å¹²å•¥çš„ï¼Œä¸é‡è¦ã€‚
+- åˆ¤æ–­æ˜¯å¦å¼€å¯äº†ç¼“å­˜ï¼Œå¦‚æœå¼€äº†ï¼Œè€Œä¸”ä¹Ÿå‘½ä¸­äº†ï¼Œå°±å»ç¼“å­˜é‡Œé¢ä»¥Observableå½¢å¼è¿”å›ä¸€ä¸ªç¼“å­˜ç»“æœ
+- åˆ›å»ºä¸€ä¸ªè¢«è§‚å¯Ÿè€…ï¼Œè¿™ä¸ªè¢«è§‚å¯Ÿè€…åé¢ä¼šå»å›è°ƒçœŸå®ä¸šåŠ¡é€»è¾‘æˆ–è€…fallbackã€‚
 
-ºËĞÄÂß¼­ÊÇÕâ¸ö±»¹Û²ìÕß»áÈ¥Ö´ĞĞapplyHystrixSemanticsÀïÃæµÄ¶¯×÷
+æ ¸å¿ƒé€»è¾‘æ˜¯è¿™ä¸ªè¢«è§‚å¯Ÿè€…ä¼šå»æ‰§è¡ŒapplyHystrixSemanticsé‡Œé¢çš„åŠ¨ä½œ
 
 
 
     public Observable<R> toObservable() {
         final AbstractCommand<R> _cmd = this;
-        // ÃüÁîÖ´ĞĞÍêµÄ»Øµ÷²Ù×÷ ÖÕÖ¹ÃüÁîÇåÀí
-        //»áÔÚObservable½áÊøÇ°´¥·¢»Øµ÷¸Ãcall·½·¨£¬ÎŞÂÛÊÇÕı³£»¹ÊÇÒì³£ÖÕÖ¹
+        // å‘½ä»¤æ‰§è¡Œå®Œçš„å›è°ƒæ“ä½œ ç»ˆæ­¢å‘½ä»¤æ¸…ç†
+        //ä¼šåœ¨Observableç»“æŸå‰è§¦å‘å›è°ƒè¯¥callæ–¹æ³•ï¼Œæ— è®ºæ˜¯æ­£å¸¸è¿˜æ˜¯å¼‚å¸¸ç»ˆæ­¢
         final Action0 terminateCommandCleanup = new Action0() {
     		...
         };
-        // ½«ÃüÁî±ê¼ÇÎªÒÑÈ¡Ïû²¢´æ´¢ÑÓ³Ù£¨³ıÁË±ê×¼ÇåÀí£©
-        //È¡Ïû¶©ÔÄÊ±µÄ¼àÌı»á½øĞĞ»Øµ÷¸Ã call·½·¨
+        // å°†å‘½ä»¤æ ‡è®°ä¸ºå·²å–æ¶ˆå¹¶å­˜å‚¨å»¶è¿Ÿï¼ˆé™¤äº†æ ‡å‡†æ¸…ç†ï¼‰
+        //å–æ¶ˆè®¢é˜…æ—¶çš„ç›‘å¬ä¼šè¿›è¡Œå›è°ƒè¯¥ callæ–¹æ³•
         final Action0 unsubscribeCommandCleanup = new Action0() {
             @Override
             public void call() {
     			...
             }
         };
-        // Ö´ĞĞÃüÁîÊ±µÄ»Øµ÷
+        // æ‰§è¡Œå‘½ä»¤æ—¶çš„å›è°ƒ
         final Func0<Observable<R>> applyHystrixSemantics = new Func0<Observable<R>>() {
             @Override
             public Observable<R> call() {
                 if (commandState.get().equals(CommandState.UNSUBSCRIBED)) {
-                    // Á¢¼´ÖÕÖ¹Õû¸öÁ÷³Ì¡£
+                    // ç«‹å³ç»ˆæ­¢æ•´ä¸ªæµç¨‹ã€‚
                     return Observable.never();
                 }
-                //·µ»ØÖ´ĞĞÃüÁîµÄObservable
+                //è¿”å›æ‰§è¡Œå‘½ä»¤çš„Observable
                 return applyHystrixSemantics(_cmd);
             }
         };
@@ -690,30 +690,30 @@ java.util.concurrent.Future £¬È»ºóµ÷ÓÃ getµÄÊ±ºòÎ¯ÅÉ¸ø delegate£¬¶ø delegateÀ´×Ô
     			...
             }
         };
-        // ´´½¨Observable,ÉèÖÃ¸÷ÖÖ´¦Àí²Ù×÷
+        // åˆ›å»ºObservable,è®¾ç½®å„ç§å¤„ç†æ“ä½œ
         return Observable.defer(new Func0<Observable<R>>() {
             @Override
             public Observable<R> call() {
-                // ÉèÖÃÒÑÆô¶¯±êÖ¾, CAS±£Ö¤ÃüÁîÖ»Ö´ĞĞÒ»´Î
+                // è®¾ç½®å·²å¯åŠ¨æ ‡å¿—, CASä¿è¯å‘½ä»¤åªæ‰§è¡Œä¸€æ¬¡
                 if (!commandState.compareAndSet(CommandState.NOT_STARTED, CommandState.OBSERVABLE_CHAIN_CREATED)) {
                     IllegalStateException ex = new IllegalStateException("This instance can only be executed once. Please instantiate a new instance.");
                     //TODO make a new error type for this
                     throw new HystrixRuntimeException(FailureType.BAD_REQUEST_EXCEPTION, _cmd.getClass(), getLogMessagePrefix() + " command executed multiple times - this is not permitted.", ex, null);
                 }
-                // ÃüÁî¿ªÊ¼Ê±¼ä´Á
+                // å‘½ä»¤å¼€å§‹æ—¶é—´æˆ³
                 commandStartTimestamp = System.currentTimeMillis();
-                // ´òÓ¡ÈÕÖ¾
+                // æ‰“å°æ—¥å¿—
                 if (properties.requestLogEnabled().get()) {
                     // log this command execution regardless of what happened
                     if (currentRequestLog != null) {
                         currentRequestLog.addExecutedCommand(_cmd);
                     }
                 }
-                // »º´æ¿ª¹Ø£¬»º´æKEY£¨Õâ¸öÊÇHystrixÖĞÇëÇó»º´æ¹¦ÄÜ£¬hystrixÖ§³Ö½«Ò»¸öÇëÇó½á¹û»º´æÆğÀ´£¬
-                // ÏÂÒ»¸ö¾ßÓĞÏàÍ¬keyµÄÇëÇó½«Ö±½Ó´Ó»º´æÖĞÈ¡³ö½á¹û£¬¼õÉÙÇëÇó¿ªÏú£©
+                // ç¼“å­˜å¼€å…³ï¼Œç¼“å­˜KEYï¼ˆè¿™ä¸ªæ˜¯Hystrixä¸­è¯·æ±‚ç¼“å­˜åŠŸèƒ½ï¼Œhystrixæ”¯æŒå°†ä¸€ä¸ªè¯·æ±‚ç»“æœç¼“å­˜èµ·æ¥ï¼Œ
+                // ä¸‹ä¸€ä¸ªå…·æœ‰ç›¸åŒkeyçš„è¯·æ±‚å°†ç›´æ¥ä»ç¼“å­˜ä¸­å–å‡ºç»“æœï¼Œå‡å°‘è¯·æ±‚å¼€é”€ï¼‰
                 final boolean requestCacheEnabled = isRequestCachingEnabled();
                 final String cacheKey = getCacheKey();
-                // Èç¹ûÅäÖÃÔÊĞí»º´æ£¬ÏÈÊÔÍ¼´Ó»º´æ»ñÈ¡£¬Ä¬ÈÏ false
+                // å¦‚æœé…ç½®å…è®¸ç¼“å­˜ï¼Œå…ˆè¯•å›¾ä»ç¼“å­˜è·å–ï¼Œé»˜è®¤ false
                 if (requestCacheEnabled) {
                     HystrixCommandResponseFromCache<R> fromCache = (HystrixCommandResponseFromCache<R>) requestCache.get(cacheKey);
                     if (fromCache != null) {
@@ -721,13 +721,13 @@ java.util.concurrent.Future £¬È»ºóµ÷ÓÃ getµÄÊ±ºòÎ¯ÅÉ¸ø delegate£¬¶ø delegateÀ´×Ô
                         return handleRequestCacheHitAndEmitValues(fromCache, _cmd);
                     }
                 }
-                // ÉùÃ÷Ö´ĞĞÃüÁîµÄObservable
-                // ´´½¨Observable, applyHystrixSemantics() À´Éú³ÉObservable
+                // å£°æ˜æ‰§è¡Œå‘½ä»¤çš„Observable
+                // åˆ›å»ºObservable, applyHystrixSemantics() æ¥ç”ŸæˆObservable
                 Observable<R> hystrixObservable =
                     Observable.defer(applyHystrixSemantics)
                     .map(wrapWithAllOnNextHooks);
                 Observable<R> afterCache;
-                // put in cache ±£´æÇëÇó½á¹ûµ½»º´æÖĞ
+                // put in cache ä¿å­˜è¯·æ±‚ç»“æœåˆ°ç¼“å­˜ä¸­
                 if (requestCacheEnabled && cacheKey != null) {
                     // wrap it for caching
                     HystrixCachedObservable<R> toCache = HystrixCachedObservable.from(hystrixObservable, _cmd);
@@ -744,13 +744,13 @@ java.util.concurrent.Future £¬È»ºóµ÷ÓÃ getµÄÊ±ºòÎ¯ÅÉ¸ø delegate£¬¶ø delegateÀ´×Ô
                 } else {
                     afterCache = hystrixObservable;
                 }
-                // ÉúÃüÖÜÆÚ»Øµ÷ÉèÖÃ
+                // ç”Ÿå‘½å‘¨æœŸå›è°ƒè®¾ç½®
                 return afterCache
-                    //»áÔÚObservable½áÊøÇ°´¥·¢»Øµ÷£¬ÎŞÂÛÊÇÕı³£»¹ÊÇÒì³£ÖÕÖ¹
+                    //ä¼šåœ¨Observableç»“æŸå‰è§¦å‘å›è°ƒï¼Œæ— è®ºæ˜¯æ­£å¸¸è¿˜æ˜¯å¼‚å¸¸ç»ˆæ­¢
                     .doOnTerminate(terminateCommandCleanup)     
-                    //È¡Ïû¶©ÔÄÊ±µÄ¼àÌı
+                    //å–æ¶ˆè®¢é˜…æ—¶çš„ç›‘å¬
                     .doOnUnsubscribe(unsubscribeCommandCleanup) 
-                    //ObservableÕı³£ÖÕÖ¹Ê±µÄ¼àÌı
+                    //Observableæ­£å¸¸ç»ˆæ­¢æ—¶çš„ç›‘å¬
                     .doOnCompleted(fireOnCompletedHook);
             }
         });
@@ -764,7 +764,7 @@ java.util.concurrent.Future £¬È»ºóµ÷ÓÃ getµÄÊ±ºòÎ¯ÅÉ¸ø delegate£¬¶ø delegateÀ´×Ô
 
 
 
-½ÓÏÂÀ´¿´¿´ºËĞÄÂß¼­applyHystrixSemantics
+æ¥ä¸‹æ¥çœ‹çœ‹æ ¸å¿ƒé€»è¾‘applyHystrixSemantics
 
 
 
@@ -800,15 +800,15 @@ java.util.concurrent.Future £¬È»ºóµ÷ÓÃ getµÄÊ±ºòÎ¯ÅÉ¸ø delegate£¬¶ø delegateÀ´×Ô
 
 
 
-ÕâÀï´«ÈëµÄ_cmdÊÇÒ»¸öGenericCommand£¬×îÖÕ»áÖ´ĞĞµ½Õâ¸öGenericCommandÖĞµÄrun·½·¨¡£
+è¿™é‡Œä¼ å…¥çš„_cmdæ˜¯ä¸€ä¸ªGenericCommandï¼Œæœ€ç»ˆä¼šæ‰§è¡Œåˆ°è¿™ä¸ªGenericCommandä¸­çš„runæ–¹æ³•ã€‚
 
-circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï×´Ì¬£¬Õı³£Ö´ĞĞ£¬·ñÔò£¬µ÷ÓÃ handleShortCircuitViaFallback ÊµÏÖ·şÎñ½µ¼¶£¬×îÖÕ»á»Øµ÷µ½ÎÒÃÇ×Ô¶¨ÒåµÄfallback·½·¨ÖĞ¡£
+circuitBreaker.allowRequest() è¿™ä¸ªæ˜¯åˆ¤æ–­æ˜¯å¦å¤„äºç†”æ–­çŠ¶æ€çš„ï¼Œtrueè¡¨ç¤ºæ²¡æœ‰å¤„äºç†”æ–­çŠ¶æ€ï¼Œæ­£å¸¸æ‰§è¡Œï¼Œå¦åˆ™ï¼Œè°ƒç”¨ handleShortCircuitViaFallback å®ç°æœåŠ¡é™çº§ï¼Œæœ€ç»ˆä¼šå›è°ƒåˆ°æˆ‘ä»¬è‡ªå®šä¹‰çš„fallbackæ–¹æ³•ä¸­ã€‚
 
-Èç¹ûµ±Ç°hystrix´¦ÓÚÎ´ÈÛ¶Ï×´Ì¬£¬Ôò
+å¦‚æœå½“å‰hystrixå¤„äºæœªç†”æ–­çŠ¶æ€ï¼Œåˆ™
 
-- getExecutionSemaphore ÅĞ¶Ïµ±Ç°²ßÂÔÊÇ·ñÎªĞÅºÅÁ¿»¹ÊÇÏß³Ì³Ø£¬ÏÔÈ»Ä¬ÈÏÊÇÏß³Ì³Ø£¬È»ºóÔÙµ÷ÓÃtryAcquireÊ±Ğ´ËÀÁËÎªtrue¡£
+- getExecutionSemaphore åˆ¤æ–­å½“å‰ç­–ç•¥æ˜¯å¦ä¸ºä¿¡å·é‡è¿˜æ˜¯çº¿ç¨‹æ± ï¼Œæ˜¾ç„¶é»˜è®¤æ˜¯çº¿ç¨‹æ± ï¼Œç„¶åå†è°ƒç”¨tryAcquireæ—¶å†™æ­»äº†ä¸ºtrueã€‚
 
-µ÷ÓÃexecuteCommandAndObserve¡£
+è°ƒç”¨executeCommandAndObserveã€‚
 
 
 
@@ -816,13 +816,13 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
     
         executionHook.onStart(_cmd);
     
-        // ÊÇ·ñÔÊĞíÇëÇó£¬¼´¶ÏÂ·Æ÷ÊÇ·ñ¿ªÆô £¬ÕâÀïÒ²ÓĞºÃ¼¸ÖÖÇé¿ö
+        // æ˜¯å¦å…è®¸è¯·æ±‚ï¼Œå³æ–­è·¯å™¨æ˜¯å¦å¼€å¯ ï¼Œè¿™é‡Œä¹Ÿæœ‰å¥½å‡ ç§æƒ…å†µ
         if (circuitBreaker.allowRequest()) {
-            // ĞÅºÅÁ¿»ñÈ¡
+            // ä¿¡å·é‡è·å–
             final TryableSemaphore executionSemaphore = getExecutionSemaphore();
             final AtomicBoolean semaphoreHasBeenReleased = new AtomicBoolean(false);
     
-            // ĞÅºÅÊÍ·Å»Øµ÷
+            // ä¿¡å·é‡Šæ”¾å›è°ƒ
             final Action0 singleSemaphoreRelease = new Action0() {
                 @Override
                 public void call() {
@@ -832,7 +832,7 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
                 }
             };
     
-            // Òì³£»Øµ÷
+            // å¼‚å¸¸å›è°ƒ
             final Action1<Throwable> markExceptionThrown = new Action1<Throwable>() {
                 @Override
                 public void call(Throwable t) {
@@ -840,12 +840,12 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
                 }
             };
     
-            // »ñÈ¡ĞÅºÅ£¬²¢·µ»Ø¶ÔÓ¦µÄ Observable
-            // ÊÇ·ñ¿ªÆôĞÅºÅÁ¿×ÊÔ´¸ôÀë£¬Î´ÅäÖÃ×ß com.netflix.hystrix.AbstractCommand.TryableSemaphoreNoOp#tryAcquire Ä¬ÈÏ·µ»ØÍ¨¹ı
+            // è·å–ä¿¡å·ï¼Œå¹¶è¿”å›å¯¹åº”çš„ Observable
+            // æ˜¯å¦å¼€å¯ä¿¡å·é‡èµ„æºéš”ç¦»ï¼Œæœªé…ç½®èµ° com.netflix.hystrix.AbstractCommand.TryableSemaphoreNoOp#tryAcquire é»˜è®¤è¿”å›é€šè¿‡
             if (executionSemaphore.tryAcquire()) {
                 try {
                     executionResult = executionResult.setInvocationStartTime(System.currentTimeMillis());
-                    return executeCommandAndObserve(_cmd)   // Ö´ĞĞÃüÁî£¬ÒÔÏÂÈı¸öÊÇ»Øµ÷£¬¿ÉÒÔ²»¿´
+                    return executeCommandAndObserve(_cmd)   // æ‰§è¡Œå‘½ä»¤ï¼Œä»¥ä¸‹ä¸‰ä¸ªæ˜¯å›è°ƒï¼Œå¯ä»¥ä¸çœ‹
                         .doOnError(markExceptionThrown)
                         .doOnTerminate(singleSemaphoreRelease)
                         .doOnUnsubscribe(singleSemaphoreRelease);
@@ -853,11 +853,11 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
                     return Observable.error(e);
                 }
             } else {
-                // »ñÈ¡ĞÅºÅÊ§°ÜÔò½µ¼¶
+                // è·å–ä¿¡å·å¤±è´¥åˆ™é™çº§
                 return handleSemaphoreRejectionViaFallback();
             }
         } else {
-            // ¶ÏÂ·Æ÷ÒÑ´ò¿ª£¬Ö±½Ó½µ¼¶
+            // æ–­è·¯å™¨å·²æ‰“å¼€ï¼Œç›´æ¥é™çº§
             return handleShortCircuitViaFallback();
         }
     }
@@ -870,7 +870,7 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
 
 
 
-ÏÈÀ´¿´Ò»ÏÂÖ´ĞĞÊ§°Ü½øÈë½µ¼¶µÄÂß¼­£¬ÕâÀïÎÒÃÇÖ±½Ó½øÈëµ½ HystrixCommand#getFallbackObservable
+å…ˆæ¥çœ‹ä¸€ä¸‹æ‰§è¡Œå¤±è´¥è¿›å…¥é™çº§çš„é€»è¾‘ï¼Œè¿™é‡Œæˆ‘ä»¬ç›´æ¥è¿›å…¥åˆ° HystrixCommand#getFallbackObservable
 
 
 
@@ -898,21 +898,21 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
 
 
 
-ÕâÀïµÄgetFallback×îÖÕ»á»Øµ÷ÎÒÃÇ×Ô¶¨µÄfallback·½·¨¡£
+è¿™é‡Œçš„getFallbackæœ€ç»ˆä¼šå›è°ƒæˆ‘ä»¬è‡ªå®šçš„fallbackæ–¹æ³•ã€‚
 
-»Øµ½executeCommandAndObserve£¬Õâ¸ö·½·¨Ö÷Òª×öÁËÒÔÏÂÈı¼şÊÂÇé
+å›åˆ°executeCommandAndObserveï¼Œè¿™ä¸ªæ–¹æ³•ä¸»è¦åšäº†ä»¥ä¸‹ä¸‰ä»¶äº‹æƒ…
 
-- ¶¨Òå²»Í¬µÄ»Øµ÷£¬doOnNext¡¢doOnCompleted¡¢onErrorResumeNext¡¢doOnEach¡£
-- µ÷ÓÃexecuteCommandWithSpecifiedIsolation¡£
+- å®šä¹‰ä¸åŒçš„å›è°ƒï¼ŒdoOnNextã€doOnCompletedã€onErrorResumeNextã€doOnEachã€‚
+- è°ƒç”¨executeCommandWithSpecifiedIsolationã€‚
 
-ÈôÖ´ĞĞÃüÁî³¬Ê±ÌØĞÔ¿ªÆô£¬µ÷ÓÃ Observable.lift·½·¨ÊµÏÖÖ´ĞĞÃüÁî³¬Ê±¹¦ÄÜ¡£
+è‹¥æ‰§è¡Œå‘½ä»¤è¶…æ—¶ç‰¹æ€§å¼€å¯ï¼Œè°ƒç”¨ Observable.liftæ–¹æ³•å®ç°æ‰§è¡Œå‘½ä»¤è¶…æ—¶åŠŸèƒ½ã€‚
 
 
 
     private Observable<R> executeCommandAndObserve(final AbstractCommand<R> _cmd) {
         final HystrixRequestContext currentRequestContext = HystrixRequestContext.getContextForCurrentThread();
-        // ActionºÍFunc¶¼ÊÇ¶¨ÒåµÄÒ»¸ö¶¯×÷£¬ActionÊÇÎŞ·µ»ØÖµ£¬FuncÊÇÓĞ·µ»ØÖµ
-        // doOnNextÖĞµÄ»Øµ÷¡£¼´ÃüÁîÖ´ĞĞÖ®Ç°Ö´ĞĞµÄ²Ù×÷
+        // Actionå’ŒFuncéƒ½æ˜¯å®šä¹‰çš„ä¸€ä¸ªåŠ¨ä½œï¼ŒActionæ˜¯æ— è¿”å›å€¼ï¼ŒFuncæ˜¯æœ‰è¿”å›å€¼
+        // doOnNextä¸­çš„å›è°ƒã€‚å³å‘½ä»¤æ‰§è¡Œä¹‹å‰æ‰§è¡Œçš„æ“ä½œ
         final Action1<R> markEmits = new Action1<R>() {
             @Override
             public void call(R r) {
@@ -929,7 +929,7 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
                 }
             }
         };
-        // doOnCompletedÖĞµÄ»Øµ÷¡£ÃüÁîÖ´ĞĞÍê±ÏºóÖ´ĞĞµÄ²Ù×÷
+        // doOnCompletedä¸­çš„å›è°ƒã€‚å‘½ä»¤æ‰§è¡Œå®Œæ¯•åæ‰§è¡Œçš„æ“ä½œ
         final Action0 markOnCompleted = new Action0() {
             @Override
             public void call() {
@@ -942,49 +942,49 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
                 }
             }
         };
-        // onErrorResumeNextÖĞµÄ»Øµ÷¡£ÃüÁîÖ´ĞĞÊ§°ÜºóµÄ»ØÍËÂß¼­
+        // onErrorResumeNextä¸­çš„å›è°ƒã€‚å‘½ä»¤æ‰§è¡Œå¤±è´¥åçš„å›é€€é€»è¾‘
         final Func1<Throwable, Observable<R>> handleFallback = new Func1<Throwable, Observable<R>>() {
             @Override
             public Observable<R> call(Throwable t) {
                 Exception e = getExceptionFromThrowable(t);
                 executionResult = executionResult.setExecutionException(e);
                 if (e instanceof RejectedExecutionException) {
-                    // Ïß³Ìµ÷¶ÈÊ§°Ü»Øµ÷
+                    // çº¿ç¨‹è°ƒåº¦å¤±è´¥å›è°ƒ
                     return handleThreadPoolRejectionViaFallback(e);
                 } else if (t instanceof HystrixTimeoutException) {
-                    // ³¬Ê±»Øµ÷
+                    // è¶…æ—¶å›è°ƒ
                     return handleTimeoutViaFallback();
                 } else if (t instanceof HystrixBadRequestException) {
-                    // HystrixBadRequestException Òì³£»Øµ÷
+                    // HystrixBadRequestException å¼‚å¸¸å›è°ƒ
                     return handleBadRequestByEmittingError(e);
                 } else {
                     if (e instanceof HystrixBadRequestException) {
                         eventNotifier.markEvent(HystrixEventType.BAD_REQUEST, commandKey);
                         return Observable.error(e);
                     }
-                    // ½µ¼¶´¦Àí
+                    // é™çº§å¤„ç†
                     return handleFailureViaFallback(e);
                 }
             }
         };
-        // doOnEachÖĞµÄ»Øµ÷¡£`Observable`Ã¿·¢ÉäÒ»¸öÊı¾İ¶¼»áÖ´ĞĞÕâ¸ö»Øµ÷£¬ÉèÖÃÇëÇóÉÏÏÂÎÄ
+        // doOnEachä¸­çš„å›è°ƒã€‚`Observable`æ¯å‘å°„ä¸€ä¸ªæ•°æ®éƒ½ä¼šæ‰§è¡Œè¿™ä¸ªå›è°ƒï¼Œè®¾ç½®è¯·æ±‚ä¸Šä¸‹æ–‡
         final Action1<Notification<? super R>> setRequestContext = new Action1<Notification<? super R>>() {
             @Override
             public void call(Notification<? super R> rNotification) {
                 setRequestContextIfNeeded(currentRequestContext);
             }
         };
-        // ´´½¨¶ÔÓ¦µÄ Observable£¬ÊµÏÖ Ïß³Ì¸ôÀë¡¢ÇëÇó·¢ËÍ µÈ²Ù×÷
+        // åˆ›å»ºå¯¹åº”çš„ Observableï¼Œå®ç° çº¿ç¨‹éš”ç¦»ã€è¯·æ±‚å‘é€ ç­‰æ“ä½œ
         Observable<R> execution;
-        // ÅĞ¶Ï ³¬Ê±¼à¿Ø¹¦ÄÜÊÇ·ñ´ò¿ª
+        // åˆ¤æ–­ è¶…æ—¶ç›‘æ§åŠŸèƒ½æ˜¯å¦æ‰“å¼€
         if (properties.executionTimeoutEnabled().get()) {
-            // HystrixObservableTimeoutOperator  ×ª»»¶ÔÓ¦µÄ Observable
+            // HystrixObservableTimeoutOperator  è½¬æ¢å¯¹åº”çš„ Observable
             execution = executeCommandWithSpecifiedIsolation(_cmd)
                 .lift(new HystrixObservableTimeoutOperator<R>(_cmd));
         } else {
             execution = executeCommandWithSpecifiedIsolation(_cmd);
         }
-        //ÉèÖÃ»Øµ÷
+        //è®¾ç½®å›è°ƒ
         return execution.doOnNext(markEmits)
             .doOnCompleted(markOnCompleted)
             .onErrorResumeNext(handleFallback)
@@ -1000,14 +1000,14 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
 
 
 3.3 executeCommandWithSpecifiedIsolation
-Õâ¸ö·½·¨Ê×ÏÈÊÇ¸ù¾İµ±Ç°²»Í¬µÄ×ÊÔ´¸ôÀë²ßÂÔÖ´ĞĞ²»Í¬µÄÂß¼­£¬THREAD¡¢SEMAPHORE¡£
+è¿™ä¸ªæ–¹æ³•é¦–å…ˆæ˜¯æ ¹æ®å½“å‰ä¸åŒçš„èµ„æºéš”ç¦»ç­–ç•¥æ‰§è¡Œä¸åŒçš„é€»è¾‘ï¼ŒTHREADã€SEMAPHOREã€‚
 
 
 
     private Observable<R> executeCommandWithSpecifiedIsolation(final AbstractCommand<R> _cmd) {
-        // Ïß³Ì¸ôÀë, ÊÇ·ñ¿ªÆô THREAD ×ÊÔ´¸ôÀë½µ¼¶
+        // çº¿ç¨‹éš”ç¦», æ˜¯å¦å¼€å¯ THREAD èµ„æºéš”ç¦»é™çº§
         if (properties.executionIsolationStrategy().get() == ExecutionIsolationStrategy.THREAD) {
-            //´´½¨Ò»¸öObservable
+            //åˆ›å»ºä¸€ä¸ªObservable
             return Observable.defer(new Func0<Observable<R>>() {
                 @Override
                 public Observable<R> call() {
@@ -1018,14 +1018,14 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
     
                     metrics.markCommandStart(commandKey, threadPoolKey, ExecutionIsolationStrategy.THREAD);
     
-                    // ¸ÃÃüÁîÔÚ°ü×°Ïß³ÌÖĞ³¬Ê±£¬½«Á¢¼´·µ»Ø£¬²¢ÇÒ²»»áÔö¼ÓÈÎºÎ¼ÆÊıÆ÷»òÆäËû´ËÀàÂß¼­
+                    // è¯¥å‘½ä»¤åœ¨åŒ…è£…çº¿ç¨‹ä¸­è¶…æ—¶ï¼Œå°†ç«‹å³è¿”å›ï¼Œå¹¶ä¸”ä¸ä¼šå¢åŠ ä»»ä½•è®¡æ•°å™¨æˆ–å…¶ä»–æ­¤ç±»é€»è¾‘
                     if (isCommandTimedOut.get() == TimedOutStatus.TIMED_OUT) {
                         // the command timed out in the wrapping thread so we will return immediately
                         // and not increment any of the counters below or other such logic
                         return Observable.error(new RuntimeException("timed out before executing run()"));
                     }
     
-                    // ÉèÖÃÏß³ÌÆô¶¯
+                    // è®¾ç½®çº¿ç¨‹å¯åŠ¨
                     if (threadState.compareAndSet(ThreadState.NOT_USING_THREAD, ThreadState.STARTED)) {
                         //we have not been unsubscribed, so should proceed
                         HystrixCounters.incrementGlobalConcurrentThreads();
@@ -1038,7 +1038,7 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
                             executionHook.onThreadStart(_cmd);
                             executionHook.onRunStart(_cmd);
                             executionHook.onExecutionStart(_cmd);
-                            //·µ»Ø Observable,Õâ¸öº¯Êı×îÖÕ»á·µ»ØÒ»¸ö·â×°ÁËÎÒÃÇµÄrun()Âß¼­µÄObservable
+                            //è¿”å› Observable,è¿™ä¸ªå‡½æ•°æœ€ç»ˆä¼šè¿”å›ä¸€ä¸ªå°è£…äº†æˆ‘ä»¬çš„run()é€»è¾‘çš„Observable
                             return getUserExecutionObservable(_cmd);
                         } catch (Throwable ex) {
                             return Observable.error(ex);
@@ -1073,7 +1073,7 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
                 }
             }));
         } else {
-            // ĞÅºÅÁ¿¸ôÀë
+            // ä¿¡å·é‡éš”ç¦»
             return Observable.defer(new Func0<Observable<R>>() {
                 @Override
                 public Observable<R> call() {
@@ -1086,7 +1086,7 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
                     try {
                         executionHook.onRunStart(_cmd);
                         executionHook.onExecutionStart(_cmd);
-                        // ÕæÕıµÄÖ´ĞĞ
+                        // çœŸæ­£çš„æ‰§è¡Œ
                         return getUserExecutionObservable(_cmd); 
                     } catch (Throwable ex) {
                         //If the above hooks throw, then use that as the result of the run method
@@ -1105,11 +1105,11 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
 
 
 
-- ÅĞ¶ÏÊÇ·ñÔÊĞí·¢ËÍÇëÇó£¬ÕâÊÇ»ùÓÚ¶ÏÂ·Æ÷ÊµÏÖ£¬Èç¹û¶ÏÂ·Æ÷´ò¿ª£¬Ôò½øĞĞ¶ÔÓ¦»Øµ÷´¦Àí£¨Ê§°Ü»ò½µ¼¶£©¡£
-- Èç¹û ¶ÏÂ·Æ÷ ¹Ø±Õ£¬Ôò½øĞĞÇëÇó£¬ÏÈ»ñÈ¡ĞÅºÅ£¬»ñÈ¡Ê§°ÜÔò´¦Àí¶ÔÓ¦»Øµ÷¡£
-- »ñÈ¡³É¹¦£¬ÔòÓÉ·½·¨ executeCommandAndObserve ´´½¨¶ÔÓ¦µÄ Observable ÊµÏÖ Ïß³Ì¸ôÀë¡¢ÇëÇó·¢ËÍ µÈ²Ù×÷£¬Í¬Ê±×¢²áÁË¶ÔÓ¦µÄ ÉúÃüÖÜÆÚ»Øµ÷¡£
+- åˆ¤æ–­æ˜¯å¦å…è®¸å‘é€è¯·æ±‚ï¼Œè¿™æ˜¯åŸºäºæ–­è·¯å™¨å®ç°ï¼Œå¦‚æœæ–­è·¯å™¨æ‰“å¼€ï¼Œåˆ™è¿›è¡Œå¯¹åº”å›è°ƒå¤„ç†ï¼ˆå¤±è´¥æˆ–é™çº§ï¼‰ã€‚
+- å¦‚æœ æ–­è·¯å™¨ å…³é—­ï¼Œåˆ™è¿›è¡Œè¯·æ±‚ï¼Œå…ˆè·å–ä¿¡å·ï¼Œè·å–å¤±è´¥åˆ™å¤„ç†å¯¹åº”å›è°ƒã€‚
+- è·å–æˆåŠŸï¼Œåˆ™ç”±æ–¹æ³• executeCommandAndObserve åˆ›å»ºå¯¹åº”çš„ Observable å®ç° çº¿ç¨‹éš”ç¦»ã€è¯·æ±‚å‘é€ ç­‰æ“ä½œï¼ŒåŒæ—¶æ³¨å†Œäº†å¯¹åº”çš„ ç”Ÿå‘½å‘¨æœŸå›è°ƒã€‚
   3.4 getUserExecutionObservable
-  È»ºó»áÖ´ĞĞ HystrixCommand#getExecutionObservable
+  ç„¶åä¼šæ‰§è¡Œ HystrixCommand#getExecutionObservable
 
 
 
@@ -1156,7 +1156,7 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
 
 
 
-Õâ¸ö run() ·½·¨ÔÚÉÏÃæÒÑ¾­½²¹ıÁË£¬¾ÍÊÇÕæÕıµÄÒµÎñÖ´ĞĞ·½·¨¡£
+è¿™ä¸ª run() æ–¹æ³•åœ¨ä¸Šé¢å·²ç»è®²è¿‡äº†ï¼Œå°±æ˜¯çœŸæ­£çš„ä¸šåŠ¡æ‰§è¡Œæ–¹æ³•ã€‚
 
 
 
@@ -1182,8 +1182,8 @@ circuitBreaker.allowRequest() Õâ¸öÊÇÅĞ¶ÏÊÇ·ñ´¦ÓÚÈÛ¶Ï×´Ì¬µÄ£¬true±íÊ¾Ã»ÓĞ´¦ÓÚÈÛ¶Ï
 
 
 
-×îÖÕµ÷ÓÃµ½ÎÒÃÇ×Ô¼ºµÄÒµÎñÂß¼­¡£
-# ²Î¿¼ÎÄÕÂ
+æœ€ç»ˆè°ƒç”¨åˆ°æˆ‘ä»¬è‡ªå·±çš„ä¸šåŠ¡é€»è¾‘ã€‚
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

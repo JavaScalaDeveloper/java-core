@@ -2,7 +2,7 @@
 
 
 
-# Spring MVC ÎÄ¼þÉÏ´«¸ÅÊö
+# Spring MVC æ–‡ä»¶ä¸Šä¼ æ¦‚è¿°
 
 
 
@@ -13,11 +13,11 @@
 
 
 
-SpringÄÚÖÃ¶Ô¶àÂ·ÉÏ´«µÄÖ§³Ö£¬×¨ÃÅÓÃÓÚ´¦ÀíwebÓ¦ÓÃÖÐµÄÎÄ¼þÉÏ´«¡£Äã¿ÉÒÔÍ¨¹ý×¢²áÒ»¸ö¿É²å°ÎµÄ`MultipartResolver`¶ÔÏóÀ´ÆôÓÃ¶ÔÎÄ¼þ¶àÂ·ÉÏ´«µÄÖ§³Ö¡£¸Ã½Ó¿ÚÔÚ¶¨ÒåÓÚ`org.springframework.web.multipart`°üÏÂ¡£SpringÎª[_Ò»°ãµÄÎÄ¼þÉÏ´«_](http://jakarta.apache.org/commons/fileupload)Ìá¹©ÁË`MultipartResolver`½Ó¿ÚµÄÒ»¸öÊµÏÖ£¬ÎªServlet 3.0¶àÂ·ÇëÇóµÄ×ª»»Ìá¹©ÁËÁíÒ»¸öÊµÏÖ¡£
+Springå†…ç½®å¯¹å¤šè·¯ä¸Šä¼ çš„æ”¯æŒï¼Œä¸“é—¨ç”¨äºŽå¤„ç†webåº”ç”¨ä¸­çš„æ–‡ä»¶ä¸Šä¼ ã€‚ä½ å¯ä»¥é€šè¿‡æ³¨å†Œä¸€ä¸ªå¯æ’æ‹”çš„`MultipartResolver`å¯¹è±¡æ¥å¯ç”¨å¯¹æ–‡ä»¶å¤šè·¯ä¸Šä¼ çš„æ”¯æŒã€‚è¯¥æŽ¥å£åœ¨å®šä¹‰äºŽ`org.springframework.web.multipart`åŒ…ä¸‹ã€‚Springä¸º[_ä¸€èˆ¬çš„æ–‡ä»¶ä¸Šä¼ _](http://jakarta.apache.org/commons/fileupload)æä¾›äº†`MultipartResolver`æŽ¥å£çš„ä¸€ä¸ªå®žçŽ°ï¼Œä¸ºServlet 3.0å¤šè·¯è¯·æ±‚çš„è½¬æ¢æä¾›äº†å¦ä¸€ä¸ªå®žçŽ°ã€‚
 
 <section>
 
-Ä¬ÈÏÇé¿öÏÂ£¬SpringµÄ¶àÂ·ÉÏ´«Ö§³ÖÊÇ²»¿ªÆôµÄ£¬ÒòÎªÓÐÐ©¿ª·¢ÕßÏ£ÍûÓÉ×Ô¼ºÀ´´¦Àí¶àÂ·ÇëÇó¡£Èç¹ûÏëÆôÓÃSpringµÄ¶àÂ·ÉÏ´«Ö§³Ö£¬ÄãÐèÒªÔÚwebÓ¦ÓÃµÄÉÏÏÂÎÄÖÐÌí¼ÓÒ»¸ö¶àÂ·´«Êä½âÎöÆ÷¡£Ã¿¸ö½øÀ´µÄÇëÇó£¬½âÎöÆ÷¶¼»á¼ì²éÊÇ²»ÊÇÒ»¸ö¶à²¿·ÖÇëÇó¡£Èô·¢ÏÖÇëÇóÊÇÍêÕûµÄ£¬ÔòÇëÇó°´Õý³£Á÷³Ì±»´¦Àí£»Èç¹û·¢ÏÖÇëÇóÊÇÒ»¸ö¶àÂ·ÇëÇó£¬ÔòÄãÔÚÉÏÏÂÎÄÖÐ×¢²áµÄ`MultipartResolver`½âÎöÆ÷»á±»ÓÃÀ´´¦Àí¸ÃÇëÇó¡£Ö®ºó£¬ÇëÇóÖÐµÄ¶àÂ·ÉÏ´«ÊôÐÔ¾ÍÓëÆäËûÊôÐÔÒ»Ñù±»Õý³£¶Ô´ýÁË¡£¡¾×îºóÒ»¾ä·­µÄ²»ºÃ£¬multipart·­Òë³É¶àÂ·»¹ÊÇ¶à²¿·Ö»¹ÔÚÕå×ÃÖÐ¡£ÍûÔÄ¶ÁÕß×¢Òâ´Ë´¦¡£¡¿
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒSpringçš„å¤šè·¯ä¸Šä¼ æ”¯æŒæ˜¯ä¸å¼€å¯çš„ï¼Œå› ä¸ºæœ‰äº›å¼€å‘è€…å¸Œæœ›ç”±è‡ªå·±æ¥å¤„ç†å¤šè·¯è¯·æ±‚ã€‚å¦‚æžœæƒ³å¯ç”¨Springçš„å¤šè·¯ä¸Šä¼ æ”¯æŒï¼Œä½ éœ€è¦åœ¨webåº”ç”¨çš„ä¸Šä¸‹æ–‡ä¸­æ·»åŠ ä¸€ä¸ªå¤šè·¯ä¼ è¾“è§£æžå™¨ã€‚æ¯ä¸ªè¿›æ¥çš„è¯·æ±‚ï¼Œè§£æžå™¨éƒ½ä¼šæ£€æŸ¥æ˜¯ä¸æ˜¯ä¸€ä¸ªå¤šéƒ¨åˆ†è¯·æ±‚ã€‚è‹¥å‘çŽ°è¯·æ±‚æ˜¯å®Œæ•´çš„ï¼Œåˆ™è¯·æ±‚æŒ‰æ­£å¸¸æµç¨‹è¢«å¤„ç†ï¼›å¦‚æžœå‘çŽ°è¯·æ±‚æ˜¯ä¸€ä¸ªå¤šè·¯è¯·æ±‚ï¼Œåˆ™ä½ åœ¨ä¸Šä¸‹æ–‡ä¸­æ³¨å†Œçš„`MultipartResolver`è§£æžå™¨ä¼šè¢«ç”¨æ¥å¤„ç†è¯¥è¯·æ±‚ã€‚ä¹‹åŽï¼Œè¯·æ±‚ä¸­çš„å¤šè·¯ä¸Šä¼ å±žæ€§å°±ä¸Žå…¶ä»–å±žæ€§ä¸€æ ·è¢«æ­£å¸¸å¯¹å¾…äº†ã€‚ã€æœ€åŽä¸€å¥ç¿»çš„ä¸å¥½ï¼Œmultipartç¿»è¯‘æˆå¤šè·¯è¿˜æ˜¯å¤šéƒ¨åˆ†è¿˜åœ¨æ–Ÿé…Œä¸­ã€‚æœ›é˜…è¯»è€…æ³¨æ„æ­¤å¤„ã€‚ã€‘
 
 </section>
 
@@ -27,11 +27,11 @@ SpringÄÚÖÃ¶Ô¶àÂ·ÉÏ´«µÄÖ§³Ö£¬×¨ÃÅÓÃÓÚ´¦ÀíwebÓ¦ÓÃÖÐµÄÎÄ¼þÉÏ´«¡£Äã¿ÉÒÔÍ¨¹ý×¢²áÒ»¸ö¿
 
 
 
-# Spring MVC Ê¹ÓÃMultipartResolverÓëCommons FileUpload´«ÊäÎÄ¼þ
+# Spring MVC ä½¿ç”¨MultipartResolverä¸ŽCommons FileUploadä¼ è¾“æ–‡ä»¶
 
 
 
-2018-07-26 14:28 ¸üÐÂ
+2018-07-26 14:28 æ›´æ–°
 
 
 
@@ -39,23 +39,23 @@ SpringÄÚÖÃ¶Ô¶àÂ·ÉÏ´«µÄÖ§³Ö£¬×¨ÃÅÓÃÓÚ´¦ÀíwebÓ¦ÓÃÖÐµÄÎÄ¼þÉÏ´«¡£Äã¿ÉÒÔÍ¨¹ý×¢²áÒ»¸ö¿
 
 
 
-ÏÂÃæµÄ´úÂëÕ¹Ê¾ÁËÈçºÎÊ¹ÓÃÒ»¸öÍ¨ÓÃµÄ¶àÂ·ÉÏ´«½âÎöÆ÷`CommonsMultipartResolver`£º
+ä¸‹é¢çš„ä»£ç å±•ç¤ºäº†å¦‚ä½•ä½¿ç”¨ä¸€ä¸ªé€šç”¨çš„å¤šè·¯ä¸Šä¼ è§£æžå™¨`CommonsMultipartResolver`ï¼š
 
 <section>
 
 ```
 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 
-    <!-- Ö§³ÖµÄÆäÖÐÒ»¸öÊôÐÔ£¬Ö§³ÖµÄ×î´óÎÄ¼þ´óÐ¡£¬ÒÔ×Ö½ÚÎªµ¥Î» -->
+    <!-- æ”¯æŒçš„å…¶ä¸­ä¸€ä¸ªå±žæ€§ï¼Œæ”¯æŒçš„æœ€å¤§æ–‡ä»¶å¤§å°ï¼Œä»¥å­—èŠ‚ä¸ºå•ä½ -->
     <property name="maxUploadSize" value="100000"/>
 
 </bean>
 
 ```
 
-µ±È»£¬ÒªÈÃ¶àÂ·½âÎöÆ÷Õý³£¹¤×÷£¬ÄãÐèÒªÔÚclasspathÂ·¾¶ÏÂ×¼±¸±ØÐëµÄjar°ü¡£Èç¹ûÊ¹ÓÃµÄÊÇÍ¨ÓÃµÄ¶àÂ·ÉÏ´«½âÎöÆ÷`CommonsMultipartResolver`£¬ÄãËùÐèÒªµÄjar°üÊÇ`commons-fileupload.jar`¡£
+å½“ç„¶ï¼Œè¦è®©å¤šè·¯è§£æžå™¨æ­£å¸¸å·¥ä½œï¼Œä½ éœ€è¦åœ¨classpathè·¯å¾„ä¸‹å‡†å¤‡å¿…é¡»çš„jaråŒ…ã€‚å¦‚æžœä½¿ç”¨çš„æ˜¯é€šç”¨çš„å¤šè·¯ä¸Šä¼ è§£æžå™¨`CommonsMultipartResolver`ï¼Œä½ æ‰€éœ€è¦çš„jaråŒ…æ˜¯`commons-fileupload.jar`ã€‚
 
-µ±SpringµÄ`DispatcherServlet`¼ì²âµ½Ò»¸ö¶à²¿·ÖÇëÇóÊ±£¬Ëü»á¼¤»îÄãÔÚÉÏÏÂÎÄÖÐÉùÃ÷µÄ¶àÂ·½âÎöÆ÷²¢°ÑÇëÇó½»¸øËü¡£½âÎöÆ÷»á°Ñµ±Ç°µÄ`HttpServletRequest`ÇëÇó¶ÔÏó°ü×°³ÉÒ»¸öÖ§³Ö¶àÂ·ÎÄ¼þÉÏ´«µÄÇëÇó¶ÔÏó`MultipartHttpServletRequest`¡£ÓÐÁË`MultipartHttpServletRequest`¶ÔÏó£¬Äã²»½ö¿ÉÒÔ»ñÈ¡¸Ã¶àÂ·ÇëÇóÖÐµÄÐÅÏ¢£¬»¹¿ÉÒÔÔÚÄãµÄ¿ØÖÆÆ÷ÖÐ»ñµÃ¸Ã¶àÂ·ÇëÇóµÄÄÚÈÝ±¾Éí¡£
+å½“Springçš„`DispatcherServlet`æ£€æµ‹åˆ°ä¸€ä¸ªå¤šéƒ¨åˆ†è¯·æ±‚æ—¶ï¼Œå®ƒä¼šæ¿€æ´»ä½ åœ¨ä¸Šä¸‹æ–‡ä¸­å£°æ˜Žçš„å¤šè·¯è§£æžå™¨å¹¶æŠŠè¯·æ±‚äº¤ç»™å®ƒã€‚è§£æžå™¨ä¼šæŠŠå½“å‰çš„`HttpServletRequest`è¯·æ±‚å¯¹è±¡åŒ…è£…æˆä¸€ä¸ªæ”¯æŒå¤šè·¯æ–‡ä»¶ä¸Šä¼ çš„è¯·æ±‚å¯¹è±¡`MultipartHttpServletRequest`ã€‚æœ‰äº†`MultipartHttpServletRequest`å¯¹è±¡ï¼Œä½ ä¸ä»…å¯ä»¥èŽ·å–è¯¥å¤šè·¯è¯·æ±‚ä¸­çš„ä¿¡æ¯ï¼Œè¿˜å¯ä»¥åœ¨ä½ çš„æŽ§åˆ¶å™¨ä¸­èŽ·å¾—è¯¥å¤šè·¯è¯·æ±‚çš„å†…å®¹æœ¬èº«ã€‚
 
 </section>
 
@@ -65,11 +65,11 @@ SpringÄÚÖÃ¶Ô¶àÂ·ÉÏ´«µÄÖ§³Ö£¬×¨ÃÅÓÃÓÚ´¦ÀíwebÓ¦ÓÃÖÐµÄÎÄ¼þÉÏ´«¡£Äã¿ÉÒÔÍ¨¹ý×¢²áÒ»¸ö¿
 
 
 
-# Spring MVC ´¦ÀíServlet 3.0ÏÂµÄMultipartResolver
+# Spring MVC å¤„ç†Servlet 3.0ä¸‹çš„MultipartResolver
 
 
 
-2018-07-26 14:29 ¸üÐÂ
+2018-07-26 14:29 æ›´æ–°
 
 
 
@@ -77,11 +77,11 @@ SpringÄÚÖÃ¶Ô¶àÂ·ÉÏ´«µÄÖ§³Ö£¬×¨ÃÅÓÃÓÚ´¦ÀíwebÓ¦ÓÃÖÐµÄÎÄ¼þÉÏ´«¡£Äã¿ÉÒÔÍ¨¹ý×¢²áÒ»¸ö¿
 
 
 
-ÒªÊ¹ÓÃ»ùÓÚServlet 3.0µÄ¶àÂ·´«Êä×ª»»¹¦ÄÜ£¬Äã±ØÐëÔÚ`web.xml`ÖÐÎª`DispatcherServlet`Ìí¼ÓÒ»¸ö`multipart-config`ÔªËØ£¬»òÕßÍ¨¹ýServlet±à³ÌµÄ·½·¨Ê¹ÓÃ`javax.servlet.MultipartConfigElement`½øÐÐ×¢²á£¬»òÄã×Ô¼º¶¨ÖÆÁË×Ô¼ºµÄServletÀà£¬ÄÇÄã±ØÐëÊ¹ÓÃ`javax.servlet.annotation.MultipartConfig`¶ÔÆä½øÐÐ×¢½â¡£ÆäËûÖîÈç×î´óÎÄ¼þ´óÐ¡»ò´æ´¢Î»ÖÃµÈÅäÖÃÑ¡Ïî¶¼±ØÐëÔÚÕâ¸öServlet¼¶±ð½øÐÐ×¢²á£¬ÒòÎªServlet 3.0²»ÔÊÐíÔÚ½âÎöÆ÷MultipartResolverµÄ²ã¼¶ÅäÖÃÕâÐ©ÐÅÏ¢¡£
+è¦ä½¿ç”¨åŸºäºŽServlet 3.0çš„å¤šè·¯ä¼ è¾“è½¬æ¢åŠŸèƒ½ï¼Œä½ å¿…é¡»åœ¨`web.xml`ä¸­ä¸º`DispatcherServlet`æ·»åŠ ä¸€ä¸ª`multipart-config`å…ƒç´ ï¼Œæˆ–è€…é€šè¿‡Servletç¼–ç¨‹çš„æ–¹æ³•ä½¿ç”¨`javax.servlet.MultipartConfigElement`è¿›è¡Œæ³¨å†Œï¼Œæˆ–ä½ è‡ªå·±å®šåˆ¶äº†è‡ªå·±çš„Servletç±»ï¼Œé‚£ä½ å¿…é¡»ä½¿ç”¨`javax.servlet.annotation.MultipartConfig`å¯¹å…¶è¿›è¡Œæ³¨è§£ã€‚å…¶ä»–è¯¸å¦‚æœ€å¤§æ–‡ä»¶å¤§å°æˆ–å­˜å‚¨ä½ç½®ç­‰é…ç½®é€‰é¡¹éƒ½å¿…é¡»åœ¨è¿™ä¸ªServletçº§åˆ«è¿›è¡Œæ³¨å†Œï¼Œå› ä¸ºServlet 3.0ä¸å…è®¸åœ¨è§£æžå™¨MultipartResolverçš„å±‚çº§é…ç½®è¿™äº›ä¿¡æ¯ã€‚
 
 <section>
 
-µ±ÄãÍ¨¹ýÒÔÉÏÈÎÒ»ÖÖ·½Ê½ÆôÓÃÁËServlet 3.0¶àÂ·´«Êä×ª»»¹¦ÄÜ£¬Äã¾Í¿ÉÒÔ°ÑÒ»¸ö`StandardServletMultipartResolver`½âÎöÆ÷Ìí¼Óµ½ÄãµÄSpringÅäÖÃÖÐÈ¥ÁË£º
+å½“ä½ é€šè¿‡ä»¥ä¸Šä»»ä¸€ç§æ–¹å¼å¯ç”¨äº†Servlet 3.0å¤šè·¯ä¼ è¾“è½¬æ¢åŠŸèƒ½ï¼Œä½ å°±å¯ä»¥æŠŠä¸€ä¸ª`StandardServletMultipartResolver`è§£æžå™¨æ·»åŠ åˆ°ä½ çš„Springé…ç½®ä¸­åŽ»äº†ï¼š
 
 ```
 <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
@@ -95,11 +95,11 @@ SpringÄÚÖÃ¶Ô¶àÂ·ÉÏ´«µÄÖ§³Ö£¬×¨ÃÅÓÃÓÚ´¦ÀíwebÓ¦ÓÃÖÐµÄÎÄ¼þÉÏ´«¡£Äã¿ÉÒÔÍ¨¹ý×¢²áÒ»¸ö¿
 
 
 
-# Spring MVC ´¦Àí±íµ¥ÖÐµÄÎÄ¼þÉÏ´«
+# Spring MVC å¤„ç†è¡¨å•ä¸­çš„æ–‡ä»¶ä¸Šä¼ 
 
 
 
-2018-07-26 14:30 ¸üÐÂ
+2018-07-26 14:30 æ›´æ–°
 
 
 
@@ -107,7 +107,7 @@ SpringÄÚÖÃ¶Ô¶àÂ·ÉÏ´«µÄÖ§³Ö£¬×¨ÃÅÓÃÓÚ´¦ÀíwebÓ¦ÓÃÖÐµÄÎÄ¼þÉÏ´«¡£Äã¿ÉÒÔÍ¨¹ý×¢²áÒ»¸ö¿
 
 
 
-µ±½âÎöÆ÷`MultipartResolver`Íê³É´¦ÀíÊ±£¬ÇëÇó±ã»áÏñÆäËûÇëÇóÒ»Ñù±»Õý³£Á÷³Ì´¦Àí¡£Ê×ÏÈ£¬´´½¨Ò»¸ö½ÓÊÜÎÄ¼þÉÏ´«µÄ±íµ¥½«ÔÊÐíÓÃÓÚÖ±½ÓÉÏ´«Õû¸ö±íµ¥¡£±àÂëÊôÐÔ£¨`enctype="multipart/form-data"`£©ÄÜÈÃä¯ÀÀÆ÷ÖªµÀÈçºÎ¶Ô¶àÂ·ÉÏ´«ÇëÇóµÄ±íµ¥½øÐÐ±àÂë£¨encode£©¡£
+å½“è§£æžå™¨`MultipartResolver`å®Œæˆå¤„ç†æ—¶ï¼Œè¯·æ±‚ä¾¿ä¼šåƒå…¶ä»–è¯·æ±‚ä¸€æ ·è¢«æ­£å¸¸æµç¨‹å¤„ç†ã€‚é¦–å…ˆï¼Œåˆ›å»ºä¸€ä¸ªæŽ¥å—æ–‡ä»¶ä¸Šä¼ çš„è¡¨å•å°†å…è®¸ç”¨äºŽç›´æŽ¥ä¸Šä¼ æ•´ä¸ªè¡¨å•ã€‚ç¼–ç å±žæ€§ï¼ˆ`enctype="multipart/form-data"`ï¼‰èƒ½è®©æµè§ˆå™¨çŸ¥é“å¦‚ä½•å¯¹å¤šè·¯ä¸Šä¼ è¯·æ±‚çš„è¡¨å•è¿›è¡Œç¼–ç ï¼ˆencodeï¼‰ã€‚
 
 <section>
 
@@ -128,7 +128,7 @@ SpringÄÚÖÃ¶Ô¶àÂ·ÉÏ´«µÄÖ§³Ö£¬×¨ÃÅÓÃÓÚ´¦ÀíwebÓ¦ÓÃÖÐµÄÎÄ¼þÉÏ´«¡£Äã¿ÉÒÔÍ¨¹ý×¢²áÒ»¸ö¿
 
 ```
 
-ÏÂÒ»²½ÊÇ´´½¨Ò»¸öÄÜ´¦ÀíÎÄ¼þÉÏ´«µÄ¿ØÖÆÆ÷¡£ÕâÀïÐèÒªµÄ¿ØÖÆÆ÷Óë[Ò»°ã×¢½âÁË`@Controller`µÄ¿ØÖÆÆ÷](http://docs.spring.io/spring-framework/docs/4.2.4.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-controller)»ù±¾Ò»Ñù£¬³ýÁËËü½ÓÊÜµÄ·½·¨²ÎÊýÀàÐÍÊÇ`MultipartHttpServletRequest`£¬»ò`MultipartFile`¡£
+ä¸‹ä¸€æ­¥æ˜¯åˆ›å»ºä¸€ä¸ªèƒ½å¤„ç†æ–‡ä»¶ä¸Šä¼ çš„æŽ§åˆ¶å™¨ã€‚è¿™é‡Œéœ€è¦çš„æŽ§åˆ¶å™¨ä¸Ž[ä¸€èˆ¬æ³¨è§£äº†`@Controller`çš„æŽ§åˆ¶å™¨](http://docs.spring.io/spring-framework/docs/4.2.4.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-controller)åŸºæœ¬ä¸€æ ·ï¼Œé™¤äº†å®ƒæŽ¥å—çš„æ–¹æ³•å‚æ•°ç±»åž‹æ˜¯`MultipartHttpServletRequest`ï¼Œæˆ–`MultipartFile`ã€‚
 
 ```
 @Controller
@@ -150,9 +150,9 @@ public class FileUploadController {
 
 ```
 
-ÇëÁôÒâ`@RequestParam`×¢½âÊÇÈçºÎ½«·½·¨²ÎÊý¶ÔÓ¦µ½±íµ¥ÖÐµÄ¶¨ÒåµÄÊäÈë×Ö¶ÎµÄ¡£ÔÚÉÏÃæµÄÀý×ÓÖÐ£¬ÎÒÃÇÄÃµ½ÁË`byte[]`ÎÄ¼þÊý¾Ý£¬Ö»ÊÇÃ»¶ÔËü×öÈÎºÎÊÂ¡£ÔÚÊµ¼ÊÓ¦ÓÃÖÐ£¬Äã¿ÉÄÜ»á½«Ëü±£´æµ½Êý¾Ý¿â¡¢´æ´¢ÔÚÎÄ¼þÏµÍ³ÉÏ£¬»ò×öÆäËûµÄ´¦Àí¡£
+è¯·ç•™æ„`@RequestParam`æ³¨è§£æ˜¯å¦‚ä½•å°†æ–¹æ³•å‚æ•°å¯¹åº”åˆ°è¡¨å•ä¸­çš„å®šä¹‰çš„è¾“å…¥å­—æ®µçš„ã€‚åœ¨ä¸Šé¢çš„ä¾‹å­ä¸­ï¼Œæˆ‘ä»¬æ‹¿åˆ°äº†`byte[]`æ–‡ä»¶æ•°æ®ï¼Œåªæ˜¯æ²¡å¯¹å®ƒåšä»»ä½•äº‹ã€‚åœ¨å®žé™…åº”ç”¨ä¸­ï¼Œä½ å¯èƒ½ä¼šå°†å®ƒä¿å­˜åˆ°æ•°æ®åº“ã€å­˜å‚¨åœ¨æ–‡ä»¶ç³»ç»Ÿä¸Šï¼Œæˆ–åšå…¶ä»–çš„å¤„ç†ã€‚
 
-µ±Ê¹ÓÃServlet 3.0µÄ¶àÂ·´«Êä×ª»»Ê±£¬ÄãÒ²¿ÉÒÔÊ¹ÓÃ`javax.servlet.http.Part`×÷Îª·½·¨²ÎÊý£º
+å½“ä½¿ç”¨Servlet 3.0çš„å¤šè·¯ä¼ è¾“è½¬æ¢æ—¶ï¼Œä½ ä¹Ÿå¯ä»¥ä½¿ç”¨`javax.servlet.http.Part`ä½œä¸ºæ–¹æ³•å‚æ•°ï¼š
 
 ```
 @Controller
@@ -178,11 +178,11 @@ public class FileUploadController {
 
 
 
-# Spring MVC ´¦Àí¿Í»§¶Ë·¢ÆðµÄÎÄ¼þÉÏ´«ÇëÇó
+# Spring MVC å¤„ç†å®¢æˆ·ç«¯å‘èµ·çš„æ–‡ä»¶ä¸Šä¼ è¯·æ±‚
 
 
 
-2018-07-26 14:30 ¸üÐÂ
+2018-07-26 14:30 æ›´æ–°
 
 
 
@@ -190,7 +190,7 @@ public class FileUploadController {
 
 
 
-ÔÚÊ¹ÓÃÁËRESTful·þÎñµÄ³¡¾°ÏÂ£¬·Çä¯ÀÀÆ÷µÄ¿Í»§¶ËÒ²¿ÉÒÔÖ±½ÓÌá½»¶àÂ·ÎÄ¼þÇëÇó¡£ÉÏÒ»½Ú½²ÊöµÄËùÓÐÀý×ÓÓëÅäÖÃÔÚÕâÀïÒ²¶¼Í¬ÑùÊÊÓÃ¡£µ«Óëä¯ÀÀÆ÷²»Í¬µÄÊÇ£¬Ìá½»µÄÎÄ¼þºÍ¼òµ¥µÄ±íµ¥×Ö¶Î£¬¿Í»§¶Ë·¢ËÍµÄÊý¾Ý¿ÉÒÔ¸ü¼Ó¸´ÔÓ£¬Êý¾Ý¿ÉÒÔÖ¸¶¨ÎªÄ³ÖÖÌØ¶¨µÄÄÚÈÝÀàÐÍ£¨content type£©¡ª¡ª±ÈÈç£¬Ò»¸ö¶àÂ·ÉÏ´«ÇëÇó¿ÉÄÜµÚÒ»²¿·ÖÊÇ¸öÎÄ¼þ£¬¶øµÚ¶þ²¿·ÖÊÇ¸öJSON¸ñÊ½µÄÊý¾Ý£º
+åœ¨ä½¿ç”¨äº†RESTfulæœåŠ¡çš„åœºæ™¯ä¸‹ï¼Œéžæµè§ˆå™¨çš„å®¢æˆ·ç«¯ä¹Ÿå¯ä»¥ç›´æŽ¥æäº¤å¤šè·¯æ–‡ä»¶è¯·æ±‚ã€‚ä¸Šä¸€èŠ‚è®²è¿°çš„æ‰€æœ‰ä¾‹å­ä¸Žé…ç½®åœ¨è¿™é‡Œä¹Ÿéƒ½åŒæ ·é€‚ç”¨ã€‚ä½†ä¸Žæµè§ˆå™¨ä¸åŒçš„æ˜¯ï¼Œæäº¤çš„æ–‡ä»¶å’Œç®€å•çš„è¡¨å•å­—æ®µï¼Œå®¢æˆ·ç«¯å‘é€çš„æ•°æ®å¯ä»¥æ›´åŠ å¤æ‚ï¼Œæ•°æ®å¯ä»¥æŒ‡å®šä¸ºæŸç§ç‰¹å®šçš„å†…å®¹ç±»åž‹ï¼ˆcontent typeï¼‰â€”â€”æ¯”å¦‚ï¼Œä¸€ä¸ªå¤šè·¯ä¸Šä¼ è¯·æ±‚å¯èƒ½ç¬¬ä¸€éƒ¨åˆ†æ˜¯ä¸ªæ–‡ä»¶ï¼Œè€Œç¬¬äºŒéƒ¨åˆ†æ˜¯ä¸ªJSONæ ¼å¼çš„æ•°æ®ï¼š
 
 <section>
 
@@ -214,9 +214,9 @@ public class FileUploadController {
 
 ```
 
-¶ÔÓÚÃû³ÆÎª`meta-data`µÄ²¿·Ö£¬Äã¿ÉÒÔÍ¨¹ý¿ØÖÆÆ÷·½·¨ÉÏµÄ`@RequestParam("meta-data") String metadata`²ÎÊýÀ´»ñµÃ¡£µ«¶ÔÓÚÄÇ²¿·ÖÇëÇóÌåÖÐÎªJSON¸ñÊ½Êý¾ÝµÄÇëÇó£¬Äã¿ÉÄÜ¸üÏëÍ¨¹ý½ÓÊÜÒ»¸ö¶ÔÓ¦µÄÇ¿ÀàÐÍ¶ÔÏó£¬¾ÍÏñ`@RequestBody`Í¨¹ý`HttpMessageConverter`½«Ò»°ãÇëÇóµÄÇëÇóÌå×ª»»³ÉÒ»¸ö¶ÔÏóÒ»Ñù¡£
+å¯¹äºŽåç§°ä¸º`meta-data`çš„éƒ¨åˆ†ï¼Œä½ å¯ä»¥é€šè¿‡æŽ§åˆ¶å™¨æ–¹æ³•ä¸Šçš„`@RequestParam("meta-data") String metadata`å‚æ•°æ¥èŽ·å¾—ã€‚ä½†å¯¹äºŽé‚£éƒ¨åˆ†è¯·æ±‚ä½“ä¸­ä¸ºJSONæ ¼å¼æ•°æ®çš„è¯·æ±‚ï¼Œä½ å¯èƒ½æ›´æƒ³é€šè¿‡æŽ¥å—ä¸€ä¸ªå¯¹åº”çš„å¼ºç±»åž‹å¯¹è±¡ï¼Œå°±åƒ`@RequestBody`é€šè¿‡`HttpMessageConverter`å°†ä¸€èˆ¬è¯·æ±‚çš„è¯·æ±‚ä½“è½¬æ¢æˆä¸€ä¸ªå¯¹è±¡ä¸€æ ·ã€‚
 
-ÕâÊÇ¿ÉÄÜµÄ£¬Äã¿ÉÒÔÊ¹ÓÃ`@RequestPart`×¢½âÀ´ÊµÏÖ£¬¶ø·Ç`@RequestParam`¡£¸Ã×¢½â½«Ê¹µÃÌØ¶¨¶àÂ·ÇëÇóµÄÇëÇóÌå±»´«¸ø`HttpMessageConverter`£¬²¢ÇÒÔÚ×ª»»Ê±¿¼ÂÇ¶àÂ·ÇëÇóÖÐ²»Í¬µÄÄÚÈÝÀàÐÍ²ÎÊý`'Content-Type'`£º
+è¿™æ˜¯å¯èƒ½çš„ï¼Œä½ å¯ä»¥ä½¿ç”¨`@RequestPart`æ³¨è§£æ¥å®žçŽ°ï¼Œè€Œéž`@RequestParam`ã€‚è¯¥æ³¨è§£å°†ä½¿å¾—ç‰¹å®šå¤šè·¯è¯·æ±‚çš„è¯·æ±‚ä½“è¢«ä¼ ç»™`HttpMessageConverter`ï¼Œå¹¶ä¸”åœ¨è½¬æ¢æ—¶è€ƒè™‘å¤šè·¯è¯·æ±‚ä¸­ä¸åŒçš„å†…å®¹ç±»åž‹å‚æ•°`'Content-Type'`ï¼š
 
 ```
 @RequestMapping(path = "/someUrl", method = RequestMethod.POST)
@@ -228,7 +228,7 @@ public String onSubmit(@RequestPart("meta-data") MetaData metadata, @RequestPart
 
 ```
 
-Çë×¢Òâ`MultipartFile`·½·¨²ÎÊýÊÇÈçºÎÄÜ¹»ÔÚ`@RequestParam`»ò`@RequestPart`×¢½âÏÂ»¥ÓÃµÄ£¬Á½ÖÖ·½·¨¶¼ÄÜÄÃµ½Êý¾Ý¡£µ«£¬ÕâÀïµÄ·½·¨²ÎÊý`@RequestPart("meta-data") MetaData`Ôò»áÒòÎªÇëÇóÖÐµÄÄÚÈÝÀàÐÍÇëÇóÍ·`'Content-Type'`±»¶ÁÈë³ÉÎªJSONÊý¾Ý£¬È»ºóÔÙÍ¨¹ý`MappingJackson2HttpMessageConverter`±»×ª»»³ÉÌØ¶¨µÄ¶ÔÏó¡£
+è¯·æ³¨æ„`MultipartFile`æ–¹æ³•å‚æ•°æ˜¯å¦‚ä½•èƒ½å¤Ÿåœ¨`@RequestParam`æˆ–`@RequestPart`æ³¨è§£ä¸‹äº’ç”¨çš„ï¼Œä¸¤ç§æ–¹æ³•éƒ½èƒ½æ‹¿åˆ°æ•°æ®ã€‚ä½†ï¼Œè¿™é‡Œçš„æ–¹æ³•å‚æ•°`@RequestPart("meta-data") MetaData`åˆ™ä¼šå› ä¸ºè¯·æ±‚ä¸­çš„å†…å®¹ç±»åž‹è¯·æ±‚å¤´`'Content-Type'`è¢«è¯»å…¥æˆä¸ºJSONæ•°æ®ï¼Œç„¶åŽå†é€šè¿‡`MappingJackson2HttpMessageConverter`è¢«è½¬æ¢æˆç‰¹å®šçš„å¯¹è±¡ã€‚
 
 </section>
 

@@ -1,25 +1,25 @@
-### 1\. servlet 3.0 ¹æ·¶
+### 1\. servlet 3.0 è§„èŒƒ
 
-±¾ÏµÁĞÒ»¿ªÊ¼£¬ÏÈ½éÉÜÁË `servlet3.0` ¹æ·¶£¬Í¨¹ı¸Ã¹æ·¶£¬¿ÉÒÔÈÃÎÒÃÇÊµÏÖ web ÏîÄ¿µÄ `0xml` ÅäÖÃ.
+æœ¬ç³»åˆ—ä¸€å¼€å§‹ï¼Œå…ˆä»‹ç»äº† `servlet3.0` è§„èŒƒï¼Œé€šè¿‡è¯¥è§„èŒƒï¼Œå¯ä»¥è®©æˆ‘ä»¬å®ç° web é¡¹ç›®çš„ `0xml` é…ç½®.
 
-*   `servlet3.0` ¹æ·¶ÖĞ£¬servlet Í¨¹ı `SPI` »úÖÆÌá¹©ÁËÒ»¸ö½Ó¿Ú£º`ServletContainerInitializer`£»
-*   spring ÊµÏÖÁË¸Ã½Ó¿Ú£¬ÔÚÆäÊµÏÖÀà `SpringServletContainerInitializer` µÄ `onStartup(...)` ·½·¨ÖĞ£¬»áÖ´ĞĞËùÓĞÊµÏÖÁË `WebApplicationInitializer` ½Ó¿ÚµÄÀàµÄ `onStartup(...)` ·½·¨£¬×îÖÕÎÒÃÇÖ»ĞèÒªÊµÏÖ `WebApplicationInitializer` ½Ó¿Ú¼´¿É£»
-*   ÔÚÎÒÃÇ×ÔÖ÷ÊµÏÖ `WebApplicationInitializer` ½Ó¿ÚµÄÀàÖĞ£¬ÔÚ `onStartup(...)` Ïò servlet ÈİÆ÷ÖĞÊÖ¶¯×¢²áÁËÒ» ¸ö servlet£º`DispatcherServlet`£¬ÔÚÕâ¸ö servlet ÖĞ»áÆô¶¯ spring ÈİÆ÷£»
+*   `servlet3.0` è§„èŒƒä¸­ï¼Œservlet é€šè¿‡ `SPI` æœºåˆ¶æä¾›äº†ä¸€ä¸ªæ¥å£ï¼š`ServletContainerInitializer`ï¼›
+*   spring å®ç°äº†è¯¥æ¥å£ï¼Œåœ¨å…¶å®ç°ç±» `SpringServletContainerInitializer` çš„ `onStartup(...)` æ–¹æ³•ä¸­ï¼Œä¼šæ‰§è¡Œæ‰€æœ‰å®ç°äº† `WebApplicationInitializer` æ¥å£çš„ç±»çš„ `onStartup(...)` æ–¹æ³•ï¼Œæœ€ç»ˆæˆ‘ä»¬åªéœ€è¦å®ç° `WebApplicationInitializer` æ¥å£å³å¯ï¼›
+*   åœ¨æˆ‘ä»¬è‡ªä¸»å®ç° `WebApplicationInitializer` æ¥å£çš„ç±»ä¸­ï¼Œåœ¨ `onStartup(...)` å‘ servlet å®¹å™¨ä¸­æ‰‹åŠ¨æ³¨å†Œäº†ä¸€ ä¸ª servletï¼š`DispatcherServlet`ï¼Œåœ¨è¿™ä¸ª servlet ä¸­ä¼šå¯åŠ¨ spring å®¹å™¨ï¼›
 
-ÒÔÉÏÕû¸öÁ÷³Ì¾ÍÕâÑù£º
+ä»¥ä¸Šæ•´ä¸ªæµç¨‹å°±è¿™æ ·ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0874fa7ef39ca9c405cdf55d99ca891ebf2.png)
 
-### 2\. ÆôÓÃ webMvc µÄ·½Ê½
+### 2\. å¯ç”¨ webMvc çš„æ–¹å¼
 
-ÎÒÃÇ·ÖÎöÁËÆôÓÃ `webMvc` µÄÁ½ÖÖ·½Ê½£º
+æˆ‘ä»¬åˆ†æäº†å¯ç”¨ `webMvc` çš„ä¸¤ç§æ–¹å¼ï¼š
 
 #### 1. `@EnableWebMvc`
 
-ÕâÖÖ·½Ê½ºÜ¼òµ¥£¬Ö»ĞèÒªÕâÑù£º
+è¿™ç§æ–¹å¼å¾ˆç®€å•ï¼Œåªéœ€è¦è¿™æ ·ï¼š
 
 ```
-// Ê¹ÓÃ@EnableWebMvc×¢½âÆôÓÃmvc¹¦ÄÜ
+// ä½¿ç”¨@EnableWebMvcæ³¨è§£å¯ç”¨mvcåŠŸèƒ½
 @Component
 @EnableWebMvc
 public class MvcConfig {
@@ -28,34 +28,34 @@ public class MvcConfig {
 
 ```
 
-Èç¹ûÎÒÃÇÒª´¦Àí webMvc µÄÒ»Ğ©ÅäÖÃÊ±£¬ĞèÒªÊµÏÖ `WebMvcConfigurer`:
+å¦‚æœæˆ‘ä»¬è¦å¤„ç† webMvc çš„ä¸€äº›é…ç½®æ—¶ï¼Œéœ€è¦å®ç° `WebMvcConfigurer`:
 
 ```
-// ÊµÏÖ WebMvcConfigurer£¬Ìí¼Ó×Ô¶¨ÒåÅäÖÃ
+// å®ç° WebMvcConfigurerï¼Œæ·»åŠ è‡ªå®šä¹‰é…ç½®
 @Component
 public class MyWebMvcConfigurer implements WebMvcConfigurer {
 
-    // ÖØĞ´WebMvcConfigurer·½·¨£¬´¦Àí×Ô¶¨ÒåÅäÖÃ
+    // é‡å†™WebMvcConfigureræ–¹æ³•ï¼Œå¤„ç†è‡ªå®šä¹‰é…ç½®
 }
 
 ```
 
-#### 2\. ÊµÏÖ `WebMvcConfigurationSupport`
+#### 2\. å®ç° `WebMvcConfigurationSupport`
 
-»¹ÓĞÒ»ÖÖ·½Ê½ÆôÓÃ `webMvc` µÄ ·½Ê½ÊÇÊµÏÖ `WebMvcConfigurationSupport`£º
+è¿˜æœ‰ä¸€ç§æ–¹å¼å¯ç”¨ `webMvc` çš„ æ–¹å¼æ˜¯å®ç° `WebMvcConfigurationSupport`ï¼š
 
 ```
 @Component
 public class MyWebMvcConfigurationSupport extends WebMvcConfigurationSupport {
-    // ÖØĞ´ÅäÖÃ·½·¨£¬´¦Àí×Ô¶¨ÒåÅäÖÃ
+    // é‡å†™é…ç½®æ–¹æ³•ï¼Œå¤„ç†è‡ªå®šä¹‰é…ç½®
     ...
 
    /**
-    * ±ÈÈç£¬Ìí¼Ó¿çÓòÅäÖÃ£¬Ö±½ÓÖØĞ´ addCorsMappings ·½·¨
+    * æ¯”å¦‚ï¼Œæ·»åŠ è·¨åŸŸé…ç½®ï¼Œç›´æ¥é‡å†™ addCorsMappings æ–¹æ³•
     */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        // Ìí¼Ó×Ô¼ºµÄÅäÖÃ
+        // æ·»åŠ è‡ªå·±çš„é…ç½®
         ...
     }
 
@@ -63,20 +63,20 @@ public class MyWebMvcConfigurationSupport extends WebMvcConfigurationSupport {
 
 ```
 
-ĞèÒª×¢ÒâµÄÊÇ£¬Ê¹ÓÃÕâÖÖ·½Ê½ºó£¬ĞèÒª´¦Àí×Ô¶¨ÒåÅäÖÃÊ±£¬¾Í²»ÄÜÔÙÈ¥ÊµÏÖ `WebMvcConfigurer` ½Ó¿ÚÁË£¬¶øÓ¦¸ÃÖ±½ÓÖØĞ´ `WebMvcConfigurationSupport` ÖĞµÄÏàÓ¦·½·¨£¬ÈçÉÏÃæÖØĞ´ `addCorsMappings()`.
+éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œä½¿ç”¨è¿™ç§æ–¹å¼åï¼Œéœ€è¦å¤„ç†è‡ªå®šä¹‰é…ç½®æ—¶ï¼Œå°±ä¸èƒ½å†å»å®ç° `WebMvcConfigurer` æ¥å£äº†ï¼Œè€Œåº”è¯¥ç›´æ¥é‡å†™ `WebMvcConfigurationSupport` ä¸­çš„ç›¸åº”æ–¹æ³•ï¼Œå¦‚ä¸Šé¢é‡å†™ `addCorsMappings()`.
 
-### 3\. Õû¸öÆô¶¯Á÷³Ì
+### 3\. æ•´ä¸ªå¯åŠ¨æµç¨‹
 
-ÓÃÒ»ÕÅÍ¼À´×Ü½áÕû¸öÆô¶¯Á÷³Ì£º
+ç”¨ä¸€å¼ å›¾æ¥æ€»ç»“æ•´ä¸ªå¯åŠ¨æµç¨‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-74d675bbae28247726b8d054e8758c3d8b1.png) ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-aa6bb35d0ab26925c45c62ab4d709d05cdd.png)
 
-### 4\. ÇëÇóÁ÷³Ì
+### 4\. è¯·æ±‚æµç¨‹
 
-Ò²ÓÃÒ»ÕÅÍ¼À´×Ü½áÕû¸öÇëÇóÁ÷³Ì£º
+ä¹Ÿç”¨ä¸€å¼ å›¾æ¥æ€»ç»“æ•´ä¸ªè¯·æ±‚æµç¨‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-024b75e7f7952dbf1ace7aa5a8cfe3bcb77.png)
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4773418](https://my.oschina.net/funcy/blog/4773418) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4773418](https://my.oschina.net/funcy/blog/4773418) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

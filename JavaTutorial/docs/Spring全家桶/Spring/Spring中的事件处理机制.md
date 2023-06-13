@@ -2,53 +2,53 @@
 
 
 
-# Spring ÖĞµÄÊÂ¼ş´¦Àí
+# Spring ä¸­çš„äº‹ä»¶å¤„ç†
 
 
 
-2022-05-16 15:29 ¸üĞÂ
-
-
-
-
+2022-05-16 15:29 æ›´æ–°
 
 
 
 
 
-## Spring ÖĞµÄÊÂ¼ş´¦Àí
 
-ÄãÒÑ¾­¿´µ½ÁËÔÚËùÓĞÕÂ½ÚÖĞ Spring µÄºËĞÄÊÇ **ApplicationContext**£¬Ëü¸ºÔğ¹ÜÀí beans µÄÍêÕûÉúÃüÖÜÆÚ¡£µ±¼ÓÔØ beans Ê±£¬ApplicationContext ·¢²¼Ä³Ğ©ÀàĞÍµÄÊÂ¼ş¡£ÀıÈç£¬µ±ÉÏÏÂÎÄÆô¶¯Ê±£¬ContextStartedEvent ·¢²¼£¬µ±ÉÏÏÂÎÄÍ£Ö¹Ê±£¬ContextStoppedEvent ·¢²¼¡£
 
-Í¨¹ı ApplicationEvent ÀàºÍ ApplicationListener ½Ó¿ÚÀ´Ìá¹©ÔÚ ApplicationContext ÖĞ´¦ÀíÊÂ¼ş¡£Èç¹ûÒ»¸ö bean ÊµÏÖ ApplicationListener£¬ÄÇÃ´Ã¿´Î ApplicationEvent ±»·¢²¼µ½ ApplicationContext ÉÏ£¬ÄÇ¸ö bean »á±»Í¨Öª¡£
 
-Spring Ìá¹©ÁËÒÔÏÂµÄ±ê×¼ÊÂ¼ş£º
 
-| ĞòºÅ | Spring ÄÚÖÃÊÂ¼ş & ÃèÊö |
+## Spring ä¸­çš„äº‹ä»¶å¤„ç†
+
+ä½ å·²ç»çœ‹åˆ°äº†åœ¨æ‰€æœ‰ç« èŠ‚ä¸­ Spring çš„æ ¸å¿ƒæ˜¯ **ApplicationContext**ï¼Œå®ƒè´Ÿè´£ç®¡ç† beans çš„å®Œæ•´ç”Ÿå‘½å‘¨æœŸã€‚å½“åŠ è½½ beans æ—¶ï¼ŒApplicationContext å‘å¸ƒæŸäº›ç±»å‹çš„äº‹ä»¶ã€‚ä¾‹å¦‚ï¼Œå½“ä¸Šä¸‹æ–‡å¯åŠ¨æ—¶ï¼ŒContextStartedEvent å‘å¸ƒï¼Œå½“ä¸Šä¸‹æ–‡åœæ­¢æ—¶ï¼ŒContextStoppedEvent å‘å¸ƒã€‚
+
+é€šè¿‡ ApplicationEvent ç±»å’Œ ApplicationListener æ¥å£æ¥æä¾›åœ¨ ApplicationContext ä¸­å¤„ç†äº‹ä»¶ã€‚å¦‚æœä¸€ä¸ª bean å®ç° ApplicationListenerï¼Œé‚£ä¹ˆæ¯æ¬¡ ApplicationEvent è¢«å‘å¸ƒåˆ° ApplicationContext ä¸Šï¼Œé‚£ä¸ª bean ä¼šè¢«é€šçŸ¥ã€‚
+
+Spring æä¾›äº†ä»¥ä¸‹çš„æ ‡å‡†äº‹ä»¶ï¼š
+
+| åºå· | Spring å†…ç½®äº‹ä»¶ & æè¿° |
 | --- | --- |
-| 1 | **ContextRefreshedEvent**ApplicationContext ±»³õÊ¼»¯»òË¢ĞÂÊ±£¬¸ÃÊÂ¼ş±»·¢²¼¡£ÕâÒ²¿ÉÒÔÔÚ ConfigurableApplicationContext ½Ó¿ÚÖĞÊ¹ÓÃ refresh() ·½·¨À´·¢Éú¡£ |
-| 2 | **ContextStartedEvent**µ±Ê¹ÓÃ ConfigurableApplicationContext ½Ó¿ÚÖĞµÄ start() ·½·¨Æô¶¯ ApplicationContext Ê±£¬¸ÃÊÂ¼ş±»·¢²¼¡£Äã¿ÉÒÔµ÷²éÄãµÄÊı¾İ¿â£¬»òÕßÄã¿ÉÒÔÔÚ½ÓÊÜµ½Õâ¸öÊÂ¼şºóÖØÆôÈÎºÎÍ£Ö¹µÄÓ¦ÓÃ³ÌĞò¡£ |
-| 3 | **ContextStoppedEvent**µ±Ê¹ÓÃ ConfigurableApplicationContext ½Ó¿ÚÖĞµÄ stop() ·½·¨Í£Ö¹ ApplicationContext Ê±£¬·¢²¼Õâ¸öÊÂ¼ş¡£Äã¿ÉÒÔÔÚ½ÓÊÜµ½Õâ¸öÊÂ¼şºó×ö±ØÒªµÄÇåÀíµÄ¹¤×÷¡£ |
-| 4 | **ContextClosedEvent**µ±Ê¹ÓÃ ConfigurableApplicationContext ½Ó¿ÚÖĞµÄ close() ·½·¨¹Ø±Õ ApplicationContext Ê±£¬¸ÃÊÂ¼ş±»·¢²¼¡£Ò»¸öÒÑ¹Ø±ÕµÄÉÏÏÂÎÄµ½´ïÉúÃüÖÜÆÚÄ©¶Ë£»Ëü²»ÄÜ±»Ë¢ĞÂ»òÖØÆô¡£ |
-| 5 | **RequestHandledEvent**ÕâÊÇÒ»¸ö web-specific ÊÂ¼ş£¬¸æËßËùÓĞ bean HTTP ÇëÇóÒÑ¾­±»·şÎñ¡£ |
+| 1 | **ContextRefreshedEvent**ApplicationContext è¢«åˆå§‹åŒ–æˆ–åˆ·æ–°æ—¶ï¼Œè¯¥äº‹ä»¶è¢«å‘å¸ƒã€‚è¿™ä¹Ÿå¯ä»¥åœ¨ ConfigurableApplicationContext æ¥å£ä¸­ä½¿ç”¨ refresh() æ–¹æ³•æ¥å‘ç”Ÿã€‚ |
+| 2 | **ContextStartedEvent**å½“ä½¿ç”¨ ConfigurableApplicationContext æ¥å£ä¸­çš„ start() æ–¹æ³•å¯åŠ¨ ApplicationContext æ—¶ï¼Œè¯¥äº‹ä»¶è¢«å‘å¸ƒã€‚ä½ å¯ä»¥è°ƒæŸ¥ä½ çš„æ•°æ®åº“ï¼Œæˆ–è€…ä½ å¯ä»¥åœ¨æ¥å—åˆ°è¿™ä¸ªäº‹ä»¶åé‡å¯ä»»ä½•åœæ­¢çš„åº”ç”¨ç¨‹åºã€‚ |
+| 3 | **ContextStoppedEvent**å½“ä½¿ç”¨ ConfigurableApplicationContext æ¥å£ä¸­çš„ stop() æ–¹æ³•åœæ­¢ ApplicationContext æ—¶ï¼Œå‘å¸ƒè¿™ä¸ªäº‹ä»¶ã€‚ä½ å¯ä»¥åœ¨æ¥å—åˆ°è¿™ä¸ªäº‹ä»¶ååšå¿…è¦çš„æ¸…ç†çš„å·¥ä½œã€‚ |
+| 4 | **ContextClosedEvent**å½“ä½¿ç”¨ ConfigurableApplicationContext æ¥å£ä¸­çš„ close() æ–¹æ³•å…³é—­ ApplicationContext æ—¶ï¼Œè¯¥äº‹ä»¶è¢«å‘å¸ƒã€‚ä¸€ä¸ªå·²å…³é—­çš„ä¸Šä¸‹æ–‡åˆ°è¾¾ç”Ÿå‘½å‘¨æœŸæœ«ç«¯ï¼›å®ƒä¸èƒ½è¢«åˆ·æ–°æˆ–é‡å¯ã€‚ |
+| 5 | **RequestHandledEvent**è¿™æ˜¯ä¸€ä¸ª web-specific äº‹ä»¶ï¼Œå‘Šè¯‰æ‰€æœ‰ bean HTTP è¯·æ±‚å·²ç»è¢«æœåŠ¡ã€‚ |
 
-ÓÉÓÚ Spring µÄÊÂ¼ş´¦ÀíÊÇµ¥Ïß³ÌµÄ£¬ËùÒÔÈç¹ûÒ»¸öÊÂ¼ş±»·¢²¼£¬Ö±ÖÁ²¢ÇÒ³ı·ÇËùÓĞµÄ½ÓÊÕÕßµÃµ½µÄ¸ÃÏûÏ¢£¬¸Ã½ø³Ì±»×èÈû²¢ÇÒÁ÷³Ì½«²»»á¼ÌĞø¡£Òò´Ë£¬Èç¹ûÊÂ¼ş´¦Àí±»Ê¹ÓÃ£¬ÔÚÉè¼ÆÓ¦ÓÃ³ÌĞòÊ±Ó¦×¢Òâ¡£
+ç”±äº Spring çš„äº‹ä»¶å¤„ç†æ˜¯å•çº¿ç¨‹çš„ï¼Œæ‰€ä»¥å¦‚æœä¸€ä¸ªäº‹ä»¶è¢«å‘å¸ƒï¼Œç›´è‡³å¹¶ä¸”é™¤éæ‰€æœ‰çš„æ¥æ”¶è€…å¾—åˆ°çš„è¯¥æ¶ˆæ¯ï¼Œè¯¥è¿›ç¨‹è¢«é˜»å¡å¹¶ä¸”æµç¨‹å°†ä¸ä¼šç»§ç»­ã€‚å› æ­¤ï¼Œå¦‚æœäº‹ä»¶å¤„ç†è¢«ä½¿ç”¨ï¼Œåœ¨è®¾è®¡åº”ç”¨ç¨‹åºæ—¶åº”æ³¨æ„ã€‚
 
-## ¼àÌıÉÏÏÂÎÄÊÂ¼ş
+## ç›‘å¬ä¸Šä¸‹æ–‡äº‹ä»¶
 
-ÎªÁË¼àÌıÉÏÏÂÎÄÊÂ¼ş£¬Ò»¸ö bean Ó¦¸ÃÊµÏÖÖ»ÓĞÒ»¸ö·½·¨ **onApplicationEvent()** µÄ ApplicationListener ½Ó¿Ú¡£Òò´Ë£¬ÎÒÃÇĞ´Ò»¸öÀı×ÓÀ´¿´¿´ÊÂ¼şÊÇÈçºÎ´«²¥µÄ£¬ÒÔ¼°ÈçºÎ¿ÉÒÔÓÃ´úÂëÀ´Ö´ĞĞ»ùÓÚÄ³Ğ©ÊÂ¼şËùĞèµÄÈÎÎñ¡£
+ä¸ºäº†ç›‘å¬ä¸Šä¸‹æ–‡äº‹ä»¶ï¼Œä¸€ä¸ª bean åº”è¯¥å®ç°åªæœ‰ä¸€ä¸ªæ–¹æ³• **onApplicationEvent()** çš„ ApplicationListener æ¥å£ã€‚å› æ­¤ï¼Œæˆ‘ä»¬å†™ä¸€ä¸ªä¾‹å­æ¥çœ‹çœ‹äº‹ä»¶æ˜¯å¦‚ä½•ä¼ æ’­çš„ï¼Œä»¥åŠå¦‚ä½•å¯ä»¥ç”¨ä»£ç æ¥æ‰§è¡ŒåŸºäºæŸäº›äº‹ä»¶æ‰€éœ€çš„ä»»åŠ¡ã€‚
 
-ÈÃÎÒÃÇÔÚÇ¡µ±µÄÎ»ÖÃÊ¹ÓÃ Eclipse IDE£¬È»ºó°´ÕÕÏÂÃæµÄ²½ÖèÀ´´´½¨Ò»¸ö Spring Ó¦ÓÃ³ÌĞò£º
+è®©æˆ‘ä»¬åœ¨æ°å½“çš„ä½ç½®ä½¿ç”¨ Eclipse IDEï¼Œç„¶åæŒ‰ç…§ä¸‹é¢çš„æ­¥éª¤æ¥åˆ›å»ºä¸€ä¸ª Spring åº”ç”¨ç¨‹åºï¼š
 
-| ²½Öè | ÃèÊö |
+| æ­¥éª¤ | æè¿° |
 | --- | --- |
-| 1 | ´´½¨Ò»¸öÃû³ÆÎª SpringExample µÄÏîÄ¿£¬²¢ÇÒÔÚ´´½¨ÏîÄ¿µÄ **src** ÎÄ¼ş¼ĞÖĞ´´½¨Ò»¸ö°ü com.tutorialspoint¡£ |
-| 2 | Ê¹ÓÃ Add External JARs Ñ¡Ïî£¬Ìí¼ÓËùĞèµÄ Spring ¿â£¬½âÊÍ¼û Spring Hello World Example ÕÂ½Ú¡£ |
-| 3 | ÔÚ com.tutorialspoint °üÖĞ´´½¨ Java Àà HelloWorld¡¢CStartEventHandler¡¢CStopEventHandler ºÍ MainApp¡£ |
-| 4 | ÔÚ **src** ÎÄ¼ş¼ĞÖĞ´´½¨ Bean µÄÅäÖÃÎÄ¼ş Beans.xml¡£ |
-| 5 | ×îºóÒ»²½ÊÇ´´½¨µÄËùÓĞ Java ÎÄ¼şºÍ Bean ÅäÖÃÎÄ¼şµÄÄÚÈİ£¬²¢ÔËĞĞÓ¦ÓÃ³ÌĞò£¬½âÊÍÈçÏÂËùÊ¾¡£ |
+| 1 | åˆ›å»ºä¸€ä¸ªåç§°ä¸º SpringExample çš„é¡¹ç›®ï¼Œå¹¶ä¸”åœ¨åˆ›å»ºé¡¹ç›®çš„ **src** æ–‡ä»¶å¤¹ä¸­åˆ›å»ºä¸€ä¸ªåŒ… com.tutorialspointã€‚ |
+| 2 | ä½¿ç”¨ Add External JARs é€‰é¡¹ï¼Œæ·»åŠ æ‰€éœ€çš„ Spring åº“ï¼Œè§£é‡Šè§ Spring Hello World Example ç« èŠ‚ã€‚ |
+| 3 | åœ¨ com.tutorialspoint åŒ…ä¸­åˆ›å»º Java ç±» HelloWorldã€CStartEventHandlerã€CStopEventHandler å’Œ MainAppã€‚ |
+| 4 | åœ¨ **src** æ–‡ä»¶å¤¹ä¸­åˆ›å»º Bean çš„é…ç½®æ–‡ä»¶ Beans.xmlã€‚ |
+| 5 | æœ€åä¸€æ­¥æ˜¯åˆ›å»ºçš„æ‰€æœ‰ Java æ–‡ä»¶å’Œ Bean é…ç½®æ–‡ä»¶çš„å†…å®¹ï¼Œå¹¶è¿è¡Œåº”ç”¨ç¨‹åºï¼Œè§£é‡Šå¦‚ä¸‹æ‰€ç¤ºã€‚ |
 
-ÕâÀïÊÇ **HelloWorld.java** ÎÄ¼şµÄÄÚÈİ£º
+è¿™é‡Œæ˜¯ **HelloWorld.java** æ–‡ä»¶çš„å†…å®¹ï¼š
 
 ```
 package com.tutorialspoint;
@@ -63,7 +63,7 @@ public class HelloWorld {
 }
 ```
 
-ÏÂÃæÊÇ **CStartEventHandler.java** ÎÄ¼şµÄÄÚÈİ£º
+ä¸‹é¢æ˜¯ **CStartEventHandler.java** æ–‡ä»¶çš„å†…å®¹ï¼š
 
 ```
 package com.tutorialspoint;
@@ -77,7 +77,7 @@ public class CStartEventHandler
 }
 ```
 
-ÏÂÃæÊÇ **CStopEventHandler.java** ÎÄ¼şµÄÄÚÈİ£º
+ä¸‹é¢æ˜¯ **CStopEventHandler.java** æ–‡ä»¶çš„å†…å®¹ï¼š
 
 ```
 package com.tutorialspoint;
@@ -91,7 +91,7 @@ public class CStopEventHandler
 }
 ```
 
-ÏÂÃæÊÇ **MainApp.java** ÎÄ¼şµÄÄÚÈİ£º
+ä¸‹é¢æ˜¯ **MainApp.java** æ–‡ä»¶çš„å†…å®¹ï¼š
 
 ```
 package com.tutorialspoint;
@@ -117,7 +117,7 @@ public class MainApp {
 }
 ```
 
-ÏÂÃæÊÇÅäÖÃÎÄ¼ş **Beans.xml** ÎÄ¼ş£º
+ä¸‹é¢æ˜¯é…ç½®æ–‡ä»¶ **Beans.xml** æ–‡ä»¶ï¼š
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -140,7 +140,7 @@ public class MainApp {
 </beans>
 ```
 
-Ò»µ©ÄãÍê³ÉÁË´´½¨Ô´ºÍ bean µÄÅäÖÃÎÄ¼ş£¬ÎÒÃÇ¾Í¿ÉÒÔÔËĞĞ¸ÃÓ¦ÓÃ³ÌĞò¡£Èç¹ûÄãµÄÓ¦ÓÃ³ÌĞòÒ»ÇĞ¶¼Õı³££¬½«Êä³öÒÔÏÂÏûÏ¢£º
+ä¸€æ—¦ä½ å®Œæˆäº†åˆ›å»ºæºå’Œ bean çš„é…ç½®æ–‡ä»¶ï¼Œæˆ‘ä»¬å°±å¯ä»¥è¿è¡Œè¯¥åº”ç”¨ç¨‹åºã€‚å¦‚æœä½ çš„åº”ç”¨ç¨‹åºä¸€åˆ‡éƒ½æ­£å¸¸ï¼Œå°†è¾“å‡ºä»¥ä¸‹æ¶ˆæ¯ï¼š
 
 ```
 ContextStartedEvent Received
@@ -154,21 +154,21 @@ ContextStoppedEvent Received
 
 
 
-## Spring ÖĞµÄ×Ô¶¨ÒåÊÂ¼ş
+## Spring ä¸­çš„è‡ªå®šä¹‰äº‹ä»¶
 
-±àĞ´ºÍ·¢²¼×Ô¼ºµÄ×Ô¶¨ÒåÊÂ¼şÓĞĞí¶à²½Öè¡£°´ÕÕÔÚÕâÒ»ÕÂ¸ø³öµÄËµÃ÷À´±àĞ´£¬·¢²¼ºÍ´¦Àí×Ô¶¨Òå Spring ÊÂ¼ş¡£
+ç¼–å†™å’Œå‘å¸ƒè‡ªå·±çš„è‡ªå®šä¹‰äº‹ä»¶æœ‰è®¸å¤šæ­¥éª¤ã€‚æŒ‰ç…§åœ¨è¿™ä¸€ç« ç»™å‡ºçš„è¯´æ˜æ¥ç¼–å†™ï¼Œå‘å¸ƒå’Œå¤„ç†è‡ªå®šä¹‰ Spring äº‹ä»¶ã€‚
 
-| ²½Öè | ÃèÊö |
+| æ­¥éª¤ | æè¿° |
 | --- | --- |
-| 1 | ´´½¨Ò»¸öÃû³ÆÎª SpringExample µÄÏîÄ¿£¬²¢ÇÒÔÚ´´½¨ÏîÄ¿µÄ **src** ÎÄ¼ş¼ĞÖĞ´´½¨Ò»¸ö°ü com.tutorialspoint¡£ |
-| 2 | Ê¹ÓÃ Add External JARs Ñ¡Ïî£¬Ìí¼ÓËùĞèµÄ Spring ¿â£¬½âÊÍ¼û Spring Hello World Example ÕÂ½Ú¡£ |
-| 3 | Í¨¹ıÀ©Õ¹ **ApplicationEvent**,´´½¨Ò»¸öÊÂ¼şÀà CustomEvent¡£Õâ¸öÀà±ØĞë¶¨ÒåÒ»¸öÄ¬ÈÏµÄ¹¹Ôìº¯Êı£¬ËüÓ¦¸Ã´Ó ApplicationEvent ÀàÖĞ¼Ì³ĞµÄ¹¹Ôìº¯Êı¡£ |
-| 4 | Ò»µ©¶¨ÒåÊÂ¼şÀà£¬Äã¿ÉÒÔ´ÓÈÎºÎÀàÖĞ·¢²¼Ëü£¬¼Ù¶¨ EventClassPublisher ÊµÏÖÁË ApplicationEventPublisherAware¡£Äã»¹ĞèÒªÔÚ XML ÅäÖÃÎÄ¼şÖĞÉùÃ÷Õâ¸öÀà×÷ÎªÒ»¸ö bean£¬Ö®ËùÒÔÈİÆ÷¿ÉÒÔÊ¶±ğ bean ×÷ÎªÊÂ¼ş·¢²¼Õß£¬ÊÇÒòÎªËüÊµÏÖÁË ApplicationEventPublisherAware ½Ó¿Ú¡£ |
-| 5 | ·¢²¼µÄÊÂ¼ş¿ÉÒÔÔÚÒ»¸öÀàÖĞ±»´¦Àí£¬¼Ù¶¨ EventClassHandler ÊµÏÖÁË ApplicationListener ½Ó¿Ú£¬¶øÇÒÊµÏÖÁË×Ô¶¨ÒåÊÂ¼şµÄ onApplicationEvent ·½·¨¡£ |
-| 6 | ÔÚ **src** ÎÄ¼ş¼ĞÖĞ´´½¨ bean µÄÅäÖÃÎÄ¼ş Beans.xml ºÍ MainApp Àà£¬Ëü¿ÉÒÔ×÷ÎªÒ»¸ö Spring Ó¦ÓÃ³ÌĞòÀ´ÔËĞĞ¡£ |
-| 7 | ×îºóÒ»²½ÊÇ´´½¨µÄËùÓĞ Java ÎÄ¼şºÍ Bean ÅäÖÃÎÄ¼şµÄÄÚÈİ£¬²¢ÔËĞĞÓ¦ÓÃ³ÌĞò£¬½âÊÍÈçÏÂËùÊ¾¡£ |
+| 1 | åˆ›å»ºä¸€ä¸ªåç§°ä¸º SpringExample çš„é¡¹ç›®ï¼Œå¹¶ä¸”åœ¨åˆ›å»ºé¡¹ç›®çš„ **src** æ–‡ä»¶å¤¹ä¸­åˆ›å»ºä¸€ä¸ªåŒ… com.tutorialspointã€‚ |
+| 2 | ä½¿ç”¨ Add External JARs é€‰é¡¹ï¼Œæ·»åŠ æ‰€éœ€çš„ Spring åº“ï¼Œè§£é‡Šè§ Spring Hello World Example ç« èŠ‚ã€‚ |
+| 3 | é€šè¿‡æ‰©å±• **ApplicationEvent**,åˆ›å»ºä¸€ä¸ªäº‹ä»¶ç±» CustomEventã€‚è¿™ä¸ªç±»å¿…é¡»å®šä¹‰ä¸€ä¸ªé»˜è®¤çš„æ„é€ å‡½æ•°ï¼Œå®ƒåº”è¯¥ä» ApplicationEvent ç±»ä¸­ç»§æ‰¿çš„æ„é€ å‡½æ•°ã€‚ |
+| 4 | ä¸€æ—¦å®šä¹‰äº‹ä»¶ç±»ï¼Œä½ å¯ä»¥ä»ä»»ä½•ç±»ä¸­å‘å¸ƒå®ƒï¼Œå‡å®š EventClassPublisher å®ç°äº† ApplicationEventPublisherAwareã€‚ä½ è¿˜éœ€è¦åœ¨ XML é…ç½®æ–‡ä»¶ä¸­å£°æ˜è¿™ä¸ªç±»ä½œä¸ºä¸€ä¸ª beanï¼Œä¹‹æ‰€ä»¥å®¹å™¨å¯ä»¥è¯†åˆ« bean ä½œä¸ºäº‹ä»¶å‘å¸ƒè€…ï¼Œæ˜¯å› ä¸ºå®ƒå®ç°äº† ApplicationEventPublisherAware æ¥å£ã€‚ |
+| 5 | å‘å¸ƒçš„äº‹ä»¶å¯ä»¥åœ¨ä¸€ä¸ªç±»ä¸­è¢«å¤„ç†ï¼Œå‡å®š EventClassHandler å®ç°äº† ApplicationListener æ¥å£ï¼Œè€Œä¸”å®ç°äº†è‡ªå®šä¹‰äº‹ä»¶çš„ onApplicationEvent æ–¹æ³•ã€‚ |
+| 6 | åœ¨ **src** æ–‡ä»¶å¤¹ä¸­åˆ›å»º bean çš„é…ç½®æ–‡ä»¶ Beans.xml å’Œ MainApp ç±»ï¼Œå®ƒå¯ä»¥ä½œä¸ºä¸€ä¸ª Spring åº”ç”¨ç¨‹åºæ¥è¿è¡Œã€‚ |
+| 7 | æœ€åä¸€æ­¥æ˜¯åˆ›å»ºçš„æ‰€æœ‰ Java æ–‡ä»¶å’Œ Bean é…ç½®æ–‡ä»¶çš„å†…å®¹ï¼Œå¹¶è¿è¡Œåº”ç”¨ç¨‹åºï¼Œè§£é‡Šå¦‚ä¸‹æ‰€ç¤ºã€‚ |
 
-Õâ¸öÊÇ **CustomEvent.java** ÎÄ¼şµÄÄÚÈİ£º
+è¿™ä¸ªæ˜¯ **CustomEvent.java** æ–‡ä»¶çš„å†…å®¹ï¼š
 
 ```
 package com.tutorialspoint;
@@ -184,7 +184,7 @@ public class CustomEvent extends ApplicationEvent{
 
 ```
 
-ÏÂÃæÊÇ **CustomEventPublisher.java** ÎÄ¼şµÄÄÚÈİ£º
+ä¸‹é¢æ˜¯ **CustomEventPublisher.java** æ–‡ä»¶çš„å†…å®¹ï¼š
 
 ```
 package com.tutorialspoint;
@@ -204,7 +204,7 @@ public class CustomEventPublisher
 }
 ```
 
-ÏÂÃæÊÇ **CustomEventHandler.java** ÎÄ¼şµÄÄÚÈİ£º
+ä¸‹é¢æ˜¯ **CustomEventHandler.java** æ–‡ä»¶çš„å†…å®¹ï¼š
 
 ```
 package com.tutorialspoint;
@@ -217,7 +217,7 @@ public class CustomEventHandler
 }
 ```
 
-ÏÂÃæÊÇ **MainApp.java** ÎÄ¼şµÄÄÚÈİ£º
+ä¸‹é¢æ˜¯ **MainApp.java** æ–‡ä»¶çš„å†…å®¹ï¼š
 
 ```
 package com.tutorialspoint;
@@ -235,7 +235,7 @@ public class MainApp {
 }
 ```
 
-ÏÂÃæÊÇÅäÖÃÎÄ¼ş **Beans.xml**£º
+ä¸‹é¢æ˜¯é…ç½®æ–‡ä»¶ **Beans.xml**ï¼š
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -254,14 +254,14 @@ public class MainApp {
 </beans>
 ```
 
-Ò»µ©ÄãÍê³ÉÁË´´½¨Ô´ºÍ bean µÄÅäÖÃÎÄ¼şºó£¬ÎÒÃÇ¾Í¿ÉÒÔÔËĞĞ¸ÃÓ¦ÓÃ³ÌĞò¡£Èç¹ûÄãµÄÓ¦ÓÃ³ÌĞòÒ»ÇĞ¶¼Õı³££¬½«Êä³öÒÔÏÂĞÅÏ¢£º
+ä¸€æ—¦ä½ å®Œæˆäº†åˆ›å»ºæºå’Œ bean çš„é…ç½®æ–‡ä»¶åï¼Œæˆ‘ä»¬å°±å¯ä»¥è¿è¡Œè¯¥åº”ç”¨ç¨‹åºã€‚å¦‚æœä½ çš„åº”ç”¨ç¨‹åºä¸€åˆ‡éƒ½æ­£å¸¸ï¼Œå°†è¾“å‡ºä»¥ä¸‹ä¿¡æ¯ï¼š
 
 ```
 My Custom Event
 My Custom Event
 ```
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://www.w3cschool.cn/wkspring
 https://www.runoob.com/w3cnote/basic-knowledge-summary-of-spring.html
 http://codepub.cn/2015/06/21/Basic-knowledge-summary-of-Spring

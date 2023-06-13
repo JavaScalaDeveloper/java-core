@@ -1,18 +1,18 @@
 
 
-[ÉÏÒ»ÆªÎÄÕÂ](https://my.oschina.net/funcy/blog/4696654 "ÉÏÒ»ÆªÎÄÕÂ")½éÉÜÁË spring µÄ jdK ¶¯Ì¬´úÀí£¬±¾ÎÄÀ´½éÉÜ spring µÄ cglib ´úÀí¡£
+[ä¸Šä¸€ç¯‡æ–‡ç« ](https://my.oschina.net/funcy/blog/4696654 "ä¸Šä¸€ç¯‡æ–‡ç« ")ä»‹ç»äº† spring çš„ jdK åŠ¨æ€ä»£ç†ï¼Œæœ¬æ–‡æ¥ä»‹ç» spring çš„ cglib ä»£ç†ã€‚
 
-### 1\. cglib ´úÀí¼ò½é
+### 1\. cglib ä»£ç†ç®€ä»‹
 
-jdk ËäÈ»Ìá¹©ÁË¶¯Ì¬´úÀí£¬µ«ÊÇ¶¯Ì¬´úÀíÓĞÒ»¸ö²»×ã£º**Èç¹ûÀàÃ»ÓĞÊµÏÖ½Ó¿Ú£¬¾ÍÎŞ·¨ jdk ¶¯Ì¬´úÀí**¡£ÎªÁË½â¾öÕâ¸ö²»×ã£¬spring ÓÖÒıÈëÁË cglib ´úÀí¡£
+jdk è™½ç„¶æä¾›äº†åŠ¨æ€ä»£ç†ï¼Œä½†æ˜¯åŠ¨æ€ä»£ç†æœ‰ä¸€ä¸ªä¸è¶³ï¼š**å¦‚æœç±»æ²¡æœ‰å®ç°æ¥å£ï¼Œå°±æ— æ³• jdk åŠ¨æ€ä»£ç†**ã€‚ä¸ºäº†è§£å†³è¿™ä¸ªä¸è¶³ï¼Œspring åˆå¼•å…¥äº† cglib ä»£ç†ã€‚
 
-cglib µ×²ãÊÇ»ùÓÚ asm µÄ£¬Ò²¾ÍÊÇÖ±½Ó²Ù×÷×Ö½ÚÂë£¬Ïàµ±ÓÚ¶Ô asm ½øĞĞÁËÒ»²ã·â×°¡£Ö±½Ó²Ù×÷×ÖÂë£¬ĞèÒª¶Ô java Ö¸Áî¡¢×Ö½ÚÂëÎÄ¼şÓĞÉîÈëÀí½â²ÅÄÜ½øĞĞ£¬µ«×Ö½ÚÂë»ŞÉ¬ÄÑ¶®£¬Ò»°ã²»½¨ÒéÖ±½Ó²Ù×÷¡£¾­ cglib ·â×°ºó£¬×Ö½ÚÂëµÄ²Ù×÷¾Í±äµÃ¼òµ¥¶àÁË£¬Òò´Ë**¾ø´ó¶àÊıÇé¿öÏÂ¶¼½¨ÒéÊ¹ÓÃ cglib ·â×°ºÃµÄ·½·¨À´½øĞĞ×Ö½ÚÂë²Ù×÷**¡£
+cglib åº•å±‚æ˜¯åŸºäº asm çš„ï¼Œä¹Ÿå°±æ˜¯ç›´æ¥æ“ä½œå­—èŠ‚ç ï¼Œç›¸å½“äºå¯¹ asm è¿›è¡Œäº†ä¸€å±‚å°è£…ã€‚ç›´æ¥æ“ä½œå­—ç ï¼Œéœ€è¦å¯¹ java æŒ‡ä»¤ã€å­—èŠ‚ç æ–‡ä»¶æœ‰æ·±å…¥ç†è§£æ‰èƒ½è¿›è¡Œï¼Œä½†å­—èŠ‚ç æ™¦æ¶©éš¾æ‡‚ï¼Œä¸€èˆ¬ä¸å»ºè®®ç›´æ¥æ“ä½œã€‚ç» cglib å°è£…åï¼Œå­—èŠ‚ç çš„æ“ä½œå°±å˜å¾—ç®€å•å¤šäº†ï¼Œå› æ­¤**ç»å¤§å¤šæ•°æƒ…å†µä¸‹éƒ½å»ºè®®ä½¿ç”¨ cglib å°è£…å¥½çš„æ–¹æ³•æ¥è¿›è¡Œå­—èŠ‚ç æ“ä½œ**ã€‚
 
-spring cglib ²Ù×÷Î»ÓÚ `spring-core` Ä£¿é£º
+spring cglib æ“ä½œä½äº `spring-core` æ¨¡å—ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-6b64440344221ca08ed8c822b5b22c1d341.png)
 
-ÔÙÀ´¿´¿´ asm Óë cglib °üËµÃ÷£º
+å†æ¥çœ‹çœ‹ asm ä¸ cglib åŒ…è¯´æ˜ï¼š
 
 ```
 /**
@@ -31,7 +31,7 @@ spring cglib ²Ù×÷Î»ÓÚ `spring-core` Ä£¿é£º
 
 ```
 
-×¢ÒâµÚÒ»¾ä£º`Spring's repackaging of ASM 7.0`£¬±íÃ÷ÕâÊÇ spring ¶Ô `asm7.0` ÖØĞÂ´ò°ü.
+æ³¨æ„ç¬¬ä¸€å¥ï¼š`Spring's repackaging of ASM 7.0`ï¼Œè¡¨æ˜è¿™æ˜¯ spring å¯¹ `asm7.0` é‡æ–°æ‰“åŒ….
 
 ```
 /**
@@ -50,15 +50,15 @@ package org.springframework.cglib;
 
 ```
 
-×¢ÒâµÚÒ»¾ä£º`Spring's repackaging of CGLIB 3.3`£¬±íÃ÷ÕâÊÇ spring ¶Ô `CGLIB 3.3` ÖØĞÂ´ò°ü.
+æ³¨æ„ç¬¬ä¸€å¥ï¼š`Spring's repackaging of CGLIB 3.3`ï¼Œè¡¨æ˜è¿™æ˜¯ spring å¯¹ `CGLIB 3.3` é‡æ–°æ‰“åŒ….
 
-ºÎÎ½ÖØĞÂ´ò°üÄØ£¿¸öÈËÀí½â£¬¾ÍÊÇ½« `asm7.0` Óë `CGLIB 3.3` µÄÔ´Âë¸Ä¸ö°üÃû£¬¸´ÖÆµ½ spring ÏîÄ¿ÏÂ¡£Òò´Ë spring ²¢Ã»ÓĞÔÚ `gradle` ÎÄ¼şÖĞÒıÈë `asm` Óë `cglib` µÄÏàµ± jar °ü£¬¶øÊÇÔÚÏîÄ¿ÖĞÖ±½ÓÒıÈëÁËÕâÁ½¸öÏîÄ¿µÄÔ´Âë£¡
+ä½•è°“é‡æ–°æ‰“åŒ…å‘¢ï¼Ÿä¸ªäººç†è§£ï¼Œå°±æ˜¯å°† `asm7.0` ä¸ `CGLIB 3.3` çš„æºç æ”¹ä¸ªåŒ…åï¼Œå¤åˆ¶åˆ° spring é¡¹ç›®ä¸‹ã€‚å› æ­¤ spring å¹¶æ²¡æœ‰åœ¨ `gradle` æ–‡ä»¶ä¸­å¼•å…¥ `asm` ä¸ `cglib` çš„ç›¸å½“ jar åŒ…ï¼Œè€Œæ˜¯åœ¨é¡¹ç›®ä¸­ç›´æ¥å¼•å…¥äº†è¿™ä¸¤ä¸ªé¡¹ç›®çš„æºç ï¼
 
-### 2\. cglib ´úÀíÊ¾Àı
+### 2\. cglib ä»£ç†ç¤ºä¾‹
 
-ÔÚÕıÊ½¿ªÊ¼Ö®Ç°£¬ÎÒÃÇÏÈÀ´¿´ ¿´ cglib ´úÀíÊÇÈçºÎ½øĞĞµÄ¡£
+åœ¨æ­£å¼å¼€å§‹ä¹‹å‰ï¼Œæˆ‘ä»¬å…ˆæ¥çœ‹ çœ‹ cglib ä»£ç†æ˜¯å¦‚ä½•è¿›è¡Œçš„ã€‚
 
-Ê×ÏÈ×¼±¸Ò»¸öÀà£º
+é¦–å…ˆå‡†å¤‡ä¸€ä¸ªç±»ï¼š
 
 ```
 package org.springframework.learn.demo04;
@@ -71,7 +71,7 @@ public class CglibProxyService {
 
 ```
 
-ÔÙ×¼±¸Ò»¸ö `MethodInterceptor`£¨Àà±È jdk ¶¯Ì¬´úÀíÖĞµÄ `InvocationHandler`£©£º
+å†å‡†å¤‡ä¸€ä¸ª `MethodInterceptor`ï¼ˆç±»æ¯” jdk åŠ¨æ€ä»£ç†ä¸­çš„ `InvocationHandler`ï¼‰ï¼š
 
 ```
 package org.springframework.learn.demo04;
@@ -83,7 +83,7 @@ import java.lang.reflect.Method;
 
 public class MyMethodInterceptor implements MethodInterceptor {
 
-    /** Ä¿±ê¶ÔÏó */
+    /** ç›®æ ‡å¯¹è±¡ */
     private Object target;
 
     public MyMethodInterceptor(Object target){
@@ -93,14 +93,14 @@ public class MyMethodInterceptor implements MethodInterceptor {
     @Override
     public Object intercept(Object proxyObj, Method method, Object[] objects, 
                 MethodProxy proxy) throws Throwable {
-        System.out.println("Ö´ĞĞ·½·¨Îª:" + method.getName());
+        System.out.println("æ‰§è¡Œæ–¹æ³•ä¸º:" + method.getName());
         return proxy.invoke(target, objects);
     }
 }
 
 ```
 
-×îºóÊÇÖ÷Àà£º
+æœ€åæ˜¯ä¸»ç±»ï¼š
 
 ```
 package org.springframework.learn.demo04;
@@ -108,10 +108,10 @@ package org.springframework.learn.demo04;
 import org.springframework.cglib.proxy.Enhancer;
 
 /**
- * £ûÕâÀïÌí¼ÓÃèÊö£ı
+ * ï½›è¿™é‡Œæ·»åŠ æè¿°ï½
  *
  * @author fangchengyan
- * @date 2020-11-01 9:23 ÏÂÎç
+ * @date 2020-11-01 9:23 ä¸‹åˆ
  */
 public class Demo04Main {
 
@@ -120,11 +120,11 @@ public class Demo04Main {
         MyMethodInterceptor interceptor = new MyMethodInterceptor(target);
 
         Enhancer enhancer = new Enhancer();
-        // ÉèÖÃ¸¸Àà
+        // è®¾ç½®çˆ¶ç±»
         enhancer.setSuperclass(CglibProxyService.class);
-        // ÉèÖÃcallback£¬Õâ¸öcallback¾ÍÊÇÉÏÃæÌá¹©µÄ MyMethodInterceptor
+        // è®¾ç½®callbackï¼Œè¿™ä¸ªcallbackå°±æ˜¯ä¸Šé¢æä¾›çš„ MyMethodInterceptor
         enhancer.setCallback(interceptor);
-        // Ê¹ÓÃ enhancer ´´½¨´úÀí¶ÔÏó
+        // ä½¿ç”¨ enhancer åˆ›å»ºä»£ç†å¯¹è±¡
         CglibProxyService proxy = (CglibProxyService)enhancer.create();
         proxy.hello01();
     }
@@ -132,29 +132,29 @@ public class Demo04Main {
 
 ```
 
-ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+è¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
-Ö´ĞĞ·½·¨Îª:hello01
+æ‰§è¡Œæ–¹æ³•ä¸º:hello01
 hello01
 
 ```
 
-¿ÉÒÔ¿´µ½£¬×îÖÕÊÇÔÚ `MyMethodInterceptor#intercept` Ö´ĞĞÄ¿±ê¶ÔÏóµÄ·½·¨¡£
+å¯ä»¥çœ‹åˆ°ï¼Œæœ€ç»ˆæ˜¯åœ¨ `MyMethodInterceptor#intercept` æ‰§è¡Œç›®æ ‡å¯¹è±¡çš„æ–¹æ³•ã€‚
 
-Í¬ jdk ¶¯Ì¬´úÀí±È½Ïºó£¬·¢ÏÖÁ½Õß´úÂë¸ß¶ÈÏàËÆ£º
+åŒ jdk åŠ¨æ€ä»£ç†æ¯”è¾ƒåï¼Œå‘ç°ä¸¤è€…ä»£ç é«˜åº¦ç›¸ä¼¼ï¼š
 
-*   `InvocationHandler` Óë `InvocationHandler`£ºÁ½Õß´úÂëĞÎÊ½¼¸ºõÒ»ÖÂ ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-6f3e8213e743554a7a8ffc587b98b1d7d3a.png)
+*   `InvocationHandler` ä¸ `InvocationHandler`ï¼šä¸¤è€…ä»£ç å½¢å¼å‡ ä¹ä¸€è‡´ ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-6f3e8213e743554a7a8ffc587b98b1d7d3a.png)
 
-*   ´úÀí¶ÔÏóµÄ´´½¨£ºÒ»¸öÊÇÊ¹ÓÃ `Enhangcer` ½øĞĞ´úÀí¶ÔÏó´´½¨£¬Ò»¸öÊÇÊ¹ÓÃ·â×°ºÃµÄ·½·¨½øĞĞ¶ÔÏó´´½¨¡£ ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8ee847f9cbb7ec7fa6c35b2ad5a5537ef3a.png)
+*   ä»£ç†å¯¹è±¡çš„åˆ›å»ºï¼šä¸€ä¸ªæ˜¯ä½¿ç”¨ `Enhangcer` è¿›è¡Œä»£ç†å¯¹è±¡åˆ›å»ºï¼Œä¸€ä¸ªæ˜¯ä½¿ç”¨å°è£…å¥½çš„æ–¹æ³•è¿›è¡Œå¯¹è±¡åˆ›å»ºã€‚ ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8ee847f9cbb7ec7fa6c35b2ad5a5537ef3a.png)
 
-´Ó´úÀí¶ÔÏó´´½¨À´¿´£¬¿ÉÒÔ¿´³ö `cglib` Éú³É¶ÔÏóÊ±£¬ÅäÖÃµÄ²ÎÊı½Ï¶à£¬¹¦ÄÜ½Ï·á¸»¡£
+ä»ä»£ç†å¯¹è±¡åˆ›å»ºæ¥çœ‹ï¼Œå¯ä»¥çœ‹å‡º `cglib` ç”Ÿæˆå¯¹è±¡æ—¶ï¼Œé…ç½®çš„å‚æ•°è¾ƒå¤šï¼ŒåŠŸèƒ½è¾ƒä¸°å¯Œã€‚
 
-¹ØÓÚ `Enhangcer` ÊÇÈçºÎ´´½¨´úÀí¶ÔÏó£¬ÒÔ¼° `org.springframework.asm` Óë `org.springframework.cglib` ÕâÁ½¸ö°üÏÂµÄ´úÂë£¬ÕâĞ©ÊôÓÚ cglib µÄÄÚÈİ£¬¾Í²»¹ı¶à·ÖÎöÁË¡£
+å…³äº `Enhangcer` æ˜¯å¦‚ä½•åˆ›å»ºä»£ç†å¯¹è±¡ï¼Œä»¥åŠ `org.springframework.asm` ä¸ `org.springframework.cglib` è¿™ä¸¤ä¸ªåŒ…ä¸‹çš„ä»£ç ï¼Œè¿™äº›å±äº cglib çš„å†…å®¹ï¼Œå°±ä¸è¿‡å¤šåˆ†æäº†ã€‚
 
-### 3\. spring ÖĞ `cglib` ´´½¨´úÀí¶ÔÏó
+### 3\. spring ä¸­ `cglib` åˆ›å»ºä»£ç†å¯¹è±¡
 
-ÎÒÃÇÔÙÀ´¿´¿´ spring ÊÇÈçºÎ´´½¨´úÀí¶ÔÏóµÄ£º
+æˆ‘ä»¬å†æ¥çœ‹çœ‹ spring æ˜¯å¦‚ä½•åˆ›å»ºä»£ç†å¯¹è±¡çš„ï¼š
 
 > CglibAopProxy#getProxy(java.lang.ClassLoader)
 
@@ -173,11 +173,11 @@ public Object getProxy(@Nullable ClassLoader classLoader) {
             }
         }
 
-        // ¶ÔÄ¿±êÀà½øĞĞ¼ì²é£¬Ö÷Òª¼ì²éµãÓĞÈı¸ö£º
-        // 1\. Ä¿±ê·½·¨²»ÄÜÊ¹ÓÃfinalĞŞÊÎ£»
-        // 2\. Ä¿±ê·½·¨²»ÄÜÊÇprivateÀàĞÍµÄ£»
-        // 3\. Ä¿±ê·½·¨²»ÄÜÊÇ°ü·ÃÎÊÈ¨ÏŞµÄ£»
-        // ÕâÈı¸öµãÂú×ãÈÎºÎÒ»¸ö£¬µ±Ç°·½·¨¾Í²»ÄÜ±»´úÀí£¬´ËÊ±¸Ã·½·¨¾Í»á±»ÂÔ¹ı
+        // å¯¹ç›®æ ‡ç±»è¿›è¡Œæ£€æŸ¥ï¼Œä¸»è¦æ£€æŸ¥ç‚¹æœ‰ä¸‰ä¸ªï¼š
+        // 1\. ç›®æ ‡æ–¹æ³•ä¸èƒ½ä½¿ç”¨finalä¿®é¥°ï¼›
+        // 2\. ç›®æ ‡æ–¹æ³•ä¸èƒ½æ˜¯privateç±»å‹çš„ï¼›
+        // 3\. ç›®æ ‡æ–¹æ³•ä¸èƒ½æ˜¯åŒ…è®¿é—®æƒé™çš„ï¼›
+        // è¿™ä¸‰ä¸ªç‚¹æ»¡è¶³ä»»ä½•ä¸€ä¸ªï¼Œå½“å‰æ–¹æ³•å°±ä¸èƒ½è¢«ä»£ç†ï¼Œæ­¤æ—¶è¯¥æ–¹æ³•å°±ä¼šè¢«ç•¥è¿‡
         validateClassIfNecessary(proxySuperClass, classLoader);
 
         Enhancer enhancer = createEnhancer();
@@ -188,32 +188,32 @@ public Object getProxy(@Nullable ClassLoader classLoader) {
                 enhancer.setUseCache(false);
             }
         }
-        // Superclass¾ÍÊÇÒª´úÀíµÄÀà
+        // Superclasså°±æ˜¯è¦ä»£ç†çš„ç±»
         enhancer.setSuperclass(proxySuperClass);
-        // ÕâÀïAopProxyUtils.completeProxiedInterfaces()·½·¨µÄÖ÷ÒªÄ¿µÄÊÇÎªÒªÉú³ÉµÄ´úÀíÀà
-        // Ôö¼ÓSpringProxy£¬Advised£¬DecoratingProxyÈı¸öĞèÒªÊµÏÖµÄ½Ó¿Ú¡£ÕâÀïÈı¸ö½Ó¿ÚµÄ×÷ÓÃÈçÏÂ£º
-        // 1\. SpringProxy£ºÊÇÒ»¸ö¿Õ½Ó¿Ú£¬ÓÃÓÚ±ê¼Çµ±Ç°Éú³ÉµÄ´úÀíÀàÊÇSpringÉú³ÉµÄ´úÀíÀà£»
-        // 2\. Advised£ºSpringÉú³É´úÀíÀàËùÊ¹ÓÃµÄÊôĞÔ¶¼±£´æÔÚ¸Ã½Ó¿ÚÖĞ£¬
-        //    °üÀ¨Advisor£¬AdviceºÍÆäËûÏà¹ØÊôĞÔ£»
-        // 3\. DecoratingProxy£º¸Ã½Ó¿ÚÓÃÓÚ»ñÈ¡µ±Ç°´úÀí¶ÔÏóËù´úÀíµÄÄ¿±ê¶ÔÏóµÄClassÀàĞÍ¡£
+        // è¿™é‡ŒAopProxyUtils.completeProxiedInterfaces()æ–¹æ³•çš„ä¸»è¦ç›®çš„æ˜¯ä¸ºè¦ç”Ÿæˆçš„ä»£ç†ç±»
+        // å¢åŠ SpringProxyï¼ŒAdvisedï¼ŒDecoratingProxyä¸‰ä¸ªéœ€è¦å®ç°çš„æ¥å£ã€‚è¿™é‡Œä¸‰ä¸ªæ¥å£çš„ä½œç”¨å¦‚ä¸‹ï¼š
+        // 1\. SpringProxyï¼šæ˜¯ä¸€ä¸ªç©ºæ¥å£ï¼Œç”¨äºæ ‡è®°å½“å‰ç”Ÿæˆçš„ä»£ç†ç±»æ˜¯Springç”Ÿæˆçš„ä»£ç†ç±»ï¼›
+        // 2\. Advisedï¼šSpringç”Ÿæˆä»£ç†ç±»æ‰€ä½¿ç”¨çš„å±æ€§éƒ½ä¿å­˜åœ¨è¯¥æ¥å£ä¸­ï¼Œ
+        //    åŒ…æ‹¬Advisorï¼ŒAdviceå’Œå…¶ä»–ç›¸å…³å±æ€§ï¼›
+        // 3\. DecoratingProxyï¼šè¯¥æ¥å£ç”¨äºè·å–å½“å‰ä»£ç†å¯¹è±¡æ‰€ä»£ç†çš„ç›®æ ‡å¯¹è±¡çš„Classç±»å‹ã€‚
         enhancer.setInterfaces(AopProxyUtils.completeProxiedInterfaces(this.advised));
         enhancer.setNamingPolicy(SpringNamingPolicy.INSTANCE);
         enhancer.setStrategy(new ClassLoaderAwareGeneratorStrategy(classLoader));
 
-        // Ìí¼Ócallback
+        // æ·»åŠ callback
         Callback[] callbacks = getCallbacks(rootClass);
         Class<?>[] types = new Class<?>[callbacks.length];
         for (int x = 0; x < types.length; x++) {
             types[x] = callbacks[x].getClass();
         }
-        // ÉèÖÃ´úÀíÀàÖĞ¸÷¸ö·½·¨½«ÒªÊ¹ÓÃµÄÇĞÃæÂß¼­£¬ÕâÀïProxyCallbackFilter.accept()·½·¨·µ»Ø
-        // µÄÕûĞÍÖµÕıºÃÒ»Ò»¶ÔÓ¦ÉÏÃæCallbackÊı×éÖĞ¸÷¸öÇĞÃæÂß¼­µÄÏÂ±ê£¬Ò²¾ÍÊÇËµÕâÀïµÄCallbackFilter
-        // µÄ×÷ÓÃÕıºÃÖ¸¶¨ÁË´úÀíÀàÖĞ¸÷¸ö·½·¨½«ÒªÊ¹ÓÃCallbackÊı×éÖĞµÄÄÄ¸ö»òÄÄ¼¸¸öÇĞÃæÂß¼­
+        // è®¾ç½®ä»£ç†ç±»ä¸­å„ä¸ªæ–¹æ³•å°†è¦ä½¿ç”¨çš„åˆ‡é¢é€»è¾‘ï¼Œè¿™é‡ŒProxyCallbackFilter.accept()æ–¹æ³•è¿”å›
+        // çš„æ•´å‹å€¼æ­£å¥½ä¸€ä¸€å¯¹åº”ä¸Šé¢Callbackæ•°ç»„ä¸­å„ä¸ªåˆ‡é¢é€»è¾‘çš„ä¸‹æ ‡ï¼Œä¹Ÿå°±æ˜¯è¯´è¿™é‡Œçš„CallbackFilter
+        // çš„ä½œç”¨æ­£å¥½æŒ‡å®šäº†ä»£ç†ç±»ä¸­å„ä¸ªæ–¹æ³•å°†è¦ä½¿ç”¨Callbackæ•°ç»„ä¸­çš„å“ªä¸ªæˆ–å“ªå‡ ä¸ªåˆ‡é¢é€»è¾‘
         enhancer.setCallbackFilter(new ProxyCallbackFilter( this.advised.getConfigurationOnlyCopy(),
                 this.fixedInterceptorMap, this.fixedInterceptorOffset));
         enhancer.setCallbackTypes(types);
 
-        // Éú³É´úÀí¶ÔÏó
+        // ç”Ÿæˆä»£ç†å¯¹è±¡
         return createProxyClassAndInstance(enhancer, callbacks);
     }
     catch (...) {
@@ -223,17 +223,17 @@ public Object getProxy(@Nullable ClassLoader classLoader) {
 
 ```
 
-ÒÔÉÏ´úÂëºËĞÄÊÇÉèÖÃ `Enhancer` µÄÊôĞÔ£¬Èç `classLoader`¡¢`superclass`¡¢`callbackFilter` µÈ£¬×îºóµ÷ÓÃ `createProxyClassAndInstance(xxx)` ´´½¨´úÀí¶ÔÏó£º
+ä»¥ä¸Šä»£ç æ ¸å¿ƒæ˜¯è®¾ç½® `Enhancer` çš„å±æ€§ï¼Œå¦‚ `classLoader`ã€`superclass`ã€`callbackFilter` ç­‰ï¼Œæœ€åè°ƒç”¨ `createProxyClassAndInstance(xxx)` åˆ›å»ºä»£ç†å¯¹è±¡ï¼š
 
 > ObjenesisCglibAopProxy#createProxyClassAndInstance
 
 ```
 protected Object createProxyClassAndInstance(Enhancer enhancer, Callback[] callbacks) {
-    // ´´½¨´úÀíÀà
+    // åˆ›å»ºä»£ç†ç±»
     Class<?> proxyClass = enhancer.createClass();
     Object proxyInstance = null;
 
-    // ¸ù¾İ´úÀíÀà£¬Ê¹ÓÃ·´ÉäÉú³É¶ÔÏó
+    // æ ¹æ®ä»£ç†ç±»ï¼Œä½¿ç”¨åå°„ç”Ÿæˆå¯¹è±¡
     if (objenesis.isWorthTrying()) {
         try {
             proxyInstance = objenesis.newInstance(proxyClass, enhancer.getUseCache());
@@ -256,15 +256,15 @@ protected Object createProxyClassAndInstance(Enhancer enhancer, Callback[] callb
             throw new AopConfigException(...);
         }
     }
-    // ÉèÖÃcallbackÊôĞÔ
-    // µ±ÉèÖÃÁË¶à¸ö callback Ê±£¬»áÍ¨¹ı CallbackFilter À´È·¶¨×îÖÕÊ¹ÓÃÄÄ¸ö callback
+    // è®¾ç½®callbackå±æ€§
+    // å½“è®¾ç½®äº†å¤šä¸ª callback æ—¶ï¼Œä¼šé€šè¿‡ CallbackFilter æ¥ç¡®å®šæœ€ç»ˆä½¿ç”¨å“ªä¸ª callback
     ((Factory) proxyInstance).setCallbacks(callbacks);
     return proxyInstance;
 }
 
 ```
 
-Í¨¹ıÔÚµÚ¶ş²¿·ÖµÄ `demo04` ¿ÉÒÔÖªµÀ£¬cglib ·½·¨µÄÖ´ĞĞ£¬»á¾­¹ı `MethodInterceptor#intercept` ·½·¨µ÷ÓÃµÄ£¬Ò²¾ÍÊÇ `Enhancer` µÄ `callback` ÊôĞÔ£¬Òò´Ë½ÓÏÂÀ´ÎÒÃÇÀ´¿´¿´ `callback` µÄ»ñÈ¡£¬Ïà¹Ø´úÂëÎ»ÓÚ `CglibAopProxy#getCallbacks`£º
+é€šè¿‡åœ¨ç¬¬äºŒéƒ¨åˆ†çš„ `demo04` å¯ä»¥çŸ¥é“ï¼Œcglib æ–¹æ³•çš„æ‰§è¡Œï¼Œä¼šç»è¿‡ `MethodInterceptor#intercept` æ–¹æ³•è°ƒç”¨çš„ï¼Œä¹Ÿå°±æ˜¯ `Enhancer` çš„ `callback` å±æ€§ï¼Œå› æ­¤æ¥ä¸‹æ¥æˆ‘ä»¬æ¥çœ‹çœ‹ `callback` çš„è·å–ï¼Œç›¸å…³ä»£ç ä½äº `CglibAopProxy#getCallbacks`ï¼š
 
 > CglibAopProxy#getCallbacks
 
@@ -274,51 +274,51 @@ private Callback[] getCallbacks(Class<?> rootClass) throws Exception {
     boolean isFrozen = this.advised.isFrozen();
     boolean isStatic = this.advised.getTargetSource().isStatic();
 
-    // ÓÃ»§×Ô¶¨ÒåµÄ´úÀíÂß¼­µÄcallback£¬¼´¿ª·¢ÖĞ£¬¶¨ÒåµÄ @Before¡¢@Around¡¢@AfterµÈÇĞÃæ·½·¨£¬
-    // ½«ÔÚDynamicAdvisedInterceptor½øĞĞµ÷ÓÃ
+    // ç”¨æˆ·è‡ªå®šä¹‰çš„ä»£ç†é€»è¾‘çš„callbackï¼Œå³å¼€å‘ä¸­ï¼Œå®šä¹‰çš„ @Beforeã€@Aroundã€@Afterç­‰åˆ‡é¢æ–¹æ³•ï¼Œ
+    // å°†åœ¨DynamicAdvisedInterceptorè¿›è¡Œè°ƒç”¨
     Callback aopInterceptor = new DynamicAdvisedInterceptor(this.advised);
 
     Callback targetInterceptor;
-    // ÅĞ¶ÏÈç¹ûÒª±©Â¶´úÀí¶ÔÏó£¬Èç¹ûÊÇ£¬ÔòÊ¹ÓÃAopContextÉèÖÃ½«´úÀí¶ÔÏóÉèÖÃµ½ThreadLocalÖĞ
-    // ÓÃ»§Ôò¿ÉÒÔÍ¨¹ıAopContext»ñÈ¡Ä¿±ê¶ÔÏó
+    // åˆ¤æ–­å¦‚æœè¦æš´éœ²ä»£ç†å¯¹è±¡ï¼Œå¦‚æœæ˜¯ï¼Œåˆ™ä½¿ç”¨AopContextè®¾ç½®å°†ä»£ç†å¯¹è±¡è®¾ç½®åˆ°ThreadLocalä¸­
+    // ç”¨æˆ·åˆ™å¯ä»¥é€šè¿‡AopContextè·å–ç›®æ ‡å¯¹è±¡
     if (exposeProxy) {
-        // ÅĞ¶Ï±»´úÀíµÄ¶ÔÏóÊÇ·ñÊÇ¾²Ì¬µÄ£¬Èç¹ûÊÇ¾²Ì¬µÄ£¬Ôò½«Ä¿±ê¶ÔÏó»º´æÆğÀ´£¬Ã¿´Î¶¼Ê¹ÓÃ¸Ã¶ÔÏó¼´¿É£¬
-        // Èç¹ûÄ¿±ê¶ÔÏóÊÇ¶¯Ì¬µÄ£¬ÔòÔÚDynamicUnadvisedExposedInterceptorÖĞÃ¿´Î¶¼Éú³ÉÒ»¸öĞÂµÄ
-        // Ä¿±ê¶ÔÏó£¬ÒÔÖ¯ÈëºóÃæµÄ´úÀíÂß¼­
+        // åˆ¤æ–­è¢«ä»£ç†çš„å¯¹è±¡æ˜¯å¦æ˜¯é™æ€çš„ï¼Œå¦‚æœæ˜¯é™æ€çš„ï¼Œåˆ™å°†ç›®æ ‡å¯¹è±¡ç¼“å­˜èµ·æ¥ï¼Œæ¯æ¬¡éƒ½ä½¿ç”¨è¯¥å¯¹è±¡å³å¯ï¼Œ
+        // å¦‚æœç›®æ ‡å¯¹è±¡æ˜¯åŠ¨æ€çš„ï¼Œåˆ™åœ¨DynamicUnadvisedExposedInterceptorä¸­æ¯æ¬¡éƒ½ç”Ÿæˆä¸€ä¸ªæ–°çš„
+        // ç›®æ ‡å¯¹è±¡ï¼Œä»¥ç»‡å…¥åé¢çš„ä»£ç†é€»è¾‘
         targetInterceptor = (isStatic ?
                 new StaticUnadvisedExposedInterceptor(this.advised.getTargetSource().getTarget()) :
                 new DynamicUnadvisedExposedInterceptor(this.advised.getTargetSource()));
     }
     else {
-        // ÕâÀïµÄÁ½¸öÀàÓëÉÏÃæÁ½¸öµÄÎ¨Ò»Çø±ğ¾ÍÔÚÓÚÊÇ·ñÊ¹ÓÃAopContext±©Â¶Éú³ÉµÄ´úÀí¶ÔÏó
+        // è¿™é‡Œçš„ä¸¤ä¸ªç±»ä¸ä¸Šé¢ä¸¤ä¸ªçš„å”¯ä¸€åŒºåˆ«å°±åœ¨äºæ˜¯å¦ä½¿ç”¨AopContextæš´éœ²ç”Ÿæˆçš„ä»£ç†å¯¹è±¡
         targetInterceptor = (isStatic ?
                 new StaticUnadvisedInterceptor(this.advised.getTargetSource().getTarget()) :
                 new DynamicUnadvisedInterceptor(this.advised.getTargetSource()));
     }
 
-    // µ±Ç°CallbackÓÃÓÚ²»ÓÃ±»´úÀíµÄ·½·¨
+    // å½“å‰Callbackç”¨äºä¸ç”¨è¢«ä»£ç†çš„æ–¹æ³•
     Callback targetDispatcher = (isStatic ?
             new StaticDispatcher(this.advised.getTargetSource().getTarget()) : new SerializableNoOp());
 
-    // ½«»ñÈ¡µ½µÄcallback×é×°ÎªÒ»¸öÊı×é
+    // å°†è·å–åˆ°çš„callbackç»„è£…ä¸ºä¸€ä¸ªæ•°ç»„
     Callback[] mainCallbacks = new Callback[] {
-            // ÓÃ»§×Ô¼º¶¨ÒåµÄÀ¹½ØÆ÷
+            // ç”¨æˆ·è‡ªå·±å®šä¹‰çš„æ‹¦æˆªå™¨
             aopInterceptor,  // for normal advice
-            // ¸ù¾İÌõ¼şÊÇ·ñ±©Â¶´úÀí¶ÔÏóµÄÀ¹½ØÆ÷
+            // æ ¹æ®æ¡ä»¶æ˜¯å¦æš´éœ²ä»£ç†å¯¹è±¡çš„æ‹¦æˆªå™¨
             targetInterceptor,  // invoke target without considering advice, if optimized
-            // ²»×öÈÎºÎ²Ù×÷µÄÀ¹½ØÆ÷
+            // ä¸åšä»»ä½•æ“ä½œçš„æ‹¦æˆªå™¨
             new SerializableNoOp(),  // no override for methods mapped to this
-            // ÓÃÓÚ´æ´¢Advised¶ÔÏóµÄ·Ö·¢Æ÷
+            // ç”¨äºå­˜å‚¨Advisedå¯¹è±¡çš„åˆ†å‘å™¨
             targetDispatcher, this.advisedDispatcher,
-            // Õë¶Ôequals·½·¨µ÷ÓÃµÄÀ¹½ØÆ÷
+            // é’ˆå¯¹equalsæ–¹æ³•è°ƒç”¨çš„æ‹¦æˆªå™¨
             new EqualsInterceptor(this.advised),
-            // Õë¶Ôhashcode·½·¨µ÷ÓÃµÄÀ¹½ØÆ÷
+            // é’ˆå¯¹hashcodeæ–¹æ³•è°ƒç”¨çš„æ‹¦æˆªå™¨
             new HashCodeInterceptor(this.advised)
     };
 
     Callback[] callbacks;
 
-    // Èç¹ûÄ¿±ê¶ÔÏóÊÇ¾²Ì¬µÄ£¬²¢ÇÒÇĞÃæÂß¼­µÄµ÷ÓÃÁ´ÊÇ¹Ì¶¨µÄ£¬Ôò¶ÔÄ¿±ê¶ÔÏóºÍÕû¸öµ÷ÓÃÁ´½øĞĞ»º´æ
+    // å¦‚æœç›®æ ‡å¯¹è±¡æ˜¯é™æ€çš„ï¼Œå¹¶ä¸”åˆ‡é¢é€»è¾‘çš„è°ƒç”¨é“¾æ˜¯å›ºå®šçš„ï¼Œåˆ™å¯¹ç›®æ ‡å¯¹è±¡å’Œæ•´ä¸ªè°ƒç”¨é“¾è¿›è¡Œç¼“å­˜
     if (isStatic && isFrozen) {
         Method[] methods = rootClass.getMethods();
         Callback[] fixedCallbacks = new Callback[methods.length];
@@ -326,22 +326,22 @@ private Callback[] getCallbacks(Class<?> rootClass) throws Exception {
 
         for (int x = 0; x < methods.length; x++) {
             Method method = methods[x];
-            // »ñÈ¡Ä¿±ê¶ÔÏóµÄÇĞÃæÂß¼­
+            // è·å–ç›®æ ‡å¯¹è±¡çš„åˆ‡é¢é€»è¾‘
             List<Object> chain = this.advised
                     .getInterceptorsAndDynamicInterceptionAdvice(method, rootClass);
             fixedCallbacks[x] = new FixedChainStaticTargetInterceptor(
                     chain, this.advised.getTargetSource().getTarget(), this.advised.getTargetClass());
-            // ¶Ôµ÷ÓÃÁ´½øĞĞ»º´æ
+            // å¯¹è°ƒç”¨é“¾è¿›è¡Œç¼“å­˜
             this.fixedInterceptorMap.put(method, x);
         }
 
-        // ½«Éú³ÉµÄ¾²Ì¬µ÷ÓÃÁ´´æÈëCallbackÊı×éÖĞ
+        // å°†ç”Ÿæˆçš„é™æ€è°ƒç”¨é“¾å­˜å…¥Callbackæ•°ç»„ä¸­
         callbacks = new Callback[mainCallbacks.length + fixedCallbacks.length];
         System.arraycopy(mainCallbacks, 0, callbacks, 0, mainCallbacks.length);
         System.arraycopy(fixedCallbacks, 0, callbacks, mainCallbacks.length, fixedCallbacks.length);
-        // ÕâÀïfixedInterceptorOffset¼ÇÂ¼ÁËµ±Ç°¾²Ì¬µÄµ÷ÓÃÁ´µÄÇĞÃæÂß¼­µÄÆğÊ¼Î»ÖÃ£¬
-        // ÕâÀï¼ÇÂ¼µÄÓÃ´¦ÔÚÓÚºóÃæÊ¹ÓÃCallbackFilterµÄÊ±ºò£¬Èç¹û·¢ÏÖÊÇ¾²Ì¬µÄµ÷ÓÃÁ´£¬
-        // ÔòÖ±½ÓÍ¨¹ı¸Ã²ÎÊı»ñÈ¡ÏàÓ¦µÄµ÷ÓÃÁ´£¬¶øÖ±½ÓÂÔ¹ıÁËÇ°ÃæµÄ¶¯Ì¬µ÷ÓÃÁ´
+        // è¿™é‡ŒfixedInterceptorOffsetè®°å½•äº†å½“å‰é™æ€çš„è°ƒç”¨é“¾çš„åˆ‡é¢é€»è¾‘çš„èµ·å§‹ä½ç½®ï¼Œ
+        // è¿™é‡Œè®°å½•çš„ç”¨å¤„åœ¨äºåé¢ä½¿ç”¨CallbackFilterçš„æ—¶å€™ï¼Œå¦‚æœå‘ç°æ˜¯é™æ€çš„è°ƒç”¨é“¾ï¼Œ
+        // åˆ™ç›´æ¥é€šè¿‡è¯¥å‚æ•°è·å–ç›¸åº”çš„è°ƒç”¨é“¾ï¼Œè€Œç›´æ¥ç•¥è¿‡äº†å‰é¢çš„åŠ¨æ€è°ƒç”¨é“¾
         this.fixedInterceptorOffset = mainCallbacks.length;
     }
     else {
@@ -352,13 +352,13 @@ private Callback[] getCallbacks(Class<?> rootClass) throws Exception {
 
 ```
 
-ÒÔÉÏ´úÂë±È½Ï³¤£¬Ö÷Òª×÷ÓÃ¾ÍÊÇ»ñÈ¡ `callback`£¬ËäÈ» spring Ìá¹©ÁËÖÚ¶à `callback`£¬µ«ÓëÎÒÃÇ×Ô¶¨ÒåÍ¨ÖªÏà¹ØµÄ callback Ö»ÓĞÒ»¸ö£º `DynamicAdvisedInterceptor`£¬ÔÚÕâ¸ö `callback` µÄ `CglibAopProxy.DynamicAdvisedInterceptor#intercept` ·½·¨ÖĞ£¬ÎÒÃÇÔÚ´úÂëÖĞµÄ×Ô¶¨Í¨Öª¾ÍÊÇÔÚÕâÀïÖ´ĞĞµÄ¡£
+ä»¥ä¸Šä»£ç æ¯”è¾ƒé•¿ï¼Œä¸»è¦ä½œç”¨å°±æ˜¯è·å– `callback`ï¼Œè™½ç„¶ spring æä¾›äº†ä¼—å¤š `callback`ï¼Œä½†ä¸æˆ‘ä»¬è‡ªå®šä¹‰é€šçŸ¥ç›¸å…³çš„ callback åªæœ‰ä¸€ä¸ªï¼š `DynamicAdvisedInterceptor`ï¼Œåœ¨è¿™ä¸ª `callback` çš„ `CglibAopProxy.DynamicAdvisedInterceptor#intercept` æ–¹æ³•ä¸­ï¼Œæˆ‘ä»¬åœ¨ä»£ç ä¸­çš„è‡ªå®šé€šçŸ¥å°±æ˜¯åœ¨è¿™é‡Œæ‰§è¡Œçš„ã€‚
 
-ÕâÒ»²½ÎÒÃÇµÃµ½ cglib µÄ´úÀí¶ÔÏóºó£¬½ÓÏÂÀ´¾ÍÀ´¿´¿´ÇĞÃæ·½·¨ÊÇÈçºÎÖ´ĞĞµÄ¡£
+è¿™ä¸€æ­¥æˆ‘ä»¬å¾—åˆ° cglib çš„ä»£ç†å¯¹è±¡åï¼Œæ¥ä¸‹æ¥å°±æ¥çœ‹çœ‹åˆ‡é¢æ–¹æ³•æ˜¯å¦‚ä½•æ‰§è¡Œçš„ã€‚
 
-### 4\. cglib ÇĞÃæ·½·¨µÄÖ´ĞĞ
+### 4\. cglib åˆ‡é¢æ–¹æ³•çš„æ‰§è¡Œ
 
-cglib ÇĞÃæ·½·¨µÄÖ´ĞĞ `CglibAopProxy.DynamicAdvisedInterceptor#intercept` ·½·¨£º
+cglib åˆ‡é¢æ–¹æ³•çš„æ‰§è¡Œ `CglibAopProxy.DynamicAdvisedInterceptor#intercept` æ–¹æ³•ï¼š
 
 > `CglibAopProxy.DynamicAdvisedInterceptor#intercept`
 
@@ -368,35 +368,35 @@ public Object intercept(Object proxy, Method method, Object[] args, MethodProxy 
     Object oldProxy = null;
     boolean setProxyContext = false;
     Object target = null;
-    // Í¨¹ıTargetSource»ñÈ¡Ä¿±ê¶ÔÏó
+    // é€šè¿‡TargetSourceè·å–ç›®æ ‡å¯¹è±¡
     TargetSource targetSource = this.advised.getTargetSource();
     try {
-        // ÅĞ¶ÏÈç¹ûĞèÒª±©Â¶´úÀí¶ÔÏó£¬Ôò½«µ±Ç°´úÀí¶ÔÏóÉèÖÃµ½ThreadLocalÖĞ
+        // åˆ¤æ–­å¦‚æœéœ€è¦æš´éœ²ä»£ç†å¯¹è±¡ï¼Œåˆ™å°†å½“å‰ä»£ç†å¯¹è±¡è®¾ç½®åˆ°ThreadLocalä¸­
         if (this.advised.exposeProxy) {
             oldProxy = AopContext.setCurrentProxy(proxy);
             setProxyContext = true;
         }
         target = targetSource.getTarget();
         Class<?> targetClass = (target != null ? target.getClass() : null);
-        // »ñÈ¡Ä¿±ê¶ÔÏóÇĞÃæÂß¼­µÄµ÷ÓÃÁ´
+        // è·å–ç›®æ ‡å¯¹è±¡åˆ‡é¢é€»è¾‘çš„è°ƒç”¨é“¾
         List<Object> chain = this.advised
                 .getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);
         Object retVal;
         if (chain.isEmpty() && Modifier.isPublic(method.getModifiers())) {
             Object[] argsToUse = AopProxyUtils.adaptArgumentsIfNecessary(method, args);
-            // Ã»ÓĞÀ¹½ØÆ÷£¬Ö±½Óµ÷ÓÃÄ¿±ê¶ÔÏóµÄ·½·¨
+            // æ²¡æœ‰æ‹¦æˆªå™¨ï¼Œç›´æ¥è°ƒç”¨ç›®æ ‡å¯¹è±¡çš„æ–¹æ³•
             retVal = methodProxy.invoke(target, argsToUse);
         }
         else {
-            // ÕâÀïÓĞÁ½¸ö²½Öè£º
-            // 1\. ´´½¨Ö´ĞĞÆ÷£ºnew CglibMethodInvocation()
-            // 2\. Ö´ĞĞÀ¹½ØÆ÷Á´£ºCglibMethodInvocation#proceed
+            // è¿™é‡Œæœ‰ä¸¤ä¸ªæ­¥éª¤ï¼š
+            // 1\. åˆ›å»ºæ‰§è¡Œå™¨ï¼šnew CglibMethodInvocation()
+            // 2\. æ‰§è¡Œæ‹¦æˆªå™¨é“¾ï¼šCglibMethodInvocation#proceed
             retVal = new CglibMethodInvocation(proxy, target, method, args, 
                     targetClass, chain, methodProxy).proceed();
         }
-        // ¶Ô·µ»ØÖµ½øĞĞ´¦Àí£¬Èç¹û·µ»ØÖµ¾ÍÊÇµ±Ç°Ä¿±ê¶ÔÏó£¬ÄÇÃ´½«´úÀíÉú³ÉµÄ´úÀí¶ÔÏó·µ»Ø£»
-        // Èç¹û·µ»ØÖµÎª¿Õ£¬²¢ÇÒ·µ»ØÖµÀàĞÍÊÇ·ÇvoidµÄ»ù±¾Êı¾İÀàĞÍ£¬ÔòÅ×³öÒì³££»
-        // Èç¹ûÉÏÊöÁ½¸öÌõ¼ş¶¼²»·ûºÏ£¬ÔòÖ±½Ó½«Éú³ÉµÄ·µ»ØÖµ·µ»Ø
+        // å¯¹è¿”å›å€¼è¿›è¡Œå¤„ç†ï¼Œå¦‚æœè¿”å›å€¼å°±æ˜¯å½“å‰ç›®æ ‡å¯¹è±¡ï¼Œé‚£ä¹ˆå°†ä»£ç†ç”Ÿæˆçš„ä»£ç†å¯¹è±¡è¿”å›ï¼›
+        // å¦‚æœè¿”å›å€¼ä¸ºç©ºï¼Œå¹¶ä¸”è¿”å›å€¼ç±»å‹æ˜¯évoidçš„åŸºæœ¬æ•°æ®ç±»å‹ï¼Œåˆ™æŠ›å‡ºå¼‚å¸¸ï¼›
+        // å¦‚æœä¸Šè¿°ä¸¤ä¸ªæ¡ä»¶éƒ½ä¸ç¬¦åˆï¼Œåˆ™ç›´æ¥å°†ç”Ÿæˆçš„è¿”å›å€¼è¿”å›
         retVal = processReturnType(proxy, target, method, retVal);
         return retVal;
     }
@@ -412,7 +412,7 @@ public Object intercept(Object proxy, Method method, Object[] args, MethodProxy 
 
 ```
 
-×îÖÕÖ´ĞĞÊÇÔÚ `new CglibMethodInvocation(proxy, target, method, args, targetClass, chain, methodProxy).proceed()`£¬¼ÌĞø¿´ÏÂÈ¥£º
+æœ€ç»ˆæ‰§è¡Œæ˜¯åœ¨ `new CglibMethodInvocation(proxy, target, method, args, targetClass, chain, methodProxy).proceed()`ï¼Œç»§ç»­çœ‹ä¸‹å»ï¼š
 
 > CglibAopProxy.CglibMethodInvocation#proceed
 
@@ -428,22 +428,22 @@ public Object proceed() throws Throwable {
 
 ```
 
-Ö±½Óµ÷ÓÃµÄÊÇ¸¸ÀàµÄ·½·¨£¬`CglibAopProxy.CglibMethodInvocation` µÄ¸¸ÀàÊÇË­ÄØ£¿Ò»¿´ÏÂÈ¥£¬·¢ÏÖ¾¹È»ÊÇ `ReflectiveMethodInvocation`£¬`super.proceed()` µ÷ÓÃµÄÊÇ `ReflectiveMethodInvocation#proceed`£¡
+ç›´æ¥è°ƒç”¨çš„æ˜¯çˆ¶ç±»çš„æ–¹æ³•ï¼Œ`CglibAopProxy.CglibMethodInvocation` çš„çˆ¶ç±»æ˜¯è°å‘¢ï¼Ÿä¸€çœ‹ä¸‹å»ï¼Œå‘ç°ç«Ÿç„¶æ˜¯ `ReflectiveMethodInvocation`ï¼Œ`super.proceed()` è°ƒç”¨çš„æ˜¯ `ReflectiveMethodInvocation#proceed`ï¼
 
-ÔÚ[ÉÏÒ» ÆªÎÄÕÂ](https://my.oschina.net/funcy/blog/4696654 "ÉÏÒ» ÆªÎÄÕÂ")ÖĞ£¬ÎÒÃÇ¾ÍÏêÏ¸·ÖÎöÁË `ReflectiveMethodInvocation#proceed` µÄµ÷ÓÃ¹ı³Ì£¬¶øÏÖÔÚ£¬ÔÚ cglib ´úÀíÀï£¬×îÖÕÖ´ĞĞµÄÒ²ÊÇÍ¬ÑùµÄ´úÂë£¬ÕâÒ»¿éµÄÖ´ĞĞ¹ı³Ì¾Í²»ÖØ¸´·ÖÎöÁË¡£
+åœ¨[ä¸Šä¸€ ç¯‡æ–‡ç« ](https://my.oschina.net/funcy/blog/4696654 "ä¸Šä¸€ ç¯‡æ–‡ç« ")ä¸­ï¼Œæˆ‘ä»¬å°±è¯¦ç»†åˆ†æäº† `ReflectiveMethodInvocation#proceed` çš„è°ƒç”¨è¿‡ç¨‹ï¼Œè€Œç°åœ¨ï¼Œåœ¨ cglib ä»£ç†é‡Œï¼Œæœ€ç»ˆæ‰§è¡Œçš„ä¹Ÿæ˜¯åŒæ ·çš„ä»£ç ï¼Œè¿™ä¸€å—çš„æ‰§è¡Œè¿‡ç¨‹å°±ä¸é‡å¤åˆ†æäº†ã€‚
 
-×îºóÓÃÒ»ÕÅÍ¼À´ËµÃ÷ÇĞÃæÍ¨ÖªµÄÖ´ĞĞ¹ı³Ì£º
+æœ€åç”¨ä¸€å¼ å›¾æ¥è¯´æ˜åˆ‡é¢é€šçŸ¥çš„æ‰§è¡Œè¿‡ç¨‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-1c31c8e6279af4c150df18ebbd345c7f110.png)
 
-×îÖÕµÄÖ´ĞĞË³Ğò£º
+æœ€ç»ˆçš„æ‰§è¡Œé¡ºåºï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a1f3ccebe3b7335eaef88b8a39ca36b9e05.png)
 
-### 5\. ×Ü½á
+### 5\. æ€»ç»“
 
-±¾ÎÄ·ÖÎöÁË cglib ´úÀíµÄÖ´ĞĞ¹ı³Ì£¬ÇĞÃæµÄÖ´ĞĞÁ÷³ÌÎ»ÓÚ `CglibAopProxy.DynamicAdvisedInterceptor#intercept`£¬×îÖÕµ÷ÓÃµÄÊÇ `ReflectiveMethodInvocation#proceed`£¬ÕâÓë jdk ¶¯Ì¬´úÀíµÄÖ´ĞĞÁ÷³ÌÏàÍ¬¡£
+æœ¬æ–‡åˆ†æäº† cglib ä»£ç†çš„æ‰§è¡Œè¿‡ç¨‹ï¼Œåˆ‡é¢çš„æ‰§è¡Œæµç¨‹ä½äº `CglibAopProxy.DynamicAdvisedInterceptor#intercept`ï¼Œæœ€ç»ˆè°ƒç”¨çš„æ˜¯ `ReflectiveMethodInvocation#proceed`ï¼Œè¿™ä¸ jdk åŠ¨æ€ä»£ç†çš„æ‰§è¡Œæµç¨‹ç›¸åŒã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4696655](https://my.oschina.net/funcy/blog/4696655) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4696655](https://my.oschina.net/funcy/blog/4696655) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

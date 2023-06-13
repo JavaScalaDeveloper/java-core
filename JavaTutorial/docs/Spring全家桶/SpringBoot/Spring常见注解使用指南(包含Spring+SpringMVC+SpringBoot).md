@@ -1,25 +1,25 @@
-# Spring×¢½â
-## 1 ¸ÅÊö
+# Springæ³¨è§£
+## 1 æ¦‚è¿°
 
-ÎÒÃÇ¶¼ÖªµÀSpring×îºËÐÄµÄÌØÐÔ¾ÍÊÇIOC+AOP£¬IOCµÄÔ­Àí¾ÍÊÇÊµÏÖÁËÒ»¸öSpringÈÝÆ÷£¬ÓÃÀ´¹ÜÀíËùÓÐSpring BeanÊµÀý
-DI£¬Ò²¾ÍÊÇÒÀÀµ×¢Èë£¬ÊÇÎÒÃÇ×÷Îª¿ª·¢ÕßÐèÒª¹ØÐÄµÄºËÐÄ»°Ìâ£¬ÈçºÎ×¢ÈëÒÀÀµ£¬×¢ÈëÄÄ¸öÒÀÀµ£¬ÊÇÎÒÃÇÐèÒªÃ÷È·ÖªµÀµÄ¡£
-ÔÚÒÔÇ°£¬ÎÒÃÇÏ°¹ßÓÚÓÃxmlÅäÖÃÎÄ¼þÀ´ÉùÃ÷Ò»¸öbean£¬µ«ÏÖÔÚ£¬ÎÒÃÇ¸ü¶àµØÊ¹ÓÃ×¢½âºÍ´úÂëÀ´Íê³ÉDIµÄ¹ý³Ì
-
-
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ org.springframework.beans.factory.annotation ºÍ org.springframework.context.annotation °üÖÐµÄ×¢ÊÍÀ´ÆôÓÃ Spring DI ÒýÇæµÄ¹¦ÄÜ¡£
-
-ÎÒÃÇÍ¨³£½«ÕâÐ©³ÆÎª¡°Spring ºËÐÄ×¢ÊÍ¡±£¬ÎÒÃÇ½«ÔÚ±¾½Ì³ÌÖÐ¶ÔÆä½øÐÐ»Ø¹Ë¡£
+æˆ‘ä»¬éƒ½çŸ¥é“Springæœ€æ ¸å¿ƒçš„ç‰¹æ€§å°±æ˜¯IOC+AOPï¼ŒIOCçš„åŽŸç†å°±æ˜¯å®žçŽ°äº†ä¸€ä¸ªSpringå®¹å™¨ï¼Œç”¨æ¥ç®¡ç†æ‰€æœ‰Spring Beanå®žä¾‹
+DIï¼Œä¹Ÿå°±æ˜¯ä¾èµ–æ³¨å…¥ï¼Œæ˜¯æˆ‘ä»¬ä½œä¸ºå¼€å‘è€…éœ€è¦å…³å¿ƒçš„æ ¸å¿ƒè¯é¢˜ï¼Œå¦‚ä½•æ³¨å…¥ä¾èµ–ï¼Œæ³¨å…¥å“ªä¸ªä¾èµ–ï¼Œæ˜¯æˆ‘ä»¬éœ€è¦æ˜Žç¡®çŸ¥é“çš„ã€‚
+åœ¨ä»¥å‰ï¼Œæˆ‘ä»¬ä¹ æƒ¯äºŽç”¨xmlé…ç½®æ–‡ä»¶æ¥å£°æ˜Žä¸€ä¸ªbeanï¼Œä½†çŽ°åœ¨ï¼Œæˆ‘ä»¬æ›´å¤šåœ°ä½¿ç”¨æ³¨è§£å’Œä»£ç æ¥å®ŒæˆDIçš„è¿‡ç¨‹
 
 
-## 2 DIÏà¹Ø×¢½â
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨ org.springframework.beans.factory.annotation å’Œ org.springframework.context.annotation åŒ…ä¸­çš„æ³¨é‡Šæ¥å¯ç”¨ Spring DI å¼•æ“Žçš„åŠŸèƒ½ã€‚
+
+æˆ‘ä»¬é€šå¸¸å°†è¿™äº›ç§°ä¸ºâ€œSpring æ ¸å¿ƒæ³¨é‡Šâ€ï¼Œæˆ‘ä»¬å°†åœ¨æœ¬æ•™ç¨‹ä¸­å¯¹å…¶è¿›è¡Œå›žé¡¾ã€‚
+
+
+## 2 DIç›¸å…³æ³¨è§£
 
 ### 2.1 @Autowired
 
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ @Autowired À´±ê¼Ç Spring ½«Òª½âÎöºÍ×¢ÈëµÄÒÀÀµÏî¡£
-ÎÒÃÇ¿ÉÒÔ½«´Ë×¢ÊÍÓë¹¹Ôìº¯Êý¡¢setter »ò×Ö¶Î×¢ÈëÒ»ÆðÊ¹ÓÃ¡£
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨ @Autowired æ¥æ ‡è®° Spring å°†è¦è§£æžå’Œæ³¨å…¥çš„ä¾èµ–é¡¹ã€‚
+æˆ‘ä»¬å¯ä»¥å°†æ­¤æ³¨é‡Šä¸Žæž„é€ å‡½æ•°ã€setter æˆ–å­—æ®µæ³¨å…¥ä¸€èµ·ä½¿ç”¨ã€‚
 Constructor injection:
 
-**¹¹ÔìÆ÷×¢Èë**
+**æž„é€ å™¨æ³¨å…¥**
 
 ````
 class Car {
@@ -32,7 +32,7 @@ class Car {
 }
 ````
 
-**Setter×¢Èë**
+**Setteræ³¨å…¥**
 ````
 class Car {
     Engine engine;
@@ -43,7 +43,7 @@ class Car {
     }
 }
 ````
-**±äÁ¿×¢Èë**
+**å˜é‡æ³¨å…¥**
 ````
 class Car {
     @Autowired
@@ -51,17 +51,17 @@ class Car {
 }
 ````
 
-@Autowired ÓÐÒ»¸öÃûÎª required µÄ²¼¶û²ÎÊý£¬Ä¬ÈÏÖµÎª true¡£
+@Autowired æœ‰ä¸€ä¸ªåä¸º required çš„å¸ƒå°”å‚æ•°ï¼Œé»˜è®¤å€¼ä¸º trueã€‚
 
-µ±ËüÕÒ²»µ½ºÏÊÊµÄ bean À´Á¬½ÓÊ±£¬Ëü»áµ÷Õû Spring µÄÐÐÎª¡£ µ±Îª true Ê±£¬½«Å×³öÒì³££¬·ñÔò²»Á¬½ÓÈÎºÎÄÚÈÝ¡£
+å½“å®ƒæ‰¾ä¸åˆ°åˆé€‚çš„ bean æ¥è¿žæŽ¥æ—¶ï¼Œå®ƒä¼šè°ƒæ•´ Spring çš„è¡Œä¸ºã€‚ å½“ä¸º true æ—¶ï¼Œå°†æŠ›å‡ºå¼‚å¸¸ï¼Œå¦åˆ™ä¸è¿žæŽ¥ä»»ä½•å†…å®¹ã€‚
 
-Çë×¢Òâ£¬Èç¹ûÎÒÃÇÊ¹ÓÃ¹¹Ôìº¯Êý×¢Èë£¬ÔòËùÓÐ¹¹Ôìº¯Êý²ÎÊý¶¼ÊÇÇ¿ÖÆÐÔµÄ¡£
+è¯·æ³¨æ„ï¼Œå¦‚æžœæˆ‘ä»¬ä½¿ç”¨æž„é€ å‡½æ•°æ³¨å…¥ï¼Œåˆ™æ‰€æœ‰æž„é€ å‡½æ•°å‚æ•°éƒ½æ˜¯å¼ºåˆ¶æ€§çš„ã€‚
 
-´Ó 4.3 °æ±¾¿ªÊ¼£¬ÎÒÃÇ²»ÐèÒªÏÔÊ½µØÊ¹ÓÃ @Autowired ×¢½â¹¹Ôìº¯Êý£¬³ý·ÇÎÒÃÇÉùÃ÷ÖÁÉÙÁ½¸ö¹¹Ôìº¯Êý¡£
+ä»Ž 4.3 ç‰ˆæœ¬å¼€å§‹ï¼Œæˆ‘ä»¬ä¸éœ€è¦æ˜¾å¼åœ°ä½¿ç”¨ @Autowired æ³¨è§£æž„é€ å‡½æ•°ï¼Œé™¤éžæˆ‘ä»¬å£°æ˜Žè‡³å°‘ä¸¤ä¸ªæž„é€ å‡½æ•°ã€‚
 
 ### 2.2 @Bean
 
-@Bean ±ê¼ÇÊµÀý»¯ Spring bean µÄ¹¤³§·½·¨£º
+@Bean æ ‡è®°å®žä¾‹åŒ– Spring bean çš„å·¥åŽ‚æ–¹æ³•ï¼š
 
 ```
 @Bean
@@ -70,9 +70,9 @@ Engine engine() {
 }
 ````
 
-µ±ÐèÒª·µ»ØÀàÐÍµÄÐÂÊµÀýÊ±£¬Spring »áµ÷ÓÃÕâÐ©·½·¨¡£
+å½“éœ€è¦è¿”å›žç±»åž‹çš„æ–°å®žä¾‹æ—¶ï¼ŒSpring ä¼šè°ƒç”¨è¿™äº›æ–¹æ³•ã€‚
 
-Éú³ÉµÄ bean Óë¹¤³§·½·¨Í¬Ãû¡£ Èç¹ûÎÒÃÇÏëÒÔ²»Í¬µÄ·½Ê½ÃüÃû£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ´Ë×¢ÊÍµÄÃû³Æ»òÖµ²ÎÊý£¨²ÎÊýÖµÊÇ²ÎÊýÃû³ÆµÄ±ðÃû£©£º
+ç”Ÿæˆçš„ bean ä¸Žå·¥åŽ‚æ–¹æ³•åŒåã€‚ å¦‚æžœæˆ‘ä»¬æƒ³ä»¥ä¸åŒçš„æ–¹å¼å‘½åï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨æ­¤æ³¨é‡Šçš„åç§°æˆ–å€¼å‚æ•°ï¼ˆå‚æ•°å€¼æ˜¯å‚æ•°åç§°çš„åˆ«åï¼‰ï¼š
 
 ````
 @Bean("engine")
@@ -80,17 +80,17 @@ Engine getEngine() {
     return new Engine();
 }
 ````
-ÕâÊÇÒ»ÖÖ·Ç³£³£¼ûµÄbeanÉùÃ÷·½Ê½£¬ÒòÎªºÜ¶àµÄbean²¢²»ÊÇÎÒÃÇÒ»¿ªÊ¼¾ÍÔÚ´úÂëÀï¶¨ÒåºÃµÄ£¬Ëü¿ÉÄÜÐèÒª»ùÓÚÔËÐÐÊ±»·¾³À´½øÐÐ°´Ðè¹¹½¨¡£
+è¿™æ˜¯ä¸€ç§éžå¸¸å¸¸è§çš„beanå£°æ˜Žæ–¹å¼ï¼Œå› ä¸ºå¾ˆå¤šçš„beanå¹¶ä¸æ˜¯æˆ‘ä»¬ä¸€å¼€å§‹å°±åœ¨ä»£ç é‡Œå®šä¹‰å¥½çš„ï¼Œå®ƒå¯èƒ½éœ€è¦åŸºäºŽè¿è¡Œæ—¶çŽ¯å¢ƒæ¥è¿›è¡ŒæŒ‰éœ€æž„å»ºã€‚
 
-ÎÒÃÇ¿ÉÒÔ×ÔÓÉµØÉùÃ÷ºÍ¶¨ÒåBean£¬²¢ÇÒÒ²¿ÉÒÔ¸³ÓèËü×Ô¶¨ÒåµÄbeanÃû³Æ¡£
+æˆ‘ä»¬å¯ä»¥è‡ªç”±åœ°å£°æ˜Žå’Œå®šä¹‰Beanï¼Œå¹¶ä¸”ä¹Ÿå¯ä»¥èµ‹äºˆå®ƒè‡ªå®šä¹‰çš„beanåç§°ã€‚
 
-×¢Òâ£¬ËùÓÐÓÃ@Bean ×¢ÊÍµÄ·½·¨¶¼±ØÐëÔÚ@Configuration ÀàÖÐ¡£
+æ³¨æ„ï¼Œæ‰€æœ‰ç”¨@Bean æ³¨é‡Šçš„æ–¹æ³•éƒ½å¿…é¡»åœ¨@Configuration ç±»ä¸­ã€‚
 
 ### 2.3 @Qualifier
 
-ÎÒÃÇÊ¹ÓÃ@Qualifier ºÍ@Autowired À´Ìá¹©ÎÒÃÇÏëÒªÔÚ²»Ã÷È·Çé¿öÏÂÊ¹ÓÃµÄbean id »òbean Ãû³Æ¡£
+æˆ‘ä»¬ä½¿ç”¨@Qualifier å’Œ@Autowired æ¥æä¾›æˆ‘ä»¬æƒ³è¦åœ¨ä¸æ˜Žç¡®æƒ…å†µä¸‹ä½¿ç”¨çš„bean id æˆ–bean åç§°ã€‚
 
-ÀýÈç£¬ÒÔÏÂÁ½¸ö bean ÊµÏÖÏàÍ¬µÄ½Ó¿Ú£º
+ä¾‹å¦‚ï¼Œä»¥ä¸‹ä¸¤ä¸ª bean å®žçŽ°ç›¸åŒçš„æŽ¥å£ï¼š
 ````
 class Bike implements Vehicle {}
 
@@ -98,9 +98,9 @@ class Car implements Vehicle {}
 
 ````
 
-Èç¹û Spring ÐèÒª×¢ÈëÒ»¸ö Vehicle bean£¬Ëü»áÒÔ¶à¸öÆ¥Åä¶¨Òå½áÊø¡£ ÔÚÕâÖÖÇé¿öÏÂ£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ @Qualifier ×¢ÊÍÏÔÊ½Ìá¹© bean µÄÃû³Æ¡£
+å¦‚æžœ Spring éœ€è¦æ³¨å…¥ä¸€ä¸ª Vehicle beanï¼Œå®ƒä¼šä»¥å¤šä¸ªåŒ¹é…å®šä¹‰ç»“æŸã€‚ åœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨ @Qualifier æ³¨é‡Šæ˜¾å¼æä¾› bean çš„åç§°ã€‚
 
-**¹¹ÔìÆ÷×¢Èë**
+**æž„é€ å™¨æ³¨å…¥**
 ````
 @Autowired
 Biker(@Qualifier("bike") Vehicle vehicle) {
@@ -108,7 +108,7 @@ this.vehicle = vehicle;
 }
 ````
 
-**Setter×¢Èë**
+**Setteræ³¨å…¥**
 
 ````
 @Autowired
@@ -116,7 +116,7 @@ void setVehicle(@Qualifier("bike") Vehicle vehicle) {
 this.vehicle = vehicle;
 }
 ````
-»òÕß:
+æˆ–è€…:
 
 ````
 @Autowired
@@ -124,18 +124,18 @@ this.vehicle = vehicle;
 void setVehicle(Vehicle vehicle) {
 this.vehicle = vehicle;
 ````
-**±äÁ¿×¢Èë**
+**å˜é‡æ³¨å…¥**
 
 ````
 @Autowired
 @Qualifier("bike")
 Vehicle vehicle;
 ````
-Õâ¸ö×¢½âÎÒÃÇ¿ÉÄÜÆ½³£ÓÃµÄ²»¶à£¬µ«ÊÇµ±Ò»¸ö½Ó¿ÚÓÐ¶à¸öÊµÏÖÀàÊ±£¬Ëü¾Í»á¾­³£ÅÉÉÏÓÃ³¡£¡
+è¿™ä¸ªæ³¨è§£æˆ‘ä»¬å¯èƒ½å¹³å¸¸ç”¨çš„ä¸å¤šï¼Œä½†æ˜¯å½“ä¸€ä¸ªæŽ¥å£æœ‰å¤šä¸ªå®žçŽ°ç±»æ—¶ï¼Œå®ƒå°±ä¼šç»å¸¸æ´¾ä¸Šç”¨åœºï¼
 
 ### 2.4 @Required
 
-@Required ÔÚ setter ·½·¨ÉÏ±ê¼ÇÎÒÃÇÏëÒªÍ¨¹ý XML Ìî³äµÄÒÀÀµÏî£º
+@Required åœ¨ setter æ–¹æ³•ä¸Šæ ‡è®°æˆ‘ä»¬æƒ³è¦é€šè¿‡ XML å¡«å……çš„ä¾èµ–é¡¹ï¼š
 ````
 @Required
 void setColor(String color) {
@@ -148,22 +148,22 @@ xml
     <property name="color" value="green" />
 </bean>
 ````
-·ñÔò£¬½«Å×³ö BeanInitializationException¡£
-·Ç³£ÉÙ¼ûµÄÓÃ·¨£¬ÖªµÀÒ»ÏÂ¾ÍÐÐÁË
+å¦åˆ™ï¼Œå°†æŠ›å‡º BeanInitializationExceptionã€‚
+éžå¸¸å°‘è§çš„ç”¨æ³•ï¼ŒçŸ¥é“ä¸€ä¸‹å°±è¡Œäº†
 
 ### 2.5 @Value
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ @Value ½«ÊôÐÔÖµ×¢Èë bean¡£ ËüÓë¹¹Ôìº¯Êý¡¢setter ºÍ×Ö¶Î×¢Èë¼æÈÝ¡£
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨ @Value å°†å±žæ€§å€¼æ³¨å…¥ beanã€‚ å®ƒä¸Žæž„é€ å‡½æ•°ã€setter å’Œå­—æ®µæ³¨å…¥å…¼å®¹ã€‚
 
-ÕâÒ²ÊÇ·Ç³£³£ÓÃµÄÒ»¸ö×¢½â£¬ÒòÎªÎÒÃÇºÜ¶àÊ±ºò¶¼ÐèÒª´Óapplication.properties»òÕßÆäËûÅäÖÃÎÄ¼þÖÐÀ´¶ÁÈ¡ÅäÖÃÊôÐÔÖµ¡£
+è¿™ä¹Ÿæ˜¯éžå¸¸å¸¸ç”¨çš„ä¸€ä¸ªæ³¨è§£ï¼Œå› ä¸ºæˆ‘ä»¬å¾ˆå¤šæ—¶å€™éƒ½éœ€è¦ä»Žapplication.propertiesæˆ–è€…å…¶ä»–é…ç½®æ–‡ä»¶ä¸­æ¥è¯»å–é…ç½®å±žæ€§å€¼ã€‚
 
-**¹¹ÔìÆ÷×¢Èë**
+**æž„é€ å™¨æ³¨å…¥**
 ````
 Engine(@Value("8") int cylinderCount) {
 this.cylinderCount = cylinderCount;
 }
 ````
 
-**setter×¢Èë**
+**setteræ³¨å…¥**
 
 ````
 @Autowired
@@ -172,7 +172,7 @@ this.cylinderCount = cylinderCount;
 }
 ````
 
-»òÕß:
+æˆ–è€…:
 ````
 
 @Value("8")
@@ -181,33 +181,33 @@ this.cylinderCount = cylinderCount;
 }
 ````
 
-**±äÁ¿×¢Èë**
+**å˜é‡æ³¨å…¥**
 ````
 @Value("8")
 int cylinderCount;
 ````
 
-µ±È»£¬×¢Èë¾²Ì¬ÖµÊÇÃ»ÓÐÓÃµÄ¡£ Òò´Ë£¬ÎÒÃÇ¿ÉÒÔÔÚ @Value ÖÐÊ¹ÓÃÕ¼Î»·û×Ö·û´®À´Á¬½ÓÔÚÍâ²¿Ô´ÖÐ¶¨ÒåµÄÖµ£¬ÀýÈçÔÚ .properties »ò .yaml ÎÄ¼þÖÐ¡£
+å½“ç„¶ï¼Œæ³¨å…¥é™æ€å€¼æ˜¯æ²¡æœ‰ç”¨çš„ã€‚ å› æ­¤ï¼Œæˆ‘ä»¬å¯ä»¥åœ¨ @Value ä¸­ä½¿ç”¨å ä½ç¬¦å­—ç¬¦ä¸²æ¥è¿žæŽ¥åœ¨å¤–éƒ¨æºä¸­å®šä¹‰çš„å€¼ï¼Œä¾‹å¦‚åœ¨ .properties æˆ– .yaml æ–‡ä»¶ä¸­ã€‚
 ````
 
 engine.fuelType=petrol
 ````
 
-ÎÒÃÇ¿ÉÒÔÍ¨¹ýÒÔÏÂ·½Ê½×¢Èë engine.fuelType µÄÖµ£º
+æˆ‘ä»¬å¯ä»¥é€šè¿‡ä»¥ä¸‹æ–¹å¼æ³¨å…¥ engine.fuelType çš„å€¼ï¼š
 
 ````
 @Value("${engine.fuelType}")
 String fuelType;
 ````
 
-ÎÒÃÇÉõÖÁ¿ÉÒÔÊ¹ÓÃ SpEL À´Ê¹ÓÃ@Value¡£ ¸ü¶à¸ß¼¶Ê¾Àý¿ÉÒÔÔÚÎÒÃÇ¹ØÓÚ@Value µÄÎÄÕÂÖÐÕÒµ½¡£
+æˆ‘ä»¬ç”šè‡³å¯ä»¥ä½¿ç”¨ SpEL æ¥ä½¿ç”¨@Valueã€‚ æ›´å¤šé«˜çº§ç¤ºä¾‹å¯ä»¥åœ¨æˆ‘ä»¬å…³äºŽ@Value çš„æ–‡ç« ä¸­æ‰¾åˆ°ã€‚
 
 ### 2.6 @DependsOn
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ´Ë×¢½âÈÃ Spring ÔÚ×¢½âµÄ bean Ö®Ç°³õÊ¼»¯ÆäËû bean¡£ Í¨³££¬´ËÐÐÎªÊÇ×Ô¶¯µÄ£¬»ùÓÚ bean Ö®¼äµÄÏÔÊ½ÒÀÀµ¹ØÏµ¡£
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨æ­¤æ³¨è§£è®© Spring åœ¨æ³¨è§£çš„ bean ä¹‹å‰åˆå§‹åŒ–å…¶ä»– beanã€‚ é€šå¸¸ï¼Œæ­¤è¡Œä¸ºæ˜¯è‡ªåŠ¨çš„ï¼ŒåŸºäºŽ bean ä¹‹é—´çš„æ˜¾å¼ä¾èµ–å…³ç³»ã€‚
 
-ÎÒÃÇÖ»ÓÐÔÚÒÀÀµÊÇÒþÊ½µÄÊ±ºò²ÅÐèÒªÕâ¸ö×¢½â£¬±ÈÈçJDBCÇý¶¯¼ÓÔØ»òÕß¾²Ì¬±äÁ¿³õÊ¼»¯¡£
+æˆ‘ä»¬åªæœ‰åœ¨ä¾èµ–æ˜¯éšå¼çš„æ—¶å€™æ‰éœ€è¦è¿™ä¸ªæ³¨è§£ï¼Œæ¯”å¦‚JDBCé©±åŠ¨åŠ è½½æˆ–è€…é™æ€å˜é‡åˆå§‹åŒ–ã€‚
 
-ÎÒÃÇ¿ÉÒÔÔÚÖ¸¶¨ÒÀÀµ bean Ãû³ÆµÄÒÀÀµÀàÉÏÊ¹ÓÃ @DependsOn¡£ ×¢ÊÍµÄÖµ²ÎÊýÐèÒªÒ»¸ö°üº¬ÒÀÀµ bean Ãû³ÆµÄÊý×é£º
+æˆ‘ä»¬å¯ä»¥åœ¨æŒ‡å®šä¾èµ– bean åç§°çš„ä¾èµ–ç±»ä¸Šä½¿ç”¨ @DependsOnã€‚ æ³¨é‡Šçš„å€¼å‚æ•°éœ€è¦ä¸€ä¸ªåŒ…å«ä¾èµ– bean åç§°çš„æ•°ç»„ï¼š
 
 ````
 @DependsOn("engine")
@@ -222,18 +222,18 @@ return new Engine();
 }
 ````
 ### 2.7 @Lazy
-µ±ÎÒÃÇÏëÀÁ¶èµØ³õÊ¼»¯ÎÒÃÇµÄ bean Ê±£¬ÎÒÃÇÊ¹ÓÃ @Lazy¡£ Ä¬ÈÏÇé¿öÏÂ£¬Spring ÔÚÓ¦ÓÃ³ÌÐòÉÏÏÂÎÄµÄÆô¶¯/Òýµ¼Ê±¼±ÇÐµØ´´½¨ËùÓÐµ¥Àý bean¡£
+å½“æˆ‘ä»¬æƒ³æ‡’æƒ°åœ°åˆå§‹åŒ–æˆ‘ä»¬çš„ bean æ—¶ï¼Œæˆ‘ä»¬ä½¿ç”¨ @Lazyã€‚ é»˜è®¤æƒ…å†µä¸‹ï¼ŒSpring åœ¨åº”ç”¨ç¨‹åºä¸Šä¸‹æ–‡çš„å¯åŠ¨/å¼•å¯¼æ—¶æ€¥åˆ‡åœ°åˆ›å»ºæ‰€æœ‰å•ä¾‹ beanã€‚
 
-µ«ÊÇ£¬ÓÐÐ©Çé¿öÏÂÎÒÃÇÐèÒªÔÚÇëÇóÊ±´´½¨ bean£¬¶ø²»ÊÇÔÚÓ¦ÓÃ³ÌÐòÆô¶¯Ê±´´½¨¡£
+ä½†æ˜¯ï¼Œæœ‰äº›æƒ…å†µä¸‹æˆ‘ä»¬éœ€è¦åœ¨è¯·æ±‚æ—¶åˆ›å»º beanï¼Œè€Œä¸æ˜¯åœ¨åº”ç”¨ç¨‹åºå¯åŠ¨æ—¶åˆ›å»ºã€‚
 
-Õâ¸ö×¢½âµÄÐÐÎª»á¸ù¾ÝÎÒÃÇ·ÅÖÃËüµÄÈ·ÇÐÎ»ÖÃ¶øÓÐËù²»Í¬¡£ ÎÒÃÇ¿ÉÒÔ°ÑËü·ÅÔÚ£º
+è¿™ä¸ªæ³¨è§£çš„è¡Œä¸ºä¼šæ ¹æ®æˆ‘ä»¬æ”¾ç½®å®ƒçš„ç¡®åˆ‡ä½ç½®è€Œæœ‰æ‰€ä¸åŒã€‚ æˆ‘ä»¬å¯ä»¥æŠŠå®ƒæ”¾åœ¨ï¼š
 
-Ò»¸ö @Bean ×¢ÊÍµÄ bean ¹¤³§·½·¨£¬ÒÔÑÓ³Ù·½·¨µ÷ÓÃ£¨Òò´Ë´´½¨ bean£©
-@Configuration ÀàºÍËùÓÐ°üº¬µÄ@Bean ·½·¨¶¼»áÊÜµ½Ó°Ïì
+ä¸€ä¸ª @Bean æ³¨é‡Šçš„ bean å·¥åŽ‚æ–¹æ³•ï¼Œä»¥å»¶è¿Ÿæ–¹æ³•è°ƒç”¨ï¼ˆå› æ­¤åˆ›å»º beanï¼‰
+@Configuration ç±»å’Œæ‰€æœ‰åŒ…å«çš„@Bean æ–¹æ³•éƒ½ä¼šå—åˆ°å½±å“
 
-Ò»¸ö @Component Àà£¬Ëü²»ÊÇ @Configuration Àà£¬Õâ¸ö bean ½«±»ÑÓ³Ù³õÊ¼»¯
+ä¸€ä¸ª @Component ç±»ï¼Œå®ƒä¸æ˜¯ @Configuration ç±»ï¼Œè¿™ä¸ª bean å°†è¢«å»¶è¿Ÿåˆå§‹åŒ–
 
-@Autowired ¹¹Ôìº¯Êý¡¢setter »ò×Ö¶Î£¬ÓÃÓÚÑÓ³Ù¼ÓÔØÒÀÀµÏî±¾Éí£¨Í¨¹ý´úÀí£©
+@Autowired æž„é€ å‡½æ•°ã€setter æˆ–å­—æ®µï¼Œç”¨äºŽå»¶è¿ŸåŠ è½½ä¾èµ–é¡¹æœ¬èº«ï¼ˆé€šè¿‡ä»£ç†ï¼‰
 
 ````
 @Configuration
@@ -247,31 +247,31 @@ class VehicleFactoryConfig {
     }
 }
 ````
-ÕâÍ¬Ñù²»ÊÇÒ»¸ö³£ÓÃµÄ×¢½â¡£
+è¿™åŒæ ·ä¸æ˜¯ä¸€ä¸ªå¸¸ç”¨çš„æ³¨è§£ã€‚
 
-µ±ÎÒÃÇÎ¬»¤Ò»¸öÓÐ´óÁ¿beanµÄÏîÄ¿Ê±£¬»á·¢ÏÖÓÐºÜ¶àbean¿ÉÄÜ¶¼ÊÇ°´ÐèÊ¹ÓÃµÄ£¬²»Ò»¶¨ÐèÒªÔÚÈÝÆ÷³õÊ¼»¯Ê±¾Í½øÐÐ³õÊ¼»¯£¬Õâ¿ÉÒÔ°ïÎÒÃÇ½ÚÊ¡ºÜ¶àÊ±¼äºÍÐÔÄÜ¡£
+å½“æˆ‘ä»¬ç»´æŠ¤ä¸€ä¸ªæœ‰å¤§é‡beançš„é¡¹ç›®æ—¶ï¼Œä¼šå‘çŽ°æœ‰å¾ˆå¤šbeanå¯èƒ½éƒ½æ˜¯æŒ‰éœ€ä½¿ç”¨çš„ï¼Œä¸ä¸€å®šéœ€è¦åœ¨å®¹å™¨åˆå§‹åŒ–æ—¶å°±è¿›è¡Œåˆå§‹åŒ–ï¼Œè¿™å¯ä»¥å¸®æˆ‘ä»¬èŠ‚çœå¾ˆå¤šæ—¶é—´å’Œæ€§èƒ½ã€‚
 
 
 ### 2.8 @Lookup
-Í¬ÑùÊÇÒ»¸ö±È½ÏÉÙÓÃµ½µÄ×¢½â
+åŒæ ·æ˜¯ä¸€ä¸ªæ¯”è¾ƒå°‘ç”¨åˆ°çš„æ³¨è§£
 
-@Lookup »á¸æËß Spring ÔÚÎÒÃÇµ÷ÓÃËüÊ±·µ»Ø·½·¨·µ»ØÀàÐÍµÄÊµÀý¡£
+@Lookup ä¼šå‘Šè¯‰ Spring åœ¨æˆ‘ä»¬è°ƒç”¨å®ƒæ—¶è¿”å›žæ–¹æ³•è¿”å›žç±»åž‹çš„å®žä¾‹ã€‚
 
-±¾ÖÊÉÏ£¬Spring ½«¸²¸ÇÎÒÃÇ´ø×¢ÊÍµÄ·½·¨²¢Ê¹ÓÃÎÒÃÇ·½·¨µÄ·µ»ØÀàÐÍºÍ²ÎÊý×÷Îª BeanFactory#getBean µÄ²ÎÊý¡£
+æœ¬è´¨ä¸Šï¼ŒSpring å°†è¦†ç›–æˆ‘ä»¬å¸¦æ³¨é‡Šçš„æ–¹æ³•å¹¶ä½¿ç”¨æˆ‘ä»¬æ–¹æ³•çš„è¿”å›žç±»åž‹å’Œå‚æ•°ä½œä¸º BeanFactory#getBean çš„å‚æ•°ã€‚
 
-@Lookup ÊÊÓÃÓÚ£º
+@Lookup é€‚ç”¨äºŽï¼š
 
-½«Ô­ÐÍ bean ×¢ÈëÎÒÃÇ×Ô¼ºµÄbean£¨ÀàËÆÓÚ Provider£©
+å°†åŽŸåž‹ bean æ³¨å…¥æˆ‘ä»¬è‡ªå·±çš„beanï¼ˆç±»ä¼¼äºŽ Providerï¼‰
 
-Èç¹ûÎÒÃÇÅöÇÉ¾ö¶¨ÓµÓÐÒ»¸öÔ­ÐÍ Spring bean£¬ÄÇÃ´ÎÒÃÇ¼¸ºõ»áÁ¢¼´ÃæÁÙÕâÑùµÄÎÊÌâ£º
+å¦‚æžœæˆ‘ä»¬ç¢°å·§å†³å®šæ‹¥æœ‰ä¸€ä¸ªåŽŸåž‹ Spring beanï¼Œé‚£ä¹ˆæˆ‘ä»¬å‡ ä¹Žä¼šç«‹å³é¢ä¸´è¿™æ ·çš„é—®é¢˜ï¼š
 
-ÎÒÃÇµÄµ¥Àý Spring bean ½«ÈçºÎ·ÃÎÊÕâÐ©Ô­ÐÍ Spring bean£¿
+æˆ‘ä»¬çš„å•ä¾‹ Spring bean å°†å¦‚ä½•è®¿é—®è¿™äº›åŽŸåž‹ Spring beanï¼Ÿ
 
-ÏÖÔÚ£¬Provider ¿Ï¶¨ÊÇÒ»ÖÖ·½Ê½£¬¾¡¹Ü @Lookup ÔÚÄ³Ð©·½Ãæ¸ü¼ÓÍ¨ÓÃ¡£
+çŽ°åœ¨ï¼ŒProvider è‚¯å®šæ˜¯ä¸€ç§æ–¹å¼ï¼Œå°½ç®¡ @Lookup åœ¨æŸäº›æ–¹é¢æ›´åŠ é€šç”¨ã€‚
 
-Òª×¢ÒâµÄÊÇ£¬springÄ¬ÈÏÊ¹ÓÃµÄµ¥Àýbean£¬ËùÒÔÈç¹ûÎÒÃÇÒª×¢ÈëÔ­ÐÍbean£¬ÎÒÃÇ²ÅÐèÒª×öÕâÑùµÄ¶îÍâ¹¤×÷
+è¦æ³¨æ„çš„æ˜¯ï¼Œspringé»˜è®¤ä½¿ç”¨çš„å•ä¾‹beanï¼Œæ‰€ä»¥å¦‚æžœæˆ‘ä»¬è¦æ³¨å…¥åŽŸåž‹beanï¼Œæˆ‘ä»¬æ‰éœ€è¦åšè¿™æ ·çš„é¢å¤–å·¥ä½œ
 
-Ê×ÏÈ£¬ÈÃÎÒÃÇ´´½¨Ò»¸öÔ­ÐÍ bean£¬ÉÔºóÎÒÃÇ½«Æä×¢Èëµ½µ¥Àý bean ÖÐ£º
+é¦–å…ˆï¼Œè®©æˆ‘ä»¬åˆ›å»ºä¸€ä¸ªåŽŸåž‹ beanï¼Œç¨åŽæˆ‘ä»¬å°†å…¶æ³¨å…¥åˆ°å•ä¾‹ bean ä¸­ï¼š
 ````
 @Component
 @Scope("prototype")
@@ -279,7 +279,7 @@ public class SchoolNotification {
 // ... prototype-scoped state
 }
 ````
-Ê¹ÓÃ@Lookup£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ýµ¥Àý bean »ñÈ¡ SchoolNotification µÄÊµÀý£º
+ä½¿ç”¨@Lookupï¼Œæˆ‘ä»¬å¯ä»¥é€šè¿‡å•ä¾‹ bean èŽ·å– SchoolNotification çš„å®žä¾‹ï¼š
 
 ````
 @Component
@@ -307,19 +307,19 @@ StudentServices second = this.context.getBean(StudentServices.class);
     assertNotEquals(first.getNotification(), second.getNotification()); 
 }
 ````
-Çë×¢Òâ£¬ÔÚ StudentServices ÖÐ£¬ÎÒÃÇ½« getNotification ·½·¨±£ÁôÎª´æ¸ù¡£
+è¯·æ³¨æ„ï¼Œåœ¨ StudentServices ä¸­ï¼Œæˆ‘ä»¬å°† getNotification æ–¹æ³•ä¿ç•™ä¸ºå­˜æ ¹ã€‚
 
-ÕâÊÇÒòÎª Spring Í¨¹ýµ÷ÓÃ beanFactory.getBean(StudentNotification.class) ¸²¸ÇÁË¸Ã·½·¨£¬Òò´ËÎÒÃÇ¿ÉÒÔ½«ÆäÁô¿Õ¡£
+è¿™æ˜¯å› ä¸º Spring é€šè¿‡è°ƒç”¨ beanFactory.getBean(StudentNotification.class) è¦†ç›–äº†è¯¥æ–¹æ³•ï¼Œå› æ­¤æˆ‘ä»¬å¯ä»¥å°†å…¶ç•™ç©ºã€‚
 
 
 ### 2.9 @Primary
-ÓÐÊ±ÎÒÃÇÐèÒª¶¨Òå¶à¸öÏàÍ¬ÀàÐÍµÄbean¡£ ÔÚÕâÐ©Çé¿öÏÂ£¬×¢Èë½«²»³É¹¦£¬ÒòÎª Spring ²»ÖªµÀÎÒÃÇÐèÒªÄÄ¸ö bean¡£
+æœ‰æ—¶æˆ‘ä»¬éœ€è¦å®šä¹‰å¤šä¸ªç›¸åŒç±»åž‹çš„beanã€‚ åœ¨è¿™äº›æƒ…å†µä¸‹ï¼Œæ³¨å…¥å°†ä¸æˆåŠŸï¼Œå› ä¸º Spring ä¸çŸ¥é“æˆ‘ä»¬éœ€è¦å“ªä¸ª beanã€‚
 
-ÎÒÃÇÒÑ¾­¿´µ½ÁË´¦ÀíÕâÖÖÇé¿öµÄÑ¡Ïî£ºÓÃ@Qualifier ±ê¼ÇËùÓÐ½ÓÏßµã²¢Ö¸¶¨ËùÐè bean µÄÃû³Æ¡£
+æˆ‘ä»¬å·²ç»çœ‹åˆ°äº†å¤„ç†è¿™ç§æƒ…å†µçš„é€‰é¡¹ï¼šç”¨@Qualifier æ ‡è®°æ‰€æœ‰æŽ¥çº¿ç‚¹å¹¶æŒ‡å®šæ‰€éœ€ bean çš„åç§°ã€‚
 
-È»¶ø£¬´ó¶àÊýÊ±ºòÎÒÃÇÐèÒªÒ»¸öÌØ¶¨µÄ bean£¬ºÜÉÙÐèÒªÆäËû bean¡£
+ç„¶è€Œï¼Œå¤§å¤šæ•°æ—¶å€™æˆ‘ä»¬éœ€è¦ä¸€ä¸ªç‰¹å®šçš„ beanï¼Œå¾ˆå°‘éœ€è¦å…¶ä»– beanã€‚
 
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ@Primary À´¼ò»¯ÕâÖÖÇé¿ö£ºÈç¹ûÎÒÃÇÓÃ@Primary ±ê¼Ç×î³£ÓÃµÄbean£¬Ëü½«ÔÚunqualifiedµÄ×¢ÈëµãÉÏ±»Ñ¡Ôñ£º
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨@Primary æ¥ç®€åŒ–è¿™ç§æƒ…å†µï¼šå¦‚æžœæˆ‘ä»¬ç”¨@Primary æ ‡è®°æœ€å¸¸ç”¨çš„beanï¼Œå®ƒå°†åœ¨unqualifiedçš„æ³¨å…¥ç‚¹ä¸Šè¢«é€‰æ‹©ï¼š
 
 ````
 @Component
@@ -342,15 +342,15 @@ class Biker {
 Vehicle vehicle;
 }
 ````
-ÔÚÇ°ÃæµÄÊ¾ÀýÖÐ£¬Æû³µÊÇÖ÷Òª³µÁ¾¡£ Òò´Ë£¬ÔÚ Driver ÀàÖÐ£¬Spring ×¢ÈëÁËÒ»¸ö Car bean¡£ µ±È»£¬ÔÚ Biker bean ÖÐ£¬×Ö¶Î vehicle µÄÖµ½«ÊÇÒ»¸ö Bike ¶ÔÏó£¬ÒòÎªËüÊÇqualifiedµÄ¡£
+åœ¨å‰é¢çš„ç¤ºä¾‹ä¸­ï¼Œæ±½è½¦æ˜¯ä¸»è¦è½¦è¾†ã€‚ å› æ­¤ï¼Œåœ¨ Driver ç±»ä¸­ï¼ŒSpring æ³¨å…¥äº†ä¸€ä¸ª Car beanã€‚ å½“ç„¶ï¼Œåœ¨ Biker bean ä¸­ï¼Œå­—æ®µ vehicle çš„å€¼å°†æ˜¯ä¸€ä¸ª Bike å¯¹è±¡ï¼Œå› ä¸ºå®ƒæ˜¯qualifiedçš„ã€‚
 
 ### 2.10 @Scope
 
-¶ÔÓÚÍ¨³£µÄÓ¦ÓÃÀ´Ëµ£¬ÎÒÃÇbeanµÄscopeÄ¬ÈÏ¶¼ÊÇµ¥ÀýµÄ£¬µ«Êµ¼ÊÉÏspring bean¿ÉÒÔÖ§³Ö¶àÖÖ¶àÑùµÄ×÷ÓÃ·¶Î§£¬ËüÃÇÓÐ×Å²»Í¬µÄÉúÃüÖÜÆÚ¡£
+å¯¹äºŽé€šå¸¸çš„åº”ç”¨æ¥è¯´ï¼Œæˆ‘ä»¬beançš„scopeé»˜è®¤éƒ½æ˜¯å•ä¾‹çš„ï¼Œä½†å®žé™…ä¸Šspring beanå¯ä»¥æ”¯æŒå¤šç§å¤šæ ·çš„ä½œç”¨èŒƒå›´ï¼Œå®ƒä»¬æœ‰ç€ä¸åŒçš„ç”Ÿå‘½å‘¨æœŸã€‚
 
-ÎÒÃÇÊ¹ÓÃ@Scope À´¶¨Òå@Component Àà»ò@Bean ¶¨ÒåµÄ·¶Î§¡£ Ëü¿ÉÒÔÊÇµ¥Àý¡¢Ô­ÐÍ¡¢ÇëÇó¡¢»á»°¡¢globalSession »òÒ»Ð©×Ô¶¨Òå·¶Î§¡£
+æˆ‘ä»¬ä½¿ç”¨@Scope æ¥å®šä¹‰@Component ç±»æˆ–@Bean å®šä¹‰çš„èŒƒå›´ã€‚ å®ƒå¯ä»¥æ˜¯å•ä¾‹ã€åŽŸåž‹ã€è¯·æ±‚ã€ä¼šè¯ã€globalSession æˆ–ä¸€äº›è‡ªå®šä¹‰èŒƒå›´ã€‚
 
-¶ÔÓ¦µÄÃ¶¾ÙÖµÎª
+å¯¹åº”çš„æžšä¸¾å€¼ä¸º
 ````
 singleton
 prototype
@@ -360,28 +360,28 @@ application
 websocket
 ````
 
-Àý×Ó
+ä¾‹å­
 ````
 @Component
 @Scope("prototype")
 class Engine {}
 ````
-ÎÒÃÇ¿ÉÒÔÏëÏóÒ»Ð©³¡¾°£¬±ÈÈçrequest¡¢session¡¢websocketÕâÀà×÷ÓÃÓòµÄbean£¬Í¨³£Ó¦¸ÃÊÇºÍÍøÂçÇëÇóÏà¹ØµÄ£¬±ÈÈçÓÃ´æ´¢ÓÃ»§ÐÅÏ¢¡¢sessionÖ®ÀàµÄbean¡£
+æˆ‘ä»¬å¯ä»¥æƒ³è±¡ä¸€äº›åœºæ™¯ï¼Œæ¯”å¦‚requestã€sessionã€websocketè¿™ç±»ä½œç”¨åŸŸçš„beanï¼Œé€šå¸¸åº”è¯¥æ˜¯å’Œç½‘ç»œè¯·æ±‚ç›¸å…³çš„ï¼Œæ¯”å¦‚ç”¨å­˜å‚¨ç”¨æˆ·ä¿¡æ¯ã€sessionä¹‹ç±»çš„beanã€‚
 
-¾ßÌåÔõÃ´Ê¹ÓÃ£¬¾ÍÒª¸ù¾ÝÄãµÄ¾ßÌå³¡¾°À´Ñ¡ÔñÁË£¬Õâ»áÊÇÒ»¸öºÜ´óµÄ»°Ìâ£¬ÕâÀï¾ÍÏÈ²»Õ¹¿ªÁË£¬ÒÔºó¿ÉÒÔÔÚµ¥¶ÀµÄÎÄÕÂÀï¼ÌÐø½éÉÜ¡£
+å…·ä½“æ€Žä¹ˆä½¿ç”¨ï¼Œå°±è¦æ ¹æ®ä½ çš„å…·ä½“åœºæ™¯æ¥é€‰æ‹©äº†ï¼Œè¿™ä¼šæ˜¯ä¸€ä¸ªå¾ˆå¤§çš„è¯é¢˜ï¼Œè¿™é‡Œå°±å…ˆä¸å±•å¼€äº†ï¼Œä»¥åŽå¯ä»¥åœ¨å•ç‹¬çš„æ–‡ç« é‡Œç»§ç»­ä»‹ç»ã€‚
 
-## 3 ÉÏÏÂÎÄÅäÖÃ×¢½â
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ±¾½ÚÖÐÃèÊöµÄ×¢ÊÍÀ´ÅäÖÃÓ¦ÓÃ³ÌÐòÉÏÏÂÎÄ¡£
+## 3 ä¸Šä¸‹æ–‡é…ç½®æ³¨è§£
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨æœ¬èŠ‚ä¸­æè¿°çš„æ³¨é‡Šæ¥é…ç½®åº”ç”¨ç¨‹åºä¸Šä¸‹æ–‡ã€‚
 
 
 ### 3.1 @Profile
 
-Èç¹ûÎÒÃÇÏ£Íû Spring ½öÔÚÌØ¶¨ÅäÖÃÎÄ¼þ´¦ÓÚ»î¶¯×´Ì¬Ê±Ê¹ÓÃ@Component Àà»ò@Bean ·½·¨£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ@Profile ¶ÔÆä½øÐÐ±ê¼Ç¡£
+å¦‚æžœæˆ‘ä»¬å¸Œæœ› Spring ä»…åœ¨ç‰¹å®šé…ç½®æ–‡ä»¶å¤„äºŽæ´»åŠ¨çŠ¶æ€æ—¶ä½¿ç”¨@Component ç±»æˆ–@Bean æ–¹æ³•ï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨@Profile å¯¹å…¶è¿›è¡Œæ ‡è®°ã€‚
 
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ×¢ÊÍµÄÖµ²ÎÊýÅäÖÃÅäÖÃÎÄ¼þµÄÃû³Æ£º
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨æ³¨é‡Šçš„å€¼å‚æ•°é…ç½®é…ç½®æ–‡ä»¶çš„åç§°ï¼š
 
-ÎÒÃÇÍ¨³£Õâ¸ö×¢½âÀ´ÅäÖÃ²»Í¬»·¾³µÄÅäÖÃ¡£
-±ÈÈçÏÂÃæÕâ¸öÀý×Ó
+æˆ‘ä»¬é€šå¸¸è¿™ä¸ªæ³¨è§£æ¥é…ç½®ä¸åŒçŽ¯å¢ƒçš„é…ç½®ã€‚
+æ¯”å¦‚ä¸‹é¢è¿™ä¸ªä¾‹å­
 
 ````
 public interface DatasourceConfig {
@@ -389,7 +389,7 @@ public void setup();
 }
 ````
 
-ÏÂÃæÊÇ¿ª·¢»·¾³µÄÅäÖÃ£º
+ä¸‹é¢æ˜¯å¼€å‘çŽ¯å¢ƒçš„é…ç½®ï¼š
 
 ````
 @Component
@@ -401,7 +401,7 @@ System.out.println("Setting up datasource for DEV environment. ");
 }
 }
 ````
-ÏÂÃæÊÇÉú²ú»·¾³µÄÅäÖÃ£º
+ä¸‹é¢æ˜¯ç”Ÿäº§çŽ¯å¢ƒçš„é…ç½®ï¼š
 
 ````
 @Component
@@ -413,7 +413,7 @@ System.out.println("Setting up datasource for PRODUCTION environment. ");
 }
 }
 ````
-µ±È»ÎÒÃÇÒ²¿ÉÒÔÊ¹ÓÃxml»òÕßÆäËûÀàÐÍµÄÅäÖÃÎÄ¼þÀ´ÃèÊöÕâ¸öÅäÖÃbean
+å½“ç„¶æˆ‘ä»¬ä¹Ÿå¯ä»¥ä½¿ç”¨xmlæˆ–è€…å…¶ä»–ç±»åž‹çš„é…ç½®æ–‡ä»¶æ¥æè¿°è¿™ä¸ªé…ç½®bean
 
 xml
 ````
@@ -424,11 +424,11 @@ xml
 ````
 ### 3.2 @Import
 
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃÌØ¶¨µÄ @Configuration Àà£¬¶øÎÞÐèÊ¹ÓÃ´Ë×¢½â½øÐÐ×é¼þÉ¨Ãè¡£ ÎÒÃÇ¿ÉÒÔÎªÕâÐ©ÀàÌá¹©@Import µÄÖµ²ÎÊý
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨ç‰¹å®šçš„ @Configuration ç±»ï¼Œè€Œæ— éœ€ä½¿ç”¨æ­¤æ³¨è§£è¿›è¡Œç»„ä»¶æ‰«æã€‚ æˆ‘ä»¬å¯ä»¥ä¸ºè¿™äº›ç±»æä¾›@Import çš„å€¼å‚æ•°
 
-Õý³£À´Ëµ£¬Èç¹ûÒªÓÃµ½@Configuration×¢½âµÄbean£¬ÄÇÃ´springÓ¦ÓÃ±ØÐëÒªÉ¨Ãèµ½¸ÃÄ¿Â¼£¬Èç¹ûÇ¡ºÃÃ»ÓÐ¶Ô¸ÃÂ·¾¶½øÐÐÉ¨Ãè£¬»òÕßÎÒÃÇÖ»ÊÇÏëÊ¹ÓÃÂ·¾¶ÏÂµÄµ¥¸öÅäÖÃÀà£¬ÄÇÃ´ÎÒÃÇ¾Í¿ÉÒÔÊ¹ÓÃ@ImportÀ´µ¼ÈëÕâ¸öÅäÖÃÀàÁË¡£
+æ­£å¸¸æ¥è¯´ï¼Œå¦‚æžœè¦ç”¨åˆ°@Configurationæ³¨è§£çš„beanï¼Œé‚£ä¹ˆspringåº”ç”¨å¿…é¡»è¦æ‰«æåˆ°è¯¥ç›®å½•ï¼Œå¦‚æžœæ°å¥½æ²¡æœ‰å¯¹è¯¥è·¯å¾„è¿›è¡Œæ‰«æï¼Œæˆ–è€…æˆ‘ä»¬åªæ˜¯æƒ³ä½¿ç”¨è·¯å¾„ä¸‹çš„å•ä¸ªé…ç½®ç±»ï¼Œé‚£ä¹ˆæˆ‘ä»¬å°±å¯ä»¥ä½¿ç”¨@Importæ¥å¯¼å…¥è¿™ä¸ªé…ç½®ç±»äº†ã€‚
 
-Õâ¸ö×¢½â»¹ÊÇ·Ç³£³£ÓÃµÄ£¬¿´Ò»ÏÂÏÂÃæÕâ¸öÀý×Ó
+è¿™ä¸ªæ³¨è§£è¿˜æ˜¯éžå¸¸å¸¸ç”¨çš„ï¼Œçœ‹ä¸€ä¸‹ä¸‹é¢è¿™ä¸ªä¾‹å­
 
 ````
 @Import(VehiclePartSupplier.class)
@@ -441,32 +441,32 @@ class VehiclePartSupplier{
 
 ### 3.3 @ImportResource
 
-±ÈÈçËµ£ºÏÖÔÚÓÐÒ»¸ö bean.xml µÄÅäÖÃÎÄ¼þ£¬ÐèÒª½«¸Ã beans.xml ÖÐ¶¨ÒåµÄ bean¶ÔÏó ¶¼µ¼Èëµ½ Spring Boot »·¾³µÄÈÝÆ÷ÖÐ£¬¸ÃÈçºÎ²Ù×÷ÄØ£¿
+æ¯”å¦‚è¯´ï¼šçŽ°åœ¨æœ‰ä¸€ä¸ª bean.xml çš„é…ç½®æ–‡ä»¶ï¼Œéœ€è¦å°†è¯¥ beans.xml ä¸­å®šä¹‰çš„ beanå¯¹è±¡ éƒ½å¯¼å…¥åˆ° Spring Boot çŽ¯å¢ƒçš„å®¹å™¨ä¸­ï¼Œè¯¥å¦‚ä½•æ“ä½œå‘¢ï¼Ÿ
 
-1.Spring ·½Ê½µÄÅäÖÃÎÄ¼þ bean.xml ´Ë´¦Ëæ±ã¾Ù¸öÊ¾Àý£¬±ÈÈçËµ xml ÖÐÅäÖÃÁËÒ»¸ö helloService£¬ÈçÏÂËùÊ¾
+1.Spring æ–¹å¼çš„é…ç½®æ–‡ä»¶ bean.xml æ­¤å¤„éšä¾¿ä¸¾ä¸ªç¤ºä¾‹ï¼Œæ¯”å¦‚è¯´ xml ä¸­é…ç½®äº†ä¸€ä¸ª helloServiceï¼Œå¦‚ä¸‹æ‰€ç¤º
 ````
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--½« HelloService ÒÔxmlµÄ·½Ê½,×¢Èëµ½ÈÝÆ÷ÖÐ-->
+    <!--å°† HelloService ä»¥xmlçš„æ–¹å¼,æ³¨å…¥åˆ°å®¹å™¨ä¸­-->
     <bean id="helloService" class="com.demo.springboot.service.HelloService"></bean>
 </beans>
 ````
-2.Ê¹ÓÃ@ImportResource×¢½â£¬ÒýÈë xml ÅäÖÃ
+2.ä½¿ç”¨@ImportResourceæ³¨è§£ï¼Œå¼•å…¥ xml é…ç½®
 ````
 /**
- * Spring BootÀïÃæÃ»ÓÐSpringµÄÅäÖÃÎÄ¼þ£¬ÎÒÃÇ×Ô¼º±àÐ´µÄÅäÖÃÎÄ¼þ£¬Ò²²»ÄÜ×Ô¶¯Ê¶±ð£»
- * Èç¹ûÏëÈÃSpringµÄÅäÖÃÎÄ¼þÉúÐ§£¬¼ÓÔØµ½Spring ÈÝÆ÷ÖÐÀ´£»
- * Ê¹ÓÃ@ImportResource×¢½â£¬½«Æä±ê×¢ÔÚÒ»¸öÅäÖÃÀàÉÏ(´Ë´¦ÅäÖÃÔÚÆô¶¯Àà)
+ * Spring Booté‡Œé¢æ²¡æœ‰Springçš„é…ç½®æ–‡ä»¶ï¼Œæˆ‘ä»¬è‡ªå·±ç¼–å†™çš„é…ç½®æ–‡ä»¶ï¼Œä¹Ÿä¸èƒ½è‡ªåŠ¨è¯†åˆ«ï¼›
+ * å¦‚æžœæƒ³è®©Springçš„é…ç½®æ–‡ä»¶ç”Ÿæ•ˆï¼ŒåŠ è½½åˆ°Spring å®¹å™¨ä¸­æ¥ï¼›
+ * ä½¿ç”¨@ImportResourceæ³¨è§£ï¼Œå°†å…¶æ ‡æ³¨åœ¨ä¸€ä¸ªé…ç½®ç±»ä¸Š(æ­¤å¤„é…ç½®åœ¨å¯åŠ¨ç±»)
  */
 @SpringBootApplication
 @ImportResource(locations = {"classpath:beans.xml"})
 public class BootApplication {
 
     public static void main(String[] args) {
-        // SpringÓ¦ÓÃÆô¶¯ÆðÀ´         
+        // Springåº”ç”¨å¯åŠ¨èµ·æ¥         
         SpringApplication.run(BootApplication.class,args);
 
     }
@@ -474,19 +474,19 @@ public class BootApplication {
 
 ````
 ### 3.4 @PropertySource
-Í¨¹ýÕâ¸ö×¢½â£¬ÎÒÃÇ¿ÉÒÔÎªÓ¦ÓÃ³ÌÐòÉèÖÃ¶¨ÒåÊôÐÔÎÄ¼þ£º
+é€šè¿‡è¿™ä¸ªæ³¨è§£ï¼Œæˆ‘ä»¬å¯ä»¥ä¸ºåº”ç”¨ç¨‹åºè®¾ç½®å®šä¹‰å±žæ€§æ–‡ä»¶ï¼š
 
-@PropertySource ×¢½âÌá¹©ÁËÒ»ÖÖ·½±ãµÄÉùÃ÷ÐÔ»úÖÆ£¬ÓÃÓÚ½« PropertySource Ìí¼Óµ½ Spring µÄ Environment ÖÐ£¬Óë @Configuration ÀàÒ»ÆðÊ¹ÓÃ¡£
+@PropertySource æ³¨è§£æä¾›äº†ä¸€ç§æ–¹ä¾¿çš„å£°æ˜Žæ€§æœºåˆ¶ï¼Œç”¨äºŽå°† PropertySource æ·»åŠ åˆ° Spring çš„ Environment ä¸­ï¼Œä¸Ž @Configuration ç±»ä¸€èµ·ä½¿ç”¨ã€‚
 
-Äã¿ÉÒÔÊ¹ÓÃ @Value È¥ÒýÓÃ¶¨ÒåµÄÊôÐÔ£¬ÀýÈç£º@Value("testbean.name")£»Ò²¿ÉÒÔÖ¸¶¨Ä¬ÈÏÖµ£¬Èç£º@Value("testbean.name:defaultValue")¡£
+ä½ å¯ä»¥ä½¿ç”¨ @Value åŽ»å¼•ç”¨å®šä¹‰çš„å±žæ€§ï¼Œä¾‹å¦‚ï¼š@Value("testbean.name")ï¼›ä¹Ÿå¯ä»¥æŒ‡å®šé»˜è®¤å€¼ï¼Œå¦‚ï¼š@Value("testbean.name:defaultValue")ã€‚
 
-ÓÃ·¨Ê¾Àý
+ç”¨æ³•ç¤ºä¾‹
 
-¸ø¶¨Ò»¸öÅäÖÃÎÄ¼þapp.properties
+ç»™å®šä¸€ä¸ªé…ç½®æ–‡ä»¶app.properties
 ````
 testbean.name=myTestBean
 ````
-ÒÔÏÂ @Configuration ÀàÊ¹ÓÃ @PropertySource ½« app.properties ÉèÖÃ¸ø Environment µÄ PropertySources ¼¯ºÏ¡£
+ä»¥ä¸‹ @Configuration ç±»ä½¿ç”¨ @PropertySource å°† app.properties è®¾ç½®ç»™ Environment çš„ PropertySources é›†åˆã€‚
 ````
 @Configuration
 @PropertySource("classpath:/com/myco/app.properties")
@@ -504,10 +504,10 @@ public class AppConfig {
 }
 ````
 
-×¢Òâ£ºÊ¹ÓÃ @Autowired ½« Environment ¶ÔÏó×¢Èëµ½ÅäÖÃÀàÖÐ£¬È»ºóÔÚ testBean() ·½·¨ÖÐÊ¹ÓÃ¡£
-ÒÔÉÏÅäÖÃÖÐ£¬µ÷ÓÃ testBean.getName() ·½·¨½«·µ»Ø¡°myTestBean¡±×Ö·û´®¡£
+æ³¨æ„ï¼šä½¿ç”¨ @Autowired å°† Environment å¯¹è±¡æ³¨å…¥åˆ°é…ç½®ç±»ä¸­ï¼Œç„¶åŽåœ¨ testBean() æ–¹æ³•ä¸­ä½¿ç”¨ã€‚
+ä»¥ä¸Šé…ç½®ä¸­ï¼Œè°ƒç”¨ testBean.getName() æ–¹æ³•å°†è¿”å›žâ€œmyTestBeanâ€å­—ç¬¦ä¸²ã€‚
 
-@PropertySource ÀûÓÃÁË Java 8 µÄÖØ¸´×¢½âÌØÐÔ£¬ÕâÒâÎ¶×ÅÎÒÃÇ¿ÉÒÔÓÃËü¶à´Î±ê¼ÇÒ»¸öÀà£º
+@PropertySource åˆ©ç”¨äº† Java 8 çš„é‡å¤æ³¨è§£ç‰¹æ€§ï¼Œè¿™æ„å‘³ç€æˆ‘ä»¬å¯ä»¥ç”¨å®ƒå¤šæ¬¡æ ‡è®°ä¸€ä¸ªç±»ï¼š
 
 ````
 @Configuration
@@ -517,7 +517,7 @@ class VehicleFactoryConfig {}
 ````
 
 ### 3.5 @PropertySources
-ÓÃ·¨Í¬ÉÏ£¬Ö»²»¹ý£¬ÕâÒ»´ÎÎÒÃÇ¿ÉÒÔÊ¹ÓÃÕâ¸ö×¢½âÖ¸¶¨¶à¸ö@PropertySource ÅäÖÃ£º
+ç”¨æ³•åŒä¸Šï¼Œåªä¸è¿‡ï¼Œè¿™ä¸€æ¬¡æˆ‘ä»¬å¯ä»¥ä½¿ç”¨è¿™ä¸ªæ³¨è§£æŒ‡å®šå¤šä¸ª@PropertySource é…ç½®ï¼š
 ````
 @Configuration
 @PropertySources({
@@ -526,40 +526,40 @@ class VehicleFactoryConfig {}
 })
 class VehicleFactoryConfig {}
 ````
-Çë×¢Òâ£¬×Ô Java 8 ÒÔÀ´£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ýÉÏÊöÖØ¸´×¢ÊÍ¹¦ÄÜÊµÏÖÏàÍ¬µÄ¹¦ÄÜ¡£
+è¯·æ³¨æ„ï¼Œè‡ª Java 8 ä»¥æ¥ï¼Œæˆ‘ä»¬å¯ä»¥é€šè¿‡ä¸Šè¿°é‡å¤æ³¨é‡ŠåŠŸèƒ½å®žçŽ°ç›¸åŒçš„åŠŸèƒ½ã€‚
 
-## 4.½áÂÛ
+## 4.ç»“è®º
 
-ÔÚ±¾ÎÄÖÐ£¬ÎÒÃÇ¿´µ½ÁË×î³£¼ûµÄ Spring ºËÐÄ×¢ÊÍµÄ¸ÅÊö¡£ ÎÒÃÇ¿´µ½ÁËÈçºÎÅäÖÃ bean Á¬½ÓºÍÓ¦ÓÃÉÏÏÂÎÄ£¬ÒÔ¼°ÈçºÎÎª×é¼þÉ¨Ãè±ê¼ÇÀà¡£
+åœ¨æœ¬æ–‡ä¸­ï¼Œæˆ‘ä»¬çœ‹åˆ°äº†æœ€å¸¸è§çš„ Spring æ ¸å¿ƒæ³¨é‡Šçš„æ¦‚è¿°ã€‚ æˆ‘ä»¬çœ‹åˆ°äº†å¦‚ä½•é…ç½® bean è¿žæŽ¥å’Œåº”ç”¨ä¸Šä¸‹æ–‡ï¼Œä»¥åŠå¦‚ä½•ä¸ºç»„ä»¶æ‰«ææ ‡è®°ç±»ã€‚
 
-springÌåÏµÖÐµÄ³£¼û×¢½â»¹ÓÐºÜ¶à£¬Ò»ÆªÎÄÕÂ²»¿ÉÄÜÈ«²¿¸²¸Ç£¬ÈçÓÐÒÅÂ©£¬»¶Ó­²¹³ä¡£
+springä½“ç³»ä¸­çš„å¸¸è§æ³¨è§£è¿˜æœ‰å¾ˆå¤šï¼Œä¸€ç¯‡æ–‡ç« ä¸å¯èƒ½å…¨éƒ¨è¦†ç›–ï¼Œå¦‚æœ‰é—æ¼ï¼Œæ¬¢è¿Žè¡¥å……ã€‚
 
-# Spring Bean×¢½â
+# Spring Beanæ³¨è§£
 
-## 1 ¸ÅÊö
-ÔÚ±¾½Ì³ÌÖÐ£¬ÎÒÃÇ½«ÌÖÂÛÓÃÓÚ¶¨Òå²»Í¬ÀàÐÍ bean µÄ×î³£¼ûµÄ Spring bean ×¢ÊÍ¡£
+## 1 æ¦‚è¿°
+åœ¨æœ¬æ•™ç¨‹ä¸­ï¼Œæˆ‘ä»¬å°†è®¨è®ºç”¨äºŽå®šä¹‰ä¸åŒç±»åž‹ bean çš„æœ€å¸¸è§çš„ Spring bean æ³¨é‡Šã€‚
 
-ÓÐ¼¸ÖÖ·½·¨¿ÉÒÔÔÚ Spring ÈÝÆ÷ÖÐÅäÖÃ bean¡£ Ê×ÏÈ£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ XML ÅäÖÃÉùÃ÷ËüÃÇ¡£ ÎÒÃÇ»¹¿ÉÒÔÔÚÅäÖÃÀàÖÐÊ¹ÓÃ@Bean ×¢½âÀ´ÉùÃ÷ bean¡£
+æœ‰å‡ ç§æ–¹æ³•å¯ä»¥åœ¨ Spring å®¹å™¨ä¸­é…ç½® beanã€‚ é¦–å…ˆï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨ XML é…ç½®å£°æ˜Žå®ƒä»¬ã€‚ æˆ‘ä»¬è¿˜å¯ä»¥åœ¨é…ç½®ç±»ä¸­ä½¿ç”¨@Bean æ³¨è§£æ¥å£°æ˜Ž beanã€‚
 
-×îºó£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ org.springframework.stereotype °üÖÐµÄ×¢ÊÍÖ®Ò»À´±ê¼Ç¸ÃÀà£¬²¢½«ÆäÓà²¿·ÖÁô¸ø×é¼þÉ¨Ãè¡£
+æœ€åŽï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨ org.springframework.stereotype åŒ…ä¸­çš„æ³¨é‡Šä¹‹ä¸€æ¥æ ‡è®°è¯¥ç±»ï¼Œå¹¶å°†å…¶ä½™éƒ¨åˆ†ç•™ç»™ç»„ä»¶æ‰«æã€‚
 
 ## 2 @ComponentScan
-ÕâÊÇÎÒÃÇ¾­³£»áÊ¹ÓÃµÄÒ»¸ö×¢½â£¬ÔÚÎÒÃÇµÄÓ¦ÓÃÖÐ£¬ÓÐÊ±ºò²»Ò»¶¨»áÉ¨ÃèËùÓÐµÄ°ü£¬ÌØ±ðÊÇµ±ÎÒÃÇÒªÉ¨ÃèÍâ²¿jar°üÖÐµÄbeanÊ±£¬Ëü·Ç³£ÓÐÓÃ¡£
+è¿™æ˜¯æˆ‘ä»¬ç»å¸¸ä¼šä½¿ç”¨çš„ä¸€ä¸ªæ³¨è§£ï¼Œåœ¨æˆ‘ä»¬çš„åº”ç”¨ä¸­ï¼Œæœ‰æ—¶å€™ä¸ä¸€å®šä¼šæ‰«ææ‰€æœ‰çš„åŒ…ï¼Œç‰¹åˆ«æ˜¯å½“æˆ‘ä»¬è¦æ‰«æå¤–éƒ¨jaråŒ…ä¸­çš„beanæ—¶ï¼Œå®ƒéžå¸¸æœ‰ç”¨ã€‚
 
-Ëü¿ÉÒÔ¼ÓÔÚSpringBootApplicationÉÏ£¬Ò²¿ÉÒÔ¼ÓÔÚ@configuration×¢½âÉÏµÄÅäÖÃÀàÉÏ
+å®ƒå¯ä»¥åŠ åœ¨SpringBootApplicationä¸Šï¼Œä¹Ÿå¯ä»¥åŠ åœ¨@configurationæ³¨è§£ä¸Šçš„é…ç½®ç±»ä¸Š
 
-Èç¹ûÆôÓÃÁË×é¼þÉ¨Ãè£¬Spring ¿ÉÒÔ×Ô¶¯É¨Ãè°üÖÐµÄ bean¡£
+å¦‚æžœå¯ç”¨äº†ç»„ä»¶æ‰«æï¼ŒSpring å¯ä»¥è‡ªåŠ¨æ‰«æåŒ…ä¸­çš„ beanã€‚
 
-@ComponentScan ÅäÖÃÊ¹ÓÃ×¢½âÅäÖÃÉ¨ÃèÄÄÐ©°üµÄÀà¡£
+@ComponentScan é…ç½®ä½¿ç”¨æ³¨è§£é…ç½®æ‰«æå“ªäº›åŒ…çš„ç±»ã€‚
 
-ÎÒÃÇ¿ÉÒÔÖ±½ÓÊ¹ÓÃ basePackages »ò value ²ÎÊýÖ®Ò»Ö¸¶¨»ù±¾°üÃû³Æ£¨value ÊÇ basePackages µÄ±ðÃû£©
+æˆ‘ä»¬å¯ä»¥ç›´æŽ¥ä½¿ç”¨ basePackages æˆ– value å‚æ•°ä¹‹ä¸€æŒ‡å®šåŸºæœ¬åŒ…åç§°ï¼ˆvalue æ˜¯ basePackages çš„åˆ«åï¼‰
 
 ````
 @Configuration
 @ComponentScan(basePackages = "com.baeldung.annotations")
 class VehicleFactoryConfig {}
 ````
-´ËÍâ£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ basePackageClasses ²ÎÊýÖ¸Ïò»ù´¡°üÖÐµÄÀà£º
+æ­¤å¤–ï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨ basePackageClasses å‚æ•°æŒ‡å‘åŸºç¡€åŒ…ä¸­çš„ç±»ï¼š
 
 ````
 @Configuration
@@ -567,11 +567,11 @@ class VehicleFactoryConfig {}
 class VehicleFactoryConfig {}
 ````
 
-ÕâÁ½¸ö²ÎÊý¶¼ÊÇÊý×é£¬Òò´ËÎÒÃÇ¿ÉÒÔÎªÃ¿¸ö²ÎÊýÌá¹©¶à¸ö°ü¡£
+è¿™ä¸¤ä¸ªå‚æ•°éƒ½æ˜¯æ•°ç»„ï¼Œå› æ­¤æˆ‘ä»¬å¯ä»¥ä¸ºæ¯ä¸ªå‚æ•°æä¾›å¤šä¸ªåŒ…ã€‚
 
-Èç¹ûÎ´Ö¸¶¨²ÎÊý£¬ÔòÉ¨Ãè·¢ÉúÔÚ´æÔÚ @ComponentScan ×¢ÊÍÀàµÄÍ¬Ò»°üÖÐ¡£
+å¦‚æžœæœªæŒ‡å®šå‚æ•°ï¼Œåˆ™æ‰«æå‘ç”Ÿåœ¨å­˜åœ¨ @ComponentScan æ³¨é‡Šç±»çš„åŒä¸€åŒ…ä¸­ã€‚
 
-@ComponentScan ÀûÓÃÁË Java 8 µÄÖØ¸´×¢½âÌØÐÔ£¬ÕâÒâÎ¶×ÅÎÒÃÇ¿ÉÒÔÓÃËü¶à´Î±ê¼ÇÒ»¸öÀà£º
+@ComponentScan åˆ©ç”¨äº† Java 8 çš„é‡å¤æ³¨è§£ç‰¹æ€§ï¼Œè¿™æ„å‘³ç€æˆ‘ä»¬å¯ä»¥ç”¨å®ƒå¤šæ¬¡æ ‡è®°ä¸€ä¸ªç±»ï¼š
 
 ````
 @Configuration
@@ -580,7 +580,7 @@ class VehicleFactoryConfig {}
 class VehicleFactoryConfig {}
 ````
 
-»òÕß£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ @ComponentScans Ö¸¶¨¶à¸ö @ComponentScan ÅäÖÃ£º
+æˆ–è€…ï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨ @ComponentScans æŒ‡å®šå¤šä¸ª @ComponentScan é…ç½®ï¼š
 
 ````
 @Configuration
@@ -593,7 +593,7 @@ class VehicleFactoryConfig {}
 class VehicleFactoryConfig {
 }
 ````
-Ê¹ÓÃ XML ÅäÖÃÊ±£¬ÅäÖÃ×é¼þÉ¨ÃèÍ¬Ñù¼òµ¥£º
+ä½¿ç”¨ XML é…ç½®æ—¶ï¼Œé…ç½®ç»„ä»¶æ‰«æåŒæ ·ç®€å•ï¼š
 
 ````
 <context:component-scan base-package="com.baeldung"/>
@@ -601,7 +601,7 @@ class VehicleFactoryConfig {
 
 ### 3 @Component
 
-@Component ÊÇÀà¼¶±ðµÄ×¢½â¡£ ÔÚ×é¼þÉ¨ÃèÆÚ¼ä£¬Spring Framework »á×Ô¶¯¼ì²âÊ¹ÓÃ@Component ×¢½âµÄÀà£º
+@Component æ˜¯ç±»çº§åˆ«çš„æ³¨è§£ã€‚ åœ¨ç»„ä»¶æ‰«ææœŸé—´ï¼ŒSpring Framework ä¼šè‡ªåŠ¨æ£€æµ‹ä½¿ç”¨@Component æ³¨è§£çš„ç±»ï¼š
 ````
 @Component
 class CarUtility {
@@ -609,13 +609,13 @@ class CarUtility {
 }
 ````
 
-Ä¬ÈÏÇé¿öÏÂ£¬´ËÀàµÄ bean ÊµÀýÓëÀàÃûÍ¬Ãû£¬Ê××ÖÄ¸Ð¡Ð´¡£ ´ËÍâ£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ´Ë×¢ÊÍµÄ¿ÉÑ¡Öµ²ÎÊýÖ¸¶¨²»Í¬µÄÃû³Æ¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼Œæ­¤ç±»çš„ bean å®žä¾‹ä¸Žç±»ååŒåï¼Œé¦–å­—æ¯å°å†™ã€‚ æ­¤å¤–ï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨æ­¤æ³¨é‡Šçš„å¯é€‰å€¼å‚æ•°æŒ‡å®šä¸åŒçš„åç§°ã€‚
 
-ÓÉÓÚ@Repository¡¢@Service¡¢@Configuration ºÍ@Controller ¶¼ÊÇ´øÓÐ@Component µÄ×¢½â£¬ËüÃÇ¹²ÏíÏàÍ¬µÄbean ÃüÃûÐÐÎª¡£
+ç”±äºŽ@Repositoryã€@Serviceã€@Configuration å’Œ@Controller éƒ½æ˜¯å¸¦æœ‰@Component çš„æ³¨è§£ï¼Œå®ƒä»¬å…±äº«ç›¸åŒçš„bean å‘½åè¡Œä¸ºã€‚
 
-Spring »¹»áÔÚ×é¼þÉ¨Ãè¹ý³ÌÖÐ×Ô¶¯¼ì²âËüÃÇ¡£
+Spring è¿˜ä¼šåœ¨ç»„ä»¶æ‰«æè¿‡ç¨‹ä¸­è‡ªåŠ¨æ£€æµ‹å®ƒä»¬ã€‚
 
-Í¨³£À´Ëµ£¬ÎÒÃÇ»áÔÚmvcÓ¦ÓÃÖÐÎÒÃÇ»áÓÃµ½ÉÏÊö¼¸ÖÖ×¢½â£¬¶øÎÒÃÇÔÚ·ÇwebÓ¦ÓÃÖÐ¸ü¶àµØ¿ÉÒÔÊ¹ÓÃ@componentÀ´×¢½âbean
+é€šå¸¸æ¥è¯´ï¼Œæˆ‘ä»¬ä¼šåœ¨mvcåº”ç”¨ä¸­æˆ‘ä»¬ä¼šç”¨åˆ°ä¸Šè¿°å‡ ç§æ³¨è§£ï¼Œè€Œæˆ‘ä»¬åœ¨éžwebåº”ç”¨ä¸­æ›´å¤šåœ°å¯ä»¥ä½¿ç”¨@componentæ¥æ³¨è§£bean
 
 ### 4 @Repository
 
@@ -626,25 +626,25 @@ class VehicleRepository {
 // ...
 }
 ````
-Ê¹ÓÃ´Ë×¢ÊÍµÄÒ»¸öÓÅµãÊÇËüÆôÓÃÁË×Ô¶¯³Ö¾ÃÐÔÒì³£×ª»»¡£ µ±Ê¹ÓÃ³Ö¾ÃÐÔ¿ò¼Ü£¨Èç Hibernate£©Ê±£¬ÔÚÊ¹ÓÃ @Repository ×¢ÊÍµÄÀàÖÐÅ×³öµÄ±¾»úÒì³£½«×Ô¶¯×ª»»Îª Spring µÄ DataAccessExeption µÄ×ÓÀà¡£
+ä½¿ç”¨æ­¤æ³¨é‡Šçš„ä¸€ä¸ªä¼˜ç‚¹æ˜¯å®ƒå¯ç”¨äº†è‡ªåŠ¨æŒä¹…æ€§å¼‚å¸¸è½¬æ¢ã€‚ å½“ä½¿ç”¨æŒä¹…æ€§æ¡†æž¶ï¼ˆå¦‚ Hibernateï¼‰æ—¶ï¼Œåœ¨ä½¿ç”¨ @Repository æ³¨é‡Šçš„ç±»ä¸­æŠ›å‡ºçš„æœ¬æœºå¼‚å¸¸å°†è‡ªåŠ¨è½¬æ¢ä¸º Spring çš„ DataAccessExeption çš„å­ç±»ã€‚
 
-ÒªÆôÓÃÒì³£×ª»»£¬ÎÒÃÇÐèÒªÉùÃ÷ÎÒÃÇ×Ô¼ºµÄ PersistenceExceptionTranslationPostProcessor bean£º
+è¦å¯ç”¨å¼‚å¸¸è½¬æ¢ï¼Œæˆ‘ä»¬éœ€è¦å£°æ˜Žæˆ‘ä»¬è‡ªå·±çš„ PersistenceExceptionTranslationPostProcessor beanï¼š
 ````
 @Bean
 public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
 return new PersistenceExceptionTranslationPostProcessor();
 }
 ````
-Çë×¢Òâ£¬ÔÚ´ó¶àÊýÇé¿öÏÂ£¬Spring »á×Ô¶¯Ö´ÐÐÉÏÊö²½Öè¡£
+è¯·æ³¨æ„ï¼Œåœ¨å¤§å¤šæ•°æƒ…å†µä¸‹ï¼ŒSpring ä¼šè‡ªåŠ¨æ‰§è¡Œä¸Šè¿°æ­¥éª¤ã€‚
 
-»òÕßÍ¨¹ý XML ÅäÖÃ£º
+æˆ–è€…é€šè¿‡ XML é…ç½®ï¼š
 ````
 <bean class=
 "org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 ````
 
 ### 5 @Service
-Ó¦ÓÃ³ÌÐòµÄÒµÎñÂß¼­Í¨³£×¤ÁôÔÚ·þÎñ²ãÖÐ£¬Òò´ËÎÒÃÇ½«Ê¹ÓÃ@Service ×¢ÊÍÀ´Ö¸Ê¾Ò»¸öÀàÊôÓÚ¸Ã²ã£º
+åº”ç”¨ç¨‹åºçš„ä¸šåŠ¡é€»è¾‘é€šå¸¸é©»ç•™åœ¨æœåŠ¡å±‚ä¸­ï¼Œå› æ­¤æˆ‘ä»¬å°†ä½¿ç”¨@Service æ³¨é‡Šæ¥æŒ‡ç¤ºä¸€ä¸ªç±»å±žäºŽè¯¥å±‚ï¼š
 
 ````
 @Service
@@ -653,9 +653,9 @@ public class VehicleService {
 }
 ````
 ### 6 @Controller
-@Controller ÊÇÒ»¸öÀà¼¶±ðµÄ×¢½â£¬Ëü¸æËß Spring Framework Õâ¸öÀà×÷Îª Spring MVC ÖÐµÄ¿ØÖÆÆ÷£º
+@Controller æ˜¯ä¸€ä¸ªç±»çº§åˆ«çš„æ³¨è§£ï¼Œå®ƒå‘Šè¯‰ Spring Framework è¿™ä¸ªç±»ä½œä¸º Spring MVC ä¸­çš„æŽ§åˆ¶å™¨ï¼š
 
-spring»á¶Ô@Controller ×¢½âµÄbean×öºÜ¶àÊÂÇé£¬¾ßÌåÄÚÈÝÎÒÃÇ»áÔÚSpringMVCÏà¹ØµÄÄÚÈÝÀ´½²Êö
+springä¼šå¯¹@Controller æ³¨è§£çš„beanåšå¾ˆå¤šäº‹æƒ…ï¼Œå…·ä½“å†…å®¹æˆ‘ä»¬ä¼šåœ¨SpringMVCç›¸å…³çš„å†…å®¹æ¥è®²è¿°
 
 ````
 @Controller
@@ -666,7 +666,7 @@ public class VehicleController {
 ````
 ## 7 @Configuration
 
-ÅäÖÃÀà¿ÉÒÔ°üº¬ÓÃ@Bean ×¢ÊÍµÄ bean ¶¨Òå·½·¨£º
+é…ç½®ç±»å¯ä»¥åŒ…å«ç”¨@Bean æ³¨é‡Šçš„ bean å®šä¹‰æ–¹æ³•ï¼š
 ````
 @Configuration
 class VehicleFactoryConfig {
@@ -678,10 +678,10 @@ class VehicleFactoryConfig {
 
 }
 ````
-## 8 AOP×¢½â
-µ±ÎÒÃÇÊ¹ÓÃ Spring ¹¹ÔìÐÍ×¢ÊÍÊ±£¬ºÜÈÝÒ×´´½¨Ò»¸öÇÐÈëµã£¬¸ÃÇÐÈëµãÒÔËùÓÐ¾ßÓÐÌØ¶¨¹¹ÔìÐÍµÄÀàÎªÄ¿±ê¡£
+## 8 AOPæ³¨è§£
+å½“æˆ‘ä»¬ä½¿ç”¨ Spring æž„é€ åž‹æ³¨é‡Šæ—¶ï¼Œå¾ˆå®¹æ˜“åˆ›å»ºä¸€ä¸ªåˆ‡å…¥ç‚¹ï¼Œè¯¥åˆ‡å…¥ç‚¹ä»¥æ‰€æœ‰å…·æœ‰ç‰¹å®šæž„é€ åž‹çš„ç±»ä¸ºç›®æ ‡ã€‚
 
-ÀýÈç£¬¼ÙÉèÎÒÃÇÏë²âÁ¿ DAO ²ã·½·¨µÄÖ´ÐÐÊ±¼ä¡£ ÎÒÃÇ½«´´½¨ÒÔÏÂ·½Ãæ£¨Ê¹ÓÃ AspectJ ×¢ÊÍ£©£¬ÀûÓÃ @Repository ¹¹ÔìÐÍ£º
+ä¾‹å¦‚ï¼Œå‡è®¾æˆ‘ä»¬æƒ³æµ‹é‡ DAO å±‚æ–¹æ³•çš„æ‰§è¡Œæ—¶é—´ã€‚ æˆ‘ä»¬å°†åˆ›å»ºä»¥ä¸‹æ–¹é¢ï¼ˆä½¿ç”¨ AspectJ æ³¨é‡Šï¼‰ï¼Œåˆ©ç”¨ @Repository æž„é€ åž‹ï¼š
 
 ```
 @Aspect
@@ -705,34 +705,34 @@ public void repositoryClassMethods() {};
 }
 ````
 
-ÔÚ´ËÊ¾ÀýÖÐ£¬ÎÒÃÇ´´½¨ÁËÒ»¸öÇÐÈëµã£¬¸ÃÇÐÈëµãÆ¥ÅäÊ¹ÓÃ@Repository ×¢ÊÍµÄÀàÖÐµÄËùÓÐ·½·¨¡£ È»ºóÎÒÃÇÊ¹ÓÃ@Around Í¨ÖªÀ´¶¨Î»ÄÇ¸öÇÐÈëµã£¬²¢È·¶¨À¹½Ø·½·¨µ÷ÓÃµÄÖ´ÐÐÊ±¼ä¡£
+åœ¨æ­¤ç¤ºä¾‹ä¸­ï¼Œæˆ‘ä»¬åˆ›å»ºäº†ä¸€ä¸ªåˆ‡å…¥ç‚¹ï¼Œè¯¥åˆ‡å…¥ç‚¹åŒ¹é…ä½¿ç”¨@Repository æ³¨é‡Šçš„ç±»ä¸­çš„æ‰€æœ‰æ–¹æ³•ã€‚ ç„¶åŽæˆ‘ä»¬ä½¿ç”¨@Around é€šçŸ¥æ¥å®šä½é‚£ä¸ªåˆ‡å…¥ç‚¹ï¼Œå¹¶ç¡®å®šæ‹¦æˆªæ–¹æ³•è°ƒç”¨çš„æ‰§è¡Œæ—¶é—´ã€‚
 
-´ËÍâ£¬Ê¹ÓÃÕâÖÖ·½·¨£¬ÎÒÃÇ¿ÉÒÔÎªÃ¿¸öÓ¦ÓÃ³ÌÐò²ãÌí¼ÓÈÕÖ¾¼ÇÂ¼¡¢ÐÔÄÜ¹ÜÀí¡¢Éó¼ÆºÍÆäËûÐÐÎª¡£
+æ­¤å¤–ï¼Œä½¿ç”¨è¿™ç§æ–¹æ³•ï¼Œæˆ‘ä»¬å¯ä»¥ä¸ºæ¯ä¸ªåº”ç”¨ç¨‹åºå±‚æ·»åŠ æ—¥å¿—è®°å½•ã€æ€§èƒ½ç®¡ç†ã€å®¡è®¡å’Œå…¶ä»–è¡Œä¸ºã€‚
 
-µ±È»ÁË£¬aspectJµÄÏà¹Ø×¢½â»¹ºÜ¶à£¬¿ÉÒÔÓÃÀ´ÉùÃ÷ÇÐÃæ£¬Î´À´ÎÒÃÇÒ²»áµ¥¶ÀÐ´ÎÄ½éÉÜ¡£
+å½“ç„¶äº†ï¼ŒaspectJçš„ç›¸å…³æ³¨è§£è¿˜å¾ˆå¤šï¼Œå¯ä»¥ç”¨æ¥å£°æ˜Žåˆ‡é¢ï¼Œæœªæ¥æˆ‘ä»¬ä¹Ÿä¼šå•ç‹¬å†™æ–‡ä»‹ç»ã€‚
 
-## 9 ½áÂÛ
+## 9 ç»“è®º
 
-ÔÚ±¾ÎÄÖÐ£¬ÎÒÃÇ¼ì²éÁË Spring ¹¹ÔìÐÍ×¢ÊÍ²¢ÌÖÂÛÁËËüÃÇ¸÷×Ô´ú±íµÄÓïÒåÀàÐÍ¡£
+åœ¨æœ¬æ–‡ä¸­ï¼Œæˆ‘ä»¬æ£€æŸ¥äº† Spring æž„é€ åž‹æ³¨é‡Šå¹¶è®¨è®ºäº†å®ƒä»¬å„è‡ªä»£è¡¨çš„è¯­ä¹‰ç±»åž‹ã€‚
 
-ÎÒÃÇ»¹Ñ§Ï°ÁËÈçºÎÊ¹ÓÃ×é¼þÉ¨ÃèÀ´¸æËßÈÝÆ÷ÔÚÄÄÀï¿ÉÒÔÕÒµ½´ø×¢ÊÍµÄÀà¡£
+æˆ‘ä»¬è¿˜å­¦ä¹ äº†å¦‚ä½•ä½¿ç”¨ç»„ä»¶æ‰«ææ¥å‘Šè¯‰å®¹å™¨åœ¨å“ªé‡Œå¯ä»¥æ‰¾åˆ°å¸¦æ³¨é‡Šçš„ç±»ã€‚
 
-×îºó£¬ÎÒÃÇÁË½âÁËÕâÐ©×¢ÊÍÈçºÎµ¼ÖÂ¸É¾»¡¢·Ö²ãµÄÉè¼ÆÒÔ¼°Ó¦ÓÃ³ÌÐò¹Ø×¢µãÖ®¼äµÄ·ÖÀë¡£ ËüÃÇ»¹Ê¹ÅäÖÃ¸üÐ¡£¬ÒòÎªÎÒÃÇ²»ÔÙÐèÒªÊÖ¶¯ÏÔÊ½¶¨Òå bean¡£
-# SpringMVC×¢½â
-## 1. ¸ÅÊö
-ÔÚ±¾½Ì³ÌÖÐ£¬ÎÒÃÇ½«Ì½Ë÷ org.springframework.web.bind.annotation °üÖÐµÄ Spring Web ×¢ÊÍ¡£
+æœ€åŽï¼Œæˆ‘ä»¬äº†è§£äº†è¿™äº›æ³¨é‡Šå¦‚ä½•å¯¼è‡´å¹²å‡€ã€åˆ†å±‚çš„è®¾è®¡ä»¥åŠåº”ç”¨ç¨‹åºå…³æ³¨ç‚¹ä¹‹é—´çš„åˆ†ç¦»ã€‚ å®ƒä»¬è¿˜ä½¿é…ç½®æ›´å°ï¼Œå› ä¸ºæˆ‘ä»¬ä¸å†éœ€è¦æ‰‹åŠ¨æ˜¾å¼å®šä¹‰ beanã€‚
+# SpringMVCæ³¨è§£
+## 1. æ¦‚è¿°
+åœ¨æœ¬æ•™ç¨‹ä¸­ï¼Œæˆ‘ä»¬å°†æŽ¢ç´¢ org.springframework.web.bind.annotation åŒ…ä¸­çš„ Spring Web æ³¨é‡Šã€‚
 
 ## 2. @RequestMapping
 
-¼òµ¥µØËµ£¬@RequestMapping ±ê¼Ç@Controller ÀàÄÚ²¿µÄÇëÇó´¦Àí³ÌÐò·½·¨£» Ëü¿ÉÒÔÊ¹ÓÃÅäÖÃ£º
+ç®€å•åœ°è¯´ï¼Œ@RequestMapping æ ‡è®°@Controller ç±»å†…éƒ¨çš„è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•ï¼› å®ƒå¯ä»¥ä½¿ç”¨é…ç½®ï¼š
 
-Â·¾¶£¬»òÆä±ðÃû¡¢Ãû³ÆºÍÖµ£º·½·¨Ó³Éäµ½ÄÄ¸ö URL
-·½·¨£º¼æÈÝµÄ HTTP ·½·¨
-params£º¸ù¾Ý HTTP ²ÎÊýµÄ´æÔÚ¡¢²»´æÔÚ»òÖµ¹ýÂËÇëÇó
-headers£º¸ù¾Ý HTTP ±êÍ·µÄ´æÔÚ¡¢²»´æÔÚ»òÖµ¹ýÂËÇëÇó
-ÏûºÄ£º¸Ã·½·¨¿ÉÒÔÔÚ HTTP ÇëÇóÕýÎÄÖÐÏûºÄÄÄÐ©Ã½ÌåÀàÐÍ
-produces£º¸Ã·½·¨¿ÉÒÔÔÚ HTTP ÏìÓ¦ÕýÎÄÖÐÉú³ÉÄÄÐ©Ã½ÌåÀàÐÍ
-ÕâÊÇÒ»¸ö¼òµ¥µÄÊ¾Àý£º
+è·¯å¾„ï¼Œæˆ–å…¶åˆ«åã€åç§°å’Œå€¼ï¼šæ–¹æ³•æ˜ å°„åˆ°å“ªä¸ª URL
+æ–¹æ³•ï¼šå…¼å®¹çš„ HTTP æ–¹æ³•
+paramsï¼šæ ¹æ® HTTP å‚æ•°çš„å­˜åœ¨ã€ä¸å­˜åœ¨æˆ–å€¼è¿‡æ»¤è¯·æ±‚
+headersï¼šæ ¹æ® HTTP æ ‡å¤´çš„å­˜åœ¨ã€ä¸å­˜åœ¨æˆ–å€¼è¿‡æ»¤è¯·æ±‚
+æ¶ˆè€—ï¼šè¯¥æ–¹æ³•å¯ä»¥åœ¨ HTTP è¯·æ±‚æ­£æ–‡ä¸­æ¶ˆè€—å“ªäº›åª’ä½“ç±»åž‹
+producesï¼šè¯¥æ–¹æ³•å¯ä»¥åœ¨ HTTP å“åº”æ­£æ–‡ä¸­ç”Ÿæˆå“ªäº›åª’ä½“ç±»åž‹
+è¿™æ˜¯ä¸€ä¸ªç®€å•çš„ç¤ºä¾‹ï¼š
 
 ````
 @Controller
@@ -744,9 +744,9 @@ class VehicleController {
     }
 }
 ````
-Èç¹ûÎÒÃÇÔÚÀà¼¶±ðÓ¦ÓÃ´Ë×¢ÊÍ£¬ÎÒÃÇ¿ÉÒÔÎª @Controller ÀàÖÐµÄËùÓÐ´¦Àí³ÌÐò·½·¨Ìá¹©Ä¬ÈÏÉèÖÃ¡£ Î¨Ò»µÄÀýÍâÊÇ Spring ²»»áÊ¹ÓÃ·½·¨¼¶±ðÉèÖÃ¸²¸Çµ«»á¸½¼ÓÁ½¸öÂ·¾¶²¿·ÖµÄ URL¡£
+å¦‚æžœæˆ‘ä»¬åœ¨ç±»çº§åˆ«åº”ç”¨æ­¤æ³¨é‡Šï¼Œæˆ‘ä»¬å¯ä»¥ä¸º @Controller ç±»ä¸­çš„æ‰€æœ‰å¤„ç†ç¨‹åºæ–¹æ³•æä¾›é»˜è®¤è®¾ç½®ã€‚ å”¯ä¸€çš„ä¾‹å¤–æ˜¯ Spring ä¸ä¼šä½¿ç”¨æ–¹æ³•çº§åˆ«è®¾ç½®è¦†ç›–ä½†ä¼šé™„åŠ ä¸¤ä¸ªè·¯å¾„éƒ¨åˆ†çš„ URLã€‚
 
-ÀýÈç£¬ÏÂÃæµÄÅäÖÃºÍÉÏÃæµÄÐ§¹ûÊÇÒ»ÑùµÄ£º
+ä¾‹å¦‚ï¼Œä¸‹é¢çš„é…ç½®å’Œä¸Šé¢çš„æ•ˆæžœæ˜¯ä¸€æ ·çš„ï¼š
 
 ````
 @Controller
@@ -760,13 +760,13 @@ class VehicleController {
 }
 ````
 
-´ËÍâ£¬@GetMapping¡¢@PostMapping¡¢@PutMapping¡¢@DeleteMapping ºÍ@PatchMapping ÊÇ@RequestMapping µÄ²»Í¬±äÌå£¬ÆäHTTP ·½·¨ÒÑ·Ö±ðÉèÖÃÎªGET¡¢POST¡¢PUT¡¢DELETE ºÍPATCH¡£
+æ­¤å¤–ï¼Œ@GetMappingã€@PostMappingã€@PutMappingã€@DeleteMapping å’Œ@PatchMapping æ˜¯@RequestMapping çš„ä¸åŒå˜ä½“ï¼Œå…¶HTTP æ–¹æ³•å·²åˆ†åˆ«è®¾ç½®ä¸ºGETã€POSTã€PUTã€DELETE å’ŒPATCHã€‚
 
-ÕâÐ©´Ó Spring 4.3 °æ±¾¿ªÊ¼¿ÉÓÃ¡£
+è¿™äº›ä»Ž Spring 4.3 ç‰ˆæœ¬å¼€å§‹å¯ç”¨ã€‚
 
 ## 3 @RequestBody
 
-ÈÃÎÒÃÇ¼ÌÐø@RequestBody¡ª¡ªËü½« HTTP ÇëÇóµÄÖ÷ÌåÓ³Éäµ½Ò»¸ö¶ÔÏó£º
+è®©æˆ‘ä»¬ç»§ç»­@RequestBodyâ€”â€”å®ƒå°† HTTP è¯·æ±‚çš„ä¸»ä½“æ˜ å°„åˆ°ä¸€ä¸ªå¯¹è±¡ï¼š
 
 ````
 @PostMapping("/save")
@@ -774,14 +774,14 @@ void saveVehicle(@RequestBody Vehicle vehicle) {
 // ...
 }
 ````
-·´ÐòÁÐ»¯ÊÇ×Ô¶¯µÄ£¬È¡¾öÓÚÇëÇóµÄÄÚÈÝÀàÐÍ¡£
+ååºåˆ—åŒ–æ˜¯è‡ªåŠ¨çš„ï¼Œå–å†³äºŽè¯·æ±‚çš„å†…å®¹ç±»åž‹ã€‚
 
 ## 4 @PathVariable
-½ÓÏÂÀ´ËµËµ@PathVariable¡£
+æŽ¥ä¸‹æ¥è¯´è¯´@PathVariableã€‚
 
-´Ë×¢ÊÍÖ¸Ê¾·½·¨²ÎÊý°ó¶¨µ½ URI Ä£°å±äÁ¿¡£ ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ @RequestMapping ×¢ÊÍÖ¸¶¨ URI Ä£°å£¬²¢Ê¹ÓÃ @PathVariable ½«·½·¨²ÎÊý°ó¶¨µ½Ä£°å²¿·ÖÖ®Ò»¡£
+æ­¤æ³¨é‡ŠæŒ‡ç¤ºæ–¹æ³•å‚æ•°ç»‘å®šåˆ° URI æ¨¡æ¿å˜é‡ã€‚ æˆ‘ä»¬å¯ä»¥ä½¿ç”¨ @RequestMapping æ³¨é‡ŠæŒ‡å®š URI æ¨¡æ¿ï¼Œå¹¶ä½¿ç”¨ @PathVariable å°†æ–¹æ³•å‚æ•°ç»‘å®šåˆ°æ¨¡æ¿éƒ¨åˆ†ä¹‹ä¸€ã€‚
 
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃÃû³Æ»òÆä±ðÃû£¬¼´Öµ²ÎÊýÀ´ÊµÏÖÕâÒ»µã£º
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨åç§°æˆ–å…¶åˆ«åï¼Œå³å€¼å‚æ•°æ¥å®žçŽ°è¿™ä¸€ç‚¹ï¼š
 
 ````
 @RequestMapping("/{id}")
@@ -789,7 +789,7 @@ Vehicle getVehicle(@PathVariable("id") long id) {
 // ...
 }
 ````
-Èç¹ûÄ£°åÖÐ²¿·ÖµÄÃû³ÆÓë·½·¨²ÎÊýµÄÃû³ÆÏàÆ¥Åä£¬ÎÒÃÇ¾Í²»±ØÔÚ×¢ÊÍÖÐÖ¸¶¨Ëü£º
+å¦‚æžœæ¨¡æ¿ä¸­éƒ¨åˆ†çš„åç§°ä¸Žæ–¹æ³•å‚æ•°çš„åç§°ç›¸åŒ¹é…ï¼Œæˆ‘ä»¬å°±ä¸å¿…åœ¨æ³¨é‡Šä¸­æŒ‡å®šå®ƒï¼š
 
 ````
 @RequestMapping("/{id}")
@@ -797,7 +797,7 @@ Vehicle getVehicle(@PathVariable long id) {
 // ...
 }
 ````
-´ËÍâ£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ý½«ËùÐèµÄ²ÎÊýÉèÖÃÎª false À´½«Â·¾¶±äÁ¿±ê¼ÇÎª¿ÉÑ¡£º
+æ­¤å¤–ï¼Œæˆ‘ä»¬å¯ä»¥é€šè¿‡å°†æ‰€éœ€çš„å‚æ•°è®¾ç½®ä¸º false æ¥å°†è·¯å¾„å˜é‡æ ‡è®°ä¸ºå¯é€‰ï¼š
 
 ````
 @RequestMapping("/{id}")
@@ -813,27 +813,27 @@ Vehicle getVehicleByParam(@RequestParam("id") long id) {
 // ...
 }
 ````
-Ëü¾ßÓÐÓë @PathVariable ×¢ÊÍÏàÍ¬µÄÅäÖÃÑ¡Ïî¡£
+å®ƒå…·æœ‰ä¸Ž @PathVariable æ³¨é‡Šç›¸åŒçš„é…ç½®é€‰é¡¹ã€‚
 
-³ýÁËÕâÐ©ÉèÖÃÖ®Íâ£¬µ± Spring ÔÚÇëÇóÖÐ·¢ÏÖÃ»ÓÐÖµ»òÎª¿ÕÖµÊ±£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ @RequestParam Ö¸¶¨×¢ÈëÖµ¡£ Îª´Ë£¬ÎÒÃÇ±ØÐëÉèÖÃ defaultValue ²ÎÊý¡£
+é™¤äº†è¿™äº›è®¾ç½®ä¹‹å¤–ï¼Œå½“ Spring åœ¨è¯·æ±‚ä¸­å‘çŽ°æ²¡æœ‰å€¼æˆ–ä¸ºç©ºå€¼æ—¶ï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨ @RequestParam æŒ‡å®šæ³¨å…¥å€¼ã€‚ ä¸ºæ­¤ï¼Œæˆ‘ä»¬å¿…é¡»è®¾ç½® defaultValue å‚æ•°ã€‚
 
-Ìá¹©Ä¬ÈÏÖµÒþÊ½ÉèÖÃ required Îª false£º
+æä¾›é»˜è®¤å€¼éšå¼è®¾ç½® required ä¸º falseï¼š
 ````
 @RequestMapping("/buy")
 Car buyCar(@RequestParam(defaultValue = "5") int seatCount) {
 // ...
 }
 ````
-³ýÁË²ÎÊýÖ®Íâ£¬ÎÒÃÇ»¹¿ÉÒÔ·ÃÎÊÆäËû HTTP ÇëÇó²¿·Ö£ºcookie ºÍ±êÍ·¡£
+é™¤äº†å‚æ•°ä¹‹å¤–ï¼Œæˆ‘ä»¬è¿˜å¯ä»¥è®¿é—®å…¶ä»– HTTP è¯·æ±‚éƒ¨åˆ†ï¼šcookie å’Œæ ‡å¤´ã€‚
 
-ÎÒÃÇ¿ÉÒÔ·Ö±ðÊ¹ÓÃ×¢½â@CookieValue ºÍ@RequestHeader À´·ÃÎÊËüÃÇ¡£
+æˆ‘ä»¬å¯ä»¥åˆ†åˆ«ä½¿ç”¨æ³¨è§£@CookieValue å’Œ@RequestHeader æ¥è®¿é—®å®ƒä»¬ã€‚
 
 
 ## 6. Response Handling Annotations
-ÔÚ½ÓÏÂÀ´µÄ²¿·ÖÖÐ£¬ÎÒÃÇ½«¿´µ½ÔÚ Spring MVC ÖÐ²Ù×÷ HTTP ÏìÓ¦µÄ×î³£¼û×¢ÊÍ¡£
+åœ¨æŽ¥ä¸‹æ¥çš„éƒ¨åˆ†ä¸­ï¼Œæˆ‘ä»¬å°†çœ‹åˆ°åœ¨ Spring MVC ä¸­æ“ä½œ HTTP å“åº”çš„æœ€å¸¸è§æ³¨é‡Šã€‚
 
 ### 6.1 @ResponseBody
-Èç¹ûÎÒÃÇÓÃ@ResponseBody ±ê¼ÇÇëÇó´¦Àí³ÌÐò·½·¨£¬Spring »á½«·½·¨µÄ½á¹ûÊÓÎªÏìÓ¦±¾Éí£º
+å¦‚æžœæˆ‘ä»¬ç”¨@ResponseBody æ ‡è®°è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•ï¼ŒSpring ä¼šå°†æ–¹æ³•çš„ç»“æžœè§†ä¸ºå“åº”æœ¬èº«ï¼š
 
 ````
 @ResponseBody
@@ -842,13 +842,13 @@ String hello() {
 return "Hello World!";
 }
 ````
-Èç¹ûÎÒÃÇÓÃÕâ¸ö×¢½âÀ´×¢½â @Controller Àà£¬ËùÓÐÇëÇó´¦Àí³ÌÐò·½·¨¶¼½«Ê¹ÓÃËü¡£
+å¦‚æžœæˆ‘ä»¬ç”¨è¿™ä¸ªæ³¨è§£æ¥æ³¨è§£ @Controller ç±»ï¼Œæ‰€æœ‰è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•éƒ½å°†ä½¿ç”¨å®ƒã€‚
 
 ### 6.2 @ExceptionHandler
 
-Ê¹ÓÃ´Ë×¢ÊÍ£¬ÎÒÃÇ¿ÉÒÔÉùÃ÷Ò»¸ö×Ô¶¨Òå´íÎó´¦Àí³ÌÐò·½·¨¡£ µ±ÇëÇó´¦Àí³ÌÐò·½·¨Å×³öÈÎºÎÖ¸¶¨µÄÒì³£Ê±£¬Spring µ÷ÓÃ´Ë·½·¨¡£
+ä½¿ç”¨æ­¤æ³¨é‡Šï¼Œæˆ‘ä»¬å¯ä»¥å£°æ˜Žä¸€ä¸ªè‡ªå®šä¹‰é”™è¯¯å¤„ç†ç¨‹åºæ–¹æ³•ã€‚ å½“è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•æŠ›å‡ºä»»ä½•æŒ‡å®šçš„å¼‚å¸¸æ—¶ï¼ŒSpring è°ƒç”¨æ­¤æ–¹æ³•ã€‚
 
-²¶»ñµÄÒì³£¿ÉÒÔ×÷Îª²ÎÊý´«µÝ¸ø·½·¨£º
+æ•èŽ·çš„å¼‚å¸¸å¯ä»¥ä½œä¸ºå‚æ•°ä¼ é€’ç»™æ–¹æ³•ï¼š
 ````
 @ExceptionHandler(IllegalArgumentException.class)
 void onIllegalArgumentException(IllegalArgumentException exception) {
@@ -857,11 +857,11 @@ void onIllegalArgumentException(IllegalArgumentException exception) {
 ````
 
 ### 6.3 @ResponseStatus
-Èç¹ûÎÒÃÇÊ¹ÓÃ´Ë×¢ÊÍ¶ÔÇëÇó´¦Àí³ÌÐò·½·¨½øÐÐ×¢ÊÍ£¬Ôò¿ÉÒÔÖ¸¶¨ÏìÓ¦µÄËùÐè HTTP ×´Ì¬¡£ ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ code ²ÎÊý»òÆä±ðÃû value ²ÎÊýÀ´ÉùÃ÷×´Ì¬´úÂë¡£
+å¦‚æžœæˆ‘ä»¬ä½¿ç”¨æ­¤æ³¨é‡Šå¯¹è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•è¿›è¡Œæ³¨é‡Šï¼Œåˆ™å¯ä»¥æŒ‡å®šå“åº”çš„æ‰€éœ€ HTTP çŠ¶æ€ã€‚ æˆ‘ä»¬å¯ä»¥ä½¿ç”¨ code å‚æ•°æˆ–å…¶åˆ«å value å‚æ•°æ¥å£°æ˜ŽçŠ¶æ€ä»£ç ã€‚
 
-´ËÍâ£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ reason ²ÎÊýÌá¹©Ô­Òò¡£
+æ­¤å¤–ï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨ reason å‚æ•°æä¾›åŽŸå› ã€‚
 
-ÎÒÃÇÒ²¿ÉÒÔ½«ËüÓë@ExceptionHandler Ò»ÆðÊ¹ÓÃ£º
+æˆ‘ä»¬ä¹Ÿå¯ä»¥å°†å®ƒä¸Ž@ExceptionHandler ä¸€èµ·ä½¿ç”¨ï¼š
 
 @ExceptionHandler(IllegalArgumentException.class)
 @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -869,18 +869,18 @@ void onIllegalArgumentException(IllegalArgumentException exception) {
 // ...
 }
 
-ÓÐ¹Ø HTTP ÏìÓ¦×´Ì¬µÄ¸ü¶àÐÅÏ¢£¬Çë·ÃÎÊ±¾ÎÄ¡£
+æœ‰å…³ HTTP å“åº”çŠ¶æ€çš„æ›´å¤šä¿¡æ¯ï¼Œè¯·è®¿é—®æœ¬æ–‡ã€‚
 
-## 7 ÆäËû Web×¢½â
-Ò»Ð©×¢ÊÍ²»Ö±½Ó¹ÜÀí HTTP ÇëÇó»òÏìÓ¦¡£ ÔÚ½ÓÏÂÀ´µÄ²¿·ÖÖÐ£¬ÎÒÃÇ½«½éÉÜ×î³£¼ûµÄ¡£
+## 7 å…¶ä»– Webæ³¨è§£
+ä¸€äº›æ³¨é‡Šä¸ç›´æŽ¥ç®¡ç† HTTP è¯·æ±‚æˆ–å“åº”ã€‚ åœ¨æŽ¥ä¸‹æ¥çš„éƒ¨åˆ†ä¸­ï¼Œæˆ‘ä»¬å°†ä»‹ç»æœ€å¸¸è§çš„ã€‚
 
 ### 7.1 @Controller
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ@Controller ¶¨ÒåÒ»¸öSpring MVC ¿ØÖÆÆ÷¡£ ÓÐ¹Ø¸ü¶àÐÅÏ¢£¬Çë·ÃÎÊÎÒÃÇ¹ØÓÚ Spring Bean Annotations µÄÎÄÕÂ¡£
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨@Controller å®šä¹‰ä¸€ä¸ªSpring MVC æŽ§åˆ¶å™¨ã€‚ æœ‰å…³æ›´å¤šä¿¡æ¯ï¼Œè¯·è®¿é—®æˆ‘ä»¬å…³äºŽ Spring Bean Annotations çš„æ–‡ç« ã€‚
 
 ### 7.2 @RestController
-@RestController ½áºÏÁË@Controller ºÍ@ResponseBody¡£
+@RestController ç»“åˆäº†@Controller å’Œ@ResponseBodyã€‚
 
-Òò´Ë£¬ÒÔÏÂÉùÃ÷ÊÇµÈÐ§µÄ£º
+å› æ­¤ï¼Œä»¥ä¸‹å£°æ˜Žæ˜¯ç­‰æ•ˆçš„ï¼š
 
 ````
 @Controller
@@ -897,7 +897,7 @@ class VehicleRestController {
 }
 ````
 ### 7.3 @ModelAttribute
-Í¨¹ýÕâ¸ö×¢½â£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ýÌá¹©Ä£ÐÍ¼üÀ´·ÃÎÊÒÑ¾­´æÔÚÓÚ MVC @Controller Ä£ÐÍÖÐµÄÔªËØ£º
+é€šè¿‡è¿™ä¸ªæ³¨è§£ï¼Œæˆ‘ä»¬å¯ä»¥é€šè¿‡æä¾›æ¨¡åž‹é”®æ¥è®¿é—®å·²ç»å­˜åœ¨äºŽ MVC @Controller æ¨¡åž‹ä¸­çš„å…ƒç´ ï¼š
 
 ````
 @PostMapping("/assemble")
@@ -905,7 +905,7 @@ void assembleVehicle(@ModelAttribute("vehicle") Vehicle vehicleInModel) {
 // ...
 }
 ````
-Óë@PathVariable ºÍ@RequestParam Ò»Ñù£¬Èç¹û²ÎÊý¾ßÓÐÏàÍ¬µÄÃû³Æ£¬ÎÒÃÇ²»±ØÖ¸¶¨Ä£ÐÍ¼ü£º
+ä¸Ž@PathVariable å’Œ@RequestParam ä¸€æ ·ï¼Œå¦‚æžœå‚æ•°å…·æœ‰ç›¸åŒçš„åç§°ï¼Œæˆ‘ä»¬ä¸å¿…æŒ‡å®šæ¨¡åž‹é”®ï¼š
 
 ````
 @PostMapping("/assemble")
@@ -913,7 +913,7 @@ void assembleVehicle(@ModelAttribute Vehicle vehicle) {
 // ...
 }
 ````
-´ËÍâ£¬@ModelAttribute»¹ÓÐÒ»¸öÓÃÍ¾£ºÈç¹ûÎÒÃÇÓÃËü×¢½âÒ»¸ö·½·¨£¬Spring»á×Ô¶¯½«·½·¨µÄ·µ»ØÖµÌí¼Óµ½Ä£ÐÍÖÐ£º
+æ­¤å¤–ï¼Œ@ModelAttributeè¿˜æœ‰ä¸€ä¸ªç”¨é€”ï¼šå¦‚æžœæˆ‘ä»¬ç”¨å®ƒæ³¨è§£ä¸€ä¸ªæ–¹æ³•ï¼ŒSpringä¼šè‡ªåŠ¨å°†æ–¹æ³•çš„è¿”å›žå€¼æ·»åŠ åˆ°æ¨¡åž‹ä¸­ï¼š
 
 ````
 @ModelAttribute("vehicle")
@@ -921,19 +921,19 @@ Vehicle getVehicle() {
 // ...
 }
 ````
-ºÍÒÔÇ°Ò»Ñù£¬ÎÒÃÇ²»±ØÖ¸¶¨Ä£ÐÍ¼ü£¬Spring Ä¬ÈÏÊ¹ÓÃ·½·¨µÄÃû³Æ£º
+å’Œä»¥å‰ä¸€æ ·ï¼Œæˆ‘ä»¬ä¸å¿…æŒ‡å®šæ¨¡åž‹é”®ï¼ŒSpring é»˜è®¤ä½¿ç”¨æ–¹æ³•çš„åç§°ï¼š
 ````
 @ModelAttribute
 Vehicle vehicle() {
 // ...
 }
 ````
-ÔÚ Spring µ÷ÓÃÇëÇó´¦Àí³ÌÐò·½·¨Ö®Ç°£¬Ëü»áµ÷ÓÃÀàÖÐËùÓÐ @ModelAttribute ×¢ÊÍµÄ·½·¨¡£
+åœ¨ Spring è°ƒç”¨è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•ä¹‹å‰ï¼Œå®ƒä¼šè°ƒç”¨ç±»ä¸­æ‰€æœ‰ @ModelAttribute æ³¨é‡Šçš„æ–¹æ³•ã€‚
 
-ÓÐ¹Ø @ModelAttribute µÄ¸ü¶àÐÅÏ¢£¬Çë²ÎÔÄ±¾ÎÄ¡£
+æœ‰å…³ @ModelAttribute çš„æ›´å¤šä¿¡æ¯ï¼Œè¯·å‚é˜…æœ¬æ–‡ã€‚
 
 ### 7.4 @CrossOrigin
-@CrossOrigin Îª´ø×¢ÊÍµÄÇëÇó´¦Àí³ÌÐò·½·¨ÆôÓÃ¿çÓòÍ¨ÐÅ£º
+@CrossOrigin ä¸ºå¸¦æ³¨é‡Šçš„è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•å¯ç”¨è·¨åŸŸé€šä¿¡ï¼š
 
 ````
 @CrossOrigin
@@ -942,23 +942,23 @@ String hello() {
 return "Hello World!";
 }
 ````
-Èç¹ûÎÒÃÇÓÃËü±ê¼ÇÒ»¸öÀà£¬ËüÊÊÓÃÓÚÆäÖÐµÄËùÓÐÇëÇó´¦Àí³ÌÐò·½·¨¡£
+å¦‚æžœæˆ‘ä»¬ç”¨å®ƒæ ‡è®°ä¸€ä¸ªç±»ï¼Œå®ƒé€‚ç”¨äºŽå…¶ä¸­çš„æ‰€æœ‰è¯·æ±‚å¤„ç†ç¨‹åºæ–¹æ³•ã€‚
 
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ´Ë×¢ÊÍµÄ²ÎÊýÎ¢µ÷ CORS ÐÐÎª¡£
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨æ­¤æ³¨é‡Šçš„å‚æ•°å¾®è°ƒ CORS è¡Œä¸ºã€‚
 
-ÓÐ¹ØÏêÏ¸ÐÅÏ¢£¬Çë·ÃÎÊ±¾ÎÄ¡£
+æœ‰å…³è¯¦ç»†ä¿¡æ¯ï¼Œè¯·è®¿é—®æœ¬æ–‡ã€‚
 
-# SpringBoot×¢½â
-## 1 ¸ÅÊö
-Spring Boot Í¨¹ýÆä×Ô¶¯ÅäÖÃ¹¦ÄÜÊ¹ÅäÖÃ Spring ±äµÃ¸ü¼ÓÈÝÒ×¡£
+# SpringBootæ³¨è§£
+## 1 æ¦‚è¿°
+Spring Boot é€šè¿‡å…¶è‡ªåŠ¨é…ç½®åŠŸèƒ½ä½¿é…ç½® Spring å˜å¾—æ›´åŠ å®¹æ˜“ã€‚
 
-ÔÚ±¾¿ìËÙ½Ì³ÌÖÐ£¬ÎÒÃÇ½«Ì½Ë÷ org.springframework.boot.autoconfigure ºÍ org.springframework.boot.autoconfigure.condition °üÖÐµÄ×¢½â¡£
+åœ¨æœ¬å¿«é€Ÿæ•™ç¨‹ä¸­ï¼Œæˆ‘ä»¬å°†æŽ¢ç´¢ org.springframework.boot.autoconfigure å’Œ org.springframework.boot.autoconfigure.condition åŒ…ä¸­çš„æ³¨è§£ã€‚
 
 ## 2 @SpringBootApplication
-ÎÒÃÇÊ¹ÓÃÕâ¸ö×¢½âÀ´±ê¼Ç Spring Boot Ó¦ÓÃ³ÌÐòµÄÖ÷Àà£º
+æˆ‘ä»¬ä½¿ç”¨è¿™ä¸ªæ³¨è§£æ¥æ ‡è®° Spring Boot åº”ç”¨ç¨‹åºçš„ä¸»ç±»ï¼š
 
 @SpringBootApplication
-ÎÒÃÇÊ¹ÓÃÕâ¸ö×¢½âÀ´±ê¼Ç Spring Boot Ó¦ÓÃ³ÌÐòµÄÖ÷Àà£º
+æˆ‘ä»¬ä½¿ç”¨è¿™ä¸ªæ³¨è§£æ¥æ ‡è®° Spring Boot åº”ç”¨ç¨‹åºçš„ä¸»ç±»ï¼š
 ````
 @SpringBootApplication
 class VehicleFactoryApplication {
@@ -968,13 +968,13 @@ class VehicleFactoryApplication {
     }
 }
 ````
-@SpringBootApplication ·â×°ÁË@Configuration¡¢@EnableAutoConfiguration ºÍ@ComponentScan ×¢½â¼°ÆäÄ¬ÈÏÊôÐÔ¡£
+@SpringBootApplication å°è£…äº†@Configurationã€@EnableAutoConfiguration å’Œ@ComponentScan æ³¨è§£åŠå…¶é»˜è®¤å±žæ€§ã€‚
 
 ## 3 @EnableAutoConfiguration
 
-@EnableAutoConfiguration£¬¹ËÃûË¼Òå£¬ÆôÓÃ×Ô¶¯ÅäÖÃ¡£ ÕâÒâÎ¶×Å Spring Boot ÔÚÆäÀàÂ·¾¶ÖÐ²éÕÒ×Ô¶¯ÅäÖÃ bean ²¢×Ô¶¯Ó¦ÓÃËüÃÇ¡£
+@EnableAutoConfigurationï¼Œé¡¾åæ€ä¹‰ï¼Œå¯ç”¨è‡ªåŠ¨é…ç½®ã€‚ è¿™æ„å‘³ç€ Spring Boot åœ¨å…¶ç±»è·¯å¾„ä¸­æŸ¥æ‰¾è‡ªåŠ¨é…ç½® bean å¹¶è‡ªåŠ¨åº”ç”¨å®ƒä»¬ã€‚
 
-Çë×¢Òâ£¬ÎÒÃÇ±ØÐë½«´Ë×¢ÊÍÓë@Configuration Ò»ÆðÊ¹ÓÃ£º
+è¯·æ³¨æ„ï¼Œæˆ‘ä»¬å¿…é¡»å°†æ­¤æ³¨é‡Šä¸Ž@Configuration ä¸€èµ·ä½¿ç”¨ï¼š
 
 ````
 @Configuration
@@ -982,17 +982,17 @@ class VehicleFactoryApplication {
 class VehicleFactoryConfig {}
 ````
 
-## 4 @ConfigurationÒÔ¼°Ïà¹ØÀà
+## 4 @Configurationä»¥åŠç›¸å…³ç±»
 
-@ConfigurationµÄ×÷ÓÃ£º±ê×¢ÔÚÀàÉÏ£¬ÅäÖÃspringÈÝÆ÷(Ó¦ÓÃÉÏÏÂÎÄ)¡£
+@Configurationçš„ä½œç”¨ï¼šæ ‡æ³¨åœ¨ç±»ä¸Šï¼Œé…ç½®springå®¹å™¨(åº”ç”¨ä¸Šä¸‹æ–‡)ã€‚
 
-ÒÔÍùÎÒÃÇÔÚspringÖÐÅäÖÃbean»áÊ¹ÓÃµ½xmlÅäÖÃÎÄ¼þ£¬¶¨ÒåÒ»¸ö¸öbean£¬ÔÚspringbootÖÐ£¬ÎªÁË×öµ½ÁãÅäÖÃ£¬spring¿ò¼ÜÌá¹©ÁË@ConfigurationÕâÒ»×¢½â
+ä»¥å¾€æˆ‘ä»¬åœ¨springä¸­é…ç½®beanä¼šä½¿ç”¨åˆ°xmlé…ç½®æ–‡ä»¶ï¼Œå®šä¹‰ä¸€ä¸ªä¸ªbeanï¼Œåœ¨springbootä¸­ï¼Œä¸ºäº†åšåˆ°é›¶é…ç½®ï¼Œspringæ¡†æž¶æä¾›äº†@Configurationè¿™ä¸€æ³¨è§£
 
-Ïàµ±ÓÚ°Ñ¸ÃÀà×÷ÎªspringµÄxmlÅäÖÃÎÄ¼þÖÐµÄ<beans>
+ç›¸å½“äºŽæŠŠè¯¥ç±»ä½œä¸ºspringçš„xmlé…ç½®æ–‡ä»¶ä¸­çš„<beans>
 
-@Configuration×¢½âµÄÀàÖÐ£¬Ê¹ÓÃ@Bean×¢½â±ê×¢µÄ·½·¨£¬·µ»ØµÄÀàÐÍ¶¼»áÖ±½Ó×¢²áÎªbean¡£
+@Configurationæ³¨è§£çš„ç±»ä¸­ï¼Œä½¿ç”¨@Beanæ³¨è§£æ ‡æ³¨çš„æ–¹æ³•ï¼Œè¿”å›žçš„ç±»åž‹éƒ½ä¼šç›´æŽ¥æ³¨å†Œä¸ºbeanã€‚
 
-@Configure×¢½âµÄ¶¨ÒåÈçÏÂ£º
+@Configureæ³¨è§£çš„å®šä¹‰å¦‚ä¸‹ï¼š
 ````
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
@@ -1002,20 +1002,20 @@ public @interface Configuration {
 String value() default "";
 }
 ````
-´Ó¶¨ÒåÀ´¿´£¬µ×²ãÊÇº¬ÓÐ@Component £¬ËùÒÔ@Configuration ¾ßÓÐºÍ @Component µÄ×÷ÓÃ¡£Òò´Ëcontext:component-scan/»òÕß@ComponentScan¶¼ÄÜ´¦Àí@Configuration×¢½âµÄÀà¡£
+ä»Žå®šä¹‰æ¥çœ‹ï¼Œåº•å±‚æ˜¯å«æœ‰@Component ï¼Œæ‰€ä»¥@Configuration å…·æœ‰å’Œ @Component çš„ä½œç”¨ã€‚å› æ­¤context:component-scan/æˆ–è€…@ComponentScanéƒ½èƒ½å¤„ç†@Configurationæ³¨è§£çš„ç±»ã€‚
 
-Í¨³££¬µ±ÎÒÃÇ±àÐ´×Ô¶¨Òå×Ô¶¯ÅäÖÃÊ±£¬ÎÒÃÇÏ£Íû Spring ÓÐÌõ¼þµØÊ¹ÓÃËüÃÇ¡£ ÎÒÃÇ¿ÉÒÔÍ¨¹ý±¾½ÚÖÐµÄ×¢ÊÍÀ´ÊµÏÖÕâÒ»µã¡£
+é€šå¸¸ï¼Œå½“æˆ‘ä»¬ç¼–å†™è‡ªå®šä¹‰è‡ªåŠ¨é…ç½®æ—¶ï¼Œæˆ‘ä»¬å¸Œæœ› Spring æœ‰æ¡ä»¶åœ°ä½¿ç”¨å®ƒä»¬ã€‚ æˆ‘ä»¬å¯ä»¥é€šè¿‡æœ¬èŠ‚ä¸­çš„æ³¨é‡Šæ¥å®žçŽ°è¿™ä¸€ç‚¹ã€‚
 
-ÎÒÃÇ¿ÉÒÔ½«´Ë²¿·ÖÖÐµÄ×¢ÊÍ·ÅÔÚ@Configuration Àà»ò@Bean ·½·¨ÉÏ¡£
+æˆ‘ä»¬å¯ä»¥å°†æ­¤éƒ¨åˆ†ä¸­çš„æ³¨é‡Šæ”¾åœ¨@Configuration ç±»æˆ–@Bean æ–¹æ³•ä¸Šã€‚
 
-ÔÚ½ÓÏÂÀ´µÄ²¿·ÖÖÐ£¬ÎÒÃÇ½«Ö»½éÉÜÃ¿¸öÌõ¼þ±³ºóµÄ»ù±¾¸ÅÄî¡£ ÓûÁË½â¸ü¶àÐÅÏ¢£¬Çë·ÃÎÊÕâÆªÎÄÕÂ¡£
+åœ¨æŽ¥ä¸‹æ¥çš„éƒ¨åˆ†ä¸­ï¼Œæˆ‘ä»¬å°†åªä»‹ç»æ¯ä¸ªæ¡ä»¶èƒŒåŽçš„åŸºæœ¬æ¦‚å¿µã€‚ æ¬²äº†è§£æ›´å¤šä¿¡æ¯ï¼Œè¯·è®¿é—®è¿™ç¯‡æ–‡ç« ã€‚
 
 ### 4.1 @ConditionalOnClass and @ConditionalOnMissingClass
-ºÜÃ÷ÏÔÕâÊÇÒ»¸ö´øÓÐÌõ¼þÅÐ¶ÏµÄÅäÖÃ×¢½â£¬ÒªÖªµÀ£¬ºÜ¶àÊ±ºòÎÒÃÇ°´Ðè¼ÓÔØbeanµÄ£¬ÉõÖÁÊÇ¸ù¾ÝÍâ²¿jar°üÊÇ·ñ´æÔÚÀ´½øÐÐ¼ÓÔØºÍÅÐ¶ÏµÄ¡£
+å¾ˆæ˜Žæ˜¾è¿™æ˜¯ä¸€ä¸ªå¸¦æœ‰æ¡ä»¶åˆ¤æ–­çš„é…ç½®æ³¨è§£ï¼Œè¦çŸ¥é“ï¼Œå¾ˆå¤šæ—¶å€™æˆ‘ä»¬æŒ‰éœ€åŠ è½½beançš„ï¼Œç”šè‡³æ˜¯æ ¹æ®å¤–éƒ¨jaråŒ…æ˜¯å¦å­˜åœ¨æ¥è¿›è¡ŒåŠ è½½å’Œåˆ¤æ–­çš„ã€‚
 
-ÕâÖÖÊ±ºò£¬¾ÍÒª¸ù¾ÝÍâ²¿ÀàÊÇ·ñ´æÔÚÀ´¾ö¶¨ÊÇ·ñÊÇ·ñ¼ÓÔØ¸Ãbean
+è¿™ç§æ—¶å€™ï¼Œå°±è¦æ ¹æ®å¤–éƒ¨ç±»æ˜¯å¦å­˜åœ¨æ¥å†³å®šæ˜¯å¦æ˜¯å¦åŠ è½½è¯¥bean
 
-Ê¹ÓÃÕâÐ©Ìõ¼þ£¬Èç¹û×¢ÊÍ²ÎÊýÖÐµÄÀà´æÔÚ/²»´æÔÚ£¬Spring ½«½öÊ¹ÓÃ±ê¼ÇµÄ×Ô¶¯ÅäÖÃ bean£º
+ä½¿ç”¨è¿™äº›æ¡ä»¶ï¼Œå¦‚æžœæ³¨é‡Šå‚æ•°ä¸­çš„ç±»å­˜åœ¨/ä¸å­˜åœ¨ï¼ŒSpring å°†ä»…ä½¿ç”¨æ ‡è®°çš„è‡ªåŠ¨é…ç½® beanï¼š
 
 ````
 @Configuration
@@ -1027,9 +1027,9 @@ class MySQLAutoconfiguration {
 
 ### 4.2 @ConditionalOnBean and @ConditionalOnMissingBean
 
-µ±ÎÒÃÇÏëÒª¸ù¾ÝÌØ¶¨ bean µÄ´æÔÚ»ò²»´æÔÚÀ´¶¨ÒåÌõ¼þÊ±£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃÕâÐ©×¢ÊÍ£º
+å½“æˆ‘ä»¬æƒ³è¦æ ¹æ®ç‰¹å®š bean çš„å­˜åœ¨æˆ–ä¸å­˜åœ¨æ¥å®šä¹‰æ¡ä»¶æ—¶ï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨è¿™äº›æ³¨é‡Šï¼š
 
-ºÍÉÏÃæÒ»¸ö×¢½âÉÔÓÐÐ©²»Í¬£¬ÒòÎªÎÒÃÇµÄÅÐ¶ÏÌõ¼þ±ä³ÉÁËbean
+å’Œä¸Šé¢ä¸€ä¸ªæ³¨è§£ç¨æœ‰äº›ä¸åŒï¼Œå› ä¸ºæˆ‘ä»¬çš„åˆ¤æ–­æ¡ä»¶å˜æˆäº†bean
 
 ````
 @Bean
@@ -1039,9 +1039,9 @@ LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 }
 ````
 ### 4.3 @ConditionalOnProperty
-Í¨¹ýÕâ¸ö×¢½â£¬ÎÒÃÇ¿ÉÒÔ¶ÔÊôÐÔµÄÖµÉèÖÃÌõ¼þ
+é€šè¿‡è¿™ä¸ªæ³¨è§£ï¼Œæˆ‘ä»¬å¯ä»¥å¯¹å±žæ€§çš„å€¼è®¾ç½®æ¡ä»¶
 
-Òª×¢Òâ£¬ÕâÀïµÄÊôÐÔÖµÀ´Ô´ÓÚapplication.propertiesÎÄ¼þÖÐµÄÅäÖÃ
+è¦æ³¨æ„ï¼Œè¿™é‡Œçš„å±žæ€§å€¼æ¥æºäºŽapplication.propertiesæ–‡ä»¶ä¸­çš„é…ç½®
 
 ````
 @Bean
@@ -1056,8 +1056,8 @@ DataSource dataSource() {
 
 ### 4.4 @ConditionalOnResource
 
-ÎÒÃÇ¿ÉÒÔÈÃ Spring ½öÔÚ´æÔÚÌØ¶¨×ÊÔ´Ê±Ê¹ÓÃ¶¨Òå£º
-¹ËÃûË¼Òå£¬ÒªÇóclasspath´æÔÚÕâ¸ö×ÊÔ´ÎÄ¼þÊ±²Å½øÐÐ¼ÓÔØ£¬ÕâÒ²ÊÇºÜ³£ÓÃµÄÒ»¸ö×¢½â¡£
+æˆ‘ä»¬å¯ä»¥è®© Spring ä»…åœ¨å­˜åœ¨ç‰¹å®šèµ„æºæ—¶ä½¿ç”¨å®šä¹‰ï¼š
+é¡¾åæ€ä¹‰ï¼Œè¦æ±‚classpathå­˜åœ¨è¿™ä¸ªèµ„æºæ–‡ä»¶æ—¶æ‰è¿›è¡ŒåŠ è½½ï¼Œè¿™ä¹Ÿæ˜¯å¾ˆå¸¸ç”¨çš„ä¸€ä¸ªæ³¨è§£ã€‚
 
 ````
 
@@ -1068,9 +1068,9 @@ Properties  ditionalProperties() {
 ````
 
 ### 4.5 @ConditionalOnWebApplication and @ConditionalOnNotWebApplication
-Õâ¸ö×¢½âÍ¨³£ÓÃÓÚºÍwebÓÐÇ¿¹ØÁª£¬»òÕßÍêÈ«ÎÞ¹ØÁªµÄÅäÖÃÉÏ
+è¿™ä¸ªæ³¨è§£é€šå¸¸ç”¨äºŽå’Œwebæœ‰å¼ºå…³è”ï¼Œæˆ–è€…å®Œå…¨æ— å…³è”çš„é…ç½®ä¸Š
 
-Ê¹ÓÃÕâÐ©×¢ÊÍ£¬ÎÒÃÇ¿ÉÒÔ¸ù¾Ýµ±Ç°Ó¦ÓÃ³ÌÐòÊÇ·ñÊÇ Web Ó¦ÓÃ³ÌÐòÀ´´´½¨Ìõ¼þ£º
+ä½¿ç”¨è¿™äº›æ³¨é‡Šï¼Œæˆ‘ä»¬å¯ä»¥æ ¹æ®å½“å‰åº”ç”¨ç¨‹åºæ˜¯å¦æ˜¯ Web åº”ç”¨ç¨‹åºæ¥åˆ›å»ºæ¡ä»¶ï¼š
 ````
 
 @ConditionalOnWebApplication
@@ -1080,9 +1080,9 @@ HealthCheckController healthCheckController() {
 ````
 
 ### 4.6 @ConditionalExpression
-springbootÕæµÄÎªÎÒÃÇÏëµ½ÁËËùÓÐÇé¿ö£¬Èç¹ûÉÏÃæµÄ×¢½â»¹²»ÄÜÂú×ãÄãµÄÒªÇó£¬ÄÇÃ´¸É´à¾ÍÈÃÄã×Ô¼ºÐ´£¬ÕâÏÂÓ¦¸ÃÃ»ÓÐÎÊÌâ°É£¿
+springbootçœŸçš„ä¸ºæˆ‘ä»¬æƒ³åˆ°äº†æ‰€æœ‰æƒ…å†µï¼Œå¦‚æžœä¸Šé¢çš„æ³¨è§£è¿˜ä¸èƒ½æ»¡è¶³ä½ çš„è¦æ±‚ï¼Œé‚£ä¹ˆå¹²è„†å°±è®©ä½ è‡ªå·±å†™ï¼Œè¿™ä¸‹åº”è¯¥æ²¡æœ‰é—®é¢˜å§ï¼Ÿ
 
-ÎÒÃÇ¿ÉÒÔÔÚ¸ü¸´ÔÓµÄÇé¿öÏÂÊ¹ÓÃÕâ¸ö×¢½â¡£ µ± SpEL ±í´ïÊ½±»ÆÀ¹ÀÎªÕæÊ±£¬Spring ½«Ê¹ÓÃ±ê¼ÇµÄ¶¨Òå£º
+æˆ‘ä»¬å¯ä»¥åœ¨æ›´å¤æ‚çš„æƒ…å†µä¸‹ä½¿ç”¨è¿™ä¸ªæ³¨è§£ã€‚ å½“ SpEL è¡¨è¾¾å¼è¢«è¯„ä¼°ä¸ºçœŸæ—¶ï¼ŒSpring å°†ä½¿ç”¨æ ‡è®°çš„å®šä¹‰ï¼š
 
 ````
 @Bean
@@ -1093,10 +1093,10 @@ DataSource dataSource() {
 ````
 
 ### 4.7 @Conditional
-Ê²Ã´£¬»¹ÓÐÎÊÌâ£¿
-ÄÇspringbootÒ²²»ÔÙÌá¹©Ê²Ã´±í´ïÊ½¸øÄãÁË£¬Ö±½ÓÈÃÓÃ»§Ð´Ò»¸öÅÐ¶ÏÌõ¼þ£¬¸æËßÎÒtrue»òÕßfalse¾ÍÐÐÁË
+ä»€ä¹ˆï¼Œè¿˜æœ‰é—®é¢˜ï¼Ÿ
+é‚£springbootä¹Ÿä¸å†æä¾›ä»€ä¹ˆè¡¨è¾¾å¼ç»™ä½ äº†ï¼Œç›´æŽ¥è®©ç”¨æˆ·å†™ä¸€ä¸ªåˆ¤æ–­æ¡ä»¶ï¼Œå‘Šè¯‰æˆ‘trueæˆ–è€…falseå°±è¡Œäº†
 
-¶ÔÓÚ¸ü¸´ÔÓµÄÌõ¼þ£¬ÎÒÃÇ¿ÉÒÔ´´½¨Ò»¸öÆÀ¹À×Ô¶¨ÒåÌõ¼þµÄÀà¡£ ÎÒÃÇ¸æËß Spring ½«Õâ¸ö×Ô¶¨ÒåÌõ¼þÓë @Conditional Ò»ÆðÊ¹ÓÃ£º
+å¯¹äºŽæ›´å¤æ‚çš„æ¡ä»¶ï¼Œæˆ‘ä»¬å¯ä»¥åˆ›å»ºä¸€ä¸ªè¯„ä¼°è‡ªå®šä¹‰æ¡ä»¶çš„ç±»ã€‚ æˆ‘ä»¬å‘Šè¯‰ Spring å°†è¿™ä¸ªè‡ªå®šä¹‰æ¡ä»¶ä¸Ž @Conditional ä¸€èµ·ä½¿ç”¨ï¼š
 
 ````
 @Conditional(HibernateCondition.class)
@@ -1105,8 +1105,8 @@ Properties  ditionalProperties() {
 }
 ````
 
-## 5 ×Ü½á
-ÔÚ±¾ÎÄÖÐ£¬ÎÒÃÇ¸ÅÊöÁËÈçºÎÎ¢µ÷×Ô¶¯ÅäÖÃ¹ý³Ì²¢Îª×Ô¶¨Òå×Ô¶¯ÅäÖÃ bean Ìá¹©Ìõ¼þ¡£
+## 5 æ€»ç»“
+åœ¨æœ¬æ–‡ä¸­ï¼Œæˆ‘ä»¬æ¦‚è¿°äº†å¦‚ä½•å¾®è°ƒè‡ªåŠ¨é…ç½®è¿‡ç¨‹å¹¶ä¸ºè‡ªå®šä¹‰è‡ªåŠ¨é…ç½® bean æä¾›æ¡ä»¶ã€‚
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://www.baeldung.com/spring-annotations

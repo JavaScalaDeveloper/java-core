@@ -1,6 +1,6 @@
-[ÉÏÒ»ÆªÎÄÕÂ](https://my.oschina.net/funcy/blog/4678817 "ÉÏÒ»ÆªÎÄÕÂ")Ö÷Òª·ÖÎöÁË `AbstractAutoProxyCreator#postProcessAfterInitialization` ·½·¨£¬±¾ÎÄÎÒÃÇÀ´·ÖÎö `AbstractAutoProxyCreator#postProcessAfterInitialization` ·½·¨¡£
+[ä¸Šä¸€ç¯‡æ–‡ç« ](https://my.oschina.net/funcy/blog/4678817 "ä¸Šä¸€ç¯‡æ–‡ç« ")ä¸»è¦åˆ†æäº† `AbstractAutoProxyCreator#postProcessAfterInitialization` æ–¹æ³•ï¼Œæœ¬æ–‡æˆ‘ä»¬æ¥åˆ†æ `AbstractAutoProxyCreator#postProcessAfterInitialization` æ–¹æ³•ã€‚
 
-ÎÒÃÇÏÈÀ´¿´¿´Õâ¸ö·½·¨µÄµ÷ÓÃÁ´£º
+æˆ‘ä»¬å…ˆæ¥çœ‹çœ‹è¿™ä¸ªæ–¹æ³•çš„è°ƒç”¨é“¾ï¼š
 
 ```
 |-AnnotationConfigApplicationContext
@@ -19,7 +19,7 @@
 
 ```
 
-Êµ¼ÊÉÏÕâ¸ö·½·¨µÄµ÷ÓÃÁ´¾ÍÊÇ spring bean µÄ´´½¨¹ı³Ì£¬ÎÒÃÇ½øÈë `AbstractAutoProxyCreator#postProcessAfterInitialization`£º
+å®é™…ä¸Šè¿™ä¸ªæ–¹æ³•çš„è°ƒç”¨é“¾å°±æ˜¯ spring bean çš„åˆ›å»ºè¿‡ç¨‹ï¼Œæˆ‘ä»¬è¿›å…¥ `AbstractAutoProxyCreator#postProcessAfterInitialization`ï¼š
 
 ```
 @Override
@@ -27,7 +27,7 @@ public Object postProcessAfterInitialization(@Nullable Object bean, String beanN
     if (bean != null) {
         Object cacheKey = getCacheKey(bean.getClass(), beanName);
         if (this.earlyProxyReferences.remove(cacheKey) != bean) {
-           // ÉîÈëwrapIfNecessary()·½·¨
+           // æ·±å…¥wrapIfNecessary()æ–¹æ³•
            return wrapIfNecessary(bean, beanName, cacheKey);
         }
     }
@@ -36,31 +36,31 @@ public Object postProcessAfterInitialization(@Nullable Object bean, String beanN
 
 ```
 
-¼ÌĞø½øÈë `AbstractAutoProxyCreator#wrapIfNecessary`£º
+ç»§ç»­è¿›å…¥ `AbstractAutoProxyCreator#wrapIfNecessary`ï¼š
 
 ```
 protected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) {
-    //Èç¹ûÒÑ¾­´¦Àí¹ı
+    //å¦‚æœå·²ç»å¤„ç†è¿‡
     if (StringUtils.hasLength(beanName) && this.targetSourcedBeans.contains(beanName)) {
         return bean;
     }
-    //Èç¹ûµ±Ç°ÀàÊÇÔöÇ¿Àà£¬·µ»Ø
+    //å¦‚æœå½“å‰ç±»æ˜¯å¢å¼ºç±»ï¼Œè¿”å›
     if (Boolean.FALSE.equals(this.advisedBeans.get(cacheKey))) {
         return bean;
     }
 
-    // ÖØÒª´úÂëÒ»£ºÅĞ¶Ïµ±Ç°ÀàÊÇ·ñÎªÇĞÃæÀà£¬¸Ã´úÂëÔÚÉÏÒ»ÆªÎÄÕÂÒÑ¾­·ÖÎöÁË£¬¾Í²»¶àËµÁË
+    // é‡è¦ä»£ç ä¸€ï¼šåˆ¤æ–­å½“å‰ç±»æ˜¯å¦ä¸ºåˆ‡é¢ç±»ï¼Œè¯¥ä»£ç åœ¨ä¸Šä¸€ç¯‡æ–‡ç« å·²ç»åˆ†æäº†ï¼Œå°±ä¸å¤šè¯´äº†
     if (isInfrastructureClass(bean.getClass()) || shouldSkip(bean.getClass(), beanName)) {
         this.advisedBeans.put(cacheKey, Boolean.FALSE);
         return bean;
     }
 
-    // ÖØÒª´úÂë¶ş£ºĞ£Ñé´ËÀàÊÇ·ñÓ¦¸Ã±»´úÀí£¬»ñÈ¡Õâ¸öÀàµÄÔöÇ¿
+    // é‡è¦ä»£ç äºŒï¼šæ ¡éªŒæ­¤ç±»æ˜¯å¦åº”è¯¥è¢«ä»£ç†ï¼Œè·å–è¿™ä¸ªç±»çš„å¢å¼º
     Object[] specificInterceptors = getAdvicesAndAdvisorsForBean(bean.getClass(), beanName, null);
-    //Èç¹û»ñÈ¡µ½ÁËÔöÇ¿ÔòĞèÒªÕë¶ÔÔöÇ¿´´½¨´úÀí
+    //å¦‚æœè·å–åˆ°äº†å¢å¼ºåˆ™éœ€è¦é’ˆå¯¹å¢å¼ºåˆ›å»ºä»£ç†
     if (specificInterceptors != DO_NOT_PROXY) {
         this.advisedBeans.put(cacheKey, Boolean.TRUE);
-        // ÖØÒª´úÂëÈı£º´´½¨´úÀí
+        // é‡è¦ä»£ç ä¸‰ï¼šåˆ›å»ºä»£ç†
         Object proxy = createProxy(
             bean.getClass(), beanName, specificInterceptors, new SingletonTargetSource(bean));
         this.proxyTypes.put(cacheKey, proxy.getClass());
@@ -73,29 +73,29 @@ protected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) 
 
 ```
 
-Õâ¸ö·½·¨ ¿´×ÅÓĞµã³¤£¬µ«´ó¶à´úÂë¶¼ÊÇÔÚ×öÅĞ¶Ï£¬Óë aop ¹¦ÄÜ¹ØÏµ²»´ó¡£ÕæÕıÓĞ¹ØÏµµÄ´úÂëÖ»ÓĞÈıĞĞ£º
+è¿™ä¸ªæ–¹æ³• çœ‹ç€æœ‰ç‚¹é•¿ï¼Œä½†å¤§å¤šä»£ç éƒ½æ˜¯åœ¨åšåˆ¤æ–­ï¼Œä¸ aop åŠŸèƒ½å…³ç³»ä¸å¤§ã€‚çœŸæ­£æœ‰å…³ç³»çš„ä»£ç åªæœ‰ä¸‰è¡Œï¼š
 
 ```
-// ÖØÒª´úÂëÒ»£º
-// 1\. isInfrastructureClass£ºÅĞ¶Ïµ±Ç°ÊÇ·ñÎªaopÏà¹ØÀà£¬
-//    ÈçAdvice/Pointcut/AdvisorµÈµÄ×ÓÀà£¬ÊÇ·ñ°üº¬ @AspectJµÄ×¢½â
-// 2\. shouldSkip£º²éÕÒËùÓĞÇĞÃæÀà£¬ÅĞ¶ÏÊÇ·ñ±»ÅÅ³ı
+// é‡è¦ä»£ç ä¸€ï¼š
+// 1\. isInfrastructureClassï¼šåˆ¤æ–­å½“å‰æ˜¯å¦ä¸ºaopç›¸å…³ç±»ï¼Œ
+//    å¦‚Advice/Pointcut/Advisorç­‰çš„å­ç±»ï¼Œæ˜¯å¦åŒ…å« @AspectJçš„æ³¨è§£
+// 2\. shouldSkipï¼šæŸ¥æ‰¾æ‰€æœ‰åˆ‡é¢ç±»ï¼Œåˆ¤æ–­æ˜¯å¦è¢«æ’é™¤
 if (isInfrastructureClass(bean.getClass()) || shouldSkip(bean.getClass(), beanName)) {
     ...
 }
 
-// ÖØÒª´úÂë¶ş£ºĞ£Ñé´ËÀàÊÇ·ñÓ¦¸Ã±»´úÀí£¬»ñÈ¡Õâ¸öÀàµÄÔöÇ¿
+// é‡è¦ä»£ç äºŒï¼šæ ¡éªŒæ­¤ç±»æ˜¯å¦åº”è¯¥è¢«ä»£ç†ï¼Œè·å–è¿™ä¸ªç±»çš„å¢å¼º
 Object[] specificInterceptors = getAdvicesAndAdvisorsForBean(bean.getClass(), beanName, null);
 
-// ÖØÒª´úÂëÈı£º´´½¨´úÀí
+// é‡è¦ä»£ç ä¸‰ï¼šåˆ›å»ºä»£ç†
 Object proxy = createProxy(
     bean.getClass(), beanName, specificInterceptors, new SingletonTargetSource(bean));
 
 ```
 
-¶ÔÓÚ`ÖØÒª´úÂëÒ»`£¬ÉÏÒ»ÆªÎÄÕÂÒÑ¾­·ÖÎö¹ı£¬±¾ÎÄÎÒÃÇÖ÷Òª·ÖÎö`ÖØÒª´úÂë¶ş`Óë`ÖØÒª´úÂëÈı`¡£
+å¯¹äº`é‡è¦ä»£ç ä¸€`ï¼Œä¸Šä¸€ç¯‡æ–‡ç« å·²ç»åˆ†æè¿‡ï¼Œæœ¬æ–‡æˆ‘ä»¬ä¸»è¦åˆ†æ`é‡è¦ä»£ç äºŒ`ä¸`é‡è¦ä»£ç ä¸‰`ã€‚
 
-### 1\. »ñÈ¡ÀàµÄÔöÇ¿
+### 1\. è·å–ç±»çš„å¢å¼º
 
 > AbstractAdvisorAutoProxyCreator
 
@@ -104,7 +104,7 @@ Object proxy = createProxy(
 @Nullable
 protected Object[] getAdvicesAndAdvisorsForBean(
         Class<?> beanClass, String beanName, @Nullable TargetSource targetSource) {
-    // ²éÕÒ·ûºÏÌõ¼şµÄÔöÇ¿£¬¼ÌĞøÍùÏÂ¿´
+    // æŸ¥æ‰¾ç¬¦åˆæ¡ä»¶çš„å¢å¼ºï¼Œç»§ç»­å¾€ä¸‹çœ‹
     List<Advisor> advisors = findEligibleAdvisors(beanClass, beanName);
     if (advisors.isEmpty()) {
         return DO_NOT_PROXY;
@@ -113,12 +113,12 @@ protected Object[] getAdvicesAndAdvisorsForBean(
 }
 
 /**
- * ²éÕÒ·ûºÏÌõ¼şµÄÔöÇ¿
+ * æŸ¥æ‰¾ç¬¦åˆæ¡ä»¶çš„å¢å¼º
  */
 protected List<Advisor> findEligibleAdvisors(Class<?> beanClass, String beanName) {
-    //»ñÈ¡ÈİÆ÷ÖĞµÄËùÓĞÔöÇ¿£¬ÔÚÉÏÒ»ÆªÎÄÕÂÖĞÒÑ¾­·ÖÎö¹ıÁË
+    //è·å–å®¹å™¨ä¸­çš„æ‰€æœ‰å¢å¼ºï¼Œåœ¨ä¸Šä¸€ç¯‡æ–‡ç« ä¸­å·²ç»åˆ†æè¿‡äº†
     List<Advisor> candidateAdvisors = findCandidateAdvisors();
-    //ÑéÖ¤beanClassÊÇ·ñ¸Ã±»´úÀí£¬Èç¹ûÓ¦¸Ã£¬Ôò·µ»ØÊÊÓÃÓÚÕâ¸öbeanµÄÔöÇ¿
+    //éªŒè¯beanClassæ˜¯å¦è¯¥è¢«ä»£ç†ï¼Œå¦‚æœåº”è¯¥ï¼Œåˆ™è¿”å›é€‚ç”¨äºè¿™ä¸ªbeançš„å¢å¼º
     List<Advisor> eligibleAdvisors = findAdvisorsThatCanApply(candidateAdvisors, beanClass, beanName);
     extendAdvisors(eligibleAdvisors);
     if (!eligibleAdvisors.isEmpty()) {
@@ -128,13 +128,13 @@ protected List<Advisor> findEligibleAdvisors(Class<?> beanClass, String beanName
 }
 
 /**
- * ÑéÖ¤beanClassÊÇ·ñ¸Ã±»´úÀí
+ * éªŒè¯beanClassæ˜¯å¦è¯¥è¢«ä»£ç†
  */
 protected List<Advisor> findAdvisorsThatCanApply(
         List<Advisor> candidateAdvisors, Class<?> beanClass, String beanName) {
     ProxyCreationContext.setCurrentProxiedBeanName(beanName);
     try {
-        // ÑéÖ¤beanClassÊÇ·ñ¸Ã±»´úÀí
+        // éªŒè¯beanClassæ˜¯å¦è¯¥è¢«ä»£ç†
         return AopUtils.findAdvisorsThatCanApply(candidateAdvisors, beanClass);
     }
     finally {
@@ -144,7 +144,7 @@ protected List<Advisor> findAdvisorsThatCanApply(
 
 ```
 
-spring µÄ·½·¨µ÷ÓÃ±È½ÏÉî£¬Ò»Â·×·×Ù£¬×îÖÕµ½ÁË `AopUtils.findAdvisorsThatCanApply` ·½·¨£¬¼ÌĞøÍùÏÂ¿´£º
+spring çš„æ–¹æ³•è°ƒç”¨æ¯”è¾ƒæ·±ï¼Œä¸€è·¯è¿½è¸ªï¼Œæœ€ç»ˆåˆ°äº† `AopUtils.findAdvisorsThatCanApply` æ–¹æ³•ï¼Œç»§ç»­å¾€ä¸‹çœ‹ï¼š
 
 > AopUtils
 
@@ -154,9 +154,9 @@ public static List<Advisor> findAdvisorsThatCanApply(List<Advisor> candidateAdvi
         return candidateAdvisors;
     }
     List<Advisor> eligibleAdvisors = new ArrayList<>();
-    // ±éÀú candidateAdvisors£¬ÅĞ¶ÏÊÇ·ñÂú×ã´úÀíÌõ¼ş
+    // éå† candidateAdvisorsï¼Œåˆ¤æ–­æ˜¯å¦æ»¡è¶³ä»£ç†æ¡ä»¶
     for (Advisor candidate : candidateAdvisors) {
-        //´¦ÀíÔöÇ¿£¬ÖØµã£¬ÔÙÍùÏÂ¿´
+        //å¤„ç†å¢å¼ºï¼Œé‡ç‚¹ï¼Œå†å¾€ä¸‹çœ‹
         if (candidate instanceof IntroductionAdvisor && canApply(candidate, clazz)) {
             eligibleAdvisors.add(candidate);
         }
@@ -167,7 +167,7 @@ public static List<Advisor> findAdvisorsThatCanApply(List<Advisor> candidateAdvi
             // already processed
             continue;
         }
-        //¶ÔÆÕÍ¨beanµÄ´¦Àí
+        //å¯¹æ™®é€šbeançš„å¤„ç†
         if (canApply(candidate, clazz, hasIntroductions)) {
             eligibleAdvisors.add(candidate);
         }
@@ -176,24 +176,24 @@ public static List<Advisor> findAdvisorsThatCanApply(List<Advisor> candidateAdvi
 }
 
 /**
- * ÅĞ¶ÏÊÇ·ñĞèÒªÔöÇ¿
+ * åˆ¤æ–­æ˜¯å¦éœ€è¦å¢å¼º
  */
 public static boolean canApply(Advisor advisor, Class<?> targetClass) {
-    // µ÷ÓÃÏÂÒ»¸ö·½·¨
+    // è°ƒç”¨ä¸‹ä¸€ä¸ªæ–¹æ³•
     return canApply(advisor, targetClass, false);
 }
 
 /**
- * ÅĞ¶ÏÊÇ·ñĞèÒªÔöÇ¿
+ * åˆ¤æ–­æ˜¯å¦éœ€è¦å¢å¼º
  */
 public static boolean canApply(Advisor advisor, Class<?> targetClass, boolean hasIntroductions) {
-    //Èç¹û´æÔÚÅÅ³ıµÄÅäÖÃ
+    //å¦‚æœå­˜åœ¨æ’é™¤çš„é…ç½®
     if (advisor instanceof IntroductionAdvisor) {
         return ((IntroductionAdvisor) advisor).getClassFilter().matches(targetClass);
     }
     else if (advisor instanceof PointcutAdvisor) {
         PointcutAdvisor pca = (PointcutAdvisor) advisor;
-        //½øÈë¸Ã·½·¨¼ÌĞø
+        //è¿›å…¥è¯¥æ–¹æ³•ç»§ç»­
         return canApply(pca.getPointcut(), targetClass, hasIntroductions);
     }
     else {
@@ -203,15 +203,15 @@ public static boolean canApply(Advisor advisor, Class<?> targetClass, boolean ha
 }
 
 /**
- * ÅĞ¶ÏÊÇ·ñĞèÒªÔöÇ¿
+ * åˆ¤æ–­æ˜¯å¦éœ€è¦å¢å¼º
  */
 public static boolean canApply(Pointcut pc, Class<?> targetClass, boolean hasIntroductions) {
     Assert.notNull(pc, "Pointcut must not be null");
-    //ÇĞµãÉÏÊÇ·ñ´æÔÚÅÅ³ıÀàµÄÅäÖÃ
+    //åˆ‡ç‚¹ä¸Šæ˜¯å¦å­˜åœ¨æ’é™¤ç±»çš„é…ç½®
     if (!pc.getClassFilter().matches(targetClass)) {
         return false;
     }
-    //ÑéÖ¤×¢½âµÄ×÷ÓÃÓòÊÇ·ñ¿ÉÒÔ×÷ÓÃÓÚ·½·¨ÉÏ
+    //éªŒè¯æ³¨è§£çš„ä½œç”¨åŸŸæ˜¯å¦å¯ä»¥ä½œç”¨äºæ–¹æ³•ä¸Š
     MethodMatcher methodMatcher = pc.getMethodMatcher();
     if (methodMatcher == MethodMatcher.TRUE) {
         // No need to iterate the methods if we're matching any method anyway...
@@ -223,23 +223,23 @@ public static boolean canApply(Pointcut pc, Class<?> targetClass, boolean hasInt
         introductionAwareMethodMatcher = (IntroductionAwareMethodMatcher) methodMatcher;
     }
 
-    // classes°üº¬targetClass¡¢³ıObjectµÄËùÓĞ¸¸Àà¡¢ËùÓĞ½Ó¿Ú
+    // classesåŒ…å«targetClassã€é™¤Objectçš„æ‰€æœ‰çˆ¶ç±»ã€æ‰€æœ‰æ¥å£
     Set<Class<?>> classes = new LinkedHashSet<>();
     if (!Proxy.isProxyClass(targetClass)) {
         classes.add(ClassUtils.getUserClass(targetClass));
     }
     classes.addAll(ClassUtils.getAllInterfacesForClassAsSet(targetClass));
 
-    // Ñ­»·ÅĞ¶Ï·½·¨ÊÇ·ñĞèÒª´úÀí£¬
-    // ÕâÀï¿ÉÒÔ¿´³ö£¬
-    // 1\. Ö»ÒªÒ»¸ö·½·¨Âú×ã´úÀíÒªÇó£¬ÄÇÃ´Õû¸öÀà¾Í»á±»´úÀí
-    // 2\. Èç¹û¸¸ÀàÓĞ·½·¨ĞèÒª±»´úÀí£¬ÄÇÃ´×ÓÀàÒ²»á±»´úÀí
+    // å¾ªç¯åˆ¤æ–­æ–¹æ³•æ˜¯å¦éœ€è¦ä»£ç†ï¼Œ
+    // è¿™é‡Œå¯ä»¥çœ‹å‡ºï¼Œ
+    // 1\. åªè¦ä¸€ä¸ªæ–¹æ³•æ»¡è¶³ä»£ç†è¦æ±‚ï¼Œé‚£ä¹ˆæ•´ä¸ªç±»å°±ä¼šè¢«ä»£ç†
+    // 2\. å¦‚æœçˆ¶ç±»æœ‰æ–¹æ³•éœ€è¦è¢«ä»£ç†ï¼Œé‚£ä¹ˆå­ç±»ä¹Ÿä¼šè¢«ä»£ç†
     for (Class<?> clazz : classes) {
-         // »ñÈ¡ clazz ¶¨ÒåµÄ·½·¨
-         // °üÀ¨µ±Ç°ÀàµÄ·½·¨¡¢³ıObjectÍâµÄËùÓĞ¸¸Àà·½·¨¡¢½Ó¿ÚµÄÄ¬ÈÏ·½·¨
+         // è·å– clazz å®šä¹‰çš„æ–¹æ³•
+         // åŒ…æ‹¬å½“å‰ç±»çš„æ–¹æ³•ã€é™¤Objectå¤–çš„æ‰€æœ‰çˆ¶ç±»æ–¹æ³•ã€æ¥å£çš„é»˜è®¤æ–¹æ³•
         Method[] methods = ReflectionUtils.getAllDeclaredMethods(clazz);
         for (Method method : methods) {
-            //»ñÈ¡ÀàËùÊµÏÖµÄËùÓĞ½Ó¿ÚºÍËùÓĞÀà²ã¼¶µÄ·½·¨£¬Ñ­»·ÑéÖ¤
+            //è·å–ç±»æ‰€å®ç°çš„æ‰€æœ‰æ¥å£å’Œæ‰€æœ‰ç±»å±‚çº§çš„æ–¹æ³•ï¼Œå¾ªç¯éªŒè¯
             if (introductionAwareMethodMatcher != null ?
                 introductionAwareMethodMatcher.matches(method, targetClass, hasIntroductions) :
                 methodMatcher.matches(method, targetClass)) {
@@ -253,51 +253,51 @@ public static boolean canApply(Pointcut pc, Class<?> targetClass, boolean hasInt
 
 ```
 
-¿´µ½ÕâÀï£¬»ù±¾ÉÏ¾ÍÁË½âÁË spring ÊÇÈçºÎÀ´ÅĞ¶ÏÒ»¸ö¶ÔÏóÊÇ·ñĞèÒª±»´úÀíµÄ£¬ÕâÀï×Ü½áÁ÷³ÌÈçÏÂ£º
+çœ‹åˆ°è¿™é‡Œï¼ŒåŸºæœ¬ä¸Šå°±äº†è§£äº† spring æ˜¯å¦‚ä½•æ¥åˆ¤æ–­ä¸€ä¸ªå¯¹è±¡æ˜¯å¦éœ€è¦è¢«ä»£ç†çš„ï¼Œè¿™é‡Œæ€»ç»“æµç¨‹å¦‚ä¸‹ï¼š
 
-1.  »ñÈ¡µ½ÏîÄ¿ÖĞËùÓĞµÄÇĞÃæ¶ÔÏó£¬½«ÆäÖĞµÄÇĞÃæ·½·¨·â×°ÎªÒ»¸ö `List<Advisor>`£¬¾ßÌå²Ù×÷ÔÚÉÏÒ»ÆªÎÄÕÂÖĞÓĞÏêÏ¸·ÖÎö£»
-2.  ±éÀú `Advisor`£¬¶ÔÃ¿Ò»¸ö `Advisor`£¬ÀûÓÃ·´Éä»ñÈ¡µ±Ç°ÀàµÄ³ı `Object` ÍâµÄËùÓĞ¸¸Àà¼°½Ó¿Ú£¬½á¹ûÎª `Set<Class>`£»
-3.  ±éÀú `Set<Class>`£¬¶ÔÆäÖĞÃ¿Ò»¸ö `Class`£¬ÀûÓÃ·´Éä»ñÈ¡¸Ã `Class` ·½·¨¡¢³ı Object ÍâµÄËùÓĞ¸¸ÀàµÄ·½·¨¡¢½Ó¿ÚµÄÄ¬ÈÏ·½·¨£¬½á¹ûÎª `Method[]`;
-4.  ±éÀú `Method[]`£¬Èç¹ûÓĞÒ»¸ö `method` Âú×ã `Advisor` µÄÇĞÃæÌõ¼ş£¬Ôò±íÊ¾µ±Ç° `Advisor` ¿ÉÒÔÓ¦ÓÃµ½µ±Ç° bean£¬¸Ã bean ¾ÍĞèÒª±»´úÀí£¬ÕâÒ»²½×îÖÕµÃµ½µÄ½á¹ûÒ²ÊÇÒ»¸ö `List<Advisor>`£¬±íÊ¾¸ÃÓĞ¶à¸ö `Advisor` ĞèÒªÓ¦ÓÃµ½¸Ã¶ÔÏó¡£
+1.  è·å–åˆ°é¡¹ç›®ä¸­æ‰€æœ‰çš„åˆ‡é¢å¯¹è±¡ï¼Œå°†å…¶ä¸­çš„åˆ‡é¢æ–¹æ³•å°è£…ä¸ºä¸€ä¸ª `List<Advisor>`ï¼Œå…·ä½“æ“ä½œåœ¨ä¸Šä¸€ç¯‡æ–‡ç« ä¸­æœ‰è¯¦ç»†åˆ†æï¼›
+2.  éå† `Advisor`ï¼Œå¯¹æ¯ä¸€ä¸ª `Advisor`ï¼Œåˆ©ç”¨åå°„è·å–å½“å‰ç±»çš„é™¤ `Object` å¤–çš„æ‰€æœ‰çˆ¶ç±»åŠæ¥å£ï¼Œç»“æœä¸º `Set<Class>`ï¼›
+3.  éå† `Set<Class>`ï¼Œå¯¹å…¶ä¸­æ¯ä¸€ä¸ª `Class`ï¼Œåˆ©ç”¨åå°„è·å–è¯¥ `Class` æ–¹æ³•ã€é™¤ Object å¤–çš„æ‰€æœ‰çˆ¶ç±»çš„æ–¹æ³•ã€æ¥å£çš„é»˜è®¤æ–¹æ³•ï¼Œç»“æœä¸º `Method[]`;
+4.  éå† `Method[]`ï¼Œå¦‚æœæœ‰ä¸€ä¸ª `method` æ»¡è¶³ `Advisor` çš„åˆ‡é¢æ¡ä»¶ï¼Œåˆ™è¡¨ç¤ºå½“å‰ `Advisor` å¯ä»¥åº”ç”¨åˆ°å½“å‰ beanï¼Œè¯¥ bean å°±éœ€è¦è¢«ä»£ç†ï¼Œè¿™ä¸€æ­¥æœ€ç»ˆå¾—åˆ°çš„ç»“æœä¹Ÿæ˜¯ä¸€ä¸ª `List<Advisor>`ï¼Œè¡¨ç¤ºè¯¥æœ‰å¤šä¸ª `Advisor` éœ€è¦åº”ç”¨åˆ°è¯¥å¯¹è±¡ã€‚
 
-Î±´úÂëÀàËÆÓÚ£º
+ä¼ªä»£ç ç±»ä¼¼äºï¼š
 
 ```
-// 1\. »ñÈ¡ËùÓĞµÄAdvisor
+// 1\. è·å–æ‰€æœ‰çš„Advisor
 List<Advisor> advisorList = getAdvisorList();
-// 2\. ±éÀúAdvisor
+// 2\. éå†Advisor
 for(Advisor advisor : advisorList) {
-    // »ñÈ¡µ±Ç°ÀàµÄ³ı`Object`ÍâµÄËùÓĞ¸¸Àà¼°½Ó¿Ú£¬classSetÒ²°üº¬targetClass
+    // è·å–å½“å‰ç±»çš„é™¤`Object`å¤–çš„æ‰€æœ‰çˆ¶ç±»åŠæ¥å£ï¼ŒclassSetä¹ŸåŒ…å«targetClass
     Set<Class> classSet = getSuperClassAndInterfaces(targetClass);
     for(Class cls : classSet) {
-        // ±éÀúclsÖĞ¶¨ÒåµÄ·½·¨£¬°üÀ¨µ±Ç°ÀàµÄ·½·¨¡¢³ıObjectÍâµÄËùÓĞ¸¸Àà·½·¨¡¢½Ó¿ÚµÄÄ¬ÈÏ·½·¨
+        // éå†clsä¸­å®šä¹‰çš„æ–¹æ³•ï¼ŒåŒ…æ‹¬å½“å‰ç±»çš„æ–¹æ³•ã€é™¤Objectå¤–çš„æ‰€æœ‰çˆ¶ç±»æ–¹æ³•ã€æ¥å£çš„é»˜è®¤æ–¹æ³•
         Method[] methods = ReflectionUtils.getAllDeclaredMethods(clazz);
-        //  ±éÀúÕâĞ©·½·¨
+        //  éå†è¿™äº›æ–¹æ³•
         for (Method method : methods) {
-             // ÅĞ¶ÏmethodÊÇ·ñÂú×ãÇĞÃæÌõ¼ş
+             // åˆ¤æ–­methodæ˜¯å¦æ»¡è¶³åˆ‡é¢æ¡ä»¶
         }
     }
 }
 
 ```
 
-µÃµ½ `List<Advisor>` ºó£¬½ÓÏÂÀ´¾ÍÊÇ¸ù¾İ `List<Advisor>` À´´´½¨´úÀí¶ÔÏóÁË¡£
+å¾—åˆ° `List<Advisor>` åï¼Œæ¥ä¸‹æ¥å°±æ˜¯æ ¹æ® `List<Advisor>` æ¥åˆ›å»ºä»£ç†å¯¹è±¡äº†ã€‚
 
-### 2\. ´´½¨´úÀí¶ÔÏó
+### 2\. åˆ›å»ºä»£ç†å¯¹è±¡
 
-ÎÒÃÇÀ´¿´¿´ spring ´´½¨´úÀí¶ÔÏóµÄÁ÷³Ì¡£
+æˆ‘ä»¬æ¥çœ‹çœ‹ spring åˆ›å»ºä»£ç†å¯¹è±¡çš„æµç¨‹ã€‚
 
-> `AbstractAutoProxyCreator#wrapIfNecessary`£º
+> `AbstractAutoProxyCreator#wrapIfNecessary`ï¼š
 
 ```
 protected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) {
     ...
     if (specificInterceptors != DO_NOT_PROXY) {
         this.advisedBeans.put(cacheKey, Boolean.TRUE);
-        // ´úÀí¶ÔÏó¾ÍÊÇÔÚÕâÀï´´½¨µÄ
-        // - specificInterceptors£º¿ÉÒÔÓ¦ÓÃµ½¸Ã¶ÔÏóµÄ  Advisor£¬
-        //    specificInterceptorsµÄ»ñÈ¡¹ı³Ì£¬ÉÏÒ»²¿·ÖÒÑ¾­ÏêÏ¸·ÖÎö¹ıÁË£¬²»ÔÙ×¸ÊöÁË
-        // - SingletonTargetSource£º¶ÔÔ­Ê¼¶ÔÏóµÄÒ»¸ö°ü×°
+        // ä»£ç†å¯¹è±¡å°±æ˜¯åœ¨è¿™é‡Œåˆ›å»ºçš„
+        // - specificInterceptorsï¼šå¯ä»¥åº”ç”¨åˆ°è¯¥å¯¹è±¡çš„  Advisorï¼Œ
+        //    specificInterceptorsçš„è·å–è¿‡ç¨‹ï¼Œä¸Šä¸€éƒ¨åˆ†å·²ç»è¯¦ç»†åˆ†æè¿‡äº†ï¼Œä¸å†èµ˜è¿°äº†
+        // - SingletonTargetSourceï¼šå¯¹åŸå§‹å¯¹è±¡çš„ä¸€ä¸ªåŒ…è£…
         Object proxy = createProxy(
             bean.getClass(), beanName, specificInterceptors, 
                         new SingletonTargetSource(bean));
@@ -310,7 +310,7 @@ protected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) 
 
 ```
 
-ÎÒÃÇÏÈÀ´¿´¿´ `SingletonTargetSource`£º
+æˆ‘ä»¬å…ˆæ¥çœ‹çœ‹ `SingletonTargetSource`ï¼š
 
 ```
 public class SingletonTargetSource implements TargetSource, Serializable {
@@ -339,7 +339,7 @@ public class SingletonTargetSource implements TargetSource, Serializable {
 
 ```
 
-Õâ¸öÀà´úÂëºÜ¼òµ¥£¬¾ÍÊÇ¶ÔÔ­Ê¼¶ÔÏó×öÁËÒ»²ã°ü×°¡£¼ÌĞøÍùÏÂ¿´£º
+è¿™ä¸ªç±»ä»£ç å¾ˆç®€å•ï¼Œå°±æ˜¯å¯¹åŸå§‹å¯¹è±¡åšäº†ä¸€å±‚åŒ…è£…ã€‚ç»§ç»­å¾€ä¸‹çœ‹ï¼š
 
 > AbstractAutoProxyCreator#createProxy
 
@@ -353,82 +353,82 @@ protected Object createProxy(Class<?> beanClass, @Nullable String beanName,
     }
 
     ProxyFactory proxyFactory = new ProxyFactory();
-    //Ê¹ÓÃproxyFactory¶ÔÏócopyµ±Ç°ÀàÖĞµÄÏà¹ØÊôĞÔ
+    //ä½¿ç”¨proxyFactoryå¯¹è±¡copyå½“å‰ç±»ä¸­çš„ç›¸å…³å±æ€§
     proxyFactory.copyFrom(this);
 
-    // ÅĞ¶ÏÊÇ·ñÊ¹ÓÃCglib¶¯Ì¬´úÀí£¬¿ÉÒÔÔÚ×¢½âÖĞÖ¸¶¨£º
+    // åˆ¤æ–­æ˜¯å¦ä½¿ç”¨CglibåŠ¨æ€ä»£ç†ï¼Œå¯ä»¥åœ¨æ³¨è§£ä¸­æŒ‡å®šï¼š
     // @EnableAspectJAutoProxy(proxyTargetClass = true)
     if (!proxyFactory.isProxyTargetClass()) {
-        // Èç¹û beanFactory ÊÇ ConfigurableListableBeanFactory£¬
-        // Ôò¿ÉÔÚ BeanDefinition ÉèÖÃÊôĞÔ£¬µ¥¶À¿ØÖÆÄ³Ò»¸öÀàÊ¹ÓÃ cglib ´úÀí
+        // å¦‚æœ beanFactory æ˜¯ ConfigurableListableBeanFactoryï¼Œ
+        // åˆ™å¯åœ¨ BeanDefinition è®¾ç½®å±æ€§ï¼Œå•ç‹¬æ§åˆ¶æŸä¸€ä¸ªç±»ä½¿ç”¨ cglib ä»£ç†
         if (shouldProxyTargetClass(beanClass, beanName)) {
             proxyFactory.setProxyTargetClass(true);
         }
         else {
-            // Èç¹ûÃ»ÓĞÅäÖÃ¿ªÆô, ÔòÅĞ¶ÏbeanÊÇ·ñÓĞºÏÊÊµÄ½Ó¿ÚÊ¹ÓÃJDKµÄ¶¯Ì¬´úÀí
-            // ×¢Òâ£ºJDK¶¯Ì¬´úÀí±ØĞëÊÇ´øÓĞ½Ó¿ÚµÄÀà
-            // Èç¹ûÀàÃ»ÓĞÊµÏÖÈÎºÎ½Ó¿ÚÔòÖ»ÄÜÊ¹ÓÃCglib¶¯Ì¬´úÀí£©
+            // å¦‚æœæ²¡æœ‰é…ç½®å¼€å¯, åˆ™åˆ¤æ–­beanæ˜¯å¦æœ‰åˆé€‚çš„æ¥å£ä½¿ç”¨JDKçš„åŠ¨æ€ä»£ç†
+            // æ³¨æ„ï¼šJDKåŠ¨æ€ä»£ç†å¿…é¡»æ˜¯å¸¦æœ‰æ¥å£çš„ç±»
+            // å¦‚æœç±»æ²¡æœ‰å®ç°ä»»ä½•æ¥å£åˆ™åªèƒ½ä½¿ç”¨CglibåŠ¨æ€ä»£ç†ï¼‰
             evaluateProxyInterfaces(beanClass, proxyFactory);
         }
     }
 
-    // ¹¹½¨Advisor£¬ÕâÀï°üº¬Á½¸ö²Ù×÷£º
-    // 1\. Ìí¼Ó¹«¹²µÄ Interceptor
-    // 2\. ¶ÔÓÚ¸ø¶¨µÄadvisor£¬ÅĞ¶ÏÆäÀàĞÍ£¬È»ºó×ª»»ÎªÆä¾ßÌåÀàĞÍ
+    // æ„å»ºAdvisorï¼Œè¿™é‡ŒåŒ…å«ä¸¤ä¸ªæ“ä½œï¼š
+    // 1\. æ·»åŠ å…¬å…±çš„ Interceptor
+    // 2\. å¯¹äºç»™å®šçš„advisorï¼Œåˆ¤æ–­å…¶ç±»å‹ï¼Œç„¶åè½¬æ¢ä¸ºå…¶å…·ä½“ç±»å‹
     Advisor[] advisors = buildAdvisors(beanName, specificInterceptors);
-    //Ìí¼ÓËùÓĞÔöÇ¿
+    //æ·»åŠ æ‰€æœ‰å¢å¼º
     proxyFactory.addAdvisors(advisors);
-    //ÉèÖÃÒª´úÀíµÄÀà
+    //è®¾ç½®è¦ä»£ç†çš„ç±»
     proxyFactory.setTargetSource(targetSource);
-    //SpringµÄÒ»¸öÀ©Õ¹µã£¬Ä¬ÈÏÊµÏÖÎª¿Õ¡£Áô¸øÎÒÃÇÔÚĞèÒª¶Ô´úÀí½øĞĞÌØÊâ²Ù×÷µÄÊ±ºòÊµÏÖ
+    //Springçš„ä¸€ä¸ªæ‰©å±•ç‚¹ï¼Œé»˜è®¤å®ç°ä¸ºç©ºã€‚ç•™ç»™æˆ‘ä»¬åœ¨éœ€è¦å¯¹ä»£ç†è¿›è¡Œç‰¹æ®Šæ“ä½œçš„æ—¶å€™å®ç°
     customizeProxyFactory(proxyFactory);
 
     proxyFactory.setFrozen(this.freezeProxy);
     if (advisorsPreFiltered()) {
         proxyFactory.setPreFiltered(true);
     }
-    //Ê¹ÓÃ´úÀí¹¤³§»ñÈ¡´úÀí¶ÔÏó
+    //ä½¿ç”¨ä»£ç†å·¥å‚è·å–ä»£ç†å¯¹è±¡
     return proxyFactory.getProxy(getProxyClassLoader());
 }
 
 ```
 
-ÔÚ `@EnableAspectJAutoProxy` ×¢½âÖĞ£¬¿ÉÒÔÊ¹ÓÃ `proxyTargetClass = true` À´ÉèÖÃÏîÄ¿Ê¹ÓÃ `cglib` ´úÀí£¬ÕâÔÚ´úÂëÖĞÒ²ÓĞÌåÏÖ£º
+åœ¨ `@EnableAspectJAutoProxy` æ³¨è§£ä¸­ï¼Œå¯ä»¥ä½¿ç”¨ `proxyTargetClass = true` æ¥è®¾ç½®é¡¹ç›®ä½¿ç”¨ `cglib` ä»£ç†ï¼Œè¿™åœ¨ä»£ç ä¸­ä¹Ÿæœ‰ä½“ç°ï¼š
 
 ```
-// Ö»ÓĞÔÚproxyFactory.isProxyTargetClass()ÎªfalseÊ±£¬²Å»á½øĞĞÏÂÃæµÄÅĞ¶Ï
-// »»ÑÔÖ®£¬µ± @EnableAspectJAutoProxy(proxyTargetClass = true) Ê±
-// ÏÂÃæµÄ´úÂëÊÇ²»»áÔËĞĞµÄ£¬Ä¬ÈÏÊ¹ÓÃ¾ÍÊÇcglib´úÀí
+// åªæœ‰åœ¨proxyFactory.isProxyTargetClass()ä¸ºfalseæ—¶ï¼Œæ‰ä¼šè¿›è¡Œä¸‹é¢çš„åˆ¤æ–­
+// æ¢è¨€ä¹‹ï¼Œå½“ @EnableAspectJAutoProxy(proxyTargetClass = true) æ—¶
+// ä¸‹é¢çš„ä»£ç æ˜¯ä¸ä¼šè¿è¡Œçš„ï¼Œé»˜è®¤ä½¿ç”¨å°±æ˜¯cglibä»£ç†
 if (!proxyFactory.isProxyTargetClass()) {
-    // ÅĞ¶ÏÓĞÃ»ÔÚ BeanDefinition ÖĞÉèÖÃÊ¹ÓÃ cglib´úÀí
+    // åˆ¤æ–­æœ‰æ²¡åœ¨ BeanDefinition ä¸­è®¾ç½®ä½¿ç”¨ cglibä»£ç†
     if (shouldProxyTargetClass(beanClass, beanName)) {
         proxyFactory.setProxyTargetClass(true);
     }
     else {
-        // ÊÇ·ñÂú×ã´úÀí½Ó¿ÚµÄÌõ¼ş£¬¼´ÊÇ·ñÂú×ãjdk¶¯Ì¬´úÀíµÄÌõ¼ş
+        // æ˜¯å¦æ»¡è¶³ä»£ç†æ¥å£çš„æ¡ä»¶ï¼Œå³æ˜¯å¦æ»¡è¶³jdkåŠ¨æ€ä»£ç†çš„æ¡ä»¶
         evaluateProxyInterfaces(beanClass, proxyFactory);
     }
 }
 
 ```
 
-spring ÊÇÈçºÎÅĞ¶ÏÒ»¸öÀàÊÇ·ñÂú×ã jdk ¶¯Ì¬´úÀíµÄÌõ¼şµÄÄØ£¿´ÓÎÒÃÇÀ´ÈÏÖªÉÏÀ´Ëµ£¬ÊµÏÖÁË½Ó¿Ú£¬¾Í¿ÉÒÔÊ¹ÓÃ¶¯Ì¬´úÀí£¬·ñÔò¾ÍÖ»ÄÜÊ¹ÓÃ cglib ´úÀí£¬ÎÒÃÇÀ´¿´¿´ spring ÊÇÈçºÎÅĞ¶ÏµÄ£º
+spring æ˜¯å¦‚ä½•åˆ¤æ–­ä¸€ä¸ªç±»æ˜¯å¦æ»¡è¶³ jdk åŠ¨æ€ä»£ç†çš„æ¡ä»¶çš„å‘¢ï¼Ÿä»æˆ‘ä»¬æ¥è®¤çŸ¥ä¸Šæ¥è¯´ï¼Œå®ç°äº†æ¥å£ï¼Œå°±å¯ä»¥ä½¿ç”¨åŠ¨æ€ä»£ç†ï¼Œå¦åˆ™å°±åªèƒ½ä½¿ç”¨ cglib ä»£ç†ï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹ spring æ˜¯å¦‚ä½•åˆ¤æ–­çš„ï¼š
 
 > ProxyProcessorSupport#evaluateProxyInterfaces
 
 ```
 /**
- * ÅĞ¶ÏÊÇ·ñÄÜÊ¹ÓÃjdk¶¯Ì¬´úÀí
+ * åˆ¤æ–­æ˜¯å¦èƒ½ä½¿ç”¨jdkåŠ¨æ€ä»£ç†
  */
 protected void evaluateProxyInterfaces(Class<?> beanClass, ProxyFactory proxyFactory) {
-    // »ñÈ¡ÀàµÄËùÓĞ½Ó¿Ú
+    // è·å–ç±»çš„æ‰€æœ‰æ¥å£
     Class<?>[] targetInterfaces = ClassUtils.getAllInterfacesForClass(beanClass, getProxyClassLoader());
     boolean hasReasonableProxyInterface = false;
     for (Class<?> ifc : targetInterfaces) {
-        // 1.isConfigurationCallbackInterface: ÅĞ¶ÏifcÊÇ·ñÎªInitializingBean£¬DisposableBean£¬
-        //   Closeable£¬AutoCloseable£¬ÒÔ¼°°üº¬ Aware
-        // 2.isInternalLanguageInterface: ÊÇ·ñÎªÄÚ²¿ÓïÑÔ½Ó¿Ú£¬Èçgroovy£¬mockµÈ
-        // 3.ifc.getMethods().length > 0£º½Ó¿ÚµÄ·½·¨Êı±ØĞë´óÓÚ1
+        // 1.isConfigurationCallbackInterface: åˆ¤æ–­ifcæ˜¯å¦ä¸ºInitializingBeanï¼ŒDisposableBeanï¼Œ
+        //   Closeableï¼ŒAutoCloseableï¼Œä»¥åŠåŒ…å« Aware
+        // 2.isInternalLanguageInterface: æ˜¯å¦ä¸ºå†…éƒ¨è¯­è¨€æ¥å£ï¼Œå¦‚groovyï¼Œmockç­‰
+        // 3.ifc.getMethods().length > 0ï¼šæ¥å£çš„æ–¹æ³•æ•°å¿…é¡»å¤§äº1
         if (!isConfigurationCallbackInterface(ifc) && !isInternalLanguageInterface(ifc) &&
                 ifc.getMethods().length > 0) {
             hasReasonableProxyInterface = true;
@@ -436,10 +436,10 @@ protected void evaluateProxyInterfaces(Class<?> beanClass, ProxyFactory proxyFac
         }
     }
     if (hasReasonableProxyInterface) {
-         // ĞèÒª½«ËùÓĞµÄ½Ó¿Ú¶¼ÉèÖÃµ½proxyFactory
-         // ÊÔÏëÒ»ÏÂ£¬Èç¹ûÒ»¸öÀàA ÊµÏÖÁË½Ó¿Ú I1 Óë I2£¬
-         // Èç¹ûÀàAµÄ¶ÔÏóa  ÍĞ¹Üµ½ÁËspringÈİÆ÷£¬ÄÇÃ´ÎŞÂÛÊÇÊ¹ÓÃ beanFactory.get(I1.class)£¬
-         // »¹ÊÇ beanFactory.get(I1.class)£¬¶¼Ó¦¸ÃÄÜ»ñÈ¡µ½a.
+         // éœ€è¦å°†æ‰€æœ‰çš„æ¥å£éƒ½è®¾ç½®åˆ°proxyFactory
+         // è¯•æƒ³ä¸€ä¸‹ï¼Œå¦‚æœä¸€ä¸ªç±»A å®ç°äº†æ¥å£ I1 ä¸ I2ï¼Œ
+         // å¦‚æœç±»Açš„å¯¹è±¡a  æ‰˜ç®¡åˆ°äº†springå®¹å™¨ï¼Œé‚£ä¹ˆæ— è®ºæ˜¯ä½¿ç”¨ beanFactory.get(I1.class)ï¼Œ
+         // è¿˜æ˜¯ beanFactory.get(I1.class)ï¼Œéƒ½åº”è¯¥èƒ½è·å–åˆ°a.
          for (Class<?> ifc : targetInterfaces) {
              proxyFactory.addInterface(ifc);
          }
@@ -451,32 +451,32 @@ protected void evaluateProxyInterfaces(Class<?> beanClass, ProxyFactory proxyFac
 
 ```
 
-´ÓÔ´ÂëÉÏÀ´¿´£¬spring ÅĞ¶ÏÊÇ·ñÄÜÊ¹ÓÃ jdk ¶¯Ì¬´úÀíµÄ¹ı³ÌÓëÎÒÃÇÈÏÖªÉÏµÄ²î²»¶à£¬²»¹ı²¢²»ÊÇÊµÏÖÁËÈÎÒâ½Ó¿Ú¾ÍÄÜÊ¹ÓÃ jdk ¶¯Ì¬´úÀí£¬spring »áÅÅ³ı `InitializingBean`£¬`DisposableBean`£¬`Closeable`£¬`AutoCloseable` µÈ½Ó¿Ú£¬Í¬Ê±Ò²»áÅÅ³ıÎŞÈÎºÎ·½·¨µÄ½Ó¿Ú¡£
+ä»æºç ä¸Šæ¥çœ‹ï¼Œspring åˆ¤æ–­æ˜¯å¦èƒ½ä½¿ç”¨ jdk åŠ¨æ€ä»£ç†çš„è¿‡ç¨‹ä¸æˆ‘ä»¬è®¤çŸ¥ä¸Šçš„å·®ä¸å¤šï¼Œä¸è¿‡å¹¶ä¸æ˜¯å®ç°äº†ä»»æ„æ¥å£å°±èƒ½ä½¿ç”¨ jdk åŠ¨æ€ä»£ç†ï¼Œspring ä¼šæ’é™¤ `InitializingBean`ï¼Œ`DisposableBean`ï¼Œ`Closeable`ï¼Œ`AutoCloseable` ç­‰æ¥å£ï¼ŒåŒæ—¶ä¹Ÿä¼šæ’é™¤æ— ä»»ä½•æ–¹æ³•çš„æ¥å£ã€‚
 
-·ÖÎöÍê spring ÈçºÎÅĞ¶ÏÊÇ·ñÊ¹ÓÃ jdk ¶¯Ì¬´úÀíºó£¬½Ó¿ÚÎÒÃÇÀ´¿´¿´ spring ÊÇÈçºÎ´´½¨´úÀí¶ÔÏóµÄ¡£ÎªÁËËµÃ÷ÎÊÌâ£¬Ê×ÏÈ¼ò»¯ÏÂ `AbstractAutoProxyCreator#createProxy`£º
+åˆ†æå®Œ spring å¦‚ä½•åˆ¤æ–­æ˜¯å¦ä½¿ç”¨ jdk åŠ¨æ€ä»£ç†åï¼Œæ¥å£æˆ‘ä»¬æ¥çœ‹çœ‹ spring æ˜¯å¦‚ä½•åˆ›å»ºä»£ç†å¯¹è±¡çš„ã€‚ä¸ºäº†è¯´æ˜é—®é¢˜ï¼Œé¦–å…ˆç®€åŒ–ä¸‹ `AbstractAutoProxyCreator#createProxy`ï¼š
 
 ```
 protected Object createProxy(Class<?> beanClass, @Nullable String beanName,
         @Nullable Object[] specificInterceptors, TargetSource targetSource) {
-    // Ê¡ÂÔÒ»Ğ©´úÂë
+    // çœç•¥ä¸€äº›ä»£ç 
     ...
     ProxyFactory proxyFactory = new ProxyFactory();
-    //Ê¹ÓÃproxyFactory¶ÔÏócopyµ±Ç°ÀàÖĞµÄÏà¹ØÊôĞÔ
+    //ä½¿ç”¨proxyFactoryå¯¹è±¡copyå½“å‰ç±»ä¸­çš„ç›¸å…³å±æ€§
     proxyFactory.copyFrom(this);
-    // ÕâÀïÊ¡ÂÔÁËºÃ¶àµÄÅĞ¶Ï
+    // è¿™é‡Œçœç•¥äº†å¥½å¤šçš„åˆ¤æ–­
     proxyFactory.setProxyTargetClass(true);
-    //Ìí¼ÓËùÓĞÔöÇ¿
+    //æ·»åŠ æ‰€æœ‰å¢å¼º
     proxyFactory.addAdvisors(advisors);
-    //ÉèÖÃÒª´úÀíµÄÀà
+    //è®¾ç½®è¦ä»£ç†çš„ç±»
     proxyFactory.setTargetSource(targetSource);
     ...
-    //Ê¹ÓÃ´úÀí¹¤³§»ñÈ¡´úÀí¶ÔÏó
+    //ä½¿ç”¨ä»£ç†å·¥å‚è·å–ä»£ç†å¯¹è±¡
     return proxyFactory.getProxy(getProxyClassLoader());
 }
 
 ```
 
-´ÓÕâÀï¿ÉÒÔ¿´³ö£¬Õâ¸ö·½·¨´´½¨ÁËÒ»¸ö `ProxyFactory` ¶ÔÏó£¬È»ºóÍù¸Ã¶ÔÏóµÄÊôĞÔÀïÉèÖÃÁËÒ»Ğ©Öµ¡£¼ÌĞøÍùÏÂ¿´£º
+ä»è¿™é‡Œå¯ä»¥çœ‹å‡ºï¼Œè¿™ä¸ªæ–¹æ³•åˆ›å»ºäº†ä¸€ä¸ª `ProxyFactory` å¯¹è±¡ï¼Œç„¶åå¾€è¯¥å¯¹è±¡çš„å±æ€§é‡Œè®¾ç½®äº†ä¸€äº›å€¼ã€‚ç»§ç»­å¾€ä¸‹çœ‹ï¼š
 
 > ProxyFactory#getProxy(java.lang.ClassLoader)
 
@@ -487,7 +487,7 @@ public Object getProxy(@Nullable ClassLoader classLoader) {
 
 ```
 
-ÕâÀïÓĞÁ½¸ö·½·¨£º`createAopProxy()` Óë `getProxy(classLoader)`£¬ÎÒÃÇÏÈÀ´¿´ `createAopProxy()`¡£
+è¿™é‡Œæœ‰ä¸¤ä¸ªæ–¹æ³•ï¼š`createAopProxy()` ä¸ `getProxy(classLoader)`ï¼Œæˆ‘ä»¬å…ˆæ¥çœ‹ `createAopProxy()`ã€‚
 
 > ProxyCreatorSupport#createAopProxy
 
@@ -501,15 +501,15 @@ protected final synchronized AopProxy createAopProxy() {
 
 ```
 
-¼ÌĞø£¬
+ç»§ç»­ï¼Œ
 
 > DefaultAopProxyFactory#createAopProxy
 
 ```
 /**
- * ÅĞ¶Ï´úÀíÀàĞÍ
- * Èç¹ûÄÜÊ¹ÓÃjdk¶¯Ì¬´úÀí£¬¾Í·µ»Ø JdkDynamicAopProxy
- * ·ñÔò¾Í·µ»Ø ObjenesisCglibAopProxy
+ * åˆ¤æ–­ä»£ç†ç±»å‹
+ * å¦‚æœèƒ½ä½¿ç”¨jdkåŠ¨æ€ä»£ç†ï¼Œå°±è¿”å› JdkDynamicAopProxy
+ * å¦åˆ™å°±è¿”å› ObjenesisCglibAopProxy
  */
 public AopProxy createAopProxy(AdvisedSupport config) throws AopConfigException {
     if (config.isOptimize() || config.isProxyTargetClass() || hasNoUserSuppliedProxyInterfaces(config)) {
@@ -529,7 +529,7 @@ public AopProxy createAopProxy(AdvisedSupport config) throws AopConfigException 
 
 ```
 
-µ½ÕâÀï£¬ÎÒÃÇ¾ÍÄÜÃ÷°×£¬`JdkDynamicAopProxy` ÊÇÓÃÀ´´¦Àí jdk ¶¯Ì¬´úÀíµÄ£¬`ObjenesisCglibAopProxy` ÊÇÓÃÀ´´¦Àí cglib ´úÀíµÄ¡£½ÓÏÂÀ´£¬ÎÒÃÇÀ´¿´¿´ `getProxy(classLoader)` ·½·¨¡£
+åˆ°è¿™é‡Œï¼Œæˆ‘ä»¬å°±èƒ½æ˜ç™½ï¼Œ`JdkDynamicAopProxy` æ˜¯ç”¨æ¥å¤„ç† jdk åŠ¨æ€ä»£ç†çš„ï¼Œ`ObjenesisCglibAopProxy` æ˜¯ç”¨æ¥å¤„ç† cglib ä»£ç†çš„ã€‚æ¥ä¸‹æ¥ï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹ `getProxy(classLoader)` æ–¹æ³•ã€‚
 
 > JdkDynamicAopProxy#getProxy(java.lang.ClassLoader)
 
@@ -538,19 +538,19 @@ public AopProxy createAopProxy(AdvisedSupport config) throws AopConfigException 
 public Object getProxy(@Nullable ClassLoader classLoader) {
     Class<?>[] proxiedInterfaces = AopProxyUtils
             .completeProxiedInterfaces(this.advised, true);
-    // ÊÇ·ñÓĞequals()ÓëhashCode()·½·¨
+    // æ˜¯å¦æœ‰equals()ä¸hashCode()æ–¹æ³•
     findDefinedEqualsAndHashCodeMethods(proxiedInterfaces);
-    // µ÷ÓÃ jdk ·½·¨ ´´½¨¶ÔÏó
+    // è°ƒç”¨ jdk æ–¹æ³• åˆ›å»ºå¯¹è±¡
     return Proxy.newProxyInstance(classLoader, proxiedInterfaces, this);
 }
 
 ```
 
-×îºóÎÒÃÇÀ´¿´¿´µÃµ½µÄ´úÀí¶ÔÏóÊÇÊ²Ã´ÑùµÄ£º
+æœ€åæˆ‘ä»¬æ¥çœ‹çœ‹å¾—åˆ°çš„ä»£ç†å¯¹è±¡æ˜¯ä»€ä¹ˆæ ·çš„ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-ee46c03d86755b936862c9e8cde266fca1e.png)
 
-¿ÉÒÔ¿´µ½£¬´úÀí¶ÔÏóµÄ `h` ÊôĞÔ±£´æµÄ¾ÍÊÇ `JdkDynamicAopProxy` ¶ÔÏó£¬`JdkDynamicAopProxy` ¶ÔÏóµÄ `advised` ÊôĞÔ±£´æÁË´úÀíµÄ´úÀíµÄÏà¹ØĞÅÏ¢¡£
+å¯ä»¥çœ‹åˆ°ï¼Œä»£ç†å¯¹è±¡çš„ `h` å±æ€§ä¿å­˜çš„å°±æ˜¯ `JdkDynamicAopProxy` å¯¹è±¡ï¼Œ`JdkDynamicAopProxy` å¯¹è±¡çš„ `advised` å±æ€§ä¿å­˜äº†ä»£ç†çš„ä»£ç†çš„ç›¸å…³ä¿¡æ¯ã€‚
 
 > CglibAopProxy#getProxy(java.lang.ClassLoader)
 
@@ -571,7 +571,7 @@ public Object getProxy(@Nullable ClassLoader classLoader) {
 
         validateClassIfNecessary(proxySuperClass, classLoader);
 
-        // ´´½¨ Enhancer ¶ÔÏó£¬²¢setÒ»Ğ©ÊôĞÔ
+        // åˆ›å»º Enhancer å¯¹è±¡ï¼Œå¹¶setä¸€äº›å±æ€§
         Enhancer enhancer = createEnhancer();
         if (classLoader != null) {
             enhancer.setClassLoader(classLoader);
@@ -580,9 +580,9 @@ public Object getProxy(@Nullable ClassLoader classLoader) {
                 enhancer.setUseCache(false);
             }
         }
-        // Superclass¾ÍÊÇÒª´úÀíµÄÀà
+        // Superclasså°±æ˜¯è¦ä»£ç†çš„ç±»
         enhancer.setSuperclass(proxySuperClass);
-        // ÉèÖÃ½Ó¿Ú£¬Èç SpringProxy£¬Advised
+        // è®¾ç½®æ¥å£ï¼Œå¦‚ SpringProxyï¼ŒAdvised
         enhancer.setInterfaces(AopProxyUtils.completeProxiedInterfaces(this.advised));
         enhancer.setNamingPolicy(SpringNamingPolicy.INSTANCE);
         enhancer.setStrategy(new ClassLoaderAwareGeneratorStrategy(classLoader));
@@ -609,20 +609,20 @@ public Object getProxy(@Nullable ClassLoader classLoader) {
 
 ```
 
-spring Ê¹ÓÃ cglib ´´½¨¶ÔÏó£¬Ö÷ÒªÓÃµ½ÁË `Enhancer` Àà£¬¹ØÓÚÕâÒ»¿éºóÃæ»áÔÙ·ÖÎö¡£
+spring ä½¿ç”¨ cglib åˆ›å»ºå¯¹è±¡ï¼Œä¸»è¦ç”¨åˆ°äº† `Enhancer` ç±»ï¼Œå…³äºè¿™ä¸€å—åé¢ä¼šå†åˆ†æã€‚
 
-×îºóÎÒÃÇÒ²À´¿´¿´´´½¨ºóµÃµ½µÄ¶ÔÏó£º
+æœ€åæˆ‘ä»¬ä¹Ÿæ¥çœ‹çœ‹åˆ›å»ºåå¾—åˆ°çš„å¯¹è±¡ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-97d647a818f62fa0979dabd58f3aa19e473.png)
 
-### 3\. ×Ü½á
+### 3\. æ€»ç»“
 
-±¾ÎÄÖ÷Òª·ÖÎöÁË `AbstractAutoProxyCreator#postProcessAfterInitialization`£¬¸Ã·½·¨Ö÷Òª×öÁËÈı¼şÊÂ£º
+æœ¬æ–‡ä¸»è¦åˆ†æäº† `AbstractAutoProxyCreator#postProcessAfterInitialization`ï¼Œè¯¥æ–¹æ³•ä¸»è¦åšäº†ä¸‰ä»¶äº‹ï¼š
 
-1.  »ñÈ¡ÏîÄ¿ÖĞËùÓĞÇĞÃæÀà£¬½«ÇĞµã·½·¨°ü×°Îª `List`£ºÊµ¼ÊÉÏ£¬ÕâÒ»²½µÄ²Ù×÷Ò²»áÔÚ `AbstractAutoProxyCreator#postProcessBeforeInitialization` ÖĞÖ´ĞĞ£¬È»ºó½«½á¹û»º´æÁËÆğÀ´£¬ÕâÒ»²½ÆäÊµÊÇÖ±½ÓÔÚ»º´æÖĞÄÃ½á¹û£»
-2.  »ñÈ¡µ±Ç°¶ÔÏóµÄËùÓĞÔöÇ¿£ºÕâÒ»²½¾ÍÊÇÅĞ¶ÏÄÄĞ©ÔöÇ¿¿ÉÒÔÓÃÓÚµ±Ç°¶ÔÏó£¬ÅĞ¶ÏÊ±ÏÈ»ñÈ¡µ±Ç°ÀàµÄËùÓĞ½Ó¿ÚÓë²»°üÀ¨ Object µÄ¸¸Àà£¬È»ºóÖğÒ»ÅĞ¶ÏÕâĞ©½Ó¿ÚÓëÀàÖĞµÄ·½·¨ÊÇ·ñÂú×ãÔöÇ¿Ìõ¼ş£¬Ö»ÒªÓĞÒ»¸ö·½·¨Âú×ã£¬¾Í±íÊ¾µ±Ç°¶ÔÏóĞèÒª±»´úÀí£»
-3.  ´´½¨´úÀí¶ÔÏó£º´´½¨´úÀí¶ÔÏóÊ±£¬Ä¬ÈÏÇé¿öÏÂ£¬»á¸ù¾İÊÇ·ñÊµÏÖÁË½Ó¿ÚÀ´Ñ¡ÔñÊ¹ÓÃ jdk ¶¯Ì¬´úÀí»¹ÊÇ cglib£¬¿ÉÓ¦ÓÃÓÚµ±Ç° bean µÄ `List` Ò²»á·â×°½ø´úÀí¶ÔÏóÖĞ¡£
+1.  è·å–é¡¹ç›®ä¸­æ‰€æœ‰åˆ‡é¢ç±»ï¼Œå°†åˆ‡ç‚¹æ–¹æ³•åŒ…è£…ä¸º `List`ï¼šå®é™…ä¸Šï¼Œè¿™ä¸€æ­¥çš„æ“ä½œä¹Ÿä¼šåœ¨ `AbstractAutoProxyCreator#postProcessBeforeInitialization` ä¸­æ‰§è¡Œï¼Œç„¶åå°†ç»“æœç¼“å­˜äº†èµ·æ¥ï¼Œè¿™ä¸€æ­¥å…¶å®æ˜¯ç›´æ¥åœ¨ç¼“å­˜ä¸­æ‹¿ç»“æœï¼›
+2.  è·å–å½“å‰å¯¹è±¡çš„æ‰€æœ‰å¢å¼ºï¼šè¿™ä¸€æ­¥å°±æ˜¯åˆ¤æ–­å“ªäº›å¢å¼ºå¯ä»¥ç”¨äºå½“å‰å¯¹è±¡ï¼Œåˆ¤æ–­æ—¶å…ˆè·å–å½“å‰ç±»çš„æ‰€æœ‰æ¥å£ä¸ä¸åŒ…æ‹¬ Object çš„çˆ¶ç±»ï¼Œç„¶åé€ä¸€åˆ¤æ–­è¿™äº›æ¥å£ä¸ç±»ä¸­çš„æ–¹æ³•æ˜¯å¦æ»¡è¶³å¢å¼ºæ¡ä»¶ï¼Œåªè¦æœ‰ä¸€ä¸ªæ–¹æ³•æ»¡è¶³ï¼Œå°±è¡¨ç¤ºå½“å‰å¯¹è±¡éœ€è¦è¢«ä»£ç†ï¼›
+3.  åˆ›å»ºä»£ç†å¯¹è±¡ï¼šåˆ›å»ºä»£ç†å¯¹è±¡æ—¶ï¼Œé»˜è®¤æƒ…å†µä¸‹ï¼Œä¼šæ ¹æ®æ˜¯å¦å®ç°äº†æ¥å£æ¥é€‰æ‹©ä½¿ç”¨ jdk åŠ¨æ€ä»£ç†è¿˜æ˜¯ cglibï¼Œå¯åº”ç”¨äºå½“å‰ bean çš„ `List` ä¹Ÿä¼šå°è£…è¿›ä»£ç†å¯¹è±¡ä¸­ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4687961](https://my.oschina.net/funcy/blog/4687961) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4687961](https://my.oschina.net/funcy/blog/4687961) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

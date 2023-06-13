@@ -1,28 +1,28 @@
-# Ò»¡¢Nacos·şÎñ·¢ÏÖÁ÷³ÌÍ¼
+# ä¸€ã€NacosæœåŠ¡å‘ç°æµç¨‹å›¾
 
-![ÔÚÕâÀï²åÈëÍ¼Æ¬ÃèÊö](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b5b4ef0330dc4882b0fc2f73994face7.png "ÔÚÕâÀï²åÈëÍ¼Æ¬ÃèÊö")
+![åœ¨è¿™é‡Œæ’å…¥å›¾ç‰‡æè¿°](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b5b4ef0330dc4882b0fc2f73994face7.png "åœ¨è¿™é‡Œæ’å…¥å›¾ç‰‡æè¿°")
 
-½¨Òé´ó¼Ò×Ô¼ºÊáÀíÒ»ÏÂÁ÷³Ì£¬Ò²¿ÉÒÔ²Î¿¼£º[Nacos·şÎñ×¢²áÔ´Âë·ÖÎöÁ÷³ÌÍ¼](https://blog.csdn.net/Saintmm/article/details/121981184)
+å»ºè®®å¤§å®¶è‡ªå·±æ¢³ç†ä¸€ä¸‹æµç¨‹ï¼Œä¹Ÿå¯ä»¥å‚è€ƒï¼š[NacosæœåŠ¡æ³¨å†Œæºç åˆ†ææµç¨‹å›¾](https://blog.csdn.net/Saintmm/article/details/121981184)
 
-# ¶ş¡¢ÕÒÔ´ÂëÈë¿Ú
+# äºŒã€æ‰¾æºç å…¥å£
 
-spring-cloud-commons°üÖĞ¶¨ÒåÁËÒ»Ì×·şÎñ·¢ÏÖµÄ¹æ·¶£¬ºËĞÄÂß¼­ÔÚ`DiscoveryClient`½Ó¿ÚÖĞ£»
-![ÔÚÕâÀï²åÈëÍ¼Æ¬ÃèÊö](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/75ebfd400023456faaafd95e7d9cdbf7.png "ÔÚÕâÀï²åÈëÍ¼Æ¬ÃèÊö")
-¼¯³ÉSpring CloudÊµÏÖ·şÎñ·¢ÏÖµÄ×é¼ş¶¼»áÊµÏÖ`DiscoveryClient`½Ó¿Ú£»nacos-discovery°üÏÂµÄ`NacosDiscoveryClient`ÀàÊµÏÖ`DiscoveryClient`½Ó¿Ú¡£
-![ÔÚÕâÀï²åÈëÍ¼Æ¬ÃèÊö](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/0c330a7ce5c744c4a2b25dc024b2430f.png "ÔÚÕâÀï²åÈëÍ¼Æ¬ÃèÊö")
+spring-cloud-commonsåŒ…ä¸­å®šä¹‰äº†ä¸€å¥—æœåŠ¡å‘ç°çš„è§„èŒƒï¼Œæ ¸å¿ƒé€»è¾‘åœ¨`DiscoveryClient`æ¥å£ä¸­ï¼›
+![åœ¨è¿™é‡Œæ’å…¥å›¾ç‰‡æè¿°](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/75ebfd400023456faaafd95e7d9cdbf7.png "åœ¨è¿™é‡Œæ’å…¥å›¾ç‰‡æè¿°")
+é›†æˆSpring Cloudå®ç°æœåŠ¡å‘ç°çš„ç»„ä»¶éƒ½ä¼šå®ç°`DiscoveryClient`æ¥å£ï¼›nacos-discoveryåŒ…ä¸‹çš„`NacosDiscoveryClient`ç±»å®ç°`DiscoveryClient`æ¥å£ã€‚
+![åœ¨è¿™é‡Œæ’å…¥å›¾ç‰‡æè¿°](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/0c330a7ce5c744c4a2b25dc024b2430f.png "åœ¨è¿™é‡Œæ’å…¥å›¾ç‰‡æè¿°")
 
-# Èı¡¢¿Í»§¶Ë·şÎñ·¢ÏÖ
+# ä¸‰ã€å®¢æˆ·ç«¯æœåŠ¡å‘ç°
 
-> 1¡¢µ±nacos¿Í»§¶ËÔË?ÆğÀ´Ö®ºó£¬ËüÖ»ÊÇÈ¥×ö·şÎñ×¢²á¡¢ÅäÖÃ»ñÈ¡µÈ²Ù×÷£»²¢²»»áÁ¢¼´È¥ÇëÇó·şÎñĞÅÏ¢£»
-> 2¡¢µ±µÚÒ»´ÎÇëÇóÊ±ºò£¬²Å»áÈ¥»ñÈ¡·şÎñ£¬¼´`ÀÁ¼ÓÔØ»úÖÆ`£»
+> 1ã€å½“nacoså®¢æˆ·ç«¯è¿?èµ·æ¥ä¹‹åï¼Œå®ƒåªæ˜¯å»åšæœåŠ¡æ³¨å†Œã€é…ç½®è·å–ç­‰æ“ä½œï¼›å¹¶ä¸ä¼šç«‹å³å»è¯·æ±‚æœåŠ¡ä¿¡æ¯ï¼›
+> 2ã€å½“ç¬¬ä¸€æ¬¡è¯·æ±‚æ—¶å€™ï¼Œæ‰ä¼šå»è·å–æœåŠ¡ï¼Œå³`æ‡’åŠ è½½æœºåˆ¶`ï¼›
 
-#### 1£©ÏÈ´Ó±¾µØ»º´æserviceInfoMapÖĞ»ñÈ¡·şÎñÊµÀıĞÅÏ¢£¬»ñÈ¡²»µ½ÔòÍ¨¹ı`NamingProxy`µ÷ÓÃNacos ·şÎñ¶Ë»ñÈ¡·şÎñÊµÀıĞÅÏ¢£»×îºó¿ªÆô¶¨Ê±ÈÎÎñÃ¿ÃëÇëÇó·şÎñ¶Ë »ñÈ¡ÊµÀıĞÅÏ¢ÁĞ±í½ø¶ø¸üĞÂ±¾µØ»º´æserviceInfoMap£»
+#### 1ï¼‰å…ˆä»æœ¬åœ°ç¼“å­˜serviceInfoMapä¸­è·å–æœåŠ¡å®ä¾‹ä¿¡æ¯ï¼Œè·å–ä¸åˆ°åˆ™é€šè¿‡`NamingProxy`è°ƒç”¨Nacos æœåŠ¡ç«¯è·å–æœåŠ¡å®ä¾‹ä¿¡æ¯ï¼›æœ€åå¼€å¯å®šæ—¶ä»»åŠ¡æ¯ç§’è¯·æ±‚æœåŠ¡ç«¯ è·å–å®ä¾‹ä¿¡æ¯åˆ—è¡¨è¿›è€Œæ›´æ–°æœ¬åœ°ç¼“å­˜serviceInfoMapï¼›
 
 ```
 // NacosDiscoveryClient#getInstances()
 public List<ServiceInstance> getInstances(String serviceId) {
     try {
-        // Í¨¹ıNacosNamingService»ñÈ¡·şÎñ¶ÔÓ¦µÄÊµÀıĞÅÏ¢£»µã½øÈ¥
+        // é€šè¿‡NacosNamingServiceè·å–æœåŠ¡å¯¹åº”çš„å®ä¾‹ä¿¡æ¯ï¼›ç‚¹è¿›å»
         List<Instance> instances = discoveryProperties.namingServiceInstance()
                 .selectInstances(serviceId, true);
         return hostToServiceInstanceList(instances, serviceId);
@@ -38,18 +38,18 @@ public List<Instance> selectInstances(String serviceName, boolean healthy) throw
 }
 public List<Instance> selectInstances(String serviceName, List<String> clusters, boolean healthy)
     throws NacosException {
-    // Ä¬ÈÏ×ß¶©ÔÄÄ£Ê½
+    // é»˜è®¤èµ°è®¢é˜…æ¨¡å¼
     return selectInstances(serviceName, clusters, healthy, true);
 }
 public List<Instance> selectInstances(String serviceName, List<String> clusters, boolean healthy,
                                       boolean subscribe) throws NacosException {
-    // Ä¬ÈÏ²éÑ¯DEFAULT_GROUPÏÂµÄ·şÎñÊµÀıĞÅÏ¢
+    // é»˜è®¤æŸ¥è¯¢DEFAULT_GROUPä¸‹çš„æœåŠ¡å®ä¾‹ä¿¡æ¯
     return selectInstances(serviceName, Constants.DEFAULT_GROUP, clusters, healthy, subscribe);
 }
 public List<Instance> selectInstances(String serviceName, String groupName, List<String> clusters, boolean healthy, boolean subscribe) throws NacosException {
 
     ServiceInfo serviceInfo;
-    // Ä¬ÈÏ×ß¶©ÔÄÄ£Ê½£¬¼´subscribeÎªTRUE
+    // é»˜è®¤èµ°è®¢é˜…æ¨¡å¼ï¼Œå³subscribeä¸ºTRUE
     if (subscribe) {
         serviceInfo = hostReactor.getServiceInfo(NamingUtils.getGroupedName(serviceName, groupName), StringUtils.join(clusters, ","));
     } else {
@@ -59,7 +59,7 @@ public List<Instance> selectInstances(String serviceName, String groupName, List
 }
 ```
 
-`HostReactor#getServiceInfo()`·½·¨ÊÇÕæÕı»ñÈ¡·şÎñÊµÀıĞÅÏ¢µÄµØ·½£º
+`HostReactor#getServiceInfo()`æ–¹æ³•æ˜¯çœŸæ­£è·å–æœåŠ¡å®ä¾‹ä¿¡æ¯çš„åœ°æ–¹ï¼š
 
 ```
 public ServiceInfo getServiceInfo(final String serviceName, final String clusters) {
@@ -70,10 +70,10 @@ public ServiceInfo getServiceInfo(final String serviceName, final String cluster
         return failoverReactor.getService(key);
     }
 
-    // 1¡¢´Ó±¾µØ»º´æserviceInfoMapÖĞ»ñÈ¡ÊµÀıĞÅÏ¢
+    // 1ã€ä»æœ¬åœ°ç¼“å­˜serviceInfoMapä¸­è·å–å®ä¾‹ä¿¡æ¯
     ServiceInfo serviceObj = getServiceInfo0(serviceName, clusters);
 
-    // 2¡¢Èç¹û±¾µØ»º´æÖĞÃ»ÓĞ£¬Ôò×ßHTTPµ÷ÓÃ´ÓNacos·şÎñ¶Ë»ñÈ¡
+    // 2ã€å¦‚æœæœ¬åœ°ç¼“å­˜ä¸­æ²¡æœ‰ï¼Œåˆ™èµ°HTTPè°ƒç”¨ä»NacosæœåŠ¡ç«¯è·å–
     if (null == serviceObj) {
         serviceObj = new ServiceInfo(serviceName, clusters);
 
@@ -97,15 +97,15 @@ public ServiceInfo getServiceInfo(final String serviceName, final String cluster
         }
     }
 
-    // 3¡¢¿ªÆôÒ»¸ö¶¨Ê±ÈÎÎñ£¬Ã¿¸ôÒ»Ãë´ÓNacos·şÎñ¶Ë»ñÈ¡×îĞÂµÄ·şÎñÊµÀıĞÅÏ¢£¬¸üĞÂµ½±¾µØ»º´æseriveInfoMapÖĞ
+    // 3ã€å¼€å¯ä¸€ä¸ªå®šæ—¶ä»»åŠ¡ï¼Œæ¯éš”ä¸€ç§’ä»NacosæœåŠ¡ç«¯è·å–æœ€æ–°çš„æœåŠ¡å®ä¾‹ä¿¡æ¯ï¼Œæ›´æ–°åˆ°æœ¬åœ°ç¼“å­˜seriveInfoMapä¸­
     scheduleUpdateIfAbsent(serviceName, clusters);
 
-    // 4¡¢ ´Ó±¾µØ»º´æserviceInfoMapÖĞ»ñÈ¡·şÎñÊµÀıĞÅÏ¢
+    // 4ã€ ä»æœ¬åœ°ç¼“å­˜serviceInfoMapä¸­è·å–æœåŠ¡å®ä¾‹ä¿¡æ¯
     return serviceInfoMap.get(serviceObj.getKey());
 }
 ```
 
-1¡¢´Ó±¾µØ»º´æÖĞ»ñÈ¡·şÎñÊµÀıĞÅÏ¢£º
+1ã€ä»æœ¬åœ°ç¼“å­˜ä¸­è·å–æœåŠ¡å®ä¾‹ä¿¡æ¯ï¼š
 
 ```
 private ServiceInfo getServiceInfo0(String serviceName, String clusters) {
@@ -116,17 +116,17 @@ private ServiceInfo getServiceInfo0(String serviceName, String clusters) {
 }
 ```
 
-2¡¢Ôò×ßHTTPµ÷ÓÃ´ÓNacos·şÎñ¶Ë»ñÈ¡·şÎñÊµÀıĞÅÏ¢£º
+2ã€åˆ™èµ°HTTPè°ƒç”¨ä»NacosæœåŠ¡ç«¯è·å–æœåŠ¡å®ä¾‹ä¿¡æ¯ï¼š
 
 ```
 public void updateServiceNow(String serviceName, String clusters) {
     ServiceInfo oldService = getServiceInfo0(serviceName, clusters);
     try {
 
-        // Í¨¹ıNamingProxy×ßHTTP½Ó¿Úµ÷ÓÃ£¬»ñÈ¡·şÎñÊµÀıĞÅÏ¢
+        // é€šè¿‡NamingProxyèµ°HTTPæ¥å£è°ƒç”¨ï¼Œè·å–æœåŠ¡å®ä¾‹ä¿¡æ¯
         String result = serverProxy.queryList(serviceName, clusters, pushReceiver.getUDPPort(), false);
         if (StringUtils.isNotEmpty(result)) {
-            // ¸üĞÂ±¾µØ»º´æserviceInfoMap
+            // æ›´æ–°æœ¬åœ°ç¼“å­˜serviceInfoMap
             processServiceJSON(result);
         }
     } catch (Exception e) {
@@ -141,7 +141,7 @@ public void updateServiceNow(String serviceName, String clusters) {
 }
 ```
 
-3¡¢¿ªÆôÒ»¸ö¶¨Ê±ÈÎÎñ£¬Ã¿¸ôÒ»Ãë´ÓNacos·şÎñ¶Ë»ñÈ¡×îĞÂµÄ·şÎñÊµÀıĞÅÏ¢£¬¸üĞÂµ½±¾µØ»º´æseriveInfoMapÖĞ£º
+3ã€å¼€å¯ä¸€ä¸ªå®šæ—¶ä»»åŠ¡ï¼Œæ¯éš”ä¸€ç§’ä»NacosæœåŠ¡ç«¯è·å–æœ€æ–°çš„æœåŠ¡å®ä¾‹ä¿¡æ¯ï¼Œæ›´æ–°åˆ°æœ¬åœ°ç¼“å­˜seriveInfoMapä¸­ï¼š
 
 ```
 public void scheduleUpdateIfAbsent(String serviceName, String clusters) {
@@ -154,13 +154,13 @@ public void scheduleUpdateIfAbsent(String serviceName, String clusters) {
             return;
         }
 
-        // Æô¶¯¶¨Ê±ÈÎÎñ
+        // å¯åŠ¨å®šæ—¶ä»»åŠ¡
         ScheduledFuture<?> future = addTask(new UpdateTask(serviceName, clusters));
         futureMap.put(ServiceInfo.getKey(serviceName, clusters), future);
     }
 }
 
-// ¶¨Ê±ÈÎÎñÖ´ĞĞÂß¼­£¬UpdateTask#run()
+// å®šæ—¶ä»»åŠ¡æ‰§è¡Œé€»è¾‘ï¼ŒUpdateTask#run()
 public void run() {
     try {
         ServiceInfo serviceObj = serviceInfoMap.get(ServiceInfo.getKey(serviceName, clusters));
@@ -180,7 +180,7 @@ public void run() {
             refreshOnly(serviceName, clusters);
         }
 
-        // ¿ªÆôÒ»¸ö¶¨Ê±ÈÎÎñ£¬1sÖ®ºóÖ´ĞĞ
+        // å¼€å¯ä¸€ä¸ªå®šæ—¶ä»»åŠ¡ï¼Œ1sä¹‹åæ‰§è¡Œ
         executor.schedule(this, serviceObj.getCacheMillis(), TimeUnit.MILLISECONDS);
 
         lastRefTime = serviceObj.getLastRefTime();
@@ -191,7 +191,7 @@ public void run() {
 }
 ```
 
-²éÑ¯·şÎñÊµÀıÁĞ±í£º
+æŸ¥è¯¢æœåŠ¡å®ä¾‹åˆ—è¡¨ï¼š
 
 ```
 public String queryList(String serviceName, String clusters, int udpPort, boolean healthyOnly)
@@ -209,7 +209,7 @@ public String queryList(String serviceName, String clusters, int udpPort, boolea
 }
 ```
 
-#### 2£©ÔÚHostReactorÊµÀı»¯µÄÊ±ºò»áÊµÀı»¯PushReceiver£¬½ø¶ø¿ªÆôÒ»¸öÏß³ÌËÀÑ­»·Í¨¹ı`DatagramSocket#receive()`¼àÌıNacos·şÎñ¶ËÖĞ·şÎñÊµÀıĞÅÏ¢·¢Éú±ä¸üºóµÄUDPÍ¨Öª¡£
+#### 2ï¼‰åœ¨HostReactorå®ä¾‹åŒ–çš„æ—¶å€™ä¼šå®ä¾‹åŒ–PushReceiverï¼Œè¿›è€Œå¼€å¯ä¸€ä¸ªçº¿ç¨‹æ­»å¾ªç¯é€šè¿‡`DatagramSocket#receive()`ç›‘å¬NacosæœåŠ¡ç«¯ä¸­æœåŠ¡å®ä¾‹ä¿¡æ¯å‘ç”Ÿå˜æ›´åçš„UDPé€šçŸ¥ã€‚
 
 ```
 public class PushReceiver implements Runnable {
@@ -219,7 +219,7 @@ public class PushReceiver implements Runnable {
         try {
             this.hostReactor = hostReactor;
             udpSocket = new DatagramSocket();
-            // Æô¶¯Ò»¸öÏß³Ì
+            // å¯åŠ¨ä¸€ä¸ªçº¿ç¨‹
             executorService = new ScheduledThreadPoolExecutor(1, new ThreadFactory() {
                 @Override
                 public Thread newThread(Runnable r) {
@@ -243,7 +243,7 @@ public class PushReceiver implements Runnable {
                 byte[] buffer = new byte[UDP_MSS];
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
 
-                // ¼àÌıNacos·şÎñ¶Ë·şÎñÊµÀıĞÅÏ¢±ä¸üºóµÄÍ¨Öª
+                // ç›‘å¬NacosæœåŠ¡ç«¯æœåŠ¡å®ä¾‹ä¿¡æ¯å˜æ›´åçš„é€šçŸ¥
                 udpSocket.receive(packet);
 
                 String json = new String(IoUtils.tryDecompress(packet.getData()), "UTF-8").trim();
@@ -283,16 +283,16 @@ public class PushReceiver implements Runnable {
 }
 ```
 
-# ËÄ¡¢·şÎñ¶Ë·şÎñ·¢ÏÖ
+# å››ã€æœåŠ¡ç«¯æœåŠ¡å‘ç°
 
-Nacos·şÎñ¶ËµÄ·şÎñ·¢ÏÖÖ÷Òª×öÁ½¼şÊÂ£º
+NacosæœåŠ¡ç«¯çš„æœåŠ¡å‘ç°ä¸»è¦åšä¸¤ä»¶äº‹ï¼š
 
-> 1¡¢²éÑ¯·şÎñÊµÀıÁĞ±í£»ÏÈ´Ó»º´æserviceMapÖĞÕÒµ½service¶ÔÓ¦µÄCluster£¬ÔÙ´ÓClusterµÄÁ½¸öSet£º`persistentInstances`¡¢`ephemeralInstances`»ñÈ¡È«Á¿µÄÊµÀıĞÅÏ¢£»
-> 2¡¢½«¿Í»§¶Ë´«À´µÄip¡¢udp¶Ë¿ÚºÅ¼ÓÌí¼Óµ½`clientMap`£¬½ø¶ø×ö·şÎñÍÆËÍ£»clientMapÊôÓÚ`NamingSubscriberService`µÄÊµÏÖÀà`NamingSubscriberServiceV1Impl`£¬ÆäkeyÊÇservice name£¬valueÊÇ¶©ÔÄÁË¸Ã·şÎñµÄ¿Í»§¶ËÁĞ±í(ip+¶Ë¿ÚºÅ)¡£
+> 1ã€æŸ¥è¯¢æœåŠ¡å®ä¾‹åˆ—è¡¨ï¼›å…ˆä»ç¼“å­˜serviceMapä¸­æ‰¾åˆ°serviceå¯¹åº”çš„Clusterï¼Œå†ä»Clusterçš„ä¸¤ä¸ªSetï¼š`persistentInstances`ã€`ephemeralInstances`è·å–å…¨é‡çš„å®ä¾‹ä¿¡æ¯ï¼›
+> 2ã€å°†å®¢æˆ·ç«¯ä¼ æ¥çš„ipã€udpç«¯å£å·åŠ æ·»åŠ åˆ°`clientMap`ï¼Œè¿›è€ŒåšæœåŠ¡æ¨é€ï¼›clientMapå±äº`NamingSubscriberService`çš„å®ç°ç±»`NamingSubscriberServiceV1Impl`ï¼Œå…¶keyæ˜¯service nameï¼Œvalueæ˜¯è®¢é˜…äº†è¯¥æœåŠ¡çš„å®¢æˆ·ç«¯åˆ—è¡¨(ip+ç«¯å£å·)ã€‚
 
-¼ûnamingÏîÄ¿ÏÂµÄ InstanceControllerÀàµÄlist()·½·¨£º
+è§namingé¡¹ç›®ä¸‹çš„ InstanceControllerç±»çš„list()æ–¹æ³•ï¼š
 
-#### 1£©»ñÈ¡·şÎñÊµÀıÁĞ±í
+#### 1ï¼‰è·å–æœåŠ¡å®ä¾‹åˆ—è¡¨
 
 ```
 @GetMapping("/list")
@@ -317,7 +317,7 @@ public Object list(HttpServletRequest request) throws Exception {
 
     Subscriber subscriber = new Subscriber(clientIP + ":" + udpPort, agent, app, clientIP, namespaceId, serviceName,
             udpPort, clusters);
-    // ½øÈ¥InstanceOperatorServiceImpl#listInstance()·½·¨»ñÈ¡·şÎñÊµÀıÁĞ±í
+    // è¿›å»InstanceOperatorServiceImpl#listInstance()æ–¹æ³•è·å–æœåŠ¡å®ä¾‹åˆ—è¡¨
     return getInstanceOperator().listInstance(namespaceId, serviceName, subscriber, clusters, healthyOnly);
 }
 
@@ -332,7 +332,7 @@ public ServiceInfo listInstance(String namespaceId, String serviceName, Subscrib
 
         // now try to enable the push
         try {
-            // ³¢ÊÔÆôÓÃÍÆËÍ·şÎñUdpPushService£¬¼´·şÎñÊµÀıĞÅÏ¢·¢Éú±ä¸üÊ±Í¨¹ıUDPµÄ·½Ê½Í¨ÖªNacos Client
+            // å°è¯•å¯ç”¨æ¨é€æœåŠ¡UdpPushServiceï¼Œå³æœåŠ¡å®ä¾‹ä¿¡æ¯å‘ç”Ÿå˜æ›´æ—¶é€šè¿‡UDPçš„æ–¹å¼é€šçŸ¥Nacos Client
             if (subscriber.getPort() > 0 && pushService.canEnablePush(subscriber.getAgent())) {
                 subscriberServiceV1.addClient(namespaceId, serviceName, cluster, subscriber.getAgent(),
                         new InetSocketAddress(clientIP, subscriber.getPort()), pushDataSource, StringUtils.EMPTY,
@@ -353,19 +353,19 @@ public ServiceInfo listInstance(String namespaceId, String serviceName, Subscrib
             return result;
         }
 
-        // ¼ì²é·şÎñÊÇ·ñ½ûÓÃ
+        // æ£€æŸ¥æœåŠ¡æ˜¯å¦ç¦ç”¨
         checkIfDisabled(service);
 
-        // ÕâÀïÊÇ»ñÈ¡·şÎñ×¢²áĞÅÏ¢µÄ¹Ø¼ü´úÂë£¬»ñÈ¡ËùÓĞÓÀ¾ÃºÍÁÙÊ±·şÎñÊµÀı
+        // è¿™é‡Œæ˜¯è·å–æœåŠ¡æ³¨å†Œä¿¡æ¯çš„å…³é”®ä»£ç ï¼Œè·å–æ‰€æœ‰æ°¸ä¹…å’Œä¸´æ—¶æœåŠ¡å®ä¾‹
         List<com.alibaba.nacos.naming.core.Instance> srvedIps = service
                 .srvIPs(Arrays.asList(StringUtils.split(cluster, StringUtils.COMMA)));
 
-        // filter ips using selector£¬Ñ¡ÔñÆ÷¹ıÂË·şÎñ
+        // filter ips using selectorï¼Œé€‰æ‹©å™¨è¿‡æ»¤æœåŠ¡
         if (service.getSelector() != null && StringUtils.isNotBlank(clientIP)) {
             srvedIps = selectorManager.select(service.getSelector(), clientIP, srvedIps);
         }
 
-        // Èç¹ûÕÒ²»µ½·şÎñÔò·µ»Øµ±Ç°·şÎñ
+        // å¦‚æœæ‰¾ä¸åˆ°æœåŠ¡åˆ™è¿”å›å½“å‰æœåŠ¡
         if (CollectionUtils.isEmpty(srvedIps)) {
         .......
         return result;
@@ -384,7 +384,7 @@ public List<Instance> srvIPs(List<String> clusters) {
 public List<Instance> allIPs(List<String> clusters) {
     List<Instance> result = new ArrayList<>();
     for (String cluster : clusters) {
-        // ·şÎñ×¢²áµÄÊ±ºò£¬»á½«ÊµÀıĞÅÏ¢Ğ´µ½clusterMapÖĞ£¬ÏÖÔÚ´ÓÆäÖĞÈ¡
+        // æœåŠ¡æ³¨å†Œçš„æ—¶å€™ï¼Œä¼šå°†å®ä¾‹ä¿¡æ¯å†™åˆ°clusterMapä¸­ï¼Œç°åœ¨ä»å…¶ä¸­å–
         Cluster clusterObj = clusterMap.get(cluster);
         if (clusterObj == null) {
             continue;
@@ -398,47 +398,47 @@ public List<Instance> allIPs(List<String> clusters) {
 // Cluster#allIPs()
 public List<Instance> allIPs() {
     List<Instance> allInstances = new ArrayList<>();
-    // »ñÈ¡·şÎñÏÂËùÓĞµÄ³Ö¾Ã»¯ÊµÀı
+    // è·å–æœåŠ¡ä¸‹æ‰€æœ‰çš„æŒä¹…åŒ–å®ä¾‹
     allInstances.addAll(persistentInstances);
-    // »ñÈ¡·şÎñÏÂËùÓĞµÄÁÙÊ±ÊµÀı
+    // è·å–æœåŠ¡ä¸‹æ‰€æœ‰çš„ä¸´æ—¶å®ä¾‹
     allInstances.addAll(ephemeralInstances);
     return allInstances;
 }
 ```
 
-#### 2£©²ÉÓÃUDP·½Ê½×ö·şÎñÊµÀıÍÆËÍ
+#### 2ï¼‰é‡‡ç”¨UDPæ–¹å¼åšæœåŠ¡å®ä¾‹æ¨é€
 
-NamingSubscriberServiceV1Impl#addClient()£º
+NamingSubscriberServiceV1Impl#addClient()ï¼š
 
 ```
 public void addClient(String namespaceId, String serviceName, String clusters, String agent,
         InetSocketAddress socketAddr, DataSource dataSource, String tenant, String app) {
 
-    // ³õÊ¼»¯ÍÆËÍ¿Í»§¶ËÊµÀıPushClient
+    // åˆå§‹åŒ–æ¨é€å®¢æˆ·ç«¯å®ä¾‹PushClient
     PushClient client = new PushClient(namespaceId, serviceName, clusters, agent, socketAddr, dataSource, tenant,
             app);
-    // Ìí¼ÓÍÆËÍÄ¿±ê¿Í»§¶Ë
+    // æ·»åŠ æ¨é€ç›®æ ‡å®¢æˆ·ç«¯
     addClient(client);
 }
 
-// ÖØÔØ·½·¨addClient()
+// é‡è½½æ–¹æ³•addClient()
 public void addClient(PushClient client) {
     // client is stored by key 'serviceName' because notify event is driven by serviceName change
-    // ¿Í»§¶ËÓÉ¼ü¡° serviceName¡±´æ´¢£¬ÒòÎªÍ¨ÖªÊÂ¼şÓÉserviceName¸ü¸ÄÇı¶¯
+    // å®¢æˆ·ç«¯ç”±é”®â€œ serviceNameâ€å­˜å‚¨ï¼Œå› ä¸ºé€šçŸ¥äº‹ä»¶ç”±serviceNameæ›´æ”¹é©±åŠ¨
     String serviceKey = UtilsAndCommons.assembleFullServiceName(client.getNamespaceId(), client.getServiceName());
     ConcurrentMap<String, PushClient> clients = clientMap.get(serviceKey);
-    // Èç¹û»ñÈ¡²»µ½¿Í»§¶ËÏëµ÷ÓÃµÄServiceName¶ÔÓ¦µÄÍÆËÍ¿Í»§¶Ë£¬ÔòĞÂ½¨ÍÆËÍ¿Í»§¶Ë£¬²¢»º´æ
+    // å¦‚æœè·å–ä¸åˆ°å®¢æˆ·ç«¯æƒ³è°ƒç”¨çš„ServiceNameå¯¹åº”çš„æ¨é€å®¢æˆ·ç«¯ï¼Œåˆ™æ–°å»ºæ¨é€å®¢æˆ·ç«¯ï¼Œå¹¶ç¼“å­˜
     if (clients == null) {
         clientMap.putIfAbsent(serviceKey, new ConcurrentHashMap<>(1024));
         clients = clientMap.get(serviceKey);
     }
 
     PushClient oldClient = clients.get(client.toString());
-    // ´æÔÚÀÏµÄPushClient£¬ÔòË¢ĞÂ
+    // å­˜åœ¨è€çš„PushClientï¼Œåˆ™åˆ·æ–°
     if (oldClient != null) {
         oldClient.refresh();
     } else {
-        // ·ñÔò»º´æPushClient
+        // å¦åˆ™ç¼“å­˜PushClient
         PushClient res = clients.putIfAbsent(client.toString(), client);
         if (res != null) {
             Loggers.PUSH.warn("client: {} already associated with key {}", res.getAddrStr(), res);
@@ -448,20 +448,20 @@ public void addClient(PushClient client) {
 }
 ```
 
-# Îå¡¢×Ü½á
+# äº”ã€æ€»ç»“
 
-¿Í»§¶Ë£º
+å®¢æˆ·ç«¯ï¼š
 
-> 1¡¢ÓÅÏÈ´Ó±¾µØ»º´æÖĞ»ñÈ¡·şÎñÊµÀıĞÅÏ¢£»
-> 2¡¢Î¬»¤¶¨Ê±ÈÎÎñ¶¨Ê±´ÓNacos·şÎñ¶Ë»ñÈ¡·şÎñÊµÀıĞÅÏ¢£»
+> 1ã€ä¼˜å…ˆä»æœ¬åœ°ç¼“å­˜ä¸­è·å–æœåŠ¡å®ä¾‹ä¿¡æ¯ï¼›
+> 2ã€ç»´æŠ¤å®šæ—¶ä»»åŠ¡å®šæ—¶ä»NacosæœåŠ¡ç«¯è·å–æœåŠ¡å®ä¾‹ä¿¡æ¯ï¼›
 
-·şÎñ¶Ë£º
+æœåŠ¡ç«¯ï¼š
 
-> 1¡¢·µ»ØÖ¸¶¨ÃüÃû¿Õ¼äÏÂÄÚ´æ×¢²á±íÖĞËùÓĞµÄÓÀ¾ÃÊµÀıºÍÁÙÊ±ÊµÀı¸ø¿Í»§¶Ë£»
-> 2¡¢¿ªÆôÒ»¸öUDP·şÎñÊµÀıĞÅÏ¢±ä¸üÍÆËÍ·şÎñ£»
+> 1ã€è¿”å›æŒ‡å®šå‘½åç©ºé—´ä¸‹å†…å­˜æ³¨å†Œè¡¨ä¸­æ‰€æœ‰çš„æ°¸ä¹…å®ä¾‹å’Œä¸´æ—¶å®ä¾‹ç»™å®¢æˆ·ç«¯ï¼›
+> 2ã€å¼€å¯ä¸€ä¸ªUDPæœåŠ¡å®ä¾‹ä¿¡æ¯å˜æ›´æ¨é€æœåŠ¡ï¼›
 
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://developer.aliyun.com/article/1058262
 https://ost.51cto.com/posts/14835
 https://developer.aliyun.com/article/1048465

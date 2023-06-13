@@ -1,12 +1,12 @@
-# Spring Ğ£Ñé
+# Spring æ ¡éªŒ
 
-Java API ¹æ·¶(`JSR303`)¶¨ÒåÁË`Bean`Ğ£ÑéµÄ±ê×¼`validation-api`£¬µ«Ã»ÓĞÌá¹©ÊµÏÖ¡£`hibernate validation`ÊÇ¶ÔÕâ¸ö¹æ·¶µÄÊµÏÖ£¬²¢Ôö¼ÓÁËĞ£Ñé×¢½âÈç`@Email`¡¢`@Length`µÈ¡£`Spring Validation`ÊÇ¶Ô`hibernate validation`µÄ¶ş´Î·â×°£¬ÓÃÓÚÖ§³Ö`spring mvc`²ÎÊı×Ô¶¯Ğ£Ñé¡£
+Java API è§„èŒƒ(`JSR303`)å®šä¹‰äº†`Bean`æ ¡éªŒçš„æ ‡å‡†`validation-api`ï¼Œä½†æ²¡æœ‰æä¾›å®ç°ã€‚`hibernate validation`æ˜¯å¯¹è¿™ä¸ªè§„èŒƒçš„å®ç°ï¼Œå¹¶å¢åŠ äº†æ ¡éªŒæ³¨è§£å¦‚`@Email`ã€`@Length`ç­‰ã€‚`Spring Validation`æ˜¯å¯¹`hibernate validation`çš„äºŒæ¬¡å°è£…ï¼Œç”¨äºæ”¯æŒ`spring mvc`å‚æ•°è‡ªåŠ¨æ ¡éªŒã€‚
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8)¿ìËÙÈëÃÅ
+## [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8)å¿«é€Ÿå…¥é—¨
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96)ÒıÈëÒÀÀµ
+### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96)å¼•å…¥ä¾èµ–
 
-Èç¹û spring-boot °æ±¾Ğ¡ÓÚ 2.3.x£¬spring-boot-starter-web »á×Ô¶¯´«Èë hibernate-validator ÒÀÀµ¡£Èç¹û spring-boot °æ±¾´óÓÚ 2.3.x£¬ÔòĞèÒªÊÖ¶¯ÒıÈëÒÀÀµ£º
+å¦‚æœ spring-boot ç‰ˆæœ¬å°äº 2.3.xï¼Œspring-boot-starter-web ä¼šè‡ªåŠ¨ä¼ å…¥ hibernate-validator ä¾èµ–ã€‚å¦‚æœ spring-boot ç‰ˆæœ¬å¤§äº 2.3.xï¼Œåˆ™éœ€è¦æ‰‹åŠ¨å¼•å…¥ä¾èµ–ï¼š
 
 
 
@@ -21,16 +21,16 @@ Java API ¹æ·¶(`JSR303`)¶¨ÒåÁË`Bean`Ğ£ÑéµÄ±ê×¼`validation-api`£¬µ«Ã»ÓĞÌá¹©ÊµÏÖ¡£`
 
 
 
-¶ÔÓÚ web ·şÎñÀ´Ëµ£¬Îª·ÀÖ¹·Ç·¨²ÎÊı¶ÔÒµÎñÔì³ÉÓ°Ïì£¬ÔÚ Controller ²ãÒ»¶¨Òª×ö²ÎÊıĞ£ÑéµÄ£¡´ó²¿·ÖÇé¿öÏÂ£¬ÇëÇó²ÎÊı·ÖÎªÈçÏÂÁ½ÖÖĞÎÊ½£º
+å¯¹äº web æœåŠ¡æ¥è¯´ï¼Œä¸ºé˜²æ­¢éæ³•å‚æ•°å¯¹ä¸šåŠ¡é€ æˆå½±å“ï¼Œåœ¨ Controller å±‚ä¸€å®šè¦åšå‚æ•°æ ¡éªŒçš„ï¼å¤§éƒ¨åˆ†æƒ…å†µä¸‹ï¼Œè¯·æ±‚å‚æ•°åˆ†ä¸ºå¦‚ä¸‹ä¸¤ç§å½¢å¼ï¼š
 
-*   POST¡¢PUT ÇëÇó£¬Ê¹ÓÃ requestBody ´«µİ²ÎÊı£»
-*   GET ÇëÇó£¬Ê¹ÓÃ requestParam/PathVariable ´«µİ²ÎÊı¡£
+*   POSTã€PUT è¯·æ±‚ï¼Œä½¿ç”¨ requestBody ä¼ é€’å‚æ•°ï¼›
+*   GET è¯·æ±‚ï¼Œä½¿ç”¨ requestParam/PathVariable ä¼ é€’å‚æ•°ã€‚
 
-Êµ¼ÊÉÏ£¬²»¹ÜÊÇ requestBody ²ÎÊıĞ£Ñé»¹ÊÇ·½·¨¼¶±ğµÄĞ£Ñé£¬×îÖÕ¶¼ÊÇµ÷ÓÃ Hibernate Validator Ö´ĞĞĞ£Ñé£¬Spring Validation Ö»ÊÇ×öÁËÒ»²ã·â×°¡£
+å®é™…ä¸Šï¼Œä¸ç®¡æ˜¯ requestBody å‚æ•°æ ¡éªŒè¿˜æ˜¯æ–¹æ³•çº§åˆ«çš„æ ¡éªŒï¼Œæœ€ç»ˆéƒ½æ˜¯è°ƒç”¨ Hibernate Validator æ‰§è¡Œæ ¡éªŒï¼ŒSpring Validation åªæ˜¯åšäº†ä¸€å±‚å°è£…ã€‚
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E6%A0%A1%E9%AA%8C%E7%A4%BA%E4%BE%8B)Ğ£ÑéÊ¾Àı
+### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E6%A0%A1%E9%AA%8C%E7%A4%BA%E4%BE%8B)æ ¡éªŒç¤ºä¾‹
 
-£¨1£©ÔÚÊµÌåÉÏ±ê¼ÇĞ£Ñé×¢½â
+ï¼ˆ1ï¼‰åœ¨å®ä½“ä¸Šæ ‡è®°æ ¡éªŒæ³¨è§£
 
 
 
@@ -57,7 +57,7 @@ public class User implements Serializable {
 
 
 
-£¨2£©ÔÚ·½·¨²ÎÊıÉÏÉùÃ÷Ğ£Ñé×¢½â
+ï¼ˆ2ï¼‰åœ¨æ–¹æ³•å‚æ•°ä¸Šå£°æ˜æ ¡éªŒæ³¨è§£
 
 
 
@@ -69,16 +69,16 @@ public class User implements Serializable {
 public class ValidatorController {
 
     /**
-     * {@link RequestBody} ²ÎÊıĞ£Ñé
+     * {@link RequestBody} å‚æ•°æ ¡éªŒ
      */
     @PostMapping(value = "save")
     public DataResult<Boolean> save(@Valid @RequestBody User entity) {
-        log.info("±£´æÒ»Ìõ¼ÇÂ¼£º{}", JSONUtil.toJsonStr(entity));
+        log.info("ä¿å­˜ä¸€æ¡è®°å½•ï¼š{}", JSONUtil.toJsonStr(entity));
         return DataResult.ok(true);
     }
 
     /**
-     * {@link RequestParam} ²ÎÊıĞ£Ñé
+     * {@link RequestParam} å‚æ•°æ ¡éªŒ
      */
     @GetMapping(value = "queryByName")
     public DataResult<User> queryByName(
@@ -92,11 +92,11 @@ public class ValidatorController {
     }
 
     /**
-     * {@link PathVariable} ²ÎÊıĞ£Ñé
+     * {@link PathVariable} å‚æ•°æ ¡éªŒ
      */
     @GetMapping(value = "detail/{id}")
     public DataResult<User> detail(@PathVariable("id") @Min(1L) Long id) {
-        User user = new User(id, "ÀîËÄ", 18);
+        User user = new User(id, "æå››", 18);
         return DataResult.ok(user);
     }
 
@@ -106,11 +106,11 @@ public class ValidatorController {
 
 
 
-£¨3£©Èç¹ûÇëÇó²ÎÊı²»Âú×ãĞ£Ñé¹æÔò£¬Ôò»áÅ×³ö `ConstraintViolationException` »ò `MethodArgumentNotValidException` Òì³£¡£
+ï¼ˆ3ï¼‰å¦‚æœè¯·æ±‚å‚æ•°ä¸æ»¡è¶³æ ¡éªŒè§„åˆ™ï¼Œåˆ™ä¼šæŠ›å‡º `ConstraintViolationException` æˆ– `MethodArgumentNotValidException` å¼‚å¸¸ã€‚
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86)Í³Ò»Òì³£´¦Àí
+### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86)ç»Ÿä¸€å¼‚å¸¸å¤„ç†
 
-ÔÚÊµ¼ÊÏîÄ¿¿ª·¢ÖĞ£¬Í¨³£»áÓÃÍ³Ò»Òì³£´¦ÀíÀ´·µ»ØÒ»¸ö¸üÓÑºÃµÄÌáÊ¾¡£
+åœ¨å®é™…é¡¹ç›®å¼€å‘ä¸­ï¼Œé€šå¸¸ä¼šç”¨ç»Ÿä¸€å¼‚å¸¸å¤„ç†æ¥è¿”å›ä¸€ä¸ªæ›´å‹å¥½çš„æç¤ºã€‚
 
 
 
@@ -120,18 +120,18 @@ public class ValidatorController {
 public class GlobalExceptionHandler {
 
     /**
-     * ´¦ÀíËùÓĞ²»¿ÉÖªµÄÒì³£
+     * å¤„ç†æ‰€æœ‰ä¸å¯çŸ¥çš„å¼‚å¸¸
      */
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(Throwable.class)
     public Result handleException(Throwable e) {
-        log.error("Î´ÖªÒì³£", e);
+        log.error("æœªçŸ¥å¼‚å¸¸", e);
         return new Result(ResultStatus.HTTP_SERVER_ERROR.getCode(), e.getMessage());
     }
 
     /**
-     * Í³Ò»´¦ÀíÇëÇó²ÎÊıĞ£ÑéÒì³£(ÆÕÍ¨´«²Î)
+     * ç»Ÿä¸€å¤„ç†è¯·æ±‚å‚æ•°æ ¡éªŒå¼‚å¸¸(æ™®é€šä¼ å‚)
      *
      * @param e ConstraintViolationException
      * @return {@link DataResult}
@@ -151,7 +151,7 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * ´¦Àí²ÎÊıĞ£ÑéÒì³£
+     * å¤„ç†å‚æ•°æ ¡éªŒå¼‚å¸¸
      *
      * @param e MethodArgumentNotValidException
      * @return {@link DataResult}
@@ -174,13 +174,13 @@ public class GlobalExceptionHandler {
 
 
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8)½ø½×Ê¹ÓÃ
+## [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8)è¿›é˜¶ä½¿ç”¨
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E5%88%86%E7%BB%84%E6%A0%A1%E9%AA%8C)·Ö×éĞ£Ñé
+### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E5%88%86%E7%BB%84%E6%A0%A1%E9%AA%8C)åˆ†ç»„æ ¡éªŒ
 
-ÔÚÊµ¼ÊÏîÄ¿ÖĞ£¬¿ÉÄÜ¶à¸ö·½·¨ĞèÒªÊ¹ÓÃÍ¬Ò»¸ö DTO ÀàÀ´½ÓÊÕ²ÎÊı£¬¶ø²»Í¬·½·¨µÄĞ£Ñé¹æÔòºÜ¿ÉÄÜÊÇ²»Ò»ÑùµÄ¡£Õâ¸öÊ±ºò£¬¼òµ¥µØÔÚ DTO ÀàµÄ×Ö¶ÎÉÏ¼ÓÔ¼Êø×¢½âÎŞ·¨½â¾öÕâ¸öÎÊÌâ¡£Òò´Ë£¬spring-validation Ö§³ÖÁË·Ö×éĞ£ÑéµÄ¹¦ÄÜ£¬×¨ÃÅÓÃÀ´½â¾öÕâÀàÎÊÌâ¡£
+åœ¨å®é™…é¡¹ç›®ä¸­ï¼Œå¯èƒ½å¤šä¸ªæ–¹æ³•éœ€è¦ä½¿ç”¨åŒä¸€ä¸ª DTO ç±»æ¥æ¥æ”¶å‚æ•°ï¼Œè€Œä¸åŒæ–¹æ³•çš„æ ¡éªŒè§„åˆ™å¾ˆå¯èƒ½æ˜¯ä¸ä¸€æ ·çš„ã€‚è¿™ä¸ªæ—¶å€™ï¼Œç®€å•åœ°åœ¨ DTO ç±»çš„å­—æ®µä¸ŠåŠ çº¦æŸæ³¨è§£æ— æ³•è§£å†³è¿™ä¸ªé—®é¢˜ã€‚å› æ­¤ï¼Œspring-validation æ”¯æŒäº†åˆ†ç»„æ ¡éªŒçš„åŠŸèƒ½ï¼Œä¸“é—¨ç”¨æ¥è§£å†³è¿™ç±»é—®é¢˜ã€‚
 
-£¨1£©¶¨Òå·Ö×é
+ï¼ˆ1ï¼‰å®šä¹‰åˆ†ç»„
 
 
 
@@ -197,7 +197,7 @@ public @interface EditCheck { }
 
 
 
-£¨2£©ÔÚÊµÌåÉÏ±ê¼ÇĞ£Ñé×¢½â
+ï¼ˆ2ï¼‰åœ¨å®ä½“ä¸Šæ ‡è®°æ ¡éªŒæ³¨è§£
 
 
 
@@ -212,7 +212,7 @@ public class User2 {
     @Size(min = 2, max = 10, groups = { AddCheck.class, EditCheck.class })
     private String name;
 
-    @IsMobile(message = "²»ÊÇÓĞĞ§ÊÖ»úºÅ", groups = { AddCheck.class, EditCheck.class })
+    @IsMobile(message = "ä¸æ˜¯æœ‰æ•ˆæ‰‹æœºå·", groups = { AddCheck.class, EditCheck.class })
     private String mobile;
 
 }
@@ -221,7 +221,7 @@ public class User2 {
 
 
 
-£¨3£©ÔÚ·½·¨ÉÏ¸ù¾İ²»Í¬³¡¾°½øĞĞĞ£Ñé·Ö×é
+ï¼ˆ3ï¼‰åœ¨æ–¹æ³•ä¸Šæ ¹æ®ä¸åŒåœºæ™¯è¿›è¡Œæ ¡éªŒåˆ†ç»„
 
 
 
@@ -233,20 +233,20 @@ public class User2 {
 public class ValidatorController2 {
 
     /**
-     * {@link RequestBody} ²ÎÊıĞ£Ñé
+     * {@link RequestBody} å‚æ•°æ ¡éªŒ
      */
     @PostMapping(value = "add")
     public DataResult<Boolean> add(@Validated(AddCheck.class) @RequestBody User2 entity) {
-        log.info("Ìí¼ÓÒ»Ìõ¼ÇÂ¼£º{}", JSONUtil.toJsonStr(entity));
+        log.info("æ·»åŠ ä¸€æ¡è®°å½•ï¼š{}", JSONUtil.toJsonStr(entity));
         return DataResult.ok(true);
     }
 
     /**
-     * {@link RequestBody} ²ÎÊıĞ£Ñé
+     * {@link RequestBody} å‚æ•°æ ¡éªŒ
      */
     @PostMapping(value = "edit")
     public DataResult<Boolean> edit(@Validated(EditCheck.class) @RequestBody User2 entity) {
-        log.info("±à¼­Ò»Ìõ¼ÇÂ¼£º{}", JSONUtil.toJsonStr(entity));
+        log.info("ç¼–è¾‘ä¸€æ¡è®°å½•ï¼š{}", JSONUtil.toJsonStr(entity));
         return DataResult.ok(true);
     }
 
@@ -256,9 +256,9 @@ public class ValidatorController2 {
 
 
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E5%B5%8C%E5%A5%97%E6%A0%A1%E9%AA%8C)Ç¶Ì×Ğ£Ñé
+### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E5%B5%8C%E5%A5%97%E6%A0%A1%E9%AA%8C)åµŒå¥—æ ¡éªŒ
 
-Ç°ÃæµÄÊ¾ÀıÖĞ£¬DTO ÀàÀïÃæµÄ×Ö¶Î¶¼ÊÇ»ù±¾Êı¾İÀàĞÍºÍ String ÀàĞÍ¡£µ«ÊÇÊµ¼Ê³¡¾°ÖĞ£¬ÓĞ¿ÉÄÜÄ³¸ö×Ö¶ÎÒ²ÊÇÒ»¸ö¶ÔÏó£¬ÕâÖÖÇé¿öÏÈ£¬¿ÉÒÔÊ¹ÓÃÇ¶Ì×Ğ£Ñé¡£ post ±ÈÈç£¬ÉÏÃæ±£´æ User ĞÅÏ¢µÄÊ±ºòÍ¬Ê±»¹´øÓĞ Job ĞÅÏ¢¡£ĞèÒª×¢ÒâµÄÊÇ£¬´ËÊ± DTO ÀàµÄ¶ÔÓ¦×Ö¶Î±ØĞë±ê¼Ç@Valid ×¢½â¡£
+å‰é¢çš„ç¤ºä¾‹ä¸­ï¼ŒDTO ç±»é‡Œé¢çš„å­—æ®µéƒ½æ˜¯åŸºæœ¬æ•°æ®ç±»å‹å’Œ String ç±»å‹ã€‚ä½†æ˜¯å®é™…åœºæ™¯ä¸­ï¼Œæœ‰å¯èƒ½æŸä¸ªå­—æ®µä¹Ÿæ˜¯ä¸€ä¸ªå¯¹è±¡ï¼Œè¿™ç§æƒ…å†µå…ˆï¼Œå¯ä»¥ä½¿ç”¨åµŒå¥—æ ¡éªŒã€‚ post æ¯”å¦‚ï¼Œä¸Šé¢ä¿å­˜ User ä¿¡æ¯çš„æ—¶å€™åŒæ—¶è¿˜å¸¦æœ‰ Job ä¿¡æ¯ã€‚éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œæ­¤æ—¶ DTO ç±»çš„å¯¹åº”å­—æ®µå¿…é¡»æ ‡è®°@Valid æ³¨è§£ã€‚
 
 
 
@@ -301,28 +301,28 @@ public class UserDTO {
     }
 
     /**
-     * ±£´æµÄÊ±ºòĞ£Ñé·Ö×é
+     * ä¿å­˜çš„æ—¶å€™æ ¡éªŒåˆ†ç»„
      */
     public interface Save {
     }
 
     /**
-     * ¸üĞÂµÄÊ±ºòĞ£Ñé·Ö×é
+     * æ›´æ–°çš„æ—¶å€™æ ¡éªŒåˆ†ç»„
      */
     public interface Update {
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
 ```
 
 
 
-Ç¶Ì×Ğ£Ñé¿ÉÒÔ½áºÏ·Ö×éĞ£ÑéÒ»ÆğÊ¹ÓÃ¡£»¹ÓĞ¾ÍÊÇÇ¶Ì×¼¯ºÏĞ£Ñé»á¶Ô¼¯ºÏÀïÃæµÄÃ¿Ò»Ïî¶¼½øĞĞĞ£Ñé£¬ÀıÈç`List<Job>`×Ö¶Î»á¶ÔÕâ¸ö list ÀïÃæµÄÃ¿Ò»¸ö Job ¶ÔÏó¶¼½øĞĞĞ£Ñé
+åµŒå¥—æ ¡éªŒå¯ä»¥ç»“åˆåˆ†ç»„æ ¡éªŒä¸€èµ·ä½¿ç”¨ã€‚è¿˜æœ‰å°±æ˜¯åµŒå¥—é›†åˆæ ¡éªŒä¼šå¯¹é›†åˆé‡Œé¢çš„æ¯ä¸€é¡¹éƒ½è¿›è¡Œæ ¡éªŒï¼Œä¾‹å¦‚`List<Job>`å­—æ®µä¼šå¯¹è¿™ä¸ª list é‡Œé¢çš„æ¯ä¸€ä¸ª Job å¯¹è±¡éƒ½è¿›è¡Œæ ¡éªŒ
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3)×Ô¶¨ÒåĞ£Ñé×¢½â
+### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3)è‡ªå®šä¹‰æ ¡éªŒæ³¨è§£
 
-£¨1£©×Ô¶¨ÒåĞ£Ñé×¢½â `@IsMobile`
+ï¼ˆ1ï¼‰è‡ªå®šä¹‰æ ¡éªŒæ³¨è§£ `@IsMobile`
 
 
 
@@ -344,7 +344,7 @@ public @interface IsMobile {
 
 
 
-£¨2£©ÊµÏÖ `ConstraintValidator` ½Ó¿Ú£¬±àĞ´ `@IsMobile` Ğ£Ñé×¢½âµÄ½âÎöÆ÷
+ï¼ˆ2ï¼‰å®ç° `ConstraintValidator` æ¥å£ï¼Œç¼–å†™ `@IsMobile` æ ¡éªŒæ³¨è§£çš„è§£æå™¨
 
 
 
@@ -376,18 +376,18 @@ public class MobileValidator implements ConstraintValidator<IsMobile, String> {
 
 
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%A1%E9%AA%8C)×Ô¶¨ÒåĞ£Ñé
+### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%A1%E9%AA%8C)è‡ªå®šä¹‰æ ¡éªŒ
 
-¿ÉÒÔÍ¨¹ıÊµÏÖ `org.springframework.validation.Validator` ½Ó¿ÚÀ´×Ô¶¨ÒåĞ£Ñé¡£
+å¯ä»¥é€šè¿‡å®ç° `org.springframework.validation.Validator` æ¥å£æ¥è‡ªå®šä¹‰æ ¡éªŒã€‚
 
-ÓĞÒÔÏÂÒªµã
+æœ‰ä»¥ä¸‹è¦ç‚¹
 
-*   ÊµÏÖ `supports` ·½·¨
-*   ÊµÏÖ `validate` ·½·¨
-    *   Í¨¹ı `Errors` ¶ÔÏóÊÕ¼¯´íÎó
-        *   `ObjectError`£º¶ÔÏó£¨Bean£©´íÎó£º
-        *   `FieldError`£º¶ÔÏó£¨Bean£©ÊôĞÔ£¨Property£©´íÎó
-    *   Í¨¹ı `ObjectError` ºÍ `FieldError` ¹ØÁª `MessageSource` ÊµÏÖ»ñÈ¡×îÖÕµÄ´íÎóÎÄ°¸
+*   å®ç° `supports` æ–¹æ³•
+*   å®ç° `validate` æ–¹æ³•
+    *   é€šè¿‡ `Errors` å¯¹è±¡æ”¶é›†é”™è¯¯
+        *   `ObjectError`ï¼šå¯¹è±¡ï¼ˆBeanï¼‰é”™è¯¯ï¼š
+        *   `FieldError`ï¼šå¯¹è±¡ï¼ˆBeanï¼‰å±æ€§ï¼ˆPropertyï¼‰é”™è¯¯
+    *   é€šè¿‡ `ObjectError` å’Œ `FieldError` å…³è” `MessageSource` å®ç°è·å–æœ€ç»ˆçš„é”™è¯¯æ–‡æ¡ˆ
 
 
 
@@ -418,7 +418,7 @@ public class CustomValidator implements Validator {
     }
 
     /**
-     * ±¾Ğ£ÑéÆ÷Ö»Õë¶Ô Person ¶ÔÏó½øĞĞĞ£Ñé
+     * æœ¬æ ¡éªŒå™¨åªé’ˆå¯¹ Person å¯¹è±¡è¿›è¡Œæ ¡éªŒ
      */
     @Override
     public boolean supports(Class<?> clazz) {
@@ -448,11 +448,11 @@ public class CustomValidator implements Validator {
     }
 
     private List<Field> getFields(Class<?> clazz) {
-        // ÉùÃ÷FieldÊı×é
+        // å£°æ˜Fieldæ•°ç»„
         List<Field> fields = new ArrayList<>();
-        // Èç¹ûclassÀàĞÍ²»Îª¿Õ
+        // å¦‚æœclassç±»å‹ä¸ä¸ºç©º
         while (clazz != null) {
-            // Ìí¼ÓÊôĞÔµ½ÊôĞÔÊı×é
+            // æ·»åŠ å±æ€§åˆ°å±æ€§æ•°ç»„
             Collections.addAll(fields, clazz.getDeclaredFields());
             clazz = clazz.getSuperclass();
         }
@@ -465,9 +465,9 @@ public class CustomValidator implements Validator {
 
 
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E5%BF%AB%E9%80%9F%E5%A4%B1%E8%B4%A5-fail-fast)¿ìËÙÊ§°Ü(Fail Fast)
+### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E5%BF%AB%E9%80%9F%E5%A4%B1%E8%B4%A5-fail-fast)å¿«é€Ÿå¤±è´¥(Fail Fast)
 
-Spring Validation Ä¬ÈÏ»áĞ£ÑéÍêËùÓĞ×Ö¶Î£¬È»ºó²ÅÅ×³öÒì³£¡£¿ÉÒÔÍ¨¹ıÒ»Ğ©¼òµ¥µÄÅäÖÃ£¬¿ªÆô Fali Fast Ä£Ê½£¬Ò»µ©Ğ£ÑéÊ§°Ü¾ÍÁ¢¼´·µ»Ø¡£
+Spring Validation é»˜è®¤ä¼šæ ¡éªŒå®Œæ‰€æœ‰å­—æ®µï¼Œç„¶åæ‰æŠ›å‡ºå¼‚å¸¸ã€‚å¯ä»¥é€šè¿‡ä¸€äº›ç®€å•çš„é…ç½®ï¼Œå¼€å¯ Fali Fast æ¨¡å¼ï¼Œä¸€æ—¦æ ¡éªŒå¤±è´¥å°±ç«‹å³è¿”å›ã€‚
 
 
 
@@ -476,7 +476,7 @@ Spring Validation Ä¬ÈÏ»áĞ£ÑéÍêËùÓĞ×Ö¶Î£¬È»ºó²ÅÅ×³öÒì³£¡£¿ÉÒÔÍ¨¹ıÒ»Ğ©¼òµ¥µÄÅäÖÃ£¬
 public Validator validator() {
     ValidatorFactory validatorFactory = Validation.byProvider(HibernateValidator.class)
             .configure()
-            // ¿ìËÙÊ§°ÜÄ£Ê½
+            // å¿«é€Ÿå¤±è´¥æ¨¡å¼
             .failFast(true)
             .buildValidatorFactory();
     return validatorFactory.getValidator();
@@ -486,51 +486,51 @@ public Validator validator() {
 
 
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#spring-%E6%A0%A1%E9%AA%8C%E5%8E%9F%E7%90%86)Spring Ğ£ÑéÔ­Àí
+## [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#spring-%E6%A0%A1%E9%AA%8C%E5%8E%9F%E7%90%86)Spring æ ¡éªŒåŸç†
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#spring-%E6%A0%A1%E9%AA%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF)Spring Ğ£ÑéÊ¹ÓÃ³¡¾°
+### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#spring-%E6%A0%A1%E9%AA%8C%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF)Spring æ ¡éªŒä½¿ç”¨åœºæ™¯
 
-*   Spring ³£¹æĞ£Ñé£¨Validator£©
-*   Spring Êı¾İ°ó¶¨£¨DataBinder£©
-*   Spring Web ²ÎÊı°ó¶¨£¨WebDataBinder£©
-*   Spring WebMVC/WebFlux ´¦Àí·½·¨²ÎÊıĞ£Ñé
+*   Spring å¸¸è§„æ ¡éªŒï¼ˆValidatorï¼‰
+*   Spring æ•°æ®ç»‘å®šï¼ˆDataBinderï¼‰
+*   Spring Web å‚æ•°ç»‘å®šï¼ˆWebDataBinderï¼‰
+*   Spring WebMVC/WebFlux å¤„ç†æ–¹æ³•å‚æ•°æ ¡éªŒ
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#validator-%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1)Validator ½Ó¿ÚÉè¼Æ
+### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#validator-%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1)Validator æ¥å£è®¾è®¡
 
-*   ½Ó¿ÚÖ°Ôğ
-    *   Spring ÄÚ²¿Ğ£ÑéÆ÷½Ó¿Ú£¬Í¨¹ı±à³ÌµÄ·½Ê½Ğ£ÑéÄ¿±ê¶ÔÏó
-*   ºËĞÄ·½·¨
-    *   `supports(Class)`£ºĞ£ÑéÄ¿±êÀàÄÜ·ñĞ£Ñé
-    *   `validate(Object,Errors)`£ºĞ£ÑéÄ¿±ê¶ÔÏó£¬²¢½«Ğ£ÑéÊ§°ÜµÄÄÚÈİÊä³öÖÁ Errors ¶ÔÏó
-*   ÅäÌ××é¼ş
-    *   ´íÎóÊÕ¼¯Æ÷£º`org.springframework.validation.Errors`
-    *   Validator ¹¤¾ßÀà£º`org.springframework.validation.ValidationUtils`
+*   æ¥å£èŒè´£
+    *   Spring å†…éƒ¨æ ¡éªŒå™¨æ¥å£ï¼Œé€šè¿‡ç¼–ç¨‹çš„æ–¹å¼æ ¡éªŒç›®æ ‡å¯¹è±¡
+*   æ ¸å¿ƒæ–¹æ³•
+    *   `supports(Class)`ï¼šæ ¡éªŒç›®æ ‡ç±»èƒ½å¦æ ¡éªŒ
+    *   `validate(Object,Errors)`ï¼šæ ¡éªŒç›®æ ‡å¯¹è±¡ï¼Œå¹¶å°†æ ¡éªŒå¤±è´¥çš„å†…å®¹è¾“å‡ºè‡³ Errors å¯¹è±¡
+*   é…å¥—ç»„ä»¶
+    *   é”™è¯¯æ”¶é›†å™¨ï¼š`org.springframework.validation.Errors`
+    *   Validator å·¥å…·ç±»ï¼š`org.springframework.validation.ValidationUtils`
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#errors-%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1)Errors ½Ó¿ÚÉè¼Æ
+### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#errors-%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1)Errors æ¥å£è®¾è®¡
 
-*   ½Ó¿ÚÖ°Ôğ
-    *   Êı¾İ°ó¶¨ºÍĞ£Ñé´íÎóÊÕ¼¯½Ó¿Ú£¬Óë Java Bean ºÍÆäÊôĞÔÓĞÇ¿¹ØÁªĞÔ
-*   ºËĞÄ·½·¨
-    *   `reject` ·½·¨£¨ÖØÔØ£©£ºÊÕ¼¯´íÎóÎÄ°¸
-    *   `rejectValue` ·½·¨£¨ÖØÔØ£©£ºÊÕ¼¯¶ÔÏó×Ö¶ÎÖĞµÄ´íÎóÎÄ°¸
-*   ÅäÌ××é¼ş
-    *   Java Bean ´íÎóÃèÊö£º`org.springframework.validation.ObjectError`
-    *   Java Bean ÊôĞÔ´íÎóÃèÊö£º`org.springframework.validation.FieldError`
+*   æ¥å£èŒè´£
+    *   æ•°æ®ç»‘å®šå’Œæ ¡éªŒé”™è¯¯æ”¶é›†æ¥å£ï¼Œä¸ Java Bean å’Œå…¶å±æ€§æœ‰å¼ºå…³è”æ€§
+*   æ ¸å¿ƒæ–¹æ³•
+    *   `reject` æ–¹æ³•ï¼ˆé‡è½½ï¼‰ï¼šæ”¶é›†é”™è¯¯æ–‡æ¡ˆ
+    *   `rejectValue` æ–¹æ³•ï¼ˆé‡è½½ï¼‰ï¼šæ”¶é›†å¯¹è±¡å­—æ®µä¸­çš„é”™è¯¯æ–‡æ¡ˆ
+*   é…å¥—ç»„ä»¶
+    *   Java Bean é”™è¯¯æè¿°ï¼š`org.springframework.validation.ObjectError`
+    *   Java Bean å±æ€§é”™è¯¯æè¿°ï¼š`org.springframework.validation.FieldError`
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#errors-%E6%96%87%E6%A1%88%E6%9D%A5%E6%BA%90)Errors ÎÄ°¸À´Ô´
+### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#errors-%E6%96%87%E6%A1%88%E6%9D%A5%E6%BA%90)Errors æ–‡æ¡ˆæ¥æº
 
-Errors ÎÄ°¸Éú³É²½Öè
+Errors æ–‡æ¡ˆç”Ÿæˆæ­¥éª¤
 
-*   Ñ¡Ôñ Errors ÊµÏÖ£¨Èç£º`org.springframework.validation.BeanPropertyBindingResult`£©
-*   µ÷ÓÃ reject »ò rejectValue ·½·¨
-*   »ñÈ¡ Errors ¶ÔÏóÖĞ ObjectError »ò FieldError
-*   ½« ObjectError »ò FieldError ÖĞµÄ code ºÍ args£¬¹ØÁª MessageSource ÊµÏÖ£¨Èç£º`ResourceBundleMessageSource`£©
+*   é€‰æ‹© Errors å®ç°ï¼ˆå¦‚ï¼š`org.springframework.validation.BeanPropertyBindingResult`ï¼‰
+*   è°ƒç”¨ reject æˆ– rejectValue æ–¹æ³•
+*   è·å– Errors å¯¹è±¡ä¸­ ObjectError æˆ– FieldError
+*   å°† ObjectError æˆ– FieldError ä¸­çš„ code å’Œ argsï¼Œå…³è” MessageSource å®ç°ï¼ˆå¦‚ï¼š`ResourceBundleMessageSource`ï¼‰
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#spring-web-%E6%A0%A1%E9%AA%8C%E5%8E%9F%E7%90%86)spring web Ğ£ÑéÔ­Àí
+### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#spring-web-%E6%A0%A1%E9%AA%8C%E5%8E%9F%E7%90%86)spring web æ ¡éªŒåŸç†
 
-#### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#requestbody-%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86)RequestBody ²ÎÊıĞ£ÑéÊµÏÖÔ­Àí
+#### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#requestbody-%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86)RequestBody å‚æ•°æ ¡éªŒå®ç°åŸç†
 
-ÔÚ spring-mvc ÖĞ£¬`RequestResponseBodyMethodProcessor` ÊÇÓÃÓÚ½âÎö `@RequestBody` ±ê×¢µÄ²ÎÊıÒÔ¼°´¦Àí`@ResponseBody` ±ê×¢·½·¨µÄ·µ»ØÖµµÄ¡£ÆäÖĞ£¬Ö´ĞĞ²ÎÊıĞ£ÑéµÄÂß¼­¿Ï¶¨¾ÍÔÚ½âÎö²ÎÊıµÄ·½·¨ `resolveArgument()` ÖĞ£º
+åœ¨ spring-mvc ä¸­ï¼Œ`RequestResponseBodyMethodProcessor` æ˜¯ç”¨äºè§£æ `@RequestBody` æ ‡æ³¨çš„å‚æ•°ä»¥åŠå¤„ç†`@ResponseBody` æ ‡æ³¨æ–¹æ³•çš„è¿”å›å€¼çš„ã€‚å…¶ä¸­ï¼Œæ‰§è¡Œå‚æ•°æ ¡éªŒçš„é€»è¾‘è‚¯å®šå°±åœ¨è§£æå‚æ•°çš„æ–¹æ³• `resolveArgument()` ä¸­ï¼š
 
 
 
@@ -546,10 +546,10 @@ public Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewC
     if (binderFactory != null) {
         WebDataBinder binder = binderFactory.createBinder(webRequest, arg, name);
         if (arg != null) {
-            // ³¢ÊÔ½øĞĞ²ÎÊıĞ£Ñé
+            // å°è¯•è¿›è¡Œå‚æ•°æ ¡éªŒ
             validateIfApplicable(binder, parameter);
             if (binder.getBindingResult().hasErrors() && isBindExceptionRequired(binder, parameter)) {
-                // Èç¹û´æÔÚĞ£Ñé´íÎó£¬ÔòÅ×³ö MethodArgumentNotValidException
+                // å¦‚æœå­˜åœ¨æ ¡éªŒé”™è¯¯ï¼Œåˆ™æŠ›å‡º MethodArgumentNotValidException
                 throw new MethodArgumentNotValidException(parameter, binder.getBindingResult());
             }
         }
@@ -565,23 +565,23 @@ public Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewC
 
 
 
-¿ÉÒÔ¿´µ½£¬resolveArgument()µ÷ÓÃÁË validateIfApplicable()½øĞĞ²ÎÊıĞ£Ñé¡£
+å¯ä»¥çœ‹åˆ°ï¼ŒresolveArgument()è°ƒç”¨äº† validateIfApplicable()è¿›è¡Œå‚æ•°æ ¡éªŒã€‚
 
 
 
 ```
 protected void validateIfApplicable(WebDataBinder binder, MethodParameter parameter) {
-    // »ñÈ¡²ÎÊı×¢½â£¬Èç @RequestBody¡¢@Valid¡¢@Validated
+    // è·å–å‚æ•°æ³¨è§£ï¼Œå¦‚ @RequestBodyã€@Validã€@Validated
     Annotation[] annotations = parameter.getParameterAnnotations();
     for (Annotation ann : annotations) {
-        // ÏÈ³¢ÊÔ»ñÈ¡ @Validated ×¢½â
+        // å…ˆå°è¯•è·å– @Validated æ³¨è§£
         Validated validatedAnn = AnnotationUtils.getAnnotation(ann, Validated.class);
-        // Èç¹û±ê×¢ÁË @Validated£¬Ö±½Ó¿ªÊ¼Ğ£Ñé¡£
-        // Èç¹ûÃ»ÓĞ£¬ÄÇÃ´ÅĞ¶Ï²ÎÊıÇ°ÊÇ·ñÓĞ Valid ¿ªÍ·µÄ×¢½â¡£
+        // å¦‚æœæ ‡æ³¨äº† @Validatedï¼Œç›´æ¥å¼€å§‹æ ¡éªŒã€‚
+        // å¦‚æœæ²¡æœ‰ï¼Œé‚£ä¹ˆåˆ¤æ–­å‚æ•°å‰æ˜¯å¦æœ‰ Valid å¼€å¤´çš„æ³¨è§£ã€‚
         if (validatedAnn != null || ann.annotationType().getSimpleName().startsWith("Valid")) {
             Object hints = (validatedAnn != null ? validatedAnn.value() : AnnotationUtils.getValue(ann));
             Object[] validationHints = (hints instanceof Object[] ? (Object[]) hints : new Object[] {hints});
-            // Ö´ĞĞĞ£Ñé
+            // æ‰§è¡Œæ ¡éªŒ
             binder.validate(validationHints);
             break;
         }
@@ -592,9 +592,9 @@ protected void validateIfApplicable(WebDataBinder binder, MethodParameter parame
 
 
 
-ÒÔÉÏ´úÂë£¬¾Í½âÊÍÁË Spring ÎªÊ²Ã´ÄÜÍ¬Ê±Ö§³Ö `@Validated`¡¢`@Valid` Á½¸ö×¢½â¡£
+ä»¥ä¸Šä»£ç ï¼Œå°±è§£é‡Šäº† Spring ä¸ºä»€ä¹ˆèƒ½åŒæ—¶æ”¯æŒ `@Validated`ã€`@Valid` ä¸¤ä¸ªæ³¨è§£ã€‚
 
-½ÓÏÂÀ´£¬¿´Ò»ÏÂ WebDataBinder.validate() µÄÊµÏÖ£º
+æ¥ä¸‹æ¥ï¼Œçœ‹ä¸€ä¸‹ WebDataBinder.validate() çš„å®ç°ï¼š
 
 
 
@@ -603,7 +603,7 @@ protected void validateIfApplicable(WebDataBinder binder, MethodParameter parame
 public void validate(Object target, Errors errors, Object... validationHints) {
     if (this.targetValidator != null) {
         processConstraintViolations(
-            // ´Ë´¦µ÷ÓÃ Hibernate Validator Ö´ĞĞÕæÕıµÄĞ£Ñé
+            // æ­¤å¤„è°ƒç”¨ Hibernate Validator æ‰§è¡ŒçœŸæ­£çš„æ ¡éªŒ
             this.targetValidator.validate(target, asValidationGroups(validationHints)), errors);
     }
 }
@@ -612,11 +612,11 @@ public void validate(Object target, Errors errors, Object... validationHints) {
 
 
 
-Í¨¹ıÉÏÃæ´úÂë£¬¿ÉÒÔ¿´³ö Spring Ğ£ÑéÊµ¼ÊÉÏÊÇ»ùÓÚ Hibernate Validator µÄ·â×°¡£
+é€šè¿‡ä¸Šé¢ä»£ç ï¼Œå¯ä»¥çœ‹å‡º Spring æ ¡éªŒå®é™…ä¸Šæ˜¯åŸºäº Hibernate Validator çš„å°è£…ã€‚
 
-#### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E6%96%B9%E6%B3%95%E7%BA%A7%E5%88%AB%E7%9A%84%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86)·½·¨¼¶±ğµÄ²ÎÊıĞ£ÑéÊµÏÖÔ­Àí
+#### [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E6%96%B9%E6%B3%95%E7%BA%A7%E5%88%AB%E7%9A%84%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86)æ–¹æ³•çº§åˆ«çš„å‚æ•°æ ¡éªŒå®ç°åŸç†
 
-Spring Ö§³Ö¸ù¾İ·½·¨È¥½øĞĞÀ¹½Ø¡¢Ğ£Ñé£¬Ô­Àí¾ÍÔÚÓÚÓ¦ÓÃÁË AOP ¼¼Êõ¡£¾ßÌåÀ´Ëµ£¬ÊÇÍ¨¹ı `MethodValidationPostProcessor` ¶¯Ì¬×¢²á AOP ÇĞÃæ£¬È»ºóÊ¹ÓÃ `MethodValidationInterceptor` ¶ÔÇĞµã·½·¨Ö¯ÈëÔöÇ¿¡£
+Spring æ”¯æŒæ ¹æ®æ–¹æ³•å»è¿›è¡Œæ‹¦æˆªã€æ ¡éªŒï¼ŒåŸç†å°±åœ¨äºåº”ç”¨äº† AOP æŠ€æœ¯ã€‚å…·ä½“æ¥è¯´ï¼Œæ˜¯é€šè¿‡ `MethodValidationPostProcessor` åŠ¨æ€æ³¨å†Œ AOP åˆ‡é¢ï¼Œç„¶åä½¿ç”¨ `MethodValidationInterceptor` å¯¹åˆ‡ç‚¹æ–¹æ³•ç»‡å…¥å¢å¼ºã€‚
 
 
 
@@ -624,13 +624,13 @@ Spring Ö§³Ö¸ù¾İ·½·¨È¥½øĞĞÀ¹½Ø¡¢Ğ£Ñé£¬Ô­Àí¾ÍÔÚÓÚÓ¦ÓÃÁË AOP ¼¼Êõ¡£¾ßÌåÀ´Ëµ£¬ÊÇÍ¨¹ı
 public class MethodValidationPostProcessor extends AbstractBeanFactoryAwareAdvisingPostProcessorimplements InitializingBean {
     @Override
     public void afterPropertiesSet() {
-        // ÎªËùÓĞ @Validated ±ê×¢µÄ Bean ´´½¨ÇĞÃæ
+        // ä¸ºæ‰€æœ‰ @Validated æ ‡æ³¨çš„ Bean åˆ›å»ºåˆ‡é¢
         Pointcut pointcut = new AnnotationMatchingPointcut(this.validatedAnnotationType, true);
-        // ´´½¨ Advisor ½øĞĞÔöÇ¿
+        // åˆ›å»º Advisor è¿›è¡Œå¢å¼º
         this.advisor = new DefaultPointcutAdvisor(pointcut, createMethodValidationAdvice(this.validator));
     }
 
-    // ´´½¨ Advice£¬±¾ÖÊ¾ÍÊÇÒ»¸ö·½·¨À¹½ØÆ÷
+    // åˆ›å»º Adviceï¼Œæœ¬è´¨å°±æ˜¯ä¸€ä¸ªæ–¹æ³•æ‹¦æˆªå™¨
     protected Advice createMethodValidationAdvice(@Nullable Validator validator) {
         return (validator != null ? new MethodValidationInterceptor(validator) : new MethodValidationInterceptor());
     }
@@ -640,7 +640,7 @@ public class MethodValidationPostProcessor extends AbstractBeanFactoryAwareAdvis
 
 
 
-½Ó×Å¿´Ò»ÏÂ `MethodValidationInterceptor`£º
+æ¥ç€çœ‹ä¸€ä¸‹ `MethodValidationInterceptor`ï¼š
 
 
 
@@ -648,32 +648,32 @@ public class MethodValidationPostProcessor extends AbstractBeanFactoryAwareAdvis
 public class MethodValidationInterceptor implements MethodInterceptor {
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
-        // ÎŞĞèÔöÇ¿µÄ·½·¨£¬Ö±½ÓÌø¹ı
+        // æ— éœ€å¢å¼ºçš„æ–¹æ³•ï¼Œç›´æ¥è·³è¿‡
         if (isFactoryBeanMetadataMethod(invocation.getMethod())) {
             return invocation.proceed();
         }
-        // »ñÈ¡·Ö×éĞÅÏ¢
+        // è·å–åˆ†ç»„ä¿¡æ¯
         Class<?>[] groups = determineValidationGroups(invocation);
         ExecutableValidator execVal = this.validator.forExecutables();
         Method methodToValidate = invocation.getMethod();
         Set<ConstraintViolation<Object>> result;
         try {
-            // ·½·¨Èë²ÎĞ£Ñé£¬×îÖÕ»¹ÊÇÎ¯ÍĞ¸ø Hibernate Validator À´Ğ£Ñé
+            // æ–¹æ³•å…¥å‚æ ¡éªŒï¼Œæœ€ç»ˆè¿˜æ˜¯å§”æ‰˜ç»™ Hibernate Validator æ¥æ ¡éªŒ
             result = execVal.validateParameters(
                 invocation.getThis(), methodToValidate, invocation.getArguments(), groups);
         }
         catch (IllegalArgumentException ex) {
             ...
         }
-        // ÓĞÒì³£Ö±½ÓÅ×³ö
+        // æœ‰å¼‚å¸¸ç›´æ¥æŠ›å‡º
         if (!result.isEmpty()) {
             throw new ConstraintViolationException(result);
         }
-        // ÕæÕıµÄ·½·¨µ÷ÓÃ
+        // çœŸæ­£çš„æ–¹æ³•è°ƒç”¨
         Object returnValue = invocation.proceed();
-        // ¶Ô·µ»ØÖµ×öĞ£Ñé£¬×îÖÕ»¹ÊÇÎ¯ÍĞ¸øHibernate ValidatorÀ´Ğ£Ñé
+        // å¯¹è¿”å›å€¼åšæ ¡éªŒï¼Œæœ€ç»ˆè¿˜æ˜¯å§”æ‰˜ç»™Hibernate Validatoræ¥æ ¡éªŒ
         result = execVal.validateReturnValue(invocation.getThis(), methodToValidate, returnValue, groups);
-        // ÓĞÒì³£Ö±½ÓÅ×³ö
+        // æœ‰å¼‚å¸¸ç›´æ¥æŠ›å‡º
         if (!result.isEmpty()) {
             throw new ConstraintViolationException(result);
         }
@@ -685,26 +685,26 @@ public class MethodValidationInterceptor implements MethodInterceptor {
 
 
 
-Êµ¼ÊÉÏ£¬²»¹ÜÊÇ requestBody ²ÎÊıĞ£Ñé»¹ÊÇ·½·¨¼¶±ğµÄĞ£Ñé£¬×îÖÕ¶¼ÊÇµ÷ÓÃ Hibernate Validator Ö´ĞĞĞ£Ñé£¬Spring Validation Ö»ÊÇ×öÁËÒ»²ã·â×°¡£
+å®é™…ä¸Šï¼Œä¸ç®¡æ˜¯ requestBody å‚æ•°æ ¡éªŒè¿˜æ˜¯æ–¹æ³•çº§åˆ«çš„æ ¡éªŒï¼Œæœ€ç»ˆéƒ½æ˜¯è°ƒç”¨ Hibernate Validator æ‰§è¡Œæ ¡éªŒï¼ŒSpring Validation åªæ˜¯åšäº†ä¸€å±‚å°è£…ã€‚
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E9%97%AE%E9%A2%98)ÎÊÌâ
+## [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E9%97%AE%E9%A2%98)é—®é¢˜
 
-**Spring ÓĞÄÄĞ©Ğ£ÑéºËĞÄ×é¼ş**£¿
+**Spring æœ‰å“ªäº›æ ¡éªŒæ ¸å¿ƒç»„ä»¶**ï¼Ÿ
 
-*   ¼ìÑéÆ÷£º`org.springframework.validation.Validator`
-*   ´íÎóÊÕ¼¯Æ÷£º`org.springframework.validation.Errors`
-*   Java Bean ´íÎóÃèÊö£º`org.springframework.validation.ObjectError`
-*   Java Bean ÊôĞÔ´íÎóÃèÊö£º`org.springframework.validation.FieldError`
-*   Bean Validation ÊÊÅä£º`org.springframework.validation.beanvalidation.LocalValidatorFactoryBean`
+*   æ£€éªŒå™¨ï¼š`org.springframework.validation.Validator`
+*   é”™è¯¯æ”¶é›†å™¨ï¼š`org.springframework.validation.Errors`
+*   Java Bean é”™è¯¯æè¿°ï¼š`org.springframework.validation.ObjectError`
+*   Java Bean å±æ€§é”™è¯¯æè¿°ï¼š`org.springframework.validation.FieldError`
+*   Bean Validation é€‚é…ï¼š`org.springframework.validation.beanvalidation.LocalValidatorFactoryBean`
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99)²Î¿¼×ÊÁÏ
+## [#](https://dunwu.github.io/spring-tutorial/pages/fe6aad/#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99)å‚è€ƒèµ„æ–™
 
-*   [Spring ¹Ù·½ÎÄµµÖ® Core Technologies(opens new window)](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans)
-*   [¡¶Ğ¡Âí¸ç½² Spring ºËĞÄ±à³ÌË¼Ïë¡·(opens new window)](https://time.geekbang.org/course/intro/265)
+*   [Spring å®˜æ–¹æ–‡æ¡£ä¹‹ Core Technologies(opens new window)](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans)
+*   [ã€Šå°é©¬å“¥è®² Spring æ ¸å¿ƒç¼–ç¨‹æ€æƒ³ã€‹(opens new window)](https://time.geekbang.org/course/intro/265)
 *   https://juejin.cn/post/6856541106626363399
 
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://www.w3cschool.cn/wkspring
 https://www.runoob.com/w3cnote/basic-knowledge-summary-of-spring.html
 http://codepub.cn/2015/06/21/Basic-knowledge-summary-of-Spring

@@ -1,85 +1,85 @@
-starterÊÇSpringBootÖÐµÄÒ»¸öÐÂ·¢Ã÷£¬ËüÓÐÐ§µÄ½µµÍÁËÏîÄ¿¿ª·¢¹ý³ÌµÄ¸´ÔÓ³Ì¶È£¬¶ÔÓÚ¼ò»¯¿ª·¢²Ù×÷ÓÐ×Å·Ç³£ºÃµÄÐ§¹û¡£±¾ÎÄ×ªÔØÁËÒ»Æ¬ÎÄÕÂ£¬ÏêÏ¸½éÉÜÁËspring boot staterÊÇÊ²Ã´£¿ËüµÄ×÷ÓÃÊÇÊ²Ã´£¿
+starteræ˜¯SpringBootä¸­çš„ä¸€ä¸ªæ–°å‘æ˜Žï¼Œå®ƒæœ‰æ•ˆçš„é™ä½Žäº†é¡¹ç›®å¼€å‘è¿‡ç¨‹çš„å¤æ‚ç¨‹åº¦ï¼Œå¯¹äºŽç®€åŒ–å¼€å‘æ“ä½œæœ‰ç€éžå¸¸å¥½çš„æ•ˆæžœã€‚æœ¬æ–‡è½¬è½½äº†ä¸€ç‰‡æ–‡ç« ï¼Œè¯¦ç»†ä»‹ç»äº†spring boot stateræ˜¯ä»€ä¹ˆï¼Ÿå®ƒçš„ä½œç”¨æ˜¯ä»€ä¹ˆï¼Ÿ
 
-Spring Boot StarterÊÇÔÚSpringBoot×é¼þÖÐ±»Ìá³öÀ´µÄÒ»ÖÖ¸ÅÄî£¬stackoverflowÉÏÃæÒÑ¾­ÓÐÈË¸ÅÀ¨ÁËÕâ¸östarterÊÇÊ²Ã´¶«Î÷£¬Ïë¿´ÍêÕûµÄ»Ø´ð´Á[ÕâÀï](https://stackoverflow.com/a/28273660)£¨https://stackoverflow.com/questions/28273543/what-are-spring-boot-starter-jars/28273660#28273660£©
+Spring Boot Starteræ˜¯åœ¨SpringBootç»„ä»¶ä¸­è¢«æå‡ºæ¥çš„ä¸€ç§æ¦‚å¿µï¼Œstackoverflowä¸Šé¢å·²ç»æœ‰äººæ¦‚æ‹¬äº†è¿™ä¸ªstarteræ˜¯ä»€ä¹ˆä¸œè¥¿ï¼Œæƒ³çœ‹å®Œæ•´çš„å›žç­”æˆ³[è¿™é‡Œ](https://stackoverflow.com/a/28273660)ï¼ˆhttps://stackoverflow.com/questions/28273543/what-are-spring-boot-starter-jars/28273660#28273660ï¼‰
 
 ![](https://images2018.cnblogs.com/blog/697611/201804/697611-20180409110042391-1447358002.png)
 
-´ó¸ÅÒâË¼¾ÍÊÇËµstarterÊÇÒ»ÖÖ¶ÔÒÀÀµµÄsynthesize£¨ºÏ³É£©£¬ÕâÊÇÊ²Ã´ÒâË¼ÄØ£¿ÎÒ¿ÉÒÔ¾Ù¸öÀý×ÓÀ´ËµÃ÷¡£
+å¤§æ¦‚æ„æ€å°±æ˜¯è¯´starteræ˜¯ä¸€ç§å¯¹ä¾èµ–çš„synthesizeï¼ˆåˆæˆï¼‰ï¼Œè¿™æ˜¯ä»€ä¹ˆæ„æ€å‘¢ï¼Ÿæˆ‘å¯ä»¥ä¸¾ä¸ªä¾‹å­æ¥è¯´æ˜Žã€‚
 
-### ¡¡ ? ´«Í³µÄ×ö·¨
+### ã€€ ? ä¼ ç»Ÿçš„åšæ³•
 
-ÔÚÃ»ÓÐstarterÖ®Ç°£¬¼ÙÈçÎÒÏëÒªÔÚSpringÖÐÊ¹ÓÃjpa£¬ÄÇÎÒ¿ÉÄÜÐèÒª×öÒÔÏÂ²Ù×÷£º
+åœ¨æ²¡æœ‰starterä¹‹å‰ï¼Œå‡å¦‚æˆ‘æƒ³è¦åœ¨Springä¸­ä½¿ç”¨jpaï¼Œé‚£æˆ‘å¯èƒ½éœ€è¦åšä»¥ä¸‹æ“ä½œï¼š
 
-1.  ÔÚMavenÖÐÒýÈëÊ¹ÓÃµÄÊý¾Ý¿âµÄÒÀÀµ£¨¼´JDBCµÄjar£©
-2.  ÒýÈëjpaµÄÒÀÀµ
-3.  ÔÚxxx.xmlÖÐÅäÖÃÒ»Ð©ÊôÐÔÐÅÏ¢
-4.  ·´¸´µÄµ÷ÊÔÖ±µ½¿ÉÒÔÕý³£ÔËÐÐ
+1.  åœ¨Mavenä¸­å¼•å…¥ä½¿ç”¨çš„æ•°æ®åº“çš„ä¾èµ–ï¼ˆå³JDBCçš„jarï¼‰
+2.  å¼•å…¥jpaçš„ä¾èµ–
+3.  åœ¨xxx.xmlä¸­é…ç½®ä¸€äº›å±žæ€§ä¿¡æ¯
+4.  åå¤çš„è°ƒè¯•ç›´åˆ°å¯ä»¥æ­£å¸¸è¿è¡Œ
 
-ÐèÒª×¢ÒâµÄÊÇ£¬ÕâÀï²Ù×÷ÔÚÎÒÃÇ**_Ã¿´ÎÐÂ½¨Ò»¸öÐèÒªÓÃµ½jpaµÄÏîÄ¿µÄÊ±ºò¶¼ÐèÒªÖØ¸´µÄ×öÒ»´Î_**¡£Ò²ÐíÄãÔÚµÚÒ»´Î×Ô¼º½¨Á¢ÏîÄ¿µÄÊ±ºòÊÇÔÚGoogleÉÏ×Ô¼ºËÑË÷ÁËÒ»·¬£¬»¨ÁË°ëÌìÊ±¼ä½â¾öµôÁË¸÷ÖÖÆæ¹ÖµÄÎÊÌâÖ®ºó£¬jpaÖÕÓÚÄÜÕý³£ÔËÐÐÁË¡£ÓÐÐ©ÓÐ¾­ÑéµÄÈË»áÔÚOneNoteÉÏÃæ°ÑÕâ´Î½¨Á¢ÏîÄ¿µÄ¹ý³Ì¸ø¼ÇÂ¼ÏÂÀ´£¬°üÀ¨²Ù×÷µÄ²½ÖèÒÔ¼°ÐèÒªÓÃµ½µÄÅäÖÃÎÄ¼þµÄÄÚÈÝ£¬ÔÚÏÂÒ»´ÎÔÙ´´½¨jpaÏîÄ¿µÄÊ±ºò£¬¾Í²»ÐèÒªÔÙ´ÎÈ¥GoogleÁË£¬Ö»ÐèÒªÕÕ×Å±Ê¼ÇÀ´£¬Ö®ºóÔÙ°ÑËùÓÐµÄÅäÖÃÎÄ¼þcopy&paste¾Í¿ÉÒÔÁË¡£
+éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œè¿™é‡Œæ“ä½œåœ¨æˆ‘ä»¬**_æ¯æ¬¡æ–°å»ºä¸€ä¸ªéœ€è¦ç”¨åˆ°jpaçš„é¡¹ç›®çš„æ—¶å€™éƒ½éœ€è¦é‡å¤çš„åšä¸€æ¬¡_**ã€‚ä¹Ÿè®¸ä½ åœ¨ç¬¬ä¸€æ¬¡è‡ªå·±å»ºç«‹é¡¹ç›®çš„æ—¶å€™æ˜¯åœ¨Googleä¸Šè‡ªå·±æœç´¢äº†ä¸€ç•ªï¼ŒèŠ±äº†åŠå¤©æ—¶é—´è§£å†³æŽ‰äº†å„ç§å¥‡æ€ªçš„é—®é¢˜ä¹‹åŽï¼Œjpaç»ˆäºŽèƒ½æ­£å¸¸è¿è¡Œäº†ã€‚æœ‰äº›æœ‰ç»éªŒçš„äººä¼šåœ¨OneNoteä¸Šé¢æŠŠè¿™æ¬¡å»ºç«‹é¡¹ç›®çš„è¿‡ç¨‹ç»™è®°å½•ä¸‹æ¥ï¼ŒåŒ…æ‹¬æ“ä½œçš„æ­¥éª¤ä»¥åŠéœ€è¦ç”¨åˆ°çš„é…ç½®æ–‡ä»¶çš„å†…å®¹ï¼Œåœ¨ä¸‹ä¸€æ¬¡å†åˆ›å»ºjpaé¡¹ç›®çš„æ—¶å€™ï¼Œå°±ä¸éœ€è¦å†æ¬¡åŽ»Googleäº†ï¼Œåªéœ€è¦ç…§ç€ç¬”è®°æ¥ï¼Œä¹‹åŽå†æŠŠæ‰€æœ‰çš„é…ç½®æ–‡ä»¶copy&pasteå°±å¯ä»¥äº†ã€‚
 
-ÏñÉÏÃæÕâÑùµÄ²Ù×÷Ò²²»Ëã²»ÐÐ£¬ÊÂÊµÉÏÎÒÃÇÔÚÃ»ÓÐstarterÖ®Ç°¶¼ÊÇÕâÃ´¸ÉµÄ£¬µ«ÊÇÕâÑù×öÓÐ¼¸¸öÎÊÌâ£º
+åƒä¸Šé¢è¿™æ ·çš„æ“ä½œä¹Ÿä¸ç®—ä¸è¡Œï¼Œäº‹å®žä¸Šæˆ‘ä»¬åœ¨æ²¡æœ‰starterä¹‹å‰éƒ½æ˜¯è¿™ä¹ˆå¹²çš„ï¼Œä½†æ˜¯è¿™æ ·åšæœ‰å‡ ä¸ªé—®é¢˜ï¼š
 
-1.  Èç¹û¹ý³Ì±È½Ï·±Ëö£¬ÕâÑùÒ»²½²½²Ù×÷»áÔö¼Ó³ö´íµÄ¿ÉÄÜÐÔ
-2.  ²»Í£µØcopy&paste²»·ûºÏ[Don¡¯t repeat yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)¾«Éñ
-3.  ÔÚµÚÒ»´ÎÅäÖÃµÄÊ±ºò£¨ÓÈÆäÈç¹û¿ª·¢Õß±È½ÏÐ¡°×£©£¬ÐèÒª»¨·Ñµô´óÁ¿µÄÊ±¼ä
+1.  å¦‚æžœè¿‡ç¨‹æ¯”è¾ƒç¹çï¼Œè¿™æ ·ä¸€æ­¥æ­¥æ“ä½œä¼šå¢žåŠ å‡ºé”™çš„å¯èƒ½æ€§
+2.  ä¸åœåœ°copy&pasteä¸ç¬¦åˆ[Donâ€™t repeat yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)ç²¾ç¥ž
+3.  åœ¨ç¬¬ä¸€æ¬¡é…ç½®çš„æ—¶å€™ï¼ˆå°¤å…¶å¦‚æžœå¼€å‘è€…æ¯”è¾ƒå°ç™½ï¼‰ï¼Œéœ€è¦èŠ±è´¹æŽ‰å¤§é‡çš„æ—¶é—´
 
-### ¡¡¡¡Ê¹ÓÃSpring Boot StarterÌáÉýÐ§ÂÊ
+### ã€€ã€€ä½¿ç”¨Spring Boot Starteræå‡æ•ˆçŽ‡
 
-starterµÄÖ÷ÒªÄ¿µÄ¾ÍÊÇÎªÁË½â¾öÉÏÃæµÄÕâÐ©ÎÊÌâ¡£
+starterçš„ä¸»è¦ç›®çš„å°±æ˜¯ä¸ºäº†è§£å†³ä¸Šé¢çš„è¿™äº›é—®é¢˜ã€‚
 
-starterµÄÀíÄî£ºstarter»á°ÑËùÓÐÓÃµ½µÄÒÀÀµ¶¼¸ø°üº¬½øÀ´£¬±ÜÃâÁË¿ª·¢Õß×Ô¼ºÈ¥ÒýÈëÒÀÀµËù´øÀ´µÄÂé·³¡£ÐèÒª×¢ÒâµÄÊÇ²»Í¬µÄstarterÊÇÎªÁË½â¾ö²»Í¬µÄÒÀÀµ£¬ËùÒÔËüÃÇÄÚ²¿µÄÊµÏÖ¿ÉÄÜ»áÓÐºÜ´óµÄ²îÒì£¬ÀýÈçjpaµÄstarterºÍRedisµÄstarter¿ÉÄÜÊµÏÖ¾Í²»Ò»Ñù£¬ÕâÊÇÒòÎªstarterµÄ±¾ÖÊÔÚÓÚsynthesize£¬ÕâÊÇÒ»²ãÔÚÂß¼­²ãÃæµÄ³éÏó£¬Ò²ÐíÕâÖÖÀíÄîÓÐµãÀàËÆÓÚDocker£¬ÒòÎªËüÃÇ¶¼ÊÇÔÚ×öÒ»¸ö¡°°ü×°¡±µÄ²Ù×÷£¬Èç¹ûÄãÖªµÀDockerÊÇÎªÁË½â¾öÊ²Ã´ÎÊÌâµÄ£¬Ò²ÐíÄã¿ÉÒÔÓÃDockerºÍstarter×öÒ»¸öÀà±È¡£
+starterçš„ç†å¿µï¼šstarterä¼šæŠŠæ‰€æœ‰ç”¨åˆ°çš„ä¾èµ–éƒ½ç»™åŒ…å«è¿›æ¥ï¼Œé¿å…äº†å¼€å‘è€…è‡ªå·±åŽ»å¼•å…¥ä¾èµ–æ‰€å¸¦æ¥çš„éº»çƒ¦ã€‚éœ€è¦æ³¨æ„çš„æ˜¯ä¸åŒçš„starteræ˜¯ä¸ºäº†è§£å†³ä¸åŒçš„ä¾èµ–ï¼Œæ‰€ä»¥å®ƒä»¬å†…éƒ¨çš„å®žçŽ°å¯èƒ½ä¼šæœ‰å¾ˆå¤§çš„å·®å¼‚ï¼Œä¾‹å¦‚jpaçš„starterå’ŒRedisçš„starterå¯èƒ½å®žçŽ°å°±ä¸ä¸€æ ·ï¼Œè¿™æ˜¯å› ä¸ºstarterçš„æœ¬è´¨åœ¨äºŽsynthesizeï¼Œè¿™æ˜¯ä¸€å±‚åœ¨é€»è¾‘å±‚é¢çš„æŠ½è±¡ï¼Œä¹Ÿè®¸è¿™ç§ç†å¿µæœ‰ç‚¹ç±»ä¼¼äºŽDockerï¼Œå› ä¸ºå®ƒä»¬éƒ½æ˜¯åœ¨åšä¸€ä¸ªâ€œåŒ…è£…â€çš„æ“ä½œï¼Œå¦‚æžœä½ çŸ¥é“Dockeræ˜¯ä¸ºäº†è§£å†³ä»€ä¹ˆé—®é¢˜çš„ï¼Œä¹Ÿè®¸ä½ å¯ä»¥ç”¨Dockerå’Œstarteråšä¸€ä¸ªç±»æ¯”ã€‚
 
-starterµÄÊµÏÖ£ºËäÈ»²»Í¬µÄstarterÊµÏÖÆðÀ´¸÷ÓÐ²îÒì£¬µ«ÊÇËûÃÇ»ù±¾ÉÏ¶¼»áÊ¹ÓÃµ½Á½¸öÏàÍ¬µÄÄÚÈÝ£ºConfigurationPropertiesºÍAutoConfiguration¡£ÒòÎªSpring Boot¼áÐÅ¡°Ô¼¶¨´óÓÚÅäÖÃ¡±ÕâÒ»ÀíÄî£¬ËùÒÔÎÒÃÇÊ¹ÓÃConfigurationPropertiesÀ´±£´æÎÒÃÇµÄÅäÖÃ£¬²¢ÇÒÕâÐ©ÅäÖÃ¶¼¿ÉÒÔÓÐÒ»¸öÄ¬ÈÏÖµ£¬¼´ÔÚÎÒÃÇÃ»ÓÐÖ÷¶¯¸²Ð´Ô­Ê¼ÅäÖÃµÄÇé¿öÏÂ£¬Ä¬ÈÏÖµ¾Í»áÉúÐ§£¬ÕâÔÚºÜ¶àÇé¿öÏÂÊÇ·Ç³£ÓÐÓÃµÄ¡£³ý´ËÖ®Íâ£¬starterµÄConfigurationProperties»¹Ê¹µÃËùÓÐµÄÅäÖÃÊôÐÔ±»¾Û¼¯µ½Ò»¸öÎÄ¼þÖÐ£¨Ò»°ãÔÚresourcesÄ¿Â¼ÏÂµÄapplication.properties£©£¬ÕâÑùÎÒÃÇ¾Í¸æ±ðÁËSpringÏîÄ¿ÖÐXMLµØÓü¡£
+starterçš„å®žçŽ°ï¼šè™½ç„¶ä¸åŒçš„starterå®žçŽ°èµ·æ¥å„æœ‰å·®å¼‚ï¼Œä½†æ˜¯ä»–ä»¬åŸºæœ¬ä¸Šéƒ½ä¼šä½¿ç”¨åˆ°ä¸¤ä¸ªç›¸åŒçš„å†…å®¹ï¼šConfigurationPropertieså’ŒAutoConfigurationã€‚å› ä¸ºSpring Bootåšä¿¡â€œçº¦å®šå¤§äºŽé…ç½®â€è¿™ä¸€ç†å¿µï¼Œæ‰€ä»¥æˆ‘ä»¬ä½¿ç”¨ConfigurationPropertiesæ¥ä¿å­˜æˆ‘ä»¬çš„é…ç½®ï¼Œå¹¶ä¸”è¿™äº›é…ç½®éƒ½å¯ä»¥æœ‰ä¸€ä¸ªé»˜è®¤å€¼ï¼Œå³åœ¨æˆ‘ä»¬æ²¡æœ‰ä¸»åŠ¨è¦†å†™åŽŸå§‹é…ç½®çš„æƒ…å†µä¸‹ï¼Œé»˜è®¤å€¼å°±ä¼šç”Ÿæ•ˆï¼Œè¿™åœ¨å¾ˆå¤šæƒ…å†µä¸‹æ˜¯éžå¸¸æœ‰ç”¨çš„ã€‚é™¤æ­¤ä¹‹å¤–ï¼Œstarterçš„ConfigurationPropertiesè¿˜ä½¿å¾—æ‰€æœ‰çš„é…ç½®å±žæ€§è¢«èšé›†åˆ°ä¸€ä¸ªæ–‡ä»¶ä¸­ï¼ˆä¸€èˆ¬åœ¨resourcesç›®å½•ä¸‹çš„application.propertiesï¼‰ï¼Œè¿™æ ·æˆ‘ä»¬å°±å‘Šåˆ«äº†Springé¡¹ç›®ä¸­XMLåœ°ç‹±ã€‚
 
-starterµÄÕûÌåÂß¼­£º
+starterçš„æ•´ä½“é€»è¾‘ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/697611-20180409110236645-2097376440.png)
 
-ÉÏÃæµÄstarterÒÀÀµµÄjarºÍÎÒÃÇ×Ô¼ºÊÖ¶¯ÅäÖÃµÄÊ±ºòÒÀÀµµÄjar²¢Ã»ÓÐÊ²Ã´²»Í¬£¬ËùÒÔÎÒÃÇ¿ÉÒÔÈÏÎªstarterÆäÊµÊÇ°ÑÕâÒ»Ð©·±ËöµÄÅäÖÃ²Ù×÷½»¸øÁË×Ô¼º£¬¶ø°Ñ¼òµ¥½»¸øÁËÓÃ»§¡£³ýÁË°ïÖúÓÃ»§È¥³ýÁË·±ËöµÄ¹¹½¨²Ù×÷£¬ÔÚ¡°Ô¼¶¨´óÓÚÅäÖÃ¡±µÄÀíÄîÏÂ£¬ConfigurationProperties»¹°ïÖúÓÃ»§¼õÉÙÁËÎÞÎ½µÄÅäÖÃ²Ù×÷¡£²¢ÇÒÒòÎª?`application.properties`?ÎÄ¼þµÄ´æÔÚ£¬¼´Ê¹ÐèÒª×Ô¶¨ÒåÅäÖÃ£¬ËùÓÐµÄÅäÖÃÒ²Ö»ÐèÒªÔÚÒ»¸öÎÄ¼þÖÐ½øÐÐ£¬Ê¹ÓÃÆðÀ´·Ç³£·½±ã¡£
+ä¸Šé¢çš„starterä¾èµ–çš„jarå’Œæˆ‘ä»¬è‡ªå·±æ‰‹åŠ¨é…ç½®çš„æ—¶å€™ä¾èµ–çš„jarå¹¶æ²¡æœ‰ä»€ä¹ˆä¸åŒï¼Œæ‰€ä»¥æˆ‘ä»¬å¯ä»¥è®¤ä¸ºstarterå…¶å®žæ˜¯æŠŠè¿™ä¸€äº›ç¹ççš„é…ç½®æ“ä½œäº¤ç»™äº†è‡ªå·±ï¼Œè€ŒæŠŠç®€å•äº¤ç»™äº†ç”¨æˆ·ã€‚é™¤äº†å¸®åŠ©ç”¨æˆ·åŽ»é™¤äº†ç¹ççš„æž„å»ºæ“ä½œï¼Œåœ¨â€œçº¦å®šå¤§äºŽé…ç½®â€çš„ç†å¿µä¸‹ï¼ŒConfigurationPropertiesè¿˜å¸®åŠ©ç”¨æˆ·å‡å°‘äº†æ— è°“çš„é…ç½®æ“ä½œã€‚å¹¶ä¸”å› ä¸º?`application.properties`?æ–‡ä»¶çš„å­˜åœ¨ï¼Œå³ä½¿éœ€è¦è‡ªå®šä¹‰é…ç½®ï¼Œæ‰€æœ‰çš„é…ç½®ä¹Ÿåªéœ€è¦åœ¨ä¸€ä¸ªæ–‡ä»¶ä¸­è¿›è¡Œï¼Œä½¿ç”¨èµ·æ¥éžå¸¸æ–¹ä¾¿ã€‚
 
-ÁË½âÁËstarterÆäÊµ¾ÍÊÇ°ïÖúÓÃ»§¼ò»¯ÁËÅäÖÃµÄ²Ù×÷Ö®ºó£¬ÒªÀí½âstarterºÍ±»ÅäÖÃÁËstarterµÄ×é¼þÖ®¼ä²¢²»ÊÇ¾ºÕù¹ØÏµ£¬¶øÊÇ¸¨Öú¹ØÏµ£¬¼´ÎÒÃÇ¿ÉÒÔ¸øÒ»¸ö×é¼þ´´½¨Ò»¸östarterÀ´ÈÃ×îÖÕÓÃ»§ÔÚÊ¹ÓÃÕâ¸ö×é¼þµÄÊ±ºò¸ü¼ÓµÄ¼òµ¥·½±ã¡£»ùÓÚÕâÖÖÀíÄî£¬ÎÒÃÇ¿ÉÒÔ¸øÈÎÒâÒ»¸öÏÖÓÐµÄ×é¼þ´´½¨Ò»¸östarterÀ´ÈÃ±ðÈËÔÚÊ¹ÓÃÕâ¸ö×é¼þµÄÊ±ºò¸ü¼ÓµÄ¼òµ¥·½±ã£¬ÊÂÊµÉÏSpring BootÍÅ¶ÓÒÑ¾­°ïÖúÏÖÓÐ´ó²¿·ÖµÄÁ÷ÐÐµÄ×é¼þ´´½¨ºÃÁËËüÃÇµÄstarter£¬Äã¿ÉÒÔÔÚ[ÕâÀï](https://github.com/spring-projects/spring-boot/tree/v1.5.7.RELEASE/spring-boot-starters)²é¿´ÕâÐ©starterµÄÁÐ±í¡£
+äº†è§£äº†starterå…¶å®žå°±æ˜¯å¸®åŠ©ç”¨æˆ·ç®€åŒ–äº†é…ç½®çš„æ“ä½œä¹‹åŽï¼Œè¦ç†è§£starterå’Œè¢«é…ç½®äº†starterçš„ç»„ä»¶ä¹‹é—´å¹¶ä¸æ˜¯ç«žäº‰å…³ç³»ï¼Œè€Œæ˜¯è¾…åŠ©å…³ç³»ï¼Œå³æˆ‘ä»¬å¯ä»¥ç»™ä¸€ä¸ªç»„ä»¶åˆ›å»ºä¸€ä¸ªstarteræ¥è®©æœ€ç»ˆç”¨æˆ·åœ¨ä½¿ç”¨è¿™ä¸ªç»„ä»¶çš„æ—¶å€™æ›´åŠ çš„ç®€å•æ–¹ä¾¿ã€‚åŸºäºŽè¿™ç§ç†å¿µï¼Œæˆ‘ä»¬å¯ä»¥ç»™ä»»æ„ä¸€ä¸ªçŽ°æœ‰çš„ç»„ä»¶åˆ›å»ºä¸€ä¸ªstarteræ¥è®©åˆ«äººåœ¨ä½¿ç”¨è¿™ä¸ªç»„ä»¶çš„æ—¶å€™æ›´åŠ çš„ç®€å•æ–¹ä¾¿ï¼Œäº‹å®žä¸ŠSpring Bootå›¢é˜Ÿå·²ç»å¸®åŠ©çŽ°æœ‰å¤§éƒ¨åˆ†çš„æµè¡Œçš„ç»„ä»¶åˆ›å»ºå¥½äº†å®ƒä»¬çš„starterï¼Œä½ å¯ä»¥åœ¨[è¿™é‡Œ](https://github.com/spring-projects/spring-boot/tree/v1.5.7.RELEASE/spring-boot-starters)æŸ¥çœ‹è¿™äº›starterçš„åˆ—è¡¨ã€‚
 
-ÓÃÁËspringboot ÄÇÃ´¾ÃÁË¾ÓÈ»¶¼»¹Ã»×Ô¶¨Òå¹ýstarter£¬ÏëÏë¶¼¾õµÃÐßÀ¢£¬ËùÒÔ½ñÌìÀ´ÍæÒ»ÏÂ¡£
+ç”¨äº†springboot é‚£ä¹ˆä¹…äº†å±…ç„¶éƒ½è¿˜æ²¡è‡ªå®šä¹‰è¿‡starterï¼Œæƒ³æƒ³éƒ½è§‰å¾—ç¾žæ„§ï¼Œæ‰€ä»¥ä»Šå¤©æ¥çŽ©ä¸€ä¸‹ã€‚
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416200541.png)
 
 # SpringBoot starter
 
-SpringBootÖÐµÄstarterÊÇÒ»ÖÖ·Ç³£ÖØÒªµÄ»úÖÆ£¬ÄÜ¹»Å×ÆúÒÔÇ°·±ÔÓµÄÅäÖÃ£¬½«ÆäÍ³Ò»¼¯³É½østarter£¬Ó¦ÓÃÕßÖ»ÐèÒªÔÚmavenÖÐÒýÈëstarterÒÀÀµ£¬SpringBoot¾ÍÄÜ×Ô¶¯É¨Ãèµ½Òª¼ÓÔØµÄÐÅÏ¢²¢Æô¶¯ÏàÓ¦µÄÄ¬ÈÏÅäÖÃ¡£starterÈÃÎÒÃÇ°ÚÍÑÁË¸÷ÖÖÒÀÀµ¿âµÄ´¦Àí£¬ÐèÒªÅäÖÃ¸÷ÖÖÐÅÏ¢µÄÀ§ÈÅ¡£SpringBoot»á×Ô¶¯Í¨¹ýclasspathÂ·¾¶ÏÂµÄÀà·¢ÏÖÐèÒªµÄBean£¬²¢×¢²á½øIOCÈÝÆ÷¡£SpringBootÌá¹©ÁËÕë¶ÔÈÕ³£ÆóÒµÓ¦ÓÃÑÐ·¢¸÷ÖÖ³¡¾°µÄspring-boot-starterÒÀÀµÄ£¿é¡£ËùÓÐÕâÐ©ÒÀÀµÄ£¿é¶¼×ñÑ­×ÅÔ¼¶¨³ÉË×µÄÄ¬ÈÏÅäÖÃ£¬²¢ÔÊÐíÎÒÃÇµ÷ÕûÕâÐ©ÅäÖÃ£¬¼´×ñÑ­¡°Ô¼¶¨´óÓÚÅäÖÃ¡±µÄÀíÄî¡£
+SpringBootä¸­çš„starteræ˜¯ä¸€ç§éžå¸¸é‡è¦çš„æœºåˆ¶ï¼Œèƒ½å¤ŸæŠ›å¼ƒä»¥å‰ç¹æ‚çš„é…ç½®ï¼Œå°†å…¶ç»Ÿä¸€é›†æˆè¿›starterï¼Œåº”ç”¨è€…åªéœ€è¦åœ¨mavenä¸­å¼•å…¥starterä¾èµ–ï¼ŒSpringBootå°±èƒ½è‡ªåŠ¨æ‰«æåˆ°è¦åŠ è½½çš„ä¿¡æ¯å¹¶å¯åŠ¨ç›¸åº”çš„é»˜è®¤é…ç½®ã€‚starterè®©æˆ‘ä»¬æ‘†è„±äº†å„ç§ä¾èµ–åº“çš„å¤„ç†ï¼Œéœ€è¦é…ç½®å„ç§ä¿¡æ¯çš„å›°æ‰°ã€‚SpringBootä¼šè‡ªåŠ¨é€šè¿‡classpathè·¯å¾„ä¸‹çš„ç±»å‘çŽ°éœ€è¦çš„Beanï¼Œå¹¶æ³¨å†Œè¿›IOCå®¹å™¨ã€‚SpringBootæä¾›äº†é’ˆå¯¹æ—¥å¸¸ä¼ä¸šåº”ç”¨ç ”å‘å„ç§åœºæ™¯çš„spring-boot-starterä¾èµ–æ¨¡å—ã€‚æ‰€æœ‰è¿™äº›ä¾èµ–æ¨¡å—éƒ½éµå¾ªç€çº¦å®šæˆä¿—çš„é»˜è®¤é…ç½®ï¼Œå¹¶å…è®¸æˆ‘ä»¬è°ƒæ•´è¿™äº›é…ç½®ï¼Œå³éµå¾ªâ€œçº¦å®šå¤§äºŽé…ç½®â€çš„ç†å¿µã€‚
 
-# ×Ô¶¨Òåstarter
+# è‡ªå®šä¹‰starter
 
-ÈÕ³£¹¤×÷ÖÐÓÐÊ±ÓÐÒ»Ð©¶ÀÁ¢ÓÚÒµÎñÖ®ÍâµÄ¹¦ÄÜ»òÄ£¿é£¬¿ÉÄÜÕâ¸öÏîÄ¿ÔÚÓÃ£¬ÁíÒ»¸öÏîÄ¿Ò²ÒªÓÃ£¬Èç¹ûÃ¿´Î¶¼ÖØÐÂ¼¯³ÉµÄ»°¾Í»áºÜÂé·³£¬ÕâÊ±ÎÒÃÇÖ»Òª°ÑÕâÐ©¹¦ÄÜ»òÄ£¿é·â×°³ÉÒ»¸ö¸östarterµÄ»°£¬ÔÚÊ¹ÓÃµÄÊ±ºòÒýÈë½øÈ¥¾ÍºÜ·½±ãÁË¡£
+æ—¥å¸¸å·¥ä½œä¸­æœ‰æ—¶æœ‰ä¸€äº›ç‹¬ç«‹äºŽä¸šåŠ¡ä¹‹å¤–çš„åŠŸèƒ½æˆ–æ¨¡å—ï¼Œå¯èƒ½è¿™ä¸ªé¡¹ç›®åœ¨ç”¨ï¼Œå¦ä¸€ä¸ªé¡¹ç›®ä¹Ÿè¦ç”¨ï¼Œå¦‚æžœæ¯æ¬¡éƒ½é‡æ–°é›†æˆçš„è¯å°±ä¼šå¾ˆéº»çƒ¦ï¼Œè¿™æ—¶æˆ‘ä»¬åªè¦æŠŠè¿™äº›åŠŸèƒ½æˆ–æ¨¡å—å°è£…æˆä¸€ä¸ªä¸ªstarterçš„è¯ï¼Œåœ¨ä½¿ç”¨çš„æ—¶å€™å¼•å…¥è¿›åŽ»å°±å¾ˆæ–¹ä¾¿äº†ã€‚
 
-## ×Ô¶¨Òåstarter²½Öè
+## è‡ªå®šä¹‰starteræ­¥éª¤
 
-ÆäÊµ×Ô¶¨ÒåstarterºÜ¼òµ¥£¬´óÖÂÐèÒªÒÔÏÂ5²½£º
+å…¶å®žè‡ªå®šä¹‰starterå¾ˆç®€å•ï¼Œå¤§è‡´éœ€è¦ä»¥ä¸‹5æ­¥ï¼š
 
-1.  ÐÂ½¨Á½¸öÄ£¿é£¬ÃüÃû¹æ·¶£º springboot×Ô´øµÄstarterÃüÃû¹æ·¶Îªspring-boot-starter-xxx£¬ ×Ô¶¨ÒåµÄstarterÃüÃû¹æ·¶Îªxxx-spring-boot-starter
+1.  æ–°å»ºä¸¤ä¸ªæ¨¡å—ï¼Œå‘½åè§„èŒƒï¼š springbootè‡ªå¸¦çš„starterå‘½åè§„èŒƒä¸ºspring-boot-starter-xxxï¼Œ è‡ªå®šä¹‰çš„starterå‘½åè§„èŒƒä¸ºxxx-spring-boot-starter
 
-¡ñ xxx-spring-boot-autoconfigure£º×Ô¶¯ÅäÖÃºËÐÄ´úÂë
-¡ñ xxx-spring-boot-starter£º¹ÜÀíÒÀÀµ
-Èç¹û²»ÐèÒª½«×Ô¶¯ÅäÖÃ´úÂëºÍÒÀÀµÏî¹ÜÀí·ÖÀë¿ªÀ´£¬Ôò¿ÉÒÔ½«ËüÃÇ×éºÏµ½Ò»¸öÄ£¿éÖÐ¡£Ö»²»¹ýspringboot¹Ù·½½¨Òé½«Á½¸öÄ£¿é·Ö¿ª¡£
-2\. ÒýÈëspring-boot-autoconfigureÒÀÀµ
-3\. ´´½¨×Ô¶¨ÒåµÄXXXProperties Àà: Õâ¸öÀàµÄÊôÐÔ¸ù¾ÝÐèÒªÊÇÒª³öÏÖÔÚÅäÖÃÎÄ¼þÖÐµÄ¡£
-4\. ´´½¨×Ô¶¨ÒåµÄXXXAutoConfigurationÀà£ºÕâ¸öÀàÒªÅäÖÃ×Ô¶¯ÅäÖÃÊ±µÄÒ»Ð©Âß¼­£¬Í¬Ê±Ò²ÒªÈÃXXXProperties ÀàÉúÐ§¡£
-5\. ´´½¨×Ô¶¨ÒåµÄspring.factoriesÎÄ¼þ£ºÔÚresources/META-INF´´½¨Ò»¸öspring.factoriesÎÄ¼þºÍspring-configuration-metadata.json£¬spring-configuration-metadata.jsonÎÄ¼þÊÇÓÃÓÚÔÚÌîÐ´ÅäÖÃÎÄ¼þÊ±µÄÖÇÄÜÌáÊ¾£¬¿ÉÒª¿É²»Òª£¬ÓÐµÄ»°ÌáÊ¾ÆðÀ´¸üÓÑºÃ¡£spring.factoriesÓÃÓÚµ¼Èë×Ô¶¯ÅäÖÃÀà£¬±ØÐëÒªÓÐ
+â— xxx-spring-boot-autoconfigureï¼šè‡ªåŠ¨é…ç½®æ ¸å¿ƒä»£ç 
+â— xxx-spring-boot-starterï¼šç®¡ç†ä¾èµ–
+å¦‚æžœä¸éœ€è¦å°†è‡ªåŠ¨é…ç½®ä»£ç å’Œä¾èµ–é¡¹ç®¡ç†åˆ†ç¦»å¼€æ¥ï¼Œåˆ™å¯ä»¥å°†å®ƒä»¬ç»„åˆåˆ°ä¸€ä¸ªæ¨¡å—ä¸­ã€‚åªä¸è¿‡springbootå®˜æ–¹å»ºè®®å°†ä¸¤ä¸ªæ¨¡å—åˆ†å¼€ã€‚
+2\. å¼•å…¥spring-boot-autoconfigureä¾èµ–
+3\. åˆ›å»ºè‡ªå®šä¹‰çš„XXXProperties ç±»: è¿™ä¸ªç±»çš„å±žæ€§æ ¹æ®éœ€è¦æ˜¯è¦å‡ºçŽ°åœ¨é…ç½®æ–‡ä»¶ä¸­çš„ã€‚
+4\. åˆ›å»ºè‡ªå®šä¹‰çš„XXXAutoConfigurationç±»ï¼šè¿™ä¸ªç±»è¦é…ç½®è‡ªåŠ¨é…ç½®æ—¶çš„ä¸€äº›é€»è¾‘ï¼ŒåŒæ—¶ä¹Ÿè¦è®©XXXProperties ç±»ç”Ÿæ•ˆã€‚
+5\. åˆ›å»ºè‡ªå®šä¹‰çš„spring.factoriesæ–‡ä»¶ï¼šåœ¨resources/META-INFåˆ›å»ºä¸€ä¸ªspring.factoriesæ–‡ä»¶å’Œspring-configuration-metadata.jsonï¼Œspring-configuration-metadata.jsonæ–‡ä»¶æ˜¯ç”¨äºŽåœ¨å¡«å†™é…ç½®æ–‡ä»¶æ—¶çš„æ™ºèƒ½æç¤ºï¼Œå¯è¦å¯ä¸è¦ï¼Œæœ‰çš„è¯æç¤ºèµ·æ¥æ›´å‹å¥½ã€‚spring.factoriesç”¨äºŽå¯¼å…¥è‡ªåŠ¨é…ç½®ç±»ï¼Œå¿…é¡»è¦æœ‰
 
-## ÊµÏÖ
+## å®žçŽ°
 
-ÎÒÕâÀïÎªÁË·½±ã¾ÍÖ»´´½¨Ò»¸öÄ£¿éÁË£¬
+æˆ‘è¿™é‡Œä¸ºäº†æ–¹ä¾¿å°±åªåˆ›å»ºä¸€ä¸ªæ¨¡å—äº†ï¼Œ
 
-1.  ´´½¨Ò»¸öÄ£¿é£¬ÃüÃûÎªspring-boot-starter-my-starter£¬¶ÔÓ¦pomÎÄ¼þ
+1.  åˆ›å»ºä¸€ä¸ªæ¨¡å—ï¼Œå‘½åä¸ºspring-boot-starter-my-starterï¼Œå¯¹åº”pomæ–‡ä»¶
 
 ```
 	<groupId>com.example</groupId>
 	spring-boot-starter-my-starter
 	<version>1.0</version>
 	<name>my-starter</name>
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-1.  ÒýÈëspring-boot-autoconfigureÒÀÀµ ÎÒÕâÀïÊ¹ÓÃµÄspring-boot-autoconfigure°æ±¾ÊÇ2.6.2
+1.  å¼•å…¥spring-boot-autoconfigureä¾èµ– æˆ‘è¿™é‡Œä½¿ç”¨çš„spring-boot-autoconfigureç‰ˆæœ¬æ˜¯2.6.2
 
 ```
 <dependencies>
@@ -89,10 +89,10 @@ SpringBootÖÐµÄstarterÊÇÒ»ÖÖ·Ç³£ÖØÒªµÄ»úÖÆ£¬ÄÜ¹»Å×ÆúÒÔÇ°·±ÔÓµÄÅäÖÃ£¬½«ÆäÍ³Ò»¼¯³É½
         <version>2.6.2</version>
     </dependency>
 </dependencies>
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-1.  ´´½¨×Ô¶¨ÒåµÄXXXProperties Àà
+1.  åˆ›å»ºè‡ªå®šä¹‰çš„XXXProperties ç±»
 
 ```
 @ConfigurationProperties(prefix = "com.arron")
@@ -108,10 +108,10 @@ public class MyStarterProperties {
         this.name = name;
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-ÔÙ´´½¨Ò»¸öMyStarterConfigÓÃÓÚ¶ÁÈ¡MyStarterProperties ÀïµÄÊôÐÔ
+å†åˆ›å»ºä¸€ä¸ªMyStarterConfigç”¨äºŽè¯»å–MyStarterProperties é‡Œçš„å±žæ€§
 
 ```
 public class MyStarterConfig {
@@ -132,14 +132,14 @@ public class MyStarterConfig {
         this.name = name;
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-1.  ´´½¨×Ô¶¨ÒåµÄXXXAutoConfigurationÀà
+1.  åˆ›å»ºè‡ªå®šä¹‰çš„XXXAutoConfigurationç±»
 
 ```
 @Configuration
-// EnableConfigurationProperties valueÊý×éÖÐµÄÅäÖÃÀàÆð×÷ÓÃ
+// EnableConfigurationProperties valueæ•°ç»„ä¸­çš„é…ç½®ç±»èµ·ä½œç”¨
 @EnableConfigurationProperties(value = {MyStarterProperties.class})
 public class MyStarterAutoConfiguration {
 
@@ -153,16 +153,16 @@ public class MyStarterAutoConfiguration {
     }
 
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-1.  ÔÚresources/META-INF´´½¨Ò»¸öspring.factoriesÎÄ¼þ
+1.  åœ¨resources/META-INFåˆ›å»ºä¸€ä¸ªspring.factoriesæ–‡ä»¶
 
 spring.factories
 
 ```
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.example.myStarter.MyStarterAutoConfiguration
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
 spring-configuration-metadata.json
@@ -186,16 +186,16 @@ spring-configuration-metadata.json
     }
   ]
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-## ´ò°ü²âÊÔ
+## æ‰“åŒ…æµ‹è¯•
 
-ÕÒµ½ÈçÍ¼maven£¬µã»÷install£¬°²×°µ½±¾µØ ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230416200527082.png)
+æ‰¾åˆ°å¦‚å›¾mavenï¼Œç‚¹å‡»installï¼Œå®‰è£…åˆ°æœ¬åœ° ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230416200527082.png)
 
-È»ºóÐÂ½¨Ò»¸öÏîÄ¿µ¼°ü½øÐÐ²âÊÔ£¬´´½¨ÏîÄ¿¹ý³Ì¾Í²»½éÉÜÁË¡£
+ç„¶åŽæ–°å»ºä¸€ä¸ªé¡¹ç›®å¯¼åŒ…è¿›è¡Œæµ‹è¯•ï¼Œåˆ›å»ºé¡¹ç›®è¿‡ç¨‹å°±ä¸ä»‹ç»äº†ã€‚
 
-1.  ÒýÈëÒÀÀµ
+1.  å¼•å…¥ä¾èµ–
 
 ```
 	<dependency>
@@ -203,19 +203,19 @@ spring-configuration-metadata.json
        spring-boot-starter-my-starter
        <version>1.0</version>
    </dependency>
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-1.  ÅäÖÃÎÄ¼þÌí¼ÓÊôÐÔ£º
+1.  é…ç½®æ–‡ä»¶æ·»åŠ å±žæ€§ï¼š
 
 ```
 com:
   arron:
     name: myname
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-1.  µ¥Ôª²âÊÔ£º
+1.  å•å…ƒæµ‹è¯•ï¼š
 
 ```
 @RunWith(SpringRunner.class)
@@ -230,33 +230,33 @@ class RabbitmqApplicationTests {
         System.out.println(name);
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-¿ØÖÆÌ¨Êä³ö£º
+æŽ§åˆ¶å°è¾“å‡ºï¼š
 
 ```
 myname
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-ÖÁ´Ë£¬Ò»¸ö¼òµ¥×Ô¶¨ÒåµÄspringboot starter¾ÍÍê³ÉÁË¡£
+è‡³æ­¤ï¼Œä¸€ä¸ªç®€å•è‡ªå®šä¹‰çš„springboot starterå°±å®Œæˆäº†ã€‚
 
-# ×¢½â½âÊÍ
+# æ³¨è§£è§£é‡Š
 
-ÏÂÃæÕâÐ©×¢½âÔÚ×Ô¶¨ÒåstarterÊÇ¿ÉÄÜ»áÓÃµ½¡£
+ä¸‹é¢è¿™äº›æ³¨è§£åœ¨è‡ªå®šä¹‰starteræ˜¯å¯èƒ½ä¼šç”¨åˆ°ã€‚
 
-*   @Conditional£º°´ÕÕÒ»¶¨µÄÌõ¼þ½øÐÐÅÐ¶Ï£¬Âú×ãÌõ¼þ¸øÈÝÆ÷×¢²ábean
-*   @ConditionalOnMissingBean£º¸ø¶¨µÄÔÚbean²»´æÔÚÊ±,ÔòÊµÀý»¯µ±Ç°Bean
-*   @ConditionalOnProperty£ºÅäÖÃÎÄ¼þÖÐÂú×ã¶¨ÒåµÄÊôÐÔÔò´´½¨bean£¬·ñÔò²»´´½¨
-*   @ConditionalOnBean£º¸ø¶¨µÄÔÚbean´æÔÚÊ±,ÔòÊµÀý»¯µ±Ç°Bean
-*   @ConditionalOnClass£º µ±¸ø¶¨µÄÀàÃûÔÚÀàÂ·¾¶ÉÏ´æÔÚ£¬ÔòÊµÀý»¯µ±Ç°Bean
-*   @ConditionalOnMissingClass £ºµ±¸ø¶¨µÄÀàÃûÔÚÀàÂ·¾¶ÉÏ²»´æÔÚ£¬ÔòÊµÀý»¯µ±Ç°Bean
+*   @Conditionalï¼šæŒ‰ç…§ä¸€å®šçš„æ¡ä»¶è¿›è¡Œåˆ¤æ–­ï¼Œæ»¡è¶³æ¡ä»¶ç»™å®¹å™¨æ³¨å†Œbean
+*   @ConditionalOnMissingBeanï¼šç»™å®šçš„åœ¨beanä¸å­˜åœ¨æ—¶,åˆ™å®žä¾‹åŒ–å½“å‰Bean
+*   @ConditionalOnPropertyï¼šé…ç½®æ–‡ä»¶ä¸­æ»¡è¶³å®šä¹‰çš„å±žæ€§åˆ™åˆ›å»ºbeanï¼Œå¦åˆ™ä¸åˆ›å»º
+*   @ConditionalOnBeanï¼šç»™å®šçš„åœ¨beanå­˜åœ¨æ—¶,åˆ™å®žä¾‹åŒ–å½“å‰Bean
+*   @ConditionalOnClassï¼š å½“ç»™å®šçš„ç±»ååœ¨ç±»è·¯å¾„ä¸Šå­˜åœ¨ï¼Œåˆ™å®žä¾‹åŒ–å½“å‰Bean
+*   @ConditionalOnMissingClass ï¼šå½“ç»™å®šçš„ç±»ååœ¨ç±»è·¯å¾„ä¸Šä¸å­˜åœ¨ï¼Œåˆ™å®žä¾‹åŒ–å½“å‰Bean
 
 
 
-×÷Õß£ºË÷ÂëÀí
-Á´½Ó£ºhttps://juejin.cn/post/7127468724046528525
-À´Ô´£ºÏ¡ÍÁ¾ò½ð
-Öø×÷È¨¹é×÷ÕßËùÓÐ¡£ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+ä½œè€…ï¼šç´¢ç ç†
+é“¾æŽ¥ï¼šhttps://juejin.cn/post/7127468724046528525
+æ¥æºï¼šç¨€åœŸæŽ˜é‡‘
+è‘—ä½œæƒå½’ä½œè€…æ‰€æœ‰ã€‚å•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…èŽ·å¾—æŽˆæƒï¼Œéžå•†ä¸šè½¬è½½è¯·æ³¨æ˜Žå‡ºå¤„ã€‚
 

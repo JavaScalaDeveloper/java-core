@@ -1,93 +1,93 @@
-# SpringÊÂÎñºËÐÄ½Ó¿Ú
+# Springäº‹åŠ¡æ ¸å¿ƒæŽ¥å£
 
-[Spring](http://www.voidme.com/spring) µÄÊÂÎñ¹ÜÀíÊÇ»ùÓÚ AOP ÊµÏÖµÄ£¬¶ø AOP ÊÇÒÔ·½·¨Îªµ¥Î»µÄ¡£Spring µÄÊÂÎñÊôÐÔ·Ö±ðÎª´«²¥ÐÐÎª¡¢¸ôÀë¼¶±ð¡¢Ö»¶ÁºÍ³¬Ê±ÊôÐÔ£¬ÕâÐ©ÊôÐÔÌá¹©ÁËÊÂÎñÓ¦ÓÃµÄ·½·¨ºÍÃèÊö²ßÂÔ¡£
+[Spring](http://www.voidme.com/spring) çš„äº‹åŠ¡ç®¡ç†æ˜¯åŸºäºŽ AOP å®žçŽ°çš„ï¼Œè€Œ AOP æ˜¯ä»¥æ–¹æ³•ä¸ºå•ä½çš„ã€‚Spring çš„äº‹åŠ¡å±žæ€§åˆ†åˆ«ä¸ºä¼ æ’­è¡Œä¸ºã€éš”ç¦»çº§åˆ«ã€åªè¯»å’Œè¶…æ—¶å±žæ€§ï¼Œè¿™äº›å±žæ€§æä¾›äº†äº‹åŠ¡åº”ç”¨çš„æ–¹æ³•å’Œæè¿°ç­–ç•¥ã€‚
 
-ÔÚ [Java](http://www.voidme.com/java) EE ¿ª·¢¾­³£²ÉÓÃµÄ·Ö²ãÄ£Ê½ÖÐ£¬Spring µÄÊÂÎñ´¦ÀíÎ»ÓÚÒµÎñÂß¼­²ã£¬ËüÌá¹©ÁËÕë¶ÔÊÂÎñµÄ½â¾ö·½°¸¡£
+åœ¨ [Java](http://www.voidme.com/java) EE å¼€å‘ç»å¸¸é‡‡ç”¨çš„åˆ†å±‚æ¨¡å¼ä¸­ï¼ŒSpring çš„äº‹åŠ¡å¤„ç†ä½äºŽä¸šåŠ¡é€»è¾‘å±‚ï¼Œå®ƒæä¾›äº†é’ˆå¯¹äº‹åŠ¡çš„è§£å†³æ–¹æ¡ˆã€‚
 
-ÔÚ Spring ½âÑ¹°üµÄ libs Ä¿Â¼ÖÐ£¬°üº¬Ò»¸öÃû³ÆÎª spring-tx-3.2.13.RELEASE.jar µÄÎÄ¼þ£¬¸ÃÎÄ¼þÊÇ Spring Ìá¹©µÄÓÃÓÚÊÂÎñ¹ÜÀíµÄ JAR °ü£¬ÆäÖÐ°üÀ¨ÊÂÎñ¹ÜÀíµÄÈý¸öºËÐÄ½Ó¿Ú£ºPlatformTransactionManager¡¢TransactionDefinition ºÍ TransactionStatus¡£
+åœ¨ Spring è§£åŽ‹åŒ…çš„ libs ç›®å½•ä¸­ï¼ŒåŒ…å«ä¸€ä¸ªåç§°ä¸º spring-tx-3.2.13.RELEASE.jar çš„æ–‡ä»¶ï¼Œè¯¥æ–‡ä»¶æ˜¯ Spring æä¾›çš„ç”¨äºŽäº‹åŠ¡ç®¡ç†çš„ JAR åŒ…ï¼Œå…¶ä¸­åŒ…æ‹¬äº‹åŠ¡ç®¡ç†çš„ä¸‰ä¸ªæ ¸å¿ƒæŽ¥å£ï¼šPlatformTransactionManagerã€TransactionDefinition å’Œ TransactionStatusã€‚
 
-½«¸Ã JAR °üµÄºó×ºÃû jar ¸Ä³É zip µÄÐÎÊ½ºó£¬½âÑ¹Ñ¹Ëõ°ü£¬½øÈë½âÑ¹ÎÄ¼þ¼ÐÖÐµÄ \org\springframework\transaction Ä¿Â¼ºó£¬¸ÃÄ¿Â¼ÖÐµÄÎÄ¼þÈçÍ¼ 1 ËùÊ¾¡£
+å°†è¯¥ JAR åŒ…çš„åŽç¼€å jar æ”¹æˆ zip çš„å½¢å¼åŽï¼Œè§£åŽ‹åŽ‹ç¼©åŒ…ï¼Œè¿›å…¥è§£åŽ‹æ–‡ä»¶å¤¹ä¸­çš„ \org\springframework\transaction ç›®å½•åŽï¼Œè¯¥ç›®å½•ä¸­çš„æ–‡ä»¶å¦‚å›¾ 1 æ‰€ç¤ºã€‚
 
-![ÊÂÎñ¹ÜÀíºËÐÄ½Ó¿Ú](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/760_a12_405.png)  
-Í¼ 1  ÊÂÎñ¹ÜÀíºËÐÄ½Ó¿Ú
+![äº‹åŠ¡ç®¡ç†æ ¸å¿ƒæŽ¥å£](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/760_a12_405.png)  
+å›¾ 1  äº‹åŠ¡ç®¡ç†æ ¸å¿ƒæŽ¥å£
 
-ÔÚÍ¼ 1 ÖÐ£¬·½¿òËù±ê×¢µÄÈý¸öÎÄ¼þ¾ÍÊÇ±¾½Ú½«Òª½²½âµÄºËÐÄ½Ó¿Ú¡£ÕâÈý¸öºËÐÄ½Ó¿ÚµÄ×÷ÓÃ¼°ÆäÌá¹©µÄ·½·¨ÈçÏÂ¡£
+åœ¨å›¾ 1 ä¸­ï¼Œæ–¹æ¡†æ‰€æ ‡æ³¨çš„ä¸‰ä¸ªæ–‡ä»¶å°±æ˜¯æœ¬èŠ‚å°†è¦è®²è§£çš„æ ¸å¿ƒæŽ¥å£ã€‚è¿™ä¸‰ä¸ªæ ¸å¿ƒæŽ¥å£çš„ä½œç”¨åŠå…¶æä¾›çš„æ–¹æ³•å¦‚ä¸‹ã€‚
 
 #### 1\. PlatformTransactionManager
 
-PlatformTransactionManager ½Ó¿ÚÊÇ Spring Ìá¹©µÄÆ½Ì¨ÊÂÎñ¹ÜÀíÆ÷£¬ÓÃÓÚ¹ÜÀíÊÂÎñ¡£¸Ã½Ó¿ÚÖÐÌá¹©ÁËÈý¸öÊÂÎñ²Ù×÷·½·¨£¬¾ßÌåÈçÏÂ¡£
+PlatformTransactionManager æŽ¥å£æ˜¯ Spring æä¾›çš„å¹³å°äº‹åŠ¡ç®¡ç†å™¨ï¼Œç”¨äºŽç®¡ç†äº‹åŠ¡ã€‚è¯¥æŽ¥å£ä¸­æä¾›äº†ä¸‰ä¸ªäº‹åŠ¡æ“ä½œæ–¹æ³•ï¼Œå…·ä½“å¦‚ä¸‹ã€‚
 
-*   TransactionStatus getTransaction£¨TransactionDefinition definition£©£ºÓÃÓÚ»ñÈ¡ÊÂÎñ×´Ì¬ÐÅÏ¢¡£
-*   void commit£¨TransactionStatus status£©£ºÓÃÓÚÌá½»ÊÂÎñ¡£
-*   void rollback£¨TransactionStatus status£©£ºÓÃÓÚ»Ø¹öÊÂÎñ¡£
+*   TransactionStatus getTransactionï¼ˆTransactionDefinition definitionï¼‰ï¼šç”¨äºŽèŽ·å–äº‹åŠ¡çŠ¶æ€ä¿¡æ¯ã€‚
+*   void commitï¼ˆTransactionStatus statusï¼‰ï¼šç”¨äºŽæäº¤äº‹åŠ¡ã€‚
+*   void rollbackï¼ˆTransactionStatus statusï¼‰ï¼šç”¨äºŽå›žæ»šäº‹åŠ¡ã€‚
 
-ÔÚÏîÄ¿ÖÐ£¬Spring ½« xml ÖÐÅäÖÃµÄÊÂÎñÏêÏ¸ÐÅÏ¢·â×°µ½¶ÔÏó TransactionDefinition ÖÐ£¬È»ºóÍ¨¹ýÊÂÎñ¹ÜÀíÆ÷µÄ getTransaction() ·½·¨»ñµÃÊÂÎñµÄ×´Ì¬£¨TransactionStatus£©£¬²¢¶ÔÊÂÎñ½øÐÐÏÂÒ»²½µÄ²Ù×÷¡£
+åœ¨é¡¹ç›®ä¸­ï¼ŒSpring å°† xml ä¸­é…ç½®çš„äº‹åŠ¡è¯¦ç»†ä¿¡æ¯å°è£…åˆ°å¯¹è±¡ TransactionDefinition ä¸­ï¼Œç„¶åŽé€šè¿‡äº‹åŠ¡ç®¡ç†å™¨çš„ getTransaction() æ–¹æ³•èŽ·å¾—äº‹åŠ¡çš„çŠ¶æ€ï¼ˆTransactionStatusï¼‰ï¼Œå¹¶å¯¹äº‹åŠ¡è¿›è¡Œä¸‹ä¸€æ­¥çš„æ“ä½œã€‚
 
 #### 2\. TransactionDefinition
 
-TransactionDefinition ½Ó¿ÚÊÇÊÂÎñ¶¨Òå£¨ÃèÊö£©µÄ¶ÔÏó£¬ËüÌá¹©ÁËÊÂÎñÏà¹ØÐÅÏ¢»ñÈ¡µÄ·½·¨£¬ÆäÖÐ°üÀ¨Îå¸ö²Ù×÷£¬¾ßÌåÈçÏÂ¡£
+TransactionDefinition æŽ¥å£æ˜¯äº‹åŠ¡å®šä¹‰ï¼ˆæè¿°ï¼‰çš„å¯¹è±¡ï¼Œå®ƒæä¾›äº†äº‹åŠ¡ç›¸å…³ä¿¡æ¯èŽ·å–çš„æ–¹æ³•ï¼Œå…¶ä¸­åŒ…æ‹¬äº”ä¸ªæ“ä½œï¼Œå…·ä½“å¦‚ä¸‹ã€‚
 
-*   String getName()£º»ñÈ¡ÊÂÎñ¶ÔÏóÃû³Æ¡£
-*   int getIsolationLevel()£º»ñÈ¡ÊÂÎñµÄ¸ôÀë¼¶±ð¡£
-*   int getPropagationBehavior()£º»ñÈ¡ÊÂÎñµÄ´«²¥ÐÐÎª¡£
-*   int getTimeout()£º»ñÈ¡ÊÂÎñµÄ³¬Ê±Ê±¼ä¡£
-*   boolean isReadOnly()£º»ñÈ¡ÊÂÎñÊÇ·ñÖ»¶Á¡£
+*   String getName()ï¼šèŽ·å–äº‹åŠ¡å¯¹è±¡åç§°ã€‚
+*   int getIsolationLevel()ï¼šèŽ·å–äº‹åŠ¡çš„éš”ç¦»çº§åˆ«ã€‚
+*   int getPropagationBehavior()ï¼šèŽ·å–äº‹åŠ¡çš„ä¼ æ’­è¡Œä¸ºã€‚
+*   int getTimeout()ï¼šèŽ·å–äº‹åŠ¡çš„è¶…æ—¶æ—¶é—´ã€‚
+*   boolean isReadOnly()ï¼šèŽ·å–äº‹åŠ¡æ˜¯å¦åªè¯»ã€‚
 
-ÔÚÉÏÊöÎå¸ö·½·¨µÄÃèÊöÖÐ£¬ÊÂÎñµÄ´«²¥ÐÐÎªÊÇÖ¸ÔÚÍ¬Ò»¸ö·½·¨ÖÐ£¬²»Í¬²Ù×÷Ç°ºóËùÊ¹ÓÃµÄÊÂÎñ¡£´«²¥ÐÐÎªµÄÖÖÀàÈç±í 1 ËùÊ¾¡£
+åœ¨ä¸Šè¿°äº”ä¸ªæ–¹æ³•çš„æè¿°ä¸­ï¼Œäº‹åŠ¡çš„ä¼ æ’­è¡Œä¸ºæ˜¯æŒ‡åœ¨åŒä¸€ä¸ªæ–¹æ³•ä¸­ï¼Œä¸åŒæ“ä½œå‰åŽæ‰€ä½¿ç”¨çš„äº‹åŠ¡ã€‚ä¼ æ’­è¡Œä¸ºçš„ç§ç±»å¦‚è¡¨ 1 æ‰€ç¤ºã€‚
 
-| ÊôÐÔÃû³Æ | Öµ | Ãè  Êö |  
+| å±žæ€§åç§° | å€¼ | æ  è¿° |  
 | --- | --- | --- |  
-| PROPAGATION_REQUIRED | required | Ö§³Öµ±Ç°ÊÂÎñ¡£Èç¹û A ·½·¨ÒÑ¾­ÔÚÊÂÎñÖÐ£¬Ôò B ÊÂÎñ½«Ö±½ÓÊ¹ÓÃ¡£·ñÔò½«´´½¨ÐÂÊÂÎñ |  
-| PROPAGATION_SUPPORTS | supports | Ö§³Öµ±Ç°ÊÂÎñ¡£Èç¹û A ·½·¨ÒÑ¾­ÔÚÊÂÎñÖÐ£¬Ôò B ÊÂÎñ½«Ö±½ÓÊ¹ÓÃ¡£·ñÔò½«ÒÔ·ÇÊÂÎñ×´Ì¬Ö´ÐÐ |  
-| PROPAGATION_MANDATORY | mandatory | Ö§³Öµ±Ç°ÊÂÎñ¡£Èç¹û A ·½·¨Ã»ÓÐÊÂÎñ£¬ÔòÅ×³öÒì³£ |  
-| PROPAGATION_REQUIRES_NEW | requires_new | ½«´´½¨ÐÂµÄÊÂÎñ£¬Èç¹û A ·½·¨ÒÑ¾­ÔÚÊÂÎñÖÐ£¬Ôò½« A ÊÂÎñ¹ÒÆð |  
-| PROPAGATION_NOT_SUPPORTED | not_supported | ²»Ö§³Öµ±Ç°ÊÂÎñ£¬×ÜÊÇÒÔ·ÇÊÂÎñ×´Ì¬Ö´ÐÐ¡£Èç¹û A ·½·¨ÒÑ¾­ÔÚÊÂÎñÖÐ£¬Ôò½«Æä¹ÒÆð |  
-| PROPAGATION_NEVER | never | ²»Ö§³Öµ±Ç°ÊÂÎñ£¬Èç¹û A ·½·¨ÔÚÊÂÎñÖÐ£¬ÔòÅ×³öÒì³£ |  
-| PROPAGATION.NESTED | nested | Ç¶Ì×ÊÂÎñ£¬µ×²ã½«Ê¹ÓÃ Savepoint ÐÎ³ÉÇ¶Ì×ÊÂÎñ |  
+| PROPAGATION_REQUIRED | required | æ”¯æŒå½“å‰äº‹åŠ¡ã€‚å¦‚æžœ A æ–¹æ³•å·²ç»åœ¨äº‹åŠ¡ä¸­ï¼Œåˆ™ B äº‹åŠ¡å°†ç›´æŽ¥ä½¿ç”¨ã€‚å¦åˆ™å°†åˆ›å»ºæ–°äº‹åŠ¡ |  
+| PROPAGATION_SUPPORTS | supports | æ”¯æŒå½“å‰äº‹åŠ¡ã€‚å¦‚æžœ A æ–¹æ³•å·²ç»åœ¨äº‹åŠ¡ä¸­ï¼Œåˆ™ B äº‹åŠ¡å°†ç›´æŽ¥ä½¿ç”¨ã€‚å¦åˆ™å°†ä»¥éžäº‹åŠ¡çŠ¶æ€æ‰§è¡Œ |  
+| PROPAGATION_MANDATORY | mandatory | æ”¯æŒå½“å‰äº‹åŠ¡ã€‚å¦‚æžœ A æ–¹æ³•æ²¡æœ‰äº‹åŠ¡ï¼Œåˆ™æŠ›å‡ºå¼‚å¸¸ |  
+| PROPAGATION_REQUIRES_NEW | requires_new | å°†åˆ›å»ºæ–°çš„äº‹åŠ¡ï¼Œå¦‚æžœ A æ–¹æ³•å·²ç»åœ¨äº‹åŠ¡ä¸­ï¼Œåˆ™å°† A äº‹åŠ¡æŒ‚èµ· |  
+| PROPAGATION_NOT_SUPPORTED | not_supported | ä¸æ”¯æŒå½“å‰äº‹åŠ¡ï¼Œæ€»æ˜¯ä»¥éžäº‹åŠ¡çŠ¶æ€æ‰§è¡Œã€‚å¦‚æžœ A æ–¹æ³•å·²ç»åœ¨äº‹åŠ¡ä¸­ï¼Œåˆ™å°†å…¶æŒ‚èµ· |  
+| PROPAGATION_NEVER | never | ä¸æ”¯æŒå½“å‰äº‹åŠ¡ï¼Œå¦‚æžœ A æ–¹æ³•åœ¨äº‹åŠ¡ä¸­ï¼Œåˆ™æŠ›å‡ºå¼‚å¸¸ |  
+| PROPAGATION.NESTED | nested | åµŒå¥—äº‹åŠ¡ï¼Œåº•å±‚å°†ä½¿ç”¨ Savepoint å½¢æˆåµŒå¥—äº‹åŠ¡ |  
 
-ÔÚÊÂÎñ¹ÜÀí¹ý³ÌÖÐ£¬´«²¥ÐÐÎª¿ÉÒÔ¿ØÖÆÊÇ·ñÐèÒª´´½¨ÊÂÎñÒÔ¼°ÈçºÎ´´½¨ÊÂÎñ¡£
+åœ¨äº‹åŠ¡ç®¡ç†è¿‡ç¨‹ä¸­ï¼Œä¼ æ’­è¡Œä¸ºå¯ä»¥æŽ§åˆ¶æ˜¯å¦éœ€è¦åˆ›å»ºäº‹åŠ¡ä»¥åŠå¦‚ä½•åˆ›å»ºäº‹åŠ¡ã€‚
 
-Í¨³£Çé¿öÏÂ£¬Êý¾ÝµÄ²éÑ¯²»»á¸Ä±äÔ­Êý¾Ý£¬ËùÒÔ²»ÐèÒª½øÐÐÊÂÎñ¹ÜÀí£¬¶ø¶ÔÓÚÊý¾ÝµÄÔö¼Ó¡¢ÐÞ¸ÄºÍÉ¾³ýµÈ²Ù×÷£¬±ØÐë½øÐÐÊÂÎñ¹ÜÀí¡£Èç¹ûÃ»ÓÐÖ¸¶¨ÊÂÎñµÄ´«²¥ÐÐÎª£¬Ôò Spring3 Ä¬ÈÏµÄ´«²¥ÐÐÎªÊÇ required¡£
+é€šå¸¸æƒ…å†µä¸‹ï¼Œæ•°æ®çš„æŸ¥è¯¢ä¸ä¼šæ”¹å˜åŽŸæ•°æ®ï¼Œæ‰€ä»¥ä¸éœ€è¦è¿›è¡Œäº‹åŠ¡ç®¡ç†ï¼Œè€Œå¯¹äºŽæ•°æ®çš„å¢žåŠ ã€ä¿®æ”¹å’Œåˆ é™¤ç­‰æ“ä½œï¼Œå¿…é¡»è¿›è¡Œäº‹åŠ¡ç®¡ç†ã€‚å¦‚æžœæ²¡æœ‰æŒ‡å®šäº‹åŠ¡çš„ä¼ æ’­è¡Œä¸ºï¼Œåˆ™ Spring3 é»˜è®¤çš„ä¼ æ’­è¡Œä¸ºæ˜¯ requiredã€‚
 
 #### 3\. TransactionStatus
 
-TransactionStatus ½Ó¿ÚÊÇÊÂÎñµÄ×´Ì¬£¬ËüÃèÊöÁËÄ³Ò»Ê±¼äµãÉÏÊÂÎñµÄ×´Ì¬ÐÅÏ¢¡£ÆäÖÐ°üº¬Áù¸ö²Ù×÷£¬¾ßÌåÈç±í 2 ËùÊ¾¡£
+TransactionStatus æŽ¥å£æ˜¯äº‹åŠ¡çš„çŠ¶æ€ï¼Œå®ƒæè¿°äº†æŸä¸€æ—¶é—´ç‚¹ä¸Šäº‹åŠ¡çš„çŠ¶æ€ä¿¡æ¯ã€‚å…¶ä¸­åŒ…å«å…­ä¸ªæ“ä½œï¼Œå…·ä½“å¦‚è¡¨ 2 æ‰€ç¤ºã€‚
 
-<caption>±í 2  ÊÂÎñµÄ²Ù×÷</caption>  
-| Ãû³Æ | ËµÃ÷ |  
+<caption>è¡¨ 2  äº‹åŠ¡çš„æ“ä½œ</caption>  
+| åç§° | è¯´æ˜Ž |  
 | --- | --- |  
-| void flush() | Ë¢ÐÂÊÂÎñ |  
-| boolean hasSavepoint() | »ñÈ¡ÊÇ·ñ´æÔÚ±£´æµã |  
-| boolean isCompleted() | »ñÈ¡ÊÂÎñÊÇ·ñÍê³É |  
-| boolean isNewTransaction() | »ñÈ¡ÊÇ·ñÊÇÐÂÊÂÎñ |  
-| boolean isRollbackOnly() | »ñÈ¡ÊÇ·ñ»Ø¹ö |  
-| void setRollbackOnly() | ÉèÖÃÊÂÎñ»Ø¹ö |  
+| void flush() | åˆ·æ–°äº‹åŠ¡ |  
+| boolean hasSavepoint() | èŽ·å–æ˜¯å¦å­˜åœ¨ä¿å­˜ç‚¹ |  
+| boolean isCompleted() | èŽ·å–äº‹åŠ¡æ˜¯å¦å®Œæˆ |  
+| boolean isNewTransaction() | èŽ·å–æ˜¯å¦æ˜¯æ–°äº‹åŠ¡ |  
+| boolean isRollbackOnly() | èŽ·å–æ˜¯å¦å›žæ»š |  
+| void setRollbackOnly() | è®¾ç½®äº‹åŠ¡å›žæ»š |  
 
-# SpringÉùÃ÷Ê½ÊÂÎñ¹ÜÀí£¨»ùÓÚXML·½Ê½ÊµÏÖ£©
+# Springå£°æ˜Žå¼äº‹åŠ¡ç®¡ç†ï¼ˆåŸºäºŽXMLæ–¹å¼å®žçŽ°ï¼‰
 
-[Spring](http://www.voidme.com/spring) µÄÊÂÎñ¹ÜÀíÓÐÁ½ÖÖ·½Ê½£ºÒ»ÖÖÊÇ´«Í³µÄ±à³ÌÊ½ÊÂÎñ¹ÜÀí£¬¼´Í¨¹ý±àÐ´´úÂëÊµÏÖµÄÊÂÎñ¹ÜÀí£»ÁíÒ»ÖÖÊÇ»ùÓÚ AOP ¼¼ÊõÊµÏÖµÄÉùÃ÷Ê½ÊÂÎñ¹ÜÀí¡£ÓÉÓÚÔÚÊµ¼Ê¿ª·¢ÖÐ£¬±à³ÌÊ½ÊÂÎñ¹ÜÀíºÜÉÙÊ¹ÓÃ£¬ËùÒÔÎÒÃÇÖ»¶Ô Spring µÄÉùÃ÷Ê½ÊÂÎñ¹ÜÀí½øÐÐÏêÏ¸½²½â¡£
+[Spring](http://www.voidme.com/spring) çš„äº‹åŠ¡ç®¡ç†æœ‰ä¸¤ç§æ–¹å¼ï¼šä¸€ç§æ˜¯ä¼ ç»Ÿçš„ç¼–ç¨‹å¼äº‹åŠ¡ç®¡ç†ï¼Œå³é€šè¿‡ç¼–å†™ä»£ç å®žçŽ°çš„äº‹åŠ¡ç®¡ç†ï¼›å¦ä¸€ç§æ˜¯åŸºäºŽ AOP æŠ€æœ¯å®žçŽ°çš„å£°æ˜Žå¼äº‹åŠ¡ç®¡ç†ã€‚ç”±äºŽåœ¨å®žé™…å¼€å‘ä¸­ï¼Œç¼–ç¨‹å¼äº‹åŠ¡ç®¡ç†å¾ˆå°‘ä½¿ç”¨ï¼Œæ‰€ä»¥æˆ‘ä»¬åªå¯¹ Spring çš„å£°æ˜Žå¼äº‹åŠ¡ç®¡ç†è¿›è¡Œè¯¦ç»†è®²è§£ã€‚
 
-Spring ÉùÃ÷Ê½ÊÂÎñ¹ÜÀíÔÚµ×²ã²ÉÓÃÁË AOP ¼¼Êõ£¬Æä×î´óµÄÓÅµãÔÚÓÚÎÞÐëÍ¨¹ý±à³ÌµÄ·½Ê½¹ÜÀíÊÂÎñ£¬Ö»ÐèÒªÔÚÅäÖÃÎÄ¼þÖÐ½øÐÐÏà¹ØµÄ¹æÔòÉùÃ÷£¬¾Í¿ÉÒÔ½«ÊÂÎñ¹æÔòÓ¦ÓÃµ½ÒµÎñÂß¼­ÖÐ¡£
+Spring å£°æ˜Žå¼äº‹åŠ¡ç®¡ç†åœ¨åº•å±‚é‡‡ç”¨äº† AOP æŠ€æœ¯ï¼Œå…¶æœ€å¤§çš„ä¼˜ç‚¹åœ¨äºŽæ— é¡»é€šè¿‡ç¼–ç¨‹çš„æ–¹å¼ç®¡ç†äº‹åŠ¡ï¼Œåªéœ€è¦åœ¨é…ç½®æ–‡ä»¶ä¸­è¿›è¡Œç›¸å…³çš„è§„åˆ™å£°æ˜Žï¼Œå°±å¯ä»¥å°†äº‹åŠ¡è§„åˆ™åº”ç”¨åˆ°ä¸šåŠ¡é€»è¾‘ä¸­ã€‚
 
-Spring ÊµÏÖÉùÃ÷Ê½ÊÂÎñ¹ÜÀíÖ÷ÒªÓÐÁ½ÖÖ·½Ê½£º
+Spring å®žçŽ°å£°æ˜Žå¼äº‹åŠ¡ç®¡ç†ä¸»è¦æœ‰ä¸¤ç§æ–¹å¼ï¼š
 
-*   »ùÓÚ XML ·½Ê½µÄÉùÃ÷Ê½ÊÂÎñ¹ÜÀí¡£
-*   Í¨¹ý Annotation ×¢½â·½Ê½µÄÊÂÎñ¹ÜÀí¡£
+*   åŸºäºŽ XML æ–¹å¼çš„å£°æ˜Žå¼äº‹åŠ¡ç®¡ç†ã€‚
+*   é€šè¿‡ Annotation æ³¨è§£æ–¹å¼çš„äº‹åŠ¡ç®¡ç†ã€‚
 
-±¾½ÚÍ¨¹ýÒøÐÐ×ªÕËµÄ°¸Àý½²½âÈçºÎÊ¹ÓÃ XML µÄ·½Ê½ÊµÏÖ Spring µÄÉùÃ÷Ê½ÊÂÎñ´¦Àí¡£
+æœ¬èŠ‚é€šè¿‡é“¶è¡Œè½¬è´¦çš„æ¡ˆä¾‹è®²è§£å¦‚ä½•ä½¿ç”¨ XML çš„æ–¹å¼å®žçŽ° Spring çš„å£°æ˜Žå¼äº‹åŠ¡å¤„ç†ã€‚
 
-#### 1\. ´´½¨ÏîÄ¿
+#### 1\. åˆ›å»ºé¡¹ç›®
 
-ÔÚ MyEclipse ÖÐ´´½¨Ò»¸öÃûÎª springDemo03 µÄ Web ÏîÄ¿£¬½« Spring Ö§³ÖºÍÒÀÀµµÄ JAR °ü¸´ÖÆµ½ Web ÏîÄ¿µÄ lib Ä¿Â¼ÖÐ£¬²¢Ìí¼Óµ½ÀàÂ·¾¶ÏÂ¡£ËùÌí¼ÓµÄ JAR °üÈçÍ¼ 1 ËùÊ¾¡£
+åœ¨ MyEclipse ä¸­åˆ›å»ºä¸€ä¸ªåä¸º springDemo03 çš„ Web é¡¹ç›®ï¼Œå°† Spring æ”¯æŒå’Œä¾èµ–çš„ JAR åŒ…å¤åˆ¶åˆ° Web é¡¹ç›®çš„ lib ç›®å½•ä¸­ï¼Œå¹¶æ·»åŠ åˆ°ç±»è·¯å¾„ä¸‹ã€‚æ‰€æ·»åŠ çš„ JAR åŒ…å¦‚å›¾ 1 æ‰€ç¤ºã€‚
 
-![ÐèÒªµ¼ÈëµÄJAR°ü](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/761_732_fcf.png)  
-Í¼ 1  ÐèÒªµ¼ÈëµÄJAR°ü
+![éœ€è¦å¯¼å…¥çš„JARåŒ…](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/761_732_fcf.png)  
+å›¾ 1  éœ€è¦å¯¼å…¥çš„JARåŒ…
 
-´ÓÍ¼ 1 ÖÐ¿ÉÒÔ¿´³ö£¬ÕâÀïÔö¼Óµ¼ÈëÁË spring-tx-3.2.13.RELEASE.jar£¨ÊÂÎñ¹ÜÀí£©£¬ÒÔ¼° [MySQL](http://www.voidme.com/mysql) Çý¶¯¡¢JDBC ºÍ C3P0 µÄ JAR °ü¡£
+ä»Žå›¾ 1 ä¸­å¯ä»¥çœ‹å‡ºï¼Œè¿™é‡Œå¢žåŠ å¯¼å…¥äº† spring-tx-3.2.13.RELEASE.jarï¼ˆäº‹åŠ¡ç®¡ç†ï¼‰ï¼Œä»¥åŠ [MySQL](http://www.voidme.com/mysql) é©±åŠ¨ã€JDBC å’Œ C3P0 çš„ JAR åŒ…ã€‚
 
-#### 2\. ´´½¨Êý¾Ý¿â¡¢±íÒÔ¼°²åÈëÊý¾Ý
+#### 2\. åˆ›å»ºæ•°æ®åº“ã€è¡¨ä»¥åŠæ’å…¥æ•°æ®
 
-ÔÚ MySQL ÖÐ´´½¨Ò»¸öÃûÎª spring µÄÊý¾Ý¿â£¬È»ºóÔÚ¸ÃÊý¾Ý¿âÖÐ´´½¨Ò»¸ö account ±í£¬²¢Ïò±íÖÐ²åÈëÁ½ÌõÊý¾Ý£¬Æä SQL Ö´ÐÐÓï¾äÈçÏÂËùÊ¾£º
+åœ¨ MySQL ä¸­åˆ›å»ºä¸€ä¸ªåä¸º spring çš„æ•°æ®åº“ï¼Œç„¶åŽåœ¨è¯¥æ•°æ®åº“ä¸­åˆ›å»ºä¸€ä¸ª account è¡¨ï¼Œå¹¶å‘è¡¨ä¸­æ’å…¥ä¸¤æ¡æ•°æ®ï¼Œå…¶ SQL æ‰§è¡Œè¯­å¥å¦‚ä¸‹æ‰€ç¤ºï¼š
 
 CREATE DATABASE spring;  
 USE spring;  
@@ -99,37 +99,37 @@ money INT DEFAULT NULL
 INSERT INTO account VALUES (1,'zhangsan',1000);  
 INSERT INTO account VALUES (2,'lisi',1000);
 
-Ö´ÐÐºóµÄ account ±íÖÐµÄÊý¾ÝÈçÍ¼ 2 ËùÊ¾¡£
+æ‰§è¡ŒåŽçš„ account è¡¨ä¸­çš„æ•°æ®å¦‚å›¾ 2 æ‰€ç¤ºã€‚
 
-![Ö´ÐÐ½á¹û](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/762_276_8a5.PNG)  
-Í¼ 2  Ö´ÐÐ½á¹û
+![æ‰§è¡Œç»“æžœ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/762_276_8a5.PNG)  
+å›¾ 2  æ‰§è¡Œç»“æžœ
 
-#### 3\. ´´½¨ c3p0-db.properties
+#### 3\. åˆ›å»º c3p0-db.properties
 
-ÔÚÏîÄ¿µÄ src ÏÂ´´½¨Ò»¸öÃûÎª c3p0-db.properties µÄÅäÖÃÎÄ¼þ£¬ÕâÀïÊ¹ÓÃ C3P0 Êý¾ÝÔ´£¬ÐèÒªÔÚ¸ÃÎÄ¼þÖÐÌí¼ÓÈçÏÂÅäÖÃ£º
+åœ¨é¡¹ç›®çš„ src ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º c3p0-db.properties çš„é…ç½®æ–‡ä»¶ï¼Œè¿™é‡Œä½¿ç”¨ C3P0 æ•°æ®æºï¼Œéœ€è¦åœ¨è¯¥æ–‡ä»¶ä¸­æ·»åŠ å¦‚ä¸‹é…ç½®ï¼š
 ````  
 jdbc.driverClass = com.mysql.jdbc.Driver  
 jdbc.jdbcUrl = jdbc:mysql://localhost:3306/spring  
 jdbc.user = root  
 jdbc.password = root  
 ````  
-#### 4\. ÊµÏÖ DAO
+#### 4\. å®žçŽ° DAO
 
-#### 1£©´´½¨ AccountDao ½Ó¿Ú
+#### 1ï¼‰åˆ›å»º AccountDao æŽ¥å£
 
-ÔÚÏîÄ¿µÄ src Ä¿Â¼ÏÂ´´½¨Ò»¸öÃûÎª com.mengma.dao µÄ°ü£¬ÔÚ¸Ã°üÏÂ´´½¨Ò»¸ö½Ó¿Ú AccountDao£¬²¢ÔÚ½Ó¿ÚÖÐ´´½¨»ã¿îºÍÊÕ¿îµÄ·½·¨£¬ÈçÏÂËùÊ¾¡£
+åœ¨é¡¹ç›®çš„ src ç›®å½•ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º com.mengma.dao çš„åŒ…ï¼Œåœ¨è¯¥åŒ…ä¸‹åˆ›å»ºä¸€ä¸ªæŽ¥å£ AccountDaoï¼Œå¹¶åœ¨æŽ¥å£ä¸­åˆ›å»ºæ±‡æ¬¾å’Œæ”¶æ¬¾çš„æ–¹æ³•ï¼Œå¦‚ä¸‹æ‰€ç¤ºã€‚
 ````  
 package com.mengma.dao;  
 public interface AccountDao {  
-    // »ã¿î  
+    // æ±‡æ¬¾  
     public void out(String outUser, int money);  
-    // ÊÕ¿î  
+    // æ”¶æ¬¾  
     public void in(String inUser, int money);} ````  
-ÉÏÊö´úÂëÖÐ£¬¶¨ÒåÁË out() ºÍ in() Á½¸ö·½·¨£¬·Ö±ðÓÃÓÚ±íÊ¾»ã¿îºÍÊÕ¿î¡£  
+ä¸Šè¿°ä»£ç ä¸­ï¼Œå®šä¹‰äº† out() å’Œ in() ä¸¤ä¸ªæ–¹æ³•ï¼Œåˆ†åˆ«ç”¨äºŽè¡¨ç¤ºæ±‡æ¬¾å’Œæ”¶æ¬¾ã€‚  
   
-#### 2£©´´½¨DAO²ã½Ó¿ÚÊµÏÖÀà  
+#### 2ï¼‰åˆ›å»ºDAOå±‚æŽ¥å£å®žçŽ°ç±»  
   
-ÔÚÏîÄ¿µÄ src Ä¿Â¼ÏÂ´´½¨Ò»¸öÃûÎª com.mengma.dao.impl µÄ°ü£¬ÔÚ¸Ã°üÏÂ´´½¨ÊµÏÖÀà AccountDaoImpl£¬ÈçÏÂËùÊ¾¡£  
+åœ¨é¡¹ç›®çš„ src ç›®å½•ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º com.mengma.dao.impl çš„åŒ…ï¼Œåœ¨è¯¥åŒ…ä¸‹åˆ›å»ºå®žçŽ°ç±» AccountDaoImplï¼Œå¦‚ä¸‹æ‰€ç¤ºã€‚  
 ````  
 package com.mengma.dao.impl;
 
@@ -139,26 +139,26 @@ import com.mengma.dao.AccountDao;
 public class AccountDaoImpl implements AccountDao {  
 private JdbcTemplate jdbcTemplate;  
 public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {        this.jdbcTemplate = jdbcTemplate;    }  
-// »ã¿îµÄÊµÏÖ·½·¨  
+// æ±‡æ¬¾çš„å®žçŽ°æ–¹æ³•  
 public void out(String outUser, int money) {        this.jdbcTemplate.update("update account set money =money-?"                + "where username =?", money, outUser);    }  
-// ÊÕ¿îµÄÊµÏÖ·½·¨  
+// æ”¶æ¬¾çš„å®žçŽ°æ–¹æ³•  
 public void in(String inUser, int money) {        this.jdbcTemplate.update("update account set money =money+?"                + "where username =?", money, inUser);    }} ````  
-ÉÏÊö´úÂëÖÐ£¬Ê¹ÓÃ JdbcTemplate ÀàµÄ update() ·½·¨ÊµÏÖÁË¸üÐÂ²Ù×÷¡£
+ä¸Šè¿°ä»£ç ä¸­ï¼Œä½¿ç”¨ JdbcTemplate ç±»çš„ update() æ–¹æ³•å®žçŽ°äº†æ›´æ–°æ“ä½œã€‚
 
-#### 5\. ÊµÏÖ Service
+#### 5\. å®žçŽ° Service
 
-#### 1£©´´½¨ Service ²ã½Ó¿Ú
+#### 1ï¼‰åˆ›å»º Service å±‚æŽ¥å£
 
-ÔÚÏîÄ¿µÄ src Ä¿Â¼ÏÂ´´½¨Ò»¸öÃûÎª com.mengma.service µÄ°ü£¬ÔÚ¸Ã°üÏÂ´´½¨½Ó¿Ú AccountService£¬ÈçÏÂËùÊ¾¡£
+åœ¨é¡¹ç›®çš„ src ç›®å½•ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º com.mengma.service çš„åŒ…ï¼Œåœ¨è¯¥åŒ…ä¸‹åˆ›å»ºæŽ¥å£ AccountServiceï¼Œå¦‚ä¸‹æ‰€ç¤ºã€‚
 ````  
 package com.mengma.service;  
   
 public interface AccountService {  
-    // ×ªÕË  
+    // è½¬è´¦  
     public void transfer(String outUser, String inUser, int money);} ````  
-#### 2£©´´½¨ Service ²ã½Ó¿ÚÊµÏÖÀà  
+#### 2ï¼‰åˆ›å»º Service å±‚æŽ¥å£å®žçŽ°ç±»  
   
-ÔÚÏîÄ¿µÄ src Ä¿Â¼ÏÂ´´½¨Ò»¸öÃûÎª com.mengma.service.impl µÄ°ü£¬ÔÚ¸Ã°üÏÂ´´½¨ÊµÏÖÀà AccountServiceImpl£¬ÈçÏÂËùÊ¾¡£  
+åœ¨é¡¹ç›®çš„ src ç›®å½•ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º com.mengma.service.impl çš„åŒ…ï¼Œåœ¨è¯¥åŒ…ä¸‹åˆ›å»ºå®žçŽ°ç±» AccountServiceImplï¼Œå¦‚ä¸‹æ‰€ç¤ºã€‚  
 ````  
 package com.mengma.service.impl;
 
@@ -168,24 +168,24 @@ public class AccountServiceImpl {
 private AccountDao accountDao;  
 public void setAccountDao(AccountDao accountDao) {        this.accountDao = accountDao;    }  
 public void transfer(String outUser, String inUser, int money) {        this.accountDao.out(outUser, money);        this.accountDao.in(inUser, money);    }} ````  
-ÉÏÊö´úÂëÖÐ¿ÉÒÔ¿´³ö£¬¸ÃÀàÊµÏÖÁË AccountService ½Ó¿Ú£¬²¢¶Ô×ªÕËµÄ·½·¨½øÐÐÁËÊµÏÖ£¬¸ù¾Ý²ÎÊýµÄ²»Í¬µ÷ÓÃ DAO ²ãÏàÓ¦µÄ·½·¨¡£
+ä¸Šè¿°ä»£ç ä¸­å¯ä»¥çœ‹å‡ºï¼Œè¯¥ç±»å®žçŽ°äº† AccountService æŽ¥å£ï¼Œå¹¶å¯¹è½¬è´¦çš„æ–¹æ³•è¿›è¡Œäº†å®žçŽ°ï¼Œæ ¹æ®å‚æ•°çš„ä¸åŒè°ƒç”¨ DAO å±‚ç›¸åº”çš„æ–¹æ³•ã€‚
 
-#### 6\. ´´½¨ Spring ÅäÖÃÎÄ¼þ
+#### 6\. åˆ›å»º Spring é…ç½®æ–‡ä»¶
 
-ÔÚÏîÄ¿µÄ src Ä¿Â¼ÏÂ´´½¨ Spirng ÅäÖÃÎÄ¼þ applicationContext.xml£¬±à¼­ºóÈçÏÂËùÊ¾¡£
+åœ¨é¡¹ç›®çš„ src ç›®å½•ä¸‹åˆ›å»º Spirng é…ç½®æ–‡ä»¶ applicationContext.xmlï¼Œç¼–è¾‘åŽå¦‚ä¸‹æ‰€ç¤ºã€‚
 ````  
  <?xml version="1.0" encoding="UTF-8"?><beans xmlns="http://www.springframework.org/schema/beans"  
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"    xmlns:context="http://www.springframework.org/schema/context"    xmlns:tx="http://www.springframework.org/schema/tx"    xmlns:aop="http://www.springframework.org/schema/aop"    xsi:schemaLocation="http://www.springframework.org/schema/beans            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd            http://www.springframework.org/schema/context  
-            http://www.springframework.org/schema/context/spring-context.xsd            http://www.springframework.org/schema/tx            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd            http://www.springframework.org/schema/aop            http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">    <!-- ¼ÓÔØpropertiesÎÄ¼þ -->    <context:property-placeholder location="classpath:c3p0-db.properties" />    <!-- ÅäÖÃÊý¾ÝÔ´£¬¶ÁÈ¡propertiesÎÄ¼þÐÅÏ¢ -->    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">        <property name="driverClass" value="${jdbc.driverClass}" />        <property name="jdbcUrl" value="${jdbc.jdbcUrl}" />        <property name="user" value="${jdbc.user}" />        <property name="password" value="${jdbc.password}" />    </bean>    <!-- ÅäÖÃjdbcÄ£°å -->    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">        <property name="dataSource" ref="dataSource" />    </bean>    <!-- ÅäÖÃdao -->  
-    <bean id="accountDao" class="com.mengma.dao.impl.AccountDaoImpl">        <property name="jdbcTemplate" ref="jdbcTemplate" />    </bean>    <!-- ÅäÖÃservice -->  
-    <bean id="accountService" class="com.mengma.service.impl.AccountServiceImpl">        <property name="accountDao" ref="accountDao" />    </bean>    <!-- ÊÂÎñ¹ÜÀíÆ÷£¬ÒÀÀµÓÚÊý¾ÝÔ´ -->    <bean id="txManager"        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">        <property name="dataSource" ref="dataSource" />    </bean>    <!-- ±àÐ´Í¨Öª£º¶ÔÊÂÎñ½øÐÐÔöÇ¿£¨Í¨Öª£©£¬ÐèÒª±àÐ´ÇÐÈëµãºÍ¾ßÌåÖ´ÐÐÊÂÎñµÄÏ¸½Ú -->    <tx:advice id="txAdvice" transaction-manager="txManager">        <tx:attributes>            <!-- ¸øÇÐÈëµã·½·¨Ìí¼ÓÊÂÎñÏêÇé£¬name±íÊ¾·½·¨Ãû³Æ£¬*±íÊ¾ÈÎÒâ·½·¨Ãû³Æ£¬propagationÓÃÓÚÉèÖÃ´«²¥ÐÐÎª£¬read-only±íÊ¾¸ôÀë¼¶±ð£¬ÊÇ·ñÖ»¶Á -->            <tx:method name="find*" propagation="SUPPORTS"                rollback-for="Exception" />            <tx:method name="*" propagation="REQUIRED" isolation="DEFAULT"                read-only="false" />        </tx:attributes>    </tx:advice>    <!-- aop±àÐ´£¬ÈÃSpring×Ô¶¯¶ÔÄ¿±êÉú³É´úÀí£¬ÐèÒªÊ¹ÓÃAspectJµÄ±í´ïÊ½ -->    <aop:config>        <!-- ÇÐÈëµã -->        <aop:pointcut expression="execution(* com.mengma.service.*.*(..))"            id="txPointCut" />        <!-- ÇÐÃæ£º½«ÇÐÈëµãÓëÍ¨ÖªÕûºÏ -->        <aop:advisor pointcut-ref="txPointCut" advice-ref="txAdvice" />    </aop:config></beans> ````  
-ÉÏÊö´úÂëÖÐ£¬Ê×ÏÈÔÚ <beans> ±ê¼ÇµÄµÚ 6¡¢13 ºÍ 14 ÐÐ´úÂë·Ö±ðÌí¼ÓÁË AOP ËùÐèµÄÃüÃû¿Õ¼äÉùÃ÷¡£µÚ 42¡«50 ÐÐ´úÂëÊ¹ÓÃ <tx:advice> ±ê¼ÇÅäÖÃÊÂÎñÍ¨ÖªÄÚÈÝ¡£  
+            http://www.springframework.org/schema/context/spring-context.xsd            http://www.springframework.org/schema/tx            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd            http://www.springframework.org/schema/aop            http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">    <!-- åŠ è½½propertiesæ–‡ä»¶ -->    <context:property-placeholder location="classpath:c3p0-db.properties" />    <!-- é…ç½®æ•°æ®æºï¼Œè¯»å–propertiesæ–‡ä»¶ä¿¡æ¯ -->    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">        <property name="driverClass" value="${jdbc.driverClass}" />        <property name="jdbcUrl" value="${jdbc.jdbcUrl}" />        <property name="user" value="${jdbc.user}" />        <property name="password" value="${jdbc.password}" />    </bean>    <!-- é…ç½®jdbcæ¨¡æ¿ -->    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">        <property name="dataSource" ref="dataSource" />    </bean>    <!-- é…ç½®dao -->  
+    <bean id="accountDao" class="com.mengma.dao.impl.AccountDaoImpl">        <property name="jdbcTemplate" ref="jdbcTemplate" />    </bean>    <!-- é…ç½®service -->  
+    <bean id="accountService" class="com.mengma.service.impl.AccountServiceImpl">        <property name="accountDao" ref="accountDao" />    </bean>    <!-- äº‹åŠ¡ç®¡ç†å™¨ï¼Œä¾èµ–äºŽæ•°æ®æº -->    <bean id="txManager"        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">        <property name="dataSource" ref="dataSource" />    </bean>    <!-- ç¼–å†™é€šçŸ¥ï¼šå¯¹äº‹åŠ¡è¿›è¡Œå¢žå¼ºï¼ˆé€šçŸ¥ï¼‰ï¼Œéœ€è¦ç¼–å†™åˆ‡å…¥ç‚¹å’Œå…·ä½“æ‰§è¡Œäº‹åŠ¡çš„ç»†èŠ‚ -->    <tx:advice id="txAdvice" transaction-manager="txManager">        <tx:attributes>            <!-- ç»™åˆ‡å…¥ç‚¹æ–¹æ³•æ·»åŠ äº‹åŠ¡è¯¦æƒ…ï¼Œnameè¡¨ç¤ºæ–¹æ³•åç§°ï¼Œ*è¡¨ç¤ºä»»æ„æ–¹æ³•åç§°ï¼Œpropagationç”¨äºŽè®¾ç½®ä¼ æ’­è¡Œä¸ºï¼Œread-onlyè¡¨ç¤ºéš”ç¦»çº§åˆ«ï¼Œæ˜¯å¦åªè¯» -->            <tx:method name="find*" propagation="SUPPORTS"                rollback-for="Exception" />            <tx:method name="*" propagation="REQUIRED" isolation="DEFAULT"                read-only="false" />        </tx:attributes>    </tx:advice>    <!-- aopç¼–å†™ï¼Œè®©Springè‡ªåŠ¨å¯¹ç›®æ ‡ç”Ÿæˆä»£ç†ï¼Œéœ€è¦ä½¿ç”¨AspectJçš„è¡¨è¾¾å¼ -->    <aop:config>        <!-- åˆ‡å…¥ç‚¹ -->        <aop:pointcut expression="execution(* com.mengma.service.*.*(..))"            id="txPointCut" />        <!-- åˆ‡é¢ï¼šå°†åˆ‡å…¥ç‚¹ä¸Žé€šçŸ¥æ•´åˆ -->        <aop:advisor pointcut-ref="txPointCut" advice-ref="txAdvice" />    </aop:config></beans> ````  
+ä¸Šè¿°ä»£ç ä¸­ï¼Œé¦–å…ˆåœ¨ <beans> æ ‡è®°çš„ç¬¬ 6ã€13 å’Œ 14 è¡Œä»£ç åˆ†åˆ«æ·»åŠ äº† AOP æ‰€éœ€çš„å‘½åç©ºé—´å£°æ˜Žã€‚ç¬¬ 42ï½ž50 è¡Œä»£ç ä½¿ç”¨ <tx:advice> æ ‡è®°é…ç½®äº‹åŠ¡é€šçŸ¥å†…å®¹ã€‚  
   
-µÚ 52¡«58 ÐÐ´úÂëÊ¹ÓÃ  ±ê¼Ç¶¨ÒåÇÐÃæ£¬ÆäÖÐµÚ 54 ÐÐ´úÂëÓ¦ÓÃÁË AspectJ ±í´ïÊ½£¬´ú±í com.mengma.service °üÏÂËùÓÐÀàµÄËùÓÐ·½·¨¶¼Ó¦ÓÃÊÂÎñ¹æÔò£¬µÚ 57 ÐÐ´úÂëÊ¹ÓÃ  ±ê¼Ç½«ÇÐÈëµãÓëÊÂÎñÍ¨ÖªÕûºÏ£¬»ùÓÚ AOP µÄÉùÃ÷Ê½ÊÂÎñÅäÖÃÍê³É¡£  
+ç¬¬ 52ï½ž58 è¡Œä»£ç ä½¿ç”¨  æ ‡è®°å®šä¹‰åˆ‡é¢ï¼Œå…¶ä¸­ç¬¬ 54 è¡Œä»£ç åº”ç”¨äº† AspectJ è¡¨è¾¾å¼ï¼Œä»£è¡¨ com.mengma.service åŒ…ä¸‹æ‰€æœ‰ç±»çš„æ‰€æœ‰æ–¹æ³•éƒ½åº”ç”¨äº‹åŠ¡è§„åˆ™ï¼Œç¬¬ 57 è¡Œä»£ç ä½¿ç”¨  æ ‡è®°å°†åˆ‡å…¥ç‚¹ä¸Žäº‹åŠ¡é€šçŸ¥æ•´åˆï¼ŒåŸºäºŽ AOP çš„å£°æ˜Žå¼äº‹åŠ¡é…ç½®å®Œæˆã€‚  
   
-#### 7\. ´´½¨²âÊÔÀà  
+#### 7\. åˆ›å»ºæµ‹è¯•ç±»  
   
-ÔÚÏîÄ¿µÄ src Ä¿Â¼ÏÂ´´½¨ com.mengma.test µÄ°ü£¬ÔÚ¸Ã°üÏÂ´´½¨²âÊÔÀà AccountTest£¬ÈçÏÂËùÊ¾¡£  
+åœ¨é¡¹ç›®çš„ src ç›®å½•ä¸‹åˆ›å»º com.mengma.test çš„åŒ…ï¼Œåœ¨è¯¥åŒ…ä¸‹åˆ›å»ºæµ‹è¯•ç±» AccountTestï¼Œå¦‚ä¸‹æ‰€ç¤ºã€‚  
 ````  
 package com.mengma.test;  
 import org.junit.Test;  
@@ -193,71 +193,71 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;  
 import com.mengma.service.AccountService;  
 public class AccountTest {  
-@Test    public void test() {        // »ñµÃSpringÈÝÆ÷£¬²¢²Ù×÷  
+@Test    public void test() {        // èŽ·å¾—Springå®¹å™¨ï¼Œå¹¶æ“ä½œ  
 String xmlPath = "applicationContext.xml";        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(                xmlPath);        AccountService accountService = (AccountService) applicationContext                .getBean("accountService");        accountService.transfer("zhangsan", "lisi", 100);    }} ````  
-ÉÏÊö´úÂëÖÐÄ£ÄâÁËÒøÐÐ×ªÕËÒµÎñ£¬´Ó zhangsan µÄÕË»§Ïò lisi µÄÕË»§ÖÐ×ªÈë 100 Ôª¡£Ê¹ÓÃ JUnit ²âÊÔÔËÐÐ test() ·½·¨£¬ÔËÐÐ³É¹¦ºó£¬²éÑ¯ account ±í£¬ÈçÍ¼ 3 ËùÊ¾¡£
+ä¸Šè¿°ä»£ç ä¸­æ¨¡æ‹Ÿäº†é“¶è¡Œè½¬è´¦ä¸šåŠ¡ï¼Œä»Ž zhangsan çš„è´¦æˆ·å‘ lisi çš„è´¦æˆ·ä¸­è½¬å…¥ 100 å…ƒã€‚ä½¿ç”¨ JUnit æµ‹è¯•è¿è¡Œ test() æ–¹æ³•ï¼Œè¿è¡ŒæˆåŠŸåŽï¼ŒæŸ¥è¯¢ account è¡¨ï¼Œå¦‚å›¾ 3 æ‰€ç¤ºã€‚
 
-´ÓÍ¼ 3 µÄ²éÑ¯½á¹ûÖÐ¿ÉÒÔ¿´³ö£¬zhangsan ³É¹¦Ïò lisi ×ªÕË 100 Ôª¡£
+ä»Žå›¾ 3 çš„æŸ¥è¯¢ç»“æžœä¸­å¯ä»¥çœ‹å‡ºï¼Œzhangsan æˆåŠŸå‘ lisi è½¬è´¦ 100 å…ƒã€‚
 
-![²éÑ¯½á¹û](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/763_9ae_de5.PNG)  
-Í¼ 3  ²éÑ¯½á¹û
+![æŸ¥è¯¢ç»“æžœ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/763_9ae_de5.PNG)  
+å›¾ 3  æŸ¥è¯¢ç»“æžœ
 
-ÏÂÃæÍ¨¹ýÐÞ¸Ä°¸ÀýÄ£Äâ×ªÕËÊ§°ÜµÄÇé¿ö£¬ÔÚµÄ transfer() ·½·¨ÖÐÌí¼ÓÒ»ÐÐ´úÂë¡°int i=1/0£»¡±Ä£ÄâÏµÍ³¶ÏµçµÄÇé¿ö£¬¾ßÌå´úÂëÈçÏÂËùÊ¾£º
+ä¸‹é¢é€šè¿‡ä¿®æ”¹æ¡ˆä¾‹æ¨¡æ‹Ÿè½¬è´¦å¤±è´¥çš„æƒ…å†µï¼Œåœ¨çš„ transfer() æ–¹æ³•ä¸­æ·»åŠ ä¸€è¡Œä»£ç â€œint i=1/0ï¼›â€æ¨¡æ‹Ÿç³»ç»Ÿæ–­ç”µçš„æƒ…å†µï¼Œå…·ä½“ä»£ç å¦‚ä¸‹æ‰€ç¤ºï¼š
 ````  
- public void transfer(String outUser, String inUser, int money) {    this.accountDao.out(outUser, money);    //Ä£Äâ¶Ïµç  
+ public void transfer(String outUser, String inUser, int money) {    this.accountDao.out(outUser, money);    //æ¨¡æ‹Ÿæ–­ç”µ  
     int i = 1/0;    this.accountDao.in(inUser, money);
  } 
 ````  
     
-ÖØÐÂ²âÊÔÔËÐÐ test() ·½·¨£¬JUnit ¿ØÖÆÌ¨Êä³öµÄÐÅÏ¢ÈçÍ¼ 4 ËùÊ¾¡£  
+é‡æ–°æµ‹è¯•è¿è¡Œ test() æ–¹æ³•ï¼ŒJUnit æŽ§åˆ¶å°è¾“å‡ºçš„ä¿¡æ¯å¦‚å›¾ 4 æ‰€ç¤ºã€‚  
   
-![¿ØÖÆÌ¨Êä³ö½á¹û](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/764_7a3_f52.png)  
-Í¼ 4  ¿ØÖÆÌ¨Êä³ö½á¹û  
+![æŽ§åˆ¶å°è¾“å‡ºç»“æžœ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/764_7a3_f52.png)  
+å›¾ 4  æŽ§åˆ¶å°è¾“å‡ºç»“æžœ  
   
-´ÓÍ¼ 4 ÖÐ¿ÉÒÔ¿´³ö£¬ÔÚÖ´ÐÐ²âÊÔ·½·¨Ê±£¬³öÏÖÁË³ýÒÔ 0 µÄÒì³£ÐÅÏ¢¡£´ËÊ±ÔÙ´Î²éÑ¯ account ±í£¬Æä²éÑ¯½á¹ûÈçÍ¼ 5 ËùÊ¾¡£  
+ä»Žå›¾ 4 ä¸­å¯ä»¥çœ‹å‡ºï¼Œåœ¨æ‰§è¡Œæµ‹è¯•æ–¹æ³•æ—¶ï¼Œå‡ºçŽ°äº†é™¤ä»¥ 0 çš„å¼‚å¸¸ä¿¡æ¯ã€‚æ­¤æ—¶å†æ¬¡æŸ¥è¯¢ account è¡¨ï¼Œå…¶æŸ¥è¯¢ç»“æžœå¦‚å›¾ 5 æ‰€ç¤ºã€‚  
   
-´ÓÍ¼ 5 µÄ²éÑ¯½á¹ûÖÐ¿ÉÒÔ¿´³ö£¬±íÖÐµÄÊý¾Ý²¢Ã»ÓÐ·¢Éú±ä»¯¡£ÓÉÓÚ³ÌÐòÔÚÖ´ÐÐ¹ý³ÌÖÐÅ×³öÁËÒì³££¬ÊÂÎñ²»ÄÜÕý³£±»Ìá½»£¬ËùÒÔ×ªÕËÊ§°Ü¡£ÓÉ´Ë¿ÉÖª£¬Spring µÄÊÂÎñ¹ÜÀíÉúÐ§ÁË¡£  
+ä»Žå›¾ 5 çš„æŸ¥è¯¢ç»“æžœä¸­å¯ä»¥çœ‹å‡ºï¼Œè¡¨ä¸­çš„æ•°æ®å¹¶æ²¡æœ‰å‘ç”Ÿå˜åŒ–ã€‚ç”±äºŽç¨‹åºåœ¨æ‰§è¡Œè¿‡ç¨‹ä¸­æŠ›å‡ºäº†å¼‚å¸¸ï¼Œäº‹åŠ¡ä¸èƒ½æ­£å¸¸è¢«æäº¤ï¼Œæ‰€ä»¥è½¬è´¦å¤±è´¥ã€‚ç”±æ­¤å¯çŸ¥ï¼ŒSpring çš„äº‹åŠ¡ç®¡ç†ç”Ÿæ•ˆäº†ã€‚  
   
-![²éÑ¯½á¹û](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/763_9ae_de5.PNG)  
-Í¼ 5  ²éÑ¯½á¹û  
+![æŸ¥è¯¢ç»“æžœ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/763_9ae_de5.PNG)  
+å›¾ 5  æŸ¥è¯¢ç»“æžœ  
   
-# SpringÉùÃ÷Ê½ÊÂÎñ¹ÜÀí£¨»ùÓÚAnnotation×¢½â·½Ê½ÊµÏÖ£©  
+# Springå£°æ˜Žå¼äº‹åŠ¡ç®¡ç†ï¼ˆåŸºäºŽAnnotationæ³¨è§£æ–¹å¼å®žçŽ°ï¼‰  
   
-ÔÚ [Spring](http://www.voidme.com/spring) ÖÐ£¬³ýÁËÊ¹ÓÃ»ùÓÚ XML µÄ·½Ê½¿ÉÒÔÊµÏÖÉùÃ÷Ê½ÊÂÎñ¹ÜÀíÒÔÍâ£¬»¹¿ÉÒÔÍ¨¹ý Annotation ×¢½âµÄ·½Ê½ÊµÏÖÉùÃ÷Ê½ÊÂÎñ¹ÜÀí¡£  
+åœ¨ [Spring](http://www.voidme.com/spring) ä¸­ï¼Œé™¤äº†ä½¿ç”¨åŸºäºŽ XML çš„æ–¹å¼å¯ä»¥å®žçŽ°å£°æ˜Žå¼äº‹åŠ¡ç®¡ç†ä»¥å¤–ï¼Œè¿˜å¯ä»¥é€šè¿‡ Annotation æ³¨è§£çš„æ–¹å¼å®žçŽ°å£°æ˜Žå¼äº‹åŠ¡ç®¡ç†ã€‚  
   
-Ê¹ÓÃ Annotation µÄ·½Ê½·Ç³£¼òµ¥£¬Ö»ÐèÒªÔÚÏîÄ¿ÖÐ×öÁ½¼þÊÂ£¬¾ßÌåÈçÏÂ¡£  
+ä½¿ç”¨ Annotation çš„æ–¹å¼éžå¸¸ç®€å•ï¼Œåªéœ€è¦åœ¨é¡¹ç›®ä¸­åšä¸¤ä»¶äº‹ï¼Œå…·ä½“å¦‚ä¸‹ã€‚  
   
-#### 1£©ÔÚ Spring ÈÝÆ÷ÖÐ×¢²áÇý¶¯£¬´úÂëÈçÏÂËùÊ¾£º  
+#### 1ï¼‰åœ¨ Spring å®¹å™¨ä¸­æ³¨å†Œé©±åŠ¨ï¼Œä»£ç å¦‚ä¸‹æ‰€ç¤ºï¼š  
 ````  
 <tx:annotation-driven transaction-manager="txManager"/>
 ````  
-#### 2£©ÔÚÐèÒªÊ¹ÓÃÊÂÎñµÄÒµÎñÀà»òÕß·½·¨ÖÐÌí¼Ó×¢½â @Transactional£¬²¢ÅäÖÃ @Transactional µÄ²ÎÊý¡£¹ØÓÚ @Transactional µÄ²ÎÊýÈçÍ¼ 1 ËùÊ¾¡£  
+#### 2ï¼‰åœ¨éœ€è¦ä½¿ç”¨äº‹åŠ¡çš„ä¸šåŠ¡ç±»æˆ–è€…æ–¹æ³•ä¸­æ·»åŠ æ³¨è§£ @Transactionalï¼Œå¹¶é…ç½® @Transactional çš„å‚æ•°ã€‚å…³äºŽ @Transactional çš„å‚æ•°å¦‚å›¾ 1 æ‰€ç¤ºã€‚  
   
-![@Transactional²ÎÊýÁÐ±í](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/765_7af_ff7.png)  
-Í¼ 1  @Transactional²ÎÊýÁÐ±í  
+![@Transactionalå‚æ•°åˆ—è¡¨](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/765_7af_ff7.png)  
+å›¾ 1  @Transactionalå‚æ•°åˆ—è¡¨  
   
-ÏÂÃæÍ¨¹ýÐÞ¸Ä¡¶ [Spring»ùÓÚXMLÊµÏÖÊÂÎñ¹ÜÀí](http://www.voidme.com/spring/spring-transaction-management-by-xml)¡·½Ì³ÌÖÐÒøÐÐ×ªÕËµÄ°¸Àý½²½âÈçºÎÊ¹ÓÃ Annotation ×¢½âµÄ·½Ê½ÊµÏÖ Spring ÉùÃ÷Ê½ÊÂÎñ¹ÜÀí¡£  
+ä¸‹é¢é€šè¿‡ä¿®æ”¹ã€Š [SpringåŸºäºŽXMLå®žçŽ°äº‹åŠ¡ç®¡ç†](http://www.voidme.com/spring/spring-transaction-management-by-xml)ã€‹æ•™ç¨‹ä¸­é“¶è¡Œè½¬è´¦çš„æ¡ˆä¾‹è®²è§£å¦‚ä½•ä½¿ç”¨ Annotation æ³¨è§£çš„æ–¹å¼å®žçŽ° Spring å£°æ˜Žå¼äº‹åŠ¡ç®¡ç†ã€‚  
   
-#### 1\. ×¢²áÇý¶¯  
+#### 1\. æ³¨å†Œé©±åŠ¨  
   
-ÐÞ¸Ä Spring ÅäÖÃÎÄ¼þ applicationContext.xml£¬ÐÞ¸ÄºóÈçÏÂËùÊ¾¡£  
+ä¿®æ”¹ Spring é…ç½®æ–‡ä»¶ applicationContext.xmlï¼Œä¿®æ”¹åŽå¦‚ä¸‹æ‰€ç¤ºã€‚  
 
 
 ````  
 <?xml version="1.0" encoding="UTF-8"?>  
 <beans xmlns="http://www.springframework.org/schema/beans"  
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"    xmlns:context="http://www.springframework.org/schema/context"    xmlns:tx="http://www.springframework.org/schema/tx"    xmlns:aop="http://www.springframework.org/schema/aop"    xsi:schemaLocation="http://www.springframework.org/schema/beans            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd            http://www.springframework.org/schema/context  
-http://www.springframework.org/schema/context/spring-context.xsd            http://www.springframework.org/schema/tx            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd            http://www.springframework.org/schema/aop            http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">    <!-- ¼ÓÔØpropertiesÎÄ¼þ -->    <context:property-placeholder location="classpath:c3p0-db.properties" />    <!-- ÅäÖÃÊý¾ÝÔ´£¬¶ÁÈ¡propertiesÎÄ¼þÐÅÏ¢ -->    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">        <property name="driverClass" value="${jdbc.driverClass}" />        <property name="jdbcUrl" value="${jdbc.jdbcUrl}" />        <property name="user" value="${jdbc.user}" />        <property name="password" value="${jdbc.password}" />    </bean>    <!-- ÅäÖÃjdbcÄ£°å -->    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">        <property name="dataSource" ref="dataSource" />    </bean>    <!-- ÅäÖÃdao -->  
-<bean id="accountDao" class="com.mengma.dao.impl.AccountDaoImpl">        <property name="jdbcTemplate" ref="jdbcTemplate" />    </bean>    <!-- ÅäÖÃservice -->  
-<bean id="accountService" class="com.mengma.service.impl.AccountServiceImpl">        <property name="accountDao" ref="accountDao" />    </bean>    <!-- ÊÂÎñ¹ÜÀíÆ÷£¬ÒÀÀµÓÚÊý¾ÝÔ´ -->    <bean id="txManager"        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">        <property name="dataSource" ref="dataSource" />    </bean>    <!-- ×¢²áÊÂÎñ¹ÜÀíÇý¶¯ -->    <tx:annotation-driven transaction-manager="txManager"/></beans> ````  
+http://www.springframework.org/schema/context/spring-context.xsd            http://www.springframework.org/schema/tx            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd            http://www.springframework.org/schema/aop            http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">    <!-- åŠ è½½propertiesæ–‡ä»¶ -->    <context:property-placeholder location="classpath:c3p0-db.properties" />    <!-- é…ç½®æ•°æ®æºï¼Œè¯»å–propertiesæ–‡ä»¶ä¿¡æ¯ -->    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">        <property name="driverClass" value="${jdbc.driverClass}" />        <property name="jdbcUrl" value="${jdbc.jdbcUrl}" />        <property name="user" value="${jdbc.user}" />        <property name="password" value="${jdbc.password}" />    </bean>    <!-- é…ç½®jdbcæ¨¡æ¿ -->    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">        <property name="dataSource" ref="dataSource" />    </bean>    <!-- é…ç½®dao -->  
+<bean id="accountDao" class="com.mengma.dao.impl.AccountDaoImpl">        <property name="jdbcTemplate" ref="jdbcTemplate" />    </bean>    <!-- é…ç½®service -->  
+<bean id="accountService" class="com.mengma.service.impl.AccountServiceImpl">        <property name="accountDao" ref="accountDao" />    </bean>    <!-- äº‹åŠ¡ç®¡ç†å™¨ï¼Œä¾èµ–äºŽæ•°æ®æº -->    <bean id="txManager"        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">        <property name="dataSource" ref="dataSource" />    </bean>    <!-- æ³¨å†Œäº‹åŠ¡ç®¡ç†é©±åŠ¨ -->    <tx:annotation-driven transaction-manager="txManager"/></beans> ````  
 ````
-ÉÏÊö´úÂëÖÐ¿ÉÒÔ¿´³ö£¬ÓëÔ­À´µÄÅäÖÃÎÄ¼þÏà±È£¬ÕâÀïÖ»ÐÞ¸ÄÁËÊÂÎñ¹ÜÀíÆ÷²¿·Ö£¬ÐÂÌí¼Ó²¢×¢²áÁËÊÂÎñ¹ÜÀíÆ÷µÄÇý¶¯¡£
+ä¸Šè¿°ä»£ç ä¸­å¯ä»¥çœ‹å‡ºï¼Œä¸ŽåŽŸæ¥çš„é…ç½®æ–‡ä»¶ç›¸æ¯”ï¼Œè¿™é‡Œåªä¿®æ”¹äº†äº‹åŠ¡ç®¡ç†å™¨éƒ¨åˆ†ï¼Œæ–°æ·»åŠ å¹¶æ³¨å†Œäº†äº‹åŠ¡ç®¡ç†å™¨çš„é©±åŠ¨ã€‚
 
-ÐèÒª×¢ÒâµÄÊÇ£¬ÔÚÑ§Ï° AOP ×¢½â·½Ê½¿ª·¢Ê±£¬ÐèÒªÔÚÅäÖÃÎÄ¼þÖÐ¿ªÆô×¢½â´¦ÀíÆ÷£¬Ö¸¶¨É¨ÃèÄÄÐ©°üÏÂµÄ×¢½â£¬ÕâÀïÃ»ÓÐ¿ªÆô×¢½â´¦ÀíÆ÷ÊÇÒòÎªÔÚµÚ 33¡«35 ÐÐÊÖ¶¯ÅäÖÃÁË AccountServiceImpl£¬¶ø @Transactional ×¢½â¾ÍÅäÖÃÔÚ¸ÃÀàÖÐ£¬ËùÒÔ»áÖ±½ÓÉúÐ§¡£
+éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œåœ¨å­¦ä¹  AOP æ³¨è§£æ–¹å¼å¼€å‘æ—¶ï¼Œéœ€è¦åœ¨é…ç½®æ–‡ä»¶ä¸­å¼€å¯æ³¨è§£å¤„ç†å™¨ï¼ŒæŒ‡å®šæ‰«æå“ªäº›åŒ…ä¸‹çš„æ³¨è§£ï¼Œè¿™é‡Œæ²¡æœ‰å¼€å¯æ³¨è§£å¤„ç†å™¨æ˜¯å› ä¸ºåœ¨ç¬¬ 33ï½ž35 è¡Œæ‰‹åŠ¨é…ç½®äº† AccountServiceImplï¼Œè€Œ @Transactional æ³¨è§£å°±é…ç½®åœ¨è¯¥ç±»ä¸­ï¼Œæ‰€ä»¥ä¼šç›´æŽ¥ç”Ÿæ•ˆã€‚
 
-#### 2\. Ìí¼Ó @Transactional ×¢½â
+#### 2\. æ·»åŠ  @Transactional æ³¨è§£
 
-ÐÞ¸Ä AccountServiceImpl£¬ÔÚÎÄ¼þÖÐÌí¼Ó @Transactional ×¢½â¼°²ÎÊý£¬Ìí¼ÓºóÈçÏÂËùÊ¾¡£
+ä¿®æ”¹ AccountServiceImplï¼Œåœ¨æ–‡ä»¶ä¸­æ·»åŠ  @Transactional æ³¨è§£åŠå‚æ•°ï¼Œæ·»åŠ åŽå¦‚ä¸‹æ‰€ç¤ºã€‚
 ````  
 package com.mengma.service.impl;  
   
@@ -271,19 +271,19 @@ import com.mengma.dao.AccountDao;
 public class AccountServiceImpl {  
     private AccountDao accountDao;  
     public void setAccountDao(AccountDao accountDao) {        this.accountDao = accountDao;    }  
-    public void transfer(String outUser, String inUser, int money) {        this.accountDao.out(outUser, money);        // Ä£Äâ¶Ïµç  
+    public void transfer(String outUser, String inUser, int money) {        this.accountDao.out(outUser, money);        // æ¨¡æ‹Ÿæ–­ç”µ  
         int i = 1 / 0;        this.accountDao.in(inUser, money);    
 }}
 ````
 
-ÐèÒª×¢ÒâµÄÊÇ£¬ÔÚÊ¹ÓÃ @Transactional ×¢½âÊ±£¬²ÎÊýÖ®¼äÓÃ¡°£¬¡±½øÐÐ·Ö¸ô¡£  
+éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œåœ¨ä½¿ç”¨ @Transactional æ³¨è§£æ—¶ï¼Œå‚æ•°ä¹‹é—´ç”¨â€œï¼Œâ€è¿›è¡Œåˆ†éš”ã€‚  
   
-Ê¹ÓÃ JUnit ²âÊÔÔÙ´ÎÔËÐÐ test() ·½·¨Ê±£¬¿ØÖÆÌ¨Í¬Ñù»áÊä³öÈçÍ¼ 2 ËùÊ¾µÄÒì³£ÐÅÏ¢£¬ÕâËµÃ÷Ê¹ÓÃ»ùÓÚ Annotation ×¢½âµÄ·½Ê½Í¬ÑùÊµÏÖÁË Spring µÄÉùÃ÷Ê½ÊÂÎñ¹ÜÀí¡£Èç¹û×¢ÊÍµôÄ£Äâ¶ÏµçµÄ´úÂë½øÐÐ²âÊÔ£¬Ôò×ªÕË²Ù×÷¿ÉÒÔÕý³£Íê³É¡£  
+ä½¿ç”¨ JUnit æµ‹è¯•å†æ¬¡è¿è¡Œ test() æ–¹æ³•æ—¶ï¼ŒæŽ§åˆ¶å°åŒæ ·ä¼šè¾“å‡ºå¦‚å›¾ 2 æ‰€ç¤ºçš„å¼‚å¸¸ä¿¡æ¯ï¼Œè¿™è¯´æ˜Žä½¿ç”¨åŸºäºŽ Annotation æ³¨è§£çš„æ–¹å¼åŒæ ·å®žçŽ°äº† Spring çš„å£°æ˜Žå¼äº‹åŠ¡ç®¡ç†ã€‚å¦‚æžœæ³¨é‡ŠæŽ‰æ¨¡æ‹Ÿæ–­ç”µçš„ä»£ç è¿›è¡Œæµ‹è¯•ï¼Œåˆ™è½¬è´¦æ“ä½œå¯ä»¥æ­£å¸¸å®Œæˆã€‚  
   
-![ÔËÐÐ½á¹û](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/764_7a3_f52.png)  
-Í¼ 2  ÔËÐÐ½á¹û  
+![è¿è¡Œç»“æžœ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/764_7a3_f52.png)  
+å›¾ 2  è¿è¡Œç»“æžœ  
   
-# ²Î¿¼ÎÄÕÂ  
+# å‚è€ƒæ–‡ç«   
 https://www.w3cschool.cn/wkspring  
 https://www.runoob.com/w3cnote/basic-knowledge-summary-of-spring.html  
 http://codepub.cn/2015/06/21/Basic-knowledge-summary-of-Spring  

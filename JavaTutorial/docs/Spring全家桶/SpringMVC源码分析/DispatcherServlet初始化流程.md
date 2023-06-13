@@ -1,21 +1,21 @@
-ÔÚ[ÉÏÒ»ÆªÎÄÕÂ](https://my.oschina.net/funcy/blog/4696657 "ÉÏÒ»ÆªÎÄÕÂ")ÖĞ£¬ÎÒÃÇÍ¨¹ıÒ»¸ö¼òµ¥µÄ demo ³É¹¦Æô¶¯ÁË springmvc Ó¦ÓÃ£¬ÔÚÌá¹©µÄ demo ÖĞ£¬ÎÒÃÇÖªµÀ tomcat ÔÚÆô¶¯Ê±»áµ÷ÓÃ `MyWebApplicationInitializer#onStartup` ·½·¨£¬È»ºóÆô¶¯ spring ÈİÆ÷¡£ÄÇÃ´ tomcat ¾¿¾¹ÊÇÈçºÎÆô¶¯ spring µÄÄØ£¿
+åœ¨[ä¸Šä¸€ç¯‡æ–‡ç« ](https://my.oschina.net/funcy/blog/4696657 "ä¸Šä¸€ç¯‡æ–‡ç« ")ä¸­ï¼Œæˆ‘ä»¬é€šè¿‡ä¸€ä¸ªç®€å•çš„ demo æˆåŠŸå¯åŠ¨äº† springmvc åº”ç”¨ï¼Œåœ¨æä¾›çš„ demo ä¸­ï¼Œæˆ‘ä»¬çŸ¥é“ tomcat åœ¨å¯åŠ¨æ—¶ä¼šè°ƒç”¨ `MyWebApplicationInitializer#onStartup` æ–¹æ³•ï¼Œç„¶åå¯åŠ¨ spring å®¹å™¨ã€‚é‚£ä¹ˆ tomcat ç©¶ç«Ÿæ˜¯å¦‚ä½•å¯åŠ¨ spring çš„å‘¢ï¼Ÿ
 
-### 1\. servlet ³õÊ¼»¯£º`DispatcherServlet#init`
+### 1\. servlet åˆå§‹åŒ–ï¼š`DispatcherServlet#init`
 
-ÎÒÃÇÔÙ»ØÒäÏÂ `MyWebApplicationInitializer#onStartup` ·½·¨£º
+æˆ‘ä»¬å†å›å¿†ä¸‹ `MyWebApplicationInitializer#onStartup` æ–¹æ³•ï¼š
 
 ```
 @Override
 public void onStartup(ServletContext servletContext) {
    System.out.println("webApplicationInitializer ...");
-   // ´´½¨ spring µÄ applicationContext
+   // åˆ›å»º spring çš„ applicationContext
    AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
    context.register(MvcConfig.class);
 
-   // ÊµÀı»¯ DispatcherServlet
+   // å®ä¾‹åŒ– DispatcherServlet
    DispatcherServlet servlet = new DispatcherServlet(context);
 
-   // ½«DispatcherServlet×¢²áµ½servletÈİÆ÷
+   // å°†DispatcherServletæ³¨å†Œåˆ°servletå®¹å™¨
    ServletRegistration.Dynamic registration = servletContext.addServlet("app", servlet);
    registration.setLoadOnStartup(1);
    registration.addMapping("/*");
@@ -23,15 +23,15 @@ public void onStartup(ServletContext servletContext) {
 
 ```
 
-Õâ¶Î´úÂëÏÈ×¼±¸ÁËÒ»¸ö `AnnotationConfigWebApplicationContext`£¬½«Æä×÷Îª²ÎÊı´«Èë `DispatcherServlet` ÖĞ£¬È»ºóÍù servlet ÈİÆ÷ÖĞÌí¼Ó `DispatcherServlet`¡£ÕâÑù£¬servlet ÈİÆ÷ÔÚÆô¶¯Ê±£¬¾Í»áÆô¶¯ spring ÈİÆ÷ÁË¡£ÕâÀï×îÖØÒªµÄ¾ÍÊÇ `DispatcherServlet`£¬½ÓÏÂÀ´ÎÒÃÇ¾ÍÀ´·ÖÎöÕâ¸ö servlet.
+è¿™æ®µä»£ç å…ˆå‡†å¤‡äº†ä¸€ä¸ª `AnnotationConfigWebApplicationContext`ï¼Œå°†å…¶ä½œä¸ºå‚æ•°ä¼ å…¥ `DispatcherServlet` ä¸­ï¼Œç„¶åå¾€ servlet å®¹å™¨ä¸­æ·»åŠ  `DispatcherServlet`ã€‚è¿™æ ·ï¼Œservlet å®¹å™¨åœ¨å¯åŠ¨æ—¶ï¼Œå°±ä¼šå¯åŠ¨ spring å®¹å™¨äº†ã€‚è¿™é‡Œæœ€é‡è¦çš„å°±æ˜¯ `DispatcherServlet`ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬å°±æ¥åˆ†æè¿™ä¸ª servlet.
 
-ÎÒÃÇÏÈÀ´¿´ÏÂ `DispatcherServlet` µÄ¼Ì³Ğ½á¹¹£º
+æˆ‘ä»¬å…ˆæ¥çœ‹ä¸‹ `DispatcherServlet` çš„ç»§æ‰¿ç»“æ„ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-1df54493011b3fc9cb9cafbb944f1a88256.png)
 
-´ÓÉÏÍ¼¿ÉÒÔ¿´µ½£¬spring Ìá¹©µÄ¡¢¸ú servlet Ïà¹ØµÄÀàÓĞÈı¸ö£º`HttpServletBean`¡¢`FrameworkServlet` Óë `DispatcherServlet`¡£×÷Îª servlet£¬ÎÒÃÇÖªµÀÆä³õÊ¼»¯·½·¨Îª `GenericServlet#init()`£¬Ò²¾ÍÊÇ servlet µÄÈë¿Ú·½·¨£¬ÎÒÃÇµÄ·ÖÎöÒ²½«´ÓÕâÀï¿ªÊ¼¡£
+ä»ä¸Šå›¾å¯ä»¥çœ‹åˆ°ï¼Œspring æä¾›çš„ã€è·Ÿ servlet ç›¸å…³çš„ç±»æœ‰ä¸‰ä¸ªï¼š`HttpServletBean`ã€`FrameworkServlet` ä¸ `DispatcherServlet`ã€‚ä½œä¸º servletï¼Œæˆ‘ä»¬çŸ¥é“å…¶åˆå§‹åŒ–æ–¹æ³•ä¸º `GenericServlet#init()`ï¼Œä¹Ÿå°±æ˜¯ servlet çš„å…¥å£æ–¹æ³•ï¼Œæˆ‘ä»¬çš„åˆ†æä¹Ÿå°†ä»è¿™é‡Œå¼€å§‹ã€‚
 
-ÓÉÓÚ `DispatcherServlet` ÊµÏÖÁË `HttpServletBean`¡¢`FrameworkServlet`£¬`DispatcherServlet#init()` Êµ¼ÊÉÏ¼Ì³Ğ×Ô `HttpServletBean#init`£º
+ç”±äº `DispatcherServlet` å®ç°äº† `HttpServletBean`ã€`FrameworkServlet`ï¼Œ`DispatcherServlet#init()` å®é™…ä¸Šç»§æ‰¿è‡ª `HttpServletBean#init`ï¼š
 
 ```
 @Override
@@ -51,13 +51,13 @@ public final void init() throws ServletException {
         }
     }
 
-    // ³õÊ¼»¯ servlet bean£¬springµÄÏà¹ØÅäÖÃ¾ÍÊÇÔÚÕâÀï½øĞĞµÄ
+    // åˆå§‹åŒ– servlet beanï¼Œspringçš„ç›¸å…³é…ç½®å°±æ˜¯åœ¨è¿™é‡Œè¿›è¡Œçš„
     initServletBean();
 }
 
 ```
 
-¿ÉÒÔ¿´µ½£¬Õâ¸ö·½·¨¼ÓÔØÁËÒ»Ğ©ÅäÖÃ£¬È»ºó¾Íµ÷ÓÃÁË `initServletBean`£¬²¢Ã»ÓĞ×öÒ»Ğ© spring ÊµÖÊĞÔµÄÄÚÈİ¡£ÎÒÃÇ¼ÌĞø¸ú½ø£¬Ìø¹ıÆäÖĞ²»ÖØÒªµÄ·½·¨£¬µ÷ÓÃÁ´Â·ÈçÏÂ£º
+å¯ä»¥çœ‹åˆ°ï¼Œè¿™ä¸ªæ–¹æ³•åŠ è½½äº†ä¸€äº›é…ç½®ï¼Œç„¶åå°±è°ƒç”¨äº† `initServletBean`ï¼Œå¹¶æ²¡æœ‰åšä¸€äº› spring å®è´¨æ€§çš„å†…å®¹ã€‚æˆ‘ä»¬ç»§ç»­è·Ÿè¿›ï¼Œè·³è¿‡å…¶ä¸­ä¸é‡è¦çš„æ–¹æ³•ï¼Œè°ƒç”¨é“¾è·¯å¦‚ä¸‹ï¼š
 
 ```
 -HttpServletBean#init
@@ -66,18 +66,18 @@ public final void init() throws ServletException {
 
 ```
 
-Ò»Ö±¸úµ½ `FrameworkServlet#initWebApplicationContext`£º
+ä¸€ç›´è·Ÿåˆ° `FrameworkServlet#initWebApplicationContext`ï¼š
 
 ```
 protected WebApplicationContext initWebApplicationContext() {
-    // »ñÈ¡ÀàĞÍÎªWebServerApplicationContextµÄ¸¸ÈİÆ÷£¬ÕâÀïµÃµ½µÄ½á¹ûÎªnull
+    // è·å–ç±»å‹ä¸ºWebServerApplicationContextçš„çˆ¶å®¹å™¨ï¼Œè¿™é‡Œå¾—åˆ°çš„ç»“æœä¸ºnull
     WebApplicationContext rootContext =
             WebApplicationContextUtils.getWebApplicationContext(getServletContext());
     WebApplicationContext wac = null;
 
     if (this.webApplicationContext != null) {
-        // Õâ¸öwebApplicationContext£¬¾ÍÊÇÔÚMyWebApplicationInitializer#onStart·½·¨ÖĞ
-        // ´«ÈëµÄAnnotationConfigWebApplicationContext
+        // è¿™ä¸ªwebApplicationContextï¼Œå°±æ˜¯åœ¨MyWebApplicationInitializer#onStartæ–¹æ³•ä¸­
+        // ä¼ å…¥çš„AnnotationConfigWebApplicationContext
         wac = this.webApplicationContext;
         if (wac instanceof ConfigurableWebApplicationContext) {
             ConfigurableWebApplicationContext cwac = (ConfigurableWebApplicationContext) wac;
@@ -85,34 +85,34 @@ protected WebApplicationContext initWebApplicationContext() {
                 if (cwac.getParent() == null) {
                     cwac.setParent(rootContext);
                 }
-                // ÔÚÕâÀïµ÷ÓÃ AbstractApplicationContext#refresh Æô¶¯
+                // åœ¨è¿™é‡Œè°ƒç”¨ AbstractApplicationContext#refresh å¯åŠ¨
                 configureAndRefreshWebApplicationContext(cwac);
             }
         }
     }
-    // wac²»Îªnull,ÕâÀï²»»áÔËĞĞ
+    // wacä¸ä¸ºnull,è¿™é‡Œä¸ä¼šè¿è¡Œ
     if (wac == null) {
         wac = findWebApplicationContext();
     }
-    // wac²»Îªnull,ÕâÀï²»»áÔËĞĞ
+    // wacä¸ä¸ºnull,è¿™é‡Œä¸ä¼šè¿è¡Œ
     if (wac == null) {
-        // ´´½¨WebApplicationContext£¬ÖØĞÂÔËĞĞAbstractApplicationContext#refresh
+        // åˆ›å»ºWebApplicationContextï¼Œé‡æ–°è¿è¡ŒAbstractApplicationContext#refresh
         wac = createWebApplicationContext(rootContext);
     }
 
-    // Êµ¼ÊÉÏ£¬refreshEventReceivedÎªtrue£¬if¿éµÄ´úÂë²¢²»Ö´ĞĞ
+    // å®é™…ä¸Šï¼ŒrefreshEventReceivedä¸ºtrueï¼Œifå—çš„ä»£ç å¹¶ä¸æ‰§è¡Œ
     if (!this.refreshEventReceived) {
         synchronized (this.onRefreshMonitor) {
-            // Ë¢ĞÂÓ¦ÓÃÉÏÏÂÎÄ£¬springmvcÏà¹Ø´úÂëÔÚÕâÀïÔËĞĞ
+            // åˆ·æ–°åº”ç”¨ä¸Šä¸‹æ–‡ï¼Œspringmvcç›¸å…³ä»£ç åœ¨è¿™é‡Œè¿è¡Œ
             onRefresh(wac);
         }
     }
 
     if (this.publishContext) {
-        // ½« WebApplicationContextÊÓÎªservletContext Ò»¸öÊôĞÔ£¬¼ÓÈëµ½ servletContext ÖĞ
-        // Ö®ºó¾Í¿ÉÒÔÊ¹ÓÃ
+        // å°† WebApplicationContextè§†ä¸ºservletContext ä¸€ä¸ªå±æ€§ï¼ŒåŠ å…¥åˆ° servletContext ä¸­
+        // ä¹‹åå°±å¯ä»¥ä½¿ç”¨
         // WebApplicationContextUtils.getWebApplicationContext(ServletContext, String attrName)
-        // À´»ñÈ¡
+        // æ¥è·å–
         String attrName = getServletContextAttributeName();
         getServletContext().setAttribute(attrName, wac);
     }
@@ -122,12 +122,12 @@ protected WebApplicationContext initWebApplicationContext() {
 
 ```
 
-Õâ¸ö·½·¨µÄÏà¹Ø²Ù×÷´úÂëÖĞÒÑÓĞ×¢ÊÍ£¬Êµ¼ÊÉÏÕâ¸ö·½·¨×î ÖØÒªµÄ´úÂëÎª
+è¿™ä¸ªæ–¹æ³•çš„ç›¸å…³æ“ä½œä»£ç ä¸­å·²æœ‰æ³¨é‡Šï¼Œå®é™…ä¸Šè¿™ä¸ªæ–¹æ³•æœ€ é‡è¦çš„ä»£ç ä¸º
 
 ```
 protected WebApplicationContext initWebApplicationContext() {
     ...
-    // ÔÚÕâÀïµ÷ÓÃ AbstractApplicationContext#refresh Æô¶¯
+    // åœ¨è¿™é‡Œè°ƒç”¨ AbstractApplicationContext#refresh å¯åŠ¨
     configureAndRefreshWebApplicationContext(cwac);
     ...
     return wac;
@@ -135,7 +135,7 @@ protected WebApplicationContext initWebApplicationContext() {
 
 ```
 
-Ïà¹Ø·ÖÎöÈçÏÂ£º
+ç›¸å…³åˆ†æå¦‚ä¸‹ï¼š
 
 > FrameworkServlet#configureAndRefreshWebApplicationContext
 
@@ -155,42 +155,42 @@ protected void configureAndRefreshWebApplicationContext(ConfigurableWebApplicati
     wac.setServletContext(getServletContext());
     wac.setServletConfig(getServletConfig());
     wac.setNamespace(getNamespace());
-    // Ìí¼ÓÊÂ¼ş¼àÌıÆ÷£¬¼àÌıspringÆô¶¯Íê³ÉÊÂ¼ş
-    // Õâ¸ö¼àÌıÆ÷Ê®·ÖÖØÒª£¬ºóÃæ»á·ÖÎö
+    // æ·»åŠ äº‹ä»¶ç›‘å¬å™¨ï¼Œç›‘å¬springå¯åŠ¨å®Œæˆäº‹ä»¶
+    // è¿™ä¸ªç›‘å¬å™¨ååˆ†é‡è¦ï¼Œåé¢ä¼šåˆ†æ
     wac.addApplicationListener(new SourceFilteringListener(wac, new ContextRefreshListener()));
     ConfigurableEnvironment env = wac.getEnvironment();
     if (env instanceof ConfigurableWebEnvironment) {
         ((ConfigurableWebEnvironment) env).initPropertySources(getServletContext(), getServletConfig());
     }
-    // À©Õ¹µã£¬Ã»ÓĞÊ²Ã´¹¦ÄÜ£¬´ıÒÔºóÀ©Õ¹
+    // æ‰©å±•ç‚¹ï¼Œæ²¡æœ‰ä»€ä¹ˆåŠŸèƒ½ï¼Œå¾…ä»¥åæ‰©å±•
     postProcessWebApplicationContext(wac);
     applyInitializers(wac);
-    // µ÷ÓÃ¾ÍÊÇ AbstractApplicationContext.refresh
+    // è°ƒç”¨å°±æ˜¯ AbstractApplicationContext.refresh
     wac.refresh();
 }
 
 ```
 
-Õâ¸ö·½·¨Êµ¼ÊÉÏ»¹ÊÇÅäÖÃ `ConfigurableWebApplicationContext` µÄÒ»Ğ©ÊôĞÔ£¬×îºóµ÷ÓÃ `AbstractApplicationContext#refresh` À´Æô¶¯ spring ÈİÆ÷¡£¹ØÓÚ `AbstractApplicationContext#refresh` µÄ·ÖÎö£¬¿ÉÒÔ²Î¿¼ [spring Æô¶¯Á÷³ÌÖ®Æô¶¯Ç°µÄ×¼±¸¹¤×÷](https://my.oschina.net/funcy/blog/4633169 "springÆô¶¯Á÷³ÌÖ®Æô¶¯Ç°µÄ×¼±¸¹¤×÷")¡£
+è¿™ä¸ªæ–¹æ³•å®é™…ä¸Šè¿˜æ˜¯é…ç½® `ConfigurableWebApplicationContext` çš„ä¸€äº›å±æ€§ï¼Œæœ€åè°ƒç”¨ `AbstractApplicationContext#refresh` æ¥å¯åŠ¨ spring å®¹å™¨ã€‚å…³äº `AbstractApplicationContext#refresh` çš„åˆ†æï¼Œå¯ä»¥å‚è€ƒ [spring å¯åŠ¨æµç¨‹ä¹‹å¯åŠ¨å‰çš„å‡†å¤‡å·¥ä½œ](https://my.oschina.net/funcy/blog/4633169 "springå¯åŠ¨æµç¨‹ä¹‹å¯åŠ¨å‰çš„å‡†å¤‡å·¥ä½œ")ã€‚
 
-µ½ÕâÀï£¬spring ÈİÆ÷¾ÍÕæÕıÆô¶¯ÁË¡£
+åˆ°è¿™é‡Œï¼Œspring å®¹å™¨å°±çœŸæ­£å¯åŠ¨äº†ã€‚
 
-### 2. `SourceFilteringListener`£ºÆô¶¯ÊÂ¼ş¼àÌıÆ÷
+### 2. `SourceFilteringListener`ï¼šå¯åŠ¨äº‹ä»¶ç›‘å¬å™¨
 
-ÕâÀïÓĞ¸öÎÊÌâ£ºÔÚ springmvc ÖĞ£¬ÎÒÃÇÖªµÀ spring »áÊ¶±ğ `@Controller`£¬½« `RequestMapping`/`@PostMapping`/`@GetMapping` µÈ×¢½âÖĞµÄÂ·¾¶·â×°ÎªÒ»¸ö uri£¬µÈ´ıÍâ²¿·ÃÎÊ£¬µ«ÊÇÎÒÃÇÒ»Â·¿´À´£¬ËÆºõ spring ²¢Ã»ÓĞ×öÕâĞ©¹¤×÷£¬ÄÇÃ´Õâ²¿·ÖµÄ¹¤×÷ÊÇÔÚÄÄÀï½øĞĞµÄÄØ£¿
+è¿™é‡Œæœ‰ä¸ªé—®é¢˜ï¼šåœ¨ springmvc ä¸­ï¼Œæˆ‘ä»¬çŸ¥é“ spring ä¼šè¯†åˆ« `@Controller`ï¼Œå°† `RequestMapping`/`@PostMapping`/`@GetMapping` ç­‰æ³¨è§£ä¸­çš„è·¯å¾„å°è£…ä¸ºä¸€ä¸ª uriï¼Œç­‰å¾…å¤–éƒ¨è®¿é—®ï¼Œä½†æ˜¯æˆ‘ä»¬ä¸€è·¯çœ‹æ¥ï¼Œä¼¼ä¹ spring å¹¶æ²¡æœ‰åšè¿™äº›å·¥ä½œï¼Œé‚£ä¹ˆè¿™éƒ¨åˆ†çš„å·¥ä½œæ˜¯åœ¨å“ªé‡Œè¿›è¡Œçš„å‘¢ï¼Ÿ
 
-Êµ¼ÊÉÏ£¬spring Õâ²¿·ÖµÄ¹¤×÷ÊÇÔÚÆô¶¯¼àÌıÆ÷ÖĞÍê³ÉµÄ£¬Ò²¾ÍÊÇ
+å®é™…ä¸Šï¼Œspring è¿™éƒ¨åˆ†çš„å·¥ä½œæ˜¯åœ¨å¯åŠ¨ç›‘å¬å™¨ä¸­å®Œæˆçš„ï¼Œä¹Ÿå°±æ˜¯
 
 ```
 wac.addApplicationListener(new SourceFilteringListener(wac, new ContextRefreshListener()));
 
 ```
 
-Õâ¸ö¼àÌıÆ÷¼àÌıµÄÊÇ spring µÄÆô¶¯ ÊÂ¼ş£¬½«ÔÚ spring ÈİÆ÷Æô¶¯Íê³Éºóµ÷ÓÃ¡£
+è¿™ä¸ªç›‘å¬å™¨ç›‘å¬çš„æ˜¯ spring çš„å¯åŠ¨ äº‹ä»¶ï¼Œå°†åœ¨ spring å®¹å™¨å¯åŠ¨å®Œæˆåè°ƒç”¨ã€‚
 
-¹ØÓÚ spring µÄÊÂ¼şÏà¹ØÄÚÈİ£¬¿ÉÒÔ²Î¿¼ [spring Ì½ÃØÖ® spring ÊÂ¼ş»úÖÆ](https://my.oschina.net/funcy/blog/4713339 "springÌ½ÃØÖ®spring ÊÂ¼ş»úÖÆ")£¬ÕâÀïÖ±½ÓËµ½áÂÛ£ºspring ÖĞÌá¹©ÁË `ApplicationEventPublisher#publishEvent(Object)`£¨ÊÂ¼ş·¢²¼Æ÷£©¡¢`ApplicationEvent`£¨ÊÂ¼ş£©Óë `ApplicationListener` £¨ÊÂ¼ş¼àÌıÆ÷£©£¬µ± spring Í¨¹ı `ApplicationEventPublisher#publishEvent(Object)` ·¢²¼ `ApplicationEvent`£¨ÊÂ¼ş£©Ê±£¬`ApplicationListener` £¨ÊÂ¼ş¼àÌıÆ÷£©½«»á¼àÌıµ½¡£
+å…³äº spring çš„äº‹ä»¶ç›¸å…³å†…å®¹ï¼Œå¯ä»¥å‚è€ƒ [spring æ¢ç§˜ä¹‹ spring äº‹ä»¶æœºåˆ¶](https://my.oschina.net/funcy/blog/4713339 "springæ¢ç§˜ä¹‹spring äº‹ä»¶æœºåˆ¶")ï¼Œè¿™é‡Œç›´æ¥è¯´ç»“è®ºï¼šspring ä¸­æä¾›äº† `ApplicationEventPublisher#publishEvent(Object)`ï¼ˆäº‹ä»¶å‘å¸ƒå™¨ï¼‰ã€`ApplicationEvent`ï¼ˆäº‹ä»¶ï¼‰ä¸ `ApplicationListener` ï¼ˆäº‹ä»¶ç›‘å¬å™¨ï¼‰ï¼Œå½“ spring é€šè¿‡ `ApplicationEventPublisher#publishEvent(Object)` å‘å¸ƒ `ApplicationEvent`ï¼ˆäº‹ä»¶ï¼‰æ—¶ï¼Œ`ApplicationListener` ï¼ˆäº‹ä»¶ç›‘å¬å™¨ï¼‰å°†ä¼šç›‘å¬åˆ°ã€‚
 
-ÎÒÃÇÀ´¿´¿´ `SourceFilteringListener`£º
+æˆ‘ä»¬æ¥çœ‹çœ‹ `SourceFilteringListener`ï¼š
 
 ```
 public class SourceFilteringListener implements GenericApplicationListener, SmartApplicationListener {
@@ -201,7 +201,7 @@ public class SourceFilteringListener implements GenericApplicationListener, Smar
     private GenericApplicationListener delegate;
 
     /**
-     * ¹¹Ôì·½·¨£¬´«Èë event Óë listener
+     * æ„é€ æ–¹æ³•ï¼Œä¼ å…¥ event ä¸ listener
      */
     public SourceFilteringListener(Object source, ApplicationListener<?> delegate) {
         this.source = source;
@@ -210,35 +210,35 @@ public class SourceFilteringListener implements GenericApplicationListener, Smar
     }
 
     /**
-     * ÊÂ¼ş¼àÌı·½·¨
+     * äº‹ä»¶ç›‘å¬æ–¹æ³•
      */
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
         if (event.getSource() == this.source) {
-            // µ÷ÓÃÕæÕıµÄÊÂ¼ş´¦Àí
+            // è°ƒç”¨çœŸæ­£çš„äº‹ä»¶å¤„ç†
             onApplicationEventInternal(event);
         }
     }
 
     /**
-     *  ´¦ÀíÊÂ¼ş
+     *  å¤„ç†äº‹ä»¶
      */
     protected void onApplicationEventInternal(ApplicationEvent event) {
         if (this.delegate == null) {
             throw new IllegalStateException(...);
         }
-        // ×îÖÕ»¹ÊÇµ÷ÓÃ´«ÈëµÄÊÂ¼ş¼àÌıÆ÷µÄonApplicationEvent·½·¨
+        // æœ€ç»ˆè¿˜æ˜¯è°ƒç”¨ä¼ å…¥çš„äº‹ä»¶ç›‘å¬å™¨çš„onApplicationEventæ–¹æ³•
         this.delegate.onApplicationEvent(event);
     }
 
-    // Ê¡ÂÔÁËÒ»Ğ©´úÂë
+    // çœç•¥äº†ä¸€äº›ä»£ç 
     ...
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`SourceFilteringListener` Í¨¹ı¹¹Ôì·½·¨´«ÈëÁË `ContextRefreshListener` µÄÊµÀı£¬È»ºóÔÚ `SourceFilteringListener#onApplicationEvent` ·½·¨ÖĞ£¬×îÖÕµ÷ÓÃµÄÊÇ `ContextRefreshListener#onApplicationEvent` ·½·¨¡£
+å¯ä»¥çœ‹åˆ°ï¼Œ`SourceFilteringListener` é€šè¿‡æ„é€ æ–¹æ³•ä¼ å…¥äº† `ContextRefreshListener` çš„å®ä¾‹ï¼Œç„¶ååœ¨ `SourceFilteringListener#onApplicationEvent` æ–¹æ³•ä¸­ï¼Œæœ€ç»ˆè°ƒç”¨çš„æ˜¯ `ContextRefreshListener#onApplicationEvent` æ–¹æ³•ã€‚
 
-½ÓÏÂÀ´ÎÒÃÇÔÙÀ´¿´ `ContextRefreshListener`£º
+æ¥ä¸‹æ¥æˆ‘ä»¬å†æ¥çœ‹ `ContextRefreshListener`ï¼š
 
 > FrameworkServlet.ContextRefreshListener
 
@@ -253,22 +253,22 @@ private class ContextRefreshListener implements ApplicationListener<ContextRefre
 
 ```
 
-Õâ¸öÀàÊÇ `FrameworkServlet` µÄÄÚ²¿Àà£¬´úÂëºÜ¼òµ¥£¬×îÖÕµ÷ÓÃµÄÊÇ `FrameworkServlet#onApplicationEvent`£º
+è¿™ä¸ªç±»æ˜¯ `FrameworkServlet` çš„å†…éƒ¨ç±»ï¼Œä»£ç å¾ˆç®€å•ï¼Œæœ€ç»ˆè°ƒç”¨çš„æ˜¯ `FrameworkServlet#onApplicationEvent`ï¼š
 
 ```
 public void onApplicationEvent(ContextRefreshedEvent event) {
-    // ĞŞ¸Ä×´Ì¬£¬Õâ¸öºÜ¹Ø¼ü£¬ÔËĞĞÁËÕâĞĞºó£¬
-    // FrameworkServlet#initWebApplicationContextÀïµÄonRefresh(...)¾Í²»»áÔËĞĞ
+    // ä¿®æ”¹çŠ¶æ€ï¼Œè¿™ä¸ªå¾ˆå…³é”®ï¼Œè¿è¡Œäº†è¿™è¡Œåï¼Œ
+    // FrameworkServlet#initWebApplicationContexté‡Œçš„onRefresh(...)å°±ä¸ä¼šè¿è¡Œ
     this.refreshEventReceived = true;
     synchronized (this.onRefreshMonitor) {
-         // ¾ßÌåµÄÂß¼­´¦Àí
+         // å…·ä½“çš„é€»è¾‘å¤„ç†
          onRefresh(event.getApplicationContext());
     }
 }
 
 ```
 
-½ÓÏÂÀ´¾ÍÊÇ `DispatcherServlet#onRefresh` ·½·¨ÁË£º
+æ¥ä¸‹æ¥å°±æ˜¯ `DispatcherServlet#onRefresh` æ–¹æ³•äº†ï¼š
 
 ```
 @Override
@@ -277,8 +277,8 @@ protected void onRefresh(ApplicationContext context) {
 }
 
 /**
- * springmvcµÄÖÕ¼«°ÂÃØ¾ÍÔÚÕâÀïÁË
- * Õâ¸ö·½·¨ÖĞ£¬³õÊ¼»¯ÁËspringmvcµÄ¸÷ÖÖ×é¼ş
+ * springmvcçš„ç»ˆæå¥¥ç§˜å°±åœ¨è¿™é‡Œäº†
+ * è¿™ä¸ªæ–¹æ³•ä¸­ï¼Œåˆå§‹åŒ–äº†springmvcçš„å„ç§ç»„ä»¶
  */
 protected void initStrategies(ApplicationContext context) {
     initMultipartResolver(context);
@@ -294,24 +294,24 @@ protected void initStrategies(ApplicationContext context) {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬×îÖÕÔËĞĞµÄ·½·¨ÊÇ `DispatcherServlet#initStrategies`£¬Õâ¸ö·½·¨ËäÖ»ÁÈÁÈÊıĞĞ£¬ÇÒ³õÊ¼»¯ÁË springmvc ¸÷ÒÀÀµ×é¼ş£¡
+å¯ä»¥çœ‹åˆ°ï¼Œæœ€ç»ˆè¿è¡Œçš„æ–¹æ³•æ˜¯ `DispatcherServlet#initStrategies`ï¼Œè¿™ä¸ªæ–¹æ³•è™½åªå¯¥å¯¥æ•°è¡Œï¼Œä¸”åˆå§‹åŒ–äº† springmvc å„ä¾èµ–ç»„ä»¶ï¼
 
-### 3. `DispatcherServlet#initStrategies`£º³õÊ¼»¯ springmvc ×é¼ş
+### 3. `DispatcherServlet#initStrategies`ï¼šåˆå§‹åŒ– springmvc ç»„ä»¶
 
-spring ÔÚÆô¶¯Íê³Éºó£¬»á·¢²¼Æô¶¯Íê³ÉÊÂ¼ş£¬È»ºóÓÉ¼àÌıÆ÷ `SourceFilteringListener` ¼àÌıµ½¸ÃÊÂ¼şºó£¬Ö´ĞĞ¼àÌıÂß¼­£¬×îÖÕµ÷ÓÃµ½ `DispatcherServlet#initStrategies`¡£±¾½ÚÎÒÃÇ½«À´·ÖÎö `DispatcherServlet#initStrategies` µÄÖ´ĞĞ¹ı³Ì¡£
+spring åœ¨å¯åŠ¨å®Œæˆåï¼Œä¼šå‘å¸ƒå¯åŠ¨å®Œæˆäº‹ä»¶ï¼Œç„¶åç”±ç›‘å¬å™¨ `SourceFilteringListener` ç›‘å¬åˆ°è¯¥äº‹ä»¶åï¼Œæ‰§è¡Œç›‘å¬é€»è¾‘ï¼Œæœ€ç»ˆè°ƒç”¨åˆ° `DispatcherServlet#initStrategies`ã€‚æœ¬èŠ‚æˆ‘ä»¬å°†æ¥åˆ†æ `DispatcherServlet#initStrategies` çš„æ‰§è¡Œè¿‡ç¨‹ã€‚
 
-ÆäÊµÕâ¸ö·½·¨ºÜ¼òµ¥£¬ÀïÃæÓĞ 9 ĞĞ´úÂë£¬Ã¿ĞĞ´úÂë¶¼³õÊ¼»¯ÁË springmvc µÄÒ»¸ö×é¼ş£¬Èç `initMultipartResolver`£º
+å…¶å®è¿™ä¸ªæ–¹æ³•å¾ˆç®€å•ï¼Œé‡Œé¢æœ‰ 9 è¡Œä»£ç ï¼Œæ¯è¡Œä»£ç éƒ½åˆå§‹åŒ–äº† springmvc çš„ä¸€ä¸ªç»„ä»¶ï¼Œå¦‚ `initMultipartResolver`ï¼š
 
 ```
 public static final String MULTIPART_RESOLVER_BEAN_NAME = "multipartResolver";
 
 private void initMultipartResolver(ApplicationContext context) {
     try {
-        // ´ÓspringÈİÆ÷ÖĞ»ñÈ¡multipartResolver¶ÔÏó
+        // ä»springå®¹å™¨ä¸­è·å–multipartResolverå¯¹è±¡
         this.multipartResolver = context.getBean(MULTIPART_RESOLVER_BEAN_NAME, MultipartResolver.class);
     }
     catch (NoSuchBeanDefinitionException ex) {
-        // »ñÈ¡Ê§°Ü£¬Ä¬ÈÏÎªnull
+        // è·å–å¤±è´¥ï¼Œé»˜è®¤ä¸ºnull
         this.multipartResolver = null;
         }
     }
@@ -319,7 +319,7 @@ private void initMultipartResolver(ApplicationContext context) {
 
 ```
 
-`multipartResolver` ÊÇÓÃÀ´´¦ÀíÎÄ¼şÉÏ´«µÄ bean£¬ÔÚ spring ÖĞ£¬ÎÒÃÇ´¦ÀíÎÄ¼şÉÏ´«Ê±£¬Ò»°ã»áÏñÕâÑùÒıÈë `multipartResolver` bean£»
+`multipartResolver` æ˜¯ç”¨æ¥å¤„ç†æ–‡ä»¶ä¸Šä¼ çš„ beanï¼Œåœ¨ spring ä¸­ï¼Œæˆ‘ä»¬å¤„ç†æ–‡ä»¶ä¸Šä¼ æ—¶ï¼Œä¸€èˆ¬ä¼šåƒè¿™æ ·å¼•å…¥ `multipartResolver` beanï¼›
 
 ```
 @Bean(name = "multipartResolver")
@@ -328,16 +328,16 @@ public MultipartResolver multipartResolver() {
     resolver.setDefaultEncoding("UTF-8");
     resolver.setResolveLazily(true);
     resolver.setMaxInMemorySize(40960);
-    //ÔÊĞíÉÏ´«ÎÄ¼ş×î´óÎª1G
+    //å…è®¸ä¸Šä¼ æ–‡ä»¶æœ€å¤§ä¸º1G
     resolver.setMaxUploadSize(1024 * 1024 * 1024);
     return resolver;
 }
 
 ```
 
-Èç¹ûÎ´ÒıÈë `multipartResolver` bean£¬spring Ä¬ÈÏÎª null£¬¾Í²»ÄÜ½øĞĞÎÄ¼şÉÏ´«ÁË¡£
+å¦‚æœæœªå¼•å…¥ `multipartResolver` beanï¼Œspring é»˜è®¤ä¸º nullï¼Œå°±ä¸èƒ½è¿›è¡Œæ–‡ä»¶ä¸Šä¼ äº†ã€‚
 
-ÔÙÀ´¿´¿´ `springmvc` `HandlerMappings` µÄ³õÊ¼»¯¹ı³Ì£º
+å†æ¥çœ‹çœ‹ `springmvc` `HandlerMappings` çš„åˆå§‹åŒ–è¿‡ç¨‹ï¼š
 
 > DispatcherServlet
 
@@ -350,7 +350,7 @@ private static final Properties defaultStrategies;
 
 static {
     try {
-        // ÔÚstatic¿éÖĞ¼ÓÔØDispatcherServlet.propertiesÎÄ¼ş
+        // åœ¨staticå—ä¸­åŠ è½½DispatcherServlet.propertiesæ–‡ä»¶
         ClassPathResource resource = new ClassPathResource(DEFAULT_STRATEGIES_PATH, 
                 DispatcherServlet.class);
         defaultStrategies = PropertiesLoaderUtils.loadProperties(resource);
@@ -361,28 +361,28 @@ static {
 }
 
 /**
- * handlerMappings ÊôĞÔ
+ * handlerMappings å±æ€§
  */
 @Nullable
 private List<HandlerMapping> handlerMappings;
 
 /**
- * ³õÊ¼»¯ HandlerMappings
- * 1\. ´Óspring ÈİÆ÷ÖĞ»ñÈ¡ HandlerMapping bean£¬
- *     Èç¹û»ñÈ¡³É¹¦£¬Ôò°ÑµÃµ½µÄ½á¹û¸³Öµ¸øhandlerMappings
- * 2\. Èç¹ûÎ´»ñµÃ£¬Ôò»ñÈ¡Ä¬ÈÏµÄ HandlerMapping bean
+ * åˆå§‹åŒ– HandlerMappings
+ * 1\. ä»spring å®¹å™¨ä¸­è·å– HandlerMapping beanï¼Œ
+ *     å¦‚æœè·å–æˆåŠŸï¼Œåˆ™æŠŠå¾—åˆ°çš„ç»“æœèµ‹å€¼ç»™handlerMappings
+ * 2\. å¦‚æœæœªè·å¾—ï¼Œåˆ™è·å–é»˜è®¤çš„ HandlerMapping bean
  */
 private void initHandlerMappings(ApplicationContext context) {
     this.handlerMappings = null;
     if (this.detectAllHandlerMappings) {
-        // ¼ÓÔØËùÓĞÊµÏÖHandlerMapping½Ó¿ÚµÄbean
+        // åŠ è½½æ‰€æœ‰å®ç°HandlerMappingæ¥å£çš„bean
         Map<String, HandlerMapping> matchingBeans = BeanFactoryUtils
                 .beansOfTypeIncludingAncestors(context, HandlerMapping.class, true, false);
-        // ÕâÀï²»Îª¿Õ£¬»áÔËĞĞ
+        // è¿™é‡Œä¸ä¸ºç©ºï¼Œä¼šè¿è¡Œ
         if (!matchingBeans.isEmpty()) {
             this.handlerMappings = new ArrayList<>(matchingBeans.values());
-            // ÅÅĞò£¬Spring´¦ÀíÇëÇó¾ÍÊÇ¸ù¾İÕâ¸öÅÅĞòµÄ½á¹û½øĞĞ´¦Àí£¬
-            // Èç¹ûµ±Ç°handlerMapping²»¿ÉÒÔ´¦ÀíÔòÅ×¸øÏÂÒ»¸ö
+            // æ’åºï¼ŒSpringå¤„ç†è¯·æ±‚å°±æ˜¯æ ¹æ®è¿™ä¸ªæ’åºçš„ç»“æœè¿›è¡Œå¤„ç†ï¼Œ
+            // å¦‚æœå½“å‰handlerMappingä¸å¯ä»¥å¤„ç†åˆ™æŠ›ç»™ä¸‹ä¸€ä¸ª
             AnnotationAwareOrderComparator.sort(this.handlerMappings);
         }
     }
@@ -396,24 +396,24 @@ private void initHandlerMappings(ApplicationContext context) {
         }
     }
     if (this.handlerMappings == null) {
-        // Èç¹ûÎ´Ìí¼ÓhandlerMappings£¬Ôò»ñÈ¡Ä¬ÈÏµÄ handlerMappings
+        // å¦‚æœæœªæ·»åŠ handlerMappingsï¼Œåˆ™è·å–é»˜è®¤çš„ handlerMappings
         this.handlerMappings = getDefaultStrategies(context, HandlerMapping.class);
     }
 }
 
 /**
- * »ñÈ¡Ä¬ÈÏµÄ²ßÂÔ
+ * è·å–é»˜è®¤çš„ç­–ç•¥
  */
 protected <T> List<T> getDefaultStrategies(ApplicationContext context, Class<T> strategyInterface) {
     String key = strategyInterface.getName();
-    // »ñÈ¡ÅäÖÃÎÄ¼şDispatcherServlet.propertiesÖĞÄ¬ÈÏµÄ class ÅäÖÃ
+    // è·å–é…ç½®æ–‡ä»¶DispatcherServlet.propertiesä¸­é»˜è®¤çš„ class é…ç½®
     String value = defaultStrategies.getProperty(key);
     if (value != null) {
         String[] classNames = StringUtils.commaDelimitedListToStringArray(value);
         List<T> strategies = new ArrayList<>(classNames.length);
         for (String className : classNames) {
             try {
-                // Ê¹ÓÃ·´Éä´´½¨bean
+                // ä½¿ç”¨åå°„åˆ›å»ºbean
                 Class<?> clazz = ClassUtils.forName(className, DispatcherServlet.class.getClassLoader());
                 Object strategy = createDefaultStrategy(context, clazz);
                 strategies.add((T) strategy);
@@ -434,13 +434,13 @@ protected <T> List<T> getDefaultStrategies(ApplicationContext context, Class<T> 
 
 ```
 
-³õÊ¼»¯ `HandlerMappings` Ê±£¬
+åˆå§‹åŒ– `HandlerMappings` æ—¶ï¼Œ
 
-1.  ÏÈ´Ó spring ÈİÆ÷ÖĞ»ñÈ¡ `HandlerMapping` bean£¬Èç¹û»ñÈ¡³É¹¦£¨Êµ¼ÊÉÏÕâÀïÒ²ÄÜ»ñµÃ£©£¬Ôò°ÑµÃµ½µÄ½á¹û¸³Öµ¸ø `DispatcherServlet` µÄ `handlerMappings` ÊôĞÔ£»
-2.  Èç¹ûÎ´Ê§°Ü£¬±íÃ÷ spring ÈİÆ÷ÖĞÎ´´æÔÚ `HandlerMapping` £¬Ôò»ñÈ¡Ä¬ÈÏµÄ `HandlerMapping` bean.
-3.  »ñÈ¡Ä¬ÈÏµÄ `HandlerMapping` bean Ê±£¬¶ÁÈ¡ `DispatcherServlet.properties` ÅäÖÃ£¬È»ºóÊ¹ÓÃ·´ÉäÊµÀı»¯¡£
+1.  å…ˆä» spring å®¹å™¨ä¸­è·å– `HandlerMapping` beanï¼Œå¦‚æœè·å–æˆåŠŸï¼ˆå®é™…ä¸Šè¿™é‡Œä¹Ÿèƒ½è·å¾—ï¼‰ï¼Œåˆ™æŠŠå¾—åˆ°çš„ç»“æœèµ‹å€¼ç»™ `DispatcherServlet` çš„ `handlerMappings` å±æ€§ï¼›
+2.  å¦‚æœæœªå¤±è´¥ï¼Œè¡¨æ˜ spring å®¹å™¨ä¸­æœªå­˜åœ¨ `HandlerMapping` ï¼Œåˆ™è·å–é»˜è®¤çš„ `HandlerMapping` bean.
+3.  è·å–é»˜è®¤çš„ `HandlerMapping` bean æ—¶ï¼Œè¯»å– `DispatcherServlet.properties` é…ç½®ï¼Œç„¶åä½¿ç”¨åå°„å®ä¾‹åŒ–ã€‚
 
-ÎÒÃÇÀ´¿´¿´ `DispatcherServlet.properties` ÎÄ¼ş£¬¸ÃÎÄ¼şÎ»ÓÚ` spring-webmvc/src/main/resources/org/springframework/web/servlet/DispatcherServlet.properties`£¬²¿·ÖÄÚÈİÈçÏÂ£º
+æˆ‘ä»¬æ¥çœ‹çœ‹ `DispatcherServlet.properties` æ–‡ä»¶ï¼Œè¯¥æ–‡ä»¶ä½äº` spring-webmvc/src/main/resources/org/springframework/web/servlet/DispatcherServlet.properties`ï¼Œéƒ¨åˆ†å†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 org.springframework.web.servlet.LocaleResolver=org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver
@@ -454,24 +454,24 @@ org.springframework.web.servlet.HandlerMapping=org.springframework.web.servlet.h
 
 ```
 
-`DispatcherServlet#initStrategies` ÖĞÆäËû `initXxx()` ÄÚÈİÀàËÆ£¬ÕâÀï¾Í²»Ò»Ò»·ÖÎöÁË¡£
+`DispatcherServlet#initStrategies` ä¸­å…¶ä»– `initXxx()` å†…å®¹ç±»ä¼¼ï¼Œè¿™é‡Œå°±ä¸ä¸€ä¸€åˆ†æäº†ã€‚
 
-### 4\. ×Ü½á
+### 4\. æ€»ç»“
 
-±¾ÎÄÖ÷Òª·ÖÎöÁË springmvc µÄÆô¶¯¹ı³Ì£¬×Ü½áÈçÏÂ£º
+æœ¬æ–‡ä¸»è¦åˆ†æäº† springmvc çš„å¯åŠ¨è¿‡ç¨‹ï¼Œæ€»ç»“å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-7ab3fae1e39f545c1d7c1811351227fa434.png)
 
-1.  servlet ÈİÆ÷£¨ÕâÀïÊÇ tomcat£©Æô¶¯Ê±£¬Í¨¹ı spi »úÖÆÖ´ĞĞ `ServletContainerInitializer#onStartup` ·½·¨£¬¶ø springmvc ¶ÔÌá¹©µÄ `SpringServletContainerInitializer` ¶ÔÆä½øĞĞÁËÊµÏÖ£¬ÓÚÊÇ `SpringServletContainerInitializer#onStartup` ·½·¨»á±»µ÷ÓÃ£»
-2.  `SpringServletContainerInitializer#onStartup` ·½·¨ÖĞ£¬spring »áµ÷ÓÃ `WebApplicationInitializer#onStartup` ·½·¨£¬¶ø `MyWebApplicationInitializer` ¶ÔÆä½øĞĞÁËÊµÏÖ£¬ÓÚÊÇ `MyWebApplicationInitializer#onStartup` »á±»µ÷ÓÃ£»
-3.  ÔÚ `MyWebApplicationInitializer#onStartup` ·½·¨ÖĞ £¬ÎÒÃÇ´´½¨ÁËÒ»¸ö `applicationContext` ¶ÔÏó£¬½«ÆäÓë `DispatcherServlet` °ó¶¨£¬È»ºó½« `DispatcherServlet` ×¢²áµ½ servlet ÈİÆ÷ÖĞ£¨ÕâÀïÊÇ tomcat£©£»
-4.  `DispatcherServlet` ×¢²áµ½ servlet ÈİÆ÷ÖĞ£¨ÕâÀïÊÇ tomcat£©ºó£¬¸ù¾İ servlet ÉúÃüÖÜÆÚ£¬`DispatcherServlet#init` ½«»á±»µ÷ÓÃ£»
-5.  `DispatcherServlet#init` ÖĞ»áÖ´ĞĞ spring ÈİÆ÷µÄÆô¶¯¹ı³Ì£¬spring ÈİÆ÷Æô¶¯ºó£¬»á·¢²¼Æô¶¯Íê³ÉÊÂ¼ş£»
-6.  spring Æô¶¯Íê³Éºó£¬`ContextRefreshListener` ½«»á¼àÌı spring Æô¶¯Íê³ÉÊÂ¼ş£¬`FrameworkServlet.ContextRefreshListener#onApplicationEvent` ·½·¨»á±»µ÷ÓÃ£¬µ÷ÓÃµ÷ÓÃµ½ `DispatcherServlet#initStrategies`£»
-7.  spring ×îÖÕÔÚ `DispatcherServlet#initStrategies` ÖĞ³õÊ¼»¯ `MultipartResolver`¡¢`LocaleResolver` µÈ×é¼ş£¬ËùÎ½µÄ³õÊ¼»¯£¬ÆäÊµÊÇ»ñÈ¡»ò´´½¨¶ÔÓ¦µÄ bean£¬È»ºó¸³Öµ¸ø `DispatcherServlet` µÄÊôĞÔ¡£
+1.  servlet å®¹å™¨ï¼ˆè¿™é‡Œæ˜¯ tomcatï¼‰å¯åŠ¨æ—¶ï¼Œé€šè¿‡ spi æœºåˆ¶æ‰§è¡Œ `ServletContainerInitializer#onStartup` æ–¹æ³•ï¼Œè€Œ springmvc å¯¹æä¾›çš„ `SpringServletContainerInitializer` å¯¹å…¶è¿›è¡Œäº†å®ç°ï¼Œäºæ˜¯ `SpringServletContainerInitializer#onStartup` æ–¹æ³•ä¼šè¢«è°ƒç”¨ï¼›
+2.  `SpringServletContainerInitializer#onStartup` æ–¹æ³•ä¸­ï¼Œspring ä¼šè°ƒç”¨ `WebApplicationInitializer#onStartup` æ–¹æ³•ï¼Œè€Œ `MyWebApplicationInitializer` å¯¹å…¶è¿›è¡Œäº†å®ç°ï¼Œäºæ˜¯ `MyWebApplicationInitializer#onStartup` ä¼šè¢«è°ƒç”¨ï¼›
+3.  åœ¨ `MyWebApplicationInitializer#onStartup` æ–¹æ³•ä¸­ ï¼Œæˆ‘ä»¬åˆ›å»ºäº†ä¸€ä¸ª `applicationContext` å¯¹è±¡ï¼Œå°†å…¶ä¸ `DispatcherServlet` ç»‘å®šï¼Œç„¶åå°† `DispatcherServlet` æ³¨å†Œåˆ° servlet å®¹å™¨ä¸­ï¼ˆè¿™é‡Œæ˜¯ tomcatï¼‰ï¼›
+4.  `DispatcherServlet` æ³¨å†Œåˆ° servlet å®¹å™¨ä¸­ï¼ˆè¿™é‡Œæ˜¯ tomcatï¼‰åï¼Œæ ¹æ® servlet ç”Ÿå‘½å‘¨æœŸï¼Œ`DispatcherServlet#init` å°†ä¼šè¢«è°ƒç”¨ï¼›
+5.  `DispatcherServlet#init` ä¸­ä¼šæ‰§è¡Œ spring å®¹å™¨çš„å¯åŠ¨è¿‡ç¨‹ï¼Œspring å®¹å™¨å¯åŠ¨åï¼Œä¼šå‘å¸ƒå¯åŠ¨å®Œæˆäº‹ä»¶ï¼›
+6.  spring å¯åŠ¨å®Œæˆåï¼Œ`ContextRefreshListener` å°†ä¼šç›‘å¬ spring å¯åŠ¨å®Œæˆäº‹ä»¶ï¼Œ`FrameworkServlet.ContextRefreshListener#onApplicationEvent` æ–¹æ³•ä¼šè¢«è°ƒç”¨ï¼Œè°ƒç”¨è°ƒç”¨åˆ° `DispatcherServlet#initStrategies`ï¼›
+7.  spring æœ€ç»ˆåœ¨ `DispatcherServlet#initStrategies` ä¸­åˆå§‹åŒ– `MultipartResolver`ã€`LocaleResolver` ç­‰ç»„ä»¶ï¼Œæ‰€è°“çš„åˆå§‹åŒ–ï¼Œå…¶å®æ˜¯è·å–æˆ–åˆ›å»ºå¯¹åº”çš„ beanï¼Œç„¶åèµ‹å€¼ç»™ `DispatcherServlet` çš„å±æ€§ã€‚
 
-µ½´Ë£¬springmvc Õû¸öÆô¶¯Á÷³Ì¾ÍÍê³ÉÁË¡£²»¹ıµ½´ËÎÒÃÇ¶¼Ã»ÓĞ¿´µ½ **spring ´¦Àí `@RequestMapping` µÄÏà¹ØÁ÷³Ì**£¬ÄÇÃ´ spring ÊÇÈçºÎ´¦ÀíÕâ¸öÁ÷³ÌÄØ £¬ÏÂÒ»ÆªÎÄÕÂ½«½ÒÏş¡£
+åˆ°æ­¤ï¼Œspringmvc æ•´ä¸ªå¯åŠ¨æµç¨‹å°±å®Œæˆäº†ã€‚ä¸è¿‡åˆ°æ­¤æˆ‘ä»¬éƒ½æ²¡æœ‰çœ‹åˆ° **spring å¤„ç† `@RequestMapping` çš„ç›¸å…³æµç¨‹**ï¼Œé‚£ä¹ˆ spring æ˜¯å¦‚ä½•å¤„ç†è¿™ä¸ªæµç¨‹å‘¢ ï¼Œä¸‹ä¸€ç¯‡æ–‡ç« å°†æ­æ™“ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4710330](https://my.oschina.net/funcy/blog/4710330) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4710330](https://my.oschina.net/funcy/blog/4710330) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

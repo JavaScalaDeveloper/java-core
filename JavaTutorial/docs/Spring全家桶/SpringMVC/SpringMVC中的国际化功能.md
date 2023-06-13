@@ -1,32 +1,32 @@
-#### ¹ú¼Ê»¯
+#### å›½é™…åŒ–
 
 * * *
 
-ÔÚ¿ª·¢Ó¦ÓÃ³ÌĞòµÄÊ±ºò£¬¾­³£»áÓöµ½Ö§³Ö¶àÓïÑÔµÄĞèÇó£¬ÕâÖÖÖ§³Ö¶àÓïÑÔµÄ¹¦ÄÜ³ÆÖ®Îª¹ú¼Ê»¯£¬Ó¢ÎÄÊÇinternationalization£¬ËõĞ´Îªi18n£¨ÒòÎªÊ××ÖÄ¸iºÍÄ©×ÖÄ¸nÖĞ¼äÓĞ18¸ö×ÖÄ¸£©¡£
+åœ¨å¼€å‘åº”ç”¨ç¨‹åºçš„æ—¶å€™ï¼Œç»å¸¸ä¼šé‡åˆ°æ”¯æŒå¤šè¯­è¨€çš„éœ€æ±‚ï¼Œè¿™ç§æ”¯æŒå¤šè¯­è¨€çš„åŠŸèƒ½ç§°ä¹‹ä¸ºå›½é™…åŒ–ï¼Œè‹±æ–‡æ˜¯internationalizationï¼Œç¼©å†™ä¸ºi18nï¼ˆå› ä¸ºé¦–å­—æ¯iå’Œæœ«å­—æ¯nä¸­é—´æœ‰18ä¸ªå­—æ¯ï¼‰ã€‚
 
-»¹ÓĞÕë¶ÔÌØ¶¨µØÇøµÄ±¾µØ»¯¹¦ÄÜ£¬Ó¢ÎÄÊÇlocalization£¬ËõĞ´ÎªL10n£¬±¾µØ»¯ÊÇÖ¸¸ù¾İµØÇøµ÷ÕûÀàËÆĞÕÃû¡¢ÈÕÆÚµÄÏÔÊ¾µÈ¡£
+è¿˜æœ‰é’ˆå¯¹ç‰¹å®šåœ°åŒºçš„æœ¬åœ°åŒ–åŠŸèƒ½ï¼Œè‹±æ–‡æ˜¯localizationï¼Œç¼©å†™ä¸ºL10nï¼Œæœ¬åœ°åŒ–æ˜¯æŒ‡æ ¹æ®åœ°åŒºè°ƒæ•´ç±»ä¼¼å§“åã€æ—¥æœŸçš„æ˜¾ç¤ºç­‰ã€‚
 
-Ò²ÓĞ°ÑÉÏÃæÁ½ÕßºÏ³ÆÎªÈ«Çò»¯£¬Ó¢ÎÄÊÇglobalization£¬ËõĞ´Îªg11n¡£
+ä¹Ÿæœ‰æŠŠä¸Šé¢ä¸¤è€…åˆç§°ä¸ºå…¨çƒåŒ–ï¼Œè‹±æ–‡æ˜¯globalizationï¼Œç¼©å†™ä¸ºg11nã€‚
 
-ÔÚJavaÖĞ£¬Ö§³Ö¶àÓïÑÔºÍ±¾µØ»¯ÊÇÍ¨¹ı`MessageFormat`ÅäºÏ`Locale`ÊµÏÖµÄ£º
+åœ¨Javaä¸­ï¼Œæ”¯æŒå¤šè¯­è¨€å’Œæœ¬åœ°åŒ–æ˜¯é€šè¿‡`MessageFormat`é…åˆ`Locale`å®ç°çš„ï¼š
 
 
-¶ÔÓÚWebÓ¦ÓÃ³ÌĞò£¬ÒªÊµÏÖ¹ú¼Ê»¯¹¦ÄÜ£¬Ö÷ÒªÊÇäÖÈ¾ViewµÄÊ±ºò£¬Òª°Ñ¸÷ÖÖÓïÑÔµÄ×ÊÔ´ÎÄ¼şÌá³öÀ´£¬ÕâÑù£¬²»Í¬µÄÓÃ»§·ÃÎÊÍ¬Ò»¸öÒ³ÃæÊ±£¬ÏÔÊ¾µÄÓïÑÔ¾ÍÊÇ²»Í¬µÄ¡£
+å¯¹äºWebåº”ç”¨ç¨‹åºï¼Œè¦å®ç°å›½é™…åŒ–åŠŸèƒ½ï¼Œä¸»è¦æ˜¯æ¸²æŸ“Viewçš„æ—¶å€™ï¼Œè¦æŠŠå„ç§è¯­è¨€çš„èµ„æºæ–‡ä»¶æå‡ºæ¥ï¼Œè¿™æ ·ï¼Œä¸åŒçš„ç”¨æˆ·è®¿é—®åŒä¸€ä¸ªé¡µé¢æ—¶ï¼Œæ˜¾ç¤ºçš„è¯­è¨€å°±æ˜¯ä¸åŒçš„ã€‚
 
-ÎÒÃÇÀ´¿´¿´ÔÚSpring MVCÓ¦ÓÃ³ÌĞòÖĞÈçºÎÊµÏÖ¹ú¼Ê»¯¡£
+æˆ‘ä»¬æ¥çœ‹çœ‹åœ¨Spring MVCåº”ç”¨ç¨‹åºä¸­å¦‚ä½•å®ç°å›½é™…åŒ–ã€‚
 
-### »ñÈ¡Locale
+### è·å–Locale
 
-ÊµÏÖ¹ú¼Ê»¯µÄµÚÒ»²½ÊÇ»ñÈ¡µ½ÓÃ»§µÄ`Locale`¡£ÔÚWebÓ¦ÓÃ³ÌĞòÖĞ£¬HTTP¹æ·¶¹æ¶¨ÁËä¯ÀÀÆ÷»áÔÚÇëÇóÖĞĞ¯´ø`Accept-Language`Í·£¬ÓÃÀ´Ö¸Ê¾ÓÃ»§ä¯ÀÀÆ÷Éè¶¨µÄÓïÑÔË³Ğò£¬Èç£º
+å®ç°å›½é™…åŒ–çš„ç¬¬ä¸€æ­¥æ˜¯è·å–åˆ°ç”¨æˆ·çš„`Locale`ã€‚åœ¨Webåº”ç”¨ç¨‹åºä¸­ï¼ŒHTTPè§„èŒƒè§„å®šäº†æµè§ˆå™¨ä¼šåœ¨è¯·æ±‚ä¸­æºå¸¦`Accept-Language`å¤´ï¼Œç”¨æ¥æŒ‡ç¤ºç”¨æˆ·æµè§ˆå™¨è®¾å®šçš„è¯­è¨€é¡ºåºï¼Œå¦‚ï¼š
 
 ```  
 Accept-Language: zh-CN,zh;q=0.8,en;q=0.2  
   
 ```
 
-ÉÏÊöHTTPÇëÇóÍ·±íÊ¾ÓÅÏÈÑ¡Ôñ¼òÌåÖĞÎÄ£¬Æä´ÎÑ¡ÔñÖĞÎÄ£¬×îºóÑ¡ÔñÓ¢ÎÄ¡£`q`±íÊ¾È¨ÖØ£¬½âÎöºóÎÒÃÇ¿É»ñµÃÒ»¸ö¸ù¾İÓÅÏÈ¼¶ÅÅĞòµÄÓïÑÔÁĞ±í£¬°ÑËü×ª»»ÎªJavaµÄ`Locale`£¬¼´»ñµÃÁËÓÃ»§µÄ`Locale`¡£´ó¶àÊı¿ò¼ÜÍ¨³£Ö»·µ»ØÈ¨ÖØ×î¸ßµÄ`Locale`¡£
+ä¸Šè¿°HTTPè¯·æ±‚å¤´è¡¨ç¤ºä¼˜å…ˆé€‰æ‹©ç®€ä½“ä¸­æ–‡ï¼Œå…¶æ¬¡é€‰æ‹©ä¸­æ–‡ï¼Œæœ€åé€‰æ‹©è‹±æ–‡ã€‚`q`è¡¨ç¤ºæƒé‡ï¼Œè§£æåæˆ‘ä»¬å¯è·å¾—ä¸€ä¸ªæ ¹æ®ä¼˜å…ˆçº§æ’åºçš„è¯­è¨€åˆ—è¡¨ï¼ŒæŠŠå®ƒè½¬æ¢ä¸ºJavaçš„`Locale`ï¼Œå³è·å¾—äº†ç”¨æˆ·çš„`Locale`ã€‚å¤§å¤šæ•°æ¡†æ¶é€šå¸¸åªè¿”å›æƒé‡æœ€é«˜çš„`Locale`ã€‚
 
-Spring MVCÍ¨¹ı`LocaleResolver`À´×Ô¶¯´Ó`HttpServletRequest`ÖĞ»ñÈ¡`Locale`¡£ÓĞ¶àÖÖ`LocaleResolver`µÄÊµÏÖÀà£¬ÆäÖĞ×î³£ÓÃµÄÊÇ`CookieLocaleResolver`£º
+Spring MVCé€šè¿‡`LocaleResolver`æ¥è‡ªåŠ¨ä»`HttpServletRequest`ä¸­è·å–`Locale`ã€‚æœ‰å¤šç§`LocaleResolver`çš„å®ç°ç±»ï¼Œå…¶ä¸­æœ€å¸¸ç”¨çš„æ˜¯`CookieLocaleResolver`ï¼š
 
 ```  
 @Primary  
@@ -36,20 +36,20 @@ LocaleResolver createLocaleResolver() {
   
 ```
 
-`CookieLocaleResolver`´Ó`HttpServletRequest`ÖĞ»ñÈ¡`Locale`Ê±£¬Ê×ÏÈ¸ù¾İÒ»¸öÌØ¶¨µÄCookieÅĞ¶ÏÊÇ·ñÖ¸¶¨ÁË`Locale`£¬Èç¹ûÃ»ÓĞ£¬¾Í´ÓHTTPÍ·»ñÈ¡£¬Èç¹û»¹Ã»ÓĞ£¬¾Í·µ»ØÄ¬ÈÏµÄ`Locale`¡£
+`CookieLocaleResolver`ä»`HttpServletRequest`ä¸­è·å–`Locale`æ—¶ï¼Œé¦–å…ˆæ ¹æ®ä¸€ä¸ªç‰¹å®šçš„Cookieåˆ¤æ–­æ˜¯å¦æŒ‡å®šäº†`Locale`ï¼Œå¦‚æœæ²¡æœ‰ï¼Œå°±ä»HTTPå¤´è·å–ï¼Œå¦‚æœè¿˜æ²¡æœ‰ï¼Œå°±è¿”å›é»˜è®¤çš„`Locale`ã€‚
 
-µ±ÓÃ»§µÚÒ»´Î·ÃÎÊÍøÕ¾Ê±£¬`CookieLocaleResolver`Ö»ÄÜ´ÓHTTPÍ·»ñÈ¡`Locale`£¬¼´Ê¹ÓÃä¯ÀÀÆ÷µÄÄ¬ÈÏÓïÑÔ¡£Í¨³£ÍøÕ¾Ò²ÔÊĞíÓÃ»§×Ô¼ºÑ¡ÔñÓïÑÔ£¬´ËÊ±£¬`CookieLocaleResolver`¾Í»á°ÑÓÃ»§Ñ¡ÔñµÄÓïÑÔ´æ·Åµ½CookieÖĞ£¬ÏÂÒ»´Î·ÃÎÊÊ±£¬¾Í»á·µ»ØÓÃ»§ÉÏ´ÎÑ¡ÔñµÄÓïÑÔ¶ø²»ÊÇä¯ÀÀÆ÷Ä¬ÈÏÓïÑÔ¡£
+å½“ç”¨æˆ·ç¬¬ä¸€æ¬¡è®¿é—®ç½‘ç«™æ—¶ï¼Œ`CookieLocaleResolver`åªèƒ½ä»HTTPå¤´è·å–`Locale`ï¼Œå³ä½¿ç”¨æµè§ˆå™¨çš„é»˜è®¤è¯­è¨€ã€‚é€šå¸¸ç½‘ç«™ä¹Ÿå…è®¸ç”¨æˆ·è‡ªå·±é€‰æ‹©è¯­è¨€ï¼Œæ­¤æ—¶ï¼Œ`CookieLocaleResolver`å°±ä¼šæŠŠç”¨æˆ·é€‰æ‹©çš„è¯­è¨€å­˜æ”¾åˆ°Cookieä¸­ï¼Œä¸‹ä¸€æ¬¡è®¿é—®æ—¶ï¼Œå°±ä¼šè¿”å›ç”¨æˆ·ä¸Šæ¬¡é€‰æ‹©çš„è¯­è¨€è€Œä¸æ˜¯æµè§ˆå™¨é»˜è®¤è¯­è¨€ã€‚
 
-### ÌáÈ¡×ÊÔ´ÎÄ¼ş
+### æå–èµ„æºæ–‡ä»¶
 
-µÚ¶ş²½ÊÇ°ÑĞ´ËÀÔÚÄ£°åÖĞµÄ×Ö·û´®ÒÔ×ÊÔ´ÎÄ¼şµÄ·½Ê½´æ´¢ÔÚÍâ²¿¡£¶ÔÓÚ¶àÓïÑÔ£¬Ö÷ÎÄ¼şÃûÈç¹ûÃüÃûÎª`messages`£¬ÄÇÃ´×ÊÔ´ÎÄ¼ş±ØĞë°´ÈçÏÂ·½Ê½ÃüÃû²¢·ÅÈëclasspathÖĞ£º
+ç¬¬äºŒæ­¥æ˜¯æŠŠå†™æ­»åœ¨æ¨¡æ¿ä¸­çš„å­—ç¬¦ä¸²ä»¥èµ„æºæ–‡ä»¶çš„æ–¹å¼å­˜å‚¨åœ¨å¤–éƒ¨ã€‚å¯¹äºå¤šè¯­è¨€ï¼Œä¸»æ–‡ä»¶åå¦‚æœå‘½åä¸º`messages`ï¼Œé‚£ä¹ˆèµ„æºæ–‡ä»¶å¿…é¡»æŒ‰å¦‚ä¸‹æ–¹å¼å‘½åå¹¶æ”¾å…¥classpathä¸­ï¼š
 
-*   Ä¬ÈÏÓïÑÔ£¬ÎÄ¼şÃû±ØĞëÎª`messages.properties`£»
-*   ¼òÌåÖĞÎÄ£¬LocaleÊÇ`zh_CN`£¬ÎÄ¼şÃû±ØĞëÎª`messages_zh_CN.properties`£»
-*   ÈÕÎÄ£¬LocaleÊÇ`ja_JP`£¬ÎÄ¼şÃû±ØĞëÎª`messages_ja_JP.properties`£»
-*   ÆäËü¸ü¶àÓïÑÔ¡­¡­
+*   é»˜è®¤è¯­è¨€ï¼Œæ–‡ä»¶åå¿…é¡»ä¸º`messages.properties`ï¼›
+*   ç®€ä½“ä¸­æ–‡ï¼ŒLocaleæ˜¯`zh_CN`ï¼Œæ–‡ä»¶åå¿…é¡»ä¸º`messages_zh_CN.properties`ï¼›
+*   æ—¥æ–‡ï¼ŒLocaleæ˜¯`ja_JP`ï¼Œæ–‡ä»¶åå¿…é¡»ä¸º`messages_ja_JP.properties`ï¼›
+*   å…¶å®ƒæ›´å¤šè¯­è¨€â€¦â€¦
 
-Ã¿¸ö×ÊÔ´ÎÄ¼ş¶¼ÓĞÏàÍ¬µÄkey£¬ÀıÈç£¬Ä¬ÈÏÓïÑÔÊÇÓ¢ÎÄ£¬ÎÄ¼ş`messages.properties`ÄÚÈİÈçÏÂ£º
+æ¯ä¸ªèµ„æºæ–‡ä»¶éƒ½æœ‰ç›¸åŒçš„keyï¼Œä¾‹å¦‚ï¼Œé»˜è®¤è¯­è¨€æ˜¯è‹±æ–‡ï¼Œæ–‡ä»¶`messages.properties`å†…å®¹å¦‚ä¸‹ï¼š
 
 ```  
 language.select=Language  
@@ -59,19 +59,19 @@ copyright=Copyright?{0,number,#}
   
 ```
 
-ÎÄ¼ş`messages_zh_CN.properties`ÄÚÈİÈçÏÂ£º
+æ–‡ä»¶`messages_zh_CN.properties`å†…å®¹å¦‚ä¸‹ï¼š
 
 ```  
-language.select=ÓïÑÔ  
-home=Ê×Ò³  
-signin=µÇÂ¼  
-copyright=°æÈ¨ËùÓĞ?{0,number,#}  
+language.select=è¯­è¨€  
+home=é¦–é¡µ  
+signin=ç™»å½•  
+copyright=ç‰ˆæƒæ‰€æœ‰?{0,number,#}  
   
 ```
 
-### ´´½¨MessageSource
+### åˆ›å»ºMessageSource
 
-µÚÈı²½ÊÇ´´½¨Ò»¸öSpringÌá¹©µÄ`MessageSource`ÊµÀı£¬Ëü×Ô¶¯¶ÁÈ¡ËùÓĞµÄ`.properties`ÎÄ¼ş£¬²¢Ìá¹©Ò»¸öÍ³Ò»½Ó¿ÚÀ´ÊµÏÖ¡°·­Òë¡±£º
+ç¬¬ä¸‰æ­¥æ˜¯åˆ›å»ºä¸€ä¸ªSpringæä¾›çš„`MessageSource`å®ä¾‹ï¼Œå®ƒè‡ªåŠ¨è¯»å–æ‰€æœ‰çš„`.properties`æ–‡ä»¶ï¼Œå¹¶æä¾›ä¸€ä¸ªç»Ÿä¸€æ¥å£æ¥å®ç°â€œç¿»è¯‘â€ï¼š
 
 ```  
 // code, arguments, locale:  
@@ -79,52 +79,52 @@ String text = messageSource.getMessage("signin", null, locale);
   
 ```
 
-ÆäÖĞ£¬`signin`ÊÇÎÒÃÇÔÚ`.properties`ÎÄ¼şÖĞ¶¨ÒåµÄkey£¬µÚ¶ş¸ö²ÎÊıÊÇ`Object[]`Êı×é×÷Îª¸ñÊ½»¯Ê±´«ÈëµÄ²ÎÊı£¬×îºóÒ»¸ö²ÎÊı¾ÍÊÇ»ñÈ¡µÄÓÃ»§`Locale`ÊµÀı¡£
+å…¶ä¸­ï¼Œ`signin`æ˜¯æˆ‘ä»¬åœ¨`.properties`æ–‡ä»¶ä¸­å®šä¹‰çš„keyï¼Œç¬¬äºŒä¸ªå‚æ•°æ˜¯`Object[]`æ•°ç»„ä½œä¸ºæ ¼å¼åŒ–æ—¶ä¼ å…¥çš„å‚æ•°ï¼Œæœ€åä¸€ä¸ªå‚æ•°å°±æ˜¯è·å–çš„ç”¨æˆ·`Locale`å®ä¾‹ã€‚
 
-´´½¨`MessageSource`ÈçÏÂ£º
+åˆ›å»º`MessageSource`å¦‚ä¸‹ï¼š
 
 ```  
 @Bean("i18n")  
 MessageSource createMessageSource() {  
-    var messageSource = new ResourceBundleMessageSource();    // Ö¸¶¨ÎÄ¼şÊÇUTF-8±àÂë:  
-    messageSource.setDefaultEncoding("UTF-8");    // Ö¸¶¨Ö÷ÎÄ¼şÃû:  
+    var messageSource = new ResourceBundleMessageSource();    // æŒ‡å®šæ–‡ä»¶æ˜¯UTF-8ç¼–ç :  
+    messageSource.setDefaultEncoding("UTF-8");    // æŒ‡å®šä¸»æ–‡ä»¶å:  
     messageSource.setBasename("messages");    return messageSource;}  
   
 ```
 
-×¢Òâµ½`ResourceBundleMessageSource`»á×Ô¶¯¸ù¾İÖ÷ÎÄ¼şÃû×Ô¶¯°ÑËùÓĞÏà¹ØÓïÑÔµÄ×ÊÔ´ÎÄ¼ş¶¼¶Á½øÀ´¡£
+æ³¨æ„åˆ°`ResourceBundleMessageSource`ä¼šè‡ªåŠ¨æ ¹æ®ä¸»æ–‡ä»¶åè‡ªåŠ¨æŠŠæ‰€æœ‰ç›¸å…³è¯­è¨€çš„èµ„æºæ–‡ä»¶éƒ½è¯»è¿›æ¥ã€‚
 
-ÔÙ×¢Òâµ½SpringÈİÆ÷»á´´½¨²»Ö»Ò»¸ö`MessageSource`ÊµÀı£¬ÎÒÃÇ×Ô¼º´´½¨µÄÕâ¸ö`MessageSource`ÊÇ×¨ÃÅ¸øÒ³Ãæ¹ú¼Ê»¯Ê¹ÓÃµÄ£¬Òò´ËÃüÃûÎª`i18n`£¬²»»áÓëÆäËü`MessageSource`ÊµÀı³åÍ»¡£
+å†æ³¨æ„åˆ°Springå®¹å™¨ä¼šåˆ›å»ºä¸åªä¸€ä¸ª`MessageSource`å®ä¾‹ï¼Œæˆ‘ä»¬è‡ªå·±åˆ›å»ºçš„è¿™ä¸ª`MessageSource`æ˜¯ä¸“é—¨ç»™é¡µé¢å›½é™…åŒ–ä½¿ç”¨çš„ï¼Œå› æ­¤å‘½åä¸º`i18n`ï¼Œä¸ä¼šä¸å…¶å®ƒ`MessageSource`å®ä¾‹å†²çªã€‚
 
-### ÊµÏÖ¶àÓïÑÔ
+### å®ç°å¤šè¯­è¨€
 
-ÒªÔÚViewÖĞÊ¹ÓÃ`MessageSource`¼ÓÉÏ`Locale`Êä³ö¶àÓïÑÔ£¬ÎÒÃÇÍ¨¹ı±àĞ´Ò»¸ö`MvcInterceptor`£¬°ÑÏà¹Ø×ÊÔ´×¢Èëµ½`ModelAndView`ÖĞ£º
+è¦åœ¨Viewä¸­ä½¿ç”¨`MessageSource`åŠ ä¸Š`Locale`è¾“å‡ºå¤šè¯­è¨€ï¼Œæˆ‘ä»¬é€šè¿‡ç¼–å†™ä¸€ä¸ª`MvcInterceptor`ï¼ŒæŠŠç›¸å…³èµ„æºæ³¨å…¥åˆ°`ModelAndView`ä¸­ï¼š
 
 ```  
 @Component  
 public class MvcInterceptor implements HandlerInterceptor {  
     @Autowired    LocaleResolver localeResolver;  
-    // ×¢Òâ×¢ÈëµÄMessageSourceÃû³ÆÊÇi18n:  
+    // æ³¨æ„æ³¨å…¥çš„MessageSourceåç§°æ˜¯i18n:  
     @Autowired    @Qualifier("i18n")    MessageSource messageSource;  
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {        if (modelAndView != null) {            // ½âÎöÓÃ»§µÄLocale:  
-            Locale locale = localeResolver.resolveLocale(request);            // ·ÅÈëModel:  
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {        if (modelAndView != null) {            // è§£æç”¨æˆ·çš„Locale:  
+            Locale locale = localeResolver.resolveLocale(request);            // æ”¾å…¥Model:  
             modelAndView.addObject("__messageSource__", messageSource);            modelAndView.addObject("__locale__", locale);        }    }}  
   
 ```
 
-²»ÒªÍüÁËÔÚ`WebMvcConfigurer`ÖĞ×¢²á`MvcInterceptor`¡£ÏÖÔÚ£¬¾Í¿ÉÒÔÔÚViewÖĞµ÷ÓÃ`MessageSource.getMessage()`·½·¨À´ÊµÏÖ¶àÓïÑÔ£º
+ä¸è¦å¿˜äº†åœ¨`WebMvcConfigurer`ä¸­æ³¨å†Œ`MvcInterceptor`ã€‚ç°åœ¨ï¼Œå°±å¯ä»¥åœ¨Viewä¸­è°ƒç”¨`MessageSource.getMessage()`æ–¹æ³•æ¥å®ç°å¤šè¯­è¨€ï¼š
 
 ```  
 {{ __messageSource__.getMessage('signin', null, __locale__) }}  
   
 ```
 
-ÉÏÊöÕâÖÖĞ´·¨ËäÈ»¿ÉĞĞ£¬µ«¸ñÊ½Ì«¸´ÔÓÁË¡£Ê¹ÓÃViewÊ±£¬Òª¸ù¾İÃ¿¸öÌØ¶¨µÄViewÒıÇæ¶¨ÖÆ¹ú¼Ê»¯º¯Êı¡£ÔÚPebbleÖĞ£¬ÎÒÃÇ¿ÉÒÔ·â×°Ò»¸ö¹ú¼Ê»¯º¯Êı£¬Ãû³Æ¾ÍÊÇÏÂ»®Ïß`_`£¬¸ÄÔìÒ»ÏÂ´´½¨`ViewResolver`µÄ´úÂë£º
+ä¸Šè¿°è¿™ç§å†™æ³•è™½ç„¶å¯è¡Œï¼Œä½†æ ¼å¼å¤ªå¤æ‚äº†ã€‚ä½¿ç”¨Viewæ—¶ï¼Œè¦æ ¹æ®æ¯ä¸ªç‰¹å®šçš„Viewå¼•æ“å®šåˆ¶å›½é™…åŒ–å‡½æ•°ã€‚åœ¨Pebbleä¸­ï¼Œæˆ‘ä»¬å¯ä»¥å°è£…ä¸€ä¸ªå›½é™…åŒ–å‡½æ•°ï¼Œåç§°å°±æ˜¯ä¸‹åˆ’çº¿`_`ï¼Œæ”¹é€ ä¸€ä¸‹åˆ›å»º`ViewResolver`çš„ä»£ç ï¼š
 
 ```  
 @Bean  
 ViewResolver createViewResolver(@Autowired ServletContext servletContext, @Autowired @Qualifier("i18n") MessageSource messageSource) {  
-    var engine = new PebbleEngine.Builder()            .autoEscaping(true)            .cacheActive(false)            .loader(new Servlet5Loader(servletContext))            // Ìí¼ÓÀ©Õ¹:  
+    var engine = new PebbleEngine.Builder()            .autoEscaping(true)            .cacheActive(false)            .loader(new Servlet5Loader(servletContext))            // æ·»åŠ æ‰©å±•:  
             .extension(createExtension(messageSource))            .build();    var viewResolver = new PebbleViewResolver();    viewResolver.setPrefix("/WEB-INF/templates/");    viewResolver.setSuffix("");    viewResolver.setPebbleEngine(engine);    return viewResolver;}  
   
 private Extension createExtension(MessageSource messageSource) {  
@@ -132,48 +132,48 @@ private Extension createExtension(MessageSource messageSource) {
   
 ```
 
-ÕâÑù£¬ÎÒÃÇ¿ÉÒÔ°Ñ¶àÓïÑÔÒ³Ãæ¸ÄĞ´Îª£º
+è¿™æ ·ï¼Œæˆ‘ä»¬å¯ä»¥æŠŠå¤šè¯­è¨€é¡µé¢æ”¹å†™ä¸ºï¼š
 
 ```  
 {{ _('signin') }}  
   
 ```
 
-Èç¹ûÊÇ´ø²ÎÊıµÄ¶àÓïÑÔ£¬ĞèÒª°Ñ²ÎÊı´«½øÈ¥£º
+å¦‚æœæ˜¯å¸¦å‚æ•°çš„å¤šè¯­è¨€ï¼Œéœ€è¦æŠŠå‚æ•°ä¼ è¿›å»ï¼š
 
 ```  
 <h5>{{ _('copyright', 2020) }}</h5>  
   
 ```
 
-Ê¹ÓÃÆäËüViewÒıÇæÊ±£¬Ò²Ó¦µ±¸ù¾İÒıÇæ½Ó¿ÚÊµÏÖ¸ü·½±ãµÄÓï·¨¡£
+ä½¿ç”¨å…¶å®ƒViewå¼•æ“æ—¶ï¼Œä¹Ÿåº”å½“æ ¹æ®å¼•æ“æ¥å£å®ç°æ›´æ–¹ä¾¿çš„è¯­æ³•ã€‚
 
-### ÇĞ»»Locale
+### åˆ‡æ¢Locale
 
-×îºó£¬ÎÒÃÇĞèÒªÔÊĞíÓÃ»§ÊÖ¶¯ÇĞ»»`Locale`£¬±àĞ´Ò»¸ö`LocaleController`À´ÊµÏÖ¸Ã¹¦ÄÜ£º
+æœ€åï¼Œæˆ‘ä»¬éœ€è¦å…è®¸ç”¨æˆ·æ‰‹åŠ¨åˆ‡æ¢`Locale`ï¼Œç¼–å†™ä¸€ä¸ª`LocaleController`æ¥å®ç°è¯¥åŠŸèƒ½ï¼š
 
 ```  
 @Controller  
 public class LocaleController {  
     final Logger logger = LoggerFactory.getLogger(getClass());  
     @Autowired    LocaleResolver localeResolver;  
-    @GetMapping("/locale/{lo}")    public String setLocale(@PathVariable("lo") String lo, HttpServletRequest request, HttpServletResponse response) {        // ¸ù¾İ´«ÈëµÄlo´´½¨LocaleÊµÀı:  
-        Locale locale = null;        int pos = lo.indexOf('_');        if (pos > 0) {            String lang = lo.substring(0, pos);            String country = lo.substring(pos + 1);            locale = new Locale(lang, country);        } else {            locale = new Locale(lo);        }        // Éè¶¨´ËLocale:  
-        localeResolver.setLocale(request, response, locale);        logger.info("locale is set to {}.", locale);        // Ë¢ĞÂÒ³Ãæ:  
+    @GetMapping("/locale/{lo}")    public String setLocale(@PathVariable("lo") String lo, HttpServletRequest request, HttpServletResponse response) {        // æ ¹æ®ä¼ å…¥çš„loåˆ›å»ºLocaleå®ä¾‹:  
+        Locale locale = null;        int pos = lo.indexOf('_');        if (pos > 0) {            String lang = lo.substring(0, pos);            String country = lo.substring(pos + 1);            locale = new Locale(lang, country);        } else {            locale = new Locale(lo);        }        // è®¾å®šæ­¤Locale:  
+        localeResolver.setLocale(request, response, locale);        logger.info("locale is set to {}.", locale);        // åˆ·æ–°é¡µé¢:  
         String referer = request.getHeader("Referer");        return "redirect:" + (referer == null ? "/" : referer);    }}  
   
 ```
 
-ÔÚÒ³ÃæÉè¼ÆÖĞ£¬Í¨³£ÔÚÓÒÉÏ½Ç¸øÓÃ»§Ìá¹©Ò»¸öÓïÑÔÑ¡ÔñÁĞ±í£¬À´¿´¿´Ğ§¹û£º
+åœ¨é¡µé¢è®¾è®¡ä¸­ï¼Œé€šå¸¸åœ¨å³ä¸Šè§’ç»™ç”¨æˆ·æä¾›ä¸€ä¸ªè¯­è¨€é€‰æ‹©åˆ—è¡¨ï¼Œæ¥çœ‹çœ‹æ•ˆæœï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416194544.png)
 
-ÇĞ»»µ½ÖĞÎÄ£º
+åˆ‡æ¢åˆ°ä¸­æ–‡ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416194602.png)
 
-### Ğ¡½á
+### å°ç»“
 
-¶àÓïÑÔÖ§³ÖĞèÒª´ÓHTTPÇëÇóÖĞ½âÎöÓÃ»§µÄLocale£¬È»ºóÕë¶Ô²»Í¬LocaleÏÔÊ¾²»Í¬µÄÓïÑÔ£»
+å¤šè¯­è¨€æ”¯æŒéœ€è¦ä»HTTPè¯·æ±‚ä¸­è§£æç”¨æˆ·çš„Localeï¼Œç„¶åé’ˆå¯¹ä¸åŒLocaleæ˜¾ç¤ºä¸åŒçš„è¯­è¨€ï¼›
 
-Spring MVCÓ¦ÓÃ³ÌĞòÍ¨¹ı`MessageSource`ºÍ`LocaleResolver`£¬ÅäºÏViewÊµÏÖ¹ú¼Ê»¯¡£
+Spring MVCåº”ç”¨ç¨‹åºé€šè¿‡`MessageSource`å’Œ`LocaleResolver`ï¼Œé…åˆViewå®ç°å›½é™…åŒ–ã€‚

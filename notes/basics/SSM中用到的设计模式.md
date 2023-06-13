@@ -25,8 +25,9 @@ HelloWorld obj = (HelloWorld) context.getBean("helloWorld");
 ## 模板模式（Template Pattern）：
 
 Spring JDBC和Spring JMS都广泛使用了模板模式。这种模式在父类中定义了算法的结构，但是将一些步骤的实现推迟到子类。例如，JdbcTemplate，JmsTemplate等。
-java
+```java
 jdbcTemplate.execute("DROP TABLE CUSTOMER");
+```
 ## 代理模式（Proxy Pattern）：
 
 Spring AOP的实现就是典型的代理模式，用于在方法调用前后添加特定的逻辑。

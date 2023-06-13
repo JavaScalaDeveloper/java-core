@@ -1,30 +1,30 @@
 
 
-½ÓÉÏÎÄ£¬¼ÌĞø·ÖÎö spring µÄÆô¶¯Á÷³Ì¡£
+æ¥ä¸Šæ–‡ï¼Œç»§ç»­åˆ†æ spring çš„å¯åŠ¨æµç¨‹ã€‚
 
-12. Íê³ÉÆô¶¯²Ù×÷: finishRefresh()
+12. å®Œæˆå¯åŠ¨æ“ä½œ: finishRefresh()
 
-AbstractApplicationContext#finishRefresh ·½·¨ÈçÏÂ£º
+AbstractApplicationContext#finishRefresh æ–¹æ³•å¦‚ä¸‹ï¼š
 
     protected void finishRefresh() {
-        // ¿´Ãû×Ö¾ÍÖªµÀÁË£¬ÇåÀí³õÊ¼»¯¹ı³ÌÖĞÒ»ÏµÁĞ²Ù×÷Ê¹ÓÃµ½µÄ×ÊÔ´»º´æ
+        // çœ‹åå­—å°±çŸ¥é“äº†ï¼Œæ¸…ç†åˆå§‹åŒ–è¿‡ç¨‹ä¸­ä¸€ç³»åˆ—æ“ä½œä½¿ç”¨åˆ°çš„èµ„æºç¼“å­˜
         clearResourceCaches();
-        // ³õÊ¼»¯LifecycleProcessor
+        // åˆå§‹åŒ–LifecycleProcessor
         initLifecycleProcessor();
-        // Õâ¸ö·½·¨µÄÄÚ²¿ÊµÏÖÊÇÆô¶¯ËùÓĞÊµÏÖÁËLifecycle½Ó¿ÚµÄbean
+        // è¿™ä¸ªæ–¹æ³•çš„å†…éƒ¨å®ç°æ˜¯å¯åŠ¨æ‰€æœ‰å®ç°äº†Lifecycleæ¥å£çš„bean
         getLifecycleProcessor().onRefresh();
-        // ·¢²¼ContextRefreshedEventÊÂ¼ş
+        // å‘å¸ƒContextRefreshedEventäº‹ä»¶
         publishEvent(new ContextRefreshedEvent(this));
-        // ¼ì²éspring.liveBeansView.mbeanDomainÊÇ·ñ´æÔÚ£¬ÓĞ¾Í»á´´½¨Ò»¸öMBeanServer
+        // æ£€æŸ¥spring.liveBeansView.mbeanDomainæ˜¯å¦å­˜åœ¨ï¼Œæœ‰å°±ä¼šåˆ›å»ºä¸€ä¸ªMBeanServer
         LiveBeansView.registerApplicationContext(this);
     }
 
 
-Õâ¸ö·½·¨´úÂë²»¶à£¬¾Í¼¸¸ö·½·¨£¬ÎÒÃÇ·Ö±ğÀ´¿´¿´¡£
+è¿™ä¸ªæ–¹æ³•ä»£ç ä¸å¤šï¼Œå°±å‡ ä¸ªæ–¹æ³•ï¼Œæˆ‘ä»¬åˆ†åˆ«æ¥çœ‹çœ‹ã€‚
 
-1. ÇåÀí×ÊÔ´»º´æ£ºclearResourceCaches()
+1. æ¸…ç†èµ„æºç¼“å­˜ï¼šclearResourceCaches()
 
-clearResourceCaches() ·½·¨ÄÚÈİÈçÏÂ£º
+clearResourceCaches() æ–¹æ³•å†…å®¹å¦‚ä¸‹ï¼š
 
     public class DefaultResourceLoader implements ResourceLoader {
     
@@ -35,72 +35,72 @@ clearResourceCaches() ·½·¨ÄÚÈİÈçÏÂ£º
             this.resourceCaches.clear();
         }
     
-        // Ê¡ÂÔÁËÕâ¸öÀàµÄºÃ¶à´úÂë
+        // çœç•¥äº†è¿™ä¸ªç±»çš„å¥½å¤šä»£ç 
         ...
     
     }
 
 
-Õâ¸ö·½·¨¾ÍÊÇÓÃÀ´ÇåÀí resourceCaches µÄ£¬ÕâÊÇ¸ö Map£¬ÀïÃæ´æÈëµÄÄÚÈİÊÇ Resource¡£
+è¿™ä¸ªæ–¹æ³•å°±æ˜¯ç”¨æ¥æ¸…ç† resourceCaches çš„ï¼Œè¿™æ˜¯ä¸ª Mapï¼Œé‡Œé¢å­˜å…¥çš„å†…å®¹æ˜¯ Resourceã€‚
 
-ÄÇÊ²Ã´ÊÇ Resource ÄØ£¿ÔÚÇ°Ãæ½éÉÜÉ¨Ãè°üµÄ¹ı³ÌÖĞ£¬ÎÒÃÇ»áÏÈ°Ñ class ÎÄ¼ş¶ÁÈ¡³öÀ´£¬×ª»»³É Resource ºóÔÙ½øÒ»²½´¦Àí£¬³£¼ûµÄ Resource ÀàĞÍÓĞ FileSystemResource¡¢UrlResource µÈ£¬resourceCaches ¾ÍÊÇ´æ·ÅÕâĞ© Resource µÄ¡£
+é‚£ä»€ä¹ˆæ˜¯ Resource å‘¢ï¼Ÿåœ¨å‰é¢ä»‹ç»æ‰«æåŒ…çš„è¿‡ç¨‹ä¸­ï¼Œæˆ‘ä»¬ä¼šå…ˆæŠŠ class æ–‡ä»¶è¯»å–å‡ºæ¥ï¼Œè½¬æ¢æˆ Resource åå†è¿›ä¸€æ­¥å¤„ç†ï¼Œå¸¸è§çš„ Resource ç±»å‹æœ‰ FileSystemResourceã€UrlResource ç­‰ï¼ŒresourceCaches å°±æ˜¯å­˜æ”¾è¿™äº› Resource çš„ã€‚
 
-2. ´¦Àí LifecycleProcessor
+2. å¤„ç† LifecycleProcessor
 
-ÎÒÃÇÏÈÀ´¿´¿´Ê²Ã´ÊÇ LifecycleProcessor£º
+æˆ‘ä»¬å…ˆæ¥çœ‹çœ‹ä»€ä¹ˆæ˜¯ LifecycleProcessorï¼š
 
     /**
-     * ´¦ÀíÈİÆ÷µÄÆô¶¯Óë¹Ø±Õ²Ù×÷
+     * å¤„ç†å®¹å™¨çš„å¯åŠ¨ä¸å…³é—­æ“ä½œ
      */
     public interface LifecycleProcessor extends Lifecycle {
     
         /**
-         * ÈİÆ÷Æô¶¯Íê³ÉÊ±µ÷ÓÃ
+         * å®¹å™¨å¯åŠ¨å®Œæˆæ—¶è°ƒç”¨
          */
         void onRefresh();
     
         /**
-         * ÈİÆ÷¹Ø±ÕÊ±µ÷ÓÃ
+         * å®¹å™¨å…³é—­æ—¶è°ƒç”¨
          */
         void onClose();
     
     }
 
 
-Õâ¸ö½Ó¿ÚÓÃÀ´´¦ÀíÈİÆ÷´¦ÀíÈİÆ÷µÄÆô¶¯Óë¹Ø±Õ²Ù×÷£¬±ÈÈçÎÒÃÇ×Ô¼ºÊµÏÖ¸Ã½Ó¿Ú£¬È»ºóÖØĞ´ onRefresh() Óë onClose()£¬ÒÔ±ãÔÚÈİÆ÷Æô¶¯Óë¹Ø±ÕÊ±×öÒ»Ğ©²Ù×÷£¬ÏñÕâÑù£º
+è¿™ä¸ªæ¥å£ç”¨æ¥å¤„ç†å®¹å™¨å¤„ç†å®¹å™¨çš„å¯åŠ¨ä¸å…³é—­æ“ä½œï¼Œæ¯”å¦‚æˆ‘ä»¬è‡ªå·±å®ç°è¯¥æ¥å£ï¼Œç„¶åé‡å†™ onRefresh() ä¸ onClose()ï¼Œä»¥ä¾¿åœ¨å®¹å™¨å¯åŠ¨ä¸å…³é—­æ—¶åšä¸€äº›æ“ä½œï¼Œåƒè¿™æ ·ï¼š
 
     @Component
     public class MyLifecycleProcessor implements LifecycleProcessor {
     
         @Override
         public void onRefresh() {
-            System.out.println("ÈİÆ÷Æô¶¯");
+            System.out.println("å®¹å™¨å¯åŠ¨");
         }
     
         @Override
         public void onClose() {
-            System.out.println("ÈİÆ÷¹Ø±Õ");
+            System.out.println("å®¹å™¨å…³é—­");
         }
     }
 
 
-Óë LifecycleProcessor Ïà¹ØµÄ·½·¨ÓĞÁ½¸ö£ºinitLifecycleProcessor()¡¢getLifecycleProcessor()£¬ÎÒÃÇÒ»ÆğÒ»Îª¿´¿´ÕâÁ½¸ö·½·¨£º
+ä¸ LifecycleProcessor ç›¸å…³çš„æ–¹æ³•æœ‰ä¸¤ä¸ªï¼šinitLifecycleProcessor()ã€getLifecycleProcessor()ï¼Œæˆ‘ä»¬ä¸€èµ·ä¸€ä¸ºçœ‹çœ‹è¿™ä¸¤ä¸ªæ–¹æ³•ï¼š
 
 AbstractApplicationContext
 
     private LifecycleProcessor lifecycleProcessor;
     
     /**
-     * ³õÊ¼»¯ LifecycleProcessor
+     * åˆå§‹åŒ– LifecycleProcessor
      */
     protected void initLifecycleProcessor() {
         ConfigurableListableBeanFactory beanFactory = getBeanFactory();
-        // ´æÔÚ£¬Ö±½ÓÊ¹ÓÃ
+        // å­˜åœ¨ï¼Œç›´æ¥ä½¿ç”¨
         if (beanFactory.containsLocalBean(LIFECYCLE_PROCESSOR_BEAN_NAME)) {
             this.lifecycleProcessor =
                     beanFactory.getBean(LIFECYCLE_PROCESSOR_BEAN_NAME, LifecycleProcessor.class);
         }
-        // ²»´æÔÚÔò´´½¨£¬Ä¬ÈÏÊ¹ÓÃDefaultLifecycleProcessor
+        // ä¸å­˜åœ¨åˆ™åˆ›å»ºï¼Œé»˜è®¤ä½¿ç”¨DefaultLifecycleProcessor
         else {
             DefaultLifecycleProcessor defaultProcessor = new DefaultLifecycleProcessor();
             defaultProcessor.setBeanFactory(beanFactory);
@@ -110,7 +110,7 @@ AbstractApplicationContext
     }
     
     /**
-     * ·µ»Ø lifecycleProcessor
+     * è¿”å› lifecycleProcessor
      */
     LifecycleProcessor getLifecycleProcessor() throws IllegalStateException {
         if (this.lifecycleProcessor == null) {
@@ -120,11 +120,11 @@ AbstractApplicationContext
     }
 
 
-initLifecycleProcessor Ëù×öµÄ¾ÍÊÇÉèÖÃ AbstractApplicationContext#lifecycleProcessor ÊôĞÔ£¬Èç¹û beanFactory ÖĞ´æÔÚ initLifecycleProcessor ÔòÖ±½ÓÊ¹ÓÃ£¬·ñÔò¾Í´´½¨Ò»¸ö¡£
+initLifecycleProcessor æ‰€åšçš„å°±æ˜¯è®¾ç½® AbstractApplicationContext#lifecycleProcessor å±æ€§ï¼Œå¦‚æœ beanFactory ä¸­å­˜åœ¨ initLifecycleProcessor åˆ™ç›´æ¥ä½¿ç”¨ï¼Œå¦åˆ™å°±åˆ›å»ºä¸€ä¸ªã€‚
 
-getLifecycleProcessor() ½ö½öÖ»ÊÇ·µ»ØÁË AbstractApplicationContext#lifecycleProcessor ÊôĞÔ¡£
+getLifecycleProcessor() ä»…ä»…åªæ˜¯è¿”å›äº† AbstractApplicationContext#lifecycleProcessor å±æ€§ã€‚
 
-ÔÚ getLifecycleProcessor().onRefresh() ÖĞ£¬»¹µ÷ÓÃÁË onRefresh() ·½·¨£¬ÎÒÃÇÒ»ÆğÀ´¿´¿´ DefaultLifecycleProcessor#onRefresh ×öÁËÊ²Ã´£º
+åœ¨ getLifecycleProcessor().onRefresh() ä¸­ï¼Œè¿˜è°ƒç”¨äº† onRefresh() æ–¹æ³•ï¼Œæˆ‘ä»¬ä¸€èµ·æ¥çœ‹çœ‹ DefaultLifecycleProcessor#onRefresh åšäº†ä»€ä¹ˆï¼š
 
     @Override
     public void onRefresh() {
@@ -133,15 +133,15 @@ getLifecycleProcessor() ½ö½öÖ»ÊÇ·µ»ØÁË AbstractApplicationContext#lifecycleProce
     }
 
 
-´Ó±äÁ¿À´¿´£¬Õâ¸ö·½·¨½ö½öÖ»ÊÇ¸ÄÁËÒ»¸öÔËĞĞ×´Ì¬¡£
+ä»å˜é‡æ¥çœ‹ï¼Œè¿™ä¸ªæ–¹æ³•ä»…ä»…åªæ˜¯æ”¹äº†ä¸€ä¸ªè¿è¡ŒçŠ¶æ€ã€‚
 
-3. ·¢²¼ ContextRefreshedEvent ÊÂ¼ş
+3. å‘å¸ƒ ContextRefreshedEvent äº‹ä»¶
 
-´úÂë publishEvent(new ContextRefreshedEvent(this)) ·¢²¼ÁË ContextRefreshedEvent£¬ÎÒÃÇ×Ô¼ºÒ²¿ÉÒÔÀ´¼àÌı¸ÃÊÂ¼ş¡£¹ØÓÚÊÂ¼ş£¬±¾ÎÄ²¢²»´òËãÉîÈë£¬¹ØÓÚ spring ÊÂ¼şµÄÏêÏ¸·ÖÎö£¬¿ÉÒÔ²Î¿¼ spring Ì½ÃØÖ® spring ÊÂ¼ş»úÖÆ¡£
+ä»£ç  publishEvent(new ContextRefreshedEvent(this)) å‘å¸ƒäº† ContextRefreshedEventï¼Œæˆ‘ä»¬è‡ªå·±ä¹Ÿå¯ä»¥æ¥ç›‘å¬è¯¥äº‹ä»¶ã€‚å…³äºäº‹ä»¶ï¼Œæœ¬æ–‡å¹¶ä¸æ‰“ç®—æ·±å…¥ï¼Œå…³äº spring äº‹ä»¶çš„è¯¦ç»†åˆ†æï¼Œå¯ä»¥å‚è€ƒ spring æ¢ç§˜ä¹‹ spring äº‹ä»¶æœºåˆ¶ã€‚
 
-13. Çå³ı»º´æ: resetCommonCaches()
+13. æ¸…é™¤ç¼“å­˜: resetCommonCaches()
 
-¸Ã·½·¨´úÂëÈçÏÂ£º
+è¯¥æ–¹æ³•ä»£ç å¦‚ä¸‹ï¼š
 
     protected void resetCommonCaches() {
         ReflectionUtils.clearCache();
@@ -151,8 +151,8 @@ getLifecycleProcessor() ½ö½öÖ»ÊÇ·µ»ØÁË AbstractApplicationContext#lifecycleProce
     }
 
 
-´Ó·½·¨À´¿´£¬¾ÍÊÇÖ´ĞĞ¸÷ÖÖ»º´æ£¬Ö´ĞĞ±È½Ï¼òµ¥£¬¾Í²»Éî¾¿ÁË¡£
+ä»æ–¹æ³•æ¥çœ‹ï¼Œå°±æ˜¯æ‰§è¡Œå„ç§ç¼“å­˜ï¼Œæ‰§è¡Œæ¯”è¾ƒç®€å•ï¼Œå°±ä¸æ·±ç©¶äº†ã€‚
 
 ---
 
-±¾ÎÄÔ­ÎÄÁ´½Ó£ºhttps://my.oschina.net/funcy/blog/4892555 £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼šhttps://my.oschina.net/funcy/blog/4892555 ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚

@@ -1,4 +1,4 @@
-ÒªÏëÁË½âspring cloud config£¬ÎÒÃÇ¾Í±ØĞëÁË½âspringbootÖĞenvironment»·¾³µÄ¼ÓÔØ¹ı³Ì¡£
+è¦æƒ³äº†è§£spring cloud configï¼Œæˆ‘ä»¬å°±å¿…é¡»äº†è§£springbootä¸­environmentç¯å¢ƒçš„åŠ è½½è¿‡ç¨‹ã€‚
 
 
 
@@ -14,7 +14,7 @@ public static ConfigurableApplicationContext run(Class<?>[] primarySources,
 
 
 
-ÔÚ`SpringApplicationµÄ¹¹Ôì·½·¨ÖĞ`£¬ÓĞÕâÃ´Ò»¶Î´úÂë
+åœ¨`SpringApplicationçš„æ„é€ æ–¹æ³•ä¸­`ï¼Œæœ‰è¿™ä¹ˆä¸€æ®µä»£ç 
 
 
 
@@ -37,8 +37,8 @@ Set<String> names = new LinkedHashSet<>(
 
 
 
-Õâ¶Î´úÂëÖĞ¾ÍÊÇ´ÓMETA-INFÄ¿Â¼ÏÂÃæ»ñÈ¡`ApplicationListenerºÍApplicationContextInitializer`ÀàĞÍµÄËùÓĞÀà¡£
-ÔÚspring-boot.jarÏÂÃæspring.factoriesÖĞÅäÖÃÁË`ConfigFileApplicationListener`Õâ¸öÀà£¬ÅäÖÃ»·¾³Ò²¾ÍÊÇapplicationÎÄ¼şµÄ¼ÓÔØ¶¼»áÍ¨¹ıÕâ¸öÀà
+è¿™æ®µä»£ç ä¸­å°±æ˜¯ä»META-INFç›®å½•ä¸‹é¢è·å–`ApplicationListenerå’ŒApplicationContextInitializer`ç±»å‹çš„æ‰€æœ‰ç±»ã€‚
+åœ¨spring-boot.jarä¸‹é¢spring.factoriesä¸­é…ç½®äº†`ConfigFileApplicationListener`è¿™ä¸ªç±»ï¼Œé…ç½®ç¯å¢ƒä¹Ÿå°±æ˜¯applicationæ–‡ä»¶çš„åŠ è½½éƒ½ä¼šé€šè¿‡è¿™ä¸ªç±»
 
 
 
@@ -55,7 +55,7 @@ org.springframework.boot.context.event.EventPublishingRunListener
 
 
 
-¼ÌĞø½øÈëspringbootÆô¶¯½×¶Î
+ç»§ç»­è¿›å…¥springbootå¯åŠ¨é˜¶æ®µ
 
 
 
@@ -122,8 +122,8 @@ prepareContext(context, environment, listeners, applicationArguments,
 
 
 
-ÉÏÃæÕâÁ½¶Î´úÂë¾ÍÊÇ×°ÔØ»·¾³µÄ´úÂë
-ÔÚ`prepareEnvironment`·½·¨ÖĞ³õÊ¼»¯ÁË`environment`¡£
+ä¸Šé¢è¿™ä¸¤æ®µä»£ç å°±æ˜¯è£…è½½ç¯å¢ƒçš„ä»£ç 
+åœ¨`prepareEnvironment`æ–¹æ³•ä¸­åˆå§‹åŒ–äº†`environment`ã€‚
 
 
 
@@ -146,7 +146,7 @@ prepareContext(context, environment, listeners, applicationArguments,
 
 
 
-ÒòÎªÎÒÃÇservlet·şÎñ£¬ËùÒÔ`Environment`Îª`StandardServletEnvironment`£¬²¢ÇÒÔÚ¸¸ÀàµÄµÄ¹¹ÔìÆäÖĞÖ´ĞĞÁË`customizePropertySources`·½·¨
+å› ä¸ºæˆ‘ä»¬servletæœåŠ¡ï¼Œæ‰€ä»¥`Environment`ä¸º`StandardServletEnvironment`ï¼Œå¹¶ä¸”åœ¨çˆ¶ç±»çš„çš„æ„é€ å…¶ä¸­æ‰§è¡Œäº†`customizePropertySources`æ–¹æ³•
 
 
 
@@ -191,7 +191,7 @@ prepareContext(context, environment, listeners, applicationArguments,
 
 
 
-µ½ÕâÀï,ÎÒÃÇµÃµ½ÁË`StandardServletEnvironment`²¢ÇÒ¼ÓÔØµÄÅäÖÃË³ĞòÊÇ
+åˆ°è¿™é‡Œ,æˆ‘ä»¬å¾—åˆ°äº†`StandardServletEnvironment`å¹¶ä¸”åŠ è½½çš„é…ç½®é¡ºåºæ˜¯
 
 1.  servletConfigInitParams
 2.  servletContextInitParams
@@ -235,9 +235,9 @@ prepareContext(context, environment, listeners, applicationArguments,
 
 
 
-¶øÕâÀïÎÒÃÇ¿ÉÒÔ¿´µ½ÓÖ¼ÓÈëÁË`defaultProperties`ÅäÖÃÔÚ×îºóÃæÒÔ¼°`SimpleCommandLinePropertySource`ÃüÁîĞĞ²ÎÊıÔÚ×îÇ°Ãæ¡£Òò´Ë£¬ÏÖÔÚµÄË³ĞòÊÇ
+è€Œè¿™é‡Œæˆ‘ä»¬å¯ä»¥çœ‹åˆ°åˆåŠ å…¥äº†`defaultProperties`é…ç½®åœ¨æœ€åé¢ä»¥åŠ`SimpleCommandLinePropertySource`å‘½ä»¤è¡Œå‚æ•°åœ¨æœ€å‰é¢ã€‚å› æ­¤ï¼Œç°åœ¨çš„é¡ºåºæ˜¯
 
-1.  SimpleCommandLinePropertySourcemÃüÁîĞĞÅäÖÃ
+1.  SimpleCommandLinePropertySourcemå‘½ä»¤è¡Œé…ç½®
 2.  servletConfigInitParams
 3.  servletContextInitParams
 4.  jndiProperties
@@ -264,7 +264,7 @@ prepareContext(context, environment, listeners, applicationArguments,
 
 
 
-ÔÚÕâÀï`SpringApplicationRunListener`Îª`EventPublishingRunListener`,À´×ÔÓÚÇ°ÃæµÄ`getRunListeners`
+åœ¨è¿™é‡Œ`SpringApplicationRunListener`ä¸º`EventPublishingRunListener`,æ¥è‡ªäºå‰é¢çš„`getRunListeners`
 
 
 
@@ -279,7 +279,7 @@ prepareContext(context, environment, listeners, applicationArguments,
 
 
 
-¶øÍ¨¹ı¹¹Ôì·½·¨³õÊ¼»¯µÄÊ±ºò´«ÈëÁËthis£¬ËùÒÔ×îÖÕ`initialMulticaster`ÖĞµÄlistenerÎªapplicationÖĞµÄlistener
+è€Œé€šè¿‡æ„é€ æ–¹æ³•åˆå§‹åŒ–çš„æ—¶å€™ä¼ å…¥äº†thisï¼Œæ‰€ä»¥æœ€ç»ˆ`initialMulticaster`ä¸­çš„listenerä¸ºapplicationä¸­çš„listener
 
 
 
@@ -297,7 +297,7 @@ prepareContext(context, environment, listeners, applicationArguments,
 
 
 
-ËùÒÔÕâÀï»á·¢ËÍ¸öÊÂ¼şÍ¨Öª£¬À´µ½ÁË`ConfigFileApplicationListener`
+æ‰€ä»¥è¿™é‡Œä¼šå‘é€ä¸ªäº‹ä»¶é€šçŸ¥ï¼Œæ¥åˆ°äº†`ConfigFileApplicationListener`
 
 
 
@@ -340,7 +340,7 @@ prepareContext(context, environment, listeners, applicationArguments,
 
 
 
-ÔÚÕâÀïÓĞÓĞ¸öÀ©Õ¹µã£¬Í¨¹ı»ñÈ¡`spring.factories`ÎÄ¼şÖĞÅäÖÃµÄ`EnvironmentPostProcessor`Ààµ÷ÓÃ`postProcessEnvironment`·½·¨£¬×Ô¼º±¾ÉíÒ²¼ÓÈëµ½ÁË`postProcessors`¼¯ºÏÖĞ£¬ËùÒÔ×îÖÕÓÖ»á×ßµ½`postProcessors`·½·¨
+åœ¨è¿™é‡Œæœ‰æœ‰ä¸ªæ‰©å±•ç‚¹ï¼Œé€šè¿‡è·å–`spring.factories`æ–‡ä»¶ä¸­é…ç½®çš„`EnvironmentPostProcessor`ç±»è°ƒç”¨`postProcessEnvironment`æ–¹æ³•ï¼Œè‡ªå·±æœ¬èº«ä¹ŸåŠ å…¥åˆ°äº†`postProcessors`é›†åˆä¸­ï¼Œæ‰€ä»¥æœ€ç»ˆåˆä¼šèµ°åˆ°`postProcessors`æ–¹æ³•
 
 
 
@@ -396,10 +396,10 @@ prepareContext(context, environment, listeners, applicationArguments,
 
 
 
-ÔÚÕâÀï£¬ÓÖ½«randomÅäÖÃ¼ÓÈëµ½systemEnvironmentÖ®ºó£¬ËùÒÔÎÒÃÇµÄÅäÖÃ¼ÓÔØË³Ğò³ÉÁË
+åœ¨è¿™é‡Œï¼Œåˆå°†randomé…ç½®åŠ å…¥åˆ°systemEnvironmentä¹‹åï¼Œæ‰€ä»¥æˆ‘ä»¬çš„é…ç½®åŠ è½½é¡ºåºæˆäº†
 defaultProperties
 
-1.  SimpleCommandLinePropertySourcemÃüÁîĞĞÅäÖÃ
+1.  SimpleCommandLinePropertySourcemå‘½ä»¤è¡Œé…ç½®
 2.  servletConfigInitParams
 3.  servletContextInitParams
 4.  jndiProperties
@@ -408,18 +408,18 @@ defaultProperties
 7.  RandomValuePropertySource
 8.  defaultProperties
 
-Â·¾¶
+è·¯å¾„
 
 > classpath:/,classpath:/config/,file:./,file:./config/
 > spring.config.location=
 > spring.config.additional-location=
 
-ÎÄ¼şÃûÄ¬ÈÏÎªapplication
+æ–‡ä»¶åé»˜è®¤ä¸ºapplication
 
-> Èç¹ûÅäÖÃÁËspring.config.name=
-> ÎÄ¼şÃûÔòÎªspring.config.nameÅäÖÃµÄÃû³Æ
+> å¦‚æœé…ç½®äº†spring.config.name=
+> æ–‡ä»¶ååˆ™ä¸ºspring.config.nameé…ç½®çš„åç§°
 
-²¢ÇÒÍ¨¹ı`load`·½·¨½«ÉÏÊöÂ·¾¶ºÍÎÄ¼şÃûµÄÎÄ¼ş¼ÓÈëµ½`environmentÖĞ`£¬Èç¹ûÅäÖÃÁË`spring.profiles.active`£¬²¢ÇÒ¼ÓÔØprefix + "-" + profile + fileExtensionÎÄ¼ş£¬Ò²¾ÍÊÇ`application-<spring.profiles.active>.properties`ºÍ`y`ÎÄ¼ş
+å¹¶ä¸”é€šè¿‡`load`æ–¹æ³•å°†ä¸Šè¿°è·¯å¾„å’Œæ–‡ä»¶åçš„æ–‡ä»¶åŠ å…¥åˆ°`environmentä¸­`ï¼Œå¦‚æœé…ç½®äº†`spring.profiles.active`ï¼Œå¹¶ä¸”åŠ è½½prefix + "-" + profile + fileExtensionæ–‡ä»¶ï¼Œä¹Ÿå°±æ˜¯`application-<spring.profiles.active>.properties`å’Œ`y`æ–‡ä»¶
 
 
 
@@ -460,7 +460,7 @@ defaultProperties
 
 
 
-ÔÚÕâÀïÍ¨¹ı`this.propertySourceLoaders`±éÀúÅĞ¶ÏÊÇ·ñ·ûºÏ¸ÃSourceLoaderµÄºó×º£¬Èç¹û·ûºÏ£¬¾Í½«×ÊÔ´¼ÓÔØ½øÀ´,¶ø`propertySourceLoaders`À´×ÔÓÚ`Loader`¹¹Ôì·½·¨
+åœ¨è¿™é‡Œé€šè¿‡`this.propertySourceLoaders`éå†åˆ¤æ–­æ˜¯å¦ç¬¦åˆè¯¥SourceLoaderçš„åç¼€ï¼Œå¦‚æœç¬¦åˆï¼Œå°±å°†èµ„æºåŠ è½½è¿›æ¥,è€Œ`propertySourceLoaders`æ¥è‡ªäº`Loader`æ„é€ æ–¹æ³•
 
 
 
@@ -489,7 +489,7 @@ org.springframework.boot.env.YamlPropertySourceLoader
 
 
 
-Òò´Ë¿ÉÒÔ¼ÓÔØ`yml`ÎÄ¼şºÍ`properties`ÎÄ¼ş
+å› æ­¤å¯ä»¥åŠ è½½`yml`æ–‡ä»¶å’Œ`properties`æ–‡ä»¶
 
 
 
@@ -514,13 +514,13 @@ org.springframework.boot.env.YamlPropertySourceLoader
 
 
 
-×îÖÕ·ÅÈëµ½ÁË`environment`
+æœ€ç»ˆæ”¾å…¥åˆ°äº†`environment`
 
-½ÓÏÂÀ´ÎÒÃÇ¾ÍÀ´¿´ÏÂSpring cloud config
+æ¥ä¸‹æ¥æˆ‘ä»¬å°±æ¥çœ‹ä¸‹Spring cloud config
 
-ÔÚ`spring-cloud-context`µÄjarÖĞ£¬`spring.factories`ÖĞÒıÈëÁË¸ö`BootstrapApplicationListener`
-²¢ÇÒ¸ÃÅäÖÃÓÅÏÈÓÚ`ConfigFileApplicationListener`£¬Òò´ËÈç¹ûÎÒÃÇÒıÈëÁËspringcloud×é¼ş£¬ÄÇÃ´
-ÊÂ¼ş¼àÌı»áÓÅÏÈ×ß`BootstrapApplicationListener`
+åœ¨`spring-cloud-context`çš„jarä¸­ï¼Œ`spring.factories`ä¸­å¼•å…¥äº†ä¸ª`BootstrapApplicationListener`
+å¹¶ä¸”è¯¥é…ç½®ä¼˜å…ˆäº`ConfigFileApplicationListener`ï¼Œå› æ­¤å¦‚æœæˆ‘ä»¬å¼•å…¥äº†springcloudç»„ä»¶ï¼Œé‚£ä¹ˆ
+äº‹ä»¶ç›‘å¬ä¼šä¼˜å…ˆèµ°`BootstrapApplicationListener`
 
 
 
@@ -666,10 +666,10 @@ org.springframework.cloud.bootstrap.BootstrapApplicationListener,\
 
 
 
-ÕâÀïÖ÷Òª×öµÄÊÂÇéÓĞÁ½µã
+è¿™é‡Œä¸»è¦åšçš„äº‹æƒ…æœ‰ä¸¤ç‚¹
 
-1.  ´´½¨Environment¶ÔÏó£¬ÉèÖÃspring.config.name=bootstrap
-2.  ´´½¨Ò»¸öĞÂµÄSpringApplicationÆô¶¯Æ÷£¬²¢ÇÒÉèÖÃsourcesÎªÀ©Õ¹µãÏÂµÄBootstrapConfigurationÅäÖÃÀà
+1.  åˆ›å»ºEnvironmentå¯¹è±¡ï¼Œè®¾ç½®spring.config.name=bootstrap
+2.  åˆ›å»ºä¸€ä¸ªæ–°çš„SpringApplicationå¯åŠ¨å™¨ï¼Œå¹¶ä¸”è®¾ç½®sourcesä¸ºæ‰©å±•ç‚¹ä¸‹çš„BootstrapConfigurationé…ç½®ç±»
 
 
 
@@ -681,7 +681,7 @@ List<String> names = new ArrayList<>(SpringFactoriesLoader
 
 
 
-¼òµ¥µÄ¾ÍÊÇ¿ÉÒÔÀí½âÎª´´½¨ÁËÒ»¸öĞÂµÄÆô¶¯Æ÷£¬Æô¶¯ÀàÎªBootstrapConfigurationÅäÖÃµÄÀà¡£²¢ÇÒÍ¨¹ırun·½·¨µÃµ½ÁË³õÊ¼»¯ºóµÄBeanFactoryÈİÆ÷²¢ÇÒ½«contenxt·â×°³ÉAncestorInitializer¼ÓÈëµ½ÁËÎÒÃÇ×Ô¼ºµÄSpringApplicationÖĞ
+ç®€å•çš„å°±æ˜¯å¯ä»¥ç†è§£ä¸ºåˆ›å»ºäº†ä¸€ä¸ªæ–°çš„å¯åŠ¨å™¨ï¼Œå¯åŠ¨ç±»ä¸ºBootstrapConfigurationé…ç½®çš„ç±»ã€‚å¹¶ä¸”é€šè¿‡runæ–¹æ³•å¾—åˆ°äº†åˆå§‹åŒ–åçš„BeanFactoryå®¹å™¨å¹¶ä¸”å°†contenxtå°è£…æˆAncestorInitializeråŠ å…¥åˆ°äº†æˆ‘ä»¬è‡ªå·±çš„SpringApplicationä¸­
 
 
 
@@ -692,7 +692,7 @@ application.addInitializers(new AncestorInitializer(context));
 
 
 
-¶øÔÚ`apply`·½·¨ÖĞ,»ñÈ¡ÁË`ApplicationContextInitializer`ÀàĞÍµÄËùÓĞ¶ÔÏó¼ÓÈëµ½ÁËÎÒÃÇµ±Ç°µÄ`SpringApplication`ÖĞ
+è€Œåœ¨`apply`æ–¹æ³•ä¸­,è·å–äº†`ApplicationContextInitializer`ç±»å‹çš„æ‰€æœ‰å¯¹è±¡åŠ å…¥åˆ°äº†æˆ‘ä»¬å½“å‰çš„`SpringApplication`ä¸­
 
 
 
@@ -711,7 +711,7 @@ application.addInitializers(new AncestorInitializer(context));
 
 
 
-ÔÚ`spring-cloud-context`°üÖĞ£¬`spring.factories`ÅäÖÃÏÂÃæÕâ¸öÀà
+åœ¨`spring-cloud-context`åŒ…ä¸­ï¼Œ`spring.factories`é…ç½®ä¸‹é¢è¿™ä¸ªç±»
 
 
 
@@ -723,9 +723,9 @@ org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration,
 
 
 
-µ½ÕâÀïÎÒÃÇÆô¶¯Àà`SpringApplication`ÖĞÒÑ¾­ÓĞÁË`AncestorInitializer,PropertySourceBootstrapConfiguration`Á½¸öApplicationContextInitializer
+åˆ°è¿™é‡Œæˆ‘ä»¬å¯åŠ¨ç±»`SpringApplication`ä¸­å·²ç»æœ‰äº†`AncestorInitializer,PropertySourceBootstrapConfiguration`ä¸¤ä¸ªApplicationContextInitializer
 
-·µ»Øµ½ÎÒÃÇÆô¶¯Àà
+è¿”å›åˆ°æˆ‘ä»¬å¯åŠ¨ç±»
 
 
 
@@ -776,8 +776,8 @@ org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration,
 
 
 
-ÔÚÕâÀï¾Í»áµ÷ÓÃµ½`ApplicationContextInitializer.initialize`·½·¨
-¾Í»áÏÈÀ´µ½`AncestorInitializer`
+åœ¨è¿™é‡Œå°±ä¼šè°ƒç”¨åˆ°`ApplicationContextInitializer.initialize`æ–¹æ³•
+å°±ä¼šå…ˆæ¥åˆ°`AncestorInitializer`
 
 
 
@@ -804,7 +804,7 @@ org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration,
 
 
 
-¿ÉÒÔ¿´µ½ÕâÀï½«BootStrap´´½¨µÄÈİÆ÷×÷ÎªÎÒÃÇµ±Ç°ÈİÆ÷µÄ¸¸ÈİÆ÷£¬²¢ÇÒ¸¸ÈİÆ÷ÖĞµÄ¶ÔÏó¶¼³õÊ¼»¯ºÃÁË£¬`PropertySourceBootstrapConfiguration`µÄÒ²³õÊ¼»¯ºÃÁË,²¢ÇÒ¸Ã`ApplicationContextInitializer`¼ÓÈëµ½ÁËÎÒÃÇ×Ô¼ºµÄÆô¶¯ÀàÀïÃæ£¬Òò´Ë»áµ÷ÓÃ³õÊ¼»¯ºÃÁËµÄ`PropertySourceBootstrapConfiguration.initialize`,¶ø`PropertySourceLocator`ÊÇ×¢Èë½øÀ´µÄ
+å¯ä»¥çœ‹åˆ°è¿™é‡Œå°†BootStrapåˆ›å»ºçš„å®¹å™¨ä½œä¸ºæˆ‘ä»¬å½“å‰å®¹å™¨çš„çˆ¶å®¹å™¨ï¼Œå¹¶ä¸”çˆ¶å®¹å™¨ä¸­çš„å¯¹è±¡éƒ½åˆå§‹åŒ–å¥½äº†ï¼Œ`PropertySourceBootstrapConfiguration`çš„ä¹Ÿåˆå§‹åŒ–å¥½äº†,å¹¶ä¸”è¯¥`ApplicationContextInitializer`åŠ å…¥åˆ°äº†æˆ‘ä»¬è‡ªå·±çš„å¯åŠ¨ç±»é‡Œé¢ï¼Œå› æ­¤ä¼šè°ƒç”¨åˆå§‹åŒ–å¥½äº†çš„`PropertySourceBootstrapConfiguration.initialize`,è€Œ`PropertySourceLocator`æ˜¯æ³¨å…¥è¿›æ¥çš„
 
 
 
@@ -874,7 +874,7 @@ org.springframework.cloud.config.client.ConfigServiceBootstrapConfiguration,\
 
 
 
-Òò´Ë×îÖÕ»áÀ´µ½`ConfigServicePropertySourceLocator`ÖĞ
+å› æ­¤æœ€ç»ˆä¼šæ¥åˆ°`ConfigServicePropertySourceLocator`ä¸­
 
 
 
@@ -951,8 +951,8 @@ org.springframework.cloud.config.client.ConfigServiceBootstrapConfiguration,\
 
 
 
-¿ÉÒÔ¿´µ½×îºó¾ÍÊÇµ÷ÓÃ·şÎñ¶ËµÄ½Ó¿Ú»ñÈ¡×îĞÂµÄÅäÖÃ¡£
-¶øÕâ¸öÍâ²¿ÅäÖÃ×îºó»á·Åµ½systemEnvironmentÖ®Ç°£¬Òò´Ë¾Í»á¸²¸Ç±¾µØÅäÖÃ£¬µ«ÊÇ¿ÉÒÔÍ¨¹ı²ÎÊı¿ØÖÆ
+å¯ä»¥çœ‹åˆ°æœ€åå°±æ˜¯è°ƒç”¨æœåŠ¡ç«¯çš„æ¥å£è·å–æœ€æ–°çš„é…ç½®ã€‚
+è€Œè¿™ä¸ªå¤–éƒ¨é…ç½®æœ€åä¼šæ”¾åˆ°systemEnvironmentä¹‹å‰ï¼Œå› æ­¤å°±ä¼šè¦†ç›–æœ¬åœ°é…ç½®ï¼Œä½†æ˜¯å¯ä»¥é€šè¿‡å‚æ•°æ§åˆ¶
 
 
 
@@ -1017,30 +1017,30 @@ if (!remoteProperties.isAllowOverride() || (!remoteProperties.isOverrideNone()
 
 
 
-**×Ü½á**
+**æ€»ç»“**
 
-1.  À©Õ¹µã
+1.  æ‰©å±•ç‚¹
     1.1 `EnvironmentPostProcessor`
-    ¶Ô»·¾³×ö´¦Àí
+    å¯¹ç¯å¢ƒåšå¤„ç†
     1.2 `PropertySourceLoader`
-    ½âÎö²»Í¬µÄ¸ñÊ½µÄÎÄ¼ş
+    è§£æä¸åŒçš„æ ¼å¼çš„æ–‡ä»¶
     1.2 `ApplicationListener`
-    spring-cloud°üÖĞÍ¨¹ıĞÂÔöÀ©Õ¹BootstrapApplicationListener
+    spring-cloudåŒ…ä¸­é€šè¿‡æ–°å¢æ‰©å±•BootstrapApplicationListener
     1.3 `BootstrapConfiguration`
-    Í¨¹ıÀ©Õ¹µã¼ÓÔØÆô¶¯Àà
+    é€šè¿‡æ‰©å±•ç‚¹åŠ è½½å¯åŠ¨ç±»
 
-2.  ÎÄ¼ş¼ÓÔØ¹ı³Ì
-    Í¨¹ıApplicationListenerÊÂ¼ş´´½¨Ò»¸öĞÂµÄSpringAplictionÆô¶¯Àà½«BootstrapConfigurationÀ©Õ¹Àà×÷ÎªÆô¶¯ÅäÖÃÀà£¬È»ºó»ñµÃÁËÒ»¸ö³õÊ¼»¯ÁËµÄBootStrapÈİÆ÷£¬½«¸ÃÈİÆ÷·â×°³ÉAncestorInitializerÀà¼ÓÈëµ½ÎÒÃÇ×Ô¼ºµÄÆô¶¯ÀàÖĞ£¬×÷ÓÃ¾ÍÊÇ½«ÎÒÃÇ×Ô¼ºÈİÆ÷µÄ¸¸ÈİÆ÷ÉèÖÃÎªBootStrapÈİÆ÷¡£Í¨¹ıBootStrapÈİÆ÷»ñµÃ³õÊ¼»¯ºÃºóµÄApplicationContextInitializerÀàĞÍ¶ÔÏó£¬¶ø¸ÃÀàÀ´×ÔÓÚPropertySourceBootstrapConfigurationÆô¶¯ÅäÖÃÀà£¬¸ÃÀàÖĞÓÖ×¢ÈëÁËPropertySourceLocatorÀà£¬¶øÔÚConfigServiceBootstrapConfigurationÆô¶¯ÅäÖÃÀàÖĞÅäÖÃbean¶ÔÏó
-    ConfigServicePropertySourceLocator£¬ËùÒÔ×îÖÕ»á½«BootStrapÖĞ³õÊ¼ºÃµÄPropertySourceBootstrapConfiguration¼ÓÈëµ½ÎÒÃÇ×Ô¼ºµÄÆô¶¯ÀàÖĞµ÷ÓÃ£¬×îÖÕµ÷ÓÃinitialize·½·¨È»ºóµ÷ÓÃConfigServicePropertySourceLocator.locate·½·¨È¥Config server·şÎñ»ñÈ¡ÅäÖÃ¡£
+2.  æ–‡ä»¶åŠ è½½è¿‡ç¨‹
+    é€šè¿‡ApplicationListeneräº‹ä»¶åˆ›å»ºä¸€ä¸ªæ–°çš„SpringAplictionå¯åŠ¨ç±»å°†BootstrapConfigurationæ‰©å±•ç±»ä½œä¸ºå¯åŠ¨é…ç½®ç±»ï¼Œç„¶åè·å¾—äº†ä¸€ä¸ªåˆå§‹åŒ–äº†çš„BootStrapå®¹å™¨ï¼Œå°†è¯¥å®¹å™¨å°è£…æˆAncestorInitializerç±»åŠ å…¥åˆ°æˆ‘ä»¬è‡ªå·±çš„å¯åŠ¨ç±»ä¸­ï¼Œä½œç”¨å°±æ˜¯å°†æˆ‘ä»¬è‡ªå·±å®¹å™¨çš„çˆ¶å®¹å™¨è®¾ç½®ä¸ºBootStrapå®¹å™¨ã€‚é€šè¿‡BootStrapå®¹å™¨è·å¾—åˆå§‹åŒ–å¥½åçš„ApplicationContextInitializerç±»å‹å¯¹è±¡ï¼Œè€Œè¯¥ç±»æ¥è‡ªäºPropertySourceBootstrapConfigurationå¯åŠ¨é…ç½®ç±»ï¼Œè¯¥ç±»ä¸­åˆæ³¨å…¥äº†PropertySourceLocatorç±»ï¼Œè€Œåœ¨ConfigServiceBootstrapConfigurationå¯åŠ¨é…ç½®ç±»ä¸­é…ç½®beanå¯¹è±¡
+    ConfigServicePropertySourceLocatorï¼Œæ‰€ä»¥æœ€ç»ˆä¼šå°†BootStrapä¸­åˆå§‹å¥½çš„PropertySourceBootstrapConfigurationåŠ å…¥åˆ°æˆ‘ä»¬è‡ªå·±çš„å¯åŠ¨ç±»ä¸­è°ƒç”¨ï¼Œæœ€ç»ˆè°ƒç”¨initializeæ–¹æ³•ç„¶åè°ƒç”¨ConfigServicePropertySourceLocator.locateæ–¹æ³•å»Config serveræœåŠ¡è·å–é…ç½®ã€‚
 
 
 
-×÷Õß£ºÓµ±§¹Â¶À_to
-Á´½Ó£ºhttps://www.jianshu.com/p/60c6ab0e79d5
-À´Ô´£º¼òÊé
-Öø×÷È¨¹é×÷ÕßËùÓĞ¡£ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+ä½œè€…ï¼šæ‹¥æŠ±å­¤ç‹¬_to
+é“¾æ¥ï¼šhttps://www.jianshu.com/p/60c6ab0e79d5
+æ¥æºï¼šç®€ä¹¦
+è‘—ä½œæƒå½’ä½œè€…æ‰€æœ‰ã€‚å•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

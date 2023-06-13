@@ -1,4 +1,4 @@
-# Ò»¡¢ Nacos·şÎñ×¢²áÔ´Âë½âÎö
+# ä¸€ã€ NacosæœåŠ¡æ³¨å†Œæºç è§£æ
 
 
 
@@ -6,7 +6,7 @@
 
 
 
-## 1.1  Ô´Âë·½Ê½´ò°ü
+## 1.1  æºç æ–¹å¼æ‰“åŒ…
 
 
 
@@ -14,7 +14,7 @@
 
 
 
-¿Í»§¶ËÔ´ÂëÖĞÔö¼Ó´ò°ü·½Ê½£¬½«Ô´Âë´òÈë°üÖĞ
+å®¢æˆ·ç«¯æºç ä¸­å¢åŠ æ‰“åŒ…æ–¹å¼ï¼Œå°†æºç æ‰“å…¥åŒ…ä¸­
 
 
 
@@ -30,7 +30,7 @@
 
 
 
-È»ºó´ò°ü£º
+ç„¶åæ‰“åŒ…ï¼š
 
 
 
@@ -46,7 +46,7 @@
 
 
 
-## 1.2 Èë¿Ú
+## 1.2 å…¥å£
 
 
 
@@ -54,33 +54,33 @@
 
 
 
-[github.com/alibaba/nac¡­](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Falibaba%2Fnacos%2Ftree%2F1.4.1)
+[github.com/alibaba/nacâ€¦](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Falibaba%2Fnacos%2Ftree%2F1.4.1)
 
-Ê×ÏÈÎÒÃÇ»á°ÑÔ´ÂëÏÂÔØÏÂÀ´£¬ÎÒÃÇ»áÍ¨¹ıÔ´ÂëµÄ·½Ê½½øĞĞÆô¶¯£¬ Äã¿ÉÒÔÍ¨¹ıdebugµÄ·½Ê½½øĞĞÔËĞĞÀ´ÅĞ¶ÏËûµÄÔËĞĞ¹ı³Ì¡£
+é¦–å…ˆæˆ‘ä»¬ä¼šæŠŠæºç ä¸‹è½½ä¸‹æ¥ï¼Œæˆ‘ä»¬ä¼šé€šè¿‡æºç çš„æ–¹å¼è¿›è¡Œå¯åŠ¨ï¼Œ ä½ å¯ä»¥é€šè¿‡debugçš„æ–¹å¼è¿›è¡Œè¿è¡Œæ¥åˆ¤æ–­ä»–çš„è¿è¡Œè¿‡ç¨‹ã€‚
 
-ÎÒÃÇ´ÓÔ´ÂëµÄ½Ç¶ÈÀ´·ÖÎöÒ»ÏÂ£º·şÎñÆô¶¯ºóËû»áÉÏ±¨µ½×¢²áÖĞĞÄ£º
+æˆ‘ä»¬ä»æºç çš„è§’åº¦æ¥åˆ†æä¸€ä¸‹ï¼šæœåŠ¡å¯åŠ¨åä»–ä¼šä¸ŠæŠ¥åˆ°æ³¨å†Œä¸­å¿ƒï¼š
 
-NacosNamingService ¾ÍÊÇ·şÎñ×¢²áºÍ·¢ÏÖÏà¹ØµÄÀà£¬Ëû¾ÍÊÇÔÚÕâÀï½«µ±Ç°Æô¶¯µÄ·şÎñµ÷ÓÃ×¢²áÊµÀıµÄ·½·¨£¬ÎÒÃÇ¿´Ò»ÏÂÕâ¸ö·½·¨¸ÉÊ²Ã´ÁË£¿
+NacosNamingService å°±æ˜¯æœåŠ¡æ³¨å†Œå’Œå‘ç°ç›¸å…³çš„ç±»ï¼Œä»–å°±æ˜¯åœ¨è¿™é‡Œå°†å½“å‰å¯åŠ¨çš„æœåŠ¡è°ƒç”¨æ³¨å†Œå®ä¾‹çš„æ–¹æ³•ï¼Œæˆ‘ä»¬çœ‹ä¸€ä¸‹è¿™ä¸ªæ–¹æ³•å¹²ä»€ä¹ˆäº†ï¼Ÿ
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/fc004433c7304147905c088dd3227005.png "image.png")
 
 ![image-20211221124947544](E:\BaiduNetdiskWorkspace\springcloud alibaba\img\image-20211221124947544.png)
 
-Ëû¾ÍÊÇÆ´½ÓÁËÒ»Ğ©²ÎÊı·¢ËÍhttpÇëÇó£¬µ½´ï·şÎñ×¢²áÖĞĞÄ½øĞĞ·¢ÏÖ£¬ÇëÇóµÄ¾ÍÊÇÕâ¸öÂ·¾¶£º
+ä»–å°±æ˜¯æ‹¼æ¥äº†ä¸€äº›å‚æ•°å‘é€httpè¯·æ±‚ï¼Œåˆ°è¾¾æœåŠ¡æ³¨å†Œä¸­å¿ƒè¿›è¡Œå‘ç°ï¼Œè¯·æ±‚çš„å°±æ˜¯è¿™ä¸ªè·¯å¾„ï¼š
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/51f5b45b70ef4a7dbe1258e05314fa61.png "image.png")
 
-ºÃÕâ¾ÍÊÇ¶ÔÓ¦µÄÂ·¾¶£¬ÎÒÃÇ»Øµ½¹Ù·½ÎÄµµµÄÖ¸ÄÏµ±ÖĞ
+å¥½è¿™å°±æ˜¯å¯¹åº”çš„è·¯å¾„ï¼Œæˆ‘ä»¬å›åˆ°å®˜æ–¹æ–‡æ¡£çš„æŒ‡å—å½“ä¸­
 
-[nacos.io/zh-cn/docs/¡­](https://link.juejin.cn?target=https%3A%2F%2Fnacos.io%2Fzh-cn%2Fdocs%2Fopen-api.html)
+[nacos.io/zh-cn/docs/â€¦](https://link.juejin.cn?target=https%3A%2F%2Fnacos.io%2Fzh-cn%2Fdocs%2Fopen-api.html)
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/d3b30ba715ab4363b3ee8b4e21a2f3a2.png "image.png")
 
-ºÃ£¬°´ÕÕÎÒÃÇ½²µ½ÕâÀï¾Í²»ÓÃÔÙÍùÀïÃæ¿´ÁË£¬ÎÒÃÇ¿ÉÒÔµã½øÈ¥¿´Ò»ÏÂ£¬
+å¥½ï¼ŒæŒ‰ç…§æˆ‘ä»¬è®²åˆ°è¿™é‡Œå°±ä¸ç”¨å†å¾€é‡Œé¢çœ‹äº†ï¼Œæˆ‘ä»¬å¯ä»¥ç‚¹è¿›å»çœ‹ä¸€ä¸‹ï¼Œ
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/9f4bbf69cc1746e79545831252796e55.png "image.png")
 
-ËûÕæÕıµÄµ÷ÓÃ¸øÄãÊÇÔÚÕâÀï¡£
+ä»–çœŸæ­£çš„è°ƒç”¨ç»™ä½ æ˜¯åœ¨è¿™é‡Œã€‚
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b06c94937d374ddb9fc2c224e5932205.png "image.png")
 
@@ -90,39 +90,39 @@ NacosNamingService ¾ÍÊÇ·şÎñ×¢²áºÍ·¢ÏÖÏà¹ØµÄÀà£¬Ëû¾ÍÊÇÔÚÕâÀï½«µ±Ç°Æô¶¯µÄ·şÎñµ÷ÓÃ×
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/527d2af9bb0c4206b090d3410238a576.png "image.png")
 
-ÔÚÕâÀï½øĞĞµ÷ÓÃ
+åœ¨è¿™é‡Œè¿›è¡Œè°ƒç”¨
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/3f3f39de5aaa4ad2b3ac7dccc33aa574.png "image.png")
 
-ºÃÄÄÓĞÍ¬Ñ§ÎÊÄãÔõÃ´ÖªµÀ¶Ïµã¾Í´ïµ½ÕâÀï£¬ÄÇÎÒÃÇ¿´Ò»ÏÂÔõÑù²é¿´Ô´ÂëµÄÆô¶¯µÄÂ·¾¶£¬ÎÒÃÇ¿´Ò»ÏÂÎÒÃÇ¶©µ¥Î¢·şÎñµÄÂ·¾¶£¬ÎÒÃÇÒª¼¯³ÉnacosµÄ·şÎñ·¢ÏÖ¹¦ÄÜ£¬ÎÒÃÇÒªÒıÈëÎÒÃÇµÄdiscoveryµÄ°ü£¬ËûÊÇÒ»¸östarter£¬Ç°ÃæÎÒÃÇÑ§¹ıspringbootÎÒÃÇÖªµÀÈÎºÎstarterÀïÃæÒ»¶¨ÓĞ¸öspring.factories£¬×÷ÎªÒ»¸öÈë¿Ú
+å¥½å“ªæœ‰åŒå­¦é—®ä½ æ€ä¹ˆçŸ¥é“æ–­ç‚¹å°±è¾¾åˆ°è¿™é‡Œï¼Œé‚£æˆ‘ä»¬çœ‹ä¸€ä¸‹æ€æ ·æŸ¥çœ‹æºç çš„å¯åŠ¨çš„è·¯å¾„ï¼Œæˆ‘ä»¬çœ‹ä¸€ä¸‹æˆ‘ä»¬è®¢å•å¾®æœåŠ¡çš„è·¯å¾„ï¼Œæˆ‘ä»¬è¦é›†æˆnacosçš„æœåŠ¡å‘ç°åŠŸèƒ½ï¼Œæˆ‘ä»¬è¦å¼•å…¥æˆ‘ä»¬çš„discoveryçš„åŒ…ï¼Œä»–æ˜¯ä¸€ä¸ªstarterï¼Œå‰é¢æˆ‘ä»¬å­¦è¿‡springbootæˆ‘ä»¬çŸ¥é“ä»»ä½•starteré‡Œé¢ä¸€å®šæœ‰ä¸ªspring.factoriesï¼Œä½œä¸ºä¸€ä¸ªå…¥å£
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/be47c62f16f94507a1af84d0169ebf53.png "image.png")
 
-ÕâÀïÃæ¶¯Ì¬¼ÓÔØµÄÀàºÜ¶à£¬NacosServiceRegistryAutoConfiguration ´ÓÕâÃû×ÖÎÒÃÇÄÜ·¢ÏÖËûÊÇÒ»¸önacos·şÎñ×¢²áµÄ×Ô¶¯ÅäÖÃÀà£¬
+è¿™é‡Œé¢åŠ¨æ€åŠ è½½çš„ç±»å¾ˆå¤šï¼ŒNacosServiceRegistryAutoConfiguration ä»è¿™åå­—æˆ‘ä»¬èƒ½å‘ç°ä»–æ˜¯ä¸€ä¸ªnacosæœåŠ¡æ³¨å†Œçš„è‡ªåŠ¨é…ç½®ç±»ï¼Œ
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/84017587439846a4b21a696f12775b6c.png "image.png")
 
-ÕâÀïÃæÊµÏÖÁËÈı¸öÀà£¬ÎÒÃÇ¿´Ò»ÏÂÕâ¸öÀàNacosAUtoServiceRegistration
+è¿™é‡Œé¢å®ç°äº†ä¸‰ä¸ªç±»ï¼Œæˆ‘ä»¬çœ‹ä¸€ä¸‹è¿™ä¸ªç±»NacosAUtoServiceRegistration
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/fe7ee87e88944b689835432c833972c2.png "image.png")
 
-×Ô¶¯×¢²áÀà£¬ÎÒÃÇ¿ÉÒÔ¿´Ò»ÏÂËûµÄ¼¯³É¹ØÏµ£¬ÊÇÒ»¸öApplicationListener  springÆô¶¯Íê³Éºó¶¼»á·¢ËÍÒ»¸öÏûÏ¢£¬applicaitonListener¾ÍÊÇÍ¨¹ı¼àÌıÕâ¸öÏûÏ¢È»ºó½øĞĞÖ´ĞĞµÄ¡£ËùÒÔÎÒÃÇÖªµÀÏÂÒ»²½ÎÒÃÇÓ¦¸ÃÔõÃ´¿´£º
+è‡ªåŠ¨æ³¨å†Œç±»ï¼Œæˆ‘ä»¬å¯ä»¥çœ‹ä¸€ä¸‹ä»–çš„é›†æˆå…³ç³»ï¼Œæ˜¯ä¸€ä¸ªApplicationListener  springå¯åŠ¨å®Œæˆåéƒ½ä¼šå‘é€ä¸€ä¸ªæ¶ˆæ¯ï¼ŒapplicaitonListenerå°±æ˜¯é€šè¿‡ç›‘å¬è¿™ä¸ªæ¶ˆæ¯ç„¶åè¿›è¡Œæ‰§è¡Œçš„ã€‚æ‰€ä»¥æˆ‘ä»¬çŸ¥é“ä¸‹ä¸€æ­¥æˆ‘ä»¬åº”è¯¥æ€ä¹ˆçœ‹ï¼š
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2a12ba62dae24aa092f97b0cff5dfaaa.png "image.png")
 
-ËùÒÔ²é¿´ËûµÄ³éÏóÀà¡£
+æ‰€ä»¥æŸ¥çœ‹ä»–çš„æŠ½è±¡ç±»ã€‚
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1f9253dbbbd349ffb6d0e60d0761b3ec.png "image.png")
 
-²é¿´onApplicationEvent·½·¨£ºÕâÑùÔÚ·şÎñ·¢ËÍÍê¾Í»á·¢ËÍÕâÑùÒ»¸öÏûÏ¢£¬ÊÕµ½Õâ¸öÏûÏ¢¾Í»áµ÷ÓÃÕâ¸öbind·½·¨
+æŸ¥çœ‹onApplicationEventæ–¹æ³•ï¼šè¿™æ ·åœ¨æœåŠ¡å‘é€å®Œå°±ä¼šå‘é€è¿™æ ·ä¸€ä¸ªæ¶ˆæ¯ï¼Œæ”¶åˆ°è¿™ä¸ªæ¶ˆæ¯å°±ä¼šè°ƒç”¨è¿™ä¸ªbindæ–¹æ³•
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/41a7323a2e2c49d19aaf5768e66af7d8.png "image.png")
 
-ÕâÀïÓĞ¸öif return ÎÒÃÇ¾ÍÖ±½ÓÌø¹ı£¬ÕâÒ»¶¨ÊÇ·ÖÖ§´úÂë£¬ÏñÕâÑùµÄ·ÖÖ§´úÂëÎÒÃÇ¾Í²»Òª¿´£¬µÚÒ» ´ÎÒª¿´Ö÷Ïß£¬ËùÒÔÎÒÃÇÖ±½Ó¿´ÕâÀïµÄstart·½·¨£¬Èç¹ûºóÃæÕâÀïÃ»ÓĞ¶ÔÓ¦µÄ´úÂëÂß¼­ÎÒÃÇ¿ÉÒÔ½øÈëÕâ¸ö·ÖÖ§À´¿´¡£ ºÃ£¬ÏñÕâÑùstart, begin£¬init£¬register·½·¨¶¼ÊÇºÜÖØÒªµÄ·½·¨£¬ÎÒÃÇÒ»¶¨Òª½øÈ¥¿´
+è¿™é‡Œæœ‰ä¸ªif return æˆ‘ä»¬å°±ç›´æ¥è·³è¿‡ï¼Œè¿™ä¸€å®šæ˜¯åˆ†æ”¯ä»£ç ï¼Œåƒè¿™æ ·çš„åˆ†æ”¯ä»£ç æˆ‘ä»¬å°±ä¸è¦çœ‹ï¼Œç¬¬ä¸€ æ¬¡è¦çœ‹ä¸»çº¿ï¼Œæ‰€ä»¥æˆ‘ä»¬ç›´æ¥çœ‹è¿™é‡Œçš„startæ–¹æ³•ï¼Œå¦‚æœåé¢è¿™é‡Œæ²¡æœ‰å¯¹åº”çš„ä»£ç é€»è¾‘æˆ‘ä»¬å¯ä»¥è¿›å…¥è¿™ä¸ªåˆ†æ”¯æ¥çœ‹ã€‚ å¥½ï¼Œåƒè¿™æ ·start, beginï¼Œinitï¼Œregisteræ–¹æ³•éƒ½æ˜¯å¾ˆé‡è¦çš„æ–¹æ³•ï¼Œæˆ‘ä»¬ä¸€å®šè¦è¿›å»çœ‹
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/3923ffd589e9488eb1143811a50d28c0.png "image.png")
 
-µÚÒ»¸öif¾Í²»ÓÃ¿´£¬µÚ¶ş¸öifĞèÒª¿´£¬ÒòÎªºóÃæ¾ÍÃ»ÓĞÂß¼­ÁËÄã¿´Õâ¸öregister()£¬Ó¦¸Ã¾ÍÊÇÕâ¸ö·½·¨£¬ÒòÎªÄã¾ÍÊÇ²é¿´×¢²áµÄÁ÷³Ì¡£
+ç¬¬ä¸€ä¸ªifå°±ä¸ç”¨çœ‹ï¼Œç¬¬äºŒä¸ªiféœ€è¦çœ‹ï¼Œå› ä¸ºåé¢å°±æ²¡æœ‰é€»è¾‘äº†ä½ çœ‹è¿™ä¸ªregister()ï¼Œåº”è¯¥å°±æ˜¯è¿™ä¸ªæ–¹æ³•ï¼Œå› ä¸ºä½ å°±æ˜¯æŸ¥çœ‹æ³¨å†Œçš„æµç¨‹ã€‚
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/d5b527e0900a4f1b9abcd76db4bfc138.png "image.png")
 
@@ -132,9 +132,9 @@ NacosNamingService ¾ÍÊÇ·şÎñ×¢²áºÍ·¢ÏÖÏà¹ØµÄÀà£¬Ëû¾ÍÊÇÔÚÕâÀï½«µ±Ç°Æô¶¯µÄ·şÎñµ÷ÓÃ×
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/0ca3ab1a98f248a0aa3854730eba85fb.png "image.png")
 
-ÕâÀïĞèÒªÄãÖªµÀSpringBoot×Ô¶¯×°ÅäµÄ»ù±¾ÖªÊ¶£¬Æä´ÎÒªÖªµÀSpringÆô¶¯·¢ÏÖµÄ »ù±¾ÖªÊ¶¡£
+è¿™é‡Œéœ€è¦ä½ çŸ¥é“SpringBootè‡ªåŠ¨è£…é…çš„åŸºæœ¬çŸ¥è¯†ï¼Œå…¶æ¬¡è¦çŸ¥é“Springå¯åŠ¨å‘ç°çš„ åŸºæœ¬çŸ¥è¯†ã€‚
 
-## 1.3 ·şÎñ×¢²á
+## 1.3 æœåŠ¡æ³¨å†Œ
 
 
 
@@ -142,21 +142,21 @@ NacosNamingService ¾ÍÊÇ·şÎñ×¢²áºÍ·¢ÏÖÏà¹ØµÄÀà£¬Ëû¾ÍÊÇÔÚÕâÀï½«µ±Ç°Æô¶¯µÄ·şÎñµ÷ÓÃ×
 
 
 
-Nacos¸ß²¢·¢Ö§³ÅÒì²½ÈÎÎñÓëÄÚ´æ¶ÓÁĞÆÊÎö
+Nacosé«˜å¹¶å‘æ”¯æ’‘å¼‚æ­¥ä»»åŠ¡ä¸å†…å­˜é˜Ÿåˆ—å‰–æ
 
-¸Õ²ÅÊÇÔÚ·şÎñÌá¹©ÕßÉÏÃæ½²µÄÄÚÈİ£¬ÏÖÔÚÎÒÃÇ·şÎñ×¢²áÖĞĞÄÀ´¿´Ò»ÏÂ
+åˆšæ‰æ˜¯åœ¨æœåŠ¡æä¾›è€…ä¸Šé¢è®²çš„å†…å®¹ï¼Œç°åœ¨æˆ‘ä»¬æœåŠ¡æ³¨å†Œä¸­å¿ƒæ¥çœ‹ä¸€ä¸‹
 
-ÇëÇóµÄÊÇinstanceÊµÀı£ºÕâ¾ÍÊÇÒ»¸öspringmvcµÄcontroller£¬ËùÓĞÎÒÃÇ¿ÉÒÔÈ«ÎÄËÑË÷ Controller£¬ÎÒÃÇÊÇinstanceÊµÀı°É£¬ËùÒÔÎÒÃÇÕâÀïInstanceController
+è¯·æ±‚çš„æ˜¯instanceå®ä¾‹ï¼šè¿™å°±æ˜¯ä¸€ä¸ªspringmvcçš„controllerï¼Œæ‰€æœ‰æˆ‘ä»¬å¯ä»¥å…¨æ–‡æœç´¢ Controllerï¼Œæˆ‘ä»¬æ˜¯instanceå®ä¾‹å§ï¼Œæ‰€ä»¥æˆ‘ä»¬è¿™é‡ŒInstanceController
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/4e02f16787a84704add5aa41f9d7662a.png "image.png")
 
-ÄÇÖ®Ç°ÎÒÃÇÓÃµÄÊÇpostÇëÇóËùÒÔÎÒÃÇ²é¿´post·½·¨£¬ÕâÀïÓĞdelete,update...,ËûÕâÀïÊÇÊ²Ã´·ç¸ñ£¿ restFul
+é‚£ä¹‹å‰æˆ‘ä»¬ç”¨çš„æ˜¯postè¯·æ±‚æ‰€ä»¥æˆ‘ä»¬æŸ¥çœ‹postæ–¹æ³•ï¼Œè¿™é‡Œæœ‰delete,update...,ä»–è¿™é‡Œæ˜¯ä»€ä¹ˆé£æ ¼ï¼Ÿ restFul
 
-ÎÒÃÇ·¢ÏÖÀïÃæÃ»ÓĞ¶ÔÓ¦µÄDefaultGroup£¬ÔÚ·şÎñ×¢²áºÍ·¢ÏÖµÄÇé¿öÏÂÕâ¸ögroupÊÇ²»¾­³£ÓÃµÄ¡£ÄãÓÃµÄ»°Ö»ÊÇ×Ô¼ºµÄ¹æ·¶ºÍ·½±ã¹ÜÀíµÄ¡£ÔÚ·şÎñ×¢²áºÍ·¢ÏÖÖĞÔ´ÂëÖĞ¶¼Ã»ÓĞÓÃ¡££¬ÃüÃû¿Õ¼ä£¬·şÎñÃû£¬È»ºó½«ÎÒÃÇ²ÎÊı×ª»¯ÎªÊµÀı¡£Õâ¾ÍÎÒÃÇ·şÎñÄ£ĞÍÖĞµÄÈı²ãÄ£ĞÍ¡£
+æˆ‘ä»¬å‘ç°é‡Œé¢æ²¡æœ‰å¯¹åº”çš„DefaultGroupï¼Œåœ¨æœåŠ¡æ³¨å†Œå’Œå‘ç°çš„æƒ…å†µä¸‹è¿™ä¸ªgroupæ˜¯ä¸ç»å¸¸ç”¨çš„ã€‚ä½ ç”¨çš„è¯åªæ˜¯è‡ªå·±çš„è§„èŒƒå’Œæ–¹ä¾¿ç®¡ç†çš„ã€‚åœ¨æœåŠ¡æ³¨å†Œå’Œå‘ç°ä¸­æºç ä¸­éƒ½æ²¡æœ‰ç”¨ã€‚ï¼Œå‘½åç©ºé—´ï¼ŒæœåŠ¡åï¼Œç„¶åå°†æˆ‘ä»¬å‚æ•°è½¬åŒ–ä¸ºå®ä¾‹ã€‚è¿™å°±æˆ‘ä»¬æœåŠ¡æ¨¡å‹ä¸­çš„ä¸‰å±‚æ¨¡å‹ã€‚
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/09f059ba31a7444a88a24b03399d502d.png "image.png")
 
-ÄÇÎÒÃÇ¿´Ò»ÏÂËûµÄ×¢²áÊµÀıÀïÃæ×öÁËÊ²Ã´£¿ ÕâÀïÃæÎÒÃÇ×¢ÒâÎÒÃÇÊÇ×¢²áinstance£¬ÎÒÃÇ¾ÍÎ§ÈÆ×ÅËû£¬½øĞĞ·ÖÎö£¬ÊÇ²»ÊÇ¾ÍÀ´µ½addInstanceÁË
+é‚£æˆ‘ä»¬çœ‹ä¸€ä¸‹ä»–çš„æ³¨å†Œå®ä¾‹é‡Œé¢åšäº†ä»€ä¹ˆï¼Ÿ è¿™é‡Œé¢æˆ‘ä»¬æ³¨æ„æˆ‘ä»¬æ˜¯æ³¨å†Œinstanceï¼Œæˆ‘ä»¬å°±å›´ç»•ç€ä»–ï¼Œè¿›è¡Œåˆ†æï¼Œæ˜¯ä¸æ˜¯å°±æ¥åˆ°addInstanceäº†
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/4b69913abe6f40288a08dee89ecb0772.png "image.png")
 
@@ -164,61 +164,61 @@ createEmptyService
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b8a3063b3c924ee195af64d5d8efa647.png "image.png")
 
-1¡¢»ñÈ¡service ³õ´Î»ñÈ¡Ò»¶¨Îª¿Õ£¬ÎÒÃÇ¿ÉÒÔ½øÈ¥·ÖÎöÒ»ÏÂ
+1ã€è·å–service åˆæ¬¡è·å–ä¸€å®šä¸ºç©ºï¼Œæˆ‘ä»¬å¯ä»¥è¿›å»åˆ†æä¸€ä¸‹
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/fdf453ebadee486c9def86560bc3b8de.png "image.png")
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7025fb4edcc247b3aca0f1f851d26203.png "image.png")
 
-ÕâÀï¾ÍÊÇ×¢²á±í£¬ÎÒÃÇÇ°ÃæËµ¹ınacos·şÎñÁìÓòÄ£ĞÍ¡¾¿ÉÒÔ²Î¿¼Í¼¡¿£¬Õâ¸ömap¾ÍÊÇ¶ÔÓ¦µÄ×¢²á±í
+è¿™é‡Œå°±æ˜¯æ³¨å†Œè¡¨ï¼Œæˆ‘ä»¬å‰é¢è¯´è¿‡nacosæœåŠ¡é¢†åŸŸæ¨¡å‹ã€å¯ä»¥å‚è€ƒå›¾ã€‘ï¼Œè¿™ä¸ªmapå°±æ˜¯å¯¹åº”çš„æ³¨å†Œè¡¨
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/4f1db03d3fcc4f93aaa17cc485fb59c2.png "image.png")
 
-ÕâÀïÃæÉèÖÃ·şÎñºÍ³õÊ¼»¯
+è¿™é‡Œé¢è®¾ç½®æœåŠ¡å’Œåˆå§‹åŒ–
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1af3a9015b2c4e1ab06da283e4dc5332.png "image.png")
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/cb795dd33b114f84bc51cdbdca5af202.png "image.png")
 
-·şÎñ³õÊ¼»¯£ºĞÄÌø
+æœåŠ¡åˆå§‹åŒ–ï¼šå¿ƒè·³
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/0d0583abf0184ed49bf5fd93c9effafe.png "image.png")
 
-¿´ÕâÀïÊÇ¸öscheduleNamingHealthÊÇÒ»¸ö¶¨Ê±ÈÎÎñ£¬ÎÒÃÇÖ»ĞèÒª¿´Ò»ÏÂtaskÈÎÎñ¾Í¿ÉÒÔ
+çœ‹è¿™é‡Œæ˜¯ä¸ªscheduleNamingHealthæ˜¯ä¸€ä¸ªå®šæ—¶ä»»åŠ¡ï¼Œæˆ‘ä»¬åªéœ€è¦çœ‹ä¸€ä¸‹taskä»»åŠ¡å°±å¯ä»¥
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/51ba8120a9954389b9e2f44d49532a14.png "image.png")
 
-taskÈÎÎñÎÒÃÇĞèÒª¿´Ò»ÏÂrun·½·¨£º
+taskä»»åŠ¡æˆ‘ä»¬éœ€è¦çœ‹ä¸€ä¸‹runæ–¹æ³•ï¼š
 
-ÔÚÕâÀïÎÒÃÇ¿´ÊÇ»ñÈ¡ËùÓĞµÄÊµÀı¡¾¿ÉÒÔµã½øÈ¥¿´Ò»ÏÂ¡¿
+åœ¨è¿™é‡Œæˆ‘ä»¬çœ‹æ˜¯è·å–æ‰€æœ‰çš„å®ä¾‹ã€å¯ä»¥ç‚¹è¿›å»çœ‹ä¸€ä¸‹ã€‘
 
-µ±Ç°Ê±¼ä -  ÉÏ´ÎĞÄÌøÊ±¼ä ¼ä¸ô³¬¹ı15Ãë Ôò½«ÊµÀıÉèÖÃÎª·Ç½¡¿µ£¬ µ±³¬¹ı30ÃëÃ»ÓĞÊÕµ½ĞÄÌø¾ÍÖ±½ÓÌŞ³ı
+å½“å‰æ—¶é—´ -  ä¸Šæ¬¡å¿ƒè·³æ—¶é—´ é—´éš”è¶…è¿‡15ç§’ åˆ™å°†å®ä¾‹è®¾ç½®ä¸ºéå¥åº·ï¼Œ å½“è¶…è¿‡30ç§’æ²¡æœ‰æ”¶åˆ°å¿ƒè·³å°±ç›´æ¥å‰”é™¤
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f9131eea860e410685d8c4cd5beea69e.png "image.png")
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/586fd2fcb489414590295ce2dfafd91d.png "image.png")
 
-ºÃ£¬ÎÒÃÇ»ØÀ´£¬ÕâÀïÃû×ÖÆğµÄÌØ±ğºÃ£¬createEmtyService£¬ÊÇ´´½¨Ò»¸ö¿Õ·şÎñ£¬ºóÃæÎÒÃÇµÄÊµÀı£¬ÊÇ²»ÊÇ»¹»á×¢²áµ½ÀïÃæ£¬
+å¥½ï¼Œæˆ‘ä»¬å›æ¥ï¼Œè¿™é‡Œåå­—èµ·çš„ç‰¹åˆ«å¥½ï¼ŒcreateEmtyServiceï¼Œæ˜¯åˆ›å»ºä¸€ä¸ªç©ºæœåŠ¡ï¼Œåé¢æˆ‘ä»¬çš„å®ä¾‹ï¼Œæ˜¯ä¸æ˜¯è¿˜ä¼šæ³¨å†Œåˆ°é‡Œé¢ï¼Œ
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/9518406856b642298d3ee2f16e36bed0.png "image.png")
 
-> ÎÒÃÇ¿ÉÒÔ¿´Ò»ÏÂ·şÎñÄ£ĞÍ£¬ºÍÎÒÃÇÒÔÇ°Ëµ¹ıµÄÒ»Ñù
+> æˆ‘ä»¬å¯ä»¥çœ‹ä¸€ä¸‹æœåŠ¡æ¨¡å‹ï¼Œå’Œæˆ‘ä»¬ä»¥å‰è¯´è¿‡çš„ä¸€æ ·
 >
-> ÃüÃû¿Õ¼ä £¬cluster ¼¯Èº¸ÅÄî
+> å‘½åç©ºé—´ ï¼Œcluster é›†ç¾¤æ¦‚å¿µ
 >
 > ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/0323827c8249417b8ab3fd6c4bd3e61e.png "image.png")
 >
 > ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/044d8f58dc5b4c7e83dab05c62397566.png "image.png")
 >
-> ¼¯ÈºÖĞ¶ÔÓ¦µÄÊµÀı¡£
+> é›†ç¾¤ä¸­å¯¹åº”çš„å®ä¾‹ã€‚
 >
 > ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/da6adcbf25f44992b08f919988f81b62.png "image.png")
 
-ÎÒÃÇ¿´Ò»ÏÂaddinstance
+æˆ‘ä»¬çœ‹ä¸€ä¸‹addinstance
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/cb9d4cb8fd4d4f0aa75e5d95c4923aae.png "image.png")
 
-¹¹½¨¶ÔÓ¦µÄkey:
+æ„å»ºå¯¹åº”çš„key:
 
 
 
@@ -242,7 +242,7 @@ taskÈÎÎñÎÒÃÇĞèÒª¿´Ò»ÏÂrun·½·¨£º
 
 
 
-```//»ñÈ¡×¢²áÊµÀıµÄIP¶Ë¿ÚÁĞ±í List<Instance> instanceList = addIpAddresses(service, ephemeral, ips); ```
+```//è·å–æ³¨å†Œå®ä¾‹çš„IPç«¯å£åˆ—è¡¨ List<Instance> instanceList = addIpAddresses(service, ephemeral, ips); ```
 
 
 
@@ -250,11 +250,11 @@ taskÈÎÎñÎÒÃÇĞèÒª¿´Ò»ÏÂrun·½·¨£º
 
 
 
-ÎÒÃÇ½øÈë¼òµ¥µÄ¿´Ò»ÏÂ£¬ÎÒÃÇ·¢ÏÖÕâ¸öadd,remove£¬ÕâÀï¾ÍÊÇĞÂÔöºÍÒÆ³ıÊµÀı
+æˆ‘ä»¬è¿›å…¥ç®€å•çš„çœ‹ä¸€ä¸‹ï¼Œæˆ‘ä»¬å‘ç°è¿™ä¸ªadd,removeï¼Œè¿™é‡Œå°±æ˜¯æ–°å¢å’Œç§»é™¤å®ä¾‹
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/bebd689b54d04e0dab0e64ac552e965e.png "image.png")
 
-ÎÒÃÇÖ÷Òª³öÀïÕâĞ´×¢²á½øÀ´µÄips£¬ÄÇÎÒÃÇ¾Íµã»÷ips£¬¸ßÁÁÀ´ÏÔÊ¾¿´¿´£¬È»ºóËû»á½øĞĞÑ­»·instance£¬ÕâÀïÎÒÃÇ¿ÉÒÔ¿´µ½Èç¹ûËûÊÇÒÆ³ı¾Í´ÓmapÀïÃæÒÆ³ı³öÈ¥£¬Èç¹ûÊÇĞÂÔö¾ÍÔÚinstanceMapÖĞĞÂÔöÒ»ÏÂ£¬×îºó½«ÆÚ·µ»Ø¡£
+æˆ‘ä»¬ä¸»è¦å‡ºé‡Œè¿™å†™æ³¨å†Œè¿›æ¥çš„ipsï¼Œé‚£æˆ‘ä»¬å°±ç‚¹å‡»ipsï¼Œé«˜äº®æ¥æ˜¾ç¤ºçœ‹çœ‹ï¼Œç„¶åä»–ä¼šè¿›è¡Œå¾ªç¯instanceï¼Œè¿™é‡Œæˆ‘ä»¬å¯ä»¥çœ‹åˆ°å¦‚æœä»–æ˜¯ç§»é™¤å°±ä»mapé‡Œé¢ç§»é™¤å‡ºå»ï¼Œå¦‚æœæ˜¯æ–°å¢å°±åœ¨instanceMapä¸­æ–°å¢ä¸€ä¸‹ï¼Œæœ€åå°†æœŸè¿”å›ã€‚
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/4d797c90012b4c22ac6e999bdfad8d63.png "image.png")
 
@@ -264,91 +264,91 @@ taskÈÎÎñÎÒÃÇĞèÒª¿´Ò»ÏÂrun·½·¨£º
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/86453757688743df89df30752bbbe0e5.png "image.png")
 
-ÏÖÀà£¬ÎÒÃÇ¿ÉÒÔ²Â²âÒ»ÏÂ£¬»òÕßdebug½øÈ¥£¬µ±È»Õâ¸öÀà£¬ÎÒÃÇµã»÷Ò»ÏÂ£¬ÔÚÉùÃ÷µÄµØ·½
+ç°ç±»ï¼Œæˆ‘ä»¬å¯ä»¥çŒœæµ‹ä¸€ä¸‹ï¼Œæˆ–è€…debugè¿›å»ï¼Œå½“ç„¶è¿™ä¸ªç±»ï¼Œæˆ‘ä»¬ç‚¹å‡»ä¸€ä¸‹ï¼Œåœ¨å£°æ˜çš„åœ°æ–¹
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f7a189074e00495da10119f2a5de7bc5.png "image.png")
 
-ËüÖ¸¶¨ÁËÃû³Æ£º
+å®ƒæŒ‡å®šäº†åç§°ï¼š
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c54ca72e12e04d80b189d587a535d834.png "image.png")
 
-ºÃ£¬ÎÒÃÇÈ«ÎÄËÑË÷¿´Ò»ÏÂ£º
+å¥½ï¼Œæˆ‘ä»¬å…¨æ–‡æœç´¢çœ‹ä¸€ä¸‹ï¼š
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2b24cf84302c42669bed76d19a11e301.png "image.png")
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/fcf6ffab779548a694a68c443a90a214.png "image.png")
 
-ÎÒÃÇÖªµÀÇ°ÃæËµ¹ıephemeralÊÇtrueËùÒÔÑ¡ÔñµÚÒ»¸ö£º ÓĞÒÉÎÊ£º
+æˆ‘ä»¬çŸ¥é“å‰é¢è¯´è¿‡ephemeralæ˜¯trueæ‰€ä»¥é€‰æ‹©ç¬¬ä¸€ä¸ªï¼š æœ‰ç–‘é—®ï¼š
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/4adb989d26cf46f98c943a114e047679.png "image.png")
 
-ÎÒÃÇÓ¦¸Ãµ÷ÓÃEphemeralConsistencyService¶ÔÓ¦µÄput·½·¨¡£µ«ÊÇEphemeralConsistencyServiceÖ»ÊÇÒ»¸ö½Ó¿Ú£¬ÎÒÃÇÓ¦¸Ãµ÷ÓÃ¶ÔÓ¦µÄÊµÏÖÊµÀı¡£
+æˆ‘ä»¬åº”è¯¥è°ƒç”¨EphemeralConsistencyServiceå¯¹åº”çš„putæ–¹æ³•ã€‚ä½†æ˜¯EphemeralConsistencyServiceåªæ˜¯ä¸€ä¸ªæ¥å£ï¼Œæˆ‘ä»¬åº”è¯¥è°ƒç”¨å¯¹åº”çš„å®ç°å®ä¾‹ã€‚
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/87869280d709441fbb8ceec818d67a97.png "image.png")
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/3764ecf8f5904315af85482f3c3ee71d.png "image.png")
 
-ÎÒÃÇ¿´Ò»ÏÂËûµÄonput·½·¨¡£
+æˆ‘ä»¬çœ‹ä¸€ä¸‹ä»–çš„onputæ–¹æ³•ã€‚
 
-ÏÖÔÚ·Åµ½¶ÓÁĞÖĞ£º
+ç°åœ¨æ”¾åˆ°é˜Ÿåˆ—ä¸­ï¼š
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/02a34386b7444f0e8a6e35e57ceedf84.png "image.png")
 
-ÕâÀïÃæ¾ÍÊÇ°ÑºËĞÄµÄÇëÇó·Åµ½blockqueneÀïÃæ£¬Ò²¾ÍÊÇÒ»¸ö×èÈû¶ÓÁĞÖĞ
+è¿™é‡Œé¢å°±æ˜¯æŠŠæ ¸å¿ƒçš„è¯·æ±‚æ”¾åˆ°blockqueneé‡Œé¢ï¼Œä¹Ÿå°±æ˜¯ä¸€ä¸ªé˜»å¡é˜Ÿåˆ—ä¸­
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/81b1c141753c492493eb095ead9e34da.png "image.png")
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/252863f614a24c2da64713af52669ce5.png "image.png")
 
-Õû¸ö×¢²áµÄ¹ı³Ì¾ÍÕâÃ´¼òµ¥£¬Ò»¸öÇëÇó¹ıÀ´£¬×îÖÕ½«·şÎñ×¢²áµÄÇëÇó£¬·Åµ½ÎÒÃÇµÄ×èÈû¶ÓÁĞµ±ÖĞ£¬·Åµ½ÔòÉ«¶ÓÁĞÖ®ºó£¬Õû¸ö×èÈû¶ÓÁĞ¾Í·µ»ØÁË¡£ÄÇ·Åµ½×èÈû¶ÓÁĞÖ®ºó£¬ÄÄÀïÓĞ·ÃÎÊÕâ¸ö×èÈû¶ÓÁĞ¡£
+æ•´ä¸ªæ³¨å†Œçš„è¿‡ç¨‹å°±è¿™ä¹ˆç®€å•ï¼Œä¸€ä¸ªè¯·æ±‚è¿‡æ¥ï¼Œæœ€ç»ˆå°†æœåŠ¡æ³¨å†Œçš„è¯·æ±‚ï¼Œæ”¾åˆ°æˆ‘ä»¬çš„é˜»å¡é˜Ÿåˆ—å½“ä¸­ï¼Œæ”¾åˆ°åˆ™è‰²é˜Ÿåˆ—ä¹‹åï¼Œæ•´ä¸ªé˜»å¡é˜Ÿåˆ—å°±è¿”å›äº†ã€‚é‚£æ”¾åˆ°é˜»å¡é˜Ÿåˆ—ä¹‹åï¼Œå“ªé‡Œæœ‰è®¿é—®è¿™ä¸ªé˜»å¡é˜Ÿåˆ—ã€‚
 
-´ó¼Ò×¢ÒâÕâ¸öNotifierÊÇÒ»¸öÏß³Ì£¬ÀÏÊ¦½»´ó¼ÒÒ»¸ö¼¼ÇÉ£ºÈç¹ûÓöµ½Ò»¸öÏß³Ì¾ÍĞèÒª¿´ËûµÄrun·½·¨ÒòÎªrun·½·¨²ÅÊÇËû ÕæÕıÖ´ĞĞ´úÂëµÄµØ·½¡£
+å¤§å®¶æ³¨æ„è¿™ä¸ªNotifieræ˜¯ä¸€ä¸ªçº¿ç¨‹ï¼Œè€å¸ˆäº¤å¤§å®¶ä¸€ä¸ªæŠ€å·§ï¼šå¦‚æœé‡åˆ°ä¸€ä¸ªçº¿ç¨‹å°±éœ€è¦çœ‹ä»–çš„runæ–¹æ³•å› ä¸ºrunæ–¹æ³•æ‰æ˜¯ä»– çœŸæ­£æ‰§è¡Œä»£ç çš„åœ°æ–¹ã€‚
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/659d96fac1d445859a6ea6086ab8277c.png "image.png")
 
-ÔÚÕâÀï½øĞĞËÀÑ­»·½øĞĞÊı¾İ´¦Àí£¬²»¶ÏµÄ´¦Àí¿Í»§¶Ë×¢²áµÄĞÅÏ¢£¬¶ª½øÀ´¾ÍÊµÏÖºóÃæµÄÒì²½×¢²áĞÅÏ¢£¬
+åœ¨è¿™é‡Œè¿›è¡Œæ­»å¾ªç¯è¿›è¡Œæ•°æ®å¤„ç†ï¼Œä¸æ–­çš„å¤„ç†å®¢æˆ·ç«¯æ³¨å†Œçš„ä¿¡æ¯ï¼Œä¸¢è¿›æ¥å°±å®ç°åé¢çš„å¼‚æ­¥æ³¨å†Œä¿¡æ¯ï¼Œ
 
-Õâ¸öÏß³Ì»áÒ»Ö±ÔÚ×ª£¬Ò»Ö±ÔËĞĞ£¬Èç¹ûËû¹ÒÁËÄÇËµÃ÷Õû¸ö·şÎñ¾Í¹ÒµôÁË£¬ºÃ£¬Äã¿´×ÅÀïÃæµÄÒì³£Ò²³ÔµôÁË£¬ËùÒÔÒ»Ö±»áÔËĞĞ£¬Èç¹ûÃ»ÓĞÊı¾İËû»á×èÈû£¬×èÈû»áÈÃ³öcpu
+è¿™ä¸ªçº¿ç¨‹ä¼šä¸€ç›´åœ¨è½¬ï¼Œä¸€ç›´è¿è¡Œï¼Œå¦‚æœä»–æŒ‚äº†é‚£è¯´æ˜æ•´ä¸ªæœåŠ¡å°±æŒ‚æ‰äº†ï¼Œå¥½ï¼Œä½ çœ‹ç€é‡Œé¢çš„å¼‚å¸¸ä¹Ÿåƒæ‰äº†ï¼Œæ‰€ä»¥ä¸€ç›´ä¼šè¿è¡Œï¼Œå¦‚æœæ²¡æœ‰æ•°æ®ä»–ä¼šé˜»å¡ï¼Œé˜»å¡ä¼šè®©å‡ºcpu
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/487a2e6d15f642549fe0d145447cc5cf.png "image.png")
 
-×¢²á±í½á¹¹µÄ·ÖÎö£º
+æ³¨å†Œè¡¨ç»“æ„çš„åˆ†æï¼š
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/3eab037db7e2480ba4a9b439b18567da.png "image.png")
 
-Ê×ÏÈµ±ËûÊÇ¸öchangeµÄÊ±ºò£¬ÎÒÃÇ¾Í½øÈëonChange£¬ËûÊÇ¸ö·şÎñËùÒÔÎÒÃÇ½øÈëËûµÄserviceÀïÃæÈ¥¿´£º
+é¦–å…ˆå½“ä»–æ˜¯ä¸ªchangeçš„æ—¶å€™ï¼Œæˆ‘ä»¬å°±è¿›å…¥onChangeï¼Œä»–æ˜¯ä¸ªæœåŠ¡æ‰€ä»¥æˆ‘ä»¬è¿›å…¥ä»–çš„serviceé‡Œé¢å»çœ‹ï¼š
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/4adf69d76188430d860f2003b6c508d6.png "image.png")
 
-ÕâÀïÃæ¾Í²»ÓÃ¿´ÁË£¬ÏÈ¿´È¨ÖØ£¬È¨ÖØ´óÓÚ¶àÉÙµÄÊ±ºòÉèÖÃ×î´óÖµ£¬È¨ÖØĞ¡ÓÚ¶àÉÙµÄÊ±ºòÉèÖÃÒ»¸ö×îĞ¡Öµ¡£È»ºó¾ÍÊÇºËĞÄµÄ·½·¨updateIP
+è¿™é‡Œé¢å°±ä¸ç”¨çœ‹äº†ï¼Œå…ˆçœ‹æƒé‡ï¼Œæƒé‡å¤§äºå¤šå°‘çš„æ—¶å€™è®¾ç½®æœ€å¤§å€¼ï¼Œæƒé‡å°äºå¤šå°‘çš„æ—¶å€™è®¾ç½®ä¸€ä¸ªæœ€å°å€¼ã€‚ç„¶åå°±æ˜¯æ ¸å¿ƒçš„æ–¹æ³•updateIP
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/887332bfdcb64c2f9ad871ee55961b59.png "image.png")
 
-ÄÇÕâ¸öupdateIPsÊÇ×öÊ²Ã´ÄØ£¿ ×öµÄ¾ÍÊÇÎÒ±éÀúÎÒËùÓĞÒª×¢²áµÄÊµÀı£¬È»ºó¾Í·Åµ½ÎÒÃÇµÄclusterMapÀïÃæ
+é‚£è¿™ä¸ªupdateIPsæ˜¯åšä»€ä¹ˆå‘¢ï¼Ÿ åšçš„å°±æ˜¯æˆ‘éå†æˆ‘æ‰€æœ‰è¦æ³¨å†Œçš„å®ä¾‹ï¼Œç„¶åå°±æ”¾åˆ°æˆ‘ä»¬çš„clusterMapé‡Œé¢
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/87df4508357847f1ab49a785ab464e5b.png "image.png")
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b31cf0150533469ebd4fbc462c6a0952.png "image.png")
 
-ÄÇµ½ÕâÀï´ó¼Ò¿ÉÄÜ¾ÍÓĞÒÉÎÊÁË£¬ÄÇÊ²Ã´Ê±ºòÆô¶¯Õâ¸öÏß³Ì£¬À´ÊµÊ±¼àÌıÎÒÃÇÏûÏ¢µÄ×èÈû¶ÓÁĞÄØ£¿ ½Ì´ó¼ÒÈçºÎÕÒÒ»ÏÂÕâ¸ö·½·¨£¬ÎÒÃÇÏÖÔÚ¿´×Å¸öÀà½ĞNotifier£¬ÒòÎªËû±¾Éí¾ÍÊÇÒ»¸öÏß³Ì£¬Ëû»á¶ªµ½Ò»¸öÏß³Ì³ØÖĞ½øĞĞÔËĞĞ£¬ÎÒÃÇ¿´Ò»ÏÂËû¾¿¾¹ÊÇÔÚÄÄÀïÊµÀı»¯µÄ£¬
+é‚£åˆ°è¿™é‡Œå¤§å®¶å¯èƒ½å°±æœ‰ç–‘é—®äº†ï¼Œé‚£ä»€ä¹ˆæ—¶å€™å¯åŠ¨è¿™ä¸ªçº¿ç¨‹ï¼Œæ¥å®æ—¶ç›‘å¬æˆ‘ä»¬æ¶ˆæ¯çš„é˜»å¡é˜Ÿåˆ—å‘¢ï¼Ÿ æ•™å¤§å®¶å¦‚ä½•æ‰¾ä¸€ä¸‹è¿™ä¸ªæ–¹æ³•ï¼Œæˆ‘ä»¬ç°åœ¨çœ‹ç€ä¸ªç±»å«Notifierï¼Œå› ä¸ºä»–æœ¬èº«å°±æ˜¯ä¸€ä¸ªçº¿ç¨‹ï¼Œä»–ä¼šä¸¢åˆ°ä¸€ä¸ªçº¿ç¨‹æ± ä¸­è¿›è¡Œè¿è¡Œï¼Œæˆ‘ä»¬çœ‹ä¸€ä¸‹ä»–ç©¶ç«Ÿæ˜¯åœ¨å“ªé‡Œå®ä¾‹åŒ–çš„ï¼Œ
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/16223a5f9aab4fdaa004d0698e6cb0a6.png "image.png")
 
-ÎÒÃÇ¿´µ½Õâ¸ö·½·¨£ºÕâ¸ö×¢½â¾ÍÊÇµ±ÄãµÄspringµÄÒ»¸öÀà½øĞĞ³õÊ¼»¯Ö®ºó½øĞĞµ÷ÓÃµÄ£¬ÄÇÎÒÃÇ¿´Ò»ÏÂÕâ¸öinit·½·¨µ½µ×ÊÇ×öÁËÊ²Ã´
+æˆ‘ä»¬çœ‹åˆ°è¿™ä¸ªæ–¹æ³•ï¼šè¿™ä¸ªæ³¨è§£å°±æ˜¯å½“ä½ çš„springçš„ä¸€ä¸ªç±»è¿›è¡Œåˆå§‹åŒ–ä¹‹åè¿›è¡Œè°ƒç”¨çš„ï¼Œé‚£æˆ‘ä»¬çœ‹ä¸€ä¸‹è¿™ä¸ªinitæ–¹æ³•åˆ°åº•æ˜¯åšäº†ä»€ä¹ˆ
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b9d2a25274834d73ab8f939006e9b075.png "image.png")
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/64f25704efac43a7ae6ee5afda46cdf7.png "image.png")
 
-ÊÇÒ»¸öScheduledÏß³Ì³Ø£º
+æ˜¯ä¸€ä¸ªScheduledçº¿ç¨‹æ± ï¼š
 
 ![image-20211222222903941](E:\BaiduNetdiskWorkspace\springcloud alibaba\img\image-20211222222903941.png)
 
-Ò²¾ÍÊÇÔÚ¶ÔÏó³õÊ¼»¯µÄÊ±ºò¾Í½øĞĞÆô¶¯Ò»¸öÏß³Ì³Ø£¬È¥ÔËĞĞnotifier¶ÔÓ¦µÄ·½·¨¡£Õâ¸örun·½·¨¾ÍÊÇÕâÑùrunµÄ¡£Æô¶¯ºó¾Í»áÊµÊ±¼àÌıÒì²½¶ÓÁĞ¡£ÕâÑùĞ´µÄºÃ´¦£¬¾ÍÊÇ½«Ğ´ºÍ´¦ÀíÍêÈ«¸ôÀëÁË¡£Í¨¹ı¼àÌı¸ßĞÔÄÜµÄÄÚ´æ¶ÓÁĞ£¬À´´¦ÀíÕâ¸öÊÂÇé£¬ËûÕâÑùµÄºÃ´¦£¬1¡¢Ìá¸ßĞÔÄÜ
+ä¹Ÿå°±æ˜¯åœ¨å¯¹è±¡åˆå§‹åŒ–çš„æ—¶å€™å°±è¿›è¡Œå¯åŠ¨ä¸€ä¸ªçº¿ç¨‹æ± ï¼Œå»è¿è¡Œnotifierå¯¹åº”çš„æ–¹æ³•ã€‚è¿™ä¸ªrunæ–¹æ³•å°±æ˜¯è¿™æ ·runçš„ã€‚å¯åŠ¨åå°±ä¼šå®æ—¶ç›‘å¬å¼‚æ­¥é˜Ÿåˆ—ã€‚è¿™æ ·å†™çš„å¥½å¤„ï¼Œå°±æ˜¯å°†å†™å’Œå¤„ç†å®Œå…¨éš”ç¦»äº†ã€‚é€šè¿‡ç›‘å¬é«˜æ€§èƒ½çš„å†…å­˜é˜Ÿåˆ—ï¼Œæ¥å¤„ç†è¿™ä¸ªäº‹æƒ…ï¼Œä»–è¿™æ ·çš„å¥½å¤„ï¼Œ1ã€æé«˜æ€§èƒ½
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/e27c8e72b30845c3ab9346b89932fb42.png "image.png")
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

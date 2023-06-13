@@ -1,8 +1,8 @@
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-07194ddebd25cb2b71ee5e422bf84e8a397.png)
 
-ÔÚÇ°ÃæÒ»ÆªÎÄÕÂÖĞ£¬ÎÒÃÇ·ÖÎöÁË spring µÄÕûÌåÆô¶¯Á÷³Ì£¬´ÓÕâÆª¿ªÊ¼ £¬ÎÒÃÇ½«¶ÔÆô¶¯¹ı³ÌÖĞµÄÒ»Ğ©¹Ø¼ü´úÂë½øĞĞ·ÖÎö¡£
+åœ¨å‰é¢ä¸€ç¯‡æ–‡ç« ä¸­ï¼Œæˆ‘ä»¬åˆ†æäº† spring çš„æ•´ä½“å¯åŠ¨æµç¨‹ï¼Œä»è¿™ç¯‡å¼€å§‹ ï¼Œæˆ‘ä»¬å°†å¯¹å¯åŠ¨è¿‡ç¨‹ä¸­çš„ä¸€äº›å…³é”®ä»£ç è¿›è¡Œåˆ†æã€‚
 
-·ÖÎöÒÀ¾ÉÊÇ»ùÓÚµÄ `demo01`£¬ÎÒÃÇÖ±½Ó½øĞĞ `ApplicationContext context = new AnnotationConfigApplicationContext("org.springframework.learn.demo01");` µÄÖ´ĞĞÖĞ£º
+åˆ†æä¾æ—§æ˜¯åŸºäºçš„ `demo01`ï¼Œæˆ‘ä»¬ç›´æ¥è¿›è¡Œ `ApplicationContext context = new AnnotationConfigApplicationContext("org.springframework.learn.demo01");` çš„æ‰§è¡Œä¸­ï¼š
 
 > AnnotationConfigApplicationContext
 
@@ -15,24 +15,24 @@ public AnnotationConfigApplicationContext(String... basePackages) {
 
 ```
 
-Õâ¸ö·½·¨Ö»ÓĞÈıĞĞ£¬Ã¿ĞĞ´úÂëµÄ×÷ÓÃÔÚ [spring Æô¶¯Á÷³Ì¸ÅÀÀ](https://my.oschina.net/funcy/blog/4597493 "springÆô¶¯Á÷³Ì¸ÅÀÀ")ÒÑ×ö¹ıËµÃ÷£¬ÕâÀïÎÒÃÇ½«¶ÔÕâĞ©·½·¨Õ¹¿ª£¬ÏêÏ¸·ÖÎöÀïÃæµÄÄÚÈİ¡£
+è¿™ä¸ªæ–¹æ³•åªæœ‰ä¸‰è¡Œï¼Œæ¯è¡Œä»£ç çš„ä½œç”¨åœ¨ [spring å¯åŠ¨æµç¨‹æ¦‚è§ˆ](https://my.oschina.net/funcy/blog/4597493 "springå¯åŠ¨æµç¨‹æ¦‚è§ˆ")å·²åšè¿‡è¯´æ˜ï¼Œè¿™é‡Œæˆ‘ä»¬å°†å¯¹è¿™äº›æ–¹æ³•å±•å¼€ï¼Œè¯¦ç»†åˆ†æé‡Œé¢çš„å†…å®¹ã€‚
 
-### 1. `beanFacotry` µÄ´´½¨
+### 1. `beanFacotry` çš„åˆ›å»º
 
-ÎÒÃÇÖ±½Ó½øĞĞ `this()` ·½·¨£¬ÄÚÈİÈçÏÂ£º
+æˆ‘ä»¬ç›´æ¥è¿›è¡Œ `this()` æ–¹æ³•ï¼Œå†…å®¹å¦‚ä¸‹ï¼š
 
 > AnnotationConfigApplicationContext
 
 ```
 public AnnotationConfigApplicationContext() {
-    // AnnotatedBeanDefinitionReader ½âÎö @Configuration
+    // AnnotatedBeanDefinitionReader è§£æ @Configuration
     this.reader = new AnnotatedBeanDefinitionReader(this);
     this.scanner = new ClassPathBeanDefinitionScanner(this);
 }
 
 ```
 
-±íÃæÉÏ¿´£¬´úÂëÖ»ÓĞÁ½ĞĞ£¬´´½¨ÁËÁ½¸ö¶ÔÏó¡£µ«ÊìÏ¤ java »ù´¡Óï·¨µÄ¶¼ÖªµÀ£¬×ÓÀàÔÚµ÷ÓÃ¹¹Ôì·½·¨Ê±£¬»áÏÈµ÷ÓÃ¸¸ÀàµÄ¹¹Ôì·½·¨ÔÙÖ´ĞĞ×ÓÀà¹¹Ôì·½·¨µÄ´úÂë£¬ÒòĞ©ÎÒÃÇ»¹ĞèÒª¿´¿´¸ÃÀàµÄ¸¸Àà¹¹Ôì·½·¨Àï×öÁËÊ²Ã´£º
+è¡¨é¢ä¸Šçœ‹ï¼Œä»£ç åªæœ‰ä¸¤è¡Œï¼Œåˆ›å»ºäº†ä¸¤ä¸ªå¯¹è±¡ã€‚ä½†ç†Ÿæ‚‰ java åŸºç¡€è¯­æ³•çš„éƒ½çŸ¥é“ï¼Œå­ç±»åœ¨è°ƒç”¨æ„é€ æ–¹æ³•æ—¶ï¼Œä¼šå…ˆè°ƒç”¨çˆ¶ç±»çš„æ„é€ æ–¹æ³•å†æ‰§è¡Œå­ç±»æ„é€ æ–¹æ³•çš„ä»£ç ï¼Œå› äº›æˆ‘ä»¬è¿˜éœ€è¦çœ‹çœ‹è¯¥ç±»çš„çˆ¶ç±»æ„é€ æ–¹æ³•é‡Œåšäº†ä»€ä¹ˆï¼š
 
 > GenericApplicationContext
 
@@ -43,22 +43,22 @@ public GenericApplicationContext() {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬¸¸ÀàµÄ¹¹Ôì·½·¨Àï½ö×öÁËÒ»¼şÊÂ£º´´½¨ `beanFactory`¡£×Ô´Ë£¬ÎÒÃÇ¿ÉÒÔÖªµÀ£º**`AnnotationConfigApplicationContext` Ê¹ÓÃµÄ `BeanFacotry` Îª `DefaultListableBeanFactory`**¡£
+å¯ä»¥çœ‹åˆ°ï¼Œçˆ¶ç±»çš„æ„é€ æ–¹æ³•é‡Œä»…åšäº†ä¸€ä»¶äº‹ï¼šåˆ›å»º `beanFactory`ã€‚è‡ªæ­¤ï¼Œæˆ‘ä»¬å¯ä»¥çŸ¥é“ï¼š**`AnnotationConfigApplicationContext` ä½¿ç”¨çš„ `BeanFacotry` ä¸º `DefaultListableBeanFactory`**ã€‚
 
-ÎÒÃÇÔÙ»Øµ½ `AnnotationConfigApplicationContext` µÄ¹¹Ôì·½·¨£º
+æˆ‘ä»¬å†å›åˆ° `AnnotationConfigApplicationContext` çš„æ„é€ æ–¹æ³•ï¼š
 
 > AnnotationConfigApplicationContext
 
 ```
 public AnnotationConfigApplicationContext() {
-    // AnnotatedBeanDefinitionReader ½âÎö @Configuration
+    // AnnotatedBeanDefinitionReader è§£æ @Configuration
     this.reader = new AnnotatedBeanDefinitionReader(this);
     this.scanner = new ClassPathBeanDefinitionScanner(this);
 }
 
 ```
 
-Õâ¸ö·½·¨ËäÈ»Ö»ÓĞÁ½ĞĞ£¬×÷ÓÃÈ´²»Ğ¡¡£ÎÒÃÇÉîÈë `new AnnotatedBeanDefinitionReader(this);` ¿´ÏÂ£¬ÓÉÓÚÆäÖĞµÄ·½·¨µ÷ÓÃ²¢²»ÖØÒª£¬ÕâÀï½öÌá¹©µ÷ÓÃÁ´£º
+è¿™ä¸ªæ–¹æ³•è™½ç„¶åªæœ‰ä¸¤è¡Œï¼Œä½œç”¨å´ä¸å°ã€‚æˆ‘ä»¬æ·±å…¥ `new AnnotatedBeanDefinitionReader(this);` çœ‹ä¸‹ï¼Œç”±äºå…¶ä¸­çš„æ–¹æ³•è°ƒç”¨å¹¶ä¸é‡è¦ï¼Œè¿™é‡Œä»…æä¾›è°ƒç”¨é“¾ï¼š
 
 ```
 AnnotationConfigApplicationContext#AnnotationConfigApplicationContext()
@@ -69,15 +69,15 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext()
 
 ```
 
-¿ÉÒÔ¿´µ½£¬×îÖÕÊÇµ÷ÓÃÁË `AnnotationConfigUtils#registerAnnotationConfigProcessors(BeanDefinitionRegistry, Object)`£¬ÎÒÃÇ²é¿´ÏÂ¸Ã·½·¨£¬ÎªÁËÖ±¹Û²é¿´£¬ÕâÀïÊ¡ÂÔÁË²»±ØÒªµÄ´úÂë£¬ÎÒÃÇ½ö¹Ø×¢Ö÷ÒªµÄÁ÷³Ì¼´¿É£º
+å¯ä»¥çœ‹åˆ°ï¼Œæœ€ç»ˆæ˜¯è°ƒç”¨äº† `AnnotationConfigUtils#registerAnnotationConfigProcessors(BeanDefinitionRegistry, Object)`ï¼Œæˆ‘ä»¬æŸ¥çœ‹ä¸‹è¯¥æ–¹æ³•ï¼Œä¸ºäº†ç›´è§‚æŸ¥çœ‹ï¼Œè¿™é‡Œçœç•¥äº†ä¸å¿…è¦çš„ä»£ç ï¼Œæˆ‘ä»¬ä»…å…³æ³¨ä¸»è¦çš„æµç¨‹å³å¯ï¼š
 
 ```
 public static Set<BeanDefinitionHolder> registerAnnotationConfigProcessors(
         BeanDefinitionRegistry registry, @Nullable Object source) {
-    // »ñµÃbeanFactory
+    // è·å¾—beanFactory
     DefaultListableBeanFactory beanFactory = unwrapDefaultListableBeanFactory(registry);
 
-    // -------- ÍùbeanFactoryÖĞÌí¼Ó´¦ÀíÀà
+    // -------- å¾€beanFactoryä¸­æ·»åŠ å¤„ç†ç±»
     if (beanFactory != null) {
         if (!(beanFactory.getDependencyComparator() instanceof AnnotationAwareOrderComparator)) {
         beanFactory.setDependencyComparator(AnnotationAwareOrderComparator.INSTANCE);
@@ -90,7 +90,7 @@ public static Set<BeanDefinitionHolder> registerAnnotationConfigProcessors(
 
     Set<BeanDefinitionHolder> beanDefs = new LinkedHashSet<>(8);
 
-    // ------------  ÍùbeanFactoryÖĞÌí¼ÓbeanDefinition
+    // ------------  å¾€beanFactoryä¸­æ·»åŠ beanDefinition
     if (!registry.containsBeanDefinition(CONFIGURATION_ANNOTATION_PROCESSOR_BEAN_NAME)) {
         RootBeanDefinition def = new RootBeanDefinition(ConfigurationClassPostProcessor.class);
         def.setSource(source);
@@ -140,22 +140,22 @@ public static Set<BeanDefinitionHolder> registerAnnotationConfigProcessors(
 
 ```
 
-Õâ¸ö·½·¨´úÂëËäÈ»ÓĞµã³¤£¬µ«¹¦ÄÜÈ´Ïàµ±Ö±°×£¬¾ÍÊÇÏò `beanFactory` Ìí¼Ó `annotation` Ïà¹ØµÄ´¦ÀíÆ÷¡£Êµ¼ÊÉÏ£¬ÔÚ [spring Æô¶¯Á÷³Ì¸ÅÀÀ](https://my.oschina.net/funcy/blog/4597493 "springÆô¶¯Á÷³Ì¸ÅÀÀ")Ìáµ½µÄ beanDefinitionMap ÖĞ 4 ¸öÄ¬ÈÏµÄ beanDefinition ¾ÍÊÇÔÚÕâÀïÌí¼ÓµÄ£º
+è¿™ä¸ªæ–¹æ³•ä»£ç è™½ç„¶æœ‰ç‚¹é•¿ï¼Œä½†åŠŸèƒ½å´ç›¸å½“ç›´ç™½ï¼Œå°±æ˜¯å‘ `beanFactory` æ·»åŠ  `annotation` ç›¸å…³çš„å¤„ç†å™¨ã€‚å®é™…ä¸Šï¼Œåœ¨ [spring å¯åŠ¨æµç¨‹æ¦‚è§ˆ](https://my.oschina.net/funcy/blog/4597493 "springå¯åŠ¨æµç¨‹æ¦‚è§ˆ")æåˆ°çš„ beanDefinitionMap ä¸­ 4 ä¸ªé»˜è®¤çš„ beanDefinition å°±æ˜¯åœ¨è¿™é‡Œæ·»åŠ çš„ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a490052bdc1379ef24a7754c65584214c1c.png)
 
-½Ó×ÅÎÒÃÇÔÙ¹Ø×¢ `this.scanner = new ClassPathBeanDefinitionScanner(this)`£¬ÕâÊÇ³õÊ¼»¯ `scanner` ¶ÔÏó£¬ÀàĞÍÎª `ClassPathBeanDefinitionScanner`£¬¸ÃÀà´ÓÃû×ÖÉÏ¿ÉÒÔ¿´³ö£¬ÕâÊÇÓë `classPath` Ïà¹ØµÄ£¬`beanDefinition` É¨ÃèÆ÷£¬Í¨Ë×µØËµ£¬¾ÍÊÇ**É¨Ãè classPath Â·¾¶£¬½« java class ÎÄ¼ş×é×°³É `beanDefinition` ¶ÔÏó**¡£
+æ¥ç€æˆ‘ä»¬å†å…³æ³¨ `this.scanner = new ClassPathBeanDefinitionScanner(this)`ï¼Œè¿™æ˜¯åˆå§‹åŒ– `scanner` å¯¹è±¡ï¼Œç±»å‹ä¸º `ClassPathBeanDefinitionScanner`ï¼Œè¯¥ç±»ä»åå­—ä¸Šå¯ä»¥çœ‹å‡ºï¼Œè¿™æ˜¯ä¸ `classPath` ç›¸å…³çš„ï¼Œ`beanDefinition` æ‰«æå™¨ï¼Œé€šä¿—åœ°è¯´ï¼Œå°±æ˜¯**æ‰«æ classPath è·¯å¾„ï¼Œå°† java class æ–‡ä»¶ç»„è£…æˆ `beanDefinition` å¯¹è±¡**ã€‚
 
-### 2\. ×Ü½á
+### 2\. æ€»ç»“
 
-`AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)` ÖĞ `this()` µÄÖ´ĞĞ¾Í·ÖÎöµ½ÕâÀïÁË£¬ÕâÒ» ĞĞ´úÂëÖ÷Òª×öÁËÕâ¼¸¼şÊÂ£º
+`AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)` ä¸­ `this()` çš„æ‰§è¡Œå°±åˆ†æåˆ°è¿™é‡Œäº†ï¼Œè¿™ä¸€ è¡Œä»£ç ä¸»è¦åšäº†è¿™å‡ ä»¶äº‹ï¼š
 
-1.  ´´½¨ÁËÀàĞÍÎª `DefaultListableBeanFactory` µÄ `beanFactory`
-2.  ´´½¨ÁËÀàĞÍÎª `AnnotatedBeanDefinitionReader` µÄ reader£¬ÔÚÆä´´½¨µÄ¹ı³ÌÖĞ£¬»áÍù `beanFactory` Ìí¼Ó annotation Ïà¹ØµÄ´¦ÀíÆ÷
-3.  ´´½¨ÁËÀàĞÍÎª `ClassPathBeanDefinitionScanner` µÄ `scanner`
+1.  åˆ›å»ºäº†ç±»å‹ä¸º `DefaultListableBeanFactory` çš„ `beanFactory`
+2.  åˆ›å»ºäº†ç±»å‹ä¸º `AnnotatedBeanDefinitionReader` çš„ readerï¼Œåœ¨å…¶åˆ›å»ºçš„è¿‡ç¨‹ä¸­ï¼Œä¼šå¾€ `beanFactory` æ·»åŠ  annotation ç›¸å…³çš„å¤„ç†å™¨
+3.  åˆ›å»ºäº†ç±»å‹ä¸º `ClassPathBeanDefinitionScanner` çš„ `scanner`
 
-±¾ÎÄÁ÷³ÌÍ¼Ê¾ÈçÏÂ£º
+æœ¬æ–‡æµç¨‹å›¾ç¤ºå¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b7a7a01b4d38769419a0e25e8f60037cbb5.png)
 
-±¾ÎÄ¾ÍÏÈµ½ÕâÀïÁË£¬½ÓÏÂÀ´µÄÎÄÕÂÎÒÃÇ¼ÌĞø·ÖÎöºóĞøµÄ´úÂë¡£
+æœ¬æ–‡å°±å…ˆåˆ°è¿™é‡Œäº†ï¼Œæ¥ä¸‹æ¥çš„æ–‡ç« æˆ‘ä»¬ç»§ç»­åˆ†æåç»­çš„ä»£ç ã€‚

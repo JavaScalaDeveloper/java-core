@@ -1,21 +1,21 @@
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-be7f7797a27a2dc5ab1ad8d11327b140c90.png)
 
-½ÓÉÏÎÄ£¬ÎÒÃÇ¼ÌĞø·ÖÎö¡£
+æ¥ä¸Šæ–‡ï¼Œæˆ‘ä»¬ç»§ç»­åˆ†æã€‚
 
-### 6\. ×¢²á `BeanPostProcessor`: `registerBeanPostProcessors(beanFactory)`
+### 6\. æ³¨å†Œ `BeanPostProcessor`: `registerBeanPostProcessors(beanFactory)`
 
-ÔÚÕıÊ½·ÖÎöÇ°£¬ĞèÒªÃ÷È·Á½¸ö¸ÅÄî£º
+åœ¨æ­£å¼åˆ†æå‰ï¼Œéœ€è¦æ˜ç¡®ä¸¤ä¸ªæ¦‚å¿µï¼š
 
-*   `BeanFactoryPostProcessor`£¬±»³ÆÎª `BeanFactory` µÄºóÖÃ´¦ÀíÆ÷£¬¿ÉÒÔ¶Ô `BeanFactory` ½øĞĞÒ»Ğ©²Ù×÷£»
-*   `BeanPostProcessor`£¬±»³ÆÎª `Bean` µÄºóÖÃ´¦ÀíÆ÷£¬¿ÉÒÔ¶Ô `Bean` ½øĞĞÒ»Ğ©²Ù×÷¡£
+*   `BeanFactoryPostProcessor`ï¼Œè¢«ç§°ä¸º `BeanFactory` çš„åç½®å¤„ç†å™¨ï¼Œå¯ä»¥å¯¹ `BeanFactory` è¿›è¡Œä¸€äº›æ“ä½œï¼›
+*   `BeanPostProcessor`ï¼Œè¢«ç§°ä¸º `Bean` çš„åç½®å¤„ç†å™¨ï¼Œå¯ä»¥å¯¹ `Bean` è¿›è¡Œä¸€äº›æ“ä½œã€‚
 
-²»Òª½«±¾ÎÄµÄ `BeanPostProcessor` ÓëÇ°ÃæµÄ `BeanFactoryPostProcessor` Åª»ìÁË¡£
+ä¸è¦å°†æœ¬æ–‡çš„ `BeanPostProcessor` ä¸å‰é¢çš„ `BeanFactoryPostProcessor` å¼„æ··äº†ã€‚
 
-±¾ÎÄÖ÷ÒªÊÇ¶Ô `BeanPostProcessor` µÄ `register` ²Ù×÷ (`registerBeanPostProcessors(beanFactory)`)£¬¼´½« `BeanPostProcessor` ×¢²áµ½ `BeanFactory` ÖĞ£¬ÄÇÃ´µ÷ÓÃÊÇÔÚÊ²Ã´Ê±ºòÄØ£¿¼ÈÈ»ÊÇ¶Ô `Bean` µÄ²Ù×÷£¬µ±È»ÊÇÓĞÁË bean Ö®ºóÔÙÔËĞĞÁË¡£
+æœ¬æ–‡ä¸»è¦æ˜¯å¯¹ `BeanPostProcessor` çš„ `register` æ“ä½œ (`registerBeanPostProcessors(beanFactory)`)ï¼Œå³å°† `BeanPostProcessor` æ³¨å†Œåˆ° `BeanFactory` ä¸­ï¼Œé‚£ä¹ˆè°ƒç”¨æ˜¯åœ¨ä»€ä¹ˆæ—¶å€™å‘¢ï¼Ÿæ—¢ç„¶æ˜¯å¯¹ `Bean` çš„æ“ä½œï¼Œå½“ç„¶æ˜¯æœ‰äº† bean ä¹‹åå†è¿è¡Œäº†ã€‚
 
-> `BeanPostProcessor` Ò²ÊÇ spring ÖĞÒ»¸öÖØÒª×é¼ş£¬¹ØÓÚ¸Ã×é¼şµÄÏêÏ¸·ÖÎö£¬¿ÉÒÔ²Î¿¼ [spring ×é¼şÖ® BeanPostProcessors](https://my.oschina.net/funcy/blog/4597551)
+> `BeanPostProcessor` ä¹Ÿæ˜¯ spring ä¸­ä¸€ä¸ªé‡è¦ç»„ä»¶ï¼Œå…³äºè¯¥ç»„ä»¶çš„è¯¦ç»†åˆ†æï¼Œå¯ä»¥å‚è€ƒ [spring ç»„ä»¶ä¹‹ BeanPostProcessors](https://my.oschina.net/funcy/blog/4597551)
 
-·Ï»°²»¶àËµ£¬Ö±½ÓÉÏ´úÂë£¬Í¬ÑùµØ£¬¶Ô²»ÖØÒªµÄ·½·¨ÎÒÃÇÖ»¸ø³öµ÷ÓÃÁ´£º
+åºŸè¯ä¸å¤šè¯´ï¼Œç›´æ¥ä¸Šä»£ç ï¼ŒåŒæ ·åœ°ï¼Œå¯¹ä¸é‡è¦çš„æ–¹æ³•æˆ‘ä»¬åªç»™å‡ºè°ƒç”¨é“¾ï¼š
 
 ```
 |-AbstractApplicationContext#refresh
@@ -25,15 +25,15 @@
 
 ```
 
-×îÖÕµ÷ÓÃµ½ÁË `PostProcessorRegistrationDelegate#registerBeanPostProcessors`£¬´úÂëÈçÏÂ£º
+æœ€ç»ˆè°ƒç”¨åˆ°äº† `PostProcessorRegistrationDelegate#registerBeanPostProcessors`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public static void registerBeanPostProcessors(
         ConfigurableListableBeanFactory beanFactory, AbstractApplicationContext applicationContext) {
 
-    // »ñÈ¡springÖĞËùÓĞµÄ BeanPostProcessor£¬ÕâÀï½öÓĞÒ»¸öbean: 
-    // org.springframework.context.annotation.internalAutowiredAnnotationProcessor£¬
-    // ¼´ AutowiredAnnotationBeanPostProcessor
+    // è·å–springä¸­æ‰€æœ‰çš„ BeanPostProcessorï¼Œè¿™é‡Œä»…æœ‰ä¸€ä¸ªbean: 
+    // org.springframework.context.annotation.internalAutowiredAnnotationProcessorï¼Œ
+    // å³ AutowiredAnnotationBeanPostProcessor
     String[] postProcessorNames = beanFactory
             .getBeanNamesForType(BeanPostProcessor.class, true, false);
 
@@ -47,9 +47,9 @@ public static void registerBeanPostProcessors(
     List<String> orderedPostProcessorNames = new ArrayList<>();
     List<String> nonOrderedPostProcessorNames = new ArrayList<>();
 
-    // ÏÈ»ñÈ¡ÊµÏÖÁËPriorityOrderedµÄBeanPostProcessor
-    // ÔÙ»ñÈ¡ÊµÏÖÁËOrderedµÄBeanPostProcessor
-    // ×îºóÔÙ»ñÈ¡²»Âú×ãÒÔÉÏÌõ¼şµÄBeanPostProcessor
+    // å…ˆè·å–å®ç°äº†PriorityOrderedçš„BeanPostProcessor
+    // å†è·å–å®ç°äº†Orderedçš„BeanPostProcessor
+    // æœ€åå†è·å–ä¸æ»¡è¶³ä»¥ä¸Šæ¡ä»¶çš„BeanPostProcessor
     for (String ppName : postProcessorNames) {
         if (beanFactory.isTypeMatch(ppName, PriorityOrdered.class)) {
             BeanPostProcessor pp = beanFactory.getBean(ppName, BeanPostProcessor.class);
@@ -66,7 +66,7 @@ public static void registerBeanPostProcessors(
         }
     }
 
-    // ´¦ÀípriorityOrderedPostProcessor£ºÅÅĞò£¬È»ºóÌí¼Óµ½beanFactoryÖĞ
+    // å¤„ç†priorityOrderedPostProcessorï¼šæ’åºï¼Œç„¶åæ·»åŠ åˆ°beanFactoryä¸­
     sortPostProcessors(priorityOrderedPostProcessors, beanFactory);
     registerBeanPostProcessors(beanFactory, priorityOrderedPostProcessors);
 
@@ -79,7 +79,7 @@ public static void registerBeanPostProcessors(
             internalPostProcessors.add(pp);
         }
     }
-    // ´¦ÀíorderedPostProcessor£ºÅÅĞò£¬È»ºóÌí¼Óµ½beanFactoryÖĞ
+    // å¤„ç†orderedPostProcessorï¼šæ’åºï¼Œç„¶åæ·»åŠ åˆ°beanFactoryä¸­
     sortPostProcessors(orderedPostProcessors, beanFactory);
     registerBeanPostProcessors(beanFactory, orderedPostProcessors);
 
@@ -92,11 +92,11 @@ public static void registerBeanPostProcessors(
             internalPostProcessors.add(pp);
         }
     }
-    // ´¦ÀíÓàÏÂµÄBeanPostProcessor£ºÅÅĞò£¬È»ºóÌí¼Óµ½beanFactoryÖĞ
+    // å¤„ç†ä½™ä¸‹çš„BeanPostProcessorï¼šæ’åºï¼Œç„¶åæ·»åŠ åˆ°beanFactoryä¸­
     registerBeanPostProcessors(beanFactory, nonOrderedPostProcessors);    
-    // ´¦ÀíinternalPostProcessor£ºÅÅĞò£¬È»ºóÌí¼Óµ½beanFactoryÖĞ
-    // AutowiredAnnotationBeanPostProcessorÊµÏÖÁËMergedBeanDefinitionPostProcessor£¬
-    // Òò´ËÕâÀï»áÔÙ´Î×¢²á
+    // å¤„ç†internalPostProcessorï¼šæ’åºï¼Œç„¶åæ·»åŠ åˆ°beanFactoryä¸­
+    // AutowiredAnnotationBeanPostProcessorå®ç°äº†MergedBeanDefinitionPostProcessorï¼Œ
+    // å› æ­¤è¿™é‡Œä¼šå†æ¬¡æ³¨å†Œ
     sortPostProcessors(internalPostProcessors, beanFactory);
     registerBeanPostProcessors(beanFactory, internalPostProcessors);
 
@@ -105,16 +105,16 @@ public static void registerBeanPostProcessors(
 
 ```
 
-Õâ¿é´úÂëÖ÷ÒªÊÇ¶Ô `BeanFactoryPostProcessor` ½øĞĞ×¢²á²Ù×÷£¬²½ÖèÈçÏÂ£º
+è¿™å—ä»£ç ä¸»è¦æ˜¯å¯¹ `BeanFactoryPostProcessor` è¿›è¡Œæ³¨å†Œæ“ä½œï¼Œæ­¥éª¤å¦‚ä¸‹ï¼š
 
-*   ½«ÊµÏÖÁË `PriorityOrdered` µÄ `BeanPostProcessor` ×¢²áµ½ `beanFactory` ÖĞ£»
-*   ½«ÊµÏÖÁË `Ordered` µÄ `BeanPostProcessor` ×¢²áµ½ `beanFactory` ÖĞ£»
-*   ½«²»Âú×ãÉÏÊöÁ½¸öÌõ¼şµÄ `BeanPostProcessor` ×¢²áµ½ `beanFactory` ÖĞ£»
-*   ½«ËùÓĞÊµÏÖÁË `MergedBeanDefinitionPostProcessor` µÄ `BeanPostProcessor` ÔÙ´Î×¢²áµ½ `beanFactory` ÖĞ¡£
+*   å°†å®ç°äº† `PriorityOrdered` çš„ `BeanPostProcessor` æ³¨å†Œåˆ° `beanFactory` ä¸­ï¼›
+*   å°†å®ç°äº† `Ordered` çš„ `BeanPostProcessor` æ³¨å†Œåˆ° `beanFactory` ä¸­ï¼›
+*   å°†ä¸æ»¡è¶³ä¸Šè¿°ä¸¤ä¸ªæ¡ä»¶çš„ `BeanPostProcessor` æ³¨å†Œåˆ° `beanFactory` ä¸­ï¼›
+*   å°†æ‰€æœ‰å®ç°äº† `MergedBeanDefinitionPostProcessor` çš„ `BeanPostProcessor` å†æ¬¡æ³¨å†Œåˆ° `beanFactory` ä¸­ã€‚
 
-ÊÂÊµÉÏ£¬¶Ô demo01 ¶øÑÔ£¬ÕâÀï×¢²áµÄ bean Ö»ÓĞÒ»¸ö£º`AutowiredAnnotationBeanPostProcessor`£¬ËüÍ¬Ê±ÊµÏÖÁË `MergedBeanDefinitionPostProcessor` Óë `PriorityOrdered`£¬Òò´Ë»á×¢²áÁ½´Î¡£
+äº‹å®ä¸Šï¼Œå¯¹ demo01 è€Œè¨€ï¼Œè¿™é‡Œæ³¨å†Œçš„ bean åªæœ‰ä¸€ä¸ªï¼š`AutowiredAnnotationBeanPostProcessor`ï¼Œå®ƒåŒæ—¶å®ç°äº† `MergedBeanDefinitionPostProcessor` ä¸ `PriorityOrdered`ï¼Œå› æ­¤ä¼šæ³¨å†Œä¸¤æ¬¡ã€‚
 
-¾¡¹Ü×¢²áÁË¶à´Î `AutowiredAnnotationBeanPostProcessor`£¬µ«×îÖÕÖ»»á´æÔÚÒ»¸ö£¬ÈÃÎÒÃÇ½øÈë `registerBeanPostProcessors` ¿´¿´ spring ÊÇÈçºÎ×¢²áµÄ£¬Ò»Â·¸úÏÂÈ¥£¬´úÂëµ½ÁË `AbstractBeanFactory#addBeanPostProcessor`:
+å°½ç®¡æ³¨å†Œäº†å¤šæ¬¡ `AutowiredAnnotationBeanPostProcessor`ï¼Œä½†æœ€ç»ˆåªä¼šå­˜åœ¨ä¸€ä¸ªï¼Œè®©æˆ‘ä»¬è¿›å…¥ `registerBeanPostProcessors` çœ‹çœ‹ spring æ˜¯å¦‚ä½•æ³¨å†Œçš„ï¼Œä¸€è·¯è·Ÿä¸‹å»ï¼Œä»£ç åˆ°äº† `AbstractBeanFactory#addBeanPostProcessor`:
 
 > AbstractBeanFactory#addBeanPostProcessor
 
@@ -124,7 +124,7 @@ private final List<BeanPostProcessor> beanPostProcessors = new CopyOnWriteArrayL
 @Override
 public void addBeanPostProcessor(BeanPostProcessor beanPostProcessor) {
     Assert.notNull(beanPostProcessor, "BeanPostProcessor must not be null");
-    // ÏÈ½øĞĞÒÆ³ı£¬Òò´Ë¶à´Î×¢²ábeanPostProcessorsÒ²Ö»´æÔÚÒ»¸ö
+    // å…ˆè¿›è¡Œç§»é™¤ï¼Œå› æ­¤å¤šæ¬¡æ³¨å†ŒbeanPostProcessorsä¹Ÿåªå­˜åœ¨ä¸€ä¸ª
     this.beanPostProcessors.remove(beanPostProcessor);
     if (beanPostProcessor instanceof InstantiationAwareBeanPostProcessor) {
         this.hasInstantiationAwareBeanPostProcessors = true;
@@ -137,10 +137,10 @@ public void addBeanPostProcessor(BeanPostProcessor beanPostProcessor) {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬ËùÎ½µÄ×¢²áµ½ `BeanFactory`£¬ÆäÊµ¾ÍÊÇ°Ñ `beanPostProcessor` ¼ÓÈëµ½ `BeanFactory` µÄ `beanPostProcessors` ÖĞ¡£
+å¯ä»¥çœ‹åˆ°ï¼Œæ‰€è°“çš„æ³¨å†Œåˆ° `BeanFactory`ï¼Œå…¶å®å°±æ˜¯æŠŠ `beanPostProcessor` åŠ å…¥åˆ° `BeanFactory` çš„ `beanPostProcessors` ä¸­ã€‚
 
-±¾ÎÄ½öÉÜÁË `beanPostProcessor` µÄ×¢²á£¬¹ØÓÚ `beanPostProcessor` µÄµ÷ÓÃ£¬ºóĞøµÄ·ÖÎöÔÙÌáµ½£¬±¾ÎÄµÄ·ÖÎö¾ÍÏÈµ½ÕâÀï°É£¡
+æœ¬æ–‡ä»…ç»äº† `beanPostProcessor` çš„æ³¨å†Œï¼Œå…³äº `beanPostProcessor` çš„è°ƒç”¨ï¼Œåç»­çš„åˆ†æå†æåˆ°ï¼Œæœ¬æ–‡çš„åˆ†æå°±å…ˆåˆ°è¿™é‡Œå§ï¼
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4657181](https://my.oschina.net/funcy/blog/4657181) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4657181](https://my.oschina.net/funcy/blog/4657181) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

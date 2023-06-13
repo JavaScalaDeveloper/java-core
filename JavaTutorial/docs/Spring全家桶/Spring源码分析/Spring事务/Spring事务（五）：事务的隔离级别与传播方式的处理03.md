@@ -1,10 +1,10 @@
-±¾ÎÄÊÇ¡¶ÊÂÎñµÄ¸ôÀë¼¶±ğÓë´«²¥·½Ê½µÄ´¦Àí¡··ÖÎöµÄµÚ 3 Æª£¬½ÓÉÏÎÄ£¬ÎÒÃÇ¼ÌĞø¡£
+æœ¬æ–‡æ˜¯ã€Šäº‹åŠ¡çš„éš”ç¦»çº§åˆ«ä¸ä¼ æ’­æ–¹å¼çš„å¤„ç†ã€‹åˆ†æçš„ç¬¬ 3 ç¯‡ï¼Œæ¥ä¸Šæ–‡ï¼Œæˆ‘ä»¬ç»§ç»­ã€‚
 
-ÉÏÎÄÖĞÎÒÃÇÌáµ½ÁËÊÂÎñµÄ¿ªÆô£¨`doBegin(...)`£©¡¢¹ÒÆğ£¨`suspend(...)`£©Óë´´½¨±£´æµã£¨`createAndHoldSavepoint(...)`£©µÄ²Ù×÷£¬±¾ÎÄ½«À´·ÖÎöÕâĞ©²Ù×÷µÄÊµÏÖ¡£
+ä¸Šæ–‡ä¸­æˆ‘ä»¬æåˆ°äº†äº‹åŠ¡çš„å¼€å¯ï¼ˆ`doBegin(...)`ï¼‰ã€æŒ‚èµ·ï¼ˆ`suspend(...)`ï¼‰ä¸åˆ›å»ºä¿å­˜ç‚¹ï¼ˆ`createAndHoldSavepoint(...)`ï¼‰çš„æ“ä½œï¼Œæœ¬æ–‡å°†æ¥åˆ†æè¿™äº›æ“ä½œçš„å®ç°ã€‚
 
-### 1. `doBegin(...)`£ºÆô¶¯ĞÂµÄÊÂÎñ
+### 1. `doBegin(...)`ï¼šå¯åŠ¨æ–°çš„äº‹åŠ¡
 
-Æô¶¯ĞÂÊÂÎñµÄ·½·¨Îª `DataSourceTransactionManager#doBegin`£¬´úÂëÈçÏÂ£º
+å¯åŠ¨æ–°äº‹åŠ¡çš„æ–¹æ³•ä¸º `DataSourceTransactionManager#doBegin`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 protected void doBegin(Object transaction, TransactionDefinition definition) {
@@ -12,49 +12,49 @@ protected void doBegin(Object transaction, TransactionDefinition definition) {
     Connection con = null;
 
     try {
-        // 1\. »ñÈ¡Êı¾İ¿âÁ¬½Ó
+        // 1\. è·å–æ•°æ®åº“è¿æ¥
         if (!txObject.hasConnectionHolder() ||
                 txObject.getConnectionHolder().isSynchronizedWithTransaction()) {
-            // getConnection(): »ñÈ¡Êı¾İ¿âÁ¬½Ó£¬obtainDataSource()£º»ñÈ¡Êı¾İÔ´
+            // getConnection(): è·å–æ•°æ®åº“è¿æ¥ï¼ŒobtainDataSource()ï¼šè·å–æ•°æ®æº
             Connection newCon = obtainDataSource().getConnection();
             txObject.setConnectionHolder(new ConnectionHolder(newCon), true);
         }
-        // ÕâÀï½« synchronizedWithTransaction ÉèÖÃÎªtrue
+        // è¿™é‡Œå°† synchronizedWithTransaction è®¾ç½®ä¸ºtrue
         txObject.getConnectionHolder().setSynchronizedWithTransaction(true);
         con = txObject.getConnectionHolder().getConnection();
 
-        // 2\. ÉèÖÃÊÂÎñµÄ¸ôÀë¼¶±ğ
+        // 2\. è®¾ç½®äº‹åŠ¡çš„éš”ç¦»çº§åˆ«
 
         Integer previousIsolationLevel 
                 = DataSourceUtils.prepareConnectionForTransaction(con, definition);
         txObject.setPreviousIsolationLevel(previousIsolationLevel);
-        // ÉèÖÃÖ»¶ÁÊôĞÔ
+        // è®¾ç½®åªè¯»å±æ€§
         txObject.setReadOnly(definition.isReadOnly());
 
-        // 3\. ¿ªÆôÊÂÎñ
+        // 3\. å¼€å¯äº‹åŠ¡
         if (con.getAutoCommit()) {
             txObject.setMustRestoreAutoCommit(true);
-            // ¹Ø±ÕÊÂÎñµÄ×Ô¶¯Ìá½»£¬Ò²¾ÍÊÇ¿ªÆôÊÂÎñ
+            // å…³é—­äº‹åŠ¡çš„è‡ªåŠ¨æäº¤ï¼Œä¹Ÿå°±æ˜¯å¼€å¯äº‹åŠ¡
             con.setAutoCommit(false);
         }
-        // 4\. Èç¹ûÊÇÖ»¶ÁÊÂÎñ£¬ÔÚÕâÀïÉèÖÃ
+        // 4\. å¦‚æœæ˜¯åªè¯»äº‹åŠ¡ï¼Œåœ¨è¿™é‡Œè®¾ç½®
         prepareTransactionalConnection(con, definition);
-        // ÉèÖÃÊÂÎñµÄ¼¤»î±ê¼Ç
+        // è®¾ç½®äº‹åŠ¡çš„æ¿€æ´»æ ‡è®°
         txObject.getConnectionHolder().setTransactionActive(true);
-        // 5\. ÉèÖÃÊÂÎñµÄ³¬Ê±Ê±¼ä
+        // 5\. è®¾ç½®äº‹åŠ¡çš„è¶…æ—¶æ—¶é—´
         int timeout = determineTimeout(definition);
         if (timeout != TransactionDefinition.TIMEOUT_DEFAULT) {
             txObject.getConnectionHolder().setTimeoutInSeconds(timeout);
         }
 
-        // 6\. °ó¶¨Êı¾İÔ´ÓëÁ¬½Óµ½µ±Ç°Ïß³Ì
+        // 6\. ç»‘å®šæ•°æ®æºä¸è¿æ¥åˆ°å½“å‰çº¿ç¨‹
         if (txObject.isNewConnectionHolder()) {
             TransactionSynchronizationManager.bindResource(
                     obtainDataSource(), txObject.getConnectionHolder());
             }
         }
     } catch (Throwable ex) {
-        // ´¦ÀíÒì³£²Ù×÷£¬Èç¹ûÊÇĞÂÁ¬½ÓÔò¹Ø±Õ¸ÃÁ¬½Ó
+        // å¤„ç†å¼‚å¸¸æ“ä½œï¼Œå¦‚æœæ˜¯æ–°è¿æ¥åˆ™å…³é—­è¯¥è¿æ¥
         if (txObject.isNewConnectionHolder()) {
             DataSourceUtils.releaseConnection(con, obtainDataSource());
             txObject.setConnectionHolder(null, false);
@@ -65,27 +65,27 @@ protected void doBegin(Object transaction, TransactionDefinition definition) {
 
 ```
 
-ÒÔÉÏ´úÂë»¹ÊÇÍ¦ÇåÎúµÄ£¬×¢ÊÍÒ²ºÜÃ÷È·ÁË£¬ÕâÀï¶Ô¹Ø¼ü²½Öè×÷½øÒ»²½·ÖÎö¡£
+ä»¥ä¸Šä»£ç è¿˜æ˜¯æŒºæ¸…æ™°çš„ï¼Œæ³¨é‡Šä¹Ÿå¾ˆæ˜ç¡®äº†ï¼Œè¿™é‡Œå¯¹å…³é”®æ­¥éª¤ä½œè¿›ä¸€æ­¥åˆ†æã€‚
 
-#### 1.1 »ñÈ¡Êı¾İ¿âÁ¬½Ó
+#### 1.1 è·å–æ•°æ®åº“è¿æ¥
 
-Êı¾İ¿âÁ¬½ÓµÄ»ñÈ¡»¹ÊÇºÜ¼òµ¥µÄ£¬´úÂëÈçÏÂ£º
+æ•°æ®åº“è¿æ¥çš„è·å–è¿˜æ˜¯å¾ˆç®€å•çš„ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 Connection newCon = obtainDataSource().getConnection();
 
 ```
 
-ÆäÊµ¾ÍÊÇµ÷ÓÃ `javax.sql.DataSource#getConnection()` ·½·¨¡£
+å…¶å®å°±æ˜¯è°ƒç”¨ `javax.sql.DataSource#getConnection()` æ–¹æ³•ã€‚
 
-#### 1.2 ÉèÖÃÊÂÎñµÄ¸ôÀë¼¶±ğ
+#### 1.2 è®¾ç½®äº‹åŠ¡çš„éš”ç¦»çº§åˆ«
 
-ÔÚ `@Transactional` ÖĞ£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ `isolation` Ö¸¶¨ÊÂÎñµÄ¸ôÀë¼¶±ğ£º
+åœ¨ `@Transactional` ä¸­ï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨ `isolation` æŒ‡å®šäº‹åŠ¡çš„éš”ç¦»çº§åˆ«ï¼š
 
 ```
 public @interface Transactional {
     /**
-     * Ö¸¶¨ÊÂÎñµÄ¸ôÀë¼¶±ğ
+     * æŒ‡å®šäº‹åŠ¡çš„éš”ç¦»çº§åˆ«
      */
     Isolation isolation() default Isolation.DEFAULT;
     ...
@@ -93,9 +93,9 @@ public @interface Transactional {
 
 ```
 
-Èç¹û²»Ö¸¶¨£¬¾ÍÊ¹ÓÃÄ¬ÈÏµÄ¸ôÀë¼¶±ğ£¬Ò²¾ÍÊÇÊ¹ÓÃÊı¾İ¿âÅäÖÃµÄ¡£
+å¦‚æœä¸æŒ‡å®šï¼Œå°±ä½¿ç”¨é»˜è®¤çš„éš”ç¦»çº§åˆ«ï¼Œä¹Ÿå°±æ˜¯ä½¿ç”¨æ•°æ®åº“é…ç½®çš„ã€‚
 
-spring ÉèÖÃÊÂÎñ¸ôÀë¼¶±ğµÄ·½·¨Îª `DataSourceUtils#prepareConnectionForTransaction`£¬´úÂëÈçÏÂ£º
+spring è®¾ç½®äº‹åŠ¡éš”ç¦»çº§åˆ«çš„æ–¹æ³•ä¸º `DataSourceUtils#prepareConnectionForTransaction`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public static Integer prepareConnectionForTransaction(Connection con, 
@@ -103,7 +103,7 @@ public static Integer prepareConnectionForTransaction(Connection con,
     Assert.notNull(con, "No Connection specified");
     if (definition != null && definition.isReadOnly()) {
         try {
-            // ÉèÖÃÎªÖ»¶ÁÄ£Ê½
+            // è®¾ç½®ä¸ºåªè¯»æ¨¡å¼
             con.setReadOnly(true);
         }
         catch (SQLException | RuntimeException ex) {
@@ -116,9 +116,9 @@ public static Integer prepareConnectionForTransaction(Connection con,
             != TransactionDefinition.ISOLATION_DEFAULT) {
         int currentIsolation = con.getTransactionIsolation();
         if (currentIsolation != definition.getIsolationLevel()) {
-            // ÄÃµ½Ö®Ç°µÄ¸ôÀë¼¶±ğ£¬ÊÂÎñÍê³ÉÊÂ£¬ĞèÒªÖØÖÃÎªÔ­À´µÄ¸ôÀë¼¶±ğ
+            // æ‹¿åˆ°ä¹‹å‰çš„éš”ç¦»çº§åˆ«ï¼Œäº‹åŠ¡å®Œæˆäº‹ï¼Œéœ€è¦é‡ç½®ä¸ºåŸæ¥çš„éš”ç¦»çº§åˆ«
             previousIsolationLevel = currentIsolation;
-            // ÔÚÕâÀïÉèÖÃÊı¾İ¿âµÄ¸ôÀë¼¶±ğ£¬µ÷ÓÃµÄÊÇ£º
+            // åœ¨è¿™é‡Œè®¾ç½®æ•°æ®åº“çš„éš”ç¦»çº§åˆ«ï¼Œè°ƒç”¨çš„æ˜¯ï¼š
             // java.sql.Connection.setTransactionIsolation
             con.setTransactionIsolation(definition.getIsolationLevel());
         }
@@ -128,17 +128,17 @@ public static Integer prepareConnectionForTransaction(Connection con,
 
 ```
 
-Õâ ¸ö·½·¨´¦ÀíÁËÁ½¸öÉèÖÃ£º
+è¿™ ä¸ªæ–¹æ³•å¤„ç†äº†ä¸¤ä¸ªè®¾ç½®ï¼š
 
-1.  ÉèÖÃÎªÖ»¶ÁÄ£Ê½£ºµ÷ÓÃµÄÊÇ `java.sql.Connection#setReadOnly` ·½·¨
-2.  ÉèÖÃ¸ôÀë¼¶±ğ£ºµ÷ÓÃµÄÊÇ `java.sql.Connection.setTransactionIsolation` ·½·¨
+1.  è®¾ç½®ä¸ºåªè¯»æ¨¡å¼ï¼šè°ƒç”¨çš„æ˜¯ `java.sql.Connection#setReadOnly` æ–¹æ³•
+2.  è®¾ç½®éš”ç¦»çº§åˆ«ï¼šè°ƒç”¨çš„æ˜¯ `java.sql.Connection.setTransactionIsolation` æ–¹æ³•
 
-¹ØÓÚÖ»¶ÁÄ£Ê½£¬Ò²ÊÇ¿ÉÒÔÔÚ `@Transactional` ÖĞÉèÖÃµÄ£º
+å…³äºåªè¯»æ¨¡å¼ï¼Œä¹Ÿæ˜¯å¯ä»¥åœ¨ `@Transactional` ä¸­è®¾ç½®çš„ï¼š
 
 ```
 public @interface Transactional {
     /**
-     * ÉèÖÃÖ»¶ÁÊÂÎñ
+     * è®¾ç½®åªè¯»äº‹åŠ¡
      */
     boolean readOnly() default false;
     ...
@@ -146,34 +146,34 @@ public @interface Transactional {
 
 ```
 
-#### 1.3 ¿ªÆôÊÂÎñ
+#### 1.3 å¼€å¯äº‹åŠ¡
 
-¼¤¶¯ÈËĞÄµÄÊ±¿ÌÖÕÓÚÀ´ÁË£¬Ç°ÃæÆÌµæÁËÄÇÃ´¶à£¬¾ÍÊÇÎªÁËÕâÒ»²½µÄ²Ù×÷£º¿ªÆôÊÂÎñ¡£¿ªÆôÊÂÎñµÄ´úÂëÈçÏÂ£º
+æ¿€åŠ¨äººå¿ƒçš„æ—¶åˆ»ç»ˆäºæ¥äº†ï¼Œå‰é¢é“ºå«äº†é‚£ä¹ˆå¤šï¼Œå°±æ˜¯ä¸ºäº†è¿™ä¸€æ­¥çš„æ“ä½œï¼šå¼€å¯äº‹åŠ¡ã€‚å¼€å¯äº‹åŠ¡çš„ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 if (con.getAutoCommit()) {
     txObject.setMustRestoreAutoCommit(true);
-    // ¹Ø±ÕÊÂÎñµÄ×Ô¶¯Ìá½»£¬Ò²¾ÍÊÇ¿ªÆôÊÂÎñ
+    // å…³é—­äº‹åŠ¡çš„è‡ªåŠ¨æäº¤ï¼Œä¹Ÿå°±æ˜¯å¼€å¯äº‹åŠ¡
     con.setAutoCommit(false);
 }
 
 ```
 
-¾ßÌåÁ÷³ÌÎª£¬ÏÈÅĞ¶Ï×Ô¶¯Ìá½»ÊÇ·ñ¿ªÆô£¬Èç¹û¿ªÉèÖÃÁË£¬¾Í½«ÆäÉèÖÃÎª false£¬µ÷ÓÃµÄÒ²ÊÇ `java.sql` µÄ·½·¨£º
+å…·ä½“æµç¨‹ä¸ºï¼Œå…ˆåˆ¤æ–­è‡ªåŠ¨æäº¤æ˜¯å¦å¼€å¯ï¼Œå¦‚æœå¼€è®¾ç½®äº†ï¼Œå°±å°†å…¶è®¾ç½®ä¸º falseï¼Œè°ƒç”¨çš„ä¹Ÿæ˜¯ `java.sql` çš„æ–¹æ³•ï¼š
 
-*   »ñÈ¡×Ô¶¯Ìá½»×´Ì¬£º`java.sql.Connection#getAutoCommit`
-*   ÉèÖÃ×Ô¶¯Ìá½»×´Ì¬£º`java.sql.Connection#setAutoCommit`
+*   è·å–è‡ªåŠ¨æäº¤çŠ¶æ€ï¼š`java.sql.Connection#getAutoCommit`
+*   è®¾ç½®è‡ªåŠ¨æäº¤çŠ¶æ€ï¼š`java.sql.Connection#setAutoCommit`
 
-#### 1.4 Èç¹ûÊÇÖ»¶ÁÊÂÎñ£¬ÔÚÕâÀïÉèÖÃ
+#### 1.4 å¦‚æœæ˜¯åªè¯»äº‹åŠ¡ï¼Œåœ¨è¿™é‡Œè®¾ç½®
 
-ÔÚÇ°Ãæ·ÖÎö `1.2 ÉèÖÃÊÂÎñµÄ¸ôÀë¼¶±ğ`ÖĞ£¬Í¨¹ıµ÷ÓÃ `java.sql.Connection#setReadOnly` ½«Á¬½ÓÉèÖÃÎªÖ»¶ÁÁË£¬ÕâÀï»¹»áÔÙÒ»´ÎÉèÖÃ£¬·½·¨Îª `DataSourceTransactionManager#prepareTransactionalConnection`£º
+åœ¨å‰é¢åˆ†æ `1.2 è®¾ç½®äº‹åŠ¡çš„éš”ç¦»çº§åˆ«`ä¸­ï¼Œé€šè¿‡è°ƒç”¨ `java.sql.Connection#setReadOnly` å°†è¿æ¥è®¾ç½®ä¸ºåªè¯»äº†ï¼Œè¿™é‡Œè¿˜ä¼šå†ä¸€æ¬¡è®¾ç½®ï¼Œæ–¹æ³•ä¸º `DataSourceTransactionManager#prepareTransactionalConnection`ï¼š
 
 ```
 protected void prepareTransactionalConnection(Connection con, TransactionDefinition definition)
         throws SQLException {
     if (isEnforceReadOnly() && definition.isReadOnly()) {
         try (Statement stmt = con.createStatement()) {
-            // ÉèÖÃÖ»¶ÁÀàĞÍÒªÔËĞĞsql
+            // è®¾ç½®åªè¯»ç±»å‹è¦è¿è¡Œsql
             stmt.executeUpdate("SET TRANSACTION READ ONLY");
         }
     }
@@ -181,16 +181,16 @@ protected void prepareTransactionalConnection(Connection con, TransactionDefinit
 
 ```
 
-ÕâÒ»´ÎÊÇÍ¨¹ıÖ´ĞĞ sql Óï¾ä `SET TRANSACTION READ ONLY` ½«ÊÂÎñÉèÖÃÎªÖ»¶Á¡£
+è¿™ä¸€æ¬¡æ˜¯é€šè¿‡æ‰§è¡Œ sql è¯­å¥ `SET TRANSACTION READ ONLY` å°†äº‹åŠ¡è®¾ç½®ä¸ºåªè¯»ã€‚
 
-#### 1.5 ÉèÖÃÊÂÎñµÄ³¬Ê±Ê±¼ä
+#### 1.5 è®¾ç½®äº‹åŠ¡çš„è¶…æ—¶æ—¶é—´
 
-ÔÚ `@Transactional` ×¢½âÖĞ£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ `timeout` À´Ö¸¶¨ÊÂÎñµÄ³¬Ê±Ê±¼ä£º
+åœ¨ `@Transactional` æ³¨è§£ä¸­ï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨ `timeout` æ¥æŒ‡å®šäº‹åŠ¡çš„è¶…æ—¶æ—¶é—´ï¼š
 
 ```
 public @interface Transactional {
     /**
-     * ÉèÖÃ³¬Ê±Ê±¼ä
+     * è®¾ç½®è¶…æ—¶æ—¶é—´
      */
     int timeout() default TransactionDefinition.TIMEOUT_DEFAULT;
     ...
@@ -198,32 +198,32 @@ public @interface Transactional {
 
 ```
 
-ÕâÑùÉèÖÃµÄ³¬Ê±Ê±¼ä»áÔÚÕâÀïÓÃµ½£¬ÎÒÃÇ½øÈë `ResourceHolderSupport#setTimeoutInSeconds`£º
+è¿™æ ·è®¾ç½®çš„è¶…æ—¶æ—¶é—´ä¼šåœ¨è¿™é‡Œç”¨åˆ°ï¼Œæˆ‘ä»¬è¿›å…¥ `ResourceHolderSupport#setTimeoutInSeconds`ï¼š
 
 ```
 public abstract class ResourceHolderSupport implements ResourceHolder {
     /**
-     * ½ØÖ¹Ê±¼ä
+     * æˆªæ­¢æ—¶é—´
      */
     private Date deadline;
 
     /**
-     * ÉèÖÃÊ±¼ä£¬µ¥Î»£ºÃë
+     * è®¾ç½®æ—¶é—´ï¼Œå•ä½ï¼šç§’
      */
     public void setTimeoutInSeconds(int seconds) {
         setTimeoutInMillis(seconds * 1000L);
     }
 
     /**
-     * ÉèÖÃÊ±¼ä£¬µ¥Î»£ººÁÃë
-     * ×îºó»á×ª»¯Îª ½ØÖ¹Ê±¼ä
+     * è®¾ç½®æ—¶é—´ï¼Œå•ä½ï¼šæ¯«ç§’
+     * æœ€åä¼šè½¬åŒ–ä¸º æˆªæ­¢æ—¶é—´
      */
     public void setTimeoutInMillis(long millis) {
         this.deadline = new Date(System.currentTimeMillis() + millis);
     }
 
     /**
-     * »ñÈ¡½ØÖ¹Ê±¼ä
+     * è·å–æˆªæ­¢æ—¶é—´
      */
     @Nullable
     public Date getDeadline() {
@@ -231,7 +231,7 @@ public abstract class ResourceHolderSupport implements ResourceHolder {
     }
 
     /**
-     * »ñÈ¡Ê£ÓàÊ±¼ä£¬µ¥Î»£ºÃë
+     * è·å–å‰©ä½™æ—¶é—´ï¼Œå•ä½ï¼šç§’
      */
     public int getTimeToLiveInSeconds() {
         double diff = ((double) getTimeToLiveInMillis()) / 1000;
@@ -241,7 +241,7 @@ public abstract class ResourceHolderSupport implements ResourceHolder {
     }
 
     /**
-     * »ñÈ¡Ê£ÓàÊ±¼ä£¬µ¥Î»£ººÁÃë
+     * è·å–å‰©ä½™æ—¶é—´ï¼Œå•ä½ï¼šæ¯«ç§’
      */
     public long getTimeToLiveInMillis() throws TransactionTimedOutException{
         if (this.deadline == null) {
@@ -257,19 +257,19 @@ public abstract class ResourceHolderSupport implements ResourceHolder {
 
 ```
 
-ÔÚ `ResourceHolderSupport` ÖĞÎ¬»¤ÁËÒ»¸ö³ÉÔ±±äÁ¿ `deadline`£¨½ØÖ¹Ê±¼ä£©£¬´«ÈëµÄ³¬Ê±Ê±¼ä×îÖÕ¶¼»á×ª»¯Îª `deadline`¡£
+åœ¨ `ResourceHolderSupport` ä¸­ç»´æŠ¤äº†ä¸€ä¸ªæˆå‘˜å˜é‡ `deadline`ï¼ˆæˆªæ­¢æ—¶é—´ï¼‰ï¼Œä¼ å…¥çš„è¶…æ—¶æ—¶é—´æœ€ç»ˆéƒ½ä¼šè½¬åŒ–ä¸º `deadline`ã€‚
 
-»ñÈ¡Ê£ÓàÊ±¼äÊ±£¬Ò²ÊÇÓÉ `deadline` ¼ÆËãµÃµ½£¬·µ»ØµÄÊ£ÓàÊ±¼äÓĞÃëÓëºÁÃëÁ½ÖÖ¡£
+è·å–å‰©ä½™æ—¶é—´æ—¶ï¼Œä¹Ÿæ˜¯ç”± `deadline` è®¡ç®—å¾—åˆ°ï¼Œè¿”å›çš„å‰©ä½™æ—¶é—´æœ‰ç§’ä¸æ¯«ç§’ä¸¤ç§ã€‚
 
-¿´µ½ÕâÀï£¬`txObject.getConnectionHolder().setTimeoutInSeconds(timeout)` Ö»ÊÇ½«³¬Ê±Ê±¼äÉèÖÃµ½ `ConnectionHolder` µÄ³ÉÔ±±äÁ¿ÖĞ£¨`ConnectionHolder` ÊÇ `ResourceHolderSupport` µÄ×ÓÀà£©£¬ËÆºõ¸úÊı¾İ¿âÃ»É¶¹ØÏµ£¬Êı¾İ¿âÊÇÔõÃ´¿ØÖÆÊÂÎñ³¬Ê±µÄÄØ£¿
+çœ‹åˆ°è¿™é‡Œï¼Œ`txObject.getConnectionHolder().setTimeoutInSeconds(timeout)` åªæ˜¯å°†è¶…æ—¶æ—¶é—´è®¾ç½®åˆ° `ConnectionHolder` çš„æˆå‘˜å˜é‡ä¸­ï¼ˆ`ConnectionHolder` æ˜¯ `ResourceHolderSupport` çš„å­ç±»ï¼‰ï¼Œä¼¼ä¹è·Ÿæ•°æ®åº“æ²¡å•¥å…³ç³»ï¼Œæ•°æ®åº“æ˜¯æ€ä¹ˆæ§åˆ¶äº‹åŠ¡è¶…æ—¶çš„å‘¢ï¼Ÿ
 
-²»µÃ²»Ëµ£¬Õâ¸ö³¬Ê±µÄ¿ØÖÆÊÇÓĞµãÄÑÕÒ£¬±¾ÎÄÊÇÍ¨¹ıµ÷ÊÔÕÒµ½µÄ£¬³¬Ê±Ê±¼äµÄÉèÖÃÔÚÔÚ `DataSourceUtils#applyTimeout` ·½·¨ÖĞ£¬ÕâÆäÖĞ¿ÉÎ½ÊÇ¾­¹ıÁËÇ§É½ÍòË®£º
+ä¸å¾—ä¸è¯´ï¼Œè¿™ä¸ªè¶…æ—¶çš„æ§åˆ¶æ˜¯æœ‰ç‚¹éš¾æ‰¾ï¼Œæœ¬æ–‡æ˜¯é€šè¿‡è°ƒè¯•æ‰¾åˆ°çš„ï¼Œè¶…æ—¶æ—¶é—´çš„è®¾ç½®åœ¨åœ¨ `DataSourceUtils#applyTimeout` æ–¹æ³•ä¸­ï¼Œè¿™å…¶ä¸­å¯è°“æ˜¯ç»è¿‡äº†åƒå±±ä¸‡æ°´ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-9fc1a75dc7b0644269b6dba16dfd5d0e676.png)
 
-¸ĞĞ»µ÷ÊÔ¹¦ÄÜ£¬Ã»ÓĞËü£¬ÌìÖªµÀÒª¶à¾Ã²ÅÄÜÕÒµ½Õâ¸öÊ±¼äµÄÉèÖÃ£¡ÎÒÕâÀïÊ¹ÓÃµÄÊÇ `jdbcTemplate`£¬ÔÚÆäËû `orm` ¿ò¼ÜÏÂ£¬ÉèÖÃ³¬Ê±Ê±¼äÓ¦¸Ã»áÓĞËù²»Í¬ ¡£
+æ„Ÿè°¢è°ƒè¯•åŠŸèƒ½ï¼Œæ²¡æœ‰å®ƒï¼Œå¤©çŸ¥é“è¦å¤šä¹…æ‰èƒ½æ‰¾åˆ°è¿™ä¸ªæ—¶é—´çš„è®¾ç½®ï¼æˆ‘è¿™é‡Œä½¿ç”¨çš„æ˜¯ `jdbcTemplate`ï¼Œåœ¨å…¶ä»– `orm` æ¡†æ¶ä¸‹ï¼Œè®¾ç½®è¶…æ—¶æ—¶é—´åº”è¯¥ä¼šæœ‰æ‰€ä¸åŒ ã€‚
 
-ÎÒÃÇ¿´¿´ `DataSourceUtils#applyTimeout` ÊÇÔõÃ´ÉèÖÃ³¬Ê±Ê±¼äµÄ£º
+æˆ‘ä»¬çœ‹çœ‹ `DataSourceUtils#applyTimeout` æ˜¯æ€ä¹ˆè®¾ç½®è¶…æ—¶æ—¶é—´çš„ï¼š
 
 ```
 public static void applyTimeout(Statement stmt, @Nullable DataSource dataSource, int timeout) 
@@ -280,33 +280,33 @@ public static void applyTimeout(Statement stmt, @Nullable DataSource dataSource,
         holder = (ConnectionHolder) TransactionSynchronizationManager.getResource(dataSource);
     }
     if (holder != null && holder.hasTimeout()) {
-        // ÕâÀï¾ÍÊÇ»ñÈ¡Ê£ÓàµÄ³¬Ê±Ê±¼ä£¬ÓÉ ConnectionHolder.dateline ¼ÆËãµÃµ½µÄ
+        // è¿™é‡Œå°±æ˜¯è·å–å‰©ä½™çš„è¶…æ—¶æ—¶é—´ï¼Œç”± ConnectionHolder.dateline è®¡ç®—å¾—åˆ°çš„
         stmt.setQueryTimeout(holder.getTimeToLiveInSeconds());
     }
     else if (timeout >= 0) {
-        // jdbcTemplate ×ÔÉíÒ²¿ÉÒÔÉèÖÃ²éÑ¯³¬Ê±Ê±¼ä
+        // jdbcTemplate è‡ªèº«ä¹Ÿå¯ä»¥è®¾ç½®æŸ¥è¯¢è¶…æ—¶æ—¶é—´
         stmt.setQueryTimeout(timeout);
     }
 }
 
 ```
 
-×îÖÕµ÷ÓÃµÄÊÇ `java.sql.Statement#setQueryTimeout` À´ÉèÖÃ³¬Ê±Ê±¼äµÄ¡£
+æœ€ç»ˆè°ƒç”¨çš„æ˜¯ `java.sql.Statement#setQueryTimeout` æ¥è®¾ç½®è¶…æ—¶æ—¶é—´çš„ã€‚
 
-#### 1.6 °ó¶¨Êı¾İÔ´ÓëÁ¬½Óµ½µ±Ç°Ïß³Ì
+#### 1.6 ç»‘å®šæ•°æ®æºä¸è¿æ¥åˆ°å½“å‰çº¿ç¨‹
 
-ÒÔÉÏÊÂÇé´¦ÀíÍê³Éºó£¬½ÓÏÂÀ´¾ÍÊÇ°ó¶¨Êı¾İÔ´ÓëÁ¬½ÓÁË£¬´¦Àí·½·¨Îª `TransactionSynchronizationManager#bindResource`:
+ä»¥ä¸Šäº‹æƒ…å¤„ç†å®Œæˆåï¼Œæ¥ä¸‹æ¥å°±æ˜¯ç»‘å®šæ•°æ®æºä¸è¿æ¥äº†ï¼Œå¤„ç†æ–¹æ³•ä¸º `TransactionSynchronizationManager#bindResource`:
 
 ```
 /**
- * resources ´æ·Åµ±Ç°Ïß³ÌÖĞµÄÊı¾İÔ´ÓëÁ¬½Ó
- * ÆäÖĞ´æ·ÅµÄÄÚÈİÎªÒ»¸ö Map£¬Map µÄ key ÎªÊı¾İÔ´£¬value ÎªÊı¾İÔ´¶ÔÓ¦µÄÁ¬½Ó
+ * resources å­˜æ”¾å½“å‰çº¿ç¨‹ä¸­çš„æ•°æ®æºä¸è¿æ¥
+ * å…¶ä¸­å­˜æ”¾çš„å†…å®¹ä¸ºä¸€ä¸ª Mapï¼ŒMap çš„ key ä¸ºæ•°æ®æºï¼Œvalue ä¸ºæ•°æ®æºå¯¹åº”çš„è¿æ¥
  */
 private static final ThreadLocal<Map<Object, Object>> resources =
         new NamedThreadLocal<>("Transactional resources");
 
 /**
- * °ó¶¨²Ù×÷
+ * ç»‘å®šæ“ä½œ
  */
 public static void bindResource(Object key, Object value) throws IllegalStateException {
     Object actualKey = TransactionSynchronizationUtils.unwrapResourceIfNecessary(key);
@@ -316,7 +316,7 @@ public static void bindResource(Object key, Object value) throws IllegalStateExc
         map = new HashMap<>();
         resources.set(map);
     }
-    // ½«Êı¾İÔ´ÓëÁ¬½Ó´æ·Åµ½mapÖĞ
+    // å°†æ•°æ®æºä¸è¿æ¥å­˜æ”¾åˆ°mapä¸­
     Object oldValue = map.put(actualKey, value);
     if (oldValue instanceof ResourceHolder && ((ResourceHolder) oldValue).isVoid()) {
         oldValue = null;
@@ -328,38 +328,38 @@ public static void bindResource(Object key, Object value) throws IllegalStateExc
 
 ```
 
-Õâ Ò»²½µÄ²Ù×÷»¹ÊÇ±È½Ï¼òµ¥µÄ£¬¾ÍÊÇ½«Êı¾İÔ´ÓëÁ¬½Ó·Å½ø `resources` ÖĞ£¬´Ó¶øÍê³ÉÓëµ±Ç°Ïß³ÌµÄ°ó¶¨²Ù×÷¡£
+è¿™ ä¸€æ­¥çš„æ“ä½œè¿˜æ˜¯æ¯”è¾ƒç®€å•çš„ï¼Œå°±æ˜¯å°†æ•°æ®æºä¸è¿æ¥æ”¾è¿› `resources` ä¸­ï¼Œä»è€Œå®Œæˆä¸å½“å‰çº¿ç¨‹çš„ç»‘å®šæ“ä½œã€‚
 
-### 2. `suspend(...)`£º¹ÒÆğÊÂÎñ
+### 2. `suspend(...)`ï¼šæŒ‚èµ·äº‹åŠ¡
 
-¹ÒÆğÊÂÎñµÄ²Ù×÷Îª `AbstractPlatformTransactionManager#suspend`£¬´úÂëÈçÏÂ£º
+æŒ‚èµ·äº‹åŠ¡çš„æ“ä½œä¸º `AbstractPlatformTransactionManager#suspend`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 protected final SuspendedResourcesHolder suspend(@Nullable Object transaction) 
         throws TransactionException {
-    // Èç¹ûÓĞÍ¬²½µÄÊÂÎñ£¬ÔòÓÅÏÈ¹ÒÆğÍ¬²½µÄÊÂÎñ
+    // å¦‚æœæœ‰åŒæ­¥çš„äº‹åŠ¡ï¼Œåˆ™ä¼˜å…ˆæŒ‚èµ·åŒæ­¥çš„äº‹åŠ¡
     if (TransactionSynchronizationManager.isSynchronizationActive()) {
         List<TransactionSynchronization> suspendedSynchronizations = doSuspendSynchronization();
         try {
             Object suspendedResources = null;
             if (transaction != null) {
-                // ¹ÒÆğ²Ù×÷
+                // æŒ‚èµ·æ“ä½œ
                 suspendedResources = doSuspend(transaction);
             }
-            // ÖØÖÃÊÂÎñÃû³Æ
+            // é‡ç½®äº‹åŠ¡åç§°
             String name = TransactionSynchronizationManager.getCurrentTransactionName();
             TransactionSynchronizationManager.setCurrentTransactionName(null);
-            // ÖØÖÃÖ»¶Á×´Ì¬
+            // é‡ç½®åªè¯»çŠ¶æ€
             boolean readOnly = TransactionSynchronizationManager.isCurrentTransactionReadOnly();
             TransactionSynchronizationManager.setCurrentTransactionReadOnly(false);
-            // ÖØÖÃ¸ôÀë¼¶±ğ
+            // é‡ç½®éš”ç¦»çº§åˆ«
             Integer isolationLevel = TransactionSynchronizationManager
                     .getCurrentTransactionIsolationLevel();
             TransactionSynchronizationManager.setCurrentTransactionIsolationLevel(null);
-            // ÖØÖÃÊÂÎñ¼¤»î×´Ì¬
+            // é‡ç½®äº‹åŠ¡æ¿€æ´»çŠ¶æ€
             boolean wasActive = TransactionSynchronizationManager.isActualTransactionActive();
             TransactionSynchronizationManager.setActualTransactionActive(false);
-            // ·µ»Ø¹ÒÆğµÄÊÂÎñ
+            // è¿”å›æŒ‚èµ·çš„äº‹åŠ¡
             return new SuspendedResourcesHolder(
                     suspendedResources, suspendedSynchronizations, name, readOnly, 
                     isolationLevel, wasActive);
@@ -380,27 +380,27 @@ protected final SuspendedResourcesHolder suspend(@Nullable Object transaction)
 
 ```
 
-`suspend(...)` ·½·¨ÖĞ×îÖØÒªµÄ¾ÍÊÇ¹ÒÆğÊÂÎñµÄ²Ù×÷ÁË£¬Ò²¾ÍÊÇ `doSuspend(transaction)`£¬¸Ã·½·¨ Î»ÓÚ `` ÖĞ£¬Ö±½Ó¿´´úÂë£º
+`suspend(...)` æ–¹æ³•ä¸­æœ€é‡è¦çš„å°±æ˜¯æŒ‚èµ·äº‹åŠ¡çš„æ“ä½œäº†ï¼Œä¹Ÿå°±æ˜¯ `doSuspend(transaction)`ï¼Œè¯¥æ–¹æ³• ä½äº `` ä¸­ï¼Œç›´æ¥çœ‹ä»£ç ï¼š
 
 ```
 protected Object doSuspend(Object transaction) {
     DataSourceTransactionObject txObject = (DataSourceTransactionObject) transaction;
     txObject.setConnectionHolder(null);
-    // ½â³ı°ó¶¨
+    // è§£é™¤ç»‘å®š
     return TransactionSynchronizationManager.unbindResource(obtainDataSource());
 }
 
 ```
 
-¼ÌĞø½øÈë `TransactionSynchronizationManager.unbindResource` ·½·¨£º
+ç»§ç»­è¿›å…¥ `TransactionSynchronizationManager.unbindResource` æ–¹æ³•ï¼š
 
 ```
 /**
- * ½â³ı°ó¶¨²Ù×÷
+ * è§£é™¤ç»‘å®šæ“ä½œ
  */
 public static Object unbindResource(Object key) throws IllegalStateException {
     Object actualKey = TransactionSynchronizationUtils.unwrapResourceIfNecessary(key);
-    // ¼ÌĞøµ÷ÓÃ
+    // ç»§ç»­è°ƒç”¨
     Object value = doUnbindResource(actualKey);
     if (value == null) {
         throw new IllegalStateException(...);
@@ -409,14 +409,14 @@ public static Object unbindResource(Object key) throws IllegalStateException {
 }
 
 /**
- * ½â³ı°ó¶¨²Ù×÷
+ * è§£é™¤ç»‘å®šæ“ä½œ
  */
 private static Object doUnbindResource(Object actualKey) {
     Map<Object, Object> map = resources.get();
     if (map == null) {
         return null;
     }
-    // ÒÆ³ı×ÊÔ´
+    // ç§»é™¤èµ„æº
     Object value = map.remove(actualKey);
     if (map.isEmpty()) {
         resources.remove();
@@ -429,17 +429,17 @@ private static Object doUnbindResource(Object actualKey) {
 
 ```
 
-ÔÚ¿ªÆôÊÂÎñÊ±£¬ÊÇ½«Êı¾İÔ´ÓëÁ¬½Ó°ó¶¨µ½µ±Ç°Ïß³Ì£¬¹ÒÆğÊ± £¬ÊÇ½«Êı¾İÔ´ÓëÁ¬½Ó½â³ıÓëµ±Ç°Ïß³ÌµÄ°ó¶¨¹ØÏµ¡£
+åœ¨å¼€å¯äº‹åŠ¡æ—¶ï¼Œæ˜¯å°†æ•°æ®æºä¸è¿æ¥ç»‘å®šåˆ°å½“å‰çº¿ç¨‹ï¼ŒæŒ‚èµ·æ—¶ ï¼Œæ˜¯å°†æ•°æ®æºä¸è¿æ¥è§£é™¤ä¸å½“å‰çº¿ç¨‹çš„ç»‘å®šå…³ç³»ã€‚
 
-### 3. `createAndHoldSavepoint(...)`£º´´½¨±£´æµã
+### 3. `createAndHoldSavepoint(...)`ï¼šåˆ›å»ºä¿å­˜ç‚¹
 
-±£´æµãµÄ´´½¨ÔÚ `AbstractTransactionStatus#createAndHoldSavepoint` ·½·¨ÖĞ´¦Àí£¬´úÂëÈçÏÂ£º
+ä¿å­˜ç‚¹çš„åˆ›å»ºåœ¨ `AbstractTransactionStatus#createAndHoldSavepoint` æ–¹æ³•ä¸­å¤„ç†ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
-    // ±£´æµã
+    // ä¿å­˜ç‚¹
     private Object savepoint;
 
-    // ´´½¨±£´æµã
+    // åˆ›å»ºä¿å­˜ç‚¹
     public void createAndHoldSavepoint() throws TransactionException {
         setSavepoint(getSavepointManager().createSavepoint());
     }
@@ -450,7 +450,7 @@ private static Object doUnbindResource(Object actualKey) {
 
 ```
 
-àÅ£¬¿´À´Õâ¸ö·½·¨ÀïÖ»ÊÇ×öÁË`±£´æµã`µÄ±£´æ£¨Ò²¾ÍÊÇ¸³Öµ¸ø `AbstractTransactionStatus` µÄ³ÉÔ±±äÁ¿£©£¬ÒªÕæÕıÁË½â±£´æµãµÄ´´½¨£¬»¹µÃ¿´ `getSavepointManager().createSavepoint()`£¬½øÈëµ½ `JdbcTransactionObjectSupport#createSavepoint`£º
+å—¯ï¼Œçœ‹æ¥è¿™ä¸ªæ–¹æ³•é‡Œåªæ˜¯åšäº†`ä¿å­˜ç‚¹`çš„ä¿å­˜ï¼ˆä¹Ÿå°±æ˜¯èµ‹å€¼ç»™ `AbstractTransactionStatus` çš„æˆå‘˜å˜é‡ï¼‰ï¼Œè¦çœŸæ­£äº†è§£ä¿å­˜ç‚¹çš„åˆ›å»ºï¼Œè¿˜å¾—çœ‹ `getSavepointManager().createSavepoint()`ï¼Œè¿›å…¥åˆ° `JdbcTransactionObjectSupport#createSavepoint`ï¼š
 
 ```
 public Object createSavepoint() throws TransactionException {
@@ -462,7 +462,7 @@ public Object createSavepoint() throws TransactionException {
         if (conHolder.isRollbackOnly()) {
             throw new CannotCreateTransactionException(...);
         }
-        // ´´½¨±£´æµã
+        // åˆ›å»ºä¿å­˜ç‚¹
         return conHolder.createSavepoint();
     }
     catch (SQLException ex) {
@@ -472,29 +472,29 @@ public Object createSavepoint() throws TransactionException {
 
 ```
 
-·¢ÏÖ×îºóµ÷ÓÃµÄÊÇ `ConnectionHolder#createSavepoint` ·½·¨£¬Ô­À´±£´æµãÊÇÔÚ `ConnectionHolder` ÖĞ´´½¨µÄ°¡£¡¼ÌĞø£º
+å‘ç°æœ€åè°ƒç”¨çš„æ˜¯ `ConnectionHolder#createSavepoint` æ–¹æ³•ï¼ŒåŸæ¥ä¿å­˜ç‚¹æ˜¯åœ¨ `ConnectionHolder` ä¸­åˆ›å»ºçš„å•Šï¼ç»§ç»­ï¼š
 
 ```
-// ±£´æµãÃû³ÆÇ°×º
+// ä¿å­˜ç‚¹åç§°å‰ç¼€
 public static final String SAVEPOINT_NAME_PREFIX = "SAVEPOINT_";
 
-// ±£´æµãÊıÁ¿
+// ä¿å­˜ç‚¹æ•°é‡
 private int savepointCounter = 0;
 
 public Savepoint createSavepoint() throws SQLException {
     this.savepointCounter++;
-    // ÕâÀï´´½¨±£´æµã£¬µ÷ÓÃµÄÊÇ java.sql.Connection#setSavepoint(java.lang.String) ·½·¨
+    // è¿™é‡Œåˆ›å»ºä¿å­˜ç‚¹ï¼Œè°ƒç”¨çš„æ˜¯ java.sql.Connection#setSavepoint(java.lang.String) æ–¹æ³•
     return getConnection().setSavepoint(SAVEPOINT_NAME_PREFIX + this.savepointCounter);
 }
 
 ```
 
-±£´æµãÃû³ÆÇ°×ºÎª `SAVEPOINT_`£¬Ã¿´´½¨Ò»¸ö±£´æµã£¬`savepointCounter` µÄ¼ÆÊıÆ÷¾Í¼Ó 1£¬×îÖÕ±£´æµãµÄÃû³ÆÎª `SAVEPOINT_1`¡¢`SAVEPOINT_2`¡¢...
+ä¿å­˜ç‚¹åç§°å‰ç¼€ä¸º `SAVEPOINT_`ï¼Œæ¯åˆ›å»ºä¸€ä¸ªä¿å­˜ç‚¹ï¼Œ`savepointCounter` çš„è®¡æ•°å™¨å°±åŠ  1ï¼Œæœ€ç»ˆä¿å­˜ç‚¹çš„åç§°ä¸º `SAVEPOINT_1`ã€`SAVEPOINT_2`ã€...
 
-´´½¨±£´æµã×îÖÕµ÷ÓÃµÄ·½·¨ÊÇ `java.sql.Connection#setSavepoint(java.lang.String)`£¬ÒÀÈ»ÊÇ jdk Ìá¹©µÄ·½·¨£¬·ÖÎöµ½ÕâÀï£¬ÎÒÃÇ»á·¢ÏÖÊÂÎñµÄ´ó²¿·Ö²Ù×÷¶¼ÊÇ spring ¶Ô jdk ·½·¨µÄ·â×°¡£
+åˆ›å»ºä¿å­˜ç‚¹æœ€ç»ˆè°ƒç”¨çš„æ–¹æ³•æ˜¯ `java.sql.Connection#setSavepoint(java.lang.String)`ï¼Œä¾ç„¶æ˜¯ jdk æä¾›çš„æ–¹æ³•ï¼Œåˆ†æåˆ°è¿™é‡Œï¼Œæˆ‘ä»¬ä¼šå‘ç°äº‹åŠ¡çš„å¤§éƒ¨åˆ†æ“ä½œéƒ½æ˜¯ spring å¯¹ jdk æ–¹æ³•çš„å°è£…ã€‚
 
-ºÃÁË£¬±¾ÎÄµÄ·ÖÎö¾ÍÏÈµ½ÁË£¬¹ØÓÚÊÂÎñµÄÌá½»¡¢»Ø¹ö¡¢»Ø¹öµ½±£´æµã¡¢»Ö¸´¹ÒÆğµÄÊÂÎñµÈ£¬ÏÂÆªÎÄÕÂ¼ÌĞø·ÖÎö¡£
+å¥½äº†ï¼Œæœ¬æ–‡çš„åˆ†æå°±å…ˆåˆ°äº†ï¼Œå…³äºäº‹åŠ¡çš„æäº¤ã€å›æ»šã€å›æ»šåˆ°ä¿å­˜ç‚¹ã€æ¢å¤æŒ‚èµ·çš„äº‹åŠ¡ç­‰ï¼Œä¸‹ç¯‡æ–‡ç« ç»§ç»­åˆ†æã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4947826](https://my.oschina.net/funcy/blog/4947826) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4947826](https://my.oschina.net/funcy/blog/4947826) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

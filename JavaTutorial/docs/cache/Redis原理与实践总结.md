@@ -35,28 +35,28 @@ https://blog.csdn.net/column/details/21877.html
 
 redis的基本使用方式是建立在redis提供的数据结构上的。
 
-字符串
+### 字符串
 REDIS_STRING (字符串)是 Redis 使用得最为广泛的数据类型,它除了是 SET 、GET 等命令 的操作对象之外,数据库中的所有键,以及执行命令时提供给 Redis 的参数,都是用这种类型 保存的。
 
 字符串类型分别使用 REDIS_ENCODING_INT 和 REDIS_ENCODING_RAW 两种编码
 
 只有能表示为 long 类型的值,才会以整数的形式保存,其他类型 的整数、小数和字符串,都是用 sdshdr 结构来保存
 
-哈希表
+### 哈希表
 REDIS_HASH (哈希表)是HSET 、HLEN 等命令的操作对象
 
 它使用 REDIS_ENCODING_ZIPLIST和REDIS_ENCODING_HT 两种编码方式
 
-Redis 中每个hash可以存储232-1键值对（40多亿）
+Redis 中每个hash可以存储2^32-1键值对（40多亿）
 
-列表
+### 列表
 REDIS_LIST(列表)是LPUSH 、LRANGE等命令的操作对象
 
 它使用 REDIS_ENCODING_ZIPLIST和REDIS_ENCODING_LINKEDLIST 这两种方式编码
 
 一个列表最多可以包含232-1 个元素(4294967295, 每个列表超过40亿个元素)。
 
-集合
+### 集合
 REDIS_SET (集合) 是 SADD 、 SRANDMEMBER 等命令的操作对象
 
 它使用 REDIS_ENCODING_INTSET 和 REDIS_ENCODING_HT 两种方式编码
@@ -65,7 +65,7 @@ Redis 中集合是通过哈希表实现的，所以添加，删除，查找的�
 
 集合中最大的成员数为 232 - 1 (4294967295, 每个集合可存储40多亿个成员)
 
-有序集
+### 有序集
 REDIS_ZSET (有序集)是ZADD 、ZCOUNT 等命令的操作对象
 
 它使用 REDIS_ENCODING_ZIPLIST和REDIS_ENCODING_SKIPLIST 两种方式编码
@@ -81,7 +81,7 @@ REDIS_ZSET (有序集)是ZADD 、ZCOUNT 等命令的操作对象
 下面讨论redis底层数据结构
 
 
-1 SDS动态字符串
+### 1 SDS动态字符串
 
 sds字符串是字符串的实现
 
@@ -89,7 +89,7 @@ sds字符串是字符串的实现
 
 并且sds支持写入二进制数据，而不一定是字符。
 
-2 dict字典
+### 2 dict字典
 
 dict字典是哈希表的实现。
 
@@ -99,7 +99,7 @@ dict字典与Java中的哈希表实现简直如出一辙，首先都是数组+�
 
 ![image](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis_dict_structure.png)
 
-3 压缩链表ziplist
+### 3 压缩链表ziplist
 
 3.1 ziplist是一个经过特殊编码的双向链表，它的设计目标就是为了提高存储效率。ziplist可以用于存储字符串或整数，其中整数是按真正的二进制表示进行编码的，而不是编码成字符串序列。它能以O(1)的时间复杂度在表的两端提供push和pop操作。
 
@@ -113,7 +113,7 @@ dict字典与Java中的哈希表实现简直如出一辙，首先都是数组+�
 
 当数据量超过阈值时，哈希表自动膨胀为之前我们讨论的dict。
 
-4 quicklist
+### 4 quicklist
 
 quicklist是结合ziplist存储优势和链表灵活性与一身的双端链表。
 
@@ -129,10 +129,10 @@ quicklist的结构为什么这样设计呢？总结起来，大概又是一个�
 
 ![image](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis_quicklist_structure.png)
 
-5 zset
+### 5 zset
 zset其实是两种结构的合并。也就是dict和skiplist结合而成的。dict负责保存数据对分数的映射，而skiplist用于根据分数进行数据的查询（相辅相成）
 
-6 skiplist
+### 6 skiplist
 
 sortset数据结构使用了ziplist+zset两种数据结构。
 
@@ -141,9 +141,7 @@ Redis里面使用skiplist是为了实现sorted set这种对外的数据结构。
 sortedset是由skiplist，dict和ziplist组成的。
 
 当数据较少时，sorted set是由一个ziplist来实现的。
-当数据多的时候，sorted
-
-set是由一个叫zset的数据结构来实现的，这个zset包含一个dict + 一个skiplist。dict用来查询数据到分数(score)的对应关系，而skiplist用来根据分数查询数据（可能是范围查找）。
+当数据多的时候，sorted set是由一个叫zset的数据结构来实现的，这个zset包含一个dict + 一个skiplist。dict用来查询数据到分数(score)的对应关系，而skiplist用来根据分数查询数据（可能是范围查找）。
 
 在本系列前面关于ziplist的文章里，我们介绍过，ziplist就是由很多数据项组成的一大块连续内存。由于sorted set的每一项元素都由数据和score组成，因此，当使用zadd命令插入一个(数据, score)对的时候，底层在相应的ziplist上就插入两个数据项：数据在前，score在后。
 
@@ -151,7 +149,7 @@ set是由一个叫zset的数据结构来实现的，这个zset包含一个dict +
 
 skiplist的节点中存着节点值和分数。并且跳表是根据节点的分数进行排序的，所以可以根据节点分数进行范围查找。
 
-7inset
+### 7inset
 
 inset是一个数字结合，他使用灵活的数据类型来保持数字。
 
@@ -161,7 +159,7 @@ inset是一个数字结合，他使用灵活的数据类型来保持数字。
 添加13, 5两个元素之后，因为它们是比较小的整数，都能使用2个字节表示，所以encoding不变，值还是2。
 当添加32768的时候，它不再能用2个字节来表示了（2个字节能表达的数据范围是-215~215-1，而32768等于215，超出范围了），因此encoding必须升级到INTSET_ENC_INT32（值为4），即用4个字节表示一个元素。
 
-8总结
+### 8总结
 
 sds是一个灵活的字符串数组，并且支持直接存储二进制数据，同时提供长度和剩余空间的字段来保证伸缩性和防止溢出。
 
@@ -175,7 +173,7 @@ skiplist一般有ziplist和zset两种实现方法，根据数据量来决定。z
 
 inset是一个数字集合，他根据插入元素的数据类型来决定数组元素的长度。并自动进行扩容。
 
-9 他们实现了哪些结构
+### 9 他们实现了哪些结构
 
 字符串由sds实现
 
@@ -190,15 +188,15 @@ hash表由dict实现
 
 ## redis server结构和数据库redisDb
 
-1 redis服务器中维护着一个数据库名为redisdb，实际上他是一个dict结构。
+### 1 redis服务器中维护着一个数据库名为redisdb，实际上他是一个dict结构。
 
 Redis的数据库使用字典作为底层实现，数据库的增、删、查、改都是构建在字典的操作之上的。
 
-2 redis服务器将所有数据库都保存在服务器状态结构redisServer(redis.h/redisServer)的db数组（应该是一个链表）里：
+### 2 redis服务器将所有数据库都保存在服务器状态结构redisServer(redis.h/redisServer)的db数组（应该是一个链表）里：
 
 同理也有一个redis client结构，通过指针可以选择redis client访问的server是哪一个。
 
-3 redisdb的键空间
+### 3 redisdb的键空间
 
     typedef struct redisDb {
         // 数据库键空间，保存着数据库中的所有键值对
@@ -219,9 +217,9 @@ Redis的数据库使用字典作为底层实现，数据库的增、删、查、
 同时，对应的expire字典则负责存储这些键的过期时间
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230406201529.png)
 
-4 过期键的删除策略
+### 4 过期键的删除策略
 
-2、过期键删除策略
+
 通过前面的介绍，大家应该都知道数据库键的过期时间都保存在过期字典里，那假如一个键过期了，那么这个过期键是什么时候被删除的呢？现在来看看redis的过期键的删除策略：
 
 a、定时删除：在设置键的过期时间的同时，创建一个定时器，在定时结束的时候，将该键删除；
@@ -327,7 +325,9 @@ master增量的把写命令发给slave。
 
 Redis 2.6.12版本后SETNX增加过期时间参数，这样就解决了两条命令无法保证原子性的问题。但是设想下面一个场景：
 
-1. C1成功获取到了锁，之后C1因为GC进入等待或者未知原因导致任务执行过长，最后在锁失效前C1没有主动释放锁 2. C2在C1的锁超时后获取到锁，并且开始执行，这个时候C1和C2都同时在执行，会因重复执行造成数据不一致等未知情况 3. C1如果先执行完毕，则会释放C2的锁，此时可能导致另外一个C3进程获取到了锁
+- 1.C1成功获取到了锁，之后C1因为GC进入等待或者未知原因导致任务执行过长，最后在锁失效前C1没有主动释放锁 
+- 2.C2在C1的锁超时后获取到锁，并且开始执行，这个时候C1和C2都同时在执行，会因重复执行造成数据不一致等未知情况 
+- 3.C1如果先执行完毕，则会释放C2的锁，此时可能导致另外一个C3进程获取到了锁
 
 ### 使用sentx将值设为时间戳，通过lua脚本进行cas比较和删除操作
 
@@ -412,12 +412,12 @@ redis事务有一个特点，那就是在2.6以前，事务的一系列操作，
 
 ### redis脚本事务
 
-Redis 脚本和事务
+#### Redis 脚本和事务
 从定义上来说， Redis 中的脚本本身就是一种事务， 所以任何在事务里可以完成的事， 在脚本里面也能完成。 并且一般来说， 使用脚本要来得更简单，并且速度更快。
 
 因为脚本功能是 Redis 2.6 才引入的， 而事务功能则更早之前就存在了， 所以 Redis 才会同时存在两种处理事务的方法。
 
-redis事务的ACID特性
+#### redis事务的ACID特性
 在传统的关系型数据库中,尝尝用ACID特质来检测事务功能的可靠性和安全性。
 在redis中事务总是具有原子性(Atomicity),一致性(Consistency)和隔离性(Isolation),并且当redis运行在某种特定的持久化
 模式下,事务也具有耐久性(Durability).
@@ -430,7 +430,7 @@ redis事务的ACID特性
 ②一致性
 
     事务具有一致性指的是,如果数据库在执行事务之前是一致的,那么在事务执行之后,无论事务是否执行成功,数据库也应该仍然一致的。
-    ”一致“指的是数据符合数据库本身的定义和要求,没有包含非法或者无效的错误数据。redis通过谨慎的错误检测和简单的设计来保证事务一致性。
+    "一致"指的是数据符合数据库本身的定义和要求,没有包含非法或者无效的错误数据。redis通过谨慎的错误检测和简单的设计来保证事务一致性。
 
 ③隔离性
 

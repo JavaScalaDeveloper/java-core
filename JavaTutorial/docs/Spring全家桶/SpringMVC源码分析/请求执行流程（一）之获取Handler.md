@@ -1,20 +1,20 @@
-ÉÏÒ»ÆªÎÄÕÂÎÒÃÇ·ÖÎö `RequestMapping` ³õÊ¼»¯Á÷³Ì£¬±¾ÎÄ½«·ÖÎö spring mvc µÄÇëÇóÖ´ĞĞÁ÷³Ì¡£
+ä¸Šä¸€ç¯‡æ–‡ç« æˆ‘ä»¬åˆ†æ `RequestMapping` åˆå§‹åŒ–æµç¨‹ï¼Œæœ¬æ–‡å°†åˆ†æ spring mvc çš„è¯·æ±‚æ‰§è¡Œæµç¨‹ã€‚
 
-### 1\. ÇëÇóµÄÖ´ĞĞÈë¿Ú
+### 1\. è¯·æ±‚çš„æ‰§è¡Œå…¥å£
 
-ÔÚ [spring mvc Ö® DispatcherServlet ³õÊ¼»¯Á÷³Ì](https://my.oschina.net/funcy/blog/4710330 "spring mvcÖ®DispatcherServlet ³õÊ¼»¯Á÷³Ì")Ò»ÎÄÖĞ£¬ÎÒÃÇÉîÈë·ÖÎöÁËÏò `servlet` ÈİÆ÷Ìí¼ÓÁË `DispatcherServlet` ºó£¬Òı·¢µÄÒ»ÏµÁĞ³õÊ¼»¯Á÷³Ì£¬±¾ÎÄ½«¼ÌĞøÎ§ÈÆÕâ¸ö `servlet` ·ÖÎö `springmvc` µÄÇëÇóÁ÷³Ì¡£
+åœ¨ [spring mvc ä¹‹ DispatcherServlet åˆå§‹åŒ–æµç¨‹](https://my.oschina.net/funcy/blog/4710330 "spring mvcä¹‹DispatcherServlet åˆå§‹åŒ–æµç¨‹")ä¸€æ–‡ä¸­ï¼Œæˆ‘ä»¬æ·±å…¥åˆ†æäº†å‘ `servlet` å®¹å™¨æ·»åŠ äº† `DispatcherServlet` åï¼Œå¼•å‘çš„ä¸€ç³»åˆ—åˆå§‹åŒ–æµç¨‹ï¼Œæœ¬æ–‡å°†ç»§ç»­å›´ç»•è¿™ä¸ª `servlet` åˆ†æ `springmvc` çš„è¯·æ±‚æµç¨‹ã€‚
 
-#### 1.1 »Ø¹Ë servlet µÄÖ´ĞĞÈë¿Ú£º
+#### 1.1 å›é¡¾ servlet çš„æ‰§è¡Œå…¥å£ï¼š
 
-ÔÚ·ÖÎö `DispatcherServlet` Ç°Ê×ÏÈÒª»Ø¹ËÏÂ servlet µÄÖ´ĞĞÈë¿Ú¡£
+åœ¨åˆ†æ `DispatcherServlet` å‰é¦–å…ˆè¦å›é¡¾ä¸‹ servlet çš„æ‰§è¡Œå…¥å£ã€‚
 
-ÔÚÎÒÃÇÊµÏÖ×Ô¶¨ÒåµÄ servlet Ê±£¬Ò»°ãÊÇÊµÏÖ `HttpServlet`£¬È»ºóÖØĞ´ `doGet(xxx)`¡¢`doPost()` ·½·¨£¬¶øÊµ¼ÊÉÏ servlet Îª `HttpServlet#service(ServletRequest, ServletResponse)`£º
+åœ¨æˆ‘ä»¬å®ç°è‡ªå®šä¹‰çš„ servlet æ—¶ï¼Œä¸€èˆ¬æ˜¯å®ç° `HttpServlet`ï¼Œç„¶åé‡å†™ `doGet(xxx)`ã€`doPost()` æ–¹æ³•ï¼Œè€Œå®é™…ä¸Š servlet ä¸º `HttpServlet#service(ServletRequest, ServletResponse)`ï¼š
 
 ```
 public abstract class HttpServlet extends GenericServlet {
     ...
 
-    // Õâ¸ö·½·¨½ö×öÁË²ÎÊıÀàĞÍ×ª»»
+    // è¿™ä¸ªæ–¹æ³•ä»…åšäº†å‚æ•°ç±»å‹è½¬æ¢
     @Override
     public void service(ServletRequest req, ServletResponse res)
         throws ServletException, IOException {
@@ -22,7 +22,7 @@ public abstract class HttpServlet extends GenericServlet {
         HttpServletRequest  request;
         HttpServletResponse response;
 
-        // ÔÚÕâÀï´¦Àí²ÎÊıµÄÀàĞÍ×ª»»
+        // åœ¨è¿™é‡Œå¤„ç†å‚æ•°çš„ç±»å‹è½¬æ¢
         try {
             request = (HttpServletRequest) req;
             response = (HttpServletResponse) res;
@@ -33,15 +33,15 @@ public abstract class HttpServlet extends GenericServlet {
     }
 
     /**
-     * ÔÚÕâÀï´¦ÀíÇëÇó
-     * ´Ó´úÂë¿ÉÒÔ¿´µ½£¬Õâ¸öÀàÆäÊµÊÇ×öÒ»¸ö×ª·¢£ºÅĞ¶ÏÇëÇó·½·¨£¬È»ºóµ÷ÓÃ¾ßÌåµÄ·½·¨Ö´ĞĞ
+     * åœ¨è¿™é‡Œå¤„ç†è¯·æ±‚
+     * ä»ä»£ç å¯ä»¥çœ‹åˆ°ï¼Œè¿™ä¸ªç±»å…¶å®æ˜¯åšä¸€ä¸ªè½¬å‘ï¼šåˆ¤æ–­è¯·æ±‚æ–¹æ³•ï¼Œç„¶åè°ƒç”¨å…·ä½“çš„æ–¹æ³•æ‰§è¡Œ
      */
     protected void service(HttpServletRequest req, HttpServletResponse resp)
         throws ServletException, IOException {
 
         String method = req.getMethod();
 
-        // ÅĞ¶ÏµÄÇëÇó·½·¨£¬È»ºóÕÒµ½¶ÔÓ¦µÄ·½·¨È¥Ö´ĞĞ
+        // åˆ¤æ–­çš„è¯·æ±‚æ–¹æ³•ï¼Œç„¶åæ‰¾åˆ°å¯¹åº”çš„æ–¹æ³•å»æ‰§è¡Œ
         if (method.equals(METHOD_GET)) {
             long lastModified = getLastModified(req);
             if (lastModified == -1) {
@@ -65,7 +65,7 @@ public abstract class HttpServlet extends GenericServlet {
         } else if (method.equals(METHOD_TRACE)) {
             doTrace(req,resp);
         } else {
-            // Ã»ÓĞ¶ÔÓ¦µÄ·½·¨£¬±¨´í
+            // æ²¡æœ‰å¯¹åº”çš„æ–¹æ³•ï¼ŒæŠ¥é”™
             ...
         }
     }
@@ -74,23 +74,23 @@ public abstract class HttpServlet extends GenericServlet {
 
 ```
 
-ÒÔÉÏÊÇ servlet Ô´Âë£¬·½·¨±È½Ï¼òµ¥£¬ÖØµã²¿·Ö¶¼×öÁË×¢ÊÍ£¬ÕâÀïÓĞÁ½¸öĞèÒªÔÙ´ÎÇ¿µ÷ÏÂ£º
+ä»¥ä¸Šæ˜¯ servlet æºç ï¼Œæ–¹æ³•æ¯”è¾ƒç®€å•ï¼Œé‡ç‚¹éƒ¨åˆ†éƒ½åšäº†æ³¨é‡Šï¼Œè¿™é‡Œæœ‰ä¸¤ä¸ªéœ€è¦å†æ¬¡å¼ºè°ƒä¸‹ï¼š
 
-1.  servlet µÄÖ´ĞĞÈë¿ÚÎª `HttpServlet#service(ServletRequest, ServletResponse)`£»
-2.  `HttpServlet#service(HttpServletRequest, HttpServletResponse)` ·½·¨»á¸ù¾İÇëÇó·½·¨ÕÒµ½¶ÔÓ¦µÄ´¦Àí·½·¨Ö´ĞĞ£¬Ò»°ãÀ´Ëµ£¬ÎÒÃÇ×Ô¶¨Òå servlet£¬Ö»ÒªÖØĞ´ `doGet(xxx)`¡¢`doPost(xxx)` µÈ·½·¨¼´¿É¡£
+1.  servlet çš„æ‰§è¡Œå…¥å£ä¸º `HttpServlet#service(ServletRequest, ServletResponse)`ï¼›
+2.  `HttpServlet#service(HttpServletRequest, HttpServletResponse)` æ–¹æ³•ä¼šæ ¹æ®è¯·æ±‚æ–¹æ³•æ‰¾åˆ°å¯¹åº”çš„å¤„ç†æ–¹æ³•æ‰§è¡Œï¼Œä¸€èˆ¬æ¥è¯´ï¼Œæˆ‘ä»¬è‡ªå®šä¹‰ servletï¼Œåªè¦é‡å†™ `doGet(xxx)`ã€`doPost(xxx)` ç­‰æ–¹æ³•å³å¯ã€‚
 
-ÇëÇóÁ÷³Ì´ó¸ÅÈçÏÂ£º
+è¯·æ±‚æµç¨‹å¤§æ¦‚å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-60d0e2afcbdb75a175c6f28471fc467f0e5.png)
 
-#### 1.2 `DispatcherServlet` µÄ¸¸Àà£º`FrameworkServlet`
+#### 1.2 `DispatcherServlet` çš„çˆ¶ç±»ï¼š`FrameworkServlet`
 
-ÁË½âÍê servlet µÄÇëÇóÈë¿Úºó£¬½ÓÏÂÀ´¾ÍµÃ·ÖÎöÒ»¸ö²»µÃ²»ÌáµÄÀàÁË£º`FrameworkServlet`¡£`FrameworkServlet` ÊÇ `HttpServlet` µÄ×ÓÀà£¬ÊµÏÖÁË `HttpServlet` µÄ¸÷ÖÖ `doXxx()`£¬Í¬Ê±Ò²ÊµÏÖÁË `service(HttpServletRequest, HttpServletResponse)`£º
+äº†è§£å®Œ servlet çš„è¯·æ±‚å…¥å£åï¼Œæ¥ä¸‹æ¥å°±å¾—åˆ†æä¸€ä¸ªä¸å¾—ä¸æçš„ç±»äº†ï¼š`FrameworkServlet`ã€‚`FrameworkServlet` æ˜¯ `HttpServlet` çš„å­ç±»ï¼Œå®ç°äº† `HttpServlet` çš„å„ç§ `doXxx()`ï¼ŒåŒæ—¶ä¹Ÿå®ç°äº† `service(HttpServletRequest, HttpServletResponse)`ï¼š
 
 ```
 /**
- *  FrameworkServlet¼Ì³ĞÁËHttpServletBean£¬¶øHttpServletBean¼Ì³ĞÁËHttpServlet
- *  Òò´ËFrameworkServletÒ²ÊÇHttpServletµÄ×ÓÀà
+ *  FrameworkServletç»§æ‰¿äº†HttpServletBeanï¼Œè€ŒHttpServletBeanç»§æ‰¿äº†HttpServlet
+ *  å› æ­¤FrameworkServletä¹Ÿæ˜¯HttpServletçš„å­ç±»
  */
 public abstract class FrameworkServlet extends HttpServletBean implements ApplicationContextAware {
     @Override
@@ -125,7 +125,7 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
             processRequest(request, response);
         }
         else {
-            // GET/POST/PUT/DELETE µÈÇëÇó·½·¨£¬»¹ÊÇ»áµ÷ÓÃ¸¸ÀàµÄ·½·¨
+            // GET/POST/PUT/DELETE ç­‰è¯·æ±‚æ–¹æ³•ï¼Œè¿˜æ˜¯ä¼šè°ƒç”¨çˆ¶ç±»çš„æ–¹æ³•
             super.service(request, response);
         }
     }
@@ -133,17 +133,17 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
 
 ```
 
-¿ÉÒÔ¿´µ½£¬ÒÔÉÏ´úÂëÖĞ£¬ÓĞÒ»¸ö·½·¨µÄ³ö¾µÂÊÏàµ±¸ß£º`FrameworkServlet#processRequest`£¬²»¹ÜÊÇ `doXxx(xxx)`£¬»¹ÊÇ `service(xxx)`£¬¶¼»áµ÷ÓÃ `processRequest(xxx)`£¬½ÓÏÂÀ´ÎÒÃÇ¾ÍÀ´¿´¿´Õâ¸ö·½·¨×öÁËÊ²Ã´£º
+å¯ä»¥çœ‹åˆ°ï¼Œä»¥ä¸Šä»£ç ä¸­ï¼Œæœ‰ä¸€ä¸ªæ–¹æ³•çš„å‡ºé•œç‡ç›¸å½“é«˜ï¼š`FrameworkServlet#processRequest`ï¼Œä¸ç®¡æ˜¯ `doXxx(xxx)`ï¼Œè¿˜æ˜¯ `service(xxx)`ï¼Œéƒ½ä¼šè°ƒç”¨ `processRequest(xxx)`ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬å°±æ¥çœ‹çœ‹è¿™ä¸ªæ–¹æ³•åšäº†ä»€ä¹ˆï¼š
 
 > FrameworkServlet#processRequest
 
 ```
 protected final void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-    // ¼ÇÂ¼¿ªÊ¼Ê±¼ä
+    // è®°å½•å¼€å§‹æ—¶é—´
     long startTime = System.currentTimeMillis();
     Throwable failureCause = null;
-    // ¼ÇÂ¼µ±Ç°Ïß³ÌµÄĞÅÏ¢
+    // è®°å½•å½“å‰çº¿ç¨‹çš„ä¿¡æ¯
     LocaleContext previousLocaleContext = LocaleContextHolder.getLocaleContext();
     LocaleContext localeContext = buildLocaleContext(request);
     RequestAttributes previousAttributes = RequestContextHolder.getRequestAttributes();
@@ -154,7 +154,7 @@ protected final void processRequest(HttpServletRequest request, HttpServletRespo
              new RequestBindingInterceptor());
     initContextHolders(request, localeContext, requestAttributes);
     try {
-        // ºËĞÄ´¦Àí
+        // æ ¸å¿ƒå¤„ç†
         doService(request, response);
     }
     catch (ServletException | IOException ex) {
@@ -166,25 +166,25 @@ protected final void processRequest(HttpServletRequest request, HttpServletRespo
         throw new NestedServletException("Request processing failed", ex);
     }
     finally {
-        // Çå³ıÏß³Ì°ó¶¨ĞÅÏ¢
+        // æ¸…é™¤çº¿ç¨‹ç»‘å®šä¿¡æ¯
         resetContextHolders(request, previousLocaleContext, previousAttributes);
         if (requestAttributes != null) {
             requestAttributes.requestCompleted();
         }
         logResult(request, response, failureCause, asyncManager);
-        // ·¢ËÍÊÂ¼şÍ¨Öª
+        // å‘é€äº‹ä»¶é€šçŸ¥
         publishRequestHandledEvent(request, response, startTime, failureCause);
     }
 }
 
 ```
 
-Õâ¸ö·½·¨ËäÈ»ÓĞµã³¤£¬µ«´ó²¿·ÖÓëÇëÇó´¦ÀíÁ÷³Ì¹ØÏµ²»´ó£¬ÓëÇëÇó´¦ÀíÁ÷³ÌÏà¹ØµÄÖ»ÓĞ¼¸ĞĞ£º
+è¿™ä¸ªæ–¹æ³•è™½ç„¶æœ‰ç‚¹é•¿ï¼Œä½†å¤§éƒ¨åˆ†ä¸è¯·æ±‚å¤„ç†æµç¨‹å…³ç³»ä¸å¤§ï¼Œä¸è¯·æ±‚å¤„ç†æµç¨‹ç›¸å…³çš„åªæœ‰å‡ è¡Œï¼š
 
 ```
     ...
     try {
-        // ºËĞÄ´¦Àí
+        // æ ¸å¿ƒå¤„ç†
         doService(request, response);
     }
     catch (ServletException | IOException ex) {
@@ -195,7 +195,7 @@ protected final void processRequest(HttpServletRequest request, HttpServletRespo
 
 ```
 
-ÓÉ´Ë¿ÉÒÔ¿´µ½£¬Êµ¼Ê´¦ÀíÇëÇóµÄ·½·¨ÊÇÔÚ `FrameworkServlet#doService` ÖĞ¡£²»¹ı£¬`FrameworkServlet#doService` ÊÇ¸ö³éÏó·½·¨£º
+ç”±æ­¤å¯ä»¥çœ‹åˆ°ï¼Œå®é™…å¤„ç†è¯·æ±‚çš„æ–¹æ³•æ˜¯åœ¨ `FrameworkServlet#doService` ä¸­ã€‚ä¸è¿‡ï¼Œ`FrameworkServlet#doService` æ˜¯ä¸ªæŠ½è±¡æ–¹æ³•ï¼š
 
 ```
 protected abstract void doService(HttpServletRequest request, 
@@ -203,11 +203,11 @@ protected abstract void doService(HttpServletRequest request,
 
 ```
 
-ÕæÕıµÄÊµÏÖÊÇÔÚ×ÓÀà£¬Ò²¾ÍÊÇ `DispatcherServlet#doService` ÖĞ¡£
+çœŸæ­£çš„å®ç°æ˜¯åœ¨å­ç±»ï¼Œä¹Ÿå°±æ˜¯ `DispatcherServlet#doService` ä¸­ã€‚
 
 #### 1.3 `DispatcherServlet#doService`
 
-À´¿´¿´ `DispatcherServlet#doService` ×öÁËÉ¶ÊÂ£º
+æ¥çœ‹çœ‹ `DispatcherServlet#doService` åšäº†å•¥äº‹ï¼š
 
 ```
 public class DispatcherServlet extends FrameworkServlet {
@@ -215,10 +215,10 @@ public class DispatcherServlet extends FrameworkServlet {
     protected void doService(HttpServletRequest request, 
             HttpServletResponse response) throws Exception {
         logRequest(request);
-        // Ê¡ÂÔÁËÒ»´ó¶ÎÊôĞÔÉèÖÃ
+        // çœç•¥äº†ä¸€å¤§æ®µå±æ€§è®¾ç½®
         ...
         try {
-            // ¾ßÌåµÄ´¦Àí
+            // å…·ä½“çš„å¤„ç†
             doDispatch(request, response);
         }
         finally {
@@ -229,15 +229,15 @@ public class DispatcherServlet extends FrameworkServlet {
 
 ```
 
-ÕâÈË·½·¨Ò²Ã»¸ÉÊ²Ã´ÊÂÊµ£¬Ö»ÊÇµ÷ÓÃÁËÒ»ÏÂ `doDispatch` ·½·¨£¬È»ºó¾ÍÃ»ÁË¡£ÊÂÊµÉÏ£¬`DispatcherServlet#doDispatch` ¾ÍÊÇ×îÖÕ´¦ÀíÇëÇóµÄÂß¼­£¬½ÓÏÂÀ´ÎÒÃÇÖØµã·ÖÎöÕâ¸ö·½·¨ ¡£
+è¿™äººæ–¹æ³•ä¹Ÿæ²¡å¹²ä»€ä¹ˆäº‹å®ï¼Œåªæ˜¯è°ƒç”¨äº†ä¸€ä¸‹ `doDispatch` æ–¹æ³•ï¼Œç„¶åå°±æ²¡äº†ã€‚äº‹å®ä¸Šï¼Œ`DispatcherServlet#doDispatch` å°±æ˜¯æœ€ç»ˆå¤„ç†è¯·æ±‚çš„é€»è¾‘ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬é‡ç‚¹åˆ†æè¿™ä¸ªæ–¹æ³• ã€‚
 
-ÕâÒ»½ÚÎÒÃÇÀ´×Ü½áÏÂ `DispatcherServlet` µÄÇëÇóÁ÷³Ì£º
+è¿™ä¸€èŠ‚æˆ‘ä»¬æ¥æ€»ç»“ä¸‹ `DispatcherServlet` çš„è¯·æ±‚æµç¨‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-f854710c25924666cd5ab755c2983a9baf7.png)
 
-### 2\. springmvc ÇëÇó·Ö·¢£º`DispatcherServlet#doDispatch`
+### 2\. springmvc è¯·æ±‚åˆ†å‘ï¼š`DispatcherServlet#doDispatch`
 
-ÉÏÒ»½ÚµÄ×îºó£¬ÎÒÃÇ·¢ÏÖ springmvc ´¦ÀíÇëÇóµÄ·½·¨ÊÇ `DispatcherServlet#doDispatch`£¬±¾½Ú¾Í´ÓÕâ¸ö·½·¨ÈëÊÖ£¬¿´¿´Õâ¸ö·½·¨µÄÂß¼­£º
+ä¸Šä¸€èŠ‚çš„æœ€åï¼Œæˆ‘ä»¬å‘ç° springmvc å¤„ç†è¯·æ±‚çš„æ–¹æ³•æ˜¯ `DispatcherServlet#doDispatch`ï¼Œæœ¬èŠ‚å°±ä»è¿™ä¸ªæ–¹æ³•å…¥æ‰‹ï¼Œçœ‹çœ‹è¿™ä¸ªæ–¹æ³•çš„é€»è¾‘ï¼š
 
 ```
 protected void doDispatch(HttpServletRequest request, HttpServletResponse response) 
@@ -250,20 +250,20 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
         ModelAndView mv = null;
         Exception dispatchException = null;
         try {
-            //Èç¹ûÊÇÎÄ¼şÉÏ´«ÇëÇóÔò½øĞĞÌØÊâ´¦Àí
+            //å¦‚æœæ˜¯æ–‡ä»¶ä¸Šä¼ è¯·æ±‚åˆ™è¿›è¡Œç‰¹æ®Šå¤„ç†
             processedRequest = checkMultipart(request);
             multipartRequestParsed = (processedRequest != request);
-            // 1\. »ñÈ¡¶ÔÓ¦µÄhandler, 
-            // HandlerÖĞ°üº¬ÕæÕıµØ´¦ÀíÆ÷£¨ControllerÖĞµÄ·½·¨£©ºÍÒ»×éHandlerInterceptorÀ¹½ØÆ÷
+            // 1\. è·å–å¯¹åº”çš„handler, 
+            // Handlerä¸­åŒ…å«çœŸæ­£åœ°å¤„ç†å™¨ï¼ˆControllerä¸­çš„æ–¹æ³•ï¼‰å’Œä¸€ç»„HandlerInterceptoræ‹¦æˆªå™¨
             mappedHandler = getHandler(processedRequest);
             if (mappedHandler == null) {
-                // Èç¹ûÃ»ÕÒµ½£¬±¨¸ö404
+                // å¦‚æœæ²¡æ‰¾åˆ°ï¼ŒæŠ¥ä¸ª404
                 noHandlerFound(processedRequest, response);
                 return;
             }
-            // 2\. »ñÈ¡¶ÔÓ¦µÄhandlerAdapter£¬ÓÃÀ´ÔËĞĞ handler(xxx)
+            // 2\. è·å–å¯¹åº”çš„handlerAdapterï¼Œç”¨æ¥è¿è¡Œ handler(xxx)
             HandlerAdapter ha = getHandlerAdapter(mappedHandler.getHandler());
-            // ´¦Àílast-modifiedÇé¿ö
+            // å¤„ç†last-modifiedæƒ…å†µ
             String method = request.getMethod();
             boolean isGet = "GET".equals(method);
             if (isGet || "HEAD".equals(method)) {
@@ -272,18 +272,18 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
                     return;
                 }
             }
-            // 3\. ÔËĞĞspringµÄÀ¹½ØÆ÷, ÔËĞĞ HandlerInterceptor#preHandle ·½·¨
+            // 3\. è¿è¡Œspringçš„æ‹¦æˆªå™¨, è¿è¡Œ HandlerInterceptor#preHandle æ–¹æ³•
             if (!mappedHandler.applyPreHandle(processedRequest, response)) {
                 return;
             }
-            // 4\. Í¨¹ıÉÏÃæ»ñÈ¡µ½µÄhandlerAdapterÀ´µ÷ÓÃhandle
+            // 4\. é€šè¿‡ä¸Šé¢è·å–åˆ°çš„handlerAdapteræ¥è°ƒç”¨handle
             mv = ha.handle(processedRequest, response, mappedHandler.getHandler());
             if (asyncManager.isConcurrentHandlingStarted()) {
                 return;
             }
-            // Èç¹ûº¯Êıµ÷ÓÃÃ»ÓĞ·µ»ØÊÓÍ¼ÔòÊ¹ÓÃÄ¬ÈÏµÄ
+            // å¦‚æœå‡½æ•°è°ƒç”¨æ²¡æœ‰è¿”å›è§†å›¾åˆ™ä½¿ç”¨é»˜è®¤çš„
             applyDefaultViewName(processedRequest, mv);
-            // 5\. Ö´ĞĞÀ¹½ØÆ÷£¬ÔËĞĞ HandlerInterceptor#postHandle ·½·¨
+            // 5\. æ‰§è¡Œæ‹¦æˆªå™¨ï¼Œè¿è¡Œ HandlerInterceptor#postHandle æ–¹æ³•
             mappedHandler.applyPostHandle(processedRequest, response, mv);
         }
         catch (Exception ex) {
@@ -292,17 +292,17 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
         catch (Throwable err) {
             dispatchException = new NestedServletException("Handler dispatch failed", err);
         }
-        // 6\. ´¦Àí·µ»Ø½á¹û£¬ÔÚÕâ¸ö·½·¨Àï»áäÖÈ¾ÊÓÍ¼£¬ÒÔ¼°Ö´ĞĞ HandlerInterceptor#afterCompletion
+        // 6\. å¤„ç†è¿”å›ç»“æœï¼Œåœ¨è¿™ä¸ªæ–¹æ³•é‡Œä¼šæ¸²æŸ“è§†å›¾ï¼Œä»¥åŠæ‰§è¡Œ HandlerInterceptor#afterCompletion
         processDispatchResult(processedRequest, response, mappedHandler, mv, dispatchException);
     }
     catch (...) {
-        // ÕâÀï»áÖ´ĞĞ HandlerInterceptor#afterCompletion
+        // è¿™é‡Œä¼šæ‰§è¡Œ HandlerInterceptor#afterCompletion
         triggerAfterCompletion(processedRequest, response, mappedHandler, ex);
     }
     finally {
         if (asyncManager.isConcurrentHandlingStarted()) {
             if (mappedHandler != null) {
-                // »Øµ÷À¹½ØÆ÷£¬Ö´ĞĞ·½·¨ AsyncHandlerInterceptor#afterConcurrentHandlingStarted
+                // å›è°ƒæ‹¦æˆªå™¨ï¼Œæ‰§è¡Œæ–¹æ³• AsyncHandlerInterceptor#afterConcurrentHandlingStarted
                 mappedHandler.applyAfterConcurrentHandlingStarted(processedRequest, response);
             }
         }
@@ -316,28 +316,28 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 
 ```
 
-Õâ¸ö·½·¨ÔÚµã³¤£¬²»¹ıÁ÷³ÌºÜÇåÎú£¬springmvc µÄÕû¸öÇëÇóÁ÷³Ì¶¼ÔÚÕâÀïÁË£¬ÕâÀï°Ñ¹Ø¼ü²½ÖèÕ¹Ê¾ÈçÏÂ£º
+è¿™ä¸ªæ–¹æ³•åœ¨ç‚¹é•¿ï¼Œä¸è¿‡æµç¨‹å¾ˆæ¸…æ™°ï¼Œspringmvc çš„æ•´ä¸ªè¯·æ±‚æµç¨‹éƒ½åœ¨è¿™é‡Œäº†ï¼Œè¿™é‡ŒæŠŠå…³é”®æ­¥éª¤å±•ç¤ºå¦‚ä¸‹ï¼š
 
-1.  »ñÈ¡¶ÔÓ¦µÄ `HandlerExecutionChain`, »ñÈ¡µÄ `HandlerExecutionChain` ÖĞ°üº¬ÕæÕıµØ´¦ÀíÆ÷£¨`Controller` ÖĞµÄ·½·¨£©ºÍÒ»×é `HandlerInterceptor` À¹½ØÆ÷£»
-2.  »ñÈ¡¶ÔÓ¦µÄ `handlerAdapter`£¬¸Ã¶ÔÏóÓÃÀ´ÔËĞĞ `handler(xxx)` ·½·¨£»
-3.  Ö´ĞĞ spring µÄÀ¹½ØÆ÷£¬ÔËĞĞ `HandlerInterceptor#preHandle` ·½·¨£»
-4.  ´¦ÀíÇëÇó£¬Ò²¾ÍÊÇÍ¨¹ıÉÏÃæ»ñÈ¡µ½µÄ `handlerAdapter` À´µ÷ÓÃ `handle(xxx)` ·½·¨£»
-5.  Ö´ĞĞ spring µÄÀ¹½ØÆ÷£¬ÔËĞĞ `HandlerInterceptor#postHandle` ·½·¨£»
-6.  ´¦Àí·µ»Ø½á¹û£¬ÕâÀï»áäÖÈ¾ÊÓÍ¼£¬ÒÔ¼°Ö´ĞĞ spring À¹½ØÆ÷µÄ `HandlerInterceptor#afterCompletion`¡£
+1.  è·å–å¯¹åº”çš„ `HandlerExecutionChain`, è·å–çš„ `HandlerExecutionChain` ä¸­åŒ…å«çœŸæ­£åœ°å¤„ç†å™¨ï¼ˆ`Controller` ä¸­çš„æ–¹æ³•ï¼‰å’Œä¸€ç»„ `HandlerInterceptor` æ‹¦æˆªå™¨ï¼›
+2.  è·å–å¯¹åº”çš„ `handlerAdapter`ï¼Œè¯¥å¯¹è±¡ç”¨æ¥è¿è¡Œ `handler(xxx)` æ–¹æ³•ï¼›
+3.  æ‰§è¡Œ spring çš„æ‹¦æˆªå™¨ï¼Œè¿è¡Œ `HandlerInterceptor#preHandle` æ–¹æ³•ï¼›
+4.  å¤„ç†è¯·æ±‚ï¼Œä¹Ÿå°±æ˜¯é€šè¿‡ä¸Šé¢è·å–åˆ°çš„ `handlerAdapter` æ¥è°ƒç”¨ `handle(xxx)` æ–¹æ³•ï¼›
+5.  æ‰§è¡Œ spring çš„æ‹¦æˆªå™¨ï¼Œè¿è¡Œ `HandlerInterceptor#postHandle` æ–¹æ³•ï¼›
+6.  å¤„ç†è¿”å›ç»“æœï¼Œè¿™é‡Œä¼šæ¸²æŸ“è§†å›¾ï¼Œä»¥åŠæ‰§è¡Œ spring æ‹¦æˆªå™¨çš„ `HandlerInterceptor#afterCompletion`ã€‚
 
-×ÜµÄÁ÷³ÌÊáÀíÇå³şÁË£¬½ÓÏÂÀ´¾ÍÊÇÖğ¸öÁ÷³Ì·ÖÎöÁË¡£
+æ€»çš„æµç¨‹æ¢³ç†æ¸…æ¥šäº†ï¼Œæ¥ä¸‹æ¥å°±æ˜¯é€ä¸ªæµç¨‹åˆ†æäº†ã€‚
 
-### 3\. »ñÈ¡ `HandlerExecutionChain`
+### 3\. è·å– `HandlerExecutionChain`
 
-»ñÈ¡ `HandlerExecutionChain` µÄ·½·¨ÔÚ `DispatcherServlet#getHandler` ÖĞ£º
+è·å– `HandlerExecutionChain` çš„æ–¹æ³•åœ¨ `DispatcherServlet#getHandler` ä¸­ï¼š
 
 ```
 protected HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception {
     if (this.handlerMappings != null) {
-        // ±éÀúËùÓĞµÄhandlerMapping£¬
-        // ÕâÀïµÄ handlerMapping ÊÇÔÚWebMvcConfigurationSupportÖĞÒıÈëµÄ
+        // éå†æ‰€æœ‰çš„handlerMappingï¼Œ
+        // è¿™é‡Œçš„ handlerMapping æ˜¯åœ¨WebMvcConfigurationSupportä¸­å¼•å…¥çš„
         for (HandlerMapping mapping : this.handlerMappings) {
-            // ÕâÀïµ÷ÓÃ¾ßÌåµÄhandler£¬ÄÄ¸öhandlerÄÜ¹»´¦Àí¾ÍÖ±½Ó·µ»Ø
+            // è¿™é‡Œè°ƒç”¨å…·ä½“çš„handlerï¼Œå“ªä¸ªhandlerèƒ½å¤Ÿå¤„ç†å°±ç›´æ¥è¿”å›
             HandlerExecutionChain handler = mapping.getHandler(request);
             if (handler != null) {
                 return handler;
@@ -349,43 +349,43 @@ protected HandlerExecutionChain getHandler(HttpServletRequest request) throws Ex
 
 ```
 
-ÕâÀïµÄ `handlerMappings` ÊÇÔÚ `WebMvcConfigurationSupport` ÖĞÒıÈëµÄ£¬¹ØÓÚÕâÒ»¿éµÄ·ÖÎö£¬¿ÉÄÜ²Î¿¼ [springmvc demo Óë @EnableWebMvc ×¢½â](https://my.oschina.net/funcy/blog/4678093 "springmvc demo Óë @EnableWebMvc ×¢½â")Ò»ÎÄ£¬ÕâÀïÀ´¿´¿´Õâ¸ö `handlerMappings` ÓĞĞ©É¶£º
+è¿™é‡Œçš„ `handlerMappings` æ˜¯åœ¨ `WebMvcConfigurationSupport` ä¸­å¼•å…¥çš„ï¼Œå…³äºè¿™ä¸€å—çš„åˆ†æï¼Œå¯èƒ½å‚è€ƒ [springmvc demo ä¸ @EnableWebMvc æ³¨è§£](https://my.oschina.net/funcy/blog/4678093 "springmvc demo ä¸ @EnableWebMvc æ³¨è§£")ä¸€æ–‡ï¼Œè¿™é‡Œæ¥çœ‹çœ‹è¿™ä¸ª `handlerMappings` æœ‰äº›å•¥ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-4465a638ca6c52f24f8c9343986be0bbee9.png)
 
-¶ÔÓÚ `RequestMappingHandlerMapping` ÏàĞÅ´ó¼ÒÒÑ¾­ºÜÊìÏ¤£¬¶ÔÓÚ `@Controller`/`@RequestMapping` ·½Ê½ÊµÏÖµÄ `controller`£¬¶ÔÓ¦µÄ `HandlerMapping` ¾ÍÊÇ `RequestMappingHandlerMapping`¡£ÖÁÓÚÁíÍâµÄÁ½¸ö `HandlerMapping`£¬Ôò·Ö±ğ¶ÔÓ¦²»Í¬·½Ê½ÊµÏÖµÄ `controller`£¬¹ØÓÚÕâÒ»µã£¬¸ĞĞËÈ¤µÄĞ¡»ï°é¿ÉÒÔ×ÔĞĞ°Ù¶È£¬ÕâÀï¾Í²»Õ¹¿ªÁË¡£
+å¯¹äº `RequestMappingHandlerMapping` ç›¸ä¿¡å¤§å®¶å·²ç»å¾ˆç†Ÿæ‚‰ï¼Œå¯¹äº `@Controller`/`@RequestMapping` æ–¹å¼å®ç°çš„ `controller`ï¼Œå¯¹åº”çš„ `HandlerMapping` å°±æ˜¯ `RequestMappingHandlerMapping`ã€‚è‡³äºå¦å¤–çš„ä¸¤ä¸ª `HandlerMapping`ï¼Œåˆ™åˆ†åˆ«å¯¹åº”ä¸åŒæ–¹å¼å®ç°çš„ `controller`ï¼Œå…³äºè¿™ä¸€ç‚¹ï¼Œæ„Ÿå…´è¶£çš„å°ä¼™ä¼´å¯ä»¥è‡ªè¡Œç™¾åº¦ï¼Œè¿™é‡Œå°±ä¸å±•å¼€äº†ã€‚
 
-ÎÒÃÇ¼ÌĞø¿´ `AbstractHandlerMapping#getHandler` ·½·¨£º
+æˆ‘ä»¬ç»§ç»­çœ‹ `AbstractHandlerMapping#getHandler` æ–¹æ³•ï¼š
 
 ```
 public final HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception {
-    // 1\. µ÷ÓÃ¾ßÌåµÄÊµÏÖÈ¥»ñÈ¡handler
+    // 1\. è°ƒç”¨å…·ä½“çš„å®ç°å»è·å–handler
     Object handler = getHandlerInternal(request);
-    // Èç¹ûÎª¿ÕÊ¹ÓÃÄ¬ÈÏµÄ
+    // å¦‚æœä¸ºç©ºä½¿ç”¨é»˜è®¤çš„
     if (handler == null) {
         handler = getDefaultHandler();
     }
-    // Ã»ÓĞÄ¬ÈÏµÄ·µ»Ø¿Õ
+    // æ²¡æœ‰é»˜è®¤çš„è¿”å›ç©º
     if (handler == null) {
         return null;
     }
-    // ³¢ÊÔÍ¨¹ıBeanNameÈ¥»ñÈ¡handler
+    // å°è¯•é€šè¿‡BeanNameå»è·å–handler
     if (handler instanceof String) {
         String handlerName = (String) handler;
         handler = obtainApplicationContext().getBean(handlerName);
     }
-    // 2\. »ñÈ¡ executionChain£¬ÆäÊµ¾ÍÊÇÕÒµ½ uri ¶ÔÓ¦µÄ Interceptors,
-    // È»ºóÓëÉÏÃæÕÒµ½µÄhandlerÒ»Æğ·â×°µ½HandlerExecutionChain¶ÔÏóÖĞ
-    // ÕâÀïµÄInterceptors£¬Ò²ÊÇÔÚWebMvcConfigurationSupportÖĞÅäÖÃµÄ
+    // 2\. è·å– executionChainï¼Œå…¶å®å°±æ˜¯æ‰¾åˆ° uri å¯¹åº”çš„ Interceptors,
+    // ç„¶åä¸ä¸Šé¢æ‰¾åˆ°çš„handlerä¸€èµ·å°è£…åˆ°HandlerExecutionChainå¯¹è±¡ä¸­
+    // è¿™é‡Œçš„Interceptorsï¼Œä¹Ÿæ˜¯åœ¨WebMvcConfigurationSupportä¸­é…ç½®çš„
     HandlerExecutionChain executionChain = getHandlerExecutionChain(handler, request);
-    // 3\. ´¦ÀíÂ·ÓòÏà¹ØµÄÅäÖÃ£ºCorsHandlerExecutionChain
-    // ÕâÀï¿ÉÒÔ¿´µ½£¬ËùÎ½µÄcors¿çÓòÅäÖÃ£¬Ò²ÊÇÓÉÀ¹½ØÆ÷ÊµÏÖµÄ
+    // 3\. å¤„ç†è·¯åŸŸç›¸å…³çš„é…ç½®ï¼šCorsHandlerExecutionChain
+    // è¿™é‡Œå¯ä»¥çœ‹åˆ°ï¼Œæ‰€è°“çš„corsè·¨åŸŸé…ç½®ï¼Œä¹Ÿæ˜¯ç”±æ‹¦æˆªå™¨å®ç°çš„
     if (hasCorsConfigurationSource(handler)) {
         CorsConfiguration config = (this.corsConfigurationSource != null 
                 ? this.corsConfigurationSource.getCorsConfiguration(request) : null);
         CorsConfiguration handlerConfig = getCorsConfiguration(handler, request);
         config = (config != null ? config.combine(handlerConfig) : handlerConfig);
-        // ½«¿çÓòÏà¹ØµÄÅäÖÃÌí¼Óµ½ Interceptors£¬¼Óµ½À¹½ØÆ÷ListµÄµÚÒ»¸öÖĞ
+        // å°†è·¨åŸŸç›¸å…³çš„é…ç½®æ·»åŠ åˆ° Interceptorsï¼ŒåŠ åˆ°æ‹¦æˆªå™¨Listçš„ç¬¬ä¸€ä¸ªä¸­
         executionChain = getCorsHandlerExecutionChain(request, executionChain, config);
     }
     return executionChain;
@@ -393,29 +393,29 @@ public final HandlerExecutionChain getHandler(HttpServletRequest request) throws
 
 ```
 
-Õâ¸ö·½·¨Ö÷Òª×öÁËÈı¼şÊÂ£º
+è¿™ä¸ªæ–¹æ³•ä¸»è¦åšäº†ä¸‰ä»¶äº‹ï¼š
 
-1.  µ÷ÓÃ¾ßÌåµÄÊµÏÖÈ¥»ñÈ¡ handler£¬Õâ¸ö·½·¨ÊÇÖØµã£¬ÏÂÃæ»á¼ÌĞø½²£»
-2.  »ñÈ¡ `executionChain`£¬Õâ¸ö `executionChain` ³ıÁË°üº¬ÁËÉÏÒ»²½µÄ `handler` Íâ£¬»¹°üº¬ `uri` ¶ÔÓ¦µÄ `Interceptors`£¬»ñÈ¡·½·¨Îª»ñÈ¡ËùÓĞµÄ `Interceptors` ÅäÖÃ£¨ÔÚ `WebMvcConfigurationSupport` ÖĞÅäÖÃµÄ£©£¬ÔÙÖğÒ»ÅĞ¶Ï uri ÊÇ·ñ·ûºÏ `Interceptor` µÄ uri ÅäÖÃ£»
-3.  »ñÈ¡ cors ¿çÓòÅäÖÃ£¬È»ºóÌí¼Óµ½ `executionChain` ÖĞµÄ `Interceptors` ÁĞ±íµÄµÚÒ»Î»¡£àÅ£¬Ã»´í£¬cors ¿çÓòÅäÖÃÒ²ÊÇÔÚ `WebMvcConfigurationSupport` ÖĞÅäÖÃµÄ¡£
+1.  è°ƒç”¨å…·ä½“çš„å®ç°å»è·å– handlerï¼Œè¿™ä¸ªæ–¹æ³•æ˜¯é‡ç‚¹ï¼Œä¸‹é¢ä¼šç»§ç»­è®²ï¼›
+2.  è·å– `executionChain`ï¼Œè¿™ä¸ª `executionChain` é™¤äº†åŒ…å«äº†ä¸Šä¸€æ­¥çš„ `handler` å¤–ï¼Œè¿˜åŒ…å« `uri` å¯¹åº”çš„ `Interceptors`ï¼Œè·å–æ–¹æ³•ä¸ºè·å–æ‰€æœ‰çš„ `Interceptors` é…ç½®ï¼ˆåœ¨ `WebMvcConfigurationSupport` ä¸­é…ç½®çš„ï¼‰ï¼Œå†é€ä¸€åˆ¤æ–­ uri æ˜¯å¦ç¬¦åˆ `Interceptor` çš„ uri é…ç½®ï¼›
+3.  è·å– cors è·¨åŸŸé…ç½®ï¼Œç„¶åæ·»åŠ åˆ° `executionChain` ä¸­çš„ `Interceptors` åˆ—è¡¨çš„ç¬¬ä¸€ä½ã€‚å—¯ï¼Œæ²¡é”™ï¼Œcors è·¨åŸŸé…ç½®ä¹Ÿæ˜¯åœ¨ `WebMvcConfigurationSupport` ä¸­é…ç½®çš„ã€‚
 
-#### 3.1 ²éÕÒ `HandlerMethod`
+#### 3.1 æŸ¥æ‰¾ `HandlerMethod`
 
-ÎÒÃÇ½øÈë `getHandlerInternal(xxx)` ·½·¨£º
+æˆ‘ä»¬è¿›å…¥ `getHandlerInternal(xxx)` æ–¹æ³•ï¼š
 
 > AbstractHandlerMethodMapping#getHandlerInternal
 
 ```
 @Override
 protected HandlerMethod getHandlerInternal(HttpServletRequest request) throws Exception {
-    // »ñÈ¡ÇëÇóµÄurl
+    // è·å–è¯·æ±‚çš„url
     String lookupPath = getUrlPathHelper().getLookupPathForRequest(request);
     request.setAttribute(LOOKUP_PATH, lookupPath);
     this.mappingRegistry.acquireReadLock();
     try {
-        // ÔÚÕâÀï²éÕÒuri¶ÔÓ¦µÄhandlerMethod
+        // åœ¨è¿™é‡ŒæŸ¥æ‰¾uriå¯¹åº”çš„handlerMethod
         HandlerMethod handlerMethod = lookupHandlerMethod(lookupPath, request);
-        // Èç¹ûhandlerMethod²»Îª¿Õ£¬ÔòÖØĞÂ´´½¨Ò»¸öHandlerMethod·µ»Ø
+        // å¦‚æœhandlerMethodä¸ä¸ºç©ºï¼Œåˆ™é‡æ–°åˆ›å»ºä¸€ä¸ªHandlerMethodè¿”å›
         return (handlerMethod != null ? handlerMethod.createWithResolvedBean() : null);
     }
     finally {
@@ -425,7 +425,7 @@ protected HandlerMethod getHandlerInternal(HttpServletRequest request) throws Ex
 
 ```
 
-ÕâÀï»¹ÊÇµ÷ÓÃ `lookupHandlerMethod(xxx)` À´²éÕÒ `handlerMethod`£¬¼ÌĞø
+è¿™é‡Œè¿˜æ˜¯è°ƒç”¨ `lookupHandlerMethod(xxx)` æ¥æŸ¥æ‰¾ `handlerMethod`ï¼Œç»§ç»­
 
 > AbstractHandlerMethodMapping#lookupHandlerMethod
 
@@ -433,19 +433,19 @@ protected HandlerMethod getHandlerInternal(HttpServletRequest request) throws Ex
 protected HandlerMethod lookupHandlerMethod(String lookupPath, HttpServletRequest request) 
         throws Exception {
     List<Match> matches = new ArrayList<>();
-    // ÏÈ´ÓurlLookupÖĞÕÒ£¬urlLookupÊÇÒ»¸ömap£¬keyÊÇurl£¬valueÊÇLinkedList<RequestMappingInfo>
+    // å…ˆä»urlLookupä¸­æ‰¾ï¼ŒurlLookupæ˜¯ä¸€ä¸ªmapï¼Œkeyæ˜¯urlï¼Œvalueæ˜¯LinkedList<RequestMappingInfo>
     List<T> directPathMatches = this.mappingRegistry.getMappingsByUrl(lookupPath);
     if (directPathMatches != null) {
-        // ÓÉÓÚ·µ»ØµÄÊÇÒ»¸ö list£¬ÕâÀï»á°ÑËùÓĞµÄÆ¥ÅäµÄ½á¹û·ÅÈëÒ»¸ömatchesÖĞ
+        // ç”±äºè¿”å›çš„æ˜¯ä¸€ä¸ª listï¼Œè¿™é‡Œä¼šæŠŠæ‰€æœ‰çš„åŒ¹é…çš„ç»“æœæ”¾å…¥ä¸€ä¸ªmatchesä¸­
         addMatchingMappings(directPathMatches, matches, request);
     }
     if (matches.isEmpty()) {
-        // Èç¹ûÍ¨¹ıurlÃ»ÕÒµ½£¬Ôò±éÀúËùÓĞµÄ mappings Æ¥Åä£¬Æ¥ÅäÀàËÆÓÚ /test/{name} µÄurl
-        // mappingsÒ²ÊÇÒ»¸ömap£¬keyÊÇRequestMappingInfo£¬ valueÊÇHandlerMethod
+        // å¦‚æœé€šè¿‡urlæ²¡æ‰¾åˆ°ï¼Œåˆ™éå†æ‰€æœ‰çš„ mappings åŒ¹é…ï¼ŒåŒ¹é…ç±»ä¼¼äº /test/{name} çš„url
+        // mappingsä¹Ÿæ˜¯ä¸€ä¸ªmapï¼Œkeyæ˜¯RequestMappingInfoï¼Œ valueæ˜¯HandlerMethod
         addMatchingMappings(this.mappingRegistry.getMappings().keySet(), matches, request);
     }
-    // ÕÒµ½×î¼ÑÆ¥ÅäµÄmapping,·µ»ØÆä¶ÔÓ¦µÄHandlerMethod
-    // ±È½Ï¹æÔòÀ´×ÔÓÚ RequestMappingInfo#compareTo·½·¨
+    // æ‰¾åˆ°æœ€ä½³åŒ¹é…çš„mapping,è¿”å›å…¶å¯¹åº”çš„HandlerMethod
+    // æ¯”è¾ƒè§„åˆ™æ¥è‡ªäº RequestMappingInfo#compareToæ–¹æ³•
     if (!matches.isEmpty()) {
         Comparator<Match> comparator = new MatchComparator(getMappingComparator(request));
         matches.sort(comparator);
@@ -455,7 +455,7 @@ protected HandlerMethod lookupHandlerMethod(String lookupPath, HttpServletReques
                 return PREFLIGHT_AMBIGUOUS_MATCH;
             }
             Match secondBestMatch = matches.get(1);
-            // ÕÒµ½ÁËÁ½¸ö×î¼ÑÆ¥Åä£¬Å×³öÒì³£
+            // æ‰¾åˆ°äº†ä¸¤ä¸ªæœ€ä½³åŒ¹é…ï¼ŒæŠ›å‡ºå¼‚å¸¸
             if (comparator.compare(bestMatch, secondBestMatch) == 0) {
                 Method m1 = bestMatch.handlerMethod.getMethod();
                 Method m2 = secondBestMatch.     .,m.bvc .getMethod();
@@ -474,13 +474,13 @@ protected HandlerMethod lookupHandlerMethod(String lookupPath, HttpServletReques
 
 ```
 
-Õâ¸ö·½·¨¾ÍÊÇ´¦Àí handler µÄ»ñÈ¡ÁË¡£ÕâÀïµÄ»ñÈ¡·ÖÎª¼¸¸ö²½Öè£º
+è¿™ä¸ªæ–¹æ³•å°±æ˜¯å¤„ç† handler çš„è·å–äº†ã€‚è¿™é‡Œçš„è·å–åˆ†ä¸ºå‡ ä¸ªæ­¥éª¤ï¼š
 
-1.  ÏÈ´Ó `urlLookup` ÖĞÕÒ£¬`urlLookup` ÊÇÒ»¸ö `map`£¬`key` ÊÇ `url`£¬`value` ÊÇ `LinkedList<RequestMappingInfo>`£¬Õâ¸ö²Ù×÷¾ÍÊÇ `map.get(xxx)` ·½·¨£»
-2.  Èç¹ûÍ¨¹ı `url` Ã»ÕÒµ½£¬Ôò±éÀúËùÓĞµÄ `mappings` Æ¥Åä£¬Æ¥ÅäÀàËÆÓÚ `/test/{name}` µÄ `url`£¬`mappings` Ò²ÊÇÒ»¸ö `map`£¬`key` ÊÇ `RequestMappingInfo`£¬ `value` ÊÇ `HandlerMethod`£»
-3.  Èç¹ûÕÒµ½ÁË¶à¸ö `HandlerMethod`£¬Ôò¸ù¾İ `RequestMappingInfo#compareTo` ·½·¨Ìá¹©µÄ·½·¨£¬ÕÒµ½×î¼ÑµÄ `RequestMappingInfo` ¶ÔÓ¦µÄ `HandlerMethod`¡£
+1.  å…ˆä» `urlLookup` ä¸­æ‰¾ï¼Œ`urlLookup` æ˜¯ä¸€ä¸ª `map`ï¼Œ`key` æ˜¯ `url`ï¼Œ`value` æ˜¯ `LinkedList<RequestMappingInfo>`ï¼Œè¿™ä¸ªæ“ä½œå°±æ˜¯ `map.get(xxx)` æ–¹æ³•ï¼›
+2.  å¦‚æœé€šè¿‡ `url` æ²¡æ‰¾åˆ°ï¼Œåˆ™éå†æ‰€æœ‰çš„ `mappings` åŒ¹é…ï¼ŒåŒ¹é…ç±»ä¼¼äº `/test/{name}` çš„ `url`ï¼Œ`mappings` ä¹Ÿæ˜¯ä¸€ä¸ª `map`ï¼Œ`key` æ˜¯ `RequestMappingInfo`ï¼Œ `value` æ˜¯ `HandlerMethod`ï¼›
+3.  å¦‚æœæ‰¾åˆ°äº†å¤šä¸ª `HandlerMethod`ï¼Œåˆ™æ ¹æ® `RequestMappingInfo#compareTo` æ–¹æ³•æä¾›çš„æ–¹æ³•ï¼Œæ‰¾åˆ°æœ€ä½³çš„ `RequestMappingInfo` å¯¹åº”çš„ `HandlerMethod`ã€‚
 
-ÎÒÃÇÀ´¿´¿´ÔÚ `mappings` ÀïÊÇÈçºÎÕÒµ½Æ¥ÅäµÄ `RequestMappingInfo` µÄ£º
+æˆ‘ä»¬æ¥çœ‹çœ‹åœ¨ `mappings` é‡Œæ˜¯å¦‚ä½•æ‰¾åˆ°åŒ¹é…çš„ `RequestMappingInfo` çš„ï¼š
 
 > AbstractHandlerMethodMapping#addMatchingMappings
 
@@ -488,7 +488,7 @@ protected HandlerMethod lookupHandlerMethod(String lookupPath, HttpServletReques
 private void addMatchingMappings(Collection<T> mappings, List<Match> matches, 
             HttpServletRequest request) {
     for (T mapping : mappings) {
-        // Æ¥ÅäÆäËûÌõ¼ş£¬ÕÒµ½ÆäÖĞËùÓĞ·ûºÏÌõ¼şµÄ mappings
+        // åŒ¹é…å…¶ä»–æ¡ä»¶ï¼Œæ‰¾åˆ°å…¶ä¸­æ‰€æœ‰ç¬¦åˆæ¡ä»¶çš„ mappings
         T match = getMatchingMapping(mapping, request);
         if (match != null) {
             matches.add(new Match(match, this.mappingRegistry.getMappings().get(mapping)));
@@ -498,14 +498,14 @@ private void addMatchingMappings(Collection<T> mappings, List<Match> matches,
 
 ```
 
-×îÖÕ·¢ÏÖÆ¥ÅäµÄ´¦ÀíÊÇÔÚ `RequestMappingInfo#getMatchingCondition` ·½·¨ÖĞ£¬`RequestMappingInfo` »¹ÓĞÒ»¸ö `compareTo` ·½·¨£¬ÎÒÃÇÒ²Ò»²¢²é¿´ÏÂ£º
+æœ€ç»ˆå‘ç°åŒ¹é…çš„å¤„ç†æ˜¯åœ¨ `RequestMappingInfo#getMatchingCondition` æ–¹æ³•ä¸­ï¼Œ`RequestMappingInfo` è¿˜æœ‰ä¸€ä¸ª `compareTo` æ–¹æ³•ï¼Œæˆ‘ä»¬ä¹Ÿä¸€å¹¶æŸ¥çœ‹ä¸‹ï¼š
 
 > RequestMappingInfo
 
 ```
 /**
- * Æ¥Åä¹æÔò
- * »á·Ö±ğÆ¥Åä ÇëÇó·½·¨(get,postµÈ)¡¢ÇëÇó²ÎÊı¡¢ÇëÇóÍ·µÈ
+ * åŒ¹é…è§„åˆ™
+ * ä¼šåˆ†åˆ«åŒ¹é… è¯·æ±‚æ–¹æ³•(get,postç­‰)ã€è¯·æ±‚å‚æ•°ã€è¯·æ±‚å¤´ç­‰
  */
 public RequestMappingInfo getMatchingCondition(HttpServletRequest request) {
     RequestMethodsRequestCondition methods = this.methodsCondition.getMatchingCondition(request);
@@ -541,8 +541,8 @@ public RequestMappingInfo getMatchingCondition(HttpServletRequest request) {
 }
 
 /**
- * ±È½Ï¹æÔò£¬ÕÒµ½×î¼ÑÆ¥Åä
- * »á·Ö±ğ±È½Ï ÇëÇó·½·¨(get,postµÈ)¡¢ÇëÇó²ÎÊı¡¢ÇëÇóÍ·µÈ
+ * æ¯”è¾ƒè§„åˆ™ï¼Œæ‰¾åˆ°æœ€ä½³åŒ¹é…
+ * ä¼šåˆ†åˆ«æ¯”è¾ƒ è¯·æ±‚æ–¹æ³•(get,postç­‰)ã€è¯·æ±‚å‚æ•°ã€è¯·æ±‚å¤´ç­‰
  */
 public int compareTo(RequestMappingInfo other, HttpServletRequest request) {
     int result;
@@ -585,20 +585,20 @@ public int compareTo(RequestMappingInfo other, HttpServletRequest request) {
 
 ```
 
-ÎŞÂÛÆ¥Åä£¬»¹ÊÇ±È½Ï£¬¶¼»á¶ÔÇëÇó·½·¨ (get,post µÈ)¡¢ÇëÇó²ÎÊı¡¢ÇëÇóÍ·µÈÒ»Ò»½øĞĞ´¦Àí¡£
+æ— è®ºåŒ¹é…ï¼Œè¿˜æ˜¯æ¯”è¾ƒï¼Œéƒ½ä¼šå¯¹è¯·æ±‚æ–¹æ³• (get,post ç­‰)ã€è¯·æ±‚å‚æ•°ã€è¯·æ±‚å¤´ç­‰ä¸€ä¸€è¿›è¡Œå¤„ç†ã€‚
 
-µ½ÕâÀï£¬ÎÒÃÇ¾ÍÃ÷°×ÁË springmvc ÊÇÈçºÎÕÒµ½ `HandlerMethod` µÄÁË¡£
+åˆ°è¿™é‡Œï¼Œæˆ‘ä»¬å°±æ˜ç™½äº† springmvc æ˜¯å¦‚ä½•æ‰¾åˆ° `HandlerMethod` çš„äº†ã€‚
 
-#### 3.2 ²éÕÒ `Interceptors`
+#### 3.2 æŸ¥æ‰¾ `Interceptors`
 
-ÎÒÃÇ»Øµ½ `AbstractHandlerMapping#getHandler`£¬¿´¿´ÊÇÈçºÎ»ñÈ¡ `Interceptor` µÄ£º
+æˆ‘ä»¬å›åˆ° `AbstractHandlerMapping#getHandler`ï¼Œçœ‹çœ‹æ˜¯å¦‚ä½•è·å– `Interceptor` çš„ï¼š
 
 ```
 public final HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception {
     ...
-    // 2\. »ñÈ¡ executionChain£¬ÆäÊµ¾ÍÊÇÕÒµ½ uri ¶ÔÓ¦µÄ Interceptors,
-    // È»ºóÓëÉÏÃæÕÒµ½µÄhandlerÒ»Æğ·â×°µ½HandlerExecutionChain¶ÔÏóÖĞ
-    // ÕâÀïµÄInterceptors£¬Ò²ÊÇÔÚWebMvcConfigurationSupportÖĞÅäÖÃµÄ
+    // 2\. è·å– executionChainï¼Œå…¶å®å°±æ˜¯æ‰¾åˆ° uri å¯¹åº”çš„ Interceptors,
+    // ç„¶åä¸ä¸Šé¢æ‰¾åˆ°çš„handlerä¸€èµ·å°è£…åˆ°HandlerExecutionChainå¯¹è±¡ä¸­
+    // è¿™é‡Œçš„Interceptorsï¼Œä¹Ÿæ˜¯åœ¨WebMvcConfigurationSupportä¸­é…ç½®çš„
     HandlerExecutionChain executionChain = getHandlerExecutionChain(handler, request);
     ...
     return executionChain;
@@ -606,7 +606,7 @@ public final HandlerExecutionChain getHandler(HttpServletRequest request) throws
 
 ```
 
-½øÈë `getHandlerExecutionChain` ·½·¨£º
+è¿›å…¥ `getHandlerExecutionChain` æ–¹æ³•ï¼š
 
 > AbstractHandlerMapping#getHandlerExecutionChain
 
@@ -615,12 +615,12 @@ protected HandlerExecutionChain getHandlerExecutionChain(Object handler,
             HttpServletRequest request) {
     HandlerExecutionChain chain = (handler instanceof HandlerExecutionChain ?
             (HandlerExecutionChain) handler : new HandlerExecutionChain(handler));
-    // »ñÈ¡µ±Ç°µÄÇëÇóÂ·¾¶
+    // è·å–å½“å‰çš„è¯·æ±‚è·¯å¾„
     String lookupPath = this.urlPathHelper.getLookupPathForRequest(request, LOOKUP_PATH);
     for (HandlerInterceptor interceptor : this.adaptedInterceptors) {
         if (interceptor instanceof MappedInterceptor) {
             MappedInterceptor mappedInterceptor = (MappedInterceptor) interceptor;
-            // ÅĞ¶Ïµ±Ç°ÇëÇóÂ·¾¶ÊÇ·ñÂú×ãinterceptorÀïÅäÖÃµÄÂ·¾¶
+            // åˆ¤æ–­å½“å‰è¯·æ±‚è·¯å¾„æ˜¯å¦æ»¡è¶³interceptoré‡Œé…ç½®çš„è·¯å¾„
             if (mappedInterceptor.matches(lookupPath, this.pathMatcher)) {
                 chain.addInterceptor(mappedInterceptor.getInterceptor());
             }
@@ -634,25 +634,25 @@ protected HandlerExecutionChain getHandlerExecutionChain(Object handler,
 
 ```
 
-Õâ¸ö·½·¨±È½Ï¼òµ¥£¬Ïà¹ØÄÚÈİÒÑ¾­ÔÚ´úÂëÖĞ×öÁË×¢ÊÍ£¬¾Í²»¶àËµÁË ¡£
+è¿™ä¸ªæ–¹æ³•æ¯”è¾ƒç®€å•ï¼Œç›¸å…³å†…å®¹å·²ç»åœ¨ä»£ç ä¸­åšäº†æ³¨é‡Šï¼Œå°±ä¸å¤šè¯´äº† ã€‚
 
-#### 3.3 ´¦Àí cors ¿çÓòÅäÖÃ
+#### 3.3 å¤„ç† cors è·¨åŸŸé…ç½®
 
-ÎÒÃÇÔÙÀ´¿´¿´¿çÓòÅäÖÃµÄ´¦Àí£º
+æˆ‘ä»¬å†æ¥çœ‹çœ‹è·¨åŸŸé…ç½®çš„å¤„ç†ï¼š
 
 ```
 public final HandlerExecutionChain getHandler(HttpServletRequest request) 
         throws Exception {
     ...
-    // 3\. ´¦ÀíÂ·ÓòÏà¹ØµÄÅäÖÃ£ºCorsHandlerExecutionChain
-    // ÕâÀï¿ÉÒÔ¿´µ½£¬ËùÎ½µÄcors¿çÓòÅäÖÃ£¬Ò²ÊÇÓÉÀ¹½ØÆ÷ÊµÏÖµÄ
+    // 3\. å¤„ç†è·¯åŸŸç›¸å…³çš„é…ç½®ï¼šCorsHandlerExecutionChain
+    // è¿™é‡Œå¯ä»¥çœ‹åˆ°ï¼Œæ‰€è°“çš„corsè·¨åŸŸé…ç½®ï¼Œä¹Ÿæ˜¯ç”±æ‹¦æˆªå™¨å®ç°çš„
     if (hasCorsConfigurationSource(handler)) {
-        // »ñÈ¡¿çÓòÅäÖÃ
+        // è·å–è·¨åŸŸé…ç½®
         CorsConfiguration config = (this.corsConfigurationSource != null 
                 ? this.corsConfigurationSource.getCorsConfiguration(request) : null);
         CorsConfiguration handlerConfig = getCorsConfiguration(handler, request);
         config = (config != null ? config.combine(handlerConfig) : handlerConfig);
-        // ½«¿çÓòÏà¹ØµÄÅäÖÃÌí¼Óµ½ Interceptors£¬¼Óµ½À¹½ØÆ÷ListµÄµÚÒ»¸öÖĞ
+        // å°†è·¨åŸŸç›¸å…³çš„é…ç½®æ·»åŠ åˆ° Interceptorsï¼ŒåŠ åˆ°æ‹¦æˆªå™¨Listçš„ç¬¬ä¸€ä¸ªä¸­
         executionChain = getCorsHandlerExecutionChain(request, executionChain, config);
     }
     return executionChain;
@@ -660,7 +660,7 @@ public final HandlerExecutionChain getHandler(HttpServletRequest request)
 
 ```
 
-¿çÓòÏà¹ØÅäÖÃÒ²¿ÉÒÔ `WebMvcConfigurationSupport` ÖĞÅäÖÃ£º
+è·¨åŸŸç›¸å…³é…ç½®ä¹Ÿå¯ä»¥ `WebMvcConfigurationSupport` ä¸­é…ç½®ï¼š
 
 ```
 protected void addCorsMappings(CorsRegistry registry) {
@@ -669,7 +669,7 @@ protected void addCorsMappings(CorsRegistry registry) {
 
 ```
 
-springmvc »ñÈ¡µ½¿çÓòÅäÖÃºó£¬»á°ÑÏà¹ØÅäÖÃÌí¼Óµ½ `HandlerExecutionChain` ÖĞ£º
+springmvc è·å–åˆ°è·¨åŸŸé…ç½®åï¼Œä¼šæŠŠç›¸å…³é…ç½®æ·»åŠ åˆ° `HandlerExecutionChain` ä¸­ï¼š
 
 ```
 # AbstractHandlerMapping#getCorsHandlerExecutionChain
@@ -680,7 +680,7 @@ protected HandlerExecutionChain getCorsHandlerExecutionChain(HttpServletRequest 
         chain = new HandlerExecutionChain(new PreFlightHandler(config), interceptors);
     }
     else {
-        // Ìí¼Óµ½InterceptorsµÄÊ×Î»
+        // æ·»åŠ åˆ°Interceptorsçš„é¦–ä½
         chain.addInterceptor(0, new CorsInterceptor(config));
     }
     return chain;
@@ -688,43 +688,43 @@ protected HandlerExecutionChain getCorsHandlerExecutionChain(HttpServletRequest 
 
 # HandlerExecutionChain#addInterceptor(int, HandlerInterceptor)
 public void addInterceptor(int index, HandlerInterceptor interceptor) {
-    // ÆäÊµ¾ÍÊÇ²Ù×÷Ò»¸ölist
+    // å…¶å®å°±æ˜¯æ“ä½œä¸€ä¸ªlist
     initInterceptorList().add(index, interceptor);
 }
 
 ```
 
-ÔÚ `HandlerExecutionChain` ÖĞ£¬ÓĞÒ»¸ö `List` ÓÃÀ´´æÈë `Interceptor`£¬»ñÈ¡µ½µÄ¿çÓòÅäÖÃ£¬»áÌí¼Óµ½Õâ¸ö `List` µÄ `index=0` µÄÎ»ÖÃ¡£
+åœ¨ `HandlerExecutionChain` ä¸­ï¼Œæœ‰ä¸€ä¸ª `List` ç”¨æ¥å­˜å…¥ `Interceptor`ï¼Œè·å–åˆ°çš„è·¨åŸŸé…ç½®ï¼Œä¼šæ·»åŠ åˆ°è¿™ä¸ª `List` çš„ `index=0` çš„ä½ç½®ã€‚
 
-µ½ÕâÀï£¬`handler` ¾Í»ñÈ¡Íê³ÉÁË£¬Õâ¸ö `handler` °üº¬Á½²¿·Ö£º
+åˆ°è¿™é‡Œï¼Œ`handler` å°±è·å–å®Œæˆäº†ï¼Œè¿™ä¸ª `handler` åŒ…å«ä¸¤éƒ¨åˆ†ï¼š
 
-*   `HandlerMethod`: ´¦ÀíÇëÇóµÄ·½·¨£¬ÓÉÓÚ±¾ÎÄÖ»·ÖÎö `@Controller` ·½Ê½µÄ controller£¬¿ÉÒÔ¼òµ¥Àí½âÎªÓĞ `@RequestMapping` ×¢½âµÄ·½·¨£»
-*   `List<Interceptor>`: À¹½ØÆ÷Á´£¬Èç¹ûÓĞ¿çÓòÅäÖÃ£¬ÄÇÃ´¿çÓòÅäÖÃ»á·ÅÔÚÕâ¸ö List µÄµÚÒ»Î»¡£
+*   `HandlerMethod`: å¤„ç†è¯·æ±‚çš„æ–¹æ³•ï¼Œç”±äºæœ¬æ–‡åªåˆ†æ `@Controller` æ–¹å¼çš„ controllerï¼Œå¯ä»¥ç®€å•ç†è§£ä¸ºæœ‰ `@RequestMapping` æ³¨è§£çš„æ–¹æ³•ï¼›
+*   `List<Interceptor>`: æ‹¦æˆªå™¨é“¾ï¼Œå¦‚æœæœ‰è·¨åŸŸé…ç½®ï¼Œé‚£ä¹ˆè·¨åŸŸé…ç½®ä¼šæ”¾åœ¨è¿™ä¸ª List çš„ç¬¬ä¸€ä½ã€‚
 
-### 4\. »ñÈ¡ `HandlerAdapter`
+### 4\. è·å– `HandlerAdapter`
 
-ÔÙ»Øµ½ `DispatcherServlet#doDispatch` ·½·¨£¬ÎÒÃÇÀ´¿´¿´»ñÈ¡ `HandlerAdapter` µÄ·½·¨£º
+å†å›åˆ° `DispatcherServlet#doDispatch` æ–¹æ³•ï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹è·å– `HandlerAdapter` çš„æ–¹æ³•ï¼š
 
 ```
 protected void doDispatch(HttpServletRequest request, HttpServletResponse response) 
         throws Exception {
             ...
-    // 2\. »ñÈ¡¶ÔÓ¦µÄhandlerAdapter£¬ÓÃÀ´ÔËĞĞ handler(xxx)
+    // 2\. è·å–å¯¹åº”çš„handlerAdapterï¼Œç”¨æ¥è¿è¡Œ handler(xxx)
     HandlerAdapter ha = getHandlerAdapter(mappedHandler.getHandler());
     ...
 
 ```
 
-½øÈë `getHandlerAdapter(xxx)` ·½·¨£º
+è¿›å…¥ `getHandlerAdapter(xxx)` æ–¹æ³•ï¼š
 
 > DispatcherServlet#getHandlerAdapter
 
 ```
 protected HandlerAdapter getHandlerAdapter(Object handler) throws ServletException {
-    // handlerAdapters ÀïµÄbean£¬Ò²ÊÇÓÉWebMvcConfigurationSupportÒıÈëµÄ
+    // handlerAdapters é‡Œçš„beanï¼Œä¹Ÿæ˜¯ç”±WebMvcConfigurationSupportå¼•å…¥çš„
     if (this.handlerAdapters != null) {
         for (HandlerAdapter adapter : this.handlerAdapters) {
-            // ²»Í¬µÄhandlerAdapterµÄÅĞ¶Ï·½·¨²»Í¬
+            // ä¸åŒçš„handlerAdapterçš„åˆ¤æ–­æ–¹æ³•ä¸åŒ
             if (adapter.supports(handler)) {
                 return adapter;
             }
@@ -735,24 +735,24 @@ protected HandlerAdapter getHandlerAdapter(Object handler) throws ServletExcepti
 
 ```
 
-¿ÉÒÔ¿´µ½£¬ÕâÀï»áÕÒµ½µ±Ç°ËùÓĞµÄ `adapter`£¬È»ºó±éÀú£¬Öğ¸öÅĞ¶ÏÊÇ·ñÄÜ´¦Àíµ±Ç°µÄ `handler`£¬ËùÓĞµÄ `adapter` ÈçÏÂ£º
+å¯ä»¥çœ‹åˆ°ï¼Œè¿™é‡Œä¼šæ‰¾åˆ°å½“å‰æ‰€æœ‰çš„ `adapter`ï¼Œç„¶åéå†ï¼Œé€ä¸ªåˆ¤æ–­æ˜¯å¦èƒ½å¤„ç†å½“å‰çš„ `handler`ï¼Œæ‰€æœ‰çš„ `adapter` å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-dedb2d58b9e99091aeb559f6c5a4aab4ccc.png)
 
-ÔÙÀ´¿´¿´ÈçºÎÅĞ¶ÏÊÇ·ñÄÜ´¦Àíµ±Ç°µÄ `handler` µÄ£¬ÎÒÃÇ¿´ÆäÖĞÒ»¸ö `handler`£¬½øÈë `AbstractHandlerMethodAdapter#supports` ·½·¨£º
+å†æ¥çœ‹çœ‹å¦‚ä½•åˆ¤æ–­æ˜¯å¦èƒ½å¤„ç†å½“å‰çš„ `handler` çš„ï¼Œæˆ‘ä»¬çœ‹å…¶ä¸­ä¸€ä¸ª `handler`ï¼Œè¿›å…¥ `AbstractHandlerMethodAdapter#supports` æ–¹æ³•ï¼š
 
 > AbstractHandlerMethodAdapter#supports
 
 ```
 @Override
 public final boolean supports(Object handler) {
-    // ÅĞ¶ÏhandlerÊÇ·ñÎªHandlerMethodµÄÊµÀı
+    // åˆ¤æ–­handleræ˜¯å¦ä¸ºHandlerMethodçš„å®ä¾‹
     return (handler instanceof HandlerMethod && supportsInternal((HandlerMethod) handler));
 }
 
 ```
 
-ÕâÀï½ö×öÁËÒ»¸ö¼òµ¥µÄÅĞ¶Ï£¬È»ºóÔÙµ÷ÓÃ `supportsInternal` ·½·¨£¬¼ÌĞø£º
+è¿™é‡Œä»…åšäº†ä¸€ä¸ªç®€å•çš„åˆ¤æ–­ï¼Œç„¶åå†è°ƒç”¨ `supportsInternal` æ–¹æ³•ï¼Œç»§ç»­ï¼š
 
 > RequestMappingHandlerAdapter#supportsInternal
 
@@ -763,10 +763,10 @@ protected boolean supportsInternal(HandlerMethod handlerMethod) {
 
 ```
 
-Õâ¸ö·½·¨Ö±½Ó·µ»Ø true, ÓÉÓÚ¿É¼û£¬Èç¹û `handler` µÄÊµÀıÊÇ `HandlerMethod`£¬ÄÇÃ´¾Í»á·µ»Ø `RequestMappingHandlerAdapter`.
+è¿™ä¸ªæ–¹æ³•ç›´æ¥è¿”å› true, ç”±äºå¯è§ï¼Œå¦‚æœ `handler` çš„å®ä¾‹æ˜¯ `HandlerMethod`ï¼Œé‚£ä¹ˆå°±ä¼šè¿”å› `RequestMappingHandlerAdapter`.
 
-ÕâÒ»²½ÕÒµ½µÄ `adapter` Îª `RequestMappingHandlerAdapter`£¬Õâ¸ö `adapter` ÓĞÊ²Ã´ÓÃÄØ£¿ÏŞÓÚÆª·ù£¬±¾ÎÄ¾ÍÏÈµ½ÕâÀïÁË£¬Ê£ÏÂµÄÁ÷³ÌÏÂÆªÎÄÕÂ¼ÌĞø·ÖÎö¡£
+è¿™ä¸€æ­¥æ‰¾åˆ°çš„ `adapter` ä¸º `RequestMappingHandlerAdapter`ï¼Œè¿™ä¸ª `adapter` æœ‰ä»€ä¹ˆç”¨å‘¢ï¼Ÿé™äºç¯‡å¹…ï¼Œæœ¬æ–‡å°±å…ˆåˆ°è¿™é‡Œäº†ï¼Œå‰©ä¸‹çš„æµç¨‹ä¸‹ç¯‡æ–‡ç« ç»§ç»­åˆ†æã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4717420](https://my.oschina.net/funcy/blog/4717420) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4717420](https://my.oschina.net/funcy/blog/4717420) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

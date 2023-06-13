@@ -1,185 +1,185 @@
 
 
-# Spring ÅäÖÃÔªÊı¾İ
+# Spring é…ç½®å…ƒæ•°æ®
 
 
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)Spring ÅäÖÃÔªĞÅÏ¢
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)Spring é…ç½®å…ƒä¿¡æ¯
 
-*   Spring Bean ÅäÖÃÔªĞÅÏ¢ - BeanDefinition
-*   Spring Bean ÊôĞÔÔªĞÅÏ¢ - PropertyValues
-*   Spring ÈİÆ÷ÅäÖÃÔªĞÅÏ¢
-*   Spring Íâ²¿»¯ÅäÖÃÔªĞÅÏ¢ - PropertySource
-*   Spring Profile ÔªĞÅÏ¢ - @Profile
+*   Spring Bean é…ç½®å…ƒä¿¡æ¯ - BeanDefinition
+*   Spring Bean å±æ€§å…ƒä¿¡æ¯ - PropertyValues
+*   Spring å®¹å™¨é…ç½®å…ƒä¿¡æ¯
+*   Spring å¤–éƒ¨åŒ–é…ç½®å…ƒä¿¡æ¯ - PropertySource
+*   Spring Profile å…ƒä¿¡æ¯ - @Profile
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-bean-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)Spring Bean ÅäÖÃÔªĞÅÏ¢
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-bean-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)Spring Bean é…ç½®å…ƒä¿¡æ¯
 
-Bean ÅäÖÃÔªĞÅÏ¢ - BeanDefinition
+Bean é…ç½®å…ƒä¿¡æ¯ - BeanDefinition
 
-*   GenericBeanDefinition£ºÍ¨ÓÃĞÍ BeanDefinition
-*   RootBeanDefinition£ºÎŞ Parent µÄ BeanDefinition »òÕßºÏ²¢ºó BeanDefinition
-*   AnnotatedBeanDefinition£º×¢½â±ê×¢µÄ BeanDefinition
+*   GenericBeanDefinitionï¼šé€šç”¨å‹ BeanDefinition
+*   RootBeanDefinitionï¼šæ—  Parent çš„ BeanDefinition æˆ–è€…åˆå¹¶å BeanDefinition
+*   AnnotatedBeanDefinitionï¼šæ³¨è§£æ ‡æ³¨çš„ BeanDefinition
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-bean-%E5%B1%9E%E6%80%A7%E5%85%83%E4%BF%A1%E6%81%AF)Spring Bean ÊôĞÔÔªĞÅÏ¢
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-bean-%E5%B1%9E%E6%80%A7%E5%85%83%E4%BF%A1%E6%81%AF)Spring Bean å±æ€§å…ƒä¿¡æ¯
 
-*   Bean ÊôĞÔÔªĞÅÏ¢ - PropertyValues
-    *   ¿ÉĞŞ¸ÄÊµÏÖ - MutablePropertyValues
-    *   ÔªËØ³ÉÔ± - PropertyValue
-*   Bean ÊôĞÔÉÏÏÂÎÄ´æ´¢ - AttributeAccessor
-*   Bean ÔªĞÅÏ¢ÔªËØ - BeanMetadataElement
+*   Bean å±æ€§å…ƒä¿¡æ¯ - PropertyValues
+    *   å¯ä¿®æ”¹å®ç° - MutablePropertyValues
+    *   å…ƒç´ æˆå‘˜ - PropertyValue
+*   Bean å±æ€§ä¸Šä¸‹æ–‡å­˜å‚¨ - AttributeAccessor
+*   Bean å…ƒä¿¡æ¯å…ƒç´  - BeanMetadataElement
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)Spring ÈİÆ÷ÅäÖÃÔªĞÅÏ¢
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)Spring å®¹å™¨é…ç½®å…ƒä¿¡æ¯
 
-Spring XML ÅäÖÃÔªĞÅÏ¢ - beans ÔªËØÏà¹Ø
+Spring XML é…ç½®å…ƒä¿¡æ¯ - beans å…ƒç´ ç›¸å…³
 
-| beans ÔªËØÊôĞÔ | Ä¬ÈÏÖµ | Ê¹ÓÃ³¡¾° |
+| beans å…ƒç´ å±æ€§ | é»˜è®¤å€¼ | ä½¿ç”¨åœºæ™¯ |
 | --- | --- | --- |
-| profile | null£¨Áô¿Õ£© | Spring Profiles ÅäÖÃÖµ |
-| default-lazy-init | default | µ± outter beans ¡°default-lazy-init¡± ÊôĞÔ´æÔÚÊ±£¬¼Ì³Ğ¸ÃÖµ£¬·ñÔòÎª¡°false¡± |
-| default-merge | default | µ± outter beans ¡°default-merge¡± ÊôĞÔ´æÔÚÊ±£¬¼Ì³Ğ¸ÃÖµ£¬·ñÔòÎª¡°false¡± |
-| default-autowire | default | µ± outter beans ¡°default-autowire¡± ÊôĞÔ´æÔÚÊ±£¬¼Ì³Ğ¸ÃÖµ£¬·ñÔòÎª¡°no¡± |
-| default-autowire-candidates | null£¨Áô¿Õ£© | Ä¬ÈÏ Spring Beans Ãû³Æ pattern |
-| default-init-method | null£¨Áô¿Õ£© | Ä¬ÈÏ Spring Beans ×Ô¶¨Òå³õÊ¼»¯·½·¨ |
-| default-destroy-method | null£¨Áô¿Õ£© | Ä¬ÈÏ Spring Beans ×Ô¶¨ÒåÏú»Ù·½·¨ |
+| profile | nullï¼ˆç•™ç©ºï¼‰ | Spring Profiles é…ç½®å€¼ |
+| default-lazy-init | default | å½“ outter beans â€œdefault-lazy-initâ€ å±æ€§å­˜åœ¨æ—¶ï¼Œç»§æ‰¿è¯¥å€¼ï¼Œå¦åˆ™ä¸ºâ€œfalseâ€ |
+| default-merge | default | å½“ outter beans â€œdefault-mergeâ€ å±æ€§å­˜åœ¨æ—¶ï¼Œç»§æ‰¿è¯¥å€¼ï¼Œå¦åˆ™ä¸ºâ€œfalseâ€ |
+| default-autowire | default | å½“ outter beans â€œdefault-autowireâ€ å±æ€§å­˜åœ¨æ—¶ï¼Œç»§æ‰¿è¯¥å€¼ï¼Œå¦åˆ™ä¸ºâ€œnoâ€ |
+| default-autowire-candidates | nullï¼ˆç•™ç©ºï¼‰ | é»˜è®¤ Spring Beans åç§° pattern |
+| default-init-method | nullï¼ˆç•™ç©ºï¼‰ | é»˜è®¤ Spring Beans è‡ªå®šä¹‰åˆå§‹åŒ–æ–¹æ³• |
+| default-destroy-method | nullï¼ˆç•™ç©ºï¼‰ | é»˜è®¤ Spring Beans è‡ªå®šä¹‰é”€æ¯æ–¹æ³• |
 
-Spring XML ÅäÖÃÔªĞÅÏ¢ - Ó¦ÓÃÉÏÏÂÎÄÏà¹Ø
+Spring XML é…ç½®å…ƒä¿¡æ¯ - åº”ç”¨ä¸Šä¸‹æ–‡ç›¸å…³
 
-| XML ÔªËØ | Ê¹ÓÃ³¡¾° |
+| XML å…ƒç´  | ä½¿ç”¨åœºæ™¯ |
 | --- | --- |
-| `<context:annotation-config />` | ¼¤»î Spring ×¢½âÇı¶¯ |
-| `<context:component-scan />` | Spring @Component ÒÔ¼°×Ô¶¨Òå×¢½âÉ¨Ãè |
-| `<context:load-time-weaver />` | ¼¤»î Spring LoadTimeWeaver |
-| `<context:mbean-export />` | ±©Â¶ Spring Beans ×÷Îª JMX Beans |
-| `<context:mbean-server />` | ½«µ±Ç°Æ½Ì¨×÷Îª MBeanServer |
-| `<context:property-placeholder />` | ¼ÓÔØÍâ²¿»¯ÅäÖÃ×ÊÔ´×÷Îª Spring ÊôĞÔÅä |
-| `<context:property-override />` | ÀûÓÃÍâ²¿»¯ÅäÖÃ×ÊÔ´¸²¸Ç Spring Êô |
+| `<context:annotation-config />` | æ¿€æ´» Spring æ³¨è§£é©±åŠ¨ |
+| `<context:component-scan />` | Spring @Component ä»¥åŠè‡ªå®šä¹‰æ³¨è§£æ‰«æ |
+| `<context:load-time-weaver />` | æ¿€æ´» Spring LoadTimeWeaver |
+| `<context:mbean-export />` | æš´éœ² Spring Beans ä½œä¸º JMX Beans |
+| `<context:mbean-server />` | å°†å½“å‰å¹³å°ä½œä¸º MBeanServer |
+| `<context:property-placeholder />` | åŠ è½½å¤–éƒ¨åŒ–é…ç½®èµ„æºä½œä¸º Spring å±æ€§é… |
+| `<context:property-override />` | åˆ©ç”¨å¤–éƒ¨åŒ–é…ç½®èµ„æºè¦†ç›– Spring å± |
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-xml-%E6%96%87%E4%BB%B6%E8%A3%85%E8%BD%BD-spring-bean-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)»ùÓÚ XML ÎÄ¼ş×°ÔØ Spring Bean ÅäÖÃÔªĞÅÏ¢
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-xml-%E6%96%87%E4%BB%B6%E8%A3%85%E8%BD%BD-spring-bean-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)åŸºäº XML æ–‡ä»¶è£…è½½ Spring Bean é…ç½®å…ƒä¿¡æ¯
 
-µ×²ãÊµÏÖ - XmlBeanDefinitionReader
+åº•å±‚å®ç° - XmlBeanDefinitionReader
 
-| XML ÔªËØ | Ê¹ÓÃ³¡¾° |
+| XML å…ƒç´  | ä½¿ç”¨åœºæ™¯ |
 | --- | --- |
-| `<beans:beans />` | µ¥ XML ×ÊÔ´ÏÂµÄ¶à¸ö Spring Beans ÅäÖÃ |
-| `<beans:bean />` | µ¥¸ö Spring Bean ¶¨Òå£¨BeanDefinition£©ÅäÖÃ |
-| `<beans:alias />` | Îª Spring Bean ¶¨Òå£¨BeanDefinition£©Ó³Éä±ğÃû |
-| `<beans:import />` | ¼ÓÔØÍâ²¿ Spring XML ÅäÖÃ×ÊÔ´ |
+| `<beans:beans />` | å• XML èµ„æºä¸‹çš„å¤šä¸ª Spring Beans é…ç½® |
+| `<beans:bean />` | å•ä¸ª Spring Bean å®šä¹‰ï¼ˆBeanDefinitionï¼‰é…ç½® |
+| `<beans:alias />` | ä¸º Spring Bean å®šä¹‰ï¼ˆBeanDefinitionï¼‰æ˜ å°„åˆ«å |
+| `<beans:import />` | åŠ è½½å¤–éƒ¨ Spring XML é…ç½®èµ„æº |
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-properties-%E6%96%87%E4%BB%B6%E8%A3%85%E8%BD%BD-spring-bean-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)»ùÓÚ Properties ÎÄ¼ş×°ÔØ Spring Bean ÅäÖÃÔªĞÅÏ¢
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-properties-%E6%96%87%E4%BB%B6%E8%A3%85%E8%BD%BD-spring-bean-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)åŸºäº Properties æ–‡ä»¶è£…è½½ Spring Bean é…ç½®å…ƒä¿¡æ¯
 
-µ×²ãÊµÏÖ - PropertiesBeanDefinitionReader
+åº•å±‚å®ç° - PropertiesBeanDefinitionReader
 
-| Properties ÊôĞÔÃû | Ê¹ÓÃ³¡¾° |
+| Properties å±æ€§å | ä½¿ç”¨åœºæ™¯ |
 | --- | --- |
-| `class` | Bean ÀàÈ«³ÆÏŞ¶¨Ãû |
-| `abstract` | ÊÇ·ñÎª³éÏóµÄ BeanDefinition |
-| `parent` | Ö¸¶¨ parent BeanDefinition Ãû³Æ |
-| `lazy-init` | ÊÇ·ñÎªÑÓ³Ù³õÊ¼»¯ |
-| `ref` | ÒıÓÃÆäËû Bean µÄÃû³Æ |
-| `scope` | ÉèÖÃ Bean µÄ scope ÊôĞÔ |
-| ${n} | n ±íÊ¾µÚ n+1 ¸ö¹¹ÔìÆ÷²ÎÊı |
+| `class` | Bean ç±»å…¨ç§°é™å®šå |
+| `abstract` | æ˜¯å¦ä¸ºæŠ½è±¡çš„ BeanDefinition |
+| `parent` | æŒ‡å®š parent BeanDefinition åç§° |
+| `lazy-init` | æ˜¯å¦ä¸ºå»¶è¿Ÿåˆå§‹åŒ– |
+| `ref` | å¼•ç”¨å…¶ä»– Bean çš„åç§° |
+| `scope` | è®¾ç½® Bean çš„ scope å±æ€§ |
+| ${n} | n è¡¨ç¤ºç¬¬ n+1 ä¸ªæ„é€ å™¨å‚æ•° |
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-java-%E6%B3%A8%E8%A7%A3%E8%A3%85%E8%BD%BD-spring-bean-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)»ùÓÚ Java ×¢½â×°ÔØ Spring Bean ÅäÖÃÔªĞÅÏ¢
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-java-%E6%B3%A8%E8%A7%A3%E8%A3%85%E8%BD%BD-spring-bean-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)åŸºäº Java æ³¨è§£è£…è½½ Spring Bean é…ç½®å…ƒä¿¡æ¯
 
-Spring Ä£Ê½×¢½â
+Spring æ¨¡å¼æ³¨è§£
 
-| Spring ×¢½â | ³¡¾°ËµÃ÷ | ÆğÊ¼°æ±¾ |
+| Spring æ³¨è§£ | åœºæ™¯è¯´æ˜ | èµ·å§‹ç‰ˆæœ¬ |
 | --- | --- | --- |
-| `@Repository` | Êı¾İ²Ö´¢Ä£Ê½×¢½â | 2.0 |
-| `@Component` | Í¨ÓÃ×é¼şÄ£Ê½×¢½â | 2.5 |
-| `@Service` | ·şÎñÄ£Ê½×¢½â | 2.5 |
-| `@Controller` | Web ¿ØÖÆÆ÷Ä£Ê½×¢½â | 2.5 |
-| `@Configuration` | ÅäÖÃÀàÄ£Ê½×¢½â | 3.0 |
+| `@Repository` | æ•°æ®ä»“å‚¨æ¨¡å¼æ³¨è§£ | 2.0 |
+| `@Component` | é€šç”¨ç»„ä»¶æ¨¡å¼æ³¨è§£ | 2.5 |
+| `@Service` | æœåŠ¡æ¨¡å¼æ³¨è§£ | 2.5 |
+| `@Controller` | Web æ§åˆ¶å™¨æ¨¡å¼æ³¨è§£ | 2.5 |
+| `@Configuration` | é…ç½®ç±»æ¨¡å¼æ³¨è§£ | 3.0 |
 
-Spring Bean ¶¨Òå×¢½â
+Spring Bean å®šä¹‰æ³¨è§£
 
-| Spring ×¢½â | ³¡¾°ËµÃ÷ | ÆğÊ¼°æ±¾ |
+| Spring æ³¨è§£ | åœºæ™¯è¯´æ˜ | èµ·å§‹ç‰ˆæœ¬ |
 | --- | --- | --- |
-| `@Bean` | Ìæ»» XML ÔªËØ `<bean>` | 3.0 |
-| `@DependsOn` | Ìæ´ú XML ÊôĞÔ `<bean depends-on="..."/>` | 3.0 |
-| `@Lazy` | Ìæ´ú XML ÊôĞÔ `<bean lazy-init="true | falses" />` | 3.0 |
-| `@Primary` | Ìæ»» XML ÔªËØ `<bean primary="true | false" />` | 3.0 |
-| `@Role` | Ìæ»» XML ÔªËØ `<bean role="..." />` | 3.1 |
-| `@Lookup` | Ìæ´ú XML ÊôĞÔ `<bean lookup-method="...">` | 4.1 |
+| `@Bean` | æ›¿æ¢ XML å…ƒç´  `<bean>` | 3.0 |
+| `@DependsOn` | æ›¿ä»£ XML å±æ€§ `<bean depends-on="..."/>` | 3.0 |
+| `@Lazy` | æ›¿ä»£ XML å±æ€§ `<bean lazy-init="true | falses" />` | 3.0 |
+| `@Primary` | æ›¿æ¢ XML å…ƒç´  `<bean primary="true | false" />` | 3.0 |
+| `@Role` | æ›¿æ¢ XML å…ƒç´  `<bean role="..." />` | 3.1 |
+| `@Lookup` | æ›¿ä»£ XML å±æ€§ `<bean lookup-method="...">` | 4.1 |
 
-Spring Bean ÒÀÀµ×¢Èë×¢½â
+Spring Bean ä¾èµ–æ³¨å…¥æ³¨è§£
 
-| Spring ×¢½â | ³¡¾°ËµÃ÷ | ÆğÊ¼°æ±¾ |
+| Spring æ³¨è§£ | åœºæ™¯è¯´æ˜ | èµ·å§‹ç‰ˆæœ¬ |
 | --- | --- | --- |
-| `@Autowired` | Bean ÒÀÀµ×¢Èë£¬Ö§³Ö¶àÖÖÒÀÀµ²éÕÒ·½Ê½ | 2.5 |
-| `@Qualifier` | Ï¸Á£¶ÈµÄ @Autowired ÒÀÀµ²éÕÒ | 2.5 |
+| `@Autowired` | Bean ä¾èµ–æ³¨å…¥ï¼Œæ”¯æŒå¤šç§ä¾èµ–æŸ¥æ‰¾æ–¹å¼ | 2.5 |
+| `@Qualifier` | ç»†ç²’åº¦çš„ @Autowired ä¾èµ–æŸ¥æ‰¾ | 2.5 |
 
  
 
-| Java ×¢½â | ³¡¾°ËµÃ÷ | ÆğÊ¼°æ±¾ |
+| Java æ³¨è§£ | åœºæ™¯è¯´æ˜ | èµ·å§‹ç‰ˆæœ¬ |
 | --- | --- | --- |
-| @Resource | ÀàËÆÓÚ @Autowired | 2.5 |
-| @Inject | ÀàËÆÓÚ @Autowired | 2.5 |
+| @Resource | ç±»ä¼¼äº @Autowired | 2.5 |
+| @Inject | ç±»ä¼¼äº @Autowired | 2.5 |
 
-Spring Bean Ìõ¼ş×°Åä×¢½â
+Spring Bean æ¡ä»¶è£…é…æ³¨è§£
 
-| Spring ×¢½â | ³¡¾°ËµÃ÷ | ÆğÊ¼°æ±¾ |
+| Spring æ³¨è§£ | åœºæ™¯è¯´æ˜ | èµ·å§‹ç‰ˆæœ¬ |
 | --- | --- | --- |
-| @Profile | ÅäÖÃ»¯Ìõ¼ş×°Åä | 3.1 |
-| @Conditional | ±à³ÌÌõ¼ş×°Åä | 4.0 |
+| @Profile | é…ç½®åŒ–æ¡ä»¶è£…é… | 3.1 |
+| @Conditional | ç¼–ç¨‹æ¡ä»¶è£…é… | 4.0 |
 
-Spring Bean ÉúÃüÖÜÆÚ»Øµ÷×¢½â
+Spring Bean ç”Ÿå‘½å‘¨æœŸå›è°ƒæ³¨è§£
 
-| Spring ×¢½â | ³¡¾°ËµÃ÷ | ÆğÊ¼°æ±¾ |
+| Spring æ³¨è§£ | åœºæ™¯è¯´æ˜ | èµ·å§‹ç‰ˆæœ¬ |
 | --- | --- | --- |
-| @PostConstruct | Ìæ»» XML ÔªËØ <bean init-method="..."></bean>»ò InitializingBean | 2.5 |
-| @PreDestroy | Ìæ»» XML ÔªËØ <bean destroy-method="..."></bean>»ò DisposableBean | 2.5 |
+| @PostConstruct | æ›¿æ¢ XML å…ƒç´  <bean init-method="..."></bean>æˆ– InitializingBean | 2.5 |
+| @PreDestroy | æ›¿æ¢ XML å…ƒç´  <bean destroy-method="..."></bean>æˆ– DisposableBean | 2.5 |
 
-Spring BeanDefinition ½âÎöÓë×¢²á
+Spring BeanDefinition è§£æä¸æ³¨å†Œ
 
-| Spring ×¢½â | ³¡¾°ËµÃ÷ | ÆğÊ¼°æ±¾ |
+| Spring æ³¨è§£ | åœºæ™¯è¯´æ˜ | èµ·å§‹ç‰ˆæœ¬ |
 | --- | --- | --- |
-| XML ×ÊÔ´ | XmlBeanDefinitionReader | 1.0 |
-| Properties ×ÊÔ´ | PropertiesBeanDefinitionReader | 1.0 |
-| Java ×¢½â | AnnotatedBeanDefinitionReader | 3.0 |
+| XML èµ„æº | XmlBeanDefinitionReader | 1.0 |
+| Properties èµ„æº | PropertiesBeanDefinitionReader | 1.0 |
+| Java æ³¨è§£ | AnnotatedBeanDefinitionReader | 3.0 |
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-bean-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0)Spring Bean ÅäÖÃÔªĞÅÏ¢µ×²ãÊµÏÖ
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-bean-%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0)Spring Bean é…ç½®å…ƒä¿¡æ¯åº•å±‚å®ç°
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-xml-%E8%B5%84%E6%BA%90-beandefinition-%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%B3%A8%E5%86%8C)Spring XML ×ÊÔ´ BeanDefinition ½âÎöÓë×¢²á
+### [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-xml-%E8%B5%84%E6%BA%90-beandefinition-%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%B3%A8%E5%86%8C)Spring XML èµ„æº BeanDefinition è§£æä¸æ³¨å†Œ
 
-ºËĞÄ API - XmlBeanDefinitionReader
+æ ¸å¿ƒ API - XmlBeanDefinitionReader
 
-*   ×ÊÔ´ - Resource
-*   µ×²ã - BeanDefinitionDocumentReader
-    *   XML ½âÎö - Java DOM Level 3 API
-    *   BeanDefinition ½âÎö - BeanDefinitionParserDelegate
-    *   BeanDefinition ×¢²á - BeanDefinitionRegistry
+*   èµ„æº - Resource
+*   åº•å±‚ - BeanDefinitionDocumentReader
+    *   XML è§£æ - Java DOM Level 3 API
+    *   BeanDefinition è§£æ - BeanDefinitionParserDelegate
+    *   BeanDefinition æ³¨å†Œ - BeanDefinitionRegistry
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-properties-%E8%B5%84%E6%BA%90-beandefinition-%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%B3%A8%E5%86%8C)Spring Properties ×ÊÔ´ BeanDefinition ½âÎöÓë×¢²á
+### [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-properties-%E8%B5%84%E6%BA%90-beandefinition-%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%B3%A8%E5%86%8C)Spring Properties èµ„æº BeanDefinition è§£æä¸æ³¨å†Œ
 
-ºËĞÄ API - PropertiesBeanDefinitionReader
+æ ¸å¿ƒ API - PropertiesBeanDefinitionReader
 
-*   ×ÊÔ´
-    *   ×Ö½ÚÁ÷ - Resource
-    *   ×Ö·ûÁ÷ - EncodedResouce
-*   µ×²ã
-    *   ´æ´¢ - java.util.Properties
-    *   BeanDefinition ½âÎö - API ÄÚ²¿ÊµÏÖ
-    *   BeanDefinition ×¢²á - BeanDefinitionRegistry
+*   èµ„æº
+    *   å­—èŠ‚æµ - Resource
+    *   å­—ç¬¦æµ - EncodedResouce
+*   åº•å±‚
+    *   å­˜å‚¨ - java.util.Properties
+    *   BeanDefinition è§£æ - API å†…éƒ¨å®ç°
+    *   BeanDefinition æ³¨å†Œ - BeanDefinitionRegistry
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-java-%E6%B3%A8%E5%86%8C-beandefinition-%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%B3%A8%E5%86%8C)Spring Java ×¢²á BeanDefinition ½âÎöÓë×¢²á
+### [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#spring-java-%E6%B3%A8%E5%86%8C-beandefinition-%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%B3%A8%E5%86%8C)Spring Java æ³¨å†Œ BeanDefinition è§£æä¸æ³¨å†Œ
 
-ºËĞÄ API - AnnotatedBeanDefinitionReader
+æ ¸å¿ƒ API - AnnotatedBeanDefinitionReader
 
-*   ×ÊÔ´
-    *   Àà¶ÔÏó - java.lang.Class
-*   µ×²ã
-    *   Ìõ¼şÆÀ¹À - ConditionEvaluator
-    *   Bean ·¶Î§½âÎö - ScopeMetadataResolver
-    *   BeanDefinition ½âÎö - ÄÚ²¿ API ÊµÏÖ
-    *   BeanDefinition ´¦Àí - AnnotationConfigUtils.processCommonDefinitionAnnotations
-    *   BeanDefinition ×¢²á - BeanDefinitionRegistry
+*   èµ„æº
+    *   ç±»å¯¹è±¡ - java.lang.Class
+*   åº•å±‚
+    *   æ¡ä»¶è¯„ä¼° - ConditionEvaluator
+    *   Bean èŒƒå›´è§£æ - ScopeMetadataResolver
+    *   BeanDefinition è§£æ - å†…éƒ¨ API å®ç°
+    *   BeanDefinition å¤„ç† - AnnotationConfigUtils.processCommonDefinitionAnnotations
+    *   BeanDefinition æ³¨å†Œ - BeanDefinitionRegistry
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-xml-%E6%96%87%E4%BB%B6%E8%A3%85%E8%BD%BD-spring-ioc-%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)»ùÓÚ XML ÎÄ¼ş×°ÔØ Spring IoC ÈİÆ÷ÅäÖÃÔªĞÅÏ¢
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-xml-%E6%96%87%E4%BB%B6%E8%A3%85%E8%BD%BD-spring-ioc-%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)åŸºäº XML æ–‡ä»¶è£…è½½ Spring IoC å®¹å™¨é…ç½®å…ƒä¿¡æ¯
 
-Spring IoC ÈİÆ÷Ïà¹Ø XML ÅäÖÃ
+Spring IoC å®¹å™¨ç›¸å…³ XML é…ç½®
 
-| ÃüÃû¿Õ¼ä | ËùÊôÄ£¿é | Schema ×ÊÔ´ URL |
+| å‘½åç©ºé—´ | æ‰€å±æ¨¡å— | Schema èµ„æº URL |
 | --- | --- | --- |
 | beans | spring-beans | https://www.springframework.org/schema/beans/spring-beans.xsd |
 | context | spring-context | https://www.springframework.org/schema/context/spring-context.xsd |
@@ -188,35 +188,35 @@ Spring IoC ÈİÆ÷Ïà¹Ø XML ÅäÖÃ
 | util | spring-beans | beans https://www.springframework.org/schema/util/spring-util.xsd |
 | tool | spring-beans | https://www.springframework.org/schema/tool/spring-tool.xsd |
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-java-%E6%B3%A8%E8%A7%A3%E8%A3%85%E8%BD%BD-spring-ioc-%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)»ùÓÚ Java ×¢½â×°ÔØ Spring IoC ÈİÆ÷ÅäÖÃÔªĞÅÏ¢
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-java-%E6%B3%A8%E8%A7%A3%E8%A3%85%E8%BD%BD-spring-ioc-%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AE%E5%85%83%E4%BF%A1%E6%81%AF)åŸºäº Java æ³¨è§£è£…è½½ Spring IoC å®¹å™¨é…ç½®å…ƒä¿¡æ¯
 
-Spring IoC ÈİÆ÷×°Åä×¢½â
+Spring IoC å®¹å™¨è£…é…æ³¨è§£
 
-| Spring ×¢½â | ³¡¾°ËµÃ÷ | ÆğÊ¼°æ±¾ |
+| Spring æ³¨è§£ | åœºæ™¯è¯´æ˜ | èµ·å§‹ç‰ˆæœ¬ |
 | --- | --- | --- |
-| @ImportResource | Ìæ»» XML ÔªËØ `<import>` | 3.0 |
-| @Import | µ¼Èë Configuration Class | 3.0 |
-| @ComponentScan | É¨ÃèÖ¸¶¨ package ÏÂ±ê×¢ Spring Ä£Ê½×¢½âµÄÀà | 3.1 |
+| @ImportResource | æ›¿æ¢ XML å…ƒç´  `<import>` | 3.0 |
+| @Import | å¯¼å…¥ Configuration Class | 3.0 |
+| @ComponentScan | æ‰«ææŒ‡å®š package ä¸‹æ ‡æ³¨ Spring æ¨¡å¼æ³¨è§£çš„ç±» | 3.1 |
 
-Spring IoC ÅäÊôÊôĞÔ×¢½â
+Spring IoC é…å±å±æ€§æ³¨è§£
 
-| Spring ×¢½â | ³¡¾°ËµÃ÷ | ÆğÊ¼°æ±¾ |
+| Spring æ³¨è§£ | åœºæ™¯è¯´æ˜ | èµ·å§‹ç‰ˆæœ¬ |
 | --- | --- | --- |
-| @PropertySource | ÅäÖÃÊôĞÔ³éÏó PropertySource ×¢½â | 3.1 |
-| @PropertySources | @PropertySource ¼¯ºÏ×¢½â | 4.0 |
+| @PropertySource | é…ç½®å±æ€§æŠ½è±¡ PropertySource æ³¨è§£ | 3.1 |
+| @PropertySources | @PropertySource é›†åˆæ³¨è§£ | 4.0 |
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-extensible-xml-authoring-%E6%89%A9%E5%B1%95-springxml-%E5%85%83%E7%B4%A0)»ùÓÚ Extensible XML authoring À©Õ¹ SpringXML ÔªËØ
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-extensible-xml-authoring-%E6%89%A9%E5%B1%95-springxml-%E5%85%83%E7%B4%A0)åŸºäº Extensible XML authoring æ‰©å±• SpringXML å…ƒç´ 
 
-Spring XML À©Õ¹
+Spring XML æ‰©å±•
 
-*   ±àĞ´ XML Schema ÎÄ¼ş£º¶¨Òå XML ½á¹¹
-*   ×Ô¶¨Òå NamespaceHandler ÊµÏÖ£ºÃüÃû¿Õ¼ä°ó¶¨
-*   ×Ô¶¨Òå BeanDefinitionParser ÊµÏÖ£ºXML ÔªËØÓë BeanDefinition ½âÎö
-*   ×¢²á XML À©Õ¹£ºÃüÃû¿Õ¼äÓë XML Schema Ó³Éä
+*   ç¼–å†™ XML Schema æ–‡ä»¶ï¼šå®šä¹‰ XML ç»“æ„
+*   è‡ªå®šä¹‰ NamespaceHandler å®ç°ï¼šå‘½åç©ºé—´ç»‘å®š
+*   è‡ªå®šä¹‰ BeanDefinitionParser å®ç°ï¼šXML å…ƒç´ ä¸ BeanDefinition è§£æ
+*   æ³¨å†Œ XML æ‰©å±•ï¼šå‘½åç©ºé—´ä¸ XML Schema æ˜ å°„
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#extensible-xml-authoring-%E6%89%A9%E5%B1%95%E5%8E%9F%E7%90%86)Extensible XML authoring À©Õ¹Ô­Àí
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#extensible-xml-authoring-%E6%89%A9%E5%B1%95%E5%8E%9F%E7%90%86)Extensible XML authoring æ‰©å±•åŸç†
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E8%A7%A6%E5%8F%91%E6%97%B6%E6%9C%BA)´¥·¢Ê±»ú
+### [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E8%A7%A6%E5%8F%91%E6%97%B6%E6%9C%BA)è§¦å‘æ—¶æœº
 
 *   AbstractApplicationContext#obtainFreshBeanFactory
     *   AbstractRefreshableApplicationContext#refreshBeanFactory
@@ -226,40 +226,40 @@ Spring XML À©Õ¹
                     *   ...
                         *   BeanDefinitionParserDelegate#parseCustomElement
 
-### [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E6%A0%B8%E5%BF%83%E6%B5%81%E7%A8%8B)ºËĞÄÁ÷³Ì
+### [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E6%A0%B8%E5%BF%83%E6%B5%81%E7%A8%8B)æ ¸å¿ƒæµç¨‹
 
 BeanDefinitionParserDelegate#parseCustomElement(org.w3c.dom.Element, BeanDefinition)
 
-*   »ñÈ¡ namespace
-*   Í¨¹ı namespace ½âÎö NamespaceHandler
-*   ¹¹Ôì ParserContext
-*   ½âÎöÔªËØ£¬»ñÈ¡ BeanDefinintion
+*   è·å– namespace
+*   é€šè¿‡ namespace è§£æ NamespaceHandler
+*   æ„é€  ParserContext
+*   è§£æå…ƒç´ ï¼Œè·å– BeanDefinintion
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-properties-%E6%96%87%E4%BB%B6%E8%A3%85%E8%BD%BD%E5%A4%96%E9%83%A8%E5%8C%96%E9%85%8D%E7%BD%AE)»ùÓÚ Properties ÎÄ¼ş×°ÔØÍâ²¿»¯ÅäÖÃ
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-properties-%E6%96%87%E4%BB%B6%E8%A3%85%E8%BD%BD%E5%A4%96%E9%83%A8%E5%8C%96%E9%85%8D%E7%BD%AE)åŸºäº Properties æ–‡ä»¶è£…è½½å¤–éƒ¨åŒ–é…ç½®
 
-×¢½âÇı¶¯
+æ³¨è§£é©±åŠ¨
 
 *   @org.springframework.context.annotation.PropertySource
 *   @org.springframework.context.annotation.PropertySources
 
-API ±à³Ì
+API ç¼–ç¨‹
 
 *   org.springframework.core.env.PropertySource
 *   org.springframework.core.env.PropertySources
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-yaml-%E6%96%87%E4%BB%B6%E8%A3%85%E8%BD%BD%E5%A4%96%E9%83%A8%E5%8C%96%E9%85%8D%E7%BD%AE)»ùÓÚ YAML ÎÄ¼ş×°ÔØÍâ²¿»¯ÅäÖÃ
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%9F%BA%E4%BA%8E-yaml-%E6%96%87%E4%BB%B6%E8%A3%85%E8%BD%BD%E5%A4%96%E9%83%A8%E5%8C%96%E9%85%8D%E7%BD%AE)åŸºäº YAML æ–‡ä»¶è£…è½½å¤–éƒ¨åŒ–é…ç½®
 
-API ±à³Ì
+API ç¼–ç¨‹
 
 *   org.springframework.beans.factory.config.YamlProcessor
     *   org.springframework.beans.factory.config.YamlMapFactoryBean
     *   org.springframework.beans.factory.config.YamlPropertiesFactoryBean
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E9%97%AE%E9%A2%98)ÎÊÌâ
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E9%97%AE%E9%A2%98)é—®é¢˜
 
-**Spring ƒÈ½¨ XML Schema ³£¼ûÓĞÄÄĞ©**£¿
+**Spring å…§å»º XML Schema å¸¸è§æœ‰å“ªäº›**ï¼Ÿ
 
-| ÃüÃû¿Õ¼ä | ËùÊôÄ£¿é | Schema ×ÊÔ´ URL |
+| å‘½åç©ºé—´ | æ‰€å±æ¨¡å— | Schema èµ„æº URL |
 | --- | --- | --- |
 | beans | spring-beans | https://www.springframework.org/schema/beans/spring-beans.xsd |
 | context | spring-context | https://www.springframework.org/schema/context/spring-context.xsd |
@@ -268,28 +268,28 @@ API ±à³Ì
 | util | spring-beans | beans https://www.springframework.org/schema/util/spring-util.xsd |
 | tool | spring-beans | https://www.springframework.org/schema/tool/spring-tool.xsd |
 
-**Spring ÅäÖÃÔªĞÅÏ¢¾ßÌåÓĞÄÄĞ©**£¿
+**Spring é…ç½®å…ƒä¿¡æ¯å…·ä½“æœ‰å“ªäº›**ï¼Ÿ
 
-*   Bean ÅäÖÃÔªĞÅÏ¢£ºÍ¨¹ıÃ½½é£¨Èç XML¡¢Proeprties µÈ£©£¬½âÎö BeanDefinition
-*   IoC ÈİÆ÷ÅäÖÃÔªĞÅÏ¢£ºÍ¨¹ıÃ½½é£¨Èç XML¡¢Proeprties µÈ£©£¬¿ØÖÆ IoC ÈİÆ÷ĞĞÎª£¬±ÈÈç×¢½âÇı¶¯¡¢AOP µÈ
-*   Íâ²¿»¯ÅäÖÃ£ºÍ¨¹ı×ÊÔ´³éÏó£¨Èç Proeprties¡¢YAML µÈ£©£¬¿ØÖÆ PropertySource
-*   Spring Profile£ºÍ¨¹ıÍâ²¿»¯ÅäÖÃ£¬Ìá¹©Ìõ¼ş·ÖÖ§Á÷³Ì
+*   Bean é…ç½®å…ƒä¿¡æ¯ï¼šé€šè¿‡åª’ä»‹ï¼ˆå¦‚ XMLã€Proeprties ç­‰ï¼‰ï¼Œè§£æ BeanDefinition
+*   IoC å®¹å™¨é…ç½®å…ƒä¿¡æ¯ï¼šé€šè¿‡åª’ä»‹ï¼ˆå¦‚ XMLã€Proeprties ç­‰ï¼‰ï¼Œæ§åˆ¶ IoC å®¹å™¨è¡Œä¸ºï¼Œæ¯”å¦‚æ³¨è§£é©±åŠ¨ã€AOP ç­‰
+*   å¤–éƒ¨åŒ–é…ç½®ï¼šé€šè¿‡èµ„æºæŠ½è±¡ï¼ˆå¦‚ Proeprtiesã€YAML ç­‰ï¼‰ï¼Œæ§åˆ¶ PropertySource
+*   Spring Profileï¼šé€šè¿‡å¤–éƒ¨åŒ–é…ç½®ï¼Œæä¾›æ¡ä»¶åˆ†æ”¯æµç¨‹
 
-**Extensible XML authoring µÄÈ±µã**£¿
+**Extensible XML authoring çš„ç¼ºç‚¹**ï¼Ÿ
 
-*   ¸ß¸´ÔÓ¶È£º¿ª·¢ÈËÔ±ĞèÒªÊìÏ¤ XML Schema£¬spring.handlers£¬spring.schemas ÒÔ¼° Spring API
-*   Ç¶Ì×ÔªËØÖ§³Ö½ÏÈõ£ºÍ¨³£ĞèÒªÊ¹ÓÃ·½·¨µİ¹é»òÕßÆäÇ¶Ì×½âÎöµÄ·½Ê½´¦ÀíÇ¶Ì×£¨×Ó£©ÔªËØ
-*   XML ´¦ÀíĞÔÄÜ½Ï²î£ºSpring XML »ùÓÚ DOM Level 3 API ÊµÏÖ£¬¸Ã API ±ãÓÚÀí½â£¬È»¶øĞÔÄÜ½Ï²î
-*   XML ¿ò¼ÜÒÆÖ²ĞÔ²î£ººÜÄÑÊÊÅä¸ßĞÔÄÜºÍ±ãÀûĞÔµÄ XML ¿ò¼Ü£¬Èç JAXB
+*   é«˜å¤æ‚åº¦ï¼šå¼€å‘äººå‘˜éœ€è¦ç†Ÿæ‚‰ XML Schemaï¼Œspring.handlersï¼Œspring.schemas ä»¥åŠ Spring API
+*   åµŒå¥—å…ƒç´ æ”¯æŒè¾ƒå¼±ï¼šé€šå¸¸éœ€è¦ä½¿ç”¨æ–¹æ³•é€’å½’æˆ–è€…å…¶åµŒå¥—è§£æçš„æ–¹å¼å¤„ç†åµŒå¥—ï¼ˆå­ï¼‰å…ƒç´ 
+*   XML å¤„ç†æ€§èƒ½è¾ƒå·®ï¼šSpring XML åŸºäº DOM Level 3 API å®ç°ï¼Œè¯¥ API ä¾¿äºç†è§£ï¼Œç„¶è€Œæ€§èƒ½è¾ƒå·®
+*   XML æ¡†æ¶ç§»æ¤æ€§å·®ï¼šå¾ˆéš¾é€‚é…é«˜æ€§èƒ½å’Œä¾¿åˆ©æ€§çš„ XML æ¡†æ¶ï¼Œå¦‚ JAXB
 
-## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99)²Î¿¼×ÊÁÏ
+## [#](https://dunwu.github.io/spring-tutorial/pages/55f315/#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99)å‚è€ƒèµ„æ–™
 
-*   [Spring ¹Ù·½ÎÄµµÖ® Core Technologies(opens new window)](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans)
-*   [¡¶Ğ¡Âí¸ç½² Spring ºËĞÄ±à³ÌË¼Ïë¡·(opens new window)](https://time.geekbang.org/course/intro/265)
+*   [Spring å®˜æ–¹æ–‡æ¡£ä¹‹ Core Technologies(opens new window)](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans)
+*   [ã€Šå°é©¬å“¥è®² Spring æ ¸å¿ƒç¼–ç¨‹æ€æƒ³ã€‹(opens new window)](https://time.geekbang.org/course/intro/265)
 
 
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://www.w3cschool.cn/wkspring
 https://www.runoob.com/w3cnote/basic-knowledge-summary-of-spring.html
 http://codepub.cn/2015/06/21/Basic-knowledge-summary-of-Spring

@@ -1,52 +1,52 @@
-EurekaÔ´Âë·ÖÎö
+Eurekaæºç åˆ†æ
 
-**µÚ1ÕÂ ºËĞÄÁ÷³Ì**
-**1.1 Eureka×öÁËÊ²Ã´ÊÂ**
+**ç¬¬1ç«  æ ¸å¿ƒæµç¨‹**
+**1.1 Eurekaåšäº†ä»€ä¹ˆäº‹**
 
-Ê×ÏÈÎÒÃÇ¶¼Ã÷°×£¬EurekaÊÇÓÃÔÚ×ö·şÎñ×¢²áµÄ£¬¶ø×¢²áÖĞĞÄÒªÊµÏÖÊ²Ã´¹¦ÄÜÄØ£¿Õâ¸ö±ØĞëÃ÷È·ÁË¡£
+é¦–å…ˆæˆ‘ä»¬éƒ½æ˜ç™½ï¼ŒEurekaæ˜¯ç”¨åœ¨åšæœåŠ¡æ³¨å†Œçš„ï¼Œè€Œæ³¨å†Œä¸­å¿ƒè¦å®ç°ä»€ä¹ˆåŠŸèƒ½å‘¢ï¼Ÿè¿™ä¸ªå¿…é¡»æ˜ç¡®äº†ã€‚
 
-1.  ¼ÈÈ»ÊÇ×¢²áÖĞĞÄ£¬ÄÇÊ×ÏÈÒªÄÜ±£´æ·şÎñµÄip¡¢portµÈĞÅÏ¢°É£¬ÕâÊÇEureka-server±ØĞëÌá¹©µÄ»ù´¡¹¦ÄÜ¡£
-2.  µ±ÎÒ×¢²áÉÏÀ´Ö®ºó£¬»¹ÒªÌá¹©Ò»Ğ©¶¯Ì¬¸ĞÖª·şÎñÉÏÏÂÏßµÄ¹¦ÄÜ°É£¬Èç¹ûÒ»¸ö·şÎñÉÏÏÂÏß£¬Eureka-server¶¼²»ÖªµÀ£¬ÄÇÕâ¸öÍæÒâ¶ù¾ÍÒ»ÎÄ²»ÖµÁË¡£
-3.  µ±Eureka-server¶Ë¸ĞÖªµ½·şÎñµÄ±ä»¯Ö®ºó×ÜµÃÍ¨ÖªÏû·Ñ¶Ë°É£¬ÕâÀï¾ÍÇ£³¶µ½Ê±server¶ËÖ÷¶¯Í¨Öªclient¶ËÄØ»¹ÊÇclient¶Ë×Ô¼ºÈ¥À­È¡ĞÅÏ¢ÄØ£¿Õâ¸öÏÖÔÚ²»ÖªµÀ£¬µÈ»áÈ¥¿´Ô´ÂëÑéÖ¤¡£
-4.  OK£¬ÉÏÃæµÄ¹¦ÄÜ¶¼ÊµÏÖÁË£¬Eureka»ù±¾ºÏ¸ñÁË£¬ÄÇ»¹ÓĞÒ»²½£¬¼ÈÈ»·şÎñµÄipºÍ¶Ë¿Ú¶¼ÔÚEureka-serverÉÏÃæ£¬ÄÇÎÒÏû·Ñ¶Ëµ÷ÓÃ·şÎñ¶ËµÄÊ±ºò£¬Í¨ĞÅÊÇÓÃµÄOpenFeign£¬ÄÇOpenFeignÊÇÔõÃ´ÖªµÀµ÷ÓÃÄÄ¸ö·şÎñµÄ£¿Ö®Ç°¶¼ÊÇĞ´ËÀÔÚapplication.propertiesÀïÃæµÄ<servicename>.ribbon.listOfServersÖĞ£¬ÏÖÔÚEurekaÔõÃ´×Ô¶¯Ğ´½øÈ¥µÄÄØ£¿
-5.  ÉÏÃæ4¸ö¹¦ÄÜ»ù±¾ÉÏÍê³ÉÁË×¢²áÖĞĞÄ¸ÃÓĞµÄ¹¦ÄÜ£¬ÄÇÕâ¸öÊ±ºòÎÒÃÇÔÙÀ´Ë¼¿¼Ò»ÏÂ£¬×¢²áÖĞĞÄÓÃÓÚÎ¢·şÎñÏîÄ¿ÖĞ£¬ÄÇ×¢²áÖĞĞÄÒ²×÷ÎªÒ»¸ö·şÎñ£¬ËüÒ²ĞèÒª×ö¼¯ÈºµÄ£¬Õâ¸öÊ±ºòÎÒÃÇ¾ÍÒªÏëÒ»ÏÂ£¬×ö¼¯ÈºÔõÃ´±£Ö¤Êı¾İÒ»ÖÂĞÔ£¬¸Ã»ùÓÚÊ²Ã´ÀíÂÛ£¿
-    ÉÏÃæÊÇEurekaÒªÊµÏÖµÄ×îºËĞÄµÄ¹¦ÄÜ£¬ÄÇÕâĞ©¹¦ÄÜÌá¹©³öÀ´ÁË£¬ÎÒÏîÄ¿ÔõÃ´È¥µ÷ÓÃÄØ£¿²»ÄÜÖ±½ÓÈ¥µ÷API°É£¬Õâ¶àÂé·³£¬»¹µÃÈ¥Ñ§Ò»±éEurekaµÄapi£¬Íê¶¿×ÓÁË¡£
+1.  æ—¢ç„¶æ˜¯æ³¨å†Œä¸­å¿ƒï¼Œé‚£é¦–å…ˆè¦èƒ½ä¿å­˜æœåŠ¡çš„ipã€portç­‰ä¿¡æ¯å§ï¼Œè¿™æ˜¯Eureka-serverå¿…é¡»æä¾›çš„åŸºç¡€åŠŸèƒ½ã€‚
+2.  å½“æˆ‘æ³¨å†Œä¸Šæ¥ä¹‹åï¼Œè¿˜è¦æä¾›ä¸€äº›åŠ¨æ€æ„ŸçŸ¥æœåŠ¡ä¸Šä¸‹çº¿çš„åŠŸèƒ½å§ï¼Œå¦‚æœä¸€ä¸ªæœåŠ¡ä¸Šä¸‹çº¿ï¼ŒEureka-serveréƒ½ä¸çŸ¥é“ï¼Œé‚£è¿™ä¸ªç©æ„å„¿å°±ä¸€æ–‡ä¸å€¼äº†ã€‚
+3.  å½“Eureka-serverç«¯æ„ŸçŸ¥åˆ°æœåŠ¡çš„å˜åŒ–ä¹‹åæ€»å¾—é€šçŸ¥æ¶ˆè´¹ç«¯å§ï¼Œè¿™é‡Œå°±ç‰µæ‰¯åˆ°æ—¶serverç«¯ä¸»åŠ¨é€šçŸ¥clientç«¯å‘¢è¿˜æ˜¯clientç«¯è‡ªå·±å»æ‹‰å–ä¿¡æ¯å‘¢ï¼Ÿè¿™ä¸ªç°åœ¨ä¸çŸ¥é“ï¼Œç­‰ä¼šå»çœ‹æºç éªŒè¯ã€‚
+4.  OKï¼Œä¸Šé¢çš„åŠŸèƒ½éƒ½å®ç°äº†ï¼ŒEurekaåŸºæœ¬åˆæ ¼äº†ï¼Œé‚£è¿˜æœ‰ä¸€æ­¥ï¼Œæ—¢ç„¶æœåŠ¡çš„ipå’Œç«¯å£éƒ½åœ¨Eureka-serverä¸Šé¢ï¼Œé‚£æˆ‘æ¶ˆè´¹ç«¯è°ƒç”¨æœåŠ¡ç«¯çš„æ—¶å€™ï¼Œé€šä¿¡æ˜¯ç”¨çš„OpenFeignï¼Œé‚£OpenFeignæ˜¯æ€ä¹ˆçŸ¥é“è°ƒç”¨å“ªä¸ªæœåŠ¡çš„ï¼Ÿä¹‹å‰éƒ½æ˜¯å†™æ­»åœ¨application.propertiesé‡Œé¢çš„<servicename>.ribbon.listOfServersä¸­ï¼Œç°åœ¨Eurekaæ€ä¹ˆè‡ªåŠ¨å†™è¿›å»çš„å‘¢ï¼Ÿ
+5.  ä¸Šé¢4ä¸ªåŠŸèƒ½åŸºæœ¬ä¸Šå®Œæˆäº†æ³¨å†Œä¸­å¿ƒè¯¥æœ‰çš„åŠŸèƒ½ï¼Œé‚£è¿™ä¸ªæ—¶å€™æˆ‘ä»¬å†æ¥æ€è€ƒä¸€ä¸‹ï¼Œæ³¨å†Œä¸­å¿ƒç”¨äºå¾®æœåŠ¡é¡¹ç›®ä¸­ï¼Œé‚£æ³¨å†Œä¸­å¿ƒä¹Ÿä½œä¸ºä¸€ä¸ªæœåŠ¡ï¼Œå®ƒä¹Ÿéœ€è¦åšé›†ç¾¤çš„ï¼Œè¿™ä¸ªæ—¶å€™æˆ‘ä»¬å°±è¦æƒ³ä¸€ä¸‹ï¼Œåšé›†ç¾¤æ€ä¹ˆä¿è¯æ•°æ®ä¸€è‡´æ€§ï¼Œè¯¥åŸºäºä»€ä¹ˆç†è®ºï¼Ÿ
+    ä¸Šé¢æ˜¯Eurekaè¦å®ç°çš„æœ€æ ¸å¿ƒçš„åŠŸèƒ½ï¼Œé‚£è¿™äº›åŠŸèƒ½æä¾›å‡ºæ¥äº†ï¼Œæˆ‘é¡¹ç›®æ€ä¹ˆå»è°ƒç”¨å‘¢ï¼Ÿä¸èƒ½ç›´æ¥å»è°ƒAPIå§ï¼Œè¿™å¤šéº»çƒ¦ï¼Œè¿˜å¾—å»å­¦ä¸€éEurekaçš„apiï¼Œå®ŒçŠŠå­äº†ã€‚
 
-Õâ¸öÊ±ºòÎÒÃÇ¾Í»áÁªÏëµ½SpringBootµÄ×Ô¶¯×°ÅäºÍStarter×é¼ş¡£ÕâÁ½¸öÍæÒâ¶ù°ïÎÒÃÇÍê³ÉÁËºËĞÄbeanµÄ×Ô¶¯×¢Èë£¬µ×²ã¿ÉÒÔÖ±½ÓÄÃµ½bean£¬È»ºóÔÚStarter×é¼şÖĞÓ¦¸Ã×Ô¶¯°ïÎÒÃÇµ÷ÓÃÁËAPIµÄ£»OK£¬ÄÇ»Ø¹ıÍ·À´ÎÒ·¢ÏÖ£¬ÎÒµÄEureka-client¾ÍÊÇÒ»¸östarter×é¼ş£¬ºÙºÙ£¬ÓĞµã¶«Î÷ÁË¡£Õâ¸öclient¶ËºËĞÄÂß¼­¿Ï¶¨ÊÇ°ïÎÒÃÇ·â×°ÁË¸÷ÖÖbean£¬È»ºó°ïÎÒÃÇµ÷ÓÃÁËºËĞÄapiÁË¡£
+è¿™ä¸ªæ—¶å€™æˆ‘ä»¬å°±ä¼šè”æƒ³åˆ°SpringBootçš„è‡ªåŠ¨è£…é…å’ŒStarterç»„ä»¶ã€‚è¿™ä¸¤ä¸ªç©æ„å„¿å¸®æˆ‘ä»¬å®Œæˆäº†æ ¸å¿ƒbeançš„è‡ªåŠ¨æ³¨å…¥ï¼Œåº•å±‚å¯ä»¥ç›´æ¥æ‹¿åˆ°beanï¼Œç„¶ååœ¨Starterç»„ä»¶ä¸­åº”è¯¥è‡ªåŠ¨å¸®æˆ‘ä»¬è°ƒç”¨äº†APIçš„ï¼›OKï¼Œé‚£å›è¿‡å¤´æ¥æˆ‘å‘ç°ï¼Œæˆ‘çš„Eureka-clientå°±æ˜¯ä¸€ä¸ªstarterç»„ä»¶ï¼Œå˜¿å˜¿ï¼Œæœ‰ç‚¹ä¸œè¥¿äº†ã€‚è¿™ä¸ªclientç«¯æ ¸å¿ƒé€»è¾‘è‚¯å®šæ˜¯å¸®æˆ‘ä»¬å°è£…äº†å„ç§beanï¼Œç„¶åå¸®æˆ‘ä»¬è°ƒç”¨äº†æ ¸å¿ƒapiäº†ã€‚
 
-ÕâÀïÕë¶ÔEurekaµÄºËĞÄ¹¦ÄÜÎÒÃÇÔÚ×öÒ»¸ö¸ü¼ò±ãµÄ×Ü½á£º
+è¿™é‡Œé’ˆå¯¹Eurekaçš„æ ¸å¿ƒåŠŸèƒ½æˆ‘ä»¬åœ¨åšä¸€ä¸ªæ›´ç®€ä¾¿çš„æ€»ç»“ï¼š
 
-1.  ÊµÏÖ×¢²á£¬²¢´æÔÚÄÚ´æÖĞ
-2.  ¶¯Ì¬¸ĞÖª·şÎñµÄ½¡¿µ×´Ì¬
-3.  ·şÎñµÄ·¢ÏÖ£¬¼°¶¯Ì¬¸ĞÖª·şÎñµÄ±ä»¯
-    **1.2 ºËĞÄÁ÷³ÌÍÆµ¼**
-    Ã÷È·ÁËºËĞÄ¹¦ÄÜ£¬ÒÔ¼°ÈçºÎµ÷ÓÃµÄ£¬½ÓÏÂÀ´ÎÒÃÇÀ´´óµ¨µØÍÆµ¼Ò»ÏÂºËĞÄÁ÷³ÌÍ¼£º
+1.  å®ç°æ³¨å†Œï¼Œå¹¶å­˜åœ¨å†…å­˜ä¸­
+2.  åŠ¨æ€æ„ŸçŸ¥æœåŠ¡çš„å¥åº·çŠ¶æ€
+3.  æœåŠ¡çš„å‘ç°ï¼ŒåŠåŠ¨æ€æ„ŸçŸ¥æœåŠ¡çš„å˜åŒ–
+    **1.2 æ ¸å¿ƒæµç¨‹æ¨å¯¼**
+    æ˜ç¡®äº†æ ¸å¿ƒåŠŸèƒ½ï¼Œä»¥åŠå¦‚ä½•è°ƒç”¨çš„ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬æ¥å¤§èƒ†åœ°æ¨å¯¼ä¸€ä¸‹æ ¸å¿ƒæµç¨‹å›¾ï¼š
 
-![SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®Eureka-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f15564313c2406546821713bcaf3eb0e9ac73d.jpg "SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®Eureka-¿ªÔ´»ù´¡Èí¼şÉçÇø")´óÌåÁ÷³ÌÍÆµ¼³öÀ´Ö®ºó£¬ÎÒÃÇÔÙÀ´Í¨¹ıÔ´Âë×öÒ»¸öÑéÖ¤¡£
+![SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹Eureka-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f15564313c2406546821713bcaf3eb0e9ac73d.jpg "SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹Eureka-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")å¤§ä½“æµç¨‹æ¨å¯¼å‡ºæ¥ä¹‹åï¼Œæˆ‘ä»¬å†æ¥é€šè¿‡æºç åšä¸€ä¸ªéªŒè¯ã€‚
 
-**µÚ2ÕÂ Ô´Âë·ÖÎö**
-**2.1 ·şÎñ×¢²áµÄÈë¿Ú**
-·şÎñ×¢²áÊÇÔÚspring bootÓ¦ÓÃÆô¶¯µÄÊ±ºò·¢ÆğµÄ¡£¾ßÌåµÄÖ´ĞĞÂ·¾¶ÎÒÃÇÔİÇÒ²»¿´£¬ÏÈ»Ø¹ËÒ»ÏÂÇ°ÃæÔÛÃÇ½²¹ıµÄÖªÊ¶¡£
+**ç¬¬2ç«  æºç åˆ†æ**
+**2.1 æœåŠ¡æ³¨å†Œçš„å…¥å£**
+æœåŠ¡æ³¨å†Œæ˜¯åœ¨spring bootåº”ç”¨å¯åŠ¨çš„æ—¶å€™å‘èµ·çš„ã€‚å…·ä½“çš„æ‰§è¡Œè·¯å¾„æˆ‘ä»¬æš‚ä¸”ä¸çœ‹ï¼Œå…ˆå›é¡¾ä¸€ä¸‹å‰é¢å’±ä»¬è®²è¿‡çš„çŸ¥è¯†ã€‚
 
-ÎÒÃÇËµspring cloudÊÇÒ»¸öÉúÌ¬£¬ËüÌá¹©ÁËÒ»Ì×±ê×¼£¬ÕâÌ×±ê×¼¿ÉÒÔÍ¨¹ı²»Í¬µÄ×é¼şÀ´ÊµÏÖ£¬ÆäÖĞ¾Í°üº¬·şÎñ×¢²á/·¢ÏÖ¡¢ÈÛ¶Ï¡¢¸ºÔØ¾ùºâµÈ£¬ÔÚspring-cloud-commonÕâ¸ö°üÖĞ£¬
-org.springframework.cloud.client.serviceregistry Â·¾¶ÏÂ£¬¿ÉÒÔ¿´µ½Ò»¸ö·şÎñ×¢²áµÄ½Ó¿Ú¶¨ Òå ServiceRegistry ¡£Ëü¾ÍÊÇ¶¨ÒåÁËspring cloudÖĞ·şÎñ×¢²áµÄÒ»¸ö½Ó¿Ú¡£
+æˆ‘ä»¬è¯´spring cloudæ˜¯ä¸€ä¸ªç”Ÿæ€ï¼Œå®ƒæä¾›äº†ä¸€å¥—æ ‡å‡†ï¼Œè¿™å¥—æ ‡å‡†å¯ä»¥é€šè¿‡ä¸åŒçš„ç»„ä»¶æ¥å®ç°ï¼Œå…¶ä¸­å°±åŒ…å«æœåŠ¡æ³¨å†Œ/å‘ç°ã€ç†”æ–­ã€è´Ÿè½½å‡è¡¡ç­‰ï¼Œåœ¨spring-cloud-commonè¿™ä¸ªåŒ…ä¸­ï¼Œ
+org.springframework.cloud.client.serviceregistry è·¯å¾„ä¸‹ï¼Œå¯ä»¥çœ‹åˆ°ä¸€ä¸ªæœåŠ¡æ³¨å†Œçš„æ¥å£å®š ä¹‰ ServiceRegistry ã€‚å®ƒå°±æ˜¯å®šä¹‰äº†spring cloudä¸­æœåŠ¡æ³¨å†Œçš„ä¸€ä¸ªæ¥å£ã€‚
 
-ÎÒÃÇ¿´Ò»ÏÂËüµÄÀà¹ØÏµÍ¼£¬Õâ¸ö½Ó¿ÚÓĞÒ»¸öÎ¨Ò»µÄÊµÏÖ EurekaServiceRegistry ¡£±íÊ¾²ÉÓÃµÄÊÇEureka Server×÷Îª·şÎñ×¢²áÖĞĞÄ¡£
+æˆ‘ä»¬çœ‹ä¸€ä¸‹å®ƒçš„ç±»å…³ç³»å›¾ï¼Œè¿™ä¸ªæ¥å£æœ‰ä¸€ä¸ªå”¯ä¸€çš„å®ç° EurekaServiceRegistry ã€‚è¡¨ç¤ºé‡‡ç”¨çš„æ˜¯Eureka Serverä½œä¸ºæœåŠ¡æ³¨å†Œä¸­å¿ƒã€‚
 
-![SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®Eureka-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/49d085328febfffcbae4030dac151db2d0bfcb.jpg "SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®Eureka-¿ªÔ´»ù´¡Èí¼şÉçÇø")**2.1.1 ×¢²áµÄÊ±»ú**
-·şÎñ×¢²áµÄ·¢Æğ£¬ÎÒÃÇ¿ÉÒÔ²Â²âÒ»ÏÂÓ¦¸ÃÊÇÊ²Ã´Ê±ºòÍê³É£¿´ó¼Ò×ÔÒªÏëÏëÆäÊµÓ¦¸Ã²»ÄÑ²Â²âµ½£¬·şÎñµÄ×¢²áÈ¡¾öÓÚ·şÎñÊÇ·ñÒÑ¾­Æô¶¯ºÃÁË¡£¶øÔÚspring bootÖĞ£¬»áµÈµ½spring ÈİÆ÷Æô¶¯²¢ÇÒËùÓĞµÄÅäÖÃ¶¼Íê³ÉÖ®ºóÀ´½øĞĞ×¢²á¡£¶øÕâ¸ö¶¯×÷ÔÚspring bootµÄÆô¶¯·½·¨ÖĞµÄrefreshContextÖĞÍê³É¡£
+![SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹Eureka-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/49d085328febfffcbae4030dac151db2d0bfcb.jpg "SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹Eureka-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")**2.1.1 æ³¨å†Œçš„æ—¶æœº**
+æœåŠ¡æ³¨å†Œçš„å‘èµ·ï¼Œæˆ‘ä»¬å¯ä»¥çŒœæµ‹ä¸€ä¸‹åº”è¯¥æ˜¯ä»€ä¹ˆæ—¶å€™å®Œæˆï¼Ÿå¤§å®¶è‡ªè¦æƒ³æƒ³å…¶å®åº”è¯¥ä¸éš¾çŒœæµ‹åˆ°ï¼ŒæœåŠ¡çš„æ³¨å†Œå–å†³äºæœåŠ¡æ˜¯å¦å·²ç»å¯åŠ¨å¥½äº†ã€‚è€Œåœ¨spring bootä¸­ï¼Œä¼šç­‰åˆ°spring å®¹å™¨å¯åŠ¨å¹¶ä¸”æ‰€æœ‰çš„é…ç½®éƒ½å®Œæˆä¹‹åæ¥è¿›è¡Œæ³¨å†Œã€‚è€Œè¿™ä¸ªåŠ¨ä½œåœ¨spring bootçš„å¯åŠ¨æ–¹æ³•ä¸­çš„refreshContextä¸­å®Œæˆã€‚
 
-ÎÒÃÇ¹Û²ìÒ»ÏÂfinishRefreshÕâ¸ö·½·¨£¬´ÓÃû×ÖÉÏ¿ÉÒÔ¿´µ½ËüÊÇÓÃÀ´ÌåÏÖÍê³ÉË¢ĞÂµÄ²Ù×÷£¬Ò²¾ÍÊÇË¢ĞÂÍê³ÉÖ®ºóÒª×öµÄºóÖÃµÄ²Ù×÷¡£ËüÖ÷Òª×ö¼¸¸öÊÂÇé
+æˆ‘ä»¬è§‚å¯Ÿä¸€ä¸‹finishRefreshè¿™ä¸ªæ–¹æ³•ï¼Œä»åå­—ä¸Šå¯ä»¥çœ‹åˆ°å®ƒæ˜¯ç”¨æ¥ä½“ç°å®Œæˆåˆ·æ–°çš„æ“ä½œï¼Œä¹Ÿå°±æ˜¯åˆ·æ–°å®Œæˆä¹‹åè¦åšçš„åç½®çš„æ“ä½œã€‚å®ƒä¸»è¦åšå‡ ä¸ªäº‹æƒ…
 
-* Çå¿Õ»º´æ
+* æ¸…ç©ºç¼“å­˜
 
-* ³õÊ¼»¯Ò»¸öLifecycleProcessor£¬ÔÚSpringÆô¶¯µÄÊ±ºòÆô¶¯bean£¬ÔÚspring½áÊøµÄÊ±ºòÏú»Ùbean
+* åˆå§‹åŒ–ä¸€ä¸ªLifecycleProcessorï¼Œåœ¨Springå¯åŠ¨çš„æ—¶å€™å¯åŠ¨beanï¼Œåœ¨springç»“æŸçš„æ—¶å€™é”€æ¯bean
 
-* µ÷ÓÃLifecycleProcessorµÄonRefresh·½·¨£¬Æô¶¯ÊµÏÖÁËLifecycle½Ó¿ÚµÄbean
+* è°ƒç”¨LifecycleProcessorçš„onRefreshæ–¹æ³•ï¼Œå¯åŠ¨å®ç°äº†Lifecycleæ¥å£çš„bean
 
-* ·¢²¼ContextRefreshedEvent
+* å‘å¸ƒContextRefreshedEvent
 
-* ×¢²áBean£¬Í¨¹ıJMX½øĞĞ¼à¿ØºÍ¹ÜÀí
+* æ³¨å†ŒBeanï¼Œé€šè¿‡JMXè¿›è¡Œç›‘æ§å’Œç®¡ç†
 
 
 
@@ -73,12 +73,12 @@ org.springframework.cloud.client.serviceregistry Â·¾¶ÏÂ£¬¿ÉÒÔ¿´µ½Ò»¸ö·şÎñ×¢²áµÄ½
 
 
 
-ÔÚÕâ¸ö·½·¨ÖĞ£¬ÎÒÃÇÖØµã¹Ø×¢ getLifecycleProcessor().onRefresh() £¬ËüÊÇµ÷ÓÃÉúÃüÖÜÆÚ´¦ÀíÆ÷µÄonrefresh·½·¨£¬ÕÒµ½SmartLifecycle½Ó¿ÚµÄËùÓĞÊµÏÖÀà²¢µ÷ÓÃstart·½·¨¡£
+åœ¨è¿™ä¸ªæ–¹æ³•ä¸­ï¼Œæˆ‘ä»¬é‡ç‚¹å…³æ³¨ getLifecycleProcessor().onRefresh() ï¼Œå®ƒæ˜¯è°ƒç”¨ç”Ÿå‘½å‘¨æœŸå¤„ç†å™¨çš„onrefreshæ–¹æ³•ï¼Œæ‰¾åˆ°SmartLifecycleæ¥å£çš„æ‰€æœ‰å®ç°ç±»å¹¶è°ƒç”¨startæ–¹æ³•ã€‚
 
 **2.1.2 SmartLifeCycle**
-ÎÒÍØÕ¹Ò»ÏÂSmartLifeCycleÕâ¿éµÄÖªÊ¶£¬ SmartLifeCycleÊÇÒ»¸ö½Ó¿Ú£¬µ±SpringÈİÆ÷¼ÓÔØÍêËùÓĞµÄBean²¢ÇÒ³õÊ¼»¯Ö®ºó£¬»á¼ÌĞø»Øµ÷ÊµÏÖÁËSmartLifeCycle½Ó¿ÚµÄÀàÖĞ¶ÔÓ¦µÄ·½·¨£¬±ÈÈç£¨start£©¡£
+æˆ‘æ‹“å±•ä¸€ä¸‹SmartLifeCycleè¿™å—çš„çŸ¥è¯†ï¼Œ SmartLifeCycleæ˜¯ä¸€ä¸ªæ¥å£ï¼Œå½“Springå®¹å™¨åŠ è½½å®Œæ‰€æœ‰çš„Beanå¹¶ä¸”åˆå§‹åŒ–ä¹‹åï¼Œä¼šç»§ç»­å›è°ƒå®ç°äº†SmartLifeCycleæ¥å£çš„ç±»ä¸­å¯¹åº”çš„æ–¹æ³•ï¼Œæ¯”å¦‚ï¼ˆstartï¼‰ã€‚
 
-Êµ¼ÊÉÏÎÒÃÇ×Ô¼ºÒ²¿ÉÒÔÍØÕ¹£¬±ÈÈçÔÚspringboot¹¤³ÌµÄmain·½·¨Í¬¼¶Ä¿Â¼ÏÂ£¬Ğ´Ò»¸ö²âÊÔÀà£¬ÊµÏÖSmartLifeCycle½Ó¿Ú£¬²¢ÇÒÍ¨¹ı @Service ÉùÃ÷ÎªÒ»¸öbean£¬ÒòÎªÒª±»springÈ¥¼ÓÔØ£¬Ê×ÏÈµÃÊÇbean¡£
+å®é™…ä¸Šæˆ‘ä»¬è‡ªå·±ä¹Ÿå¯ä»¥æ‹“å±•ï¼Œæ¯”å¦‚åœ¨springbootå·¥ç¨‹çš„mainæ–¹æ³•åŒçº§ç›®å½•ä¸‹ï¼Œå†™ä¸€ä¸ªæµ‹è¯•ç±»ï¼Œå®ç°SmartLifeCycleæ¥å£ï¼Œå¹¶ä¸”é€šè¿‡ @Service å£°æ˜ä¸ºä¸€ä¸ªbeanï¼Œå› ä¸ºè¦è¢«springå»åŠ è½½ï¼Œé¦–å…ˆå¾—æ˜¯beanã€‚
 
 
 
@@ -86,23 +86,23 @@ org.springframework.cloud.client.serviceregistry Â·¾¶ÏÂ£¬¿ÉÒÔ¿´µ½Ò»¸ö·şÎñ×¢²áµÄ½
 @Service
 public class TestSmartLifeCycle implements SmartLifecycle {
     /**
-     * ·şÎñÆô¶¯ºóÖ´ĞĞ.ÎŞĞèÏÔÊ¾µ÷ÓÃstart·½·¨.
-     * µ«ÊÇÒÀÀµisAutoStartup()·µ»ØÖµ,Ö»ÓĞisAutoStartup()·µ»ØtrueµÄÊ±ºò,start()²Å»á±»Ö´ĞĞ
+     * æœåŠ¡å¯åŠ¨åæ‰§è¡Œ.æ— éœ€æ˜¾ç¤ºè°ƒç”¨startæ–¹æ³•.
+     * ä½†æ˜¯ä¾èµ–isAutoStartup()è¿”å›å€¼,åªæœ‰isAutoStartup()è¿”å›trueçš„æ—¶å€™,start()æ‰ä¼šè¢«æ‰§è¡Œ
      */
     @Override
     public void start() {
         System.out.println("----------start-----------");
     }
     /**
-     * ·şÎñÍ£Ö¹Ç°Ö´ĞĞ·½·¨
-     * Ç°ÌáÌõ¼ş: isRunning()·µ»Øtrue²Å»á±»Ö´ĞĞ
+     * æœåŠ¡åœæ­¢å‰æ‰§è¡Œæ–¹æ³•
+     * å‰ææ¡ä»¶: isRunning()è¿”å›trueæ‰ä¼šè¢«æ‰§è¡Œ
      */
     @Override
     public void stop() {
         System.out.println("----------stop-----------");
     }
     /**
-     * ·µ»Ø·şÎñÔËĞĞ×´Ì¬,Ó°Ïìµ½·şÎñÊÇ·ñµ÷ÓÃstop·½·¨
+     * è¿”å›æœåŠ¡è¿è¡ŒçŠ¶æ€,å½±å“åˆ°æœåŠ¡æ˜¯å¦è°ƒç”¨stopæ–¹æ³•
      * @return
      */
     @Override
@@ -110,8 +110,8 @@ public class TestSmartLifeCycle implements SmartLifecycle {
         return false;
     }
     /**
-     * ÊÇ·ñµ÷ÓÃstart·½·¨,ĞèÒª×¢Òâ
-     * µ±Ç°·½·¨·µ»ØfalseÊÇ²»»áÖ´ĞĞstart()
+     * æ˜¯å¦è°ƒç”¨startæ–¹æ³•,éœ€è¦æ³¨æ„
+     * å½“å‰æ–¹æ³•è¿”å›falseæ˜¯ä¸ä¼šæ‰§è¡Œstart()
      * @return
      */
     @Override
@@ -124,8 +124,8 @@ public class TestSmartLifeCycle implements SmartLifecycle {
         runnable.run();
     }
     /**
-     * Ö¸¶¨Ö´ĞĞË³Ğò
-     * µ±Ç°ÈİÆ÷Èç¹ûÓĞ¶à¸öÀàÊµÏÖÁËSmartLifecycle,Ôò°´´Ë·¨·½·¨·µ»ØÖµÅÅĞòÖ´ĞĞ
+     * æŒ‡å®šæ‰§è¡Œé¡ºåº
+     * å½“å‰å®¹å™¨å¦‚æœæœ‰å¤šä¸ªç±»å®ç°äº†SmartLifecycle,åˆ™æŒ‰æ­¤æ³•æ–¹æ³•è¿”å›å€¼æ’åºæ‰§è¡Œ
      * @return
      */
     @Override
@@ -143,9 +143,9 @@ public class TestSmartLifeCycle implements SmartLifecycle {
 
 
 
-½Ó×Å£¬ÎÒÃÇÆô¶¯spring bootÓ¦ÓÃºó£¬¿ÉÒÔ¿´µ½¿ØÖÆÌ¨Êä³öÁË start ×Ö·û´®¡£
+æ¥ç€ï¼Œæˆ‘ä»¬å¯åŠ¨spring bootåº”ç”¨åï¼Œå¯ä»¥çœ‹åˆ°æ§åˆ¶å°è¾“å‡ºäº† start å­—ç¬¦ä¸²ã€‚
 
-ÎÒÃÇÔÚDefaultLifecycleProcessor.startBeans·½·¨ÉÏ¼ÓÒ»¸ödebug£¬¿ÉÒÔºÜÃ÷ÏÔµÄ¿´µ½ÎÒÃÇ×Ô¼º¶¨ÒåµÄTestSmartLifeCycle±»É¨Ãèµ½ÁË£¬²¢ÇÒ×îºó»áµ÷ÓÃ¸ÃbeanµÄstart·½·¨¡£![SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®Eureka-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/75b18e528ba1879148c106d9bd3fb61ab9b5bb.jpg "SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®Eureka-¿ªÔ´»ù´¡Èí¼şÉçÇø")ÔÚstartBeans·½·¨ÖĞ£¬ÎÒÃÇ¿ÉÒÔ¿´µ½ËüÊ×ÏÈ»á»ñµÃËùÓĞÊµÏÖÁËSmartLifeCycleµÄBean£¬È»ºó»áÑ­»·µ÷ÓÃÊµÏÖÁËSmartLifeCycleµÄbeanµÄstart·½·¨£¬´úÂëÈçÏÂ¡£
+æˆ‘ä»¬åœ¨DefaultLifecycleProcessor.startBeansæ–¹æ³•ä¸ŠåŠ ä¸€ä¸ªdebugï¼Œå¯ä»¥å¾ˆæ˜æ˜¾çš„çœ‹åˆ°æˆ‘ä»¬è‡ªå·±å®šä¹‰çš„TestSmartLifeCycleè¢«æ‰«æåˆ°äº†ï¼Œå¹¶ä¸”æœ€åä¼šè°ƒç”¨è¯¥beançš„startæ–¹æ³•ã€‚![SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹Eureka-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/75b18e528ba1879148c106d9bd3fb61ab9b5bb.jpg "SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹Eureka-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")åœ¨startBeansæ–¹æ³•ä¸­ï¼Œæˆ‘ä»¬å¯ä»¥çœ‹åˆ°å®ƒé¦–å…ˆä¼šè·å¾—æ‰€æœ‰å®ç°äº†SmartLifeCycleçš„Beanï¼Œç„¶åä¼šå¾ªç¯è°ƒç”¨å®ç°äº†SmartLifeCycleçš„beançš„startæ–¹æ³•ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -206,7 +206,7 @@ private void doStart(Map<String, ? extends Lifecycle> lifecycleBeans, String bea
                 this.logger.trace("Starting bean '" + beanName + "' of type [" + bean.getClass().getName() + "]");
             }
             try {
-                bean.start(); //´ËÊ± BeanµÄÊµÀıÓ¦¸ÃÊÇEurekaAutoServiceRegistration
+                bean.start(); //æ­¤æ—¶ Beançš„å®ä¾‹åº”è¯¥æ˜¯EurekaAutoServiceRegistration
             } catch (Throwable var10) {
                 throw new ApplicationContextException("Failed to start bean '" + beanName + "'", var10);
             }
@@ -226,8 +226,8 @@ private void doStart(Map<String, ? extends Lifecycle> lifecycleBeans, String bea
 
 
 
-´ËÊ±£¬bean.start()£¬µ÷ÓÃµÄ¿ÉÄÜÊÇ
-EurekaAutoServiceRegistrationÖĞµÄstart·½·¨£¬ÒòÎªºÜÏÔÈ»£¬ËüÊµÏÖÁËSmartLifeCycle½Ó¿Ú¡£
+æ­¤æ—¶ï¼Œbean.start()ï¼Œè°ƒç”¨çš„å¯èƒ½æ˜¯
+EurekaAutoServiceRegistrationä¸­çš„startæ–¹æ³•ï¼Œå› ä¸ºå¾ˆæ˜¾ç„¶ï¼Œå®ƒå®ç°äº†SmartLifeCycleæ¥å£ã€‚
 
 
 
@@ -265,11 +265,11 @@ public class EurekaAutoServiceRegistration implements AutoServiceRegistration,Sm
 
 
 
-ÔÚstart·½·¨ÖĞ£¬ÎÒÃÇ¿ÉÒÔ¿´µ½
-this.serviceRegistry.register Õâ¸ö·½·¨£¬ËüÊµ¼ÊÉÏ¾ÍÊÇ·¢Æğ·şÎñ×¢²áµÄ»úÖÆ¡£
+åœ¨startæ–¹æ³•ä¸­ï¼Œæˆ‘ä»¬å¯ä»¥çœ‹åˆ°
+this.serviceRegistry.register è¿™ä¸ªæ–¹æ³•ï¼Œå®ƒå®é™…ä¸Šå°±æ˜¯å‘èµ·æœåŠ¡æ³¨å†Œçš„æœºåˆ¶ã€‚
 
-´ËÊ±this.serviceRegistryµÄÊµÀı£¬Ó¦¸ÃÊÇ EurekaServiceRegistry £¬ Ô­ÒòÊÇ
-EurekaAutoServiceRegistrationµÄ¹¹Ôì·½·¨ÖĞ£¬»áÓĞÒ»¸ö¸³Öµ²Ù×÷£¬¶øÕâ¸ö¹¹Ôì·½·¨ÊÇÔÚEurekaClientAutoConfiguration Õâ¸ö×Ô¶¯×°ÅäÀàÖĞ±»×°ÅäºÍ³õÊ¼»¯µÄ£¬´úÂëÈçÏÂ¡£
+æ­¤æ—¶this.serviceRegistryçš„å®ä¾‹ï¼Œåº”è¯¥æ˜¯ EurekaServiceRegistry ï¼Œ åŸå› æ˜¯
+EurekaAutoServiceRegistrationçš„æ„é€ æ–¹æ³•ä¸­ï¼Œä¼šæœ‰ä¸€ä¸ªèµ‹å€¼æ“ä½œï¼Œè€Œè¿™ä¸ªæ„é€ æ–¹æ³•æ˜¯åœ¨EurekaClientAutoConfiguration è¿™ä¸ªè‡ªåŠ¨è£…é…ç±»ä¸­è¢«è£…é…å’Œåˆå§‹åŒ–çš„ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -292,8 +292,8 @@ public EurekaAutoServiceRegistration eurekaAutoServiceRegistration(
 
 
 
-**2.2 ·şÎñµÄ×¢²áÁ÷³Ì**
-½ÓÏÂÀ´ÎÒÃÇ·ÖÎö·şÎñ×¢²áµÄÁ÷³Ì
+**2.2 æœåŠ¡çš„æ³¨å†Œæµç¨‹**
+æ¥ä¸‹æ¥æˆ‘ä»¬åˆ†ææœåŠ¡æ³¨å†Œçš„æµç¨‹
 
 
 
@@ -302,7 +302,7 @@ public class EurekaAutoServiceRegistration implements AutoServiceRegistration,
 SmartLifecycle, Ordered, SmartApplicationListener {
     @Override
     public void start() {
-        //Ê¡ÂÔ...
+        //çœç•¥...
         this.serviceRegistry.register(this.registration);
         this.context.publishEvent(new InstanceRegisteredEvent<> this,this.registration.getInstanceConfig()));
     }
@@ -317,9 +317,9 @@ SmartLifecycle, Ordered, SmartApplicationListener {
 
 
 
-this.serviceRegistry.register(this.registration); ·½·¨×îÖÕ»áµ÷ÓÃ
+this.serviceRegistry.register(this.registration); æ–¹æ³•æœ€ç»ˆä¼šè°ƒç”¨
 
-EurekaServiceRegistry ÀàÖĞµÄ register ·½·¨À´ÊµÏÖ·şÎñ×¢²á
+EurekaServiceRegistry ç±»ä¸­çš„ register æ–¹æ³•æ¥å®ç°æœåŠ¡æ³¨å†Œ
 
 **2.2.1 register**
 
@@ -335,9 +335,9 @@ public void register(EurekaRegistration reg) {
                  + " with eureka with status "
                  + reg.getInstanceConfig().getInitialStatus());
     }
-    //ÉèÖÃµ±Ç°ÊµÀıµÄ×´Ì¬£¬Ò»µ©Õâ¸öÊµÀıµÄ×´Ì¬·¢Éú±ä»¯£¬Ö»Òª×´Ì¬²»ÊÇDOWN£¬ÄÇÃ´¾Í»á±»¼àÌıÆ÷¼àÌı²¢ÇÒÖ´ĞĞ·şÎñ×¢²á¡£
+    //è®¾ç½®å½“å‰å®ä¾‹çš„çŠ¶æ€ï¼Œä¸€æ—¦è¿™ä¸ªå®ä¾‹çš„çŠ¶æ€å‘ç”Ÿå˜åŒ–ï¼Œåªè¦çŠ¶æ€ä¸æ˜¯DOWNï¼Œé‚£ä¹ˆå°±ä¼šè¢«ç›‘å¬å™¨ç›‘å¬å¹¶ä¸”æ‰§è¡ŒæœåŠ¡æ³¨å†Œã€‚
     reg.getApplicationInfoManager().setInstanceStatus(reg.getInstanceConfig().getInitialStatus());
-    //ÉèÖÃ½¡¿µ¼ì²éµÄ´¦Àí
+    //è®¾ç½®å¥åº·æ£€æŸ¥çš„å¤„ç†
     reg.getHealthCheckHandler().ifAvailable(healthCheckHandler -> reg.getEurekaClient().registerHealthCheck(healthCheckHandler));
 }
 ```
@@ -350,8 +350,8 @@ public void register(EurekaRegistration reg) {
 
 
 
-´ÓÉÏÊö´úÂëÀ´¿´£¬×¢²á·½·¨ÖĞ²¢Ã»ÓĞÕæÕıµ÷ÓÃEurekaµÄ·½·¨È¥Ö´ĞĞ×¢²á£¬¶øÊÇ½ö½öÉèÖÃÁËÒ»¸ö×´Ì¬ÒÔ¼°ÉèÖÃ½¡¿µ¼ì²é´¦ÀíÆ÷¡£ÎÒÃÇ¼ÌĞø¿´Ò»ÏÂ
-reg.getApplicationInfoManager().setInstanceStatus·½·¨¡£
+ä»ä¸Šè¿°ä»£ç æ¥çœ‹ï¼Œæ³¨å†Œæ–¹æ³•ä¸­å¹¶æ²¡æœ‰çœŸæ­£è°ƒç”¨Eurekaçš„æ–¹æ³•å»æ‰§è¡Œæ³¨å†Œï¼Œè€Œæ˜¯ä»…ä»…è®¾ç½®äº†ä¸€ä¸ªçŠ¶æ€ä»¥åŠè®¾ç½®å¥åº·æ£€æŸ¥å¤„ç†å™¨ã€‚æˆ‘ä»¬ç»§ç»­çœ‹ä¸€ä¸‹
+reg.getApplicationInfoManager().setInstanceStatusæ–¹æ³•ã€‚
 
 
 
@@ -382,12 +382,12 @@ public synchronized void setInstanceStatus(InstanceStatus status) {
 
 
 
-ÔÚÕâ¸ö·½·¨ÖĞ£¬Ëü»áÍ¨¹ı¼àÌıÆ÷À´·¢²¼Ò»¸ö×´Ì¬±ä¸üÊÂ¼ş¡£ok£¬´ËÊ±listenerµÄÊµÀıÊÇStatusChangeListener £¬Ò²¾ÍÊÇµ÷ÓÃ StatusChangeListener µÄnotify·½·¨¡£Õâ¸öÊÂ¼şÊÇ´¥·¢Ò»¸ö·şÎñ×´Ì¬±ä¸ü£¬Ó¦¸ÃÊÇÓĞµØ·½»á¼àÌıÕâ¸öÊÂ¼ş£¬È»ºó»ùÓÚÕâ¸öÊÂ¼ş½øĞĞ×¢²á¡£
+åœ¨è¿™ä¸ªæ–¹æ³•ä¸­ï¼Œå®ƒä¼šé€šè¿‡ç›‘å¬å™¨æ¥å‘å¸ƒä¸€ä¸ªçŠ¶æ€å˜æ›´äº‹ä»¶ã€‚okï¼Œæ­¤æ—¶listenerçš„å®ä¾‹æ˜¯StatusChangeListener ï¼Œä¹Ÿå°±æ˜¯è°ƒç”¨ StatusChangeListener çš„notifyæ–¹æ³•ã€‚è¿™ä¸ªäº‹ä»¶æ˜¯è§¦å‘ä¸€ä¸ªæœåŠ¡çŠ¶æ€å˜æ›´ï¼Œåº”è¯¥æ˜¯æœ‰åœ°æ–¹ä¼šç›‘å¬è¿™ä¸ªäº‹ä»¶ï¼Œç„¶ååŸºäºè¿™ä¸ªäº‹ä»¶è¿›è¡Œæ³¨å†Œã€‚
 
-Õâ¸öÊ±ºòÎÒÃÇÒÔÎªÕÒµ½ÁË·½Ïò£¬È»ºóµã»÷½øÈ¥Ò»¿´£¬·¢ÏÖËüÊÇÒ»¸ö½Ó¿Ú¡£¶øÇÒÎÒÃÇ·¢ÏÖËüÊÇ¾²Ì¬µÄÄÚ²¿½Ó¿Ú£¬»¹ÎŞ·¨Ö±½Ó¿´µ½ËüµÄÊµÏÖÀà¡£
+è¿™ä¸ªæ—¶å€™æˆ‘ä»¬ä»¥ä¸ºæ‰¾åˆ°äº†æ–¹å‘ï¼Œç„¶åç‚¹å‡»è¿›å»ä¸€çœ‹ï¼Œå‘ç°å®ƒæ˜¯ä¸€ä¸ªæ¥å£ã€‚è€Œä¸”æˆ‘ä»¬å‘ç°å®ƒæ˜¯é™æ€çš„å†…éƒ¨æ¥å£ï¼Œè¿˜æ— æ³•ç›´æ¥çœ‹åˆ°å®ƒçš„å®ç°ç±»ã€‚
 
-ÒÀÎÒ¶àÄêÔ´ÂëÔÄ¶Á¾­Ñé£¬ÓÚÊÇÓÖÍù»ØÕÒ£¬ÒòÎªÎÒ»ù±¾ÉÏÄÜ²Â²âµ½Ò»¶¨ÊÇÔÚÄ³¸öµØ·½×öÁË³õÊ¼»¯µÄ¹¤×÷£¬ÓÚÊÇ£¬ÎÒÏëÕÒµ½
-EurekaServiceRegistry.register·½·¨ÖĞµÄ reg.getApplicationInfoManager Õâ¸öÊµÀıÊÇÊ²Ã´£¬¶øÇÒÎÒÃÇ·¢ÏÖApplicationInfoManagerÊÇÀ´×ÔÓÚEurekaRegistrationÕâ¸öÀàÖĞµÄÊôĞÔ¡£¶øEurekaRegistrationÓÖÊÇÔÚEurekaAutoServiceRegistrationÕâ¸öÀàÖĞÊµÀı»¯µÄ¡£ÄÇÎÒÔÚÏë£¬ÊÇ²»ÊÇÔÚ×Ô¶¯×°ÅäÖĞ×öÁËÊ²Ã´¶«Î÷¡£ÓÚÊÇÕÒµ½EurekaClientAutoConfigurationÕâ¸öÀà£¬¹ûÈ»¿´µ½ÁËBeanµÄÒ»Ğ©×Ô¶¯×°Åä£¬ÆäÖĞ°üº¬ EurekaClient ¡¢ ApplicationInfoMangager ¡¢ EurekaRegistration µÈ¡£
+ä¾æˆ‘å¤šå¹´æºç é˜…è¯»ç»éªŒï¼Œäºæ˜¯åˆå¾€å›æ‰¾ï¼Œå› ä¸ºæˆ‘åŸºæœ¬ä¸Šèƒ½çŒœæµ‹åˆ°ä¸€å®šæ˜¯åœ¨æŸä¸ªåœ°æ–¹åšäº†åˆå§‹åŒ–çš„å·¥ä½œï¼Œäºæ˜¯ï¼Œæˆ‘æƒ³æ‰¾åˆ°
+EurekaServiceRegistry.registeræ–¹æ³•ä¸­çš„ reg.getApplicationInfoManager è¿™ä¸ªå®ä¾‹æ˜¯ä»€ä¹ˆï¼Œè€Œä¸”æˆ‘ä»¬å‘ç°ApplicationInfoManageræ˜¯æ¥è‡ªäºEurekaRegistrationè¿™ä¸ªç±»ä¸­çš„å±æ€§ã€‚è€ŒEurekaRegistrationåˆæ˜¯åœ¨EurekaAutoServiceRegistrationè¿™ä¸ªç±»ä¸­å®ä¾‹åŒ–çš„ã€‚é‚£æˆ‘åœ¨æƒ³ï¼Œæ˜¯ä¸æ˜¯åœ¨è‡ªåŠ¨è£…é…ä¸­åšäº†ä»€ä¹ˆä¸œè¥¿ã€‚äºæ˜¯æ‰¾åˆ°EurekaClientAutoConfigurationè¿™ä¸ªç±»ï¼Œæœç„¶çœ‹åˆ°äº†Beançš„ä¸€äº›è‡ªåŠ¨è£…é…ï¼Œå…¶ä¸­åŒ…å« EurekaClient ã€ ApplicationInfoMangager ã€ EurekaRegistration ç­‰ã€‚
 
 **2.2.2 EurekaClientConfiguration**
 
@@ -434,10 +434,10 @@ protected static class EurekaClientConfiguration {
 
 
 
-²»ÄÑ·¢ÏÖ£¬ÎÒÃÇËÆºõ¿´µ½ÁËÒ»¸öºÜÖØÒªµÄBeanÔÚÆô¶¯µÄÊ±ºò×öÁË×Ô¶¯×°Åä£¬Ò²¾ÍÊÇCloudEurekaClient ¡£´ÓÃû×ÖÉÏÀ´¿´£¬ÎÒ¿ÉÒÔºÜÈİÒ×µÄÊ¶±ğ²¢²Â²â³öËüÊÇEureka¿Í»§¶ËµÄÒ»¸ö¹¤¾ßÀà£¬ÓÃÀ´ÊµÏÖºÍ·şÎñ¶ËµÄÍ¨ĞÅÒÔ¼°´¦Àí¡£Õâ¸öÊÇºÜ¶àÔ´ÂëÒ»¹áµÄÌ×Â·£¬ÒªÃ´ÔÚ¹¹Ôì·½·¨ÀïÃæÈ¥×öºÜ¶àµÄ³õÊ¼»¯ºÍÒ»Ğ©ºóÌ¨Ö´ĞĞµÄ³ÌĞò²Ù×÷£¬ÒªÃ´¾ÍÊÇÍ¨¹ıÒì²½ÊÂ¼şµÄ·½Ê½À´´¦Àí¡£½Ó×Å£¬ÎÒÃÇ¿´Ò»ÏÂCloudEurekaClientµÄ³õÊ¼»¯¹ı³Ì£¬ËüµÄ¹¹Ôì·½·¨ÖĞ»áÍ¨¹ı super µ÷ÓÃ¸¸ÀàµÄ¹¹Ôì·½·¨¡£Ò²¾ÍÊÇDiscoveryClientµÄ¹¹Ôì¡£
+ä¸éš¾å‘ç°ï¼Œæˆ‘ä»¬ä¼¼ä¹çœ‹åˆ°äº†ä¸€ä¸ªå¾ˆé‡è¦çš„Beanåœ¨å¯åŠ¨çš„æ—¶å€™åšäº†è‡ªåŠ¨è£…é…ï¼Œä¹Ÿå°±æ˜¯CloudEurekaClient ã€‚ä»åå­—ä¸Šæ¥çœ‹ï¼Œæˆ‘å¯ä»¥å¾ˆå®¹æ˜“çš„è¯†åˆ«å¹¶çŒœæµ‹å‡ºå®ƒæ˜¯Eurekaå®¢æˆ·ç«¯çš„ä¸€ä¸ªå·¥å…·ç±»ï¼Œç”¨æ¥å®ç°å’ŒæœåŠ¡ç«¯çš„é€šä¿¡ä»¥åŠå¤„ç†ã€‚è¿™ä¸ªæ˜¯å¾ˆå¤šæºç ä¸€è´¯çš„å¥—è·¯ï¼Œè¦ä¹ˆåœ¨æ„é€ æ–¹æ³•é‡Œé¢å»åšå¾ˆå¤šçš„åˆå§‹åŒ–å’Œä¸€äº›åå°æ‰§è¡Œçš„ç¨‹åºæ“ä½œï¼Œè¦ä¹ˆå°±æ˜¯é€šè¿‡å¼‚æ­¥äº‹ä»¶çš„æ–¹å¼æ¥å¤„ç†ã€‚æ¥ç€ï¼Œæˆ‘ä»¬çœ‹ä¸€ä¸‹CloudEurekaClientçš„åˆå§‹åŒ–è¿‡ç¨‹ï¼Œå®ƒçš„æ„é€ æ–¹æ³•ä¸­ä¼šé€šè¿‡ super è°ƒç”¨çˆ¶ç±»çš„æ„é€ æ–¹æ³•ã€‚ä¹Ÿå°±æ˜¯DiscoveryClientçš„æ„é€ ã€‚
 
 **2.2.3 CloudEurekaClient**
-super(applicationInfoManager, config, args);µ÷ÓÃ¸¸ÀàµÄ¹¹Ôì·½·¨£¬¶øCloudEurekaClientµÄ¸¸ÀàÊÇDiscoveryClient.
+super(applicationInfoManager, config, args);è°ƒç”¨çˆ¶ç±»çš„æ„é€ æ–¹æ³•ï¼Œè€ŒCloudEurekaClientçš„çˆ¶ç±»æ˜¯DiscoveryClient.
 
 
 
@@ -459,33 +459,33 @@ public CloudEurekaClient(ApplicationInfoManager applicationInfoManager,EurekaCli
 
 
 
-**2.2.4 DiscoveryClient¹¹Ôì**
-ÎÒÃÇ¿ÉÒÔ¿´µ½ÔÚ×îÖÕµÄDiscoveryClient¹¹Ôì·½·¨ÖĞ£¬ÓĞ·Ç³£³¤µÄ´úÂë¡£ÆäÊµºÜ¶à´úÂë¿ÉÒÔ²»ĞèÒª¹ØĞÄ£¬´ó²¿·Ö¶¼ÊÇÒ»Ğ©³õÊ¼»¯¹¤×÷£¬±ÈÈç³õÊ¼»¯ÁË¼¸¸ö¶¨Ê±ÈÎÎñ
+**2.2.4 DiscoveryClientæ„é€ **
+æˆ‘ä»¬å¯ä»¥çœ‹åˆ°åœ¨æœ€ç»ˆçš„DiscoveryClientæ„é€ æ–¹æ³•ä¸­ï¼Œæœ‰éå¸¸é•¿çš„ä»£ç ã€‚å…¶å®å¾ˆå¤šä»£ç å¯ä»¥ä¸éœ€è¦å…³å¿ƒï¼Œå¤§éƒ¨åˆ†éƒ½æ˜¯ä¸€äº›åˆå§‹åŒ–å·¥ä½œï¼Œæ¯”å¦‚åˆå§‹åŒ–äº†å‡ ä¸ªå®šæ—¶ä»»åŠ¡
 
 * scheduler
 
-* heartbeatExecutor ĞÄÌø¶¨Ê±ÈÎÎñ
+* heartbeatExecutor å¿ƒè·³å®šæ—¶ä»»åŠ¡
 
-* cacheRefreshExecutor ¶¨Ê±È¥Í¬²½·şÎñ¶ËµÄÊµÀıÁĞ±í
+* cacheRefreshExecutor å®šæ—¶å»åŒæ­¥æœåŠ¡ç«¯çš„å®ä¾‹åˆ—è¡¨
 
 
 
   ```
   DiscoveryClient(ApplicationInfoManager applicationInfoManager,EurekaClientConfig config, AbstractDiscoveryClientOptionalArgs args,Provider<BackupRegistry> backupRegistryProvider,EndpointRandomizer endpointRandomizer) {
-      //Ê¡ÂÔ²¿·Ö´úÂë...
-      //ÊÇ·ñÒª´Óeureka serverÉÏ»ñÈ¡·şÎñµØÖ·ĞÅÏ¢
+      //çœç•¥éƒ¨åˆ†ä»£ç ...
+      //æ˜¯å¦è¦ä»eureka serverä¸Šè·å–æœåŠ¡åœ°å€ä¿¡æ¯
       if (config.shouldFetchRegistry()) {
           this.registryStalenessMonitor = new ThresholdLevelsMetric(this,METRIC_REGISTRY_PREFIX + "lastUpdateSec_", new long[]{15L, 30L, 60L, 120L, 240L,480L});
       } else {
           this.registryStalenessMonitor = ThresholdLevelsMetric.NO_OP_METRIC;
       }
-      //ÊÇ·ñÒª×¢²áµ½eureka serverÉÏ
+      //æ˜¯å¦è¦æ³¨å†Œåˆ°eureka serverä¸Š
       if (config.shouldRegisterWithEureka()) {
           this.heartbeatStalenessMonitor = new ThresholdLevelsMetric(this,METRIC_REGISTRATION_PREFIX + "lastHeartbeatSec_", new long[]{15L, 30L, 60L,120L, 240L, 480L});
       } else {
           this.heartbeatStalenessMonitor = ThresholdLevelsMetric.NO_OP_METRIC;
       }
-      //Èç¹û²»ĞèÒª×¢²á²¢ÇÒ²»ĞèÒª¸üĞÂ·şÎñµØÖ·
+      //å¦‚æœä¸éœ€è¦æ³¨å†Œå¹¶ä¸”ä¸éœ€è¦æ›´æ–°æœåŠ¡åœ°å€
       if (!config.shouldRegisterWithEureka() && !config.shouldFetchRegistry()) {
   
           return;  // no need to setup up an network tasks and we are done
@@ -529,7 +529,7 @@ public CloudEurekaClient(ApplicationInfoManager applicationInfoManager,EurekaCli
       } catch (Throwable e) {
           throw new RuntimeException("Failed to initialize DiscoveryClient!", e);
       }
-      //Èç¹ûĞèÒª×¢²áµ½Eureka server²¢ÇÒÊÇ¿ªÆôÁË³õÊ¼»¯µÄÊ±ºòÇ¿ÖÆ×¢²á£¬Ôòµ÷ÓÃregister()·¢Æğ·şÎñ×¢²á
+      //å¦‚æœéœ€è¦æ³¨å†Œåˆ°Eureka serverå¹¶ä¸”æ˜¯å¼€å¯äº†åˆå§‹åŒ–çš„æ—¶å€™å¼ºåˆ¶æ³¨å†Œï¼Œåˆ™è°ƒç”¨register()å‘èµ·æœåŠ¡æ³¨å†Œ
       if (clientConfig.shouldRegisterWithEureka() &&
           clientConfig.shouldEnforceRegistrationAtInit()) {
           try {
@@ -555,20 +555,20 @@ public CloudEurekaClient(ApplicationInfoManager applicationInfoManager,EurekaCli
 
 
 **2.2.5 initScheduledTasks**
-initScheduledTasks È¥Æô¶¯Ò»¸ö¶¨Ê±ÈÎÎñ¡£
+initScheduledTasks å»å¯åŠ¨ä¸€ä¸ªå®šæ—¶ä»»åŠ¡ã€‚
 
-*   Èç¹ûÅäÖÃÁË¿ªÆô´Ó×¢²áÖĞĞÄË¢ĞÂ·şÎñÁĞ±í£¬Ôò»á¿ªÆôcacheRefreshExecutorÕâ¸ö¶¨Ê±ÈÎÎñ
-*   Èç¹û¿ªÆôÁË·şÎñ×¢²áµ½Eureka£¬ÔòÍ¨¹ıĞèÒª×ö¼¸¸öÊÂÇé.
+*   å¦‚æœé…ç½®äº†å¼€å¯ä»æ³¨å†Œä¸­å¿ƒåˆ·æ–°æœåŠ¡åˆ—è¡¨ï¼Œåˆ™ä¼šå¼€å¯cacheRefreshExecutorè¿™ä¸ªå®šæ—¶ä»»åŠ¡
+*   å¦‚æœå¼€å¯äº†æœåŠ¡æ³¨å†Œåˆ°Eurekaï¼Œåˆ™é€šè¿‡éœ€è¦åšå‡ ä¸ªäº‹æƒ….
 
-1.  ½¨Á¢ĞÄÌø¼ì²â»úÖÆ
+1.  å»ºç«‹å¿ƒè·³æ£€æµ‹æœºåˆ¶
 
-Í¨¹ıÄÚ²¿ÀàÀ´ÊµÀı»¯StatusChangeListener ÊµÀı×´Ì¬¼à¿Ø½Ó¿Ú£¬Õâ¸ö¾ÍÊÇÇ°ÃæÎÒÃÇÔÚ·ÖÎöÆô¶¯¹ı³ÌÖĞËù¿´µ½µÄ£¬µ÷ÓÃnotifyµÄ·½·¨£¬Êµ¼ÊÉÏ»áÔÚÕâÀïÌåÏÖ¡£
+é€šè¿‡å†…éƒ¨ç±»æ¥å®ä¾‹åŒ–StatusChangeListener å®ä¾‹çŠ¶æ€ç›‘æ§æ¥å£ï¼Œè¿™ä¸ªå°±æ˜¯å‰é¢æˆ‘ä»¬åœ¨åˆ†æå¯åŠ¨è¿‡ç¨‹ä¸­æ‰€çœ‹åˆ°çš„ï¼Œè°ƒç”¨notifyçš„æ–¹æ³•ï¼Œå®é™…ä¸Šä¼šåœ¨è¿™é‡Œä½“ç°ã€‚
 
 
 
 ```
 private void initScheduledTasks() {
-    //Èç¹ûÅäÖÃÁË¿ªÆô´Ó×¢²áÖĞĞÄË¢ĞÂ·şÎñÁĞ±í£¬Ôò»á¿ªÆôcacheRefreshExecutorÕâ¸ö¶¨Ê±ÈÎÎñ
+    //å¦‚æœé…ç½®äº†å¼€å¯ä»æ³¨å†Œä¸­å¿ƒåˆ·æ–°æœåŠ¡åˆ—è¡¨ï¼Œåˆ™ä¼šå¼€å¯cacheRefreshExecutorè¿™ä¸ªå®šæ—¶ä»»åŠ¡
     if (clientConfig.shouldFetchRegistry()) {
         // registry cache refresh timer
         int registryFetchIntervalSeconds =
@@ -587,7 +587,7 @@ private void initScheduledTasks() {
             ),
             registryFetchIntervalSeconds, TimeUnit.SECONDS);
     }
-    //Èç¹û¿ªÆôÁË·şÎñ×¢²áµ½Eureka£¬ÔòÍ¨¹ıĞèÒª×ö¼¸¸öÊÂÇé
+    //å¦‚æœå¼€å¯äº†æœåŠ¡æ³¨å†Œåˆ°Eurekaï¼Œåˆ™é€šè¿‡éœ€è¦åšå‡ ä¸ªäº‹æƒ…
     if (clientConfig.shouldRegisterWithEureka()) {
         int renewalIntervalInSecs =
             instanceInfo.getLeaseInfo().getRenewalIntervalInSecs();
@@ -607,7 +607,7 @@ private void initScheduledTasks() {
                 new HeartbeatThread()
             ),
             renewalIntervalInSecs, TimeUnit.SECONDS);
-        // InstanceInfo replicator ³õÊ¼»¯Ò»¸ö:instanceInfoReplicator
+        // InstanceInfo replicator åˆå§‹åŒ–ä¸€ä¸ª:instanceInfoReplicator
         instanceInfoReplicator = new InstanceInfoReplicator(
             this,
             instanceInfo,
@@ -634,11 +634,11 @@ private void initScheduledTasks() {
                 instanceInfoReplicator.onDemandUpdate();
             }
         };
-        //×¢²áÊµÀı×´Ì¬±ä»¯µÄ¼àÌı
+        //æ³¨å†Œå®ä¾‹çŠ¶æ€å˜åŒ–çš„ç›‘å¬
         if (clientConfig.shouldOnDemandUpdateStatusChange()) {
             applicationInfoManager.registerStatusChangeListener(statusChangeListener);
         }
-        //Æô¶¯Ò»¸öÊµÀıĞÅÏ¢¸´ÖÆÆ÷£¬Ö÷Òª¾ÍÊÇÎªÁË¿ªÆôÒ»¸ö¶¨Ê±Ïß³Ì£¬Ã¿40ÃëÅĞ¶ÏÊµÀıĞÅÏ¢ÊÇ·ñ±ä¸ü£¬Èç¹û±ä¸üÁËÔòÖØĞÂ×¢²á
+        //å¯åŠ¨ä¸€ä¸ªå®ä¾‹ä¿¡æ¯å¤åˆ¶å™¨ï¼Œä¸»è¦å°±æ˜¯ä¸ºäº†å¼€å¯ä¸€ä¸ªå®šæ—¶çº¿ç¨‹ï¼Œæ¯40ç§’åˆ¤æ–­å®ä¾‹ä¿¡æ¯æ˜¯å¦å˜æ›´ï¼Œå¦‚æœå˜æ›´äº†åˆ™é‡æ–°æ³¨å†Œ
         instanceInfoReplicator.start(clientConfig.getInitialInstanceInfoReplicationInte
                                      rvalSeconds());
     } else {
@@ -656,27 +656,27 @@ private void initScheduledTasks() {
 
 
 **2.2.6 onDemandUpdate**
-Õâ¸ö·½·¨µÄÖ÷Òª×÷ÓÃÊÇ¸ù¾İÊµÀıÊı¾İÊÇ·ñ·¢Éú±ä»¯£¬À´´¥·¢·şÎñ×¢²áÖĞĞÄµÄÊı¾İ¡£
+è¿™ä¸ªæ–¹æ³•çš„ä¸»è¦ä½œç”¨æ˜¯æ ¹æ®å®ä¾‹æ•°æ®æ˜¯å¦å‘ç”Ÿå˜åŒ–ï¼Œæ¥è§¦å‘æœåŠ¡æ³¨å†Œä¸­å¿ƒçš„æ•°æ®ã€‚
 
 
 
 ```
 public boolean onDemandUpdate() {
-    //ÏŞÁ÷ÅĞ¶Ï
+    //é™æµåˆ¤æ–­
     if (rateLimiter.acquire(burstSize, allowedRatePerMinute)) {
         if (!scheduler.isShutdown()) {
-            //Ìá½»Ò»¸öÈÎÎñ
+            //æäº¤ä¸€ä¸ªä»»åŠ¡
             scheduler.submit(new Runnable() {
                 @Override
                 public void run() {
                     logger.debug("Executing on-demand update of local InstanceInfo");
-                    //È¡³öÖ®Ç°ÒÑ¾­Ìá½»µÄÈÎÎñ£¬Ò²¾ÍÊÇÔÚstart·½·¨ÖĞÌá½»µÄ¸üĞÂÈÎÎñ£¬Èç¹ûÈÎÎñ»¹Ã»ÓĞÖ´ĞĞÍê³É£¬ÔòÈ¡ÏûÖ®Ç°µÄÈÎÎñ¡£
+                    //å–å‡ºä¹‹å‰å·²ç»æäº¤çš„ä»»åŠ¡ï¼Œä¹Ÿå°±æ˜¯åœ¨startæ–¹æ³•ä¸­æäº¤çš„æ›´æ–°ä»»åŠ¡ï¼Œå¦‚æœä»»åŠ¡è¿˜æ²¡æœ‰æ‰§è¡Œå®Œæˆï¼Œåˆ™å–æ¶ˆä¹‹å‰çš„ä»»åŠ¡ã€‚
                     Future latestPeriodic = scheduledPeriodicRef.get();
                     if (latestPeriodic != null && !latestPeriodic.isDone()) {
                         logger.debug("Canceling the latest scheduled update, it will be rescheduled at the end of on demand update");
-                        latestPeriodic.cancel(false);//Èç¹û´ËÈÎÎñÎ´Íê³É£¬¾ÍÁ¢¼´È¡Ïû
+                        latestPeriodic.cancel(false);//å¦‚æœæ­¤ä»»åŠ¡æœªå®Œæˆï¼Œå°±ç«‹å³å–æ¶ˆ
                     }
-                    //Í¨¹ıµ÷ÓÃrun·½·¨£¬ÁîÈÎÎñÔÚÑÓÊ±ºóÖ´ĞĞ£¬Ïàµ±ÓÚÖÜÆÚĞÔÈÎÎñÖĞµÄÒ»´Î
+                    //é€šè¿‡è°ƒç”¨runæ–¹æ³•ï¼Œä»¤ä»»åŠ¡åœ¨å»¶æ—¶åæ‰§è¡Œï¼Œç›¸å½“äºå‘¨æœŸæ€§ä»»åŠ¡ä¸­çš„ä¸€æ¬¡
                     InstanceInfoReplicator.this.run();
                 }
             });
@@ -701,7 +701,7 @@ public boolean onDemandUpdate() {
 
 
 **2.2.7 run**
-run·½·¨Êµ¼ÊÉÏºÍÇ°Ãæ×Ô¶¯×°ÅäËùÖ´ĞĞµÄ·şÎñ×¢²á·½·¨ÊÇÒ»ÑùµÄ£¬Ò²¾ÍÊÇµ÷ÓÃ register ·½·¨½øĞĞ·şÎñ×¢²á£¬²¢ÇÒÔÚfinallyÖĞ£¬Ã¿30s»á¶¨Ê±Ö´ĞĞÒ»ÏÂµ±Ç°µÄrun ·½·¨½øĞĞ¼ì²é¡£
+runæ–¹æ³•å®é™…ä¸Šå’Œå‰é¢è‡ªåŠ¨è£…é…æ‰€æ‰§è¡Œçš„æœåŠ¡æ³¨å†Œæ–¹æ³•æ˜¯ä¸€æ ·çš„ï¼Œä¹Ÿå°±æ˜¯è°ƒç”¨ register æ–¹æ³•è¿›è¡ŒæœåŠ¡æ³¨å†Œï¼Œå¹¶ä¸”åœ¨finallyä¸­ï¼Œæ¯30sä¼šå®šæ—¶æ‰§è¡Œä¸€ä¸‹å½“å‰çš„run æ–¹æ³•è¿›è¡Œæ£€æŸ¥ã€‚
 
 
 
@@ -733,8 +733,8 @@ public void run() {
 
 
 **2.2.8 register**
-×îÖÕ£¬ÎÒÃÇÖÕÓÚÕÒµ½·şÎñ×¢²áµÄÈë¿ÚÁË£¬
-eurekaTransport.registrationClient.register ×îÖÕµ÷ÓÃµÄÊÇ AbstractJerseyEurekaHttpClient#register(...)`£¬ µ±È»´ó¼ÒÈç¹û×Ô¼ºÈ¥¿´´úÂë£¬¾Í»á·¢ÏÖÈ¥µ÷ÓÃÖ®Ç°ÓĞºÜ¶àÈÆÀ´ÈÆÈ¥µÄ´úÂë£¬±ÈÈç¹¤³§Ä£Ê½¡¢×°ÊÎÆ÷Ä£Ê½µÈ¡£
+æœ€ç»ˆï¼Œæˆ‘ä»¬ç»ˆäºæ‰¾åˆ°æœåŠ¡æ³¨å†Œçš„å…¥å£äº†ï¼Œ
+eurekaTransport.registrationClient.register æœ€ç»ˆè°ƒç”¨çš„æ˜¯ AbstractJerseyEurekaHttpClient#register(...)`ï¼Œ å½“ç„¶å¤§å®¶å¦‚æœè‡ªå·±å»çœ‹ä»£ç ï¼Œå°±ä¼šå‘ç°å»è°ƒç”¨ä¹‹å‰æœ‰å¾ˆå¤šç»•æ¥ç»•å»çš„ä»£ç ï¼Œæ¯”å¦‚å·¥å‚æ¨¡å¼ã€è£…é¥°å™¨æ¨¡å¼ç­‰ã€‚
 
 
 
@@ -763,9 +763,9 @@ boolean register() throws Throwable {
 
 
 
-ºÜÏÔÈ»£¬ÕâÀïÊÇ·¢ÆğÁËÒ»´ÎhttpÇëÇó£¬·ÃÎÊEureka-ServerµÄapps/${APP_NAME}½Ó¿Ú£¬½«µ±Ç°·şÎñÊµÀıµÄĞÅÏ¢·¢ËÍµ½Eureka Server½øĞĞ±£´æ¡£
+å¾ˆæ˜¾ç„¶ï¼Œè¿™é‡Œæ˜¯å‘èµ·äº†ä¸€æ¬¡httpè¯·æ±‚ï¼Œè®¿é—®Eureka-Serverçš„apps/${APP_NAME}æ¥å£ï¼Œå°†å½“å‰æœåŠ¡å®ä¾‹çš„ä¿¡æ¯å‘é€åˆ°Eureka Serverè¿›è¡Œä¿å­˜ã€‚
 
-ÖÁ´Ë£¬ÎÒÃÇ»ù±¾ÉÏÒÑ¾­ÖªµÀSpring Cloud Eureka ÊÇÈçºÎÔÚÆô¶¯µÄÊ±ºò°Ñ·şÎñĞÅÏ¢×¢²áµ½Eureka ServerÉÏµÄÁË¡£
+è‡³æ­¤ï¼Œæˆ‘ä»¬åŸºæœ¬ä¸Šå·²ç»çŸ¥é“Spring Cloud Eureka æ˜¯å¦‚ä½•åœ¨å¯åŠ¨çš„æ—¶å€™æŠŠæœåŠ¡ä¿¡æ¯æ³¨å†Œåˆ°Eureka Serverä¸Šçš„äº†ã€‚
 
 
 
@@ -804,27 +804,27 @@ public EurekaHttpResponse<Void> register(InstanceInfo info) {
 
 
 
-µ«ÊÇ£¬ËÆºõ×î¿ªÊ¼µÄÎÊÌâ»¹Ã»ÓĞ½â¾ö£¬Ò²¾ÍÊÇSpring BootÓ¦ÓÃÔÚÆô¶¯Ê±£¬»áµ÷ÓÃstart·½·¨£¬×îÖÕµ÷ÓÃ
-StatusChangeListener.notify È¥¸üĞÂ·şÎñµÄÒ»¸ö×´Ì¬£¬²¢Ã»ÓĞÖ±½Óµ÷ÓÃregister·½·¨×¢²á¡£ËùÒÔÎÒÃÇ¼ÌĞøÈ¥¿´Ò»ÏÂ statusChangeListener.notify ·½·¨¡£
+ä½†æ˜¯ï¼Œä¼¼ä¹æœ€å¼€å§‹çš„é—®é¢˜è¿˜æ²¡æœ‰è§£å†³ï¼Œä¹Ÿå°±æ˜¯Spring Bootåº”ç”¨åœ¨å¯åŠ¨æ—¶ï¼Œä¼šè°ƒç”¨startæ–¹æ³•ï¼Œæœ€ç»ˆè°ƒç”¨
+StatusChangeListener.notify å»æ›´æ–°æœåŠ¡çš„ä¸€ä¸ªçŠ¶æ€ï¼Œå¹¶æ²¡æœ‰ç›´æ¥è°ƒç”¨registeræ–¹æ³•æ³¨å†Œã€‚æ‰€ä»¥æˆ‘ä»¬ç»§ç»­å»çœ‹ä¸€ä¸‹ statusChangeListener.notify æ–¹æ³•ã€‚
 
-**2.2.9 ·şÎñ×Ü½á**
-ÖÁ´Ë£¬ÎÒÃÇÖªµÀEureka Client·¢Æğ·şÎñ×¢²áÊ±£¬ÓĞÁ½¸öµØ·½»áÖ´ĞĞ·şÎñ×¢²áµÄÈÎÎñ
+**2.2.9 æœåŠ¡æ€»ç»“**
+è‡³æ­¤ï¼Œæˆ‘ä»¬çŸ¥é“Eureka Clientå‘èµ·æœåŠ¡æ³¨å†Œæ—¶ï¼Œæœ‰ä¸¤ä¸ªåœ°æ–¹ä¼šæ‰§è¡ŒæœåŠ¡æ³¨å†Œçš„ä»»åŠ¡
 
-1.  ÔÚSpring BootÆô¶¯Ê±£¬ÓÉÓÚ×Ô¶¯×°Åä»úÖÆ½«CloudEurekaClient×¢Èëµ½ÁËÈİÆ÷£¬²¢ÇÒÖ´ĞĞÁË¹¹Ôì·½·¨£¬¶øÔÚ¹¹Ôì·½·¨ÖĞÓĞÒ»¸ö¶¨Ê±ÈÎÎñÃ¿40s»áÖ´ĞĞÒ»´ÎÅĞ¶Ï£¬ÅĞ¶ÏÊµÀıĞÅÏ¢ÊÇ·ñ·¢ÉúÁË±ä»¯£¬Èç¹ûÊÇÔò»á·¢Æğ·şÎñ×¢²áµÄÁ÷³Ì
-2.  ÔÚSpring BootÆô¶¯Ê±£¬Í¨¹ırefresh·½·¨£¬×îÖÕµ÷ÓÃStatusChangeListener.notify½øĞĞ·şÎñ×´Ì¬±ä¸üµÄ¼àÌı£¬¶øÕâ¸ö¼àÌıµÄ·½·¨ÊÜµ½ÊÂ¼şÖ®ºó»áÈ¥Ö´ĞĞ·şÎñ×¢²á¡£
-    **2.3 Server¶ËÂß¼­**
-    ÔÚÃ»·ÖÎöÔ´ÂëÊµÏÖÖ®Ç°£¬ÎÒÃÇÒ»¶¨ÖªµÀËü¿Ï¶¨¶ÔÇëÇó¹ıÀ´µÄ·şÎñÊµÀıÊı¾İ½øĞĞÁË´æ´¢¡£ÄÇÃ´ÎÒÃÇÈ¥Eureka Server¶Ë¿´Ò»ÏÂ´¦ÀíÁ÷³Ì¡£
+1.  åœ¨Spring Bootå¯åŠ¨æ—¶ï¼Œç”±äºè‡ªåŠ¨è£…é…æœºåˆ¶å°†CloudEurekaClientæ³¨å…¥åˆ°äº†å®¹å™¨ï¼Œå¹¶ä¸”æ‰§è¡Œäº†æ„é€ æ–¹æ³•ï¼Œè€Œåœ¨æ„é€ æ–¹æ³•ä¸­æœ‰ä¸€ä¸ªå®šæ—¶ä»»åŠ¡æ¯40sä¼šæ‰§è¡Œä¸€æ¬¡åˆ¤æ–­ï¼Œåˆ¤æ–­å®ä¾‹ä¿¡æ¯æ˜¯å¦å‘ç”Ÿäº†å˜åŒ–ï¼Œå¦‚æœæ˜¯åˆ™ä¼šå‘èµ·æœåŠ¡æ³¨å†Œçš„æµç¨‹
+2.  åœ¨Spring Bootå¯åŠ¨æ—¶ï¼Œé€šè¿‡refreshæ–¹æ³•ï¼Œæœ€ç»ˆè°ƒç”¨StatusChangeListener.notifyè¿›è¡ŒæœåŠ¡çŠ¶æ€å˜æ›´çš„ç›‘å¬ï¼Œè€Œè¿™ä¸ªç›‘å¬çš„æ–¹æ³•å—åˆ°äº‹ä»¶ä¹‹åä¼šå»æ‰§è¡ŒæœåŠ¡æ³¨å†Œã€‚
+    **2.3 Serverç«¯é€»è¾‘**
+    åœ¨æ²¡åˆ†ææºç å®ç°ä¹‹å‰ï¼Œæˆ‘ä»¬ä¸€å®šçŸ¥é“å®ƒè‚¯å®šå¯¹è¯·æ±‚è¿‡æ¥çš„æœåŠ¡å®ä¾‹æ•°æ®è¿›è¡Œäº†å­˜å‚¨ã€‚é‚£ä¹ˆæˆ‘ä»¬å»Eureka Serverç«¯çœ‹ä¸€ä¸‹å¤„ç†æµç¨‹ã€‚
 
-ÇëÇóÈë¿ÚÔÚ£º
-com.netflix.eureka.resources.ApplicationResource.addInstance() ¡£
+è¯·æ±‚å…¥å£åœ¨ï¼š
+com.netflix.eureka.resources.ApplicationResource.addInstance() ã€‚
 
-´ó¼Ò¿ÉÒÔ·¢ÏÖ£¬ÕâÀïËùÌá¹©µÄREST·şÎñ£¬²ÉÓÃµÄÊÇjerseyÀ´ÊµÏÖµÄ¡£JerseyÊÇ»ùÓÚJAX-RS±ê×¼£¬Ìá¹©RESTµÄÊµÏÖµÄÖ§³Ö£¬ÕâÀï¾Í²»Õ¹¿ª·ÖÎöÁË¡£
+å¤§å®¶å¯ä»¥å‘ç°ï¼Œè¿™é‡Œæ‰€æä¾›çš„RESTæœåŠ¡ï¼Œé‡‡ç”¨çš„æ˜¯jerseyæ¥å®ç°çš„ã€‚Jerseyæ˜¯åŸºäºJAX-RSæ ‡å‡†ï¼Œæä¾›RESTçš„å®ç°çš„æ”¯æŒï¼Œè¿™é‡Œå°±ä¸å±•å¼€åˆ†æäº†ã€‚
 
 **2.3.1 addInstance()**
-µ±EurekaClientµ÷ÓÃregister·½·¨·¢Æğ×¢²áÊ±£¬»áµ÷ÓÃ
-ApplicationResource.addInstance·½·¨¡£
+å½“EurekaClientè°ƒç”¨registeræ–¹æ³•å‘èµ·æ³¨å†Œæ—¶ï¼Œä¼šè°ƒç”¨
+ApplicationResource.addInstanceæ–¹æ³•ã€‚
 
-·şÎñ×¢²á¾ÍÊÇ·¢ËÍÒ»¸öPOSTÇëÇó´øÉÏµ±Ç°ÊµÀıĞÅÏ¢µ½Àà ApplicationResource µÄ addInstance·½·¨½øĞĞ·şÎñ×¢²á¡£
+æœåŠ¡æ³¨å†Œå°±æ˜¯å‘é€ä¸€ä¸ªPOSTè¯·æ±‚å¸¦ä¸Šå½“å‰å®ä¾‹ä¿¡æ¯åˆ°ç±» ApplicationResource çš„ addInstanceæ–¹æ³•è¿›è¡ŒæœåŠ¡æ³¨å†Œã€‚
 
 
 
@@ -871,20 +871,20 @@ public Response addInstance(InstanceInfo info, @HeaderParam("x-netflix-discovery
 
 
 **2.3.2 register**
-ÎÒÃÇÏÈÀ´¿´
-PeerAwareInstanceRegistryImplµÄÀà¹ØÏµÍ¼£¬´ÓÀà¹ØÏµÍ¼¿ÉÒÔ¿´³ö£¬PeerAwareInstanceRegistryµÄ×î¶¥²ã½Ó¿ÚÎªLeaseManagerÓëLookupService,
+æˆ‘ä»¬å…ˆæ¥çœ‹
+PeerAwareInstanceRegistryImplçš„ç±»å…³ç³»å›¾ï¼Œä»ç±»å…³ç³»å›¾å¯ä»¥çœ‹å‡ºï¼ŒPeerAwareInstanceRegistryçš„æœ€é¡¶å±‚æ¥å£ä¸ºLeaseManagerä¸LookupService,
 
-*   ÆäÖĞLookupService¶¨ÒåÁË×î»ù±¾µÄ·¢ÏÖÊ¾ÀıµÄĞĞÎª
-*   LeaseManager¶¨ÒåÁË´¦Àí¿Í»§¶Ë×¢²á£¬ĞøÔ¼£¬×¢ÏúµÈ²Ù×÷
+*   å…¶ä¸­LookupServiceå®šä¹‰äº†æœ€åŸºæœ¬çš„å‘ç°ç¤ºä¾‹çš„è¡Œä¸º
+*   LeaseManagerå®šä¹‰äº†å¤„ç†å®¢æˆ·ç«¯æ³¨å†Œï¼Œç»­çº¦ï¼Œæ³¨é”€ç­‰æ“ä½œ
 
-![SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®Eureka-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/897d97d444664479bda0430417ec683f1f079a.jpg "SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®Eureka-¿ªÔ´»ù´¡Èí¼şÉçÇø")ÔÚ addInstance ·½·¨ÖĞ£¬×îÖÕµ÷ÓÃµÄÊÇ
-PeerAwareInstanceRegistryImpl.register ·½·¨¡£
+![SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹Eureka-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/897d97d444664479bda0430417ec683f1f079a.jpg "SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹Eureka-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")åœ¨ addInstance æ–¹æ³•ä¸­ï¼Œæœ€ç»ˆè°ƒç”¨çš„æ˜¯
+PeerAwareInstanceRegistryImpl.register æ–¹æ³•ã€‚
 
-* leaseDuration ±íÊ¾×âÔ¼¹ıÆÚÊ±¼ä£¬Ä¬ÈÏÊÇ90s£¬Ò²¾ÍÊÇµ±·şÎñ¶Ë³¬¹ı90sÃ»ÓĞÊÕµ½¿Í»§¶ËµÄĞÄÌø£¬ÔòÖ÷¶¯ÌŞ³ı¸Ã½Úµã
+* leaseDuration è¡¨ç¤ºç§Ÿçº¦è¿‡æœŸæ—¶é—´ï¼Œé»˜è®¤æ˜¯90sï¼Œä¹Ÿå°±æ˜¯å½“æœåŠ¡ç«¯è¶…è¿‡90sæ²¡æœ‰æ”¶åˆ°å®¢æˆ·ç«¯çš„å¿ƒè·³ï¼Œåˆ™ä¸»åŠ¨å‰”é™¤è¯¥èŠ‚ç‚¹
 
-* µ÷ÓÃsuper.register·¢Æğ½Úµã×¢²á
+* è°ƒç”¨super.registerå‘èµ·èŠ‚ç‚¹æ³¨å†Œ
 
-* ½«ĞÅÏ¢¸´ÖÆµ½Eureka Server¼¯ÈºÖĞµÄÆäËû»úÆ÷ÉÏ£¬Í¬²½µÄÊµÏÖÒ²ºÜ¼òµ¥£¬¾ÍÊÇ»ñµÃ¼¯ÈºÖĞµÄËùÓĞ½Úµã£¬È»ºóÖğ¸ö·¢Æğ×¢²á
+* å°†ä¿¡æ¯å¤åˆ¶åˆ°Eureka Serveré›†ç¾¤ä¸­çš„å…¶ä»–æœºå™¨ä¸Šï¼ŒåŒæ­¥çš„å®ç°ä¹Ÿå¾ˆç®€å•ï¼Œå°±æ˜¯è·å¾—é›†ç¾¤ä¸­çš„æ‰€æœ‰èŠ‚ç‚¹ï¼Œç„¶åé€ä¸ªå‘èµ·æ³¨å†Œ
 
 
 
@@ -892,10 +892,10 @@ PeerAwareInstanceRegistryImpl.register ·½·¨¡£
   public void register(final InstanceInfo info, final boolean isReplication) {
       int leaseDuration = Lease.DEFAULT_DURATION_IN_SECS;
       if (info.getLeaseInfo() != null && info.getLeaseInfo().getDurationInSecs() >0) {
-          leaseDuration = info.getLeaseInfo().getDurationInSecs(); //Èç¹û¿Í»§¶ËÓĞ×Ô¼º¶¨ÒåĞÄÌø³¬Ê±Ê±¼ä£¬Ôò²ÉÓÃ¿Í»§¶ËµÄÊ±¼ä
+          leaseDuration = info.getLeaseInfo().getDurationInSecs(); //å¦‚æœå®¢æˆ·ç«¯æœ‰è‡ªå·±å®šä¹‰å¿ƒè·³è¶…æ—¶æ—¶é—´ï¼Œåˆ™é‡‡ç”¨å®¢æˆ·ç«¯çš„æ—¶é—´
       }
-      super.register(info, leaseDuration, isReplication); //½Úµã×¢²á
-      //¸´ÖÆµ½Eureka Server¼¯ÈºÖĞµÄÆäËû½Úµã
+      super.register(info, leaseDuration, isReplication); //èŠ‚ç‚¹æ³¨å†Œ
+      //å¤åˆ¶åˆ°Eureka Serveré›†ç¾¤ä¸­çš„å…¶ä»–èŠ‚ç‚¹
       replicateToPeers(Action.Register, info.getAppName(), info.getId(), info,
                        null, isReplication);
   }
@@ -910,7 +910,7 @@ PeerAwareInstanceRegistryImpl.register ·½·¨¡£
 
 
 **2.3.3 AbstractInstanceRegistry.register**
-¼òµ¥À´Ëµ£¬Eureka-ServerµÄ·şÎñ×¢²á£¬Êµ¼ÊÉÏÊÇ½«¿Í»§¶Ë´«µİ¹ıÀ´µÄÊµÀıÊı¾İ±£´æµ½Eureka-ServerÖĞµÄConcurrentHashMapÖĞ¡£
+ç®€å•æ¥è¯´ï¼ŒEureka-Serverçš„æœåŠ¡æ³¨å†Œï¼Œå®é™…ä¸Šæ˜¯å°†å®¢æˆ·ç«¯ä¼ é€’è¿‡æ¥çš„å®ä¾‹æ•°æ®ä¿å­˜åˆ°Eureka-Serverä¸­çš„ConcurrentHashMapä¸­ã€‚
 
 
 
@@ -919,11 +919,11 @@ public void register(InstanceInfo registrant, int leaseDuration, boolean
                      isReplication) {
     try {
         read.lock();
-        //´ÓregistryÖĞ»ñµÃµ±Ç°ÊµÀıĞÅÏ¢£¬¸ù¾İappName
+        //ä»registryä¸­è·å¾—å½“å‰å®ä¾‹ä¿¡æ¯ï¼Œæ ¹æ®appName
         Map<String, Lease<InstanceInfo>> gMap =
             registry.get(registrant.getAppName());
-        REGISTER.increment(isReplication); //Ôö¼Ó×¢²á´ÎÊıµ½¼à¿ØĞÅÏ¢ÖĞ
-        if (gMap == null) {//Èç¹ûµ±Ç°appNameÊÇµÚÒ»´Î×¢²á£¬Ôò³õÊ¼»¯Ò»¸öConcurrentHashMap
+        REGISTER.increment(isReplication); //å¢åŠ æ³¨å†Œæ¬¡æ•°åˆ°ç›‘æ§ä¿¡æ¯ä¸­
+        if (gMap == null) {//å¦‚æœå½“å‰appNameæ˜¯ç¬¬ä¸€æ¬¡æ³¨å†Œï¼Œåˆ™åˆå§‹åŒ–ä¸€ä¸ªConcurrentHashMap
             final ConcurrentHashMap<String, Lease<InstanceInfo>> gNewMap = new
                 ConcurrentHashMap<String, Lease<InstanceInfo>>();
             gMap = registry.putIfAbsent(registrant.getAppName(), gNewMap);
@@ -931,9 +931,9 @@ public void register(InstanceInfo registrant, int leaseDuration, boolean
                 gMap = gNewMap;
             }
         }
-        //´ÓgMapÖĞ²éÑ¯ÒÑ¾­´æÔÚµÄLeaseĞÅÏ¢£¬LeaseÖĞÎÄ·­ÒëÎª×âÔ¼£¬Êµ¼ÊÉÏËü°Ñ·şÎñÌá¹©ÕßµÄÊµÀıĞÅÏ¢°ü×°³ÉÁËÒ»¸ölease£¬ÀïÃæÌá¹©ÁË¶ÔÓÚ¸Ä·şÎñÊµÀıµÄ×âÔ¼¹ÜÀí
+        //ä»gMapä¸­æŸ¥è¯¢å·²ç»å­˜åœ¨çš„Leaseä¿¡æ¯ï¼ŒLeaseä¸­æ–‡ç¿»è¯‘ä¸ºç§Ÿçº¦ï¼Œå®é™…ä¸Šå®ƒæŠŠæœåŠ¡æä¾›è€…çš„å®ä¾‹ä¿¡æ¯åŒ…è£…æˆäº†ä¸€ä¸ªleaseï¼Œé‡Œé¢æä¾›äº†å¯¹äºæ”¹æœåŠ¡å®ä¾‹çš„ç§Ÿçº¦ç®¡ç†
         Lease<InstanceInfo> existingLease = gMap.get(registrant.getId());
-        // µ±instanceÒÑ¾­´æÔÚÊÇ£¬ºÍ¿Í»§¶ËµÄinstanceµÄĞÅÏ¢×ö±È½Ï£¬Ê±¼ä×îĞÂµÄÄÇ¸ö£¬ÎªÓĞĞ§instanceĞÅÏ¢
+        // å½“instanceå·²ç»å­˜åœ¨æ˜¯ï¼Œå’Œå®¢æˆ·ç«¯çš„instanceçš„ä¿¡æ¯åšæ¯”è¾ƒï¼Œæ—¶é—´æœ€æ–°çš„é‚£ä¸ªï¼Œä¸ºæœ‰æ•ˆinstanceä¿¡æ¯
         if (existingLease != null && (existingLease.getHolder() != null)) {
             Long existingLastDirtyTimestamp =
                 existingLease.getHolder().getLastDirtyTimestamp();
@@ -951,7 +951,7 @@ public void register(InstanceInfo registrant, int leaseDuration, boolean
                 registrant = existingLease.getHolder();
             }
         } else {
-            //µ±lease²»´æÔÚÊ±£¬½øÈëµ½Õâ¶Î´úÂë£¬
+            //å½“leaseä¸å­˜åœ¨æ—¶ï¼Œè¿›å…¥åˆ°è¿™æ®µä»£ç ï¼Œ
             synchronized (lock) {
                 if (this.expectedNumberOfClientsSendingRenews > 0) {
                     // Since the client wants to register it, increase the number of clients sending renews
@@ -962,20 +962,20 @@ public void register(InstanceInfo registrant, int leaseDuration, boolean
             }
             logger.debug("No previous lease information found; it is new registration");
         }
-        //¹¹½¨Ò»¸ölease
+        //æ„å»ºä¸€ä¸ªlease
         Lease<InstanceInfo> lease = new Lease<InstanceInfo>(registrant,
                                                             leaseDuration);
         if (existingLease != null) {
-            // µ±Ô­À´´æÔÚLeaseµÄĞÅÏ¢Ê±£¬ÉèÖÃserviceUpTimestamp, ±£Ö¤·şÎñÆô¶¯µÄÊ±¼äÒ»Ö±ÊÇµÚÒ»´Î×¢²áµÄÄÇ¸ö
+            // å½“åŸæ¥å­˜åœ¨Leaseçš„ä¿¡æ¯æ—¶ï¼Œè®¾ç½®serviceUpTimestamp, ä¿è¯æœåŠ¡å¯åŠ¨çš„æ—¶é—´ä¸€ç›´æ˜¯ç¬¬ä¸€æ¬¡æ³¨å†Œçš„é‚£ä¸ª
             lease.setServiceUpTimestamp(existingLease.getServiceUpTimestamp());
         }
         gMap.put(registrant.getId(), lease);
-        synchronized (recentRegisteredQueue) {//Ìí¼Óµ½×î½ü×¢²áµÄ¶ÓÁĞÖĞ
+        synchronized (recentRegisteredQueue) {//æ·»åŠ åˆ°æœ€è¿‘æ³¨å†Œçš„é˜Ÿåˆ—ä¸­
             recentRegisteredQueue.add(new Pair<Long, String>(
                 System.currentTimeMillis(),
                 registrant.getAppName() + "(" + registrant.getId() + ")"));
         }
-        // ¼ì²éÊµÀı×´Ì¬ÊÇ·ñ·¢Éú±ä»¯£¬Èç¹ûÊÇ²¢ÇÒ´æÔÚ£¬Ôò¸²¸ÇÔ­À´µÄ×´Ì¬
+        // æ£€æŸ¥å®ä¾‹çŠ¶æ€æ˜¯å¦å‘ç”Ÿå˜åŒ–ï¼Œå¦‚æœæ˜¯å¹¶ä¸”å­˜åœ¨ï¼Œåˆ™è¦†ç›–åŸæ¥çš„çŠ¶æ€
         if (!InstanceStatus.UNKNOWN.equals(registrant.getOverriddenStatus())) {
             logger.debug("Found overridden status {} for instance {}. Checking to see if needs to be add to the "
                          + "overrides", registrant.getOverriddenStatus(),
@@ -998,16 +998,16 @@ public void register(InstanceInfo registrant, int leaseDuration, boolean
         InstanceStatus overriddenInstanceStatus =
             getOverriddenInstanceStatus(registrant, existingLease, isReplication);
         registrant.setStatusWithoutDirty(overriddenInstanceStatus);
-        // µÃµ½instanceStatus£¬ÅĞ¶ÏÊÇ·ñÊÇUP×´Ì¬£¬
+        // å¾—åˆ°instanceStatusï¼Œåˆ¤æ–­æ˜¯å¦æ˜¯UPçŠ¶æ€ï¼Œ
         if (InstanceStatus.UP.equals(registrant.getStatus())) {
             lease.serviceUp();
         }
-        // ÉèÖÃ×¢²áÀàĞÍÎªÌí¼Ó
+        // è®¾ç½®æ³¨å†Œç±»å‹ä¸ºæ·»åŠ 
         registrant.setActionType(ActionType.ADDED);
-        // ×âÔ¼±ä¸ü¼ÇÂ¼¶ÓÁĞ£¬¼ÇÂ¼ÁËÊµÀıµÄÃ¿´Î±ä»¯£¬ ÓÃÓÚ×¢²áĞÅÏ¢µÄÔöÁ¿»ñÈ¡
+        // ç§Ÿçº¦å˜æ›´è®°å½•é˜Ÿåˆ—ï¼Œè®°å½•äº†å®ä¾‹çš„æ¯æ¬¡å˜åŒ–ï¼Œ ç”¨äºæ³¨å†Œä¿¡æ¯çš„å¢é‡è·å–
         recentlyChangedQueue.add(new RecentlyChangedItem(lease));
         registrant.setLastUpdatedTimestamp();
-        //ÈÃ»º´æÊ§Ğ§
+        //è®©ç¼“å­˜å¤±æ•ˆ
         invalidateCache(registrant.getAppName(), registrant.getVIPAddress(),
                         registrant.getSecureVipAddress());
         logger.info("Registered instance {}/{} with status {} (replication={})",
@@ -1027,23 +1027,23 @@ public void register(InstanceInfo registrant, int leaseDuration, boolean
 
 
 
-**2.3.4 Ğ¡½á**
-ÖÁ´Ë£¬ÎÒÃÇ¾Í°Ñ·şÎñ×¢²áÔÚ¿Í»§¶ËºÍ·şÎñ¶ËµÄ´¦Àí¹ı³Ì×öÁËÒ»¸öÏêÏ¸µÄ·ÖÎö£¬Êµ¼ÊÉÏÔÚEureka Server¶Ë£¬»á°Ñ¿Í»§¶ËµÄµØÖ·ĞÅÏ¢±£´æµ½ConcurrentHashMapÖĞ´æ´¢¡£²¢ÇÒ·şÎñÌá¹©ÕßºÍ×¢²áÖĞĞÄÖ®¼ä£¬»á½¨Á¢Ò»¸öĞÄÌø¼ì²â»úÖÆ¡£ÓÃÓÚ¼à¿Ø·şÎñÌá¹©ÕßµÄ½¡¿µ×´Ì¬¡£
+**2.3.4 å°ç»“**
+è‡³æ­¤ï¼Œæˆ‘ä»¬å°±æŠŠæœåŠ¡æ³¨å†Œåœ¨å®¢æˆ·ç«¯å’ŒæœåŠ¡ç«¯çš„å¤„ç†è¿‡ç¨‹åšäº†ä¸€ä¸ªè¯¦ç»†çš„åˆ†æï¼Œå®é™…ä¸Šåœ¨Eureka Serverç«¯ï¼Œä¼šæŠŠå®¢æˆ·ç«¯çš„åœ°å€ä¿¡æ¯ä¿å­˜åˆ°ConcurrentHashMapä¸­å­˜å‚¨ã€‚å¹¶ä¸”æœåŠ¡æä¾›è€…å’Œæ³¨å†Œä¸­å¿ƒä¹‹é—´ï¼Œä¼šå»ºç«‹ä¸€ä¸ªå¿ƒè·³æ£€æµ‹æœºåˆ¶ã€‚ç”¨äºç›‘æ§æœåŠ¡æä¾›è€…çš„å¥åº·çŠ¶æ€ã€‚
 
-**2.4 Eureka µÄ¶à¼¶»º´æÉè¼Æ**
-Eureka Server´æÔÚÈı¸ö±äÁ¿£º(registry¡¢readWriteCacheMap¡¢readOnlyCacheMap)±£´æ·şÎñ×¢²áĞÅÏ¢£¬Ä¬ÈÏÇé¿öÏÂ¶¨Ê±ÈÎÎñÃ¿30s½«readWriteCacheMapÍ¬²½ÖÁreadOnlyCacheMap£¬Ã¿60sÇåÀí³¬¹ı90sÎ´ĞøÔ¼µÄ½Úµã£¬Eureka ClientÃ¿30s´ÓreadOnlyCacheMap¸üĞÂ·şÎñ×¢²áĞÅÏ¢£¬¶ø¿Í»§¶Ë·şÎñµÄ×¢²áÔò´Óregistry¸üĞÂ·şÎñ×¢²áĞÅÏ¢¡£
+**2.4 Eureka çš„å¤šçº§ç¼“å­˜è®¾è®¡**
+Eureka Serverå­˜åœ¨ä¸‰ä¸ªå˜é‡ï¼š(registryã€readWriteCacheMapã€readOnlyCacheMap)ä¿å­˜æœåŠ¡æ³¨å†Œä¿¡æ¯ï¼Œé»˜è®¤æƒ…å†µä¸‹å®šæ—¶ä»»åŠ¡æ¯30så°†readWriteCacheMapåŒæ­¥è‡³readOnlyCacheMapï¼Œæ¯60sæ¸…ç†è¶…è¿‡90sæœªç»­çº¦çš„èŠ‚ç‚¹ï¼ŒEureka Clientæ¯30sä»readOnlyCacheMapæ›´æ–°æœåŠ¡æ³¨å†Œä¿¡æ¯ï¼Œè€Œå®¢æˆ·ç«¯æœåŠ¡çš„æ³¨å†Œåˆ™ä»registryæ›´æ–°æœåŠ¡æ³¨å†Œä¿¡æ¯ã€‚
 
-**2.4.1 ¶à¼¶»º´æµÄÒâÒå**
-ÕâÀïÎªÊ²Ã´ÒªÉè¼Æ¶à¼¶»º´æÄØ£¿Ô­ÒòºÜ¼òµ¥£¬¾ÍÊÇµ±´æÔÚ´ó¹æÄ£µÄ·şÎñ×¢²áºÍ¸üĞÂÊ±£¬Èç¹ûÖ»ÊÇĞŞ¸ÄÒ»¸öConcurrentHashMapÊı¾İ£¬ÄÇÃ´ÊÆ±ØÒòÎªËøµÄ´æÔÚµ¼ÖÂ¾ºÕù£¬Ó°ÏìĞÔÄÜ¡£
+**2.4.1 å¤šçº§ç¼“å­˜çš„æ„ä¹‰**
+è¿™é‡Œä¸ºä»€ä¹ˆè¦è®¾è®¡å¤šçº§ç¼“å­˜å‘¢ï¼ŸåŸå› å¾ˆç®€å•ï¼Œå°±æ˜¯å½“å­˜åœ¨å¤§è§„æ¨¡çš„æœåŠ¡æ³¨å†Œå’Œæ›´æ–°æ—¶ï¼Œå¦‚æœåªæ˜¯ä¿®æ”¹ä¸€ä¸ªConcurrentHashMapæ•°æ®ï¼Œé‚£ä¹ˆåŠ¿å¿…å› ä¸ºé”çš„å­˜åœ¨å¯¼è‡´ç«äº‰ï¼Œå½±å“æ€§èƒ½ã€‚
 
-¶øEurekaÓÖÊÇAPÄ£ĞÍ£¬Ö»ĞèÒªÂú×ã×îÖÕ¿ÉÓÃ¾ÍĞĞ¡£ËùÒÔËüÔÚÕâÀïÓÃµ½¶à¼¶»º´æÀ´ÊµÏÖ¶ÁĞ´·ÖÀë¡£×¢²á·½·¨Ğ´µÄÊ±ºòÖ±½ÓĞ´ÄÚ´æ×¢²á±í£¬Ğ´Íê±íÖ®ºóÖ÷¶¯Ê§Ğ§¶ÁĞ´»º´æ¡£
+è€ŒEurekaåˆæ˜¯APæ¨¡å‹ï¼Œåªéœ€è¦æ»¡è¶³æœ€ç»ˆå¯ç”¨å°±è¡Œã€‚æ‰€ä»¥å®ƒåœ¨è¿™é‡Œç”¨åˆ°å¤šçº§ç¼“å­˜æ¥å®ç°è¯»å†™åˆ†ç¦»ã€‚æ³¨å†Œæ–¹æ³•å†™çš„æ—¶å€™ç›´æ¥å†™å†…å­˜æ³¨å†Œè¡¨ï¼Œå†™å®Œè¡¨ä¹‹åä¸»åŠ¨å¤±æ•ˆè¯»å†™ç¼“å­˜ã€‚
 
-»ñÈ¡×¢²áĞÅÏ¢½Ó¿ÚÏÈ´ÓÖ»¶Á»º´æÈ¡£¬Ö»¶Á»º´æÃ»ÓĞÔÙÈ¥¶ÁĞ´»º´æÈ¡£¬¶ÁĞ´»º´æÃ»ÓĞÔÙÈ¥ÄÚ´æ×¢²á±íÀïÈ¡£¨²»Ö»ÊÇÈ¡£¬´Ë´¦½Ï¸´ÔÓ£©¡£²¢ÇÒ£¬¶ÁĞ´»º´æ»á¸üĞÂ»ØĞ´Ö»¶Á»º´æ
+è·å–æ³¨å†Œä¿¡æ¯æ¥å£å…ˆä»åªè¯»ç¼“å­˜å–ï¼Œåªè¯»ç¼“å­˜æ²¡æœ‰å†å»è¯»å†™ç¼“å­˜å–ï¼Œè¯»å†™ç¼“å­˜æ²¡æœ‰å†å»å†…å­˜æ³¨å†Œè¡¨é‡Œå–ï¼ˆä¸åªæ˜¯å–ï¼Œæ­¤å¤„è¾ƒå¤æ‚ï¼‰ã€‚å¹¶ä¸”ï¼Œè¯»å†™ç¼“å­˜ä¼šæ›´æ–°å›å†™åªè¯»ç¼“å­˜
 
-*   responseCacheUpdateIntervalMs £º readOnlyCacheMap »º´æ¸üĞÂµÄ¶¨Ê±Æ÷Ê±¼ä¼ä¸ô£¬Ä¬ÈÏÎª30Ãë
-*   responseCacheAutoExpirationInSeconds : readWriteCacheMap »º´æ¹ıÆÚÊ±¼ä£¬Ä¬ÈÏÎª 180 Ãë¡£
-    **2.4.2 ·şÎñ×¢²áµÄ»º´æÊ§Ğ§**
-    ÔÚAbstractInstanceRegistry.register·½·¨µÄ×îºó£¬»áµ÷ÓÃinvalidateCache(registrant.getAppName(), registrant.getVIPAddress(),registrant.getSecureVipAddress()); ·½·¨£¬Ê¹µÃ¶ÁĞ´»º´æÊ§Ğ§¡£
+*   responseCacheUpdateIntervalMs ï¼š readOnlyCacheMap ç¼“å­˜æ›´æ–°çš„å®šæ—¶å™¨æ—¶é—´é—´éš”ï¼Œé»˜è®¤ä¸º30ç§’
+*   responseCacheAutoExpirationInSeconds : readWriteCacheMap ç¼“å­˜è¿‡æœŸæ—¶é—´ï¼Œé»˜è®¤ä¸º 180 ç§’ã€‚
+    **2.4.2 æœåŠ¡æ³¨å†Œçš„ç¼“å­˜å¤±æ•ˆ**
+    åœ¨AbstractInstanceRegistry.registeræ–¹æ³•çš„æœ€åï¼Œä¼šè°ƒç”¨invalidateCache(registrant.getAppName(), registrant.getVIPAddress(),registrant.getSecureVipAddress()); æ–¹æ³•ï¼Œä½¿å¾—è¯»å†™ç¼“å­˜å¤±æ•ˆã€‚
 
 
 
@@ -1075,8 +1075,8 @@ public void invalidate(Key... keys) {
 
 
 
-**2.4.3 ¶¨Ê±Í¬²½»º´æ**
-ResponseCacheImplµÄ¹¹Ôì·½·¨ÖĞ£¬»áÆô¶¯Ò»¸ö¶¨Ê±ÈÎÎñ£¬Õâ¸öÈÎÎñ»á¶¨Ê±¼ì²éĞ´»º´æÖĞµÄÊı¾İ±ä»¯£¬½øĞĞ¸üĞÂºÍÍ¬²½¡£
+**2.4.3 å®šæ—¶åŒæ­¥ç¼“å­˜**
+ResponseCacheImplçš„æ„é€ æ–¹æ³•ä¸­ï¼Œä¼šå¯åŠ¨ä¸€ä¸ªå®šæ—¶ä»»åŠ¡ï¼Œè¿™ä¸ªä»»åŠ¡ä¼šå®šæ—¶æ£€æŸ¥å†™ç¼“å­˜ä¸­çš„æ•°æ®å˜åŒ–ï¼Œè¿›è¡Œæ›´æ–°å’ŒåŒæ­¥ã€‚
 
 
 
@@ -1118,12 +1118,12 @@ private TimerTask getCacheUpdateTask() {
 
 
 
-**2.5 ·şÎñĞøÔ¼**
-ËùÎ½µÄ·şÎñĞøÔ¼£¬ÆäÊµ¾ÍÊÇÒ»ÖÖĞÄÌø¼ì²é»úÖÆ¡£¿Í»§¶Ë»á¶¨ÆÚ·¢ËÍĞÄÌøÀ´ĞøÔ¼¡£ÄÇÃ´¼òµ¥¸ø´ó¼Ò¿´Ò»ÏÂ´úÂëµÄÊµÏÖ
+**2.5 æœåŠ¡ç»­çº¦**
+æ‰€è°“çš„æœåŠ¡ç»­çº¦ï¼Œå…¶å®å°±æ˜¯ä¸€ç§å¿ƒè·³æ£€æŸ¥æœºåˆ¶ã€‚å®¢æˆ·ç«¯ä¼šå®šæœŸå‘é€å¿ƒè·³æ¥ç»­çº¦ã€‚é‚£ä¹ˆç®€å•ç»™å¤§å®¶çœ‹ä¸€ä¸‹ä»£ç çš„å®ç°
 
 **2.5.1 initScheduledTasks**
-¿Í»§¶Ë»áÔÚ
-DiscoveryClient.initScheduledTasks ÖĞ£¬´´½¨Ò»¸öĞÄÌø¼ì²âµÄ¶¨Ê±ÈÎÎñ
+å®¢æˆ·ç«¯ä¼šåœ¨
+DiscoveryClient.initScheduledTasks ä¸­ï¼Œåˆ›å»ºä¸€ä¸ªå¿ƒè·³æ£€æµ‹çš„å®šæ—¶ä»»åŠ¡
 
 
 
@@ -1151,12 +1151,12 @@ scheduler.schedule(
 
 
 **2.5.2 HeartbeatThread**
-È»ºóÕâ¸ö¶¨Ê±ÈÎÎñÖĞ£¬»áÖ´ĞĞÒ»¸ö HearbeatThread µÄÏß³Ì£¬Õâ¸öÏß³Ì»á¶¨Ê±µ÷ÓÃrenew()À´×öĞøÔ¼¡£
+ç„¶åè¿™ä¸ªå®šæ—¶ä»»åŠ¡ä¸­ï¼Œä¼šæ‰§è¡Œä¸€ä¸ª HearbeatThread çš„çº¿ç¨‹ï¼Œè¿™ä¸ªçº¿ç¨‹ä¼šå®šæ—¶è°ƒç”¨renew()æ¥åšç»­çº¦ã€‚
 
 
 
 ```
-//Ã¿¸ô30s·¢ËÍÒ»¸öĞÄÌøÇëÇóµ½
+//æ¯éš”30så‘é€ä¸€ä¸ªå¿ƒè·³è¯·æ±‚åˆ°
 private class HeartbeatThread implements Runnable {
     public void run() {
         if (renew()) {
@@ -1174,8 +1174,8 @@ private class HeartbeatThread implements Runnable {
 
 
 
-**2.5.3 ·şÎñ¶ËÊÕµ½ĞÄÌøÇëÇóµÄ´¦Àí**
-ÔÚApplicationResource.getInstanceInfoÕâ¸ö½Ó¿ÚÖĞ£¬»á·µ»ØÒ»¸öInstanceResourceµÄÊµÀı£¬ÔÚ¸ÃÊµÀıÏÂ£¬¶¨ÒåÁËÒ»¸östatusUpdateµÄ½Ó¿ÚÀ´¸üĞÂ×´Ì¬
+**2.5.3 æœåŠ¡ç«¯æ”¶åˆ°å¿ƒè·³è¯·æ±‚çš„å¤„ç†**
+åœ¨ApplicationResource.getInstanceInfoè¿™ä¸ªæ¥å£ä¸­ï¼Œä¼šè¿”å›ä¸€ä¸ªInstanceResourceçš„å®ä¾‹ï¼Œåœ¨è¯¥å®ä¾‹ä¸‹ï¼Œå®šä¹‰äº†ä¸€ä¸ªstatusUpdateçš„æ¥å£æ¥æ›´æ–°çŠ¶æ€
 
 
 
@@ -1195,8 +1195,8 @@ public InstanceResource getInstanceInfo(@PathParam("id") String id) {
 
 
 **2.5.4 InstanceResource.statusUpdate()**
-ÔÚ¸Ã·½·¨ÖĞ£¬ÎÒÃÇÖØµã¹Ø×¢ registry.statusUpdate Õâ¸ö·½·¨£¬Ëü»áµ÷ÓÃ
-AbstractInstanceRegistry.statusUpdateÀ´¸üĞÂÖ¸¶¨·şÎñÌá¹©ÕßÔÚ·şÎñ¶Ë´æ´¢µÄĞÅÏ¢ÖĞµÄ±ä»¯¡£
+åœ¨è¯¥æ–¹æ³•ä¸­ï¼Œæˆ‘ä»¬é‡ç‚¹å…³æ³¨ registry.statusUpdate è¿™ä¸ªæ–¹æ³•ï¼Œå®ƒä¼šè°ƒç”¨
+AbstractInstanceRegistry.statusUpdateæ¥æ›´æ–°æŒ‡å®šæœåŠ¡æä¾›è€…åœ¨æœåŠ¡ç«¯å­˜å‚¨çš„ä¿¡æ¯ä¸­çš„å˜åŒ–ã€‚
 
 
 
@@ -1241,7 +1241,7 @@ public Response statusUpdate(
 
 
 **2.5.5 AbstractInstanceRegistry.statusUpdate**
-ÔÚÕâ¸ö·½·¨ÖĞ£¬»áÄÃµ½Ó¦ÓÃ¶ÔÓ¦µÄÊµÀıÁĞ±í£¬È»ºóµ÷ÓÃLease.renew()È¥½øĞĞĞÄÌøĞøÔ¼¡£
+åœ¨è¿™ä¸ªæ–¹æ³•ä¸­ï¼Œä¼šæ‹¿åˆ°åº”ç”¨å¯¹åº”çš„å®ä¾‹åˆ—è¡¨ï¼Œç„¶åè°ƒç”¨Lease.renew()å»è¿›è¡Œå¿ƒè·³ç»­çº¦ã€‚
 
 
 
@@ -1252,21 +1252,21 @@ public boolean statusUpdate(String appName, String id,
                             boolean isReplication) {
     try {
         read.lock();
-        // ¸üĞÂ×´Ì¬µÄ´ÎÊı ×´Ì¬Í³¼Æ
+        // æ›´æ–°çŠ¶æ€çš„æ¬¡æ•° çŠ¶æ€ç»Ÿè®¡
         STATUS_UPDATE.increment(isReplication);
-        // ´Ó±¾µØÊı¾İÀïÃæ»ñÈ¡ÊµÀıĞÅÏ¢£¬
+        // ä»æœ¬åœ°æ•°æ®é‡Œé¢è·å–å®ä¾‹ä¿¡æ¯ï¼Œ
         Map<String, Lease<InstanceInfo>> gMap = registry.get(appName);
         Lease<InstanceInfo> lease = null;
         if (gMap != null) {
             lease = gMap.get(id);
         }
-        // ÊµÀı²»´æÔÚ£¬ÔòÖ±½Ó·µ»Ø£¬±íÊ¾Ê§°Ü
+        // å®ä¾‹ä¸å­˜åœ¨ï¼Œåˆ™ç›´æ¥è¿”å›ï¼Œè¡¨ç¤ºå¤±è´¥
         if (lease == null) {
             return false;
         } else {
-            // Ö´ĞĞÒ»ÏÂleaseµÄrenew·½·¨£¬ÀïÃæÖ÷ÒªÊÇ¸üĞÂÁËÕâ¸öinstanceµÄ×îºó¸üĞÂÊ±¼ä¡£
+            // æ‰§è¡Œä¸€ä¸‹leaseçš„renewæ–¹æ³•ï¼Œé‡Œé¢ä¸»è¦æ˜¯æ›´æ–°äº†è¿™ä¸ªinstanceçš„æœ€åæ›´æ–°æ—¶é—´ã€‚
             lease.renew();
-            // »ñÈ¡instanceÊµÀıĞÅÏ¢
+            // è·å–instanceå®ä¾‹ä¿¡æ¯
             InstanceInfo info = lease.getHolder();
             // Lease is always created with its instance info object.
             // This log statement is provided as a safeguard, in case this invariant is violated.
@@ -1274,17 +1274,17 @@ public boolean statusUpdate(String appName, String id,
                 logger.error("Found Lease without a holder for instance id {}",
                              id);
             }
-            // µ±instanceĞÅÏ¢²»Îª¿ÕÊ±£¬²¢ÇÒÊµÀı×´Ì¬·¢ÉúÁË±ä»¯
+            // å½“instanceä¿¡æ¯ä¸ä¸ºç©ºæ—¶ï¼Œå¹¶ä¸”å®ä¾‹çŠ¶æ€å‘ç”Ÿäº†å˜åŒ–
             if ((info != null) && !(info.getStatus().equals(newStatus))) {
-                // Èç¹ûĞÂ×´Ì¬ÊÇUPµÄ×´Ì¬£¬ÄÇÃ´Æô¶¯Ò»ÏÂserviceUp() , Ö÷ÒªÊÇ¸üĞÂ·şÎñµÄ×¢²áÊ±
-                ¼ä
+                // å¦‚æœæ–°çŠ¶æ€æ˜¯UPçš„çŠ¶æ€ï¼Œé‚£ä¹ˆå¯åŠ¨ä¸€ä¸‹serviceUp() , ä¸»è¦æ˜¯æ›´æ–°æœåŠ¡çš„æ³¨å†Œæ—¶
+                é—´
                     if (InstanceStatus.UP.equals(newStatus)) {
                         lease.serviceUp();
                     }
-                // ½«instance Id ºÍÕâ¸ö×´Ì¬µÄÓ³ÉäĞÅÏ¢·ÅÈë¸²¸Ç»º´æMAPÀïÃæÈ¥
+                // å°†instance Id å’Œè¿™ä¸ªçŠ¶æ€çš„æ˜ å°„ä¿¡æ¯æ”¾å…¥è¦†ç›–ç¼“å­˜MAPé‡Œé¢å»
                 overriddenInstanceStatusMap.put(id, newStatus);
                 // Set it for transfer of overridden status to replica on
-                // ÉèÖÃ¸²¸Ç×´Ì¬µ½ÊµÀıĞÅÏ¢ÀïÃæÈ¥
+                // è®¾ç½®è¦†ç›–çŠ¶æ€åˆ°å®ä¾‹ä¿¡æ¯é‡Œé¢å»
                 info.setOverriddenStatus(newStatus);
                 long replicaDirtyTimestamp = 0;
                 info.setStatusWithoutDirty(newStatus);
@@ -1293,7 +1293,7 @@ public boolean statusUpdate(String appName, String id,
                 }
                 // If the replication's dirty timestamp is more than the existing one, just update
                 // it to the replica's.
-                // Èç¹ûreplicaDirtyTimestamp µÄÊ±¼ä´óÓÚinstanceµÄgetLastDirtyTimestamp() ,Ôò¸üĞÂ
+                // å¦‚æœreplicaDirtyTimestamp çš„æ—¶é—´å¤§äºinstanceçš„getLastDirtyTimestamp() ,åˆ™æ›´æ–°
 
                 if (replicaDirtyTimestamp > info.getLastDirtyTimestamp()) {
                     info.setLastDirtyTimestamp(replicaDirtyTimestamp);
@@ -1301,7 +1301,7 @@ public boolean statusUpdate(String appName, String id,
                 info.setActionType(ActionType.MODIFIED);
                 recentlyChangedQueue.add(new RecentlyChangedItem(lease));
                 info.setLastUpdatedTimestamp();
-                //¸üĞÂĞ´»º´æ
+                //æ›´æ–°å†™ç¼“å­˜
                 invalidateCache(appName, info.getVIPAddress(),
                                 info.getSecureVipAddress());
             }
@@ -1321,15 +1321,15 @@ public boolean statusUpdate(String appName, String id,
 
 
 
-ÖÁ´Ë£¬ĞÄÌøĞøÔ¼¹¦ÄÜ¾Í·ÖÎöÍê³ÉÁË¡£
+è‡³æ­¤ï¼Œå¿ƒè·³ç»­çº¦åŠŸèƒ½å°±åˆ†æå®Œæˆäº†ã€‚
 
-**2.6 ·şÎñ·¢ÏÖ**
-ÎÒÃÇ¼ÌĞøÀ´ÑĞ¾¿·şÎñµÄ·¢ÏÖ¹ı³Ì£¬¾ÍÊÇ¿Í»§¶ËĞèÒªÄÜ¹»Âú×ãÁ½¸ö¹¦ÄÜ
+**2.6 æœåŠ¡å‘ç°**
+æˆ‘ä»¬ç»§ç»­æ¥ç ”ç©¶æœåŠ¡çš„å‘ç°è¿‡ç¨‹ï¼Œå°±æ˜¯å®¢æˆ·ç«¯éœ€è¦èƒ½å¤Ÿæ»¡è¶³ä¸¤ä¸ªåŠŸèƒ½
 
-ÔÚÆô¶¯µÄÊ±ºò»ñÈ¡Ö¸¶¨·şÎñÌá¹©ÕßµÄµØÖ·ÁĞ±í
-Eureka server¶ËµØÖ··¢Éú±ä»¯Ê±£¬ĞèÒª¶¯Ì¬¸ĞÖª
-**2.6.1 DiscoveryClient¹¹ÔìÊ±²éÑ¯**
-¹¹Ôì·½·¨ÖĞ£¬Èç¹ûµ±Ç°µÄ¿Í»§¶ËÄ¬ÈÏ¿ªÆôÁËfetchRegistry£¬Ôò»á´Óeureka-serverÖĞÀ­È¡Êı¾İ¡£
+åœ¨å¯åŠ¨çš„æ—¶å€™è·å–æŒ‡å®šæœåŠ¡æä¾›è€…çš„åœ°å€åˆ—è¡¨
+Eureka serverç«¯åœ°å€å‘ç”Ÿå˜åŒ–æ—¶ï¼Œéœ€è¦åŠ¨æ€æ„ŸçŸ¥
+**2.6.1 DiscoveryClientæ„é€ æ—¶æŸ¥è¯¢**
+æ„é€ æ–¹æ³•ä¸­ï¼Œå¦‚æœå½“å‰çš„å®¢æˆ·ç«¯é»˜è®¤å¼€å¯äº†fetchRegistryï¼Œåˆ™ä¼šä»eureka-serverä¸­æ‹‰å–æ•°æ®ã€‚
 
 
 
@@ -1413,11 +1413,11 @@ private boolean fetchRegistry(boolean forceFullRegistryFetch) {
 
 
 
-**2.6.3 ¶¨Ê±Ë¢ĞÂ±¾µØµØÖ·ÁĞ±í**
-ÈÎÎñÃ¿¸ô30s¸üĞÂÒ»´Î
-ÔÚDiscoveryClient¹¹ÔìµÄÊ±ºò£¬»á³õÊ¼»¯Ò»Ğ©ÈÎÎñ£¬Õâ¸öÔÚÇ°ÃæÔÛÃÇ·ÖÎö¹ıÁË¡£ÆäÖĞÓĞÒ»¸öÈÎÎñ¶¯Ì¬¸üĞÂ±¾µØ·şÎñµØÖ·ÁĞ±í£¬½Ğ cacheRefreshTask ¡£
+**2.6.3 å®šæ—¶åˆ·æ–°æœ¬åœ°åœ°å€åˆ—è¡¨**
+ä»»åŠ¡æ¯éš”30sæ›´æ–°ä¸€æ¬¡
+åœ¨DiscoveryClientæ„é€ çš„æ—¶å€™ï¼Œä¼šåˆå§‹åŒ–ä¸€äº›ä»»åŠ¡ï¼Œè¿™ä¸ªåœ¨å‰é¢å’±ä»¬åˆ†æè¿‡äº†ã€‚å…¶ä¸­æœ‰ä¸€ä¸ªä»»åŠ¡åŠ¨æ€æ›´æ–°æœ¬åœ°æœåŠ¡åœ°å€åˆ—è¡¨ï¼Œå« cacheRefreshTask ã€‚
 
-Õâ¸öÈÎÎñ×îÖÕÖ´ĞĞµÄÊÇCacheRefreshThreadÕâ¸öÏß³Ì¡£ËüÊÇÒ»¸öÖÜÆÚĞÔÖ´ĞĞµÄÈÎÎñ£¬¾ßÌåÎÒÃÇÀ´¿´Ò»ÏÂ¡£
+è¿™ä¸ªä»»åŠ¡æœ€ç»ˆæ‰§è¡Œçš„æ˜¯CacheRefreshThreadè¿™ä¸ªçº¿ç¨‹ã€‚å®ƒæ˜¯ä¸€ä¸ªå‘¨æœŸæ€§æ‰§è¡Œçš„ä»»åŠ¡ï¼Œå…·ä½“æˆ‘ä»¬æ¥çœ‹ä¸€ä¸‹ã€‚
 
 
 
@@ -1453,7 +1453,7 @@ private void initScheduledTasks() {
 
 
 **2.6.4 TimedSupervisorTask**
-´ÓÕûÌåÉÏ¿´£¬TimedSupervisorTaskÊÇ¹Ì¶¨¼ä¸ôµÄÖÜÆÚĞÔÈÎÎñ£¬Ò»µ©Óöµ½³¬Ê±¾Í»á½«ÏÂÒ»¸öÖÜÆÚµÄ¼ä¸ôÊ±¼äµ÷´ó£¬Èç¹ûÁ¬Ğø³¬Ê±£¬ÄÇÃ´Ã¿´Î¼ä¸ôÊ±¼ä¶¼»áÔö´óÒ»±¶£¬Ò»Ö±µ½´ïÍâ²¿²ÎÊıÉè¶¨µÄÉÏÏŞÎªÖ¹£¬Ò»µ©ĞÂÈÎÎñ²»ÔÙ³¬Ê±£¬¼ä¸ôÊ±¼äÓÖ»á×Ô¶¯»Ö¸´Îª³õÊ¼Öµ¡£ÕâÖÖÉè¼Æ»¹ÊÇÖµµÃÑ§Ï°µÄ¡£
+ä»æ•´ä½“ä¸Šçœ‹ï¼ŒTimedSupervisorTaskæ˜¯å›ºå®šé—´éš”çš„å‘¨æœŸæ€§ä»»åŠ¡ï¼Œä¸€æ—¦é‡åˆ°è¶…æ—¶å°±ä¼šå°†ä¸‹ä¸€ä¸ªå‘¨æœŸçš„é—´éš”æ—¶é—´è°ƒå¤§ï¼Œå¦‚æœè¿ç»­è¶…æ—¶ï¼Œé‚£ä¹ˆæ¯æ¬¡é—´éš”æ—¶é—´éƒ½ä¼šå¢å¤§ä¸€å€ï¼Œä¸€ç›´åˆ°è¾¾å¤–éƒ¨å‚æ•°è®¾å®šçš„ä¸Šé™ä¸ºæ­¢ï¼Œä¸€æ—¦æ–°ä»»åŠ¡ä¸å†è¶…æ—¶ï¼Œé—´éš”æ—¶é—´åˆä¼šè‡ªåŠ¨æ¢å¤ä¸ºåˆå§‹å€¼ã€‚è¿™ç§è®¾è®¡è¿˜æ˜¯å€¼å¾—å­¦ä¹ çš„ã€‚
 
 
 
@@ -1461,24 +1461,24 @@ private void initScheduledTasks() {
 public void run() {
       Future future = null;
   try {
-    //Ê¹ÓÃFuture£¬¿ÉÒÔÉè¶¨×ÓÏß³ÌµÄ³¬Ê±Ê±¼ä£¬ÕâÑùµ±Ç°Ïß³Ì¾Í²»ÓÃÎŞÏŞµÈ´ıÁË
+    //ä½¿ç”¨Futureï¼Œå¯ä»¥è®¾å®šå­çº¿ç¨‹çš„è¶…æ—¶æ—¶é—´ï¼Œè¿™æ ·å½“å‰çº¿ç¨‹å°±ä¸ç”¨æ— é™ç­‰å¾…äº†
     future = executor.submit(task);
     threadPoolLevelGauge.set((long) executor.getActiveCount());
-    //Ö¸¶¨µÈ´ı×ÓÏß³ÌµÄ×î³¤Ê±¼ä
+    //æŒ‡å®šç­‰å¾…å­çº¿ç¨‹çš„æœ€é•¿æ—¶é—´
     future.get(timeoutMillis, TimeUnit.MILLISECONDS);  // block until done or timeout
-    //delayÊÇ¸öºÜÓĞÓÃµÄ±äÁ¿£¬ºóÃæ»áÓÃµ½£¬ÕâÀï¼ÇµÃÃ¿´ÎÖ´ĞĞÈÎÎñ³É¹¦¶¼»á½«delayÖØÖÃ
+    //delayæ˜¯ä¸ªå¾ˆæœ‰ç”¨çš„å˜é‡ï¼Œåé¢ä¼šç”¨åˆ°ï¼Œè¿™é‡Œè®°å¾—æ¯æ¬¡æ‰§è¡Œä»»åŠ¡æˆåŠŸéƒ½ä¼šå°†delayé‡ç½®
     delay.set(timeoutMillis);
     threadPoolLevelGauge.set((long) executor.getActiveCount());
  } catch (TimeoutException e) {
     logger.error("task supervisor timed out", e);
     timeoutCounter.increment();
     long currentDelay = delay.get();
-    //ÈÎÎñÏß³Ì³¬Ê±µÄÊ±ºò£¬¾Í°Ñdelay±äÁ¿·­±¶£¬µ«²»»á³¬¹ıÍâ²¿µ÷ÓÃÊ±Éè¶¨µÄ×î´óÑÓÊ±Ê±¼ä
+    //ä»»åŠ¡çº¿ç¨‹è¶…æ—¶çš„æ—¶å€™ï¼Œå°±æŠŠdelayå˜é‡ç¿»å€ï¼Œä½†ä¸ä¼šè¶…è¿‡å¤–éƒ¨è°ƒç”¨æ—¶è®¾å®šçš„æœ€å¤§å»¶æ—¶æ—¶é—´
     long newDelay = Math.min(maxDelay, currentDelay * 2);
-    //ÉèÖÃÎª×îĞÂµÄÖµ£¬¿¼ÂÇµ½¶àÏß³Ì£¬ËùÒÔÓÃÁËCAS
+    //è®¾ç½®ä¸ºæœ€æ–°çš„å€¼ï¼Œè€ƒè™‘åˆ°å¤šçº¿ç¨‹ï¼Œæ‰€ä»¥ç”¨äº†CAS
     delay.compareAndSet(currentDelay, newDelay);
  } catch (RejectedExecutionException e) {
-    //Ò»µ©Ïß³Ì³ØµÄ×èÈû¶ÓÁĞÖĞ·ÅÂúÁË´ı´¦ÀíÈÎÎñ£¬´¥·¢ÁË¾Ü¾ø²ßÂÔ£¬¾Í»á½«µ÷¶ÈÆ÷Í£µô
+    //ä¸€æ—¦çº¿ç¨‹æ± çš„é˜»å¡é˜Ÿåˆ—ä¸­æ”¾æ»¡äº†å¾…å¤„ç†ä»»åŠ¡ï¼Œè§¦å‘äº†æ‹’ç»ç­–ç•¥ï¼Œå°±ä¼šå°†è°ƒåº¦å™¨åœæ‰
     if (executor.isShutdown() || scheduler.isShutdown()) {
       logger.warn("task supervisor shutting down, reject the task", e);
    } else {
@@ -1486,7 +1486,7 @@ public void run() {
    }
     rejectedCounter.increment();
  } catch (Throwable e) {
-    //Ò»µ©³öÏÖÎ´ÖªµÄÒì³££¬¾ÍÍ£µôµ÷¶ÈÆ÷
+    //ä¸€æ—¦å‡ºç°æœªçŸ¥çš„å¼‚å¸¸ï¼Œå°±åœæ‰è°ƒåº¦å™¨
     if (executor.isShutdown() || scheduler.isShutdown()) {
       logger.warn("task supervisor shutting down, can't accept the task");
    } else {
@@ -1494,16 +1494,16 @@ public void run() {
    }
     throwableCounter.increment();
  } finally {
-    //ÕâÀïÈÎÎñÒªÃ´Ö´ĞĞÍê±Ï£¬ÒªÃ´·¢ÉúÒì³££¬¶¼ÓÃcancel·½·¨À´ÇåÀíÈÎÎñ£»
+    //è¿™é‡Œä»»åŠ¡è¦ä¹ˆæ‰§è¡Œå®Œæ¯•ï¼Œè¦ä¹ˆå‘ç”Ÿå¼‚å¸¸ï¼Œéƒ½ç”¨cancelæ–¹æ³•æ¥æ¸…ç†ä»»åŠ¡ï¼›
     if (future != null) {
       future.cancel(true);
    }
-    //Ö»Òªµ÷¶ÈÆ÷Ã»ÓĞÍ£Ö¹£¬¾ÍÔÙÖ¸¶¨µÈ´ıÊ±¼äÖ®ºóÔÚÖ´ĞĞÒ»´ÎÍ¬ÑùµÄÈÎÎñ
+    //åªè¦è°ƒåº¦å™¨æ²¡æœ‰åœæ­¢ï¼Œå°±å†æŒ‡å®šç­‰å¾…æ—¶é—´ä¹‹ååœ¨æ‰§è¡Œä¸€æ¬¡åŒæ ·çš„ä»»åŠ¡
     if (!scheduler.isShutdown()) {
-      //ÕâÀï¾ÍÊÇÖÜÆÚĞÔÈÎÎñµÄÔ­Òò£ºÖ»ÒªÃ»ÓĞÍ£Ö¹µ÷¶ÈÆ÷£¬¾ÍÔÙ´´½¨Ò»´ÎĞÔÈÎÎñ£¬Ö´ĞĞÊ±¼äÊ±dealyµÄÖµ£¬
-      //¼ÙÉèÍâ²¿µ÷ÓÃÊ±´«ÈëµÄ³¬Ê±Ê±¼äÎª30Ãë£¨¹¹Ôì·½·¨µÄÈë²Îtimeout£©£¬×î´ó¼ä¸ôÊ±¼äÎª50Ãë(¹¹Ôì·½·¨µÄÈë²ÎexpBackOffBound)
-      //Èç¹û×î½üÒ»´ÎÈÎÎñÃ»ÓĞ³¬Ê±£¬ÄÇÃ´¾ÍÔÚ30Ãëºó¿ªÊ¼ĞÂÈÎÎñ£¬
-      //Èç¹û×î½üÒ»´ÎÈÎÎñ³¬Ê±ÁË£¬ÄÇÃ´¾ÍÔÚ50Ãëºó¿ªÊ¼ĞÂÈÎÎñ£¨Òì³£´¦ÀíÖĞÓĞ¸ö³ËÒÔ¶şµÄ²Ù×÷£¬³ËÒÔ¶şºóµÄ60Ãë³¬¹ıÁË×î´ó¼ä¸ô50Ãë£©
+      //è¿™é‡Œå°±æ˜¯å‘¨æœŸæ€§ä»»åŠ¡çš„åŸå› ï¼šåªè¦æ²¡æœ‰åœæ­¢è°ƒåº¦å™¨ï¼Œå°±å†åˆ›å»ºä¸€æ¬¡æ€§ä»»åŠ¡ï¼Œæ‰§è¡Œæ—¶é—´æ—¶dealyçš„å€¼ï¼Œ
+      //å‡è®¾å¤–éƒ¨è°ƒç”¨æ—¶ä¼ å…¥çš„è¶…æ—¶æ—¶é—´ä¸º30ç§’ï¼ˆæ„é€ æ–¹æ³•çš„å…¥å‚timeoutï¼‰ï¼Œæœ€å¤§é—´éš”æ—¶é—´ä¸º50ç§’(æ„é€ æ–¹æ³•çš„å…¥å‚expBackOffBound)
+      //å¦‚æœæœ€è¿‘ä¸€æ¬¡ä»»åŠ¡æ²¡æœ‰è¶…æ—¶ï¼Œé‚£ä¹ˆå°±åœ¨30ç§’åå¼€å§‹æ–°ä»»åŠ¡ï¼Œ
+      //å¦‚æœæœ€è¿‘ä¸€æ¬¡ä»»åŠ¡è¶…æ—¶äº†ï¼Œé‚£ä¹ˆå°±åœ¨50ç§’åå¼€å§‹æ–°ä»»åŠ¡ï¼ˆå¼‚å¸¸å¤„ç†ä¸­æœ‰ä¸ªä¹˜ä»¥äºŒçš„æ“ä½œï¼Œä¹˜ä»¥äºŒåçš„60ç§’è¶…è¿‡äº†æœ€å¤§é—´éš”50ç§’ï¼‰
       scheduler.schedule(this, delay.get(), TimeUnit.MILLISECONDS);
    }
  }
@@ -1519,11 +1519,11 @@ public void run() {
 
 
 **2.6.5 refreshRegistry**
-Õâ¶Î´úÂëÖ÷ÒªÁ½¸öÂß¼­
+è¿™æ®µä»£ç ä¸»è¦ä¸¤ä¸ªé€»è¾‘
 
-* ÅĞ¶ÏremoteRegionsÊÇ·ñ·¢ÉúÁË±ä»¯
+* åˆ¤æ–­remoteRegionsæ˜¯å¦å‘ç”Ÿäº†å˜åŒ–
 
-* µ÷ÓÃfetchRegistry»ñÈ¡±¾µØ·şÎñµØÖ·»º´æ
+* è°ƒç”¨fetchRegistryè·å–æœ¬åœ°æœåŠ¡åœ°å€ç¼“å­˜
 
 
 
@@ -1534,13 +1534,13 @@ public void run() {
           boolean isFetchingRemoteRegionRegistries =
               isFetchingRemoteRegionRegistries();
           boolean remoteRegionsModified = false;
-          //Èç¹û²¿ÊğÔÚaws»·¾³ÉÏ£¬»áÅĞ¶Ï×îºóÒ»´ÎÔ¶³ÌÇøÓò¸üĞÂµÄĞÅÏ¢ºÍµ±Ç°Ô¶³ÌÇøÓòĞÅÏ¢½øĞĞ±È½Ï£¬Èç¹û²»ÏëµÈ£¬Ôò¸üĞÂ
+          //å¦‚æœéƒ¨ç½²åœ¨awsç¯å¢ƒä¸Šï¼Œä¼šåˆ¤æ–­æœ€åä¸€æ¬¡è¿œç¨‹åŒºåŸŸæ›´æ–°çš„ä¿¡æ¯å’Œå½“å‰è¿œç¨‹åŒºåŸŸä¿¡æ¯è¿›è¡Œæ¯”è¾ƒï¼Œå¦‚æœä¸æƒ³ç­‰ï¼Œåˆ™æ›´æ–°
           String latestRemoteRegions =
               clientConfig.fetchRegistryForRemoteRegions();
           if (null != latestRemoteRegions) {
               String currentRemoteRegions = remoteRegionsToFetch.get();
               if (!latestRemoteRegions.equals(currentRemoteRegions)) {
-                  //ÅĞ¶Ï×îºóÒ»´Î
+                  //åˆ¤æ–­æœ€åä¸€æ¬¡
               }
               boolean success = fetchRegistry(remoteRegionsModified);
               if (success) {
@@ -1548,7 +1548,7 @@ public void run() {
                   lastSuccessfulRegistryFetchTimestamp =
                       System.currentTimeMillis();
               }
-              // Ê¡ÂÔ
+              // çœç•¥
           } catch (Throwable e) {
               logger.error("Cannot fetch registry from server", e);
           }
@@ -1573,13 +1573,13 @@ public void run() {
       try {
           // If the delta is disabled or if it is the first time, get all
           // applications
-          // È¡³ö±¾µØ»º´æµÄ·şÎñÁĞ±íĞÅÏ¢
+          // å–å‡ºæœ¬åœ°ç¼“å­˜çš„æœåŠ¡åˆ—è¡¨ä¿¡æ¯
           Applications applications = getApplications();
-          //ÅĞ¶Ï¶à¸öÌõ¼ş£¬È·¶¨ÊÇ·ñ´¥·¢È«Á¿¸üĞÂ£¬ÈçÏÂÈÎÒ»¸öÂú×ã¶¼»áÈ«Á¿¸üĞÂ£º
-          //1\. ÊÇ·ñ½ûÓÃÔöÁ¿¸üĞÂ£»
-          //2\. ÊÇ·ñ¶ÔÄ³¸öregionÌØ±ğ¹Ø×¢£»
-          //3\. Íâ²¿µ÷ÓÃÊ±ÊÇ·ñÍ¨¹ıÈë²ÎÖ¸¶¨È«Á¿¸üĞÂ£»
-          //4\. ±¾µØ»¹Î´»º´æÓĞĞ§µÄ·şÎñÁĞ±íĞÅÏ¢£»
+          //åˆ¤æ–­å¤šä¸ªæ¡ä»¶ï¼Œç¡®å®šæ˜¯å¦è§¦å‘å…¨é‡æ›´æ–°ï¼Œå¦‚ä¸‹ä»»ä¸€ä¸ªæ»¡è¶³éƒ½ä¼šå…¨é‡æ›´æ–°ï¼š
+          //1\. æ˜¯å¦ç¦ç”¨å¢é‡æ›´æ–°ï¼›
+          //2\. æ˜¯å¦å¯¹æŸä¸ªregionç‰¹åˆ«å…³æ³¨ï¼›
+          //3\. å¤–éƒ¨è°ƒç”¨æ—¶æ˜¯å¦é€šè¿‡å…¥å‚æŒ‡å®šå…¨é‡æ›´æ–°ï¼›
+          //4\. æœ¬åœ°è¿˜æœªç¼“å­˜æœ‰æ•ˆçš„æœåŠ¡åˆ—è¡¨ä¿¡æ¯ï¼›
           if (clientConfig.shouldDisableDelta()
               ||
               (!Strings.isNullOrEmpty(clientConfig.getRegistryRefreshSingleVipAddress()))
@@ -1589,15 +1589,15 @@ public void run() {
               || (applications.getVersion() == -1)) //Client application does not
               have latest library supporting delta
           {
-              //µ÷ÓÃÈ«Á¿¸üĞÂ
+              //è°ƒç”¨å…¨é‡æ›´æ–°
               getAndStoreFullRegistry();
           } else {
-              //µ÷ÓÃÔöÁ¿¸üĞÂ
+              //è°ƒç”¨å¢é‡æ›´æ–°
               getAndUpdateDelta(applications);
           }
-          //ÖØĞÂ¼ÆËãºÍÉèÖÃÒ»ÖÂĞÔhashÂë
+          //é‡æ–°è®¡ç®—å’Œè®¾ç½®ä¸€è‡´æ€§hashç 
           applications.setAppsHashCode(applications.getReconcileHashCode());
-          logTotalInstances(); //ÈÕÖ¾´òÓ¡ËùÓĞÓ¦ÓÃµÄËùÓĞÊµÀıÊıÖ®ºÍ
+          logTotalInstances(); //æ—¥å¿—æ‰“å°æ‰€æœ‰åº”ç”¨çš„æ‰€æœ‰å®ä¾‹æ•°ä¹‹å’Œ
       } catch (Throwable e) {
           logger.error(PREFIX + "{} - was unable to refresh its cache! status = {}", appPathIdentifier, e.getMessage(), e);
           return false;
@@ -1606,12 +1606,12 @@ public void run() {
               tracer.stop();
           }
       }
-      //½«±¾µØ»º´æ¸üĞÂµÄÊÂ¼ş¹ã²¥¸øËùÓĞÒÑ×¢²áµÄ¼àÌıÆ÷£¬×¢Òâ¸Ã·½·¨ÒÑ±»CloudEurekaClientÀàÖØĞ´
+      //å°†æœ¬åœ°ç¼“å­˜æ›´æ–°çš„äº‹ä»¶å¹¿æ’­ç»™æ‰€æœ‰å·²æ³¨å†Œçš„ç›‘å¬å™¨ï¼Œæ³¨æ„è¯¥æ–¹æ³•å·²è¢«CloudEurekaClientç±»é‡å†™
       onCacheRefreshed();
       // Update remote status based on refreshed data held in the cache
-      //¼ì²é¸Õ¸Õ¸üĞÂµÄ»º´æÖĞ£¬ÓĞÀ´×ÔEureka serverµÄ·şÎñÁĞ±í£¬ÆäÖĞ°üº¬ÁËµ±Ç°Ó¦ÓÃµÄ×´Ì¬£¬
-      //µ±Ç°ÊµÀıµÄ³ÉÔ±±äÁ¿lastRemoteInstanceStatus£¬¼ÇÂ¼µÄÊÇ×îºóÒ»´Î¸üĞÂµÄµ±Ç°Ó¦ÓÃ×´Ì¬£¬
-      //ÉÏÊöÁ½ÖÖ×´Ì¬ÔÚupdateInstanceRemoteStatus·½·¨ÖĞ×÷±È½Ï £¬Èç¹û²»Ò»ÖÂ£¬¾Í¸üĞÂlastRemoteInstanceStatus£¬²¢ÇÒ¹ã²¥¶ÔÓ¦µÄÊÂ¼ş
+      //æ£€æŸ¥åˆšåˆšæ›´æ–°çš„ç¼“å­˜ä¸­ï¼Œæœ‰æ¥è‡ªEureka serverçš„æœåŠ¡åˆ—è¡¨ï¼Œå…¶ä¸­åŒ…å«äº†å½“å‰åº”ç”¨çš„çŠ¶æ€ï¼Œ
+      //å½“å‰å®ä¾‹çš„æˆå‘˜å˜é‡lastRemoteInstanceStatusï¼Œè®°å½•çš„æ˜¯æœ€åä¸€æ¬¡æ›´æ–°çš„å½“å‰åº”ç”¨çŠ¶æ€ï¼Œ
+      //ä¸Šè¿°ä¸¤ç§çŠ¶æ€åœ¨updateInstanceRemoteStatusæ–¹æ³•ä¸­ä½œæ¯”è¾ƒ ï¼Œå¦‚æœä¸ä¸€è‡´ï¼Œå°±æ›´æ–°lastRemoteInstanceStatusï¼Œå¹¶ä¸”å¹¿æ’­å¯¹åº”çš„äº‹ä»¶
       updateInstanceRemoteStatus();
       // registry was fetched successfully, so return true
       return true;
@@ -1627,7 +1627,7 @@ public void run() {
 
 
 **2.6.7 getAndStoreFullRegistry**
-´Óeureka server¶Ë»ñÈ¡·şÎñ×¢²áÖĞĞÄµÄµØÖ·ĞÅÏ¢£¬È»ºó¸üĞÂ²¢ÉèÖÃµ½±¾µØ»º´æ localRegionApps ¡£
+ä»eureka serverç«¯è·å–æœåŠ¡æ³¨å†Œä¸­å¿ƒçš„åœ°å€ä¿¡æ¯ï¼Œç„¶åæ›´æ–°å¹¶è®¾ç½®åˆ°æœ¬åœ°ç¼“å­˜ localRegionApps ã€‚
 
 
 
@@ -1667,14 +1667,14 @@ private void getAndStoreFullRegistry() throws Throwable {
 
 
 
-**2.6.8 ·şÎñ¶Ë²éÑ¯·şÎñµØÖ·Á÷³Ì**
-Ç°ÃæÎÒÃÇÖªµÀ£¬¿Í»§¶Ë·¢Æğ·şÎñµØÖ·µÄ²éÑ¯ÓĞÁ½ÖÖ£¬Ò»ÖÖÊÇÈ«Á¿¡¢ÁíÒ»ÖÖÊÇÔöÁ¿¡£¶ÔÓÚÈ«Á¿²éÑ¯µÄÇëÇó£¬»áµ÷ÓÃEureka-serverµÄApplicationsResourceµÄgetContainers·½·¨¡£
+**2.6.8 æœåŠ¡ç«¯æŸ¥è¯¢æœåŠ¡åœ°å€æµç¨‹**
+å‰é¢æˆ‘ä»¬çŸ¥é“ï¼Œå®¢æˆ·ç«¯å‘èµ·æœåŠ¡åœ°å€çš„æŸ¥è¯¢æœ‰ä¸¤ç§ï¼Œä¸€ç§æ˜¯å…¨é‡ã€å¦ä¸€ç§æ˜¯å¢é‡ã€‚å¯¹äºå…¨é‡æŸ¥è¯¢çš„è¯·æ±‚ï¼Œä¼šè°ƒç”¨Eureka-serverçš„ApplicationsResourceçš„getContainersæ–¹æ³•ã€‚
 
-¶ø¶ÔÓÚÔöÁ¿ÇëÇó£¬»áµ÷ÓÃ
-ApplicationsResource.getContainerDifferential¡£
+è€Œå¯¹äºå¢é‡è¯·æ±‚ï¼Œä¼šè°ƒç”¨
+ApplicationsResource.getContainerDifferentialã€‚
 
 **2.6.9 ApplicationsResource.getContainers**
-½ÓÊÕ¿Í»§¶Ë·¢ËÍµÄ»ñÈ¡È«Á¿×¢²áĞÅÏ¢ÇëÇó¡£
+æ¥æ”¶å®¢æˆ·ç«¯å‘é€çš„è·å–å…¨é‡æ³¨å†Œä¿¡æ¯è¯·æ±‚ã€‚
 
 
 
@@ -1699,25 +1699,25 @@ public Response getContainers(@PathParam("version") String version,
         Arrays.sort(regions); // So we don't have different caches for same regions queried in different order.
         EurekaMonitors.GET_ALL_WITH_REMOTE_REGIONS.increment();
     }
-    // EurekaServerÎŞ·¨Ìá¹©·şÎñ£¬·µ»Ø403
+    // EurekaServeræ— æ³•æä¾›æœåŠ¡ï¼Œè¿”å›403
     if (!registry.shouldAllowAccess(isRemoteRegionRequested)) {
         return Response.status(Status.FORBIDDEN).build();
     }
     CurrentRequestVersion.set(Version.toEnum(version));
-    KeyType keyType = Key.KeyType.JSON;// ÉèÖÃ·µ»ØÊı¾İ¸ñÊ½£¬Ä¬ÈÏJSON
+    KeyType keyType = Key.KeyType.JSON;// è®¾ç½®è¿”å›æ•°æ®æ ¼å¼ï¼Œé»˜è®¤JSON
     String returnMediaType = MediaType.APPLICATION_JSON;
     if (acceptHeader == null || !acceptHeader.contains(HEADER_JSON_VALUE)) {
-        // Èç¹û½ÓÊÕµ½µÄÇëÇóÍ·²¿Ã»ÓĞ¾ßÌå¸ñÊ½ĞÅÏ¢£¬Ôò·µ»Ø¸ñÊ½ÎªXML
+        // å¦‚æœæ¥æ”¶åˆ°çš„è¯·æ±‚å¤´éƒ¨æ²¡æœ‰å…·ä½“æ ¼å¼ä¿¡æ¯ï¼Œåˆ™è¿”å›æ ¼å¼ä¸ºXML
         keyType = Key.KeyType.XML;
         returnMediaType = MediaType.APPLICATION_XML;
     }
-    // ¹¹½¨»º´æ¼ü
+    // æ„å»ºç¼“å­˜é”®
     Key cacheKey = new Key(Key.EntityType.Application,
                            ResponseCacheImpl.ALL_APPS,
                            keyType, CurrentRequestVersion.get(),
                            EurekaAccept.fromString(eurekaAccept), regions
                           );
-    // ·µ»Ø²»Í¬µÄ±àÂëÀàĞÍµÄÊı¾İ£¬È¥»º´æÖĞÈ¡Êı¾İµÄ·½·¨»ù±¾Ò»ÖÂ
+    // è¿”å›ä¸åŒçš„ç¼–ç ç±»å‹çš„æ•°æ®ï¼Œå»ç¼“å­˜ä¸­å–æ•°æ®çš„æ–¹æ³•åŸºæœ¬ä¸€è‡´
     Response response;
     if (acceptEncoding != null && acceptEncoding.contains(HEADER_GZIP_VALUE)) {
         response = Response.ok(responseCache.getGZIP(cacheKey))
@@ -1742,7 +1742,7 @@ public Response getContainers(@PathParam("version") String version,
 
 
 **2.6.10 responseCache.getGZIP**
-´Ó»º´æÖĞ¶ÁÈ¡Êı¾İ¡£
+ä»ç¼“å­˜ä¸­è¯»å–æ•°æ®ã€‚
 
 
 
@@ -1775,7 +1775,7 @@ Value getValue(final Key key, boolean useReadOnlyCache) {
 }
 ```
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

@@ -1,8 +1,8 @@
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-1f1ac8f3d8241fad9693d9684048ab7f3ae.png)
 
-½ÓÉÏÎÄ£¬±¾ÎÄÒÀ¾ÉÊÇ·ÖÎö `finishBeanFactoryInitialization(beanFactory)`£¬±¾ÎÄ½«ÖØµã·ÖÎöµ¥Àı bean µÄ´´½¨Á÷³Ì¡£
+æ¥ä¸Šæ–‡ï¼Œæœ¬æ–‡ä¾æ—§æ˜¯åˆ†æ `finishBeanFactoryInitialization(beanFactory)`ï¼Œæœ¬æ–‡å°†é‡ç‚¹åˆ†æå•ä¾‹ bean çš„åˆ›å»ºæµç¨‹ã€‚
 
-ÔÚÉÏÒ»ÆªÎÄÕÂÖĞ£¬ÎÒÃÇ½éÉÜÁË `AbstractApplicationContext#finishBeanFactoryInitialization` µÄÖ´ĞĞ¹ı³Ì£¬±¾ÎÄ½«ÉîÈëÏ¸½Ú£¬·ÖÎö spring bean µÄ´´½¨¹ı³Ì¡£
+åœ¨ä¸Šä¸€ç¯‡æ–‡ç« ä¸­ï¼Œæˆ‘ä»¬ä»‹ç»äº† `AbstractApplicationContext#finishBeanFactoryInitialization` çš„æ‰§è¡Œè¿‡ç¨‹ï¼Œæœ¬æ–‡å°†æ·±å…¥ç»†èŠ‚ï¼Œåˆ†æ spring bean çš„åˆ›å»ºè¿‡ç¨‹ã€‚
 
 ```
 |-AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
@@ -15,7 +15,7 @@
 
 ```
 
-ÎÒÃÇÖ±½Ó¿´ `AbstractAutowireCapableBeanFactory#createBean(String, RootBeanDefinition, Object[])`£¬¾«¼òºóµÄ´úÂëÈçÏÂ£º
+æˆ‘ä»¬ç›´æ¥çœ‹ `AbstractAutowireCapableBeanFactory#createBean(String, RootBeanDefinition, Object[])`ï¼Œç²¾ç®€åçš„ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 @Override
@@ -24,14 +24,14 @@ protected Object createBean(String beanName, RootBeanDefinition mbd, @Nullable O
 
     RootBeanDefinition mbdToUse = mbd;
 
-    // È·±£ BeanDefinition ÖĞµÄ Class ±»¼ÓÔØ
+    // ç¡®ä¿ BeanDefinition ä¸­çš„ Class è¢«åŠ è½½
     Class<?> resolvedClass = resolveBeanClass(mbd, beanName);
     if (resolvedClass != null && !mbd.hasBeanClass() && mbd.getBeanClassName() != null) {
         mbdToUse = new RootBeanDefinition(mbd);
         mbdToUse.setBeanClass(resolvedClass);
     }
 
-    // ×¼±¸·½·¨¸²Ğ´£¬Èç¹ûbeanÖĞ¶¨ÒåÁË <lookup-method /> ºÍ <replaced-method />
+    // å‡†å¤‡æ–¹æ³•è¦†å†™ï¼Œå¦‚æœbeanä¸­å®šä¹‰äº† <lookup-method /> å’Œ <replaced-method />
     try {
         mbdToUse.prepareMethodOverrides();
     }
@@ -40,7 +40,7 @@ protected Object createBean(String beanName, RootBeanDefinition mbd, @Nullable O
     }
 
     try {
-        // Èç¹ûÓĞ´úÀíµÄ»°Ö±½Ó·µ»Ø
+        // å¦‚æœæœ‰ä»£ç†çš„è¯ç›´æ¥è¿”å›
         Object bean = resolveBeforeInstantiation(beanName, mbdToUse);
         if (bean != null) {
             return bean;
@@ -51,7 +51,7 @@ protected Object createBean(String beanName, RootBeanDefinition mbd, @Nullable O
     }
 
     try {
-        // ´´½¨ bean
+        // åˆ›å»º bean
         Object beanInstance = doCreateBean(beanName, mbdToUse, args);
         return beanInstance;
     }
@@ -65,14 +65,14 @@ protected Object createBean(String beanName, RootBeanDefinition mbd, @Nullable O
 
 ```
 
-¿ÉÒÔ¿´µ½£¬¸Ã·½·¨×öÁËËÄ¼şÊÂ£º
+å¯ä»¥çœ‹åˆ°ï¼Œè¯¥æ–¹æ³•åšäº†å››ä»¶äº‹ï¼š
 
-1.  È·±£ class ±»¼ÓÔØ
-2.  ¸²Ğ´·½·¨
-3.  ²éÕÒ´úÀí¶ÔÏó£¬ÈôÓĞÔò·µ»Ø
-4.  ´´½¨ spring bean
+1.  ç¡®ä¿ class è¢«åŠ è½½
+2.  è¦†å†™æ–¹æ³•
+3.  æŸ¥æ‰¾ä»£ç†å¯¹è±¡ï¼Œè‹¥æœ‰åˆ™è¿”å›
+4.  åˆ›å»º spring bean
 
-¶ÔÓÚÇ°ÃæÈı¸ö²Ù×÷£¬±¾ÎÄ²»¹Ø×¢£¬ÎÒÃÇ½ö¿´µÚËÄ¸ö²Ù×÷¡£½øÈë `AbstractAutowireCapableBeanFactory#doCreateBean`:
+å¯¹äºå‰é¢ä¸‰ä¸ªæ“ä½œï¼Œæœ¬æ–‡ä¸å…³æ³¨ï¼Œæˆ‘ä»¬ä»…çœ‹ç¬¬å››ä¸ªæ“ä½œã€‚è¿›å…¥ `AbstractAutowireCapableBeanFactory#doCreateBean`:
 
 ```
 protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd, 
@@ -80,16 +80,16 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
     BeanWrapper instanceWrapper = null;
     if (mbd.isSingleton()) {
-        //Èç¹ûÊÇ factoryBeanÔò´Ó»º´æÉ¾³ı
+        //å¦‚æœæ˜¯ factoryBeanåˆ™ä»ç¼“å­˜åˆ é™¤
         instanceWrapper = this.factoryBeanInstanceCache.remove(beanName);
     }
     if (instanceWrapper == null) {
-         // ÊµÀı»¯ Bean£¬Õâ¸ö·½·¨ÀïÃæ²ÅÊÇÖÕµã
+         // å®ä¾‹åŒ– Beanï¼Œè¿™ä¸ªæ–¹æ³•é‡Œé¢æ‰æ˜¯ç»ˆç‚¹
          instanceWrapper = createBeanInstance(beanName, mbd, args);
     }
-    //beanÊµÀı
+    //beanå®ä¾‹
     final Object bean = instanceWrapper.getWrappedInstance();
-    //beanÀàĞÍ
+    //beanç±»å‹
     Class<?> beanType = instanceWrapper.getWrappedClass();
     if (beanType != NullBean.class) {
         mbd.resolvedTargetType = beanType;
@@ -98,11 +98,11 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
     synchronized (mbd.postProcessingLock) {
         if (!mbd.postProcessed) {
             try {
-                // Ñ­»·µ÷ÓÃMergedBeanDefinitionPostProcessorµÄpostProcessMergedBeanDefinition·½·¨¡£ÀıÈç£¬
-                // 1\. µ÷ÓÃ AutowiredAnnotationBeanPostProcessor.postProcessMergedBeanDefinition ÎªÁËÕÒµ½
-                //  ´øÓĞ@Autowired¡¢@Value ×¢½âµÄÊôĞÔºÍ·½·¨
-                // 2\. µ÷ÓÃ CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition ÎªÁËÕÒµ½
-                // 	´øÓĞ@Resource ×¢½âµÄÊôĞÔºÍ·½·¨
+                // å¾ªç¯è°ƒç”¨MergedBeanDefinitionPostProcessorçš„postProcessMergedBeanDefinitionæ–¹æ³•ã€‚ä¾‹å¦‚ï¼Œ
+                // 1\. è°ƒç”¨ AutowiredAnnotationBeanPostProcessor.postProcessMergedBeanDefinition ä¸ºäº†æ‰¾åˆ°
+                //  å¸¦æœ‰@Autowiredã€@Value æ³¨è§£çš„å±æ€§å’Œæ–¹æ³•
+                // 2\. è°ƒç”¨ CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition ä¸ºäº†æ‰¾åˆ°
+                // 	å¸¦æœ‰@Resource æ³¨è§£çš„å±æ€§å’Œæ–¹æ³•
                 applyMergedBeanDefinitionPostProcessors(mbd, beanType, beanName);
             }
             catch (Throwable ex) {
@@ -112,33 +112,33 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
         }
     }
 
-    // ½â¾öÑ­»·ÒÀÀµÎÊÌâ, ÊÇ·ñÔÊĞíÑ­»·ÒÀÀµ, allowCircularReferencesÄ¬ÈÏÎªtrue£¬¿ÉÒÔ¹Ø±Õ
+    // è§£å†³å¾ªç¯ä¾èµ–é—®é¢˜, æ˜¯å¦å…è®¸å¾ªç¯ä¾èµ–, allowCircularReferencesé»˜è®¤ä¸ºtrueï¼Œå¯ä»¥å…³é—­
     boolean earlySingletonExposure = (mbd.isSingleton() && this.allowCircularReferences &&
             isSingletonCurrentlyInCreation(beanName));
     if (earlySingletonExposure) {
-        // Ñ­»·ÒÀÀµµÄ½â¾ö£¬ºóÃæ»áµ¥¶À·ÖÎö
+        // å¾ªç¯ä¾èµ–çš„è§£å†³ï¼Œåé¢ä¼šå•ç‹¬åˆ†æ
         ...
     }
 
     Object exposedObject = bean;
     try {
-        // ¸ºÔğÊôĞÔ×°Åä, Ò²¾ÍÊÇÎÒÃÇ³£³£ËµµÄ×Ô¶¯×¢Èë£¬ºÜÖØÒª
+        // è´Ÿè´£å±æ€§è£…é…, ä¹Ÿå°±æ˜¯æˆ‘ä»¬å¸¸å¸¸è¯´çš„è‡ªåŠ¨æ³¨å…¥ï¼Œå¾ˆé‡è¦
         populateBean(beanName, mbd, instanceWrapper);
-        // ÕâÀïÊÇ´¦Àíbean³õÊ¼»¯Íê³ÉºóµÄ¸÷ÖÖ»Øµ÷£¬
-        // ÀıÈçinit-method¡¢InitializingBean ½Ó¿Ú¡¢BeanPostProcessor ½Ó¿Ú
+        // è¿™é‡Œæ˜¯å¤„ç†beanåˆå§‹åŒ–å®Œæˆåçš„å„ç§å›è°ƒï¼Œ
+        // ä¾‹å¦‚init-methodã€InitializingBean æ¥å£ã€BeanPostProcessor æ¥å£
         exposedObject = initializeBean(beanName, exposedObject, mbd);
     }
     catch (Throwable ex) {
         ...
     }
 
-    //Í¬ÑùµÄ£¬Èç¹û´æÔÚÑ­»·ÒÀÀµ
+    //åŒæ ·çš„ï¼Œå¦‚æœå­˜åœ¨å¾ªç¯ä¾èµ–
     if (earlySingletonExposure) {
-        // Ñ­»·ÒÀÀµµÄ½â¾ö£¬ºóÃæ»áµ¥¶À·ÖÎö
+        // å¾ªç¯ä¾èµ–çš„è§£å†³ï¼Œåé¢ä¼šå•ç‹¬åˆ†æ
         ...
     }
 
-    // °Ñbean×¢²áµ½ÏàÓ¦µÄScopeÖĞ
+    // æŠŠbeanæ³¨å†Œåˆ°ç›¸åº”çš„Scopeä¸­
     try {
         registerDisposableBeanIfNecessary(beanName, bean, mbd);
     }
@@ -151,46 +151,46 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
 ```
 
-¿ÉÒÔ¿´µ½£¬spring ÔÚ´´½¨ bean Ê±£¬Ö÷Òª×öÁËÈçÏÂÈı¼şÊÂ£º
+å¯ä»¥çœ‹åˆ°ï¼Œspring åœ¨åˆ›å»º bean æ—¶ï¼Œä¸»è¦åšäº†å¦‚ä¸‹ä¸‰ä»¶äº‹ï¼š
 
-1.  ´´½¨ÊµÀı
-2.  ²éÕÒÊôĞÔ
-3.  ×¢ÈëÊôĞÔ
-4.  ³õÊ¼»¯ bean
+1.  åˆ›å»ºå®ä¾‹
+2.  æŸ¥æ‰¾å±æ€§
+3.  æ³¨å…¥å±æ€§
+4.  åˆå§‹åŒ– bean
 
-½ÓÏÂÀ´£¬ÔÛÃÇ¾ÍÖ÷Òª·ÖÎöÕâËÄ¸ö²½Öè¡£
+æ¥ä¸‹æ¥ï¼Œå’±ä»¬å°±ä¸»è¦åˆ†æè¿™å››ä¸ªæ­¥éª¤ã€‚
 
-#### 1\. ´´½¨ÊµÀı
+#### 1\. åˆ›å»ºå®ä¾‹
 
-spring ´´½¨ÊµÀıµÄ·½·¨ÊÇ `AbstractAutowireCapableBeanFactory#createBeanInstance`£¬ÄÚÈİÈçÏÂ£º
+spring åˆ›å»ºå®ä¾‹çš„æ–¹æ³•æ˜¯ `AbstractAutowireCapableBeanFactory#createBeanInstance`ï¼Œå†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 protected BeanWrapper createBeanInstance(String beanName, RootBeanDefinition mbd, 
         @Nullable Object[] args) {
-    // È·±£ÒÑ¾­¼ÓÔØÁË´Ë class
+    // ç¡®ä¿å·²ç»åŠ è½½äº†æ­¤ class
     Class<?> beanClass = resolveBeanClass(mbd, beanName);
 
-    // Ğ£ÑéÀàµÄ·ÃÎÊÈ¨ÏŞ
+    // æ ¡éªŒç±»çš„è®¿é—®æƒé™
     if (beanClass != null && !Modifier.isPublic(beanClass.getModifiers()) 
                 && !mbd.isNonPublicAccessAllowed()) {
         throw new BeanCreationException(...);
     }
 
-    // ÊÇ·ñÉèÖÃÁËbean´´½¨µÄSupplier£¬SupplierÊÇjava8Ìá¹©µÄÀà£¬¿ÉÒÔ´«ÈëÒ»¸ölambda±í´ïÊ½
-    // µ÷ÓÃ AbstractBeanDefinition#setInstanceSupplier Ö¸¶¨
+    // æ˜¯å¦è®¾ç½®äº†beanåˆ›å»ºçš„Supplierï¼ŒSupplieræ˜¯java8æä¾›çš„ç±»ï¼Œå¯ä»¥ä¼ å…¥ä¸€ä¸ªlambdaè¡¨è¾¾å¼
+    // è°ƒç”¨ AbstractBeanDefinition#setInstanceSupplier æŒ‡å®š
     Supplier<?> instanceSupplier = mbd.getInstanceSupplier();
     if (instanceSupplier != null) {
         return obtainFromSupplier(instanceSupplier, beanName);
     }
 
     if (mbd.getFactoryMethodName() != null) {
-        // ²ÉÓÃ¹¤³§·½·¨ÊµÀı»¯
+        // é‡‡ç”¨å·¥å‚æ–¹æ³•å®ä¾‹åŒ–
         return instantiateUsingFactoryMethod(beanName, mbd, args);
     }
 
-    // ÊÇ·ñµÚÒ»´Î
+    // æ˜¯å¦ç¬¬ä¸€æ¬¡
     boolean resolved = false;
-    // ÊÇ·ñ²ÉÓÃ¹¹Ôìº¯Êı×¢Èë
+    // æ˜¯å¦é‡‡ç”¨æ„é€ å‡½æ•°æ³¨å…¥
     boolean autowireNecessary = false;
     if (args == null) {
         synchronized (mbd.constructorArgumentLock) {
@@ -205,13 +205,13 @@ protected BeanWrapper createBeanInstance(String beanName, RootBeanDefinition mbd
             return autowireConstructor(beanName, mbd, null, null);
         }
         else {
-            // ÎŞ²Î¹¹Ôìº¯Êı
+            // æ— å‚æ„é€ å‡½æ•°
             return instantiateBean(beanName, mbd);
         }
     }
 
     // Candidate constructors for autowiring?
-    // ÅĞ¶ÏÊÇ·ñ²ÉÓÃÓĞ²Î¹¹Ôìº¯Êı
+    // åˆ¤æ–­æ˜¯å¦é‡‡ç”¨æœ‰å‚æ„é€ å‡½æ•°
     Constructor<?>[] ctors = determineConstructorsFromBeanPostProcessors(beanClass, beanName);
     if (ctors != null || mbd.getResolvedAutowireMode() == AUTOWIRE_CONSTRUCTOR ||
             mbd.hasConstructorArgumentValues() || !ObjectUtils.isEmpty(args)) {
@@ -220,24 +220,24 @@ protected BeanWrapper createBeanInstance(String beanName, RootBeanDefinition mbd
 
     ctors = mbd.getPreferredConstructors();
     if (ctors != null) {
-        // ¹¹Ôìº¯ÊıÒÀÀµ×¢Èë
+        // æ„é€ å‡½æ•°ä¾èµ–æ³¨å…¥
         return autowireConstructor(beanName, mbd, ctors, null);
     }
 
-    // µ÷ÓÃÎŞ²Î¹¹Ôìº¯Êı
+    // è°ƒç”¨æ— å‚æ„é€ å‡½æ•°
     return instantiateBean(beanName, mbd);
 }
 
 ```
 
-´ÓÒÔÉÏ´úÂëÀ´¿´£¬spring ÔÚÊµÀı»¯ bean Ê±£¬ÓĞ 4 ÖÖ·½Ê½£º
+ä»ä»¥ä¸Šä»£ç æ¥çœ‹ï¼Œspring åœ¨å®ä¾‹åŒ– bean æ—¶ï¼Œæœ‰ 4 ç§æ–¹å¼ï¼š
 
-1.  Ê¹ÓÃÊµÀı»¯·½·¨£ºobtainFromSupplier
-2.  Ê¹ÓÃ¹¤³§·½·¨£ºinstantiateUsingFactoryMethod
-3.  Ê¹ÓÃÓĞ²Î¹¹Ôì£ºautowireConstructor
-4.  Ê¹ÓÃÎŞ²Î¹¹Ôì£ºinstantiateBean
+1.  ä½¿ç”¨å®ä¾‹åŒ–æ–¹æ³•ï¼šobtainFromSupplier
+2.  ä½¿ç”¨å·¥å‚æ–¹æ³•ï¼šinstantiateUsingFactoryMethod
+3.  ä½¿ç”¨æœ‰å‚æ„é€ ï¼šautowireConstructor
+4.  ä½¿ç”¨æ— å‚æ„é€ ï¼šinstantiateBean
 
-¶ÔÓÚÇ°ÃæÁ½¸ö·½·¨£¬ÕâÊÇ¿ª·¢ÕßÖ¸¶¨µÄ·½·¨£¬Ã»É¶ºÃËµµÄ£¬ºóÃæÁ½¸ö·½·¨ÊÇ spring ¸ù¾İÀàµÄÊµ¼ÊÇé¿öÀ´Ñ¡Ôñ¹¹Ôì·½·¨½øĞĞÊµÀı»¯µÄ¡£¶ÔÓÚÒ»¸ö bean À´Ëµ£¬Èç¹ûÎ´Ìá¹©ÈÎºÎ¹¹Ôì·½·¨»òÌá¹©ÁËÎŞ²Î¹¹Ôì·½·¨£¬Ôòµ÷ÓÃ `AbstractAutowireCapableBeanFactory#instantiateBean` À´½øĞĞÊµÀı»¯£¬·ñÔòµ÷ÓÃ `AbstractAutowireCapableBeanFactory#autowireConstructor` ½øĞĞÊµÀı»¯¡£Êµ¼ÊÉÏ£¬ÕâÁ½¸ö·½·¨×îÖÕ¶¼»áÖ´ĞĞµ½ `BeanUtils#instantiateClass(Constructor<T>, Object...)`:
+å¯¹äºå‰é¢ä¸¤ä¸ªæ–¹æ³•ï¼Œè¿™æ˜¯å¼€å‘è€…æŒ‡å®šçš„æ–¹æ³•ï¼Œæ²¡å•¥å¥½è¯´çš„ï¼Œåé¢ä¸¤ä¸ªæ–¹æ³•æ˜¯ spring æ ¹æ®ç±»çš„å®é™…æƒ…å†µæ¥é€‰æ‹©æ„é€ æ–¹æ³•è¿›è¡Œå®ä¾‹åŒ–çš„ã€‚å¯¹äºä¸€ä¸ª bean æ¥è¯´ï¼Œå¦‚æœæœªæä¾›ä»»ä½•æ„é€ æ–¹æ³•æˆ–æä¾›äº†æ— å‚æ„é€ æ–¹æ³•ï¼Œåˆ™è°ƒç”¨ `AbstractAutowireCapableBeanFactory#instantiateBean` æ¥è¿›è¡Œå®ä¾‹åŒ–ï¼Œå¦åˆ™è°ƒç”¨ `AbstractAutowireCapableBeanFactory#autowireConstructor` è¿›è¡Œå®ä¾‹åŒ–ã€‚å®é™…ä¸Šï¼Œè¿™ä¸¤ä¸ªæ–¹æ³•æœ€ç»ˆéƒ½ä¼šæ‰§è¡Œåˆ° `BeanUtils#instantiateClass(Constructor<T>, Object...)`:
 
 ```
 public static <T> T instantiateClass(Constructor<T> ctor, Object... args) 
@@ -263,7 +263,7 @@ public static <T> T instantiateClass(Constructor<T> ctor, Object... args)
                     argsWithDefaultValues[i] = args[i];
                 }
             }
-            // ÕâÀï½øĞĞÊµÀı»¯
+            // è¿™é‡Œè¿›è¡Œå®ä¾‹åŒ–
             return ctor.newInstance(argsWithDefaultValues);
         }
     }
@@ -274,20 +274,20 @@ public static <T> T instantiateClass(Constructor<T> ctor, Object... args)
 
 ```
 
-¿ÉÒÔ¿´µ½£¬×îÖÕµ÷ÓÃµÄÊÇ `java.lang.reflect.Constructor#newInstance`£¬Õâ¾ÍÊÇ jdk µÄ·´ÉäÁË¡£
+å¯ä»¥çœ‹åˆ°ï¼Œæœ€ç»ˆè°ƒç”¨çš„æ˜¯ `java.lang.reflect.Constructor#newInstance`ï¼Œè¿™å°±æ˜¯ jdk çš„åå°„äº†ã€‚
 
-ÁíÍâ£¬µ± bean Ìá¹©ÁË¶à ¸ö¹¹Ôì·½·¨Ê±£¬spring »á½øĞĞÒ»Ì×¸´ÔÓµÄÍÆ¶Ï»úÖÆ£¬ÍÆ¶Ï³ö×î¼ÑµÄ¹¹Ôì·½·¨£¬ÕâÀï¾Í²»Õ¹¿ªÁË¡£
+å¦å¤–ï¼Œå½“ bean æä¾›äº†å¤š ä¸ªæ„é€ æ–¹æ³•æ—¶ï¼Œspring ä¼šè¿›è¡Œä¸€å¥—å¤æ‚çš„æ¨æ–­æœºåˆ¶ï¼Œæ¨æ–­å‡ºæœ€ä½³çš„æ„é€ æ–¹æ³•ï¼Œè¿™é‡Œå°±ä¸å±•å¼€äº†ã€‚
 
-#### 2\. ²éÕÒÊôĞÔ
+#### 2\. æŸ¥æ‰¾å±æ€§
 
-¶ÔÏó´´½¨ºó£¬½ÓÏÂÀ´¾ÍÊÇ½øĞĞÊôĞÔ×¢ÈëÁË£¬²»¹ıÔÚ×¢ÈëÊôĞÔÇ°£¬ĞèÒªÖªµÀÀàÖĞÓĞÄÄĞ©ÊôĞÔĞèÒª×¢Èë¡£spring ÊôĞÔ²éÕÒÊÇÔÚ `AbstractAutowireCapableBeanFactory#applyMergedBeanDefinitionPostProcessors` ÖĞµ÷ÓÃºóÖÃ´¦ÀíÆ÷½øĞĞ²Ù×÷µÄ£º
+å¯¹è±¡åˆ›å»ºåï¼Œæ¥ä¸‹æ¥å°±æ˜¯è¿›è¡Œå±æ€§æ³¨å…¥äº†ï¼Œä¸è¿‡åœ¨æ³¨å…¥å±æ€§å‰ï¼Œéœ€è¦çŸ¥é“ç±»ä¸­æœ‰å“ªäº›å±æ€§éœ€è¦æ³¨å…¥ã€‚spring å±æ€§æŸ¥æ‰¾æ˜¯åœ¨ `AbstractAutowireCapableBeanFactory#applyMergedBeanDefinitionPostProcessors` ä¸­è°ƒç”¨åç½®å¤„ç†å™¨è¿›è¡Œæ“ä½œçš„ï¼š
 
 ```
 protected void applyMergedBeanDefinitionPostProcessors(RootBeanDefinition mbd, 
         Class<?> beanType, String beanName) {
     for (BeanPostProcessor bp : getBeanPostProcessors()) {
         if (bp instanceof MergedBeanDefinitionPostProcessor) {
-            // µ÷ÓÃºóÖÃ´¦ÀíÆ÷
+            // è°ƒç”¨åç½®å¤„ç†å™¨
             MergedBeanDefinitionPostProcessor bdp = (MergedBeanDefinitionPostProcessor) bp;
             bdp.postProcessMergedBeanDefinition(mbd, beanType, beanName);
         }
@@ -296,12 +296,12 @@ protected void applyMergedBeanDefinitionPostProcessors(RootBeanDefinition mbd,
 
 ```
 
-ÔÚÕâĞ©ºóÖÃ´¦ÀíÆ÷ÖĞ£¬
+åœ¨è¿™äº›åç½®å¤„ç†å™¨ä¸­ï¼Œ
 
-1.  µ÷ÓÃ `AutowiredAnnotationBeanPostProcessor.postProcessMergedBeanDefinition` ²éÕÒ´øÓĞ `@Autowired`¡¢`@Value` ×¢½âµÄÊôĞÔºÍ·½·¨
-2.  µ÷ÓÃ `CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition` ²éÕÒ´øÓĞ `@Resource` ×¢½âµÄÊôĞÔºÍ·½·¨
+1.  è°ƒç”¨ `AutowiredAnnotationBeanPostProcessor.postProcessMergedBeanDefinition` æŸ¥æ‰¾å¸¦æœ‰ `@Autowired`ã€`@Value` æ³¨è§£çš„å±æ€§å’Œæ–¹æ³•
+2.  è°ƒç”¨ `CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition` æŸ¥æ‰¾å¸¦æœ‰ `@Resource` æ³¨è§£çš„å±æ€§å’Œæ–¹æ³•
 
-ÕâÀïÎªÁË·½±ãËµÃ÷ `@Autowired` µÄ×¢ÈëÁ÷³Ì£¬ÎÒÃÇÔÚ demo01 µÄ `org.springframework.learn.demo01.BeanObj1` Ìí¼ÓÁ½ĞĞĞĞ´úÂë£º
+è¿™é‡Œä¸ºäº†æ–¹ä¾¿è¯´æ˜ `@Autowired` çš„æ³¨å…¥æµç¨‹ï¼Œæˆ‘ä»¬åœ¨ demo01 çš„ `org.springframework.learn.demo01.BeanObj1` æ·»åŠ ä¸¤è¡Œè¡Œä»£ç ï¼š
 
 ```
 package org.springframework.learn.demo01;
@@ -312,12 +312,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class BeanObj1 {
 
-    // ÒÔÏÂÁ½ĞĞÎªĞÂ¼ÓÈëµÄ´úÂë
+    // ä»¥ä¸‹ä¸¤è¡Œä¸ºæ–°åŠ å…¥çš„ä»£ç 
     @Autowired
     private BeanObj2 beanObj2;
 
     public BeanObj1() {
-        System.out.println("µ÷ÓÃbeanObj1µÄ¹¹Ôì·½·¨");
+        System.out.println("è°ƒç”¨beanObj1çš„æ„é€ æ–¹æ³•");
     }
 
     @Override
@@ -328,30 +328,30 @@ public class BeanObj1 {
 
 ```
 
-½øÈë `AutowiredAnnotationBeanPostProcessor#postProcessMergedBeanDefinition` ·½·¨£º
+è¿›å…¥ `AutowiredAnnotationBeanPostProcessor#postProcessMergedBeanDefinition` æ–¹æ³•ï¼š
 
 ```
 @Override
 public void postProcessMergedBeanDefinition(RootBeanDefinition beanDefinition, 
         Class<?> beanType, String beanName) {
-    // ²éÕÒÊôĞÔÓë·½·¨
+    // æŸ¥æ‰¾å±æ€§ä¸æ–¹æ³•
     InjectionMetadata metadata = findAutowiringMetadata(beanName, beanType, null);
-    // ÑéÖ¤²éÕÒµ½µÄÊôĞÔÓë·½·¨£¬²¢×¢²áµ½beanDefinition
+    // éªŒè¯æŸ¥æ‰¾åˆ°çš„å±æ€§ä¸æ–¹æ³•ï¼Œå¹¶æ³¨å†Œåˆ°beanDefinition
     metadata.checkConfigMembers(beanDefinition);
 }
 
 ```
 
-Ò»Â·¸ú½ø `AutowiredAnnotationBeanPostProcessor#findAutowiringMetadata` ·½·¨£¬¸úµ½ÁË `AutowiredAnnotationBeanPostProcessor#buildAutowiringMetadata`:
+ä¸€è·¯è·Ÿè¿› `AutowiredAnnotationBeanPostProcessor#findAutowiringMetadata` æ–¹æ³•ï¼Œè·Ÿåˆ°äº† `AutowiredAnnotationBeanPostProcessor#buildAutowiringMetadata`:
 
 ```
 private InjectionMetadata buildAutowiringMetadata(final Class<?> clazz) {
      ...
-    // ÕâÀïÅÜÁËÒ»¸öÑ­»·£¬ÕÒÍêµ±Ç°ÀàÕÒµ±Ç°ÀàµÄ¸¸Àà£¬Ö±µ½ObjectÀà
+    // è¿™é‡Œè·‘äº†ä¸€ä¸ªå¾ªç¯ï¼Œæ‰¾å®Œå½“å‰ç±»æ‰¾å½“å‰ç±»çš„çˆ¶ç±»ï¼Œç›´åˆ°Objectç±»
     do {
         final List<InjectionMetadata.InjectedElement> currElements = new ArrayList<>();
 
-        // ²éÕÒÊôĞÔ
+        // æŸ¥æ‰¾å±æ€§
         ReflectionUtils.doWithLocalFields(targetClass, field -> {
             MergedAnnotation<?> ann = findAutowiredAnnotation(field);
             if (ann != null) {
@@ -359,12 +359,12 @@ private InjectionMetadata buildAutowiringMetadata(final Class<?> clazz) {
                     return;
                 }
                 boolean required = determineRequiredStatus(ann);
-                // ÊôĞÔ·â×°³É AutowiredFieldElement
+                // å±æ€§å°è£…æˆ AutowiredFieldElement
                 currElements.add(new AutowiredFieldElement(field, required));
             }
         });
 
-        // ²éÕÒ·½·¨
+        // æŸ¥æ‰¾æ–¹æ³•
         ReflectionUtils.doWithLocalMethods(targetClass, method -> {
             Method bridgedMethod = BridgeMethodResolver.findBridgedMethod(method);
             if (!BridgeMethodResolver.isVisibilityBridgeMethodPair(method, bridgedMethod)) {
@@ -379,7 +379,7 @@ private InjectionMetadata buildAutowiringMetadata(final Class<?> clazz) {
                 }
                 boolean required = determineRequiredStatus(ann);
                 PropertyDescriptor pd = BeanUtils.findPropertyForMethod(bridgedMethod, clazz);
-                // ·½·¨·â×°³É AutowiredMethodElement
+                // æ–¹æ³•å°è£…æˆ AutowiredMethodElement
                 currElements.add(new AutowiredMethodElement(method, required, pd));
             }
         });
@@ -394,19 +394,19 @@ private InjectionMetadata buildAutowiringMetadata(final Class<?> clazz) {
 
 ```
 
-ÒÔÉÏ´úÂë¾ÍÊÇ²éÕÒ¹ı³Ì£¬×Ü½áÈçÏÂ£º
+ä»¥ä¸Šä»£ç å°±æ˜¯æŸ¥æ‰¾è¿‡ç¨‹ï¼Œæ€»ç»“å¦‚ä¸‹ï¼š
 
-*   Ñ­»·²éÑ¯¸¸Àà£¬´Óµ±Ç°Àà¿ªÊ¼£¬ÕÒÍêµ±Ç°Àà¾ÍÕÒµ±Ç°ÀàµÄ¸¸Àà£¬Ö±½Ó Object ÎªÖ¹£»
-*   ²éÕÒÊôĞÔÓë·½·¨£¬ÊôĞÔÕÒµ½ºó·â×°Îª `AutowiredFieldElement`£¬·½·¨ÕÒµ½ºó·â×°Îª `AutowiredMethodElement`£»
-*   ÎŞÂÛÊÇ²éÕÒÊôĞÔ»¹ÊÇ·½·¨£¬Ê¹ÓÃµÄ¶¼ÊÇ `findAutowiredAnnotation` ·½·¨
+*   å¾ªç¯æŸ¥è¯¢çˆ¶ç±»ï¼Œä»å½“å‰ç±»å¼€å§‹ï¼Œæ‰¾å®Œå½“å‰ç±»å°±æ‰¾å½“å‰ç±»çš„çˆ¶ç±»ï¼Œç›´æ¥ Object ä¸ºæ­¢ï¼›
+*   æŸ¥æ‰¾å±æ€§ä¸æ–¹æ³•ï¼Œå±æ€§æ‰¾åˆ°åå°è£…ä¸º `AutowiredFieldElement`ï¼Œæ–¹æ³•æ‰¾åˆ°åå°è£…ä¸º `AutowiredMethodElement`ï¼›
+*   æ— è®ºæ˜¯æŸ¥æ‰¾å±æ€§è¿˜æ˜¯æ–¹æ³•ï¼Œä½¿ç”¨çš„éƒ½æ˜¯ `findAutowiredAnnotation` æ–¹æ³•
 
-½ÓÏÂÀ´£¬ÎÒÃÇ¾Í¿´¿´ `findAutowiredAnnotation` ·½·¨ÊÇÈçºÎ½øĞĞ²éÕÒµÄ¡£½øÈë `AutowiredAnnotationBeanPostProcessor#findAutowiredAnnotation` ·½·¨£¬ÄÚÈİÈçÏÂ£º
+æ¥ä¸‹æ¥ï¼Œæˆ‘ä»¬å°±çœ‹çœ‹ `findAutowiredAnnotation` æ–¹æ³•æ˜¯å¦‚ä½•è¿›è¡ŒæŸ¥æ‰¾çš„ã€‚è¿›å…¥ `AutowiredAnnotationBeanPostProcessor#findAutowiredAnnotation` æ–¹æ³•ï¼Œå†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 private final Set<Class<? extends Annotation>> autowiredAnnotationTypes 
         = new LinkedHashSet<>(4);
 
-// Ä¬ÈÏ¹¹Ôì·½·¨ÖĞÖ¸¶¨ÁË@Autowired¡¢@Value×¢½â
+// é»˜è®¤æ„é€ æ–¹æ³•ä¸­æŒ‡å®šäº†@Autowiredã€@Valueæ³¨è§£
 @SuppressWarnings("unchecked")
 public AutowiredAnnotationBeanPostProcessor() {
     this.autowiredAnnotationTypes.add(Autowired.class);
@@ -414,11 +414,11 @@ public AutowiredAnnotationBeanPostProcessor() {
     ...
 }
 
-// ÕâÀï¾ÍÊÇ²éÕÒ·½·¨
+// è¿™é‡Œå°±æ˜¯æŸ¥æ‰¾æ–¹æ³•
 @Nullable
 private MergedAnnotation<?> findAutowiredAnnotation(AccessibleObject ao) {
     MergedAnnotations annotations = MergedAnnotations.from(ao);
-    // autowiredAnnotationTypes °üº¬ÁË @Autowired¡¢@Value×¢½â
+    // autowiredAnnotationTypes åŒ…å«äº† @Autowiredã€@Valueæ³¨è§£
     for (Class<? extends Annotation> type : this.autowiredAnnotationTypes) {
         MergedAnnotation<?> annotation = annotations.get(type);
         if (annotation.isPresent()) {
@@ -430,9 +430,9 @@ private MergedAnnotation<?> findAutowiredAnnotation(AccessibleObject ao) {
 
 ```
 
-ÒÔÉÏ´úÂë×¢½âµÃºÜÃ÷°×ÁË£¬ÕâÀï¾Í²»¶àËµÁË¡£
+ä»¥ä¸Šä»£ç æ³¨è§£å¾—å¾ˆæ˜ç™½äº†ï¼Œè¿™é‡Œå°±ä¸å¤šè¯´äº†ã€‚
 
-ÕÒµ½ÊôĞÔÓë·½·¨ºó£¬½Ó×Å¾ÍÊÇ×¢²áµ½ `beanDefinition` ÁË£¬ÕâÊÇ `InjectionMetadata#checkConfigMembers` Ëù×öµÄ¹¤×÷£º
+æ‰¾åˆ°å±æ€§ä¸æ–¹æ³•åï¼Œæ¥ç€å°±æ˜¯æ³¨å†Œåˆ° `beanDefinition` äº†ï¼Œè¿™æ˜¯ `InjectionMetadata#checkConfigMembers` æ‰€åšçš„å·¥ä½œï¼š
 
 ```
 public void checkConfigMembers(RootBeanDefinition beanDefinition) {
@@ -440,7 +440,7 @@ public void checkConfigMembers(RootBeanDefinition beanDefinition) {
     for (InjectedElement element : this.injectedElements) {
         Member member = element.getMember();
         if (!beanDefinition.isExternallyManagedConfigMember(member)) {
-            // ×¢²áµ½ beanDefinition
+            // æ³¨å†Œåˆ° beanDefinition
             beanDefinition.registerExternallyManagedConfigMember(member);
             checkedElements.add(element);
         }
@@ -450,7 +450,7 @@ public void checkConfigMembers(RootBeanDefinition beanDefinition) {
 
 ```
 
-ËùÎ½µÄ×¢²á£¬ÆäÊµÒ²Ïàµ±¼òµ¥£¬¾ÍÊÇÍù `beanDefinition` ³ÖÓĞµÄ `externallyManagedConfigMembers` ¼¯ºÏÖĞÌí¼ÓÒ»Ìõ¼ÇÂ¼£º
+æ‰€è°“çš„æ³¨å†Œï¼Œå…¶å®ä¹Ÿç›¸å½“ç®€å•ï¼Œå°±æ˜¯å¾€ `beanDefinition` æŒæœ‰çš„ `externallyManagedConfigMembers` é›†åˆä¸­æ·»åŠ ä¸€æ¡è®°å½•ï¼š
 
 > RootBeanDefinition#registerExternallyManagedConfigMember
 
@@ -460,16 +460,16 @@ public void registerExternallyManagedConfigMember(Member configMember) {
         if (this.externallyManagedConfigMembers == null) {
             this.externallyManagedConfigMembers = new HashSet<>(1);
         }
-        // Íùset¼¯ºÏÖĞÌí¼ÓÒ»Ìõ¼ÇÂ¼
+        // å¾€seté›†åˆä¸­æ·»åŠ ä¸€æ¡è®°å½•
         this.externallyManagedConfigMembers.add(configMember);
     }
 }
 
 ```
 
-#### 3\. ×¢ÈëÊôĞÔ
+#### 3\. æ³¨å…¥å±æ€§
 
-spring µÄÊôĞÔ×¢ÈëÊÇÔÚ·½·¨ `AbstractAutowireCapableBeanFactory#populateBean` ÖĞ´¦ÀíµÄ£¬ÄÚÈİÈçÏÂ£º
+spring çš„å±æ€§æ³¨å…¥æ˜¯åœ¨æ–¹æ³• `AbstractAutowireCapableBeanFactory#populateBean` ä¸­å¤„ç†çš„ï¼Œå†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable BeanWrapper bw) {
@@ -485,11 +485,11 @@ protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable B
     if (!mbd.isSynthetic() && hasInstantiationAwareBeanPostProcessors()) {
         for (BeanPostProcessor bp : getBeanPostProcessors()) {
             if (bp instanceof InstantiationAwareBeanPostProcessor) {
-                // µ÷ÓÃ¾ßÌåµÄºóÖÃ´¦ÀíÆ÷Íê³ÉÊôĞÔÌî³ä
-                // AutowiredAnnotationBeanPostProcessor.postProcessProperties ´¦Àí @Autowired¡¢@Value ×¢½â
-                // CommonAnnotationBeanPostProcessor.postProcessProperties ´¦Àí @Resource×¢½â
+                // è°ƒç”¨å…·ä½“çš„åç½®å¤„ç†å™¨å®Œæˆå±æ€§å¡«å……
+                // AutowiredAnnotationBeanPostProcessor.postProcessProperties å¤„ç† @Autowiredã€@Value æ³¨è§£
+                // CommonAnnotationBeanPostProcessor.postProcessProperties å¤„ç† @Resourceæ³¨è§£
                 InstantiationAwareBeanPostProcessor ibp = (InstantiationAwareBeanPostProcessor) bp;
-                // Èç¹û·µ»Ø false£¬´ú±í²»ĞèÒª½øĞĞºóĞøµÄÊôĞÔÉèÖµ£¬Ò²²»ĞèÒªÔÙ¾­¹ıÆäËûµÄ BeanPostProcessor µÄ´¦Àí
+                // å¦‚æœè¿”å› falseï¼Œä»£è¡¨ä¸éœ€è¦è¿›è¡Œåç»­çš„å±æ€§è®¾å€¼ï¼Œä¹Ÿä¸éœ€è¦å†ç»è¿‡å…¶ä»–çš„ BeanPostProcessor çš„å¤„ç†
                 if (!ibp.postProcessAfterInstantiation(bw.getWrappedInstance(), beanName)) {
                     return;
                 }
@@ -497,18 +497,18 @@ protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable B
         }
     }
 
-    // beanµÄËùÓĞÊôĞÔ
+    // beançš„æ‰€æœ‰å±æ€§
     PropertyValues pvs = (mbd.hasPropertyValues() ? mbd.getPropertyValues() : null);
 
     int resolvedAutowireMode = mbd.getResolvedAutowireMode();
-    // ÊôĞÔ×¢ÈëÀàĞÍÎªbyType»¹ÊÇbyName£¬×¢£º@Autowired ¼È²»ÊÇbyTypeÒ²²»ÊÇbyName,Òò´ËÕâÀï·µ»Øfalse
+    // å±æ€§æ³¨å…¥ç±»å‹ä¸ºbyTypeè¿˜æ˜¯byNameï¼Œæ³¨ï¼š@Autowired æ—¢ä¸æ˜¯byTypeä¹Ÿä¸æ˜¯byName,å› æ­¤è¿™é‡Œè¿”å›false
     if (resolvedAutowireMode == AUTOWIRE_BY_NAME || resolvedAutowireMode == AUTOWIRE_BY_TYPE) {
         MutablePropertyValues newPvs = new MutablePropertyValues(pvs);
-        // Í¨¹ıÃû×ÖÕÒµ½ËùÓĞÊôĞÔÖµ£¬Èç¹ûÊÇ bean ÒÀÀµ£¬ÏÈ³õÊ¼»¯ÒÀÀµµÄ bean¡£¼ÇÂ¼ÒÀÀµ¹ØÏµ
+        // é€šè¿‡åå­—æ‰¾åˆ°æ‰€æœ‰å±æ€§å€¼ï¼Œå¦‚æœæ˜¯ bean ä¾èµ–ï¼Œå…ˆåˆå§‹åŒ–ä¾èµ–çš„ beanã€‚è®°å½•ä¾èµ–å…³ç³»
         if (resolvedAutowireMode == AUTOWIRE_BY_NAME) {
             autowireByName(beanName, mbd, bw, newPvs);
         }
-        // Í¨¹ıÀàĞÍ×°Åä¡£¸´ÔÓÒ»Ğ©
+        // é€šè¿‡ç±»å‹è£…é…ã€‚å¤æ‚ä¸€äº›
         if (resolvedAutowireMode == AUTOWIRE_BY_TYPE) {
             autowireByType(beanName, mbd, bw, newPvs);
         }
@@ -525,16 +525,16 @@ protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable B
         }
         for (BeanPostProcessor bp : getBeanPostProcessors()) {
             if (bp instanceof InstantiationAwareBeanPostProcessor) {
-            // µ÷ÓÃºóÖÃ´¦ÀíÆ÷Íê³É×¢ÊÍµÄÊôĞÔÌî³ä
-            // ´¦Àí@Autowired×¢½âµÄÊÇ AutowiredAnnotationBeanPostProcessor
+            // è°ƒç”¨åç½®å¤„ç†å™¨å®Œæˆæ³¨é‡Šçš„å±æ€§å¡«å……
+            // å¤„ç†@Autowiredæ³¨è§£çš„æ˜¯ AutowiredAnnotationBeanPostProcessor
             InstantiationAwareBeanPostProcessor ibp = (InstantiationAwareBeanPostProcessor) bp;
             PropertyValues pvsToUse = ibp.postProcessProperties(pvs, bw.getWrappedInstance(), beanName);
             if (pvsToUse == null) {
                 if (filteredPds == null) {
                     filteredPds = filterPropertyDescriptorsForDependencyCheck(bw, mbd.allowCaching);
                 }
-                // ÕâÀï¾ÍÊÇÉÏ·½Ôø¾­Ìáµ½¹ıµÃ¶Ô@Autowired´¦ÀíµÄÒ»¸öBeanPostProcessorÁË
-                // Ëü»á¶ÔËùÓĞ±ê¼Ç@Autowired¡¢@Value ×¢½âµÄÊôĞÔ½øĞĞÉèÖµ
+                // è¿™é‡Œå°±æ˜¯ä¸Šæ–¹æ›¾ç»æåˆ°è¿‡å¾—å¯¹@Autowiredå¤„ç†çš„ä¸€ä¸ªBeanPostProcessoräº†
+                // å®ƒä¼šå¯¹æ‰€æœ‰æ ‡è®°@Autowiredã€@Value æ³¨è§£çš„å±æ€§è¿›è¡Œè®¾å€¼
                 pvsToUse = ibp.postProcessPropertyValues(pvs, filteredPds, 
                         bw.getWrappedInstance(), beanName);
                 if (pvsToUse == null) {
@@ -553,22 +553,22 @@ protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable B
     }
 
     if (pvs != null) {
-        // ÉèÖÃ bean ÊµÀıµÄÊôĞÔÖµ
+        // è®¾ç½® bean å®ä¾‹çš„å±æ€§å€¼
         applyPropertyValues(beanName, mbd, bw, pvs);
     }
 }
 
 ```
 
-spring µÄÊôĞÔÌî³äÊÇÔÚºóÖÃ´¦ÀíÆ÷ÖĞ½øĞĞµÄ£¬`@Autowired` µÄÊôĞÔÌî³ä·½·¨Îª `AutowiredAnnotationBeanPostProcessor#postProcessProperties`:
+spring çš„å±æ€§å¡«å……æ˜¯åœ¨åç½®å¤„ç†å™¨ä¸­è¿›è¡Œçš„ï¼Œ`@Autowired` çš„å±æ€§å¡«å……æ–¹æ³•ä¸º `AutowiredAnnotationBeanPostProcessor#postProcessProperties`:
 
 ```
 public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) {
-     // µ÷ÓÃ findAutowiringMetadata ·½·¨£¬È·±£±ê×¢ @Autowired @Value ×¢½âµÄÊôĞÔÓë·½·¨»ñÈ¡³É¹¦
-     // findAutowiringMetadata ¿ÉÒÔ·¢ÏÖ£¬ÀïÃæ×öÁËÒ»¸ö»º´æ£¬Ö»ÓĞµÚÒ»´Î²Å»áÕæÕıÈ¥»ñÈ¡£¬Ö®ºó¶¼´Ó»º´æÖĞ»ñÈ¡
+     // è°ƒç”¨ findAutowiringMetadata æ–¹æ³•ï¼Œç¡®ä¿æ ‡æ³¨ @Autowired @Value æ³¨è§£çš„å±æ€§ä¸æ–¹æ³•è·å–æˆåŠŸ
+     // findAutowiringMetadata å¯ä»¥å‘ç°ï¼Œé‡Œé¢åšäº†ä¸€ä¸ªç¼“å­˜ï¼Œåªæœ‰ç¬¬ä¸€æ¬¡æ‰ä¼šçœŸæ­£å»è·å–ï¼Œä¹‹åéƒ½ä»ç¼“å­˜ä¸­è·å–
      InjectionMetadata metadata = findAutowiringMetadata(beanName, bean.getClass(), pvs);
      try {
-         // ÕâÀï½øĞĞÊôĞÔ×¢Èë
+         // è¿™é‡Œè¿›è¡Œå±æ€§æ³¨å…¥
          metadata.inject(bean, beanName, pvs);
      }
      catch (...) {
@@ -578,7 +578,7 @@ public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, Str
 
 ```
 
-ÎÒÃÇÔÙ½øÈë `InjectionMetadata#inject`£º
+æˆ‘ä»¬å†è¿›å…¥ `InjectionMetadata#inject`ï¼š
 
 ```
 public void inject(Object target, @Nullable String beanName, @Nullable PropertyValues pvs) 
@@ -587,8 +587,8 @@ public void inject(Object target, @Nullable String beanName, @Nullable PropertyV
     Collection<InjectedElement> elementsToIterate =
             (checkedElements != null ? checkedElements : this.injectedElements);
     if (!elementsToIterate.isEmpty()) {
-        // ÕâÀïµÄ InjectedElement£¬¾ÍÊÇÔÚ AutowiredAnnotationBeanPostProcessor#findAutowiringMetadata
-        // ÖĞ²éÕÒµ½µÄ£¬field »á·â×°Îª AutowiredFieldElement£¬method »á»á·â×°Îª AutowiredMethodElement
+        // è¿™é‡Œçš„ InjectedElementï¼Œå°±æ˜¯åœ¨ AutowiredAnnotationBeanPostProcessor#findAutowiringMetadata
+        // ä¸­æŸ¥æ‰¾åˆ°çš„ï¼Œfield ä¼šå°è£…ä¸º AutowiredFieldElementï¼Œmethod ä¼šä¼šå°è£…ä¸º AutowiredMethodElement
         for (InjectedElement element : elementsToIterate) {
             element.inject(target, beanName, pvs);
         }
@@ -597,7 +597,7 @@ public void inject(Object target, @Nullable String beanName, @Nullable PropertyV
 
 ```
 
-ÎÒÃÇÔÙ¸ú½ø `element.inject(target, beanName, pvs)`£¬ÕâÀïµ÷ÓÃµ½µÄÊÇ `AutowiredAnnotationBeanPostProcessor.AutowiredFieldElement#inject`£º
+æˆ‘ä»¬å†è·Ÿè¿› `element.inject(target, beanName, pvs)`ï¼Œè¿™é‡Œè°ƒç”¨åˆ°çš„æ˜¯ `AutowiredAnnotationBeanPostProcessor.AutowiredFieldElement#inject`ï¼š
 
 ```
 @Override
@@ -615,7 +615,7 @@ protected void inject(Object bean, @Nullable String beanName,
             Assert.state(beanFactory != null, "No BeanFactory available");
             TypeConverter typeConverter = beanFactory.getTypeConverter();
             try {
-                // ÕâÒ»ĞĞ¾ÍÊÇ»ñÈ¡×¢ÈëµÄbean
+                // è¿™ä¸€è¡Œå°±æ˜¯è·å–æ³¨å…¥çš„bean
                 value = beanFactory.resolveDependency(desc, beanName, autowiredBeanNames, typeConverter);
             }
             catch (BeansException ex) {
@@ -623,7 +623,7 @@ protected void inject(Object bean, @Nullable String beanName,
             }
             ...
         }
-        // Í¨¹ı·´Éä¸øÊôĞÔÉèÖÃÖµ
+        // é€šè¿‡åå°„ç»™å±æ€§è®¾ç½®å€¼
         if (value != null) {
             ReflectionUtils.makeAccessible(field);
             field.set(bean, value);
@@ -633,14 +633,14 @@ protected void inject(Object bean, @Nullable String beanName,
 
 ```
 
-ÒÔÉÏ´úÂëÓĞµã¶à£¬µ«ÎÒÃÇÖ»ÒªÖ÷Òª¹Ø×¢Á½ĞĞ´úÂë¾ÍĞĞÁË£º
+ä»¥ä¸Šä»£ç æœ‰ç‚¹å¤šï¼Œä½†æˆ‘ä»¬åªè¦ä¸»è¦å…³æ³¨ä¸¤è¡Œä»£ç å°±è¡Œäº†ï¼š
 
-1.  »ñÈ¡ĞèÒª×¢ÈëµÄ bean: `value = beanFactory.resolveDependency(desc, beanName, autowiredBeanNames, typeConverter)`
-2.  Ê¹ÓÃ·´ÉäÉèÖÃ bean£º`ReflectionUtils.makeAccessible(field);field.set(bean, value);`
+1.  è·å–éœ€è¦æ³¨å…¥çš„ bean: `value = beanFactory.resolveDependency(desc, beanName, autowiredBeanNames, typeConverter)`
+2.  ä½¿ç”¨åå°„è®¾ç½® beanï¼š`ReflectionUtils.makeAccessible(field);field.set(bean, value);`
 
-¶ÔÓÚµÚ 2 µã£¬×îÖÕµ÷ÓÃµÄÊÇ jdk Ìá¹©µÄ·´Éä·½·¨£¬Ã»Ê²Ã´ºÃËµµÄ¡£ÕâÀïÎÒÃÇÖØµãÀ´¿´¿´ spring ÊÇÈçºÎ»ñÈ¡ĞèÒª×¢ÈëµÄ bean¡£
+å¯¹äºç¬¬ 2 ç‚¹ï¼Œæœ€ç»ˆè°ƒç”¨çš„æ˜¯ jdk æä¾›çš„åå°„æ–¹æ³•ï¼Œæ²¡ä»€ä¹ˆå¥½è¯´çš„ã€‚è¿™é‡Œæˆ‘ä»¬é‡ç‚¹æ¥çœ‹çœ‹ spring æ˜¯å¦‚ä½•è·å–éœ€è¦æ³¨å…¥çš„ beanã€‚
 
-¸ú½ø `beanFactory.resolveDependency(desc, beanName, autowiredBeanNames, typeConverter)`£¬ÕâÀï¶Ô²»ÖØÒªµÄ´úÂë½ö¸ø³öµ÷ÓÃÁ´£¬µ÷ÓÃÈçÏÂ£º
+è·Ÿè¿› `beanFactory.resolveDependency(desc, beanName, autowiredBeanNames, typeConverter)`ï¼Œè¿™é‡Œå¯¹ä¸é‡è¦çš„ä»£ç ä»…ç»™å‡ºè°ƒç”¨é“¾ï¼Œè°ƒç”¨å¦‚ä¸‹ï¼š
 
 ```
 |-AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
@@ -661,7 +661,7 @@ protected void inject(Object bean, @Nullable String beanName,
 
 ```
 
-×îÖÕÔËĞĞµ½ `DefaultListableBeanFactory#doResolveDependency`:
+æœ€ç»ˆè¿è¡Œåˆ° `DefaultListableBeanFactory#doResolveDependency`:
 
 ```
 @Nullable
@@ -672,14 +672,14 @@ public Object doResolveDependency(DependencyDescriptor descriptor, @Nullable Str
     InjectionPoint previousInjectionPoint = ConstructorResolver.setCurrentInjectionPoint(descriptor);
     try {
         ...
-        // 1\.  ¸ù¾İÀàĞÍ²éÕÒËùÓĞµÄbeanClass£¬mapÖĞ±£´æµÄÄÚÈİÎª£ºbeanName -> Class
+        // 1\.  æ ¹æ®ç±»å‹æŸ¥æ‰¾æ‰€æœ‰çš„beanClassï¼Œmapä¸­ä¿å­˜çš„å†…å®¹ä¸ºï¼šbeanName -> Class
         Map<String, Object> matchingBeans = findAutowireCandidates(beanName, type, descriptor);
            ...
         String autowiredBeanName;
         Object instanceCandidate;
-        // 2\. Èç¹ûÕÒµ½µÄbeanÓĞ¶à¸ö£¬¼´ÊıÁ¿´óÓÚ1
+        // 2\. å¦‚æœæ‰¾åˆ°çš„beanæœ‰å¤šä¸ªï¼Œå³æ•°é‡å¤§äº1
         if (matchingBeans.size() > 1) {
-            // Ôò»ñÈ¡×¢ÈëµÄÊôĞÔÃû
+            // åˆ™è·å–æ³¨å…¥çš„å±æ€§å
             autowiredBeanName = determineAutowireCandidate(matchingBeans, descriptor);
             if (autowiredBeanName == null) {
                 if (isRequired(descriptor) || !indicatesMultipleBeans(type)) {
@@ -689,8 +689,8 @@ public Object doResolveDependency(DependencyDescriptor descriptor, @Nullable Str
                     return null;
                 }
             }
-            // 3\. ¸ù¾İ×¢ÈëµÄÊôĞÔÃû´Ó ¸ù¾İÀàĞÍÕÒ³öÀ´µÄmap<beanName, Class>µ±ÖĞÕÒ£¬
-            // µÃµ½beanµÄClass¶ÔÏó
+            // 3\. æ ¹æ®æ³¨å…¥çš„å±æ€§åä» æ ¹æ®ç±»å‹æ‰¾å‡ºæ¥çš„map<beanName, Class>å½“ä¸­æ‰¾ï¼Œ
+            // å¾—åˆ°beançš„Classå¯¹è±¡
             instanceCandidate = matchingBeans.get(autowiredBeanName);
         }
         else {
@@ -702,7 +702,7 @@ public Object doResolveDependency(DependencyDescriptor descriptor, @Nullable Str
             autowiredBeanNames.add(autowiredBeanName);
         }
         if (instanceCandidate instanceof Class) {
-            // ¸ù¾İclass »ñÈ¡ bean£¬Èç¹ûbean²»´æÔÚ£¬Ôò»á´´½¨bean
+            // æ ¹æ®class è·å– beanï¼Œå¦‚æœbeanä¸å­˜åœ¨ï¼Œåˆ™ä¼šåˆ›å»ºbean
             instanceCandidate = descriptor.resolveCandidate(autowiredBeanName, type, this);
         }
         Object result = instanceCandidate;
@@ -724,13 +724,13 @@ public Object doResolveDependency(DependencyDescriptor descriptor, @Nullable Str
 
 ```
 
-¶ÔÓÚ bean µÄ»ñÈ¡£¬ÕâÀïÔÙ×Ü½áÏÂ£º
+å¯¹äº bean çš„è·å–ï¼Œè¿™é‡Œå†æ€»ç»“ä¸‹ï¼š
 
-1.  ¸ù¾İ bean ÀàĞÍ´Ó spring ÖĞ»ñÈ¡ bean µÄ Class ¶ÔÏó£¬×¢Òâ£ºÕâÀïµÃµ½µÄ¶ÔÏóÎª Class£¬ÇÒ»ñÈ¡µ½µÄ Class ¶ÔÏó´Ó spring ÖĞ»ñÈ¡ beanClass ¿ÉÄÜÓĞ¶à¸ö£»
-2.  Èç¹ûµÃµ½µÄ Class ¶ÔÏóÓĞ¶à¸ö£¬Ôò»ñÈ¡×¢ÈëµÄÊôĞÔÃû£¬¸ù¾İÊôĞÔÃû²éÕÒ´ÓµÚ 1 ²½µÃµ½µÄ Class ¶ÔÏóÖĞ²éÕÒ·ûºÏÌõ¼şµÄ 1 ¸ö Class ¶ÔÏó£»
-3.  ¸ù¾İ Class ¶ÔÏó´Ó spring ÖĞ»ñÈ¡ bean.
+1.  æ ¹æ® bean ç±»å‹ä» spring ä¸­è·å– bean çš„ Class å¯¹è±¡ï¼Œæ³¨æ„ï¼šè¿™é‡Œå¾—åˆ°çš„å¯¹è±¡ä¸º Classï¼Œä¸”è·å–åˆ°çš„ Class å¯¹è±¡ä» spring ä¸­è·å– beanClass å¯èƒ½æœ‰å¤šä¸ªï¼›
+2.  å¦‚æœå¾—åˆ°çš„ Class å¯¹è±¡æœ‰å¤šä¸ªï¼Œåˆ™è·å–æ³¨å…¥çš„å±æ€§åï¼Œæ ¹æ®å±æ€§åæŸ¥æ‰¾ä»ç¬¬ 1 æ­¥å¾—åˆ°çš„ Class å¯¹è±¡ä¸­æŸ¥æ‰¾ç¬¦åˆæ¡ä»¶çš„ 1 ä¸ª Class å¯¹è±¡ï¼›
+3.  æ ¹æ® Class å¯¹è±¡ä» spring ä¸­è·å– bean.
 
-ÀıÈç£¬ÏÖÔÚ½Ó¿Ú `Inter`¡¢ÊµÏÖÀà `A` Óë `B`£¬ÈıÕß¹ØÏµÈçÏÂ£º
+ä¾‹å¦‚ï¼Œç°åœ¨æ¥å£ `Inter`ã€å®ç°ç±» `A` ä¸ `B`ï¼Œä¸‰è€…å…³ç³»å¦‚ä¸‹ï¼š
 
 ```
 interface Inter {
@@ -749,7 +749,7 @@ class B implements Inter {
 
 ```
 
-ÔÚÀà `C` ÖĞ£¬×¢Èë `Inter` ÀàĞÍ£º
+åœ¨ç±» `C` ä¸­ï¼Œæ³¨å…¥ `Inter` ç±»å‹ï¼š
 
 ```
 @Service
@@ -760,13 +760,13 @@ class C {
 
 ```
 
-ÔÚ×¢ÈëÊ±£¬
+åœ¨æ³¨å…¥æ—¶ï¼Œ
 
-1.  spring »áÍ¨¹ı `Inter.class` ²éÕÒ£¬µÃµ½Á½¸öÀà£º`A.class` Óë `B.class`£¬³öÏÖÁË¶à¸ö bean Class ¶ÔÏó£»
-2.  µÃµ½×¢ÈëµÄÊôĞÔÃû£¬ÕâÀïÊÇ `b`£¬È»ºóÊ¹ÓÃ `b` ÔÚÒÔÉÏµÃµ½µÄ bean Class ¶ÔÏóÕÒµ½·ûºÏµÄ bean Class ¶ÔÏó£¬ÏÔÈ»£¬`B.class` ·ûºÏ£»
-3.  ´Ó spring ÈİÆ÷ÖĞ»ñÈ¡ `B.class` ¶ÔÓ¦µÄ bean.
+1.  spring ä¼šé€šè¿‡ `Inter.class` æŸ¥æ‰¾ï¼Œå¾—åˆ°ä¸¤ä¸ªç±»ï¼š`A.class` ä¸ `B.class`ï¼Œå‡ºç°äº†å¤šä¸ª bean Class å¯¹è±¡ï¼›
+2.  å¾—åˆ°æ³¨å…¥çš„å±æ€§åï¼Œè¿™é‡Œæ˜¯ `b`ï¼Œç„¶åä½¿ç”¨ `b` åœ¨ä»¥ä¸Šå¾—åˆ°çš„ bean Class å¯¹è±¡æ‰¾åˆ°ç¬¦åˆçš„ bean Class å¯¹è±¡ï¼Œæ˜¾ç„¶ï¼Œ`B.class` ç¬¦åˆï¼›
+3.  ä» spring å®¹å™¨ä¸­è·å– `B.class` å¯¹åº”çš„ bean.
 
-ÕâÀï»áÓĞ¸öĞ¡ÎÊÌâ£ºÈç¹ûÔÚ `C` ÖĞÕâÑù×¢Èë:
+è¿™é‡Œä¼šæœ‰ä¸ªå°é—®é¢˜ï¼šå¦‚æœåœ¨ `C` ä¸­è¿™æ ·æ³¨å…¥:
 
 ```
 @Service
@@ -777,32 +777,32 @@ class C {
 
 ```
 
-¼´ `Inter` µÄÊôĞÔÃûÎª `inter`£¬¶ø spring ÖĞÓÖÃ»ÓĞÃû³ÆÎª `inter` µÄ bean Class ¶ÔÏó£¬ÕâÑùÄÜ×¢Èë³É¹¦Âğ£¿
+å³ `Inter` çš„å±æ€§åä¸º `inter`ï¼Œè€Œ spring ä¸­åˆæ²¡æœ‰åç§°ä¸º `inter` çš„ bean Class å¯¹è±¡ï¼Œè¿™æ ·èƒ½æ³¨å…¥æˆåŠŸå—ï¼Ÿ
 
-ÊÂÊµÉÏ£¬ÕâÑù×¢Èë²»»á³É¹¦£¬ÇÒ spring »á±¨Òì³££¬¸ĞĞËÈ¤µÄĞ¡»ï°é¿ÉÒÔ×Ô¼ºÊÔÊÔ¡£
+äº‹å®ä¸Šï¼Œè¿™æ ·æ³¨å…¥ä¸ä¼šæˆåŠŸï¼Œä¸” spring ä¼šæŠ¥å¼‚å¸¸ï¼Œæ„Ÿå…´è¶£çš„å°ä¼™ä¼´å¯ä»¥è‡ªå·±è¯•è¯•ã€‚
 
-×îºó£¬ÎÒÃÇÔÙÀ´¿´¿´ÈçºÎ¸ù¾İ class ´Ó spring ÖĞ»ñÈ¡¶ÔÓ¦µÄ bean£¬¼´ `instanceCandidate = descriptor.resolveCandidate(autowiredBeanName, type, this)`£¬¸ú½øÈ¥£º
+æœ€åï¼Œæˆ‘ä»¬å†æ¥çœ‹çœ‹å¦‚ä½•æ ¹æ® class ä» spring ä¸­è·å–å¯¹åº”çš„ beanï¼Œå³ `instanceCandidate = descriptor.resolveCandidate(autowiredBeanName, type, this)`ï¼Œè·Ÿè¿›å»ï¼š
 
 > DependencyDescriptor#resolveCandidate
 
 ```
 public Object resolveCandidate(String beanName, Class<?> requiredType, BeanFactory beanFactory)
         throws BeansException {
-    // µ÷ÓÃµÄÉÏ AbstractBeanFactory#getBean(String)
+    // è°ƒç”¨çš„ä¸Š AbstractBeanFactory#getBean(String)
     return beanFactory.getBean(beanName);
 }
 
 ```
 
-Õâ¸ö·½·¨Ïàµ±¼òµ¥£¬¾ÍÖ»ÓĞÒ»ĞĞ£º`beanFactory.getBean(beanName)`£¬»Ø¹ËÏÂµ÷ÓÃÁ´£º
+è¿™ä¸ªæ–¹æ³•ç›¸å½“ç®€å•ï¼Œå°±åªæœ‰ä¸€è¡Œï¼š`beanFactory.getBean(beanName)`ï¼Œå›é¡¾ä¸‹è°ƒç”¨é“¾ï¼š
 
 ```
 |-AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
  |-AbstractApplicationContext#refresh
   |-AbstractApplicationContext#finishBeanFactoryInitialization
    |-DefaultListableBeanFactory#preInstantiateSingletons
-    // ÕâÀïµÚÒ»´Îµ÷ÓÃÁËAbstractBeanFactory#getBean
-    // ´ËÊ±´«ÈëµÄ²ÎÊıÎªbeanObj1
+    // è¿™é‡Œç¬¬ä¸€æ¬¡è°ƒç”¨äº†AbstractBeanFactory#getBean
+    // æ­¤æ—¶ä¼ å…¥çš„å‚æ•°ä¸ºbeanObj1
     |-AbstractBeanFactory#getBean(String)
      |-AbstractBeanFactory#doGetBean
       |-DefaultSingletonBeanRegistry#getSingleton(String, ObjectFactory<?>)
@@ -815,35 +815,35 @@ public Object resolveCandidate(String beanName, Class<?> requiredType, BeanFacto
              |-DefaultListableBeanFactory#resolveDependency
               |-DefaultListableBeanFactory#doResolveDependency
                |-DependencyDescriptor#resolveCandidate
-                // ÕâÀïµÚÒ»´Îµ÷ÓÃÁËAbstractBeanFactory#getBean£¬
-                // ´ËÊ±´«ÈëµÄ²ÎÊıÎªbeanObj2
+                // è¿™é‡Œç¬¬ä¸€æ¬¡è°ƒç”¨äº†AbstractBeanFactory#getBeanï¼Œ
+                // æ­¤æ—¶ä¼ å…¥çš„å‚æ•°ä¸ºbeanObj2
                 |-AbstractBeanFactory#getBean(String)
-                 .. ÏÂÃæ¿ªÊ¼½øĞĞ`beanObj2`µÄÊµÀı»¯Óë³õÊ¼»¯²Ù×÷
+                 .. ä¸‹é¢å¼€å§‹è¿›è¡Œ`beanObj2`çš„å®ä¾‹åŒ–ä¸åˆå§‹åŒ–æ“ä½œ
 
 ```
 
-½áºÏµ÷ÓÃÁ´¼°Ç°Ãæ·ÖÎö¿ÉÒÔ¿´³ö£¬
+ç»“åˆè°ƒç”¨é“¾åŠå‰é¢åˆ†æå¯ä»¥çœ‹å‡ºï¼Œ
 
-*   ÔÚ»ñÈ¡ `beanObj1` Ê±µÚÒ»´Îµ÷ÓÃ `AbstractBeanFactory#getBean(String)`£¬ÓÉÓÚ´ËÊ± spring ÖĞ²»´æÔÚ `beanObj1`£¬¾Í¿ªÊ¼ÁË `beanObj1` µÄ´´½¨£»
-*   `beanObj1` ÊµÀı»¯Íê³Éºó£¬½Ó×Å¾Í½øĞĞÊôĞÔ×¢Èë£¬`beanObj1` ÖĞÓĞ¸öÊôĞÔ `BeanObj2 beanObj2`£¬Í¬Ñùµ÷ÓÃ `AbstractBeanFactory#getBean(String)` ´Ó spring ÖĞ»ñÈ¡ `beanObj2` ¶ÔÏó£»
-*   ÓÉÓÚ´ËÊ± spring ÖĞ²»´æÔÚ `beanObj2`£¬½Ó×Å¾Í½øÈëÁË `beanObj2` ¶ÔÏóµÄ´´½¨¹ı³Ì£»´´½¨¶ÔÏóºó£¬Í¬ÑùÒ²»á¶Ô `beanObj2` ÊôĞÔ×¢Èë¡¢ÔËĞĞ³õÊ¼»¯·½·¨µÈ²Ù×÷£¬ÕâÓë `beanObj1` µÄ²Ù×÷ÀàËÆ£»
-*   µÃµ½ `beanObj2` ¶ÔÏóºó£¬×¢Èëµ½ `beanObj1` µÄ `BeanObj2 beanObj2` ÊôĞÔÖĞ£¬È»ºó½øĞĞ `beanObj1` µÄºóĞø²Ù×÷¡£
+*   åœ¨è·å– `beanObj1` æ—¶ç¬¬ä¸€æ¬¡è°ƒç”¨ `AbstractBeanFactory#getBean(String)`ï¼Œç”±äºæ­¤æ—¶ spring ä¸­ä¸å­˜åœ¨ `beanObj1`ï¼Œå°±å¼€å§‹äº† `beanObj1` çš„åˆ›å»ºï¼›
+*   `beanObj1` å®ä¾‹åŒ–å®Œæˆåï¼Œæ¥ç€å°±è¿›è¡Œå±æ€§æ³¨å…¥ï¼Œ`beanObj1` ä¸­æœ‰ä¸ªå±æ€§ `BeanObj2 beanObj2`ï¼ŒåŒæ ·è°ƒç”¨ `AbstractBeanFactory#getBean(String)` ä» spring ä¸­è·å– `beanObj2` å¯¹è±¡ï¼›
+*   ç”±äºæ­¤æ—¶ spring ä¸­ä¸å­˜åœ¨ `beanObj2`ï¼Œæ¥ç€å°±è¿›å…¥äº† `beanObj2` å¯¹è±¡çš„åˆ›å»ºè¿‡ç¨‹ï¼›åˆ›å»ºå¯¹è±¡åï¼ŒåŒæ ·ä¹Ÿä¼šå¯¹ `beanObj2` å±æ€§æ³¨å…¥ã€è¿è¡Œåˆå§‹åŒ–æ–¹æ³•ç­‰æ“ä½œï¼Œè¿™ä¸ `beanObj1` çš„æ“ä½œç±»ä¼¼ï¼›
+*   å¾—åˆ° `beanObj2` å¯¹è±¡åï¼Œæ³¨å…¥åˆ° `beanObj1` çš„ `BeanObj2 beanObj2` å±æ€§ä¸­ï¼Œç„¶åè¿›è¡Œ `beanObj1` çš„åç»­æ“ä½œã€‚
 
-´ÓÕâÀï¿ÉÒÔ¿´³ö£¬ÊôĞÔ×¢ÈëÊ±£¬¿ÉÄÜ»áÊ¹ bean ³õÊ¼»¯ÌáÇ°£»Í¬Ê±£¬¶ÔÓÚÒÀÀµ²ã´Î¶àµÄÇé¿ö£¬µ÷ÓÃÁ´½«»á·Ç³£³¤£¬Èç A ĞèÒª×¢Èë B£¬B Òª×¢Èë C£¬ÄÇÃ´ÔÚ A µÄÊôĞÔ×¢ÈëÊ±£¬½«»á³õÊ¼»¯ B£¬¶ø B ÔÚ³õÊ¼»¯Ê±£¬ÓÖ»á³õÊ¼»¯ C¡£
+ä»è¿™é‡Œå¯ä»¥çœ‹å‡ºï¼Œå±æ€§æ³¨å…¥æ—¶ï¼Œå¯èƒ½ä¼šä½¿ bean åˆå§‹åŒ–æå‰ï¼›åŒæ—¶ï¼Œå¯¹äºä¾èµ–å±‚æ¬¡å¤šçš„æƒ…å†µï¼Œè°ƒç”¨é“¾å°†ä¼šéå¸¸é•¿ï¼Œå¦‚ A éœ€è¦æ³¨å…¥ Bï¼ŒB è¦æ³¨å…¥ Cï¼Œé‚£ä¹ˆåœ¨ A çš„å±æ€§æ³¨å…¥æ—¶ï¼Œå°†ä¼šåˆå§‹åŒ– Bï¼Œè€Œ B åœ¨åˆå§‹åŒ–æ—¶ï¼Œåˆä¼šåˆå§‹åŒ– Cã€‚
 
-¶ÔÓÚ bean µÄÊµÀı»¯Óë³õÊ¼»¯£¬ÕâÀïĞèÒªÃ÷È·ÏÂ£º
+å¯¹äº bean çš„å®ä¾‹åŒ–ä¸åˆå§‹åŒ–ï¼Œè¿™é‡Œéœ€è¦æ˜ç¡®ä¸‹ï¼š
 
-*   ÊµÀı»¯£º½öÖ¸´´½¨¶ÔÏóµÄ²Ù×÷£¬¿ÉÒÔÊ¹ÓÃ new »ò·´Éä»úÖÆ£¬Î´´¦Àí spring ÊôĞÔ×¢Èë¼°Ö®ºóµÄÔËĞĞ³õÊ¼»¯·½·¨¡¢±£´æµ½ spring ÈİÆ÷µÈÒ»ÏµÁĞ²Ù×÷£»
-*   ³õÊ¼»¯£º¶ÔÊµÀı»¯ºóµÄ¶ÔÏó½øĞĞÊôĞÔ×¢Èë¡¢ÔËĞĞ³õÊ¼»¯·½·¨£¬×îÖÕ±£´æµ½ spring ÈİÆ÷£»
+*   å®ä¾‹åŒ–ï¼šä»…æŒ‡åˆ›å»ºå¯¹è±¡çš„æ“ä½œï¼Œå¯ä»¥ä½¿ç”¨ new æˆ–åå°„æœºåˆ¶ï¼Œæœªå¤„ç† spring å±æ€§æ³¨å…¥åŠä¹‹åçš„è¿è¡Œåˆå§‹åŒ–æ–¹æ³•ã€ä¿å­˜åˆ° spring å®¹å™¨ç­‰ä¸€ç³»åˆ—æ“ä½œï¼›
+*   åˆå§‹åŒ–ï¼šå¯¹å®ä¾‹åŒ–åçš„å¯¹è±¡è¿›è¡Œå±æ€§æ³¨å…¥ã€è¿è¡Œåˆå§‹åŒ–æ–¹æ³•ï¼Œæœ€ç»ˆä¿å­˜åˆ° spring å®¹å™¨ï¼›
 
-#### 4\. ³õÊ¼»¯ bean
+#### 4\. åˆå§‹åŒ– bean
 
-spring ³õÊ¼»¯ bean µÄ·½·¨ÊÇ `AbstractAutowireCapableBeanFactory#initializeBean(String, Object, RootBeanDefinition)`:
+spring åˆå§‹åŒ– bean çš„æ–¹æ³•æ˜¯ `AbstractAutowireCapableBeanFactory#initializeBean(String, Object, RootBeanDefinition)`:
 
 ```
 protected Object initializeBean(final String beanName, final Object bean, 
              @Nullable RootBeanDefinition mbd) {
-    // 1\. ÔËĞĞ invokeAwareMethods
+    // 1\. è¿è¡Œ invokeAwareMethods
     if (System.getSecurityManager() != null) {
         AccessController.doPrivileged((PrivilegedAction<Object>) () -> {
              invokeAwareMethods(beanName, bean);
@@ -854,22 +854,22 @@ protected Object initializeBean(final String beanName, final Object bean,
         invokeAwareMethods(beanName, bean);
     }
 
-    // 2\. ÔËĞĞ applyBeanPostProcessorsBeforeInitialization
+    // 2\. è¿è¡Œ applyBeanPostProcessorsBeforeInitialization
     Object wrappedBean = bean;
     if (mbd == null || !mbd.isSynthetic()) {
-        // Ö´ĞĞ spring µ±ÖĞµÄÄÚÖÃ´¦ÀíÆ÷¡ª¡ªxxxPostProcessor-------@PostConstruct
+        // æ‰§è¡Œ spring å½“ä¸­çš„å†…ç½®å¤„ç†å™¨â€”â€”xxxPostProcessor-------@PostConstruct
         wrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);
     }
 
     try {
-        // 3\. Ö´ĞĞ InitializingBean ³õÊ¼»¯
+        // 3\. æ‰§è¡Œ InitializingBean åˆå§‹åŒ–
         invokeInitMethods(beanName, wrappedBean, mbd);
     }
     catch (Throwable ex) {
         ...
     }
     if (mbd == null || !mbd.isSynthetic()) {
-        // 4\. ÔËĞĞ applyBeanPostProcessorsAfterInitialization
+        // 4\. è¿è¡Œ applyBeanPostProcessorsAfterInitialization
         wrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);
     }
 
@@ -878,16 +878,16 @@ protected Object initializeBean(final String beanName, final Object bean,
 
 ```
 
-ÒÔÉÏ´úÂëÖ÷ÒªÊÇÓÃÀ´ÔËĞĞ 4 ¸ö·½·¨£º
+ä»¥ä¸Šä»£ç ä¸»è¦æ˜¯ç”¨æ¥è¿è¡Œ 4 ä¸ªæ–¹æ³•ï¼š
 
 1.  invokeAwareMethods(beanName, bean);
 2.  applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);
 3.  invokeInitMethods(beanName, wrappedBean, mbd);
 4.  applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);
 
-##### 4.1 µ÷ÓÃ Aware bean µÄ·½·¨
+##### 4.1 è°ƒç”¨ Aware bean çš„æ–¹æ³•
 
-`invokeAwareMethods` ¾ÍÊÇÖ´ĞĞ Aware bean µÄÏà¹Ø·½·¨£º
+`invokeAwareMethods` å°±æ˜¯æ‰§è¡Œ Aware bean çš„ç›¸å…³æ–¹æ³•ï¼š
 
 ```
 private void invokeAwareMethods(final String beanName, final Object bean) {
@@ -909,18 +909,18 @@ private void invokeAwareMethods(final String beanName, final Object bean) {
 
 ```
 
-ÒÔÉÏ·½·¨±È½Ï¼òµ¥£¬¾Í²»¶àËµÁË¡£
+ä»¥ä¸Šæ–¹æ³•æ¯”è¾ƒç®€å•ï¼Œå°±ä¸å¤šè¯´äº†ã€‚
 
-##### 4.2 ÔËĞĞºóÖÃ´¦ÀíÆ÷µÄ `postProcessBeforeInitialization` ·½·¨
+##### 4.2 è¿è¡Œåç½®å¤„ç†å™¨çš„ `postProcessBeforeInitialization` æ–¹æ³•
 
-½Ó×ÅÀ´¿´¿´ `AbstractAutowireCapableBeanFactory#applyBeanPostProcessorsBeforeInitialization` µÄÔËĞĞ£º
+æ¥ç€æ¥çœ‹çœ‹ `AbstractAutowireCapableBeanFactory#applyBeanPostProcessorsBeforeInitialization` çš„è¿è¡Œï¼š
 
 ```
 public Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName)
          throws BeansException {
     Object result = existingBean;
     for (BeanPostProcessor processor : getBeanPostProcessors()) {
-        // µ÷ÓÃºóÖÃ´¦ÀíÆ÷
+        // è°ƒç”¨åç½®å¤„ç†å™¨
         Object current = processor.postProcessBeforeInitialization(result, beanName);
         if (current == null) {
             return result;
@@ -932,7 +932,7 @@ public Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, S
 
 ```
 
-ÕâÀïÖ÷ÒªÔËĞĞ `ApplicationContextAwareProcessor#postProcessBeforeInitialization` ·½·¨£¬ÄÚÈİÈçÏÂ£º
+è¿™é‡Œä¸»è¦è¿è¡Œ `ApplicationContextAwareProcessor#postProcessBeforeInitialization` æ–¹æ³•ï¼Œå†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 @Override
@@ -954,7 +954,7 @@ public Object postProcessBeforeInitialization(Object bean, String beanName) thro
         }, acc);
     }
     else {
-        // ÔËĞĞ·½·¨
+        // è¿è¡Œæ–¹æ³•
         invokeAwareInterfaces(bean);
     }
     return bean;
@@ -976,7 +976,7 @@ private void invokeAwareInterfaces(Object bean) {
     if (bean instanceof MessageSourceAware) {
         ((MessageSourceAware) bean).setMessageSource(this.applicationContext);
     }
-    // ×°Åä ÊµÏÖÁËApplicationContextAwareµÄÀàµÄ applicationContext
+    // è£…é… å®ç°äº†ApplicationContextAwareçš„ç±»çš„ applicationContext
     if (bean instanceof ApplicationContextAware) {
         ((ApplicationContextAware) bean).setApplicationContext(this.applicationContext);
     }
@@ -984,9 +984,9 @@ private void invokeAwareInterfaces(Object bean) {
 
 ```
 
-ÆäÊµÕâ¸ö·½·¨¾ÍÊÇ¸ø¸÷ÖÖ `XxxAware` ¸³Öµ£¬±ÈÈç´óÃû¶¦¶¦µÄ `ApplicationContextAware` ¸³ÖµÒ²ÊÇÔÚÕâÀï½øĞĞ¡£
+å…¶å®è¿™ä¸ªæ–¹æ³•å°±æ˜¯ç»™å„ç§ `XxxAware` èµ‹å€¼ï¼Œæ¯”å¦‚å¤§åé¼é¼çš„ `ApplicationContextAware` èµ‹å€¼ä¹Ÿæ˜¯åœ¨è¿™é‡Œè¿›è¡Œã€‚
 
-Ë³´øÒ»ÌáµÄÊÇ£¬Èç¹ûÔÚ bean ÖĞ£¬·½·¨ÉÏÓĞ `@PostConstruct` ×¢½â£º
+é¡ºå¸¦ä¸€æçš„æ˜¯ï¼Œå¦‚æœåœ¨ bean ä¸­ï¼Œæ–¹æ³•ä¸Šæœ‰ `@PostConstruct` æ³¨è§£ï¼š
 
 ```
 @PostConstruct
@@ -996,16 +996,16 @@ public void test() {
 
 ```
 
-¸Ã·½·¨½«»áÔÚ `InitDestroyAnnotationBeanPostProcessor#postProcessBeforeInitialization` ÖĞ½øĞĞµ÷ÓÃ£¬´úÂë±È½Ï¼òµ¥£¬Ò²ÊÇÀûÓÃÁË jdk µÄ·´Éä»úÖÆ£¬ÕâÀï¾Í²»¶àËµÁË¡£
+è¯¥æ–¹æ³•å°†ä¼šåœ¨ `InitDestroyAnnotationBeanPostProcessor#postProcessBeforeInitialization` ä¸­è¿›è¡Œè°ƒç”¨ï¼Œä»£ç æ¯”è¾ƒç®€å•ï¼Œä¹Ÿæ˜¯åˆ©ç”¨äº† jdk çš„åå°„æœºåˆ¶ï¼Œè¿™é‡Œå°±ä¸å¤šè¯´äº†ã€‚
 
-##### 4.3 µ÷ÓÃ bean µÄ³õÊ¼»¯·½·¨
+##### 4.3 è°ƒç”¨ bean çš„åˆå§‹åŒ–æ–¹æ³•
 
-½Ó×ÅÀ´¿´¿´ `AbstractAutowireCapableBeanFactory#invokeInitMethods` ·½·¨:
+æ¥ç€æ¥çœ‹çœ‹ `AbstractAutowireCapableBeanFactory#invokeInitMethods` æ–¹æ³•:
 
 ```
 protected void invokeInitMethods(String beanName, final Object bean, 
         @Nullable RootBeanDefinition mbd)  throws Throwable {
-    // Ö´ĞĞ InitializingBean#afterPropertiesSet ·½·¨
+    // æ‰§è¡Œ InitializingBean#afterPropertiesSet æ–¹æ³•
     boolean isInitializingBean = (bean instanceof InitializingBean);
     if (isInitializingBean && (mbd == null || 
                  !mbd.isExternallyManagedInitMethod("afterPropertiesSet"))) {
@@ -1021,12 +1021,12 @@ protected void invokeInitMethods(String beanName, final Object bean,
             }
         }
         else {
-            // Èç¹ûbeanÊµÏÖÁË InitializingBean ½Ó¿Ú£¬Ôòµ÷ÓÃ afterPropertiesSet()
+            // å¦‚æœbeanå®ç°äº† InitializingBean æ¥å£ï¼Œåˆ™è°ƒç”¨ afterPropertiesSet()
             ((InitializingBean) bean).afterPropertiesSet();
         }
     }
 
-    // Ö´ĞĞ×Ô¶¨ÒåµÄ³õÊ¼»¯·½·¨£¬¼´ÔÚxmlÖĞ£¬Í¨¹ı init-method Ö¸¶¨µÄ·½·¨
+    // æ‰§è¡Œè‡ªå®šä¹‰çš„åˆå§‹åŒ–æ–¹æ³•ï¼Œå³åœ¨xmlä¸­ï¼Œé€šè¿‡ init-method æŒ‡å®šçš„æ–¹æ³•
     if (mbd != null && bean.getClass() != NullBean.class) {
         String initMethodName = mbd.getInitMethodName();
         if (StringUtils.hasLength(initMethodName) &&
@@ -1039,14 +1039,14 @@ protected void invokeInitMethods(String beanName, final Object bean,
 
 ```
 
-ÕâÀïÖ÷ÒªÊÇÔËĞĞÁ½¸ö·½·¨£º
+è¿™é‡Œä¸»è¦æ˜¯è¿è¡Œä¸¤ä¸ªæ–¹æ³•ï¼š
 
-1.  Èç¹û bean ÊµÏÖÁË InitializingBean ½Ó¿Ú£¬Ôòµ÷ÓÃ afterPropertiesSet ()
-2.  Èç¹ûÖ¸¶¨ÁË init-method£¬ÔòÔÚ `invokeCustomInitMethod` ÖĞÔËĞĞ£¬Ò²ÊÇÍ¨¹ı jdk ·´Éä»úÖÆÀ´ÔËĞĞµÄ£¬¾Í²»¶àËµÁË¡£
+1.  å¦‚æœ bean å®ç°äº† InitializingBean æ¥å£ï¼Œåˆ™è°ƒç”¨ afterPropertiesSet ()
+2.  å¦‚æœæŒ‡å®šäº† init-methodï¼Œåˆ™åœ¨ `invokeCustomInitMethod` ä¸­è¿è¡Œï¼Œä¹Ÿæ˜¯é€šè¿‡ jdk åå°„æœºåˆ¶æ¥è¿è¡Œçš„ï¼Œå°±ä¸å¤šè¯´äº†ã€‚
 
-##### 4.4 ÔËĞĞºóÖÃ´¦ÀíÆ÷µÄ `postProcessAfterInitialization` ·½·¨
+##### 4.4 è¿è¡Œåç½®å¤„ç†å™¨çš„ `postProcessAfterInitialization` æ–¹æ³•
 
-ÕâÒ»²½Ö÷ÒªÊÇÔËĞĞ `BeanPostProcessor#postProcessAfterInitialization`£¬ËùÔËĞĞµÄ `BeanPostProcessor` ÊÇ `ApplicationListenerDetector`:
+è¿™ä¸€æ­¥ä¸»è¦æ˜¯è¿è¡Œ `BeanPostProcessor#postProcessAfterInitialization`ï¼Œæ‰€è¿è¡Œçš„ `BeanPostProcessor` æ˜¯ `ApplicationListenerDetector`:
 
 ```
 @Override
@@ -1065,41 +1065,41 @@ public Object postProcessAfterInitialization(Object bean, String beanName) {
 
 ```
 
-Õâ¸ö·½·¨ÊÇÓÃÀ´´¦Àí `ApplicationListener` µÄ£¬Èç¹ûÓĞ bean ÊµÏÖÁË `ApplicationListener`£¬¾ÍÊÇÔÚÕâÀïÌí¼Óµ½ spring µÄ¼àÌıÆ÷ÁĞ±íµÄ¡£
+è¿™ä¸ªæ–¹æ³•æ˜¯ç”¨æ¥å¤„ç† `ApplicationListener` çš„ï¼Œå¦‚æœæœ‰ bean å®ç°äº† `ApplicationListener`ï¼Œå°±æ˜¯åœ¨è¿™é‡Œæ·»åŠ åˆ° spring çš„ç›‘å¬å™¨åˆ—è¡¨çš„ã€‚
 
-#### 5\. ×Ü½á
+#### 5\. æ€»ç»“
 
-±¾ÎÄÖ÷Òª½éÉÜÁË spring bean ´´½¨¹ı³Ì£¬Ïà¹ØÁ÷³Ì×Ü½áÈçÏÂ£º
+æœ¬æ–‡ä¸»è¦ä»‹ç»äº† spring bean åˆ›å»ºè¿‡ç¨‹ï¼Œç›¸å…³æµç¨‹æ€»ç»“å¦‚ä¸‹ï¼š
 
-1.  ÊµÀı»¯ bean£¬Ö¸¶¨ÁË³õÊ¼»¯·½·¨¡¢Ö¸¶¨ÁË `factory method`¡¢×ÔÖ÷ÍÆ¶Ï¹¹Ôì·½·¨µÈ·½Ê½£»
+1.  å®ä¾‹åŒ– beanï¼ŒæŒ‡å®šäº†åˆå§‹åŒ–æ–¹æ³•ã€æŒ‡å®šäº† `factory method`ã€è‡ªä¸»æ¨æ–­æ„é€ æ–¹æ³•ç­‰æ–¹å¼ï¼›
 
-2.  ²éÑ¯´ı×¢ÈëµÄÊôĞÔ»ò·½·¨£¬¼´ÄÄĞ©ÊôĞÔ»ò·½·¨ÉÏ±ê×¢ÁË `@Autowird`/`@Value`/`@Resource`
+2.  æŸ¥è¯¢å¾…æ³¨å…¥çš„å±æ€§æˆ–æ–¹æ³•ï¼Œå³å“ªäº›å±æ€§æˆ–æ–¹æ³•ä¸Šæ ‡æ³¨äº† `@Autowird`/`@Value`/`@Resource`
 
-    *   `AutowiredAnnotationBeanPostProcessor.postProcessMergedBeanDefinition` ÓÃÀ´²éÕÒ´øÓĞ @Autowired¡¢@Value ×¢½âµÄÊôĞÔºÍ·½·¨
-    *   `CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition` ÓÃÀ´²éÕÒ´øÓĞ @Resource ×¢½âµÄÊôĞÔºÍ·½·¨
-3.  ÊôĞÔÌî³ä
+    *   `AutowiredAnnotationBeanPostProcessor.postProcessMergedBeanDefinition` ç”¨æ¥æŸ¥æ‰¾å¸¦æœ‰ @Autowiredã€@Value æ³¨è§£çš„å±æ€§å’Œæ–¹æ³•
+    *   `CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition` ç”¨æ¥æŸ¥æ‰¾å¸¦æœ‰ @Resource æ³¨è§£çš„å±æ€§å’Œæ–¹æ³•
+3.  å±æ€§å¡«å……
 
-    *   `AutowiredAnnotationBeanPostProcessor.postProcessProperties` ´¦Àí `@Autowired`¡¢`@Value` ×¢½â£¬`CommonAnnotationBeanPostProcessor.postProcessProperties` ´¦Àí `@Resource` ×¢½â
-    *   ´¦Àí `@Autowired` Ê±£¬ÏÈ¸ù¾İÀàĞÍÕÒµ½ËùÓĞµÄ `Class`£¬Èç¹ûÓĞ¶à¸ö£¬ÔÙ¸ù¾İ×¢ÈëÊôĞÔµÄÃû³Æ²éÕÒ·ûºÏµÄ `Class`£¬×îºóµ÷ÓÃ `beanFactory.getBean(...)` ´Ó spring »ñÈ¡Òª×¢ÈëµÄ¶ÔÏó£¬Í¨¹ı·´Éä»úÖÆÎª¶ÔÓ¦µÄÊôĞÔÉèÖÃÖµ£»
-4.  ³õÊ¼»¯ bean
+    *   `AutowiredAnnotationBeanPostProcessor.postProcessProperties` å¤„ç† `@Autowired`ã€`@Value` æ³¨è§£ï¼Œ`CommonAnnotationBeanPostProcessor.postProcessProperties` å¤„ç† `@Resource` æ³¨è§£
+    *   å¤„ç† `@Autowired` æ—¶ï¼Œå…ˆæ ¹æ®ç±»å‹æ‰¾åˆ°æ‰€æœ‰çš„ `Class`ï¼Œå¦‚æœæœ‰å¤šä¸ªï¼Œå†æ ¹æ®æ³¨å…¥å±æ€§çš„åç§°æŸ¥æ‰¾ç¬¦åˆçš„ `Class`ï¼Œæœ€åè°ƒç”¨ `beanFactory.getBean(...)` ä» spring è·å–è¦æ³¨å…¥çš„å¯¹è±¡ï¼Œé€šè¿‡åå°„æœºåˆ¶ä¸ºå¯¹åº”çš„å±æ€§è®¾ç½®å€¼ï¼›
+4.  åˆå§‹åŒ– bean
 
-    1.  Ö´ĞĞ Aware bean µÄÏà¹Ø·½·¨
-    2.  µ÷ÓÃ `BeanPostProcessor#postProcessBeforeInitialization` ·½·¨
-        *   ÔÚ `ApplicationContextAwareProcessor#postProcessBeforeInitialization` ÖĞÖ´ĞĞ Aware bean µÄÏà¹Ø·½·¨
-        *   ÔÚ `InitDestroyAnnotationBeanPostProcessor#postProcessBeforeInitialization` ÖĞ´¦Àí `@PostConstruct` ×¢½â
-    3.  Ö´ĞĞ³õÊ¼»¯·½·¨
-        *   Ö´ĞĞ `InitializingBean#afterPropertiesSet` ·½·¨
-        *   Ö´ĞĞ×Ô¶¨ÒåµÄ `init-method` ·½·¨
-    4.  ÔËĞĞ `BeanPostProcessor#postProcessAfterInitialization` ·½·¨
-        *   ÔÚ `ApplicationListenerDetector#postProcessAfterInitialization` ÖĞ´¦Àí spring ¼àÌıÆ÷
+    1.  æ‰§è¡Œ Aware bean çš„ç›¸å…³æ–¹æ³•
+    2.  è°ƒç”¨ `BeanPostProcessor#postProcessBeforeInitialization` æ–¹æ³•
+        *   åœ¨ `ApplicationContextAwareProcessor#postProcessBeforeInitialization` ä¸­æ‰§è¡Œ Aware bean çš„ç›¸å…³æ–¹æ³•
+        *   åœ¨ `InitDestroyAnnotationBeanPostProcessor#postProcessBeforeInitialization` ä¸­å¤„ç† `@PostConstruct` æ³¨è§£
+    3.  æ‰§è¡Œåˆå§‹åŒ–æ–¹æ³•
+        *   æ‰§è¡Œ `InitializingBean#afterPropertiesSet` æ–¹æ³•
+        *   æ‰§è¡Œè‡ªå®šä¹‰çš„ `init-method` æ–¹æ³•
+    4.  è¿è¡Œ `BeanPostProcessor#postProcessAfterInitialization` æ–¹æ³•
+        *   åœ¨ `ApplicationListenerDetector#postProcessAfterInitialization` ä¸­å¤„ç† spring ç›‘å¬å™¨
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b7a4d4bc1bfbd76537e40cf843b0d18df93.png)
 
-¹ØÓÚ spring bean µÄ´´½¨Á÷³Ì¾ÍÏÈ·ÖÎöµ½ÕâÀïÁË£¬²»¹ı spring ÔÚ´´½¨ bean µÄ¹ı³ÌÖĞ£¬ÓĞÒ»¸öÎŞ·¨ºöÊÓµÄÇé¿ö£ºÑ­»·ÒÀÀµ£¬¹ØÓÚÕâ·½ÃæµÄ´¦Àí£¬¿ÉÒÔ²Î¿¼£º
+å…³äº spring bean çš„åˆ›å»ºæµç¨‹å°±å…ˆåˆ†æåˆ°è¿™é‡Œäº†ï¼Œä¸è¿‡ spring åœ¨åˆ›å»º bean çš„è¿‡ç¨‹ä¸­ï¼Œæœ‰ä¸€ä¸ªæ— æ³•å¿½è§†çš„æƒ…å†µï¼šå¾ªç¯ä¾èµ–ï¼Œå…³äºè¿™æ–¹é¢çš„å¤„ç†ï¼Œå¯ä»¥å‚è€ƒï¼š
 
-*   [spring Ì½ÃØÖ®Ñ­»·ÒÀÀµµÄ½â¾ö£¨Ò»£©£ºÀíÂÛ»ùÊ¯](https://my.oschina.net/funcy/blog/4659555)
-*   [spring Ì½ÃØÖ®Ñ­»·ÒÀÀµµÄ½â¾ö£¨¶ş£©£ºÔ´Âë·ÖÎö](https://my.oschina.net/funcy/blog/4815992)
+*   [spring æ¢ç§˜ä¹‹å¾ªç¯ä¾èµ–çš„è§£å†³ï¼ˆä¸€ï¼‰ï¼šç†è®ºåŸºçŸ³](https://my.oschina.net/funcy/blog/4659555)
+*   [spring æ¢ç§˜ä¹‹å¾ªç¯ä¾èµ–çš„è§£å†³ï¼ˆäºŒï¼‰ï¼šæºç åˆ†æ](https://my.oschina.net/funcy/blog/4815992)
 
 *   * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4659524](https://my.oschina.net/funcy/blog/4659524) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4659524](https://my.oschina.net/funcy/blog/4659524) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

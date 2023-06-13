@@ -1,31 +1,31 @@
-`BeanPostProcessor` ÖĞÎÄÃûÎª spring bean µÄºóÖÃ´¦ÀíÆ÷£¬Çø±ğÓÚ `BeanFactoryPostProcessor`£¬`BeanPostProcessor` ¿ÉÒÔ¶Ô bean ½øĞĞ²Ù×÷¡£
+`BeanPostProcessor` ä¸­æ–‡åä¸º spring bean çš„åç½®å¤„ç†å™¨ï¼ŒåŒºåˆ«äº `BeanFactoryPostProcessor`ï¼Œ`BeanPostProcessor` å¯ä»¥å¯¹ bean è¿›è¡Œæ“ä½œã€‚
 
-spring `BeanPostProcessor` ÔÚ bean µÄ´´½¨¹ı³ÌÖĞÖ´ĞĞ£¬Ö´ĞĞÊ±»úÈçÏÂ:
+spring `BeanPostProcessor` åœ¨ bean çš„åˆ›å»ºè¿‡ç¨‹ä¸­æ‰§è¡Œï¼Œæ‰§è¡Œæ—¶æœºå¦‚ä¸‹:
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b7a4d4bc1bfbd76537e40cf843b0d18df93.png)
 
-ÔÚ bean µÄ´´½¨¹ı³ÌÖĞ£¬`BeanPostProcessor` Ò»¹²Ö´ĞĞ¹ı 8 ´Î£º
+åœ¨ bean çš„åˆ›å»ºè¿‡ç¨‹ä¸­ï¼Œ`BeanPostProcessor` ä¸€å…±æ‰§è¡Œè¿‡ 8 æ¬¡ï¼š
 
-1.  ³¢ÊÔÉú³É´úÀí¶ÔÏó
-2.  ÍÆ¶Ï¹¹Ôì·½·¨
-3.  »ñÈ¡×¢ÈëµÄÊôĞÔ
-4.  Ìí¼ÓÈı¼¶»º´æ
-5.  ÊÇ·ñĞèÒª×¢ÈëÊôĞÔ
-6.  Ìî³äÊôĞÔ
-7.  ³õÊ¼»¯Ç°
-8.  ³õÊ¼»¯ºó
+1.  å°è¯•ç”Ÿæˆä»£ç†å¯¹è±¡
+2.  æ¨æ–­æ„é€ æ–¹æ³•
+3.  è·å–æ³¨å…¥çš„å±æ€§
+4.  æ·»åŠ ä¸‰çº§ç¼“å­˜
+5.  æ˜¯å¦éœ€è¦æ³¨å…¥å±æ€§
+6.  å¡«å……å±æ€§
+7.  åˆå§‹åŒ–å‰
+8.  åˆå§‹åŒ–å
 
-±¾À´½«»áÖğÒ»ÊáÀíÕâĞ©¹ı³ÌÖĞÖ´ĞĞµÄ `BeanPostProcessor`¡£
+æœ¬æ¥å°†ä¼šé€ä¸€æ¢³ç†è¿™äº›è¿‡ç¨‹ä¸­æ‰§è¡Œçš„ `BeanPostProcessor`ã€‚
 
-### 1\. Ê²Ã´ÊÇ `BeanPostProcessor`
+### 1\. ä»€ä¹ˆæ˜¯ `BeanPostProcessor`
 
-ÊáÀí `BeanPostProcessor` Ç°£¬ÎÒÃÇÏÈÀ´¿´¿´Ê²Ã´ÊÇ `BeanPostProcessor`£¬´úÂëÈçÏÂ£º
+æ¢³ç† `BeanPostProcessor` å‰ï¼Œæˆ‘ä»¬å…ˆæ¥çœ‹çœ‹ä»€ä¹ˆæ˜¯ `BeanPostProcessor`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public interface BeanPostProcessor {
 
     /**
-     * ³õÊ¼»¯Ç°Ö´ĞĞ
+     * åˆå§‹åŒ–å‰æ‰§è¡Œ
      */
     @Nullable
     default Object postProcessBeforeInitialization(Object bean, String beanName) 
@@ -34,7 +34,7 @@ public interface BeanPostProcessor {
     }
 
     /**
-     * ³õÊ¼»¯ºóÖ´ĞĞ
+     * åˆå§‹åŒ–åæ‰§è¡Œ
      */
     @Nullable
     default Object postProcessAfterInitialization(Object bean, String beanName) 
@@ -46,87 +46,87 @@ public interface BeanPostProcessor {
 
 ```
 
-`BeanPostProcessor` ÊÇÒ»¸ö½Ó¿Ú£¬¶¨ÒåÁË bean ³õÊ¼Ç°ºóµÄÒ»Ğ©²Ù×÷£¬ÎÒÃÇ¿ÉÒÔÊµÏÖÕâ¸ö½Ó¿Ú£¬ÖØĞ´ËüµÄÁ½¸ö·½·¨£¬¾Í¿ÉÒÔÔÚ bean ³õÊ¼»¯Ç°½øĞĞÒ»Ğ©´¦Àí²Ù×÷ÁË¡£
+`BeanPostProcessor` æ˜¯ä¸€ä¸ªæ¥å£ï¼Œå®šä¹‰äº† bean åˆå§‹å‰åçš„ä¸€äº›æ“ä½œï¼Œæˆ‘ä»¬å¯ä»¥å®ç°è¿™ä¸ªæ¥å£ï¼Œé‡å†™å®ƒçš„ä¸¤ä¸ªæ–¹æ³•ï¼Œå°±å¯ä»¥åœ¨ bean åˆå§‹åŒ–å‰è¿›è¡Œä¸€äº›å¤„ç†æ“ä½œäº†ã€‚
 
-`BeanPostProcessor` ÔÚ `AbstractApplicationContext#registerBeanPostProcessors` ÖĞ×¢²á¡£
+`BeanPostProcessor` åœ¨ `AbstractApplicationContext#registerBeanPostProcessors` ä¸­æ³¨å†Œã€‚
 
-Êµ¼ÊÉÏ£¬`BeanPostProcessor` »¹ÓĞÖÚ¶àµÄ×Ó½Ó¿Ú£¬ÕâĞ©ÎÒÃÇ¶¼Í³³ÆÎª `BeanPostProcessor`£¬±¾ÎÄµÄÖ÷ÒªÄ¿µÄ¾ÍÊÇÊáÀíÕâĞ© `BeanPostProcessor`¡£
+å®é™…ä¸Šï¼Œ`BeanPostProcessor` è¿˜æœ‰ä¼—å¤šçš„å­æ¥å£ï¼Œè¿™äº›æˆ‘ä»¬éƒ½ç»Ÿç§°ä¸º `BeanPostProcessor`ï¼Œæœ¬æ–‡çš„ä¸»è¦ç›®çš„å°±æ˜¯æ¢³ç†è¿™äº› `BeanPostProcessor`ã€‚
 
-### 2. `BeanPostProcessor` ÊáÀí
+### 2. `BeanPostProcessor` æ¢³ç†
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-102ca0d1e4db82a28871661241b05bc3956.png)
 
-#### 2.1 ³¢ÊÔÉú³É´úÀí¶ÔÏó
+#### 2.1 å°è¯•ç”Ÿæˆä»£ç†å¯¹è±¡
 
-*   µ÷ÓÃÎ»ÖÃ£º`AbstractAutowireCapableBeanFactory#resolveBeforeInstantiation`
-*   Ö´ĞĞ·½·¨£º`InstantiationAwareBeanPostProcessor#postProcessBeforeInstantiation`
-*   `AbstractAutoProxyCreator#postProcessBeforeInstantiation`£ºÉú³É´úÀí¶ÔÏó
+*   è°ƒç”¨ä½ç½®ï¼š`AbstractAutowireCapableBeanFactory#resolveBeforeInstantiation`
+*   æ‰§è¡Œæ–¹æ³•ï¼š`InstantiationAwareBeanPostProcessor#postProcessBeforeInstantiation`
+*   `AbstractAutoProxyCreator#postProcessBeforeInstantiation`ï¼šç”Ÿæˆä»£ç†å¯¹è±¡
 
-#### 2.2 ÍÆ¶Ï¹¹Ôì·½·¨
+#### 2.2 æ¨æ–­æ„é€ æ–¹æ³•
 
-*   µ÷ÓÃÎ»ÖÃ£º`AbstractAutowireCapableBeanFactory#determineConstructorsFromBeanPostProcessors`
-*   Ö´ĞĞ·½·¨£º`SmartInstantiationAwareBeanPostProcessor#determineCandidateConstructors`
-*   `AutowiredAnnotationBeanPostProcessor#determineCandidateConstructors`£ºÍÆ¶Ï¹¹Ôì·½·¨
+*   è°ƒç”¨ä½ç½®ï¼š`AbstractAutowireCapableBeanFactory#determineConstructorsFromBeanPostProcessors`
+*   æ‰§è¡Œæ–¹æ³•ï¼š`SmartInstantiationAwareBeanPostProcessor#determineCandidateConstructors`
+*   `AutowiredAnnotationBeanPostProcessor#determineCandidateConstructors`ï¼šæ¨æ–­æ„é€ æ–¹æ³•
 
-#### 2.3 »ñÈ¡×¢ÈëµÄÊôĞÔ
+#### 2.3 è·å–æ³¨å…¥çš„å±æ€§
 
-*   µ÷ÓÃÎ»ÖÃ£º`AbstractAutowireCapableBeanFactory#applyMergedBeanDefinitionPostProcessors`
-*   Ö´ĞĞ·½·¨£º`MergedBeanDefinitionPostProcessor#postProcessMergedBeanDefinition`
-*   `ApplicationListenerDetector#postProcessMergedBeanDefinition`£ºÊÕ¼¯µ¥ÀıµÄ `ApplicationListener`
-*   `AutowiredAnnotationBeanPostProcessor#postProcessMergedBeanDefinition`£º²éÕÒ±» `@Autowired`¡¢`@Value`¡¢`@Inject` ±ê¼ÇµÄÊôĞÔÓë·½·¨
-*   `CommonAnnotationBeanPostProcessor#postProcessMergedBeanDefinition`£º²éÕÒ±» `@Resource` ±ê¼ÇµÄÊôĞÔÓë·½·¨
-*   `InitDestroyAnnotationBeanPostProcessor#postProcessMergedBeanDefinition`£º²éÕÒ±» `@PostConstruct`¡¢`@PreDestroy` ±ê¼ÇµÄ·½·¨
+*   è°ƒç”¨ä½ç½®ï¼š`AbstractAutowireCapableBeanFactory#applyMergedBeanDefinitionPostProcessors`
+*   æ‰§è¡Œæ–¹æ³•ï¼š`MergedBeanDefinitionPostProcessor#postProcessMergedBeanDefinition`
+*   `ApplicationListenerDetector#postProcessMergedBeanDefinition`ï¼šæ”¶é›†å•ä¾‹çš„ `ApplicationListener`
+*   `AutowiredAnnotationBeanPostProcessor#postProcessMergedBeanDefinition`ï¼šæŸ¥æ‰¾è¢« `@Autowired`ã€`@Value`ã€`@Inject` æ ‡è®°çš„å±æ€§ä¸æ–¹æ³•
+*   `CommonAnnotationBeanPostProcessor#postProcessMergedBeanDefinition`ï¼šæŸ¥æ‰¾è¢« `@Resource` æ ‡è®°çš„å±æ€§ä¸æ–¹æ³•
+*   `InitDestroyAnnotationBeanPostProcessor#postProcessMergedBeanDefinition`ï¼šæŸ¥æ‰¾è¢« `@PostConstruct`ã€`@PreDestroy` æ ‡è®°çš„æ–¹æ³•
 
-#### 2.4 Ìí¼ÓÈı¼¶»º´æ
+#### 2.4 æ·»åŠ ä¸‰çº§ç¼“å­˜
 
-*   µ÷ÓÃÎ»ÖÃ£¨·½·¨²¢Ã»ÓĞÖ´ĞĞ£©£º`AbstractAutowireCapableBeanFactory#doCreateBean`
-*   Ö´ĞĞ·½·¨£º`SmartInstantiationAwareBeanPostProcessor#getEarlyBeanReference`
-*   `AbstractAutoProxyCreator#getEarlyBeanReference`£ºÌáÇ°Éú³É´úÀí¶ÔÏó
+*   è°ƒç”¨ä½ç½®ï¼ˆæ–¹æ³•å¹¶æ²¡æœ‰æ‰§è¡Œï¼‰ï¼š`AbstractAutowireCapableBeanFactory#doCreateBean`
+*   æ‰§è¡Œæ–¹æ³•ï¼š`SmartInstantiationAwareBeanPostProcessor#getEarlyBeanReference`
+*   `AbstractAutoProxyCreator#getEarlyBeanReference`ï¼šæå‰ç”Ÿæˆä»£ç†å¯¹è±¡
 
-#### 2.5 ÊÇ·ñĞèÒª×¢ÈëÊôĞÔ
+#### 2.5 æ˜¯å¦éœ€è¦æ³¨å…¥å±æ€§
 
-*   µ÷ÓÃÎ»ÖÃ£º`AbstractAutowireCapableBeanFactory#populateBean`
-*   Ö´ĞĞ·½·¨£º`InstantiationAwareBeanPostProcessor#postProcessAfterInstantiation`
+*   è°ƒç”¨ä½ç½®ï¼š`AbstractAutowireCapableBeanFactory#populateBean`
+*   æ‰§è¡Œæ–¹æ³•ï¼š`InstantiationAwareBeanPostProcessor#postProcessAfterInstantiation`
 
-#### 2.6 Ìî³äÊôĞÔ
+#### 2.6 å¡«å……å±æ€§
 
-*   µ÷ÓÃÎ»ÖÃ£º`AbstractAutowireCapableBeanFactory#populateBean`
-*   Ö´ĞĞ·½·¨£º`InstantiationAwareBeanPostProcessor#postProcessProperties`
-*   `AutowiredAnnotationBeanPostProcessor#postProcessProperties`£ºÌî³ä±» `@Autowired`¡¢`@Value`¡¢`@Inject` ±ê¼ÇµÄÊôĞÔÓë·½·¨
-*   `CommonAnnotationBeanPostProcessor#postProcessProperties`£ºÌî³ä±» `@Resource` ±ê¼ÇµÄÊôĞÔÓë·½·¨
-*   `ImportAwareBeanPostProcessor#postProcessProperties`£ºÎª `EnhancedConfiguration` ÊµÀıÉèÖÃ `beanFactory`
+*   è°ƒç”¨ä½ç½®ï¼š`AbstractAutowireCapableBeanFactory#populateBean`
+*   æ‰§è¡Œæ–¹æ³•ï¼š`InstantiationAwareBeanPostProcessor#postProcessProperties`
+*   `AutowiredAnnotationBeanPostProcessor#postProcessProperties`ï¼šå¡«å……è¢« `@Autowired`ã€`@Value`ã€`@Inject` æ ‡è®°çš„å±æ€§ä¸æ–¹æ³•
+*   `CommonAnnotationBeanPostProcessor#postProcessProperties`ï¼šå¡«å……è¢« `@Resource` æ ‡è®°çš„å±æ€§ä¸æ–¹æ³•
+*   `ImportAwareBeanPostProcessor#postProcessProperties`ï¼šä¸º `EnhancedConfiguration` å®ä¾‹è®¾ç½® `beanFactory`
 
-#### 2.7 ³õÊ¼»¯Ç°
+#### 2.7 åˆå§‹åŒ–å‰
 
-*   µ÷ÓÃÎ»ÖÃ£º`AbstractAutowireCapableBeanFactory#applyBeanPostProcessorsBeforeInitialization`
-*   Ö´ĞĞ·½·¨£º`BeanPostProcessor#postProcessBeforeInitialization`
-*   `ApplicationContextAwareProcessor#postProcessBeforeInitialization`£ºµ÷ÓÃ `XxxAware` ½Ó¿ÚµÄ·½·¨
-*   `BeanValidationPostProcessor#postProcessBeforeInitialization`£º´¦Àí `JSR-303` Ğ£Ñé
-*   `ImportAwareBeanPostProcessor#postProcessBeforeInitialization`£ºµ÷ÓÃ `ImportAware` ½Ó¿ÚµÄ·½·¨
-*   `InitDestroyAnnotationBeanPostProcessor#postProcessBeforeInitialization`£ºµ÷ÓÃ±» `@PostConstruct` ±ê¼ÇµÄ·½·¨
-*   `LoadTimeWeaverAwareProcessor#postProcessBeforeInitialization`£ºµ÷ÓÃ `LoadTimeWeaverAware` ½Ó¿ÚµÄ·½·¨
-*   `ServletContextAwareProcessor#postProcessBeforeInitialization`£ºµ÷ÓÃ `ServletContextAware` ½Ó¿ÚµÄ·½·¨£¬ÉèÖÃ `servletContext` Óë `servletConfig`
+*   è°ƒç”¨ä½ç½®ï¼š`AbstractAutowireCapableBeanFactory#applyBeanPostProcessorsBeforeInitialization`
+*   æ‰§è¡Œæ–¹æ³•ï¼š`BeanPostProcessor#postProcessBeforeInitialization`
+*   `ApplicationContextAwareProcessor#postProcessBeforeInitialization`ï¼šè°ƒç”¨ `XxxAware` æ¥å£çš„æ–¹æ³•
+*   `BeanValidationPostProcessor#postProcessBeforeInitialization`ï¼šå¤„ç† `JSR-303` æ ¡éªŒ
+*   `ImportAwareBeanPostProcessor#postProcessBeforeInitialization`ï¼šè°ƒç”¨ `ImportAware` æ¥å£çš„æ–¹æ³•
+*   `InitDestroyAnnotationBeanPostProcessor#postProcessBeforeInitialization`ï¼šè°ƒç”¨è¢« `@PostConstruct` æ ‡è®°çš„æ–¹æ³•
+*   `LoadTimeWeaverAwareProcessor#postProcessBeforeInitialization`ï¼šè°ƒç”¨ `LoadTimeWeaverAware` æ¥å£çš„æ–¹æ³•
+*   `ServletContextAwareProcessor#postProcessBeforeInitialization`ï¼šè°ƒç”¨ `ServletContextAware` æ¥å£çš„æ–¹æ³•ï¼Œè®¾ç½® `servletContext` ä¸ `servletConfig`
 
-#### 2.8 ³õÊ¼»¯ºó
+#### 2.8 åˆå§‹åŒ–å
 
-*   µ÷ÓÃÎ»ÖÃ£º`AbstractAutowireCapableBeanFactory#applyBeanPostProcessorsAfterInitialization`
-*   Ö´ĞĞ·½·¨£º`BeanPostProcessor#postProcessAfterInitialization`
-*   `AbstractAdvisingBeanPostProcessor#postProcessAfterInitialization`£º´¦Àí `AopInfrastructureBean`
-*   `AbstractAutoProxyCreator#postProcessAfterInitialization`£ºÉú³É´úÀí¶ÔÏó
-*   `AdvisorAdapterRegistrationManager#postProcessAfterInitialization`£ºÈç¹ûµ±Ç° bean ÊÇ `AdvisorAdapter`£¬Ôò×¢²á
-*   `ApplicationListenerDetector#postProcessAfterInitialization`£ºÈç¹ûµ±Ç° bean ÊÇ `ApplicationListener`£¬ÔòÌí¼Óµ½ÊÂ¼ş¼àÌıÆ÷ÖĞ
-*   `BeanPostProcessorChecker#postProcessAfterInitialization`£º¼ì²é²Ù×÷£¬´òÁË¸ö log
-*   `BeanValidationPostProcessor#postProcessAfterInitialization`£º´¦Àí `JSR-303` Ğ£Ñé
-*   `JmsListenerAnnotationBeanPostProcessor#postProcessAfterInitialization`£º´¦Àí `@JmsListener` ×¢½â
-*   `ScheduledAnnotationBeanPostProcessor#postProcessAfterInitialization`£º´¦Àí `@Scheduled` ×¢½â
-*   `SimpleServletPostProcessor#postProcessAfterInitialization`£º¶Ô `Servlet` ÊµÀı£¬µ÷ÓÃ·½·¨ `Servlet#init(ServletConfig)`
+*   è°ƒç”¨ä½ç½®ï¼š`AbstractAutowireCapableBeanFactory#applyBeanPostProcessorsAfterInitialization`
+*   æ‰§è¡Œæ–¹æ³•ï¼š`BeanPostProcessor#postProcessAfterInitialization`
+*   `AbstractAdvisingBeanPostProcessor#postProcessAfterInitialization`ï¼šå¤„ç† `AopInfrastructureBean`
+*   `AbstractAutoProxyCreator#postProcessAfterInitialization`ï¼šç”Ÿæˆä»£ç†å¯¹è±¡
+*   `AdvisorAdapterRegistrationManager#postProcessAfterInitialization`ï¼šå¦‚æœå½“å‰ bean æ˜¯ `AdvisorAdapter`ï¼Œåˆ™æ³¨å†Œ
+*   `ApplicationListenerDetector#postProcessAfterInitialization`ï¼šå¦‚æœå½“å‰ bean æ˜¯ `ApplicationListener`ï¼Œåˆ™æ·»åŠ åˆ°äº‹ä»¶ç›‘å¬å™¨ä¸­
+*   `BeanPostProcessorChecker#postProcessAfterInitialization`ï¼šæ£€æŸ¥æ“ä½œï¼Œæ‰“äº†ä¸ª log
+*   `BeanValidationPostProcessor#postProcessAfterInitialization`ï¼šå¤„ç† `JSR-303` æ ¡éªŒ
+*   `JmsListenerAnnotationBeanPostProcessor#postProcessAfterInitialization`ï¼šå¤„ç† `@JmsListener` æ³¨è§£
+*   `ScheduledAnnotationBeanPostProcessor#postProcessAfterInitialization`ï¼šå¤„ç† `@Scheduled` æ³¨è§£
+*   `SimpleServletPostProcessor#postProcessAfterInitialization`ï¼šå¯¹ `Servlet` å®ä¾‹ï¼Œè°ƒç”¨æ–¹æ³• `Servlet#init(ServletConfig)`
 
-### 3\. ×Ü½á
+### 3\. æ€»ç»“
 
-×îºóÓÃÒ»¸ö±í¸ñÀ´×Ü½áÕâĞ© `BeanPostProcessor`:
+æœ€åç”¨ä¸€ä¸ªè¡¨æ ¼æ¥æ€»ç»“è¿™äº› `BeanPostProcessor`:
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b1117b66c4881f366669dab69b332164d8f.png)
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4597551](https://my.oschina.net/funcy/blog/4597551) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4597551](https://my.oschina.net/funcy/blog/4597551) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

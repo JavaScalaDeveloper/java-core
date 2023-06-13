@@ -1,60 +1,60 @@
-Netflix Feign ÊÇ Netflix ¹«Ë¾·¢²¼µÄÒ»ÖÖÊµÏÖ¸ºÔØ¾ùºâºÍ·şÎñµ÷ÓÃµÄ¿ªÔ´×é¼ş¡£Spring Cloud ½«ÆäÓë Netflix ÖĞµÄÆäËû¿ªÔ´·şÎñ×é¼ş£¨ÀıÈç Eureka¡¢Ribbon ÒÔ¼° Hystrix µÈ£©Ò»ÆğÕûºÏ½ø Spring Cloud Netflix Ä£¿éÖĞ£¬ÕûºÏºóÈ«³ÆÎª Spring Cloud Netflix Feign¡£
+Netflix Feign æ˜¯ Netflix å…¬å¸å‘å¸ƒçš„ä¸€ç§å®ç°è´Ÿè½½å‡è¡¡å’ŒæœåŠ¡è°ƒç”¨çš„å¼€æºç»„ä»¶ã€‚Spring Cloud å°†å…¶ä¸ Netflix ä¸­çš„å…¶ä»–å¼€æºæœåŠ¡ç»„ä»¶ï¼ˆä¾‹å¦‚ Eurekaã€Ribbon ä»¥åŠ Hystrix ç­‰ï¼‰ä¸€èµ·æ•´åˆè¿› Spring Cloud Netflix æ¨¡å—ä¸­ï¼Œæ•´åˆåå…¨ç§°ä¸º Spring Cloud Netflix Feignã€‚
 
-Feign ¶Ô [Ribbon](http://c.biancheng.net/springcloud/ribbon.html) ½øĞĞÁË¼¯³É£¬ÀûÓÃ Ribbon Î¬»¤ÁËÒ»·İ¿ÉÓÃ·şÎñÇåµ¥£¬²¢Í¨¹ı Ribbon ÊµÏÖÁË¿Í»§¶ËµÄ¸ºÔØ¾ùºâ¡£
+Feign å¯¹ [Ribbon](http://c.biancheng.net/springcloud/ribbon.html) è¿›è¡Œäº†é›†æˆï¼Œåˆ©ç”¨ Ribbon ç»´æŠ¤äº†ä¸€ä»½å¯ç”¨æœåŠ¡æ¸…å•ï¼Œå¹¶é€šè¿‡ Ribbon å®ç°äº†å®¢æˆ·ç«¯çš„è´Ÿè½½å‡è¡¡ã€‚
 
-Feign ÊÇÒ»ÖÖÉùÃ÷Ê½·şÎñµ÷ÓÃ×é¼ş£¬ËüÔÚ RestTemplate µÄ»ù´¡ÉÏ×öÁË½øÒ»²½µÄ·â×°¡£Í¨¹ı Feign£¬ÎÒÃÇÖ»ĞèÒªÉùÃ÷Ò»¸ö½Ó¿Ú²¢Í¨¹ı×¢½â½øĞĞ¼òµ¥µÄÅäÖÃ£¨ÀàËÆÓÚ Dao ½Ó¿ÚÉÏÃæµÄ Mapper ×¢½âÒ»Ñù£©¼´¿ÉÊµÏÖ¶Ô HTTP ½Ó¿ÚµÄ°ó¶¨¡£
+Feign æ˜¯ä¸€ç§å£°æ˜å¼æœåŠ¡è°ƒç”¨ç»„ä»¶ï¼Œå®ƒåœ¨ RestTemplate çš„åŸºç¡€ä¸Šåšäº†è¿›ä¸€æ­¥çš„å°è£…ã€‚é€šè¿‡ Feignï¼Œæˆ‘ä»¬åªéœ€è¦å£°æ˜ä¸€ä¸ªæ¥å£å¹¶é€šè¿‡æ³¨è§£è¿›è¡Œç®€å•çš„é…ç½®ï¼ˆç±»ä¼¼äº Dao æ¥å£ä¸Šé¢çš„ Mapper æ³¨è§£ä¸€æ ·ï¼‰å³å¯å®ç°å¯¹ HTTP æ¥å£çš„ç»‘å®šã€‚
 
-Í¨¹ı Feign£¬ÎÒÃÇ¿ÉÒÔÏñµ÷ÓÃ±¾µØ·½·¨Ò»ÑùÀ´µ÷ÓÃÔ¶³Ì·şÎñ£¬¶øÍêÈ«¸Ğ¾õ²»µ½ÕâÊÇÔÚ½øĞĞÔ¶³Ìµ÷ÓÃ¡£
+é€šè¿‡ Feignï¼Œæˆ‘ä»¬å¯ä»¥åƒè°ƒç”¨æœ¬åœ°æ–¹æ³•ä¸€æ ·æ¥è°ƒç”¨è¿œç¨‹æœåŠ¡ï¼Œè€Œå®Œå…¨æ„Ÿè§‰ä¸åˆ°è¿™æ˜¯åœ¨è¿›è¡Œè¿œç¨‹è°ƒç”¨ã€‚
 
-Feign Ö§³Ö¶àÖÖ×¢½â£¬ÀıÈç Feign ×Ô´øµÄ×¢½âÒÔ¼° JAX-RS ×¢½âµÈ£¬µ«ÒÅº¶µÄÊÇ Feign ±¾Éí²¢²»Ö§³Ö Spring MVC ×¢½â£¬ÕâÎŞÒÉ»á¸ø¹ã´ó Spring ÓÃ»§´øÀ´²»±ã¡£
+Feign æ”¯æŒå¤šç§æ³¨è§£ï¼Œä¾‹å¦‚ Feign è‡ªå¸¦çš„æ³¨è§£ä»¥åŠ JAX-RS æ³¨è§£ç­‰ï¼Œä½†é—æ†¾çš„æ˜¯ Feign æœ¬èº«å¹¶ä¸æ”¯æŒ Spring MVC æ³¨è§£ï¼Œè¿™æ— ç–‘ä¼šç»™å¹¿å¤§ Spring ç”¨æˆ·å¸¦æ¥ä¸ä¾¿ã€‚
 
-2019 Äê Netflix ¹«Ë¾Ğû²¼ Feign ×é¼şÕıÊ½½øÈëÍ£¸üÎ¬»¤×´Ì¬£¬ÓÚÊÇ Spring ¹Ù·½±ãÍÆ³öÁËÒ»¸öÃûÎª OpenFeign µÄ×é¼ş×÷Îª Feign µÄÌæ´ú·½°¸¡£
+2019 å¹´ Netflix å…¬å¸å®£å¸ƒ Feign ç»„ä»¶æ­£å¼è¿›å…¥åœæ›´ç»´æŠ¤çŠ¶æ€ï¼Œäºæ˜¯ Spring å®˜æ–¹ä¾¿æ¨å‡ºäº†ä¸€ä¸ªåä¸º OpenFeign çš„ç»„ä»¶ä½œä¸º Feign çš„æ›¿ä»£æ–¹æ¡ˆã€‚
 
 ## OpenFeign
 
-OpenFeign È«³Æ Spring Cloud OpenFeign£¬ËüÊÇ Spring ¹Ù·½ÍÆ³öµÄÒ»ÖÖÉùÃ÷Ê½·şÎñµ÷ÓÃÓë¸ºÔØ¾ùºâ×é¼ş£¬ËüµÄ³öÏÖ¾ÍÊÇÎªÁËÌæ´ú½øÈëÍ£¸üÎ¬»¤×´Ì¬µÄ Feign¡£
+OpenFeign å…¨ç§° Spring Cloud OpenFeignï¼Œå®ƒæ˜¯ Spring å®˜æ–¹æ¨å‡ºçš„ä¸€ç§å£°æ˜å¼æœåŠ¡è°ƒç”¨ä¸è´Ÿè½½å‡è¡¡ç»„ä»¶ï¼Œå®ƒçš„å‡ºç°å°±æ˜¯ä¸ºäº†æ›¿ä»£è¿›å…¥åœæ›´ç»´æŠ¤çŠ¶æ€çš„ Feignã€‚
 
-OpenFeign ÊÇ Spring Cloud ¶Ô Feign µÄ¶ş´Î·â×°£¬Ëü¾ßÓĞ Feign µÄËùÓĞ¹¦ÄÜ£¬²¢ÔÚ Feign µÄ»ù´¡ÉÏÔö¼ÓÁË¶Ô Spring MVC ×¢½âµÄÖ§³Ö£¬ÀıÈç @RequestMapping¡¢@GetMapping ºÍ @PostMapping µÈ¡£
+OpenFeign æ˜¯ Spring Cloud å¯¹ Feign çš„äºŒæ¬¡å°è£…ï¼Œå®ƒå…·æœ‰ Feign çš„æ‰€æœ‰åŠŸèƒ½ï¼Œå¹¶åœ¨ Feign çš„åŸºç¡€ä¸Šå¢åŠ äº†å¯¹ Spring MVC æ³¨è§£çš„æ”¯æŒï¼Œä¾‹å¦‚ @RequestMappingã€@GetMapping å’Œ @PostMapping ç­‰ã€‚
 
-#### OpenFeign ³£ÓÃ×¢½â
+#### OpenFeign å¸¸ç”¨æ³¨è§£
 
-Ê¹ÓÃ OpenFegin ½øĞĞÔ¶³Ì·şÎñµ÷ÓÃÊ±£¬³£ÓÃ×¢½âÈçÏÂ±í¡£
+ä½¿ç”¨ OpenFegin è¿›è¡Œè¿œç¨‹æœåŠ¡è°ƒç”¨æ—¶ï¼Œå¸¸ç”¨æ³¨è§£å¦‚ä¸‹è¡¨ã€‚
 
-| ×¢½â                | ËµÃ÷                                                         |
+| æ³¨è§£                | è¯´æ˜                                                         |
 | ------------------- | ------------------------------------------------------------ |
-| @FeignClient        | ¸Ã×¢½âÓÃÓÚÍ¨Öª OpenFeign ×é¼ş¶Ô @RequestMapping ×¢½âÏÂµÄ½Ó¿Ú½øĞĞ½âÎö£¬²¢Í¨¹ı¶¯Ì¬´úÀíµÄ·½Ê½²úÉúÊµÏÖÀà£¬ÊµÏÖ¸ºÔØ¾ùºâºÍ·şÎñµ÷ÓÃ¡£ |
-| @EnableFeignClients | ¸Ã×¢½âÓÃÓÚ¿ªÆô OpenFeign ¹¦ÄÜ£¬µ± Spring Cloud Ó¦ÓÃÆô¶¯Ê±£¬OpenFeign »áÉ¨Ãè±êÓĞ @FeignClient ×¢½âµÄ½Ó¿Ú£¬Éú³É´úÀí²¢×¢²áµ½ Spring ÈİÆ÷ÖĞ¡£ |
-| @RequestMapping     | Spring MVC ×¢½â£¬ÔÚ Spring MVC ÖĞÊ¹ÓÃ¸Ã×¢½âÓ³ÉäÇëÇó£¬Í¨¹ıËüÀ´Ö¸¶¨¿ØÖÆÆ÷£¨Controller£©¿ÉÒÔ´¦ÀíÄÄĞ© URL ÇëÇó£¬Ïàµ±ÓÚ Servlet ÖĞ web.xml µÄÅäÖÃ¡£ |
-| @GetMapping         | Spring MVC ×¢½â£¬ÓÃÀ´Ó³Éä GET ÇëÇó£¬ËüÊÇÒ»¸ö×éºÏ×¢½â£¬Ïàµ±ÓÚ @RequestMapping(method = RequestMethod.GET) ¡£ |
-| @PostMapping        | Spring MVC ×¢½â£¬ÓÃÀ´Ó³Éä POST ÇëÇó£¬ËüÊÇÒ»¸ö×éºÏ×¢½â£¬Ïàµ±ÓÚ @RequestMapping(method = RequestMethod.POST) ¡£ |
+| @FeignClient        | è¯¥æ³¨è§£ç”¨äºé€šçŸ¥ OpenFeign ç»„ä»¶å¯¹ @RequestMapping æ³¨è§£ä¸‹çš„æ¥å£è¿›è¡Œè§£æï¼Œå¹¶é€šè¿‡åŠ¨æ€ä»£ç†çš„æ–¹å¼äº§ç”Ÿå®ç°ç±»ï¼Œå®ç°è´Ÿè½½å‡è¡¡å’ŒæœåŠ¡è°ƒç”¨ã€‚ |
+| @EnableFeignClients | è¯¥æ³¨è§£ç”¨äºå¼€å¯ OpenFeign åŠŸèƒ½ï¼Œå½“ Spring Cloud åº”ç”¨å¯åŠ¨æ—¶ï¼ŒOpenFeign ä¼šæ‰«ææ ‡æœ‰ @FeignClient æ³¨è§£çš„æ¥å£ï¼Œç”Ÿæˆä»£ç†å¹¶æ³¨å†Œåˆ° Spring å®¹å™¨ä¸­ã€‚ |
+| @RequestMapping     | Spring MVC æ³¨è§£ï¼Œåœ¨ Spring MVC ä¸­ä½¿ç”¨è¯¥æ³¨è§£æ˜ å°„è¯·æ±‚ï¼Œé€šè¿‡å®ƒæ¥æŒ‡å®šæ§åˆ¶å™¨ï¼ˆControllerï¼‰å¯ä»¥å¤„ç†å“ªäº› URL è¯·æ±‚ï¼Œç›¸å½“äº Servlet ä¸­ web.xml çš„é…ç½®ã€‚ |
+| @GetMapping         | Spring MVC æ³¨è§£ï¼Œç”¨æ¥æ˜ å°„ GET è¯·æ±‚ï¼Œå®ƒæ˜¯ä¸€ä¸ªç»„åˆæ³¨è§£ï¼Œç›¸å½“äº @RequestMapping(method = RequestMethod.GET) ã€‚ |
+| @PostMapping        | Spring MVC æ³¨è§£ï¼Œç”¨æ¥æ˜ å°„ POST è¯·æ±‚ï¼Œå®ƒæ˜¯ä¸€ä¸ªç»„åˆæ³¨è§£ï¼Œç›¸å½“äº @RequestMapping(method = RequestMethod.POST) ã€‚ |
 
-> Spring Cloud Finchley ¼°ÒÔÉÏ°æ±¾Ò»°ãÊ¹ÓÃ OpenFeign ×÷ÎªÆä·şÎñµ÷ÓÃ×é¼ş¡£ÓÉÓÚ OpenFeign ÊÇÔÚ 2019 Äê Feign Í£¸ü½øÈëÎ¬»¤ºóÍÆ³öµÄ£¬Òò´Ë´ó¶àÊı 2019 Äê¼°ÒÔºóµÄĞÂÏîÄ¿Ê¹ÓÃµÄ¶¼ÊÇ OpenFeign£¬¶ø 2018 ÄêÒÔÇ°µÄÏîÄ¿Ò»°ãÊ¹ÓÃ Feign¡£
+> Spring Cloud Finchley åŠä»¥ä¸Šç‰ˆæœ¬ä¸€èˆ¬ä½¿ç”¨ OpenFeign ä½œä¸ºå…¶æœåŠ¡è°ƒç”¨ç»„ä»¶ã€‚ç”±äº OpenFeign æ˜¯åœ¨ 2019 å¹´ Feign åœæ›´è¿›å…¥ç»´æŠ¤åæ¨å‡ºçš„ï¼Œå› æ­¤å¤§å¤šæ•° 2019 å¹´åŠä»¥åçš„æ–°é¡¹ç›®ä½¿ç”¨çš„éƒ½æ˜¯ OpenFeignï¼Œè€Œ 2018 å¹´ä»¥å‰çš„é¡¹ç›®ä¸€èˆ¬ä½¿ç”¨ Feignã€‚
 
 ## Feign VS OpenFeign
 
-ÏÂÃæÎÒÃÇ¾ÍÀ´¶Ô±ÈÏÂ Feign ºÍ OpenFeign µÄÒìÍ¬¡£
+ä¸‹é¢æˆ‘ä»¬å°±æ¥å¯¹æ¯”ä¸‹ Feign å’Œ OpenFeign çš„å¼‚åŒã€‚
 
-#### ÏàÍ¬µã
+#### ç›¸åŒç‚¹
 
-Feign ºÍ OpenFegin ¾ßÓĞÒÔÏÂÏàÍ¬µã£º
+Feign å’Œ OpenFegin å…·æœ‰ä»¥ä¸‹ç›¸åŒç‚¹ï¼š
 
-*   Feign ºÍ OpenFeign ¶¼ÊÇ Spring Cloud ÏÂµÄÔ¶³Ìµ÷ÓÃºÍ¸ºÔØ¾ùºâ×é¼ş¡£
-*   Feign ºÍ OpenFeign ×÷ÓÃÒ»Ñù£¬¶¼¿ÉÒÔÊµÏÖ·şÎñµÄÔ¶³Ìµ÷ÓÃºÍ¸ºÔØ¾ùºâ¡£
-*   Feign ºÍ OpenFeign ¶¼¶Ô Ribbon ½øĞĞÁË¼¯³É£¬¶¼ÀûÓÃ Ribbon Î¬»¤ÁË¿ÉÓÃ·şÎñÇåµ¥£¬²¢Í¨¹ı Ribbon ÊµÏÖÁË¿Í»§¶ËµÄ¸ºÔØ¾ùºâ¡£
-*   Feign ºÍ OpenFeign ¶¼ÊÇÔÚ·şÎñÏû·ÑÕß£¨¿Í»§¶Ë£©¶¨Òå·şÎñ°ó¶¨½Ó¿Ú²¢Í¨¹ı×¢½âµÄ·½Ê½½øĞĞÅäÖÃ£¬ÒÔÊµÏÖÔ¶³Ì·şÎñµÄµ÷ÓÃ¡£
+*   Feign å’Œ OpenFeign éƒ½æ˜¯ Spring Cloud ä¸‹çš„è¿œç¨‹è°ƒç”¨å’Œè´Ÿè½½å‡è¡¡ç»„ä»¶ã€‚
+*   Feign å’Œ OpenFeign ä½œç”¨ä¸€æ ·ï¼Œéƒ½å¯ä»¥å®ç°æœåŠ¡çš„è¿œç¨‹è°ƒç”¨å’Œè´Ÿè½½å‡è¡¡ã€‚
+*   Feign å’Œ OpenFeign éƒ½å¯¹ Ribbon è¿›è¡Œäº†é›†æˆï¼Œéƒ½åˆ©ç”¨ Ribbon ç»´æŠ¤äº†å¯ç”¨æœåŠ¡æ¸…å•ï¼Œå¹¶é€šè¿‡ Ribbon å®ç°äº†å®¢æˆ·ç«¯çš„è´Ÿè½½å‡è¡¡ã€‚
+*   Feign å’Œ OpenFeign éƒ½æ˜¯åœ¨æœåŠ¡æ¶ˆè´¹è€…ï¼ˆå®¢æˆ·ç«¯ï¼‰å®šä¹‰æœåŠ¡ç»‘å®šæ¥å£å¹¶é€šè¿‡æ³¨è§£çš„æ–¹å¼è¿›è¡Œé…ç½®ï¼Œä»¥å®ç°è¿œç¨‹æœåŠ¡çš„è°ƒç”¨ã€‚
 
-#### ²»Í¬µã
+#### ä¸åŒç‚¹
 
-Feign ºÍ OpenFeign ¾ßÓĞÒÔÏÂ²»Í¬£º
+Feign å’Œ OpenFeign å…·æœ‰ä»¥ä¸‹ä¸åŒï¼š
 
-*   Feign ºÍ OpenFeign µÄÒÀÀµÏî²»Í¬£¬Feign µÄÒÀÀµÎª spring-cloud-starter-feign£¬¶ø OpenFeign µÄÒÀÀµÎª spring-cloud-starter-openfeign¡£
-*   Feign ºÍ OpenFeign Ö§³ÖµÄ×¢½â²»Í¬£¬Feign Ö§³Ö Feign ×¢½âºÍ JAX-RS ×¢½â£¬µ«²»Ö§³Ö Spring MVC ×¢½â£»OpenFeign ³ıÁËÖ§³Ö Feign ×¢½âºÍ JAX-RS ×¢½âÍâ£¬»¹Ö§³Ö Spring MVC ×¢½â¡£
+*   Feign å’Œ OpenFeign çš„ä¾èµ–é¡¹ä¸åŒï¼ŒFeign çš„ä¾èµ–ä¸º spring-cloud-starter-feignï¼Œè€Œ OpenFeign çš„ä¾èµ–ä¸º spring-cloud-starter-openfeignã€‚
+*   Feign å’Œ OpenFeign æ”¯æŒçš„æ³¨è§£ä¸åŒï¼ŒFeign æ”¯æŒ Feign æ³¨è§£å’Œ JAX-RS æ³¨è§£ï¼Œä½†ä¸æ”¯æŒ Spring MVC æ³¨è§£ï¼›OpenFeign é™¤äº†æ”¯æŒ Feign æ³¨è§£å’Œ JAX-RS æ³¨è§£å¤–ï¼Œè¿˜æ”¯æŒ Spring MVC æ³¨è§£ã€‚
 
-## OpenFeign ÊµÏÖÔ¶³Ì·şÎñµ÷ÓÃ
+## OpenFeign å®ç°è¿œç¨‹æœåŠ¡è°ƒç”¨
 
-ÏÂÃæÎÒÃÇ¾ÍÍ¨¹ıÒ»¸öÊµÀı£¬À´ÑİÊ¾ÏÂÍ¨¹ı OpenFeign ÊÇÈçºÎÊµÏÖÔ¶³Ì·şÎñµ÷ÓÃµÄ¡£
+ä¸‹é¢æˆ‘ä»¬å°±é€šè¿‡ä¸€ä¸ªå®ä¾‹ï¼Œæ¥æ¼”ç¤ºä¸‹é€šè¿‡ OpenFeign æ˜¯å¦‚ä½•å®ç°è¿œç¨‹æœåŠ¡è°ƒç”¨çš„ã€‚
 
-1\. ÔÚ spring-cloud-demo2 ÏÂ´´½¨Ò»¸öÃûÎª micro-service-cloud-consumer-dept-feign µÄ Spring Boot Ä£¿é£¬²¢ÔÚ pom.xml ÖĞÌí¼ÓÒÔÏÂÒÀÀµ¡£
+1\. åœ¨ spring-cloud-demo2 ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º micro-service-cloud-consumer-dept-feign çš„ Spring Boot æ¨¡å—ï¼Œå¹¶åœ¨ pom.xml ä¸­æ·»åŠ ä»¥ä¸‹ä¾èµ–ã€‚
 
 
 
@@ -99,17 +99,17 @@ Feign ºÍ OpenFeign ¾ßÓĞÒÔÏÂ²»Í¬£º
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--Eureka Client ÒÀÀµ-->
+        <!--Eureka Client ä¾èµ–-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <!-- Ribbon ÒÀÀµ-->
+        <!-- Ribbon ä¾èµ–-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </dependency>
-        <!--Ìí¼Ó OpenFeign ÒÀÀµ-->
+        <!--æ·»åŠ  OpenFeign ä¾èµ–-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
@@ -140,7 +140,7 @@ Feign ºÍ OpenFeign ¾ßÓĞÒÔÏÂ²»Í¬£º
 
 
 
-2\. ÔÚ micro-service-cloud-consumer-dept-feign ÏÂµÄÀàÂ·¾¶£¨¼´ /resources Ä¿Â¼£©ÏÂ£¬Ìí¼ÓÒ»¸ö application.yml£¬ÅäÖÃÄÚÈİÈçÏÂ¡£
+2\. åœ¨ micro-service-cloud-consumer-dept-feign ä¸‹çš„ç±»è·¯å¾„ï¼ˆå³ /resources ç›®å½•ï¼‰ä¸‹ï¼Œæ·»åŠ ä¸€ä¸ª application.ymlï¼Œé…ç½®å†…å®¹å¦‚ä¸‹ã€‚
 
 
 
@@ -152,17 +152,17 @@ server:
   port: 80
 eureka:
   client:
-    register-with-eureka: false #·şÎñÏû·ÑÕß¿ÉÒÔ²»Ïò·şÎñ×¢²áÖĞĞÄ×¢²á·şÎñ
+    register-with-eureka: false #æœåŠ¡æ¶ˆè´¹è€…å¯ä»¥ä¸å‘æœåŠ¡æ³¨å†Œä¸­å¿ƒæ³¨å†ŒæœåŠ¡
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
-    fetch-registry: true  #·şÎñÏû·ÑÕß¿Í»§¶ËĞèÒªÈ¥¼ìË÷·şÎñ
+    fetch-registry: true  #æœåŠ¡æ¶ˆè´¹è€…å®¢æˆ·ç«¯éœ€è¦å»æ£€ç´¢æœåŠ¡
 ```
 
 
 
 
 
-3\. ÔÚ net.biancheng.c.service °üÏÂ´´½¨Ò»¸öÃûÎª DeptFeignService µÄ½Ó¿Ú£¬²¢ÔÚ¸Ã½Ó¿ÚÉÏÊ¹ÓÃ @FeignClient ×¢½âÊµÏÖ¶Ô·şÎñ½Ó¿ÚµÄ°ó¶¨£¬´úÂëÈçÏÂ¡£
+3\. åœ¨ net.biancheng.c.service åŒ…ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º DeptFeignService çš„æ¥å£ï¼Œå¹¶åœ¨è¯¥æ¥å£ä¸Šä½¿ç”¨ @FeignClient æ³¨è§£å®ç°å¯¹æœåŠ¡æ¥å£çš„ç»‘å®šï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -180,12 +180,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-//Ìí¼ÓÎªÈİÆ÷ÄÚµÄÒ»¸ö×é¼ş
+//æ·»åŠ ä¸ºå®¹å™¨å†…çš„ä¸€ä¸ªç»„ä»¶
 @Component
-// ·şÎñÌá¹©ÕßÌá¹©µÄ·şÎñÃû³Æ£¬¼´ application.name
+// æœåŠ¡æä¾›è€…æä¾›çš„æœåŠ¡åç§°ï¼Œå³ application.name
 @FeignClient(value = "MICROSERVICECLOUDPROVIDERDEPT")
 public interface DeptFeignService {
-    //¶ÔÓ¦·şÎñÌá¹©Õß£¨8001¡¢8002¡¢8003£©Controller ÖĞ¶¨ÒåµÄ·½·¨
+    //å¯¹åº”æœåŠ¡æä¾›è€…ï¼ˆ8001ã€8002ã€8003ï¼‰Controller ä¸­å®šä¹‰çš„æ–¹æ³•
     @RequestMapping(value = "/dept/get/{id}", method = RequestMethod.GET)
     public Dept get(@PathVariable("id") int id);
 
@@ -199,12 +199,12 @@ public interface DeptFeignService {
 
 
 
-ÔÚ±àĞ´·şÎñ°ó¶¨½Ó¿ÚÊ±£¬ĞèÒª×¢ÒâÒÔÏÂ 2 µã£º
+åœ¨ç¼–å†™æœåŠ¡ç»‘å®šæ¥å£æ—¶ï¼Œéœ€è¦æ³¨æ„ä»¥ä¸‹ 2 ç‚¹ï¼š
 
-*   ÔÚ @FeignClient ×¢½âÖĞ£¬value ÊôĞÔµÄÈ¡ÖµÎª£º·şÎñÌá¹©ÕßµÄ·şÎñÃû£¬¼´·şÎñÌá¹©ÕßÅäÖÃÎÄ¼ş£¨application.yml£©ÖĞ spring.application.name µÄÈ¡Öµ¡£
-*   ½Ó¿ÚÖĞ¶¨ÒåµÄÃ¿¸ö·½·¨¶¼Óë·şÎñÌá¹©Õß£¨¼´ micro-service-cloud-provider-dept-8001 µÈ£©ÖĞ Controller ¶¨ÒåµÄ·şÎñ·½·¨¶ÔÓ¦¡£
+*   åœ¨ @FeignClient æ³¨è§£ä¸­ï¼Œvalue å±æ€§çš„å–å€¼ä¸ºï¼šæœåŠ¡æä¾›è€…çš„æœåŠ¡åï¼Œå³æœåŠ¡æä¾›è€…é…ç½®æ–‡ä»¶ï¼ˆapplication.ymlï¼‰ä¸­ spring.application.name çš„å–å€¼ã€‚
+*   æ¥å£ä¸­å®šä¹‰çš„æ¯ä¸ªæ–¹æ³•éƒ½ä¸æœåŠ¡æä¾›è€…ï¼ˆå³ micro-service-cloud-provider-dept-8001 ç­‰ï¼‰ä¸­ Controller å®šä¹‰çš„æœåŠ¡æ–¹æ³•å¯¹åº”ã€‚
 
-4\. ÔÚ net.biancheng.c.controller °üÏÂ£¬´´½¨Ò»¸öÃûÎª DeptController_Consumer µÄ Controller Àà£¬´úÂëÈçÏÂ¡£
+4\. åœ¨ net.biancheng.c.controller åŒ…ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º DeptController_Consumer çš„ Controller ç±»ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -245,7 +245,7 @@ public class DeptController_Consumer {
 
 
 
-5\. ÔÚÖ÷Æô¶¯ÀàÉÏÌí¼Ó @EnableFeignClients ×¢½â¿ªÆô OpenFeign ¹¦ÄÜ£¬´úÂëÈçÏÂ¡£
+5\. åœ¨ä¸»å¯åŠ¨ç±»ä¸Šæ·»åŠ  @EnableFeignClients æ³¨è§£å¼€å¯ OpenFeign åŠŸèƒ½ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -260,7 +260,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients //¿ªÆô OpenFeign ¹¦ÄÜ
+@EnableFeignClients //å¼€å¯ OpenFeign åŠŸèƒ½
 public class MicroServiceCloudConsumerDeptFeignApplication {
 
     public static void main(String[] args) {
@@ -273,27 +273,27 @@ public class MicroServiceCloudConsumerDeptFeignApplication {
 
 
 
-Spring Cloud Ó¦ÓÃÔÚÆô¶¯Ê±£¬OpenFeign »áÉ¨Ãè±êÓĞ @FeignClient ×¢½âµÄ½Ó¿ÚÉú³É´úÀí£¬²¢×¢ÈËµ½ Spring ÈİÆ÷ÖĞ¡£
+Spring Cloud åº”ç”¨åœ¨å¯åŠ¨æ—¶ï¼ŒOpenFeign ä¼šæ‰«ææ ‡æœ‰ @FeignClient æ³¨è§£çš„æ¥å£ç”Ÿæˆä»£ç†ï¼Œå¹¶æ³¨äººåˆ° Spring å®¹å™¨ä¸­ã€‚
 
-6\. ÒÀ´ÎÆô¶¯·şÎñ×¢²áÖĞĞÄ¼¯Èº¡¢·şÎñÌá¹©ÕßÒÔ¼° micro-service-cloud-consumer-dept-feign£¬Æô¶¯Íê³Éºó£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com/consumer/dept/list¡±£¬½á¹ûÈçÏÂÍ¼¡£
+6\. ä¾æ¬¡å¯åŠ¨æœåŠ¡æ³¨å†Œä¸­å¿ƒé›†ç¾¤ã€æœåŠ¡æä¾›è€…ä»¥åŠ micro-service-cloud-consumer-dept-feignï¼Œå¯åŠ¨å®Œæˆåï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com/consumer/dept/listâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![OpenFeign ÊµÏÖ·şÎñµ÷ÓÃ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1014296212-0.png)
-Í¼1£ºOpenFeign ÊµÏÖÔ¶³Ì·şÎñµ÷ÓÃ
+![OpenFeign å®ç°æœåŠ¡è°ƒç”¨](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1014296212-0.png)
+å›¾1ï¼šOpenFeign å®ç°è¿œç¨‹æœåŠ¡è°ƒç”¨
 
-7\. Á¬Ğø¶à´Î·ÃÎÊ¡°http://eureka7001.com/consumer/dept/list¡±£¬½á¹ûÈçÏÂÍ¼¡£
+7\. è¿ç»­å¤šæ¬¡è®¿é—®â€œhttp://eureka7001.com/consumer/dept/listâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![OpenFeign Ä¬ÈÏ¸ºÔØ¾ùºâ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1014294062-1.gif)
-Í¼2£ºOpenFeign ¸ºÔØ¾ùºâ
+![OpenFeign é»˜è®¤è´Ÿè½½å‡è¡¡](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1014294062-1.gif)
+å›¾2ï¼šOpenFeign è´Ÿè½½å‡è¡¡
 
-´ÓÍ¼ 2 ¿ÉÒÔ¿´³ö£¬ÓÉÓÚ OpenFeign ¼¯³ÉÁË Ribbon£¬Òò´ËËüÒ²ÊµÏÖÁË¿Í»§¶ËµÄ¸ºÔØ¾ùºâ£¬ÆäÄ¬ÈÏ¸ºÔØ¾ùºâ²ßÂÔÎªÂÖÑ¯²ßÂÔ¡£
+ä»å›¾ 2 å¯ä»¥çœ‹å‡ºï¼Œç”±äº OpenFeign é›†æˆäº† Ribbonï¼Œå› æ­¤å®ƒä¹Ÿå®ç°äº†å®¢æˆ·ç«¯çš„è´Ÿè½½å‡è¡¡ï¼Œå…¶é»˜è®¤è´Ÿè½½å‡è¡¡ç­–ç•¥ä¸ºè½®è¯¢ç­–ç•¥ã€‚
 
-## OpenFeign ³¬Ê±¿ØÖÆ
+## OpenFeign è¶…æ—¶æ§åˆ¶
 
-OpenFeign ¿Í»§¶ËµÄÄ¬ÈÏ³¬Ê±Ê±¼äÎª 1 ÃëÖÓ£¬Èç¹û·şÎñ¶Ë´¦ÀíÇëÇóµÄÊ±¼ä³¬¹ı 1 Ãë¾Í»á±¨´í¡£ÎªÁË±ÜÃâÕâÑùµÄÇé¿ö£¬ÎÒÃÇĞèÒª¶Ô OpenFeign ¿Í»§¶ËµÄ³¬Ê±Ê±¼ä½øĞĞ¿ØÖÆ¡£
+OpenFeign å®¢æˆ·ç«¯çš„é»˜è®¤è¶…æ—¶æ—¶é—´ä¸º 1 ç§’é’Ÿï¼Œå¦‚æœæœåŠ¡ç«¯å¤„ç†è¯·æ±‚çš„æ—¶é—´è¶…è¿‡ 1 ç§’å°±ä¼šæŠ¥é”™ã€‚ä¸ºäº†é¿å…è¿™æ ·çš„æƒ…å†µï¼Œæˆ‘ä»¬éœ€è¦å¯¹ OpenFeign å®¢æˆ·ç«¯çš„è¶…æ—¶æ—¶é—´è¿›è¡Œæ§åˆ¶ã€‚
 
-ÏÂÃæÎÒÃÇ¾ÍÍ¨¹ıÒ»¸öÊµÀı£¬À´ÑİÊ¾ OpenFeign ÊÇÈçºÎ½øĞĞ³¬Ê±¿ØÖÆµÄ¡£
+ä¸‹é¢æˆ‘ä»¬å°±é€šè¿‡ä¸€ä¸ªå®ä¾‹ï¼Œæ¥æ¼”ç¤º OpenFeign æ˜¯å¦‚ä½•è¿›è¡Œè¶…æ—¶æ§åˆ¶çš„ã€‚
 
-1\. ÔÚËùÓĞµÄ·şÎñÌá¹©Õß£¨·şÎñ¶Ë£©µÄ DeptController ÖĞÌí¼ÓÒ»¸öÏìÓ¦Ê±¼äÎª 5 ÃëµÄ·şÎñ£¬´úÂëÈçÏÂ¡£
+1\. åœ¨æ‰€æœ‰çš„æœåŠ¡æä¾›è€…ï¼ˆæœåŠ¡ç«¯ï¼‰çš„ DeptController ä¸­æ·»åŠ ä¸€ä¸ªå“åº”æ—¶é—´ä¸º 5 ç§’çš„æœåŠ¡ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -301,10 +301,10 @@ OpenFeign ¿Í»§¶ËµÄÄ¬ÈÏ³¬Ê±Ê±¼äÎª 1 ÃëÖÓ£¬Èç¹û·şÎñ¶Ë´¦ÀíÇëÇóµÄÊ±¼ä³¬¹ı 1 Ãë¾Í»á±¨
 
 ```
 
-//³¬Ê±²âÊÔ,¸Ã·şÎñµÄÏìÓ¦Ê±¼äÎª 5 Ãë
+//è¶…æ—¶æµ‹è¯•,è¯¥æœåŠ¡çš„å“åº”æ—¶é—´ä¸º 5 ç§’
 @RequestMapping(value = "/dept/feign/timeout")
 public String DeptFeignTimeout() {
-    //ÔİÍ£ 5 Ãë
+    //æš‚åœ 5 ç§’
     try {
         TimeUnit.SECONDS.sleep(5);
     } catch (InterruptedException e) {
@@ -319,7 +319,7 @@ public String DeptFeignTimeout() {
 
 
 
-2\. ÔÚ micro-service-cloud-consumer-dept-feign µÄ DeptFeignService ½Ó¿ÚÖĞÌí¼ÓÒÔÏÂ´úÂë£¬°ó¶¨·şÎñ¶Ë¸Õ¸ÕÌí¼ÓµÄ³¬Ê±·şÎñ¡£
+2\. åœ¨ micro-service-cloud-consumer-dept-feign çš„ DeptFeignService æ¥å£ä¸­æ·»åŠ ä»¥ä¸‹ä»£ç ï¼Œç»‘å®šæœåŠ¡ç«¯åˆšåˆšæ·»åŠ çš„è¶…æ—¶æœåŠ¡ã€‚
 
 
 
@@ -336,7 +336,7 @@ public String DeptFeignTimeout();
 
 
 
-3\. ÔÚ micro-service-cloud-consumer-dept-feign µÄ DeptController_Consumer Ìí¼ÓÒÔÏÂ´úÂë¡£
+3\. åœ¨ micro-service-cloud-consumer-dept-feign çš„ DeptController_Consumer æ·»åŠ ä»¥ä¸‹ä»£ç ã€‚
 
 
 
@@ -346,7 +346,7 @@ public String DeptFeignTimeout();
 
 @RequestMapping(value = "/consumer/dept/feign/timeout")
 public String DeptFeignTimeout() {
-    // openFeign-ribbon ¿Í»§¶ËÒ»°ãÄ¬ÈÏµÈ´ıÒ»ÃëÖÓ£¬³¬¹ı¸ÃÊ±¼ä¾Í»á±¨´í
+    // openFeign-ribbon å®¢æˆ·ç«¯ä¸€èˆ¬é»˜è®¤ç­‰å¾…ä¸€ç§’é’Ÿï¼Œè¶…è¿‡è¯¥æ—¶é—´å°±ä¼šæŠ¥é”™
     return deptFeignService.DeptFeignTimeout();
 }
 
@@ -356,17 +356,17 @@ public String DeptFeignTimeout() {
 
 
 
-4\. ÖØÆôËùÓĞ·şÎñÌá¹©Õß£¬Ê¹ÓÃä¯ÀÀÆ÷ÒÀ´Î·ÃÎÊ¡°http://eureka7001.com:8001/dept/feign/timeout¡±¡¢¡°http://eureka7001.com:8002/dept/feign/timeout¡±ºÍ¡°http://eureka7001.com:8003/dept/feign/timeout¡±£¬È·±£ËùÓĞ·şÎñÌá¹©ÕßÌá¹©µÄ³¬Ê±·şÎñ¶¼ÄÜÕı³£Ê¹ÓÃ£¬ÈçÏÂÍ¼¡£
+4\. é‡å¯æ‰€æœ‰æœåŠ¡æä¾›è€…ï¼Œä½¿ç”¨æµè§ˆå™¨ä¾æ¬¡è®¿é—®â€œhttp://eureka7001.com:8001/dept/feign/timeoutâ€ã€â€œhttp://eureka7001.com:8002/dept/feign/timeoutâ€å’Œâ€œhttp://eureka7001.com:8003/dept/feign/timeoutâ€ï¼Œç¡®ä¿æ‰€æœ‰æœåŠ¡æä¾›è€…æä¾›çš„è¶…æ—¶æœåŠ¡éƒ½èƒ½æ­£å¸¸ä½¿ç”¨ï¼Œå¦‚ä¸‹å›¾ã€‚
 
-![·şÎñÌá¹©Õß³¬Ê±·şÎñ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10142a102-2.png)
-Í¼3£º·şÎñÌá¹©ÕßµÄ³¬Ê±·şÎñ
+![æœåŠ¡æä¾›è€…è¶…æ—¶æœåŠ¡](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10142a102-2.png)
+å›¾3ï¼šæœåŠ¡æä¾›è€…çš„è¶…æ—¶æœåŠ¡
 
-5\. ÖØÆô micro-service-cloud-consumer-dept-feign£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com/consumer/dept/feign/timeout¡±£¬½á¹ûÈçÏÂÍ¼¡£
+5\. é‡å¯ micro-service-cloud-consumer-dept-feignï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com/consumer/dept/feign/timeoutâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![OpenFeign ³¬Ê±±¨´í](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1014293G1-3.png)
-Í¼4£ºOpenFeign ³¬Ê±±¨´í
+![OpenFeign è¶…æ—¶æŠ¥é”™](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1014293G1-3.png)
+å›¾4ï¼šOpenFeign è¶…æ—¶æŠ¥é”™
 
-6\. ÔÚ micro-service-cloud-consumer-dept-feign µÄ application.yml ÖĞÌí¼ÓÒÔÏÂÅäÖÃ£¬½«³¬Ê±Ê±¼äÉèÖÃÎª 6 Ãë¡£
+6\. åœ¨ micro-service-cloud-consumer-dept-feign çš„ application.yml ä¸­æ·»åŠ ä»¥ä¸‹é…ç½®ï¼Œå°†è¶…æ—¶æ—¶é—´è®¾ç½®ä¸º 6 ç§’ã€‚
 
 
 
@@ -376,8 +376,8 @@ public String DeptFeignTimeout() {
 
 
 ribbon:
-  ReadTimeout: 6000 #½¨Á¢Á¬½ÓËùÓÃµÄÊ±¼ä£¬ÊÊÓÃÓÚÍøÂç×´¿öÕı³£µÄÇé¿öÏÂ£¬Á½¶ËÁ½¶ËÁ¬½ÓËùÓÃµÄÊ±¼ä
-  ConnectionTimeout: 6000 #½¨Á¢Á¬½Óºó£¬·şÎñÆ÷¶ÁÈ¡µ½¿ÉÓÃ×ÊÔ´µÄÊ±¼ä
+  ReadTimeout: 6000 #å»ºç«‹è¿æ¥æ‰€ç”¨çš„æ—¶é—´ï¼Œé€‚ç”¨äºç½‘ç»œçŠ¶å†µæ­£å¸¸çš„æƒ…å†µä¸‹ï¼Œä¸¤ç«¯ä¸¤ç«¯è¿æ¥æ‰€ç”¨çš„æ—¶é—´
+  ConnectionTimeout: 6000 #å»ºç«‹è¿æ¥åï¼ŒæœåŠ¡å™¨è¯»å–åˆ°å¯ç”¨èµ„æºçš„æ—¶é—´
 
 ```
 
@@ -385,22 +385,22 @@ ribbon:
 
 
 
-> ×¢£ºÓÉÓÚ OpenFeign ¼¯³ÉÁË Ribbon £¬Æä·şÎñµ÷ÓÃÒÔ¼°¸ºÔØ¾ùºâÔÚµ×²ã¶¼ÊÇÒÀ¿¿ Ribbon ÊµÏÖµÄ£¬Òò´Ë OpenFeign ³¬Ê±¿ØÖÆÒ²ÊÇÍ¨¹ı Ribbon À´ÊµÏÖµÄ¡£
+> æ³¨ï¼šç”±äº OpenFeign é›†æˆäº† Ribbon ï¼Œå…¶æœåŠ¡è°ƒç”¨ä»¥åŠè´Ÿè½½å‡è¡¡åœ¨åº•å±‚éƒ½æ˜¯ä¾é  Ribbon å®ç°çš„ï¼Œå› æ­¤ OpenFeign è¶…æ—¶æ§åˆ¶ä¹Ÿæ˜¯é€šè¿‡ Ribbon æ¥å®ç°çš„ã€‚
 
-7\. ÔÙ´ÎÖØÆô micro-service-cloud-consumer-dept-feign£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com/consumer/dept/feign/timeout¡±£¬½á¹ûÈçÏÂÍ¼¡£
+7\. å†æ¬¡é‡å¯ micro-service-cloud-consumer-dept-feignï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com/consumer/dept/feign/timeoutâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![OpenFeign ³¬Ê±¿ØÖÆ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10142942D-4.png)
-Í¼5£ºOpenFeign ³¬Ê±¿ØÖÆ
+![OpenFeign è¶…æ—¶æ§åˆ¶](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10142942D-4.png)
+å›¾5ï¼šOpenFeign è¶…æ—¶æ§åˆ¶
 
-## OpenFeign ÈÕÖ¾ÔöÇ¿
+## OpenFeign æ—¥å¿—å¢å¼º
 
-OpenFeign Ìá¹©ÁËÈÕÖ¾´òÓ¡¹¦ÄÜ£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ıÅäÖÃµ÷ÕûÈÕÖ¾¼¶±ğ£¬À´ÁË½âÇëÇóµÄÏ¸½Ú¡£
+OpenFeign æä¾›äº†æ—¥å¿—æ‰“å°åŠŸèƒ½ï¼Œæˆ‘ä»¬å¯ä»¥é€šè¿‡é…ç½®è°ƒæ•´æ—¥å¿—çº§åˆ«ï¼Œæ¥äº†è§£è¯·æ±‚çš„ç»†èŠ‚ã€‚
 
-Feign ÎªÃ¿Ò»¸ö FeignClient ¶¼Ìá¹©ÁËÒ»¸ö feign.Logger ÊµÀı£¬Í¨¹ıËü¿ÉÒÔ¶Ô OpenFeign ·şÎñ°ó¶¨½Ó¿ÚµÄµ÷ÓÃÇé¿ö½øĞĞ¼à¿Ø¡£
+Feign ä¸ºæ¯ä¸€ä¸ª FeignClient éƒ½æä¾›äº†ä¸€ä¸ª feign.Logger å®ä¾‹ï¼Œé€šè¿‡å®ƒå¯ä»¥å¯¹ OpenFeign æœåŠ¡ç»‘å®šæ¥å£çš„è°ƒç”¨æƒ…å†µè¿›è¡Œç›‘æ§ã€‚
 
-OpenFeign ÈÕÖ¾´òÓ¡¹¦ÄÜµÄ¿ªÆô·½Ê½±È½Ï¼òµ¥£¬ÏÂÃæÎÒÃÇ¾ÍÍ¨¹ıÒ»¸öÊµÀı½øĞĞÑİÊ¾¡£
+OpenFeign æ—¥å¿—æ‰“å°åŠŸèƒ½çš„å¼€å¯æ–¹å¼æ¯”è¾ƒç®€å•ï¼Œä¸‹é¢æˆ‘ä»¬å°±é€šè¿‡ä¸€ä¸ªå®ä¾‹è¿›è¡Œæ¼”ç¤ºã€‚
 
-1\. ÔÚ micro-service-cloud-consumer-dept-feign µÄ application.yml ÖĞÅäÖÃÒÔÏÂÄÚÈİ¡£
+1\. åœ¨ micro-service-cloud-consumer-dept-feign çš„ application.yml ä¸­é…ç½®ä»¥ä¸‹å†…å®¹ã€‚
 
 
 
@@ -411,7 +411,7 @@ OpenFeign ÈÕÖ¾´òÓ¡¹¦ÄÜµÄ¿ªÆô·½Ê½±È½Ï¼òµ¥£¬ÏÂÃæÎÒÃÇ¾ÍÍ¨¹ıÒ»¸öÊµÀı½øĞĞÑİÊ¾¡£
 
 logging:
   level:
-    #feign ÈÕÖ¾ÒÔÊ²Ã´ÑùµÄ¼¶±ğ¼à¿Ø¸Ã½Ó¿Ú
+    #feign æ—¥å¿—ä»¥ä»€ä¹ˆæ ·çš„çº§åˆ«ç›‘æ§è¯¥æ¥å£
     net.biancheng.c.service.DeptFeignService: debug
 ```
 
@@ -419,14 +419,14 @@ logging:
 
 
 
-ÒÔÉÏÅäÖÃËµÃ÷ÈçÏÂ£º
+ä»¥ä¸Šé…ç½®è¯´æ˜å¦‚ä¸‹ï¼š
 
-*   net.biancheng.c.service.DeptFeignService ÊÇ¿ªÆô @FeignClient ×¢½âµÄ½Ó¿Ú£¨¼´·şÎñ°ó¶¨½Ó¿Ú£©µÄÍêÕûÀàÃû¡£Ò²¿ÉÒÔÖ»ÅäÖÃ²¿·ÖÂ·¾¶£¬±íÊ¾¼à¿Ø¸ÃÂ·¾¶ÏÂµÄËùÓĞ·şÎñ°ó¶¨½Ó¿Ú
-*   debug£º±íÊ¾¼àÌı¸Ã½Ó¿ÚµÄÈÕÖ¾¼¶±ğ¡£
+*   net.biancheng.c.service.DeptFeignService æ˜¯å¼€å¯ @FeignClient æ³¨è§£çš„æ¥å£ï¼ˆå³æœåŠ¡ç»‘å®šæ¥å£ï¼‰çš„å®Œæ•´ç±»åã€‚ä¹Ÿå¯ä»¥åªé…ç½®éƒ¨åˆ†è·¯å¾„ï¼Œè¡¨ç¤ºç›‘æ§è¯¥è·¯å¾„ä¸‹çš„æ‰€æœ‰æœåŠ¡ç»‘å®šæ¥å£
+*   debugï¼šè¡¨ç¤ºç›‘å¬è¯¥æ¥å£çš„æ—¥å¿—çº§åˆ«ã€‚
 
-ÒÔÉÏÅäÖÃµÄº¬Òå¾ÍÊÇ£¬OpenFeign ÒÔ debug ¼¶±ğ¼à¿Ø net.biancheng.c.service.DeptFeignService ½Ó¿Ú¡£
+ä»¥ä¸Šé…ç½®çš„å«ä¹‰å°±æ˜¯ï¼ŒOpenFeign ä»¥ debug çº§åˆ«ç›‘æ§ net.biancheng.c.service.DeptFeignService æ¥å£ã€‚
 
-2. ÔÚ net.biancheng.c. config °üÏÂ´´½¨Ò»¸öÃûÎª ConfigBean µÄÅäÖÃÀà£¬´úÂëÈçÏÂ¡£
+2. åœ¨ net.biancheng.c. config åŒ…ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º ConfigBean çš„é…ç½®ç±»ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -441,8 +441,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConfigBean {
     /**
-     * OpenFeign ÈÕÖ¾ÔöÇ¿
-     * ÅäÖÃ OpenFeign ¼ÇÂ¼ÄÄĞ©ÄÚÈİ
+     * OpenFeign æ—¥å¿—å¢å¼º
+     * é…ç½® OpenFeign è®°å½•å“ªäº›å†…å®¹
      */
     @Bean
     Logger.Level feginLoggerLevel() {
@@ -456,16 +456,16 @@ public class ConfigBean {
 
 
 
-¸ÃÅäÖÃµÄ×÷ÓÃÊÇÍ¨¹ıÅäÖÃµÄ Logger.Level ¶ÔÏó¸æËß OpenFeign ¼ÇÂ¼ÄÄĞ©ÈÕÖ¾ÄÚÈİ¡£
+è¯¥é…ç½®çš„ä½œç”¨æ˜¯é€šè¿‡é…ç½®çš„ Logger.Level å¯¹è±¡å‘Šè¯‰ OpenFeign è®°å½•å“ªäº›æ—¥å¿—å†…å®¹ã€‚
 
-Logger.Level µÄ¾ßÌå¼¶±ğÈçÏÂ£º
+Logger.Level çš„å…·ä½“çº§åˆ«å¦‚ä¸‹ï¼š
 
-*   NONE£º²»¼ÇÂ¼ÈÎºÎĞÅÏ¢¡£
-*   BASIC£º½ö¼ÇÂ¼ÇëÇó·½·¨¡¢URL ÒÔ¼°ÏìÓ¦×´Ì¬ÂëºÍÖ´ĞĞÊ±¼ä¡£
-*   HEADERS£º³ıÁË¼ÇÂ¼ BASIC ¼¶±ğµÄĞÅÏ¢Íâ£¬»¹»á¼ÇÂ¼ÇëÇóºÍÏìÓ¦µÄÍ·ĞÅÏ¢¡£
-*   FULL£º¼ÇÂ¼ËùÓĞÇëÇóÓëÏìÓ¦µÄÃ÷Ï¸£¬°üÀ¨Í·ĞÅÏ¢¡¢ÇëÇóÌå¡¢ÔªÊı¾İµÈµÈ¡£
+*   NONEï¼šä¸è®°å½•ä»»ä½•ä¿¡æ¯ã€‚
+*   BASICï¼šä»…è®°å½•è¯·æ±‚æ–¹æ³•ã€URL ä»¥åŠå“åº”çŠ¶æ€ç å’Œæ‰§è¡Œæ—¶é—´ã€‚
+*   HEADERSï¼šé™¤äº†è®°å½• BASIC çº§åˆ«çš„ä¿¡æ¯å¤–ï¼Œè¿˜ä¼šè®°å½•è¯·æ±‚å’Œå“åº”çš„å¤´ä¿¡æ¯ã€‚
+*   FULLï¼šè®°å½•æ‰€æœ‰è¯·æ±‚ä¸å“åº”çš„æ˜ç»†ï¼ŒåŒ…æ‹¬å¤´ä¿¡æ¯ã€è¯·æ±‚ä½“ã€å…ƒæ•°æ®ç­‰ç­‰ã€‚
 
-3\. ÖØÆô micro-service-cloud-consumer-dept-feign£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com/consumer/dept/list¡±£¬¿ØÖÆÌ¨Êä³öÈçÏÂ¡£
+3\. é‡å¯ micro-service-cloud-consumer-dept-feignï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com/consumer/dept/listâ€ï¼Œæ§åˆ¶å°è¾“å‡ºå¦‚ä¸‹ã€‚
 
 ```
 2021-10-12 14:33:07.408 DEBUG 13388 --- [p-nio-80-exec-2] n.biancheng.c.service.DeptFeignService   : [DeptFeignService#list] ---> GET http://MICROSERVICECLOUDPROVIDERDEPT/dept/list HTTP/1.1
@@ -477,10 +477,10 @@ Logger.Level µÄ¾ßÌå¼¶±ğÈçÏÂ£º
 2021-10-12 14:33:07.983 DEBUG 13388 --- [p-nio-80-exec-2] n.biancheng.c.service.DeptFeignService   : [DeptFeignService#list] keep-alive: timeout=60
 2021-10-12 14:33:07.983 DEBUG 13388 --- [p-nio-80-exec-2] n.biancheng.c.service.DeptFeignService   : [DeptFeignService#list] transfer-encoding: chunked
 2021-10-12 14:33:07.983 DEBUG 13388 --- [p-nio-80-exec-2] n.biancheng.c.service.DeptFeignService   : [DeptFeignService#list]
-2021-10-12 14:33:07.991 DEBUG 13388 --- [p-nio-80-exec-2] n.biancheng.c.service.DeptFeignService   : [DeptFeignService#list] [{"deptNo":1,"deptName":"¿ª·¢²¿","dbSource":"bianchengbang_jdbc"},{"deptNo":2,"deptName":"ÈËÊÂ²¿","dbSource":"bianchengbang_jdbc"},{"deptNo":3,"deptName":"²ÆÎñ²¿","dbSource":"bianchengbang_jdbc"},{"deptNo":4,"deptName":"ÊĞ³¡²¿","dbSource":"bianchengbang_jdbc"},{"deptNo":5,"deptName":"ÔËÎ¬²¿","dbSource":"bianchengbang_jdbc"}]
+2021-10-12 14:33:07.991 DEBUG 13388 --- [p-nio-80-exec-2] n.biancheng.c.service.DeptFeignService   : [DeptFeignService#list] [{"deptNo":1,"deptName":"å¼€å‘éƒ¨","dbSource":"bianchengbang_jdbc"},{"deptNo":2,"deptName":"äººäº‹éƒ¨","dbSource":"bianchengbang_jdbc"},{"deptNo":3,"deptName":"è´¢åŠ¡éƒ¨","dbSource":"bianchengbang_jdbc"},{"deptNo":4,"deptName":"å¸‚åœºéƒ¨","dbSource":"bianchengbang_jdbc"},{"deptNo":5,"deptName":"è¿ç»´éƒ¨","dbSource":"bianchengbang_jdbc"}]
 2021-10-12 14:33:07.991 DEBUG 13388 --- [p-nio-80-exec-2] n.biancheng.c.service.DeptFeignService   : [DeptFeignService#list] <--- END HTTP (341-byte body)```
 ```
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

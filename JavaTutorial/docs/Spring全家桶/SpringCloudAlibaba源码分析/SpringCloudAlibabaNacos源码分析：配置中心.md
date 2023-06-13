@@ -1,18 +1,18 @@
-# NacosÅäÖÃÖĞĞÄ
+# Nacosé…ç½®ä¸­å¿ƒ
 
-## NacosÅäÖÃÖĞĞÄµÄÊ¹ÓÃ
+## Nacosé…ç½®ä¸­å¿ƒçš„ä½¿ç”¨
 
-²Î¿¼¹Ù·½£º[github.com/alibaba/spr¡­](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Falibaba%2Fspring-cloud-alibaba%2Fwiki%2FNacos-config "https://github.com/alibaba/spring-cloud-alibaba/wiki/Nacos-config")
+å‚è€ƒå®˜æ–¹ï¼š[github.com/alibaba/sprâ€¦](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Falibaba%2Fspring-cloud-alibaba%2Fwiki%2FNacos-config "https://github.com/alibaba/spring-cloud-alibaba/wiki/Nacos-config")
 
-## ConfigÏà¹ØÅäÖÃ
+## Configç›¸å…³é…ç½®
 
-           Nacos Êı¾İÄ£ĞÍ Key ÓÉÈıÔª×éÎ¨Ò»È·¶¨, NamespaceÄ¬ÈÏÊÇ¿Õ´®£¬¹«¹²ÃüÃû¿Õ¼ä£¨public£©£¬·Ö×éÄ¬ÈÏÊÇ DEFAULT_GROUP
+           Nacos æ•°æ®æ¨¡å‹ Key ç”±ä¸‰å…ƒç»„å”¯ä¸€ç¡®å®š, Namespaceé»˜è®¤æ˜¯ç©ºä¸²ï¼Œå…¬å…±å‘½åç©ºé—´ï¼ˆpublicï¼‰ï¼Œåˆ†ç»„é»˜è®¤æ˜¯ DEFAULT_GROUP
 
 ![image-20230429084711954](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084711954.png)
 
-* **Ö§³ÖÅäÖÃµÄ¶¯Ì¬¸üĞÂ**
+* **æ”¯æŒé…ç½®çš„åŠ¨æ€æ›´æ–°**
 
-        µ±¶¯Ì¬ÅäÖÃË¢ĞÂÊ±£¬»á¸üĞÂµ½ EnviromentÖĞ£¬Òò´ËÕâÀïÃ¿¸ôÒ»ÃëÖĞ´ÓEnviromentÖĞ»ñÈ¡ÅäÖÃ
+        å½“åŠ¨æ€é…ç½®åˆ·æ–°æ—¶ï¼Œä¼šæ›´æ–°åˆ° Enviromentä¸­ï¼Œå› æ­¤è¿™é‡Œæ¯éš”ä¸€ç§’ä¸­ä»Enviromentä¸­è·å–é…ç½®
 
 ```
 @SpringBootApplication
@@ -22,7 +22,7 @@ public class NacosConfigApplication {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(NacosConfigApplication.class, args);
 
          while(true) {
-        //µ±¶¯Ì¬ÅäÖÃË¢ĞÂÊ±£¬»á¸üĞÂµ½ EnviromentÖĞ£¬Òò´ËÕâÀïÃ¿¸ôÒ»ÃëÖĞ´ÓEnviromentÖĞ»ñÈ¡ÅäÖÃ
+        //å½“åŠ¨æ€é…ç½®åˆ·æ–°æ—¶ï¼Œä¼šæ›´æ–°åˆ° Enviromentä¸­ï¼Œå› æ­¤è¿™é‡Œæ¯éš”ä¸€ç§’ä¸­ä»Enviromentä¸­è·å–é…ç½®
          String userName = applicationContext.getEnvironment().getProperty("common.name");
         String userAge = applicationContext.getEnvironment().getProperty("common.age");
         System.err.println("common name :" + userName + "; age: " + userAge);
@@ -30,91 +30,91 @@ public class NacosConfigApplication {
         }
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-* **Ö§³ÖprofileÁ£¶ÈµÄÅäÖÃ**
+* **æ”¯æŒprofileç²’åº¦çš„é…ç½®**
 
-  spring-cloud-starter-alibaba-nacos-config ÔÚ¼ÓÔØÅäÖÃµÄÊ±ºò£¬²»½ö½ö¼ÓÔØÁËÒÔ dataid Îª spring.application.name.{spring.application.name}.spring.application.name.{file-extension:properties} ÎªÇ°×ºµÄ»ù´¡ÅäÖÃ£¬»¹¼ÓÔØÁËdataidÎª spring.application.name?{spring.application.name}-spring.application.name?{profile}.file?extension:propertiesµÄ»ù´¡ÅäÖÃ¡£
+  spring-cloud-starter-alibaba-nacos-config åœ¨åŠ è½½é…ç½®çš„æ—¶å€™ï¼Œä¸ä»…ä»…åŠ è½½äº†ä»¥ dataid ä¸º spring.application.name.{spring.application.name}.spring.application.name.{file-extension:properties} ä¸ºå‰ç¼€çš„åŸºç¡€é…ç½®ï¼Œè¿˜åŠ è½½äº†dataidä¸º spring.application.name?{spring.application.name}-spring.application.name?{profile}.file?extension:propertiesçš„åŸºç¡€é…ç½®ã€‚
 
-  ÔÚÈÕ³£¿ª·¢ÖĞÈç¹ûÓöµ½¶àÌ×»·¾³ÏÂµÄ²»Í¬ÅäÖÃ£¬¿ÉÒÔÍ¨¹ıSpringÌá¹©µÄ{file-extension:properties} µÄ»ù´¡ÅäÖÃ¡£ÔÚÈÕ³£¿ª·¢ÖĞÈç¹ûÓöµ½¶àÌ×»·¾³ÏÂµÄ²»Í¬ÅäÖÃ£¬¿ÉÒÔÍ¨¹ıSpring Ìá¹©µÄ file?extension:propertiesµÄ»ù´¡ÅäÖÃ¡£ÔÚÈÕ³£¿ª·¢ÖĞÈç¹ûÓöµ½¶àÌ×»·¾³ÏÂµÄ²»Í¬ÅäÖÃ£¬¿ÉÒÔÍ¨¹ıSpringÌá¹©µÄ{spring.profiles.active} Õâ¸öÅäÖÃÏîÀ´ÅäÖÃ¡£
+  åœ¨æ—¥å¸¸å¼€å‘ä¸­å¦‚æœé‡åˆ°å¤šå¥—ç¯å¢ƒä¸‹çš„ä¸åŒé…ç½®ï¼Œå¯ä»¥é€šè¿‡Springæä¾›çš„{file-extension:properties} çš„åŸºç¡€é…ç½®ã€‚åœ¨æ—¥å¸¸å¼€å‘ä¸­å¦‚æœé‡åˆ°å¤šå¥—ç¯å¢ƒä¸‹çš„ä¸åŒé…ç½®ï¼Œå¯ä»¥é€šè¿‡Spring æä¾›çš„ file?extension:propertiesçš„åŸºç¡€é…ç½®ã€‚åœ¨æ—¥å¸¸å¼€å‘ä¸­å¦‚æœé‡åˆ°å¤šå¥—ç¯å¢ƒä¸‹çš„ä¸åŒé…ç½®ï¼Œå¯ä»¥é€šè¿‡Springæä¾›çš„{spring.profiles.active} è¿™ä¸ªé…ç½®é¡¹æ¥é…ç½®ã€‚
 
 ```
 spring.profiles.active=dev
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-* **Ö§³Ö×Ô¶¨Òå namespace µÄÅäÖÃ**
+* **æ”¯æŒè‡ªå®šä¹‰ namespace çš„é…ç½®**
 
-  ÓÃÓÚ½øĞĞ×â»§Á£¶ÈµÄÅäÖÃ¸ôÀë¡£²»Í¬µÄÃüÃû¿Õ¼äÏÂ£¬¿ÉÒÔ´æÔÚÏàÍ¬µÄ Group »ò Data ID µÄÅäÖÃ¡£Namespace µÄ³£ÓÃ³¡¾°Ö®Ò»ÊÇ²»Í¬»·¾³µÄÅäÖÃµÄÇø·Ö¸ôÀë£¬ÀıÈç¿ª·¢²âÊÔ»·¾³ºÍÉú²ú»·¾³µÄ×Ê£¨ÈçÅäÖÃ¡¢·şÎñ£©¸ôÀëµÈ¡£
+  ç”¨äºè¿›è¡Œç§Ÿæˆ·ç²’åº¦çš„é…ç½®éš”ç¦»ã€‚ä¸åŒçš„å‘½åç©ºé—´ä¸‹ï¼Œå¯ä»¥å­˜åœ¨ç›¸åŒçš„ Group æˆ– Data ID çš„é…ç½®ã€‚Namespace çš„å¸¸ç”¨åœºæ™¯ä¹‹ä¸€æ˜¯ä¸åŒç¯å¢ƒçš„é…ç½®çš„åŒºåˆ†éš”ç¦»ï¼Œä¾‹å¦‚å¼€å‘æµ‹è¯•ç¯å¢ƒå’Œç”Ÿäº§ç¯å¢ƒçš„èµ„ï¼ˆå¦‚é…ç½®ã€æœåŠ¡ï¼‰éš”ç¦»ç­‰ã€‚
 
-  ÔÚÃ»ÓĞÃ÷È·Ö¸¶¨ ${spring.cloud.nacos.config.namespace} ÅäÖÃµÄÇé¿öÏÂ£¬ Ä¬ÈÏÊ¹ÓÃµÄÊÇ Nacos ÉÏ Public Õâ¸önamespace¡£Èç¹ûĞèÒªÊ¹ÓÃ×Ô¶¨ÒåµÄÃüÃû¿Õ¼ä£¬¿ÉÒÔÍ¨¹ıÒÔÏÂÅäÖÃÀ´ÊµÏÖ£º
+  åœ¨æ²¡æœ‰æ˜ç¡®æŒ‡å®š ${spring.cloud.nacos.config.namespace} é…ç½®çš„æƒ…å†µä¸‹ï¼Œ é»˜è®¤ä½¿ç”¨çš„æ˜¯ Nacos ä¸Š Public è¿™ä¸ªnamespaceã€‚å¦‚æœéœ€è¦ä½¿ç”¨è‡ªå®šä¹‰çš„å‘½åç©ºé—´ï¼Œå¯ä»¥é€šè¿‡ä»¥ä¸‹é…ç½®æ¥å®ç°ï¼š
 
 ```
 spring.cloud.nacos.config.namespace=71bb9785-231f-4eca-b4dc-6be446e12ff8
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-* **Ö§³Ö×Ô¶¨Òå Group µÄÅäÖÃ**
+* **æ”¯æŒè‡ªå®šä¹‰ Group çš„é…ç½®**
 
-  GroupÊÇ×éÖ¯ÅäÖÃµÄÎ¬¶ÈÖ®Ò»¡£Í¨¹ıÒ»¸öÓĞÒâÒåµÄ×Ö·û´®£¨Èç Buy »ò Trade £©¶ÔÅäÖÃ¼¯½øĞĞ·Ö×é£¬´Ó¶øÇø·Ö Data ID ÏàÍ¬µÄÅäÖÃ¼¯¡£µ±ÄúÔÚ Nacos ÉÏ´´½¨Ò»¸öÅäÖÃÊ±£¬Èç¹ûÎ´ÌîĞ´ÅäÖÃ·Ö×éµÄÃû³Æ£¬ÔòÅäÖÃ·Ö×éµÄÃû³ÆÄ¬ÈÏ²ÉÓÃ DEFAULT_GROUP ¡£ÅäÖÃ·Ö×éµÄ³£¼û³¡¾°£º²»Í¬µÄÓ¦ÓÃ»ò×é¼şÊ¹ÓÃÁËÏàÍ¬µÄÅäÖÃÀàĞÍ£¬Èç database_url ÅäÖÃºÍ MQ_topic ÅäÖÃ¡£
+  Groupæ˜¯ç»„ç»‡é…ç½®çš„ç»´åº¦ä¹‹ä¸€ã€‚é€šè¿‡ä¸€ä¸ªæœ‰æ„ä¹‰çš„å­—ç¬¦ä¸²ï¼ˆå¦‚ Buy æˆ– Trade ï¼‰å¯¹é…ç½®é›†è¿›è¡Œåˆ†ç»„ï¼Œä»è€ŒåŒºåˆ† Data ID ç›¸åŒçš„é…ç½®é›†ã€‚å½“æ‚¨åœ¨ Nacos ä¸Šåˆ›å»ºä¸€ä¸ªé…ç½®æ—¶ï¼Œå¦‚æœæœªå¡«å†™é…ç½®åˆ†ç»„çš„åç§°ï¼Œåˆ™é…ç½®åˆ†ç»„çš„åç§°é»˜è®¤é‡‡ç”¨ DEFAULT_GROUP ã€‚é…ç½®åˆ†ç»„çš„å¸¸è§åœºæ™¯ï¼šä¸åŒçš„åº”ç”¨æˆ–ç»„ä»¶ä½¿ç”¨äº†ç›¸åŒçš„é…ç½®ç±»å‹ï¼Œå¦‚ database_url é…ç½®å’Œ MQ_topic é…ç½®ã€‚
 
-ÔÚÃ»ÓĞÃ÷È·Ö¸¶¨ ${spring.cloud.nacos.config.group} ÅäÖÃµÄÇé¿öÏÂ£¬Ä¬ÈÏÊÇDEFAULT_GROUP ¡£Èç¹ûĞèÒª×Ô¶¨Òå×Ô¼ºµÄ Group£¬¿ÉÒÔÍ¨¹ıÒÔÏÂÅäÖÃÀ´ÊµÏÖ£º
+åœ¨æ²¡æœ‰æ˜ç¡®æŒ‡å®š ${spring.cloud.nacos.config.group} é…ç½®çš„æƒ…å†µä¸‹ï¼Œé»˜è®¤æ˜¯DEFAULT_GROUP ã€‚å¦‚æœéœ€è¦è‡ªå®šä¹‰è‡ªå·±çš„ Groupï¼Œå¯ä»¥é€šè¿‡ä»¥ä¸‹é…ç½®æ¥å®ç°ï¼š
 
 ```
 spring.cloud.nacos.config.group=DEVELOP_GROUP
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-* **Ö§³Ö×Ô¶¨ÒåÀ©Õ¹µÄ Data Id ÅäÖÃ**
+* **æ”¯æŒè‡ªå®šä¹‰æ‰©å±•çš„ Data Id é…ç½®**
 
-        Data ID ÊÇ×éÖ¯»®·ÖÅäÖÃµÄÎ¬¶ÈÖ®Ò»¡£Data ID Í¨³£ÓÃÓÚ×éÖ¯»®·ÖÏµÍ³µÄÅäÖÃ¼¯¡£Ò»¸öÏµÍ³»òÕßÓ¦ÓÃ¿ÉÒÔ°üº¬¶à¸öÅäÖÃ¼¯£¬Ã¿¸öÅäÖÃ¼¯¶¼¿ÉÒÔ±»Ò»¸öÓĞÒâÒåµÄÃû³Æ±êÊ¶¡£Data ID Í¨³£²ÉÓÃÀà Java °ü£¨Èç com.taobao.tc.refund.log.level£©µÄÃüÃû¹æÔò±£Ö¤È«¾ÖÎ¨Ò»ĞÔ¡£´ËÃüÃû¹æÔò·ÇÇ¿ÖÆ¡£
+        Data ID æ˜¯ç»„ç»‡åˆ’åˆ†é…ç½®çš„ç»´åº¦ä¹‹ä¸€ã€‚Data ID é€šå¸¸ç”¨äºç»„ç»‡åˆ’åˆ†ç³»ç»Ÿçš„é…ç½®é›†ã€‚ä¸€ä¸ªç³»ç»Ÿæˆ–è€…åº”ç”¨å¯ä»¥åŒ…å«å¤šä¸ªé…ç½®é›†ï¼Œæ¯ä¸ªé…ç½®é›†éƒ½å¯ä»¥è¢«ä¸€ä¸ªæœ‰æ„ä¹‰çš„åç§°æ ‡è¯†ã€‚Data ID é€šå¸¸é‡‡ç”¨ç±» Java åŒ…ï¼ˆå¦‚ com.taobao.tc.refund.log.levelï¼‰çš„å‘½åè§„åˆ™ä¿è¯å…¨å±€å”¯ä¸€æ€§ã€‚æ­¤å‘½åè§„åˆ™éå¼ºåˆ¶ã€‚
 
-Í¨¹ı×Ô¶¨ÒåÀ©Õ¹µÄ Data Id ÅäÖÃ£¬¼È¿ÉÒÔ½â¾ö¶à¸öÓ¦ÓÃ¼äÅäÖÃ¹²ÏíµÄÎÊÌâ£¬ÓÖ¿ÉÒÔÖ§³ÖÒ»¸öÓ¦ÓÃÓĞ¶à¸öÅäÖÃÎÄ¼ş¡£
+é€šè¿‡è‡ªå®šä¹‰æ‰©å±•çš„ Data Id é…ç½®ï¼Œæ—¢å¯ä»¥è§£å†³å¤šä¸ªåº”ç”¨é—´é…ç½®å…±äº«çš„é—®é¢˜ï¼Œåˆå¯ä»¥æ”¯æŒä¸€ä¸ªåº”ç”¨æœ‰å¤šä¸ªé…ç½®æ–‡ä»¶ã€‚
 
 ```
-# ×Ô¶¨Òå Data Id µÄÅäÖÃ
-#²»Í¬¹¤³ÌµÄÍ¨ÓÃÅäÖÃ Ö§³Ö¹²ÏíµÄ DataId
+# è‡ªå®šä¹‰ Data Id çš„é…ç½®
+#ä¸åŒå·¥ç¨‹çš„é€šç”¨é…ç½® æ”¯æŒå…±äº«çš„ DataId
 spring.cloud.nacos.config.sharedConfigs[0].data-id= common.yaml
 spring.cloud.nacos.config.sharedConfigs[0].group=REFRESH_GROUP
 spring.cloud.nacos.config.sharedConfigs[0].refresh=true
 
 # config external configuration
-# Ö§³ÖÒ»¸öÓ¦ÓÃ¶à¸ö DataId µÄÅäÖÃ
+# æ”¯æŒä¸€ä¸ªåº”ç”¨å¤šä¸ª DataId çš„é…ç½®
 spring.cloud.nacos.config.extensionConfigs[0].data-id=ext-config-common01.properties
 spring.cloud.nacos.config.extensionConfigs[0].group=REFRESH_GROUP
 spring.cloud.nacos.config.extensionConfigs[0].refresh=true
 
 spring.cloud.nacos.config.extensionConfigs[1].data-id=ext-config-common02.properties
 spring.cloud.nacos.config.extensionConfigs[1].group=REFRESH_GROUP
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-## ÅäÖÃµÄÓÅÏÈ¼¶
+## é…ç½®çš„ä¼˜å…ˆçº§
 
-Spring Cloud Alibaba Nacos Config Ä¿Ç°Ìá¹©ÁËÈıÖÖÅäÖÃÄÜÁ¦´Ó Nacos À­È¡Ïà¹ØµÄÅäÖÃ¡£
+Spring Cloud Alibaba Nacos Config ç›®å‰æä¾›äº†ä¸‰ç§é…ç½®èƒ½åŠ›ä» Nacos æ‹‰å–ç›¸å…³çš„é…ç½®ã€‚
 
-*   A: Í¨¹ı spring.cloud.nacos.config.shared-configs Ö§³Ö¶à¸ö¹²Ïí Data Id µÄÅäÖÃ
+*   A: é€šè¿‡ spring.cloud.nacos.config.shared-configs æ”¯æŒå¤šä¸ªå…±äº« Data Id çš„é…ç½®
 
-*   B: Í¨¹ı spring.cloud.nacos.config.ext-config[n].data-id µÄ·½Ê½Ö§³Ö¶à¸öÀ©Õ¹ Data Id µÄÅäÖÃ
+*   B: é€šè¿‡ spring.cloud.nacos.config.ext-config[n].data-id çš„æ–¹å¼æ”¯æŒå¤šä¸ªæ‰©å±• Data Id çš„é…ç½®
 
-*   C: Í¨¹ıÄÚ²¿Ïà¹Ø¹æÔò(Ó¦ÓÃÃû¡¢Ó¦ÓÃÃû+ Profile )×Ô¶¯Éú³ÉÏà¹ØµÄ Data Id ÅäÖÃ
+*   C: é€šè¿‡å†…éƒ¨ç›¸å…³è§„åˆ™(åº”ç”¨åã€åº”ç”¨å+ Profile )è‡ªåŠ¨ç”Ÿæˆç›¸å…³çš„ Data Id é…ç½®
 
-µ±ÈıÖÖ·½Ê½¹²Í¬Ê¹ÓÃÊ±£¬ËûÃÇµÄÒ»¸öÓÅÏÈ¼¶¹ØÏµÊÇ:A < B < C
+å½“ä¸‰ç§æ–¹å¼å…±åŒä½¿ç”¨æ—¶ï¼Œä»–ä»¬çš„ä¸€ä¸ªä¼˜å…ˆçº§å…³ç³»æ˜¯:A < B < C
 
-ÓÅÏÈ¼¶´Ó¸ßµ½µÍ£º
+ä¼˜å…ˆçº§ä»é«˜åˆ°ä½ï¼š
 
-1.  nacos-config-product.yaml ¾«×¼ÅäÖÃ
+1.  nacos-config-product.yaml ç²¾å‡†é…ç½®
 
-2.  nacos-config.yaml Í¬¹¤³Ì²»Í¬»·¾³µÄÍ¨ÓÃÅäÖÃ
+2.  nacos-config.yaml åŒå·¥ç¨‹ä¸åŒç¯å¢ƒçš„é€šç”¨é…ç½®
 
-3.  ext-config: ²»Í¬¹¤³Ì À©Õ¹ÅäÖÃ
+3.  ext-config: ä¸åŒå·¥ç¨‹ æ‰©å±•é…ç½®
 
-4.  shared-dataids ²»Í¬¹¤³ÌÍ¨ÓÃÅäÖÃ
+4.  shared-dataids ä¸åŒå·¥ç¨‹é€šç”¨é…ç½®
 
 ## @RefreshScope
 
-@Value×¢½â¿ÉÒÔ»ñÈ¡µ½ÅäÖÃÖĞĞÄµÄÖµ£¬µ«ÊÇÎŞ·¨¶¯Ì¬¸ĞÖªĞŞ¸ÄºóµÄÖµ£¬ĞèÒªÀûÓÃ@RefreshScope×¢½â
+@Valueæ³¨è§£å¯ä»¥è·å–åˆ°é…ç½®ä¸­å¿ƒçš„å€¼ï¼Œä½†æ˜¯æ— æ³•åŠ¨æ€æ„ŸçŸ¥ä¿®æ”¹åçš„å€¼ï¼Œéœ€è¦åˆ©ç”¨@RefreshScopeæ³¨è§£
 
 ```
 @RestController
@@ -129,20 +129,20 @@ public class TestController {
         return age;
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-## NacosÅäÖÃÖĞĞÄÔ´Âë·ÖÎö
+## Nacosé…ç½®ä¸­å¿ƒæºç åˆ†æ
 
-**ÏêÏ¸Ô´ÂëÁ÷³ÌÍ¼£º**
+**è¯¦ç»†æºç æµç¨‹å›¾ï¼š**
 
-[www.processon.com/view/link/6¡­](https://link.juejin.cn?target=https%3A%2F%2Fwww.processon.com%2Fview%2Flink%2F60f78ddbf346fb761bbac19d "https://www.processon.com/view/link/60f78ddbf346fb761bbac19d")
+[www.processon.com/view/link/6â€¦](https://link.juejin.cn?target=https%3A%2F%2Fwww.processon.com%2Fview%2Flink%2F60f78ddbf346fb761bbac19d "https://www.processon.com/view/link/60f78ddbf346fb761bbac19d")
 
-### ÅäÖÃÖĞĞÄ¼Ü¹¹
+### é…ç½®ä¸­å¿ƒæ¶æ„
 
 ![image-20230429084840636](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084840636.png)
 
-ÅäÖÃÖĞĞÄÊ¹ÓÃdemo
+é…ç½®ä¸­å¿ƒä½¿ç”¨demo
 
 ```
 public class ConfigServerDemo {
@@ -153,12 +153,12 @@ public class ConfigServerDemo {
         String group = "DEFAULT_GROUP";
         Properties properties = new Properties();
         properties.put(PropertyKeyConst.SERVER_ADDR, serverAddr);
-        //»ñÈ¡ÅäÖÃ·şÎñ
+        //è·å–é…ç½®æœåŠ¡
         ConfigService configService = NacosFactory.createConfigService(properties);
-        //»ñÈ¡ÅäÖÃ
+        //è·å–é…ç½®
         String content = configService.getConfig(dataId, group, 5000);
         System.out.println(content);
-        //×¢²á¼àÌıÆ÷
+        //æ³¨å†Œç›‘å¬å™¨
         configService.addListener(dataId, group, new Listener() {
             @Override
             public void receiveConfigInfo(String configInfo) {
@@ -171,10 +171,10 @@ public class ConfigServerDemo {
             }
         });
 
-        //·¢²¼ÅäÖÃ
+        //å‘å¸ƒé…ç½®
         //boolean isPublishOk = configService.publishConfig(dataId, group, "content");
         //System.out.println(isPublishOk);
-        //·¢ËÍproperties¸ñÊ½
+        //å‘é€propertiesæ ¼å¼
         configService.publishConfig(dataId,group,"common.age=30", ConfigType.PROPERTIES.getType());
 
         Thread.sleep(3000);
@@ -190,58 +190,58 @@ public class ConfigServerDemo {
 //        Thread.sleep(300000);
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-## nacos config clientÔ´Âë
+## nacos config clientæºç 
 
-ÅäÖÃÖĞĞÄºËĞÄ½Ó¿ÚConfigService
+é…ç½®ä¸­å¿ƒæ ¸å¿ƒæ¥å£ConfigService
 
 ![image-20230429084850542](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084850542.png)
 
-### »ñÈ¡ÅäÖÃ
+### è·å–é…ç½®
 
-        »ñÈ¡ÅäÖÃµÄÖ÷Òª·½·¨ÊÇ NacosConfigService ÀàµÄ getConfig ·½·¨£¬Í¨³£Çé¿öÏÂ¸Ã·½·¨Ö±½Ó´Ó±¾µØÎÄ¼şÖĞÈ¡µÃÅäÖÃµÄÖµ£¬Èç¹û±¾µØÎÄ¼ş²»´æÔÚ»òÕßÄÚÈİÎª¿Õ£¬ÔòÔÙÍ¨¹ı HTTP GET ·½·¨´ÓÔ¶¶ËÀ­È¡ÅäÖÃ£¬²¢±£´æµ½±¾µØ¿ìÕÕÖĞ¡£µ±Í¨¹ı HTTP »ñÈ¡Ô¶¶ËÅäÖÃÊ±£¬Nacos Ìá¹©ÁËÁ½ÖÖÈÛ¶Ï²ßÂÔ£¬Ò»ÊÇ³¬Ê±Ê±¼ä£¬¶şÊÇ×î´óÖØÊÔ´ÎÊı£¬Ä¬ÈÏÖØÊÔÈı´Î¡£
+        è·å–é…ç½®çš„ä¸»è¦æ–¹æ³•æ˜¯ NacosConfigService ç±»çš„ getConfig æ–¹æ³•ï¼Œé€šå¸¸æƒ…å†µä¸‹è¯¥æ–¹æ³•ç›´æ¥ä»æœ¬åœ°æ–‡ä»¶ä¸­å–å¾—é…ç½®çš„å€¼ï¼Œå¦‚æœæœ¬åœ°æ–‡ä»¶ä¸å­˜åœ¨æˆ–è€…å†…å®¹ä¸ºç©ºï¼Œåˆ™å†é€šè¿‡ HTTP GET æ–¹æ³•ä»è¿œç«¯æ‹‰å–é…ç½®ï¼Œå¹¶ä¿å­˜åˆ°æœ¬åœ°å¿«ç…§ä¸­ã€‚å½“é€šè¿‡ HTTP è·å–è¿œç«¯é…ç½®æ—¶ï¼ŒNacos æä¾›äº†ä¸¤ç§ç†”æ–­ç­–ç•¥ï¼Œä¸€æ˜¯è¶…æ—¶æ—¶é—´ï¼ŒäºŒæ˜¯æœ€å¤§é‡è¯•æ¬¡æ•°ï¼Œé»˜è®¤é‡è¯•ä¸‰æ¬¡ã€‚
 
 ![image-20230429084858759](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084858759.png)
 
-### ×¢²á¼àÌıÆ÷
+### æ³¨å†Œç›‘å¬å™¨
 
-ÅäÖÃÖĞĞÄ¿Í»§¶Ë»áÍ¨¹ı¶ÔÅäÖÃÏî×¢²á¼àÌıÆ÷´ïµ½ÔÚÅäÖÃÏî±ä¸üµÄÊ±ºòÖ´ĞĞ»Øµ÷µÄ¹¦ÄÜ
+é…ç½®ä¸­å¿ƒå®¢æˆ·ç«¯ä¼šé€šè¿‡å¯¹é…ç½®é¡¹æ³¨å†Œç›‘å¬å™¨è¾¾åˆ°åœ¨é…ç½®é¡¹å˜æ›´çš„æ—¶å€™æ‰§è¡Œå›è°ƒçš„åŠŸèƒ½
 
 * NacosConfigService#getConfigAndSignListener
 
 * ConfigService#addListener
 
-        Nacos ¿ÉÒÔÍ¨¹ıÒÔÉÏ·½Ê½×¢²á¼àÌıÆ÷£¬ËüÃÇÄÚ²¿µÄÊµÏÖ¾ùÊÇµ÷ÓÃ ClientWorker ÀàµÄ addCacheDataIfAbsent¡£ÆäÖĞ CacheData ÊÇÒ»¸öÎ¬»¤ÅäÖÃÏîºÍÆäÏÂ×¢²áµÄËùÓĞ¼àÌıÆ÷µÄÊµÀı£¬ËùÓĞµÄ CacheData ¶¼±£´æÔÚ ClientWorker ÀàÖĞµÄÔ­×Ó cacheMap ÖĞ£¬ÆäÄÚ²¿µÄºËĞÄ³ÉÔ±ÓĞ£º
+        Nacos å¯ä»¥é€šè¿‡ä»¥ä¸Šæ–¹å¼æ³¨å†Œç›‘å¬å™¨ï¼Œå®ƒä»¬å†…éƒ¨çš„å®ç°å‡æ˜¯è°ƒç”¨ ClientWorker ç±»çš„ addCacheDataIfAbsentã€‚å…¶ä¸­ CacheData æ˜¯ä¸€ä¸ªç»´æŠ¤é…ç½®é¡¹å’Œå…¶ä¸‹æ³¨å†Œçš„æ‰€æœ‰ç›‘å¬å™¨çš„å®ä¾‹ï¼Œæ‰€æœ‰çš„ CacheData éƒ½ä¿å­˜åœ¨ ClientWorker ç±»ä¸­çš„åŸå­ cacheMap ä¸­ï¼Œå…¶å†…éƒ¨çš„æ ¸å¿ƒæˆå‘˜æœ‰ï¼š
 
 ![image-20230429084908207](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084908207.png)
 
 ![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f14749bd9b614b21a55a261187cd5521~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
 
-### ÅäÖÃ³¤ÂÖÑ¯
+### é…ç½®é•¿è½®è¯¢
 
-         ClientWorker Í¨¹ıÆäÏÂµÄÁ½¸öÏß³Ì³ØÍê³ÉÅäÖÃ³¤ÂÖÑ¯µÄ¹¤×÷£¬Ò»¸öÊÇµ¥Ïß³ÌµÄ executor£¬Ã¿¸ô 10ms °´ÕÕÃ¿ 3000 ¸öÅäÖÃÏîÎªÒ»Åú´ÎÀÌÈ¡´ıÂÖÑ¯µÄ cacheData ÊµÀı£¬½«Æä°ü×°³ÉÎªÒ»¸ö LongPollingTask Ìá½»½øÈëµÚ¶ş¸öÏß³Ì³Ø executorService ´¦Àí¡£
+         ClientWorker é€šè¿‡å…¶ä¸‹çš„ä¸¤ä¸ªçº¿ç¨‹æ± å®Œæˆé…ç½®é•¿è½®è¯¢çš„å·¥ä½œï¼Œä¸€ä¸ªæ˜¯å•çº¿ç¨‹çš„ executorï¼Œæ¯éš” 10ms æŒ‰ç…§æ¯ 3000 ä¸ªé…ç½®é¡¹ä¸ºä¸€æ‰¹æ¬¡æå–å¾…è½®è¯¢çš„ cacheData å®ä¾‹ï¼Œå°†å…¶åŒ…è£…æˆä¸ºä¸€ä¸ª LongPollingTask æäº¤è¿›å…¥ç¬¬äºŒä¸ªçº¿ç¨‹æ±  executorService å¤„ç†ã€‚
 
 ![image-20230429084917535](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084917535.png)
 
-## nacos config serverÔ´Âë·ÖÎö
+## nacos config serveræºç åˆ†æ
 
-### ÅäÖÃdump
+### é…ç½®dump
 
 ![image-20230429084926987](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084926987.png)
 
-       ·şÎñ¶ËÆô¶¯Ê±¾Í»áÒÀÀµ DumpService µÄ init ·½·¨£¬´ÓÊı¾İ¿âÖĞ load ÅäÖÃ´æ´¢ÔÚ±¾µØ´ÅÅÌÉÏ£¬²¢½«Ò»Ğ©ÖØÒªµÄÔªĞÅÏ¢ÀıÈç MD5 Öµ»º´æÔÚÄÚ´æÖĞ¡£·şÎñ¶Ë»á¸ù¾İĞÄÌøÎÄ¼şÖĞ±£´æµÄ×îºóÒ»´ÎĞÄÌøÊ±¼ä£¬À´ÅĞ¶Ïµ½µ×ÊÇ´ÓÊı¾İ¿â dump È«Á¿ÅäÖÃÊı¾İ»¹ÊÇ²¿·ÖÔöÁ¿ÅäÖÃÊı¾İ£¨Èç¹û»úÆ÷ÉÏ´ÎĞÄÌø¼ä¸ôÊÇ 6h ÒÔÄÚµÄ»°£©¡£
+       æœåŠ¡ç«¯å¯åŠ¨æ—¶å°±ä¼šä¾èµ– DumpService çš„ init æ–¹æ³•ï¼Œä»æ•°æ®åº“ä¸­ load é…ç½®å­˜å‚¨åœ¨æœ¬åœ°ç£ç›˜ä¸Šï¼Œå¹¶å°†ä¸€äº›é‡è¦çš„å…ƒä¿¡æ¯ä¾‹å¦‚ MD5 å€¼ç¼“å­˜åœ¨å†…å­˜ä¸­ã€‚æœåŠ¡ç«¯ä¼šæ ¹æ®å¿ƒè·³æ–‡ä»¶ä¸­ä¿å­˜çš„æœ€åä¸€æ¬¡å¿ƒè·³æ—¶é—´ï¼Œæ¥åˆ¤æ–­åˆ°åº•æ˜¯ä»æ•°æ®åº“ dump å…¨é‡é…ç½®æ•°æ®è¿˜æ˜¯éƒ¨åˆ†å¢é‡é…ç½®æ•°æ®ï¼ˆå¦‚æœæœºå™¨ä¸Šæ¬¡å¿ƒè·³é—´éš”æ˜¯ 6h ä»¥å†…çš„è¯ï¼‰ã€‚
 
-È«Á¿ dump µ±È»ÏÈÇå¿Õ´ÅÅÌ»º´æ£¬È»ºó¸ù¾İÖ÷¼ü ID Ã¿´ÎÀÌÈ¡Ò»Ç§ÌõÅäÖÃË¢½ø´ÅÅÌºÍÄÚ´æ¡£ÔöÁ¿ dump ¾ÍÊÇÀÌÈ¡×î½üÁùĞ¡Ê±µÄĞÂÔöÅäÖÃ£¨°üÀ¨¸üĞÂµÄºÍÉ¾³ıµÄ£©£¬ÏÈ°´ÕÕÕâÅúÊı¾İË¢ĞÂÒ»±éÄÚ´æºÍÎÄ¼ş£¬ÔÙ¸ù¾İÄÚ´æÀïËùÓĞµÄÊı¾İÈ«Á¿È¥±È¶ÔÒ»±éÊı¾İ¿â£¬Èç¹ûÓĞ¸Ä±äµÄÔÙÍ¬²½Ò»´Î£¬Ïà±ÈÓÚÈ«Á¿ dump µÄ»°»á¼õÉÙÒ»¶¨µÄÊı¾İ¿â IO ºÍ´ÅÅÌ IO ´ÎÊı¡£
+å…¨é‡ dump å½“ç„¶å…ˆæ¸…ç©ºç£ç›˜ç¼“å­˜ï¼Œç„¶åæ ¹æ®ä¸»é”® ID æ¯æ¬¡æå–ä¸€åƒæ¡é…ç½®åˆ·è¿›ç£ç›˜å’Œå†…å­˜ã€‚å¢é‡ dump å°±æ˜¯æå–æœ€è¿‘å…­å°æ—¶çš„æ–°å¢é…ç½®ï¼ˆåŒ…æ‹¬æ›´æ–°çš„å’Œåˆ é™¤çš„ï¼‰ï¼Œå…ˆæŒ‰ç…§è¿™æ‰¹æ•°æ®åˆ·æ–°ä¸€éå†…å­˜å’Œæ–‡ä»¶ï¼Œå†æ ¹æ®å†…å­˜é‡Œæ‰€æœ‰çš„æ•°æ®å…¨é‡å»æ¯”å¯¹ä¸€éæ•°æ®åº“ï¼Œå¦‚æœæœ‰æ”¹å˜çš„å†åŒæ­¥ä¸€æ¬¡ï¼Œç›¸æ¯”äºå…¨é‡ dump çš„è¯ä¼šå‡å°‘ä¸€å®šçš„æ•°æ®åº“ IO å’Œç£ç›˜ IO æ¬¡æ•°ã€‚
 
-### ÅäÖÃ·¢²¼
+### é…ç½®å‘å¸ƒ
 
-        ·¢²¼ÅäÖÃµÄ´úÂëÎ»ÓÚ ConfigController#publishConfigÖĞ¡£¼¯Èº²¿Êğ£¬ÇëÇóÒ»¿ªÊ¼Ò²Ö»»á´òµ½Ò»Ì¨»úÆ÷£¬ÕâÌ¨»úÆ÷½«ÅäÖÃ²åÈëMysqlÖĞ½øĞĞ³Ö¾Ã»¯¡£·şÎñ¶Ë²¢²»ÊÇÕë¶ÔÃ¿´ÎÅäÖÃ²éÑ¯¶¼È¥·ÃÎÊ MySQL £¬¶øÊÇ»áÒÀÀµ dump ¹¦ÄÜÔÚ±¾µØÎÄ¼şÖĞ½«ÅäÖÃ»º´æÆğÀ´¡£Òò´Ëµ±µ¥Ì¨»úÆ÷±£´æÍê±ÏÅäÖÃÖ®ºó£¬ĞèÒªÍ¨ÖªÆäËû»úÆ÷Ë¢ĞÂÄÚ´æºÍ±¾µØ´ÅÅÌÖĞµÄÎÄ¼şÄÚÈİ£¬Òò´ËËü»á·¢²¼Ò»¸öÃûÎª ConfigDataChangeEvent µÄÊÂ¼ş£¬Õâ¸öÊÂ¼ş»áÍ¨¹ı HTTP µ÷ÓÃÍ¨ÖªËùÓĞ¼¯Èº½Úµã£¨°üÀ¨×ÔÉí£©£¬´¥·¢±¾µØÎÄ¼şºÍÄÚ´æµÄË¢ĞÂ¡£
+        å‘å¸ƒé…ç½®çš„ä»£ç ä½äº ConfigController#publishConfigä¸­ã€‚é›†ç¾¤éƒ¨ç½²ï¼Œè¯·æ±‚ä¸€å¼€å§‹ä¹Ÿåªä¼šæ‰“åˆ°ä¸€å°æœºå™¨ï¼Œè¿™å°æœºå™¨å°†é…ç½®æ’å…¥Mysqlä¸­è¿›è¡ŒæŒä¹…åŒ–ã€‚æœåŠ¡ç«¯å¹¶ä¸æ˜¯é’ˆå¯¹æ¯æ¬¡é…ç½®æŸ¥è¯¢éƒ½å»è®¿é—® MySQL ï¼Œè€Œæ˜¯ä¼šä¾èµ– dump åŠŸèƒ½åœ¨æœ¬åœ°æ–‡ä»¶ä¸­å°†é…ç½®ç¼“å­˜èµ·æ¥ã€‚å› æ­¤å½“å•å°æœºå™¨ä¿å­˜å®Œæ¯•é…ç½®ä¹‹åï¼Œéœ€è¦é€šçŸ¥å…¶ä»–æœºå™¨åˆ·æ–°å†…å­˜å’Œæœ¬åœ°ç£ç›˜ä¸­çš„æ–‡ä»¶å†…å®¹ï¼Œå› æ­¤å®ƒä¼šå‘å¸ƒä¸€ä¸ªåä¸º ConfigDataChangeEvent çš„äº‹ä»¶ï¼Œè¿™ä¸ªäº‹ä»¶ä¼šé€šè¿‡ HTTP è°ƒç”¨é€šçŸ¥æ‰€æœ‰é›†ç¾¤èŠ‚ç‚¹ï¼ˆåŒ…æ‹¬è‡ªèº«ï¼‰ï¼Œè§¦å‘æœ¬åœ°æ–‡ä»¶å’Œå†…å­˜çš„åˆ·æ–°ã€‚
 
-### ´¦Àí³¤ÂÖÑ¯
+### å¤„ç†é•¿è½®è¯¢
 
-        ¿Í»§¶Ë»áÓĞÒ»¸ö³¤ÂÖÑ¯ÈÎÎñ£¬À­È¡·şÎñ¶ËµÄÅäÖÃ±ä¸ü£¬·şÎñ¶Ë´¦ÀíÂß¼­ÔÚLongPollingServiceÀàÖĞ£¬ÆäÖĞÓĞÒ»¸ö Runnable ÈÎÎñÃûÎªClientLongPolling£¬·şÎñ¶Ë»á½«ÊÜµ½µÄÂÖÑ¯ÇëÇó°ü×°³ÉÒ»¸ö ClientLongPolling ÈÎÎñ£¬¸ÃÈÎÎñ³ÖÓĞÒ»¸ö AsyncContext ÏìÓ¦¶ÔÏó£¬Í¨¹ı¶¨Ê±Ïß³Ì³ØÑÓºó 29.5s Ö´ĞĞ¡£±È¿Í»§¶Ë 30s µÄ³¬Ê±Ê±¼äÌáÇ° 500ms ·µ»ØÊÇÎªÁË×î´ó³Ì¶ÈÉÏ±£Ö¤¿Í»§¶Ë²»»áÒòÎªÍøÂçÑÓÊ±Ôì³É³¬Ê±.
+        å®¢æˆ·ç«¯ä¼šæœ‰ä¸€ä¸ªé•¿è½®è¯¢ä»»åŠ¡ï¼Œæ‹‰å–æœåŠ¡ç«¯çš„é…ç½®å˜æ›´ï¼ŒæœåŠ¡ç«¯å¤„ç†é€»è¾‘åœ¨LongPollingServiceç±»ä¸­ï¼Œå…¶ä¸­æœ‰ä¸€ä¸ª Runnable ä»»åŠ¡åä¸ºClientLongPollingï¼ŒæœåŠ¡ç«¯ä¼šå°†å—åˆ°çš„è½®è¯¢è¯·æ±‚åŒ…è£…æˆä¸€ä¸ª ClientLongPolling ä»»åŠ¡ï¼Œè¯¥ä»»åŠ¡æŒæœ‰ä¸€ä¸ª AsyncContext å“åº”å¯¹è±¡ï¼Œé€šè¿‡å®šæ—¶çº¿ç¨‹æ± å»¶å 29.5s æ‰§è¡Œã€‚æ¯”å®¢æˆ·ç«¯ 30s çš„è¶…æ—¶æ—¶é—´æå‰ 500ms è¿”å›æ˜¯ä¸ºäº†æœ€å¤§ç¨‹åº¦ä¸Šä¿è¯å®¢æˆ·ç«¯ä¸ä¼šå› ä¸ºç½‘ç»œå»¶æ—¶é€ æˆè¶…æ—¶.
 
 ![image-20230429084934117](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084934117.png)
 
@@ -253,11 +253,11 @@ public class ConfigServerDemo {
 
 
 
-×÷Õß£ºÕş²ÉÔÆµç×ÓÂô³¡ÍÅ¶Ó
-Á´½Ó£ºhttps://juejin.cn/post/6999814668390760484
-À´Ô´£ºÏ¡ÍÁ¾ò½ğ
-Öø×÷È¨¹é×÷ÕßËùÓĞ¡£ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
-# ²Î¿¼ÎÄÕÂ
+ä½œè€…ï¼šæ”¿é‡‡äº‘ç”µå­å–åœºå›¢é˜Ÿ
+é“¾æ¥ï¼šhttps://juejin.cn/post/6999814668390760484
+æ¥æºï¼šç¨€åœŸæ˜é‡‘
+è‘—ä½œæƒå½’ä½œè€…æ‰€æœ‰ã€‚å•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

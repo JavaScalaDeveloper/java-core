@@ -119,9 +119,9 @@ Redis提供了提高数据一致性的解决方案，本文后面会进行介绍
 
 下面分别为R1、R2、R3的启动命令：
 
-```  
+```shell  
  ./redis-server ../redis8001.conf --port 8001 --slaveof 127.0.0.1 8000 ./redis-server ../redis8002.conf --port 8002 --slaveof 127.0.0.1 8000 ./redis-server ../redis8003.conf --port 8003 --slaveof 127.0.0.1 8000```  
-  
+```   
 这样，我们就成功的启动了四台Redis实例，master实例的服务端口为8000，R1、R2、R3的服务端口分别为8001、8002、8003，集群图如下：  
   
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/135124_AfX5_1759553.png)  

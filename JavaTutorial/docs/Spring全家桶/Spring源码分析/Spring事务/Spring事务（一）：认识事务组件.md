@@ -1,20 +1,20 @@
-Ç°Ãæ·ÖÎöÍêÁË spring aop Ïà¹Ø¹¦ÄÜºó£¬±¾ÎÄ½«À´·ÖÎö spring aop µÄÒ»¸öÓ¦ÓÃ ¡ª¡ª ÊÂÎñ¹ÜÀí¡£
+å‰é¢åˆ†æå®Œäº† spring aop ç›¸å…³åŠŸèƒ½åï¼Œæœ¬æ–‡å°†æ¥åˆ†æ spring aop çš„ä¸€ä¸ªåº”ç”¨ â€”â€” äº‹åŠ¡ç®¡ç†ã€‚
 
-### 1\. ´ÓÁ½¸ö demo ½²Æğ
+### 1\. ä»ä¸¤ä¸ª demo è®²èµ·
 
-ÔÚÕıÊ½·ÖÎöÇ°£¬ÎÒÃÇÏÈÀ´Ë¼¿¼ÏÂ£¬Èç¹ûÈÃÎÒÃÇ×Ô¼ºÀ´»ùÓÚ spring aop À´Éè¼ÆÒ»Ì×ÊÂÎñ´¦Àí»úÖÆ£¬¸ÃÈçºÎÊµÏÖÄØ£¿Èç¹ûÃ»ÓĞ spring£¬ÎÒÃÇµÄÊÂÎñ´¦Àí´úÂëÒ»°ã³¤ÕâÑù£º
+åœ¨æ­£å¼åˆ†æå‰ï¼Œæˆ‘ä»¬å…ˆæ¥æ€è€ƒä¸‹ï¼Œå¦‚æœè®©æˆ‘ä»¬è‡ªå·±æ¥åŸºäº spring aop æ¥è®¾è®¡ä¸€å¥—äº‹åŠ¡å¤„ç†æœºåˆ¶ï¼Œè¯¥å¦‚ä½•å®ç°å‘¢ï¼Ÿå¦‚æœæ²¡æœ‰ springï¼Œæˆ‘ä»¬çš„äº‹åŠ¡å¤„ç†ä»£ç ä¸€èˆ¬é•¿è¿™æ ·ï¼š
 
 ```
 public void fun() {
-    // ¿ªÆôÊÂÎñ
+    // å¼€å¯äº‹åŠ¡
     start();
     try {
-        // ÒµÎñ´¦Àí
+        // ä¸šåŠ¡å¤„ç†
         xxx();
-        // Ìá½»ÊÂÎñ
+        // æäº¤äº‹åŠ¡
         commit();
     } catch(Exception e) {
-        // »Ø¹öÊÂÎñ
+        // å›æ»šäº‹åŠ¡
         rollback();
         throw e;
     }
@@ -22,13 +22,13 @@ public void fun() {
 
 ```
 
-´ÓÉÏÃæµÄ´úÂëÀ´¿´£¬Ïñ¿ªÆôÊÂÎñ¡¢Ìá½»ÊÂÎñ¡¢»Ø¹öÊÂÎñ£¬¶¼¸úÒµÎñ´úÂëÎŞ¹Ø£¬ÕâĞ©¿ÉÒÔÊ¹ÓÃ spring aop À´ÊµÏÖ£¬Òò´Ë¾ÍÓĞÁËÏÂÃæÁ½¸ö demo.
+ä»ä¸Šé¢çš„ä»£ç æ¥çœ‹ï¼Œåƒå¼€å¯äº‹åŠ¡ã€æäº¤äº‹åŠ¡ã€å›æ»šäº‹åŠ¡ï¼Œéƒ½è·Ÿä¸šåŠ¡ä»£ç æ— å…³ï¼Œè¿™äº›å¯ä»¥ä½¿ç”¨ spring aop æ¥å®ç°ï¼Œå› æ­¤å°±æœ‰äº†ä¸‹é¢ä¸¤ä¸ª demo.
 
-#### demo01£º»ùÓÚ `@Around` ×¢½âÊµÏÖÊÂÎñ
+#### demo01ï¼šåŸºäº `@Around` æ³¨è§£å®ç°äº‹åŠ¡
 
-ÔÛÃÇ¿ÉÒÔÊ¹ÓÃ `@Around` ×¢½âÀ´²Ù×÷£¬´úÂëÈçÏÂ£º
+å’±ä»¬å¯ä»¥ä½¿ç”¨ `@Around` æ³¨è§£æ¥æ“ä½œï¼Œä»£ç å¦‚ä¸‹ï¼š
 
-1.  ¶¨ÒåÒ»¸ö×¢½â£º`@MyTransactional`
+1.  å®šä¹‰ä¸€ä¸ªæ³¨è§£ï¼š`@MyTransactional`
 
 ```
 @Target({ElementType.TYPE, ElementType.METHOD})
@@ -40,7 +40,7 @@ public @interface MyTransactional {
 
 ```
 
-1.  ¶¨Òå aop ²Ù×÷
+1.  å®šä¹‰ aop æ“ä½œ
 
 ```
 @Aspect
@@ -53,16 +53,16 @@ public class MyAopAspectj {
 
     @Around("testAop()")
     public Object around(ProceedingJoinPoint p) throws Throwable {
-        System.out.println("Ö´ĞĞÇ°£¬¿ªÆôÊÂÎñ....");
+        System.out.println("æ‰§è¡Œå‰ï¼Œå¼€å¯äº‹åŠ¡....");
         try {
             Object o = p.proceed();
-            System.out.println("Ö´ĞĞÍê³É£¬Ìá½»ÊÂÎñ....");
+            System.out.println("æ‰§è¡Œå®Œæˆï¼Œæäº¤äº‹åŠ¡....");
             return o;
         } catch (Throwable e) {
-            System.out.println("³öÏÖÁËÒì³££¬¸ù¾İÒì³£ÀàĞÍ»Ø¹öÊÂÎñ....");
+            System.out.println("å‡ºç°äº†å¼‚å¸¸ï¼Œæ ¹æ®å¼‚å¸¸ç±»å‹å›æ»šäº‹åŠ¡....");
             throw e;
         } finally {
-            System.out.println("Ö´ĞĞºó....");
+            System.out.println("æ‰§è¡Œå....");
         }
     }
 
@@ -70,7 +70,7 @@ public class MyAopAspectj {
 
 ```
 
-1.  config£¬½øĞĞÒ»Ğ©±ØÒªµÄÅäÖÃ
+1.  configï¼Œè¿›è¡Œä¸€äº›å¿…è¦çš„é…ç½®
 
 ```
 @Configuration
@@ -82,7 +82,7 @@ public class TxDemo02Config {
 
 ```
 
-1.  Ìí¼ÓÒ»¸ö service Àà£¬ÆäÖĞÒ»¸ö·½·¨ÉÏÓĞ `@MyTransactional` ×¢½â
+1.  æ·»åŠ ä¸€ä¸ª service ç±»ï¼Œå…¶ä¸­ä¸€ä¸ªæ–¹æ³•ä¸Šæœ‰ `@MyTransactional` æ³¨è§£
 
 ```
 @Service
@@ -90,18 +90,18 @@ public class TxTestService {
 
     @MyTransactional
     public void test01() {
-        System.out.println("Ö´ĞĞtest01·½·¨");
+        System.out.println("æ‰§è¡Œtest01æ–¹æ³•");
     }
 
     public void test02() {
-        System.out.println("Ö´ĞĞtest02·½·¨");
+        System.out.println("æ‰§è¡Œtest02æ–¹æ³•");
     }
 
 }
 
 ```
 
-1.  Ö÷Àà
+1.  ä¸»ç±»
 
 ```
 public class TxDemo02Main {
@@ -120,65 +120,65 @@ public class TxDemo02Main {
 
 ```
 
-ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+è¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
 -------------------
-Ö´ĞĞÇ°£¬¿ªÆôÊÂÎñ....
-Ö´ĞĞtest01·½·¨
-Ö´ĞĞÍê³É£¬Ìá½»ÊÂÎñ....
-Ö´ĞĞºó....
+æ‰§è¡Œå‰ï¼Œå¼€å¯äº‹åŠ¡....
+æ‰§è¡Œtest01æ–¹æ³•
+æ‰§è¡Œå®Œæˆï¼Œæäº¤äº‹åŠ¡....
+æ‰§è¡Œå....
 -------------------
-Ö´ĞĞtest02·½·¨
+æ‰§è¡Œtest02æ–¹æ³•
 
 ```
 
-Õâ¸ö demo ÖĞ£¬ÎÒÃÇÊ¹ÓÃ `@Around` ×¢½âÀ´À¹½ØÒµÎñ´úÂëÖ´ĞĞÇ°ºóµÄÇé¿ö£¬¿ÉÒÔ¿´µ½£¬`@Around` ×¢½â¿ÉÒÔÔÚ´úÂëÔËĞĞÇ°ºóÉõÖÁÊÇ³öÏÖÒì³£Ê±´¦ÀíÒ»Ğ©¶îÍâµÄ²Ù×÷¡£
+è¿™ä¸ª demo ä¸­ï¼Œæˆ‘ä»¬ä½¿ç”¨ `@Around` æ³¨è§£æ¥æ‹¦æˆªä¸šåŠ¡ä»£ç æ‰§è¡Œå‰åçš„æƒ…å†µï¼Œå¯ä»¥çœ‹åˆ°ï¼Œ`@Around` æ³¨è§£å¯ä»¥åœ¨ä»£ç è¿è¡Œå‰åç”šè‡³æ˜¯å‡ºç°å¼‚å¸¸æ—¶å¤„ç†ä¸€äº›é¢å¤–çš„æ“ä½œã€‚
 
-#### demo02£º×Ô¶¨Òå `advisor` ÊµÏÖÊÂÎñ
+#### demo02ï¼šè‡ªå®šä¹‰ `advisor` å®ç°äº‹åŠ¡
 
-ÈÃÎÒÃÇ»ØÒäÏÂ spring aop ¶Ô `@Around` ×¢½âµÄ´¦Àí£¬Êµ¼ÊÉÏ `@Around` ×îÖÕ»á·â×°Îª `InstantiationModelAwarePointcutAdvisorImpl` ¶ÔÏó£¬ºóÃæµÄ´¦Àí¾Í¸ú `@Around` ÎŞ¹ØÁË£¬`@Around` µ½ `InstantiationModelAwarePointcutAdvisorImpl` ¶ÔÏóµÄ¹ı³Ì£¬¿É²Î¿¼ [spring aop Ö® AnnotationAwareAspectJAutoProxyCreator ·ÖÎö£¨ÉÏ£©](https://my.oschina.net/funcy/blog/4678817).
+è®©æˆ‘ä»¬å›å¿†ä¸‹ spring aop å¯¹ `@Around` æ³¨è§£çš„å¤„ç†ï¼Œå®é™…ä¸Š `@Around` æœ€ç»ˆä¼šå°è£…ä¸º `InstantiationModelAwarePointcutAdvisorImpl` å¯¹è±¡ï¼Œåé¢çš„å¤„ç†å°±è·Ÿ `@Around` æ— å…³äº†ï¼Œ`@Around` åˆ° `InstantiationModelAwarePointcutAdvisorImpl` å¯¹è±¡çš„è¿‡ç¨‹ï¼Œå¯å‚è€ƒ [spring aop ä¹‹ AnnotationAwareAspectJAutoProxyCreator åˆ†æï¼ˆä¸Šï¼‰](https://my.oschina.net/funcy/blog/4678817).
 
-`InstantiationModelAwarePointcutAdvisorImpl` ÊÇ¸öÊ²Ã´¶«Î÷ÄØ£¿ÕâÊÇ¸ö `advisor`£¬¾ßÌåÀ´Ëµ¾ÍÊÇ¿ÉÓÃÓÚ·½·¨µÄÔöÇ¿¡£¹ØÓÚ spring aop ÊÇÈçºÎÕÒµ½ÄÜÓ¦ÓÃÓÚµ±Ç°·½·¨µÄ `advisor` µÄ£¬¿É²Î¿¼ [spring aop Ö® AnnotationAwareAspectJAutoProxyCreator ·ÖÎö£¨ÏÂ£©](https://my.oschina.net/funcy/blog/4687961)¡£
+`InstantiationModelAwarePointcutAdvisorImpl` æ˜¯ä¸ªä»€ä¹ˆä¸œè¥¿å‘¢ï¼Ÿè¿™æ˜¯ä¸ª `advisor`ï¼Œå…·ä½“æ¥è¯´å°±æ˜¯å¯ç”¨äºæ–¹æ³•çš„å¢å¼ºã€‚å…³äº spring aop æ˜¯å¦‚ä½•æ‰¾åˆ°èƒ½åº”ç”¨äºå½“å‰æ–¹æ³•çš„ `advisor` çš„ï¼Œå¯å‚è€ƒ [spring aop ä¹‹ AnnotationAwareAspectJAutoProxyCreator åˆ†æï¼ˆä¸‹ï¼‰](https://my.oschina.net/funcy/blog/4687961)ã€‚
 
-Í¨¹ıÒÔÉÏ·ÖÎö£¬¸øÎÒÃÇÌá¹©ÁËÁíÒ»¸öË¼Â·£ºÎÒÃÇ¿ÉÒÔÊµÏÖ `advisor` ½Ó¿Ú£¬¶¨ÖÆ»¯×Ô¼ºµÄÂß¼­£¬´úÂëÈçÏÂ£º
+é€šè¿‡ä»¥ä¸Šåˆ†æï¼Œç»™æˆ‘ä»¬æä¾›äº†å¦ä¸€ä¸ªæ€è·¯ï¼šæˆ‘ä»¬å¯ä»¥å®ç° `advisor` æ¥å£ï¼Œå®šåˆ¶åŒ–è‡ªå·±çš„é€»è¾‘ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
-1.  ×¼±¸ `advice`
+1.  å‡†å¤‡ `advice`
 
 ```
 /**
- * Õâ¸öadvice¾ÍÊÇadvisorµÄÒ»¸öÊôĞÔ£¬ÇĞÃæÂß¼­ÔÚÕâÀï´¦Àí
+ * è¿™ä¸ªadviceå°±æ˜¯advisorçš„ä¸€ä¸ªå±æ€§ï¼Œåˆ‡é¢é€»è¾‘åœ¨è¿™é‡Œå¤„ç†
  */
 public class MyAdvice implements MethodInterceptor {
 
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
-        System.out.println("Ö´ĞĞÇ°£¬¿ªÆôÊÂÎñ....");
+        System.out.println("æ‰§è¡Œå‰ï¼Œå¼€å¯äº‹åŠ¡....");
         try {
             Object val = invocation.proceed();
-            System.out.println("Ö´ĞĞÍê³É£¬Ìá½»ÊÂÎñ....");
+            System.out.println("æ‰§è¡Œå®Œæˆï¼Œæäº¤äº‹åŠ¡....");
             return val;
         } catch (Throwable e) {
-            System.out.println("³öÏÖÁËÒì³££¬¸ù¾İÒì³£ÀàĞÍ»Ø¹öÊÂÎñ....");
+            System.out.println("å‡ºç°äº†å¼‚å¸¸ï¼Œæ ¹æ®å¼‚å¸¸ç±»å‹å›æ»šäº‹åŠ¡....");
             throw e;
         } finally {
-            System.out.println("Ö´ĞĞºó....");
+            System.out.println("æ‰§è¡Œå....");
         }
     }
 }
 
 ```
 
-1.  ×¼±¸ `pointcut`
+1.  å‡†å¤‡ `pointcut`
 
 ```
 /**
- * ÇĞµã
- * ÅĞ¶ÏÄÄĞ©·½·¨ÄÜÓÃÓÚ¸Ãadvisor
+ * åˆ‡ç‚¹
+ * åˆ¤æ–­å“ªäº›æ–¹æ³•èƒ½ç”¨äºè¯¥advisor
  */
 public class MyPointcut extends StaticMethodMatcherPointcut {
     /**
-     * Æ¥Åä·½·¨£¬ÓĞ @MyTransactional µÄÀà»ò·½·¨¾Í·µ»Øtrue
+     * åŒ¹é…æ–¹æ³•ï¼Œæœ‰ @MyTransactional çš„ç±»æˆ–æ–¹æ³•å°±è¿”å›true
      */
     @Override
     public boolean matches(Method method, Class<?> targetClass) {
@@ -189,11 +189,11 @@ public class MyPointcut extends StaticMethodMatcherPointcut {
 
 ```
 
-1.  ×¼±¸ `advisor`
+1.  å‡†å¤‡ `advisor`
 
 ```
 /**
- * advisor ¿É¿´×÷ÊÇ advice Óë pointcut µÄ°ü×°
+ * advisor å¯çœ‹ä½œæ˜¯ advice ä¸ pointcut çš„åŒ…è£…
  */
 @Component
 public class MyAdvisor extends AbstractBeanFactoryPointcutAdvisor {
@@ -216,9 +216,9 @@ public class MyAdvisor extends AbstractBeanFactoryPointcutAdvisor {
 
 ```
 
-ÒÔÉÏÊÇ²»Í¬ÓÚ×¢½âµÄÊµÏÖ·½Ê½£¬½ÓÏÂÀ´µÄ´úÂë¾ÍÓë×¢½âÒ»ÑùÁË¡£
+ä»¥ä¸Šæ˜¯ä¸åŒäºæ³¨è§£çš„å®ç°æ–¹å¼ï¼Œæ¥ä¸‹æ¥çš„ä»£ç å°±ä¸æ³¨è§£ä¸€æ ·äº†ã€‚
 
-1.  ×¼±¸Ò»¸ö×¢½â£º`@MyTransactional`
+1.  å‡†å¤‡ä¸€ä¸ªæ³¨è§£ï¼š`@MyTransactional`
 
 ```
 @Target({ElementType.TYPE, ElementType.METHOD})
@@ -230,7 +230,7 @@ public @interface MyTransactional {
 
 ```
 
-1.  ´¦ÀíÏîÄ¿ÅäÖÃ
+1.  å¤„ç†é¡¹ç›®é…ç½®
 
 ```
 @Configuration
@@ -242,7 +242,7 @@ public class TxDemo01Config {
 
 ```
 
-1.  ×¼±¸Ò»¸ö service
+1.  å‡†å¤‡ä¸€ä¸ª service
 
 ```
 @Service
@@ -250,18 +250,18 @@ public class TxTestService {
 
     @MyTransactional
     public void test01() {
-        System.out.println("Ö´ĞĞtest01·½·¨");
+        System.out.println("æ‰§è¡Œtest01æ–¹æ³•");
     }
 
     public void test02() {
-        System.out.println("Ö´ĞĞtest02·½·¨");
+        System.out.println("æ‰§è¡Œtest02æ–¹æ³•");
     }
 
 }
 
 ```
 
-1.  Ö÷Àà
+1.  ä¸»ç±»
 
 ```
 public class TxDemo01Main {
@@ -280,33 +280,33 @@ public class TxDemo01Main {
 
 ```
 
-ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+è¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
 -------------------
-Ö´ĞĞÇ°£¬¿ªÆôÊÂÎñ....
-Ö´ĞĞtest01·½·¨
-Ö´ĞĞÍê³É£¬Ìá½»ÊÂÎñ....
-Ö´ĞĞºó....
+æ‰§è¡Œå‰ï¼Œå¼€å¯äº‹åŠ¡....
+æ‰§è¡Œtest01æ–¹æ³•
+æ‰§è¡Œå®Œæˆï¼Œæäº¤äº‹åŠ¡....
+æ‰§è¡Œå....
 -------------------
-Ö´ĞĞtest02·½·¨
+æ‰§è¡Œtest02æ–¹æ³•
 
 ```
 
-### 2\. Ê¹ÓÃ spring ÊÂÎñ¹ÜÀí
+### 2\. ä½¿ç”¨ spring äº‹åŠ¡ç®¡ç†
 
-ÓĞÁËÇ°ÃæµÄÁ½¸öĞ¡ demo ×÷Îª¿ªÎ¸²Ë£¬¶ÔÓÚ spring ÊÂÎñ´¦ÀíÏë±ØÄãÒÑÓĞÁËÒ»¸öÇåÎúµÄÈÏÊ¶£¬spring ÔÚ´¦ÀíÊÂÎñÊ±£¬Ê¹ÓÃµÄ¾ÍÊÇµÚ¶şÖÖ·½Ê½£¬¼´Íù×Ô¶¨ÒåÒ»¸ö `advisor` Ìí¼Óµ½ spring ÈİÆ÷ÖĞ¡£¹ØÓÚ spring ÊµÏÖÈÎÎñµÄ¾ßÌåÏ¸½Ú£¬ÎÒÃÇ´ı»á·ÖÎö£¬ÕâÀïÎÒÃÇÔÙÉÏÒ»¸ö demo£¬ÌåÑéÏÂÎÒÃÇÆ½Ê±ÊÇÔõÃ´Ê¹ÓÃÊÂÎñµÄ¡£
+æœ‰äº†å‰é¢çš„ä¸¤ä¸ªå° demo ä½œä¸ºå¼€èƒƒèœï¼Œå¯¹äº spring äº‹åŠ¡å¤„ç†æƒ³å¿…ä½ å·²æœ‰äº†ä¸€ä¸ªæ¸…æ™°çš„è®¤è¯†ï¼Œspring åœ¨å¤„ç†äº‹åŠ¡æ—¶ï¼Œä½¿ç”¨çš„å°±æ˜¯ç¬¬äºŒç§æ–¹å¼ï¼Œå³å¾€è‡ªå®šä¹‰ä¸€ä¸ª `advisor` æ·»åŠ åˆ° spring å®¹å™¨ä¸­ã€‚å…³äº spring å®ç°ä»»åŠ¡çš„å…·ä½“ç»†èŠ‚ï¼Œæˆ‘ä»¬å¾…ä¼šåˆ†æï¼Œè¿™é‡Œæˆ‘ä»¬å†ä¸Šä¸€ä¸ª demoï¼Œä½“éªŒä¸‹æˆ‘ä»¬å¹³æ—¶æ˜¯æ€ä¹ˆä½¿ç”¨äº‹åŠ¡çš„ã€‚
 
-ÎªÁË½øĞĞÊı¾İ¿âÁ¬½Ó£¬ÎÒÃÇĞèÒªÒıÈëÊı¾İ¿âÁ¬½Ó³Ø£¬ÕâÀïÎÒÃÇÊ¹ÓÃµÄÊÇ mysql£¬ĞèÒªÔÚ `spring-learn.gradle` ÖĞÌí¼ÓÒÀÀµ£º
+ä¸ºäº†è¿›è¡Œæ•°æ®åº“è¿æ¥ï¼Œæˆ‘ä»¬éœ€è¦å¼•å…¥æ•°æ®åº“è¿æ¥æ± ï¼Œè¿™é‡Œæˆ‘ä»¬ä½¿ç”¨çš„æ˜¯ mysqlï¼Œéœ€è¦åœ¨ `spring-learn.gradle` ä¸­æ·»åŠ ä¾èµ–ï¼š
 
 ```
 optional("mysql:mysql-connector-java:5.1.48")
 
 ```
 
-½Ó×Å¾ÍÊÇ´úÂëÁË¡£
+æ¥ç€å°±æ˜¯ä»£ç äº†ã€‚
 
-1.  ÅäÖÃÀà
+1.  é…ç½®ç±»
 
 ```
 @Configuration
@@ -315,7 +315,7 @@ optional("mysql:mysql-connector-java:5.1.48")
 public class TxDemo01Config {
 
     /**
-     * Éú³ÉÊı¾İÔ´
+     * ç”Ÿæˆæ•°æ®æº
      * @return
      * @throws Exception
      */
@@ -329,7 +329,7 @@ public class TxDemo01Config {
     }
 
     /**
-     * Éú³ÉjdbcTemplate£¬ºóÃæ¾ÍÊÇÓÃÕâ¸öÀàÀ´´¦ÀíÊı¾İ¿âµÄ²Ù×÷
+     * ç”ŸæˆjdbcTemplateï¼Œåé¢å°±æ˜¯ç”¨è¿™ä¸ªç±»æ¥å¤„ç†æ•°æ®åº“çš„æ“ä½œ
      * @param dataSource
      * @return
      */
@@ -339,7 +339,7 @@ public class TxDemo01Config {
     }
 
     /**
-     * ÊÂÎñ¹ÜÀíÆ÷
+     * äº‹åŠ¡ç®¡ç†å™¨
      * @param dataSource
      * @return
      */
@@ -352,7 +352,7 @@ public class TxDemo01Config {
 
 ```
 
-1.  Êı¾İ¿â²Ù×÷Àà
+1.  æ•°æ®åº“æ“ä½œç±»
 
 ```
 @Service
@@ -362,7 +362,7 @@ public class UserService {
     private JdbcTemplate jdbcTemplate;
 
     /**
-     * Êı¾İ¿â²åÈë²Ù×÷£¬Ê¹ÓÃ @Transactional ¿ªÆôÊÂÎñ
+     * æ•°æ®åº“æ’å…¥æ“ä½œï¼Œä½¿ç”¨ @Transactional å¼€å¯äº‹åŠ¡
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
@@ -371,7 +371,7 @@ public class UserService {
                 + "values (?, ?, ?, ?)";
         int result = jdbcTemplate.update(sql, "test", "test", new Date(), new Date());
         if(true) {
-            //throw new RuntimeException("Å×³ö¸öÒì³£");
+            //throw new RuntimeException("æŠ›å‡ºä¸ªå¼‚å¸¸");
         }
         System.out.println(result);
         return result;
@@ -381,7 +381,7 @@ public class UserService {
 
 ```
 
-1.  Ö÷Àà
+1.  ä¸»ç±»
 
 ```
 public class TxDemo01Main {
@@ -397,46 +397,46 @@ public class TxDemo01Main {
 
 ```
 
-demo ÖĞ£¬`DataSource` Ê¹ÓÃ spring ×Ô´øµÄ `SimpleDriverDataSource`£¬`orm` ¿ò¼ÜÒ²ÊÇ spring Ìá¹©µÄ `jdbcTemplate`£¬Ê¹ÓÃµÄ `user` ±í sql ÈçÏÂ£º
+demo ä¸­ï¼Œ`DataSource` ä½¿ç”¨ spring è‡ªå¸¦çš„ `SimpleDriverDataSource`ï¼Œ`orm` æ¡†æ¶ä¹Ÿæ˜¯ spring æä¾›çš„ `jdbcTemplate`ï¼Œä½¿ç”¨çš„ `user` è¡¨ sql å¦‚ä¸‹ï¼š
 
 ```
 CREATE TABLE `user` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Ö÷¼üid',
-  `login_name` varchar(32) NOT NULL DEFAULT '0' COMMENT 'µÇÂ¼Ãû',
-  `nick` varchar(32) NOT NULL DEFAULT '0' COMMENT 'êÇ³Æ',
-  `create_time` datetime DEFAULT NULL COMMENT '´´½¨Ê±¼ä',
-  `update_time` datetime DEFAULT NULL COMMENT '¸üĞÂÊ±¼ä',
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ä¸»é”®id',
+  `login_name` varchar(32) NOT NULL DEFAULT '0' COMMENT 'ç™»å½•å',
+  `nick` varchar(32) NOT NULL DEFAULT '0' COMMENT 'æ˜µç§°',
+  `create_time` datetime DEFAULT NULL COMMENT 'åˆ›å»ºæ—¶é—´',
+  `update_time` datetime DEFAULT NULL COMMENT 'æ›´æ–°æ—¶é—´',
   PRIMARY KEY (`id`),
   KEY `create_time` (`create_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='ÓÃ»§±í';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='ç”¨æˆ·è¡¨';
 
 ```
 
-Ö´ĞĞ½á¹ûÈçÏÂ£º
+æ‰§è¡Œç»“æœå¦‚ä¸‹ï¼š
 
-µÚÒ»´Î²»Å×³öÒì³££¬Êı¾İ¿â½á¹û£º
+ç¬¬ä¸€æ¬¡ä¸æŠ›å‡ºå¼‚å¸¸ï¼Œæ•°æ®åº“ç»“æœï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-30bbe23a8e0491d1f59378469ad04703e03.png)
 
-µÚ¶ş´ÎÅ×³öÒì³££¬Êı¾İ¿â½á¹û£º
+ç¬¬äºŒæ¬¡æŠ›å‡ºå¼‚å¸¸ï¼Œæ•°æ®åº“ç»“æœï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-edf98369ccef9735d83813cef7af7ea1dcd.png)
 
-µÚÈı´Î²»Å×³öÒì³££¬Êı¾İ¿â½á¹û£º
+ç¬¬ä¸‰æ¬¡ä¸æŠ›å‡ºå¼‚å¸¸ï¼Œæ•°æ®åº“ç»“æœï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-fab4169dbec7661f27bba203c5e77232f65.png)
 
-¿ÉÒÔ¿´µ½£¬µÚ¶ş´ÎÅ×³öÒì³£Ê±£¬Êı¾İÕı³£»Ø¹öÁË¡£
+å¯ä»¥çœ‹åˆ°ï¼Œç¬¬äºŒæ¬¡æŠ›å‡ºå¼‚å¸¸æ—¶ï¼Œæ•°æ®æ­£å¸¸å›æ»šäº†ã€‚
 
-ÎÒÃÇÔÙÀ´·ÖÎöÏÂÕâ¸ö demo£¬¸úÊÂÎñÓĞ¹ØµÄ´úÂëÓĞÈı´¦£º
+æˆ‘ä»¬å†æ¥åˆ†æä¸‹è¿™ä¸ª demoï¼Œè·Ÿäº‹åŠ¡æœ‰å…³çš„ä»£ç æœ‰ä¸‰å¤„ï¼š
 
-*   `@EnableTransactionManagement(proxyTargetClass = true)`£ºÆôÓÃÊÂÎñ
-*   `DataSourceTransactionManager`£ºÊÂÎñ¹ÜÀíÆ÷
-*   `@Transactional`£ºÖ¸¶¨¿ªÆôÊÂÎñµÄ·½·¨
+*   `@EnableTransactionManagement(proxyTargetClass = true)`ï¼šå¯ç”¨äº‹åŠ¡
+*   `DataSourceTransactionManager`ï¼šäº‹åŠ¡ç®¡ç†å™¨
+*   `@Transactional`ï¼šæŒ‡å®šå¼€å¯äº‹åŠ¡çš„æ–¹æ³•
 
-Àà±ÈÓÚ aop µÄ `@EnableAspectJAutoProxy`£¬`@EnableTransactionManagement` ÊÇÆô¶¯ÊÂÎñµÄÈë¿Ú£¬½Ó×ÅÎÒÃÇ¾Í´ÓÕâ¸ö×¢½âÈëÊÖ£¬·ÖÎö spring ÊÂÎñµÄÆôÓÃÁ÷³Ì¡£
+ç±»æ¯”äº aop çš„ `@EnableAspectJAutoProxy`ï¼Œ`@EnableTransactionManagement` æ˜¯å¯åŠ¨äº‹åŠ¡çš„å…¥å£ï¼Œæ¥ç€æˆ‘ä»¬å°±ä»è¿™ä¸ªæ³¨è§£å…¥æ‰‹ï¼Œåˆ†æ spring äº‹åŠ¡çš„å¯ç”¨æµç¨‹ã€‚
 
-### 3. `@EnableTransactionManagement` ×¢½â
+### 3. `@EnableTransactionManagement` æ³¨è§£
 
 ```
 @Target(ElementType.TYPE)
@@ -446,20 +446,20 @@ CREATE TABLE `user` (
 public @interface EnableTransactionManagement {
 
     /**
-     * Ñ§Íêaopºó£¬Ïë±Ø¶ÔÕâ¸öÊôĞÔÒÑ¾­ºÜÊìÏ¤
-     * true: ±íÊ¾Ç¿ÖÆÊ¹ÓÃcglib´úÀí
-     * false£ºÈç¹ûÄ¿±êÀàÊµÏÖÁË½Ó¿Ú£¬ÔòÊ¹ÓÃjdk¶¯Ì¬´úÀí£¬·ñÔòÊ¹ÓÃcglib´úÀí
-     * ½öÔÚ mode Îª PROXY ÏÂÉúĞ§
+     * å­¦å®Œaopåï¼Œæƒ³å¿…å¯¹è¿™ä¸ªå±æ€§å·²ç»å¾ˆç†Ÿæ‚‰
+     * true: è¡¨ç¤ºå¼ºåˆ¶ä½¿ç”¨cglibä»£ç†
+     * falseï¼šå¦‚æœç›®æ ‡ç±»å®ç°äº†æ¥å£ï¼Œåˆ™ä½¿ç”¨jdkåŠ¨æ€ä»£ç†ï¼Œå¦åˆ™ä½¿ç”¨cglibä»£ç†
+     * ä»…åœ¨ mode ä¸º PROXY ä¸‹ç”Ÿæ•ˆ
      */
     boolean proxyTargetClass() default false;
 
     /**
-     * adviceÄ£Ê½£¬Ê¹ÓÃ´úÀí£¬»¹ÊÇÊ¹ÓÃ aspectJ
+     * adviceæ¨¡å¼ï¼Œä½¿ç”¨ä»£ç†ï¼Œè¿˜æ˜¯ä½¿ç”¨ aspectJ
      */
     AdviceMode mode() default AdviceMode.PROXY;
 
     /**
-     * Ö´ĞĞË³Ğò£¬µ±Ò»¸ö´úÀí¶ÔÏóÓĞ¶à¸öÔöÇ¿Ê±£¬°´Ê²Ã´ÑùµÄË³ĞòÀ´Ö´ĞĞ
+     * æ‰§è¡Œé¡ºåºï¼Œå½“ä¸€ä¸ªä»£ç†å¯¹è±¡æœ‰å¤šä¸ªå¢å¼ºæ—¶ï¼ŒæŒ‰ä»€ä¹ˆæ ·çš„é¡ºåºæ¥æ‰§è¡Œ
      */
     int order() default Ordered.LOWEST_PRECEDENCE;
 
@@ -467,7 +467,7 @@ public @interface EnableTransactionManagement {
 
 ```
 
-Õâ¸ö×¢½â±¾ÉíÃ»Ê²Ã´£¬¾ÍÈı¸öÊôĞÔ£¬×¢ÊÍÒÑ¾­ºÜÃ÷È·ÁË£¬ÎÒÃÇ¹Ø¼ü»¹ÊÇ¿´Õâ¸ö×¢½âÒıÈëµÄÀà£º`TransactionManagementConfigurationSelector`£º
+è¿™ä¸ªæ³¨è§£æœ¬èº«æ²¡ä»€ä¹ˆï¼Œå°±ä¸‰ä¸ªå±æ€§ï¼Œæ³¨é‡Šå·²ç»å¾ˆæ˜ç¡®äº†ï¼Œæˆ‘ä»¬å…³é”®è¿˜æ˜¯çœ‹è¿™ä¸ªæ³¨è§£å¼•å…¥çš„ç±»ï¼š`TransactionManagementConfigurationSelector`ï¼š
 
 ```
 public class TransactionManagementConfigurationSelector extends 
@@ -476,30 +476,30 @@ public class TransactionManagementConfigurationSelector extends
     protected String[] selectImports(AdviceMode adviceMode) {
         switch (adviceMode) {
             case PROXY:
-                // »ùÓÚ´úÀíµÄÊÂÎñ¹ÜÀí£¬»áÒıÈëÁ½¸öÀà
+                // åŸºäºä»£ç†çš„äº‹åŠ¡ç®¡ç†ï¼Œä¼šå¼•å…¥ä¸¤ä¸ªç±»
                 return new String[] {AutoProxyRegistrar.class.getName(),
                         ProxyTransactionManagementConfiguration.class.getName()};
             case ASPECTJ:
-                // »ùÓÚaspectJµÄÊÂÎñ¹ÜÀí£¬»áÒıÈëÕâ¸öÀà£¬±¾ÎÄ²»·ÖÎö
+                // åŸºäºaspectJçš„äº‹åŠ¡ç®¡ç†ï¼Œä¼šå¼•å…¥è¿™ä¸ªç±»ï¼Œæœ¬æ–‡ä¸åˆ†æ
                 return new String[] {determineTransactionAspectClass()};
             default:
                 return null;
         }
     }
-    // Ê¡ÂÔÆäËû
+    // çœç•¥å…¶ä»–
     ...
 
 }
 
 ```
 
-»ùÓÚ´úÀíµÄÊÂÎñ¹ÜÀí£¬»áÒıÈëÁ½¸öÀà£º`AutoProxyRegistrar`¡¢`ProxyTransactionManagementConfiguration`£¬½ÓÏÂÀ´ÎÒÃÇ¾ÍÀ´·ÖÎöÕâÁ½¸öÀà¡£
+åŸºäºä»£ç†çš„äº‹åŠ¡ç®¡ç†ï¼Œä¼šå¼•å…¥ä¸¤ä¸ªç±»ï¼š`AutoProxyRegistrar`ã€`ProxyTransactionManagementConfiguration`ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬å°±æ¥åˆ†æè¿™ä¸¤ä¸ªç±»ã€‚
 
 #### 3.1 `AutoProxyRegistrar`
 
-´ÓÃû×ÖÉÏÀ´¿´£¬`AutoProxyRegistrar` ÊÇÒ»¸ö×¢²áÆ÷£¬»¹¼ÇµÃÇ°Ãæ aop µÄ×¢²áÆ÷ `AspectJAutoProxyRegistrar` Âğ£¬Á½ÕßÒ»ÑùµÄÌ×Â·£¡
+ä»åå­—ä¸Šæ¥çœ‹ï¼Œ`AutoProxyRegistrar` æ˜¯ä¸€ä¸ªæ³¨å†Œå™¨ï¼Œè¿˜è®°å¾—å‰é¢ aop çš„æ³¨å†Œå™¨ `AspectJAutoProxyRegistrar` å—ï¼Œä¸¤è€…ä¸€æ ·çš„å¥—è·¯ï¼
 
-ÎÒÃÇÀ´¿´¿´ÀïÃæ¾¿¾¹×öÁËÉ¶£º
+æˆ‘ä»¬æ¥çœ‹çœ‹é‡Œé¢ç©¶ç«Ÿåšäº†å•¥ï¼š
 
 ```
 public class AutoProxyRegistrar implements ImportBeanDefinitionRegistrar {
@@ -519,15 +519,15 @@ public class AutoProxyRegistrar implements ImportBeanDefinitionRegistrar {
             }
             Object mode = candidate.get("mode");
             Object proxyTargetClass = candidate.get("proxyTargetClass");
-            // Âú×ãifÌõ¼şµÄ£¬¾ÍÊÇ @EnableTransactionManagement ×¢½â
+            // æ»¡è¶³ifæ¡ä»¶çš„ï¼Œå°±æ˜¯ @EnableTransactionManagement æ³¨è§£
             if (mode != null && proxyTargetClass != null && AdviceMode.class == mode.getClass() &&
                     Boolean.class == proxyTargetClass.getClass()) {
                 candidateFound = true;
                 if (mode == AdviceMode.PROXY) {
-                    // ×¢²á²Ù×÷£¬×îÖÕ×¢²áÁË InfrastructureAdvisorAutoProxyCreator Àà£¬½ÓÏÂÀ´»á¼ÌĞø·ÖÎö
+                    // æ³¨å†Œæ“ä½œï¼Œæœ€ç»ˆæ³¨å†Œäº† InfrastructureAdvisorAutoProxyCreator ç±»ï¼Œæ¥ä¸‹æ¥ä¼šç»§ç»­åˆ†æ
                     AopConfigUtils.registerAutoProxyCreatorIfNecessary(registry);
                     if ((Boolean) proxyTargetClass) {
-                        // Ê¹ÓÃcglib´úÀí
+                        // ä½¿ç”¨cglibä»£ç†
                         AopConfigUtils.forceAutoProxyCreatorToUseClassProxying(registry);
                         return;
                     }
@@ -543,33 +543,33 @@ public class AutoProxyRegistrar implements ImportBeanDefinitionRegistrar {
 
 ```
 
-ÕâĞĞ´úÂë¹Ø¼üµÄ¾ÍÖ»ÓĞ if ÀïµÄ¼¸ĞĞ£¬ÏÈËµÏÂ if Ìõ¼ş£º`mode != null && proxyTargetClass != null && AdviceMode.class == mode.getClass() &&Boolean.class == proxyTargetClass.getClass()`£¬Í¨¹ıÉÏÃæµÄ¶Ô `@EnableTransactionManagement`£¬ÕâËµµÄ¾ÍÊÇËüÁË£»¶ÔÓÚ `mode == AdviceMode.PROXY`£¬¼ÌĞøµ÷ÓÃ `AopConfigUtils.registerAutoProxyCreatorIfNecessary(registry)`£¨¹ØÓÚÕâ¸ö·½·¨µÄµ÷ÓÃ£¬ÎÒÃÇ½ÓÏÂÀ´»á¼ÌĞø·ÖÎö£©£»È»ºó´¦Àí `proxyTargetClass`£¬Õâ¸öÊôĞÔµÄ×÷ÓÃÓë `@EnableAspectJAutoProxy` ÖĞµÄ `proxyTargetClass` Ò»ÖÂ£¬Ò²ÊÇ¿ÉÒÔÇ¿ÖÆÊ¹ÓÃ cglib ´úÀí¡£
+è¿™è¡Œä»£ç å…³é”®çš„å°±åªæœ‰ if é‡Œçš„å‡ è¡Œï¼Œå…ˆè¯´ä¸‹ if æ¡ä»¶ï¼š`mode != null && proxyTargetClass != null && AdviceMode.class == mode.getClass() &&Boolean.class == proxyTargetClass.getClass()`ï¼Œé€šè¿‡ä¸Šé¢çš„å¯¹ `@EnableTransactionManagement`ï¼Œè¿™è¯´çš„å°±æ˜¯å®ƒäº†ï¼›å¯¹äº `mode == AdviceMode.PROXY`ï¼Œç»§ç»­è°ƒç”¨ `AopConfigUtils.registerAutoProxyCreatorIfNecessary(registry)`ï¼ˆå…³äºè¿™ä¸ªæ–¹æ³•çš„è°ƒç”¨ï¼Œæˆ‘ä»¬æ¥ä¸‹æ¥ä¼šç»§ç»­åˆ†æï¼‰ï¼›ç„¶åå¤„ç† `proxyTargetClass`ï¼Œè¿™ä¸ªå±æ€§çš„ä½œç”¨ä¸ `@EnableAspectJAutoProxy` ä¸­çš„ `proxyTargetClass` ä¸€è‡´ï¼Œä¹Ÿæ˜¯å¯ä»¥å¼ºåˆ¶ä½¿ç”¨ cglib ä»£ç†ã€‚
 
-½Ó×ÅÎÒÃÇÀ´·ÖÎöÏÂ `AopConfigUtils.registerAutoProxyCreatorIfNecessary(registry)` µÄ¹ı³Ì£¬¸ú½ø´úÂë£º
+æ¥ç€æˆ‘ä»¬æ¥åˆ†æä¸‹ `AopConfigUtils.registerAutoProxyCreatorIfNecessary(registry)` çš„è¿‡ç¨‹ï¼Œè·Ÿè¿›ä»£ç ï¼š
 
 > AopConfigUtils
 
 ```
     @Nullable
     public static BeanDefinition registerAutoProxyCreatorIfNecessary(BeanDefinitionRegistry registry) {
-        // ¼ÌĞøÍùÏÂ¿´
+        // ç»§ç»­å¾€ä¸‹çœ‹
         return registerAutoProxyCreatorIfNecessary(registry, null);
     }
 
     @Nullable
     public static BeanDefinition registerAutoProxyCreatorIfNecessary(
             BeanDefinitionRegistry registry, @Nullable Object source) {
-        // ´«Èë InfrastructureAdvisorAutoProxyCreator Àà£¬¼ÌĞøµ÷ÓÃ
+        // ä¼ å…¥ InfrastructureAdvisorAutoProxyCreator ç±»ï¼Œç»§ç»­è°ƒç”¨
         return registerOrEscalateApcAsRequired(InfrastructureAdvisorAutoProxyCreator.class, 
             registry, source);
     }
 
 ```
 
-¿´µ½ÕâÀï£¬ÊÇ²»ÊÇÓĞÖÖÉîÉîµÄÊìÏ¤¸Ğ£¿aop ÖĞµÄ `AspectJAnnotationAutoProxyCreator` Ò² ÊÇÕâÃ´×¢²áµÄ£¡½øÈë `AopConfigUtils#registerOrEscalateApcAsRequired` ·½·¨£º
+çœ‹åˆ°è¿™é‡Œï¼Œæ˜¯ä¸æ˜¯æœ‰ç§æ·±æ·±çš„ç†Ÿæ‚‰æ„Ÿï¼Ÿaop ä¸­çš„ `AspectJAnnotationAutoProxyCreator` ä¹Ÿ æ˜¯è¿™ä¹ˆæ³¨å†Œçš„ï¼è¿›å…¥ `AopConfigUtils#registerOrEscalateApcAsRequired` æ–¹æ³•ï¼š
 
 ```
-// AopConfigUtils ¿É×¢²áµÄÀà¶¼ÔÚÕâÀïÁË
+// AopConfigUtils å¯æ³¨å†Œçš„ç±»éƒ½åœ¨è¿™é‡Œäº†
 private static final List<Class<?>> APC_PRIORITY_LIST = new ArrayList<>(3);
 
 static {
@@ -579,29 +579,29 @@ static {
 }
 
 /**
- * ×¢²á²Ù×÷
+ * æ³¨å†Œæ“ä½œ
  */
 private static BeanDefinition registerOrEscalateApcAsRequired(
         Class<?> cls, BeanDefinitionRegistry registry, @Nullable Object source) {
     Assert.notNull(registry, "BeanDefinitionRegistry must not be null");
-    //Èç¹ûÒÑ´æÔÚÕâ¸öbean
+    //å¦‚æœå·²å­˜åœ¨è¿™ä¸ªbean
     if (registry.containsBeanDefinition(AUTO_PROXY_CREATOR_BEAN_NAME)) {
         BeanDefinition apcDefinition = registry.getBeanDefinition(AUTO_PROXY_CREATOR_BEAN_NAME);
-        //ÅĞ¶ÏÓÅÏÈ¼¶£¬Èç¹ûÓÅÏÈ¼¶½Ï¸ßÔòÌæ»»Ô­ÏÈµÄbean
+        //åˆ¤æ–­ä¼˜å…ˆçº§ï¼Œå¦‚æœä¼˜å…ˆçº§è¾ƒé«˜åˆ™æ›¿æ¢åŸå…ˆçš„bean
         if (!cls.getName().equals(apcDefinition.getBeanClassName())) {
             int currentPriority = findPriorityForClass(apcDefinition.getBeanClassName());
             int requiredPriority = findPriorityForClass(cls);
-            // ÒÑ´æÔÚÀà µÄÓÅÏÈ¼¶ Ğ¡ÓÚÕıÔÚ×¢²áµÄ£¬ÔòÊ¹ÓÃÕıÔÚ×¢²áµÄ£¬ÒÑ´æÔÚµÄÈı¸öÀàµÄÓÅÏÈ¼¶Îª
-            // 0: InfrastructureAdvisorAutoProxyCreator(´¦ÀíÊÂÎñ)
-            // 1: AspectJAwareAdvisorAutoProxyCreator(´¦Àí»ùÓÚxmlµÄaop)
-            // 2: AnnotationAwareAspectJAutoProxyCreator(´¦Àí»ùÓÚ×¢½âµÄaop)
+            // å·²å­˜åœ¨ç±» çš„ä¼˜å…ˆçº§ å°äºæ­£åœ¨æ³¨å†Œçš„ï¼Œåˆ™ä½¿ç”¨æ­£åœ¨æ³¨å†Œçš„ï¼Œå·²å­˜åœ¨çš„ä¸‰ä¸ªç±»çš„ä¼˜å…ˆçº§ä¸º
+            // 0: InfrastructureAdvisorAutoProxyCreator(å¤„ç†äº‹åŠ¡)
+            // 1: AspectJAwareAdvisorAutoProxyCreator(å¤„ç†åŸºäºxmlçš„aop)
+            // 2: AnnotationAwareAspectJAutoProxyCreator(å¤„ç†åŸºäºæ³¨è§£çš„aop)
             if (currentPriority < requiredPriority) {
                 apcDefinition.setBeanClassName(cls.getName());
             }
         }
         return null;
     }
-    //×¢²áXxxAutoProxyCreatorµ½ÈİÆ÷ÖĞ
+    //æ³¨å†ŒXxxAutoProxyCreatoråˆ°å®¹å™¨ä¸­
     RootBeanDefinition beanDefinition = new RootBeanDefinition(cls);
     beanDefinition.setSource(source);
     beanDefinition.getPropertyValues().add("order", Ordered.HIGHEST_PRECEDENCE);
@@ -611,7 +611,7 @@ private static BeanDefinition registerOrEscalateApcAsRequired(
 }
 
 /**
- * ²éÕÒ×¢²áÀàµÄÓÅÏÈ¼¶
+ * æŸ¥æ‰¾æ³¨å†Œç±»çš„ä¼˜å…ˆçº§
  */
 private static int findPriorityForClass(@Nullable String className) {
     for (int i = 0; i < APC_PRIORITY_LIST.size(); i++) {
@@ -626,18 +626,18 @@ private static int findPriorityForClass(@Nullable String className) {
 
 ```
 
-`AopConfigUtils` ¿É×¢²áµÄÀàÓĞÓĞÈı¸ö£º
+`AopConfigUtils` å¯æ³¨å†Œçš„ç±»æœ‰æœ‰ä¸‰ä¸ªï¼š
 
-*   `InfrastructureAdvisorAutoProxyCreator`£º´¦ÀíÊÂÎñ
-*   `AspectJAwareAdvisorAutoProxyCreator`£º´¦Àí»ùÓÚ xml µÄ aop
-*   `AnnotationAwareAspectJAutoProxyCreator`£º´¦Àí»ùÓÚ×¢½âµÄ aop
+*   `InfrastructureAdvisorAutoProxyCreator`ï¼šå¤„ç†äº‹åŠ¡
+*   `AspectJAwareAdvisorAutoProxyCreator`ï¼šå¤„ç†åŸºäº xml çš„ aop
+*   `AnnotationAwareAspectJAutoProxyCreator`ï¼šå¤„ç†åŸºäºæ³¨è§£çš„ aop
 
-ÕâÈıÕßµÄÓÅÏÈ¼¶Îª `AnnotationAwareAspectJAutoProxyCreator` > `AspectJAwareAdvisorAutoProxyCreator` > `InfrastructureAdvisorAutoProxyCreator`£¬×¢ÈëÊ±£¬»áÅĞ¶Ï×¢ÈëÀàµÄÓÅÏÈ¼¶£¬ÓÅÏÈ¼¶¸ßµÄ×îÖÕ»á±»×¢Èëµ½ spring ÈİÆ÷ÖĞ¡£ÕâÑù¾Íµ¼ÖÂÁËÒ»¸öÎÊÌâ£º**Èç¹ûÏîÄ¿ÖĞÍ¬Ê±¿ªÆôÁË aop (`@EnableAspectJAutoProxy`) ÓëÊÂÎñ (`@EnableTransactionManagement`)£¬ÄÇÃ´×îÖÕ×¢Èëµ½ÈİÆ÷µÄ½«ÊÇ `AnnotationAwareAspectJAutoProxyCreator`£¬ÕâÒ²¾ÍÊÇËµ£¬`AnnotationAwareAspectJAutoProxyCreator` Ò²ÄÜ´¦ÀíÊÂÎñ£¡** Õâ¾ä»°·Ç³£¹Ø¼ü£¬ËüÒâÎ¶×ÅÊÂÎñµÄ´¦Àí¹ı³Ì£¬Êµ¼ÊÉÏ¾Í°üº¬ÔÚÇ°Ãæ·ÖÎöµÄ aop µÄ¹ı³ÌÖĞÁË£¡
+è¿™ä¸‰è€…çš„ä¼˜å…ˆçº§ä¸º `AnnotationAwareAspectJAutoProxyCreator` > `AspectJAwareAdvisorAutoProxyCreator` > `InfrastructureAdvisorAutoProxyCreator`ï¼Œæ³¨å…¥æ—¶ï¼Œä¼šåˆ¤æ–­æ³¨å…¥ç±»çš„ä¼˜å…ˆçº§ï¼Œä¼˜å…ˆçº§é«˜çš„æœ€ç»ˆä¼šè¢«æ³¨å…¥åˆ° spring å®¹å™¨ä¸­ã€‚è¿™æ ·å°±å¯¼è‡´äº†ä¸€ä¸ªé—®é¢˜ï¼š**å¦‚æœé¡¹ç›®ä¸­åŒæ—¶å¼€å¯äº† aop (`@EnableAspectJAutoProxy`) ä¸äº‹åŠ¡ (`@EnableTransactionManagement`)ï¼Œé‚£ä¹ˆæœ€ç»ˆæ³¨å…¥åˆ°å®¹å™¨çš„å°†æ˜¯ `AnnotationAwareAspectJAutoProxyCreator`ï¼Œè¿™ä¹Ÿå°±æ˜¯è¯´ï¼Œ`AnnotationAwareAspectJAutoProxyCreator` ä¹Ÿèƒ½å¤„ç†äº‹åŠ¡ï¼** è¿™å¥è¯éå¸¸å…³é”®ï¼Œå®ƒæ„å‘³ç€äº‹åŠ¡çš„å¤„ç†è¿‡ç¨‹ï¼Œå®é™…ä¸Šå°±åŒ…å«åœ¨å‰é¢åˆ†æçš„ aop çš„è¿‡ç¨‹ä¸­äº†ï¼
 
-ÎÒÃÇÒ²À´¿´¿´ `InfrastructureAdvisorAutoProxyCreator`£º
+æˆ‘ä»¬ä¹Ÿæ¥çœ‹çœ‹ `InfrastructureAdvisorAutoProxyCreator`ï¼š
 
 ```
-// ¼Ì³ĞÁË AbstractAdvisorAutoProxyCreator£¬Õâ¸öÀà·Ç³£¹Ø¼ü
+// ç»§æ‰¿äº† AbstractAdvisorAutoProxyCreatorï¼Œè¿™ä¸ªç±»éå¸¸å…³é”®
 public class InfrastructureAdvisorAutoProxyCreator extends AbstractAdvisorAutoProxyCreator {
 
     @Nullable
@@ -661,23 +661,23 @@ public class InfrastructureAdvisorAutoProxyCreator extends AbstractAdvisorAutoPr
 
 ```
 
-`InfrastructureAdvisorAutoProxyCreator` ÆäÊµ²¢Ã»ÓĞ×öÊ²Ã´Óë aop Ïà¹ØµÄÊÂ£¬µ«Ëü¼Ì³ĞÁËÒ»¸ö¹Ø¼üµÄÀà£º`AbstractAdvisorAutoProxyCreator`£¬Õâ¸öÀà¿ÉÊÇ´óÓĞÀ´Í·£º
+`InfrastructureAdvisorAutoProxyCreator` å…¶å®å¹¶æ²¡æœ‰åšä»€ä¹ˆä¸ aop ç›¸å…³çš„äº‹ï¼Œä½†å®ƒç»§æ‰¿äº†ä¸€ä¸ªå…³é”®çš„ç±»ï¼š`AbstractAdvisorAutoProxyCreator`ï¼Œè¿™ä¸ªç±»å¯æ˜¯å¤§æœ‰æ¥å¤´ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-2881f63ac07afc5095c449ddb9a0df2bb55.png)
 
-´Ó¼Ì³Ğ¹ØÏµÀ´¿´£¬Õâ¸öÀà¼Ì³ĞÁË `AbstractAutoProxyCreator`£¬¶ø `AbstractAutoProxyCreator` ÕıÊÇÎÒÃÇÔÚ - [spring aop Ö® AnnotationAwareAspectJAutoProxyCreator ·ÖÎö£¨ÉÏ£©](https://my.oschina.net/funcy/blog/4678817) Óë [spring aop Ö® AnnotationAwareAspectJAutoProxyCreator ·ÖÎö£¨ÏÂ£©](https://my.oschina.net/funcy/blog/4687961)ÖĞÖØµã·ÖÎöµÄ¡¢´úÀí¶ÔÏóµÄ²úÉúËùÔÚ£¡
+ä»ç»§æ‰¿å…³ç³»æ¥çœ‹ï¼Œè¿™ä¸ªç±»ç»§æ‰¿äº† `AbstractAutoProxyCreator`ï¼Œè€Œ `AbstractAutoProxyCreator` æ­£æ˜¯æˆ‘ä»¬åœ¨ - [spring aop ä¹‹ AnnotationAwareAspectJAutoProxyCreator åˆ†æï¼ˆä¸Šï¼‰](https://my.oschina.net/funcy/blog/4678817) ä¸ [spring aop ä¹‹ AnnotationAwareAspectJAutoProxyCreator åˆ†æï¼ˆä¸‹ï¼‰](https://my.oschina.net/funcy/blog/4687961)ä¸­é‡ç‚¹åˆ†æçš„ã€ä»£ç†å¯¹è±¡çš„äº§ç”Ÿæ‰€åœ¨ï¼
 
-ÎÒÃÇÔÙÀ´¿´ÏÂ `AnnotationAwareAspectJAutoProxyCreator`¡¢`AspectJAwareAdvisorAutoProxyCreator` ¡¢`InfrastructureAdvisorAutoProxyCreator` ÕâÈıÕßµÄ¹ØÏµ£º
+æˆ‘ä»¬å†æ¥çœ‹ä¸‹ `AnnotationAwareAspectJAutoProxyCreator`ã€`AspectJAwareAdvisorAutoProxyCreator` ã€`InfrastructureAdvisorAutoProxyCreator` è¿™ä¸‰è€…çš„å…³ç³»ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-acd72335503eeb686abe81d930b45f1f3f0.png)
 
-¿ÉÒÔ¿´µ½£¬`AspectJAwareAdvisorAutoProxyCreator` ¡¢`InfrastructureAdvisorAutoProxyCreator` ¶¼¼Ì³ĞÁË `AbstractAdvisorAutoProxyCreator`£¬`AnnotationAwareAspectJAutoProxyCreator` ÓÖ¼Ì³ĞÁË `AspectJAwareAdvisorAutoProxyCreator`¡£
+å¯ä»¥çœ‹åˆ°ï¼Œ`AspectJAwareAdvisorAutoProxyCreator` ã€`InfrastructureAdvisorAutoProxyCreator` éƒ½ç»§æ‰¿äº† `AbstractAdvisorAutoProxyCreator`ï¼Œ`AnnotationAwareAspectJAutoProxyCreator` åˆç»§æ‰¿äº† `AspectJAwareAdvisorAutoProxyCreator`ã€‚
 
-Í¨¹ıÒÔÉÏ·ÖÎö£¬`AutoProxyRegistrar` ×îÖÕÏò spring ÈİÆ÷×¢²áÁË `InfrastructureAdvisorAutoProxyCreator`(`aop` Î´ÆôÓÃµÄÇé¿öÏÂ)£¬Èç¹ûÆôÓÃÁË `aop`£¬Ôò»á×¢²á `AspectJAwareAdvisorAutoProxyCreator`(»ùÓÚ `xml` µÄ `aop`) »ò `AnnotationAwareAspectJAutoProxyCreator`(»ùÓÚ `annotation` µÄ `aop`)¡£
+é€šè¿‡ä»¥ä¸Šåˆ†æï¼Œ`AutoProxyRegistrar` æœ€ç»ˆå‘ spring å®¹å™¨æ³¨å†Œäº† `InfrastructureAdvisorAutoProxyCreator`(`aop` æœªå¯ç”¨çš„æƒ…å†µä¸‹)ï¼Œå¦‚æœå¯ç”¨äº† `aop`ï¼Œåˆ™ä¼šæ³¨å†Œ `AspectJAwareAdvisorAutoProxyCreator`(åŸºäº `xml` çš„ `aop`) æˆ– `AnnotationAwareAspectJAutoProxyCreator`(åŸºäº `annotation` çš„ `aop`)ã€‚
 
 #### 3.2 `ProxyTransactionManagementConfiguration`
 
-½ÓÏÂÀ´ÎÒÃÇÀ´¿´¿´ `ProxyTransactionManagementConfiguration` Àà¡£Ãû×ÖÉÏÀ´¿´£¬ÕâÊÇ¸öÅäÖÃÀà£º
+æ¥ä¸‹æ¥æˆ‘ä»¬æ¥çœ‹çœ‹ `ProxyTransactionManagementConfiguration` ç±»ã€‚åå­—ä¸Šæ¥çœ‹ï¼Œè¿™æ˜¯ä¸ªé…ç½®ç±»ï¼š
 
 ```
 @Configuration(proxyBeanMethods = false)
@@ -685,7 +685,7 @@ public class ProxyTransactionManagementConfiguration
         extends AbstractTransactionManagementConfiguration {
 
     /**
-     * ¶ÁÈ¡SpringµÄ @Transactional ×¢½â£¬²¢½«ÏàÓ¦µÄÊÂÎñÊôĞÔ¹«¿ª¸øSpringµÄÊÂÎñ»ù´¡½á¹¹
+     * è¯»å–Springçš„ @Transactional æ³¨è§£ï¼Œå¹¶å°†ç›¸åº”çš„äº‹åŠ¡å±æ€§å…¬å¼€ç»™Springçš„äº‹åŠ¡åŸºç¡€ç»“æ„
      */
     @Bean
     @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
@@ -694,15 +694,15 @@ public class ProxyTransactionManagementConfiguration
     }
 
     /**
-     * TransactionInterceptor¼Ì³ĞÁËAdvice£¬Õâ¸öÀàÊÇ¸öadvice£¬ÓÃÀ´´¦ÀíÊÂÎñµÄÖ´ĞĞ²Ù×÷
-     * @param transactionAttributeSource£ºÀ´×ÔÓÚÉÏÃæµÄ transactionAttributeSource() ·½·¨
+     * TransactionInterceptorç»§æ‰¿äº†Adviceï¼Œè¿™ä¸ªç±»æ˜¯ä¸ªadviceï¼Œç”¨æ¥å¤„ç†äº‹åŠ¡çš„æ‰§è¡Œæ“ä½œ
+     * @param transactionAttributeSourceï¼šæ¥è‡ªäºä¸Šé¢çš„ transactionAttributeSource() æ–¹æ³•
      */
     @Bean
     @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
     public TransactionInterceptor transactionInterceptor(
             TransactionAttributeSource transactionAttributeSource) {
         TransactionInterceptor interceptor = new TransactionInterceptor();
-        // ÉèÖÃÊÂÎñÊôĞÔ´¦Àí¶ÔÏó£¬¾ÍÊÇÓÃÀ´´¦Àí @Transactional ×¢½â µÄ¶ÁÈ¡
+        // è®¾ç½®äº‹åŠ¡å±æ€§å¤„ç†å¯¹è±¡ï¼Œå°±æ˜¯ç”¨æ¥å¤„ç† @Transactional æ³¨è§£ çš„è¯»å–
         interceptor.setTransactionAttributeSource(transactionAttributeSource);
         if (this.txManager != null) {
             interceptor.setTransactionManager(this.txManager);
@@ -711,9 +711,9 @@ public class ProxyTransactionManagementConfiguration
     }
 
     /**
-     * ÊÂÎñÔöÇ¿Æ÷.
-     * @param transactionAttributeSource£ºÀ´×ÔÓÚÉÏÃæµÄ transactionAttributeSource() ·½·¨
-     * @param transactionInterceptor£ºÀ´×ÔÓÚÉÏÃæµÄ transactionInterceptor(...) ·½·¨
+     * äº‹åŠ¡å¢å¼ºå™¨.
+     * @param transactionAttributeSourceï¼šæ¥è‡ªäºä¸Šé¢çš„ transactionAttributeSource() æ–¹æ³•
+     * @param transactionInterceptorï¼šæ¥è‡ªäºä¸Šé¢çš„ transactionInterceptor(...) æ–¹æ³•
      */
     @Bean(name = TransactionManagementConfigUtils.TRANSACTION_ADVISOR_BEAN_NAME)
     @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
@@ -722,9 +722,9 @@ public class ProxyTransactionManagementConfiguration
             TransactionInterceptor transactionInterceptor) {
         BeanFactoryTransactionAttributeSourceAdvisor advisor 
                 = new BeanFactoryTransactionAttributeSourceAdvisor();
-        // ÊÂÎñÊôĞÔÀà£¬ÓÃÀ´±£´æ @Transactional µÄÊôĞÔ
+        // äº‹åŠ¡å±æ€§ç±»ï¼Œç”¨æ¥ä¿å­˜ @Transactional çš„å±æ€§
         advisor.setTransactionAttributeSource(transactionAttributeSource);
-        // ÅäÖÃadvice£¬ÔÚadviceÀï´¦ÀíÊÂÎñ
+        // é…ç½®adviceï¼Œåœ¨adviceé‡Œå¤„ç†äº‹åŠ¡
         advisor.setAdvice(transactionInterceptor);
         if (this.enableTx != null) {
             advisor.setOrder(this.enableTx.<Integer>getNumber("order"));
@@ -736,13 +736,13 @@ public class ProxyTransactionManagementConfiguration
 
 ```
 
-¿ÉÒÔ¿´µ½Õâ¸öÀàÒıÈëÁËÒ» Ğ© `bean`£º
+å¯ä»¥çœ‹åˆ°è¿™ä¸ªç±»å¼•å…¥äº†ä¸€ äº› `bean`ï¼š
 
-*   `transactionAttributeSource`£ºÀàĞÍÎª `AnnotationTransactionAttributeSource`£¬ÓÃÀ´½âÎö `@Transactional` ×¢½â£»
-*   `transactionInterceptor`£ºÀàĞÍÎª `TransactionInterceptor`£¬`Advice` µÄ×ÓÀà£¬´¦ÀíÊÂÎñµÄÂß¼­ÔÚÕâ¸öÀàÀï£»
-*   `transactionAdvisor`£ºÀàĞÍÎª `BeanFactoryTransactionAttributeSourceAdvisor`£¬ÕâÊÇ¸ö `Advisor`£¬ÓÃÀ´´¦ÀíÇĞÃæÂß¼­£¬ÄÚ²¿¼¯³ÉÁËÉÏÃæÁ½¸ö¶ÔÏó£º`transactionAttributeSource` Óë `transactionInterceptor`£»
+*   `transactionAttributeSource`ï¼šç±»å‹ä¸º `AnnotationTransactionAttributeSource`ï¼Œç”¨æ¥è§£æ `@Transactional` æ³¨è§£ï¼›
+*   `transactionInterceptor`ï¼šç±»å‹ä¸º `TransactionInterceptor`ï¼Œ`Advice` çš„å­ç±»ï¼Œå¤„ç†äº‹åŠ¡çš„é€»è¾‘åœ¨è¿™ä¸ªç±»é‡Œï¼›
+*   `transactionAdvisor`ï¼šç±»å‹ä¸º `BeanFactoryTransactionAttributeSourceAdvisor`ï¼Œè¿™æ˜¯ä¸ª `Advisor`ï¼Œç”¨æ¥å¤„ç†åˆ‡é¢é€»è¾‘ï¼Œå†…éƒ¨é›†æˆäº†ä¸Šé¢ä¸¤ä¸ªå¯¹è±¡ï¼š`transactionAttributeSource` ä¸ `transactionInterceptor`ï¼›
 
-`ProxyTransactionManagementConfiguration` ¼Ì³ĞÁË `AbstractTransactionManagementConfiguration`£¬¶ø `AbstractTransactionManagementConfiguration` ÖĞÒ²ÒıÈëÁËÒ»Ğ© `bean`£º
+`ProxyTransactionManagementConfiguration` ç»§æ‰¿äº† `AbstractTransactionManagementConfiguration`ï¼Œè€Œ `AbstractTransactionManagementConfiguration` ä¸­ä¹Ÿå¼•å…¥äº†ä¸€äº› `bean`ï¼š
 
 ```
 @Configuration
@@ -752,13 +752,13 @@ public abstract class AbstractTransactionManagementConfiguration implements Impo
     protected AnnotationAttributes enableTx;
 
     /**
-     * ±£´æÊÂÎñ¹ÜÀíÆ÷
+     * ä¿å­˜äº‹åŠ¡ç®¡ç†å™¨
      */
     @Nullable
     protected TransactionManager txManager;
 
     /**
-     * À´×ÔÓÚ ImportAware ½Ó¿ÚµÄ·½·¨
+     * æ¥è‡ªäº ImportAware æ¥å£çš„æ–¹æ³•
      */
     @Override
     public void setImportMetadata(AnnotationMetadata importMetadata) {
@@ -772,11 +772,11 @@ public abstract class AbstractTransactionManagementConfiguration implements Impo
     }
 
     /**
-     * ÅäÖÃÊÂÎñ¹ÜÀíÆ÷.
-     * ×¢ÈëspringÈİÆ÷ÖĞËùÓĞµÄ TransactionManagementConfigurer ¶ÔÏó
-     * TransactionManagementConfigurer¾ÍÖ»ÓĞÒ»¸ö·½·¨£º
+     * é…ç½®äº‹åŠ¡ç®¡ç†å™¨.
+     * æ³¨å…¥springå®¹å™¨ä¸­æ‰€æœ‰çš„ TransactionManagementConfigurer å¯¹è±¡
+     * TransactionManagementConfigurerå°±åªæœ‰ä¸€ä¸ªæ–¹æ³•ï¼š
      *  TransactionManager annotationDrivenTransactionManager()
-     * Õâ¸ö·½·¨ÓÃÀ´·µ»ØÒ»¸öÊÂÎñ¹ÜÀíÆ÷
+     * è¿™ä¸ªæ–¹æ³•ç”¨æ¥è¿”å›ä¸€ä¸ªäº‹åŠ¡ç®¡ç†å™¨
      */
     @Autowired(required = false)
     void setConfigurers(Collection<TransactionManagementConfigurer> configurers) {
@@ -791,7 +791,7 @@ public abstract class AbstractTransactionManagementConfiguration implements Impo
     }
 
     /**
-     * ´¦ÀíÊÂ¼ş¼àÌı£¬ÓÃÀ´´¦Àí @TransactionalEventListener ×¢½âµÄ·½·¨.
+     * å¤„ç†äº‹ä»¶ç›‘å¬ï¼Œç”¨æ¥å¤„ç† @TransactionalEventListener æ³¨è§£çš„æ–¹æ³•.
      */
     @Bean(name = TransactionManagementConfigUtils.TRANSACTIONAL_EVENT_LISTENER_FACTORY_BEAN_NAME)
     @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
@@ -803,23 +803,23 @@ public abstract class AbstractTransactionManagementConfiguration implements Impo
 
 ```
 
-*   `void setConfigurers(Collection<TransactionManagementConfigurer> configurers)`£º×¢Èë `TransactionManagementConfigurer` ¶ÔÏó£¬¾ßÌå×÷ÓÃÒÑÔÚ´úÂë×¢ÊÍÖĞËµÃ÷£»
-*   `TransactionalEventListenerFactory`£ºÀàĞÍÎª `TransactionalEventListenerFactory`£¬ÓÃÀ´´¦ÀíÊÂÎñÊÂ¼ş£¨Ö÷ÒªÊÇ `@TransactionalEventListener` ×¢½âµÄ·½·¨£¬¹ØÓÚÕâ²¿·ÖµÄÄÚÈİ£¬±¾ÎÄ¾Í²»Õ¹¿ªÁË£©¡£
+*   `void setConfigurers(Collection<TransactionManagementConfigurer> configurers)`ï¼šæ³¨å…¥ `TransactionManagementConfigurer` å¯¹è±¡ï¼Œå…·ä½“ä½œç”¨å·²åœ¨ä»£ç æ³¨é‡Šä¸­è¯´æ˜ï¼›
+*   `TransactionalEventListenerFactory`ï¼šç±»å‹ä¸º `TransactionalEventListenerFactory`ï¼Œç”¨æ¥å¤„ç†äº‹åŠ¡äº‹ä»¶ï¼ˆä¸»è¦æ˜¯ `@TransactionalEventListener` æ³¨è§£çš„æ–¹æ³•ï¼Œå…³äºè¿™éƒ¨åˆ†çš„å†…å®¹ï¼Œæœ¬æ–‡å°±ä¸å±•å¼€äº†ï¼‰ã€‚
 
-ºÃÁË£¬ÓĞÁËÕâĞ©¶ÔÏóºó£¬spring ¾Í¿ÉÒÔ½øĞĞÊÂÎñ´¦ÀíÁË£¬ÕâĞ©ÎÒÃÇÁôµ½ÏÂÆªÎÄÕÂÔÙ·ÖÎö¡£
+å¥½äº†ï¼Œæœ‰äº†è¿™äº›å¯¹è±¡åï¼Œspring å°±å¯ä»¥è¿›è¡Œäº‹åŠ¡å¤„ç†äº†ï¼Œè¿™äº›æˆ‘ä»¬ç•™åˆ°ä¸‹ç¯‡æ–‡ç« å†åˆ†æã€‚
 
-### 4\. ×Ü½á
+### 4\. æ€»ç»“
 
-±¾ÎÄÏÈÊÇ´ÓÁ½¸ö demo ÈëÊÖ£¬Ê¾·¶ÁËÈç¹ûÊÇÓÉÎÒÃÇ×Ô¼º¿ª·¢Ò»¸ö»ùÓÚ spring aop µÄÊÂÎñ¹ÜÀí¹¦ÄÜÊÇÈçºÎ½øĞĞµÄ£¬½Ó×ÅÓÖÓÃÒ»¸ö demo Ê¾·¶ÁËÈçºÎÊ¹ÓÃ spring Ìá¹©µÄÊÂÎñ¹ÜÀí¹¦ÄÜ£¬È»ºó¾Í¾ßÌå·ÖÎöÁË spring ÊÂÎñÆôÓÃ×¢½â `@EnableTransactionManagement` µÄ¹¦ÄÜ¡£
+æœ¬æ–‡å…ˆæ˜¯ä»ä¸¤ä¸ª demo å…¥æ‰‹ï¼Œç¤ºèŒƒäº†å¦‚æœæ˜¯ç”±æˆ‘ä»¬è‡ªå·±å¼€å‘ä¸€ä¸ªåŸºäº spring aop çš„äº‹åŠ¡ç®¡ç†åŠŸèƒ½æ˜¯å¦‚ä½•è¿›è¡Œçš„ï¼Œæ¥ç€åˆç”¨ä¸€ä¸ª demo ç¤ºèŒƒäº†å¦‚ä½•ä½¿ç”¨ spring æä¾›çš„äº‹åŠ¡ç®¡ç†åŠŸèƒ½ï¼Œç„¶åå°±å…·ä½“åˆ†æäº† spring äº‹åŠ¡å¯ç”¨æ³¨è§£ `@EnableTransactionManagement` çš„åŠŸèƒ½ã€‚
 
-`@EnableTransactionManagement` ÊÇ spring ÖĞÓÃÀ´ÆôÓÃÊÂÎñ¹ÜÀí¹¦ÄÜµÄ£¬ÔÚ `AdviceMode` Îª `proxy` Ä£Ê½ÏÂ£¬¸Ã×¢½âÏò spring ÖĞÒıÈëÁËÁ½¸öÀà£º`AutoProxyRegistrar`¡¢`ProxyTransactionManagementConfiguration`£¬×÷ÓÃÈçÏÂ£º
+`@EnableTransactionManagement` æ˜¯ spring ä¸­ç”¨æ¥å¯ç”¨äº‹åŠ¡ç®¡ç†åŠŸèƒ½çš„ï¼Œåœ¨ `AdviceMode` ä¸º `proxy` æ¨¡å¼ä¸‹ï¼Œè¯¥æ³¨è§£å‘ spring ä¸­å¼•å…¥äº†ä¸¤ä¸ªç±»ï¼š`AutoProxyRegistrar`ã€`ProxyTransactionManagementConfiguration`ï¼Œä½œç”¨å¦‚ä¸‹ï¼š
 
-*   `AutoProxyRegistrar`£º`aop` Î´ÆôÓÃµÄÇé¿öÏÂ£¬»áÏò spring ÈİÆ÷ÖĞ×¢²á `InfrastructureAdvisorAutoProxyCreator`£»Èç¹ûÆôÓÃÁË `aop`£¬Ôò»á×¢²á `AspectJAwareAdvisorAutoProxyCreator`(»ùÓÚ `xml` µÄ `aop`) »ò `AnnotationAwareAspectJAutoProxyCreator`(»ùÓÚ `annotation` µÄ `aop`)¡£ÕâÈı¸öÀà¶¼ÊÇ `AbstractAdvisorAutoProxyCreator` µÄ×ÓÀà£¬ÓÃÀ´Éú³É´úÀí¶ÔÏó¡£
+*   `AutoProxyRegistrar`ï¼š`aop` æœªå¯ç”¨çš„æƒ…å†µä¸‹ï¼Œä¼šå‘ spring å®¹å™¨ä¸­æ³¨å†Œ `InfrastructureAdvisorAutoProxyCreator`ï¼›å¦‚æœå¯ç”¨äº† `aop`ï¼Œåˆ™ä¼šæ³¨å†Œ `AspectJAwareAdvisorAutoProxyCreator`(åŸºäº `xml` çš„ `aop`) æˆ– `AnnotationAwareAspectJAutoProxyCreator`(åŸºäº `annotation` çš„ `aop`)ã€‚è¿™ä¸‰ä¸ªç±»éƒ½æ˜¯ `AbstractAdvisorAutoProxyCreator` çš„å­ç±»ï¼Œç”¨æ¥ç”Ÿæˆä»£ç†å¯¹è±¡ã€‚
 
-*   `ProxyTransactionManagementConfiguration`£ºÕâÊÇÒ»¸öÅäÖÃÀà£¬Í¨¹ı´øÓĞ `@Bean` ×¢½âµÄ·½·¨ÏòÈİÆ÷ÖĞÒıÈëÁËÒ»ÏµÁĞµÄ bean£¬ÓÃÀ´´¦ÀíÊÂÎñÂß¼­£¬¶ÔÕâĞ© bean£¬±¾ÎÄÖ»Ğè´ó¸ÅÁË½â¼´¿É¡£
+*   `ProxyTransactionManagementConfiguration`ï¼šè¿™æ˜¯ä¸€ä¸ªé…ç½®ç±»ï¼Œé€šè¿‡å¸¦æœ‰ `@Bean` æ³¨è§£çš„æ–¹æ³•å‘å®¹å™¨ä¸­å¼•å…¥äº†ä¸€ç³»åˆ—çš„ beanï¼Œç”¨æ¥å¤„ç†äº‹åŠ¡é€»è¾‘ï¼Œå¯¹è¿™äº› beanï¼Œæœ¬æ–‡åªéœ€å¤§æ¦‚äº†è§£å³å¯ã€‚
 
-±¾ÎÄ¾ÍÏÈµ½ÕâÀïÁË£¬ÏÂÆªÎÄÕÂ¼ÌĞø·ÖÎöÊÂÎñ´¦Àí»úÖÆ¡£
+æœ¬æ–‡å°±å…ˆåˆ°è¿™é‡Œäº†ï¼Œä¸‹ç¯‡æ–‡ç« ç»§ç»­åˆ†æäº‹åŠ¡å¤„ç†æœºåˆ¶ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4773454](https://my.oschina.net/funcy/blog/4773454) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4773454](https://my.oschina.net/funcy/blog/4773454) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

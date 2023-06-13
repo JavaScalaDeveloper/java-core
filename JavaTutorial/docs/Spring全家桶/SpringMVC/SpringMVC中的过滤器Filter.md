@@ -1,12 +1,12 @@
-¼¯³ÉFilter
+é›†æˆFilter
 
-ÔÚSpring MVCÖĞ£¬DispatcherServletÖ»ĞèÒª¹Ì¶¨ÅäÖÃµ½web.xmlÖĞ£¬Ê£ÏÂµÄ¹¤×÷Ö÷ÒªÊÇ×¨×¢ÓÚ±àĞ´Controller¡£
+åœ¨Spring MVCä¸­ï¼ŒDispatcherServletåªéœ€è¦å›ºå®šé…ç½®åˆ°web.xmlä¸­ï¼Œå‰©ä¸‹çš„å·¥ä½œä¸»è¦æ˜¯ä¸“æ³¨äºç¼–å†™Controllerã€‚
 
-µ«ÊÇ£¬ÔÚServlet¹æ·¶ÖĞ£¬ÎÒÃÇ»¹¿ÉÒÔÊ¹ÓÃFilter¡£Èç¹ûÒªÔÚSpring MVCÖĞÊ¹ÓÃFilter£¬Ó¦¸ÃÔõÃ´×ö£¿
+ä½†æ˜¯ï¼Œåœ¨Servletè§„èŒƒä¸­ï¼Œæˆ‘ä»¬è¿˜å¯ä»¥ä½¿ç”¨Filterã€‚å¦‚æœè¦åœ¨Spring MVCä¸­ä½¿ç”¨Filterï¼Œåº”è¯¥æ€ä¹ˆåšï¼Ÿ
 
-ÓĞµÄÍ¯Ğ¬ÔÚÉÏÒ»½ÚµÄWebÓ¦ÓÃÖĞ¿ÉÄÜ·¢ÏÖÁË£¬Èç¹û×¢²áÊ±ÊäÈëÖĞÎÄ»áµ¼ÖÂÂÒÂë£¬ÒòÎªServletÄ¬ÈÏ°´·ÇUTF-8±àÂë¶ÁÈ¡²ÎÊı¡£ÎªÁËĞŞ¸´ÕâÒ»ÎÊÌâ£¬ÎÒÃÇ¿ÉÒÔ¼òµ¥µØÊ¹ÓÃÒ»¸öEncodingFilter£¬ÔÚÈ«¾Ö·¶Î§Àà¸øHttpServletRequestºÍHttpServletResponseÇ¿ÖÆÉèÖÃÎªUTF-8±àÂë¡£
+æœ‰çš„ç«¥é‹åœ¨ä¸Šä¸€èŠ‚çš„Webåº”ç”¨ä¸­å¯èƒ½å‘ç°äº†ï¼Œå¦‚æœæ³¨å†Œæ—¶è¾“å…¥ä¸­æ–‡ä¼šå¯¼è‡´ä¹±ç ï¼Œå› ä¸ºServleté»˜è®¤æŒ‰éUTF-8ç¼–ç è¯»å–å‚æ•°ã€‚ä¸ºäº†ä¿®å¤è¿™ä¸€é—®é¢˜ï¼Œæˆ‘ä»¬å¯ä»¥ç®€å•åœ°ä½¿ç”¨ä¸€ä¸ªEncodingFilterï¼Œåœ¨å…¨å±€èŒƒå›´ç±»ç»™HttpServletRequestå’ŒHttpServletResponseå¼ºåˆ¶è®¾ç½®ä¸ºUTF-8ç¼–ç ã€‚
 
-¿ÉÒÔ×Ô¼º±àĞ´Ò»¸öEncodingFilter£¬Ò²¿ÉÒÔÖ±½ÓÊ¹ÓÃSpring MVC×Ô´øµÄÒ»¸öCharacterEncodingFilter¡£ÅäÖÃFilterÊ±£¬Ö»ĞèÔÚweb.xmlÖĞÉùÃ÷¼´¿É£º
+å¯ä»¥è‡ªå·±ç¼–å†™ä¸€ä¸ªEncodingFilterï¼Œä¹Ÿå¯ä»¥ç›´æ¥ä½¿ç”¨Spring MVCè‡ªå¸¦çš„ä¸€ä¸ªCharacterEncodingFilterã€‚é…ç½®Filteræ—¶ï¼Œåªéœ€åœ¨web.xmlä¸­å£°æ˜å³å¯ï¼š
 ````
 <web-app>
     <filter>
@@ -29,11 +29,11 @@
     ...
 </web-app>
 ````
-ÒòÎªÕâÖÖFilterºÍÎÒÃÇÒµÎñ¹ØÏµ²»´ó£¬×¢Òâµ½CharacterEncodingFilterÆäÊµºÍSpringµÄIoCÈİÆ÷Ã»ÓĞÈÎºÎ¹ØÏµ£¬Á½Õß¾ù»¥²»ÖªÏş¶Ô·½µÄ´æÔÚ£¬Òò´Ë£¬ÅäÖÃÕâÖÖFilterÊ®·Ö¼òµ¥¡£
+å› ä¸ºè¿™ç§Filterå’Œæˆ‘ä»¬ä¸šåŠ¡å…³ç³»ä¸å¤§ï¼Œæ³¨æ„åˆ°CharacterEncodingFilterå…¶å®å’ŒSpringçš„IoCå®¹å™¨æ²¡æœ‰ä»»ä½•å…³ç³»ï¼Œä¸¤è€…å‡äº’ä¸çŸ¥æ™“å¯¹æ–¹çš„å­˜åœ¨ï¼Œå› æ­¤ï¼Œé…ç½®è¿™ç§Filterååˆ†ç®€å•ã€‚
 
-ÎÒÃÇÔÙ¿¼ÂÇÕâÑùÒ»¸öÎÊÌâ£ºÈç¹ûÔÊĞíÓÃ»§Ê¹ÓÃBasicÄ£Ê½½øĞĞÓÃ»§ÑéÖ¤£¬¼´ÔÚHTTPÇëÇóÖĞÌí¼ÓÍ·Authorization: Basic email:password£¬Õâ¸öĞèÇóÈçºÎÊµÏÖ£¿
+æˆ‘ä»¬å†è€ƒè™‘è¿™æ ·ä¸€ä¸ªé—®é¢˜ï¼šå¦‚æœå…è®¸ç”¨æˆ·ä½¿ç”¨Basicæ¨¡å¼è¿›è¡Œç”¨æˆ·éªŒè¯ï¼Œå³åœ¨HTTPè¯·æ±‚ä¸­æ·»åŠ å¤´Authorization: Basic email:passwordï¼Œè¿™ä¸ªéœ€æ±‚å¦‚ä½•å®ç°ï¼Ÿ
 
-±àĞ´Ò»¸öAuthFilterÊÇ×î¼òµ¥µÄÊµÏÖ·½Ê½£º
+ç¼–å†™ä¸€ä¸ªAuthFilteræ˜¯æœ€ç®€å•çš„å®ç°æ–¹å¼ï¼š
 ````
 @Component
 public class AuthFilter implements Filter {
@@ -43,27 +43,27 @@ UserService userService;
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
-        // »ñÈ¡AuthorizationÍ·:
+        // è·å–Authorizationå¤´:
         String authHeader = req.getHeader("Authorization");
         if (authHeader != null && authHeader.startsWith("Basic ")) {
-            // ´ÓHeaderÖĞÌáÈ¡emailºÍpassword:
+            // ä»Headerä¸­æå–emailå’Œpassword:
             String email = prefixFrom(authHeader);
             String password = suffixFrom(authHeader);
-            // µÇÂ¼:
+            // ç™»å½•:
             User user = userService.signin(email, password);
-            // ·ÅÈëSession:
+            // æ”¾å…¥Session:
             req.getSession().setAttribute(UserController.KEY_USER, user);
         }
-        // ¼ÌĞø´¦ÀíÇëÇó:
+        // ç»§ç»­å¤„ç†è¯·æ±‚:
         chain.doFilter(request, response);
     }
 }
 ````
-ÏÖÔÚÎÊÌâÀ´ÁË£ºÔÚSpringÖĞ´´½¨µÄÕâ¸öAuthFilterÊÇÒ»¸öÆÕÍ¨Bean£¬ServletÈİÆ÷²¢²»ÖªµÀ£¬ËùÒÔËü²»»áÆğ×÷ÓÃ¡£
+ç°åœ¨é—®é¢˜æ¥äº†ï¼šåœ¨Springä¸­åˆ›å»ºçš„è¿™ä¸ªAuthFilteræ˜¯ä¸€ä¸ªæ™®é€šBeanï¼ŒServletå®¹å™¨å¹¶ä¸çŸ¥é“ï¼Œæ‰€ä»¥å®ƒä¸ä¼šèµ·ä½œç”¨ã€‚
 
-Èç¹ûÎÒÃÇÖ±½ÓÔÚweb.xmlÖĞÉùÃ÷Õâ¸öAuthFilter£¬×¢Òâµ½AuthFilterµÄÊµÀı½«ÓÉServletÈİÆ÷¶ø²»ÊÇSpringÈİÆ÷³õÊ¼»¯£¬Òò´Ë£¬@Autowire¸ù±¾²»ÉúĞ§£¬ÓÃÓÚµÇÂ¼µÄUserService³ÉÔ±±äÁ¿ÓÀÔ¶ÊÇnull¡£
+å¦‚æœæˆ‘ä»¬ç›´æ¥åœ¨web.xmlä¸­å£°æ˜è¿™ä¸ªAuthFilterï¼Œæ³¨æ„åˆ°AuthFilterçš„å®ä¾‹å°†ç”±Servletå®¹å™¨è€Œä¸æ˜¯Springå®¹å™¨åˆå§‹åŒ–ï¼Œå› æ­¤ï¼Œ@Autowireæ ¹æœ¬ä¸ç”Ÿæ•ˆï¼Œç”¨äºç™»å½•çš„UserServiceæˆå‘˜å˜é‡æ°¸è¿œæ˜¯nullã€‚
 
-ËùÒÔ£¬µÃÍ¨¹ıÒ»ÖÖ·½Ê½£¬ÈÃServletÈİÆ÷ÊµÀı»¯µÄFilter£¬¼ä½ÓÒıÓÃSpringÈİÆ÷ÊµÀı»¯µÄAuthFilter¡£Spring MVCÌá¹©ÁËÒ»¸öDelegatingFilterProxy£¬×¨ÃÅÀ´¸ÉÕâ¸öÊÂÇé£º
+æ‰€ä»¥ï¼Œå¾—é€šè¿‡ä¸€ç§æ–¹å¼ï¼Œè®©Servletå®¹å™¨å®ä¾‹åŒ–çš„Filterï¼Œé—´æ¥å¼•ç”¨Springå®¹å™¨å®ä¾‹åŒ–çš„AuthFilterã€‚Spring MVCæä¾›äº†ä¸€ä¸ªDelegatingFilterProxyï¼Œä¸“é—¨æ¥å¹²è¿™ä¸ªäº‹æƒ…ï¼š
 ````
 <web-app>
     <filter>
@@ -78,13 +78,13 @@ UserService userService;
     ...
 </web-app>
 ````
-ÎÒÃÇÀ´¿´ÊµÏÖÔ­Àí£º
+æˆ‘ä»¬æ¥çœ‹å®ç°åŸç†ï¼š
 
-ServletÈİÆ÷´Óweb.xmlÖĞ¶ÁÈ¡ÅäÖÃ£¬ÊµÀı»¯DelegatingFilterProxy£¬×¢ÒâÃüÃûÊÇauthFilter£»
-SpringÈİÆ÷Í¨¹ıÉ¨Ãè@ComponentÊµÀı»¯AuthFilter¡£
-µ±DelegatingFilterProxyÉúĞ§ºó£¬Ëü»á×Ô¶¯²éÕÒ×¢²áÔÚServletContextÉÏµÄSpringÈİÆ÷£¬ÔÙÊÔÍ¼´ÓÈİÆ÷ÖĞ²éÕÒÃûÎªauthFilterµÄBean£¬Ò²¾ÍÊÇÎÒÃÇÓÃ@ComponentÉùÃ÷µÄAuthFilter¡£
+Servletå®¹å™¨ä»web.xmlä¸­è¯»å–é…ç½®ï¼Œå®ä¾‹åŒ–DelegatingFilterProxyï¼Œæ³¨æ„å‘½åæ˜¯authFilterï¼›
+Springå®¹å™¨é€šè¿‡æ‰«æ@Componentå®ä¾‹åŒ–AuthFilterã€‚
+å½“DelegatingFilterProxyç”Ÿæ•ˆåï¼Œå®ƒä¼šè‡ªåŠ¨æŸ¥æ‰¾æ³¨å†Œåœ¨ServletContextä¸Šçš„Springå®¹å™¨ï¼Œå†è¯•å›¾ä»å®¹å™¨ä¸­æŸ¥æ‰¾åä¸ºauthFilterçš„Beanï¼Œä¹Ÿå°±æ˜¯æˆ‘ä»¬ç”¨@Componentå£°æ˜çš„AuthFilterã€‚
 
-DelegatingFilterProxy½«ÇëÇó´úÀí¸øAuthFilter£¬ºËĞÄ´úÂëÈçÏÂ£º
+DelegatingFilterProxyå°†è¯·æ±‚ä»£ç†ç»™AuthFilterï¼Œæ ¸å¿ƒä»£ç å¦‚ä¸‹ï¼š
 ````
 public class DelegatingFilterProxy implements Filter {
     private Filter delegate;
@@ -96,40 +96,40 @@ public class DelegatingFilterProxy implements Filter {
     }
 }
 ````
-Õâ¾ÍÊÇÒ»¸ö´úÀíÄ£Ê½µÄ¼òµ¥Ó¦ÓÃ¡£ÎÒÃÇ»­¸öÍ¼±íÊ¾ËüÃÇÖ®¼äµÄÒıÓÃ¹ØÏµÈçÏÂ£º
+è¿™å°±æ˜¯ä¸€ä¸ªä»£ç†æ¨¡å¼çš„ç®€å•åº”ç”¨ã€‚æˆ‘ä»¬ç”»ä¸ªå›¾è¡¨ç¤ºå®ƒä»¬ä¹‹é—´çš„å¼•ç”¨å…³ç³»å¦‚ä¸‹ï¼š
 ````
-©° ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©´ ©° ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤
-©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´        ©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´   ©¦
-©¦ ©¦DelegatingFilterProxy©¦©¤©¦©¤©¦©¤ ©¤>©¦AuthFilter ©¦
-©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼        ©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼   ©¦
-©¦ ©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´ ©¦ ©¦    ©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´
-©¦  DispatcherServlet  ©¦©¤ ©¤ ©¤ ©¤>©¦Controllers©¦   ©¦
-©¦ ©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼ ©¦ ©¦    ©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼
-©¦
-©¦    Servlet Container    ©¦ ©¦  Spring Container
-©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤   ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¤ ©¼
+â”Œ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â” â”Œ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”        â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”   â”‚
+â”‚ â”‚DelegatingFilterProxyâ”‚â”€â”‚â”€â”‚â”€ â”€>â”‚AuthFilter â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜        â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜   â”‚
+â”‚ â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â” â”‚ â”‚    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  DispatcherServlet  â”‚â”€ â”€ â”€ â”€>â”‚Controllersâ”‚   â”‚
+â”‚ â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜ â”‚ â”‚    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+â”‚
+â”‚    Servlet Container    â”‚ â”‚  Spring Container
+â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€   â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”€ â”˜
 ````
-Èç¹ûÔÚweb.xmlÖĞÅäÖÃµÄFilterÃû×ÖºÍSpringÈİÆ÷µÄBeanµÄÃû×Ö²»Ò»ÖÂ£¬ÄÇÃ´ĞèÒªÖ¸¶¨BeanµÄÃû×Ö£º
+å¦‚æœåœ¨web.xmlä¸­é…ç½®çš„Filteråå­—å’ŒSpringå®¹å™¨çš„Beançš„åå­—ä¸ä¸€è‡´ï¼Œé‚£ä¹ˆéœ€è¦æŒ‡å®šBeançš„åå­—ï¼š
 ````
 <filter>
     <filter-name>basicAuthFilter</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-    <!-- Ö¸¶¨BeanµÄÃû×Ö -->
+    <!-- æŒ‡å®šBeançš„åå­— -->
     <init-param>
         <param-name>targetBeanName</param-name>
         <param-value>authFilter</param-value>
     </init-param>
 </filter>
 ````
-Êµ¼ÊÓ¦ÓÃÊ±£¬¾¡Á¿±£³ÖÃû×ÖÒ»ÖÂ£¬ÒÔ¼õÉÙ²»±ØÒªµÄÅäÖÃ¡£
+å®é™…åº”ç”¨æ—¶ï¼Œå°½é‡ä¿æŒåå­—ä¸€è‡´ï¼Œä»¥å‡å°‘ä¸å¿…è¦çš„é…ç½®ã€‚
 
-ÒªÊ¹ÓÃBasicÄ£Ê½µÄÓÃ»§ÈÏÖ¤£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃcurlÃüÁî²âÊÔ¡£ÀıÈç£¬ÓÃ»§µÇÂ¼ÃûÊÇtom@example.com£¬¿ÚÁîÊÇtomcat£¬ÄÇÃ´ÏÈ¹¹ÔìÒ»¸öÊ¹ÓÃURL±àÂëµÄÓÃ»§Ãû:¿ÚÁîµÄ×Ö·û´®£º
+è¦ä½¿ç”¨Basicæ¨¡å¼çš„ç”¨æˆ·è®¤è¯ï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨curlå‘½ä»¤æµ‹è¯•ã€‚ä¾‹å¦‚ï¼Œç”¨æˆ·ç™»å½•åæ˜¯tom@example.comï¼Œå£ä»¤æ˜¯tomcatï¼Œé‚£ä¹ˆå…ˆæ„é€ ä¸€ä¸ªä½¿ç”¨URLç¼–ç çš„ç”¨æˆ·å:å£ä»¤çš„å­—ç¬¦ä¸²ï¼š
 
 tom%40example.com:tomcat
-¶ÔÆä½øĞĞBase64±àÂë£¬×îÖÕ¹¹Ôì³öµÄHeaderÈçÏÂ£º
+å¯¹å…¶è¿›è¡ŒBase64ç¼–ç ï¼Œæœ€ç»ˆæ„é€ å‡ºçš„Headerå¦‚ä¸‹ï¼š
 
 Authorization: Basic dG9tJTQwZXhhbXBsZS5jb206dG9tY2F0
-Ê¹ÓÃÈçÏÂµÄcurlÃüÁî²¢»ñµÃÏìÓ¦ÈçÏÂ£º
+ä½¿ç”¨å¦‚ä¸‹çš„curlå‘½ä»¤å¹¶è·å¾—å“åº”å¦‚ä¸‹ï¼š
 ````
 $ curl -v -H 'Authorization: Basic dG9tJTQwZXhhbXBsZS5jb206dG9tY2F0' http://localhost:8080/profile
 > GET /profile HTTP/1.1
@@ -147,5 +147,5 @@ $ curl -v -H 'Authorization: Basic dG9tJTQwZXhhbXBsZS5jb206dG9tY2F0' http://loca
 <
 <!doctype html>
 ````
-...HTMLÊä³ö...
-ÉÏÊöÏìÓ¦ËµÃ÷AuthFilterÒÑÉúĞ§¡£
+...HTMLè¾“å‡º...
+ä¸Šè¿°å“åº”è¯´æ˜AuthFilterå·²ç”Ÿæ•ˆã€‚

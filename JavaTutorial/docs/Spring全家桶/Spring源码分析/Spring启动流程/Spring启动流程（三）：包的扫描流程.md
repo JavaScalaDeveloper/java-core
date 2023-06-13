@@ -1,44 +1,44 @@
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-3ed1cf4bd6fc2ef3f569376093a6462987d.png)
 
-ÔÚ [applicationContext µÄ´´½¨](https://my.oschina.net/funcy/blog/4608767)ÖĞ£¬ÎÒÃÇ·ÖÎöÁË `applicationContext` µÄ´´½¨¹ı³Ì£¬ÔÚ±¾ÎÄÖĞ£¬ÎÒÃÇ½«·ÖÎö spring ÊÇÈçºÎ½øĞĞ°üÉ¨ÃèµÄ¡£
+åœ¨ [applicationContext çš„åˆ›å»º](https://my.oschina.net/funcy/blog/4608767)ä¸­ï¼Œæˆ‘ä»¬åˆ†æäº† `applicationContext` çš„åˆ›å»ºè¿‡ç¨‹ï¼Œåœ¨æœ¬æ–‡ä¸­ï¼Œæˆ‘ä»¬å°†åˆ†æ spring æ˜¯å¦‚ä½•è¿›è¡ŒåŒ…æ‰«æçš„ã€‚
 
-ÒÀ¾ÉÊÇ `AnnotationConfigApplicationContext` µÄ¹¹Ôì·½·¨£º
+ä¾æ—§æ˜¯ `AnnotationConfigApplicationContext` çš„æ„é€ æ–¹æ³•ï¼š
 
 ```
 public AnnotationConfigApplicationContext(String... basePackages) {
     this();
-    //¶Ô´«ÈëµÄ°ü½øĞĞÉ¨Ãè£¬É¨ÃèÍê³Éºó£¬»áµÃµ½Ò»¸ö BeanDefinition µÄ¼¯ºÏ
+    //å¯¹ä¼ å…¥çš„åŒ…è¿›è¡Œæ‰«æï¼Œæ‰«æå®Œæˆåï¼Œä¼šå¾—åˆ°ä¸€ä¸ª BeanDefinition çš„é›†åˆ
     scan(basePackages);
     refresh();
 }
 
 ```
 
-Õâ´ÎÎÒÃÇ½«Ä¿¹â·ÅÔÚ `scan(basePackages);` ÉÏ£¬½øÈë¸Ã·½·¨£º
+è¿™æ¬¡æˆ‘ä»¬å°†ç›®å…‰æ”¾åœ¨ `scan(basePackages);` ä¸Šï¼Œè¿›å…¥è¯¥æ–¹æ³•ï¼š
 
 > AnnotationConfigApplicationContext#scan
 
 ```
 public void scan(String... basePackages) {
      Assert.notEmpty(basePackages, "At least one base package must be specified");
-     // ÕâÀïµÄscanner¶ÔÏó¾ÍÊÇÔÚthis()ÖĞ´´½¨µÄ
+     // è¿™é‡Œçš„scannerå¯¹è±¡å°±æ˜¯åœ¨this()ä¸­åˆ›å»ºçš„
      this.scanner.scan(basePackages);
 }
 
 ```
 
-Õâ¸ö·½·¨¹Ø¼ü´úÂëÊÇ `this.scanner.scan(basePackages);`£¬Õâ¸ö `scanner` ¾ÍÊÇÔÚ `this()` ÖĞ´´½¨µÄ¶ÔÏó£º
+è¿™ä¸ªæ–¹æ³•å…³é”®ä»£ç æ˜¯ `this.scanner.scan(basePackages);`ï¼Œè¿™ä¸ª `scanner` å°±æ˜¯åœ¨ `this()` ä¸­åˆ›å»ºçš„å¯¹è±¡ï¼š
 
 ```
 public AnnotationConfigApplicationContext() {
     this.reader = new AnnotatedBeanDefinitionReader(this);
-    // scanner ¾ÍÊÇÔÚÕâÀï´´½¨µÄ
+    // scanner å°±æ˜¯åœ¨è¿™é‡Œåˆ›å»ºçš„
     this.scanner = new ClassPathBeanDefinitionScanner(this);
 }
 
 ```
 
-¼ÌĞø×·×Ù£¬ÕâÀïÎÒÃÇ¶Ô²»ÖØÒªµÄ·½·¨½ö¸ø³öµ÷ÓÃÁ´£¬ÖØµã¹Ø×¢É¨Ãè°üµÄ¹ı³Ì£º
+ç»§ç»­è¿½è¸ªï¼Œè¿™é‡Œæˆ‘ä»¬å¯¹ä¸é‡è¦çš„æ–¹æ³•ä»…ç»™å‡ºè°ƒç”¨é“¾ï¼Œé‡ç‚¹å…³æ³¨æ‰«æåŒ…çš„è¿‡ç¨‹ï¼š
 
 ```
 AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
@@ -48,24 +48,24 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
 
 ```
 
-`ClassPathBeanDefinitionScanner#doScan` ´úÂëÈçÏÂ£º
+`ClassPathBeanDefinitionScanner#doScan` ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 protected Set<BeanDefinitionHolder> doScan(String... basePackages) {
     Assert.notEmpty(basePackages, "At least one base package must be specified");
     Set<BeanDefinitionHolder> beanDefinitions = new LinkedHashSet<>();
-    //±éÀúĞèÒªÉ¨ÃèµÄ°üÂ·¾¶
+    //éå†éœ€è¦æ‰«æçš„åŒ…è·¯å¾„
     for (String basePackage : basePackages) {
-        //»ñÈ¡ËùÓĞ·ûºÏÌõ¼şµÄBeanDefinition
+        //è·å–æ‰€æœ‰ç¬¦åˆæ¡ä»¶çš„BeanDefinition
         Set<BeanDefinition> candidates = findCandidateComponents(basePackage);
         for (BeanDefinition candidate : candidates) {
-            //°ó¶¨BeanDefinitionÓëScope
+            //ç»‘å®šBeanDefinitionä¸Scope
             ScopeMetadata scopeMetadata = this.scopeMetadataResolver.resolveScopeMetadata(candidate);
             candidate.setScope(scopeMetadata.getScopeName());
-            //²é¿´ÊÇ·ñÅäÖÃÀàÊÇ·ñÖ¸¶¨beanµÄÃû³Æ£¬ÈçÃ»Ö¸¶¨ÔòÊ¹ÓÃÀàÃûÊ××ÖÄ¸Ğ¡Ğ´
+            //æŸ¥çœ‹æ˜¯å¦é…ç½®ç±»æ˜¯å¦æŒ‡å®šbeançš„åç§°ï¼Œå¦‚æ²¡æŒ‡å®šåˆ™ä½¿ç”¨ç±»åé¦–å­—æ¯å°å†™
             String beanName = this.beanNameGenerator.generateBeanName(candidate, this.registry);
-            //ÏÂÃæÁ½¸öifÊÇ´¦Àílazy¡¢Autowire¡¢DependencyOn¡¢initMethod¡¢enforceInitMethod¡¢destroyMethod¡¢
-            // enforceDestroyMethod¡¢Primary¡¢Role¡¢DescriptionÕâĞ©Âß¼­µÄ
+            //ä¸‹é¢ä¸¤ä¸ªifæ˜¯å¤„ç†lazyã€Autowireã€DependencyOnã€initMethodã€enforceInitMethodã€destroyMethodã€
+            // enforceDestroyMethodã€Primaryã€Roleã€Descriptionè¿™äº›é€»è¾‘çš„
             if (candidate instanceof AbstractBeanDefinition) {
                 postProcessBeanDefinition((AbstractBeanDefinition) candidate, beanName);
             }
@@ -73,15 +73,15 @@ protected Set<BeanDefinitionHolder> doScan(String... basePackages) {
                 AnnotationConfigUtils.processCommonDefinitionAnnotations(
                         (AnnotatedBeanDefinition) candidate);
             }
-            //¼ì²ébeanÊÇ·ñ´æÔÚ
+            //æ£€æŸ¥beanæ˜¯å¦å­˜åœ¨
             if (checkCandidate(beanName, candidate)) {
-                //ÓÖ°ü×°ÁËÒ»²ã
+                //åˆåŒ…è£…äº†ä¸€å±‚
                 BeanDefinitionHolder definitionHolder = new BeanDefinitionHolder(candidate, beanName);
-                //¼ì²éscopeÊÇ·ñ´´½¨£¬ÈçÎ´´´½¨Ôò½øĞĞ´´½¨
+                //æ£€æŸ¥scopeæ˜¯å¦åˆ›å»ºï¼Œå¦‚æœªåˆ›å»ºåˆ™è¿›è¡Œåˆ›å»º
                 definitionHolder = AnnotationConfigUtils.applyScopedProxyMode(
                         scopeMetadata, definitionHolder, this.registry);
                 beanDefinitions.add(definitionHolder);
-                //×¢²á beanDefinition
+                //æ³¨å†Œ beanDefinition
                 registerBeanDefinition(definitionHolder, this.registry);
             }
         }
@@ -91,19 +91,19 @@ protected Set<BeanDefinitionHolder> doScan(String... basePackages) {
 
 ```
 
-Õâ¶Î´úÂëÍê³ÉµÄ¹¦ÄÜºÜÃ÷ÁË£¬´óÌåÉÏ×öÁËÒÔÏÂ¼¸¼şÊÂ£º
+è¿™æ®µä»£ç å®Œæˆçš„åŠŸèƒ½å¾ˆæ˜äº†ï¼Œå¤§ä½“ä¸Šåšäº†ä»¥ä¸‹å‡ ä»¶äº‹ï¼š
 
-1.  ¸ù¾İ°üÂ·¾¶£¬µÃµ½·ûºÏÌõ¼şµÄ BeanDefinition
-2.  ±éÀú BeanDefinition£¬½øÒ»²½·á¸» beanDefinition ĞÅÏ¢
-3.  ½« BeanDefinition Ìí¼Óµ½ beanFactory
+1.  æ ¹æ®åŒ…è·¯å¾„ï¼Œå¾—åˆ°ç¬¦åˆæ¡ä»¶çš„ BeanDefinition
+2.  éå† BeanDefinitionï¼Œè¿›ä¸€æ­¥ä¸°å¯Œ beanDefinition ä¿¡æ¯
+3.  å°† BeanDefinition æ·»åŠ åˆ° beanFactory
 
-> BeanDefinition Ò²ÊÇ spring µÄÖØÒª×é¼şÖ®Ò»£¬¹ØÓÚ BeanDefinition µÄ·ÖÎö£¬¿É²Î¿¼ [spring ×é¼şÖ® BeanDefinition](https://my.oschina.net/funcy/blog/4597536 "spring×é¼şÖ®BeanDefinition")¡£
+> BeanDefinition ä¹Ÿæ˜¯ spring çš„é‡è¦ç»„ä»¶ä¹‹ä¸€ï¼Œå…³äº BeanDefinition çš„åˆ†æï¼Œå¯å‚è€ƒ [spring ç»„ä»¶ä¹‹ BeanDefinition](https://my.oschina.net/funcy/blog/4597536 "springç»„ä»¶ä¹‹BeanDefinition")ã€‚
 
-½ÓÏÂÀ´ÎÒÃÇÖ÷Òª·ÖÎöÕâÈı¸öµÄ²Ù×÷¡£
+æ¥ä¸‹æ¥æˆ‘ä»¬ä¸»è¦åˆ†æè¿™ä¸‰ä¸ªçš„æ“ä½œã€‚
 
-### 1\. ¸ù¾İ°üÂ·¾¶µÃµ½ BeanDefinition
+### 1\. æ ¹æ®åŒ…è·¯å¾„å¾—åˆ° BeanDefinition
 
-ÕâÒ»²½Ö÷Òª·¢ÉúÔÚ `Set<BeanDefinition> candidates = findCandidateComponents(basePackage);`£¬ÎÒÃÇ¸ú½øÈ¥¿´¿´´úÂëµÄÖ´ĞĞ£¬ÕâÀïÒÀ¾É¶Ô²»ÖØÒª´úÂë¸ø³öµ÷ÓÃÁ´£¬¸Ã·½·¨µÄµ÷ÓÃÈçÏÂ£º
+è¿™ä¸€æ­¥ä¸»è¦å‘ç”Ÿåœ¨ `Set<BeanDefinition> candidates = findCandidateComponents(basePackage);`ï¼Œæˆ‘ä»¬è·Ÿè¿›å»çœ‹çœ‹ä»£ç çš„æ‰§è¡Œï¼Œè¿™é‡Œä¾æ—§å¯¹ä¸é‡è¦ä»£ç ç»™å‡ºè°ƒç”¨é“¾ï¼Œè¯¥æ–¹æ³•çš„è°ƒç”¨å¦‚ä¸‹ï¼š
 
 ```
 AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
@@ -115,23 +115,23 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
 
 ```
 
-×îÖÕµ÷ÓÃµ½ÁË `ClassPathScanningCandidateComponentProvider#scanCandidateComponents`£¬´úÂëÈçÏÂ (ÓĞÉ¾¼õ)£º
+æœ€ç»ˆè°ƒç”¨åˆ°äº† `ClassPathScanningCandidateComponentProvider#scanCandidateComponents`ï¼Œä»£ç å¦‚ä¸‹ (æœ‰åˆ å‡)ï¼š
 
 ```
 private Set<BeanDefinition> scanCandidateComponents(String basePackage) {
     Set<BeanDefinition> candidates = new LinkedHashSet<>();
-    //×é×°É¨ÃèÂ·¾¶£¨×é×°Íê³ÉºóÊÇÕâÖÖ¸ñÊ½£ºclasspath*:org/springframework/learn/demo01/**/*.class£©
+    //ç»„è£…æ‰«æè·¯å¾„ï¼ˆç»„è£…å®Œæˆåæ˜¯è¿™ç§æ ¼å¼ï¼šclasspath*:org/springframework/learn/demo01/**/*.classï¼‰
     String packageSearchPath = ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX +
             resolveBasePackage(basePackage) + '/' + this.resourcePattern;
-    //¸ù¾İÂ·¾¶»ñÈ¡×ÊÔ´¶ÔÏó£¬¼´É¨Ãè³ö¸ÃÂ·¾¶ÏÂµÄµÄËùÓĞclassÎÄ¼ş£¬µÃµ½ Resource
+    //æ ¹æ®è·¯å¾„è·å–èµ„æºå¯¹è±¡ï¼Œå³æ‰«æå‡ºè¯¥è·¯å¾„ä¸‹çš„çš„æ‰€æœ‰classæ–‡ä»¶ï¼Œå¾—åˆ° Resource
     Resource[] resources = getResourcePatternResolver().getResources(packageSearchPath);
     for (Resource resource : resources) {
         if (resource.isReadable()) {
-            //¸ù¾İ×ÊÔ´¶ÔÏó»ñÈ¡×ÊÔ´¶ÔÏóµÄMetadataReader
+            //æ ¹æ®èµ„æºå¯¹è±¡è·å–èµ„æºå¯¹è±¡çš„MetadataReader
             MetadataReader metadataReader = getMetadataReaderFactory().getMetadataReader(resource);
-            // ÕâÀï×öÁËÁ½¼şÊÂ£º
-            // 1\. ÊÇ·ñĞèÒª³õÊ¼»¯Îªspring bean£¬¼´ÊÇ·ñÓĞ @Component¡¢@ServiceµÈ×¢½â
-            // 2\. ²é¿´ÅäÖÃÀàÊÇ·ñÓĞ@ConditionalÒ»ÏµÁĞµÄ×¢½â£¬È»ºóÊÇ·ñÂú×ã×¢²áBeanµÄÌõ¼ş
+            // è¿™é‡Œåšäº†ä¸¤ä»¶äº‹ï¼š
+            // 1\. æ˜¯å¦éœ€è¦åˆå§‹åŒ–ä¸ºspring beanï¼Œå³æ˜¯å¦æœ‰ @Componentã€@Serviceç­‰æ³¨è§£
+            // 2\. æŸ¥çœ‹é…ç½®ç±»æ˜¯å¦æœ‰@Conditionalä¸€ç³»åˆ—çš„æ³¨è§£ï¼Œç„¶åæ˜¯å¦æ»¡è¶³æ³¨å†ŒBeançš„æ¡ä»¶
             if (isCandidateComponent(metadataReader)) {
                 ScannedGenericBeanDefinition sbd = new ScannedGenericBeanDefinition(metadataReader);
                 sbd.setResource(resource);
@@ -147,17 +147,17 @@ private Set<BeanDefinition> scanCandidateComponents(String basePackage) {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬ÒÔÉÏ´úÂë×öÁËÈı¼şÊÂ£º
+å¯ä»¥çœ‹åˆ°ï¼Œä»¥ä¸Šä»£ç åšäº†ä¸‰ä»¶äº‹ï¼š
 
-1.  ¸ù¾İ´«ÈëµÄ basePackage µÃµ½É¨ÃèÂ·¾¶
-2.  ¸ù¾İÉ¨ÃèÂ·¾¶µÃµ½¸ÃÂ·¾¶ÏÂµÄËùÓĞ class ÎÄ¼ş¶ÔÓ¦µÄ Resource
-3.  ½« Resource ×ª»¯Îª beanDefinition
+1.  æ ¹æ®ä¼ å…¥çš„ basePackage å¾—åˆ°æ‰«æè·¯å¾„
+2.  æ ¹æ®æ‰«æè·¯å¾„å¾—åˆ°è¯¥è·¯å¾„ä¸‹çš„æ‰€æœ‰ class æ–‡ä»¶å¯¹åº”çš„ Resource
+3.  å°† Resource è½¬åŒ–ä¸º beanDefinition
 
-½ÓÏÂÀ´ÎÒÃÇ¾ÍÒÔÉÏ´úÂë½øĞĞ·ÖÎö¡£
+æ¥ä¸‹æ¥æˆ‘ä»¬å°±ä»¥ä¸Šä»£ç è¿›è¡Œåˆ†æã€‚
 
-#### 1.1 ¸ù¾İ basePackage µÃµ½°üÉ¨ÃèÂ·¾¶
+#### 1.1 æ ¹æ® basePackage å¾—åˆ°åŒ…æ‰«æè·¯å¾„
 
-ÕâÒ»²½Ã»É¶ºÃ·ÖÎö£¬¾ÍÊÇÒ»¸ö×Ö·û´®µÄÆ´½ÓÓëÌæ»»£¬½«´«ÈëµÄ `org.springframework.learn.demo01` ×ª»»Îª `classpath*:org/springframework/learn/demo01/**/*.class`£¬Ïà¹Ø´úÂë¾ÍÒ»ĞĞ£º
+è¿™ä¸€æ­¥æ²¡å•¥å¥½åˆ†æï¼Œå°±æ˜¯ä¸€ä¸ªå­—ç¬¦ä¸²çš„æ‹¼æ¥ä¸æ›¿æ¢ï¼Œå°†ä¼ å…¥çš„ `org.springframework.learn.demo01` è½¬æ¢ä¸º `classpath*:org/springframework/learn/demo01/**/*.class`ï¼Œç›¸å…³ä»£ç å°±ä¸€è¡Œï¼š
 
 ```
 String packageSearchPath = ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX +
@@ -165,16 +165,16 @@ String packageSearchPath = ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX +
 
 ```
 
-#### 1.2 É¨Ãè°üÂ·¾¶
+#### 1.2 æ‰«æåŒ…è·¯å¾„
 
-µÃµ½°üÉ¨ÃèÂ·¾¶ºó£¬½ÓÏÂÀ´¾ÍÊÇ½øĞĞÉ¨ÃèÁË¡£spring ÔÚÉ¨ÃèÊ±£¬»á°ÑÉ¨ÃèÂ·¾¶ÏÂµÄËùÓĞ class ÎÄ¼şÉ¨Ãè³öÀ´£¬È»ºó·â×°³É `Resource`£¬´úÂëÈçÏÂ
+å¾—åˆ°åŒ…æ‰«æè·¯å¾„åï¼Œæ¥ä¸‹æ¥å°±æ˜¯è¿›è¡Œæ‰«æäº†ã€‚spring åœ¨æ‰«ææ—¶ï¼Œä¼šæŠŠæ‰«æè·¯å¾„ä¸‹çš„æ‰€æœ‰ class æ–‡ä»¶æ‰«æå‡ºæ¥ï¼Œç„¶åå°è£…æˆ `Resource`ï¼Œä»£ç å¦‚ä¸‹
 
 ```
 Resource[] resources = getResourcePatternResolver().getResources(packageSearchPath);
 
 ```
 
-¸ú½ø´úÂë£¬Í¬ÑùµØ£¬ÎÒÃÇ¶Ô²»ÖØÒªµÄ·½·¨£¬ÒÀ¾ÉÖ»¸ø³ö·½·¨µ÷ÓÃ£º
+è·Ÿè¿›ä»£ç ï¼ŒåŒæ ·åœ°ï¼Œæˆ‘ä»¬å¯¹ä¸é‡è¦çš„æ–¹æ³•ï¼Œä¾æ—§åªç»™å‡ºæ–¹æ³•è°ƒç”¨ï¼š
 
 ```
 AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
@@ -190,18 +190,18 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
 
 ```
 
-ÎÒÃÇ½«´úÂë¾Û¼¯ÓÚ `PathMatchingResourcePatternResolver#findPathMatchingResources`:
+æˆ‘ä»¬å°†ä»£ç èšé›†äº `PathMatchingResourcePatternResolver#findPathMatchingResources`:
 
 ```
 protected Resource[] findPathMatchingResources(String locationPattern) throws IOException {
-    // ´«ÈëµÄ locationPattern ÊÇ classpath*:org/springframework/learn/demo01/**/*.class
-    // rootDirPath ÊÇ classpath*:org/springframework/learn/demo01/
+    // ä¼ å…¥çš„ locationPattern æ˜¯ classpath*:org/springframework/learn/demo01/**/*.class
+    // rootDirPath æ˜¯ classpath*:org/springframework/learn/demo01/
     String rootDirPath = determineRootDir(locationPattern);
 
-    // subPattern ÊÇ **/*.class
+    // subPattern æ˜¯ **/*.class
     String subPattern = locationPattern.substring(rootDirPath.length());
 
-    // ÕâÀï·µ»ØµÄ Resource ÊÇ rootDirPath µÄ¾ø¶ÔÂ·¾¶(ÓÃurl±íÊ¾)
+    // è¿™é‡Œè¿”å›çš„ Resource æ˜¯ rootDirPath çš„ç»å¯¹è·¯å¾„(ç”¨urlè¡¨ç¤º)
     // URL [file:/xxx/spring-learn/build/classes/java/main/org/springframework/learn/demo01/]
     Resource[] rootDirResources = getResources(rootDirPath);
 
@@ -216,16 +216,16 @@ protected Resource[] findPathMatchingResources(String locationPattern) throws IO
             }
             rootDirResource = new UrlResource(rootDirUrl);
         }
-        // ´¦Àí vfs ×ÊÔ´²éÕÒ
+        // å¤„ç† vfs èµ„æºæŸ¥æ‰¾
         if (rootDirUrl.getProtocol().startsWith(ResourceUtils.URL_PROTOCOL_VFS)) {
             result.addAll(VfsResourceMatchingDelegate
                     .findMatchingResources(rootDirUrl, subPattern, getPathMatcher()));
         }
-        // ´¦Àíjar°üÎÄ¼ş²éÕÒ
+        // å¤„ç†jaråŒ…æ–‡ä»¶æŸ¥æ‰¾
         else if (ResourceUtils.isJarURL(rootDirUrl) || isJarResource(rootDirResource)) {
             result.addAll(doFindPathMatchingJarResources(rootDirResource, rootDirUrl, subPattern));
         }
-        // ´¦ÀíÎÄ¼şÂ·¾¶ÏÂµÄÎÄ¼ş²éÕÒ
+        // å¤„ç†æ–‡ä»¶è·¯å¾„ä¸‹çš„æ–‡ä»¶æŸ¥æ‰¾
         else {
             result.addAll(doFindPathMatchingFileResources(rootDirResource, subPattern));
         }
@@ -235,12 +235,12 @@ protected Resource[] findPathMatchingResources(String locationPattern) throws IO
 
 ```
 
-Í¨¹ı·ÖÎö£¬·¢ÏÖ¸ÃÀàµÄ´¦Àí¹ı³ÌÈçÏÂ£º
+é€šè¿‡åˆ†æï¼Œå‘ç°è¯¥ç±»çš„å¤„ç†è¿‡ç¨‹å¦‚ä¸‹ï¼š
 
-1.  Í¨¹ı´«ÈëµÄ locationPattern µÃµ½¸Ã pattern ÏÂµÄ url ¾ø¶ÔÂ·¾¶£¬·â×°Îª Resource
-2.  ±éÀú·µ»ØµÄÂ·¾¶£¬²éÕÒ class ÎÄ¼ş£¬·â×°Îª Resource
+1.  é€šè¿‡ä¼ å…¥çš„ locationPattern å¾—åˆ°è¯¥ pattern ä¸‹çš„ url ç»å¯¹è·¯å¾„ï¼Œå°è£…ä¸º Resource
+2.  éå†è¿”å›çš„è·¯å¾„ï¼ŒæŸ¥æ‰¾ class æ–‡ä»¶ï¼Œå°è£…ä¸º Resource
 
-ÎÒÃÇÀ´¿´¿´ spring ÊÇÈçºÎ½« pattrn ×ª»»Îª url Â·¾¶µÄ£¬ÎÒÃÇ¸ú½ø´úÂë£º
+æˆ‘ä»¬æ¥çœ‹çœ‹ spring æ˜¯å¦‚ä½•å°† pattrn è½¬æ¢ä¸º url è·¯å¾„çš„ï¼Œæˆ‘ä»¬è·Ÿè¿›ä»£ç ï¼š
 
 ```
 |-PathMatchingResourcePatternResolver#getResources
@@ -249,18 +249,18 @@ protected Resource[] findPathMatchingResources(String locationPattern) throws IO
 
 ```
 
-×îÖÕ´úÂëµ½ÁË `PathMatchingResourcePatternResolver#doFindAllClassPathResources`:
+æœ€ç»ˆä»£ç åˆ°äº† `PathMatchingResourcePatternResolver#doFindAllClassPathResources`:
 
 ```
 protected Set<Resource> doFindAllClassPathResources(String path) throws IOException {
     Set<Resource> result = new LinkedHashSet<>(16);
     ClassLoader cl = getClassLoader();
-    // path¶ÔÓ¦µÄurl
+    // pathå¯¹åº”çš„url
     Enumeration<URL> resourceUrls = (cl != null ? cl.getResources(path) : 
             ClassLoader.getSystemResources(path));
     while (resourceUrls.hasMoreElements()) {
         URL url = resourceUrls.nextElement();
-        // ½«url×ª»»ÎªResource£¬²¢Ìí¼Óµ½½á¹ûÖĞ
+        // å°†urlè½¬æ¢ä¸ºResourceï¼Œå¹¶æ·»åŠ åˆ°ç»“æœä¸­
         result.add(convertClassLoaderURL(url));
     }
     if ("".equals(path)) {
@@ -269,24 +269,24 @@ protected Set<Resource> doFindAllClassPathResources(String path) throws IOExcept
     return result;
 }
 
-// ½«url×ª»»ÎªResource
+// å°†urlè½¬æ¢ä¸ºResource
 protected Resource convertClassLoaderURL(URL url) {
     return new UrlResource(url);
 }
 
 ```
 
-´ËÊ±´«ÈëµÄ `path` Îª `org/springframework/learn/demo01/`£¬´Ó´úÂë¿ÉÖª£¬×îÖÕµ÷ÓÃÁË java µÄ `ClassLoader` ·½·¨À´»ñÈ¡ path ¶ÔÓ¦µÄ url£¬È»ºó½« url ×ª»»Îª `Resource` Ìí¼Óµ½½á¹û¼¯ÖĞ²¢·µ»Ø¡£
+æ­¤æ—¶ä¼ å…¥çš„ `path` ä¸º `org/springframework/learn/demo01/`ï¼Œä»ä»£ç å¯çŸ¥ï¼Œæœ€ç»ˆè°ƒç”¨äº† java çš„ `ClassLoader` æ–¹æ³•æ¥è·å– path å¯¹åº”çš„ urlï¼Œç„¶åå°† url è½¬æ¢ä¸º `Resource` æ·»åŠ åˆ°ç»“æœé›†ä¸­å¹¶è¿”å›ã€‚
 
-ÄÃµ½ÀàµÄ¾ø¶ÔÂ·¾¶Ö®ºó£¬½ÓÏÂ¾ÍÊÇ¶ÔÂ·¾¶½øĞĞ±éÀú£¬ÄÃµ½ class ÎÄ¼şÁË¡£ÈÃÎÒÃÇÔÙ»Øµ½ `PathMatchingResourcePatternResolver#findPathMatchingResources`£¬spring É¨ÃèÊ±£¬»á¸ù¾İ´«ÈëµÄ url ÀàĞÍ£¬¹²É¨Ãè 3 ¸öµØ·½£º
+æ‹¿åˆ°ç±»çš„ç»å¯¹è·¯å¾„ä¹‹åï¼Œæ¥ä¸‹å°±æ˜¯å¯¹è·¯å¾„è¿›è¡Œéå†ï¼Œæ‹¿åˆ° class æ–‡ä»¶äº†ã€‚è®©æˆ‘ä»¬å†å›åˆ° `PathMatchingResourcePatternResolver#findPathMatchingResources`ï¼Œspring æ‰«ææ—¶ï¼Œä¼šæ ¹æ®ä¼ å…¥çš„ url ç±»å‹ï¼Œå…±æ‰«æ 3 ä¸ªåœ°æ–¹ï¼š
 
 1.  vfs
-2.  jar °ü
-3.  ÎÄ¼şÂ·¾¶
+2.  jar åŒ…
+3.  æ–‡ä»¶è·¯å¾„
 
-`vfs` ×¢ÊÍÉÏËµÊÇ "URL protocol for a general JBoss VFS resource"£¬¼´Í¨ÓÃ JBoss VFS ×ÊÔ´µÄ URL Ğ­Òé£¬ÕâÀï²»Éî¾¿¡£Èç¹ûÏîÄ¿ÖĞÒıÈëÁË jar °üÇÒĞèÒªÉ¨Ãè jar ÖĞµÄÂ·¾¶£¬¾Í»áÊ¹ÓÃ jar °üÉ¨Ãè·½Ê½½øĞĞ class ÎÄ¼ş²éÕÒ£¬ÓÉÓÚµ÷ÊÔÊ±£¬`demo01` ÊÇÊ¹ÓÃÎÄ¼ş·½Ê½É¨ÃèµÄ£¬ÕâÀï¾ÍÖØµã·ÖÎöÎÄ¼şÉ¨Ãè·½Ê½£¬ÖÁÓÚ jar ÊÇÈçºÎÉ¨ÃèµÄ£¬ÓĞĞËÈ¤µÄĞ¡»ï°é¿É×ÔĞĞÑĞ¾¿ÏÂ¡£
+`vfs` æ³¨é‡Šä¸Šè¯´æ˜¯ "URL protocol for a general JBoss VFS resource"ï¼Œå³é€šç”¨ JBoss VFS èµ„æºçš„ URL åè®®ï¼Œè¿™é‡Œä¸æ·±ç©¶ã€‚å¦‚æœé¡¹ç›®ä¸­å¼•å…¥äº† jar åŒ…ä¸”éœ€è¦æ‰«æ jar ä¸­çš„è·¯å¾„ï¼Œå°±ä¼šä½¿ç”¨ jar åŒ…æ‰«ææ–¹å¼è¿›è¡Œ class æ–‡ä»¶æŸ¥æ‰¾ï¼Œç”±äºè°ƒè¯•æ—¶ï¼Œ`demo01` æ˜¯ä½¿ç”¨æ–‡ä»¶æ–¹å¼æ‰«æçš„ï¼Œè¿™é‡Œå°±é‡ç‚¹åˆ†ææ–‡ä»¶æ‰«ææ–¹å¼ï¼Œè‡³äº jar æ˜¯å¦‚ä½•æ‰«æçš„ï¼Œæœ‰å…´è¶£çš„å°ä¼™ä¼´å¯è‡ªè¡Œç ”ç©¶ä¸‹ã€‚
 
-ÎÒÃÇ¸ú½ø `findPathMatchingResources` ·½·¨£º
+æˆ‘ä»¬è·Ÿè¿› `findPathMatchingResources` æ–¹æ³•ï¼š
 
 ```
 |-PathMatchingResourcePatternResolver#findPathMatchingResources
@@ -298,7 +298,7 @@ protected Resource convertClassLoaderURL(URL url) {
 ```
 protected Set<Resource> doFindMatchingFileSystemResources(File rootDir, 
             String subPattern) throws IOException {
-    // ÕâÀï½øĞĞÎÄ¼ş²éÕÒ
+    // è¿™é‡Œè¿›è¡Œæ–‡ä»¶æŸ¥æ‰¾
     Set<File> matchingFiles = retrieveMatchingFiles(rootDir, subPattern);
     Set<Resource> result = new LinkedHashSet<>(matchingFiles.size());
     for (File file : matchingFiles) {
@@ -309,9 +309,9 @@ protected Set<Resource> doFindMatchingFileSystemResources(File rootDir,
 
 ```
 
-ÔÚ `PathMatchingResourcePatternResolver#doFindMatchingFileSystemResources` ÖĞ£¬spring ½«É¨Ãèµ½µÄ File ×ª»»Îª `FileSystemResource` ±£´æ£¬ÕâÊÇÎÒÃÇÓöµ½µÄµÚ¶ş¸ö `Resource` ÀàĞÍÁË (Ç°ÃæÎª `UrlResource`£¬ÕâÀïÎª `FileSystemResource`).
+åœ¨ `PathMatchingResourcePatternResolver#doFindMatchingFileSystemResources` ä¸­ï¼Œspring å°†æ‰«æåˆ°çš„ File è½¬æ¢ä¸º `FileSystemResource` ä¿å­˜ï¼Œè¿™æ˜¯æˆ‘ä»¬é‡åˆ°çš„ç¬¬äºŒä¸ª `Resource` ç±»å‹äº† (å‰é¢ä¸º `UrlResource`ï¼Œè¿™é‡Œä¸º `FileSystemResource`).
 
-½ÓÏÂÎÒÃÇÖØµã¹Ø×¢ `Set<File> matchingFiles = retrieveMatchingFiles(rootDir, subPattern);`£¬¿´¿´ spring ÊÇÈçºÎÍê³ÉÎÄ¼ş²éÕÒµÄ£º
+æ¥ä¸‹æˆ‘ä»¬é‡ç‚¹å…³æ³¨ `Set<File> matchingFiles = retrieveMatchingFiles(rootDir, subPattern);`ï¼Œçœ‹çœ‹ spring æ˜¯å¦‚ä½•å®Œæˆæ–‡ä»¶æŸ¥æ‰¾çš„ï¼š
 
 ```
 |-PathMatchingResourcePatternResolver#findPathMatchingResources
@@ -331,11 +331,11 @@ protected void doRetrieveMatchingFiles(String fullPattern, File dir, Set<File> r
             if (!content.canRead()) {
             }
             else {
-                // Èç¹ûÊÇÎÄ¼ş¼Ğ£¬µİ¹éµ÷ÓÃ
+                // å¦‚æœæ˜¯æ–‡ä»¶å¤¹ï¼Œé€’å½’è°ƒç”¨
                 doRetrieveMatchingFiles(fullPattern, content, result);
             }
         }
-        // Èç¹ûÊÇÎÄ¼şÇÒÎÄ¼şÂ·¾¶
+        // å¦‚æœæ˜¯æ–‡ä»¶ä¸”æ–‡ä»¶è·¯å¾„
         if (getPathMatcher().match(fullPattern, currPath)) {
             result.add(content);
         }
@@ -344,36 +344,36 @@ protected void doRetrieveMatchingFiles(String fullPattern, File dir, Set<File> r
 
 ```
 
-ÒÔÉÏ´úÂë±È½Ï¼òµ¥£¬ÓëÎÒÃÇÆ½³£±éÀúÎÄ¼şµÄ·½Ê½ÊÇÒ»ÑùµÄ¡£
+ä»¥ä¸Šä»£ç æ¯”è¾ƒç®€å•ï¼Œä¸æˆ‘ä»¬å¹³å¸¸éå†æ–‡ä»¶çš„æ–¹å¼æ˜¯ä¸€æ ·çš„ã€‚
 
-ÖµµÃÒ»ÌáµÄÊÇ£¬`getPathMatcher().match(fullPattern, currPath)` ×îÖÕµ÷ÓÃµ½µÄÊÇ `AntPathMatcher#doMatch`£¬ÕâÊÇÒ»¸ö ant ·ç¸ñµÄÂ·¾¶Æ¥ÅäÑéÖ¤£¬¼´Â·¾¶ÖĞ´øÓĞ `*`£¬Èç´«ÈëµÄ pattern ÊÇ `/xxx/spring-framework/spring-learn/build/classes/java/main/org/springframework/learn/demo01/**/*.class`£¬±íÊ¾Æ¥Åä `/xxx/spring-framework/spring-learn/build/classes/java/main/org/springframework/learn/demo01/` ¼°Æä×ÓÎÄ¼ş¼ĞÏÂËùÓĞÒÔ`.class` ÎÄ¼ş½áÎ²µÄÎÄ¼ş£¬µ±Ç°´«ÈëµÄ path ÊÇ `/xxx/spring-framework/spring-learn/build/classes/java/main/org/springframework/learn/demo01/BeanObj2.class`£¬ÏÔÈ»Æ¥Åä¡£¹ØÓÚ `AntPathMatcher#doMatch` ·½·¨ÊÇÈçºÎ½øĞĞÆ¥ÅäµÄ£¬ÕâÀï¾Í²»½øĞĞÕ¹¿ªÁË¡£
+å€¼å¾—ä¸€æçš„æ˜¯ï¼Œ`getPathMatcher().match(fullPattern, currPath)` æœ€ç»ˆè°ƒç”¨åˆ°çš„æ˜¯ `AntPathMatcher#doMatch`ï¼Œè¿™æ˜¯ä¸€ä¸ª ant é£æ ¼çš„è·¯å¾„åŒ¹é…éªŒè¯ï¼Œå³è·¯å¾„ä¸­å¸¦æœ‰ `*`ï¼Œå¦‚ä¼ å…¥çš„ pattern æ˜¯ `/xxx/spring-framework/spring-learn/build/classes/java/main/org/springframework/learn/demo01/**/*.class`ï¼Œè¡¨ç¤ºåŒ¹é… `/xxx/spring-framework/spring-learn/build/classes/java/main/org/springframework/learn/demo01/` åŠå…¶å­æ–‡ä»¶å¤¹ä¸‹æ‰€æœ‰ä»¥`.class` æ–‡ä»¶ç»“å°¾çš„æ–‡ä»¶ï¼Œå½“å‰ä¼ å…¥çš„ path æ˜¯ `/xxx/spring-framework/spring-learn/build/classes/java/main/org/springframework/learn/demo01/BeanObj2.class`ï¼Œæ˜¾ç„¶åŒ¹é…ã€‚å…³äº `AntPathMatcher#doMatch` æ–¹æ³•æ˜¯å¦‚ä½•è¿›è¡ŒåŒ¹é…çš„ï¼Œè¿™é‡Œå°±ä¸è¿›è¡Œå±•å¼€äº†ã€‚
 
-¾­¹ıÁËÒÔÉÏ²½Öè£¬ÎÒÃÇÖÕÓÚµÃµ½ÁË class ÎÄ¼ş¶ÔÓ¦µÄ Resource ÁË.
+ç»è¿‡äº†ä»¥ä¸Šæ­¥éª¤ï¼Œæˆ‘ä»¬ç»ˆäºå¾—åˆ°äº† class æ–‡ä»¶å¯¹åº”çš„ Resource äº†.
 
-#### 1.3 ½« Resource ×ª»¯Îª BeanDefinition
+#### 1.3 å°† Resource è½¬åŒ–ä¸º BeanDefinition
 
-½« Resource ×ª»¯Îª BeanDefinition£¬´úÂëÊÇ
+å°† Resource è½¬åŒ–ä¸º BeanDefinitionï¼Œä»£ç æ˜¯
 
 > ClassPathScanningCandidateComponentProvider#scanCandidateComponents
 
 ```
-// ´Ó resource µÃµ½ MetadataReader
+// ä» resource å¾—åˆ° MetadataReader
 MetadataReader metadataReader = getMetadataReaderFactory().getMetadataReader(resource);
 
-// ÕâÀï×öÁËÁ½¼şÊÂ£º
-// 1\. ÊÇ·ñĞèÒª³õÊ¼»¯Îªspring bean£¬¼´ÊÇ·ñÓĞ @Component¡¢@ServiceµÈ×¢½â
-// 2\. ²é¿´ÅäÖÃÀàÊÇ·ñÓĞ@ConditionalÒ»ÏµÁĞµÄ×¢½â£¬È»ºóÊÇ·ñÂú×ã×¢²áBeanµÄÌõ¼ş
+// è¿™é‡Œåšäº†ä¸¤ä»¶äº‹ï¼š
+// 1\. æ˜¯å¦éœ€è¦åˆå§‹åŒ–ä¸ºspring beanï¼Œå³æ˜¯å¦æœ‰ @Componentã€@Serviceç­‰æ³¨è§£
+// 2\. æŸ¥çœ‹é…ç½®ç±»æ˜¯å¦æœ‰@Conditionalä¸€ç³»åˆ—çš„æ³¨è§£ï¼Œç„¶åæ˜¯å¦æ»¡è¶³æ³¨å†ŒBeançš„æ¡ä»¶
 if (isCandidateComponent(metadataReader)) {
-    // ½« metadataReader ×ª»»Îª ScannedGenericBeanDefinition£¬ÕâÒ²ÊÇBeanDefinition¼Ò×åÖĞµÄÒ»Ô±
+    // å°† metadataReader è½¬æ¢ä¸º ScannedGenericBeanDefinitionï¼Œè¿™ä¹Ÿæ˜¯BeanDefinitionå®¶æ—ä¸­çš„ä¸€å‘˜
     ScannedGenericBeanDefinition sbd = new ScannedGenericBeanDefinition(metadataReader);
     ...
 }
 
 ```
 
-##### 1\. ´Ó Resource µÃµ½ MetadataReader
+##### 1\. ä» Resource å¾—åˆ° MetadataReader
 
-ÎÒÃÇ×·×ÙÏÂ `MetadataReader` µÄ»ñÈ¡£º
+æˆ‘ä»¬è¿½è¸ªä¸‹ `MetadataReader` çš„è·å–ï¼š
 
 ```
 |-ClassPathScanningCandidateComponentProvider#scanCandidateComponents
@@ -383,13 +383,13 @@ if (isCandidateComponent(metadataReader)) {
 
 ```
 
-´úÂë×îÖÕÔËĞĞµ½ÁË `SimpleMetadataReader` µÄ¹¹Ôì·½·¨:
+ä»£ç æœ€ç»ˆè¿è¡Œåˆ°äº† `SimpleMetadataReader` çš„æ„é€ æ–¹æ³•:
 
 ```
 SimpleMetadataReader(Resource resource, @Nullable ClassLoader classLoader) throws IOException {
     SimpleAnnotationMetadataReadingVisitor visitor 
         = new SimpleAnnotationMetadataReadingVisitor(classLoader);
-    // ÕâÀï·¢ÉúÁËclassÎÄ¼şµÄ¶ÁÈ¡Óë½âÎö
+    // è¿™é‡Œå‘ç”Ÿäº†classæ–‡ä»¶çš„è¯»å–ä¸è§£æ
     getClassReader(resource).accept(visitor, PARSING_OPTIONS);
     this.resource = resource;
     this.annotationMetadata = visitor.getMetadata();
@@ -397,19 +397,19 @@ SimpleMetadataReader(Resource resource, @Nullable ClassLoader classLoader) throw
 
 ```
 
-ÔÙ½øÒ»²½×·×Ù£¬·¢ÏÖ class ÎÄ¼şµÄ¶ÁÈ¡Óë½âÎö·¢ÉúÔÚ `ClassReader` Àà£º
+å†è¿›ä¸€æ­¥è¿½è¸ªï¼Œå‘ç° class æ–‡ä»¶çš„è¯»å–ä¸è§£æå‘ç”Ÿåœ¨ `ClassReader` ç±»ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-595687d3a766ffaacf69f31216a5b09f9d5.png)
 
-Õâ¸öÀàÊ¹ÓÃ asm À´¶ÁÈ¡ class ÎÄ¼ş£¬´úÂë±È½Ï¸´ÔÓ£¬¾Í²»Éî¾¿ÁË¡£
+è¿™ä¸ªç±»ä½¿ç”¨ asm æ¥è¯»å– class æ–‡ä»¶ï¼Œä»£ç æ¯”è¾ƒå¤æ‚ï¼Œå°±ä¸æ·±ç©¶äº†ã€‚
 
-Ò»Ö±ÒÔÀ´£¬ÎÒ¶¼ÒÔÎª spring ÊÇÍ¨¹ı·´ÉäÀ´»ñÈ¡ÀàĞÅÏ¢µÄ£¬µ½ÕâÀï²ÅÖªµÀ£¬**Ô­À´ spring ÊÇÍ¨¹ı asm Ö±½Ó¶ÁÈ¡ class ÎÄ¼şÀ´»ñÈ¡ÀàµÄĞÅÏ¢µÄ** ¡£
+ä¸€ç›´ä»¥æ¥ï¼Œæˆ‘éƒ½ä»¥ä¸º spring æ˜¯é€šè¿‡åå°„æ¥è·å–ç±»ä¿¡æ¯çš„ï¼Œåˆ°è¿™é‡Œæ‰çŸ¥é“ï¼Œ**åŸæ¥ spring æ˜¯é€šè¿‡ asm ç›´æ¥è¯»å– class æ–‡ä»¶æ¥è·å–ç±»çš„ä¿¡æ¯çš„** ã€‚
 
-×îºóÎÒÃÇÀ´¿´ÏÂµÃµ½µÄ `MetadataReader` µÄ½á¹û£º
+æœ€åæˆ‘ä»¬æ¥çœ‹ä¸‹å¾—åˆ°çš„ `MetadataReader` çš„ç»“æœï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-9df07587a3a8191231da87fe21d80052357.png)
 
-ÕâÀïÖØµã¹Ø×¢ `annotations` ÊôĞÔ£¬ÀïÃæÓĞÒ»¸ö `annotations` ºÍ `mappings`£¬`annotations` ÄÚÈİÎª `@Service`£¬`mappings` ÊÇÒ»¸öÊı×é£¬ÄÚÈİÎª
+è¿™é‡Œé‡ç‚¹å…³æ³¨ `annotations` å±æ€§ï¼Œé‡Œé¢æœ‰ä¸€ä¸ª `annotations` å’Œ `mappings`ï¼Œ`annotations` å†…å®¹ä¸º `@Service`ï¼Œ`mappings` æ˜¯ä¸€ä¸ªæ•°ç»„ï¼Œå†…å®¹ä¸º
 
 ```
 0-@Service
@@ -424,29 +424,29 @@ SimpleMetadataReader(Resource resource, @Nullable ClassLoader classLoader) throw
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-930a4e6844efd3f9f52c6d3f4e13a200337.png)
 
-`annotations` ±¾ÈË²Â²âÊÇ `BeanObj1` ÉÏµÄ×¢½â£º
+`annotations` æœ¬äººçŒœæµ‹æ˜¯ `BeanObj1` ä¸Šçš„æ³¨è§£ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-77271c438dde39f2bc905aa9f2cf9fb73d8.png)
 
-ÖÁÓÚ `mappings` ÊÇÉ¶£¬ÎÒ²»ºÃ²Â²â£¬²»¹ıÒ²¿ÉÒÔ´Ó×¢½âÖĞ·¢ÏÖÒ»Ğ©¶ËÄß£º
+è‡³äº `mappings` æ˜¯å•¥ï¼Œæˆ‘ä¸å¥½çŒœæµ‹ï¼Œä¸è¿‡ä¹Ÿå¯ä»¥ä»æ³¨è§£ä¸­å‘ç°ä¸€äº›ç«¯å€ªï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-f31efb6252beb2108dc0ce93d482666f8d0.png)
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a8ce5d11b4b02907f0ff497c6369a1c1dde.png)
 
-`@Service` ÉÏÓĞ `@Component` ×¢½â£¬`@Component` ÉÏÓĞ `@Indexed`£¬¶øÕâÈıÕß¶¼³öÏÖÔÚÁË `mappings` ÖĞ£¬Õâ¿´×ÅÏñÊÇ×¨ÃÅÓÃÀ´±£´æÄÃ×¢½âÖ®ÉÏµÄ×¢½âµÄ£¿²»¾À½áÕâ¸öÁË£¬ÔİÇÒ¾Íµ±×÷ÊÇÕâ¹¦ÄÜ°É£¡**×¢Òâ£º`mappings` ÀïÃæµÄÄÚÈİºÜÖØÒª£¬ºóÃæ»áÓÃÀ´£¡**
+`@Service` ä¸Šæœ‰ `@Component` æ³¨è§£ï¼Œ`@Component` ä¸Šæœ‰ `@Indexed`ï¼Œè€Œè¿™ä¸‰è€…éƒ½å‡ºç°åœ¨äº† `mappings` ä¸­ï¼Œè¿™çœ‹ç€åƒæ˜¯ä¸“é—¨ç”¨æ¥ä¿å­˜æ‹¿æ³¨è§£ä¹‹ä¸Šçš„æ³¨è§£çš„ï¼Ÿä¸çº ç»“è¿™ä¸ªäº†ï¼Œæš‚ä¸”å°±å½“ä½œæ˜¯è¿™åŠŸèƒ½å§ï¼**æ³¨æ„ï¼š`mappings` é‡Œé¢çš„å†…å®¹å¾ˆé‡è¦ï¼Œåé¢ä¼šç”¨æ¥ï¼**
 
-##### 2. `isCandidateComponent(MetadataReader)`£ºÅĞ¶ÏÊÇ·ñĞèÒªÊµÀı»¯Îª spring bean
+##### 2. `isCandidateComponent(MetadataReader)`ï¼šåˆ¤æ–­æ˜¯å¦éœ€è¦å®ä¾‹åŒ–ä¸º spring bean
 
-ÔÚÉÏÒ»²½ÖĞ£¬ÎÒÃÇµÃµ½ÁË basePackage ÏÂ**ËùÓĞÀà**µÄ `MetadataReader` ÃèÊöÎÄ¼ş£¬×¢ÒâÕâÀïÊÇ**ËùÓĞÀà**£¬µ«ÕâĞ©ÀàÊÇ²»ÊÇ¶¼Òª×ª³É `spring bean`£¬ÍĞ¹Üµ½ spring ÈİÆ÷ÄØ£¿Õâ¾ÍÊÇ `isCandidateComponent(MetadataReader)` µÄ¹¦ÄÜÁË¡£·Ï»°ÉÙËµ£¬ÉÏ´úÂë£º
+åœ¨ä¸Šä¸€æ­¥ä¸­ï¼Œæˆ‘ä»¬å¾—åˆ°äº† basePackage ä¸‹**æ‰€æœ‰ç±»**çš„ `MetadataReader` æè¿°æ–‡ä»¶ï¼Œæ³¨æ„è¿™é‡Œæ˜¯**æ‰€æœ‰ç±»**ï¼Œä½†è¿™äº›ç±»æ˜¯ä¸æ˜¯éƒ½è¦è½¬æˆ `spring bean`ï¼Œæ‰˜ç®¡åˆ° spring å®¹å™¨å‘¢ï¼Ÿè¿™å°±æ˜¯ `isCandidateComponent(MetadataReader)` çš„åŠŸèƒ½äº†ã€‚åºŸè¯å°‘è¯´ï¼Œä¸Šä»£ç ï¼š
 
 ```
 protected boolean isCandidateComponent(MetadataReader metadataReader) throws IOException {
-    // Ê¡ÂÔ²¿·Ö´úÂë
+    // çœç•¥éƒ¨åˆ†ä»£ç 
     for (TypeFilter tf : this.includeFilters) {
-        // ÕâÀïÅĞ¶ÏÊÇ·ñĞèÒªÍĞ¹Üµ½springÈİÆ÷
+        // è¿™é‡Œåˆ¤æ–­æ˜¯å¦éœ€è¦æ‰˜ç®¡åˆ°springå®¹å™¨
         if (tf.match(metadataReader, getMetadataReaderFactory())) {
-            // ÅĞ¶ÏÊÇ·ñÓĞ@ConditionalÒ»ÏµÁĞµÄ×¢½â
+            // åˆ¤æ–­æ˜¯å¦æœ‰@Conditionalä¸€ç³»åˆ—çš„æ³¨è§£
             return isConditionMatch(metadataReader);
         }
     }
@@ -455,20 +455,20 @@ protected boolean isCandidateComponent(MetadataReader metadataReader) throws IOE
 
 ```
 
-Õâ¶ÎÖ÷ÒªÊÇ×öÁËÁ½¸öÅĞ¶Ï£º
+è¿™æ®µä¸»è¦æ˜¯åšäº†ä¸¤ä¸ªåˆ¤æ–­ï¼š
 
-*   ÊÇ·ñĞèÒªÎª spring bean
-*   ÊÇ·ñÓĞ `@Conditional` µÈÒ»ÏµÁĞµÄ×¢½â
+*   æ˜¯å¦éœ€è¦ä¸º spring bean
+*   æ˜¯å¦æœ‰ `@Conditional` ç­‰ä¸€ç³»åˆ—çš„æ³¨è§£
 
-ÕâÀïÎÒÃÇÏÈÀ´¿´µÚÒ»¸öÅĞ¶Ï¡£
+è¿™é‡Œæˆ‘ä»¬å…ˆæ¥çœ‹ç¬¬ä¸€ä¸ªåˆ¤æ–­ã€‚
 
-ÔÚ spring ÖĞ£¬±êÃ÷ spring bean µÄ×¢½âÓĞºÜ¶à£¬Ïñ `@Component`¡¢`@Repository`¡¢`@Service`¡¢`@Controller`¡¢`@Configuration`£¬ÉõÖÁÊÇÄã×Ô¼ºĞ´µÄ×¢½âÀà£¬Ö»ÒªÉÏÃæ±êÁËÕâĞ©×¢½â£¬Ïñ
+åœ¨ spring ä¸­ï¼Œæ ‡æ˜ spring bean çš„æ³¨è§£æœ‰å¾ˆå¤šï¼Œåƒ `@Component`ã€`@Repository`ã€`@Service`ã€`@Controller`ã€`@Configuration`ï¼Œç”šè‡³æ˜¯ä½ è‡ªå·±å†™çš„æ³¨è§£ç±»ï¼Œåªè¦ä¸Šé¢æ ‡äº†è¿™äº›æ³¨è§£ï¼Œåƒ
 
 ```
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-// Ìí¼Ó @Component »ò @Service »ò @Repository µÈÆäÖĞÖ®Ò»
+// æ·»åŠ  @Component æˆ– @Service æˆ– @Repository ç­‰å…¶ä¸­ä¹‹ä¸€
 @Component
 public @interface MySpringBean {
     ...
@@ -476,7 +476,7 @@ public @interface MySpringBean {
 
 ```
 
-¶¼ÄÜ±» spring Ê¶±ğ¡£Èç¹ûÊÇ spring Ìá¹©µÄ×¢½â£¨`@Component`¡¢`@Repository` µÈ£©£¬ÔÚÅĞ¶ÏÊÇ²»ÊÇ spring bean Ê±£¬Ö»ĞèÒª×öÀàËÆ
+éƒ½èƒ½è¢« spring è¯†åˆ«ã€‚å¦‚æœæ˜¯ spring æä¾›çš„æ³¨è§£ï¼ˆ`@Component`ã€`@Repository` ç­‰ï¼‰ï¼Œåœ¨åˆ¤æ–­æ˜¯ä¸æ˜¯ spring bean æ—¶ï¼Œåªéœ€è¦åšç±»ä¼¼
 
 ```
 if(annotation == Component.class || annotation == Repository.class) {
@@ -485,7 +485,7 @@ if(annotation == Component.class || annotation == Repository.class) {
 
 ```
 
-µÄÅĞ¶Ï¾ÍĞĞÁË¡£µ«¶ÔÓÚ×Ô¶¨ÒåµÄ×¢½â `@MySpringBean`£¬spring ÊÇÔõÃ´ÖªµÀÕâÊÇ spring bean ÄØ£¿ÔÚÎÒÃÇ¶¨Òå `@MySpringBean` Ê±£¬Ò»¶¨ÒªÔÚÀàÉÏÌí¼Ó `@Component` »ò `@Service` »ò `@Repository` µÈÆäÖĞÖ®Ò»²ÅÄÜ±» spring Ê¶±ğ£¬ÕâÆäÖĞÓĞÊ²Ã´Ğş»úÄØ£¿ÎÒÃÇ¸ú½ø´úÂë `AbstractTypeHierarchyTraversingFilter#match(MetadataReader, MetadataReaderFactory)`£¬ÕâÀïÎÒÃÇ¶Ô²»ÖØÒªµÄ´úÂëÒÀ¾ÉÖ»¸ø³öµ÷ÓÃÁ´£º
+çš„åˆ¤æ–­å°±è¡Œäº†ã€‚ä½†å¯¹äºè‡ªå®šä¹‰çš„æ³¨è§£ `@MySpringBean`ï¼Œspring æ˜¯æ€ä¹ˆçŸ¥é“è¿™æ˜¯ spring bean å‘¢ï¼Ÿåœ¨æˆ‘ä»¬å®šä¹‰ `@MySpringBean` æ—¶ï¼Œä¸€å®šè¦åœ¨ç±»ä¸Šæ·»åŠ  `@Component` æˆ– `@Service` æˆ– `@Repository` ç­‰å…¶ä¸­ä¹‹ä¸€æ‰èƒ½è¢« spring è¯†åˆ«ï¼Œè¿™å…¶ä¸­æœ‰ä»€ä¹ˆç„æœºå‘¢ï¼Ÿæˆ‘ä»¬è·Ÿè¿›ä»£ç  `AbstractTypeHierarchyTraversingFilter#match(MetadataReader, MetadataReaderFactory)`ï¼Œè¿™é‡Œæˆ‘ä»¬å¯¹ä¸é‡è¦çš„ä»£ç ä¾æ—§åªç»™å‡ºè°ƒç”¨é“¾ï¼š
 
 ```
 |-ClassPathScanningCandidateComponentProvider#isCandidateComponent(MetadataReader)
@@ -494,29 +494,29 @@ if(annotation == Component.class || annotation == Repository.class) {
 
 ```
 
-´úÂë×îÖÕµ½ÁË `AnnotationTypeFilter#matchSelf`:
+ä»£ç æœ€ç»ˆåˆ°äº† `AnnotationTypeFilter#matchSelf`:
 
 ```
 @Override
 protected boolean matchSelf(MetadataReader metadataReader) {
     AnnotationMetadata metadata = metadataReader.getAnnotationMetadata();
-    // ÕâÀïµÄannotationType¾ÍÊÇ @Component
+    // è¿™é‡Œçš„annotationTypeå°±æ˜¯ @Component
     return metadata.hasAnnotation(this.annotationType.getName()) ||
         (this.considerMetaAnnotations && metadata.hasMetaAnnotation(this.annotationType.getName()));
 }
 
 ```
 
-¹Ø¼ü¾ÍÔÚÕâÁË£º
+å…³é”®å°±åœ¨è¿™äº†ï¼š
 
 ```
 metadata.hasAnnotation(this.annotationType.getName())
-Óë
+ä¸
 this.considerMetaAnnotations && metadata.hasMetaAnnotation(this.annotationType.getName())
 
 ```
 
-ÎÒÃÇÏÈ¿´ `metadata.hasAnnotation(this.annotationType.getName())` µÄ±È½Ï£º
+æˆ‘ä»¬å…ˆçœ‹ `metadata.hasAnnotation(this.annotationType.getName())` çš„æ¯”è¾ƒï¼š
 
 ```
 // AnnotationMetadata#hasAnnotation
@@ -526,11 +526,11 @@ default boolean hasAnnotation(String annotationName) {
 
 ```
 
-ÕâÀïµÄ `getAnnotations()` µÃµ½µÄ½á¹ûÊÇ
+è¿™é‡Œçš„ `getAnnotations()` å¾—åˆ°çš„ç»“æœæ˜¯
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-3e46b2ece5ddb2328342a469dc7dd554d9e.png)
 
-mappings ÀïµÄÄÚÈİÊÇ
+mappings é‡Œçš„å†…å®¹æ˜¯
 
 ```
 0-@Service
@@ -539,13 +539,13 @@ mappings ÀïµÄÄÚÈİÊÇ
 
 ```
 
-ÕâÆäÊµ¾ÍÊÇÎÒÃÇÇ°ÃæµÃµ½µÄ `MetadataReader` ÀïµÄÄÚÈİ£¡
+è¿™å…¶å®å°±æ˜¯æˆ‘ä»¬å‰é¢å¾—åˆ°çš„ `MetadataReader` é‡Œçš„å†…å®¹ï¼
 
-ÔÙ×·×ÙÏÂÈ¥£¬·¢ÏÖ `isDirectlyPresent` ¾ÍÊÇÅĞ¶Ï `annotations` Óë `mappings` ÀïÓĞÃ»ÓĞ³öÏÖ `@Component`:
+å†è¿½è¸ªä¸‹å»ï¼Œå‘ç° `isDirectlyPresent` å°±æ˜¯åˆ¤æ–­ `annotations` ä¸ `mappings` é‡Œæœ‰æ²¡æœ‰å‡ºç° `@Component`:
 
 ```
 private boolean isPresent(Object requiredType, boolean directOnly) {
-    // ÅĞ¶Ï annotations ÀïÓĞÃ»ÓĞ³öÏÖ @Component
+    // åˆ¤æ–­ annotations é‡Œæœ‰æ²¡æœ‰å‡ºç° @Component
     for (MergedAnnotation<?> annotation : this.annotations) {
         Class<? extends Annotation> type = annotation.getType();
         if (type == requiredType || type.getName().equals(requiredType)) {
@@ -553,7 +553,7 @@ private boolean isPresent(Object requiredType, boolean directOnly) {
         }
     }
     if (!directOnly) {
-        // ÅĞ¶Ï mappings ÀïÓĞÃ»ÓĞ³öÏÖ @Component
+        // åˆ¤æ–­ mappings é‡Œæœ‰æ²¡æœ‰å‡ºç° @Component
         for (AnnotationTypeMappings mappings : this.mappings) {
             for (int i = 1; i < mappings.size(); i++) {
                 AnnotationTypeMapping mapping = mappings.get(i);
@@ -568,7 +568,7 @@ private boolean isPresent(Object requiredType, boolean directOnly) {
 
 ```
 
-½Ó×ÅÎÒÃÇÔÙÀ´¿´ `this.considerMetaAnnotations && metadata.hasMetaAnnotation(this.annotationType.getName())`£¬²é¿´µ÷ÓÃ£º
+æ¥ç€æˆ‘ä»¬å†æ¥çœ‹ `this.considerMetaAnnotations && metadata.hasMetaAnnotation(this.annotationType.getName())`ï¼ŒæŸ¥çœ‹è°ƒç”¨ï¼š
 
 ```
 |-AnnotationTypeFilter#matchSelf
@@ -579,7 +579,7 @@ private boolean isPresent(Object requiredType, boolean directOnly) {
 
 ```
 
-×îÖÕµÄ²éÕÒ·½·¨ÔÚ `MergedAnnotationsCollection#find`:
+æœ€ç»ˆçš„æŸ¥æ‰¾æ–¹æ³•åœ¨ `MergedAnnotationsCollection#find`:
 
 ```
 private <A extends Annotation> MergedAnnotation<A> find(Object requiredType,
@@ -590,13 +590,13 @@ private <A extends Annotation> MergedAnnotation<A> find(Object requiredType,
     for (int i = 0; i < this.annotations.length; i++) {
         MergedAnnotation<?> root = this.annotations[i];
         AnnotationTypeMappings mappings = this.mappings[i];
-        // mappings ±éÀú mappings
+        // mappings éå† mappings
         for (int mappingIndex = 0; mappingIndex < mappings.size(); mappingIndex++) {
             AnnotationTypeMapping mapping = mappings.get(mappingIndex);
             if (!isMappingForType(mapping, requiredType)) {
                 continue;
             }
-            // µ½ÕâÀï£¬¾ÍÊÇÕÒµ½ÁË @Component ×¢½â
+            // åˆ°è¿™é‡Œï¼Œå°±æ˜¯æ‰¾åˆ°äº† @Component æ³¨è§£
             MergedAnnotation<A> candidate = (mappingIndex == 0
                 ? (MergedAnnotation<A>) root
                 : TypeMappedAnnotation.createIfPossible(mapping, root, IntrospectionFailureLogger.INFO));
@@ -613,11 +613,11 @@ private <A extends Annotation> MergedAnnotation<A> find(Object requiredType,
 
 ```
 
-¿ÉÒÔ¿´µ½£¬²éÕÒ·½Ê½¸úÉÏÃæµÄ `metadata.hasAnnotation(this.annotationType.getName())` ¸ß¶ÈÏàËÆ¡£
+å¯ä»¥çœ‹åˆ°ï¼ŒæŸ¥æ‰¾æ–¹å¼è·Ÿä¸Šé¢çš„ `metadata.hasAnnotation(this.annotationType.getName())` é«˜åº¦ç›¸ä¼¼ã€‚
 
-ÒÔÉÏ¾ÍÊÇ spring ÓÃÀ´ÅĞ¶ÏÊÇ·ñ°üº¬ `@Service`¡¢`@Component` µÈ×¢½âµÄÂß¼­ÁË¡£
+ä»¥ä¸Šå°±æ˜¯ spring ç”¨æ¥åˆ¤æ–­æ˜¯å¦åŒ…å« `@Service`ã€`@Component` ç­‰æ³¨è§£çš„é€»è¾‘äº†ã€‚
 
-ÔÚ `java` ÖĞ£¬×¢½âÊÇ²»ÄÜ¼Ì³ĞµÄ£¬Èç
+åœ¨ `java` ä¸­ï¼Œæ³¨è§£æ˜¯ä¸èƒ½ç»§æ‰¿çš„ï¼Œå¦‚
 
 ```
 @Target({ElementType.TYPE, ElementType.METHOD})
@@ -636,15 +636,15 @@ public @interface Child extends  Base {
 
 ```
 
-ÒÔÉÏÓï·¨ÔÚ java ÖĞ²»±»ÔÊĞíµÄ£¬spring ¾ÍÊÇ²ÉÓÃÕâ½âÎö`×¢½âµÄ×¢½â`µÄ·½Ê½£¬ÊµÏÖÁËÀàËÆÓÚ¼Ì³ĞµÄ¹¦ÄÜ¡£
+ä»¥ä¸Šè¯­æ³•åœ¨ java ä¸­ä¸è¢«å…è®¸çš„ï¼Œspring å°±æ˜¯é‡‡ç”¨è¿™è§£æ`æ³¨è§£çš„æ³¨è§£`çš„æ–¹å¼ï¼Œå®ç°äº†ç±»ä¼¼äºç»§æ‰¿çš„åŠŸèƒ½ã€‚
 
-½Ó×ÅÎÒÃÇÔÙÀ´¿´ `ClassPathScanningCandidateComponentProvider#isConditionMatch` ·½·¨¡£Êµ¼ÊÉÏ£¬Õâ¸ö·½·¨ÊÇÓÃÀ´ÅĞ¶ÏÀàÊÇ·ñº¬ÓĞ `@Conditional` ×¢½âµÄ£¬Âú×ãÌõ¼şÔò»áÊ¶±ğÎª spring bean£¬´úÂë×îÖÕµ÷ÓÃµ½ÁË `ConditionEvaluator#shouldSkip(AnnotatedTypeMetadata, ConfigurationCondition.ConfigurationPhase)`:
+æ¥ç€æˆ‘ä»¬å†æ¥çœ‹ `ClassPathScanningCandidateComponentProvider#isConditionMatch` æ–¹æ³•ã€‚å®é™…ä¸Šï¼Œè¿™ä¸ªæ–¹æ³•æ˜¯ç”¨æ¥åˆ¤æ–­ç±»æ˜¯å¦å«æœ‰ `@Conditional` æ³¨è§£çš„ï¼Œæ»¡è¶³æ¡ä»¶åˆ™ä¼šè¯†åˆ«ä¸º spring beanï¼Œä»£ç æœ€ç»ˆè°ƒç”¨åˆ°äº† `ConditionEvaluator#shouldSkip(AnnotatedTypeMetadata, ConfigurationCondition.ConfigurationPhase)`:
 
 ```
 public boolean shouldSkip(@Nullable AnnotatedTypeMetadata metadata, @Nullable ConfigurationPhase phase) {
-    // Ê¡ÂÔÁËÒ»Ğ©´úÂë
+    // çœç•¥äº†ä¸€äº›ä»£ç 
 
-    // µÃµ½ condition ¶ÔÏó
+    // å¾—åˆ° condition å¯¹è±¡
     List<Condition> conditions = new ArrayList<>();
         for (String[] conditionClasses : getConditionClasses(metadata)) {
             for (String conditionClass : conditionClasses) {
@@ -655,14 +655,14 @@ public boolean shouldSkip(@Nullable AnnotatedTypeMetadata metadata, @Nullable Co
     }
 
     AnnotationAwareOrderComparator.sort(conditions);
-    // ±éÀú£¬ÅĞ¶Ï condition Ìõ¼şÊÇ·ñ³ÉÁ¢
+    // éå†ï¼Œåˆ¤æ–­ condition æ¡ä»¶æ˜¯å¦æˆç«‹
     for (Condition condition : conditions) {
         ConfigurationPhase requiredPhase = null;
         if (condition instanceof ConfigurationCondition) {
             requiredPhase = ((ConfigurationCondition) condition).getConfigurationPhase();
         }
         if ((requiredPhase == null || requiredPhase == phase) 
-                // ÅĞ¶Ï condition Ìõ¼şÊÇ·ñ³ÉÁ¢£¬Ò»¸öÌõ¼şÂú×ã¾Í·µ»Øtrue
+                // åˆ¤æ–­ condition æ¡ä»¶æ˜¯å¦æˆç«‹ï¼Œä¸€ä¸ªæ¡ä»¶æ»¡è¶³å°±è¿”å›true
                 && !condition.matches(this.context, metadata)) {
             return true;
         }
@@ -671,7 +671,7 @@ public boolean shouldSkip(@Nullable AnnotatedTypeMetadata metadata, @Nullable Co
     return false;
 }
 
-// Í¨¹ı·´Éä»ñÈ¡ Condition ¶ÔÏó
+// é€šè¿‡åå°„è·å– Condition å¯¹è±¡
 private Condition getCondition(String conditionClassName, @Nullable ClassLoader classloader) {
     Class<?> conditionClass = ClassUtils.resolveClassName(conditionClassName, classloader);
     return (Condition) BeanUtils.instantiateClass(conditionClass);
@@ -679,14 +679,14 @@ private Condition getCondition(String conditionClassName, @Nullable ClassLoader 
 
 ```
 
-ÕâÀï×öÁËÁ½¼şÊÂ£º
+è¿™é‡Œåšäº†ä¸¤ä»¶äº‹ï¼š
 
-1.  »ñÈ¡ condition ¶ÔÏó
-2.  ±éÀú condition ¶ÔÏó£¬µ÷ÓÃ `condition.matches()` ·½·¨£¬ÅĞ¶ÏÌõ¼şÊÇ·ñ³ÉÁ¢
+1.  è·å– condition å¯¹è±¡
+2.  éå† condition å¯¹è±¡ï¼Œè°ƒç”¨ `condition.matches()` æ–¹æ³•ï¼Œåˆ¤æ–­æ¡ä»¶æ˜¯å¦æˆç«‹
 
-##### 3\. ´Ó `MetadataReader` µÃµ½ `ScannedGenericBeanDefinition`
+##### 3\. ä» `MetadataReader` å¾—åˆ° `ScannedGenericBeanDefinition`
 
-ÕâÀï½öÊÇ×öÁËÒ»¸ö¼òµ¥µÄ¸³Öµ£¬¿´ÏÂ `ScannedGenericBeanDefinition` µÄ¹¹Ôì·½·¨¾ÍÃ÷°×ÁË£º
+è¿™é‡Œä»…æ˜¯åšäº†ä¸€ä¸ªç®€å•çš„èµ‹å€¼ï¼Œçœ‹ä¸‹ `ScannedGenericBeanDefinition` çš„æ„é€ æ–¹æ³•å°±æ˜ç™½äº†ï¼š
 
 > ScannedGenericBeanDefinition#ScannedGenericBeanDefinition
 
@@ -699,11 +699,11 @@ public ScannedGenericBeanDefinition(MetadataReader metadataReader) {
 
 ```
 
-´úÂë±È½Ï¼òµ¥£¬¾Í²»¶à×ö·ÖÎöÁË¡£
+ä»£ç æ¯”è¾ƒç®€å•ï¼Œå°±ä¸å¤šåšåˆ†æäº†ã€‚
 
-### 2\. ·á¸» beanDefinition ĞÅÏ¢
+### 2\. ä¸°å¯Œ beanDefinition ä¿¡æ¯
 
-Àú¾­Ç§ÄÑÍòÏÕ£¬ÖÕÓÚµÃµ½ÁË `beanDefinition`£¬µ«´ËÊ± `beanDefinition` ²¢²»·á¸»£¬½ÓÏÂÀ´¾ÍÊÇ½øÒ»²½À©Õ¹ `beanDefinition` µÄĞÅÏ¢ÁË¡£ÕâĞ©ĞÅÏ¢°üÀ¨ `beanµÄÃû³Æ`¡¢`beanµÄ×÷ÓÃÓò`¡¢`@Lazy` ×¢½â¡¢`@Primary` ×¢½â¡¢`@DependsOn` ×¢½âµÈ£¬´úÂëÈçÏÂ£º
+å†ç»åƒéš¾ä¸‡é™©ï¼Œç»ˆäºå¾—åˆ°äº† `beanDefinition`ï¼Œä½†æ­¤æ—¶ `beanDefinition` å¹¶ä¸ä¸°å¯Œï¼Œæ¥ä¸‹æ¥å°±æ˜¯è¿›ä¸€æ­¥æ‰©å±• `beanDefinition` çš„ä¿¡æ¯äº†ã€‚è¿™äº›ä¿¡æ¯åŒ…æ‹¬ `beançš„åç§°`ã€`beançš„ä½œç”¨åŸŸ`ã€`@Lazy` æ³¨è§£ã€`@Primary` æ³¨è§£ã€`@DependsOn` æ³¨è§£ç­‰ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public abstract class AnnotationConfigUtils {
@@ -711,11 +711,11 @@ public abstract class AnnotationConfigUtils {
     ...
 
     /**
-     * ½øÒ»²½·á¸» BeanDefinition
+     * è¿›ä¸€æ­¥ä¸°å¯Œ BeanDefinition
      */
     static void processCommonDefinitionAnnotations(AnnotatedBeanDefinition abd, 
             AnnotatedTypeMetadata metadata) {
-        // ´¦Àí @Lazy
+        // å¤„ç† @Lazy
         AnnotationAttributes lazy = attributesFor(metadata, Lazy.class);
         if (lazy != null) {
             abd.setLazyInit(lazy.getBoolean("value"));
@@ -726,21 +726,21 @@ public abstract class AnnotationConfigUtils {
                 abd.setLazyInit(lazy.getBoolean("value"));
             }
         }
-        // ´¦Àí @Primary
+        // å¤„ç† @Primary
         if (metadata.isAnnotated(Primary.class.getName())) {
             abd.setPrimary(true);
         }
-        // ´¦Àí @DependsOn
+        // å¤„ç† @DependsOn
         AnnotationAttributes dependsOn = attributesFor(metadata, DependsOn.class);
         if (dependsOn != null) {
             abd.setDependsOn(dependsOn.getStringArray("value"));
         }
-        // ´¦Àí @Role
+        // å¤„ç† @Role
         AnnotationAttributes role = attributesFor(metadata, Role.class);
         if (role != null) {
             abd.setRole(role.getNumber("value").intValue());
         }
-        // ´¦Àí @Description
+        // å¤„ç† @Description
         AnnotationAttributes description = attributesFor(metadata, Description.class);
         if (description != null) {
             abd.setDescription(description.getString("value"));
@@ -750,9 +750,9 @@ public abstract class AnnotationConfigUtils {
 
 ```
 
-### 3.` registerBeanDefinition(definitionHolder, this.registry)`: Ìí¼Ó BeanDefinition µ½ beanFactory
+### 3.` registerBeanDefinition(definitionHolder, this.registry)`: æ·»åŠ  BeanDefinition åˆ° beanFactory
 
-½« `BeanDefinition` µ½ `beanFactory` µÄ²Ù×÷±È½Ï¼òµ¥£¬¹Ø¼üµÄ´úÂëÈçÏÂ£º
+å°† `BeanDefinition` åˆ° `beanFactory` çš„æ“ä½œæ¯”è¾ƒç®€å•ï¼Œå…³é”®çš„ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 |-ClassPathBeanDefinitionScanner#registerBeanDefinition
@@ -769,32 +769,32 @@ this.beanDefinitionMap.put(beanName, beanDefinition);
 
 ```
 
-´Ó `ClassPathBeanDefinitionScanner#registerBeanDefinition` µ½ `DefaultListableBeanFactory#registerBeanDefinition`£¬ÕâÆäÖĞËäÈ»¾­ÀúÁËÒ»Ğ©ÍäÍäÈÆÈÆ£¬µ«ÒÀ¾É²»·Á°­ÎÒÃÇÕÒµ½¹Ø¼üµÄ´úÂë¡£
+ä» `ClassPathBeanDefinitionScanner#registerBeanDefinition` åˆ° `DefaultListableBeanFactory#registerBeanDefinition`ï¼Œè¿™å…¶ä¸­è™½ç„¶ç»å†äº†ä¸€äº›å¼¯å¼¯ç»•ç»•ï¼Œä½†ä¾æ—§ä¸å¦¨ç¢æˆ‘ä»¬æ‰¾åˆ°å…³é”®çš„ä»£ç ã€‚
 
-µ½´Ë£¬´ÅÅÌÉÏµÄ class ÎÄ¼ş£¬¾­¹ı spring É¨Ãè£¬ÖÕÓÚ±ä³ÉÁË `BeanDefinition`£¬±£´æÔÚ `BeanFactory` ÖĞÁË¡£
+åˆ°æ­¤ï¼Œç£ç›˜ä¸Šçš„ class æ–‡ä»¶ï¼Œç»è¿‡ spring æ‰«æï¼Œç»ˆäºå˜æˆäº† `BeanDefinition`ï¼Œä¿å­˜åœ¨ `BeanFactory` ä¸­äº†ã€‚
 
-### 4\. ×Ü½á
+### 4\. æ€»ç»“
 
-±¾ÎÄ±È½Ï³¤£¬Ö÷Òª·ÖÎöÁË spring É¨Ãè°üÂ·¾¶µÃµ½ `beanDefinition` µÄ¹ı³Ì£¬Ö÷ÒªÁ÷³ÌÈçÏÂ£º
+æœ¬æ–‡æ¯”è¾ƒé•¿ï¼Œä¸»è¦åˆ†æäº† spring æ‰«æåŒ…è·¯å¾„å¾—åˆ° `beanDefinition` çš„è¿‡ç¨‹ï¼Œä¸»è¦æµç¨‹å¦‚ä¸‹ï¼š
 
-1.  ¸ù¾İ°üÃûµÃµ½Â·¾¶ `Resource`£»
-2.  ¸ù¾İÂ·¾¶ `Resouce` µÃµ½¸ÃÂ·¾¶ÏÂËùÓĞ class ÎÄ¼şµÄ `Resouce`£»
-3.  ¸ù¾İ class ÎÄ¼şµÄ `Resouce` Í¨¹ı asm ½âÎöµÃµ½ `MetadataReader`£¬×¢Òâ£ºÕâÀïµÄ `MetadataReader` »¹ÊÇËùÓĞ class ÎÄ¼şµÄ `MetadataReader`£»
-4.  ´Ó `MetadataReader` ÖĞÕÒµ½ĞèÒª spring ÍĞ¹ÜµÄ `MetadataReader`£¬½«Æä×ª»¯Îª `ScannedGenericBeanDefinition`£¬`ScannedGenericBeanDefinition` Îª `BeanDefinition` µÄ×ÓÀà£»
-5.  ½øÒ»²½·á¸» `ScannedGenericBeanDefinition` µÄĞÅÏ¢£»
-6.  ½«ÉÏÃæµÃµ½µÄ `BeanDefinition` Ìí¼Óµ½ `BeanFactory` ÖĞ
+1.  æ ¹æ®åŒ…åå¾—åˆ°è·¯å¾„ `Resource`ï¼›
+2.  æ ¹æ®è·¯å¾„ `Resouce` å¾—åˆ°è¯¥è·¯å¾„ä¸‹æ‰€æœ‰ class æ–‡ä»¶çš„ `Resouce`ï¼›
+3.  æ ¹æ® class æ–‡ä»¶çš„ `Resouce` é€šè¿‡ asm è§£æå¾—åˆ° `MetadataReader`ï¼Œæ³¨æ„ï¼šè¿™é‡Œçš„ `MetadataReader` è¿˜æ˜¯æ‰€æœ‰ class æ–‡ä»¶çš„ `MetadataReader`ï¼›
+4.  ä» `MetadataReader` ä¸­æ‰¾åˆ°éœ€è¦ spring æ‰˜ç®¡çš„ `MetadataReader`ï¼Œå°†å…¶è½¬åŒ–ä¸º `ScannedGenericBeanDefinition`ï¼Œ`ScannedGenericBeanDefinition` ä¸º `BeanDefinition` çš„å­ç±»ï¼›
+5.  è¿›ä¸€æ­¥ä¸°å¯Œ `ScannedGenericBeanDefinition` çš„ä¿¡æ¯ï¼›
+6.  å°†ä¸Šé¢å¾—åˆ°çš„ `BeanDefinition` æ·»åŠ åˆ° `BeanFactory` ä¸­
 
-ÖÁ´Ë£¬°üÃû×ª»»Îª `BeanDefinition` Íê³É¡£
+è‡³æ­¤ï¼ŒåŒ…åè½¬æ¢ä¸º `BeanDefinition` å®Œæˆã€‚
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-f8ff2e4071ba3941e2a0664f6e478b78961.png)
 
-±¾ÎÄ»¹ÓĞÁ½¸öÖµµÃ×¢ÒâµÄµØ·½£º
+æœ¬æ–‡è¿˜æœ‰ä¸¤ä¸ªå€¼å¾—æ³¨æ„çš„åœ°æ–¹ï¼š
 
-1.  spring ÔÚ»ñÈ¡ÀàÉÏµÄ×¢½âÊ±£¬²»ÊÇÍ¨¹ı·´Éä£¬¶øÊÇÊ¹ÓÃ asm Ö±½Ó½âÎö class ÎÄ¼ş£¬È»ºóÔÙ»ñÈ¡ÀàÉÏµÄ×¢½âµÄ
-2.  ÔÚ´¦Àí×¢½âÊ±£¬spring Í¨¹ı½âÎö ¡°×¢½âµÄ×¢½â¡± ÊµÏÖÁËÒ»Ì×ÀàËÆÓÚ×¢½â¼Ì³ĞµÄ·½Ê½£¬ÕâÒ²ÊÇ spring ÄÜÊ¶±ğ `@Component`¡¢`@Service` ÉõÖÁÊÇ¿ª·¢Õß×Ô¶¨Òå×¢½âµÄÔ­Òò¡£
+1.  spring åœ¨è·å–ç±»ä¸Šçš„æ³¨è§£æ—¶ï¼Œä¸æ˜¯é€šè¿‡åå°„ï¼Œè€Œæ˜¯ä½¿ç”¨ asm ç›´æ¥è§£æ class æ–‡ä»¶ï¼Œç„¶åå†è·å–ç±»ä¸Šçš„æ³¨è§£çš„
+2.  åœ¨å¤„ç†æ³¨è§£æ—¶ï¼Œspring é€šè¿‡è§£æ â€œæ³¨è§£çš„æ³¨è§£â€ å®ç°äº†ä¸€å¥—ç±»ä¼¼äºæ³¨è§£ç»§æ‰¿çš„æ–¹å¼ï¼Œè¿™ä¹Ÿæ˜¯ spring èƒ½è¯†åˆ« `@Component`ã€`@Service` ç”šè‡³æ˜¯å¼€å‘è€…è‡ªå®šä¹‰æ³¨è§£çš„åŸå› ã€‚
 
-µÃµ½ÁË `BeanDefinition` ºó£¬½Ó×Å¾ÍÊÇ spring ÈİÆ÷µÄ³õÊ¼»¯ÁË£¬ÎÒÃÇÏÂÆªÎÄÕÂÔÙ¼û¡£
+å¾—åˆ°äº† `BeanDefinition` åï¼Œæ¥ç€å°±æ˜¯ spring å®¹å™¨çš„åˆå§‹åŒ–äº†ï¼Œæˆ‘ä»¬ä¸‹ç¯‡æ–‡ç« å†è§ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4614071](https://my.oschina.net/funcy/blog/4614071) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4614071](https://my.oschina.net/funcy/blog/4614071) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

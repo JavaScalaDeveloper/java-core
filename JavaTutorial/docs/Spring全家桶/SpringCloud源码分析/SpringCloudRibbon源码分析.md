@@ -1,25 +1,25 @@
-**Ñ§Ï°Ä¿±ê**
+**å­¦ä¹ ç›®æ ‡**
 
-1.  ÍÆµ¼RibbonµÄºËĞÄÁ÷³Ì
-2.  ÊÖĞ´Ò»¸ö¼òÒ×°æµÄRibbon
-3.  Í¨¹ıÔ´ÂëÑéÖ¤ÍÆµ¼µÄÁ÷³Ì
-    **µÚ1ÕÂ ºËĞÄÁ÷³ÌÍÆµ¼**
-    ÆäÊµRibbonµÄºËĞÄÁ÷³ÌºÜ¼òµ¥£¬ÎÒÃÇÔÚÊ¹ÓÃ¹ı³ÌÖĞÎŞ·Ç¾ÍÊÇÒıÈëÁËÒ»¸öspring-cloud-starter-netflix-ribbonµÄjar°ü£¬È»ºóÔÚ³ÌĞòÆô¶¯µÄÊ±ºò×¢ÈëÁËÒ»¸öRestTemplate¶ÔÏó£¬ÔÚ¸Ã¶ÔÏóÉÏÃæÔö¼ÓÁËÒ»¸ö@LoadBalanced×¢½â£¬È»ºóÔÚÍ¨¹ıRestTemplate¶ÔÏóÈ¥µ÷ÓÃURLµÄÊ±ºò¾ÍÄÜ¸ù¾İ²»Í¬µÄ¸ºÔØ¾ùºâ²ßÂÔÈ¥µ÷²»Í¬µÄ·şÎñ£¬ÄÇÕâ¸ö×¢½â£¬»òÕßËµÕâ¸öjar°üµ½µ××öÁËÊ²Ã´ÊÂÇéÄØ£¿
+1.  æ¨å¯¼Ribbonçš„æ ¸å¿ƒæµç¨‹
+2.  æ‰‹å†™ä¸€ä¸ªç®€æ˜“ç‰ˆçš„Ribbon
+3.  é€šè¿‡æºç éªŒè¯æ¨å¯¼çš„æµç¨‹
+    **ç¬¬1ç«  æ ¸å¿ƒæµç¨‹æ¨å¯¼**
+    å…¶å®Ribbonçš„æ ¸å¿ƒæµç¨‹å¾ˆç®€å•ï¼Œæˆ‘ä»¬åœ¨ä½¿ç”¨è¿‡ç¨‹ä¸­æ— éå°±æ˜¯å¼•å…¥äº†ä¸€ä¸ªspring-cloud-starter-netflix-ribbonçš„jaråŒ…ï¼Œç„¶ååœ¨ç¨‹åºå¯åŠ¨çš„æ—¶å€™æ³¨å…¥äº†ä¸€ä¸ªRestTemplateå¯¹è±¡ï¼Œåœ¨è¯¥å¯¹è±¡ä¸Šé¢å¢åŠ äº†ä¸€ä¸ª@LoadBalancedæ³¨è§£ï¼Œç„¶ååœ¨é€šè¿‡RestTemplateå¯¹è±¡å»è°ƒç”¨URLçš„æ—¶å€™å°±èƒ½æ ¹æ®ä¸åŒçš„è´Ÿè½½å‡è¡¡ç­–ç•¥å»è°ƒä¸åŒçš„æœåŠ¡ï¼Œé‚£è¿™ä¸ªæ³¨è§£ï¼Œæˆ–è€…è¯´è¿™ä¸ªjaråŒ…åˆ°åº•åšäº†ä»€ä¹ˆäº‹æƒ…å‘¢ï¼Ÿ
 
-Ê×ÏÈÎÒÃÇÒªÃ÷°×£¬spring-cloud-starter-netflix-ribbonÕâ¸öjar°ü´ÓÃû×ÖÉÏÀ´¿´¾ÍÖªµÀ£¬ËüÊÇ»ùÓÚstarter×é¼şµÄ£¬ÄÇËü¿Ï¶¨ÊÇÒÀ¾İspringbootµÄ×Ô¶¯×°ÅäÔ­Àí£¬ÔÚÈİÆ÷Æô¶¯µÄÊ±ºòÌá¹©ÁËÒ»¸ö×Ô¶¯ÅäÖÃÀà£¬½«ÎÒÃÇËùĞèÒªÓÃµÄ¶ÔÏó×¢Èëµ½IoCÈİÆ÷ÀïÃæÈ¥ÁË£¬ÕâµãÎãÓ¹ÖÃÒÉ¡£
+é¦–å…ˆæˆ‘ä»¬è¦æ˜ç™½ï¼Œspring-cloud-starter-netflix-ribbonè¿™ä¸ªjaråŒ…ä»åå­—ä¸Šæ¥çœ‹å°±çŸ¥é“ï¼Œå®ƒæ˜¯åŸºäºstarterç»„ä»¶çš„ï¼Œé‚£å®ƒè‚¯å®šæ˜¯ä¾æ®springbootçš„è‡ªåŠ¨è£…é…åŸç†ï¼Œåœ¨å®¹å™¨å¯åŠ¨çš„æ—¶å€™æä¾›äº†ä¸€ä¸ªè‡ªåŠ¨é…ç½®ç±»ï¼Œå°†æˆ‘ä»¬æ‰€éœ€è¦ç”¨çš„å¯¹è±¡æ³¨å…¥åˆ°IoCå®¹å™¨é‡Œé¢å»äº†ï¼Œè¿™ç‚¹æ¯‹åº¸ç½®ç–‘ã€‚
 
-È»ºóµ±ÒªÓÃRestTemplate¶ÔÏóÈ¥ÇëÇóÄ¿±ê·şÎñµÄÊ±ºò£¬Õâ¸öÊ±ºò£¬ÎÒÃÇ¿Ï¶¨ÊÇÒªÓÃÕæÊµµÄIPºÍ¶Ë¿ÚÀ´Ìæ»»·şÎñÃû¡£ÕâÒ»²½ÆäÊµ¾ÍÊÇºËĞÄ²½Öè£¬ËüÒªÔõÃ´×öÄØ£¿ÔõÃ´ÔÚÕæÕıÇëÇóÖ®Ç°½«µØÖ·ºÍ¶Ë¿ÚÀêÃ¨»»Ì«×Ó»»³ÉÕæÊµµÄÄØ£¿
+ç„¶åå½“è¦ç”¨RestTemplateå¯¹è±¡å»è¯·æ±‚ç›®æ ‡æœåŠ¡çš„æ—¶å€™ï¼Œè¿™ä¸ªæ—¶å€™ï¼Œæˆ‘ä»¬è‚¯å®šæ˜¯è¦ç”¨çœŸå®çš„IPå’Œç«¯å£æ¥æ›¿æ¢æœåŠ¡åã€‚è¿™ä¸€æ­¥å…¶å®å°±æ˜¯æ ¸å¿ƒæ­¥éª¤ï¼Œå®ƒè¦æ€ä¹ˆåšå‘¢ï¼Ÿæ€ä¹ˆåœ¨çœŸæ­£è¯·æ±‚ä¹‹å‰å°†åœ°å€å’Œç«¯å£ç‹¸çŒ«æ¢å¤ªå­æ¢æˆçœŸå®çš„å‘¢ï¼Ÿ
 
-ÔÚÎÒÃÇÈÕ³£¿ª·¢ÖĞ£¬ÎÒÃÇÓ¦¸ÃÖªµÀ£¬ÓĞÒ»¸ö¹ıÂËÆ÷ºÍÒ»¸öÀ¹½ØÆ÷ÆäÊµ¿ÉÒÔ×öµ½Õâ¸ö²Ù×÷£¬¶Ô°É£¬ËùÒÔ£¬Êµ¼ÊÉÏ¾ÍÊÇÔÚ»ñÈ¡RestTemplate¶ÔÏóµÄÊ±ºò£¬½«¸Ã¶ÔÏóÀïÃæÌí¼ÓÁËÒ»¸öÀ¹½ØÆ÷£¬µ±RestTemplate¶ÔÏóÖ´ĞĞÄ³¸ö·½·¨µÄÊ±ºò£¬¶¼»áÈ¥À¹½ØÆ÷ÀïÃæÖ´ĞĞÒ»±é¡£È»ºó¾ÍÍêÊÂÁË¡£
+åœ¨æˆ‘ä»¬æ—¥å¸¸å¼€å‘ä¸­ï¼Œæˆ‘ä»¬åº”è¯¥çŸ¥é“ï¼Œæœ‰ä¸€ä¸ªè¿‡æ»¤å™¨å’Œä¸€ä¸ªæ‹¦æˆªå™¨å…¶å®å¯ä»¥åšåˆ°è¿™ä¸ªæ“ä½œï¼Œå¯¹å§ï¼Œæ‰€ä»¥ï¼Œå®é™…ä¸Šå°±æ˜¯åœ¨è·å–RestTemplateå¯¹è±¡çš„æ—¶å€™ï¼Œå°†è¯¥å¯¹è±¡é‡Œé¢æ·»åŠ äº†ä¸€ä¸ªæ‹¦æˆªå™¨ï¼Œå½“RestTemplateå¯¹è±¡æ‰§è¡ŒæŸä¸ªæ–¹æ³•çš„æ—¶å€™ï¼Œéƒ½ä¼šå»æ‹¦æˆªå™¨é‡Œé¢æ‰§è¡Œä¸€éã€‚ç„¶åå°±å®Œäº‹äº†ã€‚
 
-¾ßÌåµÄÁ÷³ÌÍ¼ÍÆµ¼ÈçÏÂ£º![SpringCloudÏµÁĞ¡ªRibbonÔ´Âë·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1790fb324161913dd79098940f8102d652cd86.jpg "SpringCloudÏµÁĞ¡ªRibbonÔ´Âë·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")**µÚ2ÕÂ ¼òÒ×°æRibbonÊµÏÖ**
-¸ù¾İÉÏÃæµÄÍÆµ¼¹ı³Ì£¬ÎÒÃÇ½ÓÏÂÀ´À´ÊµÏÖÒ»¸ö¼òÒ×°æµÄRibbon¡£
+å…·ä½“çš„æµç¨‹å›¾æ¨å¯¼å¦‚ä¸‹ï¼š![SpringCloudç³»åˆ—â€”Ribbonæºç åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1790fb324161913dd79098940f8102d652cd86.jpg "SpringCloudç³»åˆ—â€”Ribbonæºç åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")**ç¬¬2ç«  ç®€æ˜“ç‰ˆRibbonå®ç°**
+æ ¹æ®ä¸Šé¢çš„æ¨å¯¼è¿‡ç¨‹ï¼Œæˆ‘ä»¬æ¥ä¸‹æ¥æ¥å®ç°ä¸€ä¸ªç®€æ˜“ç‰ˆçš„Ribbonã€‚
 
-¾ßÌåµÄ²½ÖèÎÒÃÇÒªÓĞÇåÎúµÄË¼Â·£º
+å…·ä½“çš„æ­¥éª¤æˆ‘ä»¬è¦æœ‰æ¸…æ™°çš„æ€è·¯ï¼š
 
-1.Ê×ÏÈÒªÊµÏÖÒ»¸östarter×é¼ş£¬¼¯³ÉÎÒÃÇspringboot£¬ÈÃspringbootÔÚÆô¶¯µÄÊ±ºò¿ÉÒÔÄÃµ½ÏàÓ¦µÄRestTemplateµÄbean¶ÔÏó¡£´´½¨Ò»¸öMavenµÄquickstartÏîÄ¿
+1.é¦–å…ˆè¦å®ç°ä¸€ä¸ªstarterç»„ä»¶ï¼Œé›†æˆæˆ‘ä»¬springbootï¼Œè®©springbootåœ¨å¯åŠ¨çš„æ—¶å€™å¯ä»¥æ‹¿åˆ°ç›¸åº”çš„RestTemplateçš„beanå¯¹è±¡ã€‚åˆ›å»ºä¸€ä¸ªMavençš„quickstarté¡¹ç›®
 
-2.È»ºóÒı°ü
+2.ç„¶åå¼•åŒ…
 
 
 
@@ -45,7 +45,7 @@
     <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
   </properties>
 
-  <!-- RestTemplate±ØĞëÒªÓÃµ½SpringMVC -->
+  <!-- RestTemplateå¿…é¡»è¦ç”¨åˆ°SpringMVC -->
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -59,7 +59,7 @@
       <version>${spring-boot.version}</version>
     </dependency>
 
-    <!-- Õâ¸ö°üÀïÃæ¼¯³ÉÁËÒ»Ğ©ºËĞÄ½Ó¿Ú -->
+    <!-- è¿™ä¸ªåŒ…é‡Œé¢é›†æˆäº†ä¸€äº›æ ¸å¿ƒæ¥å£ -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       spring-cloud-commons
@@ -123,19 +123,19 @@
 
 
 
-3.´´½¨ÅäÖÃÀà
+3.åˆ›å»ºé…ç½®ç±»
 
 
 
 ```
 @Configuration
 public class MyRibbonAutoConfiguration {
-    //¼òÒ×°æµÄRibbonÊÇ¿¿Õâ¸öÀàÈ¥Íê³É¸ºÔØ¾ùºâËã·¨ÒÔ¼°ÕæÊµµÄipºÍ¶Ë¿ÚÌæ»»µÄ
+    //ç®€æ˜“ç‰ˆçš„Ribbonæ˜¯é è¿™ä¸ªç±»å»å®Œæˆè´Ÿè½½å‡è¡¡ç®—æ³•ä»¥åŠçœŸå®çš„ipå’Œç«¯å£æ›¿æ¢çš„
     @Bean
     public LoadBalancerClient loadBalancerClient(){
         return new MyLoadBalancerClient();
     }
-    //ÊÕ¼¯ËùÓĞ´øMyLoadBalanced×¢½âµÄRestTemplate¶ÔÏó
+    //æ”¶é›†æ‰€æœ‰å¸¦MyLoadBalancedæ³¨è§£çš„RestTemplateå¯¹è±¡
     @MyLoadBalanced
     @Autowired(required = false)
     private List<RestTemplate> restTemplates = Collections.emptyList();
@@ -145,14 +145,14 @@ public class MyRibbonAutoConfiguration {
             LoadBalancerClient loadBalancerClient) {
         return new LoadBalancerRequestFactory(loadBalancerClient);
     }
-    //Õâ¾ÍÊÇºËĞÄµÄÀ¹½ØÆ÷
+    //è¿™å°±æ˜¯æ ¸å¿ƒçš„æ‹¦æˆªå™¨
     @Bean
     public MyLoadBalancerInterceptor myLoadBalancerInterceptor(
             LoadBalancerClient loadBalancerClient,
             LoadBalancerRequestFactory requestFactory){
         return new MyLoadBalancerInterceptor(loadBalancerClient,requestFactory);
     }
-    //ÊÕ¼¯µ½µÄRestTemplate¶ÔÏó£¬ÔÚÕâÀï¶¼»áÅäÖÃÒ»¸öÀ¹½ØÆ÷
+    //æ”¶é›†åˆ°çš„RestTemplateå¯¹è±¡ï¼Œåœ¨è¿™é‡Œéƒ½ä¼šé…ç½®ä¸€ä¸ªæ‹¦æˆªå™¨
     @Bean
     public SmartInitializingSingleton smartInitializingSingleton(
             final MyLoadBalancerInterceptor myLoadBalancerInterceptor){
@@ -176,7 +176,7 @@ public class MyRibbonAutoConfiguration {
 
 
 
-4.´´½¨MyLoadBalancerClient
+4.åˆ›å»ºMyLoadBalancerClient
 
 
 
@@ -184,13 +184,13 @@ public class MyRibbonAutoConfiguration {
 public class MyLoadBalancerClient implements LoadBalancerClient {
     @Autowired
     AbstractEnvironment environment;
-    //1.ÔÚÀ¹½ØÆ÷ÀïÃæ»áµ÷ÓÃÕâ¸ö·½·¨
+    //1.åœ¨æ‹¦æˆªå™¨é‡Œé¢ä¼šè°ƒç”¨è¿™ä¸ªæ–¹æ³•
     @Override
     public <T> T execute(String serviceId, LoadBalancerRequest<T> request) throws IOException {
         ServiceInstance server = this.choose(serviceId);
         return execute(serviceId, server, request);
     }	
-    //3.ÕæÕıÖ´ĞĞHttpÇëÇó
+    //3.çœŸæ­£æ‰§è¡ŒHttpè¯·æ±‚
     @Override
     public <T> T execute(String serviceId, ServiceInstance serviceInstance, LoadBalancerRequest<T> request) throws IOException {
         T returnVal = null;
@@ -201,7 +201,7 @@ public class MyLoadBalancerClient implements LoadBalancerClient {
         }
         return returnVal;
     } 
-	//4.ÕâÒ»²½¾ÍÊÇÓÃÕæÊµµÄipºÍportÌæ»»·şÎñÃû
+	//4.è¿™ä¸€æ­¥å°±æ˜¯ç”¨çœŸå®çš„ipå’Œportæ›¿æ¢æœåŠ¡å
     @Override
     public URI reconstructURI(ServiceInstance instance, URI original) {
         String host = instance.getHost();
@@ -234,7 +234,7 @@ public class MyLoadBalancerClient implements LoadBalancerClient {
             throw new RuntimeException(e);
         }
     }
-    //2.¸ºÔØ¾ùºâËã·¨ÔÚÕâÒ»²½½øĞĞ·şÎñµÄipºÍ¶Ë¿ÚÑ¡Ôñ£¬ÎÒÕâÀïÓÃµÄÊÇËæ»úËã·¨
+    //2.è´Ÿè½½å‡è¡¡ç®—æ³•åœ¨è¿™ä¸€æ­¥è¿›è¡ŒæœåŠ¡çš„ipå’Œç«¯å£é€‰æ‹©ï¼Œæˆ‘è¿™é‡Œç”¨çš„æ˜¯éšæœºç®—æ³•
     @Override
     public ServiceInstance choose(String serviceId) {
         Server instance = new Server(serviceId,null,"127.0.0.1",8080);
@@ -261,7 +261,7 @@ public class MyLoadBalancerClient implements LoadBalancerClient {
 
 
 
-5.À¹½ØÆ÷µÄÂß¼­ÆäÊµºÜ¼òµ¥£¬¾ÍÊÇÔÚÕæÕı·¢ËÍhttpÇëÇóÖ®Ç°ÏÈÀ´Ö´ĞĞÎÒµÄÂß¼­
+5.æ‹¦æˆªå™¨çš„é€»è¾‘å…¶å®å¾ˆç®€å•ï¼Œå°±æ˜¯åœ¨çœŸæ­£å‘é€httpè¯·æ±‚ä¹‹å‰å…ˆæ¥æ‰§è¡Œæˆ‘çš„é€»è¾‘
 
 
 
@@ -292,7 +292,7 @@ public class MyLoadBalancerInterceptor implements ClientHttpRequestInterceptor {
 
 
 
-6.¶¨Òå×Ô¼ºµÄ×¢½â
+6.å®šä¹‰è‡ªå·±çš„æ³¨è§£
 
 
 
@@ -314,7 +314,7 @@ public @interface MyLoadBalanced {
 
 
 
-7.¶¨ÒåÒ»¸ö×Ô¼ºµÄServerÊµÌåÀà
+7.å®šä¹‰ä¸€ä¸ªè‡ªå·±çš„Serverå®ä½“ç±»
 
 
 
@@ -387,7 +387,7 @@ public class Server implements ServiceInstance {
 
 
 
-8.Ğ´spring.factoriesÎÄ¼ş
+8.å†™spring.factoriesæ–‡ä»¶
 
 
 
@@ -404,7 +404,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 
 
 
-9.´ò³Éjar°ü£¬²âÊÔ£¬²âÊÔµÄÊ±ºò£¬ĞèÒª¼ÓÅäÖÃÎÄ¼ş
+9.æ‰“æˆjaråŒ…ï¼Œæµ‹è¯•ï¼Œæµ‹è¯•çš„æ—¶å€™ï¼Œéœ€è¦åŠ é…ç½®æ–‡ä»¶
 
 
 
@@ -420,9 +420,9 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 
 
 
-**µÚ3ÕÂ Ô´ÂëÑéÖ¤**
+**ç¬¬3ç«  æºç éªŒè¯**
 **3.1 @LoadBalanced**
-´ÓÉÏ½Ú¿ÎµÄ´úÂë¿´£¬ÎÒÃÇÖ»ÊÇÔÚRestTemplateÉÏÃæ¼ÓÁËÒ»¸ö@LoadBalance,¾Í¿ÉÒÔÊµÏÖ¸ºÔØ¾ùºâÁË£¬¿ÉÊÇÎÒÃÇµã»÷½øÈë@LoadBalance¿´ÁËÒ»ÏÂ£¬ÔÚÕâ¸ö×¢½âÀïÃæÓĞÒ»¸ö@Qualifier×¢½â¡£¸Ã×¢½âÏŞ¶¨ÄÄ¸öbeanÓ¦¸Ã±»×Ô¶¯×¢Èë¡£µ±SpringÎŞ·¨ÅĞ¶Ï³öÄÄ¸öbeanÓ¦¸Ã±»×¢ÈëÊ±£¬@Qualifier×¢½âÓĞÖúÓÚÏû³ıÆçÒåbeanµÄ×Ô¶¯×¢Èë£¬Àı×Ó¼û´úÂë¡£
+ä»ä¸ŠèŠ‚è¯¾çš„ä»£ç çœ‹ï¼Œæˆ‘ä»¬åªæ˜¯åœ¨RestTemplateä¸Šé¢åŠ äº†ä¸€ä¸ª@LoadBalance,å°±å¯ä»¥å®ç°è´Ÿè½½å‡è¡¡äº†ï¼Œå¯æ˜¯æˆ‘ä»¬ç‚¹å‡»è¿›å…¥@LoadBalanceçœ‹äº†ä¸€ä¸‹ï¼Œåœ¨è¿™ä¸ªæ³¨è§£é‡Œé¢æœ‰ä¸€ä¸ª@Qualifieræ³¨è§£ã€‚è¯¥æ³¨è§£é™å®šå“ªä¸ªbeanåº”è¯¥è¢«è‡ªåŠ¨æ³¨å…¥ã€‚å½“Springæ— æ³•åˆ¤æ–­å‡ºå“ªä¸ªbeanåº”è¯¥è¢«æ³¨å…¥æ—¶ï¼Œ@Qualifieræ³¨è§£æœ‰åŠ©äºæ¶ˆé™¤æ­§ä¹‰beançš„è‡ªåŠ¨æ³¨å…¥ï¼Œä¾‹å­è§ä»£ç ã€‚
 
 
 
@@ -450,10 +450,10 @@ public @interface LoadBalanced {
 
 
 
-´Ó×¢ÊÍÖĞ¿ÉÒÔÖªµÀ£¬Õâ¸ö×¢½âÊÇÓÃÀ´¸øRestTemplate×ö±ê¼Ç£¬ÒÔÊ¹ÓÃ¸ºÔØ¾ùºâ¿Í»§¶Ë£¨LoadBalancerClient£©À´ÅäÖÃËü¡£ËùÒÔ£¬ÎÒÃÇÔÚÉú³ÉµÄRestTemplateµÄbeanÉÏÌí¼ÓÕâÃ´Ò»¸ö×¢½â£¬Õâ¸öbean¾Í»áÅäÖÃLoadBalancerClient¡£
+ä»æ³¨é‡Šä¸­å¯ä»¥çŸ¥é“ï¼Œè¿™ä¸ªæ³¨è§£æ˜¯ç”¨æ¥ç»™RestTemplateåšæ ‡è®°ï¼Œä»¥ä½¿ç”¨è´Ÿè½½å‡è¡¡å®¢æˆ·ç«¯ï¼ˆLoadBalancerClientï¼‰æ¥é…ç½®å®ƒã€‚æ‰€ä»¥ï¼Œæˆ‘ä»¬åœ¨ç”Ÿæˆçš„RestTemplateçš„beanä¸Šæ·»åŠ è¿™ä¹ˆä¸€ä¸ªæ³¨è§£ï¼Œè¿™ä¸ªbeanå°±ä¼šé…ç½®LoadBalancerClientã€‚
 
 **3.2 LoadBalancerClient**
-ÄÇÃ´£¬¾ÍÔÙ¿´ÏÂLoadBalancerClientµÄ´úÂë£º
+é‚£ä¹ˆï¼Œå°±å†çœ‹ä¸‹LoadBalancerClientçš„ä»£ç ï¼š
 
 
 
@@ -477,14 +477,14 @@ public interface ServiceInstanceChooser {
 
 
 
-LoadBalancerClientÊÇÒ»¸ö½Ó¿Ú£¬ÀïÃæÓĞÈı¸ö·½·¨¡£
+LoadBalancerClientæ˜¯ä¸€ä¸ªæ¥å£ï¼Œé‡Œé¢æœ‰ä¸‰ä¸ªæ–¹æ³•ã€‚
 
-ServiceInstance choose(String serviceId);´Ó·½·¨ÃûÉÏ¾Í¿ÉÒÔ¿´³ö£¬ÊÇ¸ù¾İ´«ÈëµÄserviceId£¨·şÎñÃû£©£¬´Ó¸ºÔØ¾ùºâÆ÷ÖĞÑ¡ÔñÒ»¸ö·şÎñÊµÀı£¬·şÎñÊµÀıÍ¨¹ıServiceInstanceÀàÀ´±íÊ¾¡£
-execute·½·¨£¬Ê¹ÓÃ´Ó¸ºÔØ¾ùºâÆ÷ÖĞÑ¡ÔñµÄ·şÎñÊµÀıÀ´Ö´ĞĞÇëÇóÄÚÈİ¡£
-URI reconstructURI(ServiceInstance instance, URI original);·½·¨£¬ÊÇÖØĞÂ¹¹½¨Ò»¸öURIµÄ£¬»¹¼ÇµÃÎÒÃÇÔÚ´úÂëÖĞ£¬Í¨¹ıRestTemplateÇëÇó·şÎñÊ±£¬Ğ´µÄÊÇ·şÎñÃû°É£¬Õâ¸ö·½·¨¾Í»á°ÑÕâ¸öÇëÇóµÄURI½øĞĞ×ª»»£¬·µ»Øhost+port£¬Í¨¹ıhost+portµÄĞÎÊ½È¥ÇëÇó·şÎñ¡£
-**3.3 ×Ô¶¯×°Åä**
-µ±springbootÆô¶¯Ö®ºó£¬»áÍ¨¹ı×Ô¶¯×°Åä×Ô¶¯È¥
-spring-cloud-netflix-ribbonÕâ¸öjar°üµÄMETA-INFÄ¿Â¼ÕÒspring.factoriesÎÄ¼ş£¬²¢ÇÒ½«RibbonAutoConfigurationÅäÖÃÀà½øĞĞ×¢Èë¡£¶øÔÚRibbonAutoConfigurationÅäÖÃÀàÖĞÒòÎª´æÔÚ@AutoConfigureBefore×¢½â£¬ËùÒÔÓÖ»á¼ÓÔØLoadBalancerAutoConfigurationÅäÖÃÀà¡£ÔÚLoadBalancerAutoConfigurationÀàÖĞ£¬springÈİÆ÷»á½«ËùÓĞ±»@LoadBalance×¢½âĞŞÊÎµÄbean×¢Èëµ½IOCÈİÆ÷ÖĞ
+ServiceInstance choose(String serviceId);ä»æ–¹æ³•åä¸Šå°±å¯ä»¥çœ‹å‡ºï¼Œæ˜¯æ ¹æ®ä¼ å…¥çš„serviceIdï¼ˆæœåŠ¡åï¼‰ï¼Œä»è´Ÿè½½å‡è¡¡å™¨ä¸­é€‰æ‹©ä¸€ä¸ªæœåŠ¡å®ä¾‹ï¼ŒæœåŠ¡å®ä¾‹é€šè¿‡ServiceInstanceç±»æ¥è¡¨ç¤ºã€‚
+executeæ–¹æ³•ï¼Œä½¿ç”¨ä»è´Ÿè½½å‡è¡¡å™¨ä¸­é€‰æ‹©çš„æœåŠ¡å®ä¾‹æ¥æ‰§è¡Œè¯·æ±‚å†…å®¹ã€‚
+URI reconstructURI(ServiceInstance instance, URI original);æ–¹æ³•ï¼Œæ˜¯é‡æ–°æ„å»ºä¸€ä¸ªURIçš„ï¼Œè¿˜è®°å¾—æˆ‘ä»¬åœ¨ä»£ç ä¸­ï¼Œé€šè¿‡RestTemplateè¯·æ±‚æœåŠ¡æ—¶ï¼Œå†™çš„æ˜¯æœåŠ¡åå§ï¼Œè¿™ä¸ªæ–¹æ³•å°±ä¼šæŠŠè¿™ä¸ªè¯·æ±‚çš„URIè¿›è¡Œè½¬æ¢ï¼Œè¿”å›host+portï¼Œé€šè¿‡host+portçš„å½¢å¼å»è¯·æ±‚æœåŠ¡ã€‚
+**3.3 è‡ªåŠ¨è£…é…**
+å½“springbootå¯åŠ¨ä¹‹åï¼Œä¼šé€šè¿‡è‡ªåŠ¨è£…é…è‡ªåŠ¨å»
+spring-cloud-netflix-ribbonè¿™ä¸ªjaråŒ…çš„META-INFç›®å½•æ‰¾spring.factoriesæ–‡ä»¶ï¼Œå¹¶ä¸”å°†RibbonAutoConfigurationé…ç½®ç±»è¿›è¡Œæ³¨å…¥ã€‚è€Œåœ¨RibbonAutoConfigurationé…ç½®ç±»ä¸­å› ä¸ºå­˜åœ¨@AutoConfigureBeforeæ³¨è§£ï¼Œæ‰€ä»¥åˆä¼šåŠ è½½LoadBalancerAutoConfigurationé…ç½®ç±»ã€‚åœ¨LoadBalancerAutoConfigurationç±»ä¸­ï¼Œspringå®¹å™¨ä¼šå°†æ‰€æœ‰è¢«@LoadBalanceæ³¨è§£ä¿®é¥°çš„beanæ³¨å…¥åˆ°IOCå®¹å™¨ä¸­
 
 
 
@@ -502,9 +502,9 @@ private List<RestTemplate> restTemplates = Collections.emptyList();
 
 
 
-Í¬Ê±£¬ÔÚLoadBalancerAutoConfigurationÅäÖÃÀàÖĞ»¹»áÎªÃ¿¸öRestTemplateÊµÀıÌí¼ÓLoadBalancerInterceptorÀ¹½ØÆ÷¡£
+åŒæ—¶ï¼Œåœ¨LoadBalancerAutoConfigurationé…ç½®ç±»ä¸­è¿˜ä¼šä¸ºæ¯ä¸ªRestTemplateå®ä¾‹æ·»åŠ LoadBalancerInterceptoræ‹¦æˆªå™¨ã€‚
 
-ÔÚRibbonAutoConfigurationÀàÖĞ×¢ÈëÁËLoadBalancerClient½Ó¿ÚµÄÊµÏÖÀàRibbonLoadBalancerClient
+åœ¨RibbonAutoConfigurationç±»ä¸­æ³¨å…¥äº†LoadBalancerClientæ¥å£çš„å®ç°ç±»RibbonLoadBalancerClient
 
 
 
@@ -524,14 +524,14 @@ public LoadBalancerClient loadBalancerClient() {
 
 
 
-**3.4 À¹½ØÆ÷**
-ÓÉÓÚÔÚ×Ô¶¯ÅäÖÃÀàÖĞ£¬¶ÔrestTemplateÊµÀıÌí¼ÓÁËLoadBalancerInterceptorÀ¹½ØÆ÷£¬ËùÒÔ£¬µ±ÓÃrestTemplate·¢ËÍhttpÇëÇóÊ±£¬¾Í»áÖ´ĞĞÕâ¸öÀ¹½ØÆ÷µÄintercept·½·¨¡£
+**3.4 æ‹¦æˆªå™¨**
+ç”±äºåœ¨è‡ªåŠ¨é…ç½®ç±»ä¸­ï¼Œå¯¹restTemplateå®ä¾‹æ·»åŠ äº†LoadBalancerInterceptoræ‹¦æˆªå™¨ï¼Œæ‰€ä»¥ï¼Œå½“ç”¨restTemplateå‘é€httpè¯·æ±‚æ—¶ï¼Œå°±ä¼šæ‰§è¡Œè¿™ä¸ªæ‹¦æˆªå™¨çš„interceptæ–¹æ³•ã€‚
 
-intercept·½·¨ÖĞ£¬»á¸ù¾İrequest.getURI()£¬»ñÈ¡ÇëÇóµÄuri£¬ÔÙ»ñÈ¡host£¬ÎÒÃÇÔÚ·¢ËÍhttpÇëÇóµÄÊ±ºò£¬ÊÇÓÃµÄ·şÎñÃû×÷Îªhost£¬ËùÒÔ£¬ÕâÀï¾Í»áÄÃµ½·şÎñÃû£¬ÔÙµ÷ÓÃ¾ßÌåLoadBalancerClientÊµÀıµÄexecute·½·¨£¬·¢ËÍÇëÇó¡£
+interceptæ–¹æ³•ä¸­ï¼Œä¼šæ ¹æ®request.getURI()ï¼Œè·å–è¯·æ±‚çš„uriï¼Œå†è·å–hostï¼Œæˆ‘ä»¬åœ¨å‘é€httpè¯·æ±‚çš„æ—¶å€™ï¼Œæ˜¯ç”¨çš„æœåŠ¡åä½œä¸ºhostï¼Œæ‰€ä»¥ï¼Œè¿™é‡Œå°±ä¼šæ‹¿åˆ°æœåŠ¡åï¼Œå†è°ƒç”¨å…·ä½“LoadBalancerClientå®ä¾‹çš„executeæ–¹æ³•ï¼Œå‘é€è¯·æ±‚ã€‚
 
-LoadBalancerClientµÄÊµÏÖÀàÎªRibbonLoadBalancerClient£¬×îÖÕµÄ¸ºÔØ¾ùºâÇëÇóÓÉËüÀ´Ö´ĞĞ£¬ËùÒÔ£¬»¹ĞèÒªÔÙÊáÀíÏÂRibbonLoadBalancerClientµÄÂß¼­¡£
+LoadBalancerClientçš„å®ç°ç±»ä¸ºRibbonLoadBalancerClientï¼Œæœ€ç»ˆçš„è´Ÿè½½å‡è¡¡è¯·æ±‚ç”±å®ƒæ¥æ‰§è¡Œï¼Œæ‰€ä»¥ï¼Œè¿˜éœ€è¦å†æ¢³ç†ä¸‹RibbonLoadBalancerClientçš„é€»è¾‘ã€‚
 
-ÏÈ¿´ÏÂRibbonLoadBalancerClientÖĞµÄexecute·½·¨£º
+å…ˆçœ‹ä¸‹RibbonLoadBalancerClientä¸­çš„executeæ–¹æ³•ï¼š
 
 
 
@@ -590,7 +590,7 @@ public <T> T execute(String serviceId, ServiceInstance serviceInstance,
 
 
 
-·şÎñÃû×÷ÎªserviceId×Ö¶Î´«½øÀ´£¬ÏÈÍ¨¹ıgetLoadBalancer»ñÈ¡loadBalancer£¬ÔÙ¸ù¾İloadBalancer»ñÈ¡server£¬ÏÂÃæÊÇgetServerµÄ´úÂë£º
+æœåŠ¡åä½œä¸ºserviceIdå­—æ®µä¼ è¿›æ¥ï¼Œå…ˆé€šè¿‡getLoadBalancerè·å–loadBalancerï¼Œå†æ ¹æ®loadBalancerè·å–serverï¼Œä¸‹é¢æ˜¯getServerçš„ä»£ç ï¼š
 
 
 
@@ -612,9 +612,9 @@ protected Server getServer(ILoadBalancer loadBalancer, Object hint) {
 
 
 
-Èç¹ûloadBalancerÎª¿Õ£¬¾ÍÖ±½Ó·µ»Ø¿Õ£¬·ñÔò¾Íµ÷ÓÃloadBalancerµÄchooseServer·½·¨£¬»ñÈ¡ÏàÓ¦µÄserver¡£
+å¦‚æœloadBalancerä¸ºç©ºï¼Œå°±ç›´æ¥è¿”å›ç©ºï¼Œå¦åˆ™å°±è°ƒç”¨loadBalancerçš„chooseServeræ–¹æ³•ï¼Œè·å–ç›¸åº”çš„serverã€‚
 
-¿´Ò»ÏÂILoadBalancerÊÇÒ»¸ö½Ó¿Ú£¬ÀïÃæÉùÃ÷ÁËÒ»ÏµÁĞ¸ºÔØ¾ùºâÊµÏÖµÄ·½·¨£º
+çœ‹ä¸€ä¸‹ILoadBalanceræ˜¯ä¸€ä¸ªæ¥å£ï¼Œé‡Œé¢å£°æ˜äº†ä¸€ç³»åˆ—è´Ÿè½½å‡è¡¡å®ç°çš„æ–¹æ³•ï¼š
 
 
 
@@ -638,8 +638,8 @@ public interface ILoadBalancer {
 
 
 
-ÕâĞ©·½·¨Ãû±È½ÏÖ±¹Û£¬ºÜÈİÒ×¾ÍÄÜ²Â³öÊÇ¸ÉÉ¶µÄ£¬addServersÊÇÓÃÀ´Ìí¼ÓÒ»¸öserver¼¯ºÏ£¬chooseServerÊÇÑ¡ÔñÒ»¸öserver£¬markServerDownÓÃÀ´±ê¼ÇÄ³¸ö·şÎñÏÂÏß£¬getReachableServers»ñÈ¡¿ÉÓÃµÄServer¼¯ºÏ£¬getAllServersÊÇ»ñÈ¡ËùÓĞµÄserver¼¯ºÏ¡£
-ILoadBalancerÓĞºÜ¶àÊµÏÖ£¬ÄÇ¾ßÌåÊÇÓÃµÄÄÄ¸öÀàÄØ£¬ÔÚRibbonAutoConfigurationÀàÖĞ×¢ÈëSpringClientFactory£¬Í¨¹ıRibbonClientConfigurationÀà¿´µ½£¬Õâ¸öÅäÖÃÀàÔÚ³õÊ¼»¯µÄÊ±ºò£¬·µ»ØÁËZoneAwareLoadBalancer×÷Îª¸ºÔØ¾ùºâÆ÷¡£
+è¿™äº›æ–¹æ³•åæ¯”è¾ƒç›´è§‚ï¼Œå¾ˆå®¹æ˜“å°±èƒ½çŒœå‡ºæ˜¯å¹²å•¥çš„ï¼ŒaddServersæ˜¯ç”¨æ¥æ·»åŠ ä¸€ä¸ªserveré›†åˆï¼ŒchooseServeræ˜¯é€‰æ‹©ä¸€ä¸ªserverï¼ŒmarkServerDownç”¨æ¥æ ‡è®°æŸä¸ªæœåŠ¡ä¸‹çº¿ï¼ŒgetReachableServersè·å–å¯ç”¨çš„Serveré›†åˆï¼ŒgetAllServersæ˜¯è·å–æ‰€æœ‰çš„serveré›†åˆã€‚
+ILoadBalanceræœ‰å¾ˆå¤šå®ç°ï¼Œé‚£å…·ä½“æ˜¯ç”¨çš„å“ªä¸ªç±»å‘¢ï¼Œåœ¨RibbonAutoConfigurationç±»ä¸­æ³¨å…¥SpringClientFactoryï¼Œé€šè¿‡RibbonClientConfigurationç±»çœ‹åˆ°ï¼Œè¿™ä¸ªé…ç½®ç±»åœ¨åˆå§‹åŒ–çš„æ—¶å€™ï¼Œè¿”å›äº†ZoneAwareLoadBalancerä½œä¸ºè´Ÿè½½å‡è¡¡å™¨ã€‚
 
 
 
@@ -666,19 +666,19 @@ public ILoadBalancer ribbonLoadBalancer(IClientConfig config,
 
 
 **3.5 ZoneAwareLoadBalancer**
-ZoneAwareLoadBalancer´ÓÃû×ÖÖĞ¿ÉÒÔ¿´³öÀ´£¬Õâ¸ö¸ºÔØ¾ùºâÆ÷ºÍzoneÊÇÓĞ¹ØÏµµÄ¡£ÏÂÃæ¿´ÏÂZoneAwareLoadBalancerÖĞµÄchooseServer·½·¨£º
+ZoneAwareLoadBalancerä»åå­—ä¸­å¯ä»¥çœ‹å‡ºæ¥ï¼Œè¿™ä¸ªè´Ÿè½½å‡è¡¡å™¨å’Œzoneæ˜¯æœ‰å…³ç³»çš„ã€‚ä¸‹é¢çœ‹ä¸‹ZoneAwareLoadBalancerä¸­çš„chooseServeræ–¹æ³•ï¼š
 
-> eurekaÌá¹©ÁËregionºÍzoneÁ½¸ö¸ÅÄîÀ´½øĞĞ·ÖÇø£¬ÕâÁ½¸ö¸ÅÄî¾ùÀ´×ÔÓÚÑÇÂíÑ·µÄAWS£º
-> region£º¿ÉÒÔ¼òµ¥Àí½âÎªµØÀíÉÏµÄ·ÖÇø£¬±ÈÈçÑÇÖŞµØÇø£¬»òÕß»ª±±µØÇø£¬ÔÙ»òÕß±±¾©µÈµÈ£¬Ã»ÓĞ¾ßÌå´óĞ¡µÄÏŞÖÆ¡£¸ù¾İÏîÄ¿¾ßÌåµÄÇé¿ö£¬¿ÉÒÔ×ÔĞĞºÏÀí»®·Öregion¡£
-> zone£º¿ÉÒÔ¼òµ¥Àí½âÎªregionÄÚµÄ¾ßÌå»ú·¿£¬±ÈÈçËµregion»®·ÖÎª±±¾©£¬È»ºó±±¾©ÓĞÁ½¸ö»ú·¿£¬¾Í¿ÉÒÔÔÚ´ËregionÖ®ÏÂ»®·Ö³özone1,zone2Á½¸özone¡£
+> eurekaæä¾›äº†regionå’Œzoneä¸¤ä¸ªæ¦‚å¿µæ¥è¿›è¡Œåˆ†åŒºï¼Œè¿™ä¸¤ä¸ªæ¦‚å¿µå‡æ¥è‡ªäºäºšé©¬é€Šçš„AWSï¼š
+> regionï¼šå¯ä»¥ç®€å•ç†è§£ä¸ºåœ°ç†ä¸Šçš„åˆ†åŒºï¼Œæ¯”å¦‚äºšæ´²åœ°åŒºï¼Œæˆ–è€…ååŒ—åœ°åŒºï¼Œå†æˆ–è€…åŒ—äº¬ç­‰ç­‰ï¼Œæ²¡æœ‰å…·ä½“å¤§å°çš„é™åˆ¶ã€‚æ ¹æ®é¡¹ç›®å…·ä½“çš„æƒ…å†µï¼Œå¯ä»¥è‡ªè¡Œåˆç†åˆ’åˆ†regionã€‚
+> zoneï¼šå¯ä»¥ç®€å•ç†è§£ä¸ºregionå†…çš„å…·ä½“æœºæˆ¿ï¼Œæ¯”å¦‚è¯´regionåˆ’åˆ†ä¸ºåŒ—äº¬ï¼Œç„¶ååŒ—äº¬æœ‰ä¸¤ä¸ªæœºæˆ¿ï¼Œå°±å¯ä»¥åœ¨æ­¤regionä¹‹ä¸‹åˆ’åˆ†å‡ºzone1,zone2ä¸¤ä¸ªzoneã€‚
 
 
 
 ```
 @Override
 public Server chooseServer(Object key) {
-    //Ö»ÓĞµ±¸ºÔØ¾ùºâÆ÷ÖĞÎ¬»¤µÄÊµÀıËùÊôµÄZoneÇøÓòµÄ¸öÊı´óÓÚ1µÄÊ±ºò²Å»áÖ´ĞĞÑ¡Ôñ²ßÂÔ
-    //·ñÔò»¹ÊÇÊ¹ÓÃ¸¸ÀàµÄÊµÏÖ
+    //åªæœ‰å½“è´Ÿè½½å‡è¡¡å™¨ä¸­ç»´æŠ¤çš„å®ä¾‹æ‰€å±çš„ZoneåŒºåŸŸçš„ä¸ªæ•°å¤§äº1çš„æ—¶å€™æ‰ä¼šæ‰§è¡Œé€‰æ‹©ç­–ç•¥
+    //å¦åˆ™è¿˜æ˜¯ä½¿ç”¨çˆ¶ç±»çš„å®ç°
     if (!ENABLED.get() || getLoadBalancerStats().getAvailableZones().size() <= 1) {
         logger.debug("Zone aware logic disabled or there is only one zone");
         return super.chooseServer(key);
@@ -686,7 +686,7 @@ public Server chooseServer(Object key) {
     Server server = null;
     try {
         LoadBalancerStats lbStats = getLoadBalancerStats();
-        //Îªµ±Ç°¸ºÔØ¾ùºâÆ÷ÖĞµÄËùÓĞZoneÇøÓò·Ö±ğ´´½¨¿ìÕÕ£¬±£´æÔÚzoneSnapshotÖĞ£¬ÕâĞ©¿ìÕÕÖĞµÄÊı¾İÓÃÓÚºóĞøµÄËã·¨
+        //ä¸ºå½“å‰è´Ÿè½½å‡è¡¡å™¨ä¸­çš„æ‰€æœ‰ZoneåŒºåŸŸåˆ†åˆ«åˆ›å»ºå¿«ç…§ï¼Œä¿å­˜åœ¨zoneSnapshotä¸­ï¼Œè¿™äº›å¿«ç…§ä¸­çš„æ•°æ®ç”¨äºåç»­çš„ç®—æ³•
         Map<String, ZoneSnapshot> zoneSnapshot = ZoneAvoidanceRule.createSnapshot(lbStats);
         logger.debug("Zone snapshots: {}", zoneSnapshot);
         if (triggeringLoad == null) {
@@ -698,18 +698,18 @@ public Server chooseServer(Object key) {
             triggeringBlackoutPercentage = DynamicPropertyFactory.getInstance().getDoubleProperty(
                 "ZoneAwareNIWSDiscoveryLoadBalancer." + this.getName() + ".avoidZoneWithBlackoutPercetage", 0.99999d);
         }
-        //»ñµÃ¿ÉÓÃZoneÇøÓòµÄ¼¯ºÏ£¬getAvailableZones»áÍ¨¹ızoneSnapshotÊµÏÖ¿ÉÓÃÇøÓòÌôÑ¡
+        //è·å¾—å¯ç”¨ZoneåŒºåŸŸçš„é›†åˆï¼ŒgetAvailableZonesä¼šé€šè¿‡zoneSnapshotå®ç°å¯ç”¨åŒºåŸŸæŒ‘é€‰
         Set<String> availableZones = ZoneAvoidanceRule.getAvailableZones(zoneSnapshot, triggeringLoad.get(), triggeringBlackoutPercentage.get());
         logger.debug("Available zones: {}", availableZones);
         if (availableZones != null &&  availableZones.size() < zoneSnapshot.keySet().size()) {
-            //Ëæ»úÑ¡ÔñÒ»¸öZoneÇøÓò
+            //éšæœºé€‰æ‹©ä¸€ä¸ªZoneåŒºåŸŸ
             String zone = ZoneAvoidanceRule.randomChooseZone(zoneSnapshot, availableZones);
             logger.debug("Zone chosen: {}", zone);
             if (zone != null) {
-                //»ñµÃ¶ÔÓ¦ÇøÓòµÄ¸ºÔØ¾ùºâÆ÷
+                //è·å¾—å¯¹åº”åŒºåŸŸçš„è´Ÿè½½å‡è¡¡å™¨
                 BaseLoadBalancer zoneLoadBalancer = getLoadBalancer(zone);
-                //Ñ¡Ôñ¾ßÌåµÄ·şÎñÊµÀı
-                //ÔÚchooseServerÖĞ½«»áÊ¹ÓÃIRule½Ó¿ÚµÄchooseº¯ÊıÀ´Ñ¡Ôñ¾ßÌå·şÎñÊµÀı¡£ÔÚÕâÀï£¬IRule½Ó¿ÚµÄÊµÏÖ»áÊµÏÖZoneAvoidanceRuleÀ´ÌôÑ¡¾ßÌåµÄ·şÎñÊµÀı¡£
+                //é€‰æ‹©å…·ä½“çš„æœåŠ¡å®ä¾‹
+                //åœ¨chooseServerä¸­å°†ä¼šä½¿ç”¨IRuleæ¥å£çš„chooseå‡½æ•°æ¥é€‰æ‹©å…·ä½“æœåŠ¡å®ä¾‹ã€‚åœ¨è¿™é‡Œï¼ŒIRuleæ¥å£çš„å®ç°ä¼šå®ç°ZoneAvoidanceRuleæ¥æŒ‘é€‰å…·ä½“çš„æœåŠ¡å®ä¾‹ã€‚
                 server = zoneLoadBalancer.chooseServer(key);
             }
         }
@@ -733,69 +733,69 @@ public Server chooseServer(Object key) {
 
 
 
-Õâ¸ö·½·¨»á¸ù¾İserverµÄzoneºÍ¿ÉÓÃĞÔÀ´Ñ¡Ôñ¾ßÌåµÄÊµÀı£¬·µ»ØÒ»¸öServer¶ÔÏó¡£
+è¿™ä¸ªæ–¹æ³•ä¼šæ ¹æ®serverçš„zoneå’Œå¯ç”¨æ€§æ¥é€‰æ‹©å…·ä½“çš„å®ä¾‹ï¼Œè¿”å›ä¸€ä¸ªServerå¯¹è±¡ã€‚
 
-Õâ¸öÀàÀïÃæµÄ¼¸¸ö·½·¨£º
+è¿™ä¸ªç±»é‡Œé¢çš„å‡ ä¸ªæ–¹æ³•ï¼š
 
-1.  setServerListForZones : Õâ¸ö»ùÓÚZone½øĞĞ·şÎñ»®·Ö
-2.  chooseServerÕâÀïÒ²ÊÇÖ÷Òª¸úzoneÓĞ¹ØµÄ¼ÆËã£¬µ±È»Ä¬ÈÏµÄZoneÖ»ÓĞÒ»¸ö£¬ËùÒÔÖ±½ÓÊÇµ÷ÓÃµÄ¸¸ÀàµÄchooseServer£¨key)
-3.  getLoadBalancer(String zone) »ùÓÚzoneÈ¥»ñÈ¡LoadBalancer
-4.  setRule(IRule rule) ÎªÃ¿¸ö¸ºÔØ¾ùºâÆ÷ÉèÖÃ¹æÔò¡£
-    ÕâÀï¿ÉÒÔ¿´µ½£¬ÆäÊµÕâ¸öÖ÷ÒªÊÇÕë¶ÔZone×öÁËÒ»Ğ©·ÖÀà´¦Àí£¬¾ÍÊÇ½«Ô­À´ÊôÓÚÍ¬Ò»·şÎñµÄ·şÎñÊµÀı£¬ÔÙ¸ù¾İµØÇø½øĞĞ»®·Ö¡£ÕâÒ²ÊÇÎªÁËÄÜ¹»¿ìËÙÏìÓ¦¶øÉèÖÃµÄ¡£
+1.  setServerListForZones : è¿™ä¸ªåŸºäºZoneè¿›è¡ŒæœåŠ¡åˆ’åˆ†
+2.  chooseServerè¿™é‡Œä¹Ÿæ˜¯ä¸»è¦è·Ÿzoneæœ‰å…³çš„è®¡ç®—ï¼Œå½“ç„¶é»˜è®¤çš„Zoneåªæœ‰ä¸€ä¸ªï¼Œæ‰€ä»¥ç›´æ¥æ˜¯è°ƒç”¨çš„çˆ¶ç±»çš„chooseServerï¼ˆkey)
+3.  getLoadBalancer(String zone) åŸºäºzoneå»è·å–LoadBalancer
+4.  setRule(IRule rule) ä¸ºæ¯ä¸ªè´Ÿè½½å‡è¡¡å™¨è®¾ç½®è§„åˆ™ã€‚
+    è¿™é‡Œå¯ä»¥çœ‹åˆ°ï¼Œå…¶å®è¿™ä¸ªä¸»è¦æ˜¯é’ˆå¯¹Zoneåšäº†ä¸€äº›åˆ†ç±»å¤„ç†ï¼Œå°±æ˜¯å°†åŸæ¥å±äºåŒä¸€æœåŠ¡çš„æœåŠ¡å®ä¾‹ï¼Œå†æ ¹æ®åœ°åŒºè¿›è¡Œåˆ’åˆ†ã€‚è¿™ä¹Ÿæ˜¯ä¸ºäº†èƒ½å¤Ÿå¿«é€Ÿå“åº”è€Œè®¾ç½®çš„ã€‚
 
 **3.5.1 DynamicServerListLoadBalancer**
 
-> ZoneAwareLoadBalancerµÄ¸¸Àà
+> ZoneAwareLoadBalancerçš„çˆ¶ç±»
 
-Õâ¸öÀà°´ÕÕÃû³ÆÀ´Ëµ¾ÍÊÇ¶¯Ì¬¼ÓÔØ·şÎñÁĞ±íÊ¹ÓÃµÄ¡£ÆäÖĞÓĞ¼¸¸ö±È½ÏÖØÒªµÄ·½·¨
+è¿™ä¸ªç±»æŒ‰ç…§åç§°æ¥è¯´å°±æ˜¯åŠ¨æ€åŠ è½½æœåŠ¡åˆ—è¡¨ä½¿ç”¨çš„ã€‚å…¶ä¸­æœ‰å‡ ä¸ªæ¯”è¾ƒé‡è¦çš„æ–¹æ³•
 
-1.  updateListOfServers:·şÎñÁĞ±í²¢¸üĞÂ±¾µØ»º´æµÄ·şÎñÁĞ±í
-2.  enableAndInitLearnNewServersFeature:¿ªÆô·şÎñÁĞ±í¸üĞÂ¶¨Ê±ÈÎÎñ
-3.  ¿ªÆô¼àÌı:@Monitor
+1.  updateListOfServers:æœåŠ¡åˆ—è¡¨å¹¶æ›´æ–°æœ¬åœ°ç¼“å­˜çš„æœåŠ¡åˆ—è¡¨
+2.  enableAndInitLearnNewServersFeature:å¼€å¯æœåŠ¡åˆ—è¡¨æ›´æ–°å®šæ—¶ä»»åŠ¡
+3.  å¼€å¯ç›‘å¬:@Monitor
 
-DynamicServerListLoadBalancerµÄºËĞÄ¾ÍÊÇ»ñÈ¡·şÎñÁĞ±í£¬ÔÚEurekaÖĞÄ¬ÈÏÊÇÍ¨¹ıDomainExtractingServerListÀ´»ñÈ¡£¬Õâ¸öÀàÊÇÔÚorg.springframework.cloud.netflix.ribbon.eureka.EurekaRibbonClientConfiguration#ribbonServerList£¬ÕâÀïÃ»ÓĞ¼¯³ÉEureka£¬ÔİÊ±²»½²
+DynamicServerListLoadBalancerçš„æ ¸å¿ƒå°±æ˜¯è·å–æœåŠ¡åˆ—è¡¨ï¼Œåœ¨Eurekaä¸­é»˜è®¤æ˜¯é€šè¿‡DomainExtractingServerListæ¥è·å–ï¼Œè¿™ä¸ªç±»æ˜¯åœ¨org.springframework.cloud.netflix.ribbon.eureka.EurekaRibbonClientConfiguration#ribbonServerListï¼Œè¿™é‡Œæ²¡æœ‰é›†æˆEurekaï¼Œæš‚æ—¶ä¸è®²
 
 **3.5.2 BaseLoadBalancer**
 
-> DynamicServerListLoadBalancerµÄ¸¸Àà
+> DynamicServerListLoadBalancerçš„çˆ¶ç±»
 
-ºËĞÄÄ¬ÈÏÖµ
+æ ¸å¿ƒé»˜è®¤å€¼
 
-*   Ä¬ÈÏµÄ¸ºÔØ¾ùºâ²ßÂÔRoundRobinRule
-*   Ä¬ÈÏµÄPing²ßÂÔSerialPingStrategy
-*   ËùÓĞ·şÎñÊµÀıÈİÆ÷£ºallServerList
-*   ÔÚÏß·şÎñÊµÀıÈİÆ÷£ºupServerList
-    ![SpringCloudÏµÁĞ¡ªRibbonÔ´Âë·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b2db0bc66c3045288a762907ff72e01883bf20.jpg "SpringCloudÏµÁĞ¡ªRibbonÔ´Âë·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")´Ó×ÓÀà¹¹ÔìÖĞ½«¶ÔÓ¦µÄ¸ºÔØ¾ùºâ¹æÔò£¬ping²ßÂÔ£¬pingµÈ´«µİ¹ıÀ´
+*   é»˜è®¤çš„è´Ÿè½½å‡è¡¡ç­–ç•¥RoundRobinRule
+*   é»˜è®¤çš„Pingç­–ç•¥SerialPingStrategy
+*   æ‰€æœ‰æœåŠ¡å®ä¾‹å®¹å™¨ï¼šallServerList
+*   åœ¨çº¿æœåŠ¡å®ä¾‹å®¹å™¨ï¼šupServerList
+    ![SpringCloudç³»åˆ—â€”Ribbonæºç åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b2db0bc66c3045288a762907ff72e01883bf20.jpg "SpringCloudç³»åˆ—â€”Ribbonæºç åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")ä»å­ç±»æ„é€ ä¸­å°†å¯¹åº”çš„è´Ÿè½½å‡è¡¡è§„åˆ™ï¼Œpingç­–ç•¥ï¼Œpingç­‰ä¼ é€’è¿‡æ¥
 
-**ping×öÁËĞ©Ê²Ã´£¿**
+**pingåšäº†äº›ä»€ä¹ˆï¼Ÿ**
 
-PingTask×÷ÎªÒ»¸öÏß³ÌÈÎÎñ£¬¾ÍÊÇ¶¨ÆÚ¼ì²é·şÎñÊÇ·ñ¶¼´æ»î£¬¸úServerListUpdater·şÎñ¸üĞÂ»úÖÆ²»³åÍ»¡£ÕâÊÇribbon×Ô¼ºÎ¬»¤µÄÒ»Ì×·şÎñ¼ì²â»úÖÆ£¬Ö÷ÒªÊÇÎªÁË½µµÍ·ÃÎÊÊ§°ÜµÄ¸ÅÂÊ¡£Ä¬ÈÏÔÚÊ¹ÓÃeurekaÊ±£¬pingÊÇÊ¹ÓÃµÄÊÇNIWSDiscoveryPingÀ´Íê³É·şÎñ±£»î¼ì²â¡£ÓÉeureka ºÍ ServerListUpdaterÀ´Ë¢ĞÂ·şÎñÁĞ±í¡£![SpringCloudÏµÁĞ¡ªRibbonÔ´Âë·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/27db4c518aa7c100d427761832a9fa19fa8f04.jpg "SpringCloudÏµÁĞ¡ªRibbonÔ´Âë·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")ÕâÀïÓĞ¸ö³£ÓÃµÄ¶¨Ê±ÈÎÎñ¿ìËÙÍË³öµÄ·½·¨£¬ÎÒ¾õµÃÔÚÎÒÃÇ×Ô¼ºĞ´µÄÊ±ºòÒ²¿ÉÒÔÊ¹ÓÃ¡£
+PingTaskä½œä¸ºä¸€ä¸ªçº¿ç¨‹ä»»åŠ¡ï¼Œå°±æ˜¯å®šæœŸæ£€æŸ¥æœåŠ¡æ˜¯å¦éƒ½å­˜æ´»ï¼Œè·ŸServerListUpdateræœåŠ¡æ›´æ–°æœºåˆ¶ä¸å†²çªã€‚è¿™æ˜¯ribbonè‡ªå·±ç»´æŠ¤çš„ä¸€å¥—æœåŠ¡æ£€æµ‹æœºåˆ¶ï¼Œä¸»è¦æ˜¯ä¸ºäº†é™ä½è®¿é—®å¤±è´¥çš„æ¦‚ç‡ã€‚é»˜è®¤åœ¨ä½¿ç”¨eurekaæ—¶ï¼Œpingæ˜¯ä½¿ç”¨çš„æ˜¯NIWSDiscoveryPingæ¥å®ŒæˆæœåŠ¡ä¿æ´»æ£€æµ‹ã€‚ç”±eureka å’Œ ServerListUpdateræ¥åˆ·æ–°æœåŠ¡åˆ—è¡¨ã€‚![SpringCloudç³»åˆ—â€”Ribbonæºç åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/27db4c518aa7c100d427761832a9fa19fa8f04.jpg "SpringCloudç³»åˆ—â€”Ribbonæºç åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")è¿™é‡Œæœ‰ä¸ªå¸¸ç”¨çš„å®šæ—¶ä»»åŠ¡å¿«é€Ÿé€€å‡ºçš„æ–¹æ³•ï¼Œæˆ‘è§‰å¾—åœ¨æˆ‘ä»¬è‡ªå·±å†™çš„æ—¶å€™ä¹Ÿå¯ä»¥ä½¿ç”¨ã€‚
 
-¾ÍÊÇÔÚÍ¬Ò»¸ö¶¨Ê±ÈÎÎñÈç¹ûÖ´ĞĞÊ±¼ä³¬¹ıÁË¶¨Ê±ÖÜÆÚ£¬ÄÇÃ´ÏÂÒ»¸ö¶¨Ê±ÈÎÎñ·¢ÏÖÉÏÒ»¸ö¶¨Ê±ÈÎÎñ»¹Ã»ÓĞÖ´ĞĞÍêÊ±£¬¾ÍÏÈÈ¡Ïû¡£![SpringCloudÏµÁĞ¡ªRibbonÔ´Âë·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f2d669b11f17530d2e62603d45949e934a5931.jpg "SpringCloudÏµÁĞ¡ªRibbonÔ´Âë·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")ÕâÀïÒ²ÓÃÁËºÜ¶àËø»úÖÆ£¬±ÈÈçËùÓĞ·şÎñÊµÀıµ½Ò»¸öĞÂµÄ¶ÔÏóÊ±Ê¹ÓÃµÄÊÇ¶ÁËø£¬¾ÍÊÇ¸æËßallServersÏÖÔÚÖ»ÄÜ¶Á²»ÄÜĞ´¡£![SpringCloudÏµÁĞ¡ªRibbonÔ´Âë·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/711c81e67b2c1cd3fb91005f53ea1e1352ad9a.png "SpringCloudÏµÁĞ¡ªRibbonÔ´Âë·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")ÔÚ·¢ËÍpingºó£¬½«¼ì²âÍ¨¹ıµÄ·şÎñ·ÅÈënewUpListÖĞ£¬×îºóÍ¨¹ıĞ´Ëø£¬½«upServerListËø×¡¡£
+å°±æ˜¯åœ¨åŒä¸€ä¸ªå®šæ—¶ä»»åŠ¡å¦‚æœæ‰§è¡Œæ—¶é—´è¶…è¿‡äº†å®šæ—¶å‘¨æœŸï¼Œé‚£ä¹ˆä¸‹ä¸€ä¸ªå®šæ—¶ä»»åŠ¡å‘ç°ä¸Šä¸€ä¸ªå®šæ—¶ä»»åŠ¡è¿˜æ²¡æœ‰æ‰§è¡Œå®Œæ—¶ï¼Œå°±å…ˆå–æ¶ˆã€‚![SpringCloudç³»åˆ—â€”Ribbonæºç åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f2d669b11f17530d2e62603d45949e934a5931.jpg "SpringCloudç³»åˆ—â€”Ribbonæºç åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")è¿™é‡Œä¹Ÿç”¨äº†å¾ˆå¤šé”æœºåˆ¶ï¼Œæ¯”å¦‚æ‰€æœ‰æœåŠ¡å®ä¾‹åˆ°ä¸€ä¸ªæ–°çš„å¯¹è±¡æ—¶ä½¿ç”¨çš„æ˜¯è¯»é”ï¼Œå°±æ˜¯å‘Šè¯‰allServersç°åœ¨åªèƒ½è¯»ä¸èƒ½å†™ã€‚![SpringCloudç³»åˆ—â€”Ribbonæºç åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/711c81e67b2c1cd3fb91005f53ea1e1352ad9a.png "SpringCloudç³»åˆ—â€”Ribbonæºç åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")åœ¨å‘é€pingåï¼Œå°†æ£€æµ‹é€šè¿‡çš„æœåŠ¡æ”¾å…¥newUpListä¸­ï¼Œæœ€åé€šè¿‡å†™é”ï¼Œå°†upServerListé”ä½ã€‚
 
-ÕâÀï¾ÍÊÇÖ»ÄÜÓĞÒ»¸öĞ´£¬ÇÒ²»ÄÜ¶Á¡£![SpringCloudÏµÁĞ¡ªRibbonÔ´Âë·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/047543857174aa1130b0747d1d149ffd6d5632.jpg "SpringCloudÏµÁĞ¡ªRibbonÔ´Âë·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")ÉÏÃæÊÇpingÔÚ¼ì²â¹ı³ÌÖĞ¹ØÓÚ¶ÁĞ´ËøºÍÔ­×ÓÀàµÄÊ¹ÓÃ¡£
+è¿™é‡Œå°±æ˜¯åªèƒ½æœ‰ä¸€ä¸ªå†™ï¼Œä¸”ä¸èƒ½è¯»ã€‚![SpringCloudç³»åˆ—â€”Ribbonæºç åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/047543857174aa1130b0747d1d149ffd6d5632.jpg "SpringCloudç³»åˆ—â€”Ribbonæºç åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")ä¸Šé¢æ˜¯pingåœ¨æ£€æµ‹è¿‡ç¨‹ä¸­å…³äºè¯»å†™é”å’ŒåŸå­ç±»çš„ä½¿ç”¨ã€‚
 
-Ö÷ÒªÁ÷³Ì¾ÍÊÇ£º
+ä¸»è¦æµç¨‹å°±æ˜¯ï¼š
 
-1.  ¶ÁÈ¡È«²¿·şÎñÊµÀıÁĞ±í
-2.  ¼ì²â·şÎñÊµÀıÊÇ·ñ´æ»îpingServers
-3.  ½«·şÎñ×´Ì¬·¢Éú¸Ä±äµÄ·ÅÈëchangedServers
-4.  ½«·şÎñÔÚÏßµÄ·ÅÈënewUpList
-5.  ½«newUpList¸³Öµµ½upServerList ÔÚÏß·şÎñÊµÀıÁĞ±íÖĞ
+1.  è¯»å–å…¨éƒ¨æœåŠ¡å®ä¾‹åˆ—è¡¨
+2.  æ£€æµ‹æœåŠ¡å®ä¾‹æ˜¯å¦å­˜æ´»pingServers
+3.  å°†æœåŠ¡çŠ¶æ€å‘ç”Ÿæ”¹å˜çš„æ”¾å…¥changedServers
+4.  å°†æœåŠ¡åœ¨çº¿çš„æ”¾å…¥newUpList
+5.  å°†newUpListèµ‹å€¼åˆ°upServerList åœ¨çº¿æœåŠ¡å®ä¾‹åˆ—è¡¨ä¸­
 
-ÕâÀïÃæpingServers¾ÍÊÇ¼ì²éĞÄÌøµÄ
+è¿™é‡Œé¢pingServerså°±æ˜¯æ£€æŸ¥å¿ƒè·³çš„
 
-**BaseLoadBalancerµÄÆäËû¹¦ÄÜ¼òÊö**
+**BaseLoadBalancerçš„å…¶ä»–åŠŸèƒ½ç®€è¿°**
 
-1.  ¶ÔallServerListºÍupServerListµÄ¶ÁĞ´Ëø·½·¨
-2.  Ìá¹©¶ÔallServerListºÍupServerListµÄÔöÉ¾¸Ä¹¦ÄÜ
-3.  Ìá¹©ÁËPingTask£¨pingµÄ¶¨Ê±ÈÎÎñ£©£¬Pinger£¨pingµÄÖ´ĞĞÆ÷£©
-4.  »ùÓÚ¸ºÔØ¾ùºâ²ßÂÔÑ¡Ôñ·şÎñrule.choose(key)
-5.  Ìá¹©Ä¬ÈÏµÄping²ßÂÔSerialPingStrategy
+1.  å¯¹allServerListå’ŒupServerListçš„è¯»å†™é”æ–¹æ³•
+2.  æä¾›å¯¹allServerListå’ŒupServerListçš„å¢åˆ æ”¹åŠŸèƒ½
+3.  æä¾›äº†PingTaskï¼ˆpingçš„å®šæ—¶ä»»åŠ¡ï¼‰ï¼ŒPingerï¼ˆpingçš„æ‰§è¡Œå™¨ï¼‰
+4.  åŸºäºè´Ÿè½½å‡è¡¡ç­–ç•¥é€‰æ‹©æœåŠ¡rule.choose(key)
+5.  æä¾›é»˜è®¤çš„pingç­–ç•¥SerialPingStrategy
     **3.6 LoadBalancerRequest**
-    Í¨¹ıZoneAwareLoadBalancerÑ¡Ôñ¾ßÌåµÄServerÖ®ºó£¬ÔÙ°ü×°³ÉRibbonServer¶ÔÏó£¬Ö®Ç°·µ»ØµÄserverÊÇ¸Ã¶ÔÏóÖĞµÄÒ»¸ö×Ö¶Î£¬³ı´ËÖ®Íâ£¬»¹ÓĞ·şÎñÃûserviceId£¬ÊÇ·ñĞèÒªÊ¹ÓÃhttpsµÈĞÅÏ¢¡£×îºó£¬Í¨¹ıLoadBalancerRequestµÄapply·½·¨£¬Ïò¾ßÌåµÄserver·¢ÇëÇó£¬´Ó¶øÊµÏÖÁË¸ºÔØ¾ùºâ¡£
+    é€šè¿‡ZoneAwareLoadBalanceré€‰æ‹©å…·ä½“çš„Serverä¹‹åï¼Œå†åŒ…è£…æˆRibbonServerå¯¹è±¡ï¼Œä¹‹å‰è¿”å›çš„serveræ˜¯è¯¥å¯¹è±¡ä¸­çš„ä¸€ä¸ªå­—æ®µï¼Œé™¤æ­¤ä¹‹å¤–ï¼Œè¿˜æœ‰æœåŠ¡åserviceIdï¼Œæ˜¯å¦éœ€è¦ä½¿ç”¨httpsç­‰ä¿¡æ¯ã€‚æœ€åï¼Œé€šè¿‡LoadBalancerRequestçš„applyæ–¹æ³•ï¼Œå‘å…·ä½“çš„serverå‘è¯·æ±‚ï¼Œä»è€Œå®ç°äº†è´Ÿè½½å‡è¡¡ã€‚
 
-ÏÂÃæÊÇapply·½·¨µÄ¶¨Òå£º
+ä¸‹é¢æ˜¯applyæ–¹æ³•çš„å®šä¹‰ï¼š
 
 
 
@@ -813,24 +813,24 @@ public interface LoadBalancerRequest<T> {
 
 
 
-ÔÚÇëÇóÊ±£¬´«ÈëµÄribbonServer¶ÔÏó£¬±»µ±³ÉServiceInstanceÀàĞÍµÄ¶ÔÏó½øĞĞ½ÓÊÕ¡£ServiceInstanceÊÇÒ»¸ö½Ó¿Ú£¬¶¨ÒåÁË·şÎñÖÎÀíÏµÍ³ÖĞ£¬Ã¿¸öÊµÀıĞèÒªÌá¹©µÄĞÅÏ¢£¬±ÈÈçserviceId£¬host£¬portµÈ¡£
+åœ¨è¯·æ±‚æ—¶ï¼Œä¼ å…¥çš„ribbonServerå¯¹è±¡ï¼Œè¢«å½“æˆServiceInstanceç±»å‹çš„å¯¹è±¡è¿›è¡Œæ¥æ”¶ã€‚ServiceInstanceæ˜¯ä¸€ä¸ªæ¥å£ï¼Œå®šä¹‰äº†æœåŠ¡æ²»ç†ç³»ç»Ÿä¸­ï¼Œæ¯ä¸ªå®ä¾‹éœ€è¦æä¾›çš„ä¿¡æ¯ï¼Œæ¯”å¦‚serviceIdï¼Œhostï¼Œportç­‰ã€‚
 
-LoadBalancerRequestÊÇÒ»¸ö½Ó¿Ú£¬×îÖÕ»áÍ¨¹ıÊµÏÖÀàµÄapply·½·¨È¥Ö´ĞĞ£¬ÊµÏÖÀàÊÇÔÚLoadBalancerInterceptorÖĞµ÷ÓÃRibbonLoadBalancerClientµÄexecute·½·¨Ê±£¬´«½øÀ´µÄÒ»¸öÄäÃûÀà£¬¿ÉÒÔÍ¨¹ı²é¿´LoadBalancerInterceptorµÄ´úÂë¿´µ½¡£
+LoadBalancerRequestæ˜¯ä¸€ä¸ªæ¥å£ï¼Œæœ€ç»ˆä¼šé€šè¿‡å®ç°ç±»çš„applyæ–¹æ³•å»æ‰§è¡Œï¼Œå®ç°ç±»æ˜¯åœ¨LoadBalancerInterceptorä¸­è°ƒç”¨RibbonLoadBalancerClientçš„executeæ–¹æ³•æ—¶ï¼Œä¼ è¿›æ¥çš„ä¸€ä¸ªåŒ¿åç±»ï¼Œå¯ä»¥é€šè¿‡æŸ¥çœ‹LoadBalancerInterceptorçš„ä»£ç çœ‹åˆ°ã€‚
 
-´´½¨LoadBalancerRequestÄäÃûÀàµÄÊ±ºò£¬¾ÍÖØĞ´ÁËapply·½·¨£¬apply·½·¨ÖĞ£¬»¹ĞÂ½¨ÁËÒ»¸öServiceRequestWrapperµÄÄÚ²¿Àà£¬Õâ¸öÀàÖĞ£¬¾ÍÖØĞ´ÁËgetURI·½·¨£¬getURI·½·¨»áµ÷ÓÃloadBalancerµÄreconstructURI·½·¨À´¹¹½¨uri¡£
+åˆ›å»ºLoadBalancerRequeståŒ¿åç±»çš„æ—¶å€™ï¼Œå°±é‡å†™äº†applyæ–¹æ³•ï¼Œapplyæ–¹æ³•ä¸­ï¼Œè¿˜æ–°å»ºäº†ä¸€ä¸ªServiceRequestWrapperçš„å†…éƒ¨ç±»ï¼Œè¿™ä¸ªç±»ä¸­ï¼Œå°±é‡å†™äº†getURIæ–¹æ³•ï¼ŒgetURIæ–¹æ³•ä¼šè°ƒç”¨loadBalancerçš„reconstructURIæ–¹æ³•æ¥æ„å»ºuriã€‚
 
-¿´µ½ÕâÀï£¬ÒÑ¾­¿ÉÒÔ´óÌåÖªµÀRibbonÊµÏÖ¸ºÔØ¾ùºâµÄÁ÷³ÌÁË£¬ÎÒÃÇÔÚRestTemplateÉÏÌí¼Ó×¢½â£¬¾Í»áÓĞLoadBalancerClientµÄ¶ÔÏóÀ´ÅäÖÃËü£¬Ò²¾ÍÊÇRibbonLoadBalancerClient¡£Í¬Ê±£¬
-LoadBalancerAutoConfiguration»á½øĞĞÅäÖÃ£¬´´½¨Ò»¸öLoadBalancerInterceptor£¬²¢ÇÒÄÃµ½ÎÒÃÇÉùÃ÷µÄËùÓĞrestTemplate£¬ÔÚÕâĞ©restTemplateÖĞÌí¼ÓLoadBalancerInterceptorÀ¹½ØÆ÷¡£
+çœ‹åˆ°è¿™é‡Œï¼Œå·²ç»å¯ä»¥å¤§ä½“çŸ¥é“Ribbonå®ç°è´Ÿè½½å‡è¡¡çš„æµç¨‹äº†ï¼Œæˆ‘ä»¬åœ¨RestTemplateä¸Šæ·»åŠ æ³¨è§£ï¼Œå°±ä¼šæœ‰LoadBalancerClientçš„å¯¹è±¡æ¥é…ç½®å®ƒï¼Œä¹Ÿå°±æ˜¯RibbonLoadBalancerClientã€‚åŒæ—¶ï¼Œ
+LoadBalancerAutoConfigurationä¼šè¿›è¡Œé…ç½®ï¼Œåˆ›å»ºä¸€ä¸ªLoadBalancerInterceptorï¼Œå¹¶ä¸”æ‹¿åˆ°æˆ‘ä»¬å£°æ˜çš„æ‰€æœ‰restTemplateï¼Œåœ¨è¿™äº›restTemplateä¸­æ·»åŠ LoadBalancerInterceptoræ‹¦æˆªå™¨ã€‚
 
-µ±Í¨¹ırestTemplate·¢ËÍÇëÇóÊ±£¬¾Í»á¾­¹ıÕâ¸öÀ¹½ØÆ÷£¬ÔÚÀ¹½ØÆ÷ÖĞ£¬¾Í»áµ÷ÓÃRibbonLoadBalancerClientÖĞµÄ·½·¨£¬»ñÈ¡µ½¸ù¾İ·şÎñÃû£¬Í¨¹ı¸ºÔØ¾ùºâ·½·¨»ñÈ¡µ½·şÎñÊµÀı£¬È»ºóÈ¥ÇëÇóÕâ¸öÊµÀı¡£
+å½“é€šè¿‡restTemplateå‘é€è¯·æ±‚æ—¶ï¼Œå°±ä¼šç»è¿‡è¿™ä¸ªæ‹¦æˆªå™¨ï¼Œåœ¨æ‹¦æˆªå™¨ä¸­ï¼Œå°±ä¼šè°ƒç”¨RibbonLoadBalancerClientä¸­çš„æ–¹æ³•ï¼Œè·å–åˆ°æ ¹æ®æœåŠ¡åï¼Œé€šè¿‡è´Ÿè½½å‡è¡¡æ–¹æ³•è·å–åˆ°æœåŠ¡å®ä¾‹ï¼Œç„¶åå»è¯·æ±‚è¿™ä¸ªå®ä¾‹ã€‚
 
-**3.7 »ñÈ¡·şÎñÁĞ±í**
-ÉÏÃæËµµÄÕâĞ©£¬ÊÇÈçºÎ¶ÔÇëÇó½øĞĞ¸ºÔØ¾ùºâµÄ£¬µ«ÊÇ»¹ÓĞ¸öÎÊÌâ£¬ÎÒÃÇÇëÇóµÄÊµÀı£¬ÊÇ´ÓEureka ServerÉÏ»ñÈ¡µ½µÄ£¬ÄÇÕâ¸öÊµÀıÁĞ±íÊÇÈçºÎ»ñÈ¡µÄÄØ£¿ÔõÃ´±£Ö¤Õâ¸öÊµÀıÁĞ±íÖĞµÄÊµÀıÊÇ¿ÉÓÃµÄÄØ£¿
+**3.7 è·å–æœåŠ¡åˆ—è¡¨**
+ä¸Šé¢è¯´çš„è¿™äº›ï¼Œæ˜¯å¦‚ä½•å¯¹è¯·æ±‚è¿›è¡Œè´Ÿè½½å‡è¡¡çš„ï¼Œä½†æ˜¯è¿˜æœ‰ä¸ªé—®é¢˜ï¼Œæˆ‘ä»¬è¯·æ±‚çš„å®ä¾‹ï¼Œæ˜¯ä»Eureka Serverä¸Šè·å–åˆ°çš„ï¼Œé‚£è¿™ä¸ªå®ä¾‹åˆ—è¡¨æ˜¯å¦‚ä½•è·å–çš„å‘¢ï¼Ÿæ€ä¹ˆä¿è¯è¿™ä¸ªå®ä¾‹åˆ—è¡¨ä¸­çš„å®ä¾‹æ˜¯å¯ç”¨çš„å‘¢ï¼Ÿ
 
-ÔÚRibbonLoadBalancerClientÑ¡ÔñÊµÀıµÄÊ±ºò£¬ÊÇÍ¨¹ıILoadBalancerµÄÊµÏÖÀà¸ù¾İ¸ºÔØ¾ùºâËã·¨Ñ¡Ôñ·şÎñÊµÀıµÄ£¬Ò²¾ÍÊÇZoneAwareLoadBalancerµÄchooseServerÖĞµÄÂß¼­£¬ÄÇ¾ÍÔÚÕâÀïÕÒÏßË÷¡£²é¿´ZoneAwareLoadBalancerµÄ¼Ì³Ğ¹ØÏµ£¬¿ÉÒÔ¿´µ½ÈçÏÂÍ¼ËùÊ¾¡£![SpringCloudÏµÁĞ¡ªRibbonÔ´Âë·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/425d8ff567d9ac6171f6036dab1726a7da04a3.jpg "SpringCloudÏµÁĞ¡ªRibbonÔ´Âë·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")¿ÉÒÔ¿´µ½£¬×îÉÏÃæÊÇILoadBalancer½Ó¿Ú£¬AbstractLoadBalancerÀà¼Ì³ĞÁËÕâ¸ö½Ó¿Ú£¬BaseLoadBalancer¼Ì³ĞÁËAbstractLoadBalancerÀà£¬
-DynamicServerListLoadBalancer¼Ì³ĞÁËBaseLoadBalancer£¬ZoneAwareLoadBalancer¼Ì³ĞÁËDynamicServerListLoadBalancer¡£
+åœ¨RibbonLoadBalancerClienté€‰æ‹©å®ä¾‹çš„æ—¶å€™ï¼Œæ˜¯é€šè¿‡ILoadBalancerçš„å®ç°ç±»æ ¹æ®è´Ÿè½½å‡è¡¡ç®—æ³•é€‰æ‹©æœåŠ¡å®ä¾‹çš„ï¼Œä¹Ÿå°±æ˜¯ZoneAwareLoadBalancerçš„chooseServerä¸­çš„é€»è¾‘ï¼Œé‚£å°±åœ¨è¿™é‡Œæ‰¾çº¿ç´¢ã€‚æŸ¥çœ‹ZoneAwareLoadBalancerçš„ç»§æ‰¿å…³ç³»ï¼Œå¯ä»¥çœ‹åˆ°å¦‚ä¸‹å›¾æ‰€ç¤ºã€‚![SpringCloudç³»åˆ—â€”Ribbonæºç åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/425d8ff567d9ac6171f6036dab1726a7da04a3.jpg "SpringCloudç³»åˆ—â€”Ribbonæºç åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")å¯ä»¥çœ‹åˆ°ï¼Œæœ€ä¸Šé¢æ˜¯ILoadBalanceræ¥å£ï¼ŒAbstractLoadBalancerç±»ç»§æ‰¿äº†è¿™ä¸ªæ¥å£ï¼ŒBaseLoadBalancerç»§æ‰¿äº†AbstractLoadBalancerç±»ï¼Œ
+DynamicServerListLoadBalancerç»§æ‰¿äº†BaseLoadBalancerï¼ŒZoneAwareLoadBalancerç»§æ‰¿äº†DynamicServerListLoadBalancerã€‚
 
-ILoadBalancer½Ó¿ÚµÄ´úÂëÒÑ¾­¿´¹ıÁË£¬ÏÖÔÚ¿´ÏÂAbstractLoadBalancerµÄ´úÂë£º
+ILoadBalanceræ¥å£çš„ä»£ç å·²ç»çœ‹è¿‡äº†ï¼Œç°åœ¨çœ‹ä¸‹AbstractLoadBalancerçš„ä»£ç ï¼š
 
 
 
@@ -868,9 +868,9 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 
 
 
-ÕâÊÇÒ»¸ö³éÏóÀà£¬ÀïÃæ¼ÓÁËÒ»¸öÃ¶¾Ù£¬Ôö¼ÓÁËÁ½¸ö³éÏó·½·¨¡£¶¨ÒåµÄchooseServer·½·¨¡£
+è¿™æ˜¯ä¸€ä¸ªæŠ½è±¡ç±»ï¼Œé‡Œé¢åŠ äº†ä¸€ä¸ªæšä¸¾ï¼Œå¢åŠ äº†ä¸¤ä¸ªæŠ½è±¡æ–¹æ³•ã€‚å®šä¹‰çš„chooseServeræ–¹æ³•ã€‚
 
-ÏÂÃæÔÙ¿´BaseLoadBalancerÀà£¬BaseLoadBalancerÀà¾ÍËãÊÇ¸ºÔØ¾ùºâÆ÷µÄÒ»¸ö»ù´¡ÊµÏÖÀà£¬ÔÚÀïÃæ¿ÉÒÔ¿´µ½¶¨ÒåÁËÁ½¸ölist£º
+ä¸‹é¢å†çœ‹BaseLoadBalancerç±»ï¼ŒBaseLoadBalancerç±»å°±ç®—æ˜¯è´Ÿè½½å‡è¡¡å™¨çš„ä¸€ä¸ªåŸºç¡€å®ç°ç±»ï¼Œåœ¨é‡Œé¢å¯ä»¥çœ‹åˆ°å®šä¹‰äº†ä¸¤ä¸ªlistï¼š
 
 
 
@@ -891,8 +891,8 @@ protected volatile List<Server> upServerList = Collections
 
 
 
-´ÓÃû×ÖÉÏ¿´£¬Õâ¾ÍÊÇÎ¬»¤ËùÓĞ·şÎñµÄÊµÀıÁĞ±í£¬ºÍÎ¬»¤×´Ì¬ÎªupµÄÊµÀıÁĞ±í¡£
-¶øÇÒ»¹¿ÉÒÔ¿´µ½BaseLoadBalancerÖĞÊµÏÖµÄILoadBalancer½Ó¿ÚÖĞµÄ·½·¨£¬±ÈÈçÏÂÃæÕâÁ½¸ö£¬»ñÈ¡¿ÉÓÃµÄ·şÎñÁĞ±í£¬¾Í»á°ÑupServerList·µ»Ø£¬»ñÈ¡ËùÓĞµÄ·şÎñÁĞ±í£¬¾Í»á°ÑallServerList·µ»Ø¡£
+ä»åå­—ä¸Šçœ‹ï¼Œè¿™å°±æ˜¯ç»´æŠ¤æ‰€æœ‰æœåŠ¡çš„å®ä¾‹åˆ—è¡¨ï¼Œå’Œç»´æŠ¤çŠ¶æ€ä¸ºupçš„å®ä¾‹åˆ—è¡¨ã€‚
+è€Œä¸”è¿˜å¯ä»¥çœ‹åˆ°BaseLoadBalancerä¸­å®ç°çš„ILoadBalanceræ¥å£ä¸­çš„æ–¹æ³•ï¼Œæ¯”å¦‚ä¸‹é¢è¿™ä¸¤ä¸ªï¼Œè·å–å¯ç”¨çš„æœåŠ¡åˆ—è¡¨ï¼Œå°±ä¼šæŠŠupServerListè¿”å›ï¼Œè·å–æ‰€æœ‰çš„æœåŠ¡åˆ—è¡¨ï¼Œå°±ä¼šæŠŠallServerListè¿”å›ã€‚
 
 
 
@@ -915,9 +915,9 @@ public List<Server> getAllServers() {
 
 
 
-½ÓÏÂÀ´£¬ÔÙ¿´DynamicServerListLoadBalancerÀà¡£´ÓÀàÍ·ÉÏµÄ×¢ÊÍ¿ÉÒÔÖªµÀ£¬Õâ¸öÀà¿ÉÒÔ¶¯Ì¬µÄ»ñÈ¡·şÎñÁĞ±í£¬²¢ÇÒÀûÓÃfilter¶Ô·şÎñÁĞ±í½øĞĞ¹ıÂË¡£
+æ¥ä¸‹æ¥ï¼Œå†çœ‹DynamicServerListLoadBalancerç±»ã€‚ä»ç±»å¤´ä¸Šçš„æ³¨é‡Šå¯ä»¥çŸ¥é“ï¼Œè¿™ä¸ªç±»å¯ä»¥åŠ¨æ€çš„è·å–æœåŠ¡åˆ—è¡¨ï¼Œå¹¶ä¸”åˆ©ç”¨filterå¯¹æœåŠ¡åˆ—è¡¨è¿›è¡Œè¿‡æ»¤ã€‚
 
-ÔÚDynamicServerListLoadBalancerÀàÖĞ£¬ÄÜ¿´µ½¶¨ÒåÁËÒ»¸öServerListÀàĞÍµÄserverListImpl×Ö¶Î£¬ServerListÊÇÒ»¸ö½Ó¿Ú£¬ÀïÃæÓĞÁ½¸ö·½·¨£º
+åœ¨DynamicServerListLoadBalancerç±»ä¸­ï¼Œèƒ½çœ‹åˆ°å®šä¹‰äº†ä¸€ä¸ªServerListç±»å‹çš„serverListImplå­—æ®µï¼ŒServerListæ˜¯ä¸€ä¸ªæ¥å£ï¼Œé‡Œé¢æœ‰ä¸¤ä¸ªæ–¹æ³•ï¼š
 
 
 
@@ -941,12 +941,12 @@ public interface ServerList<T extends Server> {
 
 
 
-getInitialListOfServersÊÇ»ñÈ¡³õÊ¼»¯µÄ·şÎñÁĞ±í¡£
-getUpdatedListOfServersÊÇ»ñÈ¡¸üĞÂµÄ·şÎñÁĞ±í¡£
-ServerListÓĞ¶à¸öÊµÏÖÀà£¬¾ßÌåÓÃµÄÄÄ¸öÄØ£¬¿ÉÒÔÔÚ
-EurekaRibbonClientConfigurationÀàÖĞÕÒµ½£¬ÕâÊÇRibbonºÍEureka½áºÏµÄ×Ô¶¯ÅäÖÃÀà£¬µ«ÊÇÄ¿Ç°ÎÒÃÇÃ»ÓĞÕûºÏEureka£¬ÊÇÍ¨¹ıÅäÖÃÎÄ¼şÅäÖÃ£¬ËùÒÔ»á×ßConfigurationBasedServerListÀà¡£
+getInitialListOfServersæ˜¯è·å–åˆå§‹åŒ–çš„æœåŠ¡åˆ—è¡¨ã€‚
+getUpdatedListOfServersæ˜¯è·å–æ›´æ–°çš„æœåŠ¡åˆ—è¡¨ã€‚
+ServerListæœ‰å¤šä¸ªå®ç°ç±»ï¼Œå…·ä½“ç”¨çš„å“ªä¸ªå‘¢ï¼Œå¯ä»¥åœ¨
+EurekaRibbonClientConfigurationç±»ä¸­æ‰¾åˆ°ï¼Œè¿™æ˜¯Ribbonå’ŒEurekaç»“åˆçš„è‡ªåŠ¨é…ç½®ç±»ï¼Œä½†æ˜¯ç›®å‰æˆ‘ä»¬æ²¡æœ‰æ•´åˆEurekaï¼Œæ˜¯é€šè¿‡é…ç½®æ–‡ä»¶é…ç½®ï¼Œæ‰€ä»¥ä¼šèµ°ConfigurationBasedServerListç±»ã€‚
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

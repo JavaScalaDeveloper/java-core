@@ -1,19 +1,19 @@
-### 1\. Ê²Ã´ÊÇ `BeanFactoryPostProcessor`
+### 1\. ä»€ä¹ˆæ˜¯ `BeanFactoryPostProcessor`
 
-`BeanFactoryPostProcessor` ÖĞÎÄÃû½Ğ spring beanFactory µÄºóÖÃ´¦ÀíÆ÷£¬¿ÉÒÔÓÃÀ´¶¨ÖÆ»¯ beanFactory µÄÒ»Ğ©ĞĞÎª¡£
+`BeanFactoryPostProcessor` ä¸­æ–‡åå« spring beanFactory çš„åç½®å¤„ç†å™¨ï¼Œå¯ä»¥ç”¨æ¥å®šåˆ¶åŒ– beanFactory çš„ä¸€äº›è¡Œä¸ºã€‚
 
-spring ÎªÎÒÃÇÌá¹©ÁËÁ½ÖÖ `BeanFactoryPostProcessor`£º
+spring ä¸ºæˆ‘ä»¬æä¾›äº†ä¸¤ç§ `BeanFactoryPostProcessor`ï¼š
 
 * `org.springframework.beans.factory.config.BeanFactoryPostProcessor`
 
   ```
   /**
-   * beanFactory µÄºóÖÃ´¦ÀíÆ÷£¬¿ÉÒÔ¸Ä±ä beanFactory µÄÒ»Ğ©ĞĞÎª
+   * beanFactory çš„åç½®å¤„ç†å™¨ï¼Œå¯ä»¥æ”¹å˜ beanFactory çš„ä¸€äº›è¡Œä¸º
    */
   public interface BeanFactoryPostProcessor {
   
       /**
-       * ´¦Àí beanFactory µÄ·½·¨£¬²ÎÊıÎª beanFactory£¬Êµ¼ÊÀàĞÍÊÇ DefaultListableBeanFactory
+       * å¤„ç† beanFactory çš„æ–¹æ³•ï¼Œå‚æ•°ä¸º beanFactoryï¼Œå®é™…ç±»å‹æ˜¯ DefaultListableBeanFactory
        */
       void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) 
               throws BeansException;
@@ -26,16 +26,16 @@ spring ÎªÎÒÃÇÌá¹©ÁËÁ½ÖÖ `BeanFactoryPostProcessor`£º
 
   ```
   /**
-   * BeanDefinition ×¢²áÆ÷£¬´ÓÃû³ÆÀ´¿´£¬¾ÍÊÇÓÃÀ´×¢²á beanDefinition µÄ
-   * ¼Ì³ĞÁË BeanFactoryPostProcessor ½Ó¿Ú£¬
-   * Ò²¿ÉÒÔÖØĞ´ BeanFactoryPostProcessor#postProcessBeanFactory ·½·¨
+   * BeanDefinition æ³¨å†Œå™¨ï¼Œä»åç§°æ¥çœ‹ï¼Œå°±æ˜¯ç”¨æ¥æ³¨å†Œ beanDefinition çš„
+   * ç»§æ‰¿äº† BeanFactoryPostProcessor æ¥å£ï¼Œ
+   * ä¹Ÿå¯ä»¥é‡å†™ BeanFactoryPostProcessor#postProcessBeanFactory æ–¹æ³•
    * 
    */
   public interface BeanDefinitionRegistryPostProcessor extends BeanFactoryPostProcessor {
   
       /**
-       * 1\. ¸Ã·½·¨ÏÈÓÚ BeanDefinitionRegistryPostProcessor#postProcessBeanFactory Ö´ĞĞ
-       * 2\. ´«Èë²ÎÊıÎª registry£¬Êµ¼ÊÀàÊÇ DefaultListableBeanFactory£¬Ò²¿ÉÒÔÊ¹ÓÃ beanFactory µÄ²Ù×÷
+       * 1\. è¯¥æ–¹æ³•å…ˆäº BeanDefinitionRegistryPostProcessor#postProcessBeanFactory æ‰§è¡Œ
+       * 2\. ä¼ å…¥å‚æ•°ä¸º registryï¼Œå®é™…ç±»æ˜¯ DefaultListableBeanFactoryï¼Œä¹Ÿå¯ä»¥ä½¿ç”¨ beanFactory çš„æ“ä½œ
        */
       void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) 
               throws BeansException;
@@ -44,15 +44,15 @@ spring ÎªÎÒÃÇÌá¹©ÁËÁ½ÖÖ `BeanFactoryPostProcessor`£º
   
   ```
 
-`BeanFactoryPostProcessor` ÔÚ `AbstractApplicationContext#invokeBeanFactoryPostProcessors` ·½·¨ÖĞ±»Ö´ĞĞ£¬Ö´ĞĞÊ±ÏÈÖ´ĞĞ `BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry`£¬ÔÙÖ´ĞĞ `BeanFactoryPostProcessor#postProcessBeanFactory`£¬¹ØÓÚÕâ¿éµÄ·ÖÎö£¬¿ÉÒÔ²Î¿¼ [spring Æô¶¯Á÷³ÌÖ®Ö´ĞĞ BeanFactoryPostProcessor](https://my.oschina.net/funcy/blog/4641114) Ò»ÎÄ¡£
+`BeanFactoryPostProcessor` åœ¨ `AbstractApplicationContext#invokeBeanFactoryPostProcessors` æ–¹æ³•ä¸­è¢«æ‰§è¡Œï¼Œæ‰§è¡Œæ—¶å…ˆæ‰§è¡Œ `BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry`ï¼Œå†æ‰§è¡Œ `BeanFactoryPostProcessor#postProcessBeanFactory`ï¼Œå…³äºè¿™å—çš„åˆ†æï¼Œå¯ä»¥å‚è€ƒ [spring å¯åŠ¨æµç¨‹ä¹‹æ‰§è¡Œ BeanFactoryPostProcessor](https://my.oschina.net/funcy/blog/4641114) ä¸€æ–‡ã€‚
 
-### 2. `BeanFactoryPostProcessor` Ìá¹©µÄ¹¦ÄÜ
+### 2. `BeanFactoryPostProcessor` æä¾›çš„åŠŸèƒ½
 
-±¾½ÚÎÒÃÇÀ´½éÉÜ `BeanFactoryPostProcessor` Ìá¹©µÄ¹¦ÄÜ¡£
+æœ¬èŠ‚æˆ‘ä»¬æ¥ä»‹ç» `BeanFactoryPostProcessor` æä¾›çš„åŠŸèƒ½ã€‚
 
-#### 2.1 `BeanFactoryPostProcessor` µÄ×÷ÓÃ
+#### 2.1 `BeanFactoryPostProcessor` çš„ä½œç”¨
 
-Ì½ÌÖÇ°£¬ÎÒÃÇÏÈÀ´ÁË½âÏÂ `BeanFactoryPostProcessor` Ìá¹©·½·¨£º
+æ¢è®¨å‰ï¼Œæˆ‘ä»¬å…ˆæ¥äº†è§£ä¸‹ `BeanFactoryPostProcessor` æä¾›æ–¹æ³•ï¼š
 
 ```
 void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) 
@@ -60,17 +60,17 @@ void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
 
 ```
 
-¸Ã·½·¨ÖĞÖ»ÓĞÒ»¸ö²ÎÊı£º`ConfigurableListableBeanFactory`£¬ÎÒÃÇÏëÁË½â `BeanFactoryPostProcessor` ÄÜÎªÎÒÃÇ×öÊ²Ã´£¬ĞèÒªÖªµÀÕâ¸ö²ÎÊıÌá¹©ÁËÄÄĞ©¹¦ÄÜ£º
+è¯¥æ–¹æ³•ä¸­åªæœ‰ä¸€ä¸ªå‚æ•°ï¼š`ConfigurableListableBeanFactory`ï¼Œæˆ‘ä»¬æƒ³äº†è§£ `BeanFactoryPostProcessor` èƒ½ä¸ºæˆ‘ä»¬åšä»€ä¹ˆï¼Œéœ€è¦çŸ¥é“è¿™ä¸ªå‚æ•°æä¾›äº†å“ªäº›åŠŸèƒ½ï¼š
 
-ÎÒÃÇÏÈÀ´¿´¿´ËüµÄ `set` ·½·¨£º ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-63b39c81bcae0b10c60a2f847c6b47af932.png)
+æˆ‘ä»¬å…ˆæ¥çœ‹çœ‹å®ƒçš„ `set` æ–¹æ³•ï¼š ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-63b39c81bcae0b10c60a2f847c6b47af932.png)
 
-³ı´ËÖ®Íâ£¬»¹ÓĞ `register` ·½·¨£º ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-50c48da9b50dcf18abcd99db09142644c6c.png)
+é™¤æ­¤ä¹‹å¤–ï¼Œè¿˜æœ‰ `register` æ–¹æ³•ï¼š ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-50c48da9b50dcf18abcd99db09142644c6c.png)
 
-ÓĞÁËÕâĞ©·½·¨£¬ÎÒÃÇ¾Í¿ÉÒÔ¶¨ÖÆ»¯ `beanFactory` µÄÒ»Ğ©ĞĞÎªÁË¡£
+æœ‰äº†è¿™äº›æ–¹æ³•ï¼Œæˆ‘ä»¬å°±å¯ä»¥å®šåˆ¶åŒ– `beanFactory` çš„ä¸€äº›è¡Œä¸ºäº†ã€‚
 
-#### 2.2 `BeanDefinitionRegistryPostProcessor` µÄ×÷ÓÃ
+#### 2.2 `BeanDefinitionRegistryPostProcessor` çš„ä½œç”¨
 
-ÎÒÃÇÒ²À´ÁË½âÏÂ `BeanDefinitionRegistryPostProcessor` Ìá¹©µÄ·½·¨£º
+æˆ‘ä»¬ä¹Ÿæ¥äº†è§£ä¸‹ `BeanDefinitionRegistryPostProcessor` æä¾›çš„æ–¹æ³•ï¼š
 
 ```
 void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) 
@@ -78,52 +78,52 @@ void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry)
 
 ```
 
-Õâ¸ö·½·¨µÄ²ÎÊıÊÇ `BeanDefinitionRegistry`£¬´Ó×ÖÃæÒâÒåÀ´¿´£¬ÕâÊÇ¸ö `BeanDefinition ×¢²áÆ÷`£¬ËüÌá¹©ÁËÈçÏÂ·½·¨£º
+è¿™ä¸ªæ–¹æ³•çš„å‚æ•°æ˜¯ `BeanDefinitionRegistry`ï¼Œä»å­—é¢æ„ä¹‰æ¥çœ‹ï¼Œè¿™æ˜¯ä¸ª `BeanDefinition æ³¨å†Œå™¨`ï¼Œå®ƒæä¾›äº†å¦‚ä¸‹æ–¹æ³•ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-5812a2cac994c5940d57c7e6ab55c23a63e.png)
 
-¿ÉÒÔ¿´µ½£¬Õâ¸ö²ÎÊıÖ÷Òª¾ÍÊÇÎ§ÈÆ `BeanDefinition` À´²Ù×÷£¬±È½ÏÖØÒªµÄ·½·¨ÁĞ¾ÙÈçÏÂ£º
+å¯ä»¥çœ‹åˆ°ï¼Œè¿™ä¸ªå‚æ•°ä¸»è¦å°±æ˜¯å›´ç»• `BeanDefinition` æ¥æ“ä½œï¼Œæ¯”è¾ƒé‡è¦çš„æ–¹æ³•åˆ—ä¸¾å¦‚ä¸‹ï¼š
 
-*   `BeanDefinitionRegistry#containsBeanDefinition`£ºÊÇ·ñ°üº¬Ö¸¶¨Ãû³ÆµÄ `BeanDefinition`
-*   `BeanDefinitionRegistry#getBeanDefinition`£º»ñÈ¡Ö¸¶¨Ãû³ÆµÄ `BeanDefinition`
-*   `BeanDefinitionRegistry#registerBeanDefinition`£º×¢²áÒ»¸ö `BeanDefinition`
-*   `BeanDefinitionRegistry#removeBeanDefinition`£ºÒÆ³ı `BeanDefinition`
+*   `BeanDefinitionRegistry#containsBeanDefinition`ï¼šæ˜¯å¦åŒ…å«æŒ‡å®šåç§°çš„ `BeanDefinition`
+*   `BeanDefinitionRegistry#getBeanDefinition`ï¼šè·å–æŒ‡å®šåç§°çš„ `BeanDefinition`
+*   `BeanDefinitionRegistry#registerBeanDefinition`ï¼šæ³¨å†Œä¸€ä¸ª `BeanDefinition`
+*   `BeanDefinitionRegistry#removeBeanDefinition`ï¼šç§»é™¤ `BeanDefinition`
 
-### 3\. spring Ìá¹©µÄ `BeanFactoryPostProcessor`
+### 3\. spring æä¾›çš„ `BeanFactoryPostProcessor`
 
-spring ÖĞÒ»¹²ÓĞÁ½¸ö `BeanFactoryPostProcessor` µÄÊµÏÖÀà£¬Ïà¹ØĞÅÏ¢¼°×÷ÓÃÈçÏÂ£º
+spring ä¸­ä¸€å…±æœ‰ä¸¤ä¸ª `BeanFactoryPostProcessor` çš„å®ç°ç±»ï¼Œç›¸å…³ä¿¡æ¯åŠä½œç”¨å¦‚ä¸‹ï¼š
 
-*   `EventListenerMethodProcessor`£º
+*   `EventListenerMethodProcessor`ï¼š
 
-    *   ÊµÏÖÁË `BeanFactoryPostProcessor`£¬`SmartInitializingSingleton` ½Ó¿Ú
-    *   ÔÚ `BeanDefinitionRegistryPostProcessor#postProcessBeanFactory` ·½·¨ÖĞ»ñÈ¡ÁË `EventListenerFactory`
-    *   ÔÚ `SmartInitializingSingleton#afterSingletonsInstantiated` ·½·¨ÖĞ´¦Àí `@EventListener` ×¢½â
-*   `ConfigurationClassPostProcessor`£º
+    *   å®ç°äº† `BeanFactoryPostProcessor`ï¼Œ`SmartInitializingSingleton` æ¥å£
+    *   åœ¨ `BeanDefinitionRegistryPostProcessor#postProcessBeanFactory` æ–¹æ³•ä¸­è·å–äº† `EventListenerFactory`
+    *   åœ¨ `SmartInitializingSingleton#afterSingletonsInstantiated` æ–¹æ³•ä¸­å¤„ç† `@EventListener` æ³¨è§£
+*   `ConfigurationClassPostProcessor`ï¼š
 
-    *   ÔÚ `AnnotationConfigUtils#registerAnnotationConfigProcessors(BeanDefinitionRegistry, Object)` ·½·¨ÖĞ×¢²á
-    *   ÊµÏÖÁË `BeanDefinitionRegistryPostProcessor` ½Ó¿Ú
-    *   ´¦Àí `@Conditional` ×¢½â
-    *   ´¦Àí `@Component` ×¢½â
-    *   ´¦Àí `@PropertySource/@PropertySources` ×¢½â
-    *   ´¦Àí `@ComponentScan/@ComponentScans` ×¢½â
-    *   ´¦Àí `@Import` ×¢½â
-    *   ´¦Àí `@ImportResource` ×¢½â
-    *   ´¦Àí `@Bean` ×¢½â
-    *   ´¦Àí `@Configuration` ×¢½â
+    *   åœ¨ `AnnotationConfigUtils#registerAnnotationConfigProcessors(BeanDefinitionRegistry, Object)` æ–¹æ³•ä¸­æ³¨å†Œ
+    *   å®ç°äº† `BeanDefinitionRegistryPostProcessor` æ¥å£
+    *   å¤„ç† `@Conditional` æ³¨è§£
+    *   å¤„ç† `@Component` æ³¨è§£
+    *   å¤„ç† `@PropertySource/@PropertySources` æ³¨è§£
+    *   å¤„ç† `@ComponentScan/@ComponentScans` æ³¨è§£
+    *   å¤„ç† `@Import` æ³¨è§£
+    *   å¤„ç† `@ImportResource` æ³¨è§£
+    *   å¤„ç† `@Bean` æ³¨è§£
+    *   å¤„ç† `@Configuration` æ³¨è§£
 
-¹ØÓÚ `EventListenerMethodProcessor` ´¦Àí `@EventListener` µÄ·ÖÎö£¬¿ÉÒÔ²Î¿¼[¡¾spring Ô´Âë·ÖÎö¡¿spring Ì½ÃØÖ®¼àÌıÆ÷×¢½â @EventListener](https://my.oschina.net/funcy/blog/4926344).
+å…³äº `EventListenerMethodProcessor` å¤„ç† `@EventListener` çš„åˆ†æï¼Œå¯ä»¥å‚è€ƒ[ã€spring æºç åˆ†æã€‘spring æ¢ç§˜ä¹‹ç›‘å¬å™¨æ³¨è§£ @EventListener](https://my.oschina.net/funcy/blog/4926344).
 
-¹ØÓÚ `ConfigurationClassPostProcessor` ´¦Àí¸÷×¢½âµÄÁ÷³Ì£¬¿ÉÒÔ²Î¿¼£º
+å…³äº `ConfigurationClassPostProcessor` å¤„ç†å„æ³¨è§£çš„æµç¨‹ï¼Œå¯ä»¥å‚è€ƒï¼š
 
-*   [ConfigurationClassPostProcessor£¨Ò»£©£º´¦Àí @ComponentScan ×¢½â](https://my.oschina.net/funcy/blog/4836178)
-*   [ConfigurationClassPostProcessor£¨¶ş£©£º´¦Àí @Bean ×¢½â](https://my.oschina.net/funcy/blog/4492878)
-*   [ConfigurationClassPostProcessor£¨Èı£©£º´¦Àí @Import ×¢½â](https://my.oschina.net/funcy/blog/4678152)
-*   [ConfigurationClassPostProcessor£¨ËÄ£©£º´¦Àí @Conditional ×¢½â](https://my.oschina.net/funcy/blog/4873444)
+*   [ConfigurationClassPostProcessorï¼ˆä¸€ï¼‰ï¼šå¤„ç† @ComponentScan æ³¨è§£](https://my.oschina.net/funcy/blog/4836178)
+*   [ConfigurationClassPostProcessorï¼ˆäºŒï¼‰ï¼šå¤„ç† @Bean æ³¨è§£](https://my.oschina.net/funcy/blog/4492878)
+*   [ConfigurationClassPostProcessorï¼ˆä¸‰ï¼‰ï¼šå¤„ç† @Import æ³¨è§£](https://my.oschina.net/funcy/blog/4678152)
+*   [ConfigurationClassPostProcessorï¼ˆå››ï¼‰ï¼šå¤„ç† @Conditional æ³¨è§£](https://my.oschina.net/funcy/blog/4873444)
 
-### 4\. ×Ü½á
+### 4\. æ€»ç»“
 
-±¾ÎÄ½éÉÜÁË `BeanFactoryPostProcessor` µÄ¸ÅÄî£¬¾ÙÀıËµÃ÷ÁË `BeanFactoryPostProcessor` µÄÊ¹ÓÃ£¬ÒÔ¼°½éÉÜÁË spring Ìá¹©µÄÁ½¸ö `BeanFactoryPostProcessor` ÊµÏÖÀà£º`EventListenerMethodProcessor` Óë `ConfigurationClassPostProcessor`¡£
+æœ¬æ–‡ä»‹ç»äº† `BeanFactoryPostProcessor` çš„æ¦‚å¿µï¼Œä¸¾ä¾‹è¯´æ˜äº† `BeanFactoryPostProcessor` çš„ä½¿ç”¨ï¼Œä»¥åŠä»‹ç»äº† spring æä¾›çš„ä¸¤ä¸ª `BeanFactoryPostProcessor` å®ç°ç±»ï¼š`EventListenerMethodProcessor` ä¸ `ConfigurationClassPostProcessor`ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4597545](https://my.oschina.net/funcy/blog/4597545) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4597545](https://my.oschina.net/funcy/blog/4597545) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

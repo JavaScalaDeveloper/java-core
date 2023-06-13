@@ -2,11 +2,11 @@
 
 
 
-# Spring MVC Ê¹ÓÃ@Controller×¢½â¶¨ÒåÒ»¸ö¿ØÖÆÆ÷
+# Spring MVC ä½¿ç”¨@Controlleræ³¨è§£å®šä¹‰ä¸€ä¸ªæŽ§åˆ¶å™¨
 
 
 
-2018-07-26 14:02 ¸üÐÂ
+2018-07-26 14:02 æ›´æ–°
 
 
 
@@ -18,19 +18,19 @@
 
 > [Original] The `@Controller` annotation indicates that a particular class serves the role of a controller. Spring does not require you to extend any controller base class or reference the Servlet API. However, you can still reference Servlet-specific features if you need to.
 
-`@Controller`×¢½â±íÃ÷ÁËÒ»¸öÀàÊÇ×÷Îª¿ØÖÆÆ÷µÄ½ÇÉ«¶ø´æÔÚµÄ¡£Spring²»ÒªÇóÄãÈ¥¼Ì³ÐÈÎºÎ¿ØÖÆÆ÷»ùÀà£¬Ò²²»ÒªÇóÄãÈ¥ÊµÏÖServletµÄÄÇÌ×API¡£µ±È»£¬Èç¹ûÄãÐèÒªµÄ»°Ò²¿ÉÒÔÈ¥Ê¹ÓÃÈÎºÎÓëServletÏà¹ØµÄÌØÐÔºÍÉèÊ©¡£
+`@Controller`æ³¨è§£è¡¨æ˜Žäº†ä¸€ä¸ªç±»æ˜¯ä½œä¸ºæŽ§åˆ¶å™¨çš„è§’è‰²è€Œå­˜åœ¨çš„ã€‚Springä¸è¦æ±‚ä½ åŽ»ç»§æ‰¿ä»»ä½•æŽ§åˆ¶å™¨åŸºç±»ï¼Œä¹Ÿä¸è¦æ±‚ä½ åŽ»å®žçŽ°Servletçš„é‚£å¥—APIã€‚å½“ç„¶ï¼Œå¦‚æžœä½ éœ€è¦çš„è¯ä¹Ÿå¯ä»¥åŽ»ä½¿ç”¨ä»»ä½•ä¸ŽServletç›¸å…³çš„ç‰¹æ€§å’Œè®¾æ–½ã€‚
 
 > [Original] The `@Controller` annotation acts as a stereotype for the annotated class, indicating its role. The dispatcher scans such annotated classes for mapped methods and detects `@RequestMapping` annotations (see the next section).
 
-`@Controller`×¢½â¿ÉÒÔÈÏÎªÊÇ±»±ê×¢ÀàµÄÔ­ÐÍ£¨stereotype£©£¬±íÃ÷ÁËÕâ¸öÀàËù³Ðµ£µÄ½ÇÉ«¡£·ÖÅÉÆ÷£¨`DispatcherServlet`£©»áÉ¨ÃèËùÓÐ×¢½âÁË`@Controller`µÄÀà£¬¼ì²âÆäÖÐÍ¨¹ý`@RequestMapping`×¢½âÅäÖÃµÄ·½·¨£¨Ïê¼ûÏÂÒ»Ð¡½Ú£©¡£
+`@Controller`æ³¨è§£å¯ä»¥è®¤ä¸ºæ˜¯è¢«æ ‡æ³¨ç±»çš„åŽŸåž‹ï¼ˆstereotypeï¼‰ï¼Œè¡¨æ˜Žäº†è¿™ä¸ªç±»æ‰€æ‰¿æ‹…çš„è§’è‰²ã€‚åˆ†æ´¾å™¨ï¼ˆ`DispatcherServlet`ï¼‰ä¼šæ‰«ææ‰€æœ‰æ³¨è§£äº†`@Controller`çš„ç±»ï¼Œæ£€æµ‹å…¶ä¸­é€šè¿‡`@RequestMapping`æ³¨è§£é…ç½®çš„æ–¹æ³•ï¼ˆè¯¦è§ä¸‹ä¸€å°èŠ‚ï¼‰ã€‚
 
-> [Original] You can define annotated controller beans explicitly, using a standard Spring bean definition in the dispatcher¡¯s context. However, the `@Controller` stereotype also allows for autodetection, aligned with Spring general support for detecting component classes in the classpath and auto-registering bean definitions for them.
+> [Original] You can define annotated controller beans explicitly, using a standard Spring bean definition in the dispatcherâ€™s context. However, the `@Controller` stereotype also allows for autodetection, aligned with Spring general support for detecting component classes in the classpath and auto-registering bean definitions for them.
 
-µ±È»£¬ÄãÒ²¿ÉÒÔ²»Ê¹ÓÃ`@Controller`×¢½â¶øÏÔÊ½µØÈ¥¶¨Òå±»×¢½âµÄbean£¬ÕâµãÍ¨¹ý±ê×¼µÄSpring beanµÄ¶¨Òå·½Ê½£¬ÔÚdispatherµÄÉÏÏÂÎÄÊôÐÔÏÂÅäÖÃ¼´¿É×öµ½¡£µ«ÊÇ`@Controller`Ô­ÐÍÊÇ¿ÉÒÔ±»¿ò¼Ü×Ô¶¯¼ì²âµÄ£¬SpringÖ§³ÖclasspathÂ·¾¶ÏÂ×é¼þÀàµÄ×Ô¶¯¼ì²â£¬ÒÔ¼°¶ÔÒÑ¶¨ÒåbeanµÄ×Ô¶¯×¢²á¡£
+å½“ç„¶ï¼Œä½ ä¹Ÿå¯ä»¥ä¸ä½¿ç”¨`@Controller`æ³¨è§£è€Œæ˜¾å¼åœ°åŽ»å®šä¹‰è¢«æ³¨è§£çš„beanï¼Œè¿™ç‚¹é€šè¿‡æ ‡å‡†çš„Spring beançš„å®šä¹‰æ–¹å¼ï¼Œåœ¨dispatherçš„ä¸Šä¸‹æ–‡å±žæ€§ä¸‹é…ç½®å³å¯åšåˆ°ã€‚ä½†æ˜¯`@Controller`åŽŸåž‹æ˜¯å¯ä»¥è¢«æ¡†æž¶è‡ªåŠ¨æ£€æµ‹çš„ï¼ŒSpringæ”¯æŒclasspathè·¯å¾„ä¸‹ç»„ä»¶ç±»çš„è‡ªåŠ¨æ£€æµ‹ï¼Œä»¥åŠå¯¹å·²å®šä¹‰beançš„è‡ªåŠ¨æ³¨å†Œã€‚
 
 > [Original] To enable autodetection of such annotated controllers, you add component scanning to your configuration. Use the spring-context schema as shown in the following XML snippet:
 
-ÄãÐèÒªÔÚÅäÖÃÖÐ¼ÓÈë×é¼þÉ¨ÃèµÄÅäÖÃ´úÂëÀ´¿ªÆô¿ò¼Ü¶Ô×¢½â¿ØÖÆÆ÷µÄ×Ô¶¯¼ì²â¡£ÇëÊ¹ÓÃÏÂÃæXML´úÂëËùÊ¾µÄspring-context schema£º
+ä½ éœ€è¦åœ¨é…ç½®ä¸­åŠ å…¥ç»„ä»¶æ‰«æçš„é…ç½®ä»£ç æ¥å¼€å¯æ¡†æž¶å¯¹æ³¨è§£æŽ§åˆ¶å™¨çš„è‡ªåŠ¨æ£€æµ‹ã€‚è¯·ä½¿ç”¨ä¸‹é¢XMLä»£ç æ‰€ç¤ºçš„spring-context schemaï¼š
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -59,11 +59,11 @@
 
 
 
-# Spring MVC Ê¹ÓÃ@RequestMapping×¢½âÓ³ÉäÇëÇóÂ·¾¶
+# Spring MVC ä½¿ç”¨@RequestMappingæ³¨è§£æ˜ å°„è¯·æ±‚è·¯å¾„
 
 
 
-2018-07-26 15:29 ¸üÐÂ
+2018-07-26 15:29 æ›´æ–°
 
 
 
@@ -71,11 +71,11 @@
 
 
 
-Äã¿ÉÒÔÊ¹ÓÃ`@RequestMapping`×¢½âÀ´½«ÇëÇóURL£¬Èç`/appointments`µÈ£¬Ó³Éäµ½Õû¸öÀàÉÏ»òÄ³¸öÌØ¶¨µÄ´¦ÀíÆ÷·½·¨ÉÏ¡£Ò»°ãÀ´Ëµ£¬Àà¼¶±ðµÄ×¢½â¸ºÔð½«Ò»¸öÌØ¶¨£¨»ò·ûºÏÄ³ÖÖÄ£Ê½£©µÄÇëÇóÂ·¾¶Ó³Éäµ½Ò»¸ö¿ØÖÆÆ÷ÉÏ£¬Í¬Ê±Í¨¹ý·½·¨¼¶±ðµÄ×¢½âÀ´Ï¸»¯Ó³Éä£¬¼´¸ù¾ÝÌØ¶¨µÄHTTPÇëÇó·½·¨£¨¡°GET¡±¡°POST¡±·½·¨µÈ£©¡¢HTTPÇëÇóÖÐÊÇ·ñÐ¯´øÌØ¶¨²ÎÊýµÈÌõ¼þ£¬½«ÇëÇóÓ³Éäµ½Æ¥ÅäµÄ·½·¨ÉÏ¡£
+ä½ å¯ä»¥ä½¿ç”¨`@RequestMapping`æ³¨è§£æ¥å°†è¯·æ±‚URLï¼Œå¦‚`/appointments`ç­‰ï¼Œæ˜ å°„åˆ°æ•´ä¸ªç±»ä¸Šæˆ–æŸä¸ªç‰¹å®šçš„å¤„ç†å™¨æ–¹æ³•ä¸Šã€‚ä¸€èˆ¬æ¥è¯´ï¼Œç±»çº§åˆ«çš„æ³¨è§£è´Ÿè´£å°†ä¸€ä¸ªç‰¹å®šï¼ˆæˆ–ç¬¦åˆæŸç§æ¨¡å¼ï¼‰çš„è¯·æ±‚è·¯å¾„æ˜ å°„åˆ°ä¸€ä¸ªæŽ§åˆ¶å™¨ä¸Šï¼ŒåŒæ—¶é€šè¿‡æ–¹æ³•çº§åˆ«çš„æ³¨è§£æ¥ç»†åŒ–æ˜ å°„ï¼Œå³æ ¹æ®ç‰¹å®šçš„HTTPè¯·æ±‚æ–¹æ³•ï¼ˆâ€œGETâ€â€œPOSTâ€æ–¹æ³•ç­‰ï¼‰ã€HTTPè¯·æ±‚ä¸­æ˜¯å¦æºå¸¦ç‰¹å®šå‚æ•°ç­‰æ¡ä»¶ï¼Œå°†è¯·æ±‚æ˜ å°„åˆ°åŒ¹é…çš„æ–¹æ³•ä¸Šã€‚
 
 <section>
 
-ÏÂÃæÕâ¶Î´úÂëÊ¾ÀýÀ´×ÔPetcare£¬ËüÕ¹Ê¾ÁËÔÚSpring MVCÖÐÈçºÎÔÚ¿ØÖÆÆ÷ÉÏÊ¹ÓÃ`@RequestMapping`×¢½â£º
+ä¸‹é¢è¿™æ®µä»£ç ç¤ºä¾‹æ¥è‡ªPetcareï¼Œå®ƒå±•ç¤ºäº†åœ¨Spring MVCä¸­å¦‚ä½•åœ¨æŽ§åˆ¶å™¨ä¸Šä½¿ç”¨`@RequestMapping`æ³¨è§£ï¼š
 
 ```
 @Controller
@@ -116,11 +116,11 @@ public class AppointmentsController {
 
 ```
 
-ÔÚÉÏÃæµÄÊ¾ÀýÖÐ£¬Ðí¶àµØ·½¶¼Ê¹ÓÃµ½ÁË`@RequestMapping`×¢½â¡£µÚÒ»´ÎÊ¹ÓÃµãÊÇ×÷ÓÃÓÚÀà¼¶±ðµÄ£¬ËüÖ¸Ê¾ÁËËùÓÐ`/appointments`¿ªÍ·µÄÂ·¾¶¶¼»á±»Ó³Éäµ½¿ØÖÆÆ÷ÏÂ¡£`get()`·½·¨ÉÏµÄ`@RequestMapping`×¢½â¶ÔÇëÇóÂ·¾¶½øÐÐÁË½øÒ»²½Ï¸»¯£ºËü½ö½ÓÊÜGET·½·¨µÄÇëÇó¡£ÕâÑù£¬Ò»¸öÇëÇóÂ·¾¶Îª`/appointments`¡¢HTTP·½·¨ÎªGETµÄÇëÇó£¬½«»á×îÖÕ½øÈëµ½Õâ¸ö·½·¨±»´¦Àí¡£`add()`·½·¨Ò²×öÁËÀàËÆµÄÏ¸»¯£¬¶ø`getNewForm()`·½·¨ÔòÍ¬Ê±×¢½âÁËÄÜ¹»½ÓÊÜµÄÇëÇóµÄHTTP·½·¨ºÍÂ·¾¶¡£ÕâÖÖÇé¿öÏÂ£¬Ò»¸öÂ·¾¶Îª`appointments/new`¡¢HTTP·½·¨ÎªGETµÄÇëÇó½«»á±»Õâ¸ö·½·¨Ëù´¦Àí¡£
+åœ¨ä¸Šé¢çš„ç¤ºä¾‹ä¸­ï¼Œè®¸å¤šåœ°æ–¹éƒ½ä½¿ç”¨åˆ°äº†`@RequestMapping`æ³¨è§£ã€‚ç¬¬ä¸€æ¬¡ä½¿ç”¨ç‚¹æ˜¯ä½œç”¨äºŽç±»çº§åˆ«çš„ï¼Œå®ƒæŒ‡ç¤ºäº†æ‰€æœ‰`/appointments`å¼€å¤´çš„è·¯å¾„éƒ½ä¼šè¢«æ˜ å°„åˆ°æŽ§åˆ¶å™¨ä¸‹ã€‚`get()`æ–¹æ³•ä¸Šçš„`@RequestMapping`æ³¨è§£å¯¹è¯·æ±‚è·¯å¾„è¿›è¡Œäº†è¿›ä¸€æ­¥ç»†åŒ–ï¼šå®ƒä»…æŽ¥å—GETæ–¹æ³•çš„è¯·æ±‚ã€‚è¿™æ ·ï¼Œä¸€ä¸ªè¯·æ±‚è·¯å¾„ä¸º`/appointments`ã€HTTPæ–¹æ³•ä¸ºGETçš„è¯·æ±‚ï¼Œå°†ä¼šæœ€ç»ˆè¿›å…¥åˆ°è¿™ä¸ªæ–¹æ³•è¢«å¤„ç†ã€‚`add()`æ–¹æ³•ä¹Ÿåšäº†ç±»ä¼¼çš„ç»†åŒ–ï¼Œè€Œ`getNewForm()`æ–¹æ³•åˆ™åŒæ—¶æ³¨è§£äº†èƒ½å¤ŸæŽ¥å—çš„è¯·æ±‚çš„HTTPæ–¹æ³•å’Œè·¯å¾„ã€‚è¿™ç§æƒ…å†µä¸‹ï¼Œä¸€ä¸ªè·¯å¾„ä¸º`appointments/new`ã€HTTPæ–¹æ³•ä¸ºGETçš„è¯·æ±‚å°†ä¼šè¢«è¿™ä¸ªæ–¹æ³•æ‰€å¤„ç†ã€‚
 
-`getForDay()`·½·¨ÔòÕ¹Ê¾ÁËÊ¹ÓÃ`@RequestMapping`×¢½âµÄÁíÒ»¸ö¼¼ÇÉ£ºURIÄ£°å¡££¨¹ØÓÚURIÄ£°å£¬Çë¼ûÏÂÐ¡½Ú£©
+`getForDay()`æ–¹æ³•åˆ™å±•ç¤ºäº†ä½¿ç”¨`@RequestMapping`æ³¨è§£çš„å¦ä¸€ä¸ªæŠ€å·§ï¼šURIæ¨¡æ¿ã€‚ï¼ˆå…³äºŽURIæ¨¡æ¿ï¼Œè¯·è§ä¸‹å°èŠ‚ï¼‰
 
-Àà¼¶±ðµÄ`@RequestMapping`×¢½â²¢²»ÊÇ±ØÐëµÄ¡£²»ÅäÖÃµÄ»°ÔòËùÓÐµÄÂ·¾¶¶¼ÊÇ¾ø¶ÔÂ·¾¶£¬¶ø·ÇÏà¶ÔÂ·¾¶¡£ÒÔÏÂµÄ´úÂëÊ¾ÀýÀ´×ÔPetClinic£¬ËüÕ¹Ê¾ÁËÒ»¸ö¾ßÓÐ¶à¸ö´¦ÀíÆ÷·½·¨µÄ¿ØÖÆÆ÷£º
+ç±»çº§åˆ«çš„`@RequestMapping`æ³¨è§£å¹¶ä¸æ˜¯å¿…é¡»çš„ã€‚ä¸é…ç½®çš„è¯åˆ™æ‰€æœ‰çš„è·¯å¾„éƒ½æ˜¯ç»å¯¹è·¯å¾„ï¼Œè€Œéžç›¸å¯¹è·¯å¾„ã€‚ä»¥ä¸‹çš„ä»£ç ç¤ºä¾‹æ¥è‡ªPetClinicï¼Œå®ƒå±•ç¤ºäº†ä¸€ä¸ªå…·æœ‰å¤šä¸ªå¤„ç†å™¨æ–¹æ³•çš„æŽ§åˆ¶å™¨ï¼š
 
 ```
 @Controller
@@ -145,55 +145,55 @@ public class ClinicController {
 
 ```
 
-ÒÔÉÏ´úÂëÃ»ÓÐÖ¸¶¨ÇëÇó±ØÐëÊÇGET·½·¨»¹ÊÇPUT/POST»òÆäËû·½·¨£¬`@RequestMapping`×¢½âÄ¬ÈÏ»áÓ³ÉäËùÓÐµÄHTTPÇëÇó·½·¨¡£Èç¹û½öÏë½ÓÊÕÄ³ÖÖÇëÇó·½·¨£¬ÇëÔÚ×¢½âÖÐÖ¸¶¨Ö®`@RequestMapping(method=GET)`ÒÔËõÐ¡·¶Î§¡£
+ä»¥ä¸Šä»£ç æ²¡æœ‰æŒ‡å®šè¯·æ±‚å¿…é¡»æ˜¯GETæ–¹æ³•è¿˜æ˜¯PUT/POSTæˆ–å…¶ä»–æ–¹æ³•ï¼Œ`@RequestMapping`æ³¨è§£é»˜è®¤ä¼šæ˜ å°„æ‰€æœ‰çš„HTTPè¯·æ±‚æ–¹æ³•ã€‚å¦‚æžœä»…æƒ³æŽ¥æ”¶æŸç§è¯·æ±‚æ–¹æ³•ï¼Œè¯·åœ¨æ³¨è§£ä¸­æŒ‡å®šä¹‹`@RequestMapping(method=GET)`ä»¥ç¼©å°èŒƒå›´ã€‚
 
-## @ControllerºÍÃæÏòÇÐÃæ£¨AOP£©´úÀí
+## @Controllerå’Œé¢å‘åˆ‡é¢ï¼ˆAOPï¼‰ä»£ç†
 
-ÓÐÊ±£¬ÎÒÃÇÏ£ÍûÔÚÔËÐÐÊ±Ê¹ÓÃAOP´úÀíÀ´×°ÊÎ¿ØÖÆÆ÷£¬±ÈÈçµ±ÄãÖ±½ÓÔÚ¿ØÖÆÆ÷ÉÏÊ¹ÓÃ`@Transactional`×¢½âÊ±¡£ÕâÖÖÇé¿öÏÂ£¬ÎÒÃÇÍÆ¼öÊ¹ÓÃÀà¼¶±ð£¨ÔÚ¿ØÖÆÆ÷ÉÏÊ¹ÓÃ£©µÄ´úÀí·½Ê½¡£ÕâÒ»°ãÊÇ´úÀí¿ØÖÆÆ÷µÄÄ¬ÈÏ×ö·¨¡£Èç¹û¿ØÖÆÆ÷±ØÐëÊµÏÖÒ»Ð©½Ó¿Ú£¬¶ø¸Ã½Ó¿ÚÓÖ²»Ö§³ÖSpring ContextµÄ»Øµ÷£¨±ÈÈç`InitializingBean`, `*Aware`µÈ½Ó¿Ú£©£¬ÄÇÒªÅäÖÃÀà¼¶±ðµÄ´úÀí¾Í±ØÐëÊÖ¶¯ÅäÖÃÁË¡£±ÈÈç£¬Ô­À´µÄÅäÖÃÎÄ¼þ`<tx:annotation-driven/>`ÐèÒªÏÔÊ½ÅäÖÃÎª`<tx:annotation-driven proxy-target-/>`¡£
+æœ‰æ—¶ï¼Œæˆ‘ä»¬å¸Œæœ›åœ¨è¿è¡Œæ—¶ä½¿ç”¨AOPä»£ç†æ¥è£…é¥°æŽ§åˆ¶å™¨ï¼Œæ¯”å¦‚å½“ä½ ç›´æŽ¥åœ¨æŽ§åˆ¶å™¨ä¸Šä½¿ç”¨`@Transactional`æ³¨è§£æ—¶ã€‚è¿™ç§æƒ…å†µä¸‹ï¼Œæˆ‘ä»¬æŽ¨èä½¿ç”¨ç±»çº§åˆ«ï¼ˆåœ¨æŽ§åˆ¶å™¨ä¸Šä½¿ç”¨ï¼‰çš„ä»£ç†æ–¹å¼ã€‚è¿™ä¸€èˆ¬æ˜¯ä»£ç†æŽ§åˆ¶å™¨çš„é»˜è®¤åšæ³•ã€‚å¦‚æžœæŽ§åˆ¶å™¨å¿…é¡»å®žçŽ°ä¸€äº›æŽ¥å£ï¼Œè€Œè¯¥æŽ¥å£åˆä¸æ”¯æŒSpring Contextçš„å›žè°ƒï¼ˆæ¯”å¦‚`InitializingBean`, `*Aware`ç­‰æŽ¥å£ï¼‰ï¼Œé‚£è¦é…ç½®ç±»çº§åˆ«çš„ä»£ç†å°±å¿…é¡»æ‰‹åŠ¨é…ç½®äº†ã€‚æ¯”å¦‚ï¼ŒåŽŸæ¥çš„é…ç½®æ–‡ä»¶`<tx:annotation-driven/>`éœ€è¦æ˜¾å¼é…ç½®ä¸º`<tx:annotation-driven proxy-target-/>`ã€‚
 
-## Spring MVC 3.1ÖÐÐÂÔöÖ§³Ö@RequestMappingµÄÒ»Ð©Àà
+## Spring MVC 3.1ä¸­æ–°å¢žæ”¯æŒ@RequestMappingçš„ä¸€äº›ç±»
 
 > They are recommended for use and even required to take advantage of new features in Spring MVC 3.1 and going forward.
 
-Spring 3.1ÖÐÐÂÔöÁËÒ»×éÀàÓÃÒÔÔöÇ¿`@RequestMapping`£¬·Ö±ðÊÇ`RequestMappingHandlerMapping`ºÍ`RequestMappingHandlerAdapter`¡£ÎÒÃÇÍÆ¼öÄãÓÃÒ»ÓÃ¡£ÓÐ²¿·ÖSpring MVC 3.1Ö®ºóÐÂÔöµÄÌØÐÔ£¬ÕâÁ½¸ö×¢½âÉõÖÁÊÇ±ØÐëµÄ¡£ÔÚMVCÃüÃû¿Õ¼äºÍMVC Java±à³ÌÅäÖÃ·½Ê½ÏÂ£¬Õâ×éÀà¼°ÆäÐÂÌØÐÔÄ¬ÈÏÊÇ¿ªÆôµÄ¡£µ«ÈôÄãÊ¹ÓÃÆäËûÅäÖÃ·½Ê½£¬Ôò¸ÃÌØÐÔ±ØÐëÊÖ¶¯ÅäÖÃ²ÅÄÜÊ¹ÓÃ¡£±¾Ð¡½Ú½«¼òÒª½éÉÜÒ»ÏÂ£¬ÐÂÀàÏà±ÈÖ®Ç°µÄÒ»Ð©ÖØÒª±ä»¯¡£
+Spring 3.1ä¸­æ–°å¢žäº†ä¸€ç»„ç±»ç”¨ä»¥å¢žå¼º`@RequestMapping`ï¼Œåˆ†åˆ«æ˜¯`RequestMappingHandlerMapping`å’Œ`RequestMappingHandlerAdapter`ã€‚æˆ‘ä»¬æŽ¨èä½ ç”¨ä¸€ç”¨ã€‚æœ‰éƒ¨åˆ†Spring MVC 3.1ä¹‹åŽæ–°å¢žçš„ç‰¹æ€§ï¼Œè¿™ä¸¤ä¸ªæ³¨è§£ç”šè‡³æ˜¯å¿…é¡»çš„ã€‚åœ¨MVCå‘½åç©ºé—´å’ŒMVC Javaç¼–ç¨‹é…ç½®æ–¹å¼ä¸‹ï¼Œè¿™ç»„ç±»åŠå…¶æ–°ç‰¹æ€§é»˜è®¤æ˜¯å¼€å¯çš„ã€‚ä½†è‹¥ä½ ä½¿ç”¨å…¶ä»–é…ç½®æ–¹å¼ï¼Œåˆ™è¯¥ç‰¹æ€§å¿…é¡»æ‰‹åŠ¨é…ç½®æ‰èƒ½ä½¿ç”¨ã€‚æœ¬å°èŠ‚å°†ç®€è¦ä»‹ç»ä¸€ä¸‹ï¼Œæ–°ç±»ç›¸æ¯”ä¹‹å‰çš„ä¸€äº›é‡è¦å˜åŒ–ã€‚
 
-ÔÚSpring 3.1Ö®Ç°£¬¿ò¼Ü»áÔÚÁ½¸ö²»Í¬µÄ½×¶Î·Ö±ð¼ì²éÀà¼¶±ðºÍ·½·¨¼¶±ðµÄÇëÇóÓ³Éä¡ª¡ªÊ×ÏÈ£¬`DefaultAnnotationHanlderMapping`»áÏÈÔÚÀà¼¶±ðÉÏÑ¡ÖÐÒ»¸ö¿ØÖÆÆ÷£¬È»ºóÔÙÍ¨¹ý`AnnotationMethodHandlerAdapter`¶¨Î»µ½¾ßÌåÒªµ÷ÓÃµÄ·½·¨¡£
+åœ¨Spring 3.1ä¹‹å‰ï¼Œæ¡†æž¶ä¼šåœ¨ä¸¤ä¸ªä¸åŒçš„é˜¶æ®µåˆ†åˆ«æ£€æŸ¥ç±»çº§åˆ«å’Œæ–¹æ³•çº§åˆ«çš„è¯·æ±‚æ˜ å°„â€”â€”é¦–å…ˆï¼Œ`DefaultAnnotationHanlderMapping`ä¼šå…ˆåœ¨ç±»çº§åˆ«ä¸Šé€‰ä¸­ä¸€ä¸ªæŽ§åˆ¶å™¨ï¼Œç„¶åŽå†é€šè¿‡`AnnotationMethodHandlerAdapter`å®šä½åˆ°å…·ä½“è¦è°ƒç”¨çš„æ–¹æ³•ã€‚
 
 > [Original] With the new support classes in Spring 3.1, the `RequestMappingHandlerMapping` is the only place where a decision is made about which method should process the request. Think of controller methods as a collection of unique endpoints with mappings for each method derived from type and method-level `@RequestMapping` information.
 
-ÏÖÔÚÓÐÁËSpring 3.1ºóÒýÈëµÄÕâ×éÐÂÀà£¬`RequestMappingHandlerMapping`³ÉÎªÁËÕâÁ½¸ö¾ö²ßÊµ¼Ê·¢ÉúµÄÎ¨Ò»Ò»¸öµØ·½¡£Äã¿ÉÒÔ°Ñ¿ØÖÆÆ÷ÖÐµÄÒ»ÏµÁÐ´¦Àí·½·¨µ±³ÉÊÇÒ»ÏµÁÐ¶ÀÁ¢µÄ·þÎñ½Úµã£¬Ã¿¸ö´ÓÀà¼¶±ðºÍ·½·¨¼¶±ðµÄ`@RequestMapping`×¢½âÖÐ»ñÈ¡µ½×ã¹»ÇëÇó1Â·¾¶Ó³ÉäÐÅÏ¢¡£
+çŽ°åœ¨æœ‰äº†Spring 3.1åŽå¼•å…¥çš„è¿™ç»„æ–°ç±»ï¼Œ`RequestMappingHandlerMapping`æˆä¸ºäº†è¿™ä¸¤ä¸ªå†³ç­–å®žé™…å‘ç”Ÿçš„å”¯ä¸€ä¸€ä¸ªåœ°æ–¹ã€‚ä½ å¯ä»¥æŠŠæŽ§åˆ¶å™¨ä¸­çš„ä¸€ç³»åˆ—å¤„ç†æ–¹æ³•å½“æˆæ˜¯ä¸€ç³»åˆ—ç‹¬ç«‹çš„æœåŠ¡èŠ‚ç‚¹ï¼Œæ¯ä¸ªä»Žç±»çº§åˆ«å’Œæ–¹æ³•çº§åˆ«çš„`@RequestMapping`æ³¨è§£ä¸­èŽ·å–åˆ°è¶³å¤Ÿè¯·æ±‚1è·¯å¾„æ˜ å°„ä¿¡æ¯ã€‚
 
 > [Original] This enables some new possibilities. For once a `HandlerInterceptor` or a `HandlerExceptionResolver` can now expect the Object-based handler to be a `HandlerMethod`, which allows them to examine the exact method, its parameters and associated annotations. The processing for a URL no longer needs to be split across different controllers.
 
-ÕâÖÖÐÂµÄ´¦Àí·½Ê½´øÀ´ÁËÐÂµÄ¿ÉÄÜÐÔ¡£Ö®Ç°µÄ`HandlerInterceptor`»ò`HandlerExceptionResolver`ÏÖÔÚ¿ÉÒÔÈ·¶¨ÄÃµ½µÄÕâ¸ö´¦ÀíÆ÷¿Ï¶¨ÊÇÒ»¸ö`HandlerMethod`ÀàÐÍ£¬Òò´ËËüÄÜ¹»¾«È·µØÁË½âÕâ¸ö·½·¨µÄËùÓÐÐÅÏ¢£¬°üÀ¨ËüµÄ²ÎÊý¡¢Ó¦ÓÃÓÚÆäÉÏµÄ×¢½âµÈ¡£ÕâÑù£¬ÄÚ²¿¶ÔÓÚÒ»¸öURLµÄ´¦ÀíÁ÷³ÌÔÙÒ²²»ÐèÒª·Ö¸ôµ½²»Í¬µÄ¿ØÖÆÆ÷ÀïÃæÈ¥Ö´ÐÐÁË¡£
+è¿™ç§æ–°çš„å¤„ç†æ–¹å¼å¸¦æ¥äº†æ–°çš„å¯èƒ½æ€§ã€‚ä¹‹å‰çš„`HandlerInterceptor`æˆ–`HandlerExceptionResolver`çŽ°åœ¨å¯ä»¥ç¡®å®šæ‹¿åˆ°çš„è¿™ä¸ªå¤„ç†å™¨è‚¯å®šæ˜¯ä¸€ä¸ª`HandlerMethod`ç±»åž‹ï¼Œå› æ­¤å®ƒèƒ½å¤Ÿç²¾ç¡®åœ°äº†è§£è¿™ä¸ªæ–¹æ³•çš„æ‰€æœ‰ä¿¡æ¯ï¼ŒåŒ…æ‹¬å®ƒçš„å‚æ•°ã€åº”ç”¨äºŽå…¶ä¸Šçš„æ³¨è§£ç­‰ã€‚è¿™æ ·ï¼Œå†…éƒ¨å¯¹äºŽä¸€ä¸ªURLçš„å¤„ç†æµç¨‹å†ä¹Ÿä¸éœ€è¦åˆ†éš”åˆ°ä¸åŒçš„æŽ§åˆ¶å™¨é‡Œé¢åŽ»æ‰§è¡Œäº†ã€‚
 
-> [Original] There are also several things no longer possible: [Original] _Select a controller first with a `SimpleUrlHandlerMapping` or `BeanNameUrlHandlerMapping` and then narrow the method based on `@RequestMapping` annotations. [Original] _Rely on method names as a fall-back mechanism to disambiguate between two `@RequestMapping` methods that don¡¯t have an explicit path mapping URL path but otherwise match equally, e.g. by HTTP method. In the new support classes `@RequestMapping` methods have to be mapped uniquely. [Original] * Have a single default method (without an explicit path mapping) with which requests are processed if no other controller method matches more concretely. In the new support classes if a matching method is not found a 404 error is raised.
+> [Original] There are also several things no longer possible: [Original] _Select a controller first with a `SimpleUrlHandlerMapping` or `BeanNameUrlHandlerMapping` and then narrow the method based on `@RequestMapping` annotations. [Original] _Rely on method names as a fall-back mechanism to disambiguate between two `@RequestMapping` methods that donâ€™t have an explicit path mapping URL path but otherwise match equally, e.g. by HTTP method. In the new support classes `@RequestMapping` methods have to be mapped uniquely. [Original] * Have a single default method (without an explicit path mapping) with which requests are processed if no other controller method matches more concretely. In the new support classes if a matching method is not found a 404 error is raised.
 
-Í¬Ê±£¬Ò²ÓÐÆäËûµÄÒ»Ð©±ä»¯£¬±ÈÈçÓÐÐ©ÊÂÇé¾ÍÃ»·¨ÕâÃ´Íæ¶ùÁË£º
+åŒæ—¶ï¼Œä¹Ÿæœ‰å…¶ä»–çš„ä¸€äº›å˜åŒ–ï¼Œæ¯”å¦‚æœ‰äº›äº‹æƒ…å°±æ²¡æ³•è¿™ä¹ˆçŽ©å„¿äº†ï¼š
 
-*   ÏÈÍ¨¹ý`SimpleUrlHandlerMapping`»ò`BeanNameUrlHandlerMapping`À´ÄÃµ½¸ºÔð´¦ÀíÇëÇóµÄ¿ØÖÆÆ÷£¬È»ºóÍ¨¹ý`@RequestMapping`×¢½âÅäÖÃµÄÐÅÏ¢À´¶¨Î»µ½¾ßÌåµÄ´¦Àí·½·¨£»
-*   ÒÀ¿¿·½·¨Ãû³ÆÀ´×÷ÎªÑ¡Ôñ´¦Àí·½·¨µÄ±ê×¼¡£±ÈÈçËµ£¬Á½¸ö×¢½âÁË`@RequestMapping`µÄ·½·¨³ýÁË·½·¨Ãû³ÆÓµÓÐÍêÈ«ÏàÍ¬µÄURLÓ³ÉäºÍHTTPÇëÇó·½·¨¡£ÔÚÐÂ°æ±¾ÏÂ£¬`@RequestMapping`×¢½âµÄ·½·¨±ØÐë¾ßÓÐÎ¨Ò»µÄÇëÇóÓ³Éä£»
-*   ¶¨ÒåÒ»¸öÄ¬ÈÏ·½·¨£¨¼´Ã»ÓÐÉùÃ÷Â·¾¶Ó³Éä£©£¬ÔÚÇëÇóÂ·¾¶ÎÞ·¨±»Ó³Éäµ½¿ØÖÆÆ÷ÏÂ¸ü¾«È·µÄ·½·¨ÉÏÈ¥Ê±£¬Îª¸ÃÇëÇóÌá¹©Ä¬ÈÏ´¦Àí¡£ÔÚÐÂ°æ±¾ÖÐ£¬Èç¹ûÎÞ·¨ÎªÒ»¸öÇëÇóÕÒµ½ºÏÊÊµÄ´¦Àí·½·¨£¬ÄÇÃ´Ò»¸ö404´íÎó½«±»Å×³ö£»
+*   å…ˆé€šè¿‡`SimpleUrlHandlerMapping`æˆ–`BeanNameUrlHandlerMapping`æ¥æ‹¿åˆ°è´Ÿè´£å¤„ç†è¯·æ±‚çš„æŽ§åˆ¶å™¨ï¼Œç„¶åŽé€šè¿‡`@RequestMapping`æ³¨è§£é…ç½®çš„ä¿¡æ¯æ¥å®šä½åˆ°å…·ä½“çš„å¤„ç†æ–¹æ³•ï¼›
+*   ä¾é æ–¹æ³•åç§°æ¥ä½œä¸ºé€‰æ‹©å¤„ç†æ–¹æ³•çš„æ ‡å‡†ã€‚æ¯”å¦‚è¯´ï¼Œä¸¤ä¸ªæ³¨è§£äº†`@RequestMapping`çš„æ–¹æ³•é™¤äº†æ–¹æ³•åç§°æ‹¥æœ‰å®Œå…¨ç›¸åŒçš„URLæ˜ å°„å’ŒHTTPè¯·æ±‚æ–¹æ³•ã€‚åœ¨æ–°ç‰ˆæœ¬ä¸‹ï¼Œ`@RequestMapping`æ³¨è§£çš„æ–¹æ³•å¿…é¡»å…·æœ‰å”¯ä¸€çš„è¯·æ±‚æ˜ å°„ï¼›
+*   å®šä¹‰ä¸€ä¸ªé»˜è®¤æ–¹æ³•ï¼ˆå³æ²¡æœ‰å£°æ˜Žè·¯å¾„æ˜ å°„ï¼‰ï¼Œåœ¨è¯·æ±‚è·¯å¾„æ— æ³•è¢«æ˜ å°„åˆ°æŽ§åˆ¶å™¨ä¸‹æ›´ç²¾ç¡®çš„æ–¹æ³•ä¸ŠåŽ»æ—¶ï¼Œä¸ºè¯¥è¯·æ±‚æä¾›é»˜è®¤å¤„ç†ã€‚åœ¨æ–°ç‰ˆæœ¬ä¸­ï¼Œå¦‚æžœæ— æ³•ä¸ºä¸€ä¸ªè¯·æ±‚æ‰¾åˆ°åˆé€‚çš„å¤„ç†æ–¹æ³•ï¼Œé‚£ä¹ˆä¸€ä¸ª404é”™è¯¯å°†è¢«æŠ›å‡ºï¼›
 
-> [Original] The above features are still supported with the existing support classes. However to take advantage of new Spring MVC 3.1 features you¡¯ll need to use the new support classes.
+> [Original] The above features are still supported with the existing support classes. However to take advantage of new Spring MVC 3.1 features youâ€™ll need to use the new support classes.
 
-Èç¹ûÊ¹ÓÃÔ­À´µÄÀà£¬ÒÔÉÏµÄ¹¦ÄÜ»¹ÊÇ¿ÉÒÔ×öµ½¡£µ«ÊÇ£¬Èç¹ûÒªÏíÊÜSpring MVC 3.1°æ±¾´øÀ´µÄ·½±ãÌØÐÔ£¬Äã¾ÍÐèÒªÈ¥Ê¹ÓÃÐÂµÄÀà¡£
+å¦‚æžœä½¿ç”¨åŽŸæ¥çš„ç±»ï¼Œä»¥ä¸Šçš„åŠŸèƒ½è¿˜æ˜¯å¯ä»¥åšåˆ°ã€‚ä½†æ˜¯ï¼Œå¦‚æžœè¦äº«å—Spring MVC 3.1ç‰ˆæœ¬å¸¦æ¥çš„æ–¹ä¾¿ç‰¹æ€§ï¼Œä½ å°±éœ€è¦åŽ»ä½¿ç”¨æ–°çš„ç±»ã€‚
 
 > [Original] ## URI Template Patterns
 
-## URIÄ£°å
+## URIæ¨¡æ¿
 
 > [Original] URI templates can be used for convenient access to selected parts of a URL in a `@RequestMapping` method.
 
-URIÄ£°å¿ÉÒÔÎª¿ìËÙ·ÃÎÊ`@RequestMapping`ÖÐÖ¸¶¨µÄURLµÄÒ»¸öÌØ¶¨µÄ²¿·ÖÌá¹©ºÜ´óµÄ±ãÀû¡£
+URIæ¨¡æ¿å¯ä»¥ä¸ºå¿«é€Ÿè®¿é—®`@RequestMapping`ä¸­æŒ‡å®šçš„URLçš„ä¸€ä¸ªç‰¹å®šçš„éƒ¨åˆ†æä¾›å¾ˆå¤§çš„ä¾¿åˆ©ã€‚
 
 > [Original] A URI Template is a URI-like string, containing one or more variable names. When you substitute values for these variables, the template becomes a URI. The proposed RFC for URI Templates defines how a URI is parameterized. For example, the URI Template `http://www.example.com/users/{userId}` contains the variable userId. Assigning the value fred to the variable yields `http://www.example.com/users/fred`.
 
-URIÄ£°åÊÇÒ»¸öÀàËÆÓÚURIµÄ×Ö·û´®£¬Ö»²»¹ýÆäÖÐ°üº¬ÁËÒ»¸ö»ò¶à¸öµÄ±äÁ¿Ãû¡£µ±ÄãÊ¹ÓÃÊµ¼ÊµÄÖµÈ¥Ìî³äÕâÐ©±äÁ¿ÃûµÄÊ±ºò£¬Ä£°å¾ÍÍË»¯³ÉÁËÒ»¸öURI¡£ÔÚURIÄ£°åµÄRFCÌáÒéÖÐ¶¨ÒåÁËÒ»¸öURIÊÇÈçºÎ½øÐÐ²ÎÊý»¯µÄ¡£±ÈÈçËµ£¬Ò»¸öÕâ¸öURIÄ£°å`http://www.example.com/users/{userId}`¾Í°üº¬ÁËÒ»¸ö±äÁ¿Ãû_userId_¡£½«Öµ_fred_¸³¸øÕâ¸ö±äÁ¿Ãûºó£¬Ëü¾Í±ä³ÉÁËÒ»¸öURI£º`http://www.example.com/users/fred`¡£
+URIæ¨¡æ¿æ˜¯ä¸€ä¸ªç±»ä¼¼äºŽURIçš„å­—ç¬¦ä¸²ï¼Œåªä¸è¿‡å…¶ä¸­åŒ…å«äº†ä¸€ä¸ªæˆ–å¤šä¸ªçš„å˜é‡åã€‚å½“ä½ ä½¿ç”¨å®žé™…çš„å€¼åŽ»å¡«å……è¿™äº›å˜é‡åçš„æ—¶å€™ï¼Œæ¨¡æ¿å°±é€€åŒ–æˆäº†ä¸€ä¸ªURIã€‚åœ¨URIæ¨¡æ¿çš„RFCæè®®ä¸­å®šä¹‰äº†ä¸€ä¸ªURIæ˜¯å¦‚ä½•è¿›è¡Œå‚æ•°åŒ–çš„ã€‚æ¯”å¦‚è¯´ï¼Œä¸€ä¸ªè¿™ä¸ªURIæ¨¡æ¿`http://www.example.com/users/{userId}`å°±åŒ…å«äº†ä¸€ä¸ªå˜é‡å_userId_ã€‚å°†å€¼_fred_èµ‹ç»™è¿™ä¸ªå˜é‡ååŽï¼Œå®ƒå°±å˜æˆäº†ä¸€ä¸ªURIï¼š`http://www.example.com/users/fred`ã€‚
 
 > [Original] In Spring MVC you can use the `@PathVariable` annotation on a method argument to bind it to the value of a URI template variable:
 
-ÔÚSpring MVCÖÐÄã¿ÉÒÔÔÚ·½·¨²ÎÊýÉÏÊ¹ÓÃ`@PathVariable`×¢½â£¬½«ÆäÓëURIÄ£°åÖÐµÄ²ÎÊý°ó¶¨ÆðÀ´£º
+åœ¨Spring MVCä¸­ä½ å¯ä»¥åœ¨æ–¹æ³•å‚æ•°ä¸Šä½¿ç”¨`@PathVariable`æ³¨è§£ï¼Œå°†å…¶ä¸ŽURIæ¨¡æ¿ä¸­çš„å‚æ•°ç»‘å®šèµ·æ¥ï¼š
 
 ```
 @RequestMapping(path="/owners/{ownerId}", method=RequestMethod.GET)
@@ -207,31 +207,31 @@ public String findOwner(@PathVariable String ownerId, Model model) {
 
 > [Original] The URI Template "`/owners/{ownerId}`" specifies the variable name `ownerId`. When the controller handles this request, the value of `ownerId` is set to the value found in the appropriate part of the URI. For example, when a request comes in for `/owners/fred`, the value of `ownerId` is `fred`.
 
-URIÄ£°å"`/owners/{ownerId}`"Ö¸¶¨ÁËÒ»¸ö±äÁ¿£¬ÃûÎª`ownerId`¡£µ±¿ØÖÆÆ÷´¦ÀíÕâ¸öÇëÇóµÄÊ±ºò£¬`ownerId`µÄÖµ¾Í»á±»URIÄ£°åÖÐ¶ÔÓ¦²¿·ÖµÄÖµËùÌî³ä¡£±ÈÈçËµ£¬Èç¹ûÇëÇóµÄURIÊÇ`/owners/fred`£¬´ËÊ±±äÁ¿`ownerId`µÄÖµ¾ÍÊÇ`fred`. `
+URIæ¨¡æ¿"`/owners/{ownerId}`"æŒ‡å®šäº†ä¸€ä¸ªå˜é‡ï¼Œåä¸º`ownerId`ã€‚å½“æŽ§åˆ¶å™¨å¤„ç†è¿™ä¸ªè¯·æ±‚çš„æ—¶å€™ï¼Œ`ownerId`çš„å€¼å°±ä¼šè¢«URIæ¨¡æ¿ä¸­å¯¹åº”éƒ¨åˆ†çš„å€¼æ‰€å¡«å……ã€‚æ¯”å¦‚è¯´ï¼Œå¦‚æžœè¯·æ±‚çš„URIæ˜¯`/owners/fred`ï¼Œæ­¤æ—¶å˜é‡`ownerId`çš„å€¼å°±æ˜¯`fred`. `
 
-> ÎªÁË´¦Àí`@PathVariables`×¢½â£¬Spring MVC±ØÐëÍ¨¹ý±äÁ¿ÃûÀ´ÕÒµ½URIÄ£°åÖÐÏà¶ÔÓ¦µÄ±äÁ¿¡£Äã¿ÉÒÔÔÚ×¢½âÖÐÖ±½ÓÉùÃ÷£º
+> ä¸ºäº†å¤„ç†`@PathVariables`æ³¨è§£ï¼ŒSpring MVCå¿…é¡»é€šè¿‡å˜é‡åæ¥æ‰¾åˆ°URIæ¨¡æ¿ä¸­ç›¸å¯¹åº”çš„å˜é‡ã€‚ä½ å¯ä»¥åœ¨æ³¨è§£ä¸­ç›´æŽ¥å£°æ˜Žï¼š
 >
 > ```
 > @RequestMapping(path="/owners/{ownerId}}", method=RequestMethod.GET)
 > public String findOwner(@PathVariable("ownerId") String theOwner, Model model) {
->     // ¾ßÌåµÄ·½·¨´úÂë¡­
+>     // å…·ä½“çš„æ–¹æ³•ä»£ç â€¦
 > }
 > 
 > ```
 >
-> »òÕß£¬Èç¹ûURIÄ£°åÖÐµÄ±äÁ¿ÃûÓë·½·¨µÄ²ÎÊýÃûÊÇÏàÍ¬µÄ£¬ÔòÄã¿ÉÒÔ²»±ØÔÙÖ¸¶¨Ò»´Î¡£Ö»ÒªÄãÔÚ±àÒëµÄÊ±ºòÁôÏÂdebugÐÅÏ¢£¬Spring MVC¾Í¿ÉÒÔ×Ô¶¯Æ¥ÅäURLÄ£°åÖÐÓë·½·¨²ÎÊýÃûÏàÍ¬µÄ±äÁ¿Ãû¡£
+> æˆ–è€…ï¼Œå¦‚æžœURIæ¨¡æ¿ä¸­çš„å˜é‡åä¸Žæ–¹æ³•çš„å‚æ•°åæ˜¯ç›¸åŒçš„ï¼Œåˆ™ä½ å¯ä»¥ä¸å¿…å†æŒ‡å®šä¸€æ¬¡ã€‚åªè¦ä½ åœ¨ç¼–è¯‘çš„æ—¶å€™ç•™ä¸‹debugä¿¡æ¯ï¼ŒSpring MVCå°±å¯ä»¥è‡ªåŠ¨åŒ¹é…URLæ¨¡æ¿ä¸­ä¸Žæ–¹æ³•å‚æ•°åç›¸åŒçš„å˜é‡åã€‚
 >
 > ```
 > @RequestMapping(path="/owners/{ownerId}", method=RequestMethod.GET)
 > public String findOwner(@PathVariable String ownerId, Model model) {
->     // ¾ßÌåµÄ·½·¨´úÂë¡­
+>     // å…·ä½“çš„æ–¹æ³•ä»£ç â€¦
 > }
 > 
 > ```
 >
 > [Original] A method can have any number of `@PathVariable` annotations:
 
-Ò»¸ö·½·¨¿ÉÒÔÓµÓÐÈÎÒâÊýÁ¿µÄ`@PathVariable`×¢½â£º
+ä¸€ä¸ªæ–¹æ³•å¯ä»¥æ‹¥æœ‰ä»»æ„æ•°é‡çš„`@PathVariable`æ³¨è§£ï¼š
 
 ```
 @RequestMapping(path="/owners/{ownerId}/pets/{petId}", method=RequestMethod.GET)
@@ -246,11 +246,11 @@ public String findPet(@PathVariable String ownerId, @PathVariable String petId, 
 
 > [Original] When a `@PathVariable` annotation is used on a `Map<String, String>` argument, the map is populated with all URI template variables.
 
-µ±`@PathVariable`×¢½â±»Ó¦ÓÃÓÚ`Map<String, String>`ÀàÐÍµÄ²ÎÊýÉÏÊ±£¬¿ò¼Ü»áÊ¹ÓÃËùÓÐURIÄ£°å±äÁ¿À´Ìî³äÕâ¸ömap¡£
+å½“`@PathVariable`æ³¨è§£è¢«åº”ç”¨äºŽ`Map<String, String>`ç±»åž‹çš„å‚æ•°ä¸Šæ—¶ï¼Œæ¡†æž¶ä¼šä½¿ç”¨æ‰€æœ‰URIæ¨¡æ¿å˜é‡æ¥å¡«å……è¿™ä¸ªmapã€‚
 
 > [Original] A URI template can be assembled from type and path level _@RequestMapping_ annotations. As a result the `findPet()` method can be invoked with a URL such as `/owners/42/pets/21`.
 
-URIÄ£°å¿ÉÒÔ´ÓÀà¼¶±ðºÍ·½·¨¼¶±ðµÄ _@RequestMapping_ ×¢½â»ñÈ¡Êý¾Ý¡£Òò´Ë£¬ÏñÕâÑùµÄ`findPet()`·½·¨¿ÉÒÔ±»ÀàËÆÓÚ`/owners/42/pets/21`ÕâÑùµÄURLÂ·ÓÉ²¢µ÷ÓÃµ½£º
+URIæ¨¡æ¿å¯ä»¥ä»Žç±»çº§åˆ«å’Œæ–¹æ³•çº§åˆ«çš„ _@RequestMapping_ æ³¨è§£èŽ·å–æ•°æ®ã€‚å› æ­¤ï¼Œåƒè¿™æ ·çš„`findPet()`æ–¹æ³•å¯ä»¥è¢«ç±»ä¼¼äºŽ`/owners/42/pets/21`è¿™æ ·çš„URLè·¯ç”±å¹¶è°ƒç”¨åˆ°ï¼š
 
 ```
 _@Controller_
@@ -259,7 +259,7 @@ public class RelativePathUriTemplateController {
 
     @RequestMapping("/pets/{petId}")
     public void findPet(_@PathVariable_ String ownerId, _@PathVariable_ String petId, Model model) {
-        // ·½·¨ÊµÏÖÌåÕâÀïºöÂÔ
+        // æ–¹æ³•å®žçŽ°ä½“è¿™é‡Œå¿½ç•¥
     }
 
 }
@@ -268,105 +268,105 @@ public class RelativePathUriTemplateController {
 
 > [Original] A `@PathVariable` argument can be of _any simple type_ such as int, long, Date, etc. Spring automatically converts to the appropriate type or throws a `TypeMismatchException` if it fails to do so. You can also register support for parsing additional data types. See [the section called "Method Parameters And Type Conversion"](https://linesh.gitbooks.io/spring-mvc-documentation-linesh-translation/content/publish/21-3/mvc.html#mvc-ann-typeconversion) and [the section called "Customizing WebDataBinder initialization"](https://linesh.gitbooks.io/spring-mvc-documentation-linesh-translation/content/publish/21-3/mvc.html#mvc-ann-webdatabinder).
 
-`@PathVariable`¿ÉÒÔ±»Ó¦ÓÃÓÚËùÓÐ _¼òµ¥ÀàÐÍ_ µÄ²ÎÊýÉÏ£¬±ÈÈçint¡¢long¡¢DateµÈÀàÐÍ¡£Spring»á×Ô¶¯µØ°ïÄã°Ñ²ÎÊý×ª»¯³ÉºÏÊÊµÄÀàÐÍ£¬Èç¹û×ª»»Ê§°Ü£¬¾ÍÅ×³öÒ»¸ö`TypeMismatchException`¡£Èç¹ûÄãÐèÒª´¦ÀíÆäËûÊý¾ÝÀàÐÍµÄ×ª»»£¬Ò²¿ÉÒÔ×¢²á×Ô¼ºµÄÀà¡£ÈôÐèÒª¸üÏêÏ¸µÄÐÅÏ¢¿ÉÒÔ²Î¿¼[¡°·½·¨²ÎÊýÓëÀàÐÍ×ª»»¡±Ò»½Ú](http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/mvc.html#mvc-ann-typeconversion)ºÍ[¡°¶¨ÖÆWebDataBinder³õÊ¼»¯¹ý³Ì¡±Ò»½Ú](http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/mvc.html#mvc-ann-webdatabinder)
+`@PathVariable`å¯ä»¥è¢«åº”ç”¨äºŽæ‰€æœ‰ _ç®€å•ç±»åž‹_ çš„å‚æ•°ä¸Šï¼Œæ¯”å¦‚intã€longã€Dateç­‰ç±»åž‹ã€‚Springä¼šè‡ªåŠ¨åœ°å¸®ä½ æŠŠå‚æ•°è½¬åŒ–æˆåˆé€‚çš„ç±»åž‹ï¼Œå¦‚æžœè½¬æ¢å¤±è´¥ï¼Œå°±æŠ›å‡ºä¸€ä¸ª`TypeMismatchException`ã€‚å¦‚æžœä½ éœ€è¦å¤„ç†å…¶ä»–æ•°æ®ç±»åž‹çš„è½¬æ¢ï¼Œä¹Ÿå¯ä»¥æ³¨å†Œè‡ªå·±çš„ç±»ã€‚è‹¥éœ€è¦æ›´è¯¦ç»†çš„ä¿¡æ¯å¯ä»¥å‚è€ƒ[â€œæ–¹æ³•å‚æ•°ä¸Žç±»åž‹è½¬æ¢â€ä¸€èŠ‚](http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/mvc.html#mvc-ann-typeconversion)å’Œ[â€œå®šåˆ¶WebDataBinderåˆå§‹åŒ–è¿‡ç¨‹â€ä¸€èŠ‚](http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/mvc.html#mvc-ann-webdatabinder)
 
-## ´øÕýÔò±í´ïÊ½µÄURIÄ£°å
+## å¸¦æ­£åˆ™è¡¨è¾¾å¼çš„URIæ¨¡æ¿
 
 > [Original] Sometimes you need more precision in defining URI template variables. Consider the URL `"/spring-web/spring-web-3.0.5.jar"`. How do you break it down into multiple parts?
 
-ÓÐÊ±ºòÄã¿ÉÄÜÐèÒª¸ü×¼È·µØÃèÊöÒ»¸öURIÄ£°åµÄ±äÁ¿£¬±ÈÈçËµÕâ¸öURL£º`"/spring-web/spring-web-3.0.5.jar`¡£ÄãÒªÔõÃ´°ÑËü·Ö½â³É¼¸¸öÓÐÒâÒåµÄ²¿·ÖÄØ£¿
+æœ‰æ—¶å€™ä½ å¯èƒ½éœ€è¦æ›´å‡†ç¡®åœ°æè¿°ä¸€ä¸ªURIæ¨¡æ¿çš„å˜é‡ï¼Œæ¯”å¦‚è¯´è¿™ä¸ªURLï¼š`"/spring-web/spring-web-3.0.5.jar`ã€‚ä½ è¦æ€Žä¹ˆæŠŠå®ƒåˆ†è§£æˆå‡ ä¸ªæœ‰æ„ä¹‰çš„éƒ¨åˆ†å‘¢ï¼Ÿ
 
 > [Original] The `@RequestMapping` annotation supports the use of regular expressions in URI template variables. The syntax is `{varName:regex}` where the first part defines the variable name and the second - the regular expression.For example:
 
-`@RequestMapping`×¢½âÖ§³ÖÄãÔÚURIÄ£°å±äÁ¿ÖÐÊ¹ÓÃÕýÔò±í´ïÊ½¡£Óï·¨ÊÇ`{varName:regex}`£¬ÆäÖÐµÚÒ»²¿·Ö¶¨ÒåÁË±äÁ¿Ãû£¬µÚ¶þ²¿·Ö¾ÍÊÇÄãËùÒªÓ¦ÓÃµÄÕýÔò±í´ïÊ½¡£±ÈÈçÏÂÃæµÄ´úÂëÑùÀý£º
+`@RequestMapping`æ³¨è§£æ”¯æŒä½ åœ¨URIæ¨¡æ¿å˜é‡ä¸­ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼ã€‚è¯­æ³•æ˜¯`{varName:regex}`ï¼Œå…¶ä¸­ç¬¬ä¸€éƒ¨åˆ†å®šä¹‰äº†å˜é‡åï¼Œç¬¬äºŒéƒ¨åˆ†å°±æ˜¯ä½ æ‰€è¦åº”ç”¨çš„æ­£åˆ™è¡¨è¾¾å¼ã€‚æ¯”å¦‚ä¸‹é¢çš„ä»£ç æ ·ä¾‹ï¼š
 
 ```
 @RequestMapping("/spring-web/{symbolicName:[a-z-]+}-{version:\\d\\.\\d\\.\\d}{extension:\\.[a-z]+}")
     public void handle(@PathVariable String version, @PathVariable String extension) {
-        // ´úÂë²¿·ÖÊ¡ÂÔ...
+        // ä»£ç éƒ¨åˆ†çœç•¥...
     }
 }
 
 ```
 
-## Path Patterns£¨²»ºÃ·­£¬ÈÝÒ×µôÔÏÎ¶£©
+## Path Patternsï¼ˆä¸å¥½ç¿»ï¼Œå®¹æ˜“æŽ‰éŸµå‘³ï¼‰
 
 > [Original] In addition to URI templates, the `@RequestMapping` annotation also supports Ant-style path patterns (for example, `/myPath/*.do`). A combination of URI template variables and Ant-style globs is also supported (e.g. `/owners/*/pets/{petId}`).
 
-³ýÁËURIÄ£°åÍâ£¬`@RequestMapping`×¢½â»¹Ö§³ÖAnt·ç¸ñµÄÂ·¾¶Ä£Ê½£¨Èç`/myPath/*.do`µÈ£©¡£²»½öÈç´Ë£¬»¹¿ÉÒÔ°ÑURIÄ£°å±äÁ¿ºÍAnt·ç¸ñµÄglob×éºÏÆðÀ´Ê¹ÓÃ£¨±ÈÈç`/owners/*/pets/{petId}`ÕâÑùµÄÓÃ·¨µÈ£©¡£
+é™¤äº†URIæ¨¡æ¿å¤–ï¼Œ`@RequestMapping`æ³¨è§£è¿˜æ”¯æŒAnté£Žæ ¼çš„è·¯å¾„æ¨¡å¼ï¼ˆå¦‚`/myPath/*.do`ç­‰ï¼‰ã€‚ä¸ä»…å¦‚æ­¤ï¼Œè¿˜å¯ä»¥æŠŠURIæ¨¡æ¿å˜é‡å’ŒAnté£Žæ ¼çš„globç»„åˆèµ·æ¥ä½¿ç”¨ï¼ˆæ¯”å¦‚`/owners/*/pets/{petId}`è¿™æ ·çš„ç”¨æ³•ç­‰ï¼‰ã€‚
 
-## Â·¾¶ÑùÊ½µÄÆ¥Åä(Path Pattern Comparison)
+## è·¯å¾„æ ·å¼çš„åŒ¹é…(Path Pattern Comparison)
 
 > [Original] When a URL matches multiple patterns, a sort is used to find the most specific match.
 
-µ±Ò»¸öURLÍ¬Ê±Æ¥Åä¶à¸öÄ£°å£¨pattern£©Ê±£¬ÎÒÃÇ½«ÐèÒªÒ»¸öËã·¨À´¾ö¶¨ÆäÖÐ×îÆ¥ÅäµÄÒ»¸ö¡£
+å½“ä¸€ä¸ªURLåŒæ—¶åŒ¹é…å¤šä¸ªæ¨¡æ¿ï¼ˆpatternï¼‰æ—¶ï¼Œæˆ‘ä»¬å°†éœ€è¦ä¸€ä¸ªç®—æ³•æ¥å†³å®šå…¶ä¸­æœ€åŒ¹é…çš„ä¸€ä¸ªã€‚
 
 > [Original] A pattern with a lower count of URI variables and wild cards is considered more specific. For example `/hotels/{hotel}/*` has 1 URI variable and 1 wild card and is considered more specific than `/hotels/{hotel}/**` which as 1 URI variable and 2 wild cards.
 
-URIÄ£°å±äÁ¿µÄÊýÄ¿ºÍÍ¨Åä·ûÊýÁ¿µÄ×ÜºÍ×îÉÙµÄÄÇ¸öÂ·¾¶Ä£°å¸ü×¼È·¡£¾Ù¸öÀý×Ó£¬`/hotels/{hotel}/*`Õâ¸öÂ·¾¶ÓµÓÐÒ»¸öURI±äÁ¿ºÍÒ»¸öÍ¨Åä·û£¬¶ø`/hotels/{hotel}/**`Õâ¸öÂ·¾¶ÔòÓµÓÐÒ»¸öURI±äÁ¿ºÍÁ½¸öÍ¨Åä·û£¬Òò´Ë£¬ÎÒÃÇÈÏÎªÇ°ÕßÊÇ¸ü×¼È·µÄÂ·¾¶Ä£°å¡£
+URIæ¨¡æ¿å˜é‡çš„æ•°ç›®å’Œé€šé…ç¬¦æ•°é‡çš„æ€»å’Œæœ€å°‘çš„é‚£ä¸ªè·¯å¾„æ¨¡æ¿æ›´å‡†ç¡®ã€‚ä¸¾ä¸ªä¾‹å­ï¼Œ`/hotels/{hotel}/*`è¿™ä¸ªè·¯å¾„æ‹¥æœ‰ä¸€ä¸ªURIå˜é‡å’Œä¸€ä¸ªé€šé…ç¬¦ï¼Œè€Œ`/hotels/{hotel}/**`è¿™ä¸ªè·¯å¾„åˆ™æ‹¥æœ‰ä¸€ä¸ªURIå˜é‡å’Œä¸¤ä¸ªé€šé…ç¬¦ï¼Œå› æ­¤ï¼Œæˆ‘ä»¬è®¤ä¸ºå‰è€…æ˜¯æ›´å‡†ç¡®çš„è·¯å¾„æ¨¡æ¿ã€‚
 
 > [Original] If two patterns have the same count, the one that is longer is considered more specific. For example `/foo/bar*` is longer and considered more specific than `/foo/*`.
 
-Èç¹ûÁ½¸öÄ£°åµÄURIÄ£°åÊýÁ¿ºÍÍ¨Åä·ûÊýÁ¿×ÜºÍÒ»ÖÂ£¬ÔòÂ·¾¶¸ü³¤µÄÄÇ¸öÄ£°å¸ü×¼È·¡£¾Ù¸öÀý×Ó£¬`/foo/bar*`¾Í±»ÈÏÎª±È`/foo/*`¸ü×¼È·£¬ÒòÎªÇ°ÕßµÄÂ·¾¶¸ü³¤¡£
+å¦‚æžœä¸¤ä¸ªæ¨¡æ¿çš„URIæ¨¡æ¿æ•°é‡å’Œé€šé…ç¬¦æ•°é‡æ€»å’Œä¸€è‡´ï¼Œåˆ™è·¯å¾„æ›´é•¿çš„é‚£ä¸ªæ¨¡æ¿æ›´å‡†ç¡®ã€‚ä¸¾ä¸ªä¾‹å­ï¼Œ`/foo/bar*`å°±è¢«è®¤ä¸ºæ¯”`/foo/*`æ›´å‡†ç¡®ï¼Œå› ä¸ºå‰è€…çš„è·¯å¾„æ›´é•¿ã€‚
 
 > [Original] When two patterns have the same count and length, the pattern with fewer wild cards is considered more specific. For example `/hotels/{hotel}` is more specific than `/hotels/*`.
 
-Èç¹ûÁ½¸öÄ£°åµÄÊýÁ¿ºÍ³¤¶È¾ùÒ»ÖÂ£¬ÔòÄÇ¸ö¾ßÓÐ¸üÉÙÍ¨Åä·ûµÄÄ£°åÊÇ¸ü¼Ó×¼È·µÄ¡£±ÈÈç£¬`/hotels/{hotel}`¾Í±È`/hotels/*`¸ü¾«È·¡£
+å¦‚æžœä¸¤ä¸ªæ¨¡æ¿çš„æ•°é‡å’Œé•¿åº¦å‡ä¸€è‡´ï¼Œåˆ™é‚£ä¸ªå…·æœ‰æ›´å°‘é€šé…ç¬¦çš„æ¨¡æ¿æ˜¯æ›´åŠ å‡†ç¡®çš„ã€‚æ¯”å¦‚ï¼Œ`/hotels/{hotel}`å°±æ¯”`/hotels/*`æ›´ç²¾ç¡®ã€‚
 
 > [Original] There are also some additional special rules:
 
-³ý´ËÖ®Íâ£¬»¹ÓÐÒ»Ð©ÆäËûµÄ¹æÔò£º
+é™¤æ­¤ä¹‹å¤–ï¼Œè¿˜æœ‰ä¸€äº›å…¶ä»–çš„è§„åˆ™ï¼š
 
 > [Original] _The **default mapping pattern** `/*_`is less specific than any other pattern. For example`/api/{a}/{b}/{c}` is more specific.
 >
 > [Original] _A **prefix pattern** such as `/public/*_`is less specific than any other pattern that doesn't contain double wildcards. For example`/public/path3/{a}/{b}/{c}` is more specific.
 
-*   **Ä¬ÈÏµÄÍ¨ÅäÄ£Ê½**`/**`±ÈÆäËûËùÓÐµÄÄ£Ê½¶¼¸ü¡°²»×¼È·¡±¡£±È·½Ëµ£¬`/api/{a}/{b}/{c}`¾Í±ÈÄ¬ÈÏµÄÍ¨ÅäÄ£Ê½`/**`Òª¸ü×¼È·
-*   **Ç°×ºÍ¨Åä**£¨±ÈÈç`/public/**`)±»ÈÏÎª±ÈÆäËûÈÎºÎ²»°üÀ¨Ë«Í¨Åä·ûµÄÄ£Ê½¸ü²»×¼È·¡£±ÈÈçËµ£¬`/public/path3/{a}/{b}/{c}`¾Í±È`/public/**`¸ü×¼È·
+*   **é»˜è®¤çš„é€šé…æ¨¡å¼**`/**`æ¯”å…¶ä»–æ‰€æœ‰çš„æ¨¡å¼éƒ½æ›´â€œä¸å‡†ç¡®â€ã€‚æ¯”æ–¹è¯´ï¼Œ`/api/{a}/{b}/{c}`å°±æ¯”é»˜è®¤çš„é€šé…æ¨¡å¼`/**`è¦æ›´å‡†ç¡®
+*   **å‰ç¼€é€šé…**ï¼ˆæ¯”å¦‚`/public/**`)è¢«è®¤ä¸ºæ¯”å…¶ä»–ä»»ä½•ä¸åŒ…æ‹¬åŒé€šé…ç¬¦çš„æ¨¡å¼æ›´ä¸å‡†ç¡®ã€‚æ¯”å¦‚è¯´ï¼Œ`/public/path3/{a}/{b}/{c}`å°±æ¯”`/public/**`æ›´å‡†ç¡®
 
 > [Original] For the full details see `AntPatternComparator` in `AntPathMatcher`. Note that the PathMatcher can be customized (see [Section 21.16.11, "Path Matching"](https://linesh.gitbooks.io/spring-mvc-documentation-linesh-translation/content/publish/21-3/mvc.html#mvc-config-path-matching) in the section on configuring Spring MVC).
 
-¸ü¶àµÄÏ¸½ÚÇë²Î¿¼ÕâÁ½¸öÀà£º`AntPatternComparator`ºÍ`AntPathMatcher`¡£ÖµµÃÒ»ÌáµÄÊÇ£¬PathMatcherÀàÊÇ¿ÉÒÔÅäÖÃµÄ£¨¼û¡°ÅäÖÃSpring MVC¡±Ò»½ÚÖÐµÄ[Â·¾¶µÄÆ¥Åä](https://www.w3cschool.cn/spring_mvc_documentation_linesh_translation/spring_mvc_documentation_linesh_translation-cgvo27t2.html)Ò»½Ú)¡£
+æ›´å¤šçš„ç»†èŠ‚è¯·å‚è€ƒè¿™ä¸¤ä¸ªç±»ï¼š`AntPatternComparator`å’Œ`AntPathMatcher`ã€‚å€¼å¾—ä¸€æçš„æ˜¯ï¼ŒPathMatcherç±»æ˜¯å¯ä»¥é…ç½®çš„ï¼ˆè§â€œé…ç½®Spring MVCâ€ä¸€èŠ‚ä¸­çš„[è·¯å¾„çš„åŒ¹é…](https://www.w3cschool.cn/spring_mvc_documentation_linesh_translation/spring_mvc_documentation_linesh_translation-cgvo27t2.html)ä¸€èŠ‚)ã€‚
 
-## ´øÕ¼Î»·ûµÄÂ·¾¶Ä£Ê½£¨path patterns£©
+## å¸¦å ä½ç¬¦çš„è·¯å¾„æ¨¡å¼ï¼ˆpath patternsï¼‰
 
-> [Original] Patterns in `@RequestMapping` annotations support ${¡­} placeholders against local properties and/or system properties and environment variables. This may be useful in cases where the path a controller is mapped to may need to be customized through configuration. For more information on placeholders, see the javadocs of the `PropertyPlaceholderConfigurer` class.
+> [Original] Patterns in `@RequestMapping` annotations support ${â€¦} placeholders against local properties and/or system properties and environment variables. This may be useful in cases where the path a controller is mapped to may need to be customized through configuration. For more information on placeholders, see the javadocs of the `PropertyPlaceholderConfigurer` class.
 
-`@RequestMapping`×¢½âÖ§³ÖÔÚÂ·¾¶ÖÐÊ¹ÓÃÕ¼Î»·û£¬ÒÔÈ¡µÃÒ»Ð©±¾µØÅäÖÃ¡¢ÏµÍ³ÅäÖÃ¡¢»·¾³±äÁ¿µÈ¡£Õâ¸öÌØÐÔÓÐÊ±ºÜÓÐÓÃ£¬±ÈÈçËµ¿ØÖÆÆ÷µÄÓ³ÉäÂ·¾¶ÐèÒªÍ¨¹ýÅäÖÃÀ´¶¨ÖÆµÄ³¡¾°¡£Èç¹ûÏëÁË½â¸ü¶à¹ØÓÚÕ¼Î»·ûµÄÐÅÏ¢£¬¿ÉÒÔ²Î¿¼`PropertyPlaceholderConfigurer`Õâ¸öÀàµÄÎÄµµ¡£
+`@RequestMapping`æ³¨è§£æ”¯æŒåœ¨è·¯å¾„ä¸­ä½¿ç”¨å ä½ç¬¦ï¼Œä»¥å–å¾—ä¸€äº›æœ¬åœ°é…ç½®ã€ç³»ç»Ÿé…ç½®ã€çŽ¯å¢ƒå˜é‡ç­‰ã€‚è¿™ä¸ªç‰¹æ€§æœ‰æ—¶å¾ˆæœ‰ç”¨ï¼Œæ¯”å¦‚è¯´æŽ§åˆ¶å™¨çš„æ˜ å°„è·¯å¾„éœ€è¦é€šè¿‡é…ç½®æ¥å®šåˆ¶çš„åœºæ™¯ã€‚å¦‚æžœæƒ³äº†è§£æ›´å¤šå…³äºŽå ä½ç¬¦çš„ä¿¡æ¯ï¼Œå¯ä»¥å‚è€ƒ`PropertyPlaceholderConfigurer`è¿™ä¸ªç±»çš„æ–‡æ¡£ã€‚
 
 ## Suffix Pattern Matching
 
-## ºó×ºÄ£Ê½Æ¥Åä
+## åŽç¼€æ¨¡å¼åŒ¹é…
 
 > [Original] By default Spring MVC performs `".*"` suffix pattern matching so that a controller mapped to `/person` is also implicitly mapped to `/person.*`. This makes it easy to request different representations of a resource through the URL path (e.g. `/person.pdf`, `/person.xml`).
 
-Spring MVCÄ¬ÈÏ²ÉÓÃ`".*"`µÄºó×ºÄ£Ê½Æ¥ÅäÀ´½øÐÐÂ·¾¶Æ¥Åä£¬Òò´Ë£¬Ò»¸öÓ³Éäµ½`/person`Â·¾¶µÄ¿ØÖÆÆ÷Ò²»áÒþÊ½µØ±»Ó³Éäµ½`/person.*`¡£ÕâÊ¹µÃÍ¨¹ýURLÀ´ÇëÇóÍ¬Ò»×ÊÔ´ÎÄ¼þµÄ²»Í¬¸ñÊ½±äµÃ¸ü¼òµ¥£¨±ÈÈç`/person.pdf`£¬`/person.xml`£©¡£
+Spring MVCé»˜è®¤é‡‡ç”¨`".*"`çš„åŽç¼€æ¨¡å¼åŒ¹é…æ¥è¿›è¡Œè·¯å¾„åŒ¹é…ï¼Œå› æ­¤ï¼Œä¸€ä¸ªæ˜ å°„åˆ°`/person`è·¯å¾„çš„æŽ§åˆ¶å™¨ä¹Ÿä¼šéšå¼åœ°è¢«æ˜ å°„åˆ°`/person.*`ã€‚è¿™ä½¿å¾—é€šè¿‡URLæ¥è¯·æ±‚åŒä¸€èµ„æºæ–‡ä»¶çš„ä¸åŒæ ¼å¼å˜å¾—æ›´ç®€å•ï¼ˆæ¯”å¦‚`/person.pdf`ï¼Œ`/person.xml`ï¼‰ã€‚
 
 > [Original] Suffix pattern matching can be turned off or restricted to a set of path extensions explicitly registered for content negotiation purposes. This is generally recommended to minimize ambiguity with common request mappings such as `/person/{id}` where a dot might not represent a file extension, e.g. `/person/joe@email.com` vs `/person/joe@email.com.json)`. Furthermore as explained in the note below suffix pattern matching as well as content negotiation may be used in some circumstances to attempt malicious attacks and there are good reasons to restrict them meaningfully.
 
-Äã¿ÉÒÔ¹Ø±ÕÄ¬ÈÏµÄºó×ºÄ£Ê½Æ¥Åä£¬»òÕßÏÔÊ½µØ½«Â·¾¶ºó×ºÏÞ¶¨µ½Ò»Ð©ÌØ¶¨¸ñÊ½ÉÏfor content negotiation purpose¡£ÎÒÃÇÍÆ¼öÕâÑù×ö£¬ÕâÑù¿ÉÒÔ¼õÉÙÓ³ÉäÇëÇóÊ±¿ÉÒÔ´øÀ´µÄÒ»Ð©¶þÒåÐÔ£¬±ÈÈçÇëÇóÒÔÏÂÂ·¾¶`/person/{id}`Ê±£¬Â·¾¶ÖÐµÄµãºÅºóÃæ´øµÄ¿ÉÄÜ²»ÊÇÃèÊöÄÚÈÝ¸ñÊ½£¬±ÈÈç`/person/joe@email.com` vs `/person/joe@email.com.json`¡£¶øÇÒÕýÈçÏÂÃæÂíÉÏÒªÌáµ½µÄ£¬ºó×ºÄ£Ê½Í¨ÅäÒÔ¼°ÄÚÈÝÐ­ÉÌÓÐÊ±¿ÉÄÜ»á±»ºÚ¿ÍÓÃÀ´½øÐÐ¹¥»÷£¬Òò´Ë£¬¶Ôºó×ºÍ¨Åä½øÐÐÓÐÒâÒåµÄÏÞ¶¨ÊÇÓÐºÃ´¦µÄ¡£
+ä½ å¯ä»¥å…³é—­é»˜è®¤çš„åŽç¼€æ¨¡å¼åŒ¹é…ï¼Œæˆ–è€…æ˜¾å¼åœ°å°†è·¯å¾„åŽç¼€é™å®šåˆ°ä¸€äº›ç‰¹å®šæ ¼å¼ä¸Šfor content negotiation purposeã€‚æˆ‘ä»¬æŽ¨èè¿™æ ·åšï¼Œè¿™æ ·å¯ä»¥å‡å°‘æ˜ å°„è¯·æ±‚æ—¶å¯ä»¥å¸¦æ¥çš„ä¸€äº›äºŒä¹‰æ€§ï¼Œæ¯”å¦‚è¯·æ±‚ä»¥ä¸‹è·¯å¾„`/person/{id}`æ—¶ï¼Œè·¯å¾„ä¸­çš„ç‚¹å·åŽé¢å¸¦çš„å¯èƒ½ä¸æ˜¯æè¿°å†…å®¹æ ¼å¼ï¼Œæ¯”å¦‚`/person/joe@email.com` vs `/person/joe@email.com.json`ã€‚è€Œä¸”æ­£å¦‚ä¸‹é¢é©¬ä¸Šè¦æåˆ°çš„ï¼ŒåŽç¼€æ¨¡å¼é€šé…ä»¥åŠå†…å®¹åå•†æœ‰æ—¶å¯èƒ½ä¼šè¢«é»‘å®¢ç”¨æ¥è¿›è¡Œæ”»å‡»ï¼Œå› æ­¤ï¼Œå¯¹åŽç¼€é€šé…è¿›è¡Œæœ‰æ„ä¹‰çš„é™å®šæ˜¯æœ‰å¥½å¤„çš„ã€‚
 
 > [Original] See [Section 21.16.11, "Path Matching"](https://linesh.gitbooks.io/spring-mvc-documentation-linesh-translation/content/publish/21-3/mvc.html#mvc-config-path-matching) for suffix pattern matching configuration and also [Section 21.16.6, "Content Negotiation"](https://linesh.gitbooks.io/spring-mvc-documentation-linesh-translation/content/publish/21-3/mvc.html#mvc-config-content-negotiation) for content negotiation configuration.
 
-¹ØÓÚºó×ºÄ£Ê½Æ¥ÅäµÄÅäÖÃÎÊÌâ£¬¿ÉÒÔ²Î¿¼[Spring MVCÂ·¾¶Æ¥ÅäÅäÖÃ](https://www.w3cschool.cn/spring_mvc_documentation_linesh_translation/spring_mvc_documentation_linesh_translation-cgvo27t2.html)£»¹ØÓÚÄÚÈÝÐ­ÉÌµÄÅäÖÃÎÊÌâ£¬¿ÉÒÔ²Î¿¼[Spring MVC ÄÚÈÝÐ­ÉÌ"](https://www.w3cschool.cn/spring_mvc_documentation_linesh_translation/spring_mvc_documentation_linesh_translation-h8br27sx.html)µÄÄÚÈÝ¡£
+å…³äºŽåŽç¼€æ¨¡å¼åŒ¹é…çš„é…ç½®é—®é¢˜ï¼Œå¯ä»¥å‚è€ƒ[Spring MVCè·¯å¾„åŒ¹é…é…ç½®](https://www.w3cschool.cn/spring_mvc_documentation_linesh_translation/spring_mvc_documentation_linesh_translation-cgvo27t2.html)ï¼›å…³äºŽå†…å®¹åå•†çš„é…ç½®é—®é¢˜ï¼Œå¯ä»¥å‚è€ƒ[Spring MVC å†…å®¹åå•†"](https://www.w3cschool.cn/spring_mvc_documentation_linesh_translation/spring_mvc_documentation_linesh_translation-h8br27sx.html)çš„å†…å®¹ã€‚
 
-## ºó×ºÄ£Ê½Æ¥ÅäÓëRFD
+## åŽç¼€æ¨¡å¼åŒ¹é…ä¸ŽRFD
 
 > [Original] Reflected file download (RFD) attack was first described in a [paper by Trustwave](https://www.trustwave.com/Resources/SpiderLabs-Blog/Reflected-File-Download---A-New-Web-Attack-Vector/) in 2014\. The attack is similar to XSS in that it relies on input (e.g. query parameter, URI variable) being reflected in the response. However instead of inserting JavaScript into HTML, an RFD attack relies on the browser switching to perform a download and treating the response as an executable script if double-clicked based on the file extension (e.g. .bat, .cmd).
 
-RFD(Reflected file download)¹¥»÷×îÏÈÊÇ2014ÄêÔÚ[TrustwaveµÄÒ»ÆªÂÛÎÄ](https://www.trustwave.com/Resources/SpiderLabs-Blog/Reflected-File-Download---A-New-Web-Attack-Vector/)ÖÐ±»Ìá³öµÄ¡£ËüÓëXSS¹¥»÷ÓÐÐ©ÏàËÆ£¬ÒòÎªÕâÖÖ¹¥»÷·½Ê½Ò²ÒÀÀµÓÚÄ³Ð©ÌØÕ÷£¬¼´ÐèÒªÄãµÄÊäÈë£¨±ÈÈç²éÑ¯²ÎÊý£¬URI±äÁ¿µÈ£©µÈÒ²ÔÚÊä³ö£¨response£©ÖÐÒÔÄ³ÖÖÐÎÊ½³öÏÖ¡£²»Í¬µÄÊÇ£¬RFD¹¥»÷²¢²»ÊÇÍ¨¹ýÔÚHTMLÖÐÐ´ÈëJavaScript´úÂë½øÐÐ£¬¶øÊÇÒÀÀµÓÚä¯ÀÀÆ÷À´Ìø×ªµ½ÏÂÔØÒ³Ãæ£¬²¢°ÑÌØ¶¨¸ñÊ½£¨±ÈÈç.bat£¬.cmdµÈ£©µÄresponseµ±³ÉÊÇ¿ÉÖ´ÐÐ½Å±¾£¬Ë«»÷Ëü¾Í»áÖ´ÐÐ¡£
+RFD(Reflected file download)æ”»å‡»æœ€å…ˆæ˜¯2014å¹´åœ¨[Trustwaveçš„ä¸€ç¯‡è®ºæ–‡](https://www.trustwave.com/Resources/SpiderLabs-Blog/Reflected-File-Download---A-New-Web-Attack-Vector/)ä¸­è¢«æå‡ºçš„ã€‚å®ƒä¸ŽXSSæ”»å‡»æœ‰äº›ç›¸ä¼¼ï¼Œå› ä¸ºè¿™ç§æ”»å‡»æ–¹å¼ä¹Ÿä¾èµ–äºŽæŸäº›ç‰¹å¾ï¼Œå³éœ€è¦ä½ çš„è¾“å…¥ï¼ˆæ¯”å¦‚æŸ¥è¯¢å‚æ•°ï¼ŒURIå˜é‡ç­‰ï¼‰ç­‰ä¹Ÿåœ¨è¾“å‡ºï¼ˆresponseï¼‰ä¸­ä»¥æŸç§å½¢å¼å‡ºçŽ°ã€‚ä¸åŒçš„æ˜¯ï¼ŒRFDæ”»å‡»å¹¶ä¸æ˜¯é€šè¿‡åœ¨HTMLä¸­å†™å…¥JavaScriptä»£ç è¿›è¡Œï¼Œè€Œæ˜¯ä¾èµ–äºŽæµè§ˆå™¨æ¥è·³è½¬åˆ°ä¸‹è½½é¡µé¢ï¼Œå¹¶æŠŠç‰¹å®šæ ¼å¼ï¼ˆæ¯”å¦‚.batï¼Œ.cmdç­‰ï¼‰çš„responseå½“æˆæ˜¯å¯æ‰§è¡Œè„šæœ¬ï¼ŒåŒå‡»å®ƒå°±ä¼šæ‰§è¡Œã€‚
 
 > [Original] In Spring MVC `@ResponseBody` and `ResponseEntity` methods are at risk because they can render different content types which clients can request including via URL path extensions. Note however that neither disabling suffix pattern matching nor disabling the use of path extensions for content negotiation purposes alone are effective at preventing RFD attacks.
 
-Spring MVCµÄ`@ResponseBody`ºÍ`ResponseEntity`·½·¨ÊÇÓÐ·çÏÕµÄ£¬ÒòÎªËüÃÇ»á¸ù¾Ý¿Í»§µÄÇëÇó¡ª¡ª°üÀ¨URLµÄÂ·¾¶ºó×º£¬À´äÖÈ¾²»Í¬µÄÄÚÈÝÀàÐÍ¡£Òò´Ë£¬½ûÓÃºó×ºÄ£Ê½Æ¥Åä»òÕß½ûÓÃ½öÎªÄÚÈÝÐ­ÉÌ¿ªÆôµÄÂ·¾¶ÎÄ¼þºó×ºÃûÐ¯´ø£¬¶¼ÊÇ·À·¶RFD¹¥»÷µÄÓÐÐ§·½Ê½¡£
+Spring MVCçš„`@ResponseBody`å’Œ`ResponseEntity`æ–¹æ³•æ˜¯æœ‰é£Žé™©çš„ï¼Œå› ä¸ºå®ƒä»¬ä¼šæ ¹æ®å®¢æˆ·çš„è¯·æ±‚â€”â€”åŒ…æ‹¬URLçš„è·¯å¾„åŽç¼€ï¼Œæ¥æ¸²æŸ“ä¸åŒçš„å†…å®¹ç±»åž‹ã€‚å› æ­¤ï¼Œç¦ç”¨åŽç¼€æ¨¡å¼åŒ¹é…æˆ–è€…ç¦ç”¨ä»…ä¸ºå†…å®¹åå•†å¼€å¯çš„è·¯å¾„æ–‡ä»¶åŽç¼€åæºå¸¦ï¼Œéƒ½æ˜¯é˜²èŒƒRFDæ”»å‡»çš„æœ‰æ•ˆæ–¹å¼ã€‚
 
 > [Original] For comprehensive protection against RFD, prior to rendering the response body Spring MVC adds a `Content-Disposition:inline;filename=f.txt` header to suggest a fixed and safe download file filename. This is done only if the URL path contains a file extension that is neither whitelisted nor explicitly registered for content negotiation purposes. However it may potentially have side effects when URLs are typed directly into a browser.
 
-ÈôÒª¿ªÆô¶ÔRFD¸ü¸ß¼¶µÄ±£»¤Ä£Ê½£¬¿ÉÒÔÔÚSpring MVCäÖÈ¾¿ªÊ¼ÇëÇóÕýÎÄÖ®Ç°£¬ÔÚÇëÇóÍ·ÖÐÔö¼ÓÒ»ÐÐÅäÖÃ`Content-Disposition:inline;filename=f.txt`£¬Ö¸¶¨¹Ì¶¨µÄÏÂÔØÎÄ¼þµÄÎÄ¼þÃû¡£Õâ½öÔÚURLÂ·¾¶ÖÐ°üº¬ÁËÒ»¸öÎÄ¼þ·ûºÏÒÔÏÂÌØÕ÷µÄÍØÕ¹ÃûÊ±ÊÊÓÃ£º¸ÃÀ©Õ¹Ãû¼È²»ÔÚÐÅÈÎÁÐ±í£¨°×Ãûµ¥£©ÖÐ£¬Ò²Ã»ÓÐ±»ÏÔÊ½µØ±»×¢²áÓÚÄÚÈÝÐ­ÉÌÊ±Ê¹ÓÃ¡£²¢ÇÒÕâÖÖ×ö·¨»¹¿ÉÒÔÓÐÒ»Ð©¸±×÷ÓÃ£¬±ÈÈç£¬µ±URLÊÇÍ¨¹ýä¯ÀÀÆ÷ÊÖ¶¯ÊäÈëµÄÊ±ºò¡£
+è‹¥è¦å¼€å¯å¯¹RFDæ›´é«˜çº§çš„ä¿æŠ¤æ¨¡å¼ï¼Œå¯ä»¥åœ¨Spring MVCæ¸²æŸ“å¼€å§‹è¯·æ±‚æ­£æ–‡ä¹‹å‰ï¼Œåœ¨è¯·æ±‚å¤´ä¸­å¢žåŠ ä¸€è¡Œé…ç½®`Content-Disposition:inline;filename=f.txt`ï¼ŒæŒ‡å®šå›ºå®šçš„ä¸‹è½½æ–‡ä»¶çš„æ–‡ä»¶åã€‚è¿™ä»…åœ¨URLè·¯å¾„ä¸­åŒ…å«äº†ä¸€ä¸ªæ–‡ä»¶ç¬¦åˆä»¥ä¸‹ç‰¹å¾çš„æ‹“å±•åæ—¶é€‚ç”¨ï¼šè¯¥æ‰©å±•åæ—¢ä¸åœ¨ä¿¡ä»»åˆ—è¡¨ï¼ˆç™½åå•ï¼‰ä¸­ï¼Œä¹Ÿæ²¡æœ‰è¢«æ˜¾å¼åœ°è¢«æ³¨å†ŒäºŽå†…å®¹åå•†æ—¶ä½¿ç”¨ã€‚å¹¶ä¸”è¿™ç§åšæ³•è¿˜å¯ä»¥æœ‰ä¸€äº›å‰¯ä½œç”¨ï¼Œæ¯”å¦‚ï¼Œå½“URLæ˜¯é€šè¿‡æµè§ˆå™¨æ‰‹åŠ¨è¾“å…¥çš„æ—¶å€™ã€‚
 
 > [Original] Many common path extensions are whitelisted by default. Furthermore REST API calls are typically not meant to be used as URLs directly in browsers. Nevertheless applications that use custom `HttpMessageConverter` implementations can explicitly register file extensions for content negotiation and the Content-Disposition header will not be added for such extensions. See [Section 21.16.6, "Content Negotiation"](https://linesh.gitbooks.io/spring-mvc-documentation-linesh-translation/content/publish/21-3/mvc.html#mvc-config-content-negotiation).
 
-ºÜ¶à³£ÓÃµÄÂ·¾¶ÎÄ¼þºó×ºÄ¬ÈÏÊÇ±»ÐÅÈÎµÄ¡£ÁíÍâ£¬RESTµÄAPIÒ»°ãÊÇ²»Ó¦¸ÃÖ±½ÓÓÃ×öURLµÄ¡£²»¹ý£¬Äã¿ÉÒÔ×Ô¼º¶¨ÖÆ`HttpMessageConverter`µÄÊµÏÖ£¬È»ºóÏÔÊ½µØ×¢²áÓÃÓÚÄÚÈÝÐ­ÉÌµÄÎÄ¼þÀàÐÍ£¬ÕâÖÖÇéÐÎÏÂContent-DispositionÍ·½«²»»á±»¼ÓÈëµ½ÇëÇóÍ·ÖÐ¡£Ïê¼û[Spring MVC ÄÚÈÝÐ­ÉÌ](https://www.w3cschool.cn/spring_mvc_documentation_linesh_translation/spring_mvc_documentation_linesh_translation-h8br27sx.html)¡£
+å¾ˆå¤šå¸¸ç”¨çš„è·¯å¾„æ–‡ä»¶åŽç¼€é»˜è®¤æ˜¯è¢«ä¿¡ä»»çš„ã€‚å¦å¤–ï¼ŒRESTçš„APIä¸€èˆ¬æ˜¯ä¸åº”è¯¥ç›´æŽ¥ç”¨åšURLçš„ã€‚ä¸è¿‡ï¼Œä½ å¯ä»¥è‡ªå·±å®šåˆ¶`HttpMessageConverter`çš„å®žçŽ°ï¼Œç„¶åŽæ˜¾å¼åœ°æ³¨å†Œç”¨äºŽå†…å®¹åå•†çš„æ–‡ä»¶ç±»åž‹ï¼Œè¿™ç§æƒ…å½¢ä¸‹Content-Dispositionå¤´å°†ä¸ä¼šè¢«åŠ å…¥åˆ°è¯·æ±‚å¤´ä¸­ã€‚è¯¦è§[Spring MVC å†…å®¹åå•†](https://www.w3cschool.cn/spring_mvc_documentation_linesh_translation/spring_mvc_documentation_linesh_translation-h8br27sx.html)ã€‚
 
 > [Original] This was originally introduced as part of work for [CVE-2015-5211](http://pivotal.io/security/cve-2015-5211). Below are additional recommendations from the report:
 >
@@ -375,25 +375,25 @@ Spring MVCµÄ`@ResponseBody`ºÍ`ResponseEntity`·½·¨ÊÇÓÐ·çÏÕµÄ£¬ÒòÎªËüÃÇ»á¸ù¾Ý¿Í»§µ
 > *   Configure content negotiation with the properties "useJaf" and "ignoreUnknownPathExtensions" set to false which would result in a 406 response for URLs with unknown extensions. Note however that this may not be an option if URLs are naturally expected to have a dot towards the end.
 > *   Add `X-Content-Type-Options: nosniff` header to responses. Spring Security 4 does this by default.
 
-¸Ð¾õÕâ½ÚµÄ·­ÒëÖÊÁ¿»¹ÓÐÏÞ£¬ÐèÒª¼ÌÐøÁË½âXSS¹¥»÷ºÍRFD¹¥»÷µÄÏ¸½ÚÔÙ·­¡£
+æ„Ÿè§‰è¿™èŠ‚çš„ç¿»è¯‘è´¨é‡è¿˜æœ‰é™ï¼Œéœ€è¦ç»§ç»­äº†è§£XSSæ”»å‡»å’ŒRFDæ”»å‡»çš„ç»†èŠ‚å†ç¿»ã€‚
 
-## ¾ØÕó±äÁ¿
+## çŸ©é˜µå˜é‡
 
 > [Original] The URI specification [RFC 3986](http://tools.ietf.org/html/rfc3986#section-3.3) defines the possibility of including name-value pairs within path segments. There is no specific term used in the spec. The general "URI path parameters" could be applied although the more unique ["Matrix URIs"](http://www.w3.org/DesignIssues/MatrixURIs.html), originating from an old post by Tim Berners-Lee, is also frequently used and fairly well known. Within Spring MVC these are referred to as matrix variables.
 
-Ô­À´µÄURI¹æ·¶[RFC 3986](http://tools.ietf.org/html/rfc3986#section-3.3)ÖÐÔÊÐíÔÚÂ·¾¶¶ÎÂäÖÐÐ¯´ø¼üÖµ¶Ô£¬µ«¹æ·¶Ã»ÓÐÃ÷È·¸øÕâÑùµÄ¼üÖµ¶Ô¶¨ÒåÊõÓï¡£ÓÐÈË½Ð¡°URIÂ·¾¶²ÎÊý¡±£¬Ò²ÓÐ½Ð[¡°¾ØÕóURI¡±](http://www.w3.org/DesignIssues/MatrixURIs.html)µÄ¡£ºóÕßÊÇTim Berners-LeeÊ×ÏÈÔÚÆä²©¿ÍÖÐÌáµ½µÄÊõÓï£¬±»Ê¹ÓÃµÃÒª¸ü¼ÓÆµ·±Ò»Ð©£¬ÖªÃû¶ÈÒ²¸ü¸ßÐ©¡£¶øÔÚSpring MVCÖÐ£¬ÎÒÃÇ³ÆÕâÑùµÄ¼üÖµ¶ÔÎª¾ØÕó±äÁ¿¡£
+åŽŸæ¥çš„URIè§„èŒƒ[RFC 3986](http://tools.ietf.org/html/rfc3986#section-3.3)ä¸­å…è®¸åœ¨è·¯å¾„æ®µè½ä¸­æºå¸¦é”®å€¼å¯¹ï¼Œä½†è§„èŒƒæ²¡æœ‰æ˜Žç¡®ç»™è¿™æ ·çš„é”®å€¼å¯¹å®šä¹‰æœ¯è¯­ã€‚æœ‰äººå«â€œURIè·¯å¾„å‚æ•°â€ï¼Œä¹Ÿæœ‰å«[â€œçŸ©é˜µURIâ€](http://www.w3.org/DesignIssues/MatrixURIs.html)çš„ã€‚åŽè€…æ˜¯Tim Berners-Leeé¦–å…ˆåœ¨å…¶åšå®¢ä¸­æåˆ°çš„æœ¯è¯­ï¼Œè¢«ä½¿ç”¨å¾—è¦æ›´åŠ é¢‘ç¹ä¸€äº›ï¼ŒçŸ¥ååº¦ä¹Ÿæ›´é«˜äº›ã€‚è€Œåœ¨Spring MVCä¸­ï¼Œæˆ‘ä»¬ç§°è¿™æ ·çš„é”®å€¼å¯¹ä¸ºçŸ©é˜µå˜é‡ã€‚
 
 > [Original] Matrix variables can appear in any path segment, each matrix variable separated with a ";" (semicolon). For example: `"/cars;color=red;year=2012"`. Multiple values may be either "," (comma) separated `"color=red,green,blue"` or the variable name may be repeated `"color=red;color=green;color=blue"`.
 
-¾ØÕó±äÁ¿¿ÉÒÔÔÚÈÎºÎÂ·¾¶¶ÎÂäÖÐ³öÏÖ£¬Ã¿¶Ô¾ØÕó±äÁ¿Ö®¼äÊ¹ÓÃÒ»¸ö·ÖºÅ¡°;¡±¸ô¿ª¡£±ÈÈçÕâÑùµÄURI£º`"/cars;color=red;year=2012"`¡£¶à¸öÖµ¿ÉÒÔÓÃ¶ººÅ¸ô¿ª`"color=red,green,blue"`£¬»òÕßÖØ¸´±äÁ¿Ãû¶à´Î`"color=red;color=green;color=blue"`¡£
+çŸ©é˜µå˜é‡å¯ä»¥åœ¨ä»»ä½•è·¯å¾„æ®µè½ä¸­å‡ºçŽ°ï¼Œæ¯å¯¹çŸ©é˜µå˜é‡ä¹‹é—´ä½¿ç”¨ä¸€ä¸ªåˆ†å·â€œ;â€éš”å¼€ã€‚æ¯”å¦‚è¿™æ ·çš„URIï¼š`"/cars;color=red;year=2012"`ã€‚å¤šä¸ªå€¼å¯ä»¥ç”¨é€—å·éš”å¼€`"color=red,green,blue"`ï¼Œæˆ–è€…é‡å¤å˜é‡åå¤šæ¬¡`"color=red;color=green;color=blue"`ã€‚
 
 > [Original] If a URL is expected to contain matrix variables, the request mapping pattern must represent them with a URI template. This ensures the request can be matched correctly regardless of whether matrix variables are present or not and in what order they are provided.
 
-Èç¹ûÒ»¸öURLÓÐ¿ÉÄÜÐèÒª°üº¬¾ØÕó±äÁ¿£¬ÄÇÃ´ÔÚÇëÇóÂ·¾¶µÄÓ³ÉäÅäÖÃÉÏ¾ÍÐèÒªÊ¹ÓÃURIÄ£°åÀ´ÌåÏÖÕâÒ»µã¡£ÕâÑù²ÅÄÜÈ·±£ÇëÇó¿ÉÒÔ±»ÕýÈ·µØÓ³Éä£¬¶ø²»¹Ü¾ØÕó±äÁ¿ÔÚURIÖÐÊÇ·ñ³öÏÖ¡¢³öÏÖµÄ´ÎÐòÊÇÔõÑùµÈ¡£
+å¦‚æžœä¸€ä¸ªURLæœ‰å¯èƒ½éœ€è¦åŒ…å«çŸ©é˜µå˜é‡ï¼Œé‚£ä¹ˆåœ¨è¯·æ±‚è·¯å¾„çš„æ˜ å°„é…ç½®ä¸Šå°±éœ€è¦ä½¿ç”¨URIæ¨¡æ¿æ¥ä½“çŽ°è¿™ä¸€ç‚¹ã€‚è¿™æ ·æ‰èƒ½ç¡®ä¿è¯·æ±‚å¯ä»¥è¢«æ­£ç¡®åœ°æ˜ å°„ï¼Œè€Œä¸ç®¡çŸ©é˜µå˜é‡åœ¨URIä¸­æ˜¯å¦å‡ºçŽ°ã€å‡ºçŽ°çš„æ¬¡åºæ˜¯æ€Žæ ·ç­‰ã€‚
 
 > [Original] Below is an example of extracting the matrix variable "q":
 
-ÏÂÃæÊÇÒ»¸öÀý×Ó£¬Õ¹Ê¾ÁËÎÒÃÇÈçºÎ´Ó¾ØÕó±äÁ¿ÖÐ»ñÈ¡µ½±äÁ¿¡°q¡±µÄÖµ£º
+ä¸‹é¢æ˜¯ä¸€ä¸ªä¾‹å­ï¼Œå±•ç¤ºäº†æˆ‘ä»¬å¦‚ä½•ä»ŽçŸ©é˜µå˜é‡ä¸­èŽ·å–åˆ°å˜é‡â€œqâ€çš„å€¼ï¼š
 
 ```
 // GET /pets/42;q=11;r=22
@@ -410,7 +410,7 @@ public void findPet(@PathVariable String petId, @MatrixVariable int q) {
 
 > [Original] Since all path segments may contain matrix variables, in some cases you need to be more specific to identify where the variable is expected to be:
 
-ÓÉÓÚÈÎÒâÂ·¾¶¶ÎÂäÖÐ¶¼¿ÉÒÔº¬ÓÐ¾ØÕó±äÁ¿£¬ÔÚÄ³Ð©³¡¾°ÏÂ£¬ÄãÐèÒªÓÃ¸ü¾«È·µÄÐÅÏ¢À´Ö¸¶¨Ò»¸ö¾ØÕó±äÁ¿µÄÎ»ÖÃ£º
+ç”±äºŽä»»æ„è·¯å¾„æ®µè½ä¸­éƒ½å¯ä»¥å«æœ‰çŸ©é˜µå˜é‡ï¼Œåœ¨æŸäº›åœºæ™¯ä¸‹ï¼Œä½ éœ€è¦ç”¨æ›´ç²¾ç¡®çš„ä¿¡æ¯æ¥æŒ‡å®šä¸€ä¸ªçŸ©é˜µå˜é‡çš„ä½ç½®ï¼š
 
 ```
 // GET /owners/42;q=11/pets/21;q=22
@@ -429,7 +429,7 @@ public void findPet(
 
 > [Original] A matrix variable may be defined as optional and a default value specified:
 
-ÄãÒ²¿ÉÒÔÉùÃ÷Ò»¸ö¾ØÕó±äÁ¿²»ÊÇ±ØÐë³öÏÖµÄ£¬²¢¸øËü¸³Ò»¸öÄ¬ÈÏÖµ£º
+ä½ ä¹Ÿå¯ä»¥å£°æ˜Žä¸€ä¸ªçŸ©é˜µå˜é‡ä¸æ˜¯å¿…é¡»å‡ºçŽ°çš„ï¼Œå¹¶ç»™å®ƒèµ‹ä¸€ä¸ªé»˜è®¤å€¼ï¼š
 
 ```
 // GET /pets/42
@@ -445,7 +445,7 @@ public void findPet(@MatrixVariable(required=false, defaultValue="1") int q) {
 
 > [Original] All matrix variables may be obtained in a Map:
 
-Ò²¿ÉÒÔÍ¨¹ýÒ»¸öMapÀ´´æ´¢ËùÓÐµÄ¾ØÕó±äÁ¿£º
+ä¹Ÿå¯ä»¥é€šè¿‡ä¸€ä¸ªMapæ¥å­˜å‚¨æ‰€æœ‰çš„çŸ©é˜µå˜é‡ï¼š
 
 ```
 // GET /owners/42;q=11;r=12/pets/21;q=22;s=23
@@ -464,19 +464,19 @@ public void findPet(
 
 > [Original] Note that to enable the use of matrix variables, you must set the `removeSemicolonContent`property of `RequestMappingHandlerMapping` to `false`. By default it is set to `true`.
 
-Èç¹ûÒªÔÊÐí¾ØÕó±äÁ¿µÄÊ¹ÓÃ£¬Äã±ØÐë°Ñ`RequestMappingHandlerMapping`ÀàµÄ`removeSemicolonContent`ÊôÐÔÉèÖÃÎª`false`¡£¸ÃÖµÄ¬ÈÏÊÇ`true`µÄ¡£
+å¦‚æžœè¦å…è®¸çŸ©é˜µå˜é‡çš„ä½¿ç”¨ï¼Œä½ å¿…é¡»æŠŠ`RequestMappingHandlerMapping`ç±»çš„`removeSemicolonContent`å±žæ€§è®¾ç½®ä¸º`false`ã€‚è¯¥å€¼é»˜è®¤æ˜¯`true`çš„ã€‚
 
 > [Original] The MVC Java config and the MVC namespace both provide options for enabling the use of matrix variables.
 >
-> MVCµÄJava±à³ÌÅäÖÃºÍÃüÃû¿Õ¼äÅäÖÃ¶¼Ìá¹©ÁËÆôÓÃ¾ØÕó±äÁ¿µÄ·½Ê½¡£
+> MVCçš„Javaç¼–ç¨‹é…ç½®å’Œå‘½åç©ºé—´é…ç½®éƒ½æä¾›äº†å¯ç”¨çŸ©é˜µå˜é‡çš„æ–¹å¼ã€‚
 >
 > [Original] If you are using Java config, The [Advanced Customizations with MVC Java Config](https://linesh.gitbooks.io/spring-mvc-documentation-linesh-translation/content/publish/21-3/mvc.html#mvc-config-advanced-java) section describes how the `RequestMappingHandlerMapping` can be customized.
 >
-> Èç¹ûÄãÊÇÊ¹ÓÃJava±à³ÌµÄ·½Ê½£¬[¡°MVC Java¸ß¼¶¶¨ÖÆ»¯ÅäÖÃ¡±Ò»½Ú](http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/mvc.html#mvc-config-advanced-java)ÃèÊöÁËÈçºÎ¶Ô`RequestMappingHandlerMapping`½øÐÐ¶¨ÖÆ¡£
+> å¦‚æžœä½ æ˜¯ä½¿ç”¨Javaç¼–ç¨‹çš„æ–¹å¼ï¼Œ[â€œMVC Javaé«˜çº§å®šåˆ¶åŒ–é…ç½®â€ä¸€èŠ‚](http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/html/mvc.html#mvc-config-advanced-java)æè¿°äº†å¦‚ä½•å¯¹`RequestMappingHandlerMapping`è¿›è¡Œå®šåˆ¶ã€‚
 >
 > [Original] In the MVC namespace, the `<mvc:annotation-driven>` element has an `enable-matrix-variables` attribute that should be set to `true`. By default it is set to `false`.
 >
-> ¶øÊ¹ÓÃMVCµÄÃüÃû¿Õ¼äÅäÖÃÊ±£¬Äã¿ÉÒÔ°Ñ`<mvc:annotation-driven>`ÔªËØÏÂµÄ`enable-matrix-variables`ÊôÐÔÉèÖÃÎª`true`¡£¸ÃÖµÄ¬ÈÏÇé¿öÏÂÊÇÅäÖÃÎª`false`µÄ¡£
+> è€Œä½¿ç”¨MVCçš„å‘½åç©ºé—´é…ç½®æ—¶ï¼Œä½ å¯ä»¥æŠŠ`<mvc:annotation-driven>`å…ƒç´ ä¸‹çš„`enable-matrix-variables`å±žæ€§è®¾ç½®ä¸º`true`ã€‚è¯¥å€¼é»˜è®¤æƒ…å†µä¸‹æ˜¯é…ç½®ä¸º`false`çš„ã€‚
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -495,62 +495,62 @@ public void findPet(
 
 ```
 
-## ¿ÉÏû·ÑµÄÃ½ÌåÀàÐÍ
+## å¯æ¶ˆè´¹çš„åª’ä½“ç±»åž‹
 
 > [Original] You can narrow the primary mapping by specifying a list of consumable media types. The request will be matched only if the _Content-Type_ request header matches the specified media type. For example:
 
-Äã¿ÉÒÔÖ¸¶¨Ò»×é¿ÉÏû·ÑµÄÃ½ÌåÀàÐÍ£¬ËõÐ¡Ó³ÉäµÄ·¶Î§¡£ÕâÑùÖ»ÓÐµ±ÇëÇóÍ·ÖÐ _Content-Type_ µÄÖµÓëÖ¸¶¨¿ÉÏû·ÑµÄÃ½ÌåÀàÐÍÖÐÓÐÏàÍ¬µÄÊ±ºò£¬ÇëÇó²Å»á±»Æ¥Åä¡£±ÈÈçÏÂÃæÕâ¸öÀý×Ó£º
+ä½ å¯ä»¥æŒ‡å®šä¸€ç»„å¯æ¶ˆè´¹çš„åª’ä½“ç±»åž‹ï¼Œç¼©å°æ˜ å°„çš„èŒƒå›´ã€‚è¿™æ ·åªæœ‰å½“è¯·æ±‚å¤´ä¸­ _Content-Type_ çš„å€¼ä¸ŽæŒ‡å®šå¯æ¶ˆè´¹çš„åª’ä½“ç±»åž‹ä¸­æœ‰ç›¸åŒçš„æ—¶å€™ï¼Œè¯·æ±‚æ‰ä¼šè¢«åŒ¹é…ã€‚æ¯”å¦‚ä¸‹é¢è¿™ä¸ªä¾‹å­ï¼š
 
 ```
 @Controller
 @RequestMapping(path = "/pets", method = RequestMethod.POST, consumes="application/json")
 public void addPet(@RequestBody Pet pet, Model model) {
-    // ·½·¨ÊµÏÖÊ¡ÂÔ
+    // æ–¹æ³•å®žçŽ°çœç•¥
 }
 
 ```
 
 > [Original] Consumable media type expressions can also be negated as in _!text/plain_ to match to all requests other than those with _Content-Type_ of _text/plain_. Also consider using constants provided in `MediaType` such as `APPLICATION_JSON_VALUE` and `APPLICATION_JSON_UTF8_VALUE`.
 
-Ö¸¶¨¿ÉÏû·ÑÃ½ÌåÀàÐÍµÄ±í´ïÊ½ÖÐ»¹¿ÉÒÔÊ¹ÓÃ·ñ¶¨£¬±ÈÈç£¬¿ÉÒÔÊ¹ÓÃ _!text/plain_ À´Æ¥ÅäËùÓÐÇëÇóÍ· _Content-Type_ ÖÐ²»º¬ _text/plain_ µÄÇëÇó¡£Í¬Ê±£¬ÔÚ`MediaType`ÀàÖÐ»¹¶¨ÒåÁËÒ»Ð©³£Á¿£¬±ÈÈç`APPLICATION_JSON_VALUE`¡¢`APPLICATION_JSON_UTF8_VALUE`µÈ£¬ÍÆ¼ö¸ü¶àµØÊ¹ÓÃËüÃÇ¡£
+æŒ‡å®šå¯æ¶ˆè´¹åª’ä½“ç±»åž‹çš„è¡¨è¾¾å¼ä¸­è¿˜å¯ä»¥ä½¿ç”¨å¦å®šï¼Œæ¯”å¦‚ï¼Œå¯ä»¥ä½¿ç”¨ _!text/plain_ æ¥åŒ¹é…æ‰€æœ‰è¯·æ±‚å¤´ _Content-Type_ ä¸­ä¸å« _text/plain_ çš„è¯·æ±‚ã€‚åŒæ—¶ï¼Œåœ¨`MediaType`ç±»ä¸­è¿˜å®šä¹‰äº†ä¸€äº›å¸¸é‡ï¼Œæ¯”å¦‚`APPLICATION_JSON_VALUE`ã€`APPLICATION_JSON_UTF8_VALUE`ç­‰ï¼ŒæŽ¨èæ›´å¤šåœ°ä½¿ç”¨å®ƒä»¬ã€‚
 
 > [Original] The _consumes_ condition is supported on the type and on the method level. Unlike most other conditions, when used at the type level, method-level consumable types override rather than extend type-level consumable types.
 >
-> _consumes_ ÊôÐÔÌá¹©µÄÊÇ·½·¨¼¶µÄÀàÐÍÖ§³Ö¡£ÓëÆäËûÊôÐÔ²»Í¬£¬µ±ÔÚÀàÐÍ¼¶Ê¹ÓÃÊ±£¬·½·¨¼¶µÄÏû·ÑÀàÐÍ½«¸²¸ÇÀàÐÍ¼¶µÄÅäÖÃ£¬¶ø·Ç¼Ì³Ð¹ØÏµ¡£
+> _consumes_ å±žæ€§æä¾›çš„æ˜¯æ–¹æ³•çº§çš„ç±»åž‹æ”¯æŒã€‚ä¸Žå…¶ä»–å±žæ€§ä¸åŒï¼Œå½“åœ¨ç±»åž‹çº§ä½¿ç”¨æ—¶ï¼Œæ–¹æ³•çº§çš„æ¶ˆè´¹ç±»åž‹å°†è¦†ç›–ç±»åž‹çº§çš„é…ç½®ï¼Œè€Œéžç»§æ‰¿å…³ç³»ã€‚
 
-## ¿ÉÉú²úµÄÃ½ÌåÀàÐÍ
+## å¯ç”Ÿäº§çš„åª’ä½“ç±»åž‹
 
 > [Original] You can narrow the primary mapping by specifying a list of producible media types. The request will be matched only if the _Accept_ request header matches one of these values. Furthermore, use of the _produces_ condition ensures the actual content type used to generate the response respects the media types specified in the _produces_ condition. For example:
 
-Äã¿ÉÒÔÖ¸¶¨Ò»×é¿ÉÉú²úµÄÃ½ÌåÀàÐÍ£¬ËõÐ¡Ó³ÉäµÄ·¶Î§¡£ÕâÑùÖ»ÓÐµ±ÇëÇóÍ·ÖÐ _Accept_ µÄÖµÓëÖ¸¶¨¿ÉÉú²úµÄÃ½ÌåÀàÐÍÖÐÓÐÏàÍ¬µÄÊ±ºò£¬ÇëÇó²Å»á±»Æ¥Åä¡£¶øÇÒ£¬Ê¹ÓÃ _produces_ Ìõ¼þ¿ÉÒÔÈ·±£ÓÃÓÚÉú³ÉÏìÓ¦£¨response£©µÄÄÚÈÝÓëÖ¸¶¨µÄ¿ÉÉú²úµÄÃ½ÌåÀàÐÍÊÇÏàÍ¬µÄ¡£¾Ù¸öÀý×Ó£º
+ä½ å¯ä»¥æŒ‡å®šä¸€ç»„å¯ç”Ÿäº§çš„åª’ä½“ç±»åž‹ï¼Œç¼©å°æ˜ å°„çš„èŒƒå›´ã€‚è¿™æ ·åªæœ‰å½“è¯·æ±‚å¤´ä¸­ _Accept_ çš„å€¼ä¸ŽæŒ‡å®šå¯ç”Ÿäº§çš„åª’ä½“ç±»åž‹ä¸­æœ‰ç›¸åŒçš„æ—¶å€™ï¼Œè¯·æ±‚æ‰ä¼šè¢«åŒ¹é…ã€‚è€Œä¸”ï¼Œä½¿ç”¨ _produces_ æ¡ä»¶å¯ä»¥ç¡®ä¿ç”¨äºŽç”Ÿæˆå“åº”ï¼ˆresponseï¼‰çš„å†…å®¹ä¸ŽæŒ‡å®šçš„å¯ç”Ÿäº§çš„åª’ä½“ç±»åž‹æ˜¯ç›¸åŒçš„ã€‚ä¸¾ä¸ªä¾‹å­ï¼š
 
 ```
 @Controller
 @RequestMapping(path = "/pets/{petId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @ResponseBody
 public Pet getPet(@PathVariable String petId, Model model) {
-    // ·½·¨ÊµÏÖÊ¡ÂÔ
+    // æ–¹æ³•å®žçŽ°çœç•¥
 }
 
 ```
 
 > [Original] Be aware that the media type specified in the _produces_ condition can also optionally specify a character set. For example, in the code snippet above we specify the same media type than the default one configured in `MappingJackson2HttpMessageConverter`, including the `UTF-8`charset.
 >
-> Òª×¢ÒâµÄÊÇ£¬Í¨¹ý _condition_ Ìõ¼þÖ¸¶¨µÄÃ½ÌåÀàÐÍÒ²¿ÉÒÔÖ¸¶¨×Ö·û¼¯¡£±ÈÈçÔÚÉÏÃæµÄÐ¡¶Î´úÂëÖÐ£¬ÎÒÃÇ»¹ÊÇ¸²Ð´ÁË`MappingJackson2HttpMessageConverter`ÀàÖÐÄ¬ÈÏÅäÖÃµÄÃ½ÌåÀàÐÍ£¬Í¬Ê±£¬»¹Ö¸¶¨ÁËÊ¹ÓÃ`UTF-8`µÄ×Ö·û¼¯¡£
+> è¦æ³¨æ„çš„æ˜¯ï¼Œé€šè¿‡ _condition_ æ¡ä»¶æŒ‡å®šçš„åª’ä½“ç±»åž‹ä¹Ÿå¯ä»¥æŒ‡å®šå­—ç¬¦é›†ã€‚æ¯”å¦‚åœ¨ä¸Šé¢çš„å°æ®µä»£ç ä¸­ï¼Œæˆ‘ä»¬è¿˜æ˜¯è¦†å†™äº†`MappingJackson2HttpMessageConverter`ç±»ä¸­é»˜è®¤é…ç½®çš„åª’ä½“ç±»åž‹ï¼ŒåŒæ—¶ï¼Œè¿˜æŒ‡å®šäº†ä½¿ç”¨`UTF-8`çš„å­—ç¬¦é›†ã€‚
 >
 > [Original] Just like with _consumes_, producible media type expressions can be negated as in _!text/plain_ to match to all requests other than those with an _Accept_ header value of _text/plain_. Also consider using constants provided in `MediaType` such as `APPLICATION_JSON_VALUE` and `APPLICATION_JSON_UTF8_VALUE`.
 
-Óë _consumes_ Ìõ¼þÀàËÆ£¬¿ÉÉú²úµÄÃ½ÌåÀàÐÍ±í´ïÊ½Ò²¿ÉÒÔÊ¹ÓÃ·ñ¶¨¡£±ÈÈç£¬¿ÉÒÔÊ¹ÓÃ _!text/plain_ À´Æ¥ÅäËùÓÐÇëÇóÍ· _Accept_ ÖÐ²»º¬ _text/plain_ µÄÇëÇó¡£Í¬Ê±£¬ÔÚ`MediaType`ÀàÖÐ»¹¶¨ÒåÁËÒ»Ð©³£Á¿£¬±ÈÈç`APPLICATION_JSON_VALUE`¡¢`APPLICATION_JSON_UTF8_VALUE`µÈ£¬ÍÆ¼ö¸ü¶àµØÊ¹ÓÃËüÃÇ¡£
+ä¸Ž _consumes_ æ¡ä»¶ç±»ä¼¼ï¼Œå¯ç”Ÿäº§çš„åª’ä½“ç±»åž‹è¡¨è¾¾å¼ä¹Ÿå¯ä»¥ä½¿ç”¨å¦å®šã€‚æ¯”å¦‚ï¼Œå¯ä»¥ä½¿ç”¨ _!text/plain_ æ¥åŒ¹é…æ‰€æœ‰è¯·æ±‚å¤´ _Accept_ ä¸­ä¸å« _text/plain_ çš„è¯·æ±‚ã€‚åŒæ—¶ï¼Œåœ¨`MediaType`ç±»ä¸­è¿˜å®šä¹‰äº†ä¸€äº›å¸¸é‡ï¼Œæ¯”å¦‚`APPLICATION_JSON_VALUE`ã€`APPLICATION_JSON_UTF8_VALUE`ç­‰ï¼ŒæŽ¨èæ›´å¤šåœ°ä½¿ç”¨å®ƒä»¬ã€‚
 
 > [Original] The _produces_ condition is supported on the type and on the method level. Unlike most other conditions, when used at the type level, method-level producible types override rather than extend type-level producible types.
 >
-> _produces_ ÊôÐÔÌá¹©µÄÊÇ·½·¨¼¶µÄÀàÐÍÖ§³Ö¡£ÓëÆäËûÊôÐÔ²»Í¬£¬µ±ÔÚÀàÐÍ¼¶Ê¹ÓÃÊ±£¬·½·¨¼¶µÄÏû·ÑÀàÐÍ½«¸²¸ÇÀàÐÍ¼¶µÄÅäÖÃ£¬¶ø·Ç¼Ì³Ð¹ØÏµ¡£
+> _produces_ å±žæ€§æä¾›çš„æ˜¯æ–¹æ³•çº§çš„ç±»åž‹æ”¯æŒã€‚ä¸Žå…¶ä»–å±žæ€§ä¸åŒï¼Œå½“åœ¨ç±»åž‹çº§ä½¿ç”¨æ—¶ï¼Œæ–¹æ³•çº§çš„æ¶ˆè´¹ç±»åž‹å°†è¦†ç›–ç±»åž‹çº§çš„é…ç½®ï¼Œè€Œéžç»§æ‰¿å…³ç³»ã€‚
 
-## ÇëÇó²ÎÊýÓëÇëÇóÍ·µÄÖµ
+## è¯·æ±‚å‚æ•°ä¸Žè¯·æ±‚å¤´çš„å€¼
 
 > [Original] You can narrow request matching through request parameter conditions such as `"myParam"`, `"!myParam"`, or `"myParam=myValue"`. The first two test for request parameter presence/absence and the third for a specific parameter value. Here is an example with a request parameter value condition:
 
-Äã¿ÉÒÔÉ¸Ñ¡ÇëÇó²ÎÊýµÄÌõ¼þÀ´ËõÐ¡ÇëÇóÆ¥Åä·¶Î§£¬±ÈÈç`"myParam"`¡¢`"!myParam"`¼°`"myParam=myValue"`µÈ¡£Ç°Á½¸öÌõ¼þÓÃÓÚÉ¸Ñ¡´æÔÚ/²»´æÔÚÄ³Ð©ÇëÇó²ÎÊýµÄÇëÇó£¬µÚÈý¸öÌõ¼þÉ¸Ñ¡¾ßÓÐÌØ¶¨²ÎÊýÖµµÄÇëÇó¡£ÏÂÃæÓÐ¸öÀý×Ó£¬Õ¹Ê¾ÁËÈçºÎÊ¹ÓÃÇëÇó²ÎÊýÖµµÄÉ¸Ñ¡Ìõ¼þ£º
+ä½ å¯ä»¥ç­›é€‰è¯·æ±‚å‚æ•°çš„æ¡ä»¶æ¥ç¼©å°è¯·æ±‚åŒ¹é…èŒƒå›´ï¼Œæ¯”å¦‚`"myParam"`ã€`"!myParam"`åŠ`"myParam=myValue"`ç­‰ã€‚å‰ä¸¤ä¸ªæ¡ä»¶ç”¨äºŽç­›é€‰å­˜åœ¨/ä¸å­˜åœ¨æŸäº›è¯·æ±‚å‚æ•°çš„è¯·æ±‚ï¼Œç¬¬ä¸‰ä¸ªæ¡ä»¶ç­›é€‰å…·æœ‰ç‰¹å®šå‚æ•°å€¼çš„è¯·æ±‚ã€‚ä¸‹é¢æœ‰ä¸ªä¾‹å­ï¼Œå±•ç¤ºäº†å¦‚ä½•ä½¿ç”¨è¯·æ±‚å‚æ•°å€¼çš„ç­›é€‰æ¡ä»¶ï¼š
 
 ```
 @Controller
@@ -559,7 +559,7 @@ public class RelativePathUriTemplateController {
 
     @RequestMapping(path = "/pets/{petId}", method = RequestMethod.GET, params="myParam=myValue")
     public void findPet(@PathVariable String ownerId, @PathVariable String petId, Model model) {
-        // Êµ¼ÊÊµÏÖÊ¡ÂÔ
+        // å®žé™…å®žçŽ°çœç•¥
     }
 
 }
@@ -568,7 +568,7 @@ public class RelativePathUriTemplateController {
 
 > [Original] The same can be done to test for request header presence/absence or to match based on a specific request header value:
 
-Í¬Ñù£¬Äã¿ÉÒÔÓÃÏàÍ¬µÄÌõ¼þÀ´É¸Ñ¡ÇëÇóÍ·µÄ³öÏÖÓë·ñ£¬»òÕßÉ¸Ñ¡³öÒ»¸ö¾ßÓÐÌØ¶¨ÖµµÄÇëÇóÍ·£º
+åŒæ ·ï¼Œä½ å¯ä»¥ç”¨ç›¸åŒçš„æ¡ä»¶æ¥ç­›é€‰è¯·æ±‚å¤´çš„å‡ºçŽ°ä¸Žå¦ï¼Œæˆ–è€…ç­›é€‰å‡ºä¸€ä¸ªå…·æœ‰ç‰¹å®šå€¼çš„è¯·æ±‚å¤´ï¼š
 
 ```
 @Controller
@@ -577,7 +577,7 @@ public class RelativePathUriTemplateController {
 
     @RequestMapping(path = "/pets", method = RequestMethod.GET, headers="myHeader=myValue")
     public void findPet(@PathVariable String ownerId, @PathVariable String petId, Model model) {
-        // ·½·¨ÌåÊµÏÖÊ¡ÂÔ
+        // æ–¹æ³•ä½“å®žçŽ°çœç•¥
     }
 
 }
@@ -586,7 +586,7 @@ public class RelativePathUriTemplateController {
 
 > [Original] Although you can match to _Content-Type_ and _Accept_ header values using media type wild cards (for example _"content-type=text/*"_ will match to _"text/plain"_ and _"text/html"_), it is recommended to use the _consumes_ and _produces_ conditions respectively instead. They are intended specifically for that purpose.
 >
-> ¾¡¹Ü£¬Äã¿ÉÒÔÊ¹ÓÃÃ½ÌåÀàÐÍµÄÍ¨Åä·û£¨±ÈÈç _"content-type=text/*"_£©À´Æ¥ÅäÇëÇóÍ· _Content-Type_ºÍ _Accept_µÄÖµ£¬µ«ÎÒÃÇ¸üÍÆ¼ö¶ÀÁ¢Ê¹ÓÃ _consumes_ºÍ _produces_Ìõ¼þÀ´É¸Ñ¡¸÷×ÔµÄÇëÇó¡£ÒòÎªËüÃÇ¾ÍÊÇ×¨ÃÅÎªÇø·ÖÕâÁ½ÖÖ²»Í¬µÄ³¡¾°¶øÉúµÄ¡£
+> å°½ç®¡ï¼Œä½ å¯ä»¥ä½¿ç”¨åª’ä½“ç±»åž‹çš„é€šé…ç¬¦ï¼ˆæ¯”å¦‚ _"content-type=text/*"_ï¼‰æ¥åŒ¹é…è¯·æ±‚å¤´ _Content-Type_å’Œ _Accept_çš„å€¼ï¼Œä½†æˆ‘ä»¬æ›´æŽ¨èç‹¬ç«‹ä½¿ç”¨ _consumes_å’Œ _produces_æ¡ä»¶æ¥ç­›é€‰å„è‡ªçš„è¯·æ±‚ã€‚å› ä¸ºå®ƒä»¬å°±æ˜¯ä¸“é—¨ä¸ºåŒºåˆ†è¿™ä¸¤ç§ä¸åŒçš„åœºæ™¯è€Œç”Ÿçš„ã€‚
 
 </section>
 

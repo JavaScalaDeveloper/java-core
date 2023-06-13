@@ -1,13 +1,13 @@
-±¾ÎÄÊÇ¡¶ÊÂÎñµÄ¸ôÀë¼¶±ğÓë´«²¥·½Ê½µÄ´¦Àí¡··ÖÎöµÄµÚ 2 Æª£¬½ÓÉÏÎÄ£¬ÎÒÃÇ¼ÌĞø¡£
+æœ¬æ–‡æ˜¯ã€Šäº‹åŠ¡çš„éš”ç¦»çº§åˆ«ä¸ä¼ æ’­æ–¹å¼çš„å¤„ç†ã€‹åˆ†æçš„ç¬¬ 2 ç¯‡ï¼Œæ¥ä¸Šæ–‡ï¼Œæˆ‘ä»¬ç»§ç»­ã€‚
 
-#### 3.5 »ñÈ¡ÊÂÎñĞÅÏ¢
+#### 3.5 è·å–äº‹åŠ¡ä¿¡æ¯
 
-ÊÂÎñµÄĞÅÏ¢»áÔÚ `TransactionAspectSupport#createTransactionIfNecessary` ·½·¨ÖĞ»ñÈ¡£¬Õâ¸ö·½·¨·Ç³£ÖØÒª£¬Ç°Ãæ½éÉÜ¸ôÀë¼¶±ğ¡¢´«²¥·½Ê½¶¼»áÔÚÕâ¸ö·½·¨Àï´¦Àí¡£¸Ã·½·¨´úÂëÈçÏÂ£º
+äº‹åŠ¡çš„ä¿¡æ¯ä¼šåœ¨ `TransactionAspectSupport#createTransactionIfNecessary` æ–¹æ³•ä¸­è·å–ï¼Œè¿™ä¸ªæ–¹æ³•éå¸¸é‡è¦ï¼Œå‰é¢ä»‹ç»éš”ç¦»çº§åˆ«ã€ä¼ æ’­æ–¹å¼éƒ½ä¼šåœ¨è¿™ä¸ªæ–¹æ³•é‡Œå¤„ç†ã€‚è¯¥æ–¹æ³•ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 protected TransactionInfo createTransactionIfNecessary(@Nullable PlatformTransactionManager tm,
         @Nullable TransactionAttribute txAttr, final String joinpointIdentification) {
-    // Èç¹ûÎ´Ö¸¶¨Ãû³Æ£¬Ôò½«·½·¨Ãûµ±×öÊÂÎñÃû³Æ
+    // å¦‚æœæœªæŒ‡å®šåç§°ï¼Œåˆ™å°†æ–¹æ³•åå½“åšäº‹åŠ¡åç§°
     if (txAttr != null && txAttr.getName() == null) {
         txAttr = new DelegatingTransactionAttribute(txAttr) {
             @Override
@@ -20,22 +20,22 @@ protected TransactionInfo createTransactionIfNecessary(@Nullable PlatformTransac
     TransactionStatus status = null;
     if (txAttr != null) {
         if (tm != null) {
-            // »ñÈ¡ÊÂÎñ×´Ì¬£¬Èç¹ûµ±Ç°Ã»ÓĞÊÂÎñ£¬¿ÉÄÜ»á´´½¨ÊÂÎñ
+            // è·å–äº‹åŠ¡çŠ¶æ€ï¼Œå¦‚æœå½“å‰æ²¡æœ‰äº‹åŠ¡ï¼Œå¯èƒ½ä¼šåˆ›å»ºäº‹åŠ¡
             status = tm.getTransaction(txAttr);
         }
     }
-    // ×¼±¸ÊÂÎñĞÅÏ¢£¬¾ÍÊÇ½«Ç°ÃæµÃµ½µÄĞÅÏ¢·â×°³É TransactionInfo
+    // å‡†å¤‡äº‹åŠ¡ä¿¡æ¯ï¼Œå°±æ˜¯å°†å‰é¢å¾—åˆ°çš„ä¿¡æ¯å°è£…æˆ TransactionInfo
     return prepareTransactionInfo(tm, txAttr, joinpointIdentification, status);
 }
 
 ```
 
-Õâ¸ö·½·¨Ö÷ÒªÊÇÁ½¸ö²Ù×÷£º
+è¿™ä¸ªæ–¹æ³•ä¸»è¦æ˜¯ä¸¤ä¸ªæ“ä½œï¼š
 
-1.  »ñÈ¡ÊÂÎñ×´Ì¬
-2.  ×¼±¸ÊÂÎñĞÅÏ¢
+1.  è·å–äº‹åŠ¡çŠ¶æ€
+2.  å‡†å¤‡äº‹åŠ¡ä¿¡æ¯
 
-ÏÈÀ´¿´ÏÂ»ñÈ¡ÊÂÎñ×´Ì¬µÄÁ÷³Ì£¬·½·¨Îª `AbstractPlatformTransactionManager#getTransaction`£º
+å…ˆæ¥çœ‹ä¸‹è·å–äº‹åŠ¡çŠ¶æ€çš„æµç¨‹ï¼Œæ–¹æ³•ä¸º `AbstractPlatformTransactionManager#getTransaction`ï¼š
 
 ```
 public final TransactionStatus getTransaction(@Nullable TransactionDefinition definition)
@@ -44,40 +44,40 @@ public final TransactionStatus getTransaction(@Nullable TransactionDefinition de
     TransactionDefinition def = (definition != null ? 
             definition : TransactionDefinition.withDefaults());
 
-    // »ñÈ¡ÊÂÎñ¶ÔÏó
+    // è·å–äº‹åŠ¡å¯¹è±¡
     Object transaction = doGetTransaction();
     boolean debugEnabled = logger.isDebugEnabled();
 
-    // ÊÇ·ñ´æÔÚÊÂÎñ£¬´æÔÚÔò·µ»Ø
+    // æ˜¯å¦å­˜åœ¨äº‹åŠ¡ï¼Œå­˜åœ¨åˆ™è¿”å›
     if (isExistingTransaction(transaction)) {
         return handleExistingTransaction(def, transaction, debugEnabled);
     }
-    // ÔËĞĞµ½ÁËÕâÀï£¬±íÃ÷µ±Ç°Ã»ÓĞÊÂÎñ
+    // è¿è¡Œåˆ°äº†è¿™é‡Œï¼Œè¡¨æ˜å½“å‰æ²¡æœ‰äº‹åŠ¡
 
-    // ¼ì²é³¬Ê±Ê±¼äµÄÉèÖÃÊÇ·ñºÏÀí
+    // æ£€æŸ¥è¶…æ—¶æ—¶é—´çš„è®¾ç½®æ˜¯å¦åˆç†
     if (def.getTimeout() < TransactionDefinition.TIMEOUT_DEFAULT) {
         throw new InvalidTimeoutException("Invalid transaction timeout", def.getTimeout());
     }
 
-    // PROPAGATION_MANDATORY£º±ØĞëÔÚÊÂÎñÖĞÔËĞĞ£¬ÕâÀïÃ»ÓĞÊÂÎñ£¬Ö±½ÓÅ×Òì³£
+    // PROPAGATION_MANDATORYï¼šå¿…é¡»åœ¨äº‹åŠ¡ä¸­è¿è¡Œï¼Œè¿™é‡Œæ²¡æœ‰äº‹åŠ¡ï¼Œç›´æ¥æŠ›å¼‚å¸¸
     // No existing transaction found -> check propagation behavior to find out how to proceed.
     if (def.getPropagationBehavior() == TransactionDefinition.PROPAGATION_MANDATORY) {
         throw new IllegalTransactionStateException(...);
     }
-    // ¹ÒÆğµ±Ç°ÊÂÎñ£¬´´½¨ĞÂÊÂÎñ
+    // æŒ‚èµ·å½“å‰äº‹åŠ¡ï¼Œåˆ›å»ºæ–°äº‹åŠ¡
     else if (def.getPropagationBehavior() == TransactionDefinition.PROPAGATION_REQUIRED ||
             def.getPropagationBehavior() == TransactionDefinition.PROPAGATION_REQUIRES_NEW ||
             def.getPropagationBehavior() == TransactionDefinition.PROPAGATION_NESTED) {
-        // suspend(...) ´«Èënull£ºÈç¹ûÓĞÍ¬²½ÊÂÎñ£¬Ôò¹ÒÆğÍ¬²½ÊÂÎñ£¬·ñÔòÊ²Ã´Ò²²»×ö
+        // suspend(...) ä¼ å…¥nullï¼šå¦‚æœæœ‰åŒæ­¥äº‹åŠ¡ï¼Œåˆ™æŒ‚èµ·åŒæ­¥äº‹åŠ¡ï¼Œå¦åˆ™ä»€ä¹ˆä¹Ÿä¸åš
         SuspendedResourcesHolder suspendedResources = suspend(null);
         try {
             boolean newSynchronization = (getTransactionSynchronization() != SYNCHRONIZATION_NEVER);
-            // ´´½¨ÊÂÎñ¶ÔÏó
+            // åˆ›å»ºäº‹åŠ¡å¯¹è±¡
             DefaultTransactionStatus status = newTransactionStatus(
                     def, transaction, true, newSynchronization, debugEnabled, suspendedResources);
-            // Æô¶¯ÊÂÎñ
+            // å¯åŠ¨äº‹åŠ¡
             doBegin(transaction, def);
-            // ÉèÖÃ TransactionSynchronizationManager µÄÊôĞÔ
+            // è®¾ç½® TransactionSynchronizationManager çš„å±æ€§
             prepareSynchronization(status, def);
             return status;
         }
@@ -94,17 +94,17 @@ public final TransactionStatus getTransaction(@Nullable TransactionDefinition de
 
 ```
 
-Õâ¸ö·½·¨ÓĞµã³¤£¬ÎÒÃÇÂıÂı·ÖÎö¡£
+è¿™ä¸ªæ–¹æ³•æœ‰ç‚¹é•¿ï¼Œæˆ‘ä»¬æ…¢æ…¢åˆ†æã€‚
 
-##### 1. `doGetTransaction(...)`£º»ñÈ¡ÊÂÎñ¶ÔÏó
+##### 1. `doGetTransaction(...)`ï¼šè·å–äº‹åŠ¡å¯¹è±¡
 
-»ñÈ¡ÊÂÎñ¶ÔÏóµÄ·½·¨Îª `DataSourceTransactionManager#doGetTransaction`£º
+è·å–äº‹åŠ¡å¯¹è±¡çš„æ–¹æ³•ä¸º `DataSourceTransactionManager#doGetTransaction`ï¼š
 
 ```
 protected Object doGetTransaction() {
     DataSourceTransactionObject txObject = new DataSourceTransactionObject();
     txObject.setSavepointAllowed(isNestedTransactionAllowed());
-    // »ñÈ¡Á¬½ÓĞÅÏ¢£¬obtainDataSource()£º»ñÈ¡Êı¾İÔ´
+    // è·å–è¿æ¥ä¿¡æ¯ï¼ŒobtainDataSource()ï¼šè·å–æ•°æ®æº
     ConnectionHolder conHolder = 
             (ConnectionHolder) TransactionSynchronizationManager.getResource(obtainDataSource());
     txObject.setConnectionHolder(conHolder, false);
@@ -113,12 +113,12 @@ protected Object doGetTransaction() {
 
 ```
 
-ÕâÀïÓĞÁ½¸ö²Ù×÷£º
+è¿™é‡Œæœ‰ä¸¤ä¸ªæ“ä½œï¼š
 
-1.  »ñÈ¡Êı¾İÔ´
-2.  »ñÈ¡ `ConnectionHolder`
+1.  è·å–æ•°æ®æº
+2.  è·å– `ConnectionHolder`
 
-ÎÒÃÇÏÈÀ´¿´¿´Êı¾İÔ´ÊÇÈçºÎ»ñÈ¡µÄ£º
+æˆ‘ä»¬å…ˆæ¥çœ‹çœ‹æ•°æ®æºæ˜¯å¦‚ä½•è·å–çš„ï¼š
 
 ```
 public class DataSourceTransactionManager extends AbstractPlatformTransactionManager
@@ -128,7 +128,7 @@ public class DataSourceTransactionManager extends AbstractPlatformTransactionMan
     private DataSource dataSource;
 
     /**
-     * ¹¹Ôì·½·¨´«ÈëÁËÊı¾İÔ´
+     * æ„é€ æ–¹æ³•ä¼ å…¥äº†æ•°æ®æº
      */
     public DataSourceTransactionManager(DataSource dataSource) {
         this();
@@ -137,7 +137,7 @@ public class DataSourceTransactionManager extends AbstractPlatformTransactionMan
     }
 
     /**
-     * ÉèÖÃÊı¾İÔ´
+     * è®¾ç½®æ•°æ®æº
      */
     public void setDataSource(@Nullable DataSource dataSource) {
         if (dataSource instanceof TransactionAwareDataSourceProxy) {
@@ -155,7 +155,7 @@ public class DataSourceTransactionManager extends AbstractPlatformTransactionMan
     }
 
     /**
-     * »ñÈ¡Êı¾İÔ´
+     * è·å–æ•°æ®æº
      */
     protected DataSource obtainDataSource() {
         DataSource dataSource = getDataSource();
@@ -168,14 +168,14 @@ public class DataSourceTransactionManager extends AbstractPlatformTransactionMan
 
 ```
 
-`obtainDataSource()` Êµ¼ÊÉÏÊÇµ÷ÓÃÁË `getDataSource()` ·½·¨£¬·µ»ØµÄÊÇ `dataSource` ³ÉÔ±±äÁ¿£¬¶ø `dataSource` ÓÖÊÇÔÚ `DataSourceTransactionManager` µÄ¹¹Ôì·½·¨Àï´«ÈëµÄ£¬Òò´Ë£¬µÃµ½µÄ½áÂÛÊÇ£¬ÕâÀï»ñÈ¡µÄÊı¾İÔ´¾ÍÊÇÎÒÃÇÔÚÉèÖÃ `DataSourceTransactionManager` Ê±´«ÈëµÄ£º
+`obtainDataSource()` å®é™…ä¸Šæ˜¯è°ƒç”¨äº† `getDataSource()` æ–¹æ³•ï¼Œè¿”å›çš„æ˜¯ `dataSource` æˆå‘˜å˜é‡ï¼Œè€Œ `dataSource` åˆæ˜¯åœ¨ `DataSourceTransactionManager` çš„æ„é€ æ–¹æ³•é‡Œä¼ å…¥çš„ï¼Œå› æ­¤ï¼Œå¾—åˆ°çš„ç»“è®ºæ˜¯ï¼Œè¿™é‡Œè·å–çš„æ•°æ®æºå°±æ˜¯æˆ‘ä»¬åœ¨è®¾ç½® `DataSourceTransactionManager` æ—¶ä¼ å…¥çš„ï¼š
 
 ```
 @Configuration
 public class TxDemo03Config {
 
     /**
-     * Éú³ÉÊı¾İÔ´
+     * ç”Ÿæˆæ•°æ®æº
      * @return
      * @throws Exception
      */
@@ -189,7 +189,7 @@ public class TxDemo03Config {
     }
 
     /**
-     * ÊÂÎñ¹ÜÀíÆ÷
+     * äº‹åŠ¡ç®¡ç†å™¨
      * @param dataSource
      * @return
      */
@@ -204,31 +204,31 @@ public class TxDemo03Config {
 
 ```
 
-¶øÕâ¸öÊı¾İÔ´£¬ÕıÊÇ `SimpleDriverDataSource`.
+è€Œè¿™ä¸ªæ•°æ®æºï¼Œæ­£æ˜¯ `SimpleDriverDataSource`.
 
-ÎÒÃÇÔÙÀ´¿´¿´ `ConnectionHolder` µÄ»ñÈ¡£¬¸Ã·½·¨Îª `TransactionSynchronizationManager#getResource` £¬´úÂëÈçÏÂ£º
+æˆ‘ä»¬å†æ¥çœ‹çœ‹ `ConnectionHolder` çš„è·å–ï¼Œè¯¥æ–¹æ³•ä¸º `TransactionSynchronizationManager#getResource` ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
-// ÓÃ ThreadLocal À´´æ·Å  ConnectionHolder ĞÅÏ¢
+// ç”¨ ThreadLocal æ¥å­˜æ”¾  ConnectionHolder ä¿¡æ¯
 private static final ThreadLocal<Map<Object, Object>> resources =
         new NamedThreadLocal<>("Transactional resources");
 
 /**
- * »ñÈ¡ ConnectionHolder
+ * è·å– ConnectionHolder
  */
 public static Object getResource(Object key) {
-    // °ü×°ÏÂ´«ÈëµÄ key
+    // åŒ…è£…ä¸‹ä¼ å…¥çš„ key
     Object actualKey = TransactionSynchronizationUtils.unwrapResourceIfNecessary(key);
-    // ÔÚÕâÀï»ñÈ¡Á¬½ÓĞÅÏ¢
+    // åœ¨è¿™é‡Œè·å–è¿æ¥ä¿¡æ¯
     Object value = doGetResource(actualKey);
     return value;
 }
 
 /**
- * ¾ßÌåµÄ»ñÈ¡²Ù×÷
+ * å…·ä½“çš„è·å–æ“ä½œ
  */
 private static Object doGetResource(Object actualKey) {
-    // ´ÓThreadLocalÖĞ»ñÈ¡
+    // ä»ThreadLocalä¸­è·å–
     Map<Object, Object> map = resources.get();
     if (map == null) {
         return null;
@@ -246,19 +246,19 @@ private static Object doGetResource(Object actualKey) {
 
 ```
 
-´Ó´úÂëÀ´¿´£¬`TransactionSynchronizationManager` ³ÖÓĞÒ»¸ö `ThreadLocal` µÄÊµÀı£¬ÆäÖĞ´æ·ÅÁËÒ»¸ö `Map`£¬¸Ã `Map` µÄ `key` Îª `datasource`£¬`value` Îª `ConnectionHolder`.
+ä»ä»£ç æ¥çœ‹ï¼Œ`TransactionSynchronizationManager` æŒæœ‰ä¸€ä¸ª `ThreadLocal` çš„å®ä¾‹ï¼Œå…¶ä¸­å­˜æ”¾äº†ä¸€ä¸ª `Map`ï¼Œè¯¥ `Map` çš„ `key` ä¸º `datasource`ï¼Œ`value` ä¸º `ConnectionHolder`.
 
-ÄÇÃ´Õâ¸ö `ConnectionHolder` ÊÇÊ²Ã´ÄØ£¿¿ÉÒÔ¼òµ¥µØ½«ÆäÀí½âÎª `Connection`(Êı¾İ¿âÁ¬½Ó) µÄ°ü×°Àà£¬ÆäÖĞ×îÖØÒªµÄÊôĞÔ¾ÍÊÇ `Connection` ÁË£º
+é‚£ä¹ˆè¿™ä¸ª `ConnectionHolder` æ˜¯ä»€ä¹ˆå‘¢ï¼Ÿå¯ä»¥ç®€å•åœ°å°†å…¶ç†è§£ä¸º `Connection`(æ•°æ®åº“è¿æ¥) çš„åŒ…è£…ç±»ï¼Œå…¶ä¸­æœ€é‡è¦çš„å±æ€§å°±æ˜¯ `Connection` äº†ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d8c4ae3884177f485fbb95d1828fdb39ae2.png)
 
-ºÃÁË£¬µ½ÕâÀï¾Í°Ñ `doGetTransaction(xxx)` ·½·¨·ÖÎöÍêÁË£¬ÔÙÀ´¿´¿´Õâ¸ö·½·¨·µ»ØµÄ½á¹û£º
+å¥½äº†ï¼Œåˆ°è¿™é‡Œå°±æŠŠ `doGetTransaction(xxx)` æ–¹æ³•åˆ†æå®Œäº†ï¼Œå†æ¥çœ‹çœ‹è¿™ä¸ªæ–¹æ³•è¿”å›çš„ç»“æœï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0944429e31a6c0b67e121674202dd5ec0fd.png)
 
-##### 2. `isExistingTransaction(...)`£ºÊÇ·ñ´æÔÚÊÂÎñ
+##### 2. `isExistingTransaction(...)`ï¼šæ˜¯å¦å­˜åœ¨äº‹åŠ¡
 
-»ñÈ¡µ½ÊÂÎñ¶ÔÏó `DataSourceTransactionObject` ºó£¬½ÓÏÂÀ´¾ÍÊÇÅĞ¶ÏÊÇ·ñ´æÔÚÊÂÎñÁË£¬ÅĞ¶Ï·½·¨ÔÚ `DataSourceTransactionManager#isExistingTransaction`£¬´úÂëÈçÏÂ£º
+è·å–åˆ°äº‹åŠ¡å¯¹è±¡ `DataSourceTransactionObject` åï¼Œæ¥ä¸‹æ¥å°±æ˜¯åˆ¤æ–­æ˜¯å¦å­˜åœ¨äº‹åŠ¡äº†ï¼Œåˆ¤æ–­æ–¹æ³•åœ¨ `DataSourceTransactionManager#isExistingTransaction`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 protected boolean isExistingTransaction(Object transaction) {
@@ -269,38 +269,38 @@ protected boolean isExistingTransaction(Object transaction) {
 
 ```
 
-`ConnectionHolder` ÖĞÓĞÒ»¸ö³ÉÔ±±äÁ¿ `transactionActive`£¬Ëü±íÃ÷µ±Ç° `ConnectionHolder` µÄÊÂÎñÊÇ·ñ´¦ÓÚ¼¤»î×´Ì¬£¬`isExistingTransaction(...)` ·½·¨Ö÷ÒªÊÇ¸ù¾İËüÀ´ÅĞ¶Ïµ±Ç°ÊÂÎñ¶ÔÏóÊÇ·ñ´æÔÚÊÂÎñµÄ¡£
+`ConnectionHolder` ä¸­æœ‰ä¸€ä¸ªæˆå‘˜å˜é‡ `transactionActive`ï¼Œå®ƒè¡¨æ˜å½“å‰ `ConnectionHolder` çš„äº‹åŠ¡æ˜¯å¦å¤„äºæ¿€æ´»çŠ¶æ€ï¼Œ`isExistingTransaction(...)` æ–¹æ³•ä¸»è¦æ˜¯æ ¹æ®å®ƒæ¥åˆ¤æ–­å½“å‰äº‹åŠ¡å¯¹è±¡æ˜¯å¦å­˜åœ¨äº‹åŠ¡çš„ã€‚
 
-##### 3\. ´¦ÀíÒÑ´æÔÚµÄÊÂÎñ£º`handleExistingTransaction(...)`
+##### 3\. å¤„ç†å·²å­˜åœ¨çš„äº‹åŠ¡ï¼š`handleExistingTransaction(...)`
 
-ÕâÀïÎÒÃÇÀ´¿´¿´Èç¹ûµ±Ç°´æÔÚÊÂÎñ£¬spring ÊÇÔõÃ´´¦ÀíµÄ£¬´¦ÀíÒÑ´æÔÚÊÂÎñµÄ·½·¨Îª `AbstractPlatformTransactionManager#handleExistingTransaction`£¬´úÂëÈçÏÂ£º
+è¿™é‡Œæˆ‘ä»¬æ¥çœ‹çœ‹å¦‚æœå½“å‰å­˜åœ¨äº‹åŠ¡ï¼Œspring æ˜¯æ€ä¹ˆå¤„ç†çš„ï¼Œå¤„ç†å·²å­˜åœ¨äº‹åŠ¡çš„æ–¹æ³•ä¸º `AbstractPlatformTransactionManager#handleExistingTransaction`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 private TransactionStatus handleExistingTransaction(TransactionDefinition definition, 
         Object transaction, boolean debugEnabled) throws TransactionException {
-    // µ±´«²¥·½Ê½Îª¡¾²»Ê¹ÓÃÊÂÎñ¡¿Ê±£¬Å×³öÒì³£
+    // å½“ä¼ æ’­æ–¹å¼ä¸ºã€ä¸ä½¿ç”¨äº‹åŠ¡ã€‘æ—¶ï¼ŒæŠ›å‡ºå¼‚å¸¸
     if (definition.getPropagationBehavior() == TransactionDefinition.PROPAGATION_NEVER) {
         throw new IllegalTransactionStateException(
                 "Existing transaction found for transaction marked with propagation 'never'");
     }
-    // µ±´«²¥·½Ê½Îª¡¾²»Ö§³ÖÊÂÎñ¡¿Ê±£¬¹ÒÆğµ±Ç°ÊÂÎñ£¬È»ºóÔÚÎŞÊÂÎñµÄ×´Ì¬ÖĞÔËĞĞ
+    // å½“ä¼ æ’­æ–¹å¼ä¸ºã€ä¸æ”¯æŒäº‹åŠ¡ã€‘æ—¶ï¼ŒæŒ‚èµ·å½“å‰äº‹åŠ¡ï¼Œç„¶ååœ¨æ— äº‹åŠ¡çš„çŠ¶æ€ä¸­è¿è¡Œ
     if (definition.getPropagationBehavior() == TransactionDefinition.PROPAGATION_NOT_SUPPORTED) {
-        // 1\. suspend()£º¹ÒÆğÊÂÎñ²Ù×÷
+        // 1\. suspend()ï¼šæŒ‚èµ·äº‹åŠ¡æ“ä½œ
         Object suspendedResources = suspend(transaction);
         boolean newSynchronization = (getTransactionSynchronization() == SYNCHRONIZATION_ALWAYS);
         return prepareTransactionStatus(
                 definition, null, false, newSynchronization, debugEnabled, suspendedResources);
     }
 
-    // µ±´«²¥·½Ê½Îª¡¾ÔÚĞÂµÄÊÂÎñÖĞÔËĞĞ¡¿Ê±£¬¹ÒÆğµ±Ç°ÊÂÎñ£¬È»ºóÆô¶¯ĞÂµÄÊÂÎñ
+    // å½“ä¼ æ’­æ–¹å¼ä¸ºã€åœ¨æ–°çš„äº‹åŠ¡ä¸­è¿è¡Œã€‘æ—¶ï¼ŒæŒ‚èµ·å½“å‰äº‹åŠ¡ï¼Œç„¶åå¯åŠ¨æ–°çš„äº‹åŠ¡
     if (definition.getPropagationBehavior() == TransactionDefinition.PROPAGATION_REQUIRES_NEW) {
-        // ¹ÒÆğÊÂÎñ²Ù×÷
+        // æŒ‚èµ·äº‹åŠ¡æ“ä½œ
         SuspendedResourcesHolder suspendedResources = suspend(transaction);
         try {
             boolean newSynchronization = (getTransactionSynchronization() != SYNCHRONIZATION_NEVER);
             DefaultTransactionStatus status = newTransactionStatus(definition, transaction, true,
                     newSynchronization, debugEnabled, suspendedResources);
-            // 2\. doBegin()£ºÆô¶¯ĞÂµÄÊÂÎñ
+            // 2\. doBegin()ï¼šå¯åŠ¨æ–°çš„äº‹åŠ¡
             doBegin(transaction, definition);
             prepareSynchronization(status, definition);
             return status;
@@ -311,14 +311,14 @@ private TransactionStatus handleExistingTransaction(TransactionDefinition defini
         }
     }
 
-    // µ±´«²¥·½Ê½Îª¡¾Ç¶Ì×Ö´ĞĞ¡¿Ê±£¬ ÉèÖÃÊÂÎñµÄ±£´æµã
-    // ´æÔÚÊÂÎñ£¬½«¸ÃÊÂÎñ±ê×¢±£´æµã£¬ĞÎ³ÉÇ¶Ì×ÊÂÎñ¡£
-    // Ç¶Ì×ÊÂÎñÖĞµÄ×ÓÊÂÎñ³öÏÖÒì³£²»»áÓ°Ïìµ½¸¸ÊÂÎñ±£´æµãÖ®Ç°µÄ²Ù×÷¡£
+    // å½“ä¼ æ’­æ–¹å¼ä¸ºã€åµŒå¥—æ‰§è¡Œã€‘æ—¶ï¼Œ è®¾ç½®äº‹åŠ¡çš„ä¿å­˜ç‚¹
+    // å­˜åœ¨äº‹åŠ¡ï¼Œå°†è¯¥äº‹åŠ¡æ ‡æ³¨ä¿å­˜ç‚¹ï¼Œå½¢æˆåµŒå¥—äº‹åŠ¡ã€‚
+    // åµŒå¥—äº‹åŠ¡ä¸­çš„å­äº‹åŠ¡å‡ºç°å¼‚å¸¸ä¸ä¼šå½±å“åˆ°çˆ¶äº‹åŠ¡ä¿å­˜ç‚¹ä¹‹å‰çš„æ“ä½œã€‚
     if (definition.getPropagationBehavior() == TransactionDefinition.PROPAGATION_NESTED) {
         if (!isNestedTransactionAllowed()) {
             throw new NestedTransactionNotSupportedException(...);
         }
-        // 3\. createAndHoldSavepoint(...)£º´´½¨±£´æµã£¬»Ø¹öÊ±Ö»»Ø¹öµ½¸Ã±£´æµã
+        // 3\. createAndHoldSavepoint(...)ï¼šåˆ›å»ºä¿å­˜ç‚¹ï¼Œå›æ»šæ—¶åªå›æ»šåˆ°è¯¥ä¿å­˜ç‚¹
         if (useSavepointForNestedTransaction()) {
             DefaultTransactionStatus status = prepareTransactionStatus(definition, transaction,
                     false, false, debugEnabled, null);
@@ -329,14 +329,14 @@ private TransactionStatus handleExistingTransaction(TransactionDefinition defini
             boolean newSynchronization = (getTransactionSynchronization() != SYNCHRONIZATION_NEVER);
             DefaultTransactionStatus status = newTransactionStatus(
                     definition, transaction, true, newSynchronization, debugEnabled, null);
-            // Èç¹û²»Ö§³Ö±£´æµã£¬¾ÍÆô¶¯ĞÂµÄÊÂÎñ
+            // å¦‚æœä¸æ”¯æŒä¿å­˜ç‚¹ï¼Œå°±å¯åŠ¨æ–°çš„äº‹åŠ¡
             doBegin(transaction, definition);
             prepareSynchronization(status, definition);
             return status;
         }
     }
     if (isValidateExistingTransaction()) {
-        // ´¦ÀíÑéÖ¤²Ù×÷£¬²»×÷·ÖÎö
+        // å¤„ç†éªŒè¯æ“ä½œï¼Œä¸ä½œåˆ†æ
         ...
     }
     boolean newSynchronization = (getTransactionSynchronization() != SYNCHRONIZATION_NEVER);
@@ -346,50 +346,50 @@ private TransactionStatus handleExistingTransaction(TransactionDefinition defini
 
 ```
 
-¿ÉÒÔ¿´µ½£¬Õâ¸ö·½·¨Àï¾Í´¦ÀíÁËÊÂÎñµÄ¸ôÀë¼¶±ğµÄÂß¼­£¬Ïà¹ØµÄ´úÂëÒÑ¾­×÷ÁË×¢ÊÍ£¬ÕâÀï¾Í²»¶àËµÁË£¬²»¹ıÕâÀïÓĞ¼¸¸ö·½·¨ĞèÒªÌØ±ğÌá³ö£º
+å¯ä»¥çœ‹åˆ°ï¼Œè¿™ä¸ªæ–¹æ³•é‡Œå°±å¤„ç†äº†äº‹åŠ¡çš„éš”ç¦»çº§åˆ«çš„é€»è¾‘ï¼Œç›¸å…³çš„ä»£ç å·²ç»ä½œäº†æ³¨é‡Šï¼Œè¿™é‡Œå°±ä¸å¤šè¯´äº†ï¼Œä¸è¿‡è¿™é‡Œæœ‰å‡ ä¸ªæ–¹æ³•éœ€è¦ç‰¹åˆ«æå‡ºï¼š
 
-1.  `suspend()`£º¹ÒÆğÊÂÎñ²Ù×÷
-2.  `doBegin()`£ºÆô¶¯ĞÂµÄÊÂÎñ
-3.  `createAndHoldSavepoint(...)`£º´´½¨±£´æµã£¬»Ø¹öÊ±Ö»»Ø¹öµ½¸Ã±£´æµã
+1.  `suspend()`ï¼šæŒ‚èµ·äº‹åŠ¡æ“ä½œ
+2.  `doBegin()`ï¼šå¯åŠ¨æ–°çš„äº‹åŠ¡
+3.  `createAndHoldSavepoint(...)`ï¼šåˆ›å»ºä¿å­˜ç‚¹ï¼Œå›æ»šæ—¶åªå›æ»šåˆ°è¯¥ä¿å­˜ç‚¹
 
-Õâ¼¸¸ö²Ù×÷°üº¬ÁËÊÂÎñ´¦Àí²Ù×÷£¬ºóÃæÎÒÃÇÔÙÍ³Ò»·ÖÎö¡£
+è¿™å‡ ä¸ªæ“ä½œåŒ…å«äº†äº‹åŠ¡å¤„ç†æ“ä½œï¼Œåé¢æˆ‘ä»¬å†ç»Ÿä¸€åˆ†æã€‚
 
-##### 4\. ¼ÌĞø `AbstractPlatformTransactionManager#getTransaction`
+##### 4\. ç»§ç»­ `AbstractPlatformTransactionManager#getTransaction`
 
-ÈÃÎÒÃÇÔÙ»Øµ½ `AbstractPlatformTransactionManager#getTransaction` ·½·¨£¬¼ÌĞøÊ£ÏÂµÄÁ÷³Ì£º
+è®©æˆ‘ä»¬å†å›åˆ° `AbstractPlatformTransactionManager#getTransaction` æ–¹æ³•ï¼Œç»§ç»­å‰©ä¸‹çš„æµç¨‹ï¼š
 
 ```
 public final TransactionStatus getTransaction(@Nullable TransactionDefinition definition)
         throws TransactionException {
 
-    // Ç°ÃæÒÑ¾­·ÖÎö¹ıÁË£¬Ê¡ÂÔ
+    // å‰é¢å·²ç»åˆ†æè¿‡äº†ï¼Œçœç•¥
     ...
 
-    // ÔËĞĞµ½ÁËÕâÀï£¬±íÃ÷µ±Ç°Ã»ÓĞÊÂÎñ
+    // è¿è¡Œåˆ°äº†è¿™é‡Œï¼Œè¡¨æ˜å½“å‰æ²¡æœ‰äº‹åŠ¡
 
-    // ¼ì²é³¬Ê±Ê±¼äµÄÉèÖÃÊÇ·ñºÏÀí
+    // æ£€æŸ¥è¶…æ—¶æ—¶é—´çš„è®¾ç½®æ˜¯å¦åˆç†
     if (def.getTimeout() < TransactionDefinition.TIMEOUT_DEFAULT) {
         throw new InvalidTimeoutException("Invalid transaction timeout", def.getTimeout());
     }
 
-    // PROPAGATION_MANDATORY£º±ØĞëÔÚÊÂÎñÖĞÔËĞĞ£¬ÕâÀïÃ»ÓĞÊÂÎñ£¬Ö±½ÓÅ×Òì³£
+    // PROPAGATION_MANDATORYï¼šå¿…é¡»åœ¨äº‹åŠ¡ä¸­è¿è¡Œï¼Œè¿™é‡Œæ²¡æœ‰äº‹åŠ¡ï¼Œç›´æ¥æŠ›å¼‚å¸¸
     if (def.getPropagationBehavior() == TransactionDefinition.PROPAGATION_MANDATORY) {
         throw new IllegalTransactionStateException(...);
     }
-    // ¹ÒÆğµ±Ç°ÊÂÎñ£¬´´½¨ĞÂÊÂÎñ
+    // æŒ‚èµ·å½“å‰äº‹åŠ¡ï¼Œåˆ›å»ºæ–°äº‹åŠ¡
     else if (def.getPropagationBehavior() == TransactionDefinition.PROPAGATION_REQUIRED ||
             def.getPropagationBehavior() == TransactionDefinition.PROPAGATION_REQUIRES_NEW ||
             def.getPropagationBehavior() == TransactionDefinition.PROPAGATION_NESTED) {
-        // suspend(...) ´«Èënull£ºÈç¹ûÓĞÍ¬²½ÊÂÎñ£¬Ôò¹ÒÆğÍ¬²½ÊÂÎñ£¬·ñÔòÊ²Ã´Ò²²»×ö
+        // suspend(...) ä¼ å…¥nullï¼šå¦‚æœæœ‰åŒæ­¥äº‹åŠ¡ï¼Œåˆ™æŒ‚èµ·åŒæ­¥äº‹åŠ¡ï¼Œå¦åˆ™ä»€ä¹ˆä¹Ÿä¸åš
         SuspendedResourcesHolder suspendedResources = suspend(null);
         try {
             boolean newSynchronization = (getTransactionSynchronization() != SYNCHRONIZATION_NEVER);
-            // ´´½¨ÊÂÎñ¶ÔÏó
+            // åˆ›å»ºäº‹åŠ¡å¯¹è±¡
             DefaultTransactionStatus status = newTransactionStatus(
                     def, transaction, true, newSynchronization, debugEnabled, suspendedResources);
-            // Æô¶¯ÊÂÎñ
+            // å¯åŠ¨äº‹åŠ¡
             doBegin(transaction, def);
-            // ÉèÖÃ TransactionSynchronizationManager µÄÊôĞÔ
+            // è®¾ç½® TransactionSynchronizationManager çš„å±æ€§
             prepareSynchronization(status, def);
             return status;
         }
@@ -406,39 +406,39 @@ public final TransactionStatus getTransaction(@Nullable TransactionDefinition de
 
 ```
 
-`handleExistingTransaction(...)` ·½·¨µÄ¹¦ÄÜÊÇ**µ±ÊÂÎñ´æÔÚÊ±£¬ÄÇĞ©¸ö´«²¥ÀàĞÍÒªÔõÃ´´¦Àí**£¬`getTransaction(...)` ·½·¨ÓàÏÂ²¿·ÖµÄ¹¦ÄÜÊÇ£¬**µ±ÊÂÎñ´æÔÚÊ±£¬ÄÇĞ©¸ö´«²¥ÀàĞÍÓÖÒªÔõÃ´´¦Àí**¡£¿ÉÒÔ¿´µ½£¬ÕâÀïÃæÒÀÈ»»¹ÊÇÓĞ `suspend(...)`¡¢`doBegin(...)` µÈ·½·¨£¬ÕâĞ©¸ö·½·¨ÎÒÃÇÒ»»áÒ²Í³Ò»·ÖÎö¡£
+`handleExistingTransaction(...)` æ–¹æ³•çš„åŠŸèƒ½æ˜¯**å½“äº‹åŠ¡å­˜åœ¨æ—¶ï¼Œé‚£äº›ä¸ªä¼ æ’­ç±»å‹è¦æ€ä¹ˆå¤„ç†**ï¼Œ`getTransaction(...)` æ–¹æ³•ä½™ä¸‹éƒ¨åˆ†çš„åŠŸèƒ½æ˜¯ï¼Œ**å½“äº‹åŠ¡å­˜åœ¨æ—¶ï¼Œé‚£äº›ä¸ªä¼ æ’­ç±»å‹åˆè¦æ€ä¹ˆå¤„ç†**ã€‚å¯ä»¥çœ‹åˆ°ï¼Œè¿™é‡Œé¢ä¾ç„¶è¿˜æ˜¯æœ‰ `suspend(...)`ã€`doBegin(...)` ç­‰æ–¹æ³•ï¼Œè¿™äº›ä¸ªæ–¹æ³•æˆ‘ä»¬ä¸€ä¼šä¹Ÿç»Ÿä¸€åˆ†æã€‚
 
-##### 5\. ×¼±¸·µ»Ø½á¹û£º`prepareTransactionStatus(...)`
+##### 5\. å‡†å¤‡è¿”å›ç»“æœï¼š`prepareTransactionStatus(...)`
 
-`handleExistingTransaction(...)` ·½·¨Óë `getTransaction(...)` ·½·¨ÔÚ´¦Àí·µ»Ø½á¹ûÊ±£¬¶¼Ê¹ÓÃÁË `prepareTransactionStatus(...)` ·½·¨£º
+`handleExistingTransaction(...)` æ–¹æ³•ä¸ `getTransaction(...)` æ–¹æ³•åœ¨å¤„ç†è¿”å›ç»“æœæ—¶ï¼Œéƒ½ä½¿ç”¨äº† `prepareTransactionStatus(...)` æ–¹æ³•ï¼š
 
 ```
-// `handleExistingTransaction(...)`·½·¨
+// `handleExistingTransaction(...)`æ–¹æ³•
 return prepareTransactionStatus(definition, transaction, false, 
             newSynchronization, debugEnabled, null);
 
-// `getTransaction(...)`·½·¨
+// `getTransaction(...)`æ–¹æ³•
 return prepareTransactionStatus(def, null, true, newSynchronization, debugEnabled, null);
 
 ```
 
-ÎÒÃÇÀ´·ÖÎöÏÂÕâ¸ö·½·¨ÊÇ×öÁËÉ¶£¬½øÈë `AbstractPlatformTransactionManager#prepareTransactionStatus`£º
+æˆ‘ä»¬æ¥åˆ†æä¸‹è¿™ä¸ªæ–¹æ³•æ˜¯åšäº†å•¥ï¼Œè¿›å…¥ `AbstractPlatformTransactionManager#prepareTransactionStatus`ï¼š
 
 ```
 protected final DefaultTransactionStatus prepareTransactionStatus(
         TransactionDefinition definition, @Nullable Object transaction, boolean newTransaction,
         boolean newSynchronization, boolean debug, @Nullable Object suspendedResources) {
 
-    // ´´½¨ÁËÒ»¸ö DefaultTransactionStatus ¶ÔÏó
+    // åˆ›å»ºäº†ä¸€ä¸ª DefaultTransactionStatus å¯¹è±¡
     DefaultTransactionStatus status = newTransactionStatus(
             definition, transaction, newTransaction, newSynchronization, debug, suspendedResources);
-    // ×¼±¸ Synchronization
+    // å‡†å¤‡ Synchronization
     prepareSynchronization(status, definition);
     return status;
 }
 
 /**
- *´´½¨Ò»¸ö TransactionStatus ÊµÀı
+ *åˆ›å»ºä¸€ä¸ª TransactionStatus å®ä¾‹
  */
 protected DefaultTransactionStatus newTransactionStatus(
         TransactionDefinition definition, @Nullable Object transaction, boolean newTransaction,
@@ -446,7 +446,7 @@ protected DefaultTransactionStatus newTransactionStatus(
 
     boolean actualNewSynchronization = newSynchronization &&
             !TransactionSynchronizationManager.isSynchronizationActive();
-    // µ÷ÓÃ DefaultTransactionStatus µÄ¹¹Ôì·½·¨
+    // è°ƒç”¨ DefaultTransactionStatus çš„æ„é€ æ–¹æ³•
     return new DefaultTransactionStatus(
             transaction, newTransaction, actualNewSynchronization,
             definition.isReadOnly(), debug, suspendedResources);
@@ -454,13 +454,13 @@ protected DefaultTransactionStatus newTransactionStatus(
 
 ```
 
-ËùÒÔÕâ¸ö·½·¨Ö÷Òª¾ÍÊÇÎªÁË´´½¨ `DefaultTransactionStatus` ¶ÔÏó£¡ÎÒÃÇÀ´¿´ÏÂÕâÒ»²½µÄÔËĞĞ½á¹û£º
+æ‰€ä»¥è¿™ä¸ªæ–¹æ³•ä¸»è¦å°±æ˜¯ä¸ºäº†åˆ›å»º `DefaultTransactionStatus` å¯¹è±¡ï¼æˆ‘ä»¬æ¥çœ‹ä¸‹è¿™ä¸€æ­¥çš„è¿è¡Œç»“æœï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a491ee7ca22238b2d9c698c55ae9dd6d005.png)
 
-##### 6\. ×¼±¸ÊÂÎñĞÅÏ¢£º`TransactionAspectSupport#prepareTransactionInfo`
+##### 6\. å‡†å¤‡äº‹åŠ¡ä¿¡æ¯ï¼š`TransactionAspectSupport#prepareTransactionInfo`
 
-»Øµ½ `TransactionAspectSupport#createTransactionIfNecessary` ·½·¨£º
+å›åˆ° `TransactionAspectSupport#createTransactionIfNecessary` æ–¹æ³•ï¼š
 
 ```
 protected TransactionInfo createTransactionIfNecessary(@Nullable PlatformTransactionManager tm,
@@ -469,17 +469,17 @@ protected TransactionInfo createTransactionIfNecessary(@Nullable PlatformTransac
     TransactionStatus status = null;
     if (txAttr != null) {
         if (tm != null) {
-            // »ñÈ¡ÊÂÎñ×´Ì¬£¬Èç¹ûµ±Ç°Ã»ÓĞÊÂÎñ£¬¿ÉÄÜ»á´´½¨ÊÂÎñ
+            // è·å–äº‹åŠ¡çŠ¶æ€ï¼Œå¦‚æœå½“å‰æ²¡æœ‰äº‹åŠ¡ï¼Œå¯èƒ½ä¼šåˆ›å»ºäº‹åŠ¡
             status = tm.getTransaction(txAttr);
         }
     }
-    // ×¼±¸ÊÂÎñĞÅÏ¢£¬¾ÍÊÇ½«Ç°ÃæµÃµ½µÄĞÅÏ¢·â×°³É TransactionInfo
+    // å‡†å¤‡äº‹åŠ¡ä¿¡æ¯ï¼Œå°±æ˜¯å°†å‰é¢å¾—åˆ°çš„ä¿¡æ¯å°è£…æˆ TransactionInfo
     return prepareTransactionInfo(tm, txAttr, joinpointIdentification, status);
 }
 
 ```
 
-Ç°Ãæ·ÖÎöÁËÄÇÃ´¶à£¬Ö»ÊÇµÃµ½ÁË `TransactionStatus`£¬ÎÒÃÇÔÙ½ÓÔÙÀ÷£¬¼ÌĞø·ÖÎö×¼±¸ÊÂÎñĞÅÏ¢µÄ·½·¨ `prepareTransactionInfo(...)`£º
+å‰é¢åˆ†æäº†é‚£ä¹ˆå¤šï¼Œåªæ˜¯å¾—åˆ°äº† `TransactionStatus`ï¼Œæˆ‘ä»¬å†æ¥å†å‰ï¼Œç»§ç»­åˆ†æå‡†å¤‡äº‹åŠ¡ä¿¡æ¯çš„æ–¹æ³• `prepareTransactionInfo(...)`ï¼š
 
 ```
 protected TransactionInfo prepareTransactionInfo(@Nullable PlatformTransactionManager tm,
@@ -491,26 +491,26 @@ protected TransactionInfo prepareTransactionInfo(@Nullable PlatformTransactionMa
         txInfo.newTransactionStatus(status);
     }
 
-    // Ê¡ÂÔlogµÄ´òÓ¡
+    // çœç•¥logçš„æ‰“å°
     ...
 
-    // ÓëÏß³Ì°ó¶¨
+    // ä¸çº¿ç¨‹ç»‘å®š
     txInfo.bindToThread();
     return txInfo;
 }
 
 ```
 
-àÅ£¬Í¬ `prepareTransactionStatus(...)` ÀàËÆ£¬Õâ¸ö·½·¨Ò²ÊÇ´´½¨ÁËÒ»¸ö `TransactionInfo` ¶ÔÏó£¬²¢ÇÒ½« `TransactionInfo` Óëµ±Ç°Ïß³Ì°ó¶¨£¬°ó¶¨µÄ´úÂëÈçÏÂ£º
+å—¯ï¼ŒåŒ `prepareTransactionStatus(...)` ç±»ä¼¼ï¼Œè¿™ä¸ªæ–¹æ³•ä¹Ÿæ˜¯åˆ›å»ºäº†ä¸€ä¸ª `TransactionInfo` å¯¹è±¡ï¼Œå¹¶ä¸”å°† `TransactionInfo` ä¸å½“å‰çº¿ç¨‹ç»‘å®šï¼Œç»‘å®šçš„ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public abstract class TransactionAspectSupport implements BeanFactoryAware, InitializingBean {
 
-    // ´æ·Åµ±Ç°Ê¹ÓÃµÄÊÂÎïĞÅÏ¢
+    // å­˜æ”¾å½“å‰ä½¿ç”¨çš„äº‹ç‰©ä¿¡æ¯
     private static final ThreadLocal<TransactionInfo> transactionInfoHolder =
             new NamedThreadLocal<>("Current aspect-driven transaction");
 
-    // ÖØÖÃÎª¾ÉµÄÊÂÎñĞÅÏ¢
+    // é‡ç½®ä¸ºæ—§çš„äº‹åŠ¡ä¿¡æ¯
     protected void cleanupTransactionInfo(@Nullable TransactionInfo txInfo) {
         if (txInfo != null) {
             txInfo.restoreThreadLocalStatus();
@@ -518,33 +518,33 @@ public abstract class TransactionAspectSupport implements BeanFactoryAware, Init
     }
 
     /**
-     * TransactionInfo: ±£´æÊÂÎñĞÅÏ¢
+     * TransactionInfo: ä¿å­˜äº‹åŠ¡ä¿¡æ¯
      */
     protected static final class TransactionInfo {
 
-        // µ±Ç°µÄÊÂÎñ×´Ì¬¶ÔÏó
+        // å½“å‰çš„äº‹åŠ¡çŠ¶æ€å¯¹è±¡
         @Nullable
         private TransactionStatus transactionStatus;
 
-        // ¾ÉµÄÊÂÎñĞÅÏ¢£¨Ò²¾ÍÊÇ¹ÒÆğµÄÊÂÎñĞÅÏ¢£©
+        // æ—§çš„äº‹åŠ¡ä¿¡æ¯ï¼ˆä¹Ÿå°±æ˜¯æŒ‚èµ·çš„äº‹åŠ¡ä¿¡æ¯ï¼‰
         @Nullable
         private TransactionInfo oldTransactionInfo;
 
         /**
-         * ½«ÊÂÎñĞÅÏ¢°ó¶¨µ½µ±Ç°Ïß³Ì
+         * å°†äº‹åŠ¡ä¿¡æ¯ç»‘å®šåˆ°å½“å‰çº¿ç¨‹
          */
         private void bindToThread() {
-            // ÄÃµ½¾ÉµÄÊÂÎñĞÅÏ¢
+            // æ‹¿åˆ°æ—§çš„äº‹åŠ¡ä¿¡æ¯
             this.oldTransactionInfo = transactionInfoHolder.get();
-            // ÉèÖÃ³É×îĞÂµÄÊÂÎñĞÅÏ¢
+            // è®¾ç½®æˆæœ€æ–°çš„äº‹åŠ¡ä¿¡æ¯
             transactionInfoHolder.set(this);
         }
 
         /**
-         * ÊÂÎñÍê³Éºó£¬»á½«¾ÉµÄÊÂÎñĞÅÏ¢°ó¶¨µ½µ±Ç°Ïß³Ì
+         * äº‹åŠ¡å®Œæˆåï¼Œä¼šå°†æ—§çš„äº‹åŠ¡ä¿¡æ¯ç»‘å®šåˆ°å½“å‰çº¿ç¨‹
          */
         private void restoreThreadLocalStatus() {
-            // ÉèÖÃÎª¾ÉµÄÊÂÎñĞÅÏ¢
+            // è®¾ç½®ä¸ºæ—§çš„äº‹åŠ¡ä¿¡æ¯
             transactionInfoHolder.set(this.oldTransactionInfo);
         }
 
@@ -555,26 +555,26 @@ public abstract class TransactionAspectSupport implements BeanFactoryAware, Init
 
 ```
 
-`TransactionAspectSupport` ÖĞÓĞÒ»¸ö `ThreadLocal`£¬ÓÃÀ´´æ·Åµ±Ç°µÄ `TransactionInfo` ¶ÔÏó£¬½øĞĞÏß³Ì°ó¶¨Ê±£¬»áÏÈÄÃµ½¾ÉµÄÊÂÎñĞÅÏ¢£¬±£´æÔÚ `TransactionInfo` µÄ³ÉÔ±±äÁ¿ `oldTransactionInfo` ÖĞ£¬È»ºó½«ĞÂµÄ `TransactionInfo` ·ÅÈë `ThreadLocal` ÖĞ£»µ±ÊÂÎñÖ´ĞĞÍê³Éºó£¬»á´Ó `TransactionInfo` µÄ³ÉÔ±±äÁ¿ `oldTransactionInfo` ÖĞÄÃµ½¾ÉµÄÊÂÎñĞÅÏ¢£¬ÔÙ½«¾ÉµÄÊÂÎñĞÅÏ¢·ÅÈë `ThreadLocal` ÖĞ£¬Õâ¾ÍÍê³ÉÁËÊÂÎñ "¾É - ĞÂ - ¾É" µÄÇĞ»».
+`TransactionAspectSupport` ä¸­æœ‰ä¸€ä¸ª `ThreadLocal`ï¼Œç”¨æ¥å­˜æ”¾å½“å‰çš„ `TransactionInfo` å¯¹è±¡ï¼Œè¿›è¡Œçº¿ç¨‹ç»‘å®šæ—¶ï¼Œä¼šå…ˆæ‹¿åˆ°æ—§çš„äº‹åŠ¡ä¿¡æ¯ï¼Œä¿å­˜åœ¨ `TransactionInfo` çš„æˆå‘˜å˜é‡ `oldTransactionInfo` ä¸­ï¼Œç„¶åå°†æ–°çš„ `TransactionInfo` æ”¾å…¥ `ThreadLocal` ä¸­ï¼›å½“äº‹åŠ¡æ‰§è¡Œå®Œæˆåï¼Œä¼šä» `TransactionInfo` çš„æˆå‘˜å˜é‡ `oldTransactionInfo` ä¸­æ‹¿åˆ°æ—§çš„äº‹åŠ¡ä¿¡æ¯ï¼Œå†å°†æ—§çš„äº‹åŠ¡ä¿¡æ¯æ”¾å…¥ `ThreadLocal` ä¸­ï¼Œè¿™å°±å®Œæˆäº†äº‹åŠ¡ "æ—§ - æ–° - æ—§" çš„åˆ‡æ¢.
 
-ÕâÒ»²½µÃµ½µÄ `TransactionInfo` ÈçÏÂ£º
+è¿™ä¸€æ­¥å¾—åˆ°çš„ `TransactionInfo` å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-ab882613ce67ba3bf7afcbd2eab01c6cf27.png)
 
-¶ÔÓÚ `TransactionInfo` µÄ½á¹¹£¬ÕâÀï×÷Ò»Ğ©ËµÃ÷£º
+å¯¹äº `TransactionInfo` çš„ç»“æ„ï¼Œè¿™é‡Œä½œä¸€äº›è¯´æ˜ï¼š
 
-*   ÀàĞÍÊÇ `TransactionAspectSupport.TransactionInfo`£¬ÊÇ `TransactionAspectSupport` µÄÒ»¸öÄÚ²¿Àà£¬·â×°ÁËÊÂÎñµÄÒ»Ğ©ĞÅÏ¢
-*   `transactionManager`: ÊÂÎñ¹ÜÀíÆ÷£¬¾ÍÊÇÎÒÃÇÉèÖÃµÄ `DataSourceTransactionManager`
-*   `transactionAttribute`: ÊÂÎñÊôĞÔÖµ£¬ÓÃÀ´±£´æ `@Transactional` ×¢½âµÄÊôĞÔÖµ
-*   `joinpointIdentification`: ·½·¨µÄÈ«ÏŞ¶¨Ãû£¨¸ñÊ½Îª£º"°üÃû¡£ÀàĞÍ¡£·½·¨Ãû"£©
-*   `transactionStatus`: ´ÓÃû³ÆÉÏ¿´£¬ÊÇ¼ÇÂ¼ÊÂÎñµÄ×´Ì¬£¬Êµ¼ÊÕâ¸ö¶ÔÏó²»½ö¼ÇÂ¼ÁËÊÂÎñµÄ×´Ì¬£¬°üÀ¨µÄÖØ´ó¹¦ÄÜÈçÏÂ£º
-    *   `complete`: ÊÂÎñµÄÍê³É×´Ì¬
-    *   `connectionHolder`: µ±Ç°³ÖÓĞµÄÊı¾İ¿âÁ¬½Ó
-    *   `suspendedResources`: ¹ÒÆğµÄÊı¾İ¿âÁ¬½Ó£¬µ±ĞèÒª»Ö¸´¹ÒÆğµÄÊÂÎñÊ±£¬¿ÉÒÔÄÜ¹ı¸Ã¶ÔÏóÄÃµ½¹ÒÆğµÄÊı¾İ¿âÁ¬½Ó
-*   `oldTransactionInfo`: ÉÏÒ»¸öÊÂÎñ£¨Ò²¾ÍÊÇ¹ÒÆğµÄÊÂÎñ£©µÄĞÅÏ¢£¬Ö´ĞĞÍêµ±Ç°ÊÂÎñºó£¬»á»Ö¸´µ½ÉÏÒ»¸öÊÂÎñµÄÖ´ĞĞ
+*   ç±»å‹æ˜¯ `TransactionAspectSupport.TransactionInfo`ï¼Œæ˜¯ `TransactionAspectSupport` çš„ä¸€ä¸ªå†…éƒ¨ç±»ï¼Œå°è£…äº†äº‹åŠ¡çš„ä¸€äº›ä¿¡æ¯
+*   `transactionManager`: äº‹åŠ¡ç®¡ç†å™¨ï¼Œå°±æ˜¯æˆ‘ä»¬è®¾ç½®çš„ `DataSourceTransactionManager`
+*   `transactionAttribute`: äº‹åŠ¡å±æ€§å€¼ï¼Œç”¨æ¥ä¿å­˜ `@Transactional` æ³¨è§£çš„å±æ€§å€¼
+*   `joinpointIdentification`: æ–¹æ³•çš„å…¨é™å®šåï¼ˆæ ¼å¼ä¸ºï¼š"åŒ…åã€‚ç±»å‹ã€‚æ–¹æ³•å"ï¼‰
+*   `transactionStatus`: ä»åç§°ä¸Šçœ‹ï¼Œæ˜¯è®°å½•äº‹åŠ¡çš„çŠ¶æ€ï¼Œå®é™…è¿™ä¸ªå¯¹è±¡ä¸ä»…è®°å½•äº†äº‹åŠ¡çš„çŠ¶æ€ï¼ŒåŒ…æ‹¬çš„é‡å¤§åŠŸèƒ½å¦‚ä¸‹ï¼š
+    *   `complete`: äº‹åŠ¡çš„å®ŒæˆçŠ¶æ€
+    *   `connectionHolder`: å½“å‰æŒæœ‰çš„æ•°æ®åº“è¿æ¥
+    *   `suspendedResources`: æŒ‚èµ·çš„æ•°æ®åº“è¿æ¥ï¼Œå½“éœ€è¦æ¢å¤æŒ‚èµ·çš„äº‹åŠ¡æ—¶ï¼Œå¯ä»¥èƒ½è¿‡è¯¥å¯¹è±¡æ‹¿åˆ°æŒ‚èµ·çš„æ•°æ®åº“è¿æ¥
+*   `oldTransactionInfo`: ä¸Šä¸€ä¸ªäº‹åŠ¡ï¼ˆä¹Ÿå°±æ˜¯æŒ‚èµ·çš„äº‹åŠ¡ï¼‰çš„ä¿¡æ¯ï¼Œæ‰§è¡Œå®Œå½“å‰äº‹åŠ¡åï¼Œä¼šæ¢å¤åˆ°ä¸Šä¸€ä¸ªäº‹åŠ¡çš„æ‰§è¡Œ
 
-Ò»²»Ğ¡ĞÄÓÖĞ´ÁËÕâÃ´³¤ÁË£¬±¾ÎÄ¾ÍÏÈ·ÖÎöµ½ÕâÀïÁË£¬`suspend(...)`¡¢`doBegin(...)` µÈ·½·¨ÏÂÆªÔÙ·ÖÎö°É¡£
+ä¸€ä¸å°å¿ƒåˆå†™äº†è¿™ä¹ˆé•¿äº†ï¼Œæœ¬æ–‡å°±å…ˆåˆ†æåˆ°è¿™é‡Œäº†ï¼Œ`suspend(...)`ã€`doBegin(...)` ç­‰æ–¹æ³•ä¸‹ç¯‡å†åˆ†æå§ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4947799](https://my.oschina.net/funcy/blog/4947799) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4947799](https://my.oschina.net/funcy/blog/4947799) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

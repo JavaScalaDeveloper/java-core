@@ -1,8 +1,8 @@
-### 1\. demo ×¼±¸
+### 1\. demo å‡†å¤‡
 
-ÔÚÕıÊ½·ÖÎöÊÂ¼ş»úÖÆÇ°£¬ÎÒÃÇÏÈÀ´×¼±¸Ò»¸ö demo£º
+åœ¨æ­£å¼åˆ†æäº‹ä»¶æœºåˆ¶å‰ï¼Œæˆ‘ä»¬å…ˆæ¥å‡†å¤‡ä¸€ä¸ª demoï¼š
 
-1.  ×¼±¸Ò»¸öÊÂ¼şÀà `MyApplicationEvent`£º
+1.  å‡†å¤‡ä¸€ä¸ªäº‹ä»¶ç±» `MyApplicationEvent`ï¼š
 
 ```
 public class MyApplicationEvent extends ApplicationEvent {
@@ -16,7 +16,7 @@ public class MyApplicationEvent extends ApplicationEvent {
 
 ```
 
-1.  ×¼±¸Ò»¸ö¼àÌıÆ÷ `MyApplicationEventListener`£¬¶ÔÊÂ¼ş `MyApplicationEvent` ½øĞĞ¼àÌı£º
+1.  å‡†å¤‡ä¸€ä¸ªç›‘å¬å™¨ `MyApplicationEventListener`ï¼Œå¯¹äº‹ä»¶ `MyApplicationEvent` è¿›è¡Œç›‘å¬ï¼š
 
 ```
 @Component
@@ -31,7 +31,7 @@ public class MyApplicationEventListener
 
 ```
 
-×¼±¸Ò»¸öÅäÖÃÀà£¬ÏÈ²»Ö¸¶¨ÄÚÈİ£º
+å‡†å¤‡ä¸€ä¸ªé…ç½®ç±»ï¼Œå…ˆä¸æŒ‡å®šå†…å®¹ï¼š
 
 ```
 @Configuration
@@ -42,7 +42,7 @@ public class Demo08Config {
 
 ```
 
-×îºóÊÇÖ÷Àà£º
+æœ€åæ˜¯ä¸»ç±»ï¼š
 
 ```
 @ComponentScan
@@ -51,49 +51,49 @@ public class Demo08Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context 
             = new AnnotationConfigApplicationContext(Demo08Config.class);
-        // ·¢²¼ÊÂ¼ş
+        // å‘å¸ƒäº‹ä»¶
         context.publishEvent(
-            new MyApplicationEvent(Thread.currentThread().getName() + " | ×Ô¶¨ÒåÊÂ¼ş ..."));
+            new MyApplicationEvent(Thread.currentThread().getName() + " | è‡ªå®šä¹‰äº‹ä»¶ ..."));
     }
 
 }
 
 ```
 
-ÒÔÉÏ´úÂë¶¨ÒåÁËÒ»¸öÊÂ¼ş `MyApplicationEvent`£¬È»ºó¶¨ÒåÁËÒ»¸ö¼àÌıÆ÷ `MyApplicationEventListener`£¬ÓÃÀ´¼àÌı `MyApplicationEvent` ÊÂ¼ş£¬È»ºóÔÚ `main()` ·½·¨ÖĞ£¬µ÷ÓÃ `context.publishEvent(...)` ·½·¨À´·¢²¼¸ÃÊÂ¼ş¡£
+ä»¥ä¸Šä»£ç å®šä¹‰äº†ä¸€ä¸ªäº‹ä»¶ `MyApplicationEvent`ï¼Œç„¶åå®šä¹‰äº†ä¸€ä¸ªç›‘å¬å™¨ `MyApplicationEventListener`ï¼Œç”¨æ¥ç›‘å¬ `MyApplicationEvent` äº‹ä»¶ï¼Œç„¶ååœ¨ `main()` æ–¹æ³•ä¸­ï¼Œè°ƒç”¨ `context.publishEvent(...)` æ–¹æ³•æ¥å‘å¸ƒè¯¥äº‹ä»¶ã€‚
 
-ÔËĞĞ£¬½á¹ûÈçÏÂ£º
-
-```
-main | main | ×Ô¶¨ÒåÊÂ¼ş ...
+è¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
+main | main | è‡ªå®šä¹‰äº‹ä»¶ ...
 
-¿ÉÒÔ¿´µ½£¬ÊÂ¼ş³É¹¦¼àÌıµ½ÁË¡£
+```
 
-´ÓÔËĞĞ¿ÉÖª£¬ÊÂ¼şµÄ·¢²¼Ïß³ÌÎª `main`£¬ÊÂ¼şµÄ¼àÌı´¦ÀíÏß³ÌÒ²ÊÇ `main`¡£
+å¯ä»¥çœ‹åˆ°ï¼Œäº‹ä»¶æˆåŠŸç›‘å¬åˆ°äº†ã€‚
 
-### 2\. ÊÂ¼ş×é¼ş½éÉÜ
+ä»è¿è¡Œå¯çŸ¥ï¼Œäº‹ä»¶çš„å‘å¸ƒçº¿ç¨‹ä¸º `main`ï¼Œäº‹ä»¶çš„ç›‘å¬å¤„ç†çº¿ç¨‹ä¹Ÿæ˜¯ `main`ã€‚
 
-ÕıÊ½¿ª½²Ç°£¬ÎÒÃÇÏÈÀ´½éÉÜÏÂÊÂ¼şÏà¹ØµÄ×é¼ş¡£ÊÂ¼şÏà¹ØµÄ×é¼şÓĞ 4 ¸ö£º
+### 2\. äº‹ä»¶ç»„ä»¶ä»‹ç»
 
-1.  ÊÂ¼ş£º·¢²¼µÄÄÚÈİ
-2.  ·¢²¼Æ÷£ºÓÃÀ´·¢²¼ÊÂ¼şµÄ×é¼ş
-3.  ¹ã²¥Æ÷£º½ÓÊÕ·¢²¼Æ÷·¢²¼µÄÊÂ¼ş£¬²¢½«½ÓÊÕµ½µÄÊÂ¼ş¹ã²¥¸ø¼àÌıÆ÷
-4.  ¼àÌıÆ÷£º¼àÌıÊÂ¼ş
+æ­£å¼å¼€è®²å‰ï¼Œæˆ‘ä»¬å…ˆæ¥ä»‹ç»ä¸‹äº‹ä»¶ç›¸å…³çš„ç»„ä»¶ã€‚äº‹ä»¶ç›¸å…³çš„ç»„ä»¶æœ‰ 4 ä¸ªï¼š
 
-ÏÂÃæÎÒÃÇÒ»Ò»À´·ÖÎö¡£
+1.  äº‹ä»¶ï¼šå‘å¸ƒçš„å†…å®¹
+2.  å‘å¸ƒå™¨ï¼šç”¨æ¥å‘å¸ƒäº‹ä»¶çš„ç»„ä»¶
+3.  å¹¿æ’­å™¨ï¼šæ¥æ”¶å‘å¸ƒå™¨å‘å¸ƒçš„äº‹ä»¶ï¼Œå¹¶å°†æ¥æ”¶åˆ°çš„äº‹ä»¶å¹¿æ’­ç»™ç›‘å¬å™¨
+4.  ç›‘å¬å™¨ï¼šç›‘å¬äº‹ä»¶
 
-#### 2.1 ÊÂ¼ş
+ä¸‹é¢æˆ‘ä»¬ä¸€ä¸€æ¥åˆ†æã€‚
 
-spring Ìá¹©µÄÊÂ¼şÎª `ApplicationEvent`£¬ÕâÊÇÒ»¸ö³éÏóÀà£¬¼Ì³ĞÁË jdk Ìá¹©µÄ `EventObject` Àà£¬·¢²¼×Ô¶¨ÒåÊÂ¼şÊ±£¬¿É¼Ì³Ğ `ApplicationEvent`£º
+#### 2.1 äº‹ä»¶
+
+spring æä¾›çš„äº‹ä»¶ä¸º `ApplicationEvent`ï¼Œè¿™æ˜¯ä¸€ä¸ªæŠ½è±¡ç±»ï¼Œç»§æ‰¿äº† jdk æä¾›çš„ `EventObject` ç±»ï¼Œå‘å¸ƒè‡ªå®šä¹‰äº‹ä»¶æ—¶ï¼Œå¯ç»§æ‰¿ `ApplicationEvent`ï¼š
 
 ```
 public abstract class ApplicationEvent extends EventObject {
 
     private static final long serialVersionUID = 7099057708183571937L;
 
-    /** Ôö¼Ó timestamp ÊôĞÔ*/
+    /** å¢åŠ  timestamp å±æ€§*/
     private final long timestamp;
 
     public ApplicationEvent(Object source) {
@@ -108,17 +108,17 @@ public abstract class ApplicationEvent extends EventObject {
 
 ```
 
-`ApplicationEvent` ÊÇ `EventObject`£¬ÎÒÃÇ¼ÌĞø£º
+`ApplicationEvent` æ˜¯ `EventObject`ï¼Œæˆ‘ä»¬ç»§ç»­ï¼š
 
 ```
 /**
- * EventObject ÓÉjdkÌá¹©£¬Î»ÓÚ java.util °ü¡£
+ * EventObject ç”±jdkæä¾›ï¼Œä½äº java.util åŒ…ã€‚
  */
 public class EventObject implements java.io.Serializable {
 
     private static final long serialVersionUID = 5516075349620653480L;
 
-    // ÊÂ¼şÄÚÈİ
+    // äº‹ä»¶å†…å®¹
     protected transient Object  source;
 
     public EventObject(Object source) {
@@ -129,7 +129,7 @@ public class EventObject implements java.io.Serializable {
     }
 
     /**
-     * »ñÈ¡ÊÂ¼şÄÚÈİ
+     * è·å–äº‹ä»¶å†…å®¹
      */
     public Object getSource() {
         return source;
@@ -142,29 +142,29 @@ public class EventObject implements java.io.Serializable {
 
 ```
 
-½áºÏ `ApplicationEvent` Óë `EventObject` À´¿´£¬`ApplicationEvent` Ìá¹©ÁËÁ½¸öÊôĞÔ£º
+ç»“åˆ `ApplicationEvent` ä¸ `EventObject` æ¥çœ‹ï¼Œ`ApplicationEvent` æä¾›äº†ä¸¤ä¸ªå±æ€§ï¼š
 
-*   `source`£ºÀ´×Ô `EventObject` µÄÊôĞÔ£¬¶¨ÒåÁËÊÂ¼şµÄÄÚÈİ£»
-*   `timestamp`: Ê±¼ä´Á£¬ÓÃÀ´¼ÇÂ¼ÊÇÊÂ¼şµÄÉú³ÉÊ±¼ä¡£
+*   `source`ï¼šæ¥è‡ª `EventObject` çš„å±æ€§ï¼Œå®šä¹‰äº†äº‹ä»¶çš„å†…å®¹ï¼›
+*   `timestamp`: æ—¶é—´æˆ³ï¼Œç”¨æ¥è®°å½•æ˜¯äº‹ä»¶çš„ç”Ÿæˆæ—¶é—´ã€‚
 
-Êµ¼ÊÉÏ£¬spring ³ıÁËÄÜ·¢²¼ `ApplicationEvent` ÀàĞÍµÄÊÂ¼şÍâ£¬»¹¿ÉÒÔ·¢²¼ `Object` ÀàĞÍµÄÊÂ¼ş£¬½ÓÏÂÃæ²é¿´·¢²¼Æ÷¾Í¿ÉÒÔ·¢ ÏÖÕâÒ»µã¡£
+å®é™…ä¸Šï¼Œspring é™¤äº†èƒ½å‘å¸ƒ `ApplicationEvent` ç±»å‹çš„äº‹ä»¶å¤–ï¼Œè¿˜å¯ä»¥å‘å¸ƒ `Object` ç±»å‹çš„äº‹ä»¶ï¼Œæ¥ä¸‹é¢æŸ¥çœ‹å‘å¸ƒå™¨å°±å¯ä»¥å‘ ç°è¿™ä¸€ç‚¹ã€‚
 
-#### 2.2 ·¢²¼Æ÷
+#### 2.2 å‘å¸ƒå™¨
 
-spring Ìá¹©µÄ·¢²¼Æ÷Îª `ApplicationEventPublisher`£¬´úÂëÈçÏÂ£º
+spring æä¾›çš„å‘å¸ƒå™¨ä¸º `ApplicationEventPublisher`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public interface ApplicationEventPublisher {
 
     /**
-     * ·¢²¼ApplicationEventÀàĞÍµÄÊÂ¼ş
+     * å‘å¸ƒApplicationEventç±»å‹çš„äº‹ä»¶
      */
     default void publishEvent(ApplicationEvent event) {
         publishEvent((Object) event);
     }
 
     /**
-     * ·¢²¼ObjectÀàĞÍµÄÊÂ¼ş
+     * å‘å¸ƒObjectç±»å‹çš„äº‹ä»¶
      */
     void publishEvent(Object event);
 
@@ -172,54 +172,54 @@ public interface ApplicationEventPublisher {
 
 ```
 
-ÕâÊÇ¸ö½Ó¿Ú£¬ÆäÄÚ¶¨ÒåÁËÁ½¸ö·½·¨£º
+è¿™æ˜¯ä¸ªæ¥å£ï¼Œå…¶å†…å®šä¹‰äº†ä¸¤ä¸ªæ–¹æ³•ï¼š
 
-*   `void publishEvent(ApplicationEvent event)`: ÓÃÀ´·¢²¼ `ApplicationEvent` ÀàĞÍµÄÊÂ¼ş
-*   `void publishEvent(Object event)`: ÓÃÀ´·¢²¼ `Object` ÀàĞÍµÄÊÂ¼ş
+*   `void publishEvent(ApplicationEvent event)`: ç”¨æ¥å‘å¸ƒ `ApplicationEvent` ç±»å‹çš„äº‹ä»¶
+*   `void publishEvent(Object event)`: ç”¨æ¥å‘å¸ƒ `Object` ç±»å‹çš„äº‹ä»¶
 
-`AbstractApplicationContext` ÊÇ `ApplicationEventPublisher` µÄ×ÓÀà£¬Òò´ËÎÒÃÇ¿ÉÒÔÖ±½Óµ÷ÓÃ `AbstractApplicationContext#publishEvent` À´·¢²¼ÊÂ¼ş¡£
+`AbstractApplicationContext` æ˜¯ `ApplicationEventPublisher` çš„å­ç±»ï¼Œå› æ­¤æˆ‘ä»¬å¯ä»¥ç›´æ¥è°ƒç”¨ `AbstractApplicationContext#publishEvent` æ¥å‘å¸ƒäº‹ä»¶ã€‚
 
-¹ØÓÚ `AbstractApplicationContext` ¶ÔÕâÁ½¸ö·½·¨µÄÊµÏÖ£¬ÎÒÃÇºóÃæ·ÖÎö·¢²¼Á÷³ÌÊ±ÔÙ¾ßÌå·ÖÎö¡£
+å…³äº `AbstractApplicationContext` å¯¹è¿™ä¸¤ä¸ªæ–¹æ³•çš„å®ç°ï¼Œæˆ‘ä»¬åé¢åˆ†æå‘å¸ƒæµç¨‹æ—¶å†å…·ä½“åˆ†æã€‚
 
-#### 2.3 ¹ã²¥Æ÷
+#### 2.3 å¹¿æ’­å™¨
 
-¹ã²¥Æ÷µÄ×÷ÓÃÊÇ½ÓÊÕ·¢²¼µÄÊÂ¼ş£¬È»ºó½«ÊÂ¼ş¹ã²¥¸ø¼àÌıÆ÷£¬´úÂëÈçÏÂ£º
+å¹¿æ’­å™¨çš„ä½œç”¨æ˜¯æ¥æ”¶å‘å¸ƒçš„äº‹ä»¶ï¼Œç„¶åå°†äº‹ä»¶å¹¿æ’­ç»™ç›‘å¬å™¨ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public interface ApplicationEventMulticaster {
 
     /**
-     * Ìí¼Ó¼àÌıÆ÷
+     * æ·»åŠ ç›‘å¬å™¨
      */
     void addApplicationListener(ApplicationListener<?> listener);
 
     /**
-     * Ìí¼Ó¼àÌıÆ÷µÄ beanName
+     * æ·»åŠ ç›‘å¬å™¨çš„ beanName
      */
     void addApplicationListenerBean(String listenerBeanName);
 
     /**
-     * ÒÆ³ı¼àÌıÆ÷
+     * ç§»é™¤ç›‘å¬å™¨
      */
     void removeApplicationListener(ApplicationListener<?> listener);
 
     /**
-     * ÒÆ³ı¼àÌıÆ÷µÄ beanName
+     * ç§»é™¤ç›‘å¬å™¨çš„ beanName
      */
     void removeApplicationListenerBean(String listenerBeanName);
 
     /**
-     * ÒÆ³ıËùÓĞµÄ¼àÌıÆ÷
+     * ç§»é™¤æ‰€æœ‰çš„ç›‘å¬å™¨
      */
     void removeAllListeners();
 
     /**
-     * ¹ã²¥ÊÂ¼ş
+     * å¹¿æ’­äº‹ä»¶
      */
     void multicastEvent(ApplicationEvent event);
 
     /**
-     * ¹ã²¥ÊÂ¼ş
+     * å¹¿æ’­äº‹ä»¶
      */
     void multicastEvent(ApplicationEvent event, @Nullable ResolvableType eventType);
 
@@ -227,23 +227,23 @@ public interface ApplicationEventMulticaster {
 
 ```
 
-´Ó´úÂëÉÏÀ´¿´£¬¹ã²¥Æ÷Ö÷Òª¹¦ÄÜÓĞÁ½¸ö£º
+ä»ä»£ç ä¸Šæ¥çœ‹ï¼Œå¹¿æ’­å™¨ä¸»è¦åŠŸèƒ½æœ‰ä¸¤ä¸ªï¼š
 
-1.  Î¬»¤¼àÌıÆ÷£¬¿ÉÒÔ¶Ô¼àÌıÆ÷½øĞĞÔöÉ¾²Ù×÷
-2.  ¹ã²¥ÊÂ¼ş
+1.  ç»´æŠ¤ç›‘å¬å™¨ï¼Œå¯ä»¥å¯¹ç›‘å¬å™¨è¿›è¡Œå¢åˆ æ“ä½œ
+2.  å¹¿æ’­äº‹ä»¶
 
-spring Ä¬ÈÏµÄ¹ã²¥Æ÷Îª `SimpleApplicationEventMulticaster`£¬Õâ¸öÎÒÃÇºóÃæ»áÔÙ·ÖÎö¡£
+spring é»˜è®¤çš„å¹¿æ’­å™¨ä¸º `SimpleApplicationEventMulticaster`ï¼Œè¿™ä¸ªæˆ‘ä»¬åé¢ä¼šå†åˆ†æã€‚
 
-#### 2.4 ¼àÌıÆ÷
+#### 2.4 ç›‘å¬å™¨
 
-¼àÌıÆ÷ÓÃÀ´¼àÌı·¢²¼µÄÊÂ¼ş£¬È»ºó×öÒ»Ğ©´¦Àí²Ù×÷£¬´úÂëÈçÏÂ£º
+ç›‘å¬å™¨ç”¨æ¥ç›‘å¬å‘å¸ƒçš„äº‹ä»¶ï¼Œç„¶ååšä¸€äº›å¤„ç†æ“ä½œï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 @FunctionalInterface
 public interface ApplicationListener<E extends ApplicationEvent> extends EventListener {
 
     /**
-     * ´¦ÀíÊÂ¼ş
+     * å¤„ç†äº‹ä»¶
      */
     void onApplicationEvent(E event);
 
@@ -251,36 +251,36 @@ public interface ApplicationListener<E extends ApplicationEvent> extends EventLi
 
 ```
 
-ÔÚ´¦ÀíÊÂ¼ş¼àÌıÊ±£¬ÎÒÃÇĞèÒªÊµÏÖ `ApplicationListener`£¬È»ºóÔÚ `onApplicationEvent(...)` ·½·¨ÖĞ±àĞ´ÎÒÃÇµÄÊÂ¼ş¼àÌıÂß¼­¡£
+åœ¨å¤„ç†äº‹ä»¶ç›‘å¬æ—¶ï¼Œæˆ‘ä»¬éœ€è¦å®ç° `ApplicationListener`ï¼Œç„¶ååœ¨ `onApplicationEvent(...)` æ–¹æ³•ä¸­ç¼–å†™æˆ‘ä»¬çš„äº‹ä»¶ç›‘å¬é€»è¾‘ã€‚
 
-### 3\. »Ø¹Ë£º`¹ã²¥Æ÷µÄ³õÊ¼»¯`Óë`¼àÌıÆ÷µÄ×¢²á`
+### 3\. å›é¡¾ï¼š`å¹¿æ’­å™¨çš„åˆå§‹åŒ–`ä¸`ç›‘å¬å™¨çš„æ³¨å†Œ`
 
-±¾½ÚÎÒÃÇÀ´»Ø¹ËÏÂ`ÊÂ¼ş¹ã²¥Æ÷µÄ³õÊ¼»¯`Óë`¼àÌıÆ÷µÄ×¢²á`µÄÁ÷³Ì¡£
+æœ¬èŠ‚æˆ‘ä»¬æ¥å›é¡¾ä¸‹`äº‹ä»¶å¹¿æ’­å™¨çš„åˆå§‹åŒ–`ä¸`ç›‘å¬å™¨çš„æ³¨å†Œ`çš„æµç¨‹ã€‚
 
-ÔÚ´¦Àí spring ÈİÆ÷Æô¶¯µÄ `AbstractApplicationContext#refresh` ·½·¨ÖĞ£¬`ÊÂ¼ş¹ã²¥Æ÷µÄ³õÊ¼»¯`Óë`¼àÌıÆ÷µÄ×¢²á`·Ö±ğ·¢ÉúÔÚµÚ 8 ²½ÓëµÚ 10 ²½£º
+åœ¨å¤„ç† spring å®¹å™¨å¯åŠ¨çš„ `AbstractApplicationContext#refresh` æ–¹æ³•ä¸­ï¼Œ`äº‹ä»¶å¹¿æ’­å™¨çš„åˆå§‹åŒ–`ä¸`ç›‘å¬å™¨çš„æ³¨å†Œ`åˆ†åˆ«å‘ç”Ÿåœ¨ç¬¬ 8 æ­¥ä¸ç¬¬ 10 æ­¥ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-c4d4ac83c23e41a706b7ba545fd8d0f7681.png)
 
-Ïà¹Ø´úÂëÈçÏÂ£º
+ç›¸å…³ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public abstract class AbstractApplicationContext extends DefaultResourceLoader
         implements ConfigurableApplicationContext {
 
     /**
-     * ³õÊ¼»¯¹ã²¥Æ÷
-     * Èç¹ûÒÑÅäÖÃÁËÊÂ¼ş¹ã²¥Æ÷£¬¾ÍÊ¹ÓÃÒÑÅäÖÃµÄ£¬·ñÔò¾ÍÊ¹ÓÃÄ¬ÈÏµÄÊÂ¼ş¹ã²¥Æ÷
+     * åˆå§‹åŒ–å¹¿æ’­å™¨
+     * å¦‚æœå·²é…ç½®äº†äº‹ä»¶å¹¿æ’­å™¨ï¼Œå°±ä½¿ç”¨å·²é…ç½®çš„ï¼Œå¦åˆ™å°±ä½¿ç”¨é»˜è®¤çš„äº‹ä»¶å¹¿æ’­å™¨
      */
     protected void initApplicationEventMulticaster() {
         ConfigurableListableBeanFactory beanFactory = getBeanFactory();
-        // Èç¹ûÓÃ»§ÅäÖÃÁË×Ô¶¨ÒåÊÂ¼ş¹ã²¥Æ÷£¬¾ÍÊ¹ÓÃÓÃ»§µÄ
+        // å¦‚æœç”¨æˆ·é…ç½®äº†è‡ªå®šä¹‰äº‹ä»¶å¹¿æ’­å™¨ï¼Œå°±ä½¿ç”¨ç”¨æˆ·çš„
         if (beanFactory.containsLocalBean(APPLICATION_EVENT_MULTICASTER_BEAN_NAME)) {
             this.applicationEventMulticaster =
                     beanFactory.getBean(APPLICATION_EVENT_MULTICASTER_BEAN_NAME, 
                             ApplicationEventMulticaster.class);
         }
         else {
-            // ÓÃ»§Ã»ÓĞÅäÖÃ¹ã²¥Æ÷£¬¾ÍÊ¹ÓÃÄ¬ÈÏµÄÊÂ¼ş¹ã²¥Æ÷
+            // ç”¨æˆ·æ²¡æœ‰é…ç½®å¹¿æ’­å™¨ï¼Œå°±ä½¿ç”¨é»˜è®¤çš„äº‹ä»¶å¹¿æ’­å™¨
             this.applicationEventMulticaster = new SimpleApplicationEventMulticaster(beanFactory);
             beanFactory.registerSingleton(APPLICATION_EVENT_MULTICASTER_BEAN_NAME, 
                     this.applicationEventMulticaster);
@@ -288,24 +288,24 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
     }
 
     /**
-     * ×¢²á¼àÌıÆ÷
+     * æ³¨å†Œç›‘å¬å™¨
      */
     protected void registerListeners() {
-        // 1\. ÏÈ½«ÊÖ¶¯Ìí¼ÓµÄ¼àÌıÆ÷·Åµ½¹ã²¥Æ÷ÖĞ
-        // µ÷ÓÃAbstractApplicationContext#addApplicationListener½øĞĞÌí¼Ó
+        // 1\. å…ˆå°†æ‰‹åŠ¨æ·»åŠ çš„ç›‘å¬å™¨æ”¾åˆ°å¹¿æ’­å™¨ä¸­
+        // è°ƒç”¨AbstractApplicationContext#addApplicationListenerè¿›è¡Œæ·»åŠ 
         for (ApplicationListener<?> listener : getApplicationListeners()) {
             getApplicationEventMulticaster().addApplicationListener(listener);
         }
 
-        // 2\. ´ÓbeanFactoryÖĞ»ñÈ¡È¡¼àÌıÆ÷µÄÃû³Æ£¬Ìí¼Óµ½¹ã²¥Æ÷ÖĞ
+        // 2\. ä»beanFactoryä¸­è·å–å–ç›‘å¬å™¨çš„åç§°ï¼Œæ·»åŠ åˆ°å¹¿æ’­å™¨ä¸­
         String[] listenerBeanNames = getBeanNamesForType(ApplicationListener.class, true, false);
         for (String listenerBeanName : listenerBeanNames) {
             getApplicationEventMulticaster().addApplicationListenerBean(listenerBeanName);
         }
 
-        // 3\. Èç¹û´æÔÚÔçÆÚÓ¦ÓÃÊÂ¼ş£¬·¢²¼
+        // 3\. å¦‚æœå­˜åœ¨æ—©æœŸåº”ç”¨äº‹ä»¶ï¼Œå‘å¸ƒ
         Set<ApplicationEvent> earlyEventsToProcess = this.earlyApplicationEvents;
-        // ½« earlyApplicationEvents ÉèÖÃÎª null£¬ÔÙ·¢²¼ÔçÆÚÊÂ¼ş
+        // å°† earlyApplicationEvents è®¾ç½®ä¸º nullï¼Œå†å‘å¸ƒæ—©æœŸäº‹ä»¶
         this.earlyApplicationEvents = null;
         if (earlyEventsToProcess != null) {
             for (ApplicationEvent earlyEvent : earlyEventsToProcess) {
@@ -320,24 +320,24 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 ```
 
-¹ã²¥Æ÷µÄ³õÊ¼»¯Âß¼­ºÜ¼òµ¥£¬¼´Èç¹ûÒÑÅäÖÃÁËÊÂ¼ş¹ã²¥Æ÷£¬¾ÍÊ¹ÓÃÒÑÅäÖÃµÄ£¬·ñÔò¾ÍÊ¹ÓÃÄ¬ÈÏµÄÊÂ¼ş¹ã²¥Æ÷£¬Ä¬ÈÏµÄÊÂ¼ş¹ã²¥Æ÷ÊÇ `SimpleApplicationEventMulticaster`¡£
+å¹¿æ’­å™¨çš„åˆå§‹åŒ–é€»è¾‘å¾ˆç®€å•ï¼Œå³å¦‚æœå·²é…ç½®äº†äº‹ä»¶å¹¿æ’­å™¨ï¼Œå°±ä½¿ç”¨å·²é…ç½®çš„ï¼Œå¦åˆ™å°±ä½¿ç”¨é»˜è®¤çš„äº‹ä»¶å¹¿æ’­å™¨ï¼Œé»˜è®¤çš„äº‹ä»¶å¹¿æ’­å™¨æ˜¯ `SimpleApplicationEventMulticaster`ã€‚
 
-×¢²á¼àÌıÆ÷µÄÁ÷³ÌÈçÏÂ£º
+æ³¨å†Œç›‘å¬å™¨çš„æµç¨‹å¦‚ä¸‹ï¼š
 
-1.  ÏÈ½«ÊÖ¶¯Ìí¼ÓµÄ¼àÌıÆ÷·Åµ½¹ã²¥Æ÷ÖĞ£¬ÎÒÃÇ¿ÉÒÔµ÷ÓÃ `AbstractApplicationContext#addApplicationListener` Ìí¼Ó¼àÌıÆ÷£»
-2.  ´Ó `beanFactory` ÖĞ»ñÈ¡È¡¼àÌıÆ÷µÄÃû³Æ£¬Ìí¼Óµ½¹ã²¥Æ÷ÖĞ£¬×¢Òâ£º´ËÊ± `beanFactory` ÖĞµÄ bean ²¢Ã»ÓĞ³õÊ¼»¯£¬Òò´ËÖ»ÄÜÌí¼Ó `beanName`;
-3.  Èç¹û´æÔÚÔçÆÚÊÂ¼ş£¬¾Í·¢²¼ÔçÆÚÊÂ¼ş¡£
+1.  å…ˆå°†æ‰‹åŠ¨æ·»åŠ çš„ç›‘å¬å™¨æ”¾åˆ°å¹¿æ’­å™¨ä¸­ï¼Œæˆ‘ä»¬å¯ä»¥è°ƒç”¨ `AbstractApplicationContext#addApplicationListener` æ·»åŠ ç›‘å¬å™¨ï¼›
+2.  ä» `beanFactory` ä¸­è·å–å–ç›‘å¬å™¨çš„åç§°ï¼Œæ·»åŠ åˆ°å¹¿æ’­å™¨ä¸­ï¼Œæ³¨æ„ï¼šæ­¤æ—¶ `beanFactory` ä¸­çš„ bean å¹¶æ²¡æœ‰åˆå§‹åŒ–ï¼Œå› æ­¤åªèƒ½æ·»åŠ  `beanName`;
+3.  å¦‚æœå­˜åœ¨æ—©æœŸäº‹ä»¶ï¼Œå°±å‘å¸ƒæ—©æœŸäº‹ä»¶ã€‚
 
-»Ø¹ËÍêÕâÁ½¸öÁ÷³Ìºó£¬ÎÒÃÇ´óÄÔÖĞĞèÒªÇå³şµØÃ÷°×ÒÔÏÂÁ½µã£º
+å›é¡¾å®Œè¿™ä¸¤ä¸ªæµç¨‹åï¼Œæˆ‘ä»¬å¤§è„‘ä¸­éœ€è¦æ¸…æ¥šåœ°æ˜ç™½ä»¥ä¸‹ä¸¤ç‚¹ï¼š
 
-1.  ¹ã²¥Æ÷ÊÇÔÚÄÄÀï³õÊ¼»¯µÄ
-2.  ¼àÌıÆ÷ÊÇÔÚÄÄÀï×¢²áµ½¹ã²¥Æ÷ÖĞµÄ
+1.  å¹¿æ’­å™¨æ˜¯åœ¨å“ªé‡Œåˆå§‹åŒ–çš„
+2.  ç›‘å¬å™¨æ˜¯åœ¨å“ªé‡Œæ³¨å†Œåˆ°å¹¿æ’­å™¨ä¸­çš„
 
-### 4\. ÊÂ¼ş·¢²¼Á÷³Ì
+### 4\. äº‹ä»¶å‘å¸ƒæµç¨‹
 
-¾­¹ıÇ°ÃæÁ½½ÚµÄÆÌµæ£¬ÎÒÃÇ¶ÔÊÂ¼şµÄ×é¼şÒÑ¾­ÓĞÁË¸ö´ó¸ÅµÄ¸ÅÄî£¬Ò²Ã÷°×ÁËÊÂ¼ş¹ã²¥Æ÷µÄ³õÊ¼»¯Óë¼àÌıÆ÷µÄ×¢²áÁ÷³Ì£¬½ÓÏÂÀ´ ÎÒÃÇ¾ÍÕıÊ½·ÖÎöÊÂ¼şµÄ·¢²¼Á÷³ÌÁË¡£
+ç»è¿‡å‰é¢ä¸¤èŠ‚çš„é“ºå«ï¼Œæˆ‘ä»¬å¯¹äº‹ä»¶çš„ç»„ä»¶å·²ç»æœ‰äº†ä¸ªå¤§æ¦‚çš„æ¦‚å¿µï¼Œä¹Ÿæ˜ç™½äº†äº‹ä»¶å¹¿æ’­å™¨çš„åˆå§‹åŒ–ä¸ç›‘å¬å™¨çš„æ³¨å†Œæµç¨‹ï¼Œæ¥ä¸‹æ¥ æˆ‘ä»¬å°±æ­£å¼åˆ†æäº‹ä»¶çš„å‘å¸ƒæµç¨‹äº†ã€‚
 
-ÔÚ demo ÖĞ£¬ÎÒÃÇµ÷ÓÃ `context.publishEvent(...)` À´·¢²¼ÊÂ¼ş£¬ÎÒÃÇ¸ú½øÕâ¸ö·½·¨£º
+åœ¨ demo ä¸­ï¼Œæˆ‘ä»¬è°ƒç”¨ `context.publishEvent(...)` æ¥å‘å¸ƒäº‹ä»¶ï¼Œæˆ‘ä»¬è·Ÿè¿›è¿™ä¸ªæ–¹æ³•ï¼š
 
 ```
 public abstract class AbstractApplicationContext extends DefaultResourceLoader
@@ -350,7 +350,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
     protected void publishEvent(Object event, @Nullable ResolvableType eventType) {
         Assert.notNull(event, "Event must not be null");
-        // ´¦ÀíÊÂ¼şÀàĞÍ
+        // å¤„ç†äº‹ä»¶ç±»å‹
         ApplicationEvent applicationEvent;
         if (event instanceof ApplicationEvent) {
             applicationEvent = (ApplicationEvent) event;
@@ -362,17 +362,17 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
             }
         }
 
-        // earlyApplicationEvents ²»Îª null£¬½«applicationEventÌí¼Óµ½ earlyApplicationEvents
-        // ÔÚ×¢²á¼àÌıÆ÷ºó£¬»á°Ñ earlyApplicationEvents ÉèÖÃÎª null
+        // earlyApplicationEvents ä¸ä¸º nullï¼Œå°†applicationEventæ·»åŠ åˆ° earlyApplicationEvents
+        // åœ¨æ³¨å†Œç›‘å¬å™¨åï¼Œä¼šæŠŠ earlyApplicationEvents è®¾ç½®ä¸º null
         if (this.earlyApplicationEvents != null) {
             this.earlyApplicationEvents.add(applicationEvent);
         }
         else {
-            // ÕâÀïÊÇ·¢²¼ÊÂ¼şµÄ²Ù×÷
+            // è¿™é‡Œæ˜¯å‘å¸ƒäº‹ä»¶çš„æ“ä½œ
             getApplicationEventMulticaster().multicastEvent(applicationEvent, eventType);
         }
 
-        // ´æÔÚ¸¸ÈİÆ÷£¬Ò»Ñù·¢²¼
+        // å­˜åœ¨çˆ¶å®¹å™¨ï¼Œä¸€æ ·å‘å¸ƒ
         if (this.parent != null) {
             if (this.parent instanceof AbstractApplicationContext) {
                 ((AbstractApplicationContext) this.parent).publishEvent(event, eventType);
@@ -387,29 +387,29 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 ```
 
-Õâ¸ö·½·¨ºÜ¼òµ¥£¬¹Ø¼ü´úÂëÎª
+è¿™ä¸ªæ–¹æ³•å¾ˆç®€å•ï¼Œå…³é”®ä»£ç ä¸º
 
 ```
-// ÕâÀïÊÇ·¢²¼ÊÂ¼şµÄ²Ù×÷
+// è¿™é‡Œæ˜¯å‘å¸ƒäº‹ä»¶çš„æ“ä½œ
 getApplicationEventMulticaster().multicastEvent(applicationEvent, eventType);
 
 ```
 
-ÕâĞĞ´úÂëÏÈ»ñÈ¡ÁËÊÂ¼ş¹ã²¥Æ÷£¬È»ºó¹ã²¥ÊÂ¼ş¡£
+è¿™è¡Œä»£ç å…ˆè·å–äº†äº‹ä»¶å¹¿æ’­å™¨ï¼Œç„¶åå¹¿æ’­äº‹ä»¶ã€‚
 
-Ç°ÃæÌáµ½£¬spring Ìá¹©µÄÄ¬ÈÏµÄÊÂ¼ş¹ã²¥Æ÷ÊÇ `SimpleApplicationEventMulticaster`£¬ÎÒÃÇ½øÈë `SimpleApplicationEventMulticaster#multicastEvent(ApplicationEvent, ResolvableType)` À´¿´¿´ÊÂ¼şµÄ¹ã²¥Á÷³Ì£º
+å‰é¢æåˆ°ï¼Œspring æä¾›çš„é»˜è®¤çš„äº‹ä»¶å¹¿æ’­å™¨æ˜¯ `SimpleApplicationEventMulticaster`ï¼Œæˆ‘ä»¬è¿›å…¥ `SimpleApplicationEventMulticaster#multicastEvent(ApplicationEvent, ResolvableType)` æ¥çœ‹çœ‹äº‹ä»¶çš„å¹¿æ’­æµç¨‹ï¼š
 
 ```
 /**
- * ¹ã²¥ÊÂ¼ş
+ * å¹¿æ’­äº‹ä»¶
  */
 public void multicastEvent(final ApplicationEvent event, @Nullable ResolvableType eventType) {
     ResolvableType type = (eventType != null ? eventType : resolveDefaultEventType(event));
-    // 1\. »ñÈ¡ TaskExecutor
+    // 1\. è·å– TaskExecutor
     Executor executor = getTaskExecutor();
-    // 2\. getApplicationListeners(...) »ñÈ¡ÄÜ¼àÌı¸ÃÊÂ¼şµÄ¼àÌıÆ÷
+    // 2\. getApplicationListeners(...) è·å–èƒ½ç›‘å¬è¯¥äº‹ä»¶çš„ç›‘å¬å™¨
     for (ApplicationListener<?> listener : getApplicationListeners(event, type)) {
-        // 3\. ±éÀú¼àÌıÆ÷£¬ÖğÒ»µ÷ÓÃ invokeListener(...) ·½·¨
+        // 3\. éå†ç›‘å¬å™¨ï¼Œé€ä¸€è°ƒç”¨ invokeListener(...) æ–¹æ³•
         if (executor != null) {
             executor.execute(() -> invokeListener(listener, event));
         }
@@ -421,17 +421,17 @@ public void multicastEvent(final ApplicationEvent event, @Nullable ResolvableTyp
 
 ```
 
-ÒÔÉÏ·½·¨°üº¬ 3 ¸ö²Ù×÷£º
+ä»¥ä¸Šæ–¹æ³•åŒ…å« 3 ä¸ªæ“ä½œï¼š
 
-1.  »ñÈ¡Ö´ĞĞÆ÷£º`getTaskExecutor()`
-2.  »ñÈ¡ÊÂ¼şµÄ¼àÌıÆ÷£º`getApplicationListeners(...)`
-3.  µ÷ÓÃ¼àÌıÆ÷µÄ¼àÌı·½·¨£º`invokeListener(...)`
+1.  è·å–æ‰§è¡Œå™¨ï¼š`getTaskExecutor()`
+2.  è·å–äº‹ä»¶çš„ç›‘å¬å™¨ï¼š`getApplicationListeners(...)`
+3.  è°ƒç”¨ç›‘å¬å™¨çš„ç›‘å¬æ–¹æ³•ï¼š`invokeListener(...)`
 
-ÒÔÉÏ²Ù×÷°üº¬ÁËÊÂ¼ş¹ã²¥µÄÕû¸öÁ÷³Ì£¬ÎÒÃÇÏÂÃæÀ´ºÃºÃ·ÖÎöÏÂ¡£
+ä»¥ä¸Šæ“ä½œåŒ…å«äº†äº‹ä»¶å¹¿æ’­çš„æ•´ä¸ªæµç¨‹ï¼Œæˆ‘ä»¬ä¸‹é¢æ¥å¥½å¥½åˆ†æä¸‹ã€‚
 
-#### 1\. »ñÈ¡Ö´ĞĞÆ÷£º`getTaskExecutor()`
+#### 1\. è·å–æ‰§è¡Œå™¨ï¼š`getTaskExecutor()`
 
-`taskExecutor` ÊÇ `SimpleApplicationEventMulticaster` µÄÒ»¸öÊôĞÔ£¬`getTaskExecutor()` ÊÇ `taskExecutor` µÄ `getter` ·½·¨£º
+`taskExecutor` æ˜¯ `SimpleApplicationEventMulticaster` çš„ä¸€ä¸ªå±æ€§ï¼Œ`getTaskExecutor()` æ˜¯ `taskExecutor` çš„ `getter` æ–¹æ³•ï¼š
 
 ```
     private Executor taskExecutor;
@@ -447,9 +447,9 @@ public void multicastEvent(final ApplicationEvent event, @Nullable ResolvableTyp
 
 ```
 
-spring ÎªÎÒÃÇÌá¹©ÁËÁ½ÖÖÀàĞÍµÄ `taskExecutor`£º
+spring ä¸ºæˆ‘ä»¬æä¾›äº†ä¸¤ç§ç±»å‹çš„ `taskExecutor`ï¼š
 
-1. `SyncTaskExecutor`£ºÍ¬²½µÄ `taskExecutor`£¬Æä `execute(...)` ·½·¨Îª£º
+1. `SyncTaskExecutor`ï¼šåŒæ­¥çš„ `taskExecutor`ï¼Œå…¶ `execute(...)` æ–¹æ³•ä¸ºï¼š
 
    ```
     @Override
@@ -460,9 +460,9 @@ spring ÎªÎÒÃÇÌá¹©ÁËÁ½ÖÖÀàĞÍµÄ `taskExecutor`£º
    
    ```
 
-   ¿ÉÒÔ¿´µ½£¬ÕâÈ·ÊµÊÇ¸öÍ¬²½·½·¨£¬Ö±½Óµ÷ÓÃ `Runnable#run` ·½·¨£¬²¢Ã»ÓĞÆô¶¯ĞÂµÄÏß³Ì
+   å¯ä»¥çœ‹åˆ°ï¼Œè¿™ç¡®å®æ˜¯ä¸ªåŒæ­¥æ–¹æ³•ï¼Œç›´æ¥è°ƒç”¨ `Runnable#run` æ–¹æ³•ï¼Œå¹¶æ²¡æœ‰å¯åŠ¨æ–°çš„çº¿ç¨‹
 
-2. `SimpleAsyncTaskExecutor`£ºÒì²½µÄ `taskExecutor`£¬Æä `execute(...)` ·½·¨Îª£º
+2. `SimpleAsyncTaskExecutor`ï¼šå¼‚æ­¥çš„ `taskExecutor`ï¼Œå…¶ `execute(...)` æ–¹æ³•ä¸ºï¼š
 
    ```
    @Override
@@ -470,7 +470,7 @@ spring ÎªÎÒÃÇÌá¹©ÁËÁ½ÖÖÀàĞÍµÄ `taskExecutor`£º
         Assert.notNull(task, "Runnable must not be null");
         Runnable taskToUse = (this.taskDecorator != null 
                 ? this.taskDecorator.decorate(task) : task);
-        // doExecute(...) ²ÅÊÇÕæÕı¸É»îµÄ·½·¨
+        // doExecute(...) æ‰æ˜¯çœŸæ­£å¹²æ´»çš„æ–¹æ³•
         if (isThrottleActive() && startTimeout > TIMEOUT_IMMEDIATE) {
             this.concurrencyThrottle.beforeAccess();
             doExecute(new ConcurrencyThrottlingRunnable(taskToUse));
@@ -481,11 +481,11 @@ spring ÎªÎÒÃÇÌá¹©ÁËÁ½ÖÖÀàĞÍµÄ `taskExecutor`£º
     }
    
     /**
-     * ÕæÕı¸É»îµÄ·½·¨
-     * ´Ó´úÂëÀ´¿´£¬Õâ¸ö·½·¨»á´´½¨ĞÂ´´½¨À´Ö´ĞĞÈÎÎñ£¬µ«²¢Ã»ÓĞÊ¹ÓÃÏß³Ì³Ø
+     * çœŸæ­£å¹²æ´»çš„æ–¹æ³•
+     * ä»ä»£ç æ¥çœ‹ï¼Œè¿™ä¸ªæ–¹æ³•ä¼šåˆ›å»ºæ–°åˆ›å»ºæ¥æ‰§è¡Œä»»åŠ¡ï¼Œä½†å¹¶æ²¡æœ‰ä½¿ç”¨çº¿ç¨‹æ± 
      */
     protected void doExecute(Runnable task) {
-        // ¿ÉÒÔ¿´µ½£¬ÕâÀï´´½¨ÁËÏß³Ì£¬²¢ÇÒÆô¶¯ÁËÏß³Ì
+        // å¯ä»¥çœ‹åˆ°ï¼Œè¿™é‡Œåˆ›å»ºäº†çº¿ç¨‹ï¼Œå¹¶ä¸”å¯åŠ¨äº†çº¿ç¨‹
         Thread thread = (this.threadFactory != null 
                 ? this.threadFactory.newThread(task) : createThread(task));
         thread.start();
@@ -493,13 +493,13 @@ spring ÎªÎÒÃÇÌá¹©ÁËÁ½ÖÖÀàĞÍµÄ `taskExecutor`£º
    
    ```
 
-   ¿ÉÒÔ¿´£¬ÔÚ `SimpleAsyncTaskExecutor` ÖĞ£¬»á´´½¨ĞÂµÄÏß³ÌÀ´Ö´ĞĞÈÎÎñ¡£
+   å¯ä»¥çœ‹ï¼Œåœ¨ `SimpleAsyncTaskExecutor` ä¸­ï¼Œä¼šåˆ›å»ºæ–°çš„çº¿ç¨‹æ¥æ‰§è¡Œä»»åŠ¡ã€‚
 
-ÕâÀïÄÜ²»ÄÜ»ñÈ¡µ½Ö´ĞĞÆ÷ÄØ£¿Í¨¹ıµ÷ÊÔ·¢ÏÖ£¬Ö´ĞĞÆ÷µÄ»ñÈ¡½á¹ûÎª `null`£º
+è¿™é‡Œèƒ½ä¸èƒ½è·å–åˆ°æ‰§è¡Œå™¨å‘¢ï¼Ÿé€šè¿‡è°ƒè¯•å‘ç°ï¼Œæ‰§è¡Œå™¨çš„è·å–ç»“æœä¸º `null`ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-2e6ba6389e603a6373287dac26a89a24109.png)
 
-Òò´ËÔÚÏÂÃæÖ´ĞĞ `invokeListener(...)` ·½·¨Ê±£¬ÊÇÖ±½Óµ÷ÓÃµÄ£º
+å› æ­¤åœ¨ä¸‹é¢æ‰§è¡Œ `invokeListener(...)` æ–¹æ³•æ—¶ï¼Œæ˜¯ç›´æ¥è°ƒç”¨çš„ï¼š
 
 ```
 ...
@@ -510,22 +510,22 @@ spring ÎªÎÒÃÇÌá¹©ÁËÁ½ÖÖÀàĞÍµÄ `taskExecutor`£º
 
 ```
 
-#### 2\. »ñÈ¡ÊÂ¼şµÄ¼àÌıÆ÷£º`getApplicationListeners(...)`
+#### 2\. è·å–äº‹ä»¶çš„ç›‘å¬å™¨ï¼š`getApplicationListeners(...)`
 
-×¼±¸À´Ëµ£¬ÕâÀï»ñÈ¡µÄÊÇÄÜ¼àÌı´«ÈëÊÂ¼şµÄ¼àÌıÆ÷£¬·½·¨Îª `AbstractApplicationEventMulticaster#getApplicationListeners(ApplicationEvent, ResolvableType)`£º
+å‡†å¤‡æ¥è¯´ï¼Œè¿™é‡Œè·å–çš„æ˜¯èƒ½ç›‘å¬ä¼ å…¥äº‹ä»¶çš„ç›‘å¬å™¨ï¼Œæ–¹æ³•ä¸º `AbstractApplicationEventMulticaster#getApplicationListeners(ApplicationEvent, ResolvableType)`ï¼š
 
 ```
 /**
- * Õâ¸ö·½·¨¾ÍÁ½¸ö²½Öè£º
- * 1\. ´Ó»º´æÖĞ»ñÈ¡£¬ÄÜ»ñÈ¡µ½£¬Ö±½Ó·µ»Ø
- * 2\. ²»ÄÜ´Ó»º´æÖĞ»ñÈ¡£¬µ÷ÓÃ retrieveApplicationListeners(...) ·½·¨»ñÈ¡
+ * è¿™ä¸ªæ–¹æ³•å°±ä¸¤ä¸ªæ­¥éª¤ï¼š
+ * 1\. ä»ç¼“å­˜ä¸­è·å–ï¼Œèƒ½è·å–åˆ°ï¼Œç›´æ¥è¿”å›
+ * 2\. ä¸èƒ½ä»ç¼“å­˜ä¸­è·å–ï¼Œè°ƒç”¨ retrieveApplicationListeners(...) æ–¹æ³•è·å–
  */
 protected Collection<ApplicationListener<?>> getApplicationListeners(
         ApplicationEvent event, ResolvableType eventType) {
     Object source = event.getSource();
     Class<?> sourceType = (source != null ? source.getClass() : null);
     ListenerCacheKey cacheKey = new ListenerCacheKey(eventType, sourceType);
-    // 1\. ´Ó»º´æÖĞ»ñÈ¡
+    // 1\. ä»ç¼“å­˜ä¸­è·å–
     ListenerRetriever retriever = this.retrieverCache.get(cacheKey);
     if (retriever != null) {
         return retriever.getApplicationListeners();
@@ -539,7 +539,7 @@ protected Collection<ApplicationListener<?>> getApplicationListeners(
                 return retriever.getApplicationListeners();
             }
             retriever = new ListenerRetriever(true);
-            // 2\. »ñÈ¡²Ù×÷£¬ÕâÀï²ÅÊÇ¹Ø¼ü
+            // 2\. è·å–æ“ä½œï¼Œè¿™é‡Œæ‰æ˜¯å…³é”®
             Collection<ApplicationListener<?>> listeners =
                     retrieveApplicationListeners(eventType, sourceType, retriever);
             this.retrieverCache.put(cacheKey, retriever);
@@ -553,16 +553,16 @@ protected Collection<ApplicationListener<?>> getApplicationListeners(
 
 ```
 
-Õâ¸ö·½·¨¿´×Å³¤£¬µ«¹Ø¼ü²Ù×÷¾ÍÁ½¸ö£º
+è¿™ä¸ªæ–¹æ³•çœ‹ç€é•¿ï¼Œä½†å…³é”®æ“ä½œå°±ä¸¤ä¸ªï¼š
 
-1.  ´Ó»º´æÖĞ»ñÈ¡£¬ÄÜ»ñÈ¡µ½£¬Ö±½Ó·µ»Ø
-2.  ²»ÄÜ´Ó»º´æÖĞ»ñÈ¡£¬µ÷ÓÃ `retrieveApplicationListeners(...)` ·½·¨»ñÈ¡
+1.  ä»ç¼“å­˜ä¸­è·å–ï¼Œèƒ½è·å–åˆ°ï¼Œç›´æ¥è¿”å›
+2.  ä¸èƒ½ä»ç¼“å­˜ä¸­è·å–ï¼Œè°ƒç”¨ `retrieveApplicationListeners(...)` æ–¹æ³•è·å–
 
-ÎÒÃÇ¼ÌĞø½øÈë `retrieveApplicationListeners(...)`£º
+æˆ‘ä»¬ç»§ç»­è¿›å…¥ `retrieveApplicationListeners(...)`ï¼š
 
 ```
 /**
- * ÔÚÕâÀïÕæÕı»ñÈ¡¼àÌıÆ÷
+ * åœ¨è¿™é‡ŒçœŸæ­£è·å–ç›‘å¬å™¨
  *
  */
 private Collection<ApplicationListener<?>> retrieveApplicationListeners(
@@ -575,9 +575,9 @@ private Collection<ApplicationListener<?>> retrieveApplicationListeners(
         listeners = new LinkedHashSet<>(this.defaultRetriever.applicationListeners);
         listenerBeans = new LinkedHashSet<>(this.defaultRetriever.applicationListenerBeans);
     }
-    // ´Ó listeners ÖĞ»ñÈ¡ÄÜ´¦Àíµ±Ç°ÊÂ¼şµÄ lister
+    // ä» listeners ä¸­è·å–èƒ½å¤„ç†å½“å‰äº‹ä»¶çš„ lister
     for (ApplicationListener<?> listener : listeners) {
-        // ÔÚÕâÀïÅĞ¶Ïµ±Ç°listenerÊÇ·ñÖ§³Ö´«Èëevent
+        // åœ¨è¿™é‡Œåˆ¤æ–­å½“å‰listeneræ˜¯å¦æ”¯æŒä¼ å…¥event
         if (supportsEvent(listener, eventType, sourceType)) {
             if (retriever != null) {
                 retriever.applicationListeners.add(listener);
@@ -585,20 +585,20 @@ private Collection<ApplicationListener<?>> retrieveApplicationListeners(
             allListeners.add(listener);
         }
     }
-    // ´Ó listenerBeans ÖĞ»ñÈ¡ÄÜ´¦Àíµ±Ç°ÊÂ¼şµÄ lister
+    // ä» listenerBeans ä¸­è·å–èƒ½å¤„ç†å½“å‰äº‹ä»¶çš„ lister
     if (!listenerBeans.isEmpty()) {
         ConfigurableBeanFactory beanFactory = getBeanFactory();
         for (String listenerBeanName : listenerBeans) {
             try {
-                // ÕâÀïÅĞ¶Ïµ±Ç° listenerBeanName ÊÇ·ñÄÜ¼àÌı´«ÈëÊÂ¼ş
+                // è¿™é‡Œåˆ¤æ–­å½“å‰ listenerBeanName æ˜¯å¦èƒ½ç›‘å¬ä¼ å…¥äº‹ä»¶
                 if (supportsEvent(beanFactory, listenerBeanName, eventType)) {
-                    // ´ÓÈİÆ÷ÖĞ»ñÈ¡¶ÔÓ¦µÄbean£¬¶ÔÓÚÔçÆÚÊÂ¼ş£¬»áÒıÆğ¼àÌıÆ÷ÌáÇ°³õÊ¼»¯
+                    // ä»å®¹å™¨ä¸­è·å–å¯¹åº”çš„beanï¼Œå¯¹äºæ—©æœŸäº‹ä»¶ï¼Œä¼šå¼•èµ·ç›‘å¬å™¨æå‰åˆå§‹åŒ–
                     ApplicationListener<?> listener = beanFactory.getBean(
                             listenerBeanName, ApplicationListener.class);
                     if (!allListeners.contains(listener) 
                             && supportsEvent(listener, eventType, sourceType)) {
                         if (retriever != null) {
-                            // ×¢Òâµ¥ÀıÓë·Çµ¥ÀıµÄÇø±ğ
+                            // æ³¨æ„å•ä¾‹ä¸éå•ä¾‹çš„åŒºåˆ«
                             if (beanFactory.isSingleton(listenerBeanName)) {
                                 retriever.applicationListeners.add(listener);
                             }
@@ -621,7 +621,7 @@ private Collection<ApplicationListener<?>> retrieveApplicationListeners(
             }
         }
     }
-    // ÅÅĞò
+    // æ’åº
     AnnotationAwareOrderComparator.sort(allListeners);
     if (retriever != null && retriever.applicationListenerBeans.isEmpty()) {
         retriever.applicationListeners.clear();
@@ -635,23 +635,23 @@ private Collection<ApplicationListener<?>> retrieveApplicationListeners(
 
 ```
 
-ÔÚ `AbstractApplicationContext#registerListeners` ·½·¨ÖĞ£¬ÎÒÃÇÔÚ×¢²á¼àÌıÆ÷Ê± £¬×¢²áÁËÁ½´óÀà¼àÌıÆ÷£º
+åœ¨ `AbstractApplicationContext#registerListeners` æ–¹æ³•ä¸­ï¼Œæˆ‘ä»¬åœ¨æ³¨å†Œç›‘å¬å™¨æ—¶ ï¼Œæ³¨å†Œäº†ä¸¤å¤§ç±»ç›‘å¬å™¨ï¼š
 
-1.  ×¢²áÊÖ¶¯Ìí¼ÓµÄ¼àÌıÆ÷£¬ËüÃÇÊÇÒ»¸ö¸öÊµÀı£»
-2.  ´ÓÈİÆ÷ÖĞ»ñÈ¡¼àÌıÆ÷µÄ beanName£¬½øĞĞ×¢²á£»
+1.  æ³¨å†Œæ‰‹åŠ¨æ·»åŠ çš„ç›‘å¬å™¨ï¼Œå®ƒä»¬æ˜¯ä¸€ä¸ªä¸ªå®ä¾‹ï¼›
+2.  ä»å®¹å™¨ä¸­è·å–ç›‘å¬å™¨çš„ beanNameï¼Œè¿›è¡Œæ³¨å†Œï¼›
 
-`retrieveApplicationListeners()` ÖĞ³öÏÖµÄ `listeners` Óë `listenerBeans` ¾ÍÊÇ´¦ÀíÕâÁ½ÖÖÀàĞÍµÄ¼àÌıÆ÷µÄ¡£
+`retrieveApplicationListeners()` ä¸­å‡ºç°çš„ `listeners` ä¸ `listenerBeans` å°±æ˜¯å¤„ç†è¿™ä¸¤ç§ç±»å‹çš„ç›‘å¬å™¨çš„ã€‚
 
-ÒÔÉÏ·½·¨ËäÈ»ÓĞµã³¤£¬µ«Âß¼­·Ç³£ÇåÎú£º
+ä»¥ä¸Šæ–¹æ³•è™½ç„¶æœ‰ç‚¹é•¿ï¼Œä½†é€»è¾‘éå¸¸æ¸…æ™°ï¼š
 
-1.  ±éÀú `listeners`£¬ÖğÒ»µ÷ÓÃ `supportsEvent(listener, eventType, sourceType)` À´ÅĞ¶Ïµ±Ç° listener ÄÜ·ñ¼àÌı´«ÈëÊÂ¼ş£»
-2.  ±éÀú `listenerBeans`£¬ÖğÒ»µ÷ÓÃ `supportsEvent(beanFactory, listenerBeanName, eventType)` À´ÅĞ¶Ïµ±Ç° listener ÄÜ·ñ¼àÌı´«ÈëÊÂ¼ş£»
+1.  éå† `listeners`ï¼Œé€ä¸€è°ƒç”¨ `supportsEvent(listener, eventType, sourceType)` æ¥åˆ¤æ–­å½“å‰ listener èƒ½å¦ç›‘å¬ä¼ å…¥äº‹ä»¶ï¼›
+2.  éå† `listenerBeans`ï¼Œé€ä¸€è°ƒç”¨ `supportsEvent(beanFactory, listenerBeanName, eventType)` æ¥åˆ¤æ–­å½“å‰ listener èƒ½å¦ç›‘å¬ä¼ å…¥äº‹ä»¶ï¼›
 
-¹ØÓÚÕâÁ½¸ö·½·¨µÄ´¦Àí±È½Ï¸´ÔÓ£¬ÕâÀï¾Í²»Ò»Ò»½øĞĞ·ÖÎöÁË£¬ÕâÀï¸ø³ö´¦ÀíµÄ´óÖÂË¼Â·£º
+å…³äºè¿™ä¸¤ä¸ªæ–¹æ³•çš„å¤„ç†æ¯”è¾ƒå¤æ‚ï¼Œè¿™é‡Œå°±ä¸ä¸€ä¸€è¿›è¡Œåˆ†æäº†ï¼Œè¿™é‡Œç»™å‡ºå¤„ç†çš„å¤§è‡´æ€è·¯ï¼š
 
-1. ´Ó´«ÈëµÄ `listener` »ò `listenerBeanName` »ñÈ¡ `listener` µÄ Class£¬`listener` Ö»Ğè `listener.getClass()` ¼´¿É£¬`listenerBeanName` ¿ÉÍ¨¹ı `beanFactory.getType(listenerBeanName)` »ñÈ¡£»
+1. ä»ä¼ å…¥çš„ `listener` æˆ– `listenerBeanName` è·å– `listener` çš„ Classï¼Œ`listener` åªéœ€ `listener.getClass()` å³å¯ï¼Œ`listenerBeanName` å¯é€šè¿‡ `beanFactory.getType(listenerBeanName)` è·å–ï¼›
 
-2. »ñÈ¡ `listener` ¼àÌıµÄÊÂ¼şÀàĞÍ£¬Ò»¸ö¼àÌıÆ÷ÊÇÕâÑù¶¨ÒåµÄ£º
+2. è·å– `listener` ç›‘å¬çš„äº‹ä»¶ç±»å‹ï¼Œä¸€ä¸ªç›‘å¬å™¨æ˜¯è¿™æ ·å®šä¹‰çš„ï¼š
 
    ```
    public class MyApplicationEventListener 
@@ -665,31 +665,31 @@ private Collection<ApplicationListener<?>> retrieveApplicationListeners(
    
    ```
 
-   ÎÒÃÇ¿ÉÒÔÕâÑù»ñÈ¡µ½ `MyApplicationEvent`£º
+   æˆ‘ä»¬å¯ä»¥è¿™æ ·è·å–åˆ° `MyApplicationEvent`ï¼š
 
    ```
-   // ÕâĞ©Àà¶¼ÊÇjdkÌá¹©µÄ
+   // è¿™äº›ç±»éƒ½æ˜¯jdkæä¾›çš„
    ParameterizedType parameterizedType = (ParameterizedType) 
            MyApplicationEventListener.class.getGenericInterfaces()[0];
        Class<?> type = (Class)parameterizedType.getActualTypeArguments()[0];
    
    ```
 
-   µ±È»£¬spring ÔÚ´¦ÀíÕâ²¿·ÖÂß¼­Ê±ÌØ±ğ¸´ÔÓ£¬±Ï¾¹Èç¹û `MyApplicationEventListener` Í¬Ê±ÊµÏÖÁË¶à¸ö½Ó¿Ú£¬»òÕß `MyApplicationEventListener` µÄ¸¸ - ¸¸ - ¸¸ -... ½Ó¿Ú²ÅÊÇ `ApplicationListener`£¬ÕâĞ©Çé¿ö¶¼Òª¿¼ÂÇµ½¡£
+   å½“ç„¶ï¼Œspring åœ¨å¤„ç†è¿™éƒ¨åˆ†é€»è¾‘æ—¶ç‰¹åˆ«å¤æ‚ï¼Œæ¯•ç«Ÿå¦‚æœ `MyApplicationEventListener` åŒæ—¶å®ç°äº†å¤šä¸ªæ¥å£ï¼Œæˆ–è€… `MyApplicationEventListener` çš„çˆ¶ - çˆ¶ - çˆ¶ -... æ¥å£æ‰æ˜¯ `ApplicationListener`ï¼Œè¿™äº›æƒ…å†µéƒ½è¦è€ƒè™‘åˆ°ã€‚
 
-3. »ñÈ¡µ½¼àÌıÆ÷ÄÜ¼àÌıµÄÊÂ¼şÁË£¬¾ÍÄÜÅĞ¶Ïµ±Ç°ÅĞ¶Ï¼àÌıÊÇ·ñÄÜ¼àÌı´«ÈëÊÂ¼şÁË£¬spring ´¦ÀíÆ¥ÅäµÄ·½·¨Îª `ResolvableType#isAssignableFrom(ResolvableType)`£¬´Ó×¢ÊÍÉÏÀ´¿´£¬ËüÊµÏÖÁËÀàËÆ `Class.isAssignableFrom` ·½·¨µÄ¹¦ÄÜ£¬Í¬Ê±»¹¶Ô´«ÈëÀàÉÏµÄ·ºĞÍÒ²ÊµÏÖÁËÀàËÆ `Class.isAssignableFrom` µÄ¹¦ÄÜ¡£
+3. è·å–åˆ°ç›‘å¬å™¨èƒ½ç›‘å¬çš„äº‹ä»¶äº†ï¼Œå°±èƒ½åˆ¤æ–­å½“å‰åˆ¤æ–­ç›‘å¬æ˜¯å¦èƒ½ç›‘å¬ä¼ å…¥äº‹ä»¶äº†ï¼Œspring å¤„ç†åŒ¹é…çš„æ–¹æ³•ä¸º `ResolvableType#isAssignableFrom(ResolvableType)`ï¼Œä»æ³¨é‡Šä¸Šæ¥çœ‹ï¼Œå®ƒå®ç°äº†ç±»ä¼¼ `Class.isAssignableFrom` æ–¹æ³•çš„åŠŸèƒ½ï¼ŒåŒæ—¶è¿˜å¯¹ä¼ å…¥ç±»ä¸Šçš„æ³›å‹ä¹Ÿå®ç°äº†ç±»ä¼¼ `Class.isAssignableFrom` çš„åŠŸèƒ½ã€‚
 
-#### 3\. µ÷ÓÃ¼àÌı·½·¨£º`invokeListener(...)`
+#### 3\. è°ƒç”¨ç›‘å¬æ–¹æ³•ï¼š`invokeListener(...)`
 
-ÖÕÓÚµ½µ÷ÓÃ¼àÌı·½·¨ÁË£¬´úÂëÈçÏÂ£º
+ç»ˆäºåˆ°è°ƒç”¨ç›‘å¬æ–¹æ³•äº†ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 /**
- * Ö´ĞĞ¼àÌıÆ÷
+ * æ‰§è¡Œç›‘å¬å™¨
  */
 protected void invokeListener(ApplicationListener<?> listener, ApplicationEvent event) {
     ErrorHandler errorHandler = getErrorHandler();
-    // ×îÖÕµ÷ÓÃµÄÊÇ doInvokeListener(...)
+    // æœ€ç»ˆè°ƒç”¨çš„æ˜¯ doInvokeListener(...)
     if (errorHandler != null) {
         try {
             doInvokeListener(listener, event);
@@ -704,7 +704,7 @@ protected void invokeListener(ApplicationListener<?> listener, ApplicationEvent 
 }
 
 /**
- * ¾ßÌåµÄÖ´ĞĞ²Ù×÷£¬×îÖÕµ÷ÓÃµÄÊÇ ApplicationListener#onApplicationEvent ·½·¨
+ * å…·ä½“çš„æ‰§è¡Œæ“ä½œï¼Œæœ€ç»ˆè°ƒç”¨çš„æ˜¯ ApplicationListener#onApplicationEvent æ–¹æ³•
  */
 private void doInvokeListener(ApplicationListener listener, ApplicationEvent event) {
     try {
@@ -713,7 +713,7 @@ private void doInvokeListener(ApplicationListener listener, ApplicationEvent eve
     catch (ClassCastException ex) {
         String msg = ex.getMessage();
         if (msg == null || matchesClassCastMessage(msg, event.getClass())) {
-            // Ê¡ÂÔÈÕÖ¾´òÓ¡
+            // çœç•¥æ—¥å¿—æ‰“å°
         }
         else {
             throw ex;
@@ -723,19 +723,19 @@ private void doInvokeListener(ApplicationListener listener, ApplicationEvent eve
 
 ```
 
-ÕâÒ»¿éºÜ¼òµ¥£¬¾ÍÊÇ±éÀúÉÏÒ»²½»ñÈ¡µÄ¼àÌıÆ÷£¬ÖğÒ»µ÷ÓÃÆä `onApplicationEvent(...)` ·½·¨¡£
+è¿™ä¸€å—å¾ˆç®€å•ï¼Œå°±æ˜¯éå†ä¸Šä¸€æ­¥è·å–çš„ç›‘å¬å™¨ï¼Œé€ä¸€è°ƒç”¨å…¶ `onApplicationEvent(...)` æ–¹æ³•ã€‚
 
-ÕâÀïĞèÒª×¢ÒâµÄÊÇ£¬ÔÚÇ°Ãæ`»ñÈ¡Ö´ĞĞÆ÷`µÄ·ÖÎöÖĞ£¬ÎÒÃÇÌáµ½ `getTaskExecutor()` µÄ½á¹ûÎª `null`£¬Õâ±íÃ÷ `invokeListener(...)` ÊÇÖ±½ÓÖ´ĞĞµÄ£¬²¢Ã»ÓĞÁíÆğÒ»¸öÏß³ÌÖĞÖ´ĞĞ£¬ÕâµãĞèÒª¸ñÍâ×¢Òâ¡£
+è¿™é‡Œéœ€è¦æ³¨æ„çš„æ˜¯ï¼Œåœ¨å‰é¢`è·å–æ‰§è¡Œå™¨`çš„åˆ†æä¸­ï¼Œæˆ‘ä»¬æåˆ° `getTaskExecutor()` çš„ç»“æœä¸º `null`ï¼Œè¿™è¡¨æ˜ `invokeListener(...)` æ˜¯ç›´æ¥æ‰§è¡Œçš„ï¼Œå¹¶æ²¡æœ‰å¦èµ·ä¸€ä¸ªçº¿ç¨‹ä¸­æ‰§è¡Œï¼Œè¿™ç‚¹éœ€è¦æ ¼å¤–æ³¨æ„ã€‚
 
-### 5\. ÊÂ¼şµÄÓ¦ÓÃ
+### 5\. äº‹ä»¶çš„åº”ç”¨
 
-#### 5.1 ¼àÌıÈİÆ÷Æô¶¯Íê³ÉÊÂ¼ş
+#### 5.1 ç›‘å¬å®¹å™¨å¯åŠ¨å®Œæˆäº‹ä»¶
 
-ÔÚ spring Æô¶¯Á÷³ÌÖĞ£¬ÈİÆ÷Æô¶¯Íê³É»á·¢²¼ `ContextRefreshed` ÊÂ¼ş£º
+åœ¨ spring å¯åŠ¨æµç¨‹ä¸­ï¼Œå®¹å™¨å¯åŠ¨å®Œæˆä¼šå‘å¸ƒ `ContextRefreshed` äº‹ä»¶ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-f60ea2710c59e2ce9e1401f1b54cbd9d700.png)
 
-ÎÒÃÇÒª¼àÌıÆ÷¸ÃÊÂ¼şÒ²Ê®·Ö¼òµ¥£¬ÏàÓ¦µÄ `Listener` ÈçÏÂ£º
+æˆ‘ä»¬è¦ç›‘å¬å™¨è¯¥äº‹ä»¶ä¹Ÿååˆ†ç®€å•ï¼Œç›¸åº”çš„ `Listener` å¦‚ä¸‹ï¼š
 
 ```
 @Component
@@ -744,64 +744,64 @@ public class ContextRefreshedListener
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        System.out.println("ÈİÆ÷Æô¶¯Íê³É");
+        System.out.println("å®¹å™¨å¯åŠ¨å®Œæˆ");
     }
 
 }
 
 ```
 
-#### 5.2 ·¢²¼ÔçÆÚÊÂ¼ş
+#### 5.2 å‘å¸ƒæ—©æœŸäº‹ä»¶
 
-Ò»¿ªÊ¼£¬ÎÒÒÔÎªÔçÆÚÊÂ¼şÊÇÕâÑù·¢²¼£º
+ä¸€å¼€å§‹ï¼Œæˆ‘ä»¥ä¸ºæ—©æœŸäº‹ä»¶æ˜¯è¿™æ ·å‘å¸ƒï¼š
 
 ```
 AnnotationConfigApplicationContext context 
         = new AnnotationConfigApplicationContext();
 context.register(Demo08Config.class);
-// ·¢²¼ÊÂ¼ş£¬ÔÚÈİÆ÷Æô¶¯Ç°·¢²¼
+// å‘å¸ƒäº‹ä»¶ï¼Œåœ¨å®¹å™¨å¯åŠ¨å‰å‘å¸ƒ
 context.publishEvent(new MyApplicationEvent(
-        Thread.currentThread().getName() + " | ×Ô¶¨ÒåÊÂ¼ş ..."));
+        Thread.currentThread().getName() + " | è‡ªå®šä¹‰äº‹ä»¶ ..."));
 context.refresh();
 
 ```
 
-ÔËĞĞºó£¬»á±¨´í£º ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-4fc18c95f69d8c3d65be2a0f603d42e19ce.png)
+è¿è¡Œåï¼Œä¼šæŠ¥é”™ï¼š ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-4fc18c95f69d8c3d65be2a0f603d42e19ce.png)
 
-´Ó´íÎóĞÅÏ¢À´¿´£¬ÊÇËµ¹ã²¥Æ÷Î´³õÊ¼»¯¡£
+ä»é”™è¯¯ä¿¡æ¯æ¥çœ‹ï¼Œæ˜¯è¯´å¹¿æ’­å™¨æœªåˆå§‹åŒ–ã€‚
 
-ÄÇÃ´¹ã²¥Æ÷ÊÇÔÚÄÄÀï³õÊ¼»¯µÄÄØ£¿»ØÒäÏÂÇ°ÃæµÄ·ÖÎö£¬ºÜÇå³şµØÖªµÀÊÇÔÚ `refresh()` ¹ı³ÌµÄµÚ 8 ²½£¬¶øÔçÆÚÊÂ¼şµÄ·¢²¼ÓÖÔÚµÚ 10 ²½£¬ÕâÑùÒ»À´£¬ÔçÆÚÊÂ¼ş¾ÍÖ»ÄÜÔÚµÚ 9 ²½ÁË£º
+é‚£ä¹ˆå¹¿æ’­å™¨æ˜¯åœ¨å“ªé‡Œåˆå§‹åŒ–çš„å‘¢ï¼Ÿå›å¿†ä¸‹å‰é¢çš„åˆ†æï¼Œå¾ˆæ¸…æ¥šåœ°çŸ¥é“æ˜¯åœ¨ `refresh()` è¿‡ç¨‹çš„ç¬¬ 8 æ­¥ï¼Œè€Œæ—©æœŸäº‹ä»¶çš„å‘å¸ƒåˆåœ¨ç¬¬ 10 æ­¥ï¼Œè¿™æ ·ä¸€æ¥ï¼Œæ—©æœŸäº‹ä»¶å°±åªèƒ½åœ¨ç¬¬ 9 æ­¥äº†ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-1fecd516c6d58d628937b20ebd806065891.png)
 
-´ÓÕâÀï¿ÉÒÔ¿´³ö£¬ÔçÆÚÊÂ¼ş¾ÍÊÇÎª `onRefresh()` Õâ¸öÀ©Õ¹µã×¼±¸µÄ£¡
+ä»è¿™é‡Œå¯ä»¥çœ‹å‡ºï¼Œæ—©æœŸäº‹ä»¶å°±æ˜¯ä¸º `onRefresh()` è¿™ä¸ªæ‰©å±•ç‚¹å‡†å¤‡çš„ï¼
 
-ÔçÆÚÊÂ¼şµÄ·¢²¼Ò²¾Í¼òµ¥ÁË£º
+æ—©æœŸäº‹ä»¶çš„å‘å¸ƒä¹Ÿå°±ç®€å•äº†ï¼š
 
 ```
 ApplicationContext context = 
         new AnnotationConfigApplicationContext(Demo08Config.class) {
     @Override
     public void onRefresh() {
-        // ÕâÀï·¢²¼¾ÍÊÇÔçÆÚÊÂ¼ş
+        // è¿™é‡Œå‘å¸ƒå°±æ˜¯æ—©æœŸäº‹ä»¶
         publishEvent(new MyApplicationEvent(
-                Thread.currentThread().getName() + " | ×Ô¶¨ÒåÊÂ¼ş ..."));
+                Thread.currentThread().getName() + " | è‡ªå®šä¹‰äº‹ä»¶ ..."));
     }
 };
 
 ```
 
-#### 5.3 Òì²½¹ã²¥ÊÂ¼ş
+#### 5.3 å¼‚æ­¥å¹¿æ’­äº‹ä»¶
 
-´ÓÇ°ÃæµÄÔ´Âë·ÖÎöÀ´¿´£¬ÊÂ¼şµÄÖ´ĞĞÊÇÔÚÍ¬Ò»¸öÏß³ÌÖĞ½øĞĞµÄ£¬ÕâµãÔÚ demo µÄÔËĞĞ½á¹ûÖĞÒ²ÄÜ¿´³öÀ´£º
+ä»å‰é¢çš„æºç åˆ†ææ¥çœ‹ï¼Œäº‹ä»¶çš„æ‰§è¡Œæ˜¯åœ¨åŒä¸€ä¸ªçº¿ç¨‹ä¸­è¿›è¡Œçš„ï¼Œè¿™ç‚¹åœ¨ demo çš„è¿è¡Œç»“æœä¸­ä¹Ÿèƒ½çœ‹å‡ºæ¥ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-afed97c136df717ba3d9397ff142ae0675f.png)
 
-Ç°ÃæÒÑ¾­·ÖÎö¹ı£¬¹ã²¥ÊÂ¼şÊ±£¬»áÏÈ»ñÈ¡ `executor`£¬Èç¹û `executor` ´æÔÚ£¬ÔÚ `executor` Ö´ĞĞ£¬·ñÔò¾ÍÖ±½ÓÖ´ĞĞ£¬¶ø¹ã²¥Æ÷ÖĞµÄ `executor` Îª `null`£¬Òò´ËºÜÈİÒ×½áÂÛ£ºÒªÏëÊµÏÖÒì²½Ö´ĞĞ£¬ĞèÒªÔÚ¹ã²¥Æ÷ÖĞÉèÖÃ `executor` ÊôĞÔ¡£
+å‰é¢å·²ç»åˆ†æè¿‡ï¼Œå¹¿æ’­äº‹ä»¶æ—¶ï¼Œä¼šå…ˆè·å– `executor`ï¼Œå¦‚æœ `executor` å­˜åœ¨ï¼Œåœ¨ `executor` æ‰§è¡Œï¼Œå¦åˆ™å°±ç›´æ¥æ‰§è¡Œï¼Œè€Œå¹¿æ’­å™¨ä¸­çš„ `executor` ä¸º `null`ï¼Œå› æ­¤å¾ˆå®¹æ˜“ç»“è®ºï¼šè¦æƒ³å®ç°å¼‚æ­¥æ‰§è¡Œï¼Œéœ€è¦åœ¨å¹¿æ’­å™¨ä¸­è®¾ç½® `executor` å±æ€§ã€‚
 
-Ç°ÃæÍ¬ÑùÒ²·ÖÎö¹ı£¬spring ÔÚ³õÊ¼»¯¹ã²¥Æ÷Ê±£¬»áÏÈÅĞ¶ÏÈİÒ×ÖĞÊÇ·ñ´æÔÚ¹ã²¥Æ÷£¨`beanName` Îª `applicationEventMulticaster`£©£¬²»´æÔÚÔòÊ¹ÓÃ `SimpleApplicationEventMulticaster` ´´½¨Ä¬ÈÏµÄ¹ã²¥Æ÷¡£
+å‰é¢åŒæ ·ä¹Ÿåˆ†æè¿‡ï¼Œspring åœ¨åˆå§‹åŒ–å¹¿æ’­å™¨æ—¶ï¼Œä¼šå…ˆåˆ¤æ–­å®¹æ˜“ä¸­æ˜¯å¦å­˜åœ¨å¹¿æ’­å™¨ï¼ˆ`beanName` ä¸º `applicationEventMulticaster`ï¼‰ï¼Œä¸å­˜åœ¨åˆ™ä½¿ç”¨ `SimpleApplicationEventMulticaster` åˆ›å»ºé»˜è®¤çš„å¹¿æ’­å™¨ã€‚
 
-Èç´ËÒ»À´£¬ÎÒÃÇÖ»ĞèÒª×Ô¶¨Òå `beanName` Îª `applicationEventMulticaster` µÄ bean ²»¾ÍĞĞ£¬ÏñÕâÑù£º
+å¦‚æ­¤ä¸€æ¥ï¼Œæˆ‘ä»¬åªéœ€è¦è‡ªå®šä¹‰ `beanName` ä¸º `applicationEventMulticaster` çš„ bean ä¸å°±è¡Œï¼Œåƒè¿™æ ·ï¼š
 
 ```
 @Configuration
@@ -809,14 +809,14 @@ ApplicationContext context =
 public class Demo08Config {
 
     /**
-     * Éú³É×Ô¶¨Òå¹ã²¥Æ÷
-     * ×¢Òâ£ºÃû³Æ±ØĞëÎª applicationEventMulticaster
+     * ç”Ÿæˆè‡ªå®šä¹‰å¹¿æ’­å™¨
+     * æ³¨æ„ï¼šåç§°å¿…é¡»ä¸º applicationEventMulticaster
      */
     @Bean
     public ApplicationEventMulticaster applicationEventMulticaster() {
         SimpleApplicationEventMulticaster applicationEventMulticaster
                 = new SimpleApplicationEventMulticaster();
-        // SimpleAsyncTaskExecutor ÊÇspringÖĞÌá¹©µÄÒì²½ÈÎÎñÖ´ĞĞÆ÷
+        // SimpleAsyncTaskExecutor æ˜¯springä¸­æä¾›çš„å¼‚æ­¥ä»»åŠ¡æ‰§è¡Œå™¨
         applicationEventMulticaster.setTaskExecutor(new SimpleAsyncTaskExecutor());
         return applicationEventMulticaster;
     }
@@ -824,20 +824,20 @@ public class Demo08Config {
 
 ```
 
-`SimpleApplicationEventMulticaster` Ê¹ÓÃÁË spring Ìá¹©µÄÒì²½ÈÎÎñÖ´ĞĞÆ÷£º`SimpleAsyncTaskExecutor`£¬ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+`SimpleApplicationEventMulticaster` ä½¿ç”¨äº† spring æä¾›çš„å¼‚æ­¥ä»»åŠ¡æ‰§è¡Œå™¨ï¼š`SimpleAsyncTaskExecutor`ï¼Œè¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
-SimpleAsyncTaskExecutor-2 | main | ×Ô¶¨ÒåÊÂ¼ş ...
+SimpleAsyncTaskExecutor-2 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
 
 ```
 
-¿ÉÒÔ¿´µ½£¬·¢²¼Ïß³ÌÓë¼àÌıÏß³Ì²»ÔÙÊÇÍ¬Ò»¸öÁË¡£
+å¯ä»¥çœ‹åˆ°ï¼Œå‘å¸ƒçº¿ç¨‹ä¸ç›‘å¬çº¿ç¨‹ä¸å†æ˜¯åŒä¸€ä¸ªäº†ã€‚
 
-µ«ÊÂÇéµ½Õâ»¹ËãÍê£¬Ç°ÃæÒÑ¾­·ÖÎö¹ı `SimpleAsyncTaskExecutor` µÄÈÎÎñÖ´ĞĞ¹ı³Ì£¬ÔÚÖ´ĞĞÊ±Ëü»á²»¶Ï´´½¨ĞÂÏß³Ì£º
+ä½†äº‹æƒ…åˆ°è¿™è¿˜ç®—å®Œï¼Œå‰é¢å·²ç»åˆ†æè¿‡ `SimpleAsyncTaskExecutor` çš„ä»»åŠ¡æ‰§è¡Œè¿‡ç¨‹ï¼Œåœ¨æ‰§è¡Œæ—¶å®ƒä¼šä¸æ–­åˆ›å»ºæ–°çº¿ç¨‹ï¼š
 
 ```
    protected void doExecute(Runnable task) {
-        // ¿ÉÒÔ¿´µ½£¬ÕâÀï´´½¨ÁËÏß³Ì£¬²¢ÇÒÆô¶¯ÁËÏß³Ì
+        // å¯ä»¥çœ‹åˆ°ï¼Œè¿™é‡Œåˆ›å»ºäº†çº¿ç¨‹ï¼Œå¹¶ä¸”å¯åŠ¨äº†çº¿ç¨‹
         Thread thread = (this.threadFactory != null 
                 ? this.threadFactory.newThread(task) : createThread(task));
         thread.start();
@@ -845,74 +845,74 @@ SimpleAsyncTaskExecutor-2 | main | ×Ô¶¨ÒåÊÂ¼ş ...
 
 ```
 
-Èç¹ûÎÒÃÇÁ¬Ğø·¢²¼ 100 ¸öÊÂ¼ş£º
+å¦‚æœæˆ‘ä»¬è¿ç»­å‘å¸ƒ 100 ä¸ªäº‹ä»¶ï¼š
 
 ```
 for(int i = 0; i < 100; i++) {
     context.publishEvent(new MyApplicationEvent(
-            Thread.currentThread().getName() + " | ×Ô¶¨ÒåÊÂ¼ş ..."));
+            Thread.currentThread().getName() + " | è‡ªå®šä¹‰äº‹ä»¶ ..."));
 }
 
 ```
 
-ÔËĞĞ½á¹û»áÕâÑù£º
+è¿è¡Œç»“æœä¼šè¿™æ ·ï¼š
 
 ```
-SimpleAsyncTaskExecutor-2 | main | ×Ô¶¨ÒåÊÂ¼ş ...
-SimpleAsyncTaskExecutor-3 | main | ×Ô¶¨ÒåÊÂ¼ş ...
-SimpleAsyncTaskExecutor-4 | main | ×Ô¶¨ÒåÊÂ¼ş ...
+SimpleAsyncTaskExecutor-2 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
+SimpleAsyncTaskExecutor-3 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
+SimpleAsyncTaskExecutor-4 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
 ...
-SimpleAsyncTaskExecutor-99 | main | ×Ô¶¨ÒåÊÂ¼ş ...
-SimpleAsyncTaskExecutor-100 | main | ×Ô¶¨ÒåÊÂ¼ş ...
-SimpleAsyncTaskExecutor-101 | main | ×Ô¶¨ÒåÊÂ¼ş ...
+SimpleAsyncTaskExecutor-99 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
+SimpleAsyncTaskExecutor-100 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
+SimpleAsyncTaskExecutor-101 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
 
 ```
 
-¿ÉÒÔ¿´µ½£¬¶ÔÓÚÃ¿Ò»¸öÊÂ¼ş£¬¶¼»á´´½¨Ò»¸öĞÂÏß³ÌÀ´Ö´ĞĞ£¬Ïß³Ì±¾¾ÍÊÇÈç´Ë±¦¹óµÄ×ÊÔ´£¬ÕâÑùÆµ·±µØ´´½¨¾ÍÊÇÒ»¸ö¼«´óµÄÀË·Ñ£¬ÄÇÈçºÎÖØÓÃÏß³ÌÄØ£¿´ğ°¸ÊÇÏß³Ì³Ø¡£
+å¯ä»¥çœ‹åˆ°ï¼Œå¯¹äºæ¯ä¸€ä¸ªäº‹ä»¶ï¼Œéƒ½ä¼šåˆ›å»ºä¸€ä¸ªæ–°çº¿ç¨‹æ¥æ‰§è¡Œï¼Œçº¿ç¨‹æœ¬å°±æ˜¯å¦‚æ­¤å®è´µçš„èµ„æºï¼Œè¿™æ ·é¢‘ç¹åœ°åˆ›å»ºå°±æ˜¯ä¸€ä¸ªæå¤§çš„æµªè´¹ï¼Œé‚£å¦‚ä½•é‡ç”¨çº¿ç¨‹å‘¢ï¼Ÿç­”æ¡ˆæ˜¯çº¿ç¨‹æ± ã€‚
 
-ÎÒÃÇ¿´ÏÂ `SimpleApplicationEventMulticaster#setTaskExecutor` ·½·¨µÄ²ÎÊı£¬·¢ÏÖËüÊÇ `java.util.concurrent.Executor`£¬½ÓÏÂÀ´ÊÂÇé¾Í±äµÃ¼òµ¥ÁË£¬ÎÒÃÇÖ±½ÓÊ¹ÓÃ jdk Ìá¹©µÄÏß³Ì³Ø£º
+æˆ‘ä»¬çœ‹ä¸‹ `SimpleApplicationEventMulticaster#setTaskExecutor` æ–¹æ³•çš„å‚æ•°ï¼Œå‘ç°å®ƒæ˜¯ `java.util.concurrent.Executor`ï¼Œæ¥ä¸‹æ¥äº‹æƒ…å°±å˜å¾—ç®€å•äº†ï¼Œæˆ‘ä»¬ç›´æ¥ä½¿ç”¨ jdk æä¾›çš„çº¿ç¨‹æ± ï¼š
 
 ```
 @Bean
 public ApplicationEventMulticaster applicationEventMulticaster() {
     SimpleApplicationEventMulticaster applicationEventMulticaster
             = new SimpleApplicationEventMulticaster();
-    // Ê¹ÓÃjdkÌá¹©µÄÏß³Ì³Ø
+    // ä½¿ç”¨jdkæä¾›çš„çº¿ç¨‹æ± 
     applicationEventMulticaster.setTaskExecutor(Executors.newFixedThreadPool(4));
     return applicationEventMulticaster;
 }
 
 ```
 
-ÕâÀïÊ¹ÓÃµÄÊÇ jdK Ìá¹©µÄ `newFixedThreadPool`£¬ÉèÖÃÁË 4 ¸öÏß³Ì£¬ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+è¿™é‡Œä½¿ç”¨çš„æ˜¯ jdK æä¾›çš„ `newFixedThreadPool`ï¼Œè®¾ç½®äº† 4 ä¸ªçº¿ç¨‹ï¼Œè¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
-pool-1-thread-2 | main | ×Ô¶¨ÒåÊÂ¼ş ...
-pool-1-thread-3 | main | ×Ô¶¨ÒåÊÂ¼ş ...
-pool-1-thread-4 | main | ×Ô¶¨ÒåÊÂ¼ş ...
-pool-1-thread-4 | main | ×Ô¶¨ÒåÊÂ¼ş ...
-pool-1-thread-1 | main | ×Ô¶¨ÒåÊÂ¼ş ...
-pool-1-thread-3 | main | ×Ô¶¨ÒåÊÂ¼ş ...
-pool-1-thread-3 | main | ×Ô¶¨ÒåÊÂ¼ş ...
-pool-1-thread-2 | main | ×Ô¶¨ÒåÊÂ¼ş ...
-pool-1-thread-1 | main | ×Ô¶¨ÒåÊÂ¼ş ...
-pool-1-thread-3 | main | ×Ô¶¨ÒåÊÂ¼ş ...
+pool-1-thread-2 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
+pool-1-thread-3 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
+pool-1-thread-4 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
+pool-1-thread-4 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
+pool-1-thread-1 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
+pool-1-thread-3 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
+pool-1-thread-3 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
+pool-1-thread-2 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
+pool-1-thread-1 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
+pool-1-thread-3 | main | è‡ªå®šä¹‰äº‹ä»¶ ...
 ...
 
 ```
 
-¿ÉÒÔ¿´µ½£¬×ÔÊ¼ÖÁÖÕÖ»ÓĞ 4 ¸öÏß³ÌÔÚ¹ã²¥ÊÂ¼ş¡£
+å¯ä»¥çœ‹åˆ°ï¼Œè‡ªå§‹è‡³ç»ˆåªæœ‰ 4 ä¸ªçº¿ç¨‹åœ¨å¹¿æ’­äº‹ä»¶ã€‚
 
-ÔÚÓĞĞ©´úÂë¹æ·¶ÖĞ£¬ÊÇ½ûÖ¹Ö±½ÓÊ¹ÓÃ jdk Ìá¹©µÄÏß³ÌµÄ³Ø£¬ËûÃÇ¸üÌá³«×Ô¶¨ÒåÏß³Ì³Ø£¬¹ØÓÚÕâµã£¬ÓÉÓÚ±¾ÎÄ²¢²»ÊÇÌÖÂÛÏß³Ì³Ø¼¼ÊõµÄ£¬Òò´Ë¾Í¼òµ¥µØÊ¹ÓÃ jdk Ìá¹©µÄÏß³ÌÊ¾ÀıÏÂ¡£
+åœ¨æœ‰äº›ä»£ç è§„èŒƒä¸­ï¼Œæ˜¯ç¦æ­¢ç›´æ¥ä½¿ç”¨ jdk æä¾›çš„çº¿ç¨‹çš„æ± ï¼Œä»–ä»¬æ›´æå€¡è‡ªå®šä¹‰çº¿ç¨‹æ± ï¼Œå…³äºè¿™ç‚¹ï¼Œç”±äºæœ¬æ–‡å¹¶ä¸æ˜¯è®¨è®ºçº¿ç¨‹æ± æŠ€æœ¯çš„ï¼Œå› æ­¤å°±ç®€å•åœ°ä½¿ç”¨ jdk æä¾›çš„çº¿ç¨‹ç¤ºä¾‹ä¸‹ã€‚
 
-#### 5.4 ×Ô¶¨ÒåÊÂ¼ş
+#### 5.4 è‡ªå®šä¹‰äº‹ä»¶
 
-Êµ¼ÊÉÏ£¬Ç°ÃæÌá¹©µÄÊ¾Àı demo ¾ÍÊÇ×Ô¶¨ÒåÊÂ¼ş£¬ÕâÀï¾Í²»ÖØ¸´ÁË¡£
+å®é™…ä¸Šï¼Œå‰é¢æä¾›çš„ç¤ºä¾‹ demo å°±æ˜¯è‡ªå®šä¹‰äº‹ä»¶ï¼Œè¿™é‡Œå°±ä¸é‡å¤äº†ã€‚
 
-### 6\. ×Ü½á
+### 6\. æ€»ç»“
 
-±¾ÎÄ·ÖÎöÁË spring ÊÂ¼ş»úÖÆ£¬½éÉÜÁËÊÂ¼şµÄËÄ´ó»ù±¾×é¼ş£ºÊÂ¼ş£¬·¢²¼Æ÷£¬¹ã²¥Æ÷£¬¼àÌıÆ÷£¬²¢ÇÒ´ÓÔ´Âë·ÖÎöÁË×é¼şµÄ³õÊ¼»¯¡¢ÊÂ¼şµÄ·¢²¼Á÷³Ì¡£
+æœ¬æ–‡åˆ†æäº† spring äº‹ä»¶æœºåˆ¶ï¼Œä»‹ç»äº†äº‹ä»¶çš„å››å¤§åŸºæœ¬ç»„ä»¶ï¼šäº‹ä»¶ï¼Œå‘å¸ƒå™¨ï¼Œå¹¿æ’­å™¨ï¼Œç›‘å¬å™¨ï¼Œå¹¶ä¸”ä»æºç åˆ†æäº†ç»„ä»¶çš„åˆå§‹åŒ–ã€äº‹ä»¶çš„å‘å¸ƒæµç¨‹ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4713339](https://my.oschina.net/funcy/blog/4713339) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4713339](https://my.oschina.net/funcy/blog/4713339) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

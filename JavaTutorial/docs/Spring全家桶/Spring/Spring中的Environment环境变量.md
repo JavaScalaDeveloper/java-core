@@ -2,13 +2,13 @@
 
 
 
-Èç½ñ£¬ÖÂÁ¦ÓÚ°ïÖú¿ª·¢ÕßÓÃ¸üÉÙµÄ´úÂë¡¢¸ü¿ìµØĞ´³öÉú²ú¼¶ÏµÍ³µÄ Spring Boot ÒÑÈ»³ÉÎª Java Ó¦ÓÃ¿ª·¢µÄÊÂÊµ±ê×¼¡£ÔÚ Spring Boot Ìá¹©µÄÖÚ¶àÌØĞÔÖĞ£¬**×Ô¶¯ÅäÖÃ**ÎŞÒÉÊÇ¶ÔÌáÉı¿ª·¢ÌåÑé×îÏÔÖøµÄÒ»¸öÌØĞÔ£¬Spring Boot »ùÓÚÕâÒ»ÌØĞÔÎª¿ª·¢ÈËÔ±×Ô¶¯ÉùÃ÷ÁËÈô¸É¿ªÏä¼´ÓÃ¡¢¾ß±¸Ä³Ò»¹¦ÄÜµÄ Bean¡£´ó¶àÊıÇé¿öÏÂ£¬×Ô¶¯ÅäÖÃµÄ Bean ¸ÕºÃÄÜÂú×ã´ó¼ÒµÄĞèÇó£¬µ«ÔÚÄ³Ğ©Çé¿öÏÂ£¬²»µÃ²»ÍêÕûµØ¸²¸ÇËüÃÇ£¬Õâ¸öÊ±ºòÖ»ĞèÒªÖØĞÂÉùÃ÷Ïà¹ØÀàĞÍµÄ Bean ¼´¿É£¬ÒòÎª¾ø´ó¶àÊı×Ô¶¯ÅäÖÃµÄ Bean ¶¼»áÓÉ`@ConditionalOnMissingBean`×¢½âĞŞÊÎ¡£ĞÒÔËµÄÊÇ£¬Èç¹ûÖ»ÊÇÏëÎ¢µ÷Ò»Ğ©Ï¸½Ú£¬±ÈÈç¸Ä¸Ä¶Ë¿ÚºÅ (server.port) ºÍÊı¾İÔ´ URL (spring.datasource.url) £¬ÄÇÑ¹¸ùÃ»±ØÒªÖØĞÂÉùÃ÷`ServerProperties`ºÍ`DataSourceProperties`ÕâÁ© Bean À´¸²¸Ç×Ô¶¯ÅäÖÃµÄ Bean¡£ Spring Boot Îª×Ô¶¯ÅäÖÃµÄ Bean Ìá¹©ÁË1000¶à¸öÓÃÓÚÎ¢µ÷µÄÊôĞÔ£¬µ±ĞèÒªµ÷ÕûÉèÖÃÊ±£¬Ö»ĞèÒªÔÚ»·¾³±äÁ¿¡¢ÃüÁîĞĞ²ÎÊı»òÅäÖÃÎÄ¼ş (application.properties/application.yml) ÖĞ½øĞĞÖ¸¶¨¼´¿É£¬Õâ¾ÍÊÇ Spring Boot µÄ`Externalized Configuration` (ÅäÖÃÍâ»¯) ÌØĞÔ¡£
+å¦‚ä»Šï¼Œè‡´åŠ›äºå¸®åŠ©å¼€å‘è€…ç”¨æ›´å°‘çš„ä»£ç ã€æ›´å¿«åœ°å†™å‡ºç”Ÿäº§çº§ç³»ç»Ÿçš„ Spring Boot å·²ç„¶æˆä¸º Java åº”ç”¨å¼€å‘çš„äº‹å®æ ‡å‡†ã€‚åœ¨ Spring Boot æä¾›çš„ä¼—å¤šç‰¹æ€§ä¸­ï¼Œ**è‡ªåŠ¨é…ç½®**æ— ç–‘æ˜¯å¯¹æå‡å¼€å‘ä½“éªŒæœ€æ˜¾è‘—çš„ä¸€ä¸ªç‰¹æ€§ï¼ŒSpring Boot åŸºäºè¿™ä¸€ç‰¹æ€§ä¸ºå¼€å‘äººå‘˜è‡ªåŠ¨å£°æ˜äº†è‹¥å¹²å¼€ç®±å³ç”¨ã€å…·å¤‡æŸä¸€åŠŸèƒ½çš„ Beanã€‚å¤§å¤šæ•°æƒ…å†µä¸‹ï¼Œè‡ªåŠ¨é…ç½®çš„ Bean åˆšå¥½èƒ½æ»¡è¶³å¤§å®¶çš„éœ€æ±‚ï¼Œä½†åœ¨æŸäº›æƒ…å†µä¸‹ï¼Œä¸å¾—ä¸å®Œæ•´åœ°è¦†ç›–å®ƒä»¬ï¼Œè¿™ä¸ªæ—¶å€™åªéœ€è¦é‡æ–°å£°æ˜ç›¸å…³ç±»å‹çš„ Bean å³å¯ï¼Œå› ä¸ºç»å¤§å¤šæ•°è‡ªåŠ¨é…ç½®çš„ Bean éƒ½ä¼šç”±`@ConditionalOnMissingBean`æ³¨è§£ä¿®é¥°ã€‚å¹¸è¿çš„æ˜¯ï¼Œå¦‚æœåªæ˜¯æƒ³å¾®è°ƒä¸€äº›ç»†èŠ‚ï¼Œæ¯”å¦‚æ”¹æ”¹ç«¯å£å· (server.port) å’Œæ•°æ®æº URL (spring.datasource.url) ï¼Œé‚£å‹æ ¹æ²¡å¿…è¦é‡æ–°å£°æ˜`ServerProperties`å’Œ`DataSourceProperties`è¿™ä¿© Bean æ¥è¦†ç›–è‡ªåŠ¨é…ç½®çš„ Beanã€‚ Spring Boot ä¸ºè‡ªåŠ¨é…ç½®çš„ Bean æä¾›äº†1000å¤šä¸ªç”¨äºå¾®è°ƒçš„å±æ€§ï¼Œå½“éœ€è¦è°ƒæ•´è®¾ç½®æ—¶ï¼Œåªéœ€è¦åœ¨ç¯å¢ƒå˜é‡ã€å‘½ä»¤è¡Œå‚æ•°æˆ–é…ç½®æ–‡ä»¶ (application.properties/application.yml) ä¸­è¿›è¡ŒæŒ‡å®šå³å¯ï¼Œè¿™å°±æ˜¯ Spring Boot çš„`Externalized Configuration` (é…ç½®å¤–åŒ–) ç‰¹æ€§ã€‚
 
-µ±È»£¬Íâ²¿ÅäÖÃÔ´²¢²»¾ÖÏŞÓÚ»·¾³±äÁ¿¡¢ÃüÁîĞĞ²ÎÊıºÍÅäÖÃÎÄ¼şÕâÈıÖÖ£¬¸ĞĞËÈ¤µÄ¶ÁÕß¿ÉÒÔ×ÔĞĞÔÄ¶Á Spring Boot ¹Ù·½ÎÄµµ¡£ÔÚ Spring ÖĞ£¬`BeanFactory`°çÑİ×Å Bean ÈİÆ÷µÄ½ÇÉ«£¬¶ø`Environment`Í¬Ñù¶¨Î»ÎªÒ»¸öÈİÆ÷£¬¼´Íâ²¿ÅäÖÃÔ´ÖĞµÄÊôĞÔ¶¼»á±»Ìí¼Óµ½ _Environment_ ÖĞ¡£**ÔÚÎ¢·şÎñ´óĞĞÆäµÀµÄ½ñÌì£¬Íâ²¿ÅäÖÃÔ´ÓÖÑÜÉú³öÁË_Disconf_¡¢_Apollo_ ºÍ _Nacos_ µÈ·Ö²¼Ê½ÅäÖÃÖĞĞÄ£¬µ«ÔÚ Spring µÄµØÅÌ£¬»¹ÊÇÒªÈëÏçËæË×£¬´ÓÅäÖÃÖĞĞÄÖĞ¶ÁÈ¡µ½µÄÊôĞÔÒÀÈ»»á±»×·¼Óµ½ _Environment_ ÖĞ**¡£
+å½“ç„¶ï¼Œå¤–éƒ¨é…ç½®æºå¹¶ä¸å±€é™äºç¯å¢ƒå˜é‡ã€å‘½ä»¤è¡Œå‚æ•°å’Œé…ç½®æ–‡ä»¶è¿™ä¸‰ç§ï¼Œæ„Ÿå…´è¶£çš„è¯»è€…å¯ä»¥è‡ªè¡Œé˜…è¯» Spring Boot å®˜æ–¹æ–‡æ¡£ã€‚åœ¨ Spring ä¸­ï¼Œ`BeanFactory`æ‰®æ¼”ç€ Bean å®¹å™¨çš„è§’è‰²ï¼Œè€Œ`Environment`åŒæ ·å®šä½ä¸ºä¸€ä¸ªå®¹å™¨ï¼Œå³å¤–éƒ¨é…ç½®æºä¸­çš„å±æ€§éƒ½ä¼šè¢«æ·»åŠ åˆ° _Environment_ ä¸­ã€‚**åœ¨å¾®æœåŠ¡å¤§è¡Œå…¶é“çš„ä»Šå¤©ï¼Œå¤–éƒ¨é…ç½®æºåˆè¡ç”Ÿå‡ºäº†_Disconf_ã€_Apollo_ å’Œ _Nacos_ ç­‰åˆ†å¸ƒå¼é…ç½®ä¸­å¿ƒï¼Œä½†åœ¨ Spring çš„åœ°ç›˜ï¼Œè¿˜æ˜¯è¦å…¥ä¹¡éšä¿—ï¼Œä»é…ç½®ä¸­å¿ƒä¸­è¯»å–åˆ°çš„å±æ€§ä¾ç„¶ä¼šè¢«è¿½åŠ åˆ° _Environment_ ä¸­**ã€‚
 
-±ÊÕßÖ®ËùÒÔĞ´ÕâÆªÎÄÕÂ£¬ÊÇÊÜ`jasypt`×é¼şµÄÆô·¢¡£µÚÒ»´Î½Ó´¥ËüÊÇÔÚ2018Äê£¬µ±Ê±¾ÍºÜºÃÆæÕâÍæÒâ¶ù¾¿¾¹ÊÇÈçºÎÊµÏÖ¶ÔÃô¸ĞÊôĞÔ¼Ó½âÃÜµÄ£»ÏÖÔÚÀ´¿´£¬ÒªÏëÊµÏÖÕâÃ´Ò»¸ö¶«¶«£¬²»½öĞèÒªÊìÏ¤ Bean µÄÉúÃüÖÜÆÚ¡¢IoC ÈİÆ÷ÍØÕ¹µã (IoC Container Extension Points) ºÍ Spring Boot µÄÆô¶¯Á÷³ÌµÈÖªÊ¶£¬»¹ĞèÒªÕÆÎÕ _Environment_¡£
+ç¬”è€…ä¹‹æ‰€ä»¥å†™è¿™ç¯‡æ–‡ç« ï¼Œæ˜¯å—`jasypt`ç»„ä»¶çš„å¯å‘ã€‚ç¬¬ä¸€æ¬¡æ¥è§¦å®ƒæ˜¯åœ¨2018å¹´ï¼Œå½“æ—¶å°±å¾ˆå¥½å¥‡è¿™ç©æ„å„¿ç©¶ç«Ÿæ˜¯å¦‚ä½•å®ç°å¯¹æ•æ„Ÿå±æ€§åŠ è§£å¯†çš„ï¼›ç°åœ¨æ¥çœ‹ï¼Œè¦æƒ³å®ç°è¿™ä¹ˆä¸€ä¸ªä¸œä¸œï¼Œä¸ä»…éœ€è¦ç†Ÿæ‚‰ Bean çš„ç”Ÿå‘½å‘¨æœŸã€IoC å®¹å™¨æ‹“å±•ç‚¹ (IoC Container Extension Points) å’Œ Spring Boot çš„å¯åŠ¨æµç¨‹ç­‰çŸ¥è¯†ï¼Œè¿˜éœ€è¦æŒæ¡ _Environment_ã€‚
 
-> jasypt ÉÏÊÖÊ®·Ö¼òµ¥¡£Ê×ÏÈÍ¨¹ı`jasypt-maven-plugin`ÕâÒ» maven ²å¼şÎªÃô¸ĞÊôĞÔÖµÉú³ÉÃÜÎÄ£¬È»ºóÓÃ`ENC(ÃÜÎÄ)`Ìæ»»Ãô¸ĞÊôĞÔÖµ¼´¿É¡£ÈçÏÂ£º
+> jasypt ä¸Šæ‰‹ååˆ†ç®€å•ã€‚é¦–å…ˆé€šè¿‡`jasypt-maven-plugin`è¿™ä¸€ maven æ’ä»¶ä¸ºæ•æ„Ÿå±æ€§å€¼ç”Ÿæˆå¯†æ–‡ï¼Œç„¶åç”¨`ENC(å¯†æ–‡)`æ›¿æ¢æ•æ„Ÿå±æ€§å€¼å³å¯ã€‚å¦‚ä¸‹ï¼š
 >
 > ```
 > jasypt.encryptor.password=crimson_typhoon
@@ -17,12 +17,12 @@
 > spring.datasource.hikari.driver-class-name=com.mysql.cj.jdbc.Driver
 > spring.datasource.hikari.username=root
 > spring.datasource.hikari.password=ENC(qS8+DEIlHxvhPHgn1VaW3oHkn2twrmwNOHewWLIfquAXiCDBrKwvIhDoqalKyhIF)
-> ¸´ÖÆ´úÂë
+> å¤åˆ¶ä»£ç 
 > ```
 
-## 1 ÈÏÊ¶ Environmnent
+## 1 è®¤è¯† Environmnent
 
-ÔÚÊµ¼Ê¹¤×÷ÖĞ£¬ÎÒÃÇÓë _Environment_ ´ò½»µÀµÄ»ú»á²¢²»¶à£»Èç¹ûÒµÎñ Bean È·ÊµĞèÒª»ñÈ¡Íâ²¿ÅäÖÃÔ´ÖĞµÄÄ³Ò»ÊôĞÔÖµ£¬¿ÉÒÔÊÖ¶¯½« _Environment_ ×¢Èëµ½¸ÃÒµÎñ Bean ÖĞ£¬Ò²¿ÉÒÔÖ±½ÓÊµÏÖ`EnvironmentAware`½Ó¿Ú£¬µÃµ½ _Environment_ ÀàĞÍµÄ Bean ÊµÀıÖ®ºó¿ÉÒÔÍ¨¹ı`getProperty()`»ñÈ¡¾ßÌåÊôĞÔÖµ¡£_Environment_ ½Ó¿ÚÄÚÈİÈçÏÂËùÊ¾£º
+åœ¨å®é™…å·¥ä½œä¸­ï¼Œæˆ‘ä»¬ä¸ _Environment_ æ‰“äº¤é“çš„æœºä¼šå¹¶ä¸å¤šï¼›å¦‚æœä¸šåŠ¡ Bean ç¡®å®éœ€è¦è·å–å¤–éƒ¨é…ç½®æºä¸­çš„æŸä¸€å±æ€§å€¼ï¼Œå¯ä»¥æ‰‹åŠ¨å°† _Environment_ æ³¨å…¥åˆ°è¯¥ä¸šåŠ¡ Bean ä¸­ï¼Œä¹Ÿå¯ä»¥ç›´æ¥å®ç°`EnvironmentAware`æ¥å£ï¼Œå¾—åˆ° _Environment_ ç±»å‹çš„ Bean å®ä¾‹ä¹‹åå¯ä»¥é€šè¿‡`getProperty()`è·å–å…·ä½“å±æ€§å€¼ã€‚_Environment_ æ¥å£å†…å®¹å¦‚ä¸‹æ‰€ç¤ºï¼š
 
 ```
 public interface Environment extends PropertyResolver {
@@ -39,10 +39,10 @@ public interface PropertyResolver {
     <T> T getProperty(String key, Class<T> targetType, T defaultValue);
     String resolvePlaceholders(String text);
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-**´ó¼Ò²»ÒªÊÜ _Environment_ ÖĞ _getProperty()_ ·½·¨µÄÎóµ¼£¬Íâ²¿ÅäÖÃÔ´ÖĞµÄÊôĞÔ²¢²»ÊÇÒÔµ¥¸öÊôĞÔÎªÎ¬¶È±»Ìí¼Óµ½ _Environment_ ÖĞµÄ£¬¶øÊÇÒÔ`PropertySource`ÎªÎ¬¶È**¡£_PropertySource_ ÊÇ¶ÔÊôĞÔÔ´Ãû³ÆºÍ¸ÃÊôĞÔÔ´ÖĞÒ»×éÊôĞÔµÄ³éÏó£¬`MapPropertySource`ÊÇÒ»ÖÖ×î¼òµ¥µÄÊµÏÖ£¬ËüÍ¨¹ı _Map<String, Object>_ À´³ĞÔØÏà¹ØµÄÊôĞÔ¡£_PropertySource_ ÄÚÈİÈçÏÂ£º
+**å¤§å®¶ä¸è¦å— _Environment_ ä¸­ _getProperty()_ æ–¹æ³•çš„è¯¯å¯¼ï¼Œå¤–éƒ¨é…ç½®æºä¸­çš„å±æ€§å¹¶ä¸æ˜¯ä»¥å•ä¸ªå±æ€§ä¸ºç»´åº¦è¢«æ·»åŠ åˆ° _Environment_ ä¸­çš„ï¼Œè€Œæ˜¯ä»¥`PropertySource`ä¸ºç»´åº¦**ã€‚_PropertySource_ æ˜¯å¯¹å±æ€§æºåç§°å’Œè¯¥å±æ€§æºä¸­ä¸€ç»„å±æ€§çš„æŠ½è±¡ï¼Œ`MapPropertySource`æ˜¯ä¸€ç§æœ€ç®€å•çš„å®ç°ï¼Œå®ƒé€šè¿‡ _Map<String, Object>_ æ¥æ‰¿è½½ç›¸å…³çš„å±æ€§ã€‚_PropertySource_ å†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 public abstract class PropertySource<T> {
@@ -58,30 +58,30 @@ public abstract class PropertySource<T> {
     public T getSource() { return this.source; }
     public abstract Object getProperty(String name);
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-´ÓÉÏÊö _PropertySource_ ÄÚÈİÀ´¿´£¬_PropertySource_ ×ÔÉíÊÇ¾ß±¸¸ù¾İÊôĞÔÃû»ñÈ¡ÊôĞÔÖµÕâÒ»ÄÜÁ¦µÄ¡£
+ä»ä¸Šè¿° _PropertySource_ å†…å®¹æ¥çœ‹ï¼Œ_PropertySource_ è‡ªèº«æ˜¯å…·å¤‡æ ¹æ®å±æ€§åè·å–å±æ€§å€¼è¿™ä¸€èƒ½åŠ›çš„ã€‚
 
-####  ****getProperty()ÄÚ²¿Ö´ĞĞÂß¼­****
-
-![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/QQ%E6%88%AA%E5%9B%BE20230416193319.jpg)
-
-Ò»°ã£¬_Environment_ ÊµÏÖÀàÖĞ»á³ÖÓĞÒ»¸ö`PropertyResolver`ÀàĞÍµÄ³ÉÔ±±äÁ¿£¬½ø¶ø½»ÓÉ _PropertyResolver_ ¸ºÔğÖ´ĞĞ _getProperty()_ Âß¼­¡£_PropertyResolver_ ÊµÏÖÀàÖĞÓÖ»á³ÖÓĞÁ½¸ö³ÉÔ±±äÁ¿£¬·Ö±ğÊÇ£º`ConversionService`Óë`PropertySources`£»Ê×ÏÈ£¬_PropertyResolver_ ±éÀú `PropertySources` ÖĞµÄ _PropertySource_£¬»ñÈ¡Ô­ÉúÊôĞÔÖµ£»È»ºóÎ¯ÅÉ _ConversionService_ ¶ÔÔ­ÉúÊôĞÔÖµ½øĞĞÊı¾İÀàĞÍ×ª»» (Èç¹ûÓĞ±ØÒªµÄ»°)¡£**ËäÈ» PropertySource ×ÔÉíÊÇ¾ß±¸¸ù¾İÊôĞÔÃû»ñÈ¡ÊôĞÔÖµÕâÒ»ÄÜÁ¦µÄ£¬µ«²»¾ß±¸Õ¼Î»·û½âÎöÓëÀàĞÍ×ª»»ÄÜÁ¦£¬ÓÚÊÇÔÚÖĞ¼äÒıÈë¾ß±¸ÕâÁ½ÖÖÄÜÁ¦µÄ PropertyResolver£¬ ÕâÒ²Ó¡Ö¤ÁËÒ»¸ö¶Î×Ó£ºÔÚ¼ÆËã»ú¿ÆÑ§ÖĞ£¬Ã»ÓĞÊ²Ã´ÎÊÌâÊÇÔÚÖĞ¼ä¼ÓÒ»²ã½â¾ö²»ÁËµÄ£¬Èç¹ûÓĞ£¬ÄÇ¾ÍÔÙ¼ÓÒ»²ã**¡£
-
-####  ****PropertySourceÄÚ²¿¸üĞÂÂß¼­****
+####  ****getProperty()å†…éƒ¨æ‰§è¡Œé€»è¾‘****
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/QQ%E6%88%AA%E5%9B%BE20230416193319.jpg)
 
-_Environment_ ÊµÏÖÀàÖĞ³ıÁË³ÖÓĞ`PropertyResolver`ÀàĞÍµÄ³ÉÔ±±äÁ¿Íâ£¬»¹ÓĞÒ»¸ö`MutablePropertySources`ÀàĞÍµÄ³ÉÔ±±äÁ¿£¬µ«²¢²»Ìá¹©Ö±½Ó²Ù×÷¸Ã _MutablePropertySources_ µÄ·½·¨£¬ÎÒÃÇÖ»ÄÜÍ¨¹ı`getPropertySources()`·½·¨»ñÈ¡ _MutablePropertySources_ ÊµÀı£¬È»ºó½èÖú _MutablePropertySources_ ÖĞµÄ`addFirst()`¡¢`addLast()`ºÍ`replace()`µÈ·½·¨È¥¸üĞÂ _PropertySource_¡£_MutablePropertySources_ ÊÇ _PropertySources_ Î¨Ò»Ò»¸öÊµÏÖÀà£¬ÈçÏÂÍ¼ËùÊ¾£º
+ä¸€èˆ¬ï¼Œ_Environment_ å®ç°ç±»ä¸­ä¼šæŒæœ‰ä¸€ä¸ª`PropertyResolver`ç±»å‹çš„æˆå‘˜å˜é‡ï¼Œè¿›è€Œäº¤ç”± _PropertyResolver_ è´Ÿè´£æ‰§è¡Œ _getProperty()_ é€»è¾‘ã€‚_PropertyResolver_ å®ç°ç±»ä¸­åˆä¼šæŒæœ‰ä¸¤ä¸ªæˆå‘˜å˜é‡ï¼Œåˆ†åˆ«æ˜¯ï¼š`ConversionService`ä¸`PropertySources`ï¼›é¦–å…ˆï¼Œ_PropertyResolver_ éå† `PropertySources` ä¸­çš„ _PropertySource_ï¼Œè·å–åŸç”Ÿå±æ€§å€¼ï¼›ç„¶åå§”æ´¾ _ConversionService_ å¯¹åŸç”Ÿå±æ€§å€¼è¿›è¡Œæ•°æ®ç±»å‹è½¬æ¢ (å¦‚æœæœ‰å¿…è¦çš„è¯)ã€‚**è™½ç„¶ PropertySource è‡ªèº«æ˜¯å…·å¤‡æ ¹æ®å±æ€§åè·å–å±æ€§å€¼è¿™ä¸€èƒ½åŠ›çš„ï¼Œä½†ä¸å…·å¤‡å ä½ç¬¦è§£æä¸ç±»å‹è½¬æ¢èƒ½åŠ›ï¼Œäºæ˜¯åœ¨ä¸­é—´å¼•å…¥å…·å¤‡è¿™ä¸¤ç§èƒ½åŠ›çš„ PropertyResolverï¼Œ è¿™ä¹Ÿå°è¯äº†ä¸€ä¸ªæ®µå­ï¼šåœ¨è®¡ç®—æœºç§‘å­¦ä¸­ï¼Œæ²¡æœ‰ä»€ä¹ˆé—®é¢˜æ˜¯åœ¨ä¸­é—´åŠ ä¸€å±‚è§£å†³ä¸äº†çš„ï¼Œå¦‚æœæœ‰ï¼Œé‚£å°±å†åŠ ä¸€å±‚**ã€‚
+
+####  ****PropertySourceå†…éƒ¨æ›´æ–°é€»è¾‘****
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/QQ%E6%88%AA%E5%9B%BE20230416193319.jpg)
+
+_Environment_ å®ç°ç±»ä¸­é™¤äº†æŒæœ‰`PropertyResolver`ç±»å‹çš„æˆå‘˜å˜é‡å¤–ï¼Œè¿˜æœ‰ä¸€ä¸ª`MutablePropertySources`ç±»å‹çš„æˆå‘˜å˜é‡ï¼Œä½†å¹¶ä¸æä¾›ç›´æ¥æ“ä½œè¯¥ _MutablePropertySources_ çš„æ–¹æ³•ï¼Œæˆ‘ä»¬åªèƒ½é€šè¿‡`getPropertySources()`æ–¹æ³•è·å– _MutablePropertySources_ å®ä¾‹ï¼Œç„¶åå€ŸåŠ© _MutablePropertySources_ ä¸­çš„`addFirst()`ã€`addLast()`å’Œ`replace()`ç­‰æ–¹æ³•å»æ›´æ–° _PropertySource_ã€‚_MutablePropertySources_ æ˜¯ _PropertySources_ å”¯ä¸€ä¸€ä¸ªå®ç°ç±»ï¼Œå¦‚ä¸‹å›¾æ‰€ç¤ºï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416193420.png)
 
-×ÜµÄÀ´Ëµ£¬_Environment_ ÊÇ¶Ô _PropertySource_ ºÍ _Profile_ µÄ¶¥¼¶³éÏó£¬ÏÂÃæ½éÉÜ _Profile_ µÄ¸ÅÄî¡£µ±Ó¦ÓÃ³ÌĞòĞèÒª²¿Êğµ½²»Í¬µÄÔËĞĞ»·¾³Ê±£¬Ò»Ğ©ÊôĞÔÏîÍ¨³£»áÓĞËù²»Í¬£¬±ÈÈç£¬Êı¾İÔ´ URL ÔÚ¿ª·¢»·¾³ºÍ²âÊÔ»·¾³¾Í»á²»Ò»Ñù¡£Spring ´Ó3.1°æ±¾¿ªÊ¼Ö§³Ö»ùÓÚ _Profile_ µÄÌõ¼ş»¯ÅäÖÃ¡£
+æ€»çš„æ¥è¯´ï¼Œ_Environment_ æ˜¯å¯¹ _PropertySource_ å’Œ _Profile_ çš„é¡¶çº§æŠ½è±¡ï¼Œä¸‹é¢ä»‹ç» _Profile_ çš„æ¦‚å¿µã€‚å½“åº”ç”¨ç¨‹åºéœ€è¦éƒ¨ç½²åˆ°ä¸åŒçš„è¿è¡Œç¯å¢ƒæ—¶ï¼Œä¸€äº›å±æ€§é¡¹é€šå¸¸ä¼šæœ‰æ‰€ä¸åŒï¼Œæ¯”å¦‚ï¼Œæ•°æ®æº URL åœ¨å¼€å‘ç¯å¢ƒå’Œæµ‹è¯•ç¯å¢ƒå°±ä¼šä¸ä¸€æ ·ã€‚Spring ä»3.1ç‰ˆæœ¬å¼€å§‹æ”¯æŒåŸºäº _Profile_ çš„æ¡ä»¶åŒ–é…ç½®ã€‚
 
 **Profile in Spring 3.1**
 
-ÔÚ Spring ·¢²¼3.1°æ±¾Ê±£¬Spring Boot »¹Î´ÎÊÊÀ£¬¿ÉÒÔËµ´ËÊ±µÄ _Profile_ ÌØĞÔ»¹ÊÇÓĞĞ©**è¦´Ã**µÄ£¬µ«è¦²»ÑÚè¤¡£Ö÷ÒªÌåÏÖÔÚ£ºÕë¶ÔÍ¬Ò»ÀàĞÍµÄ Bean£¬±ØĞëÉùÃ÷¶à´Î¡£Ò»ÆğÀ´¸ĞÊÜÏÂÕâÖÖĞ¡è¦´Ã£º
+åœ¨ Spring å‘å¸ƒ3.1ç‰ˆæœ¬æ—¶ï¼ŒSpring Boot è¿˜æœªé—®ä¸–ï¼Œå¯ä»¥è¯´æ­¤æ—¶çš„ _Profile_ ç‰¹æ€§è¿˜æ˜¯æœ‰äº›**ç‘•ç–µ**çš„ï¼Œä½†ç‘•ä¸æ©ç‘œã€‚ä¸»è¦ä½“ç°åœ¨ï¼šé’ˆå¯¹åŒä¸€ç±»å‹çš„ Beanï¼Œå¿…é¡»å£°æ˜å¤šæ¬¡ã€‚ä¸€èµ·æ¥æ„Ÿå—ä¸‹è¿™ç§å°ç‘•ç–µï¼š
 
 ```
 @Configuration(proxyBeanMethods = false)
@@ -108,12 +108,12 @@ public class DataSourceConfig {
                 .build();
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
 **Profile in Spring Boot**
 
-Spring Boot ·¢²¼ºó£¬`@Profile`×¢½â¿ÉÒÔÈÓµ½¾ÅÏöÔÆÍâÁË¡£¹Ù·½¿ª·¢´óÀĞ¿Ï¶¨Ò²ÒâÊ¶µ½ _Profile in Spring 3.1_ ÖĞÕâÖÖè¦´Ã£¬ÓÚÊÇÔÚ Spring Boot µÄµÚÒ»°æ±¾ _(1.0.0.RELEASE)_ ÖĞ¾ÍÆÈ²»¼°´ıµØÖ§³ÖÎª _application.properties_ ºÍ _application.yml_ ÀïµÄÊôĞÔÏîÅäÖÃ _Profile_ ÁË¡£»»¸ö¿ÚÎ¶£¬Ò»ÆğÀ´¸ĞÊÜÏÂÕâÖÖÓÅÑÅ£º
+Spring Boot å‘å¸ƒåï¼Œ`@Profile`æ³¨è§£å¯ä»¥æ‰”åˆ°ä¹éœ„äº‘å¤–äº†ã€‚å®˜æ–¹å¼€å‘å¤§ä½¬è‚¯å®šä¹Ÿæ„è¯†åˆ° _Profile in Spring 3.1_ ä¸­è¿™ç§ç‘•ç–µï¼Œäºæ˜¯åœ¨ Spring Boot çš„ç¬¬ä¸€ç‰ˆæœ¬ _(1.0.0.RELEASE)_ ä¸­å°±è¿«ä¸åŠå¾…åœ°æ”¯æŒä¸º _application.properties_ å’Œ _application.yml_ é‡Œçš„å±æ€§é¡¹é…ç½® _Profile_ äº†ã€‚æ¢ä¸ªå£å‘³ï¼Œä¸€èµ·æ¥æ„Ÿå—ä¸‹è¿™ç§ä¼˜é›…ï¼š
 
 ```
 @Configuration(proxyBeanMethods = false)
@@ -128,30 +128,30 @@ public class DataSourceConfig {
                 .build();
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-_application-dev.properties_ ÄÚÈİÈçÏÂ£º
+_application-dev.properties_ å†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 spring.datasource.url=jdbc:mysql://DEV_HOST:PORT/db_sql_boy?characterEncoding=UTF-8
 spring.datasource.hikari.driver-class-name=com.mysql.jdbc.Driver
 spring.datasource.hikari.password=dev
 spring.datasource.hikari.username=dev
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-_application-test.properties_ ÄÚÈİÈçÏÂ£º
+_application-test.properties_ å†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 spring.datasource.url=jdbc:mysql://TEST_HOST:PORT/db_sql_boy?characterEncoding=UTF-8
 spring.datasource.hikari.driver-class-name=com.mysql.jdbc.Driver
 spring.datasource.hikari.password=test
 spring.datasource.hikari.username=test
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-ÔÚÔ­Éú Spring 3.1 ºÍ Spring Boot ÖĞ£¬¾ùÊÇÍ¨¹ı`spring.profiles.active`À´Îª _Environment_ Ö¸¶¨¼¤»îµÄ _Profile_£¬·ñÔò_Environment_ ÖĞÄ¬ÈÏ¼¤»îµÄ _Profile_ Ãû³ÆÎª`default`¡£Ğ´µ½ÕâÀï£¬±ÊÕßÄÔº£ÖĞÉÁÏÖÒ»¸öÎÊÌâ£ºÒ»°ã£¬`@Profile` ×¢½âÖ÷ÒªÓë _@Configuration_ ×¢½â»ò _@Bean_ ×¢½â´îÅäÊ¹ÓÃ£¬Èç¹û _spring.profiles.active_ µÄÖµÎª _dev_ Ê±£¬ÄÇÃ´ÄÇĞ©ÓÉ _@Configuration_ »ò _@Bean_ ×¢½â±ê¼Ç (µ«Ã»ÓĞ`@Profile`×¢½âµÄÉíÓ°¹ş) µÄ Bean »¹»á±»½âÎöÎªÈô¸É`BeanDefinition`ÊµÀıÂğ£¿´ğ°¸ÊÇ»áµÄ¡£`ConfigurationClassPostProcessor`¸ºÔğ½« _@Configuration_ ÅäÖÃÀà½âÎöÎª _BeanDefinition_£¬ÔÚ´Ë¹ı³ÌÖĞ»áÖ´ĞĞ`ConditionEvaluator`µÄ`shouldSkip()`·½·¨£¬Ö÷ÒªÄÚÈİÈçÏÂ£º
+åœ¨åŸç”Ÿ Spring 3.1 å’Œ Spring Boot ä¸­ï¼Œå‡æ˜¯é€šè¿‡`spring.profiles.active`æ¥ä¸º _Environment_ æŒ‡å®šæ¿€æ´»çš„ _Profile_ï¼Œå¦åˆ™_Environment_ ä¸­é»˜è®¤æ¿€æ´»çš„ _Profile_ åç§°ä¸º`default`ã€‚å†™åˆ°è¿™é‡Œï¼Œç¬”è€…è„‘æµ·ä¸­é—ªç°ä¸€ä¸ªé—®é¢˜ï¼šä¸€èˆ¬ï¼Œ`@Profile` æ³¨è§£ä¸»è¦ä¸ _@Configuration_ æ³¨è§£æˆ– _@Bean_ æ³¨è§£æ­é…ä½¿ç”¨ï¼Œå¦‚æœ _spring.profiles.active_ çš„å€¼ä¸º _dev_ æ—¶ï¼Œé‚£ä¹ˆé‚£äº›ç”± _@Configuration_ æˆ– _@Bean_ æ³¨è§£æ ‡è®° (ä½†æ²¡æœ‰`@Profile`æ³¨è§£çš„èº«å½±å“ˆ) çš„ Bean è¿˜ä¼šè¢«è§£æä¸ºè‹¥å¹²`BeanDefinition`å®ä¾‹å—ï¼Ÿç­”æ¡ˆæ˜¯ä¼šçš„ã€‚`ConfigurationClassPostProcessor`è´Ÿè´£å°† _@Configuration_ é…ç½®ç±»è§£æä¸º _BeanDefinition_ï¼Œåœ¨æ­¤è¿‡ç¨‹ä¸­ä¼šæ‰§è¡Œ`ConditionEvaluator`çš„`shouldSkip()`æ–¹æ³•ï¼Œä¸»è¦å†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 public class ConditionEvaluator {
@@ -191,20 +191,20 @@ public class ConditionEvaluator {
         return false;
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-`shouldSkip()`·½·¨µÚÒ»ĞĞ _if_ Óï¾ä¾ÍÊÇ´ğ°¸£¬`@Profile`×¢½âÓÉ`@Conditional(ProfileCondition.class)`ĞŞÊÎ£¬ÄÇÈç¹ûÒ»¸öÅäÖÃÀàÍ·ÉÏÃ»ÓĞ`Condition`µÄÉíÓ°£¬Ö±½Ó·µ»Ø`false`ÁË£¬ÄÇ¾ÍÊÇ²»Ìø¹ı¸ÃÅäÖÃÀàµÄÒâË¼à¶£¡
+`shouldSkip()`æ–¹æ³•ç¬¬ä¸€è¡Œ _if_ è¯­å¥å°±æ˜¯ç­”æ¡ˆï¼Œ`@Profile`æ³¨è§£ç”±`@Conditional(ProfileCondition.class)`ä¿®é¥°ï¼Œé‚£å¦‚æœä¸€ä¸ªé…ç½®ç±»å¤´ä¸Šæ²¡æœ‰`Condition`çš„èº«å½±ï¼Œç›´æ¥è¿”å›`false`äº†ï¼Œé‚£å°±æ˜¯ä¸è·³è¿‡è¯¥é…ç½®ç±»çš„æ„æ€å–½ï¼
 
-_Environment_ ÖĞµÄÕâĞ© _PropertySource_ ¾¿¾¹ÓĞÉ¶ÓÃ°¡£¿µ±È»ÊÇÎªÁËÌî³ä _Bean_ à¶£¬·Ï»°²»¶àËµ£¬ÉÏÍ¼¡£
+_Environment_ ä¸­çš„è¿™äº› _PropertySource_ ç©¶ç«Ÿæœ‰å•¥ç”¨å•Šï¼Ÿå½“ç„¶æ˜¯ä¸ºäº†å¡«å…… _Bean_ å–½ï¼ŒåºŸè¯ä¸å¤šè¯´ï¼Œä¸Šå›¾ã€‚
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416193443.png)
 
-> ±ÊÕßÒÔÇ°¶¼ÊÇÓÃ visio ºÍ processOn »­Í¼£¬µÚÒ»´ÎÌåÑé draw.io£¬Ã»Ïëµ½Èç´ËÓÅĞã£¬Ç¿ÁÒ°²ÀûÒ»²¨£¡
+> ç¬”è€…ä»¥å‰éƒ½æ˜¯ç”¨ visio å’Œ processOn ç”»å›¾ï¼Œç¬¬ä¸€æ¬¡ä½“éªŒ draw.ioï¼Œæ²¡æƒ³åˆ°å¦‚æ­¤ä¼˜ç§€ï¼Œå¼ºçƒˆå®‰åˆ©ä¸€æ³¢ï¼
 
-## 2 Environmnent ³õÊ¼»¯Á÷³Ì
+## 2 Environmnent åˆå§‹åŒ–æµç¨‹
 
-±¾½ÚÖ÷Òª½éÉÜ Spring Boot ÔÚÆô¶¯¹ı³ÌÖĞÏò _Environmnt_ ÖĞ¾¿¾¹×¢²áÁËÄÄĞ© _PropertySource_¡£Æô¶¯Èë¿ÚÎ»ÓÚ`SpringApplication`ÖĞµÄ`run(String... args)`·½·¨£¬ÈçÏÂ£º
+æœ¬èŠ‚ä¸»è¦ä»‹ç» Spring Boot åœ¨å¯åŠ¨è¿‡ç¨‹ä¸­å‘ _Environmnt_ ä¸­ç©¶ç«Ÿæ³¨å†Œäº†å“ªäº› _PropertySource_ã€‚å¯åŠ¨å…¥å£ä½äº`SpringApplication`ä¸­çš„`run(String... args)`æ–¹æ³•ï¼Œå¦‚ä¸‹ï¼š
 
 ```
 public class SpringApplication {
@@ -246,21 +246,21 @@ public class SpringApplication {
         return context;
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-¿ÉÒÔÃ÷ÏÔ¿´³ö£¬_Environmnt_ µÄ³õÊ¼»¯ÊÇÔÚ`refreshContext(context)`Ö®Ç°Íê³ÉµÄ£¬ÕâÊÇºÁÎŞÒÉÎÊµÄ¡£_run()_ ·½·¨ºÜ¸´ÔÓ£¬µ«Óë±¾ÎÄÖ÷ÌâÆõºÏµÄÂß¼­Ö»ÓĞ**Ò»**´¦£º
+å¯ä»¥æ˜æ˜¾çœ‹å‡ºï¼Œ_Environmnt_ çš„åˆå§‹åŒ–æ˜¯åœ¨`refreshContext(context)`ä¹‹å‰å®Œæˆçš„ï¼Œè¿™æ˜¯æ¯«æ— ç–‘é—®çš„ã€‚_run()_ æ–¹æ³•å¾ˆå¤æ‚ï¼Œä½†ä¸æœ¬æ–‡ä¸»é¢˜å¥‘åˆçš„é€»è¾‘åªæœ‰**ä¸€**å¤„ï¼š
 
 ```
 prepareEnvironment(listeners, bootstrapContext, applicationArguments);
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-ÏÂÃæ·Ö±ğ·ÖÎöÕâÁ½´¦ºËĞÄÂß¼­¡£
+ä¸‹é¢åˆ†åˆ«åˆ†æè¿™ä¸¤å¤„æ ¸å¿ƒé€»è¾‘ã€‚
 
 ### 2.1 prepareEnvironment()
 
-ÏÔÈ»£¬ºËĞÄÄÚÈİ¶¼ÔÚ`prepareEnvironment()`·½·¨ÄÚ£¬ÏÂÃæ·ÖĞ¡½ÚÖğÒ»·ÖÎö¡£
+æ˜¾ç„¶ï¼Œæ ¸å¿ƒå†…å®¹éƒ½åœ¨`prepareEnvironment()`æ–¹æ³•å†…ï¼Œä¸‹é¢åˆ†å°èŠ‚é€ä¸€åˆ†æã€‚
 
 ```
 public class SpringApplication {
@@ -281,16 +281,16 @@ public class SpringApplication {
         return environment;
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
 #### 2.1.1 getOrCreateEnvironment()
 
-`getOrCreateEnvironment()`Ö÷Òª¸ºÔğ¹¹½¨ _Environment_ ÊµÀı¡£Èç¹ûµ±Ç°Ó¦ÓÃÊÇ»ùÓÚ`Í¬²½×èÈûI/O`Ä£ĞÍµÄ£¬Ôò _Environment_ Ñ¡ÓÃ`ApplicationServletEnvironment`£»Ïà·´µØ£¬Èç¹ûµ±Ç°Ó¦ÓÃÊÇ»ùÓÚ`Òì²½·Ç×èÈûI/O`Ä£ĞÍµÄ£¬Ôò _Environment_ Ñ¡ÓÃ`ApplicationReactiveWebEnvironment`¡£ÎÒÃÇ¹¤×÷ÖĞ»ù±¾¶¼ÊÇ»ùÓÚ Spring MVC ¿ª·¢Ó¦ÓÃ£¬Spring MVC ÊÇÒ»¿î¹¹½¨ÓÚ`Servlet API`Ö®ÉÏ¡¢»ùÓÚÍ¬²½×èÈû I/O Ä£ĞÍµÄÖ÷Á÷ Java Web ¿ª·¢¿ò¼Ü£¬ÕâÖÖ I/O Ä£ĞÍÒâÎ¶×ÅÒ»¸ö HTTP ÇëÇó¶ÔÓ¦Ò»¸öÏß³Ì£¬¼´Ã¿Ò»¸ö HTTP ÇëÇó¶¼ÊÇÔÚ¸÷×ÔÏß³ÌÉÏÏÂÎÄÖĞÍê³É´¦ÀíµÄ¡£_ApplicationServletEnvironment_ ¼Ì³Ğ¹ØÏµÈçÏÂÍ¼ËùÊ¾£º
+`getOrCreateEnvironment()`ä¸»è¦è´Ÿè´£æ„å»º _Environment_ å®ä¾‹ã€‚å¦‚æœå½“å‰åº”ç”¨æ˜¯åŸºäº`åŒæ­¥é˜»å¡I/O`æ¨¡å‹çš„ï¼Œåˆ™ _Environment_ é€‰ç”¨`ApplicationServletEnvironment`ï¼›ç›¸ååœ°ï¼Œå¦‚æœå½“å‰åº”ç”¨æ˜¯åŸºäº`å¼‚æ­¥éé˜»å¡I/O`æ¨¡å‹çš„ï¼Œåˆ™ _Environment_ é€‰ç”¨`ApplicationReactiveWebEnvironment`ã€‚æˆ‘ä»¬å·¥ä½œä¸­åŸºæœ¬éƒ½æ˜¯åŸºäº Spring MVC å¼€å‘åº”ç”¨ï¼ŒSpring MVC æ˜¯ä¸€æ¬¾æ„å»ºäº`Servlet API`ä¹‹ä¸Šã€åŸºäºåŒæ­¥é˜»å¡ I/O æ¨¡å‹çš„ä¸»æµ Java Web å¼€å‘æ¡†æ¶ï¼Œè¿™ç§ I/O æ¨¡å‹æ„å‘³ç€ä¸€ä¸ª HTTP è¯·æ±‚å¯¹åº”ä¸€ä¸ªçº¿ç¨‹ï¼Œå³æ¯ä¸€ä¸ª HTTP è¯·æ±‚éƒ½æ˜¯åœ¨å„è‡ªçº¿ç¨‹ä¸Šä¸‹æ–‡ä¸­å®Œæˆå¤„ç†çš„ã€‚_ApplicationServletEnvironment_ ç»§æ‰¿å…³ç³»å¦‚ä¸‹å›¾æ‰€ç¤ºï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416193515.png)
 
-´ÓÉÏÍ¼¿ÉÒÔ¿´³ö _ApplicationServletEnvironment_ ¼Ò×åÏàµ±ÅÓ´ó£¬ÔÚÖ´ĞĞ _ApplicationServletEnvironment_ ¹¹Ôì·½·¨µÄÊ±ºò±ØÈ»»á´¥·¢¸÷¼¶¸¸Àà¹¹Ôì·½·¨ÖĞµÄÂß¼­£¬**ÒÀ´ÎÎª**£º
+ä»ä¸Šå›¾å¯ä»¥çœ‹å‡º _ApplicationServletEnvironment_ å®¶æ—ç›¸å½“åºå¤§ï¼Œåœ¨æ‰§è¡Œ _ApplicationServletEnvironment_ æ„é€ æ–¹æ³•çš„æ—¶å€™å¿…ç„¶ä¼šè§¦å‘å„çº§çˆ¶ç±»æ„é€ æ–¹æ³•ä¸­çš„é€»è¾‘ï¼Œ**ä¾æ¬¡ä¸º**ï¼š
 
 ```
 public abstract class AbstractEnvironment implements ConfigurableEnvironment {
@@ -307,7 +307,7 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
         customizePropertySources(propertySources);
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
 ```
@@ -319,7 +319,7 @@ public class StandardServletEnvironment extends StandardEnvironment implements C
         super.customizePropertySources(propertySources);
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
 ```
@@ -332,14 +332,14 @@ public class StandardEnvironment extends AbstractEnvironment {
                 new SystemEnvironmentPropertySource("systemEnvironment", (Map) System.getenv()));
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-Ëæ×Å _ApplicationServletEnvironment_ ¹¹Ôì·½·¨µÄÖ´ĞĞ£¬´ËÊ±ÔÚ _Environment_ Àï _MutablePropertySources_ ÀàĞÍµÄ³ÉÔ±±äÁ¿`propertySources`ÖĞÒÑ¾­ÓĞÁË**ËÄ**¸ö _PropertySource_ ÁË£¬Ãû³ÆÒÀ´ÎÊÇ£º`servletConfigInitParams`¡¢`servletContextInitParams`¡¢`systemProperties`ºÍ`systemEnvironment`¡£´ËÍâ£¬Ò²Òª¼Ç×¡ _ApplicationServletEnvironment_ ÖĞµÄÁ½¸öÖØÒª³ÉÔ±±äÁ¿£¬¼´`MutablePropertySources`ºÍ`ConfigurationPropertySourcesPropertyResolver`¡£
+éšç€ _ApplicationServletEnvironment_ æ„é€ æ–¹æ³•çš„æ‰§è¡Œï¼Œæ­¤æ—¶åœ¨ _Environment_ é‡Œ _MutablePropertySources_ ç±»å‹çš„æˆå‘˜å˜é‡`propertySources`ä¸­å·²ç»æœ‰äº†**å››**ä¸ª _PropertySource_ äº†ï¼Œåç§°ä¾æ¬¡æ˜¯ï¼š`servletConfigInitParams`ã€`servletContextInitParams`ã€`systemProperties`å’Œ`systemEnvironment`ã€‚æ­¤å¤–ï¼Œä¹Ÿè¦è®°ä½ _ApplicationServletEnvironment_ ä¸­çš„ä¸¤ä¸ªé‡è¦æˆå‘˜å˜é‡ï¼Œå³`MutablePropertySources`å’Œ`ConfigurationPropertySourcesPropertyResolver`ã€‚
 
 #### 2.1.2 configureEnvironment()
 
-`configureEnvironment()`·½·¨ÖĞµÄÂß¼­Ò²ºÜ¼òµ¥¹ş¡£Ê×ÏÈ£¬Îª _Environment_ ÖĞµÄ _PropertySourcesPropertyResolver_ Éè¶¨ _ConversionService_£»È»ºó£¬Ïò _Environment_ ÖĞµÄ _MutablePropertySources_ ×·¼ÓÒ»¸öÃû³ÆÎª`commandLineArgs`µÄ _PropertySource_ ÊµÀı£¬×¢ÒâÊ¹ÓÃµÄÊÇ`addFirst()`·½·¨Å¶£¬ÕâÒâÎ¶×ÅÕâ¸öÃû³ÆÎª`commandLineArgs`µÄ _PropertySource_ ÓÅÏÈ¼¶ÊÇ×î¸ßµÄ¡£Ö÷ÒªÂß¼­ÈçÏÂ£º
+`configureEnvironment()`æ–¹æ³•ä¸­çš„é€»è¾‘ä¹Ÿå¾ˆç®€å•å“ˆã€‚é¦–å…ˆï¼Œä¸º _Environment_ ä¸­çš„ _PropertySourcesPropertyResolver_ è®¾å®š _ConversionService_ï¼›ç„¶åï¼Œå‘ _Environment_ ä¸­çš„ _MutablePropertySources_ è¿½åŠ ä¸€ä¸ªåç§°ä¸º`commandLineArgs`çš„ _PropertySource_ å®ä¾‹ï¼Œæ³¨æ„ä½¿ç”¨çš„æ˜¯`addFirst()`æ–¹æ³•å“¦ï¼Œè¿™æ„å‘³ç€è¿™ä¸ªåç§°ä¸º`commandLineArgs`çš„ _PropertySource_ ä¼˜å…ˆçº§æ˜¯æœ€é«˜çš„ã€‚ä¸»è¦é€»è¾‘å¦‚ä¸‹ï¼š
 
 ```
 public class SpringApplication {
@@ -353,26 +353,26 @@ public class SpringApplication {
         }
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-¼ÌĞø`SimpleCommandLinePropertySource`£º
+ç»§ç»­`SimpleCommandLinePropertySource`ï¼š
 
 ```
 public class SimpleCommandLinePropertySource extends CommandLinePropertySource<CommandLineArgs> {
     public SimpleCommandLinePropertySource(String... args) {
-        // Æä¸¸Àà¹¹Ôì·½·¨Îª£ºsuper("commandLineArgs", source)
+        // å…¶çˆ¶ç±»æ„é€ æ–¹æ³•ä¸ºï¼šsuper("commandLineArgs", source)
         super(new SimpleCommandLineArgsParser().parse(args));
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-ÃüÁîĞĞ²ÎÊı»¹ÊÇ±È½Ï³£ÓÃµÄ£¬±ÈÈçÎÒÃÇÔÚÆô¶¯ Spring Boot Ó¦ÓÃÊ±»áÕâÑùÉùÃ÷ÃüÁîĞĞ²ÎÊı£º`java -jar app.jar --server.port=8088`¡£
+å‘½ä»¤è¡Œå‚æ•°è¿˜æ˜¯æ¯”è¾ƒå¸¸ç”¨çš„ï¼Œæ¯”å¦‚æˆ‘ä»¬åœ¨å¯åŠ¨ Spring Boot åº”ç”¨æ—¶ä¼šè¿™æ ·å£°æ˜å‘½ä»¤è¡Œå‚æ•°ï¼š`java -jar app.jar --server.port=8088`ã€‚
 
 #### 2.1.3 ConfigurationPropertySources.attach()
 
-`attach()`·½·¨Ö÷Òª¾ÍÊÇÔÚ _Environment_ ÖĞ _MutablePropertySources_ µÄÍ·²¿Î»ÖÃ²åÈë¼ÓÒ»¸öÃû³ÆÎª`configurationProperties`µÄ _PropertySource_ ÊµÀı¡£Ö÷ÒªÂß¼­ÈçÏÂ£º
+`attach()`æ–¹æ³•ä¸»è¦å°±æ˜¯åœ¨ _Environment_ ä¸­ _MutablePropertySources_ çš„å¤´éƒ¨ä½ç½®æ’å…¥åŠ ä¸€ä¸ªåç§°ä¸º`configurationProperties`çš„ _PropertySource_ å®ä¾‹ã€‚ä¸»è¦é€»è¾‘å¦‚ä¸‹ï¼š
 
 ```
 public final class ConfigurationPropertySources {
@@ -392,10 +392,10 @@ public final class ConfigurationPropertySources {
         return (sources != null) ? sources.get("configurationProperties") : null;
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-±ÊÕß¶¢×ÅÕâÍæÒâ¶ù¿´ÁËºÃ¾Ã£¬Ñ¹¸ùÃ»¿´³öÕâ¸öÃû³ÆÎª`configurationProperties`µÄ _PropertySource_ ¾¿¾¹ÓĞÉ¶ÓÃ¡£×îºó£¬»¹ÊÇÔÚ¹Ù·½ÎÄµµÖĞ¹ØÓÚ`Relaxed Binding` (¿íËÉ°ó¶¨) µÄÃèÊöÖĞ²Â³öÁËĞ©¶ËÄß¡£»¹ÊÇÍ¨¹ı´úÂëÀ´½â¶Á±È½ÏÖ±½Ó¡£Ê×ÏÈ£¬ÔÚ _application.properties_ ÖĞ×·¼ÓÒ»¸öÅäÖÃÏî£º`a.b.my-first-key=hello spring environment`£»È»ºó£¬Í¨¹ı _Environment_ È¡³öÕâ¸öÅäÖÃÏîµÄÖµ£¬ÈçÏÂ£º
+ç¬”è€…ç›¯ç€è¿™ç©æ„å„¿çœ‹äº†å¥½ä¹…ï¼Œå‹æ ¹æ²¡çœ‹å‡ºè¿™ä¸ªåç§°ä¸º`configurationProperties`çš„ _PropertySource_ ç©¶ç«Ÿæœ‰å•¥ç”¨ã€‚æœ€åï¼Œè¿˜æ˜¯åœ¨å®˜æ–¹æ–‡æ¡£ä¸­å…³äº`Relaxed Binding` (å®½æ¾ç»‘å®š) çš„æè¿°ä¸­çŒœå‡ºäº†äº›ç«¯å€ªã€‚è¿˜æ˜¯é€šè¿‡ä»£ç æ¥è§£è¯»æ¯”è¾ƒç›´æ¥ã€‚é¦–å…ˆï¼Œåœ¨ _application.properties_ ä¸­è¿½åŠ ä¸€ä¸ªé…ç½®é¡¹ï¼š`a.b.my-first-key=hello spring environment`ï¼›ç„¶åï¼Œé€šè¿‡ _Environment_ å–å‡ºè¿™ä¸ªé…ç½®é¡¹çš„å€¼ï¼Œå¦‚ä¸‹ï¼š
 
 ```
 @SpringBootApplication
@@ -407,14 +407,14 @@ public class DemoApplication {
         System.out.println(environment.getProperty("a.b.my-first-key"));
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-Æô¶¯Ó¦ÓÃºó£¬¿ØÖÆÌ¨´òÓ¡³öÁË _hello spring environment_ ×ÖÑù£¬ÕâÓëÔ¤ÆÚÊÇÏà·ûµÄ¡£¿Éµ±ÎÒÃÇÍ¨¹ı`environment.getProperty("a.b.myfirstkey")`»òÕß`environment.getProperty("a.b.my-firstkey")`ÒÀÈ»ÄÜ¹»»ñÈ¡µ½ÅäÖÃÏîµÄÄÚÈİ¡£`a.b.myfirstkey`ºÍ`a.b.my-firstkey`²¢²»ÊÇÅäÖÃÎÄ¼şÖĞµÄÊôĞÔÃû³Æ£¬Ö»ÊÇÏàËÆ¶øÒÑ£¬ÕâµÄÈ·ºÜ**¿íËÉ**°¡£¬¹ş¹ş¡£¸ĞĞËÈ¤µÄ¶ÁÕß¿ÉÒÔ×ÔĞĞ DEBUG ¿´¿´ÆäÖĞµÄÔ­Àí¡£
+å¯åŠ¨åº”ç”¨åï¼Œæ§åˆ¶å°æ‰“å°å‡ºäº† _hello spring environment_ å­—æ ·ï¼Œè¿™ä¸é¢„æœŸæ˜¯ç›¸ç¬¦çš„ã€‚å¯å½“æˆ‘ä»¬é€šè¿‡`environment.getProperty("a.b.myfirstkey")`æˆ–è€…`environment.getProperty("a.b.my-firstkey")`ä¾ç„¶èƒ½å¤Ÿè·å–åˆ°é…ç½®é¡¹çš„å†…å®¹ã€‚`a.b.myfirstkey`å’Œ`a.b.my-firstkey`å¹¶ä¸æ˜¯é…ç½®æ–‡ä»¶ä¸­çš„å±æ€§åç§°ï¼Œåªæ˜¯ç›¸ä¼¼è€Œå·²ï¼Œè¿™çš„ç¡®å¾ˆ**å®½æ¾**å•Šï¼Œå“ˆå“ˆã€‚æ„Ÿå…´è¶£çš„è¯»è€…å¯ä»¥è‡ªè¡Œ DEBUG çœ‹çœ‹å…¶ä¸­çš„åŸç†ã€‚
 
 #### 2.1.4 listeners.environmentPrepared()
 
-ÇÃºÚ°å£¬¸÷Î»´óÀĞ£¬Õâ¸öÒª¿¼µÄ £¡`environmentPrepared()`·½·¨»á¹ã²¥Ò»¸ö`ApplicationEnvironmentPreparedEvent`ÊÂ¼ş£¬½Ó×ÅÓÉ`EnvironmentPostProcessorApplicationListener`ÏìÓ¦¸ÃÊÂ¼ş£¬ÕâÓ¦¸ÃÊÇµäĞÍµÄ**¹Û²ìÕßÄ£Ê½**¡£Ö÷ÒªÄÚÈİÈçÏÂ£º
+æ•²é»‘æ¿ï¼Œå„ä½å¤§ä½¬ï¼Œè¿™ä¸ªè¦è€ƒçš„ ï¼`environmentPrepared()`æ–¹æ³•ä¼šå¹¿æ’­ä¸€ä¸ª`ApplicationEnvironmentPreparedEvent`äº‹ä»¶ï¼Œæ¥ç€ç”±`EnvironmentPostProcessorApplicationListener`å“åº”è¯¥äº‹ä»¶ï¼Œè¿™åº”è¯¥æ˜¯å…¸å‹çš„**è§‚å¯Ÿè€…æ¨¡å¼**ã€‚ä¸»è¦å†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 public class SpringApplicationRunListeners {
@@ -460,10 +460,10 @@ public class SimpleApplicationEventMulticaster extends AbstractApplicationEventM
         }
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-ÏÂÃæÀ´¿´Ò»ÏÂ`EnvironmentPostProcessorApplicationListener`µÄÂ®É½ÕæÃæÄ¿£º
+ä¸‹é¢æ¥çœ‹ä¸€ä¸‹`EnvironmentPostProcessorApplicationListener`çš„åºå±±çœŸé¢ç›®ï¼š
 
 ```
 public class EnvironmentPostProcessorApplicationListener implements SmartApplicationListener, Ordered {
@@ -487,19 +487,19 @@ public class EnvironmentPostProcessorApplicationListener implements SmartApplica
         }
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-`EnvironmentPostProcessor`ÊÇ Spring Boot Îª _Environment_ Á¿Éí´òÔìµÄÀ©Õ¹µã¡£ÕâÀïÒıÓÃ¹Ù·½ÎÄµµÖĞ±È½Ï¾«Á¶µÄÒ»¾ä»°£º_Allows for customization of the application's Environment prior to the application context being refreshed_¡£_EnvironmentPostProcessor_ ÊÇÒ»¸öº¯ÊıĞÔ½Ó¿Ú£¬ÄÚÈİÈçÏÂ£º
+`EnvironmentPostProcessor`æ˜¯ Spring Boot ä¸º _Environment_ é‡èº«æ‰“é€ çš„æ‰©å±•ç‚¹ã€‚è¿™é‡Œå¼•ç”¨å®˜æ–¹æ–‡æ¡£ä¸­æ¯”è¾ƒç²¾ç‚¼çš„ä¸€å¥è¯ï¼š_Allows for customization of the application's Environment prior to the application context being refreshed_ã€‚_EnvironmentPostProcessor_ æ˜¯ä¸€ä¸ªå‡½æ•°æ€§æ¥å£ï¼Œå†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 public interface EnvironmentPostProcessor {
     void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application);
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-ÔÚÉÏÊö _EnvironmentPostProcessorApplicationListener_ ÊÂ¼ş´¦ÀíÂß¼­ÖĞ£¬`getEnvironmentPostProcessors`¸ºÔğ¼ÓÔØ³öËùÓĞµÄ _EnvironmentPostProcessor_ ¡£¿´Ò»ÏÂÄÚ²¿¼ÓÔØÂß¼­£º
+åœ¨ä¸Šè¿° _EnvironmentPostProcessorApplicationListener_ äº‹ä»¶å¤„ç†é€»è¾‘ä¸­ï¼Œ`getEnvironmentPostProcessors`è´Ÿè´£åŠ è½½å‡ºæ‰€æœ‰çš„ _EnvironmentPostProcessor_ ã€‚çœ‹ä¸€ä¸‹å†…éƒ¨åŠ è½½é€»è¾‘ï¼š
 
 ```
 public interface EnvironmentPostProcessorsFactory {
@@ -510,10 +510,10 @@ public interface EnvironmentPostProcessorsFactory {
         );
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-¼ÌĞø½øÈë`SpringFactoriesLoader`Ò»Ì½¾¿¾¹£º
+ç»§ç»­è¿›å…¥`SpringFactoriesLoader`ä¸€æ¢ç©¶ç«Ÿï¼š
 
 ```
 public final class SpringFactoriesLoader {
@@ -560,18 +560,18 @@ public final class SpringFactoriesLoader {
         return result;
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
 > **Spring SPI**
 >
-> > _SpringFactoriesLoader_ ÕâÒ»Ì×Âß¼­¾ÍÊÇ Spring ÖĞµÄ`SPI`»úÖÆ£»Ö±°×µãËµ£¬¾ÍÊÇ´Ó`classpath`ÏÂµÄ`META-INF/spring.factories` ÎÄ¼şÖĞ¼ÓÔØ _EnvironmentPostProcessor_ £¬Èç¹û´ó¼ÒÓĞĞèÇó¾Í½«×Ô¼ºÊµÏÖµÄ _EnvironmentPostProcessor_ ·Åµ½¸ÃÎÄ¼şÖĞ¾ÍĞĞÁË¡£ÆäÊµÓë`JDK`ÖĞµÄ`SPI`»úÖÆºÜÀàËÆ¹ş¡£
+> > _SpringFactoriesLoader_ è¿™ä¸€å¥—é€»è¾‘å°±æ˜¯ Spring ä¸­çš„`SPI`æœºåˆ¶ï¼›ç›´ç™½ç‚¹è¯´ï¼Œå°±æ˜¯ä»`classpath`ä¸‹çš„`META-INF/spring.factories` æ–‡ä»¶ä¸­åŠ è½½ _EnvironmentPostProcessor_ ï¼Œå¦‚æœå¤§å®¶æœ‰éœ€æ±‚å°±å°†è‡ªå·±å®ç°çš„ _EnvironmentPostProcessor_ æ”¾åˆ°è¯¥æ–‡ä»¶ä¸­å°±è¡Œäº†ã€‚å…¶å®ä¸`JDK`ä¸­çš„`SPI`æœºåˆ¶å¾ˆç±»ä¼¼å“ˆã€‚
 
-ÔÚµ±Ç°°æ±¾£¬Spring Boot ÄÚÖÃÁË7¸ö _EnvironmentPostProcessor_ ÊµÏÖÀà¡£½ÓÏÂÀ´Ìô¼¸¸ö±È½ÏµäĞÍµÄ·ÖÎöÏÂ¡£
+åœ¨å½“å‰ç‰ˆæœ¬ï¼ŒSpring Boot å†…ç½®äº†7ä¸ª _EnvironmentPostProcessor_ å®ç°ç±»ã€‚æ¥ä¸‹æ¥æŒ‘å‡ ä¸ªæ¯”è¾ƒå…¸å‹çš„åˆ†æä¸‹ã€‚
 
 **RandomValuePropertySourceEnvironmentPostProcessor**
 
-`RandomValuePropertySourceEnvironmentPostProcessor`Ïò _Environment_ ÖĞ×·¼ÓÁËÒ»¸öÃû³ÆÎª`random`µÄ _PropertySource_£¬¼´`RandomValuePropertySource`¡£ÄÚÈİÈçÏÂ£º
+`RandomValuePropertySourceEnvironmentPostProcessor`å‘ _Environment_ ä¸­è¿½åŠ äº†ä¸€ä¸ªåç§°ä¸º`random`çš„ _PropertySource_ï¼Œå³`RandomValuePropertySource`ã€‚å†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 public class RandomValuePropertySourceEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
@@ -592,14 +592,14 @@ public class RandomValuePropertySourceEnvironmentPostProcessor implements Enviro
         RandomValuePropertySource.addToEnvironment(environment, this.logger);
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-ÄÇÃ´Õâ¸ö _RandomValuePropertySource_ ÓĞÉ¶×÷ÓÃÄØ£¿Ö÷Òª¾ÍÊÇÓÃÓÚÉú³ÉËæ»úÊı£¬±ÈÈç£º`environment.getProperty("random.int(5,10)")`¿ÉÒÔ»ñÈ¡Ò»¸öËæ»úÊı¡£ÒÔ`random.int`ÎªÊôĞÔÃû¿ÉÒÔ»ñÈ¡Ò»¸ö _int_ ÀàĞÍµÄËæ»úÊı£»ÒÔ`random.long`ÎªÊôĞÔÃû¿ÉÒÔ»ñÈ¡Ò»¸ö _long_ ÀàĞÍµÄËæ»úÊı£»ÒÔ`random.int(5,10)`ÎªÊôĞÔÃû¿ÉÒÔ»ñÈ¡Ò»¸ö _[5, 10}_ Çø¼äÄÚ _int_ ÀàĞÍµÄËæ»úÊı£¬¸ü¶àÍæ·¨´ó¼Ò×ÔĞĞÌ½Ë÷¡£
+é‚£ä¹ˆè¿™ä¸ª _RandomValuePropertySource_ æœ‰å•¥ä½œç”¨å‘¢ï¼Ÿä¸»è¦å°±æ˜¯ç”¨äºç”Ÿæˆéšæœºæ•°ï¼Œæ¯”å¦‚ï¼š`environment.getProperty("random.int(5,10)")`å¯ä»¥è·å–ä¸€ä¸ªéšæœºæ•°ã€‚ä»¥`random.int`ä¸ºå±æ€§åå¯ä»¥è·å–ä¸€ä¸ª _int_ ç±»å‹çš„éšæœºæ•°ï¼›ä»¥`random.long`ä¸ºå±æ€§åå¯ä»¥è·å–ä¸€ä¸ª _long_ ç±»å‹çš„éšæœºæ•°ï¼›ä»¥`random.int(5,10)`ä¸ºå±æ€§åå¯ä»¥è·å–ä¸€ä¸ª _[5, 10}_ åŒºé—´å†… _int_ ç±»å‹çš„éšæœºæ•°ï¼Œæ›´å¤šç©æ³•å¤§å®¶è‡ªè¡Œæ¢ç´¢ã€‚
 
 _SystemEnvironmentPropertySourceEnvironmentPostProcessor_
 
-µ±Ç°£¬_Environment_ ÖĞÒÑ¾­´æÔÚÒ»¸öÃû³ÆÎª`systemEnvironment`µÄ _PropertySource_£¬¼´`SystemEnvironmentPropertySource`¡£`SystemEnvironmentPropertySourceEnvironmentPostProcessor`ÓÃÓÚ½«¸Ã _SystemEnvironmentPropertySource_ Ìæ»»Îª`OriginAwareSystemEnvironmentPropertySource`£¬Õ¦ÓĞµã¡°ÍÑ¿ã×Ó·ÅÆ¨£¬¶à´ËÒ»¾Ù¡±µÄ¸Ğ¾õÄØ£¬¹ş¹ş¡£
+å½“å‰ï¼Œ_Environment_ ä¸­å·²ç»å­˜åœ¨ä¸€ä¸ªåç§°ä¸º`systemEnvironment`çš„ _PropertySource_ï¼Œå³`SystemEnvironmentPropertySource`ã€‚`SystemEnvironmentPropertySourceEnvironmentPostProcessor`ç”¨äºå°†è¯¥ _SystemEnvironmentPropertySource_ æ›¿æ¢ä¸º`OriginAwareSystemEnvironmentPropertySource`ï¼Œå’‹æœ‰ç‚¹â€œè„±è£¤å­æ”¾å±ï¼Œå¤šæ­¤ä¸€ä¸¾â€çš„æ„Ÿè§‰å‘¢ï¼Œå“ˆå“ˆã€‚
 
 ```
 public class SystemEnvironmentPropertySourceEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
@@ -626,31 +626,31 @@ public class SystemEnvironmentPropertySourceEnvironmentPostProcessor implements 
         environment.getPropertySources().replace(sourceName, source);
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
 **SpringApplicationJsonEnvironmentPostProcessor**
 
-ÎÒÃÇÔÚÍ¨¹ı`java -jar -Dspring.application.json={"name":"duxiaotou"} app.jar`Æô¶¯ Spring Boot Ó¦ÓÃµÄÊ±ºò£¬¸ÃÊôĞÔ»á±»×Ô¶¯Ìí¼Óµ½ JVM ÏµÍ³ÊôĞÔÖĞ (ÆäÊµ _-Dkey=value_ ÕâÖÖĞÎÊ½µÄÊôĞÔ¾ùÊÇÈç´Ë)£¬ÆäµÈĞ§ÓÚ`System.setProperty(key, value)`£»¶øµ±´æÔÚ`SPRING_APPLICATION_JSON`ÕâÒ»ÏµÍ³±äÁ¿Ê±£¬×ÔÈ»Ò²»áÔÚ`System.getenv()`ÖĞ³öÏÖ¡£Ç°ÃæÔø¾­Ìáµ½¹ı`System.getProperties()`´ú±íµÄÊÇ`systemProperties`ÕâÒ» _PropertySource_£¬¶ø`System.getenv()`Ôò´ú±íµÄÊÇ`systemEnvironment`ÕâÒ» _PropertySource_¡£`SpringApplicationJsonEnvironmentPostProcessor`¾ÍÊÇÓÃÓÚ´ÓÕâÁ½¸ö _PropertySource_ ÖĞ³éÈ¡³ö _spring.application.json_ »ò _SPRING_APPLICATION_JSON_ µÄ _JSON_ ´®£¬½ø¶øµ¥¶ÀÏò _Environment_ ÖĞ×·¼ÓÒ»¸öÃû³ÆÎª`spring.application.json`µÄ _PropertySource_£¬¼´`JsonPropertySource`¡£
+æˆ‘ä»¬åœ¨é€šè¿‡`java -jar -Dspring.application.json={"name":"duxiaotou"} app.jar`å¯åŠ¨ Spring Boot åº”ç”¨çš„æ—¶å€™ï¼Œè¯¥å±æ€§ä¼šè¢«è‡ªåŠ¨æ·»åŠ åˆ° JVM ç³»ç»Ÿå±æ€§ä¸­ (å…¶å® _-Dkey=value_ è¿™ç§å½¢å¼çš„å±æ€§å‡æ˜¯å¦‚æ­¤)ï¼Œå…¶ç­‰æ•ˆäº`System.setProperty(key, value)`ï¼›è€Œå½“å­˜åœ¨`SPRING_APPLICATION_JSON`è¿™ä¸€ç³»ç»Ÿå˜é‡æ—¶ï¼Œè‡ªç„¶ä¹Ÿä¼šåœ¨`System.getenv()`ä¸­å‡ºç°ã€‚å‰é¢æ›¾ç»æåˆ°è¿‡`System.getProperties()`ä»£è¡¨çš„æ˜¯`systemProperties`è¿™ä¸€ _PropertySource_ï¼Œè€Œ`System.getenv()`åˆ™ä»£è¡¨çš„æ˜¯`systemEnvironment`è¿™ä¸€ _PropertySource_ã€‚`SpringApplicationJsonEnvironmentPostProcessor`å°±æ˜¯ç”¨äºä»è¿™ä¸¤ä¸ª _PropertySource_ ä¸­æŠ½å–å‡º _spring.application.json_ æˆ– _SPRING_APPLICATION_JSON_ çš„ _JSON_ ä¸²ï¼Œè¿›è€Œå•ç‹¬å‘ _Environment_ ä¸­è¿½åŠ ä¸€ä¸ªåç§°ä¸º`spring.application.json`çš„ _PropertySource_ï¼Œå³`JsonPropertySource`ã€‚
 
 **ConfigDataEnvironmentPostProcessor**
 
-`ConfigDataEnvironmentPostProcessor`¸ºÔğ½«`optional:classpath:/`¡¢`optional:classpath:/config/`¡¢`optional:file:./`¡¢`optional:file:./config/`ºÍ`optional:file:./config/*/`ÕâĞ©Ä¿Â¼ÏÂµÄ _application.properties_ ÅäÖÃÎÄ¼ş¼ÓÔØ³öÀ´£»Èç¹û»¹Ö¸¶¨ÁË _spring.profiles.active_µÄ»°£¬Í¬Ê±Ò²»á½«ÕâĞ©Ä¿Â¼ÏÂµÄ _application-{profile}.properties_ ÅäÖÃÎÄ¼ş¼ÓÔØ³öÀ´¡£×îÖÕ£¬_ConfigDataEnvironmentPostProcessor_ ½«»áÏò _Environment_ ÖĞ×·¼ÓÁ½¸ö`OriginTrackedMapPropertySource`£¬ÕâÁ© _PropertySource_ Î»ÓÚ _Environment_ µÄÎ²²¿£»ÆäÖĞ _application-{profile}.properties_ Ëù´ú±íµÄ _OriginTrackedMapPropertySource_ ÊÇÅÅÔÚ _application.properties_ Ëù´ú±íµÄ _OriginTrackedMapPropertySource_ Ç°ÃæµÄ£¬ÕâÒ»µãÍ¦ÖØÒª¡£
+`ConfigDataEnvironmentPostProcessor`è´Ÿè´£å°†`optional:classpath:/`ã€`optional:classpath:/config/`ã€`optional:file:./`ã€`optional:file:./config/`å’Œ`optional:file:./config/*/`è¿™äº›ç›®å½•ä¸‹çš„ _application.properties_ é…ç½®æ–‡ä»¶åŠ è½½å‡ºæ¥ï¼›å¦‚æœè¿˜æŒ‡å®šäº† _spring.profiles.active_çš„è¯ï¼ŒåŒæ—¶ä¹Ÿä¼šå°†è¿™äº›ç›®å½•ä¸‹çš„ _application-{profile}.properties_ é…ç½®æ–‡ä»¶åŠ è½½å‡ºæ¥ã€‚æœ€ç»ˆï¼Œ_ConfigDataEnvironmentPostProcessor_ å°†ä¼šå‘ _Environment_ ä¸­è¿½åŠ ä¸¤ä¸ª`OriginTrackedMapPropertySource`ï¼Œè¿™ä¿© _PropertySource_ ä½äº _Environment_ çš„å°¾éƒ¨ï¼›å…¶ä¸­ _application-{profile}.properties_ æ‰€ä»£è¡¨çš„ _OriginTrackedMapPropertySource_ æ˜¯æ’åœ¨ _application.properties_ æ‰€ä»£è¡¨çš„ _OriginTrackedMapPropertySource_ å‰é¢çš„ï¼Œè¿™ä¸€ç‚¹æŒºé‡è¦ã€‚
 
-## 3 jasypt ºËĞÄÔ­Àí½â¶Á
+## 3 jasypt æ ¸å¿ƒåŸç†è§£è¯»
 
-> `jasypt`»ù´¡×é¼ş¿âÓë`jasypt-spring-boot-starter`ÊÇ²»Í¬×÷ÕßĞ´µÄ£¬ºóÕßÖ»ÊÇÎª jasypt ×é¼ş¿ª·¢ÁË Spring Boot µÄÆğ²½ÒÀÀµ×é¼ş¶øÒÑ¡£±¾ÎÄËù·ÖÎöµÄÆäÊµ¾ÍÊÇÕâ¸öÆğ²½ÒÀÀµ×é¼ş¡£
+> `jasypt`åŸºç¡€ç»„ä»¶åº“ä¸`jasypt-spring-boot-starter`æ˜¯ä¸åŒä½œè€…å†™çš„ï¼Œåè€…åªæ˜¯ä¸º jasypt ç»„ä»¶å¼€å‘äº† Spring Boot çš„èµ·æ­¥ä¾èµ–ç»„ä»¶è€Œå·²ã€‚æœ¬æ–‡æ‰€åˆ†æçš„å…¶å®å°±æ˜¯è¿™ä¸ªèµ·æ­¥ä¾èµ–ç»„ä»¶ã€‚
 
-_application.properties_ ÅäÖÃÎÄ¼şÖĞ¹ØÓÚÊı¾İÔ´µÄÃÜÂëÊÇÒ»¸ö¼ÓÃÜºóµÄÃÜÎÄ£¬ÈçÏÂ£º
+_application.properties_ é…ç½®æ–‡ä»¶ä¸­å…³äºæ•°æ®æºçš„å¯†ç æ˜¯ä¸€ä¸ªåŠ å¯†åçš„å¯†æ–‡ï¼Œå¦‚ä¸‹ï¼š
 
 ```
 spring.datasource.hikari.password=ENC(4+t9a5QG8NkNdWVS6UjIX3dj18UtYRMqU6eb3wUKjivOiDHFLZC/RTK7HuWWkUtV)
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-µ±`HikariDataSource`Íê³ÉÊôĞÔÌî³ä²Ù×÷ºó£¬¸Ã Bean ÖĞ _password_ ×Ö¶ÎµÄÖµÕ¦¾Í±äÎª½âÃÜºóµÄ _qwe@1234_ ÕâÒ»Ã÷ÎÄÁËÄØ£¿ÏÔÈ»£¬Spring Boot Îª _Environment_ Ìá¹©µÄ`EnvironmentPostProcessor`ÕâÒ»ÍØÕ¹µã¿ÉÒÔÊµÏÖÍµÌì»»ÈÕ£¡µ«×÷ÕßÃ»ÓĞÓÃËü£¬¶øÊÇÊ¹ÓÃÁË Spring ÖĞµÄÒ»¸ö _IoC ÍØÕ¹µã_£¬¼´`BeanFactoryPostProcessor`£¬ÕâÒ²ÊÇÍêÈ«¿ÉÒÔµÄ£¬ÒòÎªµ±Ö´ĞĞµ½ _BeanFactoryPostProcessor_ ÖĞµÄ`postProcessBeanFactory()`Âß¼­Ê±£¬Ö»ÊÇÍê³ÉÁËËùÓĞ`BeanDefinition`µÄ¼ÓÔØ£¬µ«»¹Ã»ÓĞÊµÀı»¯ _BeanDefinition_ ¸÷×ÔËù¶ÔÓ¦µÄ Bean¡£
+å½“`HikariDataSource`å®Œæˆå±æ€§å¡«å……æ“ä½œåï¼Œè¯¥ Bean ä¸­ _password_ å­—æ®µçš„å€¼å’‹å°±å˜ä¸ºè§£å¯†åçš„ _qwe@1234_ è¿™ä¸€æ˜æ–‡äº†å‘¢ï¼Ÿæ˜¾ç„¶ï¼ŒSpring Boot ä¸º _Environment_ æä¾›çš„`EnvironmentPostProcessor`è¿™ä¸€æ‹“å±•ç‚¹å¯ä»¥å®ç°å·å¤©æ¢æ—¥ï¼ä½†ä½œè€…æ²¡æœ‰ç”¨å®ƒï¼Œè€Œæ˜¯ä½¿ç”¨äº† Spring ä¸­çš„ä¸€ä¸ª _IoC æ‹“å±•ç‚¹_ï¼Œå³`BeanFactoryPostProcessor`ï¼Œè¿™ä¹Ÿæ˜¯å®Œå…¨å¯ä»¥çš„ï¼Œå› ä¸ºå½“æ‰§è¡Œåˆ° _BeanFactoryPostProcessor_ ä¸­çš„`postProcessBeanFactory()`é€»è¾‘æ—¶ï¼Œåªæ˜¯å®Œæˆäº†æ‰€æœ‰`BeanDefinition`çš„åŠ è½½ï¼Œä½†è¿˜æ²¡æœ‰å®ä¾‹åŒ– _BeanDefinition_ å„è‡ªæ‰€å¯¹åº”çš„ Beanã€‚
 
-ÏÂÃæ¿´Ò»ÏÂ`EnableEncryptablePropertiesBeanFactoryPostProcessor`ÖĞµÄÄÚÈİ£º
+ä¸‹é¢çœ‹ä¸€ä¸‹`EnableEncryptablePropertiesBeanFactoryPostProcessor`ä¸­çš„å†…å®¹ï¼š
 
 ```
 public class EnableEncryptablePropertiesBeanFactoryPostProcessor implements BeanFactoryPostProcessor, Ordered {
@@ -674,12 +674,12 @@ public class EnableEncryptablePropertiesBeanFactoryPostProcessor implements Bean
         return Ordered.LOWEST_PRECEDENCE - 100;
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-ÉÏÊöÔ´Âë±íÃ÷¸Ã _BeanFactoryPostProcessor_ ½èÖú`EncryptablePropertySourceConverter`¶Ô _MutablePropertySources_ ×öÁËÒ»²ã×ª»»£¬ÄÇÃ´×ª»»³ÉÉ¶ÁËÄØ£¿
+ä¸Šè¿°æºç è¡¨æ˜è¯¥ _BeanFactoryPostProcessor_ å€ŸåŠ©`EncryptablePropertySourceConverter`å¯¹ _MutablePropertySources_ åšäº†ä¸€å±‚è½¬æ¢ï¼Œé‚£ä¹ˆè½¬æ¢æˆå•¥äº†å‘¢ï¼Ÿ
 
-½Ó×Å£¬¸ú½ø _EncryptablePropertySourceConverter_£¬ºËĞÄÄÚÈİÈçÏÂ£º
+æ¥ç€ï¼Œè·Ÿè¿› _EncryptablePropertySourceConverter_ï¼Œæ ¸å¿ƒå†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 public class EncryptablePropertySourceConverter {
@@ -715,12 +715,12 @@ public class EncryptablePropertySourceConverter {
         return encryptablePropertySource;
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-ÏÔÈ»£¬Ëü½«Ïà¹ØÔ­Éú _PropertySource_ ×ª»»ÎªÁËÒ»¸ö`EncryptablePropertySourceWrapper`£¬ÄÇÕâ¸ö¿Ï¶¨¿ÉÒÔÊµÏÖÃÜÎÄ½âÃÜ£¬±ØĞëµÄ£¡
+æ˜¾ç„¶ï¼Œå®ƒå°†ç›¸å…³åŸç”Ÿ _PropertySource_ è½¬æ¢ä¸ºäº†ä¸€ä¸ª`EncryptablePropertySourceWrapper`ï¼Œé‚£è¿™ä¸ªè‚¯å®šå¯ä»¥å®ç°å¯†æ–‡è§£å¯†ï¼Œå¿…é¡»çš„ï¼
 
-¼ÌĞø£¬¸ú½ø`EncryptablePropertySourceWrapper`£¬ÄÚÈİÈçÏÂ£º
+ç»§ç»­ï¼Œè·Ÿè¿›`EncryptablePropertySourceWrapper`ï¼Œå†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 public class EncryptablePropertySourceWrapper<T> extends PropertySource<T> implements EncryptablePropertySource<T> {
@@ -741,12 +741,12 @@ public class EncryptablePropertySourceWrapper<T> extends PropertySource<T> imple
         return encryptableDelegate;
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-Ê§Íû£¡Ã»¿´³öÉ¶½âÃÜÂß¼­£¬µ«´ÓÆä _getProperty_ ·½·¨À´¿´£¬½«¾ßÌå½âÎöÂß¼­Î¯ÅÉ¸øÁË`CachingDelegateEncryptablePropertySource`¡£
+å¤±æœ›ï¼æ²¡çœ‹å‡ºå•¥è§£å¯†é€»è¾‘ï¼Œä½†ä»å…¶ _getProperty_ æ–¹æ³•æ¥çœ‹ï¼Œå°†å…·ä½“è§£æé€»è¾‘å§”æ´¾ç»™äº†`CachingDelegateEncryptablePropertySource`ã€‚
 
-Ã»°ì·¨£¬Ö»ÄÜµ½ _CachingDelegateEncryptablePropertySource_ ÖĞÒ»Ì½¾¿¾¹ÁË£º
+æ²¡åŠæ³•ï¼Œåªèƒ½åˆ° _CachingDelegateEncryptablePropertySource_ ä¸­ä¸€æ¢ç©¶ç«Ÿäº†ï¼š
 
 ```
 public class CachingDelegateEncryptablePropertySource<T> extends PropertySource<T> implements EncryptablePropertySource<T> {
@@ -784,10 +784,10 @@ public class CachingDelegateEncryptablePropertySource<T> extends PropertySource<
         }
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-ÖÕÓÚ£¬¸ú½øµ½`EncryptablePropertySource`ÖĞ¿´µ½ÁË½âÃÜµÄ×îÖÕÂß¼­¡£ÆäÖĞ£¬`EncryptablePropertyDetector`¸ºÔğÌ½²âÏà¹ØÊôĞÔÊÇ·ñĞèÒª¶ÔÆä½âÃÜ£¬Ö÷ÒªÍ¨¹ıÅĞ¶Ï¸ÃÊôĞÔÖµÊÇ·ñÓÉ`ENC()`°ü¹ü¡£
+ç»ˆäºï¼Œè·Ÿè¿›åˆ°`EncryptablePropertySource`ä¸­çœ‹åˆ°äº†è§£å¯†çš„æœ€ç»ˆé€»è¾‘ã€‚å…¶ä¸­ï¼Œ`EncryptablePropertyDetector`è´Ÿè´£æ¢æµ‹ç›¸å…³å±æ€§æ˜¯å¦éœ€è¦å¯¹å…¶è§£å¯†ï¼Œä¸»è¦é€šè¿‡åˆ¤æ–­è¯¥å±æ€§å€¼æ˜¯å¦ç”±`ENC()`åŒ…è£¹ã€‚
 
 ```
 public interface EncryptablePropertySource<T> extends OriginLookup<String> {
@@ -825,21 +825,21 @@ public class DefaultPropertyResolver implements EncryptablePropertyResolver {
                 .orElse(value);
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-## 4 ×Ü½á
+## 4 æ€»ç»“
 
-×Ü½áĞÔµÄÎÄ×Ö¾Í²»ÔÙËµÁË£¬±ÊÕßÏÖÔÚÎÄË¼ÈªÓ¿£¬·ñÔòÓÖÄÜË®300×Ö¡£×îºó£¬Ï£Íû´ó¼Ò¼Ç×¡ÔÚµ±Ç° Spring Boot °æ±¾ÖĞ£¬ÓÉ`ApplicationServletEnvironment`°çÑİ _Environment_£¬Æä×îÖÕ½«Î¯ÅÉ`ConfigurationPropertySourcesPropertyResolver`È¥»ñÈ¡ÊôĞÔÖµ¡£
+æ€»ç»“æ€§çš„æ–‡å­—å°±ä¸å†è¯´äº†ï¼Œç¬”è€…ç°åœ¨æ–‡æ€æ³‰æ¶Œï¼Œå¦åˆ™åˆèƒ½æ°´300å­—ã€‚æœ€åï¼Œå¸Œæœ›å¤§å®¶è®°ä½åœ¨å½“å‰ Spring Boot ç‰ˆæœ¬ä¸­ï¼Œç”±`ApplicationServletEnvironment`æ‰®æ¼” _Environment_ï¼Œå…¶æœ€ç»ˆå°†å§”æ´¾`ConfigurationPropertySourcesPropertyResolver`å»è·å–å±æ€§å€¼ã€‚
 
 
 
-×÷Õß£º³ÌĞòÔ³¶ÅĞ¡Í·
-Á´½Ó£ºhttps://juejin.cn/post/7098299623759937543
-À´Ô´£ºÏ¡ÍÁ¾ò½ğ
-Öø×÷È¨¹é×÷ÕßËùÓĞ¡£ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+ä½œè€…ï¼šç¨‹åºçŒ¿æœå°å¤´
+é“¾æ¥ï¼šhttps://juejin.cn/post/7098299623759937543
+æ¥æºï¼šç¨€åœŸæ˜é‡‘
+è‘—ä½œæƒå½’ä½œè€…æ‰€æœ‰ã€‚å•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 
 https://www.w3cschool.cn/wkspring
 https://www.runoob.com/w3cnote/basic-knowledge-summary-of-spring.html

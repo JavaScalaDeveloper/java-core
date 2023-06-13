@@ -1,32 +1,32 @@
-## ÕªÒª
+## æ‘˜è¦
 
-Spring Cloud Alibaba ÖÂÁ¦ÓÚÌá¹©Î¢·şÎñ¿ª·¢µÄÒ»Õ¾Ê½½â¾ö·½°¸£¬Sentinel ×÷ÎªÆäºËĞÄ×é¼şÖ®Ò»£¬¾ßÓĞÈÛ¶ÏÓëÏŞÁ÷µÈÒ»ÏµÁĞ·şÎñ±£»¤¹¦ÄÜ£¬±¾ÎÄ½«¶ÔÆäÓÃ·¨½øĞĞÏêÏ¸½éÉÜ¡£
+Spring Cloud Alibaba è‡´åŠ›äºæä¾›å¾®æœåŠ¡å¼€å‘çš„ä¸€ç«™å¼è§£å†³æ–¹æ¡ˆï¼ŒSentinel ä½œä¸ºå…¶æ ¸å¿ƒç»„ä»¶ä¹‹ä¸€ï¼Œå…·æœ‰ç†”æ–­ä¸é™æµç­‰ä¸€ç³»åˆ—æœåŠ¡ä¿æŠ¤åŠŸèƒ½ï¼Œæœ¬æ–‡å°†å¯¹å…¶ç”¨æ³•è¿›è¡Œè¯¦ç»†ä»‹ç»ã€‚
 
-## Sentinel¼ò½é
+## Sentinelç®€ä»‹
 
-Ëæ×ÅÎ¢·şÎñµÄÁ÷ĞĞ£¬·şÎñºÍ·şÎñÖ®¼äµÄÎÈ¶¨ĞÔ±äµÃÔ½À´Ô½ÖØÒª¡£ Sentinel ÒÔÁ÷Á¿ÎªÇĞÈëµã£¬´ÓÁ÷Á¿¿ØÖÆ¡¢ÈÛ¶Ï½µ¼¶¡¢ÏµÍ³¸ºÔØ±£»¤µÈ¶à¸öÎ¬¶È±£»¤·şÎñµÄÎÈ¶¨ĞÔ¡£
+éšç€å¾®æœåŠ¡çš„æµè¡Œï¼ŒæœåŠ¡å’ŒæœåŠ¡ä¹‹é—´çš„ç¨³å®šæ€§å˜å¾—è¶Šæ¥è¶Šé‡è¦ã€‚ Sentinel ä»¥æµé‡ä¸ºåˆ‡å…¥ç‚¹ï¼Œä»æµé‡æ§åˆ¶ã€ç†”æ–­é™çº§ã€ç³»ç»Ÿè´Ÿè½½ä¿æŠ¤ç­‰å¤šä¸ªç»´åº¦ä¿æŠ¤æœåŠ¡çš„ç¨³å®šæ€§ã€‚
 
-Sentinel¾ßÓĞÈçÏÂÌØĞÔ:
+Sentinelå…·æœ‰å¦‚ä¸‹ç‰¹æ€§:
 
-*   ·á¸»µÄÓ¦ÓÃ³¡¾°£º³Ğ½ÓÁË°¢Àï°Í°Í½ü 10 ÄêµÄË«Ê®Ò»´ó´ÙÁ÷Á¿µÄºËĞÄ³¡¾°£¬ÀıÈçÃëÉ±£¬¿ÉÒÔÊµÊ±ÈÛ¶ÏÏÂÓÎ²»¿ÉÓÃÓ¦ÓÃ£»
-*   Íê±¸µÄÊµÊ±¼à¿Ø£ºÍ¬Ê±Ìá¹©ÊµÊ±µÄ¼à¿Ø¹¦ÄÜ¡£¿ÉÒÔÔÚ¿ØÖÆÌ¨ÖĞ¿´µ½½ÓÈëÓ¦ÓÃµÄµ¥Ì¨»úÆ÷Ãë¼¶Êı¾İ£¬ÉõÖÁ 500 Ì¨ÒÔÏÂ¹æÄ£µÄ¼¯ÈºµÄ»ã×ÜÔËĞĞÇé¿ö£»
-*   ¹ã·ºµÄ¿ªÔ´ÉúÌ¬£ºÌá¹©¿ªÏä¼´ÓÃµÄÓëÆäËü¿ªÔ´¿ò¼Ü/¿âµÄÕûºÏÄ£¿é£¬ÀıÈçÓë Spring Cloud¡¢Dubbo¡¢gRPC µÄÕûºÏ£»
-*   ÍêÉÆµÄ SPI À©Õ¹µã£ºÌá¹©¼òµ¥Ò×ÓÃ¡¢ÍêÉÆµÄ SPI À©Õ¹µã¡£Äú¿ÉÒÔÍ¨¹ıÊµÏÖÀ©Õ¹µã£¬¿ìËÙµÄ¶¨ÖÆÂß¼­¡£
+*   ä¸°å¯Œçš„åº”ç”¨åœºæ™¯ï¼šæ‰¿æ¥äº†é˜¿é‡Œå·´å·´è¿‘ 10 å¹´çš„åŒåä¸€å¤§ä¿ƒæµé‡çš„æ ¸å¿ƒåœºæ™¯ï¼Œä¾‹å¦‚ç§’æ€ï¼Œå¯ä»¥å®æ—¶ç†”æ–­ä¸‹æ¸¸ä¸å¯ç”¨åº”ç”¨ï¼›
+*   å®Œå¤‡çš„å®æ—¶ç›‘æ§ï¼šåŒæ—¶æä¾›å®æ—¶çš„ç›‘æ§åŠŸèƒ½ã€‚å¯ä»¥åœ¨æ§åˆ¶å°ä¸­çœ‹åˆ°æ¥å…¥åº”ç”¨çš„å•å°æœºå™¨ç§’çº§æ•°æ®ï¼Œç”šè‡³ 500 å°ä»¥ä¸‹è§„æ¨¡çš„é›†ç¾¤çš„æ±‡æ€»è¿è¡Œæƒ…å†µï¼›
+*   å¹¿æ³›çš„å¼€æºç”Ÿæ€ï¼šæä¾›å¼€ç®±å³ç”¨çš„ä¸å…¶å®ƒå¼€æºæ¡†æ¶/åº“çš„æ•´åˆæ¨¡å—ï¼Œä¾‹å¦‚ä¸ Spring Cloudã€Dubboã€gRPC çš„æ•´åˆï¼›
+*   å®Œå–„çš„ SPI æ‰©å±•ç‚¹ï¼šæä¾›ç®€å•æ˜“ç”¨ã€å®Œå–„çš„ SPI æ‰©å±•ç‚¹ã€‚æ‚¨å¯ä»¥é€šè¿‡å®ç°æ‰©å±•ç‚¹ï¼Œå¿«é€Ÿçš„å®šåˆ¶é€»è¾‘ã€‚
 
-## °²×°Sentinel¿ØÖÆÌ¨
+## å®‰è£…Sentinelæ§åˆ¶å°
 
-> Sentinel¿ØÖÆÌ¨ÊÇÒ»¸öÇáÁ¿¼¶µÄ¿ØÖÆÌ¨Ó¦ÓÃ£¬Ëü¿ÉÓÃÓÚÊµÊ±²é¿´µ¥»ú×ÊÔ´¼à¿Ø¼°¼¯Èº×ÊÔ´»ã×Ü£¬²¢Ìá¹©ÁËÒ»ÏµÁĞµÄ¹æÔò¹ÜÀí¹¦ÄÜ£¬ÈçÁ÷¿Ø¹æÔò¡¢½µ¼¶¹æÔò¡¢ÈÈµã¹æÔòµÈ¡£
+> Sentinelæ§åˆ¶å°æ˜¯ä¸€ä¸ªè½»é‡çº§çš„æ§åˆ¶å°åº”ç”¨ï¼Œå®ƒå¯ç”¨äºå®æ—¶æŸ¥çœ‹å•æœºèµ„æºç›‘æ§åŠé›†ç¾¤èµ„æºæ±‡æ€»ï¼Œå¹¶æä¾›äº†ä¸€ç³»åˆ—çš„è§„åˆ™ç®¡ç†åŠŸèƒ½ï¼Œå¦‚æµæ§è§„åˆ™ã€é™çº§è§„åˆ™ã€çƒ­ç‚¹è§„åˆ™ç­‰ã€‚
 
-*   ÎÒÃÇÏÈ´Ó¹ÙÍøÏÂÔØSentinel£¬ÕâÀïÏÂÔØµÄÊÇ`sentinel-dashboard-1.6.3.jar`ÎÄ¼ş£¬ÏÂÔØµØÖ·£º[github.com/alibaba/Sen¡­](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Falibaba%2FSentinel%2Freleases "https://github.com/alibaba/Sentinel/releases")
+*   æˆ‘ä»¬å…ˆä»å®˜ç½‘ä¸‹è½½Sentinelï¼Œè¿™é‡Œä¸‹è½½çš„æ˜¯`sentinel-dashboard-1.6.3.jar`æ–‡ä»¶ï¼Œä¸‹è½½åœ°å€ï¼š[github.com/alibaba/Senâ€¦](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Falibaba%2FSentinel%2Freleases "https://github.com/alibaba/Sentinel/releases")
 
-*   ÏÂÔØÍê³ÉºóÔÚÃüÁîĞĞÊäÈëÈçÏÂÃüÁîÔËĞĞSentinel¿ØÖÆÌ¨£º
+*   ä¸‹è½½å®Œæˆååœ¨å‘½ä»¤è¡Œè¾“å…¥å¦‚ä¸‹å‘½ä»¤è¿è¡ŒSentinelæ§åˆ¶å°ï¼š
 
 ```
 java -jar sentinel-dashboard-1.6.3.jar
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-*   Sentinel¿ØÖÆÌ¨Ä¬ÈÏÔËĞĞÔÚ8080¶Ë¿ÚÉÏ£¬µÇÂ¼ÕËºÅÃÜÂë¾ùÎª`sentinel`£¬Í¨¹ıÈçÏÂµØÖ·¿ÉÒÔ½øĞĞ·ÃÎÊ£º[http://localhost:8080](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080 "http://localhost:8080")
+*   Sentinelæ§åˆ¶å°é»˜è®¤è¿è¡Œåœ¨8080ç«¯å£ä¸Šï¼Œç™»å½•è´¦å·å¯†ç å‡ä¸º`sentinel`ï¼Œé€šè¿‡å¦‚ä¸‹åœ°å€å¯ä»¥è¿›è¡Œè®¿é—®ï¼š[http://localhost:8080](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080 "http://localhost:8080")
 
 ![image-20230423173003900](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173003900.png)
 
@@ -35,7 +35,7 @@ java -jar sentinel-dashboard-1.6.3.jar
 
 
 
-*   Sentinel¿ØÖÆÌ¨¿ÉÒÔ²é¿´µ¥Ì¨»úÆ÷µÄÊµÊ±¼à¿ØÊı¾İ¡£
+*   Sentinelæ§åˆ¶å°å¯ä»¥æŸ¥çœ‹å•å°æœºå™¨çš„å®æ—¶ç›‘æ§æ•°æ®ã€‚
 
 ![image-20230423173019956](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173019956.png)
 
@@ -44,11 +44,11 @@ java -jar sentinel-dashboard-1.6.3.jar
 
 
 
-## ´´½¨sentinel-serviceÄ£¿é
+## åˆ›å»ºsentinel-serviceæ¨¡å—
 
-> ÕâÀïÎÒÃÇ´´½¨Ò»¸ösentinel-serviceÄ£¿é£¬ÓÃÓÚÑİÊ¾SentinelµÄÈÛ¶ÏÓëÏŞÁ÷¹¦ÄÜ¡£
+> è¿™é‡Œæˆ‘ä»¬åˆ›å»ºä¸€ä¸ªsentinel-serviceæ¨¡å—ï¼Œç”¨äºæ¼”ç¤ºSentinelçš„ç†”æ–­ä¸é™æµåŠŸèƒ½ã€‚
 
-*   ÔÚpom.xmlÖĞÌí¼ÓÏà¹ØÒÀÀµ£¬ÕâÀïÎÒÃÇÊ¹ÓÃNacos×÷Îª×¢²áÖĞĞÄ£¬ËùÒÔĞèÒªÍ¬Ê±Ìí¼ÓNacosµÄÒÀÀµ£º
+*   åœ¨pom.xmlä¸­æ·»åŠ ç›¸å…³ä¾èµ–ï¼Œè¿™é‡Œæˆ‘ä»¬ä½¿ç”¨Nacosä½œä¸ºæ³¨å†Œä¸­å¿ƒï¼Œæ‰€ä»¥éœ€è¦åŒæ—¶æ·»åŠ Nacosçš„ä¾èµ–ï¼š
 
 ```
 <dependency>
@@ -59,10 +59,10 @@ java -jar sentinel-dashboard-1.6.3.jar
     <groupId>com.alibaba.cloud</groupId>
     spring-cloud-starter-alibaba-sentinel
 </dependency>
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-*   ÔÚapplication.ymlÖĞÌí¼ÓÏà¹ØÅäÖÃ£¬Ö÷ÒªÊÇÅäÖÃÁËNacosºÍSentinel¿ØÖÆÌ¨µÄµØÖ·£º
+*   åœ¨application.ymlä¸­æ·»åŠ ç›¸å…³é…ç½®ï¼Œä¸»è¦æ˜¯é…ç½®äº†Nacoså’ŒSentinelæ§åˆ¶å°çš„åœ°å€ï¼š
 
 ```
 server:
@@ -73,10 +73,10 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848 #ÅäÖÃNacosµØÖ·
+        server-addr: localhost:8848 #é…ç½®Nacosåœ°å€
     sentinel:
       transport:
-        dashboard: localhost:8080 #ÅäÖÃsentinel dashboardµØÖ·
+        dashboard: localhost:8080 #é…ç½®sentinel dashboardåœ°å€
         port: 8719
 service-url:
   user-service: http://nacos-user-service
@@ -85,20 +85,20 @@ management:
     web:
       exposure:
         include: '*'
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-## ÏŞÁ÷¹¦ÄÜ
+## é™æµåŠŸèƒ½
 
-> Sentinel Starter Ä¬ÈÏÎªËùÓĞµÄ HTTP ·şÎñÌá¹©ÁËÏŞÁ÷Âñµã£¬ÎÒÃÇÒ²¿ÉÒÔÍ¨¹ıÊ¹ÓÃ@SentinelResourceÀ´×Ô¶¨ÒåÒ»Ğ©ÏŞÁ÷ĞĞÎª¡£
+> Sentinel Starter é»˜è®¤ä¸ºæ‰€æœ‰çš„ HTTP æœåŠ¡æä¾›äº†é™æµåŸ‹ç‚¹ï¼Œæˆ‘ä»¬ä¹Ÿå¯ä»¥é€šè¿‡ä½¿ç”¨@SentinelResourceæ¥è‡ªå®šä¹‰ä¸€äº›é™æµè¡Œä¸ºã€‚
 
-### ´´½¨RateLimitControllerÀà
+### åˆ›å»ºRateLimitControllerç±»
 
-> ÓÃÓÚ²âÊÔÈÛ¶ÏºÍÏŞÁ÷¹¦ÄÜ¡£
+> ç”¨äºæµ‹è¯•ç†”æ–­å’Œé™æµåŠŸèƒ½ã€‚
 
 ```
 /**
- * ÏŞÁ÷¹¦ÄÜ
+ * é™æµåŠŸèƒ½
  * Created by macro on 2019/11/7.
  */
 @RestController
@@ -106,21 +106,21 @@ management:
 public class RateLimitController {
 
     /**
-     * °´×ÊÔ´Ãû³ÆÏŞÁ÷£¬ĞèÒªÖ¸¶¨ÏŞÁ÷´¦ÀíÂß¼­
+     * æŒ‰èµ„æºåç§°é™æµï¼Œéœ€è¦æŒ‡å®šé™æµå¤„ç†é€»è¾‘
      */
     @GetMapping("/byResource")
     @SentinelResource(value = "byResource",blockHandler = "handleException")
     public CommonResult byResource() {
-        return new CommonResult("°´×ÊÔ´Ãû³ÆÏŞÁ÷", 200);
+        return new CommonResult("æŒ‰èµ„æºåç§°é™æµ", 200);
     }
 
     /**
-     * °´URLÏŞÁ÷£¬ÓĞÄ¬ÈÏµÄÏŞÁ÷´¦ÀíÂß¼­
+     * æŒ‰URLé™æµï¼Œæœ‰é»˜è®¤çš„é™æµå¤„ç†é€»è¾‘
      */
     @GetMapping("/byUrl")
     @SentinelResource(value = "byUrl",blockHandler = "handleException")
     public CommonResult byUrl() {
-        return new CommonResult("°´urlÏŞÁ÷", 200);
+        return new CommonResult("æŒ‰urlé™æµ", 200);
     }
 
     public CommonResult handleException(BlockException exception){
@@ -128,18 +128,18 @@ public class RateLimitController {
     }
 
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-### ¸ù¾İ×ÊÔ´Ãû³ÆÏŞÁ÷
+### æ ¹æ®èµ„æºåç§°é™æµ
 
-> ÎÒÃÇ¿ÉÒÔ¸ù¾İ@SentinelResource×¢½âÖĞ¶¨ÒåµÄvalue£¨×ÊÔ´Ãû³Æ£©À´½øĞĞÏŞÁ÷²Ù×÷£¬µ«ÊÇĞèÒªÖ¸¶¨ÏŞÁ÷´¦ÀíÂß¼­¡£
+> æˆ‘ä»¬å¯ä»¥æ ¹æ®@SentinelResourceæ³¨è§£ä¸­å®šä¹‰çš„valueï¼ˆèµ„æºåç§°ï¼‰æ¥è¿›è¡Œé™æµæ“ä½œï¼Œä½†æ˜¯éœ€è¦æŒ‡å®šé™æµå¤„ç†é€»è¾‘ã€‚
 
-*   Á÷¿Ø¹æÔò¿ÉÒÔÔÚSentinel¿ØÖÆÌ¨½øĞĞÅäÖÃ£¬ÓÉÓÚÎÒÃÇÊ¹ÓÃÁËNacos×¢²áÖĞĞÄ£¬ÎÒÃÇÏÈÆô¶¯NacosºÍsentinel-service£»
+*   æµæ§è§„åˆ™å¯ä»¥åœ¨Sentinelæ§åˆ¶å°è¿›è¡Œé…ç½®ï¼Œç”±äºæˆ‘ä»¬ä½¿ç”¨äº†Nacosæ³¨å†Œä¸­å¿ƒï¼Œæˆ‘ä»¬å…ˆå¯åŠ¨Nacoså’Œsentinel-serviceï¼›
 
-*   ÓÉÓÚSentinel²ÉÓÃµÄÀÁ¼ÓÔØ¹æÔò£¬ĞèÒªÎÒÃÇÏÈ·ÃÎÊÏÂ½Ó¿Ú£¬Sentinel¿ØÖÆÌ¨ÖĞ²Å»áÓĞ¶ÔÓ¦·şÎñĞÅÏ¢£¬ÎÒÃÇÏÈ·ÃÎÊÏÂ¸Ã½Ó¿Ú£º[http://localhost:8401/rateLimit/byResource](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8401%2FrateLimit%2FbyResource "http://localhost:8401/rateLimit/byResource")
+*   ç”±äºSentinelé‡‡ç”¨çš„æ‡’åŠ è½½è§„åˆ™ï¼Œéœ€è¦æˆ‘ä»¬å…ˆè®¿é—®ä¸‹æ¥å£ï¼ŒSentinelæ§åˆ¶å°ä¸­æ‰ä¼šæœ‰å¯¹åº”æœåŠ¡ä¿¡æ¯ï¼Œæˆ‘ä»¬å…ˆè®¿é—®ä¸‹è¯¥æ¥å£ï¼š[http://localhost:8401/rateLimit/byResource](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8401%2FrateLimit%2FbyResource "http://localhost:8401/rateLimit/byResource")
 
-*   ÔÚSentinel¿ØÖÆÌ¨ÅäÖÃÁ÷¿Ø¹æÔò£¬¸ù¾İ@SentinelResource×¢½âµÄvalueÖµ£º
+*   åœ¨Sentinelæ§åˆ¶å°é…ç½®æµæ§è§„åˆ™ï¼Œæ ¹æ®@SentinelResourceæ³¨è§£çš„valueå€¼ï¼š
 
 ![image-20230423173034164](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173034164.png)
 
@@ -148,7 +148,7 @@ public class RateLimitController {
 
 
 
-*   ¿ìËÙ·ÃÎÊÉÏÃæµÄ½Ó¿Ú£¬¿ÉÒÔ·¢ÏÖ·µ»ØÁË×Ô¼º¶¨ÒåµÄÏŞÁ÷´¦ÀíĞÅÏ¢£º
+*   å¿«é€Ÿè®¿é—®ä¸Šé¢çš„æ¥å£ï¼Œå¯ä»¥å‘ç°è¿”å›äº†è‡ªå·±å®šä¹‰çš„é™æµå¤„ç†ä¿¡æ¯ï¼š
 
 ![image-20230423173044930](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173044930.png)
 
@@ -157,11 +157,11 @@ public class RateLimitController {
 
 
 
-### ¸ù¾İURLÏŞÁ÷
+### æ ¹æ®URLé™æµ
 
-> ÎÒÃÇ»¹¿ÉÒÔÍ¨¹ı·ÃÎÊµÄURLÀ´ÏŞÁ÷£¬»á·µ»ØÄ¬ÈÏµÄÏŞÁ÷´¦ÀíĞÅÏ¢¡£
+> æˆ‘ä»¬è¿˜å¯ä»¥é€šè¿‡è®¿é—®çš„URLæ¥é™æµï¼Œä¼šè¿”å›é»˜è®¤çš„é™æµå¤„ç†ä¿¡æ¯ã€‚
 
-*   ÔÚSentinel¿ØÖÆÌ¨ÅäÖÃÁ÷¿Ø¹æÔò£¬Ê¹ÓÃ·ÃÎÊµÄURL£º
+*   åœ¨Sentinelæ§åˆ¶å°é…ç½®æµæ§è§„åˆ™ï¼Œä½¿ç”¨è®¿é—®çš„URLï¼š
 
 ![image-20230423173055243](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173055243.png)
 
@@ -170,7 +170,7 @@ public class RateLimitController {
 
 
 
-*   ¶à´Î·ÃÎÊ¸Ã½Ó¿Ú£¬»á·µ»ØÄ¬ÈÏµÄÏŞÁ÷´¦Àí½á¹û£º[http://localhost:8401/rateLimit/byUrl](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8401%2FrateLimit%2FbyUrl "http://localhost:8401/rateLimit/byUrl")
+*   å¤šæ¬¡è®¿é—®è¯¥æ¥å£ï¼Œä¼šè¿”å›é»˜è®¤çš„é™æµå¤„ç†ç»“æœï¼š[http://localhost:8401/rateLimit/byUrl](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8401%2FrateLimit%2FbyUrl "http://localhost:8401/rateLimit/byUrl")
 
 ![image-20230423173105426](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173105426.png)
 
@@ -179,11 +179,11 @@ public class RateLimitController {
 
 
 
-### ×Ô¶¨ÒåÏŞÁ÷´¦ÀíÂß¼­
+### è‡ªå®šä¹‰é™æµå¤„ç†é€»è¾‘
 
-> ÎÒÃÇ¿ÉÒÔ×Ô¶¨ÒåÍ¨ÓÃµÄÏŞÁ÷´¦ÀíÂß¼­£¬È»ºóÔÚ@SentinelResourceÖĞÖ¸¶¨¡£
+> æˆ‘ä»¬å¯ä»¥è‡ªå®šä¹‰é€šç”¨çš„é™æµå¤„ç†é€»è¾‘ï¼Œç„¶ååœ¨@SentinelResourceä¸­æŒ‡å®šã€‚
 
-*   ´´½¨CustomBlockHandlerÀàÓÃÓÚ×Ô¶¨ÒåÏŞÁ÷´¦ÀíÂß¼­£º
+*   åˆ›å»ºCustomBlockHandlerç±»ç”¨äºè‡ªå®šä¹‰é™æµå¤„ç†é€»è¾‘ï¼š
 
 ```
 /**
@@ -192,17 +192,17 @@ public class RateLimitController {
 public class CustomBlockHandler {
 
     public CommonResult handleException(BlockException exception){
-        return new CommonResult("×Ô¶¨ÒåÏŞÁ÷ĞÅÏ¢",200);
+        return new CommonResult("è‡ªå®šä¹‰é™æµä¿¡æ¯",200);
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-*   ÔÚRateLimitControllerÖĞÊ¹ÓÃ×Ô¶¨ÒåÏŞÁ÷´¦ÀíÂß¼­£º
+*   åœ¨RateLimitControllerä¸­ä½¿ç”¨è‡ªå®šä¹‰é™æµå¤„ç†é€»è¾‘ï¼š
 
 ```
 /**
- * ÏŞÁ÷¹¦ÄÜ
+ * é™æµåŠŸèƒ½
  * Created by macro on 2019/11/7.
  */
 @RestController
@@ -210,23 +210,23 @@ public class CustomBlockHandler {
 public class RateLimitController {
 
     /**
-     * ×Ô¶¨ÒåÍ¨ÓÃµÄÏŞÁ÷´¦ÀíÂß¼­
+     * è‡ªå®šä¹‰é€šç”¨çš„é™æµå¤„ç†é€»è¾‘
      */
     @GetMapping("/customBlockHandler")
     @SentinelResource(value = "customBlockHandler", blockHandler = "handleException",blockHandlerClass = CustomBlockHandler.class)
     public CommonResult blockHandler() {
-        return new CommonResult("ÏŞÁ÷³É¹¦", 200);
+        return new CommonResult("é™æµæˆåŠŸ", 200);
     }
 
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-## ÈÛ¶Ï¹¦ÄÜ
+## ç†”æ–­åŠŸèƒ½
 
-> Sentinel Ö§³Ö¶Ô·şÎñ¼äµ÷ÓÃ½øĞĞ±£»¤£¬¶Ô¹ÊÕÏÓ¦ÓÃ½øĞĞÈÛ¶Ï²Ù×÷£¬ÕâÀïÎÒÃÇÊ¹ÓÃRestTemplateÀ´µ÷ÓÃnacos-user-service·şÎñËùÌá¹©µÄ½Ó¿ÚÀ´ÑİÊ¾ÏÂ¸Ã¹¦ÄÜ¡£
+> Sentinel æ”¯æŒå¯¹æœåŠ¡é—´è°ƒç”¨è¿›è¡Œä¿æŠ¤ï¼Œå¯¹æ•…éšœåº”ç”¨è¿›è¡Œç†”æ–­æ“ä½œï¼Œè¿™é‡Œæˆ‘ä»¬ä½¿ç”¨RestTemplateæ¥è°ƒç”¨nacos-user-serviceæœåŠ¡æ‰€æä¾›çš„æ¥å£æ¥æ¼”ç¤ºä¸‹è¯¥åŠŸèƒ½ã€‚
 
-*   Ê×ÏÈÎÒÃÇĞèÒªÊ¹ÓÃ@SentinelRestTemplateÀ´°ü×°ÏÂRestTemplateÊµÀı£º
+*   é¦–å…ˆæˆ‘ä»¬éœ€è¦ä½¿ç”¨@SentinelRestTemplateæ¥åŒ…è£…ä¸‹RestTemplateå®ä¾‹ï¼š
 
 ```
 /**
@@ -241,14 +241,14 @@ public class RibbonConfig {
         return new RestTemplate();
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-*   Ìí¼ÓCircleBreakerControllerÀà£¬¶¨Òå¶Ônacos-user-serviceÌá¹©½Ó¿ÚµÄµ÷ÓÃ£º
+*   æ·»åŠ CircleBreakerControllerç±»ï¼Œå®šä¹‰å¯¹nacos-user-serviceæä¾›æ¥å£çš„è°ƒç”¨ï¼š
 
 ```
 /**
- * ÈÛ¶Ï¹¦ÄÜ
+ * ç†”æ–­åŠŸèƒ½
  * Created by macro on 2019/11/7.
  */
 @RestController
@@ -280,21 +280,21 @@ public class CircleBreakerController {
 
     public CommonResult handleFallback(Long id) {
         User defaultUser = new User(-1L, "defaultUser", "123456");
-        return new CommonResult<>(defaultUser,"·şÎñ½µ¼¶·µ»Ø",200);
+        return new CommonResult<>(defaultUser,"æœåŠ¡é™çº§è¿”å›",200);
     }
 
     public CommonResult handleFallback2(@PathVariable Long id, Throwable e) {
         LOGGER.error("handleFallback2 id:{},throwable class:{}", id, e.getClass());
         User defaultUser = new User(-2L, "defaultUser2", "123456");
-        return new CommonResult<>(defaultUser,"·şÎñ½µ¼¶·µ»Ø",200);
+        return new CommonResult<>(defaultUser,"æœåŠ¡é™çº§è¿”å›",200);
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-*   Æô¶¯nacos-user-serviceºÍsentinel-service·şÎñ£º
+*   å¯åŠ¨nacos-user-serviceå’Œsentinel-serviceæœåŠ¡ï¼š
 
-*   ÓÉÓÚÎÒÃÇ²¢Ã»ÓĞÔÚnacos-user-serviceÖĞ¶¨ÒåidÎª4µÄÓÃ»§£¬ËùÓĞ·ÃÎÊÈçÏÂ½Ó¿Ú»á·µ»Ø·şÎñ½µ¼¶½á¹û£º[http://localhost:8401/breaker/fallback/4](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8401%2Fbreaker%2Ffallback%2F4 "http://localhost:8401/breaker/fallback/4")
+*   ç”±äºæˆ‘ä»¬å¹¶æ²¡æœ‰åœ¨nacos-user-serviceä¸­å®šä¹‰idä¸º4çš„ç”¨æˆ·ï¼Œæ‰€æœ‰è®¿é—®å¦‚ä¸‹æ¥å£ä¼šè¿”å›æœåŠ¡é™çº§ç»“æœï¼š[http://localhost:8401/breaker/fallback/4](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8401%2Fbreaker%2Ffallback%2F4 "http://localhost:8401/breaker/fallback/4")
 
 ```
 {
@@ -303,13 +303,13 @@ public class CircleBreakerController {
 		"username": "defaultUser",
 		"password": "123456"
 	},
-	"message": "·şÎñ½µ¼¶·µ»Ø",
+	"message": "æœåŠ¡é™çº§è¿”å›",
 	"code": 200
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-*   ÓÉÓÚÎÒÃÇÊ¹ÓÃÁËexceptionsToIgnore²ÎÊıºöÂÔÁËNullPointerException£¬ËùÒÔÎÒÃÇ·ÃÎÊ½Ó¿Ú±¨¿ÕÖ¸ÕëÊ±²»»á·¢Éú·şÎñ½µ¼¶£º[http://localhost:8401/breaker/fallbackException/2](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8401%2Fbreaker%2FfallbackException%2F2 "http://localhost:8401/breaker/fallbackException/2")
+*   ç”±äºæˆ‘ä»¬ä½¿ç”¨äº†exceptionsToIgnoreå‚æ•°å¿½ç•¥äº†NullPointerExceptionï¼Œæ‰€ä»¥æˆ‘ä»¬è®¿é—®æ¥å£æŠ¥ç©ºæŒ‡é’ˆæ—¶ä¸ä¼šå‘ç”ŸæœåŠ¡é™çº§ï¼š[http://localhost:8401/breaker/fallbackException/2](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8401%2Fbreaker%2FfallbackException%2F2 "http://localhost:8401/breaker/fallbackException/2")
 
 ![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/18/16e7eb0fb3df7c01~tplv-t2oaga2asx-zoom-in-crop-mark:4536:0:0:0.awebp)
 
@@ -318,32 +318,32 @@ public class CircleBreakerController {
 
 
 
-## ÓëFeign½áºÏÊ¹ÓÃ
+## ä¸Feignç»“åˆä½¿ç”¨
 
-> SentinelÒ²ÊÊÅäÁËFeign×é¼ş£¬ÎÒÃÇÊ¹ÓÃFeignÀ´½øĞĞ·şÎñ¼äµ÷ÓÃÊ±£¬Ò²¿ÉÒÔÊ¹ÓÃËüÀ´½øĞĞÈÛ¶Ï¡£
+> Sentinelä¹Ÿé€‚é…äº†Feignç»„ä»¶ï¼Œæˆ‘ä»¬ä½¿ç”¨Feignæ¥è¿›è¡ŒæœåŠ¡é—´è°ƒç”¨æ—¶ï¼Œä¹Ÿå¯ä»¥ä½¿ç”¨å®ƒæ¥è¿›è¡Œç†”æ–­ã€‚
 
-*   Ê×ÏÈÎÒÃÇĞèÒªÔÚpom.xmlÖĞÌí¼ÓFeignÏà¹ØÒÀÀµ£º
+*   é¦–å…ˆæˆ‘ä»¬éœ€è¦åœ¨pom.xmlä¸­æ·»åŠ Feignç›¸å…³ä¾èµ–ï¼š
 
 ```
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     spring-cloud-starter-openfeign
 </dependency>
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-*   ÔÚapplication.ymlÖĞ´ò¿ªSentinel¶ÔFeignµÄÖ§³Ö£º
+*   åœ¨application.ymlä¸­æ‰“å¼€Sentinelå¯¹Feignçš„æ”¯æŒï¼š
 
 ```
 feign:
   sentinel:
-    enabled: true #´ò¿ªsentinel¶ÔfeignµÄÖ§³Ö
-¸´ÖÆ´úÂë
+    enabled: true #æ‰“å¼€sentinelå¯¹feignçš„æ”¯æŒ
+å¤åˆ¶ä»£ç 
 ```
 
-*   ÔÚÓ¦ÓÃÆô¶¯ÀàÉÏÌí¼Ó@EnableFeignClientsÆô¶¯FeignµÄ¹¦ÄÜ£»
+*   åœ¨åº”ç”¨å¯åŠ¨ç±»ä¸Šæ·»åŠ @EnableFeignClientså¯åŠ¨Feignçš„åŠŸèƒ½ï¼›
 
-*   ´´½¨Ò»¸öUserService½Ó¿Ú£¬ÓÃÓÚ¶¨Òå¶Ônacos-user-service·şÎñµÄµ÷ÓÃ£º
+*   åˆ›å»ºä¸€ä¸ªUserServiceæ¥å£ï¼Œç”¨äºå®šä¹‰å¯¹nacos-user-serviceæœåŠ¡çš„è°ƒç”¨ï¼š
 
 ```
 /**
@@ -366,10 +366,10 @@ public interface UserService {
     @PostMapping("/user/delete/{id}")
     CommonResult delete(@PathVariable Long id);
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-*   ´´½¨UserFallbackServiceÀàÊµÏÖUserService½Ó¿Ú£¬ÓÃÓÚ´¦Àí·şÎñ½µ¼¶Âß¼­£º
+*   åˆ›å»ºUserFallbackServiceç±»å®ç°UserServiceæ¥å£ï¼Œç”¨äºå¤„ç†æœåŠ¡é™çº§é€»è¾‘ï¼š
 
 ```
 /**
@@ -380,35 +380,35 @@ public class UserFallbackService implements UserService {
     @Override
     public CommonResult create(User user) {
         User defaultUser = new User(-1L, "defaultUser", "123456");
-        return new CommonResult<>(defaultUser,"·şÎñ½µ¼¶·µ»Ø",200);
+        return new CommonResult<>(defaultUser,"æœåŠ¡é™çº§è¿”å›",200);
     }
 
     @Override
     public CommonResult<User> getUser(Long id) {
         User defaultUser = new User(-1L, "defaultUser", "123456");
-        return new CommonResult<>(defaultUser,"·şÎñ½µ¼¶·µ»Ø",200);
+        return new CommonResult<>(defaultUser,"æœåŠ¡é™çº§è¿”å›",200);
     }
 
     @Override
     public CommonResult<User> getByUsername(String username) {
         User defaultUser = new User(-1L, "defaultUser", "123456");
-        return new CommonResult<>(defaultUser,"·şÎñ½µ¼¶·µ»Ø",200);
+        return new CommonResult<>(defaultUser,"æœåŠ¡é™çº§è¿”å›",200);
     }
 
     @Override
     public CommonResult update(User user) {
-        return new CommonResult("µ÷ÓÃÊ§°Ü£¬·şÎñ±»½µ¼¶",500);
+        return new CommonResult("è°ƒç”¨å¤±è´¥ï¼ŒæœåŠ¡è¢«é™çº§",500);
     }
 
     @Override
     public CommonResult delete(Long id) {
-        return new CommonResult("µ÷ÓÃÊ§°Ü£¬·şÎñ±»½µ¼¶",500);
+        return new CommonResult("è°ƒç”¨å¤±è´¥ï¼ŒæœåŠ¡è¢«é™çº§",500);
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-*   ÔÚUserFeignControllerÖĞÊ¹ÓÃUserServiceÍ¨¹ıFeignµ÷ÓÃnacos-user-service·şÎñÖĞµÄ½Ó¿Ú£º
+*   åœ¨UserFeignControllerä¸­ä½¿ç”¨UserServiceé€šè¿‡Feignè°ƒç”¨nacos-user-serviceæœåŠ¡ä¸­çš„æ¥å£ï¼š
 
 ```
 /**
@@ -445,10 +445,10 @@ public class UserFeignController {
         return userService.delete(id);
     }
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-*   µ÷ÓÃÈçÏÂ½Ó¿Ú»á·¢Éú·şÎñ½µ¼¶£¬·µ»Ø·şÎñ½µ¼¶´¦ÀíĞÅÏ¢£º[http://localhost:8401/user/4](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8401%2Fuser%2F4 "http://localhost:8401/user/4")
+*   è°ƒç”¨å¦‚ä¸‹æ¥å£ä¼šå‘ç”ŸæœåŠ¡é™çº§ï¼Œè¿”å›æœåŠ¡é™çº§å¤„ç†ä¿¡æ¯ï¼š[http://localhost:8401/user/4](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8401%2Fuser%2F4 "http://localhost:8401/user/4")
 
 ```
 {
@@ -457,17 +457,17 @@ public class UserFeignController {
 		"username": "defaultUser",
 		"password": "123456"
 	},
-	"message": "·şÎñ½µ¼¶·µ»Ø",
+	"message": "æœåŠ¡é™çº§è¿”å›",
 	"code": 200
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-## Ê¹ÓÃNacos´æ´¢¹æÔò
+## ä½¿ç”¨Nacoså­˜å‚¨è§„åˆ™
 
-> Ä¬ÈÏÇé¿öÏÂ£¬µ±ÎÒÃÇÔÚSentinel¿ØÖÆÌ¨ÖĞÅäÖÃ¹æÔòÊ±£¬¿ØÖÆÌ¨ÍÆËÍ¹æÔò·½Ê½ÊÇÍ¨¹ıAPI½«¹æÔòÍÆËÍÖÁ¿Í»§¶Ë²¢Ö±½Ó¸üĞÂµ½ÄÚ´æÖĞ¡£Ò»µ©ÎÒÃÇÖØÆôÓ¦ÓÃ£¬¹æÔò½«ÏûÊ§¡£ÏÂÃæÎÒÃÇ½éÉÜÏÂÈçºÎ½«ÅäÖÃ¹æÔò½øĞĞ³Ö¾Ã»¯£¬ÒÔ´æ´¢µ½NacosÎªÀı¡£
+> é»˜è®¤æƒ…å†µä¸‹ï¼Œå½“æˆ‘ä»¬åœ¨Sentinelæ§åˆ¶å°ä¸­é…ç½®è§„åˆ™æ—¶ï¼Œæ§åˆ¶å°æ¨é€è§„åˆ™æ–¹å¼æ˜¯é€šè¿‡APIå°†è§„åˆ™æ¨é€è‡³å®¢æˆ·ç«¯å¹¶ç›´æ¥æ›´æ–°åˆ°å†…å­˜ä¸­ã€‚ä¸€æ—¦æˆ‘ä»¬é‡å¯åº”ç”¨ï¼Œè§„åˆ™å°†æ¶ˆå¤±ã€‚ä¸‹é¢æˆ‘ä»¬ä»‹ç»ä¸‹å¦‚ä½•å°†é…ç½®è§„åˆ™è¿›è¡ŒæŒä¹…åŒ–ï¼Œä»¥å­˜å‚¨åˆ°Nacosä¸ºä¾‹ã€‚
 
-### Ô­ÀíÊ¾ÒâÍ¼
+### åŸç†ç¤ºæ„å›¾
 
 ![image-20230423173120010](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173120010.png)
 
@@ -476,23 +476,23 @@ public class UserFeignController {
 
 
 
-*   Ê×ÏÈÎÒÃÇÖ±½ÓÔÚÅäÖÃÖĞĞÄ´´½¨¹æÔò£¬ÅäÖÃÖĞĞÄ½«¹æÔòÍÆËÍµ½¿Í»§¶Ë£»
+*   é¦–å…ˆæˆ‘ä»¬ç›´æ¥åœ¨é…ç½®ä¸­å¿ƒåˆ›å»ºè§„åˆ™ï¼Œé…ç½®ä¸­å¿ƒå°†è§„åˆ™æ¨é€åˆ°å®¢æˆ·ç«¯ï¼›
 
-*   Sentinel¿ØÖÆÌ¨Ò²´ÓÅäÖÃÖĞĞÄÈ¥»ñÈ¡ÅäÖÃĞÅÏ¢¡£
+*   Sentinelæ§åˆ¶å°ä¹Ÿä»é…ç½®ä¸­å¿ƒå»è·å–é…ç½®ä¿¡æ¯ã€‚
 
-### ¹¦ÄÜÑİÊ¾
+### åŠŸèƒ½æ¼”ç¤º
 
-*   ÏÈÔÚpom.xmlÖĞÌí¼ÓÏà¹ØÒÀÀµ£º
+*   å…ˆåœ¨pom.xmlä¸­æ·»åŠ ç›¸å…³ä¾èµ–ï¼š
 
 ```
 <dependency>
     <groupId>com.alibaba.csp</groupId>
     sentinel-datasource-nacos
 </dependency>
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-*   ĞŞ¸Äapplication.ymlÅäÖÃÎÄ¼ş£¬Ìí¼ÓNacosÊı¾İÔ´ÅäÖÃ£º
+*   ä¿®æ”¹application.ymlé…ç½®æ–‡ä»¶ï¼Œæ·»åŠ Nacosæ•°æ®æºé…ç½®ï¼š
 
 ```
 spring:
@@ -506,10 +506,10 @@ spring:
             groupId: DEFAULT_GROUP
             data-type: json
             rule-type: flow
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-*   ÔÚNacosÖĞÌí¼ÓÅäÖÃ£º
+*   åœ¨Nacosä¸­æ·»åŠ é…ç½®ï¼š
 
 ![image-20230423173137516](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173137516.png)
 
@@ -518,7 +518,7 @@ spring:
 
 
 
-*   Ìí¼ÓÅäÖÃĞÅÏ¢ÈçÏÂ£º
+*   æ·»åŠ é…ç½®ä¿¡æ¯å¦‚ä¸‹ï¼š
 
 ```
 [
@@ -532,19 +532,19 @@ spring:
         "clusterMode": false
     }
 ]
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 ```
 
-*   Ïà¹Ø²ÎÊı½âÊÍ£º
+*   ç›¸å…³å‚æ•°è§£é‡Šï¼š
 
-    *   resource£º×ÊÔ´Ãû³Æ£»
-    *   limitApp£ºÀ´Ô´Ó¦ÓÃ£»
-    *   grade£ºãĞÖµÀàĞÍ£¬0±íÊ¾Ïß³ÌÊı£¬1±íÊ¾QPS£»
-    *   count£ºµ¥»úãĞÖµ£»
-    *   strategy£ºÁ÷¿ØÄ£Ê½£¬0±íÊ¾Ö±½Ó£¬1±íÊ¾¹ØÁª£¬2±íÊ¾Á´Â·£»
-    *   controlBehavior£ºÁ÷¿ØĞ§¹û£¬0±íÊ¾¿ìËÙÊ§°Ü£¬1±íÊ¾Warm Up£¬2±íÊ¾ÅÅ¶ÓµÈ´ı£»
-    *   clusterMode£ºÊÇ·ñ¼¯Èº¡£
-*   ·¢ÏÖSentinel¿ØÖÆÌ¨ÒÑ¾­ÓĞÁËÈçÏÂÏŞÁ÷¹æÔò£º
+    *   resourceï¼šèµ„æºåç§°ï¼›
+    *   limitAppï¼šæ¥æºåº”ç”¨ï¼›
+    *   gradeï¼šé˜ˆå€¼ç±»å‹ï¼Œ0è¡¨ç¤ºçº¿ç¨‹æ•°ï¼Œ1è¡¨ç¤ºQPSï¼›
+    *   countï¼šå•æœºé˜ˆå€¼ï¼›
+    *   strategyï¼šæµæ§æ¨¡å¼ï¼Œ0è¡¨ç¤ºç›´æ¥ï¼Œ1è¡¨ç¤ºå…³è”ï¼Œ2è¡¨ç¤ºé“¾è·¯ï¼›
+    *   controlBehaviorï¼šæµæ§æ•ˆæœï¼Œ0è¡¨ç¤ºå¿«é€Ÿå¤±è´¥ï¼Œ1è¡¨ç¤ºWarm Upï¼Œ2è¡¨ç¤ºæ’é˜Ÿç­‰å¾…ï¼›
+    *   clusterModeï¼šæ˜¯å¦é›†ç¾¤ã€‚
+*   å‘ç°Sentinelæ§åˆ¶å°å·²ç»æœ‰äº†å¦‚ä¸‹é™æµè§„åˆ™ï¼š
 
 ![image-20230423173152487](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173152487.png)
 
@@ -553,7 +553,7 @@ spring:
 
 
 
-*   ¿ìËÙ·ÃÎÊ²âÊÔ½Ó¿Ú£¬¿ÉÒÔ·¢ÏÖ·µ»ØÁËÏŞÁ÷´¦ÀíĞÅÏ¢£º
+*   å¿«é€Ÿè®¿é—®æµ‹è¯•æ¥å£ï¼Œå¯ä»¥å‘ç°è¿”å›äº†é™æµå¤„ç†ä¿¡æ¯ï¼š
 
 ![image-20230423173203461](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173203461.png)
 
@@ -562,31 +562,31 @@ spring:
 
 
 
-## ²Î¿¼×ÊÁÏ
+## å‚è€ƒèµ„æ–™
 
-Spring Cloud Alibaba ¹Ù·½ÎÄµµ£º[github.com/alibaba/spr¡­](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Falibaba%2Fspring-cloud-alibaba%2Fwiki "https://github.com/alibaba/spring-cloud-alibaba/wiki")
+Spring Cloud Alibaba å®˜æ–¹æ–‡æ¡£ï¼š[github.com/alibaba/sprâ€¦](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Falibaba%2Fspring-cloud-alibaba%2Fwiki "https://github.com/alibaba/spring-cloud-alibaba/wiki")
 
-## Ê¹ÓÃµ½µÄÄ£¿é
+## ä½¿ç”¨åˆ°çš„æ¨¡å—
 
 ```
 springcloud-learning
-©À©¤©¤ nacos-user-service -- ×¢²áµ½nacosµÄÌá¹©User¶ÔÏóCRUD½Ó¿ÚµÄ·şÎñ
-©¸©¤©¤ sentinel-service -- sentinel¹¦ÄÜ²âÊÔ·şÎñ
-¸´ÖÆ´úÂë
+â”œâ”€â”€ nacos-user-service -- æ³¨å†Œåˆ°nacosçš„æä¾›Userå¯¹è±¡CRUDæ¥å£çš„æœåŠ¡
+â””â”€â”€ sentinel-service -- sentinelåŠŸèƒ½æµ‹è¯•æœåŠ¡
+å¤åˆ¶ä»£ç 
 ```
 
-## ÏîÄ¿Ô´ÂëµØÖ·
+## é¡¹ç›®æºç åœ°å€
 
-[github.com/macrozheng/¡­](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fmacrozheng%2Fspringcloud-learning "https://github.com/macrozheng/springcloud-learning")
+[github.com/macrozheng/â€¦](https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fmacrozheng%2Fspringcloud-learning "https://github.com/macrozheng/springcloud-learning")
 
 
 
-×÷Õß£ºMacroZheng
-Á´½Ó£ºhttps://juejin.cn/post/6844903999876022279
-À´Ô´£ºÏ¡ÍÁ¾ò½ğ
-Öø×÷È¨¹é×÷ÕßËùÓĞ¡£ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+ä½œè€…ï¼šMacroZheng
+é“¾æ¥ï¼šhttps://juejin.cn/post/6844903999876022279
+æ¥æºï¼šç¨€åœŸæ˜é‡‘
+è‘—ä½œæƒå½’ä½œè€…æ‰€æœ‰ã€‚å•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

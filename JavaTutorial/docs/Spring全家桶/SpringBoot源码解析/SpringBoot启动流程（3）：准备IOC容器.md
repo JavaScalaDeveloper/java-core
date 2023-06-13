@@ -1,33 +1,33 @@
-ÉÏÒ»ÆªÎÄÕÂ×Ü½á springboot Æô¶¯Á÷³ÌÈçÏÂ£º
+ä¸Šä¸€ç¯‡æ–‡ç« æ€»ç»“ springboot å¯åŠ¨æµç¨‹å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-07a6b491fbe69b8dcbd41e59a8543f06671.png)
 
-½ÓÉÏÎÄ£¬ÎÒÃÇ¼ÌĞø·ÖÎö½ÓÏÂÀ´µÄ²½Öè¡£
+æ¥ä¸Šæ–‡ï¼Œæˆ‘ä»¬ç»§ç»­åˆ†ææ¥ä¸‹æ¥çš„æ­¥éª¤ã€‚
 
-### 3.8 ´´½¨ ioc ÈİÆ÷
+### 3.8 åˆ›å»º ioc å®¹å™¨
 
-´´½¨ ioc ÈİÆ÷µÄ´úÂëÈçÏÂ£º
+åˆ›å»º ioc å®¹å™¨çš„ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 ConfigurableApplicationContext context = null;
 ....
-// ´´½¨applicationContext
+// åˆ›å»ºapplicationContext
 context = createApplicationContext();
 
 ```
 
-ÎÒÃÇ½øÈë `SpringApplication#createApplicationContext` ·½·¨£º
+æˆ‘ä»¬è¿›å…¥ `SpringApplication#createApplicationContext` æ–¹æ³•ï¼š
 
 ```
-/** Ä¬ÈÏµÄ ApplicationContext */
+/** é»˜è®¤çš„ ApplicationContext */
 public static final String DEFAULT_CONTEXT_CLASS = "org.springframework.context."
         + "annotation.AnnotationConfigApplicationContext";
 
-/** servlet Ó¦ÓÃµÄµÄ ApplicationContext */
+/** servlet åº”ç”¨çš„çš„ ApplicationContext */
 public static final String DEFAULT_SERVLET_WEB_CONTEXT_CLASS = "org.springframework.boot."
         + "web.servlet.context.AnnotationConfigServletWebServerApplicationContext";
 
-/** Reactive Ó¦ÓÃµÄ ApplicationContext */
+/** Reactive åº”ç”¨çš„ ApplicationContext */
 public static final String DEFAULT_REACTIVE_WEB_CONTEXT_CLASS = "org.springframework."
         + "boot.web.reactive.context.AnnotationConfigReactiveWebServerApplicationContext";
 
@@ -35,17 +35,17 @@ protected ConfigurableApplicationContext createApplicationContext() {
     Class<?> contextClass = this.applicationContextClass;
     if (contextClass == null) {
         try {
-            // ¸ù¾İÓ¦ÓÃÀàĞÍÀ´´´½¨²»Í¬µÄÈİÆ÷
+            // æ ¹æ®åº”ç”¨ç±»å‹æ¥åˆ›å»ºä¸åŒçš„å®¹å™¨
             switch (this.webApplicationType) {
             case SERVLET:
-                // Ê¹ÓÃµÄÊÇ AnnotationConfigServletWebServerApplicationContext
+                // ä½¿ç”¨çš„æ˜¯ AnnotationConfigServletWebServerApplicationContext
                 contextClass = Class.forName(DEFAULT_SERVLET_WEB_CONTEXT_CLASS);
                 break;
             case REACTIVE:
                 contextClass = Class.forName(DEFAULT_REACTIVE_WEB_CONTEXT_CLASS);
                 break;
             default:
-                // Ä¬ÈÏÊ¹ÓÃµÄÊÇ AnnotationConfigApplicationContext
+                // é»˜è®¤ä½¿ç”¨çš„æ˜¯ AnnotationConfigApplicationContext
                 contextClass = Class.forName(DEFAULT_CONTEXT_CLASS);
             }
         }
@@ -53,28 +53,28 @@ protected ConfigurableApplicationContext createApplicationContext() {
             throw new IllegalStateException(...);
         }
     }
-    // Ê¹ÓÃ·´Éä½øĞĞÊµÀı»¯
+    // ä½¿ç”¨åå°„è¿›è¡Œå®ä¾‹åŒ–
     return (ConfigurableApplicationContext) BeanUtils.instantiateClass(contextClass);
 }
 
 ```
 
-Õâ¸ö·½·¨Ö÷Òª¾ÍÊÇ¸ù¾İÓ¦ÓÃÀàĞÍÀ´´´½¨²»Í¬ `ApplicationContext`£¬Ê¹ÓÃ·´ÉäµÄ·½·¨½øĞĞÊµÀı»¯£¬¸÷Ó¦ÓÃÀàĞÍ¶ÔÓ¦µÄ `ApplicationContext` ÈçÏÂ£º
+è¿™ä¸ªæ–¹æ³•ä¸»è¦å°±æ˜¯æ ¹æ®åº”ç”¨ç±»å‹æ¥åˆ›å»ºä¸åŒ `ApplicationContext`ï¼Œä½¿ç”¨åå°„çš„æ–¹æ³•è¿›è¡Œå®ä¾‹åŒ–ï¼Œå„åº”ç”¨ç±»å‹å¯¹åº”çš„ `ApplicationContext` å¦‚ä¸‹ï¼š
 
-1.  `servlet` Ó¦ÓÃ£º`AnnotationConfigServletWebServerApplicationContext`
-2.  `reactive` Ó¦ÓÃ£º`AnnotationConfigReactiveWebServerApplicationContext`
-3.  ÒÔÉÏ¶¼²»ÊÇ£º`AnnotationConfigApplicationContext`
+1.  `servlet` åº”ç”¨ï¼š`AnnotationConfigServletWebServerApplicationContext`
+2.  `reactive` åº”ç”¨ï¼š`AnnotationConfigReactiveWebServerApplicationContext`
+3.  ä»¥ä¸Šéƒ½ä¸æ˜¯ï¼š`AnnotationConfigApplicationContext`
 
-µ±Ç°Ó¦ÓÃµÄÀàĞÍÊÇ `servlet`£¬Òò´Ë´´½¨µÄ `ApplicationContext` ÊÇ `AnnotationConfigReactiveWebServerApplicationContext`£¬À´¿´¿´ËüµÄ¹¹Ôì·½·¨£º
+å½“å‰åº”ç”¨çš„ç±»å‹æ˜¯ `servlet`ï¼Œå› æ­¤åˆ›å»ºçš„ `ApplicationContext` æ˜¯ `AnnotationConfigReactiveWebServerApplicationContext`ï¼Œæ¥çœ‹çœ‹å®ƒçš„æ„é€ æ–¹æ³•ï¼š
 
 ```
 public class AnnotationConfigServletWebServerApplicationContext 
         extends ServletWebServerApplicationContext implements AnnotationConfigRegistry {
 
-    // ÓÃÀ´´¦Àí BeanDefinition µÄ×¢²á
+    // ç”¨æ¥å¤„ç† BeanDefinition çš„æ³¨å†Œ
     private final AnnotatedBeanDefinitionReader reader;
 
-    // ÓÃÀ´´¦Àí°üµÄÉ¨Ãè
+    // ç”¨æ¥å¤„ç†åŒ…çš„æ‰«æ
     private final ClassPathBeanDefinitionScanner scanner;
 
     ...
@@ -89,7 +89,7 @@ public class AnnotationConfigServletWebServerApplicationContext
 
 ```
 
-`AnnotationConfigServletWebServerApplicationContext` µÄ¹¹Ôì·½·¨»¹ÊÇ±È½Ï¼òµ¥µÄ£¬Ö»ÊÇÉèÖÃÁËÁ½¸öÊôĞÔ£¬¾Í²»¶àËµÁË¡£²»¹ı£¬ÎÒÃÇÒ²Òª°ÑÄ¿¹â·ÅÔ¶Ò»µã£¬¿´¿´Æä¸¸ÀàµÄ¹¹Ôì·½·¨£¬×îÖÕÔÚ `GenericApplicationContext` µÄ¹¹Ôì·½·¨ÖĞÕÒµ½ÕâÃ´Ò»¾ä£º
+`AnnotationConfigServletWebServerApplicationContext` çš„æ„é€ æ–¹æ³•è¿˜æ˜¯æ¯”è¾ƒç®€å•çš„ï¼Œåªæ˜¯è®¾ç½®äº†ä¸¤ä¸ªå±æ€§ï¼Œå°±ä¸å¤šè¯´äº†ã€‚ä¸è¿‡ï¼Œæˆ‘ä»¬ä¹Ÿè¦æŠŠç›®å…‰æ”¾è¿œä¸€ç‚¹ï¼Œçœ‹çœ‹å…¶çˆ¶ç±»çš„æ„é€ æ–¹æ³•ï¼Œæœ€ç»ˆåœ¨ `GenericApplicationContext` çš„æ„é€ æ–¹æ³•ä¸­æ‰¾åˆ°è¿™ä¹ˆä¸€å¥ï¼š
 
 ```
 public GenericApplicationContext() {
@@ -98,11 +98,11 @@ public GenericApplicationContext() {
 
 ```
 
-ÕâĞĞ´úÂë´´½¨ÁË `DefaultListableBeanFactory` ²¢½«Æä¸³Öµ¸øÁË `beanFactory`£¬Õâ±íÃ÷ÎÒÃÇÔÚ `ApplicationContext` Ê¹ÓÃµÄ `beanFactory` ¾ÍÊÇ `DefaultListableBeanFactory`¡£
+è¿™è¡Œä»£ç åˆ›å»ºäº† `DefaultListableBeanFactory` å¹¶å°†å…¶èµ‹å€¼ç»™äº† `beanFactory`ï¼Œè¿™è¡¨æ˜æˆ‘ä»¬åœ¨ `ApplicationContext` ä½¿ç”¨çš„ `beanFactory` å°±æ˜¯ `DefaultListableBeanFactory`ã€‚
 
-### 3.9 ×¼±¸ ioc ÈİÆ÷
+### 3.9 å‡†å¤‡ ioc å®¹å™¨
 
-´´½¨Íê ioc ÈİÆ÷ºó£¬½Ó×Å¾ÍÊÇ¶ÔÈİÆ÷½øĞĞÒ»Ğ©×¼±¸²Ù×÷£¬´úÂëÈçÏÂ£º
+åˆ›å»ºå®Œ ioc å®¹å™¨åï¼Œæ¥ç€å°±æ˜¯å¯¹å®¹å™¨è¿›è¡Œä¸€äº›å‡†å¤‡æ“ä½œï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public class SpringApplication {
@@ -112,68 +112,68 @@ public class SpringApplication {
     private void prepareContext(ConfigurableApplicationContext context, 
             ConfigurableEnvironment environment, SpringApplicationRunListeners listeners, 
             ApplicationArguments applicationArguments, Banner printedBanner) {
-        // ½«´´½¨ºÃµÄÓ¦ÓÃ»·¾³ÉèÖÃµ½IOCÈİÆ÷ÖĞ
+        // å°†åˆ›å»ºå¥½çš„åº”ç”¨ç¯å¢ƒè®¾ç½®åˆ°IOCå®¹å™¨ä¸­
         context.setEnvironment(environment);
-        // ÉèÖÃÈİÆ÷µÄÒ»Ğ©²ÎÊı
+        // è®¾ç½®å®¹å™¨çš„ä¸€äº›å‚æ•°
         postProcessApplicationContext(context);
-        // Ó¦ÓÃInitializer½øĞĞ³õÊ¼»¯²Ù×÷
+        // åº”ç”¨Initializerè¿›è¡Œåˆå§‹åŒ–æ“ä½œ
         applyInitializers(context);
-        //  ¼àÌıÆ÷£ºSpringApplicationRunListenersµÄcontextPrepared·½·¨
-        // £¨ÔÚ´´½¨ºÍ×¼±¸ApplicationContextÖ®ºó£¬µ«ÔÚ¼ÓÔØÖ®Ç°£©
+        //  ç›‘å¬å™¨ï¼šSpringApplicationRunListenersçš„contextPreparedæ–¹æ³•
+        // ï¼ˆåœ¨åˆ›å»ºå’Œå‡†å¤‡ApplicationContextä¹‹åï¼Œä½†åœ¨åŠ è½½ä¹‹å‰ï¼‰
         listeners.contextPrepared(context);
-        // ´òÓ¡¸öÈÕÖ¾
+        // æ‰“å°ä¸ªæ—¥å¿—
         if (this.logStartupInfo) {
             logStartupInfo(context.getParent() == null);
             logStartupProfileInfo(context);
         }
-        // »ñÈ¡beanFactory
+        // è·å–beanFactory
         ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
-        // ½«ÔËĞĞ²ÎÊı×÷Îªbean×¢²áµ½beanFactoryÖĞ
+        // å°†è¿è¡Œå‚æ•°ä½œä¸ºbeanæ³¨å†Œåˆ°beanFactoryä¸­
         beanFactory.registerSingleton("springApplicationArguments", applicationArguments);
-        // ½« banner ×÷Îªbean×¢²áµ½beanFactoryÖĞ
+        // å°† banner ä½œä¸ºbeanæ³¨å†Œåˆ°beanFactoryä¸­
         if (printedBanner != null) {
             beanFactory.registerSingleton("springBootBanner", printedBanner);
         }
         if (beanFactory instanceof DefaultListableBeanFactory) {
-            // ÊÇ·ñÔÊĞíbeanµÄĞÅÏ¢±»¸²¸Ç
+            // æ˜¯å¦å…è®¸beançš„ä¿¡æ¯è¢«è¦†ç›–
             ((DefaultListableBeanFactory) beanFactory)
                     .setAllowBeanDefinitionOverriding(this.allowBeanDefinitionOverriding);
         }
-        // ´¦ÀíÀÁ¼ÓÔØ
+        // å¤„ç†æ‡’åŠ è½½
         if (this.lazyInitialization) {
             context.addBeanFactoryPostProcessor(
                     new LazyInitializationBeanFactoryPostProcessor());
         }
-        // »ñÈ¡ËùÓĞ×ÊÔ´
+        // è·å–æ‰€æœ‰èµ„æº
         Set<Object> sources = getAllSources();
         Assert.notEmpty(sources, "Sources must not be empty");
-        // ¼ÓÔØ class
+        // åŠ è½½ class
         load(context, sources.toArray(new Object[0]));
-        // ·¢²¼ÊÂ¼ş
+        // å‘å¸ƒäº‹ä»¶
         listeners.contextLoaded(context);
     }
 }
 
 ```
 
-×¼±¸¹¤×÷µÄ²½Öè»¹ÊÇºÜÇåÎúµÄ£¬ÖØÒªÄÚÈİ¶¼ÒÑÔÚ´úÂëÖĞ½øĞĞÁË×¢ÊÍ£¬ÕâÀï¶ÔÒ»Ğ©²Ù×÷ÎÒÃÇÉÔÎ¢Õ¹¿ªÏÂ¡£
+å‡†å¤‡å·¥ä½œçš„æ­¥éª¤è¿˜æ˜¯å¾ˆæ¸…æ™°çš„ï¼Œé‡è¦å†…å®¹éƒ½å·²åœ¨ä»£ç ä¸­è¿›è¡Œäº†æ³¨é‡Šï¼Œè¿™é‡Œå¯¹ä¸€äº›æ“ä½œæˆ‘ä»¬ç¨å¾®å±•å¼€ä¸‹ã€‚
 
-#### 1\. ÉèÖÃ `Environment`
+#### 1\. è®¾ç½® `Environment`
 
-¸Ã²Ù×÷µÄ´úÂëÎª
+è¯¥æ“ä½œçš„ä»£ç ä¸º
 
 ```
 private void prepareContext(ConfigurableApplicationContext context, 
         ConfigurableEnvironment environment, SpringApplicationRunListeners listeners, 
         ApplicationArguments applicationArguments, Banner printedBanner) {
-    // ½«´´½¨ºÃµÄÓ¦ÓÃ»·¾³ÉèÖÃµ½IOCÈİÆ÷ÖĞ
+    // å°†åˆ›å»ºå¥½çš„åº”ç”¨ç¯å¢ƒè®¾ç½®åˆ°IOCå®¹å™¨ä¸­
     context.setEnvironment(environment);
     ...
 }
 
 ```
 
-Õâ¸ö `environment` ¾ÍÊÇÇ°Ãæ´´½¨µÄ `environment`£¬ioc ÈİÆ÷Ò²ÊÇÊ¹ÓÃÕâ¸ö£¬ÎÒÃÇÀ´¿´¿´ÉèÖÃ²Ù×÷£º
+è¿™ä¸ª `environment` å°±æ˜¯å‰é¢åˆ›å»ºçš„ `environment`ï¼Œioc å®¹å™¨ä¹Ÿæ˜¯ä½¿ç”¨è¿™ä¸ªï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹è®¾ç½®æ“ä½œï¼š
 
 ```
 public class AnnotationConfigServletWebServerApplicationContext extends ... {
@@ -182,9 +182,9 @@ public class AnnotationConfigServletWebServerApplicationContext extends ... {
 
     @Override
     public void setEnvironment(ConfigurableEnvironment environment) {
-        // µ÷ÓÃ¸¸ÀàµÄ·½·¨½øĞĞÉèÖÃ
+        // è°ƒç”¨çˆ¶ç±»çš„æ–¹æ³•è¿›è¡Œè®¾ç½®
         super.setEnvironment(environment);
-        // Ò²½«environmentÉèÖÃµ½ÕâÁ½¸öÊôĞÔÖĞ
+        // ä¹Ÿå°†environmentè®¾ç½®åˆ°è¿™ä¸¤ä¸ªå±æ€§ä¸­
         this.reader.setEnvironment(environment);
         this.scanner.setEnvironment(environment);
     }
@@ -194,9 +194,9 @@ public class AnnotationConfigServletWebServerApplicationContext extends ... {
 
 ```
 
-#### 2\. ´¦Àí ioc µÄ²¿·ÖÊôĞÔ
+#### 2\. å¤„ç† ioc çš„éƒ¨åˆ†å±æ€§
 
-ÎÒÃÇÀ´¿´¿´ `postProcessApplicationContext(context);` Ëù×öµÄ¹¤×÷£º
+æˆ‘ä»¬æ¥çœ‹çœ‹ `postProcessApplicationContext(context);` æ‰€åšçš„å·¥ä½œï¼š
 
 ```
 public class SpringApplication {
@@ -204,13 +204,13 @@ public class SpringApplication {
     ...
 
     protected void postProcessApplicationContext(ConfigurableApplicationContext context) {
-        // ÉèÖÃ beanNameGenerator£¬ÓÃÀ´Éú³É bean µÄÃû³Æ£¬ÕâÀï´«ÈëµÄÊÇnull
+        // è®¾ç½® beanNameGeneratorï¼Œç”¨æ¥ç”Ÿæˆ bean çš„åç§°ï¼Œè¿™é‡Œä¼ å…¥çš„æ˜¯null
         if (this.beanNameGenerator != null) {
             context.getBeanFactory().registerSingleton(
                     AnnotationConfigUtils.CONFIGURATION_BEAN_NAME_GENERATOR,
                     this.beanNameGenerator);
         }
-        // ÉèÖÃ resourceLoaderµÄÏà¹Ø²ÎÊı£¬ÓÉÓÚÎªnull£¬ifÀïµÄ´úÂë²»»áÖ´ĞĞ
+        // è®¾ç½® resourceLoaderçš„ç›¸å…³å‚æ•°ï¼Œç”±äºä¸ºnullï¼Œifé‡Œçš„ä»£ç ä¸ä¼šæ‰§è¡Œ
         if (this.resourceLoader != null) {
             if (context instanceof GenericApplicationContext) {
                 ((GenericApplicationContext) context).setResourceLoader(this.resourceLoader);
@@ -220,9 +220,9 @@ public class SpringApplication {
                         this.resourceLoader.getClassLoader());
             }
         }
-        // ÕâÀï»áÖ´ĞĞ
+        // è¿™é‡Œä¼šæ‰§è¡Œ
         if (this.addConversionService) {
-            // ÉèÖÃÀàĞÍ×ª»»Æ÷£¬Èç°ÑString×ªNumberµÈ
+            // è®¾ç½®ç±»å‹è½¬æ¢å™¨ï¼Œå¦‚æŠŠStringè½¬Numberç­‰
             context.getBeanFactory().setConversionService(
                     ApplicationConversionService.getSharedInstance());
         }
@@ -234,7 +234,7 @@ public class SpringApplication {
 
 ```
 
-Õâ²¿·Ö¾ÍÊÇÉèÖÃ `ApplicationContext` µÄ¼¸¸öÊôĞÔ£¬ÔÚÎÒÃÇµÄ demo ÖĞ£¬`beanNameGenerator` Óë `resourceLoader` ¶¼ÊÇ `null`£¬Òò´ËÕâÁ½¿é¶¼²»»áÔËĞĞ£¬ÄÜÔËĞĞµÄ¾ÍÖ»ÓĞÕâ¿é´úÂë£º
+è¿™éƒ¨åˆ†å°±æ˜¯è®¾ç½® `ApplicationContext` çš„å‡ ä¸ªå±æ€§ï¼Œåœ¨æˆ‘ä»¬çš„ demo ä¸­ï¼Œ`beanNameGenerator` ä¸ `resourceLoader` éƒ½æ˜¯ `null`ï¼Œå› æ­¤è¿™ä¸¤å—éƒ½ä¸ä¼šè¿è¡Œï¼Œèƒ½è¿è¡Œçš„å°±åªæœ‰è¿™å—ä»£ç ï¼š
 
 ```
  context.getBeanFactory().setConversionService(
@@ -242,11 +242,11 @@ public class SpringApplication {
 
 ```
 
-`ConversionService` ÔÚÇ°ÃæÒ²Ìáµ½¹ı£¬ËüÖ÷ÒªÊÇÓÃÀ´½øĞĞ²ÎÊıÀàĞÍ×ª»»µÄ¡£
+`ConversionService` åœ¨å‰é¢ä¹Ÿæåˆ°è¿‡ï¼Œå®ƒä¸»è¦æ˜¯ç”¨æ¥è¿›è¡Œå‚æ•°ç±»å‹è½¬æ¢çš„ã€‚
 
-#### 3\. Ó¦ÓÃ³õÊ¼»¯Æ÷£º`applyInitializers(context)`
+#### 3\. åº”ç”¨åˆå§‹åŒ–å™¨ï¼š`applyInitializers(context)`
 
-`SpringApplication#applyInitializers` ·½·¨ÈçÏÂ£º
+`SpringApplication#applyInitializers` æ–¹æ³•å¦‚ä¸‹ï¼š
 
 ```
 public class SpringApplication {
@@ -255,12 +255,12 @@ public class SpringApplication {
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     protected void applyInitializers(ConfigurableApplicationContext context) {
-        // getInitializers()£º»ñÈ¡ËùÓĞµÄ³õÊ¼»¯Æ÷
+        // getInitializers()ï¼šè·å–æ‰€æœ‰çš„åˆå§‹åŒ–å™¨
         for (ApplicationContextInitializer initializer : getInitializers()) {
             Class<?> requiredType = GenericTypeResolver.resolveTypeArgument(initializer.getClass(),
                     ApplicationContextInitializer.class);
             Assert.isInstanceOf(requiredType, context, "Unable to call initializer.");
-            // ÖğÒ»µ÷ÓÃinitializerµÄinitialize(...)·½·¨
+            // é€ä¸€è°ƒç”¨initializerçš„initialize(...)æ–¹æ³•
             initializer.initialize(context);
         }
     }
@@ -269,9 +269,9 @@ public class SpringApplication {
 
 ```
 
-Õâ¿é²Ù×÷»¹ÊÇºÜÇåÎúµÄ£¬¾ÍÊÇ»ñÈ¡ËùÓĞµÄ `Initializer`£¬È»ºó±éÀú£¬Öğ¸öµ÷ÓÃÆä `initialize(...)` ·½·¨¡£
+è¿™å—æ“ä½œè¿˜æ˜¯å¾ˆæ¸…æ™°çš„ï¼Œå°±æ˜¯è·å–æ‰€æœ‰çš„ `Initializer`ï¼Œç„¶åéå†ï¼Œé€ä¸ªè°ƒç”¨å…¶ `initialize(...)` æ–¹æ³•ã€‚
 
-ÕâÀï»¹ĞèÒªÌáÏÂ£¬`getInitializers()` ÊÇÔõÃ´»ñÈ¡ `Initializer` µÄÄØ£¿Ïà¹Ø´úÂëÈçÏÂ£º
+è¿™é‡Œè¿˜éœ€è¦æä¸‹ï¼Œ`getInitializers()` æ˜¯æ€ä¹ˆè·å– `Initializer` çš„å‘¢ï¼Ÿç›¸å…³ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public class SpringApplication {
@@ -280,18 +280,18 @@ public class SpringApplication {
 
     ...
 
-    // ÔÚ¹¹Ôì·½·¨ÖĞÉèÖÃµÄ initializers
+    // åœ¨æ„é€ æ–¹æ³•ä¸­è®¾ç½®çš„ initializers
     public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySources) {
         ...
 
-        // ÉèÖÃ³õÊ¼»¯Æ÷£¬getSpringFactoriesInstances£º´Ó META-INF/spring.factories ÖĞ»ñÈ¡ÅäÖÃ
+        // è®¾ç½®åˆå§‹åŒ–å™¨ï¼ŒgetSpringFactoriesInstancesï¼šä» META-INF/spring.factories ä¸­è·å–é…ç½®
         setInitializers((Collection) getSpringFactoriesInstances(
                 ApplicationContextInitializer.class));
 
         ...
     }
 
-    // »ñÈ¡ Initializer µÄ²Ù×÷£¬´ÓÊôĞÔÖĞ»ñÈ¡
+    // è·å– Initializer çš„æ“ä½œï¼Œä»å±æ€§ä¸­è·å–
     public Set<ApplicationContextInitializer<?>> getInitializers() {
         return asUnmodifiableOrderedSet(this.initializers);
     }
@@ -300,34 +300,34 @@ public class SpringApplication {
 
 ```
 
-¿´ÁË´úÂë¾ÍÃ÷°×ÁË£¬ÔÚÇ°Ãæ·ÖÎö `SpringApplication` µÄ¹¹Ôì·½·¨Ê±£¬ÎÒÃÇÌáµ½ springboot »á´Ó `META-INF/spring.factories` »ñÈ¡ÅäÖÃµÄ `Initializer`£¬½«ÆäÉèÖÃµ½ `initializers` ÊôĞÔ£¬¶øÕâÀï¾ÍÊÇÊ¹ÓÃ `Initializer` µÄµØ·½ÁË¡£
+çœ‹äº†ä»£ç å°±æ˜ç™½äº†ï¼Œåœ¨å‰é¢åˆ†æ `SpringApplication` çš„æ„é€ æ–¹æ³•æ—¶ï¼Œæˆ‘ä»¬æåˆ° springboot ä¼šä» `META-INF/spring.factories` è·å–é…ç½®çš„ `Initializer`ï¼Œå°†å…¶è®¾ç½®åˆ° `initializers` å±æ€§ï¼Œè€Œè¿™é‡Œå°±æ˜¯ä½¿ç”¨ `Initializer` çš„åœ°æ–¹äº†ã€‚
 
-#### 4\. »ñÈ¡ËùÓĞ×ÊÔ´
+#### 4\. è·å–æ‰€æœ‰èµ„æº
 
-´úÂëÈçÏÂ£º
+ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 private void prepareContext(ConfigurableApplicationContext context, 
         ConfigurableEnvironment environment, SpringApplicationRunListeners listeners, 
         ApplicationArguments applicationArguments, Banner printedBanner) {
     ...
-    // »ñÈ¡ËùÓĞ×ÊÔ´
+    // è·å–æ‰€æœ‰èµ„æº
     Set<Object> sources = getAllSources();
     ...
 }
 
 ```
 
-½øÈë `getAllSources()` ·½·¨£º
+è¿›å…¥ `getAllSources()` æ–¹æ³•ï¼š
 
 ```
-// ½« primarySources ·ÅÈësetÖĞ£¬È»ºó½«set×ª»¯Îª²»¿É±äµÄset£¬·µ»Ø
+// å°† primarySources æ”¾å…¥setä¸­ï¼Œç„¶åå°†setè½¬åŒ–ä¸ºä¸å¯å˜çš„setï¼Œè¿”å›
 public Set<Object> getAllSources() {
     Set<Object> allSources = new LinkedHashSet<>();
     if (!CollectionUtils.isEmpty(this.primarySources)) {
         allSources.addAll(this.primarySources);
     }
-    // sources Îª¿Õ£¬if²»Ö´ĞĞ
+    // sources ä¸ºç©ºï¼Œifä¸æ‰§è¡Œ
     if (!CollectionUtils.isEmpty(this.sources)) {
         allSources.addAll(this.sources);
     }
@@ -336,14 +336,14 @@ public Set<Object> getAllSources() {
 
 ```
 
-Õâ¸ö·½·¨ºÜ¼òµ¥£¬¾ÍÒ»¸ö»°£º½« `primarySources` ·ÅÈë `set` ÖĞ£¬È»ºó½« `set` ×ª»¯Îª²»¿É±äµÄ `set`£¬·µ»Ø¡£
+è¿™ä¸ªæ–¹æ³•å¾ˆç®€å•ï¼Œå°±ä¸€ä¸ªè¯ï¼šå°† `primarySources` æ”¾å…¥ `set` ä¸­ï¼Œç„¶åå°† `set` è½¬åŒ–ä¸ºä¸å¯å˜çš„ `set`ï¼Œè¿”å›ã€‚
 
-ÄÇÕâ¸ö `primarySources` ÊÇÉ¶ÄØ£¿Õâ¾ÍÓÖÒª»Øµ½ `SpringApplication` µÄ¹¹Ôì·½·¨ÁË£º
+é‚£è¿™ä¸ª `primarySources` æ˜¯å•¥å‘¢ï¼Ÿè¿™å°±åˆè¦å›åˆ° `SpringApplication` çš„æ„é€ æ–¹æ³•äº†ï¼š
 
 ```
 public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySources) {
     ...
-    // ÕâÀïÉèÖÃÁË primarySources
+    // è¿™é‡Œè®¾ç½®äº† primarySources
     Assert.notNull(primarySources, "PrimarySources must not be null");
     this.primarySources = new LinkedHashSet<>(Arrays.asList(primarySources));
     ...
@@ -351,14 +351,14 @@ public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySourc
 
 ```
 
-È»ºó¼ÌĞøÍùÉÏ£¬×îºó·¢ÏÖ `primarySources` ÊÇÎÒÃÇÔÚ `main` ·½·¨ÖĞ´«ÈëµÄ£º
+ç„¶åç»§ç»­å¾€ä¸Šï¼Œæœ€åå‘ç° `primarySources` æ˜¯æˆ‘ä»¬åœ¨ `main` æ–¹æ³•ä¸­ä¼ å…¥çš„ï¼š
 
 ```
 @SpringBootApplication
 public class Demo01Application {
 
     public static void main(String[] args) {
-        // Demo01Application.class ¾ÍÊÇ primarySources
+        // Demo01Application.class å°±æ˜¯ primarySources
         SpringApplication.run(Demo01Application.class, args);
     }
 
@@ -366,48 +366,48 @@ public class Demo01Application {
 
 ```
 
-ÎÒÃÇ´«ÈëµÄ `Demo01Application.class` ¾ÍÊÇ `primarySources`£¡
+æˆ‘ä»¬ä¼ å…¥çš„ `Demo01Application.class` å°±æ˜¯ `primarySources`ï¼
 
-Òò´Ë£¬`getAllSources()` ·µ»ØÁËÒ»¸ö set£¬set ÖĞÖ»ÓĞÒ»¸öÔªËØ£º`Demo01Application.class`£¬ÎÒÃÇÒ²¿ÉÒÔÍ¨¹ıµ÷ÊÔÀ´ÑéÖ¤£º
+å› æ­¤ï¼Œ`getAllSources()` è¿”å›äº†ä¸€ä¸ª setï¼Œset ä¸­åªæœ‰ä¸€ä¸ªå…ƒç´ ï¼š`Demo01Application.class`ï¼Œæˆ‘ä»¬ä¹Ÿå¯ä»¥é€šè¿‡è°ƒè¯•æ¥éªŒè¯ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-29dd8056dc457c56e6fe41020516d02fe80.png)
 
-#### 5\. ¼ÓÔØ×ÊÔ´
+#### 5\. åŠ è½½èµ„æº
 
-Õâ¸ö²Ù×÷µÄ´úÂëÈçÏÂ£º
+è¿™ä¸ªæ“ä½œçš„ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 private void prepareContext(ConfigurableApplicationContext context, 
         ConfigurableEnvironment environment, SpringApplicationRunListeners listeners, 
         ApplicationArguments applicationArguments, Banner printedBanner) {
     ...
-    // ¼ÓÔØ class
+    // åŠ è½½ class
     load(context, sources.toArray(new Object[0]));
     ...
 }
 
 ```
 
-½øÈë `SpringApplication#load` ·½·¨£º
+è¿›å…¥ `SpringApplication#load` æ–¹æ³•ï¼š
 
 ```
 public class SpringApplication {
     ...
 
     protected void load(ApplicationContext context, Object[] sources) {
-        // ´´½¨Ò»¸öBeanDefinitionµÄ¼ÓÔØÆ÷
+        // åˆ›å»ºä¸€ä¸ªBeanDefinitionçš„åŠ è½½å™¨
         BeanDefinitionLoader loader = createBeanDefinitionLoader(
                 getBeanDefinitionRegistry(context), sources);
-        // µ±Ç° beanNameGenerator Îª null£¬²»µ÷ÓÃ
+        // å½“å‰ beanNameGenerator ä¸º nullï¼Œä¸è°ƒç”¨
         if (this.beanNameGenerator != null) {
             loader.setBeanNameGenerator(this.beanNameGenerator);
         }
-        // µ±Ç° resourceLoader Îª null£¬²»µ÷ÓÃ
+        // å½“å‰ resourceLoader ä¸º nullï¼Œä¸è°ƒç”¨
         if (this.resourceLoader != null) {
             loader.setResourceLoader(this.resourceLoader);
         }
-        // µ±Ç° environment Îª null£¬²»µ÷ÓÃ
-        // Ç°Ãæ´´½¨µÄenvironment²¢Ã»ÓĞ¸³Öµµ½³ÉÔ±±äÁ¿
+        // å½“å‰ environment ä¸º nullï¼Œä¸è°ƒç”¨
+        // å‰é¢åˆ›å»ºçš„environmentå¹¶æ²¡æœ‰èµ‹å€¼åˆ°æˆå‘˜å˜é‡
         if (this.environment != null) {
             loader.setEnvironment(this.environment);
         }
@@ -418,9 +418,9 @@ public class SpringApplication {
 
 ```
 
-Õâ¸ö·½·¨ÏÈÊÇ´´½¨ÁËÒ»¸ö `BeanDefinitionLoader` ÊµÀı£¬ÉÏÃæ»ñÈ¡µÄ `source` »áÔÚ `BeanDefinitionLoader` µÄ¹¹Ôì·½·¨ÖĞ´«Èëµ½ÊµÀıÖĞ£¬È»ºó¶Ô¸Ã `loader` ½øĞĞÒ»ÏµÁĞµÄÊôĞÔÉèÖÃ£¬×îºóÔÙµ÷ÓÃÆä `load()` ·½·¨¡£ÕâÀïĞèÒªËµÃ÷µÄÊÇ£¬ËäÈ»Ç°Ãæ´´½¨ÁË `environment`£¬µ« `this.environment` »¹ÊÇÎª `null`£¬Ô­ÒòÊÇÇ°Ãæ´´½¨µÄ `environment` ²¢Ã»ÓĞ¸³Öµ¸ø `this.environment`¡£
+è¿™ä¸ªæ–¹æ³•å…ˆæ˜¯åˆ›å»ºäº†ä¸€ä¸ª `BeanDefinitionLoader` å®ä¾‹ï¼Œä¸Šé¢è·å–çš„ `source` ä¼šåœ¨ `BeanDefinitionLoader` çš„æ„é€ æ–¹æ³•ä¸­ä¼ å…¥åˆ°å®ä¾‹ä¸­ï¼Œç„¶åå¯¹è¯¥ `loader` è¿›è¡Œä¸€ç³»åˆ—çš„å±æ€§è®¾ç½®ï¼Œæœ€åå†è°ƒç”¨å…¶ `load()` æ–¹æ³•ã€‚è¿™é‡Œéœ€è¦è¯´æ˜çš„æ˜¯ï¼Œè™½ç„¶å‰é¢åˆ›å»ºäº† `environment`ï¼Œä½† `this.environment` è¿˜æ˜¯ä¸º `null`ï¼ŒåŸå› æ˜¯å‰é¢åˆ›å»ºçš„ `environment` å¹¶æ²¡æœ‰èµ‹å€¼ç»™ `this.environment`ã€‚
 
-ÎÒÃÇ¼ÌĞø£¬½øÈë `BeanDefinitionLoader#load()`£º
+æˆ‘ä»¬ç»§ç»­ï¼Œè¿›å…¥ `BeanDefinitionLoader#load()`ï¼š
 
 ```
 class BeanDefinitionLoader {
@@ -429,19 +429,19 @@ class BeanDefinitionLoader {
 
     int load() {
         int count = 0;
-        // ÕâÀïµÄ sources ÖĞ¾ÍÖ»ÓĞÒ»¸öÔªËØ£ºDemo01Application.class
+        // è¿™é‡Œçš„ sources ä¸­å°±åªæœ‰ä¸€ä¸ªå…ƒç´ ï¼šDemo01Application.class
         for (Object source : this.sources) {
             count += load(source);
         }
         return count;
     }
 
-    // ´¦Àí¼ÓÔØ²Ù×÷
+    // å¤„ç†åŠ è½½æ“ä½œ
     private int load(Object source) {
         Assert.notNull(source, "Source must not be null");
-        // Class ÀàĞÍÔÚÕâÀï¼ÓÔØ
+        // Class ç±»å‹åœ¨è¿™é‡ŒåŠ è½½
         if (source instanceof Class<?>) {
-            // source Îª Demo01Application.class£¬ÎÒÃÇÖ÷Òª¹Ø×¢Õâ¸ö·½·¨
+            // source ä¸º Demo01Application.classï¼Œæˆ‘ä»¬ä¸»è¦å…³æ³¨è¿™ä¸ªæ–¹æ³•
             return load((Class<?>) source);
         }
         if (source instanceof Resource) {
@@ -456,17 +456,17 @@ class BeanDefinitionLoader {
         throw new IllegalArgumentException("Invalid source type " + source.getClass());
     }
 
-    // Class ÀàĞÍµÄ¼ÓÔØ²Ù×÷
+    // Class ç±»å‹çš„åŠ è½½æ“ä½œ
     private int load(Class<?> source) {
-        // ´¦Àí grouovy ÓïÑÔµÄ£¬²»ÓÃ¹Ü
+        // å¤„ç† grouovy è¯­è¨€çš„ï¼Œä¸ç”¨ç®¡
         if (isGroovyPresent() && GroovyBeanDefinitionSource.class.isAssignableFrom(source)) {
             GroovyBeanDefinitionSource loader 
                     = BeanUtils.instantiateClass(source, GroovyBeanDefinitionSource.class);
             load(loader);
         }
-        // ÊÇ·ñÓĞ @Component ×¢½â
+        // æ˜¯å¦æœ‰ @Component æ³¨è§£
         if (isComponent(source)) {
-            // ÔÚÕâÀïÉú³É BeanDefinition ¶ÔÏó£¬²¢×¢²áµ½springÖĞ
+            // åœ¨è¿™é‡Œç”Ÿæˆ BeanDefinition å¯¹è±¡ï¼Œå¹¶æ³¨å†Œåˆ°springä¸­
             this.annotatedReader.register(source);
             return 1;
         }
@@ -476,9 +476,9 @@ class BeanDefinitionLoader {
 
 ```
 
-ÔÚ´´½¨ `BeanDefinitionLoader` ÊµÀıÊ±£¬Í¨¹ıÆä¹¹Ôì·½·¨½« `sources` ´«ÈëÁË `BeanDefinitionLoader` µÄÊµÀıÖĞ£¬`sources` ÖĞ¾ÍÖ»ÓĞÒ»¸öÔªËØ£º`Demo01Application.class`£¬Òò´ËÎÒÃÇÖ»Ğè¹Ø×¢ `Class` ÀàĞÍ×ÊÔ´µÄ¼ÓÔØ¾Í¿ÉÒÔÁË£¬×îÖÕµ½ÁË `BeanDefinitionLoader#load(java.lang.Class<?>)` ·½·¨£¬¸Ã·½·¨Ëù×öµÄ²Ù×÷Îª£ºÅĞ¶Ï´«ÈëµÄ `Class` ÊÇ·ñÓĞ `@Component`£¬Èç¹ûÓĞ¾Í½«Æä×¢²áµ½ ioc ÈİÆ÷ÖĞ¡£
+åœ¨åˆ›å»º `BeanDefinitionLoader` å®ä¾‹æ—¶ï¼Œé€šè¿‡å…¶æ„é€ æ–¹æ³•å°† `sources` ä¼ å…¥äº† `BeanDefinitionLoader` çš„å®ä¾‹ä¸­ï¼Œ`sources` ä¸­å°±åªæœ‰ä¸€ä¸ªå…ƒç´ ï¼š`Demo01Application.class`ï¼Œå› æ­¤æˆ‘ä»¬åªéœ€å…³æ³¨ `Class` ç±»å‹èµ„æºçš„åŠ è½½å°±å¯ä»¥äº†ï¼Œæœ€ç»ˆåˆ°äº† `BeanDefinitionLoader#load(java.lang.Class<?>)` æ–¹æ³•ï¼Œè¯¥æ–¹æ³•æ‰€åšçš„æ“ä½œä¸ºï¼šåˆ¤æ–­ä¼ å…¥çš„ `Class` æ˜¯å¦æœ‰ `@Component`ï¼Œå¦‚æœæœ‰å°±å°†å…¶æ³¨å†Œåˆ° ioc å®¹å™¨ä¸­ã€‚
 
-ÄÇÃ´ `Demo01Application.class` ÊÇ·ñÓĞ `@Component` ×¢½âÄØ£¿ÓĞµÄ£¬²»¹ıÒş²ØµÃ±È½ÏÉî£¬Æä×¢½â²ã¼¶ÈçÏÂ£º
+é‚£ä¹ˆ `Demo01Application.class` æ˜¯å¦æœ‰ `@Component` æ³¨è§£å‘¢ï¼Ÿæœ‰çš„ï¼Œä¸è¿‡éšè—å¾—æ¯”è¾ƒæ·±ï¼Œå…¶æ³¨è§£å±‚çº§å¦‚ä¸‹ï¼š
 
 ```
 @SpringBootApplication
@@ -488,7 +488,7 @@ public class Demo01Application {
 
 ```
 
-½øÈë `@SpringBootApplication`£º
+è¿›å…¥ `@SpringBootApplication`ï¼š
 
 ```
 ...
@@ -500,7 +500,7 @@ public @interface SpringBootApplication {
 
 ```
 
-¼ÌĞø½øÈë `@SpringBootApplication`£º
+ç»§ç»­è¿›å…¥ `@SpringBootApplication`ï¼š
 
 ```
 ...
@@ -511,7 +511,7 @@ public @interface SpringBootConfiguration {
 
 ```
 
-¼ÌĞø½øÈë `@Configuration`£º
+ç»§ç»­è¿›å…¥ `@Configuration`ï¼š
 
 ```
 ...
@@ -522,14 +522,14 @@ public @interface Configuration {
 
 ```
 
-¾­¹ıÖØÖØ²¨ÕÛ£¬×îÖÕÔÚ `@Configuration` ×¢½âÉÏÕÒµ½ÁË `@Component`.
+ç»è¿‡é‡é‡æ³¢æŠ˜ï¼Œæœ€ç»ˆåœ¨ `@Configuration` æ³¨è§£ä¸Šæ‰¾åˆ°äº† `@Component`.
 
-¹ØÓÚ `this.annotatedReader.register(source)` ×¢²áµÄ¾ßÌå²Ù×÷£¬Õâ¿éÔÚ [spring ·ÖÎö](https://my.oschina.net/funcy/blog/4527454)ÖĞ£¬ÒÑ¾­·ÖÎö¹ıÁË£¬ÕâÀï¾Í²»ÔÙ·ÖÎöÁË¡£
+å…³äº `this.annotatedReader.register(source)` æ³¨å†Œçš„å…·ä½“æ“ä½œï¼Œè¿™å—åœ¨ [spring åˆ†æ](https://my.oschina.net/funcy/blog/4527454)ä¸­ï¼Œå·²ç»åˆ†æè¿‡äº†ï¼Œè¿™é‡Œå°±ä¸å†åˆ†æäº†ã€‚
 
-ÏŞÓÚÆª·ù£¬±¾ÎÄ¾Íµ½ÕâÀïÁË£¬ÏÂÆª¼ÌĞø·ÖÎöÊ£ÏÂµÄÁ÷³Ì¡£
+é™äºç¯‡å¹…ï¼Œæœ¬æ–‡å°±åˆ°è¿™é‡Œäº†ï¼Œä¸‹ç¯‡ç»§ç»­åˆ†æå‰©ä¸‹çš„æµç¨‹ã€‚
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-fba95ddd84c68cdd1757f060ab131478a3c.png)
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4884127](https://my.oschina.net/funcy/blog/4884127) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4884127](https://my.oschina.net/funcy/blog/4884127) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

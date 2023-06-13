@@ -1,70 +1,70 @@
-ÔÚÎ¢·şÎñ¼Ü¹¹ÖĞ£¬Ò»¸öÓ¦ÓÃÍùÍùÓÉ¶à¸ö·şÎñ×é³É£¬ÕâĞ©·şÎñÖ®¼äÏà»¥ÒÀÀµ£¬ÒÀÀµ¹ØÏµ´í×Û¸´ÔÓ¡£
+åœ¨å¾®æœåŠ¡æ¶æ„ä¸­ï¼Œä¸€ä¸ªåº”ç”¨å¾€å¾€ç”±å¤šä¸ªæœåŠ¡ç»„æˆï¼Œè¿™äº›æœåŠ¡ä¹‹é—´ç›¸äº’ä¾èµ–ï¼Œä¾èµ–å…³ç³»é”™ç»¼å¤æ‚ã€‚
 
-ÀıÈçÒ»¸öÎ¢·şÎñÏµÍ³ÖĞ´æÔÚ A¡¢B¡¢C¡¢D¡¢E¡¢F µÈ¶à¸ö·şÎñ£¬ËüÃÇµÄÒÀÀµ¹ØÏµÈçÏÂÍ¼¡£
+ä¾‹å¦‚ä¸€ä¸ªå¾®æœåŠ¡ç³»ç»Ÿä¸­å­˜åœ¨ Aã€Bã€Cã€Dã€Eã€F ç­‰å¤šä¸ªæœåŠ¡ï¼Œå®ƒä»¬çš„ä¾èµ–å…³ç³»å¦‚ä¸‹å›¾ã€‚
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101623H11-0.png)
 
-Í¼1£º·şÎñÒÀÀµ¹ØÏµ
+å›¾1ï¼šæœåŠ¡ä¾èµ–å…³ç³»
 
-Í¨³£Çé¿öÏÂ£¬Ò»¸öÓÃ»§ÇëÇóÍùÍùĞèÒª¶à¸ö·şÎñÅäºÏ²ÅÄÜÍê³É¡£ÈçÍ¼ 1 ËùÊ¾£¬ÔÚËùÓĞ·şÎñ¶¼´¦ÓÚ¿ÉÓÃ×´Ì¬Ê±£¬ÇëÇó 1 ĞèÒªµ÷ÓÃ A¡¢D¡¢E¡¢F ËÄ¸ö·şÎñ²ÅÄÜÍê³É£¬ÇëÇó 2 ĞèÒªµ÷ÓÃ B¡¢E¡¢D Èı¸ö·şÎñ²ÅÄÜÍê³É£¬ÇëÇó 3 ĞèÒªµ÷ÓÃ·şÎñ C¡¢F¡¢E¡¢D ËÄ¸ö·şÎñ²ÅÄÜÍê³É¡£
+é€šå¸¸æƒ…å†µä¸‹ï¼Œä¸€ä¸ªç”¨æˆ·è¯·æ±‚å¾€å¾€éœ€è¦å¤šä¸ªæœåŠ¡é…åˆæ‰èƒ½å®Œæˆã€‚å¦‚å›¾ 1 æ‰€ç¤ºï¼Œåœ¨æ‰€æœ‰æœåŠ¡éƒ½å¤„äºå¯ç”¨çŠ¶æ€æ—¶ï¼Œè¯·æ±‚ 1 éœ€è¦è°ƒç”¨ Aã€Dã€Eã€F å››ä¸ªæœåŠ¡æ‰èƒ½å®Œæˆï¼Œè¯·æ±‚ 2 éœ€è¦è°ƒç”¨ Bã€Eã€D ä¸‰ä¸ªæœåŠ¡æ‰èƒ½å®Œæˆï¼Œè¯·æ±‚ 3 éœ€è¦è°ƒç”¨æœåŠ¡ Cã€Fã€Eã€D å››ä¸ªæœåŠ¡æ‰èƒ½å®Œæˆã€‚
 
-µ±·şÎñ E ·¢Éú¹ÊÕÏ»òÍøÂçÑÓ³ÙÊ±£¬»á³öÏÖÒÔÏÂÇé¿ö£º
+å½“æœåŠ¡ E å‘ç”Ÿæ•…éšœæˆ–ç½‘ç»œå»¶è¿Ÿæ—¶ï¼Œä¼šå‡ºç°ä»¥ä¸‹æƒ…å†µï¼š
 
-1.  ¼´Ê¹ÆäËûËùÓĞ·şÎñ¶¼¿ÉÓÃ£¬ÓÉÓÚ·şÎñ E µÄ²»¿ÉÓÃ£¬ÄÇÃ´ÓÃ»§ÇëÇó 1¡¢2¡¢3 ¶¼»á´¦ÓÚ×èÈû×´Ì¬£¬µÈ´ı·şÎñ E µÄÏìÓ¦¡£ÔÚ¸ß²¢·¢µÄ³¡¾°ÏÂ£¬»áµ¼ÖÂÕû¸ö·şÎñÆ÷µÄÏß³Ì×ÊÔ´ÔÚ¶ÌÊ±¼äÄÚÑ¸ËÙÏûºÄ´ù¾¡¡£
-2.  ËùÓĞÒÀÀµÓÚ·şÎñ E µÄÆäËû·şÎñ£¬ÀıÈç·şÎñ B¡¢D ÒÔ¼° F Ò²¶¼»á´¦ÓÚÏß³Ì×èÈû×´Ì¬£¬µÈ´ı·şÎñ E µÄÏìÓ¦£¬µ¼ÖÂÕâĞ©·şÎñµÄ²»¿ÉÓÃ¡£
-3.  ËùÓĞÒÀÀµ·şÎñB¡¢D ºÍ F µÄ·şÎñ£¬ÀıÈç·şÎñ A ºÍ·şÎñ C Ò²»á´¦ÓÚÏß³Ì×èÈû×´Ì¬£¬ÒÔµÈ´ı·şÎñ D ºÍ·şÎñ F µÄÏìÓ¦£¬µ¼ÖÂ·şÎñ A ºÍ·şÎñ C Ò²²»¿ÉÓÃ¡£
+1.  å³ä½¿å…¶ä»–æ‰€æœ‰æœåŠ¡éƒ½å¯ç”¨ï¼Œç”±äºæœåŠ¡ E çš„ä¸å¯ç”¨ï¼Œé‚£ä¹ˆç”¨æˆ·è¯·æ±‚ 1ã€2ã€3 éƒ½ä¼šå¤„äºé˜»å¡çŠ¶æ€ï¼Œç­‰å¾…æœåŠ¡ E çš„å“åº”ã€‚åœ¨é«˜å¹¶å‘çš„åœºæ™¯ä¸‹ï¼Œä¼šå¯¼è‡´æ•´ä¸ªæœåŠ¡å™¨çš„çº¿ç¨‹èµ„æºåœ¨çŸ­æ—¶é—´å†…è¿…é€Ÿæ¶ˆè€—æ®†å°½ã€‚
+2.  æ‰€æœ‰ä¾èµ–äºæœåŠ¡ E çš„å…¶ä»–æœåŠ¡ï¼Œä¾‹å¦‚æœåŠ¡ Bã€D ä»¥åŠ F ä¹Ÿéƒ½ä¼šå¤„äºçº¿ç¨‹é˜»å¡çŠ¶æ€ï¼Œç­‰å¾…æœåŠ¡ E çš„å“åº”ï¼Œå¯¼è‡´è¿™äº›æœåŠ¡çš„ä¸å¯ç”¨ã€‚
+3.  æ‰€æœ‰ä¾èµ–æœåŠ¡Bã€D å’Œ F çš„æœåŠ¡ï¼Œä¾‹å¦‚æœåŠ¡ A å’ŒæœåŠ¡ C ä¹Ÿä¼šå¤„äºçº¿ç¨‹é˜»å¡çŠ¶æ€ï¼Œä»¥ç­‰å¾…æœåŠ¡ D å’ŒæœåŠ¡ F çš„å“åº”ï¼Œå¯¼è‡´æœåŠ¡ A å’ŒæœåŠ¡ C ä¹Ÿä¸å¯ç”¨ã€‚
 
-´ÓÒÔÉÏ¹ı³Ì¿ÉÒÔ¿´³ö£¬µ±Î¢·şÎñÏµÍ³µÄÒ»¸ö·şÎñ³öÏÖ¹ÊÕÏÊ±£¬¹ÊÕÏ»áÑØ×Å·şÎñµÄµ÷ÓÃÁ´Â·ÔÚÏµÍ³ÖĞ·è¿ñÂûÑÓ£¬×îÖÕµ¼ÖÂÕû¸öÎ¢·şÎñÏµÍ³µÄÌ±»¾£¬Õâ¾ÍÊÇ¡°Ñ©±ÀĞ§Ó¦¡±¡£ÎªÁË·ÀÖ¹´ËÀàÊÂ¼şµÄ·¢Éú£¬Î¢·şÎñ¼Ü¹¹ÒıÈëÁË¡°ÈÛ¶ÏÆ÷¡±µÄÒ»ÏµÁĞ·şÎñÈİ´íºÍ±£»¤»úÖÆ¡£
+ä»ä»¥ä¸Šè¿‡ç¨‹å¯ä»¥çœ‹å‡ºï¼Œå½“å¾®æœåŠ¡ç³»ç»Ÿçš„ä¸€ä¸ªæœåŠ¡å‡ºç°æ•…éšœæ—¶ï¼Œæ•…éšœä¼šæ²¿ç€æœåŠ¡çš„è°ƒç”¨é“¾è·¯åœ¨ç³»ç»Ÿä¸­ç–¯ç‹‚è”“å»¶ï¼Œæœ€ç»ˆå¯¼è‡´æ•´ä¸ªå¾®æœåŠ¡ç³»ç»Ÿçš„ç˜«ç—ªï¼Œè¿™å°±æ˜¯â€œé›ªå´©æ•ˆåº”â€ã€‚ä¸ºäº†é˜²æ­¢æ­¤ç±»äº‹ä»¶çš„å‘ç”Ÿï¼Œå¾®æœåŠ¡æ¶æ„å¼•å…¥äº†â€œç†”æ–­å™¨â€çš„ä¸€ç³»åˆ—æœåŠ¡å®¹é”™å’Œä¿æŠ¤æœºåˆ¶ã€‚
 
-## ÈÛ¶ÏÆ÷
+## ç†”æ–­å™¨
 
-ÈÛ¶ÏÆ÷£¨Circuit Breaker£©Ò»´ÊÀ´Ô´ÎïÀíÑ§ÖĞµÄµçÂ·ÖªÊ¶£¬ËüµÄ×÷ÓÃÊÇµ±ÏßÂ·³öÏÖ¹ÊÕÏÊ±£¬Ñ¸ËÙÇĞ¶ÏµçÔ´ÒÔ±£»¤µçÂ·µÄ°²È«¡£
+ç†”æ–­å™¨ï¼ˆCircuit Breakerï¼‰ä¸€è¯æ¥æºç‰©ç†å­¦ä¸­çš„ç”µè·¯çŸ¥è¯†ï¼Œå®ƒçš„ä½œç”¨æ˜¯å½“çº¿è·¯å‡ºç°æ•…éšœæ—¶ï¼Œè¿…é€Ÿåˆ‡æ–­ç”µæºä»¥ä¿æŠ¤ç”µè·¯çš„å®‰å…¨ã€‚
 
-ÔÚÎ¢·şÎñÁìÓò£¬ÈÛ¶ÏÆ÷×îÔçÊÇÓÉ Martin Fowler ÔÚËû·¢±íµÄ ¡¶[Circuit Breake](https://martinfowler.com/bliki/CircuitBreaker.html)r¡·Ò»ÎÄÖĞÌá³ö¡£ÓëÎïÀíÑ§ÖĞµÄÈÛ¶ÏÆ÷×÷ÓÃÏàËÆ£¬Î¢·şÎñ¼Ü¹¹ÖĞµÄÈÛ¶ÏÆ÷ÄÜ¹»ÔÚÄ³¸ö·şÎñ·¢Éú¹ÊÕÏºó£¬Ïò·şÎñµ÷ÓÃ·½·µ»ØÒ»¸ö·ûºÏÔ¤ÆÚµÄ¡¢¿É´¦ÀíµÄ½µ¼¶ÏìÓ¦£¨FallBack£©£¬¶ø²»ÊÇ³¤Ê±¼äµÄµÈ´ı»òÕßÅ×³öµ÷ÓÃ·½ÎŞ·¨´¦ÀíµÄÒì³£¡£ÕâÑù¾Í±£Ö¤ÁË·şÎñµ÷ÓÃ·½µÄÏß³Ì²»»á±»³¤Ê±¼ä¡¢²»±ØÒªµØÕ¼ÓÃ£¬±ÜÃâ¹ÊÕÏÔÚÎ¢·şÎñÏµÍ³ÖĞµÄÂûÑÓ£¬·ÀÖ¹ÏµÍ³Ñ©±ÀĞ§Ó¦µÄ·¢Éú¡£
+åœ¨å¾®æœåŠ¡é¢†åŸŸï¼Œç†”æ–­å™¨æœ€æ—©æ˜¯ç”± Martin Fowler åœ¨ä»–å‘è¡¨çš„ ã€Š[Circuit Breake](https://martinfowler.com/bliki/CircuitBreaker.html)rã€‹ä¸€æ–‡ä¸­æå‡ºã€‚ä¸ç‰©ç†å­¦ä¸­çš„ç†”æ–­å™¨ä½œç”¨ç›¸ä¼¼ï¼Œå¾®æœåŠ¡æ¶æ„ä¸­çš„ç†”æ–­å™¨èƒ½å¤Ÿåœ¨æŸä¸ªæœåŠ¡å‘ç”Ÿæ•…éšœåï¼Œå‘æœåŠ¡è°ƒç”¨æ–¹è¿”å›ä¸€ä¸ªç¬¦åˆé¢„æœŸçš„ã€å¯å¤„ç†çš„é™çº§å“åº”ï¼ˆFallBackï¼‰ï¼Œè€Œä¸æ˜¯é•¿æ—¶é—´çš„ç­‰å¾…æˆ–è€…æŠ›å‡ºè°ƒç”¨æ–¹æ— æ³•å¤„ç†çš„å¼‚å¸¸ã€‚è¿™æ ·å°±ä¿è¯äº†æœåŠ¡è°ƒç”¨æ–¹çš„çº¿ç¨‹ä¸ä¼šè¢«é•¿æ—¶é—´ã€ä¸å¿…è¦åœ°å ç”¨ï¼Œé¿å…æ•…éšœåœ¨å¾®æœåŠ¡ç³»ç»Ÿä¸­çš„è”“å»¶ï¼Œé˜²æ­¢ç³»ç»Ÿé›ªå´©æ•ˆåº”çš„å‘ç”Ÿã€‚
 
 ## Spring Cloud Hystrix
 
-Spring Cloud Hystrix ÊÇÒ»¿îÓÅĞãµÄ·şÎñÈİ´íÓë±£»¤×é¼ş£¬Ò²ÊÇ Spring Cloud ÖĞ×îÖØÒªµÄ×é¼şÖ®Ò»¡£
+Spring Cloud Hystrix æ˜¯ä¸€æ¬¾ä¼˜ç§€çš„æœåŠ¡å®¹é”™ä¸ä¿æŠ¤ç»„ä»¶ï¼Œä¹Ÿæ˜¯ Spring Cloud ä¸­æœ€é‡è¦çš„ç»„ä»¶ä¹‹ä¸€ã€‚
 
-Spring Cloud Hystrix ÊÇ»ùÓÚ Netflix ¹«Ë¾µÄ¿ªÔ´×é¼ş Hystrix ÊµÏÖµÄ£¬ËüÌá¹©ÁËÈÛ¶ÏÆ÷¹¦ÄÜ£¬ÄÜ¹»ÓĞĞ§µØ×èÖ¹·Ö²¼Ê½Î¢·şÎñÏµÍ³ÖĞ³öÏÖÁª¶¯¹ÊÕÏ£¬ÒÔÌá¸ßÎ¢·şÎñÏµÍ³µÄµ¯ĞÔ¡£Spring Cloud Hystrix ¾ßÓĞ·şÎñ½µ¼¶¡¢·şÎñÈÛ¶Ï¡¢Ïß³Ì¸ôÀë¡¢ÇëÇó»º´æ¡¢ÇëÇóºÏ²¢ÒÔ¼°ÊµÊ±¹ÊÕÏ¼à¿ØµÈÇ¿´ó¹¦ÄÜ¡£
+Spring Cloud Hystrix æ˜¯åŸºäº Netflix å…¬å¸çš„å¼€æºç»„ä»¶ Hystrix å®ç°çš„ï¼Œå®ƒæä¾›äº†ç†”æ–­å™¨åŠŸèƒ½ï¼Œèƒ½å¤Ÿæœ‰æ•ˆåœ°é˜»æ­¢åˆ†å¸ƒå¼å¾®æœåŠ¡ç³»ç»Ÿä¸­å‡ºç°è”åŠ¨æ•…éšœï¼Œä»¥æé«˜å¾®æœåŠ¡ç³»ç»Ÿçš„å¼¹æ€§ã€‚Spring Cloud Hystrix å…·æœ‰æœåŠ¡é™çº§ã€æœåŠ¡ç†”æ–­ã€çº¿ç¨‹éš”ç¦»ã€è¯·æ±‚ç¼“å­˜ã€è¯·æ±‚åˆå¹¶ä»¥åŠå®æ—¶æ•…éšœç›‘æ§ç­‰å¼ºå¤§åŠŸèƒ½ã€‚
 
-> Hystrix [h?st'r?ks]£¬ÖĞÎÄº¬ÒåÊÇºÀÖí£¬ºÀÖíµÄ±³ÉÏ³¤ÂúÁË¼¬´Ì£¬Ê¹ËüÓµÓĞÁËÇ¿´óµÄ×ÔÎÒ±£»¤ÄÜÁ¦¡£¶ø Spring Cloud Hystrix ×÷ÎªÒ»¸ö·şÎñÈİ´íÓë±£»¤×é¼ş£¬Ò²¿ÉÒÔÈÃ·şÎñÓµÓĞ×ÔÎÒ±£»¤µÄÄÜÁ¦£¬Òò´ËÒ²ÓĞÈË½«ÆäÏ·³ÆÎª¡°ºÀÖí¸ç¡±¡£
+> Hystrix [h?st'r?ks]ï¼Œä¸­æ–‡å«ä¹‰æ˜¯è±ªçŒªï¼Œè±ªçŒªçš„èƒŒä¸Šé•¿æ»¡äº†æ£˜åˆºï¼Œä½¿å®ƒæ‹¥æœ‰äº†å¼ºå¤§çš„è‡ªæˆ‘ä¿æŠ¤èƒ½åŠ›ã€‚è€Œ Spring Cloud Hystrix ä½œä¸ºä¸€ä¸ªæœåŠ¡å®¹é”™ä¸ä¿æŠ¤ç»„ä»¶ï¼Œä¹Ÿå¯ä»¥è®©æœåŠ¡æ‹¥æœ‰è‡ªæˆ‘ä¿æŠ¤çš„èƒ½åŠ›ï¼Œå› æ­¤ä¹Ÿæœ‰äººå°†å…¶æˆç§°ä¸ºâ€œè±ªçŒªå“¥â€ã€‚
 
-ÔÚÎ¢·şÎñÏµÍ³ÖĞ£¬Hystrix ÄÜ¹»°ïÖúÎÒÃÇÊµÏÖÒÔÏÂÄ¿±ê£º
+åœ¨å¾®æœåŠ¡ç³»ç»Ÿä¸­ï¼ŒHystrix èƒ½å¤Ÿå¸®åŠ©æˆ‘ä»¬å®ç°ä»¥ä¸‹ç›®æ ‡ï¼š
 
-*   **±£»¤Ïß³Ì×ÊÔ´**£º·ÀÖ¹µ¥¸ö·şÎñµÄ¹ÊÕÏºÄ¾¡ÏµÍ³ÖĞµÄËùÓĞÏß³Ì×ÊÔ´¡£
-*   **¿ìËÙÊ§°Ü»úÖÆ**£ºµ±Ä³¸ö·şÎñ·¢ÉúÁË¹ÊÕÏ£¬²»ÈÃ·şÎñµ÷ÓÃ·½Ò»Ö±µÈ´ı£¬¶øÊÇÖ±½Ó·µ»ØÇëÇóÊ§°Ü¡£
-*   **Ìá¹©½µ¼¶£¨FallBack£©·½°¸**£ºÔÚÇëÇóÊ§°Üºó£¬Ìá¹©Ò»¸öÉè¼ÆºÃµÄ½µ¼¶·½°¸£¬Í¨³£ÊÇÒ»¸ö¶µµ×·½·¨£¬µ±ÇëÇóÊ§°Üºó¼´µ÷ÓÃ¸Ã·½·¨¡£
-*   **·ÀÖ¹¹ÊÕÏÀ©É¢**£ºÊ¹ÓÃÈÛ¶Ï»úÖÆ£¬·ÀÖ¹¹ÊÕÏÀ©É¢µ½ÆäËû·şÎñ¡£
-*   **¼à¿Ø¹¦ÄÜ**£ºÌá¹©ÈÛ¶ÏÆ÷¹ÊÕÏ¼à¿Ø×é¼ş Hystrix Dashboard£¬ËæÊ±¼à¿ØÈÛ¶ÏÆ÷µÄ×´Ì¬¡£
+*   **ä¿æŠ¤çº¿ç¨‹èµ„æº**ï¼šé˜²æ­¢å•ä¸ªæœåŠ¡çš„æ•…éšœè€—å°½ç³»ç»Ÿä¸­çš„æ‰€æœ‰çº¿ç¨‹èµ„æºã€‚
+*   **å¿«é€Ÿå¤±è´¥æœºåˆ¶**ï¼šå½“æŸä¸ªæœåŠ¡å‘ç”Ÿäº†æ•…éšœï¼Œä¸è®©æœåŠ¡è°ƒç”¨æ–¹ä¸€ç›´ç­‰å¾…ï¼Œè€Œæ˜¯ç›´æ¥è¿”å›è¯·æ±‚å¤±è´¥ã€‚
+*   **æä¾›é™çº§ï¼ˆFallBackï¼‰æ–¹æ¡ˆ**ï¼šåœ¨è¯·æ±‚å¤±è´¥åï¼Œæä¾›ä¸€ä¸ªè®¾è®¡å¥½çš„é™çº§æ–¹æ¡ˆï¼Œé€šå¸¸æ˜¯ä¸€ä¸ªå…œåº•æ–¹æ³•ï¼Œå½“è¯·æ±‚å¤±è´¥åå³è°ƒç”¨è¯¥æ–¹æ³•ã€‚
+*   **é˜²æ­¢æ•…éšœæ‰©æ•£**ï¼šä½¿ç”¨ç†”æ–­æœºåˆ¶ï¼Œé˜²æ­¢æ•…éšœæ‰©æ•£åˆ°å…¶ä»–æœåŠ¡ã€‚
+*   **ç›‘æ§åŠŸèƒ½**ï¼šæä¾›ç†”æ–­å™¨æ•…éšœç›‘æ§ç»„ä»¶ Hystrix Dashboardï¼Œéšæ—¶ç›‘æ§ç†”æ–­å™¨çš„çŠ¶æ€ã€‚
 
-## Hystrix ·şÎñ½µ¼¶
+## Hystrix æœåŠ¡é™çº§
 
-Hystrix Ìá¹©ÁË·şÎñ½µ¼¶¹¦ÄÜ£¬ÄÜ¹»±£Ö¤µ±Ç°·şÎñ²»ÊÜÆäËû·şÎñ¹ÊÕÏµÄÓ°Ïì£¬Ìá¸ß·şÎñµÄ½¡×³ĞÔ¡£
+Hystrix æä¾›äº†æœåŠ¡é™çº§åŠŸèƒ½ï¼Œèƒ½å¤Ÿä¿è¯å½“å‰æœåŠ¡ä¸å—å…¶ä»–æœåŠ¡æ•…éšœçš„å½±å“ï¼Œæé«˜æœåŠ¡çš„å¥å£®æ€§ã€‚
 
-·şÎñ½µ¼¶µÄÊ¹ÓÃ³¡¾°ÓĞÒÔÏÂ 2 ÖÖ£º
+æœåŠ¡é™çº§çš„ä½¿ç”¨åœºæ™¯æœ‰ä»¥ä¸‹ 2 ç§ï¼š
 
-*   ÔÚ·şÎñÆ÷Ñ¹Á¦¾çÔöÊ±£¬¸ù¾İÊµ¼ÊÒµÎñÇé¿ö¼°Á÷Á¿£¬¶ÔÒ»Ğ©²»ÖØÒª¡¢²»½ô¼±µÄ·şÎñ½øĞĞÓĞ²ßÂÔµØ²»´¦Àí»ò¼òµ¥´¦Àí£¬´Ó¶øÊÍ·Å·şÎñÆ÷×ÊÔ´ÒÔ±£Ö¤ºËĞÄ·şÎñÕı³£ÔË×÷¡£
-*   µ±Ä³Ğ©·şÎñ²»¿ÉÓÃÊ±£¬ÎªÁË±ÜÃâ³¤Ê±¼äµÈ´ıÔì³É·şÎñ¿¨¶Ù»òÑ©±ÀĞ§Ó¦£¬¶øÖ÷¶¯Ö´ĞĞ±¸ÓÃµÄ½µ¼¶Âß¼­Á¢¿Ì·µ»ØÒ»¸öÓÑºÃµÄÌáÊ¾£¬ÒÔ±£ÕÏÖ÷ÌåÒµÎñ²»ÊÜÓ°Ïì¡£
+*   åœ¨æœåŠ¡å™¨å‹åŠ›å‰§å¢æ—¶ï¼Œæ ¹æ®å®é™…ä¸šåŠ¡æƒ…å†µåŠæµé‡ï¼Œå¯¹ä¸€äº›ä¸é‡è¦ã€ä¸ç´§æ€¥çš„æœåŠ¡è¿›è¡Œæœ‰ç­–ç•¥åœ°ä¸å¤„ç†æˆ–ç®€å•å¤„ç†ï¼Œä»è€Œé‡Šæ”¾æœåŠ¡å™¨èµ„æºä»¥ä¿è¯æ ¸å¿ƒæœåŠ¡æ­£å¸¸è¿ä½œã€‚
+*   å½“æŸäº›æœåŠ¡ä¸å¯ç”¨æ—¶ï¼Œä¸ºäº†é¿å…é•¿æ—¶é—´ç­‰å¾…é€ æˆæœåŠ¡å¡é¡¿æˆ–é›ªå´©æ•ˆåº”ï¼Œè€Œä¸»åŠ¨æ‰§è¡Œå¤‡ç”¨çš„é™çº§é€»è¾‘ç«‹åˆ»è¿”å›ä¸€ä¸ªå‹å¥½çš„æç¤ºï¼Œä»¥ä¿éšœä¸»ä½“ä¸šåŠ¡ä¸å—å½±å“ã€‚
 
-ÎÒÃÇ¿ÉÒÔÍ¨¹ıÖØĞ´ HystrixCommand µÄ getFallBack() ·½·¨»ò HystrixObservableCommand µÄ resumeWithFallback() ·½·¨£¬Ê¹·şÎñÖ§³Ö·şÎñ½µ¼¶¡£
+æˆ‘ä»¬å¯ä»¥é€šè¿‡é‡å†™ HystrixCommand çš„ getFallBack() æ–¹æ³•æˆ– HystrixObservableCommand çš„ resumeWithFallback() æ–¹æ³•ï¼Œä½¿æœåŠ¡æ”¯æŒæœåŠ¡é™çº§ã€‚
 
-Hystrix ·şÎñ½µ¼¶ FallBack ¼È¿ÉÒÔ·ÅÔÚ·şÎñ¶Ë½øĞĞ£¬Ò²¿ÉÒÔ·ÅÔÚ¿Í»§¶Ë½øĞĞ¡£
+Hystrix æœåŠ¡é™çº§ FallBack æ—¢å¯ä»¥æ”¾åœ¨æœåŠ¡ç«¯è¿›è¡Œï¼Œä¹Ÿå¯ä»¥æ”¾åœ¨å®¢æˆ·ç«¯è¿›è¡Œã€‚
 
-Hystrix »áÔÚÒÔÏÂ³¡¾°ÏÂ½øĞĞ·şÎñ½µ¼¶´¦Àí£º
+Hystrix ä¼šåœ¨ä»¥ä¸‹åœºæ™¯ä¸‹è¿›è¡ŒæœåŠ¡é™çº§å¤„ç†ï¼š
 
-*   ³ÌĞòÔËĞĞÒì³£
-*   ·şÎñ³¬Ê±
-*   ÈÛ¶ÏÆ÷´¦ÓÚ´ò¿ª×´Ì¬
-*   Ïß³Ì³Ø×ÊÔ´ºÄ¾¡
+*   ç¨‹åºè¿è¡Œå¼‚å¸¸
+*   æœåŠ¡è¶…æ—¶
+*   ç†”æ–­å™¨å¤„äºæ‰“å¼€çŠ¶æ€
+*   çº¿ç¨‹æ± èµ„æºè€—å°½
 
-## Ê¾Àı1
+## ç¤ºä¾‹1
 
-ÏÂÃæÎÒÃÇ¾ÍÍ¨¹ıÒ»¸ö°¸Àı£¬·Ö±ğÑİÊ¾ÏÂ Hystrix ·şÎñ¶Ë·şÎñ½µ¼¶ºÍ¿Í»§¶Ë·şÎñ½µ¼¶¡£
+ä¸‹é¢æˆ‘ä»¬å°±é€šè¿‡ä¸€ä¸ªæ¡ˆä¾‹ï¼Œåˆ†åˆ«æ¼”ç¤ºä¸‹ Hystrix æœåŠ¡ç«¯æœåŠ¡é™çº§å’Œå®¢æˆ·ç«¯æœåŠ¡é™çº§ã€‚
 
-#### ·şÎñ¶Ë·şÎñ½µ¼¶
+#### æœåŠ¡ç«¯æœåŠ¡é™çº§
 
-1\. ÔÚÖ÷¹¤³Ì spring-cloud-demo2 ÏÂ´´½¨Ò»¸öÃûÎª micro-service-cloud-provider-dept-hystrix-8004 µÄ·şÎñÌá¹©Õß£¬²¢ÔÚÆä pom.xml ÖĞÌí¼ÓÒÔÏÂÒÀÀµ¡£
+1\. åœ¨ä¸»å·¥ç¨‹ spring-cloud-demo2 ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º micro-service-cloud-provider-dept-hystrix-8004 çš„æœåŠ¡æä¾›è€…ï¼Œå¹¶åœ¨å…¶ pom.xml ä¸­æ·»åŠ ä»¥ä¸‹ä¾èµ–ã€‚
 
 
 
@@ -76,7 +76,7 @@ Hystrix »áÔÚÒÔÏÂ³¡¾°ÏÂ½øĞĞ·şÎñ½µ¼¶´¦Àí£º
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!--¸¸pom-->
+    <!--çˆ¶pom-->
     <parent>
         <artifactId>spring-cloud-demo2</artifactId>
         <groupId>net.biancheng.c</groupId>
@@ -113,17 +113,17 @@ Hystrix »áÔÚÒÔÏÂ³¡¾°ÏÂ½øĞĞ·şÎñ½µ¼¶´¦Àí£º
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--Ìí¼Ó Spring Boot µÄ¼à¿ØÄ£¿é-->
+        <!--æ·»åŠ  Spring Boot çš„ç›‘æ§æ¨¡å—-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!-- eureka ¿Í»§¶Ë-->
+        <!-- eureka å®¢æˆ·ç«¯-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <!--hystrix ÒÀÀµ-->
+        <!--hystrix ä¾èµ–-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
@@ -154,7 +154,7 @@ Hystrix »áÔÚÒÔÏÂ³¡¾°ÏÂ½øĞĞ·şÎñ½µ¼¶´¦Àí£º
 
 
 
-2\. ÔÚÀàÂ·¾¶£¨¼´ /resources Ä¿Â¼£©ÏÂÌí¼ÓÒ»¸öÅäÖÃÎÄ¼ş application.yml£¬ÅäÖÃÄÚÈİÈçÏÂ¡£
+2\. åœ¨ç±»è·¯å¾„ï¼ˆå³ /resources ç›®å½•ï¼‰ä¸‹æ·»åŠ ä¸€ä¸ªé…ç½®æ–‡ä»¶ application.ymlï¼Œé…ç½®å†…å®¹å¦‚ä¸‹ã€‚
 
 
 
@@ -164,26 +164,26 @@ Hystrix »áÔÚÒÔÏÂ³¡¾°ÏÂ½øĞĞ·şÎñ½µ¼¶´¦Àí£º
 
 spring:
   application:
-    name: microServiceCloudProviderDeptHystrix  #Î¢·şÎñÃû³Æ£¬¶ÔÍâ±©Â©µÄÎ¢·şÎñÃû³Æ£¬Ê®·ÖÖØÒª
+    name: microServiceCloudProviderDeptHystrix  #å¾®æœåŠ¡åç§°ï¼Œå¯¹å¤–æš´æ¼çš„å¾®æœåŠ¡åç§°ï¼Œååˆ†é‡è¦
 
 server:
   port: 8004
-########################################### Spring cloud ×Ô¶¨Òå·şÎñÃû³ÆºÍ ip µØÖ·###############################################
+########################################### Spring cloud è‡ªå®šä¹‰æœåŠ¡åç§°å’Œ ip åœ°å€###############################################
 eureka:
-  client: #½«¿Í»§¶Ë×¢²áµ½ eureka ·şÎñÁĞ±íÄÚ
+  client: #å°†å®¢æˆ·ç«¯æ³¨å†Œåˆ° eureka æœåŠ¡åˆ—è¡¨å†…
     service-url:
-      #defaultZone: http://eureka7001:7001/eureka  #Õâ¸öµØÖ·ÊÇ 7001×¢²áÖĞĞÄÔÚ application.yml ÖĞ±©Â¶³öÀ´¶î×¢²áµØÖ· £¨µ¥»ú°æ£©
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  #½«·şÎñ×¢²áµ½ Eureka ¼¯Èº
+      #defaultZone: http://eureka7001:7001/eureka  #è¿™ä¸ªåœ°å€æ˜¯ 7001æ³¨å†Œä¸­å¿ƒåœ¨ application.yml ä¸­æš´éœ²å‡ºæ¥é¢æ³¨å†Œåœ°å€ ï¼ˆå•æœºç‰ˆï¼‰
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  #å°†æœåŠ¡æ³¨å†Œåˆ° Eureka é›†ç¾¤
   instance:
-    instance-id: spring-cloud-provider-8004 #×Ô¶¨Òå·şÎñÃû³ÆĞÅÏ¢
-    prefer-ip-address: true  #ÏÔÊ¾·ÃÎÊÂ·¾¶µÄ ip µØÖ·
-#####################spring cloud Ê¹ÓÃ Spring Boot actuator ¼à¿ØÍêÉÆĞÅÏ¢###########################################
-# Spring Boot 2.50¶Ô actuator ¼à¿ØÆÁ±ÎÁË´ó¶àÊıµÄ½Úµã£¬Ö»±©Â¶ÁË heath ½Úµã£¬±¾¶ÎÅäÖÃ£¨*£©¾ÍÊÇÎªÁË¿ªÆôËùÓĞµÄ½Úµã
+    instance-id: spring-cloud-provider-8004 #è‡ªå®šä¹‰æœåŠ¡åç§°ä¿¡æ¯
+    prefer-ip-address: true  #æ˜¾ç¤ºè®¿é—®è·¯å¾„çš„ ip åœ°å€
+#####################spring cloud ä½¿ç”¨ Spring Boot actuator ç›‘æ§å®Œå–„ä¿¡æ¯###########################################
+# Spring Boot 2.50å¯¹ actuator ç›‘æ§å±è”½äº†å¤§å¤šæ•°çš„èŠ‚ç‚¹ï¼Œåªæš´éœ²äº† heath èŠ‚ç‚¹ï¼Œæœ¬æ®µé…ç½®ï¼ˆ*ï¼‰å°±æ˜¯ä¸ºäº†å¼€å¯æ‰€æœ‰çš„èŠ‚ç‚¹
 management:
   endpoints:
     web:
       exposure:
-        include: "*"   # * ÔÚyaml ÎÄ¼şÊôÓÚ¹Ø¼ü×Ö£¬ËùÒÔĞèÒª¼ÓÒıºÅ
+        include: "*"   # * åœ¨yaml æ–‡ä»¶å±äºå…³é”®å­—ï¼Œæ‰€ä»¥éœ€è¦åŠ å¼•å·
 info:
   app.name: micro-service-cloud-provider-dept-hystrix
   company.name: c.biancheng.net
@@ -196,7 +196,7 @@ info:
 
 
 
-3\. ÔÚ net.biancheng.c.service °üÏÂ´´½¨Ò»¸öÃûÎª  DeptService µÄ½Ó¿Ú£¬´úÂëÈçÏÂ¡£
+3\. åœ¨ net.biancheng.c.service åŒ…ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º  DeptService çš„æ¥å£ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -208,10 +208,10 @@ package net.biancheng.c.service;
 
 public interface DeptService {
 
-    // hystrix ÈÛ¶ÏÆ÷Ê¾Àı ok
+    // hystrix ç†”æ–­å™¨ç¤ºä¾‹ ok
     public String deptInfo_Ok(Integer id);
 
-    //hystrix ÈÛ¶ÏÆ÷³¬Ê±°¸Àı
+    //hystrix ç†”æ–­å™¨è¶…æ—¶æ¡ˆä¾‹
     public String deptInfo_Timeout(Integer id);
 }
 
@@ -221,7 +221,7 @@ public interface DeptService {
 
 
 
-4\. ÔÚ net.biancheng.c.service.impl °üÏÂ£¬´´½¨ DeptService ½Ó¿ÚµÄÊµÏÖÀà DeptServiceImpl£¬´úÂëÈçÏÂ¡£
+4\. åœ¨ net.biancheng.c.service.impl åŒ…ä¸‹ï¼Œåˆ›å»º DeptService æ¥å£çš„å®ç°ç±» DeptServiceImplï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -242,13 +242,13 @@ public class DeptServiceImpl implements DeptService {
 
     @Override
     public String deptInfo_Ok(Integer id) {
-        return "Ïß³Ì³Ø£º" + Thread.currentThread().getName() + "  deptInfo_Ok,id:   " + id;
+        return "çº¿ç¨‹æ± ï¼š" + Thread.currentThread().getName() + "  deptInfo_Ok,id:   " + id;
     }
 
-    //Ò»µ©¸Ã·½·¨Ê§°Ü²¢Å×³öÁËÒì³£ĞÅÏ¢ºó£¬»á×Ô¶¯µ÷ÓÃ  @HystrixCommand ×¢½â±ê×¢µÄ fallbackMethod Ö¸¶¨µÄ·½·¨
+    //ä¸€æ—¦è¯¥æ–¹æ³•å¤±è´¥å¹¶æŠ›å‡ºäº†å¼‚å¸¸ä¿¡æ¯åï¼Œä¼šè‡ªåŠ¨è°ƒç”¨  @HystrixCommand æ³¨è§£æ ‡æ³¨çš„ fallbackMethod æŒ‡å®šçš„æ–¹æ³•
     @HystrixCommand(fallbackMethod = "dept_TimeoutHandler",
             commandProperties =
-                    //¹æ¶¨ 5 ÃëÖÓÒÔÄÚ¾Í²»±¨´í£¬Õı³£ÔËĞĞ£¬³¬¹ı 5 Ãë¾Í±¨´í£¬µ÷ÓÃÖ¸¶¨µÄ·½·¨
+                    //è§„å®š 5 ç§’é’Ÿä»¥å†…å°±ä¸æŠ¥é”™ï¼Œæ­£å¸¸è¿è¡Œï¼Œè¶…è¿‡ 5 ç§’å°±æŠ¥é”™ï¼Œè°ƒç”¨æŒ‡å®šçš„æ–¹æ³•
                     {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")})
     @Override
     public String deptInfo_Timeout(Integer id) {
@@ -258,12 +258,12 @@ public class DeptServiceImpl implements DeptService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return "Ïß³Ì³Ø£º" + Thread.currentThread().getName() + "  deptInfo_Timeout,id:   " + id + "  ºÄÊ±: " + outTime;
+        return "çº¿ç¨‹æ± ï¼š" + Thread.currentThread().getName() + "  deptInfo_Timeout,id:   " + id + "  è€—æ—¶: " + outTime;
     }
 
-    // µ±·şÎñ³öÏÖ¹ÊÕÏºó£¬µ÷ÓÃ¸Ã·½·¨¸ø³öÓÑºÃÌáÊ¾
+    // å½“æœåŠ¡å‡ºç°æ•…éšœåï¼Œè°ƒç”¨è¯¥æ–¹æ³•ç»™å‡ºå‹å¥½æç¤º
     public String dept_TimeoutHandler(Integer id) {
-       return  "CÓïÑÔÖĞÎÄÍøÌáĞÑÄú£¬ÏµÍ³·±Ã¦ÇëÉÔºóÔÙÊÔ£¡"+"Ïß³Ì³Ø£º" + Thread.currentThread().getName() + "  deptInfo_Timeout,id:   " + id;
+       return  "Cè¯­è¨€ä¸­æ–‡ç½‘æé†’æ‚¨ï¼Œç³»ç»Ÿç¹å¿™è¯·ç¨åå†è¯•ï¼"+"çº¿ç¨‹æ± ï¼š" + Thread.currentThread().getName() + "  deptInfo_Timeout,id:   " + id;
     }
 }
 
@@ -273,12 +273,12 @@ public class DeptServiceImpl implements DeptService {
 
 
 
-ÎÒÃÇ¿ÉÒÔ¿´µ½ deptInfo_Timeout() ·½·¨ÉÏÊ¹ÓÃ @HystrixCommand ×¢½â£¬¸Ã×¢½âËµÃ÷ÈçÏÂ£º
+æˆ‘ä»¬å¯ä»¥çœ‹åˆ° deptInfo_Timeout() æ–¹æ³•ä¸Šä½¿ç”¨ @HystrixCommand æ³¨è§£ï¼Œè¯¥æ³¨è§£è¯´æ˜å¦‚ä¸‹ï¼š
 
-*   ²ÎÊı fallbackMethod ÊôĞÔÓÃÓÚÖ¸¶¨½µ¼¶·½·¨¡£
-*   ²ÎÊı execution.isolation.thread.timeoutInMilliseconds ÓÃÓÚÉèÖÃ×ÔÉíµ÷ÓÃ³¬Ê±Ê±¼äµÄ·åÖµ£¬·åÖµÄÚ¿ÉÒÔÕı³£ÔËĞĞ£¬·ñÔòÖ´ĞĞ½µ¼¶·½·¨
+*   å‚æ•° fallbackMethod å±æ€§ç”¨äºæŒ‡å®šé™çº§æ–¹æ³•ã€‚
+*   å‚æ•° execution.isolation.thread.timeoutInMilliseconds ç”¨äºè®¾ç½®è‡ªèº«è°ƒç”¨è¶…æ—¶æ—¶é—´çš„å³°å€¼ï¼Œå³°å€¼å†…å¯ä»¥æ­£å¸¸è¿è¡Œï¼Œå¦åˆ™æ‰§è¡Œé™çº§æ–¹æ³•
 
-5.  ÔÚ net.biancheng.c.controller °üÏÂ´´½¨Ò»¸öÃûÎª DeptController µÄ Controller Àà£¬´úÂëÈçÏÂ¡£
+5.  åœ¨ net.biancheng.c.controller åŒ…ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º DeptController çš„ Controller ç±»ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -305,16 +305,16 @@ public class DeptController {
     @RequestMapping(value = "/dept/hystrix/ok/{id}")
     public String deptInfo_Ok(@PathVariable("id") Integer id) {
         String result = deptService.deptInfo_Ok(id);
-        log.info("¶Ë¿ÚºÅ£º" + serverPort + " result:" + result);
-        return result + "£¬   ¶Ë¿ÚºÅ£º" + serverPort;
+        log.info("ç«¯å£å·ï¼š" + serverPort + " result:" + result);
+        return result + "ï¼Œ   ç«¯å£å·ï¼š" + serverPort;
     }
 
-    // Hystrix ·şÎñ³¬Ê±½µ¼¶
+    // Hystrix æœåŠ¡è¶…æ—¶é™çº§
     @RequestMapping(value = "/dept/hystrix/timeout/{id}")
     public String deptInfo_Timeout(@PathVariable("id") Integer id) {
         String result = deptService.deptInfo_Timeout(id);
-        log.info("¶Ë¿ÚºÅ£º" + serverPort + " result:" + result);
-        return result + "£¬   ¶Ë¿ÚºÅ£º" + serverPort;
+        log.info("ç«¯å£å·ï¼š" + serverPort + " result:" + result);
+        return result + "ï¼Œ   ç«¯å£å·ï¼š" + serverPort;
     }
 
 }
@@ -325,7 +325,7 @@ public class DeptController {
 
 
 
-6\. ÔÚ micro-service-cloud-provider-dept-hystrix-8004 µÄÖ÷Æô¶¯ÀàÉÏ£¬Ê¹ÓÃ @EnableCircuitBreaker ×¢½â¿ªÆôÈÛ¶ÏÆ÷¹¦ÄÜ£¬´úÂëÈçÏÂ¡£
+6\. åœ¨ micro-service-cloud-provider-dept-hystrix-8004 çš„ä¸»å¯åŠ¨ç±»ä¸Šï¼Œä½¿ç”¨ @EnableCircuitBreaker æ³¨è§£å¼€å¯ç†”æ–­å™¨åŠŸèƒ½ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -341,8 +341,8 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableEurekaClient //¿ªÆô Eureka ¿Í»§¶Ë¹¦ÄÜ
-@EnableCircuitBreaker //¼¤»îÈÛ¶ÏÆ÷¹¦ÄÜ
+@EnableEurekaClient //å¼€å¯ Eureka å®¢æˆ·ç«¯åŠŸèƒ½
+@EnableCircuitBreaker //æ¿€æ´»ç†”æ–­å™¨åŠŸèƒ½
 public class MicroServiceCloudProviderDeptHystrix8004Application {
 
     public static void main(String[] args) {
@@ -356,23 +356,23 @@ public class MicroServiceCloudProviderDeptHystrix8004Application {
 
 
 
-7\. ÒÀ´ÎÆô¶¯·şÎñ×¢²áÖĞĞÄ£¨Eureka Server£©¼¯ÈººÍ micro-service-cloud-provider-dept-hystrix-8004£¬²¢Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com:8004/dept/hystrix/ok/1¡±£¬½á¹ûÈçÏÂÍ¼¡£
+7\. ä¾æ¬¡å¯åŠ¨æœåŠ¡æ³¨å†Œä¸­å¿ƒï¼ˆEureka Serverï¼‰é›†ç¾¤å’Œ micro-service-cloud-provider-dept-hystrix-8004ï¼Œå¹¶ä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com:8004/dept/hystrix/ok/1â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
 ![Hystrix ok](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016234615-1.png)
-Í¼2£ºHystrix Õı³£·şÎñ°¸Àı
+å›¾2ï¼šHystrix æ­£å¸¸æœåŠ¡æ¡ˆä¾‹
 
-8\. Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com:8004/dept/hystrix/timeout/1¡±£¬½á¹ûÈçÏÂÍ¼¡£
+8\. ä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com:8004/dept/hystrix/timeout/1â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Hystrix ·şÎñ½µ¼¶](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101623FR-2.png)
-Í¼3£ºHystrix ·şÎñ¶Ë·şÎñ½µ¼¶
+![Hystrix æœåŠ¡é™çº§](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101623FR-2.png)
+å›¾3ï¼šHystrix æœåŠ¡ç«¯æœåŠ¡é™çº§
 
-#### ¿Í»§¶Ë·şÎñ½µ¼¶
+#### å®¢æˆ·ç«¯æœåŠ¡é™çº§
 
-Í¨³£Çé¿öÏÂ£¬ÎÒÃÇ¶¼»áÔÚ¿Í»§¶Ë½øĞĞ·şÎñ½µ¼¶£¬µ±¿Í»§¶Ëµ÷ÓÃµÄ·şÎñ¶ËµÄ·şÎñ²»¿ÉÓÃÊ±£¬¿Í»§¶ËÖ±½Ó½øĞĞ·şÎñ½µ¼¶´¦Àí£¬±ÜÃâÆäÏß³Ì±»³¤Ê±¼ä¡¢²»±ØÒªµØÕ¼ÓÃ¡£
+é€šå¸¸æƒ…å†µä¸‹ï¼Œæˆ‘ä»¬éƒ½ä¼šåœ¨å®¢æˆ·ç«¯è¿›è¡ŒæœåŠ¡é™çº§ï¼Œå½“å®¢æˆ·ç«¯è°ƒç”¨çš„æœåŠ¡ç«¯çš„æœåŠ¡ä¸å¯ç”¨æ—¶ï¼Œå®¢æˆ·ç«¯ç›´æ¥è¿›è¡ŒæœåŠ¡é™çº§å¤„ç†ï¼Œé¿å…å…¶çº¿ç¨‹è¢«é•¿æ—¶é—´ã€ä¸å¿…è¦åœ°å ç”¨ã€‚
 
-¿Í»§¶Ë·şÎñ½µ¼¶²½ÖèÈçÏÂ¡£
+å®¢æˆ·ç«¯æœåŠ¡é™çº§æ­¥éª¤å¦‚ä¸‹ã€‚
 
-1\. ÔÚ micro-service-cloud-consumer-dept-feign µÄ pom.xml ÖĞÌí¼Ó Hystrix µÄÒÀÀµ£¬´úÂëÈçÏÂ¡£
+1\. åœ¨ micro-service-cloud-consumer-dept-feign çš„ pom.xml ä¸­æ·»åŠ  Hystrix çš„ä¾èµ–ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -381,7 +381,7 @@ public class MicroServiceCloudProviderDeptHystrix8004Application {
 ```
 
 
-<!--hystrix ÒÀÀµ-->
+<!--hystrix ä¾èµ–-->
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
@@ -392,7 +392,7 @@ public class MicroServiceCloudProviderDeptHystrix8004Application {
 
 
 
-2. ÔÚ micro-service-cloud-consumer-dept-feign µÄ application.yml ÖĞÌí¼ÓÒÔÏÂÅäÖÃ£¬¿ªÆô¿Í»§¶ËµÄ Hystrix ¹¦ÄÜ¡£
+2. åœ¨ micro-service-cloud-consumer-dept-feign çš„ application.yml ä¸­æ·»åŠ ä»¥ä¸‹é…ç½®ï¼Œå¼€å¯å®¢æˆ·ç«¯çš„ Hystrix åŠŸèƒ½ã€‚
 
 
 
@@ -402,7 +402,7 @@ public class MicroServiceCloudProviderDeptHystrix8004Application {
 
 feign:
   hystrix:
-    enabled: true #¿ªÆô¿Í»§¶Ë hystrix
+    enabled: true #å¼€å¯å®¢æˆ·ç«¯ hystrix
 
 ```
 
@@ -410,7 +410,7 @@ feign:
 
 
 
-3\. ÔÚ net.biancheng.c.service °üÏÂ£¬´´½¨Ò»¸öÃûÎª DeptHystrixService µÄ·şÎñ°ó¶¨½Ó¿Ú£¬Óë micro-service-cloud-provider-dept-hystrix-8004 ÖĞÌá¹©µÄ·şÎñ½Ó¿Ú½øĞĞ°ó¶¨£¬´úÂëÈçÏÂ¡£
+3\. åœ¨ net.biancheng.c.service åŒ…ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º DeptHystrixService çš„æœåŠ¡ç»‘å®šæ¥å£ï¼Œä¸ micro-service-cloud-provider-dept-hystrix-8004 ä¸­æä¾›çš„æœåŠ¡æ¥å£è¿›è¡Œç»‘å®šï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -440,7 +440,7 @@ public interface DeptHystrixService {
 
 
 
-4\. ÔÚ net.biancheng.c.controller °üÏÂ´´½¨Ò»¸öÃûÎª HystrixController_Consumer µÄ Controller £¬´úÂëÈçÏÂ¡£
+4\. åœ¨ net.biancheng.c.controller åŒ…ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º HystrixController_Consumer çš„ Controller ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -471,19 +471,19 @@ public class HystrixController_Consumer {
         return deptHystrixService.deptInfo_Ok(id);
     }
 
-    //ÔÚ¿Í»§¶Ë½øĞĞ½µ¼¶
+    //åœ¨å®¢æˆ·ç«¯è¿›è¡Œé™çº§
     @RequestMapping(value = "/consumer/dept/hystrix/timeout/{id}")
-    @HystrixCommand(fallbackMethod = "dept_TimeoutHandler") //Îª¸ÃÇëÇóÖ¸¶¨×¨ÊôµÄ»ØÍË·½·¨
+    @HystrixCommand(fallbackMethod = "dept_TimeoutHandler") //ä¸ºè¯¥è¯·æ±‚æŒ‡å®šä¸“å±çš„å›é€€æ–¹æ³•
     public String deptInfo_Timeout(@PathVariable("id") Integer id) {
         String s = deptHystrixService.deptInfo_Timeout(id);
         log.info(s);
         return s;
     }
 
-    // deptInfo_Timeout·½·¨µÄ ×¨ÓÃ fallback ·½·¨
+    // deptInfo_Timeoutæ–¹æ³•çš„ ä¸“ç”¨ fallback æ–¹æ³•
     public String dept_TimeoutHandler(@PathVariable("id") Integer id) {
-        log.info("deptInfo_Timeout ³ö´í£¬·şÎñÒÑ±»½µ¼¶£¡");
-        return "CÓïÑÔÖĞÎÄÍøÌáĞÑÄú£º·şÎñ¶ËÏµÍ³·±Ã¦£¬ÇëÉÔºóÔÙÊÔ£¡£¨¿Í»§¶Ë deptInfo_Timeout ×¨ÊôµÄ»ØÍË·½·¨´¥·¢£©";
+        log.info("deptInfo_Timeout å‡ºé”™ï¼ŒæœåŠ¡å·²è¢«é™çº§ï¼");
+        return "Cè¯­è¨€ä¸­æ–‡ç½‘æé†’æ‚¨ï¼šæœåŠ¡ç«¯ç³»ç»Ÿç¹å¿™ï¼Œè¯·ç¨åå†è¯•ï¼ï¼ˆå®¢æˆ·ç«¯ deptInfo_Timeout ä¸“å±çš„å›é€€æ–¹æ³•è§¦å‘ï¼‰";
     }
 }
 
@@ -493,18 +493,18 @@ public class HystrixController_Consumer {
 
 
 
-5\. ÔÚÅäÖÃÎÄ¼ş appliction.yml ÖĞÌí¼ÓÒÔÏÂÅäÖÃ£¬ÔÚ¿Í»§¶ËÅäÖÃÇëÇó³¬Ê±µÄÊ±¼ä¡£
+5\. åœ¨é…ç½®æ–‡ä»¶ appliction.yml ä¸­æ·»åŠ ä»¥ä¸‹é…ç½®ï¼Œåœ¨å®¢æˆ·ç«¯é…ç½®è¯·æ±‚è¶…æ—¶çš„æ—¶é—´ã€‚
 
 
 
 
 
 ```
-######################### Ribbon ¿Í»§¶Ë³¬Ê±¿ØÖÆ ###################################
+######################### Ribbon å®¢æˆ·ç«¯è¶…æ—¶æ§åˆ¶ ###################################
 ribbon:
-  ReadTimeout: 6000 #½¨Á¢Á¬½ÓËùÓÃµÄÊ±¼ä£¬ÊÊÓÃÓÚÍøÂç×´¿öÕı³£µÄÇé¿öÏÂ£¬Á½¶ËÁ½¶ËÁ¬½ÓËùÓÃµÄÊ±¼ä
-  ConnectionTimeout: 6000 #½¨Á¢Á¬½Óºó£¬·şÎñÆ÷¶ÁÈ¡µ½¿ÉÓÃ×ÊÔ´µÄÊ±¼ä
-######################ÅäÖÃÇëÇó³¬Ê±Ê±¼ä##########################
+  ReadTimeout: 6000 #å»ºç«‹è¿æ¥æ‰€ç”¨çš„æ—¶é—´ï¼Œé€‚ç”¨äºç½‘ç»œçŠ¶å†µæ­£å¸¸çš„æƒ…å†µä¸‹ï¼Œä¸¤ç«¯ä¸¤ç«¯è¿æ¥æ‰€ç”¨çš„æ—¶é—´
+  ConnectionTimeout: 6000 #å»ºç«‹è¿æ¥åï¼ŒæœåŠ¡å™¨è¯»å–åˆ°å¯ç”¨èµ„æºçš„æ—¶é—´
+######################é…ç½®è¯·æ±‚è¶…æ—¶æ—¶é—´##########################
 hystrix:
   command:
     default:
@@ -512,7 +512,7 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 7000
-####################ÅäÖÃ¾ßÌå·½·¨³¬Ê±Ê±¼ä Îª 3 Ãë########################
+####################é…ç½®å…·ä½“æ–¹æ³•è¶…æ—¶æ—¶é—´ ä¸º 3 ç§’########################
     DeptHystrixService#deptInfo_Timeout(Integer):
       execution:
         isolation:
@@ -525,24 +525,24 @@ hystrix:
 
 
 
-ÔÚÅäÖÃÎÄ¼şÖĞÉè¼ÆÇëÇóµÄ³¬Ê±Ê±¼äÊ±£¬ĞèÒª×¢ÒâÒÔÏÂ 2 µã£º
+åœ¨é…ç½®æ–‡ä»¶ä¸­è®¾è®¡è¯·æ±‚çš„è¶…æ—¶æ—¶é—´æ—¶ï¼Œéœ€è¦æ³¨æ„ä»¥ä¸‹ 2 ç‚¹ï¼š
 
-1£©Hystrix ¿ÉÒÔÀ´ÎªËùÓĞÇëÇó£¨·½·¨£©ÉèÖÃ³¬Ê±Ê±¼ä£¨µ¥Î»ÎªºÁÃë£©£¬ÈôÇëÇó³¬Ê±Ôò´¥·¢È«¾ÖµÄ»ØÍË·½·¨½øĞĞ´¦Àí¡£
+1ï¼‰Hystrix å¯ä»¥æ¥ä¸ºæ‰€æœ‰è¯·æ±‚ï¼ˆæ–¹æ³•ï¼‰è®¾ç½®è¶…æ—¶æ—¶é—´ï¼ˆå•ä½ä¸ºæ¯«ç§’ï¼‰ï¼Œè‹¥è¯·æ±‚è¶…æ—¶åˆ™è§¦å‘å…¨å±€çš„å›é€€æ–¹æ³•è¿›è¡Œå¤„ç†ã€‚
 
 ```hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=mmm```
 
-2£©Hystrix »¹¿ÉÒÔÎªÄ³¸öÌØ¶¨µÄ·şÎñÇëÇó£¨·½·¨£©ÉèÖÃ³¬Ê±Ê±¼ä£¬¸ñÊ½ÈçÏÂ£º
+2ï¼‰Hystrix è¿˜å¯ä»¥ä¸ºæŸä¸ªç‰¹å®šçš„æœåŠ¡è¯·æ±‚ï¼ˆæ–¹æ³•ï¼‰è®¾ç½®è¶…æ—¶æ—¶é—´ï¼Œæ ¼å¼å¦‚ä¸‹ï¼š
 
 ```hystrix.command.xxx#yyy(zzz).execution.isolation.thread.timeoutInMilliseconds=mmm```
 
-¸ñÊ½ËµÃ÷ÈçÏÂ£º
+æ ¼å¼è¯´æ˜å¦‚ä¸‹ï¼š
 
-*   xxx£ºÎª°üº¬¸Ã·şÎñ·½·¨µÄÀàµÄÃû³Æ£¨Í¨³£Îª·şÎñ°ó¶¨½Ó¿ÚµÄÃû³Æ£©£¬ÀıÈç DeptHystrixService ½Ó¿Ú¡£
-*   yyy£º·şÎñ·½·¨Ãû£¬ÀıÈç deptInfo_Timeout() ·½·¨¡£
-*   zzz£º·½·¨ÄÚµÄ²ÎÊıÀàĞÍ£¬ÀıÈç Integer¡¢String µÈµÈ
-*   mmm£ºÒªÉèÖÃµÄ³¬Ê±Ê±¼ä£¬µ¥Î»ÎªºÁÃë£¨1 Ãë =1000 ºÁÃë£©
+*   xxxï¼šä¸ºåŒ…å«è¯¥æœåŠ¡æ–¹æ³•çš„ç±»çš„åç§°ï¼ˆé€šå¸¸ä¸ºæœåŠ¡ç»‘å®šæ¥å£çš„åç§°ï¼‰ï¼Œä¾‹å¦‚ DeptHystrixService æ¥å£ã€‚
+*   yyyï¼šæœåŠ¡æ–¹æ³•åï¼Œä¾‹å¦‚ deptInfo_Timeout() æ–¹æ³•ã€‚
+*   zzzï¼šæ–¹æ³•å†…çš„å‚æ•°ç±»å‹ï¼Œä¾‹å¦‚ Integerã€String ç­‰ç­‰
+*   mmmï¼šè¦è®¾ç½®çš„è¶…æ—¶æ—¶é—´ï¼Œå•ä½ä¸ºæ¯«ç§’ï¼ˆ1 ç§’ =1000 æ¯«ç§’ï¼‰
 
-6\. ÔÚ micro-service-cloud-consumer-dept-feign µÄÖ÷Æô¶¯ÀàÉÏ£¬Ê¹ÓÃ @EnableHystrix ×¢½â¿ªÆô¿Í»§¶Ë Hystrix ¹¦ÄÜ£¬´úÂëÈçÏÂ¡£
+6\. åœ¨ micro-service-cloud-consumer-dept-feign çš„ä¸»å¯åŠ¨ç±»ä¸Šï¼Œä½¿ç”¨ @EnableHystrix æ³¨è§£å¼€å¯å®¢æˆ·ç«¯ Hystrix åŠŸèƒ½ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -558,8 +558,8 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients //¿ªÆô OpenFeign ¹¦ÄÜ
-@EnableHystrix //ÆôÓÃ Hystrix
+@EnableFeignClients //å¼€å¯ OpenFeign åŠŸèƒ½
+@EnableHystrix //å¯ç”¨ Hystrix
 public class MicroServiceCloudConsumerDeptFeignApplication {
 
     public static void main(String[] args) {
@@ -573,17 +573,17 @@ public class MicroServiceCloudConsumerDeptFeignApplication {
 
 
 
-7\. ĞŞ¸Ä micro-service-cloud-provider-dept-hystrix-8004 ÖĞ DeptServiceImpl µÄ´úÂë£¬½« deptInfo_Timeout() ·½·¨µÄÔËĞĞÊ±¼äĞŞ¸ÄÎª 4 Ãë£¨Ğ¡ÓÚ³¬Ê±Ê±¼ä 5 Ãë£©£¬ÒÔ±£Ö¤·şÎñ¶ËÇëÇóÕı³£²»±»½µ¼¶£¬´úÂëÈçÏÂ¡£
+7\. ä¿®æ”¹ micro-service-cloud-provider-dept-hystrix-8004 ä¸­ DeptServiceImpl çš„ä»£ç ï¼Œå°† deptInfo_Timeout() æ–¹æ³•çš„è¿è¡Œæ—¶é—´ä¿®æ”¹ä¸º 4 ç§’ï¼ˆå°äºè¶…æ—¶æ—¶é—´ 5 ç§’ï¼‰ï¼Œä»¥ä¿è¯æœåŠ¡ç«¯è¯·æ±‚æ­£å¸¸ä¸è¢«é™çº§ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
 
 
 ```
-//Ò»µ©¸Ã·½·¨Ê§°Ü²¢Å×³öÁËÒì³£ĞÅÏ¢ºó£¬»á×Ô¶¯µ÷ÓÃ  @HystrixCommand ×¢½â±ê×¢µÄ fallbackMethod Ö¸¶¨µÄ·½·¨
+//ä¸€æ—¦è¯¥æ–¹æ³•å¤±è´¥å¹¶æŠ›å‡ºäº†å¼‚å¸¸ä¿¡æ¯åï¼Œä¼šè‡ªåŠ¨è°ƒç”¨  @HystrixCommand æ³¨è§£æ ‡æ³¨çš„ fallbackMethod æŒ‡å®šçš„æ–¹æ³•
 @HystrixCommand(fallbackMethod = "dept_TimeoutHandler",
         commandProperties =
-                //¹æ¶¨ 5 ÃëÖÓÒÔÄÚ¾Í²»±¨´í£¬Õı³£ÔËĞĞ£¬³¬¹ı 5 Ãë¾Í±¨´í£¬µ÷ÓÃÖ¸¶¨µÄ·½·¨
+                //è§„å®š 5 ç§’é’Ÿä»¥å†…å°±ä¸æŠ¥é”™ï¼Œæ­£å¸¸è¿è¡Œï¼Œè¶…è¿‡ 5 ç§’å°±æŠ¥é”™ï¼Œè°ƒç”¨æŒ‡å®šçš„æ–¹æ³•
                 {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")})
 @Override
 public String deptInfo_Timeout(Integer id) {
@@ -593,7 +593,7 @@ public String deptInfo_Timeout(Integer id) {
     } catch (InterruptedException e) {
         e.printStackTrace();
     }
-    return "Ïß³Ì³Ø£º" + Thread.currentThread().getName() + "  deptInfo_Timeout,id:   " + id + "  ºÄÊ±: " + outTime;
+    return "çº¿ç¨‹æ± ï¼š" + Thread.currentThread().getName() + "  deptInfo_Timeout,id:   " + id + "  è€—æ—¶: " + outTime;
 }
 
 ```
@@ -602,23 +602,23 @@ public String deptInfo_Timeout(Integer id) {
 
 
 
-8\. ÖØÆô micro-service-cloud-provider-dept-hystrix-8004 ºÍ micro-service-cloud-consumer-dept-feign£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com:8004/dept/hystrix/timeout/1¡±£¬Ö±½Óµ÷ÓÃ·şÎñ¶ËµÄ deptInfo_Timeout() ·½·¨£¬½á¹ûÈçÏÂÍ¼¡£
+8\. é‡å¯ micro-service-cloud-provider-dept-hystrix-8004 å’Œ micro-service-cloud-consumer-dept-feignï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com:8004/dept/hystrix/timeout/1â€ï¼Œç›´æ¥è°ƒç”¨æœåŠ¡ç«¯çš„ deptInfo_Timeout() æ–¹æ³•ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Hystrix ·şÎñ¶ËÇëÇóÕı³£](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016231059-3.png)
-Í¼4£ºHystrix ·şÎñ¶ËÇëÇóÕı³£
+![Hystrix æœåŠ¡ç«¯è¯·æ±‚æ­£å¸¸](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016231059-3.png)
+å›¾4ï¼šHystrix æœåŠ¡ç«¯è¯·æ±‚æ­£å¸¸
 
-9\. Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com/consumer/dept/hystrix/timeout/1¡±£¬½á¹ûÈçÏÂÍ¼¡£
+9\. ä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com/consumer/dept/hystrix/timeout/1â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Hystrix ¿Í»§¶Ë·şÎñ½µ¼¶](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101623C94-4.png)
-Í¼5£ºHystrix ¿Í»§¶Ë·şÎñ½µ¼¶
+![Hystrix å®¢æˆ·ç«¯æœåŠ¡é™çº§](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101623C94-4.png)
+å›¾5ï¼šHystrix å®¢æˆ·ç«¯æœåŠ¡é™çº§
 
-ÓÉÍ¼ 5 ¿ÉÒÔ¿´³ö£¬ÓÉÓÚ·şÎñÇëÇóµÄºÄÊ±Îª 4 Ãë£¬³¬¹ıÁË¿Í»§¶ËÎª¸ÃÇëÇóÖ¸¶¨µÄ³¬Ê±Ê±¼ä £¨3 Ãë £©£¬Òò´Ë¸Ã·şÎñ±»½µ¼¶´¦Àí£¬´¥·¢ÁËÆäÖ¸¶¨µÄ»ØÍË·½·¨¡£
+ç”±å›¾ 5 å¯ä»¥çœ‹å‡ºï¼Œç”±äºæœåŠ¡è¯·æ±‚çš„è€—æ—¶ä¸º 4 ç§’ï¼Œè¶…è¿‡äº†å®¢æˆ·ç«¯ä¸ºè¯¥è¯·æ±‚æŒ‡å®šçš„è¶…æ—¶æ—¶é—´ ï¼ˆ3 ç§’ ï¼‰ï¼Œå› æ­¤è¯¥æœåŠ¡è¢«é™çº§å¤„ç†ï¼Œè§¦å‘äº†å…¶æŒ‡å®šçš„å›é€€æ–¹æ³•ã€‚
 
-## È«¾Ö½µ¼¶·½·¨
+## å…¨å±€é™çº§æ–¹æ³•
 
-Í¨¹ıÉÏÃæµÄ·½Ê½ÊµÏÖ·şÎñ½µ¼¶Ê±£¬ĞèÒªÕë¶ÔËùÓĞÒµÎñ·½·¨¶¼ÅäÖÃ½µ¼¶·½·¨£¬Õâ¼«ÓĞ¿ÉÄÜ»áÔì³É´úÂëµÄ¼±¾çÅòÕÍ¡£ÎªÁË½â¾ö¸ÃÎÊÌâ£¬ÎÒÃÇ»¹¿ÉÒÔÎªËùÓĞÒµÎñ·½·¨Ö¸¶¨Ò»¸öÈ«¾ÖµÄ»ØÍË·½·¨£¬¾ßÌå²½ÖèÈçÏÂ¡£
+é€šè¿‡ä¸Šé¢çš„æ–¹å¼å®ç°æœåŠ¡é™çº§æ—¶ï¼Œéœ€è¦é’ˆå¯¹æ‰€æœ‰ä¸šåŠ¡æ–¹æ³•éƒ½é…ç½®é™çº§æ–¹æ³•ï¼Œè¿™ææœ‰å¯èƒ½ä¼šé€ æˆä»£ç çš„æ€¥å‰§è†¨èƒ€ã€‚ä¸ºäº†è§£å†³è¯¥é—®é¢˜ï¼Œæˆ‘ä»¬è¿˜å¯ä»¥ä¸ºæ‰€æœ‰ä¸šåŠ¡æ–¹æ³•æŒ‡å®šä¸€ä¸ªå…¨å±€çš„å›é€€æ–¹æ³•ï¼Œå…·ä½“æ­¥éª¤å¦‚ä¸‹ã€‚
 
-1\. ÔÚ HystrixController_Consumer µÄÀàÃûÉÏ±ê×¢ @DefaultProperties ×¢½â£¬²¢Í¨¹ıÆä defaultFallback ÊôĞÔÖ¸¶¨Ò»¸öÈ«¾ÖµÄ½µ¼¶·½·¨£¬´úÂëÈçÏÂ¡£
+1\. åœ¨ HystrixController_Consumer çš„ç±»åä¸Šæ ‡æ³¨ @DefaultProperties æ³¨è§£ï¼Œå¹¶é€šè¿‡å…¶ defaultFallback å±æ€§æŒ‡å®šä¸€ä¸ªå…¨å±€çš„é™çº§æ–¹æ³•ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -629,9 +629,9 @@ public String deptInfo_Timeout(Integer id) {
 
 @Slf4j
 @RestController
-@DefaultProperties(defaultFallback = "dept_Global_FallbackMethod") //È«¾ÖµÄ·şÎñ½µ¼¶·½·¨
+@DefaultProperties(defaultFallback = "dept_Global_FallbackMethod") //å…¨å±€çš„æœåŠ¡é™çº§æ–¹æ³•
 public class HystrixController_Consumer {
-¡­¡­
+â€¦â€¦
 }
 
 ```
@@ -640,7 +640,7 @@ public class HystrixController_Consumer {
 
 
 
-2\. ÔÚ HystrixController_Consumer ÖĞ£¬´´½¨Ò»¸öÃûÎª dept_Global_FallbackMethod µÄÈ«¾Ö»Ø·½·¨£¬´úÂëÈçÏÂ¡£
+2\. åœ¨ HystrixController_Consumer ä¸­ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º dept_Global_FallbackMethod çš„å…¨å±€å›æ–¹æ³•ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -650,12 +650,12 @@ public class HystrixController_Consumer {
 
 
 /**
- * È«¾ÖµÄ fallback ·½·¨£¬
- * »ØÍË·½·¨±ØĞëºÍ hystrix µÄÖ´ĞĞ·½·¨ÔÚÏàÍ¬ÀàÖĞ
- * @DefaultProperties(defaultFallback = "dept_Global_FallbackMethod") ÀàÉÏ×¢½â£¬ÇëÇó·½·¨ÉÏÊ¹ÓÃ @HystrixCommand ×¢½â
+ * å…¨å±€çš„ fallback æ–¹æ³•ï¼Œ
+ * å›é€€æ–¹æ³•å¿…é¡»å’Œ hystrix çš„æ‰§è¡Œæ–¹æ³•åœ¨ç›¸åŒç±»ä¸­
+ * @DefaultProperties(defaultFallback = "dept_Global_FallbackMethod") ç±»ä¸Šæ³¨è§£ï¼Œè¯·æ±‚æ–¹æ³•ä¸Šä½¿ç”¨ @HystrixCommand æ³¨è§£
  */
 public String dept_Global_FallbackMethod() {
-    return "CÓïÑÔÖĞÎÄÍøÌáĞÑÄú£¬ÔËĞĞ³ö´í»ò·şÎñ¶ËÏµÍ³·±Ã¦£¬ÇëÉÔºóÔÙÊÔ£¡£¨¿Í»§¶ËÈ«¾Ö»ØÍË·½·¨´¥·¢,£©";
+    return "Cè¯­è¨€ä¸­æ–‡ç½‘æé†’æ‚¨ï¼Œè¿è¡Œå‡ºé”™æˆ–æœåŠ¡ç«¯ç³»ç»Ÿç¹å¿™ï¼Œè¯·ç¨åå†è¯•ï¼ï¼ˆå®¢æˆ·ç«¯å…¨å±€å›é€€æ–¹æ³•è§¦å‘,ï¼‰";
 }
 
 ```
@@ -664,9 +664,9 @@ public String dept_Global_FallbackMethod() {
 
 
 
-> **×¢Òâ**£º½µ¼¶£¨FallBack£©·½·¨±ØĞëÓëÆä¶ÔÓ¦µÄÒµÎñ·½·¨ÔÚÍ¬Ò»¸öÀàÖĞ£¬·ñÔòÎŞ·¨ÉúĞ§¡£
+> **æ³¨æ„**ï¼šé™çº§ï¼ˆFallBackï¼‰æ–¹æ³•å¿…é¡»ä¸å…¶å¯¹åº”çš„ä¸šåŠ¡æ–¹æ³•åœ¨åŒä¸€ä¸ªç±»ä¸­ï¼Œå¦åˆ™æ— æ³•ç”Ÿæ•ˆã€‚
 
-3\. ÔÚËùÓĞµÄÒµÎñ·½·¨ÉÏ¶¼±ê×¢ @HystrixCommand ×¢½â£¬ÕâÀïÎÒÃÇ½« deptInfo_Timeout() ·½·¨ÉÏµÄ @HystrixCommand(fallbackMethod = "dept_TimeoutHandler") ĞŞ¸ÄÎª @HystrixCommand ¼´¿É£¬´úÂëÈçÏÂ¡£
+3\. åœ¨æ‰€æœ‰çš„ä¸šåŠ¡æ–¹æ³•ä¸Šéƒ½æ ‡æ³¨ @HystrixCommand æ³¨è§£ï¼Œè¿™é‡Œæˆ‘ä»¬å°† deptInfo_Timeout() æ–¹æ³•ä¸Šçš„ @HystrixCommand(fallbackMethod = "dept_TimeoutHandler") ä¿®æ”¹ä¸º @HystrixCommand å³å¯ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -675,7 +675,7 @@ public String dept_Global_FallbackMethod() {
 ```
 
 
-//ÔÚ¿Í»§¶Ë½øĞĞ½µ¼¶
+//åœ¨å®¢æˆ·ç«¯è¿›è¡Œé™çº§
 @RequestMapping(value = "/consumer/dept/hystrix/timeout/{id}")
 @HystrixCommand
 public String deptInfo_Timeout(@PathVariable("id") Integer id) {
@@ -689,20 +689,20 @@ public String deptInfo_Timeout(@PathVariable("id") Integer id) {
 
 
 
-> **×¢Òâ**£ºÈ«¾Ö½µ¼¶·½·¨µÄÓÅÏÈ¼¶½ÏµÍ£¬Ö»ÓĞÒµÎñ·½·¨Ã»ÓĞÖ¸¶¨Æä½µ¼¶·½·¨Ê±£¬·şÎñ½µ¼¶Ê±²Å»á´¥·¢È«¾Ö»ØÍË·½·¨¡£ÈôÒµÎñ·½·¨Ö¸¶¨Ëü×Ô¼ºµÄ»ØÍË·½·¨£¬ÄÇÃ´ÔÚ·şÎñ½µ¼¶Ê±£¬¾ÍÖ»»áÖ±½Ó´¥·¢Ëü×Ô¼ºµÄ»ØÍË·½·¨£¬¶ø·ÇÈ«¾Ö»ØÍË·½·¨¡£
+> **æ³¨æ„**ï¼šå…¨å±€é™çº§æ–¹æ³•çš„ä¼˜å…ˆçº§è¾ƒä½ï¼Œåªæœ‰ä¸šåŠ¡æ–¹æ³•æ²¡æœ‰æŒ‡å®šå…¶é™çº§æ–¹æ³•æ—¶ï¼ŒæœåŠ¡é™çº§æ—¶æ‰ä¼šè§¦å‘å…¨å±€å›é€€æ–¹æ³•ã€‚è‹¥ä¸šåŠ¡æ–¹æ³•æŒ‡å®šå®ƒè‡ªå·±çš„å›é€€æ–¹æ³•ï¼Œé‚£ä¹ˆåœ¨æœåŠ¡é™çº§æ—¶ï¼Œå°±åªä¼šç›´æ¥è§¦å‘å®ƒè‡ªå·±çš„å›é€€æ–¹æ³•ï¼Œè€Œéå…¨å±€å›é€€æ–¹æ³•ã€‚
 
-4\. ÖØÆô micro-service-cloud-consumer-dept-feign£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com/consumer/dept/hystrix/timeout/1¡±£¬½á¹ûÈçÏÂÍ¼¡£
+4\. é‡å¯ micro-service-cloud-consumer-dept-feignï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com/consumer/dept/hystrix/timeout/1â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Hystrix È«¾Ö»ØÍË·½·¨](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101623J11-5.png)
-Í¼6£ºÈ«¾Ö»ØÍË·½·¨
+![Hystrix å…¨å±€å›é€€æ–¹æ³•](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101623J11-5.png)
+å›¾6ï¼šå…¨å±€å›é€€æ–¹æ³•
 
-## ½âñî½µ¼¶Âß¼­
+## è§£è€¦é™çº§é€»è¾‘
 
-²»¹ÜÊÇÒµÎñ·½·¨Ö¸¶¨µÄ½µ¼¶·½·¨»¹ÊÇÈ«¾Ö½µ¼¶·½·¨£¬ËüÃÇ¶¼±ØĞëºÍÒµÎñ·½·¨ÔÚÍ¬Ò»¸öÀàÖĞ²ÅÄÜÉúĞ§£¬ÒµÎñÂß¼­Óë½µ¼¶Âß¼­ñîºÏ¶È¼«¸ß¡£
+ä¸ç®¡æ˜¯ä¸šåŠ¡æ–¹æ³•æŒ‡å®šçš„é™çº§æ–¹æ³•è¿˜æ˜¯å…¨å±€é™çº§æ–¹æ³•ï¼Œå®ƒä»¬éƒ½å¿…é¡»å’Œä¸šåŠ¡æ–¹æ³•åœ¨åŒä¸€ä¸ªç±»ä¸­æ‰èƒ½ç”Ÿæ•ˆï¼Œä¸šåŠ¡é€»è¾‘ä¸é™çº§é€»è¾‘è€¦åˆåº¦æé«˜ã€‚
 
-ÏÂÃæÎÒÃÇ¶ÔÒµÎñÂß¼­Óë½µ¼¶Âß¼­½øĞĞ½âñî£¬²Ù×÷²½ÖèÈçÏÂ¡£
+ä¸‹é¢æˆ‘ä»¬å¯¹ä¸šåŠ¡é€»è¾‘ä¸é™çº§é€»è¾‘è¿›è¡Œè§£è€¦ï¼Œæ“ä½œæ­¥éª¤å¦‚ä¸‹ã€‚
 
-1\. ÔÚ micro-service-cloud-consumer-dept-feign µÄ net.biancheng.c.service °üÏÂ£¬ĞÂ½¨ DeptHystrixService ½Ó¿ÚµÄÊµÏÖÀà DeptHystrixFallBackService£¬Í³Ò»Îª DeptHystrixService ÖĞµÄ·½·¨Ìá¹©·şÎñ½µ¼¶´¦Àí £¬´úÂëÈçÏÂ¡£
+1\. åœ¨ micro-service-cloud-consumer-dept-feign çš„ net.biancheng.c.service åŒ…ä¸‹ï¼Œæ–°å»º DeptHystrixService æ¥å£çš„å®ç°ç±» DeptHystrixFallBackServiceï¼Œç»Ÿä¸€ä¸º DeptHystrixService ä¸­çš„æ–¹æ³•æä¾›æœåŠ¡é™çº§å¤„ç† ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -713,18 +713,18 @@ public String deptInfo_Timeout(@PathVariable("id") Integer id) {
 package net.biancheng.c.service;
 import org.springframework.stereotype.Component;
 /**
-* Hystrix ·şÎñ½µ¼¶
-* ½âñî»ØÍËÂß¼­
+* Hystrix æœåŠ¡é™çº§
+* è§£è€¦å›é€€é€»è¾‘
 */
 @Component
 public class DeptHystrixFallBackService implements DeptHystrixService {
     @Override
     public String deptInfo_Ok(Integer id) {
-        return "--------------------CÓïÑÔÖĞÎÄÍøÌáĞÑÄú£¬ÏµÍ³·±Ã¦£¬ÇëÉÔºóÖØÊÔ£¡£¨½âñî»ØÍË·½·¨´¥·¢£©-----------------------";
+        return "--------------------Cè¯­è¨€ä¸­æ–‡ç½‘æé†’æ‚¨ï¼Œç³»ç»Ÿç¹å¿™ï¼Œè¯·ç¨åé‡è¯•ï¼ï¼ˆè§£è€¦å›é€€æ–¹æ³•è§¦å‘ï¼‰-----------------------";
     }
     @Override
     public String deptInfo_Timeout(Integer id) {
-        return "--------------------CÓïÑÔÖĞÎÄÍøÌáĞÑÄú£¬ÏµÍ³·±Ã¦£¬ÇëÉÔºóÖØÊÔ£¡£¨½âñî»ØÍË·½·¨´¥·¢£©-----------------------";
+        return "--------------------Cè¯­è¨€ä¸­æ–‡ç½‘æé†’æ‚¨ï¼Œç³»ç»Ÿç¹å¿™ï¼Œè¯·ç¨åé‡è¯•ï¼ï¼ˆè§£è€¦å›é€€æ–¹æ³•è§¦å‘ï¼‰-----------------------";
     }
 }
 
@@ -734,9 +734,9 @@ public class DeptHystrixFallBackService implements DeptHystrixService {
 
 
 
-> **×¢Òâ**£º¸ÃÀà±ØĞëÒÔ×é¼şµÄĞÎÊ½Ìí¼Ó Spring ÈİÆ÷ÖĞ²ÅÄÜÉúĞ§£¬×î³£ÓÃµÄ·½Ê½¾ÍÊÇÔÚÀàÉÏ±ê×¢ @Component ×¢½â¡£
+> **æ³¨æ„**ï¼šè¯¥ç±»å¿…é¡»ä»¥ç»„ä»¶çš„å½¢å¼æ·»åŠ  Spring å®¹å™¨ä¸­æ‰èƒ½ç”Ÿæ•ˆï¼Œæœ€å¸¸ç”¨çš„æ–¹å¼å°±æ˜¯åœ¨ç±»ä¸Šæ ‡æ³¨ @Component æ³¨è§£ã€‚
 
-2\. ÔÚ·şÎñ°ó¶¨½Ó¿Ú DeptHystrixService ±ê×¢µÄ @FeignClient ×¢½âÖĞÌí¼Ó fallback ÊôĞÔ£¬ÊôĞÔÖµÎª DeptHystrixFallBackService.class£¬´úÂëÈçÏÂ¡£
+2\. åœ¨æœåŠ¡ç»‘å®šæ¥å£ DeptHystrixService æ ‡æ³¨çš„ @FeignClient æ³¨è§£ä¸­æ·»åŠ  fallback å±æ€§ï¼Œå±æ€§å€¼ä¸º DeptHystrixFallBackService.classï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -763,47 +763,47 @@ public interface DeptHystrixService {
 
 
 
-3\. ÖØÆô micro-service-cloud-consumer-dept-feign£¬È»ºó¹Ø±Õ·şÎñ¶Ë micro-service-cloud-provider-dept-hystrix-8004£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com/consumer/dept/hystrix/ok/1¡±£¬½á¹ûÈçÏÂÍ¼¡£
+3\. é‡å¯ micro-service-cloud-consumer-dept-feignï¼Œç„¶åå…³é—­æœåŠ¡ç«¯ micro-service-cloud-provider-dept-hystrix-8004ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com/consumer/dept/hystrix/ok/1â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Hystrix ½âñî»ØÍËÂß¼­](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016233063-6.png)
-Í¼7£ºHystrix ½âñî»ØÍË·½·¨
+![Hystrix è§£è€¦å›é€€é€»è¾‘](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016233063-6.png)
+å›¾7ï¼šHystrix è§£è€¦å›é€€æ–¹æ³•
 
-## Hystrix ·şÎñÈÛ¶Ï
+## Hystrix æœåŠ¡ç†”æ–­
 
-ÈÛ¶Ï»úÖÆÊÇÎªÁËÓ¦¶ÔÑ©±ÀĞ§Ó¦¶ø³öÏÖµÄÒ»ÖÖÎ¢·şÎñÁ´Â·±£»¤»úÖÆ¡£
+ç†”æ–­æœºåˆ¶æ˜¯ä¸ºäº†åº”å¯¹é›ªå´©æ•ˆåº”è€Œå‡ºç°çš„ä¸€ç§å¾®æœåŠ¡é“¾è·¯ä¿æŠ¤æœºåˆ¶ã€‚
 
-µ±Î¢·şÎñÏµÍ³ÖĞµÄÄ³¸öÎ¢·şÎñ²»¿ÉÓÃ»òÏìÓ¦Ê±¼äÌ«³¤Ê±£¬ÎªÁË±£»¤ÏµÍ³µÄÕûÌå¿ÉÓÃĞÔ£¬ÈÛ¶ÏÆ÷»áÔİÊ±ÇĞ¶ÏÇëÇó¶Ô¸Ã·şÎñµÄµ÷ÓÃ£¬²¢¿ìËÙ·µ»ØÒ»¸öÓÑºÃµÄ´íÎóÏìÓ¦¡£ÕâÖÖÈÛ¶Ï×´Ì¬²»ÊÇÓÀ¾ÃµÄ£¬ÔÚ¾­ÀúÁËÒ»¶¨µÄÊ±¼äºó£¬ÈÛ¶ÏÆ÷»áÔÙ´Î¼ì²â¸ÃÎ¢·şÎñÊÇ·ñ»Ö¸´Õı³££¬Èô·şÎñ»Ö¸´Õı³£Ôò»Ö¸´Æäµ÷ÓÃÁ´Â·¡£
+å½“å¾®æœåŠ¡ç³»ç»Ÿä¸­çš„æŸä¸ªå¾®æœåŠ¡ä¸å¯ç”¨æˆ–å“åº”æ—¶é—´å¤ªé•¿æ—¶ï¼Œä¸ºäº†ä¿æŠ¤ç³»ç»Ÿçš„æ•´ä½“å¯ç”¨æ€§ï¼Œç†”æ–­å™¨ä¼šæš‚æ—¶åˆ‡æ–­è¯·æ±‚å¯¹è¯¥æœåŠ¡çš„è°ƒç”¨ï¼Œå¹¶å¿«é€Ÿè¿”å›ä¸€ä¸ªå‹å¥½çš„é”™è¯¯å“åº”ã€‚è¿™ç§ç†”æ–­çŠ¶æ€ä¸æ˜¯æ°¸ä¹…çš„ï¼Œåœ¨ç»å†äº†ä¸€å®šçš„æ—¶é—´åï¼Œç†”æ–­å™¨ä¼šå†æ¬¡æ£€æµ‹è¯¥å¾®æœåŠ¡æ˜¯å¦æ¢å¤æ­£å¸¸ï¼Œè‹¥æœåŠ¡æ¢å¤æ­£å¸¸åˆ™æ¢å¤å…¶è°ƒç”¨é“¾è·¯ã€‚
 
-#### ÈÛ¶Ï×´Ì¬
+#### ç†”æ–­çŠ¶æ€
 
-ÔÚÈÛ¶Ï»úÖÆÖĞÉæ¼°ÁËÈıÖÖÈÛ¶Ï×´Ì¬£º
+åœ¨ç†”æ–­æœºåˆ¶ä¸­æ¶‰åŠäº†ä¸‰ç§ç†”æ–­çŠ¶æ€ï¼š
 
-*   ÈÛ¶Ï¹Ø±Õ×´Ì¬£¨Closed£©£ºµ±·şÎñ·ÃÎÊÕı³£Ê±£¬ÈÛ¶ÏÆ÷´¦ÓÚ¹Ø±Õ×´Ì¬£¬·şÎñµ÷ÓÃ·½¿ÉÒÔÕı³£µØ¶Ô·şÎñ½øĞĞµ÷ÓÃ¡£
-*   ÈÛ¶Ï¿ªÆô×´Ì¬£¨Open£©£ºÄ¬ÈÏÇé¿öÏÂ£¬ÔÚ¹Ì¶¨Ê±¼äÄÚ½Ó¿Úµ÷ÓÃ³ö´í±ÈÂÊ´ïµ½Ò»¸öãĞÖµ£¨ÀıÈç 50%£©£¬ÈÛ¶ÏÆ÷»á½øÈëÈÛ¶Ï¿ªÆô×´Ì¬¡£½øÈëÈÛ¶Ï×´Ì¬ºó£¬ºóĞø¶Ô¸Ã·şÎñµÄµ÷ÓÃ¶¼»á±»ÇĞ¶Ï£¬ÈÛ¶ÏÆ÷»áÖ´ĞĞ±¾µØµÄ½µ¼¶£¨FallBack£©·½·¨¡£
-*   °ëÈÛ¶Ï×´Ì¬£¨Half-Open£©£º ÔÚÈÛ¶Ï¿ªÆôÒ»¶ÎÊ±¼äÖ®ºó£¬ÈÛ¶ÏÆ÷»á½øÈë°ëÈÛ¶Ï×´Ì¬¡£ÔÚ°ëÈÛ¶Ï×´Ì¬ÏÂ£¬ÈÛ¶ÏÆ÷»á³¢ÊÔ»Ö¸´·şÎñµ÷ÓÃ·½¶Ô·şÎñµÄµ÷ÓÃ£¬ÔÊĞí²¿·ÖÇëÇóµ÷ÓÃ¸Ã·şÎñ£¬²¢¼à¿ØÆäµ÷ÓÃ³É¹¦ÂÊ¡£Èç¹û³É¹¦ÂÊ´ïµ½Ô¤ÆÚ£¬ÔòËµÃ÷·şÎñÒÑ»Ö¸´Õı³££¬ÈÛ¶ÏÆ÷½øÈë¹Ø±Õ×´Ì¬£»Èç¹û³É¹¦ÂÊÈÔ¾ÉºÜµÍ£¬ÔòÖØĞÂ½øÈëÈÛ¶Ï¿ªÆô×´Ì¬¡£
+*   ç†”æ–­å…³é—­çŠ¶æ€ï¼ˆClosedï¼‰ï¼šå½“æœåŠ¡è®¿é—®æ­£å¸¸æ—¶ï¼Œç†”æ–­å™¨å¤„äºå…³é—­çŠ¶æ€ï¼ŒæœåŠ¡è°ƒç”¨æ–¹å¯ä»¥æ­£å¸¸åœ°å¯¹æœåŠ¡è¿›è¡Œè°ƒç”¨ã€‚
+*   ç†”æ–­å¼€å¯çŠ¶æ€ï¼ˆOpenï¼‰ï¼šé»˜è®¤æƒ…å†µä¸‹ï¼Œåœ¨å›ºå®šæ—¶é—´å†…æ¥å£è°ƒç”¨å‡ºé”™æ¯”ç‡è¾¾åˆ°ä¸€ä¸ªé˜ˆå€¼ï¼ˆä¾‹å¦‚ 50%ï¼‰ï¼Œç†”æ–­å™¨ä¼šè¿›å…¥ç†”æ–­å¼€å¯çŠ¶æ€ã€‚è¿›å…¥ç†”æ–­çŠ¶æ€åï¼Œåç»­å¯¹è¯¥æœåŠ¡çš„è°ƒç”¨éƒ½ä¼šè¢«åˆ‡æ–­ï¼Œç†”æ–­å™¨ä¼šæ‰§è¡Œæœ¬åœ°çš„é™çº§ï¼ˆFallBackï¼‰æ–¹æ³•ã€‚
+*   åŠç†”æ–­çŠ¶æ€ï¼ˆHalf-Openï¼‰ï¼š åœ¨ç†”æ–­å¼€å¯ä¸€æ®µæ—¶é—´ä¹‹åï¼Œç†”æ–­å™¨ä¼šè¿›å…¥åŠç†”æ–­çŠ¶æ€ã€‚åœ¨åŠç†”æ–­çŠ¶æ€ä¸‹ï¼Œç†”æ–­å™¨ä¼šå°è¯•æ¢å¤æœåŠ¡è°ƒç”¨æ–¹å¯¹æœåŠ¡çš„è°ƒç”¨ï¼Œå…è®¸éƒ¨åˆ†è¯·æ±‚è°ƒç”¨è¯¥æœåŠ¡ï¼Œå¹¶ç›‘æ§å…¶è°ƒç”¨æˆåŠŸç‡ã€‚å¦‚æœæˆåŠŸç‡è¾¾åˆ°é¢„æœŸï¼Œåˆ™è¯´æ˜æœåŠ¡å·²æ¢å¤æ­£å¸¸ï¼Œç†”æ–­å™¨è¿›å…¥å…³é—­çŠ¶æ€ï¼›å¦‚æœæˆåŠŸç‡ä»æ—§å¾ˆä½ï¼Œåˆ™é‡æ–°è¿›å…¥ç†”æ–­å¼€å¯çŠ¶æ€ã€‚
 
-ÈıÖÖÈÛ¶Ï×´Ì¬Ö®¼äµÄ×ª»¯¹ØÏµÈçÏÂÍ¼£º
+ä¸‰ç§ç†”æ–­çŠ¶æ€ä¹‹é—´çš„è½¬åŒ–å…³ç³»å¦‚ä¸‹å›¾ï¼š
 
-![ÈÛ¶Ï×´Ì¬×ª»»](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10162355X-7.png)
-Í¼8£ºÈıÖÖÈÛ¶Ï×´Ì¬×ª»»
+![ç†”æ–­çŠ¶æ€è½¬æ¢](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10162355X-7.png)
+å›¾8ï¼šä¸‰ç§ç†”æ–­çŠ¶æ€è½¬æ¢
 
-#### Hystrix ÊµÏÖÈÛ¶Ï»úÖÆ
+#### Hystrix å®ç°ç†”æ–­æœºåˆ¶
 
-ÔÚ Spring Cloud ÖĞ£¬ÈÛ¶Ï»úÖÆÊÇÍ¨¹ı Hystrix ÊµÏÖµÄ¡£Hystrix »á¼à¿ØÎ¢·şÎñ¼äµ÷ÓÃµÄ×´¿ö£¬µ±Ê§°Üµ÷ÓÃµ½Ò»¶¨±ÈÀıÊ±£¨ÀıÈç 5 ÃëÄÚÊ§°Ü 20 ´Î£©£¬¾Í»áÆô¶¯ÈÛ¶Ï»úÖÆ¡£
+åœ¨ Spring Cloud ä¸­ï¼Œç†”æ–­æœºåˆ¶æ˜¯é€šè¿‡ Hystrix å®ç°çš„ã€‚Hystrix ä¼šç›‘æ§å¾®æœåŠ¡é—´è°ƒç”¨çš„çŠ¶å†µï¼Œå½“å¤±è´¥è°ƒç”¨åˆ°ä¸€å®šæ¯”ä¾‹æ—¶ï¼ˆä¾‹å¦‚ 5 ç§’å†…å¤±è´¥ 20 æ¬¡ï¼‰ï¼Œå°±ä¼šå¯åŠ¨ç†”æ–­æœºåˆ¶ã€‚
 
-Hystrix ÊµÏÖ·şÎñÈÛ¶ÏµÄ²½ÖèÈçÏÂ£º
+Hystrix å®ç°æœåŠ¡ç†”æ–­çš„æ­¥éª¤å¦‚ä¸‹ï¼š
 
-1.  µ±·şÎñµÄµ÷ÓÃ³ö´íÂÊ´ïµ½»ò³¬¹ı Hystix ¹æ¶¨µÄ±ÈÂÊ£¨Ä¬ÈÏÎª 50%£©ºó£¬ÈÛ¶ÏÆ÷½øÈëÈÛ¶Ï¿ªÆô×´Ì¬¡£
-2.  ÈÛ¶ÏÆ÷½øÈëÈÛ¶Ï¿ªÆô×´Ì¬ºó£¬Hystrix »áÆô¶¯Ò»¸öĞİÃßÊ±¼ä´°£¬ÔÚÕâ¸öÊ±¼ä´°ÄÚ£¬¸Ã·şÎñµÄ½µ¼¶Âß¼­»áÁÙÊ±³äµ±ÒµÎñÖ÷Âß¼­£¬¶øÔ­À´µÄÒµÎñÖ÷Âß¼­²»¿ÉÓÃ¡£
-3.  µ±ÓĞÇëÇóÔÙ´Îµ÷ÓÃ¸Ã·şÎñÊ±£¬»áÖ±½Óµ÷ÓÃ½µ¼¶Âß¼­¿ìËÙµØ·µ»ØÊ§°ÜÏìÓ¦£¬ÒÔ±ÜÃâÏµÍ³Ñ©±À¡£
-4.  µ±ĞİÃßÊ±¼ä´°µ½ÆÚºó£¬Hystrix »á½øÈë°ëÈÛ¶Ï×ªÌ¬£¬ÔÊĞí²¿·ÖÇëÇó¶Ô·şÎñÔ­À´µÄÖ÷ÒµÎñÂß¼­½øĞĞµ÷ÓÃ£¬²¢¼à¿ØÆäµ÷ÓÃ³É¹¦ÂÊ¡£
-5.  Èç¹ûµ÷ÓÃ³É¹¦ÂÊ´ïµ½Ô¤ÆÚ£¬ÔòËµÃ÷·şÎñÒÑ»Ö¸´Õı³££¬Hystrix ½øÈëÈÛ¶Ï¹Ø±Õ×´Ì¬£¬·şÎñÔ­À´µÄÖ÷ÒµÎñÂß¼­»Ö¸´£»·ñÔò Hystrix ÖØĞÂ½øÈëÈÛ¶Ï¿ªÆô×´Ì¬£¬ĞİÃßÊ±¼ä´°¿ÚÖØĞÂ¼ÆÊ±£¬¼ÌĞøÖØ¸´µÚ 2 µ½µÚ 5 ²½¡£
+1.  å½“æœåŠ¡çš„è°ƒç”¨å‡ºé”™ç‡è¾¾åˆ°æˆ–è¶…è¿‡ Hystix è§„å®šçš„æ¯”ç‡ï¼ˆé»˜è®¤ä¸º 50%ï¼‰åï¼Œç†”æ–­å™¨è¿›å…¥ç†”æ–­å¼€å¯çŠ¶æ€ã€‚
+2.  ç†”æ–­å™¨è¿›å…¥ç†”æ–­å¼€å¯çŠ¶æ€åï¼ŒHystrix ä¼šå¯åŠ¨ä¸€ä¸ªä¼‘çœ æ—¶é—´çª—ï¼Œåœ¨è¿™ä¸ªæ—¶é—´çª—å†…ï¼Œè¯¥æœåŠ¡çš„é™çº§é€»è¾‘ä¼šä¸´æ—¶å……å½“ä¸šåŠ¡ä¸»é€»è¾‘ï¼Œè€ŒåŸæ¥çš„ä¸šåŠ¡ä¸»é€»è¾‘ä¸å¯ç”¨ã€‚
+3.  å½“æœ‰è¯·æ±‚å†æ¬¡è°ƒç”¨è¯¥æœåŠ¡æ—¶ï¼Œä¼šç›´æ¥è°ƒç”¨é™çº§é€»è¾‘å¿«é€Ÿåœ°è¿”å›å¤±è´¥å“åº”ï¼Œä»¥é¿å…ç³»ç»Ÿé›ªå´©ã€‚
+4.  å½“ä¼‘çœ æ—¶é—´çª—åˆ°æœŸåï¼ŒHystrix ä¼šè¿›å…¥åŠç†”æ–­è½¬æ€ï¼Œå…è®¸éƒ¨åˆ†è¯·æ±‚å¯¹æœåŠ¡åŸæ¥çš„ä¸»ä¸šåŠ¡é€»è¾‘è¿›è¡Œè°ƒç”¨ï¼Œå¹¶ç›‘æ§å…¶è°ƒç”¨æˆåŠŸç‡ã€‚
+5.  å¦‚æœè°ƒç”¨æˆåŠŸç‡è¾¾åˆ°é¢„æœŸï¼Œåˆ™è¯´æ˜æœåŠ¡å·²æ¢å¤æ­£å¸¸ï¼ŒHystrix è¿›å…¥ç†”æ–­å…³é—­çŠ¶æ€ï¼ŒæœåŠ¡åŸæ¥çš„ä¸»ä¸šåŠ¡é€»è¾‘æ¢å¤ï¼›å¦åˆ™ Hystrix é‡æ–°è¿›å…¥ç†”æ–­å¼€å¯çŠ¶æ€ï¼Œä¼‘çœ æ—¶é—´çª—å£é‡æ–°è®¡æ—¶ï¼Œç»§ç»­é‡å¤ç¬¬ 2 åˆ°ç¬¬ 5 æ­¥ã€‚
 
-#### Ê¾Àı
+#### ç¤ºä¾‹
 
-ÏÂÃæÎÒÃÇ¾ÍÍ¨¹ıÒ»¸öÊµÀıÀ´ÑéÖ¤ÏÂ Hystrix ÊÇÈçºÎÊµÏÖÈÛ¶Ï»úÖÆµÄ¡£
+ä¸‹é¢æˆ‘ä»¬å°±é€šè¿‡ä¸€ä¸ªå®ä¾‹æ¥éªŒè¯ä¸‹ Hystrix æ˜¯å¦‚ä½•å®ç°ç†”æ–­æœºåˆ¶çš„ã€‚
 
-1\. ÔÚ micro-service-cloud-provider-dept-hystrix-8004 ÖĞµÄ DeptService ½Ó¿ÚÖĞÌí¼ÓÒ»¸ö deptCircuitBreaker() ·½·¨£¬´úÂëÈçÏÂ¡£
+1\. åœ¨ micro-service-cloud-provider-dept-hystrix-8004 ä¸­çš„ DeptService æ¥å£ä¸­æ·»åŠ ä¸€ä¸ª deptCircuitBreaker() æ–¹æ³•ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -813,12 +813,12 @@ Hystrix ÊµÏÖ·şÎñÈÛ¶ÏµÄ²½ÖèÈçÏÂ£º
 
 package net.biancheng.c.service;
 public interface DeptService {
-    // hystrix ÈÛ¶ÏÆ÷Ê¾Àı ok
+    // hystrix ç†”æ–­å™¨ç¤ºä¾‹ ok
     public String deptInfo_Ok(Integer id);
    
-    //hystrix ÈÛ¶ÏÆ÷³¬Ê±°¸Àı
+    //hystrix ç†”æ–­å™¨è¶…æ—¶æ¡ˆä¾‹
     public String deptInfo_Timeout(Integer id);
-    // Hystrix ÈÛ¶Ï»úÖÆ°¸Àı
+    // Hystrix ç†”æ–­æœºåˆ¶æ¡ˆä¾‹
     public String deptCircuitBreaker(Integer id);
 }
 
@@ -828,35 +828,35 @@ public interface DeptService {
 
 
 
-2\. ÔÚ DeptService ½Ó¿ÚµÄÊµÏÖÀà DeptServiceImpl Ìí¼Ó deptCircuitBreaker() µÄ·½·¨ÊµÏÖ¼°Æä»ØÍË·½·¨£¬´úÂëÈçÏÂ¡£
+2\. åœ¨ DeptService æ¥å£çš„å®ç°ç±» DeptServiceImpl æ·»åŠ  deptCircuitBreaker() çš„æ–¹æ³•å®ç°åŠå…¶å›é€€æ–¹æ³•ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
 
 
 ```
-//Hystrix ÈÛ¶Ï°¸Àı
+//Hystrix ç†”æ–­æ¡ˆä¾‹
 @Override
 @HystrixCommand(fallbackMethod = "deptCircuitBreaker_fallback", commandProperties = {
-        //ÒÔÏÂ²ÎÊıÔÚ HystrixCommandProperties ÀàÖĞÓĞÄ¬ÈÏÅäÖÃ
-        @HystrixProperty(name = "circuitBreaker.enabled", value = "true"), //ÊÇ·ñ¿ªÆôÈÛ¶ÏÆ÷
-    @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds",value = "1000"), //Í³¼ÆÊ±¼ä´°
-        @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"), //Í³¼ÆÊ±¼ä´°ÄÚÇëÇó´ÎÊı
-        @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"), //ĞİÃßÊ±¼ä´°¿ÚÆÚ
-        @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"), //ÔÚÍ³¼ÆÊ±¼ä´°¿ÚÆÚÒÔÄÚ£¬ÇëÇóÊ§°ÜÂÊ´ïµ½ 60% Ê±½øÈëÈÛ¶Ï×´Ì¬
+        //ä»¥ä¸‹å‚æ•°åœ¨ HystrixCommandProperties ç±»ä¸­æœ‰é»˜è®¤é…ç½®
+        @HystrixProperty(name = "circuitBreaker.enabled", value = "true"), //æ˜¯å¦å¼€å¯ç†”æ–­å™¨
+    @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds",value = "1000"), //ç»Ÿè®¡æ—¶é—´çª—
+        @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"), //ç»Ÿè®¡æ—¶é—´çª—å†…è¯·æ±‚æ¬¡æ•°
+        @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"), //ä¼‘çœ æ—¶é—´çª—å£æœŸ
+        @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60"), //åœ¨ç»Ÿè®¡æ—¶é—´çª—å£æœŸä»¥å†…ï¼Œè¯·æ±‚å¤±è´¥ç‡è¾¾åˆ° 60% æ—¶è¿›å…¥ç†”æ–­çŠ¶æ€
 })
 public String deptCircuitBreaker(Integer id) {
     if (id < 0) {
-        //µ±´«ÈëµÄ id Îª¸ºÊıÊ±£¬Å×³öÒì³££¬µ÷ÓÃ½µ¼¶·½·¨
-        throw new RuntimeException("cÓïÑÔÖĞÎÄÍøÌáĞÑÄú£¬id ²»ÄÜÊÇ¸ºÊı£¡");
+        //å½“ä¼ å…¥çš„ id ä¸ºè´Ÿæ•°æ—¶ï¼ŒæŠ›å‡ºå¼‚å¸¸ï¼Œè°ƒç”¨é™çº§æ–¹æ³•
+        throw new RuntimeException("cè¯­è¨€ä¸­æ–‡ç½‘æé†’æ‚¨ï¼Œid ä¸èƒ½æ˜¯è´Ÿæ•°ï¼");
     }
     String serialNum = IdUtil.simpleUUID();
-    return Thread.currentThread().getName() + "\t" + "µ÷ÓÃ³É¹¦£¬Á÷Ë®ºÅÎª£º" + serialNum;
+    return Thread.currentThread().getName() + "\t" + "è°ƒç”¨æˆåŠŸï¼Œæµæ°´å·ä¸ºï¼š" + serialNum;
 }
 
-//deptCircuitBreaker µÄ½µ¼¶·½·¨
+//deptCircuitBreaker çš„é™çº§æ–¹æ³•
 public String deptCircuitBreaker_fallback(Integer id) {
-    return "cÓïÑÔÖĞÎÄÍøÌáĞÑÄú£¬id ²»ÄÜÊÇ¸ºÊı,ÇëÉÔºóÖØÊÔ!\t id:" + id;
+    return "cè¯­è¨€ä¸­æ–‡ç½‘æé†’æ‚¨ï¼Œid ä¸èƒ½æ˜¯è´Ÿæ•°,è¯·ç¨åé‡è¯•!\t id:" + id;
 }
 
 ```
@@ -865,16 +865,16 @@ public String deptCircuitBreaker_fallback(Integer id) {
 
 
 
-ÔÚÒÔÉÏ´úÂëÖĞ£¬¹²Éæ¼°µ½ÁË 4 ¸öÓë Hystrix ÈÛ¶Ï»úÖÆÏà¹ØµÄÖØÒª²ÎÊı£¬Õâ 4 ¸ö²ÎÊıµÄº¬ÒåÈçÏÂ±í¡£
+åœ¨ä»¥ä¸Šä»£ç ä¸­ï¼Œå…±æ¶‰åŠåˆ°äº† 4 ä¸ªä¸ Hystrix ç†”æ–­æœºåˆ¶ç›¸å…³çš„é‡è¦å‚æ•°ï¼Œè¿™ 4 ä¸ªå‚æ•°çš„å«ä¹‰å¦‚ä¸‹è¡¨ã€‚
 
-| ²ÎÊı                                     | ÃèÊö                                                         |
+| å‚æ•°                                     | æè¿°                                                         |
 | ---------------------------------------- | ------------------------------------------------------------ |
-| metrics.rollingStats.timeInMilliseconds  | Í³¼ÆÊ±¼ä´°¡£                                                 |
-| circuitBreaker.sleepWindowInMilliseconds | ĞİÃßÊ±¼ä´°£¬ÈÛ¶Ï¿ªÆô×´Ì¬³ÖĞøÒ»¶ÎÊ±¼äºó£¬ÈÛ¶ÏÆ÷»á×Ô¶¯½øÈë°ëÈÛ¶Ï×´Ì¬£¬Õâ¶ÎÊ±¼ä¾Í±»³ÆÎªĞİÃß´°¿ÚÆÚ¡£ |
-| circuitBreaker.requestVolumeThreshold    | ÇëÇó×ÜÊı·§Öµ¡£ÔÚÍ³¼ÆÊ±¼ä´°ÄÚ£¬ÇëÇó×ÜÊı±ØĞëµ½´ïÒ»¶¨µÄÊıÁ¿¼¶£¬Hystrix ²Å¿ÉÄÜ»á½«ÈÛ¶ÏÆ÷´ò¿ª½øÈëÈÛ¶Ï¿ªÆô×ªÌ¬£¬¶øÕâ¸öÇëÇóÊıÁ¿¼¶¾ÍÊÇ ÇëÇó×ÜÊı·§Öµ¡£Hystrix ÇëÇó×ÜÊıãĞÖµÄ¬ÈÏÎª 20£¬Õâ¾ÍÒâÎ¶×ÅÔÚÍ³¼ÆÊ±¼ä´°ÄÚ£¬Èç¹û·şÎñµ÷ÓÃ´ÎÊı²»×ã 20 ´Î£¬¼´Ê¹ËùÓĞµÄÇëÇó¶¼µ÷ÓÃ³ö´í£¬ÈÛ¶ÏÆ÷Ò²²»»á´ò¿ª¡£ |
-| circuitBreaker.errorThresholdPercentage  | ´íÎó°Ù·Ö±ÈãĞÖµ¡£µ±ÇëÇó×ÜÊıÔÚÍ³¼ÆÊ±¼ä´°ÄÚ³¬¹ıÁËÇëÇó×ÜÊı·§Öµ£¬ÇÒÇëÇóµ÷ÓÃ³ö´íÂÊ³¬¹ıÒ»¶¨µÄ±ÈÀı£¬ÈÛ¶ÏÆ÷²Å»á´ò¿ª½øÈëÈÛ¶Ï¿ªÆô×ªÌ¬£¬¶øÕâ¸ö±ÈÀı¾ÍÊÇ´íÎó°Ù·Ö±ÈãĞÖµ¡£´íÎó°Ù·Ö±ÈãĞÖµÉèÖÃÎª 50£¬¾Í±íÊ¾´íÎó°Ù·Ö±ÈÎª 50%£¬Èç¹û·şÎñ·¢ÉúÁË 30 ´Îµ÷ÓÃ£¬ÆäÖĞÓĞ 15 ´Î·¢ÉúÁË´íÎó£¬¼´³¬¹ıÁË 50% µÄ´íÎó°Ù·Ö±È£¬ÕâÊ±ºò½«ÈÛ¶ÏÆ÷¾Í»á´ò¿ª¡£ |
+| metrics.rollingStats.timeInMilliseconds  | ç»Ÿè®¡æ—¶é—´çª—ã€‚                                                 |
+| circuitBreaker.sleepWindowInMilliseconds | ä¼‘çœ æ—¶é—´çª—ï¼Œç†”æ–­å¼€å¯çŠ¶æ€æŒç»­ä¸€æ®µæ—¶é—´åï¼Œç†”æ–­å™¨ä¼šè‡ªåŠ¨è¿›å…¥åŠç†”æ–­çŠ¶æ€ï¼Œè¿™æ®µæ—¶é—´å°±è¢«ç§°ä¸ºä¼‘çœ çª—å£æœŸã€‚ |
+| circuitBreaker.requestVolumeThreshold    | è¯·æ±‚æ€»æ•°é˜€å€¼ã€‚åœ¨ç»Ÿè®¡æ—¶é—´çª—å†…ï¼Œè¯·æ±‚æ€»æ•°å¿…é¡»åˆ°è¾¾ä¸€å®šçš„æ•°é‡çº§ï¼ŒHystrix æ‰å¯èƒ½ä¼šå°†ç†”æ–­å™¨æ‰“å¼€è¿›å…¥ç†”æ–­å¼€å¯è½¬æ€ï¼Œè€Œè¿™ä¸ªè¯·æ±‚æ•°é‡çº§å°±æ˜¯ è¯·æ±‚æ€»æ•°é˜€å€¼ã€‚Hystrix è¯·æ±‚æ€»æ•°é˜ˆå€¼é»˜è®¤ä¸º 20ï¼Œè¿™å°±æ„å‘³ç€åœ¨ç»Ÿè®¡æ—¶é—´çª—å†…ï¼Œå¦‚æœæœåŠ¡è°ƒç”¨æ¬¡æ•°ä¸è¶³ 20 æ¬¡ï¼Œå³ä½¿æ‰€æœ‰çš„è¯·æ±‚éƒ½è°ƒç”¨å‡ºé”™ï¼Œç†”æ–­å™¨ä¹Ÿä¸ä¼šæ‰“å¼€ã€‚ |
+| circuitBreaker.errorThresholdPercentage  | é”™è¯¯ç™¾åˆ†æ¯”é˜ˆå€¼ã€‚å½“è¯·æ±‚æ€»æ•°åœ¨ç»Ÿè®¡æ—¶é—´çª—å†…è¶…è¿‡äº†è¯·æ±‚æ€»æ•°é˜€å€¼ï¼Œä¸”è¯·æ±‚è°ƒç”¨å‡ºé”™ç‡è¶…è¿‡ä¸€å®šçš„æ¯”ä¾‹ï¼Œç†”æ–­å™¨æ‰ä¼šæ‰“å¼€è¿›å…¥ç†”æ–­å¼€å¯è½¬æ€ï¼Œè€Œè¿™ä¸ªæ¯”ä¾‹å°±æ˜¯é”™è¯¯ç™¾åˆ†æ¯”é˜ˆå€¼ã€‚é”™è¯¯ç™¾åˆ†æ¯”é˜ˆå€¼è®¾ç½®ä¸º 50ï¼Œå°±è¡¨ç¤ºé”™è¯¯ç™¾åˆ†æ¯”ä¸º 50%ï¼Œå¦‚æœæœåŠ¡å‘ç”Ÿäº† 30 æ¬¡è°ƒç”¨ï¼Œå…¶ä¸­æœ‰ 15 æ¬¡å‘ç”Ÿäº†é”™è¯¯ï¼Œå³è¶…è¿‡äº† 50% çš„é”™è¯¯ç™¾åˆ†æ¯”ï¼Œè¿™æ—¶å€™å°†ç†”æ–­å™¨å°±ä¼šæ‰“å¼€ã€‚ |
 
-3\. ÔÚ DeptController ÖĞÌí¼ÓÒ»¸ö deptCircuitBreaker() ·½·¨¶ÔÍâÌá¹©·şÎñ£¬´úÂëÈçÏÂ¡£
+3\. åœ¨ DeptController ä¸­æ·»åŠ ä¸€ä¸ª deptCircuitBreaker() æ–¹æ³•å¯¹å¤–æä¾›æœåŠ¡ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -882,7 +882,7 @@ public String deptCircuitBreaker_fallback(Integer id) {
 
 ```
 
-// Hystrix ·şÎñÈÛ¶Ï
+// Hystrix æœåŠ¡ç†”æ–­
 @RequestMapping(value = "/dept/hystrix/circuit/{id}")
 public String deptCircuitBreaker(@PathVariable("id") Integer id){
     String result = deptService.deptCircuitBreaker(id);
@@ -896,37 +896,37 @@ public String deptCircuitBreaker(@PathVariable("id") Integer id){
 
 
 
-4\. ÖØÆô micro-service-cloud-provider-dept-hystrix-8004£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com:8004/dept/hystrix/circuit/1¡±£¬½á¹ûÈçÏÂÍ¼¡£
+4\. é‡å¯ micro-service-cloud-provider-dept-hystrix-8004ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com:8004/dept/hystrix/circuit/1â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Hystrix ÊµÏÖÈÛ¶Ï»úÖÆ µ÷ÓÃÕıÈ·](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016233Q8-8.png)
-Í¼9£ºHystrix ÊµÏÖÈÛ¶Ï»úÖÆ µ÷ÓÃÕıÈ·Ê¾Àı
+![Hystrix å®ç°ç†”æ–­æœºåˆ¶ è°ƒç”¨æ­£ç¡®](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016233Q8-8.png)
+å›¾9ï¼šHystrix å®ç°ç†”æ–­æœºåˆ¶ è°ƒç”¨æ­£ç¡®ç¤ºä¾‹
 
-5\. ä¯ÀÀÆ÷¶à´Î£¨µ÷ÓÃ´ÎÊı´óÓÚÇëÇó×ÜÊı·§Öµ£©·ÃÎÊ¡°http://eureka7001.com:8004/dept/hystrix/circuit/-2¡±£¬Ê¹µ÷ÓÃ³ö´íÂÊ´óÓÚ´íÎó°Ù·Ö±È·§Öµ£¬½á¹ûÏÂÍ¼¡£
+5\. æµè§ˆå™¨å¤šæ¬¡ï¼ˆè°ƒç”¨æ¬¡æ•°å¤§äºè¯·æ±‚æ€»æ•°é˜€å€¼ï¼‰è®¿é—®â€œhttp://eureka7001.com:8004/dept/hystrix/circuit/-2â€ï¼Œä½¿è°ƒç”¨å‡ºé”™ç‡å¤§äºé”™è¯¯ç™¾åˆ†æ¯”é˜€å€¼ï¼Œç»“æœä¸‹å›¾ã€‚
 
-![Hystrix ÊµÏÖÈÛ¶Ï»úÖÆ ´íÎóµ÷ÓÃ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10162332D-9.png)
-Í¼10£ºHystrix ÊµÏÖÈÛ¶Ï»úÖÆ ´íÎóµ÷ÓÃ
+![Hystrix å®ç°ç†”æ–­æœºåˆ¶ é”™è¯¯è°ƒç”¨](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10162332D-9.png)
+å›¾10ï¼šHystrix å®ç°ç†”æ–­æœºåˆ¶ é”™è¯¯è°ƒç”¨
 
-6\. ÖØĞÂ½«²ÎÊıĞŞ¸ÄÎªÕıÊı£¨ÀıÈç²ÎÊıÎª 3£©£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com:8004/dept/hystrix/circuit/3¡±£¬½á¹ûÈçÏÂÍ¼¡£
+6\. é‡æ–°å°†å‚æ•°ä¿®æ”¹ä¸ºæ­£æ•°ï¼ˆä¾‹å¦‚å‚æ•°ä¸º 3ï¼‰ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com:8004/dept/hystrix/circuit/3â€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Hystrix ÈÛ¶Ï¿ªÆô×ªÌ¨](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016235592-10.png)
-Í¼11£ºHystrix ÈÛ¶Ï¿ªÆô×´Ì¬´«ÈëÕıÊı
+![Hystrix ç†”æ–­å¼€å¯è½¬å°](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016235592-10.png)
+å›¾11ï¼šHystrix ç†”æ–­å¼€å¯çŠ¶æ€ä¼ å…¥æ­£æ•°
 
-Í¨¹ıÍ¼ 11 ¿ÉÒÔ¿´µ½£¬ÔÚÈÛ¶Ï¿ªÆô×´Ì¬ÏÂ£¬¼´Ê¹ÎÒÃÇ´«ÈëµÄ²ÎÊıÒÑ¾­ÊÇÕıÊı£¬µ÷ÓÃµÄÒÀÈ»½µ¼¶Âß¼­¡£
+é€šè¿‡å›¾ 11 å¯ä»¥çœ‹åˆ°ï¼Œåœ¨ç†”æ–­å¼€å¯çŠ¶æ€ä¸‹ï¼Œå³ä½¿æˆ‘ä»¬ä¼ å…¥çš„å‚æ•°å·²ç»æ˜¯æ­£æ•°ï¼Œè°ƒç”¨çš„ä¾ç„¶é™çº§é€»è¾‘ã€‚
 
-7\. ¼ÌĞøÁ¬Ğø·ÃÎÊ¡°http://eureka7001.com:8004/dept/hystrix/circuit/3¡±£¬½á¹ûÏÂÍ¼¡£
+7\. ç»§ç»­è¿ç»­è®¿é—®â€œhttp://eureka7001.com:8004/dept/hystrix/circuit/3â€ï¼Œç»“æœä¸‹å›¾ã€‚
 
-![Hystrix ÈÛ¶Ï¹Ø±Õ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016231R0-11.gif)
-Í¼12£ºHystrix ½øÈëÈÛ¶Ï¹Ø±Õ×´Ì¬
+![Hystrix ç†”æ–­å…³é—­](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016231R0-11.gif)
+å›¾12ï¼šHystrix è¿›å…¥ç†”æ–­å…³é—­çŠ¶æ€
 
-Í¨¹ıÍ¼ 12 ¿ÉÒÔ¿´³ö£¬µ±·şÎñµ÷ÓÃÕıÈ·ÂÊÉÏÉıµ½Ò»¶¨µÄÀûÂÊºó£¬Hystrix ½øÈëÈÛ¶Ï¹Ø±Õ×´Ì¬¡£
+é€šè¿‡å›¾ 12 å¯ä»¥çœ‹å‡ºï¼Œå½“æœåŠ¡è°ƒç”¨æ­£ç¡®ç‡ä¸Šå‡åˆ°ä¸€å®šçš„åˆ©ç‡åï¼ŒHystrix è¿›å…¥ç†”æ–­å…³é—­çŠ¶æ€ã€‚
 
-## Hystrix ¹ÊÕÏ¼à¿Ø
+## Hystrix æ•…éšœç›‘æ§
 
-Hystrix »¹Ìá¹©ÁË×¼ÊµÊ±µÄµ÷ÓÃ¼à¿Ø£¨Hystrix Dashboard£©¹¦ÄÜ£¬Hystrix »á³ÖĞøµØ¼ÇÂ¼ËùÓĞÍ¨¹ı Hystrix ·¢ÆğµÄÇëÇóµÄÖ´ĞĞĞÅÏ¢£¬²¢ÒÔÍ³¼Æ±¨±íµÄĞÎÊ½Õ¹Ê¾¸øÓÃ»§£¬°üÀ¨Ã¿ÃëÖ´ĞĞÇëÇóµÄÊıÁ¿¡¢³É¹¦ÇëÇóµÄÊıÁ¿ºÍÊ§°ÜÇëÇóµÄÊıÁ¿µÈ¡£
+Hystrix è¿˜æä¾›äº†å‡†å®æ—¶çš„è°ƒç”¨ç›‘æ§ï¼ˆHystrix Dashboardï¼‰åŠŸèƒ½ï¼ŒHystrix ä¼šæŒç»­åœ°è®°å½•æ‰€æœ‰é€šè¿‡ Hystrix å‘èµ·çš„è¯·æ±‚çš„æ‰§è¡Œä¿¡æ¯ï¼Œå¹¶ä»¥ç»Ÿè®¡æŠ¥è¡¨çš„å½¢å¼å±•ç¤ºç»™ç”¨æˆ·ï¼ŒåŒ…æ‹¬æ¯ç§’æ‰§è¡Œè¯·æ±‚çš„æ•°é‡ã€æˆåŠŸè¯·æ±‚çš„æ•°é‡å’Œå¤±è´¥è¯·æ±‚çš„æ•°é‡ç­‰ã€‚
 
-ÏÂÃæÎÒÃÇ¾ÍÍ¨¹ıÒ»¸öÊµÀıÀ´´î½¨ Hystrix Dashboard£¬¼à¿Ø micro-service-cloud-provider-dept-hystrix-8004 µÄÔËĞĞÇé¿ö¡£
+ä¸‹é¢æˆ‘ä»¬å°±é€šè¿‡ä¸€ä¸ªå®ä¾‹æ¥æ­å»º Hystrix Dashboardï¼Œç›‘æ§ micro-service-cloud-provider-dept-hystrix-8004 çš„è¿è¡Œæƒ…å†µã€‚
 
-1\. ÔÚ¸¸¹¤³ÌÏÂĞÂ½¨Ò»¸öÃûÎª micro-service-cloud-consumer-dept-hystrix-dashboard-9002 µÄ×ÓÄ£¿é£¬²¢ÔÚÆä pom.xml ÖĞÌí¼ÓÒÔÏÂÒÀÀµ¡£
+1\. åœ¨çˆ¶å·¥ç¨‹ä¸‹æ–°å»ºä¸€ä¸ªåä¸º micro-service-cloud-consumer-dept-hystrix-dashboard-9002 çš„å­æ¨¡å—ï¼Œå¹¶åœ¨å…¶ pom.xml ä¸­æ·»åŠ ä»¥ä¸‹ä¾èµ–ã€‚
 
 
 
@@ -956,18 +956,18 @@ Hystrix »¹Ìá¹©ÁË×¼ÊµÊ±µÄµ÷ÓÃ¼à¿Ø£¨Hystrix Dashboard£©¹¦ÄÜ£¬Hystrix »á³ÖĞøµØ¼ÇÂ¼Ë
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-        <!--Spring Boot ²âÊÔÒÀÀµ-->
+        <!--Spring Boot æµ‹è¯•ä¾èµ–-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--hystrix-dashboard ¼à¿ØµÄÒÀÀµ-->
+        <!--hystrix-dashboard ç›‘æ§çš„ä¾èµ–-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
         </dependency>
-        <!--Ìí¼Ó Spring Boot µÄ¼à¿ØÄ£¿é-->
+        <!--æ·»åŠ  Spring Boot çš„ç›‘æ§æ¨¡å—-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -998,7 +998,7 @@ Hystrix »¹Ìá¹©ÁË×¼ÊµÊ±µÄµ÷ÓÃ¼à¿Ø£¨Hystrix Dashboard£©¹¦ÄÜ£¬Hystrix »á³ÖĞøµØ¼ÇÂ¼Ë
 
 
 
-2\. ÔÚ micro-service-cloud-consumer-dept-hystrix-dashboard-9002 µÄ application.yml ÖĞÌí¼ÓÒÔÏÂÅäÖÃ¡£
+2\. åœ¨ micro-service-cloud-consumer-dept-hystrix-dashboard-9002 çš„ application.yml ä¸­æ·»åŠ ä»¥ä¸‹é…ç½®ã€‚
 
 
 
@@ -1007,10 +1007,10 @@ Hystrix »¹Ìá¹©ÁË×¼ÊµÊ±µÄµ÷ÓÃ¼à¿Ø£¨Hystrix Dashboard£©¹¦ÄÜ£¬Hystrix »á³ÖĞøµØ¼ÇÂ¼Ë
 ```
 
 server:
-  port: 9002  #¶Ë¿ÚºÅ
+  port: 9002  #ç«¯å£å·
 
-#http://eureka7001.com:9002/hystrix ÈÛ¶ÏÆ÷¼à¿ØÒ³Ãæ
-# localhost:8004//actuator/hystrix.stream ¼à¿ØµØÖ·
+#http://eureka7001.com:9002/hystrix ç†”æ–­å™¨ç›‘æ§é¡µé¢
+# localhost:8004//actuator/hystrix.stream ç›‘æ§åœ°å€
 hystrix:
   dashboard:
     proxy-stream-allow-list:
@@ -1022,7 +1022,7 @@ hystrix:
 
 
 
-3\. ÔÚ micro-service-cloud-consumer-dept-hystrix-dashboard-9002 µÄÖ÷Æô¶¯ÀàÉÏÌí¼Ó @EnableHystrixDashboard ×¢½â£¬¿ªÆô Hystrix ¼à¿Ø¹¦ÄÜ£¬´úÂëÈçÏÂ¡£
+3\. åœ¨ micro-service-cloud-consumer-dept-hystrix-dashboard-9002 çš„ä¸»å¯åŠ¨ç±»ä¸Šæ·»åŠ  @EnableHystrixDashboard æ³¨è§£ï¼Œå¼€å¯ Hystrix ç›‘æ§åŠŸèƒ½ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -1052,7 +1052,7 @@ public class MicroServiceCloudConsumerDeptHystrixDashboard9002Application {
 
 
 
-4\. ÔÚ micro-service-cloud-provider-dept-hystrix-8004 µÄ net.biancheng.c.config °üÏÂ£¬´´½¨Ò»¸öÃûÎª HystrixDashboardConfig µÄÅäÖÃÀà£¬´úÂëÈçÏÂ¡£
+4\. åœ¨ micro-service-cloud-provider-dept-hystrix-8004 çš„ net.biancheng.c.config åŒ…ä¸‹ï¼Œåˆ›å»ºä¸€ä¸ªåä¸º HystrixDashboardConfig çš„é…ç½®ç±»ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -1070,7 +1070,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class HystrixDashboardConfig {
     /**
-     *  Hystrix dashboard ¼à¿Ø½çÃæ±ØĞëÅäÖÃ
+     *  Hystrix dashboard ç›‘æ§ç•Œé¢å¿…é¡»é…ç½®
      * @return
      */
     @Bean
@@ -1078,7 +1078,7 @@ public class HystrixDashboardConfig {
         HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
         ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
         registrationBean.setLoadOnStartup(1);
-        registrationBean.addUrlMappings("/actuator/hystrix.stream");//·ÃÎÊÂ·¾¶
+        registrationBean.addUrlMappings("/actuator/hystrix.stream");//è®¿é—®è·¯å¾„
         registrationBean.setName("hystrix.stream");
         return registrationBean;
     }
@@ -1091,27 +1091,27 @@ public class HystrixDashboardConfig {
 
 
 
-5\. Æô¶¯ micro-service-cloud-consumer-dept-hystrix-dashboard-9002£¬Ê¹ÓÃä¯ÀÀÆ÷·ÃÎÊ¡°http://eureka7001.com:9002/hystrix¡±£¬½á¹ûÈçÏÂÍ¼¡£
+5\. å¯åŠ¨ micro-service-cloud-consumer-dept-hystrix-dashboard-9002ï¼Œä½¿ç”¨æµè§ˆå™¨è®¿é—®â€œhttp://eureka7001.com:9002/hystrixâ€ï¼Œç»“æœå¦‚ä¸‹å›¾ã€‚
 
-![Hystrix ¼à¿Ø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016234440-12.png)
-Í¼13£ºHystrix ¼à¿ØÒ³Ãæ
+![Hystrix ç›‘æ§](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016234440-12.png)
+å›¾13ï¼šHystrix ç›‘æ§é¡µé¢
 
-6\. ÖØÆô micro-service-cloud-provider-dept-hystrix-8004£¬²¢½«ÒÔÏÂĞÅÏ¢Ìîµ½ Hystrix ¼à¿ØÒ³ÃæÖĞ£¬ÈçÏÂÍ¼¡£
+6\. é‡å¯ micro-service-cloud-provider-dept-hystrix-8004ï¼Œå¹¶å°†ä»¥ä¸‹ä¿¡æ¯å¡«åˆ° Hystrix ç›‘æ§é¡µé¢ä¸­ï¼Œå¦‚ä¸‹å›¾ã€‚
 
-![Hystrix ¼à¿ØĞÅÏ¢](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016232636-13.png)
-Í¼14£ºHystrix ¼à¿ØĞÅÏ¢
+![Hystrix ç›‘æ§ä¿¡æ¯](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016232636-13.png)
+å›¾14ï¼šHystrix ç›‘æ§ä¿¡æ¯
 
-7\. µã»÷ÏÂ·½µÄ Monitor Stream °´Å¥£¬Ìø×ªµ½ Hystrix ¶Ô micro-service-cloud-provider-dept-hystrix-8004 µÄ¼à¿ØÒ³Ãæ£¬ÈçÏÂÍ¼¡£
+7\. ç‚¹å‡»ä¸‹æ–¹çš„ Monitor Stream æŒ‰é’®ï¼Œè·³è½¬åˆ° Hystrix å¯¹ micro-service-cloud-provider-dept-hystrix-8004 çš„ç›‘æ§é¡µé¢ï¼Œå¦‚ä¸‹å›¾ã€‚
 
-![Hystrix ¼à¿Ø 8004](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016231229-14.png)
-Í¼15£ºHystrix ¼à¿ØÎ¢·şÎñÔËĞĞÇé¿ö
+![Hystrix ç›‘æ§ 8004](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016231229-14.png)
+å›¾15ï¼šHystrix ç›‘æ§å¾®æœåŠ¡è¿è¡Œæƒ…å†µ
 
-8\. Ê¹ÓÃä¯ÀÀÆ÷¶à´Î·ÃÎÊ¡°http://eureka7001.com:8004/dept/hystrix/circuit/1¡±ºÍ ¡°http://eureka7001.com:8004/dept/hystrix/circuit/-1¡±£¬²é¿´ Hystrix ¼à¿ØÒ³Ãæ£¬ÈçÏÂÍ¼¡£
+8\. ä½¿ç”¨æµè§ˆå™¨å¤šæ¬¡è®¿é—®â€œhttp://eureka7001.com:8004/dept/hystrix/circuit/1â€å’Œ â€œhttp://eureka7001.com:8004/dept/hystrix/circuit/-1â€ï¼ŒæŸ¥çœ‹ Hystrix ç›‘æ§é¡µé¢ï¼Œå¦‚ä¸‹å›¾ã€‚
 
-![Hystrix ¼à¿Ø 8004 ÔËĞĞÇé¿ö](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10162345J-15.png)
-Í¼16£ºHystrix ¼à¿Ø·şÎñÔËĞĞÇé¿ö
+![Hystrix ç›‘æ§ 8004 è¿è¡Œæƒ…å†µ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10162345J-15.png)
+å›¾16ï¼šHystrix ç›‘æ§æœåŠ¡è¿è¡Œæƒ…å†µ
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

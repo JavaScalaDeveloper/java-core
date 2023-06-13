@@ -1,31 +1,31 @@
-×÷Õß | Ò»Æğß£Java
-À´Ô´ |½ñÈÕÍ·Ìõ
+ä½œè€… | ä¸€èµ·æ’¸Java
+æ¥æº |ä»Šæ—¥å¤´æ¡
 
-**Ñ§Ï°Ä¿±ê**
+**å­¦ä¹ ç›®æ ‡**
 
-*   SentinelµÄ¹¤×÷Ô­Àí
-    **µÚ1ÕÂ ÏŞÁ÷Ô­Àí**
-    ÔÚSentinelÖĞ£¬ËùÓĞµÄ×ÊÔ´¶¼¶ÔÓ¦Ò»¸ö×ÊÔ´Ãû³ÆÒÔ¼°Ò»¸öEntry¡£Ã¿Ò»¸öentry¿ÉÒÔ±íÊ¾Ò»¸öÇëÇó¡£¶øSentinelÖĞ£¬»áÕë¶Ôµ±Ç°ÇëÇó»ùÓÚ¹æÔòµÄÅĞ¶ÏÀ´ÊµÏÖÁ÷¿ØµÄ¿ØÖÆ£¬Ô­ÀíÈçÏÂÍ¼ËùÊ¾¡£
+*   Sentinelçš„å·¥ä½œåŸç†
+    **ç¬¬1ç«  é™æµåŸç†**
+    åœ¨Sentinelä¸­ï¼Œæ‰€æœ‰çš„èµ„æºéƒ½å¯¹åº”ä¸€ä¸ªèµ„æºåç§°ä»¥åŠä¸€ä¸ªEntryã€‚æ¯ä¸€ä¸ªentryå¯ä»¥è¡¨ç¤ºä¸€ä¸ªè¯·æ±‚ã€‚è€ŒSentinelä¸­ï¼Œä¼šé’ˆå¯¹å½“å‰è¯·æ±‚åŸºäºè§„åˆ™çš„åˆ¤æ–­æ¥å®ç°æµæ§çš„æ§åˆ¶ï¼ŒåŸç†å¦‚ä¸‹å›¾æ‰€ç¤ºã€‚
 
-![SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1296c955070646bbc74310e726679bbabfe585.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")ÉÏÍ¼½ö×÷ÎªÉè¼ÆË¼ÏëµÄÕ¹Ê¾£¬Í¼ÖĞ Slot µÄË³ĞòÒÑºÍ×îĞÂ°æ Sentinel Slot Chain Ë³Ğò²»Ò»ÖÂ
-µ±Ò»¸öÍâ²¿ÇëÇó¹ıÀ´Ö®ºó£¬»á´´½¨Ò»¸öEntry£¬¶ø´´½¨EntryµÄÍ¬Ê±£¬Ò²»á´´½¨Ò»ÏµÁĞµÄslot ×é³ÉÒ»¸öÔğÈÎÁ´£¬Ã¿¸öslotÓĞ²»Í¬µÄ¹¤×÷Ö°Ôğ¡£
+![SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1296c955070646bbc74310e726679bbabfe585.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")ä¸Šå›¾ä»…ä½œä¸ºè®¾è®¡æ€æƒ³çš„å±•ç¤ºï¼Œå›¾ä¸­ Slot çš„é¡ºåºå·²å’Œæœ€æ–°ç‰ˆ Sentinel Slot Chain é¡ºåºä¸ä¸€è‡´
+å½“ä¸€ä¸ªå¤–éƒ¨è¯·æ±‚è¿‡æ¥ä¹‹åï¼Œä¼šåˆ›å»ºä¸€ä¸ªEntryï¼Œè€Œåˆ›å»ºEntryçš„åŒæ—¶ï¼Œä¹Ÿä¼šåˆ›å»ºä¸€ç³»åˆ—çš„slot ç»„æˆä¸€ä¸ªè´£ä»»é“¾ï¼Œæ¯ä¸ªslotæœ‰ä¸åŒçš„å·¥ä½œèŒè´£ã€‚
 
-*   NodeSelectorSlot ¸ºÔğÊÕ¼¯×ÊÔ´µÄÂ·¾¶£¬²¢½«ÕâĞ©×ÊÔ´µÄµ÷ÓÃÂ·¾¶£¬ÒÔÊ÷×´½á¹¹´æ´¢ÆğÀ´£¬ÓÃÓÚ¸ù¾İµ÷ÓÃÂ·¾¶À´ÏŞÁ÷½µ¼¶£»
-*   ClusterBuilderSlot ÔòÓÃÓÚ´æ´¢×ÊÔ´µÄÍ³¼ÆĞÅÏ¢ÒÔ¼°µ÷ÓÃÕßĞÅÏ¢£¬ÀıÈç¸Ã×ÊÔ´µÄ RT, QPS,thread count µÈµÈ£¬ÕâĞ©ĞÅÏ¢½«ÓÃ×÷Îª¶àÎ¬¶ÈÏŞÁ÷£¬½µ¼¶µÄÒÀ¾İ£»
-*   StatisticSlot ÔòÓÃÓÚ¼ÇÂ¼¡¢Í³¼Æ²»Í¬Î³¶ÈµÄ runtime Ö¸±ê¼à¿ØĞÅÏ¢£»
-*   FlowSlot ÔòÓÃÓÚ¸ù¾İÔ¤ÉèµÄÏŞÁ÷¹æÔòÒÔ¼°Ç°Ãæ slot Í³¼ÆµÄ×´Ì¬£¬À´½øĞĞÁ÷Á¿¿ØÖÆ£»
-*   AuthoritySlot Ôò¸ù¾İÅäÖÃµÄºÚ°×Ãûµ¥ºÍµ÷ÓÃÀ´Ô´ĞÅÏ¢£¬À´×öºÚ°×Ãûµ¥¿ØÖÆ£»
-*   DegradeSlot ÔòÍ¨¹ıÍ³¼ÆĞÅÏ¢ÒÔ¼°Ô¤ÉèµÄ¹æÔò£¬À´×öÈÛ¶Ï½µ¼¶£»
-*   SystemSlot ÔòÍ¨¹ıÏµÍ³µÄ×´Ì¬£¬ÀıÈç load1 µÈ£¬À´¿ØÖÆ×ÜµÄÈë¿ÚÁ÷Á¿£»
-*   LogSlot ÔÚ³öÏÖÏŞÁ÷¡¢ÈÛ¶Ï¡¢ÏµÍ³±£»¤Ê±¸ºÔğ¼ÇÂ¼ÈÕÖ¾
+*   NodeSelectorSlot è´Ÿè´£æ”¶é›†èµ„æºçš„è·¯å¾„ï¼Œå¹¶å°†è¿™äº›èµ„æºçš„è°ƒç”¨è·¯å¾„ï¼Œä»¥æ ‘çŠ¶ç»“æ„å­˜å‚¨èµ·æ¥ï¼Œç”¨äºæ ¹æ®è°ƒç”¨è·¯å¾„æ¥é™æµé™çº§ï¼›
+*   ClusterBuilderSlot åˆ™ç”¨äºå­˜å‚¨èµ„æºçš„ç»Ÿè®¡ä¿¡æ¯ä»¥åŠè°ƒç”¨è€…ä¿¡æ¯ï¼Œä¾‹å¦‚è¯¥èµ„æºçš„ RT, QPS,thread count ç­‰ç­‰ï¼Œè¿™äº›ä¿¡æ¯å°†ç”¨ä½œä¸ºå¤šç»´åº¦é™æµï¼Œé™çº§çš„ä¾æ®ï¼›
+*   StatisticSlot åˆ™ç”¨äºè®°å½•ã€ç»Ÿè®¡ä¸åŒçº¬åº¦çš„ runtime æŒ‡æ ‡ç›‘æ§ä¿¡æ¯ï¼›
+*   FlowSlot åˆ™ç”¨äºæ ¹æ®é¢„è®¾çš„é™æµè§„åˆ™ä»¥åŠå‰é¢ slot ç»Ÿè®¡çš„çŠ¶æ€ï¼Œæ¥è¿›è¡Œæµé‡æ§åˆ¶ï¼›
+*   AuthoritySlot åˆ™æ ¹æ®é…ç½®çš„é»‘ç™½åå•å’Œè°ƒç”¨æ¥æºä¿¡æ¯ï¼Œæ¥åšé»‘ç™½åå•æ§åˆ¶ï¼›
+*   DegradeSlot åˆ™é€šè¿‡ç»Ÿè®¡ä¿¡æ¯ä»¥åŠé¢„è®¾çš„è§„åˆ™ï¼Œæ¥åšç†”æ–­é™çº§ï¼›
+*   SystemSlot åˆ™é€šè¿‡ç³»ç»Ÿçš„çŠ¶æ€ï¼Œä¾‹å¦‚ load1 ç­‰ï¼Œæ¥æ§åˆ¶æ€»çš„å…¥å£æµé‡ï¼›
+*   LogSlot åœ¨å‡ºç°é™æµã€ç†”æ–­ã€ç³»ç»Ÿä¿æŠ¤æ—¶è´Ÿè´£è®°å½•æ—¥å¿—
 *   ...
-    Sentinel ½« ProcessorSlot ×÷Îª SPI ½Ó¿Ú½øĞĞÀ©Õ¹£¨1.7.2 °æ±¾ÒÔÇ° SlotChainBuilder ×÷ÎªSPI£©£¬Ê¹µÃ Slot Chain ¾ß±¸ÁËÀ©Õ¹µÄÄÜÁ¦¡£Äú¿ÉÒÔ×ÔĞĞ¼ÓÈë×Ô¶¨ÒåµÄ slot ²¢±àÅÅ slot ¼äµÄË³Ğò£¬´Ó¶ø¿ÉÒÔ¸ø Sentinel Ìí¼Ó×Ô¶¨ÒåµÄ¹¦ÄÜ¡£
+    Sentinel å°† ProcessorSlot ä½œä¸º SPI æ¥å£è¿›è¡Œæ‰©å±•ï¼ˆ1.7.2 ç‰ˆæœ¬ä»¥å‰ SlotChainBuilder ä½œä¸ºSPIï¼‰ï¼Œä½¿å¾— Slot Chain å…·å¤‡äº†æ‰©å±•çš„èƒ½åŠ›ã€‚æ‚¨å¯ä»¥è‡ªè¡ŒåŠ å…¥è‡ªå®šä¹‰çš„ slot å¹¶ç¼–æ’ slot é—´çš„é¡ºåºï¼Œä»è€Œå¯ä»¥ç»™ Sentinel æ·»åŠ è‡ªå®šä¹‰çš„åŠŸèƒ½ã€‚
 
-![SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/d65c2688084bf5be06d3687ce8663cb1b7167b.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")**Spring Cloud ¼¯³ÉSentinelµÄÔ­Àí**
+![SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/d65c2688084bf5be06d3687ce8663cb1b7167b.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")**Spring Cloud é›†æˆSentinelçš„åŸç†**
 
-Spring Cloud ÖĞ¼¯³ÉSentinelÏŞÁ÷£¬ÊÇ»ùÓÚÀ¹½ØÆ÷À´ÊµÏÖ£¬¾ßÌåµÄÊµÏÖÂ·¾¶ÈçÏÂ¡£
+Spring Cloud ä¸­é›†æˆSentinelé™æµï¼Œæ˜¯åŸºäºæ‹¦æˆªå™¨æ¥å®ç°ï¼Œå…·ä½“çš„å®ç°è·¯å¾„å¦‚ä¸‹ã€‚
 
-SentinelWebAutoConfiguration¡ª¡ª>addInterceptors¡ª¡ª>SentinelWebInterceptor->AbstractSentinelInterceptor
+SentinelWebAutoConfigurationâ€”â€”>addInterceptorsâ€”â€”>SentinelWebInterceptor->AbstractSentinelInterceptor
 
 
 
@@ -41,33 +41,17 @@ public boolean preHandle(HttpServletRequest request, HttpServletResponseresponse
 
 
 
-> ×ÊÔ´µ÷ÓÃµÄÁ÷Á¿ÀàĞÍ£¬ÊÇÈë¿ÚÁ÷Á¿£¨ EntryType.IN £©»¹ÊÇ³ö¿ÚÁ÷Á¿£¨ EntryType.OUT £©£¬×¢ÒâÏµÍ³¹æÔòÖ»¶Ô IN ÉúĞ§
+> èµ„æºè°ƒç”¨çš„æµé‡ç±»å‹ï¼Œæ˜¯å…¥å£æµé‡ï¼ˆ EntryType.IN ï¼‰è¿˜æ˜¯å‡ºå£æµé‡ï¼ˆ EntryType.OUT ï¼‰ï¼Œæ³¨æ„ç³»ç»Ÿè§„åˆ™åªå¯¹ IN ç”Ÿæ•ˆ
 
-**µÚ2ÕÂ SphU.entry**
-²»¹ÜÊÇ¼¯³ÉdubboÒ²ºÃ£¬»¹ÊÇ¼¯³Éµ½spring cloudÖĞÒ²ºÃ£¬×îÖÕ¶¼ÊÇµ÷ÓÃSphU.entryÕâ¸ö·½·¨À´½øĞĞÏŞÁ÷ÅĞ¶ÏµÄ£¬½ÓÏÂÀ´ÎÒÃÇ´ÓSphU.entryÕâ¸ö·½·¨ÖĞÈ¥ÁË½âËüµÄÊµÏÖÔ­Àí¡£
+**ç¬¬2ç«  SphU.entry**
+ä¸ç®¡æ˜¯é›†æˆdubboä¹Ÿå¥½ï¼Œè¿˜æ˜¯é›†æˆåˆ°spring cloudä¸­ä¹Ÿå¥½ï¼Œæœ€ç»ˆéƒ½æ˜¯è°ƒç”¨SphU.entryè¿™ä¸ªæ–¹æ³•æ¥è¿›è¡Œé™æµåˆ¤æ–­çš„ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬ä»SphU.entryè¿™ä¸ªæ–¹æ³•ä¸­å»äº†è§£å®ƒçš„å®ç°åŸç†ã€‚
 
-´úÂëÖĞÎÒÃÇ¿ÉÄÜÎ¨Ò»ÒÉ»óµÄ£¬Ò²ÊÇ×î¹Ø¼üµÄÒ»²½ÊÇ SphU.entry(resource) £¬ ÎÒÃÇ´«½øÈ¥ÁËÒ»¸ö×ÊÔ´£¬Õâ¸ö×ÊÔ´¿ÉÓÃÊÇ·½·¨Ãû£¬¿ÉÒÔÊÇ½Ó¿Ú£¬ÄÇÃ´Ëû¾ßÌå×öÁËÊ²Ã´ÄØ£¿ÈÃÎÒÃÇÀ´Ò»²½²½½Ò¿ªËûµÄÉñÃØÃæÉ´£º
-
-
-
-```
-public static Entry entry(String name) throws BlockException {    return Env.sph.entry(name, EntryType.OUT, 1, OBJECTS0);}public class Env {    public static final Sph sph = new CtSph();    ......//Ê¡ÂÔ²¿·Ö´úÂë}
-```
-
-
-
-
-
-
-
-
-
-´Ó SphU.entry() ·½·¨ÍùÏÂÖ´ĞĞ»á½øÈëµ½ Sph.entry() £¬SphµÄÄ¬ÈÏÊµÏÖÀàÊÇ CtSph,¶ø×îÖÕ»á½øÈëCtSph µÄentry ·½·¨£º
+ä»£ç ä¸­æˆ‘ä»¬å¯èƒ½å”¯ä¸€ç–‘æƒ‘çš„ï¼Œä¹Ÿæ˜¯æœ€å…³é”®çš„ä¸€æ­¥æ˜¯ SphU.entry(resource) ï¼Œ æˆ‘ä»¬ä¼ è¿›å»äº†ä¸€ä¸ªèµ„æºï¼Œè¿™ä¸ªèµ„æºå¯ç”¨æ˜¯æ–¹æ³•åï¼Œå¯ä»¥æ˜¯æ¥å£ï¼Œé‚£ä¹ˆä»–å…·ä½“åšäº†ä»€ä¹ˆå‘¢ï¼Ÿè®©æˆ‘ä»¬æ¥ä¸€æ­¥æ­¥æ­å¼€ä»–çš„ç¥ç§˜é¢çº±ï¼š
 
 
 
 ```
-@Overridepublic Entry entry(String name, EntryType type, int count, Object... args) throws BlockException {¡¡¡¡ //·â×°ÁËÒ»¸ö×ÊÔ´¶ÔÏó    StringResourceWrapper resource = new StringResourceWrapper(name, type);    return entry(resource, count, args);}
+public static Entry entry(String name) throws BlockException {    return Env.sph.entry(name, EntryType.OUT, 1, OBJECTS0);}public class Env {    public static final Sph sph = new CtSph();    ......//çœç•¥éƒ¨åˆ†ä»£ç }
 ```
 
 
@@ -78,16 +62,12 @@ public static Entry entry(String name) throws BlockException {    return Env.sph
 
 
 
-ÕâÀïµÄÖ÷Òª²½ÖèÊÇÍ¨¹ıÎÒÃÇ¸ø¶¨µÄ×ÊÔ´È¥·â×°ÁËÒ»¸ö StringResourceWrapper £¬È»ºó´«Èë×Ô¼ºµÄÖØÔØ·½·¨£¬¼Ì¶øµ÷ÓÃ entryWithPriority(resourceWrapper, count, false, args)£º
-
-*   ResourceWrapper ±íÊ¾sentinelµÄ×ÊÔ´£¬×öÁË·â×°
-*   count±íÊ¾±¾´ÎÇëÇóµÄÕ¼ÓÃµÄ²¢·¢ÊıÁ¿£¬Ä¬ÈÏÊÇ1
-*   prioritized£¬ÓÅÏÈ¼¶
+ä» SphU.entry() æ–¹æ³•å¾€ä¸‹æ‰§è¡Œä¼šè¿›å…¥åˆ° Sph.entry() ï¼ŒSphçš„é»˜è®¤å®ç°ç±»æ˜¯ CtSph,è€Œæœ€ç»ˆä¼šè¿›å…¥CtSph çš„entry æ–¹æ³•ï¼š
 
 
 
 ```
-private Entry entryWithPriority(ResourceWrapper resourceWrapper, int count,boolean prioritized, Object... args)    throws BlockException {    //»ñÈ¡ÉÏÏÂÎÄ»·¾³£¬´æ´¢ÔÚThreadLocalÖĞ£¬contextÖĞ»á´æ´¢Õû¸öµ÷ÓÃÁ´    Context context = ContextUtil.getContext();    //Èç¹ûÊÇ NullContext£¬ÄÇÃ´ËµÃ÷ context name ³¬¹ıÁË 2000 ¸ö£¬²Î¼û ContextUtil#trueEnter    //Õâ¸öÊ±ºò£¬Sentinel ²»ÔÙ½ÓÊÜ´¦ÀíĞÂµÄ context ÅäÖÃ£¬Ò²¾ÍÊÇ²»×öÕâĞ©ĞÂµÄ½Ó¿ÚµÄÍ³¼Æ¡¢ÏŞÁ÷ÈÛ¶ÏµÈ    if (context instanceof NullContext) {        // The {@link NullContext} indicates that the amount of context has exceeded the threshold,        // so here init the entry only. No rule checking will be done.        return new CtEntry(resourceWrapper, null, context);    }    if (context == null) {//Ê¹ÓÃÄ¬ÈÏcontext        // Éú³ÉContextµÄ²¿·Ö        context = InternalContextUtil.internalEnter(Constants.CONTEXT_DEFAULT_NAME);    }    // Global switch is close, no rule checking will do.    if (!Constants.ON) {//È«¾ÖÏŞÁ÷¿ª¹ØÊÇ·ñÒÑ¾­¿ªÆô£¬Èç¹û¹Ø±ÕÁË£¬¾Í²»½øĞĞÏŞÁ÷¹æÔò¼ì²é        return new CtEntry(resourceWrapper, null, context);    }    //Éè¼ÆÄ£Ê½ÖĞµÄÔğÈÎÁ´Ä£Ê½¡£    //¹¹½¨Ò»¸öslotÁ´±í    ProcessorSlot<Object> chain = lookProcessChain(resourceWrapper);    //¸ù¾İ lookProcessChain ·½·¨£¬ÎÒÃÇÖªµÀ£¬µ± resource ³¬¹ı Constants.MAX_SLOT_CHAIN_SIZE£¬    // Ò²¾ÍÊÇ 6000 µÄÊ±ºò£¬Sentinel ¿ªÊ¼²»´¦ÀíĞÂµÄÇëÇó£¬ÕâÃ´×öÖ÷ÒªÊÇÎªÁË Sentinel µÄĞÔÄÜ¿¼ÂÇ    if (chain == null) {        return new CtEntry(resourceWrapper, null, context);    }    //ÏÂÃæÕâÀï²ÅÕæÕı¿ªÊ¼£¬Éú³É¸öentry    Entry e = new CtEntry(resourceWrapper, chain, context);    try {        //¿ªÊ¼¼ì²âÏŞÁ÷¹æÔò        chain.entry(context, resourceWrapper, null, count, prioritized, args);    } catch (BlockException e1) {        e.exit(count, args); //±»ÏŞÁ÷£¬Å×³öÒì³£¡£        throw e1;    } catch (Throwable e1) {        // This should not happen, unless there are errors existing in Sentinel internal.        RecordLog.info("Sentinel unexpected exception", e1);    }    return e;//·µ»ØÕı³£µÄ½á¹û}
+@Overridepublic Entry entry(String name, EntryType type, int count, Object... args) throws BlockException {ã€€ã€€ //å°è£…äº†ä¸€ä¸ªèµ„æºå¯¹è±¡    StringResourceWrapper resource = new StringResourceWrapper(name, type);    return entry(resource, count, args);}
 ```
 
 
@@ -98,18 +78,38 @@ private Entry entryWithPriority(ResourceWrapper resourceWrapper, int count,boole
 
 
 
-´ÓÉÏÃæµÄ´úÂëÎÒÃÇ¿ÉÒÔÖªµÀ£¬¸Ã·½·¨ÖĞÖ÷ÒªÊÇ»ñÈ¡µ½ÁË±¾×ÊÔ´Ëù¶ÔÓ¦µÄ×ÊÔ´´¦ÀíÁ´£¬´ÓÆğÃüÃû lookProcessChain ÖĞ·¢ÏÖ£¬¾ÍÊÇÈ¥»ñÈ¡µ½Ò»Ìõ´¦ÀíÁ´£¬È¥Ö´ĞĞ×ÊÔ´µÄÕûºÏ´¦Àí£¬µ±È»£¬ÕâÀï´¦ÓÚÏŞÁ÷µÄ»·¾³ÏÂ£¬ÄÇÃ´Õâ¸ö´¦ÀíÁ´¿Ï¶¨ÊÇ¶ÔÓÚµ±Ç°»·¾³ÏÂÇëÇóµÄÁ÷Á¿ÕûºÏÏŞÁ÷Ïà¹ØµÄ´¦Àí¡£¿ÉÒÔ·ÖÎªÒÔÏÂ¼¸¸ö²¿·Ö£º
+è¿™é‡Œçš„ä¸»è¦æ­¥éª¤æ˜¯é€šè¿‡æˆ‘ä»¬ç»™å®šçš„èµ„æºå»å°è£…äº†ä¸€ä¸ª StringResourceWrapper ï¼Œç„¶åä¼ å…¥è‡ªå·±çš„é‡è½½æ–¹æ³•ï¼Œç»§è€Œè°ƒç”¨ entryWithPriority(resourceWrapper, count, false, args)ï¼š
 
-*   ¶Ô²ÎÈ«¾ÖÅäÖÃÏî×ö¼ì²â£¬Èç¹û²»·ûºÏÒªÇó¾ÍÖ±½Ó·µ»ØÁËÒ»¸öCtEntry¶ÔÏó£¬²»»áÔÙ½øĞĞºóÃæµÄÏŞÁ÷¼ì²â£¬·ñÔò½øÈëÏÂÃæµÄ¼ì²âÁ÷³Ì¡£¸ù¾İ°ü×°¹ıµÄ×ÊÔ´¶ÔÏó»ñÈ¡¶ÔÓ¦µÄSlotChain
-*   Ö´ĞĞSlotChainµÄentry·½·¨£¬Èç¹ûSlotChainµÄentry·½·¨Å×³öÁËBlockException£¬Ôò½«¸ÃÒì³£¼ÌĞøÏòÉÏÅ×³ö£¬Èç¹ûSlotChainµÄentry·½·¨Õı³£Ö´ĞĞÁË£¬Ôò×îºó»á½«¸Ãentry¶ÔÏó·µ»Ø
-*   Èç¹ûÉÏ²ã·½·¨²¶»ñÁËBlockException£¬ÔòËµÃ÷ÇëÇó±»ÏŞÁ÷ÁË£¬·ñÔòÇëÇóÄÜÕı³£Ö´ĞĞ
-    **2.1 ´´½¨Context**
+*   ResourceWrapper è¡¨ç¤ºsentinelçš„èµ„æºï¼Œåšäº†å°è£…
+*   countè¡¨ç¤ºæœ¬æ¬¡è¯·æ±‚çš„å ç”¨çš„å¹¶å‘æ•°é‡ï¼Œé»˜è®¤æ˜¯1
+*   prioritizedï¼Œä¼˜å…ˆçº§
+
+
+
+```
+private Entry entryWithPriority(ResourceWrapper resourceWrapper, int count,boolean prioritized, Object... args)    throws BlockException {    //è·å–ä¸Šä¸‹æ–‡ç¯å¢ƒï¼Œå­˜å‚¨åœ¨ThreadLocalä¸­ï¼Œcontextä¸­ä¼šå­˜å‚¨æ•´ä¸ªè°ƒç”¨é“¾    Context context = ContextUtil.getContext();    //å¦‚æœæ˜¯ NullContextï¼Œé‚£ä¹ˆè¯´æ˜ context name è¶…è¿‡äº† 2000 ä¸ªï¼Œå‚è§ ContextUtil#trueEnter    //è¿™ä¸ªæ—¶å€™ï¼ŒSentinel ä¸å†æ¥å—å¤„ç†æ–°çš„ context é…ç½®ï¼Œä¹Ÿå°±æ˜¯ä¸åšè¿™äº›æ–°çš„æ¥å£çš„ç»Ÿè®¡ã€é™æµç†”æ–­ç­‰    if (context instanceof NullContext) {        // The {@link NullContext} indicates that the amount of context has exceeded the threshold,        // so here init the entry only. No rule checking will be done.        return new CtEntry(resourceWrapper, null, context);    }    if (context == null) {//ä½¿ç”¨é»˜è®¤context        // ç”ŸæˆContextçš„éƒ¨åˆ†        context = InternalContextUtil.internalEnter(Constants.CONTEXT_DEFAULT_NAME);    }    // Global switch is close, no rule checking will do.    if (!Constants.ON) {//å…¨å±€é™æµå¼€å…³æ˜¯å¦å·²ç»å¼€å¯ï¼Œå¦‚æœå…³é—­äº†ï¼Œå°±ä¸è¿›è¡Œé™æµè§„åˆ™æ£€æŸ¥        return new CtEntry(resourceWrapper, null, context);    }    //è®¾è®¡æ¨¡å¼ä¸­çš„è´£ä»»é“¾æ¨¡å¼ã€‚    //æ„å»ºä¸€ä¸ªsloté“¾è¡¨    ProcessorSlot<Object> chain = lookProcessChain(resourceWrapper);    //æ ¹æ® lookProcessChain æ–¹æ³•ï¼Œæˆ‘ä»¬çŸ¥é“ï¼Œå½“ resource è¶…è¿‡ Constants.MAX_SLOT_CHAIN_SIZEï¼Œ    // ä¹Ÿå°±æ˜¯ 6000 çš„æ—¶å€™ï¼ŒSentinel å¼€å§‹ä¸å¤„ç†æ–°çš„è¯·æ±‚ï¼Œè¿™ä¹ˆåšä¸»è¦æ˜¯ä¸ºäº† Sentinel çš„æ€§èƒ½è€ƒè™‘    if (chain == null) {        return new CtEntry(resourceWrapper, null, context);    }    //ä¸‹é¢è¿™é‡Œæ‰çœŸæ­£å¼€å§‹ï¼Œç”Ÿæˆä¸ªentry    Entry e = new CtEntry(resourceWrapper, chain, context);    try {        //å¼€å§‹æ£€æµ‹é™æµè§„åˆ™        chain.entry(context, resourceWrapper, null, count, prioritized, args);    } catch (BlockException e1) {        e.exit(count, args); //è¢«é™æµï¼ŒæŠ›å‡ºå¼‚å¸¸ã€‚        throw e1;    } catch (Throwable e1) {        // This should not happen, unless there are errors existing in Sentinel internal.        RecordLog.info("Sentinel unexpected exception", e1);    }    return e;//è¿”å›æ­£å¸¸çš„ç»“æœ}
+```
+
+
+
+
+
+
+
+
+
+ä»ä¸Šé¢çš„ä»£ç æˆ‘ä»¬å¯ä»¥çŸ¥é“ï¼Œè¯¥æ–¹æ³•ä¸­ä¸»è¦æ˜¯è·å–åˆ°äº†æœ¬èµ„æºæ‰€å¯¹åº”çš„èµ„æºå¤„ç†é“¾ï¼Œä»èµ·å‘½å lookProcessChain ä¸­å‘ç°ï¼Œå°±æ˜¯å»è·å–åˆ°ä¸€æ¡å¤„ç†é“¾ï¼Œå»æ‰§è¡Œèµ„æºçš„æ•´åˆå¤„ç†ï¼Œå½“ç„¶ï¼Œè¿™é‡Œå¤„äºé™æµçš„ç¯å¢ƒä¸‹ï¼Œé‚£ä¹ˆè¿™ä¸ªå¤„ç†é“¾è‚¯å®šæ˜¯å¯¹äºå½“å‰ç¯å¢ƒä¸‹è¯·æ±‚çš„æµé‡æ•´åˆé™æµç›¸å…³çš„å¤„ç†ã€‚å¯ä»¥åˆ†ä¸ºä»¥ä¸‹å‡ ä¸ªéƒ¨åˆ†ï¼š
+
+*   å¯¹å‚å…¨å±€é…ç½®é¡¹åšæ£€æµ‹ï¼Œå¦‚æœä¸ç¬¦åˆè¦æ±‚å°±ç›´æ¥è¿”å›äº†ä¸€ä¸ªCtEntryå¯¹è±¡ï¼Œä¸ä¼šå†è¿›è¡Œåé¢çš„é™æµæ£€æµ‹ï¼Œå¦åˆ™è¿›å…¥ä¸‹é¢çš„æ£€æµ‹æµç¨‹ã€‚æ ¹æ®åŒ…è£…è¿‡çš„èµ„æºå¯¹è±¡è·å–å¯¹åº”çš„SlotChain
+*   æ‰§è¡ŒSlotChainçš„entryæ–¹æ³•ï¼Œå¦‚æœSlotChainçš„entryæ–¹æ³•æŠ›å‡ºäº†BlockExceptionï¼Œåˆ™å°†è¯¥å¼‚å¸¸ç»§ç»­å‘ä¸ŠæŠ›å‡ºï¼Œå¦‚æœSlotChainçš„entryæ–¹æ³•æ­£å¸¸æ‰§è¡Œäº†ï¼Œåˆ™æœ€åä¼šå°†è¯¥entryå¯¹è±¡è¿”å›
+*   å¦‚æœä¸Šå±‚æ–¹æ³•æ•è·äº†BlockExceptionï¼Œåˆ™è¯´æ˜è¯·æ±‚è¢«é™æµäº†ï¼Œå¦åˆ™è¯·æ±‚èƒ½æ­£å¸¸æ‰§è¡Œ
+    **2.1 åˆ›å»ºContext**
     InternalContextUtil.internalEnter--->trueEnter
 
 
 
 ```
-protected static Context trueEnter(String name, String origin) {    //´ÓThreadLocalÖĞ»ñÈ¡£¬µÚÒ»´Î¿Ï¶¨ÊÇnull    Context context = contextHolder.get();    if (context == null) {        //ÕâÀïÊÇ¸ù¾İContextµÄÃû×Ö»ñÈ¡Node        Map<String, DefaultNode> localCacheNameMap = contextNameNodeMap;        DefaultNode node = localCacheNameMap.get(name);        if (node == null) {            if (localCacheNameMap.size() > Constants.MAX_CONTEXT_NAME_SIZE) {                setNullContext();                return NULL_CONTEXT;            } else {                LOCK.lock();                try {                    node = contextNameNodeMap.get(name);                    if (node == null) {                        if (contextNameNodeMap.size() > Constants.MAX_CONTEXT_NAME_SIZE) {                            setNullContext();                            return NULL_CONTEXT;                        } else {                            //´´½¨¸öEntranceNode                            node = new EntranceNode(new StringResourceWrapper(name, EntryType.IN), null);                            //¼ÓÈëÈ«¾ÖµÄ½Úµã                            // Add entrance node.                            Constants.ROOT.addChild(node);//¼ÓÈëmapÖĞ                            Map<String, DefaultNode> newMap = new HashMap<>(contextNameNodeMap.size() + 1);                            newMap.putAll(contextNameNodeMap);                            newMap.put(name, node);                            contextNameNodeMap = newMap;                        }                    }                } finally {                    LOCK.unlock();                }            }        }        context = new Context(node, name);        context.setOrigin(origin);        //·ÅÈëThreadLocalÖĞ        contextHolder.set(context);    }    return context;}
+protected static Context trueEnter(String name, String origin) {    //ä»ThreadLocalä¸­è·å–ï¼Œç¬¬ä¸€æ¬¡è‚¯å®šæ˜¯null    Context context = contextHolder.get();    if (context == null) {        //è¿™é‡Œæ˜¯æ ¹æ®Contextçš„åå­—è·å–Node        Map<String, DefaultNode> localCacheNameMap = contextNameNodeMap;        DefaultNode node = localCacheNameMap.get(name);        if (node == null) {            if (localCacheNameMap.size() > Constants.MAX_CONTEXT_NAME_SIZE) {                setNullContext();                return NULL_CONTEXT;            } else {                LOCK.lock();                try {                    node = contextNameNodeMap.get(name);                    if (node == null) {                        if (contextNameNodeMap.size() > Constants.MAX_CONTEXT_NAME_SIZE) {                            setNullContext();                            return NULL_CONTEXT;                        } else {                            //åˆ›å»ºä¸ªEntranceNode                            node = new EntranceNode(new StringResourceWrapper(name, EntryType.IN), null);                            //åŠ å…¥å…¨å±€çš„èŠ‚ç‚¹                            // Add entrance node.                            Constants.ROOT.addChild(node);//åŠ å…¥mapä¸­                            Map<String, DefaultNode> newMap = new HashMap<>(contextNameNodeMap.size() + 1);                            newMap.putAll(contextNameNodeMap);                            newMap.put(name, node);                            contextNameNodeMap = newMap;                        }                    }                } finally {                    LOCK.unlock();                }            }        }        context = new Context(node, name);        context.setOrigin(origin);        //æ”¾å…¥ThreadLocalä¸­        contextHolder.set(context);    }    return context;}
 ```
 
 
@@ -120,23 +120,23 @@ protected static Context trueEnter(String name, String origin) {    //´ÓThreadLo
 
 
 
-ÕâÀïµÄÂß¼­»¹ÊÇ±È½Ï¼òµ¥µÄ
+è¿™é‡Œçš„é€»è¾‘è¿˜æ˜¯æ¯”è¾ƒç®€å•çš„
 
-*   Ê×ÏÈÔÚThreadLocal»ñÈ¡£¬»ñÈ¡²»µ½¾Í´´½¨£¬²»È»¾Í·µ»Ø
-*   È»ºóÔÙMapÖĞ¸ù¾İContextNameÕÒÒ»¸öNode
-*   Ã»ÓĞÕÒµ½Node¾Í¼ÓËøµÄ·½Ê½£¬´´½¨Ò»¸öEntranceNode£¬È»ºó·ÅÈëMapÖĞ
-*   ´´½¨Context£¬ÉèÖÃnode£¬name£¬origin£¬ÔÙ·ÅÈëThreadLocalÖĞ
-    µ½´ËContext¾Í´´½¨Íê³É
+*   é¦–å…ˆåœ¨ThreadLocalè·å–ï¼Œè·å–ä¸åˆ°å°±åˆ›å»ºï¼Œä¸ç„¶å°±è¿”å›
+*   ç„¶åå†Mapä¸­æ ¹æ®ContextNameæ‰¾ä¸€ä¸ªNode
+*   æ²¡æœ‰æ‰¾åˆ°Nodeå°±åŠ é”çš„æ–¹å¼ï¼Œåˆ›å»ºä¸€ä¸ªEntranceNodeï¼Œç„¶åæ”¾å…¥Mapä¸­
+*   åˆ›å»ºContextï¼Œè®¾ç½®nodeï¼Œnameï¼Œoriginï¼Œå†æ”¾å…¥ThreadLocalä¸­
+    åˆ°æ­¤Contextå°±åˆ›å»ºå®Œæˆ
 
-Ä¿Ç°Context¶ÔÏóµÄ×´Ì¬ÈçÏÂÍ¼![SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/a114ee154527b7fcf24169d5291c7bac87ac93.png "SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")**2.2 ¹¹½¨slotÁ´**
-¹¹½¨Ò»¸öslotÁ´£¬Á´Â·µÄ×é³ÉÎª
+ç›®å‰Contextå¯¹è±¡çš„çŠ¶æ€å¦‚ä¸‹å›¾![SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/a114ee154527b7fcf24169d5291c7bac87ac93.png "SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")**2.2 æ„å»ºsloté“¾**
+æ„å»ºä¸€ä¸ªsloté“¾ï¼Œé“¾è·¯çš„ç»„æˆä¸º
 
 > DefaultProcessorSlotChain -> NodeSelectorSlot -> ClusterBuilderSlot -> LogSlot ->StatisticSlot -> AuthoritySlot -> SystemSlot -> ParamFlowSlot -> FlowSlot -> DegradeSlot
 
 
 
 ```
-ProcessorSlot<Object> lookProcessChain(ResourceWrapper resourceWrapper) {    //¿ÉÒÔ¿´³ö£¬chainÁ´¸ù¾İ×ÊÔ´À´×÷Îªkey£¬²»Í¬µÄ×ÊÔ´¿Ï¶¨ÊÇ²»Í¬chainÁ´    ProcessorSlotChain chain = chainMap.get(resourceWrapper);    if (chain == null) {////ÕâÀïÓëspring(»º´æbean) dubbo(Ë«ÖØ¼ì²éËø)ÖĞÈç³öÒ»ÕŞ£¬²ÉÓÃ»º´æ»úÖÆ        synchronized (LOCK) {            chain = chainMap.get(resourceWrapper);            if (chain == null) {                //chainMap´óĞ¡´óÓÚÒ»¸öÖµ£¬Ò²¾ÍÊÇentryÊıÁ¿´óĞ¡ÏŞÖÆÁË£¬Ò»¸öchain¶ÔÓ¦Ò»¸öentry                if (chainMap.size() >= Constants.MAX_SLOT_CHAIN_SIZE) {                    return null;                }                //¹¹½¨Ò»¸öslot chain                chain = SlotChainProvider.newSlotChain();                //ÕâÀïµÄÂß¼­ÊÇ£¬ĞÂ½¨Ò»¸öMap´óĞ¡ÊÇoldMap+1                Map<ResourceWrapper, ProcessorSlotChain> newMap = new                    HashMap<ResourceWrapper, ProcessorSlotChain>(                    chainMap.size() + 1);                //È»ºóÏÈÕûÌå·ÅÈëoldMap£¬ÔÙ·ÅĞÂ½¨µÄchain                newMap.putAll(chainMap);                newMap.put(resourceWrapper, chain); //Ìí¼Óµ½newMap£¬ ÕâÀïÓ¦¸ÃÊÇ¿¼ÂÇ±ÜÃâÆµ·±À©Èİ                chainMap = newMap;            }        }    }    return chain;}
+ProcessorSlot<Object> lookProcessChain(ResourceWrapper resourceWrapper) {    //å¯ä»¥çœ‹å‡ºï¼Œchainé“¾æ ¹æ®èµ„æºæ¥ä½œä¸ºkeyï¼Œä¸åŒçš„èµ„æºè‚¯å®šæ˜¯ä¸åŒchainé“¾    ProcessorSlotChain chain = chainMap.get(resourceWrapper);    if (chain == null) {////è¿™é‡Œä¸spring(ç¼“å­˜bean) dubbo(åŒé‡æ£€æŸ¥é”)ä¸­å¦‚å‡ºä¸€è¾™ï¼Œé‡‡ç”¨ç¼“å­˜æœºåˆ¶        synchronized (LOCK) {            chain = chainMap.get(resourceWrapper);            if (chain == null) {                //chainMapå¤§å°å¤§äºä¸€ä¸ªå€¼ï¼Œä¹Ÿå°±æ˜¯entryæ•°é‡å¤§å°é™åˆ¶äº†ï¼Œä¸€ä¸ªchainå¯¹åº”ä¸€ä¸ªentry                if (chainMap.size() >= Constants.MAX_SLOT_CHAIN_SIZE) {                    return null;                }                //æ„å»ºä¸€ä¸ªslot chain                chain = SlotChainProvider.newSlotChain();                //è¿™é‡Œçš„é€»è¾‘æ˜¯ï¼Œæ–°å»ºä¸€ä¸ªMapå¤§å°æ˜¯oldMap+1                Map<ResourceWrapper, ProcessorSlotChain> newMap = new                    HashMap<ResourceWrapper, ProcessorSlotChain>(                    chainMap.size() + 1);                //ç„¶åå…ˆæ•´ä½“æ”¾å…¥oldMapï¼Œå†æ”¾æ–°å»ºçš„chain                newMap.putAll(chainMap);                newMap.put(resourceWrapper, chain); //æ·»åŠ åˆ°newMapï¼Œ è¿™é‡Œåº”è¯¥æ˜¯è€ƒè™‘é¿å…é¢‘ç¹æ‰©å®¹                chainMap = newMap;            }        }    }    return chain;}
 ```
 
 
@@ -147,12 +147,12 @@ ProcessorSlot<Object> lookProcessChain(ResourceWrapper resourceWrapper) {    //¿
 
 
 
-ÕâÀïµÄ´úÂëºÜÇåÎú¿ÉÒÔ·¢ÏÖ£¬Ê×ÏÈ´Ó»º´æÖĞ»ñÈ¡¸Ã´¦ÀíÁ´£¬¶øµÚÒ»´Î½øÀ´¿Ï¶¨ÊÇÃ»ÓĞµÄ£¬ËùÒÔÕâÀï»á×ß SlotChainProvider È¥¹¹Ôì´¦ÀíÁ´£¬¹¹ÔìÍê³Éºó½«Æğ·ÅÈë»º´æÒÔ±¸ÏÂ´ÎÊ¹ÓÃ£º
+è¿™é‡Œçš„ä»£ç å¾ˆæ¸…æ™°å¯ä»¥å‘ç°ï¼Œé¦–å…ˆä»ç¼“å­˜ä¸­è·å–è¯¥å¤„ç†é“¾ï¼Œè€Œç¬¬ä¸€æ¬¡è¿›æ¥è‚¯å®šæ˜¯æ²¡æœ‰çš„ï¼Œæ‰€ä»¥è¿™é‡Œä¼šèµ° SlotChainProvider å»æ„é€ å¤„ç†é“¾ï¼Œæ„é€ å®Œæˆåå°†èµ·æ”¾å…¥ç¼“å­˜ä»¥å¤‡ä¸‹æ¬¡ä½¿ç”¨ï¼š
 
 
 
 ```
-public static ProcessorSlotChain newSlotChain() {    if (slotChainBuilder != null) {        return slotChainBuilder.build();    }    // ÕâÀïÍ¨¹ıspi»úÖÆÈ¥´´½¨´¦ÀíÁ´£¬Èç¹ûÏë×Ô¼º´´½¨slotµÄ»°Ö»ĞèÒª°´ÕÕSPI»úÖÆÊµÏÖSlotChainBuilder½Ó¿Ú¾ÍºÃ    //SentinelÄ¬ÈÏµÄÁ´ÔÚsentinel-core°üÏÂµÄMETA-INF.servicesÏÂ    slotChainBuilder = SpiLoader.loadFirstInstanceOrDefault(SlotChainBuilder.class, DefaultSlotChainBuilder.class);    if (slotChainBuilder == null) {        // Should not go through here.        RecordLog.warn("[SlotChainProvider] Wrong state when resolving slot chain builder, using default");        slotChainBuilder = new DefaultSlotChainBuilder();    } else {        RecordLog.info("[SlotChainProvider] Global slot chain builder resolved: "                       + slotChainBuilder.getClass().getCanonicalName());    }    return slotChainBuilder.build();}
+public static ProcessorSlotChain newSlotChain() {    if (slotChainBuilder != null) {        return slotChainBuilder.build();    }    // è¿™é‡Œé€šè¿‡spiæœºåˆ¶å»åˆ›å»ºå¤„ç†é“¾ï¼Œå¦‚æœæƒ³è‡ªå·±åˆ›å»ºslotçš„è¯åªéœ€è¦æŒ‰ç…§SPIæœºåˆ¶å®ç°SlotChainBuilderæ¥å£å°±å¥½    //Sentinelé»˜è®¤çš„é“¾åœ¨sentinel-coreåŒ…ä¸‹çš„META-INF.servicesä¸‹    slotChainBuilder = SpiLoader.loadFirstInstanceOrDefault(SlotChainBuilder.class, DefaultSlotChainBuilder.class);    if (slotChainBuilder == null) {        // Should not go through here.        RecordLog.warn("[SlotChainProvider] Wrong state when resolving slot chain builder, using default");        slotChainBuilder = new DefaultSlotChainBuilder();    } else {        RecordLog.info("[SlotChainProvider] Global slot chain builder resolved: "                       + slotChainBuilder.getClass().getCanonicalName());    }    return slotChainBuilder.build();}
 ```
 
 
@@ -163,7 +163,7 @@ public static ProcessorSlotChain newSlotChain() {    if (slotChainBuilder != nul
 
 
 
-Õâ¸ö·½·¨½øĞĞÁË¶à´ÎµÄĞ£Ñé£¬È·±£builder ²»Îª¿Õ£¬È»ºóÍ¨¹ıÆäÈ¥¹¹ÔìÕâ¸ö´¦ÀíÁ´£º
+è¿™ä¸ªæ–¹æ³•è¿›è¡Œäº†å¤šæ¬¡çš„æ ¡éªŒï¼Œç¡®ä¿builder ä¸ä¸ºç©ºï¼Œç„¶åé€šè¿‡å…¶å»æ„é€ è¿™ä¸ªå¤„ç†é“¾ï¼š
 
 
 
@@ -179,30 +179,30 @@ public class DefaultSlotChainBuilder implements SlotChainBuilder {    @Override 
 
 
 
-µ½ÁËÕâÀïÎÒÃÇÖÕÓÚ·¢ÏÖÁËÕâ¸ö´¦ÀíÁ´µÄ×é³ÉÇé¿ö£¬¹ÙÍøÒ²ÓĞ¶ÔÆä½øĞĞËµÃ÷£¬±Ï¾¹ÊÇSentinelµÄÏŞÁ÷ºËĞÄËã·¨µÄÊµÏÖ¸¹µØ£¬ÎÒÃÇ¿´Ò»ÏÂ¹ÙÍøµÄ½éÉÜ£º
+åˆ°äº†è¿™é‡Œæˆ‘ä»¬ç»ˆäºå‘ç°äº†è¿™ä¸ªå¤„ç†é“¾çš„ç»„æˆæƒ…å†µï¼Œå®˜ç½‘ä¹Ÿæœ‰å¯¹å…¶è¿›è¡Œè¯´æ˜ï¼Œæ¯•ç«Ÿæ˜¯Sentinelçš„é™æµæ ¸å¿ƒç®—æ³•çš„å®ç°è…¹åœ°ï¼Œæˆ‘ä»¬çœ‹ä¸€ä¸‹å®˜ç½‘çš„ä»‹ç»ï¼š
 
-ÔÚ Sentinel ÀïÃæ£¬ËùÓĞµÄ×ÊÔ´¶¼¶ÔÓ¦Ò»¸ö×ÊÔ´Ãû³Æ£¨resourceName£©£¬Ã¿´Î×ÊÔ´µ÷ÓÃ¶¼»á´´½¨Ò»¸ö Entry ¶ÔÏó¡£Entry ¿ÉÒÔÍ¨¹ı¶ÔÖ÷Á÷¿ò¼ÜµÄÊÊÅä×Ô¶¯´´½¨£¬Ò²¿ÉÒÔÍ¨¹ı×¢½âµÄ·½Ê½»òµ÷ÓÃ SphU API ÏÔÊ½´´½¨¡£Entry ´´½¨µÄÊ±ºò£¬Í¬Ê±Ò²»á´´½¨Ò»ÏµÁĞ¹¦ÄÜ²å²Û£¨slot chain£©£¬ÕâĞ©²å²ÛÓĞ²»Í¬µÄÖ°Ôğ¡£¾ßÌåÖ°ÔğÔÚÉÏÃæÒÑ¾­Ìáµ½ÁË¡£
+åœ¨ Sentinel é‡Œé¢ï¼Œæ‰€æœ‰çš„èµ„æºéƒ½å¯¹åº”ä¸€ä¸ªèµ„æºåç§°ï¼ˆresourceNameï¼‰ï¼Œæ¯æ¬¡èµ„æºè°ƒç”¨éƒ½ä¼šåˆ›å»ºä¸€ä¸ª Entry å¯¹è±¡ã€‚Entry å¯ä»¥é€šè¿‡å¯¹ä¸»æµæ¡†æ¶çš„é€‚é…è‡ªåŠ¨åˆ›å»ºï¼Œä¹Ÿå¯ä»¥é€šè¿‡æ³¨è§£çš„æ–¹å¼æˆ–è°ƒç”¨ SphU API æ˜¾å¼åˆ›å»ºã€‚Entry åˆ›å»ºçš„æ—¶å€™ï¼ŒåŒæ—¶ä¹Ÿä¼šåˆ›å»ºä¸€ç³»åˆ—åŠŸèƒ½æ’æ§½ï¼ˆslot chainï¼‰ï¼Œè¿™äº›æ’æ§½æœ‰ä¸åŒçš„èŒè´£ã€‚å…·ä½“èŒè´£åœ¨ä¸Šé¢å·²ç»æåˆ°äº†ã€‚
 
-**ÕûÌåÁ÷³Ì**
+**æ•´ä½“æµç¨‹**
 
-ÕûÌåµÄÖ´ĞĞÁ÷³ÌÈçÏÂ¡£
+æ•´ä½“çš„æ‰§è¡Œæµç¨‹å¦‚ä¸‹ã€‚
 
-* NodeSelectorSlot£ºÖ÷ÒªÓÃÓÚ¹¹½¨µ÷ÓÃÁ´¡£
+* NodeSelectorSlotï¼šä¸»è¦ç”¨äºæ„å»ºè°ƒç”¨é“¾ã€‚
 
-* ClusterBuilderSlot£ºÓÃÓÚ¼¯ÈºÏŞÁ÷¡¢ÈÛ¶Ï¡£
+* ClusterBuilderSlotï¼šç”¨äºé›†ç¾¤é™æµã€ç†”æ–­ã€‚
 
-* LogSlot£ºÓÃÓÚ¼ÇÂ¼ÈÕÖ¾¡£
+* LogSlotï¼šç”¨äºè®°å½•æ—¥å¿—ã€‚
 
-* StatisticSlot£ºÓÃÓÚÊµÊ±ÊÕ¼¯ÊµÊ±ÏûÏ¢¡£
+* StatisticSlotï¼šç”¨äºå®æ—¶æ”¶é›†å®æ—¶æ¶ˆæ¯ã€‚
 
-* AuthoritySlot£ºÓÃÓÚÈ¨ÏŞĞ£ÑéµÄ¡£
+* AuthoritySlotï¼šç”¨äºæƒé™æ ¡éªŒçš„ã€‚
 
-* SystemSlot£ºÓÃÓÚÑéÖ¤ÏµÍ³¼¶±ğµÄ¹æÔò¡£
+* SystemSlotï¼šç”¨äºéªŒè¯ç³»ç»Ÿçº§åˆ«çš„è§„åˆ™ã€‚
 
-* FlowSlot£ºÊµÏÖÏŞÁ÷»úÖÆ¡£
+* FlowSlotï¼šå®ç°é™æµæœºåˆ¶ã€‚
 
-* DegradeSlot£ºÊµÏÖÈÛ¶Ï»úÖÆ¡£
-  **2.3 ´´½¨Entry**
+* DegradeSlotï¼šå®ç°ç†”æ–­æœºåˆ¶ã€‚
+  **2.3 åˆ›å»ºEntry**
 
   > Entry e = new CtEntry(resourceWrapper, chain, context);
 
@@ -221,19 +221,19 @@ CtEntry(ResourceWrapper resourceWrapper, ProcessorSlot<Object> chain, Context co
 
 
 
-µ±µÚÒ»´ÎEntryÉú³ÉµÄÊ±ºò£¬context.getCurEntry±Ø¶¨ÊÇNULL£¬ÄÇÃ´Ö±½ÓÖ´ĞĞContext.setCurEntry·½·¨
+å½“ç¬¬ä¸€æ¬¡Entryç”Ÿæˆçš„æ—¶å€™ï¼Œcontext.getCurEntryå¿…å®šæ˜¯NULLï¼Œé‚£ä¹ˆç›´æ¥æ‰§è¡ŒContext.setCurEntryæ–¹æ³•
 
-È»ºóÕâ¸öContextµÄ×´Ì¬ÈçÏÂÍ¼  ![SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/57273a794d51cfc587c923de97943491e9da0b.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")ÔÙÖ´ĞĞÒ»´ÎĞÂµÄSphu.entryºó»áÔÙ´ÎĞÂ½¨Ò»¸öEntry£¬Õâ¸öÊ±ºòcurEntry²»ÊÇnull£¬ÄÇÃ´Ö´ĞĞ((CtEntry)parent).child = this;
+ç„¶åè¿™ä¸ªContextçš„çŠ¶æ€å¦‚ä¸‹å›¾  ![SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/57273a794d51cfc587c923de97943491e9da0b.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")å†æ‰§è¡Œä¸€æ¬¡æ–°çš„Sphu.entryåä¼šå†æ¬¡æ–°å»ºä¸€ä¸ªEntryï¼Œè¿™ä¸ªæ—¶å€™curEntryä¸æ˜¯nullï¼Œé‚£ä¹ˆæ‰§è¡Œ((CtEntry)parent).child = this;
 
-½á¹ûÈçÏÂÍ¼![SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c3c36f101ef031102dd270287bf7635e715229.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")¿ÉÒÔ¿´³ö£¬Ô­À´µÄCtEntry±»ÒÆ³öContext£¬ĞÂ½¨µÄCtEntryºÍ¾ÉCtEntryÍ¨¹ıÄÚ²¿µÄparentºÍchildÒıÓÃÏàÁ¬
+ç»“æœå¦‚ä¸‹å›¾![SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c3c36f101ef031102dd270287bf7635e715229.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")å¯ä»¥çœ‹å‡ºï¼ŒåŸæ¥çš„CtEntryè¢«ç§»å‡ºContextï¼Œæ–°å»ºçš„CtEntryå’Œæ—§CtEntryé€šè¿‡å†…éƒ¨çš„parentå’Œchildå¼•ç”¨ç›¸è¿
 
 **2.4 NodeSelectorSlot**
-Õâ¸öÀàÖ÷ÒªÓÃÓÚ¹¹½¨µ÷ÓÃÁ´£¬Õâ¸öĞèÒª½²½âÒ»ÏÂ£¬ÔÚºóĞø¹ı³ÌÖĞ»á±È½Ï¹Ø¼ü£¬´úÂëÈçÏÂ¡£
+è¿™ä¸ªç±»ä¸»è¦ç”¨äºæ„å»ºè°ƒç”¨é“¾ï¼Œè¿™ä¸ªéœ€è¦è®²è§£ä¸€ä¸‹ï¼Œåœ¨åç»­è¿‡ç¨‹ä¸­ä¼šæ¯”è¾ƒå…³é”®ï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
 ```
-@Overridepublic void entry(Context context, ResourceWrapper resourceWrapper, Object obj,                  int count, boolean prioritized, Object... args)    throws Throwable {    //ÕâÀïÓĞ¸ö»º´æ£¬¸ù¾İcontextµÄÃû×Ö»º´ænode    DefaultNode node = map.get(context.getName());    //Ë«ÖØ¼ì²â£¬Ïß³Ì°²È«    if (node == null) {        synchronized (this) {            node = map.get(context.getName());            if (node == null) {                //ÕâÀïÉú³ÉµÄÊÇDefaultNode½Úµã                node = new DefaultNode(resourceWrapper, null);                //ÏÂÃæÕâĞ©Âß¼­ÊÇ·ÅÈëmapµÄÂß¼­£¬ÒòÎªºóÆÚmap±È½Ï´ó£¬ËùÒÔÕâÑù·ÅÈë£¬ĞÔÄÜ»á¸ßÒ»Ğ©                HashMap<String, DefaultNode> cacheMap = new HashMap<String,DefaultNode>(map.size());                cacheMap.putAll(map);                cacheMap.put(context.getName(), node);                map = cacheMap;                // ¹Ø¼üÔÚÕâ£¬ÕâÊÇĞŞ¸Äµ÷ÓÃÁ´Ê÷µÄµØ·½                ((DefaultNode) context.getLastNode()).addChild(node);            }        }    }    //Ìæ»»contextÖĞµÄcurEntryÖĞµÄcurNode    context.setCurNode(node);    fireEntry(context, resourceWrapper, node, count, prioritized, args);}
+@Overridepublic void entry(Context context, ResourceWrapper resourceWrapper, Object obj,                  int count, boolean prioritized, Object... args)    throws Throwable {    //è¿™é‡Œæœ‰ä¸ªç¼“å­˜ï¼Œæ ¹æ®contextçš„åå­—ç¼“å­˜node    DefaultNode node = map.get(context.getName());    //åŒé‡æ£€æµ‹ï¼Œçº¿ç¨‹å®‰å…¨    if (node == null) {        synchronized (this) {            node = map.get(context.getName());            if (node == null) {                //è¿™é‡Œç”Ÿæˆçš„æ˜¯DefaultNodeèŠ‚ç‚¹                node = new DefaultNode(resourceWrapper, null);                //ä¸‹é¢è¿™äº›é€»è¾‘æ˜¯æ”¾å…¥mapçš„é€»è¾‘ï¼Œå› ä¸ºåæœŸmapæ¯”è¾ƒå¤§ï¼Œæ‰€ä»¥è¿™æ ·æ”¾å…¥ï¼Œæ€§èƒ½ä¼šé«˜ä¸€äº›                HashMap<String, DefaultNode> cacheMap = new HashMap<String,DefaultNode>(map.size());                cacheMap.putAll(map);                cacheMap.put(context.getName(), node);                map = cacheMap;                // å…³é”®åœ¨è¿™ï¼Œè¿™æ˜¯ä¿®æ”¹è°ƒç”¨é“¾æ ‘çš„åœ°æ–¹                ((DefaultNode) context.getLastNode()).addChild(node);            }        }    }    //æ›¿æ¢contextä¸­çš„curEntryä¸­çš„curNode    context.setCurNode(node);    fireEntry(context, resourceWrapper, node, count, prioritized, args);}
 ```
 
 
@@ -244,40 +244,40 @@ CtEntry(ResourceWrapper resourceWrapper, ProcessorSlot<Object> chain, Context co
 
 
 
-²éÑ¯»º´æÖĞÊÇ·ñÓĞÕâ¸önodeÕâÀïµÄÂß¼­Ò²ºÜ¼òµ¥
+æŸ¥è¯¢ç¼“å­˜ä¸­æ˜¯å¦æœ‰è¿™ä¸ªnodeè¿™é‡Œçš„é€»è¾‘ä¹Ÿå¾ˆç®€å•
 
-*   ¸ù¾İContextName²éÑ¯»º´æÊÇ·ñÓĞÕâ¸öNode
-*   Ã»ÓĞ¾ÍÉú³ÉÕâ¸öDefaultNode£¬·ÅÈë»º´æ£¬È»ºó¹¹Ôìµ÷ÓÃÊ÷Á´
-*   ContextµÄcurEntryÖĞµÄcurnodeÉèÖÃÎªÕâ¸önode
-    ÕâÀïÓĞ¼¸¸ö¶ÔÏóÒªµ¥¶ÀËµÃ÷£º
+*   æ ¹æ®ContextNameæŸ¥è¯¢ç¼“å­˜æ˜¯å¦æœ‰è¿™ä¸ªNode
+*   æ²¡æœ‰å°±ç”Ÿæˆè¿™ä¸ªDefaultNodeï¼Œæ”¾å…¥ç¼“å­˜ï¼Œç„¶åæ„é€ è°ƒç”¨æ ‘é“¾
+*   Contextçš„curEntryä¸­çš„curnodeè®¾ç½®ä¸ºè¿™ä¸ªnode
+    è¿™é‡Œæœ‰å‡ ä¸ªå¯¹è±¡è¦å•ç‹¬è¯´æ˜ï¼š
 
-1¡¢context£º±íÊ¾ÉÏÏÂÎÄ£¬Ò»¸öÏß³Ì¶ÔÓ¦Ò»¸öcontext£¬ÆäÖĞ°üº¬Ò»Ğ©ÊôĞÔÈçÏÂ
+1ã€contextï¼šè¡¨ç¤ºä¸Šä¸‹æ–‡ï¼Œä¸€ä¸ªçº¿ç¨‹å¯¹åº”ä¸€ä¸ªcontextï¼Œå…¶ä¸­åŒ…å«ä¸€äº›å±æ€§å¦‚ä¸‹
 
-*   name£ºÃû×Ö
-*   entranceNode£ºµ÷ÓÃÁ´Èë¿Ú
-*   curEntry£ºµ±Ç°entry
-*   origin£ºµ÷ÓÃÕßÀ´Ô´
-*   async£ºÒì²½
-    2¡¢Node£º ±íÊ¾Ò»¸ö½Úµã£¬Õâ¸ö½Úµã»á±£´æÄ³¸ö×ÊÔ´µÄ¸÷¸öÊµÊ±Í³¼ÆÊı¾İ£¬Í¨¹ı·ÃÎÊÄ³¸ö½Úµã£¬¾Í¿ÉÒÔ»ñµÃ¶ÔÓ¦×ÊÔ´µÄÊµÊ±×´Ì¬£¬¸ù¾İÕâ¸öĞÅÏ¢À´½øĞĞÏŞÁ÷ºÍ½µ¼¶£¬ËüÓĞ¼¸ÖÖ½ÚµãÀàĞÍ
-*   StatisticNode£ºÊµÏÖÁËNode½Ó¿Ú£¬·â×°ÁË»ù´¡µÄÁ÷Á¿Í³¼ÆºÍ»ñÈ¡·½·¨
-*   DefaultNode£ºÄ¬ÈÏ½Úµã£¬NodeSelectorSlotÖĞ´´½¨µÄ¾ÍÊÇÕâ¸ö½Úµã£»´ú±íÍ¬¸ö×ÊÔ´ÔÚ²»Í¬ÉÏÏÂÎÄÖĞ¸÷×ÔµÄÁ÷Á¿Çé¿ö
-*   ClusterNode£º¼¯Èº½Úµã£¬´ú±íÍ¬¸ö×ÊÔ´ÔÚ²»Í¬ÉÏÏÂÎÄÖĞ×ÜÌåµÄÁ÷Á¿Çé¿ö
-*   EntranceNode£º¸Ã½Úµã±íÊ¾Ò»¿Ãµ÷ÓÃÁ´Ê÷µÄÈë¿Ú½Úµã£¬Í¨¹ıËû¿ÉÒÔ»ñÈ¡µ÷ÓÃÁ´Ê÷ÖĞËùÓĞµÄ×Ó½Úµã£»Ã¿¸öÉÏÏÂÎÄ¶¼»áÓĞÒ»¸öÈë¿Ú½Úµã£¬ÓÃÀ´Í³¼Æµ±Ç°ÉÏÏÂÎÄµÄ×ÜÌåÁ÷Á¿Çé¿ö
-*   OriginNode£ºÊÇÒ»¸öStatisticNodeÀàĞÍµÄ½Úµã£¬´ú±íÁËÍ¬¸ö×ÊÔ´ÇëÇóÀ´Ô´µÄÁ÷Á¿Çé¿ö
+*   nameï¼šåå­—
+*   entranceNodeï¼šè°ƒç”¨é“¾å…¥å£
+*   curEntryï¼šå½“å‰entry
+*   originï¼šè°ƒç”¨è€…æ¥æº
+*   asyncï¼šå¼‚æ­¥
+    2ã€Nodeï¼š è¡¨ç¤ºä¸€ä¸ªèŠ‚ç‚¹ï¼Œè¿™ä¸ªèŠ‚ç‚¹ä¼šä¿å­˜æŸä¸ªèµ„æºçš„å„ä¸ªå®æ—¶ç»Ÿè®¡æ•°æ®ï¼Œé€šè¿‡è®¿é—®æŸä¸ªèŠ‚ç‚¹ï¼Œå°±å¯ä»¥è·å¾—å¯¹åº”èµ„æºçš„å®æ—¶çŠ¶æ€ï¼Œæ ¹æ®è¿™ä¸ªä¿¡æ¯æ¥è¿›è¡Œé™æµå’Œé™çº§ï¼Œå®ƒæœ‰å‡ ç§èŠ‚ç‚¹ç±»å‹
+*   StatisticNodeï¼šå®ç°äº†Nodeæ¥å£ï¼Œå°è£…äº†åŸºç¡€çš„æµé‡ç»Ÿè®¡å’Œè·å–æ–¹æ³•
+*   DefaultNodeï¼šé»˜è®¤èŠ‚ç‚¹ï¼ŒNodeSelectorSlotä¸­åˆ›å»ºçš„å°±æ˜¯è¿™ä¸ªèŠ‚ç‚¹ï¼›ä»£è¡¨åŒä¸ªèµ„æºåœ¨ä¸åŒä¸Šä¸‹æ–‡ä¸­å„è‡ªçš„æµé‡æƒ…å†µ
+*   ClusterNodeï¼šé›†ç¾¤èŠ‚ç‚¹ï¼Œä»£è¡¨åŒä¸ªèµ„æºåœ¨ä¸åŒä¸Šä¸‹æ–‡ä¸­æ€»ä½“çš„æµé‡æƒ…å†µ
+*   EntranceNodeï¼šè¯¥èŠ‚ç‚¹è¡¨ç¤ºä¸€æ£µè°ƒç”¨é“¾æ ‘çš„å…¥å£èŠ‚ç‚¹ï¼Œé€šè¿‡ä»–å¯ä»¥è·å–è°ƒç”¨é“¾æ ‘ä¸­æ‰€æœ‰çš„å­èŠ‚ç‚¹ï¼›æ¯ä¸ªä¸Šä¸‹æ–‡éƒ½ä¼šæœ‰ä¸€ä¸ªå…¥å£èŠ‚ç‚¹ï¼Œç”¨æ¥ç»Ÿè®¡å½“å‰ä¸Šä¸‹æ–‡çš„æ€»ä½“æµé‡æƒ…å†µ
+*   OriginNodeï¼šæ˜¯ä¸€ä¸ªStatisticNodeç±»å‹çš„èŠ‚ç‚¹ï¼Œä»£è¡¨äº†åŒä¸ªèµ„æºè¯·æ±‚æ¥æºçš„æµé‡æƒ…å†µ
     **2.5 StatisticSlot**
-    ÔÚÕû¸öslotÁ´Â·ÖĞ£¬±È½ÏÖØÒªµÄ£¬¾ÍÊÇÁ÷Á¿Êı¾İÍ³¼ÆÒÔ¼°Á÷Á¿¹æÔò¼ì²âÕâÁ½¸öslot£¬ÎÒÃÇÏÈÀ´·ÖÎöÒ»ÏÂStatisticSlotÕâ¸ö¶ÔÏó¡£
+    åœ¨æ•´ä¸ªsloté“¾è·¯ä¸­ï¼Œæ¯”è¾ƒé‡è¦çš„ï¼Œå°±æ˜¯æµé‡æ•°æ®ç»Ÿè®¡ä»¥åŠæµé‡è§„åˆ™æ£€æµ‹è¿™ä¸¤ä¸ªslotï¼Œæˆ‘ä»¬å…ˆæ¥åˆ†æä¸€ä¸‹StatisticSlotè¿™ä¸ªå¯¹è±¡ã€‚
 
-StatisticSlotÊÇ Sentinel µÄºËĞÄ¹¦ÄÜ²å²ÛÖ®Ò»£¬ÓÃÓÚÍ³¼ÆÊµÊ±µÄµ÷ÓÃÊı¾İ¡£
+StatisticSlotæ˜¯ Sentinel çš„æ ¸å¿ƒåŠŸèƒ½æ’æ§½ä¹‹ä¸€ï¼Œç”¨äºç»Ÿè®¡å®æ—¶çš„è°ƒç”¨æ•°æ®ã€‚
 
-*   clusterNode£º×ÊÔ´Î¨Ò»±êÊ¶µÄ ClusterNode µÄ runtime Í³¼Æ
-*   origin£º¸ù¾İÀ´×Ô²»Í¬µ÷ÓÃÕßµÄÍ³¼ÆĞÅÏ¢
-*   defaultnode: ¸ù¾İÉÏÏÂÎÄÌõÄ¿Ãû³ÆºÍ×ÊÔ´ ID µÄ runtime Í³¼Æ
-*   Èë¿ÚµÄÍ³¼Æ
+*   clusterNodeï¼šèµ„æºå”¯ä¸€æ ‡è¯†çš„ ClusterNode çš„ runtime ç»Ÿè®¡
+*   originï¼šæ ¹æ®æ¥è‡ªä¸åŒè°ƒç”¨è€…çš„ç»Ÿè®¡ä¿¡æ¯
+*   defaultnode: æ ¹æ®ä¸Šä¸‹æ–‡æ¡ç›®åç§°å’Œèµ„æº ID çš„ runtime ç»Ÿè®¡
+*   å…¥å£çš„ç»Ÿè®¡
 
 
 
 ```
-public void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode node, int count,                  boolean prioritized, Object... args) throws Throwable {    try {        // ÏÈ½»ÓÉºóĞøµÄÏŞÁ÷&½µ¼¶µÈprocessorSlot´¦Àí£¬È»ºó¸ù¾İ´¦Àí½á¹û½øĞĞÍ³¼Æ        // SentinelÔğÈÎÁ´µÄ¾«»ª£¨²»Ê¹ÓÃ for Ñ­»·±éÀúµ÷ÓÃ ProcessorSlot µÄÔ­Òò£©        fireEntry(context, resourceWrapper, node, count, prioritized, args);        //Ö´ĞĞµ½ÕâÀï±íÊ¾Í¨¹ı¼ì²é£¬²»±»ÏŞÁ÷        // Request passed, add thread count and pass count.        node.increaseThreadNum(); //µ±Ç°½ÚµãµÄÇëÇóÏß³ÌÊı¼Ó1        node.addPassRequest(count);        //Õë¶Ô²»Í¬ÀàĞÍµÄnode¼ÇÂ¼Ïß³ÌÊıÁ¿ºÍÇëÇóÍ¨¹ıÊıÁ¿µÄÍ³¼Æ¡£        if (context.getCurEntry().getOriginNode() != null) {            // Add count for origin node.            context.getCurEntry().getOriginNode().increaseThreadNum();            context.getCurEntry().getOriginNode().addPassRequest(count);        }        if (resourceWrapper.getEntryType() == EntryType.IN) {            // Add count for global inbound entry node for global statistics.            Constants.ENTRY_NODE.increaseThreadNum();            Constants.ENTRY_NODE.addPassRequest(count);        }        //¿Éµ÷ÓÃ StatisticSlotCallbackRegistry#addEntryCallback ¾²Ì¬·½·¨×¢²áProcessorSlotEntryCallback        for (ProcessorSlotEntryCallback<DefaultNode> handler :             StatisticSlotCallbackRegistry.getEntryCallbacks()) {            handler.onPass(context, resourceWrapper, node, count, args);        }        //ÓÅÏÈ¼¶µÈ´ıÒì³££¬Õâ¸öÔÚFlowRuleÖĞ»áÓĞÉæ¼°µ½¡£    } catch (PriorityWaitException ex) {//Ôö¼ÓÏß³ÌÍ³¼Æ        node.increaseThreadNum();        if (context.getCurEntry().getOriginNode() != null) {            // Add count for origin node.            context.getCurEntry().getOriginNode().increaseThreadNum();        }        if (resourceWrapper.getEntryType() == EntryType.IN) {            // Add count for global inbound entry node for global statistics.            Constants.ENTRY_NODE.increaseThreadNum();        }        // Handle pass event with registered entry callback handlers.        for (ProcessorSlotEntryCallback<DefaultNode> handler :             StatisticSlotCallbackRegistry.getEntryCallbacks()) {            handler.onPass(context, resourceWrapper, node, count, args);        }    } catch (BlockException e) {        // Blocked, set block exception to current entry.        context.getCurEntry().setBlockError(e); //ÉèÖÃÏŞÁ÷Òì³£µ½µ±Ç°entryÖĞ        // Add block count.        node.increaseBlockQps(count); //Ôö¼Ó±»ÏŞÁ÷µÄÊıÁ¿        //¸ù¾İ²»Í¬NodeÀàĞÍÔö¼Ó×èÈûÏŞÁ÷µÄ´ÎÊı        if (context.getCurEntry().getOriginNode() != null) {            context.getCurEntry().getOriginNode().increaseBlockQps(count);        }        if (resourceWrapper.getEntryType() == EntryType.IN) {            // Add count for global inbound entry node for global statistics.            Constants.ENTRY_NODE.increaseBlockQps(count);        }        // Handle block event with registered entry callback handlers.        for (ProcessorSlotEntryCallback<DefaultNode> handler :             StatisticSlotCallbackRegistry.getEntryCallbacks()) {            handler.onBlocked(e, context, resourceWrapper, node, count, args);        }        throw e;    } catch (Throwable e) {        // Unexpected internal error, set error to current entry.        context.getCurEntry().setError(e);        throw e;    }}
+public void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode node, int count,                  boolean prioritized, Object... args) throws Throwable {    try {        // å…ˆäº¤ç”±åç»­çš„é™æµ&é™çº§ç­‰processorSlotå¤„ç†ï¼Œç„¶åæ ¹æ®å¤„ç†ç»“æœè¿›è¡Œç»Ÿè®¡        // Sentinelè´£ä»»é“¾çš„ç²¾åï¼ˆä¸ä½¿ç”¨ for å¾ªç¯éå†è°ƒç”¨ ProcessorSlot çš„åŸå› ï¼‰        fireEntry(context, resourceWrapper, node, count, prioritized, args);        //æ‰§è¡Œåˆ°è¿™é‡Œè¡¨ç¤ºé€šè¿‡æ£€æŸ¥ï¼Œä¸è¢«é™æµ        // Request passed, add thread count and pass count.        node.increaseThreadNum(); //å½“å‰èŠ‚ç‚¹çš„è¯·æ±‚çº¿ç¨‹æ•°åŠ 1        node.addPassRequest(count);        //é’ˆå¯¹ä¸åŒç±»å‹çš„nodeè®°å½•çº¿ç¨‹æ•°é‡å’Œè¯·æ±‚é€šè¿‡æ•°é‡çš„ç»Ÿè®¡ã€‚        if (context.getCurEntry().getOriginNode() != null) {            // Add count for origin node.            context.getCurEntry().getOriginNode().increaseThreadNum();            context.getCurEntry().getOriginNode().addPassRequest(count);        }        if (resourceWrapper.getEntryType() == EntryType.IN) {            // Add count for global inbound entry node for global statistics.            Constants.ENTRY_NODE.increaseThreadNum();            Constants.ENTRY_NODE.addPassRequest(count);        }        //å¯è°ƒç”¨ StatisticSlotCallbackRegistry#addEntryCallback é™æ€æ–¹æ³•æ³¨å†ŒProcessorSlotEntryCallback        for (ProcessorSlotEntryCallback<DefaultNode> handler :             StatisticSlotCallbackRegistry.getEntryCallbacks()) {            handler.onPass(context, resourceWrapper, node, count, args);        }        //ä¼˜å…ˆçº§ç­‰å¾…å¼‚å¸¸ï¼Œè¿™ä¸ªåœ¨FlowRuleä¸­ä¼šæœ‰æ¶‰åŠåˆ°ã€‚    } catch (PriorityWaitException ex) {//å¢åŠ çº¿ç¨‹ç»Ÿè®¡        node.increaseThreadNum();        if (context.getCurEntry().getOriginNode() != null) {            // Add count for origin node.            context.getCurEntry().getOriginNode().increaseThreadNum();        }        if (resourceWrapper.getEntryType() == EntryType.IN) {            // Add count for global inbound entry node for global statistics.            Constants.ENTRY_NODE.increaseThreadNum();        }        // Handle pass event with registered entry callback handlers.        for (ProcessorSlotEntryCallback<DefaultNode> handler :             StatisticSlotCallbackRegistry.getEntryCallbacks()) {            handler.onPass(context, resourceWrapper, node, count, args);        }    } catch (BlockException e) {        // Blocked, set block exception to current entry.        context.getCurEntry().setBlockError(e); //è®¾ç½®é™æµå¼‚å¸¸åˆ°å½“å‰entryä¸­        // Add block count.        node.increaseBlockQps(count); //å¢åŠ è¢«é™æµçš„æ•°é‡        //æ ¹æ®ä¸åŒNodeç±»å‹å¢åŠ é˜»å¡é™æµçš„æ¬¡æ•°        if (context.getCurEntry().getOriginNode() != null) {            context.getCurEntry().getOriginNode().increaseBlockQps(count);        }        if (resourceWrapper.getEntryType() == EntryType.IN) {            // Add count for global inbound entry node for global statistics.            Constants.ENTRY_NODE.increaseBlockQps(count);        }        // Handle block event with registered entry callback handlers.        for (ProcessorSlotEntryCallback<DefaultNode> handler :             StatisticSlotCallbackRegistry.getEntryCallbacks()) {            handler.onBlocked(e, context, resourceWrapper, node, count, args);        }        throw e;    } catch (Throwable e) {        // Unexpected internal error, set error to current entry.        context.getCurEntry().setError(e);        throw e;    }}
 ```
 
 
@@ -288,24 +288,24 @@ public void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode 
 
 
 
-´úÂë·Ö³ÉÁËÁ½²¿·Ö£¬µÚÒ»²¿·ÖÊÇentry·½·¨£¬¸Ã·½·¨Ê×ÏÈ»á´¥·¢ºóĞøslotµÄentry·½·¨£¬¼´SystemSlot¡¢FlowSlot¡¢DegradeSlotµÈµÄ¹æÔò£¬Èç¹û¹æÔò²»Í¨¹ı£¬¾Í»áÅ×³öBlockException£¬Ôò»áÔÚnodeÖĞÍ³¼Æ±»blockµÄÊıÁ¿¡£·´Ö®»áÔÚnodeÖĞÍ³¼ÆÍ¨¹ıµÄÇëÇóÊıºÍÏß³ÌÊıµÈĞÅÏ¢¡£µÚ¶ş²¿·ÖÊÇÔÚexit·½·¨ÖĞ£¬µ±ÍË³ö¸ÃEntryÈë¿ÚÊ±£¬»áÍ³¼ÆrtµÄÊ±¼ä£¬²¢¼õÉÙÏß³ÌÊı¡£
+ä»£ç åˆ†æˆäº†ä¸¤éƒ¨åˆ†ï¼Œç¬¬ä¸€éƒ¨åˆ†æ˜¯entryæ–¹æ³•ï¼Œè¯¥æ–¹æ³•é¦–å…ˆä¼šè§¦å‘åç»­slotçš„entryæ–¹æ³•ï¼Œå³SystemSlotã€FlowSlotã€DegradeSlotç­‰çš„è§„åˆ™ï¼Œå¦‚æœè§„åˆ™ä¸é€šè¿‡ï¼Œå°±ä¼šæŠ›å‡ºBlockExceptionï¼Œåˆ™ä¼šåœ¨nodeä¸­ç»Ÿè®¡è¢«blockçš„æ•°é‡ã€‚åä¹‹ä¼šåœ¨nodeä¸­ç»Ÿè®¡é€šè¿‡çš„è¯·æ±‚æ•°å’Œçº¿ç¨‹æ•°ç­‰ä¿¡æ¯ã€‚ç¬¬äºŒéƒ¨åˆ†æ˜¯åœ¨exitæ–¹æ³•ä¸­ï¼Œå½“é€€å‡ºè¯¥Entryå…¥å£æ—¶ï¼Œä¼šç»Ÿè®¡rtçš„æ—¶é—´ï¼Œå¹¶å‡å°‘çº¿ç¨‹æ•°ã€‚
 
-ÎÒÃÇ¿ÉÒÔ¿´µ½ node.addPassRequest() Õâ¶Î´úÂëÊÇÔÚfireEntryÖ´ĞĞÖ®ºóÖ´ĞĞµÄ£¬ÕâÒâÎ¶×Å£¬µ±Ç°ÇëÇóÍ¨¹ıÁËsentinelµÄÁ÷¿ØµÈ¹æÔò£¬´ËÊ±ĞèÒª½«µ±´ÎÇëÇó¼ÇÂ¼ÏÂÀ´£¬Ò²¾ÍÊÇÖ´ĞĞ node.addPassRequest()ÕâĞĞ´úÂë£¬ÎÒÃÇ¸ú½øÈ¥¿´¿´£º
+æˆ‘ä»¬å¯ä»¥çœ‹åˆ° node.addPassRequest() è¿™æ®µä»£ç æ˜¯åœ¨fireEntryæ‰§è¡Œä¹‹åæ‰§è¡Œçš„ï¼Œè¿™æ„å‘³ç€ï¼Œå½“å‰è¯·æ±‚é€šè¿‡äº†sentinelçš„æµæ§ç­‰è§„åˆ™ï¼Œæ­¤æ—¶éœ€è¦å°†å½“æ¬¡è¯·æ±‚è®°å½•ä¸‹æ¥ï¼Œä¹Ÿå°±æ˜¯æ‰§è¡Œ node.addPassRequest()è¿™è¡Œä»£ç ï¼Œæˆ‘ä»¬è·Ÿè¿›å»çœ‹çœ‹ï¼š
 
 **2.5.1 addPassRequest**
-@Overridepublic void addPassRequest(int count) {    // µ÷ÓÃ¸¸Àà£¨StatisticNode£©À´½øĞĞÍ³¼Æ    super.addPassRequest(count);    // ¸ù¾İclusterNode »ã×ÜÍ³¼Æ£¨±³ºóÒ²ÊÇµ÷ÓÃ¸¸ÀàStatisticNode£©    this.clusterNode.addPassRequest(count);}
-Ê×ÏÈÎÒÃÇÖªµÀÕâÀïµÄnodeÊÇÒ»¸ö DefaultNode ÊµÀı£¬ÔÚµÚÒ»¸öNodeSelectorSlot µÄentry·½·¨ÖĞ¶Ô×ÊÔ´½øĞĞÁË·â×°£¬·â×°³ÉÁËÒ»¸öDefaultNode¡£
+@Overridepublic void addPassRequest(int count) {    // è°ƒç”¨çˆ¶ç±»ï¼ˆStatisticNodeï¼‰æ¥è¿›è¡Œç»Ÿè®¡    super.addPassRequest(count);    // æ ¹æ®clusterNode æ±‡æ€»ç»Ÿè®¡ï¼ˆèƒŒåä¹Ÿæ˜¯è°ƒç”¨çˆ¶ç±»StatisticNodeï¼‰    this.clusterNode.addPassRequest(count);}
+é¦–å…ˆæˆ‘ä»¬çŸ¥é“è¿™é‡Œçš„nodeæ˜¯ä¸€ä¸ª DefaultNode å®ä¾‹ï¼Œåœ¨ç¬¬ä¸€ä¸ªNodeSelectorSlot çš„entryæ–¹æ³•ä¸­å¯¹èµ„æºè¿›è¡Œäº†å°è£…ï¼Œå°è£…æˆäº†ä¸€ä¸ªDefaultNodeã€‚
 
-*   DefaultNode£º±£´æ×ÅÄ³¸öresourceÔÚÄ³¸öcontextÖĞµÄÊµÊ±Ö¸±ê£¬Ã¿¸öDefaultNode¶¼Ö¸ÏòÒ»¸öClusterNode
-*   ClusterNode£º±£´æ×ÅÄ³¸öresourceÔÚËùÓĞµÄcontextÖĞÊµÊ±Ö¸±êµÄ×ÜºÍ£¬Í¬ÑùµÄresource»á¹²ÏíÍ¬Ò»¸öClusterNode£¬²»¹ÜËûÔÚÄÄ¸öcontextÖĞ
-    ·Ö±ğµ÷ÓÃÁ½¸öÊ±¼ä´°¿ÚÀ´µİÔöÇëÇóÊıÁ¿¡£
+*   DefaultNodeï¼šä¿å­˜ç€æŸä¸ªresourceåœ¨æŸä¸ªcontextä¸­çš„å®æ—¶æŒ‡æ ‡ï¼Œæ¯ä¸ªDefaultNodeéƒ½æŒ‡å‘ä¸€ä¸ªClusterNode
+*   ClusterNodeï¼šä¿å­˜ç€æŸä¸ªresourceåœ¨æ‰€æœ‰çš„contextä¸­å®æ—¶æŒ‡æ ‡çš„æ€»å’Œï¼ŒåŒæ ·çš„resourceä¼šå…±äº«åŒä¸€ä¸ªClusterNodeï¼Œä¸ç®¡ä»–åœ¨å“ªä¸ªcontextä¸­
+    åˆ†åˆ«è°ƒç”¨ä¸¤ä¸ªæ—¶é—´çª—å£æ¥é€’å¢è¯·æ±‚æ•°é‡ã€‚
 
-ÄÚ²¿Êµ¼Êµ÷ÓÃµÄÊÇArrayMetricÀ´½øĞĞÇëÇóÊıÁ¿µÄÍ³¼Æ
+å†…éƒ¨å®é™…è°ƒç”¨çš„æ˜¯ArrayMetricæ¥è¿›è¡Œè¯·æ±‚æ•°é‡çš„ç»Ÿè®¡
 
 
 
 ```
-//°´ÕÕÃëÀ´Í³¼Æ£¬·Ö³ÉÁ½¸ö´°¿Ú£¬Ã¿¸ö´°¿Ú500ms£¬ÓÃÀ´Í³¼ÆQPSprivate transient volatile Metric rollingCounterInSecond = new ArrayMetric(SampleCountProperty.SAMPLE_COUNT,        IntervalProperty.INTERVAL);//°´ÕÕ·ÖÖÓÍ³¼Æ£¬Éú³É60¸ö´°¿Ú£¬Ã¿¸ö´°¿Ú1000msprivate transient Metric rollingCounterInMinute = new ArrayMetric(60, 60 * 1000, false);public void addPassRequest(int count) {    rollingCounterInSecond.addPass(count);    rollingCounterInMinute.addPass(count);}
+//æŒ‰ç…§ç§’æ¥ç»Ÿè®¡ï¼Œåˆ†æˆä¸¤ä¸ªçª—å£ï¼Œæ¯ä¸ªçª—å£500msï¼Œç”¨æ¥ç»Ÿè®¡QPSprivate transient volatile Metric rollingCounterInSecond = new ArrayMetric(SampleCountProperty.SAMPLE_COUNT,        IntervalProperty.INTERVAL);//æŒ‰ç…§åˆ†é’Ÿç»Ÿè®¡ï¼Œç”Ÿæˆ60ä¸ªçª—å£ï¼Œæ¯ä¸ªçª—å£1000msprivate transient Metric rollingCounterInMinute = new ArrayMetric(60, 60 * 1000, false);public void addPassRequest(int count) {    rollingCounterInSecond.addPass(count);    rollingCounterInMinute.addPass(count);}
 ```
 
 
@@ -316,41 +316,25 @@ public void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode 
 
 
 
-ÕâÀï²ÉÓÃµÄÊÇ»¬¶¯´°¿ÚµÄ·½Ê½À´¼ÇÂ¼ÇëÇóµÄ´ÎÊı¡£![SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/e4624bb214fd8020d1447098c8cde98a554e59.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")Õû¸öÀàµÄ¹ØÏµÍ¼Êµ¼ÊÉÏÊÇ±È½ÏÇåÎúµÄ£¬ArrayMetricÊµ¼ÊÉÏÊÇÒ»¸ö°ü×°Àà£¬ÄÚ²¿Í¨¹ıLeapArrayÀ´ÊµÏÖ¾ßÌåµÄÍ³¼ÆÂß¼­£¬¶øLeapArrayÖĞÎ¬»¤ÁË¶à¸öWindowWrap£¨»¬¶¯´°¿Ú£©£¬¶øWindowWrapÖĞ²ÉÓÃÁËMetricBucketÀ´½øĞĞÖ¸±êÊı¾İµÄÍ³¼Æ¡£
+è¿™é‡Œé‡‡ç”¨çš„æ˜¯æ»‘åŠ¨çª—å£çš„æ–¹å¼æ¥è®°å½•è¯·æ±‚çš„æ¬¡æ•°ã€‚![SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/e4624bb214fd8020d1447098c8cde98a554e59.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")æ•´ä¸ªç±»çš„å…³ç³»å›¾å®é™…ä¸Šæ˜¯æ¯”è¾ƒæ¸…æ™°çš„ï¼ŒArrayMetricå®é™…ä¸Šæ˜¯ä¸€ä¸ªåŒ…è£…ç±»ï¼Œå†…éƒ¨é€šè¿‡LeapArrayæ¥å®ç°å…·ä½“çš„ç»Ÿè®¡é€»è¾‘ï¼Œè€ŒLeapArrayä¸­ç»´æŠ¤äº†å¤šä¸ªWindowWrapï¼ˆæ»‘åŠ¨çª—å£ï¼‰ï¼Œè€ŒWindowWrapä¸­é‡‡ç”¨äº†MetricBucketæ¥è¿›è¡ŒæŒ‡æ ‡æ•°æ®çš„ç»Ÿè®¡ã€‚
 
-*   Metric: Ö¸±êÊÕ¼¯µÄ½Ó¿Ú£¬¶¨Òå»¬¶¯´°¿ÚÖĞ³É¹¦ÊıÁ¿¡¢Òì³£ÊıÁ¿¡¢×èÈûÊıÁ¿¡¢TPS¡¢ÏìÓ¦Ê±¼äµÈÊı¾İ
-*   ArrayMetric »¬¶¯´°¿ÚºËĞÄÊµÏÖÀà
+*   Metric: æŒ‡æ ‡æ”¶é›†çš„æ¥å£ï¼Œå®šä¹‰æ»‘åŠ¨çª—å£ä¸­æˆåŠŸæ•°é‡ã€å¼‚å¸¸æ•°é‡ã€é˜»å¡æ•°é‡ã€TPSã€å“åº”æ—¶é—´ç­‰æ•°æ®
+*   ArrayMetric æ»‘åŠ¨çª—å£æ ¸å¿ƒå®ç°ç±»
 *   LeapArray
-*   WindowWrap Ã¿Ò»¸ö»¬¶¯´°¿ÚµÄ°ü×°Àà£¬ÄÚ²¿µÄÊı¾İ½á¹¹²ÉÓÃMetricBucket
-*   MetricBucket£¬ ±íÊ¾Ö¸±êÍ°£¬°üº¬×èÈûÊıÁ¿¡¢Òì³£ÊıÁ¿¡¢³É¹¦Êı¡¢ÏìÓ¦Ê±¼äµÈ
-*   MetricEvent Ö¸±êÀàĞÍ£¬Í¨¹ıÊı¡¢×èÈûÊı¡¢Òì³£Êı¡¢³É¹¦ÊıµÈ
+*   WindowWrap æ¯ä¸€ä¸ªæ»‘åŠ¨çª—å£çš„åŒ…è£…ç±»ï¼Œå†…éƒ¨çš„æ•°æ®ç»“æ„é‡‡ç”¨MetricBucket
+*   MetricBucketï¼Œ è¡¨ç¤ºæŒ‡æ ‡æ¡¶ï¼ŒåŒ…å«é˜»å¡æ•°é‡ã€å¼‚å¸¸æ•°é‡ã€æˆåŠŸæ•°ã€å“åº”æ—¶é—´ç­‰
+*   MetricEvent æŒ‡æ ‡ç±»å‹ï¼Œé€šè¿‡æ•°ã€é˜»å¡æ•°ã€å¼‚å¸¸æ•°ã€æˆåŠŸæ•°ç­‰
     **2.5.2 ArrayMetric.addPass**
-    ¼ÌĞøÑØ×Å´úÂëÍùÏÂ¿´£¬½øÈëµ½ArrayMetric.addPass·½·¨¡£
-*   ´ÓLeapArrayÖĞ¸ù¾İµ±Ç°Ê±¼äµãµÃµ½¶ÔÓ¦µÄ´°¿Ú
-*   µ÷ÓÃMetricBucketÖĞµÄaddPass·½·¨£¬Ôö¼Óµ±Ç°´°¿ÚÖĞµÄÍ³¼Æ´ÎÊı
+    ç»§ç»­æ²¿ç€ä»£ç å¾€ä¸‹çœ‹ï¼Œè¿›å…¥åˆ°ArrayMetric.addPassæ–¹æ³•ã€‚
+*   ä»LeapArrayä¸­æ ¹æ®å½“å‰æ—¶é—´ç‚¹å¾—åˆ°å¯¹åº”çš„çª—å£
+*   è°ƒç”¨MetricBucketä¸­çš„addPassæ–¹æ³•ï¼Œå¢åŠ å½“å‰çª—å£ä¸­çš„ç»Ÿè®¡æ¬¡æ•°
 
-´Ó´úÂëÖĞÎÒÃÇ¿ÉÒÔ¿´µ½£¬Ôö¼ÓÖ¸±êµ÷ÓÃ addPass ÊÇÍ¨¹ıÒ»¸ö½Ğ ArrayMetric µÄÀà£¬ÏÖÔÚÎÒÃÇÔÚ½øÈë ArrayMetric ÖĞ¿´Ò»ÏÂ¡£¾ßÌåµÄ´úÂëÈçÏÂËùÊ¾£º
-
-
-
-```
-private final LeapArray<MetricBucket> data;// SAMPLE_COUNT=2  INTERVAL=1000public ArrayMetric(int sampleCount, int intervalInMs) {  //ÕâÁ½¸ö²ÎÊı±íÊ¾£¬»¬¶¯´°¿ÚµÄ´óĞ¡ÊÇ2¸ö£¬Ã¿Ò»¸ö»¬¶¯´°¿ÚµÄÊ±¼äµ¥Î»ÊÇ500ms    this.data = new OccupiableBucketLeapArray(sampleCount, intervalInMs);}public void addPass(int count) {    WindowWrap<MetricBucket> wrap = data.currentWindow();    wrap.value().addPass(count);}
-```
-
-
-
-
-
-
-
-
-
-ÕâÀïÖÕÓÚ³öÏÖÁËÓë»¬¶¯´°¿ÚÓĞÄÇÃ´µã¹ØÁªµÄ windowÁË£¬window²»¾ÍÊÇ´°»§Âï£¬ÕâÀïÍ¨¹ı data À´»ñÈ¡µ±Ç°´°¿Ú¡£¶øÕâÀïµÄ´°¿Ú´óĞ¡Îª sampleCount=2.ÎÒÃÇ¿ÉÒÔ¿´µ½£¬ÕâÀïÊÇÍ¨¹ı MetricBucket À´±£´æ¸÷ÏîÖ¸±ê£¬ÆäÖĞÎ¬»¤ÁËÒ»¸öÍ³¼ÆÊÇÊı×éLongAdder[] counters À´±£´æ£¬¶ø WindowWrap£¬ÎÒÃÇ¿ÉÒÔ¿´µ½Ã¿Ò»¸ö WindowWrap¶ÔÏóÓÉÈı¸ö²¿·Ö×é³É£º
+ä»ä»£ç ä¸­æˆ‘ä»¬å¯ä»¥çœ‹åˆ°ï¼Œå¢åŠ æŒ‡æ ‡è°ƒç”¨ addPass æ˜¯é€šè¿‡ä¸€ä¸ªå« ArrayMetric çš„ç±»ï¼Œç°åœ¨æˆ‘ä»¬åœ¨è¿›å…¥ ArrayMetric ä¸­çœ‹ä¸€ä¸‹ã€‚å…·ä½“çš„ä»£ç å¦‚ä¸‹æ‰€ç¤ºï¼š
 
 
 
 ```
-public class WindowWrap<T> {¡¡¡¡// Ê±¼ä´°¿ÚµÄ³¤¶È    private final long windowLengthInMs;¡¡¡¡// Ê±¼ä´°¿ÚµÄ¿ªÊ¼Ê±¼ä£¬µ¥Î»ÊÇºÁÃë    private long windowStart;¡¡¡¡ //Ê±¼ä´°¿ÚµÄÄÚÈİ£¬ÔÚ WindowWrap ÖĞÊÇÓÃ·ºĞÍ±íÊ¾Õâ¸öÖµµÄ£¬µ«Êµ¼ÊÉÏ¾ÍÊÇ MetricBucket Àà    private T value;    //......Ê¡ÂÔ²¿·Ö´úÂë}
+private final LeapArray<MetricBucket> data;// SAMPLE_COUNT=2  INTERVAL=1000public ArrayMetric(int sampleCount, int intervalInMs) {  //è¿™ä¸¤ä¸ªå‚æ•°è¡¨ç¤ºï¼Œæ»‘åŠ¨çª—å£çš„å¤§å°æ˜¯2ä¸ªï¼Œæ¯ä¸€ä¸ªæ»‘åŠ¨çª—å£çš„æ—¶é—´å•ä½æ˜¯500ms    this.data = new OccupiableBucketLeapArray(sampleCount, intervalInMs);}public void addPass(int count) {    WindowWrap<MetricBucket> wrap = data.currentWindow();    wrap.value().addPass(count);}
 ```
 
 
@@ -361,12 +345,12 @@ public class WindowWrap<T> {¡¡¡¡// Ê±¼ä´°¿ÚµÄ³¤¶È    private final long windowLe
 
 
 
-ÔÙ¿´ LeapArray Õâ¸öÀà£º
+è¿™é‡Œç»ˆäºå‡ºç°äº†ä¸æ»‘åŠ¨çª—å£æœ‰é‚£ä¹ˆç‚¹å…³è”çš„ windowäº†ï¼Œwindowä¸å°±æ˜¯çª—æˆ·å˜›ï¼Œè¿™é‡Œé€šè¿‡ data æ¥è·å–å½“å‰çª—å£ã€‚è€Œè¿™é‡Œçš„çª—å£å¤§å°ä¸º sampleCount=2.æˆ‘ä»¬å¯ä»¥çœ‹åˆ°ï¼Œè¿™é‡Œæ˜¯é€šè¿‡ MetricBucket æ¥ä¿å­˜å„é¡¹æŒ‡æ ‡ï¼Œå…¶ä¸­ç»´æŠ¤äº†ä¸€ä¸ªç»Ÿè®¡æ˜¯æ•°ç»„LongAdder[] counters æ¥ä¿å­˜ï¼Œè€Œ WindowWrapï¼Œæˆ‘ä»¬å¯ä»¥çœ‹åˆ°æ¯ä¸€ä¸ª WindowWrapå¯¹è±¡ç”±ä¸‰ä¸ªéƒ¨åˆ†ç»„æˆï¼š
 
 
 
 ```
-public abstract class LeapArray<T> {    // Ê±¼ä´°¿ÚµÄ³¤¶È    protected int windowLength;    // ²ÉÑù´°¿ÚµÄ¸öÊı    protected int sampleCount;    // ÒÔºÁÃëÎªµ¥Î»µÄÊ±¼ä¼ä¸ô    protected int intervalInMs;    // ²ÉÑùµÄÊ±¼ä´°¿ÚÊı×é    protected AtomicReferenceArray<WindowWrap<T>> array;    /**     * LeapArray¶ÔÏó     * @param windowLength Ê±¼ä´°¿ÚµÄ³¤¶È£¬µ¥Î»£ººÁÃë     * @param intervalInSec Í³¼ÆµÄ¼ä¸ô£¬µ¥Î»£ºÃë     */    public LeapArray(int windowLength, int intervalInSec) {        this.windowLength = windowLength;        // Ê±¼ä´°¿ÚµÄ²ÉÑù¸öÊı£¬Ä¬ÈÏÎª2¸ö²ÉÑù´°¿Ú        this.sampleCount = intervalInSec * 1000 / windowLength;        this.intervalInMs = intervalInSec * 1000;//ÔÚÒÔÃëÎªµ¥Î»µÄÊ±¼ä´°¿ÚÖĞ£¬»á³õÊ¼»¯Á½¸ö³¤¶ÈµÄÊı×é£º`AtomicReferenceArray<WindowWrap<T>>array`£¬Õâ¸öÊı×é±íÊ¾»¬¶¯´°¿ÚµÄ´óĞ¡¡£ÆäÖĞ£¬Ã¿¸ö´°¿Ú»áÕ¼ÓÃ500msµÄÊ±¼ä¡£        this.array = new AtomicReferenceArray<WindowWrap<T>>(sampleCount);    }}
+public class WindowWrap<T> {ã€€ã€€// æ—¶é—´çª—å£çš„é•¿åº¦    private final long windowLengthInMs;ã€€ã€€// æ—¶é—´çª—å£çš„å¼€å§‹æ—¶é—´ï¼Œå•ä½æ˜¯æ¯«ç§’    private long windowStart;ã€€ã€€ //æ—¶é—´çª—å£çš„å†…å®¹ï¼Œåœ¨ WindowWrap ä¸­æ˜¯ç”¨æ³›å‹è¡¨ç¤ºè¿™ä¸ªå€¼çš„ï¼Œä½†å®é™…ä¸Šå°±æ˜¯ MetricBucket ç±»    private T value;    //......çœç•¥éƒ¨åˆ†ä»£ç }
 ```
 
 
@@ -377,7 +361,23 @@ public abstract class LeapArray<T> {    // Ê±¼ä´°¿ÚµÄ³¤¶È    protected int windo
 
 
 
-¿ÉÒÔºÜÇåÎúµÄ¿´³öÀ´ÔÚ LeapArray ÖĞ´´½¨ÁËÒ»¸ö AtomicReferenceArray Êı×é£¬ÓÃÀ´¶ÔÊ±¼ä´°¿ÚÖĞµÄÍ³¼ÆÖµ½øĞĞ²ÉÑù¡£Í¨¹ı²ÉÑùµÄÍ³¼ÆÖµÔÙ¼ÆËã³öÆ½¾ùÖµ£¬¾ÍÊÇÎÒÃÇĞèÒªµÄ×îÖÕµÄÊµÊ±Ö¸±êµÄÖµÁË¡£¿ÉÒÔ¿´µ½ÎÒÔÚÉÏÃæµÄ´úÂëÖĞÍ¨¹ı×¢ÊÍ£¬±êÃ÷ÁËÄ¬ÈÏ²ÉÑùµÄÊ±¼ä´°¿ÚµÄ¸öÊıÊÇ2¸ö£¬Õâ¸öÖµÊÇÔõÃ´µÃµ½µÄÄØ£¿ÎÒÃÇ»ØÒäÒ»ÏÂ LeapArray ¶ÔÏó´´½¨£¬ÊÇÍ¨¹ıÔÚ StatisticNode ÖĞ£¬newÁËÒ»¸ö ArrayMetric£¬È»ºó½«²ÎÊıÒ»Â·ÍùÉÏ´«µİºó´´½¨µÄ£º
+å†çœ‹ LeapArray è¿™ä¸ªç±»ï¼š
+
+
+
+```
+public abstract class LeapArray<T> {    // æ—¶é—´çª—å£çš„é•¿åº¦    protected int windowLength;    // é‡‡æ ·çª—å£çš„ä¸ªæ•°    protected int sampleCount;    // ä»¥æ¯«ç§’ä¸ºå•ä½çš„æ—¶é—´é—´éš”    protected int intervalInMs;    // é‡‡æ ·çš„æ—¶é—´çª—å£æ•°ç»„    protected AtomicReferenceArray<WindowWrap<T>> array;    /**     * LeapArrayå¯¹è±¡     * @param windowLength æ—¶é—´çª—å£çš„é•¿åº¦ï¼Œå•ä½ï¼šæ¯«ç§’     * @param intervalInSec ç»Ÿè®¡çš„é—´éš”ï¼Œå•ä½ï¼šç§’     */    public LeapArray(int windowLength, int intervalInSec) {        this.windowLength = windowLength;        // æ—¶é—´çª—å£çš„é‡‡æ ·ä¸ªæ•°ï¼Œé»˜è®¤ä¸º2ä¸ªé‡‡æ ·çª—å£        this.sampleCount = intervalInSec * 1000 / windowLength;        this.intervalInMs = intervalInSec * 1000;//åœ¨ä»¥ç§’ä¸ºå•ä½çš„æ—¶é—´çª—å£ä¸­ï¼Œä¼šåˆå§‹åŒ–ä¸¤ä¸ªé•¿åº¦çš„æ•°ç»„ï¼š`AtomicReferenceArray<WindowWrap<T>>array`ï¼Œè¿™ä¸ªæ•°ç»„è¡¨ç¤ºæ»‘åŠ¨çª—å£çš„å¤§å°ã€‚å…¶ä¸­ï¼Œæ¯ä¸ªçª—å£ä¼šå ç”¨500msçš„æ—¶é—´ã€‚        this.array = new AtomicReferenceArray<WindowWrap<T>>(sampleCount);    }}
+```
+
+
+
+
+
+
+
+
+
+å¯ä»¥å¾ˆæ¸…æ™°çš„çœ‹å‡ºæ¥åœ¨ LeapArray ä¸­åˆ›å»ºäº†ä¸€ä¸ª AtomicReferenceArray æ•°ç»„ï¼Œç”¨æ¥å¯¹æ—¶é—´çª—å£ä¸­çš„ç»Ÿè®¡å€¼è¿›è¡Œé‡‡æ ·ã€‚é€šè¿‡é‡‡æ ·çš„ç»Ÿè®¡å€¼å†è®¡ç®—å‡ºå¹³å‡å€¼ï¼Œå°±æ˜¯æˆ‘ä»¬éœ€è¦çš„æœ€ç»ˆçš„å®æ—¶æŒ‡æ ‡çš„å€¼äº†ã€‚å¯ä»¥çœ‹åˆ°æˆ‘åœ¨ä¸Šé¢çš„ä»£ç ä¸­é€šè¿‡æ³¨é‡Šï¼Œæ ‡æ˜äº†é»˜è®¤é‡‡æ ·çš„æ—¶é—´çª—å£çš„ä¸ªæ•°æ˜¯2ä¸ªï¼Œè¿™ä¸ªå€¼æ˜¯æ€ä¹ˆå¾—åˆ°çš„å‘¢ï¼Ÿæˆ‘ä»¬å›å¿†ä¸€ä¸‹ LeapArray å¯¹è±¡åˆ›å»ºï¼Œæ˜¯é€šè¿‡åœ¨ StatisticNode ä¸­ï¼Œnewäº†ä¸€ä¸ª ArrayMetricï¼Œç„¶åå°†å‚æ•°ä¸€è·¯å¾€ä¸Šä¼ é€’ååˆ›å»ºçš„ï¼š
 
 
 
@@ -394,39 +394,12 @@ private transient volatile Metric rollingCounterInSecond = new ArrayMetric(Sampl
 
 
 **2.5.3 currentWindow**
-ÎÒÃÇ¸ú½ø»ñÈ¡µ±Ç°´°¿ÚµÄ·½·¨ data.currentWindow() ÖĞ£º
+æˆ‘ä»¬è·Ÿè¿›è·å–å½“å‰çª—å£çš„æ–¹æ³• data.currentWindow() ä¸­ï¼š
 
 
 
 ```
-@Overridepublic WindowWrap<Window> currentWindow(long time) {    .....//Ê¡ÂÔ²¿·Ö´úÂë    //¼ÆËãµ±Ç°Ê±¼äÔÚ»¬¶¯´°¿ÚÖĞµÄË÷Òı£¬¼ÆËã·½Ê½±È½Ï¼òµ¥£¬µ±Ç°Ê±¼ä³ıÒÔµ¥¸öÊ±¼ä´°¿ÚµÄÊ±¼ä³¤¶È£¬ÔÙ´ÓÕû¸öÊ±¼ä´°¿Ú³¤¶È½øĞĞÈ¡Ä£¡¡¡¡ int idx = calculateTimeIdx(timeMillis);    //¼ÆËãµ±Ç°Ê±¼äÔÚÊ±¼ä´°¿ÚÖĞµÄ¿ªÊ¼Ê±¼ä    long windowStart = calculateWindowStart(timeMillis);    // timeÃ¿Ôö¼ÓÒ»¸öwindowLengthµÄ³¤¶È£¬timeId¾Í»áÔö¼Ó1£¬Ê±¼ä´°¿Ú¾Í»áÍùÇ°»¬¶¯Ò»¸ö        while (true) {        // ´Ó²ÉÑùÊı×éÖĞ¸ù¾İË÷Òı»ñÈ¡»º´æµÄÊ±¼ä´°¿Ú        WindowWrap<Window> old = array.get(idx);        // arrayÊı×é³¤¶È²»ÒË¹ı´ó£¬·ñÔòoldºÜ¶àÇé¿öÏÂ¶¼ÃüÖĞ²»ÁË£¬¾Í»á´´½¨ºÜ¶à¸öWindowWrap¶ÔÏó        //Èç¹ûÎª¿Õ£¬ËµÃ÷´Ë´¦»¹Î´³õÊ¼»¯        if (old == null) {            // Èç¹ûÃ»ÓĞ»ñÈ¡µ½£¬Ôò´´½¨Ò»¸öĞÂµÄ            WindowWrap<Window> window = new WindowWrap<Window>(windowLength, currentWindowStart, new Window());            // Í¨¹ıCAS½«ĞÂ´°¿ÚÉèÖÃµ½Êı×éÖĞÈ¥            if (array.compareAndSet(idx, null, window)) {                // Èç¹ûÄÜÉèÖÃ³É¹¦£¬Ôò½«¸Ã´°¿Ú·µ»Ø                return window;            } else {                // ·ñÔòµ±Ç°Ïß³ÌÈÃ³öÊ±¼äÆ¬£¬µÈ´ı                Thread.yield();            }        // Èç¹ûµ±Ç°´°¿ÚµÄ¿ªÊ¼Ê±¼äÓëoldµÄ¿ªÊ¼Ê±¼äÏàµÈ£¬ÔòÖ±½Ó·µ»Øold´°¿Ú        } else if (currentWindowStart == old.windowStart()) {            return old;        // Èç¹ûµ±Ç°Ê±¼ä´°¿ÚµÄ¿ªÊ¼Ê±¼äÒÑ¾­³¬¹ıÁËold´°¿ÚµÄ¿ªÊ¼Ê±¼ä£¬Ôò·ÅÆúold´°¿Ú        // ²¢½«timeÉèÖÃÎªĞÂµÄÊ±¼ä´°¿ÚµÄ¿ªÊ¼Ê±¼ä£¬´ËÊ±´°¿ÚÏòÇ°»¬¶¯        } else if (currentWindowStart > old.windowStart()) {            if (addLock.tryLock()) {                try {                    // if (old is deprecated) then [LOCK] resetTo currentTime.                    return resetWindowTo(old, currentWindowStart);                } finally {                    addLock.unlock();                }            } else {                Thread.yield();            }        // Õâ¸öÌõ¼ş²»¿ÉÄÜ´æÔÚ        } else if (currentWindowStart < old.windowStart()) {            // Cannot go through here.            return new WindowWrap<Window>(windowLength, currentWindowStart, new Window());        }    }}
-```
-
-
-
-
-
-
-
-
-
-´úÂëºÜ³¤£¬ÎÒÃÇÖğ²½½«Æä·Ö½â£¬ÎÒÃÇÊµ¼Ê¿ÉÒÔ°ÑËû·Ö³ÉÒÔÏÂ¼¸²½£º
-
-1.  ¸ù¾İµ±Ç°Ê±¼ä£¬Ëã³ö¸ÃÊ±¼äµÄtimeId£¬²¢¸ù¾İtimeIdËã³öµ±Ç°´°¿ÚÔÚ²ÉÑù´°¿ÚÊı×éÖĞµÄË÷Òıidx¡£
-2.  ¸ù¾İµ±Ç°Ê±¼äËã³öµ±Ç°´°¿ÚµÄÓ¦¸Ã¶ÔÓ¦µÄ¿ªÊ¼Ê±¼ätime£¬ÒÔºÁÃëÎªµ¥Î»¡£
-3.  ¸ù¾İË÷Òıidx£¬ÔÚ²ÉÑù´°¿ÚÊı×éÖĞÈ¡µÃÒ»¸öÊ±¼ä´°¿Ú¡£
-4.  Ñ­»·ÅĞ¶ÏÖ±µ½»ñÈ¡µ½Ò»¸öµ±Ç°Ê±¼ä´°¿Ú old ¡£
-
-*   Èç¹ûoldÎª¿Õ£¬Ôò´´½¨Ò»¸öÊ±¼ä´°¿Ú£¬²¢½«Ëü²åÈëµ½arrayµÄµÚidx¸öÎ»ÖÃ£¬arrayÉÏÃæÒÑ¾­·ÖÎö¹ıÁË£¬ÊÇÒ»¸ö AtomicReferenceArray¡£
-*   Èç¹ûµ±Ç°´°¿ÚµÄ¿ªÊ¼Ê±¼ätimeÓëoldµÄ¿ªÊ¼Ê±¼äÏàµÈ£¬ÄÇÃ´ËµÃ÷old¾ÍÊÇµ±Ç°Ê±¼ä´°¿Ú£¬Ö±½Ó·µ»Øold¡£
-*   Èç¹ûµ±Ç°´°¿ÚµÄ¿ªÊ¼Ê±¼ätime´óÓÚoldµÄ¿ªÊ¼Ê±¼ä£¬ÔòËµÃ÷old´°¿ÚÒÑ¾­¹ıÊ±ÁË£¬½«oldµÄ¿ªÊ¼Ê±¼ä¸üĞÂÎª×îĞÂÖµ£ºtime£¬½øÈëÏÂÒ»´ÎµÃÑ­»·ÔÙÅĞ¶Ïµ±Ç°´°¿ÚµÄ¿ªÊ¼Ê±¼ätimeÓëoldµÄ¿ªÊ¼Ê±¼äÏàµÈµÄÊ±ºò·µ»Ø¡£
-*   Èç¹ûµ±Ç°´°¿ÚµÄ¿ªÊ¼Ê±¼ätimeĞ¡ÓÚoldµÄ¿ªÊ¼Ê±¼ä£¬Êµ¼ÊÉÏÕâÖÖÇé¿öÊÇ²»¿ÉÄÜ´æÔÚµÄ£¬ÒòÎªtimeÊÇµ±Ç°Ê±¼ä£¬oldÊÇ¹ıÈ¥µÄÒ»¸öÊ±¼ä¡£
-    ÁíÍâtimeIdÊÇ»áËæ×ÅÊ±¼äµÄÔö³¤¶øÔö¼Ó£¬µ±Ç°Ê±¼äÃ¿Ôö³¤Ò»¸öwindowLengthµÄ³¤¶È£¬timeId¾Í¼Ó1¡£µ«ÊÇidx²»»áÔö³¤£¬Ö»»áÔÚ0ºÍ1Ö®¼ä±ä»»£¬ÒòÎªarrayÊı×éµÄ³¤¶ÈÊÇ2£¬Ö»ÓĞÁ½¸ö²ÉÑùÊ±¼ä´°¿Ú¡£ÖÁÓÚÎªÊ²Ã´Ä¬ÈÏÖ»ÓĞÁ½¸ö²ÉÑù´°¿Ú£¬¸öÈË¾õµÃÒòÎªsentinelÊÇ±È½ÏÇáÁ¿µÄ¿ò¼Ü¡£Ê±¼ä´°¿ÚÖĞ±£´æ×ÅºÜ¶àÍ³¼ÆÊı¾İ£¬Èç¹ûÊ±¼ä´°¿Ú¹ı¶àµÄ»°£¬Ò»·½Ãæ»áÕ¼ÓÃ¹ı¶àÄÚ´æ£¬ÁíÒ»·½ÃæÊ±¼ä´°¿Ú¹ı¶à¾ÍÒâÎ¶×ÅÊ±¼ä´°¿ÚµÄ³¤¶È»á±äĞ¡£¬Èç¹ûÊ±¼ä´°¿Ú³¤¶È±äĞ¡£¬¾Í»áµ¼ÖÂÊ±¼ä´°¿Ú¹ıÓÚÆµ·±µÄ»¬¶¯¡£ÏÈÀ´¿´Ò»ÏÂÆäÖĞµÄµÚÒ»²½¼°µÚ¶ş²½£º
-
-
-
-```
-private int calculateTimeIdx(/*@Valid*/ long timeMillis) {    // timeÃ¿Ôö¼ÓÒ»¸öwindowLengthµÄ³¤¶È£¬timeId¾Í»áÔö¼Ó1£¬Ê±¼ä´°¿Ú¾Í»áÍùÇ°»¬¶¯Ò»¸ö    long timeId = timeMillis / windowLengthInMs;     // idx±»·Ö³É[0,arrayLength-1]ÖĞµÄÄ³Ò»¸öÊı£¬×÷ÎªarrayÊı×éÖĞµÄË÷Òı    return (int)(timeId % array.length());}protected long calculateWindowStart(/*@Valid*/ long timeMillis) {    return timeMillis - timeMillis % windowLengthInMs;}
+@Overridepublic WindowWrap<Window> currentWindow(long time) {    .....//çœç•¥éƒ¨åˆ†ä»£ç     //è®¡ç®—å½“å‰æ—¶é—´åœ¨æ»‘åŠ¨çª—å£ä¸­çš„ç´¢å¼•ï¼Œè®¡ç®—æ–¹å¼æ¯”è¾ƒç®€å•ï¼Œå½“å‰æ—¶é—´é™¤ä»¥å•ä¸ªæ—¶é—´çª—å£çš„æ—¶é—´é•¿åº¦ï¼Œå†ä»æ•´ä¸ªæ—¶é—´çª—å£é•¿åº¦è¿›è¡Œå–æ¨¡ã€€ã€€ int idx = calculateTimeIdx(timeMillis);    //è®¡ç®—å½“å‰æ—¶é—´åœ¨æ—¶é—´çª—å£ä¸­çš„å¼€å§‹æ—¶é—´    long windowStart = calculateWindowStart(timeMillis);    // timeæ¯å¢åŠ ä¸€ä¸ªwindowLengthçš„é•¿åº¦ï¼ŒtimeIdå°±ä¼šå¢åŠ 1ï¼Œæ—¶é—´çª—å£å°±ä¼šå¾€å‰æ»‘åŠ¨ä¸€ä¸ª        while (true) {        // ä»é‡‡æ ·æ•°ç»„ä¸­æ ¹æ®ç´¢å¼•è·å–ç¼“å­˜çš„æ—¶é—´çª—å£        WindowWrap<Window> old = array.get(idx);        // arrayæ•°ç»„é•¿åº¦ä¸å®œè¿‡å¤§ï¼Œå¦åˆ™oldå¾ˆå¤šæƒ…å†µä¸‹éƒ½å‘½ä¸­ä¸äº†ï¼Œå°±ä¼šåˆ›å»ºå¾ˆå¤šä¸ªWindowWrapå¯¹è±¡        //å¦‚æœä¸ºç©ºï¼Œè¯´æ˜æ­¤å¤„è¿˜æœªåˆå§‹åŒ–        if (old == null) {            // å¦‚æœæ²¡æœ‰è·å–åˆ°ï¼Œåˆ™åˆ›å»ºä¸€ä¸ªæ–°çš„            WindowWrap<Window> window = new WindowWrap<Window>(windowLength, currentWindowStart, new Window());            // é€šè¿‡CASå°†æ–°çª—å£è®¾ç½®åˆ°æ•°ç»„ä¸­å»            if (array.compareAndSet(idx, null, window)) {                // å¦‚æœèƒ½è®¾ç½®æˆåŠŸï¼Œåˆ™å°†è¯¥çª—å£è¿”å›                return window;            } else {                // å¦åˆ™å½“å‰çº¿ç¨‹è®©å‡ºæ—¶é—´ç‰‡ï¼Œç­‰å¾…                Thread.yield();            }        // å¦‚æœå½“å‰çª—å£çš„å¼€å§‹æ—¶é—´ä¸oldçš„å¼€å§‹æ—¶é—´ç›¸ç­‰ï¼Œåˆ™ç›´æ¥è¿”å›oldçª—å£        } else if (currentWindowStart == old.windowStart()) {            return old;        // å¦‚æœå½“å‰æ—¶é—´çª—å£çš„å¼€å§‹æ—¶é—´å·²ç»è¶…è¿‡äº†oldçª—å£çš„å¼€å§‹æ—¶é—´ï¼Œåˆ™æ”¾å¼ƒoldçª—å£        // å¹¶å°†timeè®¾ç½®ä¸ºæ–°çš„æ—¶é—´çª—å£çš„å¼€å§‹æ—¶é—´ï¼Œæ­¤æ—¶çª—å£å‘å‰æ»‘åŠ¨        } else if (currentWindowStart > old.windowStart()) {            if (addLock.tryLock()) {                try {                    // if (old is deprecated) then [LOCK] resetTo currentTime.                    return resetWindowTo(old, currentWindowStart);                } finally {                    addLock.unlock();                }            } else {                Thread.yield();            }        // è¿™ä¸ªæ¡ä»¶ä¸å¯èƒ½å­˜åœ¨        } else if (currentWindowStart < old.windowStart()) {            // Cannot go through here.            return new WindowWrap<Window>(windowLength, currentWindowStart, new Window());        }    }}
 ```
 
 
@@ -437,16 +410,23 @@ private int calculateTimeIdx(/*@Valid*/ long timeMillis) {    // timeÃ¿Ôö¼ÓÒ»¸öw
 
 
 
-¸ù¾İµ±Ç°Ê±¼ä³ıÓÚ windowLength µÃµ½Ò»¸ö timeId(Ïà²î500ms¼ÆËã³öÀ´µÄÖµ½«ÊÇÒ»ÖÂµÄ),ÔÙÓÃtimeId¸úÈ¡Ñù´°¿ÚµÄ³¤¶È½øĞĞÒ»¸öÈ¡Ä££¬ÄÇÃ´ËıÒ»¶¨»áÂäÔÚ 0£¬1Á½¸öÎ»ÖÃµÄÆäÖĞÒ»¸ö¡£È»ºó¸ù¾İµ±Ç°Ê±¼äËã³öµ±Ç°´°¿ÚµÄÓ¦¸Ã¶ÔÓ¦µÄ¿ªÊ¼Ê±¼ätime¡£ÓÉÓÚ¸Õ¸Õ¿ªÊ¼µÄÊ±ºò array ÊÇ¿ÕµÄ£¬ÄÇÃ´Ëı»ñÈ¡µ½µÄoldÓ¦µ±ÊÇnull£¬ÄÇÃ´Ëû»á´´½¨Ò»¸öĞÂµÄÊµÀı£¬ÎÒÃÇÓÃÍ¼¿´Ò»ÏÂ³õÊ¼»¯µÄ LeapArray£º
+ä»£ç å¾ˆé•¿ï¼Œæˆ‘ä»¬é€æ­¥å°†å…¶åˆ†è§£ï¼Œæˆ‘ä»¬å®é™…å¯ä»¥æŠŠä»–åˆ†æˆä»¥ä¸‹å‡ æ­¥ï¼š
 
-¶ÔÓ¦ÉÏÃæ currentWindow ·½·¨µÄ 4.1 ²½Öè(¼ÙÉèidx=0)£º![SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/95b0b64926eae4d2753986af9c978da9980da0.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")µ±»ñÈ¡µ½µÄÊÇnull,ÄÇÃ´³õÊ¼µÄÊ±ºòarraysÊı×éÖĞÖ»ÓĞÒ»¸ö´°¿Ú(¿ÉÄÜÊÇµÚÒ»¸ö(idx=0)£¬Ò²¿ÉÄÜÊÇµÚ¶ş¸ö(idx=1))£¬Ã¿¸öÊ±¼ä´°¿ÚµÄ³¤¶ÈÊÇ500ms£¬Õâ¾ÍÒâÎ¶×ÅÖ»Òªµ±Ç°Ê±¼äÓëÊ±¼ä´°¿ÚµÄ²îÖµÔÚ500msÖ®ÄÚ£¬Ê±¼ä´°¿Ú¾Í²»»áÏòÇ°»¬¶¯¡£ÀıÈç£¬¼ÙÈçµ±Ç°Ê±¼ä×ßµ½300»òÕß500Ê±£¬µ±Ç°Ê±¼ä´°¿ÚÈÔÈ»ÊÇÏàÍ¬µÄÄÇ¸ö£º
+1.  æ ¹æ®å½“å‰æ—¶é—´ï¼Œç®—å‡ºè¯¥æ—¶é—´çš„timeIdï¼Œå¹¶æ ¹æ®timeIdç®—å‡ºå½“å‰çª—å£åœ¨é‡‡æ ·çª—å£æ•°ç»„ä¸­çš„ç´¢å¼•idxã€‚
+2.  æ ¹æ®å½“å‰æ—¶é—´ç®—å‡ºå½“å‰çª—å£çš„åº”è¯¥å¯¹åº”çš„å¼€å§‹æ—¶é—´timeï¼Œä»¥æ¯«ç§’ä¸ºå•ä½ã€‚
+3.  æ ¹æ®ç´¢å¼•idxï¼Œåœ¨é‡‡æ ·çª—å£æ•°ç»„ä¸­å–å¾—ä¸€ä¸ªæ—¶é—´çª—å£ã€‚
+4.  å¾ªç¯åˆ¤æ–­ç›´åˆ°è·å–åˆ°ä¸€ä¸ªå½“å‰æ—¶é—´çª—å£ old ã€‚
 
-¶ÔÓ¦ÉÏÃæ currentWindow ·½·¨µÄ 4.2 ²½Öè£º![SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/85c047336a2c2186bcc7737a4c28da852cb603.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")Ê±¼ä¼ÌĞøÍùÇ°×ß£¬µ±³¬¹ı500msÊ±£¬Ê±¼ä´°¿Ú¾Í»áÏòÇ°»¬¶¯µ½ÏÂÒ»¸ö£¬ÕâÊ±¾Í»á¸üĞÂµ±Ç°´°¿ÚµÄ¿ªÊ¼Ê±¼ä,Ê±¼ä¼ÌĞøÍùÇ°×ß£¬Ö»Òª²»³¬¹ı1000ms£¬Ôòµ±Ç°´°¿Ú²»»á·¢Éú±ä»¯£¬ÆäÖĞ´úÂëÊµÏÖÊÇ resetWindowTo ·½·¨£º
+*   å¦‚æœoldä¸ºç©ºï¼Œåˆ™åˆ›å»ºä¸€ä¸ªæ—¶é—´çª—å£ï¼Œå¹¶å°†å®ƒæ’å…¥åˆ°arrayçš„ç¬¬idxä¸ªä½ç½®ï¼Œarrayä¸Šé¢å·²ç»åˆ†æè¿‡äº†ï¼Œæ˜¯ä¸€ä¸ª AtomicReferenceArrayã€‚
+*   å¦‚æœå½“å‰çª—å£çš„å¼€å§‹æ—¶é—´timeä¸oldçš„å¼€å§‹æ—¶é—´ç›¸ç­‰ï¼Œé‚£ä¹ˆè¯´æ˜oldå°±æ˜¯å½“å‰æ—¶é—´çª—å£ï¼Œç›´æ¥è¿”å›oldã€‚
+*   å¦‚æœå½“å‰çª—å£çš„å¼€å§‹æ—¶é—´timeå¤§äºoldçš„å¼€å§‹æ—¶é—´ï¼Œåˆ™è¯´æ˜oldçª—å£å·²ç»è¿‡æ—¶äº†ï¼Œå°†oldçš„å¼€å§‹æ—¶é—´æ›´æ–°ä¸ºæœ€æ–°å€¼ï¼štimeï¼Œè¿›å…¥ä¸‹ä¸€æ¬¡å¾—å¾ªç¯å†åˆ¤æ–­å½“å‰çª—å£çš„å¼€å§‹æ—¶é—´timeä¸oldçš„å¼€å§‹æ—¶é—´ç›¸ç­‰çš„æ—¶å€™è¿”å›ã€‚
+*   å¦‚æœå½“å‰çª—å£çš„å¼€å§‹æ—¶é—´timeå°äºoldçš„å¼€å§‹æ—¶é—´ï¼Œå®é™…ä¸Šè¿™ç§æƒ…å†µæ˜¯ä¸å¯èƒ½å­˜åœ¨çš„ï¼Œå› ä¸ºtimeæ˜¯å½“å‰æ—¶é—´ï¼Œoldæ˜¯è¿‡å»çš„ä¸€ä¸ªæ—¶é—´ã€‚
+    å¦å¤–timeIdæ˜¯ä¼šéšç€æ—¶é—´çš„å¢é•¿è€Œå¢åŠ ï¼Œå½“å‰æ—¶é—´æ¯å¢é•¿ä¸€ä¸ªwindowLengthçš„é•¿åº¦ï¼ŒtimeIdå°±åŠ 1ã€‚ä½†æ˜¯idxä¸ä¼šå¢é•¿ï¼Œåªä¼šåœ¨0å’Œ1ä¹‹é—´å˜æ¢ï¼Œå› ä¸ºarrayæ•°ç»„çš„é•¿åº¦æ˜¯2ï¼Œåªæœ‰ä¸¤ä¸ªé‡‡æ ·æ—¶é—´çª—å£ã€‚è‡³äºä¸ºä»€ä¹ˆé»˜è®¤åªæœ‰ä¸¤ä¸ªé‡‡æ ·çª—å£ï¼Œä¸ªäººè§‰å¾—å› ä¸ºsentinelæ˜¯æ¯”è¾ƒè½»é‡çš„æ¡†æ¶ã€‚æ—¶é—´çª—å£ä¸­ä¿å­˜ç€å¾ˆå¤šç»Ÿè®¡æ•°æ®ï¼Œå¦‚æœæ—¶é—´çª—å£è¿‡å¤šçš„è¯ï¼Œä¸€æ–¹é¢ä¼šå ç”¨è¿‡å¤šå†…å­˜ï¼Œå¦ä¸€æ–¹é¢æ—¶é—´çª—å£è¿‡å¤šå°±æ„å‘³ç€æ—¶é—´çª—å£çš„é•¿åº¦ä¼šå˜å°ï¼Œå¦‚æœæ—¶é—´çª—å£é•¿åº¦å˜å°ï¼Œå°±ä¼šå¯¼è‡´æ—¶é—´çª—å£è¿‡äºé¢‘ç¹çš„æ»‘åŠ¨ã€‚å…ˆæ¥çœ‹ä¸€ä¸‹å…¶ä¸­çš„ç¬¬ä¸€æ­¥åŠç¬¬äºŒæ­¥ï¼š
 
 
 
 ```
-protected WindowWrap<MetricBucket> resetWindowTo(WindowWrap<MetricBucket> w, long time) {    // Update the start time and reset value.    // ÖØÖÃwindowStart    w.resetTo(time);    MetricBucket borrowBucket = borrowArray.getWindowValue(time);    if (borrowBucket != null) {        w.value().reset();        w.value().addPass((int)borrowBucket.pass());    } else {        w.value().reset();    }    return w;}
+private int calculateTimeIdx(/*@Valid*/ long timeMillis) {    // timeæ¯å¢åŠ ä¸€ä¸ªwindowLengthçš„é•¿åº¦ï¼ŒtimeIdå°±ä¼šå¢åŠ 1ï¼Œæ—¶é—´çª—å£å°±ä¼šå¾€å‰æ»‘åŠ¨ä¸€ä¸ª    long timeId = timeMillis / windowLengthInMs;     // idxè¢«åˆ†æˆ[0,arrayLength-1]ä¸­çš„æŸä¸€ä¸ªæ•°ï¼Œä½œä¸ºarrayæ•°ç»„ä¸­çš„ç´¢å¼•    return (int)(timeId % array.length());}protected long calculateWindowStart(/*@Valid*/ long timeMillis) {    return timeMillis - timeMillis % windowLengthInMs;}
 ```
 
 
@@ -457,7 +437,27 @@ protected WindowWrap<MetricBucket> resetWindowTo(WindowWrap<MetricBucket> w, lon
 
 
 
-¶ÔÓ¦ÉÏÃæ currentWindow ·½·¨µÄ 4.3 ²½Öè![SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/03d6e3886f95f5768e05969d7eb8307c26f381.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")µ±Ê±¼ä¼ÌĞøÍùÇ°×ß£¬µ±Ç°Ê±¼ä³¬¹ı1000msÊ±£¬¾Í»áÔÙ´Î½øÈëÏÂÒ»¸öÊ±¼ä´°¿Ú£¬´ËÊ±arraysÊı×éÖĞµÄ´°¿Ú½«»áÓĞÒ»¸öÊ§Ğ§£¬»áÓĞÁíÒ»¸öĞÂµÄ´°¿Ú½øĞĞÌæ»»£º![SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/241926a53c2a5b06938844199046d31e593d62.jpg "SpringCloud AlibabaÏµÁĞ¡ª¡ª15SentinelÔ­Àí·ÖÎö-¿ªÔ´»ù´¡Èí¼şÉçÇø")ÒÔ´ËÀàÍÆËæ×ÅÊ±¼äµÄÁ÷ÊÅ£¬Ê±¼ä´°¿ÚÒ²ÔÚ·¢Éú±ä»¯£¬ÔÚµ±Ç°Ê±¼äµãÖĞ½øÈëµÄÇëÇó£¬»á±»Í³¼Æµ½µ±Ç°Ê±¼ä¶ÔÓ¦µÄÊ±¼ä´°¿ÚÖĞ£¬»Øµ½addpass ·½·¨ÖĞ£º
+æ ¹æ®å½“å‰æ—¶é—´é™¤äº windowLength å¾—åˆ°ä¸€ä¸ª timeId(ç›¸å·®500msè®¡ç®—å‡ºæ¥çš„å€¼å°†æ˜¯ä¸€è‡´çš„),å†ç”¨timeIdè·Ÿå–æ ·çª—å£çš„é•¿åº¦è¿›è¡Œä¸€ä¸ªå–æ¨¡ï¼Œé‚£ä¹ˆå¥¹ä¸€å®šä¼šè½åœ¨ 0ï¼Œ1ä¸¤ä¸ªä½ç½®çš„å…¶ä¸­ä¸€ä¸ªã€‚ç„¶åæ ¹æ®å½“å‰æ—¶é—´ç®—å‡ºå½“å‰çª—å£çš„åº”è¯¥å¯¹åº”çš„å¼€å§‹æ—¶é—´timeã€‚ç”±äºåˆšåˆšå¼€å§‹çš„æ—¶å€™ array æ˜¯ç©ºçš„ï¼Œé‚£ä¹ˆå¥¹è·å–åˆ°çš„oldåº”å½“æ˜¯nullï¼Œé‚£ä¹ˆä»–ä¼šåˆ›å»ºä¸€ä¸ªæ–°çš„å®ä¾‹ï¼Œæˆ‘ä»¬ç”¨å›¾çœ‹ä¸€ä¸‹åˆå§‹åŒ–çš„ LeapArrayï¼š
+
+å¯¹åº”ä¸Šé¢ currentWindow æ–¹æ³•çš„ 4.1 æ­¥éª¤(å‡è®¾idx=0)ï¼š![SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/95b0b64926eae4d2753986af9c978da9980da0.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")å½“è·å–åˆ°çš„æ˜¯null,é‚£ä¹ˆåˆå§‹çš„æ—¶å€™arraysæ•°ç»„ä¸­åªæœ‰ä¸€ä¸ªçª—å£(å¯èƒ½æ˜¯ç¬¬ä¸€ä¸ª(idx=0)ï¼Œä¹Ÿå¯èƒ½æ˜¯ç¬¬äºŒä¸ª(idx=1))ï¼Œæ¯ä¸ªæ—¶é—´çª—å£çš„é•¿åº¦æ˜¯500msï¼Œè¿™å°±æ„å‘³ç€åªè¦å½“å‰æ—¶é—´ä¸æ—¶é—´çª—å£çš„å·®å€¼åœ¨500msä¹‹å†…ï¼Œæ—¶é—´çª—å£å°±ä¸ä¼šå‘å‰æ»‘åŠ¨ã€‚ä¾‹å¦‚ï¼Œå‡å¦‚å½“å‰æ—¶é—´èµ°åˆ°300æˆ–è€…500æ—¶ï¼Œå½“å‰æ—¶é—´çª—å£ä»ç„¶æ˜¯ç›¸åŒçš„é‚£ä¸ªï¼š
+
+å¯¹åº”ä¸Šé¢ currentWindow æ–¹æ³•çš„ 4.2 æ­¥éª¤ï¼š![SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/85c047336a2c2186bcc7737a4c28da852cb603.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")æ—¶é—´ç»§ç»­å¾€å‰èµ°ï¼Œå½“è¶…è¿‡500msæ—¶ï¼Œæ—¶é—´çª—å£å°±ä¼šå‘å‰æ»‘åŠ¨åˆ°ä¸‹ä¸€ä¸ªï¼Œè¿™æ—¶å°±ä¼šæ›´æ–°å½“å‰çª—å£çš„å¼€å§‹æ—¶é—´,æ—¶é—´ç»§ç»­å¾€å‰èµ°ï¼Œåªè¦ä¸è¶…è¿‡1000msï¼Œåˆ™å½“å‰çª—å£ä¸ä¼šå‘ç”Ÿå˜åŒ–ï¼Œå…¶ä¸­ä»£ç å®ç°æ˜¯ resetWindowTo æ–¹æ³•ï¼š
+
+
+
+```
+protected WindowWrap<MetricBucket> resetWindowTo(WindowWrap<MetricBucket> w, long time) {    // Update the start time and reset value.    // é‡ç½®windowStart    w.resetTo(time);    MetricBucket borrowBucket = borrowArray.getWindowValue(time);    if (borrowBucket != null) {        w.value().reset();        w.value().addPass((int)borrowBucket.pass());    } else {        w.value().reset();    }    return w;}
+```
+
+
+
+
+
+
+
+
+
+å¯¹åº”ä¸Šé¢ currentWindow æ–¹æ³•çš„ 4.3 æ­¥éª¤![SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/03d6e3886f95f5768e05969d7eb8307c26f381.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")å½“æ—¶é—´ç»§ç»­å¾€å‰èµ°ï¼Œå½“å‰æ—¶é—´è¶…è¿‡1000msæ—¶ï¼Œå°±ä¼šå†æ¬¡è¿›å…¥ä¸‹ä¸€ä¸ªæ—¶é—´çª—å£ï¼Œæ­¤æ—¶arraysæ•°ç»„ä¸­çš„çª—å£å°†ä¼šæœ‰ä¸€ä¸ªå¤±æ•ˆï¼Œä¼šæœ‰å¦ä¸€ä¸ªæ–°çš„çª—å£è¿›è¡Œæ›¿æ¢ï¼š![SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/241926a53c2a5b06938844199046d31e593d62.jpg "SpringCloud Alibabaç³»åˆ—â€”â€”15SentinelåŸç†åˆ†æ-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")ä»¥æ­¤ç±»æ¨éšç€æ—¶é—´çš„æµé€ï¼Œæ—¶é—´çª—å£ä¹Ÿåœ¨å‘ç”Ÿå˜åŒ–ï¼Œåœ¨å½“å‰æ—¶é—´ç‚¹ä¸­è¿›å…¥çš„è¯·æ±‚ï¼Œä¼šè¢«ç»Ÿè®¡åˆ°å½“å‰æ—¶é—´å¯¹åº”çš„æ—¶é—´çª—å£ä¸­ï¼Œå›åˆ°addpass æ–¹æ³•ä¸­ï¼š
 
 
 
@@ -473,7 +473,7 @@ public void addPass(int count) {    WindowWrap<MetricBucket> wrap = data.current
 
 
 
-»ñÈ¡µ½´°¿ÚÒÔºó»á½øÈëµ½ wrap.value().addPass(count); QPSµÄÔö¼Ó¡£¶øÕâÀïµÄ wrap.value() µÃµ½µÄÊÇÖ®Ç°Ìáµ½µÄ MetricBucket £¬ÔÚ Sentinel ÖĞQPSÏà¹ØÊı¾İµÄÍ³¼Æ½á¹ûÊÇÎ¬»¤ÔÚÕâ¸öÀàµÄ LongAdder[] ÖĞ£¬×îÖÕÓÉÕâ¸öÖ¸±êÀ´ÓëÎÒÃÇÊµÏÖÉèÖÃºÃµÄ¹æÔò½øĞĞÆ¥Åä£¬²é¿´ÊÇ·ñÏŞÁ÷£¬Ò²¾ÍÊÇ StatisticSlotµÄentry ·½·¨ÖĞµÄ fireEntry(context, resourceWrapper, node, count, prioritized, args); ¶¼ÒªÏÈ½øÈëµ½ FlowSlotµÄentry·½·¨½øĞĞÏŞÁ÷¹ıÂË£º
+è·å–åˆ°çª—å£ä»¥åä¼šè¿›å…¥åˆ° wrap.value().addPass(count); QPSçš„å¢åŠ ã€‚è€Œè¿™é‡Œçš„ wrap.value() å¾—åˆ°çš„æ˜¯ä¹‹å‰æåˆ°çš„ MetricBucket ï¼Œåœ¨ Sentinel ä¸­QPSç›¸å…³æ•°æ®çš„ç»Ÿè®¡ç»“æœæ˜¯ç»´æŠ¤åœ¨è¿™ä¸ªç±»çš„ LongAdder[] ä¸­ï¼Œæœ€ç»ˆç”±è¿™ä¸ªæŒ‡æ ‡æ¥ä¸æˆ‘ä»¬å®ç°è®¾ç½®å¥½çš„è§„åˆ™è¿›è¡ŒåŒ¹é…ï¼ŒæŸ¥çœ‹æ˜¯å¦é™æµï¼Œä¹Ÿå°±æ˜¯ StatisticSlotçš„entry æ–¹æ³•ä¸­çš„ fireEntry(context, resourceWrapper, node, count, prioritized, args); éƒ½è¦å…ˆè¿›å…¥åˆ° FlowSlotçš„entryæ–¹æ³•è¿›è¡Œé™æµè¿‡æ»¤ï¼š
 
 
 
@@ -489,7 +489,7 @@ public void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode 
 
 
 
-¿ÉÒÔ¿´µ½ÕâÀïÓĞ¸öºÜÖØÒªµÄ·½·¨ checkFlow £¬½øÈ¥¿´¿´£º
+å¯ä»¥çœ‹åˆ°è¿™é‡Œæœ‰ä¸ªå¾ˆé‡è¦çš„æ–¹æ³• checkFlow ï¼Œè¿›å»çœ‹çœ‹ï¼š
 
 
 
@@ -505,14 +505,14 @@ public void checkFlow(Function<String, Collection<FlowRule>> ruleProvider, Resou
 
 
 
-µ½ÕâÀïÒ»ÇĞ¶¼Ó¦¸ÃÇåÎúÁË£¬ÕâÀïÄÃµ½ÁËÎÒÃÇÉèÖÃµÄ FlowRule Ñ­»·Æ¥Åä×ÊÔ´½øĞĞÏŞÁ÷¹ıÂË¡£Õâ¾ÍÊÇSentinel ÄÜ×öµ½ÏŞÁ÷µÄÔ­Òò¡£
+åˆ°è¿™é‡Œä¸€åˆ‡éƒ½åº”è¯¥æ¸…æ™°äº†ï¼Œè¿™é‡Œæ‹¿åˆ°äº†æˆ‘ä»¬è®¾ç½®çš„ FlowRule å¾ªç¯åŒ¹é…èµ„æºè¿›è¡Œé™æµè¿‡æ»¤ã€‚è¿™å°±æ˜¯Sentinel èƒ½åšåˆ°é™æµçš„åŸå› ã€‚
 
 **2.6 FlowRuleSlot**
-Õâ¸ö slot Ö÷Òª¸ù¾İÔ¤ÉèµÄ×ÊÔ´µÄÍ³¼ÆĞÅÏ¢£¬°´ÕÕ¹Ì¶¨µÄ´ÎĞò£¬ÒÀ´ÎÉúĞ§¡£Èç¹ûÒ»¸ö×ÊÔ´¶ÔÓ¦Á½Ìõ»òÕß¶àÌõÁ÷¿Ø¹æÔò£¬Ôò»á¸ù¾İÈçÏÂ´ÎĞòÒÀ´Î¼ìÑé£¬Ö±µ½È«²¿Í¨¹ı»òÕßÓĞÒ»¸ö¹æÔòÉúĞ§ÎªÖ¹:
+è¿™ä¸ª slot ä¸»è¦æ ¹æ®é¢„è®¾çš„èµ„æºçš„ç»Ÿè®¡ä¿¡æ¯ï¼ŒæŒ‰ç…§å›ºå®šçš„æ¬¡åºï¼Œä¾æ¬¡ç”Ÿæ•ˆã€‚å¦‚æœä¸€ä¸ªèµ„æºå¯¹åº”ä¸¤æ¡æˆ–è€…å¤šæ¡æµæ§è§„åˆ™ï¼Œåˆ™ä¼šæ ¹æ®å¦‚ä¸‹æ¬¡åºä¾æ¬¡æ£€éªŒï¼Œç›´åˆ°å…¨éƒ¨é€šè¿‡æˆ–è€…æœ‰ä¸€ä¸ªè§„åˆ™ç”Ÿæ•ˆä¸ºæ­¢:
 
-*   Ö¸¶¨Ó¦ÓÃÉúĞ§µÄ¹æÔò£¬¼´Õë¶Ôµ÷ÓÃ·½ÏŞÁ÷µÄ£»
-*   µ÷ÓÃ·½Îª other µÄ¹æÔò£»
-*   µ÷ÓÃ·½Îª default µÄ¹æÔò¡£
+*   æŒ‡å®šåº”ç”¨ç”Ÿæ•ˆçš„è§„åˆ™ï¼Œå³é’ˆå¯¹è°ƒç”¨æ–¹é™æµçš„ï¼›
+*   è°ƒç”¨æ–¹ä¸º other çš„è§„åˆ™ï¼›
+*   è°ƒç”¨æ–¹ä¸º default çš„è§„åˆ™ã€‚
 
 
 
@@ -529,10 +529,10 @@ public void checkFlow(Function<String, Collection<FlowRule>> ruleProvider, Resou
 
 
 **2.6.1 checkFlow**
-½øÈëµ½FlowRuleChecker.checkFlow·½·¨ÖĞ¡£
+è¿›å…¥åˆ°FlowRuleChecker.checkFlowæ–¹æ³•ä¸­ã€‚
 
-*   ¸ù¾İ×ÊÔ´Ãû³Æ£¬ÕÒµ½ÏŞÁ÷¹æÔòÁĞ±í
-*   Èç¹ûÏŞÁ÷¹æÔò²»Îª¿Õ£¬Ôò±éÀú¹æÔò£¬µ÷ÓÃcanPassCheck·½·¨½øĞĞĞ£Ñé¡£
+*   æ ¹æ®èµ„æºåç§°ï¼Œæ‰¾åˆ°é™æµè§„åˆ™åˆ—è¡¨
+*   å¦‚æœé™æµè§„åˆ™ä¸ä¸ºç©ºï¼Œåˆ™éå†è§„åˆ™ï¼Œè°ƒç”¨canPassCheckæ–¹æ³•è¿›è¡Œæ ¡éªŒã€‚
 
 
 
@@ -549,7 +549,7 @@ public void checkFlow(Function<String, Collection<FlowRule>> ruleProvider,Resour
 
 
 **2.6.2 canPassCheck**
-ÅĞ¶ÏÊÇ·ñÊÇ¼¯ÈºÏŞÁ÷Ä£Ê½£¬Èç¹ûÊÇ£¬Ôò×ßpassClusterCheck£¬·ñÔò£¬µ÷ÓÃpassLocalCheck·½·¨¡£
+åˆ¤æ–­æ˜¯å¦æ˜¯é›†ç¾¤é™æµæ¨¡å¼ï¼Œå¦‚æœæ˜¯ï¼Œåˆ™èµ°passClusterCheckï¼Œå¦åˆ™ï¼Œè°ƒç”¨passLocalCheckæ–¹æ³•ã€‚
 
 
 
@@ -567,8 +567,8 @@ public boolean canPassCheck(/*@NonNull*/ FlowRule rule, Context context,DefaultN
 
 **2.6.3 passLocalCheck**
 
-*   selectNodeByRequesterAndStrategy£¬¸ù¾İÇëÇóºÍ²ßÂÔÀ´»ñµÃNode
-*   rule.getRater(), ¸ù¾İ²»Í¬µÄÏŞÁ÷¿ØÖÆĞĞÎªÀ´£¬µ÷ÓÃcanPass½øĞĞĞ£Ñé¡£
+*   selectNodeByRequesterAndStrategyï¼Œæ ¹æ®è¯·æ±‚å’Œç­–ç•¥æ¥è·å¾—Node
+*   rule.getRater(), æ ¹æ®ä¸åŒçš„é™æµæ§åˆ¶è¡Œä¸ºæ¥ï¼Œè°ƒç”¨canPassè¿›è¡Œæ ¡éªŒã€‚
 
 
 
@@ -585,12 +585,12 @@ private static boolean passLocalCheck(FlowRule rule, Context context,DefaultNode
 
 
 **2.6.4 DefaultController.canPass**
-Í¨¹ıÄ¬ÈÏµÄÏŞÁ÷ĞĞÎª£¨Ö±½Ó¾Ü¾ø£©£¬½øĞĞÏŞÁ÷ÅĞ¶Ï¡£
+é€šè¿‡é»˜è®¤çš„é™æµè¡Œä¸ºï¼ˆç›´æ¥æ‹’ç»ï¼‰ï¼Œè¿›è¡Œé™æµåˆ¤æ–­ã€‚
 
 
 
 ```
-@Overridepublic boolean canPass(Node node, int acquireCount, boolean prioritized) {    //ÏÈ¸ù¾İnode»ñÈ¡×ÊÔ´µ±Ç°µÄÊ¹ÓÃÊıÁ¿£¬ÕâÀï»á¸ù¾İqps»òÕß²¢·¢Êı²ßÂÔÀ´»ñµÃÏà¹ØµÄÖµ    int curCount = avgUsedTokens(node);    //µ±Ç°ÒÑÊ¹ÓÃµÄÇëÇóÊı¼ÓÉÏ±¾´ÎÇëÇóµÄÊıÁ¿ÊÇ·ñ´óÓÚãĞÖµ    if (curCount + acquireCount > count) {//Èç¹ûÎªtrue£¬ËµÃ÷Ó¦¸Ã±»ÏŞÁ÷        // Èç¹û´ËÇëÇóÊÇÒ»¸ö¸ßÓÅÏÈ¼¶ÇëÇó£¬²¢ÇÒÏŞÁ÷ÀàĞÍÎªqps£¬Ôò²»»áÁ¢¼´Ê§°Ü£¬¶øÊÇÈ¥Õ¼ÓÃÎ´À´µÄÊ±¼ä´°¿Ú£¬µÈµ½ÏÂÒ»¸öÊ±¼ä´°¿ÚÍ¨¹ıÇëÇó¡£        if (prioritized && grade == RuleConstant.FLOW_GRADE_QPS) { //            long currentTime;            long waitInMs;            currentTime = TimeUtil.currentTimeMillis();            waitInMs = node.tryOccupyNext(currentTime, acquireCount, count);            if (waitInMs < OccupyTimeoutProperty.getOccupyTimeout()) {                node.addWaitingRequest(currentTime + waitInMs, acquireCount);                node.addOccupiedPass(acquireCount);                sleep(waitInMs);                // PriorityWaitException indicates that the request will pass after waiting for {@link @waitInMs}.                throw new PriorityWaitException(waitInMs);            }        }        return false;    }    return true;}
+@Overridepublic boolean canPass(Node node, int acquireCount, boolean prioritized) {    //å…ˆæ ¹æ®nodeè·å–èµ„æºå½“å‰çš„ä½¿ç”¨æ•°é‡ï¼Œè¿™é‡Œä¼šæ ¹æ®qpsæˆ–è€…å¹¶å‘æ•°ç­–ç•¥æ¥è·å¾—ç›¸å…³çš„å€¼    int curCount = avgUsedTokens(node);    //å½“å‰å·²ä½¿ç”¨çš„è¯·æ±‚æ•°åŠ ä¸Šæœ¬æ¬¡è¯·æ±‚çš„æ•°é‡æ˜¯å¦å¤§äºé˜ˆå€¼    if (curCount + acquireCount > count) {//å¦‚æœä¸ºtrueï¼Œè¯´æ˜åº”è¯¥è¢«é™æµ        // å¦‚æœæ­¤è¯·æ±‚æ˜¯ä¸€ä¸ªé«˜ä¼˜å…ˆçº§è¯·æ±‚ï¼Œå¹¶ä¸”é™æµç±»å‹ä¸ºqpsï¼Œåˆ™ä¸ä¼šç«‹å³å¤±è´¥ï¼Œè€Œæ˜¯å»å ç”¨æœªæ¥çš„æ—¶é—´çª—å£ï¼Œç­‰åˆ°ä¸‹ä¸€ä¸ªæ—¶é—´çª—å£é€šè¿‡è¯·æ±‚ã€‚        if (prioritized && grade == RuleConstant.FLOW_GRADE_QPS) { //            long currentTime;            long waitInMs;            currentTime = TimeUtil.currentTimeMillis();            waitInMs = node.tryOccupyNext(currentTime, acquireCount, count);            if (waitInMs < OccupyTimeoutProperty.getOccupyTimeout()) {                node.addWaitingRequest(currentTime + waitInMs, acquireCount);                node.addOccupiedPass(acquireCount);                sleep(waitInMs);                // PriorityWaitException indicates that the request will pass after waiting for {@link @waitInMs}.                throw new PriorityWaitException(waitInMs);            }        }        return false;    }    return true;}
 ```
 
 
@@ -601,10 +601,10 @@ private static boolean passLocalCheck(FlowRule rule, Context context,DefaultNode
 
 
 
-Ò»µ©±»¾Ü¾ø£¬ÔòÅ×³ö FlowException Òì³£¡£
+ä¸€æ—¦è¢«æ‹’ç»ï¼Œåˆ™æŠ›å‡º FlowException å¼‚å¸¸ã€‚
 
 **2.7 PriorityWait**
-ÔÚDefaultController.canPassÖĞ£¬µ÷ÓÃÈçÏÂ´úÂëÈ¥½èºóĞøµÄ´°¿Ú
+åœ¨DefaultController.canPassä¸­ï¼Œè°ƒç”¨å¦‚ä¸‹ä»£ç å»å€Ÿåç»­çš„çª—å£
 
 
 
@@ -622,7 +622,7 @@ node.addWaitingRequest(currentTime + waitInMs, acquireCount);node.addOccupiedPas
 
 > addWaitingRequest -> ArrayMetric.addWaiting->OccupiableBucketLeapArray.addWaiting
 
-borrowArray£¬ËüÊÇÒ»¸öFutureBucketLeapArray¶ÔÏó£¬ÕâÀï¶¨ÒåµÄÊÇÎ´À´µÄÊ±¼ä´°¿Ú£¬È»ºó»ñµÃÎ´À´Ê±¼äµÄ´°¿ÚÈ¥Ôö¼Ó¼ÆÊı
+borrowArrayï¼Œå®ƒæ˜¯ä¸€ä¸ªFutureBucketLeapArrayå¯¹è±¡ï¼Œè¿™é‡Œå®šä¹‰çš„æ˜¯æœªæ¥çš„æ—¶é—´çª—å£ï¼Œç„¶åè·å¾—æœªæ¥æ—¶é—´çš„çª—å£å»å¢åŠ è®¡æ•°
 
 
 
@@ -638,9 +638,9 @@ borrowArray£¬ËüÊÇÒ»¸öFutureBucketLeapArray¶ÔÏó£¬ÕâÀï¶¨ÒåµÄÊÇÎ´À´µÄÊ±¼ä´°¿Ú£¬È»ºó
 
 
 
-×îÖÕ£¬ÔÚStatisticSlot.entryÖĞ£¬²¶»ñÒì³£
+æœ€ç»ˆï¼Œåœ¨StatisticSlot.entryä¸­ï¼Œæ•è·å¼‚å¸¸
 
-Èç¹û´æÔÚÓÅÏÈ¼¶±È½Ï¸ßµÄÈÎÎñ£¬²¢ÇÒµ±Ç°µÄÇëÇóÒÑ¾­´ïµ½ãĞÖµ£¬Å×³öÕâ¸öÒì³££¬Êµ¼ÊÉÏÊÇÈ¥Õ¼ÓÃÎ´À´µÄÒ»¸öÊ±¼ä´°¿ÚÈ¥½øĞĞ¼ÆÊı£¬Å×³öÕâ¸öÒì³£Ö®ºó£¬»á½øÈëµ½StatisticSlotÖĞ½øĞĞ²¶»ñ¡£È»ºóÖ±½ÓÍ¨¹ı
+å¦‚æœå­˜åœ¨ä¼˜å…ˆçº§æ¯”è¾ƒé«˜çš„ä»»åŠ¡ï¼Œå¹¶ä¸”å½“å‰çš„è¯·æ±‚å·²ç»è¾¾åˆ°é˜ˆå€¼ï¼ŒæŠ›å‡ºè¿™ä¸ªå¼‚å¸¸ï¼Œå®é™…ä¸Šæ˜¯å»å ç”¨æœªæ¥çš„ä¸€ä¸ªæ—¶é—´çª—å£å»è¿›è¡Œè®¡æ•°ï¼ŒæŠ›å‡ºè¿™ä¸ªå¼‚å¸¸ä¹‹åï¼Œä¼šè¿›å…¥åˆ°StatisticSlotä¸­è¿›è¡Œæ•è·ã€‚ç„¶åç›´æ¥é€šè¿‡
 
 
 
@@ -650,7 +650,7 @@ public void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode 
 
 
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

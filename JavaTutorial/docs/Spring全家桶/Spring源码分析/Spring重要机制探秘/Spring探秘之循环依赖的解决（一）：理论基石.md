@@ -1,6 +1,6 @@
-### 1\. Ê²Ã´ÊÇÑ­»·ÒÀÀµ£¿
+### 1\. ä»€ä¹ˆæ˜¯å¾ªçŽ¯ä¾èµ–ï¼Ÿ
 
-spring ÔÚÒÀÀµ×¢ÈëÊ±£¬¿ÉÄÜ»á³öÏÖÏà»¥×¢ÈëµÄÇé¿ö£º
+spring åœ¨ä¾èµ–æ³¨å…¥æ—¶ï¼Œå¯èƒ½ä¼šå‡ºçŽ°ç›¸äº’æ³¨å…¥çš„æƒ…å†µï¼š
 
 ```
 @Service
@@ -19,505 +19,15 @@ public class Service2 {
 
 ```
 
-ÈçÒÔÉÏ´úÂë£¬ÔÚ `Service1` ÖÐÍ¨¹ý `@Autowird` ×¢ÈëÁË `Service2`£¬ÔÚ `Service2` ÖÐÍ¨¹ý `@Autowird` ×¢ÈëÁË `Service1`£¬ÕâÖÖÏà»¥×¢ÈëµÄÇé¿ö£¬¾Í½Ð×öÑ­»·ÒÀÀµ¡£
+å¦‚ä»¥ä¸Šä»£ç ï¼Œåœ¨ `Service1` ä¸­é€šè¿‡ `@Autowird` æ³¨å…¥äº† `Service2`ï¼Œåœ¨ `Service2` ä¸­é€šè¿‡ `@Autowird` æ³¨å…¥äº† `Service1`ï¼Œè¿™ç§ç›¸äº’æ³¨å…¥çš„æƒ…å†µï¼Œå°±å«åšå¾ªçŽ¯ä¾èµ–ã€‚
 
-### 2\. Ñ­»·ÒÀÀµ»áÓÐÊ²Ã´ÎÊÌâ
+### 2\. å¾ªçŽ¯ä¾èµ–ä¼šæœ‰ä»€ä¹ˆé—®é¢˜
 
-Êµ¼ÊÉÏ£¬ÕâÖÖ `A³ÖÓÐB¶ÔÏó£¬BÒ²³ÖÓÐA¶ÔÏó`µÄÇé¿ö£¬java ´úÂëÊÇÍêÈ«Ö§³ÖµÄ£º
-
-```
-/**
- * ×¼±¸service1
- */
-public class Service1 {
-    private Service2 service2;
-
-    public void setService2(Service2 service2) {
-        this.service2 = service2;
-    }
-
-    public Service2 getService2() {
-        return this.service2;
-    }
-}
-
-/**
- * ×¼±¸service2
- */
-public class Service2 {
-    private Service1 service1;
-
-    public void setService1(Service1 service1) {
-        this.service1 = service1;
-    }
-
-    public Service1 getService1() {
-        return this.service1;
-    }
-}
-
-/**
- * Ö÷·½·¨ÖÐµ÷ÓÃ
- */
-public class Main {
-    public void main(String[] args) {
-        // ×¼±¸Á½¸ö¶ÔÏó
-        Service1 service1 = new Service1();
-        Service2 service2 = new Service2();
-        // Ïà»¥ÉèÖÃ
-        service1.setService2(service2);
-        service2.setService1(service1);
-    }
-}
-
-```
-
-ÄÇÃ´£¬ÔÚ spring ÖÐ£¬Á½¸öÀàÏà»¥×¢Èë¶Ô·½ÊµÀýµÄÇé¿ö£¬»áÓÐÊ²Ã´ÎÊÌâÄØ£¿ÎÒÃÇÀ´¿´ `spring bean` µÄ´´½¨¹ý³Ì£¨**×¢Òâ£ºÕâÀïÎÒÃÇ½ö·ÖÎö `bean` µÄ `scope` Îª `singleton` µÄÇé¿ö£¬Ò²¾ÍÊÇ `scope` Îª`µ¥Àý`µÄÇé¿ö**£©£º
-
-![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-ca36e17077b1b191834645b3c8e588ff6c4.png)
-
-Õâ¸ö¹ý³ÌÖÐÓÐ¼¸µãÐèÒªËµÃ÷ÏÂ£º
-
-1.  ´´½¨¶ÔÏó£ºÕâ¸öÆäÊµ¾ÍÊÇÊ¹ÓÃ jdk Ìá¹©µÄ·´Éä»úÖÆ´´½¨ java ¶ÔÏó£¬ÒÔµÚ 1 ½ÚÌáµ½µÄ `Service1` ÎªÀý£¬¿É¼òµ¥Àí½âÎª `Service1 service = new Service1()`£»
-2.  ×¢ÈëÒÀÀµ¶ÔÏó£º»¹ÊÇÒÔµÚ 1 ½ÚÌáµ½µÄ `Service1` ÎªÀý£¬`Service1` ÖÐÍ¨¹ý `@Autowired` ×Ô¶¯×¢Èë `Service2`£¬ÕâÒ»²½¾ÍÊÇ¸ø `Service2` ¸³ÖµµÄ¹ý³Ì£¬¿É¼òµ¥Àí½âÎª `service1.setService2(service2)`£»
-3.  `singletonObjects`£º¾­¹ýÉÏÃæÁ½²½ºó£¬Ò»¸ö java ¶ÔÏó¾Í±ä³ÉÁËÒ»¸ö spring bean£¬È»ºó±£´æµ½ `singletonObjects` ÁË£¬ÕâÊÇ¸ö `map`£¬`key` ÊÇ bean µÄÃû³Æ£¬`value` ÊÇ bean£¬ËüÖ»±£´æ `spring bean`£¬²»»áÖ»ÔÚ java ÊµÀý¡£
-
-Êµ¼ÊÉÏ£¬`java` ¶ÔÏó±ä³É `spring bean`£¬²»½ö½öÖ»ÊÇÒÀÀµ×¢Èë£¬»¹ÓÐ³õÊ¼»¯¡¢Ö´ÐÐ `beanPorcessor` ·½·¨µÈ£¬**ÓÉÓÚ±¾ÎÄÊÇ·ÖÎö `spring bean` µÄÑ­»·ÒÀÀµµÄ£¬Òò´ËÎÒÃÇÖØµã¹Ø×¢ÓëÑ­»·ÒÀÀµÏà¹ØµÄ²½Öè¡£**
-
-#### 2.1 Ñ­»·ÒÀÀµ²úÉúµÄÎÊÌâ
-
-ÁË½âÁË spring bean µÄ²úÉú¹ý³ÌÖ®ºó£¬½ÓÏÂÀ´ÎÒÃÇ¾ÍÀ´·ÖÎöÏÂÑ­»·ÒÀÀµ²úÉúµÄÎÊÌâ£¬ÔÚÕýÊ½·ÖÎöÇ°£¬ÎÒÃÇÏÈÀ´Ã÷È·Á½¸ö¸ÅÄî£º
-
-*   `java¶ÔÏó`£ºÊµ¼ÊÉÏ£¬java ÖÐÒ»ÇÐ¶ÔÏó¶¼¿ÉÒÔ³ÆÖ®Îª `java` ¶ÔÏó£¬ÎªÁËËµÃ÷·½±ã£¬ÒÔÏÂÌáµ½µÄ `java¶ÔÏó`½öÖ¸ÊµÀý»¯Íê³É¡¢µ«Î´½øÐÐ spring bean µÄÉúÃüÖÜÆÚ¶ÔÏó£»
-*   `spring bean`£ºÊÇÒ»¸ö java ¶ÔÏó£¬²¢ÇÒ½øÐÐÁËÍêÕûµÄ spring bean µÄÉúÃüÖÜÆÚ¶ÔÏó£»
-
-spring bean µÄ´´½¨¹ý³ÌÈçÏÂ£º
-
-![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b55a211447b5fabeaa0c3ef0bfee0920c82.png)
-
-¶ÔÉÏÍ¼ËµÃ÷ÈçÏÂ£º
-
-1.  ÔÚ `service1` ¶ÔÏó´´½¨Íê³Éºó£¬`spring` ·¢ÏÖ `service1` ÐèÒª×¢Èë `service2`£¬È»ºó¾ÍÈ¥ `singletonObjects` ÖÐ²éÕÒ `service2`£¬´ËÊ±ÊÇÕÒ²»µ½ `service2`£¬È»ºó¾Í¿ªÊ¼ÁË `service2` µÄ´´½¨¹ý³Ì£»
-2.  ÔÚ `service2` ¶ÔÏó´´½¨Íê³Éºó£¬`spring` ·¢ÏÖ `service2` ÐèÒª×¢Èë `service1`£¬È»ºó¾ÍÈ¥ `singletonObjects` ÖÐ²éÕÒ `service1`£¬´ËÊ±ÊÇÕÒ²»µ½ `service1`£¬ÒòÎªµÚÒ»²½ÖÐ `service1` ²¢Ã»ÓÐ´´½¨³É¹¦ £¬È»ºó¾Í¿ªÊ¼ÁË `service1` µÄ´´½¨¹ý³Ì£»
-3.  Á÷³ÌÌø»Øµ½ `1`£¬ÔÙ´Î¿ªÊ¼ÁË `service1` µÄ´´½¨¡¢ÊôÐÔ×¢Èë¹ý³Ì¡£
-
-µ½ÕâÀï£¬ÎÒÃÇ¾ªÏ²µØ·¢ÏÖ£¬Ñ­»·³öÏÖÁË£¡
-
-#### 2.2 ÒýÈë `earlySingletonObjects` ½â¾öÑ­»·ÒÀÀµ
-
-ÎÒÃÇ·ÖÎöÏÂ£¬Ñ­»·³öÏÖµÄÔ­ÒòÔÚÓÚ£¬ÔÚ `service2` »ñÈ¡ `service1` Ê±£¬ÓÉÓÚ `singletonObjects` ÖÐ´ËÊ±²¢²»´æÔÚ `service1`£¬Òò´Ë»áÔÙ×ß `service1` µÄ´´½¨¹ý³Ì£¬ÖØÐÂ´´½¨ `service1`£¬Òò´Ë£¬ÎÒÃÇÓÐ¸ö´óµ¨µÄÏë·¨£ºÈç¹ûÔÚ `service1` ÊµÀý»¯ºó¾Í°ÑËü±£´æÆðÀ´£¬ºóÃæÔÙÔÙÕÒ `service1` Ê±£¬¾Í·µ»ØÕâ¸öÎ´½øÐÐÒÀÀµ×¢ÈëµÄ `service1`£¬ÏñÏÂÃæÕâÑù£º
-
-![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-c0eaecbe82b144a6fcd9fd048f2cca53497.png)
-
-ÉÏÍ¼ÖÐ£¬ÒýÈëÁË `earlySingletonObjects`£¬ÕâÒ²ÊÇ¸ö map£¬Í¬ `singletonObjects` Ò»Ñù£¬`key` ÊÇ bean µÄÃû³Æ£¬`value` ÊÇÒ»¸öÎ´Íê³ÉÒÀÀµ×¢ÈëµÄ¶ÔÏó¡£
-
-¶ÔÉÏÍ¼ËµÃ÷ÈçÏÂ£º
-
-1.  ÔÚ `service1` ¶ÔÏó´´½¨Íê³Éºó£¬ÏÈ½« `service1` ·ÅÈë `earlySingletonObjects`£¬È»ºó½øÐÐÒÀÀµ×¢Èë£»
-2.  ¶Ô `service1` ½øÐÐÒÀÀµ×¢ÈëÊ±£¬`spring` ·¢ÏÖ `service1` ÐèÒª×¢Èë `service2`£¬È»ºóÏÈÈ¥ `earlySingletonObjects` ²éÕÒ `service2`£¬Î´ÕÒµ½£»ÔÙÈ¥ `singletonObjects` ÖÐ²éÕÒ `service2`£¬»¹ÊÇÎ´ÕÒµ½£¬ÓÚÊÇ¾Í¿ªÊ¼ÁË `service2` µÄ´´½¨¹ý³Ì£»
-3.  ÔÚ `service2` ¶ÔÏó´´½¨Íê³Éºó£¬ÏÈ½« `service2` ·ÅÈë `earlySingletonObjects`£¬È»ºó½øÐÐÒÀÀµ×¢Èë£»
-4.  ¶Ô `service2` ½øÐÐÒÀÀµ×¢ÈëÊ±£¬`spring` ·¢ÏÖ `service2` ÐèÒª×¢Èë `service1`£¬È»ºó¾ÍÈ¥ `earlySingletonObjects` ²éÕÒ `service1`£¬ÕÒµ½ÁË£¬¾Í½« `service1` ×¢Èëµ½ `service2` ÖÐ£¬´ËÊ± `service2` ¾ÍÊÇÒ»¸ö `spring bean` ÁË£¬½«Æä±£´æµ½ `singletonObjects` ÖÐ£»
-5.  ¾­¹ýµÚ 4 ²½ºó£¬ÎÒÃÇµÃµ½ÁË `service2`£¬È»ºó½«Æä×¢Èëµ½ `service1` ÖÐ£¬´ËÊ± `service1` Ò²³ÉÁËÒ»¸ö `spring bean`£¬½«Æä±£´æµ½ `singletonObjects` ÖÐ¡£
-
-¾­¹ýÒÔÉÏ²½Öè£¬ÎÒÃÇ·¢ÏÖ£¬Ñ­»·ÒÀÀµµÃµ½ÁË½â¾ö¡£
-
-#### 2.2 aop ÏÂµÄÑ­»·ÒÀÀµ
-
-¾­¹ýÉÏÃæµÄ·ÖÎö£¬ÎÒÃÇ·¢ÏÖÖ»Òª¶îÍâÒýÈëÒ»¸ö `earlySingletonObjects` ºó£¬Ñ­»·ÒÀÀµ¾ÍÄÜµÃµ½½â¾ö¡£µ«ÊÇ£¬Ñ­»·ÒÀÀµÕæµÄµÃµ½ÁË½â¾öÂð£¿spring ³ýÁË ioc Íâ£¬»¹ÓÐÁíÒ»¸öÖØ´ó¹¦ÄÜ£ºaop£¬ÎÒÃÇÀ´¿´¿´ aop Çé¿öÏÂ³öÏÖÑ­»·ÒÀÀµ»áÔõÑù¡£
-
-##### 1\. aop ¶ÔÏóµÄ´´½¨¹ý³Ì
-
-ÔÚÕýÊ½½éÉÜ aop ÏÂµÄÑ­»·ÒÀÀµÇ°£¬ÎÒÃÇÏÈÀ´Ã÷È·Á½¸ö¸ö¸ÅÄî£º
-
-*   `Ô­Ê¼¶ÔÏó`£ºÇø±ðÓÚ´úÀí¶ÔÏó£¬Ö¸Î´½øÐÐ¹ý aop µÄ¶ÔÏó£¬¿ÉÒÔÊÇ java ¶ÔÏó£¬Ò²¿ÉÒÔÊÇÎ´½øÐÐ aop µÄ spring bean£»
-*   `´úÀí¶ÔÏó`£º½øÐÐ¹ý aop µÄ¶ÔÏó£¬¿ÉÒÔÊÇ java ¶ÔÏó½ö½øÐÐ¹ý aop µÃµ½µÄ¶ÔÏó (½ö½øÐÐ¹ý aop£¬Î´½øÐÐÒÀÀµ×¢Èë£¬Ò²Î´½øÐÐ³õÊ¼»¯)£¬Ò²¿ÉÒÔÊÇ½øÐÐ¹ý aop µÄ `spring bean`.
-
-ÎÒÃÇÏÈÀ´¿´¿´ aop ÊÇÈçºÎ´´½¨¶ÔÏóµÄ£º
-
-![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-e92991c1c173bbd5579be3001a977555be7.png)
-
-Ïà±ÈÓÚ `2.1` ÖÐµÄÁ÷³Ì£¬aop ¶àÁË "Éú³É´úÀí¶ÔÏó" µÄ²Ù×÷£¬²¢ÇÒ×îÖÕ±£´æµ½ `singletonObjects` ÖÐµÄ¶ÔÏóÒ²ÊÇ´úÀí¶ÔÏó¡£
-
-Ô­Ê¼¶ÔÏóÓë´úÀí¶ÔÏóÖ®¼äÊÇÊ²Ã´¹ØÏµÄØ£¿ÓÃ´úÂëÊ¾ÒâÏÂ£¬´óÖÂÈçÏÂ£º
-
-```
-public class ProxyObj extends Obj {
-
-    // Ô­Ê¼¶ÔÏó
-    private Obj obj;
-
-    ...
-}
-
-```
-
-Êµ¼ÊÉÏ£¬Á½ÕßÖ®¼äµÄ¹ØÏµ²¢Ã»ÓÐÕâÃ´¼òµ¥£¬µ«ÎªÁËËµÃ÷ÎÊÌâ£¬ÕâÀï¶ÔÁ½Õß¹ØÏµ×öÁË¼ò»¯£¬Ð¡»ï°éÃÇÖ»ÐèÒªÃ÷°×£¬**´úÀí¶ÔÏó³ÖÓÐÔ­Ê¼¶ÔÏóµÄÒýÓÃ**¼´¿É¡£
-
-¹ØÓÚÔ­Ê¼¶ÔÏóÈçºÎ±ä³É´úÀí¶ÔÏóµÄ£¬¿ÉÒÔ²Î¿¼ [spring aop Ö® AnnotationAwareAspectJAutoProxyCreator ·ÖÎö£¨ÏÂ£©](https://my.oschina.net/funcy/blog/4687961)¡£
-
-¶ÔÒÔÉÏ´´½¨¹ý³Ì£¬ÓÃ java ´úÂëÄ£ÄâÈçÏÂ£º
+å®žé™…ä¸Šï¼Œè¿™ç§ `AæŒæœ‰Bå¯¹è±¡ï¼ŒBä¹ŸæŒæœ‰Aå¯¹è±¡`çš„æƒ…å†µï¼Œjava ä»£ç æ˜¯å®Œå…¨æ”¯æŒçš„ï¼š
 
 ```
 /**
- * ×¼±¸Ò»¸öÀà
- */
-public class Obj1 {
-
-}
-
-/**
- * ×¼±¸Ò»¸öÀà£¬ÄÚ²¿ÓÐÒ»¸öÊôÐÔ Obj1
- */
-public class Obj2 {
-
-    private Obj1 obj1;
-
-    // Ê¡ÂÔÆäËû·½·¨
-    ...
-
-}
-
-/**
- * ×¼±¸Obj2µÄ´úÀíÀà£¬ÄÚ²¿³ÖÓÐobj2µÄ¶ÔÏó
- */
-public class ProxyObj2 extends Obj2 {
-
-    private Obj2 obj2;
-
-    public ProxyObj2(Obj2 obj2) {
-        this.obj2 = obj2;
-    }
-
-    // Ê¡ÂÔÆäËû·½·¨
-    ...
-
-}
-
-```
-
-½Ó×Å£¬¾ÍÊÇÄ£Äâ ¡°´´½¨ --> ÊôÐÔ×¢Èë --> Éú³É´úÀí¶ÔÏó --> ±£´æµ½ÈÝÆ÷ÖÐ¡± µÄ Á÷³ÌÁË£º
-
-```
-public static main(String[] args) {
-     // ×¼±¸Ò»¸öÈÝÆ÷£¬ÕâÀï±£´æµÄÊÇÍê³ÉÉÏÊöÉúÃüÖÜÆÚµÄ¶ÔÏó
-     // 1\. Èç¹ûÔªËØÊÇÔ­Ê¼¶ÔÏó£¬Ôò¸Ã¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
-     // 2\. Èç¹ûÔªËØÊÇ´úÀí¶ÔÏó£¬Ôò¸Ã¶ÔÏó³ÖÓÐµÄÔ­ÓÐ¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
-     Collection<?> collection = new ArrayList();
-
-     // ¿ªÊ¼ Obj2 µÄ´´½¨Á÷³Ì
-     // 1\. ´´½¨ Obj2 ¶ÔÏó
-     Obj2 obj2 = new Obj2();
-
-     // 2\. Íù Obj2 ÖÐ×¢Èë obj1£¬µ«´ËÊ±²¢Ã»ÓÐobj1£¬Òò´ËÏÈÒª´´½¨obj1£¬ÔÙ½«Æä×¢Èëµ½Obj2ÖÐ
-     Obj1 obj1 = new Obj1();
-     obj2.setObj1(obj1);
-
-     // 3\. Éú³ÉObj2µÄ´úÀí¶ÔÏó£¬´úÀí¶ÔÏóÖÐ³ÖÓÐ Obj2µÄÔ­Ê¼¶ÔÏó
-     ProxyObj2 proxyObj2 = new ProxyObj2(obj2);
-
-     // 4\. proxyObj2ÒÑ¾­×ßÍêÁËÍêÕûµÄÉúÃüÖÜÆÚ£¬Òò´Ë½«´úÀí¶ÔÏóÌí¼Óµ½ÈÝÆ÷Ê±
-     collection.add(proxyObj2); 
-
-}
-
-```
-
-ÉÏÊö´úÂëÖÐ£¬
-
-*   ÒÔ `new Obj2()` Ä£Äâ¶ÔÏóµÄ´´½¨
-*   ÒÔ `obj2.setObj1(xxx)` Ä£ÄâÒÀÀµ×¢Èë
-*   ÒÔ `new ProxyObj2(xxx)` Ä£Äâ´úÀí¶ÔÏóµÄÉú³É
-*   ÒÔ `collection.add(xxx)` Ä£Äâ¶ÔÏóÌí¼Óµ½ÈÝÆ÷ÖÐµÄ¹ý³Ì
-
-Ä£ÄâµÄÁ÷³ÌÈçÏÂ£º
-
-1.  ´´½¨ `obj2` ¶ÔÏó
-2.  Íù `Obj2` ÖÐ×¢Èë `obj1`£¬µ«´ËÊ±²¢Ã»ÓÐ `obj1`£¬Òò´ËÏÈÒª´´½¨ `obj1`£¬ÔÙ½«Æä×¢Èëµ½ `Obj2` ÖÐ
-3.  Éú³É `Obj2` µÄ´úÀí¶ÔÏó `proxyObj2`£¬`proxyObj2` ÖÐ³ÖÓÐ `Obj2` µÄÔ­Ê¼¶ÔÏó
-4.  `proxyObj2` ÒÑ¾­×ßÍêÁËÍêÕûµÄÉúÃüÖÜÆÚ£¬Òò´Ë½«´úÀí¶ÔÏóÌí¼Óµ½ÈÝÆ÷Ê±
-
-×ÐÏ¸·ÖÎöÉÏÃæµÄ²½Öè£¬¾Í»á·¢ÏÖ£¬ÉÏÃæµÄµÚ 2 ²½ÓëµÚ 3 ²½ÍêÈ«µ÷»»Ë³ÐòÒ²Ã»ÎÊÌâ£¬´úÂëÄ£ÄâÈçÏÂ£º
-
-```
-public static main(String[] args) {
-     // ×¼±¸Ò»¸öÈÝÆ÷£¬ÕâÀï±£´æµÄÊÇÍê³ÉÉÏÊöÉúÃüÖÜÆÚµÄ¶ÔÏó
-     // 1\. Èç¹ûÔªËØÊÇÔ­Ê¼¶ÔÏó£¬Ôò¸Ã¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
-     // 2\. Èç¹ûÔªËØÊÇ´úÀí¶ÔÏó£¬Ôò¸Ã¶ÔÏó³ÖÓÐµÄÔ­ÓÐ¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
-     Collection<?> collection = new ArrayList();
-
-     // ¿ªÊ¼ Obj2 µÄ´´½¨Á÷³Ì
-     // 1\. ´´½¨ Obj2 ¶ÔÏó
-     Obj2 obj2 = new Obj2();
-
-     // 2\. Éú³ÉObj2µÄ´úÀí¶ÔÏó£¬´úÀí¶ÔÏóÖÐ³ÖÓÐ Obj2µÄÔ­Ê¼¶ÔÏó
-     ProxyObj2 proxyObj2 = new ProxyObj2(obj2);
-
-     // 3\. Íù obj2 ÖÐ×¢Èë obj1£¬µ«´ËÊ±²¢Ã»ÓÐobj1£¬Òò´ËÏÈÒª´´½¨obj1£¬ÔÙ½«Æä×¢Èëµ½Obj2ÖÐ
-     Obj1 obj1 = new Obj1();
-     // ÕâÀïÊÇ×¢Èëµ½Ô­Ê¼¶ÔÏóÖÐ
-     obj2.setObj1(obj1);
-
-     // 4\. proxyObj2ÒÑ¾­×ßÍêÁËÍêÕûµÄÉúÃüÖÜÆÚ£¬Òò´Ë½«´úÀí¶ÔÏóÌí¼Óµ½ÈÝÆ÷Ê±
-     collection.add(proxyObj2); 
-
-}
-
-```
-
-ÉÏÊö´úÂëµÄÁ÷³ÌÈçÏÂ£º
-
-1.  ´´½¨ obj2 ¶ÔÏó
-2.  Éú³É Obj2 µÄ´úÀí¶ÔÏó£¬´úÀí¶ÔÏóÖÐ³ÖÓÐ Obj2 µÄÔ­Ê¼¶ÔÏó
-3.  Íù Obj2 ÖÐ×¢Èë obj1£¬µ«´ËÊ±²¢Ã»ÓÐ obj1£¬Òò´ËÏÈÒª´´½¨ obj1£¬ÔÙ½«Æä×¢Èëµ½ Obj2
-4.  proxyObj2 ÒÑ¾­×ßÍêÁËÍêÕûµÄÉúÃüÖÜÆÚ£¬Òò´Ë½«´úÀí¶ÔÏóÌí¼Óµ½ÈÝÆ÷Ê±
-
-´Ó´úÂëÉÏ¿´£¬`proxyObj2(´úÀí¶ÔÏó)` ÖÐ³ÖÓÐ `ob2(Ô­Ê¼¶ÔÏó)`£¬Éú³É´úÀí¶ÔÏóºó£¬¼ÌÐø¶ÔÔ­Ê¼¶ÔÏó½øÐÐÊôÐÔ×¢Èë£¬ÒÀÈ»ÄÜÓ°Ïì´úÀí¶ÔÏó£¬×îÖÕ´úÀí¶ÔÏó³ÖÓÐµÄÔ­Ê¼¶ÔÏóÒ²Íê³ÉÁËÒÀÀµ×¢Èë£¬Õû¸ö¹ý³ÌÓÃÍ¼ÐÎÊ¾ÒâÈçÏÂ£º
-
-![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8ff5579425f73dd5c2d321a86d0303390ac.png)
-
-ÕâÀïÎÒÃÇÔÙ´ÎÉêÃ÷£¬´Ó java ¶ÔÏóµ½ spring bean µÄ²½ÖèÓÐºÃ¶à£¬ÕâÀïÎÒÃÇ½ö¹Ø×¢ÓëÑ­»·ÒÀÀµÏà¹ØµÄ²½Öè£¬Èç¹ûÏëÁË½â spring bean ÏêÏ¸µÄ³õÊ¼»¯¹ý³Ì£¬¿É²é¿´ [spring Æô¶¯Á÷³ÌÖ®Æô¶¯Á÷³Ì¸ÅÀÀ](https://my.oschina.net/funcy/blog/4597493)¡£
-
-µ½ÕâÀï£¬ÎÒÃÇÌ½Ë÷µ½´úÀí¶ÔÏóµÄÉúÃüÖÜÆÚ¿ÉÒÔÓÐÁ½ÖÖ£º
-
-*   ´´½¨ --> ÊôÐÔ×¢Èë --> Éú³É´úÀí¶ÔÏó --> ½«´úÀí¶ÔÏó±£´æµ½ÈÝÆ÷ÖÐ
-*   ´´½¨ (Ô­Ê¼¶ÔÏó)--> Éú³É´úÀí¶ÔÏó (ÌáÇ°½øÐÐ aop)--> ¶ÔÔ­Ê¼¶ÔÏó½øÐÐÊôÐÔ×¢Èë --> ½«´úÀí¶ÔÏó±£´æµ½ÈÝÆ÷ÖÐ
-
-ÕâÁ½ÖÖ¶¼ÄÜ´ïµ½×îÖÕÄ¿µÄ£¬¼´**±£´æµ½ÈÝÆ÷ÖÐµÄÊÇ´úÀí¶ÔÏó£¬ÇÒ´úÀí¶ÔÏó¶ÔÓ¦µÄÔ­Ê¼¶ÔÏóÍê³ÉÁËÒÀÀµ×¢Èë**¡£ÇëÀÎ¼ÇÕâÁ½¸ö´´½¨Á÷³Ì£¬ÕâÊÇºóÃæ½â¾ö aop ÏÂÑ­»·ÒÀÀµÎÊÌâµÄºËÐÄ£¬Ëµ°×ÁË£¬**aop ÏÂµÄÑ­»·ÒÀÀµÎÊÌâÖ®ËùÒÔÄÜ½â¾ö£¬¾ÍÊÇÒòÎª¶ÔÏó¿ÉÒÔÌáÇ°½øÐÐ aop ²Ù×÷**¡£
-
-##### 2\. ÎªÊ²Ã´ÓÃ `earlySingletonObjects` ÎÞ·¨½â¾öÑ­»·ÒÀÀµ£¿
-
-Ç°ÃæÎÒÃÇÖ÷ÒªËµÃ÷ÁË´úÀí¶ÔÏóµÄ´´½¨¹ý³Ì£¬½ÓÏÂÀ´ÎÒÃÇÀ´¿´¿´ÔÚ aop ÏÂ£¬Ê¹ÓÃ `earlySingletonObjects` À´½â¾öÑ­»·ÒÀÀµÓÐÊ²Ã´ÎÊÌâ£º
-
-![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d3d00d76ab0c72339faccb7ccd853723d6c.png)
-
-ÎÒÃÇÀ´·ÖÎöÉÏÍ¼µÄÁ÷³Ì£º
-
-1.  ÔÚ `service1` ¶ÔÏó´´½¨Íê³Éºó£¬ÏÈ½« `service1` ·ÅÈë `earlySingletonObjects`£¬È»ºó½øÐÐÒÀÀµ×¢Èë£»
-2.  ¶Ô `service1` ½øÐÐÒÀÀµ×¢ÈëÊ±£¬`spring` ·¢ÏÖ `service1` ÐèÒª×¢Èë `service2`£¬È»ºóÏÈÈ¥ `earlySingletonObjects` ²éÕÒ `service2`£¬Î´ÕÒµ½£»ÔÙÈ¥ `singletonObjects` ÖÐ²éÕÒ `service2`£¬»¹ÊÇÎ´ÕÒµ½£¬ÓÚÊÇ¾Í¿ªÊ¼ÁË `service2` µÄ´´½¨¹ý³Ì£»
-3.  ÔÚ `service2` ¶ÔÏó´´½¨Íê³Éºó£¬ÏÈ½« `service2` ·ÅÈë `earlySingletonObjects`£¬È»ºó½øÐÐÒÀÀµ×¢Èë£»
-4.  ¶Ô `service2` ½øÐÐÒÀÀµ×¢ÈëÊ±£¬`spring` ·¢ÏÖ `service2` ÐèÒª×¢Èë `service1`£¬È»ºó¾ÍÈ¥ `earlySingletonObjects` ²éÕÒ `service1`£¬ÕÒµ½ÁË£¬¾Í½« `service1` ×¢Èëµ½ `service2` ÖÐ£¬È»ºóÔÙ½øÐÐ aop£¬´ËÊ± `service2` ÊÇÒ»¸ö´úÀí¶ÔÏó£¬½«Æä±£´æµ½ `singletonObjects` ÖÐ£»
-5.  ¾­¹ýµÚ 4 ²½ºó£¬ÎÒÃÇµÃµ½ÁË `service2` µÄ´úÀí¶ÔÏó£¬È»ºó½«Æä×¢Èëµ½ `service1` ÖÐ£¬½Ó×ÅÔÙ¶Ô `service1` ½øÐÐ aop£¬´ËÊ± `service1` Ò²³ÉÁËÒ»¸ö `spring bean`£¬½«Æä±£´æµ½ `singletonObjects` ÖÐ¡£
-
-ÉÏÊö²½ÖèÓÐÊ²Ã´ÎÊÌâÄØ£¿×ÐÏ¸¿´µÚ 4 ²½£¬¾Í»á·¢ÏÖ£¬**×¢Èëµ½ `service2` µÄ `service1` ²¢²»ÊÇ´úÀí¶ÔÏó**£¡×Ý¹ÛÈ«¾Ö£¬×îÖÕµÃµ½µÄ `service1` Óë `service2` ¶¼ÊÇ´úÀí¶ÔÏó£¬×¢Èëµ½ `service2` µÄ `service1` Ó¦¸ÃÒ²ÊÇ´úÀí¶ÔÏó²Å¶Ô¡£Òò´Ë£¬ÔÚ aop ÏÂ£¬Ñ­»·ÒÀÀµµÄÎÊÌâÓÖ³öÏÖÁË£¡
-
-#### 2.3 spring µÄ½â¾ö·½°¸
-
-Ç°ÃæÎÒÃÇÌáµ½£¬ÔÚ aop ÏÂ£¬ÒýÈë `earlySingletonObjects` ²¢²»ÄÜ½â¾öÑ­»·ÒÀÀµµÄÎÊÌâ£¬ÄÇ spring ÊÇÔõÃ´½â¾öµÄÄØ£¿spring ÔÙ´ÎÒýÈëÁËÒ»¸ö `map` À´½â¾öÕâ¸öÎÊÌâ£¬ÕâÒ²ÊÇÈËÃÇ³£ËµµÄ **spring Èý¼¶»º´æ**£¬¶ÔÕâÈý¸ö `map` ËµÃ÷ÈçÏÂ£º
-
-*   Ò»¼¶»º´æ `singletonObjects`£ºÀàÐÍÎª `ConcurrentHashMap<String, Object>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖÐ£¬`key` Îª `beanName`£¬`value` ÊÇÍêÕûµÄ `spring bean`£¬¼´Íê³ÉÊôÐÔ×¢Èë¡¢³õÊ¼»¯µÄ bean£¬Èç¹û bean ÐèÒª aop£¬´æ´¢µÄ¾ÍÊÇ´úÀí¶ÔÏó£»
-*   ¶þ¼¶»º´æ `earlySingletonObjects`£ºÀàÐÍÎª `HashMap<String, Object>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖÐ£¬`key` Îª `beanName`£¬`value` ÊÇÊµÀý»¯Íê³É£¬µ«Î´½øÐÐÒÀÀµ×¢ÈëµÄ `bean`£¬Èç¹û `bean` ÐèÒª `aop`£¬ÕâÀï´æ´¢µÄ¾ÍÊÇ´úÀí¶ÔÏó£¬Ö»²»¹ý´úÀí¶ÔÏóËù³ÖÓÐµÄÔ­Ê¼¶ÔÏó²¢Î´½øÐÐÒÀÀµ×¢Èë£»
-*   Èý¼¶»º´æ `singletonFactories`£ºÀàÐÍÎª `HashMap<String, ObjectFactory>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖÐ£¬`key` Îª `beanName`£¬`value` ´æ´¢µÄÊÇÒ»¸ö `lambda` ±í´ïÊ½£º`() -> getEarlyBeanReference(beanName, mbd, bean)`£¬ `getEarlyBeanReference` ÖÐµÄ `bean` ÊÇ¸Õ´´½¨Íê³ÉµÄ `java bean`£¬Ã»ÓÐ½øÐÐ spring ÒÀÀµ×¢Èë£¬Ò²Ã»½øÐÐ aop (¹ØÓÚÕâ¸ö `lambda` ±í´ïÊ½£¬ºóÃæ»á¼ÌÐø·ÖÎö)¡£
-
-ÎªÁËËµÃ÷·½±ã£¬ÏÂÃæ¶Ô `singletonObjects`¡¢`earlySingletonObjects` ºÍ `singletonFactories` ·Ö±ð³ÆÎª**Ò»¼¶»º´æ**¡¢**¶þ¼¶»º´æ**ºÍ**Èý¼¶»º´æ**¡£
-
-spring ½â¾ö aop ÏÂµÄÑ­»·ÒÀÀµÁ÷³ÌÈçÏÂ£º
-
-![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-dc325a87b321e4c246a1b2f14169821a75a.png)
-
-Õâ¸öÍ¼¿´×Å±È½Ï¸´ÔÓ£¬ÆäÊµ·Ö¿ªÀ´¿´¾Í±È½Ï¼òµ¥ÁË£¬ÉÏÊö²Ù×÷ÖÐ£¬`1~8` ÊÇ»ñÈ¡ `service1` µÄÁ÷³Ì£¬`5.1~5.8` ÊÇ»ñÈ¡ `service2` µÄÁ÷³Ì£¬`5.5.1` ÊÇÔÙ´Î»ñÈ¡ `service1` µÄÁ÷³Ì£¬Ö»²»¹ýÔÚ´¦Àí `service1` µÄ³õÊ¼»¯¹ý³ÌÖÐ£¬»á´¥·¢ `service2` µÄ³õÊ¼»¯¹ý³Ì£¬¶ø `service2` µÄ³õÊ¼»¯Ê±£¬ÓÖ»áÒÀÀµµ½ `service1`£¬Òò´Ë²Å¿´×ÅÏñÊÇÁ¬ÔÚÒ»Æð£¬±È½Ï¸´ÔÓ¡£
-
-¶ÔÉÏÍ¼µÄ¹ý³Ì£¬ÕâÀïËµÃ÷ÈçÏÂ£¨½¨Òé£ºÈç¹û¾õµÃÁ÷³Ì±È½Ï¸´ÔÓ£¬¿ÉÒÔÏÈ¿´ `1~8` µÄ²Ù×÷£¬ÔÙ¿´ `5.1~5.8` µÄ²Ù×÷£¬×îºóÁ½ÕßÁªºÏÆðÀ´¿´£¬ÕâÑù»áÇåÎúºÜ¶à£©£º
-
-*   1.  `service1`£º»ñÈ¡ `service1`£¬´ÓÒ»¼¶»º´æÖÐ»ñÈ¡£¬´ËÊ±ÊÇ»ñÈ¡²»µ½µÄ£»
-*   1.  `service1`£º´´½¨ `service1` µÄÊµÀý£»
-*   1.  `service1`£º»ñÈ¡ÐèÒª×¢ÈëµÄÊôÐÔÓë·½·¨£¨ÔÚÔ­Ê¼¶ÔÏóÉÏ½øÐÐ»ñÈ¡£©£»
-*   1.  `service1`£ºÈç¹û¿ªÆôÁËÖ§³ÖÑ­»·ÒÀÀµµÄÅäÖÃ£¬¾Í½« `service1` ·Åµ½Èý¼¶»º´æÖÐ£¨ÊÇ·ñÖ§³ÖÑ­»·ÒÀÀµ£¬ÊÇ¿ÉÒÔÅäÖÃµÄ£©£»
-*   1.  `service1`£º¶Ô `service1` ½øÐÐÒÀÀµ×¢Èë£¬ÐèÒª `service2`£¬È»ºó¾Í¿ªÊ¼ÁË `service2` µÄ»ñÈ¡Á÷³Ì£»
-*   5.1 `service2`£º»ñÈ¡ `service2`£¬´ÓÒ»¼¶»º´æÖÐ»ñÈ¡£¬´ËÊ±ÊÇ»ñÈ¡²»µ½µÄ£»
-*   5.2 `service2`£º´´½¨ `service2` µÄÊµÀý£»
-*   5.3 `service2`£º»ñÈ¡ÐèÒª×¢ÈëµÄÊôÐÔÓë·½·¨£¨ÔÚÔ­Ê¼¶ÔÏóÉÏ½øÐÐ»ñÈ¡£©£»
-*   5.4 `service2`£ºÈç¹û¿ªÆôÁËÖ§³ÖÑ­»·ÒÀÀµµÄÅäÖÃ£¬¾Í½« `service2` ·Åµ½Èý¼¶»º´æÖÐ£¨ÊÇ·ñÖ§³ÖÑ­»·ÒÀÀµ£¬ÊÇ¿ÉÒÔÅäÖÃµÄ£©£»
-*   5.5 `service2`£º¶Ô `service2` ½øÐÐÒÀÀµ×¢Èë£¬ÐèÒª `service1`£¬È»ºó¾Í¿ªÊ¼ÁË `service1` µÄ»ñÈ¡Á÷³Ì£»
-*   5.5.1 `service1`: »ñÈ¡ `service1`£¬´ÓÒ»¼¶»º´æÖÐ»ñÈ¡£¬»ñÈ¡²»µ½£»´ËÊ±·¢ÏÖ `service1` ÕýÔÚ´´½¨ÖÐ£¬ÓÚÊÇ¼ÌÐø´Ó¶þ¡¢Èý¼¶»º´æÖÐ»ñÈ¡£¬×îÖÕ´ÓÈý¼¶»º´æÖÐ»ñÈ¡µ½ÁË£¬½«Æä·ÅÈë¶þ¼¶»º´æ¡£´ÓÈý¼¶»º´æ»ñÈ¡µÄ¹ý³ÌÖÐ£¬**»áÅÐ¶Ï `service1` ÊÇ·ñÐèÒª½øÐÐ aop£¬È»ºó¿ªÊ¼ aop ²Ù×÷**£¬Òò´Ë·ÅÈë¶þ¼¶»º´æÖÐµÄÊÇ `service1` ´úÀí´úÀí£¬ÌáÇ°½øÐÐ aop ÊÇ½â¾öÑ­»·ÒÀÀµµÄ¹Ø¼ü£»
-*   5.6 `service2`£ºµÃµ½ÁË `service1` ºó£¨ÕâÀïµÄ `service1` ÊÇ´úÀí¶ÔÏó£©£¬½«Æä×¢Èëµ½ `service2` ÖÐ£¬½Ó×Å¶Ô `service2` ½øÐÐ aop£¬µÃµ½ `service2` µÄ´úÀí¶ÔÏó£»
-*   5.7 `service2`£ºÈç¹ûÖ§³ÖÑ­»·ÒÀÀµ£¬ÏÈ´ÓÒ»¡¢¶þ¼¶»º´æÖÐÔÙ´Î»ñÈ¡ `service2`£¬¶¼Î´»ñÈ¡µ½£¬¾ÍÊ¹ÓÃµ±Ç° `service2`£¨µ±Ç° `service2` ÊÇ´úÀí¶ÔÏó)£»
-*   5.8 `service2`£º½« service2 µÄ´úÀí¶ÔÏó·ÅÈëÒ»¼¶»º´æÖÐ£¬É¾³ý¶þ¡¢Èý¼¶»º´æ£¬ÖÁ´Ë£¬`service2` ³õÊ¼»¯Íê³É£¬×¢ÈëµÄ `service1` ÊÇ´úÀí¶ÔÏó£¬Ò»¼¶»º´æÖÐµÄ `service2` Ò²ÊÇ´úÀí¶ÔÏó£»
-*   1.  `service1`£º»Øµ½ `service1` µÄÉúÃüÖÜÆÚ£¬ÄÃµ½ `service2`£¨ÕâÀïµÄ `service2` ÊÇ´úÀí¶ÔÏó£©ºó£¬½«Æä×¢Èëµ½ `service1`£¬`service1` µÄÒÀÀµ×¢ÈëÍê³É£¬½øÐÐ³õÊ¼»¯£¬ÕâÀï»áÅÐ¶Ï `service1` ÊÇ·ñÐèÒª½øÐÐ aop£¬ËäÈ» `service1` ÊÇÐèÒª½øÐÐ aop µÄ£¬µ«ÓÉÓÚÔÚ `5.5.1` ÒÑ¾­½øÐÐ¹ý aop ÁË£¬Òò´Ë£¬ÕâÀïÖ±½Ó·µ»Ø£¨µ½ÕâÒ»²½£¬`service1` »¹ÊÇÔ­Ê¼¶ÔÏó£©£»
-*   1.  `service1`£ºÈç¹ûÖ§³ÖÑ­»·ÒÀÀµ£¬ÏÈ´ÓÒ»¼¶»º´æÖÐ»ñÈ¡ `service1`£¬»ñÈ¡²»µ½£»ÔÙ´Ó¶þ»º´æÖÐ»ñÈ¡ `service1`£¬¿ÉÒÔ»ñÈ¡µ½£¨´Ó `5.5.1` ¿ÉÖª£¬¶þ¼¶»º´æÀïÊÇ `service1` ´úÀí¶ÔÏó£©£¬·µ»Ø£»
-*   1.  `service1`£º½«¶þ¼¶»º´æÖÐ»ñÈ¡µÄ¶ÔÏó×¢²áµ½Ò»¼¶»º´æÖÐ£¬É¾³ý¶þ¡¢Èý¼¶»º´æ£¬ÖÁ´Ë£¬`service1` ³õÊ¼»¯Íê³É£¬×¢ÈëµÄ `service2` ÊÇ´úÀí¶ÔÏó£¬Ò»¼¶»º´æÖÐµÄ `service1` Ò²ÊÇ´úÀí¶ÔÏó¡£
-
-ÒÔÉÏÁ÷³Ì£¬ËäÈ»²½Öè½Ï¶à£¬µ« `service1` Óë `service2` µÄ»ñÈ¡²½ÖèÊÇÏàÍ¬µÄ£¬Ö»ÒªÅªÇåÁËÆäÖÐÖ®Ò»µÄ»ñÈ¡Á÷³Ì£¬ÁíÒ»¸ö bean µÄ»ñÈ¡Á÷³Ì¾ÍºÜÀ×Í¬ÁË¡£
-
-ÔÚÉÏÊöÁ÷³ÌÖÐ£¬»¹ÓÐÁ½¸öÊý¾Ý½á¹¹ÐèÒªËµÃ÷ÏÂ£º
-
-*   `singletonsCurrentlyInCreation`£ºÀàÐÍÎª `SetFromMap<String>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry`£¬´´½¨·½Ê½Îª `Collections.newSetFromMap(new ConcurrentHashMap<>(16))`£¬±íÃ÷ÕâÊÇ¸öÓÉ `ConcurrentHashMap` ÊµÏÖµÄ set£¬´æ´¢µÄÊÇÕýÔÚ´´½¨ÖÐµÄ¶ÔÏó£¬**ÅÐ¶Ïµ±Ç°¶ÔÏóÊÇ·ñÔÚ´´½¨ÖÐ¾ÍÊÇÍ¨¹ý²éÕÒµ±Ç°¶ÔÏóÊÇ·ñÔÚÕâ¸ö set ÖÐ**×öµ½µÄ£»
-*   `earlyProxyReferences`£ºÀàÐÍÎª `ConcurrentHashMap<Object, Object>`£¬Î»ÓÚ `AbstractAutoProxyCreator`£¬´æ´¢µÄÊÇÌáÇ°½øÐÐ aop µÄ¶ÔÏó£¬**Èç¹ûÒ»¸ö¶ÔÏóÌáÇ°½øÐÐÁË aop£¬ÔÚºóÃæÔÙ´Î aop Ê±£¬»áÍ¨¹ýÅÐ¶Ï¶ÔÏóÊÇ·ñÔÚ `earlyProxyReferences` ÖÐ¶øÈ·¶¨Òª²»Òª½øÐÐ aop£¬ÒÔ´ËÀ´±£Ö¤Ã¿¸ö¶ÔÏóÖ»½øÐÐÒ»´Î aop**¡£
-
-ÖÁ´Ë£¬spring Ò»¹²Ìá¹©ÁË 5 ¸öÊý¾Ý½á¹¹À´¸¨Öú½â¾öÑ­»·ÒÀÀµÎÊÌâ£¬×Ü½áÈçÏÂ£º
-
-| ½á¹¹                            | ËµÃ÷                                                         |
-| ------------------------------- | ------------------------------------------------------------ |
-| `singletonObjects`              | **Ò»¼¶»º´æ**£¬ÀàÐÍÎª `ConcurrentHashMap<String, Object>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖÐ£¬`key` Îª `beanName`£¬`value` ÊÇÍêÕûµÄ `spring bean`£¬¼´Íê³ÉÊôÐÔ×¢Èë¡¢³õÊ¼»¯µÄ bean£¬Èç¹û bean ÐèÒª aop£¬´æ´¢µÄ¾ÍÊÇ´úÀí¶ÔÏó |
-| `earlySingletonObjects`         | **¶þ¼¶»º´æ**£¬ÀàÐÍÎª `HashMap<String, Object>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖÐ£¬`key` Îª `beanName`£¬`value` ÊÇÊµÀý»¯Íê³É£¬µ«Î´½øÐÐÒÀÀµ×¢ÈëµÄ `bean`£¬**Èç¹û `bean` ÐèÒª `aop`£¬ÕâÀï´æ´¢µÄ¾ÍÊÇ´úÀí¶ÔÏó£¬Ö»²»¹ý´úÀí¶ÔÏóËù³ÖÓÐµÄÔ­Ê¼¶ÔÏó²¢Î´½øÐÐÒÀÀµ×¢Èë** |
-| `singletonFactories`            | **Èý¼¶»º´æ**£¬ÀàÐÍÎª `HashMap<String, ObjectFactory>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖÐ£¬`key` Îª `beanName`£¬`value` ´æ´¢µÄÊÇÒ»¸ö `lambda` ±í´ïÊ½£º`() -> getEarlyBeanReference(beanName, mbd, bean)`£¬`getEarlyBeanReference(xxx)` ÖÐµÄ `bean` ÊÇ¸Õ´´½¨Íê³ÉµÄ `java bean`£¬Ã»ÓÐ½øÐÐ spring ÒÀÀµ×¢Èë£¬Ò²Ã»½øÐÐ aop |
-| `singletonsCurrentlyInCreation` | ÀàÐÍÎª `SetFromMap<String>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry`£¬´´½¨·½Ê½Îª `Collections.newSetFromMap(new ConcurrentHashMap<>(16))`£¬±íÃ÷ÕâÊÇ¸öÓÉ `ConcurrentHashMap` ÊµÏÖµÄ set£¬´æ´¢µÄÊÇÕýÔÚ´´½¨ÖÐµÄ¶ÔÏó£¬¿ÉÒÔ**ÓÃÀ´ÅÐ¶Ïµ±Ç°¶ÔÏóÊÇ·ñÔÚ´´½¨ÖÐ** |
-| `earlyProxyReferences`          | ÀàÐÍÎª `ConcurrentHashMap<Object, Object>`£¬Î»ÓÚ `AbstractAutoProxyCreator`£¬´æ´¢µÄÊÇÌáÇ°½øÐÐ aop µÄ¶ÔÏó£¬¿ÉÒÔ**ÓÃÀ´ÅÐ¶Ï bean ÊÇ·ñ½øÐÐ¹ý aop£¬±£Ö¤Ã¿¸ö¶ÔÏóÖ»½øÐÐÒ»´Î aop** |
-
-ÒÔÉÏ¾ÍÊÇ spring ½â¾öÑ­»·ÒÀÀµµÄÍêÕûÁ÷³ÌÁË¡£
-
-### 3\. ´úÂëÄ£Äâ
-
-ÔÚÕýÊ½·ÖÎöÔ´ÂëÇ°£¬ÎÒÃÇÊ×ÏÈÄ£ÄâÑ­»·ÏÂÒÀÀµ½â¾öµÄ¹ý³Ì£¬´úÂëÈçÏÂ£º
-
-```
-/**
- * ×¼±¸Ò»¸öÀà£¬ÄÚ²¿ÓÐÒ»¸öÊôÐÔ Obj2
- */
-public class Obj1 {
-    // ÐèÒª×¢Èë obj2
-    private Obj2 obj2;
-
-    // Ê¡ÂÔÆäËû·½·¨
-    ...
-}
-
-/**
- * ×¼±¸Ò»¸öÀà£¬ÄÚ²¿ÓÐÒ»¸öÊôÐÔ Obj1
- */
-public class Obj2 {
-    // ÐèÒª×¢Èë ob1
-    private Obj1 obj1;
-
-    // Ê¡ÂÔÆäËû·½·¨
-    ...
-
-}
-
-/**
- * ×¼±¸Obj2µÄ´úÀíÀà£¬ÄÚ²¿³ÖÓÐobj2µÄ¶ÔÏó
- */
-public class ProxyObj2 extends Obj2 {
-    // obj2´úÀíÀàÄÚ²¿³ÖÓÐobj2µÄÔ­Ê¼¶ÔÏó
-    private Obj2 obj2;
-
-    public ProxyObj2(Obj2 obj2) {
-        this.obj2 = obj2;
-    }
-
-    // Ê¡ÂÔÆäËû·½·¨
-    ...
-
-}
-
-/**
- * ×¼±¸Obj1µÄ´úÀíÀà£¬ÄÚ²¿³ÖÓÐobj1µÄ¶ÔÏó
- */
-public class ProxyObj1 extends Obj1 {
-    // obj2´úÀíÀàÄÚ²¿³ÖÓÐobj1µÄÔ­Ê¼¶ÔÏó
-    private Obj1 obj1;
-
-    public ProxyObj1(Obj1 obj1) {
-        this.obj1 = obj1;
-    }
-
-    // Ê¡ÂÔÆäËû·½·¨
-    ...
-
-}
-
-```
-
-*   Ê×ÏÈ×¼±¸ÁËÁ½¸öÀà£º`Obj1` Óë `Obj2`£¬ ÆäÖÐ `Obj1` ÓÐ¸öÊôÐÔÎª `Obj2`£¬`Obj2` ÖÐÓÐ¸öÊôÐÔÎª `Obj1`£»
-*   ½Ó×Å×¼±¸ÁË `Obj1` Óë `Obj2` µÄ´úÀíÀà `ProxyObj1`¡¢`ProxyObj2`£¬²¢ÇÒ `ProxyObj1`¡¢`ProxyObj2` ·Ö±ðÓÐÒ»¸öÊôÐÔ£º`Obj1` ¡¢ `Obj2`£»
-*   ÎÒÃÇÒÀ¾ÉÒÔ `new ObjX()` Ä£Äâ¶ÔÏóµÄ´´½¨£»
-*   ÎÒÃÇÒÀ¾ÉÒÔ `objX.setObjX(xxx)` Ä£ÄâÒÀÀµ×¢Èë£»
-*   ÎÒÃÇÒÀ¾ÉÒÔ `new ProxyObjX(xxx)` Ä£Äâ´úÀí¶ÔÏóµÄÉú³É£»
-*   ÎÒÃÇÒÀ¾ÉÒÔ `collection.add(xxx)` Ä£Äâ¶ÔÏóÌí¼Óµ½ÈÝÆ÷ÖÐµÄ¹ý³Ì£»
-
-ÎÒÃÇÄ£Äâ×îÖÕµÃµ½µÄ½á¹ûÎª£º
-
-*   ×îÖÕ·ÅÈëÈÝÆ÷µÄ¶ÔÏó·Ö±ðÊÇ `proxyObj1`£¬`proxyObj2`
-*   ×¢Èëµ½ `obj1` ÖÐµÄÊÇ `proxyObj2`£¬×¢Èëµ½ `obj2` ÖÐµÄÊÇ `proxyObj2`
-
-×¼±¸¹¤×÷ÒÑ¾­Íê³ÉÁË£¬½ÓÏÂÀ´ÎÒÃÇ¾Í¿ªÊ¼½øÐÐÄ£ÄâÁË¡£
-
-#### 3.1 Ä£Äâ 1
-
-ÒªÇó£º
-
-*   Obj1 Óë Obj2 ±ØÐëÑÏ¸ñ°´ÕÕ ¡°´´½¨ --> ÊôÐÔ×¢Èë --> Éú³É´úÀí¶ÔÏó --> ±£´æµ½ÈÝÆ÷ÖÐ¡± µÄÁ÷³Ì´´½¨
-*   Á½¸ö¶ÔÏóµÄ´´½¨Á÷³Ì¿ÉÒÔ½»Ìæ½øÐÐ
-
-Ä¿±ê£º
-
-*   ×îÖÕ·ÅÈëÈÝÆ÷µÄ¶ÔÏó·Ö±ðÊÇ `proxyObj1`£¬`proxyObj2`
-*   ×¢Èëµ½ `obj1` ÖÐµÄÊÇ `proxyObj2`£¬×¢Èëµ½ `obj2` ÖÐµÄÊÇ `proxyObj2`
-
-´úÂëÈçÏÂ£º
-
-```
-public static main(String[] args) {
-     // ×¼±¸Ò»¸öÈÝÆ÷£¬ÕâÀï±£´æµÄÊÇÍê³ÉÉÏÊöÉúÃüÖÜÆÚµÄ¶ÔÏó
-     // 1\. Èç¹ûÔªËØÊÇÔ­Ê¼¶ÔÏó£¬Ôò¸Ã¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
-     // 2\. Èç¹ûÔªËØÊÇ´úÀí¶ÔÏó£¬Ôò¸Ã¶ÔÏó³ÖÓÐµÄÔ­ÓÐ¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
-     Collection<?> collection = new ArrayList();
-
-     // 1\. ´´½¨ Obj1 ¶ÔÏó
-     Obj1 obj1 = new Obj1();
-
-     // ½ÓÏÂÀ´ÐèÒª½«obj2µÄ´úÀí¶ÔÏó×¢Èëµ½obj1ÖÐ£¬µ«´ËÊ±ÈÝÆ÷ÖÐ²¢Ã»ÓÐobj2µÄ´úÀí¶ÔÏó£¬ÓÚÊÇÇÐ»»µ½obj2µÄ´´½¨Á÷³Ì
-     // Ò». ´´½¨ Obj2 ¶ÔÏó
-     Obj2 obj2 = new Obj2();
-
-     // µ½ÕâÀï£¬obj2ÐèÒª×¢Èëobj1µÄ´úÀí¶ÔÏó£¬µ«´ËÊ±ÈÝÆ÷ÖÐ²¢Ã»ÓÐobj2µÄ´úÀí¶ÔÏó£¬ÓÚÊÇÓÖÒªÇÐµ½obj1µÄ´´½¨Á÷³Ì
-
-}
-
-```
-
-ÔÚÖ´ÐÐÒÔÉÏÁ÷³ÌÖÐ £¬·¢ÏÖ´´½¨ Obj2 ¶ÔÏóºó£¬Á÷³Ì¾Í½øÐÐ²»ÏÂÈ¥ÁË£º
-
-*   `obj1` ÐèÒª×¢Èë `obj2` µÄ´úÀí¶ÔÏó£¬µ«ÕÒ²»µ½£¬ÓÚÊÇÇÐ»»µ½ `obj2` µÄ´´½¨Á÷³Ì£»
-*   `obj2` ÐèÒª×¢Èë `obj1` µÄ´úÀí¶ÔÏó£¬µ«ÕÒ²»µ½£¬ÓÚÊÇÇÐ»»µ½ `obj1` µÄ´´½¨Á÷³Ì£»
-*   `obj1` ÐèÒª×¢Èë `obj2` µÄ´úÀí¶ÔÏó£¬µ«ÕÒ²»µ½£¬ÓÚÊÇÇÐ»»µ½ `obj2` µÄ´´½¨Á÷³Ì£»
-*   ...
-
-Èç´ËÑ­»·Íù¸´¡£
-
-Ä£Äâ½á¹û£ºÎ´´ïµ½Ô¤ÆÚÄ¿±ê£¬±¾´ÎÄ£ÄâÐû¸æÊ§°Ü¡£
-
-#### 3.1 Ä£Äâ 2
-
-ÒªÇó£º
-
-*   Obj1 Óë Obj2 ±ØÐëÒÔÏÂÁ½ÖÖÁ÷³ÌÖ®Ò»´´½¨£º
-    *   ¡°´´½¨ --> ÊôÐÔ×¢Èë --> Éú³É´úÀí¶ÔÏó --> ±£´æµ½ÈÝÆ÷ÖÐ¡± µÄÁ÷³Ì´´½¨
-    *   ¡°´´½¨ (Ô­Ê¼¶ÔÏó)--> Éú³É´úÀí¶ÔÏó --> ¶ÔÔ­Ê¼¶ÔÏó½øÐÐÊôÐÔ×¢Èë --> ½«´úÀí¶ÔÏó±£´æµ½ÈÝÆ÷ÖÐ¡± µÄÁ÷³Ì´´½¨
-*   Á½¸ö¶ÔÏóµÄ´´½¨Á÷³Ì¿ÉÒÔ½»Ìæ½øÐÐ
-
-Ä¿±ê£º
-
-*   ×îÖÕ·ÅÈëÈÝÆ÷µÄ¶ÔÏó·Ö±ðÊÇ `proxyObj1`£¬`proxyObj2`
-*   ×¢Èëµ½ `obj1` ÖÐµÄÊÇ `proxyObj2`£¬×¢Èëµ½ `obj2` ÖÐµÄÊÇ `proxyObj2`### 1\. Ê²Ã´ÊÇÑ­»·ÒÀÀµ£¿
-
-spring ÔÚÒÀÀµ×¢ÈëÊ±£¬¿ÉÄÜ»á³öÏÖÏà»¥×¢ÈëµÄÇé¿ö£º
-
-```
-@Service
-public class Service1 {
-    @Autowired
-    private Service2 service2;
-
-}
-
-@Service
-public class Service2 {
-    @Autowired
-    private Service1 service1;
-
-}
-
-```
-
-ÈçÒÔÉÏ´úÂë£¬ÔÚ `Service1` ÖÐÍ¨¹ý `@Autowird` ×¢ÈëÁË `Service2`£¬ÔÚ `Service2` ÖÐÍ¨¹ý `@Autowird` ×¢ÈëÁË `Service1`£¬ÕâÖÖÏà»¥×¢ÈëµÄÇé¿ö£¬¾Í½Ð×öÑ­»·ÒÀÀµ¡£
-
-### 2\. Ñ­»·ÒÀÀµ»áÓÐÊ²Ã´ÎÊÌâ
-
-Êµ¼ÊÉÏ£¬ÕâÖÖ `A³ÖÓÐB¶ÔÏó£¬BÒ²³ÖÓÐA¶ÔÏó`µÄÇé¿ö£¬java ´úÂëÊÇÍêÈ«Ö§³ÖµÄ£º
-
-```
-/**
- * ×¼±¸service1
+ * å‡†å¤‡service1
  */
 public class Service1 {
     private Service2 service2;
@@ -532,7 +42,7 @@ public class Service1 {
 }
 
 /**
- * ×¼±¸service2
+ * å‡†å¤‡service2
  */
 public class Service2 {
     private Service1 service1;
@@ -547,14 +57,14 @@ public class Service2 {
 }
 
 /**
- * Ö÷·½·¨ÖÐµ÷ÓÃ
+ * ä¸»æ–¹æ³•ä¸­è°ƒç”¨
  */
 public class Main {
     public void main(String[] args) {
-        // ×¼±¸Á½¸ö¶ÔÏó
+        // å‡†å¤‡ä¸¤ä¸ªå¯¹è±¡
         Service1 service1 = new Service1();
         Service2 service2 = new Service2();
-        // Ïà»¥ÉèÖÃ
+        // ç›¸äº’è®¾ç½®
         service1.setService2(service2);
         service2.setService1(service1);
     }
@@ -562,78 +72,78 @@ public class Main {
 
 ```
 
-ÄÇÃ´£¬ÔÚ spring ÖÐ£¬Á½¸öÀàÏà»¥×¢Èë¶Ô·½ÊµÀýµÄÇé¿ö£¬»áÓÐÊ²Ã´ÎÊÌâÄØ£¿ÎÒÃÇÀ´¿´ `spring bean` µÄ´´½¨¹ý³Ì£¨**×¢Òâ£ºÕâÀïÎÒÃÇ½ö·ÖÎö `bean` µÄ `scope` Îª `singleton` µÄÇé¿ö£¬Ò²¾ÍÊÇ `scope` Îª`µ¥Àý`µÄÇé¿ö**£©£º
+é‚£ä¹ˆï¼Œåœ¨ spring ä¸­ï¼Œä¸¤ä¸ªç±»ç›¸äº’æ³¨å…¥å¯¹æ–¹å®žä¾‹çš„æƒ…å†µï¼Œä¼šæœ‰ä»€ä¹ˆé—®é¢˜å‘¢ï¼Ÿæˆ‘ä»¬æ¥çœ‹ `spring bean` çš„åˆ›å»ºè¿‡ç¨‹ï¼ˆ**æ³¨æ„ï¼šè¿™é‡Œæˆ‘ä»¬ä»…åˆ†æž `bean` çš„ `scope` ä¸º `singleton` çš„æƒ…å†µï¼Œä¹Ÿå°±æ˜¯ `scope` ä¸º`å•ä¾‹`çš„æƒ…å†µ**ï¼‰ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-ca36e17077b1b191834645b3c8e588ff6c4.png)
 
-Õâ¸ö¹ý³ÌÖÐÓÐ¼¸µãÐèÒªËµÃ÷ÏÂ£º
+è¿™ä¸ªè¿‡ç¨‹ä¸­æœ‰å‡ ç‚¹éœ€è¦è¯´æ˜Žä¸‹ï¼š
 
-1.  ´´½¨¶ÔÏó£ºÕâ¸öÆäÊµ¾ÍÊÇÊ¹ÓÃ jdk Ìá¹©µÄ·´Éä»úÖÆ´´½¨ java ¶ÔÏó£¬ÒÔµÚ 1 ½ÚÌáµ½µÄ `Service1` ÎªÀý£¬¿É¼òµ¥Àí½âÎª `Service1 service = new Service1()`£»
-2.  ×¢ÈëÒÀÀµ¶ÔÏó£º»¹ÊÇÒÔµÚ 1 ½ÚÌáµ½µÄ `Service1` ÎªÀý£¬`Service1` ÖÐÍ¨¹ý `@Autowired` ×Ô¶¯×¢Èë `Service2`£¬ÕâÒ»²½¾ÍÊÇ¸ø `Service2` ¸³ÖµµÄ¹ý³Ì£¬¿É¼òµ¥Àí½âÎª `service1.setService2(service2)`£»
-3.  `singletonObjects`£º¾­¹ýÉÏÃæÁ½²½ºó£¬Ò»¸ö java ¶ÔÏó¾Í±ä³ÉÁËÒ»¸ö spring bean£¬È»ºó±£´æµ½ `singletonObjects` ÁË£¬ÕâÊÇ¸ö `map`£¬`key` ÊÇ bean µÄÃû³Æ£¬`value` ÊÇ bean£¬ËüÖ»±£´æ `spring bean`£¬²»»áÖ»ÔÚ java ÊµÀý¡£
+1.  åˆ›å»ºå¯¹è±¡ï¼šè¿™ä¸ªå…¶å®žå°±æ˜¯ä½¿ç”¨ jdk æä¾›çš„åå°„æœºåˆ¶åˆ›å»º java å¯¹è±¡ï¼Œä»¥ç¬¬ 1 èŠ‚æåˆ°çš„ `Service1` ä¸ºä¾‹ï¼Œå¯ç®€å•ç†è§£ä¸º `Service1 service = new Service1()`ï¼›
+2.  æ³¨å…¥ä¾èµ–å¯¹è±¡ï¼šè¿˜æ˜¯ä»¥ç¬¬ 1 èŠ‚æåˆ°çš„ `Service1` ä¸ºä¾‹ï¼Œ`Service1` ä¸­é€šè¿‡ `@Autowired` è‡ªåŠ¨æ³¨å…¥ `Service2`ï¼Œè¿™ä¸€æ­¥å°±æ˜¯ç»™ `Service2` èµ‹å€¼çš„è¿‡ç¨‹ï¼Œå¯ç®€å•ç†è§£ä¸º `service1.setService2(service2)`ï¼›
+3.  `singletonObjects`ï¼šç»è¿‡ä¸Šé¢ä¸¤æ­¥åŽï¼Œä¸€ä¸ª java å¯¹è±¡å°±å˜æˆäº†ä¸€ä¸ª spring beanï¼Œç„¶åŽä¿å­˜åˆ° `singletonObjects` äº†ï¼Œè¿™æ˜¯ä¸ª `map`ï¼Œ`key` æ˜¯ bean çš„åç§°ï¼Œ`value` æ˜¯ beanï¼Œå®ƒåªä¿å­˜ `spring bean`ï¼Œä¸ä¼šåªåœ¨ java å®žä¾‹ã€‚
 
-Êµ¼ÊÉÏ£¬`java` ¶ÔÏó±ä³É `spring bean`£¬²»½ö½öÖ»ÊÇÒÀÀµ×¢Èë£¬»¹ÓÐ³õÊ¼»¯¡¢Ö´ÐÐ `beanPorcessor` ·½·¨µÈ£¬**ÓÉÓÚ±¾ÎÄÊÇ·ÖÎö `spring bean` µÄÑ­»·ÒÀÀµµÄ£¬Òò´ËÎÒÃÇÖØµã¹Ø×¢ÓëÑ­»·ÒÀÀµÏà¹ØµÄ²½Öè¡£**
+å®žé™…ä¸Šï¼Œ`java` å¯¹è±¡å˜æˆ `spring bean`ï¼Œä¸ä»…ä»…åªæ˜¯ä¾èµ–æ³¨å…¥ï¼Œè¿˜æœ‰åˆå§‹åŒ–ã€æ‰§è¡Œ `beanPorcessor` æ–¹æ³•ç­‰ï¼Œ**ç”±äºŽæœ¬æ–‡æ˜¯åˆ†æž `spring bean` çš„å¾ªçŽ¯ä¾èµ–çš„ï¼Œå› æ­¤æˆ‘ä»¬é‡ç‚¹å…³æ³¨ä¸Žå¾ªçŽ¯ä¾èµ–ç›¸å…³çš„æ­¥éª¤ã€‚**
 
-#### 2.1 Ñ­»·ÒÀÀµ²úÉúµÄÎÊÌâ
+#### 2.1 å¾ªçŽ¯ä¾èµ–äº§ç”Ÿçš„é—®é¢˜
 
-ÁË½âÁË spring bean µÄ²úÉú¹ý³ÌÖ®ºó£¬½ÓÏÂÀ´ÎÒÃÇ¾ÍÀ´·ÖÎöÏÂÑ­»·ÒÀÀµ²úÉúµÄÎÊÌâ£¬ÔÚÕýÊ½·ÖÎöÇ°£¬ÎÒÃÇÏÈÀ´Ã÷È·Á½¸ö¸ÅÄî£º
+äº†è§£äº† spring bean çš„äº§ç”Ÿè¿‡ç¨‹ä¹‹åŽï¼ŒæŽ¥ä¸‹æ¥æˆ‘ä»¬å°±æ¥åˆ†æžä¸‹å¾ªçŽ¯ä¾èµ–äº§ç”Ÿçš„é—®é¢˜ï¼Œåœ¨æ­£å¼åˆ†æžå‰ï¼Œæˆ‘ä»¬å…ˆæ¥æ˜Žç¡®ä¸¤ä¸ªæ¦‚å¿µï¼š
 
-*   `java¶ÔÏó`£ºÊµ¼ÊÉÏ£¬java ÖÐÒ»ÇÐ¶ÔÏó¶¼¿ÉÒÔ³ÆÖ®Îª `java` ¶ÔÏó£¬ÎªÁËËµÃ÷·½±ã£¬ÒÔÏÂÌáµ½µÄ `java¶ÔÏó`½öÖ¸ÊµÀý»¯Íê³É¡¢µ«Î´½øÐÐ spring bean µÄÉúÃüÖÜÆÚ¶ÔÏó£»
-*   `spring bean`£ºÊÇÒ»¸ö java ¶ÔÏó£¬²¢ÇÒ½øÐÐÁËÍêÕûµÄ spring bean µÄÉúÃüÖÜÆÚ¶ÔÏó£»
+*   `javaå¯¹è±¡`ï¼šå®žé™…ä¸Šï¼Œjava ä¸­ä¸€åˆ‡å¯¹è±¡éƒ½å¯ä»¥ç§°ä¹‹ä¸º `java` å¯¹è±¡ï¼Œä¸ºäº†è¯´æ˜Žæ–¹ä¾¿ï¼Œä»¥ä¸‹æåˆ°çš„ `javaå¯¹è±¡`ä»…æŒ‡å®žä¾‹åŒ–å®Œæˆã€ä½†æœªè¿›è¡Œ spring bean çš„ç”Ÿå‘½å‘¨æœŸå¯¹è±¡ï¼›
+*   `spring bean`ï¼šæ˜¯ä¸€ä¸ª java å¯¹è±¡ï¼Œå¹¶ä¸”è¿›è¡Œäº†å®Œæ•´çš„ spring bean çš„ç”Ÿå‘½å‘¨æœŸå¯¹è±¡ï¼›
 
-spring bean µÄ´´½¨¹ý³ÌÈçÏÂ£º
+spring bean çš„åˆ›å»ºè¿‡ç¨‹å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b55a211447b5fabeaa0c3ef0bfee0920c82.png)
 
-¶ÔÉÏÍ¼ËµÃ÷ÈçÏÂ£º
+å¯¹ä¸Šå›¾è¯´æ˜Žå¦‚ä¸‹ï¼š
 
-1.  ÔÚ `service1` ¶ÔÏó´´½¨Íê³Éºó£¬`spring` ·¢ÏÖ `service1` ÐèÒª×¢Èë `service2`£¬È»ºó¾ÍÈ¥ `singletonObjects` ÖÐ²éÕÒ `service2`£¬´ËÊ±ÊÇÕÒ²»µ½ `service2`£¬È»ºó¾Í¿ªÊ¼ÁË `service2` µÄ´´½¨¹ý³Ì£»
-2.  ÔÚ `service2` ¶ÔÏó´´½¨Íê³Éºó£¬`spring` ·¢ÏÖ `service2` ÐèÒª×¢Èë `service1`£¬È»ºó¾ÍÈ¥ `singletonObjects` ÖÐ²éÕÒ `service1`£¬´ËÊ±ÊÇÕÒ²»µ½ `service1`£¬ÒòÎªµÚÒ»²½ÖÐ `service1` ²¢Ã»ÓÐ´´½¨³É¹¦ £¬È»ºó¾Í¿ªÊ¼ÁË `service1` µÄ´´½¨¹ý³Ì£»
-3.  Á÷³ÌÌø»Øµ½ `1`£¬ÔÙ´Î¿ªÊ¼ÁË `service1` µÄ´´½¨¡¢ÊôÐÔ×¢Èë¹ý³Ì¡£
+1.  åœ¨ `service1` å¯¹è±¡åˆ›å»ºå®ŒæˆåŽï¼Œ`spring` å‘çŽ° `service1` éœ€è¦æ³¨å…¥ `service2`ï¼Œç„¶åŽå°±åŽ» `singletonObjects` ä¸­æŸ¥æ‰¾ `service2`ï¼Œæ­¤æ—¶æ˜¯æ‰¾ä¸åˆ° `service2`ï¼Œç„¶åŽå°±å¼€å§‹äº† `service2` çš„åˆ›å»ºè¿‡ç¨‹ï¼›
+2.  åœ¨ `service2` å¯¹è±¡åˆ›å»ºå®ŒæˆåŽï¼Œ`spring` å‘çŽ° `service2` éœ€è¦æ³¨å…¥ `service1`ï¼Œç„¶åŽå°±åŽ» `singletonObjects` ä¸­æŸ¥æ‰¾ `service1`ï¼Œæ­¤æ—¶æ˜¯æ‰¾ä¸åˆ° `service1`ï¼Œå› ä¸ºç¬¬ä¸€æ­¥ä¸­ `service1` å¹¶æ²¡æœ‰åˆ›å»ºæˆåŠŸ ï¼Œç„¶åŽå°±å¼€å§‹äº† `service1` çš„åˆ›å»ºè¿‡ç¨‹ï¼›
+3.  æµç¨‹è·³å›žåˆ° `1`ï¼Œå†æ¬¡å¼€å§‹äº† `service1` çš„åˆ›å»ºã€å±žæ€§æ³¨å…¥è¿‡ç¨‹ã€‚
 
-µ½ÕâÀï£¬ÎÒÃÇ¾ªÏ²µØ·¢ÏÖ£¬Ñ­»·³öÏÖÁË£¡
+åˆ°è¿™é‡Œï¼Œæˆ‘ä»¬æƒŠå–œåœ°å‘çŽ°ï¼Œå¾ªçŽ¯å‡ºçŽ°äº†ï¼
 
-#### 2.2 ÒýÈë `earlySingletonObjects` ½â¾öÑ­»·ÒÀÀµ
+#### 2.2 å¼•å…¥ `earlySingletonObjects` è§£å†³å¾ªçŽ¯ä¾èµ–
 
-ÎÒÃÇ·ÖÎöÏÂ£¬Ñ­»·³öÏÖµÄÔ­ÒòÔÚÓÚ£¬ÔÚ `service2` »ñÈ¡ `service1` Ê±£¬ÓÉÓÚ `singletonObjects` ÖÐ´ËÊ±²¢²»´æÔÚ `service1`£¬Òò´Ë»áÔÙ×ß `service1` µÄ´´½¨¹ý³Ì£¬ÖØÐÂ´´½¨ `service1`£¬Òò´Ë£¬ÎÒÃÇÓÐ¸ö´óµ¨µÄÏë·¨£ºÈç¹ûÔÚ `service1` ÊµÀý»¯ºó¾Í°ÑËü±£´æÆðÀ´£¬ºóÃæÔÙÔÙÕÒ `service1` Ê±£¬¾Í·µ»ØÕâ¸öÎ´½øÐÐÒÀÀµ×¢ÈëµÄ `service1`£¬ÏñÏÂÃæÕâÑù£º
+æˆ‘ä»¬åˆ†æžä¸‹ï¼Œå¾ªçŽ¯å‡ºçŽ°çš„åŽŸå› åœ¨äºŽï¼Œåœ¨ `service2` èŽ·å– `service1` æ—¶ï¼Œç”±äºŽ `singletonObjects` ä¸­æ­¤æ—¶å¹¶ä¸å­˜åœ¨ `service1`ï¼Œå› æ­¤ä¼šå†èµ° `service1` çš„åˆ›å»ºè¿‡ç¨‹ï¼Œé‡æ–°åˆ›å»º `service1`ï¼Œå› æ­¤ï¼Œæˆ‘ä»¬æœ‰ä¸ªå¤§èƒ†çš„æƒ³æ³•ï¼šå¦‚æžœåœ¨ `service1` å®žä¾‹åŒ–åŽå°±æŠŠå®ƒä¿å­˜èµ·æ¥ï¼ŒåŽé¢å†å†æ‰¾ `service1` æ—¶ï¼Œå°±è¿”å›žè¿™ä¸ªæœªè¿›è¡Œä¾èµ–æ³¨å…¥çš„ `service1`ï¼Œåƒä¸‹é¢è¿™æ ·ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-c0eaecbe82b144a6fcd9fd048f2cca53497.png)
 
-ÉÏÍ¼ÖÐ£¬ÒýÈëÁË `earlySingletonObjects`£¬ÕâÒ²ÊÇ¸ö map£¬Í¬ `singletonObjects` Ò»Ñù£¬`key` ÊÇ bean µÄÃû³Æ£¬`value` ÊÇÒ»¸öÎ´Íê³ÉÒÀÀµ×¢ÈëµÄ¶ÔÏó¡£
+ä¸Šå›¾ä¸­ï¼Œå¼•å…¥äº† `earlySingletonObjects`ï¼Œè¿™ä¹Ÿæ˜¯ä¸ª mapï¼ŒåŒ `singletonObjects` ä¸€æ ·ï¼Œ`key` æ˜¯ bean çš„åç§°ï¼Œ`value` æ˜¯ä¸€ä¸ªæœªå®Œæˆä¾èµ–æ³¨å…¥çš„å¯¹è±¡ã€‚
 
-¶ÔÉÏÍ¼ËµÃ÷ÈçÏÂ£º
+å¯¹ä¸Šå›¾è¯´æ˜Žå¦‚ä¸‹ï¼š
 
-1.  ÔÚ `service1` ¶ÔÏó´´½¨Íê³Éºó£¬ÏÈ½« `service1` ·ÅÈë `earlySingletonObjects`£¬È»ºó½øÐÐÒÀÀµ×¢Èë£»
-2.  ¶Ô `service1` ½øÐÐÒÀÀµ×¢ÈëÊ±£¬`spring` ·¢ÏÖ `service1` ÐèÒª×¢Èë `service2`£¬È»ºóÏÈÈ¥ `earlySingletonObjects` ²éÕÒ `service2`£¬Î´ÕÒµ½£»ÔÙÈ¥ `singletonObjects` ÖÐ²éÕÒ `service2`£¬»¹ÊÇÎ´ÕÒµ½£¬ÓÚÊÇ¾Í¿ªÊ¼ÁË `service2` µÄ´´½¨¹ý³Ì£»
-3.  ÔÚ `service2` ¶ÔÏó´´½¨Íê³Éºó£¬ÏÈ½« `service2` ·ÅÈë `earlySingletonObjects`£¬È»ºó½øÐÐÒÀÀµ×¢Èë£»
-4.  ¶Ô `service2` ½øÐÐÒÀÀµ×¢ÈëÊ±£¬`spring` ·¢ÏÖ `service2` ÐèÒª×¢Èë `service1`£¬È»ºó¾ÍÈ¥ `earlySingletonObjects` ²éÕÒ `service1`£¬ÕÒµ½ÁË£¬¾Í½« `service1` ×¢Èëµ½ `service2` ÖÐ£¬´ËÊ± `service2` ¾ÍÊÇÒ»¸ö `spring bean` ÁË£¬½«Æä±£´æµ½ `singletonObjects` ÖÐ£»
-5.  ¾­¹ýµÚ 4 ²½ºó£¬ÎÒÃÇµÃµ½ÁË `service2`£¬È»ºó½«Æä×¢Èëµ½ `service1` ÖÐ£¬´ËÊ± `service1` Ò²³ÉÁËÒ»¸ö `spring bean`£¬½«Æä±£´æµ½ `singletonObjects` ÖÐ¡£
+1.  åœ¨ `service1` å¯¹è±¡åˆ›å»ºå®ŒæˆåŽï¼Œå…ˆå°† `service1` æ”¾å…¥ `earlySingletonObjects`ï¼Œç„¶åŽè¿›è¡Œä¾èµ–æ³¨å…¥ï¼›
+2.  å¯¹ `service1` è¿›è¡Œä¾èµ–æ³¨å…¥æ—¶ï¼Œ`spring` å‘çŽ° `service1` éœ€è¦æ³¨å…¥ `service2`ï¼Œç„¶åŽå…ˆåŽ» `earlySingletonObjects` æŸ¥æ‰¾ `service2`ï¼Œæœªæ‰¾åˆ°ï¼›å†åŽ» `singletonObjects` ä¸­æŸ¥æ‰¾ `service2`ï¼Œè¿˜æ˜¯æœªæ‰¾åˆ°ï¼ŒäºŽæ˜¯å°±å¼€å§‹äº† `service2` çš„åˆ›å»ºè¿‡ç¨‹ï¼›
+3.  åœ¨ `service2` å¯¹è±¡åˆ›å»ºå®ŒæˆåŽï¼Œå…ˆå°† `service2` æ”¾å…¥ `earlySingletonObjects`ï¼Œç„¶åŽè¿›è¡Œä¾èµ–æ³¨å…¥ï¼›
+4.  å¯¹ `service2` è¿›è¡Œä¾èµ–æ³¨å…¥æ—¶ï¼Œ`spring` å‘çŽ° `service2` éœ€è¦æ³¨å…¥ `service1`ï¼Œç„¶åŽå°±åŽ» `earlySingletonObjects` æŸ¥æ‰¾ `service1`ï¼Œæ‰¾åˆ°äº†ï¼Œå°±å°† `service1` æ³¨å…¥åˆ° `service2` ä¸­ï¼Œæ­¤æ—¶ `service2` å°±æ˜¯ä¸€ä¸ª `spring bean` äº†ï¼Œå°†å…¶ä¿å­˜åˆ° `singletonObjects` ä¸­ï¼›
+5.  ç»è¿‡ç¬¬ 4 æ­¥åŽï¼Œæˆ‘ä»¬å¾—åˆ°äº† `service2`ï¼Œç„¶åŽå°†å…¶æ³¨å…¥åˆ° `service1` ä¸­ï¼Œæ­¤æ—¶ `service1` ä¹Ÿæˆäº†ä¸€ä¸ª `spring bean`ï¼Œå°†å…¶ä¿å­˜åˆ° `singletonObjects` ä¸­ã€‚
 
-¾­¹ýÒÔÉÏ²½Öè£¬ÎÒÃÇ·¢ÏÖ£¬Ñ­»·ÒÀÀµµÃµ½ÁË½â¾ö¡£
+ç»è¿‡ä»¥ä¸Šæ­¥éª¤ï¼Œæˆ‘ä»¬å‘çŽ°ï¼Œå¾ªçŽ¯ä¾èµ–å¾—åˆ°äº†è§£å†³ã€‚
 
-#### 2.2 aop ÏÂµÄÑ­»·ÒÀÀµ
+#### 2.2 aop ä¸‹çš„å¾ªçŽ¯ä¾èµ–
 
-¾­¹ýÉÏÃæµÄ·ÖÎö£¬ÎÒÃÇ·¢ÏÖÖ»Òª¶îÍâÒýÈëÒ»¸ö `earlySingletonObjects` ºó£¬Ñ­»·ÒÀÀµ¾ÍÄÜµÃµ½½â¾ö¡£µ«ÊÇ£¬Ñ­»·ÒÀÀµÕæµÄµÃµ½ÁË½â¾öÂð£¿spring ³ýÁË ioc Íâ£¬»¹ÓÐÁíÒ»¸öÖØ´ó¹¦ÄÜ£ºaop£¬ÎÒÃÇÀ´¿´¿´ aop Çé¿öÏÂ³öÏÖÑ­»·ÒÀÀµ»áÔõÑù¡£
+ç»è¿‡ä¸Šé¢çš„åˆ†æžï¼Œæˆ‘ä»¬å‘çŽ°åªè¦é¢å¤–å¼•å…¥ä¸€ä¸ª `earlySingletonObjects` åŽï¼Œå¾ªçŽ¯ä¾èµ–å°±èƒ½å¾—åˆ°è§£å†³ã€‚ä½†æ˜¯ï¼Œå¾ªçŽ¯ä¾èµ–çœŸçš„å¾—åˆ°äº†è§£å†³å—ï¼Ÿspring é™¤äº† ioc å¤–ï¼Œè¿˜æœ‰å¦ä¸€ä¸ªé‡å¤§åŠŸèƒ½ï¼šaopï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹ aop æƒ…å†µä¸‹å‡ºçŽ°å¾ªçŽ¯ä¾èµ–ä¼šæ€Žæ ·ã€‚
 
-##### 1\. aop ¶ÔÏóµÄ´´½¨¹ý³Ì
+##### 1\. aop å¯¹è±¡çš„åˆ›å»ºè¿‡ç¨‹
 
-ÔÚÕýÊ½½éÉÜ aop ÏÂµÄÑ­»·ÒÀÀµÇ°£¬ÎÒÃÇÏÈÀ´Ã÷È·Á½¸ö¸ö¸ÅÄî£º
+åœ¨æ­£å¼ä»‹ç» aop ä¸‹çš„å¾ªçŽ¯ä¾èµ–å‰ï¼Œæˆ‘ä»¬å…ˆæ¥æ˜Žç¡®ä¸¤ä¸ªä¸ªæ¦‚å¿µï¼š
 
-*   `Ô­Ê¼¶ÔÏó`£ºÇø±ðÓÚ´úÀí¶ÔÏó£¬Ö¸Î´½øÐÐ¹ý aop µÄ¶ÔÏó£¬¿ÉÒÔÊÇ java ¶ÔÏó£¬Ò²¿ÉÒÔÊÇÎ´½øÐÐ aop µÄ spring bean£»
-*   `´úÀí¶ÔÏó`£º½øÐÐ¹ý aop µÄ¶ÔÏó£¬¿ÉÒÔÊÇ java ¶ÔÏó½ö½øÐÐ¹ý aop µÃµ½µÄ¶ÔÏó (½ö½øÐÐ¹ý aop£¬Î´½øÐÐÒÀÀµ×¢Èë£¬Ò²Î´½øÐÐ³õÊ¼»¯)£¬Ò²¿ÉÒÔÊÇ½øÐÐ¹ý aop µÄ `spring bean`.
+*   `åŽŸå§‹å¯¹è±¡`ï¼šåŒºåˆ«äºŽä»£ç†å¯¹è±¡ï¼ŒæŒ‡æœªè¿›è¡Œè¿‡ aop çš„å¯¹è±¡ï¼Œå¯ä»¥æ˜¯ java å¯¹è±¡ï¼Œä¹Ÿå¯ä»¥æ˜¯æœªè¿›è¡Œ aop çš„ spring beanï¼›
+*   `ä»£ç†å¯¹è±¡`ï¼šè¿›è¡Œè¿‡ aop çš„å¯¹è±¡ï¼Œå¯ä»¥æ˜¯ java å¯¹è±¡ä»…è¿›è¡Œè¿‡ aop å¾—åˆ°çš„å¯¹è±¡ (ä»…è¿›è¡Œè¿‡ aopï¼Œæœªè¿›è¡Œä¾èµ–æ³¨å…¥ï¼Œä¹Ÿæœªè¿›è¡Œåˆå§‹åŒ–)ï¼Œä¹Ÿå¯ä»¥æ˜¯è¿›è¡Œè¿‡ aop çš„ `spring bean`.
 
-ÎÒÃÇÏÈÀ´¿´¿´ aop ÊÇÈçºÎ´´½¨¶ÔÏóµÄ£º
+æˆ‘ä»¬å…ˆæ¥çœ‹çœ‹ aop æ˜¯å¦‚ä½•åˆ›å»ºå¯¹è±¡çš„ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-e92991c1c173bbd5579be3001a977555be7.png)
 
-Ïà±ÈÓÚ `2.1` ÖÐµÄÁ÷³Ì£¬aop ¶àÁË "Éú³É´úÀí¶ÔÏó" µÄ²Ù×÷£¬²¢ÇÒ×îÖÕ±£´æµ½ `singletonObjects` ÖÐµÄ¶ÔÏóÒ²ÊÇ´úÀí¶ÔÏó¡£
+ç›¸æ¯”äºŽ `2.1` ä¸­çš„æµç¨‹ï¼Œaop å¤šäº† "ç”Ÿæˆä»£ç†å¯¹è±¡" çš„æ“ä½œï¼Œå¹¶ä¸”æœ€ç»ˆä¿å­˜åˆ° `singletonObjects` ä¸­çš„å¯¹è±¡ä¹Ÿæ˜¯ä»£ç†å¯¹è±¡ã€‚
 
-Ô­Ê¼¶ÔÏóÓë´úÀí¶ÔÏóÖ®¼äÊÇÊ²Ã´¹ØÏµÄØ£¿ÓÃ´úÂëÊ¾ÒâÏÂ£¬´óÖÂÈçÏÂ£º
+åŽŸå§‹å¯¹è±¡ä¸Žä»£ç†å¯¹è±¡ä¹‹é—´æ˜¯ä»€ä¹ˆå…³ç³»å‘¢ï¼Ÿç”¨ä»£ç ç¤ºæ„ä¸‹ï¼Œå¤§è‡´å¦‚ä¸‹ï¼š
 
 ```
 public class ProxyObj extends Obj {
 
-    // Ô­Ê¼¶ÔÏó
+    // åŽŸå§‹å¯¹è±¡
     private Obj obj;
 
     ...
@@ -641,34 +151,34 @@ public class ProxyObj extends Obj {
 
 ```
 
-Êµ¼ÊÉÏ£¬Á½ÕßÖ®¼äµÄ¹ØÏµ²¢Ã»ÓÐÕâÃ´¼òµ¥£¬µ«ÎªÁËËµÃ÷ÎÊÌâ£¬ÕâÀï¶ÔÁ½Õß¹ØÏµ×öÁË¼ò»¯£¬Ð¡»ï°éÃÇÖ»ÐèÒªÃ÷°×£¬**´úÀí¶ÔÏó³ÖÓÐÔ­Ê¼¶ÔÏóµÄÒýÓÃ**¼´¿É¡£
+å®žé™…ä¸Šï¼Œä¸¤è€…ä¹‹é—´çš„å…³ç³»å¹¶æ²¡æœ‰è¿™ä¹ˆç®€å•ï¼Œä½†ä¸ºäº†è¯´æ˜Žé—®é¢˜ï¼Œè¿™é‡Œå¯¹ä¸¤è€…å…³ç³»åšäº†ç®€åŒ–ï¼Œå°ä¼™ä¼´ä»¬åªéœ€è¦æ˜Žç™½ï¼Œ**ä»£ç†å¯¹è±¡æŒæœ‰åŽŸå§‹å¯¹è±¡çš„å¼•ç”¨**å³å¯ã€‚
 
-¹ØÓÚÔ­Ê¼¶ÔÏóÈçºÎ±ä³É´úÀí¶ÔÏóµÄ£¬¿ÉÒÔ²Î¿¼ [spring aop Ö® AnnotationAwareAspectJAutoProxyCreator ·ÖÎö£¨ÏÂ£©](https://my.oschina.net/funcy/blog/4687961)¡£
+å…³äºŽåŽŸå§‹å¯¹è±¡å¦‚ä½•å˜æˆä»£ç†å¯¹è±¡çš„ï¼Œå¯ä»¥å‚è€ƒ [spring aop ä¹‹ AnnotationAwareAspectJAutoProxyCreator åˆ†æžï¼ˆä¸‹ï¼‰](https://my.oschina.net/funcy/blog/4687961)ã€‚
 
-¶ÔÒÔÉÏ´´½¨¹ý³Ì£¬ÓÃ java ´úÂëÄ£ÄâÈçÏÂ£º
+å¯¹ä»¥ä¸Šåˆ›å»ºè¿‡ç¨‹ï¼Œç”¨ java ä»£ç æ¨¡æ‹Ÿå¦‚ä¸‹ï¼š
 
 ```
 /**
- * ×¼±¸Ò»¸öÀà
+ * å‡†å¤‡ä¸€ä¸ªç±»
  */
 public class Obj1 {
 
 }
 
 /**
- * ×¼±¸Ò»¸öÀà£¬ÄÚ²¿ÓÐÒ»¸öÊôÐÔ Obj1
+ * å‡†å¤‡ä¸€ä¸ªç±»ï¼Œå†…éƒ¨æœ‰ä¸€ä¸ªå±žæ€§ Obj1
  */
 public class Obj2 {
 
     private Obj1 obj1;
 
-    // Ê¡ÂÔÆäËû·½·¨
+    // çœç•¥å…¶ä»–æ–¹æ³•
     ...
 
 }
 
 /**
- * ×¼±¸Obj2µÄ´úÀíÀà£¬ÄÚ²¿³ÖÓÐobj2µÄ¶ÔÏó
+ * å‡†å¤‡Obj2çš„ä»£ç†ç±»ï¼Œå†…éƒ¨æŒæœ‰obj2çš„å¯¹è±¡
  */
 public class ProxyObj2 extends Obj2 {
 
@@ -678,414 +188,904 @@ public class ProxyObj2 extends Obj2 {
         this.obj2 = obj2;
     }
 
-    // Ê¡ÂÔÆäËû·½·¨
+    // çœç•¥å…¶ä»–æ–¹æ³•
     ...
 
 }
 
 ```
 
-½Ó×Å£¬¾ÍÊÇÄ£Äâ ¡°´´½¨ --> ÊôÐÔ×¢Èë --> Éú³É´úÀí¶ÔÏó --> ±£´æµ½ÈÝÆ÷ÖÐ¡± µÄ Á÷³ÌÁË£º
+æŽ¥ç€ï¼Œå°±æ˜¯æ¨¡æ‹Ÿ â€œåˆ›å»º --> å±žæ€§æ³¨å…¥ --> ç”Ÿæˆä»£ç†å¯¹è±¡ --> ä¿å­˜åˆ°å®¹å™¨ä¸­â€ çš„ æµç¨‹äº†ï¼š
 
 ```
 public static main(String[] args) {
-     // ×¼±¸Ò»¸öÈÝÆ÷£¬ÕâÀï±£´æµÄÊÇÍê³ÉÉÏÊöÉúÃüÖÜÆÚµÄ¶ÔÏó
-     // 1\. Èç¹ûÔªËØÊÇÔ­Ê¼¶ÔÏó£¬Ôò¸Ã¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
-     // 2\. Èç¹ûÔªËØÊÇ´úÀí¶ÔÏó£¬Ôò¸Ã¶ÔÏó³ÖÓÐµÄÔ­ÓÐ¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
+     // å‡†å¤‡ä¸€ä¸ªå®¹å™¨ï¼Œè¿™é‡Œä¿å­˜çš„æ˜¯å®Œæˆä¸Šè¿°ç”Ÿå‘½å‘¨æœŸçš„å¯¹è±¡
+     // 1\. å¦‚æžœå…ƒç´ æ˜¯åŽŸå§‹å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
+     // 2\. å¦‚æžœå…ƒç´ æ˜¯ä»£ç†å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡æŒæœ‰çš„åŽŸæœ‰å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
      Collection<?> collection = new ArrayList();
 
-     // ¿ªÊ¼ Obj2 µÄ´´½¨Á÷³Ì
-     // 1\. ´´½¨ Obj2 ¶ÔÏó
+     // å¼€å§‹ Obj2 çš„åˆ›å»ºæµç¨‹
+     // 1\. åˆ›å»º Obj2 å¯¹è±¡
      Obj2 obj2 = new Obj2();
 
-     // 2\. Íù Obj2 ÖÐ×¢Èë obj1£¬µ«´ËÊ±²¢Ã»ÓÐobj1£¬Òò´ËÏÈÒª´´½¨obj1£¬ÔÙ½«Æä×¢Èëµ½Obj2ÖÐ
+     // 2\. å¾€ Obj2 ä¸­æ³¨å…¥ obj1ï¼Œä½†æ­¤æ—¶å¹¶æ²¡æœ‰obj1ï¼Œå› æ­¤å…ˆè¦åˆ›å»ºobj1ï¼Œå†å°†å…¶æ³¨å…¥åˆ°Obj2ä¸­
      Obj1 obj1 = new Obj1();
      obj2.setObj1(obj1);
 
-     // 3\. Éú³ÉObj2µÄ´úÀí¶ÔÏó£¬´úÀí¶ÔÏóÖÐ³ÖÓÐ Obj2µÄÔ­Ê¼¶ÔÏó
+     // 3\. ç”ŸæˆObj2çš„ä»£ç†å¯¹è±¡ï¼Œä»£ç†å¯¹è±¡ä¸­æŒæœ‰ Obj2çš„åŽŸå§‹å¯¹è±¡
      ProxyObj2 proxyObj2 = new ProxyObj2(obj2);
 
-     // 4\. proxyObj2ÒÑ¾­×ßÍêÁËÍêÕûµÄÉúÃüÖÜÆÚ£¬Òò´Ë½«´úÀí¶ÔÏóÌí¼Óµ½ÈÝÆ÷Ê±
+     // 4\. proxyObj2å·²ç»èµ°å®Œäº†å®Œæ•´çš„ç”Ÿå‘½å‘¨æœŸï¼Œå› æ­¤å°†ä»£ç†å¯¹è±¡æ·»åŠ åˆ°å®¹å™¨æ—¶
      collection.add(proxyObj2); 
 
 }
 
 ```
 
-ÉÏÊö´úÂëÖÐ£¬
+ä¸Šè¿°ä»£ç ä¸­ï¼Œ
 
-*   ÒÔ `new Obj2()` Ä£Äâ¶ÔÏóµÄ´´½¨
-*   ÒÔ `obj2.setObj1(xxx)` Ä£ÄâÒÀÀµ×¢Èë
-*   ÒÔ `new ProxyObj2(xxx)` Ä£Äâ´úÀí¶ÔÏóµÄÉú³É
-*   ÒÔ `collection.add(xxx)` Ä£Äâ¶ÔÏóÌí¼Óµ½ÈÝÆ÷ÖÐµÄ¹ý³Ì
+*   ä»¥ `new Obj2()` æ¨¡æ‹Ÿå¯¹è±¡çš„åˆ›å»º
+*   ä»¥ `obj2.setObj1(xxx)` æ¨¡æ‹Ÿä¾èµ–æ³¨å…¥
+*   ä»¥ `new ProxyObj2(xxx)` æ¨¡æ‹Ÿä»£ç†å¯¹è±¡çš„ç”Ÿæˆ
+*   ä»¥ `collection.add(xxx)` æ¨¡æ‹Ÿå¯¹è±¡æ·»åŠ åˆ°å®¹å™¨ä¸­çš„è¿‡ç¨‹
 
-Ä£ÄâµÄÁ÷³ÌÈçÏÂ£º
+æ¨¡æ‹Ÿçš„æµç¨‹å¦‚ä¸‹ï¼š
 
-1.  ´´½¨ `obj2` ¶ÔÏó
-2.  Íù `Obj2` ÖÐ×¢Èë `obj1`£¬µ«´ËÊ±²¢Ã»ÓÐ `obj1`£¬Òò´ËÏÈÒª´´½¨ `obj1`£¬ÔÙ½«Æä×¢Èëµ½ `Obj2` ÖÐ
-3.  Éú³É `Obj2` µÄ´úÀí¶ÔÏó `proxyObj2`£¬`proxyObj2` ÖÐ³ÖÓÐ `Obj2` µÄÔ­Ê¼¶ÔÏó
-4.  `proxyObj2` ÒÑ¾­×ßÍêÁËÍêÕûµÄÉúÃüÖÜÆÚ£¬Òò´Ë½«´úÀí¶ÔÏóÌí¼Óµ½ÈÝÆ÷Ê±
+1.  åˆ›å»º `obj2` å¯¹è±¡
+2.  å¾€ `Obj2` ä¸­æ³¨å…¥ `obj1`ï¼Œä½†æ­¤æ—¶å¹¶æ²¡æœ‰ `obj1`ï¼Œå› æ­¤å…ˆè¦åˆ›å»º `obj1`ï¼Œå†å°†å…¶æ³¨å…¥åˆ° `Obj2` ä¸­
+3.  ç”Ÿæˆ `Obj2` çš„ä»£ç†å¯¹è±¡ `proxyObj2`ï¼Œ`proxyObj2` ä¸­æŒæœ‰ `Obj2` çš„åŽŸå§‹å¯¹è±¡
+4.  `proxyObj2` å·²ç»èµ°å®Œäº†å®Œæ•´çš„ç”Ÿå‘½å‘¨æœŸï¼Œå› æ­¤å°†ä»£ç†å¯¹è±¡æ·»åŠ åˆ°å®¹å™¨æ—¶
 
-×ÐÏ¸·ÖÎöÉÏÃæµÄ²½Öè£¬¾Í»á·¢ÏÖ£¬ÉÏÃæµÄµÚ 2 ²½ÓëµÚ 3 ²½ÍêÈ«µ÷»»Ë³ÐòÒ²Ã»ÎÊÌâ£¬´úÂëÄ£ÄâÈçÏÂ£º
+ä»”ç»†åˆ†æžä¸Šé¢çš„æ­¥éª¤ï¼Œå°±ä¼šå‘çŽ°ï¼Œä¸Šé¢çš„ç¬¬ 2 æ­¥ä¸Žç¬¬ 3 æ­¥å®Œå…¨è°ƒæ¢é¡ºåºä¹Ÿæ²¡é—®é¢˜ï¼Œä»£ç æ¨¡æ‹Ÿå¦‚ä¸‹ï¼š
 
 ```
 public static main(String[] args) {
-     // ×¼±¸Ò»¸öÈÝÆ÷£¬ÕâÀï±£´æµÄÊÇÍê³ÉÉÏÊöÉúÃüÖÜÆÚµÄ¶ÔÏó
-     // 1\. Èç¹ûÔªËØÊÇÔ­Ê¼¶ÔÏó£¬Ôò¸Ã¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
-     // 2\. Èç¹ûÔªËØÊÇ´úÀí¶ÔÏó£¬Ôò¸Ã¶ÔÏó³ÖÓÐµÄÔ­ÓÐ¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
+     // å‡†å¤‡ä¸€ä¸ªå®¹å™¨ï¼Œè¿™é‡Œä¿å­˜çš„æ˜¯å®Œæˆä¸Šè¿°ç”Ÿå‘½å‘¨æœŸçš„å¯¹è±¡
+     // 1\. å¦‚æžœå…ƒç´ æ˜¯åŽŸå§‹å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
+     // 2\. å¦‚æžœå…ƒç´ æ˜¯ä»£ç†å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡æŒæœ‰çš„åŽŸæœ‰å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
      Collection<?> collection = new ArrayList();
 
-     // ¿ªÊ¼ Obj2 µÄ´´½¨Á÷³Ì
-     // 1\. ´´½¨ Obj2 ¶ÔÏó
+     // å¼€å§‹ Obj2 çš„åˆ›å»ºæµç¨‹
+     // 1\. åˆ›å»º Obj2 å¯¹è±¡
      Obj2 obj2 = new Obj2();
 
-     // 2\. Éú³ÉObj2µÄ´úÀí¶ÔÏó£¬´úÀí¶ÔÏóÖÐ³ÖÓÐ Obj2µÄÔ­Ê¼¶ÔÏó
+     // 2\. ç”ŸæˆObj2çš„ä»£ç†å¯¹è±¡ï¼Œä»£ç†å¯¹è±¡ä¸­æŒæœ‰ Obj2çš„åŽŸå§‹å¯¹è±¡
      ProxyObj2 proxyObj2 = new ProxyObj2(obj2);
 
-     // 3\. Íù obj2 ÖÐ×¢Èë obj1£¬µ«´ËÊ±²¢Ã»ÓÐobj1£¬Òò´ËÏÈÒª´´½¨obj1£¬ÔÙ½«Æä×¢Èëµ½Obj2ÖÐ
+     // 3\. å¾€ obj2 ä¸­æ³¨å…¥ obj1ï¼Œä½†æ­¤æ—¶å¹¶æ²¡æœ‰obj1ï¼Œå› æ­¤å…ˆè¦åˆ›å»ºobj1ï¼Œå†å°†å…¶æ³¨å…¥åˆ°Obj2ä¸­
      Obj1 obj1 = new Obj1();
-     // ÕâÀïÊÇ×¢Èëµ½Ô­Ê¼¶ÔÏóÖÐ
+     // è¿™é‡Œæ˜¯æ³¨å…¥åˆ°åŽŸå§‹å¯¹è±¡ä¸­
      obj2.setObj1(obj1);
 
-     // 4\. proxyObj2ÒÑ¾­×ßÍêÁËÍêÕûµÄÉúÃüÖÜÆÚ£¬Òò´Ë½«´úÀí¶ÔÏóÌí¼Óµ½ÈÝÆ÷Ê±
+     // 4\. proxyObj2å·²ç»èµ°å®Œäº†å®Œæ•´çš„ç”Ÿå‘½å‘¨æœŸï¼Œå› æ­¤å°†ä»£ç†å¯¹è±¡æ·»åŠ åˆ°å®¹å™¨æ—¶
      collection.add(proxyObj2); 
 
 }
 
 ```
 
-ÉÏÊö´úÂëµÄÁ÷³ÌÈçÏÂ£º
+ä¸Šè¿°ä»£ç çš„æµç¨‹å¦‚ä¸‹ï¼š
 
-1.  ´´½¨ obj2 ¶ÔÏó
-2.  Éú³É Obj2 µÄ´úÀí¶ÔÏó£¬´úÀí¶ÔÏóÖÐ³ÖÓÐ Obj2 µÄÔ­Ê¼¶ÔÏó
-3.  Íù Obj2 ÖÐ×¢Èë obj1£¬µ«´ËÊ±²¢Ã»ÓÐ obj1£¬Òò´ËÏÈÒª´´½¨ obj1£¬ÔÙ½«Æä×¢Èëµ½ Obj2
-4.  proxyObj2 ÒÑ¾­×ßÍêÁËÍêÕûµÄÉúÃüÖÜÆÚ£¬Òò´Ë½«´úÀí¶ÔÏóÌí¼Óµ½ÈÝÆ÷Ê±
+1.  åˆ›å»º obj2 å¯¹è±¡
+2.  ç”Ÿæˆ Obj2 çš„ä»£ç†å¯¹è±¡ï¼Œä»£ç†å¯¹è±¡ä¸­æŒæœ‰ Obj2 çš„åŽŸå§‹å¯¹è±¡
+3.  å¾€ Obj2 ä¸­æ³¨å…¥ obj1ï¼Œä½†æ­¤æ—¶å¹¶æ²¡æœ‰ obj1ï¼Œå› æ­¤å…ˆè¦åˆ›å»º obj1ï¼Œå†å°†å…¶æ³¨å…¥åˆ° Obj2
+4.  proxyObj2 å·²ç»èµ°å®Œäº†å®Œæ•´çš„ç”Ÿå‘½å‘¨æœŸï¼Œå› æ­¤å°†ä»£ç†å¯¹è±¡æ·»åŠ åˆ°å®¹å™¨æ—¶
 
-´Ó´úÂëÉÏ¿´£¬`proxyObj2(´úÀí¶ÔÏó)` ÖÐ³ÖÓÐ `ob2(Ô­Ê¼¶ÔÏó)`£¬Éú³É´úÀí¶ÔÏóºó£¬¼ÌÐø¶ÔÔ­Ê¼¶ÔÏó½øÐÐÊôÐÔ×¢Èë£¬ÒÀÈ»ÄÜÓ°Ïì´úÀí¶ÔÏó£¬×îÖÕ´úÀí¶ÔÏó³ÖÓÐµÄÔ­Ê¼¶ÔÏóÒ²Íê³ÉÁËÒÀÀµ×¢Èë£¬Õû¸ö¹ý³ÌÓÃÍ¼ÐÎÊ¾ÒâÈçÏÂ£º
+ä»Žä»£ç ä¸Šçœ‹ï¼Œ`proxyObj2(ä»£ç†å¯¹è±¡)` ä¸­æŒæœ‰ `ob2(åŽŸå§‹å¯¹è±¡)`ï¼Œç”Ÿæˆä»£ç†å¯¹è±¡åŽï¼Œç»§ç»­å¯¹åŽŸå§‹å¯¹è±¡è¿›è¡Œå±žæ€§æ³¨å…¥ï¼Œä¾ç„¶èƒ½å½±å“ä»£ç†å¯¹è±¡ï¼Œæœ€ç»ˆä»£ç†å¯¹è±¡æŒæœ‰çš„åŽŸå§‹å¯¹è±¡ä¹Ÿå®Œæˆäº†ä¾èµ–æ³¨å…¥ï¼Œæ•´ä¸ªè¿‡ç¨‹ç”¨å›¾å½¢ç¤ºæ„å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8ff5579425f73dd5c2d321a86d0303390ac.png)
 
-ÕâÀïÎÒÃÇÔÙ´ÎÉêÃ÷£¬´Ó java ¶ÔÏóµ½ spring bean µÄ²½ÖèÓÐºÃ¶à£¬ÕâÀïÎÒÃÇ½ö¹Ø×¢ÓëÑ­»·ÒÀÀµÏà¹ØµÄ²½Öè£¬Èç¹ûÏëÁË½â spring bean ÏêÏ¸µÄ³õÊ¼»¯¹ý³Ì£¬¿É²é¿´ [spring Æô¶¯Á÷³ÌÖ®Æô¶¯Á÷³Ì¸ÅÀÀ](https://my.oschina.net/funcy/blog/4597493)¡£
+è¿™é‡Œæˆ‘ä»¬å†æ¬¡ç”³æ˜Žï¼Œä»Ž java å¯¹è±¡åˆ° spring bean çš„æ­¥éª¤æœ‰å¥½å¤šï¼Œè¿™é‡Œæˆ‘ä»¬ä»…å…³æ³¨ä¸Žå¾ªçŽ¯ä¾èµ–ç›¸å…³çš„æ­¥éª¤ï¼Œå¦‚æžœæƒ³äº†è§£ spring bean è¯¦ç»†çš„åˆå§‹åŒ–è¿‡ç¨‹ï¼Œå¯æŸ¥çœ‹ [spring å¯åŠ¨æµç¨‹ä¹‹å¯åŠ¨æµç¨‹æ¦‚è§ˆ](https://my.oschina.net/funcy/blog/4597493)ã€‚
 
-µ½ÕâÀï£¬ÎÒÃÇÌ½Ë÷µ½´úÀí¶ÔÏóµÄÉúÃüÖÜÆÚ¿ÉÒÔÓÐÁ½ÖÖ£º
+åˆ°è¿™é‡Œï¼Œæˆ‘ä»¬æŽ¢ç´¢åˆ°ä»£ç†å¯¹è±¡çš„ç”Ÿå‘½å‘¨æœŸå¯ä»¥æœ‰ä¸¤ç§ï¼š
 
-*   ´´½¨ --> ÊôÐÔ×¢Èë --> Éú³É´úÀí¶ÔÏó --> ½«´úÀí¶ÔÏó±£´æµ½ÈÝÆ÷ÖÐ
-*   ´´½¨ (Ô­Ê¼¶ÔÏó)--> Éú³É´úÀí¶ÔÏó (ÌáÇ°½øÐÐ aop)--> ¶ÔÔ­Ê¼¶ÔÏó½øÐÐÊôÐÔ×¢Èë --> ½«´úÀí¶ÔÏó±£´æµ½ÈÝÆ÷ÖÐ
+*   åˆ›å»º --> å±žæ€§æ³¨å…¥ --> ç”Ÿæˆä»£ç†å¯¹è±¡ --> å°†ä»£ç†å¯¹è±¡ä¿å­˜åˆ°å®¹å™¨ä¸­
+*   åˆ›å»º (åŽŸå§‹å¯¹è±¡)--> ç”Ÿæˆä»£ç†å¯¹è±¡ (æå‰è¿›è¡Œ aop)--> å¯¹åŽŸå§‹å¯¹è±¡è¿›è¡Œå±žæ€§æ³¨å…¥ --> å°†ä»£ç†å¯¹è±¡ä¿å­˜åˆ°å®¹å™¨ä¸­
 
-ÕâÁ½ÖÖ¶¼ÄÜ´ïµ½×îÖÕÄ¿µÄ£¬¼´**±£´æµ½ÈÝÆ÷ÖÐµÄÊÇ´úÀí¶ÔÏó£¬ÇÒ´úÀí¶ÔÏó¶ÔÓ¦µÄÔ­Ê¼¶ÔÏóÍê³ÉÁËÒÀÀµ×¢Èë**¡£ÇëÀÎ¼ÇÕâÁ½¸ö´´½¨Á÷³Ì£¬ÕâÊÇºóÃæ½â¾ö aop ÏÂÑ­»·ÒÀÀµÎÊÌâµÄºËÐÄ£¬Ëµ°×ÁË£¬**aop ÏÂµÄÑ­»·ÒÀÀµÎÊÌâÖ®ËùÒÔÄÜ½â¾ö£¬¾ÍÊÇÒòÎª¶ÔÏó¿ÉÒÔÌáÇ°½øÐÐ aop ²Ù×÷**¡£
+è¿™ä¸¤ç§éƒ½èƒ½è¾¾åˆ°æœ€ç»ˆç›®çš„ï¼Œå³**ä¿å­˜åˆ°å®¹å™¨ä¸­çš„æ˜¯ä»£ç†å¯¹è±¡ï¼Œä¸”ä»£ç†å¯¹è±¡å¯¹åº”çš„åŽŸå§‹å¯¹è±¡å®Œæˆäº†ä¾èµ–æ³¨å…¥**ã€‚è¯·ç‰¢è®°è¿™ä¸¤ä¸ªåˆ›å»ºæµç¨‹ï¼Œè¿™æ˜¯åŽé¢è§£å†³ aop ä¸‹å¾ªçŽ¯ä¾èµ–é—®é¢˜çš„æ ¸å¿ƒï¼Œè¯´ç™½äº†ï¼Œ**aop ä¸‹çš„å¾ªçŽ¯ä¾èµ–é—®é¢˜ä¹‹æ‰€ä»¥èƒ½è§£å†³ï¼Œå°±æ˜¯å› ä¸ºå¯¹è±¡å¯ä»¥æå‰è¿›è¡Œ aop æ“ä½œ**ã€‚
 
-##### 2\. ÎªÊ²Ã´ÓÃ `earlySingletonObjects` ÎÞ·¨½â¾öÑ­»·ÒÀÀµ£¿
+##### 2\. ä¸ºä»€ä¹ˆç”¨ `earlySingletonObjects` æ— æ³•è§£å†³å¾ªçŽ¯ä¾èµ–ï¼Ÿ
 
-Ç°ÃæÎÒÃÇÖ÷ÒªËµÃ÷ÁË´úÀí¶ÔÏóµÄ´´½¨¹ý³Ì£¬½ÓÏÂÀ´ÎÒÃÇÀ´¿´¿´ÔÚ aop ÏÂ£¬Ê¹ÓÃ `earlySingletonObjects` À´½â¾öÑ­»·ÒÀÀµÓÐÊ²Ã´ÎÊÌâ£º
+å‰é¢æˆ‘ä»¬ä¸»è¦è¯´æ˜Žäº†ä»£ç†å¯¹è±¡çš„åˆ›å»ºè¿‡ç¨‹ï¼ŒæŽ¥ä¸‹æ¥æˆ‘ä»¬æ¥çœ‹çœ‹åœ¨ aop ä¸‹ï¼Œä½¿ç”¨ `earlySingletonObjects` æ¥è§£å†³å¾ªçŽ¯ä¾èµ–æœ‰ä»€ä¹ˆé—®é¢˜ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d3d00d76ab0c72339faccb7ccd853723d6c.png)
 
-ÎÒÃÇÀ´·ÖÎöÉÏÍ¼µÄÁ÷³Ì£º
+æˆ‘ä»¬æ¥åˆ†æžä¸Šå›¾çš„æµç¨‹ï¼š
 
-1.  ÔÚ `service1` ¶ÔÏó´´½¨Íê³Éºó£¬ÏÈ½« `service1` ·ÅÈë `earlySingletonObjects`£¬È»ºó½øÐÐÒÀÀµ×¢Èë£»
-2.  ¶Ô `service1` ½øÐÐÒÀÀµ×¢ÈëÊ±£¬`spring` ·¢ÏÖ `service1` ÐèÒª×¢Èë `service2`£¬È»ºóÏÈÈ¥ `earlySingletonObjects` ²éÕÒ `service2`£¬Î´ÕÒµ½£»ÔÙÈ¥ `singletonObjects` ÖÐ²éÕÒ `service2`£¬»¹ÊÇÎ´ÕÒµ½£¬ÓÚÊÇ¾Í¿ªÊ¼ÁË `service2` µÄ´´½¨¹ý³Ì£»
-3.  ÔÚ `service2` ¶ÔÏó´´½¨Íê³Éºó£¬ÏÈ½« `service2` ·ÅÈë `earlySingletonObjects`£¬È»ºó½øÐÐÒÀÀµ×¢Èë£»
-4.  ¶Ô `service2` ½øÐÐÒÀÀµ×¢ÈëÊ±£¬`spring` ·¢ÏÖ `service2` ÐèÒª×¢Èë `service1`£¬È»ºó¾ÍÈ¥ `earlySingletonObjects` ²éÕÒ `service1`£¬ÕÒµ½ÁË£¬¾Í½« `service1` ×¢Èëµ½ `service2` ÖÐ£¬È»ºóÔÙ½øÐÐ aop£¬´ËÊ± `service2` ÊÇÒ»¸ö´úÀí¶ÔÏó£¬½«Æä±£´æµ½ `singletonObjects` ÖÐ£»
-5.  ¾­¹ýµÚ 4 ²½ºó£¬ÎÒÃÇµÃµ½ÁË `service2` µÄ´úÀí¶ÔÏó£¬È»ºó½«Æä×¢Èëµ½ `service1` ÖÐ£¬½Ó×ÅÔÙ¶Ô `service1` ½øÐÐ aop£¬´ËÊ± `service1` Ò²³ÉÁËÒ»¸ö `spring bean`£¬½«Æä±£´æµ½ `singletonObjects` ÖÐ¡£
+1.  åœ¨ `service1` å¯¹è±¡åˆ›å»ºå®ŒæˆåŽï¼Œå…ˆå°† `service1` æ”¾å…¥ `earlySingletonObjects`ï¼Œç„¶åŽè¿›è¡Œä¾èµ–æ³¨å…¥ï¼›
+2.  å¯¹ `service1` è¿›è¡Œä¾èµ–æ³¨å…¥æ—¶ï¼Œ`spring` å‘çŽ° `service1` éœ€è¦æ³¨å…¥ `service2`ï¼Œç„¶åŽå…ˆåŽ» `earlySingletonObjects` æŸ¥æ‰¾ `service2`ï¼Œæœªæ‰¾åˆ°ï¼›å†åŽ» `singletonObjects` ä¸­æŸ¥æ‰¾ `service2`ï¼Œè¿˜æ˜¯æœªæ‰¾åˆ°ï¼ŒäºŽæ˜¯å°±å¼€å§‹äº† `service2` çš„åˆ›å»ºè¿‡ç¨‹ï¼›
+3.  åœ¨ `service2` å¯¹è±¡åˆ›å»ºå®ŒæˆåŽï¼Œå…ˆå°† `service2` æ”¾å…¥ `earlySingletonObjects`ï¼Œç„¶åŽè¿›è¡Œä¾èµ–æ³¨å…¥ï¼›
+4.  å¯¹ `service2` è¿›è¡Œä¾èµ–æ³¨å…¥æ—¶ï¼Œ`spring` å‘çŽ° `service2` éœ€è¦æ³¨å…¥ `service1`ï¼Œç„¶åŽå°±åŽ» `earlySingletonObjects` æŸ¥æ‰¾ `service1`ï¼Œæ‰¾åˆ°äº†ï¼Œå°±å°† `service1` æ³¨å…¥åˆ° `service2` ä¸­ï¼Œç„¶åŽå†è¿›è¡Œ aopï¼Œæ­¤æ—¶ `service2` æ˜¯ä¸€ä¸ªä»£ç†å¯¹è±¡ï¼Œå°†å…¶ä¿å­˜åˆ° `singletonObjects` ä¸­ï¼›
+5.  ç»è¿‡ç¬¬ 4 æ­¥åŽï¼Œæˆ‘ä»¬å¾—åˆ°äº† `service2` çš„ä»£ç†å¯¹è±¡ï¼Œç„¶åŽå°†å…¶æ³¨å…¥åˆ° `service1` ä¸­ï¼ŒæŽ¥ç€å†å¯¹ `service1` è¿›è¡Œ aopï¼Œæ­¤æ—¶ `service1` ä¹Ÿæˆäº†ä¸€ä¸ª `spring bean`ï¼Œå°†å…¶ä¿å­˜åˆ° `singletonObjects` ä¸­ã€‚
 
-ÉÏÊö²½ÖèÓÐÊ²Ã´ÎÊÌâÄØ£¿×ÐÏ¸¿´µÚ 4 ²½£¬¾Í»á·¢ÏÖ£¬**×¢Èëµ½ `service2` µÄ `service1` ²¢²»ÊÇ´úÀí¶ÔÏó**£¡×Ý¹ÛÈ«¾Ö£¬×îÖÕµÃµ½µÄ `service1` Óë `service2` ¶¼ÊÇ´úÀí¶ÔÏó£¬×¢Èëµ½ `service2` µÄ `service1` Ó¦¸ÃÒ²ÊÇ´úÀí¶ÔÏó²Å¶Ô¡£Òò´Ë£¬ÔÚ aop ÏÂ£¬Ñ­»·ÒÀÀµµÄÎÊÌâÓÖ³öÏÖÁË£¡
+ä¸Šè¿°æ­¥éª¤æœ‰ä»€ä¹ˆé—®é¢˜å‘¢ï¼Ÿä»”ç»†çœ‹ç¬¬ 4 æ­¥ï¼Œå°±ä¼šå‘çŽ°ï¼Œ**æ³¨å…¥åˆ° `service2` çš„ `service1` å¹¶ä¸æ˜¯ä»£ç†å¯¹è±¡**ï¼çºµè§‚å…¨å±€ï¼Œæœ€ç»ˆå¾—åˆ°çš„ `service1` ä¸Ž `service2` éƒ½æ˜¯ä»£ç†å¯¹è±¡ï¼Œæ³¨å…¥åˆ° `service2` çš„ `service1` åº”è¯¥ä¹Ÿæ˜¯ä»£ç†å¯¹è±¡æ‰å¯¹ã€‚å› æ­¤ï¼Œåœ¨ aop ä¸‹ï¼Œå¾ªçŽ¯ä¾èµ–çš„é—®é¢˜åˆå‡ºçŽ°äº†ï¼
 
-#### 2.3 spring µÄ½â¾ö·½°¸
+#### 2.3 spring çš„è§£å†³æ–¹æ¡ˆ
 
-Ç°ÃæÎÒÃÇÌáµ½£¬ÔÚ aop ÏÂ£¬ÒýÈë `earlySingletonObjects` ²¢²»ÄÜ½â¾öÑ­»·ÒÀÀµµÄÎÊÌâ£¬ÄÇ spring ÊÇÔõÃ´½â¾öµÄÄØ£¿spring ÔÙ´ÎÒýÈëÁËÒ»¸ö `map` À´½â¾öÕâ¸öÎÊÌâ£¬ÕâÒ²ÊÇÈËÃÇ³£ËµµÄ **spring Èý¼¶»º´æ**£¬¶ÔÕâÈý¸ö `map` ËµÃ÷ÈçÏÂ£º
+å‰é¢æˆ‘ä»¬æåˆ°ï¼Œåœ¨ aop ä¸‹ï¼Œå¼•å…¥ `earlySingletonObjects` å¹¶ä¸èƒ½è§£å†³å¾ªçŽ¯ä¾èµ–çš„é—®é¢˜ï¼Œé‚£ spring æ˜¯æ€Žä¹ˆè§£å†³çš„å‘¢ï¼Ÿspring å†æ¬¡å¼•å…¥äº†ä¸€ä¸ª `map` æ¥è§£å†³è¿™ä¸ªé—®é¢˜ï¼Œè¿™ä¹Ÿæ˜¯äººä»¬å¸¸è¯´çš„ **spring ä¸‰çº§ç¼“å­˜**ï¼Œå¯¹è¿™ä¸‰ä¸ª `map` è¯´æ˜Žå¦‚ä¸‹ï¼š
 
-*   Ò»¼¶»º´æ `singletonObjects`£ºÀàÐÍÎª `ConcurrentHashMap<String, Object>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖÐ£¬`key` Îª `beanName`£¬`value` ÊÇÍêÕûµÄ `spring bean`£¬¼´Íê³ÉÊôÐÔ×¢Èë¡¢³õÊ¼»¯µÄ bean£¬Èç¹û bean ÐèÒª aop£¬´æ´¢µÄ¾ÍÊÇ´úÀí¶ÔÏó£»
-*   ¶þ¼¶»º´æ `earlySingletonObjects`£ºÀàÐÍÎª `HashMap<String, Object>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖÐ£¬`key` Îª `beanName`£¬`value` ÊÇÊµÀý»¯Íê³É£¬µ«Î´½øÐÐÒÀÀµ×¢ÈëµÄ `bean`£¬Èç¹û `bean` ÐèÒª `aop`£¬ÕâÀï´æ´¢µÄ¾ÍÊÇ´úÀí¶ÔÏó£¬Ö»²»¹ý´úÀí¶ÔÏóËù³ÖÓÐµÄÔ­Ê¼¶ÔÏó²¢Î´½øÐÐÒÀÀµ×¢Èë£»
-*   Èý¼¶»º´æ `singletonFactories`£ºÀàÐÍÎª `HashMap<String, ObjectFactory>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖÐ£¬`key` Îª `beanName`£¬`value` ´æ´¢µÄÊÇÒ»¸ö `lambda` ±í´ïÊ½£º`() -> getEarlyBeanReference(beanName, mbd, bean)`£¬ `getEarlyBeanReference` ÖÐµÄ `bean` ÊÇ¸Õ´´½¨Íê³ÉµÄ `java bean`£¬Ã»ÓÐ½øÐÐ spring ÒÀÀµ×¢Èë£¬Ò²Ã»½øÐÐ aop (¹ØÓÚÕâ¸ö `lambda` ±í´ïÊ½£¬ºóÃæ»á¼ÌÐø·ÖÎö)¡£
+*   ä¸€çº§ç¼“å­˜ `singletonObjects`ï¼šç±»åž‹ä¸º `ConcurrentHashMap<String, Object>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` æ˜¯å®Œæ•´çš„ `spring bean`ï¼Œå³å®Œæˆå±žæ€§æ³¨å…¥ã€åˆå§‹åŒ–çš„ beanï¼Œå¦‚æžœ bean éœ€è¦ aopï¼Œå­˜å‚¨çš„å°±æ˜¯ä»£ç†å¯¹è±¡ï¼›
+*   äºŒçº§ç¼“å­˜ `earlySingletonObjects`ï¼šç±»åž‹ä¸º `HashMap<String, Object>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` æ˜¯å®žä¾‹åŒ–å®Œæˆï¼Œä½†æœªè¿›è¡Œä¾èµ–æ³¨å…¥çš„ `bean`ï¼Œå¦‚æžœ `bean` éœ€è¦ `aop`ï¼Œè¿™é‡Œå­˜å‚¨çš„å°±æ˜¯ä»£ç†å¯¹è±¡ï¼Œåªä¸è¿‡ä»£ç†å¯¹è±¡æ‰€æŒæœ‰çš„åŽŸå§‹å¯¹è±¡å¹¶æœªè¿›è¡Œä¾èµ–æ³¨å…¥ï¼›
+*   ä¸‰çº§ç¼“å­˜ `singletonFactories`ï¼šç±»åž‹ä¸º `HashMap<String, ObjectFactory>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` å­˜å‚¨çš„æ˜¯ä¸€ä¸ª `lambda` è¡¨è¾¾å¼ï¼š`() -> getEarlyBeanReference(beanName, mbd, bean)`ï¼Œ `getEarlyBeanReference` ä¸­çš„ `bean` æ˜¯åˆšåˆ›å»ºå®Œæˆçš„ `java bean`ï¼Œæ²¡æœ‰è¿›è¡Œ spring ä¾èµ–æ³¨å…¥ï¼Œä¹Ÿæ²¡è¿›è¡Œ aop (å…³äºŽè¿™ä¸ª `lambda` è¡¨è¾¾å¼ï¼ŒåŽé¢ä¼šç»§ç»­åˆ†æž)ã€‚
 
-ÎªÁËËµÃ÷·½±ã£¬ÏÂÃæ¶Ô `singletonObjects`¡¢`earlySingletonObjects` ºÍ `singletonFactories` ·Ö±ð³ÆÎª**Ò»¼¶»º´æ**¡¢**¶þ¼¶»º´æ**ºÍ**Èý¼¶»º´æ**¡£
+ä¸ºäº†è¯´æ˜Žæ–¹ä¾¿ï¼Œä¸‹é¢å¯¹ `singletonObjects`ã€`earlySingletonObjects` å’Œ `singletonFactories` åˆ†åˆ«ç§°ä¸º**ä¸€çº§ç¼“å­˜**ã€**äºŒçº§ç¼“å­˜**å’Œ**ä¸‰çº§ç¼“å­˜**ã€‚
 
-spring ½â¾ö aop ÏÂµÄÑ­»·ÒÀÀµÁ÷³ÌÈçÏÂ£º
+spring è§£å†³ aop ä¸‹çš„å¾ªçŽ¯ä¾èµ–æµç¨‹å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-dc325a87b321e4c246a1b2f14169821a75a.png)
 
-Õâ¸öÍ¼¿´×Å±È½Ï¸´ÔÓ£¬ÆäÊµ·Ö¿ªÀ´¿´¾Í±È½Ï¼òµ¥ÁË£¬ÉÏÊö²Ù×÷ÖÐ£¬`1~8` ÊÇ»ñÈ¡ `service1` µÄÁ÷³Ì£¬`5.1~5.8` ÊÇ»ñÈ¡ `service2` µÄÁ÷³Ì£¬`5.5.1` ÊÇÔÙ´Î»ñÈ¡ `service1` µÄÁ÷³Ì£¬Ö»²»¹ýÔÚ´¦Àí `service1` µÄ³õÊ¼»¯¹ý³ÌÖÐ£¬»á´¥·¢ `service2` µÄ³õÊ¼»¯¹ý³Ì£¬¶ø `service2` µÄ³õÊ¼»¯Ê±£¬ÓÖ»áÒÀÀµµ½ `service1`£¬Òò´Ë²Å¿´×ÅÏñÊÇÁ¬ÔÚÒ»Æð£¬±È½Ï¸´ÔÓ¡£
+è¿™ä¸ªå›¾çœ‹ç€æ¯”è¾ƒå¤æ‚ï¼Œå…¶å®žåˆ†å¼€æ¥çœ‹å°±æ¯”è¾ƒç®€å•äº†ï¼Œä¸Šè¿°æ“ä½œä¸­ï¼Œ`1~8` æ˜¯èŽ·å– `service1` çš„æµç¨‹ï¼Œ`5.1~5.8` æ˜¯èŽ·å– `service2` çš„æµç¨‹ï¼Œ`5.5.1` æ˜¯å†æ¬¡èŽ·å– `service1` çš„æµç¨‹ï¼Œåªä¸è¿‡åœ¨å¤„ç† `service1` çš„åˆå§‹åŒ–è¿‡ç¨‹ä¸­ï¼Œä¼šè§¦å‘ `service2` çš„åˆå§‹åŒ–è¿‡ç¨‹ï¼Œè€Œ `service2` çš„åˆå§‹åŒ–æ—¶ï¼Œåˆä¼šä¾èµ–åˆ° `service1`ï¼Œå› æ­¤æ‰çœ‹ç€åƒæ˜¯è¿žåœ¨ä¸€èµ·ï¼Œæ¯”è¾ƒå¤æ‚ã€‚
 
-¶ÔÉÏÍ¼µÄ¹ý³Ì£¬ÕâÀïËµÃ÷ÈçÏÂ£¨½¨Òé£ºÈç¹û¾õµÃÁ÷³Ì±È½Ï¸´ÔÓ£¬¿ÉÒÔÏÈ¿´ `1~8` µÄ²Ù×÷£¬ÔÙ¿´ `5.1~5.8` µÄ²Ù×÷£¬×îºóÁ½ÕßÁªºÏÆðÀ´¿´£¬ÕâÑù»áÇåÎúºÜ¶à£©£º
+å¯¹ä¸Šå›¾çš„è¿‡ç¨‹ï¼Œè¿™é‡Œè¯´æ˜Žå¦‚ä¸‹ï¼ˆå»ºè®®ï¼šå¦‚æžœè§‰å¾—æµç¨‹æ¯”è¾ƒå¤æ‚ï¼Œå¯ä»¥å…ˆçœ‹ `1~8` çš„æ“ä½œï¼Œå†çœ‹ `5.1~5.8` çš„æ“ä½œï¼Œæœ€åŽä¸¤è€…è”åˆèµ·æ¥çœ‹ï¼Œè¿™æ ·ä¼šæ¸…æ™°å¾ˆå¤šï¼‰ï¼š
 
-*   1.  `service1`£º»ñÈ¡ `service1`£¬´ÓÒ»¼¶»º´æÖÐ»ñÈ¡£¬´ËÊ±ÊÇ»ñÈ¡²»µ½µÄ£»
-*   1.  `service1`£º´´½¨ `service1` µÄÊµÀý£»
-*   1.  `service1`£º»ñÈ¡ÐèÒª×¢ÈëµÄÊôÐÔÓë·½·¨£¨ÔÚÔ­Ê¼¶ÔÏóÉÏ½øÐÐ»ñÈ¡£©£»
-*   1.  `service1`£ºÈç¹û¿ªÆôÁËÖ§³ÖÑ­»·ÒÀÀµµÄÅäÖÃ£¬¾Í½« `service1` ·Åµ½Èý¼¶»º´æÖÐ£¨ÊÇ·ñÖ§³ÖÑ­»·ÒÀÀµ£¬ÊÇ¿ÉÒÔÅäÖÃµÄ£©£»
-*   1.  `service1`£º¶Ô `service1` ½øÐÐÒÀÀµ×¢Èë£¬ÐèÒª `service2`£¬È»ºó¾Í¿ªÊ¼ÁË `service2` µÄ»ñÈ¡Á÷³Ì£»
-*   5.1 `service2`£º»ñÈ¡ `service2`£¬´ÓÒ»¼¶»º´æÖÐ»ñÈ¡£¬´ËÊ±ÊÇ»ñÈ¡²»µ½µÄ£»
-*   5.2 `service2`£º´´½¨ `service2` µÄÊµÀý£»
-*   5.3 `service2`£º»ñÈ¡ÐèÒª×¢ÈëµÄÊôÐÔÓë·½·¨£¨ÔÚÔ­Ê¼¶ÔÏóÉÏ½øÐÐ»ñÈ¡£©£»
-*   5.4 `service2`£ºÈç¹û¿ªÆôÁËÖ§³ÖÑ­»·ÒÀÀµµÄÅäÖÃ£¬¾Í½« `service2` ·Åµ½Èý¼¶»º´æÖÐ£¨ÊÇ·ñÖ§³ÖÑ­»·ÒÀÀµ£¬ÊÇ¿ÉÒÔÅäÖÃµÄ£©£»
-*   5.5 `service2`£º¶Ô `service2` ½øÐÐÒÀÀµ×¢Èë£¬ÐèÒª `service1`£¬È»ºó¾Í¿ªÊ¼ÁË `service1` µÄ»ñÈ¡Á÷³Ì£»
-*   5.5.1 `service1`: »ñÈ¡ `service1`£¬´ÓÒ»¼¶»º´æÖÐ»ñÈ¡£¬»ñÈ¡²»µ½£»´ËÊ±·¢ÏÖ `service1` ÕýÔÚ´´½¨ÖÐ£¬ÓÚÊÇ¼ÌÐø´Ó¶þ¡¢Èý¼¶»º´æÖÐ»ñÈ¡£¬×îÖÕ´ÓÈý¼¶»º´æÖÐ»ñÈ¡µ½ÁË£¬½«Æä·ÅÈë¶þ¼¶»º´æ¡£´ÓÈý¼¶»º´æ»ñÈ¡µÄ¹ý³ÌÖÐ£¬**»áÅÐ¶Ï `service1` ÊÇ·ñÐèÒª½øÐÐ aop£¬È»ºó¿ªÊ¼ aop ²Ù×÷**£¬Òò´Ë·ÅÈë¶þ¼¶»º´æÖÐµÄÊÇ `service1` ´úÀí´úÀí£¬ÌáÇ°½øÐÐ aop ÊÇ½â¾öÑ­»·ÒÀÀµµÄ¹Ø¼ü£»
-*   5.6 `service2`£ºµÃµ½ÁË `service1` ºó£¨ÕâÀïµÄ `service1` ÊÇ´úÀí¶ÔÏó£©£¬½«Æä×¢Èëµ½ `service2` ÖÐ£¬½Ó×Å¶Ô `service2` ½øÐÐ aop£¬µÃµ½ `service2` µÄ´úÀí¶ÔÏó£»
-*   5.7 `service2`£ºÈç¹ûÖ§³ÖÑ­»·ÒÀÀµ£¬ÏÈ´ÓÒ»¡¢¶þ¼¶»º´æÖÐÔÙ´Î»ñÈ¡ `service2`£¬¶¼Î´»ñÈ¡µ½£¬¾ÍÊ¹ÓÃµ±Ç° `service2`£¨µ±Ç° `service2` ÊÇ´úÀí¶ÔÏó)£»
-*   5.8 `service2`£º½« service2 µÄ´úÀí¶ÔÏó·ÅÈëÒ»¼¶»º´æÖÐ£¬É¾³ý¶þ¡¢Èý¼¶»º´æ£¬ÖÁ´Ë£¬`service2` ³õÊ¼»¯Íê³É£¬×¢ÈëµÄ `service1` ÊÇ´úÀí¶ÔÏó£¬Ò»¼¶»º´æÖÐµÄ `service2` Ò²ÊÇ´úÀí¶ÔÏó£»
-*   1.  `service1`£º»Øµ½ `service1` µÄÉúÃüÖÜÆÚ£¬ÄÃµ½ `service2`£¨ÕâÀïµÄ `service2` ÊÇ´úÀí¶ÔÏó£©ºó£¬½«Æä×¢Èëµ½ `service1`£¬`service1` µÄÒÀÀµ×¢ÈëÍê³É£¬½øÐÐ³õÊ¼»¯£¬ÕâÀï»áÅÐ¶Ï `service1` ÊÇ·ñÐèÒª½øÐÐ aop£¬ËäÈ» `service1` ÊÇÐèÒª½øÐÐ aop µÄ£¬µ«ÓÉÓÚÔÚ `5.5.1` ÒÑ¾­½øÐÐ¹ý aop ÁË£¬Òò´Ë£¬ÕâÀïÖ±½Ó·µ»Ø£¨µ½ÕâÒ»²½£¬`service1` »¹ÊÇÔ­Ê¼¶ÔÏó£©£»
-*   1.  `service1`£ºÈç¹ûÖ§³ÖÑ­»·ÒÀÀµ£¬ÏÈ´ÓÒ»¼¶»º´æÖÐ»ñÈ¡ `service1`£¬»ñÈ¡²»µ½£»ÔÙ´Ó¶þ»º´æÖÐ»ñÈ¡ `service1`£¬¿ÉÒÔ»ñÈ¡µ½£¨´Ó `5.5.1` ¿ÉÖª£¬¶þ¼¶»º´æÀïÊÇ `service1` ´úÀí¶ÔÏó£©£¬·µ»Ø£»
-*   1.  `service1`£º½«¶þ¼¶»º´æÖÐ»ñÈ¡µÄ¶ÔÏó×¢²áµ½Ò»¼¶»º´æÖÐ£¬É¾³ý¶þ¡¢Èý¼¶»º´æ£¬ÖÁ´Ë£¬`service1` ³õÊ¼»¯Íê³É£¬×¢ÈëµÄ `service2` ÊÇ´úÀí¶ÔÏó£¬Ò»¼¶»º´æÖÐµÄ `service1` Ò²ÊÇ´úÀí¶ÔÏó¡£
+*   1.  `service1`ï¼šèŽ·å– `service1`ï¼Œä»Žä¸€çº§ç¼“å­˜ä¸­èŽ·å–ï¼Œæ­¤æ—¶æ˜¯èŽ·å–ä¸åˆ°çš„ï¼›
+*   1.  `service1`ï¼šåˆ›å»º `service1` çš„å®žä¾‹ï¼›
+*   1.  `service1`ï¼šèŽ·å–éœ€è¦æ³¨å…¥çš„å±žæ€§ä¸Žæ–¹æ³•ï¼ˆåœ¨åŽŸå§‹å¯¹è±¡ä¸Šè¿›è¡ŒèŽ·å–ï¼‰ï¼›
+*   1.  `service1`ï¼šå¦‚æžœå¼€å¯äº†æ”¯æŒå¾ªçŽ¯ä¾èµ–çš„é…ç½®ï¼Œå°±å°† `service1` æ”¾åˆ°ä¸‰çº§ç¼“å­˜ä¸­ï¼ˆæ˜¯å¦æ”¯æŒå¾ªçŽ¯ä¾èµ–ï¼Œæ˜¯å¯ä»¥é…ç½®çš„ï¼‰ï¼›
+*   1.  `service1`ï¼šå¯¹ `service1` è¿›è¡Œä¾èµ–æ³¨å…¥ï¼Œéœ€è¦ `service2`ï¼Œç„¶åŽå°±å¼€å§‹äº† `service2` çš„èŽ·å–æµç¨‹ï¼›
+*   5.1 `service2`ï¼šèŽ·å– `service2`ï¼Œä»Žä¸€çº§ç¼“å­˜ä¸­èŽ·å–ï¼Œæ­¤æ—¶æ˜¯èŽ·å–ä¸åˆ°çš„ï¼›
+*   5.2 `service2`ï¼šåˆ›å»º `service2` çš„å®žä¾‹ï¼›
+*   5.3 `service2`ï¼šèŽ·å–éœ€è¦æ³¨å…¥çš„å±žæ€§ä¸Žæ–¹æ³•ï¼ˆåœ¨åŽŸå§‹å¯¹è±¡ä¸Šè¿›è¡ŒèŽ·å–ï¼‰ï¼›
+*   5.4 `service2`ï¼šå¦‚æžœå¼€å¯äº†æ”¯æŒå¾ªçŽ¯ä¾èµ–çš„é…ç½®ï¼Œå°±å°† `service2` æ”¾åˆ°ä¸‰çº§ç¼“å­˜ä¸­ï¼ˆæ˜¯å¦æ”¯æŒå¾ªçŽ¯ä¾èµ–ï¼Œæ˜¯å¯ä»¥é…ç½®çš„ï¼‰ï¼›
+*   5.5 `service2`ï¼šå¯¹ `service2` è¿›è¡Œä¾èµ–æ³¨å…¥ï¼Œéœ€è¦ `service1`ï¼Œç„¶åŽå°±å¼€å§‹äº† `service1` çš„èŽ·å–æµç¨‹ï¼›
+*   5.5.1 `service1`: èŽ·å– `service1`ï¼Œä»Žä¸€çº§ç¼“å­˜ä¸­èŽ·å–ï¼ŒèŽ·å–ä¸åˆ°ï¼›æ­¤æ—¶å‘çŽ° `service1` æ­£åœ¨åˆ›å»ºä¸­ï¼ŒäºŽæ˜¯ç»§ç»­ä»ŽäºŒã€ä¸‰çº§ç¼“å­˜ä¸­èŽ·å–ï¼Œæœ€ç»ˆä»Žä¸‰çº§ç¼“å­˜ä¸­èŽ·å–åˆ°äº†ï¼Œå°†å…¶æ”¾å…¥äºŒçº§ç¼“å­˜ã€‚ä»Žä¸‰çº§ç¼“å­˜èŽ·å–çš„è¿‡ç¨‹ä¸­ï¼Œ**ä¼šåˆ¤æ–­ `service1` æ˜¯å¦éœ€è¦è¿›è¡Œ aopï¼Œç„¶åŽå¼€å§‹ aop æ“ä½œ**ï¼Œå› æ­¤æ”¾å…¥äºŒçº§ç¼“å­˜ä¸­çš„æ˜¯ `service1` ä»£ç†ä»£ç†ï¼Œæå‰è¿›è¡Œ aop æ˜¯è§£å†³å¾ªçŽ¯ä¾èµ–çš„å…³é”®ï¼›
+*   5.6 `service2`ï¼šå¾—åˆ°äº† `service1` åŽï¼ˆè¿™é‡Œçš„ `service1` æ˜¯ä»£ç†å¯¹è±¡ï¼‰ï¼Œå°†å…¶æ³¨å…¥åˆ° `service2` ä¸­ï¼ŒæŽ¥ç€å¯¹ `service2` è¿›è¡Œ aopï¼Œå¾—åˆ° `service2` çš„ä»£ç†å¯¹è±¡ï¼›
+*   5.7 `service2`ï¼šå¦‚æžœæ”¯æŒå¾ªçŽ¯ä¾èµ–ï¼Œå…ˆä»Žä¸€ã€äºŒçº§ç¼“å­˜ä¸­å†æ¬¡èŽ·å– `service2`ï¼Œéƒ½æœªèŽ·å–åˆ°ï¼Œå°±ä½¿ç”¨å½“å‰ `service2`ï¼ˆå½“å‰ `service2` æ˜¯ä»£ç†å¯¹è±¡)ï¼›
+*   5.8 `service2`ï¼šå°† service2 çš„ä»£ç†å¯¹è±¡æ”¾å…¥ä¸€çº§ç¼“å­˜ä¸­ï¼Œåˆ é™¤äºŒã€ä¸‰çº§ç¼“å­˜ï¼Œè‡³æ­¤ï¼Œ`service2` åˆå§‹åŒ–å®Œæˆï¼Œæ³¨å…¥çš„ `service1` æ˜¯ä»£ç†å¯¹è±¡ï¼Œä¸€çº§ç¼“å­˜ä¸­çš„ `service2` ä¹Ÿæ˜¯ä»£ç†å¯¹è±¡ï¼›
+*   1.  `service1`ï¼šå›žåˆ° `service1` çš„ç”Ÿå‘½å‘¨æœŸï¼Œæ‹¿åˆ° `service2`ï¼ˆè¿™é‡Œçš„ `service2` æ˜¯ä»£ç†å¯¹è±¡ï¼‰åŽï¼Œå°†å…¶æ³¨å…¥åˆ° `service1`ï¼Œ`service1` çš„ä¾èµ–æ³¨å…¥å®Œæˆï¼Œè¿›è¡Œåˆå§‹åŒ–ï¼Œè¿™é‡Œä¼šåˆ¤æ–­ `service1` æ˜¯å¦éœ€è¦è¿›è¡Œ aopï¼Œè™½ç„¶ `service1` æ˜¯éœ€è¦è¿›è¡Œ aop çš„ï¼Œä½†ç”±äºŽåœ¨ `5.5.1` å·²ç»è¿›è¡Œè¿‡ aop äº†ï¼Œå› æ­¤ï¼Œè¿™é‡Œç›´æŽ¥è¿”å›žï¼ˆåˆ°è¿™ä¸€æ­¥ï¼Œ`service1` è¿˜æ˜¯åŽŸå§‹å¯¹è±¡ï¼‰ï¼›
+*   1.  `service1`ï¼šå¦‚æžœæ”¯æŒå¾ªçŽ¯ä¾èµ–ï¼Œå…ˆä»Žä¸€çº§ç¼“å­˜ä¸­èŽ·å– `service1`ï¼ŒèŽ·å–ä¸åˆ°ï¼›å†ä»ŽäºŒç¼“å­˜ä¸­èŽ·å– `service1`ï¼Œå¯ä»¥èŽ·å–åˆ°ï¼ˆä»Ž `5.5.1` å¯çŸ¥ï¼ŒäºŒçº§ç¼“å­˜é‡Œæ˜¯ `service1` ä»£ç†å¯¹è±¡ï¼‰ï¼Œè¿”å›žï¼›
+*   1.  `service1`ï¼šå°†äºŒçº§ç¼“å­˜ä¸­èŽ·å–çš„å¯¹è±¡æ³¨å†Œåˆ°ä¸€çº§ç¼“å­˜ä¸­ï¼Œåˆ é™¤äºŒã€ä¸‰çº§ç¼“å­˜ï¼Œè‡³æ­¤ï¼Œ`service1` åˆå§‹åŒ–å®Œæˆï¼Œæ³¨å…¥çš„ `service2` æ˜¯ä»£ç†å¯¹è±¡ï¼Œä¸€çº§ç¼“å­˜ä¸­çš„ `service1` ä¹Ÿæ˜¯ä»£ç†å¯¹è±¡ã€‚
 
-ÒÔÉÏÁ÷³Ì£¬ËäÈ»²½Öè½Ï¶à£¬µ« `service1` Óë `service2` µÄ»ñÈ¡²½ÖèÊÇÏàÍ¬µÄ£¬Ö»ÒªÅªÇåÁËÆäÖÐÖ®Ò»µÄ»ñÈ¡Á÷³Ì£¬ÁíÒ»¸ö bean µÄ»ñÈ¡Á÷³Ì¾ÍºÜÀ×Í¬ÁË¡£
+ä»¥ä¸Šæµç¨‹ï¼Œè™½ç„¶æ­¥éª¤è¾ƒå¤šï¼Œä½† `service1` ä¸Ž `service2` çš„èŽ·å–æ­¥éª¤æ˜¯ç›¸åŒçš„ï¼Œåªè¦å¼„æ¸…äº†å…¶ä¸­ä¹‹ä¸€çš„èŽ·å–æµç¨‹ï¼Œå¦ä¸€ä¸ª bean çš„èŽ·å–æµç¨‹å°±å¾ˆé›·åŒäº†ã€‚
 
-ÔÚÉÏÊöÁ÷³ÌÖÐ£¬»¹ÓÐÁ½¸öÊý¾Ý½á¹¹ÐèÒªËµÃ÷ÏÂ£º
+åœ¨ä¸Šè¿°æµç¨‹ä¸­ï¼Œè¿˜æœ‰ä¸¤ä¸ªæ•°æ®ç»“æž„éœ€è¦è¯´æ˜Žä¸‹ï¼š
 
-*   `singletonsCurrentlyInCreation`£ºÀàÐÍÎª `SetFromMap<String>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry`£¬´´½¨·½Ê½Îª `Collections.newSetFromMap(new ConcurrentHashMap<>(16))`£¬±íÃ÷ÕâÊÇ¸öÓÉ `ConcurrentHashMap` ÊµÏÖµÄ set£¬´æ´¢µÄÊÇÕýÔÚ´´½¨ÖÐµÄ¶ÔÏó£¬**ÅÐ¶Ïµ±Ç°¶ÔÏóÊÇ·ñÔÚ´´½¨ÖÐ¾ÍÊÇÍ¨¹ý²éÕÒµ±Ç°¶ÔÏóÊÇ·ñÔÚÕâ¸ö set ÖÐ**×öµ½µÄ£»
-*   `earlyProxyReferences`£ºÀàÐÍÎª `ConcurrentHashMap<Object, Object>`£¬Î»ÓÚ `AbstractAutoProxyCreator`£¬´æ´¢µÄÊÇÌáÇ°½øÐÐ aop µÄ¶ÔÏó£¬**Èç¹ûÒ»¸ö¶ÔÏóÌáÇ°½øÐÐÁË aop£¬ÔÚºóÃæÔÙ´Î aop Ê±£¬»áÍ¨¹ýÅÐ¶Ï¶ÔÏóÊÇ·ñÔÚ `earlyProxyReferences` ÖÐ¶øÈ·¶¨Òª²»Òª½øÐÐ aop£¬ÒÔ´ËÀ´±£Ö¤Ã¿¸ö¶ÔÏóÖ»½øÐÐÒ»´Î aop**¡£
+*   `singletonsCurrentlyInCreation`ï¼šç±»åž‹ä¸º `SetFromMap<String>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry`ï¼Œåˆ›å»ºæ–¹å¼ä¸º `Collections.newSetFromMap(new ConcurrentHashMap<>(16))`ï¼Œè¡¨æ˜Žè¿™æ˜¯ä¸ªç”± `ConcurrentHashMap` å®žçŽ°çš„ setï¼Œå­˜å‚¨çš„æ˜¯æ­£åœ¨åˆ›å»ºä¸­çš„å¯¹è±¡ï¼Œ**åˆ¤æ–­å½“å‰å¯¹è±¡æ˜¯å¦åœ¨åˆ›å»ºä¸­å°±æ˜¯é€šè¿‡æŸ¥æ‰¾å½“å‰å¯¹è±¡æ˜¯å¦åœ¨è¿™ä¸ª set ä¸­**åšåˆ°çš„ï¼›
+*   `earlyProxyReferences`ï¼šç±»åž‹ä¸º `ConcurrentHashMap<Object, Object>`ï¼Œä½äºŽ `AbstractAutoProxyCreator`ï¼Œå­˜å‚¨çš„æ˜¯æå‰è¿›è¡Œ aop çš„å¯¹è±¡ï¼Œ**å¦‚æžœä¸€ä¸ªå¯¹è±¡æå‰è¿›è¡Œäº† aopï¼Œåœ¨åŽé¢å†æ¬¡ aop æ—¶ï¼Œä¼šé€šè¿‡åˆ¤æ–­å¯¹è±¡æ˜¯å¦åœ¨ `earlyProxyReferences` ä¸­è€Œç¡®å®šè¦ä¸è¦è¿›è¡Œ aopï¼Œä»¥æ­¤æ¥ä¿è¯æ¯ä¸ªå¯¹è±¡åªè¿›è¡Œä¸€æ¬¡ aop**ã€‚
 
-ÖÁ´Ë£¬spring Ò»¹²Ìá¹©ÁË 5 ¸öÊý¾Ý½á¹¹À´¸¨Öú½â¾öÑ­»·ÒÀÀµÎÊÌâ£¬×Ü½áÈçÏÂ£º
+è‡³æ­¤ï¼Œspring ä¸€å…±æä¾›äº† 5 ä¸ªæ•°æ®ç»“æž„æ¥è¾…åŠ©è§£å†³å¾ªçŽ¯ä¾èµ–é—®é¢˜ï¼Œæ€»ç»“å¦‚ä¸‹ï¼š
 
-| ½á¹¹                            | ËµÃ÷                                                         |
+| ç»“æž„                            | è¯´æ˜Ž                                                         |
 | ------------------------------- | ------------------------------------------------------------ |
-| `singletonObjects`              | **Ò»¼¶»º´æ**£¬ÀàÐÍÎª `ConcurrentHashMap<String, Object>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖÐ£¬`key` Îª `beanName`£¬`value` ÊÇÍêÕûµÄ `spring bean`£¬¼´Íê³ÉÊôÐÔ×¢Èë¡¢³õÊ¼»¯µÄ bean£¬Èç¹û bean ÐèÒª aop£¬´æ´¢µÄ¾ÍÊÇ´úÀí¶ÔÏó |
-| `earlySingletonObjects`         | **¶þ¼¶»º´æ**£¬ÀàÐÍÎª `HashMap<String, Object>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖÐ£¬`key` Îª `beanName`£¬`value` ÊÇÊµÀý»¯Íê³É£¬µ«Î´½øÐÐÒÀÀµ×¢ÈëµÄ `bean`£¬**Èç¹û `bean` ÐèÒª `aop`£¬ÕâÀï´æ´¢µÄ¾ÍÊÇ´úÀí¶ÔÏó£¬Ö»²»¹ý´úÀí¶ÔÏóËù³ÖÓÐµÄÔ­Ê¼¶ÔÏó²¢Î´½øÐÐÒÀÀµ×¢Èë** |
-| `singletonFactories`            | **Èý¼¶»º´æ**£¬ÀàÐÍÎª `HashMap<String, ObjectFactory>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖÐ£¬`key` Îª `beanName`£¬`value` ´æ´¢µÄÊÇÒ»¸ö `lambda` ±í´ïÊ½£º`() -> getEarlyBeanReference(beanName, mbd, bean)`£¬`getEarlyBeanReference(xxx)` ÖÐµÄ `bean` ÊÇ¸Õ´´½¨Íê³ÉµÄ `java bean`£¬Ã»ÓÐ½øÐÐ spring ÒÀÀµ×¢Èë£¬Ò²Ã»½øÐÐ aop |
-| `singletonsCurrentlyInCreation` | ÀàÐÍÎª `SetFromMap<String>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry`£¬´´½¨·½Ê½Îª `Collections.newSetFromMap(new ConcurrentHashMap<>(16))`£¬±íÃ÷ÕâÊÇ¸öÓÉ `ConcurrentHashMap` ÊµÏÖµÄ set£¬´æ´¢µÄÊÇÕýÔÚ´´½¨ÖÐµÄ¶ÔÏó£¬¿ÉÒÔ**ÓÃÀ´ÅÐ¶Ïµ±Ç°¶ÔÏóÊÇ·ñÔÚ´´½¨ÖÐ** |
-| `earlyProxyReferences`          | ÀàÐÍÎª `ConcurrentHashMap<Object, Object>`£¬Î»ÓÚ `AbstractAutoProxyCreator`£¬´æ´¢µÄÊÇÌáÇ°½øÐÐ aop µÄ¶ÔÏó£¬¿ÉÒÔ**ÓÃÀ´ÅÐ¶Ï bean ÊÇ·ñ½øÐÐ¹ý aop£¬±£Ö¤Ã¿¸ö¶ÔÏóÖ»½øÐÐÒ»´Î aop** |
+| `singletonObjects`              | **ä¸€çº§ç¼“å­˜**ï¼Œç±»åž‹ä¸º `ConcurrentHashMap<String, Object>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` æ˜¯å®Œæ•´çš„ `spring bean`ï¼Œå³å®Œæˆå±žæ€§æ³¨å…¥ã€åˆå§‹åŒ–çš„ beanï¼Œå¦‚æžœ bean éœ€è¦ aopï¼Œå­˜å‚¨çš„å°±æ˜¯ä»£ç†å¯¹è±¡ |
+| `earlySingletonObjects`         | **äºŒçº§ç¼“å­˜**ï¼Œç±»åž‹ä¸º `HashMap<String, Object>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` æ˜¯å®žä¾‹åŒ–å®Œæˆï¼Œä½†æœªè¿›è¡Œä¾èµ–æ³¨å…¥çš„ `bean`ï¼Œ**å¦‚æžœ `bean` éœ€è¦ `aop`ï¼Œè¿™é‡Œå­˜å‚¨çš„å°±æ˜¯ä»£ç†å¯¹è±¡ï¼Œåªä¸è¿‡ä»£ç†å¯¹è±¡æ‰€æŒæœ‰çš„åŽŸå§‹å¯¹è±¡å¹¶æœªè¿›è¡Œä¾èµ–æ³¨å…¥** |
+| `singletonFactories`            | **ä¸‰çº§ç¼“å­˜**ï¼Œç±»åž‹ä¸º `HashMap<String, ObjectFactory>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` å­˜å‚¨çš„æ˜¯ä¸€ä¸ª `lambda` è¡¨è¾¾å¼ï¼š`() -> getEarlyBeanReference(beanName, mbd, bean)`ï¼Œ`getEarlyBeanReference(xxx)` ä¸­çš„ `bean` æ˜¯åˆšåˆ›å»ºå®Œæˆçš„ `java bean`ï¼Œæ²¡æœ‰è¿›è¡Œ spring ä¾èµ–æ³¨å…¥ï¼Œä¹Ÿæ²¡è¿›è¡Œ aop |
+| `singletonsCurrentlyInCreation` | ç±»åž‹ä¸º `SetFromMap<String>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry`ï¼Œåˆ›å»ºæ–¹å¼ä¸º `Collections.newSetFromMap(new ConcurrentHashMap<>(16))`ï¼Œè¡¨æ˜Žè¿™æ˜¯ä¸ªç”± `ConcurrentHashMap` å®žçŽ°çš„ setï¼Œå­˜å‚¨çš„æ˜¯æ­£åœ¨åˆ›å»ºä¸­çš„å¯¹è±¡ï¼Œå¯ä»¥**ç”¨æ¥åˆ¤æ–­å½“å‰å¯¹è±¡æ˜¯å¦åœ¨åˆ›å»ºä¸­** |
+| `earlyProxyReferences`          | ç±»åž‹ä¸º `ConcurrentHashMap<Object, Object>`ï¼Œä½äºŽ `AbstractAutoProxyCreator`ï¼Œå­˜å‚¨çš„æ˜¯æå‰è¿›è¡Œ aop çš„å¯¹è±¡ï¼Œå¯ä»¥**ç”¨æ¥åˆ¤æ–­ bean æ˜¯å¦è¿›è¡Œè¿‡ aopï¼Œä¿è¯æ¯ä¸ªå¯¹è±¡åªè¿›è¡Œä¸€æ¬¡ aop** |
 
-ÒÔÉÏ¾ÍÊÇ spring ½â¾öÑ­»·ÒÀÀµµÄÍêÕûÁ÷³ÌÁË¡£
+ä»¥ä¸Šå°±æ˜¯ spring è§£å†³å¾ªçŽ¯ä¾èµ–çš„å®Œæ•´æµç¨‹äº†ã€‚
 
-### 3\. ´úÂëÄ£Äâ
+### 3\. ä»£ç æ¨¡æ‹Ÿ
 
-ÔÚÕýÊ½·ÖÎöÔ´ÂëÇ°£¬ÎÒÃÇÊ×ÏÈÄ£ÄâÑ­»·ÏÂÒÀÀµ½â¾öµÄ¹ý³Ì£¬´úÂëÈçÏÂ£º
+åœ¨æ­£å¼åˆ†æžæºç å‰ï¼Œæˆ‘ä»¬é¦–å…ˆæ¨¡æ‹Ÿå¾ªçŽ¯ä¸‹ä¾èµ–è§£å†³çš„è¿‡ç¨‹ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 /**
- * ×¼±¸Ò»¸öÀà£¬ÄÚ²¿ÓÐÒ»¸öÊôÐÔ Obj2
+ * å‡†å¤‡ä¸€ä¸ªç±»ï¼Œå†…éƒ¨æœ‰ä¸€ä¸ªå±žæ€§ Obj2
  */
 public class Obj1 {
-    // ÐèÒª×¢Èë obj2
+    // éœ€è¦æ³¨å…¥ obj2
     private Obj2 obj2;
 
-    // Ê¡ÂÔÆäËû·½·¨
+    // çœç•¥å…¶ä»–æ–¹æ³•
     ...
 }
 
 /**
- * ×¼±¸Ò»¸öÀà£¬ÄÚ²¿ÓÐÒ»¸öÊôÐÔ Obj1
+ * å‡†å¤‡ä¸€ä¸ªç±»ï¼Œå†…éƒ¨æœ‰ä¸€ä¸ªå±žæ€§ Obj1
  */
 public class Obj2 {
-    // ÐèÒª×¢Èë ob1
+    // éœ€è¦æ³¨å…¥ ob1
     private Obj1 obj1;
 
-    // Ê¡ÂÔÆäËû·½·¨
+    // çœç•¥å…¶ä»–æ–¹æ³•
     ...
 
 }
 
 /**
- * ×¼±¸Obj2µÄ´úÀíÀà£¬ÄÚ²¿³ÖÓÐobj2µÄ¶ÔÏó
+ * å‡†å¤‡Obj2çš„ä»£ç†ç±»ï¼Œå†…éƒ¨æŒæœ‰obj2çš„å¯¹è±¡
  */
 public class ProxyObj2 extends Obj2 {
-    // obj2´úÀíÀàÄÚ²¿³ÖÓÐobj2µÄÔ­Ê¼¶ÔÏó
+    // obj2ä»£ç†ç±»å†…éƒ¨æŒæœ‰obj2çš„åŽŸå§‹å¯¹è±¡
     private Obj2 obj2;
 
     public ProxyObj2(Obj2 obj2) {
         this.obj2 = obj2;
     }
 
-    // Ê¡ÂÔÆäËû·½·¨
+    // çœç•¥å…¶ä»–æ–¹æ³•
     ...
 
 }
 
 /**
- * ×¼±¸Obj1µÄ´úÀíÀà£¬ÄÚ²¿³ÖÓÐobj1µÄ¶ÔÏó
+ * å‡†å¤‡Obj1çš„ä»£ç†ç±»ï¼Œå†…éƒ¨æŒæœ‰obj1çš„å¯¹è±¡
  */
 public class ProxyObj1 extends Obj1 {
-    // obj2´úÀíÀàÄÚ²¿³ÖÓÐobj1µÄÔ­Ê¼¶ÔÏó
+    // obj2ä»£ç†ç±»å†…éƒ¨æŒæœ‰obj1çš„åŽŸå§‹å¯¹è±¡
     private Obj1 obj1;
 
     public ProxyObj1(Obj1 obj1) {
         this.obj1 = obj1;
     }
 
-    // Ê¡ÂÔÆäËû·½·¨
+    // çœç•¥å…¶ä»–æ–¹æ³•
     ...
 
 }
 
 ```
 
-*   Ê×ÏÈ×¼±¸ÁËÁ½¸öÀà£º`Obj1` Óë `Obj2`£¬ ÆäÖÐ `Obj1` ÓÐ¸öÊôÐÔÎª `Obj2`£¬`Obj2` ÖÐÓÐ¸öÊôÐÔÎª `Obj1`£»
-*   ½Ó×Å×¼±¸ÁË `Obj1` Óë `Obj2` µÄ´úÀíÀà `ProxyObj1`¡¢`ProxyObj2`£¬²¢ÇÒ `ProxyObj1`¡¢`ProxyObj2` ·Ö±ðÓÐÒ»¸öÊôÐÔ£º`Obj1` ¡¢ `Obj2`£»
-*   ÎÒÃÇÒÀ¾ÉÒÔ `new ObjX()` Ä£Äâ¶ÔÏóµÄ´´½¨£»
-*   ÎÒÃÇÒÀ¾ÉÒÔ `objX.setObjX(xxx)` Ä£ÄâÒÀÀµ×¢Èë£»
-*   ÎÒÃÇÒÀ¾ÉÒÔ `new ProxyObjX(xxx)` Ä£Äâ´úÀí¶ÔÏóµÄÉú³É£»
-*   ÎÒÃÇÒÀ¾ÉÒÔ `collection.add(xxx)` Ä£Äâ¶ÔÏóÌí¼Óµ½ÈÝÆ÷ÖÐµÄ¹ý³Ì£»
+*   é¦–å…ˆå‡†å¤‡äº†ä¸¤ä¸ªç±»ï¼š`Obj1` ä¸Ž `Obj2`ï¼Œ å…¶ä¸­ `Obj1` æœ‰ä¸ªå±žæ€§ä¸º `Obj2`ï¼Œ`Obj2` ä¸­æœ‰ä¸ªå±žæ€§ä¸º `Obj1`ï¼›
+*   æŽ¥ç€å‡†å¤‡äº† `Obj1` ä¸Ž `Obj2` çš„ä»£ç†ç±» `ProxyObj1`ã€`ProxyObj2`ï¼Œå¹¶ä¸” `ProxyObj1`ã€`ProxyObj2` åˆ†åˆ«æœ‰ä¸€ä¸ªå±žæ€§ï¼š`Obj1` ã€ `Obj2`ï¼›
+*   æˆ‘ä»¬ä¾æ—§ä»¥ `new ObjX()` æ¨¡æ‹Ÿå¯¹è±¡çš„åˆ›å»ºï¼›
+*   æˆ‘ä»¬ä¾æ—§ä»¥ `objX.setObjX(xxx)` æ¨¡æ‹Ÿä¾èµ–æ³¨å…¥ï¼›
+*   æˆ‘ä»¬ä¾æ—§ä»¥ `new ProxyObjX(xxx)` æ¨¡æ‹Ÿä»£ç†å¯¹è±¡çš„ç”Ÿæˆï¼›
+*   æˆ‘ä»¬ä¾æ—§ä»¥ `collection.add(xxx)` æ¨¡æ‹Ÿå¯¹è±¡æ·»åŠ åˆ°å®¹å™¨ä¸­çš„è¿‡ç¨‹ï¼›
 
-ÎÒÃÇÄ£Äâ×îÖÕµÃµ½µÄ½á¹ûÎª£º
+æˆ‘ä»¬æ¨¡æ‹Ÿæœ€ç»ˆå¾—åˆ°çš„ç»“æžœä¸ºï¼š
 
-*   ×îÖÕ·ÅÈëÈÝÆ÷µÄ¶ÔÏó·Ö±ðÊÇ `proxyObj1`£¬`proxyObj2`
-*   ×¢Èëµ½ `obj1` ÖÐµÄÊÇ `proxyObj2`£¬×¢Èëµ½ `obj2` ÖÐµÄÊÇ `proxyObj2`
+*   æœ€ç»ˆæ”¾å…¥å®¹å™¨çš„å¯¹è±¡åˆ†åˆ«æ˜¯ `proxyObj1`ï¼Œ`proxyObj2`
+*   æ³¨å…¥åˆ° `obj1` ä¸­çš„æ˜¯ `proxyObj2`ï¼Œæ³¨å…¥åˆ° `obj2` ä¸­çš„æ˜¯ `proxyObj2`
 
-×¼±¸¹¤×÷ÒÑ¾­Íê³ÉÁË£¬½ÓÏÂÀ´ÎÒÃÇ¾Í¿ªÊ¼½øÐÐÄ£ÄâÁË¡£
+å‡†å¤‡å·¥ä½œå·²ç»å®Œæˆäº†ï¼ŒæŽ¥ä¸‹æ¥æˆ‘ä»¬å°±å¼€å§‹è¿›è¡Œæ¨¡æ‹Ÿäº†ã€‚
 
-#### 3.1 Ä£Äâ 1
+#### 3.1 æ¨¡æ‹Ÿ 1
 
-ÒªÇó£º
+è¦æ±‚ï¼š
 
-*   Obj1 Óë Obj2 ±ØÐëÑÏ¸ñ°´ÕÕ ¡°´´½¨ --> ÊôÐÔ×¢Èë --> Éú³É´úÀí¶ÔÏó --> ±£´æµ½ÈÝÆ÷ÖÐ¡± µÄÁ÷³Ì´´½¨
-*   Á½¸ö¶ÔÏóµÄ´´½¨Á÷³Ì¿ÉÒÔ½»Ìæ½øÐÐ
+*   Obj1 ä¸Ž Obj2 å¿…é¡»ä¸¥æ ¼æŒ‰ç…§ â€œåˆ›å»º --> å±žæ€§æ³¨å…¥ --> ç”Ÿæˆä»£ç†å¯¹è±¡ --> ä¿å­˜åˆ°å®¹å™¨ä¸­â€ çš„æµç¨‹åˆ›å»º
+*   ä¸¤ä¸ªå¯¹è±¡çš„åˆ›å»ºæµç¨‹å¯ä»¥äº¤æ›¿è¿›è¡Œ
 
-Ä¿±ê£º
+ç›®æ ‡ï¼š
 
-*   ×îÖÕ·ÅÈëÈÝÆ÷µÄ¶ÔÏó·Ö±ðÊÇ `proxyObj1`£¬`proxyObj2`
-*   ×¢Èëµ½ `obj1` ÖÐµÄÊÇ `proxyObj2`£¬×¢Èëµ½ `obj2` ÖÐµÄÊÇ `proxyObj2`
+*   æœ€ç»ˆæ”¾å…¥å®¹å™¨çš„å¯¹è±¡åˆ†åˆ«æ˜¯ `proxyObj1`ï¼Œ`proxyObj2`
+*   æ³¨å…¥åˆ° `obj1` ä¸­çš„æ˜¯ `proxyObj2`ï¼Œæ³¨å…¥åˆ° `obj2` ä¸­çš„æ˜¯ `proxyObj2`
 
-´úÂëÈçÏÂ£º
+ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public static main(String[] args) {
-     // ×¼±¸Ò»¸öÈÝÆ÷£¬ÕâÀï±£´æµÄÊÇÍê³ÉÉÏÊöÉúÃüÖÜÆÚµÄ¶ÔÏó
-     // 1\. Èç¹ûÔªËØÊÇÔ­Ê¼¶ÔÏó£¬Ôò¸Ã¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
-     // 2\. Èç¹ûÔªËØÊÇ´úÀí¶ÔÏó£¬Ôò¸Ã¶ÔÏó³ÖÓÐµÄÔ­ÓÐ¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
+     // å‡†å¤‡ä¸€ä¸ªå®¹å™¨ï¼Œè¿™é‡Œä¿å­˜çš„æ˜¯å®Œæˆä¸Šè¿°ç”Ÿå‘½å‘¨æœŸçš„å¯¹è±¡
+     // 1\. å¦‚æžœå…ƒç´ æ˜¯åŽŸå§‹å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
+     // 2\. å¦‚æžœå…ƒç´ æ˜¯ä»£ç†å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡æŒæœ‰çš„åŽŸæœ‰å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
      Collection<?> collection = new ArrayList();
 
-     // 1\. ´´½¨ Obj1 ¶ÔÏó
+     // 1\. åˆ›å»º Obj1 å¯¹è±¡
      Obj1 obj1 = new Obj1();
 
-     // ½ÓÏÂÀ´ÐèÒª½«obj2µÄ´úÀí¶ÔÏó×¢Èëµ½obj1ÖÐ£¬µ«´ËÊ±ÈÝÆ÷ÖÐ²¢Ã»ÓÐobj2µÄ´úÀí¶ÔÏó£¬ÓÚÊÇÇÐ»»µ½obj2µÄ´´½¨Á÷³Ì
-     // Ò». ´´½¨ Obj2 ¶ÔÏó
+     // æŽ¥ä¸‹æ¥éœ€è¦å°†obj2çš„ä»£ç†å¯¹è±¡æ³¨å…¥åˆ°obj1ä¸­ï¼Œä½†æ­¤æ—¶å®¹å™¨ä¸­å¹¶æ²¡æœ‰obj2çš„ä»£ç†å¯¹è±¡ï¼ŒäºŽæ˜¯åˆ‡æ¢åˆ°obj2çš„åˆ›å»ºæµç¨‹
+     // ä¸€. åˆ›å»º Obj2 å¯¹è±¡
      Obj2 obj2 = new Obj2();
 
-     // µ½ÕâÀï£¬obj2ÐèÒª×¢Èëobj1µÄ´úÀí¶ÔÏó£¬µ«´ËÊ±ÈÝÆ÷ÖÐ²¢Ã»ÓÐobj2µÄ´úÀí¶ÔÏó£¬ÓÚÊÇÓÖÒªÇÐµ½obj1µÄ´´½¨Á÷³Ì
+     // åˆ°è¿™é‡Œï¼Œobj2éœ€è¦æ³¨å…¥obj1çš„ä»£ç†å¯¹è±¡ï¼Œä½†æ­¤æ—¶å®¹å™¨ä¸­å¹¶æ²¡æœ‰obj2çš„ä»£ç†å¯¹è±¡ï¼ŒäºŽæ˜¯åˆè¦åˆ‡åˆ°obj1çš„åˆ›å»ºæµç¨‹
 
 }
 
 ```
 
-ÔÚÖ´ÐÐÒÔÉÏÁ÷³ÌÖÐ £¬·¢ÏÖ´´½¨ Obj2 ¶ÔÏóºó£¬Á÷³Ì¾Í½øÐÐ²»ÏÂÈ¥ÁË£º
+åœ¨æ‰§è¡Œä»¥ä¸Šæµç¨‹ä¸­ ï¼Œå‘çŽ°åˆ›å»º Obj2 å¯¹è±¡åŽï¼Œæµç¨‹å°±è¿›è¡Œä¸ä¸‹åŽ»äº†ï¼š
 
-*   `obj1` ÐèÒª×¢Èë `obj2` µÄ´úÀí¶ÔÏó£¬µ«ÕÒ²»µ½£¬ÓÚÊÇÇÐ»»µ½ `obj2` µÄ´´½¨Á÷³Ì£»
-*   `obj2` ÐèÒª×¢Èë `obj1` µÄ´úÀí¶ÔÏó£¬µ«ÕÒ²»µ½£¬ÓÚÊÇÇÐ»»µ½ `obj1` µÄ´´½¨Á÷³Ì£»
-*   `obj1` ÐèÒª×¢Èë `obj2` µÄ´úÀí¶ÔÏó£¬µ«ÕÒ²»µ½£¬ÓÚÊÇÇÐ»»µ½ `obj2` µÄ´´½¨Á÷³Ì£»
+*   `obj1` éœ€è¦æ³¨å…¥ `obj2` çš„ä»£ç†å¯¹è±¡ï¼Œä½†æ‰¾ä¸åˆ°ï¼ŒäºŽæ˜¯åˆ‡æ¢åˆ° `obj2` çš„åˆ›å»ºæµç¨‹ï¼›
+*   `obj2` éœ€è¦æ³¨å…¥ `obj1` çš„ä»£ç†å¯¹è±¡ï¼Œä½†æ‰¾ä¸åˆ°ï¼ŒäºŽæ˜¯åˆ‡æ¢åˆ° `obj1` çš„åˆ›å»ºæµç¨‹ï¼›
+*   `obj1` éœ€è¦æ³¨å…¥ `obj2` çš„ä»£ç†å¯¹è±¡ï¼Œä½†æ‰¾ä¸åˆ°ï¼ŒäºŽæ˜¯åˆ‡æ¢åˆ° `obj2` çš„åˆ›å»ºæµç¨‹ï¼›
 *   ...
 
-Èç´ËÑ­»·Íù¸´¡£
+å¦‚æ­¤å¾ªçŽ¯å¾€å¤ã€‚
 
-Ä£Äâ½á¹û£ºÎ´´ïµ½Ô¤ÆÚÄ¿±ê£¬±¾´ÎÄ£ÄâÐû¸æÊ§°Ü¡£
+æ¨¡æ‹Ÿç»“æžœï¼šæœªè¾¾åˆ°é¢„æœŸç›®æ ‡ï¼Œæœ¬æ¬¡æ¨¡æ‹Ÿå®£å‘Šå¤±è´¥ã€‚
 
-#### 3.1 Ä£Äâ 2
+#### 3.1 æ¨¡æ‹Ÿ 2
 
-ÒªÇó£º
+è¦æ±‚ï¼š
 
-*   Obj1 Óë Obj2 ±ØÐëÒÔÏÂÁ½ÖÖÁ÷³ÌÖ®Ò»´´½¨£º
-    *   ¡°´´½¨ --> ÊôÐÔ×¢Èë --> Éú³É´úÀí¶ÔÏó --> ±£´æµ½ÈÝÆ÷ÖÐ¡± µÄÁ÷³Ì´´½¨
-    *   ¡°´´½¨ (Ô­Ê¼¶ÔÏó)--> Éú³É´úÀí¶ÔÏó --> ¶ÔÔ­Ê¼¶ÔÏó½øÐÐÊôÐÔ×¢Èë --> ½«´úÀí¶ÔÏó±£´æµ½ÈÝÆ÷ÖÐ¡± µÄÁ÷³Ì´´½¨
-*   Á½¸ö¶ÔÏóµÄ´´½¨Á÷³Ì¿ÉÒÔ½»Ìæ½øÐÐ
+*   Obj1 ä¸Ž Obj2 å¿…é¡»ä»¥ä¸‹ä¸¤ç§æµç¨‹ä¹‹ä¸€åˆ›å»ºï¼š
+    *   â€œåˆ›å»º --> å±žæ€§æ³¨å…¥ --> ç”Ÿæˆä»£ç†å¯¹è±¡ --> ä¿å­˜åˆ°å®¹å™¨ä¸­â€ çš„æµç¨‹åˆ›å»º
+    *   â€œåˆ›å»º (åŽŸå§‹å¯¹è±¡)--> ç”Ÿæˆä»£ç†å¯¹è±¡ --> å¯¹åŽŸå§‹å¯¹è±¡è¿›è¡Œå±žæ€§æ³¨å…¥ --> å°†ä»£ç†å¯¹è±¡ä¿å­˜åˆ°å®¹å™¨ä¸­â€ çš„æµç¨‹åˆ›å»º
+*   ä¸¤ä¸ªå¯¹è±¡çš„åˆ›å»ºæµç¨‹å¯ä»¥äº¤æ›¿è¿›è¡Œ
 
-Ä¿±ê£º
+ç›®æ ‡ï¼š
 
-*   ×îÖÕ·ÅÈëÈÝÆ÷µÄ¶ÔÏó·Ö±ðÊÇ `proxyObj1`£¬`proxyObj2`
-*   ×¢Èëµ½ `obj1` ÖÐµÄÊÇ `proxyObj2`£¬×¢Èëµ½ `obj2` ÖÐµÄÊÇ `proxyObj2`
+*   æœ€ç»ˆæ”¾å…¥å®¹å™¨çš„å¯¹è±¡åˆ†åˆ«æ˜¯ `proxyObj1`ï¼Œ`proxyObj2`
+*   æ³¨å…¥åˆ° `obj1` ä¸­çš„æ˜¯ `proxyObj2`ï¼Œæ³¨å…¥åˆ° `obj2` ä¸­çš„æ˜¯ `proxyObj2`### 1\. ä»€ä¹ˆæ˜¯å¾ªçŽ¯ä¾èµ–ï¼Ÿ
 
-Ê¾Àý´úÂëÈçÏÂ£º
+spring åœ¨ä¾èµ–æ³¨å…¥æ—¶ï¼Œå¯èƒ½ä¼šå‡ºçŽ°ç›¸äº’æ³¨å…¥çš„æƒ…å†µï¼š
+
+```
+@Service
+public class Service1 {
+    @Autowired
+    private Service2 service2;
+
+}
+
+@Service
+public class Service2 {
+    @Autowired
+    private Service1 service1;
+
+}
+
+```
+
+å¦‚ä»¥ä¸Šä»£ç ï¼Œåœ¨ `Service1` ä¸­é€šè¿‡ `@Autowird` æ³¨å…¥äº† `Service2`ï¼Œåœ¨ `Service2` ä¸­é€šè¿‡ `@Autowird` æ³¨å…¥äº† `Service1`ï¼Œè¿™ç§ç›¸äº’æ³¨å…¥çš„æƒ…å†µï¼Œå°±å«åšå¾ªçŽ¯ä¾èµ–ã€‚
+
+### 2\. å¾ªçŽ¯ä¾èµ–ä¼šæœ‰ä»€ä¹ˆé—®é¢˜
+
+å®žé™…ä¸Šï¼Œè¿™ç§ `AæŒæœ‰Bå¯¹è±¡ï¼ŒBä¹ŸæŒæœ‰Aå¯¹è±¡`çš„æƒ…å†µï¼Œjava ä»£ç æ˜¯å®Œå…¨æ”¯æŒçš„ï¼š
+
+```
+/**
+ * å‡†å¤‡service1
+ */
+public class Service1 {
+    private Service2 service2;
+
+    public void setService2(Service2 service2) {
+        this.service2 = service2;
+    }
+
+    public Service2 getService2() {
+        return this.service2;
+    }
+}
+
+/**
+ * å‡†å¤‡service2
+ */
+public class Service2 {
+    private Service1 service1;
+
+    public void setService1(Service1 service1) {
+        this.service1 = service1;
+    }
+
+    public Service1 getService1() {
+        return this.service1;
+    }
+}
+
+/**
+ * ä¸»æ–¹æ³•ä¸­è°ƒç”¨
+ */
+public class Main {
+    public void main(String[] args) {
+        // å‡†å¤‡ä¸¤ä¸ªå¯¹è±¡
+        Service1 service1 = new Service1();
+        Service2 service2 = new Service2();
+        // ç›¸äº’è®¾ç½®
+        service1.setService2(service2);
+        service2.setService1(service1);
+    }
+}
+
+```
+
+é‚£ä¹ˆï¼Œåœ¨ spring ä¸­ï¼Œä¸¤ä¸ªç±»ç›¸äº’æ³¨å…¥å¯¹æ–¹å®žä¾‹çš„æƒ…å†µï¼Œä¼šæœ‰ä»€ä¹ˆé—®é¢˜å‘¢ï¼Ÿæˆ‘ä»¬æ¥çœ‹ `spring bean` çš„åˆ›å»ºè¿‡ç¨‹ï¼ˆ**æ³¨æ„ï¼šè¿™é‡Œæˆ‘ä»¬ä»…åˆ†æž `bean` çš„ `scope` ä¸º `singleton` çš„æƒ…å†µï¼Œä¹Ÿå°±æ˜¯ `scope` ä¸º`å•ä¾‹`çš„æƒ…å†µ**ï¼‰ï¼š
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-ca36e17077b1b191834645b3c8e588ff6c4.png)
+
+è¿™ä¸ªè¿‡ç¨‹ä¸­æœ‰å‡ ç‚¹éœ€è¦è¯´æ˜Žä¸‹ï¼š
+
+1.  åˆ›å»ºå¯¹è±¡ï¼šè¿™ä¸ªå…¶å®žå°±æ˜¯ä½¿ç”¨ jdk æä¾›çš„åå°„æœºåˆ¶åˆ›å»º java å¯¹è±¡ï¼Œä»¥ç¬¬ 1 èŠ‚æåˆ°çš„ `Service1` ä¸ºä¾‹ï¼Œå¯ç®€å•ç†è§£ä¸º `Service1 service = new Service1()`ï¼›
+2.  æ³¨å…¥ä¾èµ–å¯¹è±¡ï¼šè¿˜æ˜¯ä»¥ç¬¬ 1 èŠ‚æåˆ°çš„ `Service1` ä¸ºä¾‹ï¼Œ`Service1` ä¸­é€šè¿‡ `@Autowired` è‡ªåŠ¨æ³¨å…¥ `Service2`ï¼Œè¿™ä¸€æ­¥å°±æ˜¯ç»™ `Service2` èµ‹å€¼çš„è¿‡ç¨‹ï¼Œå¯ç®€å•ç†è§£ä¸º `service1.setService2(service2)`ï¼›
+3.  `singletonObjects`ï¼šç»è¿‡ä¸Šé¢ä¸¤æ­¥åŽï¼Œä¸€ä¸ª java å¯¹è±¡å°±å˜æˆäº†ä¸€ä¸ª spring beanï¼Œç„¶åŽä¿å­˜åˆ° `singletonObjects` äº†ï¼Œè¿™æ˜¯ä¸ª `map`ï¼Œ`key` æ˜¯ bean çš„åç§°ï¼Œ`value` æ˜¯ beanï¼Œå®ƒåªä¿å­˜ `spring bean`ï¼Œä¸ä¼šåªåœ¨ java å®žä¾‹ã€‚
+
+å®žé™…ä¸Šï¼Œ`java` å¯¹è±¡å˜æˆ `spring bean`ï¼Œä¸ä»…ä»…åªæ˜¯ä¾èµ–æ³¨å…¥ï¼Œè¿˜æœ‰åˆå§‹åŒ–ã€æ‰§è¡Œ `beanPorcessor` æ–¹æ³•ç­‰ï¼Œ**ç”±äºŽæœ¬æ–‡æ˜¯åˆ†æž `spring bean` çš„å¾ªçŽ¯ä¾èµ–çš„ï¼Œå› æ­¤æˆ‘ä»¬é‡ç‚¹å…³æ³¨ä¸Žå¾ªçŽ¯ä¾èµ–ç›¸å…³çš„æ­¥éª¤ã€‚**
+
+#### 2.1 å¾ªçŽ¯ä¾èµ–äº§ç”Ÿçš„é—®é¢˜
+
+äº†è§£äº† spring bean çš„äº§ç”Ÿè¿‡ç¨‹ä¹‹åŽï¼ŒæŽ¥ä¸‹æ¥æˆ‘ä»¬å°±æ¥åˆ†æžä¸‹å¾ªçŽ¯ä¾èµ–äº§ç”Ÿçš„é—®é¢˜ï¼Œåœ¨æ­£å¼åˆ†æžå‰ï¼Œæˆ‘ä»¬å…ˆæ¥æ˜Žç¡®ä¸¤ä¸ªæ¦‚å¿µï¼š
+
+*   `javaå¯¹è±¡`ï¼šå®žé™…ä¸Šï¼Œjava ä¸­ä¸€åˆ‡å¯¹è±¡éƒ½å¯ä»¥ç§°ä¹‹ä¸º `java` å¯¹è±¡ï¼Œä¸ºäº†è¯´æ˜Žæ–¹ä¾¿ï¼Œä»¥ä¸‹æåˆ°çš„ `javaå¯¹è±¡`ä»…æŒ‡å®žä¾‹åŒ–å®Œæˆã€ä½†æœªè¿›è¡Œ spring bean çš„ç”Ÿå‘½å‘¨æœŸå¯¹è±¡ï¼›
+*   `spring bean`ï¼šæ˜¯ä¸€ä¸ª java å¯¹è±¡ï¼Œå¹¶ä¸”è¿›è¡Œäº†å®Œæ•´çš„ spring bean çš„ç”Ÿå‘½å‘¨æœŸå¯¹è±¡ï¼›
+
+spring bean çš„åˆ›å»ºè¿‡ç¨‹å¦‚ä¸‹ï¼š
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b55a211447b5fabeaa0c3ef0bfee0920c82.png)
+
+å¯¹ä¸Šå›¾è¯´æ˜Žå¦‚ä¸‹ï¼š
+
+1.  åœ¨ `service1` å¯¹è±¡åˆ›å»ºå®ŒæˆåŽï¼Œ`spring` å‘çŽ° `service1` éœ€è¦æ³¨å…¥ `service2`ï¼Œç„¶åŽå°±åŽ» `singletonObjects` ä¸­æŸ¥æ‰¾ `service2`ï¼Œæ­¤æ—¶æ˜¯æ‰¾ä¸åˆ° `service2`ï¼Œç„¶åŽå°±å¼€å§‹äº† `service2` çš„åˆ›å»ºè¿‡ç¨‹ï¼›
+2.  åœ¨ `service2` å¯¹è±¡åˆ›å»ºå®ŒæˆåŽï¼Œ`spring` å‘çŽ° `service2` éœ€è¦æ³¨å…¥ `service1`ï¼Œç„¶åŽå°±åŽ» `singletonObjects` ä¸­æŸ¥æ‰¾ `service1`ï¼Œæ­¤æ—¶æ˜¯æ‰¾ä¸åˆ° `service1`ï¼Œå› ä¸ºç¬¬ä¸€æ­¥ä¸­ `service1` å¹¶æ²¡æœ‰åˆ›å»ºæˆåŠŸ ï¼Œç„¶åŽå°±å¼€å§‹äº† `service1` çš„åˆ›å»ºè¿‡ç¨‹ï¼›
+3.  æµç¨‹è·³å›žåˆ° `1`ï¼Œå†æ¬¡å¼€å§‹äº† `service1` çš„åˆ›å»ºã€å±žæ€§æ³¨å…¥è¿‡ç¨‹ã€‚
+
+åˆ°è¿™é‡Œï¼Œæˆ‘ä»¬æƒŠå–œåœ°å‘çŽ°ï¼Œå¾ªçŽ¯å‡ºçŽ°äº†ï¼
+
+#### 2.2 å¼•å…¥ `earlySingletonObjects` è§£å†³å¾ªçŽ¯ä¾èµ–
+
+æˆ‘ä»¬åˆ†æžä¸‹ï¼Œå¾ªçŽ¯å‡ºçŽ°çš„åŽŸå› åœ¨äºŽï¼Œåœ¨ `service2` èŽ·å– `service1` æ—¶ï¼Œç”±äºŽ `singletonObjects` ä¸­æ­¤æ—¶å¹¶ä¸å­˜åœ¨ `service1`ï¼Œå› æ­¤ä¼šå†èµ° `service1` çš„åˆ›å»ºè¿‡ç¨‹ï¼Œé‡æ–°åˆ›å»º `service1`ï¼Œå› æ­¤ï¼Œæˆ‘ä»¬æœ‰ä¸ªå¤§èƒ†çš„æƒ³æ³•ï¼šå¦‚æžœåœ¨ `service1` å®žä¾‹åŒ–åŽå°±æŠŠå®ƒä¿å­˜èµ·æ¥ï¼ŒåŽé¢å†å†æ‰¾ `service1` æ—¶ï¼Œå°±è¿”å›žè¿™ä¸ªæœªè¿›è¡Œä¾èµ–æ³¨å…¥çš„ `service1`ï¼Œåƒä¸‹é¢è¿™æ ·ï¼š
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-c0eaecbe82b144a6fcd9fd048f2cca53497.png)
+
+ä¸Šå›¾ä¸­ï¼Œå¼•å…¥äº† `earlySingletonObjects`ï¼Œè¿™ä¹Ÿæ˜¯ä¸ª mapï¼ŒåŒ `singletonObjects` ä¸€æ ·ï¼Œ`key` æ˜¯ bean çš„åç§°ï¼Œ`value` æ˜¯ä¸€ä¸ªæœªå®Œæˆä¾èµ–æ³¨å…¥çš„å¯¹è±¡ã€‚
+
+å¯¹ä¸Šå›¾è¯´æ˜Žå¦‚ä¸‹ï¼š
+
+1.  åœ¨ `service1` å¯¹è±¡åˆ›å»ºå®ŒæˆåŽï¼Œå…ˆå°† `service1` æ”¾å…¥ `earlySingletonObjects`ï¼Œç„¶åŽè¿›è¡Œä¾èµ–æ³¨å…¥ï¼›
+2.  å¯¹ `service1` è¿›è¡Œä¾èµ–æ³¨å…¥æ—¶ï¼Œ`spring` å‘çŽ° `service1` éœ€è¦æ³¨å…¥ `service2`ï¼Œç„¶åŽå…ˆåŽ» `earlySingletonObjects` æŸ¥æ‰¾ `service2`ï¼Œæœªæ‰¾åˆ°ï¼›å†åŽ» `singletonObjects` ä¸­æŸ¥æ‰¾ `service2`ï¼Œè¿˜æ˜¯æœªæ‰¾åˆ°ï¼ŒäºŽæ˜¯å°±å¼€å§‹äº† `service2` çš„åˆ›å»ºè¿‡ç¨‹ï¼›
+3.  åœ¨ `service2` å¯¹è±¡åˆ›å»ºå®ŒæˆåŽï¼Œå…ˆå°† `service2` æ”¾å…¥ `earlySingletonObjects`ï¼Œç„¶åŽè¿›è¡Œä¾èµ–æ³¨å…¥ï¼›
+4.  å¯¹ `service2` è¿›è¡Œä¾èµ–æ³¨å…¥æ—¶ï¼Œ`spring` å‘çŽ° `service2` éœ€è¦æ³¨å…¥ `service1`ï¼Œç„¶åŽå°±åŽ» `earlySingletonObjects` æŸ¥æ‰¾ `service1`ï¼Œæ‰¾åˆ°äº†ï¼Œå°±å°† `service1` æ³¨å…¥åˆ° `service2` ä¸­ï¼Œæ­¤æ—¶ `service2` å°±æ˜¯ä¸€ä¸ª `spring bean` äº†ï¼Œå°†å…¶ä¿å­˜åˆ° `singletonObjects` ä¸­ï¼›
+5.  ç»è¿‡ç¬¬ 4 æ­¥åŽï¼Œæˆ‘ä»¬å¾—åˆ°äº† `service2`ï¼Œç„¶åŽå°†å…¶æ³¨å…¥åˆ° `service1` ä¸­ï¼Œæ­¤æ—¶ `service1` ä¹Ÿæˆäº†ä¸€ä¸ª `spring bean`ï¼Œå°†å…¶ä¿å­˜åˆ° `singletonObjects` ä¸­ã€‚
+
+ç»è¿‡ä»¥ä¸Šæ­¥éª¤ï¼Œæˆ‘ä»¬å‘çŽ°ï¼Œå¾ªçŽ¯ä¾èµ–å¾—åˆ°äº†è§£å†³ã€‚
+
+#### 2.2 aop ä¸‹çš„å¾ªçŽ¯ä¾èµ–
+
+ç»è¿‡ä¸Šé¢çš„åˆ†æžï¼Œæˆ‘ä»¬å‘çŽ°åªè¦é¢å¤–å¼•å…¥ä¸€ä¸ª `earlySingletonObjects` åŽï¼Œå¾ªçŽ¯ä¾èµ–å°±èƒ½å¾—åˆ°è§£å†³ã€‚ä½†æ˜¯ï¼Œå¾ªçŽ¯ä¾èµ–çœŸçš„å¾—åˆ°äº†è§£å†³å—ï¼Ÿspring é™¤äº† ioc å¤–ï¼Œè¿˜æœ‰å¦ä¸€ä¸ªé‡å¤§åŠŸèƒ½ï¼šaopï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹ aop æƒ…å†µä¸‹å‡ºçŽ°å¾ªçŽ¯ä¾èµ–ä¼šæ€Žæ ·ã€‚
+
+##### 1\. aop å¯¹è±¡çš„åˆ›å»ºè¿‡ç¨‹
+
+åœ¨æ­£å¼ä»‹ç» aop ä¸‹çš„å¾ªçŽ¯ä¾èµ–å‰ï¼Œæˆ‘ä»¬å…ˆæ¥æ˜Žç¡®ä¸¤ä¸ªä¸ªæ¦‚å¿µï¼š
+
+*   `åŽŸå§‹å¯¹è±¡`ï¼šåŒºåˆ«äºŽä»£ç†å¯¹è±¡ï¼ŒæŒ‡æœªè¿›è¡Œè¿‡ aop çš„å¯¹è±¡ï¼Œå¯ä»¥æ˜¯ java å¯¹è±¡ï¼Œä¹Ÿå¯ä»¥æ˜¯æœªè¿›è¡Œ aop çš„ spring beanï¼›
+*   `ä»£ç†å¯¹è±¡`ï¼šè¿›è¡Œè¿‡ aop çš„å¯¹è±¡ï¼Œå¯ä»¥æ˜¯ java å¯¹è±¡ä»…è¿›è¡Œè¿‡ aop å¾—åˆ°çš„å¯¹è±¡ (ä»…è¿›è¡Œè¿‡ aopï¼Œæœªè¿›è¡Œä¾èµ–æ³¨å…¥ï¼Œä¹Ÿæœªè¿›è¡Œåˆå§‹åŒ–)ï¼Œä¹Ÿå¯ä»¥æ˜¯è¿›è¡Œè¿‡ aop çš„ `spring bean`.
+
+æˆ‘ä»¬å…ˆæ¥çœ‹çœ‹ aop æ˜¯å¦‚ä½•åˆ›å»ºå¯¹è±¡çš„ï¼š
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-e92991c1c173bbd5579be3001a977555be7.png)
+
+ç›¸æ¯”äºŽ `2.1` ä¸­çš„æµç¨‹ï¼Œaop å¤šäº† "ç”Ÿæˆä»£ç†å¯¹è±¡" çš„æ“ä½œï¼Œå¹¶ä¸”æœ€ç»ˆä¿å­˜åˆ° `singletonObjects` ä¸­çš„å¯¹è±¡ä¹Ÿæ˜¯ä»£ç†å¯¹è±¡ã€‚
+
+åŽŸå§‹å¯¹è±¡ä¸Žä»£ç†å¯¹è±¡ä¹‹é—´æ˜¯ä»€ä¹ˆå…³ç³»å‘¢ï¼Ÿç”¨ä»£ç ç¤ºæ„ä¸‹ï¼Œå¤§è‡´å¦‚ä¸‹ï¼š
+
+```
+public class ProxyObj extends Obj {
+
+    // åŽŸå§‹å¯¹è±¡
+    private Obj obj;
+
+    ...
+}
+
+```
+
+å®žé™…ä¸Šï¼Œä¸¤è€…ä¹‹é—´çš„å…³ç³»å¹¶æ²¡æœ‰è¿™ä¹ˆç®€å•ï¼Œä½†ä¸ºäº†è¯´æ˜Žé—®é¢˜ï¼Œè¿™é‡Œå¯¹ä¸¤è€…å…³ç³»åšäº†ç®€åŒ–ï¼Œå°ä¼™ä¼´ä»¬åªéœ€è¦æ˜Žç™½ï¼Œ**ä»£ç†å¯¹è±¡æŒæœ‰åŽŸå§‹å¯¹è±¡çš„å¼•ç”¨**å³å¯ã€‚
+
+å…³äºŽåŽŸå§‹å¯¹è±¡å¦‚ä½•å˜æˆä»£ç†å¯¹è±¡çš„ï¼Œå¯ä»¥å‚è€ƒ [spring aop ä¹‹ AnnotationAwareAspectJAutoProxyCreator åˆ†æžï¼ˆä¸‹ï¼‰](https://my.oschina.net/funcy/blog/4687961)ã€‚
+
+å¯¹ä»¥ä¸Šåˆ›å»ºè¿‡ç¨‹ï¼Œç”¨ java ä»£ç æ¨¡æ‹Ÿå¦‚ä¸‹ï¼š
+
+```
+/**
+ * å‡†å¤‡ä¸€ä¸ªç±»
+ */
+public class Obj1 {
+
+}
+
+/**
+ * å‡†å¤‡ä¸€ä¸ªç±»ï¼Œå†…éƒ¨æœ‰ä¸€ä¸ªå±žæ€§ Obj1
+ */
+public class Obj2 {
+
+    private Obj1 obj1;
+
+    // çœç•¥å…¶ä»–æ–¹æ³•
+    ...
+
+}
+
+/**
+ * å‡†å¤‡Obj2çš„ä»£ç†ç±»ï¼Œå†…éƒ¨æŒæœ‰obj2çš„å¯¹è±¡
+ */
+public class ProxyObj2 extends Obj2 {
+
+    private Obj2 obj2;
+
+    public ProxyObj2(Obj2 obj2) {
+        this.obj2 = obj2;
+    }
+
+    // çœç•¥å…¶ä»–æ–¹æ³•
+    ...
+
+}
+
+```
+
+æŽ¥ç€ï¼Œå°±æ˜¯æ¨¡æ‹Ÿ â€œåˆ›å»º --> å±žæ€§æ³¨å…¥ --> ç”Ÿæˆä»£ç†å¯¹è±¡ --> ä¿å­˜åˆ°å®¹å™¨ä¸­â€ çš„ æµç¨‹äº†ï¼š
+
+```
+public static main(String[] args) {
+     // å‡†å¤‡ä¸€ä¸ªå®¹å™¨ï¼Œè¿™é‡Œä¿å­˜çš„æ˜¯å®Œæˆä¸Šè¿°ç”Ÿå‘½å‘¨æœŸçš„å¯¹è±¡
+     // 1\. å¦‚æžœå…ƒç´ æ˜¯åŽŸå§‹å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
+     // 2\. å¦‚æžœå…ƒç´ æ˜¯ä»£ç†å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡æŒæœ‰çš„åŽŸæœ‰å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
+     Collection<?> collection = new ArrayList();
+
+     // å¼€å§‹ Obj2 çš„åˆ›å»ºæµç¨‹
+     // 1\. åˆ›å»º Obj2 å¯¹è±¡
+     Obj2 obj2 = new Obj2();
+
+     // 2\. å¾€ Obj2 ä¸­æ³¨å…¥ obj1ï¼Œä½†æ­¤æ—¶å¹¶æ²¡æœ‰obj1ï¼Œå› æ­¤å…ˆè¦åˆ›å»ºobj1ï¼Œå†å°†å…¶æ³¨å…¥åˆ°Obj2ä¸­
+     Obj1 obj1 = new Obj1();
+     obj2.setObj1(obj1);
+
+     // 3\. ç”ŸæˆObj2çš„ä»£ç†å¯¹è±¡ï¼Œä»£ç†å¯¹è±¡ä¸­æŒæœ‰ Obj2çš„åŽŸå§‹å¯¹è±¡
+     ProxyObj2 proxyObj2 = new ProxyObj2(obj2);
+
+     // 4\. proxyObj2å·²ç»èµ°å®Œäº†å®Œæ•´çš„ç”Ÿå‘½å‘¨æœŸï¼Œå› æ­¤å°†ä»£ç†å¯¹è±¡æ·»åŠ åˆ°å®¹å™¨æ—¶
+     collection.add(proxyObj2); 
+
+}
+
+```
+
+ä¸Šè¿°ä»£ç ä¸­ï¼Œ
+
+*   ä»¥ `new Obj2()` æ¨¡æ‹Ÿå¯¹è±¡çš„åˆ›å»º
+*   ä»¥ `obj2.setObj1(xxx)` æ¨¡æ‹Ÿä¾èµ–æ³¨å…¥
+*   ä»¥ `new ProxyObj2(xxx)` æ¨¡æ‹Ÿä»£ç†å¯¹è±¡çš„ç”Ÿæˆ
+*   ä»¥ `collection.add(xxx)` æ¨¡æ‹Ÿå¯¹è±¡æ·»åŠ åˆ°å®¹å™¨ä¸­çš„è¿‡ç¨‹
+
+æ¨¡æ‹Ÿçš„æµç¨‹å¦‚ä¸‹ï¼š
+
+1.  åˆ›å»º `obj2` å¯¹è±¡
+2.  å¾€ `Obj2` ä¸­æ³¨å…¥ `obj1`ï¼Œä½†æ­¤æ—¶å¹¶æ²¡æœ‰ `obj1`ï¼Œå› æ­¤å…ˆè¦åˆ›å»º `obj1`ï¼Œå†å°†å…¶æ³¨å…¥åˆ° `Obj2` ä¸­
+3.  ç”Ÿæˆ `Obj2` çš„ä»£ç†å¯¹è±¡ `proxyObj2`ï¼Œ`proxyObj2` ä¸­æŒæœ‰ `Obj2` çš„åŽŸå§‹å¯¹è±¡
+4.  `proxyObj2` å·²ç»èµ°å®Œäº†å®Œæ•´çš„ç”Ÿå‘½å‘¨æœŸï¼Œå› æ­¤å°†ä»£ç†å¯¹è±¡æ·»åŠ åˆ°å®¹å™¨æ—¶
+
+ä»”ç»†åˆ†æžä¸Šé¢çš„æ­¥éª¤ï¼Œå°±ä¼šå‘çŽ°ï¼Œä¸Šé¢çš„ç¬¬ 2 æ­¥ä¸Žç¬¬ 3 æ­¥å®Œå…¨è°ƒæ¢é¡ºåºä¹Ÿæ²¡é—®é¢˜ï¼Œä»£ç æ¨¡æ‹Ÿå¦‚ä¸‹ï¼š
+
+```
+public static main(String[] args) {
+     // å‡†å¤‡ä¸€ä¸ªå®¹å™¨ï¼Œè¿™é‡Œä¿å­˜çš„æ˜¯å®Œæˆä¸Šè¿°ç”Ÿå‘½å‘¨æœŸçš„å¯¹è±¡
+     // 1\. å¦‚æžœå…ƒç´ æ˜¯åŽŸå§‹å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
+     // 2\. å¦‚æžœå…ƒç´ æ˜¯ä»£ç†å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡æŒæœ‰çš„åŽŸæœ‰å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
+     Collection<?> collection = new ArrayList();
+
+     // å¼€å§‹ Obj2 çš„åˆ›å»ºæµç¨‹
+     // 1\. åˆ›å»º Obj2 å¯¹è±¡
+     Obj2 obj2 = new Obj2();
+
+     // 2\. ç”ŸæˆObj2çš„ä»£ç†å¯¹è±¡ï¼Œä»£ç†å¯¹è±¡ä¸­æŒæœ‰ Obj2çš„åŽŸå§‹å¯¹è±¡
+     ProxyObj2 proxyObj2 = new ProxyObj2(obj2);
+
+     // 3\. å¾€ obj2 ä¸­æ³¨å…¥ obj1ï¼Œä½†æ­¤æ—¶å¹¶æ²¡æœ‰obj1ï¼Œå› æ­¤å…ˆè¦åˆ›å»ºobj1ï¼Œå†å°†å…¶æ³¨å…¥åˆ°Obj2ä¸­
+     Obj1 obj1 = new Obj1();
+     // è¿™é‡Œæ˜¯æ³¨å…¥åˆ°åŽŸå§‹å¯¹è±¡ä¸­
+     obj2.setObj1(obj1);
+
+     // 4\. proxyObj2å·²ç»èµ°å®Œäº†å®Œæ•´çš„ç”Ÿå‘½å‘¨æœŸï¼Œå› æ­¤å°†ä»£ç†å¯¹è±¡æ·»åŠ åˆ°å®¹å™¨æ—¶
+     collection.add(proxyObj2); 
+
+}
+
+```
+
+ä¸Šè¿°ä»£ç çš„æµç¨‹å¦‚ä¸‹ï¼š
+
+1.  åˆ›å»º obj2 å¯¹è±¡
+2.  ç”Ÿæˆ Obj2 çš„ä»£ç†å¯¹è±¡ï¼Œä»£ç†å¯¹è±¡ä¸­æŒæœ‰ Obj2 çš„åŽŸå§‹å¯¹è±¡
+3.  å¾€ Obj2 ä¸­æ³¨å…¥ obj1ï¼Œä½†æ­¤æ—¶å¹¶æ²¡æœ‰ obj1ï¼Œå› æ­¤å…ˆè¦åˆ›å»º obj1ï¼Œå†å°†å…¶æ³¨å…¥åˆ° Obj2
+4.  proxyObj2 å·²ç»èµ°å®Œäº†å®Œæ•´çš„ç”Ÿå‘½å‘¨æœŸï¼Œå› æ­¤å°†ä»£ç†å¯¹è±¡æ·»åŠ åˆ°å®¹å™¨æ—¶
+
+ä»Žä»£ç ä¸Šçœ‹ï¼Œ`proxyObj2(ä»£ç†å¯¹è±¡)` ä¸­æŒæœ‰ `ob2(åŽŸå§‹å¯¹è±¡)`ï¼Œç”Ÿæˆä»£ç†å¯¹è±¡åŽï¼Œç»§ç»­å¯¹åŽŸå§‹å¯¹è±¡è¿›è¡Œå±žæ€§æ³¨å…¥ï¼Œä¾ç„¶èƒ½å½±å“ä»£ç†å¯¹è±¡ï¼Œæœ€ç»ˆä»£ç†å¯¹è±¡æŒæœ‰çš„åŽŸå§‹å¯¹è±¡ä¹Ÿå®Œæˆäº†ä¾èµ–æ³¨å…¥ï¼Œæ•´ä¸ªè¿‡ç¨‹ç”¨å›¾å½¢ç¤ºæ„å¦‚ä¸‹ï¼š
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8ff5579425f73dd5c2d321a86d0303390ac.png)
+
+è¿™é‡Œæˆ‘ä»¬å†æ¬¡ç”³æ˜Žï¼Œä»Ž java å¯¹è±¡åˆ° spring bean çš„æ­¥éª¤æœ‰å¥½å¤šï¼Œè¿™é‡Œæˆ‘ä»¬ä»…å…³æ³¨ä¸Žå¾ªçŽ¯ä¾èµ–ç›¸å…³çš„æ­¥éª¤ï¼Œå¦‚æžœæƒ³äº†è§£ spring bean è¯¦ç»†çš„åˆå§‹åŒ–è¿‡ç¨‹ï¼Œå¯æŸ¥çœ‹ [spring å¯åŠ¨æµç¨‹ä¹‹å¯åŠ¨æµç¨‹æ¦‚è§ˆ](https://my.oschina.net/funcy/blog/4597493)ã€‚
+
+åˆ°è¿™é‡Œï¼Œæˆ‘ä»¬æŽ¢ç´¢åˆ°ä»£ç†å¯¹è±¡çš„ç”Ÿå‘½å‘¨æœŸå¯ä»¥æœ‰ä¸¤ç§ï¼š
+
+*   åˆ›å»º --> å±žæ€§æ³¨å…¥ --> ç”Ÿæˆä»£ç†å¯¹è±¡ --> å°†ä»£ç†å¯¹è±¡ä¿å­˜åˆ°å®¹å™¨ä¸­
+*   åˆ›å»º (åŽŸå§‹å¯¹è±¡)--> ç”Ÿæˆä»£ç†å¯¹è±¡ (æå‰è¿›è¡Œ aop)--> å¯¹åŽŸå§‹å¯¹è±¡è¿›è¡Œå±žæ€§æ³¨å…¥ --> å°†ä»£ç†å¯¹è±¡ä¿å­˜åˆ°å®¹å™¨ä¸­
+
+è¿™ä¸¤ç§éƒ½èƒ½è¾¾åˆ°æœ€ç»ˆç›®çš„ï¼Œå³**ä¿å­˜åˆ°å®¹å™¨ä¸­çš„æ˜¯ä»£ç†å¯¹è±¡ï¼Œä¸”ä»£ç†å¯¹è±¡å¯¹åº”çš„åŽŸå§‹å¯¹è±¡å®Œæˆäº†ä¾èµ–æ³¨å…¥**ã€‚è¯·ç‰¢è®°è¿™ä¸¤ä¸ªåˆ›å»ºæµç¨‹ï¼Œè¿™æ˜¯åŽé¢è§£å†³ aop ä¸‹å¾ªçŽ¯ä¾èµ–é—®é¢˜çš„æ ¸å¿ƒï¼Œè¯´ç™½äº†ï¼Œ**aop ä¸‹çš„å¾ªçŽ¯ä¾èµ–é—®é¢˜ä¹‹æ‰€ä»¥èƒ½è§£å†³ï¼Œå°±æ˜¯å› ä¸ºå¯¹è±¡å¯ä»¥æå‰è¿›è¡Œ aop æ“ä½œ**ã€‚
+
+##### 2\. ä¸ºä»€ä¹ˆç”¨ `earlySingletonObjects` æ— æ³•è§£å†³å¾ªçŽ¯ä¾èµ–ï¼Ÿ
+
+å‰é¢æˆ‘ä»¬ä¸»è¦è¯´æ˜Žäº†ä»£ç†å¯¹è±¡çš„åˆ›å»ºè¿‡ç¨‹ï¼ŒæŽ¥ä¸‹æ¥æˆ‘ä»¬æ¥çœ‹çœ‹åœ¨ aop ä¸‹ï¼Œä½¿ç”¨ `earlySingletonObjects` æ¥è§£å†³å¾ªçŽ¯ä¾èµ–æœ‰ä»€ä¹ˆé—®é¢˜ï¼š
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d3d00d76ab0c72339faccb7ccd853723d6c.png)
+
+æˆ‘ä»¬æ¥åˆ†æžä¸Šå›¾çš„æµç¨‹ï¼š
+
+1.  åœ¨ `service1` å¯¹è±¡åˆ›å»ºå®ŒæˆåŽï¼Œå…ˆå°† `service1` æ”¾å…¥ `earlySingletonObjects`ï¼Œç„¶åŽè¿›è¡Œä¾èµ–æ³¨å…¥ï¼›
+2.  å¯¹ `service1` è¿›è¡Œä¾èµ–æ³¨å…¥æ—¶ï¼Œ`spring` å‘çŽ° `service1` éœ€è¦æ³¨å…¥ `service2`ï¼Œç„¶åŽå…ˆåŽ» `earlySingletonObjects` æŸ¥æ‰¾ `service2`ï¼Œæœªæ‰¾åˆ°ï¼›å†åŽ» `singletonObjects` ä¸­æŸ¥æ‰¾ `service2`ï¼Œè¿˜æ˜¯æœªæ‰¾åˆ°ï¼ŒäºŽæ˜¯å°±å¼€å§‹äº† `service2` çš„åˆ›å»ºè¿‡ç¨‹ï¼›
+3.  åœ¨ `service2` å¯¹è±¡åˆ›å»ºå®ŒæˆåŽï¼Œå…ˆå°† `service2` æ”¾å…¥ `earlySingletonObjects`ï¼Œç„¶åŽè¿›è¡Œä¾èµ–æ³¨å…¥ï¼›
+4.  å¯¹ `service2` è¿›è¡Œä¾èµ–æ³¨å…¥æ—¶ï¼Œ`spring` å‘çŽ° `service2` éœ€è¦æ³¨å…¥ `service1`ï¼Œç„¶åŽå°±åŽ» `earlySingletonObjects` æŸ¥æ‰¾ `service1`ï¼Œæ‰¾åˆ°äº†ï¼Œå°±å°† `service1` æ³¨å…¥åˆ° `service2` ä¸­ï¼Œç„¶åŽå†è¿›è¡Œ aopï¼Œæ­¤æ—¶ `service2` æ˜¯ä¸€ä¸ªä»£ç†å¯¹è±¡ï¼Œå°†å…¶ä¿å­˜åˆ° `singletonObjects` ä¸­ï¼›
+5.  ç»è¿‡ç¬¬ 4 æ­¥åŽï¼Œæˆ‘ä»¬å¾—åˆ°äº† `service2` çš„ä»£ç†å¯¹è±¡ï¼Œç„¶åŽå°†å…¶æ³¨å…¥åˆ° `service1` ä¸­ï¼ŒæŽ¥ç€å†å¯¹ `service1` è¿›è¡Œ aopï¼Œæ­¤æ—¶ `service1` ä¹Ÿæˆäº†ä¸€ä¸ª `spring bean`ï¼Œå°†å…¶ä¿å­˜åˆ° `singletonObjects` ä¸­ã€‚
+
+ä¸Šè¿°æ­¥éª¤æœ‰ä»€ä¹ˆé—®é¢˜å‘¢ï¼Ÿä»”ç»†çœ‹ç¬¬ 4 æ­¥ï¼Œå°±ä¼šå‘çŽ°ï¼Œ**æ³¨å…¥åˆ° `service2` çš„ `service1` å¹¶ä¸æ˜¯ä»£ç†å¯¹è±¡**ï¼çºµè§‚å…¨å±€ï¼Œæœ€ç»ˆå¾—åˆ°çš„ `service1` ä¸Ž `service2` éƒ½æ˜¯ä»£ç†å¯¹è±¡ï¼Œæ³¨å…¥åˆ° `service2` çš„ `service1` åº”è¯¥ä¹Ÿæ˜¯ä»£ç†å¯¹è±¡æ‰å¯¹ã€‚å› æ­¤ï¼Œåœ¨ aop ä¸‹ï¼Œå¾ªçŽ¯ä¾èµ–çš„é—®é¢˜åˆå‡ºçŽ°äº†ï¼
+
+#### 2.3 spring çš„è§£å†³æ–¹æ¡ˆ
+
+å‰é¢æˆ‘ä»¬æåˆ°ï¼Œåœ¨ aop ä¸‹ï¼Œå¼•å…¥ `earlySingletonObjects` å¹¶ä¸èƒ½è§£å†³å¾ªçŽ¯ä¾èµ–çš„é—®é¢˜ï¼Œé‚£ spring æ˜¯æ€Žä¹ˆè§£å†³çš„å‘¢ï¼Ÿspring å†æ¬¡å¼•å…¥äº†ä¸€ä¸ª `map` æ¥è§£å†³è¿™ä¸ªé—®é¢˜ï¼Œè¿™ä¹Ÿæ˜¯äººä»¬å¸¸è¯´çš„ **spring ä¸‰çº§ç¼“å­˜**ï¼Œå¯¹è¿™ä¸‰ä¸ª `map` è¯´æ˜Žå¦‚ä¸‹ï¼š
+
+*   ä¸€çº§ç¼“å­˜ `singletonObjects`ï¼šç±»åž‹ä¸º `ConcurrentHashMap<String, Object>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` æ˜¯å®Œæ•´çš„ `spring bean`ï¼Œå³å®Œæˆå±žæ€§æ³¨å…¥ã€åˆå§‹åŒ–çš„ beanï¼Œå¦‚æžœ bean éœ€è¦ aopï¼Œå­˜å‚¨çš„å°±æ˜¯ä»£ç†å¯¹è±¡ï¼›
+*   äºŒçº§ç¼“å­˜ `earlySingletonObjects`ï¼šç±»åž‹ä¸º `HashMap<String, Object>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` æ˜¯å®žä¾‹åŒ–å®Œæˆï¼Œä½†æœªè¿›è¡Œä¾èµ–æ³¨å…¥çš„ `bean`ï¼Œå¦‚æžœ `bean` éœ€è¦ `aop`ï¼Œè¿™é‡Œå­˜å‚¨çš„å°±æ˜¯ä»£ç†å¯¹è±¡ï¼Œåªä¸è¿‡ä»£ç†å¯¹è±¡æ‰€æŒæœ‰çš„åŽŸå§‹å¯¹è±¡å¹¶æœªè¿›è¡Œä¾èµ–æ³¨å…¥ï¼›
+*   ä¸‰çº§ç¼“å­˜ `singletonFactories`ï¼šç±»åž‹ä¸º `HashMap<String, ObjectFactory>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` å­˜å‚¨çš„æ˜¯ä¸€ä¸ª `lambda` è¡¨è¾¾å¼ï¼š`() -> getEarlyBeanReference(beanName, mbd, bean)`ï¼Œ `getEarlyBeanReference` ä¸­çš„ `bean` æ˜¯åˆšåˆ›å»ºå®Œæˆçš„ `java bean`ï¼Œæ²¡æœ‰è¿›è¡Œ spring ä¾èµ–æ³¨å…¥ï¼Œä¹Ÿæ²¡è¿›è¡Œ aop (å…³äºŽè¿™ä¸ª `lambda` è¡¨è¾¾å¼ï¼ŒåŽé¢ä¼šç»§ç»­åˆ†æž)ã€‚
+
+ä¸ºäº†è¯´æ˜Žæ–¹ä¾¿ï¼Œä¸‹é¢å¯¹ `singletonObjects`ã€`earlySingletonObjects` å’Œ `singletonFactories` åˆ†åˆ«ç§°ä¸º**ä¸€çº§ç¼“å­˜**ã€**äºŒçº§ç¼“å­˜**å’Œ**ä¸‰çº§ç¼“å­˜**ã€‚
+
+spring è§£å†³ aop ä¸‹çš„å¾ªçŽ¯ä¾èµ–æµç¨‹å¦‚ä¸‹ï¼š
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-dc325a87b321e4c246a1b2f14169821a75a.png)
+
+è¿™ä¸ªå›¾çœ‹ç€æ¯”è¾ƒå¤æ‚ï¼Œå…¶å®žåˆ†å¼€æ¥çœ‹å°±æ¯”è¾ƒç®€å•äº†ï¼Œä¸Šè¿°æ“ä½œä¸­ï¼Œ`1~8` æ˜¯èŽ·å– `service1` çš„æµç¨‹ï¼Œ`5.1~5.8` æ˜¯èŽ·å– `service2` çš„æµç¨‹ï¼Œ`5.5.1` æ˜¯å†æ¬¡èŽ·å– `service1` çš„æµç¨‹ï¼Œåªä¸è¿‡åœ¨å¤„ç† `service1` çš„åˆå§‹åŒ–è¿‡ç¨‹ä¸­ï¼Œä¼šè§¦å‘ `service2` çš„åˆå§‹åŒ–è¿‡ç¨‹ï¼Œè€Œ `service2` çš„åˆå§‹åŒ–æ—¶ï¼Œåˆä¼šä¾èµ–åˆ° `service1`ï¼Œå› æ­¤æ‰çœ‹ç€åƒæ˜¯è¿žåœ¨ä¸€èµ·ï¼Œæ¯”è¾ƒå¤æ‚ã€‚
+
+å¯¹ä¸Šå›¾çš„è¿‡ç¨‹ï¼Œè¿™é‡Œè¯´æ˜Žå¦‚ä¸‹ï¼ˆå»ºè®®ï¼šå¦‚æžœè§‰å¾—æµç¨‹æ¯”è¾ƒå¤æ‚ï¼Œå¯ä»¥å…ˆçœ‹ `1~8` çš„æ“ä½œï¼Œå†çœ‹ `5.1~5.8` çš„æ“ä½œï¼Œæœ€åŽä¸¤è€…è”åˆèµ·æ¥çœ‹ï¼Œè¿™æ ·ä¼šæ¸…æ™°å¾ˆå¤šï¼‰ï¼š
+
+*   1.  `service1`ï¼šèŽ·å– `service1`ï¼Œä»Žä¸€çº§ç¼“å­˜ä¸­èŽ·å–ï¼Œæ­¤æ—¶æ˜¯èŽ·å–ä¸åˆ°çš„ï¼›
+*   1.  `service1`ï¼šåˆ›å»º `service1` çš„å®žä¾‹ï¼›
+*   1.  `service1`ï¼šèŽ·å–éœ€è¦æ³¨å…¥çš„å±žæ€§ä¸Žæ–¹æ³•ï¼ˆåœ¨åŽŸå§‹å¯¹è±¡ä¸Šè¿›è¡ŒèŽ·å–ï¼‰ï¼›
+*   1.  `service1`ï¼šå¦‚æžœå¼€å¯äº†æ”¯æŒå¾ªçŽ¯ä¾èµ–çš„é…ç½®ï¼Œå°±å°† `service1` æ”¾åˆ°ä¸‰çº§ç¼“å­˜ä¸­ï¼ˆæ˜¯å¦æ”¯æŒå¾ªçŽ¯ä¾èµ–ï¼Œæ˜¯å¯ä»¥é…ç½®çš„ï¼‰ï¼›
+*   1.  `service1`ï¼šå¯¹ `service1` è¿›è¡Œä¾èµ–æ³¨å…¥ï¼Œéœ€è¦ `service2`ï¼Œç„¶åŽå°±å¼€å§‹äº† `service2` çš„èŽ·å–æµç¨‹ï¼›
+*   5.1 `service2`ï¼šèŽ·å– `service2`ï¼Œä»Žä¸€çº§ç¼“å­˜ä¸­èŽ·å–ï¼Œæ­¤æ—¶æ˜¯èŽ·å–ä¸åˆ°çš„ï¼›
+*   5.2 `service2`ï¼šåˆ›å»º `service2` çš„å®žä¾‹ï¼›
+*   5.3 `service2`ï¼šèŽ·å–éœ€è¦æ³¨å…¥çš„å±žæ€§ä¸Žæ–¹æ³•ï¼ˆåœ¨åŽŸå§‹å¯¹è±¡ä¸Šè¿›è¡ŒèŽ·å–ï¼‰ï¼›
+*   5.4 `service2`ï¼šå¦‚æžœå¼€å¯äº†æ”¯æŒå¾ªçŽ¯ä¾èµ–çš„é…ç½®ï¼Œå°±å°† `service2` æ”¾åˆ°ä¸‰çº§ç¼“å­˜ä¸­ï¼ˆæ˜¯å¦æ”¯æŒå¾ªçŽ¯ä¾èµ–ï¼Œæ˜¯å¯ä»¥é…ç½®çš„ï¼‰ï¼›
+*   5.5 `service2`ï¼šå¯¹ `service2` è¿›è¡Œä¾èµ–æ³¨å…¥ï¼Œéœ€è¦ `service1`ï¼Œç„¶åŽå°±å¼€å§‹äº† `service1` çš„èŽ·å–æµç¨‹ï¼›
+*   5.5.1 `service1`: èŽ·å– `service1`ï¼Œä»Žä¸€çº§ç¼“å­˜ä¸­èŽ·å–ï¼ŒèŽ·å–ä¸åˆ°ï¼›æ­¤æ—¶å‘çŽ° `service1` æ­£åœ¨åˆ›å»ºä¸­ï¼ŒäºŽæ˜¯ç»§ç»­ä»ŽäºŒã€ä¸‰çº§ç¼“å­˜ä¸­èŽ·å–ï¼Œæœ€ç»ˆä»Žä¸‰çº§ç¼“å­˜ä¸­èŽ·å–åˆ°äº†ï¼Œå°†å…¶æ”¾å…¥äºŒçº§ç¼“å­˜ã€‚ä»Žä¸‰çº§ç¼“å­˜èŽ·å–çš„è¿‡ç¨‹ä¸­ï¼Œ**ä¼šåˆ¤æ–­ `service1` æ˜¯å¦éœ€è¦è¿›è¡Œ aopï¼Œç„¶åŽå¼€å§‹ aop æ“ä½œ**ï¼Œå› æ­¤æ”¾å…¥äºŒçº§ç¼“å­˜ä¸­çš„æ˜¯ `service1` ä»£ç†ä»£ç†ï¼Œæå‰è¿›è¡Œ aop æ˜¯è§£å†³å¾ªçŽ¯ä¾èµ–çš„å…³é”®ï¼›
+*   5.6 `service2`ï¼šå¾—åˆ°äº† `service1` åŽï¼ˆè¿™é‡Œçš„ `service1` æ˜¯ä»£ç†å¯¹è±¡ï¼‰ï¼Œå°†å…¶æ³¨å…¥åˆ° `service2` ä¸­ï¼ŒæŽ¥ç€å¯¹ `service2` è¿›è¡Œ aopï¼Œå¾—åˆ° `service2` çš„ä»£ç†å¯¹è±¡ï¼›
+*   5.7 `service2`ï¼šå¦‚æžœæ”¯æŒå¾ªçŽ¯ä¾èµ–ï¼Œå…ˆä»Žä¸€ã€äºŒçº§ç¼“å­˜ä¸­å†æ¬¡èŽ·å– `service2`ï¼Œéƒ½æœªèŽ·å–åˆ°ï¼Œå°±ä½¿ç”¨å½“å‰ `service2`ï¼ˆå½“å‰ `service2` æ˜¯ä»£ç†å¯¹è±¡)ï¼›
+*   5.8 `service2`ï¼šå°† service2 çš„ä»£ç†å¯¹è±¡æ”¾å…¥ä¸€çº§ç¼“å­˜ä¸­ï¼Œåˆ é™¤äºŒã€ä¸‰çº§ç¼“å­˜ï¼Œè‡³æ­¤ï¼Œ`service2` åˆå§‹åŒ–å®Œæˆï¼Œæ³¨å…¥çš„ `service1` æ˜¯ä»£ç†å¯¹è±¡ï¼Œä¸€çº§ç¼“å­˜ä¸­çš„ `service2` ä¹Ÿæ˜¯ä»£ç†å¯¹è±¡ï¼›
+*   1.  `service1`ï¼šå›žåˆ° `service1` çš„ç”Ÿå‘½å‘¨æœŸï¼Œæ‹¿åˆ° `service2`ï¼ˆè¿™é‡Œçš„ `service2` æ˜¯ä»£ç†å¯¹è±¡ï¼‰åŽï¼Œå°†å…¶æ³¨å…¥åˆ° `service1`ï¼Œ`service1` çš„ä¾èµ–æ³¨å…¥å®Œæˆï¼Œè¿›è¡Œåˆå§‹åŒ–ï¼Œè¿™é‡Œä¼šåˆ¤æ–­ `service1` æ˜¯å¦éœ€è¦è¿›è¡Œ aopï¼Œè™½ç„¶ `service1` æ˜¯éœ€è¦è¿›è¡Œ aop çš„ï¼Œä½†ç”±äºŽåœ¨ `5.5.1` å·²ç»è¿›è¡Œè¿‡ aop äº†ï¼Œå› æ­¤ï¼Œè¿™é‡Œç›´æŽ¥è¿”å›žï¼ˆåˆ°è¿™ä¸€æ­¥ï¼Œ`service1` è¿˜æ˜¯åŽŸå§‹å¯¹è±¡ï¼‰ï¼›
+*   1.  `service1`ï¼šå¦‚æžœæ”¯æŒå¾ªçŽ¯ä¾èµ–ï¼Œå…ˆä»Žä¸€çº§ç¼“å­˜ä¸­èŽ·å– `service1`ï¼ŒèŽ·å–ä¸åˆ°ï¼›å†ä»ŽäºŒç¼“å­˜ä¸­èŽ·å– `service1`ï¼Œå¯ä»¥èŽ·å–åˆ°ï¼ˆä»Ž `5.5.1` å¯çŸ¥ï¼ŒäºŒçº§ç¼“å­˜é‡Œæ˜¯ `service1` ä»£ç†å¯¹è±¡ï¼‰ï¼Œè¿”å›žï¼›
+*   1.  `service1`ï¼šå°†äºŒçº§ç¼“å­˜ä¸­èŽ·å–çš„å¯¹è±¡æ³¨å†Œåˆ°ä¸€çº§ç¼“å­˜ä¸­ï¼Œåˆ é™¤äºŒã€ä¸‰çº§ç¼“å­˜ï¼Œè‡³æ­¤ï¼Œ`service1` åˆå§‹åŒ–å®Œæˆï¼Œæ³¨å…¥çš„ `service2` æ˜¯ä»£ç†å¯¹è±¡ï¼Œä¸€çº§ç¼“å­˜ä¸­çš„ `service1` ä¹Ÿæ˜¯ä»£ç†å¯¹è±¡ã€‚
+
+ä»¥ä¸Šæµç¨‹ï¼Œè™½ç„¶æ­¥éª¤è¾ƒå¤šï¼Œä½† `service1` ä¸Ž `service2` çš„èŽ·å–æ­¥éª¤æ˜¯ç›¸åŒçš„ï¼Œåªè¦å¼„æ¸…äº†å…¶ä¸­ä¹‹ä¸€çš„èŽ·å–æµç¨‹ï¼Œå¦ä¸€ä¸ª bean çš„èŽ·å–æµç¨‹å°±å¾ˆé›·åŒäº†ã€‚
+
+åœ¨ä¸Šè¿°æµç¨‹ä¸­ï¼Œè¿˜æœ‰ä¸¤ä¸ªæ•°æ®ç»“æž„éœ€è¦è¯´æ˜Žä¸‹ï¼š
+
+*   `singletonsCurrentlyInCreation`ï¼šç±»åž‹ä¸º `SetFromMap<String>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry`ï¼Œåˆ›å»ºæ–¹å¼ä¸º `Collections.newSetFromMap(new ConcurrentHashMap<>(16))`ï¼Œè¡¨æ˜Žè¿™æ˜¯ä¸ªç”± `ConcurrentHashMap` å®žçŽ°çš„ setï¼Œå­˜å‚¨çš„æ˜¯æ­£åœ¨åˆ›å»ºä¸­çš„å¯¹è±¡ï¼Œ**åˆ¤æ–­å½“å‰å¯¹è±¡æ˜¯å¦åœ¨åˆ›å»ºä¸­å°±æ˜¯é€šè¿‡æŸ¥æ‰¾å½“å‰å¯¹è±¡æ˜¯å¦åœ¨è¿™ä¸ª set ä¸­**åšåˆ°çš„ï¼›
+*   `earlyProxyReferences`ï¼šç±»åž‹ä¸º `ConcurrentHashMap<Object, Object>`ï¼Œä½äºŽ `AbstractAutoProxyCreator`ï¼Œå­˜å‚¨çš„æ˜¯æå‰è¿›è¡Œ aop çš„å¯¹è±¡ï¼Œ**å¦‚æžœä¸€ä¸ªå¯¹è±¡æå‰è¿›è¡Œäº† aopï¼Œåœ¨åŽé¢å†æ¬¡ aop æ—¶ï¼Œä¼šé€šè¿‡åˆ¤æ–­å¯¹è±¡æ˜¯å¦åœ¨ `earlyProxyReferences` ä¸­è€Œç¡®å®šè¦ä¸è¦è¿›è¡Œ aopï¼Œä»¥æ­¤æ¥ä¿è¯æ¯ä¸ªå¯¹è±¡åªè¿›è¡Œä¸€æ¬¡ aop**ã€‚
+
+è‡³æ­¤ï¼Œspring ä¸€å…±æä¾›äº† 5 ä¸ªæ•°æ®ç»“æž„æ¥è¾…åŠ©è§£å†³å¾ªçŽ¯ä¾èµ–é—®é¢˜ï¼Œæ€»ç»“å¦‚ä¸‹ï¼š
+
+| ç»“æž„                            | è¯´æ˜Ž                                                         |
+| ------------------------------- | ------------------------------------------------------------ |
+| `singletonObjects`              | **ä¸€çº§ç¼“å­˜**ï¼Œç±»åž‹ä¸º `ConcurrentHashMap<String, Object>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` æ˜¯å®Œæ•´çš„ `spring bean`ï¼Œå³å®Œæˆå±žæ€§æ³¨å…¥ã€åˆå§‹åŒ–çš„ beanï¼Œå¦‚æžœ bean éœ€è¦ aopï¼Œå­˜å‚¨çš„å°±æ˜¯ä»£ç†å¯¹è±¡ |
+| `earlySingletonObjects`         | **äºŒçº§ç¼“å­˜**ï¼Œç±»åž‹ä¸º `HashMap<String, Object>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` æ˜¯å®žä¾‹åŒ–å®Œæˆï¼Œä½†æœªè¿›è¡Œä¾èµ–æ³¨å…¥çš„ `bean`ï¼Œ**å¦‚æžœ `bean` éœ€è¦ `aop`ï¼Œè¿™é‡Œå­˜å‚¨çš„å°±æ˜¯ä»£ç†å¯¹è±¡ï¼Œåªä¸è¿‡ä»£ç†å¯¹è±¡æ‰€æŒæœ‰çš„åŽŸå§‹å¯¹è±¡å¹¶æœªè¿›è¡Œä¾èµ–æ³¨å…¥** |
+| `singletonFactories`            | **ä¸‰çº§ç¼“å­˜**ï¼Œç±»åž‹ä¸º `HashMap<String, ObjectFactory>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` å­˜å‚¨çš„æ˜¯ä¸€ä¸ª `lambda` è¡¨è¾¾å¼ï¼š`() -> getEarlyBeanReference(beanName, mbd, bean)`ï¼Œ`getEarlyBeanReference(xxx)` ä¸­çš„ `bean` æ˜¯åˆšåˆ›å»ºå®Œæˆçš„ `java bean`ï¼Œæ²¡æœ‰è¿›è¡Œ spring ä¾èµ–æ³¨å…¥ï¼Œä¹Ÿæ²¡è¿›è¡Œ aop |
+| `singletonsCurrentlyInCreation` | ç±»åž‹ä¸º `SetFromMap<String>`ï¼Œä½äºŽ `DefaultSingletonBeanRegistry`ï¼Œåˆ›å»ºæ–¹å¼ä¸º `Collections.newSetFromMap(new ConcurrentHashMap<>(16))`ï¼Œè¡¨æ˜Žè¿™æ˜¯ä¸ªç”± `ConcurrentHashMap` å®žçŽ°çš„ setï¼Œå­˜å‚¨çš„æ˜¯æ­£åœ¨åˆ›å»ºä¸­çš„å¯¹è±¡ï¼Œå¯ä»¥**ç”¨æ¥åˆ¤æ–­å½“å‰å¯¹è±¡æ˜¯å¦åœ¨åˆ›å»ºä¸­** |
+| `earlyProxyReferences`          | ç±»åž‹ä¸º `ConcurrentHashMap<Object, Object>`ï¼Œä½äºŽ `AbstractAutoProxyCreator`ï¼Œå­˜å‚¨çš„æ˜¯æå‰è¿›è¡Œ aop çš„å¯¹è±¡ï¼Œå¯ä»¥**ç”¨æ¥åˆ¤æ–­ bean æ˜¯å¦è¿›è¡Œè¿‡ aopï¼Œä¿è¯æ¯ä¸ªå¯¹è±¡åªè¿›è¡Œä¸€æ¬¡ aop** |
+
+ä»¥ä¸Šå°±æ˜¯ spring è§£å†³å¾ªçŽ¯ä¾èµ–çš„å®Œæ•´æµç¨‹äº†ã€‚
+
+### 3\. ä»£ç æ¨¡æ‹Ÿ
+
+åœ¨æ­£å¼åˆ†æžæºç å‰ï¼Œæˆ‘ä»¬é¦–å…ˆæ¨¡æ‹Ÿå¾ªçŽ¯ä¸‹ä¾èµ–è§£å†³çš„è¿‡ç¨‹ï¼Œä»£ç å¦‚ä¸‹ï¼š
+
+```
+/**
+ * å‡†å¤‡ä¸€ä¸ªç±»ï¼Œå†…éƒ¨æœ‰ä¸€ä¸ªå±žæ€§ Obj2
+ */
+public class Obj1 {
+    // éœ€è¦æ³¨å…¥ obj2
+    private Obj2 obj2;
+
+    // çœç•¥å…¶ä»–æ–¹æ³•
+    ...
+}
+
+/**
+ * å‡†å¤‡ä¸€ä¸ªç±»ï¼Œå†…éƒ¨æœ‰ä¸€ä¸ªå±žæ€§ Obj1
+ */
+public class Obj2 {
+    // éœ€è¦æ³¨å…¥ ob1
+    private Obj1 obj1;
+
+    // çœç•¥å…¶ä»–æ–¹æ³•
+    ...
+
+}
+
+/**
+ * å‡†å¤‡Obj2çš„ä»£ç†ç±»ï¼Œå†…éƒ¨æŒæœ‰obj2çš„å¯¹è±¡
+ */
+public class ProxyObj2 extends Obj2 {
+    // obj2ä»£ç†ç±»å†…éƒ¨æŒæœ‰obj2çš„åŽŸå§‹å¯¹è±¡
+    private Obj2 obj2;
+
+    public ProxyObj2(Obj2 obj2) {
+        this.obj2 = obj2;
+    }
+
+    // çœç•¥å…¶ä»–æ–¹æ³•
+    ...
+
+}
+
+/**
+ * å‡†å¤‡Obj1çš„ä»£ç†ç±»ï¼Œå†…éƒ¨æŒæœ‰obj1çš„å¯¹è±¡
+ */
+public class ProxyObj1 extends Obj1 {
+    // obj2ä»£ç†ç±»å†…éƒ¨æŒæœ‰obj1çš„åŽŸå§‹å¯¹è±¡
+    private Obj1 obj1;
+
+    public ProxyObj1(Obj1 obj1) {
+        this.obj1 = obj1;
+    }
+
+    // çœç•¥å…¶ä»–æ–¹æ³•
+    ...
+
+}
+
+```
+
+*   é¦–å…ˆå‡†å¤‡äº†ä¸¤ä¸ªç±»ï¼š`Obj1` ä¸Ž `Obj2`ï¼Œ å…¶ä¸­ `Obj1` æœ‰ä¸ªå±žæ€§ä¸º `Obj2`ï¼Œ`Obj2` ä¸­æœ‰ä¸ªå±žæ€§ä¸º `Obj1`ï¼›
+*   æŽ¥ç€å‡†å¤‡äº† `Obj1` ä¸Ž `Obj2` çš„ä»£ç†ç±» `ProxyObj1`ã€`ProxyObj2`ï¼Œå¹¶ä¸” `ProxyObj1`ã€`ProxyObj2` åˆ†åˆ«æœ‰ä¸€ä¸ªå±žæ€§ï¼š`Obj1` ã€ `Obj2`ï¼›
+*   æˆ‘ä»¬ä¾æ—§ä»¥ `new ObjX()` æ¨¡æ‹Ÿå¯¹è±¡çš„åˆ›å»ºï¼›
+*   æˆ‘ä»¬ä¾æ—§ä»¥ `objX.setObjX(xxx)` æ¨¡æ‹Ÿä¾èµ–æ³¨å…¥ï¼›
+*   æˆ‘ä»¬ä¾æ—§ä»¥ `new ProxyObjX(xxx)` æ¨¡æ‹Ÿä»£ç†å¯¹è±¡çš„ç”Ÿæˆï¼›
+*   æˆ‘ä»¬ä¾æ—§ä»¥ `collection.add(xxx)` æ¨¡æ‹Ÿå¯¹è±¡æ·»åŠ åˆ°å®¹å™¨ä¸­çš„è¿‡ç¨‹ï¼›
+
+æˆ‘ä»¬æ¨¡æ‹Ÿæœ€ç»ˆå¾—åˆ°çš„ç»“æžœä¸ºï¼š
+
+*   æœ€ç»ˆæ”¾å…¥å®¹å™¨çš„å¯¹è±¡åˆ†åˆ«æ˜¯ `proxyObj1`ï¼Œ`proxyObj2`
+*   æ³¨å…¥åˆ° `obj1` ä¸­çš„æ˜¯ `proxyObj2`ï¼Œæ³¨å…¥åˆ° `obj2` ä¸­çš„æ˜¯ `proxyObj2`
+
+å‡†å¤‡å·¥ä½œå·²ç»å®Œæˆäº†ï¼ŒæŽ¥ä¸‹æ¥æˆ‘ä»¬å°±å¼€å§‹è¿›è¡Œæ¨¡æ‹Ÿäº†ã€‚
+
+#### 3.1 æ¨¡æ‹Ÿ 1
+
+è¦æ±‚ï¼š
+
+*   Obj1 ä¸Ž Obj2 å¿…é¡»ä¸¥æ ¼æŒ‰ç…§ â€œåˆ›å»º --> å±žæ€§æ³¨å…¥ --> ç”Ÿæˆä»£ç†å¯¹è±¡ --> ä¿å­˜åˆ°å®¹å™¨ä¸­â€ çš„æµç¨‹åˆ›å»º
+*   ä¸¤ä¸ªå¯¹è±¡çš„åˆ›å»ºæµç¨‹å¯ä»¥äº¤æ›¿è¿›è¡Œ
+
+ç›®æ ‡ï¼š
+
+*   æœ€ç»ˆæ”¾å…¥å®¹å™¨çš„å¯¹è±¡åˆ†åˆ«æ˜¯ `proxyObj1`ï¼Œ`proxyObj2`
+*   æ³¨å…¥åˆ° `obj1` ä¸­çš„æ˜¯ `proxyObj2`ï¼Œæ³¨å…¥åˆ° `obj2` ä¸­çš„æ˜¯ `proxyObj2`
+
+ä»£ç å¦‚ä¸‹ï¼š
+
+```
+public static main(String[] args) {
+     // å‡†å¤‡ä¸€ä¸ªå®¹å™¨ï¼Œè¿™é‡Œä¿å­˜çš„æ˜¯å®Œæˆä¸Šè¿°ç”Ÿå‘½å‘¨æœŸçš„å¯¹è±¡
+     // 1\. å¦‚æžœå…ƒç´ æ˜¯åŽŸå§‹å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
+     // 2\. å¦‚æžœå…ƒç´ æ˜¯ä»£ç†å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡æŒæœ‰çš„åŽŸæœ‰å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
+     Collection<?> collection = new ArrayList();
+
+     // 1\. åˆ›å»º Obj1 å¯¹è±¡
+     Obj1 obj1 = new Obj1();
+
+     // æŽ¥ä¸‹æ¥éœ€è¦å°†obj2çš„ä»£ç†å¯¹è±¡æ³¨å…¥åˆ°obj1ä¸­ï¼Œä½†æ­¤æ—¶å®¹å™¨ä¸­å¹¶æ²¡æœ‰obj2çš„ä»£ç†å¯¹è±¡ï¼ŒäºŽæ˜¯åˆ‡æ¢åˆ°obj2çš„åˆ›å»ºæµç¨‹
+     // ä¸€. åˆ›å»º Obj2 å¯¹è±¡
+     Obj2 obj2 = new Obj2();
+
+     // åˆ°è¿™é‡Œï¼Œobj2éœ€è¦æ³¨å…¥obj1çš„ä»£ç†å¯¹è±¡ï¼Œä½†æ­¤æ—¶å®¹å™¨ä¸­å¹¶æ²¡æœ‰obj2çš„ä»£ç†å¯¹è±¡ï¼ŒäºŽæ˜¯åˆè¦åˆ‡åˆ°obj1çš„åˆ›å»ºæµç¨‹
+
+}
+
+```
+
+åœ¨æ‰§è¡Œä»¥ä¸Šæµç¨‹ä¸­ ï¼Œå‘çŽ°åˆ›å»º Obj2 å¯¹è±¡åŽï¼Œæµç¨‹å°±è¿›è¡Œä¸ä¸‹åŽ»äº†ï¼š
+
+*   `obj1` éœ€è¦æ³¨å…¥ `obj2` çš„ä»£ç†å¯¹è±¡ï¼Œä½†æ‰¾ä¸åˆ°ï¼ŒäºŽæ˜¯åˆ‡æ¢åˆ° `obj2` çš„åˆ›å»ºæµç¨‹ï¼›
+*   `obj2` éœ€è¦æ³¨å…¥ `obj1` çš„ä»£ç†å¯¹è±¡ï¼Œä½†æ‰¾ä¸åˆ°ï¼ŒäºŽæ˜¯åˆ‡æ¢åˆ° `obj1` çš„åˆ›å»ºæµç¨‹ï¼›
+*   `obj1` éœ€è¦æ³¨å…¥ `obj2` çš„ä»£ç†å¯¹è±¡ï¼Œä½†æ‰¾ä¸åˆ°ï¼ŒäºŽæ˜¯åˆ‡æ¢åˆ° `obj2` çš„åˆ›å»ºæµç¨‹ï¼›
+*   ...
+
+å¦‚æ­¤å¾ªçŽ¯å¾€å¤ã€‚
+
+æ¨¡æ‹Ÿç»“æžœï¼šæœªè¾¾åˆ°é¢„æœŸç›®æ ‡ï¼Œæœ¬æ¬¡æ¨¡æ‹Ÿå®£å‘Šå¤±è´¥ã€‚
+
+#### 3.1 æ¨¡æ‹Ÿ 2
+
+è¦æ±‚ï¼š
+
+*   Obj1 ä¸Ž Obj2 å¿…é¡»ä»¥ä¸‹ä¸¤ç§æµç¨‹ä¹‹ä¸€åˆ›å»ºï¼š
+    *   â€œåˆ›å»º --> å±žæ€§æ³¨å…¥ --> ç”Ÿæˆä»£ç†å¯¹è±¡ --> ä¿å­˜åˆ°å®¹å™¨ä¸­â€ çš„æµç¨‹åˆ›å»º
+    *   â€œåˆ›å»º (åŽŸå§‹å¯¹è±¡)--> ç”Ÿæˆä»£ç†å¯¹è±¡ --> å¯¹åŽŸå§‹å¯¹è±¡è¿›è¡Œå±žæ€§æ³¨å…¥ --> å°†ä»£ç†å¯¹è±¡ä¿å­˜åˆ°å®¹å™¨ä¸­â€ çš„æµç¨‹åˆ›å»º
+*   ä¸¤ä¸ªå¯¹è±¡çš„åˆ›å»ºæµç¨‹å¯ä»¥äº¤æ›¿è¿›è¡Œ
+
+ç›®æ ‡ï¼š
+
+*   æœ€ç»ˆæ”¾å…¥å®¹å™¨çš„å¯¹è±¡åˆ†åˆ«æ˜¯ `proxyObj1`ï¼Œ`proxyObj2`
+*   æ³¨å…¥åˆ° `obj1` ä¸­çš„æ˜¯ `proxyObj2`ï¼Œæ³¨å…¥åˆ° `obj2` ä¸­çš„æ˜¯ `proxyObj2`
+
+ç¤ºä¾‹ä»£ç å¦‚ä¸‹ï¼š
 
 ```
  public static main(String[] args) {
-      // ×¼±¸Ò»¸öÈÝÆ÷£¬ÕâÀï±£´æµÄÊÇÍê³ÉÉÏÊöÉúÃüÖÜÆÚµÄ¶ÔÏó
-      // 1\. Èç¹ûÔªËØÊÇÔ­Ê¼¶ÔÏó£¬Ôò¸Ã¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
-      // 2\. Èç¹ûÔªËØÊÇ´úÀí¶ÔÏó£¬Ôò¸Ã¶ÔÏó³ÖÓÐµÄÔ­ÓÐ¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
+      // å‡†å¤‡ä¸€ä¸ªå®¹å™¨ï¼Œè¿™é‡Œä¿å­˜çš„æ˜¯å®Œæˆä¸Šè¿°ç”Ÿå‘½å‘¨æœŸçš„å¯¹è±¡
+      // 1\. å¦‚æžœå…ƒç´ æ˜¯åŽŸå§‹å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
+      // 2\. å¦‚æžœå…ƒç´ æ˜¯ä»£ç†å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡æŒæœ‰çš„åŽŸæœ‰å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
       Collection<?> collection = new ArrayList();
 
-      // 1\. ´´½¨ Obj1 ¶ÔÏó
+      // 1\. åˆ›å»º Obj1 å¯¹è±¡
       Obj1 obj1 = new Obj1();
 
-      // ½ÓÏÂÀ´ÐèÒª½«obj2µÄ´úÀí¶ÔÏó×¢Èëµ½obj1ÖÐ£¬µ«´ËÊ±ÈÝÆ÷ÖÐ²¢Ã»ÓÐobj2µÄ´úÀí¶ÔÏó£¬ÓÚÊÇÇÐ»»µ½obj2µÄ´´½¨Á÷³Ì
-      // Ò». ´´½¨ Obj2 ¶ÔÏó
+      // æŽ¥ä¸‹æ¥éœ€è¦å°†obj2çš„ä»£ç†å¯¹è±¡æ³¨å…¥åˆ°obj1ä¸­ï¼Œä½†æ­¤æ—¶å®¹å™¨ä¸­å¹¶æ²¡æœ‰obj2çš„ä»£ç†å¯¹è±¡ï¼ŒäºŽæ˜¯åˆ‡æ¢åˆ°obj2çš„åˆ›å»ºæµç¨‹
+      // ä¸€. åˆ›å»º Obj2 å¯¹è±¡
       Obj2 obj2 = new Obj2();
 
-      // 2\. ¶Ô Obj1 ÌáÇ°´úÀí
+      // 2\. å¯¹ Obj1 æå‰ä»£ç†
       ProxyObj1 proxyObj1 = new ProxyObj1(obj1);
 
-      // ¶þ. ½« proxyObj1 ×¢Èëµ½ obj2 ÖÐ
+      // äºŒ. å°† proxyObj1 æ³¨å…¥åˆ° obj2 ä¸­
       obj2.setObj1(proxyObj1);
 
-      // Èý. Éú³É obj2µÄ´úÀí¶ÔÏó
+      // ä¸‰. ç”Ÿæˆ obj2çš„ä»£ç†å¯¹è±¡
       ProxyObj2 proxyObj2 = new ProxyObj2(obj2);
 
-      // ËÄ. proxyObj2 ÒÑ¾­×ßÍêÁËÍêÕûµÄÉúÃüÖÜÆÚ£¬½«´úÀí¶ÔÏóÌí¼Óµ½ÈÝÆ÷Ê±
+      // å››. proxyObj2 å·²ç»èµ°å®Œäº†å®Œæ•´çš„ç”Ÿå‘½å‘¨æœŸï¼Œå°†ä»£ç†å¯¹è±¡æ·»åŠ åˆ°å®¹å™¨æ—¶
       collection.add(proxyObj2);
 
-      // ´ËÊ±ÈÝÆ÷ÖÐÒÑ¾­ÓÐ obj2 µÄ´úÀí¶ÔÏóÁË£¬¼ÌÐøobj1µÄÉúÃüÖÜÆÚ
-      // 3\. ½« proxyObj2 ×¢Èëµ½ obj1 ÖÐ
+      // æ­¤æ—¶å®¹å™¨ä¸­å·²ç»æœ‰ obj2 çš„ä»£ç†å¯¹è±¡äº†ï¼Œç»§ç»­obj1çš„ç”Ÿå‘½å‘¨æœŸ
+      // 3\. å°† proxyObj2 æ³¨å…¥åˆ° obj1 ä¸­
       obj1.setObj2(proxyObj2);
 
-      // 4\. proxyObj1 ÒÑ¾­×ßÍêÁËÍêÕûµÄÉúÃüÖÜÆÚ£¬½«´úÀí¶ÔÏóÌí¼Óµ½ÈÝÆ÷Ê±
+      // 4\. proxyObj1 å·²ç»èµ°å®Œäº†å®Œæ•´çš„ç”Ÿå‘½å‘¨æœŸï¼Œå°†ä»£ç†å¯¹è±¡æ·»åŠ åˆ°å®¹å™¨æ—¶
       collection.add(proxyObj1);
  }
 
 ```
 
-ÉÏÃæµÄ´úÂëÖÐ£¬obj1 µÄÁ÷³ÌÓÃ ¡°1£¬2£¬3£¬4¡± ±êÊ¶£¬obj2 µÄÁ÷³ÌÓÃ ¡°Ò»£¬¶þ£¬Èý£¬ËÄ¡± ±êÊ¶£¬Á½ÕßÁ÷³ÌÈçÏÂ£º
+ä¸Šé¢çš„ä»£ç ä¸­ï¼Œobj1 çš„æµç¨‹ç”¨ â€œ1ï¼Œ2ï¼Œ3ï¼Œ4â€ æ ‡è¯†ï¼Œobj2 çš„æµç¨‹ç”¨ â€œä¸€ï¼ŒäºŒï¼Œä¸‰ï¼Œå››â€ æ ‡è¯†ï¼Œä¸¤è€…æµç¨‹å¦‚ä¸‹ï¼š
 
-*   obj1£º¡°´´½¨ (Ô­Ê¼¶ÔÏó)--> Éú³É´úÀí¶ÔÏó --> ¶ÔÔ­Ê¼¶ÔÏó½øÐÐÊôÐÔ×¢Èë --> ½«´úÀí¶ÔÏó±£´æµ½ÈÝÆ÷ÖÐ¡±
-*   obj2£º¡°´´½¨ --> ÊôÐÔ×¢Èë --> Éú³É´úÀí¶ÔÏó --> ±£´æµ½ÈÝÆ÷ÖÐ¡±
+*   obj1ï¼šâ€œåˆ›å»º (åŽŸå§‹å¯¹è±¡)--> ç”Ÿæˆä»£ç†å¯¹è±¡ --> å¯¹åŽŸå§‹å¯¹è±¡è¿›è¡Œå±žæ€§æ³¨å…¥ --> å°†ä»£ç†å¯¹è±¡ä¿å­˜åˆ°å®¹å™¨ä¸­â€
+*   obj2ï¼šâ€œåˆ›å»º --> å±žæ€§æ³¨å…¥ --> ç”Ÿæˆä»£ç†å¯¹è±¡ --> ä¿å­˜åˆ°å®¹å™¨ä¸­â€
 
-×îÖÕÁ½Õß¶¼´æÈëÁËÈÝÆ÷ÖÐ£¬´ïµ½ÁËÔ¤ÆÚµÄÄ¿±ê¡£
+æœ€ç»ˆä¸¤è€…éƒ½å­˜å…¥äº†å®¹å™¨ä¸­ï¼Œè¾¾åˆ°äº†é¢„æœŸçš„ç›®æ ‡ã€‚
 
-#### 3.3 ´ÓÄ£ÄâÖÐµÃµ½µÄ½áÂÛ
+#### 3.3 ä»Žæ¨¡æ‹Ÿä¸­å¾—åˆ°çš„ç»“è®º
 
-¶Ô±ÈÉÏÃæÁ½¸öÄ£Äâ´úÂë£¬·¢ÏÖÄ£Äâ 2 Ö® ËùÒÔÄÜ´ïµ½Ô¤ÆÚÄ¿±ê£¬Ö÷ÒªÊÇÒòÎªÔÚ×¢Èë `obj2` µÄ `obj1` ÊôÐÔÊ±£¬ÌáÇ°Éú³ÉÁË `obj1` µÄ´úÀí¶ÔÏó `proxyObj1`£¬Ê¹µÃ `obj2` ÄÜÍê³ÉÕû¸ö´´½¨Á÷³Ì¡£ÕâÀïÔÙ´ÎÖ¤Ã÷£¬Ìá¹©½øÐÐ aop ¶ÔÑ­»·ÒÀÀµµÄ½â¾öÆðµ½ÖÁ¹ØÖØÒªµÄ×÷ÓÃ£¡
+å¯¹æ¯”ä¸Šé¢ä¸¤ä¸ªæ¨¡æ‹Ÿä»£ç ï¼Œå‘çŽ°æ¨¡æ‹Ÿ 2 ä¹‹ æ‰€ä»¥èƒ½è¾¾åˆ°é¢„æœŸç›®æ ‡ï¼Œä¸»è¦æ˜¯å› ä¸ºåœ¨æ³¨å…¥ `obj2` çš„ `obj1` å±žæ€§æ—¶ï¼Œæå‰ç”Ÿæˆäº† `obj1` çš„ä»£ç†å¯¹è±¡ `proxyObj1`ï¼Œä½¿å¾— `obj2` èƒ½å®Œæˆæ•´ä¸ªåˆ›å»ºæµç¨‹ã€‚è¿™é‡Œå†æ¬¡è¯æ˜Žï¼Œæä¾›è¿›è¡Œ aop å¯¹å¾ªçŽ¯ä¾èµ–çš„è§£å†³èµ·åˆ°è‡³å…³é‡è¦çš„ä½œç”¨ï¼
 
-ÏÞÓÚÆª·ù£¬±¾ÎÄ¾ÍÏÈµ½ÕâÀïÁË£¬±¾ÎÄÖ÷Òª·ÖÎöÁËÑ­»·ÒÀÀµµÄ²úÉú£¬½éÉÜÁË spring ½â¾öÑ­»·ÒÀÀµµÄ²½Öè£¬×îºóÍ¨¹ýÁ½¶Î´úÂëÄ£ÄâÁËÑ­»·ÒÀÀµµÄ½â¾ö£¬ÏÂÒ»ÆªÎÄÕÂÎÒÃÇ½«´Ó spring Ô´Âë·ÖÎö spring ÊÇÈçºÎ½â¾öÑ­»·ÒÀÀµµÄ¡£
+é™äºŽç¯‡å¹…ï¼Œæœ¬æ–‡å°±å…ˆåˆ°è¿™é‡Œäº†ï¼Œæœ¬æ–‡ä¸»è¦åˆ†æžäº†å¾ªçŽ¯ä¾èµ–çš„äº§ç”Ÿï¼Œä»‹ç»äº† spring è§£å†³å¾ªçŽ¯ä¾èµ–çš„æ­¥éª¤ï¼Œæœ€åŽé€šè¿‡ä¸¤æ®µä»£ç æ¨¡æ‹Ÿäº†å¾ªçŽ¯ä¾èµ–çš„è§£å†³ï¼Œä¸‹ä¸€ç¯‡æ–‡ç« æˆ‘ä»¬å°†ä»Ž spring æºç åˆ†æž spring æ˜¯å¦‚ä½•è§£å†³å¾ªçŽ¯ä¾èµ–çš„ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4659555](https://my.oschina.net/funcy/blog/4659555) £¬ÏÞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖÐÄÑÃâÓÐ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õý£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŽŸæ–‡é“¾æŽ¥ï¼š[https://my.oschina.net/funcy/blog/4659555](https://my.oschina.net/funcy/blog/4659555) ï¼Œé™äºŽä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿ŽæŒ‡æ­£ï¼åŽŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…èŽ·å¾—æŽˆæƒï¼Œéžå•†ä¸šè½¬è½½è¯·æ³¨æ˜Žå‡ºå¤„ã€‚_
 
-Ê¾Àý´úÂëÈçÏÂ£º
+ç¤ºä¾‹ä»£ç å¦‚ä¸‹ï¼š
 
 ```
  public static main(String[] args) {
-      // ×¼±¸Ò»¸öÈÝÆ÷£¬ÕâÀï±£´æµÄÊÇÍê³ÉÉÏÊöÉúÃüÖÜÆÚµÄ¶ÔÏó
-      // 1\. Èç¹ûÔªËØÊÇÔ­Ê¼¶ÔÏó£¬Ôò¸Ã¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
-      // 2\. Èç¹ûÔªËØÊÇ´úÀí¶ÔÏó£¬Ôò¸Ã¶ÔÏó³ÖÓÐµÄÔ­ÓÐ¶ÔÏóÒÑ¾­Íê³ÉÁËÊôÐÔ×¢Èë 
+      // å‡†å¤‡ä¸€ä¸ªå®¹å™¨ï¼Œè¿™é‡Œä¿å­˜çš„æ˜¯å®Œæˆä¸Šè¿°ç”Ÿå‘½å‘¨æœŸçš„å¯¹è±¡
+      // 1\. å¦‚æžœå…ƒç´ æ˜¯åŽŸå§‹å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
+      // 2\. å¦‚æžœå…ƒç´ æ˜¯ä»£ç†å¯¹è±¡ï¼Œåˆ™è¯¥å¯¹è±¡æŒæœ‰çš„åŽŸæœ‰å¯¹è±¡å·²ç»å®Œæˆäº†å±žæ€§æ³¨å…¥ 
       Collection<?> collection = new ArrayList();
 
-      // 1\. ´´½¨ Obj1 ¶ÔÏó
+      // 1\. åˆ›å»º Obj1 å¯¹è±¡
       Obj1 obj1 = new Obj1();
 
-      // ½ÓÏÂÀ´ÐèÒª½«obj2µÄ´úÀí¶ÔÏó×¢Èëµ½obj1ÖÐ£¬µ«´ËÊ±ÈÝÆ÷ÖÐ²¢Ã»ÓÐobj2µÄ´úÀí¶ÔÏó£¬ÓÚÊÇÇÐ»»µ½obj2µÄ´´½¨Á÷³Ì
-      // Ò». ´´½¨ Obj2 ¶ÔÏó
+      // æŽ¥ä¸‹æ¥éœ€è¦å°†obj2çš„ä»£ç†å¯¹è±¡æ³¨å…¥åˆ°obj1ä¸­ï¼Œä½†æ­¤æ—¶å®¹å™¨ä¸­å¹¶æ²¡æœ‰obj2çš„ä»£ç†å¯¹è±¡ï¼ŒäºŽæ˜¯åˆ‡æ¢åˆ°obj2çš„åˆ›å»ºæµç¨‹
+      // ä¸€. åˆ›å»º Obj2 å¯¹è±¡
       Obj2 obj2 = new Obj2();
 
-      // 2\. ¶Ô Obj1 ÌáÇ°´úÀí
+      // 2\. å¯¹ Obj1 æå‰ä»£ç†
       ProxyObj1 proxyObj1 = new ProxyObj1(obj1);
 
-      // ¶þ. ½« proxyObj1 ×¢Èëµ½ obj2 ÖÐ
+      // äºŒ. å°† proxyObj1 æ³¨å…¥åˆ° obj2 ä¸­
       obj2.setObj1(proxyObj1);
 
-      // Èý. Éú³É obj2µÄ´úÀí¶ÔÏó
+      // ä¸‰. ç”Ÿæˆ obj2çš„ä»£ç†å¯¹è±¡
       ProxyObj2 proxyObj2 = new ProxyObj2(obj2);
 
-      // ËÄ. proxyObj2 ÒÑ¾­×ßÍêÁËÍêÕûµÄÉúÃüÖÜÆÚ£¬½«´úÀí¶ÔÏóÌí¼Óµ½ÈÝÆ÷Ê±
+      // å››. proxyObj2 å·²ç»èµ°å®Œäº†å®Œæ•´çš„ç”Ÿå‘½å‘¨æœŸï¼Œå°†ä»£ç†å¯¹è±¡æ·»åŠ åˆ°å®¹å™¨æ—¶
       collection.add(proxyObj2);
 
-      // ´ËÊ±ÈÝÆ÷ÖÐÒÑ¾­ÓÐ obj2 µÄ´úÀí¶ÔÏóÁË£¬¼ÌÐøobj1µÄÉúÃüÖÜÆÚ
-      // 3\. ½« proxyObj2 ×¢Èëµ½ obj1 ÖÐ
+      // æ­¤æ—¶å®¹å™¨ä¸­å·²ç»æœ‰ obj2 çš„ä»£ç†å¯¹è±¡äº†ï¼Œç»§ç»­obj1çš„ç”Ÿå‘½å‘¨æœŸ
+      // 3\. å°† proxyObj2 æ³¨å…¥åˆ° obj1 ä¸­
       obj1.setObj2(proxyObj2);
 
-      // 4\. proxyObj1 ÒÑ¾­×ßÍêÁËÍêÕûµÄÉúÃüÖÜÆÚ£¬½«´úÀí¶ÔÏóÌí¼Óµ½ÈÝÆ÷Ê±
+      // 4\. proxyObj1 å·²ç»èµ°å®Œäº†å®Œæ•´çš„ç”Ÿå‘½å‘¨æœŸï¼Œå°†ä»£ç†å¯¹è±¡æ·»åŠ åˆ°å®¹å™¨æ—¶
       collection.add(proxyObj1);
  }
 
 ```
 
-ÉÏÃæµÄ´úÂëÖÐ£¬obj1 µÄÁ÷³ÌÓÃ ¡°1£¬2£¬3£¬4¡± ±êÊ¶£¬obj2 µÄÁ÷³ÌÓÃ ¡°Ò»£¬¶þ£¬Èý£¬ËÄ¡± ±êÊ¶£¬Á½ÕßÁ÷³ÌÈçÏÂ£º
+ä¸Šé¢çš„ä»£ç ä¸­ï¼Œobj1 çš„æµç¨‹ç”¨ â€œ1ï¼Œ2ï¼Œ3ï¼Œ4â€ æ ‡è¯†ï¼Œobj2 çš„æµç¨‹ç”¨ â€œä¸€ï¼ŒäºŒï¼Œä¸‰ï¼Œå››â€ æ ‡è¯†ï¼Œä¸¤è€…æµç¨‹å¦‚ä¸‹ï¼š
 
-*   obj1£º¡°´´½¨ (Ô­Ê¼¶ÔÏó)--> Éú³É´úÀí¶ÔÏó --> ¶ÔÔ­Ê¼¶ÔÏó½øÐÐÊôÐÔ×¢Èë --> ½«´úÀí¶ÔÏó±£´æµ½ÈÝÆ÷ÖÐ¡±
-*   obj2£º¡°´´½¨ --> ÊôÐÔ×¢Èë --> Éú³É´úÀí¶ÔÏó --> ±£´æµ½ÈÝÆ÷ÖÐ¡±
+*   obj1ï¼šâ€œåˆ›å»º (åŽŸå§‹å¯¹è±¡)--> ç”Ÿæˆä»£ç†å¯¹è±¡ --> å¯¹åŽŸå§‹å¯¹è±¡è¿›è¡Œå±žæ€§æ³¨å…¥ --> å°†ä»£ç†å¯¹è±¡ä¿å­˜åˆ°å®¹å™¨ä¸­â€
+*   obj2ï¼šâ€œåˆ›å»º --> å±žæ€§æ³¨å…¥ --> ç”Ÿæˆä»£ç†å¯¹è±¡ --> ä¿å­˜åˆ°å®¹å™¨ä¸­â€
 
-×îÖÕÁ½Õß¶¼´æÈëÁËÈÝÆ÷ÖÐ£¬´ïµ½ÁËÔ¤ÆÚµÄÄ¿±ê¡£
+æœ€ç»ˆä¸¤è€…éƒ½å­˜å…¥äº†å®¹å™¨ä¸­ï¼Œè¾¾åˆ°äº†é¢„æœŸçš„ç›®æ ‡ã€‚
 
-#### 3.3 ´ÓÄ£ÄâÖÐµÃµ½µÄ½áÂÛ
+#### 3.3 ä»Žæ¨¡æ‹Ÿä¸­å¾—åˆ°çš„ç»“è®º
 
-¶Ô±ÈÉÏÃæÁ½¸öÄ£Äâ´úÂë£¬·¢ÏÖÄ£Äâ 2 Ö® ËùÒÔÄÜ´ïµ½Ô¤ÆÚÄ¿±ê£¬Ö÷ÒªÊÇÒòÎªÔÚ×¢Èë `obj2` µÄ `obj1` ÊôÐÔÊ±£¬ÌáÇ°Éú³ÉÁË `obj1` µÄ´úÀí¶ÔÏó `proxyObj1`£¬Ê¹µÃ `obj2` ÄÜÍê³ÉÕû¸ö´´½¨Á÷³Ì¡£ÕâÀïÔÙ´ÎÖ¤Ã÷£¬Ìá¹©½øÐÐ aop ¶ÔÑ­»·ÒÀÀµµÄ½â¾öÆðµ½ÖÁ¹ØÖØÒªµÄ×÷ÓÃ£¡
+å¯¹æ¯”ä¸Šé¢ä¸¤ä¸ªæ¨¡æ‹Ÿä»£ç ï¼Œå‘çŽ°æ¨¡æ‹Ÿ 2 ä¹‹ æ‰€ä»¥èƒ½è¾¾åˆ°é¢„æœŸç›®æ ‡ï¼Œä¸»è¦æ˜¯å› ä¸ºåœ¨æ³¨å…¥ `obj2` çš„ `obj1` å±žæ€§æ—¶ï¼Œæå‰ç”Ÿæˆäº† `obj1` çš„ä»£ç†å¯¹è±¡ `proxyObj1`ï¼Œä½¿å¾— `obj2` èƒ½å®Œæˆæ•´ä¸ªåˆ›å»ºæµç¨‹ã€‚è¿™é‡Œå†æ¬¡è¯æ˜Žï¼Œæä¾›è¿›è¡Œ aop å¯¹å¾ªçŽ¯ä¾èµ–çš„è§£å†³èµ·åˆ°è‡³å…³é‡è¦çš„ä½œç”¨ï¼
 
-ÏÞÓÚÆª·ù£¬±¾ÎÄ¾ÍÏÈµ½ÕâÀïÁË£¬±¾ÎÄÖ÷Òª·ÖÎöÁËÑ­»·ÒÀÀµµÄ²úÉú£¬½éÉÜÁË spring ½â¾öÑ­»·ÒÀÀµµÄ²½Öè£¬×îºóÍ¨¹ýÁ½¶Î´úÂëÄ£ÄâÁËÑ­»·ÒÀÀµµÄ½â¾ö£¬ÏÂÒ»ÆªÎÄÕÂÎÒÃÇ½«´Ó spring Ô´Âë·ÖÎö spring ÊÇÈçºÎ½â¾öÑ­»·ÒÀÀµµÄ¡£
+é™äºŽç¯‡å¹…ï¼Œæœ¬æ–‡å°±å…ˆåˆ°è¿™é‡Œäº†ï¼Œæœ¬æ–‡ä¸»è¦åˆ†æžäº†å¾ªçŽ¯ä¾èµ–çš„äº§ç”Ÿï¼Œä»‹ç»äº† spring è§£å†³å¾ªçŽ¯ä¾èµ–çš„æ­¥éª¤ï¼Œæœ€åŽé€šè¿‡ä¸¤æ®µä»£ç æ¨¡æ‹Ÿäº†å¾ªçŽ¯ä¾èµ–çš„è§£å†³ï¼Œä¸‹ä¸€ç¯‡æ–‡ç« æˆ‘ä»¬å°†ä»Ž spring æºç åˆ†æž spring æ˜¯å¦‚ä½•è§£å†³å¾ªçŽ¯ä¾èµ–çš„ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4659555](https://my.oschina.net/funcy/blog/4659555) £¬ÏÞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖÐÄÑÃâÓÐ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õý£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŽŸæ–‡é“¾æŽ¥ï¼š[https://my.oschina.net/funcy/blog/4659555](https://my.oschina.net/funcy/blog/4659555) ï¼Œé™äºŽä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿ŽæŒ‡æ­£ï¼åŽŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…èŽ·å¾—æŽˆæƒï¼Œéžå•†ä¸šè½¬è½½è¯·æ³¨æ˜Žå‡ºå¤„ã€‚_

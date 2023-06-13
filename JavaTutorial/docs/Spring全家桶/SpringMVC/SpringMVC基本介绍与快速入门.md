@@ -2,9 +2,9 @@
 
 
 
-## MVC Éè¼Æ¸ÅÊö
+## MVC è®¾è®¡æ¦‚è¿°
 
-ÔÚÔçÆÚ Java Web µÄ¿ª·¢ÖÐ£¬Í³Ò»°ÑÏÔÊ¾²ã¡¢¿ØÖÆ²ã¡¢Êý¾Ý²ãµÄ²Ù×÷È«²¿½»¸ø JSP »òÕß JavaBean À´½øÐÐ´¦Àí£¬ÎÒÃÇ³ÆÖ®Îª **Model1£º**
+åœ¨æ—©æœŸ Java Web çš„å¼€å‘ä¸­ï¼Œç»Ÿä¸€æŠŠæ˜¾ç¤ºå±‚ã€æŽ§åˆ¶å±‚ã€æ•°æ®å±‚çš„æ“ä½œå…¨éƒ¨äº¤ç»™ JSP æˆ–è€… JavaBean æ¥è¿›è¡Œå¤„ç†ï¼Œæˆ‘ä»¬ç§°ä¹‹ä¸º **Model1ï¼š**
 
 
 
@@ -16,13 +16,13 @@
 
 
 
-*   **³öÏÖµÄ±×¶Ë£º**
-*   JSP ºÍ Java Bean Ö®¼äÑÏÖØñîºÏ£¬Java ´úÂëºÍ HTML ´úÂëÒ²ñîºÏÔÚÁËÒ»Æð
-*   ÒªÇó¿ª·¢Õß²»½öÒªÕÆÎÕ Java £¬»¹ÒªÓÐ¸ß³¬µÄÇ°¶ËË®Æ½
-*   Ç°¶ËºÍºó¶ËÏà»¥ÒÀÀµ£¬Ç°¶ËÐèÒªµÈ´ýºó¶ËÍê³É£¬ºó¶ËÒ²ÒÀÀµÇ°¶ËÍê³É£¬²ÅÄÜ½øÐÐÓÐÐ§µÄ²âÊÔ
-*   ´úÂëÄÑÒÔ¸´ÓÃ
+*   **å‡ºçŽ°çš„å¼Šç«¯ï¼š**
+*   JSP å’Œ Java Bean ä¹‹é—´ä¸¥é‡è€¦åˆï¼ŒJava ä»£ç å’Œ HTML ä»£ç ä¹Ÿè€¦åˆåœ¨äº†ä¸€èµ·
+*   è¦æ±‚å¼€å‘è€…ä¸ä»…è¦æŽŒæ¡ Java ï¼Œè¿˜è¦æœ‰é«˜è¶…çš„å‰ç«¯æ°´å¹³
+*   å‰ç«¯å’ŒåŽç«¯ç›¸äº’ä¾èµ–ï¼Œå‰ç«¯éœ€è¦ç­‰å¾…åŽç«¯å®Œæˆï¼ŒåŽç«¯ä¹Ÿä¾èµ–å‰ç«¯å®Œæˆï¼Œæ‰èƒ½è¿›è¡Œæœ‰æ•ˆçš„æµ‹è¯•
+*   ä»£ç éš¾ä»¥å¤ç”¨
 
-ÕýÒòÎªÉÏÃæµÄÖÖÖÖ±×¶Ë£¬ËùÒÔºÜ¿ìÕâÖÖ·½Ê½¾Í±» Servlet + JSP + Java Bean ËùÌæ´úÁË£¬ÔçÆÚµÄ MVC Ä£ÐÍ**£¨Model2£©**¾ÍÏñÏÂÍ¼ÕâÑù£º
+æ­£å› ä¸ºä¸Šé¢çš„ç§ç§å¼Šç«¯ï¼Œæ‰€ä»¥å¾ˆå¿«è¿™ç§æ–¹å¼å°±è¢« Servlet + JSP + Java Bean æ‰€æ›¿ä»£äº†ï¼Œæ—©æœŸçš„ MVC æ¨¡åž‹**ï¼ˆModel2ï¼‰**å°±åƒä¸‹å›¾è¿™æ ·ï¼š
 
 
 
@@ -34,20 +34,20 @@
 
 
 
-Ê×ÏÈÓÃ»§µÄÇëÇó»áµ½´ï Servlet£¬È»ºó¸ù¾ÝÇëÇóµ÷ÓÃÏàÓ¦µÄ Java Bean£¬²¢°ÑËùÓÐµÄÏÔÊ¾½á¹û½»¸ø JSP È¥Íê³É£¬ÕâÑùµÄÄ£Ê½ÎÒÃÇ¾Í³ÆÎª MVC Ä£Ê½¡£
+é¦–å…ˆç”¨æˆ·çš„è¯·æ±‚ä¼šåˆ°è¾¾ Servletï¼Œç„¶åŽæ ¹æ®è¯·æ±‚è°ƒç”¨ç›¸åº”çš„ Java Beanï¼Œå¹¶æŠŠæ‰€æœ‰çš„æ˜¾ç¤ºç»“æžœäº¤ç»™ JSP åŽ»å®Œæˆï¼Œè¿™æ ·çš„æ¨¡å¼æˆ‘ä»¬å°±ç§°ä¸º MVC æ¨¡å¼ã€‚
 
-*   **M ´ú±í Ä£ÐÍ£¨Model£©**
-    Ä£ÐÍÊÇÊ²Ã´ÄØ£¿ Ä£ÐÍ¾ÍÊÇÊý¾Ý£¬¾ÍÊÇ dao,bean
-*   **V ´ú±í ÊÓÍ¼£¨View£©**
-    ÊÓÍ¼ÊÇÊ²Ã´ÄØ£¿ ¾ÍÊÇÍøÒ³, JSP£¬ÓÃÀ´Õ¹Ê¾Ä£ÐÍÖÐµÄÊý¾Ý
-*   **C ´ú±í ¿ØÖÆÆ÷£¨controller)**
-    ¿ØÖÆÆ÷ÊÇÊ²Ã´£¿ ¿ØÖÆÆ÷µÄ×÷ÓÃ¾ÍÊÇ°Ñ²»Í¬µÄÊý¾Ý(Model)£¬ÏÔÊ¾ÔÚ²»Í¬µÄÊÓÍ¼(View)ÉÏ£¬Servlet °çÑÝµÄ¾ÍÊÇÕâÑùµÄ½ÇÉ«¡£
+*   **M ä»£è¡¨ æ¨¡åž‹ï¼ˆModelï¼‰**
+    æ¨¡åž‹æ˜¯ä»€ä¹ˆå‘¢ï¼Ÿ æ¨¡åž‹å°±æ˜¯æ•°æ®ï¼Œå°±æ˜¯ dao,bean
+*   **V ä»£è¡¨ è§†å›¾ï¼ˆViewï¼‰**
+    è§†å›¾æ˜¯ä»€ä¹ˆå‘¢ï¼Ÿ å°±æ˜¯ç½‘é¡µ, JSPï¼Œç”¨æ¥å±•ç¤ºæ¨¡åž‹ä¸­çš„æ•°æ®
+*   **C ä»£è¡¨ æŽ§åˆ¶å™¨ï¼ˆcontroller)**
+    æŽ§åˆ¶å™¨æ˜¯ä»€ä¹ˆï¼Ÿ æŽ§åˆ¶å™¨çš„ä½œç”¨å°±æ˜¯æŠŠä¸åŒçš„æ•°æ®(Model)ï¼Œæ˜¾ç¤ºåœ¨ä¸åŒçš„è§†å›¾(View)ä¸Šï¼ŒServlet æ‰®æ¼”çš„å°±æ˜¯è¿™æ ·çš„è§’è‰²ã€‚
 
-> À©Õ¹ÔÄ¶Á£º[Web¿ª·¢Ä£Ê½](https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247483775&idx=1&sn=c9d7ead744c6e0c3ab2fe55c09bbe61f&chksm=ebd7407edca0c9688f3870d895b760836101271b912899821fb35c5704fe215da2fc5daff2f9#rd)
+> æ‰©å±•é˜…è¯»ï¼š[Webå¼€å‘æ¨¡å¼](https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247483775&idx=1&sn=c9d7ead744c6e0c3ab2fe55c09bbe61f&chksm=ebd7407edca0c9688f3870d895b760836101271b912899821fb35c5704fe215da2fc5daff2f9#rd)
 
-#### Spring MVC µÄ¼Ü¹¹
+#### Spring MVC çš„æž¶æž„
 
-Îª½â¾ö³Ö¾Ã²ãÖÐÒ»Ö±Î´´¦ÀíºÃµÄÊý¾Ý¿âÊÂÎñµÄ±à³Ì£¬ÓÖÎªÁËÓ­ºÏ NoSQL µÄÇ¿ÊÆáÈÆð£¬Spring MVC ¸ø³öÁË·½°¸£º
+ä¸ºè§£å†³æŒä¹…å±‚ä¸­ä¸€ç›´æœªå¤„ç†å¥½çš„æ•°æ®åº“äº‹åŠ¡çš„ç¼–ç¨‹ï¼Œåˆä¸ºäº†è¿Žåˆ NoSQL çš„å¼ºåŠ¿å´›èµ·ï¼ŒSpring MVC ç»™å‡ºäº†æ–¹æ¡ˆï¼š
 
 
 
@@ -59,20 +59,20 @@
 
 
 
-**´«Í³µÄÄ£ÐÍ²ã±»²ð·ÖÎªÁËÒµÎñ²ã(Service)ºÍÊý¾Ý·ÃÎÊ²ã£¨DAO,Data Access Object£©¡£** ÔÚ Service ÏÂ¿ÉÒÔÍ¨¹ý Spring µÄÉùÃ÷Ê½ÊÂÎñ²Ù×÷Êý¾Ý·ÃÎÊ²ã£¬¶øÔÚÒµÎñ²ãÉÏ»¹ÔÊÐíÎÒÃÇ·ÃÎÊ NoSQL £¬ÕâÑù¾ÍÄÜ¹»Âú×ãÒì¾üÍ»ÆðµÄ NoSQL µÄÊ¹ÓÃÁË£¬Ëü¿ÉÒÔ´ó´óÌá¸ß»¥ÁªÍøÏµÍ³µÄÐÔÄÜ¡£
+**ä¼ ç»Ÿçš„æ¨¡åž‹å±‚è¢«æ‹†åˆ†ä¸ºäº†ä¸šåŠ¡å±‚(Service)å’Œæ•°æ®è®¿é—®å±‚ï¼ˆDAO,Data Access Objectï¼‰ã€‚** åœ¨ Service ä¸‹å¯ä»¥é€šè¿‡ Spring çš„å£°æ˜Žå¼äº‹åŠ¡æ“ä½œæ•°æ®è®¿é—®å±‚ï¼Œè€Œåœ¨ä¸šåŠ¡å±‚ä¸Šè¿˜å…è®¸æˆ‘ä»¬è®¿é—® NoSQL ï¼Œè¿™æ ·å°±èƒ½å¤Ÿæ»¡è¶³å¼‚å†›çªèµ·çš„ NoSQL çš„ä½¿ç”¨äº†ï¼Œå®ƒå¯ä»¥å¤§å¤§æé«˜äº’è”ç½‘ç³»ç»Ÿçš„æ€§èƒ½ã€‚
 
-*   **ÌØµã£º**
-    ½á¹¹ËÉÉ¢£¬¼¸ºõ¿ÉÒÔÔÚ Spring MVC ÖÐÊ¹ÓÃ¸÷ÀàÊÓÍ¼
-    ËÉñîºÏ£¬¸÷¸öÄ£¿é·ÖÀë
-    Óë Spring ÎÞ·ì¼¯³É
+*   **ç‰¹ç‚¹ï¼š**
+    ç»“æž„æ¾æ•£ï¼Œå‡ ä¹Žå¯ä»¥åœ¨ Spring MVC ä¸­ä½¿ç”¨å„ç±»è§†å›¾
+    æ¾è€¦åˆï¼Œå„ä¸ªæ¨¡å—åˆ†ç¦»
+    ä¸Ž Spring æ— ç¼é›†æˆ
 
 * * *
 
 ## Hello Spring MVC
 
-ÈÃÎÒÃÇÀ´Ð´Ò»ÏÂÎÒÃÇµÄµÚÒ»¸ö Spring MVC ³ÌÐò£º
+è®©æˆ‘ä»¬æ¥å†™ä¸€ä¸‹æˆ‘ä»¬çš„ç¬¬ä¸€ä¸ª Spring MVC ç¨‹åºï¼š
 
-#### µÚÒ»²½£ºÔÚ IDEA ÖÐÐÂ½¨ Spring MVC ÏîÄ¿
+#### ç¬¬ä¸€æ­¥ï¼šåœ¨ IDEA ä¸­æ–°å»º Spring MVC é¡¹ç›®
 
 
 
@@ -84,7 +84,7 @@
 
 
 
-²¢ÇÒÈ¡ÃûÎª ¡¾HelloSpringMVC¡¿£¬µã»÷¡¾Finish¡¿£º
+å¹¶ä¸”å–åä¸º ã€HelloSpringMVCã€‘ï¼Œç‚¹å‡»ã€Finishã€‘ï¼š
 
 
 
@@ -96,7 +96,7 @@
 
 
 
-IDEA »á×Ô¶¯°ïÎÒÃÇÏÂÔØºÃ±ØÒªµÄ jar °ü£¬²¢ÇÒÎªÎÒÃÇ´´½¨ºÃÒ»Ð©Ä¬ÈÏµÄÄ¿Â¼ºÍÎÄ¼þ£¬´´½¨ºÃÒÔºóÏîÄ¿½á¹¹ÈçÏÂ£º
+IDEA ä¼šè‡ªåŠ¨å¸®æˆ‘ä»¬ä¸‹è½½å¥½å¿…è¦çš„ jar åŒ…ï¼Œå¹¶ä¸”ä¸ºæˆ‘ä»¬åˆ›å»ºå¥½ä¸€äº›é»˜è®¤çš„ç›®å½•å’Œæ–‡ä»¶ï¼Œåˆ›å»ºå¥½ä»¥åŽé¡¹ç›®ç»“æž„å¦‚ä¸‹ï¼š
 
 
 
@@ -108,9 +108,9 @@ IDEA »á×Ô¶¯°ïÎÒÃÇÏÂÔØºÃ±ØÒªµÄ jar °ü£¬²¢ÇÒÎªÎÒÃÇ´´½¨ºÃÒ»Ð©Ä¬ÈÏµÄÄ¿Â¼ºÍÎÄ¼þ£¬´´½¨
 
 
 
-#### µÚ¶þ²½£ºÐÞ¸Ä web.xml
+#### ç¬¬äºŒæ­¥ï¼šä¿®æ”¹ web.xml
 
-ÎÒÃÇ´ò¿ª web.xml £¬°´ÕÕÏÂÍ¼Íê³ÉÐÞ¸Ä£º
+æˆ‘ä»¬æ‰“å¼€ web.xml ï¼ŒæŒ‰ç…§ä¸‹å›¾å®Œæˆä¿®æ”¹ï¼š
 
 
 
@@ -122,7 +122,7 @@ IDEA »á×Ô¶¯°ïÎÒÃÇÏÂÔØºÃ±ØÒªµÄ jar °ü£¬²¢ÇÒÎªÎÒÃÇ´´½¨ºÃÒ»Ð©Ä¬ÈÏµÄÄ¿Â¼ºÍÎÄ¼þ£¬´´½¨
 
 
 
-°Ñ`<url-pattern>`ÔªËØµÄÖµ¸ÄÎª / £¬±íÊ¾ÒªÀ¹½ØËùÓÐµÄÇëÇó£¬²¢½»ÓÉSpring MVCµÄºóÌ¨¿ØÖÆÆ÷À´´¦Àí£¬¸ÄÍêÖ®ºó£º
+æŠŠ`<url-pattern>`å…ƒç´ çš„å€¼æ”¹ä¸º / ï¼Œè¡¨ç¤ºè¦æ‹¦æˆªæ‰€æœ‰çš„è¯·æ±‚ï¼Œå¹¶äº¤ç”±Spring MVCçš„åŽå°æŽ§åˆ¶å™¨æ¥å¤„ç†ï¼Œæ”¹å®Œä¹‹åŽï¼š
 
 
 
@@ -136,9 +136,9 @@ IDEA »á×Ô¶¯°ïÎÒÃÇÏÂÔØºÃ±ØÒªµÄ jar °ü£¬²¢ÇÒÎªÎÒÃÇ´´½¨ºÃÒ»Ð©Ä¬ÈÏµÄÄ¿Â¼ºÍÎÄ¼þ£¬´´½¨
 
 
 
-#### µÚÈý²½£º±à¼­ dispatcher-servlet.xml
+#### ç¬¬ä¸‰æ­¥ï¼šç¼–è¾‘ dispatcher-servlet.xml
 
-Õâ¸öÎÄ¼þÃûµÄ¿ªÍ· dispatcher ÓëÉÏÃæ web.xml ÖÐµÄ `<servlet-name>` ÔªËØÅäÖÃµÄ dispatcher ¶ÔÓ¦£¬ÕâÊÇ Spring MVC µÄÓ³ÉäÅäÖÃÎÄ¼þ£¨xxx-servlet.xml£©£¬ÎÒÃÇ±à¼­ÈçÏÂ£º
+è¿™ä¸ªæ–‡ä»¶åçš„å¼€å¤´ dispatcher ä¸Žä¸Šé¢ web.xml ä¸­çš„ `<servlet-name>` å…ƒç´ é…ç½®çš„ dispatcher å¯¹åº”ï¼Œè¿™æ˜¯ Spring MVC çš„æ˜ å°„é…ç½®æ–‡ä»¶ï¼ˆxxx-servlet.xmlï¼‰ï¼Œæˆ‘ä»¬ç¼–è¾‘å¦‚ä¸‹ï¼š
 
 
 
@@ -152,7 +152,7 @@ IDEA »á×Ô¶¯°ïÎÒÃÇÏÂÔØºÃ±ØÒªµÄ jar °ü£¬²¢ÇÒÎªÎÒÃÇ´´½¨ºÃÒ»Ð©Ä¬ÈÏµÄÄ¿Â¼ºÍÎÄ¼þ£¬´´½¨
           class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-                <!-- /hello Â·¾¶µÄÇëÇó½»¸ø id Îª helloController µÄ¿ØÖÆÆ÷´¦Àí-->
+                <!-- /hello è·¯å¾„çš„è¯·æ±‚äº¤ç»™ id ä¸º helloController çš„æŽ§åˆ¶å™¨å¤„ç†-->
                 <prop key="/hello">helloController</prop>
             </props>
         </property>
@@ -164,9 +164,9 @@ IDEA »á×Ô¶¯°ïÎÒÃÇÏÂÔØºÃ±ØÒªµÄ jar °ü£¬²¢ÇÒÎªÎÒÃÇ´´½¨ºÃÒ»Ð©Ä¬ÈÏµÄÄ¿Â¼ºÍÎÄ¼þ£¬´´½¨
 
 
 
-#### µÚËÄ²½£º±àÐ´ HelloController
+#### ç¬¬å››æ­¥ï¼šç¼–å†™ HelloController
 
-ÔÚ Package¡¾controller¡¿ÏÂ´´½¨ ¡¾HelloController¡¿Àà£¬²¢ÊµÏÖ org.springframework.web.servlet.mvc.Controller ½Ó¿Ú£º
+åœ¨ Packageã€controllerã€‘ä¸‹åˆ›å»º ã€HelloControllerã€‘ç±»ï¼Œå¹¶å®žçŽ° org.springframework.web.servlet.mvc.Controller æŽ¥å£ï¼š
 
 
 
@@ -187,10 +187,10 @@ public class HelloController implements Controller{
 
 
 
-*   **³öÏÖÁËÎÊÌâ£º** javax.servlet °üÕÒ²»µ½
-*   **½â¾ö£º** ½«±¾µØ Tomcat ·þÎñÆ÷µÄÄ¿Â¼ÏÂ¡¾lib¡¿ÎÄ¼þ¼ÐÏÂµÄ servlet-api.jar °ü¿½±´µ½¹¤³Ì¡¾lib¡¿ÎÄ¼þ¼ÐÏÂ£¬Ìí¼ÓÒÀÀµ
+*   **å‡ºçŽ°äº†é—®é¢˜ï¼š** javax.servlet åŒ…æ‰¾ä¸åˆ°
+*   **è§£å†³ï¼š** å°†æœ¬åœ° Tomcat æœåŠ¡å™¨çš„ç›®å½•ä¸‹ã€libã€‘æ–‡ä»¶å¤¹ä¸‹çš„ servlet-api.jar åŒ…æ‹·è´åˆ°å·¥ç¨‹ã€libã€‘æ–‡ä»¶å¤¹ä¸‹ï¼Œæ·»åŠ ä¾èµ–
 
-Spring MVC Í¨¹ý ModelAndView ¶ÔÏó°ÑÄ£ÐÍºÍÊÓÍ¼½áºÏÔÚÒ»Æð
+Spring MVC é€šè¿‡ ModelAndView å¯¹è±¡æŠŠæ¨¡åž‹å’Œè§†å›¾ç»“åˆåœ¨ä¸€èµ·
 
 
 
@@ -202,8 +202,8 @@ mav.addObject("message", "Hello Spring MVC");
 
 
 
-ÕâÀï±íÊ¾ÊÓÍ¼µÄÊÇindex.jsp
-Ä£ÐÍÊý¾ÝµÄÊÇ message£¬ÄÚÈÝÊÇ ¡°Hello Spring MVC¡±
+è¿™é‡Œè¡¨ç¤ºè§†å›¾çš„æ˜¯index.jsp
+æ¨¡åž‹æ•°æ®çš„æ˜¯ messageï¼Œå†…å®¹æ˜¯ â€œHello Spring MVCâ€
 
 
 
@@ -226,9 +226,9 @@ public class HelloController implements Controller {
 
 
 
-#### µÚÎå²½£º×¼±¸ index.jsp
+#### ç¬¬äº”æ­¥ï¼šå‡†å¤‡ index.jsp
 
-½« index.jsp µÄÄÚÈÝÐÞ¸ÄÎª£º
+å°† index.jsp çš„å†…å®¹ä¿®æ”¹ä¸ºï¼š
 
 
 
@@ -242,11 +242,11 @@ public class HelloController implements Controller {
 
 
 
-ÄÚÈÝºÜ¼òµ¥£¬ÓÃEl±í´ïÊ½ÏÔÊ¾ message µÄÄÚÈÝ¡£
+å†…å®¹å¾ˆç®€å•ï¼Œç”¨Elè¡¨è¾¾å¼æ˜¾ç¤º message çš„å†…å®¹ã€‚
 
-#### µÚÁù²½£º²¿Êð Tomcat ¼°Ïà¹Ø»·¾³
+#### ç¬¬å…­æ­¥ï¼šéƒ¨ç½² Tomcat åŠç›¸å…³çŽ¯å¢ƒ
 
-ÔÚ¡¾Run¡¿²Ëµ¥ÏîÏÂÕÒµ½¡¾Edit Configurations¡¿
+åœ¨ã€Runã€‘èœå•é¡¹ä¸‹æ‰¾åˆ°ã€Edit Configurationsã€‘
 
 
 
@@ -258,7 +258,7 @@ public class HelloController implements Controller {
 
 
 
-ÅäÖÃ Tomcat »·¾³£º
+é…ç½® Tomcat çŽ¯å¢ƒï¼š
 
 
 
@@ -270,7 +270,7 @@ public class HelloController implements Controller {
 
 
 
-Ñ¡ÔñºÃ±¾µØµÄ Tomcat ·þÎñÆ÷£¬²¢¸ÄºÃÃû×Ö£º
+é€‰æ‹©å¥½æœ¬åœ°çš„ Tomcat æœåŠ¡å™¨ï¼Œå¹¶æ”¹å¥½åå­—ï¼š
 
 
 
@@ -282,7 +282,7 @@ public class HelloController implements Controller {
 
 
 
-ÔÚ Deployment ±êÇ©Ò³ÏÂÍê³ÉÈçÏÂ²Ù×÷£º
+åœ¨ Deployment æ ‡ç­¾é¡µä¸‹å®Œæˆå¦‚ä¸‹æ“ä½œï¼š
 
 
 
@@ -294,11 +294,11 @@ public class HelloController implements Controller {
 
 
 
-µã»÷ OK ¾ÍºÃÁË£¬ÎÒÃÇµã»÷ÓÒÉÏ½ÇµÄÈý½ÇÐÎ½« Tomcat ·þÎñÆ÷ÔËÐÐÆðÀ´¡£
+ç‚¹å‡» OK å°±å¥½äº†ï¼Œæˆ‘ä»¬ç‚¹å‡»å³ä¸Šè§’çš„ä¸‰è§’å½¢å°† Tomcat æœåŠ¡å™¨è¿è¡Œèµ·æ¥ã€‚
 
-*   **³öÏÖµÄÎÊÌâ£º** Tomcat ·þÎñÆ÷ÎÞ·¨Õý³£Æô¶¯
-*   **Ô­Òò£º** Tomcat ·þÎñÆ÷ÕÒ²»µ½Ïà¹ØµÄ jar °ü
-*   **½â¾ö·½·¨£º** ½«¡¾lib¡¿ÎÄ¼þ¼ÐÕû¸ö¼ôÌùµ½¡¾WEB-INF¡¿ÏÂ£¬²¢ÖØÐÂ½¨Á¢ÒÀÀµ£º
+*   **å‡ºçŽ°çš„é—®é¢˜ï¼š** Tomcat æœåŠ¡å™¨æ— æ³•æ­£å¸¸å¯åŠ¨
+*   **åŽŸå› ï¼š** Tomcat æœåŠ¡å™¨æ‰¾ä¸åˆ°ç›¸å…³çš„ jar åŒ…
+*   **è§£å†³æ–¹æ³•ï¼š** å°†ã€libã€‘æ–‡ä»¶å¤¹æ•´ä¸ªå‰ªè´´åˆ°ã€WEB-INFã€‘ä¸‹ï¼Œå¹¶é‡æ–°å»ºç«‹ä¾èµ–ï¼š
 
 
 
@@ -310,9 +310,9 @@ public class HelloController implements Controller {
 
 
 
-#### µÚÆß²½£ºÖØÆô·þÎñÆ÷
+#### ç¬¬ä¸ƒæ­¥ï¼šé‡å¯æœåŠ¡å™¨
 
-ÖØÆô·þÎñÆ÷£¬ÊäÈëµØÖ·£ºlocalhost/hello
+é‡å¯æœåŠ¡å™¨ï¼Œè¾“å…¥åœ°å€ï¼šlocalhost/hello
 
 
 
@@ -324,13 +324,13 @@ public class HelloController implements Controller {
 
 
 
-> ²Î¿¼×ÊÁÏ£º[Spring MVC ½Ì³Ì(how2j.cn)](http://how2j.cn/k/springmvc/springmvc-springmvc/615.html#step1891)
+> å‚è€ƒèµ„æ–™ï¼š[Spring MVC æ•™ç¨‹(how2j.cn)](http://how2j.cn/k/springmvc/springmvc-springmvc/615.html#step1891)
 
 * * *
 
-## ¸ú×Ù Spring MVC µÄÇëÇó
+## è·Ÿè¸ª Spring MVC çš„è¯·æ±‚
 
-Ã¿µ±ÓÃ»§ÔÚ Web ä¯ÀÀÆ÷ÖÐµã»÷Á´½Ó»òÕßÌá½»±íµ¥µÄÊ±ºò£¬ÇëÇó¾Í¿ªÊ¼¹¤×÷ÁË£¬ÏñÊÇÓÊµÝÔ±Ò»Ñù£¬´ÓÀë¿ªä¯ÀÀÆ÷¿ªÊ¼µ½»ñÈ¡ÏìÓ¦·µ»Ø£¬Ëü»á¾­ÀúºÜ¶àÕ¾µã£¬ÔÚÃ¿Ò»¸öÕ¾µã¶¼»áÁôÏÂÒ»Ð©ÐÅÏ¢Í¬Ê±Ò²»á´øÉÏÆäËûÐÅÏ¢£¬ÏÂÍ¼Îª Spring MVC µÄÇëÇóÁ÷³Ì£º
+æ¯å½“ç”¨æˆ·åœ¨ Web æµè§ˆå™¨ä¸­ç‚¹å‡»é“¾æŽ¥æˆ–è€…æäº¤è¡¨å•çš„æ—¶å€™ï¼Œè¯·æ±‚å°±å¼€å§‹å·¥ä½œäº†ï¼Œåƒæ˜¯é‚®é€’å‘˜ä¸€æ ·ï¼Œä»Žç¦»å¼€æµè§ˆå™¨å¼€å§‹åˆ°èŽ·å–å“åº”è¿”å›žï¼Œå®ƒä¼šç»åŽ†å¾ˆå¤šç«™ç‚¹ï¼Œåœ¨æ¯ä¸€ä¸ªç«™ç‚¹éƒ½ä¼šç•™ä¸‹ä¸€äº›ä¿¡æ¯åŒæ—¶ä¹Ÿä¼šå¸¦ä¸Šå…¶ä»–ä¿¡æ¯ï¼Œä¸‹å›¾ä¸º Spring MVC çš„è¯·æ±‚æµç¨‹ï¼š
 
 
 
@@ -342,9 +342,9 @@ public class HelloController implements Controller {
 
 
 
-#### µÚÒ»Õ¾£ºDispatcherServlet
+#### ç¬¬ä¸€ç«™ï¼šDispatcherServlet
 
-´ÓÇëÇóÀë¿ªä¯ÀÀÆ÷ÒÔºó£¬µÚÒ»Õ¾µ½´ïµÄ¾ÍÊÇ DispatcherServlet£¬¿´Ãû×ÖÕâÊÇÒ»¸ö Servlet£¬Í¨¹ý J2EE µÄÑ§Ï°£¬ÎÒÃÇÖªµÀ Servlet ¿ÉÒÔÀ¹½Ø²¢´¦Àí HTTP ÇëÇó£¬DispatcherServlet »áÀ¹½ØËùÓÐµÄÇëÇó£¬²¢ÇÒ½«ÕâÐ©ÇëÇó·¢ËÍ¸ø Spring MVC ¿ØÖÆÆ÷¡£
+ä»Žè¯·æ±‚ç¦»å¼€æµè§ˆå™¨ä»¥åŽï¼Œç¬¬ä¸€ç«™åˆ°è¾¾çš„å°±æ˜¯ DispatcherServletï¼Œçœ‹åå­—è¿™æ˜¯ä¸€ä¸ª Servletï¼Œé€šè¿‡ J2EE çš„å­¦ä¹ ï¼Œæˆ‘ä»¬çŸ¥é“ Servlet å¯ä»¥æ‹¦æˆªå¹¶å¤„ç† HTTP è¯·æ±‚ï¼ŒDispatcherServlet ä¼šæ‹¦æˆªæ‰€æœ‰çš„è¯·æ±‚ï¼Œå¹¶ä¸”å°†è¿™äº›è¯·æ±‚å‘é€ç»™ Spring MVC æŽ§åˆ¶å™¨ã€‚
 
 
 
@@ -356,7 +356,7 @@ public class HelloController implements Controller {
 </servlet>
 <servlet-mapping>
     <servlet-name>dispatcher</servlet-name>
-    <!-- À¹½ØËùÓÐµÄÇëÇó -->
+    <!-- æ‹¦æˆªæ‰€æœ‰çš„è¯·æ±‚ -->
     <url-pattern>/</url-pattern>
 </servlet-mapping>
 
@@ -364,13 +364,13 @@ public class HelloController implements Controller {
 
 
 
-*   **DispatcherServlet µÄÈÎÎñ¾ÍÊÇÀ¹½ØÇëÇó·¢ËÍ¸ø Spring MVC ¿ØÖÆÆ÷¡£**
+*   **DispatcherServlet çš„ä»»åŠ¡å°±æ˜¯æ‹¦æˆªè¯·æ±‚å‘é€ç»™ Spring MVC æŽ§åˆ¶å™¨ã€‚**
 
-#### µÚ¶þÕ¾£º´¦ÀíÆ÷Ó³Éä£¨HandlerMapping£©
+#### ç¬¬äºŒç«™ï¼šå¤„ç†å™¨æ˜ å°„ï¼ˆHandlerMappingï¼‰
 
-*   **ÎÊÌâ£º** µäÐÍµÄÓ¦ÓÃ³ÌÐòÖÐ¿ÉÄÜ»áÓÐ¶à¸ö¿ØÖÆÆ÷£¬ÕâÐ©ÇëÇóµ½µ×Ó¦¸Ã·¢¸øÄÄÒ»¸ö¿ØÖÆÆ÷ÄØ£¿
+*   **é—®é¢˜ï¼š** å…¸åž‹çš„åº”ç”¨ç¨‹åºä¸­å¯èƒ½ä¼šæœ‰å¤šä¸ªæŽ§åˆ¶å™¨ï¼Œè¿™äº›è¯·æ±‚åˆ°åº•åº”è¯¥å‘ç»™å“ªä¸€ä¸ªæŽ§åˆ¶å™¨å‘¢ï¼Ÿ
 
-ËùÒÔ DispatcherServlet »á²éÑ¯Ò»¸ö»ò¶à¸ö´¦ÀíÆ÷Ó³ÉäÀ´È·¶¨ÇëÇóµÄÏÂÒ»Õ¾ÔÚÄÄÀï£¬´¦ÀíÆ÷Ó³Éä»á**¸ù¾ÝÇëÇóËùÐ¯´øµÄ URL ÐÅÏ¢À´½øÐÐ¾ö²ß**£¬ÀýÈçÉÏÃæµÄÀý×ÓÖÐ£¬ÎÒÃÇÍ¨¹ýÅäÖÃ simpleUrlHandlerMapping À´½« /hello µØÖ·½»¸ø helloController ´¦Àí£º
+æ‰€ä»¥ DispatcherServlet ä¼šæŸ¥è¯¢ä¸€ä¸ªæˆ–å¤šä¸ªå¤„ç†å™¨æ˜ å°„æ¥ç¡®å®šè¯·æ±‚çš„ä¸‹ä¸€ç«™åœ¨å“ªé‡Œï¼Œå¤„ç†å™¨æ˜ å°„ä¼š**æ ¹æ®è¯·æ±‚æ‰€æºå¸¦çš„ URL ä¿¡æ¯æ¥è¿›è¡Œå†³ç­–**ï¼Œä¾‹å¦‚ä¸Šé¢çš„ä¾‹å­ä¸­ï¼Œæˆ‘ä»¬é€šè¿‡é…ç½® simpleUrlHandlerMapping æ¥å°† /hello åœ°å€äº¤ç»™ helloController å¤„ç†ï¼š
 
 
 
@@ -379,7 +379,7 @@ public class HelloController implements Controller {
       class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
     <property name="mappings">
         <props>
-            <!-- /hello Â·¾¶µÄÇëÇó½»¸ø id Îª helloController µÄ¿ØÖÆÆ÷´¦Àí-->
+            <!-- /hello è·¯å¾„çš„è¯·æ±‚äº¤ç»™ id ä¸º helloController çš„æŽ§åˆ¶å™¨å¤„ç†-->
             <prop key="/hello">helloController</prop>
         </props>
     </property>
@@ -390,15 +390,15 @@ public class HelloController implements Controller {
 
 
 
-#### µÚÈýÕ¾£º¿ØÖÆÆ÷
+#### ç¬¬ä¸‰ç«™ï¼šæŽ§åˆ¶å™¨
 
-Ò»µ©Ñ¡ÔñÁËºÏÊÊµÄ¿ØÖÆÆ÷£¬ DispatcherServlet »á½«ÇëÇó·¢ËÍ¸øÑ¡ÖÐµÄ¿ØÖÆÆ÷£¬µ½ÁË¿ØÖÆÆ÷£¬ÇëÇó»áÐ¶ÏÂÆä¸ºÔØ£¨ÓÃ»§Ìá½»µÄÇëÇó£©µÈ´ý¿ØÖÆÆ÷´¦ÀíÍêÕâÐ©ÐÅÏ¢£º
+ä¸€æ—¦é€‰æ‹©äº†åˆé€‚çš„æŽ§åˆ¶å™¨ï¼Œ DispatcherServlet ä¼šå°†è¯·æ±‚å‘é€ç»™é€‰ä¸­çš„æŽ§åˆ¶å™¨ï¼Œåˆ°äº†æŽ§åˆ¶å™¨ï¼Œè¯·æ±‚ä¼šå¸ä¸‹å…¶è´Ÿè½½ï¼ˆç”¨æˆ·æäº¤çš„è¯·æ±‚ï¼‰ç­‰å¾…æŽ§åˆ¶å™¨å¤„ç†å®Œè¿™äº›ä¿¡æ¯ï¼š
 
 
 
 ```
 public ModelAndView handleRequest(javax.servlet.http.HttpServletRequest httpServletRequest, javax.servlet.http.HttpServletResponse httpServletResponse) throws Exception {
-    // ´¦ÀíÂß¼­
+    // å¤„ç†é€»è¾‘
     ....
 }
 
@@ -406,19 +406,19 @@ public ModelAndView handleRequest(javax.servlet.http.HttpServletRequest httpServ
 
 
 
-#### µÚËÄÕ¾£º·µ»Ø DispatcherServlet
+#### ç¬¬å››ç«™ï¼šè¿”å›ž DispatcherServlet
 
-µ±¿ØÖÆÆ÷ÔÚÍê³ÉÂß¼­´¦Àíºó£¬Í¨³£»á²úÉúÒ»Ð©ÐÅÏ¢£¬ÕâÐ©ÐÅÏ¢¾ÍÊÇÐèÒª·µ»Ø¸øÓÃ»§²¢ÔÚä¯ÀÀÆ÷ÉÏÏÔÊ¾µÄÐÅÏ¢£¬ËüÃÇ±»³ÆÎª**Ä£ÐÍ£¨Model£©**¡£½ö½ö·µ»ØÔ­Ê¼µÄÐÅÏ¢Ê±²»¹»µÄ¡ª¡ªÕâÐ©ÐÅÏ¢ÐèÒªÒÔÓÃ»§ÓÑºÃµÄ·½Ê½½øÐÐ¸ñÊ½»¯£¬Ò»°ã»áÊÇ HTML£¬ËùÒÔ£¬ÐÅÏ¢ÐèÒª·¢ËÍ¸øÒ»¸ö**ÊÓÍ¼£¨view£©**£¬Í¨³£»áÊÇ JSP¡£
+å½“æŽ§åˆ¶å™¨åœ¨å®Œæˆé€»è¾‘å¤„ç†åŽï¼Œé€šå¸¸ä¼šäº§ç”Ÿä¸€äº›ä¿¡æ¯ï¼Œè¿™äº›ä¿¡æ¯å°±æ˜¯éœ€è¦è¿”å›žç»™ç”¨æˆ·å¹¶åœ¨æµè§ˆå™¨ä¸Šæ˜¾ç¤ºçš„ä¿¡æ¯ï¼Œå®ƒä»¬è¢«ç§°ä¸º**æ¨¡åž‹ï¼ˆModelï¼‰**ã€‚ä»…ä»…è¿”å›žåŽŸå§‹çš„ä¿¡æ¯æ—¶ä¸å¤Ÿçš„â€”â€”è¿™äº›ä¿¡æ¯éœ€è¦ä»¥ç”¨æˆ·å‹å¥½çš„æ–¹å¼è¿›è¡Œæ ¼å¼åŒ–ï¼Œä¸€èˆ¬ä¼šæ˜¯ HTMLï¼Œæ‰€ä»¥ï¼Œä¿¡æ¯éœ€è¦å‘é€ç»™ä¸€ä¸ª**è§†å›¾ï¼ˆviewï¼‰**ï¼Œé€šå¸¸ä¼šæ˜¯ JSPã€‚
 
-¿ØÖÆÆ÷Ëù×öµÄ×îºóÒ»¼þÊÂ¾ÍÊÇ½«Ä£ÐÍÊý¾Ý´ò°ü£¬²¢ÇÒ±íÊ¾³öÓÃÓÚäÖÈ¾Êä³öµÄÊÓÍ¼Ãû**£¨Âß¼­ÊÓÍ¼Ãû£©¡£Ëü½ÓÏÂÀ´»á½«ÇëÇóÁ¬Í¬Ä£ÐÍºÍÊÓÍ¼Ãû·¢ËÍ»Ø DispatcherServlet¡£**
+æŽ§åˆ¶å™¨æ‰€åšçš„æœ€åŽä¸€ä»¶äº‹å°±æ˜¯å°†æ¨¡åž‹æ•°æ®æ‰“åŒ…ï¼Œå¹¶ä¸”è¡¨ç¤ºå‡ºç”¨äºŽæ¸²æŸ“è¾“å‡ºçš„è§†å›¾å**ï¼ˆé€»è¾‘è§†å›¾åï¼‰ã€‚å®ƒæŽ¥ä¸‹æ¥ä¼šå°†è¯·æ±‚è¿žåŒæ¨¡åž‹å’Œè§†å›¾åå‘é€å›ž DispatcherServletã€‚**
 
 
 
 ```
 public ModelAndView handleRequest(javax.servlet.http.HttpServletRequest httpServletRequest, javax.servlet.http.HttpServletResponse httpServletResponse) throws Exception {
-    // ´¦ÀíÂß¼­
+    // å¤„ç†é€»è¾‘
     ....
-    // ·µ»Ø¸ø DispatcherServlet
+    // è¿”å›žç»™ DispatcherServlet
     return mav;
 }
 
@@ -426,19 +426,19 @@ public ModelAndView handleRequest(javax.servlet.http.HttpServletRequest httpServ
 
 
 
-#### µÚÎåÕ¾£ºÊÓÍ¼½âÎöÆ÷
+#### ç¬¬äº”ç«™ï¼šè§†å›¾è§£æžå™¨
 
-ÕâÑùÒÔÀ´£¬¿ØÖÆÆ÷¾Í²»»áºÍÌØ¶¨µÄÊÓÍ¼ÏàñîºÏ£¬´«µÝ¸ø DispatcherServlet µÄÊÓÍ¼Ãû²¢²»Ö±½Ó±íÊ¾Ä³¸öÌØ¶¨µÄ JSP¡££¨Êµ¼ÊÉÏ£¬ËüÉõÖÁ²»ÄÜÈ·¶¨ÊÓÍ¼¾ÍÊÇ JSP£©Ïà·´£¬**Ëü´«µÝµÄ½ö½öÊÇÒ»¸öÂß¼­Ãû³Æ£¬Õâ¸öÃû³Æ½«»áÓÃÀ´²éÕÒ²úÉú½á¹ûµÄÕæÕýÊÓÍ¼¡£**
+è¿™æ ·ä»¥æ¥ï¼ŒæŽ§åˆ¶å™¨å°±ä¸ä¼šå’Œç‰¹å®šçš„è§†å›¾ç›¸è€¦åˆï¼Œä¼ é€’ç»™ DispatcherServlet çš„è§†å›¾åå¹¶ä¸ç›´æŽ¥è¡¨ç¤ºæŸä¸ªç‰¹å®šçš„ JSPã€‚ï¼ˆå®žé™…ä¸Šï¼Œå®ƒç”šè‡³ä¸èƒ½ç¡®å®šè§†å›¾å°±æ˜¯ JSPï¼‰ç›¸åï¼Œ**å®ƒä¼ é€’çš„ä»…ä»…æ˜¯ä¸€ä¸ªé€»è¾‘åç§°ï¼Œè¿™ä¸ªåç§°å°†ä¼šç”¨æ¥æŸ¥æ‰¾äº§ç”Ÿç»“æžœçš„çœŸæ­£è§†å›¾ã€‚**
 
-DispatcherServlet ½«»áÊ¹ÓÃÊÓÍ¼½âÎöÆ÷£¨view resolver£©À´½«Âß¼­ÊÓÍ¼ÃûÆ¥ÅäÎªÒ»¸öÌØ¶¨µÄÊÓÍ¼ÊµÏÖ£¬Ëü¿ÉÄÜÊÇÒ²¿ÉÄÜ²»ÊÇ JSP
+DispatcherServlet å°†ä¼šä½¿ç”¨è§†å›¾è§£æžå™¨ï¼ˆview resolverï¼‰æ¥å°†é€»è¾‘è§†å›¾ååŒ¹é…ä¸ºä¸€ä¸ªç‰¹å®šçš„è§†å›¾å®žçŽ°ï¼Œå®ƒå¯èƒ½æ˜¯ä¹Ÿå¯èƒ½ä¸æ˜¯ JSP
 
-> ÉÏÃæµÄÀý×ÓÊÇÖ±½Ó°ó¶¨µ½ÁË index.jsp ÊÓÍ¼
+> ä¸Šé¢çš„ä¾‹å­æ˜¯ç›´æŽ¥ç»‘å®šåˆ°äº† index.jsp è§†å›¾
 
-#### µÚÁùÕ¾£ºÊÓÍ¼
+#### ç¬¬å…­ç«™ï¼šè§†å›¾
 
-¼ÈÈ» DispatcherServlet ÒÑ¾­ÖªµÀÓÉÄÄ¸öÊÓÍ¼äÖÈ¾½á¹ûÁË£¬ÄÇÇëÇóµÄÈÎÎñ»ù±¾ÉÏÒ²¾ÍÍê³ÉÁË¡£
+æ—¢ç„¶ DispatcherServlet å·²ç»çŸ¥é“ç”±å“ªä¸ªè§†å›¾æ¸²æŸ“ç»“æžœäº†ï¼Œé‚£è¯·æ±‚çš„ä»»åŠ¡åŸºæœ¬ä¸Šä¹Ÿå°±å®Œæˆäº†ã€‚
 
-ËüµÄ×îºóÒ»Õ¾ÊÇÊÓÍ¼µÄÊµÏÖ£¬ÔÚÕâÀïËü½»¸¶Ä£ÐÍÊý¾Ý£¬ÇëÇóµÄÈÎÎñÒ²¾ÍÍê³ÉÁË¡£ÊÓÍ¼Ê¹ÓÃÄ£ÐÍÊý¾ÝäÖÈ¾³ö½á¹û£¬Õâ¸öÊä³ö½á¹û»áÍ¨¹ýÏìÓ¦¶ÔÏó´«µÝ¸ø¿Í»§¶Ë¡£
+å®ƒçš„æœ€åŽä¸€ç«™æ˜¯è§†å›¾çš„å®žçŽ°ï¼Œåœ¨è¿™é‡Œå®ƒäº¤ä»˜æ¨¡åž‹æ•°æ®ï¼Œè¯·æ±‚çš„ä»»åŠ¡ä¹Ÿå°±å®Œæˆäº†ã€‚è§†å›¾ä½¿ç”¨æ¨¡åž‹æ•°æ®æ¸²æŸ“å‡ºç»“æžœï¼Œè¿™ä¸ªè¾“å‡ºç»“æžœä¼šé€šè¿‡å“åº”å¯¹è±¡ä¼ é€’ç»™å®¢æˆ·ç«¯ã€‚
 
 
 
@@ -454,11 +454,11 @@ DispatcherServlet ½«»áÊ¹ÓÃÊÓÍ¼½âÎöÆ÷£¨view resolver£©À´½«Âß¼­ÊÓÍ¼ÃûÆ¥ÅäÎªÒ»¸öÌØ¶
 
 * * *
 
-## Ê¹ÓÃ×¢½âÅäÖÃ Spring MVC
+## ä½¿ç”¨æ³¨è§£é…ç½® Spring MVC
 
-ÉÏÃæÎÒÃÇÒÑ¾­¶Ô Spring MVC ÓÐÁËÒ»¶¨µÄÁË½â£¬²¢ÇÒÍ¨¹ý XML ÅäÖÃµÄ·½Ê½´´½¨ÁËµÚÒ»¸ö Spring MVC ³ÌÐò£¬ÎÒÃÇÀ´¿´¿´»ùÓÚ×¢½âÓ¦¸ÃÔõÃ´Íê³ÉÉÏÊö³ÌÐòµÄÅäÖÃ£º
+ä¸Šé¢æˆ‘ä»¬å·²ç»å¯¹ Spring MVC æœ‰äº†ä¸€å®šçš„äº†è§£ï¼Œå¹¶ä¸”é€šè¿‡ XML é…ç½®çš„æ–¹å¼åˆ›å»ºäº†ç¬¬ä¸€ä¸ª Spring MVC ç¨‹åºï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹åŸºäºŽæ³¨è§£åº”è¯¥æ€Žä¹ˆå®Œæˆä¸Šè¿°ç¨‹åºçš„é…ç½®ï¼š
 
-#### µÚÒ»²½£ºÎª HelloController Ìí¼Ó×¢½â
+#### ç¬¬ä¸€æ­¥ï¼šä¸º HelloController æ·»åŠ æ³¨è§£
 
 
 
@@ -483,17 +483,17 @@ public class HelloController{
 
 
 
-°ÑÊµÏÖµÄ½Ó¿ÚÒ²¸øÈ¥µô¡£
+æŠŠå®žçŽ°çš„æŽ¥å£ä¹Ÿç»™åŽ»æŽ‰ã€‚
 
-*   **¼òµ¥½âÊÍÒ»ÏÂ£º**
-*   `@Controller` ×¢½â£º
-    ºÜÃ÷ÏÔ£¬Õâ¸ö×¢½âÊÇÓÃÀ´ÉùÃ÷¿ØÖÆÆ÷µÄ£¬µ«Êµ¼ÊÉÏÕâ¸ö×¢½â¶Ô Spring MVC ±¾ÉíµÄÓ°Ïì²¢²»´ó¡££¨Spring ÊµÕ½ËµËü½ö½öÊÇ¸¨ÖúÊµÏÖ×é¼þÉ¨Ãè£¬¿ÉÒÔÓÃ `@Component` ×¢½â´úÌæ£¬µ«ÎÒ×Ô¼º³¢ÊÔÁËÒ»ÏÂ²¢²»ÐÐ£¬ÒòÎªÉÏÊöÀý×ÓÃ»ÓÐÅäÖÃ JSP ÊÓÍ¼½âÎöÆ÷ÎÒ»¹×Ô¼ºÅäÁËÒ»¸öÈÔÃ»ÓÐ³É¹¦...£©
-*   `@RequestMapping` ×¢½â£º
-    ºÜÏÔÈ»£¬Õâ¾Í±íÊ¾Â·¾¶ `/hello` »áÓ³Éäµ½¸Ã·½·¨ÉÏ
+*   **ç®€å•è§£é‡Šä¸€ä¸‹ï¼š**
+*   `@Controller` æ³¨è§£ï¼š
+    å¾ˆæ˜Žæ˜¾ï¼Œè¿™ä¸ªæ³¨è§£æ˜¯ç”¨æ¥å£°æ˜ŽæŽ§åˆ¶å™¨çš„ï¼Œä½†å®žé™…ä¸Šè¿™ä¸ªæ³¨è§£å¯¹ Spring MVC æœ¬èº«çš„å½±å“å¹¶ä¸å¤§ã€‚ï¼ˆSpring å®žæˆ˜è¯´å®ƒä»…ä»…æ˜¯è¾…åŠ©å®žçŽ°ç»„ä»¶æ‰«æï¼Œå¯ä»¥ç”¨ `@Component` æ³¨è§£ä»£æ›¿ï¼Œä½†æˆ‘è‡ªå·±å°è¯•äº†ä¸€ä¸‹å¹¶ä¸è¡Œï¼Œå› ä¸ºä¸Šè¿°ä¾‹å­æ²¡æœ‰é…ç½® JSP è§†å›¾è§£æžå™¨æˆ‘è¿˜è‡ªå·±é…äº†ä¸€ä¸ªä»æ²¡æœ‰æˆåŠŸ...ï¼‰
+*   `@RequestMapping` æ³¨è§£ï¼š
+    å¾ˆæ˜¾ç„¶ï¼Œè¿™å°±è¡¨ç¤ºè·¯å¾„ `/hello` ä¼šæ˜ å°„åˆ°è¯¥æ–¹æ³•ä¸Š
 
-#### µÚ¶þ²½£ºÈ¡ÏûÖ®Ç°µÄ XML ×¢ÊÍ
+#### ç¬¬äºŒæ­¥ï¼šå–æ¶ˆä¹‹å‰çš„ XML æ³¨é‡Š
 
-ÔÚ dispatcher-servlet.xml ÎÄ¼þÖÐ£¬×¢ÊÍµôÖ®Ç°µÄÅäÖÃ£¬È»ºóÔö¼ÓÒ»¾ä×é¼þÉ¨Ãè£º
+åœ¨ dispatcher-servlet.xml æ–‡ä»¶ä¸­ï¼Œæ³¨é‡ŠæŽ‰ä¹‹å‰çš„é…ç½®ï¼Œç„¶åŽå¢žåŠ ä¸€å¥ç»„ä»¶æ‰«æï¼š
 
 
 
@@ -508,14 +508,14 @@ public class HelloController{
                                         <!-->-->
     <!--<property name="mappings">-->
             <!--<props>-->
-                <!--&lt;!&ndash; /hello Â·¾¶µÄÇëÇó½»¸ø id Îª helloController µÄ¿ØÖÆÆ÷´¦Àí&ndash;&gt;-->
+                <!--&lt;!&ndash; /hello è·¯å¾„çš„è¯·æ±‚äº¤ç»™ id ä¸º helloController çš„æŽ§åˆ¶å™¨å¤„ç†&ndash;&gt;-->
                 <!--<prop key="/hello">helloController</prop>-->
             <!--</props>-->
         <!--</property>-->
     <!--</bean>-->
     <!--<bean id="helloController" ></bean>-->
 
-    <!-- É¨ÃècontrollerÏÂµÄ×é¼þ -->
+    <!-- æ‰«æcontrollerä¸‹çš„ç»„ä»¶ -->
     <context:component-scan base-package="controller"/>
 </beans>
 
@@ -523,9 +523,9 @@ public class HelloController{
 
 
 
-#### µÚÈý²½£ºÖØÆô·þÎñÆ÷
+#### ç¬¬ä¸‰æ­¥ï¼šé‡å¯æœåŠ¡å™¨
 
-µ±ÅäÖÃÍê³É£¬ÖØÐÂÆô¶¯·þÎñÆ÷£¬ÊäÈë `localhost/hello` µØÖ·ÈÔÈ»ÄÜ¿´µ½Ð§¹û£º
+å½“é…ç½®å®Œæˆï¼Œé‡æ–°å¯åŠ¨æœåŠ¡å™¨ï¼Œè¾“å…¥ `localhost/hello` åœ°å€ä»ç„¶èƒ½çœ‹åˆ°æ•ˆæžœï¼š
 
 
 
@@ -537,9 +537,9 @@ public class HelloController{
 
 
 
-#### @RequestMapping ×¢½âÏ¸½Ú
+#### @RequestMapping æ³¨è§£ç»†èŠ‚
 
-Èç¹û `@RequestMapping` ×÷ÓÃÔÚÀàÉÏ£¬ÄÇÃ´¾ÍÏàµ±ÓÚÊÇ¸ø¸ÃÀàËùÓÐÅäÖÃµÄÓ³ÉäµØÖ·Ç°¼ÓÉÏÁËÒ»¸öµØÖ·£¬ÀýÈç£º
+å¦‚æžœ `@RequestMapping` ä½œç”¨åœ¨ç±»ä¸Šï¼Œé‚£ä¹ˆå°±ç›¸å½“äºŽæ˜¯ç»™è¯¥ç±»æ‰€æœ‰é…ç½®çš„æ˜ å°„åœ°å€å‰åŠ ä¸Šäº†ä¸€ä¸ªåœ°å€ï¼Œä¾‹å¦‚ï¼š
 
 
 
@@ -557,24 +557,24 @@ public class HelloController {
 
 
 
-*   Ôò·ÃÎÊµØÖ·£º `localhost/wmyskxz/hello`
+*   åˆ™è®¿é—®åœ°å€ï¼š `localhost/wmyskxz/hello`
 
 * * *
 
-## ÅäÖÃÊÓÍ¼½âÎöÆ÷
+## é…ç½®è§†å›¾è§£æžå™¨
 
-»¹¼ÇµÃÎÒÃÇ Spring MVC µÄÇëÇóÁ÷³ÌÂð£¬ÊÓÍ¼½âÎöÆ÷¸ºÔð¶¨Î»ÊÓÍ¼£¬Ëü½ÓÊÜÒ»¸öÓÉ DispaterServlet ´«µÝ¹ýÀ´µÄÂß¼­ÊÓÍ¼ÃûÀ´Æ¥ÅäÒ»¸öÌØ¶¨µÄÊÓÍ¼¡£
+è¿˜è®°å¾—æˆ‘ä»¬ Spring MVC çš„è¯·æ±‚æµç¨‹å—ï¼Œè§†å›¾è§£æžå™¨è´Ÿè´£å®šä½è§†å›¾ï¼Œå®ƒæŽ¥å—ä¸€ä¸ªç”± DispaterServlet ä¼ é€’è¿‡æ¥çš„é€»è¾‘è§†å›¾åæ¥åŒ¹é…ä¸€ä¸ªç‰¹å®šçš„è§†å›¾ã€‚
 
-*   **ÐèÇó£º** ÓÐÒ»Ð©Ò³ÃæÎÒÃÇ²»Ï£ÍûÓÃ»§ÓÃ»§Ö±½Ó·ÃÎÊµ½£¬ÀýÈçÓÐÖØÒªÊý¾ÝµÄÒ³Ãæ£¬ÀýÈçÓÐÄ£ÐÍÊý¾ÝÖ§³ÅµÄÒ³Ãæ¡£
-*   **Ôì³ÉµÄÎÊÌâ£º**
-    ÎÒÃÇ¿ÉÒÔÔÚ¡¾web¡¿¸ùÄ¿Â¼ÏÂ·ÅÖÃÒ»¸ö¡¾test.jsp¡¿Ä£ÄâÒ»¸öÖØÒªÊý¾ÝµÄÒ³Ãæ£¬ÎÒÃÇÊ²Ã´¶¼²»ÓÃ×ö£¬ÖØÐÂÆô¶¯·þÎñÆ÷£¬ÍøÒ³ÖÐÊäÈë `localhost/test.jsp` ¾ÍÄÜ¹»Ö±½Ó·ÃÎÊµ½ÁË£¬Õâ»áÔì³É**Êý¾ÝÐ¹Â¶**...
-    ÁíÍâÎÒÃÇ¿ÉÒÔÖ±½ÓÊäÈë `localhost/index.jsp` ÊÔÊÔ£¬¸ù¾ÝÎÒÃÇÉÏÃæµÄ³ÌÐò£¬Õâ»áÊÇÒ»¸ö¿Õ°×µÄÒ³Ãæ£¬ÒòÎª²¢Ã»ÓÐ»ñÈ¡µ½ `${message}` ²ÎÊý¾ÍÖ±½Ó·ÃÎÊÁË£¬Õâ»á**Ó°ÏìÓÃ»§ÌåÑé**
+*   **éœ€æ±‚ï¼š** æœ‰ä¸€äº›é¡µé¢æˆ‘ä»¬ä¸å¸Œæœ›ç”¨æˆ·ç”¨æˆ·ç›´æŽ¥è®¿é—®åˆ°ï¼Œä¾‹å¦‚æœ‰é‡è¦æ•°æ®çš„é¡µé¢ï¼Œä¾‹å¦‚æœ‰æ¨¡åž‹æ•°æ®æ”¯æ’‘çš„é¡µé¢ã€‚
+*   **é€ æˆçš„é—®é¢˜ï¼š**
+    æˆ‘ä»¬å¯ä»¥åœ¨ã€webã€‘æ ¹ç›®å½•ä¸‹æ”¾ç½®ä¸€ä¸ªã€test.jspã€‘æ¨¡æ‹Ÿä¸€ä¸ªé‡è¦æ•°æ®çš„é¡µé¢ï¼Œæˆ‘ä»¬ä»€ä¹ˆéƒ½ä¸ç”¨åšï¼Œé‡æ–°å¯åŠ¨æœåŠ¡å™¨ï¼Œç½‘é¡µä¸­è¾“å…¥ `localhost/test.jsp` å°±èƒ½å¤Ÿç›´æŽ¥è®¿é—®åˆ°äº†ï¼Œè¿™ä¼šé€ æˆ**æ•°æ®æ³„éœ²**...
+    å¦å¤–æˆ‘ä»¬å¯ä»¥ç›´æŽ¥è¾“å…¥ `localhost/index.jsp` è¯•è¯•ï¼Œæ ¹æ®æˆ‘ä»¬ä¸Šé¢çš„ç¨‹åºï¼Œè¿™ä¼šæ˜¯ä¸€ä¸ªç©ºç™½çš„é¡µé¢ï¼Œå› ä¸ºå¹¶æ²¡æœ‰èŽ·å–åˆ° `${message}` å‚æ•°å°±ç›´æŽ¥è®¿é—®äº†ï¼Œè¿™ä¼š**å½±å“ç”¨æˆ·ä½“éªŒ**
 
-#### ½â¾ö·½°¸
+#### è§£å†³æ–¹æ¡ˆ
 
-ÎÒÃÇ½«ÎÒÃÇµÄ JSP ÎÄ¼þÅäÖÃÔÚ¡¾WEB-INF¡¿ÎÄ¼þ¼ÐÖÐµÄ¡¾page¡¿ÎÄ¼þ¼ÐÏÂ£¬¡¾WEB-INF¡¿ÊÇ Java Web ÖÐÄ¬ÈÏµÄ°²È«Ä¿Â¼£¬ÊÇ²»ÔÊÐíÓÃ»§Ö±½Ó·ÃÎÊµÄ_£¨Ò²¾ÍÊÇÄãËµÄãÍ¨¹ý `localhost/WEB-INF/` ÕâÑùµÄ·½Ê½ÊÇÓÀÔ¶·ÃÎÊ²»µ½µÄ£©_
+æˆ‘ä»¬å°†æˆ‘ä»¬çš„ JSP æ–‡ä»¶é…ç½®åœ¨ã€WEB-INFã€‘æ–‡ä»¶å¤¹ä¸­çš„ã€pageã€‘æ–‡ä»¶å¤¹ä¸‹ï¼Œã€WEB-INFã€‘æ˜¯ Java Web ä¸­é»˜è®¤çš„å®‰å…¨ç›®å½•ï¼Œæ˜¯ä¸å…è®¸ç”¨æˆ·ç›´æŽ¥è®¿é—®çš„_ï¼ˆä¹Ÿå°±æ˜¯ä½ è¯´ä½ é€šè¿‡ `localhost/WEB-INF/` è¿™æ ·çš„æ–¹å¼æ˜¯æ°¸è¿œè®¿é—®ä¸åˆ°çš„ï¼‰_
 
-µ«ÊÇÎÒÃÇÐèÒª½«Õâ¸æËß¸øÊÓÍ¼½âÎöÆ÷£¬ÎÒÃÇÔÚ dispatcher-servlet.xml ÎÄ¼þÖÐ×öÈçÏÂÅäÖÃ£º
+ä½†æ˜¯æˆ‘ä»¬éœ€è¦å°†è¿™å‘Šè¯‰ç»™è§†å›¾è§£æžå™¨ï¼Œæˆ‘ä»¬åœ¨ dispatcher-servlet.xml æ–‡ä»¶ä¸­åšå¦‚ä¸‹é…ç½®ï¼š
 
 
 
@@ -589,11 +589,11 @@ public class HelloController {
 
 
 
-ÕâÀïÅäÖÃÁËÒ»¸ö Spring MVC ÄÚÖÃµÄÒ»¸öÊÓÍ¼½âÎöÆ÷£¬¸Ã½âÎöÆ÷ÊÇ×ñÑ­×ÅÒ»ÖÖÔ¼¶¨£º»á**ÔÚÊÓÍ¼ÃûÉÏÌí¼ÓÇ°×ººÍºó×º£¬½ø¶øÈ·¶¨Ò»¸ö Web Ó¦ÓÃÖÐÊÓÍ¼×ÊÔ´µÄÎïÀíÂ·¾¶µÄ¡£**ÈÃÎÒÃÇÊµ¼ÊÀ´¿´¿´Ð§¹û£º
+è¿™é‡Œé…ç½®äº†ä¸€ä¸ª Spring MVC å†…ç½®çš„ä¸€ä¸ªè§†å›¾è§£æžå™¨ï¼Œè¯¥è§£æžå™¨æ˜¯éµå¾ªç€ä¸€ç§çº¦å®šï¼šä¼š**åœ¨è§†å›¾åä¸Šæ·»åŠ å‰ç¼€å’ŒåŽç¼€ï¼Œè¿›è€Œç¡®å®šä¸€ä¸ª Web åº”ç”¨ä¸­è§†å›¾èµ„æºçš„ç‰©ç†è·¯å¾„çš„ã€‚**è®©æˆ‘ä»¬å®žé™…æ¥çœ‹çœ‹æ•ˆæžœï¼š
 
-#### µÚÒ»²½£ºÐÞ¸Ä HelloController
+#### ç¬¬ä¸€æ­¥ï¼šä¿®æ”¹ HelloController
 
-ÎÒÃÇ½«´úÂëÐÞ¸ÄÒ»ÏÂ£º
+æˆ‘ä»¬å°†ä»£ç ä¿®æ”¹ä¸€ä¸‹ï¼š
 
 
 
@@ -605,9 +605,9 @@ public class HelloController {
 
 
 
-#### µÚ¶þ²½£ºÅäÖÃÊÓÍ¼½âÎöÆ÷£º
+#### ç¬¬äºŒæ­¥ï¼šé…ç½®è§†å›¾è§£æžå™¨ï¼š
 
-°´ÕÕÉÏÊöµÄÅäÖÃ£¬Íê³É£º
+æŒ‰ç…§ä¸Šè¿°çš„é…ç½®ï¼Œå®Œæˆï¼š
 
 
 
@@ -622,14 +622,14 @@ public class HelloController {
                                         <!-->-->
     <!--<property name="mappings">-->
             <!--<props>-->
-                <!--&lt;!&ndash; /hello Â·¾¶µÄÇëÇó½»¸ø id Îª helloController µÄ¿ØÖÆÆ÷´¦Àí&ndash;&gt;-->
+                <!--&lt;!&ndash; /hello è·¯å¾„çš„è¯·æ±‚äº¤ç»™ id ä¸º helloController çš„æŽ§åˆ¶å™¨å¤„ç†&ndash;&gt;-->
                 <!--<prop key="/hello">helloController</prop>-->
             <!--</props>-->
         <!--</property>-->
     <!--</bean>-->
     <!--<bean id="helloController" ></bean>-->
 
-    <!-- É¨ÃècontrollerÏÂµÄ×é¼þ -->
+    <!-- æ‰«æcontrollerä¸‹çš„ç»„ä»¶ -->
     <context:component-scan base-package="controller"/>
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -642,9 +642,9 @@ public class HelloController {
 
 
 
-#### µÚÈý²½£º¼ôÌù index.jsp ÎÄ¼þ
+#### ç¬¬ä¸‰æ­¥ï¼šå‰ªè´´ index.jsp æ–‡ä»¶
 
-ÔÚ¡¾WEB-INF¡¿ÎÄ¼þ¼ÐÏÂÐÂ½¨Ò»¸ö¡¾page¡¿ÎÄ¼þ¼Ð£¬²¢½«¡¾index.jsp¡¿ÎÄ¼þ¼ôÌùµ½ÀïÃæ£º
+åœ¨ã€WEB-INFã€‘æ–‡ä»¶å¤¹ä¸‹æ–°å»ºä¸€ä¸ªã€pageã€‘æ–‡ä»¶å¤¹ï¼Œå¹¶å°†ã€index.jspã€‘æ–‡ä»¶å‰ªè´´åˆ°é‡Œé¢ï¼š
 
 
 
@@ -656,9 +656,9 @@ public class HelloController {
 
 
 
-#### µÚËÄ²½£º¸üÐÂ×ÊÔ´ÖØÆô·þÎñÆ÷
+#### ç¬¬å››æ­¥ï¼šæ›´æ–°èµ„æºé‡å¯æœåŠ¡å™¨
 
-·ÃÎÊ `localhost/hello` Â·¾¶£¬¿´µ½ÕýÈ·Ð§¹û£º
+è®¿é—® `localhost/hello` è·¯å¾„ï¼Œçœ‹åˆ°æ­£ç¡®æ•ˆæžœï¼š
 
 
 
@@ -670,7 +670,7 @@ public class HelloController {
 
 
 
-*   **Ô­Àí£º**
+*   **åŽŸç†ï¼š**
 
 
 
@@ -682,15 +682,15 @@ public class HelloController {
 
 
 
-ÎÒÃÇ´«ÈëµÄÂß¼­ÊÓÍ¼ÃûÎª index £¬ÔÙ¼ÓÉÏ ¡°`/WEB-INF/page/`¡± Ç°×ººÍ ¡°`.jsp`¡± ºó×º£¬¾ÍÄÜÈ·¶¨ÎïÀíÊÓÍ¼µÄÂ·¾¶ÁË£¬ÕâÑùÎÒÃÇÒÔºó¾Í¿ÉÒÔ½«ËùÓÐµÄÊÓÍ¼·ÅÈë¡¾page¡¿ÎÄ¼þ¼ÐÏÂÁË£¡
+æˆ‘ä»¬ä¼ å…¥çš„é€»è¾‘è§†å›¾åä¸º index ï¼Œå†åŠ ä¸Š â€œ`/WEB-INF/page/`â€ å‰ç¼€å’Œ â€œ`.jsp`â€ åŽç¼€ï¼Œå°±èƒ½ç¡®å®šç‰©ç†è§†å›¾çš„è·¯å¾„äº†ï¼Œè¿™æ ·æˆ‘ä»¬ä»¥åŽå°±å¯ä»¥å°†æ‰€æœ‰çš„è§†å›¾æ”¾å…¥ã€pageã€‘æ–‡ä»¶å¤¹ä¸‹äº†ï¼
 
-*   **×¢Òâ£º**´ËÊ±µÄÅäÖÃ½öÊÇ dispatcher-servlet.xml ÏÂµÄ
+*   **æ³¨æ„ï¼š**æ­¤æ—¶çš„é…ç½®ä»…æ˜¯ dispatcher-servlet.xml ä¸‹çš„
 
 * * *
 
-## ¿ØÖÆÆ÷½ÓÊÕÇëÇóÊý¾Ý
+## æŽ§åˆ¶å™¨æŽ¥æ”¶è¯·æ±‚æ•°æ®
 
-Ê¹ÓÃ¿ØÖÆÆ÷½ÓÊÕ²ÎÊýÍùÍùÊÇ Spring MVC ¿ª·¢ÒµÎñÂß¼­µÄµÚÒ»²½£¬ÎªÌ½Ë÷ Spring MVC µÄ´«²Î·½Ê½£¬Îª´ËÎÒÃÇÏÈÀ´´´½¨Ò»¸ö¼òµ¥µÄ±íµ¥ÓÃÓÚÌá½»Êý¾Ý£º
+ä½¿ç”¨æŽ§åˆ¶å™¨æŽ¥æ”¶å‚æ•°å¾€å¾€æ˜¯ Spring MVC å¼€å‘ä¸šåŠ¡é€»è¾‘çš„ç¬¬ä¸€æ­¥ï¼Œä¸ºæŽ¢ç´¢ Spring MVC çš„ä¼ å‚æ–¹å¼ï¼Œä¸ºæ­¤æˆ‘ä»¬å…ˆæ¥åˆ›å»ºä¸€ä¸ªç®€å•çš„è¡¨å•ç”¨äºŽæäº¤æ•°æ®ï¼š
 
 
 
@@ -701,12 +701,12 @@ public class HelloController {
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Spring MVC ´«²Î·½Ê½</title>
+    <title>Spring MVC ä¼ å‚æ–¹å¼</title>
 </head>
 <body>
 <form action="/param" role="form">
-    ÓÃ»§Ãû£º<br/>
-    ÃÜÂë£º<br/>
+    ç”¨æˆ·åï¼š<br/>
+    å¯†ç ï¼š<br/>
     
 </form>
 </body>
@@ -716,7 +716,7 @@ public class HelloController {
 
 
 
-³ó¾Í³óµã¶ù°É£¬ÎÒÃÇ¾ÍÊÇÀ´²âÊÔÒ»ÏÂ£º
+ä¸‘å°±ä¸‘ç‚¹å„¿å§ï¼Œæˆ‘ä»¬å°±æ˜¯æ¥æµ‹è¯•ä¸€ä¸‹ï¼š
 
 
 
@@ -728,9 +728,9 @@ public class HelloController {
 
 
 
-#### Ê¹ÓÃ Servlet Ô­Éú API ÊµÏÖ£º
+#### ä½¿ç”¨ Servlet åŽŸç”Ÿ API å®žçŽ°ï¼š
 
-ÎÒÃÇºÜÈÝÒ×ÖªµÀ£¬±íµ¥»áÌá½»µ½ `/param` Õâ¸öÄ¿Â¼£¬ÎÒÃÇÏÈÀ´Ê¹ÓÃ Servlet Ô­ÉúµÄ API À´¿´¿´ÄÜ²»ÄÜ»ñÈ¡µ½Êý¾Ý£º
+æˆ‘ä»¬å¾ˆå®¹æ˜“çŸ¥é“ï¼Œè¡¨å•ä¼šæäº¤åˆ° `/param` è¿™ä¸ªç›®å½•ï¼Œæˆ‘ä»¬å…ˆæ¥ä½¿ç”¨ Servlet åŽŸç”Ÿçš„ API æ¥çœ‹çœ‹èƒ½ä¸èƒ½èŽ·å–åˆ°æ•°æ®ï¼š
 
 
 
@@ -750,7 +750,7 @@ public ModelAndView getParam(HttpServletRequest request,
 
 
 
-²âÊÔ³É¹¦£º
+æµ‹è¯•æˆåŠŸï¼š
 
 
 
@@ -762,9 +762,9 @@ public ModelAndView getParam(HttpServletRequest request,
 
 
 
-#### Ê¹ÓÃÍ¬ÃûÆ¥Åä¹æÔò
+#### ä½¿ç”¨åŒååŒ¹é…è§„åˆ™
 
-ÎÒÃÇ¿ÉÒÔ°Ñ·½·¨¶¨ÒåµÄÐÎ²ÎÃû×ÖÉèÖÃ³ÉºÍÇ°Ì¨´«Èë²ÎÊýÃûÒ»ÑùµÄ·½·¨£¬À´»ñÈ¡µ½Êý¾Ý£¨Í¬ÃûÆ¥Åä¹æÔò£©£º
+æˆ‘ä»¬å¯ä»¥æŠŠæ–¹æ³•å®šä¹‰çš„å½¢å‚åå­—è®¾ç½®æˆå’Œå‰å°ä¼ å…¥å‚æ•°åä¸€æ ·çš„æ–¹æ³•ï¼Œæ¥èŽ·å–åˆ°æ•°æ®ï¼ˆåŒååŒ¹é…è§„åˆ™ï¼‰ï¼š
 
 
 
@@ -781,7 +781,7 @@ public ModelAndView getParam(String userName,
 
 
 
-²âÊÔ³É¹¦£º
+æµ‹è¯•æˆåŠŸï¼š
 
 
 
@@ -793,8 +793,8 @@ public ModelAndView getParam(String userName,
 
 
 
-*   **ÎÊÌâ£º** ÕâÑùÓÖ»áºÍÇ°Ì¨²úÉúºÜÇ¿µÄñîºÏ£¬ÕâÊÇÎÒÃÇ²»Ï£ÍûµÄ
-*   **½â¾ö£º** Ê¹ÓÃ `@RequestParam("Ç°Ì¨²ÎÊýÃû")` À´×¢Èë£º
+*   **é—®é¢˜ï¼š** è¿™æ ·åˆä¼šå’Œå‰å°äº§ç”Ÿå¾ˆå¼ºçš„è€¦åˆï¼Œè¿™æ˜¯æˆ‘ä»¬ä¸å¸Œæœ›çš„
+*   **è§£å†³ï¼š** ä½¿ç”¨ `@RequestParam("å‰å°å‚æ•°å")` æ¥æ³¨å…¥ï¼š
 
 
 
@@ -806,17 +806,17 @@ public ModelAndView getParam(String userName,
 
 
 
-*   **`@RequestParam` ×¢½âÏ¸½Ú£º**
-    ¸Ã×¢½âÓÐÈý¸ö±äÁ¿£º`value`¡¢`required`¡¢`defaultvalue`
-*   `value` £ºÖ¸¶¨ `name` ÊôÐÔµÄÃû³ÆÊÇÊ²Ã´£¬`value` ÊôÐÔ¶¼¿ÉÒÔÄ¬ÈÏ²»Ð´
-*   `required` £ºÊÇ·ñ±ØÐëÒªÓÐ¸Ã²ÎÊý£¬¿ÉÒÔÉèÖÃÎª¡¾true¡¿»òÕß¡¾false¡¿
-*   `defaultvalue` £ºÉèÖÃÄ¬ÈÏÖµ
+*   **`@RequestParam` æ³¨è§£ç»†èŠ‚ï¼š**
+    è¯¥æ³¨è§£æœ‰ä¸‰ä¸ªå˜é‡ï¼š`value`ã€`required`ã€`defaultvalue`
+*   `value` ï¼šæŒ‡å®š `name` å±žæ€§çš„åç§°æ˜¯ä»€ä¹ˆï¼Œ`value` å±žæ€§éƒ½å¯ä»¥é»˜è®¤ä¸å†™
+*   `required` ï¼šæ˜¯å¦å¿…é¡»è¦æœ‰è¯¥å‚æ•°ï¼Œå¯ä»¥è®¾ç½®ä¸ºã€trueã€‘æˆ–è€…ã€falseã€‘
+*   `defaultvalue` ï¼šè®¾ç½®é»˜è®¤å€¼
 
-#### Ê¹ÓÃÄ£ÐÍ´«²Î
+#### ä½¿ç”¨æ¨¡åž‹ä¼ å‚
 
-*   **ÒªÇó£º Ç°Ì¨²ÎÊýÃû×Ö±ØÐëºÍÄ£ÐÍÖÐµÄ×Ö¶ÎÃûÒ»Ñù**
+*   **è¦æ±‚ï¼š å‰å°å‚æ•°åå­—å¿…é¡»å’Œæ¨¡åž‹ä¸­çš„å­—æ®µåä¸€æ ·**
 
-ÈÃÎÒÃÇÏÈÀ´ÎªÎÒÃÇµÄ±íµ¥´´½¨Ò»¸ö User Ä£ÐÍ£º
+è®©æˆ‘ä»¬å…ˆæ¥ä¸ºæˆ‘ä»¬çš„è¡¨å•åˆ›å»ºä¸€ä¸ª User æ¨¡åž‹ï¼š
 
 
 
@@ -835,7 +835,7 @@ public class User {
 
 
 
-È»ºó²âÊÔÈÔÈ»³É¹¦£º
+ç„¶åŽæµ‹è¯•ä»ç„¶æˆåŠŸï¼š
 
 
 
@@ -847,11 +847,11 @@ public class User {
 
 
 
-#### ÖÐÎÄÂÒÂëÎÊÌâ
+#### ä¸­æ–‡ä¹±ç é—®é¢˜
 
-*   **×¢Òâ£º** ¸ú Servlet ÖÐµÄÒ»Ñù£¬¸Ã·½·¨Ö»¶Ô POST ·½·¨ÓÐÐ§£¨ÒòÎªÊÇÖ±½Ó´¦ÀíµÄ request£©
+*   **æ³¨æ„ï¼š** è·Ÿ Servlet ä¸­çš„ä¸€æ ·ï¼Œè¯¥æ–¹æ³•åªå¯¹ POST æ–¹æ³•æœ‰æ•ˆï¼ˆå› ä¸ºæ˜¯ç›´æŽ¥å¤„ç†çš„ requestï¼‰
 
-ÎÒÃÇ¿ÉÒÔÍ¨¹ýÅäÖÃ Spring MVC ×Ö·û±àÂë¹ýÂËÆ÷À´Íê³É£¬ÔÚ web.xml ÖÐÌí¼Ó£º
+æˆ‘ä»¬å¯ä»¥é€šè¿‡é…ç½® Spring MVC å­—ç¬¦ç¼–ç è¿‡æ»¤å™¨æ¥å®Œæˆï¼Œåœ¨ web.xml ä¸­æ·»åŠ ï¼š
 
 
 
@@ -861,7 +861,7 @@ public class User {
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
     <init-param>
         <param-name>encoding</param-name>
-        <!-- ÉèÖÃ±àÂë¸ñÊ½ -->
+        <!-- è®¾ç½®ç¼–ç æ ¼å¼ -->
         <param-value>utf-8</param-value>
     </init-param>
 </filter>
@@ -876,9 +876,9 @@ public class User {
 
 * * *
 
-## ¿ØÖÆÆ÷»ØÏÔÊý¾Ý
+## æŽ§åˆ¶å™¨å›žæ˜¾æ•°æ®
 
-Í¨¹ýÉÏÃæ£¬ÎÒÃÇÖªµÀÁËÔõÃ´½ÓÊÜÇëÇóÊý¾Ý£¬²¢ÄÜ½â¾ö POST ÂÒÂëµÄÎÊÌâ£¬ÄÇÃ´ÎÒÃÇÔõÃ´»ØÏÔÊý¾ÝÄØ£¿Îª´ËÎÒÃÇÔÚ¡¾page¡¿ÏÂ´´½¨Ò»¸ö¡¾test2.jsp¡¿£º
+é€šè¿‡ä¸Šé¢ï¼Œæˆ‘ä»¬çŸ¥é“äº†æ€Žä¹ˆæŽ¥å—è¯·æ±‚æ•°æ®ï¼Œå¹¶èƒ½è§£å†³ POST ä¹±ç çš„é—®é¢˜ï¼Œé‚£ä¹ˆæˆ‘ä»¬æ€Žä¹ˆå›žæ˜¾æ•°æ®å‘¢ï¼Ÿä¸ºæ­¤æˆ‘ä»¬åœ¨ã€pageã€‘ä¸‹åˆ›å»ºä¸€ä¸ªã€test2.jspã€‘ï¼š
 
 
 
@@ -888,10 +888,10 @@ public class User {
          pageEncoding="UTF-8" import="java.util.*" isELIgnored="false" %>
 <html>
 <head>
-    <title>Spring MVC Êý¾Ý»ØÏÔ</title>
+    <title>Spring MVC æ•°æ®å›žæ˜¾</title>
 </head>
 <body>
-<h1>»ØÏÔÊý¾Ý£º${message}</h1>
+<h1>å›žæ˜¾æ•°æ®ï¼š${message}</h1>
 </body>
 </html>
 
@@ -899,9 +899,9 @@ public class User {
 
 
 
-#### Ê¹ÓÃ Servlet Ô­Éú API À´ÊµÏÖ
+#### ä½¿ç”¨ Servlet åŽŸç”Ÿ API æ¥å®žçŽ°
 
-ÎÒÃÇÏÈÀ´²âÊÔÒ»ÏÂ Servlet Ô­ÉúµÄ API ÊÇ·ñÄÜÍê³ÉÕâ¸öÈÎÎñ£º
+æˆ‘ä»¬å…ˆæ¥æµ‹è¯•ä¸€ä¸‹ Servlet åŽŸç”Ÿçš„ API æ˜¯å¦èƒ½å®Œæˆè¿™ä¸ªä»»åŠ¡ï¼š
 
 
 
@@ -909,7 +909,7 @@ public class User {
 @RequestMapping("/value")
 public ModelAndView handleRequest(HttpServletRequest request,
                                   HttpServletResponse response) {
-    request.setAttribute("message","³É¹¦£¡");
+    request.setAttribute("message","æˆåŠŸï¼");
     return new ModelAndView("test1");
 }
 
@@ -917,7 +917,7 @@ public ModelAndView handleRequest(HttpServletRequest request,
 
 
 
-ÔÚä¯ÀÀÆ÷µØÖ·À¸ÖÐÊäÈë£º`localhost/value` ²âÊÔ
+åœ¨æµè§ˆå™¨åœ°å€æ ä¸­è¾“å…¥ï¼š`localhost/value` æµ‹è¯•
 
 
 
@@ -929,7 +929,7 @@ public ModelAndView handleRequest(HttpServletRequest request,
 
 
 
-#### Ê¹ÓÃ Spring MVC ËùÌá¹©µÄ ModelAndView ¶ÔÏó
+#### ä½¿ç”¨ Spring MVC æ‰€æä¾›çš„ ModelAndView å¯¹è±¡
 
 
 
@@ -941,9 +941,9 @@ public ModelAndView handleRequest(HttpServletRequest request,
 
 
 
-#### Ê¹ÓÃ Model ¶ÔÏó
+#### ä½¿ç”¨ Model å¯¹è±¡
 
-ÔÚ Spring MVC ÖÐ£¬ÎÒÃÇÍ¨³£¶¼ÊÇÊ¹ÓÃÕâÑùµÄ·½Ê½À´°ó¶¨Êý¾Ý£¬
+åœ¨ Spring MVC ä¸­ï¼Œæˆ‘ä»¬é€šå¸¸éƒ½æ˜¯ä½¿ç”¨è¿™æ ·çš„æ–¹å¼æ¥ç»‘å®šæ•°æ®ï¼Œ
 
 
 
@@ -955,14 +955,14 @@ public ModelAndView handleRequest(HttpServletRequest request,
 
 
 
-*   **Ê¹ÓÃ `@ModelAttribute` ×¢½â£º**
+*   **ä½¿ç”¨ `@ModelAttribute` æ³¨è§£ï¼š**
 
 
 
 ```
 @ModelAttribute
 public void model(Model model) {
-    model.addAttribute("message", "×¢½â³É¹¦");
+    model.addAttribute("message", "æ³¨è§£æˆåŠŸ");
 }
 
 @RequestMapping("/value")
@@ -974,15 +974,15 @@ public String handleRequest() {
 
 
 
-ÕâÑùÐ´¾Í»áÔÚ·ÃÎÊ¿ØÖÆÆ÷·½·¨ handleRequest() Ê±£¬»áÊ×ÏÈµ÷ÓÃ model() ·½·¨½« `message` Ìí¼Ó½øÒ³Ãæ²ÎÊýÖÐÈ¥£¬ÔÚÊÓÍ¼ÖÐ¿ÉÒÔÖ±½Óµ÷ÓÃ£¬µ«ÊÇÕâÑùÐ´»áµ¼ÖÂ¸Ã¿ØÖÆÆ÷ËùÓÐµÄ·½·¨¶¼»áÊ×ÏÈµ÷ÓÃ model() ·½·¨£¬µ«Í¬ÑùµÄÒ²ºÜ·½±ã£¬ÒòÎª¿ÉÒÔ¼ÓÈë¸÷ÖÖ¸÷ÑùµÄÊý¾Ý¡£
+è¿™æ ·å†™å°±ä¼šåœ¨è®¿é—®æŽ§åˆ¶å™¨æ–¹æ³• handleRequest() æ—¶ï¼Œä¼šé¦–å…ˆè°ƒç”¨ model() æ–¹æ³•å°† `message` æ·»åŠ è¿›é¡µé¢å‚æ•°ä¸­åŽ»ï¼Œåœ¨è§†å›¾ä¸­å¯ä»¥ç›´æŽ¥è°ƒç”¨ï¼Œä½†æ˜¯è¿™æ ·å†™ä¼šå¯¼è‡´è¯¥æŽ§åˆ¶å™¨æ‰€æœ‰çš„æ–¹æ³•éƒ½ä¼šé¦–å…ˆè°ƒç”¨ model() æ–¹æ³•ï¼Œä½†åŒæ ·çš„ä¹Ÿå¾ˆæ–¹ä¾¿ï¼Œå› ä¸ºå¯ä»¥åŠ å…¥å„ç§å„æ ·çš„æ•°æ®ã€‚
 
 * * *
 
-## ¿Í»§¶ËÌø×ª
+## å®¢æˆ·ç«¯è·³è½¬
 
-Ç°Ãæ²»¹ÜÊÇµØÖ· `/hello` Ìø×ªµ½ index.jsp »¹ÊÇ `/test` Ìø×ªµ½ test.jsp£¬ÕâÐ©¶¼ÊÇ·þÎñ¶ËµÄÌø×ª£¬Ò²¾ÍÊÇ `request.getRequestDispatcher("µØÖ·").forward(request, response);`
+å‰é¢ä¸ç®¡æ˜¯åœ°å€ `/hello` è·³è½¬åˆ° index.jsp è¿˜æ˜¯ `/test` è·³è½¬åˆ° test.jspï¼Œè¿™äº›éƒ½æ˜¯æœåŠ¡ç«¯çš„è·³è½¬ï¼Œä¹Ÿå°±æ˜¯ `request.getRequestDispatcher("åœ°å€").forward(request, response);`
 
-ÄÇÎÒÃÇÈçºÎ½øÐÐ¿Í»§¶ËÌø×ªÄØ£¿ÎÒÃÇ¼ÌÐøÔÚ HelloController ÖÐ±àÐ´£º
+é‚£æˆ‘ä»¬å¦‚ä½•è¿›è¡Œå®¢æˆ·ç«¯è·³è½¬å‘¢ï¼Ÿæˆ‘ä»¬ç»§ç»­åœ¨ HelloController ä¸­ç¼–å†™ï¼š
 
 
 
@@ -1004,7 +1004,7 @@ public ModelAndView jump() {
 
 
 
-ÎÒÃÇÊ¹ÓÃ `redirect:/hello` ¾Í±íÊ¾ÎÒÃÇÒªÌø×ªµ½ `/hello` Õâ¸öÂ·¾¶£¬ÎÒÃÇÖØÆô·þÎñÆ÷£¬ÔÚµØÖ·À¸ÖÐÊäÈë£º`localhost/jump` £¬»á×Ô¶¯Ìø×ªµ½ `/hello` Â·¾¶ÏÂ£º
+æˆ‘ä»¬ä½¿ç”¨ `redirect:/hello` å°±è¡¨ç¤ºæˆ‘ä»¬è¦è·³è½¬åˆ° `/hello` è¿™ä¸ªè·¯å¾„ï¼Œæˆ‘ä»¬é‡å¯æœåŠ¡å™¨ï¼Œåœ¨åœ°å€æ ä¸­è¾“å…¥ï¼š`localhost/jump` ï¼Œä¼šè‡ªåŠ¨è·³è½¬åˆ° `/hello` è·¯å¾„ä¸‹ï¼š
 
 
 
@@ -1016,7 +1016,7 @@ public ModelAndView jump() {
 
 
 
-Ò²¿ÉÒÔÕâÑùÓÃ£º
+ä¹Ÿå¯ä»¥è¿™æ ·ç”¨ï¼š
 
 
 
@@ -1032,17 +1032,17 @@ public String jump() {
 
 * * *
 
-## ÎÄ¼þÉÏ´«
+## æ–‡ä»¶ä¸Šä¼ 
 
-ÎÒÃÇÏÈÀ´»Ø¹ËÒ»ÏÂ´«Í³µÄÎÄ¼þÉÏ´«ºÍÏÂÔØ£º[ÕâÀï](https://www.jianshu.com/p/e7837435bf4c)
+æˆ‘ä»¬å…ˆæ¥å›žé¡¾ä¸€ä¸‹ä¼ ç»Ÿçš„æ–‡ä»¶ä¸Šä¼ å’Œä¸‹è½½ï¼š[è¿™é‡Œ](https://www.jianshu.com/p/e7837435bf4c)
 
-ÎÒÃÇÔÙÀ´¿´Ò»ÏÂÔÚ Spring MVC ÖÐÈçºÎÊµÏÖÎÄ¼þµÄÉÏ´«ºÍÏÂÔØ
+æˆ‘ä»¬å†æ¥çœ‹ä¸€ä¸‹åœ¨ Spring MVC ä¸­å¦‚ä½•å®žçŽ°æ–‡ä»¶çš„ä¸Šä¼ å’Œä¸‹è½½
 
-*   **×¢Òâ£º** ÐèÒªÏÈµ¼Èë `commons-io-1.3.2.jar` ºÍ `commons-fileupload-1.2.1.jar` Á½¸ö°ü
+*   **æ³¨æ„ï¼š** éœ€è¦å…ˆå¯¼å…¥ `commons-io-1.3.2.jar` å’Œ `commons-fileupload-1.2.1.jar` ä¸¤ä¸ªåŒ…
 
-#### µÚÒ»²½£ºÅäÖÃÉÏ´«½âÎöÆ÷
+#### ç¬¬ä¸€æ­¥ï¼šé…ç½®ä¸Šä¼ è§£æžå™¨
 
-ÔÚ dispatcher-servlet.xml ÖÐÐÂÔöÒ»¾ä£º
+åœ¨ dispatcher-servlet.xml ä¸­æ–°å¢žä¸€å¥ï¼š
 
 
 
@@ -1053,11 +1053,11 @@ public String jump() {
 
 
 
-¿ªÆô¶ÔÉÏ´«¹¦ÄÜµÄÖ§³Ö
+å¼€å¯å¯¹ä¸Šä¼ åŠŸèƒ½çš„æ”¯æŒ
 
-#### µÚ¶þ²½£º±àÐ´ JSP
+#### ç¬¬äºŒæ­¥ï¼šç¼–å†™ JSP
 
-ÎÄ¼þÃûÎª upload.jsp£¬ÈÔ´´½¨ÔÚ¡¾page¡¿ÏÂ£º
+æ–‡ä»¶åä¸º upload.jspï¼Œä»åˆ›å»ºåœ¨ã€pageã€‘ä¸‹ï¼š
 
 
 
@@ -1065,7 +1065,7 @@ public String jump() {
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>²âÊÔÎÄ¼þÉÏ´«</title>
+    <title>æµ‹è¯•æ–‡ä»¶ä¸Šä¼ </title>
 </head>
 <body>
 <form action="/upload" method="post" enctype="multipart/form-data">
@@ -1079,9 +1079,9 @@ public String jump() {
 
 
 
-#### µÚÈý²½£º±àÐ´¿ØÖÆÆ÷
+#### ç¬¬ä¸‰æ­¥ï¼šç¼–å†™æŽ§åˆ¶å™¨
 
-ÔÚ Package¡¾controller¡¿ÏÂÐÂ½¨¡¾UploadController¡¿Àà£º
+åœ¨ Packageã€controllerã€‘ä¸‹æ–°å»ºã€UploadControllerã€‘ç±»ï¼š
 
 
 
@@ -1113,9 +1113,9 @@ public class UploadController {
 
 
 
-#### µÚËÄ²½£º²âÊÔ
+#### ç¬¬å››æ­¥ï¼šæµ‹è¯•
 
-ÔÚä¯ÀÀÆ÷µØÖ·À¸ÖÐÊäÈë£º`localhost/test2` £¬Ñ¡ÔñÎÄ¼þµã»÷ÉÏ´«£¬²âÊÔ³É¹¦£º
+åœ¨æµè§ˆå™¨åœ°å€æ ä¸­è¾“å…¥ï¼š`localhost/test2` ï¼Œé€‰æ‹©æ–‡ä»¶ç‚¹å‡»ä¸Šä¼ ï¼Œæµ‹è¯•æˆåŠŸï¼š
 
 
 
@@ -1129,25 +1129,25 @@ public class UploadController {
 
 * * *
 
-#### ²Î¿¼×ÊÁÏ£º
+#### å‚è€ƒèµ„æ–™ï¼š
 
-*   ¡¶Java EE »¥ÁªÍøÇáÁ¿¼¶¿ò¼ÜÕûºÏ¿ª·¢¡·
-*   ¡¶Spring ÊµÕ½¡·
-*   [How2j Spring MVC ÏµÁÐ½Ì³Ì](http://how2j.cn/k/springmvc/springmvc-springmvc/615.html)
-*   È«ÄÜµÄ°Ù¶ÈºÍÍòÄÜµÄ´óÄÔ
+*   ã€ŠJava EE äº’è”ç½‘è½»é‡çº§æ¡†æž¶æ•´åˆå¼€å‘ã€‹
+*   ã€ŠSpring å®žæˆ˜ã€‹
+*   [How2j Spring MVC ç³»åˆ—æ•™ç¨‹](http://how2j.cn/k/springmvc/springmvc-springmvc/615.html)
+*   å…¨èƒ½çš„ç™¾åº¦å’Œä¸‡èƒ½çš„å¤§è„‘
 
 * * *
 
-> »¶Ó­×ªÔØ£¬×ªÔØÇë×¢Ã÷³ö´¦£¡
-> ¼òÊéID£º[@ÎÒÃ»ÓÐÈý¿ÅÐÄÔà](https://www.jianshu.com/u/a40d61a49221)
-> github£º[wmyskxz](https://github.com/wmyskxz/)
-> »¶Ó­¹Ø×¢¹«ÖÚÎ¢ÐÅºÅ£ºwmyskxz
-> ·ÖÏí×Ô¼ºµÄÑ§Ï° & Ñ§Ï°×ÊÁÏ & Éú»î
-> ÏëÒª½»Á÷µÄÅóÓÑÒ²¿ÉÒÔ¼ÓqqÈº£º3382693
+> æ¬¢è¿Žè½¬è½½ï¼Œè½¬è½½è¯·æ³¨æ˜Žå‡ºå¤„ï¼
+> ç®€ä¹¦IDï¼š[@æˆ‘æ²¡æœ‰ä¸‰é¢—å¿ƒè„](https://www.jianshu.com/u/a40d61a49221)
+> githubï¼š[wmyskxz](https://github.com/wmyskxz/)
+> æ¬¢è¿Žå…³æ³¨å…¬ä¼—å¾®ä¿¡å·ï¼šwmyskxz
+> åˆ†äº«è‡ªå·±çš„å­¦ä¹  & å­¦ä¹ èµ„æ–™ & ç”Ÿæ´»
+> æƒ³è¦äº¤æµçš„æœ‹å‹ä¹Ÿå¯ä»¥åŠ qqç¾¤ï¼š3382693
 
 
 
-×÷Õß£ºÎÒÃ»ÓÐÈý¿ÅÐÄÔà
-Á´½Ó£ºhttps://www.jianshu.com/p/91a2d0a1e45a
-À´Ô´£º¼òÊé
-Öø×÷È¨¹é×÷ÕßËùÓÐ¡£ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£
+ä½œè€…ï¼šæˆ‘æ²¡æœ‰ä¸‰é¢—å¿ƒè„
+é“¾æŽ¥ï¼šhttps://www.jianshu.com/p/91a2d0a1e45a
+æ¥æºï¼šç®€ä¹¦
+è‘—ä½œæƒå½’ä½œè€…æ‰€æœ‰ã€‚å•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…èŽ·å¾—æŽˆæƒï¼Œéžå•†ä¸šè½¬è½½è¯·æ³¨æ˜Žå‡ºå¤„ã€‚

@@ -1,53 +1,53 @@
-# Spring ¿ò¼ÜµÄ AOP
+# Spring æ¡†æž¶çš„ AOP
 
-## Spring ¿ò¼ÜµÄ AOP
+## Spring æ¡†æž¶çš„ AOP
 
-Spring ¿ò¼ÜµÄÒ»¸ö¹Ø¼ü×é¼þÊÇ**ÃæÏòÇÐÃæµÄ±à³Ì**(AOP)¿ò¼Ü¡£ÃæÏòÇÐÃæµÄ±à³ÌÐèÒª°Ñ³ÌÐòÂß¼­·Ö½â³É²»Í¬µÄ²¿·Ö³ÆÎªËùÎ½µÄ¹Ø×¢µã¡£¿çÒ»¸öÓ¦ÓÃ³ÌÐòµÄ¶à¸öµãµÄ¹¦ÄÜ±»³ÆÎª**ºáÇÐ¹Ø×¢µã**£¬ÕâÐ©ºáÇÐ¹Ø×¢µãÔÚ¸ÅÄîÉÏ¶ÀÁ¢ÓÚÓ¦ÓÃ³ÌÐòµÄÒµÎñÂß¼­¡£ÔÚÈí¼þ¿ª·¢¹ý³ÌÖÐÓÐ¸÷ÖÖ¸÷ÑùµÄºÜºÃµÄÇÐÃæµÄÀý×Ó£¬ÈçÈÕÖ¾¼ÇÂ¼¡¢Éó¼Æ¡¢ÉùÃ÷Ê½ÊÂÎñ¡¢°²È«ÐÔºÍ»º´æµÈ¡£
+Spring æ¡†æž¶çš„ä¸€ä¸ªå…³é”®ç»„ä»¶æ˜¯**é¢å‘åˆ‡é¢çš„ç¼–ç¨‹**(AOP)æ¡†æž¶ã€‚é¢å‘åˆ‡é¢çš„ç¼–ç¨‹éœ€è¦æŠŠç¨‹åºé€»è¾‘åˆ†è§£æˆä¸åŒçš„éƒ¨åˆ†ç§°ä¸ºæ‰€è°“çš„å…³æ³¨ç‚¹ã€‚è·¨ä¸€ä¸ªåº”ç”¨ç¨‹åºçš„å¤šä¸ªç‚¹çš„åŠŸèƒ½è¢«ç§°ä¸º**æ¨ªåˆ‡å…³æ³¨ç‚¹**ï¼Œè¿™äº›æ¨ªåˆ‡å…³æ³¨ç‚¹åœ¨æ¦‚å¿µä¸Šç‹¬ç«‹äºŽåº”ç”¨ç¨‹åºçš„ä¸šåŠ¡é€»è¾‘ã€‚åœ¨è½¯ä»¶å¼€å‘è¿‡ç¨‹ä¸­æœ‰å„ç§å„æ ·çš„å¾ˆå¥½çš„åˆ‡é¢çš„ä¾‹å­ï¼Œå¦‚æ—¥å¿—è®°å½•ã€å®¡è®¡ã€å£°æ˜Žå¼äº‹åŠ¡ã€å®‰å…¨æ€§å’Œç¼“å­˜ç­‰ã€‚
 
-ÔÚ OOP ÖÐ£¬¹Ø¼üµ¥ÔªÄ£¿é¶ÈÊÇÀà£¬¶øÔÚ AOP ÖÐµ¥ÔªÄ£¿é¶ÈÊÇÇÐÃæ¡£ÒÀÀµ×¢Èë°ïÖúÄã¶ÔÓ¦ÓÃ³ÌÐò¶ÔÏóÏà»¥½âñîºÏ£¬AOP ¿ÉÒÔ°ïÖúÄã´ÓËüÃÇËùÓ°ÏìµÄ¶ÔÏóÖÐ¶ÔºáÇÐ¹Ø×¢µã½âñî¡£AOP ÏñÊÇ±à³ÌÓïÑÔµÄ´¥·¢Îï£¬Èç Perl£¬.NET£¬Java »òÕßÆäËûÓïÑÔ¡£
+åœ¨ OOP ä¸­ï¼Œå…³é”®å•å…ƒæ¨¡å—åº¦æ˜¯ç±»ï¼Œè€Œåœ¨ AOP ä¸­å•å…ƒæ¨¡å—åº¦æ˜¯åˆ‡é¢ã€‚ä¾èµ–æ³¨å…¥å¸®åŠ©ä½ å¯¹åº”ç”¨ç¨‹åºå¯¹è±¡ç›¸äº’è§£è€¦åˆï¼ŒAOP å¯ä»¥å¸®åŠ©ä½ ä»Žå®ƒä»¬æ‰€å½±å“çš„å¯¹è±¡ä¸­å¯¹æ¨ªåˆ‡å…³æ³¨ç‚¹è§£è€¦ã€‚AOP åƒæ˜¯ç¼–ç¨‹è¯­è¨€çš„è§¦å‘ç‰©ï¼Œå¦‚ Perlï¼Œ.NETï¼ŒJava æˆ–è€…å…¶ä»–è¯­è¨€ã€‚
 
-Spring AOP Ä£¿éÌá¹©À¹½ØÆ÷À´À¹½ØÒ»¸öÓ¦ÓÃ³ÌÐò£¬ÀýÈç£¬µ±Ö´ÐÐÒ»¸ö·½·¨Ê±£¬Äã¿ÉÒÔÔÚ·½·¨Ö´ÐÐÖ®Ç°»òÖ®ºóÌí¼Ó¶îÍâµÄ¹¦ÄÜ¡£
+Spring AOP æ¨¡å—æä¾›æ‹¦æˆªå™¨æ¥æ‹¦æˆªä¸€ä¸ªåº”ç”¨ç¨‹åºï¼Œä¾‹å¦‚ï¼Œå½“æ‰§è¡Œä¸€ä¸ªæ–¹æ³•æ—¶ï¼Œä½ å¯ä»¥åœ¨æ–¹æ³•æ‰§è¡Œä¹‹å‰æˆ–ä¹‹åŽæ·»åŠ é¢å¤–çš„åŠŸèƒ½ã€‚
 
-## AOP ÊõÓï
+## AOP æœ¯è¯­
 
-ÔÚÎÒÃÇ¿ªÊ¼Ê¹ÓÃ AOP ¹¤×÷Ö®Ç°£¬ÈÃÎÒÃÇÊìÏ¤Ò»ÏÂ AOP ¸ÅÄîºÍÊõÓï¡£ÕâÐ©ÊõÓï²¢²»ÌØ¶¨ÓÚ Spring£¬¶øÊÇÓë AOP ÓÐ¹ØµÄ¡£
+åœ¨æˆ‘ä»¬å¼€å§‹ä½¿ç”¨ AOP å·¥ä½œä¹‹å‰ï¼Œè®©æˆ‘ä»¬ç†Ÿæ‚‰ä¸€ä¸‹ AOP æ¦‚å¿µå’Œæœ¯è¯­ã€‚è¿™äº›æœ¯è¯­å¹¶ä¸ç‰¹å®šäºŽ Springï¼Œè€Œæ˜¯ä¸Ž AOP æœ‰å…³çš„ã€‚
 
-| Ïî | ÃèÊö |
+| é¡¹ | æè¿° |
 | --- | --- |
-| Aspect | Ò»¸öÄ£¿é¾ßÓÐÒ»×éÌá¹©ºáÇÐÐèÇóµÄ APIs¡£ÀýÈç£¬Ò»¸öÈÕÖ¾Ä£¿éÎªÁË¼ÇÂ¼ÈÕÖ¾½«±» AOP ·½Ãæµ÷ÓÃ¡£Ó¦ÓÃ³ÌÐò¿ÉÒÔÓµÓÐÈÎÒâÊýÁ¿µÄ·½Ãæ£¬ÕâÈ¡¾öÓÚÐèÇó¡£ |
-| Join point | ÔÚÄãµÄÓ¦ÓÃ³ÌÐòÖÐËü´ú±íÒ»¸öµã£¬Äã¿ÉÒÔÔÚ²å¼þ AOP ·½Ãæ¡£ÄãÒ²ÄÜËµ£¬ËüÊÇÔÚÊµ¼ÊµÄÓ¦ÓÃ³ÌÐòÖÐ£¬ÆäÖÐÒ»¸ö²Ù×÷½«Ê¹ÓÃ Spring AOP ¿ò¼Ü¡£ |
-| Advice | ÕâÊÇÊµ¼ÊÐÐ¶¯Ö®Ç°»òÖ®ºóÖ´ÐÐµÄ·½·¨¡£ÕâÊÇÔÚ³ÌÐòÖ´ÐÐÆÚ¼äÍ¨¹ý Spring AOP ¿ò¼ÜÊµ¼Ê±»µ÷ÓÃµÄ´úÂë¡£ |
-| Pointcut | ÕâÊÇÒ»×éÒ»¸ö»ò¶à¸öÁ¬½Óµã£¬Í¨ÖªÓ¦¸Ã±»Ö´ÐÐ¡£Äã¿ÉÒÔÊ¹ÓÃ±í´ïÊ½»òÄ£Ê½Ö¸¶¨ÇÐÈëµãÕýÈçÎÒÃÇ½«ÔÚ AOP µÄÀý×ÓÖÐ¿´µ½µÄ¡£ |
-| Introduction | ÒýÓÃÔÊÐíÄãÌí¼ÓÐÂ·½·¨»òÊôÐÔµ½ÏÖÓÐµÄÀàÖÐ¡£ |
-| Target object | ±»Ò»¸ö»òÕß¶à¸ö·½ÃæËùÍ¨ÖªµÄ¶ÔÏó£¬Õâ¸ö¶ÔÏóÓÀÔ¶ÊÇÒ»¸ö±»´úÀí¶ÔÏó¡£Ò²³ÆÎª±»Í¨Öª¶ÔÏó¡£ |
-| Weaving | Weaving °Ñ·½ÃæÁ¬½Óµ½ÆäËüµÄÓ¦ÓÃ³ÌÐòÀàÐÍ»òÕß¶ÔÏóÉÏ£¬²¢´´½¨Ò»¸ö±»Í¨ÖªµÄ¶ÔÏó¡£ÕâÐ©¿ÉÒÔÔÚ±àÒëÊ±£¬Àà¼ÓÔØÊ±ºÍÔËÐÐÊ±Íê³É¡£ |
+| Aspect | ä¸€ä¸ªæ¨¡å—å…·æœ‰ä¸€ç»„æä¾›æ¨ªåˆ‡éœ€æ±‚çš„ APIsã€‚ä¾‹å¦‚ï¼Œä¸€ä¸ªæ—¥å¿—æ¨¡å—ä¸ºäº†è®°å½•æ—¥å¿—å°†è¢« AOP æ–¹é¢è°ƒç”¨ã€‚åº”ç”¨ç¨‹åºå¯ä»¥æ‹¥æœ‰ä»»æ„æ•°é‡çš„æ–¹é¢ï¼Œè¿™å–å†³äºŽéœ€æ±‚ã€‚ |
+| Join point | åœ¨ä½ çš„åº”ç”¨ç¨‹åºä¸­å®ƒä»£è¡¨ä¸€ä¸ªç‚¹ï¼Œä½ å¯ä»¥åœ¨æ’ä»¶ AOP æ–¹é¢ã€‚ä½ ä¹Ÿèƒ½è¯´ï¼Œå®ƒæ˜¯åœ¨å®žé™…çš„åº”ç”¨ç¨‹åºä¸­ï¼Œå…¶ä¸­ä¸€ä¸ªæ“ä½œå°†ä½¿ç”¨ Spring AOP æ¡†æž¶ã€‚ |
+| Advice | è¿™æ˜¯å®žé™…è¡ŒåŠ¨ä¹‹å‰æˆ–ä¹‹åŽæ‰§è¡Œçš„æ–¹æ³•ã€‚è¿™æ˜¯åœ¨ç¨‹åºæ‰§è¡ŒæœŸé—´é€šè¿‡ Spring AOP æ¡†æž¶å®žé™…è¢«è°ƒç”¨çš„ä»£ç ã€‚ |
+| Pointcut | è¿™æ˜¯ä¸€ç»„ä¸€ä¸ªæˆ–å¤šä¸ªè¿žæŽ¥ç‚¹ï¼Œé€šçŸ¥åº”è¯¥è¢«æ‰§è¡Œã€‚ä½ å¯ä»¥ä½¿ç”¨è¡¨è¾¾å¼æˆ–æ¨¡å¼æŒ‡å®šåˆ‡å…¥ç‚¹æ­£å¦‚æˆ‘ä»¬å°†åœ¨ AOP çš„ä¾‹å­ä¸­çœ‹åˆ°çš„ã€‚ |
+| Introduction | å¼•ç”¨å…è®¸ä½ æ·»åŠ æ–°æ–¹æ³•æˆ–å±žæ€§åˆ°çŽ°æœ‰çš„ç±»ä¸­ã€‚ |
+| Target object | è¢«ä¸€ä¸ªæˆ–è€…å¤šä¸ªæ–¹é¢æ‰€é€šçŸ¥çš„å¯¹è±¡ï¼Œè¿™ä¸ªå¯¹è±¡æ°¸è¿œæ˜¯ä¸€ä¸ªè¢«ä»£ç†å¯¹è±¡ã€‚ä¹Ÿç§°ä¸ºè¢«é€šçŸ¥å¯¹è±¡ã€‚ |
+| Weaving | Weaving æŠŠæ–¹é¢è¿žæŽ¥åˆ°å…¶å®ƒçš„åº”ç”¨ç¨‹åºç±»åž‹æˆ–è€…å¯¹è±¡ä¸Šï¼Œå¹¶åˆ›å»ºä¸€ä¸ªè¢«é€šçŸ¥çš„å¯¹è±¡ã€‚è¿™äº›å¯ä»¥åœ¨ç¼–è¯‘æ—¶ï¼Œç±»åŠ è½½æ—¶å’Œè¿è¡Œæ—¶å®Œæˆã€‚ |
 
-## Í¨ÖªµÄÀàÐÍ
+## é€šçŸ¥çš„ç±»åž‹
 
-Spring ·½Ãæ¿ÉÒÔÊ¹ÓÃÏÂÃæÌáµ½µÄÎåÖÖÍ¨Öª¹¤×÷£º
+Spring æ–¹é¢å¯ä»¥ä½¿ç”¨ä¸‹é¢æåˆ°çš„äº”ç§é€šçŸ¥å·¥ä½œï¼š
 
-| Í¨Öª | ÃèÊö |
+| é€šçŸ¥ | æè¿° |
 | --- | --- |
-| Ç°ÖÃÍ¨Öª | ÔÚÒ»¸ö·½·¨Ö´ÐÐÖ®Ç°£¬Ö´ÐÐÍ¨Öª¡£ |
-| ºóÖÃÍ¨Öª | ÔÚÒ»¸ö·½·¨Ö´ÐÐÖ®ºó£¬²»¿¼ÂÇÆä½á¹û£¬Ö´ÐÐÍ¨Öª¡£ |
-| ·µ»ØºóÍ¨Öª | ÔÚÒ»¸ö·½·¨Ö´ÐÐÖ®ºó£¬Ö»ÓÐÔÚ·½·¨³É¹¦Íê³ÉÊ±£¬²ÅÄÜÖ´ÐÐÍ¨Öª¡£ |
-| Å×³öÒì³£ºóÍ¨Öª | ÔÚÒ»¸ö·½·¨Ö´ÐÐÖ®ºó£¬Ö»ÓÐÔÚ·½·¨ÍË³öÅ×³öÒì³£Ê±£¬²ÅÄÜÖ´ÐÐÍ¨Öª¡£ |
-| »·ÈÆÍ¨Öª | ÔÚ½¨Òé·½·¨µ÷ÓÃÖ®Ç°ºÍÖ®ºó£¬Ö´ÐÐÍ¨Öª¡£ |
+| å‰ç½®é€šçŸ¥ | åœ¨ä¸€ä¸ªæ–¹æ³•æ‰§è¡Œä¹‹å‰ï¼Œæ‰§è¡Œé€šçŸ¥ã€‚ |
+| åŽç½®é€šçŸ¥ | åœ¨ä¸€ä¸ªæ–¹æ³•æ‰§è¡Œä¹‹åŽï¼Œä¸è€ƒè™‘å…¶ç»“æžœï¼Œæ‰§è¡Œé€šçŸ¥ã€‚ |
+| è¿”å›žåŽé€šçŸ¥ | åœ¨ä¸€ä¸ªæ–¹æ³•æ‰§è¡Œä¹‹åŽï¼Œåªæœ‰åœ¨æ–¹æ³•æˆåŠŸå®Œæˆæ—¶ï¼Œæ‰èƒ½æ‰§è¡Œé€šçŸ¥ã€‚ |
+| æŠ›å‡ºå¼‚å¸¸åŽé€šçŸ¥ | åœ¨ä¸€ä¸ªæ–¹æ³•æ‰§è¡Œä¹‹åŽï¼Œåªæœ‰åœ¨æ–¹æ³•é€€å‡ºæŠ›å‡ºå¼‚å¸¸æ—¶ï¼Œæ‰èƒ½æ‰§è¡Œé€šçŸ¥ã€‚ |
+| çŽ¯ç»•é€šçŸ¥ | åœ¨å»ºè®®æ–¹æ³•è°ƒç”¨ä¹‹å‰å’Œä¹‹åŽï¼Œæ‰§è¡Œé€šçŸ¥ã€‚ |
 
-## ÊµÏÖ×Ô¶¨Òå·½Ãæ
+## å®žçŽ°è‡ªå®šä¹‰æ–¹é¢
 
-Spring Ö§³Ö **@AspectJ annotation style** µÄ·½·¨ºÍ**»ùÓÚÄ£Ê½**µÄ·½·¨À´ÊµÏÖ×Ô¶¨Òå·½Ãæ¡£ÕâÁ½ÖÖ·½·¨ÒÑ¾­ÔÚÏÂÃæÁ½¸ö×Ó½Ú½øÐÐÁËÏêÏ¸½âÊÍ¡£
+Spring æ”¯æŒ **@AspectJ annotation style** çš„æ–¹æ³•å’Œ**åŸºäºŽæ¨¡å¼**çš„æ–¹æ³•æ¥å®žçŽ°è‡ªå®šä¹‰æ–¹é¢ã€‚è¿™ä¸¤ç§æ–¹æ³•å·²ç»åœ¨ä¸‹é¢ä¸¤ä¸ªå­èŠ‚è¿›è¡Œäº†è¯¦ç»†è§£é‡Šã€‚
 
-| ·½·¨ | ÃèÊö |
+| æ–¹æ³• | æè¿° |
 | --- | --- |
-| [XML Schema based](https://www.w3cschool.cn/wkspring/omps1mm6.html) | ·½ÃæÊÇÊ¹ÓÃ³£¹æÀàÒÔ¼°»ùÓÚÅäÖÃµÄ XML À´ÊµÏÖµÄ¡£ |
-| [@AspectJ based](https://www.w3cschool.cn/wkspring/k4q21mm8.html) | @AspectJ ÒýÓÃÒ»ÖÖÉùÃ÷·½ÃæµÄ·ç¸ñ×÷Îª´øÓÐ Java 5 ×¢ÊÍµÄ³£¹æ Java Àà×¢ÊÍ¡£ |
+| [XML Schema based](https://www.w3cschool.cn/wkspring/omps1mm6.html) | æ–¹é¢æ˜¯ä½¿ç”¨å¸¸è§„ç±»ä»¥åŠåŸºäºŽé…ç½®çš„ XML æ¥å®žçŽ°çš„ã€‚ |
+| [@AspectJ based](https://www.w3cschool.cn/wkspring/k4q21mm8.html) | @AspectJ å¼•ç”¨ä¸€ç§å£°æ˜Žæ–¹é¢çš„é£Žæ ¼ä½œä¸ºå¸¦æœ‰ Java 5 æ³¨é‡Šçš„å¸¸è§„ Java ç±»æ³¨é‡Šã€‚ |
 
 
 
-## Spring ÖÐ»ùÓÚ AOP µÄ XML¼Ü¹¹
+## Spring ä¸­åŸºäºŽ AOP çš„ XMLæž¶æž„
 
-ÎªÁËÔÚ±¾½ÚµÄÃèÊöÖÐÊ¹ÓÃ aop ÃüÃû¿Õ¼ä±êÇ©£¬ÄãÐèÒªµ¼Èë spring-aop ¼Ü¹¹£¬ÈçÏÂËùÊö£º
+ä¸ºäº†åœ¨æœ¬èŠ‚çš„æè¿°ä¸­ä½¿ç”¨ aop å‘½åç©ºé—´æ ‡ç­¾ï¼Œä½ éœ€è¦å¯¼å…¥ spring-aop æž¶æž„ï¼Œå¦‚ä¸‹æ‰€è¿°ï¼š
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -65,7 +65,7 @@ Spring Ö§³Ö **@AspectJ annotation style** µÄ·½·¨ºÍ**»ùÓÚÄ£Ê½**µÄ·½·¨À´ÊµÏÖ×Ô¶¨Òå
 
 ```
 
-Äã»¹ÐèÒªÔÚÄãµÄÓ¦ÓÃ³ÌÐòµÄ CLASSPATH ÖÐÊ¹ÓÃÒÔÏÂ AspectJ ¿âÎÄ¼þ¡£ÕâÐ©¿âÎÄ¼þÔÚÒ»¸ö AspectJ ×°ÖÃµÄ ¡®lib¡¯ Ä¿Â¼ÖÐÊÇ¿ÉÓÃµÄ£¬·ñÔòÄã¿ÉÒÔÔÚ Internet ÖÐÏÂÔØËüÃÇ¡£(×¢£ºaspectjweaver.jar ÒÑ°üº¬ÆäËû°ü)
+ä½ è¿˜éœ€è¦åœ¨ä½ çš„åº”ç”¨ç¨‹åºçš„ CLASSPATH ä¸­ä½¿ç”¨ä»¥ä¸‹ AspectJ åº“æ–‡ä»¶ã€‚è¿™äº›åº“æ–‡ä»¶åœ¨ä¸€ä¸ª AspectJ è£…ç½®çš„ â€˜libâ€™ ç›®å½•ä¸­æ˜¯å¯ç”¨çš„ï¼Œå¦åˆ™ä½ å¯ä»¥åœ¨ Internet ä¸­ä¸‹è½½å®ƒä»¬ã€‚(æ³¨ï¼šaspectjweaver.jar å·²åŒ…å«å…¶ä»–åŒ…)
 
 *   aspectjrt.jar
 
@@ -75,9 +75,9 @@ Spring Ö§³Ö **@AspectJ annotation style** µÄ·½·¨ºÍ**»ùÓÚÄ£Ê½**µÄ·½·¨À´ÊµÏÖ×Ô¶¨Òå
 
 *   aopalliance.jar
 
-## ¡¡ÉùÃ÷Ò»¸ö aspect
+## ã€€å£°æ˜Žä¸€ä¸ª aspect
 
-Ò»¸ö **aspect** ÊÇÊ¹ÓÃ ÔªËØÉùÃ÷µÄ£¬Ö§³ÖµÄ bean ÊÇÊ¹ÓÃ **ref** ÊôÐÔÒýÓÃµÄ£¬ÈçÏÂËùÊ¾£º
+ä¸€ä¸ª **aspect** æ˜¯ä½¿ç”¨ å…ƒç´ å£°æ˜Žçš„ï¼Œæ”¯æŒçš„ bean æ˜¯ä½¿ç”¨ **ref** å±žæ€§å¼•ç”¨çš„ï¼Œå¦‚ä¸‹æ‰€ç¤ºï¼š
 
 ```
 
@@ -90,25 +90,11 @@ Spring Ö§³Ö **@AspectJ annotation style** µÄ·½·¨ºÍ**»ùÓÚÄ£Ê½**µÄ·½·¨À´ÊµÏÖ×Ô¶¨Òå
 </bean>
 ```
 
-ÕâÀï£¬¡°aBean¡± ½«±»ÅäÖÃºÍÒÀÀµ×¢Èë£¬¾ÍÏñÇ°ÃæµÄÕÂ½ÚÖÐÄã¿´µ½µÄÆäËûµÄ Spring bean Ò»Ñù¡£
+è¿™é‡Œï¼Œâ€œaBeanâ€ å°†è¢«é…ç½®å’Œä¾èµ–æ³¨å…¥ï¼Œå°±åƒå‰é¢çš„ç« èŠ‚ä¸­ä½ çœ‹åˆ°çš„å…¶ä»–çš„ Spring bean ä¸€æ ·ã€‚
 
-## ÉùÃ÷Ò»¸öÇÐÈëµã
+## å£°æ˜Žä¸€ä¸ªåˆ‡å…¥ç‚¹
 
-Ò»¸ö**ÇÐÈëµã**ÓÐÖúÓÚÈ·¶¨Ê¹ÓÃ²»Í¬½¨ÒéÖ´ÐÐµÄ¸ÐÐËÈ¤µÄÁ¬½Óµã£¨¼´·½·¨£©¡£ÔÚ´¦Àí»ùÓÚÅäÖÃµÄ XML ¼Ü¹¹Ê±£¬ÇÐÈëµã½«»á°´ÕÕÈçÏÂËùÊ¾¶¨Òå£º
-
-```
-
-   
-   
-   ...
-   
-
-<bean id="aBean" class="...">
-...
-</bean>
-```
-
-ÏÂÃæµÄÊ¾Àý¶¨ÒåÁËÒ»¸öÃûÎª ¡°businessService¡± µÄÇÐÈëµã£¬¸ÃÇÐÈëµã½«Óë com.tutorialspoint °üÏÂµÄ Student ÀàÖÐµÄ getName() ·½·¨ÏàÆ¥Åä£º
+ä¸€ä¸ª**åˆ‡å…¥ç‚¹**æœ‰åŠ©äºŽç¡®å®šä½¿ç”¨ä¸åŒå»ºè®®æ‰§è¡Œçš„æ„Ÿå…´è¶£çš„è¿žæŽ¥ç‚¹ï¼ˆå³æ–¹æ³•ï¼‰ã€‚åœ¨å¤„ç†åŸºäºŽé…ç½®çš„ XML æž¶æž„æ—¶ï¼Œåˆ‡å…¥ç‚¹å°†ä¼šæŒ‰ç…§å¦‚ä¸‹æ‰€ç¤ºå®šä¹‰ï¼š
 
 ```
 
@@ -122,9 +108,23 @@ Spring Ö§³Ö **@AspectJ annotation style** µÄ·½·¨ºÍ**»ùÓÚÄ£Ê½**µÄ·½·¨À´ÊµÏÖ×Ô¶¨Òå
 </bean>
 ```
 
-## ÉùÃ÷½¨Òé
+ä¸‹é¢çš„ç¤ºä¾‹å®šä¹‰äº†ä¸€ä¸ªåä¸º â€œbusinessServiceâ€ çš„åˆ‡å…¥ç‚¹ï¼Œè¯¥åˆ‡å…¥ç‚¹å°†ä¸Ž com.tutorialspoint åŒ…ä¸‹çš„ Student ç±»ä¸­çš„ getName() æ–¹æ³•ç›¸åŒ¹é…ï¼š
 
-Äã¿ÉÒÔÔÚÖÐÊ¹ÓÃÔªËØÉùÃ÷ÈÎÒâÎåÖÖÀàÐÍµÄÍ¨Öª£¬ÈçÏÂ£º
+```
+
+   
+   
+   ...
+   
+
+<bean id="aBean" class="...">
+...
+</bean>
+```
+
+## å£°æ˜Žå»ºè®®
+
+ä½ å¯ä»¥åœ¨ä¸­ä½¿ç”¨å…ƒç´ å£°æ˜Žä»»æ„äº”ç§ç±»åž‹çš„é€šçŸ¥ï¼Œå¦‚ä¸‹ï¼š
 
 ```
 
@@ -150,22 +150,22 @@ Spring Ö§³Ö **@AspectJ annotation style** µÄ·½·¨ºÍ**»ùÓÚÄ£Ê½**µÄ·½·¨À´ÊµÏÖ×Ô¶¨Òå
 </bean>
 ```
 
-Äã¿ÉÒÔ¶Ô²»Í¬µÄ½¨ÒéÊ¹ÓÃÏàÍ¬µÄ **doRequiredTask** »òÕß²»Í¬µÄ·½·¨¡£ÕâÐ©·½·¨½«»á×÷Îª aspect Ä£¿éµÄÒ»²¿·ÖÀ´¶¨Òå¡£
+ä½ å¯ä»¥å¯¹ä¸åŒçš„å»ºè®®ä½¿ç”¨ç›¸åŒçš„ **doRequiredTask** æˆ–è€…ä¸åŒçš„æ–¹æ³•ã€‚è¿™äº›æ–¹æ³•å°†ä¼šä½œä¸º aspect æ¨¡å—çš„ä¸€éƒ¨åˆ†æ¥å®šä¹‰ã€‚
 
-## »ùÓÚ AOP µÄ XML ¼Ü¹¹µÄÊ¾Àý
+## åŸºäºŽ AOP çš„ XML æž¶æž„çš„ç¤ºä¾‹
 
-ÎªÁËÀí½âÉÏÃæÌáµ½µÄ»ùÓÚ AOP µÄ XML ¼Ü¹¹µÄ¸ÅÄî£¬ÈÃÎÒÃÇ±àÐ´Ò»¸öÊ¾Àý£¬¿ÉÒÔÊµÏÖ¼¸¸ö½¨Òé¡£ÎªÁËÔÚÎÒÃÇµÄÊ¾ÀýÖÐÊ¹ÓÃ¼¸¸ö½¨Òé£¬ÈÃÎÒÃÇÊ¹ Eclipse IDE ´¦ÓÚ¹¤×÷×´Ì¬£¬È»ºó°´ÕÕÈçÏÂ²½Öè´´½¨Ò»¸ö Spring Ó¦ÓÃ³ÌÐò£º
+ä¸ºäº†ç†è§£ä¸Šé¢æåˆ°çš„åŸºäºŽ AOP çš„ XML æž¶æž„çš„æ¦‚å¿µï¼Œè®©æˆ‘ä»¬ç¼–å†™ä¸€ä¸ªç¤ºä¾‹ï¼Œå¯ä»¥å®žçŽ°å‡ ä¸ªå»ºè®®ã€‚ä¸ºäº†åœ¨æˆ‘ä»¬çš„ç¤ºä¾‹ä¸­ä½¿ç”¨å‡ ä¸ªå»ºè®®ï¼Œè®©æˆ‘ä»¬ä½¿ Eclipse IDE å¤„äºŽå·¥ä½œçŠ¶æ€ï¼Œç„¶åŽæŒ‰ç…§å¦‚ä¸‹æ­¥éª¤åˆ›å»ºä¸€ä¸ª Spring åº”ç”¨ç¨‹åºï¼š
 
-| ²½Öè | ÃèÊö |
+| æ­¥éª¤ | æè¿° |
 | --- | --- |
-| 1 | ´´½¨Ò»¸öÃûÎª _SpringExample_ µÄÏîÄ¿£¬²¢ÇÒÔÚËù´´½¨ÏîÄ¿µÄ **src** ÎÄ¼þ¼ÐÏÂ´´½¨Ò»¸öÃûÎª _com.tutorialspoint_ µÄ°ü¡£ |
-| 2 | Ê¹ÓÃ _Add External JARs_ Ñ¡ÏîÌí¼ÓËùÐèµÄ Spring ¿âÎÄ¼þ£¬¾ÍÈçÔÚ _Spring Hello World Example_ ÕÂ½ÚÖÐ½âÊÍµÄÄÇÑù¡£ |
-| 3 | ÔÚÏîÄ¿ÖÐÌí¼Ó Spring AOP Ö¸¶¨µÄ¿âÎÄ¼þ **aspectjrt.jar£¬ aspectjweaver.jar** ºÍ **aspectj.jar**¡£ |
-| 4 | ÔÚ _com.tutorialspoint_ °üÏÂ´´½¨ Java Àà **Logging**£¬ _Student_ ºÍ _MainApp_¡£ |
-| 5 | ÔÚ **src** ÎÄ¼þ¼ÐÏÂ´´½¨ Beans ÅäÖÃÎÄ¼þ _Beans.xml_¡£ |
-| 6 | ×îºóÒ»²½ÊÇ´´½¨ËùÓÐ Java ÎÄ¼þºÍ Bean ÅäÖÃÎÄ¼þµÄÄÚÈÝ£¬²¢ÇÒ°´ÈçÏÂ½âÊÍµÄÄÇÑùÔËÐÐÓ¦ÓÃ³ÌÐò¡£ |
+| 1 | åˆ›å»ºä¸€ä¸ªåä¸º _SpringExample_ çš„é¡¹ç›®ï¼Œå¹¶ä¸”åœ¨æ‰€åˆ›å»ºé¡¹ç›®çš„ **src** æ–‡ä»¶å¤¹ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º _com.tutorialspoint_ çš„åŒ…ã€‚ |
+| 2 | ä½¿ç”¨ _Add External JARs_ é€‰é¡¹æ·»åŠ æ‰€éœ€çš„ Spring åº“æ–‡ä»¶ï¼Œå°±å¦‚åœ¨ _Spring Hello World Example_ ç« èŠ‚ä¸­è§£é‡Šçš„é‚£æ ·ã€‚ |
+| 3 | åœ¨é¡¹ç›®ä¸­æ·»åŠ  Spring AOP æŒ‡å®šçš„åº“æ–‡ä»¶ **aspectjrt.jarï¼Œ aspectjweaver.jar** å’Œ **aspectj.jar**ã€‚ |
+| 4 | åœ¨ _com.tutorialspoint_ åŒ…ä¸‹åˆ›å»º Java ç±» **Logging**ï¼Œ _Student_ å’Œ _MainApp_ã€‚ |
+| 5 | åœ¨ **src** æ–‡ä»¶å¤¹ä¸‹åˆ›å»º Beans é…ç½®æ–‡ä»¶ _Beans.xml_ã€‚ |
+| 6 | æœ€åŽä¸€æ­¥æ˜¯åˆ›å»ºæ‰€æœ‰ Java æ–‡ä»¶å’Œ Bean é…ç½®æ–‡ä»¶çš„å†…å®¹ï¼Œå¹¶ä¸”æŒ‰å¦‚ä¸‹è§£é‡Šçš„é‚£æ ·è¿è¡Œåº”ç”¨ç¨‹åºã€‚ |
 
-ÕâÀïÊÇ **Logging.java** ÎÄ¼þµÄÄÚÈÝ¡£ÕâÊµ¼ÊÉÏÊÇ aspect Ä£¿éµÄÒ»¸öÊ¾Àý£¬Ëü¶¨ÒåÁËÔÚ¸÷¸öµãµ÷ÓÃµÄ·½·¨¡£
+è¿™é‡Œæ˜¯ **Logging.java** æ–‡ä»¶çš„å†…å®¹ã€‚è¿™å®žé™…ä¸Šæ˜¯ aspect æ¨¡å—çš„ä¸€ä¸ªç¤ºä¾‹ï¼Œå®ƒå®šä¹‰äº†åœ¨å„ä¸ªç‚¹è°ƒç”¨çš„æ–¹æ³•ã€‚
 
 ```
 package com.tutorialspoint;
@@ -201,7 +201,7 @@ public class Logging {
 }
 ```
 
-ÏÂÃæÊÇ **Student.java** ÎÄ¼þµÄÄÚÈÝ£º
+ä¸‹é¢æ˜¯ **Student.java** æ–‡ä»¶çš„å†…å®¹ï¼š
 
 ```
 package com.tutorialspoint;
@@ -229,7 +229,7 @@ public class Student {
 }
 ```
 
-ÏÂÃæÊÇ **MainApp.java** ÎÄ¼þµÄÄÚÈÝ£º
+ä¸‹é¢æ˜¯ **MainApp.java** æ–‡ä»¶çš„å†…å®¹ï¼š
 
 ```
 package com.tutorialspoint;
@@ -247,7 +247,7 @@ public class MainApp {
 }
 ```
 
-ÏÂÃæÊÇÅäÖÃÎÄ¼þ **Beans.xml**£º
+ä¸‹é¢æ˜¯é…ç½®æ–‡ä»¶ **Beans.xml**ï¼š
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -282,7 +282,7 @@ public class MainApp {
 
 ```
 
-Ò»µ©ÄãÒÑ¾­Íê³ÉµÄ´´½¨ÁËÔ´ÎÄ¼þºÍ bean ÅäÖÃÎÄ¼þ£¬ÈÃÎÒÃÇÔËÐÐÒ»ÏÂÓ¦ÓÃ³ÌÐò¡£Èç¹ûÄãµÄÓ¦ÓÃ³ÌÐòÒ»ÇÐ¶¼Õý³£µÄ»°£¬Õâ½«»áÊä³öÒÔÏÂÏûÏ¢£º
+ä¸€æ—¦ä½ å·²ç»å®Œæˆçš„åˆ›å»ºäº†æºæ–‡ä»¶å’Œ bean é…ç½®æ–‡ä»¶ï¼Œè®©æˆ‘ä»¬è¿è¡Œä¸€ä¸‹åº”ç”¨ç¨‹åºã€‚å¦‚æžœä½ çš„åº”ç”¨ç¨‹åºä¸€åˆ‡éƒ½æ­£å¸¸çš„è¯ï¼Œè¿™å°†ä¼šè¾“å‡ºä»¥ä¸‹æ¶ˆæ¯ï¼š
 
 ```
 Going to setup student profile.
@@ -301,7 +301,7 @@ There has been an exception: java.lang.IllegalArgumentException
 other exception content
 ```
 
-ÈÃÎÒÃÇÀ´½âÊÍÒ»ÏÂÉÏÃæ¶¨ÒåµÄÔÚ com.tutorialspoint ÖÐ Ñ¡ÔñËùÓÐ·½·¨µÄ ¡£ÈÃÎÒÃÇ¼ÙÉèÒ»ÏÂ£¬ÄãÏëÒªÔÚÒ»¸öÌØÊâµÄ·½·¨Ö®Ç°»òÕßÖ®ºóÖ´ÐÐÄãµÄ½¨Òé£¬Äã¿ÉÒÔÍ¨¹ýÌæ»»Ê¹ÓÃÕæÊµÀàºÍ·½·¨Ãû³ÆµÄÇÐÈëµã¶¨ÒåÖÐµÄÐÇºÅ£¨*£©À´¶¨ÒåÄãµÄÇÐÈëµãÀ´Ëõ¶ÌÄãµÄÖ´ÐÐ¡£
+è®©æˆ‘ä»¬æ¥è§£é‡Šä¸€ä¸‹ä¸Šé¢å®šä¹‰çš„åœ¨ com.tutorialspoint ä¸­ é€‰æ‹©æ‰€æœ‰æ–¹æ³•çš„ ã€‚è®©æˆ‘ä»¬å‡è®¾ä¸€ä¸‹ï¼Œä½ æƒ³è¦åœ¨ä¸€ä¸ªç‰¹æ®Šçš„æ–¹æ³•ä¹‹å‰æˆ–è€…ä¹‹åŽæ‰§è¡Œä½ çš„å»ºè®®ï¼Œä½ å¯ä»¥é€šè¿‡æ›¿æ¢ä½¿ç”¨çœŸå®žç±»å’Œæ–¹æ³•åç§°çš„åˆ‡å…¥ç‚¹å®šä¹‰ä¸­çš„æ˜Ÿå·ï¼ˆ*ï¼‰æ¥å®šä¹‰ä½ çš„åˆ‡å…¥ç‚¹æ¥ç¼©çŸ­ä½ çš„æ‰§è¡Œã€‚
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -334,7 +334,7 @@ other exception content
 
 ```
 
-Èç¹ûÄãÏëÒªÖ´ÐÐÍ¨¹ýÕâÐ©¸ü¸ÄÖ®ºóµÄÊ¾ÀýÓ¦ÓÃ³ÌÐò£¬Õâ½«»áÊä³öÒÔÏÂÏûÏ¢£º
+å¦‚æžœä½ æƒ³è¦æ‰§è¡Œé€šè¿‡è¿™äº›æ›´æ”¹ä¹‹åŽçš„ç¤ºä¾‹åº”ç”¨ç¨‹åºï¼Œè¿™å°†ä¼šè¾“å‡ºä»¥ä¸‹æ¶ˆæ¯ï¼š
 
 ```
 Going to setup student profile.
@@ -348,15 +348,15 @@ other exception content
 
 
 
-## Spring ÖÐ»ùÓÚ AOP µÄ @AspectJ
+## Spring ä¸­åŸºäºŽ AOP çš„ @AspectJ
 
-@AspectJ ×÷ÎªÍ¨¹ý Java 5 ×¢ÊÍ×¢ÊÍµÄÆÕÍ¨µÄ Java Àà£¬ËüÖ¸µÄÊÇÉùÃ÷ aspects µÄÒ»ÖÖ·ç¸ñ¡£Í¨¹ýÔÚÄãµÄ»ùÓÚ¼Ü¹¹µÄ XML ÅäÖÃÎÄ¼þÖÐ°üº¬ÒÔÏÂÔªËØ£¬@AspectJ Ö§³ÖÊÇ¿ÉÓÃµÄ¡£
-
-```
+@AspectJ ä½œä¸ºé€šè¿‡ Java 5 æ³¨é‡Šæ³¨é‡Šçš„æ™®é€šçš„ Java ç±»ï¼Œå®ƒæŒ‡çš„æ˜¯å£°æ˜Ž aspects çš„ä¸€ç§é£Žæ ¼ã€‚é€šè¿‡åœ¨ä½ çš„åŸºäºŽæž¶æž„çš„ XML é…ç½®æ–‡ä»¶ä¸­åŒ…å«ä»¥ä¸‹å…ƒç´ ï¼Œ@AspectJ æ”¯æŒæ˜¯å¯ç”¨çš„ã€‚
 
 ```
 
-Äã»¹ÐèÒªÔÚÄãµÄÓ¦ÓÃ³ÌÐòµÄ CLASSPATH ÖÐÊ¹ÓÃÒÔÏÂ AspectJ ¿âÎÄ¼þ¡£ÕâÐ©¿âÎÄ¼þÔÚÒ»¸ö AspectJ ×°ÖÃµÄ ¡®lib¡¯ Ä¿Â¼ÖÐÊÇ¿ÉÓÃµÄ£¬Èç¹ûÃ»ÓÐ£¬Äã¿ÉÒÔÔÚ Internet ÖÐÏÂÔØËüÃÇ¡£
+```
+
+ä½ è¿˜éœ€è¦åœ¨ä½ çš„åº”ç”¨ç¨‹åºçš„ CLASSPATH ä¸­ä½¿ç”¨ä»¥ä¸‹ AspectJ åº“æ–‡ä»¶ã€‚è¿™äº›åº“æ–‡ä»¶åœ¨ä¸€ä¸ª AspectJ è£…ç½®çš„ â€˜libâ€™ ç›®å½•ä¸­æ˜¯å¯ç”¨çš„ï¼Œå¦‚æžœæ²¡æœ‰ï¼Œä½ å¯ä»¥åœ¨ Internet ä¸­ä¸‹è½½å®ƒä»¬ã€‚
 
 *   aspectjrt.jar
 
@@ -366,9 +366,9 @@ other exception content
 
 *   aopalliance.jar
 
-## ¡¡ÉùÃ÷Ò»¸ö aspect
+## ã€€å£°æ˜Žä¸€ä¸ª aspect
 
-Aspects ÀàºÍÆäËûÈÎºÎÕý³£µÄ bean Ò»Ñù£¬³ýÁËËüÃÇ½«»áÓÃ @AspectJ ×¢ÊÍÖ®Íâ£¬ËüºÍÆäËûÀàÒ»Ñù¿ÉÄÜÓÐ·½·¨ºÍ×Ö¶Î£¬ÈçÏÂËùÊ¾£º
+Aspects ç±»å’Œå…¶ä»–ä»»ä½•æ­£å¸¸çš„ bean ä¸€æ ·ï¼Œé™¤äº†å®ƒä»¬å°†ä¼šç”¨ @AspectJ æ³¨é‡Šä¹‹å¤–ï¼Œå®ƒå’Œå…¶ä»–ç±»ä¸€æ ·å¯èƒ½æœ‰æ–¹æ³•å’Œå­—æ®µï¼Œå¦‚ä¸‹æ‰€ç¤ºï¼š
 
 ```
 package org.xyz;
@@ -378,7 +378,7 @@ public class AspectModule {
 }
 ```
 
-ËüÃÇ½«ÔÚ XML ÖÐ°´ÕÕÈçÏÂ½øÐÐÅäÖÃ£¬¾ÍºÍÆäËûÈÎºÎ bean Ò»Ñù£º
+å®ƒä»¬å°†åœ¨ XML ä¸­æŒ‰ç…§å¦‚ä¸‹è¿›è¡Œé…ç½®ï¼Œå°±å’Œå…¶ä»–ä»»ä½• bean ä¸€æ ·ï¼š
 
 ```
 <bean id="myAspect" class="org.xyz.AspectModule">
@@ -387,15 +387,15 @@ public class AspectModule {
 
 ```
 
-## ÉùÃ÷Ò»¸öÇÐÈëµã
+## å£°æ˜Žä¸€ä¸ªåˆ‡å…¥ç‚¹
 
-Ò»¸ö**ÇÐÈëµã**ÓÐÖúÓÚÈ·¶¨Ê¹ÓÃ²»Í¬½¨ÒéÖ´ÐÐµÄ¸ÐÐËÈ¤µÄÁ¬½Óµã£¨¼´·½·¨£©¡£ÔÚ´¦Àí»ùÓÚÅäÖÃµÄ XML ¼Ü¹¹Ê±£¬ÇÐÈëµãµÄÉùÃ÷ÓÐÁ½¸ö²¿·Ö£º
+ä¸€ä¸ª**åˆ‡å…¥ç‚¹**æœ‰åŠ©äºŽç¡®å®šä½¿ç”¨ä¸åŒå»ºè®®æ‰§è¡Œçš„æ„Ÿå…´è¶£çš„è¿žæŽ¥ç‚¹ï¼ˆå³æ–¹æ³•ï¼‰ã€‚åœ¨å¤„ç†åŸºäºŽé…ç½®çš„ XML æž¶æž„æ—¶ï¼Œåˆ‡å…¥ç‚¹çš„å£°æ˜Žæœ‰ä¸¤ä¸ªéƒ¨åˆ†ï¼š
 
-*   Ò»¸öÇÐÈëµã±í´ïÊ½¾ö¶¨ÁËÎÒÃÇ¸ÐÐËÈ¤µÄÄÄ¸ö·½·¨»áÕæÕý±»Ö´ÐÐ¡£
+*   ä¸€ä¸ªåˆ‡å…¥ç‚¹è¡¨è¾¾å¼å†³å®šäº†æˆ‘ä»¬æ„Ÿå…´è¶£çš„å“ªä¸ªæ–¹æ³•ä¼šçœŸæ­£è¢«æ‰§è¡Œã€‚
 
-*   Ò»¸öÇÐÈëµã±êÇ©°üº¬Ò»¸öÃû³ÆºÍÈÎÒâÊýÁ¿µÄ²ÎÊý¡£·½·¨µÄÕæÕýÄÚÈÝÊÇ²»Ïà¸ÉµÄ£¬²¢ÇÒÊµ¼ÊÉÏËüÓ¦¸ÃÊÇ¿ÕµÄ¡£
+*   ä¸€ä¸ªåˆ‡å…¥ç‚¹æ ‡ç­¾åŒ…å«ä¸€ä¸ªåç§°å’Œä»»æ„æ•°é‡çš„å‚æ•°ã€‚æ–¹æ³•çš„çœŸæ­£å†…å®¹æ˜¯ä¸ç›¸å¹²çš„ï¼Œå¹¶ä¸”å®žé™…ä¸Šå®ƒåº”è¯¥æ˜¯ç©ºçš„ã€‚
 
-ÏÂÃæµÄÊ¾ÀýÖÐ¶¨ÒåÁËÒ»¸öÃûÎª ¡®businessService¡¯ µÄÇÐÈëµã£¬¸ÃÇÐÈëµã½«Óë com.xyz.myapp.service °üÏÂµÄÀàÖÐ¿ÉÓÃµÄÃ¿Ò»¸ö·½·¨ÏàÆ¥Åä£º
+ä¸‹é¢çš„ç¤ºä¾‹ä¸­å®šä¹‰äº†ä¸€ä¸ªåä¸º â€˜businessServiceâ€™ çš„åˆ‡å…¥ç‚¹ï¼Œè¯¥åˆ‡å…¥ç‚¹å°†ä¸Ž com.xyz.myapp.service åŒ…ä¸‹çš„ç±»ä¸­å¯ç”¨çš„æ¯ä¸€ä¸ªæ–¹æ³•ç›¸åŒ¹é…ï¼š
 
 ```
 import org.aspectj.lang.annotation.Pointcut;
@@ -403,7 +403,7 @@ import org.aspectj.lang.annotation.Pointcut;
 private void businessService() {}  // signature
 ```
 
-ÏÂÃæµÄÊ¾ÀýÖÐ¶¨ÒåÁËÒ»¸öÃûÎª ¡®getname¡¯ µÄÇÐÈëµã£¬¸ÃÇÐÈëµã½«Óë com.tutorialspoint °üÏÂµÄ Student ÀàÖÐµÄ getName() ·½·¨ÏàÆ¥Åä£º
+ä¸‹é¢çš„ç¤ºä¾‹ä¸­å®šä¹‰äº†ä¸€ä¸ªåä¸º â€˜getnameâ€™ çš„åˆ‡å…¥ç‚¹ï¼Œè¯¥åˆ‡å…¥ç‚¹å°†ä¸Ž com.tutorialspoint åŒ…ä¸‹çš„ Student ç±»ä¸­çš„ getName() æ–¹æ³•ç›¸åŒ¹é…ï¼š
 
 ```
 import org.aspectj.lang.annotation.Pointcut;
@@ -411,9 +411,9 @@ import org.aspectj.lang.annotation.Pointcut;
 private void getname() {}
 ```
 
-## ÉùÃ÷½¨Òé
+## å£°æ˜Žå»ºè®®
 
-Äã¿ÉÒÔÊ¹ÓÃ @{ADVICE-NAME} ×¢ÊÍÉùÃ÷Îå¸ö½¨ÒéÖÐµÄÈÎÒâÒ»¸ö£¬ÈçÏÂËùÊ¾¡£Õâ¼ÙÉèÄãÒÑ¾­¶¨ÒåÁËÒ»¸öÇÐÈëµã±êÇ©·½·¨ businessService()£º
+ä½ å¯ä»¥ä½¿ç”¨ @{ADVICE-NAME} æ³¨é‡Šå£°æ˜Žäº”ä¸ªå»ºè®®ä¸­çš„ä»»æ„ä¸€ä¸ªï¼Œå¦‚ä¸‹æ‰€ç¤ºã€‚è¿™å‡è®¾ä½ å·²ç»å®šä¹‰äº†ä¸€ä¸ªåˆ‡å…¥ç‚¹æ ‡ç­¾æ–¹æ³• businessService()ï¼š
 
 ```
 @Before("businessService()")
@@ -440,7 +440,7 @@ public void doAroundTask(){
 }
 ```
 
-Äã¿ÉÒÔÎªÈÎÒâÒ»¸ö½¨Òé¶¨ÒåÄãµÄÇÐÈëµãÄÚÁª¡£ÏÂÃæÊÇÔÚ½¨ÒéÖ®Ç°¶¨ÒåÄÚÁªÇÐÈëµãµÄÒ»¸öÊ¾Àý£º
+ä½ å¯ä»¥ä¸ºä»»æ„ä¸€ä¸ªå»ºè®®å®šä¹‰ä½ çš„åˆ‡å…¥ç‚¹å†…è”ã€‚ä¸‹é¢æ˜¯åœ¨å»ºè®®ä¹‹å‰å®šä¹‰å†…è”åˆ‡å…¥ç‚¹çš„ä¸€ä¸ªç¤ºä¾‹ï¼š
 
 ```
 @Before("execution(* com.xyz.myapp.service.*.*(..))")
@@ -449,20 +449,20 @@ public doBeforeTask(){
 }
 ```
 
-## »ùÓÚ AOP µÄ @AspectJ Ê¾Àý
+## åŸºäºŽ AOP çš„ @AspectJ ç¤ºä¾‹
 
-ÎªÁËÀí½âÉÏÃæÌáµ½µÄ¹ØÓÚ»ùÓÚ AOP µÄ @AspectJ µÄ¸ÅÄî£¬ÈÃÎÒÃÇ±àÐ´Ò»¸öÊ¾Àý£¬¿ÉÒÔÊµÏÖ¼¸¸ö½¨Òé¡£ÎªÁËÔÚÎÒÃÇµÄÊ¾ÀýÖÐÊ¹ÓÃ¼¸¸ö½¨Òé£¬ÈÃÎÒÃÇÊ¹ Eclipse IDE ´¦ÓÚ¹¤×÷×´Ì¬£¬È»ºó°´ÕÕÈçÏÂ²½Öè´´½¨Ò»¸ö Spring Ó¦ÓÃ³ÌÐò£º
+ä¸ºäº†ç†è§£ä¸Šé¢æåˆ°çš„å…³äºŽåŸºäºŽ AOP çš„ @AspectJ çš„æ¦‚å¿µï¼Œè®©æˆ‘ä»¬ç¼–å†™ä¸€ä¸ªç¤ºä¾‹ï¼Œå¯ä»¥å®žçŽ°å‡ ä¸ªå»ºè®®ã€‚ä¸ºäº†åœ¨æˆ‘ä»¬çš„ç¤ºä¾‹ä¸­ä½¿ç”¨å‡ ä¸ªå»ºè®®ï¼Œè®©æˆ‘ä»¬ä½¿ Eclipse IDE å¤„äºŽå·¥ä½œçŠ¶æ€ï¼Œç„¶åŽæŒ‰ç…§å¦‚ä¸‹æ­¥éª¤åˆ›å»ºä¸€ä¸ª Spring åº”ç”¨ç¨‹åºï¼š
 
-| ²½Öè | ÃèÊö |
+| æ­¥éª¤ | æè¿° |
 | --- | --- |
-| 1 | ´´½¨Ò»¸öÃûÎª _SpringExample_ µÄÏîÄ¿£¬²¢ÇÒÔÚËù´´½¨ÏîÄ¿µÄ **src** ÎÄ¼þ¼ÐÏÂ´´½¨Ò»¸öÃûÎª _com.tutorialspoint_ µÄ°ü¡£ |
-| 2 | Ê¹ÓÃ _Add External JARs_ Ñ¡ÏîÌí¼ÓËùÐèµÄ Spring ¿âÎÄ¼þ£¬¾ÍÈçÔÚ _Spring Hello World Example_ ÕÂ½ÚÖÐ½âÊÍµÄÄÇÑù¡£ |
-| 3 | ÔÚÏîÄ¿ÖÐÌí¼Ó Spring AOP Ö¸¶¨µÄ¿âÎÄ¼þ **aspectjrt.jar£¬ aspectjweaver.jar** ºÍ **aspectj.jar**¡£ |
-| 4 | ÔÚ _com.tutorialspoint_ °üÏÂ´´½¨ Java Àà **Logging**£¬ _Student_ ºÍ _MainApp_¡£ |
-| 5 | ÔÚ **src** ÎÄ¼þ¼ÐÏÂ´´½¨ Beans ÅäÖÃÎÄ¼þ _Beans.xml_¡£ |
-| 6 | ×îºóÒ»²½ÊÇ´´½¨ËùÓÐ Java ÎÄ¼þºÍ Bean ÅäÖÃÎÄ¼þµÄÄÚÈÝ£¬²¢ÇÒ°´ÈçÏÂ½âÊÍµÄÄÇÑùÔËÐÐÓ¦ÓÃ³ÌÐò¡£ |
+| 1 | åˆ›å»ºä¸€ä¸ªåä¸º _SpringExample_ çš„é¡¹ç›®ï¼Œå¹¶ä¸”åœ¨æ‰€åˆ›å»ºé¡¹ç›®çš„ **src** æ–‡ä»¶å¤¹ä¸‹åˆ›å»ºä¸€ä¸ªåä¸º _com.tutorialspoint_ çš„åŒ…ã€‚ |
+| 2 | ä½¿ç”¨ _Add External JARs_ é€‰é¡¹æ·»åŠ æ‰€éœ€çš„ Spring åº“æ–‡ä»¶ï¼Œå°±å¦‚åœ¨ _Spring Hello World Example_ ç« èŠ‚ä¸­è§£é‡Šçš„é‚£æ ·ã€‚ |
+| 3 | åœ¨é¡¹ç›®ä¸­æ·»åŠ  Spring AOP æŒ‡å®šçš„åº“æ–‡ä»¶ **aspectjrt.jarï¼Œ aspectjweaver.jar** å’Œ **aspectj.jar**ã€‚ |
+| 4 | åœ¨ _com.tutorialspoint_ åŒ…ä¸‹åˆ›å»º Java ç±» **Logging**ï¼Œ _Student_ å’Œ _MainApp_ã€‚ |
+| 5 | åœ¨ **src** æ–‡ä»¶å¤¹ä¸‹åˆ›å»º Beans é…ç½®æ–‡ä»¶ _Beans.xml_ã€‚ |
+| 6 | æœ€åŽä¸€æ­¥æ˜¯åˆ›å»ºæ‰€æœ‰ Java æ–‡ä»¶å’Œ Bean é…ç½®æ–‡ä»¶çš„å†…å®¹ï¼Œå¹¶ä¸”æŒ‰å¦‚ä¸‹è§£é‡Šçš„é‚£æ ·è¿è¡Œåº”ç”¨ç¨‹åºã€‚ |
 
-ÕâÀïÊÇ **Logging.java** ÎÄ¼þµÄÄÚÈÝ¡£ÕâÊµ¼ÊÉÏÊÇ aspect Ä£¿éµÄÒ»¸öÊ¾Àý£¬Ëü¶¨ÒåÁËÔÚ¸÷¸öµãµ÷ÓÃµÄ·½·¨¡£
+è¿™é‡Œæ˜¯ **Logging.java** æ–‡ä»¶çš„å†…å®¹ã€‚è¿™å®žé™…ä¸Šæ˜¯ aspect æ¨¡å—çš„ä¸€ä¸ªç¤ºä¾‹ï¼Œå®ƒå®šä¹‰äº†åœ¨å„ä¸ªç‚¹è°ƒç”¨çš„æ–¹æ³•ã€‚
 
 ```
 package com.tutorialspoint;
@@ -516,7 +516,7 @@ public class Logging {
 }
 ```
 
-ÏÂÃæÊÇ **Student.java** ÎÄ¼þµÄÄÚÈÝ£º
+ä¸‹é¢æ˜¯ **Student.java** æ–‡ä»¶çš„å†…å®¹ï¼š
 
 ```
 package com.tutorialspoint;
@@ -544,7 +544,7 @@ public class Student {
 }
 ```
 
-ÏÂÃæÊÇ **MainApp.java** ÎÄ¼þµÄÄÚÈÝ£º
+ä¸‹é¢æ˜¯ **MainApp.java** æ–‡ä»¶çš„å†…å®¹ï¼š
 
 ```
 package com.tutorialspoint;
@@ -562,7 +562,7 @@ public class MainApp {
 }
 ```
 
-ÏÂÃæÊÇÅäÖÃÎÄ¼þ **Beans.xml**£º
+ä¸‹é¢æ˜¯é…ç½®æ–‡ä»¶ **Beans.xml**ï¼š
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -589,7 +589,7 @@ public class MainApp {
 
 ```
 
-Ò»µ©ÄãÒÑ¾­Íê³ÉµÄ´´½¨ÁËÔ´ÎÄ¼þºÍ bean ÅäÖÃÎÄ¼þ£¬ÈÃÎÒÃÇÔËÐÐÒ»ÏÂÓ¦ÓÃ³ÌÐò¡£Èç¹ûÄãµÄÓ¦ÓÃ³ÌÐòÒ»ÇÐ¶¼Õý³£µÄ»°£¬Õâ½«»áÊä³öÒÔÏÂÏûÏ¢£º
+ä¸€æ—¦ä½ å·²ç»å®Œæˆçš„åˆ›å»ºäº†æºæ–‡ä»¶å’Œ bean é…ç½®æ–‡ä»¶ï¼Œè®©æˆ‘ä»¬è¿è¡Œä¸€ä¸‹åº”ç”¨ç¨‹åºã€‚å¦‚æžœä½ çš„åº”ç”¨ç¨‹åºä¸€åˆ‡éƒ½æ­£å¸¸çš„è¯ï¼Œè¿™å°†ä¼šè¾“å‡ºä»¥ä¸‹æ¶ˆæ¯ï¼š
 
 ```
 Going to setup student profile.
@@ -612,7 +612,7 @@ other exception content
 
 
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://www.w3cschool.cn/wkspring
 https://www.runoob.com/w3cnote/basic-knowledge-summary-of-spring.html
 http://codepub.cn/2015/06/21/Basic-knowledge-summary-of-Spring

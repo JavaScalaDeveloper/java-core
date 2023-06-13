@@ -1,54 +1,54 @@
-ÔÚÉÏÒ»ÆªÎÄÕÂµÄ×îºó£¬ÎÒÃÇÌáµ½ÊÂÎñµÄÖ´ĞĞÔÚ `TransactionAspectSupport#invokeWithinTransaction` ·½·¨ÖĞ£¬±¾ÎÄ½«´ÓÕâ¸ö·½·¨³ö·¢£¬Ì½¾¿ spring µÄÊÂÎñ»úÖÆ¡£
+åœ¨ä¸Šä¸€ç¯‡æ–‡ç« çš„æœ€åï¼Œæˆ‘ä»¬æåˆ°äº‹åŠ¡çš„æ‰§è¡Œåœ¨ `TransactionAspectSupport#invokeWithinTransaction` æ–¹æ³•ä¸­ï¼Œæœ¬æ–‡å°†ä»è¿™ä¸ªæ–¹æ³•å‡ºå‘ï¼Œæ¢ç©¶ spring çš„äº‹åŠ¡æœºåˆ¶ã€‚
 
-×¢£º±¾ÎÄËùÌ½ÌÖµÄÊı¾İ¿âÊÇ `mysql`£¬ÆäËûÊı¾İ¿â¿ÉÄÜ»áÓĞËù²îÒì¡£
+æ³¨ï¼šæœ¬æ–‡æ‰€æ¢è®¨çš„æ•°æ®åº“æ˜¯ `mysql`ï¼Œå…¶ä»–æ•°æ®åº“å¯èƒ½ä¼šæœ‰æ‰€å·®å¼‚ã€‚
 
-### 1. ÊÂÎñÏà¹Ø¸ÅÄî
+### 1. äº‹åŠ¡ç›¸å…³æ¦‚å¿µ
 
-ÔÚÕıÊ½·ÖÎöÊÂÎñÔ´ÂëÇ°£¬Ò»Ğ©Ç°ÖÃÖªÊ¶»¹ÊÇÒªÁË½âÒ»ÏÂµÄ£¬ÕâÀïÖ÷Òª½éÉÜÓë spring Ïà¹ØµÄÊÂÎñ¸ÅÄî¡£
+åœ¨æ­£å¼åˆ†æäº‹åŠ¡æºç å‰ï¼Œä¸€äº›å‰ç½®çŸ¥è¯†è¿˜æ˜¯è¦äº†è§£ä¸€ä¸‹çš„ï¼Œè¿™é‡Œä¸»è¦ä»‹ç»ä¸ spring ç›¸å…³çš„äº‹åŠ¡æ¦‚å¿µã€‚
 
-#### 1.1 ÊÂÎñµÄ¸ôÀë¼¶±ğ
+#### 1.1 äº‹åŠ¡çš„éš”ç¦»çº§åˆ«
 
-ÊÂÎñÓĞËÄ´óÌØĞÔ `ACID`£¬ÁĞ¾ÙÈçÏÂ£º
+äº‹åŠ¡æœ‰å››å¤§ç‰¹æ€§ `ACID`ï¼Œåˆ—ä¸¾å¦‚ä¸‹ï¼š
 
-- Ô­×ÓĞÔ£¨`Atomicity`£©
-- Ò»ÖÂĞÔ£¨`Consistency`£©
-- ¸ôÀëĞÔ£¨`Isolation`£©
-- ³Ö¾ÃĞÔ£¨`Durability`£©
+- åŸå­æ€§ï¼ˆ`Atomicity`ï¼‰
+- ä¸€è‡´æ€§ï¼ˆ`Consistency`ï¼‰
+- éš”ç¦»æ€§ï¼ˆ`Isolation`ï¼‰
+- æŒä¹…æ€§ï¼ˆ`Durability`ï¼‰
 
-¶øÊÂÎñµÄ¸ôÀë¼¶±ğÕıÊÇ¶Ô¸ôÀëĞÔ£¨`Isolation`£©µÄ½øÒ»²½»®·Ö£¬ÕâĞ©¸ôÀë¼¶±ğÈçÏÂ£º
+è€Œäº‹åŠ¡çš„éš”ç¦»çº§åˆ«æ­£æ˜¯å¯¹éš”ç¦»æ€§ï¼ˆ`Isolation`ï¼‰çš„è¿›ä¸€æ­¥åˆ’åˆ†ï¼Œè¿™äº›éš”ç¦»çº§åˆ«å¦‚ä¸‹ï¼š
 
-- `¶ÁÎ´Ìá½»`
-- `¶ÁÌá½»`
-- `¿ÉÖØ¸´¶Á`
-- `´®ĞĞ»¯`
+- `è¯»æœªæäº¤`
+- `è¯»æäº¤`
+- `å¯é‡å¤è¯»`
+- `ä¸²è¡ŒåŒ–`
 
-¹ØÓÚÕâĞ©¸ÅÄî±¾ÎÄ²¢²»»áÉîÈë½â¶Á£¬ÎÒÃÇÖØµã»¹ÊÇ¹Ø×¢ spring Ïà¹ØµÄÄÚÈİ£¬spring ¶ÔÊÂÎñ¸ôÀë¼¶±ğµÄ¶¨ÒåÔÚ `org.springframework.transaction.annotation.Isolation` ÖĞ£¬´úÂëÈçÏÂ£º
+å…³äºè¿™äº›æ¦‚å¿µæœ¬æ–‡å¹¶ä¸ä¼šæ·±å…¥è§£è¯»ï¼Œæˆ‘ä»¬é‡ç‚¹è¿˜æ˜¯å…³æ³¨ spring ç›¸å…³çš„å†…å®¹ï¼Œspring å¯¹äº‹åŠ¡éš”ç¦»çº§åˆ«çš„å®šä¹‰åœ¨ `org.springframework.transaction.annotation.Isolation` ä¸­ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public enum Isolation {
 
     /**
-    * Ä¬ÈÏÖµ£¬²»ÉèÖÃ¸ôÀë¼¶±ğ£¬×îÖÕÊ¹ÓÃµÄÊÇÊı¾İ¿âÉèÖÃµÄ¸ôÀë¼¶±ğ
+    * é»˜è®¤å€¼ï¼Œä¸è®¾ç½®éš”ç¦»çº§åˆ«ï¼Œæœ€ç»ˆä½¿ç”¨çš„æ˜¯æ•°æ®åº“è®¾ç½®çš„éš”ç¦»çº§åˆ«
     */
     DEFAULT(TransactionDefinition.ISOLATION_DEFAULT),
 
     /**
-    * ¶ÁÎ´Ìá½»
+    * è¯»æœªæäº¤
     */
     READ_UNCOMMITTED(TransactionDefinition.ISOLATION_READ_UNCOMMITTED),
 
     /**
-    * ¶ÁÌá½»
+    * è¯»æäº¤
     */
     READ_COMMITTED(TransactionDefinition.ISOLATION_READ_COMMITTED),
 
     /**
-    * ¿ÉÖØ¸´¶Á
+    * å¯é‡å¤è¯»
     */
     REPEATABLE_READ(TransactionDefinition.ISOLATION_REPEATABLE_READ),
 
     /**
-    * ´®ĞĞ»¯
+    * ä¸²è¡ŒåŒ–
     */
     SERIALIZABLE(TransactionDefinition.ISOLATION_SERIALIZABLE);
 
@@ -56,92 +56,92 @@ public enum Isolation {
 }
 ```
 
-ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ `@Transactional` ×¢½âµÄ `isolation` À´ÉèÖÃ¸ôÀë¼¶±ğ
+æˆ‘ä»¬å¯ä»¥ä½¿ç”¨ `@Transactional` æ³¨è§£çš„ `isolation` æ¥è®¾ç½®éš”ç¦»çº§åˆ«
 
-#### 1.2 ÊÂÎñµÄ³¬Ê±Ê±¼ä
+#### 1.2 äº‹åŠ¡çš„è¶…æ—¶æ—¶é—´
 
-- ¿ÉÒÔ¸øÊÂÎñÖ¸¶¨Ò»¸öÖ´ĞĞÊ±¼ä£¬Èç¹ûÖ´ĞĞÏûºÄµÄÊ±¼ä³¬¹ıÁËÖ¸¶¨Ê±¼ä£¬ÊÂÎñ¾Í»áÅ×³öÒì³£´Ó¶ø»Ø¹ö
-- ¿ÉÒÔÔÚ `@Transactional` ×¢½âµÄ `timeout` À´ÉèÖÃ³¬Ê±Ê±¼ä
+- å¯ä»¥ç»™äº‹åŠ¡æŒ‡å®šä¸€ä¸ªæ‰§è¡Œæ—¶é—´ï¼Œå¦‚æœæ‰§è¡Œæ¶ˆè€—çš„æ—¶é—´è¶…è¿‡äº†æŒ‡å®šæ—¶é—´ï¼Œäº‹åŠ¡å°±ä¼šæŠ›å‡ºå¼‚å¸¸ä»è€Œå›æ»š
+- å¯ä»¥åœ¨ `@Transactional` æ³¨è§£çš„ `timeout` æ¥è®¾ç½®è¶…æ—¶æ—¶é—´
 
-#### 1.3 Ö»¶ÁÊÂÎñ
+#### 1.3 åªè¯»äº‹åŠ¡
 
-- ¿ÉÒÔ½«ÊÂÎñÉèÖÃÎª`Ö»¶ÁÄ£Ê½`£¬Õâ¸öÎÒÆ½Ê±ÓÃ»ù±¾Ã»ÓÃµ½£¬²éµ½Ò»Ğ©ÎÄÕÂËµ£¬½«ÊÂÎñÉèÖÃÎª`Ö»¶ÁÄ£Ê½`ºó£¬ÆäËûÊÂÎñÖĞµÄ¸üĞÂÖ»¶ÁÊÂÎñ¿´²»µ½£¬ÇÒÖ»¶ÁÊÂÎñÖĞ²»ÄÜÓĞĞ´²Ù×÷£¬ÕæÊµĞÔÓĞ´ıÑéÖ¤
-- ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ `@Transactional` ×¢½âµÄ `readOnly` À´ÉèÖÃÖ»¶ÁÄ£Ê½
+- å¯ä»¥å°†äº‹åŠ¡è®¾ç½®ä¸º`åªè¯»æ¨¡å¼`ï¼Œè¿™ä¸ªæˆ‘å¹³æ—¶ç”¨åŸºæœ¬æ²¡ç”¨åˆ°ï¼ŒæŸ¥åˆ°ä¸€äº›æ–‡ç« è¯´ï¼Œå°†äº‹åŠ¡è®¾ç½®ä¸º`åªè¯»æ¨¡å¼`åï¼Œå…¶ä»–äº‹åŠ¡ä¸­çš„æ›´æ–°åªè¯»äº‹åŠ¡çœ‹ä¸åˆ°ï¼Œä¸”åªè¯»äº‹åŠ¡ä¸­ä¸èƒ½æœ‰å†™æ“ä½œï¼ŒçœŸå®æ€§æœ‰å¾…éªŒè¯
+- æˆ‘ä»¬å¯ä»¥ä½¿ç”¨ `@Transactional` æ³¨è§£çš„ `readOnly` æ¥è®¾ç½®åªè¯»æ¨¡å¼
 
-#### 1.4 ÊÂÎñµÄ´«²¥ÀàĞÍ
+#### 1.4 äº‹åŠ¡çš„ä¼ æ’­ç±»å‹
 
-ÎÒÃÇÊÔÏëÒ»ÖÖÇé¿ö£º`·½·¨A` Óë`·½Ê½B` ¶¼¿ªÆôÁËÊÂÎñ£¬ÔÚ`·½·¨B` ÖĞµ÷ÓÃ`·½·¨A`£¬Èç¹ûÔÚ`·½·¨A` Ö´ĞĞÍê³Éºó£¬`·½·¨B` ±¨´íÁË£¬´úÂëÊ¾ÒâÈçÏÂ£º
+æˆ‘ä»¬è¯•æƒ³ä¸€ç§æƒ…å†µï¼š`æ–¹æ³•A` ä¸`æ–¹å¼B` éƒ½å¼€å¯äº†äº‹åŠ¡ï¼Œåœ¨`æ–¹æ³•B` ä¸­è°ƒç”¨`æ–¹æ³•A`ï¼Œå¦‚æœåœ¨`æ–¹æ³•A` æ‰§è¡Œå®Œæˆåï¼Œ`æ–¹æ³•B` æŠ¥é”™äº†ï¼Œä»£ç ç¤ºæ„å¦‚ä¸‹ï¼š
 
 ```
 class A {
-    // ¿ªÆôÁËÊÂÎñ
+    // å¼€å¯äº†äº‹åŠ¡
     @Transactional
     public void methdA() {
-        // ´¦ÀíÒ»Ğ©²Ù×÷
+        // å¤„ç†ä¸€äº›æ“ä½œ
         ...
     }
 }
 
 class B {
-    // ¿ªÆôÁËÊÂÎñ
+    // å¼€å¯äº†äº‹åŠ¡
     @Transactional
     public void methodB() {
-        // 1. ´¦ÀíÒ»Ğ©²Ù×÷
+        // 1. å¤„ç†ä¸€äº›æ“ä½œ
         ...
-        // 2. µ÷ÓÃ methodA()
+        // 2. è°ƒç”¨ methodA()
         a.methodA();
-        // 3. ÕâÀï±¨¸ö´í
+        // 3. è¿™é‡ŒæŠ¥ä¸ªé”™
         throw new RuntimeException();
     }
 }
 ```
 
-ÓÉÓÚ¿ªÆôÁËÊÂÎñ£¬`·½·¨B` ÊÇÒ»¶¨»á»Ø¹öµÄ£¬ÄÇÃ´`·½·¨A` Òª²»Òª»Ø¹öÄØ£¿
+ç”±äºå¼€å¯äº†äº‹åŠ¡ï¼Œ`æ–¹æ³•B` æ˜¯ä¸€å®šä¼šå›æ»šçš„ï¼Œé‚£ä¹ˆ`æ–¹æ³•A` è¦ä¸è¦å›æ»šå‘¢ï¼Ÿ
 
-- Èç¹ûÎÒÃÇ°Ñ`·½·¨A` Óë`·½·¨B` µÄÊÂÎñ¿´³ÉÊÇÍ¬Ò»¸öÊÂÎñ£¬`·½·¨A` Ó¦¸ÃÒ²ÊÇÒª»Ø¹öµÄ
-- Èç¹ûÎÒÃÇ°Ñ`·½·¨A` Óë`·½·¨B` ¿´³ÉÊÇÔÚÁ½¸ö¶ÀÁ¢µÄÊÂÎñÖĞÖ´ĞĞ£¬`·½·¨A` µÄÖ´ĞĞÓë`·½·¨B` µÄ±¨´íÎŞ¹Ø£¬`·½·¨A` ¾Í²»Ó¦¸Ã»Ø¹ö
+- å¦‚æœæˆ‘ä»¬æŠŠ`æ–¹æ³•A` ä¸`æ–¹æ³•B` çš„äº‹åŠ¡çœ‹æˆæ˜¯åŒä¸€ä¸ªäº‹åŠ¡ï¼Œ`æ–¹æ³•A` åº”è¯¥ä¹Ÿæ˜¯è¦å›æ»šçš„
+- å¦‚æœæˆ‘ä»¬æŠŠ`æ–¹æ³•A` ä¸`æ–¹æ³•B` çœ‹æˆæ˜¯åœ¨ä¸¤ä¸ªç‹¬ç«‹çš„äº‹åŠ¡ä¸­æ‰§è¡Œï¼Œ`æ–¹æ³•A` çš„æ‰§è¡Œä¸`æ–¹æ³•B` çš„æŠ¥é”™æ— å…³ï¼Œ`æ–¹æ³•A` å°±ä¸åº”è¯¥å›æ»š
 
-ÎªÁË´¦ÀíÕâÖÖ¾À·×£¬spring ÒıÈëÁË`ÊÂÎñµÄ´«²¥ÀàĞÍ`µÄ¸ÅÄî£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ `@Transactional` ×¢½âµÄ `propagation` À´ÉèÖÃÖ»¶ÁÄ£Ê½£º
+ä¸ºäº†å¤„ç†è¿™ç§çº çº·ï¼Œspring å¼•å…¥äº†`äº‹åŠ¡çš„ä¼ æ’­ç±»å‹`çš„æ¦‚å¿µï¼Œæˆ‘ä»¬å¯ä»¥ä½¿ç”¨ `@Transactional` æ³¨è§£çš„ `propagation` æ¥è®¾ç½®åªè¯»æ¨¡å¼ï¼š
 
 ```
 public @interface Transactional {
     ...
 
-    // Ä¬ÈÏµÄ¼¶±ğÎª Propagation.REQUIRED
+    // é»˜è®¤çš„çº§åˆ«ä¸º Propagation.REQUIRED
     Propagation propagation() default Propagation.REQUIRED;
 
 }
 ```
 
-spring Ò»¹²¶¨ÒåÁË 7 ÖÖÊÂÎñµÄ´«²¥ÀàĞÍ£¬ÁĞ¾ÙÈçÏÂ£º
+spring ä¸€å…±å®šä¹‰äº† 7 ç§äº‹åŠ¡çš„ä¼ æ’­ç±»å‹ï¼Œåˆ—ä¸¾å¦‚ä¸‹ï¼š
 
-| ÊÂÎñ´«²¥ĞĞÎª                | ÃèÊö                                                         |
+| äº‹åŠ¡ä¼ æ’­è¡Œä¸º                | æè¿°                                                         |
 | --------------------------- | ------------------------------------------------------------ |
-| `PROPAGATION_REQUIRED`      | ¡¾Ä¬ÈÏÖµ£º±ØĞè¡¿µ±Ç°·½·¨±ØĞëÔÚÊÂÎñÖĞÔËĞĞ£¬Èç¹ûµ±Ç°Ïß³ÌÖĞÃ»ÓĞÊÂÎñ£¬Ôò¿ªÆôÒ»¸öĞÂµÄÊÂÎñ£»Èç¹ûµ±Ç°Ïß³ÌÖĞÒÑ¾­´æÔÚÊÂÎñ£¬Ôò·½·¨½«»áÔÚ¸ÃÊÂÎñÖĞÔËĞĞ¡£ |
-| `PROPAGATION_MANDATORY`     | ¡¾Ç¿ÖÆ¡¿µ±Ç°·½·¨±ØĞëÔÚÊÂÎñÖĞÔËĞĞ£¬Èç¹ûµ±Ç°Ïß³ÌÖĞ²»´æÔÚÊÂÎñ£¬Ôò**Å×³öÒì³£** |
-| `PROPAGATION_SUPPORTS`      | ¡¾Ö§³Ö¡¿µ±Ç°·½·¨µ¥¶ÀÔËĞĞÊ±²»ĞèÒªÊÂÎñ£¬µ«Èç¹ûµ±Ç°Ïß³ÌÖĞ´æÔÚÊÂÎñÊ±£¬·½·¨»áÔÚÊÂÎñÖĞÔËĞĞ |
-| `PROPAGATION_REQUIRES_NEW`  | ¡¾ĞÂÊÂÎñ¡¿µ±Ç°·½·¨±ØĞëÔÚ¶ÀÁ¢µÄÊÂÎñÖĞÔËĞĞ£¬Èç¹ûµ±Ç°Ïß³ÌÖĞÒÑ¾­´æÔÚÊÂÎñ£¬Ôò½«¸ÃÊÂÎñ¹ÒÆğ£¬ÖØĞÂ¿ªÆôÒ»¸öÊÂÎñ£¬Ö±µ½·½·¨ÔËĞĞ½áÊøÔÙ»Ö¸´Ö®Ç°µÄÊÂÎñ |
-| `PROPAGATION_NESTED`        | ¡¾Ç¶Ì×¡¿µ±Ç°·½·¨±ØĞëÔÚÊÂÎñÖĞÔËĞĞ£¬Èç¹ûµ±Ç°Ïß³ÌÖĞ´æÔÚÊÂÎñ£¬Ôò½«¸ÃÊÂÎñ±ê×¢**±£´æµã**£¬ĞÎ³ÉÇ¶Ì×ÊÂÎñ¡£Ç¶Ì×ÊÂÎñÖĞµÄ×ÓÊÂÎñ³öÏÖÒì³£²»»áÓ°Ïìµ½¸¸ÊÂÎñ±£´æµãÖ®Ç°µÄ²Ù×÷¡£ |
-| `PROPAGATION_NOT_SUPPORTED` | ¡¾²»Ö§³Ö¡¿µ±Ç°·½·¨²»»áÔÚÊÂÎñÖĞÔËĞĞ£¬Èç¹ûµ±Ç°Ïß³ÌÖĞ´æÔÚÊÂÎñ£¬Ôò½«ÊÂÎñ¹ÒÆğ£¬Ö±µ½·½·¨ÔËĞĞ½áÊø |
-| `PROPAGATION_NEVER`         | ¡¾²»ÔÊĞí¡¿µ±Ç°·½·¨²»ÔÊĞíÔÚÊÂÎñÖĞÔËĞĞ£¬Èç¹ûµ±Ç°Ïß³ÌÖĞ´æÔÚÊÂÎñ£¬Ôò**Å×³öÒì³£** |
+| `PROPAGATION_REQUIRED`      | ã€é»˜è®¤å€¼ï¼šå¿…éœ€ã€‘å½“å‰æ–¹æ³•å¿…é¡»åœ¨äº‹åŠ¡ä¸­è¿è¡Œï¼Œå¦‚æœå½“å‰çº¿ç¨‹ä¸­æ²¡æœ‰äº‹åŠ¡ï¼Œåˆ™å¼€å¯ä¸€ä¸ªæ–°çš„äº‹åŠ¡ï¼›å¦‚æœå½“å‰çº¿ç¨‹ä¸­å·²ç»å­˜åœ¨äº‹åŠ¡ï¼Œåˆ™æ–¹æ³•å°†ä¼šåœ¨è¯¥äº‹åŠ¡ä¸­è¿è¡Œã€‚ |
+| `PROPAGATION_MANDATORY`     | ã€å¼ºåˆ¶ã€‘å½“å‰æ–¹æ³•å¿…é¡»åœ¨äº‹åŠ¡ä¸­è¿è¡Œï¼Œå¦‚æœå½“å‰çº¿ç¨‹ä¸­ä¸å­˜åœ¨äº‹åŠ¡ï¼Œåˆ™**æŠ›å‡ºå¼‚å¸¸** |
+| `PROPAGATION_SUPPORTS`      | ã€æ”¯æŒã€‘å½“å‰æ–¹æ³•å•ç‹¬è¿è¡Œæ—¶ä¸éœ€è¦äº‹åŠ¡ï¼Œä½†å¦‚æœå½“å‰çº¿ç¨‹ä¸­å­˜åœ¨äº‹åŠ¡æ—¶ï¼Œæ–¹æ³•ä¼šåœ¨äº‹åŠ¡ä¸­è¿è¡Œ |
+| `PROPAGATION_REQUIRES_NEW`  | ã€æ–°äº‹åŠ¡ã€‘å½“å‰æ–¹æ³•å¿…é¡»åœ¨ç‹¬ç«‹çš„äº‹åŠ¡ä¸­è¿è¡Œï¼Œå¦‚æœå½“å‰çº¿ç¨‹ä¸­å·²ç»å­˜åœ¨äº‹åŠ¡ï¼Œåˆ™å°†è¯¥äº‹åŠ¡æŒ‚èµ·ï¼Œé‡æ–°å¼€å¯ä¸€ä¸ªäº‹åŠ¡ï¼Œç›´åˆ°æ–¹æ³•è¿è¡Œç»“æŸå†æ¢å¤ä¹‹å‰çš„äº‹åŠ¡ |
+| `PROPAGATION_NESTED`        | ã€åµŒå¥—ã€‘å½“å‰æ–¹æ³•å¿…é¡»åœ¨äº‹åŠ¡ä¸­è¿è¡Œï¼Œå¦‚æœå½“å‰çº¿ç¨‹ä¸­å­˜åœ¨äº‹åŠ¡ï¼Œåˆ™å°†è¯¥äº‹åŠ¡æ ‡æ³¨**ä¿å­˜ç‚¹**ï¼Œå½¢æˆåµŒå¥—äº‹åŠ¡ã€‚åµŒå¥—äº‹åŠ¡ä¸­çš„å­äº‹åŠ¡å‡ºç°å¼‚å¸¸ä¸ä¼šå½±å“åˆ°çˆ¶äº‹åŠ¡ä¿å­˜ç‚¹ä¹‹å‰çš„æ“ä½œã€‚ |
+| `PROPAGATION_NOT_SUPPORTED` | ã€ä¸æ”¯æŒã€‘å½“å‰æ–¹æ³•ä¸ä¼šåœ¨äº‹åŠ¡ä¸­è¿è¡Œï¼Œå¦‚æœå½“å‰çº¿ç¨‹ä¸­å­˜åœ¨äº‹åŠ¡ï¼Œåˆ™å°†äº‹åŠ¡æŒ‚èµ·ï¼Œç›´åˆ°æ–¹æ³•è¿è¡Œç»“æŸ |
+| `PROPAGATION_NEVER`         | ã€ä¸å…è®¸ã€‘å½“å‰æ–¹æ³•ä¸å…è®¸åœ¨äº‹åŠ¡ä¸­è¿è¡Œï¼Œå¦‚æœå½“å‰çº¿ç¨‹ä¸­å­˜åœ¨äº‹åŠ¡ï¼Œåˆ™**æŠ›å‡ºå¼‚å¸¸** |
 
-×¢ÒâÌå»áÒÔÏÂÀàĞÍµÄÇø±ğ£º
+æ³¨æ„ä½“ä¼šä»¥ä¸‹ç±»å‹çš„åŒºåˆ«ï¼š
 
-1. `PROPAGATION_REQUIRED` Óë `PROPAGATION_MANDATORY`
-    - `PROPAGATION_REQUIRED`£º±ØĞëÒªÔÚÊÂÎñÖĞÔËĞĞ£¬Ã»ÓĞÊÂÎñ¾Í**¿ªÆôĞÂÊÂÎñ**
-    - `PROPAGATION_MANDATORY`£º±ØĞëÒªÔÚÊÂÎñÖĞÔËĞĞ£¬Ã»ÓĞÊÂÎñ¾Í**Å×Òì³£**
-2. `PROPAGATION_NOT_SUPPORTED` Óë `PROPAGATION_NEVER`
-    - `PROPAGATION_NOT_SUPPORTED`£º²»ÄÜÔÚÊÂÎñÖĞÔËĞĞ£¬ÓĞÊÂÎñ¾Í**¹ÒÆğÊÂÎñ**
-    - `PROPAGATION_NEVER`£º²»ÄÜÔÚÊÂÎñÖĞÔËĞĞ£¬ÓĞÊÂÎñ¾Í**Å×Òì³£**
-3. `PROPAGATION_REQUIRES_NEW` Óë `PROPAGATION_NESTED`
-    - `PROPAGATION_REQUIRES_NEW`£ºĞÂÊÂÎñÖ´ĞĞÍê³Éºó£¬¾ÉÊÂÎñ±¨´í£¬Ö»»Ø¹ö¾ÉÊÂÎñ£¬ĞÂÊÂÎñ²»»Ø¹ö£»ĞÂÊÂÎñÖ´ĞĞ±¨´í£¬ĞÂ¾ÉÊÂÎñÒ»Æğ»Ø¹ö
-    - `PROPAGATION_NESTED`£º×ÓÊÂÎñÖ´ĞĞÍê³Éºó£¬¸¸ÊÂÎñ±¨´í£¬»Ø¹öµ½±£´æµã£»×ÓÊÂÎñÖ´ĞĞ±¨´í£¬Ò²ÊÇ»Ø¹öµ½±£´æµã
+1. `PROPAGATION_REQUIRED` ä¸ `PROPAGATION_MANDATORY`
+    - `PROPAGATION_REQUIRED`ï¼šå¿…é¡»è¦åœ¨äº‹åŠ¡ä¸­è¿è¡Œï¼Œæ²¡æœ‰äº‹åŠ¡å°±**å¼€å¯æ–°äº‹åŠ¡**
+    - `PROPAGATION_MANDATORY`ï¼šå¿…é¡»è¦åœ¨äº‹åŠ¡ä¸­è¿è¡Œï¼Œæ²¡æœ‰äº‹åŠ¡å°±**æŠ›å¼‚å¸¸**
+2. `PROPAGATION_NOT_SUPPORTED` ä¸ `PROPAGATION_NEVER`
+    - `PROPAGATION_NOT_SUPPORTED`ï¼šä¸èƒ½åœ¨äº‹åŠ¡ä¸­è¿è¡Œï¼Œæœ‰äº‹åŠ¡å°±**æŒ‚èµ·äº‹åŠ¡**
+    - `PROPAGATION_NEVER`ï¼šä¸èƒ½åœ¨äº‹åŠ¡ä¸­è¿è¡Œï¼Œæœ‰äº‹åŠ¡å°±**æŠ›å¼‚å¸¸**
+3. `PROPAGATION_REQUIRES_NEW` ä¸ `PROPAGATION_NESTED`
+    - `PROPAGATION_REQUIRES_NEW`ï¼šæ–°äº‹åŠ¡æ‰§è¡Œå®Œæˆåï¼Œæ—§äº‹åŠ¡æŠ¥é”™ï¼Œåªå›æ»šæ—§äº‹åŠ¡ï¼Œæ–°äº‹åŠ¡ä¸å›æ»šï¼›æ–°äº‹åŠ¡æ‰§è¡ŒæŠ¥é”™ï¼Œæ–°æ—§äº‹åŠ¡ä¸€èµ·å›æ»š
+    - `PROPAGATION_NESTED`ï¼šå­äº‹åŠ¡æ‰§è¡Œå®Œæˆåï¼Œçˆ¶äº‹åŠ¡æŠ¥é”™ï¼Œå›æ»šåˆ°ä¿å­˜ç‚¹ï¼›å­äº‹åŠ¡æ‰§è¡ŒæŠ¥é”™ï¼Œä¹Ÿæ˜¯å›æ»šåˆ°ä¿å­˜ç‚¹
 
-### 2. demo ×¼±¸
+### 2. demo å‡†å¤‡
 
-Ã÷È·ÁËÒÔÉÏ¸ÅÄîºó£¬½ÓÏÂÀ´¾Í¿ªÊ¼·ÖÎöÁË£¬ÎÒÃÇÏÈ×¼±¸¸ö¼òµ¥µÄ demo£º
+æ˜ç¡®äº†ä»¥ä¸Šæ¦‚å¿µåï¼Œæ¥ä¸‹æ¥å°±å¼€å§‹åˆ†æäº†ï¼Œæˆ‘ä»¬å…ˆå‡†å¤‡ä¸ªç®€å•çš„ demoï¼š
 
-ÏÈÊÇ×¼±¸Ò»Ğ©ÅäÖÃ£º
+å…ˆæ˜¯å‡†å¤‡ä¸€äº›é…ç½®ï¼š
 
 ```
 @Configuration
@@ -150,7 +150,7 @@ spring Ò»¹²¶¨ÒåÁË 7 ÖÖÊÂÎñµÄ´«²¥ÀàĞÍ£¬ÁĞ¾ÙÈçÏÂ£º
 public class TxDemo03Config {
 
     /**
-     * Éú³ÉÊı¾İÔ´
+     * ç”Ÿæˆæ•°æ®æº
      */
     @Bean
     public DataSource dataSource() throws Exception {
@@ -162,7 +162,7 @@ public class TxDemo03Config {
     }
 
     /**
-     * Éú³ÉjdbcTemplate£¬ºóÃæ¾ÍÊÇÓÃÕâ¸öÀàÀ´´¦ÀíÊı¾İ¿âµÄ²Ù×÷
+     * ç”ŸæˆjdbcTemplateï¼Œåé¢å°±æ˜¯ç”¨è¿™ä¸ªç±»æ¥å¤„ç†æ•°æ®åº“çš„æ“ä½œ
      */
     @Bean
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
@@ -170,7 +170,7 @@ public class TxDemo03Config {
     }
 
     /**
-     * ÊÂÎñ¹ÜÀíÆ÷
+     * äº‹åŠ¡ç®¡ç†å™¨
      */
     @Bean
     public DataSourceTransactionManager transactionManager(DataSource dataSource) {
@@ -180,13 +180,13 @@ public class TxDemo03Config {
 }
 ```
 
-¶ÔÒÔÉÏ´úÂëËµÃ÷ÈçÏÂ£º
+å¯¹ä»¥ä¸Šä»£ç è¯´æ˜å¦‚ä¸‹ï¼š
 
-- Êı¾İÔ´£ºÊ¹ÓÃµÄÊÇ spring Ìá¹©µÄ `SimpleDriverDataSource`£¬Õâ¸öÊı¾İÔ´¹¦ÄÜ²»¶à£¬ÊÊºÏÕâ¸ö¼òµ¥µÄ demo
-- ´¦Àí jdbc Ïà¹Ø²Ù×÷£ºÒ²ÊÇÊ¹ÓÃ spring Ìá¹©µÄ `jdbcTemplate`£¬×÷ÎªÒ»¸ö¼òµ¥µÄ demo£¬²»ÏëÒıÈë `mybatis`£¬`jpa` µÈ
-- ÊÂÎñ¹ÜÀíÆ÷£ºÊ¹ÓÃµÄÒ²ÊÇ spring Ìá¹©µÄ `DataSourceTransactionManager` £¬¶Ôµ¥Êı¾İÔ´À´Ëµ£¬Õâ¸öÍêÈ«¹»ÓÃÁË
+- æ•°æ®æºï¼šä½¿ç”¨çš„æ˜¯ spring æä¾›çš„ `SimpleDriverDataSource`ï¼Œè¿™ä¸ªæ•°æ®æºåŠŸèƒ½ä¸å¤šï¼Œé€‚åˆè¿™ä¸ªç®€å•çš„ demo
+- å¤„ç† jdbc ç›¸å…³æ“ä½œï¼šä¹Ÿæ˜¯ä½¿ç”¨ spring æä¾›çš„ `jdbcTemplate`ï¼Œä½œä¸ºä¸€ä¸ªç®€å•çš„ demoï¼Œä¸æƒ³å¼•å…¥ `mybatis`ï¼Œ`jpa` ç­‰
+- äº‹åŠ¡ç®¡ç†å™¨ï¼šä½¿ç”¨çš„ä¹Ÿæ˜¯ spring æä¾›çš„ `DataSourceTransactionManager` ï¼Œå¯¹å•æ•°æ®æºæ¥è¯´ï¼Œè¿™ä¸ªå®Œå…¨å¤Ÿç”¨äº†
 
-×¼±¸Ò»¸ö mysql µÄ²Ù×÷£¬Òª¿ªÆôÊÂÎñ£º
+å‡†å¤‡ä¸€ä¸ª mysql çš„æ“ä½œï¼Œè¦å¼€å¯äº‹åŠ¡ï¼š
 
 ```
 @Service
@@ -196,7 +196,7 @@ public class UserService {
     private JdbcTemplate jdbcTemplate;
 
     /**
-     * Êı¾İ¿â²åÈë²Ù×÷£¬Ê¹ÓÃ @Transactional ¿ªÆôÊÂÎñ
+     * æ•°æ®åº“æ’å…¥æ“ä½œï¼Œä½¿ç”¨ @Transactional å¼€å¯äº‹åŠ¡
      */
     @Transactional(rollbackFor = Exception.class)
     public int insert() {
@@ -204,7 +204,7 @@ public class UserService {
                 + "values (?, ?, ?, ?)";
         int result = jdbcTemplate.update(sql, "test", "test", new Date(), new Date());
         if(true) {
-            //throw new RuntimeException("Å×³ö¸öÒì³£");
+            //throw new RuntimeException("æŠ›å‡ºä¸ªå¼‚å¸¸");
         }
         System.out.println(result);
         return result;
@@ -213,7 +213,7 @@ public class UserService {
 }
 ```
 
-×îºóÊÇÖ÷Àà£º
+æœ€åæ˜¯ä¸»ç±»ï¼š
 
 ```
 public class TxDemo03Main {
@@ -228,50 +228,50 @@ public class TxDemo03Main {
 }
 ```
 
-Õâ¸ö demo Ê®·Ö¼òµ¥£¬¾Í²»¶à×ö·ÖÎöÁË£¬ÎÒÃÇ½ÓÏÂÀ´»áÍ¨¹ıÕâ¸ö demo ½øĞĞÒ»Ğ©µ÷¶È²Ù×÷£¬Ì½¾¿ÏÂ spring ¶ÔÊÂÎñµÄ¸ôÀë¼¶±ğ¡¢´«²¥·½Ê½µÄ´¦Àí¡£
+è¿™ä¸ª demo ååˆ†ç®€å•ï¼Œå°±ä¸å¤šåšåˆ†æäº†ï¼Œæˆ‘ä»¬æ¥ä¸‹æ¥ä¼šé€šè¿‡è¿™ä¸ª demo è¿›è¡Œä¸€äº›è°ƒåº¦æ“ä½œï¼Œæ¢ç©¶ä¸‹ spring å¯¹äº‹åŠ¡çš„éš”ç¦»çº§åˆ«ã€ä¼ æ’­æ–¹å¼çš„å¤„ç†ã€‚
 
 ### 3. `TransactionAspectSupport#invokeWithinTransaction`
 
-±¾ÎÄÒ»¿ªÆªÎÒÃÇ¾ÍËµ¹ı£¬ÊÂÎñµÄ´¦ÀíÔÚ `TransactionAspectSupport#invokeWithinTransaction` ·½·¨£¬½ÓÏÂÀ´ÎÒÃÇ½«ÖØµã·ÖÎöÕâ¸ö·½·¨¡£
+æœ¬æ–‡ä¸€å¼€ç¯‡æˆ‘ä»¬å°±è¯´è¿‡ï¼Œäº‹åŠ¡çš„å¤„ç†åœ¨ `TransactionAspectSupport#invokeWithinTransaction` æ–¹æ³•ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬å°†é‡ç‚¹åˆ†æè¿™ä¸ªæ–¹æ³•ã€‚
 
-ÉÏ´úÂë£º
+ä¸Šä»£ç ï¼š
 
 ```
 protected Object invokeWithinTransaction(Method method, @Nullable Class<?> targetClass,
         final InvocationCallback invocation) throws Throwable {
     TransactionAttributeSource tas = getTransactionAttributeSource();
 
-    // 1. »ñÈ¡ @Transactional µÄÊôĞÔÅäÖÃ
+    // 1. è·å– @Transactional çš„å±æ€§é…ç½®
     final TransactionAttribute txAttr = (tas != null 
             ? tas.getTransactionAttribute(method, targetClass) : null);
 
-    // 2. »ñÈ¡ÊÂÎñ¹ÜÀíÆ÷£¨IOCÈİÆ÷ÖĞ»ñÈ¡£©
+    // 2. è·å–äº‹åŠ¡ç®¡ç†å™¨ï¼ˆIOCå®¹å™¨ä¸­è·å–ï¼‰
     final TransactionManager tm = determineTransactionManager(txAttr);
 
-    // Õâ²¿·ÖµÄ´úÂëÊÇÕë¶Ô TransactionManager ÊÇ ReactiveTransactionManager µÄÇé¿ö£¬²»×÷·ÖÎö
+    // è¿™éƒ¨åˆ†çš„ä»£ç æ˜¯é’ˆå¯¹ TransactionManager æ˜¯ ReactiveTransactionManager çš„æƒ…å†µï¼Œä¸ä½œåˆ†æ
     ...
 
-    // 3. ½« TransactionManager ×ª»»Îª PlatformTransactionManager
+    // 3. å°† TransactionManager è½¬æ¢ä¸º PlatformTransactionManager
     PlatformTransactionManager ptm = asPlatformTransactionManager(tm);
-    // 4. »ñÈ¡·½·¨µÄÈ«ÏŞ¶¨Ãû£¬¸ñÊ½Îª£º"°üÃû.ÀàĞÍ.·½·¨Ãû"
+    // 4. è·å–æ–¹æ³•çš„å…¨é™å®šåï¼Œæ ¼å¼ä¸ºï¼š"åŒ…å.ç±»å‹.æ–¹æ³•å"
     final String joinpointIdentification 
             = methodIdentification(method, targetClass, txAttr);
     if (txAttr == null || !(ptm instanceof CallbackPreferringPlatformTransactionManager)) {
-        // 5. »ñÈ¡ÊÂÎñĞÅÏ¢£¬»áÔÚÕâÀï¿ªÆôÊÂÎñ
+        // 5. è·å–äº‹åŠ¡ä¿¡æ¯ï¼Œä¼šåœ¨è¿™é‡Œå¼€å¯äº‹åŠ¡
         TransactionInfo txInfo = createTransactionIfNecessary(
                 ptm, txAttr, joinpointIdentification);
         Object retVal;
         try {
-            // 6. Ö´ĞĞ¾ßÌåµÄÒµÎñ
+            // 6. æ‰§è¡Œå…·ä½“çš„ä¸šåŠ¡
             retVal = invocation.proceedWithInvocation();
         }
         catch (Throwable ex) {
-            // 7. Òì³£»Ø¹ö
+            // 7. å¼‚å¸¸å›æ»š
             completeTransactionAfterThrowing(txInfo, ex);
             throw ex;
         }
         finally {
-            // 8. ÖØÖÃÊÂÎñĞÅÏ¢£¬¾ÍÊÇ½«ÊÂÎñĞÅÏ¢ÉèÖÃÎª¾ÉµÄ
+            // 8. é‡ç½®äº‹åŠ¡ä¿¡æ¯ï¼Œå°±æ˜¯å°†äº‹åŠ¡ä¿¡æ¯è®¾ç½®ä¸ºæ—§çš„
             cleanupTransactionInfo(txInfo);
         }
 
@@ -281,28 +281,28 @@ protected Object invokeWithinTransaction(Method method, @Nullable Class<?> targe
                 retVal = VavrDelegate.evaluateTryFailure(retVal, txAttr, status);
             }
         }
-        // 9. Ìá½»ÊÂÎñ
+        // 9. æäº¤äº‹åŠ¡
         commitTransactionAfterReturning(txInfo);
         return retVal;
     }
     else {
-        // ´¦Àí CallbackPreferringPlatformTransactionManager ÀàĞÍµÄ TransactionManager£¬²»×÷·ÖÎö
+        // å¤„ç† CallbackPreferringPlatformTransactionManager ç±»å‹çš„ TransactionManagerï¼Œä¸ä½œåˆ†æ
         ...
     }
 }
 ```
 
-¶Ô `TransactionAspectSupport#invokeWithinTransaction` ·½·¨µÄÄÚÈİ£¬×¢ÊÍÖĞÒÑÏêÏ¸ËµÃ÷£¬½ÓÏÂÀ´ÎªÎÒÃÇÀ´·ÖÎöÕâĞ©Ö´ĞĞ¹ı³Ì¡£
+å¯¹ `TransactionAspectSupport#invokeWithinTransaction` æ–¹æ³•çš„å†…å®¹ï¼Œæ³¨é‡Šä¸­å·²è¯¦ç»†è¯´æ˜ï¼Œæ¥ä¸‹æ¥ä¸ºæˆ‘ä»¬æ¥åˆ†æè¿™äº›æ‰§è¡Œè¿‡ç¨‹ã€‚
 
-#### 3.1 »ñÈ¡ `@Transactional` µÄÊôĞÔÅäÖÃ
+#### 3.1 è·å– `@Transactional` çš„å±æ€§é…ç½®
 
-Õâ¸ö¾ÍÊÇ»ñÈ¡ `UserService#insert` ·½·¨ÉÏ±ê¼ÇµÄ `@Transactional` µÄÊôĞÔÅäÖÃ£¬µÃµ½µÄ½á¹ûÈçÏÂ£º
+è¿™ä¸ªå°±æ˜¯è·å– `UserService#insert` æ–¹æ³•ä¸Šæ ‡è®°çš„ `@Transactional` çš„å±æ€§é…ç½®ï¼Œå¾—åˆ°çš„ç»“æœå¦‚ä¸‹ï¼š
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-aefbe56da2db53982f73092a191e587fcc8.png)
 
-#### 3.2 »ñÈ¡ÊÂÎñ¹ÜÀíÆ÷
+#### 3.2 è·å–äº‹åŠ¡ç®¡ç†å™¨
 
-»ñÈ¡ÊÂÎñ¹ÜÀíÆ÷µÄ·½·¨Îª `TransactionAspectSupport#determineTransactionManager`£¬Ö±½Ó¿´´úÂë£º
+è·å–äº‹åŠ¡ç®¡ç†å™¨çš„æ–¹æ³•ä¸º `TransactionAspectSupport#determineTransactionManager`ï¼Œç›´æ¥çœ‹ä»£ç ï¼š
 
 ```
 protected TransactionManager determineTransactionManager(@Nullable TransactionAttribute txAttr) {
@@ -310,25 +310,25 @@ protected TransactionManager determineTransactionManager(@Nullable TransactionAt
         return getTransactionManager();
     }
 
-    // Èç¹ûÔÚ @Transaction ×¢½âÉÏÖ¸¶¨ÁËÊÂÎñ¹ÜÀíÆ÷£¬¾Í´ÓspringÈİÆ÷ÖĞ»ñÈ¡Õâ¸öÊÂÎñ¹ÜÀíÆ÷
+    // å¦‚æœåœ¨ @Transaction æ³¨è§£ä¸ŠæŒ‡å®šäº†äº‹åŠ¡ç®¡ç†å™¨ï¼Œå°±ä»springå®¹å™¨ä¸­è·å–è¿™ä¸ªäº‹åŠ¡ç®¡ç†å™¨
     String qualifier = txAttr.getQualifier();
     if (StringUtils.hasText(qualifier)) {
         return determineQualifiedTransactionManager(this.beanFactory, qualifier);
     }
-    // Ö¸¶¨ÊÂÎñ¹ÜÀíÆ÷Ãû³Æ£¬×îÖÕÒ²ÊÇ´ÓspringÈİÆ÷ÖĞ»ñÈ¡
+    // æŒ‡å®šäº‹åŠ¡ç®¡ç†å™¨åç§°ï¼Œæœ€ç»ˆä¹Ÿæ˜¯ä»springå®¹å™¨ä¸­è·å–
     else if (StringUtils.hasText(this.transactionManagerBeanName)) {
         return determineQualifiedTransactionManager(
             this.beanFactory, this.transactionManagerBeanName);
     }
     else {
-        // Ö¸¶¨ÊÂÎñ¹ÜÀíÆ÷¶ÔÏó£¬Ö±½Ó·µ»Ø
+        // æŒ‡å®šäº‹åŠ¡ç®¡ç†å™¨å¯¹è±¡ï¼Œç›´æ¥è¿”å›
         TransactionManager defaultTransactionManager = getTransactionManager();
         if (defaultTransactionManager == null) {
-            // ´Ó»º´æÖĞ»ñÈ¡Ä¬ÈÏµÄ
+            // ä»ç¼“å­˜ä¸­è·å–é»˜è®¤çš„
             defaultTransactionManager = this.transactionManagerCache
                     .get(DEFAULT_TRANSACTION_MANAGER_KEY);
             if (defaultTransactionManager == null) {
-                // ¸ù¾İÀàĞÍ´Ó spring ÈİÆ÷ÖĞ»ñÈ¡Ò»¸öÊÂÎñ¹ÜÀíÆ÷
+                // æ ¹æ®ç±»å‹ä» spring å®¹å™¨ä¸­è·å–ä¸€ä¸ªäº‹åŠ¡ç®¡ç†å™¨
                 defaultTransactionManager = this.beanFactory.getBean(TransactionManager.class);
                 this.transactionManagerCache.putIfAbsent(
                         DEFAULT_TRANSACTION_MANAGER_KEY, defaultTransactionManager);
@@ -339,14 +339,14 @@ protected TransactionManager determineTransactionManager(@Nullable TransactionAt
 }
 ```
 
-´úÂëËäÈ»ÓĞµã³¤£¬µ«Âß¼­·Ç³£ÇåÎú£¬ÕâÀï¶Ô¸Ã·½·¨µÄÁ÷³Ì×Ü½áÈçÏÂ£º
+ä»£ç è™½ç„¶æœ‰ç‚¹é•¿ï¼Œä½†é€»è¾‘éå¸¸æ¸…æ™°ï¼Œè¿™é‡Œå¯¹è¯¥æ–¹æ³•çš„æµç¨‹æ€»ç»“å¦‚ä¸‹ï¼š
 
-1. Èç¹ûÔÚ `@Transaction` ×¢½âÉÏÖ¸¶¨ÁËÊÂÎñ¹ÜÀíÆ÷£¬¾Í´Ó spring ÈİÆ÷ÖĞ»ñÈ¡¸ÃÊÂÎñ¹ÜÀíÆ÷
-2. Èç¹ûÖ¸¶¨ÊÂÎñ¹ÜÀíÆ÷Ãû³Æ£¬¾Í´Ó spring ÈİÆ÷ÖĞ»ñÈ¡¸ÃÊÂÎñ¹ÜÀíÆ÷
-3. Èç¹ûÖ¸¶¨ÊÂÎñ¹ÜÀíÆ÷¶ÔÏó£¬Ö±½Ó·µ»Ø
-4. ÒÔÉÏ¶¼²»Âú×ã£¬Ö±½Ó´Ó spring ÈİÆ÷ÖĞ»ñÈ¡ÀàĞÍÎª `TransactionManager` µÄ bean
+1. å¦‚æœåœ¨ `@Transaction` æ³¨è§£ä¸ŠæŒ‡å®šäº†äº‹åŠ¡ç®¡ç†å™¨ï¼Œå°±ä» spring å®¹å™¨ä¸­è·å–è¯¥äº‹åŠ¡ç®¡ç†å™¨
+2. å¦‚æœæŒ‡å®šäº‹åŠ¡ç®¡ç†å™¨åç§°ï¼Œå°±ä» spring å®¹å™¨ä¸­è·å–è¯¥äº‹åŠ¡ç®¡ç†å™¨
+3. å¦‚æœæŒ‡å®šäº‹åŠ¡ç®¡ç†å™¨å¯¹è±¡ï¼Œç›´æ¥è¿”å›
+4. ä»¥ä¸Šéƒ½ä¸æ»¡è¶³ï¼Œç›´æ¥ä» spring å®¹å™¨ä¸­è·å–ç±»å‹ä¸º `TransactionManager` çš„ bean
 
-ÔÚ `TxDemo03Config` ÖĞ£¬ÎÒÃÇÅäÖÃÊÂÎñ¹ÜÀíÆ÷Îª `DataSourceTransactionManager`£º
+åœ¨ `TxDemo03Config` ä¸­ï¼Œæˆ‘ä»¬é…ç½®äº‹åŠ¡ç®¡ç†å™¨ä¸º `DataSourceTransactionManager`ï¼š
 
 ```
 public DataSourceTransactionManager transactionManager(DataSource dataSource) {
@@ -354,13 +354,13 @@ public DataSourceTransactionManager transactionManager(DataSource dataSource) {
 }
 ```
 
-ÕâÀïµÃµ½µÄÒ²ÊÇ `DataSourceTransactionManager`£º
+è¿™é‡Œå¾—åˆ°çš„ä¹Ÿæ˜¯ `DataSourceTransactionManager`ï¼š
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-34ac74501b184c44f95432b31b21a041619.png)
 
-#### 3.3 ½« `TransactionManager` ×ª»»Îª `PlatformTransactionManager`
+#### 3.3 å°† `TransactionManager` è½¬æ¢ä¸º `PlatformTransactionManager`
 
-Õâ¸öÃ»É¶ºÃËµµÄ£¬`DataSourceTransactionManager` ¾ÍÊÇ `PlatformTransactionManager` µÄ×ÓÀà£¬´úÂëÀï×öÁËÒ»¸öÀàĞÍ×ª»»¡£
+è¿™ä¸ªæ²¡å•¥å¥½è¯´çš„ï¼Œ`DataSourceTransactionManager` å°±æ˜¯ `PlatformTransactionManager` çš„å­ç±»ï¼Œä»£ç é‡Œåšäº†ä¸€ä¸ªç±»å‹è½¬æ¢ã€‚
 
 ```
 private PlatformTransactionManager asPlatformTransactionManager(
@@ -368,20 +368,20 @@ private PlatformTransactionManager asPlatformTransactionManager(
     if (transactionManager == null || transactionManager instanceof PlatformTransactionManager) {
         return (PlatformTransactionManager) transactionManager;
     } else {
-        // Å×¸öÒì³£
+        // æŠ›ä¸ªå¼‚å¸¸
         ...
     }
 }
 ```
 
-#### 3.4 »ñÈ¡·½·¨µÄÈ«ÏŞ¶¨Ãû
+#### 3.4 è·å–æ–¹æ³•çš„å…¨é™å®šå
 
-ÕâÒ»²½»áÄÃµ½·½·¨µÄÈ«ÏŞ¶¨Ãû£¬¸ñÊ½Îª£º"°üÃû¡£ÀàĞÍ¡£·½·¨Ãû"£¬ÕâÒ²Ã»É¶ºÃËµµÄ£¬ÕâÒ»²½µÃµ½µÄ½á¹ûÈçÏÂ£º
+è¿™ä¸€æ­¥ä¼šæ‹¿åˆ°æ–¹æ³•çš„å…¨é™å®šåï¼Œæ ¼å¼ä¸ºï¼š"åŒ…åã€‚ç±»å‹ã€‚æ–¹æ³•å"ï¼Œè¿™ä¹Ÿæ²¡å•¥å¥½è¯´çš„ï¼Œè¿™ä¸€æ­¥å¾—åˆ°çš„ç»“æœå¦‚ä¸‹ï¼š
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-656a73b9eb1cd3120d3586fe4f1302de373.png)
 
-ÏŞÓÚÆª·ù£¬±¾ÎÄ¾ÍÏÈ·ÖÎöµ½ÕâÀïÁË£¬ÏÂÆªÎÒÃÇ¼ÌĞø¡£
+é™äºç¯‡å¹…ï¼Œæœ¬æ–‡å°±å…ˆåˆ†æåˆ°è¿™é‡Œäº†ï¼Œä¸‹ç¯‡æˆ‘ä»¬ç»§ç»­ã€‚
 
 ------
 
-*±¾ÎÄÔ­ÎÄÁ´½Ó£ºhttps://my.oschina.net/funcy/blog/4773459 £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£*
+*æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼šhttps://my.oschina.net/funcy/blog/4773459 ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚*

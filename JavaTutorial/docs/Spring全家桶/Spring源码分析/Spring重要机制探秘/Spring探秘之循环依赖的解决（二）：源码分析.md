@@ -1,24 +1,24 @@
-ÔÚ [spring Ì½ÃØÖ®Ñ­»·ÒÀÀµ£¨Ò»£©£ºÀíÂÛ»ùÊ¯](https://my.oschina.net/funcy/blog/4659555 "springÌ½ÃØÖ®Ñ­»·ÒÀÀµ£¨Ò»£©£ºÀíÂÛ»ùÊ¯")Ò»ÎÄÖĞ £¬ÎÒÃÇÌáµ½ spring ½â¾öÑ­»·ÒÀÀµµÄÁ÷³ÌÈçÏÂ:
+åœ¨ [spring æ¢ç§˜ä¹‹å¾ªç¯ä¾èµ–ï¼ˆä¸€ï¼‰ï¼šç†è®ºåŸºçŸ³](https://my.oschina.net/funcy/blog/4659555 "springæ¢ç§˜ä¹‹å¾ªç¯ä¾èµ–ï¼ˆä¸€ï¼‰ï¼šç†è®ºåŸºçŸ³")ä¸€æ–‡ä¸­ ï¼Œæˆ‘ä»¬æåˆ° spring è§£å†³å¾ªç¯ä¾èµ–çš„æµç¨‹å¦‚ä¸‹:
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-dc325a87b321e4c246a1b2f14169821a75a.png)
 
-ÎªÁËÄÜÈÃÒÔÉÏÁ÷³ÌÄÜË³Àû½øĞĞ£¬spring ÖĞÓÖÌá¹©ÁË 5 ¸öÊı¾İ½á¹¹À´±£´æÁ÷³ÌÖĞ²úÉúµÄ¹Ø¼üĞÅÏ¢£¬Õâ 5 ¸öÊı¾İ½á¹¹ÈçÏÂ£¨ÏÂÎÄ½«Õâ 5 ¸öÊı¾İ½á¹¹³ÆÎª **5 ´ó½á¹¹**£©£º
+ä¸ºäº†èƒ½è®©ä»¥ä¸Šæµç¨‹èƒ½é¡ºåˆ©è¿›è¡Œï¼Œspring ä¸­åˆæä¾›äº† 5 ä¸ªæ•°æ®ç»“æ„æ¥ä¿å­˜æµç¨‹ä¸­äº§ç”Ÿçš„å…³é”®ä¿¡æ¯ï¼Œè¿™ 5 ä¸ªæ•°æ®ç»“æ„å¦‚ä¸‹ï¼ˆä¸‹æ–‡å°†è¿™ 5 ä¸ªæ•°æ®ç»“æ„ç§°ä¸º **5 å¤§ç»“æ„**ï¼‰ï¼š
 
-| ½á¹¹                            | ËµÃ÷                                                         |
+| ç»“æ„                            | è¯´æ˜                                                         |
 | ------------------------------- | ------------------------------------------------------------ |
-| `singletonObjects`              | **Ò»¼¶»º´æ**£¬ÀàĞÍÎª `ConcurrentHashMap<String, Object>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖĞ£¬`key` Îª `beanName`£¬`value` ÊÇÍêÕûµÄ `spring bean`£¬¼´Íê³ÉÊôĞÔ×¢Èë¡¢³õÊ¼»¯µÄ bean£¬Èç¹û bean ĞèÒª aop£¬´æ´¢µÄ¾ÍÊÇ´úÀí¶ÔÏó |
-| `earlySingletonObjects`         | **¶ş¼¶»º´æ**£¬ÀàĞÍÎª `HashMap<String, Object>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖĞ£¬`key` Îª `beanName`£¬`value` ÊÇÊµÀı»¯Íê³É£¬µ«Î´½øĞĞÒÀÀµ×¢ÈëµÄ `bean`£¬**Èç¹û `bean` ĞèÒª `aop`£¬ÕâÀï´æ´¢µÄ¾ÍÊÇ´úÀí¶ÔÏó£¬Ö»²»¹ı´úÀí¶ÔÏóËù³ÖÓĞµÄÔ­Ê¼¶ÔÏó²¢Î´½øĞĞÒÀÀµ×¢Èë** |
-| `singletonFactories`            | **Èı¼¶»º´æ**£¬ÀàĞÍÎª `HashMap<String, ObjectFactory>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry` ÀàÖĞ£¬`key` Îª `beanName`£¬`value` ´æ´¢µÄÊÇÒ»¸ö `lambda` ±í´ïÊ½£º`() -> getEarlyBeanReference(beanName, mbd, bean)`£¬`getEarlyBeanReference(xxx)` ÖĞµÄ `bean` ÊÇ¸Õ´´½¨Íê³ÉµÄ `java bean`£¬Ã»ÓĞ½øĞĞ spring ÒÀÀµ×¢Èë£¬Ò²Ã»½øĞĞ aop |
-| `singletonsCurrentlyInCreation` | ÀàĞÍÎª `SetFromMap<String>`£¬Î»ÓÚ `DefaultSingletonBeanRegistry`£¬´´½¨·½Ê½Îª `Collections.newSetFromMap(new ConcurrentHashMap<>(16))`£¬±íÃ÷ÕâÊÇ¸öÓÉ `ConcurrentHashMap` ÊµÏÖµÄ set£¬´æ´¢µÄÊÇÕıÔÚ´´½¨ÖĞµÄ¶ÔÏó£¬¿ÉÒÔ**ÓÃÀ´ÅĞ¶Ïµ±Ç°¶ÔÏóÊÇ·ñÔÚ´´½¨ÖĞ** |
-| `earlyProxyReferences`          | ÀàĞÍÎª `ConcurrentHashMap<Object, Object>`£¬Î»ÓÚ `AbstractAutoProxyCreator`£¬´æ´¢µÄÊÇÌáÇ°½øĞĞ aop µÄ¶ÔÏó£¬¿ÉÒÔ**ÓÃÀ´ÅĞ¶Ï bean ÊÇ·ñ½øĞĞ¹ı aop£¬±£Ö¤Ã¿¸ö¶ÔÏóÖ»½øĞĞÒ»´Î aop** |
+| `singletonObjects`              | **ä¸€çº§ç¼“å­˜**ï¼Œç±»å‹ä¸º `ConcurrentHashMap<String, Object>`ï¼Œä½äº `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` æ˜¯å®Œæ•´çš„ `spring bean`ï¼Œå³å®Œæˆå±æ€§æ³¨å…¥ã€åˆå§‹åŒ–çš„ beanï¼Œå¦‚æœ bean éœ€è¦ aopï¼Œå­˜å‚¨çš„å°±æ˜¯ä»£ç†å¯¹è±¡ |
+| `earlySingletonObjects`         | **äºŒçº§ç¼“å­˜**ï¼Œç±»å‹ä¸º `HashMap<String, Object>`ï¼Œä½äº `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` æ˜¯å®ä¾‹åŒ–å®Œæˆï¼Œä½†æœªè¿›è¡Œä¾èµ–æ³¨å…¥çš„ `bean`ï¼Œ**å¦‚æœ `bean` éœ€è¦ `aop`ï¼Œè¿™é‡Œå­˜å‚¨çš„å°±æ˜¯ä»£ç†å¯¹è±¡ï¼Œåªä¸è¿‡ä»£ç†å¯¹è±¡æ‰€æŒæœ‰çš„åŸå§‹å¯¹è±¡å¹¶æœªè¿›è¡Œä¾èµ–æ³¨å…¥** |
+| `singletonFactories`            | **ä¸‰çº§ç¼“å­˜**ï¼Œç±»å‹ä¸º `HashMap<String, ObjectFactory>`ï¼Œä½äº `DefaultSingletonBeanRegistry` ç±»ä¸­ï¼Œ`key` ä¸º `beanName`ï¼Œ`value` å­˜å‚¨çš„æ˜¯ä¸€ä¸ª `lambda` è¡¨è¾¾å¼ï¼š`() -> getEarlyBeanReference(beanName, mbd, bean)`ï¼Œ`getEarlyBeanReference(xxx)` ä¸­çš„ `bean` æ˜¯åˆšåˆ›å»ºå®Œæˆçš„ `java bean`ï¼Œæ²¡æœ‰è¿›è¡Œ spring ä¾èµ–æ³¨å…¥ï¼Œä¹Ÿæ²¡è¿›è¡Œ aop |
+| `singletonsCurrentlyInCreation` | ç±»å‹ä¸º `SetFromMap<String>`ï¼Œä½äº `DefaultSingletonBeanRegistry`ï¼Œåˆ›å»ºæ–¹å¼ä¸º `Collections.newSetFromMap(new ConcurrentHashMap<>(16))`ï¼Œè¡¨æ˜è¿™æ˜¯ä¸ªç”± `ConcurrentHashMap` å®ç°çš„ setï¼Œå­˜å‚¨çš„æ˜¯æ­£åœ¨åˆ›å»ºä¸­çš„å¯¹è±¡ï¼Œå¯ä»¥**ç”¨æ¥åˆ¤æ–­å½“å‰å¯¹è±¡æ˜¯å¦åœ¨åˆ›å»ºä¸­** |
+| `earlyProxyReferences`          | ç±»å‹ä¸º `ConcurrentHashMap<Object, Object>`ï¼Œä½äº `AbstractAutoProxyCreator`ï¼Œå­˜å‚¨çš„æ˜¯æå‰è¿›è¡Œ aop çš„å¯¹è±¡ï¼Œå¯ä»¥**ç”¨æ¥åˆ¤æ–­ bean æ˜¯å¦è¿›è¡Œè¿‡ aopï¼Œä¿è¯æ¯ä¸ªå¯¹è±¡åªè¿›è¡Œä¸€æ¬¡ aop** |
 
-ÁË½âÁËÕâĞ©Ö®ºó£¬½ÓÏÂÀ´ÎÒÃÇ¾ÍÕıÊ½¿ªÊ¼½øĞĞÔ´Âë·ÖÎöÁË¡£
+äº†è§£äº†è¿™äº›ä¹‹åï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬å°±æ­£å¼å¼€å§‹è¿›è¡Œæºç åˆ†æäº†ã€‚
 
-### 1\. ×¼±¸ demo
+### 1\. å‡†å¤‡ demo
 
-±¾ÎÄÖĞµÄÊ¾Àı demo Î»ÓÚ [gitee.com/funcy](https://gitee.com/funcy/spring-framework/tree/v5.2.2.RELEASE_learn/spring-learn/src/main/java/org/springframework/learn/explore/demo03 "gitee.com/funcy")£¬ÕâÀï½ö¸ø³ö¹Ø¼ü´úÂë¡£
+æœ¬æ–‡ä¸­çš„ç¤ºä¾‹ demo ä½äº [gitee.com/funcy](https://gitee.com/funcy/spring-framework/tree/v5.2.2.RELEASE_learn/spring-learn/src/main/java/org/springframework/learn/explore/demo03 "gitee.com/funcy")ï¼Œè¿™é‡Œä»…ç»™å‡ºå…³é”®ä»£ç ã€‚
 
-×¼±¸Á½¸ö service£ºservice1£¬service2£¬ÕâÁ½¸ö service Àï¶¼ÓĞÒ»¸ö´úÀí·½·¨£º
+å‡†å¤‡ä¸¤ä¸ª serviceï¼šservice1ï¼Œservice2ï¼Œè¿™ä¸¤ä¸ª service é‡Œéƒ½æœ‰ä¸€ä¸ªä»£ç†æ–¹æ³•ï¼š
 
 ```
 @Service
@@ -28,11 +28,11 @@ public class Service1 {
     private Service2 service2;
 
     public Service1() {
-        System.out.println("µ÷ÓÃservice1µÄ¹¹Ôì·½·¨");
+        System.out.println("è°ƒç”¨service1çš„æ„é€ æ–¹æ³•");
     }
 
     /**
-     * ±ê×¢ @AopAnnotation ÁË£¬±íÃ÷Õâ¸ö·½·¨Òª±»´úÀí
+     * æ ‡æ³¨ @AopAnnotation äº†ï¼Œè¡¨æ˜è¿™ä¸ªæ–¹æ³•è¦è¢«ä»£ç†
      */
     @AopAnnotation
     public void printAutowired() {
@@ -52,11 +52,11 @@ public class Service2 {
     private Service1 service1;
 
     public Service2() {
-        System.out.println("µ÷ÓÃservice2µÄ¹¹Ôì·½·¨");
+        System.out.println("è°ƒç”¨service2çš„æ„é€ æ–¹æ³•");
     }
 
     /**
-     * ±ê×¢ @AopAnnotation ÁË£¬±íÃ÷Õâ¸ö·½·¨Òª±»´úÀí
+     * æ ‡æ³¨ @AopAnnotation äº†ï¼Œè¡¨æ˜è¿™ä¸ªæ–¹æ³•è¦è¢«ä»£ç†
      */
     @AopAnnotation
     public void printAutowired() {
@@ -71,7 +71,7 @@ public class Service2 {
 
 ```
 
-ÕâÀïÊÇÖ÷Àà£º
+è¿™é‡Œæ˜¯ä¸»ç±»ï¼š
 
 ```
 public class Demo03Main {
@@ -88,11 +88,11 @@ public class Demo03Main {
 
 ```
 
-ÔÚ `Service1` ÖĞ£¬ĞèÒª×¢ÈëÊôĞÔ `service2`£¬ÔÚÔÚ `Service2` ÖĞ£¬ĞèÒª×¢ÈëÊôĞÔ `service1`£¬ÇÒ `Service1`¡¢`Service2` ¶¼ĞèÒª½øĞĞ´úÀí£¬×îÖÕ `main()` ·½·¨Ö´ĞĞ½á¹ûÈçÏÂ£º
+åœ¨ `Service1` ä¸­ï¼Œéœ€è¦æ³¨å…¥å±æ€§ `service2`ï¼Œåœ¨åœ¨ `Service2` ä¸­ï¼Œéœ€è¦æ³¨å…¥å±æ€§ `service1`ï¼Œä¸” `Service1`ã€`Service2` éƒ½éœ€è¦è¿›è¡Œä»£ç†ï¼Œæœ€ç»ˆ `main()` æ–¹æ³•æ‰§è¡Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
-µ÷ÓÃservice1µÄ¹¹Ôì·½·¨
-µ÷ÓÃservice2µÄ¹¹Ôì·½·¨
+è°ƒç”¨service1çš„æ„é€ æ–¹æ³•
+è°ƒç”¨service2çš„æ„é€ æ–¹æ³•
 Disconnected from the target VM, address: 'localhost:55518', transport: 'socket'
 Connected to the target VM, address: '127.0.0.1:55507', transport: 'socket'
 @Around: before execute...
@@ -104,30 +104,30 @@ Service2 Autowired:class org.springframework.learn.explore.demo03.Service1$$Enha
 
 ```
 
-µÃµ½µÄ obj1¡¢obj2 ·Ö±ğÎª
+å¾—åˆ°çš„ obj1ã€obj2 åˆ†åˆ«ä¸º
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-201844d13a7b489d1a18a8218d6440d6068.png)
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-3781280ce3f4da91504b0665ebfd3aed05b.png)
 
-·ÖÎöÄÚÈİ£¬²»ÄÑµÃ³öÈçÏÂ½áÂÛ£º
+åˆ†æå†…å®¹ï¼Œä¸éš¾å¾—å‡ºå¦‚ä¸‹ç»“è®ºï¼š
 
-*   `service1` Óë `service2` µÄ `printAutowired()` ·½·¨¶¼Êä³öÁËÇĞÃæ·½·¨µÄÄÚÈİ£¬±íÃ÷Á½Õß¶¼´úÀí³É¹¦ÁË£»
-*   ´ÓÈİÆ÷ÖĞ»ñÈ¡µÄµÄ `service1` Óë `service2` ¶¼ÊÇ´úÀí¶ÔÏó£»
-*   `service1` µÄ´úÀí¶ÔÏó³ÖÓĞ `service1` µÄÔ­Ê¼¶ÔÏó£¬`service2` µÄ´úÀí¶ÔÏó³ÖÓĞ `service2` µÄÔ­Ê¼¶ÔÏó£»
-*   `service1` µÄÔ­Ê¼¶ÔÏóÖĞ×¢ÈëµÄ `service2` Îª´úÀí¶ÔÏó£¬`service2` µÄÔ­Ê¼¶ÔÏóÖĞ×¢ÈëµÄ `service1` Îª´úÀí¶ÔÏó¡£
+*   `service1` ä¸ `service2` çš„ `printAutowired()` æ–¹æ³•éƒ½è¾“å‡ºäº†åˆ‡é¢æ–¹æ³•çš„å†…å®¹ï¼Œè¡¨æ˜ä¸¤è€…éƒ½ä»£ç†æˆåŠŸäº†ï¼›
+*   ä»å®¹å™¨ä¸­è·å–çš„çš„ `service1` ä¸ `service2` éƒ½æ˜¯ä»£ç†å¯¹è±¡ï¼›
+*   `service1` çš„ä»£ç†å¯¹è±¡æŒæœ‰ `service1` çš„åŸå§‹å¯¹è±¡ï¼Œ`service2` çš„ä»£ç†å¯¹è±¡æŒæœ‰ `service2` çš„åŸå§‹å¯¹è±¡ï¼›
+*   `service1` çš„åŸå§‹å¯¹è±¡ä¸­æ³¨å…¥çš„ `service2` ä¸ºä»£ç†å¯¹è±¡ï¼Œ`service2` çš„åŸå§‹å¯¹è±¡ä¸­æ³¨å…¥çš„ `service1` ä¸ºä»£ç†å¯¹è±¡ã€‚
 
-½ÓÏÂÀ´£¬ÎÒÃÇ¾Í´ÓÔ´Âë·ÖÎö£¬¿´ spring ÊÇÈçºÎÒ»²½²½ÔËĞĞ£¬×îÖÕµÃµ½Õâ¸ö½á¹ûµÄ¡£
+æ¥ä¸‹æ¥ï¼Œæˆ‘ä»¬å°±ä»æºç åˆ†æï¼Œçœ‹ spring æ˜¯å¦‚ä½•ä¸€æ­¥æ­¥è¿è¡Œï¼Œæœ€ç»ˆå¾—åˆ°è¿™ä¸ªç»“æœçš„ã€‚
 
-> `service1` Óë `service2` µÄ´úÀí¶ÔÏóÊÇÓÉ `cglib` ´úÀí²úÉúµÄ£¬Õâ²¿·ÖÄÚÈİÓë±¾ÎÄÎŞ¹Ø£¬¾Í²»·ÖÎöÁË¡£
+> `service1` ä¸ `service2` çš„ä»£ç†å¯¹è±¡æ˜¯ç”± `cglib` ä»£ç†äº§ç”Ÿçš„ï¼Œè¿™éƒ¨åˆ†å†…å®¹ä¸æœ¬æ–‡æ— å…³ï¼Œå°±ä¸åˆ†æäº†ã€‚
 
-### 2\. µÚÒ»´Îµ÷ÓÃ `AbstractBeanFactory#getBean(String)`£º»ñÈ¡ `service1`
+### 2\. ç¬¬ä¸€æ¬¡è°ƒç”¨ `AbstractBeanFactory#getBean(String)`ï¼šè·å– `service1`
 
-spring bean µÄ´´½¨¡¢ÒÀÀµ×¢ÈëÁ÷³ÌÊÇ´Ó `AbstractBeanFactory#getBean(String)` ·½·¨¿ªÊ¼£¬ÕâÒ»µã¿É²Î¿¼ [spring Æô¶¯Á÷³ÌÖ®Íê³É BeanFactory µÄ³õÊ¼»¯](https://my.oschina.net/funcy/blog/4658230)£¬ÎÒÃÇµÄÔ´Âë·ÖÎöÒ²´ÓÕâ¸ö·½·¨ÈëÊÖ¡£
+spring bean çš„åˆ›å»ºã€ä¾èµ–æ³¨å…¥æµç¨‹æ˜¯ä» `AbstractBeanFactory#getBean(String)` æ–¹æ³•å¼€å§‹ï¼Œè¿™ä¸€ç‚¹å¯å‚è€ƒ [spring å¯åŠ¨æµç¨‹ä¹‹å®Œæˆ BeanFactory çš„åˆå§‹åŒ–](https://my.oschina.net/funcy/blog/4658230)ï¼Œæˆ‘ä»¬çš„æºç åˆ†æä¹Ÿä»è¿™ä¸ªæ–¹æ³•å…¥æ‰‹ã€‚
 
-±¾ÎÄÒ»¿ªÊ¼£¬¾ÍÌáµ½ÁË spring Îª½â¾öÑ­»·ÒÀÀµµÄ 5 ´ó½á¹¹£¬ÕâÀïÕ¹Ê¾ÈçÏÂ£º
+æœ¬æ–‡ä¸€å¼€å§‹ï¼Œå°±æåˆ°äº† spring ä¸ºè§£å†³å¾ªç¯ä¾èµ–çš„ 5 å¤§ç»“æ„ï¼Œè¿™é‡Œå±•ç¤ºå¦‚ä¸‹ï¼š
 
-| ½á¹¹                            | ÄÚÈİ |
+| ç»“æ„                            | å†…å®¹ |
 | ------------------------------- | ---- |
 | `singletonObjects`              |      |
 | `earlySingletonObjects`         |      |
@@ -135,13 +135,13 @@ spring bean µÄ´´½¨¡¢ÒÀÀµ×¢ÈëÁ÷³ÌÊÇ´Ó `AbstractBeanFactory#getBean(String)` ·½·¨¿
 | `singletonsCurrentlyInCreation` |      |
 | `earlyProxyReferences`          |      |
 
-Ò»¿ªÊ¼£¬5 ´ó½á¹¹ÖĞ¹ØÓÚ `service1` Óë `service2` µÄÊ²Ã´Êı¾İ¶¼Ã»ÓĞ £¬½ÓÏÂÀ´£¬ÎÒÃÇÒ»±ß·ÖÎö´úÂë£¬Ò»±ß¹Ø×¢Õâ¼¸¸ö½á¹¹ÖĞµÄÄÚÈİ¡£
+ä¸€å¼€å§‹ï¼Œ5 å¤§ç»“æ„ä¸­å…³äº `service1` ä¸ `service2` çš„ä»€ä¹ˆæ•°æ®éƒ½æ²¡æœ‰ ï¼Œæ¥ä¸‹æ¥ï¼Œæˆ‘ä»¬ä¸€è¾¹åˆ†æä»£ç ï¼Œä¸€è¾¹å…³æ³¨è¿™å‡ ä¸ªç»“æ„ä¸­çš„å†…å®¹ã€‚
 
-> ÊÂÊµÉÏ£¬5 ´ó½á¹¹ÊÇÓĞÄÚÈİµÄ£¬ÄÇÊÇ spring ÄÚ²¿Ìá¹©µÄÒ»Ğ© bean£¬µ«ÓÉÓÚÎÒÃÇÖ»¹Ø×¢ `service1` Óë `service2` Ïà¹ØµÄÄÚÈİ£¬Òò´ËÕâÀï²»Õ¹Ê¾¡£
+> äº‹å®ä¸Šï¼Œ5 å¤§ç»“æ„æ˜¯æœ‰å†…å®¹çš„ï¼Œé‚£æ˜¯ spring å†…éƒ¨æä¾›çš„ä¸€äº› beanï¼Œä½†ç”±äºæˆ‘ä»¬åªå…³æ³¨ `service1` ä¸ `service2` ç›¸å…³çš„å†…å®¹ï¼Œå› æ­¤è¿™é‡Œä¸å±•ç¤ºã€‚
 
 ### 2.1 `AbstractBeanFactory#doGetBean`
 
-»ñÈ¡ `service1` µÄ´úÂëÔÚ `AbstractBeanFactory#getBean(String)`£¬µ«ÕæÕıµÄ»ñÈ¡²Ù×÷È´ÊÇÔÚ `AbstractBeanFactory#doGetBean` ÖĞ£¬µ÷ÓÃÁ´ÈçÏÂ£º
+è·å– `service1` çš„ä»£ç åœ¨ `AbstractBeanFactory#getBean(String)`ï¼Œä½†çœŸæ­£çš„è·å–æ“ä½œå´æ˜¯åœ¨ `AbstractBeanFactory#doGetBean` ä¸­ï¼Œè°ƒç”¨é“¾å¦‚ä¸‹ï¼š
 
 ```
 |-AbstractBeanFactory#getBean(String)
@@ -149,22 +149,22 @@ spring bean µÄ´´½¨¡¢ÒÀÀµ×¢ÈëÁ÷³ÌÊÇ´Ó `AbstractBeanFactory#getBean(String)` ·½·¨¿
 
 ```
 
-´úÂëÈçÏÂ£º
+ä»£ç å¦‚ä¸‹ï¼š
 
 ```
     protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredType,
             @Nullable final Object[] args, boolean typeCheckOnly) throws BeansException {
 
         ...
-        // 1\. ¼ì²éÊÇ·ñÒÑ³õÊ¼»¯£¬ÕâÀï»á°ÑbeanName·ÅÈësingletonsCurrentlyInCreationÖĞ
+        // 1\. æ£€æŸ¥æ˜¯å¦å·²åˆå§‹åŒ–ï¼Œè¿™é‡Œä¼šæŠŠbeanNameæ”¾å…¥singletonsCurrentlyInCreationä¸­
         Object sharedInstance = getSingleton(beanName);
         ...
-        // Èç¹ûÊÇµ¥ÀıµÄ
+        // å¦‚æœæ˜¯å•ä¾‹çš„
         if (mbd.isSingleton()) {
-            // 2\. getSingleton(): ´´½¨¶ÔÏó£¬É¾³ı¶ş¡¢Èı¼¶»º´æ
+            // 2\. getSingleton(): åˆ›å»ºå¯¹è±¡ï¼Œåˆ é™¤äºŒã€ä¸‰çº§ç¼“å­˜
             sharedInstance = getSingleton(beanName, () -> {
                 try {
-                    // Ö´ĞĞ´´½¨ Bean
+                    // æ‰§è¡Œåˆ›å»º Bean
                     return createBean(beanName, mbd, args);
                 }
                 catch (BeansException ex) {
@@ -172,8 +172,8 @@ spring bean µÄ´´½¨¡¢ÒÀÀµ×¢ÈëÁ÷³ÌÊÇ´Ó `AbstractBeanFactory#getBean(String)` ·½·¨¿
                     throw ex;
                 }
             });
-            // ÕâÀïÈç¹ûÊÇÆÕÍ¨Bean µÄ»°£¬Ö±½Ó·µ»Ø£¬Èç¹ûÊÇ FactoryBean µÄ»°£¬
-            // ·µ»ØËü´´½¨µÄÄÇ¸öÊµÀı¶ÔÏó
+            // è¿™é‡Œå¦‚æœæ˜¯æ™®é€šBean çš„è¯ï¼Œç›´æ¥è¿”å›ï¼Œå¦‚æœæ˜¯ FactoryBean çš„è¯ï¼Œ
+            // è¿”å›å®ƒåˆ›å»ºçš„é‚£ä¸ªå®ä¾‹å¯¹è±¡
             bean = getObjectForBeanInstance(sharedInstance, name, beanName, mbd);
         }
         ...
@@ -181,14 +181,14 @@ spring bean µÄ´´½¨¡¢ÒÀÀµ×¢ÈëÁ÷³ÌÊÇ´Ó `AbstractBeanFactory#getBean(String)` ·½·¨¿
 
 ```
 
-ÒÔÉÏ´úÂë¾­¹ıÁË¾«¼ò£¬ÎÒÃÇÖ»±£ÁôÁËÖ÷ÒªÁ÷³Ì£¨ºóĞø·ÖÎöÖĞ£¬Ò²»á¾«¼ò´úÂë£¬Ö»±£ÁôÖ÷ÒªÁ÷³Ì£¬Ê¡ÂÔÎŞ¹Ø´úÂë£©£¬Õâ¸ö·½·¨ÓĞÁ½¸öµØ·½ĞèÒª·ÖÎö£º
+ä»¥ä¸Šä»£ç ç»è¿‡äº†ç²¾ç®€ï¼Œæˆ‘ä»¬åªä¿ç•™äº†ä¸»è¦æµç¨‹ï¼ˆåç»­åˆ†æä¸­ï¼Œä¹Ÿä¼šç²¾ç®€ä»£ç ï¼Œåªä¿ç•™ä¸»è¦æµç¨‹ï¼Œçœç•¥æ— å…³ä»£ç ï¼‰ï¼Œè¿™ä¸ªæ–¹æ³•æœ‰ä¸¤ä¸ªåœ°æ–¹éœ€è¦åˆ†æï¼š
 
-1.  `getSingleton(beanName)`£º»ñÈ¡¶ÔÏó£¬Ö»´ÓÈı¸ö»º´æÖĞ»ñÈ¡£»
-2.  `getSingleton(beanName, () -> { ... })`£º»ñÈ¡¶ÔÏó£¬´´½¨»áÔÚÕâÀï´´½¨¡£
+1.  `getSingleton(beanName)`ï¼šè·å–å¯¹è±¡ï¼Œåªä»ä¸‰ä¸ªç¼“å­˜ä¸­è·å–ï¼›
+2.  `getSingleton(beanName, () -> { ... })`ï¼šè·å–å¯¹è±¡ï¼Œåˆ›å»ºä¼šåœ¨è¿™é‡Œåˆ›å»ºã€‚
 
 #### 2.2 `DefaultSingletonBeanRegistry#getSingleton(String, boolean)`
 
-ÎÒÃÇÏÈÀ´¿´¿´ `getSingleton(beanName)`£¬µ÷ÓÃÁ´ÈçÏÂ£º
+æˆ‘ä»¬å…ˆæ¥çœ‹çœ‹ `getSingleton(beanName)`ï¼Œè°ƒç”¨é“¾å¦‚ä¸‹ï¼š
 
 ```
 |-AbstractBeanFactory#getBean(String)
@@ -198,19 +198,19 @@ spring bean µÄ´´½¨¡¢ÒÀÀµ×¢ÈëÁ÷³ÌÊÇ´Ó `AbstractBeanFactory#getBean(String)` ·½·¨¿
 
 ```
 
-Ö±½Ó¿´´úÂë£º
+ç›´æ¥çœ‹ä»£ç ï¼š
 
 ```
 /*
- * beanName: ´«ÈëµÄÖµÎª service1
- * allowEarlyReference£º´«ÈëµÄÖµÎª true
+ * beanName: ä¼ å…¥çš„å€¼ä¸º service1
+ * allowEarlyReferenceï¼šä¼ å…¥çš„å€¼ä¸º true
  */
 protected Object getSingleton(String beanName, boolean allowEarlyReference) {
-    // 1\. ´ÓÒ»¼¶»º´æÖĞ»ñÈ¡£¬ÕâÀïÊÇ»ñÈ¡²»µ½
+    // 1\. ä»ä¸€çº§ç¼“å­˜ä¸­è·å–ï¼Œè¿™é‡Œæ˜¯è·å–ä¸åˆ°
     Object singletonObject = this.singletonObjects.get(beanName);
-    // 2\. isSingletonCurrentlyInCreation(...) ÅĞ¶Ïservice1ÊÇ·ñÔÚ´´½¨ÖĞ£¬·µ»Ø false
+    // 2\. isSingletonCurrentlyInCreation(...) åˆ¤æ–­service1æ˜¯å¦åœ¨åˆ›å»ºä¸­ï¼Œè¿”å› false
     if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
-        // Ê¡ÂÔÏÂÃæµÄ´úÂë
+        // çœç•¥ä¸‹é¢çš„ä»£ç 
         ...
     }
     return singletonObject;
@@ -218,11 +218,11 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 
 ```
 
-¶ÔÉÏÊö´úÂë·ÖÎöÈçÏÂ£º
+å¯¹ä¸Šè¿°ä»£ç åˆ†æå¦‚ä¸‹ï¼š
 
-1. ´ÓÈı¼¶»º´æÖĞ»ñÈ¡£¬´ËÊ± `singletonObjects` Àï²¢Ã»ÓĞ `service1`£¬»ñÈ¡²»µ½£»
+1. ä»ä¸‰çº§ç¼“å­˜ä¸­è·å–ï¼Œæ­¤æ—¶ `singletonObjects` é‡Œå¹¶æ²¡æœ‰ `service1`ï¼Œè·å–ä¸åˆ°ï¼›
 
-2. ¼ÌĞø£¬ÅĞ¶Ï `service1` ÊÇ·ñÔÚ´´½¨ÖĞ£¬ÅĞ¶Ï·½Ê½ÈçÏÂ£º
+2. ç»§ç»­ï¼Œåˆ¤æ–­ `service1` æ˜¯å¦åœ¨åˆ›å»ºä¸­ï¼Œåˆ¤æ–­æ–¹å¼å¦‚ä¸‹ï¼š
 
    ```
    public boolean isSingletonCurrentlyInCreation(String beanName) {
@@ -231,21 +231,21 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
    
    ```
 
-   ÏÔÈ»£¬`singletonsCurrentlyInCreation` ÊÇÃ»ÓĞ `service1` µÄ£¬ÕâÀïÒ²·µ»Ø false.
+   æ˜¾ç„¶ï¼Œ`singletonsCurrentlyInCreation` æ˜¯æ²¡æœ‰ `service1` çš„ï¼Œè¿™é‡Œä¹Ÿè¿”å› false.
 
-`DefaultSingletonBeanRegistry#getSingleton(String, boolean)` ÔËĞĞµ½ÕâÀï¾Í·µ»ØÁË£¬Õâ¸ö·½·¨ÀïÏÂÃæµÄ·µ»ØÎÒÃÇ¾ÍÏÈ²»·ÖÎöÁË¡£
+`DefaultSingletonBeanRegistry#getSingleton(String, boolean)` è¿è¡Œåˆ°è¿™é‡Œå°±è¿”å›äº†ï¼Œè¿™ä¸ªæ–¹æ³•é‡Œä¸‹é¢çš„è¿”å›æˆ‘ä»¬å°±å…ˆä¸åˆ†æäº†ã€‚
 
 #### 2.3 `DefaultSingletonBeanRegistry#getSingleton(String, ObjectFactory<?>)`
 
-ÈÃÎÒÃÇ»Øµ½ `AbstractBeanFactory#doGetBean`£¬½Ó×Å·ÖÎö `getSingleton(beanName, () -> { ... })`£¬´úÂëÈçÏÂ£º
+è®©æˆ‘ä»¬å›åˆ° `AbstractBeanFactory#doGetBean`ï¼Œæ¥ç€åˆ†æ `getSingleton(beanName, () -> { ... })`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
     /**
-     * beanName£º´«ÈëµÄÊÇservice1
-     * singletonFactory£º´«ÈëµÄÊÇlambda±í´ïÊ½£¬ÖµÎª
+     * beanNameï¼šä¼ å…¥çš„æ˜¯service1
+     * singletonFactoryï¼šä¼ å…¥çš„æ˜¯lambdaè¡¨è¾¾å¼ï¼Œå€¼ä¸º
      *           () -> {
      *               try {
-     *                   // ÕâÀï¾ÍÊÇ´´½¨beanµÄÁ÷³Ì
+     *                   // è¿™é‡Œå°±æ˜¯åˆ›å»ºbeançš„æµç¨‹
      *                   return createBean(beanName, mbd, args);
      *               }
      *               catch (BeansException ex) {
@@ -257,14 +257,14 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
     public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
         Assert.notNull(beanName, "Bean name must not be null");
         synchronized (this.singletonObjects) {
-            // ÔÙ´ÎÅĞ¶ÏbeanÊÇ·ñÒÑ´æÔÚ
+            // å†æ¬¡åˆ¤æ–­beanæ˜¯å¦å·²å­˜åœ¨
             Object singletonObject = this.singletonObjects.get(beanName);
             if (singletonObject == null) {
-                // 1\. ÅĞ¶Ïµ±Ç°ÕıÔÚÊµÀı»¯µÄbeanÊÇ·ñ´æÔÚÕıÔÚ´´½¨ÖĞ
-                // Õâ¸ö·½·¨»ábeanNameÌí¼Óµ½ singletonsCurrentlyInCreation ÖĞ
+                // 1\. åˆ¤æ–­å½“å‰æ­£åœ¨å®ä¾‹åŒ–çš„beanæ˜¯å¦å­˜åœ¨æ­£åœ¨åˆ›å»ºä¸­
+                // è¿™ä¸ªæ–¹æ³•ä¼šbeanNameæ·»åŠ åˆ° singletonsCurrentlyInCreation ä¸­
                 beforeSingletonCreation(beanName);
                 try {
-                    // 2\. ÔÚÕâÀï½øĞĞbeanµÄ´´½¨
+                    // 2\. åœ¨è¿™é‡Œè¿›è¡Œbeançš„åˆ›å»º
                     singletonObject = singletonFactory.getObject();
                 }
                 catch (...) {
@@ -278,13 +278,13 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 
 ```
 
-°´ÕÕ´úÂëÖĞµÄ×¢ÊÍÄÚÈİ£¬ÎÒÃÇ·ÖÎöÖ÷Òª²½Öè£º
+æŒ‰ç…§ä»£ç ä¸­çš„æ³¨é‡Šå†…å®¹ï¼Œæˆ‘ä»¬åˆ†æä¸»è¦æ­¥éª¤ï¼š
 
-1. ÅĞ¶Ïµ±Ç°ÕıÔÚÊµÀı»¯µÄ bean ÊÇ·ñ´æÔÚÕıÔÚ´´½¨ÖĞ£¬¾ÍÊÇÅĞ¶Ïµ±Ç°¶ÔÏóÊÇ·ñÔÚ `singletonsCurrentlyInCreation` ÖĞ£¬Èç¹û´æÔÚÔòÅ×³öÒì³££¬²»´æÔÚÔòÌí¼Óµ½ `singletonsCurrentlyInCreation` ÖĞ£»
+1. åˆ¤æ–­å½“å‰æ­£åœ¨å®ä¾‹åŒ–çš„ bean æ˜¯å¦å­˜åœ¨æ­£åœ¨åˆ›å»ºä¸­ï¼Œå°±æ˜¯åˆ¤æ–­å½“å‰å¯¹è±¡æ˜¯å¦åœ¨ `singletonsCurrentlyInCreation` ä¸­ï¼Œå¦‚æœå­˜åœ¨åˆ™æŠ›å‡ºå¼‚å¸¸ï¼Œä¸å­˜åœ¨åˆ™æ·»åŠ åˆ° `singletonsCurrentlyInCreation` ä¸­ï¼›
 
-   ÔËĞĞÍêÖ®ºóÕâÒ»ĞĞ´úÂëºó£¬5 ´ó½á¹¹ÖĞµÄÄÚÈİÈçÏÂ£º
+   è¿è¡Œå®Œä¹‹åè¿™ä¸€è¡Œä»£ç åï¼Œ5 å¤§ç»“æ„ä¸­çš„å†…å®¹å¦‚ä¸‹ï¼š
 
-   | ½á¹¹                            | ÄÚÈİ     |
+   | ç»“æ„                            | å†…å®¹     |
       | ------------------------------- | -------- |
    | `singletonObjects`              |          |
    | `earlySingletonObjects`         |          |
@@ -292,12 +292,12 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
    | `singletonsCurrentlyInCreation` | service1 |
    | `earlyProxyReferences`          |          |
 
-2. ½øĞĞ bean µÄ´´½¨¹ı³Ì£¬`singletonFactory.getObject()` ÔËĞĞµÄÊµ¼ÊÉÏÊÇ´«ÈëµÄ lambda ±í´ïÊ½£º
+2. è¿›è¡Œ bean çš„åˆ›å»ºè¿‡ç¨‹ï¼Œ`singletonFactory.getObject()` è¿è¡Œçš„å®é™…ä¸Šæ˜¯ä¼ å…¥çš„ lambda è¡¨è¾¾å¼ï¼š
 
    ```
    () -> {
        try {
-           // Ö´ĞĞ´´½¨ Bean
+           // æ‰§è¡Œåˆ›å»º Bean
            return createBean(beanName, mbd, args);
        }
        catch (BeansException ex) {
@@ -308,11 +308,11 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
    
    ```
 
-   Ò²¾ÍÊÇ `AbstractAutowireCapableBeanFactory#createBean(String, RootBeanDefinition, Object[])`£¬Õâ ¸ö·½·¨ÊÇ½ÓÏÂÀ´·ÖÎöµÄÖØµã£»
+   ä¹Ÿå°±æ˜¯ `AbstractAutowireCapableBeanFactory#createBean(String, RootBeanDefinition, Object[])`ï¼Œè¿™ ä¸ªæ–¹æ³•æ˜¯æ¥ä¸‹æ¥åˆ†æçš„é‡ç‚¹ï¼›
 
 #### 2.4 `AbstractAutowireCapableBeanFactory#doCreateBean`
 
-´Ó´úÂëÉÏÀ´¿´£¬`AbstractAutowireCapableBeanFactory#createBean(String, RootBeanDefinition, Object[])` ²¢Ã»ÓĞ×öÊ²Ã´ÊµÖÊĞÔÄÚÈİ£¬ÎÒÃÇ¾ÍÖ±½ÓÀ´µ½ `AbstractAutowireCapableBeanFactory#doCreateBean` ÁË£¬ÕâÆäÖĞ¾­ÀúµÄÇ§É½ÍòË®ÈçÏÂ£º
+ä»ä»£ç ä¸Šæ¥çœ‹ï¼Œ`AbstractAutowireCapableBeanFactory#createBean(String, RootBeanDefinition, Object[])` å¹¶æ²¡æœ‰åšä»€ä¹ˆå®è´¨æ€§å†…å®¹ï¼Œæˆ‘ä»¬å°±ç›´æ¥æ¥åˆ° `AbstractAutowireCapableBeanFactory#doCreateBean` äº†ï¼Œè¿™å…¶ä¸­ç»å†çš„åƒå±±ä¸‡æ°´å¦‚ä¸‹ï¼š
 
 ```
 |-AbstractBeanFactory#getBean(String)
@@ -323,7 +323,7 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 
 ```
 
-`AbstractAutowireCapableBeanFactory#doCreateBean` ÄÚÈİÈçÏÂ£º
+`AbstractAutowireCapableBeanFactory#doCreateBean` å†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd, 
@@ -331,12 +331,12 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
     BeanWrapper instanceWrapper = null;
     if (instanceWrapper == null) {
-        // 1\. ÊµÀı»¯ Bean£¬µ÷ÓÃjava·´Éä½øĞĞÊµÀı»¯
+        // 1\. å®ä¾‹åŒ– Beanï¼Œè°ƒç”¨javaåå°„è¿›è¡Œå®ä¾‹åŒ–
         instanceWrapper = createBeanInstance(beanName, mbd, args);
     }
-    //beanÊµÀı
+    //beanå®ä¾‹
     final Object bean = instanceWrapper.getWrappedInstance();
-    //beanÀàĞÍ
+    //beanç±»å‹
     Class<?> beanType = instanceWrapper.getWrappedClass();
     if (beanType != NullBean.class) {
         mbd.resolvedTargetType = beanType;
@@ -345,8 +345,8 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
     synchronized (mbd.postProcessingLock) {
         if (!mbd.postProcessed) {
             try {
-                // µ÷ÓÃ AutowiredAnnotationBeanPostProcessor#postProcessMergedBeanDefinition ·½·¨
-                // 2\. »ñÈ¡ĞèÒª×¢ÈëµÄÊôĞÔÓë·½·¨£¨±ê×¢ @Autowired ×¢½â£©
+                // è°ƒç”¨ AutowiredAnnotationBeanPostProcessor#postProcessMergedBeanDefinition æ–¹æ³•
+                // 2\. è·å–éœ€è¦æ³¨å…¥çš„å±æ€§ä¸æ–¹æ³•ï¼ˆæ ‡æ³¨ @Autowired æ³¨è§£ï¼‰
                 applyMergedBeanDefinitionPostProcessors(mbd, beanType, beanName);
             }
             catch (Throwable ex) {
@@ -356,17 +356,17 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
             mbd.postProcessed = true;
         }
     }
-    // ½â¾öÑ­»·ÒÀÀµÎÊÌâ, ÊÇ·ñÔÊĞíÑ­»·ÒÀÀµ, allowCircularReferencesÄ¬ÈÏÎªtrue£¬¿ÉÒÔ¹Ø±Õ
+    // è§£å†³å¾ªç¯ä¾èµ–é—®é¢˜, æ˜¯å¦å…è®¸å¾ªç¯ä¾èµ–, allowCircularReferencesé»˜è®¤ä¸ºtrueï¼Œå¯ä»¥å…³é—­
     boolean earlySingletonExposure = (mbd.isSingleton() && this.allowCircularReferences &&
             isSingletonCurrentlyInCreation(beanName));
     if (earlySingletonExposure) {
-        // 3\. ½« bean Ìí¼Óµ½ singletonFactories
+        // 3\. å°† bean æ·»åŠ åˆ° singletonFactories
         addSingletonFactory(beanName, () -> getEarlyBeanReference(beanName, mbd, bean));
     }
 
     Object exposedObject = bean;
     try {
-        // 4\. ÊôĞÔ×¢Èë£¬·¢ÏÖĞèÒª×¢Èë service2£¬È»ºóÔÙµ÷ÓÃ getBean("service2")
+        // 4\. å±æ€§æ³¨å…¥ï¼Œå‘ç°éœ€è¦æ³¨å…¥ service2ï¼Œç„¶åå†è°ƒç”¨ getBean("service2")
         populateBean(beanName, mbd, instanceWrapper);
         ...
     }
@@ -377,25 +377,25 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
 ```
 
-Õâ¸ö·½·¨½øĞĞµÄ²½ÖèÈçÏÂ£º
+è¿™ä¸ªæ–¹æ³•è¿›è¡Œçš„æ­¥éª¤å¦‚ä¸‹ï¼š
 
-1. ÊµÀı»¯ Bean£¬µ÷ÓÃ java ·´Éä½øĞĞÊµÀı»¯£¬Õâ¸ö¾Í²»¶àËµÁË£¬ÊµÀı»¯ºóµÄ `service1` ÈçÏÂ£¬¿ÉÒÔ¿´µ½ `service2` »¹ÊÇ `null`£¨±íÃ÷Î´½øĞĞÊôĞÔ×¢Èë£©£º
+1. å®ä¾‹åŒ– Beanï¼Œè°ƒç”¨ java åå°„è¿›è¡Œå®ä¾‹åŒ–ï¼Œè¿™ä¸ªå°±ä¸å¤šè¯´äº†ï¼Œå®ä¾‹åŒ–åçš„ `service1` å¦‚ä¸‹ï¼Œå¯ä»¥çœ‹åˆ° `service2` è¿˜æ˜¯ `null`ï¼ˆè¡¨æ˜æœªè¿›è¡Œå±æ€§æ³¨å…¥ï¼‰ï¼š
 
    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8b2f5fdf0efd6beb7f62d4f35f5c5562b83.png)
 
-2. »ñÈ¡ĞèÒª×¢ÈëµÄÊôĞÔÓë·½·¨£¬**±ØĞëÔÚÔ­Ê¼¶ÔÏóÖĞ²ÅÄÜ»ñÈ¡µ½£¬´úÀí¶ÔÏóÊÇ»ñÈ¡²»µ½µÄ**£¬²éÕÒ `@Autowired` µÄ `beanPostProcessor` ÊÇ `AutowiredAnnotationBeanPostProcessor`£»
+2. è·å–éœ€è¦æ³¨å…¥çš„å±æ€§ä¸æ–¹æ³•ï¼Œ**å¿…é¡»åœ¨åŸå§‹å¯¹è±¡ä¸­æ‰èƒ½è·å–åˆ°ï¼Œä»£ç†å¯¹è±¡æ˜¯è·å–ä¸åˆ°çš„**ï¼ŒæŸ¥æ‰¾ `@Autowired` çš„ `beanPostProcessor` æ˜¯ `AutowiredAnnotationBeanPostProcessor`ï¼›
 
-3. ½« bean Ìí¼Óµ½ `singletonFactories` ÖĞ£¬Ìí¼Ó¹ı³ÌÈçÏÂ£º
+3. å°† bean æ·»åŠ åˆ° `singletonFactories` ä¸­ï¼Œæ·»åŠ è¿‡ç¨‹å¦‚ä¸‹ï¼š
 
    ```
    protected void addSingletonFactory(String beanName, ObjectFactory<?> singletonFactory) {
        Assert.notNull(singletonFactory, "Singleton factory must not be null");
        synchronized (this.singletonObjects) {
-           // Èç¹ûµ¥Àı³Øµ±ÖĞ²»´æÔÚ²Å»áadd
+           // å¦‚æœå•ä¾‹æ± å½“ä¸­ä¸å­˜åœ¨æ‰ä¼šadd
            if (!this.singletonObjects.containsKey(beanName)) {
-               // °Ñ¹¤³§¶ÔÏóputµ½singletonFactories
+               // æŠŠå·¥å‚å¯¹è±¡putåˆ°singletonFactories
                this.singletonFactories.put(beanName, singletonFactory);
-               // É¾³ı¶ş¼¶»º´æÖĞµÄ¶ÔÏó
+               // åˆ é™¤äºŒçº§ç¼“å­˜ä¸­çš„å¯¹è±¡
                this.earlySingletonObjects.remove(beanName);
                this.registeredSingletons.add(beanName);
            }
@@ -404,13 +404,13 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
    
    ```
 
-   ¼ÓÈëµÄ¶ÔÏóÎª
+   åŠ å…¥çš„å¯¹è±¡ä¸º
 
    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-3d9a56a0d655fe1e95d8857095fb46aa71a.png)
 
-   ´ËÊ±ÄÇ 5 ¸ö½á¹¹ÖĞµÄÄÚÈİÈçÏÂ£º
+   æ­¤æ—¶é‚£ 5 ä¸ªç»“æ„ä¸­çš„å†…å®¹å¦‚ä¸‹ï¼š
 
-   | ½á¹¹                            | ÄÚÈİ             |
+   | ç»“æ„                            | å†…å®¹             |
       | ------------------------------- | ---------------- |
    | `singletonObjects`              |                  |
    | `earlySingletonObjects`         |                  |
@@ -418,11 +418,11 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
    | `singletonsCurrentlyInCreation` | service1         |
    | `earlyProxyReferences`          |                  |
 
-   `lambda(service1)` Êµ¼ÊÄÚÈİÎª `() -> getEarlyBeanReference(beanName, mbd, bean)`£¬Õâ¸ö `lambda` ±í´ïÊ½Ëù×öµÄ¾ÍÊÇ½øĞĞ aop ²Ù×÷£¬¾ßÌåÄÚÈİµÈÔËĞĞµÄÊ±ºòÎÒÃÇÔÙ·ÖÎö¡£
+   `lambda(service1)` å®é™…å†…å®¹ä¸º `() -> getEarlyBeanReference(beanName, mbd, bean)`ï¼Œè¿™ä¸ª `lambda` è¡¨è¾¾å¼æ‰€åšçš„å°±æ˜¯è¿›è¡Œ aop æ“ä½œï¼Œå…·ä½“å†…å®¹ç­‰è¿è¡Œçš„æ—¶å€™æˆ‘ä»¬å†åˆ†æã€‚
 
-4. ÊôĞÔ×¢Èë£¬ÔÚµÚ 2 ²½ÖĞ£¬spring ÕÒµ½ `service1` ĞèÒª×¢Èë¶ÔÏóÓĞ `service2`£¬ÕâÀï»áÔÙµ÷ÓÃ `beanFactory.getBean("service2")` ½øÈë `service2` µÄÉúÃüÖÜÆÚ£¬ÕâÓÖ»Øµ½ÁË `AbstractBeanFactory#getBean(String)` ·½·¨¡£
+4. å±æ€§æ³¨å…¥ï¼Œåœ¨ç¬¬ 2 æ­¥ä¸­ï¼Œspring æ‰¾åˆ° `service1` éœ€è¦æ³¨å…¥å¯¹è±¡æœ‰ `service2`ï¼Œè¿™é‡Œä¼šå†è°ƒç”¨ `beanFactory.getBean("service2")` è¿›å…¥ `service2` çš„ç”Ÿå‘½å‘¨æœŸï¼Œè¿™åˆå›åˆ°äº† `AbstractBeanFactory#getBean(String)` æ–¹æ³•ã€‚
 
-   ´Ó `populateBean(xxx)` µ½ `getBean(xxx)` µÄ²½ÖèÏàµ±¶à£¬µ÷ÓÃÁ´ÈçÏÂ£º
+   ä» `populateBean(xxx)` åˆ° `getBean(xxx)` çš„æ­¥éª¤ç›¸å½“å¤šï¼Œè°ƒç”¨é“¾å¦‚ä¸‹ï¼š
 
    ```
    |-AbstractBeanFactory#getBean(String)
@@ -430,7 +430,7 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
      |-DefaultSingletonBeanRegistry#getSingleton(String, ObjectFactory<?>)
       |-AbstractAutowireCapableBeanFactory#createBean(String, RootBeanDefinition, Object[])
        |-AbstractAutowireCapableBeanFactory#doCreateBean
-        // ÕâÀï½øĞĞÒÀÀµ×¢Èë
+        // è¿™é‡Œè¿›è¡Œä¾èµ–æ³¨å…¥
         |-AbstractAutowireCapableBeanFactory#populateBean
          |-AutowiredAnnotationBeanPostProcessor#postProcessProperties
           |-InjectionMetadata#inject
@@ -442,7 +442,7 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
    
    ```
 
-   ¿´Ò»ÑÛ `DependencyDescriptor#resolveCandidate`£¬µ÷ÓÃµÄÕıÊÇ `beanFactory.getBean(String)` ·½·¨£º
+   çœ‹ä¸€çœ¼ `DependencyDescriptor#resolveCandidate`ï¼Œè°ƒç”¨çš„æ­£æ˜¯ `beanFactory.getBean(String)` æ–¹æ³•ï¼š
 
    ```
    public Object resolveCandidate(String beanName, Class<?> requiredType, BeanFactory beanFactory)
@@ -452,11 +452,11 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
    
    ```
 
-µ½ÁËÕâÀï£¬`service1` µÄ»ñÈ¡Á÷³Ì¾ÍÏÈÍ£Ò»ÏÂ£¬ÒòÎª `service1` Òª×¢Èë `service2`£¬½ÓÏÂÀ´¾Í¿ªÊ¼»ñÈ¡ `service2` µÄÁ÷³Ì¡£
+åˆ°äº†è¿™é‡Œï¼Œ`service1` çš„è·å–æµç¨‹å°±å…ˆåœä¸€ä¸‹ï¼Œå› ä¸º `service1` è¦æ³¨å…¥ `service2`ï¼Œæ¥ä¸‹æ¥å°±å¼€å§‹è·å– `service2` çš„æµç¨‹ã€‚
 
-±¾Ğ¡½Ú½áÊøÊ±£¬5 ´ó½á¹¹ÖĞµÄÄÚÈİÈçÏÂ£º
+æœ¬å°èŠ‚ç»“æŸæ—¶ï¼Œ5 å¤§ç»“æ„ä¸­çš„å†…å®¹å¦‚ä¸‹ï¼š
 
-| ½á¹¹                            | ÄÚÈİ             |
+| ç»“æ„                            | å†…å®¹             |
 | ------------------------------- | ---------------- |
 | `singletonObjects`              |                  |
 | `earlySingletonObjects`         |                  |
@@ -464,23 +464,23 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 | `singletonsCurrentlyInCreation` | service1         |
 | `earlyProxyReferences`          |                  |
 
-### 3\. µÚ¶ş´Îµ÷ÓÃ `AbstractBeanFactory#getBean(String)`£º»ñÈ¡ `service2`
+### 3\. ç¬¬äºŒæ¬¡è°ƒç”¨ `AbstractBeanFactory#getBean(String)`ï¼šè·å– `service2`
 
 #### 3.1 `AbstractBeanFactory#doGetBean`
 
-ÕâÒ»²½¸ú»ñÈ¡ `service1` µÄÁ÷³Ì»ù±¾Ò»ÖÂ£¬²»Í¬µÄÊÇ `beanName` ÊÇ `service2`£¬²»ÔÙ·ÖÎö¡£
+è¿™ä¸€æ­¥è·Ÿè·å– `service1` çš„æµç¨‹åŸºæœ¬ä¸€è‡´ï¼Œä¸åŒçš„æ˜¯ `beanName` æ˜¯ `service2`ï¼Œä¸å†åˆ†æã€‚
 
 #### 3.2 `DefaultSingletonBeanRegistry#getSingleton(String, boolean)`
 
-ÕâÒ»²½¸ú»ñÈ¡ `service1` µÄÁ÷³Ì»ù±¾Ò»ÖÂ£¬²»Í¬µÄÊÇ `beanName` ÊÇ `service2`£¬²»ÔÙ·ÖÎö¡£
+è¿™ä¸€æ­¥è·Ÿè·å– `service1` çš„æµç¨‹åŸºæœ¬ä¸€è‡´ï¼Œä¸åŒçš„æ˜¯ `beanName` æ˜¯ `service2`ï¼Œä¸å†åˆ†æã€‚
 
 #### 3.3 `DefaultSingletonBeanRegistry#getSingleton(String, ObjectFactory<?>)`
 
-ÕâÒ»²½¸ú»ñÈ¡ `service1` µÄÁ÷³Ì»ù±¾Ò»ÖÂ£¬²»Í¬µÄÊÇ `beanName` ÊÇ `service2`£¬¾ßÌåÄÚÈİ²»ÔÙ·ÖÎö¡£
+è¿™ä¸€æ­¥è·Ÿè·å– `service1` çš„æµç¨‹åŸºæœ¬ä¸€è‡´ï¼Œä¸åŒçš„æ˜¯ `beanName` æ˜¯ `service2`ï¼Œå…·ä½“å†…å®¹ä¸å†åˆ†æã€‚
 
-`service2` »áÔÚÕâÒ»²½¼ÓÈë µ½ `singletonsCurrentlyInCreation` ½á¹¹ÖĞ£¬ÕâÒ»²½Ö®ºó£¬5 ´ó½á¹¹ÖĞµÄÄÚÈİÈçÏÂ£º
+`service2` ä¼šåœ¨è¿™ä¸€æ­¥åŠ å…¥ åˆ° `singletonsCurrentlyInCreation` ç»“æ„ä¸­ï¼Œè¿™ä¸€æ­¥ä¹‹åï¼Œ5 å¤§ç»“æ„ä¸­çš„å†…å®¹å¦‚ä¸‹ï¼š
 
-| ½á¹¹                            | ÄÚÈİ               |
+| ç»“æ„                            | å†…å®¹               |
 | ------------------------------- | ------------------ |
 | `singletonObjects`              |                    |
 | `earlySingletonObjects`         |                    |
@@ -490,19 +490,19 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
 #### 3.4 `AbstractAutowireCapableBeanFactory#doCreateBean`
 
-ÕâÒ»²½¸ú»ñÈ¡ `service1` µÄÁ÷³Ì»ù±¾Ò»ÖÂ£¬ËµÃ÷ÈçÏÂ£º
+è¿™ä¸€æ­¥è·Ÿè·å– `service1` çš„æµç¨‹åŸºæœ¬ä¸€è‡´ï¼Œè¯´æ˜å¦‚ä¸‹ï¼š
 
-1. ¶ÔÏó´´½¨£¬ÕâÀï»á´´½¨ `service2`£¬´´½¨Íê³ÉºóµÄ¶ÔÏóÈçÏÂ£º
+1. å¯¹è±¡åˆ›å»ºï¼Œè¿™é‡Œä¼šåˆ›å»º `service2`ï¼Œåˆ›å»ºå®Œæˆåçš„å¯¹è±¡å¦‚ä¸‹ï¼š
 
    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-393811afa91cc1ff696b02ce6d683c97640.png)
 
-   Í¬ÑùµÄ£¬`service2` ÖĞµÄÊôĞÔ `service1` Ò²Îª `null`£»
+   åŒæ ·çš„ï¼Œ`service2` ä¸­çš„å±æ€§ `service1` ä¹Ÿä¸º `null`ï¼›
 
-2. »ñÈ¡ĞèÒª×¢ÈëµÄÊôĞÔÓë·½·¨£¬`service2` µÄÊôĞÔ `service1` »á±»ÕÒµ½£¬ÒòÎª¸ÃÊôĞÔ±ê×¢ÓĞ `@Autowired` ×¢½â£»
+2. è·å–éœ€è¦æ³¨å…¥çš„å±æ€§ä¸æ–¹æ³•ï¼Œ`service2` çš„å±æ€§ `service1` ä¼šè¢«æ‰¾åˆ°ï¼Œå› ä¸ºè¯¥å±æ€§æ ‡æ³¨æœ‰ `@Autowired` æ³¨è§£ï¼›
 
-3. ½« bean Ìí¼Óµ½ `singletonFactories` ÖĞ£¬ÕâÒ»²½Ö®ºó£¬5 ¸ö½á¹¹ÖĞµÄÄÚÈİÈçÏÂ£º
+3. å°† bean æ·»åŠ åˆ° `singletonFactories` ä¸­ï¼Œè¿™ä¸€æ­¥ä¹‹åï¼Œ5 ä¸ªç»“æ„ä¸­çš„å†…å®¹å¦‚ä¸‹ï¼š
 
-   | ½á¹¹                            | ÄÚÈİ                               |
+   | ç»“æ„                            | å†…å®¹                               |
       | ------------------------------- | ---------------------------------- |
    | `singletonObjects`              |                                    |
    | `earlySingletonObjects`         |                                    |
@@ -510,15 +510,15 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
    | `singletonsCurrentlyInCreation` | service1, service2                 |
    | `earlyProxyReferences`          |                                    |
 
-   ÕâÒ»²½µÄ¹Ø¼üÔÚÓÚ£¬`service2` Ìí¼Óµ½Èı¼¶»º´æÖĞÁË£»
+   è¿™ä¸€æ­¥çš„å…³é”®åœ¨äºï¼Œ`service2` æ·»åŠ åˆ°ä¸‰çº§ç¼“å­˜ä¸­äº†ï¼›
 
-4. ÊôĞÔ×¢Èë£¬ÔÚµÚ 2 ²½ÖĞ£¬spring ÕÒµ½ `service2` ĞèÒª×¢Èë¶ÔÏóÓĞ `service1`£¬ÕâÀï»áÔÙµ÷ÓÃ `getBean("service2")` ·½·¨£¬ÓÖ»Øµ½ÁË `AbstractBeanFactory#getBean(String)` ·½·¨ÁË¡£
+4. å±æ€§æ³¨å…¥ï¼Œåœ¨ç¬¬ 2 æ­¥ä¸­ï¼Œspring æ‰¾åˆ° `service2` éœ€è¦æ³¨å…¥å¯¹è±¡æœ‰ `service1`ï¼Œè¿™é‡Œä¼šå†è°ƒç”¨ `getBean("service2")` æ–¹æ³•ï¼Œåˆå›åˆ°äº† `AbstractBeanFactory#getBean(String)` æ–¹æ³•äº†ã€‚
 
-µ½ÁËÕâÀï£¬`service2` µÄ»ñÈ¡Á÷³ÌÒ²ÒªÏÈÍ£Ò»ÏÂÁË£¬ÒòÎª `service2` Òª×¢Èë `service1`£¬½ÓÏÂÀ´ÓÖÒª¿ªÊ¼»ñÈ¡ `service1` µÄÁ÷³Ì¡£
+åˆ°äº†è¿™é‡Œï¼Œ`service2` çš„è·å–æµç¨‹ä¹Ÿè¦å…ˆåœä¸€ä¸‹äº†ï¼Œå› ä¸º `service2` è¦æ³¨å…¥ `service1`ï¼Œæ¥ä¸‹æ¥åˆè¦å¼€å§‹è·å– `service1` çš„æµç¨‹ã€‚
 
-±¾Ğ¡½Ú½áÊøÊ±£¬5 ¸ö½á¹¹ÖĞµÄÄÚÈİÈçÏÂ£º
+æœ¬å°èŠ‚ç»“æŸæ—¶ï¼Œ5 ä¸ªç»“æ„ä¸­çš„å†…å®¹å¦‚ä¸‹ï¼š
 
-| ½á¹¹                            | ÄÚÈİ                               |
+| ç»“æ„                            | å†…å®¹                               |
 | ------------------------------- | ---------------------------------- |
 | `singletonObjects`              |                                    |
 | `earlySingletonObjects`         |                                    |
@@ -526,53 +526,53 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 | `singletonsCurrentlyInCreation` | service1, service2                 |
 | `earlyProxyReferences`          |                                    |
 
-### 4\. µÚÈı´Îµ÷ÓÃ `AbstractBeanFactory#getBean(String)`£ºÔÙ´Î»ñÈ¡ `service1`
+### 4\. ç¬¬ä¸‰æ¬¡è°ƒç”¨ `AbstractBeanFactory#getBean(String)`ï¼šå†æ¬¡è·å– `service1`
 
 #### 4.1 `AbstractBeanFactory#doGetBean`
 
-`AbstractBeanFactory#doGetBean` ´úÂëÈçÏÂ£º
+`AbstractBeanFactory#doGetBean` ä»£ç å¦‚ä¸‹ï¼š
 
 ```
     protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredType,
             @Nullable final Object[] args, boolean typeCheckOnly) throws BeansException {
 
         ...
-        // 1\. ¼ì²éÊÇ·ñÒÑ³õÊ¼»¯£¬ÕâÀï»á°ÑbeanName·ÅÈësingletonsCurrentlyInCreationÖĞ
+        // 1\. æ£€æŸ¥æ˜¯å¦å·²åˆå§‹åŒ–ï¼Œè¿™é‡Œä¼šæŠŠbeanNameæ”¾å…¥singletonsCurrentlyInCreationä¸­
         Object sharedInstance = getSingleton(beanName);
         ...
 }
 
 ```
 
-ÔÚÔËĞĞµ½ `Object sharedInstance = getSingleton(beanName)` Ç°£¬`AbstractBeanFactory#doGetBean` µÄÔËĞĞÁ÷³ÌÓëÇ°ÃæÁ½Ğ¡½ÚÎŞÇø±ğ£¬ÔÚ `Object sharedInstance = getSingleton(beanName)` Àï¾ÍÓĞÁË±ä»¯£¬½ÓÏÂÀ´ÎÒÃÇÀ´¿´¿´ `getSingleton(beanName)` µÄÖ´ĞĞ¡£
+åœ¨è¿è¡Œåˆ° `Object sharedInstance = getSingleton(beanName)` å‰ï¼Œ`AbstractBeanFactory#doGetBean` çš„è¿è¡Œæµç¨‹ä¸å‰é¢ä¸¤å°èŠ‚æ— åŒºåˆ«ï¼Œåœ¨ `Object sharedInstance = getSingleton(beanName)` é‡Œå°±æœ‰äº†å˜åŒ–ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬æ¥çœ‹çœ‹ `getSingleton(beanName)` çš„æ‰§è¡Œã€‚
 
 #### 4.2 `DefaultSingletonBeanRegistry#getSingleton(String, boolean)`
 
 ```
 /*
- * beanName: ´«ÈëµÄÖµÎª service1
- * allowEarlyReference£º´«ÈëµÄÖµÎª true
+ * beanName: ä¼ å…¥çš„å€¼ä¸º service1
+ * allowEarlyReferenceï¼šä¼ å…¥çš„å€¼ä¸º true
  */
 protected Object getSingleton(String beanName, boolean allowEarlyReference) {
-    // 1\. ´ÓÒ»¼¶»º´æÖĞ»ñÈ¡£¬ÕâÀïÊÇ»ñÈ¡²»µ½
+    // 1\. ä»ä¸€çº§ç¼“å­˜ä¸­è·å–ï¼Œè¿™é‡Œæ˜¯è·å–ä¸åˆ°
     Object singletonObject = this.singletonObjects.get(beanName);
-    // 2\. isSingletonCurrentlyInCreation(...) ÅĞ¶Ïservice1ÊÇ·ñÔÚ´´½¨ÖĞ£¬·µ»Ø true
+    // 2\. isSingletonCurrentlyInCreation(...) åˆ¤æ–­service1æ˜¯å¦åœ¨åˆ›å»ºä¸­ï¼Œè¿”å› true
     if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
             synchronized (this.singletonObjects) {
-                // 3\. ´Ó¶ş¼¶»º´æÖĞ»ñÈ¡£¬ÕâÀïÒ²»ñÈ¡²»µ½
+                // 3\. ä»äºŒçº§ç¼“å­˜ä¸­è·å–ï¼Œè¿™é‡Œä¹Ÿè·å–ä¸åˆ°
                 singletonObject = this.earlySingletonObjects.get(beanName);
-                // 4\. ´«ÈëµÄallowEarlyReferenceÊÇtrue£¬¼ÌĞøÖ´ĞĞÀïÃæµÄÄÚÈİ
+                // 4\. ä¼ å…¥çš„allowEarlyReferenceæ˜¯trueï¼Œç»§ç»­æ‰§è¡Œé‡Œé¢çš„å†…å®¹
                 if (singletonObject == null && allowEarlyReference) {
-                    // 5\. ´ÓÈı¼¶»º´æÖĞ»ñÈ¡£¬ÄÜ»ñÈ¡µ½
+                    // 5\. ä»ä¸‰çº§ç¼“å­˜ä¸­è·å–ï¼Œèƒ½è·å–åˆ°
                     ObjectFactory<?> singletonFactory = this.singletonFactories.get(beanName);
                     if (singletonFactory != null) {
-                        // 6\. µ÷ÓÃ singletonFactory.getObject()
-                        // ×îÖÕµ÷ÓÃµÄÊÇ AbstractAutowireCapableBeanFactory.getEarlyBeanReference ·½·¨
+                        // 6\. è°ƒç”¨ singletonFactory.getObject()
+                        // æœ€ç»ˆè°ƒç”¨çš„æ˜¯ AbstractAutowireCapableBeanFactory.getEarlyBeanReference æ–¹æ³•
                         singletonObject = singletonFactory.getObject();
-                        // 7\. ´¦Àí»º´æ
-                        // ·Åµ½¶ş¼¶»º´æÖĞ
+                        // 7\. å¤„ç†ç¼“å­˜
+                        // æ”¾åˆ°äºŒçº§ç¼“å­˜ä¸­
                         this.earlySingletonObjects.put(beanName, singletonObject);
-                        // ´ÓÈı¼¶»º´æÖĞÇå³ı
+                        // ä»ä¸‰çº§ç¼“å­˜ä¸­æ¸…é™¤
                         this.singletonFactories.remove(beanName);
                     }
                 }
@@ -583,9 +583,9 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 
 ```
 
-ÔÚ·ÖÎö´úÂëÇ°£¬ÏÈÀ´¿´¿´´ËÊ± 5 ´ó½á¹¹ÖĞµÄÄÚÈİ£º
+åœ¨åˆ†æä»£ç å‰ï¼Œå…ˆæ¥çœ‹çœ‹æ­¤æ—¶ 5 å¤§ç»“æ„ä¸­çš„å†…å®¹ï¼š
 
-| ½á¹¹                            | ÄÚÈİ                               |
+| ç»“æ„                            | å†…å®¹                               |
 | ------------------------------- | ---------------------------------- |
 | `singletonObjects`              |                                    |
 | `earlySingletonObjects`         |                                    |
@@ -593,21 +593,21 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 | `singletonsCurrentlyInCreation` | service1, service2                 |
 | `earlyProxyReferences`          |                                    |
 
-¶ÔÕÕ×ÅÉÏÃæµÄÄÚÈİ£¬·ÖÎöÈçÏÂ£º
+å¯¹ç…§ç€ä¸Šé¢çš„å†…å®¹ï¼Œåˆ†æå¦‚ä¸‹ï¼š
 
-1. ´ÓÒ»¼¶»º´æÖĞ»ñÈ¡£¬¶ÔÕÕ×Å 5 ¸ö½á¹¹ÖĞµÄÄÚÈİ£¬»ñÈ¡²»µ½£¬·µ»Ø `null`;
+1. ä»ä¸€çº§ç¼“å­˜ä¸­è·å–ï¼Œå¯¹ç…§ç€ 5 ä¸ªç»“æ„ä¸­çš„å†…å®¹ï¼Œè·å–ä¸åˆ°ï¼Œè¿”å› `null`;
 
-2. `isSingletonCurrentlyInCreation(...)` ÅĞ¶Ï `service1` ÊÇ·ñÔÚ´´½¨ÖĞ£¬¶ÔÕÕ×Å 5 ¸ö½á¹¹ÖĞµÄÄÚÈİ£¬`service1` ÔÚ `singletonsCurrentlyInCreation` ÖĞ£¬·µ»Ø true£¬¼ÌĞøÏÂÃæµÄÁ÷³Ì£¬**ÕâÊÇÓëµÚÒ»´Î»ñÈ¡ `service1` µÄ²»Í¬Ö®´¦**£»
+2. `isSingletonCurrentlyInCreation(...)` åˆ¤æ–­ `service1` æ˜¯å¦åœ¨åˆ›å»ºä¸­ï¼Œå¯¹ç…§ç€ 5 ä¸ªç»“æ„ä¸­çš„å†…å®¹ï¼Œ`service1` åœ¨ `singletonsCurrentlyInCreation` ä¸­ï¼Œè¿”å› trueï¼Œç»§ç»­ä¸‹é¢çš„æµç¨‹ï¼Œ**è¿™æ˜¯ä¸ç¬¬ä¸€æ¬¡è·å– `service1` çš„ä¸åŒä¹‹å¤„**ï¼›
 
-3. ¼ÌĞø´Ó¶ş¼¶»º´æÖĞ»ñÈ¡£¬¶ÔÕÕ×Å 5 ¸ö½á¹¹ÖĞµÄÄÚÈİ£¬`service1` ²»ÔÚ `earlySingletonObjects`£¬ÒÀÈ»·µ»Ø `null`£»
+3. ç»§ç»­ä»äºŒçº§ç¼“å­˜ä¸­è·å–ï¼Œå¯¹ç…§ç€ 5 ä¸ªç»“æ„ä¸­çš„å†…å®¹ï¼Œ`service1` ä¸åœ¨ `earlySingletonObjects`ï¼Œä¾ç„¶è¿”å› `null`ï¼›
 
-4. `allowEarlyReference` ÊÇ´«ÈëµÄ²ÎÊı£¬Îª `true`£¬¼ÌĞøÖ´ĞĞ ÏÂÃæµÄ´úÂë£»
+4. `allowEarlyReference` æ˜¯ä¼ å…¥çš„å‚æ•°ï¼Œä¸º `true`ï¼Œç»§ç»­æ‰§è¡Œ ä¸‹é¢çš„ä»£ç ï¼›
 
-5. ¼ÌĞø´Ó´ÓÈı¼¶»º´æÖĞ»ñÈ¡£¬¶ÔÕÕ×Å 5 ¸ö½á¹¹ÖĞµÄÄÚÈİ£¬`service1` ÔÚ `singletonFactories` ÖĞ£¬ÕâÀïÄÜ»ñÈ¡µ½£¬·µ»ØµÄ½á¹ûÈçÏÂ£º
+5. ç»§ç»­ä»ä»ä¸‰çº§ç¼“å­˜ä¸­è·å–ï¼Œå¯¹ç…§ç€ 5 ä¸ªç»“æ„ä¸­çš„å†…å®¹ï¼Œ`service1` åœ¨ `singletonFactories` ä¸­ï¼Œè¿™é‡Œèƒ½è·å–åˆ°ï¼Œè¿”å›çš„ç»“æœå¦‚ä¸‹ï¼š
 
    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-57677e20855580e5bc2f5163d87ecfda7d2.png)
 
-6. µ÷ÓÃ `singletonFactory.getObject()` ·½·¨£¬µ±³õÎÒÃÇ´«Èë `singletonFactories` µÄ»¹ÊÇ¸ö lambda ±í´ïÊ½£º`() -> getEarlyBeanReference(beanName, mbd, bean)`£¬µ÷ÓÃ `singletonFactory.getObject()` ×îÖÕµ÷ÓÃµÄ¾ÍÊÇ `AbstractAutowireCapableBeanFactory#getEarlyBeanReference`£º
+6. è°ƒç”¨ `singletonFactory.getObject()` æ–¹æ³•ï¼Œå½“åˆæˆ‘ä»¬ä¼ å…¥ `singletonFactories` çš„è¿˜æ˜¯ä¸ª lambda è¡¨è¾¾å¼ï¼š`() -> getEarlyBeanReference(beanName, mbd, bean)`ï¼Œè°ƒç”¨ `singletonFactory.getObject()` æœ€ç»ˆè°ƒç”¨çš„å°±æ˜¯ `AbstractAutowireCapableBeanFactory#getEarlyBeanReference`ï¼š
 
    ```
    protected Object getEarlyBeanReference(String beanName, RootBeanDefinition mbd, Object bean) {
@@ -615,10 +615,10 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
        if (!mbd.isSynthetic() && hasInstantiationAwareBeanPostProcessors()) {
            for (BeanPostProcessor bp : getBeanPostProcessors()) {
                if (bp instanceof SmartInstantiationAwareBeanPostProcessor) {
-                   // µ÷ÓÃºóÖÃ´¦ÀíÆ÷£¬ÕâÀïÍê³ÉÁËaop²Ù×÷
+                   // è°ƒç”¨åç½®å¤„ç†å™¨ï¼Œè¿™é‡Œå®Œæˆäº†aopæ“ä½œ
                    SmartInstantiationAwareBeanPostProcessor ibp = 
                          (SmartInstantiationAwareBeanPostProcessor) bp;
-                   // µ÷ÓÃ `AbstractAutoProxyCreator#getEarlyBeanReference`£¬ÌáÇ°½øĞĞ aop
+                   // è°ƒç”¨ `AbstractAutoProxyCreator#getEarlyBeanReference`ï¼Œæå‰è¿›è¡Œ aop
                    exposedObject = ibp.getEarlyBeanReference(exposedObject, beanName);
                }
            }
@@ -628,21 +628,21 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
    
    ```
 
-   ÎÒÃÇ¸ú½ø `AbstractAutoProxyCreator#getEarlyBeanReference` ·½·¨£º
+   æˆ‘ä»¬è·Ÿè¿› `AbstractAutoProxyCreator#getEarlyBeanReference` æ–¹æ³•ï¼š
 
    ```
    public Object getEarlyBeanReference(Object bean, String beanName) {
        Object cacheKey = getCacheKey(bean.getClass(), beanName);
        this.earlyProxyReferences.put(cacheKey, bean);
-       // ÕâÀïÉú³É´úÀí¶ÔÏó
+       // è¿™é‡Œç”Ÿæˆä»£ç†å¯¹è±¡
        return wrapIfNecessary(bean, beanName, cacheKey);
    }
    
    ```
 
-   ¹ØÓÚ aop µÄÁ÷³Ì£¬¿É²Î¿¼ [spring aop Ö® AnnotationAwareAspectJAutoProxyCreator ·ÖÎö£¨ÏÂ£©](https://my.oschina.net/funcy/blog/4687961)£¬ÕâÀï¾Í²»ÔÙ·ÖÎöÁË¡£Ö´ĞĞÍê `AbstractAutoProxyCreator#getEarlyBeanReference` Ö®ºó£¬5 ¸ö½á¹¹ÖĞµÄÄÚÈİÈçÏÂ£º
+   å…³äº aop çš„æµç¨‹ï¼Œå¯å‚è€ƒ [spring aop ä¹‹ AnnotationAwareAspectJAutoProxyCreator åˆ†æï¼ˆä¸‹ï¼‰](https://my.oschina.net/funcy/blog/4687961)ï¼Œè¿™é‡Œå°±ä¸å†åˆ†æäº†ã€‚æ‰§è¡Œå®Œ `AbstractAutoProxyCreator#getEarlyBeanReference` ä¹‹åï¼Œ5 ä¸ªç»“æ„ä¸­çš„å†…å®¹å¦‚ä¸‹ï¼š
 
-   | ½á¹¹                            | ÄÚÈİ                               |
+   | ç»“æ„                            | å†…å®¹                               |
       | ------------------------------- | ---------------------------------- |
    | `singletonObjects`              |                                    |
    | `earlySingletonObjects`         |                                    |
@@ -650,17 +650,17 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
    | `singletonsCurrentlyInCreation` | service1, service2                 |
    | `earlyProxyReferences`          | service1                           |
 
-   ÈÃÎÒÃÇÔÙ»Øµ½ `getSingleton` ·½·¨£¬Ö´ĞĞÍê `singletonFactory.getObject()` ºó£¬µÃµ½µÄ `singletonObject` Îª
+   è®©æˆ‘ä»¬å†å›åˆ° `getSingleton` æ–¹æ³•ï¼Œæ‰§è¡Œå®Œ `singletonFactory.getObject()` åï¼Œå¾—åˆ°çš„ `singletonObject` ä¸º
 
    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-cf72a8ff3d91c3d2a4e300741ba7f0268e6.png)
 
-   ÕâÊÇÒ»¸ö´úÀí¶ÔÏó£¬²¢ÇÒ `service2` Îª `null`¡£
+   è¿™æ˜¯ä¸€ä¸ªä»£ç†å¯¹è±¡ï¼Œå¹¶ä¸” `service2` ä¸º `null`ã€‚
 
-7. ½ÓÏÂÀ´¾ÍÊÇ´¦Àí»º´æÁË£¬Ò»Ğ© map µÄ put Óë remove ²Ù×÷£¬¾Í²»¶àËµÁË¡£
+7. æ¥ä¸‹æ¥å°±æ˜¯å¤„ç†ç¼“å­˜äº†ï¼Œä¸€äº› map çš„ put ä¸ remove æ“ä½œï¼Œå°±ä¸å¤šè¯´äº†ã€‚
 
-`DefaultSingletonBeanRegistry#getSingleton(String, boolean)` ·½·¨Ö´ĞĞÍê³Éºó£¬5 ¸ö½á¹¹ÖĞµÄÄÚÈİÈçÏÂ£º
+`DefaultSingletonBeanRegistry#getSingleton(String, boolean)` æ–¹æ³•æ‰§è¡Œå®Œæˆåï¼Œ5 ä¸ªç»“æ„ä¸­çš„å†…å®¹å¦‚ä¸‹ï¼š
 
-| ½á¹¹                            | ÄÚÈİ               |
+| ç»“æ„                            | å†…å®¹               |
 | ------------------------------- | ------------------ |
 | `singletonObjects`              |                    |
 | `earlySingletonObjects`         | service1           |
@@ -668,53 +668,53 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 | `singletonsCurrentlyInCreation` | service1, service2 |
 | `earlyProxyReferences`          | service1           |
 
-#### 4.3 ÔÙ´Î»Øµ½ `AbstractBeanFactory#doGetBean`
+#### 4.3 å†æ¬¡å›åˆ° `AbstractBeanFactory#doGetBean`
 
-Ö´ĞĞÍê `DefaultSingletonBeanRegistry#getSingleton(String, boolean)` ºó£¬ÎÒÃÇÔÙ»Øµ½ `AbstractBeanFactory#doGetBean`£º
+æ‰§è¡Œå®Œ `DefaultSingletonBeanRegistry#getSingleton(String, boolean)` åï¼Œæˆ‘ä»¬å†å›åˆ° `AbstractBeanFactory#doGetBean`ï¼š
 
 ```
 protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredType,
         @Nullable final Object[] args, boolean typeCheckOnly) throws BeansException {
     ...
 
-    // ¼ì²éÊÇ·ñÒÑ³õÊ¼»¯
+    // æ£€æŸ¥æ˜¯å¦å·²åˆå§‹åŒ–
     Object sharedInstance = getSingleton(beanName);
 
-    // 1\. Õâ´ÎÄÜ»ñÈ¡µ½¶ÔÏó£¬if ÀïÃæµÄ´úÂë»áÖ´ĞĞ
+    // 1\. è¿™æ¬¡èƒ½è·å–åˆ°å¯¹è±¡ï¼Œif é‡Œé¢çš„ä»£ç ä¼šæ‰§è¡Œ
     if (sharedInstance != null && args == null) {
-        // 2\. ÕâÀïÈç¹ûÊÇÆÕÍ¨Bean µÄ»°£¬Ö±½Ó·µ»Ø£¬Èç¹ûÊÇ FactoryBean µÄ»°£¬·µ»ØËü´´½¨µÄÄÇ¸öÊµÀı¶ÔÏó
-        // ÕâÀïµÄbeanÊÇservice1µÄ´úÀí¶ÔÏó
+        // 2\. è¿™é‡Œå¦‚æœæ˜¯æ™®é€šBean çš„è¯ï¼Œç›´æ¥è¿”å›ï¼Œå¦‚æœæ˜¯ FactoryBean çš„è¯ï¼Œè¿”å›å®ƒåˆ›å»ºçš„é‚£ä¸ªå®ä¾‹å¯¹è±¡
+        // è¿™é‡Œçš„beanæ˜¯service1çš„ä»£ç†å¯¹è±¡
         bean = getObjectForBeanInstance(sharedInstance, name, beanName, null);
     } else {
-        // ÕâÀïµÄ´úÂë²»»áÖ´ĞĞµ½£¬¾Í²»·ÖÎöÁË
+        // è¿™é‡Œçš„ä»£ç ä¸ä¼šæ‰§è¡Œåˆ°ï¼Œå°±ä¸åˆ†æäº†
         ...
     }
 
-    // ´¦ÀíbeanµÄ×ª»»²Ù×÷£¬ÕâÀï·µ»Øfalse£¬²»»áÖ´ĞĞµ½
+    // å¤„ç†beançš„è½¬æ¢æ“ä½œï¼Œè¿™é‡Œè¿”å›falseï¼Œä¸ä¼šæ‰§è¡Œåˆ°
     if (requiredType != null && !requiredType.isInstance(bean)) {
     ...
     }
 
-    // 3\. ·µ»Ø´Ó`getSingleton(beanName)`µÃµ½µÄ¶ÔÏó
+    // 3\. è¿”å›ä»`getSingleton(beanName)`å¾—åˆ°çš„å¯¹è±¡
     return bean;
 
 }
 
 ```
 
-1. Õâ´ÎÄÜ»ñÈ¡µ½¶ÔÏó£¬if ÀïÃæµÄ´úÂë»áÖ´ĞĞ£»
+1. è¿™æ¬¡èƒ½è·å–åˆ°å¯¹è±¡ï¼Œif é‡Œé¢çš„ä»£ç ä¼šæ‰§è¡Œï¼›
 
-2. `service1` ²»ÊÇ `FactoryBean`£¬Óë `getSingleton(beanName)` µÃµ½µÄ¶ÔÏóÊÇÍ¬Ò»¸ö¶ÔÏó£¬ÄÚÈİÈçÏÂ£º
+2. `service1` ä¸æ˜¯ `FactoryBean`ï¼Œä¸ `getSingleton(beanName)` å¾—åˆ°çš„å¯¹è±¡æ˜¯åŒä¸€ä¸ªå¯¹è±¡ï¼Œå†…å®¹å¦‚ä¸‹ï¼š
 
    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0cd9c129bf2387d85a7bee4f4e135143f63.png)
 
-3. ·µ»Ø´Ó `getSingleton(beanName)` µÃµ½µÄ¶ÔÏó£¬ÔÚ `getSingleton(beanName)` ÖĞ·µ»ØµÄ¶ÔÏó²»Îª¿Õºó£¬¾Í²»ÔÙÖ´ĞĞ bean µÄ´´½¨Á÷³ÌÁË£¬×îÖÕ·µ»ØµÄÊÇµÚ 2 ²½ÖĞµÃµ½µÄ bean ÁË¡£
+3. è¿”å›ä» `getSingleton(beanName)` å¾—åˆ°çš„å¯¹è±¡ï¼Œåœ¨ `getSingleton(beanName)` ä¸­è¿”å›çš„å¯¹è±¡ä¸ä¸ºç©ºåï¼Œå°±ä¸å†æ‰§è¡Œ bean çš„åˆ›å»ºæµç¨‹äº†ï¼Œæœ€ç»ˆè¿”å›çš„æ˜¯ç¬¬ 2 æ­¥ä¸­å¾—åˆ°çš„ bean äº†ã€‚
 
-µ½ÁËÕâÀï£¬ÎÒÃÇÖÕÓÚ»ñÈ¡µ½ÁË `service1` µÄ´úÀí¶ÔÏó£¬¾¡¹Ü´úÀí¶ÔÏó¶ÔÓ¦µÄÔ­Ê¼¶ÔÏó²¢Ã»ÓĞÍê³ÉÒÀÀµ×¢Èë£¬µ«ÎÒÃÇÒÀÈ»¿ÉÒÔ½øĞĞºóĞøµÄÁ÷³Ì£¬¼´»ñÈ¡µ½ `service1` µÄ´úÀí¶ÔÏóºó£¬`service2` ¾Í¿ÉÒÔ½øĞĞÒÀÀµ×¢Èë£¬¼ÌĞø½ÓÏÂÀ´µÄÁ÷³ÌÁË¡£
+åˆ°äº†è¿™é‡Œï¼Œæˆ‘ä»¬ç»ˆäºè·å–åˆ°äº† `service1` çš„ä»£ç†å¯¹è±¡ï¼Œå°½ç®¡ä»£ç†å¯¹è±¡å¯¹åº”çš„åŸå§‹å¯¹è±¡å¹¶æ²¡æœ‰å®Œæˆä¾èµ–æ³¨å…¥ï¼Œä½†æˆ‘ä»¬ä¾ç„¶å¯ä»¥è¿›è¡Œåç»­çš„æµç¨‹ï¼Œå³è·å–åˆ° `service1` çš„ä»£ç†å¯¹è±¡åï¼Œ`service2` å°±å¯ä»¥è¿›è¡Œä¾èµ–æ³¨å…¥ï¼Œç»§ç»­æ¥ä¸‹æ¥çš„æµç¨‹äº†ã€‚
 
-×îºó£¬ÎÒÃÇÔÙÀ´¿´¿´±¾½ÚÖ´ĞĞÍêÖ®ºó£¬5 ´ó½á¹¹ÖĞµÄÄÚÈİ£º
+æœ€åï¼Œæˆ‘ä»¬å†æ¥çœ‹çœ‹æœ¬èŠ‚æ‰§è¡Œå®Œä¹‹åï¼Œ5 å¤§ç»“æ„ä¸­çš„å†…å®¹ï¼š
 
-| ½á¹¹                            | ÄÚÈİ                            |
+| ç»“æ„                            | å†…å®¹                            |
 | ------------------------------- | ------------------------------- |
 | `singletonObjects`              |                                 |
 | `earlySingletonObjects`         | service1$$EnhancerBySpringCGLIB |
@@ -722,47 +722,47 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
 | `singletonsCurrentlyInCreation` | service1, service2              |
 | `earlyProxyReferences`          | service1                        |
 
-»ñÈ¡µ½ `service1` ºó£¬½ÓÏÂÀ´¾Í¼ÌĞø `service2` µÄ»ñÈ¡Á÷³ÌÁË¡£
+è·å–åˆ° `service1` åï¼Œæ¥ä¸‹æ¥å°±ç»§ç»­ `service2` çš„è·å–æµç¨‹äº†ã€‚
 
-### 5 ¼ÌĞø `service2` µÄ»ñÈ¡Á÷³Ì
+### 5 ç»§ç»­ `service2` çš„è·å–æµç¨‹
 
-ÔÚµÚ 3 ½ÚÖĞ£¬ÒòÎª `service2` ĞèÒª×¢Èë `service1`£¬²ÅÓĞÁËµÚ 4 ²¿·ÖµÄÔÙ´Î»ñÈ¡ `service1` µÄÁ÷³Ì£¬×îÖÕÒ²³É¹¦µØ»ñÈ¡µ½ÁË `service1` µÄ´úÀí¶ÔÏó `service1$$EnhancerBySpringCGLIB`£¬Õâ²ÅÈÃ `service2` µÃÒÔÍê³ÉÒÀÀµ×¢Èë¡£
+åœ¨ç¬¬ 3 èŠ‚ä¸­ï¼Œå› ä¸º `service2` éœ€è¦æ³¨å…¥ `service1`ï¼Œæ‰æœ‰äº†ç¬¬ 4 éƒ¨åˆ†çš„å†æ¬¡è·å– `service1` çš„æµç¨‹ï¼Œæœ€ç»ˆä¹ŸæˆåŠŸåœ°è·å–åˆ°äº† `service1` çš„ä»£ç†å¯¹è±¡ `service1$$EnhancerBySpringCGLIB`ï¼Œè¿™æ‰è®© `service2` å¾—ä»¥å®Œæˆä¾èµ–æ³¨å…¥ã€‚
 
-½ÓÏÂÀ´£¬ÈÃÎÒÃÇÑÓĞø µÚ 3 ½Ú µÄÁ÷³Ì£¬»Øµ½ `AbstractAutowireCapableBeanFactory#doCreateBean`£¬¼ÌĞø `service2` µÄÁ÷³Ì¡£
+æ¥ä¸‹æ¥ï¼Œè®©æˆ‘ä»¬å»¶ç»­ ç¬¬ 3 èŠ‚ çš„æµç¨‹ï¼Œå›åˆ° `AbstractAutowireCapableBeanFactory#doCreateBean`ï¼Œç»§ç»­ `service2` çš„æµç¨‹ã€‚
 
-#### 5.1 »Øµ½ `AbstractAutowireCapableBeanFactory#doCreateBean`
+#### 5.1 å›åˆ° `AbstractAutowireCapableBeanFactory#doCreateBean`
 
-´úÂëÈçÏÂ£º
+ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd, 
             final @Nullable Object[] args) throws BeanCreationException {
 
-        // ÉÏÃæµÄ´úÂëÔÚ 3.2 ÖĞÒÑ¾­·ÖÎö¹ıÁË£¬¾Í²»ÔÙ·ÖÎöÁË
+        // ä¸Šé¢çš„ä»£ç åœ¨ 3.2 ä¸­å·²ç»åˆ†æè¿‡äº†ï¼Œå°±ä¸å†åˆ†æäº†
         ...
 
         Object exposedObject = bean;
         try {
-            // 1\. ¸ºÔğÊôĞÔ×°Åä, Ò²¾ÍÊÇÎÒÃÇ³£³£ËµµÄÒÀÀµ×¢Èë
+            // 1\. è´Ÿè´£å±æ€§è£…é…, ä¹Ÿå°±æ˜¯æˆ‘ä»¬å¸¸å¸¸è¯´çš„ä¾èµ–æ³¨å…¥
             populateBean(beanName, mbd, instanceWrapper);
-            // 2\. ³õÊ¼»¯£¬ÔÚÕâÀï»á´¦Àí aop ²Ù×÷
+            // 2\. åˆå§‹åŒ–ï¼Œåœ¨è¿™é‡Œä¼šå¤„ç† aop æ“ä½œ
             exposedObject = initializeBean(beanName, exposedObject, mbd);
         }
         catch (Throwable ex) {
             ...
         }
 
-        //Í¬ÑùµÄ£¬Èç¹û´æÔÚÑ­»·ÒÀÀµ
+        //åŒæ ·çš„ï¼Œå¦‚æœå­˜åœ¨å¾ªç¯ä¾èµ–
         if (earlySingletonExposure) {
-            // 3\. ´Ó»º´æÖĞ»ñÈ¡ beanName ¶ÔÓ¦µÄbean
+            // 3\. ä»ç¼“å­˜ä¸­è·å– beanName å¯¹åº”çš„bean
             Object earlySingletonReference = getSingleton(beanName, false);
-            // 4\. earlySingletonReference Îª null£¬if ÀïÃæµÄÄÚÈİ²»»áÖ´ĞĞ
+            // 4\. earlySingletonReference ä¸º nullï¼Œif é‡Œé¢çš„å†…å®¹ä¸ä¼šæ‰§è¡Œ
             if (earlySingletonReference != null) {
                 ...
             }
         }
 
-        // Ê¡ÂÔ²»ÖØÒªµÄ´úÂë
+        // çœç•¥ä¸é‡è¦çš„ä»£ç 
         ...
 
         return exposedObject;
@@ -770,24 +770,24 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
 ```
 
-´úÂëËµÃ÷ÈçÏÂ£º
+ä»£ç è¯´æ˜å¦‚ä¸‹ï¼š
 
-1. ´¦ÀíÒÀÀµ×¢Èë£¬¾ÍÊÇÕâÀï´¥·¢ÁËµÚ 4 ²¿·ÖµÄÁ÷³Ì£¬Ö´ĞĞÍêµÃµ½µÄ `service2` ÈçÏÂ£º
+1. å¤„ç†ä¾èµ–æ³¨å…¥ï¼Œå°±æ˜¯è¿™é‡Œè§¦å‘äº†ç¬¬ 4 éƒ¨åˆ†çš„æµç¨‹ï¼Œæ‰§è¡Œå®Œå¾—åˆ°çš„ `service2` å¦‚ä¸‹ï¼š
 
    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b294a02be5431c0aa66e5f126a6c6abbb92.png)
 
-   ¿ÉÒÔ¿´µ½£¬´ËÊ±×¢Èëµ½ `service2` ÖĞµÄ `service1` ¾ÍÊÇ´úÀí¶ÔÏóÁË£»
+   å¯ä»¥çœ‹åˆ°ï¼Œæ­¤æ—¶æ³¨å…¥åˆ° `service2` ä¸­çš„ `service1` å°±æ˜¯ä»£ç†å¯¹è±¡äº†ï¼›
 
-2. ³õÊ¼»¯£¬ÔÚÕâÀï»á´¦Àí aop ²Ù×÷£¬Ö´ĞĞ aop µÄ·½·¨Îª `AbstractAutoProxyCreator#postProcessAfterInitialization`£¬´úÂëÈçÏÂ£º
+2. åˆå§‹åŒ–ï¼Œåœ¨è¿™é‡Œä¼šå¤„ç† aop æ“ä½œï¼Œæ‰§è¡Œ aop çš„æ–¹æ³•ä¸º `AbstractAutoProxyCreator#postProcessAfterInitialization`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
    ```
-   // ´«ÈëµÄbeanÎªservice2£¬beanNameÎª¡°service2¡±
+   // ä¼ å…¥çš„beanä¸ºservice2ï¼ŒbeanNameä¸ºâ€œservice2â€
    public Object postProcessAfterInitialization(@Nullable Object bean, String beanName) {
        if (bean != null) {
            Object cacheKey = getCacheKey(bean.getClass(), beanName);
-           // 1\. earlyProxyReferences ÖĞ²¢Ã»ÓĞ service2£¬ifÀïµÄ´úÂë»áÖ´ĞĞµ½
+           // 1\. earlyProxyReferences ä¸­å¹¶æ²¡æœ‰ service2ï¼Œifé‡Œçš„ä»£ç ä¼šæ‰§è¡Œåˆ°
            if (this.earlyProxyReferences.remove(cacheKey) != bean) {
-               // 2\. ÔÚÕâÀï´¦Àíaop²Ù×÷
+               // 2\. åœ¨è¿™é‡Œå¤„ç†aopæ“ä½œ
                return wrapIfNecessary(bean, beanName, cacheKey);
            }
        }
@@ -796,9 +796,9 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
    
    ```
 
-   ÒÔÉÏ´úÂëÏÈ´Ó `earlyProxyReferences` ÒÆ³ö `service2`£¬È»ºóÔÙÓë´«ÈëµÄ bean ×ö±È½Ï£¬¶ÔÕÕ×Å 5 ´ó½á¹¹ÖĞµÄÄÚÈİ£¬ÎÒÃÇ·¢ÏÖ `service2` ²¢²»ÔÚ `earlyProxyReferences` ÖĞ£»
+   ä»¥ä¸Šä»£ç å…ˆä» `earlyProxyReferences` ç§»å‡º `service2`ï¼Œç„¶åå†ä¸ä¼ å…¥çš„ bean åšæ¯”è¾ƒï¼Œå¯¹ç…§ç€ 5 å¤§ç»“æ„ä¸­çš„å†…å®¹ï¼Œæˆ‘ä»¬å‘ç° `service2` å¹¶ä¸åœ¨ `earlyProxyReferences` ä¸­ï¼›
 
-   | ½á¹¹                            | ÄÚÈİ                            |
+   | ç»“æ„                            | å†…å®¹                            |
       | ------------------------------- | ------------------------------- |
    | `singletonObjects`              |                                 |
    | `earlySingletonObjects`         | service1$$EnhancerBySpringCGLIB |
@@ -806,28 +806,28 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
    | `singletonsCurrentlyInCreation` | service1, service2              |
    | `earlyProxyReferences`          | service1                        |
 
-   Òò´Ë£¬ÕâÀï·µ»Ø `null`£¬ÏÔÈ»²»µÈÓÚ´«ÈëµÄ bean£¬Òò´Ë if ÖĞµÄ´úÂë»áÖ´ĞĞ£¬`service2` ½øĞĞ aop¡£Ö´ĞĞÍêÕâÒ»²½ºó£¬µÃµ½µÄ `exposedObject` Îª£º
+   å› æ­¤ï¼Œè¿™é‡Œè¿”å› `null`ï¼Œæ˜¾ç„¶ä¸ç­‰äºä¼ å…¥çš„ beanï¼Œå› æ­¤ if ä¸­çš„ä»£ç ä¼šæ‰§è¡Œï¼Œ`service2` è¿›è¡Œ aopã€‚æ‰§è¡Œå®Œè¿™ä¸€æ­¥åï¼Œå¾—åˆ°çš„ `exposedObject` ä¸ºï¼š
 
    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d62ebdbb71b76ada963a01c9b8c84b88b00.png)
 
-   `service2` Ò²±ä³ÉÁË´úÀí¶ÔÏó£¬ÇÒÒÑÍê³ÉÁËÒÀÀµ×¢Èë¡£
+   `service2` ä¹Ÿå˜æˆäº†ä»£ç†å¯¹è±¡ï¼Œä¸”å·²å®Œæˆäº†ä¾èµ–æ³¨å…¥ã€‚
 
-3. ´Ó»º´æÖĞ»ñÈ¡ beanName ¶ÔÓ¦µÄ bean£¬Ö´ĞĞµÄÊÇ `DefaultSingletonBeanRegistry#getSingleton(String, boolean)`£¬´úÂëÈçÏÂ£º
+3. ä»ç¼“å­˜ä¸­è·å– beanName å¯¹åº”çš„ beanï¼Œæ‰§è¡Œçš„æ˜¯ `DefaultSingletonBeanRegistry#getSingleton(String, boolean)`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
    ```
    /**
     * beanName: service2
-    * allowEarlyReference£ºfalse
+    * allowEarlyReferenceï¼šfalse
     */
    protected Object getSingleton(String beanName, boolean allowEarlyReference) {
-       // 1\. ´ÓÒ»¼¶»º´æÖĞ»ñÈ¡ service2£¬»ñÈ¡²»µ½£¬·µ»Ønull
+       // 1\. ä»ä¸€çº§ç¼“å­˜ä¸­è·å– service2ï¼Œè·å–ä¸åˆ°ï¼Œè¿”å›null
        Object singletonObject = this.singletonObjects.get(beanName);
-       // 2\. ÅĞ¶Ï service2 ÊÇ·ñÔÚ´´½¨ÖĞ£¬·µ»Øtrue£¬Ö´ĞĞifÖĞµÄ´úÂë
+       // 2\. åˆ¤æ–­ service2 æ˜¯å¦åœ¨åˆ›å»ºä¸­ï¼Œè¿”å›trueï¼Œæ‰§è¡Œifä¸­çš„ä»£ç 
        if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
            synchronized (this.singletonObjects) {
-               // 3\. ´Ó¶ş¼¶»º´æÖĞ»ñÈ¡ service2£¬»ñÈ¡²»µ½£¬·µ»Ønull
+               // 3\. ä»äºŒçº§ç¼“å­˜ä¸­è·å– service2ï¼Œè·å–ä¸åˆ°ï¼Œè¿”å›null
                singletonObject = this.earlySingletonObjects.get(beanName);
-               // 4\. ´ËÊ±´«ÈëµÄ allowEarlyReference Îªfalse£¬if¿éµÄ´úÂë²»»áÖ´ĞĞ
+               // 4\. æ­¤æ—¶ä¼ å…¥çš„ allowEarlyReference ä¸ºfalseï¼Œifå—çš„ä»£ç ä¸ä¼šæ‰§è¡Œ
                if (singletonObject == null && allowEarlyReference) {
                    ...
                }
@@ -838,9 +838,9 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
    
    ```
 
-   ÎÒÃÇ»¹ÊÇÀ´¿´ Ò»ÑÛ 5 ´ó½á¹¹ÖĞµÄÄÚÈİ£¬¶ÔÕâ¸ö·½·¨µÄÖ´ĞĞ¾ÍÒ»Ä¿ÁËÈ»ÁË£º
+   æˆ‘ä»¬è¿˜æ˜¯æ¥çœ‹ ä¸€çœ¼ 5 å¤§ç»“æ„ä¸­çš„å†…å®¹ï¼Œå¯¹è¿™ä¸ªæ–¹æ³•çš„æ‰§è¡Œå°±ä¸€ç›®äº†ç„¶äº†ï¼š
 
-   | ½á¹¹                            | ÄÚÈİ                            |
+   | ç»“æ„                            | å†…å®¹                            |
       | ------------------------------- | ------------------------------- |
    | `singletonObjects`              |                                 |
    | `earlySingletonObjects`         | service1$$EnhancerBySpringCGLIB |
@@ -848,15 +848,15 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
    | `singletonsCurrentlyInCreation` | service1, service2              |
    | `earlyProxyReferences`          | service1                        |
 
-   ·½·¨µÄÖ´ĞĞ£¬ÔÚ´úÂëÖĞÒÑ¾­×¢ÊÍµÃºÜÃ÷°×ÁË£¬¾Í¶àËµÁË£»
+   æ–¹æ³•çš„æ‰§è¡Œï¼Œåœ¨ä»£ç ä¸­å·²ç»æ³¨é‡Šå¾—å¾ˆæ˜ç™½äº†ï¼Œå°±å¤šè¯´äº†ï¼›
 
-4. µÚ 3 ²½·µ»ØµÄ `earlySingletonReference` Îª null£¬if ÀïÃæµÄÄÚÈİ²»»áÖ´ĞĞ¡£
+4. ç¬¬ 3 æ­¥è¿”å›çš„ `earlySingletonReference` ä¸º nullï¼Œif é‡Œé¢çš„å†…å®¹ä¸ä¼šæ‰§è¡Œã€‚
 
-µ½ÕâÀï£¬µÃµ½µÄ `service2` ¾Í·µ»ØÁË¡£
+åˆ°è¿™é‡Œï¼Œå¾—åˆ°çš„ `service2` å°±è¿”å›äº†ã€‚
 
-#### 5.2 »Øµ½ `DefaultSingletonBeanRegistry#getSingleton(String, ObjectFactory<?>)`
+#### 5.2 å›åˆ° `DefaultSingletonBeanRegistry#getSingleton(String, ObjectFactory<?>)`
 
-µÃµ½ `service2` µÄ bean ºó£¬ÎÒÃÇ»Øµ½ `DefaultSingletonBeanRegistry#getSingleton(String, ObjectFactory<?>)`£¬¼ÌĞø `service2` µÄÁ÷³Ì£¬´úÂëÈçÏÂ£º
+å¾—åˆ° `service2` çš„ bean åï¼Œæˆ‘ä»¬å›åˆ° `DefaultSingletonBeanRegistry#getSingleton(String, ObjectFactory<?>)`ï¼Œç»§ç»­ `service2` çš„æµç¨‹ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
@@ -864,7 +864,7 @@ public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
     synchronized (this.singletonObjects) {
         ...
             try {
-                // 1\. ÔÚÕâÀï½øĞĞbeanµÄ´´½¨
+                // 1\. åœ¨è¿™é‡Œè¿›è¡Œbeançš„åˆ›å»º
                 singletonObject = singletonFactory.getObject();
                 newSingleton = true;
             }
@@ -873,12 +873,12 @@ public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
             }
             finally {
                 ...
-                // 2\. ´´½¨Íê³Éºó£¬×öÒ»Ğ©¼ì²é²Ù×÷
-                // ÕâÀï»á°Ñ service2 ´Ó singletonsCurrentlyInCreation ÒÆ³ı
+                // 2\. åˆ›å»ºå®Œæˆåï¼Œåšä¸€äº›æ£€æŸ¥æ“ä½œ
+                // è¿™é‡Œä¼šæŠŠ service2 ä» singletonsCurrentlyInCreation ç§»é™¤
                 afterSingletonCreation(beanName);
             }
             if (newSingleton) {
-                // 3\. ½«¸Ã¶ÔÏóÌí¼Óµ½ beanFactory ÖĞ£¬Õâ¸ö·½·¨»áÉ¾³ı¶şÈı¼¶»º´æ
+                // 3\. å°†è¯¥å¯¹è±¡æ·»åŠ åˆ° beanFactory ä¸­ï¼Œè¿™ä¸ªæ–¹æ³•ä¼šåˆ é™¤äºŒä¸‰çº§ç¼“å­˜
                 addSingleton(beanName, singletonObject);
             }
         ...
@@ -888,13 +888,13 @@ public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
 
 ```
 
-ËµÃ÷ÈçÏÂ£º
+è¯´æ˜å¦‚ä¸‹ï¼š
 
-1. Àú¾­Ç§ÄÑÍòÏÕ£¬`singletonFactory.getObject()` ÖÕÓÚÖ´ĞĞÍêÁË£¬ÔÚÖî¶àÇúÕÛÖ®ºó£¬×îÖÕ»¹ÊÇµÃµ½ÁË `service2` µÄ´úÀí¶ÔÏó£»
+1. å†ç»åƒéš¾ä¸‡é™©ï¼Œ`singletonFactory.getObject()` ç»ˆäºæ‰§è¡Œå®Œäº†ï¼Œåœ¨è¯¸å¤šæ›²æŠ˜ä¹‹åï¼Œæœ€ç»ˆè¿˜æ˜¯å¾—åˆ°äº† `service2` çš„ä»£ç†å¯¹è±¡ï¼›
 
-2. `service2` ´´½¨Íê³Éºó£¬¾Í»á½«Æä´Ó `singletonsCurrentlyInCreation` ÒÆ³ı£¬·½·¨±È½Ï¼òµ¥£¬¾Í²»¶àËµÁË£¬ÕâÒ»²½µÃµ½µÄ 5 ´ó½á¹¹ÈçÏÂ£º
+2. `service2` åˆ›å»ºå®Œæˆåï¼Œå°±ä¼šå°†å…¶ä» `singletonsCurrentlyInCreation` ç§»é™¤ï¼Œæ–¹æ³•æ¯”è¾ƒç®€å•ï¼Œå°±ä¸å¤šè¯´äº†ï¼Œè¿™ä¸€æ­¥å¾—åˆ°çš„ 5 å¤§ç»“æ„å¦‚ä¸‹ï¼š
 
-   | ½á¹¹                            | ÄÚÈİ                            |
+   | ç»“æ„                            | å†…å®¹                            |
       | ------------------------------- | ------------------------------- |
    | `singletonObjects`              |                                 |
    | `earlySingletonObjects`         | service1$$EnhancerBySpringCGLIB |
@@ -902,16 +902,16 @@ public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
    | `singletonsCurrentlyInCreation` | service1                        |
    | `earlyProxyReferences`          | service1                        |
 
-3. ½Ó×Å£¬¾ÍÊÇ»º´æµÄ´¦Àí£¬·½·¨Îª `DefaultSingletonBeanRegistry#addSingleton`£º
+3. æ¥ç€ï¼Œå°±æ˜¯ç¼“å­˜çš„å¤„ç†ï¼Œæ–¹æ³•ä¸º `DefaultSingletonBeanRegistry#addSingleton`ï¼š
 
    ```
    /*
-    * beanName£ºservice2
-    * singletonObject£ºservice2$$EnhancerBySpringCGLIB(service2µÄ´úÀí¶ÔÏó)
+    * beanNameï¼šservice2
+    * singletonObjectï¼šservice2$$EnhancerBySpringCGLIB(service2çš„ä»£ç†å¯¹è±¡)
     */ 
    protected void addSingleton(String beanName, Object singletonObject) {
        synchronized (this.singletonObjects) {
-           // ¶ÔÈı¸ö»º´æ½øĞĞput¡¢remove²Ù×÷£¬×îÖÕÖ»ÔÚÒ»¼¶»º´æÖĞÓĞ¸Ã¶ÔÏó
+           // å¯¹ä¸‰ä¸ªç¼“å­˜è¿›è¡Œputã€removeæ“ä½œï¼Œæœ€ç»ˆåªåœ¨ä¸€çº§ç¼“å­˜ä¸­æœ‰è¯¥å¯¹è±¡
            this.singletonObjects.put(beanName, singletonObject);
            this.singletonFactories.remove(beanName);
            this.earlySingletonObjects.remove(beanName);
@@ -921,9 +921,9 @@ public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
    
    ```
 
-   ·½·¨±È½Ï¼òµ¥£¬¾Í²»¶àËµÁË£¬×îÖÕ 5 ´ó½á¹¹Îª£º
+   æ–¹æ³•æ¯”è¾ƒç®€å•ï¼Œå°±ä¸å¤šè¯´äº†ï¼Œæœ€ç»ˆ 5 å¤§ç»“æ„ä¸ºï¼š
 
-   | ½á¹¹                            | ÄÚÈİ                            |
+   | ç»“æ„                            | å†…å®¹                            |
       | ------------------------------- | ------------------------------- |
    | `singletonObjects`              | service2$$EnhancerBySpringCGLIB |
    | `earlySingletonObjects`         | service1$$EnhancerBySpringCGLIB |
@@ -931,13 +931,13 @@ public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
    | `singletonsCurrentlyInCreation` | service1                        |
    | `earlyProxyReferences`          | service1                        |
 
-µ½´Ë£¬`service2` »ñÈ¡Íê³É£¬×îÖÕ±£´æµ½ `singletonObjects` ÖĞµÄ bean Îª£º
+åˆ°æ­¤ï¼Œ`service2` è·å–å®Œæˆï¼Œæœ€ç»ˆä¿å­˜åˆ° `singletonObjects` ä¸­çš„ bean ä¸ºï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-763dad35376ed1d88086c45f01ee9c4cedd.png)
 
-±¾½ÚµÄ×îºó£¬ÎÒÃÇÒ²À´¿´ÏÂ 5 ¸ö½á¹¹ÖĞµÄÄÚÈİ£º
+æœ¬èŠ‚çš„æœ€åï¼Œæˆ‘ä»¬ä¹Ÿæ¥çœ‹ä¸‹ 5 ä¸ªç»“æ„ä¸­çš„å†…å®¹ï¼š
 
-| ½á¹¹                            | ÄÚÈİ                            |
+| ç»“æ„                            | å†…å®¹                            |
 | ------------------------------- | ------------------------------- |
 | `singletonObjects`              | service2$$EnhancerBySpringCGLIB |
 | `earlySingletonObjects`         | service1$$EnhancerBySpringCGLIB |
@@ -945,50 +945,50 @@ public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
 | `singletonsCurrentlyInCreation` | service1                        |
 | `earlyProxyReferences`          | service1                        |
 
-ÖÁ´Ë£¬`service2` »ñÈ¡Íê³É£¬½Ó×ÅÈÃÎÒÃÇ¼ÌĞø `service1` µÄ»ñÈ¡Á÷³Ì¡£
+è‡³æ­¤ï¼Œ`service2` è·å–å®Œæˆï¼Œæ¥ç€è®©æˆ‘ä»¬ç»§ç»­ `service1` çš„è·å–æµç¨‹ã€‚
 
-### 6 ¼ÌĞø `service1` µÄ»ñÈ¡Á÷³Ì
+### 6 ç»§ç»­ `service1` çš„è·å–æµç¨‹
 
-ÔÚµÚ 2 ½ÚÖĞ£¬ÒòÎª `servic1` ĞèÒª×¢Èë `service2`£¬²ÅÓĞÁËµÚ 3 ½Ú»ñÈ¡ `service2` µÄÁ÷³Ì£¬È»ºóÓÖ¾­¹ıÒ»ÏµÁĞµÄ²Ù×÷ºó£¬×îÖÕÔÚµÚ 5 ½Ú³É¹¦µØ»ñÈ¡µ½ÁË `service2` µÄ´úÀí¶ÔÏó `service2$$EnhancerBySpringCGLIB`£¬Õâ²ÅÈÃ `service2` µÃÒÔÍê³ÉÒÀÀµ×¢Èë¡£
+åœ¨ç¬¬ 2 èŠ‚ä¸­ï¼Œå› ä¸º `servic1` éœ€è¦æ³¨å…¥ `service2`ï¼Œæ‰æœ‰äº†ç¬¬ 3 èŠ‚è·å– `service2` çš„æµç¨‹ï¼Œç„¶ååˆç»è¿‡ä¸€ç³»åˆ—çš„æ“ä½œåï¼Œæœ€ç»ˆåœ¨ç¬¬ 5 èŠ‚æˆåŠŸåœ°è·å–åˆ°äº† `service2` çš„ä»£ç†å¯¹è±¡ `service2$$EnhancerBySpringCGLIB`ï¼Œè¿™æ‰è®© `service2` å¾—ä»¥å®Œæˆä¾èµ–æ³¨å…¥ã€‚
 
-½ÓÏÂÀ´£¬ÈÃÎÒÃÇÑÓĞøµÚ 2 ½Ú£¬»Øµ½ `AbstractAutowireCapableBeanFactory#doCreateBean` ·½·¨£¬¼ÌĞø `service1` µÄÁ÷³Ì¡£
+æ¥ä¸‹æ¥ï¼Œè®©æˆ‘ä»¬å»¶ç»­ç¬¬ 2 èŠ‚ï¼Œå›åˆ° `AbstractAutowireCapableBeanFactory#doCreateBean` æ–¹æ³•ï¼Œç»§ç»­ `service1` çš„æµç¨‹ã€‚
 
-#### 6.1 »Øµ½ `AbstractAutowireCapableBeanFactory#doCreateBean`
+#### 6.1 å›åˆ° `AbstractAutowireCapableBeanFactory#doCreateBean`
 
-´úÂëÈçÏÂ£º
+ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd, 
             final @Nullable Object[] args) throws BeanCreationException {
 
-        // ÉÏÃæµÄ´úÂëÔÚ 3.1 ÖĞÒÑ¾­·ÖÎö¹ıÁË£¬¾Í²»ÔÙ·ÖÎöÁË
+        // ä¸Šé¢çš„ä»£ç åœ¨ 3.1 ä¸­å·²ç»åˆ†æè¿‡äº†ï¼Œå°±ä¸å†åˆ†æäº†
         ...
 
         Object exposedObject = bean;
         try {
-            // 1\. ¸ºÔğÊôĞÔ×°Åä, Ò²¾ÍÊÇÎÒÃÇ³£³£ËµµÄÒÀÀµ×¢Èë
+            // 1\. è´Ÿè´£å±æ€§è£…é…, ä¹Ÿå°±æ˜¯æˆ‘ä»¬å¸¸å¸¸è¯´çš„ä¾èµ–æ³¨å…¥
             populateBean(beanName, mbd, instanceWrapper);
-            // 2\. ³õÊ¼»¯£¬ÔÚÕâÀï»á´¦Àí aop ²Ù×÷
+            // 2\. åˆå§‹åŒ–ï¼Œåœ¨è¿™é‡Œä¼šå¤„ç† aop æ“ä½œ
             exposedObject = initializeBean(beanName, exposedObject, mbd);
         }
         catch (Throwable ex) {
             ...
         }
 
-        //Í¬ÑùµÄ£¬Èç¹û´æÔÚÑ­»·ÒÀÀµ
+        //åŒæ ·çš„ï¼Œå¦‚æœå­˜åœ¨å¾ªç¯ä¾èµ–
         if (earlySingletonExposure) {
-            // 3\. ´Ó»º´æÖĞ»ñÈ¡ beanName ¶ÔÓ¦µÄbean
+            // 3\. ä»ç¼“å­˜ä¸­è·å– beanName å¯¹åº”çš„bean
             Object earlySingletonReference = getSingleton(beanName, false);
-            // 4\. earlySingletonReference ²»Îª null£¬if ÀïÃæµÄÄÚÈİ»áÖ´ĞĞ
+            // 4\. earlySingletonReference ä¸ä¸º nullï¼Œif é‡Œé¢çš„å†…å®¹ä¼šæ‰§è¡Œ
             if (earlySingletonReference != null) {
                 if (exposedObject == bean) {
-                    // 5\. ½«·µ»ØµÄ¶ÔÏó¸³Öµ¸ø exposedObject£¬·µ»Ø¶ÔÏóÎª´úÀí¶ÔÏó
+                    // 5\. å°†è¿”å›çš„å¯¹è±¡èµ‹å€¼ç»™ exposedObjectï¼Œè¿”å›å¯¹è±¡ä¸ºä»£ç†å¯¹è±¡
                     exposedObject = earlySingletonReference;
                 }
             }
         }
 
-        // Ê¡ÂÔ²»ÖØÒªµÄ´úÂë
+        // çœç•¥ä¸é‡è¦çš„ä»£ç 
         ...
 
         return exposedObject;
@@ -996,24 +996,24 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
 ```
 
-´úÂëËµÃ÷ÈçÏÂ£º
+ä»£ç è¯´æ˜å¦‚ä¸‹ï¼š
 
-1. ´¦ÀíÒÀÀµ×¢Èë£¬¾ÍÊÇÕâÀï´¥·¢ÁËµÚ 3 ½ÚµÄÁ÷³Ì£¬Ö´ĞĞÍêµÃµ½µÄ `service1` ÈçÏÂ£º
+1. å¤„ç†ä¾èµ–æ³¨å…¥ï¼Œå°±æ˜¯è¿™é‡Œè§¦å‘äº†ç¬¬ 3 èŠ‚çš„æµç¨‹ï¼Œæ‰§è¡Œå®Œå¾—åˆ°çš„ `service1` å¦‚ä¸‹ï¼š
 
    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-3883285be5904e056bc517d35bfd44c47a0.png)
 
-   ¿ÉÒÔ¿´µ½£¬`service1` ÒÑ¾­Íê³ÉÁËÒÀÀµ×¢Èë£¬ÇÒ´ËÊ±×¢Èëµ½ `service1` ÖĞµÄ `service2` ÒÑ¾­ÊÇ´úÀí¶ÔÏóÁË£¬²»¹ı `service1` ´ËÊ±»¹ÊÇÔ­Ê¼¶ÔÏó£¬ÎÒÃÇ¼ÌĞøÍùÏÂ¿´£»
+   å¯ä»¥çœ‹åˆ°ï¼Œ`service1` å·²ç»å®Œæˆäº†ä¾èµ–æ³¨å…¥ï¼Œä¸”æ­¤æ—¶æ³¨å…¥åˆ° `service1` ä¸­çš„ `service2` å·²ç»æ˜¯ä»£ç†å¯¹è±¡äº†ï¼Œä¸è¿‡ `service1` æ­¤æ—¶è¿˜æ˜¯åŸå§‹å¯¹è±¡ï¼Œæˆ‘ä»¬ç»§ç»­å¾€ä¸‹çœ‹ï¼›
 
-2. ³õÊ¼»¯£¬ÔÚÕâÀï»á´¦Àí aop ²Ù×÷£¬Ö´ĞĞ aop µÄ·½·¨Îª `AbstractAutoProxyCreator#postProcessAfterInitialization`£¬´úÂëÈçÏÂ£º
+2. åˆå§‹åŒ–ï¼Œåœ¨è¿™é‡Œä¼šå¤„ç† aop æ“ä½œï¼Œæ‰§è¡Œ aop çš„æ–¹æ³•ä¸º `AbstractAutoProxyCreator#postProcessAfterInitialization`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
    ```
-   // ´«ÈëµÄbeanÎªservice1£¬beanNameÎª¡°service1¡±
+   // ä¼ å…¥çš„beanä¸ºservice1ï¼ŒbeanNameä¸ºâ€œservice1â€
    public Object postProcessAfterInitialization(@Nullable Object bean, String beanName) {
        if (bean != null) {
            Object cacheKey = getCacheKey(bean.getClass(), beanName);
-           // 1\. earlyProxyReferences ÖĞÓĞ service1£¬ifÀïµÄ´úÂë²»»áÖ´ĞĞµ½
+           // 1\. earlyProxyReferences ä¸­æœ‰ service1ï¼Œifé‡Œçš„ä»£ç ä¸ä¼šæ‰§è¡Œåˆ°
            if (this.earlyProxyReferences.remove(cacheKey) != bean) {
-               // 2\. ÔÚÕâÀï´¦Àíaop²Ù×÷£¬service1 ÒÑ¾­Ö´ĞĞ¹ıaopÁË
+               // 2\. åœ¨è¿™é‡Œå¤„ç†aopæ“ä½œï¼Œservice1 å·²ç»æ‰§è¡Œè¿‡aopäº†
                return wrapIfNecessary(bean, beanName, cacheKey);
            }
        }
@@ -1022,9 +1022,9 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
    
    ```
 
-   ÒÔÉÏ´úÂëÏÈ´Ó `earlyProxyReferences` ÒÆ³ö `service1`£¬È»ºóÔÙÓë´«ÈëµÄ bean ×ö±È½Ï£¬¶ÔÕÕ×Å 5 ´ó½á¹¹ÖĞµÄÄÚÈİ£¬ÎÒÃÇ·¢ÏÖ `service1` ´ËÊ±¾ÍÔÚ `earlyProxyReferences` ÖĞ£»
+   ä»¥ä¸Šä»£ç å…ˆä» `earlyProxyReferences` ç§»å‡º `service1`ï¼Œç„¶åå†ä¸ä¼ å…¥çš„ bean åšæ¯”è¾ƒï¼Œå¯¹ç…§ç€ 5 å¤§ç»“æ„ä¸­çš„å†…å®¹ï¼Œæˆ‘ä»¬å‘ç° `service1` æ­¤æ—¶å°±åœ¨ `earlyProxyReferences` ä¸­ï¼›
 
-   | ½á¹¹                            | ÄÚÈİ                            |
+   | ç»“æ„                            | å†…å®¹                            |
       | ------------------------------- | ------------------------------- |
    | `singletonObjects`              | service2$$EnhancerBySpringCGLIB |
    | `earlySingletonObjects`         | service1$$EnhancerBySpringCGLIB |
@@ -1032,9 +1032,9 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
    | `singletonsCurrentlyInCreation` | service1                        |
    | `earlyProxyReferences`          | service1                        |
 
-   Òò´Ë£¬ÕâÀï»á·µ»Ø `service1`£¬if ÖĞµÄ´úÂë²»»áÖ´ĞĞ¡£Ö´ĞĞÍêÕâÒ»²½ºó£¬5 ¸ö½á¹¹ÖĞµÄÄÚÈİÎª£º
+   å› æ­¤ï¼Œè¿™é‡Œä¼šè¿”å› `service1`ï¼Œif ä¸­çš„ä»£ç ä¸ä¼šæ‰§è¡Œã€‚æ‰§è¡Œå®Œè¿™ä¸€æ­¥åï¼Œ5 ä¸ªç»“æ„ä¸­çš„å†…å®¹ä¸ºï¼š
 
-   | ½á¹¹                            | ÄÚÈİ                            |
+   | ç»“æ„                            | å†…å®¹                            |
       | ------------------------------- | ------------------------------- |
    | `singletonObjects`              | service2$$EnhancerBySpringCGLIB |
    | `earlySingletonObjects`         | service1$$EnhancerBySpringCGLIB |
@@ -1042,22 +1042,22 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
    | `singletonsCurrentlyInCreation` | service1                        |
    | `earlyProxyReferences`          |                                 |
 
-3. ´Ó»º´æÖĞ»ñÈ¡ beanName ¶ÔÓ¦µÄ bean£¬Ö´ĞĞµÄÊÇ `DefaultSingletonBeanRegistry#getSingleton(String, boolean)`£¬´úÂëÈçÏÂ£º
+3. ä»ç¼“å­˜ä¸­è·å– beanName å¯¹åº”çš„ beanï¼Œæ‰§è¡Œçš„æ˜¯ `DefaultSingletonBeanRegistry#getSingleton(String, boolean)`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
    ```
    /**
     * beanName: service1
-    * allowEarlyReference£ºfalse
+    * allowEarlyReferenceï¼šfalse
     */
    protected Object getSingleton(String beanName, boolean allowEarlyReference) {
-       // 1\. ´ÓÒ»¼¶»º´æÖĞ»ñÈ¡ service1£¬»ñÈ¡²»µ½£¬·µ»Ønull
+       // 1\. ä»ä¸€çº§ç¼“å­˜ä¸­è·å– service1ï¼Œè·å–ä¸åˆ°ï¼Œè¿”å›null
        Object singletonObject = this.singletonObjects.get(beanName);
-       // 2\. ÅĞ¶Ï service1 ÊÇ·ñÔÚ´´½¨ÖĞ£¬·µ»Øtrue£¬Ö´ĞĞifÖĞµÄ´úÂë
+       // 2\. åˆ¤æ–­ service1 æ˜¯å¦åœ¨åˆ›å»ºä¸­ï¼Œè¿”å›trueï¼Œæ‰§è¡Œifä¸­çš„ä»£ç 
        if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
            synchronized (this.singletonObjects) {
-               // 3\. ´Ó¶ş¼¶»º´æÖĞ»ñÈ¡ service1£¬ÄÜ»ñÈ¡µ½
+               // 3\. ä»äºŒçº§ç¼“å­˜ä¸­è·å– service1ï¼Œèƒ½è·å–åˆ°
                singletonObject = this.earlySingletonObjects.get(beanName);
-               // 4\. singletonObject ²»Îªnull£¬if¿éµÄ´úÂë²»»áÖ´ĞĞ
+               // 4\. singletonObject ä¸ä¸ºnullï¼Œifå—çš„ä»£ç ä¸ä¼šæ‰§è¡Œ
                if (singletonObject == null && allowEarlyReference) {
                    ...
                }
@@ -1068,9 +1068,9 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
    
    ```
 
-   ÎÒÃÇ¿´ Ò»ÑÛ 5 ´ó½á¹¹ÖĞµÄÄÚÈİ£¬¶ÔÕâ¸ö·½·¨µÄÖ´ĞĞ¾ÍÒ»Ä¿ÁËÈ»ÁË£º
+   æˆ‘ä»¬çœ‹ ä¸€çœ¼ 5 å¤§ç»“æ„ä¸­çš„å†…å®¹ï¼Œå¯¹è¿™ä¸ªæ–¹æ³•çš„æ‰§è¡Œå°±ä¸€ç›®äº†ç„¶äº†ï¼š
 
-   | ½á¹¹                            | ÄÚÈİ                            |
+   | ç»“æ„                            | å†…å®¹                            |
       | ------------------------------- | ------------------------------- |
    | `singletonObjects`              | service2$$EnhancerBySpringCGLIB |
    | `earlySingletonObjects`         | service1$$EnhancerBySpringCGLIB |
@@ -1078,23 +1078,23 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
    | `singletonsCurrentlyInCreation` | service1                        |
    | `earlyProxyReferences`          |                                 |
 
-   ·½·¨µÄÖ´ĞĞ£¬ÔÚ´úÂëÖĞÒÑ¾­×¢ÊÍµÃºÜÃ÷°×ÁË£¬¾Í¶àËµÁË£¬ÕâÒ»²½»á°Ñ `service1` µÄ´úÀí¶ÔÏó·µ»Ø£»
+   æ–¹æ³•çš„æ‰§è¡Œï¼Œåœ¨ä»£ç ä¸­å·²ç»æ³¨é‡Šå¾—å¾ˆæ˜ç™½äº†ï¼Œå°±å¤šè¯´äº†ï¼Œè¿™ä¸€æ­¥ä¼šæŠŠ `service1` çš„ä»£ç†å¯¹è±¡è¿”å›ï¼›
 
-4. ÉÏÒ»²½µÃµ½µÄ `earlySingletonReference` Îª
+4. ä¸Šä¸€æ­¥å¾—åˆ°çš„ `earlySingletonReference` ä¸º
 
    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-425636328820897c75890f01614d94fe9dd.png)
 
-   ´úÀí¶ÔÏóÒÑ¾­·µ»ØÀ´ÁË£¬¿ÉÒÔ¼ÌĞøÖ´ĞĞ if ¿éµÄ´úÂëÁË£»
+   ä»£ç†å¯¹è±¡å·²ç»è¿”å›æ¥äº†ï¼Œå¯ä»¥ç»§ç»­æ‰§è¡Œ if å—çš„ä»£ç äº†ï¼›
 
-5. ×îºóÒ»²½ÊÇ¸³Öµ²Ù×÷£¬½«·µ»ØµÄ¶ÔÏó¸³Öµ¸ø `exposedObject`£¬È»ºó·µ»Ø `exposedObject`£¬×îÖÕ·µ»ØµÄ¶ÔÏóÎª `service1` µÄ´úÀí¶ÔÏó¡£
+5. æœ€åä¸€æ­¥æ˜¯èµ‹å€¼æ“ä½œï¼Œå°†è¿”å›çš„å¯¹è±¡èµ‹å€¼ç»™ `exposedObject`ï¼Œç„¶åè¿”å› `exposedObject`ï¼Œæœ€ç»ˆè¿”å›çš„å¯¹è±¡ä¸º `service1` çš„ä»£ç†å¯¹è±¡ã€‚
 
-µ½ÁËÕâÒ»²½£¬`service1` µÄ´úÀí¶ÔÏóÒ²»ñÈ¡Íê³ÉÁË¡£
+åˆ°äº†è¿™ä¸€æ­¥ï¼Œ`service1` çš„ä»£ç†å¯¹è±¡ä¹Ÿè·å–å®Œæˆäº†ã€‚
 
-#### 6.2 »Øµ½ `DefaultSingletonBeanRegistry#getSingleton(String, ObjectFactory<?>)`
+#### 6.2 å›åˆ° `DefaultSingletonBeanRegistry#getSingleton(String, ObjectFactory<?>)`
 
-ÕâÒ»²½µÄ²Ù×÷ÊÇÇåÀíÒ»Ğ©»º´æ£¬¾Í²»ÔÙ·ÖÎöÁË£¬×îÖÕ 5 ¸ö½á¹¹ÖĞµÄÄÚÈİÈçÏÂ£º
+è¿™ä¸€æ­¥çš„æ“ä½œæ˜¯æ¸…ç†ä¸€äº›ç¼“å­˜ï¼Œå°±ä¸å†åˆ†æäº†ï¼Œæœ€ç»ˆ 5 ä¸ªç»“æ„ä¸­çš„å†…å®¹å¦‚ä¸‹ï¼š
 
-| ½á¹¹                            | ÄÚÈİ                                                         |
+| ç»“æ„                            | å†…å®¹                                                         |
 | ------------------------------- | ------------------------------------------------------------ |
 | `singletonObjects`              | service2<nobr aria-hidden="true">EnhancerBySpringCGLIB,service1</nobr><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mo>,</mo><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mi>?</mi><mn>1</mn></math><mi>E</mi><mi>n</mi><mi>h</mi><mi>a</mi><mi>n</mi><mi>c</mi><mi>e</mi><mi>r</mi><mi>B</mi><mi>y</mi><mi>S</mi><mi>p</mi><mi>r</mi><mi>i</mi><mi>n</mi><mi>g</mi><mi>C</mi><mi>G</mi><mi>L</mi><mi>I</mi><mi>B</mi><mo>,</mo><mi>s</mi><mi>e</mi><mi>r</mi><mi>v</mi><mi>i</mi><mi>c</mi><mi>e</mi><mn>1</mn></math>" role="presentation">EnhancerBySpringCGLIB |
 | `earlySingletonObjects`         |                                                              |
@@ -1102,7 +1102,7 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 | `singletonsCurrentlyInCreation` |                                                              |
 | `earlyProxyReferences`          |                                                              |
 
-Í¨¹ıµ÷ÊÔ£¬²é¿´µÃµ½ `singletonObjects` ÖĞ¶ÔÏóÈçÏÂ£º
+é€šè¿‡è°ƒè¯•ï¼ŒæŸ¥çœ‹å¾—åˆ° `singletonObjects` ä¸­å¯¹è±¡å¦‚ä¸‹ï¼š
 
 1. service1
 
@@ -1112,12 +1112,12 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-563d6e323ef8fc5e9fd02f7a938ddbac655.png)
 
-¿ÉÒÔ¿´µ½£¬`singletonObjects` ÖĞÁ½Õß¶¼ÊÇ´úÀí¶ÔÏó£¬±Ë´Ë×¢ÈëµÄ£¬Ò²ÊÇ´úÀí¶ÔÏó£¬Ñ­»·ÒÀÀµµÃµ½ÁË½â¾ö¡£
+å¯ä»¥çœ‹åˆ°ï¼Œ`singletonObjects` ä¸­ä¸¤è€…éƒ½æ˜¯ä»£ç†å¯¹è±¡ï¼Œå½¼æ­¤æ³¨å…¥çš„ï¼Œä¹Ÿæ˜¯ä»£ç†å¯¹è±¡ï¼Œå¾ªç¯ä¾èµ–å¾—åˆ°äº†è§£å†³ã€‚
 
-### 4\. ×Ü½á
+### 4\. æ€»ç»“
 
-spring Ñ­»·ÒÀÀµµÄ·ÖÎöµ½ÕâÀï¾Í½áÊøÁË£¬Ñ­»·ÒÀÀµÓĞ½âµÄºËĞÄÔÚÓÚ**¶ÔÏó¿ÉÒÔÌáÇ°½øĞĞ aop**£¬spring ÕıÊÇÀûÓÃÕâÒ»µã£¬ÔÙÅäºÏ 5 ´ó½á¹¹´æ´¢±ØÒªµÄĞÅÏ¢£¬Ò»²½²½½â¾öÑ­»·ÒÀÀµÎÊÌâ¡£
+spring å¾ªç¯ä¾èµ–çš„åˆ†æåˆ°è¿™é‡Œå°±ç»“æŸäº†ï¼Œå¾ªç¯ä¾èµ–æœ‰è§£çš„æ ¸å¿ƒåœ¨äº**å¯¹è±¡å¯ä»¥æå‰è¿›è¡Œ aop**ï¼Œspring æ­£æ˜¯åˆ©ç”¨è¿™ä¸€ç‚¹ï¼Œå†é…åˆ 5 å¤§ç»“æ„å­˜å‚¨å¿…è¦çš„ä¿¡æ¯ï¼Œä¸€æ­¥æ­¥è§£å†³å¾ªç¯ä¾èµ–é—®é¢˜ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4815992](https://my.oschina.net/funcy/blog/4815992) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4815992](https://my.oschina.net/funcy/blog/4815992) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

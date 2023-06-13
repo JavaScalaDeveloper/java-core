@@ -2,9 +2,9 @@
 
 <header>
 
-# Spring Boot Tomcat²¿Êğ
+# Spring Boot Tomcatéƒ¨ç½²
 
-ÒÔÏÂÄÚÈİ½öÊÇÕ¾³¤»òÍøÓÑ¸öÈËÑ§Ï°±Ê¼Ç¡¢×Ü½áºÍÑĞ¾¿ÊÕ²Ø¡£²»±£Ö¤ÕıÈ·ĞÔ£¬ÒòÊ¹ÓÃ¶ø´øÀ´µÄ·çÏÕÓë±¾Õ¾ÎŞ¹Ø£¡
+ä»¥ä¸‹å†…å®¹ä»…æ˜¯ç«™é•¿æˆ–ç½‘å‹ä¸ªäººå­¦ä¹ ç¬”è®°ã€æ€»ç»“å’Œç ”ç©¶æ”¶è—ã€‚ä¸ä¿è¯æ­£ç¡®æ€§ï¼Œå› ä½¿ç”¨è€Œå¸¦æ¥çš„é£é™©ä¸æœ¬ç«™æ— å…³ï¼
 
 </header>
 
@@ -14,13 +14,13 @@
 
 
 
-Í¨¹ıÊ¹ÓÃSpring BootÓ¦ÓÃ³ÌĞò£¬¿ÉÒÔ´´½¨Ò»¸öwarÎÄ¼şÒÔ²¿Êğµ½Web·şÎñÆ÷ÖĞ¡£ÔÚ±¾ÕÂÖĞ£¬½«Ñ§Ï°ÈçºÎ´´½¨WARÎÄ¼ş²¢ÔÚTomcat Web·şÎñÆ÷ÖĞ²¿ÊğSpring BootÓ¦ÓÃ³ÌĞò¡£
+é€šè¿‡ä½¿ç”¨Spring Bootåº”ç”¨ç¨‹åºï¼Œå¯ä»¥åˆ›å»ºä¸€ä¸ªwaræ–‡ä»¶ä»¥éƒ¨ç½²åˆ°WebæœåŠ¡å™¨ä¸­ã€‚åœ¨æœ¬ç« ä¸­ï¼Œå°†å­¦ä¹ å¦‚ä½•åˆ›å»ºWARæ–‡ä»¶å¹¶åœ¨Tomcat WebæœåŠ¡å™¨ä¸­éƒ¨ç½²Spring Bootåº”ç”¨ç¨‹åºã€‚
 
-## Spring Boot Servlet³õÊ¼»¯³ÌĞò
+## Spring Boot Servletåˆå§‹åŒ–ç¨‹åº
 
-´«Í³µÄ²¿Êğ·½Ê½ÊÇÊ¹Spring BootÓ¦ÓÃ³ÌĞò`[@SpringBootApplication](https://github.com/SpringBootApplication "@SpringBootApplication")`ÀàÀ©Õ¹`SpringBootServletInitializer`Àà¡£ `SpringBootServletInitializer`ÀàÎÄ¼şÔÊĞíÔÚÊ¹ÓÃServletÈİÆ÷Æô¶¯Ê±ÅäÖÃÓ¦ÓÃ³ÌĞò¡£
+ä¼ ç»Ÿçš„éƒ¨ç½²æ–¹å¼æ˜¯ä½¿Spring Bootåº”ç”¨ç¨‹åº`[@SpringBootApplication](https://github.com/SpringBootApplication "@SpringBootApplication")`ç±»æ‰©å±•`SpringBootServletInitializer`ç±»ã€‚ `SpringBootServletInitializer`ç±»æ–‡ä»¶å…è®¸åœ¨ä½¿ç”¨Servletå®¹å™¨å¯åŠ¨æ—¶é…ç½®åº”ç”¨ç¨‹åºã€‚
 
-ÏÂÃæ¸ø³öÁËÓÃÓÚJARÎÄ¼ş²¿ÊğµÄSpring BootÓ¦ÓÃ³ÌĞòÀàÎÄ¼şµÄ´úÂë -
+ä¸‹é¢ç»™å‡ºäº†ç”¨äºJARæ–‡ä»¶éƒ¨ç½²çš„Spring Bootåº”ç”¨ç¨‹åºç±»æ–‡ä»¶çš„ä»£ç  -
 
 ```
 package com.yiibai.demo;
@@ -37,7 +37,7 @@ public class DemoApplication {
 
 ```
 
-ĞèÒªÀ©Õ¹Àà`SpringBootServletInitializer`ÒÔÖ§³ÖWARÎÄ¼ş²¿Êğ¡£ Spring BootÓ¦ÓÃ³ÌĞòÀàÎÄ¼şµÄ´úÂëÈçÏÂ -
+éœ€è¦æ‰©å±•ç±»`SpringBootServletInitializer`ä»¥æ”¯æŒWARæ–‡ä»¶éƒ¨ç½²ã€‚ Spring Bootåº”ç”¨ç¨‹åºç±»æ–‡ä»¶çš„ä»£ç å¦‚ä¸‹ -
 
 ```
 package com.yiibai.demo;
@@ -60,35 +60,35 @@ public class DemoApplication  extends SpringBootServletInitializer {
 
 ```
 
-## ÉèÖÃMainÀà
+## è®¾ç½®Mainç±»
 
-ÔÚSpring BootÖĞ£¬ĞèÒªÔÚ¹¹½¨ÎÄ¼şÖĞÖ¸¶¨Æô¶¯µÄÖ÷Àà¡£
-¶ÔÓÚMaven£¬ÔÚ`pom.xml`ÊôĞÔÖĞÌí¼Ó`start`Àà£¬ÈçÏÂËùÊ¾ -
+åœ¨Spring Bootä¸­ï¼Œéœ€è¦åœ¨æ„å»ºæ–‡ä»¶ä¸­æŒ‡å®šå¯åŠ¨çš„ä¸»ç±»ã€‚
+å¯¹äºMavenï¼Œåœ¨`pom.xml`å±æ€§ä¸­æ·»åŠ `start`ç±»ï¼Œå¦‚ä¸‹æ‰€ç¤º -
 
 ```
 <start-class>com.yiibai.demo.DemoApplication</start-class>
 
 ```
 
-¶ÔÓÚGradle£¬ÔÚ`build.gradle`ÖĞÌí¼ÓÖ÷ÀàÃû£¬ÈçÏÂËùÊ¾ -
+å¯¹äºGradleï¼Œåœ¨`build.gradle`ä¸­æ·»åŠ ä¸»ç±»åï¼Œå¦‚ä¸‹æ‰€ç¤º -
 
 ```
 mainClassName="com.yiibai.demo.DemoApplication"
 
 ```
 
-## ½«´ò°üJAR¸üĞÂÎªWAR
+## å°†æ‰“åŒ…JARæ›´æ–°ä¸ºWAR
 
-Ê¹ÓÃÒÔÏÂ´úÂë½«°ü×°JAR¸üĞÂÎªWAR¡£
+ä½¿ç”¨ä»¥ä¸‹ä»£ç å°†åŒ…è£…JARæ›´æ–°ä¸ºWARã€‚
 
-¶ÔÓÚMaven£¬ÔÚ_pom.xml_ ÖĞ½«°ü×°Ìí¼ÓÎªWAR£¬ÈçÏÂËùÊ¾ -
+å¯¹äºMavenï¼Œåœ¨_pom.xml_ ä¸­å°†åŒ…è£…æ·»åŠ ä¸ºWARï¼Œå¦‚ä¸‹æ‰€ç¤º -
 
 ```
 <packaging>war</packaging>
 
 ```
 
-¶ÔÓÚGradle£¬ÔÚ_build.gradle_ ÖĞÌí¼ÓÓ¦ÓÃ³ÌĞò²å¼şºÍwar²å¼ş£¬ÈçÏÂËùÊ¾ -
+å¯¹äºGradleï¼Œåœ¨_build.gradle_ ä¸­æ·»åŠ åº”ç”¨ç¨‹åºæ’ä»¶å’Œwaræ’ä»¶ï¼Œå¦‚ä¸‹æ‰€ç¤º -
 
 ```
 apply plugin: 'war'
@@ -96,9 +96,9 @@ apply plugin: 'application'
 
 ```
 
-¶ÔÓÚGradlNow£¬±àĞ´Ò»¸ö¼òµ¥µÄRest¶ËµãÀ´·µ»Ø×Ö·û´®:`"Hello World from Tomcat"`¡£ Òª±àĞ´Rest¶Ëµã£¬ĞèÒª½«Spring Boot Web starterÒÀÀµÏîÌí¼Óµ½¹¹½¨ÎÄ¼şÖĞ¡£
+å¯¹äºGradlNowï¼Œç¼–å†™ä¸€ä¸ªç®€å•çš„Restç«¯ç‚¹æ¥è¿”å›å­—ç¬¦ä¸²:`"Hello World from Tomcat"`ã€‚ è¦ç¼–å†™Restç«¯ç‚¹ï¼Œéœ€è¦å°†Spring Boot Web starterä¾èµ–é¡¹æ·»åŠ åˆ°æ„å»ºæ–‡ä»¶ä¸­ã€‚
 
-¶ÔÓÚMaven£¬Ê¹ÓÃÈçÏÂËùÊ¾µÄ´úÂëÔÚ_pom.xml_ ÖĞÌí¼ÓSpring BootÆô¶¯³ÌĞòÒÀÀµÏî -
+å¯¹äºMavenï¼Œä½¿ç”¨å¦‚ä¸‹æ‰€ç¤ºçš„ä»£ç åœ¨_pom.xml_ ä¸­æ·»åŠ Spring Bootå¯åŠ¨ç¨‹åºä¾èµ–é¡¹ -
 
 ```
 <dependency>
@@ -108,7 +108,7 @@ apply plugin: 'application'
 
 ```
 
-¶ÔÓÚGradle£¬Ê¹ÓÃÈçÏÂËùÊ¾µÄ´úÂëÔÚ_build.gradle_ ÖĞÌí¼ÓSpring Boot starterÒÀÀµÏî -
+å¯¹äºGradleï¼Œä½¿ç”¨å¦‚ä¸‹æ‰€ç¤ºçš„ä»£ç åœ¨_build.gradle_ ä¸­æ·»åŠ Spring Boot starterä¾èµ–é¡¹ -
 
 ```
 dependencies {
@@ -117,7 +117,7 @@ dependencies {
 
 ```
 
-ÏÖÔÚ£¬Ê¹ÓÃÈçÏÂËùÊ¾µÄ´úÂëÔÚSpring Boot ApplicationÀàÎÄ¼şÖĞ±àĞ´Ò»¸ö¼òµ¥µÄRest¶Ëµã -
+ç°åœ¨ï¼Œä½¿ç”¨å¦‚ä¸‹æ‰€ç¤ºçš„ä»£ç åœ¨Spring Boot Applicationç±»æ–‡ä»¶ä¸­ç¼–å†™ä¸€ä¸ªç®€å•çš„Restç«¯ç‚¹ -
 
 ```
 package com.yiibai.demo;
@@ -148,31 +148,31 @@ public class DemoApplication  extends SpringBootServletInitializer {
 
 ```
 
-## ´ò°üÓ¦ÓÃ³ÌĞò
+## æ‰“åŒ…åº”ç”¨ç¨‹åº
 
-ÏÖÔÚ£¬Ê¹ÓÃMavenºÍGradleÃüÁî´´½¨Ò»¸öWARÎÄ¼şÒÔ²¿Êğµ½Tomcat·şÎñÆ÷ÖĞ£¬ÒÔ´ò°üÓ¦ÓÃ³ÌĞò£¬ÈçÏÂËùÊ¾¡£
+ç°åœ¨ï¼Œä½¿ç”¨Mavenå’ŒGradleå‘½ä»¤åˆ›å»ºä¸€ä¸ªWARæ–‡ä»¶ä»¥éƒ¨ç½²åˆ°TomcatæœåŠ¡å™¨ä¸­ï¼Œä»¥æ‰“åŒ…åº”ç”¨ç¨‹åºï¼Œå¦‚ä¸‹æ‰€ç¤ºã€‚
 
-¶ÔÓÚMaven£¬Ê¹ÓÃÃüÁî`mvn package`´ò°üÓ¦ÓÃ³ÌĞò¡£ È»ºó´´½¨WARÎÄ¼ş£¬¿ÉÒÔÔÚÄ¿±êÄ¿Â¼ÖĞÕÒµ½Ëü£¬ÈçÏÂÃæ¸ø³öµÄÆÁÄ»½ØÍ¼ËùÊ¾ -
+å¯¹äºMavenï¼Œä½¿ç”¨å‘½ä»¤`mvn package`æ‰“åŒ…åº”ç”¨ç¨‹åºã€‚ ç„¶ååˆ›å»ºWARæ–‡ä»¶ï¼Œå¯ä»¥åœ¨ç›®æ ‡ç›®å½•ä¸­æ‰¾åˆ°å®ƒï¼Œå¦‚ä¸‹é¢ç»™å‡ºçš„å±å¹•æˆªå›¾æ‰€ç¤º -
 
 ![](/uploads/images/2018/09/27/084613_17931.jpg)
 
-¶ÔÓÚGradle£¬Ê¹ÓÃÃüÁî`gradle clean build`´ò°üÓ¦ÓÃ³ÌĞò¡£ È»ºó£¬½«´´½¨WARÎÄ¼ş£¬¿ÉÒÔÔÚ`build/libs`Ä¿Â¼ÏÂÕÒµ½Ëü¡£¹Û²ì´Ë´¦¸ø³öµÄÆÁÄ»½ØÍ¼ÒÔ±ã¸üºÃµØÀí½â -
+å¯¹äºGradleï¼Œä½¿ç”¨å‘½ä»¤`gradle clean build`æ‰“åŒ…åº”ç”¨ç¨‹åºã€‚ ç„¶åï¼Œå°†åˆ›å»ºWARæ–‡ä»¶ï¼Œå¯ä»¥åœ¨`build/libs`ç›®å½•ä¸‹æ‰¾åˆ°å®ƒã€‚è§‚å¯Ÿæ­¤å¤„ç»™å‡ºçš„å±å¹•æˆªå›¾ä»¥ä¾¿æ›´å¥½åœ°ç†è§£ -
 
 ![](/uploads/images/2018/09/27/084717_10144.jpg)
 
-## ²¿Êğµ½Tomcat
+## éƒ¨ç½²åˆ°Tomcat
 
-ÏÖÔÚ£¬ÔËĞĞTomcat·şÎñÆ÷£¬²¢ÔÚwebappsÄ¿Â¼ÏÂ²¿ÊğWARÎÄ¼ş¡£¹Û²ì´Ë´¦ÏÔÊ¾µÄÆÁÄ»½ØÍ¼ÒÔ±ã¸üºÃµØÀí½â -
+ç°åœ¨ï¼Œè¿è¡ŒTomcatæœåŠ¡å™¨ï¼Œå¹¶åœ¨webappsç›®å½•ä¸‹éƒ¨ç½²WARæ–‡ä»¶ã€‚è§‚å¯Ÿæ­¤å¤„æ˜¾ç¤ºçš„å±å¹•æˆªå›¾ä»¥ä¾¿æ›´å¥½åœ°ç†è§£ -
 
 ![](/uploads/images/2018/09/27/084759_50620.jpg)
 
-³É¹¦²¿Êğºó£¬µã»÷ÍøÒ³ä¯ÀÀÆ÷ÖĞµÄURL => `http://localhost:8080/demo-0.0.1-SNAPSHOT/`£¬¹Û²ìÊä³ö½á¹ûÈçÏÂÍ¼ËùÊ¾ -
+æˆåŠŸéƒ¨ç½²åï¼Œç‚¹å‡»ç½‘é¡µæµè§ˆå™¨ä¸­çš„URL => `http://localhost:8080/demo-0.0.1-SNAPSHOT/`ï¼Œè§‚å¯Ÿè¾“å‡ºç»“æœå¦‚ä¸‹å›¾æ‰€ç¤º -
 
 ![](/uploads/images/2018/09/27/084848_70593.jpg)
 
-ÍêÕû´úÂëÈçÏÂ£º
+å®Œæ•´ä»£ç å¦‚ä¸‹ï¼š
 
-ÎÄ¼ş£º_pom.xml_ -
+æ–‡ä»¶ï¼š_pom.xml_ -
 
 ```
 <?xml version = "1.0" encoding = "UTF-8"?>
@@ -228,7 +228,7 @@ xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/
 
 ```
 
-ÎÄ¼ş£º_build.gradle_
+æ–‡ä»¶ï¼š_build.gradle_
 
 ```
 buildscript {
@@ -264,7 +264,7 @@ dependencies {
 
 ```
 
-Spring BootÓ¦ÓÃ³ÌĞòÀàÎÄ¼şµÄ´úÂëÈçÏÂ -
+Spring Bootåº”ç”¨ç¨‹åºç±»æ–‡ä»¶çš„ä»£ç å¦‚ä¸‹ -
 
 ```
 package com.yiibai.demo;
@@ -298,5 +298,5 @@ public class DemoApplication  extends SpringBootServletInitializer {
 
 
 
-//¸ü¶àÇëÔÄ¶Á£ºhttps://www.yiibai.com/spring-boot/spring_boot_tomcat_deployment.html
+//æ›´å¤šè¯·é˜…è¯»ï¼šhttps://www.yiibai.com/spring-boot/spring_boot_tomcat_deployment.html
 

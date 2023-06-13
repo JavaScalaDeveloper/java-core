@@ -1,22 +1,22 @@
 # Spring Cloud LoadBalancer
 
-## ¸ÅÊö
+## æ¦‚è¿°
 
-> Spring Cloud LoadBalancerÄ¿Ç°Spring¹Ù·½ÊÇ·ÅÔÚspring-cloud-commonsÀï£¬Spring Cloud×îĞÂ°æ±¾Îª2021.0.2
+> Spring Cloud LoadBalancerç›®å‰Springå®˜æ–¹æ˜¯æ”¾åœ¨spring-cloud-commonsé‡Œï¼ŒSpring Cloudæœ€æ–°ç‰ˆæœ¬ä¸º2021.0.2
 >
-> [Spring Cloud LoadBalancer ¹ÙÍøÎÄµµµØÖ·](https://docs.spring.io/spring-cloud-commons/docs/3.1.2/reference/html/#spring-cloud-loadbalancer) [https://docs.spring.io/spring-cloud-commons/docs/3.1.2/reference/html/#spring-cloud-loadbalancer](https://docs.spring.io/spring-cloud-commons/docs/3.1.2/reference/html/#spring-cloud-loadbalancer)
+> [Spring Cloud LoadBalancer å®˜ç½‘æ–‡æ¡£åœ°å€](https://docs.spring.io/spring-cloud-commons/docs/3.1.2/reference/html/#spring-cloud-loadbalancer) [https://docs.spring.io/spring-cloud-commons/docs/3.1.2/reference/html/#spring-cloud-loadbalancer](https://docs.spring.io/spring-cloud-commons/docs/3.1.2/reference/html/#spring-cloud-loadbalancer)
 >
-> [Spring Cloud¹ÙÍøÎÄµµµØÖ·](https://docs.spring.io/spring-cloud/docs/current/reference/html/) [https://docs.spring.io/spring-cloud/docs/current/reference/html/](https://docs.spring.io/spring-cloud/docs/current/reference/html/)
+> [Spring Cloudå®˜ç½‘æ–‡æ¡£åœ°å€](https://docs.spring.io/spring-cloud/docs/current/reference/html/) [https://docs.spring.io/spring-cloud/docs/current/reference/html/](https://docs.spring.io/spring-cloud/docs/current/reference/html/)
 
-Ò»·½ÃæNetflix RibbonÍ£Ö¹¸üĞÂ£¬Spring Cloud LoadBalancerÊÇSpring Cloud¹Ù·½×Ô¼ºÌá¹©µÄ¿Í»§¶Ë¸ºÔØ¾ùºâÆ÷,³éÏóºÍÊµÏÖ£¬ÓÃÀ´Ìæ´úRibbon¡£
+ä¸€æ–¹é¢Netflix Ribbonåœæ­¢æ›´æ–°ï¼ŒSpring Cloud LoadBalanceræ˜¯Spring Cloudå®˜æ–¹è‡ªå·±æä¾›çš„å®¢æˆ·ç«¯è´Ÿè½½å‡è¡¡å™¨,æŠ½è±¡å’Œå®ç°ï¼Œç”¨æ¥æ›¿ä»£Ribbonã€‚
 
-*   ³£¼û¸ºÔØ¾ùºâÆ÷·ÖÎª·şÎñ¶Ë¸ºÔØ¾ùºâÆ÷(ÈçÍø¹Ø²ã¾ùºâ¸ºÔØ)ºÍ¿Í»§¶Ë²ã¾ùºâ¸ºÔØ¡£
-    *   Íø¹Ø²ãÈçÓ²¼ş²ãÃæµÄF5»òÈí¼ş²ãÃæµÄLVS¡¢»òÕßnginxµÈ¡£
-    *   ¿Í»§¶Ë²ã¾ÍÈçSpring Cloud LoadBalancer£¬×÷ÎªÒ»¸ö¿Í»§¶ËÈ¥·¢ÏÖ¸üĞÂÎ¬»¤·şÎñÁĞ±í£¬×Ô¶¨Òå·şÎñµÄ¾ùºâ¸ºÔØ²ßÂÔ£¨Ëæ»ú¡¢ÂÖÑ¯¡¢Ğ¡Á÷Á¿µÄ½ğË¿È¸µÈµÈ£©¡£
+*   å¸¸è§è´Ÿè½½å‡è¡¡å™¨åˆ†ä¸ºæœåŠ¡ç«¯è´Ÿè½½å‡è¡¡å™¨(å¦‚ç½‘å…³å±‚å‡è¡¡è´Ÿè½½)å’Œå®¢æˆ·ç«¯å±‚å‡è¡¡è´Ÿè½½ã€‚
+    *   ç½‘å…³å±‚å¦‚ç¡¬ä»¶å±‚é¢çš„F5æˆ–è½¯ä»¶å±‚é¢çš„LVSã€æˆ–è€…nginxç­‰ã€‚
+    *   å®¢æˆ·ç«¯å±‚å°±å¦‚Spring Cloud LoadBalancerï¼Œä½œä¸ºä¸€ä¸ªå®¢æˆ·ç«¯å»å‘ç°æ›´æ–°ç»´æŠ¤æœåŠ¡åˆ—è¡¨ï¼Œè‡ªå®šä¹‰æœåŠ¡çš„å‡è¡¡è´Ÿè½½ç­–ç•¥ï¼ˆéšæœºã€è½®è¯¢ã€å°æµé‡çš„é‡‘ä¸é›€ç­‰ç­‰ï¼‰ã€‚
 
-Spring CloudÌá¹©ÁË×Ô¼ºµÄ¿Í»§¶Ë¸ºÔØÆ½ºâÆ÷³éÏóºÍÊµÏÖ¡£¶ÔÓÚ¸ºÔØ¾ùºâ»úÖÆ£¬Ôö¼ÓÁËReactiveLoadBalancer½Ó¿Ú£¬²¢Ìá¹©ÁË»ùÓÚround-robinÂÖÑ¯ºÍRandomËæ»úµÄÊµÏÖ¡£ÎªÁË´ÓÏìÓ¦Ê½ServiceInstanceListSupplierÖĞÑ¡ÔñÊµÀı£¬ĞèÒªÊ¹ÓÃServiceInstanceListSupplier¡£Ä¿Ç°Ö§³ÖServiceInstanceListSupplierµÄ»ùÓÚ·şÎñ·¢ÏÖµÄÊµÏÖ£¬¸ÃÊµÏÖÊ¹ÓÃÀàÂ·¾¶ÖĞµÄ·¢ÏÖ¿Í»§¶Ë´ÓService DiscoveryÖĞ¼ìË÷¿ÉÓÃµÄÊµÀı¡£
+Spring Cloudæä¾›äº†è‡ªå·±çš„å®¢æˆ·ç«¯è´Ÿè½½å¹³è¡¡å™¨æŠ½è±¡å’Œå®ç°ã€‚å¯¹äºè´Ÿè½½å‡è¡¡æœºåˆ¶ï¼Œå¢åŠ äº†ReactiveLoadBalanceræ¥å£ï¼Œå¹¶æä¾›äº†åŸºäºround-robinè½®è¯¢å’ŒRandoméšæœºçš„å®ç°ã€‚ä¸ºäº†ä»å“åº”å¼ServiceInstanceListSupplierä¸­é€‰æ‹©å®ä¾‹ï¼Œéœ€è¦ä½¿ç”¨ServiceInstanceListSupplierã€‚ç›®å‰æ”¯æŒServiceInstanceListSupplierçš„åŸºäºæœåŠ¡å‘ç°çš„å®ç°ï¼Œè¯¥å®ç°ä½¿ç”¨ç±»è·¯å¾„ä¸­çš„å‘ç°å®¢æˆ·ç«¯ä»Service Discoveryä¸­æ£€ç´¢å¯ç”¨çš„å®ä¾‹ã€‚
 
-¿ÉÒÔÍ¨¹ıÈçÏÂÅäÖÃÀ´½ûÓÃSpring Cloud LoadBalance
+å¯ä»¥é€šè¿‡å¦‚ä¸‹é…ç½®æ¥ç¦ç”¨Spring Cloud LoadBalance
 
 ```
 spring:
@@ -26,13 +26,13 @@ spring:
 
 ```
 
-## ÈëÃÅÊ¾Àı
+## å…¥é—¨ç¤ºä¾‹
 
-Ç°Ãæsimple-ecommerceÏîÄ¿´´½¨ÒÑÔÚ¸¸PomÒıÈëÈı´ó¸¸ÒÀÀµ£¬ÏêÏ¸¿ÉÒÔ¿´ÏÂÇ°ÃæµÄÎÄÕÂ<<SpringCloudAlibaba×¢²áÖĞĞÄÓëÅäÖÃÖĞĞÄÖ®ÀûÆ÷NacosÊµÕ½ÓëÔ´Âë·ÖÎö>>£¬ÆäÖĞSpring CloudµÄ°æ±¾Îª2021.0.1£¬Ç°ÃæÎÄÕÂÒ²ÒÑËµ¹ı£¬Spring Cloud AlibabaÕûºÏÔÚspring-cloud-starter-alibaba-nacos-discovery±¾Éí¾ÍÒÀÀµspring-cloud-loadbalancer¡£
+å‰é¢simple-ecommerceé¡¹ç›®åˆ›å»ºå·²åœ¨çˆ¶Pomå¼•å…¥ä¸‰å¤§çˆ¶ä¾èµ–ï¼Œè¯¦ç»†å¯ä»¥çœ‹ä¸‹å‰é¢çš„æ–‡ç« <<SpringCloudAlibabaæ³¨å†Œä¸­å¿ƒä¸é…ç½®ä¸­å¿ƒä¹‹åˆ©å™¨Nacoså®æˆ˜ä¸æºç åˆ†æ>>ï¼Œå…¶ä¸­Spring Cloudçš„ç‰ˆæœ¬ä¸º2021.0.1ï¼Œå‰é¢æ–‡ç« ä¹Ÿå·²è¯´è¿‡ï¼ŒSpring Cloud Alibabaæ•´åˆåœ¨spring-cloud-starter-alibaba-nacos-discoveryæœ¬èº«å°±ä¾èµ–spring-cloud-loadbalancerã€‚
 
-> ×¢ÒâÈç¹ûÊÇHoxtonÖ®Ç°µÄ°æ±¾£¬Ä¬ÈÏ¸ºÔØ¾ùºâÆ÷ÎªRibbon£¬ĞèÒªÒÆ³ıRibbonÒıÓÃºÍÔö¼ÓÅäÖÃspring.cloud.loadbalancer.ribbon.enabled: false¡£
+> æ³¨æ„å¦‚æœæ˜¯Hoxtonä¹‹å‰çš„ç‰ˆæœ¬ï¼Œé»˜è®¤è´Ÿè½½å‡è¡¡å™¨ä¸ºRibbonï¼Œéœ€è¦ç§»é™¤Ribbonå¼•ç”¨å’Œå¢åŠ é…ç½®spring.cloud.loadbalancer.ribbon.enabled: falseã€‚
 
-Èç¹ûÊÇÔÚSpring BootÏîÄ¿ÖĞÌí¼ÓÏÂÃæµÄÆô¶¯Æ÷ÒÀÀµ£¬¸ÃstarterÒ²°üº¬ÁËSpring Boot Caching and Evictor.
+å¦‚æœæ˜¯åœ¨Spring Booté¡¹ç›®ä¸­æ·»åŠ ä¸‹é¢çš„å¯åŠ¨å™¨ä¾èµ–ï¼Œè¯¥starterä¹ŸåŒ…å«äº†Spring Boot Caching and Evictor.
 
 ```
         <dependency>
@@ -42,7 +42,7 @@ spring:
 
 ```
 
-ÎÒÃÇÊ¹ÓÃSpring¹Ù·½Ìá¹©ÁË¸ºÔØ¾ùºâµÄ¿Í»§¶ËÖ®Ò»RestTemplate£¬RestTemplateÊÇSpringÌá¹©µÄÓÃÓÚ·ÃÎÊRest·şÎñµÄ¿Í»§¶Ë£¬RestTemplateÌá¹©ÁË¶àÖÖ±ã½İ·ÃÎÊÔ¶³ÌHttp·şÎñµÄ·½·¨£¬ÄÜ¹»´ó´óÌá¸ß¿Í»§¶ËµÄ±àĞ´Ğ§ÂÊ¡£Ä¬ÈÏÇé¿öÏÂ£¬RestTemplateÄ¬ÈÏÒÀÀµjdkµÄHTTPÁ¬½Ó¹¤¾ß¡£´´½¨RestTemplateConfigÅäÖÃÀà£¬±ê×¢ @LoadBalanced×¢½â£¬Ä¬ÈÏÊ¹ÓÃµÄReactiveLoadBalancerÊµÏÖÊÇRoundRobinLoadBalancer¡£
+æˆ‘ä»¬ä½¿ç”¨Springå®˜æ–¹æä¾›äº†è´Ÿè½½å‡è¡¡çš„å®¢æˆ·ç«¯ä¹‹ä¸€RestTemplateï¼ŒRestTemplateæ˜¯Springæä¾›çš„ç”¨äºè®¿é—®RestæœåŠ¡çš„å®¢æˆ·ç«¯ï¼ŒRestTemplateæä¾›äº†å¤šç§ä¾¿æ·è®¿é—®è¿œç¨‹HttpæœåŠ¡çš„æ–¹æ³•ï¼Œèƒ½å¤Ÿå¤§å¤§æé«˜å®¢æˆ·ç«¯çš„ç¼–å†™æ•ˆç‡ã€‚é»˜è®¤æƒ…å†µä¸‹ï¼ŒRestTemplateé»˜è®¤ä¾èµ–jdkçš„HTTPè¿æ¥å·¥å…·ã€‚åˆ›å»ºRestTemplateConfigé…ç½®ç±»ï¼Œæ ‡æ³¨ @LoadBalancedæ³¨è§£ï¼Œé»˜è®¤ä½¿ç”¨çš„ReactiveLoadBalancerå®ç°æ˜¯RoundRobinLoadBalancerã€‚
 
 ```
 package cn.itxs.ecom.order.config;
@@ -63,7 +63,7 @@ public class RestTemplateConfig {
 
 ```
 
-¶©µ¥Î¢·şÎñÖĞ¶©µ¥¿ØÖÆÆ÷Ôö¼ÓdeductRest·½·¨
+è®¢å•å¾®æœåŠ¡ä¸­è®¢å•æ§åˆ¶å™¨å¢åŠ deductRestæ–¹æ³•
 
 ```
 package cn.itxs.ecom.order.controller;
@@ -76,12 +76,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * @Name £ºOrderController
- * @Description £º¶©µ¥¿ØÖÆÆ÷
- * @Author £ºitxs
- * @Date £º2022/4/10 20:15
- * @Version £º1.0
- * @History £º
+ * @Name ï¼šOrderController
+ * @Description ï¼šè®¢å•æ§åˆ¶å™¨
+ * @Author ï¼šitxs
+ * @Date ï¼š2022/4/10 20:15
+ * @Version ï¼š1.0
+ * @History ï¼š
  */
 @RestController
 public class OrderController {
@@ -106,7 +106,7 @@ public class OrderController {
 
 ```
 
-Ç°Ãæserver.portÎÒÃÇÊÇ·ÅÔÚNacosÅäÖÃÖĞĞÄÀï£¬ÕâÀïÎÒÃÇ×¢ÊÍNacosÅäÖÃÖĞĞÄµÄÅäÖÃ·ÅÔÚ±¾µØÅäÖÃÎÄ¼şbootstrap.ymlÀï£¬·Ö±ğÅäÖÃÎª4080¡¢4081¡¢4082Æô¶¯3¸ö¿â´æ·şÎñÊµÀı£¬²¢Æô¶¯¶©µ¥Î¢·şÎñ
+å‰é¢server.portæˆ‘ä»¬æ˜¯æ”¾åœ¨Nacosé…ç½®ä¸­å¿ƒé‡Œï¼Œè¿™é‡Œæˆ‘ä»¬æ³¨é‡ŠNacosé…ç½®ä¸­å¿ƒçš„é…ç½®æ”¾åœ¨æœ¬åœ°é…ç½®æ–‡ä»¶bootstrap.ymlé‡Œï¼Œåˆ†åˆ«é…ç½®ä¸º4080ã€4081ã€4082å¯åŠ¨3ä¸ªåº“å­˜æœåŠ¡å®ä¾‹ï¼Œå¹¶å¯åŠ¨è®¢å•å¾®æœåŠ¡
 
 ```
 server:
@@ -116,17 +116,17 @@ server:
 
 ![image-20220505191143684](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/938570a0b63b56671a862e8bda11577a.png)
 
-²é¿´nacos·şÎñ¹ÜÀí-·şÎñÁĞ±íÀï·şÎñÏêÇé£¬¿ÉÒÔ¿´µ½3¸ö½¡¿µµÄ¿â´æÊµÀıºÍ1¸ö¶©µ¥Î¢·şÎñÊµÀı
+æŸ¥çœ‹nacosæœåŠ¡ç®¡ç†-æœåŠ¡åˆ—è¡¨é‡ŒæœåŠ¡è¯¦æƒ…ï¼Œå¯ä»¥çœ‹åˆ°3ä¸ªå¥åº·çš„åº“å­˜å®ä¾‹å’Œ1ä¸ªè®¢å•å¾®æœåŠ¡å®ä¾‹
 
 ![image-20220505182432182](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/33fa03d937354fe00bb0bb2f3dd5c805.png)
 
-·ÃÎÊ6´Î¶©µ¥dedect½Ó¿Ú£º[http://localhost:4070/deductRest/1001/1](http://localhost:4070/deductRest/1001/1) £¬´Ó²âÊÔµÄ½á¹ûÒ²ÑéÖ¤ÁËLoadBalancerÄ¬ÈÏÊÇÂÖÑ¯¸ºÔØ¾ùºâ²ßÂÔ¡£
+è®¿é—®6æ¬¡è®¢å•dedectæ¥å£ï¼š[http://localhost:4070/deductRest/1001/1](http://localhost:4070/deductRest/1001/1) ï¼Œä»æµ‹è¯•çš„ç»“æœä¹ŸéªŒè¯äº†LoadBalanceré»˜è®¤æ˜¯è½®è¯¢è´Ÿè½½å‡è¡¡ç­–ç•¥ã€‚
 
 ![image-20220505192217715](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1fc20b1d482d2a4e3924c5707ac2ff19.png)
 
-## ¸ºÔØ¾ùºâËã·¨ÇĞ»»
+## è´Ÿè½½å‡è¡¡ç®—æ³•åˆ‡æ¢
 
-´´½¨×Ô¶¨Òå¸ºÔØ¾ùºâÅäÖÃÀàCustomLoadBalancerConfiguration
+åˆ›å»ºè‡ªå®šä¹‰è´Ÿè½½å‡è¡¡é…ç½®ç±»CustomLoadBalancerConfiguration
 
 ```
 package cn.itxs.ecom.order.config;
@@ -153,7 +153,7 @@ public class CustomLoadBalancerConfiguration {
 
 ```
 
-RestTemplateConfigÅäÖÃÀàLoadBalancerClientÖ¸¶¨Ëæ»úµÄÅäÖÃÀà£¬valueµÄÖµÎªÌá¹©ÕßÒ²¼´ÊÇ¿â´æÎ¢·şÎñÃû³Æ¡£
+RestTemplateConfigé…ç½®ç±»LoadBalancerClientæŒ‡å®šéšæœºçš„é…ç½®ç±»ï¼Œvalueçš„å€¼ä¸ºæä¾›è€…ä¹Ÿå³æ˜¯åº“å­˜å¾®æœåŠ¡åç§°ã€‚
 
 ```
 package cn.itxs.ecom.order.config;
@@ -178,15 +178,15 @@ public class RestTemplateConfig {
 
 ```
 
-¶à´Î·ÃÎÊ¶©µ¥dedect½Ó¿Ú²âÊÔÈ·ÈÏÒÑÇĞ»»ÎªËæ»ú¸ºÔØ¾ùºâ²ßÂÔ¡£
+å¤šæ¬¡è®¿é—®è®¢å•dedectæ¥å£æµ‹è¯•ç¡®è®¤å·²åˆ‡æ¢ä¸ºéšæœºè´Ÿè½½å‡è¡¡ç­–ç•¥ã€‚
 
-## ¼¯³É·½Ê½
+## é›†æˆæ–¹å¼
 
-¹ÙÍøÌá¹©3ÖĞ¼¯³ÉSpring Cloud LoadBalancerµÄ·½Ê½£¬³ıÁËµÚÒ»ÖÖÉÏÃæÒÑÊ¹ÓÃ¹ı£¬»¹Ö§³ÖSpring Web FluxÏìÓ¦Ê½±à³Ì£¬WebClientÊÇ´ÓSpring WebFlux 5.0°æ±¾¿ªÊ¼Ìá¹©µÄÒ»¸ö·Ç×èÈûµÄ»ùÓÚÏìÓ¦Ê½±à³ÌµÄ½øĞĞHttpÇëÇóµÄ¿Í»§¶Ë¹¤¾ß¡£ËüµÄÏìÓ¦Ê½±à³ÌµÄ»ùÓÚReactorµÄ¡£WebClientÖĞÌá¹©ÁË±ê×¼HttpÇëÇó·½Ê½¶ÔÓ¦µÄget¡¢post¡¢put¡¢deleteµÈ·½·¨£¬¿ÉÒÔÓÃÀ´·¢ÆğÏàÓ¦µÄÇëÇó¡£
+å®˜ç½‘æä¾›3ä¸­é›†æˆSpring Cloud LoadBalancerçš„æ–¹å¼ï¼Œé™¤äº†ç¬¬ä¸€ç§ä¸Šé¢å·²ä½¿ç”¨è¿‡ï¼Œè¿˜æ”¯æŒSpring Web Fluxå“åº”å¼ç¼–ç¨‹ï¼ŒWebClientæ˜¯ä»Spring WebFlux 5.0ç‰ˆæœ¬å¼€å§‹æä¾›çš„ä¸€ä¸ªéé˜»å¡çš„åŸºäºå“åº”å¼ç¼–ç¨‹çš„è¿›è¡ŒHttpè¯·æ±‚çš„å®¢æˆ·ç«¯å·¥å…·ã€‚å®ƒçš„å“åº”å¼ç¼–ç¨‹çš„åŸºäºReactorçš„ã€‚WebClientä¸­æä¾›äº†æ ‡å‡†Httpè¯·æ±‚æ–¹å¼å¯¹åº”çš„getã€postã€putã€deleteç­‰æ–¹æ³•ï¼Œå¯ä»¥ç”¨æ¥å‘èµ·ç›¸åº”çš„è¯·æ±‚ã€‚
 
 ![image-20220506233248585](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/ad44f363342f540b1cb1805b20be6ef0.png)
 
-ÔÚ¶©µ¥Î¢·şÎñÖĞÒıÈëspring-boot-starter-webfluxÒÀÀµ
+åœ¨è®¢å•å¾®æœåŠ¡ä¸­å¼•å…¥spring-boot-starter-webfluxä¾èµ–
 
 ```
         <dependency>
@@ -196,7 +196,7 @@ public class RestTemplateConfig {
 
 ```
 
-¶©µ¥Î¢·şÎñÖĞÔö¼ÓWebClientConfigÅäÖÃÀà
+è®¢å•å¾®æœåŠ¡ä¸­å¢åŠ WebClientConfigé…ç½®ç±»
 
 ```
 package cn.itxs.ecom.order.config;
@@ -222,7 +222,7 @@ public class WebClientConfig {
 
 ```
 
-¶©µ¥Î¢·şÎñ¶©µ¥¿ØÖÆÆ÷ÖĞÌí¼ÓWebClient½Ó¿ÚÊµÏÖ£¬´úÂëÈçÏÂ
+è®¢å•å¾®æœåŠ¡è®¢å•æ§åˆ¶å™¨ä¸­æ·»åŠ WebClientæ¥å£å®ç°ï¼Œä»£ç å¦‚ä¸‹
 
 ```
     @Autowired
@@ -231,7 +231,7 @@ public class WebClientConfig {
 	@RequestMapping(value = "/deductWebClient/{commodityCode}/{count}")
     public Mono<String> deductWebClient(@PathVariable("commodityCode") String commodityCode, @PathVariable("count") int count) {
         String url = "http://ecom-storage-service/deduct/"+commodityCode+"/"+count;
-        // »ùÓÚWebClient
+        // åŸºäºWebClient
         Mono<String> result = webClient.get().uri(url)
                 .retrieve().bodyToMono(String.class);
         return result;
@@ -239,17 +239,17 @@ public class WebClientConfig {
 
 ```
 
-ÖØĞÂÆô¶¯¶©µ¥Î¢·şÎñ
+é‡æ–°å¯åŠ¨è®¢å•å¾®æœåŠ¡
 
 ![image-20220506234934948](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/ec48e022accfb3298069c96b7e3799e7.png)
 
-·ÃÎÊ¶©µ¥¿ØÖÆÆ÷ÖĞµÄ¼õ¿â´æWebClient½Ó¿Ú£¬[http://localhost:4070/deductWebClient/1001/1](http://localhost:4070/deductWebClient/1001/1) £¬½á¹û·µ»Ø³É¹¦
+è®¿é—®è®¢å•æ§åˆ¶å™¨ä¸­çš„å‡åº“å­˜WebClientæ¥å£ï¼Œ[http://localhost:4070/deductWebClient/1001/1](http://localhost:4070/deductWebClient/1001/1) ï¼Œç»“æœè¿”å›æˆåŠŸ
 
 ![image-20220506234627330](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/5f737fc9d8806dc072ce3e1fdf983de6.png)
 
-ÎÒÃÇ»¹¿ÉÒÔÅäÖÃ»ùÓÚ¹ıÂËÆ÷µÄ·½Ê½£¬Í¨¹ıWebClientÊ¹ÓÃReactiveLoadBalancer¡£Èç¹ûÏîÄ¿ÖĞÌí¼ÓÁËSpring Cloud LoadBalancer starter£¬²¢ÇÒSpring -webfluxÔÚÀàÂ·¾¶ÖĞ£¬ReactorLoadBalancerExchangeFilterFunctionÔòÊÇ×Ô¶¯ÅäÖÃµÄ¡£
+æˆ‘ä»¬è¿˜å¯ä»¥é…ç½®åŸºäºè¿‡æ»¤å™¨çš„æ–¹å¼ï¼Œé€šè¿‡WebClientä½¿ç”¨ReactiveLoadBalancerã€‚å¦‚æœé¡¹ç›®ä¸­æ·»åŠ äº†Spring Cloud LoadBalancer starterï¼Œå¹¶ä¸”Spring -webfluxåœ¨ç±»è·¯å¾„ä¸­ï¼ŒReactorLoadBalancerExchangeFilterFunctionåˆ™æ˜¯è‡ªåŠ¨é…ç½®çš„ã€‚
 
-¶©µ¥Î¢·şÎñ¶©µ¥¿ØÖÆÆ÷ÖĞÌí¼ÓWebClientÊ¹ÓÃReactiveLoadBalancer½Ó¿ÚÊµÏÖ£¬´úÂëÈçÏÂ
+è®¢å•å¾®æœåŠ¡è®¢å•æ§åˆ¶å™¨ä¸­æ·»åŠ WebClientä½¿ç”¨ReactiveLoadBalanceræ¥å£å®ç°ï¼Œä»£ç å¦‚ä¸‹
 
 ```
     @Autowired
@@ -270,30 +270,30 @@ public class WebClientConfig {
 
 ```
 
-ÖØĞÂÆô¶¯¶©µ¥Î¢·şÎñ
+é‡æ–°å¯åŠ¨è®¢å•å¾®æœåŠ¡
 
 ![image-20220507000930179](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/3546b9913f1253a1b23039ad6f7546d1.png)
 
-·ÃÎÊ¶©µ¥¿ØÖÆÆ÷ÖĞµÄ¼õ¿â´æWebClient½Ó¿Ú£¬[http://localhost:4070/deductWebFluxReactor/1001/1](http://localhost:4070/deductWebFluxReactor/1001/1) £¬½á¹û·µ»Ø³É¹¦
+è®¿é—®è®¢å•æ§åˆ¶å™¨ä¸­çš„å‡åº“å­˜WebClientæ¥å£ï¼Œ[http://localhost:4070/deductWebFluxReactor/1001/1](http://localhost:4070/deductWebFluxReactor/1001/1) ï¼Œç»“æœè¿”å›æˆåŠŸ
 
 ![image-20220507000746900](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/0bc2b04d23d11bc85009c7e040900b2b.png)
 
-¹ØÓÚLoadBalancer¹ÙÍø»¹Ìá¹©ºÜ¶àÆäËû¹¦ÄÜ£¬ÓĞĞËÈ¤¿É×ÔĞĞÏêÏ¸²éÔÄºÍ¶¯ÊÖÊµÑé
+å…³äºLoadBalancerå®˜ç½‘è¿˜æä¾›å¾ˆå¤šå…¶ä»–åŠŸèƒ½ï¼Œæœ‰å…´è¶£å¯è‡ªè¡Œè¯¦ç»†æŸ¥é˜…å’ŒåŠ¨æ‰‹å®éªŒ
 
 ![image-20220507001132987](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1d8f35933945b317a2dd71627fdfa748.png)
 
-## Ô­Àí
+## åŸç†
 
 ### RestTemplate
 
-Spring Cloud LoadBalancerÔ´Âë·ÖÎöÎÒÃÇÏÈ´ÓRestTemplate¸ºÔØ¾ùºâµÄ¼òµ¥ÊµÏÖÀ´·ÖÎöÈëÊÖ£¬³ı´ËÖ®ÍâÆäÖ§³ÖSpring Web FluxÏìÓ¦Ê½±à³ÌµÄÊµÏÖÔ­ÀíË¼ÏëÒ²ÊÇÏàÍ¬£¬¶¼ÊÇÍ¨¹ı¿Í»§¶ËÌí¼ÓÀ¹½ØÆ÷£¬ÔÚÀ¹½ØÆ÷ÖĞÊµÏÖ¸ºÔØ¾ùºâ¡£´ÓRestTemplateµÄÔ´ÂëÖĞ¿ÉÒÔÖªµÀÆä¼Ì³Ğ×ÔInterceptingHttpAccessor³éÏóÀà
+Spring Cloud LoadBalanceræºç åˆ†ææˆ‘ä»¬å…ˆä»RestTemplateè´Ÿè½½å‡è¡¡çš„ç®€å•å®ç°æ¥åˆ†æå…¥æ‰‹ï¼Œé™¤æ­¤ä¹‹å¤–å…¶æ”¯æŒSpring Web Fluxå“åº”å¼ç¼–ç¨‹çš„å®ç°åŸç†æ€æƒ³ä¹Ÿæ˜¯ç›¸åŒï¼Œéƒ½æ˜¯é€šè¿‡å®¢æˆ·ç«¯æ·»åŠ æ‹¦æˆªå™¨ï¼Œåœ¨æ‹¦æˆªå™¨ä¸­å®ç°è´Ÿè½½å‡è¡¡ã€‚ä»RestTemplateçš„æºç ä¸­å¯ä»¥çŸ¥é“å…¶ç»§æ‰¿è‡ªInterceptingHttpAccessoræŠ½è±¡ç±»
 
 ![image-20220508142236428](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c3ee7af69f54aeed5f1026823779fee8.png)
 
-¶øInterceptingHttpAccessor³éÏóÀàÔòÌá¹©ÁËÒ»¸ö·½·¨setInterceptors£¬ÓÃÓÚÉèÖÃÀ¹½ØÆ÷£¬À¹½ØÆ÷ĞèÒªÊµÏÖClientHttpRequestInterceptor½Ó¿Ú¼´¿É£¬ÔÚÊµ¼ÊÔ¶³ÌÇëÇó·şÎñ¶Ë½Ó¿ÚÖ®Ç°»áÏÈµ÷ÓÃÀ¹½ØÆ÷µÄintercept·½·¨¡£ÕâÀïµÄÀ¹½ØÆ÷Ïàµ±ÓÚServlet¼¼ÊõÖĞµÄFilter¹¦ÄÜ
+è€ŒInterceptingHttpAccessoræŠ½è±¡ç±»åˆ™æä¾›äº†ä¸€ä¸ªæ–¹æ³•setInterceptorsï¼Œç”¨äºè®¾ç½®æ‹¦æˆªå™¨ï¼Œæ‹¦æˆªå™¨éœ€è¦å®ç°ClientHttpRequestInterceptoræ¥å£å³å¯ï¼Œåœ¨å®é™…è¿œç¨‹è¯·æ±‚æœåŠ¡ç«¯æ¥å£ä¹‹å‰ä¼šå…ˆè°ƒç”¨æ‹¦æˆªå™¨çš„interceptæ–¹æ³•ã€‚è¿™é‡Œçš„æ‹¦æˆªå™¨ç›¸å½“äºServletæŠ€æœ¯ä¸­çš„FilteråŠŸèƒ½
 
 ```
-	// ´úÂëÊµÏÖÔÚ³éÏó¸¸ÀàInterceptingHttpAccessorÀï
+	// ä»£ç å®ç°åœ¨æŠ½è±¡çˆ¶ç±»InterceptingHttpAccessoré‡Œ
 	// RestTemplate.InterceptingHttpAccessor#setInterceptors
 	public void setInterceptors(List<ClientHttpRequestInterceptor> interceptors) {
 		Assert.noNullElements(interceptors, "'interceptors' must not contain null elements");
@@ -311,27 +311,27 @@ Spring Cloud LoadBalancerÔ´Âë·ÖÎöÎÒÃÇÏÈ´ÓRestTemplate¸ºÔØ¾ùºâµÄ¼òµ¥ÊµÏÖÀ´·ÖÎöÈëÊ
 
 ### **LoadBalancerAutoConfiguration**
 
-´Ó¹ÙÍø¿ÉÒÔÖªµÀSpring Cloud LoadBalancer·ÅÔÚspring-cloud-commons£¬Òò´ËÒ²×÷ÎªÆäºËĞÄµÄ@LoadBalanced×¢½âÒ²¾ÍÊÇÓÉspring-cloud-commonsÀ´ÊµÏÖ£¬ÒÀ¾İSpringBoot×Ô¶¯×°ÅäµÄÔ­ÀíÏÈ²é¿´ÒÀÀµ°üµÄÊµÏÖÂß¼­£¬²»ÄÑ·¢ÏÖspring-cloud-commonsÒıÈëÁË×Ô¶¯ÅäÖÃÀàLoadBalancerAutoConfigurationºÍReactorLoadBalancerClientAutoConfiguration¡£
+ä»å®˜ç½‘å¯ä»¥çŸ¥é“Spring Cloud LoadBalanceræ”¾åœ¨spring-cloud-commonsï¼Œå› æ­¤ä¹Ÿä½œä¸ºå…¶æ ¸å¿ƒçš„@LoadBalancedæ³¨è§£ä¹Ÿå°±æ˜¯ç”±spring-cloud-commonsæ¥å®ç°ï¼Œä¾æ®SpringBootè‡ªåŠ¨è£…é…çš„åŸç†å…ˆæŸ¥çœ‹ä¾èµ–åŒ…çš„å®ç°é€»è¾‘ï¼Œä¸éš¾å‘ç°spring-cloud-commonså¼•å…¥äº†è‡ªåŠ¨é…ç½®ç±»LoadBalancerAutoConfigurationå’ŒReactorLoadBalancerClientAutoConfigurationã€‚
 
 ![image-20220509001530634](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b5be12e0dd8d515aa07613738efab122.png)
 
-µ±Âú×ãÉÏÊöµÄÌõ¼şÊ±£¨@ConditionalÎªÌõ¼ş×¢½â£©£¬½«×Ô¶¯´´½¨LoadBalancerInterceptor²¢×¢Èëµ½RestTemplateÖĞ¡£
+å½“æ»¡è¶³ä¸Šè¿°çš„æ¡ä»¶æ—¶ï¼ˆ@Conditionalä¸ºæ¡ä»¶æ³¨è§£ï¼‰ï¼Œå°†è‡ªåŠ¨åˆ›å»ºLoadBalancerInterceptorå¹¶æ³¨å…¥åˆ°RestTemplateä¸­ã€‚
 
 ![image-20220508143752218](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/676f6d81529228511c862c780b0c4532.png)
 
 ### **LoadBalancerLnterceptor**
 
-LoadBalancerInterceptorÊµÏÖÁËClientHttpRequestInterceptor½Ó¿Ú£¬Òò´ËÒ²ÊµÏÖintercept·½·¨£¬ÓÃÓÚÊµÏÖ¸ºÔØ¾ùºâµÄÀ¹½Ø´¦Àí¡£
+LoadBalancerInterceptorå®ç°äº†ClientHttpRequestInterceptoræ¥å£ï¼Œå› æ­¤ä¹Ÿå®ç°interceptæ–¹æ³•ï¼Œç”¨äºå®ç°è´Ÿè½½å‡è¡¡çš„æ‹¦æˆªå¤„ç†ã€‚
 
 ![image-20220508144048248](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/bb587d8122fee4973eba2fc00ed1af3f.png)
 
 ### **LoadBalancerClient**
 
-LoadBalancerClientÓÃÓÚ½øĞĞ¸ºÔØ¾ùºâÂß¼­£¬¼Ì³Ğ×ÔServiceInstanceChooser½Ó¿Ú£¬´Ó·şÎñÁĞ±íÖĞÑ¡Ôñ³öÒ»¸ö·şÎñµØÖ·½øĞĞµ÷ÓÃ¡£ÔÚLoadBalancerClientÖÖ´æÔÚÁ½¸öexecute()·½·¨£¬¾ùÊÇÓÃÀ´Ö´ĞĞÇëÇóµÄ£¬reconstructURI()ÊÇÓÃÀ´ÖØ¹¹URL¡£
+LoadBalancerClientç”¨äºè¿›è¡Œè´Ÿè½½å‡è¡¡é€»è¾‘ï¼Œç»§æ‰¿è‡ªServiceInstanceChooseræ¥å£ï¼Œä»æœåŠ¡åˆ—è¡¨ä¸­é€‰æ‹©å‡ºä¸€ä¸ªæœåŠ¡åœ°å€è¿›è¡Œè°ƒç”¨ã€‚åœ¨LoadBalancerClientç§å­˜åœ¨ä¸¤ä¸ªexecute()æ–¹æ³•ï¼Œå‡æ˜¯ç”¨æ¥æ‰§è¡Œè¯·æ±‚çš„ï¼ŒreconstructURI()æ˜¯ç”¨æ¥é‡æ„URLã€‚
 
 ![image-20220508144435104](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/a3590c0ab24cb5ee04cf1cf513724fc0.png)
 
-¶ÔÓÚLoadBalancerClient½Ó¿ÚSpring Cloud LoadBalancerµÄÌá¹©Ä¬ÈÏÊµÏÖÎªBlockingLoadBalancerClient
+å¯¹äºLoadBalancerClientæ¥å£Spring Cloud LoadBalancerçš„æä¾›é»˜è®¤å®ç°ä¸ºBlockingLoadBalancerClient
 
 ![image-20220508144750601](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/256e4815a982966d7d6bfb82e0e97f67.png)
 
@@ -363,7 +363,7 @@ public class BlockingLoadBalancerClient implements LoadBalancerClient {
 		Set<LoadBalancerLifecycle> supportedLifecycleProcessors = getSupportedLifecycleProcessors(serviceId);
 		supportedLifecycleProcessors.forEach(lifecycle -> lifecycle.onStart(lbRequest));
 		ServiceInstance serviceInstance = choose(serviceId, lbRequest);
-        // Ñ¡Ôñ·şÎñ
+        // é€‰æ‹©æœåŠ¡
 		if (serviceInstance == null) {
 			supportedLifecycleProcessors.forEach(lifecycle -> lifecycle.onComplete(
 					new CompletionContext<>(CompletionContext.Status.DISCARD, lbRequest, new EmptyResponse())));
@@ -432,7 +432,7 @@ public class BlockingLoadBalancerClient implements LoadBalancerClient {
 		return choose(serviceId, REQUEST);
 	}
 
-    // Í¨¹ı²»Í¬µÄ¸ºÔØ¾ùºâ¿Í»§¶ËÊµÏÖÑ¡Ôñ²»Í¬µÄ·şÎñ
+    // é€šè¿‡ä¸åŒçš„è´Ÿè½½å‡è¡¡å®¢æˆ·ç«¯å®ç°é€‰æ‹©ä¸åŒçš„æœåŠ¡
 	@Override
 	public <T> ServiceInstance choose(String serviceId, Request<T> request) {
 		ReactiveLoadBalancer<ServiceInstance> loadBalancer = loadBalancerClientFactory.getInstance(serviceId);
@@ -459,22 +459,22 @@ public class BlockingLoadBalancerClient implements LoadBalancerClient {
 
 ### **LoadBalancerClientFactory**
 
-BlockingLoadBalancerClientÖĞ³ÖÓĞLoadBalancerClientFactoryÍ¨¹ıµ÷ÓÃÆägetInstance·½·¨»ñÈ¡¾ßÌåµÄ¸ºÔØ¾ùºâ¿Í»§¶Ë¡£Í¨¹ı¹¤³§ÀàLoadBalancerClientFactory»ñÈ¡¾ßÌåµÄ¸ºÔØ¾ùºâÆ÷ÊµÀı£¬ºóÃæµÄloadBalancer.choose(request)µ÷ÓÃÆä½Ó¿Úchoose()·½·¨ÊµÏÖ¸ù¾İ¸ºÔØ¾ùºâËã·¨Ñ¡ÔñÏÂÒ»¸ö·şÎñÆ÷Íê³É¸ºÔØ¾ùºâ£¬¶øReactiveLoadBalancer<t> getInstance(String serviceId) ÓĞÄ¬ÈÏÊµÏÖLoadBalancerClientFactory
+BlockingLoadBalancerClientä¸­æŒæœ‰LoadBalancerClientFactoryé€šè¿‡è°ƒç”¨å…¶getInstanceæ–¹æ³•è·å–å…·ä½“çš„è´Ÿè½½å‡è¡¡å®¢æˆ·ç«¯ã€‚é€šè¿‡å·¥å‚ç±»LoadBalancerClientFactoryè·å–å…·ä½“çš„è´Ÿè½½å‡è¡¡å™¨å®ä¾‹ï¼Œåé¢çš„loadBalancer.choose(request)è°ƒç”¨å…¶æ¥å£choose()æ–¹æ³•å®ç°æ ¹æ®è´Ÿè½½å‡è¡¡ç®—æ³•é€‰æ‹©ä¸‹ä¸€ä¸ªæœåŠ¡å™¨å®Œæˆè´Ÿè½½å‡è¡¡ï¼Œè€ŒReactiveLoadBalancer<t> getInstance(String serviceId) æœ‰é»˜è®¤å®ç°LoadBalancerClientFactory
 ![image-20220508190132565](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/4014445b0c2ea7189a232b5d257fb938.png)</t>
 
-LoadBalancerClientFactory¿Í»§¶ËÊµÏÖÁË²»Í¬µÄ¸ºÔØ¾ùºâËã·¨£¬±ÈÈçÂÖÑ¯¡¢Ëæ»úµÈ¡£LoadBalancerClientFactory¼Ì³Ğ×ÔNamedContextFactory£¬NamedContextFactory¼Ì³ĞApplicationContextAware£¬ÊµÏÖSpring ApplicationContextÈİÆ÷²Ù×÷¡£
+LoadBalancerClientFactoryå®¢æˆ·ç«¯å®ç°äº†ä¸åŒçš„è´Ÿè½½å‡è¡¡ç®—æ³•ï¼Œæ¯”å¦‚è½®è¯¢ã€éšæœºç­‰ã€‚LoadBalancerClientFactoryç»§æ‰¿è‡ªNamedContextFactoryï¼ŒNamedContextFactoryç»§æ‰¿ApplicationContextAwareï¼Œå®ç°Spring ApplicationContextå®¹å™¨æ“ä½œã€‚
 
 ![image-20220508190412076](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18f62338fdb636327fcdb2d08d33661b.png)
 
 ### ReactiveLoadBalancer
 
-ReactiveLoadBalancer¸ºÔØ¾ùºâÆ÷ÊµÏÖ·şÎñÑ¡Ôñ£¬Spring Cloud BalancerÖĞÊµÏÖÁËÂÖÑ¯RoundRobinLoadBalancer¡¢Ëæ»úRandomLoadBalancer¡¢NacosLoadBalancerËã·¨¡£
+ReactiveLoadBalancerè´Ÿè½½å‡è¡¡å™¨å®ç°æœåŠ¡é€‰æ‹©ï¼ŒSpring Cloud Balancerä¸­å®ç°äº†è½®è¯¢RoundRobinLoadBalancerã€éšæœºRandomLoadBalancerã€NacosLoadBalancerç®—æ³•ã€‚
 
 ![image-20220508235128931](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f19b9fd0d246dbae37b05e67b1a79805.png)
 
 ### LoadBalancerClientConfiguration
 
-Èç¹ûÃ»ÓĞÏÔÊ½Ö¸¶¨¸ºÔØ¾ùºâËã·¨£¬Ä¬ÈÏÈ±Ê¡ÖµÎªRoundRobinLoadBalancer
+å¦‚æœæ²¡æœ‰æ˜¾å¼æŒ‡å®šè´Ÿè½½å‡è¡¡ç®—æ³•ï¼Œé»˜è®¤ç¼ºçœå€¼ä¸ºRoundRobinLoadBalancer
 
 ```
 	@Bean
@@ -492,21 +492,21 @@ ReactiveLoadBalancer¸ºÔØ¾ùºâÆ÷ÊµÏÖ·şÎñÑ¡Ôñ£¬Spring Cloud BalancerÖĞÊµÏÖÁËÂÖÑ¯Rou
 
 ### **LoadBalancerRequestFactory**
 
-LoadBalancerRequest¹¤³§Ààµ÷ÓÃcreateRequest·½·¨ÓÃÓÚ´´½¨LoadBalancerRequest¡£ÆäÄÚ²¿³ÖÓĞLoadBalancerClient¶ÔÏóÒ²¼´³ÖÓĞBlockingLoadBalancerClient¡£
+LoadBalancerRequestå·¥å‚ç±»è°ƒç”¨createRequestæ–¹æ³•ç”¨äºåˆ›å»ºLoadBalancerRequestã€‚å…¶å†…éƒ¨æŒæœ‰LoadBalancerClientå¯¹è±¡ä¹Ÿå³æŒæœ‰BlockingLoadBalancerClientã€‚
 
 ![image-20220509000049541](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c928dcb312df87a44c33ee77a296ee84.png)
 
-ÔÚÈÕ³£ÏîÄ¿ÖĞ£¬Ò»°ã¸ºÔØ¾ùºâ¶¼ÊÇ½áºÏFeignÊ¹ÓÃ£¬ºóĞøÎÒÃÇÓĞÊ±¼äÔÙÀ´·ÖÎöFeignÕûºÏLoadBalancerµÄ×Ô¶¯ÅäÖÃÀàFeignLoadBalancerAutoConfigurationµÄÊµÏÖ
+åœ¨æ—¥å¸¸é¡¹ç›®ä¸­ï¼Œä¸€èˆ¬è´Ÿè½½å‡è¡¡éƒ½æ˜¯ç»“åˆFeignä½¿ç”¨ï¼Œåç»­æˆ‘ä»¬æœ‰æ—¶é—´å†æ¥åˆ†æFeignæ•´åˆLoadBalancerçš„è‡ªåŠ¨é…ç½®ç±»FeignLoadBalancerAutoConfigurationçš„å®ç°
 
 ### ReactorLoadBalancerClientAutoConfiguration
 
-ÎÒÃÇÒ²Å×Ò»ÏÂ»ùÓÚWebClientµÄ@LoadbalancedµÄÁ÷³ÌµÄÒıÈë£¬Ê×ÏÈÉùÃ÷¸ºÔØ¾ùºâ¹ıÂËÆ÷ReactorLoadBalancerClientAutoConfigurationÊÇÒ»¸ö×Ô¶¯×°ÅäÆ÷Àà£¬ÔÚÏîÄ¿ÖĞÒıÈëÁË WebClient ºÍ ReactiveLoadBalancer ÀàÖ®ºó£¬×Ô¶¯×°ÅäÁ÷³Ì¾Í¿ªÊ¼ÔËĞĞ£¬Ëü»á³õÊ¼»¯Ò»¸öÊµÏÖÁË ExchangeFilterFunction µÄÊµÀı£¬ÔÚºóÃæ¸ÃÊµÀı½«×÷Îª¹ıÂËÆ÷±»×¢Èëµ½WebClient¡£ºóĞøÁ÷³ÌÓĞĞËÈ¤ÔÙ×ÔĞĞÑĞ¾¿
+æˆ‘ä»¬ä¹ŸæŠ›ä¸€ä¸‹åŸºäºWebClientçš„@Loadbalancedçš„æµç¨‹çš„å¼•å…¥ï¼Œé¦–å…ˆå£°æ˜è´Ÿè½½å‡è¡¡è¿‡æ»¤å™¨ReactorLoadBalancerClientAutoConfigurationæ˜¯ä¸€ä¸ªè‡ªåŠ¨è£…é…å™¨ç±»ï¼Œåœ¨é¡¹ç›®ä¸­å¼•å…¥äº† WebClient å’Œ ReactiveLoadBalancer ç±»ä¹‹åï¼Œè‡ªåŠ¨è£…é…æµç¨‹å°±å¼€å§‹è¿è¡Œï¼Œå®ƒä¼šåˆå§‹åŒ–ä¸€ä¸ªå®ç°äº† ExchangeFilterFunction çš„å®ä¾‹ï¼Œåœ¨åé¢è¯¥å®ä¾‹å°†ä½œä¸ºè¿‡æ»¤å™¨è¢«æ³¨å…¥åˆ°WebClientã€‚åç»­æµç¨‹æœ‰å…´è¶£å†è‡ªè¡Œç ”ç©¶
 
 ![image-20220509001650781](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/869a4ea9a6e1409b84c927db08cebea1.png)
 
-## ×Ô¶¨Òå¸ºÔØ¾ùºâÆ÷
+## è‡ªå®šä¹‰è´Ÿè½½å‡è¡¡å™¨
 
-´ÓÉÏÃæ¿ÉÒÔÖªµÀLoadBalancerClientFactoryÊÇ´´½¨¿Í»§»ú¡¢¸ºÔØ¾ùºâÆ÷ºÍ¿Í»§»úÅäÖÃÊµÀıµÄ¹¤³§¡£Ëü¸ù¾İ¿Í»§¶ËÃû³Æ´´½¨Ò»¸öSpring ApplicationContext£¬²¢´ÓÖĞÌáÈ¡ËùĞèµÄbean¡£Òò´Ë½øÈëµ½LoadBalancerClientFactoryÀàÖĞ£¬ĞèÒªÈ¥ÊµÏÖËüµÄ×Ó½Ó¿ÚReactorServiceInstanceLoadBalancer£¬ÒòÎªÈ¥»ñÈ¡¸ºÔØ¾ùºâÆ÷ÊµÀıµÄÊ±ºò£¬ÊÇÍ¨¹ıÈ¥ÈİÆ÷ÖĞ²éÕÒReactorServiceInstanceLoadBalancerÀàĞÍµÄbeanÀ´ÊµÏÖµÄ£¬¿ÉÒÔ²ÎÕÕRandomLoadBalancerÊµÏÖ´úÂë
+ä»ä¸Šé¢å¯ä»¥çŸ¥é“LoadBalancerClientFactoryæ˜¯åˆ›å»ºå®¢æˆ·æœºã€è´Ÿè½½å‡è¡¡å™¨å’Œå®¢æˆ·æœºé…ç½®å®ä¾‹çš„å·¥å‚ã€‚å®ƒæ ¹æ®å®¢æˆ·ç«¯åç§°åˆ›å»ºä¸€ä¸ªSpring ApplicationContextï¼Œå¹¶ä»ä¸­æå–æ‰€éœ€çš„beanã€‚å› æ­¤è¿›å…¥åˆ°LoadBalancerClientFactoryç±»ä¸­ï¼Œéœ€è¦å»å®ç°å®ƒçš„å­æ¥å£ReactorServiceInstanceLoadBalancerï¼Œå› ä¸ºå»è·å–è´Ÿè½½å‡è¡¡å™¨å®ä¾‹çš„æ—¶å€™ï¼Œæ˜¯é€šè¿‡å»å®¹å™¨ä¸­æŸ¥æ‰¾ReactorServiceInstanceLoadBalancerç±»å‹çš„beanæ¥å®ç°çš„ï¼Œå¯ä»¥å‚ç…§RandomLoadBalancerå®ç°ä»£ç 
 
 ```
 package org.springframework.cloud.loadbalancer.core;
@@ -580,7 +580,7 @@ public class RandomLoadBalancer implements ReactorServiceInstanceLoadBalancer {
 
 ```
 
-±£ÁôºËĞÄÊµÏÖ½øĞĞ¼òµ¥·ÂĞ´ÈçÏÂ
+ä¿ç•™æ ¸å¿ƒå®ç°è¿›è¡Œç®€å•ä»¿å†™å¦‚ä¸‹
 
 ```
 package cn.itxs.ecom.order.config;
@@ -598,7 +598,7 @@ import org.springframework.cloud.client.loadbalancer.Response;
 import reactor.core.publisher.Mono;
 
 public class ItxsRandomLoadBalancerClient implements ReactorServiceInstanceLoadBalancer {
-    // ·şÎñÁĞ±í
+    // æœåŠ¡åˆ—è¡¨
     private ObjectProvider<ServiceInstanceListSupplier> serviceInstanceListSupplierProvider;
 
     public ItxsRandomLoadBalancerClient(ObjectProvider<ServiceInstanceListSupplier> serviceInstanceListSupplierProvider) {
@@ -612,7 +612,7 @@ public class ItxsRandomLoadBalancerClient implements ReactorServiceInstanceLoadB
     }
 
     /**
-     * Ê¹ÓÃËæ»úÊı»ñÈ¡·şÎñ
+     * ä½¿ç”¨éšæœºæ•°è·å–æœåŠ¡
      * @param instances
      * @return
      */
@@ -624,7 +624,7 @@ public class ItxsRandomLoadBalancerClient implements ReactorServiceInstanceLoadB
         }
 
         System.out.println("ItxsRandomLoadBalancerClient random");
-        // Ëæ»úËã·¨
+        // éšæœºç®—æ³•
         int size = instances.size();
         Random random = new Random();
         ServiceInstance instance = instances.get(random.nextInt(size));
@@ -635,7 +635,7 @@ public class ItxsRandomLoadBalancerClient implements ReactorServiceInstanceLoadB
 
 ```
 
-½«ÉÏÃæCustomLoadBalancerConfigurationÌæ»»ÎªÈçÏÂÄÚÈİ
+å°†ä¸Šé¢CustomLoadBalancerConfigurationæ›¿æ¢ä¸ºå¦‚ä¸‹å†…å®¹
 
 ```
 package cn.itxs.ecom.order.config;
@@ -655,13 +655,13 @@ public class CustomLoadBalancerConfiguration {
 
 ```
 
-Æô¶¯¿â´æÎ¢·şÎñºÍ¶©µ¥Î¢·şÎñ£¬·ÃÎÊhttp://localhost:4070/deductRest/1001/1 £¬¿ØÖÆÌ¨ÒÑ´òÓ¡×Ô¶¨ÒåItxsRandomLoadBalancerClientÖĞµÄÈÕÖ¾ºÍ³É¹¦·ÃÎÊ½á¹û
+å¯åŠ¨åº“å­˜å¾®æœåŠ¡å’Œè®¢å•å¾®æœåŠ¡ï¼Œè®¿é—®http://localhost:4070/deductRest/1001/1 ï¼Œæ§åˆ¶å°å·²æ‰“å°è‡ªå®šä¹‰ItxsRandomLoadBalancerClientä¸­çš„æ—¥å¿—å’ŒæˆåŠŸè®¿é—®ç»“æœ
 
 ![image-20220509003807968](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c72e3f02f7e0d5d3343f8ae9c464b69c.png)
 
 ![image-20220509003927550](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/59796bbbd6b3524e32759d42b622f1bc.png)
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

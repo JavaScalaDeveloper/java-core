@@ -1,54 +1,54 @@
-½ÓÉÏÎÄ£¬ÎÒÃÇ¼ÌĞø·ÖÎö£¬±¾ÎÄ½«·ÖÎö`SpringApplication#run(String...)`·½·¨¡£
+æ¥ä¸Šæ–‡ï¼Œæˆ‘ä»¬ç»§ç»­åˆ†æï¼Œæœ¬æ–‡å°†åˆ†æ`SpringApplication#run(String...)`æ–¹æ³•ã€‚
 
-## 3.`springboot`µÄÔËĞĞ£º`SpringApplication#run(String...)`
+## 3.`springboot`çš„è¿è¡Œï¼š`SpringApplication#run(String...)`
 
-·½·¨ÄÚÈİÈçÏÂ£º
+æ–¹æ³•å†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 public ConfigurableApplicationContext run(String... args) {
-    // 1\. ´´½¨ StopWatch ÊµÀı£¬ÆäÊµ¾ÍÊÇ¸ö¼ÆÊ±Æ÷£¬ÓÃÀ´Í³¼ÆspringbootÆô¶¯ºÄÊ±
+    // 1\. åˆ›å»º StopWatch å®ä¾‹ï¼Œå…¶å®å°±æ˜¯ä¸ªè®¡æ—¶å™¨ï¼Œç”¨æ¥ç»Ÿè®¡springbootå¯åŠ¨è€—æ—¶
     StopWatch stopWatch = new StopWatch();
     stopWatch.start();
-    // ×¼±¸¿ÕµÄApplicationContext£¬ÒÔ¼°Ò»×éÒì³£±¨¸æÆ÷
+    // å‡†å¤‡ç©ºçš„ApplicationContextï¼Œä»¥åŠä¸€ç»„å¼‚å¸¸æŠ¥å‘Šå™¨
     ConfigurableApplicationContext context = null;
     Collection<SpringBootExceptionReporter> exceptionReporters = new ArrayList<>();
-    // 2\. ÅäÖÃÒ»¸öÏµÍ³ÊôĞÔ£ºjava.awt.headless£¬java.awt.headlessÄ£Ê½ÊÇÏµÍ³µÄÒ»ÖÖÅäÖÃÄ£Ê½£¬
-    // ÔÚÏµÍ³¿ÉÄÜÈ±ÉÙÏÔÊ¾Éè±¸¡¢¼üÅÌ»òÊó±êÕâĞ©ÍâÉèµÄÇé¿öÏÂ¿ÉÒÔÊ¹ÓÃ¸ÃÄ£Ê½
+    // 2\. é…ç½®ä¸€ä¸ªç³»ç»Ÿå±æ€§ï¼šjava.awt.headlessï¼Œjava.awt.headlessæ¨¡å¼æ˜¯ç³»ç»Ÿçš„ä¸€ç§é…ç½®æ¨¡å¼ï¼Œ
+    // åœ¨ç³»ç»Ÿå¯èƒ½ç¼ºå°‘æ˜¾ç¤ºè®¾å¤‡ã€é”®ç›˜æˆ–é¼ æ ‡è¿™äº›å¤–è®¾çš„æƒ…å†µä¸‹å¯ä»¥ä½¿ç”¨è¯¥æ¨¡å¼
     configureHeadlessProperty();
-    // 3\. »ñÈ¡¼àÌıÆ÷£¬Ò²ÊÇ´Ó META-INF/spring.factories ÖĞ»ñÈ¡
+    // 3\. è·å–ç›‘å¬å™¨ï¼Œä¹Ÿæ˜¯ä» META-INF/spring.factories ä¸­è·å–
     SpringApplicationRunListeners listeners = getRunListeners(args);
-    // starting()£ºÊ×´ÎÆô¶¯run·½·¨Ê±Á¢¼´µ÷ÓÃ¡£¿ÉÓÃÓÚ·Ç³£ÔçÆÚµÄ³õÊ¼»¯£¨×¼±¸ÔËĞĞÊ±»·¾³Ö®Ç°£©¡£
-    // 4\. ·¢²¼ÊÂ¼ş
+    // starting()ï¼šé¦–æ¬¡å¯åŠ¨runæ–¹æ³•æ—¶ç«‹å³è°ƒç”¨ã€‚å¯ç”¨äºéå¸¸æ—©æœŸçš„åˆå§‹åŒ–ï¼ˆå‡†å¤‡è¿è¡Œæ—¶ç¯å¢ƒä¹‹å‰ï¼‰ã€‚
+    // 4\. å‘å¸ƒäº‹ä»¶
     listeners.starting();
     try {
-        // ·â×°´«ÈëµÄ²ÎÊı
+        // å°è£…ä¼ å…¥çš„å‚æ•°
         ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
-        // 5\. ´¦Àí»·¾³²ÎÊı
+        // 5\. å¤„ç†ç¯å¢ƒå‚æ•°
         ConfigurableEnvironment environment 
                 = prepareEnvironment(listeners, applicationArguments);
-        // 6\. Èç¹ûÓĞÅäÖÃ spring.beaninfo.ignore£¬Ôò½«¸ÃÅäÖÃÉèÖÃ½øÏµÍ³²ÎÊı
+        // 6\. å¦‚æœæœ‰é…ç½® spring.beaninfo.ignoreï¼Œåˆ™å°†è¯¥é…ç½®è®¾ç½®è¿›ç³»ç»Ÿå‚æ•°
         configureIgnoreBeanInfo(environment);
-        // 7\. Êä³öbanner
+        // 7\. è¾“å‡ºbanner
         Banner printedBanner = printBanner(environment);
-        // 8\. ´´½¨applicationContext
+        // 8\. åˆ›å»ºapplicationContext
         context = createApplicationContext();
-        // Æô¶¯´íÎó±¨¸æµÄ×Ô¶¨Òå»Øµ÷½Ó¿Ú
+        // å¯åŠ¨é”™è¯¯æŠ¥å‘Šçš„è‡ªå®šä¹‰å›è°ƒæ¥å£
         exceptionReporters = getSpringFactoriesInstances(SpringBootExceptionReporter.class,
                 new Class[] { ConfigurableApplicationContext.class }, context);
-        // 9\. ×¼±¸ÉÏÏÂÎÄ£¬ÉèÖÃÁËÒ»ÏµÁĞµÄÊôĞÔÖµ
+        // 9\. å‡†å¤‡ä¸Šä¸‹æ–‡ï¼Œè®¾ç½®äº†ä¸€ç³»åˆ—çš„å±æ€§å€¼
         prepareContext(context, environment, listeners, applicationArguments, printedBanner);
-        // 10\. µ÷ÓÃ AbstractApplicationContext.refresh£¬Æô¶¯springÈİÆ÷
+        // 10\. è°ƒç”¨ AbstractApplicationContext.refreshï¼Œå¯åŠ¨springå®¹å™¨
         refreshContext(context);
-        // 11\. Ë¢ĞÂºóµÄ´¦Àí
+        // 11\. åˆ·æ–°åçš„å¤„ç†
         afterRefresh(context, applicationArguments);
         stopWatch.stop();
         if (this.logStartupInfo) {
             new StartupInfoLogger(this.mainApplicationClass)
                 .logStarted(getApplicationLog(), stopWatch);
         }
-        // 12\. ·¢²¼ÊÂ¼ş
+        // 12\. å‘å¸ƒäº‹ä»¶
         listeners.started(context);
-        // 13\. µ÷ÓÃ runner£¬ÊµÏÖÁË ApplicationRunner»òCommandLineRunner µÄ½Ó¿Ú
+        // 13\. è°ƒç”¨ runnerï¼Œå®ç°äº† ApplicationRunneræˆ–CommandLineRunner çš„æ¥å£
         callRunners(context, applicationArguments);
     }
     catch (Throwable ex) {
@@ -56,7 +56,7 @@ public ConfigurableApplicationContext run(String... args) {
         throw new IllegalStateException(ex);
     }
     try {
-        // 14\. ·¢²¼ÊÂ¼ş
+        // 14\. å‘å¸ƒäº‹ä»¶
         listeners.running(context);
     }
     catch (Throwable ex) {
@@ -68,21 +68,21 @@ public ConfigurableApplicationContext run(String... args) {
 
 ```
 
-Õû¸öÆô¶¯Á÷³ÌÈçÏÂ£º
+æ•´ä¸ªå¯åŠ¨æµç¨‹å¦‚ä¸‹ï¼š
 
 ![](https://oscimg.oschina.net/oscnet/up-07a6b491fbe69b8dcbd41e59a8543f06671.png)
 
-½ÓÏÂÀ´ÎÒÃÇÀ´ÖØµã·ÖÎöÕâ 13 ¸öÆô¶¯Á÷³Ì¡£
+æ¥ä¸‹æ¥æˆ‘ä»¬æ¥é‡ç‚¹åˆ†æè¿™ 13 ä¸ªå¯åŠ¨æµç¨‹ã€‚
 
-### 3.1`stopWatch`£º´´½¨¼ÆÊ±Æ÷²¢Æô¶¯
+### 3.1`stopWatch`ï¼šåˆ›å»ºè®¡æ—¶å™¨å¹¶å¯åŠ¨
 
-Ò»¿ªÊ¼£¬springboot ¾Í´´½¨ÁË`stopWatch`ÊµÀı£¬È»ºóµ÷ÓÃ`StopWatch#start()`Æô¶¯¼ÆÊ±¹¦ÄÜ£¬¹ØÓÚÕâ¸öÀàÃ»É¶ºÃËµµÄ£¬Ëü¾ÍÊÇ¸ö¼ÆÊ±Æ÷£¬ÕâÀïÊÇÓÃÀ´¼ÆËã springboot Æô¶¯ºÄÊ±£¬ÒÔÏÂÈÕÖ¾ÖĞµÄÊ±¼ä¾ÍÊÇÓÉÕâ¸ö¼ÆÊ±Æ÷µÃµ½µÄ£º
+ä¸€å¼€å§‹ï¼Œspringboot å°±åˆ›å»ºäº†`stopWatch`å®ä¾‹ï¼Œç„¶åè°ƒç”¨`StopWatch#start()`å¯åŠ¨è®¡æ—¶åŠŸèƒ½ï¼Œå…³äºè¿™ä¸ªç±»æ²¡å•¥å¥½è¯´çš„ï¼Œå®ƒå°±æ˜¯ä¸ªè®¡æ—¶å™¨ï¼Œè¿™é‡Œæ˜¯ç”¨æ¥è®¡ç®— springboot å¯åŠ¨è€—æ—¶ï¼Œä»¥ä¸‹æ—¥å¿—ä¸­çš„æ—¶é—´å°±æ˜¯ç”±è¿™ä¸ªè®¡æ—¶å™¨å¾—åˆ°çš„ï¼š
 
 ![](https://oscimg.oschina.net/oscnet/up-70a9e95e6c1208288334341bdb54bd59c17.png)
 
-### 3.2 ÉèÖÃ`java.awt.headless`ÊôĞÔÖµ
+### 3.2 è®¾ç½®`java.awt.headless`å±æ€§å€¼
 
-`SpringApplication#configureHeadlessProperty`·½·¨µÄÏà¹Ø´úÂëÈçÏÂ£º
+`SpringApplication#configureHeadlessProperty`æ–¹æ³•çš„ç›¸å…³ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public class SpringApplication {
@@ -99,7 +99,7 @@ public class SpringApplication {
     ...
 
     private void configureHeadlessProperty() {
-        // ½« java.awt.headless µÄÖµÅäÖÃµ½ÏµÍ³±äÁ¿
+        // å°† java.awt.headless çš„å€¼é…ç½®åˆ°ç³»ç»Ÿå˜é‡
         System.setProperty(SYSTEM_PROPERTY_JAVA_AWT_HEADLESS,
                 System.getProperty(SYSTEM_PROPERTY_JAVA_AWT_HEADLESS, 
                 Boolean.toString(this.headless)));
@@ -109,19 +109,19 @@ public class SpringApplication {
 
 ```
 
-Õâ¸ö·½·¨½ö½öÊÇ½«`java.awt.headless`µÄÖµÉèÖÃµ½ÁËÏµÍ³±äÁ¿£¬ÉèÖÃ³É`true`£¬±íÊ¾Æô¶¯`java.awt.headless`Ä£Ê½¡£ÄÇÃ´ËüÊÇ¸öÉ¶Ä£Ê½ÄØ£¿¼òµ¥À´Ëµ£¬¸ÃÄ£Ê½¾ÍÊÇÏµÍ³È±ÉÙÁËÏÔÊ¾Éè±¸¡¢¼üÅÌ»òÊó±êµÈÇé¿öµÄÄ£Ê½£¬·şÎñÆ÷Ò»°ã¶¼ÊÇÔÚÕâÖÖÇé¿öÏÂ¹¤×÷µÄ¡£
+è¿™ä¸ªæ–¹æ³•ä»…ä»…æ˜¯å°†`java.awt.headless`çš„å€¼è®¾ç½®åˆ°äº†ç³»ç»Ÿå˜é‡ï¼Œè®¾ç½®æˆ`true`ï¼Œè¡¨ç¤ºå¯åŠ¨`java.awt.headless`æ¨¡å¼ã€‚é‚£ä¹ˆå®ƒæ˜¯ä¸ªå•¥æ¨¡å¼å‘¢ï¼Ÿç®€å•æ¥è¯´ï¼Œè¯¥æ¨¡å¼å°±æ˜¯ç³»ç»Ÿç¼ºå°‘äº†æ˜¾ç¤ºè®¾å¤‡ã€é”®ç›˜æˆ–é¼ æ ‡ç­‰æƒ…å†µçš„æ¨¡å¼ï¼ŒæœåŠ¡å™¨ä¸€èˆ¬éƒ½æ˜¯åœ¨è¿™ç§æƒ…å†µä¸‹å·¥ä½œçš„ã€‚
 
-### 3.3 »ñÈ¡ÔËĞĞ¼àÌıÆ÷
+### 3.3 è·å–è¿è¡Œç›‘å¬å™¨
 
-¼ÌĞø£¬ÕâÒ»²½ÊÇ»ñÈ¡ÔËĞĞ¼àÌıÆ÷£¬¿ÉÒÔ¼àÌıÔËĞĞÆÚ¼äµÄÒ»Ğ©×´Ì¬£¬¿´´úÂë£º
+ç»§ç»­ï¼Œè¿™ä¸€æ­¥æ˜¯è·å–è¿è¡Œç›‘å¬å™¨ï¼Œå¯ä»¥ç›‘å¬è¿è¡ŒæœŸé—´çš„ä¸€äº›çŠ¶æ€ï¼Œçœ‹ä»£ç ï¼š
 
 ```
-// »ñÈ¡¼àÌıÆ÷£¬Ò²ÊÇ´Ó META-INF/spring.factories ÖĞ»ñÈ¡
+// è·å–ç›‘å¬å™¨ï¼Œä¹Ÿæ˜¯ä» META-INF/spring.factories ä¸­è·å–
 SpringApplicationRunListeners listeners = getRunListeners(args);
 
 ```
 
-½øÈë`SpringApplication#getRunListeners`£º
+è¿›å…¥`SpringApplication#getRunListeners`ï¼š
 
 ```
 public class SpringApplication {
@@ -130,7 +130,7 @@ public class SpringApplication {
     private SpringApplicationRunListeners getRunListeners(String[] args) {
         Class<?>[] types = new Class<?>[] { SpringApplication.class, String[].class };
         return new SpringApplicationRunListeners(logger,
-                // ÒÀÈ»ÊÇ´ÓMETA-INF/spring.factories ÖĞ»ñÈ¡£¬key ÊÇ SpringApplicationRunListener
+                // ä¾ç„¶æ˜¯ä»META-INF/spring.factories ä¸­è·å–ï¼Œkey æ˜¯ SpringApplicationRunListener
                 getSpringFactoriesInstances(SpringApplicationRunListener.class, types, this, args));
     }
     ...
@@ -138,51 +138,51 @@ public class SpringApplication {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`SpringApplicationRunListener`ÒÀÈ»ÊÇ´Ó`META-INF/spring.factories`ÖĞ»ñÈ¡£¬ÄÇ`SpringApplicationRunListener`ÊÇ¸öÉ¶ÄØ£¿ÎÒÃÇÀ´¿´´úÂë£º
+å¯ä»¥çœ‹åˆ°ï¼Œ`SpringApplicationRunListener`ä¾ç„¶æ˜¯ä»`META-INF/spring.factories`ä¸­è·å–ï¼Œé‚£`SpringApplicationRunListener`æ˜¯ä¸ªå•¥å‘¢ï¼Ÿæˆ‘ä»¬æ¥çœ‹ä»£ç ï¼š
 
 ```
 public interface SpringApplicationRunListener {
 
     /**
-     * Ê×´ÎÆô¶¯run·½·¨Ê±Á¢¼´µ÷ÓÃ¡£¿ÉÓÃÓÚ·Ç³£ÔçÆÚµÄ³õÊ¼»¯¡£
+     * é¦–æ¬¡å¯åŠ¨runæ–¹æ³•æ—¶ç«‹å³è°ƒç”¨ã€‚å¯ç”¨äºéå¸¸æ—©æœŸçš„åˆå§‹åŒ–ã€‚
      */
     default void starting() {
     }
 
     /**
-     * ×¼±¸ºÃ»·¾³£¨Environment¹¹½¨Íê³É£©£¬µ«ÔÚ´´½¨ApplicationContextÖ®Ç°µ÷ÓÃ¡£
+     * å‡†å¤‡å¥½ç¯å¢ƒï¼ˆEnvironmentæ„å»ºå®Œæˆï¼‰ï¼Œä½†åœ¨åˆ›å»ºApplicationContextä¹‹å‰è°ƒç”¨ã€‚
      */
     default void environmentPrepared(ConfigurableEnvironment environment) {
     }
 
     /**
-     * ÔÚ´´½¨ºÍ¹¹½¨ApplicationContextÖ®ºó£¬µ«ÔÚ¼ÓÔØÖ®Ç°µ÷ÓÃ¡£
+     * åœ¨åˆ›å»ºå’Œæ„å»ºApplicationContextä¹‹åï¼Œä½†åœ¨åŠ è½½ä¹‹å‰è°ƒç”¨ã€‚
      */
     default void contextPrepared(ConfigurableApplicationContext context) {
     }
 
     /**
-     * ApplicationContextÒÑ¼ÓÔØµ«ÔÚË¢ĞÂÖ®Ç°µ÷ÓÃ¡£
+     * ApplicationContextå·²åŠ è½½ä½†åœ¨åˆ·æ–°ä¹‹å‰è°ƒç”¨ã€‚
      */
     default void contextLoaded(ConfigurableApplicationContext context) {
     }
 
     /**
-     * ApplicationContextÒÑË¢ĞÂ£¬Ó¦ÓÃ³ÌĞòÒÑÆô¶¯£¬
-     * µ«ÉĞÎ´µ÷ÓÃCommandLineRunnersºÍApplicationRunners¡£
+     * ApplicationContextå·²åˆ·æ–°ï¼Œåº”ç”¨ç¨‹åºå·²å¯åŠ¨ï¼Œ
+     * ä½†å°šæœªè°ƒç”¨CommandLineRunnerså’ŒApplicationRunnersã€‚
      */
     default void started(ConfigurableApplicationContext context) {
     }
 
     /**
-     * ÔÚÔËĞĞ·½·¨³¹µ×Íê³ÉÖ®Ç°Á¢¼´µ÷ÓÃ£¬
-     * Ë¢ĞÂApplicationContext²¢µ÷ÓÃËùÓĞCommandLineRunnersºÍApplicationRunner¡£
+     * åœ¨è¿è¡Œæ–¹æ³•å½»åº•å®Œæˆä¹‹å‰ç«‹å³è°ƒç”¨ï¼Œ
+     * åˆ·æ–°ApplicationContextå¹¶è°ƒç”¨æ‰€æœ‰CommandLineRunnerså’ŒApplicationRunnerã€‚
      */
     default void running(ConfigurableApplicationContext context) {
     }
 
     /**
-     * ÔÚÔËĞĞÓ¦ÓÃ³ÌĞòÊ±Ê§°ÜÊ±µ÷ÓÃ¡£
+     * åœ¨è¿è¡Œåº”ç”¨ç¨‹åºæ—¶å¤±è´¥æ—¶è°ƒç”¨ã€‚
      */
     default void failed(ConfigurableApplicationContext context, Throwable exception) {
     }
@@ -190,25 +190,25 @@ public interface SpringApplicationRunListener {
 
 ```
 
-`SpringApplicationRunListener`ÊÇÒ»¸ö½Ó¿Ú£¬¶¨ÒåÁËÒ»ÏµÁĞµÄ·½·¨À´¼àÌı springboot µÄÆô¶¯¹ı³Ì£¬·½·¨µÄËµÃ÷ÒÑ¾­ÔÚÎÄµµÖĞÓĞÏêÏ¸¶¨Òå£¬Èç¹ûÎÒÃÇĞèÒªÔÚ springboot µÄÆô¶¯ÖĞµÄÄ³¸ö¹ı³Ì×öÒ»Ğ©ÊÂÇé£¬¾Í¿ÉÒÔÊµÏÖ`SpringApplicationRunListener`È»ºóÖØĞ´¶ÔÓ¦µÄ·½·¨¡£
+`SpringApplicationRunListener`æ˜¯ä¸€ä¸ªæ¥å£ï¼Œå®šä¹‰äº†ä¸€ç³»åˆ—çš„æ–¹æ³•æ¥ç›‘å¬ springboot çš„å¯åŠ¨è¿‡ç¨‹ï¼Œæ–¹æ³•çš„è¯´æ˜å·²ç»åœ¨æ–‡æ¡£ä¸­æœ‰è¯¦ç»†å®šä¹‰ï¼Œå¦‚æœæˆ‘ä»¬éœ€è¦åœ¨ springboot çš„å¯åŠ¨ä¸­çš„æŸä¸ªè¿‡ç¨‹åšä¸€äº›äº‹æƒ…ï¼Œå°±å¯ä»¥å®ç°`SpringApplicationRunListener`ç„¶åé‡å†™å¯¹åº”çš„æ–¹æ³•ã€‚
 
-Í¨¹ıµ÷ÊÔ£¬·¢ÏÖ springboot »ñµÃµÄÔËĞĞ¼àÌıÆ÷ÈçÏÂ£º
+é€šè¿‡è°ƒè¯•ï¼Œå‘ç° springboot è·å¾—çš„è¿è¡Œç›‘å¬å™¨å¦‚ä¸‹ï¼š
 
 ![](https://oscimg.oschina.net/oscnet/up-3ed62d827b3bf1989af74f9c4db1fc0b9ce.png)
 
-### 3.4 ÔËĞĞ¼àÌıÆ÷·½·¨£º`listeners.starting()`
+### 3.4 è¿è¡Œç›‘å¬å™¨æ–¹æ³•ï¼š`listeners.starting()`
 
-»Øµ½`SpringApplication#run(java.lang.String...)`£¬»ñÈ¡µ½ÔËĞĞ¼àÌıÆ÷ºó£¬»áÁ¢¼´µ÷ÓÃ`starting()`·½·¨À´·¢²¼Æô¶¯ÊÂ¼ş£º
+å›åˆ°`SpringApplication#run(java.lang.String...)`ï¼Œè·å–åˆ°è¿è¡Œç›‘å¬å™¨åï¼Œä¼šç«‹å³è°ƒç”¨`starting()`æ–¹æ³•æ¥å‘å¸ƒå¯åŠ¨äº‹ä»¶ï¼š
 
 ```
-// »ñÈ¡¼àÌıÆ÷
+// è·å–ç›‘å¬å™¨
 SpringApplicationRunListeners listeners = getRunListeners(args);
-// starting()£ºÊ×´ÎÆô¶¯run·½·¨Ê±Á¢¼´µ÷ÓÃ¡£¿ÉÓÃÓÚ·Ç³£ÔçÆÚµÄ³õÊ¼»¯£¨×¼±¸ÔËĞĞÊ±»·¾³Ö®Ç°£©¡£
+// starting()ï¼šé¦–æ¬¡å¯åŠ¨runæ–¹æ³•æ—¶ç«‹å³è°ƒç”¨ã€‚å¯ç”¨äºéå¸¸æ—©æœŸçš„åˆå§‹åŒ–ï¼ˆå‡†å¤‡è¿è¡Œæ—¶ç¯å¢ƒä¹‹å‰ï¼‰ã€‚
 listeners.starting();
 
 ```
 
-½øÈë`SpringApplicationRunListeners#starting`·½·¨£º
+è¿›å…¥`SpringApplicationRunListeners#starting`æ–¹æ³•ï¼š
 
 ```
 void starting() {
@@ -219,34 +219,34 @@ void starting() {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬ËùÎ½µÄ·¢²¼ÊÂ¼ş£¬¾ÍÊÇ±éÀúËùÓĞµÄ¼àÌıÆ÷£¬ÖğÒ»µ÷ÓÃÆä`starting()`°ÕÁË£¬`this.listeners`¾ÍÊÇÉÏÃæ»ñÈ¡µ½µÄËùÓĞµÄÔËĞĞ¼àÌıÆ÷¡£²»½öÈç´Ë£¬`SpringApplicationRunListener`µÄÆäËû·½·¨Èç`environmentPrepared(...)`¡¢`contextPrepared(...)`µÈ¶¼ÊÇÕâÑùµÄµ÷ÓÃÌ×Â·£¬ºóÃæ¿´µ½ÁË¾Í²»ÖØ¸´·ÖÎöÁË¡£
+å¯ä»¥çœ‹åˆ°ï¼Œæ‰€è°“çš„å‘å¸ƒäº‹ä»¶ï¼Œå°±æ˜¯éå†æ‰€æœ‰çš„ç›‘å¬å™¨ï¼Œé€ä¸€è°ƒç”¨å…¶`starting()`ç½¢äº†ï¼Œ`this.listeners`å°±æ˜¯ä¸Šé¢è·å–åˆ°çš„æ‰€æœ‰çš„è¿è¡Œç›‘å¬å™¨ã€‚ä¸ä»…å¦‚æ­¤ï¼Œ`SpringApplicationRunListener`çš„å…¶ä»–æ–¹æ³•å¦‚`environmentPrepared(...)`ã€`contextPrepared(...)`ç­‰éƒ½æ˜¯è¿™æ ·çš„è°ƒç”¨å¥—è·¯ï¼Œåé¢çœ‹åˆ°äº†å°±ä¸é‡å¤åˆ†æäº†ã€‚
 
-### 3.5 ×¼±¸ÔËĞĞÊ±»·¾³
+### 3.5 å‡†å¤‡è¿è¡Œæ—¶ç¯å¢ƒ
 
-½ÓÏÂÎÒÃÇÀ´¿´¿´»·¾³²ÎÊıµÄ´¦Àí£¬´úÂëÈçÏÂ£º
+æ¥ä¸‹æˆ‘ä»¬æ¥çœ‹çœ‹ç¯å¢ƒå‚æ•°çš„å¤„ç†ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
-// ·â×°´«ÈëµÄ²ÎÊı
+// å°è£…ä¼ å…¥çš„å‚æ•°
 ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
-// ´¦Àí»·¾³²ÎÊı
+// å¤„ç†ç¯å¢ƒå‚æ•°
 ConfigurableEnvironment environment = prepareEnvironment(listeners, applicationArguments);
 
 ```
 
-½øÈë`SpringApplication#prepareEnvironment`£º
+è¿›å…¥`SpringApplication#prepareEnvironment`ï¼š
 
 ```
 private ConfigurableEnvironment prepareEnvironment(SpringApplicationRunListeners listeners,
         ApplicationArguments applicationArguments) {
-    // »ñÈ¡»·¾³£¬Èç¹û²»´æÔÚÔò´´½¨
+    // è·å–ç¯å¢ƒï¼Œå¦‚æœä¸å­˜åœ¨åˆ™åˆ›å»º
     ConfigurableEnvironment environment = getOrCreateEnvironment();
-    // ÅäÖÃÔËĞĞÊ±»·¾³
+    // é…ç½®è¿è¡Œæ—¶ç¯å¢ƒ
     configureEnvironment(environment, applicationArguments.getSourceArgs());
     ConfigurationPropertySources.attach(environment);
-    //  SpringApplicationRunListener µÄ environmentPrepared ·½·¨
-    // £¨Environment¹¹½¨Íê³É£¬µ«ÔÚ´´½¨ApplicationContextÖ®Ç°£©
+    //  SpringApplicationRunListener çš„ environmentPrepared æ–¹æ³•
+    // ï¼ˆEnvironmentæ„å»ºå®Œæˆï¼Œä½†åœ¨åˆ›å»ºApplicationContextä¹‹å‰ï¼‰
     listeners.environmentPrepared(environment);
-    // »·¾³ÓëÓ¦ÓÃ°ó¶¨
+    // ç¯å¢ƒä¸åº”ç”¨ç»‘å®š
     bindToSpringApplication(environment);
     if (!this.isCustomEnvironment) {
         environment = new EnvironmentConverter(getClassLoader())
@@ -258,11 +258,11 @@ private ConfigurableEnvironment prepareEnvironment(SpringApplicationRunListeners
 
 ```
 
-¿ÉÒÔ¿´µ½¸÷ÖÖ»·¾³×¼±¸£¬ÔÛÃÇÌôÖØµã½²¡£
+å¯ä»¥çœ‹åˆ°å„ç§ç¯å¢ƒå‡†å¤‡ï¼Œå’±ä»¬æŒ‘é‡ç‚¹è®²ã€‚
 
-#### 1\. »ñÈ¡»ò´´½¨`Environment`
+#### 1\. è·å–æˆ–åˆ›å»º`Environment`
 
-Ö±½Ó½øÈë`SpringApplication#getOrCreateEnvironment`£º
+ç›´æ¥è¿›å…¥`SpringApplication#getOrCreateEnvironment`ï¼š
 
 ```
 private ConfigurableEnvironment getOrCreateEnvironment() {
@@ -281,9 +281,9 @@ private ConfigurableEnvironment getOrCreateEnvironment() {
 
 ```
 
-´Ó´úÂëÀ´¿´£¬Õâ¸ö·½·¨ÊÇ¸ù¾İÓ¦ÓÃÀàĞÍÀ´´´½¨¶ÔÓ¦µÄ`Environment`ÊµÀı£¬µ±Ç°Ó¦ÓÃÀàĞÍÊÇ`SERVLET`£¬ÔÛÃÇÖ±½Ó¿´`StandardServletEnvironment`ÊÇÈçºÎ´´½¨µÄ¡£
+ä»ä»£ç æ¥çœ‹ï¼Œè¿™ä¸ªæ–¹æ³•æ˜¯æ ¹æ®åº”ç”¨ç±»å‹æ¥åˆ›å»ºå¯¹åº”çš„`Environment`å®ä¾‹ï¼Œå½“å‰åº”ç”¨ç±»å‹æ˜¯`SERVLET`ï¼Œå’±ä»¬ç›´æ¥çœ‹`StandardServletEnvironment`æ˜¯å¦‚ä½•åˆ›å»ºçš„ã€‚
 
-ÎÒÃÇÖªµÀ£¬ÔÚ java ÖĞ£¬´´½¨ÀàÊ±£¬»áÏÈµ÷ÓÃ¸¸ÀàµÄ¹¹Ôì·½·¨£¬ÕâÀïÎÒÃÇÖ±½Ó½øÈë`AbstractEnvironment`¹¹Ôì·½·¨£º
+æˆ‘ä»¬çŸ¥é“ï¼Œåœ¨ java ä¸­ï¼Œåˆ›å»ºç±»æ—¶ï¼Œä¼šå…ˆè°ƒç”¨çˆ¶ç±»çš„æ„é€ æ–¹æ³•ï¼Œè¿™é‡Œæˆ‘ä»¬ç›´æ¥è¿›å…¥`AbstractEnvironment`æ„é€ æ–¹æ³•ï¼š
 
 ```
 
@@ -300,7 +300,7 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 
 ```
 
-·¢ÏÖÔÚ`AbstractEnvironment`µÄ¹¹Ôì·½·¨ÖĞ£¬µ÷ÓÃÁË`customizePropertySources()`£¬¶øÕâ¸ö·½·¨ÔÚ`StandardServletEnvironment`ÊµÏÖ£º
+å‘ç°åœ¨`AbstractEnvironment`çš„æ„é€ æ–¹æ³•ä¸­ï¼Œè°ƒç”¨äº†`customizePropertySources()`ï¼Œè€Œè¿™ä¸ªæ–¹æ³•åœ¨`StandardServletEnvironment`å®ç°ï¼š
 
 ```
 public class StandardServletEnvironment extends StandardEnvironment 
@@ -311,22 +311,22 @@ public class StandardServletEnvironment extends StandardEnvironment
 
     @Override
     protected void customizePropertySources(MutablePropertySources propertySources) {
-        // Ìí¼Ó servletConfigInitParams
+        // æ·»åŠ  servletConfigInitParams
         propertySources.addLast(new StubPropertySource(SERVLET_CONFIG_PROPERTY_SOURCE_NAME));
-        // Ìí¼Ó servletContextInitParams
+        // æ·»åŠ  servletContextInitParams
         propertySources.addLast(new StubPropertySource(SERVLET_CONTEXT_PROPERTY_SOURCE_NAME));
         if (JndiLocatorDelegate.isDefaultJndiEnvironmentAvailable()) {
             propertySources.addLast(new JndiPropertySource(JNDI_PROPERTY_SOURCE_NAME));
         }
-        // µ÷ÓÃ¸¸ÀàµÄ·½·¨
+        // è°ƒç”¨çˆ¶ç±»çš„æ–¹æ³•
         super.customizePropertySources(propertySources);
     }
 
     @Override
     public void initPropertySources(@Nullable ServletContext servletContext, 
             @Nullable ServletConfig servletConfig) {
-        // Ìæ»»ÉÏÃæÉèÖÃµÄ servletContextInitParams Îª servletContext
-        // Ìæ»»ÉÏÃæÉèÖÃµÄ servletConfigInitParams Îª servletConfig
+        // æ›¿æ¢ä¸Šé¢è®¾ç½®çš„ servletContextInitParams ä¸º servletContext
+        // æ›¿æ¢ä¸Šé¢è®¾ç½®çš„ servletConfigInitParams ä¸º servletConfig
         WebApplicationContextUtils.initServletPropertySources(
                 getPropertySources(), servletContext, servletConfig);
     }
@@ -335,25 +335,25 @@ public class StandardServletEnvironment extends StandardEnvironment
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`StandardServletEnvironment`µÄ`customizePropertySources()`·½·¨Ö»ÊÇÌí¼ÓÁË¼¸¸ö servlet Ïà¹ØµÄ²ÎÊı£¬È»ºó¾ÍÈ¥µ÷ÓÃ¸¸ÀàµÄ¹¹Ôì·½·¨ÁË£¬ÎÒÃÇ¼ÌĞø½øÈë`StandardEnvironment`£º
+å¯ä»¥çœ‹åˆ°ï¼Œ`StandardServletEnvironment`çš„`customizePropertySources()`æ–¹æ³•åªæ˜¯æ·»åŠ äº†å‡ ä¸ª servlet ç›¸å…³çš„å‚æ•°ï¼Œç„¶åå°±å»è°ƒç”¨çˆ¶ç±»çš„æ„é€ æ–¹æ³•äº†ï¼Œæˆ‘ä»¬ç»§ç»­è¿›å…¥`StandardEnvironment`ï¼š
 
-Õâ¸öÀàËÆºõ²¢Ã»ÓĞ×öÊ²Ã´£¬ÎÒÃÇ¼ÌĞø×·×Ù£¬¿´Ëü¸¸ÀàµÄ¹¹Ôì·½·¨£º
+è¿™ä¸ªç±»ä¼¼ä¹å¹¶æ²¡æœ‰åšä»€ä¹ˆï¼Œæˆ‘ä»¬ç»§ç»­è¿½è¸ªï¼Œçœ‹å®ƒçˆ¶ç±»çš„æ„é€ æ–¹æ³•ï¼š
 
 ```
 public class StandardEnvironment extends AbstractEnvironment {
 
-    /** ÏµÍ³»·¾³ */
+    /** ç³»ç»Ÿç¯å¢ƒ */
     public static final String SYSTEM_ENVIRONMENT_PROPERTY_SOURCE_NAME = "systemEnvironment";
 
-    /** ÏµÍ³ÊôĞÔ */
+    /** ç³»ç»Ÿå±æ€§ */
     public static final String SYSTEM_PROPERTIES_PROPERTY_SOURCE_NAME = "systemProperties";
 
     @Override
     protected void customizePropertySources(MutablePropertySources propertySources) {
-        // »ñÈ¡ÏµÍ³ÊôĞÔ£¬µ÷ÓÃµÄÊÇ System.getenv()
+        // è·å–ç³»ç»Ÿå±æ€§ï¼Œè°ƒç”¨çš„æ˜¯ System.getenv()
         propertySources.addLast(new PropertiesPropertySource(
                 SYSTEM_PROPERTIES_PROPERTY_SOURCE_NAME, getSystemProperties()));
-        // »ñÈ¡ÏµÍ³»·¾³£¬µ÷ÓÃµÄÊÇ System.getProperties()
+        // è·å–ç³»ç»Ÿç¯å¢ƒï¼Œè°ƒç”¨çš„æ˜¯ System.getProperties()
         propertySources.addLast(new SystemEnvironmentPropertySource(
                 SYSTEM_ENVIRONMENT_PROPERTY_SOURCE_NAME, getSystemEnvironment()));
     }
@@ -362,41 +362,41 @@ public class StandardEnvironment extends AbstractEnvironment {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`StandardEnvironment`µÄ`customizePropertySources()`·½·¨Ö÷ÒªÊÇ½«ÏµÍ³ÊôĞÔÓëÏµÍ³»·¾³Ìí¼Óµ½`Environment`ÖĞ¡£¶øÊµ¼ÊÉÏ£¬`Environment`ÖĞ°üº¬ÁËĞí¶àµÄÏµÍ³Óë»·¾³Ïà¹ØµÄ²ÎÊı£¬±¾ÉíÒ²Ìá¹©ÁËÒ»Ğ©`getter`·½·¨¿ÉÒÔºÜ·½±ãµØ»ñÈ¡ÕâĞ©²ÎÊı£º
+å¯ä»¥çœ‹åˆ°ï¼Œ`StandardEnvironment`çš„`customizePropertySources()`æ–¹æ³•ä¸»è¦æ˜¯å°†ç³»ç»Ÿå±æ€§ä¸ç³»ç»Ÿç¯å¢ƒæ·»åŠ åˆ°`Environment`ä¸­ã€‚è€Œå®é™…ä¸Šï¼Œ`Environment`ä¸­åŒ…å«äº†è®¸å¤šçš„ç³»ç»Ÿä¸ç¯å¢ƒç›¸å…³çš„å‚æ•°ï¼Œæœ¬èº«ä¹Ÿæä¾›äº†ä¸€äº›`getter`æ–¹æ³•å¯ä»¥å¾ˆæ–¹ä¾¿åœ°è·å–è¿™äº›å‚æ•°ï¼š
 
 ![](https://oscimg.oschina.net/oscnet/up-d2d69692db15146f2981db94633e7c575d5.png)
 
-µ½ÕâÀï£¬ÎÒÃÇ¾ÍÃ÷°×ÁË£¬`StandardServletEnvironment`ÖĞ°üº¬ÁËÈçÏÂÄÚÈİ£º
+åˆ°è¿™é‡Œï¼Œæˆ‘ä»¬å°±æ˜ç™½äº†ï¼Œ`StandardServletEnvironment`ä¸­åŒ…å«äº†å¦‚ä¸‹å†…å®¹ï¼š
 
-*   ÏµÍ³ÊôĞÔ£¬ÎÒÃÇÆ½Ê±µ÷ÓÃ`System.getenv()`µÃµ½µÄ²ÎÊı£»
-*   ÏµÍ³»·¾³£¬ÎÒÃÇÆ½Ê±µ÷ÓÃ`System.getProperties()`µÃµ½µÄ²ÎÊı£»
-*   `servlet`µÄ`servletContext`Óë`servletConfig`.
+*   ç³»ç»Ÿå±æ€§ï¼Œæˆ‘ä»¬å¹³æ—¶è°ƒç”¨`System.getenv()`å¾—åˆ°çš„å‚æ•°ï¼›
+*   ç³»ç»Ÿç¯å¢ƒï¼Œæˆ‘ä»¬å¹³æ—¶è°ƒç”¨`System.getProperties()`å¾—åˆ°çš„å‚æ•°ï¼›
+*   `servlet`çš„`servletContext`ä¸`servletConfig`.
 
-#### 2\. ÅäÖÃ»·¾³
+#### 2\. é…ç½®ç¯å¢ƒ
 
-ÎÒÃÇ¼ÌĞø·ÖÎö£¬½Ó×Å¿´¿´ÅäÖÃ»·¾³µÄÁ÷³Ì£¬Ò²¾ÍÊÇ`SpringApplication#configureEnvironment`·½·¨£º
+æˆ‘ä»¬ç»§ç»­åˆ†æï¼Œæ¥ç€çœ‹çœ‹é…ç½®ç¯å¢ƒçš„æµç¨‹ï¼Œä¹Ÿå°±æ˜¯`SpringApplication#configureEnvironment`æ–¹æ³•ï¼š
 
 ```
 protected void configureEnvironment(ConfigurableEnvironment environment, String[] args) {
     if (this.addConversionService) {
-        // Ìí¼Ó×ª»»Æ÷£¬´¦Àí²ÎÊıÀàĞÍ×ª»»£¬Èç String×ªNumber£¬Integer×ªEnumµÈ
+        // æ·»åŠ è½¬æ¢å™¨ï¼Œå¤„ç†å‚æ•°ç±»å‹è½¬æ¢ï¼Œå¦‚ Stringè½¬Numberï¼ŒIntegerè½¬Enumç­‰
         ConversionService conversionService = ApplicationConversionService.getSharedInstance();
         environment.setConversionService((ConfigurableConversionService) conversionService);
     }
-    // ½«Æô¶¯²ÎÊıÌí¼Óµ½ environment ÖĞ
+    // å°†å¯åŠ¨å‚æ•°æ·»åŠ åˆ° environment ä¸­
     configurePropertySources(environment, args);
-    // ´¦Àí ActiveProfiles Öµ
+    // å¤„ç† ActiveProfiles å€¼
     configureProfiles(environment, args);
 }
 
 ```
 
-Õâ¸ö·½·¨´úÂë²»¶à£¬¹Ø¼üµã¶¼ÒÑÔÚ´úÂëÖĞ×¢ÊÍÇå³şÁË£¬ÕâÀïĞèÒªÉÔÎ¢ÌáÏÂ`SpringApplication#configurePropertySources`£º
+è¿™ä¸ªæ–¹æ³•ä»£ç ä¸å¤šï¼Œå…³é”®ç‚¹éƒ½å·²åœ¨ä»£ç ä¸­æ³¨é‡Šæ¸…æ¥šäº†ï¼Œè¿™é‡Œéœ€è¦ç¨å¾®æä¸‹`SpringApplication#configurePropertySources`ï¼š
 
 ```
 protected void configurePropertySources(ConfigurableEnvironment environment, String[] args) {
     MutablePropertySources sources = environment.getPropertySources();
-    // ÉèÖÃÄ¬ÈÏÊôĞÔ£¬Èç¹ûÖ¸¶¨ÁËÄ¬ÈÏÊôĞÔ£¬¾ÍÔÚÕâÀïÅäÖÃ
+    // è®¾ç½®é»˜è®¤å±æ€§ï¼Œå¦‚æœæŒ‡å®šäº†é»˜è®¤å±æ€§ï¼Œå°±åœ¨è¿™é‡Œé…ç½®
     if (this.defaultProperties != null && !this.defaultProperties.isEmpty()) {
         sources.addLast(new MapPropertySource("defaultProperties", this.defaultProperties));
     }
@@ -406,7 +406,7 @@ protected void configurePropertySources(ConfigurableEnvironment environment, Str
             PropertySource<?> source = sources.get(name);
             CompositePropertySource composite = new CompositePropertySource(name);
             composite.addPropertySource(
-                    // ½âÎöÆô¶¯Ê±´«ÈëµÄ²ÎÊı
+                    // è§£æå¯åŠ¨æ—¶ä¼ å…¥çš„å‚æ•°
                     new SimpleCommandLinePropertySource("springApplicationCommandLineArgs", args));
             composite.addPropertySource(source);
             sources.replace(name, composite);
@@ -419,7 +419,7 @@ protected void configurePropertySources(ConfigurableEnvironment environment, Str
 
 ```
 
-ÔÚÕâ¸ö·½·¨Àï»á¶Ô´«ÈëµÄ²ÎÊı½øĞĞ½âÎö£¬½øÈë`SimpleCommandLinePropertySource`£º
+åœ¨è¿™ä¸ªæ–¹æ³•é‡Œä¼šå¯¹ä¼ å…¥çš„å‚æ•°è¿›è¡Œè§£æï¼Œè¿›å…¥`SimpleCommandLinePropertySource`ï¼š
 
 ```
 public class SimpleCommandLinePropertySource 
@@ -433,7 +433,7 @@ public class SimpleCommandLinePropertySource
 
 ```
 
-×îÖÕ½âÎöµÄ·½·¨ÊÇ`SimpleCommandLineArgsParser#parse`£º
+æœ€ç»ˆè§£æçš„æ–¹æ³•æ˜¯`SimpleCommandLineArgsParser#parse`ï¼š
 
 ```
 public class SimpleCommandLineArgsParser {
@@ -445,7 +445,7 @@ public class SimpleCommandLineArgsParser {
                 String optionName;
                 String optionValue = null;
                 if (optionText.contains("=")) {
-                    // -- ¿ªÍ·ÇÒ°üº¬ = µÄ²ÎÊı£¬»á±»½âÎö³É key/value
+                    // -- å¼€å¤´ä¸”åŒ…å« = çš„å‚æ•°ï¼Œä¼šè¢«è§£ææˆ key/value
                     optionName = optionText.substring(0, optionText.indexOf('='));
                     optionValue = optionText.substring(optionText.indexOf('=')+1, optionText.length());
                 }
@@ -469,40 +469,40 @@ public class SimpleCommandLineArgsParser {
 
 ```
 
-½âÎö·½·¨»¹ÊÇ±È½Ï¼òµ¥µÄ£¬¾ÍÊÇ×Ö·û´®µÄ´¦Àí¶øÒÑ¡£
+è§£ææ–¹æ³•è¿˜æ˜¯æ¯”è¾ƒç®€å•çš„ï¼Œå°±æ˜¯å­—ç¬¦ä¸²çš„å¤„ç†è€Œå·²ã€‚
 
-springboot µÄÆô¶¯²ÎÊıÓĞÉ¶ºÃ½âÎöµÄÄØ£¿ÔÚÆô¶¯ spring ÏîÄ¿Ê±£¬ÎÒÃÇ¿ÉÒÔÕâÑùÖ¸¶¨²ÎÊı£º
+springboot çš„å¯åŠ¨å‚æ•°æœ‰å•¥å¥½è§£æçš„å‘¢ï¼Ÿåœ¨å¯åŠ¨ spring é¡¹ç›®æ—¶ï¼Œæˆ‘ä»¬å¯ä»¥è¿™æ ·æŒ‡å®šå‚æ•°ï¼š
 
 ```
 java -jar xxx.jar --a1=aaa --b1=bbb
 
 ```
 
-È»ºóÎÒÃÇ¾ÍÄÜÍ¨¹ı`@Value("${a1}")`»ñÈ¡µ½£¬¹Ø¼ü¾ÍÊÇÔÚÕâÀï£¬¿ÉÒÔ¿´µ½£¬springboot »á°Ñ´«ÈëµÄ`--a1=aaa`¡¢`--b1=bbb`½âÎö³É`a1/aaa`¡¢`b1/bbb`¼üÖµ¶ÔµÄĞÎÊ½£¬±£´æµ½`Environment`£¬ºóĞøÒªÓÃµ½Ê±£¬¾Í¿ÉºÜ·½±ãµØ´Ó`Environment`ÖĞ»ñÈ¡ÁË¡£
+ç„¶åæˆ‘ä»¬å°±èƒ½é€šè¿‡`@Value("${a1}")`è·å–åˆ°ï¼Œå…³é”®å°±æ˜¯åœ¨è¿™é‡Œï¼Œå¯ä»¥çœ‹åˆ°ï¼Œspringboot ä¼šæŠŠä¼ å…¥çš„`--a1=aaa`ã€`--b1=bbb`è§£ææˆ`a1/aaa`ã€`b1/bbb`é”®å€¼å¯¹çš„å½¢å¼ï¼Œä¿å­˜åˆ°`Environment`ï¼Œåç»­è¦ç”¨åˆ°æ—¶ï¼Œå°±å¯å¾ˆæ–¹ä¾¿åœ°ä»`Environment`ä¸­è·å–äº†ã€‚
 
-ºÃÁË£¬×¼±¸»·¾³µÄ·ÖÎö¾Íµ½ÕâÀïÁË¡£
+å¥½äº†ï¼Œå‡†å¤‡ç¯å¢ƒçš„åˆ†æå°±åˆ°è¿™é‡Œäº†ã€‚
 
-### 3.6 ÅäÖÃÏµÍ³²ÎÊı
+### 3.6 é…ç½®ç³»ç»Ÿå‚æ•°
 
-Õâ¿éÖ÷ÒªÊÇÅäÖÃÁËÒ»¸ö²ÎÊı£º`spring.beaninfo.ignore`£¬ÓÃÀ´¿ØÖÆÊÇ·ñÌø¹ı`BeanInfo`ÀàµÄËÑË÷£¬`²¢ÇÒÓÉÔ´Âë¿ÉÖªÄ¬ÈÏÖµÊÇtrue`£¬¸Ğ¾õÓÃµÄ²»¶à£¬¾Í²»·ÖÎöÁË¡£
+è¿™å—ä¸»è¦æ˜¯é…ç½®äº†ä¸€ä¸ªå‚æ•°ï¼š`spring.beaninfo.ignore`ï¼Œç”¨æ¥æ§åˆ¶æ˜¯å¦è·³è¿‡`BeanInfo`ç±»çš„æœç´¢ï¼Œ`å¹¶ä¸”ç”±æºç å¯çŸ¥é»˜è®¤å€¼æ˜¯true`ï¼Œæ„Ÿè§‰ç”¨çš„ä¸å¤šï¼Œå°±ä¸åˆ†æäº†ã€‚
 
-### 3.7 ´òÓ¡`banner`
+### 3.7 æ‰“å°`banner`
 
-`banner`ÊÇÔÚÕâÀï´òÓ¡³öµÄ£º
+`banner`æ˜¯åœ¨è¿™é‡Œæ‰“å°å‡ºçš„ï¼š
 
 ```
 Banner printedBanner = printBanner(environment);
 
 ```
 
-ÎÒÃÇÒ²¿ÉÒÔ×Ô¼º¶¨Òå banner£¬Õâ¸öÍøÉÏ½Ì³ÌÒ»´ó¶Ñ£¬demo ¾Í²»Ìá¹©ÁË¡£
+æˆ‘ä»¬ä¹Ÿå¯ä»¥è‡ªå·±å®šä¹‰ bannerï¼Œè¿™ä¸ªç½‘ä¸Šæ•™ç¨‹ä¸€å¤§å †ï¼Œdemo å°±ä¸æä¾›äº†ã€‚
 
-¹ØÓÚ`banner`£¬Óë springboot µÄÆô¶¯Á÷³Ì¹ØÏµ²»´ó£¬¾Í²»·ÖÎöÁË£¬Ğ¡»ï°éÃÇÖ»ĞèÁË½âÔõÃ´ÑùÓÃ¼´¿É¡£
+å…³äº`banner`ï¼Œä¸ springboot çš„å¯åŠ¨æµç¨‹å…³ç³»ä¸å¤§ï¼Œå°±ä¸åˆ†æäº†ï¼Œå°ä¼™ä¼´ä»¬åªéœ€äº†è§£æ€ä¹ˆæ ·ç”¨å³å¯ã€‚
 
-ºÃÁË£¬ÏŞÓÚÆª·ù£¬±¾ÎÄ¾Íµ½ÕâÀïÁË£¬ÏÂÆªÎÒÃÇ¼ÌĞø¡£
+å¥½äº†ï¼Œé™äºç¯‡å¹…ï¼Œæœ¬æ–‡å°±åˆ°è¿™é‡Œäº†ï¼Œä¸‹ç¯‡æˆ‘ä»¬ç»§ç»­ã€‚
 
 ![](https://oscimg.oschina.net/oscnet/up-38d3824690292937a6b0cba5b081c8f8fec.png)
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4882417](https://my.oschina.net/funcy/blog/4882417)£¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4882417](https://my.oschina.net/funcy/blog/4882417)ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

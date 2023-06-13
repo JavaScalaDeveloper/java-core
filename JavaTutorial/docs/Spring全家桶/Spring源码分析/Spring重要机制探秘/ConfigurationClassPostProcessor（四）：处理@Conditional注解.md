@@ -1,15 +1,15 @@
-±¾ÎÄÊÇ `ConfigurationClassPostProcessor` ·ÖÎöµÄµÚËÄÆª£¬Ö÷ÒªÊÇ·ÖÎö spring ¶Ô `@Conditional` ×¢½âµÄ´¦ÀíÁ÷³Ì¡£
+æœ¬æ–‡æ˜¯ `ConfigurationClassPostProcessor` åˆ†æçš„ç¬¬å››ç¯‡ï¼Œä¸»è¦æ˜¯åˆ†æ spring å¯¹ `@Conditional` æ³¨è§£çš„å¤„ç†æµç¨‹ã€‚
 
-## 5\. spring ÊÇÈçºÎ´¦Àí @Conditional ×¢½âµÄ£¿
+## 5\. spring æ˜¯å¦‚ä½•å¤„ç† @Conditional æ³¨è§£çš„ï¼Ÿ
 
-### 5.1 `@Conditional` µÄ´¦ÀíÁ÷³Ì
+### 5.1 `@Conditional` çš„å¤„ç†æµç¨‹
 
-ÔÚÇ°Ãæ·ÖÎö `ConfigurationClassParser#processConfigurationClass` ·½·¨Ê±£¬ÓĞÕâÃ´Ò»ĞĞ£º
+åœ¨å‰é¢åˆ†æ `ConfigurationClassParser#processConfigurationClass` æ–¹æ³•æ—¶ï¼Œæœ‰è¿™ä¹ˆä¸€è¡Œï¼š
 
 ```
 class ConfigurationClassParser {
     protected void processConfigurationClass(ConfigurationClass configClass) throws IOException {
-        // ÅĞ¶ÏÊÇ·ñĞèÒªÌø¹ı´¦Àí£¬Õë¶ÔÓÚ @Conditional ×¢½â£¬ÅĞ¶ÏÊÇ·ñÂú×ãÌõ¼ş
+        // åˆ¤æ–­æ˜¯å¦éœ€è¦è·³è¿‡å¤„ç†ï¼Œé’ˆå¯¹äº @Conditional æ³¨è§£ï¼Œåˆ¤æ–­æ˜¯å¦æ»¡è¶³æ¡ä»¶
         if (this.conditionEvaluator.shouldSkip(configClass.getMetadata(), 
                 ConfigurationPhase.PARSE_CONFIGURATION)) {
             return;
@@ -21,7 +21,7 @@ class ConfigurationClassParser {
 
 ```
 
-`conditionEvaluator.shouldSkip(...)` ·½·¨¾ÍÊÇÓÃÀ´´¦Àí `@Conditional` ×¢½âµÄ£¬¹ØÓÚÕâ¸ö·½·¨µÄ´¦ÀíÁ÷³Ì£¬ÎÒÃÇÍíµãÔÙ·ÖÎö£¬ÎÒÃÇÏÈÀ´¿´¿´Ê²Ã´ÊÇ `@Conditional` ×¢½â£º
+`conditionEvaluator.shouldSkip(...)` æ–¹æ³•å°±æ˜¯ç”¨æ¥å¤„ç† `@Conditional` æ³¨è§£çš„ï¼Œå…³äºè¿™ä¸ªæ–¹æ³•çš„å¤„ç†æµç¨‹ï¼Œæˆ‘ä»¬æ™šç‚¹å†åˆ†æï¼Œæˆ‘ä»¬å…ˆæ¥çœ‹çœ‹ä»€ä¹ˆæ˜¯ `@Conditional` æ³¨è§£ï¼š
 
 ```
 @Target({ElementType.TYPE, ElementType.METHOD})
@@ -30,7 +30,7 @@ class ConfigurationClassParser {
 public @interface Conditional {
 
     /**
-     * Ìõ¼şÀà
+     * æ¡ä»¶ç±»
      */
     Class<? extends Condition>[] value();
 
@@ -38,13 +38,13 @@ public @interface Conditional {
 
 ```
 
-`@Conditional` ×¢½â·Ç³£¼òµ¥£¬½öÓĞÒ»¸öÊôĞÔ£¬·µ»ØÖµÊÇ `Class[]`£¬ÇÒ±ØĞëÊÇ `Condition` µÄ×ÓÀà¡£ÎÒÃÇÔÙÀ´¿´¿´ `Condition`£º
+`@Conditional` æ³¨è§£éå¸¸ç®€å•ï¼Œä»…æœ‰ä¸€ä¸ªå±æ€§ï¼Œè¿”å›å€¼æ˜¯ `Class[]`ï¼Œä¸”å¿…é¡»æ˜¯ `Condition` çš„å­ç±»ã€‚æˆ‘ä»¬å†æ¥çœ‹çœ‹ `Condition`ï¼š
 
 ```
 public interface Condition {
 
     /**
-     * ÔÚÕâÀïÖ¸¶¨Æ¥ÅäÂß¼­
+     * åœ¨è¿™é‡ŒæŒ‡å®šåŒ¹é…é€»è¾‘
      */
     boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata);
 
@@ -52,19 +52,19 @@ public interface Condition {
 
 ```
 
-`Condition` ½Ó¿Ú½öÓĞÒ»¸ö `matches` ·½·¨£¬ÎÒÃÇ¿ÉÒÔÔÚÆäÖĞÖ¸¶¨Æ¥ÅäÂß¼­¡£
+`Condition` æ¥å£ä»…æœ‰ä¸€ä¸ª `matches` æ–¹æ³•ï¼Œæˆ‘ä»¬å¯ä»¥åœ¨å…¶ä¸­æŒ‡å®šåŒ¹é…é€»è¾‘ã€‚
 
-½Ó×ÅÎÒÃÇÀ´¿´¿´ `conditionEvaluator.shouldSkip(...)` µÄ´¦ÀíÁ÷³Ì£º
+æ¥ç€æˆ‘ä»¬æ¥çœ‹çœ‹ `conditionEvaluator.shouldSkip(...)` çš„å¤„ç†æµç¨‹ï¼š
 
 ```
 class ConditionEvaluator {
     public boolean shouldSkip(@Nullable AnnotatedTypeMetadata metadata, 
             @Nullable ConfigurationPhase phase) {
-        // ÊÇ·ñ±ê¼Ç @Conditional
+        // æ˜¯å¦æ ‡è®° @Conditional
         if (metadata == null || !metadata.isAnnotated(Conditional.class.getName())) {
             return false;
         }
-        // ÅĞ¶Ï´«ÈëµÄ phase
+        // åˆ¤æ–­ä¼ å…¥çš„ phase
         if (phase == null) {
             if (metadata instanceof AnnotationMetadata &&
                     ConfigurationClassUtils.isConfigurationCandidate((AnnotationMetadata) metadata)) {
@@ -73,25 +73,25 @@ class ConditionEvaluator {
             return shouldSkip(metadata, ConfigurationPhase.REGISTER_BEAN);
         }
 
-        // ÊµÀı»¯ condition£¬Æä·ÅÈë conditions ÖĞ
+        // å®ä¾‹åŒ– conditionï¼Œå…¶æ”¾å…¥ conditions ä¸­
         List<Condition> conditions = new ArrayList<>();
-        // 1\. getConditionClasses(metadata)£º»ñÈ¡ @Conditional ÖĞÖ¸¶¨µÄÅĞ¶ÏÀà
+        // 1\. getConditionClasses(metadata)ï¼šè·å– @Conditional ä¸­æŒ‡å®šçš„åˆ¤æ–­ç±»
         for (String[] conditionClasses : getConditionClasses(metadata)) {
             for (String conditionClass : conditionClasses) {
-                // 2\. ÊµÀı»¯²Ù×÷£¨ÓÃµ½µÄ»¹ÊÇ·´Éä£©£¬Í³Ò»·Åµ½ conditions ÖĞ
+                // 2\. å®ä¾‹åŒ–æ“ä½œï¼ˆç”¨åˆ°çš„è¿˜æ˜¯åå°„ï¼‰ï¼Œç»Ÿä¸€æ”¾åˆ° conditions ä¸­
                 Condition condition = getCondition(conditionClass, this.context.getClassLoader());
                 conditions.add(condition);
             }
         }
-        // 3\. ÅÅĞòÉÏÃæµÃµ½µÄ condition ÊµÀı
+        // 3\. æ’åºä¸Šé¢å¾—åˆ°çš„ condition å®ä¾‹
         AnnotationAwareOrderComparator.sort(conditions);
-        // ±éÀúÉÏÃæµÃµ½µÄ conditions
+        // éå†ä¸Šé¢å¾—åˆ°çš„ conditions
         for (Condition condition : conditions) {
             ConfigurationPhase requiredPhase = null;
             if (condition instanceof ConfigurationCondition) {
                 requiredPhase = ((ConfigurationCondition) condition).getConfigurationPhase();
             }
-            // 4\. µ÷ÓÃ Condition#matches ·½·¨½øĞĞÅĞ¶Ï
+            // 4\. è°ƒç”¨ Condition#matches æ–¹æ³•è¿›è¡Œåˆ¤æ–­
             if ((requiredPhase == null || requiredPhase == phase) && 
                     !condition.matches(this.context, metadata)) {
                 return true;
@@ -106,22 +106,22 @@ class ConditionEvaluator {
 
 ```
 
-¸Ã·½·¨µÄ´¦ÀíÁ÷³ÌÈçÏÂ£º
+è¯¥æ–¹æ³•çš„å¤„ç†æµç¨‹å¦‚ä¸‹ï¼š
 
-1.  »ñÈ¡ `@Conditional` ÖĞÖ¸¶¨µÄÅĞ¶ÏÀà£¬¾ÍÊÇ `@Conditional` µÄ `value` ÊôĞÔÖµ£»
-2.  Ê¹ÓÃ ·´ÉäÊµÀı»¯µÚ 1 ²½ÖĞ µÃµ½µÄÅĞ¶ÏÀà£¬²¢ ±£´æµ½ `conditions`£¨ÕâÊÇ¸ö `List`£© ÖĞ£»
-3.  ¶ÔµÚ 2 ²½µÃµ½µÄ `conditions` ½øĞĞÅÅĞò£»
-4.  ±éÀúµÚ 3 ²½µÃµ½µÄ `conditions`£¬µ÷ÓÃ `Condition#matches` ·½·¨½øĞĞÆ¥Åä¡£
+1.  è·å– `@Conditional` ä¸­æŒ‡å®šçš„åˆ¤æ–­ç±»ï¼Œå°±æ˜¯ `@Conditional` çš„ `value` å±æ€§å€¼ï¼›
+2.  ä½¿ç”¨ åå°„å®ä¾‹åŒ–ç¬¬ 1 æ­¥ä¸­ å¾—åˆ°çš„åˆ¤æ–­ç±»ï¼Œå¹¶ ä¿å­˜åˆ° `conditions`ï¼ˆè¿™æ˜¯ä¸ª `List`ï¼‰ ä¸­ï¼›
+3.  å¯¹ç¬¬ 2 æ­¥å¾—åˆ°çš„ `conditions` è¿›è¡Œæ’åºï¼›
+4.  éå†ç¬¬ 3 æ­¥å¾—åˆ°çš„ `conditions`ï¼Œè°ƒç”¨ `Condition#matches` æ–¹æ³•è¿›è¡ŒåŒ¹é…ã€‚
 
-`@Conditional` µÄ´¦Àí»¹ÊÇ·Ç³£¼òµ¥µÄ£¬½ÓÏÂÀ´ÎÒÃÇÀ´¿´¿´ËüµÄÊ¹ÓÃÊ¾Àı¡£
+`@Conditional` çš„å¤„ç†è¿˜æ˜¯éå¸¸ç®€å•çš„ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬æ¥çœ‹çœ‹å®ƒçš„ä½¿ç”¨ç¤ºä¾‹ã€‚
 
-### 5.2 `@Conditional` Ê¹ÓÃÊ¾Àı
+### 5.2 `@Conditional` ä½¿ç”¨ç¤ºä¾‹
 
-#### Ê¾Àı 1£ºµ±Ö¸¶¨µÄÀà´æÔÚÊ±£¬²Å´´½¨ spring bean
+#### ç¤ºä¾‹ 1ï¼šå½“æŒ‡å®šçš„ç±»å­˜åœ¨æ—¶ï¼Œæ‰åˆ›å»º spring bean
 
-ÕâÀïÎÒÃÇÊµÏÖ¸ö¹¦ÄÜ£ºµ±Ö¸¶¨µÄÀà´æÔÚÊ±£¬²Å½øĞĞ spring bean µÄ´´½¨¡¢³õÊ¼»¯£¬´úÂëÈçÏÂ£º
+è¿™é‡Œæˆ‘ä»¬å®ç°ä¸ªåŠŸèƒ½ï¼šå½“æŒ‡å®šçš„ç±»å­˜åœ¨æ—¶ï¼Œæ‰è¿›è¡Œ spring bean çš„åˆ›å»ºã€åˆå§‹åŒ–ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
-1. ×¼±¸Ò»¸ö¼òµ¥µÄ bean:
+1. å‡†å¤‡ä¸€ä¸ªç®€å•çš„ bean:
 
    ```
    public class BeanObj {
@@ -130,7 +130,7 @@ class ConditionEvaluator {
    
    ```
 
-2. ÊµÏÖ `Condition` ½Ó¿Ú£¬ÔÚÕâÀï´¦ÀíÅĞ¶ÏÂß¼­
+2. å®ç° `Condition` æ¥å£ï¼Œåœ¨è¿™é‡Œå¤„ç†åˆ¤æ–­é€»è¾‘
 
    ```
    public class MyCondition implements Condition {
@@ -138,7 +138,7 @@ class ConditionEvaluator {
        public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
            String className = "java.lang.Object";
            try {
-               // ÅĞ¶ÏÀàÊÇ·ñ´æÔÚ
+               // åˆ¤æ–­ç±»æ˜¯å¦å­˜åœ¨
                Class.forName(className);
                return true;
            } catch (ClassNotFoundException e) {
@@ -149,9 +149,9 @@ class ConditionEvaluator {
    
    ```
 
-   ÔÚ `matches(...)` ·½·¨ÖĞ £¬ÏÈÊÇÖ¸¶¨ `className` Îª `java.lang.Object`£¬È»ºóÅĞ¶ÏÆäÊÇ·ñ´æÔÚ£¬ÅĞ¶Ï·½Ê½Ò² Ê®·Ö¼òµ¥ £¬¾ÍÊÇÊ¹ÓÃ java µÄ·´Éä»úÖÆ£º`Class.forName(...)`£¬µ±Àà²»´æÔÚÊ±£¬»áÅ×³ö `ClassNotFoundException`£¬ÎÒÃÇ¿ÉÒÔ²¶»ñ¸ÃÒì³££¬´Ó¶ø¾ÍÖªµÀÀà´æÔÚ²»´æÔÚÁË¡£
+   åœ¨ `matches(...)` æ–¹æ³•ä¸­ ï¼Œå…ˆæ˜¯æŒ‡å®š `className` ä¸º `java.lang.Object`ï¼Œç„¶ååˆ¤æ–­å…¶æ˜¯å¦å­˜åœ¨ï¼Œåˆ¤æ–­æ–¹å¼ä¹Ÿ ååˆ†ç®€å• ï¼Œå°±æ˜¯ä½¿ç”¨ java çš„åå°„æœºåˆ¶ï¼š`Class.forName(...)`ï¼Œå½“ç±»ä¸å­˜åœ¨æ—¶ï¼Œä¼šæŠ›å‡º `ClassNotFoundException`ï¼Œæˆ‘ä»¬å¯ä»¥æ•è·è¯¥å¼‚å¸¸ï¼Œä»è€Œå°±çŸ¥é“ç±»å­˜åœ¨ä¸å­˜åœ¨äº†ã€‚
 
-3. ×¼±¸ÅäÖÃÀà
+3. å‡†å¤‡é…ç½®ç±»
 
    ```
    @ComponentScan
@@ -165,9 +165,9 @@ class ConditionEvaluator {
    
    ```
 
-   ÅäÖÃÀà±È½Ï¼òµ¥£¬ĞèÒª×¢ÒâµÄÊÇ `beanObj()` ÉÏµÄ `@Conditional` ×¢½â£¬Ö¸¶¨µÄÊÇÌõ¼şÆ¥ÅäÀàÊÇ `MyCondition`£¬Æ¥Åä²Ù×÷¾ÍÊÇÔÚÕâ¸öÀàÖĞ½øĞĞµÄ¡£
+   é…ç½®ç±»æ¯”è¾ƒç®€å•ï¼Œéœ€è¦æ³¨æ„çš„æ˜¯ `beanObj()` ä¸Šçš„ `@Conditional` æ³¨è§£ï¼ŒæŒ‡å®šçš„æ˜¯æ¡ä»¶åŒ¹é…ç±»æ˜¯ `MyCondition`ï¼ŒåŒ¹é…æ“ä½œå°±æ˜¯åœ¨è¿™ä¸ªç±»ä¸­è¿›è¡Œçš„ã€‚
 
-4. Ö÷Àà
+4. ä¸»ç±»
 
    ```
    public class Demo06Main {
@@ -176,29 +176,29 @@ class ConditionEvaluator {
                    = new AnnotationConfigApplicationContext(BeanConfigs.class);
            try {
                Object obj = context.getBean("beanObj");
-               System.out.println("beanObj ´æÔÚ£¡");
+               System.out.println("beanObj å­˜åœ¨ï¼");
            } catch (Exception e) {
-               System.out.println("beanObj ²»´æÔÚ£¡");
+               System.out.println("beanObj ä¸å­˜åœ¨ï¼");
            }
        }
    }
    
    ```
 
-ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+è¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
-beanObj ´æÔÚ£¡
+beanObj å­˜åœ¨ï¼
 
 ```
 
-ÔÚ `MyCondition#matches` ÖĞ£¬ÎÒÃÇÅĞ¶ÏµÄÊÇµ±Ç°ÏîÄ¿ÖĞÊÇ·ñ´æÔÚ `java.lang.Object`£¬ÏÔÈ»ÕâÊÇ´æÔÚµÄ£¬Òò´Ë `beanObj` »áÔÚ spring ÈİÆ÷ÖĞ£¬½Ó×ÅÎÒÃÇ»»ÏÂ `className`:
+åœ¨ `MyCondition#matches` ä¸­ï¼Œæˆ‘ä»¬åˆ¤æ–­çš„æ˜¯å½“å‰é¡¹ç›®ä¸­æ˜¯å¦å­˜åœ¨ `java.lang.Object`ï¼Œæ˜¾ç„¶è¿™æ˜¯å­˜åœ¨çš„ï¼Œå› æ­¤ `beanObj` ä¼šåœ¨ spring å®¹å™¨ä¸­ï¼Œæ¥ç€æˆ‘ä»¬æ¢ä¸‹ `className`:
 
 ```
 public class MyCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-        // ¸ü»»ÀàÃû
+        // æ›´æ¢ç±»å
         String className = "java.lang.Object111";
         ...
     }
@@ -206,22 +206,22 @@ public class MyCondition implements Condition {
 
 ```
 
-ÏÔÈ»£¬`java.lang.Object111` ÊÇ²»´æÔÚÓÚµ±Ç°ÏîÄ¿ÖĞµÄ£¬ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+æ˜¾ç„¶ï¼Œ`java.lang.Object111` æ˜¯ä¸å­˜åœ¨äºå½“å‰é¡¹ç›®ä¸­çš„ï¼Œè¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
-beanObj ²»´æÔÚ£¡
+beanObj ä¸å­˜åœ¨ï¼
 
 ```
 
-#### Ê¾Àı 2£º¸Ä½øÊ¾Àı 1 ¹¦ÄÜ
+#### ç¤ºä¾‹ 2ï¼šæ”¹è¿›ç¤ºä¾‹ 1 åŠŸèƒ½
 
-ÔÚÊ¾Àı 1 ÖĞ£¬ÎÒÃÇÍ¨¹ıÔÚ `MyCondition#matches` ĞŞ¸Ä `className` À´¸Ä±ä `beanObj` ÔÚÈİÆ÷ÖĞµÄ´æÔÚÇé¿ö£¬ÄÇÈç¹ûÏîÄ¿ÖĞÓĞ·Ç³£¶àµÄÀàĞèÒª°´ÀàµÄ´æÔÚÓë·ñ½øĞĞ¼ÓÔØ£¬ÎÒÃÇÊÇÊµÏÖ¶à¸ö `MyCondition` Âğ£¿
+åœ¨ç¤ºä¾‹ 1 ä¸­ï¼Œæˆ‘ä»¬é€šè¿‡åœ¨ `MyCondition#matches` ä¿®æ”¹ `className` æ¥æ”¹å˜ `beanObj` åœ¨å®¹å™¨ä¸­çš„å­˜åœ¨æƒ…å†µï¼Œé‚£å¦‚æœé¡¹ç›®ä¸­æœ‰éå¸¸å¤šçš„ç±»éœ€è¦æŒ‰ç±»çš„å­˜åœ¨ä¸å¦è¿›è¡ŒåŠ è½½ï¼Œæˆ‘ä»¬æ˜¯å®ç°å¤šä¸ª `MyCondition` å—ï¼Ÿ
 
-±ÈÈç£¬Àà `A` ĞèÒª¸ù¾İÀà `A1` µÄ´æÔÚÓë·ñÀ´ÅĞ¶ÏÊÇ·ñ½øĞĞ³õÊ¼»¯£¬Àà `B` ĞèÒª¸ù¾İÀà `B1` µÄ´æÔÚÓë·ñÀ´ÅĞ¶ÏÊÇ·ñ½øĞĞ³õÊ¼»¯£¬Àà `C` ĞèÒª¸ù¾İÀà `C1` µÄ´æÔÚÓë·ñÀ´ÅĞ¶ÏÊÇ·ñ½øĞĞ³õÊ¼»¯... ÎÒÃÇÊÇ·ñĞèÒª·Ö±ğÎª`ÀàA`¡¢`ÀàB`¡¢`ÀàC` ÊµÏÖ `Condition`£¬ÔÚ¸÷×ÔµÄ `match(...)` ·½·¨ÖĞ½øĞĞÅĞ¶ÏÂğ£¿
+æ¯”å¦‚ï¼Œç±» `A` éœ€è¦æ ¹æ®ç±» `A1` çš„å­˜åœ¨ä¸å¦æ¥åˆ¤æ–­æ˜¯å¦è¿›è¡Œåˆå§‹åŒ–ï¼Œç±» `B` éœ€è¦æ ¹æ®ç±» `B1` çš„å­˜åœ¨ä¸å¦æ¥åˆ¤æ–­æ˜¯å¦è¿›è¡Œåˆå§‹åŒ–ï¼Œç±» `C` éœ€è¦æ ¹æ®ç±» `C1` çš„å­˜åœ¨ä¸å¦æ¥åˆ¤æ–­æ˜¯å¦è¿›è¡Œåˆå§‹åŒ–... æˆ‘ä»¬æ˜¯å¦éœ€è¦åˆ†åˆ«ä¸º`ç±»A`ã€`ç±»B`ã€`ç±»C` å®ç° `Condition`ï¼Œåœ¨å„è‡ªçš„ `match(...)` æ–¹æ³•ä¸­è¿›è¡Œåˆ¤æ–­å—ï¼Ÿ
 
-Êµ¼ÊÉÏ£¬ÎÒÃÇ²¢²»ĞèÒªÕâÃ´×ö£¬ÕâÀïÍ¨¹ı spring ×éºÏ×¢½âµÄ·½·¨À´Íê³ÉÒÔÉÏ¹¦ÄÜ¡£
+å®é™…ä¸Šï¼Œæˆ‘ä»¬å¹¶ä¸éœ€è¦è¿™ä¹ˆåšï¼Œè¿™é‡Œé€šè¿‡ spring ç»„åˆæ³¨è§£çš„æ–¹æ³•æ¥å®Œæˆä»¥ä¸ŠåŠŸèƒ½ã€‚
 
-1. ×¼±¸Ò»¸ö bean£¬ÕâÓëÊ¾Àı 1 ²¢ÎŞÇø±ğ
+1. å‡†å¤‡ä¸€ä¸ª beanï¼Œè¿™ä¸ç¤ºä¾‹ 1 å¹¶æ— åŒºåˆ«
 
    ```
    public class BeanObj {
@@ -230,18 +230,18 @@ beanObj ²»´æÔÚ£¡
    
    ```
 
-2. ×¼±¸×¢½â `@ConditionalForClass`£¬¸Ã×¢½â×éºÏÁË `@Conditional` µÄ¹¦ÄÜ£¬´¦ÀíÌõ¼şÆ¥ÅäµÄÀàÎª `MyCondition`£¬`className` ÊôĞÔ¾ÍÊÇ±ØĞë´æÔÚµÄÀà£º
+2. å‡†å¤‡æ³¨è§£ `@ConditionalForClass`ï¼Œè¯¥æ³¨è§£ç»„åˆäº† `@Conditional` çš„åŠŸèƒ½ï¼Œå¤„ç†æ¡ä»¶åŒ¹é…çš„ç±»ä¸º `MyCondition`ï¼Œ`className` å±æ€§å°±æ˜¯å¿…é¡»å­˜åœ¨çš„ç±»ï¼š
 
 ```
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-// ×éºÏÁË @Conditional µÄ¹¦ÄÜ£¬´¦ÀíÌõ¼şÆ¥ÅäµÄÀàÎª MyCondition
+// ç»„åˆäº† @Conditional çš„åŠŸèƒ½ï¼Œå¤„ç†æ¡ä»¶åŒ¹é…çš„ç±»ä¸º MyCondition
 @Conditional(MyCondition.class)
 public @interface ConditionalForClass {
 
     /**
-     * ÕâÀïÖ¸¶¨±ØĞë´æÔÚµÄÀà
+     * è¿™é‡ŒæŒ‡å®šå¿…é¡»å­˜åœ¨çš„ç±»
      */
     String className();
 
@@ -249,25 +249,25 @@ public @interface ConditionalForClass {
 
 ```
 
-1. ×¼±¸ `MyCondition`£¬×¢ÒâÓëÊ¾ÀıµÄ²î±ğÔÚÓÚ£¬`className` ²»ÊÇÔÚ¸Ã·½·¨ÖĞ¶¨Òå£¬¶øÊÇÓÉ `@ConditionalForClass` ´«Èë£º
+1. å‡†å¤‡ `MyCondition`ï¼Œæ³¨æ„ä¸ç¤ºä¾‹çš„å·®åˆ«åœ¨äºï¼Œ`className` ä¸æ˜¯åœ¨è¯¥æ–¹æ³•ä¸­å®šä¹‰ï¼Œè€Œæ˜¯ç”± `@ConditionalForClass` ä¼ å…¥ï¼š
 
    ```
    public class MyCondition implements Condition {
        /**
-        * ÕâÀï´¦ÀíÆ¥ÅäÌõ¼ş£¬×¢ÒâÓëÊ¾Àı1ÖĞµÄÇø±ğ
+        * è¿™é‡Œå¤„ç†åŒ¹é…æ¡ä»¶ï¼Œæ³¨æ„ä¸ç¤ºä¾‹1ä¸­çš„åŒºåˆ«
         */
        @Override
        public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-           // »ñÈ¡ @ConditionalForClass ×¢½âµÄËùÓĞÊôĞÔÖµ
+           // è·å– @ConditionalForClass æ³¨è§£çš„æ‰€æœ‰å±æ€§å€¼
            Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(
                    ConditionalForClass.class.getName());
-           // »ñÈ¡classNameµÄÊôĞÔÖµ£¬¾ÍÊÇ @ConditionalForClass µÄ className ÊôĞÔ
+           // è·å–classNameçš„å±æ€§å€¼ï¼Œå°±æ˜¯ @ConditionalForClass çš„ className å±æ€§
            String className = (String)annotationAttributes.get("className");
            if(null == className || className.length() <= 0) {
                return true;
            }
            try {
-               // ÅĞ¶ÏÀàÊÇ·ñ´æÔÚ
+               // åˆ¤æ–­ç±»æ˜¯å¦å­˜åœ¨
                Class.forName(className);
                return true;
            } catch (ClassNotFoundException e) {
@@ -278,14 +278,14 @@ public @interface ConditionalForClass {
    
    ```
 
-2. ×¼±¸ÅäÖÃÀà£¬´ËÊ±µÄÌõ¼ş×¢½âÎª `@ConditionalForClass`£º
+2. å‡†å¤‡é…ç½®ç±»ï¼Œæ­¤æ—¶çš„æ¡ä»¶æ³¨è§£ä¸º `@ConditionalForClass`ï¼š
 
    ```
    @ComponentScan
    public class BeanConfigs {
        @Bean
        /**
-        * ÔÚ @ConditionalForClass ÖĞÖ¸¶¨ÁËÒÀÀµµÄÀà
+        * åœ¨ @ConditionalForClass ä¸­æŒ‡å®šäº†ä¾èµ–çš„ç±»
         */
        @ConditionalForClass(className = "java.lang.Object")
        public BeanObj beanObj() {
@@ -295,7 +295,7 @@ public @interface ConditionalForClass {
    
    ```
 
-3. ×îºóÊÇÖ÷Àà£¬ÓëÊ¾Àı 1 ²¢²»Çø±ğ£º
+3. æœ€åæ˜¯ä¸»ç±»ï¼Œä¸ç¤ºä¾‹ 1 å¹¶ä¸åŒºåˆ«ï¼š
 
    ```
    public class Demo07Main {
@@ -305,29 +305,29 @@ public @interface ConditionalForClass {
                    = new AnnotationConfigApplicationContext(BeanConfigs.class);
            try {
                Object obj = context.getBean("beanObj");
-               System.out.println("beanObj ´æÔÚ£¡");
+               System.out.println("beanObj å­˜åœ¨ï¼");
            } catch (Exception e) {
-               System.out.println("beanObj ²»´æÔÚ£¡");
+               System.out.println("beanObj ä¸å­˜åœ¨ï¼");
            }
        }
    }
    
    ```
 
-ÒÔÉÏÀàÍ¨¹ı×Ô¶¨Òå×¢½â `@ConditionalForClass` À´Ö¸¶¨£¬µ±Àà `java.lang.Object` ´æÔÚÊ±£¬`beanObj` ²Å»á±»Ìí¼Óµ½ spring ÈİÆ÷ÖĞ£¬Õâ¸öÌõ¼şÏÔÈ»³ÉÁ¢£¬ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+ä»¥ä¸Šç±»é€šè¿‡è‡ªå®šä¹‰æ³¨è§£ `@ConditionalForClass` æ¥æŒ‡å®šï¼Œå½“ç±» `java.lang.Object` å­˜åœ¨æ—¶ï¼Œ`beanObj` æ‰ä¼šè¢«æ·»åŠ åˆ° spring å®¹å™¨ä¸­ï¼Œè¿™ä¸ªæ¡ä»¶æ˜¾ç„¶æˆç«‹ï¼Œè¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
-beanObj ´æÔÚ£¡
+beanObj å­˜åœ¨ï¼
 
 ```
 
-ÎÒÃÇÔÙÀ´µ÷ÕûÏÂ `@ConditionalForClass` µÄ `className` Öµ£º
+æˆ‘ä»¬å†æ¥è°ƒæ•´ä¸‹ `@ConditionalForClass` çš„ `className` å€¼ï¼š
 
 ```
 @ComponentScan
 public class BeanConfigs {
     @Bean
-    // ½öĞŞ¸ÄÁË@ConditionalForClassµÄclassNameÖµ£¬ÆäËûÌõ¼ş²»±ä
+    // ä»…ä¿®æ”¹äº†@ConditionalForClassçš„classNameå€¼ï¼Œå…¶ä»–æ¡ä»¶ä¸å˜
     @ConditionalForClass(className = "java.lang.Object1111")
     public BeanObj beanObj() {
         return new BeanObj();
@@ -336,18 +336,18 @@ public class BeanConfigs {
 
 ```
 
-ÕâÀï½« `@ConditionalForClass` µÄ `className` Öµµ÷ÕûÎª `java.lang.Object1111`£¬ÏÔÈ»Õâ¸öÀà²¢²»ÔÚµ±Ç°ÏîÄ¿ÖĞ£¬ÔËĞĞ½á¹ûÈçÏÂ£º
+è¿™é‡Œå°† `@ConditionalForClass` çš„ `className` å€¼è°ƒæ•´ä¸º `java.lang.Object1111`ï¼Œæ˜¾ç„¶è¿™ä¸ªç±»å¹¶ä¸åœ¨å½“å‰é¡¹ç›®ä¸­ï¼Œè¿è¡Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
-beanObj ²»´æÔÚ£¡
+beanObj ä¸å­˜åœ¨ï¼
 
 ```
 
-½á¹ûÒ²ÓëÎÒÃÇµÄÆÚÍûÒ»ÖÂ¡£
+ç»“æœä¹Ÿä¸æˆ‘ä»¬çš„æœŸæœ›ä¸€è‡´ã€‚
 
-ÈÃÎÒÃÇ»Øµ½±¾½Ú¿ªÍ·µÄÎÊÌâ£º±ÈÈç£¬Àà `A` ĞèÒª¸ù¾İÀà `A1` µÄ´æÔÚÓë·ñÀ´ÅĞ¶ÏÊÇ·ñ½øĞĞ³õÊ¼»¯£¬Àà `B` ĞèÒª¸ù¾İÀà `B1` µÄ´æÔÚÓë·ñÀ´ÅĞ¶ÏÊÇ·ñ½øĞĞ³õÊ¼»¯£¬Àà `C` ĞèÒª¸ù¾İÀà `C1` µÄ´æÔÚÓë·ñÀ´ÅĞ¶ÏÊÇ·ñ½øĞĞ³õÊ¼»¯... ÎÒÃÇÊÇ·ñĞèÒª·Ö±ğÎª`ÀàA`¡¢`ÀàB`¡¢`ÀàC` ÊµÏÖ `Condition`£¬ÔÚ¸÷×ÔµÄ `match(...)` ·½·¨ÖĞ½øĞĞÅĞ¶ÏÂğ£¿
+è®©æˆ‘ä»¬å›åˆ°æœ¬èŠ‚å¼€å¤´çš„é—®é¢˜ï¼šæ¯”å¦‚ï¼Œç±» `A` éœ€è¦æ ¹æ®ç±» `A1` çš„å­˜åœ¨ä¸å¦æ¥åˆ¤æ–­æ˜¯å¦è¿›è¡Œåˆå§‹åŒ–ï¼Œç±» `B` éœ€è¦æ ¹æ®ç±» `B1` çš„å­˜åœ¨ä¸å¦æ¥åˆ¤æ–­æ˜¯å¦è¿›è¡Œåˆå§‹åŒ–ï¼Œç±» `C` éœ€è¦æ ¹æ®ç±» `C1` çš„å­˜åœ¨ä¸å¦æ¥åˆ¤æ–­æ˜¯å¦è¿›è¡Œåˆå§‹åŒ–... æˆ‘ä»¬æ˜¯å¦éœ€è¦åˆ†åˆ«ä¸º`ç±»A`ã€`ç±»B`ã€`ç±»C` å®ç° `Condition`ï¼Œåœ¨å„è‡ªçš„ `match(...)` æ–¹æ³•ä¸­è¿›è¡Œåˆ¤æ–­å—ï¼Ÿ
 
-ÓĞÁË `@ConditionalForClass` ×¢½âºó£¬ÎÒÃÇ²¢²»ĞèÒªÕâÃ´Âé·³£¬Ö»ĞèÒªÔÚ¸÷×ÔµÄ `@Bean` ·½·¨ÉÏÌí¼Ó `@ConditionalForClass` ¾ÍĞĞÁË£¬ÏñÕâÑù£º
+æœ‰äº† `@ConditionalForClass` æ³¨è§£åï¼Œæˆ‘ä»¬å¹¶ä¸éœ€è¦è¿™ä¹ˆéº»çƒ¦ï¼Œåªéœ€è¦åœ¨å„è‡ªçš„ `@Bean` æ–¹æ³•ä¸Šæ·»åŠ  `@ConditionalForClass` å°±è¡Œäº†ï¼Œåƒè¿™æ ·ï¼š
 
 ```
 @Bean
@@ -372,14 +372,14 @@ public C c() {
 
 ```
 
-×¢ÒâÌå»á `@ConditionalForClass` µÄÊµÏÖ£¬springboot ÖĞµÄ `@ConditionalOnClass` ¾ÍÊÇ°´ÕâÖÖË¼Â·ÊµÏÖµÄ¡£
+æ³¨æ„ä½“ä¼š `@ConditionalForClass` çš„å®ç°ï¼Œspringboot ä¸­çš„ `@ConditionalOnClass` å°±æ˜¯æŒ‰è¿™ç§æ€è·¯å®ç°çš„ã€‚
 
-### 5.3 ×Ü½á
+### 5.3 æ€»ç»“
 
-±¾ÎÄÖ÷Òª·ÖÎöÁË spring ´¦Àí `@Conditional` µÄÁ÷³Ì£¬Âß¼­±È½Ï¼òµ¥£¬×îÖÕµ÷ÓÃµÄÊÇ `Condition#matches` ·½·¨½øĞĞÆ¥Åä²Ù×÷µÄ£¬¶øÆ¥Åä²Ù×÷ÓÉ `Condition` µÄÊµÏÖÀà×ÔĞĞÖ¸¶¨¡£
+æœ¬æ–‡ä¸»è¦åˆ†æäº† spring å¤„ç† `@Conditional` çš„æµç¨‹ï¼Œé€»è¾‘æ¯”è¾ƒç®€å•ï¼Œæœ€ç»ˆè°ƒç”¨çš„æ˜¯ `Condition#matches` æ–¹æ³•è¿›è¡ŒåŒ¹é…æ“ä½œçš„ï¼Œè€ŒåŒ¹é…æ“ä½œç”± `Condition` çš„å®ç°ç±»è‡ªè¡ŒæŒ‡å®šã€‚
 
-ÎªÁË¸üºÃµØËµÃ÷ `@Conditional` µÄÊ¹ÓÃ£¬±¾ÎÄ×¼±¸ÁËÁ½¸öÊ¹ÓÃÊ¾Àı£¬ÌØ±ğÊÇÊ¾Àı 2£¬ĞèÒªÌØ±ğÌå»á£¬springboot ÖĞµÄ `@ConditionalOnClass` ÕıÊÇ»ùÓÚÊ¾Àı 2 µÄË¼Â·½øĞĞÊµÏÖµÄ£¬ÁíÍâ£¬springboot ÖĞµÄ¶à¸öÌõ¼ş×¢½âÒ²ÊÇ¶Ô `@Conditional` µÄÀ©Õ¹¡£
+ä¸ºäº†æ›´å¥½åœ°è¯´æ˜ `@Conditional` çš„ä½¿ç”¨ï¼Œæœ¬æ–‡å‡†å¤‡äº†ä¸¤ä¸ªä½¿ç”¨ç¤ºä¾‹ï¼Œç‰¹åˆ«æ˜¯ç¤ºä¾‹ 2ï¼Œéœ€è¦ç‰¹åˆ«ä½“ä¼šï¼Œspringboot ä¸­çš„ `@ConditionalOnClass` æ­£æ˜¯åŸºäºç¤ºä¾‹ 2 çš„æ€è·¯è¿›è¡Œå®ç°çš„ï¼Œå¦å¤–ï¼Œspringboot ä¸­çš„å¤šä¸ªæ¡ä»¶æ³¨è§£ä¹Ÿæ˜¯å¯¹ `@Conditional` çš„æ‰©å±•ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4873444](https://my.oschina.net/funcy/blog/4873444) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4873444](https://my.oschina.net/funcy/blog/4873444) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

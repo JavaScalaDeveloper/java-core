@@ -1,14 +1,14 @@
-Spring Cloud Zuul ÊÇSpring Cloud Netflix ×ÓÏîÄ¿µÄºËÐÄ×é¼þÖ®Ò»£¬¿ÉÒÔ×÷ÎªÎ¢·þÎñ¼Ü¹¹ÖÐµÄAPIÍø¹ØÊ¹ÓÃ£¬Ö§³Ö¶¯Ì¬Â·ÓÉÓë¹ýÂË¹¦ÄÜ£¬±¾ÎÄ½«¶ÔÆäÓÃ·¨½øÐÐÏêÏ¸½éÉÜ¡£
+Spring Cloud Zuul æ˜¯Spring Cloud Netflix å­é¡¹ç›®çš„æ ¸å¿ƒç»„ä»¶ä¹‹ä¸€ï¼Œå¯ä»¥ä½œä¸ºå¾®æœåŠ¡æž¶æž„ä¸­çš„APIç½‘å…³ä½¿ç”¨ï¼Œæ”¯æŒåŠ¨æ€è·¯ç”±ä¸Žè¿‡æ»¤åŠŸèƒ½ï¼Œæœ¬æ–‡å°†å¯¹å…¶ç”¨æ³•è¿›è¡Œè¯¦ç»†ä»‹ç»ã€‚
 
-# Zuul¼ò½é
+# Zuulç®€ä»‹
 
-APIÍø¹ØÎªÎ¢·þÎñ¼Ü¹¹ÖÐµÄ·þÎñÌá¹©ÁËÍ³Ò»µÄ·ÃÎÊÈë¿Ú£¬¿Í»§¶ËÍ¨¹ýAPIÍø¹Ø·ÃÎÊÏà¹Ø·þÎñ¡£APIÍø¹ØµÄ¶¨ÒåÀàËÆÓÚÉè¼ÆÄ£Ê½ÖÐµÄÃÅÃæÄ£Ê½£¬ËüÏàµ±ÓÚÕû¸öÎ¢·þÎñ¼Ü¹¹ÖÐµÄÃÅÃæ£¬ËùÓÐ¿Í»§¶ËµÄ·ÃÎÊ¶¼Í¨¹ýËüÀ´½øÐÐÂ·ÓÉ¼°¹ýÂË¡£ËüÊµÏÖÁËÇëÇóÂ·ÓÉ¡¢¸ºÔØ¾ùºâ¡¢Ð£Ñé¹ýÂË¡¢·þÎñÈÝ´í¡¢·þÎñ¾ÛºÏµÈ¹¦ÄÜ¡£
+APIç½‘å…³ä¸ºå¾®æœåŠ¡æž¶æž„ä¸­çš„æœåŠ¡æä¾›äº†ç»Ÿä¸€çš„è®¿é—®å…¥å£ï¼Œå®¢æˆ·ç«¯é€šè¿‡APIç½‘å…³è®¿é—®ç›¸å…³æœåŠ¡ã€‚APIç½‘å…³çš„å®šä¹‰ç±»ä¼¼äºŽè®¾è®¡æ¨¡å¼ä¸­çš„é—¨é¢æ¨¡å¼ï¼Œå®ƒç›¸å½“äºŽæ•´ä¸ªå¾®æœåŠ¡æž¶æž„ä¸­çš„é—¨é¢ï¼Œæ‰€æœ‰å®¢æˆ·ç«¯çš„è®¿é—®éƒ½é€šè¿‡å®ƒæ¥è¿›è¡Œè·¯ç”±åŠè¿‡æ»¤ã€‚å®ƒå®žçŽ°äº†è¯·æ±‚è·¯ç”±ã€è´Ÿè½½å‡è¡¡ã€æ ¡éªŒè¿‡æ»¤ã€æœåŠ¡å®¹é”™ã€æœåŠ¡èšåˆç­‰åŠŸèƒ½ã€‚
 
-#´´½¨Ò»¸özuul-proxyÄ£¿é
+#åˆ›å»ºä¸€ä¸ªzuul-proxyæ¨¡å—
 
-ÕâÀïÎÒÃÇ´´½¨Ò»¸özuul-proxyÄ£¿éÀ´ÑÝÊ¾zuulµÄ³£ÓÃ¹¦ÄÜ¡£
+è¿™é‡Œæˆ‘ä»¬åˆ›å»ºä¸€ä¸ªzuul-proxyæ¨¡å—æ¥æ¼”ç¤ºzuulçš„å¸¸ç”¨åŠŸèƒ½ã€‚
 
-#ÔÚpom.xmlÖÐÌí¼ÓÏà¹ØÒÀÀµ
+#åœ¨pom.xmlä¸­æ·»åŠ ç›¸å…³ä¾èµ–
 
 
 
@@ -24,7 +24,7 @@ APIÍø¹ØÎªÎ¢·þÎñ¼Ü¹¹ÖÐµÄ·þÎñÌá¹©ÁËÍ³Ò»µÄ·ÃÎÊÈë¿Ú£¬¿Í»§¶ËÍ¨¹ýAPIÍø¹Ø·ÃÎÊÏà¹Ø·þÎñ¡£
 
 
 
-# ÔÚapplication.ymlÖÐ½øÐÐÅäÖÃ
+# åœ¨application.ymlä¸­è¿›è¡Œé…ç½®
 
 
 
@@ -41,7 +41,7 @@ APIÍø¹ØÎªÎ¢·þÎñ¼Ü¹¹ÖÐµÄ·þÎñÌá¹©ÁËÍ³Ò»µÄ·ÃÎÊÈë¿Ú£¬¿Í»§¶ËÍ¨¹ýAPIÍø¹Ø·ÃÎÊÏà¹Ø·þÎñ¡£
           defaultZone: http://localhost:8001/eureka/
 
 
-#ÔÚÆô¶¯ÀàÉÏÌí¼Ó@EnableZuulProxy×¢½âÀ´ÆôÓÃZuulµÄAPIÍø¹Ø¹¦ÄÜ
+#åœ¨å¯åŠ¨ç±»ä¸Šæ·»åŠ @EnableZuulProxyæ³¨è§£æ¥å¯ç”¨Zuulçš„APIç½‘å…³åŠŸèƒ½
 
 
 
@@ -58,22 +58,22 @@ APIÍø¹ØÎªÎ¢·þÎñ¼Ü¹¹ÖÐµÄ·þÎñÌá¹©ÁËÍ³Ò»µÄ·ÃÎÊÈë¿Ú£¬¿Í»§¶ËÍ¨¹ýAPIÍø¹Ø·ÃÎÊÏà¹Ø·þÎñ¡£
 
 
 
-# ³£ÓÃ¹¦ÄÜ
+# å¸¸ç”¨åŠŸèƒ½
 
-# Æô¶¯Ïà¹Ø·þÎñ
+# å¯åŠ¨ç›¸å…³æœåŠ¡
 
-ÕâÀïÎÒÃÇÍ¨¹ýÆô¶¯eureka-server£¬Á½¸öuser-service£¬feign-serviceºÍzuul-proxyÀ´ÑÝÊ¾ZuulµÄ³£ÓÃ¹¦ÄÜ£¬Æô¶¯ºó×¢²áÖÐÐÄÏÔÊ¾ÈçÏÂ¡£
+è¿™é‡Œæˆ‘ä»¬é€šè¿‡å¯åŠ¨eureka-serverï¼Œä¸¤ä¸ªuser-serviceï¼Œfeign-serviceå’Œzuul-proxyæ¥æ¼”ç¤ºZuulçš„å¸¸ç”¨åŠŸèƒ½ï¼Œå¯åŠ¨åŽæ³¨å†Œä¸­å¿ƒæ˜¾ç¤ºå¦‚ä¸‹ã€‚
 
 
 
-# ÅäÖÃÂ·ÓÉ¹æÔò
+# é…ç½®è·¯ç”±è§„åˆ™
 
-- ÎÒÃÇ¿ÉÒÔÍ¨¹ýÐÞ¸Äapplication.ymlÖÐµÄÅäÖÃÀ´ÅäÖÃÂ·ÓÉ¹æÔò£¬ÕâÀïÎÒÃÇ½«Æ¥Åä/userService/**µÄÇëÇóÂ·ÓÉµ½user-service·þÎñÉÏÈ¥£¬Æ¥Åä/feignService/**µÄÇëÇóÂ·ÓÉµ½feign-serviceÉÏÈ¥¡£
+- æˆ‘ä»¬å¯ä»¥é€šè¿‡ä¿®æ”¹application.ymlä¸­çš„é…ç½®æ¥é…ç½®è·¯ç”±è§„åˆ™ï¼Œè¿™é‡Œæˆ‘ä»¬å°†åŒ¹é…/userService/**çš„è¯·æ±‚è·¯ç”±åˆ°user-serviceæœåŠ¡ä¸ŠåŽ»ï¼ŒåŒ¹é…/feignService/**çš„è¯·æ±‚è·¯ç”±åˆ°feign-serviceä¸ŠåŽ»ã€‚
 
 
 
     zuul:
-      routes: #¸ø·þÎñÅäÖÃÂ·ÓÉ
+      routes: #ç»™æœåŠ¡é…ç½®è·¯ç”±
         user-service:
           path: /userService/**
         feign-service:
@@ -81,17 +81,17 @@ APIÍø¹ØÎªÎ¢·þÎñ¼Ü¹¹ÖÐµÄ·þÎñÌá¹©ÁËÍ³Ò»µÄ·ÃÎÊÈë¿Ú£¬¿Í»§¶ËÍ¨¹ýAPIÍø¹Ø·ÃÎÊÏà¹Ø·þÎñ¡£
 
 
 
-- ·ÃÎÊhttp://localhost:8801/userService/user/1open in new window¿ÉÒÔ·¢ÏÖÇëÇóÂ·ÓÉµ½ÁËuser-serviceÉÏÁË£»
-- ·ÃÎÊhttp://localhost:8801/feignService/user/1open in new window¿ÉÒÔ·¢ÏÖÇëÇóÂ·ÓÉµ½ÁËfeign-serviceÉÏÁË¡£
+- è®¿é—®http://localhost:8801/userService/user/1open in new windowå¯ä»¥å‘çŽ°è¯·æ±‚è·¯ç”±åˆ°äº†user-serviceä¸Šäº†ï¼›
+- è®¿é—®http://localhost:8801/feignService/user/1open in new windowå¯ä»¥å‘çŽ°è¯·æ±‚è·¯ç”±åˆ°äº†feign-serviceä¸Šäº†ã€‚
 
-# Ä¬ÈÏÂ·ÓÉ¹æÔò
+# é»˜è®¤è·¯ç”±è§„åˆ™
 
-- ZuulºÍEureka½áºÏÊ¹ÓÃ£¬¿ÉÒÔÊµÏÖÂ·ÓÉµÄ×Ô¶¯ÅäÖÃ£¬×Ô¶¯ÅäÖÃµÄÂ·ÓÉÒÔ·þÎñÃû³ÆÎªÆ¥ÅäÂ·¾¶£¬Ïàµ±ÓÚÈçÏÂÅäÖÃ£º
+- Zuulå’ŒEurekaç»“åˆä½¿ç”¨ï¼Œå¯ä»¥å®žçŽ°è·¯ç”±çš„è‡ªåŠ¨é…ç½®ï¼Œè‡ªåŠ¨é…ç½®çš„è·¯ç”±ä»¥æœåŠ¡åç§°ä¸ºåŒ¹é…è·¯å¾„ï¼Œç›¸å½“äºŽå¦‚ä¸‹é…ç½®ï¼š
 
 
 
     zuul:
-      routes: #¸ø·þÎñÅäÖÃÂ·ÓÉ
+      routes: #ç»™æœåŠ¡é…ç½®è·¯ç”±
         user-service:
           path: /user-service/**
         feign-service:
@@ -99,68 +99,68 @@ APIÍø¹ØÎªÎ¢·þÎñ¼Ü¹¹ÖÐµÄ·þÎñÌá¹©ÁËÍ³Ò»µÄ·ÃÎÊÈë¿Ú£¬¿Í»§¶ËÍ¨¹ýAPIÍø¹Ø·ÃÎÊÏà¹Ø·þÎñ¡£
 
 
 
-- ·ÃÎÊhttp://localhost:8801/user-service/user/1open in new windowÍ¬Ñù¿ÉÒÔÂ·ÓÉµ½ÁËuser-serviceÉÏÁË£»
-- ·ÃÎÊhttp://localhost:8801/feign-service/user/1open in new windowÍ¬Ñù¿ÉÒÔÂ·ÓÉµ½ÁËfeign-serviceÉÏÁË¡£
-- Èç¹û²»ÏëÊ¹ÓÃÄ¬ÈÏµÄÂ·ÓÉ¹æÔò£¬¿ÉÒÔÌí¼ÓÒÔÏÂÅäÖÃÀ´ºöÂÔÄ¬ÈÏÂ·ÓÉÅäÖÃ£º
+- è®¿é—®http://localhost:8801/user-service/user/1open in new windowåŒæ ·å¯ä»¥è·¯ç”±åˆ°äº†user-serviceä¸Šäº†ï¼›
+- è®¿é—®http://localhost:8801/feign-service/user/1open in new windowåŒæ ·å¯ä»¥è·¯ç”±åˆ°äº†feign-serviceä¸Šäº†ã€‚
+- å¦‚æžœä¸æƒ³ä½¿ç”¨é»˜è®¤çš„è·¯ç”±è§„åˆ™ï¼Œå¯ä»¥æ·»åŠ ä»¥ä¸‹é…ç½®æ¥å¿½ç•¥é»˜è®¤è·¯ç”±é…ç½®ï¼š
 
 
 
     zuul:
-      ignored-services: user-service,feign-service #¹Ø±ÕÄ¬ÈÏÂ·ÓÉÅäÖÃ
+      ignored-services: user-service,feign-service #å…³é—­é»˜è®¤è·¯ç”±é…ç½®
 
 
 
 
 
-# ¸ºÔØ¾ùºâ¹¦ÄÜ
+# è´Ÿè½½å‡è¡¡åŠŸèƒ½
 
-¶à´Îµ÷ÓÃhttp://localhost:8801/user-service/user/1open in new window½øÐÐ²âÊÔ£¬¿ÉÒÔ·¢ÏÖÔËÐÐÔÚ8201ºÍ8202µÄuser-service·þÎñ½»Ìæ´òÓ¡ÈçÏÂÐÅÏ¢¡£
-
-
-
-    2019-10-05 10:31:58.738  INFO 11520 --- [nio-8202-exec-5] c.macro.cloud.controller.UserController  : ¸ù¾Ýid»ñÈ¡ÓÃ»§ÐÅÏ¢£¬ÓÃ»§Ãû³ÆÎª£ºmacro
-    2019-10-05 10:32:00.356  INFO 11520 --- [nio-8202-exec-6] c.macro.cloud.controller.UserController  : ¸ù¾Ýid»ñÈ¡ÓÃ»§ÐÅÏ¢£¬ÓÃ»§Ãû³ÆÎª£ºmacro
+å¤šæ¬¡è°ƒç”¨http://localhost:8801/user-service/user/1open in new windowè¿›è¡Œæµ‹è¯•ï¼Œå¯ä»¥å‘çŽ°è¿è¡Œåœ¨8201å’Œ8202çš„user-serviceæœåŠ¡äº¤æ›¿æ‰“å°å¦‚ä¸‹ä¿¡æ¯ã€‚
 
 
 
-# ÅäÖÃ·ÃÎÊÇ°×º
-
-ÎÒÃÇ¿ÉÒÔÍ¨¹ýÒÔÏÂÅäÖÃÀ´¸øÍø¹ØÂ·¾¶Ìí¼ÓÇ°×º£¬´Ë´¦Ìí¼ÓÁË/proxyÇ°×º£¬ÕâÑùÎÒÃÇÐèÒª·ÃÎÊhttp://localhost:8801/proxy/user-service/user/1open in new window²ÅÄÜ·ÃÎÊµ½user-serviceÖÐµÄ½Ó¿Ú¡£
-
-
-
-    zuul:
-      prefix: /proxy #¸øÍø¹ØÂ·ÓÉÌí¼ÓÇ°×º
+    2019-10-05 10:31:58.738  INFO 11520 --- [nio-8202-exec-5] c.macro.cloud.controller.UserController  : æ ¹æ®idèŽ·å–ç”¨æˆ·ä¿¡æ¯ï¼Œç”¨æˆ·åç§°ä¸ºï¼šmacro
+    2019-10-05 10:32:00.356  INFO 11520 --- [nio-8202-exec-6] c.macro.cloud.controller.UserController  : æ ¹æ®idèŽ·å–ç”¨æˆ·ä¿¡æ¯ï¼Œç”¨æˆ·åç§°ä¸ºï¼šmacro
 
 
 
+# é…ç½®è®¿é—®å‰ç¼€
 
-# Header¹ýÂË¼°ÖØ¶¨ÏòÌí¼ÓHost
-
-- ZuulÔÚÇëÇóÂ·ÓÉÊ±£¬Ä¬ÈÏ»á¹ýÂËµôÒ»Ð©Ãô¸ÐµÄÍ·ÐÅÏ¢£¬ÒÔÏÂÅäÖÃ¿ÉÒÔ·ÀÖ¹Â·ÓÉÊ±µÄCookie¼°AuthorizationµÄ¶ªÊ§£º
+æˆ‘ä»¬å¯ä»¥é€šè¿‡ä»¥ä¸‹é…ç½®æ¥ç»™ç½‘å…³è·¯å¾„æ·»åŠ å‰ç¼€ï¼Œæ­¤å¤„æ·»åŠ äº†/proxyå‰ç¼€ï¼Œè¿™æ ·æˆ‘ä»¬éœ€è¦è®¿é—®http://localhost:8801/proxy/user-service/user/1open in new windowæ‰èƒ½è®¿é—®åˆ°user-serviceä¸­çš„æŽ¥å£ã€‚
 
 
 
     zuul:
-      sensitive-headers: Cookie,Set-Cookie,Authorization #ÅäÖÃ¹ýÂËÃô¸ÐµÄÇëÇóÍ·ÐÅÏ¢£¬ÉèÖÃÎª¿Õ¾Í²»»á¹ýÂË
+      prefix: /proxy #ç»™ç½‘å…³è·¯ç”±æ·»åŠ å‰ç¼€
 
 
 
 
-- ZuulÔÚÇëÇóÂ·ÓÉÊ±£¬²»»áÉèÖÃ×î³õµÄhostÍ·ÐÅÏ¢£¬ÒÔÏÂÅäÖÃ¿ÉÒÔ½â¾ö£º
+# Headerè¿‡æ»¤åŠé‡å®šå‘æ·»åŠ Host
+
+- Zuulåœ¨è¯·æ±‚è·¯ç”±æ—¶ï¼Œé»˜è®¤ä¼šè¿‡æ»¤æŽ‰ä¸€äº›æ•æ„Ÿçš„å¤´ä¿¡æ¯ï¼Œä»¥ä¸‹é…ç½®å¯ä»¥é˜²æ­¢è·¯ç”±æ—¶çš„CookieåŠAuthorizationçš„ä¸¢å¤±ï¼š
 
 
 
     zuul:
-      add-host-header: true #ÉèÖÃÎªtrueÖØ¶¨ÏòÊÇ»áÌí¼ÓhostÇëÇóÍ·
+      sensitive-headers: Cookie,Set-Cookie,Authorization #é…ç½®è¿‡æ»¤æ•æ„Ÿçš„è¯·æ±‚å¤´ä¿¡æ¯ï¼Œè®¾ç½®ä¸ºç©ºå°±ä¸ä¼šè¿‡æ»¤
 
 
 
-# ²é¿´Â·ÓÉÐÅÏ¢
 
-ÎÒÃÇ¿ÉÒÔÍ¨¹ýSpringBoot ActuatorÀ´²é¿´ZuulÖÐµÄÂ·ÓÉÐÅÏ¢¡£
+- Zuulåœ¨è¯·æ±‚è·¯ç”±æ—¶ï¼Œä¸ä¼šè®¾ç½®æœ€åˆçš„hostå¤´ä¿¡æ¯ï¼Œä»¥ä¸‹é…ç½®å¯ä»¥è§£å†³ï¼š
 
-- ÔÚpom.xmlÖÐÌí¼ÓÏà¹ØÒÀÀµ£º
+
+
+    zuul:
+      add-host-header: true #è®¾ç½®ä¸ºtrueé‡å®šå‘æ˜¯ä¼šæ·»åŠ hostè¯·æ±‚å¤´
+
+
+
+# æŸ¥çœ‹è·¯ç”±ä¿¡æ¯
+
+æˆ‘ä»¬å¯ä»¥é€šè¿‡SpringBoot Actuatoræ¥æŸ¥çœ‹Zuulä¸­çš„è·¯ç”±ä¿¡æ¯ã€‚
+
+- åœ¨pom.xmlä¸­æ·»åŠ ç›¸å…³ä¾èµ–ï¼š
 
 
 
@@ -174,7 +174,7 @@ APIÍø¹ØÎªÎ¢·þÎñ¼Ü¹¹ÖÐµÄ·þÎñÌá¹©ÁËÍ³Ò»µÄ·ÃÎÊÈë¿Ú£¬¿Í»§¶ËÍ¨¹ýAPIÍø¹Ø·ÃÎÊÏà¹Ø·þÎñ¡£
 
 
 
-- ÐÞ¸Äapplication.yamlÅäÖÃÎÄ¼þ£¬¿ªÆô²é¿´Â·ÓÉµÄ¶Ëµã£º
+- ä¿®æ”¹application.yamlé…ç½®æ–‡ä»¶ï¼Œå¼€å¯æŸ¥çœ‹è·¯ç”±çš„ç«¯ç‚¹ï¼š
 
 
 
@@ -188,40 +188,40 @@ APIÍø¹ØÎªÎ¢·þÎñ¼Ü¹¹ÖÐµÄ·þÎñÌá¹©ÁËÍ³Ò»µÄ·ÃÎÊÈë¿Ú£¬¿Í»§¶ËÍ¨¹ýAPIÍø¹Ø·ÃÎÊÏà¹Ø·þÎñ¡£
 
 
 
-- Í¨¹ý·ÃÎÊhttp://localhost:8801/actuator/routesopen in new window²é¿´¼òµ¥Â·ÓÉÐÅÏ¢£º
+- é€šè¿‡è®¿é—®http://localhost:8801/actuator/routesopen in new windowæŸ¥çœ‹ç®€å•è·¯ç”±ä¿¡æ¯ï¼š
 
 
 
-- Í¨¹ý·ÃÎÊhttp://localhost:8801/actuator/routes/detailsopen in new window²é¿´ÏêÏ¸Â·ÓÉÐÅÏ¢£º
+- é€šè¿‡è®¿é—®http://localhost:8801/actuator/routes/detailsopen in new windowæŸ¥çœ‹è¯¦ç»†è·¯ç”±ä¿¡æ¯ï¼š
 
 
 
-# ¹ýÂËÆ÷
+# è¿‡æ»¤å™¨
 
-Â·ÓÉÓë¹ýÂËÊÇZuulµÄÁ½´óºËÐÄ¹¦ÄÜ£¬Â·ÓÉ¹¦ÄÜ¸ºÔð½«Íâ²¿ÇëÇó×ª·¢µ½¾ßÌåµÄ·þÎñÊµÀýÉÏÈ¥£¬ÊÇÊµÏÖÍ³Ò»·ÃÎÊÈë¿ÚµÄ»ù´¡£¬¹ýÂË¹¦ÄÜ¸ºÔð¶ÔÇëÇó¹ý³Ì½øÐÐ¶îÍâµÄ´¦Àí£¬ÊÇÇëÇóÐ£Ñé¹ýÂË¼°·þÎñ¾ÛºÏµÄ»ù´¡¡£
+è·¯ç”±ä¸Žè¿‡æ»¤æ˜¯Zuulçš„ä¸¤å¤§æ ¸å¿ƒåŠŸèƒ½ï¼Œè·¯ç”±åŠŸèƒ½è´Ÿè´£å°†å¤–éƒ¨è¯·æ±‚è½¬å‘åˆ°å…·ä½“çš„æœåŠ¡å®žä¾‹ä¸ŠåŽ»ï¼Œæ˜¯å®žçŽ°ç»Ÿä¸€è®¿é—®å…¥å£çš„åŸºç¡€ï¼Œè¿‡æ»¤åŠŸèƒ½è´Ÿè´£å¯¹è¯·æ±‚è¿‡ç¨‹è¿›è¡Œé¢å¤–çš„å¤„ç†ï¼Œæ˜¯è¯·æ±‚æ ¡éªŒè¿‡æ»¤åŠæœåŠ¡èšåˆçš„åŸºç¡€ã€‚
 
-# ¹ýÂËÆ÷ÀàÐÍ
+# è¿‡æ»¤å™¨ç±»åž‹
 
-ZuulÖÐÓÐÒÔÏÂ¼¸ÖÖµäÐÍµÄ¹ýÂËÆ÷ÀàÐÍ¡£
+Zuulä¸­æœ‰ä»¥ä¸‹å‡ ç§å…¸åž‹çš„è¿‡æ»¤å™¨ç±»åž‹ã€‚
 
-- pre£ºÔÚÇëÇó±»Â·ÓÉµ½Ä¿±ê·þÎñÇ°Ö´ÐÐ£¬±ÈÈçÈ¨ÏÞÐ£Ñé¡¢´òÓ¡ÈÕÖ¾µÈ¹¦ÄÜ£»
-- routing£ºÔÚÇëÇó±»Â·ÓÉµ½Ä¿±ê·þÎñÊ±Ö´ÐÐ£¬ÕâÊÇÊ¹ÓÃApache HttpClient»òNetflix Ribbon¹¹½¨ºÍ·¢ËÍÔ­Ê¼HTTPÇëÇóµÄµØ·½£»
-- post£ºÔÚÇëÇó±»Â·ÓÉµ½Ä¿±ê·þÎñºóÖ´ÐÐ£¬±ÈÈç¸øÄ¿±ê·þÎñµÄÏìÓ¦Ìí¼ÓÍ·ÐÅÏ¢£¬ÊÕ¼¯Í³¼ÆÊý¾ÝµÈ¹¦ÄÜ£»
-- error£ºÇëÇóÔÚÆäËû½×¶Î·¢Éú´íÎóÊ±Ö´ÐÐ¡£
+- preï¼šåœ¨è¯·æ±‚è¢«è·¯ç”±åˆ°ç›®æ ‡æœåŠ¡å‰æ‰§è¡Œï¼Œæ¯”å¦‚æƒé™æ ¡éªŒã€æ‰“å°æ—¥å¿—ç­‰åŠŸèƒ½ï¼›
+- routingï¼šåœ¨è¯·æ±‚è¢«è·¯ç”±åˆ°ç›®æ ‡æœåŠ¡æ—¶æ‰§è¡Œï¼Œè¿™æ˜¯ä½¿ç”¨Apache HttpClientæˆ–Netflix Ribbonæž„å»ºå’Œå‘é€åŽŸå§‹HTTPè¯·æ±‚çš„åœ°æ–¹ï¼›
+- postï¼šåœ¨è¯·æ±‚è¢«è·¯ç”±åˆ°ç›®æ ‡æœåŠ¡åŽæ‰§è¡Œï¼Œæ¯”å¦‚ç»™ç›®æ ‡æœåŠ¡çš„å“åº”æ·»åŠ å¤´ä¿¡æ¯ï¼Œæ”¶é›†ç»Ÿè®¡æ•°æ®ç­‰åŠŸèƒ½ï¼›
+- errorï¼šè¯·æ±‚åœ¨å…¶ä»–é˜¶æ®µå‘ç”Ÿé”™è¯¯æ—¶æ‰§è¡Œã€‚
 
-# ¹ýÂËÆ÷µÄÉúÃüÖÜÆÚ
+# è¿‡æ»¤å™¨çš„ç”Ÿå‘½å‘¨æœŸ
 
-ÏÂÍ¼ÃèÊöÁËÒ»¸öHTTPÇëÇóµ½´ïAPIÍø¹Øºó£¬ÈçºÎÔÚ¸÷ÖÖ²»Í¬ÀàÐÍµÄ¹ýÂËÆ÷ÖÐÁ÷×ªµÄ¹ý³Ì¡£
+ä¸‹å›¾æè¿°äº†ä¸€ä¸ªHTTPè¯·æ±‚åˆ°è¾¾APIç½‘å…³åŽï¼Œå¦‚ä½•åœ¨å„ç§ä¸åŒç±»åž‹çš„è¿‡æ»¤å™¨ä¸­æµè½¬çš„è¿‡ç¨‹ã€‚
 
 
 
-# ×Ô¶¨Òå¹ýÂËÆ÷
+# è‡ªå®šä¹‰è¿‡æ»¤å™¨
 
-½ÓÏÂÀ´ÎÒÃÇ×Ô¶¨ÒåÒ»¸ö¹ýÂËÆ÷À´ÑÝÊ¾ÏÂ¹ýÂËÆ÷µÄ×÷ÓÃ¡£
+æŽ¥ä¸‹æ¥æˆ‘ä»¬è‡ªå®šä¹‰ä¸€ä¸ªè¿‡æ»¤å™¨æ¥æ¼”ç¤ºä¸‹è¿‡æ»¤å™¨çš„ä½œç”¨ã€‚
 
-# Ìí¼ÓPreLogFilterÀà¼Ì³ÐZuulFilter
+# æ·»åŠ PreLogFilterç±»ç»§æ‰¿ZuulFilter
 
-ÕâÊÇÒ»¸öÇ°ÖÃ¹ýÂËÆ÷£¬ÓÃÓÚÔÚÇëÇóÂ·ÓÉµ½Ä¿±ê·þÎñÇ°´òÓ¡ÇëÇóÈÕÖ¾¡£
+è¿™æ˜¯ä¸€ä¸ªå‰ç½®è¿‡æ»¤å™¨ï¼Œç”¨äºŽåœ¨è¯·æ±‚è·¯ç”±åˆ°ç›®æ ‡æœåŠ¡å‰æ‰“å°è¯·æ±‚æ—¥å¿—ã€‚
 
 
 
@@ -233,7 +233,7 @@ ZuulÖÐÓÐÒÔÏÂ¼¸ÖÖµäÐÍµÄ¹ýÂËÆ÷ÀàÐÍ¡£
         private Logger LOGGER = LoggerFactory.getLogger(this.getClass());
     
         /**
-         * ¹ýÂËÆ÷ÀàÐÍ£¬ÓÐpre¡¢routing¡¢post¡¢errorËÄÖÖ¡£
+         * è¿‡æ»¤å™¨ç±»åž‹ï¼Œæœ‰preã€routingã€postã€errorå››ç§ã€‚
          */
         @Override
         public String filterType() {
@@ -241,7 +241,7 @@ ZuulÖÐÓÐÒÔÏÂ¼¸ÖÖµäÐÍµÄ¹ýÂËÆ÷ÀàÐÍ¡£
         }
     
         /**
-         * ¹ýÂËÆ÷Ö´ÐÐË³Ðò£¬ÊýÖµÔ½Ð¡ÓÅÏÈ¼¶Ô½¸ß¡£
+         * è¿‡æ»¤å™¨æ‰§è¡Œé¡ºåºï¼Œæ•°å€¼è¶Šå°ä¼˜å…ˆçº§è¶Šé«˜ã€‚
          */
         @Override
         public int filterOrder() {
@@ -249,7 +249,7 @@ ZuulÖÐÓÐÒÔÏÂ¼¸ÖÖµäÐÍµÄ¹ýÂËÆ÷ÀàÐÍ¡£
         }
     
         /**
-         * ÊÇ·ñ½øÐÐ¹ýÂË£¬·µ»Øtrue»áÖ´ÐÐ¹ýÂË¡£
+         * æ˜¯å¦è¿›è¡Œè¿‡æ»¤ï¼Œè¿”å›žtrueä¼šæ‰§è¡Œè¿‡æ»¤ã€‚
          */
         @Override
         public boolean shouldFilter() {
@@ -257,7 +257,7 @@ ZuulÖÐÓÐÒÔÏÂ¼¸ÖÖµäÐÍµÄ¹ýÂËÆ÷ÀàÐÍ¡£
         }
     
         /**
-         * ×Ô¶¨ÒåµÄ¹ýÂËÆ÷Âß¼­£¬µ±shouldFilter()·µ»ØtrueÊ±»áÖ´ÐÐ¡£
+         * è‡ªå®šä¹‰çš„è¿‡æ»¤å™¨é€»è¾‘ï¼Œå½“shouldFilter()è¿”å›žtrueæ—¶ä¼šæ‰§è¡Œã€‚
          */
         @Override
         public Object run() throws ZuulException {
@@ -273,9 +273,9 @@ ZuulÖÐÓÐÒÔÏÂ¼¸ÖÖµäÐÍµÄ¹ýÂËÆ÷ÀàÐÍ¡£
 
 
 
-# ¹ýÂËÆ÷¹¦ÄÜÑÝÊ¾
+# è¿‡æ»¤å™¨åŠŸèƒ½æ¼”ç¤º
 
-Ìí¼Ó¹ýÂËÆ÷ºó£¬ÎÒÃÇ·ÃÎÊhttp://localhost:8801/user-service/user/1open in new window²âÊÔÏÂ£¬»á´òÓ¡ÈçÏÂÈÕÖ¾¡£
+æ·»åŠ è¿‡æ»¤å™¨åŽï¼Œæˆ‘ä»¬è®¿é—®http://localhost:8801/user-service/user/1open in new windowæµ‹è¯•ä¸‹ï¼Œä¼šæ‰“å°å¦‚ä¸‹æ—¥å¿—ã€‚
 
 
 
@@ -286,23 +286,23 @@ ZuulÖÐÓÐÒÔÏÂ¼¸ÖÖµäÐÍµÄ¹ýÂËÆ÷ÀàÐÍ¡£
 
 
 
-# ºËÐÄ¹ýÂËÆ÷
+# æ ¸å¿ƒè¿‡æ»¤å™¨
 
-    ¹ýÂËÆ÷Ãû³Æ                  	¹ýÂËÀàÐÍ 	ÓÅÏÈ¼¶ 	¹ýÂËÆ÷µÄ×÷ÓÃ                                  
-    ServletDetectionFilter 	pre  	-3  	¼ì²âµ±Ç°ÇëÇóÊÇÍ¨¹ýDispatcherServlet´¦ÀíÔËÐÐµÄ»¹ÊÇZuulServletÔËÐÐ´¦ÀíµÄ¡£
-    Servlet30WrapperFilter 	pre  	-2  	¶ÔÔ­Ê¼µÄHttpServletRequest½øÐÐ°ü×°¡£             
-    FormBodyWrapperFilter  	pre  	-1  	½«Content-TypeÎªapplication/x-www-form-urlencoded»òmultipart/form-dataµÄÇëÇó°ü×°³ÉFormBodyRequestWrapper¶ÔÏó¡£
-    DebugFilter            	route	1   	¸ù¾Ýzuul.debug.requestµÄÅäÖÃÀ´¾ö¶¨ÊÇ·ñ´òÓ¡debugÈÕÖ¾¡£  
-    PreDecorationFilter    	route	5   	¶Ôµ±Ç°ÇëÇó½øÐÐÔ¤´¦ÀíÒÔ±ãÖ´ÐÐºóÐø²Ù×÷¡£                     
-    RibbonRoutingFilter    	route	10  	Í¨¹ýRibbonºÍHystrixÀ´Ïò·þÎñÊµÀý·¢ÆðÇëÇó£¬²¢½«ÇëÇó½á¹û½øÐÐ·µ»Ø¡£  
-    SimpleHostRoutingFilter	route	100 	Ö»¶ÔÇëÇóÉÏÏÂÎÄÖÐÓÐrouteHost²ÎÊýµÄ½øÐÐ´¦Àí£¬Ö±½ÓÊ¹ÓÃHttpClientÏòrouteHost¶ÔÓ¦µÄÎïÀíµØÖ·½øÐÐ×ª·¢¡£
-    SendForwardFilter      	route	500 	Ö»¶ÔÇëÇóÉÏÏÂÎÄÖÐÓÐforward.to²ÎÊýµÄ½øÐÐ´¦Àí£¬½øÐÐ±¾µØÌø×ª¡£      
-    SendErrorFilter        	post 	0   	µ±ÆäËû¹ýÂËÆ÷ÄÚ²¿·¢ÉúÒì³£Ê±µÄ»áÓÉËüÀ´½øÐÐ´¦Àí£¬²úÉú´íÎóÏìÓ¦¡£          
-    SendResponseFilter     	post 	1000	ÀûÓÃÇëÇóÉÏÏÂÎÄµÄÏìÓ¦ÐÅÏ¢À´×éÖ¯ÇëÇó³É¹¦µÄÏìÓ¦ÄÚÈÝ¡£
+    è¿‡æ»¤å™¨åç§°                  	è¿‡æ»¤ç±»åž‹ 	ä¼˜å…ˆçº§ 	è¿‡æ»¤å™¨çš„ä½œç”¨                                  
+    ServletDetectionFilter 	pre  	-3  	æ£€æµ‹å½“å‰è¯·æ±‚æ˜¯é€šè¿‡DispatcherServletå¤„ç†è¿è¡Œçš„è¿˜æ˜¯ZuulServletè¿è¡Œå¤„ç†çš„ã€‚
+    Servlet30WrapperFilter 	pre  	-2  	å¯¹åŽŸå§‹çš„HttpServletRequestè¿›è¡ŒåŒ…è£…ã€‚             
+    FormBodyWrapperFilter  	pre  	-1  	å°†Content-Typeä¸ºapplication/x-www-form-urlencodedæˆ–multipart/form-dataçš„è¯·æ±‚åŒ…è£…æˆFormBodyRequestWrapperå¯¹è±¡ã€‚
+    DebugFilter            	route	1   	æ ¹æ®zuul.debug.requestçš„é…ç½®æ¥å†³å®šæ˜¯å¦æ‰“å°debugæ—¥å¿—ã€‚  
+    PreDecorationFilter    	route	5   	å¯¹å½“å‰è¯·æ±‚è¿›è¡Œé¢„å¤„ç†ä»¥ä¾¿æ‰§è¡ŒåŽç»­æ“ä½œã€‚                     
+    RibbonRoutingFilter    	route	10  	é€šè¿‡Ribbonå’ŒHystrixæ¥å‘æœåŠ¡å®žä¾‹å‘èµ·è¯·æ±‚ï¼Œå¹¶å°†è¯·æ±‚ç»“æžœè¿›è¡Œè¿”å›žã€‚  
+    SimpleHostRoutingFilter	route	100 	åªå¯¹è¯·æ±‚ä¸Šä¸‹æ–‡ä¸­æœ‰routeHostå‚æ•°çš„è¿›è¡Œå¤„ç†ï¼Œç›´æŽ¥ä½¿ç”¨HttpClientå‘routeHostå¯¹åº”çš„ç‰©ç†åœ°å€è¿›è¡Œè½¬å‘ã€‚
+    SendForwardFilter      	route	500 	åªå¯¹è¯·æ±‚ä¸Šä¸‹æ–‡ä¸­æœ‰forward.toå‚æ•°çš„è¿›è¡Œå¤„ç†ï¼Œè¿›è¡Œæœ¬åœ°è·³è½¬ã€‚      
+    SendErrorFilter        	post 	0   	å½“å…¶ä»–è¿‡æ»¤å™¨å†…éƒ¨å‘ç”Ÿå¼‚å¸¸æ—¶çš„ä¼šç”±å®ƒæ¥è¿›è¡Œå¤„ç†ï¼Œäº§ç”Ÿé”™è¯¯å“åº”ã€‚          
+    SendResponseFilter     	post 	1000	åˆ©ç”¨è¯·æ±‚ä¸Šä¸‹æ–‡çš„å“åº”ä¿¡æ¯æ¥ç»„ç»‡è¯·æ±‚æˆåŠŸçš„å“åº”å†…å®¹ã€‚
 
-# ½ûÓÃ¹ýÂËÆ÷
+# ç¦ç”¨è¿‡æ»¤å™¨
 
-- ÎÒÃÇ¿ÉÒÔ¶Ô¹ýÂËÆ÷½øÐÐ½ûÓÃµÄÅäÖÃ£¬ÅäÖÃ¸ñÊ½ÈçÏÂ£º
+- æˆ‘ä»¬å¯ä»¥å¯¹è¿‡æ»¤å™¨è¿›è¡Œç¦ç”¨çš„é…ç½®ï¼Œé…ç½®æ ¼å¼å¦‚ä¸‹ï¼š
 
 
 
@@ -313,7 +313,7 @@ ZuulÖÐÓÐÒÔÏÂ¼¸ÖÖµäÐÍµÄ¹ýÂËÆ÷ÀàÐÍ¡£
 
 
 
-- ÒÔÏÂÊÇ½ûÓÃPreLogFilterµÄÊ¾ÀýÅäÖÃ£º
+- ä»¥ä¸‹æ˜¯ç¦ç”¨PreLogFilterçš„ç¤ºä¾‹é…ç½®ï¼š
 
 
 
@@ -324,67 +324,67 @@ ZuulÖÐÓÐÒÔÏÂ¼¸ÖÖµäÐÍµÄ¹ýÂËÆ÷ÀàÐÍ¡£
 
 
 
-#RibbonºÍHystrixµÄÖ§³Ö
+#Ribbonå’ŒHystrixçš„æ”¯æŒ
 
-ÓÉÓÚZuul×Ô¶¯¼¯³ÉÁËRibbonºÍHystrix£¬ËùÒÔZuulÌìÉú¾ÍÓÐ¸ºÔØ¾ùºâºÍ·þÎñÈÝ´íÄÜÁ¦£¬ÎÒÃÇ¿ÉÒÔÍ¨¹ýRibbonºÍHystrixµÄÅäÖÃÀ´ÅäÖÃZuulÖÐµÄÏàÓ¦¹¦ÄÜ¡£
+ç”±äºŽZuulè‡ªåŠ¨é›†æˆäº†Ribbonå’ŒHystrixï¼Œæ‰€ä»¥Zuulå¤©ç”Ÿå°±æœ‰è´Ÿè½½å‡è¡¡å’ŒæœåŠ¡å®¹é”™èƒ½åŠ›ï¼Œæˆ‘ä»¬å¯ä»¥é€šè¿‡Ribbonå’ŒHystrixçš„é…ç½®æ¥é…ç½®Zuulä¸­çš„ç›¸åº”åŠŸèƒ½ã€‚
 
-- ¿ÉÒÔÊ¹ÓÃHystrixµÄÅäÖÃÀ´ÉèÖÃÂ·ÓÉ×ª·¢Ê±HystrixCommandµÄÖ´ÐÐ³¬Ê±Ê±¼ä£º
+- å¯ä»¥ä½¿ç”¨Hystrixçš„é…ç½®æ¥è®¾ç½®è·¯ç”±è½¬å‘æ—¶HystrixCommandçš„æ‰§è¡Œè¶…æ—¶æ—¶é—´ï¼š
 
 
 
     hystrix:
-      command: #ÓÃÓÚ¿ØÖÆHystrixCommandµÄÐÐÎª
+      command: #ç”¨äºŽæŽ§åˆ¶HystrixCommandçš„è¡Œä¸º
         default:
           execution:
             isolation:
               thread:
-                timeoutInMilliseconds: 1000 #ÅäÖÃHystrixCommandÖ´ÐÐµÄ³¬Ê±Ê±¼ä£¬Ö´ÐÐ³¬¹ý¸ÃÊ±¼ä»á½øÐÐ·þÎñ½µ¼¶´¦Àí
+                timeoutInMilliseconds: 1000 #é…ç½®HystrixCommandæ‰§è¡Œçš„è¶…æ—¶æ—¶é—´ï¼Œæ‰§è¡Œè¶…è¿‡è¯¥æ—¶é—´ä¼šè¿›è¡ŒæœåŠ¡é™çº§å¤„ç†
 
 
-- ¿ÉÒÔÊ¹ÓÃRibbonµÄÅäÖÃÀ´ÉèÖÃÂ·ÓÉ×ª·¢Ê±ÇëÇóÁ¬½Ó¼°´¦ÀíµÄ³¬Ê±Ê±¼ä£º
+- å¯ä»¥ä½¿ç”¨Ribbonçš„é…ç½®æ¥è®¾ç½®è·¯ç”±è½¬å‘æ—¶è¯·æ±‚è¿žæŽ¥åŠå¤„ç†çš„è¶…æ—¶æ—¶é—´ï¼š
 
 
 
-    ribbon: #È«¾ÖÅäÖÃ
-      ConnectTimeout: 1000 #·þÎñÇëÇóÁ¬½Ó³¬Ê±Ê±¼ä£¨ºÁÃë£©
-      ReadTimeout: 3000 #·þÎñÇëÇó´¦Àí³¬Ê±Ê±¼ä£¨ºÁÃë£©
+    ribbon: #å…¨å±€é…ç½®
+      ConnectTimeout: 1000 #æœåŠ¡è¯·æ±‚è¿žæŽ¥è¶…æ—¶æ—¶é—´ï¼ˆæ¯«ç§’ï¼‰
+      ReadTimeout: 3000 #æœåŠ¡è¯·æ±‚å¤„ç†è¶…æ—¶æ—¶é—´ï¼ˆæ¯«ç§’ï¼‰
 
 
-#³£ÓÃÅäÖÃ
+#å¸¸ç”¨é…ç½®
 
 
 
     zuul:
-      routes: #¸ø·þÎñÅäÖÃÂ·ÓÉ
+      routes: #ç»™æœåŠ¡é…ç½®è·¯ç”±
         user-service:
           path: /userService/**
         feign-service:
           path: /feignService/**
-      ignored-services: user-service,feign-service #¹Ø±ÕÄ¬ÈÏÂ·ÓÉÅäÖÃ
-      prefix: /proxy #¸øÍø¹ØÂ·ÓÉÌí¼ÓÇ°×º
-      sensitive-headers: Cookie,Set-Cookie,Authorization #ÅäÖÃ¹ýÂËÃô¸ÐµÄÇëÇóÍ·ÐÅÏ¢£¬ÉèÖÃÎª¿Õ¾Í²»»á¹ýÂË
-      add-host-header: true #ÉèÖÃÎªtrueÖØ¶¨ÏòÊÇ»áÌí¼ÓhostÇëÇóÍ·
-      retryable: true # ¹Ø±ÕÖØÊÔ»úÖÆ
+      ignored-services: user-service,feign-service #å…³é—­é»˜è®¤è·¯ç”±é…ç½®
+      prefix: /proxy #ç»™ç½‘å…³è·¯ç”±æ·»åŠ å‰ç¼€
+      sensitive-headers: Cookie,Set-Cookie,Authorization #é…ç½®è¿‡æ»¤æ•æ„Ÿçš„è¯·æ±‚å¤´ä¿¡æ¯ï¼Œè®¾ç½®ä¸ºç©ºå°±ä¸ä¼šè¿‡æ»¤
+      add-host-header: true #è®¾ç½®ä¸ºtrueé‡å®šå‘æ˜¯ä¼šæ·»åŠ hostè¯·æ±‚å¤´
+      retryable: true # å…³é—­é‡è¯•æœºåˆ¶
       PreLogFilter:
         pre:
-          disable: false #¿ØÖÆÊÇ·ñÆôÓÃ¹ýÂËÆ÷
+          disable: false #æŽ§åˆ¶æ˜¯å¦å¯ç”¨è¿‡æ»¤å™¨
 
 
-#Ê¹ÓÃµ½µÄÄ£¿é
+#ä½¿ç”¨åˆ°çš„æ¨¡å—
 
 
 
     springcloud-learning
-    ©À©¤©¤ eureka-server -- eureka×¢²áÖÐÐÄ
-    ©À©¤©¤ user-service -- Ìá¹©User¶ÔÏóCRUD½Ó¿ÚµÄ·þÎñ
-    ©À©¤©¤ feign-service -- feign·þÎñµ÷ÓÃ²âÊÔ·þÎñ
-    ©¸©¤©¤ zuul-proxy -- zuul×÷ÎªÍø¹ØµÄ²âÊÔ·þÎñ
+    â”œâ”€â”€ eureka-server -- eurekaæ³¨å†Œä¸­å¿ƒ
+    â”œâ”€â”€ user-service -- æä¾›Userå¯¹è±¡CRUDæŽ¥å£çš„æœåŠ¡
+    â”œâ”€â”€ feign-service -- feignæœåŠ¡è°ƒç”¨æµ‹è¯•æœåŠ¡
+    â””â”€â”€ zuul-proxy -- zuulä½œä¸ºç½‘å…³çš„æµ‹è¯•æœåŠ¡
 
 
-#ÏîÄ¿Ô´ÂëµØÖ·
+#é¡¹ç›®æºç åœ°å€
 
 https://github.com/macrozheng/springcloud-learning
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

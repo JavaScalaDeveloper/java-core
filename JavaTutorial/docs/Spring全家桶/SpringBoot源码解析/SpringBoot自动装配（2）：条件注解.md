@@ -1,23 +1,23 @@
-### 1\. Ìõ¼ş×¢½â¼°ÆäÅĞ¶ÏÀà
+### 1\. æ¡ä»¶æ³¨è§£åŠå…¶åˆ¤æ–­ç±»
 
-ÔÚ [springboot ×Ô¶¯×°ÅäÖ®¼ÓÔØ×Ô¶¯×°ÅäÀà](https://my.oschina.net/funcy/blog/4870868)Ò»ÎÄÖĞ£¬ÎÒÃÇ·ÖÎöµ½ springboot »á¼ÓÔØ `META-INF/spring.factories` ÎÄ¼şÖĞ¶¨ÒåµÄ×Ô¶¯×°ÅäÀà£¬¼ÓÔØµ½ÕâĞ©×Ô¶¯×°ÅäÀàºó£¬ÕâĞ©ÀàÖĞµÄ bean ¾ÍÒ»¶¨»á³õÊ¼»¯Âğ£¿²¢²»ÊÇ£¬ÎÒÃÇ¿ÉÒÔÔÚ¶ÔÓ¦µÄ Bean Éú³É·½·¨ÉÏÊ¹ÓÃ**Ìõ¼ş×¢½â**À´¿ØÖÆÀàÊÇ·ñ½øĞĞ³õÊ¼»¯£¡
+åœ¨ [springboot è‡ªåŠ¨è£…é…ä¹‹åŠ è½½è‡ªåŠ¨è£…é…ç±»](https://my.oschina.net/funcy/blog/4870868)ä¸€æ–‡ä¸­ï¼Œæˆ‘ä»¬åˆ†æåˆ° springboot ä¼šåŠ è½½ `META-INF/spring.factories` æ–‡ä»¶ä¸­å®šä¹‰çš„è‡ªåŠ¨è£…é…ç±»ï¼ŒåŠ è½½åˆ°è¿™äº›è‡ªåŠ¨è£…é…ç±»åï¼Œè¿™äº›ç±»ä¸­çš„ bean å°±ä¸€å®šä¼šåˆå§‹åŒ–å—ï¼Ÿå¹¶ä¸æ˜¯ï¼Œæˆ‘ä»¬å¯ä»¥åœ¨å¯¹åº”çš„ Bean ç”Ÿæˆæ–¹æ³•ä¸Šä½¿ç”¨**æ¡ä»¶æ³¨è§£**æ¥æ§åˆ¶ç±»æ˜¯å¦è¿›è¡Œåˆå§‹åŒ–ï¼
 
-springboot Ìá¹©µÄÌõ¼ş×¢½âÈçÏÂ£º
+springboot æä¾›çš„æ¡ä»¶æ³¨è§£å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0e8d27c887fb6ca142672cad1c60e9de207.png)
 
-ÕâÀïÁĞ¾Ù²¿·ÖÈçÏÂ£º
+è¿™é‡Œåˆ—ä¸¾éƒ¨åˆ†å¦‚ä¸‹ï¼š
 
-| ×¢½âÀàĞÍ              | ×¢½âÀàĞÍ                                                     | ¹¦ÄÜËµÃ÷                                      |
+| æ³¨è§£ç±»å‹              | æ³¨è§£ç±»å‹                                                     | åŠŸèƒ½è¯´æ˜                                      |
 | --------------------- | ------------------------------------------------------------ | --------------------------------------------- |
-| class Ìõ¼ş×¢½â        | `@ConditionalOnClass`/`@ConditionalOnMissingClass`           | µ±Ö¸¶¨µÄÀà**´æÔÚ / È±Ê§**Ê±³õÊ¼»¯¸Ã bean      |
-| bean Ìõ¼ş×¢½â         | `@ConditionalOnBean`/`@ConditionalOnMissingBean`             | µ±Ö¸¶¨µÄ bean **´æÔÚ / È±Ê§**Ê±³õÊ¼»¯¸Ã bean  |
-| ÊôĞÔÌõ¼ş×¢½â          | `@ConditionalOnProperty`                                     | µ±Ö¸¶¨µÄÊôĞÔ´æÔÚ³õÊ¼»¯¸Ã bean                 |
-| Resource Ìõ¼ş×¢½â     | `@ConditionalOnResource`                                     | µ±Ö¸¶¨µÄ×ÊÔ´´æÔÚ³õÊ¼»¯¸Ã bean                 |
-| Web Ó¦ÓÃÌõ¼ş×¢½â      | `@ConditionalOnWebApplication` / `@ConditionalOnNotWebApplication` | µ±Ç°Ó¦ÓÃ**Îª / ²»Îª** web Ó¦ÓÃÊ±³õÊ¼»¯¸Ã bean |
-| spring ±í´ïÊ½Ìõ¼ş×¢½â | `@ConditionalOnExpression`                                   | µ±±í´ïÊ½½á¹ûÎª true Ê±³õÊ¼»¯¸Ã bean           |
+| class æ¡ä»¶æ³¨è§£        | `@ConditionalOnClass`/`@ConditionalOnMissingClass`           | å½“æŒ‡å®šçš„ç±»**å­˜åœ¨ / ç¼ºå¤±**æ—¶åˆå§‹åŒ–è¯¥ bean      |
+| bean æ¡ä»¶æ³¨è§£         | `@ConditionalOnBean`/`@ConditionalOnMissingBean`             | å½“æŒ‡å®šçš„ bean **å­˜åœ¨ / ç¼ºå¤±**æ—¶åˆå§‹åŒ–è¯¥ bean  |
+| å±æ€§æ¡ä»¶æ³¨è§£          | `@ConditionalOnProperty`                                     | å½“æŒ‡å®šçš„å±æ€§å­˜åœ¨åˆå§‹åŒ–è¯¥ bean                 |
+| Resource æ¡ä»¶æ³¨è§£     | `@ConditionalOnResource`                                     | å½“æŒ‡å®šçš„èµ„æºå­˜åœ¨åˆå§‹åŒ–è¯¥ bean                 |
+| Web åº”ç”¨æ¡ä»¶æ³¨è§£      | `@ConditionalOnWebApplication` / `@ConditionalOnNotWebApplication` | å½“å‰åº”ç”¨**ä¸º / ä¸ä¸º** web åº”ç”¨æ—¶åˆå§‹åŒ–è¯¥ bean |
+| spring è¡¨è¾¾å¼æ¡ä»¶æ³¨è§£ | `@ConditionalOnExpression`                                   | å½“è¡¨è¾¾å¼ç»“æœä¸º true æ—¶åˆå§‹åŒ–è¯¥ bean           |
 
-ÎÒÃÇ½øÈë `@ConditionalOnClass` ¿´¿´¸Ã×¢½âµÄÄÚÈİ£º
+æˆ‘ä»¬è¿›å…¥ `@ConditionalOnClass` çœ‹çœ‹è¯¥æ³¨è§£çš„å†…å®¹ï¼š
 
 ```
 ...
@@ -28,20 +28,20 @@ public @interface ConditionalOnClass {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`ConditionalOnClass` ×éºÏÁË `@Conditional` ×¢½âµÄ¹¦ÄÜ£¬´¦ÀíÀàÊÇ `OnClassCondition.class`¡£
+å¯ä»¥çœ‹åˆ°ï¼Œ`ConditionalOnClass` ç»„åˆäº† `@Conditional` æ³¨è§£çš„åŠŸèƒ½ï¼Œå¤„ç†ç±»æ˜¯ `OnClassCondition.class`ã€‚
 
-¹ØÓÚ `@Conditional` ×¢½â¿ÉÒÔ²Î¿¼ [ConfigurationClassPostProcessor Ö®´¦Àí @Conditional ×¢½â](https://my.oschina.net/funcy/blog/4873444)£¬ÕâÀïÎÒÃÇÖ±½ÓËµ `@Conditional` µÄÊ¹ÓÃ·½Ê½£º
+å…³äº `@Conditional` æ³¨è§£å¯ä»¥å‚è€ƒ [ConfigurationClassPostProcessor ä¹‹å¤„ç† @Conditional æ³¨è§£](https://my.oschina.net/funcy/blog/4873444)ï¼Œè¿™é‡Œæˆ‘ä»¬ç›´æ¥è¯´ `@Conditional` çš„ä½¿ç”¨æ–¹å¼ï¼š
 
-1. `@Conditional` ÊÇ spring ´¦ÀíµÄÌõ¼ş×¢½â£»
+1. `@Conditional` æ˜¯ spring å¤„ç†çš„æ¡ä»¶æ³¨è§£ï¼›
 
-2. `@Conditional` Ìá¹©ÁËÒ»¸öÊôĞÔ `value`£¬ÀàĞÍÎª `Class`£¬Æä±ØĞëÊÇ `Condition` µÄ×ÓÀà£º
+2. `@Conditional` æä¾›äº†ä¸€ä¸ªå±æ€§ `value`ï¼Œç±»å‹ä¸º `Class`ï¼Œå…¶å¿…é¡»æ˜¯ `Condition` çš„å­ç±»ï¼š
 
    ```
    Class<? extends Condition>[] value();
    
    ```
 
-3. `Condition` ÊÇÒ»¸ö½Ó¿Ú£¬ÆäÖĞÓĞÒ»¸ö `matches(...)` ·½·¨£º
+3. `Condition` æ˜¯ä¸€ä¸ªæ¥å£ï¼Œå…¶ä¸­æœ‰ä¸€ä¸ª `matches(...)` æ–¹æ³•ï¼š
 
    ```
    public interface Condition {
@@ -52,24 +52,24 @@ public @interface ConditionalOnClass {
    
    ```
 
-   Ö»ÓĞÔÚ `matches(...)` ·½·¨·µ»Ø `true` Ê±£¬`ConfigurationClassPostProcessor` ²Å»á½«Æä¶ÔÓ¦µÄ bean ×¢²áµ½ `beanFactory` µÄ `beanDefinitionMap` ÖĞ.
+   åªæœ‰åœ¨ `matches(...)` æ–¹æ³•è¿”å› `true` æ—¶ï¼Œ`ConfigurationClassPostProcessor` æ‰ä¼šå°†å…¶å¯¹åº”çš„ bean æ³¨å†Œåˆ° `beanFactory` çš„ `beanDefinitionMap` ä¸­.
 
-×Ü½áÍê `@Conditional` µÄÊ¹ÓÃ·½Ê½ºó£¬ÎÒÃÇ¾ÍÃ÷°×ÁË£º`OnClassCondition.class` ÊÇ `Condition` µÄ×ÓÀà£¬Æä `matches(...)` ·½·¨ÓÃÀ´´¦ÀíÖ÷ÒªÌõ¼ş¹æÔò¡£Í¬Àí£¬ÆäËûÌõ¼ş×¢½âµÄ´¦Àí·½Ê½Ò²ÀàËÆ£¬ÕâÀï×Ü½áÏÂÌõ¼ş×¢½âµÄÅĞ¶ÏÀà£º
+æ€»ç»“å®Œ `@Conditional` çš„ä½¿ç”¨æ–¹å¼åï¼Œæˆ‘ä»¬å°±æ˜ç™½äº†ï¼š`OnClassCondition.class` æ˜¯ `Condition` çš„å­ç±»ï¼Œå…¶ `matches(...)` æ–¹æ³•ç”¨æ¥å¤„ç†ä¸»è¦æ¡ä»¶è§„åˆ™ã€‚åŒç†ï¼Œå…¶ä»–æ¡ä»¶æ³¨è§£çš„å¤„ç†æ–¹å¼ä¹Ÿç±»ä¼¼ï¼Œè¿™é‡Œæ€»ç»“ä¸‹æ¡ä»¶æ³¨è§£çš„åˆ¤æ–­ç±»ï¼š
 
-| ×¢½âÀàĞÍ              | ×¢½âÀàĞÍ                                                     | Ìõ¼şÅĞ¶ÏÀà                  |
+| æ³¨è§£ç±»å‹              | æ³¨è§£ç±»å‹                                                     | æ¡ä»¶åˆ¤æ–­ç±»                  |
 | --------------------- | ------------------------------------------------------------ | --------------------------- |
-| class Ìõ¼ş×¢½â        | `@ConditionalOnClass`/`@ConditionalOnMissingClass`           | `OnClassCondition`          |
-| bean Ìõ¼ş×¢½â         | `@ConditionalOnBean`/`@ConditionalOnMissingBean`             | `OnBeanCondition`           |
-| ÊôĞÔÌõ¼ş×¢½â          | `@ConditionalOnProperty`                                     | `OnPropertyCondition`       |
-| Resource Ìõ¼ş×¢½â     | `@ConditionalOnResource`                                     | `OnResourceCondition`       |
-| Web Ó¦ÓÃÌõ¼ş×¢½â      | `@ConditionalOnWebApplication` / `@ConditionalOnNotWebApplication` | `OnWebApplicationCondition` |
-| spring ±í´ïÊ½Ìõ¼ş×¢½â | `@ConditionalOnExpression`                                   | `OnExpressionCondition`     |
+| class æ¡ä»¶æ³¨è§£        | `@ConditionalOnClass`/`@ConditionalOnMissingClass`           | `OnClassCondition`          |
+| bean æ¡ä»¶æ³¨è§£         | `@ConditionalOnBean`/`@ConditionalOnMissingBean`             | `OnBeanCondition`           |
+| å±æ€§æ¡ä»¶æ³¨è§£          | `@ConditionalOnProperty`                                     | `OnPropertyCondition`       |
+| Resource æ¡ä»¶æ³¨è§£     | `@ConditionalOnResource`                                     | `OnResourceCondition`       |
+| Web åº”ç”¨æ¡ä»¶æ³¨è§£      | `@ConditionalOnWebApplication` / `@ConditionalOnNotWebApplication` | `OnWebApplicationCondition` |
+| spring è¡¨è¾¾å¼æ¡ä»¶æ³¨è§£ | `@ConditionalOnExpression`                                   | `OnExpressionCondition`     |
 
-½ÓÏÂÀ´£¬·ÖÎöÄ¿µÄ¾ÍºÜÃ÷È·ÁË£ºÒª·ÖÎöÕâĞ©Ìõ¼ş×¢½âµÄÅĞ¶ÏÂß¼­£¬Ö»ĞèÒª·ÖÎö¶ÔÓ¦Ìõ¼şÅĞ¶ÏÀàµÄ `matches(...)` ·½·¨¾Í¿ÉÒÔÁË¡£
+æ¥ä¸‹æ¥ï¼Œåˆ†æç›®çš„å°±å¾ˆæ˜ç¡®äº†ï¼šè¦åˆ†æè¿™äº›æ¡ä»¶æ³¨è§£çš„åˆ¤æ–­é€»è¾‘ï¼Œåªéœ€è¦åˆ†æå¯¹åº”æ¡ä»¶åˆ¤æ–­ç±»çš„ `matches(...)` æ–¹æ³•å°±å¯ä»¥äº†ã€‚
 
 ### 2. `SpringBootCondition#matches`
 
-½øÈë `OnClassCondition#matches` ·½·¨£¬·¢ÏÖÀ´µ½µÄÊÇ `SpringBootCondition`£¬Ïà¹Ø·½·¨ÈçÏÂ£º
+è¿›å…¥ `OnClassCondition#matches` æ–¹æ³•ï¼Œå‘ç°æ¥åˆ°çš„æ˜¯ `SpringBootCondition`ï¼Œç›¸å…³æ–¹æ³•å¦‚ä¸‹ï¼š
 
 ```
 public abstract class SpringBootCondition implements Condition {
@@ -80,13 +80,13 @@ public abstract class SpringBootCondition implements Condition {
     public final boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
         String classOrMethodName = getClassOrMethodName(metadata);
         try {
-            // »ñÈ¡Ìõ¼şÆ¥Åä½á¹û
+            // è·å–æ¡ä»¶åŒ¹é…ç»“æœ
             ConditionOutcome outcome = getMatchOutcome(context, metadata);
-            // ´òÓ¡Ò»ÌõÈÕÖ¾
+            // æ‰“å°ä¸€æ¡æ—¥å¿—
             logOutcome(classOrMethodName, outcome);
-            // ¼ÇÂ¼Ìõ¼şÆÀ¹ÀµÄ·¢Éú£¬¼òµ¥Àí½âÎª¼ÇÂ¼Ò»ÌõÌõ¼şÅĞ¶Ï¼ÇÂ¼°É
+            // è®°å½•æ¡ä»¶è¯„ä¼°çš„å‘ç”Ÿï¼Œç®€å•ç†è§£ä¸ºè®°å½•ä¸€æ¡æ¡ä»¶åˆ¤æ–­è®°å½•å§
             recordEvaluation(context, classOrMethodName, outcome);
-            // ÕâÀï·µ»Ø×îÖÕ½á¹û£ºtrue »ò false
+            // è¿™é‡Œè¿”å›æœ€ç»ˆç»“æœï¼štrue æˆ– false
             return outcome.isMatch();
         }
         catch (NoClassDefFoundError ex) {
@@ -98,7 +98,7 @@ public abstract class SpringBootCondition implements Condition {
     }
 
     /**
-     * ÕâÊÇ¸ö³éÏó·½Ê½£¬¾ßÌåÄÚÈİÓÉ×ÓÀàÊµÏÖ
+     * è¿™æ˜¯ä¸ªæŠ½è±¡æ–¹å¼ï¼Œå…·ä½“å†…å®¹ç”±å­ç±»å®ç°
      */
     public abstract ConditionOutcome getMatchOutcome(
         ConditionContext context, AnnotatedTypeMetadata metadata);
@@ -109,7 +109,7 @@ public abstract class SpringBootCondition implements Condition {
 
 ```
 
-`SpringBootCondition` µÄ `matches(...)` ¹Ø¼ü¾ÍÁ½ĞĞ£º
+`SpringBootCondition` çš„ `matches(...)` å…³é”®å°±ä¸¤è¡Œï¼š
 
 ```
 ...
@@ -119,9 +119,9 @@ return outcome.isMatch();
 
 ```
 
-¶ø `SpringBootCondition` µÄ `getMatchOutcome(...)` ÓÖÊÇ¸ö³éÏó·½·¨£¬¾ßÌåµÄÂß¼­ÓÉ×ÓÀàÌá¹©£¬`OnClassCondition` ËüµÄÊµÏÖÖ®Ò»¡£Êµ¼ÊÉÏ£¬ÉÏÊöÌõ¼şÅĞ¶ÏÀà¶¼ÊÇ `SpringBootCondition` µÄ×ÓÀà£¬ºóÃæÎÒÃÇ¾ÍÖ±½Ó½øÈë¾ßÌåÀàµÄ `getMatchOutcome(...)` ·½·¨·ÖÎöÁË¡£
+è€Œ `SpringBootCondition` çš„ `getMatchOutcome(...)` åˆæ˜¯ä¸ªæŠ½è±¡æ–¹æ³•ï¼Œå…·ä½“çš„é€»è¾‘ç”±å­ç±»æä¾›ï¼Œ`OnClassCondition` å®ƒçš„å®ç°ä¹‹ä¸€ã€‚å®é™…ä¸Šï¼Œä¸Šè¿°æ¡ä»¶åˆ¤æ–­ç±»éƒ½æ˜¯ `SpringBootCondition` çš„å­ç±»ï¼Œåé¢æˆ‘ä»¬å°±ç›´æ¥è¿›å…¥å…·ä½“ç±»çš„ `getMatchOutcome(...)` æ–¹æ³•åˆ†æäº†ã€‚
 
-`getMatchOutcome(...)` ·½·¨·µ»ØµÄ½á¹ûÊÇ `ConditionOutcome`£¬½ÓÏÂÀ´ÎÒÃÇÀ´¿´¿´ `ConditionOutcome` ÊÇ¸öÉ¶£º
+`getMatchOutcome(...)` æ–¹æ³•è¿”å›çš„ç»“æœæ˜¯ `ConditionOutcome`ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬æ¥çœ‹çœ‹ `ConditionOutcome` æ˜¯ä¸ªå•¥ï¼š
 
 ```
 public class ConditionOutcome {
@@ -131,14 +131,14 @@ public class ConditionOutcome {
     private final ConditionMessage message;
 
     /**
-     * ¹¹Ôì·½·¨
+     * æ„é€ æ–¹æ³•
      */
     public ConditionOutcome(boolean match, String message) {
         this(match, ConditionMessage.of(message));
     }
 
     /**
-     * ¹¹Ôì·½·¨
+     * æ„é€ æ–¹æ³•
      */
     public ConditionOutcome(boolean match, ConditionMessage message) {
         Assert.notNull(message, "ConditionMessage must not be null");
@@ -147,7 +147,7 @@ public class ConditionOutcome {
     }
 
     /**
-     * ·µ»ØÆ¥ÅäµÄ½á¹û
+     * è¿”å›åŒ¹é…çš„ç»“æœ
      */
     public boolean isMatch() {
         return this.match;
@@ -158,12 +158,12 @@ public class ConditionOutcome {
 
 ```
 
-´Ó´úÂëÀ´¿´£¬Õâ¸öÀà¾ÍÊÇÓÃÀ´·â×°±È½Ï½á¹ûµÄ£¬ÄÚ²¿ÓĞÁ½¸öÊôĞÔ£º`match` Óë `message`:
+ä»ä»£ç æ¥çœ‹ï¼Œè¿™ä¸ªç±»å°±æ˜¯ç”¨æ¥å°è£…æ¯”è¾ƒç»“æœçš„ï¼Œå†…éƒ¨æœ‰ä¸¤ä¸ªå±æ€§ï¼š`match` ä¸ `message`:
 
-*   `match` µÄÀàĞÍÊÇ `boolean`£¬Õâ¸ö¾ÍÊÇ×îÖÕÆ¥Åä³É¹¦»¹ÊÇÊ§°ÜµÄ±êÊ¶
-*   `message` µÄÀàĞÍÊÇ `ConditionMessage`£¬Ëü±íÊ¾Æ¥Åä½á¹ûµÄËµÃ÷
+*   `match` çš„ç±»å‹æ˜¯ `boolean`ï¼Œè¿™ä¸ªå°±æ˜¯æœ€ç»ˆåŒ¹é…æˆåŠŸè¿˜æ˜¯å¤±è´¥çš„æ ‡è¯†
+*   `message` çš„ç±»å‹æ˜¯ `ConditionMessage`ï¼Œå®ƒè¡¨ç¤ºåŒ¹é…ç»“æœçš„è¯´æ˜
 
-ÎÒÃÇÔÙÀ´¿´¿´ `ConditionMessage`:
+æˆ‘ä»¬å†æ¥çœ‹çœ‹ `ConditionMessage`:
 
 ```
 public final class ConditionMessage {
@@ -183,23 +183,23 @@ public final class ConditionMessage {
 
 ```
 
-Ëü½öÓĞÒ»¸öÊôĞÔ£º`message`£¬Õâ±íÃ÷Ëü¾ÍÊÇ¶ÔËµÃ÷ĞÅÏ¢µÄ°ü×°¡£
+å®ƒä»…æœ‰ä¸€ä¸ªå±æ€§ï¼š`message`ï¼Œè¿™è¡¨æ˜å®ƒå°±æ˜¯å¯¹è¯´æ˜ä¿¡æ¯çš„åŒ…è£…ã€‚
 
 ### 3. `@ConditionalOnClass`: `OnClassCondition#getMatchOutcome`
 
-½ÓÏÂÀ´ÎÒÃÇÀ´·ÖÎö `OnClassCondition` µÄÆ¥ÅäÂß¼­£¬Ö±½Ó½øÈë `getMatchOutcome` ·½·¨£º
+æ¥ä¸‹æ¥æˆ‘ä»¬æ¥åˆ†æ `OnClassCondition` çš„åŒ¹é…é€»è¾‘ï¼Œç›´æ¥è¿›å…¥ `getMatchOutcome` æ–¹æ³•ï¼š
 
 ```
 public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeMetadata metadata) {
     ClassLoader classLoader = context.getClassLoader();
     ConditionMessage matchMessage = ConditionMessage.empty();
-    // 1\. ´¦Àí @ConditionalOnClass ×¢½â
+    // 1\. å¤„ç† @ConditionalOnClass æ³¨è§£
     List<String> onClasses = getCandidates(metadata, ConditionalOnClass.class);
     if (onClasses != null) {
-        // 1.1 ´¦ÀíÌõ¼şÅĞ¶Ï
+        // 1.1 å¤„ç†æ¡ä»¶åˆ¤æ–­
         List<String> missing = filter(onClasses, ClassNameFilter.MISSING, classLoader);
         if (!missing.isEmpty()) {
-            // 1.2 ¹¹½¨·µ»Ø½á¹û£º²»Æ¥ÅäµÄÇé¿ö
+            // 1.2 æ„å»ºè¿”å›ç»“æœï¼šä¸åŒ¹é…çš„æƒ…å†µ
             return ConditionOutcome.noMatch(ConditionMessage.forCondition(ConditionalOnClass.class)
                     .didNotFind("required class", "required classes").items(Style.QUOTE, missing));
         }
@@ -208,13 +208,13 @@ public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeM
                 .items(Style.QUOTE, filter(onClasses, ClassNameFilter.PRESENT, classLoader));
     }
 
-    // 2\. ´¦Àí @ConditionalOnMissingClass ×¢½â
+    // 2\. å¤„ç† @ConditionalOnMissingClass æ³¨è§£
     List<String> onMissingClasses = getCandidates(metadata, ConditionalOnMissingClass.class);
     if (onMissingClasses != null) {
-        // 2.1 ´¦ÀíÌõ¼şÅĞ¶Ï
+        // 2.1 å¤„ç†æ¡ä»¶åˆ¤æ–­
         List<String> present = filter(onMissingClasses, ClassNameFilter.PRESENT, classLoader);
         if (!present.isEmpty()) {
-            // 2.2 ¹¹½¨·µ»Ø½á¹û£º²»Æ¥ÅäµÄÇé¿ö
+            // 2.2 æ„å»ºè¿”å›ç»“æœï¼šä¸åŒ¹é…çš„æƒ…å†µ
             return ConditionOutcome.noMatch(ConditionMessage
                     .forCondition(ConditionalOnMissingClass.class)
                     .found("unwanted class", "unwanted classes").items(Style.QUOTE, present));
@@ -223,13 +223,13 @@ public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeM
                 .didNotFind("unwanted class", "unwanted classes")
                 .items(Style.QUOTE, filter(onMissingClasses, ClassNameFilter.MISSING, classLoader));
     }
-    // ×îºó·µ»ØÆ¥ÅäµÄ½á¹û
+    // æœ€åè¿”å›åŒ¹é…çš„ç»“æœ
     return ConditionOutcome.match(matchMessage);
 }
 
 ```
 
-Õâ¸ö·½·¨Í¬Ê±´¦ÀíÁË `@ConditionalOnClass` Óë `@ConditionalOnMissingClass` Á½¸ö×¢½â£¬´¦ÀíÁ÷³Ì¼«ÆäÏàËÆ£¬Á½¸ö×¢½âµÄÌõ¼şÅĞ¶Ï¶¼ÊÇÍ¨¹ı `FilteringSpringBootCondition#filter` ÄÚÈİÈçÏÂ£º
+è¿™ä¸ªæ–¹æ³•åŒæ—¶å¤„ç†äº† `@ConditionalOnClass` ä¸ `@ConditionalOnMissingClass` ä¸¤ä¸ªæ³¨è§£ï¼Œå¤„ç†æµç¨‹æå…¶ç›¸ä¼¼ï¼Œä¸¤ä¸ªæ³¨è§£çš„æ¡ä»¶åˆ¤æ–­éƒ½æ˜¯é€šè¿‡ `FilteringSpringBootCondition#filter` å†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 protected final List<String> filter(Collection<String> classNames, ClassNameFilter classNameFilter,
@@ -239,7 +239,7 @@ protected final List<String> filter(Collection<String> classNames, ClassNameFilt
     }
     List<String> matches = new ArrayList<>(classNames.size());
     for (String candidate : classNames) {
-        // ½øĞĞÌõ¼şÆ¥Åä
+        // è¿›è¡Œæ¡ä»¶åŒ¹é…
         if (classNameFilter.matches(candidate, classLoader)) {
             matches.add(candidate);
         }
@@ -249,20 +249,20 @@ protected final List<String> filter(Collection<String> classNames, ClassNameFilt
 
 ```
 
-ÓÉ´Ë¿É¼û£¬´«ÈëµÄ `classNameFilter` ³ÉÁË¹Ø¼ü£º
+ç”±æ­¤å¯è§ï¼Œä¼ å…¥çš„ `classNameFilter` æˆäº†å…³é”®ï¼š
 
-*   ´¦Àí `@ConditionalOnClass` Ê±£¬`classNameFilter` Îª `ClassNameFilter.MISSING`
-*   ´¦Àí `@ConditionalOnMissingClass` Ê±£¬`classNameFilter` Îª `ClassNameFilter.PRESENT`
+*   å¤„ç† `@ConditionalOnClass` æ—¶ï¼Œ`classNameFilter` ä¸º `ClassNameFilter.MISSING`
+*   å¤„ç† `@ConditionalOnMissingClass` æ—¶ï¼Œ`classNameFilter` ä¸º `ClassNameFilter.PRESENT`
 
-ÈÃÎÒÃÇ½øÈë `ClassNameFilter` Ò»Ì½¾¿¾¹£¬ËüÊÇ `FilteringSpringBootCondition` µÄ×ÓÀà£¬ÄÚÈİÈçÏÂ£º
+è®©æˆ‘ä»¬è¿›å…¥ `ClassNameFilter` ä¸€æ¢ç©¶ç«Ÿï¼Œå®ƒæ˜¯ `FilteringSpringBootCondition` çš„å­ç±»ï¼Œå†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 abstract class FilteringSpringBootCondition extends SpringBootCondition
         implements AutoConfigurationImportFilter, BeanFactoryAware, BeanClassLoaderAware {
     ...
     /**
-     * Èç¹û classLoader ´æÔÚ£¬Ôòµ÷ÓÃ ClassLoader#loadClass ·½·¨
-     * ·ñÔòµ÷ÓÃ Class#forName ·½·¨
+     * å¦‚æœ classLoader å­˜åœ¨ï¼Œåˆ™è°ƒç”¨ ClassLoader#loadClass æ–¹æ³•
+     * å¦åˆ™è°ƒç”¨ Class#forName æ–¹æ³•
      */
     protected static Class<?> resolve(String className, ClassLoader classLoader) 
             throws ClassNotFoundException {
@@ -273,7 +273,7 @@ abstract class FilteringSpringBootCondition extends SpringBootCondition
     }
 
     /**
-     * ´¦ÀíÌõ¼şÆ¥Åä
+     * å¤„ç†æ¡ä»¶åŒ¹é…
      */
     protected enum ClassNameFilter {
 
@@ -298,15 +298,15 @@ abstract class FilteringSpringBootCondition extends SpringBootCondition
         abstract boolean matches(String className, ClassLoader classLoader);
 
         /**
-         * Class ÊÇ·ñ´æÔÚ
-         * Í¨¹ı²¶»ñÀà¼ÓÔØÊ±µÄÒì³£À´ÅĞ¶ÏÀàÊÇ·ñ´æÔÚ£¬Î´Å×³öÒì³£Ôò±íÊ¾Àà´æÔÚ
+         * Class æ˜¯å¦å­˜åœ¨
+         * é€šè¿‡æ•è·ç±»åŠ è½½æ—¶çš„å¼‚å¸¸æ¥åˆ¤æ–­ç±»æ˜¯å¦å­˜åœ¨ï¼ŒæœªæŠ›å‡ºå¼‚å¸¸åˆ™è¡¨ç¤ºç±»å­˜åœ¨
          */
         static boolean isPresent(String className, ClassLoader classLoader) {
             if (classLoader == null) {
                 classLoader = ClassUtils.getDefaultClassLoader();
             }
             try {
-                // Í¨¹ıÒì³£²¶»ñÀ´ÅĞ¶ÏÊÇ·ñ´æÔÚ¸Ãclass
+                // é€šè¿‡å¼‚å¸¸æ•è·æ¥åˆ¤æ–­æ˜¯å¦å­˜åœ¨è¯¥class
                 resolve(className, classLoader);
                 return true;
             }
@@ -320,25 +320,25 @@ abstract class FilteringSpringBootCondition extends SpringBootCondition
 
 ```
 
-¿´µ½ÕâÀïÎÒÃÇ¾ÍÃ÷°×ÁË£ºÅĞ¶Ï `Class` ÊÇ·ñ´æÔÚ£¬spring ÊÇÍ¨¹ı²¶»ñ `ClassLoader.load(String)` »ò `Class.forName(String)` ·½·¨µÄÒì³£À´´¦ÀíµÄ£¬Èç¹ûÅ×³öÁËÒì³£¾Í±íÃ÷ `Class` ²»´æÔÚ¡£
+çœ‹åˆ°è¿™é‡Œæˆ‘ä»¬å°±æ˜ç™½äº†ï¼šåˆ¤æ–­ `Class` æ˜¯å¦å­˜åœ¨ï¼Œspring æ˜¯é€šè¿‡æ•è· `ClassLoader.load(String)` æˆ– `Class.forName(String)` æ–¹æ³•çš„å¼‚å¸¸æ¥å¤„ç†çš„ï¼Œå¦‚æœæŠ›å‡ºäº†å¼‚å¸¸å°±è¡¨æ˜ `Class` ä¸å­˜åœ¨ã€‚
 
-ÕâÀï×Ü½áÏÂ `@ConditionalOnClass`/`@ConditionalOnMissingClass` µÄ´¦Àí·½Ê½£º**Á½ÕßµÄ´¦ÀíÀà¶¼Îª `OnClassCondition`£¬Í¨¹ı²¶»ñ `ClassLoader.load(String)` »ò `Class.forName(String)` ·½·¨µÄÒì³£À´ÅĞ¶Ï `Class` ÊÇ·ñ´æÔÚ£¬Èç¹ûÅ×³öÁËÒì³£¾Í±íÃ÷ `Class` ²»´æÔÚ**¡£
+è¿™é‡Œæ€»ç»“ä¸‹ `@ConditionalOnClass`/`@ConditionalOnMissingClass` çš„å¤„ç†æ–¹å¼ï¼š**ä¸¤è€…çš„å¤„ç†ç±»éƒ½ä¸º `OnClassCondition`ï¼Œé€šè¿‡æ•è· `ClassLoader.load(String)` æˆ– `Class.forName(String)` æ–¹æ³•çš„å¼‚å¸¸æ¥åˆ¤æ–­ `Class` æ˜¯å¦å­˜åœ¨ï¼Œå¦‚æœæŠ›å‡ºäº†å¼‚å¸¸å°±è¡¨æ˜ `Class` ä¸å­˜åœ¨**ã€‚
 
 ### 4. `@ConditionalOnBean`: `OnBeanCondition#getMatchOutcome`
 
-¼ÌĞø¿´¿´ `@ConditionalOnBean` µÄ ´¦Àí£¬Ö±½Ó½øÈë `OnBeanCondition#getMatchOutcome`£º
+ç»§ç»­çœ‹çœ‹ `@ConditionalOnBean` çš„ å¤„ç†ï¼Œç›´æ¥è¿›å…¥ `OnBeanCondition#getMatchOutcome`ï¼š
 
 ```
 public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeMetadata metadata) {
     ConditionMessage matchMessage = ConditionMessage.empty();
     MergedAnnotations annotations = metadata.getAnnotations();
-    // ´¦Àí @ConditionalOnBean
+    // å¤„ç† @ConditionalOnBean
     if (annotations.isPresent(ConditionalOnBean.class)) {
         Spec<ConditionalOnBean> spec = new Spec<>(context, metadata, 
                 annotations, ConditionalOnBean.class);
-        // ´¦ÀíÆ¥Åä
+        // å¤„ç†åŒ¹é…
         MatchResult matchResult = getMatchingBeans(context, spec);
-        // ×¢ÒâÅĞ¶ÏÌõ¼ş
+        // æ³¨æ„åˆ¤æ–­æ¡ä»¶
         if (!matchResult.isAllMatched()) {
             String reason = createOnBeanNoMatchReason(matchResult);
             return ConditionOutcome.noMatch(spec.message().because(reason));
@@ -347,13 +347,13 @@ public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeM
                 matchResult.getNamesOfAllMatches());
     }
 
-    // ´¦Àí @ConditionalOnSingleCandidate
+    // å¤„ç† @ConditionalOnSingleCandidate
     if (metadata.isAnnotated(ConditionalOnSingleCandidate.class.getName())) {
         Spec<ConditionalOnSingleCandidate> spec 
                 = new SingleCandidateSpec(context, metadata, annotations);
-        // ´¦ÀíÆ¥Åä
+        // å¤„ç†åŒ¹é…
         MatchResult matchResult = getMatchingBeans(context, spec);
-        // ×¢ÒâÅĞ¶ÏÌõ¼ş
+        // æ³¨æ„åˆ¤æ–­æ¡ä»¶
         if (!matchResult.isAllMatched()) {
             return ConditionOutcome.noMatch(spec.message().didNotFind("any beans").atAll());
         }
@@ -366,13 +366,13 @@ public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeM
                 .items(Style.QUOTE, matchResult.getNamesOfAllMatches());
     }
 
-    // ´¦Àí @ConditionalOnMissingBean
+    // å¤„ç† @ConditionalOnMissingBean
     if (metadata.isAnnotated(ConditionalOnMissingBean.class.getName())) {
         Spec<ConditionalOnMissingBean> spec = new Spec<>(context, metadata, annotations,
                 ConditionalOnMissingBean.class);
-        // ´¦ÀíÆ¥Åä
+        // å¤„ç†åŒ¹é…
         MatchResult matchResult = getMatchingBeans(context, spec);
-        // ×¢ÒâÅĞ¶ÏÌõ¼ş
+        // æ³¨æ„åˆ¤æ–­æ¡ä»¶
         if (matchResult.isAnyMatched()) {
             String reason = createOnMissingBeanNoMatchReason(matchResult);
             return ConditionOutcome.noMatch(spec.message().because(reason));
@@ -384,11 +384,11 @@ public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeM
 
 ```
 
-¿ÉÒÔ¿´µ½£¬Õâ¸ö·½·¨Ò»¹²´¦ÀíÁËÁ½¸ö×¢½âµÄÌõ¼şÆ¥Åä£º`@ConditionalOnBean`¡¢`@ConditionalOnSingleCandidate` Óë `@ConditionalOnMissingBean`£¬ÈıÕß¶¼µ÷ÓÃÁËÍ¬Ò»¸ö·½·¨ `getMatchingBeans(...)` À´»ñÈ¡Æ¥Åä½á¹û£¬È»ºóÊ¹ÓÃ `matchResult.isAllMatched()` »ò `matchResult.isAnyMatched()` À´×ö×îÖÕµÄ½á¹ûÅĞ¶Ï¡£
+å¯ä»¥çœ‹åˆ°ï¼Œè¿™ä¸ªæ–¹æ³•ä¸€å…±å¤„ç†äº†ä¸¤ä¸ªæ³¨è§£çš„æ¡ä»¶åŒ¹é…ï¼š`@ConditionalOnBean`ã€`@ConditionalOnSingleCandidate` ä¸ `@ConditionalOnMissingBean`ï¼Œä¸‰è€…éƒ½è°ƒç”¨äº†åŒä¸€ä¸ªæ–¹æ³• `getMatchingBeans(...)` æ¥è·å–åŒ¹é…ç»“æœï¼Œç„¶åä½¿ç”¨ `matchResult.isAllMatched()` æˆ– `matchResult.isAnyMatched()` æ¥åšæœ€ç»ˆçš„ç»“æœåˆ¤æ–­ã€‚
 
 #### `OnBeanCondition#getMatchingBeans`
 
-`getMatchingBeans(...)` µÄ´úÂëÈçÏÂ£º
+`getMatchingBeans(...)` çš„ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 protected final MatchResult getMatchingBeans(ConditionContext context, Spec<?> spec) {
@@ -403,11 +403,11 @@ protected final MatchResult getMatchingBeans(ConditionContext context, Spec<?> s
         beanFactory = (ConfigurableListableBeanFactory) parent;
     }
     MatchResult result = new MatchResult();
-    // 1\. »ñÈ¡ ignoreType£¬Ö»ÓĞ @ConditionalOnMissingBean ÓĞÕâ¸öÊôĞÔ
+    // 1\. è·å– ignoreTypeï¼Œåªæœ‰ @ConditionalOnMissingBean æœ‰è¿™ä¸ªå±æ€§
     Set<String> beansIgnoredByType = getNamesOfBeansIgnoredByType(classLoader, beanFactory, 
             considerHierarchy, spec.getIgnoredTypes(), parameterizedContainers);
 
-    // 2\. ´¦Àí types
+    // 2\. å¤„ç† types
     for (String type : spec.getTypes()) {
         Collection<String> typeMatches = getBeanNamesForType(classLoader, considerHierarchy, 
                 beanFactory, type, parameterizedContainers);
@@ -420,7 +420,7 @@ protected final MatchResult getMatchingBeans(ConditionContext context, Spec<?> s
         }
     }
 
-    // 3\. ´¦ÀíÀàÉÏµÄ×¢½â @ConditionalOnMissingBean ÓĞÕâ¸öÊôĞÔ
+    // 3\. å¤„ç†ç±»ä¸Šçš„æ³¨è§£ @ConditionalOnMissingBean æœ‰è¿™ä¸ªå±æ€§
     for (String annotation : spec.getAnnotations()) {
         Set<String> annotationMatches = getBeanNamesForAnnotation(classLoader, beanFactory, 
                 annotation, considerHierarchy);
@@ -433,7 +433,7 @@ protected final MatchResult getMatchingBeans(ConditionContext context, Spec<?> s
         }
     }
 
-    // 4\. ´¦Àí beanName
+    // 4\. å¤„ç† beanName
     for (String beanName : spec.getNames()) {
         if (!beansIgnoredByType.contains(beanName) && containsBean(beanFactory, beanName, 
                 considerHierarchy)) {
@@ -448,32 +448,32 @@ protected final MatchResult getMatchingBeans(ConditionContext context, Spec<?> s
 
 ```
 
-ĞèÒªËµÃ÷µÄÊÇ£¬Õâ¸ö·½·¨»á´¦Àí 3 ¸ö×¢½âµÄÆ¥Åä¹æÔò£º`@ConditionalOnBean`¡¢`@ConditionalOnSingleCandidate` Óë `@ConditionalOnMissingBean`£¬´¦Àí²½ÖèÈçÏÂ£º
+éœ€è¦è¯´æ˜çš„æ˜¯ï¼Œè¿™ä¸ªæ–¹æ³•ä¼šå¤„ç† 3 ä¸ªæ³¨è§£çš„åŒ¹é…è§„åˆ™ï¼š`@ConditionalOnBean`ã€`@ConditionalOnSingleCandidate` ä¸ `@ConditionalOnMissingBean`ï¼Œå¤„ç†æ­¥éª¤å¦‚ä¸‹ï¼š
 
-1.  »ñÈ¡ `ignoreType`£¬Ö»ÓĞ `@ConditionalOnMissingBean` ÓĞÕâ¸öÊôĞÔ
-2.  ´¦Àí `types` µÄÆ¥Åä¹æÔò
-3.  ´¦Àí×¢½â£¨ÀàÉÏµÄ×¢½â£©µÄÆ¥Åä¹æÔò£¬ Ö»ÓĞ `@ConditionalOnMissingBean` ÓĞÕâ¸öÊôĞÔ
-4.  ´¦Àí `beanName` µÄÆ¥Åä¹æÔò
+1.  è·å– `ignoreType`ï¼Œåªæœ‰ `@ConditionalOnMissingBean` æœ‰è¿™ä¸ªå±æ€§
+2.  å¤„ç† `types` çš„åŒ¹é…è§„åˆ™
+3.  å¤„ç†æ³¨è§£ï¼ˆç±»ä¸Šçš„æ³¨è§£ï¼‰çš„åŒ¹é…è§„åˆ™ï¼Œ åªæœ‰ `@ConditionalOnMissingBean` æœ‰è¿™ä¸ªå±æ€§
+4.  å¤„ç† `beanName` çš„åŒ¹é…è§„åˆ™
 
-¹ØÓÚÒÔÉÏ²½ÖèµÄ¾ßÌåÏ¸½Ú£¬±¾ÎÄ¾Í²»¾ßÌåÕ¹¿ªÁË£¬ÕâÀï½öÌá¹©Á÷³Ì£º
+å…³äºä»¥ä¸Šæ­¥éª¤çš„å…·ä½“ç»†èŠ‚ï¼Œæœ¬æ–‡å°±ä¸å…·ä½“å±•å¼€äº†ï¼Œè¿™é‡Œä»…æä¾›æµç¨‹ï¼š
 
-1.  »ñÈ¡ `ignoreType`£º
-    1.  Ê¹ÓÃ `ListableBeanFactory#getBeanNamesForType(Class, boolean, boolean)` ·½·¨»ñÈ¡ÈİÆ÷ÖĞËùÓĞµÄ `ignoreType` µÄ `beanName`
-    2.  ½á¹ûÎª `beansIgnoredByType`(ÀàĞÍÊÇ `Set<String>`)
-2.  ´¦Àí `types` µÄÆ¥Åä¹æÔò
-    1.  Ê¹ÓÃ `ListableBeanFactory#getBeanNamesForType(Class, boolean, boolean)` ·½·¨»ñÈ¡ÈİÆ÷ÖĞËùÓĞµÄ `type` ¶ÔÓ¦µÄ `beanName`£¬½á¹ûÎª `typeMatches`
-    2.  ½« `typeMatches` ÖĞµÄÖµÈ¥³ı `ignoreType`
-    3.  ÅĞ¶ÏµÚ¶ş²½µÃµ½µÄ `typeMatches`£¬Èç¹ûÄÚÈİÎª¿Õ£¬½«µ±Ç° `Type` ±£´æµ½ `unmatchedTypes` ÖĞ£¬·ñÔò±£´æµ½ `matchedTypes` Óë `namesOfAllMatches` ÖĞ
-3.  ´¦Àí×¢½âµÄÆ¥Åä¹æÔò
-    1.  Ê¹ÓÃ `ListableBeanFactory#getBeanNamesForAnnotation` ·½·¨»ñÈ¡ÈİÆ÷ÖĞËùÓĞµÄ `annotation` ¶ÔÓ¦µÄ `beanName`£¬½á¹ûÎª `annotationMatches`
-    2.  ½« `annotationMatches` ÖĞµÄÖµÈ¥³ı `ignoreType`
-    3.  ÅĞ¶ÏµÚ¶ş²½µÃµ½µÄ `annotationMatches`£¬Èç¹ûÄÚÈİÎª¿Õ£¬½«µ±Ç° `Annotation` ±£´æµ½ `unmatchedAnnotations` ÖĞ£¬·ñÔò±£´æµ½ `matchedAnnotations` Óë `namesOfAllMatches` ÖĞ
-4.  ´¦Àí `beanName` µÄÆ¥Åä¹æÔò
-    1.  ÅĞ¶Ï `beansIgnoredByType` ÊÇ·ñ°üº¬ `beanName`
-    2.  Ê¹ÓÃ `BeanFactory#containsBean` ·½·¨ÅĞ¶ÏÈİÆ÷ÖĞÓĞ¸Ã `beanName`
-    3.  Èç¹ûµÚ 2 ²½½á¹ûÎª `false`£¬µÚ¶ş²½½á¹ûÎª `true`£¬Ôò½«µ±Ç° `beanName` ¼ÓÈëµ½ `matchedNames` Óë `namesOfAllMatches`£¬·ñÔò±£´æµ½ `unmatchedNames` ÖĞ
+1.  è·å– `ignoreType`ï¼š
+    1.  ä½¿ç”¨ `ListableBeanFactory#getBeanNamesForType(Class, boolean, boolean)` æ–¹æ³•è·å–å®¹å™¨ä¸­æ‰€æœ‰çš„ `ignoreType` çš„ `beanName`
+    2.  ç»“æœä¸º `beansIgnoredByType`(ç±»å‹æ˜¯ `Set<String>`)
+2.  å¤„ç† `types` çš„åŒ¹é…è§„åˆ™
+    1.  ä½¿ç”¨ `ListableBeanFactory#getBeanNamesForType(Class, boolean, boolean)` æ–¹æ³•è·å–å®¹å™¨ä¸­æ‰€æœ‰çš„ `type` å¯¹åº”çš„ `beanName`ï¼Œç»“æœä¸º `typeMatches`
+    2.  å°† `typeMatches` ä¸­çš„å€¼å»é™¤ `ignoreType`
+    3.  åˆ¤æ–­ç¬¬äºŒæ­¥å¾—åˆ°çš„ `typeMatches`ï¼Œå¦‚æœå†…å®¹ä¸ºç©ºï¼Œå°†å½“å‰ `Type` ä¿å­˜åˆ° `unmatchedTypes` ä¸­ï¼Œå¦åˆ™ä¿å­˜åˆ° `matchedTypes` ä¸ `namesOfAllMatches` ä¸­
+3.  å¤„ç†æ³¨è§£çš„åŒ¹é…è§„åˆ™
+    1.  ä½¿ç”¨ `ListableBeanFactory#getBeanNamesForAnnotation` æ–¹æ³•è·å–å®¹å™¨ä¸­æ‰€æœ‰çš„ `annotation` å¯¹åº”çš„ `beanName`ï¼Œç»“æœä¸º `annotationMatches`
+    2.  å°† `annotationMatches` ä¸­çš„å€¼å»é™¤ `ignoreType`
+    3.  åˆ¤æ–­ç¬¬äºŒæ­¥å¾—åˆ°çš„ `annotationMatches`ï¼Œå¦‚æœå†…å®¹ä¸ºç©ºï¼Œå°†å½“å‰ `Annotation` ä¿å­˜åˆ° `unmatchedAnnotations` ä¸­ï¼Œå¦åˆ™ä¿å­˜åˆ° `matchedAnnotations` ä¸ `namesOfAllMatches` ä¸­
+4.  å¤„ç† `beanName` çš„åŒ¹é…è§„åˆ™
+    1.  åˆ¤æ–­ `beansIgnoredByType` æ˜¯å¦åŒ…å« `beanName`
+    2.  ä½¿ç”¨ `BeanFactory#containsBean` æ–¹æ³•åˆ¤æ–­å®¹å™¨ä¸­æœ‰è¯¥ `beanName`
+    3.  å¦‚æœç¬¬ 2 æ­¥ç»“æœä¸º `false`ï¼Œç¬¬äºŒæ­¥ç»“æœä¸º `true`ï¼Œåˆ™å°†å½“å‰ `beanName` åŠ å…¥åˆ° `matchedNames` ä¸ `namesOfAllMatches`ï¼Œå¦åˆ™ä¿å­˜åˆ° `unmatchedNames` ä¸­
 
-µÃµ½ `matchedTypes`¡¢`unmatchedNames` µÈÄÚÈİºó£¬`matchResult.isAllMatched()` »ò `matchResult.isAnyMatched()` ×îÖÕµÄÅĞ¶Ï½á¹û¾ÍÊÇÅĞ¶ÏÕâĞ©½á¹¹ÊÇ·ñ¿Õ£º
+å¾—åˆ° `matchedTypes`ã€`unmatchedNames` ç­‰å†…å®¹åï¼Œ`matchResult.isAllMatched()` æˆ– `matchResult.isAnyMatched()` æœ€ç»ˆçš„åˆ¤æ–­ç»“æœå°±æ˜¯åˆ¤æ–­è¿™äº›ç»“æ„æ˜¯å¦ç©ºï¼š
 
 ```
 boolean isAllMatched() {
@@ -488,11 +488,11 @@ boolean isAnyMatched() {
 
 ```
 
-¿´À´£¬`@ConditionalOnBean`/`@ConditionalOnMissingBean` µÄ¹Ø¼ü£¬¾ÍÊÇÊ¹ÓÃ `ListableBeanFactory#getBeanNamesForType` »ò `BeanFactory#containsBean` À´ÅĞ¶Ï `beanName`¡¢`beanType` ÊÇ·ñ´æÔÚÁË¡£
+çœ‹æ¥ï¼Œ`@ConditionalOnBean`/`@ConditionalOnMissingBean` çš„å…³é”®ï¼Œå°±æ˜¯ä½¿ç”¨ `ListableBeanFactory#getBeanNamesForType` æˆ– `BeanFactory#containsBean` æ¥åˆ¤æ–­ `beanName`ã€`beanType` æ˜¯å¦å­˜åœ¨äº†ã€‚
 
-ÔÚÊ¹ÓÃ `@ConditionalOnBean`/`@ConditionalOnMissingBean` Ê±£¬ÓĞÒ»¸ö¿ÓĞèÒªÌØ±ğ×¢Òâ£ºÌõ¼ş×¢½âµÄÖ´ĞĞÊ±»úÊÇÔÚ spring µÄ `ConfigurationClassPostProcessor` ÖĞµÄ£¬È·ÇĞµØËµ£¬ÊÇÔÚ½« `bean` ¼ÓÈëµ½ `beanFactory` µÄ `beanDefinitionMap` Ö®Ç°ÅĞ¶ÏµÄ£¬Èç¹ûÂú×ãÌõ¼şÔòÌí¼Óµ½ `beanDefinitionMap` ÖĞ£¬·ñÔò¾Í²»Ìí¼Ó¡£ÕâÑù¾Íµ¼ÖÂÁËÒ»¸öÎÊÌâ£ºÈç¹ûÔÚ `@ConditionalOnBean`/`@ConditionalOnMissingBean` µÄ `bean` ÔÚ¸Ã `bean` Ö®ºó¼ÓÈëµ½ `beanDefinitionMap` ÖĞ£¬¾ÍÓĞ¿ÉÄÜ³öÏÖÎóÅĞ£¬¾ÙÀıËµÃ÷£º
+åœ¨ä½¿ç”¨ `@ConditionalOnBean`/`@ConditionalOnMissingBean` æ—¶ï¼Œæœ‰ä¸€ä¸ªå‘éœ€è¦ç‰¹åˆ«æ³¨æ„ï¼šæ¡ä»¶æ³¨è§£çš„æ‰§è¡Œæ—¶æœºæ˜¯åœ¨ spring çš„ `ConfigurationClassPostProcessor` ä¸­çš„ï¼Œç¡®åˆ‡åœ°è¯´ï¼Œæ˜¯åœ¨å°† `bean` åŠ å…¥åˆ° `beanFactory` çš„ `beanDefinitionMap` ä¹‹å‰åˆ¤æ–­çš„ï¼Œå¦‚æœæ»¡è¶³æ¡ä»¶åˆ™æ·»åŠ åˆ° `beanDefinitionMap` ä¸­ï¼Œå¦åˆ™å°±ä¸æ·»åŠ ã€‚è¿™æ ·å°±å¯¼è‡´äº†ä¸€ä¸ªé—®é¢˜ï¼šå¦‚æœåœ¨ `@ConditionalOnBean`/`@ConditionalOnMissingBean` çš„ `bean` åœ¨è¯¥ `bean` ä¹‹ååŠ å…¥åˆ° `beanDefinitionMap` ä¸­ï¼Œå°±æœ‰å¯èƒ½å‡ºç°è¯¯åˆ¤ï¼Œä¸¾ä¾‹è¯´æ˜ï¼š
 
-ÏÖÔÚÓĞÁ½¸öÀà£º
+ç°åœ¨æœ‰ä¸¤ä¸ªç±»ï¼š
 
 ```
 @Component
@@ -508,47 +508,47 @@ public class B {
 
 ```
 
-ÆäÖĞ `A` Óë `B` ¶¼Ìí¼ÓÁË `@Component`£¬±íÃ÷ÕâÊÇ spring bean£¬È»ºóÔÚ `A` ÉÏÌí¼ÓÁË×¢½â `@ConditionalOnMissingBean("b")`£¬±íÃ÷ÔÚ `b` ²»´æÔÚÊ±£¬`A` ²Å½øĞĞ³õÊ¼»¯¡£ÓĞÁËÕâĞ©Ç°Ìá£¬ÎÒÃÇÔÙÀ´¿´¿´Á½ÖÖÇé¿ö£º
+å…¶ä¸­ `A` ä¸ `B` éƒ½æ·»åŠ äº† `@Component`ï¼Œè¡¨æ˜è¿™æ˜¯ spring beanï¼Œç„¶ååœ¨ `A` ä¸Šæ·»åŠ äº†æ³¨è§£ `@ConditionalOnMissingBean("b")`ï¼Œè¡¨æ˜åœ¨ `b` ä¸å­˜åœ¨æ—¶ï¼Œ`A` æ‰è¿›è¡Œåˆå§‹åŒ–ã€‚æœ‰äº†è¿™äº›å‰æï¼Œæˆ‘ä»¬å†æ¥çœ‹çœ‹ä¸¤ç§æƒ…å†µï¼š
 
-1.  Èç¹û `b` ÏÈÌí¼Óµ½ `beanDefinitionMap` ÖĞ£¬ÔÚ½« `a` Ìí¼Óµ½ `beanDefinitionMap` Ê±£¬·¢ÏÖ `b` ÒÑ¾­´æÔÚÁË£¬ÓÚÊÇ¾Í²»Ìí¼ÓÁË£¬·ûºÏÎÒÃÇµÄÔ¤ÆÚ£»
-2.  Èç¹û `a` ÏÈ±»´¦Àí£¬ÔÚÌí¼ÓÊ±£¬·¢ÏÖ `beanDefinitionMap` ÖĞ²¢Ã»ÓĞ `b`£¬ÓÚÊÇ `a` ±»Ìí¼Óµ½ `beanDefinitionMap` ÖĞ£¬ÔÙ´¦Àí `b`£¬`b` Ò²»á±»Ìí¼Óµ½ `beanDefinitionMap`£¬ÕâÑùÒ»À´£¬`a` Óë `b` Í¬Ê±´æÔÚÓÚ `beanDefinitionMap` ÖĞ£¬×îÖÕ¶¼»á±»³õÊ¼»¯³É spring bean£¬ÕâÓëÎÒÃÇµÄÔ¤ÆÚ²»·û¡£
+1.  å¦‚æœ `b` å…ˆæ·»åŠ åˆ° `beanDefinitionMap` ä¸­ï¼Œåœ¨å°† `a` æ·»åŠ åˆ° `beanDefinitionMap` æ—¶ï¼Œå‘ç° `b` å·²ç»å­˜åœ¨äº†ï¼Œäºæ˜¯å°±ä¸æ·»åŠ äº†ï¼Œç¬¦åˆæˆ‘ä»¬çš„é¢„æœŸï¼›
+2.  å¦‚æœ `a` å…ˆè¢«å¤„ç†ï¼Œåœ¨æ·»åŠ æ—¶ï¼Œå‘ç° `beanDefinitionMap` ä¸­å¹¶æ²¡æœ‰ `b`ï¼Œäºæ˜¯ `a` è¢«æ·»åŠ åˆ° `beanDefinitionMap` ä¸­ï¼Œå†å¤„ç† `b`ï¼Œ`b` ä¹Ÿä¼šè¢«æ·»åŠ åˆ° `beanDefinitionMap`ï¼Œè¿™æ ·ä¸€æ¥ï¼Œ`a` ä¸ `b` åŒæ—¶å­˜åœ¨äº `beanDefinitionMap` ä¸­ï¼Œæœ€ç»ˆéƒ½ä¼šè¢«åˆå§‹åŒ–æˆ spring beanï¼Œè¿™ä¸æˆ‘ä»¬çš„é¢„æœŸä¸ç¬¦ã€‚
 
-ÄÇÃ´ springboot ÈçºÎ½â¾öÒÔÉÏÎÊÌâÄØ£¿ÎÒÃÇÀ´¿´¿´ `@ConditionalOnBean`/`@ConditionalOnMissingBean` µÄËµÃ÷£º
+é‚£ä¹ˆ springboot å¦‚ä½•è§£å†³ä»¥ä¸Šé—®é¢˜å‘¢ï¼Ÿæˆ‘ä»¬æ¥çœ‹çœ‹ `@ConditionalOnBean`/`@ConditionalOnMissingBean` çš„è¯´æ˜ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-30df67cb01c73a6b201695298aad14fd0a5.png)
 
-ÉÔÎ¢·­ÒëÈçÏÂ£º
+ç¨å¾®ç¿»è¯‘å¦‚ä¸‹ï¼š
 
-¸ÃÌõ¼şÖ»ÄÜÆ¥Åäµ½Ä¿Ç°ÎªÖ¹µÄÓ¦ÓÃ³ÌĞòÉÏÏÂÎÄÖĞµÄ bean ´æÔÚÇé¿ö£¬Òò´Ë£¬Ç¿ÁÒ½¨Òé½öÓÚ×Ô¶¯ÅäÖÃÀàÖĞÊ¹ÓÃ¡£Èç¹ûºòÑ¡ bean ÒªÔÚÁíÒ»ÖÖ×Ô¶¯ÅäÖÃÏÂ´´½¨£¬ÇëÈ·±£Ê¹ÓÃ´ËÌõ¼şµÄÅäÖÃÔÚ´ËÖ®ºóÔËĞĞ¡£
+è¯¥æ¡ä»¶åªèƒ½åŒ¹é…åˆ°ç›®å‰ä¸ºæ­¢çš„åº”ç”¨ç¨‹åºä¸Šä¸‹æ–‡ä¸­çš„ bean å­˜åœ¨æƒ…å†µï¼Œå› æ­¤ï¼Œå¼ºçƒˆå»ºè®®ä»…äºè‡ªåŠ¨é…ç½®ç±»ä¸­ä½¿ç”¨ã€‚å¦‚æœå€™é€‰ bean è¦åœ¨å¦ä¸€ç§è‡ªåŠ¨é…ç½®ä¸‹åˆ›å»ºï¼Œè¯·ç¡®ä¿ä½¿ç”¨æ­¤æ¡ä»¶çš„é…ç½®åœ¨æ­¤ä¹‹åè¿è¡Œã€‚
 
-¶ÔÒÔÉÏÄÚÈİ£¬ÎÒµÄ½â¶ÁÈçÏÂ£º
+å¯¹ä»¥ä¸Šå†…å®¹ï¼Œæˆ‘çš„è§£è¯»å¦‚ä¸‹ï¼š
 
-*   ±» `@ConditionalOnBean`/`@ConditionalOnMissingBean` ±ê¼Ç `bean` ¼ÓÈëµ½ `beanDefinitionMap` ÄÇÒ»¿Ì£¬½öÆ¥ÅäÄ¿Ç°ÎªÖ¹ `beanDefinitionMap` ÖĞÒÑ´æÔÚµÄ bean£¬¶ÔÖ®ºó¼ÓÈëµÄ bean ²»¿¼ÂÇ£¬Õâ¾ÍÓĞ¿ÉÄÜÔì³ÉÎóÅĞ£¬¿ÉÒÔ²Î¿¼ÉÏÃæ¾ÙµÄ `a` Óë `b` µÄÀı×Ó
-*   Ç¿ÁÒ½¨Òé½öÔÚ×Ô¶¯ÅäÖÃÀàÖĞÊ¹ÓÃ `@ConditionalOnBean`/`@ConditionalOnMissingBean` ÕâÁ½¸ö×¢½â£¬Ò²¾ÍÊÇËµÔÚ×Ô¶¯ÅäÖÃÀàÖĞÊ¹ÓÃµÄ»°£¬ÄÜÕıÈ·´¦ÀíÆ¥Åä
-*   »¹ÊÇÄÃÉÏÃæµÄ `a` Óë `b` ¾ÙÀı£¬Èç¹û `a` Óë `b` ·Ö±ğÎ»ÓÚ²»Í¬µÄ×Ô¶¯ÅäÖÃÀàÖĞ£¬ÄÇÃ´ `a` ĞèÒªÔÚ `b` Ö®ºó¼ÓÔØµ½ `beanDefinitionMap` ÖĞ£¬Õâ¸ö¿ÉÒÔÍ¨¹ı `@AutoConfigureAfter`¡¢`@AutoConfigureBefore`¡¢`@AutoConfigureOrder` µÈ×¢½âÀ´Ö¸¶¨
+*   è¢« `@ConditionalOnBean`/`@ConditionalOnMissingBean` æ ‡è®° `bean` åŠ å…¥åˆ° `beanDefinitionMap` é‚£ä¸€åˆ»ï¼Œä»…åŒ¹é…ç›®å‰ä¸ºæ­¢ `beanDefinitionMap` ä¸­å·²å­˜åœ¨çš„ beanï¼Œå¯¹ä¹‹ååŠ å…¥çš„ bean ä¸è€ƒè™‘ï¼Œè¿™å°±æœ‰å¯èƒ½é€ æˆè¯¯åˆ¤ï¼Œå¯ä»¥å‚è€ƒä¸Šé¢ä¸¾çš„ `a` ä¸ `b` çš„ä¾‹å­
+*   å¼ºçƒˆå»ºè®®ä»…åœ¨è‡ªåŠ¨é…ç½®ç±»ä¸­ä½¿ç”¨ `@ConditionalOnBean`/`@ConditionalOnMissingBean` è¿™ä¸¤ä¸ªæ³¨è§£ï¼Œä¹Ÿå°±æ˜¯è¯´åœ¨è‡ªåŠ¨é…ç½®ç±»ä¸­ä½¿ç”¨çš„è¯ï¼Œèƒ½æ­£ç¡®å¤„ç†åŒ¹é…
+*   è¿˜æ˜¯æ‹¿ä¸Šé¢çš„ `a` ä¸ `b` ä¸¾ä¾‹ï¼Œå¦‚æœ `a` ä¸ `b` åˆ†åˆ«ä½äºä¸åŒçš„è‡ªåŠ¨é…ç½®ç±»ä¸­ï¼Œé‚£ä¹ˆ `a` éœ€è¦åœ¨ `b` ä¹‹ååŠ è½½åˆ° `beanDefinitionMap` ä¸­ï¼Œè¿™ä¸ªå¯ä»¥é€šè¿‡ `@AutoConfigureAfter`ã€`@AutoConfigureBefore`ã€`@AutoConfigureOrder` ç­‰æ³¨è§£æ¥æŒ‡å®š
 
-¹ØÓÚ×Ô¶¯ÅäÖÃÀàµÄ¼ÓÔØË³Ğò£¬ºóÃæÔÙ×ö·ÖÎö°É¡£
+å…³äºè‡ªåŠ¨é…ç½®ç±»çš„åŠ è½½é¡ºåºï¼Œåé¢å†åšåˆ†æå§ã€‚
 
-ÏŞÓÚÆª·ù£¬±¾ÎÄ¾ÍÏÈµ½ÕâÀïÁË£¬ÏÂÆª¼ÌĞø·ÖÎöÊ£ÏÂµÄÌõ¼ş×¢½â¡£
+é™äºç¯‡å¹…ï¼Œæœ¬æ–‡å°±å…ˆåˆ°è¿™é‡Œäº†ï¼Œä¸‹ç¯‡ç»§ç»­åˆ†æå‰©ä¸‹çš„æ¡ä»¶æ³¨è§£ã€‚
 
 * * *
 
-±¾ÎÄÊÇ springboot Ìõ¼ş×¢½â·ÖÎöµÄµÚ¶şÆª£¬ÉÏÎÄÎÒÃÇ×Ü½áÁË springboot µÄ¼¸¸öÌõ¼ş×Ü½á£º
+æœ¬æ–‡æ˜¯ springboot æ¡ä»¶æ³¨è§£åˆ†æçš„ç¬¬äºŒç¯‡ï¼Œä¸Šæ–‡æˆ‘ä»¬æ€»ç»“äº† springboot çš„å‡ ä¸ªæ¡ä»¶æ€»ç»“ï¼š
 
-| ×¢½âÀàĞÍ              | ×¢½âÀàĞÍ                                                     | Ìõ¼şÅĞ¶ÏÀà                  |
+| æ³¨è§£ç±»å‹              | æ³¨è§£ç±»å‹                                                     | æ¡ä»¶åˆ¤æ–­ç±»                  |
 | --------------------- | ------------------------------------------------------------ | --------------------------- |
-| class Ìõ¼ş×¢½â        | `@ConditionalOnClass`/`@ConditionalOnMissingClass`           | `OnClassCondition`          |
-| bean Ìõ¼ş×¢½â         | `@ConditionalOnBean`/`@ConditionalOnMissingBean`             | `OnBeanCondition`           |
-| ÊôĞÔÌõ¼ş×¢½â          | `@ConditionalOnProperty`                                     | `OnPropertyCondition`       |
-| Resource Ìõ¼ş×¢½â     | `@ConditionalOnResource`                                     | `OnResourceCondition`       |
-| Web Ó¦ÓÃÌõ¼ş×¢½â      | `@ConditionalOnWebApplication` / `@ConditionalOnNotWebApplication` | `OnWebApplicationCondition` |
-| spring ±í´ïÊ½Ìõ¼ş×¢½â | `@ConditionalOnExpression`                                   | `OnExpressionCondition`     |
+| class æ¡ä»¶æ³¨è§£        | `@ConditionalOnClass`/`@ConditionalOnMissingClass`           | `OnClassCondition`          |
+| bean æ¡ä»¶æ³¨è§£         | `@ConditionalOnBean`/`@ConditionalOnMissingBean`             | `OnBeanCondition`           |
+| å±æ€§æ¡ä»¶æ³¨è§£          | `@ConditionalOnProperty`                                     | `OnPropertyCondition`       |
+| Resource æ¡ä»¶æ³¨è§£     | `@ConditionalOnResource`                                     | `OnResourceCondition`       |
+| Web åº”ç”¨æ¡ä»¶æ³¨è§£      | `@ConditionalOnWebApplication` / `@ConditionalOnNotWebApplication` | `OnWebApplicationCondition` |
+| spring è¡¨è¾¾å¼æ¡ä»¶æ³¨è§£ | `@ConditionalOnExpression`                                   | `OnExpressionCondition`     |
 
-±¾ÎÄ¼ÌĞø·ÖÎöÌõ¼şÅĞ¶Ï¡£
+æœ¬æ–‡ç»§ç»­åˆ†ææ¡ä»¶åˆ¤æ–­ã€‚
 
-### 5. `@ConditionalOnProperty`£º`OnPropertyCondition#getMatchOutcome`
+### 5. `@ConditionalOnProperty`ï¼š`OnPropertyCondition#getMatchOutcome`
 
-ÎÒÃÇÔÙÀ´¿´¿´ `@ConditionalOnProperty` µÄ´¦Àí£¬½øÈë `OnPropertyCondition#getMatchOutcome` ·½·¨£º
+æˆ‘ä»¬å†æ¥çœ‹çœ‹ `@ConditionalOnProperty` çš„å¤„ç†ï¼Œè¿›å…¥ `OnPropertyCondition#getMatchOutcome` æ–¹æ³•ï¼š
 
 ```
 class OnPropertyCondition extends SpringBootCondition {
@@ -556,13 +556,13 @@ class OnPropertyCondition extends SpringBootCondition {
     @Override
     public ConditionOutcome getMatchOutcome(ConditionContext context, 
             AnnotatedTypeMetadata metadata) {
-        // »ñÈ¡ @ConditionalOnProperty µÄÊôĞÔÖµ
+        // è·å– @ConditionalOnProperty çš„å±æ€§å€¼
         List<AnnotationAttributes> allAnnotationAttributes = annotationAttributesFromMultiValueMap(
                 metadata.getAllAnnotationAttributes(ConditionalOnProperty.class.getName()));
         List<ConditionMessage> noMatch = new ArrayList<>();
         List<ConditionMessage> match = new ArrayList<>();
         for (AnnotationAttributes annotationAttributes : allAnnotationAttributes) {
-            // ÔÚ determineOutcome(...) ·½·¨ÖĞ½øĞĞÅĞ¶Ï£¬×¢Òâ²ÎÊı£ºcontext.getEnvironment()
+            // åœ¨ determineOutcome(...) æ–¹æ³•ä¸­è¿›è¡Œåˆ¤æ–­ï¼Œæ³¨æ„å‚æ•°ï¼šcontext.getEnvironment()
             ConditionOutcome outcome = determineOutcome(annotationAttributes, 
                     context.getEnvironment());
             (outcome.isMatch() ? match : noMatch).add(outcome.getConditionMessage());
@@ -579,47 +579,47 @@ class OnPropertyCondition extends SpringBootCondition {
 
 ```
 
-Õâ¸ö·½·¨»¹ÊÇ±È½Ï¼òµ¥µÄ£¬ÏÈÊÇ»ñÈ¡ `@ConditionalOnProperty` µÄÊôĞÔÖµ£¬ÔÙµ÷ÓÃ `determineOutcome(...)` ·½·¨½øĞĞ´¦Àí£¬ÈÃÎÒÃÇÔÙ½øĞĞ `OnPropertyCondition#determineOutcome` ·½·¨£º
+è¿™ä¸ªæ–¹æ³•è¿˜æ˜¯æ¯”è¾ƒç®€å•çš„ï¼Œå…ˆæ˜¯è·å– `@ConditionalOnProperty` çš„å±æ€§å€¼ï¼Œå†è°ƒç”¨ `determineOutcome(...)` æ–¹æ³•è¿›è¡Œå¤„ç†ï¼Œè®©æˆ‘ä»¬å†è¿›è¡Œ `OnPropertyCondition#determineOutcome` æ–¹æ³•ï¼š
 
 ```
 /**
- * ´¦Àí½á¹û
- * ×¢Òâ£ºresolver ´«ÈëµÄµÄÊÇ Environment£¬Õâ¾ÍÊÇ applicationContext ÖĞµÄ Environment
+ * å¤„ç†ç»“æœ
+ * æ³¨æ„ï¼šresolver ä¼ å…¥çš„çš„æ˜¯ Environmentï¼Œè¿™å°±æ˜¯ applicationContext ä¸­çš„ Environment
  */
 private ConditionOutcome determineOutcome(AnnotationAttributes annotationAttributes, 
         PropertyResolver resolver) {
     Spec spec = new Spec(annotationAttributes);
     List<String> missingProperties = new ArrayList<>();
     List<String> nonMatchingProperties = new ArrayList<>();
-    // ´¦Àí²Ù×÷
+    // å¤„ç†æ“ä½œ
     spec.collectProperties(resolver, missingProperties, nonMatchingProperties);
-    // ÅĞ¶Ï½á¹û
+    // åˆ¤æ–­ç»“æœ
     if (!missingProperties.isEmpty()) {
         return ConditionOutcome.noMatch(ConditionMessage
             .forCondition(ConditionalOnProperty.class, spec)
             .didNotFind("property", "properties").items(Style.QUOTE, missingProperties));
     }
-    // ÅĞ¶Ï½á¹û
+    // åˆ¤æ–­ç»“æœ
     if (!nonMatchingProperties.isEmpty()) {
         return ConditionOutcome.noMatch(ConditionMessage
             .forCondition(ConditionalOnProperty.class, spec)
             .found("different value in property", "different value in properties")
             .items(Style.QUOTE, nonMatchingProperties));
     }
-    // ÅĞ¶Ï½á¹û
+    // åˆ¤æ–­ç»“æœ
     return ConditionOutcome.match(ConditionMessage
         .forCondition(ConditionalOnProperty.class, spec).because("matched"));
 }
 
 /**
- * ´¦ÀíÊôĞÔ
+ * å¤„ç†å±æ€§
  */
 private void collectProperties(PropertyResolver resolver, List<String> missing, 
         List<String> nonMatching) {
     for (String name : this.names) {
         String key = this.prefix + name;
-        // resolver ´«ÈëµÄ environment
-        // properties Ìõ¼şÅĞ¶Ï¾ÍÊÇÅĞ¶Ï environment ÀïÓĞÃ»ÓĞÏàÓ¦ÊôĞÔ
+        // resolver ä¼ å…¥çš„ environment
+        // properties æ¡ä»¶åˆ¤æ–­å°±æ˜¯åˆ¤æ–­ environment é‡Œæœ‰æ²¡æœ‰ç›¸åº”å±æ€§
         if (resolver.containsProperty(key)) {
             if (!isMatch(resolver.getProperty(key), this.havingValue)) {
                 nonMatching.add(name);
@@ -635,11 +635,11 @@ private void collectProperties(PropertyResolver resolver, List<String> missing,
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`@ConditionalOnProperty` ×îÖÕÊÇÍ¨¹ıÅĞ¶Ï `environment` ÖĞÊÇ·ñÓĞ¸ÃÊôĞÔÀ´´¦ÀíÌõ¼şÅĞ¶ÏµÄ¡£
+å¯ä»¥çœ‹åˆ°ï¼Œ`@ConditionalOnProperty` æœ€ç»ˆæ˜¯é€šè¿‡åˆ¤æ–­ `environment` ä¸­æ˜¯å¦æœ‰è¯¥å±æ€§æ¥å¤„ç†æ¡ä»¶åˆ¤æ–­çš„ã€‚
 
-### 6. `@ConditionalOnResource`£º`OnResourceCondition#getMatchOutcome`
+### 6. `@ConditionalOnResource`ï¼š`OnResourceCondition#getMatchOutcome`
 
-ÎÒÃÇÔÙÀ´¿´¿´ `@ConditionalOnResource` µÄ´¦Àí£¬Ò»°ãÎÒÃÇÕâÑùÊ¹ÓÃ£º
+æˆ‘ä»¬å†æ¥çœ‹çœ‹ `@ConditionalOnResource` çš„å¤„ç†ï¼Œä¸€èˆ¬æˆ‘ä»¬è¿™æ ·ä½¿ç”¨ï¼š
 
 ```
 @Bean
@@ -650,32 +650,32 @@ public Config config() {
 
 ```
 
-±íÊ¾µ± `classpath` ÖĞ´æÔÚ `config.properties` Ê±£¬`config` ²Å»á±»³õÊ¼»¯ springbean¡£
+è¡¨ç¤ºå½“ `classpath` ä¸­å­˜åœ¨ `config.properties` æ—¶ï¼Œ`config` æ‰ä¼šè¢«åˆå§‹åŒ– springbeanã€‚
 
-ÔÙ½øÈë `OnResourceCondition#getOutcomes` ·½·¨£º
+å†è¿›å…¥ `OnResourceCondition#getOutcomes` æ–¹æ³•ï¼š
 
 ```
 @Override
 public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeMetadata metadata) {
     MultiValueMap<String, Object> attributes = metadata
             .getAllAnnotationAttributes(ConditionalOnResource.class.getName(), true);
-    // »ñÈ¡ ResourceLoader
+    // è·å– ResourceLoader
     ResourceLoader loader = context.getResourceLoader();
     List<String> locations = new ArrayList<>();
     collectValues(locations, attributes.get("resources"));
     Assert.isTrue(!locations.isEmpty(),
             "@ConditionalOnResource annotations must specify at least one resource location");
     List<String> missing = new ArrayList<>();
-    // ±éÀúÅĞ¶Ï×ÊÔ´ÊÇ·ñ´æÔÚ
+    // éå†åˆ¤æ–­èµ„æºæ˜¯å¦å­˜åœ¨
     for (String location : locations) {
-        // location ÖĞ¿ÉÄÜÓĞÕ¼Î»·û£¬ÔÚÕâÀï´¦Àí
+        // location ä¸­å¯èƒ½æœ‰å ä½ç¬¦ï¼Œåœ¨è¿™é‡Œå¤„ç†
         String resource = context.getEnvironment().resolvePlaceholders(location);
-        // ÅĞ¶Ï resource ÊÇ·ñ´æÔÚ
+        // åˆ¤æ–­ resource æ˜¯å¦å­˜åœ¨
         if (!loader.getResource(resource).exists()) {
             missing.add(location);
         }
     }
-    // ´¦Àí½á¹û
+    // å¤„ç†ç»“æœ
     if (!missing.isEmpty()) {
         return ConditionOutcome.noMatch(ConditionMessage.forCondition(ConditionalOnResource.class)
                 .didNotFind("resource", "resources").items(Style.QUOTE, missing));
@@ -686,13 +686,13 @@ public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeM
 
 ```
 
-ÏÈÊÇÍ¨¹ı `OnResourceCondition#getOutcomes` ·½·¨À´»ñÈ¡ `ResourceLoader`£¬Í¨¹ıµ÷ÊÔ·½Ê½·¢ÏÖµ±Ç°µÄ `ResourceLoader` Îª `AnnotationConfigServletWebServerApplicationContext`£º
+å…ˆæ˜¯é€šè¿‡ `OnResourceCondition#getOutcomes` æ–¹æ³•æ¥è·å– `ResourceLoader`ï¼Œé€šè¿‡è°ƒè¯•æ–¹å¼å‘ç°å½“å‰çš„ `ResourceLoader` ä¸º `AnnotationConfigServletWebServerApplicationContext`ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8f1de99f757eca7aeb0307b06b28d1020d2.png)
 
-»ñÈ¡µ½ `ResourceLoader` ºó£¬µ÷ÓÃ `ResourceLoader#getResource(String)` À´»ñÈ¡×ÊÔ´£¬È»ºóµ÷ÓÃ `Resource#exists` À´ÅĞ¶Ï×ÊÔ´ÊÇ·ñ´æÔÚ£¬×îºó´¦ÀíÆ¥Åä½á¹û¡£
+è·å–åˆ° `ResourceLoader` åï¼Œè°ƒç”¨ `ResourceLoader#getResource(String)` æ¥è·å–èµ„æºï¼Œç„¶åè°ƒç”¨ `Resource#exists` æ¥åˆ¤æ–­èµ„æºæ˜¯å¦å­˜åœ¨ï¼Œæœ€åå¤„ç†åŒ¹é…ç»“æœã€‚
 
-Õû¸öÁ÷³ÌµÄ¹Ø¼üÊÇÔÚ `ResourceLoader#getResource(String)`£¬ÎÒÃÇÀ´¿´¿´¸Ã·½·¨µÄ´¦Àí£¬½øÈëµ½ `GenericApplicationContext#getResource` ·½·¨£º
+æ•´ä¸ªæµç¨‹çš„å…³é”®æ˜¯åœ¨ `ResourceLoader#getResource(String)`ï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹è¯¥æ–¹æ³•çš„å¤„ç†ï¼Œè¿›å…¥åˆ° `GenericApplicationContext#getResource` æ–¹æ³•ï¼š
 
 ```
 @Override
@@ -705,7 +705,7 @@ public Resource getResource(String location) {
 
 ```
 
-ÕâÀïµÄ `this.resourceLoader` Îª `null`£¬½øÈë¸¸ÀàµÄ·½·¨ `DefaultResourceLoader#getResource`£º
+è¿™é‡Œçš„ `this.resourceLoader` ä¸º `null`ï¼Œè¿›å…¥çˆ¶ç±»çš„æ–¹æ³• `DefaultResourceLoader#getResource`ï¼š
 
 ```
 public Resource getResource(String location) {
@@ -716,31 +716,31 @@ public Resource getResource(String location) {
             return resource;
         }
     }
-    // ´¦Àí/¿ªÍ·µÄ×ÊÔ´
+    // å¤„ç†/å¼€å¤´çš„èµ„æº
     if (location.startsWith("/")) {
         return getResourceByPath(location);
     }
     else if (location.startsWith(CLASSPATH_URL_PREFIX)) {
-        // ´¦Àíclasspath¿ªÍ·µÄ×ÊÔ´
+        // å¤„ç†classpathå¼€å¤´çš„èµ„æº
         return new ClassPathResource(
             location.substring(CLASSPATH_URL_PREFIX.length()), getClassLoader());
     }
     else {
         try {
-            // ÒÔÉÏ¶¼²»Âú×ã£¬Ê¹ÓÃ url À´½âÎö
+            // ä»¥ä¸Šéƒ½ä¸æ»¡è¶³ï¼Œä½¿ç”¨ url æ¥è§£æ
             URL url = new URL(location);
             return (ResourceUtils.isFileURL(url) 
                 ? new FileUrlResource(url) : new UrlResource(url));
         }
         catch (MalformedURLException ex) {
-            // url½âÎö³öÁËÎÊÌâ£¬×îÖÕ»¹ÊÇÓÃ getResourceByPath(...) À´½âÎö
+            // urlè§£æå‡ºäº†é—®é¢˜ï¼Œæœ€ç»ˆè¿˜æ˜¯ç”¨ getResourceByPath(...) æ¥è§£æ
             return getResourceByPath(location);
         }
     }
 }
 
 /**
- * Í¨¹ıÂ·¾¶µÃµ½ Resource
+ * é€šè¿‡è·¯å¾„å¾—åˆ° Resource
  */
 protected Resource getResourceByPath(String path) {
     return new ClassPathContextResource(path, getClassLoader());
@@ -748,17 +748,17 @@ protected Resource getResourceByPath(String path) {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`DefaultResourceLoader#getResource` Í¨¹ıÅĞ¶Ï `location` µÄÇ°×º£¬µÃµ½ÁË 4 ÖÖ `Resource`£º
+å¯ä»¥çœ‹åˆ°ï¼Œ`DefaultResourceLoader#getResource` é€šè¿‡åˆ¤æ–­ `location` çš„å‰ç¼€ï¼Œå¾—åˆ°äº† 4 ç§ `Resource`ï¼š
 
 *   `ClassPathContextResource`
 *   `FileUrlResource`
 *   `UrlResource`
 
-µÃµ½ `Resource` ºó£¬½Ó×Å¾ÍÊÇÅĞ¶Ï¸Ã `Resource` ÊÇ·ñ´æÔÚÁË£¬ÎÒÃÇÏÈÀ´¿´¿´ `ClassPathContextResource#exist` ·½·¨£¬¸Ã·½·¨ÔÚ `ClassPathResource#exists`£º
+å¾—åˆ° `Resource` åï¼Œæ¥ç€å°±æ˜¯åˆ¤æ–­è¯¥ `Resource` æ˜¯å¦å­˜åœ¨äº†ï¼Œæˆ‘ä»¬å…ˆæ¥çœ‹çœ‹ `ClassPathContextResource#exist` æ–¹æ³•ï¼Œè¯¥æ–¹æ³•åœ¨ `ClassPathResource#exists`ï¼š
 
 ```
 /**
- * ÅĞ¶Ï Resource ÊÇ·ñ´æÔÚ
+ * åˆ¤æ–­ Resource æ˜¯å¦å­˜åœ¨
  */
 @Override
 public boolean exists() {
@@ -766,45 +766,45 @@ public boolean exists() {
 }
 
 /**
- * ×ÊÔ´ÄÜ»ñÈ¡µ½£¬Ôò·µ»Ø×ÊÔ´¶ÔÓ¦µÄurl£¬·ñÔò·µ»Ønull
+ * èµ„æºèƒ½è·å–åˆ°ï¼Œåˆ™è¿”å›èµ„æºå¯¹åº”çš„urlï¼Œå¦åˆ™è¿”å›null
  */
 @Nullable
 protected URL resolveURL() {
     if (this.clazz != null) {
-        // Ê¹ÓÃµ±Ç°µÄ class ¶ÔÓ¦µÄ classLoader À´»ñÈ¡
+        // ä½¿ç”¨å½“å‰çš„ class å¯¹åº”çš„ classLoader æ¥è·å–
         return this.clazz.getResource(this.path);
     }
     else if (this.classLoader != null) {
-        // Ê¹ÓÃÖ¸¶¨µÄ classLoader À´»ñÈ¡
+        // ä½¿ç”¨æŒ‡å®šçš„ classLoader æ¥è·å–
         return this.classLoader.getResource(this.path);
     }
     else {
-        // »ñÈ¡ÏµÍ³Àà¼ÓÔØÆ÷»ñÈ¡
+        // è·å–ç³»ç»Ÿç±»åŠ è½½å™¨è·å–
         return ClassLoader.getSystemResource(this.path);
     }
 }
 
 ```
 
-´Ó´úÂë¿ÉÒÔ¿´µ½£¬×îÖÕÊÇÍ¨¹ı `classLoader` »ñÈ¡ÎÄ¼şµÄ `url`£¬Í¨¹ıÅĞ¶ÏÎÄ¼ş `url` ÊÇ·ñÎª `null` À´ÅĞ¶Ï `resource` ÊÇ·ñ´æÔÚ¡£
+ä»ä»£ç å¯ä»¥çœ‹åˆ°ï¼Œæœ€ç»ˆæ˜¯é€šè¿‡ `classLoader` è·å–æ–‡ä»¶çš„ `url`ï¼Œé€šè¿‡åˆ¤æ–­æ–‡ä»¶ `url` æ˜¯å¦ä¸º `null` æ¥åˆ¤æ–­ `resource` æ˜¯å¦å­˜åœ¨ã€‚
 
-ÔÙÀ´¿´¿´ `FileUrlResource` µÄÅĞ¶Ï£¬Êµ¼ÊÉÏ `FileUrlResource` Óë `UrlResource` µÄ `exist()` ·½·¨¶¼ÊÇ `AbstractFileResolvingResource#exists`£¬ÕâÀïÍ³Ò»·ÖÎö¾Í¿ÉÒÔÁË£¬¸Ã·½·¨ÄÚÈİÈçÏÂ£º
+å†æ¥çœ‹çœ‹ `FileUrlResource` çš„åˆ¤æ–­ï¼Œå®é™…ä¸Š `FileUrlResource` ä¸ `UrlResource` çš„ `exist()` æ–¹æ³•éƒ½æ˜¯ `AbstractFileResolvingResource#exists`ï¼Œè¿™é‡Œç»Ÿä¸€åˆ†æå°±å¯ä»¥äº†ï¼Œè¯¥æ–¹æ³•å†…å®¹å¦‚ä¸‹ï¼š
 
 ```
 public boolean exists() {
     try {
         URL url = getURL();
         if (ResourceUtils.isFileURL(url)) {
-            // Èç¹ûÊÇÎÄ¼ş£¬Ö±½ÓÅĞ¶ÏÎÄ¼şÊÇ·ñ´æÔÚ
+            // å¦‚æœæ˜¯æ–‡ä»¶ï¼Œç›´æ¥åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨
             return getFile().exists();
         }
         else {
-            // ·ñÔòÊ¹ÓÃÍøÂçÎÄ¼şÀ´´¦Àí
+            // å¦åˆ™ä½¿ç”¨ç½‘ç»œæ–‡ä»¶æ¥å¤„ç†
             URLConnection con = url.openConnection();
             customizeConnection(con);
             HttpURLConnection httpCon =
                     (con instanceof HttpURLConnection ? (HttpURLConnection) con : null);
-            // Èç¹ûÊÇhttp£¬ÔòÅĞ¶Ï¿´¿´Á´½Ó·µ»ØµÄ×´Ì¬Âë
+            // å¦‚æœæ˜¯httpï¼Œåˆ™åˆ¤æ–­çœ‹çœ‹é“¾æ¥è¿”å›çš„çŠ¶æ€ç 
             if (httpCon != null) {
                 int code = httpCon.getResponseCode();
                 if (code == HttpURLConnection.HTTP_OK) {
@@ -814,7 +814,7 @@ public boolean exists() {
                     return false;
                 }
             }
-            // Á¬½Ó contentLengthLong ´óÓÚ0£¬Ò²µ±³ÉÊÇtrue
+            // è¿æ¥ contentLengthLong å¤§äº0ï¼Œä¹Ÿå½“æˆæ˜¯true
             if (con.getContentLengthLong() > 0) {
                 return true;
             }
@@ -835,17 +835,17 @@ public boolean exists() {
 
 ```
 
-Èç¹ûÊÇ±¾µØÎÄ¼ş£¬Ö±½ÓÊ¹ÓÃ `File#exists()` ·½·¨ÅĞ¶ÏÎÄ¼şÊÇ·ñ´æÔÚ£¬·ñÔò¾ÍÅĞ¶ÏÍøÂçÎÄ¼şÊÇ·ñ´æÔÚ£¬ÅĞ¶Ï·½Ê½ÕâÀï¾Í²»Ï¸ËµÁË¡£
+å¦‚æœæ˜¯æœ¬åœ°æ–‡ä»¶ï¼Œç›´æ¥ä½¿ç”¨ `File#exists()` æ–¹æ³•åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨ï¼Œå¦åˆ™å°±åˆ¤æ–­ç½‘ç»œæ–‡ä»¶æ˜¯å¦å­˜åœ¨ï¼Œåˆ¤æ–­æ–¹å¼è¿™é‡Œå°±ä¸ç»†è¯´äº†ã€‚
 
-×ÜµÄÀ´Ëµ£¬springboot ¶Ô `@ConditionalOnResource` µÄÅĞ¶Ï»¹ÊÇÓĞĞ©¸´ÔÓµÄ£¬ÕâÀï×Ü½áÈçÏÂ£º
+æ€»çš„æ¥è¯´ï¼Œspringboot å¯¹ `@ConditionalOnResource` çš„åˆ¤æ–­è¿˜æ˜¯æœ‰äº›å¤æ‚çš„ï¼Œè¿™é‡Œæ€»ç»“å¦‚ä¸‹ï¼š
 
-1.  Èç¹ûÊÇ `classpath` ÎÄ¼ş£¬Í¨¹ı `classloader` »ñÈ¡ÎÄ¼ş¶ÔÓ¦µÄ `url` ÊÇ·ñÎª `null` À´ÅĞ¶ÏÎÄ¼şÊÇ·ñ´æÔÚ£»
-2.  Èç¹ûÊÇÆÕÍ¨ÎÄ¼ş£¬ÔòÖ±½Ó `File#exists()` ·½·¨ÅĞ¶ÏÎÄ¼şÊÇ·ñ´æÔÚ£»
-3.  Èç¹ûÊÇÍøÂçÎÄ¼ş£¬ÏÈ´ò¿ªÒ»¸öÍøÂçÁ¬½Ó£¬ÅĞ¶ÏÎÄ¼şÊÇ·ñ´æÔÚ¡£
+1.  å¦‚æœæ˜¯ `classpath` æ–‡ä»¶ï¼Œé€šè¿‡ `classloader` è·å–æ–‡ä»¶å¯¹åº”çš„ `url` æ˜¯å¦ä¸º `null` æ¥åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨ï¼›
+2.  å¦‚æœæ˜¯æ™®é€šæ–‡ä»¶ï¼Œåˆ™ç›´æ¥ `File#exists()` æ–¹æ³•åˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨ï¼›
+3.  å¦‚æœæ˜¯ç½‘ç»œæ–‡ä»¶ï¼Œå…ˆæ‰“å¼€ä¸€ä¸ªç½‘ç»œè¿æ¥ï¼Œåˆ¤æ–­æ–‡ä»¶æ˜¯å¦å­˜åœ¨ã€‚
 
-### 7. `@ConditionalOnWebApplication`£º`OnWebApplicationCondition#getMatchOutcome`
+### 7. `@ConditionalOnWebApplication`ï¼š`OnWebApplicationCondition#getMatchOutcome`
 
-ÎÒÃÇÔÙÀ´¿´¿´ `@ConditionalOnWebApplication` µÄ´¦Àí£¬½øÈë `OnWebApplicationCondition#getOutcomes` ·½·¨£º
+æˆ‘ä»¬å†æ¥çœ‹çœ‹ `@ConditionalOnWebApplication` çš„å¤„ç†ï¼Œè¿›å…¥ `OnWebApplicationCondition#getOutcomes` æ–¹æ³•ï¼š
 
 ```
 @Override
@@ -855,7 +855,7 @@ protected ConditionOutcome[] getOutcomes(String[] autoConfigurationClasses,
     for (int i = 0; i < outcomes.length; i++) {
         String autoConfigurationClass = autoConfigurationClasses[i];
         if (autoConfigurationClass != null) {
-            // ´¦Àí½á¹û
+            // å¤„ç†ç»“æœ
             outcomes[i] = getOutcome(autoConfigurationMetadata.get(autoConfigurationClass, 
                 "ConditionalOnWebApplication"));
         }
@@ -864,8 +864,8 @@ protected ConditionOutcome[] getOutcomes(String[] autoConfigurationClasses,
 }
 
 /**
- * ´¦Àí½á¹û
- * springbootÖ§³ÖµÄwebÀàĞÍÓĞÁ½ÖÖ£ºSERVLET£¬REACTIVE
+ * å¤„ç†ç»“æœ
+ * springbootæ”¯æŒçš„webç±»å‹æœ‰ä¸¤ç§ï¼šSERVLETï¼ŒREACTIVE
  */
 private ConditionOutcome getOutcome(String type) {
     if (type == null) {
@@ -873,21 +873,21 @@ private ConditionOutcome getOutcome(String type) {
     }
     ConditionMessage.Builder message = ConditionMessage
             .forCondition(ConditionalOnWebApplication.class);
-    // Èç¹ûÖ¸¶¨µÄÀàĞÍÊÇ SERVLET
+    // å¦‚æœæŒ‡å®šçš„ç±»å‹æ˜¯ SERVLET
     if (ConditionalOnWebApplication.Type.SERVLET.name().equals(type)) {
         if (!ClassNameFilter.isPresent(SERVLET_WEB_APPLICATION_CLASS, getBeanClassLoader())) {
             return ConditionOutcome.noMatch(
                 message.didNotFind("servlet web application classes").atAll());
         }
     }
-    // Èç¹ûÖ¸¶¨µÄÀàĞÍÊÇ REACTIVE
+    // å¦‚æœæŒ‡å®šçš„ç±»å‹æ˜¯ REACTIVE
     if (ConditionalOnWebApplication.Type.REACTIVE.name().equals(type)) {
         if (!ClassNameFilter.isPresent(REACTIVE_WEB_APPLICATION_CLASS, getBeanClassLoader())) {
             return ConditionOutcome.noMatch(
                 message.didNotFind("reactive web application classes").atAll());
         }
     }
-    // Èç¹ûÃ»ÓĞÖ¸¶¨webÀàĞÍ
+    // å¦‚æœæ²¡æœ‰æŒ‡å®šwebç±»å‹
     if (!ClassNameFilter.isPresent(SERVLET_WEB_APPLICATION_CLASS, getBeanClassLoader())
             && !ClassUtils.isPresent(REACTIVE_WEB_APPLICATION_CLASS, getBeanClassLoader())) {
         return ConditionOutcome.noMatch(
@@ -898,33 +898,33 @@ private ConditionOutcome getOutcome(String type) {
 
 ```
 
-Õâ¸ö·½·¨ºÜ¼òµ¥£¬´¦ÀíÂß¼­Îª£º¸ù¾İ `@ConditionalOnWebApplication` ÖĞÖ¸¶¨µÄÀàĞÍ£¬ÅĞ¶Ï¶ÔÓ¦µÄÀàÊÇ·ñ´æÔÚ£¬ÅĞ¶Ï·½Ê½Óë `@ConditionalOnClass` ÅĞ¶ÏÀàÊÇ·ñ´æÔÚÒ»ÖÂ£¬¶øÁ½ÖÖÀàĞÍ¶ÔÓ¦µÄÀàÈçÏÂ£º
+è¿™ä¸ªæ–¹æ³•å¾ˆç®€å•ï¼Œå¤„ç†é€»è¾‘ä¸ºï¼šæ ¹æ® `@ConditionalOnWebApplication` ä¸­æŒ‡å®šçš„ç±»å‹ï¼Œåˆ¤æ–­å¯¹åº”çš„ç±»æ˜¯å¦å­˜åœ¨ï¼Œåˆ¤æ–­æ–¹å¼ä¸ `@ConditionalOnClass` åˆ¤æ–­ç±»æ˜¯å¦å­˜åœ¨ä¸€è‡´ï¼Œè€Œä¸¤ç§ç±»å‹å¯¹åº”çš„ç±»å¦‚ä¸‹ï¼š
 
-*   Servlet£º`org.springframework.web.context.support.GenericWebApplicationContext`
-*   Reactive£º`org.springframework.web.reactive.HandlerResult`
+*   Servletï¼š`org.springframework.web.context.support.GenericWebApplicationContext`
+*   Reactiveï¼š`org.springframework.web.reactive.HandlerResult`
 
-### 8. `@ConditionalOnExpression`£º`OnExpressionCondition#getMatchOutcome`
+### 8. `@ConditionalOnExpression`ï¼š`OnExpressionCondition#getMatchOutcome`
 
-ÎÒÃÇÔÙÀ´¿´¿´ `@ConditionalOnExpression` µÄ´¦Àí£¬½øÈë `OnExpressionCondition#getOutcomes` ·½·¨£º
+æˆ‘ä»¬å†æ¥çœ‹çœ‹ `@ConditionalOnExpression` çš„å¤„ç†ï¼Œè¿›å…¥ `OnExpressionCondition#getOutcomes` æ–¹æ³•ï¼š
 
 ```
 /**
- * ´¦ÀíÆ¥Åä½á¹û
+ * å¤„ç†åŒ¹é…ç»“æœ
  */
 @Override
 public ConditionOutcome getMatchOutcome(ConditionContext context, 
         AnnotatedTypeMetadata metadata) {
-    // »ñÈ¡±í´ïÊ½
+    // è·å–è¡¨è¾¾å¼
     String expression = (String) metadata.getAnnotationAttributes(
             ConditionalOnExpression.class.getName()).get("value");
     expression = wrapIfNecessary(expression);
     ConditionMessage.Builder messageBuilder = ConditionMessage
             .forCondition(ConditionalOnExpression.class, "(" + expression + ")");
-    // ´¦ÀíÕ¼Î»·û
+    // å¤„ç†å ä½ç¬¦
     expression = context.getEnvironment().resolvePlaceholders(expression);
     ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
     if (beanFactory != null) {
-        // ¼ÆËã±í´ïÊ½µÄÖµ
+        // è®¡ç®—è¡¨è¾¾å¼çš„å€¼
         boolean result = evaluateExpression(beanFactory, expression);
         return new ConditionOutcome(result, messageBuilder.resultedIn(result));
     }
@@ -932,7 +932,7 @@ public ConditionOutcome getMatchOutcome(ConditionContext context,
 }
 
 /**
- * ¼ÆËã±í´ïÊ½µÄÖµ
+ * è®¡ç®—è¡¨è¾¾å¼çš„å€¼
  */
 private Boolean evaluateExpression(ConfigurableListableBeanFactory beanFactory, 
         String expression) {
@@ -940,7 +940,7 @@ private Boolean evaluateExpression(ConfigurableListableBeanFactory beanFactory,
     if (resolver == null) {
         resolver = new StandardBeanExpressionResolver();
     }
-    // ÔÚÕâÀï½âÎö±í´ïÊ½µÄÖµ
+    // åœ¨è¿™é‡Œè§£æè¡¨è¾¾å¼çš„å€¼
     BeanExpressionContext expressionContext = new BeanExpressionContext(beanFactory, null);
     Object result = resolver.evaluate(expression, expressionContext);
     return (result != null && (boolean) result);
@@ -948,14 +948,14 @@ private Boolean evaluateExpression(ConfigurableListableBeanFactory beanFactory,
 
 ```
 
-¿ÉÒÔ¿´µ½£¬springboot ×îÖÕÊÇÍ¨¹ı `BeanExpressionResolver#evaluate` ·½·¨À´¼ÆËã±í´ïÊ½½á¹û£¬¹ØÓÚ spring ±í´ïÊ½£¬±¾ÎÄ¾Í²»Õ¹¿ª·ÖÎöÁË¡£
+å¯ä»¥çœ‹åˆ°ï¼Œspringboot æœ€ç»ˆæ˜¯é€šè¿‡ `BeanExpressionResolver#evaluate` æ–¹æ³•æ¥è®¡ç®—è¡¨è¾¾å¼ç»“æœï¼Œå…³äº spring è¡¨è¾¾å¼ï¼Œæœ¬æ–‡å°±ä¸å±•å¼€åˆ†æäº†ã€‚
 
-ºÃÁË£¬spring Ìõ¼ş×¢½âµÄ·ÖÎö¾Íµ½ÕâÀïÁË£¬ĞèÒªËµÃ÷µÄÊÇ£¬springboot »¹ ÓĞÆäËûÌõ¼ş×¢½â£º
+å¥½äº†ï¼Œspring æ¡ä»¶æ³¨è§£çš„åˆ†æå°±åˆ°è¿™é‡Œäº†ï¼Œéœ€è¦è¯´æ˜çš„æ˜¯ï¼Œspringboot è¿˜ æœ‰å…¶ä»–æ¡ä»¶æ³¨è§£ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0e8d27c887fb6ca142672cad1c60e9de207.png)
 
-ÕâĞ©×¢½âµÄÅĞ¶Ï·½Ê½Óë±¾ÎÄµÄ·½Ê½ÏàÀàËÆ£¬¾Í²»Ò»Ò»½øĞĞ·ÖÎöÁË¡£
+è¿™äº›æ³¨è§£çš„åˆ¤æ–­æ–¹å¼ä¸æœ¬æ–‡çš„æ–¹å¼ç›¸ç±»ä¼¼ï¼Œå°±ä¸ä¸€ä¸€è¿›è¡Œåˆ†æäº†ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4921590](https://my.oschina.net/funcy/blog/4921590) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4921590](https://my.oschina.net/funcy/blog/4921590) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

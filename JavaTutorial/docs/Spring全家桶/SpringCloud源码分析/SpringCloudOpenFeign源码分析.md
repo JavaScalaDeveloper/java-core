@@ -1,34 +1,34 @@
-×÷Õß | ÓîÄ¾Ä¾Ùâ
-À´Ô´ |½ñÈÕÍ·Ìõ
+ä½œè€… | å®‡æœ¨æœ¨å…®
+æ¥æº |ä»Šæ—¥å¤´æ¡
 
-**Ñ§Ï°Ä¿±ê**
+**å­¦ä¹ ç›®æ ‡**
 
-1.  ÎªÊ²Ã´¼ÓÒ»¸ö×¢½â¾ÍÄÜÊµÏÖÔ¶³Ì¹ı³Ìµ÷ÓÃÄØ£¿ÍÆµ¼Ëüµ×²ãµÄÊµÏÖÖ÷Á÷³Ì£¿
-2.  OpenFeignÔõÃ´ÊµÏÖRPCµÄ»ù±¾¹¦ÄÜµÄ
-3.  Í¨¹ıÔ´ÂëÑéÖ¤
-    **µÚ1ÕÂ OpenFeignÖ÷Á÷³ÌÍÆµ¼**
-    ÒªÃ÷È·OpenFeignµÄÖ÷Á÷³ÌÊ×ÏÈÎÒÃÇ»¹ÊÇÒªÃ÷È·ËüµÄºËĞÄÄ¿±êÊÇÊ²Ã´£¿
+1.  ä¸ºä»€ä¹ˆåŠ ä¸€ä¸ªæ³¨è§£å°±èƒ½å®ç°è¿œç¨‹è¿‡ç¨‹è°ƒç”¨å‘¢ï¼Ÿæ¨å¯¼å®ƒåº•å±‚çš„å®ç°ä¸»æµç¨‹ï¼Ÿ
+2.  OpenFeignæ€ä¹ˆå®ç°RPCçš„åŸºæœ¬åŠŸèƒ½çš„
+3.  é€šè¿‡æºç éªŒè¯
+    **ç¬¬1ç«  OpenFeignä¸»æµç¨‹æ¨å¯¼**
+    è¦æ˜ç¡®OpenFeignçš„ä¸»æµç¨‹é¦–å…ˆæˆ‘ä»¬è¿˜æ˜¯è¦æ˜ç¡®å®ƒçš„æ ¸å¿ƒç›®æ ‡æ˜¯ä»€ä¹ˆï¼Ÿ
 
-Ëµ°×ÁË£¬OpenFeign×îºËĞÄµÄÄ¿±ê¾ÍÊÇÈÃ¿Í»§¶ËÔÚÔ¶³Ìµ÷ÓÃ¹ı³ÌÖĞ²»ĞèÒª×öÊ²Ã´¶àÓàµÄ²Ù×÷£¬Ö»ÒªÄÃµ½Ò»¸ö¶ÔÏó£¬È»ºóµ÷ÓÃ¸Ã¶ÔÏóµÄ·½·¨¾ÍºÃÁË£¬Ê£ÏÂµÄ²Ù×÷¶¼½»¸øOpenFeignÈ¥°ïÄãÍê³É£¬ÄÇÊ£ÏÂÒ»Ğ©Ê²Ã´²Ù×÷ÄØ£¿
+è¯´ç™½äº†ï¼ŒOpenFeignæœ€æ ¸å¿ƒçš„ç›®æ ‡å°±æ˜¯è®©å®¢æˆ·ç«¯åœ¨è¿œç¨‹è°ƒç”¨è¿‡ç¨‹ä¸­ä¸éœ€è¦åšä»€ä¹ˆå¤šä½™çš„æ“ä½œï¼Œåªè¦æ‹¿åˆ°ä¸€ä¸ªå¯¹è±¡ï¼Œç„¶åè°ƒç”¨è¯¥å¯¹è±¡çš„æ–¹æ³•å°±å¥½äº†ï¼Œå‰©ä¸‹çš„æ“ä½œéƒ½äº¤ç»™OpenFeignå»å¸®ä½ å®Œæˆï¼Œé‚£å‰©ä¸‹ä¸€äº›ä»€ä¹ˆæ“ä½œå‘¢ï¼Ÿ
 
-1.  Ê×ÏÈ¿Ï¶¨ÊÇ±£Ö¤ÍøÂçÍ¨ĞÅ£¬ÄÇÎÒÃÇ´óµ¨µØ²Â²âÒ»ÏÂ£¬OpenFeignÆäÊµµ×²ã°ïÎÒÃÇ·â×°ÁËÇëÇóµÄµØÖ·¡¢¶Ë¿Ú¡¢ÇëÇó²ÎÊıÒÔ¼°ÏìÓ¦µÄ²ÎÊı¡£
-2.  Æä´Î£¬µ±ÎÒÃÇÒªÓÃ¶ÔÏóÈ¥ÇëÇó·½·¨£¬ÄÇÕâ¸ö¶ÔÏóÊÇÔ¶³ÌµÄ·şÎñ£¬Õâ¸ö¶ÔÏó¿Ï¶¨²»¼òµ¥£¬ÕâÀïÒ²´óµ¨²Â²âÒ»ÏÂ£¬¸Ã¶ÔÏóÒ²ÊÇOpenFeign¸øÎÒÃÇ´´½¨µÄ¡£
-3.  È»ºóÔÚµ÷ÓÃ¹ı³ÌÖĞ£¬Èç¹û·şÎñÊÇÓÉ¶àÌ¨·şÎñÆ÷Ìá¹©µÄ£¬ÄÇÓÖÉæ¼°µ½¸ºÔØ¾ùºâÁË£¬Õâ¿Ï¶¨Ò²ÊÇOpenFeign°ïÎÒÃÇÍê³ÉÁË¡£
-4.  ³ıÁËÉÏÃæµÄÎÊÌâ£¬ÔÙÁªÏëÒ»ÏÂ£¬¼ÈÈ»´æÔÚ·şÎñ¶ËÊÇ¼¯ÈºµÄÇé¿ö£¬ÄÇ·şÎñ¶ËµÄµØÖ·ºÍ¶Ë¿Ú»¹ĞèÒªÒ»¸ö×¢²áÖĞĞÄÀ´×¢²á£¬Õâ¿Ï¶¨Ò²²»ÄÜÓÉ¿Í»§¶ËÀ´Íê³É£¬ÒòÎª¿Í»§¶ËÖ»¹Ø×¢ÒµÎñ´úÂë¡£ÄÇÏë¶¼²»ÓÃÏë£¬Ò²ÊÇOpenFeignÀ´Íê³ÉÁË¡£
+1.  é¦–å…ˆè‚¯å®šæ˜¯ä¿è¯ç½‘ç»œé€šä¿¡ï¼Œé‚£æˆ‘ä»¬å¤§èƒ†åœ°çŒœæµ‹ä¸€ä¸‹ï¼ŒOpenFeignå…¶å®åº•å±‚å¸®æˆ‘ä»¬å°è£…äº†è¯·æ±‚çš„åœ°å€ã€ç«¯å£ã€è¯·æ±‚å‚æ•°ä»¥åŠå“åº”çš„å‚æ•°ã€‚
+2.  å…¶æ¬¡ï¼Œå½“æˆ‘ä»¬è¦ç”¨å¯¹è±¡å»è¯·æ±‚æ–¹æ³•ï¼Œé‚£è¿™ä¸ªå¯¹è±¡æ˜¯è¿œç¨‹çš„æœåŠ¡ï¼Œè¿™ä¸ªå¯¹è±¡è‚¯å®šä¸ç®€å•ï¼Œè¿™é‡Œä¹Ÿå¤§èƒ†çŒœæµ‹ä¸€ä¸‹ï¼Œè¯¥å¯¹è±¡ä¹Ÿæ˜¯OpenFeignç»™æˆ‘ä»¬åˆ›å»ºçš„ã€‚
+3.  ç„¶ååœ¨è°ƒç”¨è¿‡ç¨‹ä¸­ï¼Œå¦‚æœæœåŠ¡æ˜¯ç”±å¤šå°æœåŠ¡å™¨æä¾›çš„ï¼Œé‚£åˆæ¶‰åŠåˆ°è´Ÿè½½å‡è¡¡äº†ï¼Œè¿™è‚¯å®šä¹Ÿæ˜¯OpenFeignå¸®æˆ‘ä»¬å®Œæˆäº†ã€‚
+4.  é™¤äº†ä¸Šé¢çš„é—®é¢˜ï¼Œå†è”æƒ³ä¸€ä¸‹ï¼Œæ—¢ç„¶å­˜åœ¨æœåŠ¡ç«¯æ˜¯é›†ç¾¤çš„æƒ…å†µï¼Œé‚£æœåŠ¡ç«¯çš„åœ°å€å’Œç«¯å£è¿˜éœ€è¦ä¸€ä¸ªæ³¨å†Œä¸­å¿ƒæ¥æ³¨å†Œï¼Œè¿™è‚¯å®šä¹Ÿä¸èƒ½ç”±å®¢æˆ·ç«¯æ¥å®Œæˆï¼Œå› ä¸ºå®¢æˆ·ç«¯åªå…³æ³¨ä¸šåŠ¡ä»£ç ã€‚é‚£æƒ³éƒ½ä¸ç”¨æƒ³ï¼Œä¹Ÿæ˜¯OpenFeignæ¥å®Œæˆäº†ã€‚
 
-OK£¬ÉÏÃæÍÆµ¼ÁËOpenFeignÓ¦¸ÃÍê³ÉµÄÖ÷ÒªÄ¿±ê£¬½ÓÏÂÀ´ÎÒÃÇÔÙÀ´·ÖÎö·ÖÎöËüÊÇÔõÃ´×öµÄ¡£
-![SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®OpenFeign-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b45564c706ab4113cc23492cc0796907b851f8.jpg "SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®OpenFeign-¿ªÔ´»ù´¡Èí¼şÉçÇø")Ö®Ç°µÄÎÄÕÂÓĞ½²¹ıÒ»¸ö¸ÅÄî£¬²»¹ÜÊÇÊ²Ã´×é¼ş£¬Ö»ÒªÊÇ¼¯³Éspring»òÕßspringbootµÄ»°£¬ÄÇÒ»¶¨ÊÇÏëÍ¨¹ıspring»òÕßspringbootÈ¥¹ÜÀíbean¶ÔÏóµÄ´´½¨µÄ£¬µ±Í¨¹ıÈİÆ÷ÄÃµ½¶ÔÏóÖ®ºóÔÙÈ¥µ÷ÓÃ¶ÔÏóµÄºËĞÄ·½·¨£¬ÄÇOpenFeignÔÚ¼¯³ÉspringbootµÄÊ±ºòÀíÄîÒ²Ó¦¸ÃÊÇÕâÑù¡£
+OKï¼Œä¸Šé¢æ¨å¯¼äº†OpenFeignåº”è¯¥å®Œæˆçš„ä¸»è¦ç›®æ ‡ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬å†æ¥åˆ†æåˆ†æå®ƒæ˜¯æ€ä¹ˆåšçš„ã€‚
+![SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹OpenFeign-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b45564c706ab4113cc23492cc0796907b851f8.jpg "SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹OpenFeign-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")ä¹‹å‰çš„æ–‡ç« æœ‰è®²è¿‡ä¸€ä¸ªæ¦‚å¿µï¼Œä¸ç®¡æ˜¯ä»€ä¹ˆç»„ä»¶ï¼Œåªè¦æ˜¯é›†æˆspringæˆ–è€…springbootçš„è¯ï¼Œé‚£ä¸€å®šæ˜¯æƒ³é€šè¿‡springæˆ–è€…springbootå»ç®¡ç†beanå¯¹è±¡çš„åˆ›å»ºçš„ï¼Œå½“é€šè¿‡å®¹å™¨æ‹¿åˆ°å¯¹è±¡ä¹‹åå†å»è°ƒç”¨å¯¹è±¡çš„æ ¸å¿ƒæ–¹æ³•ï¼Œé‚£OpenFeignåœ¨é›†æˆspringbootçš„æ—¶å€™ç†å¿µä¹Ÿåº”è¯¥æ˜¯è¿™æ ·ã€‚
 
-1.  ËùÒÔµÚÒ»²½£¬OpenFeign¼¯³Éspringboot£¬Í¨¹ıspringbootÄÃµ½ºËĞÄbean¶ÔÏó£¬ÀıÈçÉÏÍ¼ÖĞµÄuserService¶ÔÏó¡£
-2.  Õâ¸ö¶ÔÏó¿Ï¶¨²»¼òµ¥£¬²»¿ÉÄÜÖ»ÓĞgetUserµÄ¹¦ÄÜ¡£ÄÇÏëÒ»Ïë£¬springÖĞ×ö¹¦ÄÜÔöÇ¿¿ÉÒÔÓÃÊ²Ã´À´×öÄØ£¿¡ª¡ª´úÀíÂï£¬ÄÇÕâ¸ö¶ÔÏóµÄÀàĞÍ¾ÍºôÖ®Óû³öÁË£¬´úÀí¶ÔÏó¡£
-3.  µ÷ÓÃ´úÀí¶ÔÏóµÄ·½·¨Ê±£¬Á÷³ÌÏÈ½øÈëµ½invokeÖĞ£¬ÔÚÕâ¸öinvokeÖĞ£¬×öµÄÔöÇ¿°üÀ¨ÁË¸ºÔØ¾ùºâLoadBalance£¬ÒòÎªÎÒÔÚÕæÕıµ÷ÓÃgetUserµÄÊ±ºòÒªÖªµÀ¾ßÌåÊÇµ÷ÓÃÄÄÌ¨·şÎñÆ÷µÄ·şÎñ¡£
-4.  ¸ºÔØ¾ùºâ×öÍê¾ÍµÃÆ´½Ó¾ßÌåµÄhttpÇëÇó²ÎÊı£¬ÇëÇóÍ·£¬ÇëÇóµØÖ·£¬ÇëÇó¶Ë¿ÚÁË¡£
-    OK£¬ÒÔÉÏ·ÖÎöÁËOpenFeignµ×²ãÒªÊµÏÖµÄ¾ßÌå¹¦ÄÜ£¬Ò²·ÖÎöÁËËüµÄ´¦ÀíÁ÷³Ì£¬ÄÇÃ´½ÓÏÂÀ´ÎÒÃÇÍ¨¹ıÔ´ÂëÀ´ÑéÖ¤Ò»ÏÂ£¬ËüÊÇ²»ÊÇÕâÃ´ÍæµÄ¡£
+1.  æ‰€ä»¥ç¬¬ä¸€æ­¥ï¼ŒOpenFeigné›†æˆspringbootï¼Œé€šè¿‡springbootæ‹¿åˆ°æ ¸å¿ƒbeanå¯¹è±¡ï¼Œä¾‹å¦‚ä¸Šå›¾ä¸­çš„userServiceå¯¹è±¡ã€‚
+2.  è¿™ä¸ªå¯¹è±¡è‚¯å®šä¸ç®€å•ï¼Œä¸å¯èƒ½åªæœ‰getUserçš„åŠŸèƒ½ã€‚é‚£æƒ³ä¸€æƒ³ï¼Œspringä¸­åšåŠŸèƒ½å¢å¼ºå¯ä»¥ç”¨ä»€ä¹ˆæ¥åšå‘¢ï¼Ÿâ€”â€”ä»£ç†å˜›ï¼Œé‚£è¿™ä¸ªå¯¹è±¡çš„ç±»å‹å°±å‘¼ä¹‹æ¬²å‡ºäº†ï¼Œä»£ç†å¯¹è±¡ã€‚
+3.  è°ƒç”¨ä»£ç†å¯¹è±¡çš„æ–¹æ³•æ—¶ï¼Œæµç¨‹å…ˆè¿›å…¥åˆ°invokeä¸­ï¼Œåœ¨è¿™ä¸ªinvokeä¸­ï¼Œåšçš„å¢å¼ºåŒ…æ‹¬äº†è´Ÿè½½å‡è¡¡LoadBalanceï¼Œå› ä¸ºæˆ‘åœ¨çœŸæ­£è°ƒç”¨getUserçš„æ—¶å€™è¦çŸ¥é“å…·ä½“æ˜¯è°ƒç”¨å“ªå°æœåŠ¡å™¨çš„æœåŠ¡ã€‚
+4.  è´Ÿè½½å‡è¡¡åšå®Œå°±å¾—æ‹¼æ¥å…·ä½“çš„httpè¯·æ±‚å‚æ•°ï¼Œè¯·æ±‚å¤´ï¼Œè¯·æ±‚åœ°å€ï¼Œè¯·æ±‚ç«¯å£äº†ã€‚
+    OKï¼Œä»¥ä¸Šåˆ†æäº†OpenFeignåº•å±‚è¦å®ç°çš„å…·ä½“åŠŸèƒ½ï¼Œä¹Ÿåˆ†æäº†å®ƒçš„å¤„ç†æµç¨‹ï¼Œé‚£ä¹ˆæ¥ä¸‹æ¥æˆ‘ä»¬é€šè¿‡æºç æ¥éªŒè¯ä¸€ä¸‹ï¼Œå®ƒæ˜¯ä¸æ˜¯è¿™ä¹ˆç©çš„ã€‚
 
-**µÚ2ÕÂ Ô´ÂëÑéÖ¤**
+**ç¬¬2ç«  æºç éªŒè¯**
 
-![SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®OpenFeign-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/93070e354fbacedc2b85274846d2dde7dd170a.jpg "SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®OpenFeign-¿ªÔ´»ù´¡Èí¼şÉçÇø")**2.1 EnableFeignClients**
-ÎÒÃÇ´ÓÏÂÃæÕâ¸ö×¢½â½øĞĞÇĞÈë£¬Õâ¸ö×¢½â¿ªÆôÁËFeignClientµÄ½âÎö¹ı³Ì¡£
+![SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹OpenFeign-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/93070e354fbacedc2b85274846d2dde7dd170a.jpg "SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹OpenFeign-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")**2.1 EnableFeignClients**
+æˆ‘ä»¬ä»ä¸‹é¢è¿™ä¸ªæ³¨è§£è¿›è¡Œåˆ‡å…¥ï¼Œè¿™ä¸ªæ³¨è§£å¼€å¯äº†FeignClientçš„è§£æè¿‡ç¨‹ã€‚
 
 
 
@@ -44,7 +44,7 @@ OK£¬ÉÏÃæÍÆµ¼ÁËOpenFeignÓ¦¸ÃÍê³ÉµÄÖ÷ÒªÄ¿±ê£¬½ÓÏÂÀ´ÎÒÃÇÔÙÀ´·ÖÎö·ÖÎöËüÊÇÔõÃ´×öµÄ¡£
 
 
 
-Õâ¸ö×¢½âµÄÉùÃ÷ÈçÏÂ£¬ËüÓÃµ½ÁËÒ»¸ö@Import×¢½â£¬ÎÒÃÇÖªµÀImportÊÇÓÃÀ´µ¼ÈëÒ»¸öÅäÖÃÀàµÄ£¬½ÓÏÂÀ´È¥¿´Ò»ÏÂFeignClientsRegistrarµÄ¶¨Òå¡£
+è¿™ä¸ªæ³¨è§£çš„å£°æ˜å¦‚ä¸‹ï¼Œå®ƒç”¨åˆ°äº†ä¸€ä¸ª@Importæ³¨è§£ï¼Œæˆ‘ä»¬çŸ¥é“Importæ˜¯ç”¨æ¥å¯¼å…¥ä¸€ä¸ªé…ç½®ç±»çš„ï¼Œæ¥ä¸‹æ¥å»çœ‹ä¸€ä¸‹FeignClientsRegistrarçš„å®šä¹‰ã€‚
 
 
 
@@ -65,8 +65,8 @@ public @interface EnableFeignClients {
 
 
 
-FeignClientsRegistrarÊµÏÖÁË
-ImportBeanDefinitionRegistrar£¬ËüÊÇÒ»¸ö¶¯Ì¬×¢ÈëbeanµÄ½Ó¿Ú£¬Spring BootÆô¶¯µÄÊ±ºò£¬»áÈ¥µ÷ÓÃÕâ¸öÀàÖĞµÄregisterBeanDefinitionsÀ´ÊµÏÖ¶¯Ì¬BeanµÄ×°ÔØ¡£registerBeanDefinitionsÊÇÔÚspringÈİÆ÷Æô¶¯Ê±Ö´ĞĞinvokeBeanFactoryPostProcessors·½·¨£¬È»ºó¶ÔÏàÓ¦µÄÀà½øĞĞ½âÎö×¢²á£¬ËüµÄ×÷ÓÃÀàËÆÓÚImportSelector¡£
+FeignClientsRegistrarå®ç°äº†
+ImportBeanDefinitionRegistrarï¼Œå®ƒæ˜¯ä¸€ä¸ªåŠ¨æ€æ³¨å…¥beançš„æ¥å£ï¼ŒSpring Bootå¯åŠ¨çš„æ—¶å€™ï¼Œä¼šå»è°ƒç”¨è¿™ä¸ªç±»ä¸­çš„registerBeanDefinitionsæ¥å®ç°åŠ¨æ€Beançš„è£…è½½ã€‚registerBeanDefinitionsæ˜¯åœ¨springå®¹å™¨å¯åŠ¨æ—¶æ‰§è¡ŒinvokeBeanFactoryPostProcessorsæ–¹æ³•ï¼Œç„¶åå¯¹ç›¸åº”çš„ç±»è¿›è¡Œè§£ææ³¨å†Œï¼Œå®ƒçš„ä½œç”¨ç±»ä¼¼äºImportSelectorã€‚
 
 
 
@@ -89,10 +89,10 @@ class FeignClientsRegistrar implements ImportBeanDefinitionRegistrar, ResourceLo
 
 
 **2.1.1 ImportBeanDefinitionRegistrar**
-¼òµ¥¸ø´ó¼ÒÑİÊ¾Ò»ÏÂ
-ImportBeanDefinitionRegistrarµÄ×÷ÓÃ¡£
+ç®€å•ç»™å¤§å®¶æ¼”ç¤ºä¸€ä¸‹
+ImportBeanDefinitionRegistrarçš„ä½œç”¨ã€‚
 
-*   ¶¨ÒåÒ»¸öĞèÒª±»×°ÔØµ½IOCÈİÆ÷ÖĞµÄÀàHelloService
+*   å®šä¹‰ä¸€ä¸ªéœ€è¦è¢«è£…è½½åˆ°IOCå®¹å™¨ä¸­çš„ç±»HelloService
 
 
 
@@ -109,7 +109,7 @@ public class HelloService {
 
 
 
-*   ¶¨ÒåÒ»¸öRegistrarµÄÊµÏÖ£¬¶¨ÒåÒ»¸öbean£¬×°ÔØµ½IOCÈİÆ÷
+*   å®šä¹‰ä¸€ä¸ªRegistrarçš„å®ç°ï¼Œå®šä¹‰ä¸€ä¸ªbeanï¼Œè£…è½½åˆ°IOCå®¹å™¨
 
 
 
@@ -132,7 +132,7 @@ public class FeignImportBeanDefinitionRegistrar implements ImportBeanDefinitionR
 
 
 
-* ¶¨ÒåÒ»¸ö×¢½âÀà
+* å®šä¹‰ä¸€ä¸ªæ³¨è§£ç±»
 
 
 
@@ -153,7 +153,7 @@ public class FeignImportBeanDefinitionRegistrar implements ImportBeanDefinitionR
 
 
 
-* Æô¶¯Àà
+* å¯åŠ¨ç±»
 
 
 
@@ -178,23 +178,23 @@ public class OpenfeignUserServiceApplication {
 
 
 
-*   Í¨¹ı½á¹ûÑİÊ¾¿ÉÒÔ·¢ÏÖ£¬HelloServiceÕâ¸öbean ÒÑ¾­×°ÔØµ½ÁËIOCÈİÆ÷¡£
-    Õâ¾ÍÊÇ¶¯Ì¬×°ÔØµÄ¹¦ÄÜÊµÏÖ£¬ËüÏà±ÈÓÚ@ConfigurationÅäÖÃ×¢Èë£¬»á¶àÁËºÜ¶àµÄÁé»îĞÔ¡£ ok£¬ÔÙ»Øµ½FeignClientµÄ½âÎöÖĞÀ´¡£
+*   é€šè¿‡ç»“æœæ¼”ç¤ºå¯ä»¥å‘ç°ï¼ŒHelloServiceè¿™ä¸ªbean å·²ç»è£…è½½åˆ°äº†IOCå®¹å™¨ã€‚
+    è¿™å°±æ˜¯åŠ¨æ€è£…è½½çš„åŠŸèƒ½å®ç°ï¼Œå®ƒç›¸æ¯”äº@Configurationé…ç½®æ³¨å…¥ï¼Œä¼šå¤šäº†å¾ˆå¤šçš„çµæ´»æ€§ã€‚ okï¼Œå†å›åˆ°FeignClientçš„è§£æä¸­æ¥ã€‚
 
 **2.1.2 FeignClientsRegistrar**
 
-* registerDefaultConfiguration ·½·¨ÄÚ²¿´Ó SpringBoot Æô¶¯ÀàÉÏ¼ì²éÊÇ·ñÓĞ@EnableFeignClients, ÓĞ¸Ã×¢½âµÄ»°£¬ ÔòÍê³É Feign ¿ò¼ÜÏà¹ØµÄÒ»Ğ©ÅäÖÃÄÚÈİ×¢²á
+* registerDefaultConfiguration æ–¹æ³•å†…éƒ¨ä» SpringBoot å¯åŠ¨ç±»ä¸Šæ£€æŸ¥æ˜¯å¦æœ‰@EnableFeignClients, æœ‰è¯¥æ³¨è§£çš„è¯ï¼Œ åˆ™å®Œæˆ Feign æ¡†æ¶ç›¸å…³çš„ä¸€äº›é…ç½®å†…å®¹æ³¨å†Œ
 
-* registerFeignClients ·½·¨ÄÚ²¿´Ó classpath ÖĞ£¬ É¨Ãè»ñµÃ @FeignClient ĞŞÊÎµÄÀà£¬ ½«ÀàµÄÄÚÈİ½âÎöÎª BeanDefinition , ×îÖÕÍ¨¹ıµ÷ÓÃ Spring ¿ò¼ÜÖĞµÄBeanDefinitionReaderUtils.resgisterBeanDefinition ½«½âÎö´¦Àí¹ıµÄ FeignClientBeanDeifinition Ìí¼Óµ½ spring ÈİÆ÷ÖĞ.
+* registerFeignClients æ–¹æ³•å†…éƒ¨ä» classpath ä¸­ï¼Œ æ‰«æè·å¾— @FeignClient ä¿®é¥°çš„ç±»ï¼Œ å°†ç±»çš„å†…å®¹è§£æä¸º BeanDefinition , æœ€ç»ˆé€šè¿‡è°ƒç”¨ Spring æ¡†æ¶ä¸­çš„BeanDefinitionReaderUtils.resgisterBeanDefinition å°†è§£æå¤„ç†è¿‡çš„ FeignClientBeanDeifinition æ·»åŠ åˆ° spring å®¹å™¨ä¸­.
 
 
 
   ```
   @Override
   public void registerBeanDefinitions(AnnotationMetadata metadata,BeanDefinitionRegistry registry) {
-      //×¢²á@EnableFeignClientsÖĞ¶¨ÒådefaultConfigurationÊôĞÔÏÂµÄÀà£¬°ü×°³ÉFeignClientSpecification£¬×¢²áµ½SpringÈİÆ÷¡£
-      //ÔÚ@FeignClientÖĞÓĞÒ»¸öÊôĞÔ£ºconfiguration£¬Õâ¸öÊôĞÔÊÇ±íÊ¾¸÷¸öFeignClient×Ô¶¨ÒåµÄÅäÖÃÀà£¬ºóÃæÒ²»áÍ¨¹ıµ÷ÓÃregisterClientConfiguration·½·¨À´×¢²á³ÉFeignClientSpecificationµ½ÈİÆ÷¡£
-      //ËùÒÔ£¬ÕâÀï¿ÉÒÔÍêÈ«Àí½âÔÚ@EnableFeignClientsÖĞÅäÖÃµÄÊÇ×öÎª¶µµ×µÄÅäÖÃ£¬ÔÚ¸÷¸ö@FeignClientÅäÖÃµÄ¾ÍÊÇ×Ô¶¨ÒåµÄÇé¿ö¡£
+      //æ³¨å†Œ@EnableFeignClientsä¸­å®šä¹‰defaultConfigurationå±æ€§ä¸‹çš„ç±»ï¼ŒåŒ…è£…æˆFeignClientSpecificationï¼Œæ³¨å†Œåˆ°Springå®¹å™¨ã€‚
+      //åœ¨@FeignClientä¸­æœ‰ä¸€ä¸ªå±æ€§ï¼šconfigurationï¼Œè¿™ä¸ªå±æ€§æ˜¯è¡¨ç¤ºå„ä¸ªFeignClientè‡ªå®šä¹‰çš„é…ç½®ç±»ï¼Œåé¢ä¹Ÿä¼šé€šè¿‡è°ƒç”¨registerClientConfigurationæ–¹æ³•æ¥æ³¨å†ŒæˆFeignClientSpecificationåˆ°å®¹å™¨ã€‚
+      //æ‰€ä»¥ï¼Œè¿™é‡Œå¯ä»¥å®Œå…¨ç†è§£åœ¨@EnableFeignClientsä¸­é…ç½®çš„æ˜¯åšä¸ºå…œåº•çš„é…ç½®ï¼Œåœ¨å„ä¸ª@FeignClienté…ç½®çš„å°±æ˜¯è‡ªå®šä¹‰çš„æƒ…å†µã€‚
       registerDefaultConfiguration(metadata, registry);
       registerFeignClients(metadata, registry);
   }
@@ -214,9 +214,9 @@ public class OpenfeignUserServiceApplication {
 
   ```
   private void registerDefaultConfiguration(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
-      // »ñÈ¡µ½metadataÖĞ¹ØÓÚEnableFeignClientsµÄÊôĞÔÖµ¼üÖµ¶Ô¡£
+      // è·å–åˆ°metadataä¸­å…³äºEnableFeignClientsçš„å±æ€§å€¼é”®å€¼å¯¹ã€‚
       Map<String, Object> defaultAttrs = metadata.getAnnotationAttributes(EnableFeignClients.class.getName(), true);
-      //Èç¹ûÅäÖÃÁËdefaultConfiguration ½øĞĞÅäÖÃ,Èç¹ûÃ»ÓĞÊ¹ÓÃÄ¬ÈÏµÄconfiguration
+      //å¦‚æœé…ç½®äº†defaultConfiguration è¿›è¡Œé…ç½®,å¦‚æœæ²¡æœ‰ä½¿ç”¨é»˜è®¤çš„configuration
       if (defaultAttrs != null && defaultAttrs.containsKey("defaultConfiguration")) {
           String name;
           if (metadata.hasEnclosingClass()) {
@@ -224,7 +224,7 @@ public class OpenfeignUserServiceApplication {
           } else {
               name = "default." + metadata.getClassName();
           }
-          //½øĞĞ×¢²á
+          //è¿›è¡Œæ³¨å†Œ
           this.registerClientConfiguration(registry, name, defaultAttrs.get("defaultConfiguration"));
       }
   
@@ -243,7 +243,7 @@ public class OpenfeignUserServiceApplication {
 
 ```
 private void registerClientConfiguration(BeanDefinitionRegistry registry, Object name, Object configuration) {
-    //Ê¹ÓÃBeanDefinitionBuilderÀ´Éú³ÉBeanDefinition,²¢°ÑËü½øĞĞ×¢²á
+    //ä½¿ç”¨BeanDefinitionBuilderæ¥ç”ŸæˆBeanDefinition,å¹¶æŠŠå®ƒè¿›è¡Œæ³¨å†Œ
     BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition(FeignClientSpecification.class);
     builder.addConstructorArgValue(name);
     builder.addConstructorArgValue(configuration);
@@ -259,17 +259,17 @@ private void registerClientConfiguration(BeanDefinitionRegistry registry, Object
 
 
 
-·½·¨µÄÈë²ÎBeanDefinitionRegistryÊÇspring¿ò¼ÜÓÃÓÚ¶¯Ì¬×¢²áBeanDefinitionĞÅÏ¢µÄ½Ó¿Ú£¬µ÷ÓÃregisterBeanDefinition·½·¨¿ÉÒÔ½«BeanDefinition×¢²áµ½SpringÈİÆ÷ÖĞ£¬ÆäÖĞnameÊôĞÔ¾ÍÊÇ×¢²áµÄBeanDefinitionµÄÃû³Æ£¬ÔÚÕâÀïËü×¢²áÁËÒ»¸öFeignClientSpecificationµÄ¶ÔÏó¡£
+æ–¹æ³•çš„å…¥å‚BeanDefinitionRegistryæ˜¯springæ¡†æ¶ç”¨äºåŠ¨æ€æ³¨å†ŒBeanDefinitionä¿¡æ¯çš„æ¥å£ï¼Œè°ƒç”¨registerBeanDefinitionæ–¹æ³•å¯ä»¥å°†BeanDefinitionæ³¨å†Œåˆ°Springå®¹å™¨ä¸­ï¼Œå…¶ä¸­nameå±æ€§å°±æ˜¯æ³¨å†Œçš„BeanDefinitionçš„åç§°ï¼Œåœ¨è¿™é‡Œå®ƒæ³¨å†Œäº†ä¸€ä¸ªFeignClientSpecificationçš„å¯¹è±¡ã€‚
 
-FeignClientSpecificationÊµÏÖÁË
-NamedContextFactory.Specification½Ó¿Ú£¬ËüÊÇFeignÊµÀı»¯µÄÖØÒªÒ»»·£¬ÔÚÉÏÃæµÄ·½·¨ÖĞ£¬Ëü³ÖÓĞ×Ô¶¨ÒåÅäÖÃµÄ×é¼şÊµÀı£¬SpringCloudÊ¹ÓÃNamedContextFactory´´½¨Ò»Ğ©ÁĞµÄÔËĞĞÉÏÏÂÎÄApplicationContextÀ´ÈÃ¶ÔÓ¦µÄSpecificationÔÚÕâĞ©ÉÏÏÂÎÄÖĞ´´½¨ÊµÀı¶ÔÏó¡£
+FeignClientSpecificationå®ç°äº†
+NamedContextFactory.Specificationæ¥å£ï¼Œå®ƒæ˜¯Feignå®ä¾‹åŒ–çš„é‡è¦ä¸€ç¯ï¼Œåœ¨ä¸Šé¢çš„æ–¹æ³•ä¸­ï¼Œå®ƒæŒæœ‰è‡ªå®šä¹‰é…ç½®çš„ç»„ä»¶å®ä¾‹ï¼ŒSpringCloudä½¿ç”¨NamedContextFactoryåˆ›å»ºä¸€äº›åˆ—çš„è¿è¡Œä¸Šä¸‹æ–‡ApplicationContextæ¥è®©å¯¹åº”çš„Specificationåœ¨è¿™äº›ä¸Šä¸‹æ–‡ä¸­åˆ›å»ºå®ä¾‹å¯¹è±¡ã€‚
 
-NamedContextFactoryÓĞ3¸ö¹¦ÄÜ£º
+NamedContextFactoryæœ‰3ä¸ªåŠŸèƒ½ï¼š
 
-*   ´´½¨AnnotationConfigApplicationContextÉÏÏÂÎÄ¡£
-*   ÔÚÉÏÏÂÎÄÖĞ´´½¨²¢»ñÈ¡beanÊµÀı¡£
-*   µ±ÉÏÏÂÎÄÏú»ÙÊ±Çå³ıÆäÖĞµÄfeignÊµÀı¡£
-    NamedContextFactoryÓĞ¸ö·Ç³£ÖØÒªµÄ×ÓÀàFeignContext£¬ÓÃÓÚ´æ´¢¸÷ÖÖOpenFeignµÄ×é¼şÊµÀı¡£
+*   åˆ›å»ºAnnotationConfigApplicationContextä¸Šä¸‹æ–‡ã€‚
+*   åœ¨ä¸Šä¸‹æ–‡ä¸­åˆ›å»ºå¹¶è·å–beanå®ä¾‹ã€‚
+*   å½“ä¸Šä¸‹æ–‡é”€æ¯æ—¶æ¸…é™¤å…¶ä¸­çš„feignå®ä¾‹ã€‚
+    NamedContextFactoryæœ‰ä¸ªéå¸¸é‡è¦çš„å­ç±»FeignContextï¼Œç”¨äºå­˜å‚¨å„ç§OpenFeignçš„ç»„ä»¶å®ä¾‹ã€‚
 
 
 
@@ -289,37 +289,37 @@ public class FeignContext extends NamedContextFactory<FeignClientSpecification> 
 
 
 
-FeignContextÊÇÄÄÀï¹¹½¨µÄÄØ£¿
+FeignContextæ˜¯å“ªé‡Œæ„å»ºçš„å‘¢ï¼Ÿ
 
-ÅäÖÃ¼û£º
-pring-cloud-openfeign-core-2.2.3.RELEASE.jar!\META-INF\spring.factories![SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®OpenFeign-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/d830f20713aca01438472786f5f84c7058232b.jpg "SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®OpenFeign-¿ªÔ´»ù´¡Èí¼şÉçÇø")**2.2.1 FeignAutoConfiguration**
+é…ç½®è§ï¼š
+pring-cloud-openfeign-core-2.2.3.RELEASE.jar!\META-INF\spring.factories![SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹OpenFeign-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/d830f20713aca01438472786f5f84c7058232b.jpg "SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹OpenFeign-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")**2.2.1 FeignAutoConfiguration**
 
-![SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®OpenFeign-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/894c73791fbf7215782217d7132bc57f004085.jpg "SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®OpenFeign-¿ªÔ´»ù´¡Èí¼şÉçÇø")
+![SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹OpenFeign-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/894c73791fbf7215782217d7132bc57f004085.jpg "SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹OpenFeign-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")
 
-½«Ä¬ÈÏµÄFeignClientsConfiguration×÷Îª²ÎÊı´«µİ¸ø¹¹Ôìº¯Êı
+å°†é»˜è®¤çš„FeignClientsConfigurationä½œä¸ºå‚æ•°ä¼ é€’ç»™æ„é€ å‡½æ•°
 
-FeignContext´´½¨µÄÊ±ºò»á½«Ö®Ç°FeignClientSpecificationÍ¨¹ısetConfigurationsÉèÖÃ¸øcontextÉÏÏÂÎÄ¡£
+FeignContextåˆ›å»ºçš„æ—¶å€™ä¼šå°†ä¹‹å‰FeignClientSpecificationé€šè¿‡setConfigurationsè®¾ç½®ç»™contextä¸Šä¸‹æ–‡ã€‚
 
 **2.2.2 createContext**
-´úÂëÏê¼û£º
-org.springframework.cloud.context.named.NamedContextFactory#createContext·½·¨¡£
+ä»£ç è¯¦è§ï¼š
+org.springframework.cloud.context.named.NamedContextFactory#createContextæ–¹æ³•ã€‚
 
-FeignContextµÄ¸¸ÀàµÄcreateContext·½·¨»á½«´´½¨
-AnnotationConfigApplicationContextÊµÀı£¬ÕâÊµÀı½«×÷Îªµ±Ç°ÉÏÏÂÎÄµÄ×ÓÉÏÏÂÎÄ£¬ÓÃÓÚ¹ØÁªfeign×é¼şµÄ²»Í¬ÊµÀı¡£ÔÚµ÷ÓÃFeignClientFactoryBeanµÄgetObject·½·¨Ê±µ÷ÓÃ¡££¨createContextµ÷ÓÃÔÚÏÂÎÄ»á½²½â£©
+FeignContextçš„çˆ¶ç±»çš„createContextæ–¹æ³•ä¼šå°†åˆ›å»º
+AnnotationConfigApplicationContextå®ä¾‹ï¼Œè¿™å®ä¾‹å°†ä½œä¸ºå½“å‰ä¸Šä¸‹æ–‡çš„å­ä¸Šä¸‹æ–‡ï¼Œç”¨äºå…³è”feignç»„ä»¶çš„ä¸åŒå®ä¾‹ã€‚åœ¨è°ƒç”¨FeignClientFactoryBeançš„getObjectæ–¹æ³•æ—¶è°ƒç”¨ã€‚ï¼ˆcreateContextè°ƒç”¨åœ¨ä¸‹æ–‡ä¼šè®²è§£ï¼‰
 
 
 
 ```
 protected AnnotationConfigApplicationContext createContext(String name) {
     AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-	//»ñÈ¡nameËù¶ÔÓ¦µÄconfiguration,Èç¹ûÓĞ¾Í×¢²áµ½×ÓcontextÖĞ
+	//è·å–nameæ‰€å¯¹åº”çš„configuration,å¦‚æœæœ‰å°±æ³¨å†Œåˆ°å­contextä¸­
     if (this.configurations.containsKey(name)) {
         for (Class<?> configuration : this.configurations.get(name)
              .getConfiguration()) {
             context.register(configuration);
         }
     }
-    //×¢²ádefaultµÄConfiguration,Ò²¾ÍÊÇ FeignClientsRegistrarÀàÖĞregisterDefaultConfiguration·½·¨ÖĞ×¢²áµÄConfiguration
+    //æ³¨å†Œdefaultçš„Configuration,ä¹Ÿå°±æ˜¯ FeignClientsRegistrarç±»ä¸­registerDefaultConfigurationæ–¹æ³•ä¸­æ³¨å†Œçš„Configuration
     for (Map.Entry<String, C> entry : this.configurations.entrySet()) {
         if (entry.getKey().startsWith("default.")) {
             for (Class<?> configuration : entry.getValue().getConfiguration()) {
@@ -327,10 +327,10 @@ protected AnnotationConfigApplicationContext createContext(String name) {
             }
         }
     }
-    //×¢²áPropertyPlaceholderAutoConfiguration
+    //æ³¨å†ŒPropertyPlaceholderAutoConfiguration
     context.register(PropertyPlaceholderAutoConfiguration.class,
                      this.defaultConfigType);
-    //ÖÃEnvironmentµÄpropertySourcesÊôĞÔÔ´
+    //ç½®Environmentçš„propertySourceså±æ€§æº
     context.getEnvironment().getPropertySources().addFirst(new MapPropertySource(
         this.propertySourceName,
         Collections.<String, Object>singletonMap(this.propertyName, name)));
@@ -355,7 +355,7 @@ protected AnnotationConfigApplicationContext createContext(String name) {
 
 
 
-ÓÉÓÚNamedContextFactoryÊµÏÖÁËDisposableBean£¬ËùÒÔµ±ÊµÀıÏûÍöµÄÊ±ºò»áµ÷ÓÃ
+ç”±äºNamedContextFactoryå®ç°äº†DisposableBeanï¼Œæ‰€ä»¥å½“å®ä¾‹æ¶ˆäº¡çš„æ—¶å€™ä¼šè°ƒç”¨
 
 
 
@@ -380,17 +380,17 @@ public void destroy() {
 
 
 
-×Ü½á£ºNamedContextFactory»á´´½¨³ö
-AnnotationConfigApplicationContextÊµÀı£¬²¢ÒÔname×÷ÎªÎ¨Ò»±êÊ¶£¬È»ºóÃ¿¸öAnnotationConfigApplicationContextÊµÀı¶¼»á×¢²á²¿·ÖÅäÖÃÀà£¬´Ó¶ø¿ÉÒÔ¸ø³öÒ»ÏµÁĞµÄ»ùÓÚÅäÖÃÀàÉú³ÉµÄ×é¼şÊµÀı£¬ÕâÑù¾Í¿ÉÒÔ»ùÓÚnameÀ´¹ÜÀíÒ»ÏµÁĞµÄ×é¼şÊµÀı£¬Îª²»Í¬µÄFeignClient×¼±¸²»Í¬ÅäÖÃ×é¼şÊµÀı¡£
+æ€»ç»“ï¼šNamedContextFactoryä¼šåˆ›å»ºå‡º
+AnnotationConfigApplicationContextå®ä¾‹ï¼Œå¹¶ä»¥nameä½œä¸ºå”¯ä¸€æ ‡è¯†ï¼Œç„¶åæ¯ä¸ªAnnotationConfigApplicationContextå®ä¾‹éƒ½ä¼šæ³¨å†Œéƒ¨åˆ†é…ç½®ç±»ï¼Œä»è€Œå¯ä»¥ç»™å‡ºä¸€ç³»åˆ—çš„åŸºäºé…ç½®ç±»ç”Ÿæˆçš„ç»„ä»¶å®ä¾‹ï¼Œè¿™æ ·å°±å¯ä»¥åŸºäºnameæ¥ç®¡ç†ä¸€ç³»åˆ—çš„ç»„ä»¶å®ä¾‹ï¼Œä¸ºä¸åŒçš„FeignClientå‡†å¤‡ä¸åŒé…ç½®ç»„ä»¶å®ä¾‹ã€‚
 
 **2.3 registerFeignClients**
-Õâ¸ö·½·¨Ö÷ÒªÊÇÉ¨ÃèÀàÂ·¾¶ÏÂËùÓĞµÄ@FeignClient×¢½â£¬È»ºó½øĞĞ¶¯Ì¬BeanµÄ×¢Èë¡£Ëü×îÖÕ»áµ÷ÓÃ registerFeignClient ·½·¨¡£
+è¿™ä¸ªæ–¹æ³•ä¸»è¦æ˜¯æ‰«æç±»è·¯å¾„ä¸‹æ‰€æœ‰çš„@FeignClientæ³¨è§£ï¼Œç„¶åè¿›è¡ŒåŠ¨æ€Beançš„æ³¨å…¥ã€‚å®ƒæœ€ç»ˆä¼šè°ƒç”¨ registerFeignClient æ–¹æ³•ã€‚
 
 
 
 ```
 public void registerFeignClients(AnnotationMetadata metadata,BeanDefinitionRegistry registry) {
-    //Ê¡ÂÔ´úÂë...
+    //çœç•¥ä»£ç ...
     registerFeignClient(registry, annotationMetadata, attributes);
 }
 ```
@@ -403,7 +403,7 @@ public void registerFeignClients(AnnotationMetadata metadata,BeanDefinitionRegis
 
 
 
-ÔÚÕâ¸ö·½·¨ÖĞ£¬¾ÍÊÇÈ¥×é×°BeanDefinition£¬Ò²¾ÍÊÇBeanµÄ¶¨Òå£¬È»ºó×¢²áµ½Spring IOCÈİÆ÷¡£
+åœ¨è¿™ä¸ªæ–¹æ³•ä¸­ï¼Œå°±æ˜¯å»ç»„è£…BeanDefinitionï¼Œä¹Ÿå°±æ˜¯Beançš„å®šä¹‰ï¼Œç„¶åæ³¨å†Œåˆ°Spring IOCå®¹å™¨ã€‚
 
 
 
@@ -411,7 +411,7 @@ public void registerFeignClients(AnnotationMetadata metadata,BeanDefinitionRegis
 private void registerFeignClient(BeanDefinitionRegistry registry,AnnotationMetadata annotationMetadata, Map<String, Object> attributes) {
     String className = annotationMetadata.getClassName();
     BeanDefinitionBuilder definition = BeanDefinitionBuilder.genericBeanDefinition(FeignClientFactoryBean.class);
-    //Ê¡ÂÔ´úÂë...
+    //çœç•¥ä»£ç ...
     BeanDefinitionHolder holder = new BeanDefinitionHolder(beanDefinition,className,new String[] { alias });
     BeanDefinitionReaderUtils.registerBeanDefinition(holder, registry);
 }
@@ -425,15 +425,15 @@ private void registerFeignClient(BeanDefinitionRegistry registry,AnnotationMetad
 
 
 
-ÎÒÃÇ¹Ø×¢Ò»ÏÂ£¬BeanDefinitionBuilderÊÇÓÃÀ´¹¹½¨Ò»¸öBeanDefinitionµÄ£¬ËüÊÇÍ¨¹ıgenericBeanDefinition À´¹¹½¨µÄ£¬²¢ÇÒ´«ÈëÁËÒ»¸öFeignClientFactoryBeanµÄÀà¡£
+æˆ‘ä»¬å…³æ³¨ä¸€ä¸‹ï¼ŒBeanDefinitionBuilderæ˜¯ç”¨æ¥æ„å»ºä¸€ä¸ªBeanDefinitionçš„ï¼Œå®ƒæ˜¯é€šè¿‡genericBeanDefinition æ¥æ„å»ºçš„ï¼Œå¹¶ä¸”ä¼ å…¥äº†ä¸€ä¸ªFeignClientFactoryBeançš„ç±»ã€‚
 
-ÎÒÃÇ¿ÉÒÔ·¢ÏÖ£¬FeignClient±»¶¯Ì¬×¢²á³ÉÁËÒ»¸öFactoryBean
+æˆ‘ä»¬å¯ä»¥å‘ç°ï¼ŒFeignClientè¢«åŠ¨æ€æ³¨å†Œæˆäº†ä¸€ä¸ªFactoryBean
 
-> Spring Cloud FengnClientÊµ¼ÊÉÏÊÇÀûÓÃSpringµÄ´úÀí¹¤³§À´Éú³É´úÀíÀà£¬ËùÒÔÔÚÕâÀï²Å»á°ÑËùÓĞµÄFeignClientµÄBeanDefinitionÉèÖÃÎªFeignClientFactoryBeanÀàĞÍ£¬¶øFeignClientFactoryBean¼Ì³Ğ×ÔFactoryBean£¬ËüÊÇÒ»¸ö¹¤³§Bean¡£
+> Spring Cloud FengnClientå®é™…ä¸Šæ˜¯åˆ©ç”¨Springçš„ä»£ç†å·¥å‚æ¥ç”Ÿæˆä»£ç†ç±»ï¼Œæ‰€ä»¥åœ¨è¿™é‡Œæ‰ä¼šæŠŠæ‰€æœ‰çš„FeignClientçš„BeanDefinitionè®¾ç½®ä¸ºFeignClientFactoryBeanç±»å‹ï¼Œè€ŒFeignClientFactoryBeanç»§æ‰¿è‡ªFactoryBeanï¼Œå®ƒæ˜¯ä¸€ä¸ªå·¥å‚Beanã€‚
 >
-> ÔÚSpringÖĞ£¬FactoryBeanÊÇÒ»¸ö¹¤³§Bean£¬ÓÃÀ´´´½¨´úÀíBean¡£
+> åœ¨Springä¸­ï¼ŒFactoryBeanæ˜¯ä¸€ä¸ªå·¥å‚Beanï¼Œç”¨æ¥åˆ›å»ºä»£ç†Beanã€‚
 >
-> ¹¤³§ Bean ÊÇÒ»ÖÖÌØÊâµÄ Bean, ¶ÔÓÚ Bean µÄÏû·ÑÕßÀ´Ëµ£¬ ËûÂß¼­ÉÏÊÇ¸ĞÖª²»µ½Õâ¸ö Bean ÊÇÆÕÍ¨µÄ Bean »¹ÊÇ¹¤³§ Bean, Ö»ÊÇ°´ÕÕÕı³£µÄ»ñÈ¡ Bean ·½Ê½È¥µ÷ÓÃ£¬ µ«¹¤³§bean ×îºó·µ»ØµÄÊµÀı²»ÊÇ¹¤³§Bean ±¾Éí£¬ ¶øÊÇÖ´ĞĞ¹¤³§ Bean µÄ getObject Âß¼­·µ»ØµÄÊ¾Àı¡££¨Ò²¾ÍÊÇÔÚÊµÀı»¯¹¤³§BeanµÄÊ±ºò»áÈ¥µ÷ÓÃËüµÄgetObject·½·¨£©
+> å·¥å‚ Bean æ˜¯ä¸€ç§ç‰¹æ®Šçš„ Bean, å¯¹äº Bean çš„æ¶ˆè´¹è€…æ¥è¯´ï¼Œ ä»–é€»è¾‘ä¸Šæ˜¯æ„ŸçŸ¥ä¸åˆ°è¿™ä¸ª Bean æ˜¯æ™®é€šçš„ Bean è¿˜æ˜¯å·¥å‚ Bean, åªæ˜¯æŒ‰ç…§æ­£å¸¸çš„è·å– Bean æ–¹å¼å»è°ƒç”¨ï¼Œ ä½†å·¥å‚bean æœ€åè¿”å›çš„å®ä¾‹ä¸æ˜¯å·¥å‚Bean æœ¬èº«ï¼Œ è€Œæ˜¯æ‰§è¡Œå·¥å‚ Bean çš„ getObject é€»è¾‘è¿”å›çš„ç¤ºä¾‹ã€‚ï¼ˆä¹Ÿå°±æ˜¯åœ¨å®ä¾‹åŒ–å·¥å‚Beançš„æ—¶å€™ä¼šå»è°ƒç”¨å®ƒçš„getObjectæ–¹æ³•ï¼‰
 
 
 
@@ -453,15 +453,15 @@ public static BeanDefinitionBuilder genericBeanDefinition(Class<?> beanClass) {
 
 
 
-¼òµ¥À´Ëµ£¬FeignClient±ê×¢µÄÕâ¸ö½Ó¿Ú£¬»áÍ¨¹ı
-FeignClientFactoryBean.getObject()Õâ¸ö·½·¨»ñµÃÒ»¸ö´úÀí¶ÔÏó¡£
+ç®€å•æ¥è¯´ï¼ŒFeignClientæ ‡æ³¨çš„è¿™ä¸ªæ¥å£ï¼Œä¼šé€šè¿‡
+FeignClientFactoryBean.getObject()è¿™ä¸ªæ–¹æ³•è·å¾—ä¸€ä¸ªä»£ç†å¯¹è±¡ã€‚
 
 **2.3.1 FeignClientFactoryBean.getObject**
-getObjectµ÷ÓÃµÄÊÇgetTarget·½·¨£¬Ëü´ÓapplicationContextÈ¡³öFeignContext£¬FeignContext¼Ì³ĞÁËNamedContextFactory£¬ËüÊÇÓÃÀ´À´Í³Ò»Î¬»¤feignÖĞ¸÷¸öfeign¿Í»§¶ËÏà»¥¸ôÀëµÄÉÏÏÂÎÄ¡£
+getObjectè°ƒç”¨çš„æ˜¯getTargetæ–¹æ³•ï¼Œå®ƒä»applicationContextå–å‡ºFeignContextï¼ŒFeignContextç»§æ‰¿äº†NamedContextFactoryï¼Œå®ƒæ˜¯ç”¨æ¥æ¥ç»Ÿä¸€ç»´æŠ¤feignä¸­å„ä¸ªfeignå®¢æˆ·ç«¯ç›¸äº’éš”ç¦»çš„ä¸Šä¸‹æ–‡ã€‚
 
-½Ó×Å£¬¹¹½¨feign.builder£¬ÔÚ¹¹½¨Ê±»áÏòFeignContext»ñÈ¡ÅäÖÃµÄEncoder£¬DecoderµÈ¸÷ÖÖĞÅÏ¢¡£FeignContextÔÚÉÏÆªÖĞÒÑ¾­Ìáµ½»áÎªÃ¿¸öFeign¿Í»§¶Ë·ÖÅäÁËÒ»¸öÈİÆ÷£¬ËüÃÇµÄ¸¸ÈİÆ÷¾ÍÊÇspringÈİÆ÷
+æ¥ç€ï¼Œæ„å»ºfeign.builderï¼Œåœ¨æ„å»ºæ—¶ä¼šå‘FeignContextè·å–é…ç½®çš„Encoderï¼ŒDecoderç­‰å„ç§ä¿¡æ¯ã€‚FeignContextåœ¨ä¸Šç¯‡ä¸­å·²ç»æåˆ°ä¼šä¸ºæ¯ä¸ªFeignå®¢æˆ·ç«¯åˆ†é…äº†ä¸€ä¸ªå®¹å™¨ï¼Œå®ƒä»¬çš„çˆ¶å®¹å™¨å°±æ˜¯springå®¹å™¨
 
-ÅäÖÃÍêFeign.BuilderÖ®ºó£¬ÔÙÅĞ¶ÏÊÇ·ñĞèÒªLoadBalance£¬Èç¹ûĞèÒª£¬ÔòÍ¨¹ıLoadBalanceµÄ·½·¨À´ÉèÖÃ¡£Êµ¼ÊÉÏËûÃÇ×îÖÕµ÷ÓÃµÄÊÇTarget.target()·½·¨¡£
+é…ç½®å®ŒFeign.Builderä¹‹åï¼Œå†åˆ¤æ–­æ˜¯å¦éœ€è¦LoadBalanceï¼Œå¦‚æœéœ€è¦ï¼Œåˆ™é€šè¿‡LoadBalanceçš„æ–¹æ³•æ¥è®¾ç½®ã€‚å®é™…ä¸Šä»–ä»¬æœ€ç»ˆè°ƒç”¨çš„æ˜¯Target.target()æ–¹æ³•ã€‚
 
 
 
@@ -471,10 +471,10 @@ public Object getObject() throws Exception {
     return getTarget();
 }
 <T> T getTarget() {
-    //ÊµÀı»¯FeignÉÏÏÂÎÄ¶ÔÏóFeignContext
+    //å®ä¾‹åŒ–Feignä¸Šä¸‹æ–‡å¯¹è±¡FeignContext
     FeignContext context = this.applicationContext.getBean(FeignContext.class);
-    Feign.Builder builder = feign(context);//¹¹½¨Builder¶ÔÏó
-    if (!StringUtils.hasText(this.url)) {//Èç¹ûurlÎª¿Õ£¬Ôò×ß¸ºÔØ¾ùºâ£¬Éú³ÉÓĞ¸ºÔØ¾ùºâ¹¦ÄÜµÄ´úÀíÀà
+    Feign.Builder builder = feign(context);//æ„å»ºBuilderå¯¹è±¡
+    if (!StringUtils.hasText(this.url)) {//å¦‚æœurlä¸ºç©ºï¼Œåˆ™èµ°è´Ÿè½½å‡è¡¡ï¼Œç”Ÿæˆæœ‰è´Ÿè½½å‡è¡¡åŠŸèƒ½çš„ä»£ç†ç±»
         if (!this.name.startsWith("http")) {
             this.url = "http://" + this.name;
         }
@@ -484,12 +484,12 @@ public Object getObject() throws Exception {
         this.url += cleanPath();
         return (T) loadBalance(builder, context,new HardCodedTarget<>(this.type, this.name,this.url));
     }
-    //Èç¹ûÖ¸¶¨ÁËurl£¬ÔòÉú³ÉÄ¬ÈÏµÄ´úÀíÀà
+    //å¦‚æœæŒ‡å®šäº†urlï¼Œåˆ™ç”Ÿæˆé»˜è®¤çš„ä»£ç†ç±»
     if (StringUtils.hasText(this.url) && !this.url.startsWith("http")) {
         this.url = "http://" + this.url;
     }
     String url = this.url + cleanPath();
-    //µ÷ÓÃFeignContextµÄgetInstance·½·¨»ñÈ¡Client¶ÔÏó
+    //è°ƒç”¨FeignContextçš„getInstanceæ–¹æ³•è·å–Clientå¯¹è±¡
     Client client = getOptional(context, Client.class);
     if (client != null) {
         if (client instanceof LoadBalancerFeignClient) {
@@ -503,7 +503,7 @@ public Object getObject() throws Exception {
             client = ((FeignBlockingLoadBalancerClient) client).getDelegate();
         }
         builder.client(client);
-    }//Éú³ÉÄ¬ÈÏ´úÀíÀà
+    }//ç”Ÿæˆé»˜è®¤ä»£ç†ç±»
     Targeter targeter = get(context, Targeter.class);
     return (T) targeter.target(this, builder, context,new HardCodedTarget<>(this.type, this.name,url));
 }
@@ -518,11 +518,11 @@ public Object getObject() throws Exception {
 
 
 **2.3.2 loadBalance**
-Éú³É¾ß±¸¸ºÔØ¾ùºâÄÜÁ¦µÄfeign¿Í»§¶Ë£¬Îªfeign¿Í»§¶Ë¹¹½¨Æğ°ó¶¨¸ºÔØ¾ùºâ¿Í»§¶Ë.
+ç”Ÿæˆå…·å¤‡è´Ÿè½½å‡è¡¡èƒ½åŠ›çš„feignå®¢æˆ·ç«¯ï¼Œä¸ºfeignå®¢æˆ·ç«¯æ„å»ºèµ·ç»‘å®šè´Ÿè½½å‡è¡¡å®¢æˆ·ç«¯.
 
-Client client = (Client)this.getOptional(context, Client.class); ´ÓÉÏÏÂÎÄÖĞ»ñÈ¡Ò»¸öClient£¬Ä¬ÈÏÊÇLoadBalancerFeignClient¡£
+Client client = (Client)this.getOptional(context, Client.class); ä»ä¸Šä¸‹æ–‡ä¸­è·å–ä¸€ä¸ªClientï¼Œé»˜è®¤æ˜¯LoadBalancerFeignClientã€‚
 
-ËüÊÇÔÚFeignRibbonClientAutoConfigurationÕâ¸ö×Ô¶¯×°ÅäÀàÖĞ£¬Í¨¹ıImportÊµÏÖµÄ
+å®ƒæ˜¯åœ¨FeignRibbonClientAutoConfigurationè¿™ä¸ªè‡ªåŠ¨è£…é…ç±»ä¸­ï¼Œé€šè¿‡Importå®ç°çš„
 
 
 
@@ -582,15 +582,15 @@ public <T> T target(FeignClientFactoryBean factory, Feign.Builder feign,FeignCon
 
 
 **2.3.4 ReflectiveFeign.newInstance**
-Õâ¸ö·½·¨ÊÇÓÃÀ´´´½¨Ò»¸ö¶¯Ì¬´úÀíµÄ·½·¨£¬ÔÚÉú³É¶¯Ì¬´úÀíÖ®Ç°£¬»á¸ù¾İContractĞ­Òé£¨Ğ­Òé½âÎö¹æÔò£¬½âÎö½Ó¿ÚÀàµÄ×¢½âĞÅÏ¢£¬½âÎö³ÉÄÚ²¿µÄMethodHandlerµÄ´¦Àí·½Ê½¡£
+è¿™ä¸ªæ–¹æ³•æ˜¯ç”¨æ¥åˆ›å»ºä¸€ä¸ªåŠ¨æ€ä»£ç†çš„æ–¹æ³•ï¼Œåœ¨ç”ŸæˆåŠ¨æ€ä»£ç†ä¹‹å‰ï¼Œä¼šæ ¹æ®Contractåè®®ï¼ˆåè®®è§£æè§„åˆ™ï¼Œè§£ææ¥å£ç±»çš„æ³¨è§£ä¿¡æ¯ï¼Œè§£ææˆå†…éƒ¨çš„MethodHandlerçš„å¤„ç†æ–¹å¼ã€‚
 
-´ÓÊµÏÖµÄ´úÂëÖĞ¿ÉÒÔ¿´µ½ÊìÏ¤µÄProxy.newProxyInstance·½·¨²úÉú´úÀíÀà¡£¶øÕâÀïĞèÒª¶ÔÃ¿¸ö¶¨ÒåµÄ½Ó¿Ú·½·¨½øĞĞÌØ¶¨µÄ´¦ÀíÊµÏÖ£¬ËùÒÔÕâÀï»á³öÏÖÒ»¸öMethodHandlerµÄ¸ÅÄî£¬¾ÍÊÇ¶ÔÓ¦·½·¨¼¶±ğµÄInvocationHandler¡£
+ä»å®ç°çš„ä»£ç ä¸­å¯ä»¥çœ‹åˆ°ç†Ÿæ‚‰çš„Proxy.newProxyInstanceæ–¹æ³•äº§ç”Ÿä»£ç†ç±»ã€‚è€Œè¿™é‡Œéœ€è¦å¯¹æ¯ä¸ªå®šä¹‰çš„æ¥å£æ–¹æ³•è¿›è¡Œç‰¹å®šçš„å¤„ç†å®ç°ï¼Œæ‰€ä»¥è¿™é‡Œä¼šå‡ºç°ä¸€ä¸ªMethodHandlerçš„æ¦‚å¿µï¼Œå°±æ˜¯å¯¹åº”æ–¹æ³•çº§åˆ«çš„InvocationHandlerã€‚
 
 
 
 ```
 public <T> T newInstance(Target<T> target) {
-    //¸ù¾İ½Ó¿ÚÀàºÍContractĞ­Òé½âÎö·½Ê½£¬½âÎö½Ó¿ÚÀàÉÏµÄ·½·¨ºÍ×¢½â£¬×ª»»³ÉÄÚ²¿µÄMethodHandler´¦Àí·½Ê½
+    //æ ¹æ®æ¥å£ç±»å’ŒContractåè®®è§£ææ–¹å¼ï¼Œè§£ææ¥å£ç±»ä¸Šçš„æ–¹æ³•å’Œæ³¨è§£ï¼Œè½¬æ¢æˆå†…éƒ¨çš„MethodHandlerå¤„ç†æ–¹å¼
     Map<String, MethodHandler> nameToHandler = this.[targetToHandlersByName.apply(target)];
     Map<Method, MethodHandler> methodToHandler = new LinkedHashMap();
     List<DefaultMethodHandler> defaultMethodHandlers = new LinkedList();
@@ -609,7 +609,7 @@ public <T> T newInstance(Target<T> target) {
         }
     }
     InvocationHandler handler = this.factory.create(target, methodToHandler);
-    // »ùÓÚProxy.newProxyInstance Îª½Ó¿ÚÀà´´½¨¶¯Ì¬ÊµÏÖ£¬½«ËùÓĞµÄÇëÇó×ª»»¸øInvocationHandler ´¦Àí¡£
+    // åŸºäºProxy.newProxyInstance ä¸ºæ¥å£ç±»åˆ›å»ºåŠ¨æ€å®ç°ï¼Œå°†æ‰€æœ‰çš„è¯·æ±‚è½¬æ¢ç»™InvocationHandler å¤„ç†ã€‚
     T proxy = Proxy.newProxyInstance(target.type().getClassLoader(), new Class[]{target.type()}, handler);
     Iterator var12 = defaultMethodHandlers.iterator();
     while(var12.hasNext()) {
@@ -628,13 +628,13 @@ public <T> T newInstance(Target<T> target) {
 
 
 
-**2.4 ½Ó¿Ú¶¨ÒåµÄ²ÎÊı½âÎö**
-¸ù¾İFeignClient½Ó¿ÚµÄÃèÊö½âÎö³ö¶ÔÓ¦µÄÇëÇóÊı¾İ¡£
+**2.4 æ¥å£å®šä¹‰çš„å‚æ•°è§£æ**
+æ ¹æ®FeignClientæ¥å£çš„æè¿°è§£æå‡ºå¯¹åº”çš„è¯·æ±‚æ•°æ®ã€‚
 
 **2.4.1 targetToHandlersByName.apply(target)**
-¸ù¾İContractĞ­Òé¹æÔò£¬½âÎö½Ó¿ÚÀàµÄ×¢½âĞÅÏ¢£¬½âÎö³ÉÄÚ²¿±íÏÖ£º
+æ ¹æ®Contractåè®®è§„åˆ™ï¼Œè§£ææ¥å£ç±»çš„æ³¨è§£ä¿¡æ¯ï¼Œè§£ææˆå†…éƒ¨è¡¨ç°ï¼š
 
-targetToHandlersByName.apply(target);»á½âÎö½Ó¿Ú·½·¨ÉÏµÄ×¢½â£¬´Ó¶ø½âÎö³ö·½·¨Á£¶ÈµÄÌØ¶¨µÄÅäÖÃĞÅÏ¢£¬È»ºóÉú²úÒ»¸öSynchronousMethodHandler È»ºóĞèÒªÎ¬»¤Ò»¸ö<method£¬MethodHandler>µÄmap£¬·ÅÈëInvocationHandlerµÄÊµÏÖFeignInvocationHandlerÖĞ¡£
+targetToHandlersByName.apply(target);ä¼šè§£ææ¥å£æ–¹æ³•ä¸Šçš„æ³¨è§£ï¼Œä»è€Œè§£æå‡ºæ–¹æ³•ç²’åº¦çš„ç‰¹å®šçš„é…ç½®ä¿¡æ¯ï¼Œç„¶åç”Ÿäº§ä¸€ä¸ªSynchronousMethodHandler ç„¶åéœ€è¦ç»´æŠ¤ä¸€ä¸ª<methodï¼ŒMethodHandler>çš„mapï¼Œæ”¾å…¥InvocationHandlerçš„å®ç°FeignInvocationHandlerä¸­ã€‚
 
 
 
@@ -674,18 +674,18 @@ public Map<String, MethodHandler> apply(Target target) {
 
 
 **2.4.2 SpringMvcContract**
-µ±Ç°Spring Cloud Î¢·şÎñ½â¾ö·½°¸ÖĞ£¬ÎªÁË½µµÍÑ§Ï°³É±¾£¬²ÉÓÃÁËSpring MVCµÄ²¿·Ö×¢½âÀ´Íê³É ÇëÇóÒé½âÎö£¬Ò²¾ÍÊÇËµ £¬Ğ´¿Í»§¶ËÇëÇó½Ó¿ÚºÍÏñĞ´·şÎñ¶Ë´úÂëÒ»Ñù£º¿Í»§¶ËºÍ·şÎñ¶Ë¿ÉÒÔÍ¨¹ıSDKµÄ·½Ê½½øĞĞÔ¼¶¨£¬¿Í»§¶ËÖ»ĞèÒªÒıÈë·şÎñ¶Ë·¢²¼µÄSDK API£¬¾Í¿ÉÒÔÊ¹ÓÃÃæÏò½Ó¿ÚµÄ±àÂë·½Ê½¶Ô½Ó·şÎñ¡£
+å½“å‰Spring Cloud å¾®æœåŠ¡è§£å†³æ–¹æ¡ˆä¸­ï¼Œä¸ºäº†é™ä½å­¦ä¹ æˆæœ¬ï¼Œé‡‡ç”¨äº†Spring MVCçš„éƒ¨åˆ†æ³¨è§£æ¥å®Œæˆ è¯·æ±‚è®®è§£æï¼Œä¹Ÿå°±æ˜¯è¯´ ï¼Œå†™å®¢æˆ·ç«¯è¯·æ±‚æ¥å£å’Œåƒå†™æœåŠ¡ç«¯ä»£ç ä¸€æ ·ï¼šå®¢æˆ·ç«¯å’ŒæœåŠ¡ç«¯å¯ä»¥é€šè¿‡SDKçš„æ–¹å¼è¿›è¡Œçº¦å®šï¼Œå®¢æˆ·ç«¯åªéœ€è¦å¼•å…¥æœåŠ¡ç«¯å‘å¸ƒçš„SDK APIï¼Œå°±å¯ä»¥ä½¿ç”¨é¢å‘æ¥å£çš„ç¼–ç æ–¹å¼å¯¹æ¥æœåŠ¡ã€‚
 
-¸ÃÀà¼Ì³ĞÁËContract.BaseContract²¢ÊµÏÖÁËResourceLoaderAware½Ó¿Ú£¬
+è¯¥ç±»ç»§æ‰¿äº†Contract.BaseContractå¹¶å®ç°äº†ResourceLoaderAwareæ¥å£ï¼Œ
 
-Æä×÷ÓÃ¾ÍÊÇ¶ÔRequestMapping¡¢RequestParam¡¢RequestHeaderµÈ×¢½â½øĞĞ½âÎöµÄ¡£
+å…¶ä½œç”¨å°±æ˜¯å¯¹RequestMappingã€RequestParamã€RequestHeaderç­‰æ³¨è§£è¿›è¡Œè§£æçš„ã€‚
 
-**2.5 OpenFeignµ÷ÓÃ¹ı³Ì**
-ÔÚÇ°ÃæµÄ·ÖÎöÖĞ£¬ÎÒÃÇÖªµÀOpenFeign×îÖÕ·µ»ØµÄÊÇÒ»¸ö#
-ReflectiveFeign.FeignInvocationHandlerµÄ¶ÔÏó¡£
+**2.5 OpenFeignè°ƒç”¨è¿‡ç¨‹**
+åœ¨å‰é¢çš„åˆ†æä¸­ï¼Œæˆ‘ä»¬çŸ¥é“OpenFeignæœ€ç»ˆè¿”å›çš„æ˜¯ä¸€ä¸ª#
+ReflectiveFeign.FeignInvocationHandlerçš„å¯¹è±¡ã€‚
 
-ÄÇÃ´µ±¿Í»§¶Ë·¢ÆğÇëÇóÊ±£¬»á½øÈëµ½
-FeignInvocationHandler.invoke·½·¨ÖĞ£¬Õâ¸ö´ó¼Ò¶¼ÖªµÀ£¬ËüÊÇÒ»¸ö¶¯Ì¬´úÀíµÄÊµÏÖ¡£
+é‚£ä¹ˆå½“å®¢æˆ·ç«¯å‘èµ·è¯·æ±‚æ—¶ï¼Œä¼šè¿›å…¥åˆ°
+FeignInvocationHandler.invokeæ–¹æ³•ä¸­ï¼Œè¿™ä¸ªå¤§å®¶éƒ½çŸ¥é“ï¼Œå®ƒæ˜¯ä¸€ä¸ªåŠ¨æ€ä»£ç†çš„å®ç°ã€‚
 
 
 
@@ -718,9 +718,9 @@ public Object invoke(Object proxy, Method method, Object[] args) throws Throwabl
 
 
 
-¶ø½Ó×Å£¬ÔÚinvoke·½·¨ÖĞ£¬»áµ÷ÓÃ this.dispatch.get(method)).invoke(args) ¡£this.dispatch.get(method) »á·µ»ØÒ»¸öSynchronousMethodHandler,½øĞĞÀ¹½Ø´¦Àí¡£
+è€Œæ¥ç€ï¼Œåœ¨invokeæ–¹æ³•ä¸­ï¼Œä¼šè°ƒç”¨ this.dispatch.get(method)).invoke(args) ã€‚this.dispatch.get(method) ä¼šè¿”å›ä¸€ä¸ªSynchronousMethodHandler,è¿›è¡Œæ‹¦æˆªå¤„ç†ã€‚
 
-Õâ¸ö·½·¨»á¸ù¾İ²ÎÊıÉú³ÉÍê³ÉµÄRequestTemplate¶ÔÏó£¬Õâ¸ö¶ÔÏóÊÇHttpÇëÇóµÄÄ£°æ£¬´úÂëÈçÏÂ¡£
+è¿™ä¸ªæ–¹æ³•ä¼šæ ¹æ®å‚æ•°ç”Ÿæˆå®Œæˆçš„RequestTemplateå¯¹è±¡ï¼Œè¿™ä¸ªå¯¹è±¡æ˜¯Httpè¯·æ±‚çš„æ¨¡ç‰ˆï¼Œä»£ç å¦‚ä¸‹ã€‚
 
 
 
@@ -761,13 +761,13 @@ public Object invoke(Object[] argv) throws Throwable {
 
 
 **2.5.1 executeAndDecode**
-¾­¹ıÉÏÊöµÄ´úÂë£¬ÎÒÃÇÒÑ¾­½«restTemplateÆ´×°Íê³É£¬ÉÏÃæµÄ´úÂëÖĞÓĞÒ»¸ö executeAndDecode() ·½·¨£¬¸Ã·½·¨Í¨¹ıRequestTemplateÉú³ÉRequestÇëÇó¶ÔÏó£¬È»ºóÀûÓÃHttp Client»ñÈ¡response£¬À´»ñÈ¡ÏìÓ¦ĞÅÏ¢¡£
+ç»è¿‡ä¸Šè¿°çš„ä»£ç ï¼Œæˆ‘ä»¬å·²ç»å°†restTemplateæ‹¼è£…å®Œæˆï¼Œä¸Šé¢çš„ä»£ç ä¸­æœ‰ä¸€ä¸ª executeAndDecode() æ–¹æ³•ï¼Œè¯¥æ–¹æ³•é€šè¿‡RequestTemplateç”ŸæˆRequestè¯·æ±‚å¯¹è±¡ï¼Œç„¶ååˆ©ç”¨Http Clientè·å–responseï¼Œæ¥è·å–å“åº”ä¿¡æ¯ã€‚
 
 
 
 ```
 Object executeAndDecode(RequestTemplate template, Options options) throws Throwable {
-    //×ª»¯ÎªHttpÇëÇó±¨ÎÄ
+    //è½¬åŒ–ä¸ºHttpè¯·æ±‚æŠ¥æ–‡
     Request request = this.targetRequest(template);
     if (this.logLevel != Level.NONE) {
         this.logger.logRequest(this.metadata.configKey(), this.logLevel,request);
@@ -775,9 +775,9 @@ Object executeAndDecode(RequestTemplate template, Options options) throws Throwa
     long start = System.nanoTime();
     Response response;
     try {
-        //·¢ÆğÔ¶³ÌÍ¨ĞÅ
+        //å‘èµ·è¿œç¨‹é€šä¿¡
         response = this.client.execute(request, options);
-        //»ñÈ¡·µ»Ø½á¹û
+        //è·å–è¿”å›ç»“æœ
         response = response.toBuilder().request(request).requestTemplate(template).build();
     } catch (IOException var16) {
         if (this.logLevel != Level.NONE) {
@@ -847,7 +847,7 @@ Object executeAndDecode(RequestTemplate template, Options options) throws Throwa
 
 
 **2.5.2 Client.execute**
-Ä¬ÈÏ²ÉÓÃJDKµÄ HttpURLConnection ·¢ÆğÔ¶³Ìµ÷ÓÃ¡£
+é»˜è®¤é‡‡ç”¨JDKçš„ HttpURLConnection å‘èµ·è¿œç¨‹è°ƒç”¨ã€‚
 
 
 
@@ -893,7 +893,7 @@ Response convertResponse(HttpURLConnection connection, Request request) throws I
 
 
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

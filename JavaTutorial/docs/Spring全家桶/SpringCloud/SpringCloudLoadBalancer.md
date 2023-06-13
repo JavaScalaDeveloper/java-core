@@ -1,18 +1,18 @@
-Ç°²»¾Ã£¬ÎÒ°ÑMallÎ¢·şÎñ°æ±¾È«ÃæÉı¼¶ÁË £¬ÔÚÍ¨¹ıGatewayÍø¹Øµ÷ÓÃÆäËû·şÎñµÄÊ±ºò£¬³öÏÖÁËService UnavailableµÄÎÊÌâ¡£ÅÅ²éÔ­ÒòÊ±·¢ÏÖ×÷Îª¸ºÔØ¾ùºâ×é¼şµÄRibbon±»ÆúÓÃÁË£¬×÷ÎªNetflix¿ªÔ´µÄÒ»¸ö×é¼ş£¬RibbonÔçÒÑ½øÈëÎ¬»¤×´Ì¬¡£ÏÖÔÚÍÆ¼öÊ¹ÓÃµÄÊÇLoadbalancer£¬½ñÌìÎÒÃÇ¾ÍÀ´ÁÄÁÄLoadbalancerµÄÊ¹ÓÃ£¡
+å‰ä¸ä¹…ï¼Œæˆ‘æŠŠMallå¾®æœåŠ¡ç‰ˆæœ¬å…¨é¢å‡çº§äº† ï¼Œåœ¨é€šè¿‡Gatewayç½‘å…³è°ƒç”¨å…¶ä»–æœåŠ¡çš„æ—¶å€™ï¼Œå‡ºç°äº†Service Unavailableçš„é—®é¢˜ã€‚æ’æŸ¥åŸå› æ—¶å‘ç°ä½œä¸ºè´Ÿè½½å‡è¡¡ç»„ä»¶çš„Ribbonè¢«å¼ƒç”¨äº†ï¼Œä½œä¸ºNetflixå¼€æºçš„ä¸€ä¸ªç»„ä»¶ï¼ŒRibbonæ—©å·²è¿›å…¥ç»´æŠ¤çŠ¶æ€ã€‚ç°åœ¨æ¨èä½¿ç”¨çš„æ˜¯Loadbalancerï¼Œä»Šå¤©æˆ‘ä»¬å°±æ¥èŠèŠLoadbalancerçš„ä½¿ç”¨ï¼
 
-# LoadBalancer¼ò½é
+# LoadBalancerç®€ä»‹
 
-LoadBalancerÊÇSpring Cloud¹Ù·½Ìá¹©µÄ¸ºÔØ¾ùºâ×é¼ş£¬¿ÉÓÃÓÚÌæ´úRibbon¡£ÆäÊ¹ÓÃ·½Ê½ÓëRibbon»ù±¾¼æÈİ£¬¿ÉÒÔ´ÓRibbon½øĞĞÆ½»¬¹ı¶É¡£
+LoadBalanceræ˜¯Spring Cloudå®˜æ–¹æä¾›çš„è´Ÿè½½å‡è¡¡ç»„ä»¶ï¼Œå¯ç”¨äºæ›¿ä»£Ribbonã€‚å…¶ä½¿ç”¨æ–¹å¼ä¸RibbonåŸºæœ¬å…¼å®¹ï¼Œå¯ä»¥ä»Ribbonè¿›è¡Œå¹³æ»‘è¿‡æ¸¡ã€‚
 
-# Ê¹ÓÃ
+# ä½¿ç”¨
 
-ÏÂÃæ½éÉÜÏÂLoadBalancerµÄ»ù±¾Ê¹ÓÃ£¬ÎÒÃÇ½«Ê¹ÓÃNacos×÷Îª×¢²áÖĞĞÄ£¬Í¨¹ınacos-loadbalancer-serviceºÍnacos-user-serviceÁ½¸ö·şÎñ¼äµÄÏà»¥µ÷ÓÃÀ´½øĞĞÑİÊ¾¡£
+ä¸‹é¢ä»‹ç»ä¸‹LoadBalancerçš„åŸºæœ¬ä½¿ç”¨ï¼Œæˆ‘ä»¬å°†ä½¿ç”¨Nacosä½œä¸ºæ³¨å†Œä¸­å¿ƒï¼Œé€šè¿‡nacos-loadbalancer-serviceå’Œnacos-user-serviceä¸¤ä¸ªæœåŠ¡é—´çš„ç›¸äº’è°ƒç”¨æ¥è¿›è¡Œæ¼”ç¤ºã€‚
 
-# ¸ºÔØ¾ùºâ
+# è´Ÿè½½å‡è¡¡
 
-ÎÒÃÇ½«Ê¹ÓÃRestTemplateÀ´ÑİÊ¾ÏÂLoadBalancerµÄ¸ºÔØ¾ùºâ¹¦ÄÜ¡£
+æˆ‘ä»¬å°†ä½¿ç”¨RestTemplateæ¥æ¼”ç¤ºä¸‹LoadBalancerçš„è´Ÿè½½å‡è¡¡åŠŸèƒ½ã€‚
 
-- Ê×ÏÈÔÚnacos-loadbalancer-serviceÄ£¿éµÄpom.xmlÎÄ¼şÖĞÌí¼ÓLoadBalancerÏà¹ØÒÀÀµ£»
+- é¦–å…ˆåœ¨nacos-loadbalancer-serviceæ¨¡å—çš„pom.xmlæ–‡ä»¶ä¸­æ·»åŠ LoadBalancerç›¸å…³ä¾èµ–ï¼›
 
 
 
@@ -25,12 +25,12 @@ LoadBalancerÊÇSpring Cloud¹Ù·½Ìá¹©µÄ¸ºÔØ¾ùºâ×é¼ş£¬¿ÉÓÃÓÚÌæ´úRibbon¡£ÆäÊ¹ÓÃ·½Ê½Óë
 
 
 
-- È»ºó´´½¨JavaÅäÖÃÀà£¬ÓÃÓÚÅäÖÃRestTemplate£¬Í¬Ê±Ê¹ÓÃ@LoadBalanced×¢½â¸³ÓèÆä¸ºÔØ¾ùºâÄÜÁ¦£»
+- ç„¶ååˆ›å»ºJavaé…ç½®ç±»ï¼Œç”¨äºé…ç½®RestTemplateï¼ŒåŒæ—¶ä½¿ç”¨@LoadBalancedæ³¨è§£èµ‹äºˆå…¶è´Ÿè½½å‡è¡¡èƒ½åŠ›ï¼›
 
 
 
     /**
-     * RestTemplateÏà¹ØÅäÖÃ
+     * RestTemplateç›¸å…³é…ç½®
      * Created by macro on 2019/8/29.
      */
     @Configuration
@@ -53,20 +53,20 @@ LoadBalancerÊÇSpring Cloud¹Ù·½Ìá¹©µÄ¸ºÔØ¾ùºâ×é¼ş£¬¿ÉÓÃÓÚÌæ´úRibbon¡£ÆäÊ¹ÓÃ·½Ê½Óë
 
 
 
-- ÔÚapplication.ymlÖĞ¿ÉÒÔÊ¹ÓÃ×Ô¶¨ÒåÅäÖÃ¶ÔRestTemplateµÄµ÷ÓÃ³¬Ê±½øĞĞÅäÖÃ£»
+- åœ¨application.ymlä¸­å¯ä»¥ä½¿ç”¨è‡ªå®šä¹‰é…ç½®å¯¹RestTemplateçš„è°ƒç”¨è¶…æ—¶è¿›è¡Œé…ç½®ï¼›
 
 
 
     rest:
       template:
-        config: # RestTemplateµ÷ÓÃ³¬Ê±ÅäÖÃ
+        config: # RestTemplateè°ƒç”¨è¶…æ—¶é…ç½®
           connectTimeout: 5000
           readTimeout: 5000
 
 
 
 
-- È»ºóÔÚControllerÖĞÊ¹ÓÃRestTemplate½øĞĞÔ¶³Ìµ÷ÓÃ£»
+- ç„¶ååœ¨Controllerä¸­ä½¿ç”¨RestTemplateè¿›è¡Œè¿œç¨‹è°ƒç”¨ï¼›
 
 
 
@@ -97,7 +97,7 @@ LoadBalancerÊÇSpring Cloud¹Ù·½Ìá¹©µÄ¸ºÔØ¾ùºâ×é¼ş£¬¿ÉÓÃÓÚÌæ´úRibbon¡£ÆäÊ¹ÓÃ·½Ê½Óë
             if (entity.getStatusCode().is2xxSuccessful()) {
                 return entity.getBody();
             } else {
-                return new CommonResult("²Ù×÷Ê§°Ü", 500);
+                return new CommonResult("æ“ä½œå¤±è´¥", 500);
             }
         }
     
@@ -120,23 +120,23 @@ LoadBalancerÊÇSpring Cloud¹Ù·½Ìá¹©µÄ¸ºÔØ¾ùºâ×é¼ş£¬¿ÉÓÃÓÚÌæ´úRibbon¡£ÆäÊ¹ÓÃ·½Ê½Óë
 
 
 
-- ÔÚnacos-user-serviceÖĞÎÒÃÇÒÑ¾­ÊµÏÖÁËÕâĞ©½Ó¿Ú£¬¿ÉÒÔÌá¹©¸ønacos-loadbalancer-service·şÎñ½øĞĞÔ¶³Ìµ÷ÓÃ£»
+- åœ¨nacos-user-serviceä¸­æˆ‘ä»¬å·²ç»å®ç°äº†è¿™äº›æ¥å£ï¼Œå¯ä»¥æä¾›ç»™nacos-loadbalancer-serviceæœåŠ¡è¿›è¡Œè¿œç¨‹è°ƒç”¨ï¼›
 
 
 
-- È»ºóÆô¶¯Ò»¸önacos-loadbalancer-service£¬ºÍÁ½¸önacos-user-service£¬´ËÊ±NacosÖĞ»áÏÔÊ¾ÈçÏÂ·şÎñ£»
+- ç„¶åå¯åŠ¨ä¸€ä¸ªnacos-loadbalancer-serviceï¼Œå’Œä¸¤ä¸ªnacos-user-serviceï¼Œæ­¤æ—¶Nacosä¸­ä¼šæ˜¾ç¤ºå¦‚ä¸‹æœåŠ¡ï¼›
 
 
 
-- ´ËÊ±Í¨¹ınacos-loadbalancer-serviceµ÷ÓÃ½Ó¿Ú½øĞĞ²âÊÔ£¬»á·¢ÏÖÁ½¸önacos-user-service½»Ìæ´òÓ¡ÈÕÖ¾ĞÅÏ¢£¬Ê¹ÓÃµÄÊÇÂÖÑ¯²ßÂÔ£¬·ÃÎÊµØÖ·£ºhttp://localhost:8308/user/1
+- æ­¤æ—¶é€šè¿‡nacos-loadbalancer-serviceè°ƒç”¨æ¥å£è¿›è¡Œæµ‹è¯•ï¼Œä¼šå‘ç°ä¸¤ä¸ªnacos-user-serviceäº¤æ›¿æ‰“å°æ—¥å¿—ä¿¡æ¯ï¼Œä½¿ç”¨çš„æ˜¯è½®è¯¢ç­–ç•¥ï¼Œè®¿é—®åœ°å€ï¼šhttp://localhost:8308/user/1
 
 
 
-# ÉùÃ÷Ê½·şÎñµ÷ÓÃ
+# å£°æ˜å¼æœåŠ¡è°ƒç”¨
 
-µ±È»LoadBalancer³ıÁËÊ¹ÓÃRestTemplateÀ´½øĞĞÔ¶³Ìµ÷ÓÃ£¬»¹¿ÉÒÔÊ¹ÓÃOpenFeignÀ´½øĞĞÉùÃ÷Ê½·şÎñµ÷ÓÃ£¬ÏÂÃæÎÒÃÇ¾ÍÀ´½éÉÜÏÂ¡£
+å½“ç„¶LoadBalanceré™¤äº†ä½¿ç”¨RestTemplateæ¥è¿›è¡Œè¿œç¨‹è°ƒç”¨ï¼Œè¿˜å¯ä»¥ä½¿ç”¨OpenFeignæ¥è¿›è¡Œå£°æ˜å¼æœåŠ¡è°ƒç”¨ï¼Œä¸‹é¢æˆ‘ä»¬å°±æ¥ä»‹ç»ä¸‹ã€‚
 
-- Ê×ÏÈnacos-loadbalancer-serviceÄ£¿éµÄpom.xmlÎÄ¼şÖĞÌí¼ÓOpenFeignµÄÏà¹ØÒÀÀµ£»
+- é¦–å…ˆnacos-loadbalancer-serviceæ¨¡å—çš„pom.xmlæ–‡ä»¶ä¸­æ·»åŠ OpenFeignçš„ç›¸å…³ä¾èµ–ï¼›
 
 
 
@@ -149,7 +149,7 @@ LoadBalancerÊÇSpring Cloud¹Ù·½Ìá¹©µÄ¸ºÔØ¾ùºâ×é¼ş£¬¿ÉÓÃÓÚÌæ´úRibbon¡£ÆäÊ¹ÓÃ·½Ê½Óë
 
 
 
-- È»ºóÔÚOpenFeignµÄ¿Í»§¶Ë½Ó¿ÚÖĞÉùÃ÷ºÃĞèÒªµ÷ÓÃµÄ·şÎñ½Ó¿ÚÒÔ¼°µ÷ÓÃ·½Ê½£»
+- ç„¶ååœ¨OpenFeignçš„å®¢æˆ·ç«¯æ¥å£ä¸­å£°æ˜å¥½éœ€è¦è°ƒç”¨çš„æœåŠ¡æ¥å£ä»¥åŠè°ƒç”¨æ–¹å¼ï¼›
 
 
 
@@ -176,7 +176,7 @@ LoadBalancerÊÇSpring Cloud¹Ù·½Ìá¹©µÄ¸ºÔØ¾ùºâ×é¼ş£¬¿ÉÓÃÓÚÌæ´úRibbon¡£ÆäÊ¹ÓÃ·½Ê½Óë
 
 
 
-- ÔÙÔÚControllerÖĞÊ¹ÓÃOpenFeignµÄ¿Í»§¶Ë½Ó¿ÚÀ´µ÷ÓÃÔ¶³Ì·şÎñ£»
+- å†åœ¨Controllerä¸­ä½¿ç”¨OpenFeignçš„å®¢æˆ·ç«¯æ¥å£æ¥è°ƒç”¨è¿œç¨‹æœåŠ¡ï¼›
 
 
 
@@ -219,52 +219,52 @@ LoadBalancerÊÇSpring Cloud¹Ù·½Ìá¹©µÄ¸ºÔØ¾ùºâ×é¼ş£¬¿ÉÓÃÓÚÌæ´úRibbon¡£ÆäÊ¹ÓÃ·½Ê½Óë
 
 
 
-- Èç¹ûÄãÏëÉèÖÃÏÂOpenFeignµÄ³¬Ê±ÅäÖÃµÄ»°£¬¿ÉÒÔÔÚapplication.ymlÖĞÌí¼ÓÈçÏÂÄÚÈİ£»
+- å¦‚æœä½ æƒ³è®¾ç½®ä¸‹OpenFeignçš„è¶…æ—¶é…ç½®çš„è¯ï¼Œå¯ä»¥åœ¨application.ymlä¸­æ·»åŠ å¦‚ä¸‹å†…å®¹ï¼›
 
 
 
     feign:
       client:
         config:
-          default: # Feignµ÷ÓÃ³¬Ê±ÅäÖÃ
+          default: # Feignè°ƒç”¨è¶…æ—¶é…ç½®
             connectTimeout: 5000
             readTimeout: 5000
 
 
 
-- ½ÓÏÂÀ´Í¨¹ı²âÊÔ½Ó¿Úµ÷ÓÃÔ¶³Ì·şÎñ£¬·¢ÏÖ¿ÉÒÔÕı³£µ÷ÓÃ£¬·ÃÎÊµØÖ·£ºhttp://localhost:8308/userFeign/1
+- æ¥ä¸‹æ¥é€šè¿‡æµ‹è¯•æ¥å£è°ƒç”¨è¿œç¨‹æœåŠ¡ï¼Œå‘ç°å¯ä»¥æ­£å¸¸è°ƒç”¨ï¼Œè®¿é—®åœ°å€ï¼šhttp://localhost:8308/userFeign/1
 
 
 
-# ·şÎñÊµÀı»º´æ
+# æœåŠ¡å®ä¾‹ç¼“å­˜
 
-LoadBalancerÎªÁËÌá¸ßĞÔÄÜ£¬²»»áÔÚÃ¿´ÎÇëÇóÊ±È¥»ñÈ¡ÊµÀıÁĞ±í£¬¶øÊÇ½«·şÎñÊµÀıÁĞ±í½øĞĞÁË±¾µØ»º´æ¡£
+LoadBalancerä¸ºäº†æé«˜æ€§èƒ½ï¼Œä¸ä¼šåœ¨æ¯æ¬¡è¯·æ±‚æ—¶å»è·å–å®ä¾‹åˆ—è¡¨ï¼Œè€Œæ˜¯å°†æœåŠ¡å®ä¾‹åˆ—è¡¨è¿›è¡Œäº†æœ¬åœ°ç¼“å­˜ã€‚
 
-Ä¬ÈÏµÄ»º´æÊ±¼äÎª35s£¬ÎªÁË¼õÉÙ·şÎñ²»¿ÉÓÃ»¹»á±»Ñ¡ÔñµÄ¿ÉÄÜĞÔ£¬ÎÒÃÇ¿ÉÒÔ½øĞĞÈçÏÂÅäÖÃ¡£
+é»˜è®¤çš„ç¼“å­˜æ—¶é—´ä¸º35sï¼Œä¸ºäº†å‡å°‘æœåŠ¡ä¸å¯ç”¨è¿˜ä¼šè¢«é€‰æ‹©çš„å¯èƒ½æ€§ï¼Œæˆ‘ä»¬å¯ä»¥è¿›è¡Œå¦‚ä¸‹é…ç½®ã€‚
 
 
 
     spring:
       cloud:
         loadbalancer:
-          cache: # ¸ºÔØ¾ùºâ»º´æÅäÖÃ
-            enabled: true # ¿ªÆô»º´æ
-            ttl: 5s # ÉèÖÃ»º´æÊ±¼ä
-            capacity: 256 # ÉèÖÃ»º´æ´óĞ¡
+          cache: # è´Ÿè½½å‡è¡¡ç¼“å­˜é…ç½®
+            enabled: true # å¼€å¯ç¼“å­˜
+            ttl: 5s # è®¾ç½®ç¼“å­˜æ—¶é—´
+            capacity: 256 # è®¾ç½®ç¼“å­˜å¤§å°
 
 
 
 
-# HTTPÇëÇó×ª»»
+# HTTPè¯·æ±‚è½¬æ¢
 
-Èç¹ûÄãÏëÔÚÃ¿´ÎÔ¶³Ìµ÷ÓÃÖĞ´«Èë×Ô¶¨ÒåµÄÇëÇóÍ·µÄ»°£¬¿ÉÒÔÊÔÊÔLoadBalancerRequestTransformer£¬Í¨¹ıËü¿ÉÒÔ¶ÔÔ­Ê¼ÇëÇó½øĞĞÒ»¶¨µÄ×ª»»¡£
+å¦‚æœä½ æƒ³åœ¨æ¯æ¬¡è¿œç¨‹è°ƒç”¨ä¸­ä¼ å…¥è‡ªå®šä¹‰çš„è¯·æ±‚å¤´çš„è¯ï¼Œå¯ä»¥è¯•è¯•LoadBalancerRequestTransformerï¼Œé€šè¿‡å®ƒå¯ä»¥å¯¹åŸå§‹è¯·æ±‚è¿›è¡Œä¸€å®šçš„è½¬æ¢ã€‚
 
-- Ê×ÏÈÎÒÃÇĞèÒªÅäÖÃºÃLoadBalancerRequestTransformerµÄBeanÊµÀı£¬ÕâÀïÎÒÃÇ½«ServiceInstanceµÄinstanceId·ÅÈëµ½ÇëÇóÍ·X-InstanceIdÖĞ£»
+- é¦–å…ˆæˆ‘ä»¬éœ€è¦é…ç½®å¥½LoadBalancerRequestTransformerçš„Beanå®ä¾‹ï¼Œè¿™é‡Œæˆ‘ä»¬å°†ServiceInstanceçš„instanceIdæ”¾å…¥åˆ°è¯·æ±‚å¤´X-InstanceIdä¸­ï¼›
 
 
 
     /**
-     * LoadBalancerÏà¹ØÅäÖÃ
+     * LoadBalancerç›¸å…³é…ç½®
      * Created by macro on 2022/7/26.
      */
     @Configuration
@@ -292,7 +292,7 @@ LoadBalancerÎªÁËÌá¸ßĞÔÄÜ£¬²»»áÔÚÃ¿´ÎÇëÇóÊ±È¥»ñÈ¡ÊµÀıÁĞ±í£¬¶øÊÇ½«·şÎñÊµÀıÁĞ±í½øĞĞ
 
 
 
-- È»ºóĞŞ¸Änacos-user-serviceÖĞµÄ´úÂë£¬´òÓ¡»ñÈ¡µ½µÄÇëÇóÍ·X-InstanceIdµÄĞÅÏ¢£»
+- ç„¶åä¿®æ”¹nacos-user-serviceä¸­çš„ä»£ç ï¼Œæ‰“å°è·å–åˆ°çš„è¯·æ±‚å¤´X-InstanceIdçš„ä¿¡æ¯ï¼›
 
 
 
@@ -305,39 +305,39 @@ LoadBalancerÎªÁËÌá¸ßĞÔÄÜ£¬²»»áÔÚÃ¿´ÎÇëÇóÊ±È¥»ñÈ¡ÊµÀıÁĞ±í£¬¶øÊÇ½«·şÎñÊµÀıÁĞ±í½øĞĞ
         @GetMapping("/{id}")
         public CommonResult<User> getUser(@PathVariable Long id) {
             User user = userService.getUser(id);
-            LOGGER.info("¸ù¾İid»ñÈ¡ÓÃ»§ĞÅÏ¢£¬ÓÃ»§Ãû³ÆÎª£º{}", user.getUsername());
+            LOGGER.info("æ ¹æ®idè·å–ç”¨æˆ·ä¿¡æ¯ï¼Œç”¨æˆ·åç§°ä¸ºï¼š{}", user.getUsername());
             ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
             HttpServletRequest request = servletRequestAttributes.getRequest();
             String instanceId = request.getHeader("X-InstanceId");
             if (StrUtil.isNotEmpty(instanceId)) {
-                LOGGER.info("»ñÈ¡µ½×Ô¶¨ÒåÇëÇóÍ·:X-InstanceId={}", instanceId);
+                LOGGER.info("è·å–åˆ°è‡ªå®šä¹‰è¯·æ±‚å¤´:X-InstanceId={}", instanceId);
             }
             return new CommonResult<>(user);
         }
     }
 
-- ½ÓÏÂÀ´·ÃÎÊ½Ó¿Ú½øĞĞ²âÊÔ£¬nacos-user-service¿ØÖÆÌ¨½«´òÓ¡ÈçÏÂÈÕÖ¾£¬·¢ÏÖ×Ô¶¨ÒåÇëÇóÍ·ÒÑ¾­³É¹¦´«µİÁË£¬·ÃÎÊµØÖ·£ºhttp://localhost:8308/user/1
+- æ¥ä¸‹æ¥è®¿é—®æ¥å£è¿›è¡Œæµ‹è¯•ï¼Œnacos-user-serviceæ§åˆ¶å°å°†æ‰“å°å¦‚ä¸‹æ—¥å¿—ï¼Œå‘ç°è‡ªå®šä¹‰è¯·æ±‚å¤´å·²ç»æˆåŠŸä¼ é€’äº†ï¼Œè®¿é—®åœ°å€ï¼šhttp://localhost:8308/user/1
 
 
 
-    2022-07-26 15:05:19.920  INFO 14344 --- [nio-8206-exec-5] c.macro.cloud.controller.UserController  : ¸ù¾İid»ñÈ¡ÓÃ»§ĞÅÏ¢£¬ÓÃ»§Ãû³ÆÎª£ºmacro
-    2022-07-26 15:05:19.921  INFO 14344 --- [nio-8206-exec-5] c.macro.cloud.controller.UserController  : »ñÈ¡µ½×Ô¶¨ÒåÇëÇóÍ·:X-InstanceId=192.168.3.227#8206#DEFAULT#DEFAULT_GROUP@@nacos-user-service
+    2022-07-26 15:05:19.920  INFO 14344 --- [nio-8206-exec-5] c.macro.cloud.controller.UserController  : æ ¹æ®idè·å–ç”¨æˆ·ä¿¡æ¯ï¼Œç”¨æˆ·åç§°ä¸ºï¼šmacro
+    2022-07-26 15:05:19.921  INFO 14344 --- [nio-8206-exec-5] c.macro.cloud.controller.UserController  : è·å–åˆ°è‡ªå®šä¹‰è¯·æ±‚å¤´:X-InstanceId=192.168.3.227#8206#DEFAULT#DEFAULT_GROUP@@nacos-user-service
 
 
 
-# ×Ü½á
+# æ€»ç»“
 
-½ñÌìÍ¨¹ı¶ÔLoadBalancerµÄÒ»²¨Êµ¼ùÎÒÃÇ¿ÉÒÔ·¢ÏÖ£¬Ê¹ÓÃLoadBalancerºÍRibbonµÄÇø±ğÆäÊµ²¢²»´ó£¬Ö÷ÒªÊÇÒ»Ğ©ÅäÖÃ·½Ê½µÄÏàÍ¬¡£Èç¹ûÄãÖ®Ç°Ê¹ÓÃ¹ıRibbonµÄ»°£¬»ù±¾ÉÏ¿ÉÒÔÎŞ·ìÇĞ»»µ½LoadBalancer¡£
+ä»Šå¤©é€šè¿‡å¯¹LoadBalancerçš„ä¸€æ³¢å®è·µæˆ‘ä»¬å¯ä»¥å‘ç°ï¼Œä½¿ç”¨LoadBalancerå’ŒRibbonçš„åŒºåˆ«å…¶å®å¹¶ä¸å¤§ï¼Œä¸»è¦æ˜¯ä¸€äº›é…ç½®æ–¹å¼çš„ç›¸åŒã€‚å¦‚æœä½ ä¹‹å‰ä½¿ç”¨è¿‡Ribbonçš„è¯ï¼ŒåŸºæœ¬ä¸Šå¯ä»¥æ— ç¼åˆ‡æ¢åˆ°LoadBalancerã€‚
 
-# ²Î¿¼×ÊÁÏ
+# å‚è€ƒèµ„æ–™
 
-¹Ù·½ÎÄµµ£ºhttps://docs.spring.io/spring-cloud-commons/docs/current/reference/html/#spring-cloud-loadbalancer
+å®˜æ–¹æ–‡æ¡£ï¼šhttps://docs.spring.io/spring-cloud-commons/docs/current/reference/html/#spring-cloud-loadbalancer
 
-# ÏîÄ¿Ô´ÂëµØÖ·
+# é¡¹ç›®æºç åœ°å€
 
 https://github.com/macrozheng/springcloud-learning/tree/master/nacos-loadbalancer-service
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

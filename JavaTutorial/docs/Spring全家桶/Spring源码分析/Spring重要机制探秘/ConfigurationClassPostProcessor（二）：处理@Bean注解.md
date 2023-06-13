@@ -1,19 +1,19 @@
-±¾ÎÄÊÇ `ConfigurationClassPostProcessor` ·ÖÎöµÄµÚ¶şÆª£¬Ö÷ÒªÊÇ·ÖÎö spring ¶Ô `@Bean` ×¢½âµÄ´¦ÀíÁ÷³Ì¡£
+æœ¬æ–‡æ˜¯ `ConfigurationClassPostProcessor` åˆ†æçš„ç¬¬äºŒç¯‡ï¼Œä¸»è¦æ˜¯åˆ†æ spring å¯¹ `@Bean` æ³¨è§£çš„å¤„ç†æµç¨‹ã€‚
 
-## 3\. spring ÊÇÈçºÎ´¦Àí `@Bean` ×¢½âµÄ£¿
+## 3\. spring æ˜¯å¦‚ä½•å¤„ç† `@Bean` æ³¨è§£çš„ï¼Ÿ
 
-³Ğ½ÓÉÏÎÄ£¬ÎÒÃÇ¼ÌĞø·ÖÎö spring ¶Ô `@Bean` ×¢½âµÄ´¦ÀíÁ÷³Ì¡£
+æ‰¿æ¥ä¸Šæ–‡ï¼Œæˆ‘ä»¬ç»§ç»­åˆ†æ spring å¯¹ `@Bean` æ³¨è§£çš„å¤„ç†æµç¨‹ã€‚
 
-### 3.1 demo ×¼±¸
+### 3.1 demo å‡†å¤‡
 
-ÎªÁËËµÃ÷ÎÊÌâ£¬ÎÒÃÇÖ±½ÓÉÏ´úÂë£º
+ä¸ºäº†è¯´æ˜é—®é¢˜ï¼Œæˆ‘ä»¬ç›´æ¥ä¸Šä»£ç ï¼š
 
-Ê×ÏÈ×¼±¸Á½¸ö Bean:
+é¦–å…ˆå‡†å¤‡ä¸¤ä¸ª Bean:
 
 ```
 public class BeanObj1 {
     public BeanObj1() {
-        System.out.println("µ÷ÓÃbeanObj1µÄ¹¹Ôì·½·¨");
+        System.out.println("è°ƒç”¨beanObj1çš„æ„é€ æ–¹æ³•");
     }
 
     @Override
@@ -24,7 +24,7 @@ public class BeanObj1 {
 
 public class BeanObj2 {
     public BeanObj2() {
-        System.out.println("µ÷ÓÃbeanObj2µÄ¹¹Ôì·½·¨");
+        System.out.println("è°ƒç”¨beanObj2çš„æ„é€ æ–¹æ³•");
     }
 
     @Override
@@ -35,9 +35,9 @@ public class BeanObj2 {
 
 ```
 
-×¢Òâ£ºÒÔÉÏÁ½¸öÀà¶¼Ã»ÓĞ `Component`¡¢`@Service` µÈ×¢½â¡£
+æ³¨æ„ï¼šä»¥ä¸Šä¸¤ä¸ªç±»éƒ½æ²¡æœ‰ `Component`ã€`@Service` ç­‰æ³¨è§£ã€‚
 
-ÔÙ×¼±¸Ò»¸öÅäÖÃÀà£¬Í¨¹ı `@Bean` ×¢½âµÄ·½·¨Éú³ÉÁ½¸ö bean£º
+å†å‡†å¤‡ä¸€ä¸ªé…ç½®ç±»ï¼Œé€šè¿‡ `@Bean` æ³¨è§£çš„æ–¹æ³•ç”Ÿæˆä¸¤ä¸ª beanï¼š
 
 ```
 @Component
@@ -50,7 +50,7 @@ public class BeanConfigs {
 
     @Bean
     public BeanObj2 beanObj2() {
-        // ÕâÀïµ÷ÓÃÏÂ beanObj1() ·½·¨
+        // è¿™é‡Œè°ƒç”¨ä¸‹ beanObj1() æ–¹æ³•
         beanObj1();
         return new BeanObj2();
     }
@@ -59,7 +59,7 @@ public class BeanConfigs {
 
 ```
 
-×îºóÊÇÆô¶¯Àà£º
+æœ€åæ˜¯å¯åŠ¨ç±»ï¼š
 
 ```
 @ComponentScan
@@ -78,31 +78,31 @@ public class Demo02Main {
 
 ```
 
-¶ÔÒÔÉÏ ´úÂë£¬×öÒÔÏÂ¼¸µãĞèÒªËµÃ÷£º
+å¯¹ä»¥ä¸Š ä»£ç ï¼Œåšä»¥ä¸‹å‡ ç‚¹éœ€è¦è¯´æ˜ï¼š
 
-*   `BeanConfigs` ÀàÊ¹ÓÃµÄ×¢½âµÄÊÇ `@Component`£¬¸ù¾İ[ÉÏÒ»ÆªÎÄÕÂ](https://my.oschina.net/funcy/blog/4836178)µÄ·ÖÎö£¬`@Component` Ò²ÊôÓÚÅäÖÃÀà£¬½âÎö²½ÖèÍ¬ `@Configuration` ×¢½â£»
-*   ÔÚ `Demo02Main` ÖĞ£¬´«Èë `AnnotationConfigApplicationContext` ÀàÎª `Demo02Main`£¬ÆäÉÏÓĞÒ»¸ö×¢½â `@ComponentScan`£¬Õâ¸ö×¢½âÃ»Ö¸¶¨°üÉ¨ÃèÂ·¾¶£¬¸ù¾İ[ÉÏÒ»ÆªÎÄÕÂ](https://my.oschina.net/funcy/blog/4836178)µÄ·ÖÎö£¬²»Ö¸¶¨°üÉ¨ÃèÂ·¾¶£¬spring »áÄ¬ÈÏÉ¨ÃèÅäÖÃÀàËùÔÚ°ü£»
-*   ÎÒÃÇ²¢Ã»ÓĞÖ±½Ó°Ñ `BeanConfigs` ×¢²áµ½ÈİÆ÷ÖĞ£¨Ïñ `new AnnotationConfigApplicationContext(BeanConfigs.class)` ÕâÑù£©£¬´Ó[ÉÏÒ»ÆªÎÄÕÂ](https://my.oschina.net/funcy/blog/4836178)µÄ·ÖÎö¿ÉÖª£¬spring »áÏÈ½âÎö `Demo02Main` Àà£¬´¦ÀíÆäÉÏµÄ `@Component` ×¢½â£¬´Ó¶øÉ¨Ãèµ½ `BeanConfigs` Àà£¬È»ºó»á½âÎö `BeanConfigs`£¬´¦ÀíÄÚ²¿µÄ `@Bean` ·½·¨£¬Õâ¸öÁ÷³ÌÎÒÃÇ½ÓÏÂÀ´Ò²»áÍ¨¹ıµ÷ÊÔµÄ·½Ê½½øĞĞÑéÖ¤¡£
+*   `BeanConfigs` ç±»ä½¿ç”¨çš„æ³¨è§£çš„æ˜¯ `@Component`ï¼Œæ ¹æ®[ä¸Šä¸€ç¯‡æ–‡ç« ](https://my.oschina.net/funcy/blog/4836178)çš„åˆ†æï¼Œ`@Component` ä¹Ÿå±äºé…ç½®ç±»ï¼Œè§£ææ­¥éª¤åŒ `@Configuration` æ³¨è§£ï¼›
+*   åœ¨ `Demo02Main` ä¸­ï¼Œä¼ å…¥ `AnnotationConfigApplicationContext` ç±»ä¸º `Demo02Main`ï¼Œå…¶ä¸Šæœ‰ä¸€ä¸ªæ³¨è§£ `@ComponentScan`ï¼Œè¿™ä¸ªæ³¨è§£æ²¡æŒ‡å®šåŒ…æ‰«æè·¯å¾„ï¼Œæ ¹æ®[ä¸Šä¸€ç¯‡æ–‡ç« ](https://my.oschina.net/funcy/blog/4836178)çš„åˆ†æï¼Œä¸æŒ‡å®šåŒ…æ‰«æè·¯å¾„ï¼Œspring ä¼šé»˜è®¤æ‰«æé…ç½®ç±»æ‰€åœ¨åŒ…ï¼›
+*   æˆ‘ä»¬å¹¶æ²¡æœ‰ç›´æ¥æŠŠ `BeanConfigs` æ³¨å†Œåˆ°å®¹å™¨ä¸­ï¼ˆåƒ `new AnnotationConfigApplicationContext(BeanConfigs.class)` è¿™æ ·ï¼‰ï¼Œä»[ä¸Šä¸€ç¯‡æ–‡ç« ](https://my.oschina.net/funcy/blog/4836178)çš„åˆ†æå¯çŸ¥ï¼Œspring ä¼šå…ˆè§£æ `Demo02Main` ç±»ï¼Œå¤„ç†å…¶ä¸Šçš„ `@Component` æ³¨è§£ï¼Œä»è€Œæ‰«æåˆ° `BeanConfigs` ç±»ï¼Œç„¶åä¼šè§£æ `BeanConfigs`ï¼Œå¤„ç†å†…éƒ¨çš„ `@Bean` æ–¹æ³•ï¼Œè¿™ä¸ªæµç¨‹æˆ‘ä»¬æ¥ä¸‹æ¥ä¹Ÿä¼šé€šè¿‡è°ƒè¯•çš„æ–¹å¼è¿›è¡ŒéªŒè¯ã€‚
 
-ÔËĞĞÒÔÉÏ´úÂë£¬½á¹ûÈçÏÂ£º
+è¿è¡Œä»¥ä¸Šä»£ç ï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
-µ÷ÓÃbeanObj1µÄ¹¹Ôì·½·¨
-µ÷ÓÃbeanObj1µÄ¹¹Ôì·½·¨
-µ÷ÓÃbeanObj2µÄ¹¹Ôì·½·¨
+è°ƒç”¨beanObj1çš„æ„é€ æ–¹æ³•
+è°ƒç”¨beanObj1çš„æ„é€ æ–¹æ³•
+è°ƒç”¨beanObj2çš„æ„é€ æ–¹æ³•
 obj1:BeanObj1{}
 obj2:BeanObj2{}
 org.springframework.learn.explore.demo05.BeanConfigs@2b71e916
 
 ```
 
-½ÓÏÂÀ´£¬¾ÍÒÔÕâ¸ö demo ½øĞĞ·ÖÎö¡£
+æ¥ä¸‹æ¥ï¼Œå°±ä»¥è¿™ä¸ª demo è¿›è¡Œåˆ†æã€‚
 
-**×¢Òâ**£º±¾ÎÄÊÇ `ConfigurationClassPostProcessor` ·ÖÎöµÄµÚ¶şÆª£¬¶ÔÓë[µÚÒ»Æª](https://my.oschina.net/funcy/blog/4836178)À×Í¬µÄ´úÂë£¬±¾ÎÄÖ»Ò»±Ê´ø¹ı£¬²»»áÔÙ½øĞĞÏêÏ¸·ÖÎö¡£
+**æ³¨æ„**ï¼šæœ¬æ–‡æ˜¯ `ConfigurationClassPostProcessor` åˆ†æçš„ç¬¬äºŒç¯‡ï¼Œå¯¹ä¸[ç¬¬ä¸€ç¯‡](https://my.oschina.net/funcy/blog/4836178)é›·åŒçš„ä»£ç ï¼Œæœ¬æ–‡åªä¸€ç¬”å¸¦è¿‡ï¼Œä¸ä¼šå†è¿›è¡Œè¯¦ç»†åˆ†æã€‚
 
-### 3.2 ´¦ÀíÅäÖÃÀà£ºConfigurationClassPostProcessor#processConfigBeanDefinitions
+### 3.2 å¤„ç†é…ç½®ç±»ï¼šConfigurationClassPostProcessor#processConfigBeanDefinitions
 
-ÎÒÃÇÖ±½Ó½øÈë `ConfigurationClassPostProcessor#processConfigBeanDefinitions` ·½·¨£¬µ÷ÓÃÁ´ÈçÏÂ£º
+æˆ‘ä»¬ç›´æ¥è¿›å…¥ `ConfigurationClassPostProcessor#processConfigBeanDefinitions` æ–¹æ³•ï¼Œè°ƒç”¨é“¾å¦‚ä¸‹ï¼š
 
 ```
 AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(Class)
@@ -116,13 +116,13 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(Class)
 
 ```
 
-´ËÊ±µÄ `candidates` Ö»ÓĞÒ»¸ö ÔªËØ£º
+æ­¤æ—¶çš„ `candidates` åªæœ‰ä¸€ä¸ª å…ƒç´ ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0d50f32d5ea1d2b79b8e17612d30693f753.png)
 
-### 3.2 ½âÎö `demo02Main`£ºConfigurationClassParser#doProcessConfigurationClass
+### 3.2 è§£æ `demo02Main`ï¼šConfigurationClassParser#doProcessConfigurationClass
 
-ÕâÒ»¿é¾ÍÊÇ½âÎö `@ComponentScan` ×¢½âµÄ¹ı³Ì£¬[µÚÒ»Æª](https://my.oschina.net/funcy/blog/4836178)ÒÑÏêÏ¸·ÖÎö¹ı£¬ÕâÀïÖ»¸ø³öµ÷ÓÃÕ»£º
+è¿™ä¸€å—å°±æ˜¯è§£æ `@ComponentScan` æ³¨è§£çš„è¿‡ç¨‹ï¼Œ[ç¬¬ä¸€ç¯‡](https://my.oschina.net/funcy/blog/4836178)å·²è¯¦ç»†åˆ†æè¿‡ï¼Œè¿™é‡Œåªç»™å‡ºè°ƒç”¨æ ˆï¼š
 
 ```
 AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(Class)
@@ -140,15 +140,15 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(Class)
 
 ```
 
-´¦Àí `Demo02Main` µÄ `@ComponentScan` Ö®ºó£¬¿ÉÒÔ¿´µ½ `beanConfigs` ÒÑ¾­É¨Ãèµ½ÁË£º
+å¤„ç† `Demo02Main` çš„ `@ComponentScan` ä¹‹åï¼Œå¯ä»¥çœ‹åˆ° `beanConfigs` å·²ç»æ‰«æåˆ°äº†ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-7fef6007424562f63dda7f2a0b25e9c293b.png)
 
-ÓÉÓÚ `beanConfigs` ÊÇÅäÖÃÀà£¬Òò´Ë»á¶ÔÆä½øĞĞ½âÎö£º
+ç”±äº `beanConfigs` æ˜¯é…ç½®ç±»ï¼Œå› æ­¤ä¼šå¯¹å…¶è¿›è¡Œè§£æï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-fba3821df9cf2926b16bd064cf164e83471.png)
 
-×îÖÕ»¹ÊÇ»á»Øµ½ `ConfigurationClassParser#doProcessConfigurationClass`£¬ÆäÖĞµÄµ÷ÓÃÁ´ÈçÏÂ£º
+æœ€ç»ˆè¿˜æ˜¯ä¼šå›åˆ° `ConfigurationClassParser#doProcessConfigurationClass`ï¼Œå…¶ä¸­çš„è°ƒç”¨é“¾å¦‚ä¸‹ï¼š
 
 ```
 AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(Class)
@@ -169,54 +169,54 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(Class)
 
 ```
 
-´ËÊ±µÄ `ConfigurationClassParser#doProcessConfigurationClass`£¬Ö÷½Ç¾Í²»ÔÙÊÇ `demo02Main`£¬¶øÊÇ `beanConfigs` ÁË¡£
+æ­¤æ—¶çš„ `ConfigurationClassParser#doProcessConfigurationClass`ï¼Œä¸»è§’å°±ä¸å†æ˜¯ `demo02Main`ï¼Œè€Œæ˜¯ `beanConfigs` äº†ã€‚
 
-### 3.3 ½âÎö `beanConfigs`£ºConfigurationClassParser#doProcessConfigurationClass
+### 3.3 è§£æ `beanConfigs`ï¼šConfigurationClassParser#doProcessConfigurationClass
 
-½ÓÏÂÀ´ÎÒÃÇÀ´¿´¿´ `ConfigurationClassParser#doProcessConfigurationClass` ¶Ô `@Bean` ×¢½âµÄ´¦Àí£¬´úÂëÈçÏÂ£º
+æ¥ä¸‹æ¥æˆ‘ä»¬æ¥çœ‹çœ‹ `ConfigurationClassParser#doProcessConfigurationClass` å¯¹ `@Bean` æ³¨è§£çš„å¤„ç†ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 /**
- * Õâ¸ö·½·¨²ÅÊÇÕæÕı´¦Àí½âÎöµÄ·½·¨
+ * è¿™ä¸ªæ–¹æ³•æ‰æ˜¯çœŸæ­£å¤„ç†è§£æçš„æ–¹æ³•
  */
 protected final SourceClass doProcessConfigurationClass(ConfigurationClass configClass, 
         SourceClass sourceClass) throws IOException {
-    // 1\. Èç¹ûÊÇ @Component ×¢½â£¬µİ¹é´¦ÀíÄÚ²¿Àà£¬±¾ÎÄ²»¹Ø×¢
+    // 1\. å¦‚æœæ˜¯ @Component æ³¨è§£ï¼Œé€’å½’å¤„ç†å†…éƒ¨ç±»ï¼Œæœ¬æ–‡ä¸å…³æ³¨
     ...
 
-    // 2\. ´¦Àí@PropertySource×¢½â£¬±¾ÎÄ²»¹Ø×¢
+    // 2\. å¤„ç†@PropertySourceæ³¨è§£ï¼Œæœ¬æ–‡ä¸å…³æ³¨
     ...
 
-    // 3\. ´¦Àí @ComponentScan/@ComponentScans ×¢½â£¬±¾ÎÄ²»¹Ø×¢
+    // 3\. å¤„ç† @ComponentScan/@ComponentScans æ³¨è§£ï¼Œæœ¬æ–‡ä¸å…³æ³¨
     ...
 
-    // 4\. ´¦Àí@Import×¢½â£¬±¾ÎÄ²»¹Ø×¢
+    // 4\. å¤„ç†@Importæ³¨è§£ï¼Œæœ¬æ–‡ä¸å…³æ³¨
     ...
 
-    // 5\. ´¦Àí@ImportResource×¢½â£¬±¾ÎÄ²»¹Ø×¢
+    // 5\. å¤„ç†@ImportResourceæ³¨è§£ï¼Œæœ¬æ–‡ä¸å…³æ³¨
     ...
 
-    // 6\. ´¦Àí@BeanµÄ×¢½â
-    // ¾ßÌåµÄ½âÎö´úÂë
+    // 6\. å¤„ç†@Beançš„æ³¨è§£
+    // å…·ä½“çš„è§£æä»£ç 
     Set<MethodMetadata> beanMethods = retrieveBeanMethodMetadata(sourceClass);
     for (MethodMetadata methodMetadata : beanMethods) {
-        // Ìí¼Óµ½ configClass ÖĞ£¬ºóÃæÔÙ´¦Àí
+        // æ·»åŠ åˆ° configClass ä¸­ï¼Œåé¢å†å¤„ç†
         configClass.addBeanMethod(new BeanMethod(methodMetadata, configClass));
     }
 
-    // 7\. ·µ»ØÅäÖÃÀàµÄ¸¸Àà£¬»áÔÚ processConfigurationClass(...) ·½·¨µÄÏÂÒ»´ÎÑ­»·Ê±½âÎö
+    // 7\. è¿”å›é…ç½®ç±»çš„çˆ¶ç±»ï¼Œä¼šåœ¨ processConfigurationClass(...) æ–¹æ³•çš„ä¸‹ä¸€æ¬¡å¾ªç¯æ—¶è§£æ
     ...
     return null;
 }
 
 ```
 
-»ñÈ¡ `@Bean` µÄ·½·¨µ÷ÓÃµÄÊÇ `retrieveBeanMethodMetadata(...)`£¬ÎÒÃÇ¸ú½øÈ¥£º
+è·å– `@Bean` çš„æ–¹æ³•è°ƒç”¨çš„æ˜¯ `retrieveBeanMethodMetadata(...)`ï¼Œæˆ‘ä»¬è·Ÿè¿›å»ï¼š
 
 ```
 private Set<MethodMetadata> retrieveBeanMethodMetadata(SourceClass sourceClass) {
     AnnotationMetadata original = sourceClass.getMetadata();
-    // »ñÈ¡°üº¬ @Bean ×¢½âµÄ·½·¨
+    // è·å–åŒ…å« @Bean æ³¨è§£çš„æ–¹æ³•
     Set<MethodMetadata> beanMethods = original.getAnnotatedMethods(Bean.class.getName());
     ...
     return beanMethods;
@@ -224,17 +224,17 @@ private Set<MethodMetadata> retrieveBeanMethodMetadata(SourceClass sourceClass) 
 
 ```
 
-ÔÙ¸ú½øÈ¥£¬×îÖÕµ÷ÓÃµÄÊÇ `StandardAnnotationMetadata#getAnnotatedMethods`:
+å†è·Ÿè¿›å»ï¼Œæœ€ç»ˆè°ƒç”¨çš„æ˜¯ `StandardAnnotationMetadata#getAnnotatedMethods`:
 
 ```
 public Set<MethodMetadata> getAnnotatedMethods(String annotationName) {
     Set<MethodMetadata> annotatedMethods = null;
     if (AnnotationUtils.isCandidateClass(getIntrospectedClass(), annotationName)) {
         try {
-            // 1\. Í¨¹ı·´ÉäÀàµÄ»ñÈ¡ËùÓĞµÄ·½·¨
+            // 1\. é€šè¿‡åå°„ç±»çš„è·å–æ‰€æœ‰çš„æ–¹æ³•
             Method[] methods = ReflectionUtils.getDeclaredMethods(getIntrospectedClass());
             for (Method method : methods) {
-                // 2\. ÅĞ¶ÏÊÇ·ñÓĞ @Bean ×¢½â
+                // 2\. åˆ¤æ–­æ˜¯å¦æœ‰ @Bean æ³¨è§£
                 if (isAnnotatedMethod(method, annotationName)) {
                     if (annotatedMethods == null) {
                         annotatedMethods = new LinkedHashSet<>(4);
@@ -245,7 +245,7 @@ public Set<MethodMetadata> getAnnotatedMethods(String annotationName) {
             }
         }
         catch (Throwable ex) {
-            throw new IllegalStateException(¡£¡£¡£);
+            throw new IllegalStateException(ã€‚ã€‚ã€‚);
         }
     }
     return annotatedMethods != null ? annotatedMethods : Collections.emptySet();
@@ -253,53 +253,53 @@ public Set<MethodMetadata> getAnnotatedMethods(String annotationName) {
 
 ```
 
-Õâ¸ö·½·¨ºÜºÃÀí½â£¬¹Ø¼ü¾ÍÁ½²½£º
+è¿™ä¸ªæ–¹æ³•å¾ˆå¥½ç†è§£ï¼Œå…³é”®å°±ä¸¤æ­¥ï¼š
 
-1.  Í¨¹ı·´Éä»ñÈ¡ÀàÖĞËùÓĞ·½·¨£»
-2.  ±éÀúµÃµ½µÄ·½·¨£¬ÖğÒ»ÅĞ¶Ï¸Ã·½·¨ÊÇ·ñÓĞ `@Bean` ×¢½â£»
+1.  é€šè¿‡åå°„è·å–ç±»ä¸­æ‰€æœ‰æ–¹æ³•ï¼›
+2.  éå†å¾—åˆ°çš„æ–¹æ³•ï¼Œé€ä¸€åˆ¤æ–­è¯¥æ–¹æ³•æ˜¯å¦æœ‰ `@Bean` æ³¨è§£ï¼›
 
-µ½ÁËÕâÀï£¬`beanConfigs` ÖĞµÄÁ½¸ö·½·¨ÖÕÓÚ»ñÈ¡µ½ÁË£¨±£´æÔÚ `ConfigurationClass` ¶ÔÏóµÄ `beanMethods` ÊôĞÔ£©£º
+åˆ°äº†è¿™é‡Œï¼Œ`beanConfigs` ä¸­çš„ä¸¤ä¸ªæ–¹æ³•ç»ˆäºè·å–åˆ°äº†ï¼ˆä¿å­˜åœ¨ `ConfigurationClass` å¯¹è±¡çš„ `beanMethods` å±æ€§ï¼‰ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-121f4d518fa57c8932e6b7fd3e7def8704b.png)
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a4d91c1f52703b8c911bdb9d9afaf697d92.png)
 
-### 3.4 ½«±» `@Bean` ±ê¼ÇµÄ·½·¨¼ÓÔØµ½ `BeanDefinitionMap`
+### 3.4 å°†è¢« `@Bean` æ ‡è®°çš„æ–¹æ³•åŠ è½½åˆ° `BeanDefinitionMap`
 
-ÉÏÃæ»ñÈ¡µ½µÄ `beanMethod` ´ËÊ±»¹Ö»ÊÇÔÚ `ConfigurationClass` ¶ÔÏóµÄ `beanMethods` ÊôĞÔÖĞ£¬²¢Ã»ÓĞ¼ÓÔØµ½ `beanFactory` µÄ `BeanDefinitionMap` ÖĞ£¬±¾Ğ¡½ÚÀ´Ì½¾¿ÏÂËüÃÇÊÇºÎÊ±·ÅÈëµ½ `BeanDefinitionMap` ÖĞ¡£
+ä¸Šé¢è·å–åˆ°çš„ `beanMethod` æ­¤æ—¶è¿˜åªæ˜¯åœ¨ `ConfigurationClass` å¯¹è±¡çš„ `beanMethods` å±æ€§ä¸­ï¼Œå¹¶æ²¡æœ‰åŠ è½½åˆ° `beanFactory` çš„ `BeanDefinitionMap` ä¸­ï¼Œæœ¬å°èŠ‚æ¥æ¢ç©¶ä¸‹å®ƒä»¬æ˜¯ä½•æ—¶æ”¾å…¥åˆ° `BeanDefinitionMap` ä¸­ã€‚
 
-»¹¼ÇµÃ `ConfigurationClassPostProcessor#processConfigBeanDefinition` Âğ£¬ÆäÖĞÓĞÕâÃ´Ò»ĞĞ´úÂë£º
+è¿˜è®°å¾— `ConfigurationClassPostProcessor#processConfigBeanDefinition` å—ï¼Œå…¶ä¸­æœ‰è¿™ä¹ˆä¸€è¡Œä»£ç ï¼š
 
 ```
 public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
     ...
-    // ´¦Àí±¾´Î½âÎöµÄÀà
-    // °Ñ @Import ÒıÈëµÄÀà¡¢ÅäÖÃÀàÖĞ´ø@BeanµÄ·½·¨¡¢@ImportResource ÒıÈëµÄ×ÊÔ´µÈ×ª»»³ÉBeanDefinition
+    // å¤„ç†æœ¬æ¬¡è§£æçš„ç±»
+    // æŠŠ @Import å¼•å…¥çš„ç±»ã€é…ç½®ç±»ä¸­å¸¦@Beançš„æ–¹æ³•ã€@ImportResource å¼•å…¥çš„èµ„æºç­‰è½¬æ¢æˆBeanDefinition
     this.reader.loadBeanDefinitions(configClasses);
     ...
 }
 
 ```
 
-Õâ¾ÍÊÇ¼ÓÔØÒıÈëµÄ `BeanDefinition` µÄµØ·½£¬¼´°Ñ `@Import` ÒıÈëµÄÀà¡¢ÅäÖÃÀàÖĞ´ø `@Bean` µÄ·½·¨¡¢`@ImportResource` ÒıÈëµÄ×ÊÔ´µÈ×ª»»³É `BeanDefinition`£¬±¾ÎÄÖØµã¹Ø×¢ `@Bean` ·½·¨µÄ´¦Àí£¬´úÂëÈçÏÂ£º
+è¿™å°±æ˜¯åŠ è½½å¼•å…¥çš„ `BeanDefinition` çš„åœ°æ–¹ï¼Œå³æŠŠ `@Import` å¼•å…¥çš„ç±»ã€é…ç½®ç±»ä¸­å¸¦ `@Bean` çš„æ–¹æ³•ã€`@ImportResource` å¼•å…¥çš„èµ„æºç­‰è½¬æ¢æˆ `BeanDefinition`ï¼Œæœ¬æ–‡é‡ç‚¹å…³æ³¨ `@Bean` æ–¹æ³•çš„å¤„ç†ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 > ConfigurationClassBeanDefinitionReader
 
 ```
     public void loadBeanDefinitions(Set<ConfigurationClass> configurationModel) {
         TrackedConditionEvaluator trackedConditionEvaluator = new TrackedConditionEvaluator();
-        // ±éÀú´¦Àí´«ÈëµÄ configurationModel
+        // éå†å¤„ç†ä¼ å…¥çš„ configurationModel
         for (ConfigurationClass configClass : configurationModel) {
             loadBeanDefinitionsForConfigurationClass(configClass, trackedConditionEvaluator);
         }
     }
 
     /**
-     * Õâ¸ö·½·¨»á¼ÓÔØ¸÷ÖÖ ConfigurationClass ÒıÈëµÄ BeanDefinition
-     * 1\. @Import ÒıÈëµÄÀà
-     * 2\. ÅäÖÃÀàÖĞµÄ @Bean ·½·¨
-     * 3\. @ImportResource ÒıÈëµÄ×ÊÔ´
-     * 4\. @Import ÒıÈëµÄ ImportBeanDefinitionRegistrar
+     * è¿™ä¸ªæ–¹æ³•ä¼šåŠ è½½å„ç§ ConfigurationClass å¼•å…¥çš„ BeanDefinition
+     * 1\. @Import å¼•å…¥çš„ç±»
+     * 2\. é…ç½®ç±»ä¸­çš„ @Bean æ–¹æ³•
+     * 3\. @ImportResource å¼•å…¥çš„èµ„æº
+     * 4\. @Import å¼•å…¥çš„ ImportBeanDefinitionRegistrar
      */
     private void loadBeanDefinitionsForConfigurationClass(
             ConfigurationClass configClass, TrackedConditionEvaluator trackedConditionEvaluator) {
@@ -308,25 +308,25 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
             ...
         }
 
-        // ´¦Àí @Import ÒıÈëµÄÅäÖÃÀà
+        // å¤„ç† @Import å¼•å…¥çš„é…ç½®ç±»
         if (configClass.isImported()) {
             registerBeanDefinitionForImportedConfigurationClass(configClass);
         }
-        // ´¦Àí @Bean ·½·¨
+        // å¤„ç† @Bean æ–¹æ³•
         for (BeanMethod beanMethod : configClass.getBeanMethods()) {
             loadBeanDefinitionsForBeanMethod(beanMethod);
         }
-        // ´¦Àí @ImportResource ÒıÈëµÄ×ÊÔ´
+        // å¤„ç† @ImportResource å¼•å…¥çš„èµ„æº
         loadBeanDefinitionsFromImportedResources(configClass.getImportedResources());
-        // ´¦Àí @Import ÒıÈëµÄ ImportBeanDefinitionRegistrar
+        // å¤„ç† @Import å¼•å…¥çš„ ImportBeanDefinitionRegistrar
         loadBeanDefinitionsFromRegistrars(configClass.getImportBeanDefinitionRegistrars());
     }
 
     /**
-     * ´¦Àí @Bean ·½·¨
-     * 1\. ´´½¨BeanDefinition£¬beanMethod Ê¹ÓÃµÄÊÇ ConfigurationClassBeanDefinition
-     * 2\. ´¦Àí @Bean µÄ¸÷ÖÖÊôĞÔ£¬ÉèÖÃµ½ BeanDefinition ÖĞ
-     * 3\. ½« BeanDefinition ×¢²áµ½ beanFactory ÖĞ
+     * å¤„ç† @Bean æ–¹æ³•
+     * 1\. åˆ›å»ºBeanDefinitionï¼ŒbeanMethod ä½¿ç”¨çš„æ˜¯ ConfigurationClassBeanDefinition
+     * 2\. å¤„ç† @Bean çš„å„ç§å±æ€§ï¼Œè®¾ç½®åˆ° BeanDefinition ä¸­
+     * 3\. å°† BeanDefinition æ³¨å†Œåˆ° beanFactory ä¸­
      */
     private void loadBeanDefinitionsForBeanMethod(BeanMethod beanMethod) {
         ConfigurationClass configClass = beanMethod.getConfigurationClass();
@@ -335,15 +335,15 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
 
         ...
 
-        // 1\. beanMethodÊ¹ÓÃµÄÊÇConfigurationClassBeanDefinition
+        // 1\. beanMethodä½¿ç”¨çš„æ˜¯ConfigurationClassBeanDefinition
         ConfigurationClassBeanDefinition beanDef = 
                 new ConfigurationClassBeanDefinition(configClass, metadata);
         beanDef.setResource(configClass.getResource());
         beanDef.setSource(this.sourceExtractor.extractSource(metadata, configClass.getResource()));
 
-        // 2\. ´¦Àí @Bean µÄ¸÷ÖÖÊôĞÔ
+        // 2\. å¤„ç† @Bean çš„å„ç§å±æ€§
         if (metadata.isStatic()) {
-            // ¾²Ì¬ @Bean ·½·¨
+            // é™æ€ @Bean æ–¹æ³•
             if (configClass.getMetadata() instanceof StandardAnnotationMetadata) {
                 beanDef.setBeanClass(
                     ((StandardAnnotationMetadata) configClass.getMetadata()).getIntrospectedClass());
@@ -354,7 +354,7 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
             beanDef.setUniqueFactoryMethodName(methodName);
         }
         else {
-            // ÆÕÍ¨µÄ @Bean ·½·¨
+            // æ™®é€šçš„ @Bean æ–¹æ³•
             beanDef.setFactoryBeanName(configClass.getBeanName());
             beanDef.setUniqueFactoryMethodName(methodName);
         }
@@ -391,54 +391,54 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
 
         ...
 
-        // 3\. ½«BeanDefinition×¢²áµ½beanFactoryÖĞ
+        // 3\. å°†BeanDefinitionæ³¨å†Œåˆ°beanFactoryä¸­
         this.registry.registerBeanDefinition(beanName, beanDefToRegister);
     }
 
 ```
 
-`ConfigurationClassBeanDefinitionReader#loadBeanDefinitions` ÓÖµ÷ÓÃÁËÁ½¸ö·½·¨£¬×îÖÕ´¦ÀíÊÇÔÚ `ConfigurationClassBeanDefinitionReader#loadBeanDefinitionsForBeanMethod`£¬Õâ²¿·ÖÂß¼­ÈçÏÂ£º
+`ConfigurationClassBeanDefinitionReader#loadBeanDefinitions` åˆè°ƒç”¨äº†ä¸¤ä¸ªæ–¹æ³•ï¼Œæœ€ç»ˆå¤„ç†æ˜¯åœ¨ `ConfigurationClassBeanDefinitionReader#loadBeanDefinitionsForBeanMethod`ï¼Œè¿™éƒ¨åˆ†é€»è¾‘å¦‚ä¸‹ï¼š
 
-1.  ±éÀú´«ÈëµÄ `configClass` ¼¯ºÏ£¬¶ÔÃ¿¸ö `configClass` ½øĞĞ `Definitions` ¼ÓÔØ´¦Àí£»
-2.  ¶Ô `configClass` ½øĞĞ `Definitions` ¼ÓÔØ´¦ÀíÊ±£¬»áÖğÒ»´¦Àí `@Import`/`@Bean`/`@ImportResource` µÈ×¢½â£¬±¾Ğ¡½ÚÎÒÃÇ½ö¹Ø×¢ `@Bean` µÄ´¦Àí£»
-3.  ´¦Àí `@Bean` ·½·¨Ê±£¬ÏÈ´´½¨ `BeanDefinition`(`@Bean` ·½·¨¶ÔÓ¦µÄ `BeanDefinition` ÊÇ `ConfigurationClassBeanDefinition`)£¬È»ºó½âÎö `@Bean` µÄÊôĞÔ£¬ÉèÖÃµ½ `BeanDefinition` ÖĞ£¬×îÖÕÊÇ°Ñ `BeanDefinition` ×¢²áµ½ `beanFactory` ÖĞ.
+1.  éå†ä¼ å…¥çš„ `configClass` é›†åˆï¼Œå¯¹æ¯ä¸ª `configClass` è¿›è¡Œ `Definitions` åŠ è½½å¤„ç†ï¼›
+2.  å¯¹ `configClass` è¿›è¡Œ `Definitions` åŠ è½½å¤„ç†æ—¶ï¼Œä¼šé€ä¸€å¤„ç† `@Import`/`@Bean`/`@ImportResource` ç­‰æ³¨è§£ï¼Œæœ¬å°èŠ‚æˆ‘ä»¬ä»…å…³æ³¨ `@Bean` çš„å¤„ç†ï¼›
+3.  å¤„ç† `@Bean` æ–¹æ³•æ—¶ï¼Œå…ˆåˆ›å»º `BeanDefinition`(`@Bean` æ–¹æ³•å¯¹åº”çš„ `BeanDefinition` æ˜¯ `ConfigurationClassBeanDefinition`)ï¼Œç„¶åè§£æ `@Bean` çš„å±æ€§ï¼Œè®¾ç½®åˆ° `BeanDefinition` ä¸­ï¼Œæœ€ç»ˆæ˜¯æŠŠ `BeanDefinition` æ³¨å†Œåˆ° `beanFactory` ä¸­.
 
-ºÃ ÁË£¬Ö´ĞĞÍê `ConfigurationClassBeanDefinitionReader#loadBeanDefinitions` ºó£¬`BeanDefinition` ¾Í¼ÓÔØµ½ `beanFactory` ÁË£¬¶ÔÓ¦µÄ `BeanDefinition` ÀàĞÍÊÇ `ConfigurationClassBeanDefinition`.
+å¥½ äº†ï¼Œæ‰§è¡Œå®Œ `ConfigurationClassBeanDefinitionReader#loadBeanDefinitions` åï¼Œ`BeanDefinition` å°±åŠ è½½åˆ° `beanFactory` äº†ï¼Œå¯¹åº”çš„ `BeanDefinition` ç±»å‹æ˜¯ `ConfigurationClassBeanDefinition`.
 
-### 3.5 `@Bean` ´´½¨ÊµÀı
+### 3.5 `@Bean` åˆ›å»ºå®ä¾‹
 
-ÊµÀıµÄ´´½¨Á÷³ÌÍ¬ÆÕÍ¨µÄ `@Component` ÀàÒ»ÖÂ£¬²»Í¬µÄÊÇÆÕÍ¨µÄ `@Component` Ààµ÷ÓÃµÄÊÇ¹¹Ôì·½·¨£¬¶ø `@Bean` Ê¹ÓÃµÄÊÇ `factoryMethod`£¬´úÂëÈçÏÂ£º
+å®ä¾‹çš„åˆ›å»ºæµç¨‹åŒæ™®é€šçš„ `@Component` ç±»ä¸€è‡´ï¼Œä¸åŒçš„æ˜¯æ™®é€šçš„ `@Component` ç±»è°ƒç”¨çš„æ˜¯æ„é€ æ–¹æ³•ï¼Œè€Œ `@Bean` ä½¿ç”¨çš„æ˜¯ `factoryMethod`ï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 > AbstractAutowireCapableBeanFactory#createBeanInstance
 
 ```
 /**
- * ÊµÀıµÄ´´½¨·½Ê½
- * 1\. Ê¹ÓÃ instanceSupplier£¬SupplierÊÇjava8Ìá¹©µÄÀà£¬¿ÉÒÔ´«ÈëÒ»¸ölambda±í´ïÊ½
- * 2\. Ê¹ÓÃ¹¤³§·½·¨£¬Èç @Bean ×¢½â¶ÔÓ¦µÄ·½·¨
- * 3\. Ê¹ÓÃµÄÊÇ¹¹Ôì·½·¨×¢Èë£¬¼´¹¹Ôì·½·¨ÉÏÓĞ @Autowired ×¢½â
- * 4\. ¹¹Ôì·½·¨×¢Èë£¬¿ÉÒÔÊÇÎŞ²Î¹¹Ôì£¬Ò²¿ÉÒÔÊÇÓĞ²Î¹¹Ôì
+ * å®ä¾‹çš„åˆ›å»ºæ–¹å¼
+ * 1\. ä½¿ç”¨ instanceSupplierï¼ŒSupplieræ˜¯java8æä¾›çš„ç±»ï¼Œå¯ä»¥ä¼ å…¥ä¸€ä¸ªlambdaè¡¨è¾¾å¼
+ * 2\. ä½¿ç”¨å·¥å‚æ–¹æ³•ï¼Œå¦‚ @Bean æ³¨è§£å¯¹åº”çš„æ–¹æ³•
+ * 3\. ä½¿ç”¨çš„æ˜¯æ„é€ æ–¹æ³•æ³¨å…¥ï¼Œå³æ„é€ æ–¹æ³•ä¸Šæœ‰ @Autowired æ³¨è§£
+ * 4\. æ„é€ æ–¹æ³•æ³¨å…¥ï¼Œå¯ä»¥æ˜¯æ— å‚æ„é€ ï¼Œä¹Ÿå¯ä»¥æ˜¯æœ‰å‚æ„é€ 
  *
  */
 protected BeanWrapper createBeanInstance(String beanName, 
         RootBeanDefinition mbd, @Nullable Object[] args) {
-    // È·±£ÒÑ¾­¼ÓÔØÁË´Ë class
+    // ç¡®ä¿å·²ç»åŠ è½½äº†æ­¤ class
     Class<?> beanClass = resolveBeanClass(mbd, beanName);
     ...
 
-    // ÊÇ·ñÉèÖÃÁËbean´´½¨µÄSupplier£¬SupplierÊÇjava8Ìá¹©µÄÀà£¬¿ÉÒÔ´«ÈëÒ»¸ölambda±í´ïÊ½
-    // µ÷ÓÃ AbstractBeanDefinition#setInstanceSupplier Ö¸¶¨
+    // æ˜¯å¦è®¾ç½®äº†beanåˆ›å»ºçš„Supplierï¼ŒSupplieræ˜¯java8æä¾›çš„ç±»ï¼Œå¯ä»¥ä¼ å…¥ä¸€ä¸ªlambdaè¡¨è¾¾å¼
+    // è°ƒç”¨ AbstractBeanDefinition#setInstanceSupplier æŒ‡å®š
     Supplier<?> instanceSupplier = mbd.getInstanceSupplier();
     if (instanceSupplier != null) {
         return obtainFromSupplier(instanceSupplier, beanName);
     }
     if (mbd.getFactoryMethodName() != null) {
-        // ²ÉÓÃ¹¤³§·½·¨ÊµÀı»¯
+        // é‡‡ç”¨å·¥å‚æ–¹æ³•å®ä¾‹åŒ–
         return instantiateUsingFactoryMethod(beanName, mbd, args);
     }
-    // ÊÇ·ñµÚÒ»´Î
+    // æ˜¯å¦ç¬¬ä¸€æ¬¡
     boolean resolved = false;
-    // ÊÇ·ñ²ÉÓÃ¹¹Ôìº¯Êı×¢Èë
+    // æ˜¯å¦é‡‡ç”¨æ„é€ å‡½æ•°æ³¨å…¥
     boolean autowireNecessary = false;
     ...
     if (resolved) {
@@ -446,12 +446,12 @@ protected BeanWrapper createBeanInstance(String beanName,
             return autowireConstructor(beanName, mbd, null, null);
         }
         else {
-            // ÎŞ²Î¹¹Ôìº¯Êı
+            // æ— å‚æ„é€ å‡½æ•°
             return instantiateBean(beanName, mbd);
         }
     }
     // Candidate constructors for autowiring?
-    // ÅĞ¶ÏÊÇ·ñ²ÉÓÃÓĞ²Î¹¹Ôìº¯Êı
+    // åˆ¤æ–­æ˜¯å¦é‡‡ç”¨æœ‰å‚æ„é€ å‡½æ•°
     Constructor<?>[] ctors = determineConstructorsFromBeanPostProcessors(
             beanClass, beanName);
     if (ctors != null || mbd.getResolvedAutowireMode() == AUTOWIRE_CONSTRUCTOR ||
@@ -460,23 +460,23 @@ protected BeanWrapper createBeanInstance(String beanName,
     }
     ctors = mbd.getPreferredConstructors();
     if (ctors != null) {
-        // ¹¹Ôìº¯ÊıÒÀÀµ×¢Èë
+        // æ„é€ å‡½æ•°ä¾èµ–æ³¨å…¥
         return autowireConstructor(beanName, mbd, ctors, null);
     }
-    // µ÷ÓÃÎŞ²Î¹¹Ôìº¯Êı
+    // è°ƒç”¨æ— å‚æ„é€ å‡½æ•°
     return instantiateBean(beanName, mbd);
 }
 
 ```
 
-´Ó´úÂëÉÏÀ´¿´£¬spring ÊµÀı¶ÔÏóµÄ·½Ê½ÓĞ 4 ÖÖ£º
+ä»ä»£ç ä¸Šæ¥çœ‹ï¼Œspring å®ä¾‹å¯¹è±¡çš„æ–¹å¼æœ‰ 4 ç§ï¼š
 
-1.  Ê¹ÓÃ `instanceSupplier`£¬`Supplier` ÊÇ `java8` Ìá¹©µÄÀà£¬¿ÉÒÔ´«ÈëÒ»¸ö `lambda` ±í´ïÊ½
-2.  Ê¹ÓÃ¹¤³§·½·¨£¬Èç `@Bean` ×¢½â¶ÔÓ¦µÄ·½·¨
-3.  Ê¹ÓÃµÄÊÇ¹¹Ôì·½·¨×¢Èë£¬¼´¹¹Ôì·½·¨ÉÏÓĞ `@Autowired` ×¢½â
-4.  ¹¹Ôì·½·¨×¢Èë£¬¿ÉÒÔÊÇÎŞ²Î¹¹Ôì£¬Ò²¿ÉÒÔÊÇÓĞ²Î¹¹Ôì
+1.  ä½¿ç”¨ `instanceSupplier`ï¼Œ`Supplier` æ˜¯ `java8` æä¾›çš„ç±»ï¼Œå¯ä»¥ä¼ å…¥ä¸€ä¸ª `lambda` è¡¨è¾¾å¼
+2.  ä½¿ç”¨å·¥å‚æ–¹æ³•ï¼Œå¦‚ `@Bean` æ³¨è§£å¯¹åº”çš„æ–¹æ³•
+3.  ä½¿ç”¨çš„æ˜¯æ„é€ æ–¹æ³•æ³¨å…¥ï¼Œå³æ„é€ æ–¹æ³•ä¸Šæœ‰ `@Autowired` æ³¨è§£
+4.  æ„é€ æ–¹æ³•æ³¨å…¥ï¼Œå¯ä»¥æ˜¯æ— å‚æ„é€ ï¼Œä¹Ÿå¯ä»¥æ˜¯æœ‰å‚æ„é€ 
 
-ÕâÀïÎÒÃÇÖ÷Òª¹Ø×¢ `@Bean` µÄÊµÀı·½Ê½£¬Ò²¾ÍÊÇ¹¤³§·½·¨ÊµÀı»¯·½Ê½£¬ÎÒÃÇ½øÈ¥¿´ÏÂ£º
+è¿™é‡Œæˆ‘ä»¬ä¸»è¦å…³æ³¨ `@Bean` çš„å®ä¾‹æ–¹å¼ï¼Œä¹Ÿå°±æ˜¯å·¥å‚æ–¹æ³•å®ä¾‹åŒ–æ–¹å¼ï¼Œæˆ‘ä»¬è¿›å»çœ‹ä¸‹ï¼š
 
 ```
 public BeanWrapper instantiateUsingFactoryMethod(String beanName, 
@@ -497,7 +497,7 @@ public BeanWrapper instantiateUsingFactoryMethod(String beanName,
     Method factoryMethodToUse = null;
     ArgumentsHolder argsHolderToUse = null;
     Object[] argsToUse = null;
-    // ´¦Àí factoryMethod µÄ²ÎÊı
+    // å¤„ç† factoryMethod çš„å‚æ•°
     if (explicitArgs != null) {
         argsToUse = explicitArgs;
     }
@@ -516,7 +516,7 @@ public BeanWrapper instantiateUsingFactoryMethod(String beanName,
                 candidates = Collections.singletonList(factoryMethodToUse);
             }
         }
-        // Ê¡ÂÔÁËºÃ¶à´úÂë
+        // çœç•¥äº†å¥½å¤šä»£ç 
         ...
     }
     bw.setBeanInstance(instantiate(beanName, mbd, 
@@ -526,13 +526,13 @@ public BeanWrapper instantiateUsingFactoryMethod(String beanName,
 
 ```
 
-ÒÔÉÏ·½·¨ÊÇ¾­¾«¼òºóµÄ´úÂë£¬Ô­±¾·½·¨´úÂë±È½Ï¶à£¬´ó²¿·Ö´úÂëÊÇÔÚÔÚ´¦Àí `argsToUse` Óë `factoryMethodToUse` ²ÎÊı£¬Ï¸½Ú·Ç³£¶à£¬¾Í²»Õ¹¿ª·ÖÎöÁË£¬ÕâÀïÎÒÃÇÖ÷Òª¹Ø×¢ÒÔÏÂ¼¸¸ö±äÁ¿£º
+ä»¥ä¸Šæ–¹æ³•æ˜¯ç»ç²¾ç®€åçš„ä»£ç ï¼ŒåŸæœ¬æ–¹æ³•ä»£ç æ¯”è¾ƒå¤šï¼Œå¤§éƒ¨åˆ†ä»£ç æ˜¯åœ¨åœ¨å¤„ç† `argsToUse` ä¸ `factoryMethodToUse` å‚æ•°ï¼Œç»†èŠ‚éå¸¸å¤šï¼Œå°±ä¸å±•å¼€åˆ†æäº†ï¼Œè¿™é‡Œæˆ‘ä»¬ä¸»è¦å…³æ³¨ä»¥ä¸‹å‡ ä¸ªå˜é‡ï¼š
 
-1.  `factoryBean`£º `@Bean` ·½·¨ËùÔÚÀàµÄÊµÀı£¬ÕâÀïÊÇ `beanConfig`;
-2.  `factoryMethodToUse`: ÊµÀı»¯ËùÓÃµÄ·½·¨£¬Ò²¾ÍÊÇ±» `@Bean` ×¢½âµÄ·½·¨£¬ÕâÀïÊÇ `BeanConfigs#beanObj1`;
-3.  `argsToUse`£º±» `@Bean` ×¢½âµÄ·½·¨ÒªÓÃµÄ²ÎÊı£¬ÓÉÓÚ `BeanConfigs#beanObj1` Ã»ÓĞÖ¸¶¨²ÎÊı£¬ÕâÀïÊÇ null;
+1.  `factoryBean`ï¼š `@Bean` æ–¹æ³•æ‰€åœ¨ç±»çš„å®ä¾‹ï¼Œè¿™é‡Œæ˜¯ `beanConfig`;
+2.  `factoryMethodToUse`: å®ä¾‹åŒ–æ‰€ç”¨çš„æ–¹æ³•ï¼Œä¹Ÿå°±æ˜¯è¢« `@Bean` æ³¨è§£çš„æ–¹æ³•ï¼Œè¿™é‡Œæ˜¯ `BeanConfigs#beanObj1`;
+3.  `argsToUse`ï¼šè¢« `@Bean` æ³¨è§£çš„æ–¹æ³•è¦ç”¨çš„å‚æ•°ï¼Œç”±äº `BeanConfigs#beanObj1` æ²¡æœ‰æŒ‡å®šå‚æ•°ï¼Œè¿™é‡Œæ˜¯ null;
 
-ÕâÈı¸ö±äÁ¿ÊÇÓÃÀ´½øĞĞÊµÀı»¯µÄ±äÁ¿£¬ÊµÀı»¯·½Ê½´óÖÂÒ²ÄÜÏëµ½ÁË£¬ÊµÀı¡¢·½·¨¼°·½·¨²ÎÊı¶¼ÓĞÁË£¬½ÓÏÂÀ´¾ÍÊÇµ÷ÓÃ·´Éä½øĞĞÊµÀı»¯ÁË£º
+è¿™ä¸‰ä¸ªå˜é‡æ˜¯ç”¨æ¥è¿›è¡Œå®ä¾‹åŒ–çš„å˜é‡ï¼Œå®ä¾‹åŒ–æ–¹å¼å¤§è‡´ä¹Ÿèƒ½æƒ³åˆ°äº†ï¼Œå®ä¾‹ã€æ–¹æ³•åŠæ–¹æ³•å‚æ•°éƒ½æœ‰äº†ï¼Œæ¥ä¸‹æ¥å°±æ˜¯è°ƒç”¨åå°„è¿›è¡Œå®ä¾‹åŒ–äº†ï¼š
 
 > ConstructorResolver#instantiate(...)
 
@@ -561,7 +561,7 @@ public Object instantiate(RootBeanDefinition bd, @Nullable String beanName, Bean
         ...
         try {
             currentlyInvokedFactoryMethod.set(factoryMethod);
-            // ÕâÀï¾ÍÏàµ±ÓÚµ÷ÓÃ beanConfigs.beanObj1()
+            // è¿™é‡Œå°±ç›¸å½“äºè°ƒç”¨ beanConfigs.beanObj1()
             Object result = factoryMethod.invoke(factoryBean, args);
             if (result == null) {
                 result = new NullBean();
@@ -579,13 +579,13 @@ public Object instantiate(RootBeanDefinition bd, @Nullable String beanName, Bean
 
 ```
 
-×îÖÕÊÇÔÚ `SimpleInstantiationStrategy#instantiate(...)` ·½·¨ÖĞ½øĞĞ·´ÉäÊµÀı»¯ÁË£¡
+æœ€ç»ˆæ˜¯åœ¨ `SimpleInstantiationStrategy#instantiate(...)` æ–¹æ³•ä¸­è¿›è¡Œåå°„å®ä¾‹åŒ–äº†ï¼
 
-ÊµÀı»¯Íê³Éºó£¬ºóÃæÒÀÀµ×¢Èë¡¢³õÊ¼»¯µÈ¶¼ÓëÆÕÍ¨µÄ spring bean Ò»ÖÂ£¬ÕâÀï¾Í²»ÔÙ·ÖÎöÁË¡£
+å®ä¾‹åŒ–å®Œæˆåï¼Œåé¢ä¾èµ–æ³¨å…¥ã€åˆå§‹åŒ–ç­‰éƒ½ä¸æ™®é€šçš„ spring bean ä¸€è‡´ï¼Œè¿™é‡Œå°±ä¸å†åˆ†æäº†ã€‚
 
-### 3.6 `@Configuration` Óë `@Bean` ×éºÏÊ¹ÓÃ
+### 3.6 `@Configuration` ä¸ `@Bean` ç»„åˆä½¿ç”¨
 
-ÉÏÃæ½éÉÜÁË `@Component` Óë `@Bean` Ê¹ÓÃÊ±µÄ´úÂë·ÖÎö£¬¼´
+ä¸Šé¢ä»‹ç»äº† `@Component` ä¸ `@Bean` ä½¿ç”¨æ—¶çš„ä»£ç åˆ†æï¼Œå³
 
 ```
 @Component
@@ -598,7 +598,7 @@ public class BeanConfigs {
 
 ```
 
-Êµ¼ÊÉÏ£¬´ó¶àÊıÇé¿öÏÂÎÒÃÇÊ¹ÓÃµÄÊÇ `@Configuration` Óë `@Bean` µÄ×éºÏ£º
+å®é™…ä¸Šï¼Œå¤§å¤šæ•°æƒ…å†µä¸‹æˆ‘ä»¬ä½¿ç”¨çš„æ˜¯ `@Configuration` ä¸ `@Bean` çš„ç»„åˆï¼š
 
 ```
 @Configuration
@@ -611,11 +611,11 @@ public class BeanConfigs {
 
 ```
 
-ÕâÓëÎÒÃÇÇ°ÃæÊ¹ÓÃµÄ `@Component` ÓĞºÎ²î±ğÄØ£¿±¾½ÚÎÒÃÇ¾ÍÀ´·ÖÎöÏÂ¡£
+è¿™ä¸æˆ‘ä»¬å‰é¢ä½¿ç”¨çš„ `@Component` æœ‰ä½•å·®åˆ«å‘¢ï¼Ÿæœ¬èŠ‚æˆ‘ä»¬å°±æ¥åˆ†æä¸‹ã€‚
 
-#### 1\. demo ×¼±¸
+#### 1\. demo å‡†å¤‡
 
-demo ×¼±¸£º
+demo å‡†å¤‡ï¼š
 
 ```
 //@Component
@@ -629,7 +629,7 @@ public class BeanConfigs {
 
     @Bean
     public BeanObj2 beanObj2() {
-        // ÕâÀïµ÷ÓÃÏÂ beanObj1() ·½·¨
+        // è¿™é‡Œè°ƒç”¨ä¸‹ beanObj1() æ–¹æ³•
         beanObj1();
         return new BeanObj2();
     }
@@ -638,35 +638,35 @@ public class BeanConfigs {
 
 ```
 
-Õâ¸ö demo ½ö½öÖ»ÊÇ½« `@Component` Ìæ»»Îª `@Configuration`£¬Ö´ĞĞÏÂ£¬½á¹ûÈçÏÂ£º
+è¿™ä¸ª demo ä»…ä»…åªæ˜¯å°† `@Component` æ›¿æ¢ä¸º `@Configuration`ï¼Œæ‰§è¡Œä¸‹ï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
-µ÷ÓÃbeanObj1µÄ¹¹Ôì·½·¨
-µ÷ÓÃbeanObj2µÄ¹¹Ôì·½·¨
+è°ƒç”¨beanObj1çš„æ„é€ æ–¹æ³•
+è°ƒç”¨beanObj2çš„æ„é€ æ–¹æ³•
 obj1:BeanObj1{}
 obj2:BeanObj2{}
 org.springframework.learn.explore.demo02.BeanConfigs$$EnhancerBySpringCGLIB$$dca1c55b@75c072cb
 
 ```
 
-¿´³öÇø±ğÁËÂğ£¬ÎÒÃÇ½«Ö®Ç°µÄÖ´ĞĞÒ²·ÅÔÚÕâÀï£º
+çœ‹å‡ºåŒºåˆ«äº†å—ï¼Œæˆ‘ä»¬å°†ä¹‹å‰çš„æ‰§è¡Œä¹Ÿæ”¾åœ¨è¿™é‡Œï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-88e5047479e4f30e70d09397d2631c0c6a5.png)
 
-¾­¹ı±È½Ï£¬·¢ÏÖÓĞÁ½´¦²»Í¬£º
+ç»è¿‡æ¯”è¾ƒï¼Œå‘ç°æœ‰ä¸¤å¤„ä¸åŒï¼š
 
-1.  `beanObj1` µÄ¹¹Ôì·½·¨½öµ÷ÓÃÁËÒ»´Î£»
-2.  `beanConfigs` ¶ÔÓ¦µÄÀàÊÇ `BeanConfigs$$EnhancerBySpringCGLIB$$dca1c55b@75c072cb`£¬ËµÃ÷ËüÊÇÒ»¸ö´úÀí¶ÔÏó£¬Ê¹ÓÃÁË cglib ´úÀí¡£
+1.  `beanObj1` çš„æ„é€ æ–¹æ³•ä»…è°ƒç”¨äº†ä¸€æ¬¡ï¼›
+2.  `beanConfigs` å¯¹åº”çš„ç±»æ˜¯ `BeanConfigs$$EnhancerBySpringCGLIB$$dca1c55b@75c072cb`ï¼Œè¯´æ˜å®ƒæ˜¯ä¸€ä¸ªä»£ç†å¯¹è±¡ï¼Œä½¿ç”¨äº† cglib ä»£ç†ã€‚
 
-Êµ¼ÊÉÏ£¬ÒÔÉÏÁ½¸ö²»Í¬µã¶¼¿ÉÒÔ¹é½áÎªÒ»¸öÔ­Òò£ºspring ¶Ô `beanConfigs` ½øĞĞÁË´úÀí£¬µ÷ÓÃ `BeanConfigs#beanObj1` Êµ¼Êµ÷ÓÃµÄÊÇ´úÀí·½·¨£¬¼´ **spring »á¶Ô±» `@Configuration` ±ê¼ÇµÄÀà½øĞĞ cglib ´úÀí**£¡
+å®é™…ä¸Šï¼Œä»¥ä¸Šä¸¤ä¸ªä¸åŒç‚¹éƒ½å¯ä»¥å½’ç»“ä¸ºä¸€ä¸ªåŸå› ï¼šspring å¯¹ `beanConfigs` è¿›è¡Œäº†ä»£ç†ï¼Œè°ƒç”¨ `BeanConfigs#beanObj1` å®é™…è°ƒç”¨çš„æ˜¯ä»£ç†æ–¹æ³•ï¼Œå³ **spring ä¼šå¯¹è¢« `@Configuration` æ ‡è®°çš„ç±»è¿›è¡Œ cglib ä»£ç†**ï¼
 
-ÄÇÃ´´úÀíÊÇÔõÃ´´´½¨¼°ÔËĞĞµÄÄØ£¿ÎÒÃÇ¼ÌĞøÌ½¾¿¡£
+é‚£ä¹ˆä»£ç†æ˜¯æ€ä¹ˆåˆ›å»ºåŠè¿è¡Œçš„å‘¢ï¼Ÿæˆ‘ä»¬ç»§ç»­æ¢ç©¶ã€‚
 
-#### 2\. ´úÀíÀàµÄ´´½¨£º`ConfigurationClassPostProcessor#enhanceConfigurationClasses`
+#### 2\. ä»£ç†ç±»çš„åˆ›å»ºï¼š`ConfigurationClassPostProcessor#enhanceConfigurationClasses`
 
-ÔÚ[ÉÏÒ»ÆªÎÄÕÂ](https://my.oschina.net/funcy/blog/4836178)µÄ¿ªÆª£¬ÎÒÃÇ¾ÍÌáµ½¹ı `ConfigurationClassPostProcessor` ÔÚÖ´ĞĞÊ±»áµ÷ÓÃµ½Á½¸ö·½·¨£º`processConfigBeanDefinitions(...)` Óë `enhanceConfigurationClasses(...)`£¬`processConfigBeanDefinitions(...)` ÒıÆğÁË spring ¶Ô `@Import`¡¢`@Configuration` µÈ×¢½âµÄ½âÎö£¬Ç°ÃæÒÑ¾­·ÖÎö¹ıÁË£»¶ø `enhanceConfigurationClasses(...)` ¾ÍÊÇ±» `@Configuration` ±ê¼ÇµÄÀà´úÀí²úÉúµÄ¹Ø¼üËùÔÚ£¡
+åœ¨[ä¸Šä¸€ç¯‡æ–‡ç« ](https://my.oschina.net/funcy/blog/4836178)çš„å¼€ç¯‡ï¼Œæˆ‘ä»¬å°±æåˆ°è¿‡ `ConfigurationClassPostProcessor` åœ¨æ‰§è¡Œæ—¶ä¼šè°ƒç”¨åˆ°ä¸¤ä¸ªæ–¹æ³•ï¼š`processConfigBeanDefinitions(...)` ä¸ `enhanceConfigurationClasses(...)`ï¼Œ`processConfigBeanDefinitions(...)` å¼•èµ·äº† spring å¯¹ `@Import`ã€`@Configuration` ç­‰æ³¨è§£çš„è§£æï¼Œå‰é¢å·²ç»åˆ†æè¿‡äº†ï¼›è€Œ `enhanceConfigurationClasses(...)` å°±æ˜¯è¢« `@Configuration` æ ‡è®°çš„ç±»ä»£ç†äº§ç”Ÿçš„å…³é”®æ‰€åœ¨ï¼
 
-`enhanceConfigurationClasses(...)` ·½·¨´úÂëÈçÏÂ£º
+`enhanceConfigurationClasses(...)` æ–¹æ³•ä»£ç å¦‚ä¸‹ï¼š
 
 > ConfigurationClassPostProcessor#enhanceConfigurationClasses
 
@@ -678,23 +678,23 @@ public void enhanceConfigurationClasses(ConfigurableListableBeanFactory beanFact
         Object configClassAttr = beanDef.getAttribute(
             ConfigurationClassUtils.CONFIGURATION_CLASS_ATTRIBUTE);
         ...
-        // 1\. ÅĞ¶ÏÊÇ·ñÎªÒ»¸öÈ«ÅäÖÃÀà
+        // 1\. åˆ¤æ–­æ˜¯å¦ä¸ºä¸€ä¸ªå…¨é…ç½®ç±»
         if (ConfigurationClassUtils.CONFIGURATION_CLASS_FULL.equals(configClassAttr)) {
             ...
             configBeanDefs.put(beanName, (AbstractBeanDefinition) beanDef);
         }
     }
-    // È«ÅäÖÃÀà£º´¦Àí´úÀí
+    // å…¨é…ç½®ç±»ï¼šå¤„ç†ä»£ç†
     ConfigurationClassEnhancer enhancer = new ConfigurationClassEnhancer();
     for (Map.Entry<String, AbstractBeanDefinition> entry : configBeanDefs.entrySet()) {
         AbstractBeanDefinition beanDef = entry.getValue();
         beanDef.setAttribute(AutoProxyUtils.PRESERVE_TARGET_CLASS_ATTRIBUTE, Boolean.TRUE);
-        // ´¦Àí BeanClass
+        // å¤„ç† BeanClass
         Class<?> configClass = beanDef.getBeanClass();
-        // 2\. Éú³É enhancedClass
+        // 2\. ç”Ÿæˆ enhancedClass
         Class<?> enhancedClass = enhancer.enhance(configClass, this.beanClassLoader);
         if (configClass != enhancedClass) {
-            // 3\. ÉèÖÃ BeanClass£¬ÖµÎªenhancedClass
+            // 3\. è®¾ç½® BeanClassï¼Œå€¼ä¸ºenhancedClass
             beanDef.setBeanClass(enhancedClass);
         }
     }
@@ -702,49 +702,49 @@ public void enhanceConfigurationClasses(ConfigurableListableBeanFactory beanFact
 
 ```
 
-Õâ¸ö·½·¨±È½Ï¼òµ¥£¬²½ÖèÈçÏÂ£º
+è¿™ä¸ªæ–¹æ³•æ¯”è¾ƒç®€å•ï¼Œæ­¥éª¤å¦‚ä¸‹ï¼š
 
-1.  ÅĞ¶ÏÅäÖÃÀàÊÇ·ñÎªÈ«ÅäÖÃÀà£¬ÔÚÔÚ[ÉÏÒ»ÆªÎÄÕÂ](https://my.oschina.net/funcy/blog/4836178)ÎÄÕÂÖĞ£¬ÎÒÃÇÌáµ½ spring »á°Ñ´øÓĞ `@Configuration` ×¢½âÇÒ `proxyBeanMethods != false` µÄÀà±ê¼ÇÎª `Full` ÅäÖÃÀà£¬ÕâÀïÕıÊÇ¸ù¾İÇ°ÃæµÄ±ê¼ÇÀ´ÅĞ¶Ï·ñÎªÈ«ÅäÖÃÀà£¬ºÜÃ÷ÏÔ£¬´ËÊ±µÄ `beanConfigs` ¾ÍÊÇÒ»¸öÈ«ÅäÖÃÀà£»
-2.  ¶ÔÈ«ÅäÖÃÀà£¬»á¸ù¾İÆä `configClass` Éú³É¶ÔÓ¦µÄ `enhancedClass`£»
-3.  ½«Éú³ÉµÄ `enhancedClass` ÉèÖÃµ½ `beanDefinition` µÄ `beanClass` ÖĞ¡£
+1.  åˆ¤æ–­é…ç½®ç±»æ˜¯å¦ä¸ºå…¨é…ç½®ç±»ï¼Œåœ¨åœ¨[ä¸Šä¸€ç¯‡æ–‡ç« ](https://my.oschina.net/funcy/blog/4836178)æ–‡ç« ä¸­ï¼Œæˆ‘ä»¬æåˆ° spring ä¼šæŠŠå¸¦æœ‰ `@Configuration` æ³¨è§£ä¸” `proxyBeanMethods != false` çš„ç±»æ ‡è®°ä¸º `Full` é…ç½®ç±»ï¼Œè¿™é‡Œæ­£æ˜¯æ ¹æ®å‰é¢çš„æ ‡è®°æ¥åˆ¤æ–­å¦ä¸ºå…¨é…ç½®ç±»ï¼Œå¾ˆæ˜æ˜¾ï¼Œæ­¤æ—¶çš„ `beanConfigs` å°±æ˜¯ä¸€ä¸ªå…¨é…ç½®ç±»ï¼›
+2.  å¯¹å…¨é…ç½®ç±»ï¼Œä¼šæ ¹æ®å…¶ `configClass` ç”Ÿæˆå¯¹åº”çš„ `enhancedClass`ï¼›
+3.  å°†ç”Ÿæˆçš„ `enhancedClass` è®¾ç½®åˆ° `beanDefinition` çš„ `beanClass` ä¸­ã€‚
 
-Ö´ĞĞÍê´Ë·½·¨ºó£¬`beanConfigs` ¶ÔÓ¦µÄ `beanDefinition` µÄ `beanClass` ¾ÍÊÇ´úÀíÀàÁË£º
+æ‰§è¡Œå®Œæ­¤æ–¹æ³•åï¼Œ`beanConfigs` å¯¹åº”çš„ `beanDefinition` çš„ `beanClass` å°±æ˜¯ä»£ç†ç±»äº†ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-f617fc93f72b13b8f785ccf5a12624dec0b.png)
 
-ºóÃæ´´½¨µÄ `beanConfigs` ¾ÍÊÇÕâ¸ö´úÀíÀàµÄÊµÀıÁË¡£
+åé¢åˆ›å»ºçš„ `beanConfigs` å°±æ˜¯è¿™ä¸ªä»£ç†ç±»çš„å®ä¾‹äº†ã€‚
 
-#### 3\. Ö´ĞĞ´úÀí¶ÔÏóµÄ·½·¨
+#### 3\. æ‰§è¡Œä»£ç†å¯¹è±¡çš„æ–¹æ³•
 
-Éú³É´úÀí¶ÔÏóºó£¬´úÀí·½·¨ÊÇÈçºÎÖ´ĞĞµÄÄØ£¿¼´ spring ÊÇÈçºÎÖ´ĞĞ `beanConfigs.beanObj1()` µÄÄØ£¿ËµÆğÕâ¸ö£¬¾ÍĞèÒªÌ¸µ½ cglib ´úÀí¶ÔÏóµÄ·½·¨Ö´ĞĞÁË¡£ÎÒÃÇÖ±½ÓÀ´¿´´úÀíµÄÉú³É£¬½øÈë `enhancer.enhance(configClass, this.beanClassLoader)`£º
+ç”Ÿæˆä»£ç†å¯¹è±¡åï¼Œä»£ç†æ–¹æ³•æ˜¯å¦‚ä½•æ‰§è¡Œçš„å‘¢ï¼Ÿå³ spring æ˜¯å¦‚ä½•æ‰§è¡Œ `beanConfigs.beanObj1()` çš„å‘¢ï¼Ÿè¯´èµ·è¿™ä¸ªï¼Œå°±éœ€è¦è°ˆåˆ° cglib ä»£ç†å¯¹è±¡çš„æ–¹æ³•æ‰§è¡Œäº†ã€‚æˆ‘ä»¬ç›´æ¥æ¥çœ‹ä»£ç†çš„ç”Ÿæˆï¼Œè¿›å…¥ `enhancer.enhance(configClass, this.beanClassLoader)`ï¼š
 
 ```
 public Class<?> enhance(Class<?> configClass, @Nullable ClassLoader classLoader) {
     if (EnhancedConfiguration.class.isAssignableFrom(configClass)) {
         return configClass;
     }
-    // newEnhancer(...) ·½·¨²ÅÊÇ¹Ø¼ü
+    // newEnhancer(...) æ–¹æ³•æ‰æ˜¯å…³é”®
     Class<?> enhancedClass = createClass(newEnhancer(configClass, classLoader));
     return enhancedClass;
 }
 
 ```
 
-¼ÌĞø½øÈë£º
+ç»§ç»­è¿›å…¥ï¼š
 
 ```
 private static final Callback[] CALLBACKS = new Callback[] {
-        // Õâ¸öÀàÓÃÀ´±£Ö¤ @Bean ·½·¨µÄµ¥Àı
+        // è¿™ä¸ªç±»ç”¨æ¥ä¿è¯ @Bean æ–¹æ³•çš„å•ä¾‹
         new BeanMethodInterceptor(),
         new BeanFactoryAwareMethodInterceptor(),
         NoOp.INSTANCE
 };
 
-// Éú³É CallbackFilter£¬´«ÈëµÄ¶ÔÏóÎªCallback
+// ç”Ÿæˆ CallbackFilterï¼Œä¼ å…¥çš„å¯¹è±¡ä¸ºCallback
 private static final ConditionalCallbackFilter CALLBACK_FILTER 
         = new ConditionalCallbackFilter(CALLBACKS);
 
-// Éú³ÉcglibÔöÇ¿
+// ç”Ÿæˆcglibå¢å¼º
 private Enhancer newEnhancer(Class<?> configSuperClass, @Nullable ClassLoader classLoader) {
     Enhancer enhancer = new Enhancer();
     enhancer.setSuperclass(configSuperClass);
@@ -752,7 +752,7 @@ private Enhancer newEnhancer(Class<?> configSuperClass, @Nullable ClassLoader cl
     enhancer.setUseFactory(false);
     enhancer.setNamingPolicy(SpringNamingPolicy.INSTANCE);
     enhancer.setStrategy(new BeanFactoryAwareGeneratorStrategy(classLoader));
-    // ´úÀí²¿·ÖÔÚcallbackFilter
+    // ä»£ç†éƒ¨åˆ†åœ¨callbackFilter
     enhancer.setCallbackFilter(CALLBACK_FILTER);
     enhancer.setCallbackTypes(CALLBACK_FILTER.getCallbackTypes());
     return enhancer;
@@ -760,7 +760,7 @@ private Enhancer newEnhancer(Class<?> configSuperClass, @Nullable ClassLoader cl
 
 ```
 
-¹ØÓÚ cglib ´úÀíµÄÄÚÈİ£¬ÔÚ [spring aop Ö® cglib ´úÀí](https://my.oschina.net/funcy/blog/4696655)Ò»ÎÄÖĞÒÑÏêÏ¸·ÖÎö¹ıÁË£¬Õâ²»ÔÙ·ÖÎö£¬ÎÒÃÇÖ±½ÓËµ½áÂÛ£ºcglib Ö´ĞĞ´úÀí·½·¨Ê±£¬Ö´ĞĞµÄÊÇ `Enhancer` ÖĞ `callbackFilter` ÊôĞÔµÄ `MethodInterceptor#intercept` ·½·¨£¬¼´ `CALLBACKS` Êı×éÖĞµÄ `BeanMethodInterceptor`£¬ÏÂÃæÎÒÃÇ¾ÍÀ´¿´ÏÂËüµÄÄÚÈİ£º
+å…³äº cglib ä»£ç†çš„å†…å®¹ï¼Œåœ¨ [spring aop ä¹‹ cglib ä»£ç†](https://my.oschina.net/funcy/blog/4696655)ä¸€æ–‡ä¸­å·²è¯¦ç»†åˆ†æè¿‡äº†ï¼Œè¿™ä¸å†åˆ†æï¼Œæˆ‘ä»¬ç›´æ¥è¯´ç»“è®ºï¼šcglib æ‰§è¡Œä»£ç†æ–¹æ³•æ—¶ï¼Œæ‰§è¡Œçš„æ˜¯ `Enhancer` ä¸­ `callbackFilter` å±æ€§çš„ `MethodInterceptor#intercept` æ–¹æ³•ï¼Œå³ `CALLBACKS` æ•°ç»„ä¸­çš„ `BeanMethodInterceptor`ï¼Œä¸‹é¢æˆ‘ä»¬å°±æ¥çœ‹ä¸‹å®ƒçš„å†…å®¹ï¼š
 
 > ConfigurationClassEnhancer.BeanMethodInterceptor
 
@@ -773,12 +773,12 @@ private static class BeanMethodInterceptor implements MethodInterceptor, Conditi
         ConfigurableBeanFactory beanFactory = getBeanFactory(enhancedConfigInstance);
         String beanName = BeanAnnotationHelper.determineBeanNameFor(beanMethod);
         ...
-        // Èç¹ûÊÇµ÷ÓÃµ±Ç°µÄ factoryMethod ·½·¨£¬Ö±½Óµ÷ÓÃ¸¸ÀàµÄ·½·¨
+        // å¦‚æœæ˜¯è°ƒç”¨å½“å‰çš„ factoryMethod æ–¹æ³•ï¼Œç›´æ¥è°ƒç”¨çˆ¶ç±»çš„æ–¹æ³•
         if (isCurrentlyInvokedFactoryMethod(beanMethod)) {
-            // µ÷ÓÃ¸¸ÀàµÄ·½·¨£¬Ò²¾ÍÊÇÄ¿±ê·½·¨
+            // è°ƒç”¨çˆ¶ç±»çš„æ–¹æ³•ï¼Œä¹Ÿå°±æ˜¯ç›®æ ‡æ–¹æ³•
             return cglibMethodProxy.invokeSuper(enhancedConfigInstance, beanMethodArgs);
         }
-        // ·ñÔòÖ±½Ó»ñÈ¡ beanFactoryÖĞÒÑÓĞµÄ¶ÔÏó
+        // å¦åˆ™ç›´æ¥è·å– beanFactoryä¸­å·²æœ‰çš„å¯¹è±¡
         return resolveBeanReference(beanMethod, beanMethodArgs, beanFactory, beanName);
     }
 
@@ -786,7 +786,7 @@ private static class BeanMethodInterceptor implements MethodInterceptor, Conditi
             ConfigurableBeanFactory beanFactory, String beanName) {
         try {
             ...
-            // µ÷ÓÃµÄµÄÊÇ beanFactory.getBean(...) ·½·¨£¬Õâ¸ö·½·¨ÎÒÃÇÒÑ¾­·Ç³£ÊìÏ¤ÁË
+            // è°ƒç”¨çš„çš„æ˜¯ beanFactory.getBean(...) æ–¹æ³•ï¼Œè¿™ä¸ªæ–¹æ³•æˆ‘ä»¬å·²ç»éå¸¸ç†Ÿæ‚‰äº†
             Object beanInstance = (useArgs ? beanFactory.getBean(beanName, beanMethodArgs) :
                     beanFactory.getBean(beanName));
             ...
@@ -798,7 +798,7 @@ private static class BeanMethodInterceptor implements MethodInterceptor, Conditi
     }
 
     /**
-     * ÅĞ¶ÏÄÜ·ñÖ´ĞĞµ±Ç° MethodInterceptor
+     * åˆ¤æ–­èƒ½å¦æ‰§è¡Œå½“å‰ MethodInterceptor
      */
     @Override
     public boolean isMatch(Method candidateMethod) {
@@ -810,14 +810,14 @@ private static class BeanMethodInterceptor implements MethodInterceptor, Conditi
 
 ```
 
-`BeanMethodInterceptor` ÊµÏÖÁË `MethodInterceptor` Óë `ConditionalCallback`£¬`ConditionalCallback#isMatch` ÓÃÀ´ÅĞ¶Ïµ±Ç° `MethodInterceptor` ÄÜ·ñÖ´ĞĞ£¬`MethodInterceptor#intercept` ¾ÍÊÇÖ´ĞĞµÄ·½·¨ÄÚÈİ£¬Ö´ĞĞÂß¼­Îª£º
+`BeanMethodInterceptor` å®ç°äº† `MethodInterceptor` ä¸ `ConditionalCallback`ï¼Œ`ConditionalCallback#isMatch` ç”¨æ¥åˆ¤æ–­å½“å‰ `MethodInterceptor` èƒ½å¦æ‰§è¡Œï¼Œ`MethodInterceptor#intercept` å°±æ˜¯æ‰§è¡Œçš„æ–¹æ³•å†…å®¹ï¼Œæ‰§è¡Œé€»è¾‘ä¸ºï¼š
 
-1.  Èç¹ûÊÇÖ±½Óµ÷ÓÃµ±Ç°µÄ `factoryMethod` ·½·¨£¬Ö±½Óµ÷ÓÃ¸¸ÀàµÄ·½·¨£¬Ò²¾ÍÊÇ `beanConfigs.beanObj1()`£¬Õâ¸ö¹ı³Ì»áÊµÀı»¯ `beanObj1` Ê±±»µ÷ÓÃ£»
-2.  Èç¹û²»ÊÇÖ±½Óµ÷ÓÃµ±Ç°µÄ `factoryMethod` ·½·¨£¨±ÈÈçÔÚ±ğµÄ·½·¨ÖĞµ÷ÓÃ£©£¬Ôòµ÷ÓÃ `beanFactory.getBean(...)` »ñÈ¡ bean£¬Õâ¸ö¹ı³Ì»áÔÚÊµÀı»¯ `beanObj1` Ê±»á ±»µ÷ÓÃ¡£
+1.  å¦‚æœæ˜¯ç›´æ¥è°ƒç”¨å½“å‰çš„ `factoryMethod` æ–¹æ³•ï¼Œç›´æ¥è°ƒç”¨çˆ¶ç±»çš„æ–¹æ³•ï¼Œä¹Ÿå°±æ˜¯ `beanConfigs.beanObj1()`ï¼Œè¿™ä¸ªè¿‡ç¨‹ä¼šå®ä¾‹åŒ– `beanObj1` æ—¶è¢«è°ƒç”¨ï¼›
+2.  å¦‚æœä¸æ˜¯ç›´æ¥è°ƒç”¨å½“å‰çš„ `factoryMethod` æ–¹æ³•ï¼ˆæ¯”å¦‚åœ¨åˆ«çš„æ–¹æ³•ä¸­è°ƒç”¨ï¼‰ï¼Œåˆ™è°ƒç”¨ `beanFactory.getBean(...)` è·å– beanï¼Œè¿™ä¸ªè¿‡ç¨‹ä¼šåœ¨å®ä¾‹åŒ– `beanObj1` æ—¶ä¼š è¢«è°ƒç”¨ã€‚
 
-ÒÔÉÏ¾ÍÊÇÎªÊ²Ã´ `beanObj1` µÄ¹¹Ôì·½·¨Ö»µ÷ÓÃÁËÒ»´Î£¬ÒÔ¼°ÎªÊ²Ã´ `beanConfigs` ÊÇ´úÀíÀàµÄÔ­ÒòËùÔÚÁË¡£
+ä»¥ä¸Šå°±æ˜¯ä¸ºä»€ä¹ˆ `beanObj1` çš„æ„é€ æ–¹æ³•åªè°ƒç”¨äº†ä¸€æ¬¡ï¼Œä»¥åŠä¸ºä»€ä¹ˆ `beanConfigs` æ˜¯ä»£ç†ç±»çš„åŸå› æ‰€åœ¨äº†ã€‚
 
-×îºóÔÙÌáÒ»¾ä£¬`@Configuration` Ìá¹©ÁË `proxyBeanMethods()` ·½·¨À´ÈÃÎÒÃÇÑ¡ÔñÊÇ·ñ¿ªÆôÅäÖÃÀàµÄ´úÀí£¬Ä¬ÈÏÖµÊÇ true£¬Èç¹ûÏñÕâÑùÉèÖÃ£º
+æœ€åå†æä¸€å¥ï¼Œ`@Configuration` æä¾›äº† `proxyBeanMethods()` æ–¹æ³•æ¥è®©æˆ‘ä»¬é€‰æ‹©æ˜¯å¦å¼€å¯é…ç½®ç±»çš„ä»£ç†ï¼Œé»˜è®¤å€¼æ˜¯ trueï¼Œå¦‚æœåƒè¿™æ ·è®¾ç½®ï¼š
 
 ```
 @Configuration(proxyBeanMethods=false)
@@ -827,58 +827,58 @@ public class BeanConfigs {
 
 ```
 
-`BeanConfigs` ¾Í²»»á½øĞĞ´úÀíÁË£¬ÔËĞĞ½á¹ûÍ¬ `@Component` ×¢½âÒ»Ñù£¬ÕâÀï¾Í²»Õ¹Ê¾ÁË¡£
+`BeanConfigs` å°±ä¸ä¼šè¿›è¡Œä»£ç†äº†ï¼Œè¿è¡Œç»“æœåŒ `@Component` æ³¨è§£ä¸€æ ·ï¼Œè¿™é‡Œå°±ä¸å±•ç¤ºäº†ã€‚
 
-#### 4\. ¼¸¸öĞ¡ÎÊÌâ
+#### 4\. å‡ ä¸ªå°é—®é¢˜
 
-##### 1\. ÄÚ²¿·½·¨µ÷ÓÃÒ²ÄÜ±»´úÀíÂğ£¿
+##### 1\. å†…éƒ¨æ–¹æ³•è°ƒç”¨ä¹Ÿèƒ½è¢«ä»£ç†å—ï¼Ÿ
 
-ÔÚÊ¾ÀıÖĞ£¬ÎÒÃÇÊÇÕâÑùµ÷ÓÃµÄ£º
+åœ¨ç¤ºä¾‹ä¸­ï¼Œæˆ‘ä»¬æ˜¯è¿™æ ·è°ƒç”¨çš„ï¼š
 
 ```
     @Bean
     public BeanObj2 beanObj2() {
-        // ÕâÀïµ÷ÓÃÏÂ beanObj1() ·½·¨
+        // è¿™é‡Œè°ƒç”¨ä¸‹ beanObj1() æ–¹æ³•
         beanObj1();
         return new BeanObj2();
     }
 
 ```
 
-¼´ÔÚ `beanObj2()` ÖĞµ÷ÓÃÁË `beanObj1()`£¬ÕâÃ÷ÏÔÊÇÄÚ²¿·½·¨µ÷ÓÃ£¬`beanObj1()` Ò²ÄÜ±»´úÀíÂğ£¿
+å³åœ¨ `beanObj2()` ä¸­è°ƒç”¨äº† `beanObj1()`ï¼Œè¿™æ˜æ˜¾æ˜¯å†…éƒ¨æ–¹æ³•è°ƒç”¨ï¼Œ`beanObj1()` ä¹Ÿèƒ½è¢«ä»£ç†å—ï¼Ÿ
 
-**»Ø´ğ**£ºcglib ´úÀíµÄµ÷ÓÃ·½·¨ÓĞÁ½ÖÖ£º
+**å›ç­”**ï¼šcglib ä»£ç†çš„è°ƒç”¨æ–¹æ³•æœ‰ä¸¤ç§ï¼š
 
 ```
 @Override
 public Object intercept(Object proxyObj, Method method, Object[] objects, 
             MethodProxy proxy) throws Throwable {
-    // ·½°¸1£º Ê¹ÓÃÄ¿±ê¶ÔÏó£¬Ö±½Óµ÷ÓÃÄ¿±ê¶ÔÏóµÄ·½·¨
+    // æ–¹æ¡ˆ1ï¼š ä½¿ç”¨ç›®æ ‡å¯¹è±¡ï¼Œç›´æ¥è°ƒç”¨ç›®æ ‡å¯¹è±¡çš„æ–¹æ³•
     // return proxy.invoke(target, objects);
-    // ·½°¸2£º Ê¹ÓÃ´úÀí¶ÔÏó£¬µ÷ÓÃÆä¸¸ÀàµÄ·½·¨
+    // æ–¹æ¡ˆ2ï¼š ä½¿ç”¨ä»£ç†å¯¹è±¡ï¼Œè°ƒç”¨å…¶çˆ¶ç±»çš„æ–¹æ³•
     return proxy.invokeSuper(proxyObj, objects);
 }
 
 ```
 
-`beanObj2()` µÄµ÷ÓÃÊ¹ÓÃÊÇ`·½°¸2`£¬Ò²¾ÍÊÇÊ¹ÓÃ´úÀí¶ÔÏóµ÷ÓÃ `beanObj2()`£¬`beanObj2()` µÄ `this` Îª´úÀí¶ÔÏó£º
+`beanObj2()` çš„è°ƒç”¨ä½¿ç”¨æ˜¯`æ–¹æ¡ˆ2`ï¼Œä¹Ÿå°±æ˜¯ä½¿ç”¨ä»£ç†å¯¹è±¡è°ƒç”¨ `beanObj2()`ï¼Œ`beanObj2()` çš„ `this` ä¸ºä»£ç†å¯¹è±¡ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-7ef891450ace815d22a5bf5c8e78e65c2db.png)
 
-Òò´ËÔÚ `beanObj2()` ÖĞÖ±½Óµ÷ÓÃ `beanObj1()`£¬¾ÍÏàµ±ÓÚÊ¹ÓÃ´úÀí¶ÔÏóµ÷ÓÃ `beanObj1()`£¬µ±È»ÄÜ±»´úÀíÁË¡£
+å› æ­¤åœ¨ `beanObj2()` ä¸­ç›´æ¥è°ƒç”¨ `beanObj1()`ï¼Œå°±ç›¸å½“äºä½¿ç”¨ä»£ç†å¯¹è±¡è°ƒç”¨ `beanObj1()`ï¼Œå½“ç„¶èƒ½è¢«ä»£ç†äº†ã€‚
 
-ÔÚÎÒÃÇÓ¡ÏóÖĞ£¬·½·¨µÄÄÚ²¿µ÷ÓÃ²»ÄÜ±»´úÀí£¬ÄÇÊÇÒòÎª spring ÔÚ´¦Àí Aop Ê±£¬Ê¹ÓÃµÄÊÇ·½°¸ 1 µÄµ÷ÓÃ·½Ê½£¬´ËÊ±µÄ `this` ÎªÔ­Ê¼¶ÔÏó£¬µ±È»²»ÄÜ±»´úÀíÁË¡£
+åœ¨æˆ‘ä»¬å°è±¡ä¸­ï¼Œæ–¹æ³•çš„å†…éƒ¨è°ƒç”¨ä¸èƒ½è¢«ä»£ç†ï¼Œé‚£æ˜¯å› ä¸º spring åœ¨å¤„ç† Aop æ—¶ï¼Œä½¿ç”¨çš„æ˜¯æ–¹æ¡ˆ 1 çš„è°ƒç”¨æ–¹å¼ï¼Œæ­¤æ—¶çš„ `this` ä¸ºåŸå§‹å¯¹è±¡ï¼Œå½“ç„¶ä¸èƒ½è¢«ä»£ç†äº†ã€‚
 
-##### 2\. Ë½ÓĞÊôĞÔÈçºÎ×¢Èë£¿
+##### 2\. ç§æœ‰å±æ€§å¦‚ä½•æ³¨å…¥ï¼Ÿ
 
-±ÈÈç£¬ÎÒÃÇÏÖÔÚÓĞÒ»¸ö `BeanObj3`:
+æ¯”å¦‚ï¼Œæˆ‘ä»¬ç°åœ¨æœ‰ä¸€ä¸ª `BeanObj3`:
 
 ```
 @Component
 public class BeanObj3 {
 
     public BeanObj3() {
-        System.out.println("µ÷ÓÃbeanObj3µÄ¹¹Ôì·½·¨");
+        System.out.println("è°ƒç”¨beanObj3çš„æ„é€ æ–¹æ³•");
     }
 
     @Override
@@ -889,7 +889,7 @@ public class BeanObj3 {
 
 ```
 
-È»ºóÔÚ `BeanConfigs` ÖĞ×¢Èë£º
+ç„¶ååœ¨ `BeanConfigs` ä¸­æ³¨å…¥ï¼š
 
 ```
 @Configuration
@@ -905,9 +905,9 @@ public class BeanConfigs {
 
     @Bean
     public BeanObj2 beanObj2() {
-        // ÕâÀïµ÷ÓÃÏÂ beanObj1() ·½·¨
+        // è¿™é‡Œè°ƒç”¨ä¸‹ beanObj1() æ–¹æ³•
         beanObj1();
-        System.out.println("beanObj3£º" + this.beanObj3);
+        System.out.println("beanObj3ï¼š" + this.beanObj3);
         return new BeanObj2();
     }
 
@@ -915,32 +915,32 @@ public class BeanConfigs {
 
 ```
 
-ÔÚ `BeanConfigs` ÖĞ×Ô¶¯×¢ÈëÁË `beanObj3` ÊôĞÔ£¬È»ºóÔÚ `beanObj2()` ÖĞÓÖ´òÓ¡ÁË `beanObj3` ÊôĞÔ¡£ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+åœ¨ `BeanConfigs` ä¸­è‡ªåŠ¨æ³¨å…¥äº† `beanObj3` å±æ€§ï¼Œç„¶ååœ¨ `beanObj2()` ä¸­åˆæ‰“å°äº† `beanObj3` å±æ€§ã€‚è¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-e21bf76da41fcf12e674fa155de4b636253.png)
 
-¿ÉÒÔ¿´µ½£¬×¢ÈëµÄ `beanObj3` Ò²ÄÜ»ñÈ¡µ½ÁË¡£ÕâÀï¾ÍÓĞ¸öÎÊÌâÁË£º`beanObj3` ÊÇÊôÓÚÄ¿±ê¶ÔÏóµÄ£¬¶ø `this` ÊÇ´úÀí¶ÔÏó£¬ÄÑ²»³É´úÀí¶ÔÏóÄÜÄÃµ½Ä¿±ê¶ÔÏóµÄË½ÓĞÊôĞÔ£¿
+å¯ä»¥çœ‹åˆ°ï¼Œæ³¨å…¥çš„ `beanObj3` ä¹Ÿèƒ½è·å–åˆ°äº†ã€‚è¿™é‡Œå°±æœ‰ä¸ªé—®é¢˜äº†ï¼š`beanObj3` æ˜¯å±äºç›®æ ‡å¯¹è±¡çš„ï¼Œè€Œ `this` æ˜¯ä»£ç†å¯¹è±¡ï¼Œéš¾ä¸æˆä»£ç†å¯¹è±¡èƒ½æ‹¿åˆ°ç›®æ ‡å¯¹è±¡çš„ç§æœ‰å±æ€§ï¼Ÿ
 
-Ê×ÏÈ£¬Ìí¼Óµ½ `beanFactory` µÄ `beanDefinitionMap` ÖĞµÄÀàÊÇ `BeanConfigs$$EnhancerBySpringCGLIB$$Xxx` Àà£¨´úÀíÀà£©£¬¶ø²»ÊÇ `BeanConfigs`£¬spring ÔÚ½øĞĞÊôĞÔ×¢ÈëÊ±£¬»á²éÕÒµ±Ç°Àà¼°Æä¸¸ÀàµÄËùÓĞµÈ×¢ÈëÊôĞÔ½øĞĞ×¢Èë£¬Òò´Ë£¬ËäÈ»Ìí¼Óµ½ spring ÈİÆ÷ÖĞµÄ ÊÇ `BeanConfigs$$EnhancerBySpringCGLIB$$Xxx` Àà£¬µ« `BeanConfigs` ÖĞµÄ `beanObj3` Ò»Ñù»á±»×¢Èë£¬ÖÁÓÚÔ­ÒòÂï£¬ÓÉÓÚ cglib µÄ´úÀí¹ØÏµ£¬`BeanConfigs` ÊÇ `BeanConfigs$$EnhancerBySpringCGLIB$$Xxx` µÄ¸¸Àà¡£
+é¦–å…ˆï¼Œæ·»åŠ åˆ° `beanFactory` çš„ `beanDefinitionMap` ä¸­çš„ç±»æ˜¯ `BeanConfigs$$EnhancerBySpringCGLIB$$Xxx` ç±»ï¼ˆä»£ç†ç±»ï¼‰ï¼Œè€Œä¸æ˜¯ `BeanConfigs`ï¼Œspring åœ¨è¿›è¡Œå±æ€§æ³¨å…¥æ—¶ï¼Œä¼šæŸ¥æ‰¾å½“å‰ç±»åŠå…¶çˆ¶ç±»çš„æ‰€æœ‰ç­‰æ³¨å…¥å±æ€§è¿›è¡Œæ³¨å…¥ï¼Œå› æ­¤ï¼Œè™½ç„¶æ·»åŠ åˆ° spring å®¹å™¨ä¸­çš„ æ˜¯ `BeanConfigs$$EnhancerBySpringCGLIB$$Xxx` ç±»ï¼Œä½† `BeanConfigs` ä¸­çš„ `beanObj3` ä¸€æ ·ä¼šè¢«æ³¨å…¥ï¼Œè‡³äºåŸå› å˜›ï¼Œç”±äº cglib çš„ä»£ç†å…³ç³»ï¼Œ`BeanConfigs` æ˜¯ `BeanConfigs$$EnhancerBySpringCGLIB$$Xxx` çš„çˆ¶ç±»ã€‚
 
-ÄÇ `BeanConfigs$$EnhancerBySpringCGLIB$$Xxx` »á¼Ì³Ğ `beanObj3` ÊôĞÔÂğ£¿ÕâÀïÖ±½Ó¿´ÔËĞĞ½á¹û°É£º
+é‚£ `BeanConfigs$$EnhancerBySpringCGLIB$$Xxx` ä¼šç»§æ‰¿ `beanObj3` å±æ€§å—ï¼Ÿè¿™é‡Œç›´æ¥çœ‹è¿è¡Œç»“æœå§ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-27ebdebfd8c958f1de362ca1b30f2d0fc7c.png)
 
-ÕâÊÇ×îÖÕµÃµ½µÄ `beanConfigs` ¶ÔÏó£¬¿ÉÒÔ¿´µ½£¬ËüÀïÃæ¾ÍÓĞÒ»¸ö `beanObj3` ÊôĞÔ£¬²¢ÇÒ»¹ÓĞÖµ¡£
+è¿™æ˜¯æœ€ç»ˆå¾—åˆ°çš„ `beanConfigs` å¯¹è±¡ï¼Œå¯ä»¥çœ‹åˆ°ï¼Œå®ƒé‡Œé¢å°±æœ‰ä¸€ä¸ª `beanObj3` å±æ€§ï¼Œå¹¶ä¸”è¿˜æœ‰å€¼ã€‚
 
-### 3.7 ×Ü½á
+### 3.7 æ€»ç»“
 
-±¾ÎÄÖ÷Òª·ÖÎöÁË `ConfigurationClassPostProcessor` ´¦Àí `@Bean` ×¢½âµÄ¹ı³Ì£¬×Ü½áÈçÏÂ£º
+æœ¬æ–‡ä¸»è¦åˆ†æäº† `ConfigurationClassPostProcessor` å¤„ç† `@Bean` æ³¨è§£çš„è¿‡ç¨‹ï¼Œæ€»ç»“å¦‚ä¸‹ï¼š
 
-1.  ½âÎöÅäÖÃÀà£¬Í¨¹ı·´Éä»ñÈ¡ÅäÖÃÀàÀïËùÓĞ±» `@Bean` ±ê¼ÇµÄ·½·¨£»
-2.  ±éÀúÕâĞ©·½·¨£¬½«Æä·â×°³ÉÒ»¸ö¸ö `BeanDefinition` ×¢²áµ½ `beanFactory` ÖĞ£¬¶ÔÓ¦ `BeanDefinition` ¾ßÌåÀàĞÍÎª `ConfigurationClassBeanDefinition`£»
-3.  Èç¹ûÅäÖÃÀàÊÇÈ«ÅäÖÃÀà£¬»á¶ÔÅäÖÃÀà½øĞĞ cglib ´úÀí£»
-4.  ÊµÀı»¯Ê±£¬Ê¹ÓÃ·´Éäµ÷ÓÃ¶ÔÓ¦µÄ·½·¨Éú³ÉÊµÀı£¨µÃµ½ÊµÀıºó£¬spring »áÔÙ¶ÔÆä½øĞĞÒÀÀµ×¢Èë¡¢³õÊ¼»¯µÈ£©£»
-5.  ÔÚ±ğµÄ `@Bean` ·½·¨ÖĞµ÷ÓÃµ±Ç° `@Bean` ·½·¨Ê±£¬Èç¹ûµ±Ç° `@Bean` ·½·¨ËùÔÚµÄÀàÊÇÈ«ÅäÖÃÀà£¬Ôò»áÈ¥ `beanFactory` ÖĞ²éÕÒ¶ÔÓ¦µÄ `bean`(²éÕÒµÄ¹ı³ÌÊÇ£¬ÕÒµ½Ôò·µ»Ø£¬ÕÒ²»µ½Ôò´´½¨ÔÙ·µ»Ø£¬**·µ»ØµÄ bean ÓĞÍêÕûµÄ spring bean µÄÉúÃüÖÜÆÚ**)£¬Õâ¸ö²Ù×÷ÊÇÓÉ cglib ´úÀíÍê³É£»Èç¹ûµ±Ç° `@Bean` ·½·¨ËùÔÚµÄÀà²»ÊÇÈ«ÅäÖÃÀà£¬Ôò»á°´ÕÕÆÕÍ¨µÄ·½·¨µ÷ÓÃ£¬Éú³É bean µÄÊµÀı·µ»Ø£¨**·µ»ØµÄ bean Ã»ÓĞÍêÕûµÄ spring bean µÄÉúÃüÖÜÆÚ**£©¡£
+1.  è§£æé…ç½®ç±»ï¼Œé€šè¿‡åå°„è·å–é…ç½®ç±»é‡Œæ‰€æœ‰è¢« `@Bean` æ ‡è®°çš„æ–¹æ³•ï¼›
+2.  éå†è¿™äº›æ–¹æ³•ï¼Œå°†å…¶å°è£…æˆä¸€ä¸ªä¸ª `BeanDefinition` æ³¨å†Œåˆ° `beanFactory` ä¸­ï¼Œå¯¹åº” `BeanDefinition` å…·ä½“ç±»å‹ä¸º `ConfigurationClassBeanDefinition`ï¼›
+3.  å¦‚æœé…ç½®ç±»æ˜¯å…¨é…ç½®ç±»ï¼Œä¼šå¯¹é…ç½®ç±»è¿›è¡Œ cglib ä»£ç†ï¼›
+4.  å®ä¾‹åŒ–æ—¶ï¼Œä½¿ç”¨åå°„è°ƒç”¨å¯¹åº”çš„æ–¹æ³•ç”Ÿæˆå®ä¾‹ï¼ˆå¾—åˆ°å®ä¾‹åï¼Œspring ä¼šå†å¯¹å…¶è¿›è¡Œä¾èµ–æ³¨å…¥ã€åˆå§‹åŒ–ç­‰ï¼‰ï¼›
+5.  åœ¨åˆ«çš„ `@Bean` æ–¹æ³•ä¸­è°ƒç”¨å½“å‰ `@Bean` æ–¹æ³•æ—¶ï¼Œå¦‚æœå½“å‰ `@Bean` æ–¹æ³•æ‰€åœ¨çš„ç±»æ˜¯å…¨é…ç½®ç±»ï¼Œåˆ™ä¼šå» `beanFactory` ä¸­æŸ¥æ‰¾å¯¹åº”çš„ `bean`(æŸ¥æ‰¾çš„è¿‡ç¨‹æ˜¯ï¼Œæ‰¾åˆ°åˆ™è¿”å›ï¼Œæ‰¾ä¸åˆ°åˆ™åˆ›å»ºå†è¿”å›ï¼Œ**è¿”å›çš„ bean æœ‰å®Œæ•´çš„ spring bean çš„ç”Ÿå‘½å‘¨æœŸ**)ï¼Œè¿™ä¸ªæ“ä½œæ˜¯ç”± cglib ä»£ç†å®Œæˆï¼›å¦‚æœå½“å‰ `@Bean` æ–¹æ³•æ‰€åœ¨çš„ç±»ä¸æ˜¯å…¨é…ç½®ç±»ï¼Œåˆ™ä¼šæŒ‰ç…§æ™®é€šçš„æ–¹æ³•è°ƒç”¨ï¼Œç”Ÿæˆ bean çš„å®ä¾‹è¿”å›ï¼ˆ**è¿”å›çš„ bean æ²¡æœ‰å®Œæ•´çš„ spring bean çš„ç”Ÿå‘½å‘¨æœŸ**ï¼‰ã€‚
 
-±¾ÎÄµÄ·ÖÎö¾Íµ½ÕâÀïÁË£¬½ÓÏÂÀ´ÎÒÃÇ¼ÌĞø·ÖÎö `ConfigurationClassPostProcessor` ´¦ÀíÆäËû×¢½âµÄÁ÷³Ì¡£
+æœ¬æ–‡çš„åˆ†æå°±åˆ°è¿™é‡Œäº†ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬ç»§ç»­åˆ†æ `ConfigurationClassPostProcessor` å¤„ç†å…¶ä»–æ³¨è§£çš„æµç¨‹ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4492878](https://my.oschina.net/funcy/blog/4492878) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4492878](https://my.oschina.net/funcy/blog/4492878) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

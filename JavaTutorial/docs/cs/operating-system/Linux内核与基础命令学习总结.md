@@ -1,24 +1,24 @@
 # 目录
 
-  * [文件系统和VFS](#文件系统和vfs)
-  * [进程和线程](#进程和线程)
-  * [fork方法](#fork方法)
-  * [写时复制](#写时复制)
-  * [父子进程，僵尸进程，孤儿进程，守护进程](#父子进程，僵尸进程，孤儿进程，守护进程)
-  * [进程组和会话](#进程组和会话)
-  * [守护进程](#守护进程)
-  * [硬连接和软连接](#硬连接和软连接)
-  * [线程](#线程)
-  * [线程模型](#线程模型)
-  * [内核线程实现](#内核线程实现)
-  * [文件系统](#文件系统)
-  * [IO操作](#io操作)
+* [文件系统和VFS](#文件系统和vfs)
+* [进程和线程](#进程和线程)
+* [fork方法](#fork方法)
+* [写时复制](#写时复制)
+* [父子进程，僵尸进程，孤儿进程，守护进程](#父子进程，僵尸进程，孤儿进程，守护进程)
+* [进程组和会话](#进程组和会话)
+* [守护进程](#守护进程)
+* [硬连接和软连接](#硬连接和软连接)
+* [线程](#线程)
+* [线程模型](#线程模型)
+* [内核线程实现](#内核线程实现)
+* [文件系统](#文件系统)
+* [IO操作](#io操作)
 * [文件描述符](#文件描述符)
 * [write函数](#write函数)
 * [read函数](#read函数)
 * [**read/write的语义：为什么会阻塞？**](#readwrite的语义：为什么会阻塞？)
-  * [Linux常用命令和基础知识](#linux常用命令和基础知识)
-    * [查看进程](#查看进程)
+    * [Linux常用命令和基础知识](#linux常用命令和基础知识)
+        * [查看进程](#查看进程)
 * [ps -l](#ps--l)
 * [ps aux](#ps-aux)
 * [ps aux | grep threadx](#ps-aux--grep-threadx)
@@ -27,66 +27,63 @@
 * [netstat -anp | grep port](#netstat--anp--grep-port)
     * [文件操作](#文件操作)
     * [权限操作](#权限操作)
-  * [连接操作](#连接操作)
+    * [连接操作](#连接操作)
 * [ln /etc/crontab .](#ln-etccrontab-)
 * [ll -i /etc/crontab crontab](#ll--i-etccrontab-crontab)
 * [ll -i /etc/crontab /root/crontab2](#ll--i-etccrontab-rootcrontab2)
-  * [获取内容](#获取内容)
-  * [搜索和定位](#搜索和定位)
+    * [获取内容](#获取内容)
+    * [搜索和定位](#搜索和定位)
 * [locate [-ir] keyword](#locate-[-ir]-keyword)
 * [find [basedir] [option]](#find-[basedir]-[option])
-  * [压缩](#压缩)
-  * [管道指令](#管道指令)
-  * [正则](#正则)
-  * [linux指令实践和常见场景](#linux指令实践和常见场景)
-  * [查看进程状态](#查看进程状态)
-  * [strace](#strace)
-  * [tcpdump](#tcpdump)
-  * [nc](#nc)
-  * [curl](#curl)
-  * [lsof](#lsof)
-  * [ss](#ss)
-  * [awk/sed](#awksed)
-  * [vim](#vim)
-  * [crontab](#crontab)
-  * [service](#service)
-  * [free](#free)
-  * [top](#top)
-  * [df](#df)
-  * [kill](#kill)
-  * [mount](#mount)
-  * [chmod](#chmod)
-  * [chown](#chown)
-  * [ifconfig](#ifconfig)
-  * [uname](#uname)
-  * [实际场景问题](#实际场景问题)
-
-
+    * [压缩](#压缩)
+    * [管道指令](#管道指令)
+    * [正则](#正则)
+    * [linux指令实践和常见场景](#linux指令实践和常见场景)
+    * [查看进程状态](#查看进程状态)
+    * [strace](#strace)
+    * [tcpdump](#tcpdump)
+    * [nc](#nc)
+    * [curl](#curl)
+    * [lsof](#lsof)
+    * [ss](#ss)
+    * [awk/sed](#awksed)
+    * [vim](#vim)
+    * [crontab](#crontab)
+    * [service](#service)
+    * [free](#free)
+    * [top](#top)
+    * [df](#df)
+    * [kill](#kill)
+    * [mount](#mount)
+    * [chmod](#chmod)
+    * [chown](#chown)
+    * [ifconfig](#ifconfig)
+    * [uname](#uname)
+    * [实际场景问题](#实际场景问题)
 
 ---
 title: Linux内核与基础命令学习总结
 date: 2018-07-09 22:33:14
 tags:
-	- Linux
+- Linux
 categories:
-	- 后端
-	- 技术总结
+- 后端
+- 技术总结
 ---
 这部分内容主要是基于一些关于Linux系统的内核基础和基本命令的学习总结，内容不全面，只讲述了其中的一小部分，后续会再补充，如有错误，还请见谅。
 
-
 Linux操作系统
-
-
 
 Linux操作系统博大精深，其中对线程，IO，文件系统等概念的实现都很有借鉴意义。
 <!-- more -->
 
 
-​        
+​
+
 ## 文件系统和VFS
 
 文件系统的inode上面讲过了。VFS主要用于屏蔽底层的不同文件系统，比如接入网络中的nfs文件系统，亦或是windows文件系统，正常情况下难以办到，而vfs通过使用IO操作的posix规范来规定所有文件读写操作，每个文件系统只需要实现这些操作就可以接入VFS，不需要重新安装文件系统。
+
 ## 进程和线程
 
     > 进程、程序与线程
@@ -106,29 +103,29 @@ Linux操作系统博大精深，其中对线程，IO，文件系统等概念的�
     >  每个进程包含一个或多个线程，线程是进程内的活动单元，是负责执行代码和管理进程运行状态的抽象。
     >  线程是独立运行和调度的基本单位。
 
-
-
->  子进程和父进程
+> 子进程和父进程
 > 进程的层次结构（父进程与子进程）在进程执行的过程中可能会衍生出其他的进程，称之为子进程，子进程拥有一个指明其父进程PID的PPID。子进程可以继承父进程的环境变量和权限参数。
-> 
+>
 > 于是，linux系统中就诞生了进程的层次结构——进程树。
 > 进程树的根是第一个进程（init进程）。
-> 
-> 过程调用的流程： fork & exec一个进程生成子进程的过程是，系统首先复制(fork)一份父进程，生成一个暂存进程，这个暂存进程和父进程的区别是pid不一样，而且拥有一个ppid，这时候系统再去执行(exec)这个暂存进程，让他加载实际要运行的程序，最终成为一个子进程的存在。
-> 
+>
+> 过程调用的流程： fork & exec一个进程生成子进程的过程是，系统首先复制(fork)一份父进程，生成一个暂存进程，这个暂存进程和父进程的区别是pid不一样，而且拥有一个ppid，这时候系统再去执行(exec)
+> 这个暂存进程，让他加载实际要运行的程序，最终成为一个子进程的存在。
+>
 > 服务与进程
-> 
+>
 > 简单的说服务(daemon)就是常驻内存的进程，通常服务会在开机时通过init.d中的一段脚本被启动。
-> 
+>
 > 进程通信
-> 
-> 进程通信的几种基本方式：管道，信号量，消息队列，共享内存，快速用户控件互斥。 
-> 
+>
+> 进程通信的几种基本方式：管道，信号量，消息队列，共享内存，快速用户控件互斥。
+>
+
 ## fork方法
-  一个进程，包括代码、数据和分配给进程的资源。fork（）函数通过系统调用创建一个与原来进程几乎完全相同的进程，
+
+一个进程，包括代码、数据和分配给进程的资源。fork（）函数通过系统调用创建一个与原来进程几乎完全相同的进程，
 
 也就是两个进程可以做完全相同的事，但如果初始参数或者传入的变量不同，两个进程也可以做不同的事。
-
 
     一个进程调用fork（）函数后，系统先给新的进程分配资源，例如存储数据和代码的空间。然后把原来的进程的所有值都
 
@@ -168,12 +165,12 @@ Linux操作系统博大精深，其中对线程，IO，文件系统等概念的�
 ## 进程组和会话
 
 > 会话和进程组进程组每个进程都属于某个进程组，进程组就是由一个或者多个为了实现作业控制而相互关联的进程组成的。
-> 
+>
 > 一个进程组的id是进程组首进程的pid（如果一个进程组只有一个进程，那进程组和进程其实没啥区别）。
-> 
+>
 > 进程组的意义在于，信号可以发送给进程组中的所有进程。这样可以实现对多个进程的同时操作。
 > 会话会话是一个或者多个进程组的集合。
-> 
+>
 > 一般来说，会话(session)和shell没有什么本质上的区别。
 > 我们通常使用用户登录一个终端进行一系列操作这样的例子来描述一次会话。
 
@@ -182,12 +179,13 @@ Linux操作系统博大精深，其中对线程，IO，文件系统等概念的�
 $cat ship-inventory.txt | grep
 
 booty|sort上面就是在某次会话中的一个shell命令，它会产生一个由3个进程组成的进程组。
+
 ## 守护进程
+
 守护进程（服务）守护进程(daemon)运行在后台，不与任何控制终端相关联。通常在系统启动时通过init脚本被调用而开始运行。
 
 在linux系统中，守护进程和服务没有什么区别。
 对于一个守护进程，有两个基本的要求：其一：必须作为init进程的子进程运行，其二：不与任何控制终端交互。
-
 
 ## 硬连接和软连接
 
@@ -218,6 +216,7 @@ booty|sort上面就是在某次会话中的一个shell命令，它会产生一�
     
     混合式线程模型上述两种模型的混合，即n:m型。
     很难实现。
+
 ## 内核线程实现
 
 系统线程实现：PThreads
@@ -234,11 +233,10 @@ booty|sort上面就是在某次会话中的一个shell命令，它会产生一�
     　　注意:线程创建者和新建线程之间没有fork()调用那样的父子关系，它们是对等关系。调用pthread_create()创建线程后，线程创建者和新建线程哪个先运行是不确定的，特别是在多处理机器上。
 
 2.终止线程
-    
+
       void pthread_exit(void *value_ptr);
       
          线程调用pthread_exit()结束自己，参数value_ptr作为线程的返回值被调用pthread_join的线程使用。由于一个进程中的多个线程是共享数据段的，因此通常在线程退出之后，退出线程所占用的资源并不会随着线程的终止而得到释放，但是可以用pthread_join()函数来同步并释放资源
-
 
 3.取消线程
 
@@ -265,8 +263,6 @@ linux机制下，线程存在两种不同的状态：joinable和unjoinable。
     
     因为创建的线程默认都是joinable的，所以要么在父线程调用pthread_detach(thread_id)将其分离，要么在线程内部，调用pthread_detach(pthread_self())来把自己标记成分离的。
 
-
-
 ## 文件系统
 
     文件描述符在linux内核中，文件是用一个整数来表示的，称为 文件描述符，通俗的来说，你可以理解它是文件的id（唯一标识符）
@@ -280,8 +276,6 @@ linux机制下，线程存在两种不同的状态：joinable和unjoinable。
     目录是可读名称到索引编号之间的映射，名称和索引节点之间的配对称为链接。
     可以把目录看做普通文件，只是它包含着文件名称到索引节点的映射（链接）
 
-
-
 文件系统是基于底层存储建立的一个树形文件结构。比较经典的是Linux的文件系统，首先在硬盘的超级块中安装文件系统，磁盘引导时会加载文件系统的信息。
 
 linux使用inode来标识任意一个文件。inode存储除了文件名以外的文件信息，包括创建时间，权限，以及一个指向磁盘存储位置的指针，那里才是真正存放数据的地方。
@@ -289,7 +283,7 @@ linux使用inode来标识任意一个文件。inode存储除了文件名以外�
 一个目录也是一个inode节点。
 
 详细阐述一次文件访问的过程：
-    
+
     首先用户ls查看目录。由于一个目录也是一个文件，所以相当于是看目录文件下有哪些东西。
     
     实际上目录文件是一个特殊的inode节点，它不需要存储实际数据，而只是维护一个文件名到inode的映射表。
@@ -297,137 +291,119 @@ linux使用inode来标识任意一个文件。inode存储除了文件名以外�
     于是我们ls到另一个目录。同理他也是一个inode。我们在这个inode下执行vi操作打开某个文件，于是linux通过inode中的映射表找到了我们请求访问的文件名对应的inode。
     
     然后寻道到对应的磁盘位置，读取内容到缓冲区，通过系统调用把内容读到内存中，最后进行访问。
+
 ## IO操作
 
 # 文件描述符
 
-　　对于内核而言，所有打开的文件都通过文件描述符引用。文件描述符是一个非负整数。当打开一个现有文件或创建一个新文件时，内核向进程返回一个文件描述符。当读或写一个文件时，使用open或create返回的文件描述符表示该文件，将其作为参数传给read或write函数。
+对于内核而言，所有打开的文件都通过文件描述符引用。文件描述符是一个非负整数。当打开一个现有文件或创建一个新文件时，内核向进程返回一个文件描述符。当读或写一个文件时，使用open或create返回的文件描述符表示该文件，将其作为参数传给read或write函数。
 
 # write函数
 
- 　　write函数定义如下：
+write函数定义如下：
 
+#include <unistd> ssize_t write(int filedes, void *buf, size_t nbytes); // 返回：若成功则返回写入的字节数，若出错则返回-1 // filedes：文件描述符 //
+buf:待写入数据缓存区 // nbytes:要写入的字节数目录
 
-
-#include <unistd> ssize_t write(int filedes, void *buf, size_t nbytes); // 返回：若成功则返回写入的字节数，若出错则返回-1 // filedes：文件描述符 // buf:待写入数据缓存区 // nbytes:要写入的字节数目录
-
-
-
-　　同样，为了保证写入数据的完整性，在《UNIX网络编程 卷1》中，作者将该函数进行了封装，具体程序如下：
+同样，为了保证写入数据的完整性，在《UNIX网络编程 卷1》中，作者将该函数进行了封装，具体程序如下：
 
 ![](http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif)
 
-
-
 ![复制代码](http://common.cnblogs.com/images/copycode.gif)
 
- 1 ssize_t                        /* Write "n" bytes to a descriptor. */
- 2 writen(int fd, const void *vptr, size_t n)
- 3 {
- 4     size_t nleft;
- 5     ssize_t nwritten;
- 6     const char *ptr;
- 7 
- 8     ptr = vptr; 9     nleft = n; 10     while (nleft > 0) { 11         if ( (nwritten = write(fd, ptr, nleft)) <= 0) { 12             if (nwritten < 0 && errno == EINTR) 13                 nwritten = 0;        /* and call write() again */
-14             else
-15                 return(-1);            /* error */
-16 } 17 
-18         nleft -= nwritten; 19         ptr   += nwritten; 20 } 21     return(n); 22 } 23 /* end writen */
-24 
-25 void
-26 Writen(int fd, void *ptr, size_t nbytes) 27 { 28     if (writen(fd, ptr, nbytes) != nbytes) 29         err_sys("writen error"); 30 }目录
+```cpp
+
+ ssize_t                        /* Write "n" bytes to a descriptor. */
+ writen(int fd, const void *vptr, size_t n)
+ {
+     size_t nleft;
+     ssize_t nwritten;
+     const char *ptr;
+ 
+     ptr = vptr; 9     nleft = n; 10     while (nleft > 0) { 11         if ( (nwritten = write(fd, ptr, nleft)) <= 0) { 12             if (nwritten < 0 && errno == EINTR) 13                 nwritten = 0;        /* and call write() again */
+             else
+                 return(-1);            /* error */
+ } 17 
+         nleft -= nwritten; 19         ptr   += nwritten; 20 } 21     return(n); 22 } 23 /* end writen */
+ 
+ void
+ Writen(int fd, void *ptr, size_t nbytes) 27 { 28     if (writen(fd, ptr, nbytes) != nbytes) 29         err_sys("writen error"); 30 }目录
+```
 
 ![复制代码](http://common.cnblogs.com/images/copycode.gif)
-
-
-
-
 
 # read函数
 
-　　read函数定义如下：
+read函数定义如下：
 
+#include <unistd> ssize_t read(int filedes, void *buf, size_t nbytes); // 返回：若成功则返回读到的字节数，若已到文件末尾则返回0，若出错则返回-1 //
+filedes：文件描述符 // buf:读取数据缓存区 // nbytes:要读取的字节数目录
 
+有几种情况可使实际读到的字节数少于要求读的字节数：
 
-#include <unistd> ssize_t read(int filedes, void *buf, size_t nbytes); // 返回：若成功则返回读到的字节数，若已到文件末尾则返回0，若出错则返回-1 // filedes：文件描述符 // buf:读取数据缓存区 // nbytes:要读取的字节数目录
+1）读普通文件时，在读到要求字节数之前就已经达到了文件末端。例如，若在到达文件末端之前还有30个字节，而要求读100个字节，则read返回30，下一次再调用read时，它将返回0（文件末端）。
 
+2）当从终端设备读时，通常一次最多读一行。
 
+3）当从网络读时，网络中的缓存机构可能造成返回值小于所要求读的字结束。
 
- 　　有几种情况可使实际读到的字节数少于要求读的字节数：
+4）当从管道或FIFO读时，如若管道包含的字节少于所需的数量，那么read将只返回实际可用的字节数。
 
-　　1）读普通文件时，在读到要求字节数之前就已经达到了文件末端。例如，若在到达文件末端之前还有30个字节，而要求读100个字节，则read返回30，下一次再调用read时，它将返回0（文件末端）。
+5）当从某些面向记录的设备（例如磁带）读时，一次最多返回一个记录。
 
-　　2）当从终端设备读时，通常一次最多读一行。
+6）当某一个信号造成中断，而已经读取了部分数据。
 
-　　3）当从网络读时，网络中的缓存机构可能造成返回值小于所要求读的字结束。
-
-　　4）当从管道或FIFO读时，如若管道包含的字节少于所需的数量，那么read将只返回实际可用的字节数。
-
-　　5）当从某些面向记录的设备（例如磁带）读时，一次最多返回一个记录。
-
-　　6）当某一个信号造成中断，而已经读取了部分数据。
-
-　　在《UNIX网络编程 卷1》中，作者将该函数进行了封装，以确保数据读取的完整，具体程序如下：
+在《UNIX网络编程 卷1》中，作者将该函数进行了封装，以确保数据读取的完整，具体程序如下：
 
 ![](http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif)
 
-
-
 ![复制代码](http://common.cnblogs.com/images/copycode.gif)
 
- 1 ssize_t                        /* Read "n" bytes from a descriptor. */
- 2 readn(int fd, void *vptr, size_t n)
- 3 {
- 4     size_t nleft;
- 5     ssize_t nread;
- 6     char *ptr;
- 7 
- 8     ptr = vptr; 9     nleft = n; 10     while (nleft > 0) { 11         if ( (nread = read(fd, ptr, nleft)) < 0) { 12             if (errno == EINTR) 13                 nread = 0;        /* and call read() again */
-14             else
-15                 return(-1); 16         } else if (nread == 0) 17             break;                /* EOF */
-18 
-19         nleft -= nread; 20         ptr   += nread; 21 } 22     return(n - nleft);        /* return >= 0 */
+1 ssize_t /* Read "n" bytes from a descriptor. */
+2 readn(int fd, void *vptr, size_t n)
+3 {
+4 size_t nleft;
+5 ssize_t nread;
+6 char *ptr;
+7
+8 ptr = vptr; 9 nleft = n; 10 while (nleft > 0) { 11 if ( (nread = read(fd, ptr, nleft)) < 0) { 12 if (errno == EINTR)
+13 nread = 0; /* and call read() again */
+14 else
+15 return(-1); 16 } else if (nread == 0) 17 break; /* EOF */
+18
+19 nleft -= nread; 20 ptr += nread; 21 } 22 return(n - nleft); /* return >= 0 */
 23 } 24 /* end readn */
-25 
-26 ssize_t 27 Readn(int fd, void *ptr, size_t nbytes) 28 { 29 ssize_t        n; 30 
-31     if ( (n = readn(fd, ptr, nbytes)) < 0) 32         err_sys("readn error"); 33     return(n); 34 }目录
+25
+26 ssize_t 27 Readn(int fd, void *ptr, size_t nbytes) 28 { 29 ssize_t n; 30
+31 if ( (n = readn(fd, ptr, nbytes)) < 0) 32 err_sys("readn error"); 33 return(n); 34 }目录
 
 ![复制代码](http://common.cnblogs.com/images/copycode.gif)
-
-
-
-
 
 本文下半部分摘自博文[浅谈TCP/IP网络编程中socket的行为](http://www.cnblogs.com/promise6522/archive/2012/03/03/2377935.html)。
 
 # **read/write的语义：为什么会阻塞？**
 
-　　先从write说起：
-
-
+先从write说起：
 
 #include <unistd.h> ssize_t write(int fd, const void *buf, size_t count);目录
 
+首先，write成功返回，**只是buf中的数据被复制到了kernel中的TCP发送缓冲区。**至于数据什么时候被发往网络，什么时候被对方主机接收，什么时候被对方进程读取，系统调用层面不会给予任何保证和通知。
 
-
-　　首先，write成功返回，**只是buf中的数据被复制到了kernel中的TCP发送缓冲区。**至于数据什么时候被发往网络，什么时候被对方主机接收，什么时候被对方进程读取，系统调用层面不会给予任何保证和通知。
-
-　　write在什么情况下会阻塞？当kernel的该socket的发送缓冲区已满时。对于每个socket，拥有自己的send buffer和receive buffer。从Linux 2.6开始，两个缓冲区大小都由系统来自动调节（autotuning），但一般在default和max之间浮动。
-
-
+write在什么情况下会阻塞？当kernel的该socket的发送缓冲区已满时。对于每个socket，拥有自己的send buffer和receive buffer。从Linux
+2.6开始，两个缓冲区大小都由系统来自动调节（autotuning），但一般在default和max之间浮动。
 
 # 获取socket的发送/接受缓冲区的大小：（后面的值是在Linux 2.6.38 x86_64上测试的结果）目录
 
-sysctl net.core.wmem_default       #126976
-sysctl net.core.wmem_max　　　　    #131071目录
+sysctl net.core.wmem_default #126976
+sysctl net.core.wmem_max #131071目录
 
+已经发送到网络的数据依然需要暂存在send buffer中，只有收到对方的ack后，kernel才从buffer中清除这一部分数据，为后续发送数据腾出空间。接收端将收到的数据暂存在receive
+buffer中，自动进行确认。但如果socket所在的进程不及时将数据从receive buffer中取出，最终导致receive
+buffer填满，由于TCP的滑动窗口和拥塞控制，接收端会阻止发送端向其发送数据。这些控制皆发生在TCP/IP栈中，对应用程序是透明的，应用程序继续发送数据，最终导致send buffer填满，write调用阻塞。
 
+一般来说，由于**接收端进程从socket读数据的速度**跟不上**发送端进程向socket写数据的速度**，最终导致**发送端write调用阻塞。**
 
-　　已经发送到网络的数据依然需要暂存在send buffer中，只有收到对方的ack后，kernel才从buffer中清除这一部分数据，为后续发送数据腾出空间。接收端将收到的数据暂存在receive buffer中，自动进行确认。但如果socket所在的进程不及时将数据从receive buffer中取出，最终导致receive buffer填满，由于TCP的滑动窗口和拥塞控制，接收端会阻止发送端向其发送数据。这些控制皆发生在TCP/IP栈中，对应用程序是透明的，应用程序继续发送数据，最终导致send buffer填满，write调用阻塞。
-
-　　一般来说，由于**接收端进程从socket读数据的速度**跟不上**发送端进程向socket写数据的速度**，最终导致**发送端write调用阻塞。**
-
-　　而read调用的行为相对容易理解，从socket的receive buffer中拷贝数据到应用程序的buffer中。read调用阻塞，通常是发送端的数据没有到达。
+而read调用的行为相对容易理解，从socket的receive buffer中拷贝数据到应用程序的buffer中。read调用阻塞，通常是发送端的数据没有到达。
 
 ## Linux常用命令和基础知识
 
@@ -466,7 +442,8 @@ sysctl net.core.wmem_max　　　　    #131071目录
     # netstat -anp | grep port
 
 ### 文件操作
-ls -a  ,all列出全部文件包括隐藏
+
+ls -a ,all列出全部文件包括隐藏
 
 ls -l，list显示文件的全部属性
 
@@ -476,7 +453,6 @@ cd mkdir rmdir 常用不解释 rm -rf永久删除 cp复制 mv移动或改名
 
 touch，更新文件时间或者建立新文件。
 
-
 ### 权限操作
 
     chmod rwx 分别对应 421
@@ -485,13 +461,11 @@ touch，更新文件时间或者建立新文件。
     
     对应权限分配是对于 拥有者，所属群组，以及其他人。
 
-
 文件默认权限
 
 文件默认权限：文件默认没有可执行权限，因此为 666，也就是 -rw-rw-rw- 。
 
 目录默认权限：目录必须要能够进入，也就是必须拥有可执行权限，因此为 777 ，也就是 drwxrwxrwx。
-
 
 目录的权限
 
@@ -499,21 +473,19 @@ ps:拥有目录权限才能修改文件名，拥有文件权限是没用的
 
     文件名不是存储在一个文件的内容中，而是存储在一个文件所在的目录中。因此，拥有文件的 w 权限并不能对文件名进行修改。
 
-目录存储文件列表，一个目录的权限也就是对其文件列表的权限。因此，目录的 r 权限表示可以读取文件列表；w 权限表示可以修改文件列表，具体来说，就是添加删除文件，对文件名进行修改；x 权限可以让该目录成为工作目录，x 权限是 r 和 w 权限的基础，如果不能使一个目录成为工作目录，也就没办法读取文件列表以及对文件列表进行修改了。
-
+目录存储文件列表，一个目录的权限也就是对其文件列表的权限。因此，目录的 r 权限表示可以读取文件列表；w 权限表示可以修改文件列表，具体来说，就是添加删除文件，对文件名进行修改；x 权限可以让该目录成为工作目录，x 权限是 r 和 w
+权限的基础，如果不能使一个目录成为工作目录，也就没办法读取文件列表以及对文件列表进行修改了。
 
 ## 连接操作
-
 
 硬链接：
 
     使用ln建立了一个硬连接，通过ll -i获得他们的inode节点。发现他们的inode节点是相同的。符合硬连接规定。
 
-
 ​    
-    # ln /etc/crontab .
-    # ll -i /etc/crontab crontab
-    
+# ln /etc/crontab .
+# ll -i /etc/crontab crontab
+
     34474855 -rw-r--r--. 2 root root 451 Jun 10 2014 crontab
     34474855 -rw-r--r--. 2 root root 451 Jun 10 2014 /etc/crontab
 
@@ -591,6 +563,7 @@ head 和tail 负责取得文件的前几行和后几行
     -type TYPE
 
 ## 压缩
+
     gzip压缩和解压，还有bzip，xz等压缩
     
     而tar可以用打包，打包的时候也可以执行压缩
@@ -601,7 +574,6 @@ head 和tail 负责取得文件的前几行和后几行
     $ tar [-z|-j|-J] [tv] [-f 已有的 tar 文件]              ==查看
     $ tar [-z|-j|-J] [xv] [-f 已有的 tar 文件] [-C 目录]    ==解压缩
 
-
 ## 管道指令
 
 1 |
@@ -609,7 +581,6 @@ head 和tail 负责取得文件的前几行和后几行
 2 cut切分数据，分成多列，last显示登陆者信息
 
 ## 正则
-
 
 grep
 
@@ -655,8 +626,6 @@ sed:
 
 Linux进程状态(ps stat)之R、S、D、T、Z、X
 
-
-
     D    不可中断     Uninterruptible sleep (usually IO)
     R    正在运行，或在队列中的进程
     S    处于休眠状态
@@ -673,12 +642,12 @@ Linux进程状态(ps stat)之R、S、D、T、Z、X
     +    位于后台的进程组；
     l    多线程，克隆线程  multi-threaded (using CLONE_THREAD, like NPTL pthreads do)
 
-
 ps aux
 
 ![](https://img-blog.csdn.net/20180703221736541?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2E3MjQ4ODg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 ## strace
+
 strace用于跟踪程序执行过程中的系统调用，如跟踪test进程，只需要：
 
 strace -p [test_pid] 或直接strace ./test
@@ -688,6 +657,7 @@ strace -p [test_pid] 或直接strace ./test
 strace -s 1024 -f -e trace=read,write -p 12345
 
 ## tcpdump
+
 tcpdump是Linux上的抓包工具，如抓取eth0网卡上的包，使用:
 
 sudo tcpdump -i eth0
@@ -704,7 +674,7 @@ nc可以在Linux上开启TCP Server、TCP Client、UDP Server、UDP Client。
 如在端口号12345上开启TCP Server和Client模拟TCP通信：
 
 Server:  nc -l 127.0.0.1 12345
-Client:  nc 127.0.0.1 12345 
+Client:  nc 127.0.0.1 12345
 在端口号12345上开启UDP Server和Client模拟TCP通信：
 
 Server:  nc -ul 127.0.0.1 12345
@@ -715,6 +685,7 @@ Server:  nc -Ul /tmp/1.sock
 Client:  nc -U /tmp/1.sock
 
 ## curl
+
 curl用于模拟HTTP请求，在终端模拟请求时常用，如最基本的用法：
 
 curl http://www.baidu.com
@@ -728,9 +699,11 @@ sudo lsof -i :[port] 查看端口占用进程信息，经常用于端口绑定�
 sudo lsof -p [pid] 查看进程打开了哪些文件或套接字
 
 ## ss
+
 Linux上的ss命令可以用于替换netstat，ss直接读取解析/proc/net下的统计信息，相比netstat遍历/proc下的每个PID目录，速度快很多。
 
 ## awk/sed
+
 awk和sed在文本处理方面十分强大，其中，awk按列进行处理，sed按行进行处理。
 
 如采用冒号分隔数据，输出第一列数据（$0代表行全部列数据，$1代表第一列，$2代表第二列...）
@@ -746,6 +719,7 @@ echo "int charset=gb2312 float"|sed "s/charset=gb2312/charset=UTF-8/g"
 sed -i 's/ab/cd/g' test
 
 ## vim
+
 打开文件并跳到第10行
 
 $ vim +10 filename.txt
@@ -757,6 +731,7 @@ $ vim +/search-term filename.txt
 $ vim -R /etc/passwd
 
 ## crontab
+
 查看某个用户的crontab入口
 
 $ crontab -u john -l
@@ -766,6 +741,7 @@ $ crontab -u john -l
 更多示例：Linux Crontab: 15 Awesome Cron Job Examples
 
 ## service
+
 service命令用于运行System V init脚本，这些脚本一般位于/etc/init.d文件下，这个命令可以直接运行这个文件夹里面的脚本，而不用加上路径
 
 查看服务状态
@@ -779,6 +755,7 @@ $ service --status-all
 $ service ssh restart
 
 ## free
+
 这个命令用于显示系统当前内存的使用情况，包括已用内存、可用内存和交换内存的情况
 
 默认情况下free会以字节为单位输出内存的使用量
@@ -798,7 +775,7 @@ $ service ssh restart
     Swap:            3          0          3
 
 如果你想查看所有内存的汇总，请使用-t选项，使用这个选项会在输出中加一个汇总行
-    
+
     ramesh@ramesh-laptop:~$ free -t
                  total       used       free     shared    buffers     cached
     Mem:       3566408    1592148    1974260          0     204260     912556
@@ -823,6 +800,7 @@ top命令会显示当前系统中占用资源最多的一些进程（默认以CP
 $ top -u oracle
 
 ## df
+
 显示文件系统的磁盘使用情况，默认情况下df -k 将以字节为单位输出磁盘的使用量
 
 $ df -k
@@ -844,14 +822,16 @@ $ df -h
     //app@izenesoft.cn/public  2.7Ti  1.3Ti  1.4Ti    48% 
 
 ## kill
+
 kill用于终止一个进程。一般我们会先用ps -ef查找某个进程得到它的进程号，然后再使用kill -9 进程号终止该进程。你还可以使用killall、pkill、xkill来终止进程
 
 $ ps -ef | grep vim
-ramesh    7243  7222  9 22:43 pts/2    00:00:00 vim
+ramesh 7243 7222 9 22:43 pts/2 00:00:00 vim
 
 $ kill -9 7243
 
 ## mount
+
 如果要挂载一个文件系统，需要先创建一个目录，然后将这个文件系统挂载到这个目录上
 
 mkdir /u01
@@ -859,7 +839,9 @@ mount /dev/sdb1 /u01
 也可以把它添加到fstab中进行自动挂载，这样任何时候系统重启的时候，文件系统都会被加载
 
 /dev/sdb1 /u01 ext2 defaults 0 2
+
 ## chmod
+
 chmod用于改变文件和目录的权限
 
 给指定文件的属主和属组所有权限(包括读、写、执行)
@@ -874,6 +856,7 @@ $ chmod -R ug+rwx file.txt
 更多示例：7 Chmod Command Examples for Beginners
 
 ## chown
+
 chown用于改变文件属主和属组
 
 同时将某个文件的属主改为oracle，属组改为db
@@ -884,10 +867,12 @@ $ chown oracle:dba dbora.sh
 $ chown -R oracle:dba /home/oracle
 
 ## ifconfig
+
 ifconfig用于查看和配置Linux系统的网络接口
 
 ## uname
-uname可以显示一些重要的系统信息，例如内核名称、主机名、内核版本号、处理器类型之类的信息 
+
+uname可以显示一些重要的系统信息，例如内核名称、主机名、内核版本号、处理器类型之类的信息
 
 ## 实际场景问题
 

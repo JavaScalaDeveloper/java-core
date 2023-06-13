@@ -1,27 +1,27 @@
-Spring Cloud Consul Îª SpringBoot Ó¦ÓÃÌá¹©ÁË ConsulµÄÖ§³Ö£¬Consul¼È¿ÉÒÔ×÷Îª×¢²áÖĞĞÄÊ¹ÓÃ£¬Ò²¿ÉÒÔ×÷ÎªÅäÖÃÖĞĞÄÊ¹ÓÃ£¬±¾ÎÄ½«¶ÔÆäÓÃ·¨½øĞĞÏêÏ¸½éÉÜ¡£
+Spring Cloud Consul ä¸º SpringBoot åº”ç”¨æä¾›äº† Consulçš„æ”¯æŒï¼ŒConsulæ—¢å¯ä»¥ä½œä¸ºæ³¨å†Œä¸­å¿ƒä½¿ç”¨ï¼Œä¹Ÿå¯ä»¥ä½œä¸ºé…ç½®ä¸­å¿ƒä½¿ç”¨ï¼Œæœ¬æ–‡å°†å¯¹å…¶ç”¨æ³•è¿›è¡Œè¯¦ç»†ä»‹ç»ã€‚
 
-# Consul ¼ò½é
+# Consul ç®€ä»‹
 
-ConsulÊÇHashiCorp¹«Ë¾ÍÆ³öµÄ¿ªÔ´Èí¼ş£¬Ìá¹©ÁËÎ¢·şÎñÏµÍ³ÖĞµÄ·şÎñÖÎÀí¡¢ÅäÖÃÖĞĞÄ¡¢¿ØÖÆ×ÜÏßµÈ¹¦ÄÜ¡£ÕâĞ©¹¦ÄÜÖĞµÄÃ¿Ò»¸ö¶¼¿ÉÒÔ¸ù¾İĞèÒªµ¥¶ÀÊ¹ÓÃ£¬Ò²¿ÉÒÔÒ»ÆğÊ¹ÓÃÒÔ¹¹½¨È«·½Î»µÄ·şÎñÍø¸ñ£¬×ÜÖ®ConsulÌá¹©ÁËÒ»ÖÖÍêÕûµÄ·şÎñÍø¸ñ½â¾ö·½°¸¡£
+Consulæ˜¯HashiCorpå…¬å¸æ¨å‡ºçš„å¼€æºè½¯ä»¶ï¼Œæä¾›äº†å¾®æœåŠ¡ç³»ç»Ÿä¸­çš„æœåŠ¡æ²»ç†ã€é…ç½®ä¸­å¿ƒã€æ§åˆ¶æ€»çº¿ç­‰åŠŸèƒ½ã€‚è¿™äº›åŠŸèƒ½ä¸­çš„æ¯ä¸€ä¸ªéƒ½å¯ä»¥æ ¹æ®éœ€è¦å•ç‹¬ä½¿ç”¨ï¼Œä¹Ÿå¯ä»¥ä¸€èµ·ä½¿ç”¨ä»¥æ„å»ºå…¨æ–¹ä½çš„æœåŠ¡ç½‘æ ¼ï¼Œæ€»ä¹‹Consulæä¾›äº†ä¸€ç§å®Œæ•´çš„æœåŠ¡ç½‘æ ¼è§£å†³æ–¹æ¡ˆã€‚
 
-Spring Cloud Consul ¾ßÓĞÈçÏÂÌØĞÔ£º
+Spring Cloud Consul å…·æœ‰å¦‚ä¸‹ç‰¹æ€§ï¼š
 
-- Ö§³Ö·şÎñÖÎÀí£ºConsul×÷Îª×¢²áÖĞĞÄÊ±£¬Î¢·şÎñÖĞµÄÓ¦ÓÃ¿ÉÒÔÏòConsul×¢²á×Ô¼º£¬²¢ÇÒ¿ÉÒÔ´ÓConsul»ñÈ¡ÆäËûÓ¦ÓÃĞÅÏ¢£»
-- Ö§³Ö¿Í»§¶Ë¸ºÔğ¾ùºâ£º°üÀ¨RibbonºÍSpring Cloud LoadBalancer£»
-- Ö§³ÖZuul£ºµ±Zuul×÷ÎªÍø¹ØÊ±£¬¿ÉÒÔ´ÓConsulÖĞ×¢²áºÍ·¢ÏÖÓ¦ÓÃ£»
-- Ö§³Ö·Ö²¼Ê½ÅäÖÃ¹ÜÀí£ºConsul×÷ÎªÅäÖÃÖĞĞÄÊ±£¬Ê¹ÓÃ¼üÖµ¶ÔÀ´´æ´¢ÅäÖÃĞÅÏ¢£»
-- Ö§³Ö¿ØÖÆ×ÜÏß£º¿ÉÒÔÔÚÕû¸öÎ¢·şÎñÏµÍ³ÖĞÍ¨¹ı Control Bus ·Ö·¢ÊÂ¼şÏûÏ¢¡£
+- æ”¯æŒæœåŠ¡æ²»ç†ï¼šConsulä½œä¸ºæ³¨å†Œä¸­å¿ƒæ—¶ï¼Œå¾®æœåŠ¡ä¸­çš„åº”ç”¨å¯ä»¥å‘Consulæ³¨å†Œè‡ªå·±ï¼Œå¹¶ä¸”å¯ä»¥ä»Consulè·å–å…¶ä»–åº”ç”¨ä¿¡æ¯ï¼›
+- æ”¯æŒå®¢æˆ·ç«¯è´Ÿè´£å‡è¡¡ï¼šåŒ…æ‹¬Ribbonå’ŒSpring Cloud LoadBalancerï¼›
+- æ”¯æŒZuulï¼šå½“Zuulä½œä¸ºç½‘å…³æ—¶ï¼Œå¯ä»¥ä»Consulä¸­æ³¨å†Œå’Œå‘ç°åº”ç”¨ï¼›
+- æ”¯æŒåˆ†å¸ƒå¼é…ç½®ç®¡ç†ï¼šConsulä½œä¸ºé…ç½®ä¸­å¿ƒæ—¶ï¼Œä½¿ç”¨é”®å€¼å¯¹æ¥å­˜å‚¨é…ç½®ä¿¡æ¯ï¼›
+- æ”¯æŒæ§åˆ¶æ€»çº¿ï¼šå¯ä»¥åœ¨æ•´ä¸ªå¾®æœåŠ¡ç³»ç»Ÿä¸­é€šè¿‡ Control Bus åˆ†å‘äº‹ä»¶æ¶ˆæ¯ã€‚
 
-# Ê¹ÓÃConsul×÷Îª×¢²áÖĞĞÄ
+# ä½¿ç”¨Consulä½œä¸ºæ³¨å†Œä¸­å¿ƒ
 
-# °²×°²¢ÔËĞĞConsul
+# å®‰è£…å¹¶è¿è¡ŒConsul
 
-- Ê×ÏÈÎÒÃÇ´Ó¹ÙÍøÏÂÔØConsul£¬µØÖ·£ºhttps://www.consul.io/downloads.html
+- é¦–å…ˆæˆ‘ä»¬ä»å®˜ç½‘ä¸‹è½½Consulï¼Œåœ°å€ï¼šhttps://www.consul.io/downloads.html
 
 
 
-- ÏÂÔØÍê³ÉºóÖ»ÓĞÒ»¸öexeÎÄ¼ş£¬Ë«»÷ÔËĞĞ£»
-- ÔÚÃüÁîĞĞÖĞÊäÈëÒÔÏÂÃüÁî¿ÉÒÔ²é¿´°æ±¾ºÅ£º
+- ä¸‹è½½å®Œæˆååªæœ‰ä¸€ä¸ªexeæ–‡ä»¶ï¼ŒåŒå‡»è¿è¡Œï¼›
+- åœ¨å‘½ä»¤è¡Œä¸­è¾“å…¥ä»¥ä¸‹å‘½ä»¤å¯ä»¥æŸ¥çœ‹ç‰ˆæœ¬å·ï¼š
 
 
 
@@ -29,7 +29,7 @@ Spring Cloud Consul ¾ßÓĞÈçÏÂÌØĞÔ£º
 
 
 
-- ²é¿´°æ±¾ºÅĞÅÏ¢ÈçÏÂ£º
+- æŸ¥çœ‹ç‰ˆæœ¬å·ä¿¡æ¯å¦‚ä¸‹ï¼š
 
 
 
@@ -37,7 +37,7 @@ Spring Cloud Consul ¾ßÓĞÈçÏÂÌØĞÔ£º
     Protocol 2 spoken by default, understands 2 to 3 (agent will automatically use protocol >2 when speaking to compatible agents)
 
 
-- Ê¹ÓÃ¿ª·¢Ä£Ê½Æô¶¯£º
+- ä½¿ç”¨å¼€å‘æ¨¡å¼å¯åŠ¨ï¼š
 
 
 
@@ -48,16 +48,16 @@ Spring Cloud Consul ¾ßÓĞÈçÏÂÌØĞÔ£º
 
 
 
-- Í¨¹ıÒÔÏÂµØÖ·¿ÉÒÔ·ÃÎÊConsulµÄÊ×Ò³£ºhttp://localhost:8500
+- é€šè¿‡ä»¥ä¸‹åœ°å€å¯ä»¥è®¿é—®Consulçš„é¦–é¡µï¼šhttp://localhost:8500
 
 
 
-# ´´½¨Ó¦ÓÃ×¢²áµ½Consul
+# åˆ›å»ºåº”ç”¨æ³¨å†Œåˆ°Consul
 
-ÎÒÃÇÍ¨¹ı¸ÄÔìuser-serviceºÍribbon-serviceÀ´ÑİÊ¾ÏÂ·şÎñ×¢²áÓë·¢ÏÖµÄ¹¦ÄÜ£¬Ö÷ÒªÊÇ½«Ó¦ÓÃÔ­À´µÄEureka×¢²áÖĞĞÄÖ§³Ö¸ÄÎªConsul×¢²áÖĞĞÄÖ§³Ö¡£
+æˆ‘ä»¬é€šè¿‡æ”¹é€ user-serviceå’Œribbon-serviceæ¥æ¼”ç¤ºä¸‹æœåŠ¡æ³¨å†Œä¸å‘ç°çš„åŠŸèƒ½ï¼Œä¸»è¦æ˜¯å°†åº”ç”¨åŸæ¥çš„Eurekaæ³¨å†Œä¸­å¿ƒæ”¯æŒæ”¹ä¸ºConsulæ³¨å†Œä¸­å¿ƒæ”¯æŒã€‚
 
-- ´´½¨consul-user-serviceÄ£¿éºÍconsul-ribbon-serviceÄ£¿é£»
-- ĞŞ¸ÄÏà¹ØÒÀÀµ£¬°ÑÔ­À´µÄEureka×¢²á·¢ÏÖµÄÒÀÀµ¸ÄÎªConsulµÄ£¬²¢Ìí¼ÓSpringBoot ActuatorµÄÒÀÀµ£º
+- åˆ›å»ºconsul-user-serviceæ¨¡å—å’Œconsul-ribbon-serviceæ¨¡å—ï¼›
+- ä¿®æ”¹ç›¸å…³ä¾èµ–ï¼ŒæŠŠåŸæ¥çš„Eurekaæ³¨å†Œå‘ç°çš„ä¾èµ–æ”¹ä¸ºConsulçš„ï¼Œå¹¶æ·»åŠ SpringBoot Actuatorçš„ä¾èµ–ï¼š
 
 
 
@@ -73,7 +73,7 @@ Spring Cloud Consul ¾ßÓĞÈçÏÂÌØĞÔ£º
 
 
 
-- ĞŞ¸ÄÅäÖÃÎÄ¼şapplication.yml£¬½«EurekaµÄ×¢²á·¢ÏÖÅäÖÃ¸ÄÎªConsulµÄ£º
+- ä¿®æ”¹é…ç½®æ–‡ä»¶application.ymlï¼Œå°†Eurekaçš„æ³¨å†Œå‘ç°é…ç½®æ”¹ä¸ºConsulçš„ï¼š
 
 
 
@@ -83,7 +83,7 @@ Spring Cloud Consul ¾ßÓĞÈçÏÂÌØĞÔ£º
       application:
         name: consul-user-service
       cloud:
-        consul: #Consul·şÎñ×¢²á·¢ÏÖÅäÖÃ
+        consul: #ConsulæœåŠ¡æ³¨å†Œå‘ç°é…ç½®
           host: localhost
           port: 8500
           discovery:
@@ -92,30 +92,30 @@ Spring Cloud Consul ¾ßÓĞÈçÏÂÌØĞÔ£º
 
 
 
-- ÔËĞĞÁ½¸öconsul-user-serviceºÍÒ»¸öconsul-ribbon-service£¬ÔÚConsulÒ³ÃæÉÏ¿ÉÒÔ¿´µ½ÈçÏÂĞÅÏ¢£º
+- è¿è¡Œä¸¤ä¸ªconsul-user-serviceå’Œä¸€ä¸ªconsul-ribbon-serviceï¼Œåœ¨Consulé¡µé¢ä¸Šå¯ä»¥çœ‹åˆ°å¦‚ä¸‹ä¿¡æ¯ï¼š
 
 
 
-# ¸ºÔØ¾ùºâ¹¦ÄÜ
+# è´Ÿè½½å‡è¡¡åŠŸèƒ½
 
-ÓÉÓÚÎÒÃÇÔËĞĞÁËÁ½¸öconsul-user-service£¬¶øconsul-ribbon-serviceÄ¬ÈÏ»áÈ¥µ÷ÓÃËüµÄ½Ó¿Ú£¬ÎÒÃÇµ÷ÓÃconsul-ribbon-serviceµÄ½Ó¿ÚÀ´ÑİÊ¾ÏÂ¸ºÔØ¾ùºâ¹¦ÄÜ¡£
+ç”±äºæˆ‘ä»¬è¿è¡Œäº†ä¸¤ä¸ªconsul-user-serviceï¼Œè€Œconsul-ribbon-serviceé»˜è®¤ä¼šå»è°ƒç”¨å®ƒçš„æ¥å£ï¼Œæˆ‘ä»¬è°ƒç”¨consul-ribbon-serviceçš„æ¥å£æ¥æ¼”ç¤ºä¸‹è´Ÿè½½å‡è¡¡åŠŸèƒ½ã€‚
 
-¶à´Îµ÷ÓÃ½Ó¿Ú£ºhttp://localhost:8308/user/1 £¬¿ÉÒÔ·¢ÏÖÁ½¸öconsul-user-serviceµÄ¿ØÖÆÌ¨½»Ìæ´òÓ¡ÈçÏÂĞÅÏ¢¡£
-
-
-
-    2019-10-20 10:39:32.580  INFO 12428 --- [io-8206-exec-10] c.macro.cloud.controller.UserController  : ¸ù¾İid»ñÈ¡ÓÃ»§ĞÅÏ¢£¬ÓÃ»§Ãû³ÆÎª£ºmacro
+å¤šæ¬¡è°ƒç”¨æ¥å£ï¼šhttp://localhost:8308/user/1 ï¼Œå¯ä»¥å‘ç°ä¸¤ä¸ªconsul-user-serviceçš„æ§åˆ¶å°äº¤æ›¿æ‰“å°å¦‚ä¸‹ä¿¡æ¯ã€‚
 
 
 
+    2019-10-20 10:39:32.580  INFO 12428 --- [io-8206-exec-10] c.macro.cloud.controller.UserController  : æ ¹æ®idè·å–ç”¨æˆ·ä¿¡æ¯ï¼Œç”¨æˆ·åç§°ä¸ºï¼šmacro
 
-# Ê¹ÓÃConsul×÷ÎªÅäÖÃÖĞĞÄ
 
-ÎÒÃÇÍ¨¹ı´´½¨consul-config-clientÄ£¿é£¬²¢ÔÚConsulÖĞÌí¼ÓÅäÖÃĞÅÏ¢À´ÑİÊ¾ÏÂÅäÖÃ¹ÜÀíµÄ¹¦ÄÜ¡£
 
-# ´´½¨consul-config-clientÄ£¿é
 
-- ÔÚpom.xmlÖĞÌí¼ÓÏà¹ØÒÀÀµ£º
+# ä½¿ç”¨Consulä½œä¸ºé…ç½®ä¸­å¿ƒ
+
+æˆ‘ä»¬é€šè¿‡åˆ›å»ºconsul-config-clientæ¨¡å—ï¼Œå¹¶åœ¨Consulä¸­æ·»åŠ é…ç½®ä¿¡æ¯æ¥æ¼”ç¤ºä¸‹é…ç½®ç®¡ç†çš„åŠŸèƒ½ã€‚
+
+# åˆ›å»ºconsul-config-clientæ¨¡å—
+
+- åœ¨pom.xmlä¸­æ·»åŠ ç›¸å…³ä¾èµ–ï¼š
 
 
 
@@ -130,7 +130,7 @@ Spring Cloud Consul ¾ßÓĞÈçÏÂÌØĞÔ£º
 
 
 
-- Ìí¼ÓÅäÖÃÎÄ¼şapplication.yml£¬ÆôÓÃµÄÊÇdev»·¾³µÄÅäÖÃ£º
+- æ·»åŠ é…ç½®æ–‡ä»¶application.ymlï¼Œå¯ç”¨çš„æ˜¯devç¯å¢ƒçš„é…ç½®ï¼š
 
 
 
@@ -141,7 +141,7 @@ Spring Cloud Consul ¾ßÓĞÈçÏÂÌØĞÔ£º
 
 
 
-- Ìí¼ÓÅäÖÃÎÄ¼şbootstrap.yml£¬Ö÷ÒªÊÇ¶ÔConsulµÄÅäÖÃ¹¦ÄÜ½øĞĞÅäÖÃ£º
+- æ·»åŠ é…ç½®æ–‡ä»¶bootstrap.ymlï¼Œä¸»è¦æ˜¯å¯¹Consulçš„é…ç½®åŠŸèƒ½è¿›è¡Œé…ç½®ï¼š
 
 
 
@@ -157,14 +157,14 @@ Spring Cloud Consul ¾ßÓĞÈçÏÂÌØĞÔ£º
           discovery:
             serviceName: consul-config-client
           config:
-            enabled: true #ÊÇ·ñÆôÓÃÅäÖÃÖĞĞÄ¹¦ÄÜ
-            format: yaml #ÉèÖÃÅäÖÃÖµµÄ¸ñÊ½
-            prefix: config #ÉèÖÃÅäÖÃËùÔÚÄ¿Â¼
-            profile-separator: ':' #ÉèÖÃÅäÖÃµÄ·Ö¸ô·û
-            data-key: data #ÅäÖÃkeyµÄÃû×Ö£¬ÓÉÓÚConsulÊÇK/V´æ´¢£¬ÅäÖÃ´æ´¢ÔÚ¶ÔÓ¦KµÄVÖĞ
+            enabled: true #æ˜¯å¦å¯ç”¨é…ç½®ä¸­å¿ƒåŠŸèƒ½
+            format: yaml #è®¾ç½®é…ç½®å€¼çš„æ ¼å¼
+            prefix: config #è®¾ç½®é…ç½®æ‰€åœ¨ç›®å½•
+            profile-separator: ':' #è®¾ç½®é…ç½®çš„åˆ†éš”ç¬¦
+            data-key: data #é…ç½®keyçš„åå­—ï¼Œç”±äºConsulæ˜¯K/Vå­˜å‚¨ï¼Œé…ç½®å­˜å‚¨åœ¨å¯¹åº”Kçš„Vä¸­
 
 
-- ´´½¨ConfigClientController£¬´ÓConsulÅäÖÃÖĞĞÄÖĞ»ñÈ¡ÅäÖÃĞÅÏ¢£º
+- åˆ›å»ºConfigClientControllerï¼Œä»Consulé…ç½®ä¸­å¿ƒä¸­è·å–é…ç½®ä¿¡æ¯ï¼š
 
 
 
@@ -185,9 +185,9 @@ Spring Cloud Consul ¾ßÓĞÈçÏÂÌØĞÔ£º
     }
 
 
-# ÔÚConsulÖĞÌí¼ÓÅäÖÃ
+# åœ¨Consulä¸­æ·»åŠ é…ç½®
 
-- ÔÚconsulÖĞÌí¼ÓÅäÖÃ´æ´¢µÄkeyÎª:
+- åœ¨consulä¸­æ·»åŠ é…ç½®å­˜å‚¨çš„keyä¸º:
 
 
 
@@ -197,7 +197,7 @@ Spring Cloud Consul ¾ßÓĞÈçÏÂÌØĞÔ£º
 
 
 
-- ÔÚconsulÖĞÌí¼ÓÅäÖÃ´æ´¢µÄvalueÎª£º
+- åœ¨consulä¸­æ·»åŠ é…ç½®å­˜å‚¨çš„valueä¸ºï¼š
 
 
 
@@ -207,11 +207,11 @@ Spring Cloud Consul ¾ßÓĞÈçÏÂÌØĞÔ£º
 
 
 
-- ´æ´¢ĞÅÏ¢½ØÍ¼ÈçÏÂ£º
+- å­˜å‚¨ä¿¡æ¯æˆªå›¾å¦‚ä¸‹ï¼š
 
 
 
-- Æô¶¯consul-config-client£¬µ÷ÓÃ½Ó¿Ú²é¿´ÅäÖÃĞÅÏ¢£ºhttp://localhost:9101/configInfo
+- å¯åŠ¨consul-config-clientï¼Œè°ƒç”¨æ¥å£æŸ¥çœ‹é…ç½®ä¿¡æ¯ï¼šhttp://localhost:9101/configInfo
 
 
 
@@ -220,26 +220,26 @@ Spring Cloud Consul ¾ßÓĞÈçÏÂÌØĞÔ£º
 
 
 
-# ConsulµÄ¶¯Ì¬Ë¢ĞÂÅäÖÃ
+# Consulçš„åŠ¨æ€åˆ·æ–°é…ç½®
 
-ÎÒÃÇÖ»ÒªĞŞ¸ÄÏÂConsulÖĞµÄÅäÖÃĞÅÏ¢£¬ÔÙ´Îµ÷ÓÃ²é¿´ÅäÖÃµÄ½Ó¿Ú£¬¾Í»á·¢ÏÖÅäÖÃÒÑ¾­Ë¢ĞÂ¡£»ØÏëÏÂÔÚÊ¹ÓÃSpring Cloud ConfigµÄÊ±ºò£¬ÎÒÃÇĞèÒªµ÷ÓÃ½Ó¿Ú£¬Í¨¹ıSpring Cloud Bus²ÅÄÜË¢ĞÂÅäÖÃ¡£ConsulÊ¹ÓÃÆä×Ô´øµÄControl Bus ÊµÏÖÁËÒ»ÖÖÊÂ¼ş´«µİ»úÖÆ£¬´Ó¶øÊµÏÖÁË¶¯Ì¬Ë¢ĞÂ¹¦ÄÜ¡£
+æˆ‘ä»¬åªè¦ä¿®æ”¹ä¸‹Consulä¸­çš„é…ç½®ä¿¡æ¯ï¼Œå†æ¬¡è°ƒç”¨æŸ¥çœ‹é…ç½®çš„æ¥å£ï¼Œå°±ä¼šå‘ç°é…ç½®å·²ç»åˆ·æ–°ã€‚å›æƒ³ä¸‹åœ¨ä½¿ç”¨Spring Cloud Configçš„æ—¶å€™ï¼Œæˆ‘ä»¬éœ€è¦è°ƒç”¨æ¥å£ï¼Œé€šè¿‡Spring Cloud Busæ‰èƒ½åˆ·æ–°é…ç½®ã€‚Consulä½¿ç”¨å…¶è‡ªå¸¦çš„Control Bus å®ç°äº†ä¸€ç§äº‹ä»¶ä¼ é€’æœºåˆ¶ï¼Œä»è€Œå®ç°äº†åŠ¨æ€åˆ·æ–°åŠŸèƒ½ã€‚
 
-# Ê¹ÓÃµ½µÄÄ£¿é
+# ä½¿ç”¨åˆ°çš„æ¨¡å—
 
 
 
     springcloud-learning
-    ©À©¤©¤ consul-config-client -- ÓÃÓÚÑİÊ¾consul×÷ÎªÅäÖÃÖĞĞÄµÄconsul¿Í»§¶Ë
-    ©À©¤©¤ consul-user-service -- ×¢²áµ½consulµÄÌá¹©User¶ÔÏóCRUD½Ó¿ÚµÄ·şÎñ
-    ©¸©¤©¤ consul-service -- ×¢²áµ½consulµÄribbon·şÎñµ÷ÓÃ²âÊÔ·şÎñ
+    â”œâ”€â”€ consul-config-client -- ç”¨äºæ¼”ç¤ºconsulä½œä¸ºé…ç½®ä¸­å¿ƒçš„consulå®¢æˆ·ç«¯
+    â”œâ”€â”€ consul-user-service -- æ³¨å†Œåˆ°consulçš„æä¾›Userå¯¹è±¡CRUDæ¥å£çš„æœåŠ¡
+    â””â”€â”€ consul-service -- æ³¨å†Œåˆ°consulçš„ribbonæœåŠ¡è°ƒç”¨æµ‹è¯•æœåŠ¡
 
 
 
 
-# ÏîÄ¿Ô´ÂëµØÖ·
+# é¡¹ç›®æºç åœ°å€
 
 https://github.com/macrozheng/springcloud-learning
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

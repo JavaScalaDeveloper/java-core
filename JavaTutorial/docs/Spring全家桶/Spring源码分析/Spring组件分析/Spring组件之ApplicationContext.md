@@ -1,13 +1,13 @@
-### 1. `ApplicationContext` ¼ò½é
+### 1. `ApplicationContext` ç®€ä»‹
 
-ÎÒÃÇÔÚÆô¶¯ spring ÈİÆ÷Ê±£¬Ò»°ãÏñÕâÑùÆô¶¯£º
+æˆ‘ä»¬åœ¨å¯åŠ¨ spring å®¹å™¨æ—¶ï¼Œä¸€èˆ¬åƒè¿™æ ·å¯åŠ¨ï¼š
 
 ```
 ApplicationContext context = new AnnotationConfigApplicationContext(Main.class);
 
 ```
 
-»òÕâÑù£º
+æˆ–è¿™æ ·ï¼š
 
 ```
 ApplicationContext context = new AnnotationConfigWebApplicationContext();
@@ -16,11 +16,11 @@ context.refresh();
 
 ```
 
-ÕâÀïµÄ `AnnotationConfigApplicationContext` Óë `AnnotationConfigWebApplicationContext` ¶¼ÊÇ `ApplicationContext`£¬×îÖÕ½øĞĞ»áµ÷ÓÃ `AbstractApplicationContext#refresh` ·½·¨Æô¶¯ spring ÈİÆ÷¡£
+è¿™é‡Œçš„ `AnnotationConfigApplicationContext` ä¸ `AnnotationConfigWebApplicationContext` éƒ½æ˜¯ `ApplicationContext`ï¼Œæœ€ç»ˆè¿›è¡Œä¼šè°ƒç”¨ `AbstractApplicationContext#refresh` æ–¹æ³•å¯åŠ¨ spring å®¹å™¨ã€‚
 
-`ApplicationContext` ·­ÒëÎª **spring Ó¦ÓÃÉÏÏÂÎÄ**£¬´ÓÕâ¸öÀàÀï¿ÉÒÔ»ñÈ¡ spring ÔËĞĞÆÚ¼äµÄ¸÷ÖÖĞÅÏ¢£¬Èç `BeanFactory`¡¢`Environment` µÈ£¬ÊÇ spring ÖĞÖÁ¹ØÖØÒªµÄÒ»¸öÀà¡£
+`ApplicationContext` ç¿»è¯‘ä¸º **spring åº”ç”¨ä¸Šä¸‹æ–‡**ï¼Œä»è¿™ä¸ªç±»é‡Œå¯ä»¥è·å– spring è¿è¡ŒæœŸé—´çš„å„ç§ä¿¡æ¯ï¼Œå¦‚ `BeanFactory`ã€`Environment` ç­‰ï¼Œæ˜¯ spring ä¸­è‡³å…³é‡è¦çš„ä¸€ä¸ªç±»ã€‚
 
-`ApplicationContext` ¼Ì³ĞµÄ½Ó¿ÚÈçÏÂ£º
+`ApplicationContext` ç»§æ‰¿çš„æ¥å£å¦‚ä¸‹ï¼š
 
 ```
 public interface ApplicationContext extends EnvironmentCapable, ListableBeanFactory, 
@@ -31,39 +31,39 @@ public interface ApplicationContext extends EnvironmentCapable, ListableBeanFact
 
 ```
 
-´ÓÕâÀï¿ÉÒÔ¿´µ½£¬`ApplicationContext` ±¾ÉíÒ²ÊÇÆäËû½Ó¿ÚµÄ×Ó½Ó¿Ú£¬ÕâĞ©½Ó¿ÚµÄ¹¦ÄÜÈçÏÂ£º
+ä»è¿™é‡Œå¯ä»¥çœ‹åˆ°ï¼Œ`ApplicationContext` æœ¬èº«ä¹Ÿæ˜¯å…¶ä»–æ¥å£çš„å­æ¥å£ï¼Œè¿™äº›æ¥å£çš„åŠŸèƒ½å¦‚ä¸‹ï¼š
 
-*   `EnvironmentCapable`£ºÌá¹©ÁË»·¾³ÅäÖÃ¹¦ÄÜ£¬`applicationContext` ÊµÏÖÖĞ»áÓĞÒ»¸ö `Environment` ÀàĞÍµÄ³ÉÔ±±äÁ¿£¬¿ÉÒÔÍ¨¹ı `EnvironmentCapable#getEnvironment()` ·½·¨È¡µÃ
-*   `ListableBeanFactory`£º`BeanFactory` µÄ×Ó½Ó¿Ú£¬Ìá¹©ÁËÁĞ¾Ù `BeanFactory` ÖĞËùÓĞ `bean` µÄ·½·¨
-*   `HierarchicalBeanFactory`£º`BeanFactory` µÄ×Ó½Ó¿Ú£¬Ìá¹©ÁË `BeanFactory` ÀàËÆ¼Ì³ĞµÄÄÜÁ¦£¨¿ÉÒÔ»ñÈ¡¸¸ `BeanFactory`£©
-*   `MessageSource`£ºÖ¸¶¨ÏûÏ¢À´Ô´£¬¿ÉÒÔÓÃÀ´ÊµÏÖ¹ú¼Ê»¯²Ù×÷
-*   `ApplicationEventPublisher`£ºÊÂ¼ş·¢²¼Æ÷£¬ÓÃÆäÌá¹©µÄ `publishEvent(...)` ·½·¨À´·¢²¼ÊÂ¼ş
-*   `ResourcePatternResolver`£º×ÊÔ´½âÎöÆ÷£¬Ìá¹©ÁË»ñÈ¡×ÊÔ´£¨`Resource`£©µÄ·½·¨£º`getResources(...)`
+*   `EnvironmentCapable`ï¼šæä¾›äº†ç¯å¢ƒé…ç½®åŠŸèƒ½ï¼Œ`applicationContext` å®ç°ä¸­ä¼šæœ‰ä¸€ä¸ª `Environment` ç±»å‹çš„æˆå‘˜å˜é‡ï¼Œå¯ä»¥é€šè¿‡ `EnvironmentCapable#getEnvironment()` æ–¹æ³•å–å¾—
+*   `ListableBeanFactory`ï¼š`BeanFactory` çš„å­æ¥å£ï¼Œæä¾›äº†åˆ—ä¸¾ `BeanFactory` ä¸­æ‰€æœ‰ `bean` çš„æ–¹æ³•
+*   `HierarchicalBeanFactory`ï¼š`BeanFactory` çš„å­æ¥å£ï¼Œæä¾›äº† `BeanFactory` ç±»ä¼¼ç»§æ‰¿çš„èƒ½åŠ›ï¼ˆå¯ä»¥è·å–çˆ¶ `BeanFactory`ï¼‰
+*   `MessageSource`ï¼šæŒ‡å®šæ¶ˆæ¯æ¥æºï¼Œå¯ä»¥ç”¨æ¥å®ç°å›½é™…åŒ–æ“ä½œ
+*   `ApplicationEventPublisher`ï¼šäº‹ä»¶å‘å¸ƒå™¨ï¼Œç”¨å…¶æä¾›çš„ `publishEvent(...)` æ–¹æ³•æ¥å‘å¸ƒäº‹ä»¶
+*   `ResourcePatternResolver`ï¼šèµ„æºè§£æå™¨ï¼Œæä¾›äº†è·å–èµ„æºï¼ˆ`Resource`ï¼‰çš„æ–¹æ³•ï¼š`getResources(...)`
 
-ÎÒÃÇÀ´¿´¿´ `ApplicationContext` ×ÔÉíÌá¹©µÄ·½·¨£º
+æˆ‘ä»¬æ¥çœ‹çœ‹ `ApplicationContext` è‡ªèº«æä¾›çš„æ–¹æ³•ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-82de66bd51d650aa8a1fda29bdda3efd6b4.png)
 
-¿ÉÒÔ¿´µ½£¬Ëü×ÔÉíµÄ·½·¨²¢²»¶à¡£
+å¯ä»¥çœ‹åˆ°ï¼Œå®ƒè‡ªèº«çš„æ–¹æ³•å¹¶ä¸å¤šã€‚
 
-### 2. `ApplicationContext` ¼Ì³Ğ½á¹¹
+### 2. `ApplicationContext` ç»§æ‰¿ç»“æ„
 
-ÔÚ `ApplicationContext` ¼Ò×åÖĞ£¬`ApplicationContext` Ö÷Òª·ÖÎªÁ½´óÅÉÏµ£¬ËûÃÇ¼°Æä´ú±íÈçÏÂ£º
+åœ¨ `ApplicationContext` å®¶æ—ä¸­ï¼Œ`ApplicationContext` ä¸»è¦åˆ†ä¸ºä¸¤å¤§æ´¾ç³»ï¼Œä»–ä»¬åŠå…¶ä»£è¡¨å¦‚ä¸‹ï¼š
 
-*   ·Ç web ÀàĞÍµÄ `ApplicationContext`£º´¦ÀíÆÕÍ¨ java Ó¦ÓÃµÄ `ApplicationContext`£¬´ú±íÀàÎª `AnnotationConfigApplicationContext`
-*   web ÀàĞÍµÄ `ApplicationContext`£º´¦Àí web Ó¦ÓÃµÄ `ApplicationContext`£¬´ú±íÀàÎª `AnnotationConfigWebApplicationContext`£¨ÕâÀïÖ»¿¼ÂÇ `servlet` ÀàĞÍµÄ web£¬²»¿¼ÂÇ `reactive` µÄ web£©
+*   é web ç±»å‹çš„ `ApplicationContext`ï¼šå¤„ç†æ™®é€š java åº”ç”¨çš„ `ApplicationContext`ï¼Œä»£è¡¨ç±»ä¸º `AnnotationConfigApplicationContext`
+*   web ç±»å‹çš„ `ApplicationContext`ï¼šå¤„ç† web åº”ç”¨çš„ `ApplicationContext`ï¼Œä»£è¡¨ç±»ä¸º `AnnotationConfigWebApplicationContext`ï¼ˆè¿™é‡Œåªè€ƒè™‘ `servlet` ç±»å‹çš„ webï¼Œä¸è€ƒè™‘ `reactive` çš„ webï¼‰
 
-ÎÒÃÇÔÙÀ´¿´¿´ `AnnotationConfigApplicationContext` µÄ¼Ì³Ğ½á¹¹£º
+æˆ‘ä»¬å†æ¥çœ‹çœ‹ `AnnotationConfigApplicationContext` çš„ç»§æ‰¿ç»“æ„ï¼š
 
-![Í¼Æ¬À´×ÔÍøÂç](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-6e20477e8f5948894a5f241cd41038cfa15.png)
+![å›¾ç‰‡æ¥è‡ªç½‘ç»œ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-6e20477e8f5948894a5f241cd41038cfa15.png)
 
-ÎÒÃÇÔÙÀ´¿´¿´ `AnnotationConfigWebApplicationContext` µÄ¼Ì³Ğ½á¹¹£º
+æˆ‘ä»¬å†æ¥çœ‹çœ‹ `AnnotationConfigWebApplicationContext` çš„ç»§æ‰¿ç»“æ„ï¼š
 
-![Í¼Æ¬À´×ÔÍøÂç](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-23a6c84d82370afe39245a568cbcf918209.png)
+![å›¾ç‰‡æ¥è‡ªç½‘ç»œ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-23a6c84d82370afe39245a568cbcf918209.png)
 
-### 3\. ÔÚ bean ÖĞ»ñÈ¡ `ApplicationContext`
+### 3\. åœ¨ bean ä¸­è·å– `ApplicationContext`
 
-ÔÚ spring bean ÖĞ»ñÈ¡ `ApplicationContext`£¬¿ÉÒÔÍ¨¹ı `ApplicationContextAware` ½Ó¿ÚÀ´´¦Àí£º
+åœ¨ spring bean ä¸­è·å– `ApplicationContext`ï¼Œå¯ä»¥é€šè¿‡ `ApplicationContextAware` æ¥å£æ¥å¤„ç†ï¼š
 
 ```
 @Component
@@ -77,26 +77,26 @@ public class TestBean implements ApplicationContextAware {
         this.applicationContext = applicationContext;
     }
 
-    // ÆäËû²Ù×÷
+    // å…¶ä»–æ“ä½œ
 
 }
 
 ```
 
-¼Ì³Ğ `ApplicationContextAware` ºó£¬`ApplicationContextAwareProcessor` »áÔÚ³õÊ¼»¯Íê³Éºóµ÷ÓÃ `setApplicationContext(xxx)` ·½·¨£¬ÕâÑùÎÒÃÇÖ»ĞèÒªÔÚ `TestBean` ÖĞÎ¬»¤Ò»¸ö³ÉÔ±±äÁ¿£¬¶Ô `applicationContext` ±£´æ¼´¿É¡£
+ç»§æ‰¿ `ApplicationContextAware` åï¼Œ`ApplicationContextAwareProcessor` ä¼šåœ¨åˆå§‹åŒ–å®Œæˆåè°ƒç”¨ `setApplicationContext(xxx)` æ–¹æ³•ï¼Œè¿™æ ·æˆ‘ä»¬åªéœ€è¦åœ¨ `TestBean` ä¸­ç»´æŠ¤ä¸€ä¸ªæˆå‘˜å˜é‡ï¼Œå¯¹ `applicationContext` ä¿å­˜å³å¯ã€‚
 
 ### 4. `ApplicationContextAwareProcessor`
 
-`ApplicationContextAwareProcessor` ÊÇÒ»¸ö `BeanPostProcessor`£¬ÎÒÃÇÖ÷Òª¹Ø×¢ `ApplicationContextAwareProcessor#postProcessBeforeInitialization` ·½·¨£¬´ú±íÈçÏÂ£º
+`ApplicationContextAwareProcessor` æ˜¯ä¸€ä¸ª `BeanPostProcessor`ï¼Œæˆ‘ä»¬ä¸»è¦å…³æ³¨ `ApplicationContextAwareProcessor#postProcessBeforeInitialization` æ–¹æ³•ï¼Œä»£è¡¨å¦‚ä¸‹ï¼š
 
 ```
 @Override
 @Nullable
 public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
     /**
-     * applicationContext ÊÇ Environment¡¢ResourceLoader¡¢
-     * ApplicationEventPublisher¡¢MessageSource µÈµÄ×ÓÀà£¬ÕâĞ©ÀàµÄaware½Ó¿ÚµÄµ÷ÓÃ£¬¶¼¿ÉÒÔ
-     * Í¨¹ı applicationContext ²ÎÊı½øĞĞ
+     * applicationContext æ˜¯ Environmentã€ResourceLoaderã€
+     * ApplicationEventPublisherã€MessageSource ç­‰çš„å­ç±»ï¼Œè¿™äº›ç±»çš„awareæ¥å£çš„è°ƒç”¨ï¼Œéƒ½å¯ä»¥
+     * é€šè¿‡ applicationContext å‚æ•°è¿›è¡Œ
      */
     if (!(bean instanceof EnvironmentAware || bean instanceof EmbeddedValueResolverAware ||
             bean instanceof ResourceLoaderAware || bean instanceof ApplicationEventPublisherAware ||
@@ -120,15 +120,15 @@ public Object postProcessBeforeInitialization(Object bean, String beanName) thro
 }
 
 /**
- * µ÷ÓÃ Aware ½Ó¿ÚµÄ·½·¨
- * ³ıÁËEmbeddedValueResolverAwareÍâ£¬ÆäÓàµÄ´«Èë²ÎÊı¶¼ÊÇ this.applicationContext
+ * è°ƒç”¨ Aware æ¥å£çš„æ–¹æ³•
+ * é™¤äº†EmbeddedValueResolverAwareå¤–ï¼Œå…¶ä½™çš„ä¼ å…¥å‚æ•°éƒ½æ˜¯ this.applicationContext
  */
 private void invokeAwareInterfaces(Object bean) {
     if (bean instanceof EnvironmentAware) {
         ((EnvironmentAware) bean).setEnvironment(this.applicationContext.getEnvironment());
     }
     if (bean instanceof EmbeddedValueResolverAware) {
-        // ×¢ÒâembeddedValueResolverµÄ»ñÈ¡²Ù×÷ÈçÏÂ£º
+        // æ³¨æ„embeddedValueResolverçš„è·å–æ“ä½œå¦‚ä¸‹ï¼š
         // new EmbeddedValueResolver(applicationContext.getBeanFactory());
         ((EmbeddedValueResolverAware) bean).setEmbeddedValueResolver(this.embeddedValueResolver);
     }
@@ -142,7 +142,7 @@ private void invokeAwareInterfaces(Object bean) {
     if (bean instanceof MessageSourceAware) {
         ((MessageSourceAware) bean).setMessageSource(this.applicationContext);
     }
-    // ×°Åä ÊµÏÖÁËApplicationContextAwareµÄÀàµÄ applicationContext
+    // è£…é… å®ç°äº†ApplicationContextAwareçš„ç±»çš„ applicationContext
     if (bean instanceof ApplicationContextAware) {
         ((ApplicationContextAware) bean).setApplicationContext(this.applicationContext);
     }
@@ -150,19 +150,19 @@ private void invokeAwareInterfaces(Object bean) {
 
 ```
 
-Õâ¸ö·½·¨»¹ÊÇ±È½Ï¼òµ¥µÄ£¬¾ÍÊÇÅĞ¶Ï bean ÀàĞÍ£¬È»ºó×ª»»¡¢µ÷ÓÃ·½·¨¡£
+è¿™ä¸ªæ–¹æ³•è¿˜æ˜¯æ¯”è¾ƒç®€å•çš„ï¼Œå°±æ˜¯åˆ¤æ–­ bean ç±»å‹ï¼Œç„¶åè½¬æ¢ã€è°ƒç”¨æ–¹æ³•ã€‚
 
-### 5. `ApplicationContext` Óë `BeanFactory` µÄ¹ØÏµ
+### 5. `ApplicationContext` ä¸ `BeanFactory` çš„å…³ç³»
 
-×îºóÎÒÃÇÔÙÀ´ÌÖÂÛÏÂ `ApplicationContext` Óë `BeanFactory` Á½ÕßµÄ¹ØÏµ¡£±¾ÎÄÒ»¿ªÊ¼¾ÍËµÃ÷ÁË `ApplicationContext` ¼Ì³ĞÁË `BeanFactory` µÄ½Ó¿Ú£¬ÒòÎªÕâÁ½ÕßÊÇ¼Ì³Ğ¹ØÏµ¡£²»¹ı£¬³ıÁË¼Ì³Ğ¹ØÏµÍâ£¬ËûÃÇ»¹ÊÇ×éºÏ¹ØÏµ£¬`ApplicationContext` ³ÖÓĞ `BeanFactory` µÄ¶ÔÏó£¬Ö±½Ó¿´´úÂë£º
+æœ€åæˆ‘ä»¬å†æ¥è®¨è®ºä¸‹ `ApplicationContext` ä¸ `BeanFactory` ä¸¤è€…çš„å…³ç³»ã€‚æœ¬æ–‡ä¸€å¼€å§‹å°±è¯´æ˜äº† `ApplicationContext` ç»§æ‰¿äº† `BeanFactory` çš„æ¥å£ï¼Œå› ä¸ºè¿™ä¸¤è€…æ˜¯ç»§æ‰¿å…³ç³»ã€‚ä¸è¿‡ï¼Œé™¤äº†ç»§æ‰¿å…³ç³»å¤–ï¼Œä»–ä»¬è¿˜æ˜¯ç»„åˆå…³ç³»ï¼Œ`ApplicationContext` æŒæœ‰ `BeanFactory` çš„å¯¹è±¡ï¼Œç›´æ¥çœ‹ä»£ç ï¼š
 
-¶ÔÓÚ `AnnotationConfigApplicationContext`£¬`beanFactory` ¸³Öµ´úÂëÈçÏÂ£º
+å¯¹äº `AnnotationConfigApplicationContext`ï¼Œ`beanFactory` èµ‹å€¼ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public class GenericApplicationContext extends AbstractApplicationContext 
         implements BeanDefinitionRegistry {
 
-    // Õâ¾ÍÊÇ³ÖÓĞµÄ beanFactory ¶ÔÏó
+    // è¿™å°±æ˜¯æŒæœ‰çš„ beanFactory å¯¹è±¡
     private final DefaultListableBeanFactory beanFactory;
 
     public GenericApplicationContext() {
@@ -180,31 +180,31 @@ public class GenericApplicationContext extends AbstractApplicationContext
 
 ```
 
-¶ÔÓÚ `AnnotationConfigWebApplicationContext`£¬`beanFactory` ¸³Öµ´úÂëÈçÏÂ£º
+å¯¹äº `AnnotationConfigWebApplicationContext`ï¼Œ`beanFactory` èµ‹å€¼ä»£ç å¦‚ä¸‹ï¼š
 
 ```
 public abstract class AbstractRefreshableApplicationContext extends AbstractApplicationContext {
 
-    // Õâ¾ÍÊÇ³ÖÓĞµÄ beanFactory ¶ÔÏó
+    // è¿™å°±æ˜¯æŒæœ‰çš„ beanFactory å¯¹è±¡
     @Nullable
     private DefaultListableBeanFactory beanFactory;
 
     @Override
     protected final void refreshBeanFactory() throws BeansException {
-        // ÅĞ¶Ïµ±Ç°ApplicationContextÊÇ·ñ´æÔÚBeanFactory£¬Èç¹û´æÔÚµÄ»°¾ÍÏú»ÙËùÓĞ Bean£¬¹Ø±Õ BeanFactory
+        // åˆ¤æ–­å½“å‰ApplicationContextæ˜¯å¦å­˜åœ¨BeanFactoryï¼Œå¦‚æœå­˜åœ¨çš„è¯å°±é”€æ¯æ‰€æœ‰ Beanï¼Œå…³é—­ BeanFactory
         if (hasBeanFactory()) {
             destroyBeans();
             closeBeanFactory();
         }
         try {
-            // ³õÊ¼»¯DefaultListableBeanFactory£¬¿´ÏÂÃæµÄ´´½¨·½·¨
+            // åˆå§‹åŒ–DefaultListableBeanFactoryï¼Œçœ‹ä¸‹é¢çš„åˆ›å»ºæ–¹æ³•
             DefaultListableBeanFactory beanFactory = createBeanFactory();
             beanFactory.setSerializationId(getId());
 
-            // ÉèÖÃ BeanFactory µÄÁ½¸öÅäÖÃÊôĞÔ£ºÊÇ·ñÔÊĞí Bean ¸²¸Ç¡¢ÊÇ·ñÔÊĞíÑ­»·ÒıÓÃ
+            // è®¾ç½® BeanFactory çš„ä¸¤ä¸ªé…ç½®å±æ€§ï¼šæ˜¯å¦å…è®¸ Bean è¦†ç›–ã€æ˜¯å¦å…è®¸å¾ªç¯å¼•ç”¨
             customizeBeanFactory(beanFactory);
 
-            // ¼ÓÔØ Bean µ½ BeanFactory ÖĞ
+            // åŠ è½½ Bean åˆ° BeanFactory ä¸­
             loadBeanDefinitions(beanFactory);
             synchronized (this.beanFactoryMonitor) {
                 this.beanFactory = beanFactory;
@@ -215,13 +215,13 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
         }
     }
 
-    // ´´½¨ beanFactory
+    // åˆ›å»º beanFactory
     protected DefaultListableBeanFactory createBeanFactory() {
-        // Ö¸¶¨¸¸beanFactory
+        // æŒ‡å®šçˆ¶beanFactory
         return new DefaultListableBeanFactory(getInternalParentBeanFactory());
     }
 
-    // »ñÈ¡ beanFactory
+    // è·å– beanFactory
     @Override
     public final ConfigurableListableBeanFactory getBeanFactory() {
         synchronized (this.beanFactoryMonitor) {
@@ -238,185 +238,185 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 
 ```
 
-`BeanFactory` µÄÏà¹Ø·½·¨ÊµÏÖÈçÏÂ£º
+`BeanFactory` çš„ç›¸å…³æ–¹æ³•å®ç°å¦‚ä¸‹ï¼š
 
 ```
 public abstract class AbstractApplicationContext extends DefaultResourceLoader
-        implements ConfigurableApplicationContext {### 1\. Ê²Ã´ÊÇ `BeanDefinition`
+        implements ConfigurableApplicationContext {### 1\. ä»€ä¹ˆæ˜¯ `BeanDefinition`
 
-`BeanDefinition` ´ÓÃû³ÆÉÏÀ´¿´£¬¾ÍÊÇ `bean¶¨Òå`£¬ÓÃÀ´¶¨Òå spring bean µÄĞÅÏ¢¡£
+`BeanDefinition` ä»åç§°ä¸Šæ¥çœ‹ï¼Œå°±æ˜¯ `beanå®šä¹‰`ï¼Œç”¨æ¥å®šä¹‰ spring bean çš„ä¿¡æ¯ã€‚
 
-ÔÚ java ÖĞ£¬¶¨ÒåÒ»¸öÀàµÄÔªĞÅÏ¢£¨¹¹Ôì·½·¨£¬³ÉÔ±±äÁ¿£¬³ÉÔ±·½·¨µÈ£©£¬Ê¹ÓÃµÄÊÇ `Class` Àà£¬Ò»¸ö`.class` ÎÄ¼ş¼ÓÔØµ½ jvm ºó£¬¶¼»áÉú³ÉÒ»¸ö `Class` ¶ÔÏó£¬ÔÚ¶ÔÏóÊµÀı»¯Ê±£¬¾Í¸ù¾İÕâ¸ö `Class` ¶ÔÏóµÄĞÅÏ¢À´Éú³É¡£
+åœ¨ java ä¸­ï¼Œå®šä¹‰ä¸€ä¸ªç±»çš„å…ƒä¿¡æ¯ï¼ˆæ„é€ æ–¹æ³•ï¼Œæˆå‘˜å˜é‡ï¼Œæˆå‘˜æ–¹æ³•ç­‰ï¼‰ï¼Œä½¿ç”¨çš„æ˜¯ `Class` ç±»ï¼Œä¸€ä¸ª`.class` æ–‡ä»¶åŠ è½½åˆ° jvm åï¼Œéƒ½ä¼šç”Ÿæˆä¸€ä¸ª `Class` å¯¹è±¡ï¼Œåœ¨å¯¹è±¡å®ä¾‹åŒ–æ—¶ï¼Œå°±æ ¹æ®è¿™ä¸ª `Class` å¯¹è±¡çš„ä¿¡æ¯æ¥ç”Ÿæˆã€‚
 
-ÔÚ spring ÖĞ£¬Ò²ÓĞÕâÃ´Ò»¸öÀàÀ´¶¨Òå bean µÄĞÅÏ¢£¬Õâ¸öÀà¾ÍÊÇ `BeanDefinition`£¬Ëü¶¨ÒåÁË spring bean ÈçºÎÉú³É£¬ÈçºÎ³õÊ¼»¯£¬ÈçºÎÏú»ÙµÈ£¬ÎÒÃÇÀ´¿´¿´ËüÖ§³ÖµÄ²¿·Ö·½·¨£º
+åœ¨ spring ä¸­ï¼Œä¹Ÿæœ‰è¿™ä¹ˆä¸€ä¸ªç±»æ¥å®šä¹‰ bean çš„ä¿¡æ¯ï¼Œè¿™ä¸ªç±»å°±æ˜¯ `BeanDefinition`ï¼Œå®ƒå®šä¹‰äº† spring bean å¦‚ä½•ç”Ÿæˆï¼Œå¦‚ä½•åˆå§‹åŒ–ï¼Œå¦‚ä½•é”€æ¯ç­‰ï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹å®ƒæ”¯æŒçš„éƒ¨åˆ†æ–¹æ³•ï¼š
 
 ```
 public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
     /**
-     * ÉèÖÃ¸¸ BeanDefinition
-     * BeanDefinition ÓĞ¸öÀàËÆ¼Ì³ĞµÄ¸ÅÄî£¬ÕâÀïÖ¸¶¨ÁË¸¸BeanDefinition
-     * ÊµÀı»¯beanÊ±£¬»áºÏ²¢¸¸BeanDefinition
+     * è®¾ç½®çˆ¶ BeanDefinition
+     * BeanDefinition æœ‰ä¸ªç±»ä¼¼ç»§æ‰¿çš„æ¦‚å¿µï¼Œè¿™é‡ŒæŒ‡å®šäº†çˆ¶BeanDefinition
+     * å®ä¾‹åŒ–beanæ—¶ï¼Œä¼šåˆå¹¶çˆ¶BeanDefinition
      */
     void setParentName(@Nullable String parentName);
 
     /**
-     * »ñÈ¡¸¸Bean
+     * è·å–çˆ¶Bean
      */
     @Nullable
     String getParentName();
 
     /**
-     * ÉèÖÃbeanClassÃû³Æ
-     * ÊµÀı»¯Ê±£¬»áÊµÀı»¯³ÉÕâ¸ö Class µÄ¶ÔÏó
+     * è®¾ç½®beanClassåç§°
+     * å®ä¾‹åŒ–æ—¶ï¼Œä¼šå®ä¾‹åŒ–æˆè¿™ä¸ª Class çš„å¯¹è±¡
      */
     void setBeanClassName(@Nullable String beanClassName);
 
     /**
-     * »ñÈ¡beanClassÃû³Æ
+     * è·å–beanClassåç§°
      */
     @Nullable
     String getBeanClassName();
 
     /**
-     * ÉèÖÃbeanµÄ×÷ÓÃ·¶Î§£¬µ¥Àı»òÔ­ĞÍ
+     * è®¾ç½®beançš„ä½œç”¨èŒƒå›´ï¼Œå•ä¾‹æˆ–åŸå‹
      */
     void setScope(@Nullable String scope);
 
     /**
-     * »ñÈ¡beanµÄ×÷ÓÃ·¶Î§£¬µ¥Àı»òÔ­ĞÍ
+     * è·å–beançš„ä½œç”¨èŒƒå›´ï¼Œå•ä¾‹æˆ–åŸå‹
      */
     @Nullable
     String getScope();
 
     /**
-     * ÉèÖÃÀÁ¼ÓÔØ
+     * è®¾ç½®æ‡’åŠ è½½
      */
     void setLazyInit(boolean lazyInit);
 
     /**
-     * ÊÇ·ñÎªÀÁ¼ÓÔØ
+     * æ˜¯å¦ä¸ºæ‡’åŠ è½½
      */
     boolean isLazyInit();
 
     /**
-     * ÉèÖÃ¸ÃBeanÒÀÀµµÄËùÓĞBean
-     * ¼´ @DependsOn Ö¸¶¨µÄbean
+     * è®¾ç½®è¯¥Beanä¾èµ–çš„æ‰€æœ‰Bean
+     * å³ @DependsOn æŒ‡å®šçš„bean
      */
     void setDependsOn(@Nullable String... dependsOn);
 
     /**
-     * ·µ»Ø¸ÃBeanµÄËùÓĞÒÀÀµ¡£
+     * è¿”å›è¯¥Beançš„æ‰€æœ‰ä¾èµ–ã€‚
      */
     @Nullable
     String[] getDependsOn();
 
     /**
-     * ÉèÖÃÊÇ·ñ×÷Îª×Ô¶¯×¢ÈëµÄºòÑ¡¶ÔÏó¡£
+     * è®¾ç½®æ˜¯å¦ä½œä¸ºè‡ªåŠ¨æ³¨å…¥çš„å€™é€‰å¯¹è±¡ã€‚
      */
     void setAutowireCandidate(boolean autowireCandidate);
 
     /**
-     * ÊÇ·ñ×÷Îª×Ô¶¯×¢ÈëµÄºòÑ¡¶ÔÏó
+     * æ˜¯å¦ä½œä¸ºè‡ªåŠ¨æ³¨å…¥çš„å€™é€‰å¯¹è±¡
      */
     boolean isAutowireCandidate();
 
     /**
-     * ÉèÖÃÊÇ·ñÎªÖ÷ÒªµÄ£¬µ±ÈİÆ÷ÖĞ´æÔÚ¶à¸öÍ¬ÀàĞÍµÄbeanÊ±£¬¿ÉÒÔÖ»·µ»ØÖ÷ÒªµÄ
-     * ¾ÍÊÇ @Primary µÄ×÷ÓÃ
+     * è®¾ç½®æ˜¯å¦ä¸ºä¸»è¦çš„ï¼Œå½“å®¹å™¨ä¸­å­˜åœ¨å¤šä¸ªåŒç±»å‹çš„beanæ—¶ï¼Œå¯ä»¥åªè¿”å›ä¸»è¦çš„
+     * å°±æ˜¯ @Primary çš„ä½œç”¨
      */
     void setPrimary(boolean primary);
 
     /**
-     * ÊÇ·ñÎªÖ÷ÒªµÄbean
+     * æ˜¯å¦ä¸ºä¸»è¦çš„bean
      */
     boolean isPrimary();
 
     /**
-     * Õë¶ÔfactoryBean
-     * Ö¸¶¨factoryBeanµÄÃû³Æ
+     * é’ˆå¯¹factoryBean
+     * æŒ‡å®šfactoryBeançš„åç§°
      */
     void setFactoryBeanName(@Nullable String factoryBeanName);
 
     /**
-     * Õë¶ÔfactoryBean
-     * »ñÈ¡factoryBeanµÄÃû³Æ
+     * é’ˆå¯¹factoryBean
+     * è·å–factoryBeançš„åç§°
      */
     @Nullable
     String getFactoryBeanName();
 
     /**
-     * ÉèÖÃ¹¤³§·½·¨µÄÃû³Æ
-     * ÀıÈç @Bean ±ê¼ÇµÄ·½·¨
+     * è®¾ç½®å·¥å‚æ–¹æ³•çš„åç§°
+     * ä¾‹å¦‚ @Bean æ ‡è®°çš„æ–¹æ³•
      */
     void setFactoryMethodName(@Nullable String factoryMethodName);
 
     /**
-     * ·µ»Ø¹¤³§·½·¨µÄÃû³Æ
-     * ÀıÈç @Bean ±ê¼ÇµÄ·½·¨
+     * è¿”å›å·¥å‚æ–¹æ³•çš„åç§°
+     * ä¾‹å¦‚ @Bean æ ‡è®°çš„æ–¹æ³•
      */
     @Nullable
     String getFactoryMethodName();
 
     /**
-     * »ñÈ¡¹¹Ôì¾ÍÈ¥µÄ²ÎÊıÖµ
+     * è·å–æ„é€ å°±å»çš„å‚æ•°å€¼
      */
     ConstructorArgumentValues getConstructorArgumentValues();
 
     /**
-     * ¹¹Ôì·½·¨ÊÇ·ñÓĞ²ÎÊı
+     * æ„é€ æ–¹æ³•æ˜¯å¦æœ‰å‚æ•°
      */
     default boolean hasConstructorArgumentValues() {
         return !getConstructorArgumentValues().isEmpty();
     }
 
     /**
-     * »ñÈ¡ÊôĞÔÖµ
-     * ÕâÀï¿ÉÒÔ×ÔÖ÷ÉèÖÃÖµ×÷Îª¹¹Ôì·½·¨¡¢¹¤³§·½·¨µÄ²ÎÊı
+     * è·å–å±æ€§å€¼
+     * è¿™é‡Œå¯ä»¥è‡ªä¸»è®¾ç½®å€¼ä½œä¸ºæ„é€ æ–¹æ³•ã€å·¥å‚æ–¹æ³•çš„å‚æ•°
      */
     MutablePropertyValues getPropertyValues();
 
     /**
-     * ÊÇ·ñÓĞÊôĞÔÖµ
+     * æ˜¯å¦æœ‰å±æ€§å€¼
      */
     default boolean hasPropertyValues() {
         return !getPropertyValues().isEmpty();
     }
 
     /**
-     * ÉèÖÃ³õÊ¼»¯·½·¨Ãû³Æ
+     * è®¾ç½®åˆå§‹åŒ–æ–¹æ³•åç§°
      */
     void setInitMethodName(@Nullable String initMethodName);
 
     /**
-     * »ñÈ¡³õÊ¼»¯·½·¨Ãû³Æ
+     * è·å–åˆå§‹åŒ–æ–¹æ³•åç§°
      */
     @Nullable
     String getInitMethodName();
 
     /**
-     * ÉèÖÃÏú»Ù·½·¨Ãû³Æ
+     * è®¾ç½®é”€æ¯æ–¹æ³•åç§°
      */
     void setDestroyMethodName(@Nullable String destroyMethodName);
 
     /**
-     * »ñÈ¡Ïú»Ù·½·¨Ãû³Æ
+     * è·å–é”€æ¯æ–¹æ³•åç§°
      */
     @Nullable
     String getDestroyMethodName();
 
     /**
-     * ÊÇ·ñÎªµ¥Àıbean
+     * æ˜¯å¦ä¸ºå•ä¾‹bean
      */
     boolean isSingleton();
 
     /**
-     * ÊÇ·ñÎªÔ­ĞÍbean
+     * æ˜¯å¦ä¸ºåŸå‹bean
      */
     boolean isPrototype();
 
     /**
-     * Èç¹ûÕâ¸ö Bean ÊÇ±»ÉèÖÃÎª abstract£¬ÄÇÃ´²»ÄÜÊµÀı»¯£¬³£ÓÃÓÚ×÷Îª ¸¸bean ÓÃÓÚ¼Ì³Ğ
+     * å¦‚æœè¿™ä¸ª Bean æ˜¯è¢«è®¾ç½®ä¸º abstractï¼Œé‚£ä¹ˆä¸èƒ½å®ä¾‹åŒ–ï¼Œå¸¸ç”¨äºä½œä¸º çˆ¶bean ç”¨äºç»§æ‰¿
      */
     boolean isAbstract();
 
@@ -426,26 +426,26 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`BeanDefinition` Ö§³ÖµÄ·½·¨·Ç³£¶à£¬ÓĞºÜ¶àÊÇÎÒÃÇÆ½Ê±Ê¹ÓÃÊ±Ö¸¶¨µÄ£º
+å¯ä»¥çœ‹åˆ°ï¼Œ`BeanDefinition` æ”¯æŒçš„æ–¹æ³•éå¸¸å¤šï¼Œæœ‰å¾ˆå¤šæ˜¯æˆ‘ä»¬å¹³æ—¶ä½¿ç”¨æ—¶æŒ‡å®šçš„ï¼š
 
-*   `setScope(...)`£ºÉèÖÃ bean µÄ×÷ÓÃ·¶Î§£¬ÓÉ `@Scope` Ö¸¶¨
-*   `setLazyInit(...)`£ºÉèÖÃÀÁ¼ÓÔØ£¬ÓÉ `@Lazy` Ö¸¶¨
-*   `setDependsOn(...)`£ºÉèÖÃ bean ÒÀÀµ£¬ÓÉ `@DependsOn` Ö¸¶¨
-*   `setPrimary(...)`£ºÉèÖÃÎªÖ÷Òª bean£¬ÓÉ `@Primary` Ö¸¶¨
-*   `setFactoryMethodName(...)`£ºÉèÖÃ¹¤³§·½·¨Ãû³Æ£¬ÀıÈçÓÉ `@Bean` ±ê¼ÇµÄ·½·¨
+*   `setScope(...)`ï¼šè®¾ç½® bean çš„ä½œç”¨èŒƒå›´ï¼Œç”± `@Scope` æŒ‡å®š
+*   `setLazyInit(...)`ï¼šè®¾ç½®æ‡’åŠ è½½ï¼Œç”± `@Lazy` æŒ‡å®š
+*   `setDependsOn(...)`ï¼šè®¾ç½® bean ä¾èµ–ï¼Œç”± `@DependsOn` æŒ‡å®š
+*   `setPrimary(...)`ï¼šè®¾ç½®ä¸ºä¸»è¦ beanï¼Œç”± `@Primary` æŒ‡å®š
+*   `setFactoryMethodName(...)`ï¼šè®¾ç½®å·¥å‚æ–¹æ³•åç§°ï¼Œä¾‹å¦‚ç”± `@Bean` æ ‡è®°çš„æ–¹æ³•
 
-ÒÔÉÏÊÇÔÚ×¢½âÊ±´ú¿ÉÒÔÖ¸¶¨µÄ£¬»¹ÓĞĞ©ÊÇÔÚ `xml` Ê±´úÖ¸¶¨µÄ£¬Èç£º
+ä»¥ä¸Šæ˜¯åœ¨æ³¨è§£æ—¶ä»£å¯ä»¥æŒ‡å®šçš„ï¼Œè¿˜æœ‰äº›æ˜¯åœ¨ `xml` æ—¶ä»£æŒ‡å®šçš„ï¼Œå¦‚ï¼š
 
-*   `setInitMethodName(...)`£ºÉèÖÃ³õÊ¼»¯·½·¨ £¬ÓÉ `init-method` Ö¸¶¨
-*   `setDestroyMethodName(...)`£ºÉèÖÃÏú»Ù·½·¨£¬ÓÉ `destroy-method` Ö¸¶¨
+*   `setInitMethodName(...)`ï¼šè®¾ç½®åˆå§‹åŒ–æ–¹æ³• ï¼Œç”± `init-method` æŒ‡å®š
+*   `setDestroyMethodName(...)`ï¼šè®¾ç½®é”€æ¯æ–¹æ³•ï¼Œç”± `destroy-method` æŒ‡å®š
 
-### 2\. spring Ìá¹©ÁËÄÄĞ© `BeanDefinition`
+### 2\. spring æä¾›äº†å“ªäº› `BeanDefinition`
 
-`BeanDefinition` ÊÇÒ»¸ö½Ó¿Ú£¬ÎÒÃÇµ±È»²»ÄÜÖ±½ÓÊ¹ÓÃ£¬½ÓÏÂÀ´ÎÒÃÇÀ´¿´¿´ Spring Ìá¹©ÁËÄÄĞ© `BeanDefinition`£º
+`BeanDefinition` æ˜¯ä¸€ä¸ªæ¥å£ï¼Œæˆ‘ä»¬å½“ç„¶ä¸èƒ½ç›´æ¥ä½¿ç”¨ï¼Œæ¥ä¸‹æ¥æˆ‘ä»¬æ¥çœ‹çœ‹ Spring æä¾›äº†å“ªäº› `BeanDefinition`ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-49cbc9cb32badc1db52717cd19a9447eca7.png)
 
-spring Ìá¹©µÄ `BeanDefinition` »ù±¾¾ÍÊÇÉÏÍ¼ËùÊ¾µÄ¼¸ÖÖÁË£¬ÕâÀïÎÒÃÇÖ÷Òª¿´ÕâÏòÖÖ£º
+spring æä¾›çš„ `BeanDefinition` åŸºæœ¬å°±æ˜¯ä¸Šå›¾æ‰€ç¤ºçš„å‡ ç§äº†ï¼Œè¿™é‡Œæˆ‘ä»¬ä¸»è¦çœ‹è¿™å‘ç§ï¼š
 
 *   `RootBeanDefinition`
 *   `ChildBeanDefinition`
@@ -453,9 +453,9 @@ spring Ìá¹©µÄ `BeanDefinition` »ù±¾¾ÍÊÇÉÏÍ¼ËùÊ¾µÄ¼¸ÖÖÁË£¬ÕâÀïÎÒÃÇÖ÷Òª¿´ÕâÏòÖÖ£º
 *   `ScannedGenericBeanDefinition`
 *   `AnnotatedGenericBeanDefinition`
 
-#### 2.1 `RootBeanDefinition` ºÍ `ChildBeanDefinition`
+#### 2.1 `RootBeanDefinition` å’Œ `ChildBeanDefinition`
 
-ÔÚÇ°ÃæÌáµ½ÁË `BeanDefinition` ¼Ì×ÓµÄ¸ÅÄî£¬ÕâÀï¾ÍÊÇÓÃÀ´´¦Àí¼Ì³ĞµÄ£¬Ò»°ãÀ´Ëµ£¬ÎÒÃÇ¿ÉÒÔÔÚ `RootBeanDefinition` ¶¨Òå¹«¹²²ÎÊı£¬È»ºóÔÚ `ChildBeanDefinition` ÖĞ¶¨Òå¸÷×ÔµÄÄÚÈİ£¬Ê¾ÀıÈçÏÂ£º
+åœ¨å‰é¢æåˆ°äº† `BeanDefinition` ç»§å­çš„æ¦‚å¿µï¼Œè¿™é‡Œå°±æ˜¯ç”¨æ¥å¤„ç†ç»§æ‰¿çš„ï¼Œä¸€èˆ¬æ¥è¯´ï¼Œæˆ‘ä»¬å¯ä»¥åœ¨ `RootBeanDefinition` å®šä¹‰å…¬å…±å‚æ•°ï¼Œç„¶ååœ¨ `ChildBeanDefinition` ä¸­å®šä¹‰å„è‡ªçš„å†…å®¹ï¼Œç¤ºä¾‹å¦‚ä¸‹ï¼š
 
 ```
 public static void main(String[] args) {
@@ -464,24 +464,24 @@ AnnotationConfigApplicationContext context = new AnnotationConfigApplicationCont
 RootBeanDefinition root = new RootBeanDefinition();
 root.setBeanClass(User.class);
 root.getPropertyValues().add("name", "123");
-// ÕâÖÖ×¢²á·½·¨½ö×öÕ¹Ê¾£¬Êµ¼ÊÏîÄ¿ÖĞ²»½¨ÒéÊ¹ÓÃ
-// Ê¹ÓÃÏîÄ¿½¨ÒéÊ¹ÓÃµÄ BeanDefinitionRegistryPostProcessor Ìá¹©µÄ·½·¨
+// è¿™ç§æ³¨å†Œæ–¹æ³•ä»…åšå±•ç¤ºï¼Œå®é™…é¡¹ç›®ä¸­ä¸å»ºè®®ä½¿ç”¨
+// ä½¿ç”¨é¡¹ç›®å»ºè®®ä½¿ç”¨çš„ BeanDefinitionRegistryPostProcessor æä¾›çš„æ–¹æ³•
 context.registerBeanDefinition("root", root);
 
     // ChildBeanDefinition
     ChildBeanDefinition child1 = new ChildBeanDefinition("root");
     child1.getPropertyValues().add("age", "11");
-    // ÕâÖÖ×¢²á·½·¨½ö×öÕ¹Ê¾£¬Êµ¼ÊÏîÄ¿ÖĞ²»½¨ÒéÊ¹ÓÃ
-    // Ê¹ÓÃÏîÄ¿½¨ÒéÊ¹ÓÃµÄ BeanDefinitionRegistryPostProcessor Ìá¹©µÄ·½·¨
+    // è¿™ç§æ³¨å†Œæ–¹æ³•ä»…åšå±•ç¤ºï¼Œå®é™…é¡¹ç›®ä¸­ä¸å»ºè®®ä½¿ç”¨
+    // ä½¿ç”¨é¡¹ç›®å»ºè®®ä½¿ç”¨çš„ BeanDefinitionRegistryPostProcessor æä¾›çš„æ–¹æ³•
     context.registerBeanDefinition("child1", child1);
 
     // ChildBeanDefinition
     ChildBeanDefinition child2 = new ChildBeanDefinition("root");
     child2.getPropertyValues().add("age", "12");
-    // ÕâÖÖ×¢²á·½·¨½ö×öÕ¹Ê¾£¬Êµ¼ÊÏîÄ¿ÖĞ²»½¨ÒéÊ¹ÓÃ
-    // Ê¹ÓÃÏîÄ¿½¨ÒéÊ¹ÓÃµÄ BeanDefinitionRegistryPostProcessor Ìá¹©µÄ·½·¨
+    // è¿™ç§æ³¨å†Œæ–¹æ³•ä»…åšå±•ç¤ºï¼Œå®é™…é¡¹ç›®ä¸­ä¸å»ºè®®ä½¿ç”¨
+    // ä½¿ç”¨é¡¹ç›®å»ºè®®ä½¿ç”¨çš„ BeanDefinitionRegistryPostProcessor æä¾›çš„æ–¹æ³•
     context.registerBeanDefinition("child2", child2);
-    // Æô¶¯ÈİÆ÷
+    // å¯åŠ¨å®¹å™¨
     context.refresh();
 
     User rootUser = (User) context.getBean("root");
@@ -494,7 +494,7 @@ context.registerBeanDefinition("root", root);
 
 ```
 
-ÔËĞĞ½á¹û£º
+è¿è¡Œç»“æœï¼š
 
 ```
 User{name='123', age=null}
@@ -503,15 +503,15 @@ User{name='123', age=12}
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`child1` Óë `child1` ½øĞĞ³É¹¦µØ´Ó `RootBeanDefinition` ¼Ì³Ğµ½ÁËÊôĞÔ¡£
+å¯ä»¥çœ‹åˆ°ï¼Œ`child1` ä¸ `child1` è¿›è¡ŒæˆåŠŸåœ°ä» `RootBeanDefinition` ç»§æ‰¿åˆ°äº†å±æ€§ã€‚
 
 #### 2.2 `GenericBeanDefinition`
 
-ÕâÊÇ¸öÍ¨ÓÃµÄ `BeanDefinition`£¬Ö±½Ó¼Ì³ĞÁË `AbstractBeanDefinition`£¬Ëü×ÔÉíÌá¹©µÄ·½·¨ÈçÏÂ£º
+è¿™æ˜¯ä¸ªé€šç”¨çš„ `BeanDefinition`ï¼Œç›´æ¥ç»§æ‰¿äº† `AbstractBeanDefinition`ï¼Œå®ƒè‡ªèº«æä¾›çš„æ–¹æ³•å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-5ed980070b301dc84926fac2494093d4fc6.png)
 
-¿ÉÒÔ¿´µ½£¬Ëü×ÔÉíÌá¹©µÄ·½·¨²¢²»¶à£¬Æä²Ù×÷»ù±¾¼Ì³Ğ `AbstractBeanDefinition`£¬Ò»°ãÇé¿öÏÂ£¬ÎÒÃÇÒªÉú³É×Ô¼ºµÄ `BeanDefinition` Ê±£¬Ö»ĞèÒªÊ¹ÓÃÕâ¸öÀà¾Í¿ÉÒÔÁË£¬ÕâÀïÒ²Ìá¹©Ò»¸öÊ¾Àı£º
+å¯ä»¥çœ‹åˆ°ï¼Œå®ƒè‡ªèº«æä¾›çš„æ–¹æ³•å¹¶ä¸å¤šï¼Œå…¶æ“ä½œåŸºæœ¬ç»§æ‰¿ `AbstractBeanDefinition`ï¼Œä¸€èˆ¬æƒ…å†µä¸‹ï¼Œæˆ‘ä»¬è¦ç”Ÿæˆè‡ªå·±çš„ `BeanDefinition` æ—¶ï¼Œåªéœ€è¦ä½¿ç”¨è¿™ä¸ªç±»å°±å¯ä»¥äº†ï¼Œè¿™é‡Œä¹Ÿæä¾›ä¸€ä¸ªç¤ºä¾‹ï¼š
 
 ```
 public static void main(String[] args) {
@@ -521,11 +521,11 @@ AnnotationConfigApplicationContext context = new AnnotationConfigApplicationCont
     userBeanDefinition.setBeanClass(User.class);
     userBeanDefinition.getPropertyValues().add("name", "123");
     userBeanDefinition.getPropertyValues().add("age", "11");
-    // ÕâÖÖ×¢²á·½·¨½ö×öÕ¹Ê¾£¬Êµ¼ÊÏîÄ¿ÖĞ²»½¨ÒéÊ¹ÓÃ
-    // Ê¹ÓÃÏîÄ¿½¨ÒéÊ¹ÓÃµÄ BeanDefinitionRegistryPostProcessor Ìá¹©µÄ·½·¨
+    // è¿™ç§æ³¨å†Œæ–¹æ³•ä»…åšå±•ç¤ºï¼Œå®é™…é¡¹ç›®ä¸­ä¸å»ºè®®ä½¿ç”¨
+    // ä½¿ç”¨é¡¹ç›®å»ºè®®ä½¿ç”¨çš„ BeanDefinitionRegistryPostProcessor æä¾›çš„æ–¹æ³•
     context.registerBeanDefinition("user", userBeanDefinition);
 
-    // Æô¶¯ÈİÆ÷
+    // å¯åŠ¨å®¹å™¨
     context.refresh();
 
     User user = (User) context.getBean("user");
@@ -536,29 +536,29 @@ AnnotationConfigApplicationContext context = new AnnotationConfigApplicationCont
 
 ### 2.3 `ScannedGenericBeanDefinition`
 
-`ScannedGenericBeanDefinition` ¼Ì³ĞÁË `GenericBeanDefinition`£¬Í¬Ê±Ò²ÊµÏÖÁË `AnnotatedBeanDefinition` ½Ó¿Ú£¬±¾ÉíÌá¹©µÄ·½·¨²¢²»¶à£º
+`ScannedGenericBeanDefinition` ç»§æ‰¿äº† `GenericBeanDefinition`ï¼ŒåŒæ—¶ä¹Ÿå®ç°äº† `AnnotatedBeanDefinition` æ¥å£ï¼Œæœ¬èº«æä¾›çš„æ–¹æ³•å¹¶ä¸å¤šï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-9ed3925090a9ae5fc1d4218ed5a59c2ea19.png)
 
-Æä²Ù×÷»ù±¾À´×Ô `GenericBeanDefinition`£¬ÕâÀï¾Í²»Ìá¹©Ê¾ÀıÁË¡£
+å…¶æ“ä½œåŸºæœ¬æ¥è‡ª `GenericBeanDefinition`ï¼Œè¿™é‡Œå°±ä¸æä¾›ç¤ºä¾‹äº†ã€‚
 
 ### 2.4 `AnnotatedGenericBeanDefinition`
 
-`AnnotatedGenericBeanDefinition` ¼Ì³ĞÁË `GenericBeanDefinition`£¬Í¬Ê±Ò²ÊµÏÖÁË `AnnotatedBeanDefinition` ½Ó¿Ú£¬±¾ÉíÌá¹©µÄ·½·¨²¢²»¶à£º
+`AnnotatedGenericBeanDefinition` ç»§æ‰¿äº† `GenericBeanDefinition`ï¼ŒåŒæ—¶ä¹Ÿå®ç°äº† `AnnotatedBeanDefinition` æ¥å£ï¼Œæœ¬èº«æä¾›çš„æ–¹æ³•å¹¶ä¸å¤šï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b2e7f49fcdcae4f7272e2670b4fbb92766a.png)
 
-Æä²Ù×÷»ù±¾À´×Ô `GenericBeanDefinition`£¬ÕâÀï¾Í²»Ìá¹©Ê¾ÀıÁË¡£
+å…¶æ“ä½œåŸºæœ¬æ¥è‡ª `GenericBeanDefinition`ï¼Œè¿™é‡Œå°±ä¸æä¾›ç¤ºä¾‹äº†ã€‚
 
-### 3\. ²Ù×÷ spring ÈİÆ÷ÖĞÒÑÓĞµÄ `BeanDefinition`
+### 3\. æ“ä½œ spring å®¹å™¨ä¸­å·²æœ‰çš„ `BeanDefinition`
 
-ÉÏÃæµÄÀı×Ó¶¼ÊÇÍù spring ÈİÆ÷ÖĞÌí¼Ó `BeanDefinition`£¬ÎÒÃÇÒªÈçºÎ²Ù×÷ spring ÈİÆ÷ÖĞÒÑÓĞµÄ `BeanDefinition` ÄØ£¿
+ä¸Šé¢çš„ä¾‹å­éƒ½æ˜¯å¾€ spring å®¹å™¨ä¸­æ·»åŠ  `BeanDefinition`ï¼Œæˆ‘ä»¬è¦å¦‚ä½•æ“ä½œ spring å®¹å™¨ä¸­å·²æœ‰çš„ `BeanDefinition` å‘¢ï¼Ÿ
 
-#### 3.1 demo ×¼±¸
+#### 3.1 demo å‡†å¤‡
 
-ÕâÀïÊ×ÏÈ×¼±¸Ò»¸ö demo£º
+è¿™é‡Œé¦–å…ˆå‡†å¤‡ä¸€ä¸ª demoï¼š
 
-Ê×ÏÈ×¼±¸Á½¸ö `service`£º
+é¦–å…ˆå‡†å¤‡ä¸¤ä¸ª `service`ï¼š
 
 ```
 @Service
@@ -599,7 +599,7 @@ public class Service02 {
 
 ```
 
-½Ó×ÅÊÇÖ÷ÒªÀà£º
+æ¥ç€æ˜¯ä¸»è¦ç±»ï¼š
 
 ```
 @ComponentScan
@@ -621,7 +621,7 @@ public class Demo02Main {
 
 ```
 
-ÔËĞĞ £¬½á¹ûÈçÏÂ£º
+è¿è¡Œ ï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
 hello null, from service01
@@ -629,19 +629,19 @@ hello null, from service02
 
 ```
 
-ÕâËµÃ÷ÎÒÃÇµÄÈİÆ÷ÒÑ¾­Æô¶¯³É¹¦ÁË£¬`service01` Óë `service02` Ò²³õÊ¼»¯³É¹¦ÁË¡£
+è¿™è¯´æ˜æˆ‘ä»¬çš„å®¹å™¨å·²ç»å¯åŠ¨æˆåŠŸäº†ï¼Œ`service01` ä¸ `service02` ä¹Ÿåˆå§‹åŒ–æˆåŠŸäº†ã€‚
 
-#### 3.2 ²»³É¹¦µÄ³¢ÊÔ
+#### 3.2 ä¸æˆåŠŸçš„å°è¯•
 
-ÕâÀïÎÒÃÇ·´ÍÆÏÂ£¬`service01` Óë `service02` ÒÑ¾­³õÊ¼»¯³É¹¦ÁË£¬¾ÍËµÃ÷ÈİÆ÷ÖĞ±ØÈ» `service01` Óë `service02` ¶ÔÓ¦µÄ `beanDefifnition`£¬ÎÒÃÇÏë²Ù×÷Õâ¸ö `beanDefifnition`£¬¾Í±ØĞëÒªÏÈ»ñÈ¡Õâ¸ö `beanDefifnition`¡£
+è¿™é‡Œæˆ‘ä»¬åæ¨ä¸‹ï¼Œ`service01` ä¸ `service02` å·²ç»åˆå§‹åŒ–æˆåŠŸäº†ï¼Œå°±è¯´æ˜å®¹å™¨ä¸­å¿…ç„¶ `service01` ä¸ `service02` å¯¹åº”çš„ `beanDefifnition`ï¼Œæˆ‘ä»¬æƒ³æ“ä½œè¿™ä¸ª `beanDefifnition`ï¼Œå°±å¿…é¡»è¦å…ˆè·å–è¿™ä¸ª `beanDefifnition`ã€‚
 
-ÈçºÎ»ñÈ¡ spring ÖĞÒÑ¾­´æÔÚµÄ `beanDefifnition` ÄØ£¿²Î¿¼µÚ 2 ½ÚµÄÊ¾Àı£¬Èç¹ûÄãÈÏÎªÔÚ `context.refresh()` Ç°»ñÈ¡£¬ÏñÕâÑù£º
+å¦‚ä½•è·å– spring ä¸­å·²ç»å­˜åœ¨çš„ `beanDefifnition` å‘¢ï¼Ÿå‚è€ƒç¬¬ 2 èŠ‚çš„ç¤ºä¾‹ï¼Œå¦‚æœä½ è®¤ä¸ºåœ¨ `context.refresh()` å‰è·å–ï¼Œåƒè¿™æ ·ï¼š
 
 ```
 public static void main(String[] args) {
 AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 context.register(Demo02Main.class);
-// ÔÚÕâÀï»ñÈ¡ beanDefinition£¬»á±¨´í
+// åœ¨è¿™é‡Œè·å– beanDefinitionï¼Œä¼šæŠ¥é”™
 BeanDefinition service01Bd = context.getBeanDefinition("service01");
 service01Bd.getPropertyValues().addPropertyValue("name", "123");
 
@@ -655,7 +655,7 @@ service01Bd.getPropertyValues().addPropertyValue("name", "123");
 
 ```
 
-ÔËĞĞ£¬·¢ÏÖ»á±¨´í£º
+è¿è¡Œï¼Œå‘ç°ä¼šæŠ¥é”™ï¼š
 
 ```
 Exception in thread "main" org.springframework.beans.factory
@@ -663,7 +663,7 @@ Exception in thread "main" org.springframework.beans.factory
 
 ```
 
-´ÏÃ÷ÈçÄã£¬Ò»¶¨»áÏëµ½£¬ÔÚ `context.refresh()` Ç°»ñÈ¡»á±¨´í£¬ÄÇÔÚÖ®ºóÄØ£¿´úÂëÏñÕâÑù£º
+èªæ˜å¦‚ä½ ï¼Œä¸€å®šä¼šæƒ³åˆ°ï¼Œåœ¨ `context.refresh()` å‰è·å–ä¼šæŠ¥é”™ï¼Œé‚£åœ¨ä¹‹åå‘¢ï¼Ÿä»£ç åƒè¿™æ ·ï¼š
 
 ```
 public static void main(String[] args) {
@@ -671,7 +671,7 @@ AnnotationConfigApplicationContext context = new AnnotationConfigApplicationCont
 context.register(Demo02Main.class);
 context.refresh();
 
-    // »ñÈ¡ beanDefinition£¬ĞŞ¸Ä²»Æğ×÷ÓÃ
+    // è·å– beanDefinitionï¼Œä¿®æ”¹ä¸èµ·ä½œç”¨
     BeanDefinition service01Bd = context.getBeanDefinition("service01");
     service01Bd.getPropertyValues().addPropertyValue("name", "123");
 
@@ -684,24 +684,24 @@ context.refresh();
 
 ```
 
-ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+è¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-268bb546197c4eb9d1686118a12fabb0009.png)
 
-È·ÊµÃ»ÓĞ±¨´í£¬µ«ÊÇÎÒÃÇµÄĞŞ¸ÄÒ²Ã»Æğ×÷ÓÃ¡£ÔÚ´úÂëÀï£¬ÎÒÃÇ¸ø `service01` µÄ `name` ÊôĞÔÖ¸¶¨ÖµÎª `123`£¬ÔËĞĞ½á¹û»¹ÊÇ `null`£¬Ã»Æğ×÷ÓÃµÄÔ­ÒòÊÇ `service01` ÊÇÔÚ `context.refresh()` ½øĞĞ³õÊ¼»¯ µÄ£¬ºóÃæÔÙÔõÃ´¶ÔËüµÄ `BeanDefinition` ĞŞ¸Ä£¬Ò²ÌåÏÖ²»µ½ËüÉíÉÏ¡£
+ç¡®å®æ²¡æœ‰æŠ¥é”™ï¼Œä½†æ˜¯æˆ‘ä»¬çš„ä¿®æ”¹ä¹Ÿæ²¡èµ·ä½œç”¨ã€‚åœ¨ä»£ç é‡Œï¼Œæˆ‘ä»¬ç»™ `service01` çš„ `name` å±æ€§æŒ‡å®šå€¼ä¸º `123`ï¼Œè¿è¡Œç»“æœè¿˜æ˜¯ `null`ï¼Œæ²¡èµ·ä½œç”¨çš„åŸå› æ˜¯ `service01` æ˜¯åœ¨ `context.refresh()` è¿›è¡Œåˆå§‹åŒ– çš„ï¼Œåé¢å†æ€ä¹ˆå¯¹å®ƒçš„ `BeanDefinition` ä¿®æ”¹ï¼Œä¹Ÿä½“ç°ä¸åˆ°å®ƒèº«ä¸Šã€‚
 
-ÄÇÃ´¾¿¾¹ÒªÔõÃ´×öÄØ£¿
+é‚£ä¹ˆç©¶ç«Ÿè¦æ€ä¹ˆåšå‘¢ï¼Ÿ
 
-#### 3.2 `BeanDefinitionRegistryPostProcessor`£º¶¨ÖÆ»¯ `beanDefinition`
+#### 3.2 `BeanDefinitionRegistryPostProcessor`ï¼šå®šåˆ¶åŒ– `beanDefinition`
 
-½ÓÏÂÀ´ÎÒÃÇÒª·Å³ö´óÕĞÁË£¬Õâ¸ö´óÕĞ¾ÍÊÇ£º`BeanFactoryPostProcessor`£¬¹ØÓÚÕâ¸öµÄ½éÉÜ£¬¿ÉÒÔËüµÄ½éÉÜ£¬¿ÉÒÔ²Î¿¼ [spring ×é¼şÖ® BeanFactoryPostProcessor](https://my.oschina.net/funcy/blog/4597545)£¬ÕâÀïÖ±½Ó¸øÏÂ½áÂÛ£º
+æ¥ä¸‹æ¥æˆ‘ä»¬è¦æ”¾å‡ºå¤§æ‹›äº†ï¼Œè¿™ä¸ªå¤§æ‹›å°±æ˜¯ï¼š`BeanFactoryPostProcessor`ï¼Œå…³äºè¿™ä¸ªçš„ä»‹ç»ï¼Œå¯ä»¥å®ƒçš„ä»‹ç»ï¼Œå¯ä»¥å‚è€ƒ [spring ç»„ä»¶ä¹‹ BeanFactoryPostProcessor](https://my.oschina.net/funcy/blog/4597545)ï¼Œè¿™é‡Œç›´æ¥ç»™ä¸‹ç»“è®ºï¼š
 
-> `BeanFactoryPostProcessor` ÖĞÎÄÃû½Ğ `spring beanFactory µÄºóÖÃ´¦ÀíÆ÷`£¬¿ÉÒÔÓÃÀ´¶¨ÖÆ»¯ `beanFactory` µÄÒ»Ğ©ĞĞÎª¡£spring ÎªÎÒÃÇÌá¹©ÁËÁ½ÖÖ `BeanFactoryPostProcessor`£º
+> `BeanFactoryPostProcessor` ä¸­æ–‡åå« `spring beanFactory çš„åç½®å¤„ç†å™¨`ï¼Œå¯ä»¥ç”¨æ¥å®šåˆ¶åŒ– `beanFactory` çš„ä¸€äº›è¡Œä¸ºã€‚spring ä¸ºæˆ‘ä»¬æä¾›äº†ä¸¤ç§ `BeanFactoryPostProcessor`ï¼š
 >
-> *   `BeanFactoryPostProcessor`£º¶¨ÖÆ»¯ `beanFactory` µÄĞĞÎª
-> *   `BeanDefinitionRegistryPostProcessor`£º¶¨ÖÆ»¯ `beanDefinition` µÄĞĞÎª
+> *   `BeanFactoryPostProcessor`ï¼šå®šåˆ¶åŒ– `beanFactory` çš„è¡Œä¸º
+> *   `BeanDefinitionRegistryPostProcessor`ï¼šå®šåˆ¶åŒ– `beanDefinition` çš„è¡Œä¸º
 
-ºÜÃ÷ÏÔ£¬ÎÒÃÇÓ¦¸ÃÊ¹ÓÃ `BeanDefinitionRegistryPostProcessor`£¬Ö±½ÓÊµÏÖÕâ¸ö½Ó¿Ú£º
+å¾ˆæ˜æ˜¾ï¼Œæˆ‘ä»¬åº”è¯¥ä½¿ç”¨ `BeanDefinitionRegistryPostProcessor`ï¼Œç›´æ¥å®ç°è¿™ä¸ªæ¥å£ï¼š
 
 ```
 @Component
@@ -718,14 +718,14 @@ implements BeanDefinitionRegistryPostProcessor {
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) 
             throws BeansException {
-        // BeanDefinitionRegistryPostProcessor ÊÇ BeanFactoryPostProcessor µÄ×Ó½Ó¿Ú
-        // postProcessBeanFactory(...) À´×Ô BeanFactoryPostProcessor£¬ÎÒÃÇÕâÀï²»´¦Àí
+        // BeanDefinitionRegistryPostProcessor æ˜¯ BeanFactoryPostProcessor çš„å­æ¥å£
+        // postProcessBeanFactory(...) æ¥è‡ª BeanFactoryPostProcessorï¼Œæˆ‘ä»¬è¿™é‡Œä¸å¤„ç†
     }
 }
 
 ```
 
-`main` ·½·¨¸ú×î³õ±£³ÖÒ»ÖÂ£º
+`main` æ–¹æ³•è·Ÿæœ€åˆä¿æŒä¸€è‡´ï¼š
 
 ```
 public static void main(String[] args) {
@@ -742,7 +742,7 @@ context.refresh();
 
 ```
 
-ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+è¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
 hello 123, from service01
@@ -750,30 +750,30 @@ hello null, from service02
 
 ```
 
-¿ÉÒÔ¿´µ½ `service01` µÄ `name` È·Êµ±ä³É `123` ÁË¡£
+å¯ä»¥çœ‹åˆ° `service01` çš„ `name` ç¡®å®å˜æˆ `123` äº†ã€‚
 
-Êµ¼ÊÉÏ£¬`BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry` Ö÷Òª¾ÍÊÇÊ¹ÓÃ `BeanDefinitionRegistry` À´Íê³É `BeanDefinition` µÄ²Ù×÷£¬ËüÖ§³ÖµÄ·½·¨ÈçÏÂ£º
+å®é™…ä¸Šï¼Œ`BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry` ä¸»è¦å°±æ˜¯ä½¿ç”¨ `BeanDefinitionRegistry` æ¥å®Œæˆ `BeanDefinition` çš„æ“ä½œï¼Œå®ƒæ”¯æŒçš„æ–¹æ³•å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-5812a2cac994c5940d57c7e6ab55c23a63e.png)
 
-ÖØÒª²Ù×÷ÈçÏÂ£º
+é‡è¦æ“ä½œå¦‚ä¸‹ï¼š
 
-*   `getBeanDefinition(...)`£º»ñÈ¡ `BeanDefinition`£¬´æÔÚÔò·µ»Ø£¬²»´æÔÚÔò±¨´í£¬µÃµ½ `BeanDefinition` ºó£¬¾Í¿ÉÒÔ¶ÔÆä½øĞĞ¸÷ÖÖ²Ù×÷ÁË
-*   `registerBeanDefinition(...)`£º×¢²á `BeanDefinition`£¬¿ÉÒÔ×Ô¶¨Òå `BeanDefinition` ¶ÔÏó£¬È»ºóµ÷ÓÃ¸Ã·½·¨×¢²áµ½ÈİÆ÷ÖĞ£¬Ç°ÃæµÄÀı×ÓÖĞ£¬ÎÒÃÇÊÇÔÚ `context.refresh()` Ç°µ÷ÓÃ `context.registerBeanDefinition`£¬ÕâÀïĞèÒªËµµÄÊÇÍüÁËÇ°ÃæµÄ·½·¨°É£¬²¢²»ÊÇËùÓĞµÄÇé¿öÏÂ£¬¶¼ÄÜÄÃµ½ `context.refresh()` µÄ `context`£¨ÀıÈç `springboot` ÖĞ£©£¬Òò´ËÍÆ¼öÊ¹ÓÃ `BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry` ·½·¨×¢²á `BeanDefinition`
-*   `removeBeanDefinition(...)`£ºÒÆ³ı `BeanDefinition`£¬Ò»°ãÇé¿öÏÂÓ¦¸Ã²»»áÓÃµ½
-*   `containsBeanDefinition(...)`£ºÅĞ¶ÏÊÇ·ñ°üº¬Ä³¸ö `BeanDefinition`
+*   `getBeanDefinition(...)`ï¼šè·å– `BeanDefinition`ï¼Œå­˜åœ¨åˆ™è¿”å›ï¼Œä¸å­˜åœ¨åˆ™æŠ¥é”™ï¼Œå¾—åˆ° `BeanDefinition` åï¼Œå°±å¯ä»¥å¯¹å…¶è¿›è¡Œå„ç§æ“ä½œäº†
+*   `registerBeanDefinition(...)`ï¼šæ³¨å†Œ `BeanDefinition`ï¼Œå¯ä»¥è‡ªå®šä¹‰ `BeanDefinition` å¯¹è±¡ï¼Œç„¶åè°ƒç”¨è¯¥æ–¹æ³•æ³¨å†Œåˆ°å®¹å™¨ä¸­ï¼Œå‰é¢çš„ä¾‹å­ä¸­ï¼Œæˆ‘ä»¬æ˜¯åœ¨ `context.refresh()` å‰è°ƒç”¨ `context.registerBeanDefinition`ï¼Œè¿™é‡Œéœ€è¦è¯´çš„æ˜¯å¿˜äº†å‰é¢çš„æ–¹æ³•å§ï¼Œå¹¶ä¸æ˜¯æ‰€æœ‰çš„æƒ…å†µä¸‹ï¼Œéƒ½èƒ½æ‹¿åˆ° `context.refresh()` çš„ `context`ï¼ˆä¾‹å¦‚ `springboot` ä¸­ï¼‰ï¼Œå› æ­¤æ¨èä½¿ç”¨ `BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry` æ–¹æ³•æ³¨å†Œ `BeanDefinition`
+*   `removeBeanDefinition(...)`ï¼šç§»é™¤ `BeanDefinition`ï¼Œä¸€èˆ¬æƒ…å†µä¸‹åº”è¯¥ä¸ä¼šç”¨åˆ°
+*   `containsBeanDefinition(...)`ï¼šåˆ¤æ–­æ˜¯å¦åŒ…å«æŸä¸ª `BeanDefinition`
 
-### 4\. ×Ü½á
+### 4\. æ€»ç»“
 
-±¾ÎÄÖ÷Òª½éÉÜÁË `BeanDefinition` µÄ×÷ÓÃ£º
+æœ¬æ–‡ä¸»è¦ä»‹ç»äº† `BeanDefinition` çš„ä½œç”¨ï¼š
 
-1.  `BeanDefinition` µÄ·½·¨
-2.  ¼¸¸öÀàĞÍµÄ `BeanDefinition` µÄÊ¹ÓÃ
-3.  Ê¹ÓÃ `BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry` ²Ù×÷ `BeanDefinition`£¬Ö÷ÒªÊÇ×¢²á¡¢ĞŞ¸Ä `BeanDefinition`
+1.  `BeanDefinition` çš„æ–¹æ³•
+2.  å‡ ä¸ªç±»å‹çš„ `BeanDefinition` çš„ä½¿ç”¨
+3.  ä½¿ç”¨ `BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry` æ“ä½œ `BeanDefinition`ï¼Œä¸»è¦æ˜¯æ³¨å†Œã€ä¿®æ”¹ `BeanDefinition`
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4597536](https://my.oschina.net/funcy/blog/4597536) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4597536](https://my.oschina.net/funcy/blog/4597536) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_
 
     ...
     @Override
@@ -793,10 +793,10 @@ _±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4597536](https://my.oschina.ne
 
 ```
 
-ÕâĞ©·½·¨ÔÚÊµÏÖÊ±£¬¶¼ÊÇµ÷ÓÃ `getBeanFactory()` »ñÈ¡µ½ `BeanFactory` ¶ÔÏó£¬È»ºóÖ±½Óµ÷ÓÃ `BeanFactory` µÄ·½·¨£¬`getBeanFactory()` µ÷ÓÃµÄ¾ÍÊÇ `GenericApplicationContext` »ò `AnnotationConfigWebApplicationContext` µÄ `getBeanFactory()` ·½·¨¡£
+è¿™äº›æ–¹æ³•åœ¨å®ç°æ—¶ï¼Œéƒ½æ˜¯è°ƒç”¨ `getBeanFactory()` è·å–åˆ° `BeanFactory` å¯¹è±¡ï¼Œç„¶åç›´æ¥è°ƒç”¨ `BeanFactory` çš„æ–¹æ³•ï¼Œ`getBeanFactory()` è°ƒç”¨çš„å°±æ˜¯ `GenericApplicationContext` æˆ– `AnnotationConfigWebApplicationContext` çš„ `getBeanFactory()` æ–¹æ³•ã€‚
 
-¹ØÓÚ `ApplicationContext` µÄÄÚÈİ¾Í½éÉÜµ½ÕâÀïÁË¡£
+å…³äº `ApplicationContext` çš„å†…å®¹å°±ä»‹ç»åˆ°è¿™é‡Œäº†ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4597456](https://my.oschina.net/funcy/blog/4597456) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4597456](https://my.oschina.net/funcy/blog/4597456) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_

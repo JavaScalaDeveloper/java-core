@@ -1,18 +1,18 @@
-**Ñ§Ï°Ä¿±ê**
+**å­¦ä¹ ç›®æ ‡**
 
-1.  GatewayºËĞÄÔ­Àí·ÖÎö
-    **µÚ1ÕÂ BeanµÄ×¼±¸**
-    Ç°ÃæÒ²½²ÁËÕâÃ´¶à×é¼şÁË£¬Õâ»á¶ùÎÒÃÇ¼¯³É
-    spring-cloud-starter-gateway×é¼ş·¢ÏÖ£¬ÓÖÊÇÒ»¸östarter×é¼ş£¬¶ş»°²»Ëµ£¬ÏÈÈ¥ÕÒspring.factoriesÎÄ¼ş£¬·ÖÎöÒ»ÏÂÓĞÄÄĞ©ÖØÒªµÄbean±»×Ô¶¯×°Åä½øIoCÈİÆ÷ÀïÃæÁË¡£
+1.  Gatewayæ ¸å¿ƒåŸç†åˆ†æ
+    **ç¬¬1ç«  Beançš„å‡†å¤‡**
+    å‰é¢ä¹Ÿè®²äº†è¿™ä¹ˆå¤šç»„ä»¶äº†ï¼Œè¿™ä¼šå„¿æˆ‘ä»¬é›†æˆ
+    spring-cloud-starter-gatewayç»„ä»¶å‘ç°ï¼Œåˆæ˜¯ä¸€ä¸ªstarterç»„ä»¶ï¼ŒäºŒè¯ä¸è¯´ï¼Œå…ˆå»æ‰¾spring.factoriesæ–‡ä»¶ï¼Œåˆ†æä¸€ä¸‹æœ‰å“ªäº›é‡è¦çš„beanè¢«è‡ªåŠ¨è£…é…è¿›IoCå®¹å™¨é‡Œé¢äº†ã€‚
 
-![SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®GatewayÍø¹Ø-¿ªÔ´»ù´¡Èí¼şÉçÇø](https://dl-harmonyos.51cto.com/images/202207/788f3c1494307a2ad7d935811c9e62bab2c435.jpg "SpringCloudÏµÁĞ¡ªSpring Cloud Ô´Âë·ÖÎöÖ®GatewayÍø¹Ø-¿ªÔ´»ù´¡Èí¼şÉçÇø")1.ÏÈÀ´¿´
-GatewayClassPathWarningAutoConfigurationÕâ¸öÅäÖÃÀà
+![SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹Gatewayç½‘å…³-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº](https://dl-harmonyos.51cto.com/images/202207/788f3c1494307a2ad7d935811c9e62bab2c435.jpg "SpringCloudç³»åˆ—â€”Spring Cloud æºç åˆ†æä¹‹Gatewayç½‘å…³-å¼€æºåŸºç¡€è½¯ä»¶ç¤¾åŒº")1.å…ˆæ¥çœ‹
+GatewayClassPathWarningAutoConfigurationè¿™ä¸ªé…ç½®ç±»
 
 
 
 ```
 @Configuration(proxyBeanMethods = false)
-//µ±Ç°ÅäÖÃÀàÔÚGatewayAutoConfigurationÕâ¸öºËĞÄÅäÖÃÀàÖ®Ç°¼ÓÔØ
+//å½“å‰é…ç½®ç±»åœ¨GatewayAutoConfigurationè¿™ä¸ªæ ¸å¿ƒé…ç½®ç±»ä¹‹å‰åŠ è½½
 @AutoConfigureBefore(GatewayAutoConfiguration.class)
 public class GatewayClassPathWarningAutoConfiguration {
 	...      
@@ -47,33 +47,33 @@ public class GatewayClassPathWarningAutoConfiguration {
 
 
 
-´ÓÕâ¸öÅäÖÃÀàÄÜ¿´³öÀ´£¬ËüÊµ¼ÊÉÏ¾ÍÍ¨¹ıConditionOnClassºÍConditionOnMissingClassÁ½¸ö×öÁËÁ½¸öÈÕÖ¾´òÓ¡µÄ¹¦ÄÜ£»Èç¹ûClassPathÏÂÓĞ
-org.springframework.web.servlet.DispatcherServletÀàµÄ»°£¬ÔòÊµÀıµÚÒ»¸öBean¶ÔÏó£¬È»ºó´òÓ¡ÈÕÖ¾£º²»ÄÜÒÀÀµspring-boot-starter-webÕâ¸ö°ü¡£È»ºóÔÙ¼ì²éClassPathÏÂÊÇ·ñÓĞÕıÈ·µÄÅäÖÃwebflux£¬Èç¹ûÃ»ÓĞ£¬Ôò´òÓ¡ÈÕÖ¾£º¼Óspring-boot-starter-webfluxÒÀÀµ¡£
+ä»è¿™ä¸ªé…ç½®ç±»èƒ½çœ‹å‡ºæ¥ï¼Œå®ƒå®é™…ä¸Šå°±é€šè¿‡ConditionOnClasså’ŒConditionOnMissingClassä¸¤ä¸ªåšäº†ä¸¤ä¸ªæ—¥å¿—æ‰“å°çš„åŠŸèƒ½ï¼›å¦‚æœClassPathä¸‹æœ‰
+org.springframework.web.servlet.DispatcherServletç±»çš„è¯ï¼Œåˆ™å®ä¾‹ç¬¬ä¸€ä¸ªBeanå¯¹è±¡ï¼Œç„¶åæ‰“å°æ—¥å¿—ï¼šä¸èƒ½ä¾èµ–spring-boot-starter-webè¿™ä¸ªåŒ…ã€‚ç„¶åå†æ£€æŸ¥ClassPathä¸‹æ˜¯å¦æœ‰æ­£ç¡®çš„é…ç½®webfluxï¼Œå¦‚æœæ²¡æœ‰ï¼Œåˆ™æ‰“å°æ—¥å¿—ï¼šåŠ spring-boot-starter-webfluxä¾èµ–ã€‚
 
-2.ºËĞÄÅäÖÃÀàGatewayAutoConfiguration
+2.æ ¸å¿ƒé…ç½®ç±»GatewayAutoConfiguration
 
-ÒòÎª´úÂëÌ«³¤£¬ÕâÀï¾Í²»Õ¹Ê¾ÁË£¬ÕâÀï¾ÍÁĞ¾Ù¼¸¸ö±È½ÏÖØÒªµÄ
+å› ä¸ºä»£ç å¤ªé•¿ï¼Œè¿™é‡Œå°±ä¸å±•ç¤ºäº†ï¼Œè¿™é‡Œå°±åˆ—ä¸¾å‡ ä¸ªæ¯”è¾ƒé‡è¦çš„
 
-*   PropertiesRouteDefinitionLocator£ºÓÃÓÚ´ÓÅäÖÃÎÄ¼ş£¨yml/properties£©ÖĞ¶ÁÈ¡Â·ÓÉÅäÖÃĞÅÏ¢£¡
-*   RouteDefinitionLocator£º°Ñ RouteDefinition ×ª»¯Îª Route
-*   RoutePredicateHandlerMapping£ºÀàËÆÓÚ mvc µÄHandlerMapping£¬²»¹ıÕâÀïÊÇ GatewayÊµÏÖµÄ¡£ÓÃÓÚÆ¥Åä¶ÔÓ¦µÄÇëÇóroute
-*   GatewayProperties£ºymlÅäÖÃĞÅÏ¢·â×°ÔÚ GatewayProperties ¶ÔÏóÖĞ
-*   AfterRoutePredicateFactory£º¸÷ÖÖÂ·ÓÉ¶ÏÑÔ¹¤³§£¬ÕıÊÇÕâĞ©¶ÏÑÔ¹¤³§ÔÚÆô¶¯Ê±ÒÑ¾­Éú³É¶ÔÓ¦µÄbean£¬ÎÒÃÇ²Å¿ÉÒÔÔÚ yml ÖĞÅäÖÃÒ»ÏÂ£¬¼´¿ÉÉúĞ§
-*   RetryGatewayFilterFactory£º¸÷ÖÖ Gateway ¹ıÂËÆ÷£¬ÕıÊÇÕâĞ©¹ıÂËÆ÷ÔÚÆô¶¯Ê±ÒÑ¾­Éú³É¶ÔÓ¦µÄbean£¬ÎÒÃÇ²Å¿ÉÒÔÔÚ yml ÖĞÅäÖÃÒ»ÏÂ£¬¼´¿ÉÉúĞ§
-*   GlobalFilterÊµÏÖÀà£ºÈ«¾Ö¹ıÂËÆ÷
+*   PropertiesRouteDefinitionLocatorï¼šç”¨äºä»é…ç½®æ–‡ä»¶ï¼ˆyml/propertiesï¼‰ä¸­è¯»å–è·¯ç”±é…ç½®ä¿¡æ¯ï¼
+*   RouteDefinitionLocatorï¼šæŠŠ RouteDefinition è½¬åŒ–ä¸º Route
+*   RoutePredicateHandlerMappingï¼šç±»ä¼¼äº mvc çš„HandlerMappingï¼Œä¸è¿‡è¿™é‡Œæ˜¯ Gatewayå®ç°çš„ã€‚ç”¨äºåŒ¹é…å¯¹åº”çš„è¯·æ±‚route
+*   GatewayPropertiesï¼šymlé…ç½®ä¿¡æ¯å°è£…åœ¨ GatewayProperties å¯¹è±¡ä¸­
+*   AfterRoutePredicateFactoryï¼šå„ç§è·¯ç”±æ–­è¨€å·¥å‚ï¼Œæ­£æ˜¯è¿™äº›æ–­è¨€å·¥å‚åœ¨å¯åŠ¨æ—¶å·²ç»ç”Ÿæˆå¯¹åº”çš„beanï¼Œæˆ‘ä»¬æ‰å¯ä»¥åœ¨ yml ä¸­é…ç½®ä¸€ä¸‹ï¼Œå³å¯ç”Ÿæ•ˆ
+*   RetryGatewayFilterFactoryï¼šå„ç§ Gateway è¿‡æ»¤å™¨ï¼Œæ­£æ˜¯è¿™äº›è¿‡æ»¤å™¨åœ¨å¯åŠ¨æ—¶å·²ç»ç”Ÿæˆå¯¹åº”çš„beanï¼Œæˆ‘ä»¬æ‰å¯ä»¥åœ¨ yml ä¸­é…ç½®ä¸€ä¸‹ï¼Œå³å¯ç”Ÿæ•ˆ
+*   GlobalFilterå®ç°ç±»ï¼šå…¨å±€è¿‡æ»¤å™¨
 
-3.HttpHandlerAutoConfigurationºÍWebFluxAutoConfigurationÅäÖÃÀà£¬ÔÚGatewayAutoConfigurationÖ®ºóÊµÀı»¯£¬·Ö±ğÊµÀı»¯ÁËHttpHandlerºÍWebFluxConfigBean
+3.HttpHandlerAutoConfigurationå’ŒWebFluxAutoConfigurationé…ç½®ç±»ï¼Œåœ¨GatewayAutoConfigurationä¹‹åå®ä¾‹åŒ–ï¼Œåˆ†åˆ«å®ä¾‹åŒ–äº†HttpHandlerå’ŒWebFluxConfigBean
 
-**µÚ2ÕÂ Ö´ĞĞÁ÷³Ì**
-ÉÏÒ»ÎÄÖĞ½²µ½HystrixµÄÔ­Àí£¬ÔÚHystrixÖĞºËĞÄÒµÎñÂß¼­¶¼ÊÇÍ¨¹ıÏìÓ¦Ê½±à³ÌÍê³ÉµÄ£¬ÊÂÊµÉÏ£¬ÔÚGatewayÖĞÒ²¶¼ÊÇ»ùÓÚÍ¬ÑùµÄ±à³Ì·ç¸ñ¡£Í¬ÑùµÄ£¬GatewayµÄÁ÷³ÌÍ¬SpringMVCÁ÷³ÌÒ²·Ç³£ÏàËÆ¡£
+**ç¬¬2ç«  æ‰§è¡Œæµç¨‹**
+ä¸Šä¸€æ–‡ä¸­è®²åˆ°Hystrixçš„åŸç†ï¼Œåœ¨Hystrixä¸­æ ¸å¿ƒä¸šåŠ¡é€»è¾‘éƒ½æ˜¯é€šè¿‡å“åº”å¼ç¼–ç¨‹å®Œæˆçš„ï¼Œäº‹å®ä¸Šï¼Œåœ¨Gatewayä¸­ä¹Ÿéƒ½æ˜¯åŸºäºåŒæ ·çš„ç¼–ç¨‹é£æ ¼ã€‚åŒæ ·çš„ï¼ŒGatewayçš„æµç¨‹åŒSpringMVCæµç¨‹ä¹Ÿéå¸¸ç›¸ä¼¼ã€‚
 
-µ±Ç°¶ËÓĞÇëÇó½øÀ´µÄÊ±ºò£¬´óÌåµÄÁ÷³ÌÈçÏÂ£º
+å½“å‰ç«¯æœ‰è¯·æ±‚è¿›æ¥çš„æ—¶å€™ï¼Œå¤§ä½“çš„æµç¨‹å¦‚ä¸‹ï¼š
 
-1.  Ê×ÏÈ±»DispatcherHandler¸ø²¶»ñÀ¹½Ø£¬È»ºó¶ÔÇëÇóµÄURI½øĞĞ½âÎö
-2.  È»ºó¸ù¾İURIÈ¥µ÷ÓÃHandlerMapping£¬»ñÈ¡ÕæÕıÒªÖ´ĞĞµÄWebHandler
-3.  È»ºóÑ¡ÔñÒ»¸öºÏÊÊµÄÊÊÅäÆ÷HandlerAdapterÖ´ĞĞ
-4.  Ö´ĞĞWebHandler
-    µ±ÇëÇógateway·şÎñÊ±£¬ËùÓĞµÄÇëÇó¶¼»á½øÈëµ½DispatcherHandlerÖĞµÄhandle·½·¨£¬ÏÂÃæÎÒÃÇÒ»Æğ¿´¿´Õâ¸ö·½·¨
+1.  é¦–å…ˆè¢«DispatcherHandlerç»™æ•è·æ‹¦æˆªï¼Œç„¶åå¯¹è¯·æ±‚çš„URIè¿›è¡Œè§£æ
+2.  ç„¶åæ ¹æ®URIå»è°ƒç”¨HandlerMappingï¼Œè·å–çœŸæ­£è¦æ‰§è¡Œçš„WebHandler
+3.  ç„¶åé€‰æ‹©ä¸€ä¸ªåˆé€‚çš„é€‚é…å™¨HandlerAdapteræ‰§è¡Œ
+4.  æ‰§è¡ŒWebHandler
+    å½“è¯·æ±‚gatewayæœåŠ¡æ—¶ï¼Œæ‰€æœ‰çš„è¯·æ±‚éƒ½ä¼šè¿›å…¥åˆ°DispatcherHandlerä¸­çš„handleæ–¹æ³•ï¼Œä¸‹é¢æˆ‘ä»¬ä¸€èµ·çœ‹çœ‹è¿™ä¸ªæ–¹æ³•
 
 
 
@@ -83,17 +83,17 @@ public Mono<Void> handle(ServerWebExchange exchange) {
     if (this.handlerMappings == null) {
         return createNotFoundError();
     }
-    //ÕâÀï¾ÍÊÇwebFluxµÄÏìÓ¦Ê½±à³Ì
+    //è¿™é‡Œå°±æ˜¯webFluxçš„å“åº”å¼ç¼–ç¨‹
     return Flux
-        // 1.ÕâÀï¾ÍÊÇ±éÀúËùÓĞµÄ handlerMapping
+        // 1.è¿™é‡Œå°±æ˜¯éå†æ‰€æœ‰çš„ handlerMapping
         .fromIterable(this.handlerMappings)
-        // 2.»ñÈ¡¶ÔÓ¦µÄhandlerMapping £¬±ÈÈç³£ÓÃµÄ RequestMappingHandlerMapping¡¢RoutePredicateHandlerMapping
+        // 2.è·å–å¯¹åº”çš„handlerMapping ï¼Œæ¯”å¦‚å¸¸ç”¨çš„ RequestMappingHandlerMappingã€RoutePredicateHandlerMapping
         .concatMap(mapping -> mapping.getHandler(exchange))
         .next()
         .switchIfEmpty(createNotFoundError())
-        // 3.»ñÈ¡¶ÔÓ¦µÄÊÊÅäÆ÷£¬µ÷ÓÃ¶ÔÓ¦µÄ´¦ÀíÆ÷
+        // 3.è·å–å¯¹åº”çš„é€‚é…å™¨ï¼Œè°ƒç”¨å¯¹åº”çš„å¤„ç†å™¨
         .flatMap(handler -> invokeHandler(exchange, handler))
-        // 4.·µ»Ø´¦Àí½á¹û
+        // 4.è¿”å›å¤„ç†ç»“æœ
         .flatMap(result -> handleResult(exchange, result));
 }
 ```
@@ -107,17 +107,17 @@ public Mono<Void> handle(ServerWebExchange exchange) {
 
 
 **2.1 getHandler**
-ÎÒÃÇÏÈÀ´¿´¿´getHandler·½·¨£¬Ëü¾ÍÊÇGatewayµÄºËĞÄÂß¼­ËùÔÚ£¬ÔÙgetHandlerÖĞ»ñÈ¡¶ÔÓ¦µÄHandlerMapping¡£
+æˆ‘ä»¬å…ˆæ¥çœ‹çœ‹getHandleræ–¹æ³•ï¼Œå®ƒå°±æ˜¯Gatewayçš„æ ¸å¿ƒé€»è¾‘æ‰€åœ¨ï¼Œå†getHandlerä¸­è·å–å¯¹åº”çš„HandlerMappingã€‚
 
-ÏÂÃæÊÇ
-AbstractHandlerMapping.getHandlerµÄÔ´Âë
+ä¸‹é¢æ˜¯
+AbstractHandlerMapping.getHandlerçš„æºç 
 
 
 
 ```
 @Override
 public Mono<Object> getHandler(ServerWebExchange exchange) {
-    //ÕâÒ»²½»á»ñÈ¡Â·ÓÉµÄÊµÏÖÀà£¬»á½øÈëµ½RoutePredicateHandlerMapping
+    //è¿™ä¸€æ­¥ä¼šè·å–è·¯ç”±çš„å®ç°ç±»ï¼Œä¼šè¿›å…¥åˆ°RoutePredicateHandlerMapping
     return getHandlerInternal(exchange).map(handler -> {
         if (logger.isDebugEnabled()) {
             logger.debug(exchange.getLogPrefix() + "Mapped to " + handler);
@@ -155,19 +155,19 @@ protected Mono<?> getHandlerInternal(ServerWebExchange exchange) {
         return Mono.empty();
     }
     exchange.getAttributes().put(GATEWAY_HANDLER_MAPPER_ATTR, getSimpleName());
-    //Ñ°ÕÒ²¢Æ¥ÅäÂ·ÓÉ
+    //å¯»æ‰¾å¹¶åŒ¹é…è·¯ç”±
     return lookupRoute(exchange)
         // .log("route-predicate-handler-mapping", Level.FINER) //name this
         .flatMap((Function<Route, Mono<?>>) r -> {
-            //ÒÆ³ıÉÏÏÂÎÄÖĞ¾ÉµÄÊôĞÔ
+            //ç§»é™¤ä¸Šä¸‹æ–‡ä¸­æ—§çš„å±æ€§
             exchange.getAttributes().remove(GATEWAY_PREDICATE_ROUTE_ATTR);
             if (logger.isDebugEnabled()) {
                 logger.debug(
                     "Mapping [" + getExchangeDesc(exchange) + "] to " + r);
             }
-            //°Ñ¸ÃÂ·ÓÉÓëÉÏÏÂÎÄ°ó¶¨£¬ºóĞø¸ºÔØ¾ùºâ»áÓÃ
+            //æŠŠè¯¥è·¯ç”±ä¸ä¸Šä¸‹æ–‡ç»‘å®šï¼Œåç»­è´Ÿè½½å‡è¡¡ä¼šç”¨
             exchange.getAttributes().put(GATEWAY_ROUTE_ATTR, r);
-            //·µ»Ø webHandler
+            //è¿”å› webHandler
             return Mono.just(webHandler);
         }).switchIfEmpty(Mono.empty().then(Mono.fromRunnable(() -> {
         exchange.getAttributes().remove(GATEWAY_PREDICATE_ROUTE_ATTR);
@@ -187,18 +187,18 @@ protected Mono<?> getHandlerInternal(ServerWebExchange exchange) {
 
 
 
-ÆäÖĞlookupRoute·½·¨»áÕÒµ½ymlÖĞÅäÖÃµÄËùÓĞµÄÂ·ÓÉ¶ÏÑÔ¹¤³§£¨Before¡¢After¡¢PathµÈµÈ£©£¬²¢Ö´ĞĞapply·½·¨£¬½øĞĞÂ·ÓÉÆ¥Åä£¬ÅĞ¶ÏÊÇ·ñÔÊĞíÇëÇóÍ¨¹ı£¡Ö´ĞĞË³ĞòÓÉspringboot×Ô¶¯ÅäÖÃÊ±×Ô¼ºÖÆ¶¨
+å…¶ä¸­lookupRouteæ–¹æ³•ä¼šæ‰¾åˆ°ymlä¸­é…ç½®çš„æ‰€æœ‰çš„è·¯ç”±æ–­è¨€å·¥å‚ï¼ˆBeforeã€Afterã€Pathç­‰ç­‰ï¼‰ï¼Œå¹¶æ‰§è¡Œapplyæ–¹æ³•ï¼Œè¿›è¡Œè·¯ç”±åŒ¹é…ï¼Œåˆ¤æ–­æ˜¯å¦å…è®¸è¯·æ±‚é€šè¿‡ï¼æ‰§è¡Œé¡ºåºç”±springbootè‡ªåŠ¨é…ç½®æ—¶è‡ªå·±åˆ¶å®š
 
 
 
 ```
 protected Mono<Route> lookupRoute(ServerWebExchange exchange) {
-    // getRoutes »ñÈ¡ËùÓĞµÄ¶ÏÑÔ¹¤³§
+    // getRoutes è·å–æ‰€æœ‰çš„æ–­è¨€å·¥å‚
     return this.routeLocator.getRoutes()
         .concatMap(route -> Mono.just(route).filterWhen(r -> {
             exchange.getAttributes().put(GATEWAY_PREDICATE_ROUTE_ATTR, r.getId());
-            // ÏÈ»ñÈ¡RouteÄÚ²¿µÄpredicateÊôĞÔ
-            //È»ºóµ÷ÓÃapply·½·¨ Ö´ĞĞ¶ÏÑÔ£¡ÅĞ¶ÏÇëÇóÊÇ·ñÍ¨¹ı
+            // å…ˆè·å–Routeå†…éƒ¨çš„predicateå±æ€§
+            //ç„¶åè°ƒç”¨applyæ–¹æ³• æ‰§è¡Œæ–­è¨€ï¼åˆ¤æ–­è¯·æ±‚æ˜¯å¦é€šè¿‡
             return r.getPredicate().apply(exchange);
         }).doOnError(e -> logger.error(
                        "Error applying predicate for route: " + route.getId(),
@@ -223,17 +223,17 @@ protected Mono<Route> lookupRoute(ServerWebExchange exchange) {
 
 
 
-ÆäÖĞgetRoutes()·½·¨¾ÍÊÇÍ¨¹ı
-RouteDefinitionRouteLocator´ÓÅäÖÃÎÄ¼şÖĞ»ñÈ¡ËùÓĞÂ·ÓÉµÄ£¬È»ºó°ÑÕÒµ½µÄÂ·ÓÉ×ª»»³ÉRoute
+å…¶ä¸­getRoutes()æ–¹æ³•å°±æ˜¯é€šè¿‡
+RouteDefinitionRouteLocatorä»é…ç½®æ–‡ä»¶ä¸­è·å–æ‰€æœ‰è·¯ç”±çš„ï¼Œç„¶åæŠŠæ‰¾åˆ°çš„è·¯ç”±è½¬æ¢æˆRoute
 
 
 
 ```
 @Override
 public Flux<Route> getRoutes() {
-    // getRouteDefinitions() ´ÓÅäÖÃÎÄ¼şÖĞ»ñÈ¡ËùÓĞÂ·ÓÉ
+    // getRouteDefinitions() ä»é…ç½®æ–‡ä»¶ä¸­è·å–æ‰€æœ‰è·¯ç”±
     Flux<Route> routes = this.routeDefinitionLocator.getRouteDefinitions()
-        // convertToRoute()£º°ÑÕÒµ½µÄÂ·ÓÉ×ª»»³ÉRoute
+        // convertToRoute()ï¼šæŠŠæ‰¾åˆ°çš„è·¯ç”±è½¬æ¢æˆRoute
         .map(this::convertToRoute);
     ...
 }
@@ -270,14 +270,14 @@ public class Route implements Ordered {
 
 
 **2.2 invokeHandler**
-GatewayÓÉÓÚÔÚÉÏÒ»²½Æ¥ÅäÂ·ÓÉºó·µ»ØµÄÊÇwebHandlerÀàĞÍµÄ£¬ËùÒÔÒ²ĞèÒªÕÒµ½¶ÔÓ¦µÄHandlerAdaptor£¬½øÈë»ñÈ¡¶ÔÓ¦µÄÊÊÅäÆ÷·½·¨ invokeHandler(exchange, handler)ÖĞ
+Gatewayç”±äºåœ¨ä¸Šä¸€æ­¥åŒ¹é…è·¯ç”±åè¿”å›çš„æ˜¯webHandlerç±»å‹çš„ï¼Œæ‰€ä»¥ä¹Ÿéœ€è¦æ‰¾åˆ°å¯¹åº”çš„HandlerAdaptorï¼Œè¿›å…¥è·å–å¯¹åº”çš„é€‚é…å™¨æ–¹æ³• invokeHandler(exchange, handler)ä¸­
 
 
 
 ```
 private Mono<HandlerResult> invokeHandler(ServerWebExchange exchange, Object handler) {
     if (this.handlerAdapters != null) {
-        //ÕÒµ½ËùÓĞµÄHandlerAdapterÈ¥Æ¥ÅäWebFluxÀàĞÍ
+        //æ‰¾åˆ°æ‰€æœ‰çš„HandlerAdapterå»åŒ¹é…WebFluxç±»å‹
         for (HandlerAdapter handlerAdapter : this.handlerAdapters) {
             if (handlerAdapter.supports(handler)) {
                 return handlerAdapter.handle(exchange, handler);
@@ -296,14 +296,14 @@ private Mono<HandlerResult> invokeHandler(ServerWebExchange exchange, Object han
 
 
 
-SimpleHandlerAdapter ÖĞµÄhandle·½·¨ÈçÏÂ
+SimpleHandlerAdapter ä¸­çš„handleæ–¹æ³•å¦‚ä¸‹
 
 
 
 ```
 @Override
 public Mono<HandlerResult> handle(ServerWebExchange exchange, Object handler) {
-    //´¦ÀíWebHandler ÀàĞÍ
+    //å¤„ç†WebHandler ç±»å‹
     WebHandler webHandler = (WebHandler) handler;
     Mono<Void> mono = webHandler.handle(exchange);
     return mono.then(Mono.empty());
@@ -318,27 +318,27 @@ public Mono<HandlerResult> handle(ServerWebExchange exchange, Object handler) {
 
 
 
-ÆäÖĞwebHandler.handle·½·¨¾ÍÊÇ´¦ÀíËùÓĞ¹ıÂËÆ÷Á´µÄ·½·¨£¬¸Ã¹ıÂËÆ÷Á´°üÀ¨globalFiltersºÍgatewayFilters
+å…¶ä¸­webHandler.handleæ–¹æ³•å°±æ˜¯å¤„ç†æ‰€æœ‰è¿‡æ»¤å™¨é“¾çš„æ–¹æ³•ï¼Œè¯¥è¿‡æ»¤å™¨é“¾åŒ…æ‹¬globalFilterså’ŒgatewayFilters
 
 
 
 ```
 @Override
 public Mono<Void> handle(ServerWebExchange exchange) {
-    // 1\. ¸ù¾İÂ·ÓÉÓëÉÏÏÂÎÄ°ó¶¨¹ØÏµ£¬»ñÈ¡¶ÔÓ¦µÄÂ·ÓÉRoute
+    // 1\. æ ¹æ®è·¯ç”±ä¸ä¸Šä¸‹æ–‡ç»‘å®šå…³ç³»ï¼Œè·å–å¯¹åº”çš„è·¯ç”±Route
     Route route = exchange.getRequiredAttribute(GATEWAY_ROUTE_ATTR);
     List<GatewayFilter> gatewayFilters = route.getFilters();
-    // 2\. ÊÕ¼¯ËùÓĞµÄ globalFilters ²¢·ÅÈëList<GatewayFilter>
-    //×¢ÒâÕâÀïÊ¹ÓÃÁËÊÊÅäÆ÷Ä£Ê½
+    // 2\. æ”¶é›†æ‰€æœ‰çš„ globalFilters å¹¶æ”¾å…¥List<GatewayFilter>
+    //æ³¨æ„è¿™é‡Œä½¿ç”¨äº†é€‚é…å™¨æ¨¡å¼
     List<GatewayFilter> combined = new ArrayList<>(this.globalFilters);
-    // 3\. °Ñ gatewayFilters Ò²·ÅÈëList<GatewayFilter>£¬ĞÎ³ÉÒ»Ìõ¹ıÂËÆ÷Á¢°¸
+    // 3\. æŠŠ gatewayFilters ä¹Ÿæ”¾å…¥List<GatewayFilter>ï¼Œå½¢æˆä¸€æ¡è¿‡æ»¤å™¨ç«‹æ¡ˆ
     combined.addAll(gatewayFilters);
-    // 4\. ¸ù¾İorderÅÅĞò
+    // 4\. æ ¹æ®orderæ’åº
     AnnotationAwareOrderComparator.sort(combined);
     if (logger.isDebugEnabled()) {
         logger.debug("Sorted gatewayFilterFactories: " + combined);
     }
-    // 5\. Ö´ĞĞ¹ıÂËÆ÷Á´ÖĞµÄÃ¿Ò»¸ö¹ıÂËÆ÷·½·¨£¡
+    // 5\. æ‰§è¡Œè¿‡æ»¤å™¨é“¾ä¸­çš„æ¯ä¸€ä¸ªè¿‡æ»¤å™¨æ–¹æ³•ï¼
     return new DefaultGatewayFilterChain(combined).filter(exchange);
 }
 ```
@@ -351,24 +351,24 @@ public Mono<Void> handle(ServerWebExchange exchange) {
 
 
 
-×¢Òâ£ºÔÚ×é×°¹ıÂËÆ÷Á´µÄÊ±ºò£¬ÊÇ°ÑglobalFiltersºÍgatewayFiltersÁ½ÖÖ¹ıÂËÆ÷¶¼·Å½øÁËList<GatewayFilter>ÖĞ£¬ÕâÊÇÔõÃ´×öµÄÄØ£¿
+æ³¨æ„ï¼šåœ¨ç»„è£…è¿‡æ»¤å™¨é“¾çš„æ—¶å€™ï¼Œæ˜¯æŠŠglobalFilterså’ŒgatewayFiltersä¸¤ç§è¿‡æ»¤å™¨éƒ½æ”¾è¿›äº†List<GatewayFilter>ä¸­ï¼Œè¿™æ˜¯æ€ä¹ˆåšçš„å‘¢ï¼Ÿ
 
-ÕâÆäÊµÓÃµ½ÁËÒ»ÖÖ ÊÊÅäÆ÷ µÄÉè¼ÆÄ£Ê½£¡
+è¿™å…¶å®ç”¨åˆ°äº†ä¸€ç§ é€‚é…å™¨ çš„è®¾è®¡æ¨¡å¼ï¼
 
-*   Èç¹û·ÅÈëµÄÊÇglobalFilters£¬»áÏÈ°ÑglobalFilters×ª»¯³ÉGatewayFilterAdapter¡£ GatewayFilterAdapterÔÚÄÚ²¿¼¯³ÉÁËGlobalFilter£¬Í¬Ê±Ò²ÊµÏÖÁËGatewayFilter£¬Ê¹ globalFiltersºÍgatewayFiltersÔÚ ÊÊÅäÆ÷ ÀàGatewayFilterAdapterÖĞ¹²´æ£¡
-*   Èç¹û·ÅÈëµÄÊÇgatewayFilters£¬Ö±½Ó·ÅÈë¼´¿É£¡
-    **µÚ3ÕÂ ¸ºÔØ¾ùºâÁ÷³Ì**
-    GatewayµÄ¸ºÔØ¾ùºâÖ»ĞèÒªÔÚymlÖĞÅäÖÃ uri: lb://user¼´¿ÉÊµÏÖ¸ºÔØ¾ùºâ£¬µ×²ãÊÇÓÉÈ«¾Ö¹ıÂËÆ÷LoadBalancerClientFilterµÄfilter·½·¨È¥×öµÄ£¡
+*   å¦‚æœæ”¾å…¥çš„æ˜¯globalFiltersï¼Œä¼šå…ˆæŠŠglobalFiltersè½¬åŒ–æˆGatewayFilterAdapterã€‚ GatewayFilterAdapteråœ¨å†…éƒ¨é›†æˆäº†GlobalFilterï¼ŒåŒæ—¶ä¹Ÿå®ç°äº†GatewayFilterï¼Œä½¿ globalFilterså’ŒgatewayFiltersåœ¨ é€‚é…å™¨ ç±»GatewayFilterAdapterä¸­å…±å­˜ï¼
+*   å¦‚æœæ”¾å…¥çš„æ˜¯gatewayFiltersï¼Œç›´æ¥æ”¾å…¥å³å¯ï¼
+    **ç¬¬3ç«  è´Ÿè½½å‡è¡¡æµç¨‹**
+    Gatewayçš„è´Ÿè½½å‡è¡¡åªéœ€è¦åœ¨ymlä¸­é…ç½® uri: lb://userå³å¯å®ç°è´Ÿè½½å‡è¡¡ï¼Œåº•å±‚æ˜¯ç”±å…¨å±€è¿‡æ»¤å™¨LoadBalancerClientFilterçš„filteræ–¹æ³•å»åšçš„ï¼
 
-ÒÔ¶©µ¥·şÎñµÄ
-http://localhost:9527/get/3ÎªÀı£¡9527ÎªÍø¹ØGatewayµÄ¶Ë¿Ú
+ä»¥è®¢å•æœåŠ¡çš„
+http://localhost:9527/get/3ä¸ºä¾‹ï¼9527ä¸ºç½‘å…³Gatewayçš„ç«¯å£
 
 
 
 ```
 public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-    // 1\. ¸ù¾İÂ·ÓÉÓëÉÏÏÂÎÄ°ó¶¨¹ØÏµ
-    // »ñÈ¡Ô­Ê¼µÄurl£ºhttp://localhost:9527/get/3
+    // 1\. æ ¹æ®è·¯ç”±ä¸ä¸Šä¸‹æ–‡ç»‘å®šå…³ç³»
+    // è·å–åŸå§‹çš„urlï¼šhttp://localhost:9527/get/3
     URI url = exchange.getAttribute(GATEWAY_REQUEST_URL_ATTR);
     String schemePrefix = exchange.getAttribute(GATEWAY_SCHEME_PREFIX_ATTR);
     if (url == null
@@ -379,34 +379,34 @@ public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
     if (log.isTraceEnabled()) {
         log.trace("LoadBalancerClientFilter url before: " + url);
     }
-    // 2\. Í¨¹ıribbonµÄ¸ºÔØ¾ùºâËã·¨£¬¸ù¾İ·şÎñÃûÈ¥nacos»òÕßEurekaÑ¡ÔñÒ»¸öÊµÀı£¡
-    // ¸ÃÊµÀı¾ÍÓĞuser·şÎñÕæÕıµÄ url µØÖ·£ºhttp://localhost:8080/get/3
+    // 2\. é€šè¿‡ribbonçš„è´Ÿè½½å‡è¡¡ç®—æ³•ï¼Œæ ¹æ®æœåŠ¡åå»nacosæˆ–è€…Eurekaé€‰æ‹©ä¸€ä¸ªå®ä¾‹ï¼
+    // è¯¥å®ä¾‹å°±æœ‰useræœåŠ¡çœŸæ­£çš„ url åœ°å€ï¼šhttp://localhost:8080/get/3
     final ServiceInstance instance = choose(exchange);
     if (instance == null) {
         throw NotFoundException.create(properties.isUse404(),
                                        "Unable to find instance for " + url.getHost());
     }
-    // 3\. ÄÃµ½Ô­ÉúµÄ uri £ºhttp://localhost:9527/get/3
+    // 3\. æ‹¿åˆ°åŸç”Ÿçš„ uri ï¼šhttp://localhost:9527/get/3
     URI uri = exchange.getRequest().getURI();
     String overrideScheme = instance.isSecure() ? "https" : "http";
     if (schemePrefix != null) {
         overrideScheme = url.getScheme();
     }
-    // 4\. ÄÃ·şÎñÊµÀıinstanceµÄuriÌæ»»Ô­ÉúµÄuriµØÖ· µÃµ½ ĞÂµÄurl
-    // ĞÂµÄurl: http://localhost:8080/get/3
+    // 4\. æ‹¿æœåŠ¡å®ä¾‹instanceçš„uriæ›¿æ¢åŸç”Ÿçš„uriåœ°å€ å¾—åˆ° æ–°çš„url
+    // æ–°çš„url: http://localhost:8080/get/3
     URI requestUrl = loadBalancer.reconstructURI(
         new DelegatingServiceInstance(instance, overrideScheme), uri);
     if (log.isTraceEnabled()) {
         log.trace("LoadBalancerClientFilter url chosen: " + requestUrl);
     }
-    // 5\. ÔÙ´Î¼ÇÂ¼ÉÏÏÂÎÄ¹ØÏµ
+    // 5\. å†æ¬¡è®°å½•ä¸Šä¸‹æ–‡å…³ç³»
     exchange.getAttributes().put(GATEWAY_REQUEST_URL_ATTR, requestUrl);
-    // 6\. Ö´ĞĞ¹ıÂËÆ÷Á´ÖĞµÄÆäËû¹ıÂËÇëÇó
+    // 6\. æ‰§è¡Œè¿‡æ»¤å™¨é“¾ä¸­çš„å…¶ä»–è¿‡æ»¤è¯·æ±‚
     return chain.filter(exchange);
 }
 ```
 
-# ²Î¿¼ÎÄÕÂ
+# å‚è€ƒæ–‡ç« 
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

@@ -1,40 +1,40 @@
-## 4\. ÈÕÖ¾
+## 4\. æ—¥å¿—
 
 
 
 
 
-Spring BootÔÚËùÓĞÄÚ²¿ÈÕÖ¾ÖĞÊ¹ÓÃ [Commons Logging](https://commons.apache.org/logging) £¬µ«¶Ôµ×²ãÈÕÖ¾µÄÊµÏÖ±£³Ö¿ª·Å¡£ Îª [Java Util Logging](https://docs.oracle.com/javase/17/docs/api/java/util/logging/package-summary.html) ¡¢ [Log4j2](https://logging.apache.org/log4j/2.x/) ¡¢ [Logback](https://logback.qos.ch/) Ìá¹©ÁËÄ¬ÈÏÅäÖÃ¡£ ÔÚÃ¿Ò»ÖÖÇé¿öÏÂ£¬¼ÇÂ¼Æ÷£¨logger£©¶¼±»Ô¤ÉèÎªÊ¹ÓÃ¿ØÖÆÌ¨Êä³ö£¬Ò²¿ÉÒÔÑ¡ÔñÊä³öµ½ÎÄ¼ş¡£
+Spring Bootåœ¨æ‰€æœ‰å†…éƒ¨æ—¥å¿—ä¸­ä½¿ç”¨ [Commons Logging](https://commons.apache.org/logging) ï¼Œä½†å¯¹åº•å±‚æ—¥å¿—çš„å®ç°ä¿æŒå¼€æ”¾ã€‚ ä¸º [Java Util Logging](https://docs.oracle.com/javase/17/docs/api/java/util/logging/package-summary.html) ã€ [Log4j2](https://logging.apache.org/log4j/2.x/) ã€ [Logback](https://logback.qos.ch/) æä¾›äº†é»˜è®¤é…ç½®ã€‚ åœ¨æ¯ä¸€ç§æƒ…å†µä¸‹ï¼Œè®°å½•å™¨ï¼ˆloggerï¼‰éƒ½è¢«é¢„è®¾ä¸ºä½¿ç”¨æ§åˆ¶å°è¾“å‡ºï¼Œä¹Ÿå¯ä»¥é€‰æ‹©è¾“å‡ºåˆ°æ–‡ä»¶ã€‚
 
 
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Èç¹ûÄãÊ¹ÓÃ ¡°Starter¡±£¬ÔòÄ¬ÈÏÊ¹ÓÃLogback¡£ ÊÊµ±µÄLogbackÂ·ÓÉÒ²°üÀ¨ÔÚÄÚ£¬ÒÔÈ·±£Ê¹ÓÃJava Util Logging¡¢Commons Logging¡¢Log4J»òSLF4JµÄÒÀÀµ¿â¶¼ÄÜÕıÈ·¹¤×÷¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼Œå¦‚æœä½ ä½¿ç”¨ â€œStarterâ€ï¼Œåˆ™é»˜è®¤ä½¿ç”¨Logbackã€‚ é€‚å½“çš„Logbackè·¯ç”±ä¹ŸåŒ…æ‹¬åœ¨å†…ï¼Œä»¥ç¡®ä¿ä½¿ç”¨Java Util Loggingã€Commons Loggingã€Log4Jæˆ–SLF4Jçš„ä¾èµ–åº“éƒ½èƒ½æ­£ç¡®å·¥ä½œã€‚
 
 
 
 
 
-|  | ÓĞºÜ¶àÊÊÓÃÓÚJavaµÄÈÕÖ¾¿ò¼Ü¡£ Èç¹ûÉÏÃæµÄÁĞ±í¿´ÆğÀ´ºÜ»ìÂÒ£¬Çë²»Òªµ£ĞÄ¡£ Ò»°ãÀ´Ëµ£¬Äã²»ĞèÒª¸Ä±äÄãµÄÈÕÖ¾ÒÀÀµ£¬Spring BootµÄÄ¬ÈÏÖµ¾ÍºÜºÃÓÃ¡£ |
+|  | æœ‰å¾ˆå¤šé€‚ç”¨äºJavaçš„æ—¥å¿—æ¡†æ¶ã€‚ å¦‚æœä¸Šé¢çš„åˆ—è¡¨çœ‹èµ·æ¥å¾ˆæ··ä¹±ï¼Œè¯·ä¸è¦æ‹…å¿ƒã€‚ ä¸€èˆ¬æ¥è¯´ï¼Œä½ ä¸éœ€è¦æ”¹å˜ä½ çš„æ—¥å¿—ä¾èµ–ï¼ŒSpring Bootçš„é»˜è®¤å€¼å°±å¾ˆå¥½ç”¨ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | µ±Äã°ÑÄãµÄÓ¦ÓÃ³ÌĞò²¿Êğµ½Ò»¸öservletÈİÆ÷»òÓ¦ÓÃ·şÎñÆ÷Ê±£¬ÓÃJava Util Logging APIÖ´ĞĞµÄÈÕÖ¾²»»á±»´«ËÍµ½ÄãµÄÓ¦ÓÃ³ÌĞòµÄÈÕÖ¾ÖĞ¡£ Õâ¿ÉÒÔ·ÀÖ¹ÓÉÈİÆ÷»òÆäËûÒÑ¾­²¿Êğµ½ËüµÄÓ¦ÓÃ³ÌĞòÖ´ĞĞµÄÈÕÖ¾³öÏÖÔÚÄãµÄÓ¦ÓÃ³ÌĞòµÄÈÕÖ¾ÖĞ¡£ |
+|  | å½“ä½ æŠŠä½ çš„åº”ç”¨ç¨‹åºéƒ¨ç½²åˆ°ä¸€ä¸ªservletå®¹å™¨æˆ–åº”ç”¨æœåŠ¡å™¨æ—¶ï¼Œç”¨Java Util Logging APIæ‰§è¡Œçš„æ—¥å¿—ä¸ä¼šè¢«ä¼ é€åˆ°ä½ çš„åº”ç”¨ç¨‹åºçš„æ—¥å¿—ä¸­ã€‚ è¿™å¯ä»¥é˜²æ­¢ç”±å®¹å™¨æˆ–å…¶ä»–å·²ç»éƒ¨ç½²åˆ°å®ƒçš„åº”ç”¨ç¨‹åºæ‰§è¡Œçš„æ—¥å¿—å‡ºç°åœ¨ä½ çš„åº”ç”¨ç¨‹åºçš„æ—¥å¿—ä¸­ã€‚ |
 | --- | --- |
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.logging.log-format)4.1\. ÈÕÖ¾¸ñÊ½
+### [](https://springdoc.cn/spring-boot/features.html#features.logging.log-format)4.1\. æ—¥å¿—æ ¼å¼
 
 
 
-Spring BootµÄÄ¬ÈÏµÄÈÕÖ¾Êä³ö¸ñÊ½ÀàËÆÓÚÏÂÃæµÄÀı×Ó¡£
+Spring Bootçš„é»˜è®¤çš„æ—¥å¿—è¾“å‡ºæ ¼å¼ç±»ä¼¼äºä¸‹é¢çš„ä¾‹å­ã€‚
 
 
 
@@ -58,31 +58,31 @@ Spring BootµÄÄ¬ÈÏµÄÈÕÖ¾Êä³ö¸ñÊ½ÀàËÆÓÚÏÂÃæµÄÀı×Ó¡£
 
 
 
-Êä³öµÄÏîÄ¿ÈçÏÂ¡£
+è¾“å‡ºçš„é¡¹ç›®å¦‚ä¸‹ã€‚
 
 
 
 
 
-*   DateºÍÊ±Time£º¾«È·µ½ºÁÃë£¬Ò×ÓÚÅÅĞò¡£
+*   Dateå’Œæ—¶Timeï¼šç²¾ç¡®åˆ°æ¯«ç§’ï¼Œæ˜“äºæ’åºã€‚
 
-*   ÈÕÖ¾¼¶±ğ: `ERROR`, `WARN`, `INFO`, `DEBUG`, »ò `TRACE`.
+*   æ—¥å¿—çº§åˆ«: `ERROR`, `WARN`, `INFO`, `DEBUG`, æˆ– `TRACE`.
 
-*   ½ø³ÌID¡£
+*   è¿›ç¨‹IDã€‚
 
-*   Ò»¸ö `---` ·Ö¸ô·û£¬ÒÔÇø·ÖÊµ¼ÊÈÕÖ¾ĞÅÏ¢µÄ¿ªÊ¼¡£
+*   ä¸€ä¸ª `---` åˆ†éš”ç¬¦ï¼Œä»¥åŒºåˆ†å®é™…æ—¥å¿—ä¿¡æ¯çš„å¼€å§‹ã€‚
 
-*   Ïß³ÌÃû³Æ£º°üº¬ÔÚ·½À¨ºÅÖĞ£¨¶ÔÓÚ¿ØÖÆÌ¨Êä³ö¿ÉÄÜ»á±»½Ø¶Ï£©¡£
+*   çº¿ç¨‹åç§°ï¼šåŒ…å«åœ¨æ–¹æ‹¬å·ä¸­ï¼ˆå¯¹äºæ§åˆ¶å°è¾“å‡ºå¯èƒ½ä¼šè¢«æˆªæ–­ï¼‰ã€‚
 
-*   ¼ÇÂ¼Æ÷Ãû³Æ£ºÕâÍ¨³£ÊÇÔ´ÀàµÄÃû³Æ£¨Í¨³£ÊÇËõĞ´£©¡£
+*   è®°å½•å™¨åç§°ï¼šè¿™é€šå¸¸æ˜¯æºç±»çš„åç§°ï¼ˆé€šå¸¸æ˜¯ç¼©å†™ï¼‰ã€‚
 
-*   ÈÕÖ¾ÏûÏ¢¡£
-
-
+*   æ—¥å¿—æ¶ˆæ¯ã€‚
 
 
 
-|  | LogbackÃ»ÓĞ `FATAL` ¼¶±ğ¡£ Ëü±»Ó³Éäµ½ `ERROR`¡£ |
+
+
+|  | Logbackæ²¡æœ‰ `FATAL` çº§åˆ«ã€‚ å®ƒè¢«æ˜ å°„åˆ° `ERROR`ã€‚ |
 | --- | --- |
 
 
@@ -91,11 +91,11 @@ Spring BootµÄÄ¬ÈÏµÄÈÕÖ¾Êä³ö¸ñÊ½ÀàËÆÓÚÏÂÃæµÄÀı×Ó¡£
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.logging.console-output)4.2\. ¿ØÖÆÌ¨Êä³ö
+### [](https://springdoc.cn/spring-boot/features.html#features.logging.console-output)4.2\. æ§åˆ¶å°è¾“å‡º
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬ÈÕÖ¾»áÊä³ö `ERROR`¡¢`WARN` ºÍ `INFO` ¼¶±ğµÄÏûÏ¢µ½¿ØÖÆÌ¨¡£ ÄãÒ²¿ÉÒÔÍ¨¹ıÓÃ `--debug` ±êÖ¾Æô¶¯ÄãµÄÓ¦ÓÃ³ÌĞò£¬À´ÆôÓÃ `debug` Ä£Ê½¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼Œæ—¥å¿—ä¼šè¾“å‡º `ERROR`ã€`WARN` å’Œ `INFO` çº§åˆ«çš„æ¶ˆæ¯åˆ°æ§åˆ¶å°ã€‚ ä½ ä¹Ÿå¯ä»¥é€šè¿‡ç”¨ `--debug` æ ‡å¿—å¯åŠ¨ä½ çš„åº”ç”¨ç¨‹åºï¼Œæ¥å¯ç”¨ `debug` æ¨¡å¼ã€‚
 
 
 
@@ -113,36 +113,36 @@ $ java -jar myapp.jar --debug
 
 
 
-|  | ÄãÒ²¿ÉÒÔÔÚÄãµÄ `application.properties` ÖĞÖ¸¶¨ `debug=true`¡£ |
+|  | ä½ ä¹Ÿå¯ä»¥åœ¨ä½ çš„ `application.properties` ä¸­æŒ‡å®š `debug=true`ã€‚ |
 | --- | --- |
 
 
 
 
 
-µ±debugÄ£Ê½±»ÆôÓÃÊ±£¬Ò»Ğ©ºËĞÄ¼ÇÂ¼Æ÷£¨Ç¶ÈëÊ½ÈİÆ÷¡¢HibernateºÍSpring Boot£©±»ÅäÖÃÎªÊä³ö¸ü¶àĞÅÏ¢¡£ ÆôÓÃdebugÄ£Ê½²¢²»ÒâÎ¶×Å½«ÄãµÄÓ¦ÓÃ³ÌĞòÅäÖÃÎªÒÔ `DEBUG` ¼¶±ğ¼ÇÂ¼ËùÓĞĞÅÏ¢¡£
+å½“debugæ¨¡å¼è¢«å¯ç”¨æ—¶ï¼Œä¸€äº›æ ¸å¿ƒè®°å½•å™¨ï¼ˆåµŒå…¥å¼å®¹å™¨ã€Hibernateå’ŒSpring Bootï¼‰è¢«é…ç½®ä¸ºè¾“å‡ºæ›´å¤šä¿¡æ¯ã€‚ å¯ç”¨debugæ¨¡å¼å¹¶ä¸æ„å‘³ç€å°†ä½ çš„åº”ç”¨ç¨‹åºé…ç½®ä¸ºä»¥ `DEBUG` çº§åˆ«è®°å½•æ‰€æœ‰ä¿¡æ¯ã€‚
 
 
 
 
 
-ÁíÍâ£¬Äã¿ÉÒÔÍ¨¹ıÔÚÆô¶¯Ó¦ÓÃ³ÌĞòÊ±Ê¹ÓÃ `--trace` ±êÖ¾£¨»òÔÚ `application.properties` ÖĞÊ¹ÓÃ `trace=true` £©À´ÆôÓÃ ¡°trace¡± Ä£Ê½¡£ ÕâÑù×ö¿ÉÒÔ¶ÔÒ»Ğ©ºËĞÄ¼ÇÂ¼Æ÷£¨Ç¶ÈëÊ½ÈİÆ÷¡¢Hibernate schemaÉú³ÉºÍÕû¸öSpring×éºÏ£©½øĞĞ¸ú×Ù¼ÇÂ¼¡£
+å¦å¤–ï¼Œä½ å¯ä»¥é€šè¿‡åœ¨å¯åŠ¨åº”ç”¨ç¨‹åºæ—¶ä½¿ç”¨ `--trace` æ ‡å¿—ï¼ˆæˆ–åœ¨ `application.properties` ä¸­ä½¿ç”¨ `trace=true` ï¼‰æ¥å¯ç”¨ â€œtraceâ€ æ¨¡å¼ã€‚ è¿™æ ·åšå¯ä»¥å¯¹ä¸€äº›æ ¸å¿ƒè®°å½•å™¨ï¼ˆåµŒå…¥å¼å®¹å™¨ã€Hibernate schemaç”Ÿæˆå’Œæ•´ä¸ªSpringç»„åˆï¼‰è¿›è¡Œè·Ÿè¸ªè®°å½•ã€‚
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.logging.console-output.color-coded)4.2.1\. ²ÊÉ«±àÂëµÄÊä³ö
+#### [](https://springdoc.cn/spring-boot/features.html#features.logging.console-output.color-coded)4.2.1\. å½©è‰²ç¼–ç çš„è¾“å‡º
 
 
 
-Èç¹ûÄãµÄÖÕ¶ËÖ§³ÖANSI£¬¾Í»áÊ¹ÓÃ²ÊÉ«Êä³öÀ´°ïÖúÔÄ¶Á¡£ Äã¿ÉÒÔ½« `spring.output.ansi.enabled` ÉèÖÃÎª [Ö§³ÖµÄÖµ](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/api/org/springframework/boot/ansi/AnsiOutput.Enabled.html)£¬ÒÔ¸²¸Ç×Ô¶¯¼ì²â¡£
+å¦‚æœä½ çš„ç»ˆç«¯æ”¯æŒANSIï¼Œå°±ä¼šä½¿ç”¨å½©è‰²è¾“å‡ºæ¥å¸®åŠ©é˜…è¯»ã€‚ ä½ å¯ä»¥å°† `spring.output.ansi.enabled` è®¾ç½®ä¸º [æ”¯æŒçš„å€¼](https://docs.spring.io/spring-boot/docs/3.1.0-SNAPSHOT/api/org/springframework/boot/ansi/AnsiOutput.Enabled.html)ï¼Œä»¥è¦†ç›–è‡ªåŠ¨æ£€æµ‹ã€‚
 
 
 
 
 
-ÑÕÉ«±àÂëÊÇÍ¨¹ıÊ¹ÓÃ `%clr` ×ª»»¹Ø¼ü×ÖÀ´ÅäÖÃµÄ¡£ ÔÚÆä×î¼òµ¥µÄĞÎÊ½ÖĞ£¬×ª»»Æ÷¸ù¾İÈÕÖ¾¼¶±ğ¶ÔÊä³ö½øĞĞ×ÅÉ«£¬ÈçÏÂÃæµÄÀı×ÓÖĞËùÊ¾¡£
+é¢œè‰²ç¼–ç æ˜¯é€šè¿‡ä½¿ç”¨ `%clr` è½¬æ¢å…³é”®å­—æ¥é…ç½®çš„ã€‚ åœ¨å…¶æœ€ç®€å•çš„å½¢å¼ä¸­ï¼Œè½¬æ¢å™¨æ ¹æ®æ—¥å¿—çº§åˆ«å¯¹è¾“å‡ºè¿›è¡Œç€è‰²ï¼Œå¦‚ä¸‹é¢çš„ä¾‹å­ä¸­æ‰€ç¤ºã€‚
 
 
 
@@ -160,23 +160,23 @@ $ java -jar myapp.jar --debug
 
 
 
-ÏÂ±íÃèÊöÁËÈÕÖ¾¼¶±ğÓëÑÕÉ«µÄÓ³Éä¹ØÏµ¡£
+ä¸‹è¡¨æè¿°äº†æ—¥å¿—çº§åˆ«ä¸é¢œè‰²çš„æ˜ å°„å…³ç³»ã€‚
 
 
 
 <colgroup><col><col></colgroup>
-| ÈÕÖ¾¼¶±ğ | ÑÕÉ« |
+| æ—¥å¿—çº§åˆ« | é¢œè‰² |
 | --- | --- |
-| `FATAL` | ºì |
-| `ERROR` | ºì |
-| `WARN` | »Æ |
-| `INFO` | ÂÌ |
-| `DEBUG` | ÂÌ |
-| `TRACE` | ÂÌ |
+| `FATAL` | çº¢ |
+| `ERROR` | çº¢ |
+| `WARN` | é»„ |
+| `INFO` | ç»¿ |
+| `DEBUG` | ç»¿ |
+| `TRACE` | ç»¿ |
 
 
 
-ÁíÍâ£¬ÄãÒ²¿ÉÒÔÍ¨¹ıÎª×ª»»Ìá¹©Ò»¸öÑ¡ÏîÀ´Ö¸¶¨Ó¦¸ÃÊ¹ÓÃµÄÑÕÉ«»òÑùÊ½¡£ ÀıÈç£¬ÒªÊ¹ÎÄ±¾Îª»ÆÉ«£¬ÇëÊ¹ÓÃÒÔÏÂÉèÖÃ¡£
+å¦å¤–ï¼Œä½ ä¹Ÿå¯ä»¥é€šè¿‡ä¸ºè½¬æ¢æä¾›ä¸€ä¸ªé€‰é¡¹æ¥æŒ‡å®šåº”è¯¥ä½¿ç”¨çš„é¢œè‰²æˆ–æ ·å¼ã€‚ ä¾‹å¦‚ï¼Œè¦ä½¿æ–‡æœ¬ä¸ºé»„è‰²ï¼Œè¯·ä½¿ç”¨ä»¥ä¸‹è®¾ç½®ã€‚
 
 
 
@@ -194,7 +194,7 @@ $ java -jar myapp.jar --debug
 
 
 
-Ö§³ÖÒÔÏÂÑÕÉ«ºÍÑùÊ½¡£
+æ”¯æŒä»¥ä¸‹é¢œè‰²å’Œæ ·å¼ã€‚
 
 
 
@@ -222,36 +222,36 @@ $ java -jar myapp.jar --debug
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.logging.file-output)4.3\. Êä³öµ½ÎÄ¼ş
+### [](https://springdoc.cn/spring-boot/features.html#features.logging.file-output)4.3\. è¾“å‡ºåˆ°æ–‡ä»¶
 
 
 
-Ä¬ÈÏÇé¿öÏÂ£¬Spring BootÖ»Ïò¿ØÖÆÌ¨¼ÇÂ¼ÈÕÖ¾£¬²»Ğ´ÈÕÖ¾ÎÄ¼ş¡£ Èç¹ûÄãÏëÔÚ¿ØÖÆÌ¨Êä³öÖ®ÍâĞ´ÈÕÖ¾ÎÄ¼ş£¬ÄãĞèÒªÉèÖÃ `logging.file.name` »ò `logging.file.path` ÊôĞÔ£¨ÀıÈç£¬ÔÚÄãµÄ `application.properties` ÖĞ£©¡£
+é»˜è®¤æƒ…å†µä¸‹ï¼ŒSpring Bootåªå‘æ§åˆ¶å°è®°å½•æ—¥å¿—ï¼Œä¸å†™æ—¥å¿—æ–‡ä»¶ã€‚ å¦‚æœä½ æƒ³åœ¨æ§åˆ¶å°è¾“å‡ºä¹‹å¤–å†™æ—¥å¿—æ–‡ä»¶ï¼Œä½ éœ€è¦è®¾ç½® `logging.file.name` æˆ– `logging.file.path` å±æ€§ï¼ˆä¾‹å¦‚ï¼Œåœ¨ä½ çš„ `application.properties` ä¸­ï¼‰ã€‚
 
 
 
 
 
-ÏÂ±íÏÔÊ¾ÁË `logging.*` ÊôĞÔÈçºÎ±»Ò»ÆğÊ¹ÓÃ¡£
+ä¸‹è¡¨æ˜¾ç¤ºäº† `logging.*` å±æ€§å¦‚ä½•è¢«ä¸€èµ·ä½¿ç”¨ã€‚
 
 
 
 <caption>Table 5\. Logging properties</caption><colgroup><col><col><col><col></colgroup>
 | `logging.file.name` | `logging.file.path` | Example | Description |
 | --- | --- | --- | --- |
-| _(none)_ | _(none)_ |  | Ö»ÔÚ¿ØÖÆÌ¨½øĞĞ¼ÇÂ¼¡£ |
-| Ö¸¶¨ÎÄ¼ş | _(none)_ | `my.log` | Ğ´ÈëÖ¸¶¨µÄÈÕÖ¾ÎÄ¼ş¡£ Ãû³Æ¿ÉÒÔÊÇÒ»¸öÈ·ÇĞµÄÎ»ÖÃ£¬Ò²¿ÉÒÔÊÇÓëµ±Ç°Ä¿Â¼µÄÏà¶ÔÎ»ÖÃ¡£ |
-| _(none)_ | Ö¸¶¨Ä¿Â¼ | `/var/log` | ½« `spring.log` Ğ´µ½Ö¸¶¨Ä¿Â¼¡£ Ãû³Æ¿ÉÒÔÊÇÒ»¸öÈ·ÇĞµÄÎ»ÖÃ£¬Ò²¿ÉÒÔÊÇÓëµ±Ç°Ä¿Â¼µÄÏà¶ÔÎ»ÖÃ¡£ |
+| _(none)_ | _(none)_ |  | åªåœ¨æ§åˆ¶å°è¿›è¡Œè®°å½•ã€‚ |
+| æŒ‡å®šæ–‡ä»¶ | _(none)_ | `my.log` | å†™å…¥æŒ‡å®šçš„æ—¥å¿—æ–‡ä»¶ã€‚ åç§°å¯ä»¥æ˜¯ä¸€ä¸ªç¡®åˆ‡çš„ä½ç½®ï¼Œä¹Ÿå¯ä»¥æ˜¯ä¸å½“å‰ç›®å½•çš„ç›¸å¯¹ä½ç½®ã€‚ |
+| _(none)_ | æŒ‡å®šç›®å½• | `/var/log` | å°† `spring.log` å†™åˆ°æŒ‡å®šç›®å½•ã€‚ åç§°å¯ä»¥æ˜¯ä¸€ä¸ªç¡®åˆ‡çš„ä½ç½®ï¼Œä¹Ÿå¯ä»¥æ˜¯ä¸å½“å‰ç›®å½•çš„ç›¸å¯¹ä½ç½®ã€‚ |
 
 
 
-ÈÕÖ¾ÎÄ¼şÔÚ´ïµ½10MBÊ±¾Í»áÂÖ»»£¬Óë¿ØÖÆÌ¨Êä³öÒ»Ñù£¬Ä¬ÈÏÇé¿öÏÂ»á¼ÇÂ¼ `ERROR` ¡¢`WARN` ¼¶ºÍ `INFO` ¼¶±ğµÄĞÅÏ¢¡£
+æ—¥å¿—æ–‡ä»¶åœ¨è¾¾åˆ°10MBæ—¶å°±ä¼šè½®æ¢ï¼Œä¸æ§åˆ¶å°è¾“å‡ºä¸€æ ·ï¼Œé»˜è®¤æƒ…å†µä¸‹ä¼šè®°å½• `ERROR` ã€`WARN` çº§å’Œ `INFO` çº§åˆ«çš„ä¿¡æ¯ã€‚
 
 
 
 
 
-|  | ÈÕÖ¾ÊôĞÔ¶ÀÁ¢ÓÚÊµ¼ÊµÄÈÕÖ¾»ù´¡ÉèÊ©¡£ Òò´Ë£¬ÌØ¶¨µÄÅäÖÃÊôĞÔ£¨ÈçLogbackµÄ `logback.configurationFile` £©²»ÓÉspring Boot¹ÜÀí¡£ |
+|  | æ—¥å¿—å±æ€§ç‹¬ç«‹äºå®é™…çš„æ—¥å¿—åŸºç¡€è®¾æ–½ã€‚ å› æ­¤ï¼Œç‰¹å®šçš„é…ç½®å±æ€§ï¼ˆå¦‚Logbackçš„ `logback.configurationFile` ï¼‰ä¸ç”±spring Bootç®¡ç†ã€‚ |
 | --- | --- |
 
 
@@ -260,44 +260,44 @@ $ java -jar myapp.jar --debug
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.logging.file-rotation)4.4\. ÎÄ¼şÂÖ»»£¨¹ö¶¯ÈÕÖ¾£©
+### [](https://springdoc.cn/spring-boot/features.html#features.logging.file-rotation)4.4\. æ–‡ä»¶è½®æ¢ï¼ˆæ»šåŠ¨æ—¥å¿—ï¼‰
 
 
 
-Èç¹ûÄãÊ¹ÓÃLogback£¬¿ÉÒÔÊ¹ÓÃÄãµÄ `application.properties` »ò `application.yaml` ÎÄ¼şÀ´Î¢µ÷ÈÕÖ¾ÂÖ»»ÉèÖÃ¡£ ¶ÔÓÚËùÓĞÆäËûµÄÈÕÖ¾ÏµÍ³£¬Äã½«ĞèÒª×Ô¼ºÖ±½ÓÅäÖÃÂÖ»»ÉèÖÃ£¨ÀıÈç£¬Èç¹ûÄãÊ¹ÓÃLog4J2£¬ÄÇÃ´Äã¿ÉÒÔÌí¼ÓÒ»¸ö `log4j2.xml` »ò `log4j2-spring.xml` ÎÄ¼ş£©¡£
+å¦‚æœä½ ä½¿ç”¨Logbackï¼Œå¯ä»¥ä½¿ç”¨ä½ çš„ `application.properties` æˆ– `application.yaml` æ–‡ä»¶æ¥å¾®è°ƒæ—¥å¿—è½®æ¢è®¾ç½®ã€‚ å¯¹äºæ‰€æœ‰å…¶ä»–çš„æ—¥å¿—ç³»ç»Ÿï¼Œä½ å°†éœ€è¦è‡ªå·±ç›´æ¥é…ç½®è½®æ¢è®¾ç½®ï¼ˆä¾‹å¦‚ï¼Œå¦‚æœä½ ä½¿ç”¨Log4J2ï¼Œé‚£ä¹ˆä½ å¯ä»¥æ·»åŠ ä¸€ä¸ª `log4j2.xml` æˆ– `log4j2-spring.xml` æ–‡ä»¶ï¼‰ã€‚
 
 
 
 
 
-Ö§³ÖÒÔÏÂÂÖ»»²ßÂÔÊôĞÔ¡£
+æ”¯æŒä»¥ä¸‹è½®æ¢ç­–ç•¥å±æ€§ã€‚
 
 
 
 <colgroup><col><col></colgroup>
-| ÊôĞÔ | ËµÃ÷ |
+| å±æ€§ | è¯´æ˜ |
 | --- | --- |
-| `logging.logback.rollingpolicy.file-name-pattern` | ÓÃÓÚ´´½¨ÈÕÖ¾¹éµµµÄÎÄ¼şÃûÄ£Ê½¡£ |
-| `logging.logback.rollingpolicy.clean-history-on-start` | Ó¦ÓÃ³ÌĞòÆô¶¯Ê±£¬ÊÇ·ñĞĞÈÕÖ¾¹éµµÇåÀí¡£ |
-| `logging.logback.rollingpolicy.max-file-size` | ÈÕÖ¾ÎÄ¼ş¹éµµÇ°µÄ×î´ó³ß´ç£¨ÎÄ¼ş×î´óÌå»ı£¬´ïµ½Õâ¸öÌå»ı¾Í»á¹éµµ£©¡£ |
-| `logging.logback.rollingpolicy.total-size-cap` | ÈÕÖ¾µµ°¸ÔÚ±»É¾³ıÇ°µÄ×î´ó³ß´ç£¨¹éµµÎÄ¼ş×î´óÕ¼ÓÃ´óĞ¡£¬³¬¹ıÕâ¸ö´óĞ¡ºó»á±»É¾³ı£©¡£ |
-| `logging.logback.rollingpolicy.max-history` | Òª±£ÁôµÄ¹éµµÈÕÖ¾ÎÄ¼şµÄ×î´óÊıÁ¿£¨Ä¬ÈÏÎª7£©¡£ |
+| `logging.logback.rollingpolicy.file-name-pattern` | ç”¨äºåˆ›å»ºæ—¥å¿—å½’æ¡£çš„æ–‡ä»¶åæ¨¡å¼ã€‚ |
+| `logging.logback.rollingpolicy.clean-history-on-start` | åº”ç”¨ç¨‹åºå¯åŠ¨æ—¶ï¼Œæ˜¯å¦è¡Œæ—¥å¿—å½’æ¡£æ¸…ç†ã€‚ |
+| `logging.logback.rollingpolicy.max-file-size` | æ—¥å¿—æ–‡ä»¶å½’æ¡£å‰çš„æœ€å¤§å°ºå¯¸ï¼ˆæ–‡ä»¶æœ€å¤§ä½“ç§¯ï¼Œè¾¾åˆ°è¿™ä¸ªä½“ç§¯å°±ä¼šå½’æ¡£ï¼‰ã€‚ |
+| `logging.logback.rollingpolicy.total-size-cap` | æ—¥å¿—æ¡£æ¡ˆåœ¨è¢«åˆ é™¤å‰çš„æœ€å¤§å°ºå¯¸ï¼ˆå½’æ¡£æ–‡ä»¶æœ€å¤§å ç”¨å¤§å°ï¼Œè¶…è¿‡è¿™ä¸ªå¤§å°åä¼šè¢«åˆ é™¤ï¼‰ã€‚ |
+| `logging.logback.rollingpolicy.max-history` | è¦ä¿ç•™çš„å½’æ¡£æ—¥å¿—æ–‡ä»¶çš„æœ€å¤§æ•°é‡ï¼ˆé»˜è®¤ä¸º7ï¼‰ã€‚ |
 
 
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.logging.log-levels)4.5\. ÈÕÖ¾¼¶±ğ
+### [](https://springdoc.cn/spring-boot/features.html#features.logging.log-levels)4.5\. æ—¥å¿—çº§åˆ«
 
 
 
-ËùÓĞÖ§³ÖµÄÈÕÖ¾ÏµÍ³¶¼¿ÉÒÔÍ¨¹ıÊ¹ÓÃ `logging.level.<logger-name>=<level>` ÔÚSpringµÄ `Environment`£¨ÀıÈç£¬ÔÚ `application.properties`£©ÖĞÉèÖÃÈÕÖ¾¼¶±ğ£¬ÆäÖĞ `level` ÊÇ `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`, »ò `OFF` Ö®Ò»¡£ `root` ¼ÇÂ¼Æ÷£¨logger£©µÄ¼¶±ğ¿ÉÒÔÍ¨¹ı `logging.level.root` À´ÅäÖÃ¡£
+æ‰€æœ‰æ”¯æŒçš„æ—¥å¿—ç³»ç»Ÿéƒ½å¯ä»¥é€šè¿‡ä½¿ç”¨ `logging.level.<logger-name>=<level>` åœ¨Springçš„ `Environment`ï¼ˆä¾‹å¦‚ï¼Œåœ¨ `application.properties`ï¼‰ä¸­è®¾ç½®æ—¥å¿—çº§åˆ«ï¼Œå…¶ä¸­ `level` æ˜¯ `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`, æˆ– `OFF` ä¹‹ä¸€ã€‚ `root` è®°å½•å™¨ï¼ˆloggerï¼‰çš„çº§åˆ«å¯ä»¥é€šè¿‡ `logging.level.root` æ¥é…ç½®ã€‚
 
 
 
 
 
-ÏÂÃæµÄÀı×ÓÏÔÊ¾ÁË `application.properties` ÖĞÇ±ÔÚµÄÈÕÖ¾ÉèÖÃ¡£
+ä¸‹é¢çš„ä¾‹å­æ˜¾ç¤ºäº† `application.properties` ä¸­æ½œåœ¨çš„æ—¥å¿—è®¾ç½®ã€‚
 
 
 
@@ -325,13 +325,13 @@ logging.level.org.hibernate=error
 
 
 
-Ò²¿ÉÒÔÊ¹ÓÃ»·¾³±äÁ¿À´ÉèÖÃÈÕÖ¾¼¶±ğ¡£ ÀıÈç£¬`LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB=DEBUG` ½«ÉèÖÃ `org.springframework.web` Îª `DEBUG` ¡£
+ä¹Ÿå¯ä»¥ä½¿ç”¨ç¯å¢ƒå˜é‡æ¥è®¾ç½®æ—¥å¿—çº§åˆ«ã€‚ ä¾‹å¦‚ï¼Œ`LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB=DEBUG` å°†è®¾ç½® `org.springframework.web` ä¸º `DEBUG` ã€‚
 
 
 
 
 
-|  | ÉÏÊö·½·¨Ö»ÊÊÓÃÓÚ°ü¼¶ÈÕÖ¾¡£ ÓÉÓÚ¿íËÉ°ó¶¨×ÜÊÇ½«»·¾³±äÁ¿×ª»»ÎªĞ¡Ğ´×ÖÄ¸£¬ËùÒÔ²»¿ÉÄÜÓÃÕâÖÖ·½Ê½Îªµ¥¸öÀàÅäÖÃÈÕÖ¾¡£ Èç¹ûÄãĞèÒªÎªÒ»¸öÀàÅäÖÃÈÕÖ¾£¬Äã¿ÉÒÔÊ¹ÓÃ[`SPRING_APPLICATION_JSON`](https://springdoc.cn/spring-boot/features.html#features.external-config.application-json)±äÁ¿¡£ |
+|  | ä¸Šè¿°æ–¹æ³•åªé€‚ç”¨äºåŒ…çº§æ—¥å¿—ã€‚ ç”±äºå®½æ¾ç»‘å®šæ€»æ˜¯å°†ç¯å¢ƒå˜é‡è½¬æ¢ä¸ºå°å†™å­—æ¯ï¼Œæ‰€ä»¥ä¸å¯èƒ½ç”¨è¿™ç§æ–¹å¼ä¸ºå•ä¸ªç±»é…ç½®æ—¥å¿—ã€‚ å¦‚æœä½ éœ€è¦ä¸ºä¸€ä¸ªç±»é…ç½®æ—¥å¿—ï¼Œä½ å¯ä»¥ä½¿ç”¨[`SPRING_APPLICATION_JSON`](https://springdoc.cn/spring-boot/features.html#features.external-config.application-json)å˜é‡ã€‚ |
 | --- | --- |
 
 
@@ -340,17 +340,17 @@ logging.level.org.hibernate=error
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.logging.log-groups)4.6\. ÈÕÖ¾×é£¨Log Groups£©
+### [](https://springdoc.cn/spring-boot/features.html#features.logging.log-groups)4.6\. æ—¥å¿—ç»„ï¼ˆLog Groupsï¼‰
 
 
 
-ÄÜ¹»½«Ïà¹ØµÄÈÕÖ¾¼ÇÂ¼Æ÷·Ö×é£¬ÒÔ±ãÍ¬Ê±¶ÔËüÃÇ½øĞĞÅäÖÃ£¬ÕâÍ¨³£ºÜÓĞÓÃ¡£ ÀıÈç£¬Äã¿ÉÄÜ¾­³£¸Ä±ä _ËùÓĞ_ ÓëTomcatÏà¹ØµÄ¼ÇÂ¼Æ÷µÄ¼ÇÂ¼¼¶±ğ£¬µ«Äã²»ÈİÒ×¼Ç×¡×î¸ß¼¶±ğµÄ°ü¡£
+èƒ½å¤Ÿå°†ç›¸å…³çš„æ—¥å¿—è®°å½•å™¨åˆ†ç»„ï¼Œä»¥ä¾¿åŒæ—¶å¯¹å®ƒä»¬è¿›è¡Œé…ç½®ï¼Œè¿™é€šå¸¸å¾ˆæœ‰ç”¨ã€‚ ä¾‹å¦‚ï¼Œä½ å¯èƒ½ç»å¸¸æ”¹å˜ _æ‰€æœ‰_ ä¸Tomcatç›¸å…³çš„è®°å½•å™¨çš„è®°å½•çº§åˆ«ï¼Œä½†ä½ ä¸å®¹æ˜“è®°ä½æœ€é«˜çº§åˆ«çš„åŒ…ã€‚
 
 
 
 
 
-ÎªÁË°ïÖú½â¾öÕâ¸öÎÊÌâ£¬Spring BootÔÊĞíÄãÔÚSpring `Environment` ÖĞ¶¨ÒåÈÕÖ¾×é¡£ ÀıÈç£¬Äã¿ÉÒÔÍ¨¹ıÔÚ `application.properties` ÖĞ¼ÓÈë ¡°tomcat¡± group À´¶¨ÒåËü¡£
+ä¸ºäº†å¸®åŠ©è§£å†³è¿™ä¸ªé—®é¢˜ï¼ŒSpring Bootå…è®¸ä½ åœ¨Spring `Environment` ä¸­å®šä¹‰æ—¥å¿—ç»„ã€‚ ä¾‹å¦‚ï¼Œä½ å¯ä»¥é€šè¿‡åœ¨ `application.properties` ä¸­åŠ å…¥ â€œtomcatâ€ group æ¥å®šä¹‰å®ƒã€‚
 
 
 
@@ -377,7 +377,7 @@ logging.group.tomcat=org.apache.catalina,org.apache.coyote,org.apache.tomcat
 
 
 
-Ò»µ©¶¨ÒåºÃºó£¬¾Í¿ÉÒÔÓÃÒ»ĞĞ´úÂëÀ´¸Ä±ä×éÖĞËùÓĞloggerµÄ¼¶±ğ¡£
+ä¸€æ—¦å®šä¹‰å¥½åï¼Œå°±å¯ä»¥ç”¨ä¸€è¡Œä»£ç æ¥æ”¹å˜ç»„ä¸­æ‰€æœ‰loggerçš„çº§åˆ«ã€‚
 
 
 
@@ -404,12 +404,12 @@ logging.level.tomcat=trace
 
 
 
-Spring Boot°üÀ¨ÒÔÏÂÔ¤¶¨ÒåµÄÈÕÖ¾×é£¬¿ÉÒÔ¿ªÏä¼´ÓÃ¡£
+Spring BootåŒ…æ‹¬ä»¥ä¸‹é¢„å®šä¹‰çš„æ—¥å¿—ç»„ï¼Œå¯ä»¥å¼€ç®±å³ç”¨ã€‚
 
 
 
 <colgroup><col><col></colgroup>
-| ×éÃû | ×éÖĞµÄlogger |
+| ç»„å | ç»„ä¸­çš„logger |
 | --- | --- |
 | web | `org.springframework.core.codec`, `org.springframework.http`, `org.springframework.web`, `org.springframework.boot.actuate.endpoint.web`, `org.springframework.boot.web.servlet.ServletContextInitializerBeans` |
 | sql | `org.springframework.jdbc.core`, `org.hibernate.SQL`, `org.jooq.tools.LoggerListener` |
@@ -418,11 +418,11 @@ Spring Boot°üÀ¨ÒÔÏÂÔ¤¶¨ÒåµÄÈÕÖ¾×é£¬¿ÉÒÔ¿ªÏä¼´ÓÃ¡£
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.logging.shutdown-hook)4.7\. Ê¹ÓÃÈÕÖ¾ Shutdown Hook
+### [](https://springdoc.cn/spring-boot/features.html#features.logging.shutdown-hook)4.7\. ä½¿ç”¨æ—¥å¿— Shutdown Hook
 
 
 
-ÎªÁËÔÚÄãµÄÓ¦ÓÃ³ÌĞòÖÕÖ¹Ê±ÊÍ·ÅÈÕÖ¾×ÊÔ´£¬ÎÒÃÇÌá¹©ÁËÒ»¸öShutdown Hook£¬Ëü½«ÔÚJVMÍË³öÊ±´¥·¢ÈÕÖ¾ÏµÍ³ÇåÀí¡£ ³ı·ÇÄãµÄÓ¦ÓÃ³ÌĞòÊÇÒÔwarÎÄ¼şµÄĞÎÊ½²¿ÊğµÄ£¬·ñÔòÕâ¸öShutdown Hook»á×Ô¶¯×¢²á¡£ Èç¹ûÄãµÄÓ¦ÓÃ³ÌĞòÓĞ¸´ÔÓµÄÉÏÏÂÎÄ²ã´Î½á¹¹£¬Shutdown Hook¿ÉÄÜÎŞ·¨Âú×ãÄãµÄĞèÇó¡£ Èç¹û²»ÄÜ£¬Çë½ûÓÃ¹Ø»ú¹³×Ó£¬²¢ÑĞ¾¿µ×²ãÈÕÖ¾ÏµÍ³Ö±½ÓÌá¹©µÄÑ¡Ïî¡£ ÀıÈç£¬LogbackÌá¹©ÁË [context selectors](https://logback.qos.ch/manual/loggingSeparation.html)£¬ÔÊĞíÃ¿¸ö¼ÇÂ¼Æ÷ÔÚËü×Ô¼ºµÄÉÏÏÂÎÄÖĞ±»´´½¨¡£ Äã¿ÉÒÔÊ¹ÓÃ `logging.register-shutdown-hook` ÊôĞÔÀ´½ûÓÃShutdown Hook¡£ ½«ÆäÉèÖÃÎª `false` ½«½ûÓÃ×¢²á¡£ Äã¿ÉÒÔÔÚÄãµÄ `application.properties` »ò `application.yaml` ÎÄ¼şÖĞÉèÖÃ¸ÃÊôĞÔ¡£
+ä¸ºäº†åœ¨ä½ çš„åº”ç”¨ç¨‹åºç»ˆæ­¢æ—¶é‡Šæ”¾æ—¥å¿—èµ„æºï¼Œæˆ‘ä»¬æä¾›äº†ä¸€ä¸ªShutdown Hookï¼Œå®ƒå°†åœ¨JVMé€€å‡ºæ—¶è§¦å‘æ—¥å¿—ç³»ç»Ÿæ¸…ç†ã€‚ é™¤éä½ çš„åº”ç”¨ç¨‹åºæ˜¯ä»¥waræ–‡ä»¶çš„å½¢å¼éƒ¨ç½²çš„ï¼Œå¦åˆ™è¿™ä¸ªShutdown Hookä¼šè‡ªåŠ¨æ³¨å†Œã€‚ å¦‚æœä½ çš„åº”ç”¨ç¨‹åºæœ‰å¤æ‚çš„ä¸Šä¸‹æ–‡å±‚æ¬¡ç»“æ„ï¼ŒShutdown Hookå¯èƒ½æ— æ³•æ»¡è¶³ä½ çš„éœ€æ±‚ã€‚ å¦‚æœä¸èƒ½ï¼Œè¯·ç¦ç”¨å…³æœºé’©å­ï¼Œå¹¶ç ”ç©¶åº•å±‚æ—¥å¿—ç³»ç»Ÿç›´æ¥æä¾›çš„é€‰é¡¹ã€‚ ä¾‹å¦‚ï¼ŒLogbackæä¾›äº† [context selectors](https://logback.qos.ch/manual/loggingSeparation.html)ï¼Œå…è®¸æ¯ä¸ªè®°å½•å™¨åœ¨å®ƒè‡ªå·±çš„ä¸Šä¸‹æ–‡ä¸­è¢«åˆ›å»ºã€‚ ä½ å¯ä»¥ä½¿ç”¨ `logging.register-shutdown-hook` å±æ€§æ¥ç¦ç”¨Shutdown Hookã€‚ å°†å…¶è®¾ç½®ä¸º `false` å°†ç¦ç”¨æ³¨å†Œã€‚ ä½ å¯ä»¥åœ¨ä½ çš„ `application.properties` æˆ– `application.yaml` æ–‡ä»¶ä¸­è®¾ç½®è¯¥å±æ€§ã€‚
 
 
 
@@ -451,92 +451,92 @@ logging.register-shutdown-hook=false
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.logging.custom-log-configuration)4.8\. ×Ô¶¨ÒåÈÕÖ¾ÅäÖÃ
+### [](https://springdoc.cn/spring-boot/features.html#features.logging.custom-log-configuration)4.8\. è‡ªå®šä¹‰æ—¥å¿—é…ç½®
 
 
 
-¸÷ÖÖÈÕÖ¾ÏµÍ³¿ÉÒÔÍ¨¹ıÔÚclasspathÉÏ°üº¬ÊÊµ±µÄ¿âÀ´¼¤»î£¬²¢ÇÒ¿ÉÒÔÍ¨¹ıÔÚclasspathµÄ¸ùÄ¿Â¼ÏÂ»òÔÚ Spring `Environment` ÊôĞÔÖ¸¶¨µÄÎ»ÖÃÌá¹©Ò»¸öºÏÊÊµÄÅäÖÃÎÄ¼şÀ´½øÒ»²½¶¨ÖÆ£º `logging.config`¡£
-
-
-
-
-
-Äú¿ÉÒÔÍ¨¹ıÊ¹ÓÃ `org.springframework.boot.logging.LoggingSystem` ÏµÍ³ÊôĞÔ£¬Ç¿ÖÆSpring BootÊ¹ÓÃÌØ¶¨µÄÈÕÖ¾ÏµÍ³¡£ ¸ÃÖµÓ¦¸ÃÊÇ `LoggingSystem` ÊµÏÖµÄÈ«ÀàÃû¡£ ÄãÒ²¿ÉÒÔÍ¨¹ıÊ¹ÓÃ `none` µÄÖµÀ´ÍêÈ«½ûÓÃSpring BootµÄÈÕÖ¾ÅäÖÃ¡£
+å„ç§æ—¥å¿—ç³»ç»Ÿå¯ä»¥é€šè¿‡åœ¨classpathä¸ŠåŒ…å«é€‚å½“çš„åº“æ¥æ¿€æ´»ï¼Œå¹¶ä¸”å¯ä»¥é€šè¿‡åœ¨classpathçš„æ ¹ç›®å½•ä¸‹æˆ–åœ¨ Spring `Environment` å±æ€§æŒ‡å®šçš„ä½ç½®æä¾›ä¸€ä¸ªåˆé€‚çš„é…ç½®æ–‡ä»¶æ¥è¿›ä¸€æ­¥å®šåˆ¶ï¼š `logging.config`ã€‚
 
 
 
 
 
-|  | SÓÉÓÚÈÕÖ¾ÊÇÔÚ´´½¨ `ApplicationContext` Ö®Ç°³õÊ¼»¯µÄ£¬ËùÒÔ²»¿ÉÄÜ´ÓSpring `@Configuration` ÎÄ¼şÖĞµÄ `@PropertySources` ¿ØÖÆÈÕÖ¾¡£ ¸Ä±äÈÕÖ¾ÏµÍ³»òÍêÈ«Í£ÓÃËüµÄÎ¨Ò»·½·¨ÊÇÍ¨¹ıSystem properties¡£ |
+æ‚¨å¯ä»¥é€šè¿‡ä½¿ç”¨ `org.springframework.boot.logging.LoggingSystem` ç³»ç»Ÿå±æ€§ï¼Œå¼ºåˆ¶Spring Bootä½¿ç”¨ç‰¹å®šçš„æ—¥å¿—ç³»ç»Ÿã€‚ è¯¥å€¼åº”è¯¥æ˜¯ `LoggingSystem` å®ç°çš„å…¨ç±»åã€‚ ä½ ä¹Ÿå¯ä»¥é€šè¿‡ä½¿ç”¨ `none` çš„å€¼æ¥å®Œå…¨ç¦ç”¨Spring Bootçš„æ—¥å¿—é…ç½®ã€‚
+
+
+
+
+
+|  | Sç”±äºæ—¥å¿—æ˜¯åœ¨åˆ›å»º `ApplicationContext` ä¹‹å‰åˆå§‹åŒ–çš„ï¼Œæ‰€ä»¥ä¸å¯èƒ½ä»Spring `@Configuration` æ–‡ä»¶ä¸­çš„ `@PropertySources` æ§åˆ¶æ—¥å¿—ã€‚ æ”¹å˜æ—¥å¿—ç³»ç»Ÿæˆ–å®Œå…¨åœç”¨å®ƒçš„å”¯ä¸€æ–¹æ³•æ˜¯é€šè¿‡System propertiesã€‚ |
 | --- | --- |
 
 
 
 
 
-¸ù¾İÄãµÄÈÕÖ¾ÏµÍ³£¬»á¼ÓÔØÒÔÏÂÎÄ¼ş¡£
+æ ¹æ®ä½ çš„æ—¥å¿—ç³»ç»Ÿï¼Œä¼šåŠ è½½ä»¥ä¸‹æ–‡ä»¶ã€‚
 
 
 
 <colgroup><col><col></colgroup>
-| ÈÕÖ¾ÏµÍ³ | ÅäÖÃÎÄ¼ş |
+| æ—¥å¿—ç³»ç»Ÿ | é…ç½®æ–‡ä»¶ |
 | --- | --- |
-| Logback | `logback-spring.xml`, `logback-spring.groovy`, `logback.xml` »òÕß `logback.groovy` |
-| Log4j2 | `log4j2-spring.xml` »òÕß `log4j2.xml` |
+| Logback | `logback-spring.xml`, `logback-spring.groovy`, `logback.xml` æˆ–è€… `logback.groovy` |
+| Log4j2 | `log4j2-spring.xml` æˆ–è€… `log4j2.xml` |
 | JDK (Java Util Logging) | `logging.properties` |
 
 
 
-|  | ÔÚ¿ÉÄÜµÄÇé¿öÏÂ£¬ÎÒÃÇ½¨ÒéÄãÊ¹ÓÃ `-spring` ±äÌåÀ´½øĞĞÈÕÖ¾ÅäÖÃ£¨ÀıÈç£¬ `logback-spring.xml` ¶ø²»ÊÇ `logback.xml` £©¡£ Èç¹ûÄãÊ¹ÓÃ±ê×¼ÅäÖÃÎ»ÖÃ£¬Spring²»ÄÜÍêÈ«¿ØÖÆÈÕÖ¾³õÊ¼»¯¡£ |
+|  | åœ¨å¯èƒ½çš„æƒ…å†µä¸‹ï¼Œæˆ‘ä»¬å»ºè®®ä½ ä½¿ç”¨ `-spring` å˜ä½“æ¥è¿›è¡Œæ—¥å¿—é…ç½®ï¼ˆä¾‹å¦‚ï¼Œ `logback-spring.xml` è€Œä¸æ˜¯ `logback.xml` ï¼‰ã€‚ å¦‚æœä½ ä½¿ç”¨æ ‡å‡†é…ç½®ä½ç½®ï¼ŒSpringä¸èƒ½å®Œå…¨æ§åˆ¶æ—¥å¿—åˆå§‹åŒ–ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | µ±´Ó "¿ÉÖ´ĞĞµÄjar "ÖĞÔËĞĞÊ±£¬Java Util LoggingÓĞÒ»Ğ©ÒÑÖªµÄÀà¼ÓÔØÎÊÌâ£¬»áµ¼ÖÂÎÊÌâ¡£ Èç¹û¿ÉÄÜµÄ»°£¬ÎÒÃÇ½¨ÒéÄãÔÚ´Ó "¿ÉÖ´ĞĞµÄjar" ÖĞÔËĞĞÊ±±ÜÃâÊ¹ÓÃËü¡£ |
+|  | å½“ä» "å¯æ‰§è¡Œçš„jar "ä¸­è¿è¡Œæ—¶ï¼ŒJava Util Loggingæœ‰ä¸€äº›å·²çŸ¥çš„ç±»åŠ è½½é—®é¢˜ï¼Œä¼šå¯¼è‡´é—®é¢˜ã€‚ å¦‚æœå¯èƒ½çš„è¯ï¼Œæˆ‘ä»¬å»ºè®®ä½ åœ¨ä» "å¯æ‰§è¡Œçš„jar" ä¸­è¿è¡Œæ—¶é¿å…ä½¿ç”¨å®ƒã€‚ |
 | --- | --- |
 
 
 
 
 
-ÎªÁË°ïÖú¶¨ÖÆ£¬ÆäËûÒ»Ğ©ÊôĞÔ´ÓSpringµÄ `Environment` ×ªÒÆµ½System properties£¬ÈçÏÂ±íËùÊ¾¡£
+ä¸ºäº†å¸®åŠ©å®šåˆ¶ï¼Œå…¶ä»–ä¸€äº›å±æ€§ä»Springçš„ `Environment` è½¬ç§»åˆ°System propertiesï¼Œå¦‚ä¸‹è¡¨æ‰€ç¤ºã€‚
 
 
 
-| Spring Environment | System Property | ±¸×¢ |
+| Spring Environment | System Property | å¤‡æ³¨ |
 | --- | --- | --- |
-| `logging.exception-conversion-word` | `LOG_EXCEPTION_CONVERSION_WORD` | ¼ÇÂ¼Òì³£Ê±Ê¹ÓÃµÄ×ª»»´Ê¡£ |
-| `logging.file.name` | `LOG_FILE` | Èç¹û¶¨ÒåÁË£¬Ëü½«ÓÃÓÚÄ¬ÈÏµÄÈÕÖ¾ÅäÖÃÖĞ¡£ |
-| `logging.file.path` | `LOG_PATH` | Èç¹û¶¨ÒåÁË£¬Ëü½«ÓÃÓÚÄ¬ÈÏµÄÈÕÖ¾ÅäÖÃÖĞ¡£ |
-| `logging.pattern.console` | `CONSOLE_LOG_PATTERN` | ÔÚ¿ØÖÆÌ¨£¨stdout£©Ê¹ÓÃµÄÈÕÖ¾Êä³öÄ£Ê½¡£ |
-| `logging.pattern.dateformat` | `LOG_DATEFORMAT_PATTERN` | date ¸ñÊ½»¯. |
-| `logging.charset.console` | `CONSOLE_LOG_CHARSET` | ¿ØÖÆÌ¨Êä³öÈÕÖ¾µÄ×Ö·û±àÂë¡£ |
-| `logging.threshold.console` | `CONSOLE_LOG_THRESHOLD` | ÓÃÓÚ¿ØÖÆÌ¨ÈÕÖ¾¼ÇÂ¼µÄÈÕÖ¾¼¶±ğ¡£ |
-| `logging.pattern.file` | `FILE_LOG_PATTERN` | ÒªÔÚÎÄ¼şÖĞÊ¹ÓÃµÄÈÕÖ¾Ä£Ê½£¨Èç¹û `LOG_FILE` ±»ÆôÓÃ£©¡£ |
-| `logging.charset.file` | `FILE_LOG_CHARSET` | ÎÄ¼şÈÕÖ¾µÄ×Ö·û±àÂë£¨Èç¹û `LOG_FILE` ±»ÆôÓÃ£©¡£ |
-| `logging.threshold.file` | `FILE_LOG_THRESHOLD` | ÓÃÓÚÎÄ¼şÈÕÖ¾¼ÇÂ¼µÄÈÕÖ¾¼¶±ğ¡£ |
-| `logging.pattern.level` | `LOG_LEVEL_PATTERN` | äÖÈ¾ÈÕÖ¾¼¶±ğÊ±Ê¹ÓÃµÄ¸ñÊ½£¨Ä¬ÈÏÎª `%5p` £©¡£ |
-| `PID` | `PID` | µ±Ç°µÄ½ø³ÌID |
+| `logging.exception-conversion-word` | `LOG_EXCEPTION_CONVERSION_WORD` | è®°å½•å¼‚å¸¸æ—¶ä½¿ç”¨çš„è½¬æ¢è¯ã€‚ |
+| `logging.file.name` | `LOG_FILE` | å¦‚æœå®šä¹‰äº†ï¼Œå®ƒå°†ç”¨äºé»˜è®¤çš„æ—¥å¿—é…ç½®ä¸­ã€‚ |
+| `logging.file.path` | `LOG_PATH` | å¦‚æœå®šä¹‰äº†ï¼Œå®ƒå°†ç”¨äºé»˜è®¤çš„æ—¥å¿—é…ç½®ä¸­ã€‚ |
+| `logging.pattern.console` | `CONSOLE_LOG_PATTERN` | åœ¨æ§åˆ¶å°ï¼ˆstdoutï¼‰ä½¿ç”¨çš„æ—¥å¿—è¾“å‡ºæ¨¡å¼ã€‚ |
+| `logging.pattern.dateformat` | `LOG_DATEFORMAT_PATTERN` | date æ ¼å¼åŒ–. |
+| `logging.charset.console` | `CONSOLE_LOG_CHARSET` | æ§åˆ¶å°è¾“å‡ºæ—¥å¿—çš„å­—ç¬¦ç¼–ç ã€‚ |
+| `logging.threshold.console` | `CONSOLE_LOG_THRESHOLD` | ç”¨äºæ§åˆ¶å°æ—¥å¿—è®°å½•çš„æ—¥å¿—çº§åˆ«ã€‚ |
+| `logging.pattern.file` | `FILE_LOG_PATTERN` | è¦åœ¨æ–‡ä»¶ä¸­ä½¿ç”¨çš„æ—¥å¿—æ¨¡å¼ï¼ˆå¦‚æœ `LOG_FILE` è¢«å¯ç”¨ï¼‰ã€‚ |
+| `logging.charset.file` | `FILE_LOG_CHARSET` | æ–‡ä»¶æ—¥å¿—çš„å­—ç¬¦ç¼–ç ï¼ˆå¦‚æœ `LOG_FILE` è¢«å¯ç”¨ï¼‰ã€‚ |
+| `logging.threshold.file` | `FILE_LOG_THRESHOLD` | ç”¨äºæ–‡ä»¶æ—¥å¿—è®°å½•çš„æ—¥å¿—çº§åˆ«ã€‚ |
+| `logging.pattern.level` | `LOG_LEVEL_PATTERN` | æ¸²æŸ“æ—¥å¿—çº§åˆ«æ—¶ä½¿ç”¨çš„æ ¼å¼ï¼ˆé»˜è®¤ä¸º `%5p` ï¼‰ã€‚ |
+| `PID` | `PID` | å½“å‰çš„è¿›ç¨‹ID |
 
 
 
-Èç¹ûÄãÊ¹ÓÃLogback£¬ÒÔÏÂÊôĞÔÒ²»á±»×ªÒÆ¡£
+å¦‚æœä½ ä½¿ç”¨Logbackï¼Œä»¥ä¸‹å±æ€§ä¹Ÿä¼šè¢«è½¬ç§»ã€‚
 
 
 
-| Spring Environment | System Property | ±¸×¢ |
+| Spring Environment | System Property | å¤‡æ³¨ |
 | --- | --- | --- |
-| `logging.logback.rollingpolicy.file-name-pattern` | `LOGBACK_ROLLINGPOLICY_FILE_NAME_PATTERN` | ¹ö¶¯ÈÕÖ¾ÎÄ¼şÃûµÄÄ£Ê½£¨Ä¬ÈÏÎª `${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz` £©¡£ |
-| `logging.logback.rollingpolicy.clean-history-on-start` | `LOGBACK_ROLLINGPOLICY_CLEAN_HISTORY_ON_START` | ÊÇ·ñÔÚÆô¶¯Ê±ÇåÀí¹éµµÈÕÖ¾ÎÄ¼ş¡£ |
-| `logging.logback.rollingpolicy.max-file-size` | `LOGBACK_ROLLINGPOLICY_MAX_FILE_SIZE` | ×î´óÈÕÖ¾ÎÄ¼ş´óĞ¡¡£ |
-| `logging.logback.rollingpolicy.total-size-cap` | `LOGBACK_ROLLINGPOLICY_TOTAL_SIZE_CAP` | Òª±£ÁôµÄÈÕÖ¾±¸·İµÄ×Ü´óĞ¡¡£ |
-| `logging.logback.rollingpolicy.max-history` | `LOGBACK_ROLLINGPOLICY_MAX_HISTORY` | Òª±£ÁôµÄ×î´ó¹éµµÈÕÖ¾ÎÄ¼şÊıÁ¿¡£ |
+| `logging.logback.rollingpolicy.file-name-pattern` | `LOGBACK_ROLLINGPOLICY_FILE_NAME_PATTERN` | æ»šåŠ¨æ—¥å¿—æ–‡ä»¶åçš„æ¨¡å¼ï¼ˆé»˜è®¤ä¸º `${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz` ï¼‰ã€‚ |
+| `logging.logback.rollingpolicy.clean-history-on-start` | `LOGBACK_ROLLINGPOLICY_CLEAN_HISTORY_ON_START` | æ˜¯å¦åœ¨å¯åŠ¨æ—¶æ¸…ç†å½’æ¡£æ—¥å¿—æ–‡ä»¶ã€‚ |
+| `logging.logback.rollingpolicy.max-file-size` | `LOGBACK_ROLLINGPOLICY_MAX_FILE_SIZE` | æœ€å¤§æ—¥å¿—æ–‡ä»¶å¤§å°ã€‚ |
+| `logging.logback.rollingpolicy.total-size-cap` | `LOGBACK_ROLLINGPOLICY_TOTAL_SIZE_CAP` | è¦ä¿ç•™çš„æ—¥å¿—å¤‡ä»½çš„æ€»å¤§å°ã€‚ |
+| `logging.logback.rollingpolicy.max-history` | `LOGBACK_ROLLINGPOLICY_MAX_HISTORY` | è¦ä¿ç•™çš„æœ€å¤§å½’æ¡£æ—¥å¿—æ–‡ä»¶æ•°é‡ã€‚ |
 
 
 
-ËùÓĞÖ§³ÖµÄÈÕÖ¾ÏµÍ³ÔÚ½âÎöÆäÅäÖÃÎÄ¼şÊ±¶¼¿ÉÒÔ´Ó System properties ÖĞ»ñÈ¡ÊôĞÔ¡£ Àı×Ó¼û `spring-boot.jar` ÖĞµÄÄ¬ÈÏÅäÖÃ¡£
+æ‰€æœ‰æ”¯æŒçš„æ—¥å¿—ç³»ç»Ÿåœ¨è§£æå…¶é…ç½®æ–‡ä»¶æ—¶éƒ½å¯ä»¥ä» System properties ä¸­è·å–å±æ€§ã€‚ ä¾‹å­è§ `spring-boot.jar` ä¸­çš„é»˜è®¤é…ç½®ã€‚
 
 
 
@@ -552,14 +552,14 @@ logging.register-shutdown-hook=false
 
 
 
-|  | Èç¹ûÄãÏëÔÚÈÕÖ¾ÊôĞÔÖĞÊ¹ÓÃÕ¼Î»·û£¬ÄãÓ¦¸ÃÊ¹ÓÃ[Spring BootµÄÓï·¨](https://springdoc.cn/spring-boot/features.html#features.external-config.files.property-placeholders)¶ø²»ÊÇµ×²ã¿ò¼ÜµÄÓï·¨¡£ ÖµµÃ×¢ÒâµÄÊÇ£¬Èç¹ûÄãÊ¹ÓÃLogback£¬ÄãÓ¦¸ÃÊ¹ÓÃ `:` ×÷ÎªÊôĞÔÃûºÍÆäÄ¬ÈÏÖµÖ®¼äµÄ·Ö¸ô·û£¬¶ø²»ÊÇÊ¹ÓÃ `:-` ¡£ |
+|  | å¦‚æœä½ æƒ³åœ¨æ—¥å¿—å±æ€§ä¸­ä½¿ç”¨å ä½ç¬¦ï¼Œä½ åº”è¯¥ä½¿ç”¨[Spring Bootçš„è¯­æ³•](https://springdoc.cn/spring-boot/features.html#features.external-config.files.property-placeholders)è€Œä¸æ˜¯åº•å±‚æ¡†æ¶çš„è¯­æ³•ã€‚ å€¼å¾—æ³¨æ„çš„æ˜¯ï¼Œå¦‚æœä½ ä½¿ç”¨Logbackï¼Œä½ åº”è¯¥ä½¿ç”¨ `:` ä½œä¸ºå±æ€§åå’Œå…¶é»˜è®¤å€¼ä¹‹é—´çš„åˆ†éš”ç¬¦ï¼Œè€Œä¸æ˜¯ä½¿ç”¨ `:-` ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | Äã¿ÉÒÔÍ¨¹ıÖ»¸²¸Ç `LOG_LEVEL_PATTERN` £¨»òÊ¹ÓÃLogbackµÄ `logging.pattern.level` £©À´ÏòÈÕÖ¾ĞĞÌí¼ÓMDCºÍÆäËûÁÙÊ±ÄÚÈİ¡£ ÀıÈç£¬Èç¹ûÄãÊ¹ÓÃ `logging.pattern.level=user:%X{user} %5p` £¬ÄÇÃ´Ä¬ÈÏµÄÈÕÖ¾¸ñÊ½°üº¬Ò»¸ö "user" µÄMDCÌõÄ¿£¬Èç¹ûËü´æÔÚµÄ»°£¬ÈçÏÂÀıËùÊ¾¡£ 2019-08-30 12:30:04.031 user:someone INFO 22174 --- [  nio-8080-exec-0] demo.ControllerHandling authenticated request  |
+|  | ä½ å¯ä»¥é€šè¿‡åªè¦†ç›– `LOG_LEVEL_PATTERN` ï¼ˆæˆ–ä½¿ç”¨Logbackçš„ `logging.pattern.level` ï¼‰æ¥å‘æ—¥å¿—è¡Œæ·»åŠ MDCå’Œå…¶ä»–ä¸´æ—¶å†…å®¹ã€‚ ä¾‹å¦‚ï¼Œå¦‚æœä½ ä½¿ç”¨ `logging.pattern.level=user:%X{user} %5p` ï¼Œé‚£ä¹ˆé»˜è®¤çš„æ—¥å¿—æ ¼å¼åŒ…å«ä¸€ä¸ª "user" çš„MDCæ¡ç›®ï¼Œå¦‚æœå®ƒå­˜åœ¨çš„è¯ï¼Œå¦‚ä¸‹ä¾‹æ‰€ç¤ºã€‚ 2019-08-30 12:30:04.031 user:someone INFO 22174 --- [  nio-8080-exec-0] demo.ControllerHandling authenticated request  |
 | --- | --- |
 
 
@@ -568,24 +568,24 @@ logging.register-shutdown-hook=false
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.logging.logback-extensions)4.9\. Logback À©Õ¹
+### [](https://springdoc.cn/spring-boot/features.html#features.logging.logback-extensions)4.9\. Logback æ‰©å±•
 
 
 
-Spring Boot°üÀ¨Ò»Ğ©¶ÔLogbackµÄÀ©Õ¹£¬¿ÉÒÔ°ïÖú½øĞĞ¸ß¼¶ÅäÖÃ¡£ Äã¿ÉÒÔÔÚÄãµÄ `logback-spring.xml` ÅäÖÃÎÄ¼şÖĞÊ¹ÓÃÕâĞ©À©Õ¹¡£
+Spring BootåŒ…æ‹¬ä¸€äº›å¯¹Logbackçš„æ‰©å±•ï¼Œå¯ä»¥å¸®åŠ©è¿›è¡Œé«˜çº§é…ç½®ã€‚ ä½ å¯ä»¥åœ¨ä½ çš„ `logback-spring.xml` é…ç½®æ–‡ä»¶ä¸­ä½¿ç”¨è¿™äº›æ‰©å±•ã€‚
 
 
 
 
 
-|  | ÒòÎª±ê×¼µÄ `logback.xml` ÅäÖÃÎÄ¼ş±»¹ıÔç¼ÓÔØ£¬Äã²»ÄÜÔÚÆäÖĞÊ¹ÓÃÀ©Õ¹¡£ ÄãĞèÒªÊ¹ÓÃ `logback-spring.xml` »òÕß¶¨ÒåÒ»¸ö `logging.config` ÊôĞÔ¡£ |
+|  | å› ä¸ºæ ‡å‡†çš„ `logback.xml` é…ç½®æ–‡ä»¶è¢«è¿‡æ—©åŠ è½½ï¼Œä½ ä¸èƒ½åœ¨å…¶ä¸­ä½¿ç”¨æ‰©å±•ã€‚ ä½ éœ€è¦ä½¿ç”¨ `logback-spring.xml` æˆ–è€…å®šä¹‰ä¸€ä¸ª `logging.config` å±æ€§ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | À©Õ¹³ÌĞò²»ÄÜÓë [LogbackµÄÅäÖÃÉ¨Ãè](https://logback.qos.ch/manual/configuration.html#autoScan) Ò»ÆğÊ¹ÓÃ¡£ Èç¹ûÄãÊÔÍ¼ÕâÑù×ö£¬¶ÔÅäÖÃÎÄ¼ş½øĞĞĞŞ¸Ä»áµ¼ÖÂÀàËÆÓÚÒÔÏÂµÄ´íÎó±»¼ÇÂ¼ÏÂÀ´¡£ |
+|  | æ‰©å±•ç¨‹åºä¸èƒ½ä¸ [Logbackçš„é…ç½®æ‰«æ](https://logback.qos.ch/manual/configuration.html#autoScan) ä¸€èµ·ä½¿ç”¨ã€‚ å¦‚æœä½ è¯•å›¾è¿™æ ·åšï¼Œå¯¹é…ç½®æ–‡ä»¶è¿›è¡Œä¿®æ”¹ä¼šå¯¼è‡´ç±»ä¼¼äºä»¥ä¸‹çš„é”™è¯¯è¢«è®°å½•ä¸‹æ¥ã€‚ |
 | --- | --- |
 
 
@@ -603,11 +603,11 @@ ERROR in ch.qos.logback.core.joran.spi.Interpreter@4:71 - no applicable action f
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.logging.logback-extensions.profile-specific)4.9.1\. ÌØ¶¨µÄÅäÖÃÎÄ¼ş
+#### [](https://springdoc.cn/spring-boot/features.html#features.logging.logback-extensions.profile-specific)4.9.1\. ç‰¹å®šçš„é…ç½®æ–‡ä»¶
 
 
 
-`<springProfile>` ±êÇ©ÈÃÄã¿ÉÒÔ¸ù¾İ»î¶¯µÄSpringÅäÖÃÎÄ¼şÑ¡ÔñĞÔµØ°üÀ¨»òÅÅ³ıÅäÖÃµÄ²¿·Ö£¬ Ö§³ÖÔÚ `<configuration>` ÔªËØµÄÈÎºÎµØ·½¶¨ÒåËü¡£ Ê¹ÓÃ `name` ÊôĞÔÀ´Ö¸¶¨½ÓÊÜÅäÖÃµÄÅäÖÃÎÄ¼ş¡£ `<springProfile>` ±êÇ©¿ÉÒÔ°üº¬Ò»¸öÅäÖÃÎÄ¼şÃû³Æ£¨ÀıÈç `staging` £©»òÒ»¸öÅäÖÃÎÄ¼ş±í´ïÊ½¡£ ÅäÖÃÎÄ¼ş±í´ïÊ½ÔÊĞí±í´ï¸ü¸´ÔÓµÄÅäÖÃÎÄ¼şÂß¼­£¬ÀıÈç `production & (eu-central | eu-west)` ¡£ ²é¿´ [Spring ¿ò¼Ü²Î¿¼Ö¸ÄÏ](https://docs.spring.io/spring-framework/docs/6.0.5/reference/html/core.html#beans-definition-profiles-java) ÒÔÁË½â¸ü¶àÏ¸½Ú¡£ ÏÂÃæµÄÁĞ±íÏÔÊ¾ÁËÈı¸öÑù±¾ÅäÖÃÎÄ¼ş¡£
+`<springProfile>` æ ‡ç­¾è®©ä½ å¯ä»¥æ ¹æ®æ´»åŠ¨çš„Springé…ç½®æ–‡ä»¶é€‰æ‹©æ€§åœ°åŒ…æ‹¬æˆ–æ’é™¤é…ç½®çš„éƒ¨åˆ†ï¼Œ æ”¯æŒåœ¨ `<configuration>` å…ƒç´ çš„ä»»ä½•åœ°æ–¹å®šä¹‰å®ƒã€‚ ä½¿ç”¨ `name` å±æ€§æ¥æŒ‡å®šæ¥å—é…ç½®çš„é…ç½®æ–‡ä»¶ã€‚ `<springProfile>` æ ‡ç­¾å¯ä»¥åŒ…å«ä¸€ä¸ªé…ç½®æ–‡ä»¶åç§°ï¼ˆä¾‹å¦‚ `staging` ï¼‰æˆ–ä¸€ä¸ªé…ç½®æ–‡ä»¶è¡¨è¾¾å¼ã€‚ é…ç½®æ–‡ä»¶è¡¨è¾¾å¼å…è®¸è¡¨è¾¾æ›´å¤æ‚çš„é…ç½®æ–‡ä»¶é€»è¾‘ï¼Œä¾‹å¦‚ `production & (eu-central | eu-west)` ã€‚ æŸ¥çœ‹ [Spring æ¡†æ¶å‚è€ƒæŒ‡å—](https://docs.spring.io/spring-framework/docs/6.0.5/reference/html/core.html#beans-definition-profiles-java) ä»¥äº†è§£æ›´å¤šç»†èŠ‚ã€‚ ä¸‹é¢çš„åˆ—è¡¨æ˜¾ç¤ºäº†ä¸‰ä¸ªæ ·æœ¬é…ç½®æ–‡ä»¶ã€‚
 
 
 
@@ -637,11 +637,11 @@ ERROR in ch.qos.logback.core.joran.spi.Interpreter@4:71 - no applicable action f
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.logging.logback-extensions.environment-properties)4.9.2\. £¨»·¾³ÊôĞÔ£©Environment Properties
+#### [](https://springdoc.cn/spring-boot/features.html#features.logging.logback-extensions.environment-properties)4.9.2\. ï¼ˆç¯å¢ƒå±æ€§ï¼‰Environment Properties
 
 
 
-`<springProperty>` ±êÇ©¿ÉÒÔ·ÃÎÊ Spring `Environment` ÖĞµÄÊôĞÔ£¬ÒÔ±ãÔÚLogbackÖĞÊ¹ÓÃ¡£ Èç¹ûÄãÏëÔÚLogbackÅäÖÃÖĞ·ÃÎÊ `application.properties` ÎÄ¼şÖĞµÄÖµ£¬ÕâÑù×ö»áºÜÓĞÓÃ¡£ ¸Ã±êÇ©µÄ¹¤×÷·½Ê½ÓëLogbackµÄ±ê×¼ `<property>` ±êÇ©ÀàËÆ¡£ È»¶ø£¬Äã²»ÊÇÖ±½ÓÖ¸¶¨Ò»¸ö `value` £¬¶øÊÇÖ¸¶¨ÊôĞÔµÄ `source` £¨À´×Ô `Environment` £©¡£ Èç¹ûÄãĞèÒªÔÚ `local` ·¶Î§ÒÔÍâµÄµØ·½´æ´¢¸ÃÊôĞÔ£¬Äã¿ÉÒÔÊ¹ÓÃ `scope` ÊôĞÔ¡£ Èç¹ûÄãĞèÒªÒ»¸öºó±¸Öµ£¨Ä¬ÈÏÖµ£©£¨ÍòÒ»¸ÃÊôĞÔÃ»ÓĞÔÚ `Environment` ÖĞÉèÖÃ£©£¬Äã¿ÉÒÔÊ¹ÓÃ `defaultValue` ÊôĞÔ¡£ ÏÂÃæµÄÀı×ÓÏÔÊ¾ÁËÈçºÎ¹«¿ªÊôĞÔÒÔ±ãÔÚLogbackÖĞÊ¹ÓÃ¡£
+`<springProperty>` æ ‡ç­¾å¯ä»¥è®¿é—® Spring `Environment` ä¸­çš„å±æ€§ï¼Œä»¥ä¾¿åœ¨Logbackä¸­ä½¿ç”¨ã€‚ å¦‚æœä½ æƒ³åœ¨Logbacké…ç½®ä¸­è®¿é—® `application.properties` æ–‡ä»¶ä¸­çš„å€¼ï¼Œè¿™æ ·åšä¼šå¾ˆæœ‰ç”¨ã€‚ è¯¥æ ‡ç­¾çš„å·¥ä½œæ–¹å¼ä¸Logbackçš„æ ‡å‡† `<property>` æ ‡ç­¾ç±»ä¼¼ã€‚ ç„¶è€Œï¼Œä½ ä¸æ˜¯ç›´æ¥æŒ‡å®šä¸€ä¸ª `value` ï¼Œè€Œæ˜¯æŒ‡å®šå±æ€§çš„ `source` ï¼ˆæ¥è‡ª `Environment` ï¼‰ã€‚ å¦‚æœä½ éœ€è¦åœ¨ `local` èŒƒå›´ä»¥å¤–çš„åœ°æ–¹å­˜å‚¨è¯¥å±æ€§ï¼Œä½ å¯ä»¥ä½¿ç”¨ `scope` å±æ€§ã€‚ å¦‚æœä½ éœ€è¦ä¸€ä¸ªåå¤‡å€¼ï¼ˆé»˜è®¤å€¼ï¼‰ï¼ˆä¸‡ä¸€è¯¥å±æ€§æ²¡æœ‰åœ¨ `Environment` ä¸­è®¾ç½®ï¼‰ï¼Œä½ å¯ä»¥ä½¿ç”¨ `defaultValue` å±æ€§ã€‚ ä¸‹é¢çš„ä¾‹å­æ˜¾ç¤ºäº†å¦‚ä½•å…¬å¼€å±æ€§ä»¥ä¾¿åœ¨Logbackä¸­ä½¿ç”¨ã€‚
 
 
 
@@ -664,7 +664,7 @@ ERROR in ch.qos.logback.core.joran.spi.Interpreter@4:71 - no applicable action f
 
 
 
-|  | `source` ±ØĞëÒÔkebab·ç¸ñÖ¸¶¨£¨Èç `my.property-name` £©¡£ È»¶ø£¬ÊôĞÔ¿ÉÒÔÍ¨¹ıÊ¹ÓÃ¿íËÉµÄ¹æÔòÌí¼Óµ½ `Environment` ÖĞ¡£ |
+|  | `source` å¿…é¡»ä»¥kebabé£æ ¼æŒ‡å®šï¼ˆå¦‚ `my.property-name` ï¼‰ã€‚ ç„¶è€Œï¼Œå±æ€§å¯ä»¥é€šè¿‡ä½¿ç”¨å®½æ¾çš„è§„åˆ™æ·»åŠ åˆ° `Environment` ä¸­ã€‚ |
 | --- | --- |
 
 
@@ -675,35 +675,35 @@ ERROR in ch.qos.logback.core.joran.spi.Interpreter@4:71 - no applicable action f
 
 
 
-### [](https://springdoc.cn/spring-boot/features.html#features.logging.log4j2-extensions)4.10\. Log4j2 À©Õ¹
+### [](https://springdoc.cn/spring-boot/features.html#features.logging.log4j2-extensions)4.10\. Log4j2 æ‰©å±•
 
 
 
-Spring Boot°üÀ¨Ò»Ğ©¶ÔLog4j2µÄÀ©Õ¹£¬¿ÉÒÔ°ïÖú½øĞĞ¸ß¼¶ÅäÖÃ¡£Äã¿ÉÒÔÔÚÈÎºÎ `log4j2-spring.xml` ÅäÖÃÎÄ¼şÖĞÊ¹ÓÃÕâĞ©À©Õ¹¡£
+Spring BootåŒ…æ‹¬ä¸€äº›å¯¹Log4j2çš„æ‰©å±•ï¼Œå¯ä»¥å¸®åŠ©è¿›è¡Œé«˜çº§é…ç½®ã€‚ä½ å¯ä»¥åœ¨ä»»ä½• `log4j2-spring.xml` é…ç½®æ–‡ä»¶ä¸­ä½¿ç”¨è¿™äº›æ‰©å±•ã€‚
 
 
 
 
 
-|  | ÒòÎª±ê×¼µÄ `log4j2.xml` ÅäÖÃÎÄ¼ş±»¹ıÔç¼ÓÔØ£¬Äã²»ÄÜÔÚÆäÖĞÊ¹ÓÃÀ©Õ¹¡£ÄãĞèÒªÊ¹ÓÃ `log4j2-spring.xml` »òÕß¶¨ÒåÒ»¸ö ``logging.config`` ÊôĞÔ¡£ |
+|  | å› ä¸ºæ ‡å‡†çš„ `log4j2.xml` é…ç½®æ–‡ä»¶è¢«è¿‡æ—©åŠ è½½ï¼Œä½ ä¸èƒ½åœ¨å…¶ä¸­ä½¿ç”¨æ‰©å±•ã€‚ä½ éœ€è¦ä½¿ç”¨ `log4j2-spring.xml` æˆ–è€…å®šä¹‰ä¸€ä¸ª ``logging.config`` å±æ€§ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | ÕâĞ©À©Õ¹È¡´úÁËLog4JÌá¹©µÄ [Spring BootÖ§³Ö](https://logging.apache.org/log4j/2.x/log4j-spring-boot/index.html)¡£ ÄãÓ¦¸ÃÈ·±£ÔÚÄãµÄ¹¹½¨ÖĞ²»°üÀ¨ `org.apache.logging.log4j:log4j-spring-boot` Ä£¿é¡£ |
+|  | è¿™äº›æ‰©å±•å–ä»£äº†Log4Jæä¾›çš„ [Spring Bootæ”¯æŒ](https://logging.apache.org/log4j/2.x/log4j-spring-boot/index.html)ã€‚ ä½ åº”è¯¥ç¡®ä¿åœ¨ä½ çš„æ„å»ºä¸­ä¸åŒ…æ‹¬ `org.apache.logging.log4j:log4j-spring-boot` æ¨¡å—ã€‚ |
 | --- | --- |
 
 
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.logging.log4j2-extensions.profile-specific)4.10.1\. ÌØ¶¨ÅäÖÃÎÄ¼şÅäÖÃ
+#### [](https://springdoc.cn/spring-boot/features.html#features.logging.log4j2-extensions.profile-specific)4.10.1\. ç‰¹å®šé…ç½®æ–‡ä»¶é…ç½®
 
 
 
-`<SpringProfile>` ±êÇ©ÈÃÄã¿ÉÒÔ¸ù¾İ»î¶¯µÄSpringÅäÖÃÎÄ¼şÑ¡ÔñĞÔµØ°üÀ¨»òÅÅ³ıÅäÖÃµÄ²¿·Ö¡£ÅäÖÃÎÄ¼ş²¿·Ö±»Ö§³ÖÔÚ `<Configuration>` ÔªËØµÄÈÎºÎµØ·½¡£Ê¹ÓÃ `name` ÊôĞÔÀ´Ö¸¶¨ÄÄ¸öÅäÖÃÎÄ¼ş½ÓÊÜÅäÖÃ¡£ `<SpringProfile>` ±êÇ©¿ÉÒÔ°üº¬Ò»¸öÅäÖÃÎÄ¼şÃû³Æ£¨ÀıÈç `staging`£©»òÒ»¸öÅäÖÃÎÄ¼ş±í´ïÊ½¡£ ÅäÖÃÎÄ¼ş±í´ïÊ½ÔÊĞí±í´ï¸ü¸´ÔÓµÄÅäÖÃÎÄ¼şÂß¼­£¬ÀıÈç `production & (eu-central | eu-west)`¡£²é¿´ [Spring¿ò¼Ü²Î¿¼Ö¸ÄÏ](https://docs.spring.io/spring-framework/docs/6.0.5/reference/html/core.html#beans-definition-profiles-java) ÒÔÁË½â¸ü¶àÏ¸½Ú¡£ ÏÂÃæµÄÁĞ±íÏÔÊ¾ÁËÈı¸öÑù±¾ÅäÖÃÎÄ¼ş¡£
+`<SpringProfile>` æ ‡ç­¾è®©ä½ å¯ä»¥æ ¹æ®æ´»åŠ¨çš„Springé…ç½®æ–‡ä»¶é€‰æ‹©æ€§åœ°åŒ…æ‹¬æˆ–æ’é™¤é…ç½®çš„éƒ¨åˆ†ã€‚é…ç½®æ–‡ä»¶éƒ¨åˆ†è¢«æ”¯æŒåœ¨ `<Configuration>` å…ƒç´ çš„ä»»ä½•åœ°æ–¹ã€‚ä½¿ç”¨ `name` å±æ€§æ¥æŒ‡å®šå“ªä¸ªé…ç½®æ–‡ä»¶æ¥å—é…ç½®ã€‚ `<SpringProfile>` æ ‡ç­¾å¯ä»¥åŒ…å«ä¸€ä¸ªé…ç½®æ–‡ä»¶åç§°ï¼ˆä¾‹å¦‚ `staging`ï¼‰æˆ–ä¸€ä¸ªé…ç½®æ–‡ä»¶è¡¨è¾¾å¼ã€‚ é…ç½®æ–‡ä»¶è¡¨è¾¾å¼å…è®¸è¡¨è¾¾æ›´å¤æ‚çš„é…ç½®æ–‡ä»¶é€»è¾‘ï¼Œä¾‹å¦‚ `production & (eu-central | eu-west)`ã€‚æŸ¥çœ‹ [Springæ¡†æ¶å‚è€ƒæŒ‡å—](https://docs.spring.io/spring-framework/docs/6.0.5/reference/html/core.html#beans-definition-profiles-java) ä»¥äº†è§£æ›´å¤šç»†èŠ‚ã€‚ ä¸‹é¢çš„åˆ—è¡¨æ˜¾ç¤ºäº†ä¸‰ä¸ªæ ·æœ¬é…ç½®æ–‡ä»¶ã€‚
 
 
 
@@ -733,17 +733,17 @@ Spring Boot°üÀ¨Ò»Ğ©¶ÔLog4j2µÄÀ©Õ¹£¬¿ÉÒÔ°ïÖú½øĞĞ¸ß¼¶ÅäÖÃ¡£Äã¿ÉÒÔÔÚÈÎºÎ `log4j2-sp
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.logging.log4j2-extensions.environment-properties-lookup)4.10.2\. »·¾³£¨Environment£©ÊôĞÔ²éÕÒ
+#### [](https://springdoc.cn/spring-boot/features.html#features.logging.log4j2-extensions.environment-properties-lookup)4.10.2\. ç¯å¢ƒï¼ˆEnvironmentï¼‰å±æ€§æŸ¥æ‰¾
 
 
 
-Èç¹ûÄãÏëÔÚLog4j2ÅäÖÃÖĞÒıÓÃSpring `Environment` ÖĞµÄÊôĞÔ£¬Äã¿ÉÒÔÊ¹ÓÃ `spring:` Ç°×º [²éÕÒ](https://logging.apache.org/log4j/2.x/manual/lookups.html)¡£Èç¹ûÄãÏëÔÚLog4j2ÅäÖÃÖĞ·ÃÎÊ `application.properties` ÎÄ¼şÖĞµÄÖµ£¬ÕâÑù×ö»áºÜÓĞÓÃ¡£
+å¦‚æœä½ æƒ³åœ¨Log4j2é…ç½®ä¸­å¼•ç”¨Spring `Environment` ä¸­çš„å±æ€§ï¼Œä½ å¯ä»¥ä½¿ç”¨ `spring:` å‰ç¼€ [æŸ¥æ‰¾](https://logging.apache.org/log4j/2.x/manual/lookups.html)ã€‚å¦‚æœä½ æƒ³åœ¨Log4j2é…ç½®ä¸­è®¿é—® `application.properties` æ–‡ä»¶ä¸­çš„å€¼ï¼Œè¿™æ ·åšä¼šå¾ˆæœ‰ç”¨ã€‚
 
 
 
 
 
-ÏÂÃæµÄÀı×ÓÏÔÊ¾ÁËÈçºÎÉèÖÃÒ»¸öÃûÎª `applicationName` µÄLog4j2ÊôĞÔ£¬Ëü´ÓSpring `Environment` ÖĞ¶ÁÈ¡ `spring.application.name`¡£
+ä¸‹é¢çš„ä¾‹å­æ˜¾ç¤ºäº†å¦‚ä½•è®¾ç½®ä¸€ä¸ªåä¸º `applicationName` çš„Log4j2å±æ€§ï¼Œå®ƒä»Spring `Environment` ä¸­è¯»å– `spring.application.name`ã€‚
 
 
 
@@ -763,7 +763,7 @@ Spring Boot°üÀ¨Ò»Ğ©¶ÔLog4j2µÄÀ©Õ¹£¬¿ÉÒÔ°ïÖú½øĞĞ¸ß¼¶ÅäÖÃ¡£Äã¿ÉÒÔÔÚÈÎºÎ `log4j2-sp
 
 
 
-|  | ²éÑ¯keyÓ¦ÒÔkebabf·ç¸ñÖ¸¶¨£¨Èç `my.property-name`£©¡£ |
+|  | æŸ¥è¯¢keyåº”ä»¥kebabfé£æ ¼æŒ‡å®šï¼ˆå¦‚ `my.property-name`ï¼‰ã€‚ |
 | --- | --- |
 
 
@@ -772,30 +772,30 @@ Spring Boot°üÀ¨Ò»Ğ©¶ÔLog4j2µÄÀ©Õ¹£¬¿ÉÒÔ°ïÖú½øĞĞ¸ß¼¶ÅäÖÃ¡£Äã¿ÉÒÔÔÚÈÎºÎ `log4j2-sp
 
 
 
-#### [](https://springdoc.cn/spring-boot/features.html#features.logging.log4j2-extensions.environment-property-source)4.10.3\. Log4j2 ÏµÍ³ÊôĞÔ£¨System Properties£©
+#### [](https://springdoc.cn/spring-boot/features.html#features.logging.log4j2-extensions.environment-property-source)4.10.3\. Log4j2 ç³»ç»Ÿå±æ€§ï¼ˆSystem Propertiesï¼‰
 
 
 
-Log4j2Ö§³ÖÒ»Ğ© [System Properties](https://logging.apache.org/log4j/2.x/manual/configuration.html#SystemProperties)£¬¿ÉÒÔÓÃÀ´ÅäÖÃ¸÷ÖÖÏîÄ¿¡£ÀıÈç£¬`log4j2.skipJansi` ÏµÍ³ÊôĞÔ¿ÉÒÔÓÃÀ´ÅäÖÃ `ConsoleAppender` ÊÇ·ñ»áÔÚWindowsÉÏ³¢ÊÔÊ¹ÓÃ [Jansi](https://github.com/fusesource/jansi) Êä³öÁ÷¡£
-
-
-
-
-
-Log4j2 ³õÊ¼»¯ºó¼ÓÔØµÄËùÓĞÏµÍ³ÊôĞÔ¶¼¿ÉÒÔ´ÓSpring `Environment` ÖĞ»ñµÃ¡£ÀıÈç£¬Äã¿ÉÒÔÔÚ `application.properties` ÎÄ¼şÖĞÌí¼Ó `log4j2.skipJansi=false`£¬ÈÃ `ConsoleAppender` ÔÚWindowsÉÏÊ¹ÓÃJansi¡£
+Log4j2æ”¯æŒä¸€äº› [System Properties](https://logging.apache.org/log4j/2.x/manual/configuration.html#SystemProperties)ï¼Œå¯ä»¥ç”¨æ¥é…ç½®å„ç§é¡¹ç›®ã€‚ä¾‹å¦‚ï¼Œ`log4j2.skipJansi` ç³»ç»Ÿå±æ€§å¯ä»¥ç”¨æ¥é…ç½® `ConsoleAppender` æ˜¯å¦ä¼šåœ¨Windowsä¸Šå°è¯•ä½¿ç”¨ [Jansi](https://github.com/fusesource/jansi) è¾“å‡ºæµã€‚
 
 
 
 
 
-|  | Ö»ÓĞµ±ÏµÍ³ÊôĞÔ£¨system properties£©ºÍ²Ù×÷ÏµÍ³»·¾³±äÁ¿²»°üº¬ÕıÔÚ¼ÓÔØµÄÖµÊ±£¬²Å»á¿¼ÂÇSpring `Environment`¡£ |
+Log4j2 åˆå§‹åŒ–ååŠ è½½çš„æ‰€æœ‰ç³»ç»Ÿå±æ€§éƒ½å¯ä»¥ä»Spring `Environment` ä¸­è·å¾—ã€‚ä¾‹å¦‚ï¼Œä½ å¯ä»¥åœ¨ `application.properties` æ–‡ä»¶ä¸­æ·»åŠ  `log4j2.skipJansi=false`ï¼Œè®© `ConsoleAppender` åœ¨Windowsä¸Šä½¿ç”¨Jansiã€‚
+
+
+
+
+
+|  | åªæœ‰å½“ç³»ç»Ÿå±æ€§ï¼ˆsystem propertiesï¼‰å’Œæ“ä½œç³»ç»Ÿç¯å¢ƒå˜é‡ä¸åŒ…å«æ­£åœ¨åŠ è½½çš„å€¼æ—¶ï¼Œæ‰ä¼šè€ƒè™‘Spring `Environment`ã€‚ |
 | --- | --- |
 
 
 
 
 
-|  | ÔÚÔçÆÚLog4j2³õÊ¼»¯ÆÚ¼ä¼ÓÔØµÄÏµÍ³ÊôĞÔ²»ÄÜÒıÓÃSpring `Environment`¡£ÀıÈç£¬Log4j2ÓÃÓÚÔÊĞíÑ¡ÔñÄ¬ÈÏLog4j2ÊµÏÖµÄÊôĞÔÊÇÔÚ Spring Environment ¿ÉÓÃÖ®Ç°Ê¹ÓÃµÄ¡£ |
+|  | åœ¨æ—©æœŸLog4j2åˆå§‹åŒ–æœŸé—´åŠ è½½çš„ç³»ç»Ÿå±æ€§ä¸èƒ½å¼•ç”¨Spring `Environment`ã€‚ä¾‹å¦‚ï¼ŒLog4j2ç”¨äºå…è®¸é€‰æ‹©é»˜è®¤Log4j2å®ç°çš„å±æ€§æ˜¯åœ¨ Spring Environment å¯ç”¨ä¹‹å‰ä½¿ç”¨çš„ã€‚ |
 | --- | --- |
 
 

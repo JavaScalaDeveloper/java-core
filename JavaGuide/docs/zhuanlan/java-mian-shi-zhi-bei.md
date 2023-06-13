@@ -1,9 +1,6 @@
 ---
-title: 《Java 面试指北》(付费)
-category: 知识星球
-star: 5
+span
 ---
-
 ## 介绍
 
 **《Java 面试指北》** 是我的[知识星球](../about-the-author/zhishixingqiu-two-years.md)的一个内部小册，和 [JavaGuide 开源版](https://javaguide.cn/)的内容互补。相比于开源版本来说，《Java 面试指北》添加了下面这些内容（不仅仅是这些内容）：

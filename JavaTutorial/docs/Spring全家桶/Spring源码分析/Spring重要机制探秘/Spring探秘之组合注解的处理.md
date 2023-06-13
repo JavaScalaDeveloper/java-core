@@ -1,13 +1,13 @@
-### 1\. Ê²Ã´ÊÇ×éºÏ×¢½â£¿
+### 1\. ä»€ä¹ˆæ˜¯ç»„åˆæ³¨è§£ï¼Ÿ
 
-ÔÚ spring ÖĞ£¬ÓĞÒ»ÀàÌØ±ğµÄ×¢½â£º×éºÏ×¢½â¡£¾ÙÀıÀ´Ëµ£¬springmvc ÖĞ£¬`@Controller` ×¢½âÓÃÀ´ÅäÖÃ·ÃÎÊÂ·¾¶µÈ£¬`@ResponseBody` ×¢½âÓÃÀ´±íÃ÷²»×öÊÓÍ¼äÖÈ¾£¬Ö±½ÓÕ¹Ê¾·½·¨µÄÔËĞĞ½á¹û£¨Ò»°ãÊÇ×ª³É json ·µ»Ø£©£¬¶ø `@RestController` ×éºÏÁËÁ½ÕßµÄ¹¦ÄÜ£¬¿ÉÒÔÅäÖÃ·ÃÎÊÂ·¾¶£¬Í¬Ê±Ò²¿ÉÒÔÖ±½ÓÕ¹Ê¾·½·¨µÄÔËĞĞ½á¹û£¬´úÂëÈçÏÂ£º
+åœ¨ spring ä¸­ï¼Œæœ‰ä¸€ç±»ç‰¹åˆ«çš„æ³¨è§£ï¼šç»„åˆæ³¨è§£ã€‚ä¸¾ä¾‹æ¥è¯´ï¼Œspringmvc ä¸­ï¼Œ`@Controller` æ³¨è§£ç”¨æ¥é…ç½®è®¿é—®è·¯å¾„ç­‰ï¼Œ`@ResponseBody` æ³¨è§£ç”¨æ¥è¡¨æ˜ä¸åšè§†å›¾æ¸²æŸ“ï¼Œç›´æ¥å±•ç¤ºæ–¹æ³•çš„è¿è¡Œç»“æœï¼ˆä¸€èˆ¬æ˜¯è½¬æˆ json è¿”å›ï¼‰ï¼Œè€Œ `@RestController` ç»„åˆäº†ä¸¤è€…çš„åŠŸèƒ½ï¼Œå¯ä»¥é…ç½®è®¿é—®è·¯å¾„ï¼ŒåŒæ—¶ä¹Ÿå¯ä»¥ç›´æ¥å±•ç¤ºæ–¹æ³•çš„è¿è¡Œç»“æœï¼Œä»£ç å¦‚ä¸‹ï¼š
 
 ```
 @Controller
 @ResponseBody
 public @interface RestController {
     /**
-     * ×¢½â±ğÃû
+     * æ³¨è§£åˆ«å
      */
     @AliasFor(annotation = Controller.class)
     String value() default "";
@@ -16,9 +16,9 @@ public @interface RestController {
 
 ```
 
-¿ÉÒÔ¿´µ½£¬`@RestController` ÉÏ±ê¼ÇÁËÁ½¸ö×¢½â£º`@Controller` Óë `@ResponseBody`£¬ÕâÑùËü¾ÍÍ¬Ê±ÓµÓĞÁËÁ½ÕßµÄ¹¦ÄÜ¡£
+å¯ä»¥çœ‹åˆ°ï¼Œ`@RestController` ä¸Šæ ‡è®°äº†ä¸¤ä¸ªæ³¨è§£ï¼š`@Controller` ä¸ `@ResponseBody`ï¼Œè¿™æ ·å®ƒå°±åŒæ—¶æ‹¥æœ‰äº†ä¸¤è€…çš„åŠŸèƒ½ã€‚
 
-ÔÙÀ´¿´Ò»¸öÀı×Ó£¬spring ÖĞ£¬ÎÒÃÇÔÚ±êÊ¶Ò»¸öÀàÎª spring bean µÄÊ±ºò£¬¿ÉÒÔÓÃµ½ÕâĞ©×¢½â£º`@Component`¡¢`@Repository`¡¢`@Service` µÈ£¬ÔÙ½øÒ»²½¿´Æä´úÂë£¬·¢ÏÖ `@Repository`¡¢`@Service` ÖĞ¶¼ÓĞ `@Component`£º
+å†æ¥çœ‹ä¸€ä¸ªä¾‹å­ï¼Œspring ä¸­ï¼Œæˆ‘ä»¬åœ¨æ ‡è¯†ä¸€ä¸ªç±»ä¸º spring bean çš„æ—¶å€™ï¼Œå¯ä»¥ç”¨åˆ°è¿™äº›æ³¨è§£ï¼š`@Component`ã€`@Repository`ã€`@Service` ç­‰ï¼Œå†è¿›ä¸€æ­¥çœ‹å…¶ä»£ç ï¼Œå‘ç° `@Repository`ã€`@Service` ä¸­éƒ½æœ‰ `@Component`ï¼š
 
 ```
 @Component
@@ -35,9 +35,9 @@ public @interface Service {
 
 ```
 
-Ò²¾ÍÊÇËµ£¬`@Repository`¡¢`@Service` ¶¼×éºÏÁË `@Component` µÄ¹¦ÄÜ£¡
+ä¹Ÿå°±æ˜¯è¯´ï¼Œ`@Repository`ã€`@Service` éƒ½ç»„åˆäº† `@Component` çš„åŠŸèƒ½ï¼
 
-Êµ¼ÊÉÏ£¬Èç¹ûÎÒÃÇ×Ô¼ºĞ´Ò»¸ö×¢½â£¬ÏñÕâÑù£º
+å®é™…ä¸Šï¼Œå¦‚æœæˆ‘ä»¬è‡ªå·±å†™ä¸€ä¸ªæ³¨è§£ï¼Œåƒè¿™æ ·ï¼š
 
 ```
 @Target({ElementType.TYPE})
@@ -53,7 +53,7 @@ public @interface MyComponent {
 
 ```
 
-È»ºóÕâÑùÊ¹ÓÃ£º
+ç„¶åè¿™æ ·ä½¿ç”¨ï¼š
 
 ```
 @MyComponent("beanObj3")
@@ -63,30 +63,30 @@ public class BeanObj3 {
 
 ```
 
-spring ÒÀÈ»»á°Ñ `BeanObj3` ³õÊ¼»¯Îª spring bean¡£
+spring ä¾ç„¶ä¼šæŠŠ `BeanObj3` åˆå§‹åŒ–ä¸º spring beanã€‚
 
-ÄÇÃ´ spring ÊÇÈçºÎ×öµ½ÕâÒ»²½µÄÄØ£¿Êµ¼ÊÉÏ£¬spring ÔÚ´¦Àí `@MyComponent` Ê±£¬»áÅĞ¶Ï¸Ã×¢½âÖĞÊÇ·ñ°üº¬ `@Component` ×¢½â£¬Èç¹û°üº¬£¬¾Í»ñÈ¡¸Ã×¢½âµÄÅäÖÃ£¬È»ºó°´ `@Component` µÄ´¦ÀíÂß¼­À´½øĞĞ´¦Àí¡£
+é‚£ä¹ˆ spring æ˜¯å¦‚ä½•åšåˆ°è¿™ä¸€æ­¥çš„å‘¢ï¼Ÿå®é™…ä¸Šï¼Œspring åœ¨å¤„ç† `@MyComponent` æ—¶ï¼Œä¼šåˆ¤æ–­è¯¥æ³¨è§£ä¸­æ˜¯å¦åŒ…å« `@Component` æ³¨è§£ï¼Œå¦‚æœåŒ…å«ï¼Œå°±è·å–è¯¥æ³¨è§£çš„é…ç½®ï¼Œç„¶åæŒ‰ `@Component` çš„å¤„ç†é€»è¾‘æ¥è¿›è¡Œå¤„ç†ã€‚
 
-Í¬ÑùµØ£¬spring ÔÚ´¦Àí `@RestController` Ê±£¬Èç¹ûµ±Ç°ÊÇ´¦Àí `@Controller` µÄÂß¼­£¬¾Í´Ó `@RestController` ÖĞ»ñÈ¡ `@Controller` µÄÅäÖÃÈ»ºó½øĞĞ´¦Àí£¬Èç¹ûµ±Ç°ÊÇ´¦Àí `@ResponseBody` Âß¼­£¬¾Í´Ó `@RestController` ÖĞ»ñÈ¡ `@ResponseBody` µÄÅäÖÃÈ»ºó½øĞĞ´¦Àí¡£
+åŒæ ·åœ°ï¼Œspring åœ¨å¤„ç† `@RestController` æ—¶ï¼Œå¦‚æœå½“å‰æ˜¯å¤„ç† `@Controller` çš„é€»è¾‘ï¼Œå°±ä» `@RestController` ä¸­è·å– `@Controller` çš„é…ç½®ç„¶åè¿›è¡Œå¤„ç†ï¼Œå¦‚æœå½“å‰æ˜¯å¤„ç† `@ResponseBody` é€»è¾‘ï¼Œå°±ä» `@RestController` ä¸­è·å– `@ResponseBody` çš„é…ç½®ç„¶åè¿›è¡Œå¤„ç†ã€‚
 
-### 2\. µİ¹é»ñÈ¡Ö¸¶¨ÀàµÄËùÓĞ×¢½â
+### 2\. é€’å½’è·å–æŒ‡å®šç±»çš„æ‰€æœ‰æ³¨è§£
 
-ÎÊÌâÓÖÀ´ÁË£º×éºÏ×¢½âÖĞµÄ×¢½âÒªÔõÃ´»ñÈ¡ÄØ£¿
+é—®é¢˜åˆæ¥äº†ï¼šç»„åˆæ³¨è§£ä¸­çš„æ³¨è§£è¦æ€ä¹ˆè·å–å‘¢ï¼Ÿ
 
-Èç¹û°´ÕÕ jdk Ìá¹©µÄ·½·¨£¬ÏñÕâÑù£º
+å¦‚æœæŒ‰ç…§ jdk æä¾›çš„æ–¹æ³•ï¼Œåƒè¿™æ ·ï¼š
 
 ```
 RestController annotation = BeanObj3.class.getAnnotation(MyComponent.class);
 
 ```
 
-µÃµ½µÄ `annotation` ±Ø¶¨Îª `null`£¬Ô­ÒòÊÇ `Class#getAnnotation` ·½·¨Ö»ÄÜ»ñÈ¡µ½ÀàÉÏÖ±½Ó³öÏÖµÄ×¢½â£¬`BeanObj3` ÊÇÃ»ÓĞÖ±½Ó³öÏÖ `@Component` µÄ£¬Òò´ËµÃµ½µÄ½á¹ûÎª null£¬°ì·¨Ò²ĞíÄãÒ²Ïëµ½ÁË£¬¾ÍÊÇ¼ÌĞøÍùÏÂ¶ÁÈ¡ "×¢½âµÄ×¢½â"£¬ÓÃ´úÂëÊ¾ÒâÏÂ£¬ÀàËÆÕâÑù£º
+å¾—åˆ°çš„ `annotation` å¿…å®šä¸º `null`ï¼ŒåŸå› æ˜¯ `Class#getAnnotation` æ–¹æ³•åªèƒ½è·å–åˆ°ç±»ä¸Šç›´æ¥å‡ºç°çš„æ³¨è§£ï¼Œ`BeanObj3` æ˜¯æ²¡æœ‰ç›´æ¥å‡ºç° `@Component` çš„ï¼Œå› æ­¤å¾—åˆ°çš„ç»“æœä¸º nullï¼ŒåŠæ³•ä¹Ÿè®¸ä½ ä¹Ÿæƒ³åˆ°äº†ï¼Œå°±æ˜¯ç»§ç»­å¾€ä¸‹è¯»å– "æ³¨è§£çš„æ³¨è§£"ï¼Œç”¨ä»£ç ç¤ºæ„ä¸‹ï¼Œç±»ä¼¼è¿™æ ·ï¼š
 
 ```
 public class AnnotationHandler {
 
     /**
-     * ´æ·ÅjdkÌá¹©µÄÔª×¢½â
+     * å­˜æ”¾jdkæä¾›çš„å…ƒæ³¨è§£
      */
     private static Set<Class<?>> metaAnnotations = new HashSet<>();
     static {
@@ -101,35 +101,35 @@ public class AnnotationHandler {
     }
 
     /**
-     * »ñÈ¡²Ù×÷£¬µİ¹éµ÷ÓÃ
+     * è·å–æ“ä½œï¼Œé€’å½’è°ƒç”¨
      */
     public static List<Class<?>> getAnnotations(Class<?> cls) {
-        // ÓÃÀ´´æ·Å¸ÃÀàÉÏµÄËùÓĞ×¢½â£¬°üÀ¨×¢½âµÄ×¢½â
+        // ç”¨æ¥å­˜æ”¾è¯¥ç±»ä¸Šçš„æ‰€æœ‰æ³¨è§£ï¼ŒåŒ…æ‹¬æ³¨è§£çš„æ³¨è§£
         List<Class<?>> list = new ArrayList<>();
-        // µ÷ÓÃ doGetAnnotations(...) »ñÈ¡
+        // è°ƒç”¨ doGetAnnotations(...) è·å–
         doGetAnnotations(list, cls);
         return list;
     }
 
     /**
-     * »ñÈ¡×¢½âµÄ¾ßÌå²Ù×÷
+     * è·å–æ³¨è§£çš„å…·ä½“æ“ä½œ
      */
     private static void doGetAnnotations(List<Class<?>> list, Class<?> cls) {
-        // »ñÈ¡ËùÓĞµÄ×¢½â
+        // è·å–æ‰€æœ‰çš„æ³¨è§£
         Annotation[] annotations = cls.getAnnotations();
         if(annotations != null && annotations.length > 0) {
             for(Annotation annotation : annotations) {
-                // »ñÈ¡×¢½âµÄÀàĞÍ
+                // è·å–æ³¨è§£çš„ç±»å‹
                 Class<?> annotationType = annotation.annotationType();
-                // ¹ıÂËjdkÌá¹©µÄÔª×¢½â
+                // è¿‡æ»¤jdkæä¾›çš„å…ƒæ³¨è§£
                 if(metaAnnotations.contains(annotationType)) {
                     continue;
                 }
-                // µİ¹éµ÷ÓÃ
+                // é€’å½’è°ƒç”¨
                 doGetAnnotations(list, annotationType);
             }
         }
-        // Èç¹ûÊÇ×¢½â£¬¾ÍÌí¼Óµ½ list ÖĞ
+        // å¦‚æœæ˜¯æ³¨è§£ï¼Œå°±æ·»åŠ åˆ° list ä¸­
         if(cls.isAnnotation()) {
             list.add(cls);
         }
@@ -138,20 +138,20 @@ public class AnnotationHandler {
 
 ```
 
-ÎÒÃÇÒª»ñÈ¡ `BeanObj3` ÉÏËùÓĞ×¢½â£¬¾Í¿ÉÒÔÕâÑù²Ù×÷ÁË£º
+æˆ‘ä»¬è¦è·å– `BeanObj3` ä¸Šæ‰€æœ‰æ³¨è§£ï¼Œå°±å¯ä»¥è¿™æ ·æ“ä½œäº†ï¼š
 
 ```
-// µÃµ½ BeanObj3 ÉÏµÄËùÓĞ×¢½â£¬°üÀ¨¡°×¢½âµÄ×¢½â¡±
+// å¾—åˆ° BeanObj3 ä¸Šçš„æ‰€æœ‰æ³¨è§£ï¼ŒåŒ…æ‹¬â€œæ³¨è§£çš„æ³¨è§£â€
 List<Class<?>> list = AnnotationHandler.getAnnotations(BeanObj3.class);
-// ÅĞ¶Ï BeanObj3 µÄ×¢½âÖĞÊÇ·ñ°üº¬ @Component
+// åˆ¤æ–­ BeanObj3 çš„æ³¨è§£ä¸­æ˜¯å¦åŒ…å« @Component
 list.contains(Component.class);
 
 ```
 
-ÒÔÉÏ demo »¹ÊÇ±È½Ï´Ö²Ú£¬Ê×ÏÈÊÇ jdk µÄÔª×¢½â£¬ÕâÀïÖ»ÅÅ³ıÁËÈı¸ö£¬ÕâÈı¸ö¶¼ÊÇÔÚ `@Component` ÖĞ³öÏÖµÄ£¬´¦Àí `@Component` Ö®ÉÏµÄ×¢½â¶ÁÈ¡ÒÑ¾­×ã¹»ÁË£»Æä´ÎÒ²ÊÇ×îÖØÒªµÄ£¬¾ÍÊÇÃ»ÓĞ»ñÈ¡×¢½âµÄÊı¾İ¡£ÔÚ spring ÖĞ£¬×¢½â²¢²»Ö»ÊÇÒ»¸ö±ê¼Ç£¬»¹¿ÉÒÔ¶¨ÒåÒ»ÏµÁĞÊıÁ¿£¬ÏñÕâÑù£º
+ä»¥ä¸Š demo è¿˜æ˜¯æ¯”è¾ƒç²—ç³™ï¼Œé¦–å…ˆæ˜¯ jdk çš„å…ƒæ³¨è§£ï¼Œè¿™é‡Œåªæ’é™¤äº†ä¸‰ä¸ªï¼Œè¿™ä¸‰ä¸ªéƒ½æ˜¯åœ¨ `@Component` ä¸­å‡ºç°çš„ï¼Œå¤„ç† `@Component` ä¹‹ä¸Šçš„æ³¨è§£è¯»å–å·²ç»è¶³å¤Ÿäº†ï¼›å…¶æ¬¡ä¹Ÿæ˜¯æœ€é‡è¦çš„ï¼Œå°±æ˜¯æ²¡æœ‰è·å–æ³¨è§£çš„æ•°æ®ã€‚åœ¨ spring ä¸­ï¼Œæ³¨è§£å¹¶ä¸åªæ˜¯ä¸€ä¸ªæ ‡è®°ï¼Œè¿˜å¯ä»¥å®šä¹‰ä¸€ç³»åˆ—æ•°é‡ï¼Œåƒè¿™æ ·ï¼š
 
 ```
-// ¶¨Òå spring bean µÄÃû³ÆÎª beanObj3
+// å®šä¹‰ spring bean çš„åç§°ä¸º beanObj3
 @MyComponent("beanObj3")
 public class BeanObj3 {
     ...
@@ -159,74 +159,74 @@ public class BeanObj3 {
 
 ```
 
-¶ø `AnnotationHandler` ²¢²»ÄÜ»ñÈ¡µ½×¢½âµÄÊı¾İ£¡
+è€Œ `AnnotationHandler` å¹¶ä¸èƒ½è·å–åˆ°æ³¨è§£çš„æ•°æ®ï¼
 
-½ÓÏÂÀ´ÎÒÃÇÀ´¿´¿´ spring ÊÇÔõÃ´×öµ½×¢½âÊı¾İµÄ¶ÁÈ¡µÄ¡£
+æ¥ä¸‹æ¥æˆ‘ä»¬æ¥çœ‹çœ‹ spring æ˜¯æ€ä¹ˆåšåˆ°æ³¨è§£æ•°æ®çš„è¯»å–çš„ã€‚
 
-### 3\. spring ¶ÁÈ¡×¢½âĞÅÏ¢
+### 3\. spring è¯»å–æ³¨è§£ä¿¡æ¯
 
-spring 5.2 ÖĞ£¬¶ÔÓÚ×¢½âĞÅÏ¢µÄ¶ÁÈ¡ÓĞÌá¹©ÁËÈı¸öÀà£º
+spring 5.2 ä¸­ï¼Œå¯¹äºæ³¨è§£ä¿¡æ¯çš„è¯»å–æœ‰æä¾›äº†ä¸‰ä¸ªç±»ï¼š
 
-*   `AnnotationMetadataReadingVisitor`£º×¢½âÊı¾İµÄ¶ÁÈ¡Àà£¬»ùÓÚ asm ÊµÏÖ£¬²»¹ıÔÚ spring5.2 ÖĞÒÑ¾­·ÏÆú£¨±ê¼ÇÁË `@Deprecated`£©£¬½¨ÒéÊ¹ÓÃ `SimpleAnnotationMetadataReadingVisitor`£¬Òò´Ë±¾ÎÄ²»×÷·ÖÎö
-*   `SimpleAnnotationMetadataReadingVisitor`£º×¢½âÊı¾İµÄ¶ÁÈ¡Àà£¬»ùÓÚ asm ÊµÏÖ£¬spring 5.2 ÖĞĞÂÔöµÄÀà£¬ÓÃÓÚÌæ´ú `AnnotationMetadataReadingVisitor`£¬ĞèÒª×¢½âµÄÊÇ£¬`SimpleAnnotationMetadataReadingVisitor` µÄ·ÃÎÊ¼¶±ğÊÇÄ¬ÈÏµÄ£¬ÎŞ·¨ÔÚËùÔÚ°üÖ®Íâ·ÃÎÊ£¬Í¬Ê±ËüÒ²ÊÇ `final` µÄ£¬²»ÄÜ±»¼Ì³Ğ£¬Òò´ËÎÒÃÇÎŞ·¨Ö±½Ó²Ù×÷Ëü£¬²»¹ı spring Ìá¹©ÁËÒ»¸öÀà£º`SimpleMetadataReaderFactory`£¬Í¨¹ıËü¾Í¿ÉÒÔÊ¹ÓÃ `SimpleAnnotationMetadataReadingVisitor` ÁË
-*   `StandardAnnotationMetadata`£º×¢½âÊı¾İµÄ¶ÁÈ¡Àà£¬»ùÓÚ·´ÉäÊµÏÖ
+*   `AnnotationMetadataReadingVisitor`ï¼šæ³¨è§£æ•°æ®çš„è¯»å–ç±»ï¼ŒåŸºäº asm å®ç°ï¼Œä¸è¿‡åœ¨ spring5.2 ä¸­å·²ç»åºŸå¼ƒï¼ˆæ ‡è®°äº† `@Deprecated`ï¼‰ï¼Œå»ºè®®ä½¿ç”¨ `SimpleAnnotationMetadataReadingVisitor`ï¼Œå› æ­¤æœ¬æ–‡ä¸ä½œåˆ†æ
+*   `SimpleAnnotationMetadataReadingVisitor`ï¼šæ³¨è§£æ•°æ®çš„è¯»å–ç±»ï¼ŒåŸºäº asm å®ç°ï¼Œspring 5.2 ä¸­æ–°å¢çš„ç±»ï¼Œç”¨äºæ›¿ä»£ `AnnotationMetadataReadingVisitor`ï¼Œéœ€è¦æ³¨è§£çš„æ˜¯ï¼Œ`SimpleAnnotationMetadataReadingVisitor` çš„è®¿é—®çº§åˆ«æ˜¯é»˜è®¤çš„ï¼Œæ— æ³•åœ¨æ‰€åœ¨åŒ…ä¹‹å¤–è®¿é—®ï¼ŒåŒæ—¶å®ƒä¹Ÿæ˜¯ `final` çš„ï¼Œä¸èƒ½è¢«ç»§æ‰¿ï¼Œå› æ­¤æˆ‘ä»¬æ— æ³•ç›´æ¥æ“ä½œå®ƒï¼Œä¸è¿‡ spring æä¾›äº†ä¸€ä¸ªç±»ï¼š`SimpleMetadataReaderFactory`ï¼Œé€šè¿‡å®ƒå°±å¯ä»¥ä½¿ç”¨ `SimpleAnnotationMetadataReadingVisitor` äº†
+*   `StandardAnnotationMetadata`ï¼šæ³¨è§£æ•°æ®çš„è¯»å–ç±»ï¼ŒåŸºäºåå°„å®ç°
 
 #### 3.1 `SimpleAnnotationMetadataReadingVisitor`
 
-spring ²¢Ã»ÓĞÌá¹©Ö±½Ó²Ù×÷ `SimpleAnnotationMetadataReadingVisitor` µÄ»ú»á£¬¶øÊÇ·â×°µ½ `SimpleMetadataReaderFactory` ÁË£¬ÎÒÃÇÏÈÀ´¿´¿´Õâ¸öÀà£º
+spring å¹¶æ²¡æœ‰æä¾›ç›´æ¥æ“ä½œ `SimpleAnnotationMetadataReadingVisitor` çš„æœºä¼šï¼Œè€Œæ˜¯å°è£…åˆ° `SimpleMetadataReaderFactory` äº†ï¼Œæˆ‘ä»¬å…ˆæ¥çœ‹çœ‹è¿™ä¸ªç±»ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-f2926fbc022517409bfb6f6641c87a193c2.png)
 
-¿ÉÒÔ¿´µ½£¬`SimpleMetadataReaderFactory` µÄÀàÖ÷Òª·ÖÎªÁ½²¿·Ö£º
+å¯ä»¥çœ‹åˆ°ï¼Œ`SimpleMetadataReaderFactory` çš„ç±»ä¸»è¦åˆ†ä¸ºä¸¤éƒ¨åˆ†ï¼š
 
-1.  ¹¹Ôì·½·¨
-2.  ×ÊÔ´µÄ»ñÈ¡
+1.  æ„é€ æ–¹æ³•
+2.  èµ„æºçš„è·å–
 
-ÕâÀïÎÒÃÇÖ±½Ó¿´»ñÈ¡µÄ»ñÈ¡£¬Ò²¾ÍÊÇ `getMetadataReader(...)` ·½·¨£º
+è¿™é‡Œæˆ‘ä»¬ç›´æ¥çœ‹è·å–çš„è·å–ï¼Œä¹Ÿå°±æ˜¯ `getMetadataReader(...)` æ–¹æ³•ï¼š
 
-`getMetadataReader(Resource resource)`: ¸ù¾İ `Resource` ¶ÁÈ¡Êı¾İ `getMetadataReader(String className)`: ¸ù¾İÀàÃû¶ÁÈ¡Êı¾İ£¬´«ÈëµÄÊÇÈ«ÏŞ¶¨ÀàÃû£¨¼´ ¡°°üÃû¡£ÀàÃû¡±£©£¬´Ó´úÂëÀ´¿´£¬Õâ¸öÀàÃû×îÖÕÒ²»á×ª»¯Îª `Resource`£¬È»ºóµ÷ÓÃ `getMetadataReader(Resource)` ½øĞĞ¶ÁÈ¡
+`getMetadataReader(Resource resource)`: æ ¹æ® `Resource` è¯»å–æ•°æ® `getMetadataReader(String className)`: æ ¹æ®ç±»åè¯»å–æ•°æ®ï¼Œä¼ å…¥çš„æ˜¯å…¨é™å®šç±»åï¼ˆå³ â€œåŒ…åã€‚ç±»åâ€ï¼‰ï¼Œä»ä»£ç æ¥çœ‹ï¼Œè¿™ä¸ªç±»åæœ€ç»ˆä¹Ÿä¼šè½¬åŒ–ä¸º `Resource`ï¼Œç„¶åè°ƒç”¨ `getMetadataReader(Resource)` è¿›è¡Œè¯»å–
 
-ÕâÁ½¸ö·½·¨µÄ·µ»ØÖµ¶¼ÊÇ `MetadataReader`£¬ÕâÊÇ¸öÉ¶ÄØ£¿ÎÒÃÇ¼ÌĞøÍùÏÂ¿´.
+è¿™ä¸¤ä¸ªæ–¹æ³•çš„è¿”å›å€¼éƒ½æ˜¯ `MetadataReader`ï¼Œè¿™æ˜¯ä¸ªå•¥å‘¢ï¼Ÿæˆ‘ä»¬ç»§ç»­å¾€ä¸‹çœ‹.
 
 ##### `MetadataReader`
 
-`MetadataReader` µÄ²¿·Ö·½·¨ÈçÏÂ£º
+`MetadataReader` çš„éƒ¨åˆ†æ–¹æ³•å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-4a1184918664e8a4bd363d6399ed4092692.png)
 
-¿ÉÒÔ¿´µ½£¬ËüÊÇ¸ö½Ó¿Ú£¨ÕâÀï·µ»ØµÄ¾ßÌåÀàĞÍ¾ÍÊÇ `SimpleMetadataReader` ÁË£©£¬ÀïÃæ¾Í 3 ¸ö·½·¨£º
+å¯ä»¥çœ‹åˆ°ï¼Œå®ƒæ˜¯ä¸ªæ¥å£ï¼ˆè¿™é‡Œè¿”å›çš„å…·ä½“ç±»å‹å°±æ˜¯ `SimpleMetadataReader` äº†ï¼‰ï¼Œé‡Œé¢å°± 3 ä¸ªæ–¹æ³•ï¼š
 
-*   `getResource()`: »ñÈ¡×ÊÔ´
-*   `getClassMetadata()`: »ñÈ¡ÀàµÄÔªÊı¾İ
-*   `getAnnotationMetadata()`: »ñÈ¡×¢½âµÄÔªÊı¾İ
+*   `getResource()`: è·å–èµ„æº
+*   `getClassMetadata()`: è·å–ç±»çš„å…ƒæ•°æ®
+*   `getAnnotationMetadata()`: è·å–æ³¨è§£çš„å…ƒæ•°æ®
 
-ÓÉÓÚÊÇ»ñÈ¡×¢½âµÄĞÅÏ¢£¬ÕâÀïÎÒÃÇÖ»¹Ø×¢ `getAnnotationMetadata()` ·½·¨£º
+ç”±äºæ˜¯è·å–æ³¨è§£çš„ä¿¡æ¯ï¼Œè¿™é‡Œæˆ‘ä»¬åªå…³æ³¨ `getAnnotationMetadata()` æ–¹æ³•ï¼š
 
 ```
 AnnotationMetadata getAnnotationMetadata();
 
 ```
 
-Õâ¸ö·½·¨·µ»ØµÄÊÇ `AnnotationMetadata`£¬ÕâÓÖÊÇ¸öÉ¶£¿
+è¿™ä¸ªæ–¹æ³•è¿”å›çš„æ˜¯ `AnnotationMetadata`ï¼Œè¿™åˆæ˜¯ä¸ªå•¥ï¼Ÿ
 
 ##### `AnnotationMetadata`
 
-ÏÈÀ´¿´¿´ËüµÄ·½·¨£º
+å…ˆæ¥çœ‹çœ‹å®ƒçš„æ–¹æ³•ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-fc19d57bbba3d70da04fd32e6eef511ad4f.png)
 
-ÕâĞ©·½·¨·ÖÎªÁ½Àà£º
+è¿™äº›æ–¹æ³•åˆ†ä¸ºä¸¤ç±»ï¼š
 
-*   `getXxx(...)`£º¸ù¾İ×¢½â»ñÈ¡¶ÔÓ¦µÄĞÅÏ¢
-*   `hasXxx(...)`£ºÅĞ¶ÏÊÇ·ñ°üº¬Ä³×¢½â
+*   `getXxx(...)`ï¼šæ ¹æ®æ³¨è§£è·å–å¯¹åº”çš„ä¿¡æ¯
+*   `hasXxx(...)`ï¼šåˆ¤æ–­æ˜¯å¦åŒ…å«æŸæ³¨è§£
 
-Èç¹û½øÒ»²½¿´Õâ¼¸¸ö·½·¨µÄÄ¬ÈÏÊµÏÖ£¬·¢ÏÖ¶¼µ÷ÓÃ `getAnnotations()` ·½·¨£º
+å¦‚æœè¿›ä¸€æ­¥çœ‹è¿™å‡ ä¸ªæ–¹æ³•çš„é»˜è®¤å®ç°ï¼Œå‘ç°éƒ½è°ƒç”¨ `getAnnotations()` æ–¹æ³•ï¼š
 
 ```
 public interface AnnotationMetadata extends ClassMetadata, AnnotatedTypeMetadata {
 
     default Set<String> getAnnotationTypes() {
-        // µ÷ÓÃÁË getAnnotations()
+        // è°ƒç”¨äº† getAnnotations()
     return getAnnotations().stream()
         .filter(MergedAnnotation::isDirectlyPresent)
         .map(annotation -> annotation.getType().getName())
@@ -234,7 +234,7 @@ public interface AnnotationMetadata extends ClassMetadata, AnnotatedTypeMetadata
     }
 
     default Set<String> getMetaAnnotationTypes(String annotationName) {
-        // µ÷ÓÃÁË getAnnotations()
+        // è°ƒç”¨äº† getAnnotations()
     MergedAnnotation<?> annotation = getAnnotations().get(annotationName, 
         MergedAnnotation::isDirectlyPresent);
     if (!annotation.isPresent()) {
@@ -247,7 +247,7 @@ public interface AnnotationMetadata extends ClassMetadata, AnnotatedTypeMetadata
     }
 
     default boolean hasAnnotation(String annotationName) {
-        // µ÷ÓÃÁË getAnnotations()
+        // è°ƒç”¨äº† getAnnotations()
     return getAnnotations().isDirectlyPresent(annotationName);
     }
 
@@ -256,13 +256,13 @@ public interface AnnotationMetadata extends ClassMetadata, AnnotatedTypeMetadata
 
 ```
 
-ÔÙ½øÒ»²½²é¿´ `getAnnotations()` ·½·¨£¬½øÈëÁË `AnnotatedTypeMetadata`£º
+å†è¿›ä¸€æ­¥æŸ¥çœ‹ `getAnnotations()` æ–¹æ³•ï¼Œè¿›å…¥äº† `AnnotatedTypeMetadata`ï¼š
 
 ```
 public interface AnnotatedTypeMetadata {
 
     /**
-     * »ñÈ¡×¢½â
+     * è·å–æ³¨è§£
      */
     MergedAnnotations getAnnotations();
 
@@ -272,101 +272,101 @@ public interface AnnotatedTypeMetadata {
 
 ```
 
-ÕâÒ»Ñù¿´£¬ËÆºõ×¢½âµÃµ½µÄÖÕ¼«Àà¾ÍÊÇ `MergedAnnotations` ÁË£¿ÎÒÃÇ¼ÌĞøÌ½Ë÷¡£
+è¿™ä¸€æ ·çœ‹ï¼Œä¼¼ä¹æ³¨è§£å¾—åˆ°çš„ç»ˆæç±»å°±æ˜¯ `MergedAnnotations` äº†ï¼Ÿæˆ‘ä»¬ç»§ç»­æ¢ç´¢ã€‚
 
 ##### `MergedAnnotations`
 
-`MergedAnnotations` µÄ²¿·Ö×¢ÊÍÈçÏÂ£º
+`MergedAnnotations` çš„éƒ¨åˆ†æ³¨é‡Šå¦‚ä¸‹ï¼š
 
 > Provides access to a collection of merged annotations, usually obtained from a source such as a {@link Class} or {@link Method}.
 >
-> Ìá¹©¶Ô×éºÏ×¢½âµÄ¼¯ºÏµÄ·ÃÎÊ£¬ÕâĞ©×¢½âÍ¨³£ÊÇ´Ó Class »ò Method Ö®ÀàµÄÀ´Ô´»ñµÃµÄ¡£
+> æä¾›å¯¹ç»„åˆæ³¨è§£çš„é›†åˆçš„è®¿é—®ï¼Œè¿™äº›æ³¨è§£é€šå¸¸æ˜¯ä» Class æˆ– Method ä¹‹ç±»çš„æ¥æºè·å¾—çš„ã€‚
 
-¿´À´£¬`MergedAnnotations` ²ÅÊÇ×îÖÕµÄ×éºÏ×¢½âµÄ¼¯ºÏÁË£¬ÎÒÃÇÀ´¿´¿´ËüµÄ¼¸¸ö·½·¨£º
+çœ‹æ¥ï¼Œ`MergedAnnotations` æ‰æ˜¯æœ€ç»ˆçš„ç»„åˆæ³¨è§£çš„é›†åˆäº†ï¼Œæˆ‘ä»¬æ¥çœ‹çœ‹å®ƒçš„å‡ ä¸ªæ–¹æ³•ï¼š
 
 ```
-// ÅĞ¶Ï×¢½âÊÇ·ñ´æÔÚ£¬»á´ÓËùÓĞµÄ×¢½âÖĞÅĞ¶Ï
+// åˆ¤æ–­æ³¨è§£æ˜¯å¦å­˜åœ¨ï¼Œä¼šä»æ‰€æœ‰çš„æ³¨è§£ä¸­åˆ¤æ–­
 <A extends Annotation> boolean isPresent(Class<A> annotationType);
 
-// ÅĞ¶Ï×¢½âÊÇ·ñ´æÔÚ£¬»á´ÓËùÓĞµÄ×¢½âÖĞÅĞ¶Ï£¬ÓëÉÏÃæµÄ·½·¨²»Í¬µÄÊÇ£¬ÕâÀï´«ÈëµÄÊÇ×Ö·û´®
+// åˆ¤æ–­æ³¨è§£æ˜¯å¦å­˜åœ¨ï¼Œä¼šä»æ‰€æœ‰çš„æ³¨è§£ä¸­åˆ¤æ–­ï¼Œä¸ä¸Šé¢çš„æ–¹æ³•ä¸åŒçš„æ˜¯ï¼Œè¿™é‡Œä¼ å…¥çš„æ˜¯å­—ç¬¦ä¸²
 boolean isPresent(String annotationType);
 
-// ÅĞ¶ÏÖ±½Ó×¢½âÊÇ·ñ´æÔÚ£¬Ò²¾ÍÊÇÖ»ÅĞ¶Ïµ±Ç°ÀàÉÏÓĞÃ»ÓĞ¸Ã×¢½â£¬²»ÅĞ¶Ï×¢½âµÄ×¢½â
+// åˆ¤æ–­ç›´æ¥æ³¨è§£æ˜¯å¦å­˜åœ¨ï¼Œä¹Ÿå°±æ˜¯åªåˆ¤æ–­å½“å‰ç±»ä¸Šæœ‰æ²¡æœ‰è¯¥æ³¨è§£ï¼Œä¸åˆ¤æ–­æ³¨è§£çš„æ³¨è§£
 <A extends Annotation> boolean isDirectlyPresent(Class<A> annotationType);
 
-// ¹¦ÄÜÍ¬ÉÏ£¬ÕâÀï´«ÈëµÄÀàĞÍÊÇ×Ö·û´®£¬¸ñÊ½Îª"°üÃû.ÀàÃû"
+// åŠŸèƒ½åŒä¸Šï¼Œè¿™é‡Œä¼ å…¥çš„ç±»å‹æ˜¯å­—ç¬¦ä¸²ï¼Œæ ¼å¼ä¸º"åŒ…å.ç±»å"
 boolean isDirectlyPresent(String annotationType);
 
-// »ñÈ¡×¢½â
+// è·å–æ³¨è§£
 <A extends Annotation> MergedAnnotation<A> get(Class<A> annotationType);
 
-// »ñÈ¡×¢½â£¬ÕâÀï´«ÈëµÄÀàĞÍÊÇ×Ö·û´®£¬¸ñÊ½Îª"°üÃû.ÀàÃû"
+// è·å–æ³¨è§£ï¼Œè¿™é‡Œä¼ å…¥çš„ç±»å‹æ˜¯å­—ç¬¦ä¸²ï¼Œæ ¼å¼ä¸º"åŒ…å.ç±»å"
 <A extends Annotation> MergedAnnotation<A> get(String annotationType);
 
 ```
 
-´Ó·½·¨ÉÏ´óÖÂ¿ÉÒÔ¿´³ö£¬`MergedAnnotations` ÊÇ×éºÏ×¢½âµÄ¼¯ºÏ£¬Ìá¹©µÄ×¢½â¿ÉÒÔÅĞ¶ÏÄ³×¢½âÊÇ·ñ´æÔÚ£¬Ò²¿ÉÒÔ»ñÈ¡ÆäÖĞµÄÄ³¸ö×¢½â¡£
+ä»æ–¹æ³•ä¸Šå¤§è‡´å¯ä»¥çœ‹å‡ºï¼Œ`MergedAnnotations` æ˜¯ç»„åˆæ³¨è§£çš„é›†åˆï¼Œæä¾›çš„æ³¨è§£å¯ä»¥åˆ¤æ–­æŸæ³¨è§£æ˜¯å¦å­˜åœ¨ï¼Œä¹Ÿå¯ä»¥è·å–å…¶ä¸­çš„æŸä¸ªæ³¨è§£ã€‚
 
 ##### `MergedAnnotation`
 
-`MergedAnnotations` ÊÇ×¢½âµÄ¼¯ºÏ£¬ÄÇÕâ¸ö¼¯ºÏÖĞ·ÅµÄÊÇÉ¶ÄØ£¿´ÓËüµÄ `get(...)` ·½·¨À´¿´£¬Ëü´æ·ÅµÄÊÇ `MergedAnnotation`£¬ÎÒÃÇÔÙÀ´¿´¿´ `MergedAnnotation` Ö§³ÖµÄ·½·¨£º
+`MergedAnnotations` æ˜¯æ³¨è§£çš„é›†åˆï¼Œé‚£è¿™ä¸ªé›†åˆä¸­æ”¾çš„æ˜¯å•¥å‘¢ï¼Ÿä»å®ƒçš„ `get(...)` æ–¹æ³•æ¥çœ‹ï¼Œå®ƒå­˜æ”¾çš„æ˜¯ `MergedAnnotation`ï¼Œæˆ‘ä»¬å†æ¥çœ‹çœ‹ `MergedAnnotation` æ”¯æŒçš„æ–¹æ³•ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a3a749f4546d63b49bfd25d2fc2c73dcb6f.png)
 
-´ÓÒÔÉÏµÄ·½·¨¿ÉÒÔ¿´µ½£¬`MergedAnnotation` ¾ÍÊÇ×¢½âµÄÊı¾İ³éÏó£¬ËüÌá¹©ÁË·á¸»µÄ api ÓÃÀ´»ñÈ¡×¢½âµÄÊı¾İ¡£
+ä»ä»¥ä¸Šçš„æ–¹æ³•å¯ä»¥çœ‹åˆ°ï¼Œ`MergedAnnotation` å°±æ˜¯æ³¨è§£çš„æ•°æ®æŠ½è±¡ï¼Œå®ƒæä¾›äº†ä¸°å¯Œçš„ api ç”¨æ¥è·å–æ³¨è§£çš„æ•°æ®ã€‚
 
-##### Ê¹ÓÃÊ¾Àı
+##### ä½¿ç”¨ç¤ºä¾‹
 
-ÏÂÃæÀ´¿´¸öÊ¾Àı£º
+ä¸‹é¢æ¥çœ‹ä¸ªç¤ºä¾‹ï¼š
 
 ```
-// µÃµ½ SimpleMetadataReaderFactory ÊµÀı£¬×îÖÕµ÷ÓÃµÄÊÇ SimpleAnnotationMetadataReadingVisitor À´¶ÁÈ¡
+// å¾—åˆ° SimpleMetadataReaderFactory å®ä¾‹ï¼Œæœ€ç»ˆè°ƒç”¨çš„æ˜¯ SimpleAnnotationMetadataReadingVisitor æ¥è¯»å–
 SimpleMetadataReaderFactory readerFactory = new SimpleMetadataReaderFactory();
 MetadataReader metadataReader = readerFactory.getMetadataReader(BeanObj3.class.getName());
 AnnotationMetadata annotationMetadata = metadataReader.getAnnotationMetadata();
 
-// AnnotationMetadata Ìá¹©ÁËĞí¶àµÄ²Ù×÷£¬ÖØµã¹Ø×¢×¢½âÏà¹ØµÄ
+// AnnotationMetadata æä¾›äº†è®¸å¤šçš„æ“ä½œï¼Œé‡ç‚¹å…³æ³¨æ³¨è§£ç›¸å…³çš„
 Set<String> annotationTypes = annotationMetadata.getAnnotationTypes();
 System.out.println("-------------");
 annotationTypes.forEach(type -> System.out.println(type));
 System.out.println("-------------");
 
-// ÕâÀïÊÇÖ±½Ó»ñÈ¡£¬BeanObj3 ÉÏÖ±½Ó±ê¼Ç @MyComponentµÄ£¬·µ»ØµÄÊÇtrue
+// è¿™é‡Œæ˜¯ç›´æ¥è·å–ï¼ŒBeanObj3 ä¸Šç›´æ¥æ ‡è®° @MyComponentçš„ï¼Œè¿”å›çš„æ˜¯true
 boolean exist1 = annotationMetadata.hasAnnotation(MyComponent.class.getName());
 System.out.println("hasAnnotation @MyComponent:" + exist1);
 
-// ÕâÀïÊÇÖ±½Ó»ñÈ¡£¬BeanObj3 ÉÏÊÇÃ»ÓĞÖ±½Ó±ê¼Ç @ComponentµÄ£¬·µ»ØµÄÊÇfalse
+// è¿™é‡Œæ˜¯ç›´æ¥è·å–ï¼ŒBeanObj3 ä¸Šæ˜¯æ²¡æœ‰ç›´æ¥æ ‡è®° @Componentçš„ï¼Œè¿”å›çš„æ˜¯false
 boolean exist2 = annotationMetadata.hasAnnotation(Component.class.getName());
 System.out.println("hasAnnotation @Component:" + exist2);
 
-// »ñÈ¡ MergedAnnotations
+// è·å– MergedAnnotations
 MergedAnnotations annotations = annotationMetadata.getAnnotations();
 System.out.println("-------------");
 annotations.forEach(annotationMergedAnnotation -> System.out.println(annotationMergedAnnotation));
 System.out.println("-------------");
 
-// ÕâÀïÊÇÖ±½Ó»ñÈ¡£¬BeanObj3 ÉÏÊÇÃ»ÓĞÖ±½Ó±ê¼Ç @ComponentµÄ£¬·µ»ØµÄÊÇfalse
+// è¿™é‡Œæ˜¯ç›´æ¥è·å–ï¼ŒBeanObj3 ä¸Šæ˜¯æ²¡æœ‰ç›´æ¥æ ‡è®° @Componentçš„ï¼Œè¿”å›çš„æ˜¯false
 boolean directlyPresent = annotations.isDirectlyPresent(Component.class);
 System.out.println("directlyPresent Component:" + directlyPresent);
 
-// ÅĞ¶ÏÓĞÃ»ÓĞÕâ¸ö×¢½â£¬BeanObj3 ÉÏµÄ@MyComponentÖĞ£¬±ê¼ÇÁË @Component µÄ£¬·µ»ØµÄÊÇtrue
+// åˆ¤æ–­æœ‰æ²¡æœ‰è¿™ä¸ªæ³¨è§£ï¼ŒBeanObj3 ä¸Šçš„@MyComponentä¸­ï¼Œæ ‡è®°äº† @Component çš„ï¼Œè¿”å›çš„æ˜¯true
 boolean present = annotations.isPresent(Component.class);
 System.out.println("present Component:" + present);
 
-// »ñÈ¡ @Component ×¢½â
+// è·å– @Component æ³¨è§£
 MergedAnnotation<Component> mergedAnnotation = annotations.get(Component.class);
-// ÓÉÓÚ @MyComponent µÄ value() ¼ÓÁË @AliasFor(annotation = Component.class)
-// Òò´ËÕâÀïµÃµ½µÄ value ÊÇ beanObj3 £¨BeanObj3ÀïÕâÃ´Ö¸¶¨µÄ£º@MyComponent("beanObj3")£©
+// ç”±äº @MyComponent çš„ value() åŠ äº† @AliasFor(annotation = Component.class)
+// å› æ­¤è¿™é‡Œå¾—åˆ°çš„ value æ˜¯ beanObj3 ï¼ˆBeanObj3é‡Œè¿™ä¹ˆæŒ‡å®šçš„ï¼š@MyComponent("beanObj3")ï¼‰
 String value = mergedAnnotation.getString("value");
 System.out.println("Component value:" + value);
 
-// ½« @Component µÄ×¢½âµÄÊı¾İ×ª»»Îª AnnotationAttributes
+// å°† @Component çš„æ³¨è§£çš„æ•°æ®è½¬æ¢ä¸º AnnotationAttributes
 AnnotationAttributes annotationAttributes = mergedAnnotation.asAnnotationAttributes();
 System.out.println(annotationAttributes);
 
 ```
 
-ÔËĞĞ£¬½á¹ûÈçÏÂ£º
+è¿è¡Œï¼Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
 -------------
@@ -386,9 +386,9 @@ Component value:beanObj3
 
 ```
 
-##### ²¹³ä£º`AnnotationAttributes`
+##### è¡¥å……ï¼š`AnnotationAttributes`
 
-²¹³äËµÃ÷ÏÂ `AnnotationAttributes`£º
+è¡¥å……è¯´æ˜ä¸‹ `AnnotationAttributes`ï¼š
 
 ```
 public class AnnotationAttributes extends LinkedHashMap<String, Object> {
@@ -397,15 +397,15 @@ public class AnnotationAttributes extends LinkedHashMap<String, Object> {
 
 ```
 
-ËüÊµÏÖÁË `LinkedHashMap`£¬Ìá¹©µÄ²¿·Ö·½·¨ÈçÏÂ£º
+å®ƒå®ç°äº† `LinkedHashMap`ï¼Œæä¾›çš„éƒ¨åˆ†æ–¹æ³•å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a8c8dc975790719c37a8e41a4b0067c517c.png)
 
-´ÓÕâÀï²»ÄÑ¿´³ö£¬`AnnotationAttributes` ¾ÍÊÇ°üº¬×¢½âËùÓĞÊôĞÔÖµµÄ map£¬key ÎªÊôĞÔÃû£¬value ÎªÊôĞÔÖµ¡£
+ä»è¿™é‡Œä¸éš¾çœ‹å‡ºï¼Œ`AnnotationAttributes` å°±æ˜¯åŒ…å«æ³¨è§£æ‰€æœ‰å±æ€§å€¼çš„ mapï¼Œkey ä¸ºå±æ€§åï¼Œvalue ä¸ºå±æ€§å€¼ã€‚
 
 #### 3.2 `StandardAnnotationMetadata`
 
-ÎÒÃÇ½Ó×ÅÀ´¿´¿´ `StandardAnnotationMetadata`:
+æˆ‘ä»¬æ¥ç€æ¥çœ‹çœ‹ `StandardAnnotationMetadata`:
 
 ```
 public class StandardAnnotationMetadata extends StandardClassMetadata 
@@ -428,58 +428,58 @@ public class StandardAnnotationMetadata extends StandardClassMetadata
 
 ```
 
-`StandardAnnotationMetadata` ÊµÏÖÁË `AnnotationMetadata` ½Ó¿Ú£¬¶ÔÓÚ×¢½âµÄ²Ù×÷ÓëÉÏÃæ½éÉÜµÄ `AnnotationMetadata` ²¢ÎŞÌ«´óÇø±ğ£¬ÕâÀï¾Í²»×¸ÊöÁË¡£
+`StandardAnnotationMetadata` å®ç°äº† `AnnotationMetadata` æ¥å£ï¼Œå¯¹äºæ³¨è§£çš„æ“ä½œä¸ä¸Šé¢ä»‹ç»çš„ `AnnotationMetadata` å¹¶æ— å¤ªå¤§åŒºåˆ«ï¼Œè¿™é‡Œå°±ä¸èµ˜è¿°äº†ã€‚
 
-´Ó `StandardAnnotationMetadata` µÄ¹¹Ôì·½·¨À´¿´£¬ËüÒÑ¾­·ÏÆúÁË£¬ÈÃÎÒÃÇÊ¹ÓÃ `AnnotationMetadata#introspect(Class)` À´»ñÈ¡ `StandardAnnotationMetadata` µÄÊµÀı£¬ÓÚÊÇ£¬ÎÒÃÇ¿ÉÒÔÏñÕâÑùÀ´²Ù×÷£º
+ä» `StandardAnnotationMetadata` çš„æ„é€ æ–¹æ³•æ¥çœ‹ï¼Œå®ƒå·²ç»åºŸå¼ƒäº†ï¼Œè®©æˆ‘ä»¬ä½¿ç”¨ `AnnotationMetadata#introspect(Class)` æ¥è·å– `StandardAnnotationMetadata` çš„å®ä¾‹ï¼Œäºæ˜¯ï¼Œæˆ‘ä»¬å¯ä»¥åƒè¿™æ ·æ¥æ“ä½œï¼š
 
 ```
-// »ñÈ¡µ½µÄ annotationMetadata Êµ¼ÊÉÏÊÇ StandardAnnotationMetadata
+// è·å–åˆ°çš„ annotationMetadata å®é™…ä¸Šæ˜¯ StandardAnnotationMetadata
 AnnotationMetadata annotationMetadata = AnnotationMetadata.introspect(BeanObj3.class);
 
-//----------- ÒÔÏÂÄÚÈİÓëSimpleAnnotationMetadataReadingVisitor Ò»Ä£Ò»Ñù
+//----------- ä»¥ä¸‹å†…å®¹ä¸SimpleAnnotationMetadataReadingVisitor ä¸€æ¨¡ä¸€æ ·
 
-// AnnotationMetadata Ìá¹©ÁËĞí¶àµÄ²Ù×÷£¬ÖØµã¹Ø×¢×¢½âÏà¹ØµÄ
+// AnnotationMetadata æä¾›äº†è®¸å¤šçš„æ“ä½œï¼Œé‡ç‚¹å…³æ³¨æ³¨è§£ç›¸å…³çš„
 Set<String> annotationTypes = annotationMetadata.getAnnotationTypes();
 System.out.println("-------------");
 annotationTypes.forEach(type -> System.out.println(type));
 System.out.println("-------------");
 
-// ÕâÀïÊÇÖ±½Ó»ñÈ¡£¬BeanObj3 ÉÏÖ±½Ó±ê¼Ç @MyComponentµÄ£¬·µ»ØµÄÊÇtrue
+// è¿™é‡Œæ˜¯ç›´æ¥è·å–ï¼ŒBeanObj3 ä¸Šç›´æ¥æ ‡è®° @MyComponentçš„ï¼Œè¿”å›çš„æ˜¯true
 boolean exist1 = annotationMetadata.hasAnnotation(MyComponent.class.getName());
 System.out.println("hasAnnotation @MyComponent:" + exist1);
 
-// ÕâÀïÊÇÖ±½Ó»ñÈ¡£¬BeanObj3 ÉÏÊÇÃ»ÓĞÖ±½Ó±ê¼Ç @ComponentµÄ£¬·µ»ØµÄÊÇfalse
+// è¿™é‡Œæ˜¯ç›´æ¥è·å–ï¼ŒBeanObj3 ä¸Šæ˜¯æ²¡æœ‰ç›´æ¥æ ‡è®° @Componentçš„ï¼Œè¿”å›çš„æ˜¯false
 boolean exist2 = annotationMetadata.hasAnnotation(Component.class.getName());
 System.out.println("hasAnnotation @Component:" + exist2);
 
-// »ñÈ¡ MergedAnnotations
+// è·å– MergedAnnotations
 MergedAnnotations annotations = annotationMetadata.getAnnotations();
 System.out.println("-------------");
 annotations.forEach(annotationMergedAnnotation -> System.out.println(annotationMergedAnnotation));
 System.out.println("-------------");
 
-// ÕâÀïÊÇÖ±½Ó»ñÈ¡£¬BeanObj3 ÉÏÊÇÃ»ÓĞÖ±½Ó±ê¼Ç @ComponentµÄ£¬·µ»ØµÄÊÇfalse
+// è¿™é‡Œæ˜¯ç›´æ¥è·å–ï¼ŒBeanObj3 ä¸Šæ˜¯æ²¡æœ‰ç›´æ¥æ ‡è®° @Componentçš„ï¼Œè¿”å›çš„æ˜¯false
 boolean directlyPresent = annotations.isDirectlyPresent(Component.class);
 System.out.println("directlyPresent Component:" + directlyPresent);
 
-// ÅĞ¶ÏÓĞÃ»ÓĞÕâ¸ö×¢½â£¬BeanObj3 ÉÏµÄ@MyComponentÖĞ£¬±ê¼ÇÁË @Component µÄ£¬·µ»ØµÄÊÇtrue
+// åˆ¤æ–­æœ‰æ²¡æœ‰è¿™ä¸ªæ³¨è§£ï¼ŒBeanObj3 ä¸Šçš„@MyComponentä¸­ï¼Œæ ‡è®°äº† @Component çš„ï¼Œè¿”å›çš„æ˜¯true
 boolean present = annotations.isPresent(Component.class);
 System.out.println("present Component:" + present);
 
-// »ñÈ¡ @Component ×¢½â
+// è·å– @Component æ³¨è§£
 MergedAnnotation<Component> mergedAnnotation = annotations.get(Component.class);
-// ÓÉÓÚ @MyComponent µÄ value() ¼ÓÁË @AliasFor(annotation = Component.class)
-// Òò´ËÕâÀïµÃµ½µÄ value ÊÇ beanObj3 £¨BeanObj3ÀïÕâÃ´Ö¸¶¨µÄ£º@MyComponent("beanObj3")£©
+// ç”±äº @MyComponent çš„ value() åŠ äº† @AliasFor(annotation = Component.class)
+// å› æ­¤è¿™é‡Œå¾—åˆ°çš„ value æ˜¯ beanObj3 ï¼ˆBeanObj3é‡Œè¿™ä¹ˆæŒ‡å®šçš„ï¼š@MyComponent("beanObj3")ï¼‰
 String value = mergedAnnotation.getString("value");
 System.out.println("Component value:" + value);
 
-// ½« @Component µÄ×¢½âµÄÊı¾İ×ª»»Îª AnnotationAttributes
+// å°† @Component çš„æ³¨è§£çš„æ•°æ®è½¬æ¢ä¸º AnnotationAttributes
 AnnotationAttributes annotationAttributes = mergedAnnotation.asAnnotationAttributes();
 System.out.println(annotationAttributes);
 
 ```
 
-ÔËĞĞ½á¹ûÈçÏÂ£º
+è¿è¡Œç»“æœå¦‚ä¸‹ï¼š
 
 ```
 -------------
@@ -499,44 +499,44 @@ Component value:beanObj3
 
 ```
 
-´ÓÉÏÃæµÄÊ¾ÀıÀ´¿´£¬ÎÒÃÇÀú¾­Ç§ĞÁÍò¿à£¬×îÖÕµÃµ½ÁË `MergedAnnotations`£¬È»ºóÍ¨¹ıËüÀ´ÅĞ¶Ï×¢½âÊÇ·ñ´æÔÚ¡¢»ñÈ¡×¢½âµÄÖµ¡£
+ä»ä¸Šé¢çš„ç¤ºä¾‹æ¥çœ‹ï¼Œæˆ‘ä»¬å†ç»åƒè¾›ä¸‡è‹¦ï¼Œæœ€ç»ˆå¾—åˆ°äº† `MergedAnnotations`ï¼Œç„¶åé€šè¿‡å®ƒæ¥åˆ¤æ–­æ³¨è§£æ˜¯å¦å­˜åœ¨ã€è·å–æ³¨è§£çš„å€¼ã€‚
 
-#### 3.3 Á½ÕßµÄÊ¹ÓÃ³¡¾°
+#### 3.3 ä¸¤è€…çš„ä½¿ç”¨åœºæ™¯
 
-`SimpleAnnotationMetadataReadingVisitor` Óë `StandardAnnotationMetadata` µÄÖ÷ÒªÇø±ğÔÚÓÚ£¬`SimpleAnnotationMetadataReadingVisitor` ÊÇ»ùÓÚ asm µÄÊµÏÖ£¬`StandardAnnotationMetadata` ÊÇ»ùÓÚ·´ÉäµÄÊµÏÖ£¬ÄÇÎÒÃÇÔÚÊ¹ÓÃÊ±£¬Ó¦¸ÃÒªÔõÃ´Ñ¡ÄØ£¿
+`SimpleAnnotationMetadataReadingVisitor` ä¸ `StandardAnnotationMetadata` çš„ä¸»è¦åŒºåˆ«åœ¨äºï¼Œ`SimpleAnnotationMetadataReadingVisitor` æ˜¯åŸºäº asm çš„å®ç°ï¼Œ`StandardAnnotationMetadata` æ˜¯åŸºäºåå°„çš„å®ç°ï¼Œé‚£æˆ‘ä»¬åœ¨ä½¿ç”¨æ—¶ï¼Œåº”è¯¥è¦æ€ä¹ˆé€‰å‘¢ï¼Ÿ
 
-ÓÉÓÚ»ùÓÚ·´ÉäÊÇÒªÏÈ¼ÓÀà¼ÓÔØµ½ jvm ÖĞµÄ£¬Òò´ËÎÒµÄÅĞ¶ÏÊÇ£¬**Èç¹ûµ±Ç°ÀàÃ»ÓĞ¼ÓÔØµ½ jvm ÖĞ£¬¾ÍÊ¹ÓÃ `SimpleAnnotationMetadataReadingVisitor`£¬Èç¹ûÀàÒÑ¾­¼ÓÔØµ½ jvm ÖĞÁË£¬Á½Õß½Ô¿ÉÊ¹ÓÃ**¡£
+ç”±äºåŸºäºåå°„æ˜¯è¦å…ˆåŠ ç±»åŠ è½½åˆ° jvm ä¸­çš„ï¼Œå› æ­¤æˆ‘çš„åˆ¤æ–­æ˜¯ï¼Œ**å¦‚æœå½“å‰ç±»æ²¡æœ‰åŠ è½½åˆ° jvm ä¸­ï¼Œå°±ä½¿ç”¨ `SimpleAnnotationMetadataReadingVisitor`ï¼Œå¦‚æœç±»å·²ç»åŠ è½½åˆ° jvm ä¸­äº†ï¼Œä¸¤è€…çš†å¯ä½¿ç”¨**ã€‚
 
-ÊÂÊµÉÏ£¬ÔÚ spring °üÉ¨Ãè½×¶Î£¬¶ÁÈ¡ÀàÉÏµÄ×¢½âÊ±£¬Ê¹ÓÃµÄ¶¼ÊÇ `SimpleAnnotationMetadataReadingVisitor`£¬ÒòÎª´ËÊ±Àà²¢Ã»ÓĞ¼ÓÔØµ½ jvm£¬Èç¹ûÊ¹ÓÃ `StandardAnnotationMetadata` ¶ÁÈ¡£¬¾Í»áµ¼ÖÂÀàÌáÇ°¼ÓÔØ¡£ÀàÌáÇ°¼ÓÔØÓĞÊ²Ã´ÎÊÌâÄØ£¿java ÀàÊÇ°´Ğè¼ÓÔØµÄ£¬ÓĞµÄÀà¿ÉÄÜÔÚÕû¸ö jvm ÉúÃüÖÜÆÚÄÚ¶¼Ã»ÓÃµ½£¬Èç¹ûÈ«¶¼¼ÓÔØÁË£¬¾Í°×°×ÀË·ÑÄÚ´æÁË¡£
+äº‹å®ä¸Šï¼Œåœ¨ spring åŒ…æ‰«æé˜¶æ®µï¼Œè¯»å–ç±»ä¸Šçš„æ³¨è§£æ—¶ï¼Œä½¿ç”¨çš„éƒ½æ˜¯ `SimpleAnnotationMetadataReadingVisitor`ï¼Œå› ä¸ºæ­¤æ—¶ç±»å¹¶æ²¡æœ‰åŠ è½½åˆ° jvmï¼Œå¦‚æœä½¿ç”¨ `StandardAnnotationMetadata` è¯»å–ï¼Œå°±ä¼šå¯¼è‡´ç±»æå‰åŠ è½½ã€‚ç±»æå‰åŠ è½½æœ‰ä»€ä¹ˆé—®é¢˜å‘¢ï¼Ÿjava ç±»æ˜¯æŒ‰éœ€åŠ è½½çš„ï¼Œæœ‰çš„ç±»å¯èƒ½åœ¨æ•´ä¸ª jvm ç”Ÿå‘½å‘¨æœŸå†…éƒ½æ²¡ç”¨åˆ°ï¼Œå¦‚æœå…¨éƒ½åŠ è½½äº†ï¼Œå°±ç™½ç™½æµªè´¹å†…å­˜äº†ã€‚
 
-### 4\. spring Ìá¹©µÄ×¢½â¹¤¾ßÀà
+### 4\. spring æä¾›çš„æ³¨è§£å·¥å…·ç±»
 
-ÔÚÇ°ÃæµÄÊ¾ÀıÖĞ£¬ÎÒÃÇÊÇÕâÑù¶ÁÈ¡×¢½âµÄ£º
+åœ¨å‰é¢çš„ç¤ºä¾‹ä¸­ï¼Œæˆ‘ä»¬æ˜¯è¿™æ ·è¯»å–æ³¨è§£çš„ï¼š
 
 ```
-// ¶ÁÈ¡ annotationMetadata£¬Ò²¿ÉÒÔÊ¹ÓÃ SimpleMetadataReaderFactory ¶ÁÈ¡
+// è¯»å– annotationMetadataï¼Œä¹Ÿå¯ä»¥ä½¿ç”¨ SimpleMetadataReaderFactory è¯»å–
 AnnotationMetadata annotationMetadata = AnnotationMetadata.introspect(BeanObj3.class);
 MergedAnnotations annotations = annotationMetadata.getAnnotations();
 
-// ÅĞ¶Ï×¢½âÊÇ·ñ´æÔÚ
+// åˆ¤æ–­æ³¨è§£æ˜¯å¦å­˜åœ¨
 boolean present = annotations.isPresent(Component.class);
-// »ñÈ¡×¢½âµÄÊôĞÔ
+// è·å–æ³¨è§£çš„å±æ€§
 MergedAnnotation<Component> mergedAnnotation = annotations.get(Component.class);
 AnnotationAttributes annotationAttributes = mergedAnnotation.asAnnotationAttributes();
 
 ```
 
-Ïà¶ÔÀ´Ëµ£¬»ñÈ¡×¢½âµÄÊôĞÔ²½Öè±È½Ï¶à£¬´ÏÃ÷ÈçÄã£¬¾ÍÏëµ½¿ÉÒÔ½«ÕâĞ©²½Öè·â×°µ½Ò»¸ö·½·¨ÖĞ½øĞĞ´¦Àí£¬spring Ò²ÊÇÕâÃ´×öµÄ£¬Õâ¾ÍµÃ½éÉÜ spring ÖĞÓë×¢½âÏà¹ØµÄÁ½¸öÀà£º`AnnotationUtils` Óë `AnnotatedElementUtils`¡£`AnnotationUtils` ÊÇÖ±½Ó»ñÈ¡×¢½âµÄÖµ£¬²»»á´¦ÀíÊôĞÔ¸²¸Ç£¬¶ø `AnnotatedElementUtils` »á´¦ÀíÊôĞÔ¸²¸Ç¡£
+ç›¸å¯¹æ¥è¯´ï¼Œè·å–æ³¨è§£çš„å±æ€§æ­¥éª¤æ¯”è¾ƒå¤šï¼Œèªæ˜å¦‚ä½ ï¼Œå°±æƒ³åˆ°å¯ä»¥å°†è¿™äº›æ­¥éª¤å°è£…åˆ°ä¸€ä¸ªæ–¹æ³•ä¸­è¿›è¡Œå¤„ç†ï¼Œspring ä¹Ÿæ˜¯è¿™ä¹ˆåšçš„ï¼Œè¿™å°±å¾—ä»‹ç» spring ä¸­ä¸æ³¨è§£ç›¸å…³çš„ä¸¤ä¸ªç±»ï¼š`AnnotationUtils` ä¸ `AnnotatedElementUtils`ã€‚`AnnotationUtils` æ˜¯ç›´æ¥è·å–æ³¨è§£çš„å€¼ï¼Œä¸ä¼šå¤„ç†å±æ€§è¦†ç›–ï¼Œè€Œ `AnnotatedElementUtils` ä¼šå¤„ç†å±æ€§è¦†ç›–ã€‚
 
-Ê²Ã´ÊÇÊôĞÔ¸²¸ÇÄØ£¿
+ä»€ä¹ˆæ˜¯å±æ€§è¦†ç›–å‘¢ï¼Ÿ
 
-¾ÙÀıÀ´Ëµ£¬`@MyComponent` ³¤ÕâÑù£º
+ä¸¾ä¾‹æ¥è¯´ï¼Œ`@MyComponent` é•¿è¿™æ ·ï¼š
 
 ```
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-// ×¢ÒâComponentÖ¸¶¨µÄÖµ£º123
+// æ³¨æ„ComponentæŒ‡å®šçš„å€¼ï¼š123
 @Component("123")
 public @interface MyComponent {
 
@@ -547,7 +547,7 @@ public @interface MyComponent {
 
 ```
 
-ÔÚ `@MyComponent` ×¢½âÖĞ£¬ÎÒÃÇÖ¸¶¨ÁË `@Component` µÄ `value` ÖµÎª ¡°123¡±£¬È»ºóÓÖÕâÃ´Ö¸¶¨ `@MyComponent` µÄ `value` Öµ£º
+åœ¨ `@MyComponent` æ³¨è§£ä¸­ï¼Œæˆ‘ä»¬æŒ‡å®šäº† `@Component` çš„ `value` å€¼ä¸º â€œ123â€ï¼Œç„¶ååˆè¿™ä¹ˆæŒ‡å®š `@MyComponent` çš„ `value` å€¼ï¼š
 
 ```
 @MyComponent("beanObj3")
@@ -558,13 +558,13 @@ public class BeanObj3 {
 
 ```
 
-×îÖÕ spring ³õÊ¼»¯µÃµ½µÄ `BeanObj3` µÄÃû³ÆÊÇ `123` »¹ÊÇ `beanObj3` ÄØ£¿´ÓÎÒÃÇÉèÖÃ `@MyComponent` µÄ `value` Îª `beanObj3` À´Ëµ£¬µ±È»ÊÇÏ£Íû bean µÄÃû³ÆÎª `beanObj3`£¬¶ø×îÖÕ spring Ò²ÊÇÕâÃ´×öµÄ£¬Õâ¾ÍÊÇÊôĞÔ¸²¸ÇÁË£º`@MyComponent` µÄ `value` ¸²¸ÇÁË `@Component` µÄ `value` Öµ¡£
+æœ€ç»ˆ spring åˆå§‹åŒ–å¾—åˆ°çš„ `BeanObj3` çš„åç§°æ˜¯ `123` è¿˜æ˜¯ `beanObj3` å‘¢ï¼Ÿä»æˆ‘ä»¬è®¾ç½® `@MyComponent` çš„ `value` ä¸º `beanObj3` æ¥è¯´ï¼Œå½“ç„¶æ˜¯å¸Œæœ› bean çš„åç§°ä¸º `beanObj3`ï¼Œè€Œæœ€ç»ˆ spring ä¹Ÿæ˜¯è¿™ä¹ˆåšçš„ï¼Œè¿™å°±æ˜¯å±æ€§è¦†ç›–äº†ï¼š`@MyComponent` çš„ `value` è¦†ç›–äº† `@Component` çš„ `value` å€¼ã€‚
 
-`AnnotationUtils`/`AnnotatedElementUtils` ÓëÉÏÃæ½éÉÜµÄ `SimpleAnnotationMetadataReadingVisitor`/`StandardAnnotationMetadata` ÊÇºÎ¹ØÏµÄØ£¿
+`AnnotationUtils`/`AnnotatedElementUtils` ä¸ä¸Šé¢ä»‹ç»çš„ `SimpleAnnotationMetadataReadingVisitor`/`StandardAnnotationMetadata` æ˜¯ä½•å…³ç³»å‘¢ï¼Ÿ
 
-ÔÚÎÒÃÇÊ¹ÓÃ `SimpleAnnotationMetadataReadingVisitor`/`StandardAnnotationMetadata` Ê±£¬ÎÒÃÇĞèÒªµÃµ½ `MergedAnnotations` ÔÙ½øĞĞÒ»ÏµÁĞ²Ù×÷£¨ÅĞ¶Ï×¢½âÊÇ·ñ´æÔÚ¡¢»ñÈ¡×¢½âµÄÊôĞÔÖµµÈ£©£¬Èç¹û½øÈë `AnnotationUtils`/`AnnotatedElementUtils` µÄÔ´Âë£¬¾Í»á·¢ÏÖËüÃÇµÄÏà¹Ø·½·¨Ò²ÊÇ²Ù×÷ `MergedAnnotations` Àà£¬±ÈÈç»ñÈ¡×¢½â£º
+åœ¨æˆ‘ä»¬ä½¿ç”¨ `SimpleAnnotationMetadataReadingVisitor`/`StandardAnnotationMetadata` æ—¶ï¼Œæˆ‘ä»¬éœ€è¦å¾—åˆ° `MergedAnnotations` å†è¿›è¡Œä¸€ç³»åˆ—æ“ä½œï¼ˆåˆ¤æ–­æ³¨è§£æ˜¯å¦å­˜åœ¨ã€è·å–æ³¨è§£çš„å±æ€§å€¼ç­‰ï¼‰ï¼Œå¦‚æœè¿›å…¥ `AnnotationUtils`/`AnnotatedElementUtils` çš„æºç ï¼Œå°±ä¼šå‘ç°å®ƒä»¬çš„ç›¸å…³æ–¹æ³•ä¹Ÿæ˜¯æ“ä½œ `MergedAnnotations` ç±»ï¼Œæ¯”å¦‚è·å–æ³¨è§£ï¼š
 
-`AnnotationUtils#getAnnotation(AnnotatedElement, Class<A>)` ·½·¨£º
+`AnnotationUtils#getAnnotation(AnnotatedElement, Class<A>)` æ–¹æ³•ï¼š
 
 ```
 public static <A extends Annotation> A getAnnotation(AnnotatedElement annotatedElement, 
@@ -573,7 +573,7 @@ public static <A extends Annotation> A getAnnotation(AnnotatedElement annotatedE
             AnnotationsScanner.hasPlainJavaAnnotationsOnly(annotatedElement)) {
         return annotatedElement.getAnnotation(annotationType);
     }
-    // Í¨¹ı²Ù×÷ MergedAnnotations ½øĞĞ»ñÈ¡
+    // é€šè¿‡æ“ä½œ MergedAnnotations è¿›è¡Œè·å–
     return MergedAnnotations.from(annotatedElement, 
             SearchStrategy.INHERITED_ANNOTATIONS, RepeatableContainers.none())
             .get(annotationType).withNonMergedAttributes()
@@ -582,7 +582,7 @@ public static <A extends Annotation> A getAnnotation(AnnotatedElement annotatedE
 
 ```
 
-`AnnotatedElementUtils#getAllMergedAnnotations(AnnotatedElement, Class<A>)` ·½·¨£º
+`AnnotatedElementUtils#getAllMergedAnnotations(AnnotatedElement, Class<A>)` æ–¹æ³•ï¼š
 
 ```
 public static <A extends Annotation> Set<A> getAllMergedAnnotations(
@@ -591,7 +591,7 @@ public static <A extends Annotation> Set<A> getAllMergedAnnotations(
             .collect(MergedAnnotationCollectors.toAnnotationSet());
 }
 
-// AnnotatedElementUtils#getAnnotations ·½·¨£¬Ò²ÊÇ²Ù×÷ MergedAnnotations µÄ·½·¨
+// AnnotatedElementUtils#getAnnotations æ–¹æ³•ï¼Œä¹Ÿæ˜¯æ“ä½œ MergedAnnotations çš„æ–¹æ³•
 private static MergedAnnotations getAnnotations(AnnotatedElement element) {
     return MergedAnnotations.from(element, SearchStrategy.INHERITED_ANNOTATIONS, 
             RepeatableContainers.none());
@@ -599,41 +599,41 @@ private static MergedAnnotations getAnnotations(AnnotatedElement element) {
 
 ```
 
-Òò´Ë£¬`AnnotationUtils`/`AnnotatedElementUtils` Óë `SimpleAnnotationMetadataReadingVisitor`/`StandardAnnotationMetadata` µ×²ã¶¼ÊÇ²Ù×÷ `MergedAnnotations` ÀàµÄ¡£
+å› æ­¤ï¼Œ`AnnotationUtils`/`AnnotatedElementUtils` ä¸ `SimpleAnnotationMetadataReadingVisitor`/`StandardAnnotationMetadata` åº•å±‚éƒ½æ˜¯æ“ä½œ `MergedAnnotations` ç±»çš„ã€‚
 
 #### 4.1 `AnnotationUtils`
 
-`AnnotationUtils` Ö§³ÖµÄ²¿·Ö·½·¨ÈçÏÂ£º
+`AnnotationUtils` æ”¯æŒçš„éƒ¨åˆ†æ–¹æ³•å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-51b0f496180a16d947b8f83285370cabd8f.png)
 
-ÎÒÃÇÀ´Êµ¼ÊÊ¹ÓÃÏÂÕâĞ©·½·¨£º
+æˆ‘ä»¬æ¥å®é™…ä½¿ç”¨ä¸‹è¿™äº›æ–¹æ³•ï¼š
 
 ```
-// ÔÚ BeanObj3 »ñÈ¡ @Component
+// åœ¨ BeanObj3 è·å– @Component
 Annotation annotation = AnnotationUtils.getAnnotation(BeanObj3.class, Component.class);
 if(null == annotation) {
-    System.out.println("×¢½â²»´æÔÚ£¡");
+    System.out.println("æ³¨è§£ä¸å­˜åœ¨ï¼");
     return;
 }
 System.out.println("annotation: " + annotation);
 
-// »ñÈ¡ AnnotationAttributes
+// è·å– AnnotationAttributes
 AnnotationAttributes annotationAttributes
         = AnnotationUtils.getAnnotationAttributes(BeanObj3.class, annotation);
 System.out.println("AnnotationAttributes: " + annotationAttributes);
 
-// »ñÈ¡ annotationAttributeMap
+// è·å– annotationAttributeMap
 Map<String, Object> annotationAttributeMap = AnnotationUtils.getAnnotationAttributes(annotation);
 System.out.println("annotationAttributeMap: " + annotationAttributeMap);
 
-// »ñÈ¡valueµÄÖµ
+// è·å–valueçš„å€¼
 Object value = AnnotationUtils.getValue(annotation, "value");
 System.out.println("value: " + value);
 
 ```
 
-½á¹ûÈçÏÂ£º
+ç»“æœå¦‚ä¸‹ï¼š
 
 ```
 annotation: @org.springframework.stereotype.Component(value=123)
@@ -643,22 +643,22 @@ value: 123
 
 ```
 
-´Ó½á¹ûÀ´¿´£¬Ö±½ÓÍ¨¹ı `AnnotationUtils.getAnnotation(...)` Ò²ÊÇÄÜ»ñÈ¡µ½ `@Component` ×¢½âµÄ£¬¾¡¹Ü `BeanObj3` ²¢Ã»ÓĞÖ±½Ó±ê¼Ç `@Component`. ĞèÒª×¢ÒâµÄÊÇ£¬ÕâÑù»ñÈ¡µ½µÄ `@Component` µÄ `value` ÖµÊÇ "123"£¬²¢²»ÊÇ `@MyComponent` ÉèÖÃµÄ `beanObj3`£¬ÕâÒ²Ö¤Ã÷ÁË `AnnotationUtils` »ñÈ¡ÊôĞÔÖµÊ±²¢²»½øĞĞÊôĞÔ¸²¸Ç²Ù×÷¡£
+ä»ç»“æœæ¥çœ‹ï¼Œç›´æ¥é€šè¿‡ `AnnotationUtils.getAnnotation(...)` ä¹Ÿæ˜¯èƒ½è·å–åˆ° `@Component` æ³¨è§£çš„ï¼Œå°½ç®¡ `BeanObj3` å¹¶æ²¡æœ‰ç›´æ¥æ ‡è®° `@Component`. éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œè¿™æ ·è·å–åˆ°çš„ `@Component` çš„ `value` å€¼æ˜¯ "123"ï¼Œå¹¶ä¸æ˜¯ `@MyComponent` è®¾ç½®çš„ `beanObj3`ï¼Œè¿™ä¹Ÿè¯æ˜äº† `AnnotationUtils` è·å–å±æ€§å€¼æ—¶å¹¶ä¸è¿›è¡Œå±æ€§è¦†ç›–æ“ä½œã€‚
 
 #### 4.2 `AnnotatedElementUtils`
 
-`AnnotatedElementUtils` Ö§³ÖµÄ²¿·Ö·½·¨ÈçÏÂ£º
+`AnnotatedElementUtils` æ”¯æŒçš„éƒ¨åˆ†æ–¹æ³•å¦‚ä¸‹ï¼š
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-9815fe697f5ccf14d3aa215952bfcbcc3ab.png)
 
-¸ø¸öÊ¾Àı°É£º
+ç»™ä¸ªç¤ºä¾‹å§ï¼š
 
 ```
-// 1\. ÅĞ¶ÏÊÇ·ñÓĞ Component ×¢½â
+// 1\. åˆ¤æ–­æ˜¯å¦æœ‰ Component æ³¨è§£
 boolean result = AnnotatedElementUtils.hasAnnotation(BeanObj3.class, Component.class);
 System.out.println("hasAnnotation: " + result);
 
-// 2\. »ñÈ¡ attributeMap£¬¿ÉÒÔ¿´µ½µÄÊÇ£¬»ñÈ¡ @Component Óë @MyComponent µÃµ½µÄ½á¹û²»Ò»Ñù
+// 2\. è·å– attributeMapï¼Œå¯ä»¥çœ‹åˆ°çš„æ˜¯ï¼Œè·å– @Component ä¸ @MyComponent å¾—åˆ°çš„ç»“æœä¸ä¸€æ ·
 // Component attributeMap: {value=[123]}
 MultiValueMap<String, Object> attributeMap1 = AnnotatedElementUtils
         .getAllAnnotationAttributes(BeanObj3.class, Component.class.getName());
@@ -668,24 +668,24 @@ MultiValueMap<String, Object> attributeMap2 = AnnotatedElementUtils
         .getAllAnnotationAttributes(BeanObj3.class, MyComponent.class.getName());
 System.out.println("MyComponent attributeMap: " + attributeMap2);
 
-// 3\. »ñÈ¡ËùÓĞµÄ @Component ×¢½â£¬value=beanObj3
+// 3\. è·å–æ‰€æœ‰çš„ @Component æ³¨è§£ï¼Œvalue=beanObj3
 Set<Component> mergedAnnotations = AnnotatedElementUtils
         .getAllMergedAnnotations(BeanObj3.class, Component.class);
 System.out.println("mergedAnnotations: " + mergedAnnotations);
 
-// 4\. »ñÈ¡ÊôĞÔÖµ£¬{value=beanObj3}
+// 4\. è·å–å±æ€§å€¼ï¼Œ{value=beanObj3}
 AnnotationAttributes attributes = AnnotatedElementUtils
         .getMergedAnnotationAttributes(BeanObj3.class, Component.class);
 System.out.println("attributes: " + attributes);
 
-// 5\. »ñÈ¡ MyComponent ÉÏµÄ×¢½â
+// 5\. è·å– MyComponent ä¸Šçš„æ³¨è§£
 Set<String> types = AnnotatedElementUtils
         .getMetaAnnotationTypes(BeanObj3.class, MyComponent.class);
 System.out.println("types: " + types);
 
 ```
 
-½á¹ûÈçÏÂ£º
+ç»“æœå¦‚ä¸‹ï¼š
 
 ```
 hasAnnotation: true
@@ -697,14 +697,14 @@ types: [org.springframework.stereotype.Component, org.springframework.stereotype
 
 ```
 
-´Ó´úÂëÀ´¿´£¬ÔÚµÃµ½µÄ `Set<Component>` Óë `AnnotationAttributes` ÖĞ£¬ÊôĞÔÖµÒÑ¾­ºÏ²¢ÁË.
+ä»ä»£ç æ¥çœ‹ï¼Œåœ¨å¾—åˆ°çš„ `Set<Component>` ä¸ `AnnotationAttributes` ä¸­ï¼Œå±æ€§å€¼å·²ç»åˆå¹¶äº†.
 
-ÔÚÑ¡ÔñÊ¹ÓÃ `AnnotationUtils` »¹ÊÇ `AnnotatedElementUtils` Ê±£¬¿ÉÒÔ¸ù¾İÒª²»ÒªÊôĞÔ¸²¸ÇÀ´Ñ¡Ôñ£¬Èç¹ûĞèÒª´¦ÀíÊôĞÔ¸²¸Ç£¬¾ÍÊ¹ÓÃ `AnnotatedElementUtils`£¬Èç¹û²»ĞèÒª£¬¾ÍÊ¹ÓÃ `AnnotationUtils` °É£¡
+åœ¨é€‰æ‹©ä½¿ç”¨ `AnnotationUtils` è¿˜æ˜¯ `AnnotatedElementUtils` æ—¶ï¼Œå¯ä»¥æ ¹æ®è¦ä¸è¦å±æ€§è¦†ç›–æ¥é€‰æ‹©ï¼Œå¦‚æœéœ€è¦å¤„ç†å±æ€§è¦†ç›–ï¼Œå°±ä½¿ç”¨ `AnnotatedElementUtils`ï¼Œå¦‚æœä¸éœ€è¦ï¼Œå°±ä½¿ç”¨ `AnnotationUtils` å§ï¼
 
-### 5\. ×Ü½á
+### 5\. æ€»ç»“
 
-±¾ÎÄ½éÉÜÁË spring ´¦Àí×¢½âµÄ²Ù×÷£¬Ö÷Òª½éÉÜÁË `SimpleAnnotationMetadataReadingVisitor` Óë `StandardAnnotationMetadata` µÄÇø±ğÓëÊ¹ÓÃ·½·¨¡£ÓÉÓÚÕâÁ½¸öÀàÊ¹ÓÃÆğÀ´²½Öè±È½Ï¶à£¬ÎÄÖĞÓÖ½éÉÜÁË spring Ìá¹©µÄÁ½¸ö¹¤¾ßÀà£º`AnnotationUtils` Óë `AnnotatedElementUtils`£¬Èç¹ûĞèÒª´¦ÀíÊôĞÔ¸²¸Ç£¬ĞèÒªÊ¹ÓÃ `AnnotatedElementUtils`£¬Èç¹û²»ĞèÒª£¬¾ÍÊ¹ÓÃ `AnnotationUtils`¡£
+æœ¬æ–‡ä»‹ç»äº† spring å¤„ç†æ³¨è§£çš„æ“ä½œï¼Œä¸»è¦ä»‹ç»äº† `SimpleAnnotationMetadataReadingVisitor` ä¸ `StandardAnnotationMetadata` çš„åŒºåˆ«ä¸ä½¿ç”¨æ–¹æ³•ã€‚ç”±äºè¿™ä¸¤ä¸ªç±»ä½¿ç”¨èµ·æ¥æ­¥éª¤æ¯”è¾ƒå¤šï¼Œæ–‡ä¸­åˆä»‹ç»äº† spring æä¾›çš„ä¸¤ä¸ªå·¥å…·ç±»ï¼š`AnnotationUtils` ä¸ `AnnotatedElementUtils`ï¼Œå¦‚æœéœ€è¦å¤„ç†å±æ€§è¦†ç›–ï¼Œéœ€è¦ä½¿ç”¨ `AnnotatedElementUtils`ï¼Œå¦‚æœä¸éœ€è¦ï¼Œå°±ä½¿ç”¨ `AnnotationUtils`ã€‚
 
 * * *
 
-_±¾ÎÄÔ­ÎÄÁ´½Ó£º[https://my.oschina.net/funcy/blog/4633161](https://my.oschina.net/funcy/blog/4633161) £¬ÏŞÓÚ×÷Õß¸öÈËË®Æ½£¬ÎÄÖĞÄÑÃâÓĞ´íÎóÖ®´¦£¬»¶Ó­Ö¸Õı£¡Ô­´´²»Ò×£¬ÉÌÒµ×ªÔØÇëÁªÏµ×÷Õß»ñµÃÊÚÈ¨£¬·ÇÉÌÒµ×ªÔØÇë×¢Ã÷³ö´¦¡£_
+_æœ¬æ–‡åŸæ–‡é“¾æ¥ï¼š[https://my.oschina.net/funcy/blog/4633161](https://my.oschina.net/funcy/blog/4633161) ï¼Œé™äºä½œè€…ä¸ªäººæ°´å¹³ï¼Œæ–‡ä¸­éš¾å…æœ‰é”™è¯¯ä¹‹å¤„ï¼Œæ¬¢è¿æŒ‡æ­£ï¼åŸåˆ›ä¸æ˜“ï¼Œå•†ä¸šè½¬è½½è¯·è”ç³»ä½œè€…è·å¾—æˆæƒï¼Œéå•†ä¸šè½¬è½½è¯·æ³¨æ˜å‡ºå¤„ã€‚_
