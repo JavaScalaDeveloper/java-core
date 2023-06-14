@@ -17,7 +17,7 @@
 
 代码如下：
 
-```
+```java
 protected void prepareRefresh() {
     // Switch to active.
     this.startupDate = System.currentTimeMillis();
@@ -50,7 +50,7 @@ protected void prepareRefresh() {
 
 > AbstractApplicationContext#obtainFreshBeanFactory
 
-```
+```java
 protected ConfigurableListableBeanFactory obtainFreshBeanFactory() {
     refreshBeanFactory();
     // 返回刚刚创建的 BeanFactory
@@ -63,7 +63,7 @@ protected ConfigurableListableBeanFactory obtainFreshBeanFactory() {
 
 > GenericApplicationContext#refreshBeanFactory
 
-```
+```java
 @Override
 protected final void refreshBeanFactory() throws IllegalStateException {
     // 省略了一些判断代码
@@ -78,7 +78,7 @@ protected final void refreshBeanFactory() throws IllegalStateException {
 
 > GenericApplicationContext#getBeanFactory
 
-```
+```java
 public final ConfigurableListableBeanFactory getBeanFactory() {
     return this.beanFactory;
 }
@@ -93,7 +93,7 @@ public final ConfigurableListableBeanFactory getBeanFactory() {
 
 > AbstractApplicationContext#prepareBeanFactory
 
-```
+```java
 protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory) {
     // 设置为加载当前ApplicationContext类的类加载器
     beanFactory.setBeanClassLoader(getClassLoader());
@@ -159,7 +159,7 @@ protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory) {
 
 > org.springframework.context.support.ApplicationContextAwareProcessor
 
-```
+```java
 class ApplicationContextAwareProcessor implements BeanPostProcessor {
     @Override
     @Nullable

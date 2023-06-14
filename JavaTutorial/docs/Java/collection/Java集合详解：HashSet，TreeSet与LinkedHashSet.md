@@ -33,7 +33,7 @@
 ## HashSet
 
 ### 定义
-````
+````java
 public class HashSet<E>
     extends AbstractSet<E>
     implements Set<E>, Cloneable, java.io.Serializable
@@ -46,7 +46,7 @@ Set接口是一种不包括重复元素的Collection，它维持它自己的内�
  基本属性
 
 基于HashMap实现，底层使用HashMap保存所有元素
-````
+````java
 private transient HashMap<E,Object> map;
 
 //定义一个Object对象作为HashMap的value
@@ -99,7 +99,7 @@ HashSet(int initialCapacity, float loadFactor, boolean dummy) {
 ### 方法
 
 既然HashSet是基于HashMap，那么对于HashSet而言，其方法的实现过程是非常简单的。
-````
+````java
 public Iterator<E> iterator() {
         return map.keySet().iterator();
 }
@@ -153,7 +153,7 @@ public Iterator<E> iterator() {
 
 contains()，判断某个元素是否存在于HashSet()中，存在返回true，否则返回false。更加确切的讲应该是要满足这种关系才能返回true：(o==null ? e==null : o.equals(e))。底层调用containsKey判断HashMap的key值是否为空。
 
-````
+````java
 public boolean add(E e) {
         return map.put(e, PRESENT)==null;
 }
@@ -224,19 +224,19 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
 add()如果此 set 中尚未包含指定元素，则添加指定元素。如果此Set没有包含满足(e==null ? e2==null : e.equals(e2)) 的e2时，则将e2添加到Set中，否则不添加且返回false。
 
 由于底层使用HashMap的put方法将key = e，value=PRESENT构建成key-value键值对，当此e存在于HashMap的key中，则value将会覆盖原有value，但是key保持不变，所以如果将一个已经存在的e元素添加中HashSet中，新添加的元素是不会保存到HashMap中，所以这就满足了HashSet中元素不会重复的特性。
-````
+````java
 public boolean remove(Object o) {
     return map.remove(o)==PRESENT;
 }
 ````
 remove如果指定元素存在于此 set 中，则将其移除。底层使用HashMap的remove方法删除指定的Entry。
-````
+````java
 public void clear() {
     map.clear();
 }
 ````
 clear从此 set 中移除所有元素。底层调用HashMap的clear方法清除所有的Entry。
-````
+````java
 public Object clone() {
     try {
         HashSet<E> newSet = (HashSet<E>) super.clone();
@@ -265,12 +265,12 @@ clone返回此 HashSet 实例的浅表副本：并没有复制这些元素本身
 其中AbstractSet提供 Set 接口的骨干实现，从而最大限度地减少了实现此接口所需的工作。
 
 NavigableSet是扩展的 SortedSet，具有了为给定搜索目标报告最接近匹配项的导航方法，这就意味着它支持一系列的导航方法。比如查找与指定目标最匹配项。Cloneable支持克隆，Serializable支持序列化。
-````
+````java
 public class TreeSet<E> extends AbstractSet<E>
     implements NavigableSet<E>, Cloneable, java.io.Serializable
 ````
 同时在TreeSet中定义了如下几个变量。
-````
+````java
 private transient NavigableMap<E,Object> m;
     
 //PRESENT会被当做Map的value与key构建成键值对
@@ -278,7 +278,7 @@ private transient NavigableMap<E,Object> m;
 ````
 其构造方法：
 
-````
+````java
 //默认构造方法，根据其元素的自然顺序进行排序
 
 public TreeSet() {
@@ -375,7 +375,7 @@ public V put(K key, V value) {
 }    
 ````
 2、get：获取元素
-````
+````java
 public V get(Object key) {
     Entry<K,V> p = getEntry(key);
     return (p==null ? null : p.value);
@@ -384,19 +384,19 @@ public V get(Object key) {
 该方法与put的流程类似，只不过是把插入换成了查找
     
 3、ceiling：返回此 set 中大于等于给定元素的最小元素；如果不存在这样的元素，则返回 null。
-````
+````java
 public E ceiling(E e) {
     return m.ceilingKey(e);
 }
 ````
 4、clear：移除此 set 中的所有元素。
-````
+````java
 public void clear() {
     m.clear();
 }
 ````
 5、clone：返回 TreeSet 实例的浅表副本。属于浅拷贝。
-````
+````java
 public Object clone() {
     TreeSet<E> clone = null;
     try {
@@ -410,31 +410,31 @@ public Object clone() {
 }
 ````
 6、comparator：返回对此 set 中的元素进行排序的比较器；如果此 set 使用其元素的自然顺序，则返回 null。
-````
+````java
 public Comparator<? super E> comparator() {
         return m.comparator();
     }
 ````
 7、contains：如果此 set 包含指定的元素，则返回 true。
-````
+````java
 public boolean contains(Object o) {
         return m.containsKey(o);
     }
 ````
 8、descendingIterator：返回在此 set 元素上按降序进行迭代的迭代器。
-````
+````java
 public Iterator<E> descendingIterator() {
     return m.descendingKeySet().iterator();
 }
 ````
 9、descendingSet：返回此 set 中所包含元素的逆序视图。
-````
+````java
 public NavigableSet<E> descendingSet() {
     return new TreeSet<>(m.descendingMap());
 }
 ````
 10、first：返回此 set 中当前第一个（最低）元素。
-````
+````java
 public E first() {
     return m.firstKey();
 }
@@ -446,31 +446,31 @@ public E floor(E e) {
 }
 ````
 12、headSet：返回此 set 的部分视图，其元素严格小于 toElement。
-````
+````java
 public SortedSet<E> headSet(E toElement) {
     return headSet(toElement, false);
 }
 ````
 13、higher：返回此 set 中严格大于给定元素的最小元素；如果不存在这样的元素，则返回 null。
-````
+````java
 public E higher(E e) {
     return m.higherKey(e);
 }
 ````
 14、isEmpty：如果此 set 不包含任何元素，则返回 true。
-````
+````java
 public boolean isEmpty() {
     return m.isEmpty();
 }
 ````
 15、iterator：返回在此 set 中的元素上按升序进行迭代的迭代器。
-````
+````java
 public Iterator<E> iterator() {
     return m.navigableKeySet().iterator();
 }
 ````
 16、last：返回此 set 中当前最后一个（最高）元素。
-````
+````java
 public E last() {
     return m.lastKey();
 }
@@ -482,21 +482,21 @@ public E lower(E e) {
 }
 ````
 18、pollFirst：获取并移除第一个（最低）元素；如果此 set 为空，则返回 null。
-````
+````java
 public E pollFirst() {
     Map.Entry<E,?> e = m.pollFirstEntry();
     return (e == null) ? null : e.getKey();
 }
 ````
 19、pollLast：获取并移除最后一个（最高）元素；如果此 set 为空，则返回 null。
-````
+````java
 public E pollLast() {
     Map.Entry<E,?> e = m.pollLastEntry();
     return (e == null) ? null : e.getKey();
 }
 ````
 20、remove：将指定的元素从 set 中移除（如果该元素存在于此 set 中）。
-````
+````java
 public boolean remove(Object o) {
     return m.remove(o)==PRESENT;
 }
@@ -504,7 +504,7 @@ public boolean remove(Object o) {
 该方法与put类似，只不过把插入换成了删除，并且要进行删除后调整
 
 21、size：返回 set 中的元素数（set 的容量）。
-````
+````java
 public int size() {
     return m.size();
 }
@@ -556,7 +556,7 @@ LinkedHashSet是HashSet的一个“扩展版本”，HashSet并不管什么顺�
 
 我们首先着眼LinkedHashSet的构造函数。在LinkedHashSet类中一共有4个构造函数。这些构造函数都只是简单地调用父类构造函数（如HashSet类的构造函数）。
 下面看看LinkedHashSet的构造函数是如何定义的。
-````
+````java
 //Constructor - 1
  
 public LinkedHashSet(int initialCapacity, float loadFactor)
@@ -609,7 +609,7 @@ LinkedHashSet并没有自己的方法，所有的方法都继承自它的父类H
 > LinkedHashMap的每一个键值对都是通过内部的静态类Entry<K, V>实例化的。这个 Entry<K, V>类继承了HashMap.Entry类。
 >
 > 这个静态类增加了两个成员变量，before和after来维护LinkedHasMap元素的插入顺序。这两个成员变量分别指向前一个和后一个元素，这让LinkedHashMap也有类似双向链表的表现。
-````
+````java
 private static class Entry<K,V> extends HashMap.Entry<K,V>
 {
     // These fields comprise the doubly linked list used for iteration.
@@ -624,7 +624,7 @@ private static class Entry<K,V> extends HashMap.Entry<K,V>
 这个双向链表的头节点。header的定义就像下面这样，
 
 接下来看一个例子就知道LinkedHashSet内部是如何工作的了。
-````
+````java
 public class LinkedHashSetExample
 {
     public static void main(String[] args)

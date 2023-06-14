@@ -466,7 +466,7 @@ Spring Boot 熟悉后，集成一个外部扩展是一件很容易的事，集�
 
 RedisKeys.java
 
-```
+```java
 package com.shanhy.example.redis;
 
 import java.util.HashMap;
@@ -507,7 +507,7 @@ public class RedisKeys {
 
 CachingConfig.java
 
-```
+```java
 package com.shanhy.example.redis;
 
 import java.lang.reflect.Method;
@@ -602,7 +602,7 @@ public class CachingConfig extends CachingConfigurerSupport {
 
 TestService.java
 
-```
+```java
 package com.shanhy.example.service;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -651,7 +651,7 @@ public class TestService {
 
 下面代码，随便放一个 Controller 中
 
-```
+```java
 package com.shanhy.example.controller;
 
 import org.slf4j.Logger;

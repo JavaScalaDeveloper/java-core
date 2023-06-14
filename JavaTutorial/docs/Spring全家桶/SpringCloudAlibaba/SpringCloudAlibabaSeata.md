@@ -537,7 +537,7 @@ Seata 已经支持了三大事务模式：AT\TCC\SAGA，这三个都是补偿型
 
 
 
-```
+```java
 @GlobalTransactional
     public void purchase(String userId, String commodityCode, int orderCount, boolean rollback) {
         String xid = RootContext.getXID();
@@ -580,7 +580,7 @@ Seata 已经支持了三大事务模式：AT\TCC\SAGA，这三个都是补偿型
 
 
 
-```
+```java
 public void create(String userId, String commodityCode, Integer count) {
         String xid = RootContext.getXID();
         LOGGER.info("create order in transaction: " + xid);
@@ -620,7 +620,7 @@ public void create(String userId, String commodityCode, Integer count) {
 
 
 
-```
+```java
 @Bean("dataSourceProxy")
     public DataSource dataSource(DruidDataSource druidDataSource) {
         // DataSourceProxy for AT mode
@@ -706,7 +706,7 @@ controller：
 
 
 
-```
+```java
 @RestController
 public class OrderController {
     @Autowired
@@ -741,7 +741,7 @@ OrderService：
 
 
 
-```
+```java
 public interface OrderService {
     void create();
 }
@@ -768,7 +768,7 @@ StockClient：
 
 
 
-```
+```java
 @FeignClient(value = "seata-stock")
 public interface StockClient {
     @GetMapping("/stock/reduce")
@@ -798,7 +798,7 @@ OrderServiceImpl：
 
 
 
-```
+```java
 @Service
 public class OrderServiceImpl implements OrderService{
     @Autowired
@@ -841,7 +841,7 @@ OrderMapper：
 
 
 
-```
+```java
 @Mapper
 public interface OrderMapper {
     @Insert("insert into t_order (order_no,order_num) value (order_no+1,1)")
@@ -870,7 +870,7 @@ cloud-alibaba-seata-stock核心代码如下：
 
 
 
-```
+```java
 @RestController
 public class StockController {
     @Autowired
@@ -902,7 +902,7 @@ public class StockController {
 
 
 
-```
+```java
 public interface StockService {
     void reduce();
 }
@@ -927,7 +927,7 @@ public interface StockService {
 
 
 
-```
+```java
 @Service
 public class StockServiceImpl implements StockService{
     @Autowired
@@ -958,7 +958,7 @@ public class StockServiceImpl implements StockService{
 
 
 
-```
+```java
 @Mapper
 @Repository
 public interface StockMapper {

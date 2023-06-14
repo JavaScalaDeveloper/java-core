@@ -91,7 +91,7 @@
 ### 类结构定义
 
 LinkedHashMap继承于HashMap，其在JDK中的定义为：
-````
+````java
 public class LinkedHashMap<K,V> extends HashMap<K,V>
     implements Map<K,V> {
 
@@ -123,7 +123,7 @@ private final boolean accessOrder;  //true表示按照访问顺序迭代，false
 ### 基本元素 Entry
 
 　　LinkedHashMap采用的hash算法和HashMap相同，但是它重新定义了Entry。LinkedHashMap中的Entry增加了两个指针 before 和 after，它们分别用于维护双向链接列表。特别需要注意的是，next用于维护HashMap各个桶中Entry的连接顺序，before、after用于维护Entry插入的先后顺序的，源代码如下：
-````
+````java
 private static class Entry<K,V> extends HashMap.Entry<K,V> {
 
     // These fields comprise the doubly linked list used for iteration.
@@ -169,7 +169,7 @@ LinkedHashMap 一共提供了五个构造函数，它们都是在HashMap的构�
 ### LinkedHashMap(Map<? extends K, ? extends V> m)
 
 　　该构造函数意在构造一个与指定 Map 具有相同映射的 LinkedHashMap，其 初始容量不小于 16 (具体依赖于指定Map的大小)，负载因子是 0.75，是 Java Collection Framework 规范推荐提供的，其源码如下：
-````
+````java
     /**
      * Constructs an insertion-ordered <tt>LinkedHashMap</tt> instance with
      * the same mappings as the specified map.  The <tt>LinkedHashMap</tt>
@@ -188,7 +188,7 @@ LinkedHashMap 一共提供了五个构造函数，它们都是在HashMap的构�
 
 从上面的五种构造函数我们可以看出，无论采用何种方式创建LinkedHashMap，其都会调用HashMap相应的构造函数。事实上，不管调用HashMap的哪个构造函数，HashMap的构造函数都会在最后调用一个init()方法进行初始化，只不过这个方法在HashMap中是一个空实现，而在LinkedHashMap中重写了它用于初始化它所维护的双向链表。例如，HashMap的参数为空的构造函数以及init方法的源码如下：
 
-````
+````java
     /**
      * Constructs an empty <tt>HashMap</tt> with the default initial capacity
      * (16) and the default load factor (0.75).
@@ -249,7 +249,7 @@ LinkedHashMap 一共提供了五个构造函数，它们都是在HashMap的构�
 
 上面谈到，LinkedHashMap没有对 put(key,vlaue) 方法进行任何直接的修改，完全继承了HashMap的 put(Key,Value) 方法，其源码如下：
 
-````
+````java
 public V put(K key, V value) {
 
     //当key为null时，调用putForNullKey方法，并将该键值对保存到table的第一个位置 
@@ -391,7 +391,7 @@ private void addBefore(Entry<K,V> existingEntry) {
     }
 ````
 　　从上面代码中我们可以看出，Map扩容操作的核心在于重哈希。所谓重哈希是指重新计算原HashMap中的元素在新table数组中的位置并进行复制处理的过程。鉴于性能和LinkedHashMap自身特点的考量，LinkedHashMap对重哈希过程(transfer方法)进行了重写，源码如下：
-````
+````java
     /**
      * Transfers all entries to new table array.  This method is called
      * by superclass resize.  It is overridden for performance, as it is
@@ -414,7 +414,7 @@ private void addBefore(Entry<K,V> existingEntry) {
 
 　　相对于LinkedHashMap的存储而言，读取就显得比较简单了。LinkedHashMap中重写了HashMap中的get方法，源码如下：
 
-````
+````java
 public V get(Object key) {
     // 根据key获取对应的Entry，若没有这样的Entry，则返回null
     Entry<K,V> e = (Entry<K,V>)getEntry(key); 
@@ -574,7 +574,7 @@ void createEntry(int hash, K key, V value, int bucketIndex) {
 　　同样是将新的Entry链入到table中对应桶中的单链表中，但可以在createEntry方法中看出，同时也会把新put进来的Entry插入到了双向链表的尾部。
 　　
 从插入顺序的层面来说，新的Entry插入到双向链表的尾部可以实现按照插入的先后顺序来迭代Entry，而从访问顺序的层面来说，新put进来的Entry又是最近访问的Entry，也应该将其放在双向链表的尾部。在上面的addEntry方法中还调用了removeEldestEntry方法，该方法源码如下：
-````
+````java
     /**
      * Returns <tt>true</tt> if this map should remove its eldest entry.
      * This method is invoked by <tt>put</tt> and <tt>putAll</tt> after
@@ -646,7 +646,7 @@ put方法在覆盖已有key的情况下，也是通过调用recordAccess方法�
 ## 使用LinkedHashMap实现LRU算法
 　　如下所示，笔者使用LinkedHashMap实现一个符合LRU算法的数据结构，该结构最多可以缓存6个元素，但元素多余六个时，会自动删除最近最久没有被使用的元素，如下所示：
 
-````
+````java
 public class LRU<K,V> extends LinkedHashMap<K, V> implements Map<K, V>{
 
     private static final long serialVersionUID = 1L;
@@ -695,7 +695,7 @@ public class LRU<K,V> extends LinkedHashMap<K, V> implements Map<K, V>{
 ## LinkedHashMap 有序性原理分析
 
 如前文所述，LinkedHashMap 增加了双向链表头结点header 和 标志位accessOrder两个属性用于保证迭代顺序。但是要想真正实现其有序性，还差临门一脚，那就是重写HashMap 的迭代器，其源码实现如下：
-````
+````java
 private abstract class LinkedHashIterator<T> implements Iterator<T> {
     Entry<K,V> nextEntry    = header.after;
     Entry<K,V> lastReturned = null;

@@ -63,7 +63,7 @@ git 地址：[https://github.com/jasonGeng88/java-network-programming](https://g
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405094035.png)
 
 建立连接代码实现：
-````
+````java
 // 初始化 socket，建立 socket 与 channel 的绑定关系
 SocketChannel socketChannel = SocketChannel.open();
 // 初始化远程连接地址
@@ -84,8 +84,8 @@ Socket socket = socketChannel.socket();
 *   处理输入输出流
 
 
-````
-PrintWriter pw = getWriter(socketChannel.socket());
+````java
+printWriter pw = getWriter(socketChannel.socket());
 BufferedReader br = getReader(socketChannel.socket());
 ````
 
@@ -93,7 +93,7 @@ BufferedReader br = getReader(socketChannel.socket());
 ### 完整示例
 
 
-````
+````java
 package com.jason.network.mode.nio;
 
 import com.jason.network.constant.HttpConstant;
@@ -235,7 +235,7 @@ socketChannel.register(selector,
 
 这里与 Linux 下的 selector 有点不同，nio 下的 selecotr 不会去遍历所有关联的 socket。我们在注册时设置了我们关心的事件类型，每次从选择器中获取的，只会是那些符合事件类型，并且完成就绪操作的 socket，减少了大量无效的遍历操作。
 
-```
+```java
 public void select() throws IOException {
 	// 获取就绪的 socket 个数
     while (selector.select() > 0){
@@ -278,7 +278,7 @@ _**注意：这里的`selector.select()`是同步阻塞的，等待有事件发�
 处理连接代码：
 
 
-````
+````java
 // SelectionKey 代表 SocketChannel 在选择器中注册的事件句柄
 private void connect(SelectionKey key) throws IOException {
 	// 获取事件句柄对应的 SocketChannel
@@ -296,7 +296,7 @@ private void connect(SelectionKey key) throws IOException {
 ````
 
 
-````
+````java
 // 字符集处理类
 private Charset charset = Charset.forName("utf8");
 
@@ -330,7 +330,7 @@ private void write(SelectionKey key) throws IOException {
     *   readyOps：表示`SocketChannel`当前就绪的事件类型。以`key.isReadable()`为例，判断依据就是：`return (readyOps() & OP_READ) != 0;`
 
 
-````
+````java
 private void receive(SelectionKey key) throws IOException {
     SocketChannel channel = (SocketChannel) key.channel();
     ByteBuffer buffer = ByteBuffer.allocate(1024);
@@ -364,7 +364,7 @@ private void receive(SelectionKey key) throws IOException {
 *   极限（limit）：表示缓冲区的当前终点，即写入、读取都不可超过该重点；
 *   位置（position）：表示缓冲区下一个读写单元的位置；
 
-````
+````java
 package com.jason.network.mode.nio;
 
 import com.jason.network.constant.HttpConstant;

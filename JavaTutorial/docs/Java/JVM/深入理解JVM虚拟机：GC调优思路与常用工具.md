@@ -180,7 +180,7 @@ GC的延迟指标由一般的延迟需求决定。延迟指标通常如下所述
 
 
 
-```
+```java
 //imports skipped for brevity
 public class Producer implements Runnable {
 

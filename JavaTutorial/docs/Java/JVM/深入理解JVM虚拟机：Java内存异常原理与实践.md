@@ -353,8 +353,8 @@ for (int i=1;i<100; i++)
 像HashMap、Vector等的使用最容易出现内存泄露，这些静态变量的生命周期和应用程序一致，他们所引用的所有的对象Object也不能被释放，因为他们也将一直被Vector等引用着。
 例:
 
-```
-Static Vector v = new Vector(10); 
+```java
+static Vector v = new Vector(10); 
 for (int i = 1; i<100; i++) { 
 	Object o = new Object(); 
 	v.add(o); 
@@ -368,7 +368,7 @@ for (int i = 1; i<100; i++) {
 
 例：
 
-```
+```java
 public static void main(String[] args) { 
 	Set<Person> set = new HashSet<Person>(); 
 	Person p1 = new Person("唐僧","pwd1",25); 
@@ -408,7 +408,7 @@ public void registerMsg(Object b);
 
 不正确使用单例模式是引起内存泄露的一个常见问题，单例对象在被初始化后将在JVM的整个生命周期中存在（以静态变量的方式），如果单例对象持有外部对象的引用，那么这个外部对象将不能被jvm正常回收，导致内存泄露，考虑下面的例子：
 
-```
+```java
 class A{ 
 	public A(){ 
 		B.getInstance().setA(this); 

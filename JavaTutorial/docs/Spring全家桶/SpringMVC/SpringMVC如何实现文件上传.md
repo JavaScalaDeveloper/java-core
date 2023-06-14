@@ -43,7 +43,7 @@ Spring内置对多路上传的支持，专门用于处理web应用中的文件�
 
 <section>
 
-```
+```xml
 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 
     <!-- 支持的其中一个属性，支持的最大文件大小，以字节为单位 -->
@@ -83,7 +83,7 @@ Spring内置对多路上传的支持，专门用于处理web应用中的文件�
 
 当你通过以上任一种方式启用了Servlet 3.0多路传输转换功能，你就可以把一个`StandardServletMultipartResolver`解析器添加到你的Spring配置中去了：
 
-```
+```xml
 <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
 </bean>
 ```
@@ -111,7 +111,7 @@ Spring内置对多路上传的支持，专门用于处理web应用中的文件�
 
 <section>
 
-```
+```xml
 <html>
     <head>
         <title>Upload a file please</title>
@@ -130,7 +130,7 @@ Spring内置对多路上传的支持，专门用于处理web应用中的文件�
 
 下一步是创建一个能处理文件上传的控制器。这里需要的控制器与[一般注解了`@Controller`的控制器](http://docs.spring.io/spring-framework/docs/4.2.4.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-controller)基本一样，除了它接受的方法参数类型是`MultipartHttpServletRequest`，或`MultipartFile`。
 
-```
+```java
 @Controller
 public class FileUploadController {
 
@@ -154,7 +154,7 @@ public class FileUploadController {
 
 当使用Servlet 3.0的多路传输转换时，你也可以使用`javax.servlet.http.Part`作为方法参数：
 
-```
+```java
 @Controller
 public class FileUploadController {
 
@@ -218,7 +218,7 @@ public class FileUploadController {
 
 这是可能的，你可以使用`@RequestPart`注解来实现，而非`@RequestParam`。该注解将使得特定多路请求的请求体被传给`HttpMessageConverter`，并且在转换时考虑多路请求中不同的内容类型参数`'Content-Type'`：
 
-```
+```java
 @RequestMapping(path = "/someUrl", method = RequestMethod.POST)
 public String onSubmit(@RequestPart("meta-data") MetaData metadata, @RequestPart("file-data") MultipartFile file) {
 

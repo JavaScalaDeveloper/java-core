@@ -152,7 +152,7 @@ char a = 'A'
 ## 自动拆箱和装箱（详解）
 
 Java 5增加了自动装箱与自动拆箱机制，方便基本类型与包装类型的相互转换操作。在Java 5之前，如果要将一个int型的值转换成对应的包装器类型Integer，必须显式的使用new创建一个新的Integer对象，或者调用静态方法Integer.valueOf()。
-````
+````java
 //在Java 5之前，只能这样做
 Integer value = new Integer(10);
 //或者这样做
@@ -162,7 +162,7 @@ Integer value = Integer.valueOf(10);
 ````
 在Java 5中，可以直接将整型赋给Integer对象，由编译器来完成从int型到Integer类型的转换，这就叫自动装箱。
 
-````
+````java
 //在Java 5中，直接赋值是合法的，由编译器来完成转换
 Integer value = 10;
 与此对应的，自动拆箱就是可以将包装类型转换为基本类型，具体的转换工作由编译器来完成。
@@ -226,7 +226,7 @@ int i = value;
 
 Integer源码
 
-````
+````java
 public final class Integer extends Number implements Comparable<Integer> {
 	private final int value;
 	
@@ -324,7 +324,7 @@ System.out.println(a1 == a3);
 ````
 ### 了解基本类型缓存（常量池）的最佳实践
 
-```
+```java
 //基本数据类型的常量池是-128到127之间。
 // 在这个范围中的基本数据类的包装类可以自动拆箱，比较时直接比较数值大小。
 public static void main(String[] args) {
@@ -455,7 +455,7 @@ Integer也是同理。
 
 下图是Integer类型在常量池中查找同值对象的方法。
 
-```
+```java
 public static Integer valueOf(int i) {
     if (i >= IntegerCache.low && i <= IntegerCache.high)
         return IntegerCache.cache[i + (-IntegerCache.low)];

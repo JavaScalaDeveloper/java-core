@@ -21,7 +21,7 @@
 
 实际上这个方法的调用链就是 spring bean 的创建过程，我们进入 `AbstractAutoProxyCreator#postProcessAfterInitialization`：
 
-```
+```java
 @Override
 public Object postProcessAfterInitialization(@Nullable Object bean, String beanName) {
     if (bean != null) {
@@ -38,7 +38,7 @@ public Object postProcessAfterInitialization(@Nullable Object bean, String beanN
 
 继续进入 `AbstractAutoProxyCreator#wrapIfNecessary`：
 
-```
+```java
 protected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) {
     //如果已经处理过
     if (StringUtils.hasLength(beanName) && this.targetSourcedBeans.contains(beanName)) {
@@ -75,7 +75,7 @@ protected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) 
 
 这个方法 看着有点长，但大多代码都是在做判断，与 aop 功能关系不大。真正有关系的代码只有三行：
 
-```
+```java
 // 重要代码一：
 // 1\. isInfrastructureClass：判断当前是否为aop相关类，
 //    如Advice/Pointcut/Advisor等的子类，是否包含 @AspectJ的注解
@@ -99,7 +99,7 @@ Object proxy = createProxy(
 
 > AbstractAdvisorAutoProxyCreator
 
-```
+```java
 @Override
 @Nullable
 protected Object[] getAdvicesAndAdvisorsForBean(
@@ -148,7 +148,7 @@ spring 的方法调用比较深，一路追踪，最终到了 `AopUtils.findAdvi
 
 > AopUtils
 
-```
+```java
 public static List<Advisor> findAdvisorsThatCanApply(List<Advisor> candidateAdvisors, Class<?> clazz) {
     if (candidateAdvisors.isEmpty()) {
         return candidateAdvisors;
@@ -262,7 +262,7 @@ public static boolean canApply(Pointcut pc, Class<?> targetClass, boolean hasInt
 
 伪代码类似于：
 
-```
+```java
 // 1\. 获取所有的Advisor
 List<Advisor> advisorList = getAdvisorList();
 // 2\. 遍历Advisor
@@ -289,7 +289,7 @@ for(Advisor advisor : advisorList) {
 
 > `AbstractAutoProxyCreator#wrapIfNecessary`：
 
-```
+```java
 protected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) {
     ...
     if (specificInterceptors != DO_NOT_PROXY) {
@@ -312,7 +312,7 @@ protected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) 
 
 我们先来看看 `SingletonTargetSource`：
 
-```
+```java
 public class SingletonTargetSource implements TargetSource, Serializable {
 
     private static final long serialVersionUID = 9031246629662423738L;
@@ -343,7 +343,7 @@ public class SingletonTargetSource implements TargetSource, Serializable {
 
 > AbstractAutoProxyCreator#createProxy
 
-```
+```java
 protected Object createProxy(Class<?> beanClass, @Nullable String beanName,
         @Nullable Object[] specificInterceptors, TargetSource targetSource) {
 
@@ -395,7 +395,7 @@ protected Object createProxy(Class<?> beanClass, @Nullable String beanName,
 
 在 `@EnableAspectJAutoProxy` 注解中，可以使用 `proxyTargetClass = true` 来设置项目使用 `cglib` 代理，这在代码中也有体现：
 
-```
+```java
 // 只有在proxyFactory.isProxyTargetClass()为false时，才会进行下面的判断
 // 换言之，当 @EnableAspectJAutoProxy(proxyTargetClass = true) 时
 // 下面的代码是不会运行的，默认使用就是cglib代理
@@ -416,7 +416,7 @@ spring 是如何判断一个类是否满足 jdk 动态代理的条件的呢？�
 
 > ProxyProcessorSupport#evaluateProxyInterfaces
 
-```
+```java
 /**
  * 判断是否能使用jdk动态代理
  */
@@ -455,7 +455,7 @@ protected void evaluateProxyInterfaces(Class<?> beanClass, ProxyFactory proxyFac
 
 分析完 spring 如何判断是否使用 jdk 动态代理后，接口我们来看看 spring 是如何创建代理对象的。为了说明问题，首先简化下 `AbstractAutoProxyCreator#createProxy`：
 
-```
+```java
 protected Object createProxy(Class<?> beanClass, @Nullable String beanName,
         @Nullable Object[] specificInterceptors, TargetSource targetSource) {
     // 省略一些代码
@@ -480,7 +480,7 @@ protected Object createProxy(Class<?> beanClass, @Nullable String beanName,
 
 > ProxyFactory#getProxy(java.lang.ClassLoader)
 
-```
+```java
 public Object getProxy(@Nullable ClassLoader classLoader) {
     return createAopProxy().getProxy(classLoader);
 }
@@ -491,7 +491,7 @@ public Object getProxy(@Nullable ClassLoader classLoader) {
 
 > ProxyCreatorSupport#createAopProxy
 
-```
+```java
 protected final synchronized AopProxy createAopProxy() {
     if (!this.active) {
          activate();
@@ -505,7 +505,7 @@ protected final synchronized AopProxy createAopProxy() {
 
 > DefaultAopProxyFactory#createAopProxy
 
-```
+```java
 /**
  * 判断代理类型
  * 如果能使用jdk动态代理，就返回 JdkDynamicAopProxy
@@ -533,7 +533,7 @@ public AopProxy createAopProxy(AdvisedSupport config) throws AopConfigException 
 
 > JdkDynamicAopProxy#getProxy(java.lang.ClassLoader)
 
-```
+```java
 @Override
 public Object getProxy(@Nullable ClassLoader classLoader) {
     Class<?>[] proxiedInterfaces = AopProxyUtils
@@ -554,7 +554,7 @@ public Object getProxy(@Nullable ClassLoader classLoader) {
 
 > CglibAopProxy#getProxy(java.lang.ClassLoader)
 
-```
+```java
 public Object getProxy(@Nullable ClassLoader classLoader) {
     try {
         Class<?> rootClass = this.advised.getTargetClass();

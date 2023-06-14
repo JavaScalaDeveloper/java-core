@@ -88,14 +88,14 @@ java.lang.Runnable与java.util.concurrent.Callable是函数式接口最典型的
 在实际使用过程中，函数式接口是容易出错的：如有某个人在接口定义中增加了另一个方法，这时，这个接口就不再是函数式的了，并且编译过程也会失败。
 
 为了克服函数式接口的这种脆弱性并且能够明确声明接口作为函数式接口的意图，Java8增加了一种特殊的注解@FunctionalInterface（Java8中所有类库的已有接口都添加了@FunctionalInterface注解）。让我们看一下这种函数式接口的定义：
-````
+````java
 @FunctionalInterface
 public interface Functional {
     void method();
 }
 ````
 需要记住的一件事是：默认方法与静态方法并不影响函数式接口的契约，可以任意使用：
-````
+````java
 @FunctionalInterface
 public interface FunctionalDefaultMethods {
     void method();
@@ -107,7 +107,7 @@ public interface FunctionalDefaultMethods {
 Lambda是Java 8最大的卖点。它具有吸引越来越多程序员到Java平台上的潜力，并且能够在纯Java语言环境中提供一种优雅的方式来支持函数式编程。更多详情可以参考官方文档。
 
 下面看一个例子：
-````
+````java
 public class lambda和函数式编程 {
     @Test
     public void test1() {
@@ -161,7 +161,7 @@ public class lambda和函数式编程 {
 接下来看看Lambda和匿名内部类的区别
 
 匿名内部类仍然是一个类，只是不需要我们显式指定类名，编译器会自动为该类取名。比如有如下形式的代码：
-````
+````java
 public class LambdaTest {
     public static void main(String[] args) {
         new Thread(new Runnable() {
@@ -194,7 +194,7 @@ public class LambdaTest {
 可以发现在 4: new #3 这一行创建了匿名内部类的对象。
 
 而对于 Lambda表达式的实现， 接下来我们将上面的示例代码使用 Lambda 表达式实现，代码如下：
-````
+````java
 public class LambdaTest {
     public static void main(String[] args) {
         new Thread(() -> System.out.println("Hello World")).start();
@@ -202,7 +202,7 @@ public class LambdaTest {
 }
 ````
 此时编译后只会产生一个文件 LambdaTest.class，再来看看通过 javap 对该文件反编译后的结果：
-````
+````java
 public static void main(java.lang.String[]);
 Code:
     0: new           #2                  // class java/lang/Thread
@@ -280,7 +280,7 @@ Lambda表达式和方法引用
 
 有了函数式接口之后，就可以使用Lambda表达式和方法引用了。其实函数式接口的表中的函数描述符就是Lambda表达式，在函数式接口中Lambda表达式相当于匿名内部类的效果。 举个简单的例子：
 
-````
+````java
 public class TestLambda {
 
     public static void execute(Runnable runnable) {
@@ -341,7 +341,7 @@ public class TestLambda {
 ### 接口的默认方法
 
 Java 8 使我们能够使用default 关键字给接口增加非抽象的方法实现。这个特性也被叫做 扩展方法（Extension Methods）。如下例所示：
-````
+````java
 public class 接口的默认方法 {
     class B implements A {
 //        void a(){}实现类方法不能重名
@@ -389,7 +389,7 @@ public class 接口的默认方法 {
 Java 8用默认方法与静态方法这两个新概念来扩展接口的声明。默认方法使接口有点像Traits（Scala中特征(trait)类似于Java中的Interface，但它可以包含实现代码，也就是目前Java8新增的功能），但与传统的接口又有些不一样，它允许在已有的接口中添加新方法，而同时又保持了与旧版本代码的兼容性。
 
 默认方法与抽象方法不同之处在于抽象方法必须要求实现，但是默认方法则没有这个要求。相反，每个接口都必须提供一个所谓的默认实现，这样所有的接口实现者将会默认继承它（如果有必要的话，可以覆盖这个默认实现）。让我们看看下面的例子：
-````
+````java
 private interface Defaulable {
     // Interfaces now allow default methods, the implementer may or 
     // may not implement (override) them.
@@ -444,7 +444,7 @@ Overridden implementation
 自从Java 5引入了注解机制，这一特性就变得非常流行并且广为使用。然而，使用注解的一个限制是相同的注解在同一位置只能声明一次，不能声明多次。Java 8打破了这条规则，引入了重复注解机制，这样相同的注解可以在同一地方声明多次。
 
 重复注解机制本身必须用@Repeatable注解。事实上，这并不是语言层面上的改变，更多的是编译器的技巧，底层的原理保持不变。让我们看一个快速入门的例子：
-````
+````java
 package com.javacodegeeks.java8.repeatable.annotations;
  
 import java.lang.annotation.ElementType;
@@ -494,7 +494,7 @@ public class RepeatingAnnotations {
 ### 方法参数名字可以反射获取
 
 很长一段时间里，Java程序员一直在发明不同的方式使得方法参数的名字能保留在Java字节码中，并且能够在运行时获取它们（比如，Paranamer类库）。最终，在Java 8中把这个强烈要求的功能添加到语言层面（通过反射API与Parameter.getName()方法）与字节码文件（通过新版的javac的–parameters选项）中。
-````
+````java
 package com.javacodegeeks.java8.parameter.names;
 
 import java.lang.reflect.Method;

@@ -615,7 +615,7 @@ ERROR in ch.qos.logback.core.joran.spi.Interpreter@4:71 - no applicable action f
 
 
 
-```
+```xml
 <springProfile name="staging">
     <!-- configuration to be enabled when the "staging" profile is active -->
 </springProfile>
@@ -649,7 +649,7 @@ ERROR in ch.qos.logback.core.joran.spi.Interpreter@4:71 - no applicable action f
 
 
 
-```
+```xml
 <springProperty scope="context" name="fluentHost" source="myapp.fluentd.host"
         defaultValue="localhost"/>
 
@@ -711,7 +711,7 @@ Spring Boot包括一些对Log4j2的扩展，可以帮助进行高级配置。你
 
 
 
-```
+```xml
 <SpringProfile name="staging">
     <!-- configuration to be enabled when the "staging" profile is active -->
 </SpringProfile>
@@ -751,7 +751,7 @@ Spring Boot包括一些对Log4j2的扩展，可以帮助进行高级配置。你
 
 
 
-```
+```xml
 <Properties>
     <Property name="applicationName">${spring:spring.application.name}</Property>
 </Properties>

@@ -71,7 +71,7 @@ public @interface ConditionalOnClass {
 
 进入 `OnClassCondition#matches` 方法，发现来到的是 `SpringBootCondition`，相关方法如下：
 
-```
+```java
 public abstract class SpringBootCondition implements Condition {
 
     private final Log logger = LogFactory.getLog(getClass());
@@ -123,7 +123,7 @@ return outcome.isMatch();
 
 `getMatchOutcome(...)` 方法返回的结果是 `ConditionOutcome`，接下来我们来看看 `ConditionOutcome` 是个啥：
 
-```
+```java
 public class ConditionOutcome {
 
     private final boolean match;
@@ -165,7 +165,7 @@ public class ConditionOutcome {
 
 我们再来看看 `ConditionMessage`:
 
-```
+```java
 public final class ConditionMessage {
 
     private String message;
@@ -189,7 +189,7 @@ public final class ConditionMessage {
 
 接下来我们来分析 `OnClassCondition` 的匹配逻辑，直接进入 `getMatchOutcome` 方法：
 
-```
+```java
 public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeMetadata metadata) {
     ClassLoader classLoader = context.getClassLoader();
     ConditionMessage matchMessage = ConditionMessage.empty();
@@ -231,7 +231,7 @@ public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeM
 
 这个方法同时处理了 `@ConditionalOnClass` 与 `@ConditionalOnMissingClass` 两个注解，处理流程极其相似，两个注解的条件判断都是通过 `FilteringSpringBootCondition#filter` 内容如下：
 
-```
+```java
 protected final List<String> filter(Collection<String> classNames, ClassNameFilter classNameFilter,
         ClassLoader classLoader) {
     if (CollectionUtils.isEmpty(classNames)) {
@@ -328,7 +328,7 @@ abstract class FilteringSpringBootCondition extends SpringBootCondition
 
 继续看看 `@ConditionalOnBean` 的 处理，直接进入 `OnBeanCondition#getMatchOutcome`：
 
-```
+```java
 public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeMetadata metadata) {
     ConditionMessage matchMessage = ConditionMessage.empty();
     MergedAnnotations annotations = metadata.getAnnotations();
@@ -390,7 +390,7 @@ public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeM
 
 `getMatchingBeans(...)` 的代码如下：
 
-```
+```java
 protected final MatchResult getMatchingBeans(ConditionContext context, Spec<?> spec) {
     ClassLoader classLoader = context.getClassLoader();
     ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
@@ -494,7 +494,7 @@ boolean isAnyMatched() {
 
 现在有两个类：
 
-```
+```java
 @Component
 @ConditionalOnMissingBean("b")
 public class A {
@@ -550,7 +550,7 @@ public class B {
 
 我们再来看看 `@ConditionalOnProperty` 的处理，进入 `OnPropertyCondition#getMatchOutcome` 方法：
 
-```
+```java
 class OnPropertyCondition extends SpringBootCondition {
 
     @Override
@@ -581,7 +581,7 @@ class OnPropertyCondition extends SpringBootCondition {
 
 这个方法还是比较简单的，先是获取 `@ConditionalOnProperty` 的属性值，再调用 `determineOutcome(...)` 方法进行处理，让我们再进行 `OnPropertyCondition#determineOutcome` 方法：
 
-```
+```java
 /**
  * 处理结果
  * 注意：resolver 传入的的是 Environment，这就是 applicationContext 中的 Environment
@@ -641,7 +641,7 @@ private void collectProperties(PropertyResolver resolver, List<String> missing,
 
 我们再来看看 `@ConditionalOnResource` 的处理，一般我们这样使用：
 
-```
+```java
 @Bean
 @ConditionalOnResource(resources = "classpath:config.properties")
 public Config config() {
@@ -654,7 +654,7 @@ public Config config() {
 
 再进入 `OnResourceCondition#getOutcomes` 方法：
 
-```
+```java
 @Override
 public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeMetadata metadata) {
     MultiValueMap<String, Object> attributes = metadata
@@ -694,7 +694,7 @@ public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeM
 
 整个流程的关键是在 `ResourceLoader#getResource(String)`，我们来看看该方法的处理，进入到 `GenericApplicationContext#getResource` 方法：
 
-```
+```java
 @Override
 public Resource getResource(String location) {
     if (this.resourceLoader != null) {
@@ -707,7 +707,7 @@ public Resource getResource(String location) {
 
 这里的 `this.resourceLoader` 为 `null`，进入父类的方法 `DefaultResourceLoader#getResource`：
 
-```
+```java
 public Resource getResource(String location) {
     Assert.notNull(location, "Location must not be null");
     for (ProtocolResolver protocolResolver : getProtocolResolvers()) {
@@ -756,7 +756,7 @@ protected Resource getResourceByPath(String path) {
 
 得到 `Resource` 后，接着就是判断该 `Resource` 是否存在了，我们先来看看 `ClassPathContextResource#exist` 方法，该方法在 `ClassPathResource#exists`：
 
-```
+```java
 /**
  * 判断 Resource 是否存在
  */
@@ -790,7 +790,7 @@ protected URL resolveURL() {
 
 再来看看 `FileUrlResource` 的判断，实际上 `FileUrlResource` 与 `UrlResource` 的 `exist()` 方法都是 `AbstractFileResolvingResource#exists`，这里统一分析就可以了，该方法内容如下：
 
-```
+```java
 public boolean exists() {
     try {
         URL url = getURL();
@@ -847,7 +847,7 @@ public boolean exists() {
 
 我们再来看看 `@ConditionalOnWebApplication` 的处理，进入 `OnWebApplicationCondition#getOutcomes` 方法：
 
-```
+```java
 @Override
 protected ConditionOutcome[] getOutcomes(String[] autoConfigurationClasses,
         AutoConfigurationMetadata autoConfigurationMetadata) {
@@ -907,7 +907,7 @@ private ConditionOutcome getOutcome(String type) {
 
 我们再来看看 `@ConditionalOnExpression` 的处理，进入 `OnExpressionCondition#getOutcomes` 方法：
 
-```
+```java
 /**
  * 处理匹配结果
  */

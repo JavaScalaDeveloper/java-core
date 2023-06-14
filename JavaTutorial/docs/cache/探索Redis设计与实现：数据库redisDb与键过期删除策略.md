@@ -206,7 +206,7 @@ void dbAdd(redisDb *db, robj *key, robj *val) {
 ## 四、数据库的过期键操作
 在前面我们说到，redisDb结构中有一个expires指针（概况图可以看上图），该指针指向一个字典结构，字典中保存了所有键的过期时间，该字典称为过期字典。
 过期字典的初始化：
-````
+````java
 // 创建并初始化数据库结构
  for (j = 0; j < server.dbnum; j++) {
         // 创建每个数据库的过期时间字典
@@ -253,7 +253,7 @@ long long getExpire(redisDb *db, robj *key) {
 }
 ````
 删除键的过期时间–removeExpire()
-````
+````java
 // 移除键 key 的过期时间
 int removeExpire(redisDb *db, robj *key) {
     // 确保键带有过期时间

@@ -224,7 +224,7 @@ PS：DispathcerServlet中的viewResolvers属性是个集合，如果存在多个
   
 自定义的ViewResolver处理视图名的时候，遇到 "jsp:" 开头的会找jsp页面，遇到 "freemarker:" 开头的找freemarker页面。  
   
-````
+````java
 public class CustomViewResolver extends UrlBasedViewResolver {
 
 public static final String JSP_URL_PREFIX = "jsp:";  public static final String FTL_URL_PREFIX = "freemarker:";  

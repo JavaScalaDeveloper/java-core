@@ -85,7 +85,7 @@ broker的核心作用：
 
 
 
-```
+```java
 public synchronized void registerBrokerAll(final boolean checkOrderConfig, boolean oneway, boolean forceRegister) {
     TopicConfigSerializeWrapper topicConfigWrapper = this.getTopicConfigManager().buildTopicConfigSerializeWrapper();
 
@@ -116,7 +116,7 @@ public synchronized void registerBrokerAll(final boolean checkOrderConfig, boole
 
 
 
-```
+```java
 // Broker注册最核心的部分
 private void doRegisterBrokerAll(boolean checkOrderConfig, boolean oneway,
                                  TopicConfigSerializeWrapper topicConfigWrapper) {
@@ -156,7 +156,7 @@ private void doRegisterBrokerAll(boolean checkOrderConfig, boolean oneway,
 
 
 
-```
+```java
 public List<RegisterBrokerResult> registerBrokerAll(
     final String clusterName,
     final String brokerAddr,
@@ -227,7 +227,7 @@ NameServer处理请求：
 
 
 
-```
+```java
 //NameServer处理请求的核心代码
 @Override
     public RemotingCommand processRequest(ChannelHandlerContext ctx,
@@ -298,7 +298,7 @@ NameServer处理请求：
 
 
 
-```
+```java
 public RemotingCommand registerBrokerWithFilterServer(ChannelHandlerContext ctx, RemotingCommand request)
     throws RemotingCommandException {
     final RemotingCommand response = RemotingCommand.createResponseCommand(RegisterBrokerResponseHeader.class);
@@ -357,7 +357,7 @@ public RemotingCommand registerBrokerWithFilterServer(ChannelHandlerContext ctx,
 
 
 
-```
+```java
 public void start(final boolean startFactory) throws MQClientException {
     switch (this.serviceState) {
         case CREATE_JUST:
@@ -418,7 +418,7 @@ this.defaultMQPushConsumerImpl.start();
 
 
 
-```
+```java
 public synchronized void start() throws MQClientException {
     switch (this.serviceState) {
         case CREATE_JUST:

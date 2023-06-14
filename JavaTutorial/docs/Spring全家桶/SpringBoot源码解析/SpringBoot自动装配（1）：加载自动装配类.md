@@ -2,7 +2,7 @@
 
 在 [@SpringBootApplication 注解](https://my.oschina.net/funcy/blog/4870882)一文中，我们提到 springboot 处理自动装配的注解是 `@EnableAutoConfiguration`，代码如下：
 
-```
+```java
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -71,7 +71,7 @@ public @interface EnableAutoConfiguration {
 
 我们来看看 `AutoConfigurationImportSelector` 的代码：
 
-```
+```java
 // 实现了 DeferredImportSelector
 public class AutoConfigurationImportSelector implements DeferredImportSelector, 
         BeanClassLoaderAware,ResourceLoaderAware, BeanFactoryAware, EnvironmentAware, Ordered {
@@ -175,7 +175,7 @@ AutoConfigurationEntry autoConfigurationEntry =
 
 该代码就是用来加载自动装配类的，我们直接进入 `AutoConfigurationImportSelector#getAutoConfigurationEntry` 方法：
 
-```
+```java
 protected AutoConfigurationEntry getAutoConfigurationEntry(
         AutoConfigurationMetadata autoConfigurationMetadata, AnnotationMetadata annotationMetadata) {
     // 又一次判断是否开启自动装配
@@ -226,7 +226,7 @@ protected AutoConfigurationEntry getAutoConfigurationEntry(
 
 注意最后一行代码：
 
-```
+```java
 // 6\. 最终返回的值
 return new AutoConfigurationEntry(configurations, exclusions);
 
@@ -234,7 +234,7 @@ return new AutoConfigurationEntry(configurations, exclusions);
 
 这里把 `configurations` 与 `exclusions` 都传入了 `AutoConfigurationEntry` 的构造方法，我们来看看 `AutoConfigurationEntry`：
 
-```
+```java
 protected static class AutoConfigurationEntry {
     // 自动装配类
     private final List<String> configurations;
@@ -266,7 +266,7 @@ protected static class AutoConfigurationEntry {
 
 自动装配类的加载位于 `AutoConfigurationImportSelector#getCandidateConfigurations`，代码如下：
 
-```
+```java
 protected List<String> getCandidateConfigurations(AnnotationMetadata metadata, 
         AnnotationAttributes attributes) {
     // 调用的是 spring 提供的方法：SpringFactoriesLoader.loadFactoryNames(...)
@@ -285,7 +285,7 @@ protected Class<?> getSpringFactoriesLoaderFactoryClass() {
 
 继续进入 `SpringFactoriesLoader#loadFactoryNames`：
 
-```
+```java
 public final class SpringFactoriesLoader {
 
     public static final String FACTORIES_RESOURCE_LOCATION = "META-INF/spring.factories";
@@ -385,7 +385,7 @@ springboot 自带的 `META-INF/spring.factories` 位于 `spring-boot-autoconfigu
 
 1.  准备一个自动装配类
 
-```
+```java
 @Configuration
 public class MyAutoConfiguration {
 
@@ -411,7 +411,7 @@ org.springframework.boot.learn.autoconfigure.demo01.configure.MyAutoConfiguratio
 
 1.  主类
 
-```
+```java
 @SpringBootApplication
 public class AutoconfigureDemo01Application {
 

@@ -65,7 +65,7 @@ _socket 连接实际与处理文件流有点类似，都是在进行 IO 操作�
 获取输入、输出流代码如下：
 
 
-````
+````java
 // 输入流
 InputStream in = socket.getInputStream();
 // 输出流
@@ -140,7 +140,7 @@ import java.io.*;import java.net.InetSocketAddress;import java.net.Socket;import
 下面，我们通过实例化一个客户端，来展示 socket 通信的结果。
 
 
-````
+````java
 public class Application {
 
     public static void main(String[] args) {
@@ -155,14 +155,14 @@ public class Application {
 
 这种方式，虽然实现功能没什么问题。但是我们细看，发现在 IO 写入与读取过程，是发生了 IO 阻塞的情况。即：
 
-```
+```java
 // 会发生 IO 阻塞writer.write(HttpUtil.compositeRequest(host));reader.readLine();
 ```
 
 所以如果要同时请求10个不同的站点，如下：
 
 
-````
+````java
 public class SingleThreadApplication {
 
     public static void main(String[] args) {
@@ -187,7 +187,7 @@ _这在服务端更明显，虽然这里的代码是客户端连接，但是具�
 
 有人觉得这根本不是问题，JAVA 是多线程的编程语言。对于这种情况，采用多线程的模型再合适不过。
 
-```
+```java
 public class MultiThreadApplication {     public static void main(String[] args) {         for (final String host: HttpConstant.HOSTS) {             Thread t = new Thread(new Runnable() {                public void run() {                    new SocketHttpClient().start(host, HttpConstant.PORT);                }            });             t.start();         }    }}
 ```
 
@@ -198,7 +198,7 @@ public class MultiThreadApplication {     public static void main(String[] args)
 既然线程太多不行，那我们控制一下线程创建的数目不就行了。只启动固定的线程数来进行 socket 处理，既利用了多线程的处理，又控制了系统的资源消耗。
 
 
-````
+````java
 public class ThreadPoolApplication {
 
     public static void main(String[] args) {
@@ -230,7 +230,7 @@ _关于启动的线程数，一般 CPU 密集型会设置在 N+1（N为CPU核数
 ## 补充1：TCP客户端与服务端
 
 
-````
+````java
 public class TCP客户端 {
     public static void main(String[] args) {
         new Thread(new Runnable() {
@@ -259,7 +259,7 @@ public class TCP客户端 {
 
 
 
-````
+````java
 public class TCP服务端 {
     public static void main(String[] args) {
         new Thread(new Runnable() {
@@ -288,7 +288,7 @@ public class TCP服务端 {
 }
 ````
 ## 补充2：UDP客户端和服务端
-````
+````java
 public class UDP客户端 {
     public static void main(String[] args) {
         new Thread(new Runnable() {
@@ -313,7 +313,7 @@ public class UDP客户端 {
   }
 }
 ````
-````
+````java
 public class UDP服务端 {
     public static void main(String[] args) {
         new Thread(new Runnable() {

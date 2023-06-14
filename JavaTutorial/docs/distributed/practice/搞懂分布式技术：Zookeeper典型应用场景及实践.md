@@ -173,7 +173,7 @@ Zookeeper 作为一个分布式的服务框架，`主要用来解决分布式集
 
 **ZooKeeper 基本的操作示例：**
 
-````
+````java
 public class ZkDemo {
  public static void main(String[] args) throws IOException, KeeperException, InterruptedException {
  // 创建一个与服务器的连接

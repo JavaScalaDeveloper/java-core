@@ -284,7 +284,7 @@ Object类位于java.lang包中，java.lang包包含着Java最基础和核心的�
 
 
 ### registerNatives()方法;
-````
+````java
 private static native void registerNatives();
 ````
 
@@ -296,14 +296,14 @@ private static native void registerNatives();
 >  
 > 既然如此，可能有人会问，registerNatives()修饰符为private，且并没有执行，作用何以达到？其实，在Java源码中，此方法的声明后有紧接着一段静态代码块：
 
-````
+````java
 private static native void registerNatives();  
 static {  
      registerNatives();  
 }  
 ````
 ### Clone()方法实现浅拷贝
-````
+````java
 protected native Object clone() throwsCloneNotSupportedException;
 ````
 > 看，clode()方法又是一个被声明为native的方法，因此，我们知道了clone()方法并不是Java的原生方法，具体的实现是有C/C++完成的。clone英文翻译为"克隆"，其目的是创建并返回此对象的一个副本。
@@ -343,7 +343,7 @@ protected native Object clone() throwsCloneNotSupportedException;
 
 于是，上例改成如下形式，我们发现，可以正常编译：
 
-````
+````java
 public class clone方法 {
     public static void main(String[] args) {
     
@@ -369,7 +369,7 @@ public class clone方法 {
 > Cloneable接口仅是一个表示接口，接口本身不包含任何方法，用来指示Object.clone()可以合法的被子类引用所调用。
 >  
 > 于是，上述代码改成如下形式，即可正确指定clone()方法以实现克隆。
-````
+````java
 public class User implements Cloneable{
     public int id;
     public String name;
@@ -424,7 +424,7 @@ clone方法实现的是浅拷贝，只拷贝当前对象，并且在堆中分配
 也就是说，一个对象在浅拷贝以后，只是把对象复制了一份放在堆空间的另一个地方，但是成员变量如果有引用指向其他对象，这个引用指向的对象和被拷贝的对象中引用指向的对象是一样的。当然，基本数据类型还是会重新拷贝一份的。
 
 ### getClass()方法
-````
+````java
 public final native Class<?> getClass();
 
 ````
@@ -497,7 +497,7 @@ ObjectTest中打印出true，因为User类定义中重写了equals()方法，这
 > 如上重写equals方法表面上看上去是可以了，实则不然。因为它破坏了Java中的约定：重写equals()方法必须重写hasCode()方法。
 
 ### hashCode()方法;
-````
+````java
 public native int hashCode()
 ````
 
@@ -539,7 +539,7 @@ hashCode()具有如下约定：
 
 
 ### toString()方法
-````
+````java
 public String toString();
 
     toString()方法返回该对象的字符串表示。先看一下Object中的具体方法体：
@@ -651,7 +651,7 @@ public String toString();
 
 在Java源码中，可以看到wait()具体定义如下：
 
-````
+````java
 public final void wait() throws InterruptedException {  
      wait(0);  
 }  
@@ -666,7 +666,7 @@ Java中线程具有较多的知识点，是一块比较大且重要的知识点�
 ### finalize()方法
 finalize方法主要与Java垃圾回收机制有关。首先我们看一下finalized方法在Object中的具体定义：
 
-````
+````java
 protected void finalize() throws Throwable { }  
 ````
 

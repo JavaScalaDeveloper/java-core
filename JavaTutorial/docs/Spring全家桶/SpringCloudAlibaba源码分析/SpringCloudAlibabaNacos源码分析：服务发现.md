@@ -18,7 +18,7 @@ spring-cloud-commons包中定义了一套服务发现的规范，核心逻辑在
 
 #### 1）先从本地缓存serviceInfoMap中获取服务实例信息，获取不到则通过`NamingProxy`调用Nacos 服务端获取服务实例信息；最后开启定时任务每秒请求服务端 获取实例信息列表进而更新本地缓存serviceInfoMap；
 
-```
+```java
 // NacosDiscoveryClient#getInstances()
 public List<ServiceInstance> getInstances(String serviceId) {
     try {
@@ -61,7 +61,7 @@ public List<Instance> selectInstances(String serviceName, String groupName, List
 
 `HostReactor#getServiceInfo()`方法是真正获取服务实例信息的地方：
 
-```
+```java
 public ServiceInfo getServiceInfo(final String serviceName, final String clusters) {
 
     NAMING_LOGGER.debug("failover-mode: " + failoverReactor.isFailoverSwitch());
@@ -107,7 +107,7 @@ public ServiceInfo getServiceInfo(final String serviceName, final String cluster
 
 1、从本地缓存中获取服务实例信息：
 
-```
+```java
 private ServiceInfo getServiceInfo0(String serviceName, String clusters) {
 
     String key = ServiceInfo.getKey(serviceName, clusters);
@@ -118,7 +118,7 @@ private ServiceInfo getServiceInfo0(String serviceName, String clusters) {
 
 2、则走HTTP调用从Nacos服务端获取服务实例信息：
 
-```
+```java
 public void updateServiceNow(String serviceName, String clusters) {
     ServiceInfo oldService = getServiceInfo0(serviceName, clusters);
     try {
@@ -143,7 +143,7 @@ public void updateServiceNow(String serviceName, String clusters) {
 
 3、开启一个定时任务，每隔一秒从Nacos服务端获取最新的服务实例信息，更新到本地缓存seriveInfoMap中：
 
-```
+```java
 public void scheduleUpdateIfAbsent(String serviceName, String clusters) {
     if (futureMap.get(ServiceInfo.getKey(serviceName, clusters)) != null) {
         return;
@@ -193,7 +193,7 @@ public void run() {
 
 查询服务实例列表：
 
-```
+```java
 public String queryList(String serviceName, String clusters, int udpPort, boolean healthyOnly)
     throws NacosException {
 
@@ -211,7 +211,7 @@ public String queryList(String serviceName, String clusters, int udpPort, boolea
 
 #### 2）在HostReactor实例化的时候会实例化PushReceiver，进而开启一个线程死循环通过`DatagramSocket#receive()`监听Nacos服务端中服务实例信息发生变更后的UDP通知。
 
-```
+```java
 public class PushReceiver implements Runnable {
     private DatagramSocket udpSocket;
 
@@ -294,7 +294,7 @@ Nacos服务端的服务发现主要做两件事：
 
 #### 1）获取服务实例列表
 
-```
+```java
 @GetMapping("/list")
 @Secured(parser = NamingResourceParser.class, action = ActionTypes.READ)
 public Object list(HttpServletRequest request) throws Exception {
@@ -410,7 +410,7 @@ public List<Instance> allIPs() {
 
 NamingSubscriberServiceV1Impl#addClient()：
 
-```
+```java
 public void addClient(String namespaceId, String serviceName, String clusters, String agent,
         InetSocketAddress socketAddr, DataSource dataSource, String tenant, String app) {
 

@@ -4,7 +4,7 @@
 
 这没什么问题，能正常启动也运行良好，只不过我们在 spring 容器中无法获取 `DispatcherServlet`，像这样：
 
-```
+```java
 @Component
 public class Test {
     // 在前面提供的示例（tomcat里启动spring容器）是注入不了的
@@ -23,7 +23,7 @@ public class Test {
 
 ### 1\. 准备 `DispatcherServlet`
 
-```
+```java
 @Component
 @EnableWebMvc
 public class MvcConfig implements WebMvcConfigurer {
@@ -58,7 +58,7 @@ public class MvcConfig implements WebMvcConfigurer {
 
 ### 2\. 准备一个 `WebApplicationInitializer` 实现类
 
-```
+```java
 @Component
 public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
@@ -111,7 +111,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
 ### 3\. 准备一个 `ServletContextAwareProcessor` 的子类
 
-```
+```java
 public class MyServletContextAwareProcessor extends ServletContextAwareProcessor {
 
 	AbstractRefreshableWebApplicationContext webApplicationContext;
@@ -151,7 +151,7 @@ public class MyServletContextAwareProcessor extends ServletContextAwareProcessor
 
 `ApplicationContext` 至关重要，这里我们选择直接扩展 `AnnotationConfigWebApplicationContext`：
 
-```
+```java
 public class MyWebApplicationContext extends AnnotationConfigWebApplicationContext {
 
     private Tomcat tomcat;
@@ -214,7 +214,7 @@ public class MyWebApplicationContext extends AnnotationConfigWebApplicationConte
 
 准备一个 `Controller`，主要是帮助我们验证项目是否启动正常：
 
-```
+```java
 @RestController
 @RequestMapping("/test")
 public class TestController {
@@ -233,7 +233,7 @@ public class TestController {
 
 最后就是主类了，主要是处理 spring 的启动操作，也是相当简单：
 
-```
+```java
 @ComponentScan
 public class MvcDemo03Main {
 
@@ -266,7 +266,7 @@ public class MvcDemo03Main {
 
 这里的 `wac` 与 `this.webApplicationContext` 就是 `MyWebApplicationContext` 的实例，在创建 `DispatcherServlet` 时传入的:
 
-```
+```java
 @Bean
 public DispatcherServlet dispatcherServlet(WebApplicationContext webApplicationContext) {
     // 在构造方法的参数中传入了 webApplicationContext
@@ -279,7 +279,7 @@ public DispatcherServlet dispatcherServlet(WebApplicationContext webApplicationC
 
 综上所述，通过 spring 容器启动 tomcat 后，在 `DispatcherServlet#init` 里不会再次启动 spring 容器。这样启动后，`DispatcherServlet` 就是一个 spring bean，我们就可以在代码里使用 `@Autowired` 注解将其注入到其他类中了：
 
-```
+```java
 @Component
 public class Test {
     // 本文的示例（在 spring 容器中启动 tomcat）是可以注入成功的

@@ -18,7 +18,7 @@
 
 我们直接进入 `DefaultListableBeanFactory#preInstantiateSingletons`:
 
-```
+```java
 public void preInstantiateSingletons() throws BeansException {
     // this.beanDefinitionNames 保存了所有的 beanNames
     List<String> beanNames = new ArrayList<>(this.beanDefinitionNames);
@@ -115,7 +115,7 @@ for (String beanName : beanNames) {
 
 > AbstractBeanFactory#doGetBean
 
-```
+```java
 protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredType,
          @Nullable final Object[] args, boolean typeCheckOnly) throws BeansException {
 
@@ -265,7 +265,7 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
 
 上面的代码基本上给出了注释， 在这就不多做 解释了。spring 功能比较复杂，考虑的东西也比较多，因此上述代码会多做多种判断，应对多种情况。如果我们仅考虑 demo01 的情况 (`singleton` 情况)，以上代码关键如下：
 
-```
+```java
 //最后的返回值
 Object bean;
 
@@ -294,7 +294,7 @@ return (T) bean;
 
 > `DefaultSingletonBeanRegistry#getSingleton(String, ObjectFactory<?>)`
 
-```
+```java
 public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
     synchronized (this.singletonObjects) {
         boolean newSingleton = false;
@@ -324,7 +324,7 @@ public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
 
 首先，我们进入 `ObjectFactory#getObject`，发现代码如下：
 
-```
+```java
 @FunctionalInterface
 public interface ObjectFactory<T> {
     T getObject() throws BeansException;

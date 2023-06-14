@@ -27,7 +27,7 @@
 
 最终调用到了 `PostProcessorRegistrationDelegate#registerBeanPostProcessors`，代码如下：
 
-```
+```java
 public static void registerBeanPostProcessors(
         ConfigurableListableBeanFactory beanFactory, AbstractApplicationContext applicationContext) {
 
@@ -118,7 +118,7 @@ public static void registerBeanPostProcessors(
 
 > AbstractBeanFactory#addBeanPostProcessor
 
-```
+```java
 private final List<BeanPostProcessor> beanPostProcessors = new CopyOnWriteArrayList<>();
 
 @Override

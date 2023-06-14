@@ -170,7 +170,7 @@ ramework.security.web.access.ExceptionTranslationFilter@3727f0ee]
 
 
 
-````
+````xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -233,7 +233,7 @@ ramework.security.web.access.ExceptionTranslationFilter@3727f0ee]
 
 
 
-````
+````xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -321,7 +321,7 @@ management.endpoints.web.exposure.include=*
 
 
 
-````
+````java
 package net.biancheng.c.controller;
 
 
@@ -506,7 +506,7 @@ service-url:
 
 
 
-````
+````java
 package net.biancheng.c;
 
 
@@ -533,7 +533,7 @@ public class SpringCloudAlibabaConsumerNacos8801Application {
 
 
 
-````
+````java
 package net.biancheng.c.config;
 
 
@@ -562,7 +562,7 @@ public class ApplicationContextBean {
 
 
 
-````
+````java
 package net.biancheng.c.controller;
 
 
@@ -752,7 +752,7 @@ spring:
 
 
 
-````
+````java
 package net.biancheng.c.controller;
 
 
@@ -784,7 +784,7 @@ public class ConfigClientController {
 
 
 
-````
+````java
 package net.biancheng.c;
 
 
@@ -858,7 +858,7 @@ Nacos Server 的集群化部署有一个十分明显的优点，那就是可以�
 下面我们以 Windows 系统为例，演示如何部署 Nacos Server 集群。
 
 1\. 在 MySQL 中，新建一个名为 nacos_config 的数据库实例，并在该数据库下执行以下 SQL 语句。
-````
+````java
 /******************************************/
 /*   数据库全名 = nacos_config   */
 /*   表名称 = config_info   */

@@ -25,7 +25,7 @@ spring aop 执行时，顺序是怎样的，如何改变执行的优先级？本
 
 > ReflectiveAspectJAdvisorFactory
 
-```
+```java
 // 获取 @Aspect 类中的方法
 private List<Method> getAdvisorMethods(Class<?> aspectClass) {
     final List<Method> methods = new ArrayList<>();
@@ -43,7 +43,7 @@ private List<Method> getAdvisorMethods(Class<?> aspectClass) {
 
 > ReflectiveAspectJAdvisorFactory
 
-```
+```java
 /**
  * METHOD_COMPARATOR 详解
  */
@@ -96,7 +96,7 @@ static {
 
 > ReflectiveAspectJAdvisorFactory
 
-```
+```java
 public List<Advisor> getAdvisors(MetadataAwareAspectInstanceFactory aspectInstanceFactory) {
     // 省略了一些代码
     ...
@@ -136,7 +136,7 @@ public List<Advisor> getAdvisors(MetadataAwareAspectInstanceFactory aspectInstan
 
 > AspectJAwareAdvisorAutoProxyCreator
 
-```
+```java
 protected List<Advisor> sortAdvisors(List<Advisor> advisors) {
     List<PartiallyComparableAdvisorHolder> partiallyComparableAdvisors 
             = new ArrayList<>(advisors.size());
@@ -168,7 +168,7 @@ protected List<Advisor> sortAdvisors(List<Advisor> advisors) {
 
 实际上，`PartialOrder.sort(...)` 只要做了一个排序而已，这个方法没啥分析的，我们真正要分析的应该是传入的排序规则，也就是 `DEFAULT_PRECEDENCE_COMPARATOR`：
 
-```
+```java
 private static final Comparator<Advisor> DEFAULT_PRECEDENCE_COMPARATOR 
         = new AspectJPrecedenceComparator();
 
@@ -178,7 +178,7 @@ private static final Comparator<Advisor> DEFAULT_PRECEDENCE_COMPARATOR
 
 > AspectJPrecedenceComparator
 
-```
+```java
 @Override
 public int compare(Advisor o1, Advisor o2) {
     // 比较规则：AnnotationAwareOrderComparator
@@ -202,7 +202,7 @@ public int compare(Advisor o1, Advisor o2) {
 
 我们来看看 `this.advisorComparator.compare` 的比较规则：
 
-```
+```java
 private final Comparator<? super Advisor> advisorComparator;
 
 public AspectJPrecedenceComparator() {
@@ -219,7 +219,7 @@ public int compare(Advisor o1, Advisor o2) {
 
 `this.advisorComparator.compare` 的比较规则由 `AnnotationAwareOrderComparator` 提供：
 
-```
+```java
 public int compare(@Nullable Object o1, @Nullable Object o2) {
     return doCompare(o1, o2, null);
 }
@@ -259,7 +259,7 @@ private int doCompare(@Nullable Object o1, @Nullable Object o2,
 
 对于 `@Aspect` 标注的类，如果同一 `aspect` 里定义了同样的 `advice`，spring aop 也提供了一套比较规则：
 
-```
+```java
 /**
  * 针对 @Aspect， 同一aspect里定义了同样的 advice，再次比较
  */
@@ -302,7 +302,7 @@ private int comparePrecedenceWithinAspect(Advisor advisor1, Advisor advisor2) {
 
 > ReflectiveAspectJAdvisorFactory
 
-```
+```java
 public List<Advisor> getAdvisors(MetadataAwareAspectInstanceFactory aspectInstanceFactory) {
     // 省略了一些代码
     ...
@@ -327,7 +327,7 @@ public List<Advisor> getAdvisors(MetadataAwareAspectInstanceFactory aspectInstan
 
 特别强调的是，这个规则只适用于同一 `@Aspect` 类定义的、同样的通知方法，如：
 
-```
+```java
 @Aspect
 public class AspectTest {
     @Before
@@ -346,7 +346,7 @@ public class AspectTest {
 
 这里的 `before1()` 与 `before2()` 对应的 `advisor` 适用于 `comparePrecedenceWithinAspect` 排序，而以下代码就不适用了，原因是在不同的 `@Aspect` 类中定义的：
 
-```
+```java
 @Aspect
 public class AspectTest1 {
     @Before
@@ -373,7 +373,7 @@ public class AspectTest2 {
 
 > AspectJAwareAdvisorAutoProxyCreator
 
-```
+```java
 protected List<Advisor> sortAdvisors(List<Advisor> advisors) {
     ...
     else {
@@ -403,7 +403,7 @@ protected List<Advisor> sortAdvisors(List<Advisor> advisors) {
 
 `BeanFactoryTransactionAttributeSourceAdvisor` 没有 `@Order/@Priority`，但它实现了 `Ordered` 接口，因此它的执行顺序由 `getOrder()` 方法的返回值决定，对应的 `getOrder()` 方法如下：
 
-```
+```java
     /**
      * 获取 order，方法如下：
      * 1\. 如果已指定了 order，直接返回；
@@ -431,7 +431,7 @@ protected List<Advisor> sortAdvisors(List<Advisor> advisors) {
 
 可见，`BeanFactoryTransactionAttributeSourceAdvisor` 的执行顺序是默认的 `Integer.MAX_VALUE`。如果调度的话，发现这个值是在 `return this.order` 返回的：
 
-```
+```java
 public int getOrder() {
     // 通过调度发现，this.order 并不为null
     if (this.order != null) {
@@ -447,7 +447,7 @@ public int getOrder() {
 
 > ProxyTransactionManagementConfiguration
 
-```
+```java
 @Bean(name = TransactionManagementConfigUtils.TRANSACTION_ADVISOR_BEAN_NAME)
 @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
 public BeanFactoryTransactionAttributeSourceAdvisor transactionAdvisor() {
@@ -466,7 +466,7 @@ public BeanFactoryTransactionAttributeSourceAdvisor transactionAdvisor() {
 
 到这里我们就明白了，事务 advisor 的执行顺序可以在 `@EnableTransactionManagement` 中指定：
 
-```
+```java
 public @interface EnableTransactionManagement {
 
     boolean proxyTargetClass() default false;
@@ -490,7 +490,7 @@ public @interface EnableTransactionManagement {
 
 > InstantiationModelAwarePointcutAdvisorImpl
 
-```
+```java
 @Override
 public int getOrder() {
     return this.aspectInstanceFactory.getOrder();
@@ -506,7 +506,7 @@ public int getOrder() {
 
 > LazySingletonAspectInstanceFactoryDecorator
 
-```
+```java
 @Override
 public int getOrder() {
     return this.maaif.getOrder();
@@ -522,7 +522,7 @@ public int getOrder() {
 
 > BeanFactoryAspectInstanceFactory
 
-```
+```java
 public int getOrder() {
     // this.name 指的是标注了 @Aspect 注解的类
     Class<?> type = this.beanFactory.getType(this.name);
@@ -583,7 +583,7 @@ public int getOrder() {
 
 2. 如果是单个切面类 (`@Aspect` 标注的类)，且无重复的 `@Around/@Before/@After` 等
 
-   ```
+   ```java
    @Aspect
    public class MyAspectj {
    
@@ -619,7 +619,7 @@ public int getOrder() {
 
 3. 单个切面类 (`@Aspect` 标注的类) 内有重复的 `@Around/@Before/@After` 等，情况如下：
 
-   ```
+   ```java
    @Aspect
    public class MyAspectj {
    
@@ -651,7 +651,7 @@ public int getOrder() {
 
 4. 多个切面类 (`@Aspect` 标注的类) 的执行顺序可以通过 `@Order` 注解，或实现 `Ordered` 接口来指定：
 
-   ```
+   ```java
    @Order(xxx)
    public class MyAspectj1 {
        ...

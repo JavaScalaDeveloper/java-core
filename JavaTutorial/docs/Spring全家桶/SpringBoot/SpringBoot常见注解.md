@@ -8,7 +8,7 @@ Spring Boot 通过其自动配置功能使配置 Spring 变得更加容易。
 
 @SpringBootApplication
 我们使用这个注解来标记 Spring Boot 应用程序的主类：
-````
+````java
 @SpringBootApplication
 class VehicleFactoryApplication {
 
@@ -16,7 +16,7 @@ class VehicleFactoryApplication {
         SpringApplication.run(VehicleFactoryApplication.class, args);
     }
 }
-````
+````java
 @SpringBootApplication 封装了@Configuration、@EnableAutoConfiguration 和@ComponentScan 注解及其默认属性。
 
 ## 3 @EnableAutoConfiguration
@@ -25,7 +25,7 @@ class VehicleFactoryApplication {
 
 请注意，我们必须将此注释与@Configuration 一起使用：
 
-````
+````java
 @Configuration
 @EnableAutoConfiguration
 class VehicleFactoryConfig {}
@@ -42,7 +42,7 @@ class VehicleFactoryConfig {}
 @Configuration注解的类中，使用@Bean注解标注的方法，返回的类型都会直接注册为bean。
 
 @Configure注解的定义如下：
-````
+````java
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -66,7 +66,7 @@ String value() default "";
 
 使用这些条件，如果注释参数中的类存在/不存在，Spring 将仅使用标记的自动配置 bean：
 
-````
+````java
 @Configuration
 @ConditionalOnClass(DataSource.class)
 class MySQLAutoconfiguration {
@@ -80,7 +80,7 @@ class MySQLAutoconfiguration {
 
 和上面一个注解稍有些不同，因为我们的判断条件变成了bean
 
-````
+````java
 @Bean
 @ConditionalOnBean(name = "dataSource")
 LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -92,7 +92,7 @@ LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 
 要注意，这里的属性值来源于application.properties文件中的配置
 
-````
+````java
 @Bean
 @ConditionalOnProperty(
 name = "usemysql",
@@ -133,7 +133,7 @@ springboot真的为我们想到了所有情况，如果上面的注解还不能�
 
 我们可以在更复杂的情况下使用这个注解。 当 SpEL 表达式被评估为真时，Spring 将使用标记的定义：
 
-````
+````java
 @Bean
 @ConditionalOnExpression("${usemysql} && ${mysqlserver == 'local'}")
 DataSource dataSource() {
@@ -147,7 +147,7 @@ DataSource dataSource() {
 
 对于更复杂的条件，我们可以创建一个评估自定义条件的类。 我们告诉 Spring 将这个自定义条件与 @Conditional 一起使用：
 
-````
+````java
 @Conditional(HibernateCondition.class)
 Properties  ditionalProperties() {
 //...

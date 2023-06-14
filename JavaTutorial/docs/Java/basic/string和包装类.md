@@ -65,7 +65,7 @@ String greeting = "菜鸟教程";
 String 类有 11 种构造方法，这些方法提供不同的参数来初始化字符串，比如提供一个字符数组参数:
 
 ### StringDemo.java 文件代码：
-````
+````java
 public class StringDemo{    
 public static void main(String args[]){       
 char[] helloArray = { 'r', 'u', 'n', 'o', 'o', 'b'};       
@@ -98,7 +98,7 @@ runoob
 ![](https://img2018.cnblogs.com/blog/710412/201902/710412-20190213220237169-1966705420.png)
 
 ### 三个方法的使用： lenth()   substring()   charAt()
-````
+````java
 package com.mpp.string; 
 public class StringDemo1 {
     public static void main(String[] args) { //定义一个字符串"晚来天欲雪 能饮一杯无"
@@ -115,7 +115,7 @@ public class StringDemo1 {
 两个方法的使用,求字符或子串第一次/最后一次在字符串中出现的位置： 
 indexOf()   lastIndexOf()  
 
-````
+````java
 package com.mpp.string; public class StringDemo2 { 
     public static void main(String[] args) {
         String str = new String("赵客缦胡缨 吴钩胡缨霜雪明"); //查找胡在字符串中第一次出现的位置
@@ -132,7 +132,7 @@ package com.mpp.string; public class StringDemo2 {
 
 ### 字符串与byte数组间的相互转换
 
-````
+````java
 package com.mpp.string; import java.io.UnsupportedEncodingException; 
 public class StringDemo3 { 
     public static void main(String[] args) throws UnsupportedEncodingException { 
@@ -156,7 +156,7 @@ public class StringDemo3 {
 
 引用指向的内容和引用指向的地址
 
-````
+````java
 package com.mpp.string; public class StringDemo5 { 
     public static void main(String[] args) {
         String str1 = "mpp";
@@ -225,7 +225,7 @@ String str = "aa"+"bb"+"cc";
 ## String类的源码分析
 
 ### String类型的intern
-````
+````java
 public void intern () {
     //2：string的intern使用
     //s1是基本类型，比较值。s2是string实例，比较实例地址
@@ -239,7 +239,7 @@ public void intern () {
 }
 ````
 ### String类型的equals
-````
+````java
 //字符串的equals方法
 //    public boolean equals(Object anObject) {
 //            if (this == anObject) {
@@ -320,7 +320,7 @@ a = a + a;时，实际上先把a封装成stringbuilder，调用append方法后�
 
 ensureCapacityInternal(count + len);
 该方法是计算append之后的空间是否足够，不足的话需要进行扩容
-````
+````java
 public void ensureCapacity(int minimumCapacity) {
     if (minimumCapacity > 0)
         ensureCapacityInternal(minimumCapacity);
@@ -342,7 +342,7 @@ private void ensureCapacityInternal(int minimumCapacity) {
 考虑两种情况
 
 如果新的字符串长度超过int最大值，则抛出异常，否则直接使用数组最大长度作为新数组的长度。
-````
+````java
 private int hugeCapacity(int minCapacity) {
     if (Integer.MAX_VALUE - minCapacity < 0) { // overflow
         throw new OutOfMemoryError();
@@ -355,7 +355,7 @@ private int hugeCapacity(int minCapacity) {
 这两个类型的删除操作：
 
 都是调用父类的delete方法进行删除
-````
+````java
 public AbstractStringBuilder delete(int start, int end) {
     if (start < 0)
         throw new StringIndexOutOfBoundsException(start);
@@ -437,7 +437,7 @@ Java堆（线程共享数据区）：
 
 ## String为什么不可变？
 翻开JDK源码，java.lang.String类起手前三行，是这样写的：
-````
+````java
 public final class String implements java.io.Serializable, Comparable<String>, CharSequence {   
   /** String本质是个char数组. 而且用final关键字修饰.*/     
 private final char value[];  ...  ...
@@ -523,7 +523,7 @@ System.out.println(ff);
 
 代码成果
 
-````
+````java
 public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
 /** 值为"NULL"的字符串 */

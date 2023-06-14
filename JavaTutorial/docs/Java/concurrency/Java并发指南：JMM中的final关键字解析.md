@@ -29,7 +29,7 @@
 
 ## 一、properly constructed / this对象逸出
 在开始讲之前final之前，先了解一个概念，叫做 “properly constructed”。其含义是：在构造器创建对象的过程中，正在被创建的对象的引用没有发生 “逸出(escape)” 。
-````
+````java
 public Test {
 private final int x;
 private int y;
@@ -48,7 +48,7 @@ private static Test instance;
 所谓对象的安全发布，意思就是构建一个被完整初始化的对象，防止一个未完全初始化的对象被访问。
 
 看下面的例子：
-````
+````java
 public class Test {
 static MyObj obj;
 
@@ -128,7 +128,7 @@ This comes into play for example when inlining constructors, where “...” spa
 v.afield = 1; x.finalField = v; ... ; sharedRef = x;
 
 直接看上面的话有点难懂，下面举一个例子：
-````
+````java
 class Apple {
 private String color;
 
@@ -166,7 +166,7 @@ x = sharedRef; ... ; i = x.finalField;
 A compiler would never reorder these since they are dependent, but there can be consequences of this rule on some processors.
 
 再看个例子：
-````
+````java
 public class Test {
 static Test instance;
 final int a;
@@ -197,7 +197,7 @@ final字段的重排序规则总结如下：
 
 ## 四、HotSpot VM中对final内存语义的实现
 [3] 在HotSpot源码的 parse1.cpp 中：
-````
+````java
 //------------------------------do_exits---------------------------------------
 void Parse::do_exits() {
 // ...

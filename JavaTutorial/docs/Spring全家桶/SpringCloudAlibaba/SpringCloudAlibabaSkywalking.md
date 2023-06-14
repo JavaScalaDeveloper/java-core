@@ -21,7 +21,7 @@ SkyWalking主要的几个组成模块:
 
 ```
 mkdir skywalking-docker
-复制代码
+
 ```
 
 1.  **进入 skywalking-docker 目录，建立一个名为 skywalking.yaml 的脚本文件，内容如下**：
@@ -85,7 +85,7 @@ networks:
 volumes:
   elasticsearch7:
     driver: local
-复制代码
+
 ```
 
 **注意**：如果我们想覆盖 oap 镜像中的 /skywalking/config 目录下的配置文件，我们可以在 docker 中挂载一个 /skywalking/ext-config 目录，将配置文件丢到此目录中即可。
@@ -96,14 +96,14 @@ volumes:
 
 ```
 docker-compose -f skywalking.yaml up
-复制代码
+
 ```
 
 1.  **进入 skywalking 的控制台，发现各种仪表盘，开始当然是空的**：
 
 ```
 http://(安装SkyWalking机器的IP):9020
-复制代码
+
 ```
 
 ![image-20230423174444272](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174444272.png)
@@ -125,12 +125,12 @@ http://(安装SkyWalking机器的IP):9020
             apm-toolkit-trace
             <version>8.0.1</version>
         </dependency>
-复制代码
+
 ```
 
 1.  **在 resources 目录下 添加 logback-spring.xml 文件，内容如下**:
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <property name="logger.path" value="/mnt/logs"/>
@@ -289,7 +289,7 @@ http://(安装SkyWalking机器的IP):9020
     </root>
 
 </configuration>
-复制代码
+
 ```
 
 **注意**：其他都是日志常规配置，主要是这部分 `` 的配置。
@@ -316,7 +316,7 @@ skywalking 官网下载地址：[skywalking.apache.org/downloads/](https://link.
 
 ```
 -javaagent:(agent文件夹所在的目录)\agent\skywalking-agent.jar -Dskywalking.agent.service_name=(服务名)-service -Dskywalking.agent.instance_name=(服务名)-instance -Dskywalking.collector.backend_service=(安装SkyWalking机器的IP):9022
-复制代码
+
 ```
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96e9d5a3aa5c44c3b0b948929609ae1f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
@@ -350,7 +350,7 @@ skywalking 官网下载地址：[skywalking.apache.org/downloads/](https://link.
 POST http://localhost:8080/oauth2-service/oauth/token?grant_type=password&username=admin&password=123456&client_id=app-client&client_secret=client-secret-8888&scope=all
 Accept: */*
 Cache-Control: no-cache
-复制代码
+
 ```
 
 得到返回结果 token：
@@ -365,7 +365,7 @@ Cache-Control: no-cache
   "jwt-ext": "JWT 扩展信息",
   "jti": "5806989a-e244-4d23-8a59-0c84bc14b999"
 }
-复制代码
+
 ```
 
 请求执行 /api/member/update
@@ -377,7 +377,7 @@ GET http://localhost:8080/member-service/api/member/update
 Accept: */*
 Cache-Control: no-cache
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiZ2F0ZXdheS1zZXJ2aWNlIl0sInVzZXJfbmFtZSI6ImFkbWluIiwiand0LWV4dCI6IkpXVCDmianlsZXkv6Hmga8iLCJzY29wZSI6WyJhbGwiXSwiZXhwIjoxNjEzOTcwMDk2LCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIl0sImp0aSI6IjU4MDY5ODlhLWUyNDQtNGQyMy04YTU5LTBjODRiYzE0Yjk5OSIsImNsaWVudF9pZCI6ImFwcC1jbGllbnQifQ.EP4acam0tkJQ9kSGRGk_mQsfi1y4M_hhiBL0H931v60
-复制代码
+
 ```
 
 **仪表盘结果展示**:

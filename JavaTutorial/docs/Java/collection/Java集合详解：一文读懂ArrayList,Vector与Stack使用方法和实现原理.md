@@ -494,12 +494,12 @@ Stack通过五个操作对Vector进行扩展，允许将向量视为堆栈。这
 > 返回对象在堆栈中的位置，以 1 为基数。
 
 Stack继承Vector，他对Vector进行了简单的扩展：
-````
+````java
 public class Stack<E> extends Vector<E>
 ````
 
   Stack的实现非常简单，仅有一个构造方法，五个实现方法（从Vector继承而来的方法不算与其中），同时其实现的源码非常简单
-````
+````java
     /**
      * 构造函数
      */

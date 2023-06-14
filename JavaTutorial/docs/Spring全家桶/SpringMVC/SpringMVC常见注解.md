@@ -13,7 +13,7 @@ headers：根据 HTTP 标头的存在、不存在或值过滤请求
 produces：该方法可以在 HTTP 响应正文中生成哪些媒体类型
 这是一个简单的示例：
 
-````
+````java
 @Controller
 class VehicleController {
 
@@ -27,7 +27,7 @@ class VehicleController {
 
 例如，下面的配置和上面的效果是一样的：
 
-````
+````java
 @Controller
 @RequestMapping(value = "/vehicles", method = RequestMethod.GET)
 class VehicleController {
@@ -47,7 +47,7 @@ class VehicleController {
 
 让我们继续@RequestBody——它将 HTTP 请求的主体映射到一个对象：
 
-````
+````java
 @PostMapping("/save")
 void saveVehicle(@RequestBody Vehicle vehicle) {
 // ...
@@ -62,7 +62,7 @@ void saveVehicle(@RequestBody Vehicle vehicle) {
 
 我们可以使用名称或其别名，即值参数来实现这一点：
 
-````
+````java
 @RequestMapping("/{id}")
 Vehicle getVehicle(@PathVariable("id") long id) {
 // ...
@@ -70,7 +70,7 @@ Vehicle getVehicle(@PathVariable("id") long id) {
 ````
 如果模板中部分的名称与方法参数的名称相匹配，我们就不必在注释中指定它：
 
-````
+````java
 @RequestMapping("/{id}")
 Vehicle getVehicle(@PathVariable long id) {
 // ...
@@ -78,7 +78,7 @@ Vehicle getVehicle(@PathVariable long id) {
 ````
 此外，我们可以通过将所需的参数设置为 false 来将路径变量标记为可选：
 
-````
+````java
 @RequestMapping("/{id}")
 Vehicle getVehicle(@PathVariable(required = false) long id) {
 // ...
@@ -86,7 +86,7 @@ Vehicle getVehicle(@PathVariable(required = false) long id) {
 ````
 ## 5. @RequestParam
    We use @RequestParam for accessing HTTP request parameters:
-````
+````java
 @RequestMapping
 Vehicle getVehicleByParam(@RequestParam("id") long id) {
 // ...
@@ -97,7 +97,7 @@ Vehicle getVehicleByParam(@RequestParam("id") long id) {
 除了这些设置之外，当 Spring 在请求中发现没有值或为空值时，我们可以使用 @RequestParam 指定注入值。 为此，我们必须设置 defaultValue 参数。
 
 提供默认值隐式设置 required 为 false：
-````
+````java
 @RequestMapping("/buy")
 Car buyCar(@RequestParam(defaultValue = "5") int seatCount) {
 // ...
@@ -114,7 +114,7 @@ Car buyCar(@RequestParam(defaultValue = "5") int seatCount) {
 ### 6.1 @ResponseBody
 如果我们用@ResponseBody 标记请求处理程序方法，Spring 会将方法的结果视为响应本身：
 
-````
+````java
 @ResponseBody
 @RequestMapping("/hello")
 String hello() {
@@ -128,7 +128,7 @@ return "Hello World!";
 使用此注释，我们可以声明一个自定义错误处理程序方法。 当请求处理程序方法抛出任何指定的异常时，Spring 调用此方法。
 
 捕获的异常可以作为参数传递给方法：
-````
+````java
 @ExceptionHandler(IllegalArgumentException.class)
 void onIllegalArgumentException(IllegalArgumentException exception) {
 // ...
@@ -161,7 +161,7 @@ void onIllegalArgumentException(IllegalArgumentException exception) {
 
 因此，以下声明是等效的：
 
-````
+````java
 @Controller
 @ResponseBody
 class VehicleRestController {
@@ -169,7 +169,7 @@ class VehicleRestController {
 }
 ````
 
-````
+````java
 @RestController
 class VehicleRestController {
 // ...
@@ -178,7 +178,7 @@ class VehicleRestController {
 ### 7.3 @ModelAttribute
 通过这个注解，我们可以通过提供模型键来访问已经存在于 MVC @Controller 模型中的元素：
 
-````
+````java
 @PostMapping("/assemble")
 void assembleVehicle(@ModelAttribute("vehicle") Vehicle vehicleInModel) {
 // ...
@@ -186,7 +186,7 @@ void assembleVehicle(@ModelAttribute("vehicle") Vehicle vehicleInModel) {
 ````
 与@PathVariable 和@RequestParam 一样，如果参数具有相同的名称，我们不必指定模型键：
 
-````
+````java
 @PostMapping("/assemble")
 void assembleVehicle(@ModelAttribute Vehicle vehicle) {
 // ...
@@ -194,14 +194,14 @@ void assembleVehicle(@ModelAttribute Vehicle vehicle) {
 ````
 此外，@ModelAttribute还有一个用途：如果我们用它注解一个方法，Spring会自动将方法的返回值添加到模型中：
 
-````
+````java
 @ModelAttribute("vehicle")
 Vehicle getVehicle() {
 // ...
 }
 ````
 和以前一样，我们不必指定模型键，Spring 默认使用方法的名称：
-````
+````java
 @ModelAttribute
 Vehicle vehicle() {
 // ...
@@ -214,7 +214,7 @@ Vehicle vehicle() {
 ### 7.4 @CrossOrigin
 @CrossOrigin 为带注释的请求处理程序方法启用跨域通信：
 
-````
+````java
 @CrossOrigin
 @RequestMapping("/hello")
 String hello() {

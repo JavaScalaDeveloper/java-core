@@ -517,7 +517,7 @@ github [spring-boot-lucene-demo](https://link.juejin.im/?target=https%3A%2F%2Fgi
 
 
 
-```
+```java
 private Directory directory; private IndexReader indexReader; 
 private IndexSearcher indexSearcher; 
 @Beforepublic void setUp() throws IOException {
@@ -565,7 +565,7 @@ analyzer.close();
 
 
 
-```
+```java
 @Test
 public void indexWriterTest() throws IOException {    
 long start = System.currentTimeMillis();     
@@ -610,7 +610,7 @@ System.out.println("索引花费了" + (end - start) + " 毫秒");}
 
 
 
-```
+```java
 @Testpublic void deleteDocumentsTest() throws IOException 
 // 标准分词器，适用于英文   
 //Analyzer analyzer = new SmartChineseAnalyzer();

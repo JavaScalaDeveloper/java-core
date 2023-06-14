@@ -87,7 +87,7 @@ java中集合大家族的成员实在是太丰富了，有常用的ArrayList、H
   在Java中所有实现了Collection接口的类都必须提供两套标准的构造函数，一个是无参，用于创建一个空的Collection，一个是带有Collection参数的有参构造函数，用于创建一个新的Collection，这个新的Collection与传入进来的Collection具备相同的元素。
 //要求实现基本的增删改查方法，并且需要能够转换为数组类型
 
-````
+````java
 public class Collection接口 {
     class collect implements Collection {
 
@@ -170,7 +170,7 @@ public class Collection接口 {
 >
 > 2.4、Stack
 >    Stack继承自Vector，实现一个后进先出的堆栈。Stack提供5个额外的方法使得Vector得以被当作堆栈使用。基本的push和pop 方法，还有peek方法得到栈顶的元素，empty方法测试堆栈是否为空，search方法检测一个元素在堆栈中的位置。Stack刚创建后是空栈。。
-````
+````java
 public class List接口 {
     //下面是List的继承关系，由于List接口规定了包括诸如索引查询，迭代器的实现，所以实现List接口的类都会有这些方法。
     //所以不管是ArrayList和LinkedList底层都可以使用数组操作，但一般不提供这样外部调用方法。
@@ -258,7 +258,7 @@ public class List接口 {
 > 3.2、HashSet
 >    HashSet堪称查询速度最快的集合，因为其内部是以HashCode来实现的。它内部元素的顺序是由哈希码来决定的，所以它不保证set 的迭代顺序；特别是它不保证该顺序恒久不变。
 
-````
+````java
 public class Set接口 {
     // Set接口规定将set看成一个集合，并且使用和数组类似的增删改查方式，同时提供iterator迭代器
     //    public interface Set<E> extends Collection<E>
@@ -345,7 +345,7 @@ public class Set接口 {
 >
 > 4.3、HashTable
 >    也是以哈希表数据结构实现的，解决冲突时与HashMap也一样也是采用了散列链表的形式，不过性能比HashMap要低
-````
+````java
 public class Map接口 {
     //Map接口是最上层接口，Map接口实现类必须实现put和get等哈希操作。
     //并且要提供keyset和values，以及entryset等查询结构。
@@ -417,7 +417,7 @@ public class Map接口 {
 ## Queue
 
 >   队列，它主要分为两大类，一类是阻塞式队列，队列满了以后再插入元素则会抛出异常，主要包括ArrayBlockQueue、PriorityBlockingQueue、LinkedBlockingQueue。另一种队列则是双端队列，支持在头、尾两端插入和移除元素，主要包括：ArrayDeque、LinkedBlockingDeque、LinkedList。
-````
+````java
 public class Queue接口 {
     //queue接口是对队列的一个实现，需要提供队列的进队出队等方法。一般使用linkedlist作为实现类
     class MyQueue implements Queue {

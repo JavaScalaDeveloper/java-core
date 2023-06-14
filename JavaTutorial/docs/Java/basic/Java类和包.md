@@ -92,7 +92,7 @@ Java 使用包（package）这种机制是为了防止命名冲突，访问控�
 
 将类、接口等类型的源码放在一个文本中，这个文件的名字就是这个类型的名字，并以.java作为扩展名。例如：
 
-````
+````java
 // 文件名 : Car.java  
 package  vehicle; 
 public  class  Car  {  
@@ -117,7 +117,7 @@ public  class  Car  {
 ....\com\runoob\test\Runoob.java
 
 编译的时候，编译器为包中定义的每个类、接口等类型各创建一个不同的输出文件，输出文件的名字就是这个类型的名字，并加上 .class 作为扩展后缀。 例如：
-````
+````java
 // 文件名: Runoob.java  
 package  com.runoob.test; 
 public  class  Runoob  {  }  
@@ -198,7 +198,7 @@ java包的作用是为了区别类名的命名空间　　
 
 在 animals 包中加入一个接口（interface）：
 
-````
+````java
 package animals;
 interface Animal {
    public void eat();
@@ -208,7 +208,7 @@ interface Animal {
 
 接下来，在同一个包中加入该接口的实现：
 
-````
+````java
 package animals;
 /* 文件名 : MammalInt.java */
 public class MammalInt implements Animal{
@@ -373,7 +373,7 @@ rt.jar 默认就在Root Classloader的加载路径里面的，而在Claspath配�
 >
 > 3.private修饰的外部类，其他任何外部类都无法导入它。
 
-````
+````java
 //Java中的文件名要和public修饰的类名相同，否则会报错
 //如果没有public修饰的类，则文件可以随意命名
 public class Java中的类文件 {

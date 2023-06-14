@@ -350,7 +350,7 @@ Mybatis通过执行器与Mappered Statement的结合实现与数据库的交互�
 ````
 5.编写测试代码TestClient.java
 
-````
+````java
 //使用productMapper.xml配置文件
 public class TestClient { //定义会话SqlSession
     SqlSession session =null;
@@ -376,7 +376,7 @@ public class TestClient { //定义会话SqlSession
 }
 ````
 
-````
+````java
 public class Product { private int Id; private String Name; private String Description; private BigDecimal UnitPrice; private String ImageUrl; private Boolean IsNew; public int getId() { return Id;
     } public void setId(int id) { this.Id = id;
     } public String getName() { return Name;

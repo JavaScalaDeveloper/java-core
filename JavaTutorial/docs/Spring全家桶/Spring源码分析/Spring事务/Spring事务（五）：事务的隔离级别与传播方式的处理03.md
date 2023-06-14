@@ -6,7 +6,7 @@
 
 启动新事务的方法为 `DataSourceTransactionManager#doBegin`，代码如下：
 
-```
+```java
 protected void doBegin(Object transaction, TransactionDefinition definition) {
     DataSourceTransactionObject txObject = (DataSourceTransactionObject) transaction;
     Connection con = null;
@@ -82,7 +82,7 @@ Connection newCon = obtainDataSource().getConnection();
 
 在 `@Transactional` 中，我们可以使用 `isolation` 指定事务的隔离级别：
 
-```
+```java
 public @interface Transactional {
     /**
      * 指定事务的隔离级别
@@ -97,7 +97,7 @@ public @interface Transactional {
 
 spring 设置事务隔离级别的方法为 `DataSourceUtils#prepareConnectionForTransaction`，代码如下：
 
-```
+```java
 public static Integer prepareConnectionForTransaction(Connection con, 
         @Nullable TransactionDefinition definition) throws SQLException {
     Assert.notNull(con, "No Connection specified");
@@ -135,7 +135,7 @@ public static Integer prepareConnectionForTransaction(Connection con,
 
 关于只读模式，也是可以在 `@Transactional` 中设置的：
 
-```
+```java
 public @interface Transactional {
     /**
      * 设置只读事务
@@ -168,7 +168,7 @@ if (con.getAutoCommit()) {
 
 在前面分析 `1.2 设置事务的隔离级别`中，通过调用 `java.sql.Connection#setReadOnly` 将连接设置为只读了，这里还会再一次设置，方法为 `DataSourceTransactionManager#prepareTransactionalConnection`：
 
-```
+```java
 protected void prepareTransactionalConnection(Connection con, TransactionDefinition definition)
         throws SQLException {
     if (isEnforceReadOnly() && definition.isReadOnly()) {
@@ -187,7 +187,7 @@ protected void prepareTransactionalConnection(Connection con, TransactionDefinit
 
 在 `@Transactional` 注解中，我们可以使用 `timeout` 来指定事务的超时时间：
 
-```
+```java
 public @interface Transactional {
     /**
      * 设置超时时间
@@ -200,7 +200,7 @@ public @interface Transactional {
 
 这样设置的超时时间会在这里用到，我们进入 `ResourceHolderSupport#setTimeoutInSeconds`：
 
-```
+```java
 public abstract class ResourceHolderSupport implements ResourceHolder {
     /**
      * 截止时间
@@ -271,7 +271,7 @@ public abstract class ResourceHolderSupport implements ResourceHolder {
 
 我们看看 `DataSourceUtils#applyTimeout` 是怎么设置超时时间的：
 
-```
+```java
 public static void applyTimeout(Statement stmt, @Nullable DataSource dataSource, int timeout) 
         throws SQLException {
     Assert.notNull(stmt, "No Statement specified");
@@ -297,7 +297,7 @@ public static void applyTimeout(Statement stmt, @Nullable DataSource dataSource,
 
 以上事情处理完成后，接下来就是绑定数据源与连接了，处理方法为 `TransactionSynchronizationManager#bindResource`:
 
-```
+```java
 /**
  * resources 存放当前线程中的数据源与连接
  * 其中存放的内容为一个 Map，Map 的 key 为数据源，value 为数据源对应的连接
@@ -334,7 +334,7 @@ public static void bindResource(Object key, Object value) throws IllegalStateExc
 
 挂起事务的操作为 `AbstractPlatformTransactionManager#suspend`，代码如下：
 
-```
+```java
 protected final SuspendedResourcesHolder suspend(@Nullable Object transaction) 
         throws TransactionException {
     // 如果有同步的事务，则优先挂起同步的事务
@@ -382,7 +382,7 @@ protected final SuspendedResourcesHolder suspend(@Nullable Object transaction)
 
 `suspend(...)` 方法中最重要的就是挂起事务的操作了，也就是 `doSuspend(transaction)`，该方法 位于 `` 中，直接看代码：
 
-```
+```java
 protected Object doSuspend(Object transaction) {
     DataSourceTransactionObject txObject = (DataSourceTransactionObject) transaction;
     txObject.setConnectionHolder(null);
@@ -394,7 +394,7 @@ protected Object doSuspend(Object transaction) {
 
 继续进入 `TransactionSynchronizationManager.unbindResource` 方法：
 
-```
+```java
 /**
  * 解除绑定操作
  */
@@ -452,7 +452,7 @@ private static Object doUnbindResource(Object actualKey) {
 
 嗯，看来这个方法里只是做了`保存点`的保存（也就是赋值给 `AbstractTransactionStatus` 的成员变量），要真正了解保存点的创建，还得看 `getSavepointManager().createSavepoint()`，进入到 `JdbcTransactionObjectSupport#createSavepoint`：
 
-```
+```java
 public Object createSavepoint() throws TransactionException {
     ConnectionHolder conHolder = getConnectionHolderForSavepoint();
     try {
@@ -474,7 +474,7 @@ public Object createSavepoint() throws TransactionException {
 
 发现最后调用的是 `ConnectionHolder#createSavepoint` 方法，原来保存点是在 `ConnectionHolder` 中创建的啊！继续：
 
-```
+```java
 // 保存点名称前缀
 public static final String SAVEPOINT_NAME_PREFIX = "SAVEPOINT_";
 

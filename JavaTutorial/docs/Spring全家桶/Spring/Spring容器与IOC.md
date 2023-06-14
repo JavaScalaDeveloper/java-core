@@ -130,7 +130,7 @@ ApplicationContext 接口有两个常用的实现类，具体如下表。
 
 
  
-````
+````java
 public static void main(String[] args) {
 //使用 FileSystemXmlApplicationContext 加载指定路径下的配置文件 Bean.xml
 BeanFactory  context = new FileSystemXmlApplicationContext("D:\\eclipe workspace\\spring workspace\\HelloSpring\\src\\Beans.xml");

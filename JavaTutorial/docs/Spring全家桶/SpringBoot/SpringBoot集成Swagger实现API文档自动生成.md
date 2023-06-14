@@ -62,7 +62,7 @@
 
 ?注意，这里的前提是已经导入了spring boot的web包。
 
-复制代码
+
 
 ```
         <dependency>
@@ -82,9 +82,9 @@
 
 要使用swagger，我们必须对swagger进行配置，我们需要创建一个swagger的配置类，比如可以命名为SwaggerConfig.java
 
-复制代码
 
-```
+
+```java
 package com.example.config;
 
 import org.springframework.context.annotation.Bean;
@@ -145,9 +145,9 @@ public class SwaggerConfig {
 接口有时候应该是分组的，而且大部分都是在一个controller中的，比如用户管理相关的接口应该都在UserController中，那么不同的业务的时候，应该定义/划分不同的接口组。接口组可以使用`@Api`来划分。
 比如：
 
-复制代码
 
-```
+
+```java
 @Api(tags = "角色管理") //  tags：你可以当作是这个组的名字。
 @RestController
 public class RoleController {
@@ -157,9 +157,9 @@ public class RoleController {
 
 和
 
-复制代码
 
-```
+
+```java
 @Api(tags = "用户管理") //  tags：你可以当作是这个组的名字。
 @RestController
 public class UserController {
@@ -175,9 +175,9 @@ public class UserController {
 
 使用了`@Api`来标注一个Controller之后，如果下面有接口，那么就会默认生成文档，但没有我们自定义的说明：
 
-复制代码
 
-```
+
+```java
 @Api(tags = "用户管理")
 @RestController
 public class UserController {
@@ -197,7 +197,7 @@ public class UserController {
 
 我们可以使用`@ApiOperation`来描述接口，比如：
 
-复制代码
+
 
 ```
     @ApiOperation(value = "用户测试",notes = "用户测试notes")
@@ -237,9 +237,9 @@ public class UserController {
         *   required：标记字段是否必填，默认是false,
         *   hidden：用来隐藏字段，默认是false，如果要隐藏需要使用true，因为字段默认都会显示，就算没有`@ApiModelProperty`。
 
-复制代码
 
-```
+
+```java
 // 先使用@ApiModel来标注类
 @ApiModel(value="用户登录表单对象",description="用户登录表单对象")
 public class LoginForm {
@@ -256,7 +256,7 @@ public class LoginForm {
 
 定义成入参：
 
-复制代码
+
 
 ```
     @ApiOperation(value = "登录接口",notes = "登录接口的说明")
@@ -285,7 +285,7 @@ public class LoginForm {
 
 示例一：声明入参是URL参数
 
-复制代码
+
 
 ```
     // 使用URL query参数
@@ -317,7 +317,7 @@ public class LoginForm {
 
 示例二：声明入参是URL路径参数
 
-复制代码
+
 
 ```
     // 使用路径参数
@@ -345,7 +345,7 @@ public class LoginForm {
 
 示例三：声明入参是header参数
 
-复制代码
+
 
 ```
     // 用header传递参数
@@ -374,7 +374,7 @@ public class LoginForm {
 
 示例四：声明文件上传参数
 
-复制代码
+
 
 ```
     // 有文件上传时要用@ApiParam，用法基本与@ApiImplicitParam一样，不过@ApiParam用在参数上
@@ -426,7 +426,7 @@ public class LoginForm {
 
 前面在定义接口请求参数的时候有提到使用`@ApiModel`来标注类，如果接口返回了这个类，那么这个类上的说明也会作为响应的说明：
 
-复制代码
+
 
 ```
     // 返回被@ApiModel标注的类对象
@@ -445,7 +445,7 @@ public class LoginForm {
 swagger无法对非实体类的响应进行详细说明，只能标注响应码等信息。是通过`@ApiResponses`和`@ApiResponse`来实现的。
 `@ApiResponses`和`@ApiResponse`可以与`@ApiModel`一起使用。
 
-复制代码
+
 
 ```
     // 其他类型的,此时不能增加字段注释，所以其实swagger推荐使用实体类
@@ -485,7 +485,7 @@ swagger无法对非实体类的响应进行详细说明，只能标注响应码�
 
 1.添加依赖包：
 
-复制代码
+
 
 ```
         <!--引入swagger-->
@@ -510,9 +510,9 @@ swagger无法对非实体类的响应进行详细说明，只能标注响应码�
 
 2.在swagger配置类中增加注解`@EnableSwaggerBootstrapUI`:
 
-复制代码
 
-```
+
+```java
 @Configuration // 标明是配置类
 @EnableSwagger2 //开启swagger功能
 @EnableSwaggerBootstrapUI // 开启SwaggerBootstrapUI
@@ -542,7 +542,7 @@ public class SwaggerConfig {
 
 在Spring Boot整合Spring Security和Swagger的时候，需要配置拦截的路径和放行的路径，注意是放行以下几个路径。
 
-复制代码
+
 
 ```
 .antMatchers("/swagger**/**").permitAll()
@@ -562,7 +562,7 @@ public class SwaggerConfig {
 
 ?方法二：在swagger配置类中增加全局参数配置：
 
-复制代码
+
 
 ```
         //如果有额外的全局参数，比如说请求头参数，可以这样添加
@@ -582,7 +582,7 @@ public class SwaggerConfig {
 
 ?方法三：使用`@ApiImplicitParams`来额外标注一个请求头参数，例如：
 
-复制代码
+
 
 ```
     // 如果需要额外的参数，非本方法用到，但过滤器要用,类似于权限token

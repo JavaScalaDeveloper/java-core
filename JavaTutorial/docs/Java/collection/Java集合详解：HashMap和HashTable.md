@@ -40,7 +40,7 @@ HashMap也是我们使用非常多的Collection，它是基于哈希表的 Map �
 ### 定义
 
 HashMap实现了Map接口，继承AbstractMap。其中Map接口定义了键映射到值的规则，而AbstractMap类提供 Map 接口的骨干实现，以最大限度地减少实现此接口所需的工作，其实AbstractMap类已经实现了Map，这里标注Map LZ觉得应该是更加清晰吧！
-````
+````java
 public class HashMap<K,V>
     extends AbstractMap<K,V>
     implements Map<K,V>, Cloneable, Serializable
@@ -111,14 +111,14 @@ public V put(K key, V value) {
 >   1、 先看迭代处。此处迭代原因就是为了防止存在相同的key值，若发现两个hash值（key）相同时，HashMap的处理方式是用新value替换旧value，这里并没有处理key，这就解释了HashMap中没有两个相同的key。
 >
 >   2、 在看（1）、（2）处。这里是HashMap的精华所在。首先是hash方法，该方法为一个纯粹的数学计算，就是计算h的hash值。
-````
+````java
 static int hash(int h) {
         h ^= (h >>> 20) ^ (h >>> 12);
         return h ^ (h >>> 7) ^ (h >>> 4);
     }
 ````
   我们知道对于HashMap的table而言，数据分布需要均匀（最好每项都只有一个元素，这样就可以直接找到），不能太紧也不能太松，太紧会导致查询速度慢，太松则浪费空间。计算hash值后，怎么才能保证table元素分布均与呢？我们会想到取模，但是由于取模的消耗较大，HashMap是这样处理的：调用indexFor方法。
-````
+````java
 static int indexFor(int h, int length) {
         return h & (length-1);
     }
@@ -377,7 +377,7 @@ loadFactor：加载因子。
 modCount：用来实现“fail-fast”机制的（也就是快速失败）。所谓快速失败就是在并发集合中，其进行迭代操作时，若有其他线程对其进行结构性的修改，这时迭代器会立马感知到，并且立即抛出ConcurrentModificationException异常，而不是等到迭代完成之后才告诉你（你已经出错了）。
 
 ### 构造方法
-````
+````java
 //在HashTabel中存在5个构造函数。通过这5个构造函数我们构建出一个我想要的HashTable。
 public Hashtable() {
         this(11, 0.75f);
@@ -434,7 +434,7 @@ public Hashtable(int initialCapacity, float loadFactor) {
 ### 主要方法
 
 HashTable的API对外提供了许多方法，这些方法能够很好帮助我们操作HashTable，但是这里我只介绍两个最根本的方法：put、get。
-````
+````java
 //首先我们先看put方法：将指定 key 映射到此哈希表中的指定 value。注意这里键key和值value都不可为空。
 public synchronized V put(K key, V value) {
     // 确保value不为null
@@ -527,7 +527,7 @@ public synchronized V put(K key, V value) {
  这里对阀值啰嗦一下：比如初始值11、加载因子默认0.75，那么这个时候阀值threshold=8，当容器中的元素达到8时，HashTable进行一次扩容操作，容量 = 8 * 2 + 1 =17，而阀值threshold=17*0.75 = 13，当容器元素再一次达到阀值时，HashTable还会进行扩容操作，依次类推。
 
 下面是计算key的hash值，这里hashSeed发挥了作用。
-````
+````java
 private int hash(Object k) {
         return hashSeed ^ k.hashCode();
     }

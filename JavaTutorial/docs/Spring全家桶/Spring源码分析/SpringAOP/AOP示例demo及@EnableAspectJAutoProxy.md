@@ -18,7 +18,7 @@ ApplicationContext context =
 
 > AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
 
-```
+```java
 public AnnotationConfigApplicationContext(String... basePackages) {
      // 1\. 调用无参构造函数，会先调用父类GenericApplicationContext的构造函数
      // 2\. 父类的构造函数里面就是初始化DefaultListableBeanFactory，并且赋值给beanFactory
@@ -47,7 +47,7 @@ public AnnotationConfigApplicationContext(String... basePackages) {
 
 > AbstractApplicationContext#refresh
 
-```
+```java
 public void refresh() throws BeansException, IllegalStateException {
     // 使用synchronized是为了避免refresh() 还没结束，再次发起启动或者销毁容器引起的冲突
     synchronized (this.startupShutdownMonitor) {

@@ -44,7 +44,7 @@ spring:
 
 我们使用Spring官方提供了负载均衡的客户端之一RestTemplate，RestTemplate是Spring提供的用于访问Rest服务的客户端，RestTemplate提供了多种便捷访问远程Http服务的方法，能够大大提高客户端的编写效率。默认情况下，RestTemplate默认依赖jdk的HTTP连接工具。创建RestTemplateConfig配置类，标注 @LoadBalanced注解，默认使用的ReactiveLoadBalancer实现是RoundRobinLoadBalancer。
 
-```
+```java
 package cn.itxs.ecom.order.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -65,7 +65,7 @@ public class RestTemplateConfig {
 
 订单微服务中订单控制器增加deductRest方法
 
-```
+```java
 package cn.itxs.ecom.order.controller;
 
 import cn.itxs.ecom.commons.service.OrderService;
@@ -128,7 +128,7 @@ server:
 
 创建自定义负载均衡配置类CustomLoadBalancerConfiguration
 
-```
+```java
 package cn.itxs.ecom.order.config;
 
 import org.springframework.cloud.client.ServiceInstance;
@@ -155,7 +155,7 @@ public class CustomLoadBalancerConfiguration {
 
 RestTemplateConfig配置类LoadBalancerClient指定随机的配置类，value的值为提供者也即是库存微服务名称。
 
-```
+```java
 package cn.itxs.ecom.order.config;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -198,7 +198,7 @@ public class RestTemplateConfig {
 
 订单微服务中增加WebClientConfig配置类
 
-```
+```java
 package cn.itxs.ecom.order.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -335,7 +335,7 @@ LoadBalancerClient用于进行负载均衡逻辑，继承自ServiceInstanceChoos
 
 ![image-20220508144750601](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/256e4815a982966d7d6bfb82e0e97f67.png)
 
-```
+```java
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class BlockingLoadBalancerClient implements LoadBalancerClient {
 
@@ -476,7 +476,7 @@ ReactiveLoadBalancer负载均衡器实现服务选择，Spring Cloud Balancer中
 
 如果没有显式指定负载均衡算法，默认缺省值为RoundRobinLoadBalancer
 
-```
+```java
 	@Bean
 	@ConditionalOnMissingBean
 	public ReactorLoadBalancer<ServiceInstance> reactorServiceInstanceLoadBalancer(Environment environment,
@@ -508,7 +508,7 @@ LoadBalancerRequest工厂类调用createRequest方法用于创建LoadBalancerReq
 
 从上面可以知道LoadBalancerClientFactory是创建客户机、负载均衡器和客户机配置实例的工厂。它根据客户端名称创建一个Spring ApplicationContext，并从中提取所需的bean。因此进入到LoadBalancerClientFactory类中，需要去实现它的子接口ReactorServiceInstanceLoadBalancer，因为去获取负载均衡器实例的时候，是通过去容器中查找ReactorServiceInstanceLoadBalancer类型的bean来实现的，可以参照RandomLoadBalancer实现代码
 
-```
+```java
 package org.springframework.cloud.loadbalancer.core;
 
 import java.util.List;
@@ -582,7 +582,7 @@ public class RandomLoadBalancer implements ReactorServiceInstanceLoadBalancer {
 
 保留核心实现进行简单仿写如下
 
-```
+```java
 package cn.itxs.ecom.order.config;
 
 import java.util.List;
@@ -637,7 +637,7 @@ public class ItxsRandomLoadBalancerClient implements ReactorServiceInstanceLoadB
 
 将上面CustomLoadBalancerConfiguration替换为如下内容
 
-```
+```java
 package cn.itxs.ecom.order.config;
 
 import org.springframework.beans.factory.ObjectProvider;

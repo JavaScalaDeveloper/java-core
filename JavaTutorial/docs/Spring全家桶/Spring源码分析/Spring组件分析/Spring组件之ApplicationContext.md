@@ -22,7 +22,7 @@ context.refresh();
 
 `ApplicationContext` 继承的接口如下：
 
-```
+```java
 public interface ApplicationContext extends EnvironmentCapable, ListableBeanFactory, 
         HierarchicalBeanFactory, MessageSource, ApplicationEventPublisher, 
         ResourcePatternResolver {
@@ -65,7 +65,7 @@ public interface ApplicationContext extends EnvironmentCapable, ListableBeanFact
 
 在 spring bean 中获取 `ApplicationContext`，可以通过 `ApplicationContextAware` 接口来处理：
 
-```
+```java
 @Component
 public class TestBean implements ApplicationContextAware {
 
@@ -89,7 +89,7 @@ public class TestBean implements ApplicationContextAware {
 
 `ApplicationContextAwareProcessor` 是一个 `BeanPostProcessor`，我们主要关注 `ApplicationContextAwareProcessor#postProcessBeforeInitialization` 方法，代表如下：
 
-```
+```java
 @Override
 @Nullable
 public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
@@ -158,7 +158,7 @@ private void invokeAwareInterfaces(Object bean) {
 
 对于 `AnnotationConfigApplicationContext`，`beanFactory` 赋值代码如下：
 
-```
+```java
 public class GenericApplicationContext extends AbstractApplicationContext 
         implements BeanDefinitionRegistry {
 
@@ -182,7 +182,7 @@ public class GenericApplicationContext extends AbstractApplicationContext
 
 对于 `AnnotationConfigWebApplicationContext`，`beanFactory` 赋值代码如下：
 
-```
+```java
 public abstract class AbstractRefreshableApplicationContext extends AbstractApplicationContext {
 
     // 这就是持有的 beanFactory 对象
@@ -240,7 +240,7 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 
 `BeanFactory` 的相关方法实现如下：
 
-```
+```java
 public abstract class AbstractApplicationContext extends DefaultResourceLoader
         implements ConfigurableApplicationContext {### 1\. 什么是 `BeanDefinition`
 
@@ -250,7 +250,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 在 spring 中，也有这么一个类来定义 bean 的信息，这个类就是 `BeanDefinition`，它定义了 spring bean 如何生成，如何初始化，如何销毁等，我们来看看它支持的部分方法：
 
-```
+```java
 public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
     /**
@@ -457,7 +457,7 @@ spring 提供的 `BeanDefinition` 基本就是上图所示的几种了，这里�
 
 在前面提到了 `BeanDefinition` 继子的概念，这里就是用来处理继承的，一般来说，我们可以在 `RootBeanDefinition` 定义公共参数，然后在 `ChildBeanDefinition` 中定义各自的内容，示例如下：
 
-```
+```java
 public static void main(String[] args) {
 AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 // RootBeanDefinition
@@ -513,7 +513,7 @@ User{name='123', age=12}
 
 可以看到，它自身提供的方法并不多，其操作基本继承 `AbstractBeanDefinition`，一般情况下，我们要生成自己的 `BeanDefinition` 时，只需要使用这个类就可以了，这里也提供一个示例：
 
-```
+```java
 public static void main(String[] args) {
 AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 
@@ -560,7 +560,7 @@ AnnotationConfigApplicationContext context = new AnnotationConfigApplicationCont
 
 首先准备两个 `service`：
 
-```
+```java
 @Service
 public class Service01 {
 
@@ -601,7 +601,7 @@ public class Service02 {
 
 接着是主要类：
 
-```
+```java
 @ComponentScan
 public class Demo02Main {
 
@@ -637,7 +637,7 @@ hello null, from service02
 
 如何获取 spring 中已经存在的 `beanDefifnition` 呢？参考第 2 节的示例，如果你认为在 `context.refresh()` 前获取，像这样：
 
-```
+```java
 public static void main(String[] args) {
 AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 context.register(Demo02Main.class);
@@ -665,7 +665,7 @@ Exception in thread "main" org.springframework.beans.factory
 
 聪明如你，一定会想到，在 `context.refresh()` 前获取会报错，那在之后呢？代码像这样：
 
-```
+```java
 public static void main(String[] args) {
 AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 context.register(Demo02Main.class);
@@ -703,7 +703,7 @@ context.refresh();
 
 很明显，我们应该使用 `BeanDefinitionRegistryPostProcessor`，直接实现这个接口：
 
-```
+```java
 @Component
 public class MyBeanDefinitionRegistryPostProcessor
 implements BeanDefinitionRegistryPostProcessor {
@@ -727,7 +727,7 @@ implements BeanDefinitionRegistryPostProcessor {
 
 `main` 方法跟最初保持一致：
 
-```
+```java
 public static void main(String[] args) {
 AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 context.register(Demo02Main.class);

@@ -82,7 +82,7 @@ org.springframework.cloud.client.serviceregistry 路径下，可以看到一个�
 
 
 
-```
+```java
 @Service
 public class TestSmartLifeCycle implements SmartLifecycle {
     /**
@@ -149,7 +149,7 @@ public class TestSmartLifeCycle implements SmartLifecycle {
 
 
 
-```
+```java
 private void startBeans(boolean autoStartupOnly) {
     Map<String, Lifecycle> lifecycleBeans = this.getLifecycleBeans();
     Map<Integer, DefaultLifecycleProcessor.LifecycleGroup> phases = new HashMap();
@@ -190,7 +190,7 @@ private void startBeans(boolean autoStartupOnly) {
 
 
 
-```
+```java
 private void doStart(Map<String, ? extends Lifecycle> lifecycleBeans, String beanName, boolean autoStartupOnly) {
     Lifecycle bean = (Lifecycle)lifecycleBeans.remove(beanName);
     if (bean != null && bean != this) {
@@ -231,7 +231,7 @@ EurekaAutoServiceRegistration中的start方法，因为很显然，它实现了S
 
 
 
-```
+```java
 public class EurekaAutoServiceRegistration implements AutoServiceRegistration,SmartLifecycle, Ordered, SmartApplicationListener {
     @Override
     public void start() {
@@ -273,7 +273,7 @@ EurekaAutoServiceRegistration的构造方法中，会有一个赋值操作，而
 
 
 
-```
+```java
 @Bean
 @ConditionalOnBean(AutoServiceRegistrationProperties.class)
 @ConditionalOnProperty(value = "spring.cloud.service-registry.auto-registration.enabled", matchIfMissing = true)
@@ -297,7 +297,7 @@ public EurekaAutoServiceRegistration eurekaAutoServiceRegistration(
 
 
 
-```
+```java
 public class EurekaAutoServiceRegistration implements AutoServiceRegistration,
 SmartLifecycle, Ordered, SmartApplicationListener {
     @Override
@@ -325,7 +325,7 @@ EurekaServiceRegistry 类中的 register 方法来实现服务注册
 
 
 
-```
+```java
 @Override
 public void register(EurekaRegistration reg) {
     maybeInitializeClient(reg);
@@ -355,7 +355,7 @@ reg.getApplicationInfoManager().setInstanceStatus方法。
 
 
 
-```
+```java
 public synchronized void setInstanceStatus(InstanceStatus status) {
     InstanceStatus next = instanceStatusMapper.map(status);
     if (next == null) {
@@ -393,7 +393,7 @@ EurekaServiceRegistry.register方法中的 reg.getApplicationInfoManager 这个�
 
 
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnMissingRefreshScope
 protected static class EurekaClientConfiguration {
@@ -441,7 +441,7 @@ super(applicationInfoManager, config, args);调用父类的构造方法，而Clo
 
 
 
-```
+```java
 public CloudEurekaClient(ApplicationInfoManager applicationInfoManager,EurekaClientConfig config,AbstractDiscoveryClientOptionalArgs<?> args,ApplicationEventPublisher publisher) {
     super(applicationInfoManager, config, args);
     this.applicationInfoManager = applicationInfoManager;
@@ -566,7 +566,7 @@ initScheduledTasks 去启动一个定时任务。
 
 
 
-```
+```java
 private void initScheduledTasks() {
     //如果配置了开启从注册中心刷新服务列表，则会开启cacheRefreshExecutor这个定时任务
     if (clientConfig.shouldFetchRegistry()) {
@@ -660,7 +660,7 @@ private void initScheduledTasks() {
 
 
 
-```
+```java
 public boolean onDemandUpdate() {
     //限流判断
     if (rateLimiter.acquire(burstSize, allowedRatePerMinute)) {
@@ -705,7 +705,7 @@ run方法实际上和前面自动装配所执行的服务注册方法是一样�
 
 
 
-```
+```java
 public void run() {
     try {
         discoveryClient.refreshInstanceInfo();
@@ -769,7 +769,7 @@ boolean register() throws Throwable {
 
 
 
-```
+```java
 public EurekaHttpResponse<Void> register(InstanceInfo info) {
     String urlPath = "apps/" + info.getAppName();
     ClientResponse response = null;
@@ -828,7 +828,7 @@ ApplicationResource.addInstance方法。
 
 
 
-```
+```java
 @POST
 @Consumes({"application/json", "application/xml"})
 public Response addInstance(InstanceInfo info, @HeaderParam("x-netflix-discovery-replication") String isReplication) {
@@ -914,7 +914,7 @@ PeerAwareInstanceRegistryImpl.register 方法。
 
 
 
-```
+```java
 public void register(InstanceInfo registrant, int leaseDuration, boolean
                      isReplication) {
     try {
@@ -1047,7 +1047,7 @@ Eureka Server存在三个变量：(registry、readWriteCacheMap、readOnlyCacheM
 
 
 
-```
+```java
 public void invalidate(Key... keys) {
     for (Key key : keys) {
         logger.debug("Invalidating the response cache key : {} {} {} {}, {}",
@@ -1080,7 +1080,7 @@ ResponseCacheImpl的构造方法中，会启动一个定时任务，这个任务
 
 
 
-```
+```java
 private TimerTask getCacheUpdateTask() {
     return new TimerTask() {
         @Override
@@ -1127,7 +1127,7 @@ DiscoveryClient.initScheduledTasks 中，创建一个心跳检测的定时任务
 
 
 
-```
+```java
 // Heartbeat timer
 scheduler.schedule(
     new TimedSupervisorTask(
@@ -1155,7 +1155,7 @@ scheduler.schedule(
 
 
 
-```
+```java
 //每隔30s发送一个心跳请求到
 private class HeartbeatThread implements Runnable {
     public void run() {
@@ -1179,7 +1179,7 @@ private class HeartbeatThread implements Runnable {
 
 
 
-```
+```java
 @Path("{id}")
 public InstanceResource getInstanceInfo(@PathParam("id") String id) {
     return new InstanceResource(this, id, serverConfig, registry);
@@ -1200,7 +1200,7 @@ AbstractInstanceRegistry.statusUpdate来更新指定服务提供者在服务端�
 
 
 
-```
+```java
 @PUT
 @Path("status")
 public Response statusUpdate(
@@ -1245,7 +1245,7 @@ public Response statusUpdate(
 
 
 
-```
+```java
 public boolean statusUpdate(String appName, String id,
                             InstanceStatus newStatus, String
                             lastDirtyTimestamp,
@@ -1356,7 +1356,7 @@ DiscoveryClient(ApplicationInfoManager applicationInfoManager,
 
 
 
-```
+```java
 private boolean fetchRegistry(boolean forceFullRegistryFetch) {
     Stopwatch tracer = FETCH_REGISTRY_TIMER.start();
     try {
@@ -1421,7 +1421,7 @@ private boolean fetchRegistry(boolean forceFullRegistryFetch) {
 
 
 
-```
+```java
 private void initScheduledTasks() {
     if (clientConfig.shouldFetchRegistry()) {
         // registry cache refresh timer
@@ -1457,7 +1457,7 @@ private void initScheduledTasks() {
 
 
 
-```
+```java
 public void run() {
       Future future = null;
   try {
@@ -1631,7 +1631,7 @@ public void run() {
 
 
 
-```
+```java
 private void getAndStoreFullRegistry() throws Throwable {
     long currentUpdateGeneration = fetchRegistryGeneration.get();
     logger.info("Getting all instance registry info from the eureka server");
@@ -1678,7 +1678,7 @@ ApplicationsResource.getContainerDifferential。
 
 
 
-```
+```java
 @GET
 public Response getContainers(@PathParam("version") String version,
                               @HeaderParam(HEADER_ACCEPT) String acceptHeader,
@@ -1746,7 +1746,7 @@ public Response getContainers(@PathParam("version") String version,
 
 
 
-```
+```java
 public byte[] getGZIP(Key key) {
     Value payload = getValue(key, shouldUseReadOnlyResponseCache);
     if (payload == null) {

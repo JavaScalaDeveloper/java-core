@@ -83,7 +83,7 @@ threshold：扩容的阈值，等于 capacity * loadFactor
 
 还是比较简单的，跟着代码走一遍吧。
 
-```
+```java
 public V put(K key, V value) {
     // 当插入第一个元素的时候，需要先初始化数组大小
     if (table == EMPTY_TABLE) {
@@ -119,7 +119,7 @@ public V put(K key, V value) {
 
 在第一个元素插入 HashMap 的时候做一次数组的初始化，就是先确定初始的数组大小，并计算数组扩容的阈值。
 
-```
+```java
 private void inflateTable(int toSize) {
     // 保证数组大小一定是 2 的 n 次方。
     // 比如这样初始化：new HashMap(20)，那么处理成初始数组大小是 32
@@ -138,7 +138,7 @@ private void inflateTable(int toSize) {
 
 这个简单，我们自己也能 YY 一个：使用 key 的 hash 值对数组长度进行取模就可以了。
 
-```
+```java
 static int indexFor(int hash, int length) {
     // assert Integer.bitCount(length) == 1 : "length must be a non-zero power of 2";
     return hash & (length-1);
@@ -208,7 +208,7 @@ void resize(int newCapacity) {
 2.  找到相应的数组下标：hash & (length - 1)。
 3.  遍历该数组位置处的链表，直到找到相等(==或equals)的 key。
 
-```
+```java
 public V get(Object key) {
     // 之前说过，key 为 null 的话，会被放到 table[0]，所以只要遍历下 table[0] 处的链表就可以了
     if (key == null)
@@ -262,7 +262,7 @@ initialCapacity：初始容量，这个值指的是整个 ConcurrentHashMap 的�
 
 loadFactor：负载因子，之前我们说了，Segment 数组不可以扩容，所以这个负载因子是给每个 Segment 内部使用的。
 
-```
+```java
 public ConcurrentHashMap(int initialCapacity,
                          float loadFactor, int concurrencyLevel) {
     if (!(loadFactor > 0) || initialCapacity < 0 || concurrencyLevel <= 0)
@@ -322,7 +322,7 @@ public ConcurrentHashMap(int initialCapacity,
 
 我们先看 put 的主流程，对于其中的一些关键细节操作，后面会进行详细介绍。
 
-```
+```java
 public V put(K key, V value) {
     Segment<K,V> s;
     if (value == null)
@@ -419,7 +419,7 @@ ConcurrentHashMap 初始化的时候会初始化第一个槽 segment[0]，对于
 
 这里需要考虑并发，因为很可能会有多个线程同时进来初始化同一个槽 segment[k]，不过只要有一个成功了就可以。
 
-```
+```java
 private Segment<K,V> ensureSegment(int k) {
     final Segment<K,V>[] ss = this.segments;
     long u = (k << SSHIFT) + SBASE; // raw offset
@@ -463,7 +463,7 @@ private Segment<K,V> ensureSegment(int k) {
 
 下面我们来具体分析这个方法中是怎么控制加锁的。
 
-```
+```java
 private HashEntry<K,V> scanAndLockForPut(K key, int hash, V value) {
     HashEntry<K,V> first = entryForHash(this, hash);
     HashEntry<K,V> e = first;
@@ -517,7 +517,7 @@ private HashEntry<K,V> scanAndLockForPut(K key, int hash, V value) {
 
 该方法不需要考虑并发，因为到这里的时候，是持有该 segment 的独占锁的。
 
-```
+```java
 // 方法参数上的 node 是这次扩容后，需要添加到新的数组中的数据。
 private void rehash(HashEntry<K,V> node) {
     HashEntry<K,V>[] oldTable = table;
@@ -594,7 +594,7 @@ private void rehash(HashEntry<K,V> node) {
 2.  槽中也是一个数组，根据 hash 找到数组中具体的位置
 3.  到这里是链表了，顺着链表进行查找即可
 
-```
+```java
 public V get(Object key) {
     Segment<K,V> s; // manually integrate access methods to reduce overhead
     HashEntry<K,V>[] tab;
@@ -660,7 +660,7 @@ Java7 中使用 Entry 来代表每个 HashMap 中的数据节点，Java8 中使�
 
 ### put 过程分析
 
-```
+```java
 public V put(K key, V value) {
     return putVal(hash(key), key, value, false, true);
 }
@@ -830,7 +830,7 @@ final Node<K,V>[] resize() {
 3.  判断该元素类型是否是 TreeNode，如果是，用红黑树的方法取数据，如果不是，走第四步
 4.  遍历链表，直到找到相等(==或equals)的 key
 
-```
+```java
 public V get(Object key) {
     Node<K,V> e;
     return (e = getNode(hash(key), key)) == null ? null : e.value;
@@ -877,13 +877,13 @@ Java7 中实现的 ConcurrentHashMap 说实话还是比较复杂的，Java8 对 
 
 ### 初始化
 
-```
+```java
 // 这构造函数里，什么都不干
 public ConcurrentHashMap() {
 }
 ```
 
-```
+```java
 public ConcurrentHashMap(int initialCapacity) {
     if (initialCapacity < 0)
         throw new IllegalArgumentException();
@@ -904,7 +904,7 @@ sizeCtl 这个属性使用的场景很多，不过只要跟着文章的思路来
 
 仔细地一行一行代码看下去：
 
-```
+```java
 public V put(K key, V value) {
     return putVal(key, value, false);
 }
@@ -1009,7 +1009,7 @@ put 的主流程看完了，但是至少留下了几个问题，第一个是初�
 
 初始化方法中的并发问题是通过对 sizeCtl 进行一个 CAS 操作来控制的。
 
-```
+```java
 private final Node<K,V>[] initTable() {
     Node<K,V>[] tab; int sc;
     while ((tab = table) == null || tab.length == 0) {
@@ -1045,7 +1045,7 @@ private final Node<K,V>[] initTable() {
 
 前面我们在 put 源码分析也说过，treeifyBin 不一定就会进行红黑树转换，也可能是仅仅做数组扩容。我们还是进行源码分析吧。
 
-```
+```java
 private final void treeifyBin(Node<K,V>[] tab, int index) {
     Node<K,V> b; int n, sc;
     if (tab != null) {
@@ -1089,7 +1089,7 @@ private final void treeifyBin(Node<K,V>[] tab, int index) {
 
 这里的扩容也是做翻倍扩容的，扩容后数组容量为原来的 2 倍。
 
-```
+```java
 // 首先要说明的是，方法参数 size 传进来的时候就已经翻了倍了
 private final void tryPresize(int size) {
     // c：size 的 1.5 倍，再加 1，再往上取最近的 2 的 n 次方。
@@ -1159,7 +1159,7 @@ private final void tryPresize(int size) {
 
 第一个发起数据迁移的线程会将 transferIndex 指向原数组最后的位置，然后**从后往前**的 stride 个任务属于第一个线程，然后将 transferIndex 指向新的位置，再往前的 stride 个任务属于第二个线程，依此类推。当然，这里说的第二个线程不是真的一定指代了第二个线程，也可以是同一个线程，这个读者应该能理解吧。其实就是将一个大的迁移任务分为了一个个任务包。
 
-```
+```java
 private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
     int n = tab.length, stride;
 
@@ -1376,7 +1376,7 @@ get 方法从来都是最简单的，这里也不例外：
     *   如果该位置节点的 hash 值小于 0，说明正在扩容，或者是红黑树，后面我们再介绍 find 方法
     *   如果以上 3 条都不满足，那就是链表，进行遍历比对即可
 
-```
+```java
 public V get(Object key) {
     Node<K,V>[] tab; Node<K,V> e, p; int n, eh; K ek;
     int h = spread(key.hashCode());

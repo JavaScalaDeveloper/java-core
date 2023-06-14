@@ -32,7 +32,7 @@ OK，上面推导了OpenFeign应该完成的主要目标，接下来我们再来
 
 
 
-```
+```java
 @EnableFeignClients(basePackages = "com.example.client")
 ```
 
@@ -48,7 +48,7 @@ OK，上面推导了OpenFeign应该完成的主要目标，接下来我们再来
 
 
 
-```
+```java
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Documented
@@ -70,7 +70,7 @@ ImportBeanDefinitionRegistrar，它是一个动态注入bean的接口，Spring B
 
 
 
-```
+```java
 class FeignClientsRegistrar implements ImportBeanDefinitionRegistrar, ResourceLoaderAware,EnvironmentAware {
     @Override
     public void registerBeanDefinitions(AnnotationMetadata metadata,BeanDefinitionRegistry registry) {
@@ -96,7 +96,7 @@ ImportBeanDefinitionRegistrar的作用。
 
 
 
-```
+```java
 public class HelloService {
 }
 ```
@@ -113,7 +113,7 @@ public class HelloService {
 
 
 
-```
+```java
 public class FeignImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
@@ -157,7 +157,7 @@ public class FeignImportBeanDefinitionRegistrar implements ImportBeanDefinitionR
 
 
 
-```
+```java
 @EnableFeignClients(basePackages = "com.example.clients")
 @EnableFeignTest
 @SpringBootApplication
@@ -241,7 +241,7 @@ public class OpenfeignUserServiceApplication {
 
 
 
-```
+```java
 private void registerClientConfiguration(BeanDefinitionRegistry registry, Object name, Object configuration) {
     //使用BeanDefinitionBuilder来生成BeanDefinition,并把它进行注册
     BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition(FeignClientSpecification.class);
@@ -273,7 +273,7 @@ NamedContextFactory有3个功能：
 
 
 
-```
+```java
 public class FeignContext extends NamedContextFactory<FeignClientSpecification> {
     public FeignContext() {
        super(FeignClientsConfiguration.class, "feign", "feign.client.name");
@@ -309,7 +309,7 @@ AnnotationConfigApplicationContext实例，这实例将作为当前上下文的�
 
 
 
-```
+```java
 protected AnnotationConfigApplicationContext createContext(String name) {
     AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 	//获取name所对应的configuration,如果有就注册到子context中
@@ -359,7 +359,7 @@ protected AnnotationConfigApplicationContext createContext(String name) {
 
 
 
-```
+```java
 @Override
 public void destroy() {
     Collection<AnnotationConfigApplicationContext> values = this.contexts.values();
@@ -388,7 +388,7 @@ AnnotationConfigApplicationContext实例，并以name作为唯一标识，然后
 
 
 
-```
+```java
 public void registerFeignClients(AnnotationMetadata metadata,BeanDefinitionRegistry registry) {
     //省略代码...
     registerFeignClient(registry, annotationMetadata, attributes);
@@ -407,7 +407,7 @@ public void registerFeignClients(AnnotationMetadata metadata,BeanDefinitionRegis
 
 
 
-```
+```java
 private void registerFeignClient(BeanDefinitionRegistry registry,AnnotationMetadata annotationMetadata, Map<String, Object> attributes) {
     String className = annotationMetadata.getClassName();
     BeanDefinitionBuilder definition = BeanDefinitionBuilder.genericBeanDefinition(FeignClientFactoryBean.class);
@@ -437,7 +437,7 @@ private void registerFeignClient(BeanDefinitionRegistry registry,AnnotationMetad
 
 
 
-```
+```java
 public static BeanDefinitionBuilder genericBeanDefinition(Class<?> beanClass) {
     BeanDefinitionBuilder builder = new BeanDefinitionBuilder(new GenericBeanDefinition());
     builder.beanDefinition.setBeanClass(beanClass);
@@ -465,7 +465,7 @@ getObject调用的是getTarget方法，它从applicationContext取出FeignContex
 
 
 
-```
+```java
 @Override
 public Object getObject() throws Exception {
     return getTarget();
@@ -526,7 +526,7 @@ Client client = (Client)this.getOptional(context, Client.class); 从上下文中
 
 
 
-```
+```java
 @Import({ HttpClientFeignLoadBalancedConfiguration.class,OkHttpFeignLoadBalancedConfiguration.class,DefaultFeignLoadBalancedConfiguration.class })
 ```
 
@@ -540,7 +540,7 @@ Client client = (Client)this.getOptional(context, Client.class); 从上下文中
 
 
 
-```
+```java
 protected <T> T loadBalance(Builder builder, FeignContext context,
                             HardCodedTarget<T> target) {
     Client client = (Client)this.getOptional(context, Client.class);
@@ -566,7 +566,7 @@ protected <T> T loadBalance(Builder builder, FeignContext context,
 
 
 
-```
+```java
 @Override
 public <T> T target(FeignClientFactoryBean factory, Feign.Builder feign,FeignContext context, Target.HardCodedTarget<T> target) {
     return feign.target(target);
@@ -588,7 +588,7 @@ public <T> T target(FeignClientFactoryBean factory, Feign.Builder feign,FeignCon
 
 
 
-```
+```java
 public <T> T newInstance(Target<T> target) {
     //根据接口类和Contract协议解析方式，解析接口类上的方法和注解，转换成内部的MethodHandler处理方式
     Map<String, MethodHandler> nameToHandler = this.[targetToHandlersByName.apply(target)];
@@ -638,7 +638,7 @@ targetToHandlersByName.apply(target);会解析接口方法上的注解，从而�
 
 
 
-```
+```java
 public Map<String, MethodHandler> apply(Target target) {
     List<MethodMetadata> metadata = contract.parseAndValidateMetadata(target.type());
     Map<String, MethodHandler> result = new LinkedHashMap<String,MethodHandler>();
@@ -689,7 +689,7 @@ FeignInvocationHandler.invoke方法中，这个大家都知道，它是一个动
 
 
 
-```
+```java
 public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
     if (!"equals".equals(method.getName())) {
         if ("hashCode".equals(method.getName())) {
@@ -724,7 +724,7 @@ public Object invoke(Object proxy, Method method, Object[] args) throws Throwabl
 
 
 
-```
+```java
 public Object invoke(Object[] argv) throws Throwable {
     RequestTemplate template = this.buildTemplateFromArgs.create(argv);
     Options options = this.findOptions(argv);
@@ -851,7 +851,7 @@ Object executeAndDecode(RequestTemplate template, Options options) throws Throwa
 
 
 
-```
+```java
 @Override
 public Response execute(Request request, Options options) throws IOException {
     HttpURLConnection connection = convertAndSend(request, options);

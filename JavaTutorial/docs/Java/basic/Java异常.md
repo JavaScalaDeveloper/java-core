@@ -311,7 +311,7 @@ Throwable又派生出Error类和Exception类。
 throws是另一种处理异常的方式，它不同于try…catch…finally，throws仅仅是将函数中可能出现的异常向调用者声明，而自己则不具体处理。
 
 采取这种异常处理的原因可能是：方法本身不知道如何处理这样的异常，或者说让调用者处理更好，调用者需要为可能发生的异常负责。
-````
+````java
 public void foo() throws ExceptionType1 , ExceptionType2 ,ExceptionTypeN
 { 
      //foo内部可以抛出 ExceptionType1 , ExceptionType2 ,ExceptionTypeN 类的异常，或者他们的子类的异常对象。
@@ -358,7 +358,7 @@ throw exceptionObject
 程序员也可以通过throw语句手动显式的抛出一个异常。throw语句的后面必须是一个异常对象。
 
 throw 语句必须写在函数中，执行throw 语句的地方就是一个异常抛出点，==它和由JRE自动形成的异常抛出点没有任何差别。==
-````
+````java
 public void save(User user)
 {
       if(user  == null) 
@@ -381,7 +381,7 @@ public void save(User user)
 > 异常链化:以一个异常对象为参数构造新的异常对象。新的异对象将包含先前异常的信息。这项技术主要是异常类的一个带Throwable参数的函数来实现的。这个当做参数的异常，我们叫他根源异常（cause）。
 
 查看Throwable类源码，可以发现里面有一个Throwable字段cause，就是它保存了构造时传递的根源异常参数。这种设计和链表的结点类设计如出一辙，因此形成链也是自然的了。
-````
+````java
 public class Throwable implements Serializable {
     private Throwable cause = this;
     public Throwable(String message, Throwable cause) {
@@ -399,7 +399,7 @@ public class Throwable implements Serializable {
 ````
 
 下面看一个比较实在的异常链例子哈
-````
+````java
 public class 异常链 {
     @Test
     public void test() {
@@ -507,7 +507,7 @@ public class 异常链 {
 > 例如，父类方法throws 的是2个异常，子类就不能throws 3个及以上的异常。父类throws IOException，子类就必须throws IOException或者IOException的子类。
 
 至于为什么？我想，也许下面的例子可以说明。
-````
+````java
 class Father
 {
     public void start() throws IOException
@@ -555,7 +555,7 @@ class Test
 > 也就是说，Java中的异常是线程独立的，线程的问题应该由线程自己来解决，而不要委托到外部，也不会直接影响到其它线程的执行。
 
 下面看一个例子
-````
+````java
 public class 多线程的异常 {
     @Test
     public void test() {
@@ -600,7 +600,7 @@ public class 多线程的异常 {
 首先一个不容易理解的事实：
 
 在 try块中即便有return，break，continue等改变执行流的语句，finally也会执行。
-````
+````java
 public static void main(String[] args)
 {
     int re = bar();
@@ -622,7 +622,7 @@ finally
 也就是说：try…catch…finally中的return 只要能执行，就都执行了，他们共同向同一个内存地址（假设地址是0×80）写入返回值，后执行的将覆盖先执行的数据，而真正被调用者取的返回值就是最后一次写入的。那么，按照这个思想，下面的这个例子也就不难理解了。
 
 finally中的return 会覆盖 try 或者catch中的返回值。
-````
+````java
 public static void main(String[] args)
     {
         int result;
@@ -658,7 +658,7 @@ public static void main(String[] args)
     }
 ````
 finally中的return会抑制（消灭）前面try或者catch块中的异常
-````
+````java
 class TestException
 {
     public static void main(String[] args)
@@ -707,7 +707,7 @@ class TestException
 }
 ````
 finally中的异常会覆盖（消灭）前面try或者catch中的异常
-````
+````java
 class TestException
 {
     public static void main(String[] args)

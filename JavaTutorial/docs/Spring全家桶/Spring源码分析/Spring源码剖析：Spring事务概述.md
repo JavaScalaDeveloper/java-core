@@ -180,7 +180,7 @@ TransactionStatus接口定义如下：
 
 java代码：
 
-```
+```java
 public interface TransactionStatus extends SavepointManager {
        boolean isNewTransaction();
        boolean hasSavepoint();
@@ -265,7 +265,7 @@ bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 
 java代码：
 
-```
+```xml
 <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         ……
         <property name="jpaDialect" ref="jpaDialect"/>
@@ -278,7 +278,7 @@ d)Hibernate事务管理器
 
 java代码：
 
-```
+```xml
 <bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
     <property name="sessionFactory" ref="sessionFactory"/>
 </bean>
@@ -483,7 +483,7 @@ java代码：
 
 1、定义业务逻辑实现：
 
-```
+```java
 package cn.javass.spring.chapter9.service.impl;
 //省略import
 public class AnnotationUserServiceImpl implements IUserService {

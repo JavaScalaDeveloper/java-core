@@ -64,7 +64,7 @@ pom中需要有以下依赖(Spring依赖及其他依赖不显示)：
 
 ok。我们在Controller中添加一个method：
 
-````
+````java
 @RequestMapping("/xmlOrJson")  
 @ResponseBody public Map <string, object="">xmlOrJson() {  
     Map <string, object="">map = new HashMap<string, object="">();  
@@ -213,7 +213,7 @@ ok。至此，我们走遍了所有的流程。
 由于Map是jdk源码中的部分，因此我们用Employee来做demo。
 
 因此，Controller加上一个方法：
-````
+````java
 @RequestMapping("/xmlOrJsonSimple")  
 @ResponseBody public Employee xmlOrJsonSimple() { return employeeService.getById(1);  
 } 

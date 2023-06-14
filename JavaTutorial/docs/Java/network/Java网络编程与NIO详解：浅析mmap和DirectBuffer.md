@@ -271,7 +271,7 @@ Q：如上面所说，JNI调用的内存是不能进行GC操作的，那该如�
 A：①堆内内存与堆外内存之间数据拷贝的方式(并且在将堆内内存拷贝到堆外内存的过程JVM会保证不会进行GC操作)：比如我们要完成一个从文件中读数据到堆内内存的操作，即FileChannelImpl.read(HeapByteBuffer)。这里实际上File I/O会将数据读到堆外内存中，然后堆外内存再讲数据拷贝到堆内内存，这样我们就读到了文件中的内存。
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405101116.png)
-```
+```java
 static int read(FileDescriptor var0, ByteBuffer var1, long var2, NativeDispatcher var4) throws IOException {
     if (var1.isReadOnly()) {
         throw new IllegalArgumentException("Read-only buffer");
@@ -343,7 +343,7 @@ DirectByteBuffer(int cap) {                   // package-private
 
 #### Bits.reserveMemory(size, cap) 方法
 
-```
+```java
 static void reserveMemory(long size, int cap) {
 
     if (!memoryLimitSet && VM.isBooted()) {
@@ -440,7 +440,7 @@ SharedSecrets.setJavaLangRefAccess(new JavaLangRefAccess() {
 
 如果在进行一次堆外内存资源回收后，还不够进行本次堆外内存分配的话，则
 
-```
+```java
 // trigger VM's Reference processing
 System.gc();
 

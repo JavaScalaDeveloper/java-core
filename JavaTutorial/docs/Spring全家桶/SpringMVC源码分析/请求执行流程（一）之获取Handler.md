@@ -10,7 +10,7 @@
 
 在我们实现自定义的 servlet 时，一般是实现 `HttpServlet`，然后重写 `doGet(xxx)`、`doPost()` 方法，而实际上 servlet 为 `HttpServlet#service(ServletRequest, ServletResponse)`：
 
-```
+```java
 public abstract class HttpServlet extends GenericServlet {
     ...
 
@@ -87,7 +87,7 @@ public abstract class HttpServlet extends GenericServlet {
 
 了解完 servlet 的请求入口后，接下来就得分析一个不得不提的类了：`FrameworkServlet`。`FrameworkServlet` 是 `HttpServlet` 的子类，实现了 `HttpServlet` 的各种 `doXxx()`，同时也实现了 `service(HttpServletRequest, HttpServletResponse)`：
 
-```
+```java
 /**
  *  FrameworkServlet继承了HttpServletBean，而HttpServletBean继承了HttpServlet
  *  因此FrameworkServlet也是HttpServlet的子类
@@ -137,7 +137,7 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
 
 > FrameworkServlet#processRequest
 
-```
+```java
 protected final void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
     // 记录开始时间
@@ -197,7 +197,7 @@ protected final void processRequest(HttpServletRequest request, HttpServletRespo
 
 由此可以看到，实际处理请求的方法是在 `FrameworkServlet#doService` 中。不过，`FrameworkServlet#doService` 是个抽象方法：
 
-```
+```java
 protected abstract void doService(HttpServletRequest request, 
         HttpServletResponse response) throws Exception;
 
@@ -209,7 +209,7 @@ protected abstract void doService(HttpServletRequest request,
 
 来看看 `DispatcherServlet#doService` 做了啥事：
 
-```
+```java
 public class DispatcherServlet extends FrameworkServlet {
     @Override
     protected void doService(HttpServletRequest request, 
@@ -239,7 +239,7 @@ public class DispatcherServlet extends FrameworkServlet {
 
 上一节的最后，我们发现 springmvc 处理请求的方法是 `DispatcherServlet#doDispatch`，本节就从这个方法入手，看看这个方法的逻辑：
 
-```
+```java
 protected void doDispatch(HttpServletRequest request, HttpServletResponse response) 
             throws Exception {
     HttpServletRequest processedRequest = request;
@@ -331,7 +331,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 
 获取 `HandlerExecutionChain` 的方法在 `DispatcherServlet#getHandler` 中：
 
-```
+```java
 protected HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception {
     if (this.handlerMappings != null) {
         // 遍历所有的handlerMapping，
@@ -357,7 +357,7 @@ protected HandlerExecutionChain getHandler(HttpServletRequest request) throws Ex
 
 我们继续看 `AbstractHandlerMapping#getHandler` 方法：
 
-```
+```java
 public final HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception {
     // 1\. 调用具体的实现去获取handler
     Object handler = getHandlerInternal(request);
@@ -405,7 +405,7 @@ public final HandlerExecutionChain getHandler(HttpServletRequest request) throws
 
 > AbstractHandlerMethodMapping#getHandlerInternal
 
-```
+```java
 @Override
 protected HandlerMethod getHandlerInternal(HttpServletRequest request) throws Exception {
     // 获取请求的url
@@ -429,7 +429,7 @@ protected HandlerMethod getHandlerInternal(HttpServletRequest request) throws Ex
 
 > AbstractHandlerMethodMapping#lookupHandlerMethod
 
-```
+```java
 protected HandlerMethod lookupHandlerMethod(String lookupPath, HttpServletRequest request) 
         throws Exception {
     List<Match> matches = new ArrayList<>();
@@ -484,7 +484,7 @@ protected HandlerMethod lookupHandlerMethod(String lookupPath, HttpServletReques
 
 > AbstractHandlerMethodMapping#addMatchingMappings
 
-```
+```java
 private void addMatchingMappings(Collection<T> mappings, List<Match> matches, 
             HttpServletRequest request) {
     for (T mapping : mappings) {
@@ -502,7 +502,7 @@ private void addMatchingMappings(Collection<T> mappings, List<Match> matches,
 
 > RequestMappingInfo
 
-```
+```java
 /**
  * 匹配规则
  * 会分别匹配 请求方法(get,post等)、请求参数、请求头等
@@ -593,7 +593,7 @@ public int compareTo(RequestMappingInfo other, HttpServletRequest request) {
 
 我们回到 `AbstractHandlerMapping#getHandler`，看看是如何获取 `Interceptor` 的：
 
-```
+```java
 public final HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception {
     ...
     // 2\. 获取 executionChain，其实就是找到 uri 对应的 Interceptors,
@@ -610,7 +610,7 @@ public final HandlerExecutionChain getHandler(HttpServletRequest request) throws
 
 > AbstractHandlerMapping#getHandlerExecutionChain
 
-```
+```java
 protected HandlerExecutionChain getHandlerExecutionChain(Object handler, 
             HttpServletRequest request) {
     HandlerExecutionChain chain = (handler instanceof HandlerExecutionChain ?
@@ -640,7 +640,7 @@ protected HandlerExecutionChain getHandlerExecutionChain(Object handler,
 
 我们再来看看跨域配置的处理：
 
-```
+```java
 public final HandlerExecutionChain getHandler(HttpServletRequest request) 
         throws Exception {
     ...
@@ -662,7 +662,7 @@ public final HandlerExecutionChain getHandler(HttpServletRequest request)
 
 跨域相关配置也可以 `WebMvcConfigurationSupport` 中配置：
 
-```
+```java
 protected void addCorsMappings(CorsRegistry registry) {
     ...
 }
@@ -705,7 +705,7 @@ public void addInterceptor(int index, HandlerInterceptor interceptor) {
 
 再回到 `DispatcherServlet#doDispatch` 方法，我们来看看获取 `HandlerAdapter` 的方法：
 
-```
+```java
 protected void doDispatch(HttpServletRequest request, HttpServletResponse response) 
         throws Exception {
             ...
@@ -719,7 +719,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 
 > DispatcherServlet#getHandlerAdapter
 
-```
+```java
 protected HandlerAdapter getHandlerAdapter(Object handler) throws ServletException {
     // handlerAdapters 里的bean，也是由WebMvcConfigurationSupport引入的
     if (this.handlerAdapters != null) {
@@ -743,7 +743,7 @@ protected HandlerAdapter getHandlerAdapter(Object handler) throws ServletExcepti
 
 > AbstractHandlerMethodAdapter#supports
 
-```
+```java
 @Override
 public final boolean supports(Object handler) {
     // 判断handler是否为HandlerMethod的实例
@@ -756,7 +756,7 @@ public final boolean supports(Object handler) {
 
 > RequestMappingHandlerAdapter#supportsInternal
 
-```
+```java
 protected boolean supportsInternal(HandlerMethod handlerMethod) {
     return true;
 }

@@ -20,7 +20,7 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(java.lang.
 
 `ConfigurationClassPostProcessor` 同时实现了 `BeanDefinitionRegistryPostProcessor` 与 `BeanFactoryPostProcessor`，因此上述两个方法都会执行到，下面我们来看下 `ConfigurationClassPostProcessor` 的这两个方法：
 
-```
+```java
 /**
  * 先执行 postProcessBeanDefinitionRegistry(...)
  */
@@ -78,7 +78,7 @@ public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) 
 
 首先准备一个类，上面标了 `@ComponentScan` 注解：
 
-```
+```java
 @ComponentScan("org.springframework.learn.explore.demo02")
 public class BeanConfigs {
 
@@ -88,7 +88,7 @@ public class BeanConfigs {
 
 再准备两个 `Bean`：
 
-```
+```java
 @Component
 public class BeanObj1 {
 
@@ -119,7 +119,7 @@ public class BeanObj2 {
 
 最后是主类：
 
-```
+```java
 public class Demo05Main {
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(BeanConfigs.class);
@@ -152,7 +152,7 @@ org.springframework.learn.explore.demo05.BeanConfigs@13eb8acf
 
 我们进入 `AnnotationConfigApplicationContext` 的构造方法:
 
-```
+```java
 public AnnotationConfigApplicationContext(Class<?>... componentClasses) {
     this();
     register(componentClasses);
@@ -220,7 +220,7 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(Class)
 
 方法内容如下：
 
-```
+```java
 public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
     List<BeanDefinitionHolder> configCandidates = new ArrayList<>();
     // 1\. 获取所有BeanDefinition名称
@@ -338,7 +338,7 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
 
 ### 2.4 解析：`ConfigurationClassParser#parse(Set<BeanDefinitionHolder>)`
 
-```
+```java
 public void parse(Set<BeanDefinitionHolder> configCandidates) {
     // 循环传进来的配置类
     for (BeanDefinitionHolder holder : configCandidates) {
@@ -376,7 +376,7 @@ protected final void parse(AnnotationMetadata metadata, String beanName) throws 
 
 前面传入的 `BeanConfigs` 会被包装成 `AnnotatedGenericBeanDefinition`，它是 `AnnotatedBeanDefinition` 的实例，然后就会调用 `ConfigurationClassParser#parse(String, String)`，这里其实并没做什么实质性的工作，继续进入 `processConfigurationClass(...)` 方法：
 
-```
+```java
 /**
  * 这个方法是在判断条件，保证配置类不重复解析
  * 实际干活的是 doProcessConfigurationClass(...)
@@ -409,7 +409,7 @@ protected void processConfigurationClass(ConfigurationClass configClass) throws 
 
 ### 2.5 解析配置类：`ConfigurationClassParser#doProcessConfigurationClass`
 
-```
+```java
 /**
  * 这个方法才是真正处理解析的方法
  */
@@ -498,7 +498,7 @@ protected final void parse(@Nullable String className, String beanName) throws I
 
 `@ComponentScan` 的解析在 `ComponentScanAnnotationParser#parse` 方法中，代码如下：
 
-```
+```java
 public Set<BeanDefinitionHolder> parse(AnnotationAttributes componentScan, final String declaringClass) {
     // 1\. 定义一个扫描器，用来扫描包
     ClassPathBeanDefinitionScanner scanner = new ClassPathBeanDefinitionScanner(this.registry,
@@ -588,7 +588,7 @@ public Set<BeanDefinitionHolder> parse(AnnotationAttributes componentScan, final
 
 让我们回到 `ConfigurationClassPostProcessor#processConfigBeanDefinitions` 方法：
 
-```
+```java
 public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
     ...
     parser.parse(candidates);

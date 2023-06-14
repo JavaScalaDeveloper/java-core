@@ -46,7 +46,7 @@ Spring的处理器异常解析器`HandlerExceptionResolver`接口的实现负责
 
 你也可以使用`@ExceptionHandler`方法来做到这点。如果`@ExceptionHandler`方法是在控制器内部定义的，那么它会接收并处理由控制器（或其任何子类）中的`@RequestMapping`方法抛出的异常。如果你将`@ExceptionHandler`方法定义在`@ControllerAdvice`类中，那么它会处理相关控制器中抛出的异常。下面的代码就展示了一个定义在控制器内部的`@ExceptionHandler`方法：
 
-```
+```java
 @Controller
 public class SimpleController {
 
@@ -140,7 +140,7 @@ If you prefer to write error content via `@ExceptionHandler` methods you can ext
 
 ResponseStatus注解的使用非常简单，我们创建一个异常类，加上注解
 
-```
+```java
 package com.zj.exception;
 
 import org.springframework.http.HttpStatus;
@@ -156,7 +156,7 @@ public class UserNotMatchException extends RuntimeException{
 
 写一个目标方法抛出该异常
 
-```
+```java
 @RequestMapping("/testResponseStatus")
 public String testResponseStatus(int i){
     if(i==0)
@@ -189,7 +189,7 @@ public String testResponseStatus(int i){
 
 <section>
 
-```
+```xml
 <error-page>
     <location>/error</location>
 </error-page>
@@ -200,7 +200,7 @@ public String testResponseStatus(int i){
 
 写回`HttpServletResponse`的错误信息和错误状态码可以在控制器中通过请求属性来获取：
 
-```
+```java
 @Controller
 public class ErrorController {
 
@@ -221,7 +221,7 @@ public class ErrorController {
 
 或者在JSP中这么使用:
 
-```
+```xml
 <%@ page contentType="application/json" pageEncoding="UTF-8"%>
 {
     status:<%=request.getAttribute("javax.servlet.error.status_code") %>,

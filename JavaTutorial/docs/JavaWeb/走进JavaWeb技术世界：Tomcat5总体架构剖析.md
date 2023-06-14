@@ -57,7 +57,7 @@ Endpoint 在 ProtocolHandler 实现类的构造方法中创建，如下：
 
 <section>
 
-```
+```java
 public Http11AprProtocol() {
 ```
 
@@ -69,7 +69,7 @@ org.apache.tomcat.util.net.AprEndpoint.SocketProcessor#doRun：
 
 <section>
 
-```
+```java
 // Process the request from this socket
 ```
 
@@ -81,7 +81,7 @@ org.apache.coyote.http11.AbstractHttp11Protocol#createProcessor：
 
 <section>
 
-```
+```java
 protected Processor createProcessor() {
 ```
 
@@ -93,7 +93,7 @@ org.apache.catalina.connector.Connector#initInternal：
 
 <section>
 
-```
+```java
 // Initialize adapter
 ```
 
@@ -127,7 +127,7 @@ ublic interface Container extends Lifecycle {
 
 <section>
 
-```
+```java
 public interface Lifecycle {   
 ```
 
@@ -161,7 +161,7 @@ org.apache.catalina.core.StandardService：
 
 <section>
 
-```
+```java
 protected final Mapper mapper = new Mapper();
 ```
 

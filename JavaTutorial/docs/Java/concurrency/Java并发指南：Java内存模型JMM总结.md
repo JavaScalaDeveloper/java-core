@@ -216,7 +216,7 @@ happens-before的概念最初由Leslie Lamport在其一篇影响深远的论文�
     　　2）在进行指令优化时，不能将在对volatile变量访问的语句放在其后面执行，也不能把volatile变量后面的语句放到其前面执行。
 
     　　可能上面说的比较绕，举个简单的例子：
-````
+````java
 //x、y为非volatile变量 //flag为volatile变量
  x = 2;        //语句1
 y = 0;        //语句2
@@ -270,7 +270,7 @@ volatile写和读的内存语义总结总结：
 
 
 
-````
+````java
 class VolatileBarrierExample { int a; volatile int v1 = 1; volatile int v2 = 2; void readAndWrite() { int i = v1;      //第一个volatile读
     int j = v2;      // 第二个volatile读
     a = i + j;      //普通写
@@ -394,7 +394,7 @@ volatile一个使用场景是状态位；还有只有一个线程写，其余线
 
 
 
-````
+````java
 public class FinalTest { int i;//普通变量
     final int j; static FinalExample obj; public FinalExample(){
         i = 1;
@@ -484,7 +484,7 @@ JMM可以确保读线程C至少能看到写线程A在构造函数中对final引�
 
 
 
-````
+````java
 public class FinalReferenceEscapeExample {final int i;static FinalReferenceEscapeExample obj;public FinalReferenceEscapeExample () {
 　　　　i = 1; // 1写final域
 　　　　obj = this; // 2 this引用在此"逸出"

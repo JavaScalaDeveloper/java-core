@@ -288,7 +288,7 @@ Metaspace增长时的最小幅度。在本机上该参数的默认值为340784B�
 
 #### 3.3.1.测试字符串常量
 
-````
+````java
 public class StringOomMock {
     static String  base = "string";
     
@@ -320,7 +320,7 @@ public class StringOomMock {
 #### 3.3.2.测试元空间溢出
 
 根据定义，我们以加载类来测试元空间溢出，代码如下：
-````
+````java
 package jdk8;
 
 import java.io.File;

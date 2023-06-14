@@ -1,14 +1,8 @@
 # 一、 Nacos服务注册源码解析
 
-
-
 * * *
 
-
-
 ## 1.1  源码方式打包
-
-
 
 * * *
 
@@ -16,39 +10,30 @@
 
 客户端源码中增加打包方式，将源码打入包中
 
-
-
-
-
-
-
-```<plugin>  <groupId>org.apache.maven.plugins</groupId>  maven-source-plugin  <version>3.2.1</version>  <configuration>  true  </configuration>  <executions>  <execution>  <phase>compile</phase>  <goals>  <goal>jar</goal>  </goals>  </execution>  </executions> </plugin> ```
-
-
-
-
-
-
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    maven-source-plugin
+    <version>3.2.1</version>
+    <configuration>true</configuration>
+    <executions>
+        <execution>
+            <phase>compile</phase>
+            <goals>
+                <goal>jar</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin> 
+```
 
 然后打包：
 
-
-
-
-
-
-
-```mvn install -DskipTests ```
-
-
-
-
-
-
+```
+mvn install -DskipTests 
+```
 
 ## 1.2 入口
-
-
 
 * * *
 
@@ -106,7 +91,7 @@ NacosNamingService 就是服务注册和发现相关的类，他就是在这里�
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/fe7ee87e88944b689835432c833972c2.png "image.png")
 
-自动注册类，我们可以看一下他的集成关系，是一个ApplicationListener  spring启动完成后都会发送一个消息，applicaitonListener就是通过监听这个消息然后进行执行的。所以我们知道下一步我们应该怎么看：
+自动注册类，我们可以看一下他的集成关系，是一个ApplicationListener spring启动完成后都会发送一个消息，applicaitonListener就是通过监听这个消息然后进行执行的。所以我们知道下一步我们应该怎么看：
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2a12ba62dae24aa092f97b0cff5dfaaa.png "image.png")
 
@@ -118,7 +103,8 @@ NacosNamingService 就是服务注册和发现相关的类，他就是在这里�
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/41a7323a2e2c49d19aaf5768e66af7d8.png "image.png")
 
-这里有个if return 我们就直接跳过，这一定是分支代码，像这样的分支代码我们就不要看，第一 次要看主线，所以我们直接看这里的start方法，如果后面这里没有对应的代码逻辑我们可以进入这个分支来看。 好，像这样start, begin，init，register方法都是很重要的方法，我们一定要进去看
+这里有个if return 我们就直接跳过，这一定是分支代码，像这样的分支代码我们就不要看，第一 次要看主线，所以我们直接看这里的start方法，如果后面这里没有对应的代码逻辑我们可以进入这个分支来看。 好，像这样start,
+begin，init，register方法都是很重要的方法，我们一定要进去看
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/3923ffd589e9488eb1143811a50d28c0.png "image.png")
 
@@ -135,8 +121,6 @@ NacosNamingService 就是服务注册和发现相关的类，他就是在这里�
 这里需要你知道SpringBoot自动装配的基本知识，其次要知道Spring启动发现的 基本知识。
 
 ## 1.3 服务注册
-
-
 
 * * *
 
@@ -192,7 +176,7 @@ task任务我们需要看一下run方法：
 
 在这里我们看是获取所有的实例【可以点进去看一下】
 
-当前时间 -  上次心跳时间 间隔超过15秒 则将实例设置为非健康， 当超过30秒没有收到心跳就直接剔除
+当前时间 - 上次心跳时间 间隔超过15秒 则将实例设置为非健康， 当超过30秒没有收到心跳就直接剔除
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f9131eea860e410685d8c4cd5beea69e.png "image.png")
 
@@ -220,35 +204,11 @@ task任务我们需要看一下run方法：
 
 构建对应的key:
 
-
-
-
-
-
-
 ```String key = KeyBuilder.buildInstanceListKey(namespaceId, serviceName, ephemeral); ```
-
-
-
-
-
-
 
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/6ab491f925e3403fa1377c2649d4721d.png "image.png")
 
-
-
-
-
-
-
 ```//获取注册实例的IP端口列表 List<Instance> instanceList = addIpAddresses(service, ephemeral, ips); ```
-
-
-
-
-
-
 
 我们进入简单的看一下，我们发现这个add,remove，这里就是新增和移除实例
 
@@ -349,6 +309,7 @@ task任务我们需要看一下run方法：
 ![image.png](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/e27c8e72b30845c3ab9346b89932fb42.png "image.png")
 
 # 参考文章
+
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF
 https://mp.weixin.qq.com/s/2jeovmj77O9Ux96v3A0NtA
 https://juejin.cn/post/6931922457741770760

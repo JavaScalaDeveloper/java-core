@@ -166,9 +166,9 @@ JDK 内置注解
         public void run() {
         }
     }
-````
+````java
 @Deprecated 演示
-````
+````java
 class Parent {
 
     /**
@@ -187,9 +187,9 @@ class Parent {
             parent.run(); // 在编译器中此方法会显示过时标志
         }
     }
-````
+````java
 @SuppressWarnings 演示
-````
+````java
 class Parent {
 
     // 因为定义的 name 没有使用，那么编译器就会有警告，这时候使用此注解可以屏蔽掉警告
@@ -197,7 +197,7 @@ class Parent {
     @SuppressWarnings("all")
     private String name;
     }
-````
+````java
 @FunctionalInterface 演示
 
 ````
@@ -221,8 +221,8 @@ interface Func {
 
 类注解
 
-````
-Class aClass = ApiController.class;
+````java
+class aClass = ApiController.class;
 Annotation[] annotations = aClass.getAnnotations();
 
 for(Annotation annotation : annotations) {
@@ -264,7 +264,7 @@ for(Annotation annotation : annotations) {
 </aop:config>
 ````
 切面类处理逻辑即注解处理器代码如
-````
+````java
 @Component("apiAuthAspect")
 public class ApiAuthAspect {
 
@@ -287,8 +287,8 @@ public class ApiAuthAspect {
 
 你可以在运行期访问类，方法或者变量的注解信息，下是一个访问类注解的例子：
 
-```
-Class aClass = TheClass.class;
+```java
+class aClass = TheClass.class;
 Annotation[] annotations = aClass.getAnnotations();
 
 for(Annotation annotation : annotations){
@@ -302,8 +302,8 @@ for(Annotation annotation : annotations){
 
 你还可以像下面这样指定访问一个类的注解：
 
-```
-Class aClass = TheClass.class;
+```java
+class aClass = TheClass.class;
 Annotation annotation = aClass.getAnnotation(MyAnnotation.class);
 
 if(annotation instanceof MyAnnotation){
@@ -317,7 +317,7 @@ if(annotation instanceof MyAnnotation){
 
 下面是一个方法注解的例子：
 
-```
+```java
 public class TheClass {
   @MyAnnotation(name="someName",  value = "Hello World")
   public void doSomething(){}
@@ -356,7 +356,7 @@ if(annotation instanceof MyAnnotation){
 
 方法参数也可以添加注解，就像下面这样：
 
-```
+```java
 public class TheClass {
   public static void doSomethingElse(
         @MyAnnotation(name="aName", value="aValue") String parameter){
@@ -392,7 +392,7 @@ for(Annotation[] annotations : parameterAnnotations){
 
 下面是一个变量注解的例子：
 
-```
+```java
 public class TheClass {
 
   @MyAnnotation(name="someName",  value = "Hello World")
@@ -474,7 +474,7 @@ public @interface ComplexAnnotation {
 
 下一个示例将无法编译，因为Object不是有效的返回类型：
 
-```
+```java
 public @interface FailingAnnotation {
     Object complexity();
 }
@@ -485,7 +485,7 @@ public @interface FailingAnnotation {
 
 注解可以应用于整个源代码的多个位置。它们可以应用于类，构造函数和字段的声明：
 
-```
+```java
 @SimpleAnnotation
 public class Apply {
     @SimpleAnnotation
@@ -501,7 +501,7 @@ public class Apply {
 
 方法及其参数：
 
-```
+```java
 @SimpleAnnotation
 public void aMethod(@SimpleAnnotation String param) {
     // ...
@@ -511,7 +511,7 @@ public void aMethod(@SimpleAnnotation String param) {
 
 局部变量，包括循环和资源变量：
 
-```
+```java
 @SimpleAnnotation
 int i = 10;
 
@@ -529,7 +529,7 @@ try (@SimpleAnnotation FileWriter writer = getWriter()) {
 
 其他注解类型：
 
-```
+```java
 @SimpleAnnotation
 public @interface ComplexAnnotation {
     // ...
@@ -539,7 +539,7 @@ public @interface ComplexAnnotation {
 
 甚至包，通过package-info.java文件：
 
-```
+```java
 @PackageAnnotation
 package com.baeldung.interview.annotations;
 
@@ -547,7 +547,7 @@ package com.baeldung.interview.annotations;
 
 从Java 8开始，它们也可以应用于类型的使用。为此，注解必须指定值为ElementType.USE的@Target注解：
 
-```
+```java
 @Target(ElementType.TYPE_USE)
 public @interface SimpleAnnotation {
     // ...
@@ -571,7 +571,7 @@ aString = (@SimpleAnnotation String) something;
 
 接口中：
 
-```
+```java
 public class SimpleList<T>
   implements @SimpleAnnotation List<@SimpleAnnotation T> {
     // ...
@@ -594,7 +594,7 @@ void aMethod() throws @SimpleAnnotation Exception {
 
 以下是仅将@SimpleAnnotation批注的用法限制为字段声明的示例：
 
-```
+```java
 @Target(ElementType.FIELD)
 public @interface SimpleAnnotation {
     // ...
@@ -604,14 +604,14 @@ public @interface SimpleAnnotation {
 
 如果我们想让它适用于更多的上下文，我们可以传递多个常量：
 
-```
+```java
 @Target({ ElementType.FIELD, ElementType.METHOD, ElementType.PACKAGE })
 
 ```
 
 我们甚至可以制作一个注解，因此它不能用于注解任何东西。当声明的类型仅用作复杂注解中的成员类型时，这可能会派上用场：
 
-```
+```java
 @Target({})
 public @interface NoTargetAnnotation {
     // ...
@@ -625,7 +625,7 @@ public @interface NoTargetAnnotation {
 
 所有未使用@Target标记或使用它标记但包含ANNOTATION_TYPE常量的注解也是元注解：
 
-```
+```java
 @Target(ElementType.ANNOTATION_TYPE)
 public @interface SimpleAnnotation {
     // ...
@@ -636,7 +636,7 @@ public @interface SimpleAnnotation {
 
 ### 下面的代码会编译吗？
 
-```
+```java
 @Target({ ElementType.FIELD, ElementType.TYPE, ElementType.FIELD })
 public @interface TestAnnotation {
     int[] value() default {};
@@ -648,7 +648,7 @@ public @interface TestAnnotation {
 
 删除重复常量将使代码成功编译：
 
-```
+```java
 @Target({ ElementType.FIELD, ElementType.TYPE})
 
 ```

@@ -36,7 +36,7 @@
 
 下面这个例子非常实用，我是 javadoc 的搬运工：
 
-```
+```java
 // 这是一个关于缓存操作的故事
 class CachedData {
     Object data;
@@ -184,7 +184,7 @@ abstract static class Sync extends AbstractQueuedSynchronizer {
 
 我们来看下读锁 ReadLock 的 lock 流程：
 
-```
+```java
 // ReadLock
 public void lock() {
     sync.acquireShared(1);
@@ -204,7 +204,7 @@ public final void acquireShared(int arg) {
 > 
 > 所以，你在看下面这段代码的时候，要想象到两种获取读锁的场景，一种是新来的，一种是排队排到它的。
 
-```
+```java
 protected final int tryAcquireShared(int unused) {
 
     Thread current = Thread.currentThread();
@@ -385,14 +385,14 @@ final int fullTryAcquireShared(Thread current) {
 
 下面我们看看读锁释放的流程：
 
-```
+```java
 // ReadLock
 public void unlock() {
     sync.releaseShared(1);
 }
 ```
 
-```
+```java
 // Sync
 public final boolean releaseShared(int arg) {
     if (tryReleaseShared(arg)) {
@@ -453,7 +453,7 @@ protected final boolean tryReleaseShared(int unused) {
 1.  写锁是独占锁。
 2.  如果有读锁被占用，写锁获取是要进入到阻塞队列中等待的。
 
-```
+```java
 // WriteLock
 public void lock() {
     sync.acquire(1);
@@ -500,7 +500,7 @@ protected final boolean tryAcquire(int acquires) {
 
 下面看一眼**writerShouldBlock()**的判定，然后你再回去看一篇写锁获取过程。
 
-```
+```java
 static final class NonfairSync extends Sync {
     // 如果是非公平模式，那么 lock 的时候就可以直接用 CAS 去抢锁，抢不到再排队
     final boolean writerShouldBlock() {
@@ -519,7 +519,7 @@ static final class FairSync extends Sync {
 
 ### 写锁释放
 
-```
+```java
 // WriteLock
 public void unlock() {
     sync.release(1);
@@ -569,7 +569,7 @@ Doug Lea 将持有写锁的线程，去获取读锁的过程称为**锁降级（
 
 回去看下写锁获取的源码：
 
-```
+```java
 protected final boolean tryAcquire(int acquires) {
 
     Thread current = Thread.currentThread();

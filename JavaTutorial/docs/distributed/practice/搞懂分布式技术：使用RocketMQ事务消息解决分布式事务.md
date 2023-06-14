@@ -116,7 +116,7 @@ rocketmq模块
 
 也就是定义了一个checkListener，RocketMQ会回调此Listener，从而实现上面所说的方案。
 
-```
+```java
 // 也就是上文所说的，当RocketMQ发现`Prepared消息`时，会根据这个Listener实现的策略来决断事务
 TransactionCheckListener transactionCheckListener = new TransactionCheckListenerImpl();
 // 构造事务消息的生产者
@@ -136,7 +136,7 @@ producer.shutdown();
 
 然后执行本地事务，具体代码如下
 
-```
+```java
 public TransactionSendResult sendMessageInTransaction(.....)  {
     // 逻辑代码，非实际代码
     // 1.发送消息

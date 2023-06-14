@@ -80,7 +80,7 @@ public static void main( String[] args )
 
 Java语言也可以进行条件编译，方法就是使用条件为常量的if语句，它在编译阶段就会被“运行”：
 
-```
+```java
 public static void main(String[] args) {
     if(true){
         System.out.println("block 1");

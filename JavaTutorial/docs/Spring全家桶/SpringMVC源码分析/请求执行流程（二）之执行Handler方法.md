@@ -11,7 +11,7 @@
 
 ### 5\. 执行 spring 的拦截器：`HandlerInterceptor#preHandle`
 
-```
+```java
 protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
     ...
     // 3\. 运行spring的拦截器, 运行 HandlerInterceptor#preHandle 方法
@@ -28,7 +28,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 
 > HandlerExecutionChain#applyPreHandle
 
-```
+```java
 /**
  * 执行 HandlerInterceptor#preHandle 方法
  */
@@ -89,7 +89,7 @@ void triggerAfterCompletion(HttpServletRequest request,
 
 我们再回到 `DispatcherServlet#doDispatch`，执行完 `HandlerInterceptor#preHandle` 方法后，就来到所有流程中的重头戏：`handler` 的执行，也就是 `controller` 中，`url` 对应的方法执行：
 
-```
+```java
 protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
     ...
     // 4\. 通过上面获取到的handlerAdapter来调用handle
@@ -101,7 +101,7 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 
 一路跟进去，最终来到了 `RequestMappingHandlerAdapter#invokeHandlerMethod` 方法：
 
-```
+```java
 protected ModelAndView invokeHandlerMethod(HttpServletRequest request,
         HttpServletResponse response, HandlerMethod handlerMethod) throws Exception {
     // 包装reques与request对象
@@ -165,7 +165,7 @@ protected ModelAndView invokeHandlerMethod(HttpServletRequest request,
 
 > ServletInvocableHandlerMethod#invokeAndHandle
 
-```
+```java
 public void invokeAndHandle(ServletWebRequest webRequest, ModelAndViewContainer mavContainer,
         Object... providedArgs) throws Exception {
     // 执行handler方法
@@ -201,7 +201,7 @@ public void invokeAndHandle(ServletWebRequest webRequest, ModelAndViewContainer 
 
 > InvocableHandlerMethod#invokeForRequest
 
-```
+```java
 @Nullable
 public Object invokeForRequest(NativeWebRequest request, @Nullable ModelAndViewContainermavContainer,
         Object... providedArgs) throws Exception {
@@ -215,7 +215,7 @@ public Object invokeForRequest(NativeWebRequest request, @Nullable ModelAndViewC
 
 这个方法里先是处理了参数解析，然后使用反射进行方法调用。事实上，整个执行流程中，最核心的就是参数解析了，在 controller 里的 handler 方法中，我们可以这样指定参数：
 
-```
+```java
 // 直接传参
 @RequestMapping("xxx")
 public Object test(String name) {
@@ -254,7 +254,7 @@ public Object test(@RequestBody User user) {
 
 > InvocableHandlerMethod#getMethodArgumentValues
 
-```
+```java
 protected Object[] getMethodArgumentValues(NativeWebRequest request, 
         @Nullable ModelAndViewContainer mavContainer, Object... providedArgs) throws Exception {
     // 获取方法的所有参数，可以简单理解为利用反射获取handler方法参数，然后包装为 MethodParameter
@@ -293,7 +293,7 @@ protected Object[] getMethodArgumentValues(NativeWebRequest request,
 
 > HandlerMethodArgumentResolverComposite
 
-```
+```java
 @Nullable
 public Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewContainermavContainer,
         NativeWebRequest webRequest, @Nullable WebDataBinderFactory binderFactory) throws Exception {
@@ -327,7 +327,7 @@ private HandlerMethodArgumentResolver getArgumentResolver(MethodParameter parame
 
 这两个方法主要是遍历解析器，然后调用 `HandlerMethodArgumentResolver#supportsParameter` 与 `HandlerMethodArgumentResolver#resolveArgument` 处理具体的操作。`HandlerMethodArgumentResolver` 是个接口，里面仅有两个方法：
 
-```
+```java
 public interface HandlerMethodArgumentResolver {
     /**
      * 当前是否支持处理当前参数
@@ -356,7 +356,7 @@ public interface HandlerMethodArgumentResolver {
 
 > InvocableHandlerMethod#invokeForRequest
 
-```
+```java
 @Nullable
 public Object invokeForRequest(NativeWebRequest request, @Nullable ModelAndViewContainermavContainer,
         Object... providedArgs) throws Exception {
@@ -370,7 +370,7 @@ public Object invokeForRequest(NativeWebRequest request, @Nullable ModelAndViewC
 
 进入 `doInvoke` 方法：
 
-```
+```java
 @Nullable
 protected Object doInvoke(Object... args) throws Exception {
     // 使用反射执行方法
@@ -394,7 +394,7 @@ protected Object doInvoke(Object... args) throws Exception {
 
 > ServletInvocableHandlerMethod#invokeAndHandle
 
-```
+```java
 public void invokeAndHandle(ServletWebRequest webRequest, ModelAndViewContainer mavContainer,
         Object... providedArgs) throws Exception {
     // 执行handle方法
@@ -416,7 +416,7 @@ public void invokeAndHandle(ServletWebRequest webRequest, ModelAndViewContainer 
 
 > HandlerMethodReturnValueHandlerComposite#handleReturnValue
 
-```
+```java
 @Override
 public void handleReturnValue(@Nullable Object returnValue, MethodParameter returnType,
         ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception {
@@ -447,7 +447,7 @@ private HandlerMethodReturnValueHandler selectHandler(@Nullable Object value, Me
 
 获取 `ReturnValueHandler` 的套路与前面获取 `ArgumentResolver` 的套路相关无几，`ReturnValueHandler` 是 `HandlerMethodReturnValueHandler` 的子类，`HandlerMethodReturnValueHandler` 代码如下：
 
-```
+```java
 public interface HandlerMethodReturnValueHandler {
 
     /**
@@ -478,7 +478,7 @@ public interface HandlerMethodReturnValueHandler {
 
 如果我们像这样返回值时：
 
-```
+```java
 @Controller
 @RequestMapping("/xxx")
 public class XxxController {
@@ -493,7 +493,7 @@ public class XxxController {
 
 返回到页面的将是一个视图，对应的 `HandlerMethodReturnValueHandler` 为 `ViewNameMethodReturnValueHandler`：
 
-```
+```java
 public class ViewNameMethodReturnValueHandler implements HandlerMethodReturnValueHandler {
 
     @Nullable
@@ -550,7 +550,7 @@ public class ViewNameMethodReturnValueHandler implements HandlerMethodReturnValu
 
 让我们回到 `RequestMappingHandlerAdapter#invokeHandlerMethod` 方法：
 
-```
+```java
 @Nullable
 protected ModelAndView invokeHandlerMethod(HttpServletRequest request,
         HttpServletResponse response, HandlerMethod handlerMethod) throws Exception {
@@ -574,7 +574,7 @@ protected ModelAndView invokeHandlerMethod(HttpServletRequest request,
 
 执行完 `invocableMethod.invokeAndHandle(webRequest, mavContainer)` 方法后接着就是从执行结果中拿到 `ModelAndView` 了，进入 `RequestMappingHandlerAdapter#getModelAndView` 方法：
 
-```
+```java
 private ModelAndView getModelAndView(ModelAndViewContainer mavContainer,
         ModelFactory modelFactory, NativeWebRequest webRequest) throws Exception {
     // 这个 ModelFactory，就是前面获取的 包含@ModelAttribute 注解的方法
@@ -612,7 +612,7 @@ private ModelAndView getModelAndView(ModelAndViewContainer mavContainer,
 
 > DispatcherServlet#doDispatch
 
-```
+```java
 protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
     ...
 

@@ -24,7 +24,7 @@ Java Cron表达式用于配置CronTrigger的实例，它是`org.quartz.Trigger`�
 
 `[@EnableScheduling](https://github.com/EnableScheduling "@EnableScheduling")`注解用于为应用程序启用调度程序。将此批注添加到主Spring Boot应用程序类文件中。
 
-```
+```java
 @SpringBootApplication
 @EnableScheduling
 
@@ -38,7 +38,7 @@ public class DemoApplication {
 
 `[@Scheduled](https://github.com/Scheduled "@Scheduled")`注解用于在特定时间段内触发调度程序。
 
-```
+```java
 @Scheduled(cron = "0 * 9 * * ?")
 public void cronJobSch() throws Exception {
 }
@@ -47,7 +47,7 @@ public void cronJobSch() throws Exception {
 
 以下是一个示例代码，演示如何在每天上午9:00开始到每天上午9:59结束执行任务。
 
-```
+```java
 package com.yiibai.demo.scheduler;
 
 import java.text.SimpleDateFormat;
@@ -76,7 +76,7 @@ public class Scheduler {
 
 固定速率调度程序用于在特定时间执行任务。它不等待前一个任务的完成。 值是以毫秒为单位。 示例代码显示在此处 -
 
-```
+```java
 @Scheduled(fixedRate = 1000)
 public void fixedRateSch() { 
 }
@@ -85,7 +85,7 @@ public void fixedRateSch() {
 
 此处显示了应用程序启动时每秒执行任务的示例代码 -
 
-```
+```java
 package com.yiibai.demo.scheduler;
 
 import java.text.SimpleDateFormat;
@@ -115,7 +115,7 @@ public class Scheduler {
 
 固定延迟调度程序用于在特定时间执行任务。 它应该等待上一个任务完成。 值应以毫秒为单位。 此处显示示例代码 -
 
-```
+```java
 @Scheduled(fixedDelay = 1000, initialDelay = 1000)
 public void fixedDelaySch() {
 }
@@ -126,7 +126,7 @@ public void fixedDelaySch() {
 
 从应用程序启动完成`3`秒后每秒执行一次任务的示例如下所示 -
 
-```
+```java
 package com.yiibai.demo.scheduler;
 
 import java.text.SimpleDateFormat;

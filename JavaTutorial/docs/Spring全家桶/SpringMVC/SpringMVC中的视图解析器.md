@@ -32,7 +32,7 @@
 
 我们可以举个例子，假设这里使用的是JSP视图技术，那么我们可以使用一个基于URL的视图解析器`UrlBasedViewResolver`。这个视图解析器会将URL解析成一个视图名，并将请求转交给请求分发器来进行视图渲染。
 
-```
+```xml
 <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
     <property name="prefix" value="/WEB-INF/jsp/"/>
@@ -45,7 +45,7 @@
 
 如果需要在应用中使用多种不同的视图技术，你可以使用`ResourceBundleViewResolver`：
 
-```
+```xml
 <bean id="viewResolver"
         class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
     <property name="basename" value="views"/>
@@ -84,7 +84,7 @@ Spring支持同时使用多个视图解析器。因此，你可以配置一个�
 
 在下面的代码例子中，视图解析器链中包含了两个解析器：一个是`InternalResourceViewResolver`，它总是自动被放置在解析器链的最后；另一个是`XmlViewResolver`，它用来指定Excel视图。`InternalResourceViewResolver`不支持Excel视图。
 
-```
+```xml
 <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
     <property name="prefix" value="/WEB-INF/jsp/"/>
@@ -148,7 +148,7 @@ Spring支持同时使用多个视图解析器。因此，你可以配置一个�
 
 请注意，当前请求URI中的模板变量会在填充重定向URL的时候自动对应用可见，而不需要显式地在`Model`或`RedirectAttributes`中再添加属性。请看下面的例子：
 
-```
+```java
 @RequestMapping(path = "/files/{path}", method = RequestMethod.POST)
 public String upload(...) {
     // ...

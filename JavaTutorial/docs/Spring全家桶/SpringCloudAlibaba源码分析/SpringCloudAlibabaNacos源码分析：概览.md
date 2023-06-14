@@ -47,7 +47,7 @@
 
 
 
-```
+```java
 public static ConfigService createConfigService(Properties properties) throws NacosException {
         try {
             Class<?> driverImplClass = Class.forName("com.alibaba.nacos.client.config.NacosConfigService");
@@ -68,7 +68,7 @@ public static ConfigService createConfigService(Properties properties) throws Na
 
 
 
-```
+```java
 private void initNamespace(Properties properties) {
         String namespaceTmp = null;
 
@@ -122,7 +122,7 @@ private void initNamespace(Properties properties) {
 
 
 
-```
+```java
 public void addListener(Listener listener) {
         if (null == listener) {
             throw new IllegalArgumentException("listener is null");
@@ -141,7 +141,7 @@ public void addListener(Listener listener) {
 
 
 
-```
+```java
 @Override
 public boolean equals(Object obj) {
         if (null == obj || obj.getClass() != getClass()) {
@@ -163,7 +163,7 @@ public boolean equals(Object obj) {
 
 
 
-```
+```java
 private final AtomicReference<Map<String, CacheData>> cacheMap = new AtomicReference<Map<String, CacheData>>()
 ```
 
@@ -173,7 +173,7 @@ private final AtomicReference<Map<String, CacheData>> cacheMap = new AtomicRefer
 
 
 
-```
+```java
 static public String getKeyTenant(String dataId, String group, String tenant) {
         StringBuilder sb = new StringBuilder();
         urlEncode(dataId, sb);
@@ -199,37 +199,37 @@ static public String getKeyTenant(String dataId, String group, String tenant) {
 
 
 
-```
-    executor = Executors.newScheduledThreadPool(1, new ThreadFactory() {
-            @Override
-            public Thread newThread(Runnable r) {
-                Thread t = new Thread(r);
-                t.setName("com.alibaba.nacos.client.Worker." + agent.getName());
-                t.setDaemon(true);
-                return t;
-            }
-        });
+```java
+executor = Executors.newScheduledThreadPool(1, new ThreadFactory() {
+        @Override
+        public Thread newThread(Runnable r) {
+            Thread t = new Thread(r);
+            t.setName("com.alibaba.nacos.client.Worker." + agent.getName());
+            t.setDaemon(true);
+            return t;
+        }
+    });
 
-        executorService = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors(), new ThreadFactory() {
-            @Override
-            public Thread newThread(Runnable r) {
-                Thread t = new Thread(r);
-                t.setName("com.alibaba.nacos.client.Worker.longPolling." + agent.getName());
-                t.setDaemon(true);
-                return t;
-            }
-        });
+    executorService = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors(), new ThreadFactory() {
+        @Override
+        public Thread newThread(Runnable r) {
+            Thread t = new Thread(r);
+            t.setName("com.alibaba.nacos.client.Worker.longPolling." + agent.getName());
+            t.setDaemon(true);
+            return t;
+        }
+    });
 
-        executor.scheduleWithFixedDelay(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    checkConfigInfo();
-                } catch (Throwable e) {
-                    LOGGER.error("[" + agent.getName() + "] [sub-check] rotate check error", e);
-                }
+    executor.scheduleWithFixedDelay(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                checkConfigInfo();
+            } catch (Throwable e) {
+                LOGGER.error("[" + agent.getName() + "] [sub-check] rotate check error", e);
             }
-       }, 1L, 10L, TimeUnit.MILLISECONDS);
+        }
+   }, 1L, 10L, TimeUnit.MILLISECONDS);
 ```
 
 
@@ -242,7 +242,7 @@ static public String getKeyTenant(String dataId, String group, String tenant) {
 
 
 
-```
+```java
 public void checkConfigInfo() {
         // 分任务
         int listenerSize = cacheMap.get().size();
@@ -281,7 +281,7 @@ public void checkConfigInfo() {
 
 
 
-```
+```java
    @Override
     public void registerInstance(String serviceName, String groupName, Instance instance) throws NacosException {
 
@@ -310,7 +310,7 @@ registerService方法就是封装了HTTP请求，最终在InstanceController中�
 
 
 
-```
+```java
 	@EventListener(WebServerInitializedEvent.class)
 	public void bind(WebServerInitializedEvent event) {
 		ApplicationContext context = event.getApplicationContext();
@@ -331,7 +331,7 @@ registerService方法就是封装了HTTP请求，最终在InstanceController中�
 
 
 
-```
+```java
 	public void start() {
 		if (!isEnabled()) {
 			if (logger.isDebugEnabled()) {
@@ -359,7 +359,7 @@ registerService方法就是封装了HTTP请求，最终在InstanceController中�
 
 
 
-```
+```java
 	@Override
 	public void register(NacosRegistration registration) {
 
@@ -395,7 +395,7 @@ registerService方法就是封装了HTTP请求，最终在InstanceController中�
 
 
 
-```
+```java
     /**
      * Map<namespace, Map<group::serviceName, Service>>
      */
@@ -425,7 +425,7 @@ registerService方法就是封装了HTTP请求，最终在InstanceController中�
 
 
 
-```
+```java
 public interface ServerList<T extends Server> {
 
     public List<T> getInitialListOfServers();
@@ -448,7 +448,7 @@ NACOS对于这个两个接口的实现，都使用了getServers方法，而进�
 
 
 
-```
+```java
 private Map<String, ServiceInfo> serviceInfoMap;
 ```
 

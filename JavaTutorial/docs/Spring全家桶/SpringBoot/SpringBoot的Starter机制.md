@@ -76,12 +76,12 @@ SpringBoot中的starter是一种非常重要的机制，能够抛弃以前繁杂
 	spring-boot-starter-my-starter
 	<version>1.0</version>
 	<name>my-starter</name>
-复制代码
+
 ```
 
 1.  引入spring-boot-autoconfigure依赖 我这里使用的spring-boot-autoconfigure版本是2.6.2
 
-```
+```xml
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -89,12 +89,12 @@ SpringBoot中的starter是一种非常重要的机制，能够抛弃以前繁杂
         <version>2.6.2</version>
     </dependency>
 </dependencies>
-复制代码
+
 ```
 
 1.  创建自定义的XXXProperties 类
 
-```
+```java
 @ConfigurationProperties(prefix = "com.arron")
 public class MyStarterProperties {
 
@@ -108,12 +108,12 @@ public class MyStarterProperties {
         this.name = name;
     }
 }
-复制代码
+
 ```
 
 再创建一个MyStarterConfig用于读取MyStarterProperties 里的属性
 
-```
+```java
 public class MyStarterConfig {
 
     private MyStarterProperties myStarterProperties;
@@ -132,12 +132,12 @@ public class MyStarterConfig {
         this.name = name;
     }
 }
-复制代码
+
 ```
 
 1.  创建自定义的XXXAutoConfiguration类
 
-```
+```java
 @Configuration
 // EnableConfigurationProperties value数组中的配置类起作用
 @EnableConfigurationProperties(value = {MyStarterProperties.class})
@@ -153,7 +153,7 @@ public class MyStarterAutoConfiguration {
     }
 
 }
-复制代码
+
 ```
 
 1.  在resources/META-INF创建一个spring.factories文件
@@ -162,7 +162,7 @@ spring.factories
 
 ```
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.example.myStarter.MyStarterAutoConfiguration
-复制代码
+
 ```
 
 spring-configuration-metadata.json
@@ -186,7 +186,7 @@ spring-configuration-metadata.json
     }
   ]
 }
-复制代码
+
 ```
 
 ## 打包测试
@@ -203,7 +203,7 @@ spring-configuration-metadata.json
        spring-boot-starter-my-starter
        <version>1.0</version>
    </dependency>
-复制代码
+
 ```
 
 1.  配置文件添加属性：
@@ -212,12 +212,12 @@ spring-configuration-metadata.json
 com:
   arron:
     name: myname
-复制代码
+
 ```
 
 1.  单元测试：
 
-```
+```java
 @RunWith(SpringRunner.class)
 @SpringBootTest
 class RabbitmqApplicationTests {
@@ -230,14 +230,14 @@ class RabbitmqApplicationTests {
         System.out.println(name);
     }
 }
-复制代码
+
 ```
 
 控制台输出：
 
 ```
 myname
-复制代码
+
 ```
 
 至此，一个简单自定义的springboot starter就完成了。

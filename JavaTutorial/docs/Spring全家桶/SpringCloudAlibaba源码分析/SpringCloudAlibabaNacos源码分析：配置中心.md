@@ -14,7 +14,7 @@
 
         当动态配置刷新时，会更新到 Enviroment中，因此这里每隔一秒中从Enviroment中获取配置
 
-```
+```java
 @SpringBootApplication
 public class NacosConfigApplication {
 
@@ -30,7 +30,7 @@ public class NacosConfigApplication {
         }
     }
 }
-复制代码
+
 ```
 
 * **支持profile粒度的配置**
@@ -41,7 +41,7 @@ public class NacosConfigApplication {
 
 ```
 spring.profiles.active=dev
-复制代码
+
 ```
 
 * **支持自定义 namespace 的配置**
@@ -52,7 +52,7 @@ spring.profiles.active=dev
 
 ```
 spring.cloud.nacos.config.namespace=71bb9785-231f-4eca-b4dc-6be446e12ff8
-复制代码
+
 ```
 
 * **支持自定义 Group 的配置**
@@ -63,7 +63,7 @@ spring.cloud.nacos.config.namespace=71bb9785-231f-4eca-b4dc-6be446e12ff8
 
 ```
 spring.cloud.nacos.config.group=DEVELOP_GROUP
-复制代码
+
 ```
 
 * **支持自定义扩展的 Data Id 配置**
@@ -87,7 +87,7 @@ spring.cloud.nacos.config.extensionConfigs[0].refresh=true
 
 spring.cloud.nacos.config.extensionConfigs[1].data-id=ext-config-common02.properties
 spring.cloud.nacos.config.extensionConfigs[1].group=REFRESH_GROUP
-复制代码
+
 ```
 
 ## 配置的优先级
@@ -116,7 +116,7 @@ Spring Cloud Alibaba Nacos Config 目前提供了三种配置能力从 Nacos 拉
 
 @Value注解可以获取到配置中心的值，但是无法动态感知修改后的值，需要利用@RefreshScope注解
 
-```
+```java
 @RestController
 @RefreshScope
 public class TestController {
@@ -129,7 +129,7 @@ public class TestController {
         return age;
     }
 }
-复制代码
+
 ```
 
 ## Nacos配置中心源码分析
@@ -144,7 +144,7 @@ public class TestController {
 
 配置中心使用demo
 
-```
+```java
 public class ConfigServerDemo {
 
     public static void main(String[] args) throws NacosException, InterruptedException {
@@ -190,7 +190,7 @@ public class ConfigServerDemo {
 //        Thread.sleep(300000);
     }
 }
-复制代码
+
 ```
 
 ## nacos config client源码

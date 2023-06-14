@@ -50,7 +50,7 @@ SpringMVC作为Struts2之后异军突起的一个表现层框架，正越来越�
 
 下面看一下第一个出现在你面前的核心接口，它是在org.springframework.web.servlet包中定义的HandlerMapping接口：
 
-```
+```java
 package org.springframework.web.servlet;
 
 import javax.servlet.http.HttpServletRequest;
@@ -84,7 +84,7 @@ HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception;
 
 回到DispatcherServlet的处理流程，当DispatcherServlet接收到web请求后，由标准Servlet类处理方法doGet或者doPost，经过几次转发后，最终注册在DispatcherServlet类中的HandlerMapping实现类组成的一个List（有点拗口）会在一个循环中被遍历。以该web请求的HttpServletRequest对象为参数，依次调用其getHandler方法，第一个不为null的调用结果，将被返回。DispatcherServlet类中的这个遍历方法不长，贴一下，让大家有更直观的了解。
 
-```
+```java
 /**
      * Return the HandlerExecutionChain for this request.
      * <p>Tries all handler mappings in order.
@@ -114,7 +114,7 @@ HandlerExecutionChain这个类，就是我们下一个要了解的核心类。�
 
 HandlerExecutionChain类的代码不长，它定义在org.springframework.web.servlet包中，为了更直观的理解，先上代码。
 
-```
+```java
 package org.springframework.web.servlet;
 
 import java.util.ArrayList;
@@ -203,7 +203,7 @@ public class HandlerExecutionChain {
 
 乱七八糟一大堆，相信你也没全看完，也没必要全看。其实只需要看两行足矣。
 
-```
+```java
 private final Object handler;
 
     private HandlerInterceptor[] interceptors;
@@ -215,7 +215,7 @@ private final Object handler;
 
 HandlerInterceptor也是SpringMVC的核心接口，定义如下：
 
-```
+```java
 package org.springframework.web.servlet;
 
 import javax.servlet.http.HttpServletRequest;
@@ -251,7 +251,7 @@ HandlerInterceptor，是SpringMVC的第二个扩展点的暴露，通过自定�
 
 回答这些问题之前，先看SpringMVC中的又一个核心接口，HandlerAdapter：
 
-```
+```java
 package org.springframework.web.servlet;
 
 import javax.servlet.http.HttpServletRequest;
@@ -270,7 +270,7 @@ public interface HandlerAdapter {
 
 在DispatcherServlet中，除了HandlerMapping实现类的列表，同样也注册了一个HandlerAdapter实现类组成的列表，有代码为证。
 
-```
+```java
 /** List of HandlerMappings used by this servlet */
     private List<HandlerMapping> handlerMappings;
 
@@ -280,7 +280,7 @@ public interface HandlerAdapter {
 
 接下来，我们再以DispatcherServlet类中另外一段代码来回答上述的问题：
 
-```
+```java
 /**
      * Return the HandlerAdapter for this handler object.
      * @param handler the handler object to find an adapter for
@@ -306,7 +306,7 @@ public interface HandlerAdapter {
 
 ModelAndView对象的代码就不贴了，它是SpringMVC中对视图和数据的一个聚合类。其中的视图，就是由SpringMVC的最后一个核心接口View所抽象：
 
-```
+```java
 package org.springframework.web.servlet;
 
 import java.util.Map;

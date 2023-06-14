@@ -4,7 +4,7 @@
 
 springMvc 的自动装配类为
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 // 几个装配条件
 @ConditionalOnWebApplication(type = Type.SERVLET)
@@ -34,7 +34,7 @@ public class WebMvcAutoConfiguration {
 
 这 3 个类中，与 springMvc 有关的只有 `DispatcherServletAutoConfiguration`，我们来认识一下它：
 
-```
+```java
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnWebApplication(type = Type.SERVLET)
@@ -49,7 +49,7 @@ public class DispatcherServletAutoConfiguration {
 
 `DispatcherServletAutoConfiguration` 需要等 `ServletWebServerFactoryAutoConfiguration` 自动装配完成才进行装配，这个类是做什么的呢？剧透下，它是处理 servlet 容器（`tomcat`, `jetty`, `undertow` 等）的生成的，我们再来看看 `ServletWebServerFactoryAutoConfiguration`：
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
 @ConditionalOnClass(ServletRequest.class)
@@ -81,7 +81,7 @@ public class ServletWebServerFactoryAutoConfiguration {
 
 `ServletWebServerFactoryAutoConfiguration` 类如下：
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
 @ConditionalOnClass(ServletRequest.class)
@@ -105,7 +105,7 @@ public class ServletWebServerFactoryAutoConfiguration {
 
 `BeanPostProcessorsRegistrar` 是 `ServletWebServerFactoryAutoConfiguration` 的内部类，代码如下：
 
-```
+```java
 public static class BeanPostProcessorsRegistrar 
         implements ImportBeanDefinitionRegistrar, BeanFactoryAware {
 
@@ -148,7 +148,7 @@ public static class BeanPostProcessorsRegistrar
 
 `WebServerFactoryCustomizerBeanPostProcessor` 的代码如下：
 
-```
+```java
 public class WebServerFactoryCustomizerBeanPostProcessor 
         implements BeanPostProcessor, BeanFactoryAware {
 
@@ -202,7 +202,7 @@ public class WebServerFactoryCustomizerBeanPostProcessor
 
 如果我们要自定义 `Tomcat` 的配置，可以这样处理：
 
-```
+```java
 @Component
 public class MyCustomizer implements WebServerFactoryCustomizer<TomcatServletWebServerFactory> {
 
@@ -220,7 +220,7 @@ public class MyCustomizer implements WebServerFactoryCustomizer<TomcatServletWeb
 
 在 `ServletWebServerFactoryAutoConfiguration` 中提供了两个 `WebServerFactoryCustomizer`:
 
-```
+```java
 public class ServletWebServerFactoryAutoConfiguration {
 
     @Bean
@@ -244,7 +244,7 @@ public class ServletWebServerFactoryAutoConfiguration {
 
 从方法参数来看，这两个类的配置都来自于 `ServerProperties`：
 
-```
+```java
 @ConfigurationProperties(prefix = "server", ignoreUnknownFields = true)
 public class ServerProperties {
     ...
@@ -269,7 +269,7 @@ server.port=8080
 
 `ErrorPageRegistrarBeanPostProcessor` 的代码如下：
 
-```
+```java
 public class ErrorPageRegistrarBeanPostProcessor implements BeanPostProcessor, BeanFactoryAware {
 
     /**
@@ -321,7 +321,7 @@ public class ErrorPageRegistrarBeanPostProcessor implements BeanPostProcessor, B
 
 如果我们想要自定义错误页，可以实现 `ErrorPageRegistry` 接口：
 
-```
+```java
 @Component
 public class MyErrorPage implements ErrorPageRegistrar {
 
@@ -341,7 +341,7 @@ public class MyErrorPage implements ErrorPageRegistrar {
 
 进入 `ServletWebServerFactoryConfiguration.EmbeddedTomcat` 类：
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 class ServletWebServerFactoryConfiguration {
 
@@ -381,7 +381,7 @@ class ServletWebServerFactoryConfiguration {
 
 这里有个地方需要提一下，如果不想使用 springboot 提供的 `TomcatServletWebServerFactory`，我们可以自己实现 `TomcatServletWebServerFactory`，像这样：
 
-```
+```java
 @Bean
 public ServletWebServerFactory servletWebServerFactory() {
     TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
@@ -400,7 +400,7 @@ public ServletWebServerFactory servletWebServerFactory() {
 
 我们再来看看 `DispatcherServletAutoConfiguration`，关键代码如下：
 
-```
+```java
 public class DispatcherServletAutoConfiguration {
 
     public static final String DEFAULT_DISPATCHER_SERVLET_BEAN_NAME = "dispatcherServlet";
@@ -493,7 +493,7 @@ public class DispatcherServletAutoConfiguration {
 
 继续看 `WebMvcAutoConfiguration`:
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 ...
 // 如果没有自定义WebMvc的配置类，则使用本配置
@@ -507,7 +507,7 @@ public class WebMvcAutoConfiguration {
 
 `WebMvcAutoConfiguration` 上有个注解需要注意下：
 
-```
+```java
 @ConditionalOnMissingBean(WebMvcConfigurationSupport.class)
 
 ```
@@ -527,7 +527,7 @@ public class WebMvcAutoConfiguration {
 
 `WebMvcAutoConfigurationAdapter` 是 `WebMvcAutoConfiguration` 的内部类，定义如下：
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 // 引入了 EnableWebMvcConfiguration
 @Import(EnableWebMvcConfiguration.class)
@@ -541,7 +541,7 @@ public static class WebMvcAutoConfigurationAdapter implements WebMvcConfigurer {
 
 它实现了 `WebMvcConfigurer`，且引入了 `EnableWebMvcConfiguration`。`WebMvcConfigurer` 可以用来处理 springMvc 的配置，只需要重写其中对应的方法即可，`EnableWebMvcConfiguration` 从名称来看，是 “启用 webMvc 配置”，它也是 `WebMvcAutoConfiguration` 的内部类，我们来看看它做了啥：
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public static class EnableWebMvcConfiguration extends DelegatingWebMvcConfiguration 
         implements ResourceLoaderAware {
@@ -552,7 +552,7 @@ public static class EnableWebMvcConfiguration extends DelegatingWebMvcConfigurat
 
 可以看到，它是 `DelegatingWebMvcConfiguration` 的子类，而 `DelegatingWebMvcConfiguration` 又是个啥呢？我们也来看看它的定义：
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
     ...
@@ -564,7 +564,7 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
 
 事实上，`DelegatingWebMvcConfiguration` 正是 `@EnableWebMvc` 引入的 bean：
 
-```
+```java
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Documented
@@ -580,7 +580,7 @@ springbot 不直接引入 `DelegatingWebMvcConfiguration` 而是引入它的子�
 
 关于 `EnableWebMvcConfiguration` 配置了些啥，我们一会再分析，继续分析 `WebMvcAutoConfigurationAdapter` 的引入 bean：
 
-```
+```java
 /**
  * http 消息转换器.
  */
@@ -678,7 +678,7 @@ public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
 在上面 的分析中，多次出现了 `WebMvcProperties` 配置，我们来看看它是个啥：
 
-```
+```java
 @ConfigurationProperties(prefix = "spring.mvc")
 public class WebMvcProperties {
     ...
@@ -694,7 +694,7 @@ public class WebMvcProperties {
 
 我们来看看 `EnableWebMvcConfiguration` 自定义的配置：
 
-```
+```java
 public static class EnableWebMvcConfiguration extends DelegatingWebMvcConfiguration 
         implements ResourceLoaderAware {
 

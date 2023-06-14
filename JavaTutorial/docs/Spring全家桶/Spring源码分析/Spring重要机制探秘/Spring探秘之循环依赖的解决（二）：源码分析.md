@@ -20,7 +20,7 @@
 
 准备两个 service：service1，service2，这两个 service 里都有一个代理方法：
 
-```
+```java
 @Service
 public class Service1 {
 
@@ -73,7 +73,7 @@ public class Service2 {
 
 这里是主类：
 
-```
+```java
 public class Demo03Main {
 
     public static void main(String[] args) {
@@ -239,7 +239,7 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 
 让我们回到 `AbstractBeanFactory#doGetBean`，接着分析 `getSingleton(beanName, () -> { ... })`，代码如下：
 
-```
+```java
     /**
      * beanName：传入的是service1
      * singletonFactory：传入的是lambda表达式，值为
@@ -325,7 +325,7 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 
 `AbstractAutowireCapableBeanFactory#doCreateBean` 内容如下：
 
-```
+```java
 protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd, 
         final @Nullable Object[] args) throws BeanCreationException {
 
@@ -672,7 +672,7 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 
 执行完 `DefaultSingletonBeanRegistry#getSingleton(String, boolean)` 后，我们再回到 `AbstractBeanFactory#doGetBean`：
 
-```
+```java
 protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredType,
         @Nullable final Object[] args, boolean typeCheckOnly) throws BeansException {
     ...
@@ -734,7 +734,7 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
 
 代码如下：
 
-```
+```java
 protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd, 
             final @Nullable Object[] args) throws BeanCreationException {
 
@@ -858,7 +858,7 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
 得到 `service2` 的 bean 后，我们回到 `DefaultSingletonBeanRegistry#getSingleton(String, ObjectFactory<?>)`，继续 `service2` 的流程，代码如下：
 
-```
+```java
 public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
     Assert.notNull(beanName, "Bean name must not be null");
     synchronized (this.singletonObjects) {
@@ -957,7 +957,7 @@ public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
 
 代码如下：
 
-```
+```java
 protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd, 
             final @Nullable Object[] args) throws BeanCreationException {
 

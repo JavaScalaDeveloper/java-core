@@ -32,7 +32,7 @@
 
 你需要在配置中加入组件扫描的配置代码来开启框架对注解控制器的自动检测。请使用下面XML代码所示的spring-context schema：
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -77,7 +77,7 @@
 
 下面这段代码示例来自Petcare，它展示了在Spring MVC中如何在控制器上使用`@RequestMapping`注解：
 
-```
+```java
 @Controller
 @RequestMapping("/appointments")
 public class AppointmentsController {
@@ -122,7 +122,7 @@ public class AppointmentsController {
 
 类级别的`@RequestMapping`注解并不是必须的。不配置的话则所有的路径都是绝对路径，而非相对路径。以下的代码示例来自PetClinic，它展示了一个具有多个处理器方法的控制器：
 
-```
+```java
 @Controller
 public class ClinicController {
 
@@ -195,7 +195,7 @@ URI模板是一个类似于URI的字符串，只不过其中包含了一个或�
 
 在Spring MVC中你可以在方法参数上使用`@PathVariable`注解，将其与URI模板中的参数绑定起来：
 
-```
+```java
 @RequestMapping(path="/owners/{ownerId}", method=RequestMethod.GET)
 public String findOwner(@PathVariable String ownerId, Model model) {
     Owner owner = ownerService.findOwner(ownerId);
@@ -233,7 +233,7 @@ URI模板"`/owners/{ownerId}`"指定了一个变量，名为`ownerId`。当控�
 
 一个方法可以拥有任意数量的`@PathVariable`注解：
 
-```
+```java
 @RequestMapping(path="/owners/{ownerId}/pets/{petId}", method=RequestMethod.GET)
 public String findPet(@PathVariable String ownerId, @PathVariable String petId, Model model) {
     Owner owner = ownerService.findOwner(ownerId);
@@ -280,7 +280,7 @@ public class RelativePathUriTemplateController {
 
 `@RequestMapping`注解支持你在URI模板变量中使用正则表达式。语法是`{varName:regex}`，其中第一部分定义了变量名，第二部分就是你所要应用的正则表达式。比如下面的代码样例：
 
-```
+```java
 @RequestMapping("/spring-web/{symbolicName:[a-z-]+}-{version:\\d\\.\\d\\.\\d}{extension:\\.[a-z]+}")
     public void handle(@PathVariable String version, @PathVariable String extension) {
         // 代码部分省略...
@@ -395,7 +395,7 @@ Spring MVC的`@ResponseBody`和`ResponseEntity`方法是有风险的，因为它
 
 下面是一个例子，展示了我们如何从矩阵变量中获取到变量“q”的值：
 
-```
+```java
 // GET /pets/42;q=11;r=22
 
 @RequestMapping(path = "/pets/{petId}", method = RequestMethod.GET)
@@ -412,7 +412,7 @@ public void findPet(@PathVariable String petId, @MatrixVariable int q) {
 
 由于任意路径段落中都可以含有矩阵变量，在某些场景下，你需要用更精确的信息来指定一个矩阵变量的位置：
 
-```
+```java
 // GET /owners/42;q=11/pets/21;q=22
 
 @RequestMapping(path = "/owners/{ownerId}/pets/{petId}", method = RequestMethod.GET)
@@ -431,7 +431,7 @@ public void findPet(
 
 你也可以声明一个矩阵变量不是必须出现的，并给它赋一个默认值：
 
-```
+```java
 // GET /pets/42
 
 @RequestMapping(path = "/pets/{petId}", method = RequestMethod.GET)
@@ -447,7 +447,7 @@ public void findPet(@MatrixVariable(required=false, defaultValue="1") int q) {
 
 也可以通过一个Map来存储所有的矩阵变量：
 
-```
+```java
 // GET /owners/42;q=11;r=12/pets/21;q=22;s=23
 
 @RequestMapping(path = "/owners/{ownerId}/pets/{petId}", method = RequestMethod.GET)
@@ -478,7 +478,7 @@ public void findPet(
 >
 > 而使用MVC的命名空间配置时，你可以把`<mvc:annotation-driven>`元素下的`enable-matrix-variables`属性设置为`true`。该值默认情况下是配置为`false`的。
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:mvc="http://www.springframework.org/schema/mvc"
@@ -501,7 +501,7 @@ public void findPet(
 
 你可以指定一组可消费的媒体类型，缩小映射的范围。这样只有当请求头中 _Content-Type_ 的值与指定可消费的媒体类型中有相同的时候，请求才会被匹配。比如下面这个例子：
 
-```
+```java
 @Controller
 @RequestMapping(path = "/pets", method = RequestMethod.POST, consumes="application/json")
 public void addPet(@RequestBody Pet pet, Model model) {
@@ -524,7 +524,7 @@ public void addPet(@RequestBody Pet pet, Model model) {
 
 你可以指定一组可生产的媒体类型，缩小映射的范围。这样只有当请求头中 _Accept_ 的值与指定可生产的媒体类型中有相同的时候，请求才会被匹配。而且，使用 _produces_ 条件可以确保用于生成响应（response）的内容与指定的可生产的媒体类型是相同的。举个例子：
 
-```
+```java
 @Controller
 @RequestMapping(path = "/pets/{petId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @ResponseBody
@@ -552,7 +552,7 @@ public Pet getPet(@PathVariable String petId, Model model) {
 
 你可以筛选请求参数的条件来缩小请求匹配范围，比如`"myParam"`、`"!myParam"`及`"myParam=myValue"`等。前两个条件用于筛选存在/不存在某些请求参数的请求，第三个条件筛选具有特定参数值的请求。下面有个例子，展示了如何使用请求参数值的筛选条件：
 
-```
+```java
 @Controller
 @RequestMapping("/owners/{ownerId}")
 public class RelativePathUriTemplateController {
@@ -570,7 +570,7 @@ public class RelativePathUriTemplateController {
 
 同样，你可以用相同的条件来筛选请求头的出现与否，或者筛选出一个具有特定值的请求头：
 
-```
+```java
 @Controller
 @RequestMapping("/owners/{ownerId}")
 public class RelativePathUriTemplateController {

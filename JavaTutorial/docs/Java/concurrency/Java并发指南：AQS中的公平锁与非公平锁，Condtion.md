@@ -53,7 +53,7 @@
 
 ReentrantLock 默认采用非公平锁，除非你在构造方法中传入参数 true 。
 
-```
+```java
 public ReentrantLock() {
     // 默认非公平锁
     sync = new NonfairSync();
@@ -65,7 +65,7 @@ public ReentrantLock(boolean fair) {
 
 公平锁的 lock 方法：
 
-```
+```java
 static final class FairSync extends Sync {
     final void lock() {
         acquire(1);
@@ -101,7 +101,7 @@ static final class FairSync extends Sync {
 
 非公平锁的 lock 方法：
 
-```
+```java
 static final class NonfairSync extends Sync {
     final void lock() {
         // 2\. 和公平锁相比，这里会直接先进行一次CAS，成功就返回了
@@ -226,7 +226,7 @@ final ConditionObject newCondition() {
 
 我们首先来看下我们关注的 Condition 的实现类`AbstractQueuedSynchronizer`类中的`ConditionObject`。
 
-```
+```java
 public class ConditionObject implements Condition, java.io.Serializable {
         private static final long serialVersionUID = 1173984872572414699L;
         // 条件队列的第一个节点
@@ -270,7 +270,7 @@ public class ConditionObject implements Condition, java.io.Serializable {
 
 接下来，我们一步步按照流程来走代码分析，我们先来看看 wait 方法：
 
-```
+```java
 // 首先，这个方法是可被中断的，不可被中断的是另一个方法 awaitUninterruptibly()
 // 这个方法会阻塞，直到调用 signal 方法（指 signal() 和 signalAll()，下同），或被中断
 public final void await() throws InterruptedException {
@@ -310,7 +310,7 @@ public final void await() throws InterruptedException {
 
 addConditionWaiter() 是将当前节点加入到条件队列，看图我们知道，这种条件队列内的操作是线程安全的。
 
-```
+```java
 // 将当前线程对应的节点入队，插入队尾
 private Node addConditionWaiter() {
     Node t = lastWaiter;
@@ -341,7 +341,7 @@ private Node addConditionWaiter() {
 
 当 await 的时候如果发生了取消操作（这点之后会说），或者是在节点入队的时候，发现最后一个节点是被取消的，会调用一次这个方法。
 
-```
+```java
 // 等待队列是一个单向链表，遍历链表将已经取消等待的节点清除出去
 // 纯属链表操作，很好理解，看不懂多看几遍就可以了
 private void unlinkCancelledWaiters() {
@@ -372,7 +372,7 @@ private void unlinkCancelledWaiters() {
 
 > 考虑一下这里的 savedState。如果在 condition1.await() 之前，假设线程先执行了 2 次 lock() 操作，那么 state 为 2，我们理解为该线程持有 2 把锁，这里 await() 方法必须将 state 设置为 0，然后再进入挂起状态，这样其他线程才能持有锁。当它被唤醒的时候，它需要重新持有 2 把锁，才能继续下去。
 
-```
+```java
 // 首先，我们要先观察到返回值 savedState 代表 release 之前的 state 值
 // 对于最简单的操作：先 lock.lock()，然后 condition1.await()。
 //         那么 state 经过这个方法由 1 变为 0，锁释放，此方法返回 1
@@ -417,7 +417,7 @@ while (!isOnSyncQueue(node)) {
 
 isOnSyncQueue(Node node) 用于判断节点是否已经转移到阻塞队列了：
 
-```
+```java
 // 在节点入条件队列的时候，初始化时设置了 waitStatus = Node.CONDITION
 // 前面我提到，signal 的时候需要将节点从条件队列移到阻塞队列，
 // 这个方法就是判断 node 是否已经移动到阻塞队列了
@@ -462,7 +462,7 @@ private boolean findNodeFromTail(Node node) {
 
 唤醒操作通常由另一个线程来操作，就像生产者-消费者模式中，如果线程因为等待消费而挂起，那么当生产者生产了一个东西后，会调用 signal 唤醒正在等待的线程来消费。
 
-```
+```java
 // 唤醒等待了最久的线程
 // 其实就是，将这个线程对应的 node 从条件队列转移到阻塞队列
 public final void signal() {
@@ -549,7 +549,7 @@ while (!isOnSyncQueue(node)) {
 
 线程唤醒后第一步是调用 checkInterruptWhileWaiting(node) 这个方法，此方法用于判断是否在线程挂起期间发生了中断，如果发生了中断，是 signal 调用之前中断的，还是 signal 之后发生的中断。
 
-```
+```java
 // 1\. 如果在 signal 之前已经中断，返回 THROW_IE
 // 2\. 如果是 signal 之后中断，返回 REINTERRUPT
 // 3\. 没有发生中断，返回 0
@@ -564,7 +564,7 @@ private int checkInterruptWhileWaiting(Node node) {
 
 看看怎么判断是 signal 之前还是之后发生的中断：
 
-```
+```java
 // 只有线程处于中断状态，才会调用此方法
 // 如果需要的话，将这个已经取消等待的节点转移到阻塞队列
 // 返回 true：如果此线程在 signal 之前被取消，
@@ -631,7 +631,7 @@ if (interruptMode != 0)
 *   THROW_IE：await 方法抛出 InterruptedException 异常，因为它代表在 await() 期间发生了中断；
 *   REINTERRUPT：重新中断当前线程，因为它代表 await() 期间没有被中断，而是 signal() 以后发生的中断
 
-```
+```java
 private void reportInterruptAfterWait(int interruptMode)
     throws InterruptedException {
     if (interruptMode == THROW_IE)
@@ -647,7 +647,7 @@ private void reportInterruptAfterWait(int interruptMode)
 
 经过前面的 7 步，整个 ConditionObject 类基本上都分析完了，接下来简单分析下带超时机制的 await 方法。
 
-```
+```java
 public final long awaitNanos(long nanosTimeout) 
                   throws InterruptedException
 public final boolean awaitUntil(Date deadline)
@@ -658,7 +658,7 @@ public final boolean await(long time, TimeUnit unit)
 
 这三个方法都差不多，我们就挑一个出来看看吧：
 
-```
+```java
 public final boolean await(long time, TimeUnit unit)
         throws InterruptedException {
     // 等待这么多纳秒
@@ -706,7 +706,7 @@ public final boolean await(long time, TimeUnit unit)
 
 关于 Condition 最后一小节了。
 
-```
+```java
 public final void awaitUninterruptibly() {
     Node node = addConditionWaiter();
     int savedState = fullyRelease(node);
@@ -759,7 +759,7 @@ final boolean acquireQueued(final Node node, int arg) {
 
 我把 parkAndCheckInterrupt() 代码贴过来：
 
-```
+```java
 private final boolean parkAndCheckInterrupt() {
     LockSupport.park(this);
     return Thread.interrupted();
@@ -776,7 +776,7 @@ private final boolean parkAndCheckInterrupt() {
 
 所以，我们看外层方法怎么处理 acquireQueued 返回 false 的情况。
 
-```
+```java
 public final void acquire(int arg) {
     if (!tryAcquire(arg) &&
         acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
@@ -795,7 +795,7 @@ static void selfInterrupt() {
 
 我们来看 ReentrantLock 的另一个 lock 方法：
 
-```
+```java
 public void lockInterruptibly() throws InterruptedException {
     sync.acquireInterruptibly(1);
 }
@@ -803,7 +803,7 @@ public void lockInterruptibly() throws InterruptedException {
 
 方法上多了个`throws InterruptedException`，经过前面那么多知识的铺垫，这里我就不再啰里啰嗦了。
 
-```
+```java
 public final void acquireInterruptibly(int arg)
         throws InterruptedException {
     if (Thread.interrupted())
@@ -815,7 +815,7 @@ public final void acquireInterruptibly(int arg)
 
 继续往里：
 
-```
+```java
 private void doAcquireInterruptibly(int arg) throws InterruptedException {
     final Node node = addWaiter(Node.EXCLUSIVE);
     boolean failed = true;
@@ -845,7 +845,7 @@ private void doAcquireInterruptibly(int arg) throws InterruptedException {
 
 既然到这里了，顺便说说 cancelAcquire 这个方法吧：
 
-```
+```java
 private void cancelAcquire(Node node) {
     // Ignore if node doesn't exist
     if (node == null)
@@ -900,7 +900,7 @@ private void cancelAcquire(Node node) {
 
 关于中断状态，我们需要重点关注 Thread 类中的以下几个方法：
 
-```
+```java
 // Thread 类中的实例方法，持有线程实例引用即可检测线程中断状态
 public boolean isInterrupted() {}
 
@@ -977,7 +977,7 @@ try {
 
 AQS 的做法很值得我们借鉴，我们知道 ReentrantLock 有两种 lock 方法：
 
-```
+```java
 public void lock() {
     sync.lock();
 }
@@ -989,7 +989,7 @@ public void lockInterruptibly() throws InterruptedException {
 
 前面我们提到过，lock() 方法不响应中断。如果 thread1 调用了 lock() 方法，过了很久还没抢到锁，这个时候 thread2 对其进行了中断，thread1 是不响应这个请求的，它会继续抢锁，当然它不会把“被中断”这个信息扔掉。我们可以看以下代码：
 
-```
+```java
 public final void acquire(int arg) {
     if (!tryAcquire(arg) &&
         acquireQueued(addWaiter(Node.EXCLUSIVE), arg))

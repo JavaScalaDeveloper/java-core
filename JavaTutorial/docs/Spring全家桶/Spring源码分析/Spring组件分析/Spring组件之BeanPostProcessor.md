@@ -21,7 +21,7 @@ spring `BeanPostProcessor` 在 bean 的创建过程中执行，执行时机如�
 
 梳理 `BeanPostProcessor` 前，我们先来看看什么是 `BeanPostProcessor`，代码如下：
 
-```
+```java
 public interface BeanPostProcessor {
 
     /**

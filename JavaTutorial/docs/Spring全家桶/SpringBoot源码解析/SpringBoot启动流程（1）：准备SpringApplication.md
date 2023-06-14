@@ -4,7 +4,7 @@
 
 springboot 的启动方式非常简单，就一行：
 
-```
+```java
 @SpringBootApplication
 public class Demo01Application {
 
@@ -18,7 +18,7 @@ public class Demo01Application {
 
 然后我们就进入这个方法，看看它干了什么：
 
-```
+```java
 public class SpringApplication {
     ...
     // primarySource 就是我们传入的 Demo01Application.class，
@@ -57,7 +57,7 @@ return new SpringApplication(primarySources).run(args);
 
 ## 2\. 创建?`SpringApplication`：`SpringApplication#SpringApplication(Class<?>...)`
 
-```
+```java
 public class SpringApplication {
     public SpringApplication(Class<?>... primarySources) {
         // 继续调用
@@ -95,7 +95,7 @@ public class SpringApplication {
 
 `WebApplicationType.deduceFromClasspath()`?方法是用来推断当前项目是什么类型的，代码如下：
 
-```
+```java
 public enum WebApplicationType {
     // 不是 web 应用
     NONE,
@@ -168,7 +168,7 @@ setInitializers((Collection) getSpringFactoriesInstances(ApplicationContextIniti
 
 我们先来看看获取?`ApplicationContextInitializer`?的流程，代码如下：
 
-```
+```java
 public class SpringApplication {
     ...
 
@@ -220,7 +220,7 @@ public class SpringApplication {
 
 获取到?`ApplicationContextInitializer`，我们再来看看?`setInitializers(...)`?方法：
 
-```
+```java
 public class SpringApplication {
     ...
     public void setInitializers(
@@ -263,7 +263,7 @@ setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class)
 
 再来看看?`SpringApplication#setListeners`：
 
-```
+```java
 public void setListeners(Collection<? extends ApplicationListener<?>> listeners) {
     this.listeners = new ArrayList<>(listeners);
 }
@@ -276,7 +276,7 @@ public void setListeners(Collection<? extends ApplicationListener<?>> listeners)
 
 所谓主类，就是包含?`main(String[])`，也就是当前 spring 应用的启动类，`SpringApplication#deduceMainApplicationClass`?代码如下：
 
-```
+```java
 private Class<?> deduceMainApplicationClass() {
     try {
         // 获取调用栈

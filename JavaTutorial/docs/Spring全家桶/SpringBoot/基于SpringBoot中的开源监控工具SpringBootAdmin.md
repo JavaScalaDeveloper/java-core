@@ -24,7 +24,7 @@ Spring Boot Admin 可以监控 Spring Boot 单机或集群项目，它提供详�
 
 <button data-clipboard-target="#code_id_0">复制</button>
 
-```
+```xml
 <dependency> 
    <groupId>org.springframework.boot</groupId> 
    spring-boot-starter-web 
@@ -104,7 +104,7 @@ PS：配置端口号的主要目的是为了不和其他 Spring Boot 项目冲�
 
 <button data-clipboard-target="#code_id_3">复制</button>
 
-```
+```xml
 <dependency> 
   <groupId>de.codecentric</groupId> 
   spring-boot-admin-starter-client 
@@ -184,7 +184,7 @@ spring.boot.admin.client.url=http://localhost:9001
 
 <button data-clipboard-target="#code_id_5">复制</button>
 
-```
+```xml
 <dependency> 
     <groupId>org.springframework.boot</groupId> 
     spring-boot-starter-actuator 

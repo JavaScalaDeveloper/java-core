@@ -83,7 +83,7 @@ ArrayBlockingQueue 是 BlockingQueue 接口的有界队列实现类，底层采�
 
 ArrayBlockingQueue 共有以下几个属性：
 
-```
+```java
 // 用于存放元素的数组
 final Object[] items;
 // 下一次读取操作的位置
@@ -116,14 +116,14 @@ ArrayBlockingQueue 实现并发同步的原理就是，读操作和写操作都�
 
 底层基于单向链表实现的阻塞队列，可以当做无界队列也可以当做有界队列来使用。看构造方法：
 
-```
+```java
 // 传说中的无界队列
 public LinkedBlockingQueue() {
     this(Integer.MAX_VALUE);
 }
 ```
 
-```
+```java
 // 传说中的有界队列
 public LinkedBlockingQueue(int capacity) {
     if (capacity <= 0) throw new IllegalArgumentException();
@@ -134,7 +134,7 @@ public LinkedBlockingQueue(int capacity) {
 
 我们看看这个类有哪些属性：
 
-```
+```java
 // 队列容量
 private final int capacity;
 
@@ -173,7 +173,7 @@ private final Condition notFull = putLock.newCondition();
 
 先上构造方法：
 
-```
+```java
 public LinkedBlockingQueue(int capacity) {
     if (capacity <= 0) throw new IllegalArgumentException();
     this.capacity = capacity;
@@ -185,7 +185,7 @@ public LinkedBlockingQueue(int capacity) {
 
 我们来看下 put 方法是怎么将元素插入到队尾的：
 
-```
+```java
 public void put(E e) throws InterruptedException {
     if (e == null) throw new NullPointerException();
     // 如果你纠结这里为什么是 -1，可以看看 offer 方法。这就是个标识成功、失败的标志而已。
@@ -240,7 +240,7 @@ private void signalNotEmpty() {
 
 我们再看看 take 方法：
 
-```
+```java
 public E take() throws InterruptedException {
     E x;
     int c = -1;
@@ -312,7 +312,7 @@ private void signalNotFull() {
 
 源码加注释大概有 1200 行，我们先看大框架：
 
-```
+```java
 // 构造时，我们可以指定公平模式还是非公平模式，区别之后再说
 public SynchronousQueue(boolean fair) {
     transferer = fair ? new TransferQueue() : new TransferStack();
@@ -336,7 +336,7 @@ Transferer 有两个内部实现类，是因为构造 SynchronousQueue 的时候
 
 接下来，我们看看 put 方法和 take 方法：
 
-```
+```java
 // 写入值
 public void put(E o) throws InterruptedException {
     if (o == null) throw new NullPointerException();
@@ -368,7 +368,7 @@ public E take() throws InterruptedException {
 
 既然这里说到了等待队列，我们先看看其实现，也就是 QNode:
 
-```
+```java
 static final class QNode {
     volatile QNode next;          // 可以看出来，等待队列是单向链表
     volatile Object item;         // CAS'ed to or from null
@@ -466,7 +466,7 @@ void advanceTail(QNode t, QNode nt) {
 }
 ```
 
-```
+```java
 // 自旋或阻塞，直到满足条件，这个方法返回
 Object awaitFulfill(QNode s, Object e, boolean timed, long nanos) {
 
@@ -532,7 +532,7 @@ Doug Lea 的巧妙之处在于，将各个代码凑在了一起，使得代码�
 
 我们来看看它有哪些属性：
 
-```
+```java
 // 构造方法中，如果不指定大小的话，默认大小为 11
 private static final int DEFAULT_INITIAL_CAPACITY = 11;
 // 数组的最大容量
@@ -572,7 +572,7 @@ PriorityBlockingQueue 使用了基于数组的**二叉堆**来存放元素，所
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404202057.png)
 下面开始 PriorityBlockingQueue 的源码分析，首先我们来看看构造方法:
 
-```
+```java
 // 默认构造方法，采用默认值(11)来进行初始化
 public PriorityBlockingQueue() {
     this(DEFAULT_INITIAL_CAPACITY, null);
@@ -630,7 +630,7 @@ public PriorityBlockingQueue(Collection<? extends E> c) {
 
 接下来，我们来看看其内部的自动扩容实现：
 
-```
+```java
 private void tryGrow(Object[] array, int oldCap) {
     // 这边做了释放锁的操作
     lock.unlock(); // must release and then re-acquire main lock
@@ -679,7 +679,7 @@ private void tryGrow(Object[] array, int oldCap) {
 
 下面，我们来分析下写操作 put 方法和读操作 take 方法。
 
-```
+```java
 public void put(E e) {
     // 直接调用 offer 方法，因为前面我们也说了，在这里，put 方法不会阻塞
     offer(e); 
@@ -715,7 +715,7 @@ public boolean offer(E e) {
 
 对于二叉堆而言，插入一个节点是简单的，插入的节点如果比父节点小，交换它们，然后继续和父节点比较。
 
-```
+```java
 // 这个方法就是将数据 x 插入到数组 array 的位置 k 处，然后再调整树
 private static <T> void siftUpComparable(int k, T x, Object[] array) {
     Comparable<? super T> key = (Comparable<? super T>) x;
@@ -738,7 +738,7 @@ private static <T> void siftUpComparable(int k, T x, Object[] array) {
 
 我们再看看 take 方法：
 
-```
+```java
 public E take() throws InterruptedException {
     final ReentrantLock lock = this.lock;
     // 独占锁
@@ -755,7 +755,7 @@ public E take() throws InterruptedException {
 }
 ```
 
-```
+```java
 private E dequeue() {
     int n = size - 1;
     if (n < 0)
@@ -783,7 +783,7 @@ dequeue 方法返回队头，并调整二叉堆的树，调用这个方法必须
 
 废话不多说，出队是非常简单的，因为队头就是最小的元素，对应的是数组的第一个元素。难点是队头出队后，需要调整树。
 
-```
+```java
 private static <T> void siftDownComparable(int k, T x, Object[] array,
                                            int n) {
     if (n > 0) {

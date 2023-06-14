@@ -198,7 +198,7 @@ Spring Boot 提供了生产就绪的特性，例如监控、指标和开箱即�
 
 例如，下面自动生成的测试将检查上下文是否正确加载。
 
-````
+````java
 @SpringBootTest
 class SpringBootDerbyDatabaseApplicationTests {
 
@@ -212,7 +212,7 @@ class SpringBootDerbyDatabaseApplicationTests {
 ## Spring Profiles
 
 Spring Profiles 是 spring Boot 的一个强大特性，有助于隔离应用程序中的不同组件。 使用配置文件，您可以在特定环境中启用或禁用组件。 当您必须根据特定条件使用不同的组件时，这可能会派上用场。
-````
+````java
 @Profile(value = {"prod","uat"})
 class RabbitMQConfig {
 

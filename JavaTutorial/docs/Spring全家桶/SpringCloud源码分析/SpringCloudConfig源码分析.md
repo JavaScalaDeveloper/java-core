@@ -956,7 +956,7 @@ org.springframework.cloud.config.client.ConfigServiceBootstrapConfiguration,\
 
 
 
-```
+```java
 @ConfigurationProperties("spring.cloud.config")
 public class PropertySourceBootstrapProperties {
 

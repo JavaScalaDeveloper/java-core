@@ -6,7 +6,7 @@
 
 > AnnotationConfigApplicationContext
 
-```
+```java
 public AnnotationConfigApplicationContext(String... basePackages) {
     this();
     scan(basePackages);
@@ -23,7 +23,7 @@ public AnnotationConfigApplicationContext(String... basePackages) {
 
 > AnnotationConfigApplicationContext
 
-```
+```java
 public AnnotationConfigApplicationContext() {
     // AnnotatedBeanDefinitionReader 解析 @Configuration
     this.reader = new AnnotatedBeanDefinitionReader(this);
@@ -36,7 +36,7 @@ public AnnotationConfigApplicationContext() {
 
 > GenericApplicationContext
 
-```
+```java
 public GenericApplicationContext() {
     this.beanFactory = new DefaultListableBeanFactory();
 }
@@ -49,7 +49,7 @@ public GenericApplicationContext() {
 
 > AnnotationConfigApplicationContext
 
-```
+```java
 public AnnotationConfigApplicationContext() {
     // AnnotatedBeanDefinitionReader 解析 @Configuration
     this.reader = new AnnotatedBeanDefinitionReader(this);
@@ -71,7 +71,7 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext()
 
 可以看到，最终是调用了 `AnnotationConfigUtils#registerAnnotationConfigProcessors(BeanDefinitionRegistry, Object)`，我们查看下该方法，为了直观查看，这里省略了不必要的代码，我们仅关注主要的流程即可：
 
-```
+```java
 public static Set<BeanDefinitionHolder> registerAnnotationConfigProcessors(
         BeanDefinitionRegistry registry, @Nullable Object source) {
     // 获得beanFactory

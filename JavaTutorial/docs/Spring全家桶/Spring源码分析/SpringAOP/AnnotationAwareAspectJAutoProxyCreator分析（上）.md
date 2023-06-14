@@ -36,7 +36,7 @@
 
 `AnnotationAwareAspectJAutoProxyCreator` 的 `postProcessBeforeInitialization` 方法继承自 `AbstractAutoProxyCreator`，`AbstractAutoProxyCreator#postProcessBeforeInitialization` 方法如下：
 
-```
+```java
 public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) {
     Object cacheKey = getCacheKey(beanClass, beanName);
 
@@ -83,7 +83,7 @@ if (isInfrastructureClass(beanClass) || shouldSkip(beanClass, beanName)) {
 
 > AnnotationAwareAspectJAutoProxyCreator#isInfrastructureClass
 
-```
+```java
 @Override
 protected boolean isInfrastructureClass(Class<?> beanClass) {
      // 判断当前类是否为 Advice/Pointcut/Advisor/AopInfrastructureBean 的子类
@@ -102,7 +102,7 @@ protected boolean isInfrastructureClass(Class<?> beanClass) {
 
 > AspectJAwareAdvisorAutoProxyCreator#shouldSkip
 
-```
+```java
 @Override
 protected boolean shouldSkip(Class<?> beanClass, String beanName) {
     //查找所有标识了@Aspect注解的类，这个方法很重要 ，下面会继续分析
@@ -124,7 +124,7 @@ protected boolean shouldSkip(Class<?> beanClass, String beanName) {
 
 > AnnotationAwareAspectJAutoProxyCreator#findCandidateAdvisors
 
-```
+```java
 @Override
 protected List<Advisor> findCandidateAdvisors() {
     // 调用父类的方法，查找当前beanFactory中的Advisor bean
@@ -140,7 +140,7 @@ protected List<Advisor> findCandidateAdvisors() {
 
 首先来看下 `super.findCandidateAdvisors()` 方法，也就是 `AbstractAdvisorAutoProxyCreator#findCandidateAdvisors`:
 
-```
+```java
 protected List<Advisor> findCandidateAdvisors() {
     Assert.state(this.advisorRetrievalHelper != null, "No BeanFactoryAdvisorRetrievalHelper available");
     return this.advisorRetrievalHelper.findAdvisorBeans();
@@ -150,7 +150,7 @@ protected List<Advisor> findCandidateAdvisors() {
 
 这个调用了 `BeanFactoryAdvisorRetrievalHelper#findAdvisorBeans`，继续下去：
 
-```
+```java
 public List<Advisor> findAdvisorBeans() {
     String[] advisorNames = this.cachedAdvisorBeanNames;
     if (advisorNames == null) {
@@ -185,7 +185,7 @@ public List<Advisor> findAdvisorBeans() {
 
 > BeanFactoryAspectJAdvisorsBuilder#buildAspectJAdvisors
 
-```
+```java
 public List<Advisor> buildAspectJAdvisors() {
     List<String> aspectNames = this.aspectBeanNames;
 
@@ -259,7 +259,7 @@ public List<Advisor> buildAspectJAdvisors() {
 
 > ReflectiveAspectJAdvisorFactory#getAdvisors
 
-```
+```java
 public List<Advisor> getAdvisors(MetadataAwareAspectInstanceFactory aspectInstanceFactory) {
     //获取Aspect类、类名称、并校验
     // aspectInstanceFactory 里包含beanFactory与 @Aspect 的 beanName
@@ -333,7 +333,7 @@ private List<Method> getAdvisorMethods(Class<?> aspectClass) {
 
 关于第一步，上面的代码已经分析了，主要是根据反射来进行的，就不再深入了，这里我们来看第二步，该操作是在 `ReflectiveAspectJAdvisorFactory#getAdvisor` 方法中：
 
-```
+```java
 @Override
 @Nullable
 /**
@@ -384,7 +384,7 @@ private AspectJExpressionPointcut getPointcut(Method candidateAdviceMethod,
 
 `Advisor` 实例化过程如下：
 
-```
+```java
 public InstantiationModelAwarePointcutAdvisorImpl(AspectJExpressionPointcut declaredPointcut,
         Method aspectJAdviceMethod, AspectJAdvisorFactory aspectJAdvisorFactory,
         MetadataAwareAspectInstanceFactory aspectInstanceFactory,
@@ -434,7 +434,7 @@ private Advice instantiateAdvice(AspectJExpressionPointcut pointcut) {
 
 > ReflectiveAspectJAdvisorFactory#getAdvice
 
-```
+```java
 @Override
 @Nullable
 public Advice getAdvice(Method candidateAdviceMethod, AspectJExpressionPointcut expressionPointcut,
@@ -523,7 +523,7 @@ public Advice getAdvice(Method candidateAdviceMethod, AspectJExpressionPointcut 
 
 > AbstractAspectJAdvice
 
-```
+```java
 /**
  * 处理参数绑定
  */
@@ -554,7 +554,7 @@ public final synchronized void calculateArgumentBindings() {
 
 > AbstractAspectJAdvice
 
-```
+```java
 /**
   * 绑定属性其他属性
   */

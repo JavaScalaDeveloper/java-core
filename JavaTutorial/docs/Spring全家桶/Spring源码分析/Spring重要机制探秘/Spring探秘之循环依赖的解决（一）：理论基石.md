@@ -2,7 +2,7 @@
 
 spring 在依赖注入时，可能会出现相互注入的情况：
 
-```
+```java
 @Service
 public class Service1 {
     @Autowired
@@ -25,7 +25,7 @@ public class Service2 {
 
 实际上，这种 `A持有B对象，B也持有A对象`的情况，java 代码是完全支持的：
 
-```
+```java
 /**
  * 准备service1
  */
@@ -140,7 +140,7 @@ spring bean 的创建过程如下：
 
 原始对象与代理对象之间是什么关系呢？用代码示意下，大致如下：
 
-```
+```java
 public class ProxyObj extends Obj {
 
     // 原始对象
@@ -157,7 +157,7 @@ public class ProxyObj extends Obj {
 
 对以上创建过程，用 java 代码模拟如下：
 
-```
+```java
 /**
  * 准备一个类
  */
@@ -197,7 +197,7 @@ public class ProxyObj2 extends Obj2 {
 
 接着，就是模拟 “创建 --> 属性注入 --> 生成代理对象 --> 保存到容器中” 的 流程了：
 
-```
+```java
 public static main(String[] args) {
      // 准备一个容器，这里保存的是完成上述生命周期的对象
      // 1\. 如果元素是原始对象，则该对象已经完成了属性注入 
@@ -238,7 +238,7 @@ public static main(String[] args) {
 
 仔细分析上面的步骤，就会发现，上面的第 2 步与第 3 步完全调换顺序也没问题，代码模拟如下：
 
-```
+```java
 public static main(String[] args) {
      // 准备一个容器，这里保存的是完成上述生命周期的对象
      // 1\. 如果元素是原始对象，则该对象已经完成了属性注入 
@@ -359,7 +359,7 @@ spring 解决 aop 下的循环依赖流程如下：
 
 在正式分析源码前，我们首先模拟循环下依赖解决的过程，代码如下：
 
-```
+```java
 /**
  * 准备一个类，内部有一个属性 Obj2
  */
@@ -445,7 +445,7 @@ public class ProxyObj1 extends Obj1 {
 
 代码如下：
 
-```
+```java
 public static main(String[] args) {
      // 准备一个容器，这里保存的是完成上述生命周期的对象
      // 1\. 如果元素是原始对象，则该对象已经完成了属性注入 
@@ -492,7 +492,7 @@ public static main(String[] args) {
 
 spring 在依赖注入时，可能会出现相互注入的情况：
 
-```
+```java
 @Service
 public class Service1 {
     @Autowired
@@ -515,7 +515,7 @@ public class Service2 {
 
 实际上，这种 `A持有B对象，B也持有A对象`的情况，java 代码是完全支持的：
 
-```
+```java
 /**
  * 准备service1
  */
@@ -630,7 +630,7 @@ spring bean 的创建过程如下：
 
 原始对象与代理对象之间是什么关系呢？用代码示意下，大致如下：
 
-```
+```java
 public class ProxyObj extends Obj {
 
     // 原始对象
@@ -647,7 +647,7 @@ public class ProxyObj extends Obj {
 
 对以上创建过程，用 java 代码模拟如下：
 
-```
+```java
 /**
  * 准备一个类
  */
@@ -687,7 +687,7 @@ public class ProxyObj2 extends Obj2 {
 
 接着，就是模拟 “创建 --> 属性注入 --> 生成代理对象 --> 保存到容器中” 的 流程了：
 
-```
+```java
 public static main(String[] args) {
      // 准备一个容器，这里保存的是完成上述生命周期的对象
      // 1\. 如果元素是原始对象，则该对象已经完成了属性注入 
@@ -728,7 +728,7 @@ public static main(String[] args) {
 
 仔细分析上面的步骤，就会发现，上面的第 2 步与第 3 步完全调换顺序也没问题，代码模拟如下：
 
-```
+```java
 public static main(String[] args) {
      // 准备一个容器，这里保存的是完成上述生命周期的对象
      // 1\. 如果元素是原始对象，则该对象已经完成了属性注入 
@@ -849,7 +849,7 @@ spring 解决 aop 下的循环依赖流程如下：
 
 在正式分析源码前，我们首先模拟循环下依赖解决的过程，代码如下：
 
-```
+```java
 /**
  * 准备一个类，内部有一个属性 Obj2
  */
@@ -935,7 +935,7 @@ public class ProxyObj1 extends Obj1 {
 
 代码如下：
 
-```
+```java
 public static main(String[] args) {
      // 准备一个容器，这里保存的是完成上述生命周期的对象
      // 1\. 如果元素是原始对象，则该对象已经完成了属性注入 

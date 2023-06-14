@@ -315,7 +315,7 @@ JDK代理要求被代理的类必须实现接口，有很强的局限性。而CG
   
 我们来看看将代理类Class文件反编译之后的Java代码  
   
-````
+````java
 package proxy;
 
 import java.lang.reflect.Method;  

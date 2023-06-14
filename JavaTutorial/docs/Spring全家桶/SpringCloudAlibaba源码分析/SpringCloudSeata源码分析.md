@@ -18,7 +18,7 @@ seata也是与spring整合使用的，结合SpringBoot，seata也是做了一些
 
 
 
-```
+```java
 @ComponentScan(basePackages = "io.seata.spring.boot.autoconfigure.properties")@ConditionalOnProperty(prefix = StarterConstants.SEATA_PREFIX, name = "enabled", havingValue = "true", matchIfMissing = true)@Configuration@EnableConfigurationProperties({SeataProperties.class})public class SeataAutoConfiguration {    }
 ```
 
@@ -42,7 +42,7 @@ seata也是与spring整合使用的，结合SpringBoot，seata也是做了一些
 
 
 
-```
+```java
 @Bean@DependsOn({BEAN_NAME_SPRING_APPLICATION_CONTEXT_PROVIDER, BEAN_NAME_FAILURE_HANDLER})@ConditionalOnMissingBean(GlobalTransactionScanner.class)public GlobalTransactionScanner globalTransactionScanner(SeataProperties seataProperties, FailureHandler failureHandler) {    if (LOGGER.isInfoEnabled()) {        LOGGER.info("Automatically configure Seata");    }    return new GlobalTransactionScanner(seataProperties.getApplicationId(), seataProperties.getTxServiceGroup(), failureHandler);}
 ```
 
@@ -86,7 +86,7 @@ ApplicationContextAware -> InitializingBean -> AbstractAutoProxyCreator -> Dispo
 
 
 
-```
+```java
 @Overridepublic void afterPropertiesSet() {    if (disableGlobalTransaction) {        if (LOGGER.isInfoEnabled()) {            LOGGER.info("Global transaction is disabled.");        }        return;    }    initClient();}
 ```
 
@@ -104,7 +104,7 @@ ApplicationContextAware -> InitializingBean -> AbstractAutoProxyCreator -> Dispo
 
 
 
-```
+```java
 private void initClient() {    //init TM    TMClient.init(applicationId, txServiceGroup);       //init RM    RMClient.init(applicationId, txServiceGroup);      registerSpringShutdownHook();}
 ```
 
@@ -122,7 +122,7 @@ initClient逻辑并不复杂，单纯调用TMClient.init初始化TransactionMana
 
 
 
-```
+```java
 @Overridepublic void init() {    timerExecutor.scheduleAtFixedRate(new Runnable() {        @Override        public void run() {            clientChannelManager.reconnect(getTransactionServiceGroup());        }    }, SCHEDULE_DELAY_MILLS, SCHEDULE_INTERVAL_MILLS, TimeUnit.MILLISECONDS);...}
 ```
 
@@ -155,7 +155,7 @@ void reconnect(String transactionServiceGroup) {    List<String> availList = nul
 
 
 
-```
+```java
 private List<String> getAvailServerList(String transactionServiceGroup) throws Exception {    List<InetSocketAddress> availInetSocketAddressList = RegistryFactory.getInstance()        .lookup(transactionServiceGroup);    if (CollectionUtils.isEmpty(availInetSocketAddressList)) {        return Collections.emptyList();    }     return availInetSocketAddressList.stream()        .map(NetUtil::toStringAddress)        .collect(Collectors.toList());}
 ```
 
@@ -171,7 +171,7 @@ RegistryFactory.getInstance().lookup(transactionServiceGroup);是对不同注册
 
 
 
-```
+```java
 @Overridepublic List<InetSocketAddress> lookup(String key) throws Exception {    //default    String clusterName = getServiceGroup(key);    if (clusterName == null) {        return null;    }    if (!LISTENER_SERVICE_MAP.containsKey(clusterName)) {        synchronized (LOCK_OBJ) {            if (!LISTENER_SERVICE_MAP.containsKey(clusterName)) {                List<String> clusters = new ArrayList<>();                clusters.add(clusterName);                List<Instance> firstAllInstances = getNamingInstance().getAllInstances(getServiceName(), getServiceGroup(), clusters);                if (null != firstAllInstances) {                    List<InetSocketAddress> newAddressList = firstAllInstances.stream()                        .filter(instance -> instance.isEnabled() && instance.isHealthy())                        .map(instance -> new InetSocketAddress(instance.getIp(), instance.getPort()))                        .collect(Collectors.toList());                    CLUSTER_ADDRESS_MAP.put(clusterName, newAddressList);                }                subscribe(clusterName, event -> {                    List<Instance> instances = ((NamingEvent) event).getInstances();                    if (null == instances && null != CLUSTER_ADDRESS_MAP.get(clusterName)) {                        CLUSTER_ADDRESS_MAP.remove(clusterName);                    } else if (!CollectionUtils.isEmpty(instances)) {                        List<InetSocketAddress> newAddressList = instances.stream()                            .filter(instance -> instance.isEnabled() && instance.isHealthy())                            .map(instance -> new InetSocketAddress(instance.getIp(), instance.getPort()))                            .collect(Collectors.toList());                        CLUSTER_ADDRESS_MAP.put(clusterName, newAddressList);                    }                });            }        }    }    return CLUSTER_ADDRESS_MAP.get(clusterName);}
 ```
 
@@ -211,7 +211,7 @@ TmClient初始化总结：
 
 
 
-```
+```java
 public static void init(String applicationId, String transactionServiceGroup) {    // 获取单例对象    RmRpcClient rmRpcClient = RmRpcClient.getInstance(applicationId, transactionServiceGroup);    // 设置ResourceManager的单例对象    rmRpcClient.setResourceManager(DefaultResourceManager.get());    // 添加监听器，监听Server端的消息推送    rmRpcClient.setClientMessageListener(new RmMessageListener(DefaultRMHandler.get()));    // 初始化RPC    rmRpcClient.init();}
 ```
 
@@ -231,7 +231,7 @@ public static void init(String applicationId, String transactionServiceGroup) { 
 
 
 
-```
+```java
 public class DefaultResourceManager implements ResourceManager {    protected void initResourceManagers() {        //init all resource managers        List<ResourceManager> allResourceManagers = EnhancedServiceLoader.loadAll(ResourceManager.class);        if (CollectionUtils.isNotEmpty(allResourceManagers)) {            for (ResourceManager rm : allResourceManagers) {                resourceManagers.put(rm.getBranchType(), rm);            }        }    }}
 ```
 
@@ -270,7 +270,7 @@ GlobalTransactionScanner主要扩展了AbstractAutoProxyCreator的wrapIfNecessar
 
 
 
-```
+```java
 @Overrideprotected Object wrapIfNecessary(Object bean, String beanName, Object cacheKey) {    if (disableGlobalTransaction) {        return bean;    }    try {        synchronized (PROXYED_SET) {            // 相同Bean排重            if (PROXYED_SET.contains(beanName)) {                return bean;            }             interceptor = null;            // 判断是否开启TCC模式            if (TCCBeanParserUtils.isTccAutoProxy(bean, beanName, applicationContext)) {                // TCC实现的拦截器                interceptor = new TccActionInterceptor(TCCBeanParserUtils.getRemotingDesc(beanName));            } else {                Class<?> serviceInterface = SpringProxyUtils.findTargetClass(bean);                Class<?>[] interfacesIfJdk = SpringProxyUtils.findInterfaces(bean);                 // 判断是否存在@GlobalTransactional或者@GlobalLock注解                if (!existsAnnotation(new Class[]{serviceInterface})                    && !existsAnnotation(interfacesIfJdk)) {                    return bean;                }                 if (interceptor == null) {                    // 非TCC的拦截器                    if (globalTransactionalInterceptor == null) {                        globalTransactionalInterceptor = new GlobalTransactionalInterceptor(failureHandlerHook);                        ConfigurationCache.addConfigListener(                            ConfigurationKeys.DISABLE_GLOBAL_TRANSACTION,                            (ConfigurationChangeListener)globalTransactionalInterceptor);                    }                    interceptor = globalTransactionalInterceptor;                }            }            // 判断当前Bean是否已经是spring的代理类了            if (!AopUtils.isAopProxy(bean)) {                // 如果还不是，那么走一轮spring的代理过程即可                bean = super.wrapIfNecessary(bean, beanName, cacheKey);            } else {                // 如果是一个spring的代理类，那么反射获取代理类中已经存在的拦截器集合，然后添加到该集合当中                AdvisedSupport advised = SpringProxyUtils.getAdvisedSupport(bean);                Advisor[] advisor = buildAdvisors(beanName, getAdvicesAndAdvisorsForBean(null, null, null));                for (Advisor avr : advisor) {                    advised.addAdvisor(0, avr);                }            }             PROXYED_SET.add(beanName);            return bean;        }    } catch (Exception exx) {}}
 ```
 
@@ -299,7 +299,7 @@ GlobalTransactionalInterceptor，invoke就是拦截方法
 
 
 
-```
+```java
 @Overridepublic Object invoke(final MethodInvocation methodInvocation) throws Throwable {    Class<?> targetClass =        methodInvocation.getThis() != null ? AopUtils.getTargetClass(methodInvocation.getThis()) : null;    Method specificMethod = ClassUtils.getMostSpecificMethod(methodInvocation.getMethod(), targetClass);    if (specificMethod != null && !specificMethod.getDeclaringClass().equals(Object.class)) {        final Method method = BridgeMethodResolver.findBridgedMethod(specificMethod);        //获取方法上的全局事务注解        final GlobalTransactional globalTransactionalAnnotation =            getAnnotation(method, targetClass, GlobalTransactional.class);        //获取方法上的全局锁注解        final GlobalLock globalLockAnnotation = getAnnotation(method, targetClass, GlobalLock.class);        boolean localDisable = disable || (degradeCheck && degradeNum >= degradeCheckAllowTimes);        if (!localDisable) {            //如果方法上有全局事务注解，调用handleGlobalTransaction开启全局事务            if (globalTransactionalAnnotation != null) {                return handleGlobalTransaction(methodInvocation, globalTransactionalAnnotation);            //如果方法上有全局锁注解，调用handleGlobalLock开启全局锁            } else if (globalLockAnnotation != null) {                return handleGlobalLock(methodInvocation);            }        }    }    //如果啥都没有，按普通方法执行，提升性能    return methodInvocation.proceed();}
 ```
 
@@ -316,7 +316,7 @@ transactionalTemplate.execute方法
 
 
 
-```
+```java
 // 2\. 开启全局事务beginTransactionbeginTransaction(txInfo, tx); Object rs = null;try {     // 执行业务方法business.execute()    rs = business.execute(); } catch (Throwable ex) {     // 3.出现异常执行completeTransactionAfterThrowing回滚    completeTransactionAfterThrowing(txInfo, tx, ex);    throw ex;} // 4\. 没有异常提交事务commitTransactioncommitTransaction(tx);
 ```
 
@@ -333,7 +333,7 @@ io.seata.tm.api.DefaultGlobalTransaction#begin(int, java.lang.String)方法
 
 
 
-```
+```java
 @Overridepublic void begin(int timeout, String name) throws TransactionException {    //此处的角色判断有关键的作用//表明当前是全局事务的发起者（Launcher）还是参与者（Participant）//如果在分布式事务的下游系统方法中也加上GlobalTransactional注解//那么它的角色就是Participant，即会忽略后面的begin就退出了    //而判断是发起者（Launcher）还是参与者（Participant）是根据当前上下文是否已存在XID来判断    //没有XID的就是Launcher，已经存在XID的就是Participant    if (role != GlobalTransactionRole.Launcher) {        assertXIDNotNull();        if (LOGGER.isDebugEnabled()) {            LOGGER.debug("Ignore Begin(): just involved in global transaction [{}]", xid);        }        return;    }    assertXIDNull();    if (RootContext.getXID() != null) {        throw new IllegalStateException();    }    xid = transactionManager.begin(null, null, name, timeout);    status = GlobalStatus.Begin;    RootContext.bind(xid);    if (LOGGER.isInfoEnabled()) {        LOGGER.info("Begin new global transaction [{}]", xid);    } }
 ```
 
@@ -349,7 +349,7 @@ io.seata.tm.api.DefaultGlobalTransaction#begin(int, java.lang.String)方法
 
 
 
-```
+```java
 @Overridepublic String begin(String applicationId, String transactionServiceGroup, String name, int timeout)    throws TransactionException {    GlobalBeginRequest request = new GlobalBeginRequest();    request.setTransactionName(name);    request.setTimeout(timeout);    //跟进    GlobalBeginResponse response = (GlobalBeginResponse) syncCall(request);    if (response.getResultCode() == ResultCode.Failed) {        throw new TmTransactionException(TransactionExceptionCode.BeginFailed, response.getMsg());    }    return response.getXid();}
 private AbstractTransactionResponse syncCall(AbstractTransactionRequest request) throws TransactionException {    try {        //TMClient封装的Netty对象        return (AbstractTransactionResponse) TmNettyRemotingClient.getInstance().sendSyncRequest(request);    } catch (TimeoutException toe) {        throw new TmTransactionException(TransactionExceptionCode.IO, "RPC timeout", toe);    }}
 ```
@@ -366,7 +366,7 @@ private AbstractTransactionResponse syncCall(AbstractTransactionRequest request)
 
 
 
-```
+```java
 @Overrideprotected void doGlobalBegin(GlobalBeginRequest request, GlobalBeginResponse response, RpcContext rpcContext)    throws TransactionException {    //进入begin    response.setXid(core.begin(rpcContext.getApplicationId(), rpcContext.getTransactionServiceGroup(),                               request.getTransactionName(), request.getTimeout()));    if (LOGGER.isInfoEnabled()) {        LOGGER.info("Begin new global transaction applicationId: {},transactionServiceGroup: {}, transactionName: {},timeout:{},xid:{}",                    rpcContext.getApplicationId(), rpcContext.getTransactionServiceGroup(), request.getTransactionName(), request.getTimeout(), response.getXid());    }}
 ```
 
@@ -382,7 +382,7 @@ io.seata.server.coordinator.DefaultCoordinator#doGlobalBegin方法接受客户�
 
 
 
-```
+```java
 @Overridepublic String begin(String applicationId, String transactionServiceGroup, String name, int timeout)    throws TransactionException {    GlobalSession session = GlobalSession.createGlobalSession(applicationId, transactionServiceGroup, name,                                                              timeout);    MDC.put(RootContext.MDC_KEY_XID, session.getXid());    session.addSessionLifecycleListener(SessionHolder.getRootSessionManager());//开启会话    session.begin();     // transaction start event    eventBus.post(new GlobalTransactionEvent(session.getTransactionId(), GlobalTransactionEvent.ROLE_TC,                                             session.getTransactionName(), applicationId, transactionServiceGroup, session.getBeginTime(), null, session.getStatus()));     return session.getXid();}
 ```
 
@@ -398,7 +398,7 @@ io.seata.server.coordinator.DefaultCoordinator#doGlobalBegin方法接受客户�
 
 
 
-```
+```java
 @Overridepublic void begin() throws TransactionException {    this.status = GlobalStatus.Begin;    this.beginTime = System.currentTimeMillis();    this.active = true;    for (SessionLifecycleListener lifecycleListener : lifecycleListeners) {        lifecycleListener.onBegin(this);    }}
 ```
 
@@ -417,7 +417,7 @@ io.seata.server.session.AbstractSessionManager#onBegin方法，又调用io.seata
 
 
 
-```
+```java
 @Overridepublic void addGlobalSession(GlobalSession session) throws TransactionException {    if (StringUtils.isBlank(taskName)) {        //进入        boolean ret = transactionStoreManager.writeSession(LogOperation.GLOBAL_ADD, session);        if (!ret) {            throw new StoreException("addGlobalSession failed.");        }    } else {        boolean ret = transactionStoreManager.writeSession(LogOperation.GLOBAL_UPDATE, session);        if (!ret) {            throw new StoreException("addGlobalSession failed.");        }    }}
 ```
 
@@ -433,7 +433,7 @@ io.seata.server.session.AbstractSessionManager#onBegin方法，又调用io.seata
 
 
 
-```
+```java
 @Overridepublic boolean writeSession(LogOperation logOperation, SessionStorable session) {    if (LogOperation.GLOBAL_ADD.equals(logOperation)) {        return logStore.insertGlobalTransactionDO(SessionConverter.convertGlobalTransactionDO(session));    } else if (LogOperation.GLOBAL_UPDATE.equals(logOperation)) {        return logStore.updateGlobalTransactionDO(SessionConverter.convertGlobalTransactionDO(session));    } else if (LogOperation.GLOBAL_REMOVE.equals(logOperation)) {        return logStore.deleteGlobalTransactionDO(SessionConverter.convertGlobalTransactionDO(session));    } else if (LogOperation.BRANCH_ADD.equals(logOperation)) {        return logStore.insertBranchTransactionDO(SessionConverter.convertBranchTransactionDO(session));    } else if (LogOperation.BRANCH_UPDATE.equals(logOperation)) {        return logStore.updateBranchTransactionDO(SessionConverter.convertBranchTransactionDO(session));    } else if (LogOperation.BRANCH_REMOVE.equals(logOperation)) {        return logStore.deleteBranchTransactionDO(SessionConverter.convertBranchTransactionDO(session));    } else {        throw new StoreException("Unknown LogOperation:" + logOperation.name());    }}
 ```
 
@@ -452,7 +452,7 @@ io.seata.server.session.AbstractSessionManager#onBegin方法，又调用io.seata
 
 
 
-```
+```java
 /*** 构造datasource代理对象，替换原来的的datasource*/@Primary@Bean("dataSource")public DataSourceProxy dataSourceProxy(DataSource druidDataSource){    return new DataSourceProxy(druidDataSource);}
 ```
 
@@ -468,7 +468,7 @@ io.seata.server.session.AbstractSessionManager#onBegin方法，又调用io.seata
 
 
 
-```
+```java
 @Overridepublic boolean execute(String sql) throws SQLException {    this.targetSQL = sql;    return ExecuteTemplate.execute(this, (statement, args) -> statement.execute((String) args[0]), sql);}
 ```
 
@@ -482,7 +482,7 @@ io.seata.server.session.AbstractSessionManager#onBegin方法，又调用io.seata
 
 
 
-```
+```java
 public static <T, S extends Statement> T execute(List<SQLRecognizer> sqlRecognizers,                                                     StatementProxy<S> statementProxy,                                                     StatementCallback<T, S> statementCallback,                                                     Object... args) throws SQLException {         if (!RootContext.requireGlobalLock() && !StringUtils.equals(BranchType.AT.name(), RootContext.getBranchType())) {            //不是全局事务的直接执行，提升性能            return statementCallback.execute(statementProxy.getTargetStatement(), args);        }         String dbType = statementProxy.getConnectionProxy().getDbType();        if (CollectionUtils.isEmpty(sqlRecognizers)) {            sqlRecognizers = SQLVisitorFactory.get(                    statementProxy.getTargetSQL(),                    dbType);        }        Executor<T> executor;        if (CollectionUtils.isEmpty(sqlRecognizers)) {            executor = new PlainExecutor<>(statementProxy, statementCallback);        } else {            if (sqlRecognizers.size() == 1) {                SQLRecognizer sqlRecognizer = sqlRecognizers.get(0);                //不同SQL类型，不同处理                switch (sqlRecognizer.getSQLType()) {                    case INSERT:                        executor = EnhancedServiceLoader.load(InsertExecutor.class, dbType,                                new Class[]{StatementProxy.class, StatementCallback.class, SQLRecognizer.class},                                new Object[]{statementProxy, statementCallback, sqlRecognizer});                        break;                    case UPDATE:                        executor = new UpdateExecutor<>(statementProxy, statementCallback, sqlRecognizer);                        break;                    case DELETE:                        executor = new DeleteExecutor<>(statementProxy, statementCallback, sqlRecognizer);                        break;                    case SELECT_FOR_UPDATE:                        executor = new SelectForUpdateExecutor<>(statementProxy, statementCallback, sqlRecognizer);                        break;                    default:                        executor = new PlainExecutor<>(statementProxy, statementCallback);                        break;                }            } else {                executor = new MultiExecutor<>(statementProxy, statementCallback, sqlRecognizers);            }        }        T rs;        try {            //执行SQL            rs = executor.execute(args);        } catch (Throwable ex) {            if (!(ex instanceof SQLException)) {                // Turn other exception into SQLException                ex = new SQLException(ex);            }            throw (SQLException) ex;        }        return rs;    }
 ```
 
@@ -505,7 +505,7 @@ io.seata.rm.datasource.exec.BaseTransactionalExecutor#execute方法
 
 
 
-```
+```java
 @Overridepublic T execute(Object... args) throws Throwable {    if (RootContext.inGlobalTransaction()) {        String xid = RootContext.getXID();        statementProxy.getConnectionProxy().bind(xid);    }     statementProxy.getConnectionProxy().setGlobalLockRequire(RootContext.requireGlobalLock());    return doExecute(args);}
 ```
 
@@ -521,7 +521,7 @@ io.seata.rm.datasource.exec.BaseTransactionalExecutor#execute方法
 
 
 
-```
+```java
 @Overridepublic T doExecute(Object... args) throws Throwable {    AbstractConnectionProxy connectionProxy = statementProxy.getConnectionProxy();    if (connectionProxy.getAutoCommit()) {        return executeAutoCommitTrue(args);    } else {        return executeAutoCommitFalse(args);    }}
 ```
 
@@ -538,7 +538,7 @@ executeAutoCommitTrue/executeAutoCommitFalse
 
 
 
-```
+```java
 protected T executeAutoCommitTrue(Object[] args) throws Throwable {    ConnectionProxy connectionProxy = statementProxy.getConnectionProxy();    try {        connectionProxy.setAutoCommit(false);        return new LockRetryPolicy(connectionProxy).execute(() -> {            T result = executeAutoCommitFalse(args);            connectionProxy.commit();            return result;        });    } catch (Exception e) {        ...    } finally {        connectionProxy.getContext().reset();        connectionProxy.setAutoCommit(true);    }}
 ```
 
@@ -554,7 +554,7 @@ protected T executeAutoCommitTrue(Object[] args) throws Throwable {    Connectio
 
 
 
-```
+```java
 protected T executeAutoCommitFalse(Object[] args) throws Exception {    //跟入getTableMeta方法    if (!JdbcConstants.MYSQL.equalsIgnoreCase(getDbType()) && getTableMeta().getPrimaryKeyOnlyName().size() > 1)    {        throw new NotSupportYetException("multi pk only support mysql!");    }    //获取beforeImage    TableRecords beforeImage = beforeImage();    //执行业务sql    T result = statementCallback.execute(statementProxy.getTargetStatement(), args);    //获取afterImage    TableRecords afterImage = afterImage(beforeImage);    //保存image    prepareUndoLog(beforeImage, afterImage);    return result;}
 ```
 
@@ -570,7 +570,7 @@ protected T executeAutoCommitFalse(Object[] args) throws Exception {    //跟入
 
 
 
-```
+```java
 //tableMeta里面包含表名、列、索引等数据protected TableMeta getTableMeta(String tableName) {    if (tableMeta != null) {        return tableMeta;    }    ConnectionProxy connectionProxy = statementProxy.getConnectionProxy();    tableMeta = TableMetaCacheFactory.getTableMetaCache(connectionProxy.getDbType())        .getTableMeta(connectionProxy.getTargetConnection(), tableName, connectionProxy.getDataSourceProxy().getResourceId());    return tableMeta;}
 ```
 
@@ -589,7 +589,7 @@ com.alibaba.druid.pool.DruidPooledPreparedStatement#execute方法执行
 
 
 
-```
+```java
 protected T executeAutoCommitTrue(Object[] args) throws Throwable {    ConnectionProxy connectionProxy = statementProxy.getConnectionProxy();    try {        connectionProxy.setAutoCommit(false);        return new LockRetryPolicy(connectionProxy).execute(() -> {            T result = executeAutoCommitFalse(args);            //跟入            connectionProxy.commit();            return result;        });    } catch (Exception e) {        ...    } finally {        connectionProxy.getContext().reset();        connectionProxy.setAutoCommit(true);    }}
 ```
 
@@ -603,7 +603,7 @@ protected T executeAutoCommitTrue(Object[] args) throws Throwable {    Connectio
 
 
 
-```
+```java
 public void commit() throws SQLException {    try {        LOCK_RETRY_POLICY.execute(() -> {            //跟入            doCommit();            return null;        });    } catch (SQLException e) {        throw e;    } catch (Exception e) {        throw new SQLException(e);    }}
 ```
 
@@ -617,7 +617,7 @@ public void commit() throws SQLException {    try {        LOCK_RETRY_POLICY.exe
 
 
 
-```
+```java
 private void doCommit() throws SQLException {    if (context.inGlobalTransaction()) {        //跟入        processGlobalTransactionCommit();    } else if (context.isGlobalLockRequire()) {        processLocalCommitWithGlobalLocks();    } else {        targetConnection.commit();    }}
 ```
 
@@ -631,7 +631,7 @@ private void doCommit() throws SQLException {    if (context.inGlobalTransaction
 
 
 
-```
+```java
 private void processGlobalTransactionCommit() throws SQLException {    try {        //向seata-server注册分支信息        register();    } catch (TransactionException e) {        recognizeLockKeyConflictException(e, context.buildLockKeys());    }    try {        //提交事务之前，插入undo_log,跟入flushUndoLogs        UndoLogManagerFactory.getUndoLogManager(this.getDbType()).flushUndoLogs(this);        targetConnection.commit();    } catch (Throwable ex) {       ...    }    if (IS_REPORT_SUCCESS_ENABLE) {        report(true);    }    context.reset();}
 ```
 
@@ -645,7 +645,7 @@ private void processGlobalTransactionCommit() throws SQLException {    try {    
 
 
 
-```
+```java
 public void flushUndoLogs(ConnectionProxy cp) throws SQLException {    ConnectionContext connectionContext = cp.getContext();    if (!connectionContext.hasUndoLog()) {        return;    }     String xid = connectionContext.getXid();    long branchId = connectionContext.getBranchId();     ...//该方法插入undo_log    insertUndoLogWithNormal(xid, branchId, buildContext(parser.getName()), undoLogContent,                            cp.getTargetConnection());}
 ```
 
@@ -663,7 +663,7 @@ io.seata.server.coordinator.DefaultCoordinator#doBranchRegister方法
 
 
 
-```
+```java
 public Long branchRegister(BranchType branchType, String resourceId, String clientId, String xid,                           String applicationData, String lockKeys) throws TransactionException {    GlobalSession globalSession = assertGlobalSessionNotNull(xid, false);    return SessionHolder.lockAndExecute(globalSession, () -> {        ...        try {            //进行注册            globalSession.addBranch(branchSession);        } catch (RuntimeException ex) {            ...        }        ...        return branchSession.getBranchId();    });}
 ```
 
@@ -677,7 +677,7 @@ public Long branchRegister(BranchType branchType, String resourceId, String clie
 
 
 
-```
+```java
 @Overridepublic void addBranch(BranchSession branchSession) throws TransactionException {    for (SessionLifecycleListener lifecycleListener : lifecycleListeners) {        //跟入onAddBranch，选择AbstractSessionManager        lifecycleListener.onAddBranch(this, branchSession);    }    branchSession.setStatus(BranchStatus.Registered);    add(branchSession);}
 ```
 
@@ -693,7 +693,7 @@ io.seata.server.storage.db.session.DataBaseSessionManager#addBranchSession方法
 
 
 
-```
+```java
 @Overridepublic void onAddBranch(GlobalSession globalSession, BranchSession branchSession) throws TransactionException {    //跟入，选择DataBaseSessionManager    addBranchSession(globalSession, branchSession);}
 ```
 
@@ -707,7 +707,7 @@ io.seata.server.storage.db.session.DataBaseSessionManager#addBranchSession方法
 
 
 
-```
+```java
 @Overridepublic void addBranchSession(GlobalSession globalSession, BranchSession session) throws TransactionException {    if (StringUtils.isNotBlank(taskName)) {        return;    }    //跟入    boolean ret = transactionStoreManager.writeSession(LogOperation.BRANCH_ADD, session);    if (!ret) {        throw new StoreException("addBranchSession failed.");    }}
 ```
 
@@ -721,7 +721,7 @@ io.seata.server.storage.db.session.DataBaseSessionManager#addBranchSession方法
 
 
 
-```
+```java
 @Overridepublic boolean writeSession(LogOperation logOperation, SessionStorable session) {    if (LogOperation.GLOBAL_ADD.equals(logOperation)) {        return logStore.insertGlobalTransactionDO(SessionConverter.convertGlobalTransactionDO(session));    } else if (LogOperation.GLOBAL_UPDATE.equals(logOperation)) {        return logStore.updateGlobalTransactionDO(SessionConverter.convertGlobalTransactionDO(session));    } else if (LogOperation.GLOBAL_REMOVE.equals(logOperation)) {        return logStore.deleteGlobalTransactionDO(SessionConverter.convertGlobalTransactionDO(session));    } else if (LogOperation.BRANCH_ADD.equals(logOperation)) {        return logStore.insertBranchTransactionDO(SessionConverter.convertBranchTransactionDO(session));    } else if (LogOperation.BRANCH_UPDATE.equals(logOperation)) {        return logStore.updateBranchTransactionDO(SessionConverter.convertBranchTransactionDO(session));    } else if (LogOperation.BRANCH_REMOVE.equals(logOperation)) {        return logStore.deleteBranchTransactionDO(SessionConverter.convertBranchTransactionDO(session));    } else {        throw new StoreException("Unknown LogOperation:" + logOperation.name());    }}
 ```
 
@@ -735,7 +735,7 @@ io.seata.server.storage.db.session.DataBaseSessionManager#addBranchSession方法
 
 
 
-```
+```java
 @Overridepublic boolean insertBranchTransactionDO(BranchTransactionDO branchTransactionDO) {    String sql = LogStoreSqlsFactory.getLogStoreSqls(dbType).getInsertBranchTransactionSQL(branchTable);    Connection conn = null;    PreparedStatement ps = null;    try {        int index = 1;        conn = logStoreDataSource.getConnection();        conn.setAutoCommit(true);        ps = conn.prepareStatement(sql);        ps.setString(index++, branchTransactionDO.getXid());        ps.setLong(index++, branchTransactionDO.getTransactionId());        ps.setLong(index++, branchTransactionDO.getBranchId());        ps.setString(index++, branchTransactionDO.getResourceGroupId());        ps.setString(index++, branchTransactionDO.getResourceId());        ps.setString(index++, branchTransactionDO.getBranchType());        ps.setInt(index++, branchTransactionDO.getStatus());        ps.setString(index++, branchTransactionDO.getClientId());        ps.setString(index++, branchTransactionDO.getApplicationData());        return ps.executeUpdate() > 0;    } catch (SQLException e) {        throw new StoreException(e);    } finally {        IOUtil.close(ps, conn);    }}
 ```
 
@@ -755,7 +755,7 @@ transactionalTemplate.execute方法
 
 
 
-```
+```java
 // 2\. 开启全局事务beginTransactionbeginTransaction(txInfo, tx); Object rs = null;try {     // 执行业务方法business.execute()    rs = business.execute(); } catch (Throwable ex) {     //上面是一阶段    //下面是二阶段    // 3.出现异常执行completeTransactionAfterThrowing回滚    completeTransactionAfterThrowing(txInfo, tx, ex);    throw ex;} // 4\. 没有异常提交事务commitTransactioncommitTransaction(tx);
 ```
 
@@ -773,7 +773,7 @@ commitTransaction(tx);跟进
 
 
 
-```
+```java
 private void commitTransaction(GlobalTransaction tx) throws TransactionalExecutor.ExecutionException {    try {        triggerBeforeCommit();        //跟入        tx.commit();        triggerAfterCommit();    } catch (TransactionException txe) {        // 4.1 Failed to commit        throw new TransactionalExecutor.ExecutionException(tx, txe,                                                           TransactionalExecutor.Code.CommitFailure);    }}
 ```
 
@@ -789,7 +789,7 @@ private void commitTransaction(GlobalTransaction tx) throws TransactionalExecuto
 
 
 
-```
+```java
 @Overridepublic GlobalStatus commit(String xid) throws TransactionException {    GlobalCommitRequest globalCommit = new GlobalCommitRequest();    globalCommit.setXid(xid);    //跟入syncCall    GlobalCommitResponse response = (GlobalCommitResponse) syncCall(globalCommit);    return response.getGlobalStatus();}
 ```
 
@@ -803,7 +803,7 @@ private void commitTransaction(GlobalTransaction tx) throws TransactionalExecuto
 
 
 
-```
+```java
 private AbstractTransactionResponse syncCall(AbstractTransactionRequest request) throws TransactionException {    try {        return (AbstractTransactionResponse) TmNettyRemotingClient.getInstance().sendSyncRequest(request);    } catch (TimeoutException toe) {        throw new TmTransactionException(TransactionExceptionCode.IO, "RPC timeout", toe);    }}
 ```
 
@@ -821,7 +821,7 @@ DefaultCoordinator中
 
 
 
-```
+```java
 @Overrideprotected void doGlobalCommit(GlobalCommitRequest request, GlobalCommitResponse response, RpcContext rpcContext)    throws TransactionException {    MDC.put(RootContext.MDC_KEY_XID, request.getXid());    //跟入commit    response.setGlobalStatus(core.commit(request.getXid()));}
 ```
 
@@ -840,7 +840,7 @@ Seata-server接收到客户端全局提交请求后，先回调客户端，删�
 
 
 
-```
+```java
 @Overridepublic void removeBranch(BranchSession branchSession) throws TransactionException {    // do not unlock if global status in (Committing, CommitRetrying, AsyncCommitting),    // because it's already unlocked in 'DefaultCore.commit()'    if (status != Committing && status != CommitRetrying && status != AsyncCommitting) {        if (!branchSession.unlock()) {            throw new TransactionException("Unlock branch lock failed, xid = " + this.xid + ", branchId = " + branchSession.getBranchId());        }    }    for (SessionLifecycleListener lifecycleListener : lifecycleListeners) {        //跟入        lifecycleListener.onRemoveBranch(this, branchSession);    }    remove(branchSession);}
 ```
 
@@ -854,7 +854,7 @@ Seata-server接收到客户端全局提交请求后，先回调客户端，删�
 
 
 
-```
+```java
 private void writeSession(LogOperation logOperation, SessionStorable sessionStorable) throws TransactionException {    if (!transactionStoreManager.writeSession(logOperation, sessionStorable)) {        if (LogOperation.GLOBAL_ADD.equals(logOperation)) {            throw new GlobalTransactionException(TransactionExceptionCode.FailedWriteSession,                                                 "Fail to store global session");        } else if (LogOperation.GLOBAL_UPDATE.equals(logOperation)) {            throw new GlobalTransactionException(TransactionExceptionCode.FailedWriteSession,                                                 "Fail to update global session");        } else if (LogOperation.GLOBAL_REMOVE.equals(logOperation)) {            throw new GlobalTransactionException(TransactionExceptionCode.FailedWriteSession,                                                 "Fail to remove global session");        } else if (LogOperation.BRANCH_ADD.equals(logOperation)) {            throw new BranchTransactionException(TransactionExceptionCode.FailedWriteSession,                                                 "Fail to store branch session");        } else if (LogOperation.BRANCH_UPDATE.equals(logOperation)) {            throw new BranchTransactionException(TransactionExceptionCode.FailedWriteSession,                                                 "Fail to update branch session");        } else if (LogOperation.BRANCH_REMOVE.equals(logOperation)) {            throw new BranchTransactionException(TransactionExceptionCode.FailedWriteSession,                                                 "Fail to remove branch session");        } else {            throw new BranchTransactionException(TransactionExceptionCode.FailedWriteSession,                                                 "Unknown LogOperation:" + logOperation.name());        }    }}
 ```
 
@@ -868,7 +868,7 @@ private void writeSession(LogOperation logOperation, SessionStorable sessionStor
 
 
 
-```
+```java
 public static void endCommitted(GlobalSession globalSession) throws TransactionException {    globalSession.changeStatus(GlobalStatus.Committed);    //删除全局事务    globalSession.end();}
 ```
 
@@ -886,7 +886,7 @@ public static void endCommitted(GlobalSession globalSession) throws TransactionE
 
 
 
-```
+```java
 protected void doBranchCommit(BranchCommitRequest request, BranchCommitResponse response)    throws TransactionException {    String xid = request.getXid();    long branchId = request.getBranchId();    String resourceId = request.getResourceId();    String applicationData = request.getApplicationData();    if (LOGGER.isInfoEnabled()) {        LOGGER.info("Branch committing: " + xid + " " + branchId + " " + resourceId + " " + applicationData);    }    //跟入    BranchStatus status = getResourceManager().branchCommit(request.getBranchType(), xid, branchId, resourceId,                                                            applicationData);    response.setXid(xid);    response.setBranchId(branchId);    response.setBranchStatus(status);    if (LOGGER.isInfoEnabled()) {        LOGGER.info("Branch commit result: " + status);    } }
 ```
 
@@ -902,7 +902,7 @@ getResourceManager获取的就是RMClient初始化时设置的资源管理器Dat
 
 
 
-```
+```java
 public BranchStatus branchCommit(BranchType branchType, String xid, long branchId, String resourceId,                                 String applicationData) throws TransactionException {    return asyncWorker.branchCommit(branchType, xid, branchId, resourceId, applicationData);}
 ```
 
@@ -916,7 +916,7 @@ public BranchStatus branchCommit(BranchType branchType, String xid, long branchI
 
 
 
-```
+```java
 @Overridepublic BranchStatus branchCommit(BranchType branchType, String xid, long branchId, String resourceId,                                 String applicationData) throws TransactionException {    if (!ASYNC_COMMIT_BUFFER.offer(new Phase2Context(branchType, xid, branchId, resourceId, applicationData))) {        LOGGER.warn("Async commit buffer is FULL. Rejected branch [{}/{}] will be handled by housekeeping later.", branchId, xid);    }    return BranchStatus.PhaseTwo_Committed;}
 ```
 
@@ -932,7 +932,7 @@ public BranchStatus branchCommit(BranchType branchType, String xid, long branchI
 
 
 
-```
+```java
 public synchronized void init() {    LOGGER.info("Async Commit Buffer Limit: {}", ASYNC_COMMIT_BUFFER_LIMIT);    ScheduledExecutorService timerExecutor = new ScheduledThreadPoolExecutor(1, new NamedThreadFactory("AsyncWorker", 1, true));    timerExecutor.scheduleAtFixedRate(() -> {        try {//跟入            doBranchCommits();         } catch (Throwable e) {            LOGGER.info("Failed at async committing ... {}", e.getMessage());         }    }, 10, 1000 * 1, TimeUnit.MILLISECONDS);}
 ```
 
@@ -952,7 +952,7 @@ public synchronized void init() {    LOGGER.info("Async Commit Buffer Limit: {}"
 
 
 
-```
+```java
 protected void doGlobalRollback(GlobalRollbackRequest request, GlobalRollbackResponse response,                                RpcContext rpcContext) throws TransactionException {    MDC.put(RootContext.MDC_KEY_XID, request.getXid());    //全局回滚sea他接收请求    response.setGlobalStatus(core.rollback(request.getXid()));}
 ```
 
@@ -968,7 +968,7 @@ protected void doGlobalRollback(GlobalRollbackRequest request, GlobalRollbackRes
 
 
 
-```
+```java
 @Overridepublic BranchRollbackResponse handle(BranchRollbackRequest request) {    BranchRollbackResponse response = new BranchRollbackResponse();    exceptionHandleTemplate(new AbstractCallback<BranchRollbackRequest, BranchRollbackResponse>() {        @Override        public void execute(BranchRollbackRequest request, BranchRollbackResponse response)            throws TransactionException {            //跟入            doBranchRollback(request, response);        }    }, request, response);    return response;}
 ```
 
@@ -982,7 +982,7 @@ protected void doGlobalRollback(GlobalRollbackRequest request, GlobalRollbackRes
 
 
 
-```
+```java
 public BranchStatus branchRollback(BranchType branchType, String xid, long branchId, String resourceId,                                   String applicationData) throws TransactionException {    DataSourceProxy dataSourceProxy = get(resourceId);    if (dataSourceProxy == null) {        throw new ShouldNeverHappenException();    }    try {        UndoLogManagerFactory.getUndoLogManager(dataSourceProxy.getDbType()).undo(dataSourceProxy, xid, branchId);    } catch (TransactionException te) {        StackTraceLogger.info(LOGGER, te,                              "branchRollback failed. branchType:[{}], xid:[{}], branchId:[{}], resourceId:[{}], applicationData:[{}]. reason:[{}]",                              new Object[]{branchType, xid, branchId, resourceId, applicationData, te.getMessage()});        if (te.getCode() == TransactionExceptionCode.BranchRollbackFailed_Unretriable) {            return BranchStatus.PhaseTwo_RollbackFailed_Unretryable;        } else {            return BranchStatus.PhaseTwo_RollbackFailed_Retryable;        }    }    return BranchStatus.PhaseTwo_Rollbacked; }
 ```
 

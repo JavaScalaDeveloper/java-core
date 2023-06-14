@@ -18,7 +18,7 @@ context = createApplicationContext();
 
 我们进入 `SpringApplication#createApplicationContext` 方法：
 
-```
+```java
 /** 默认的 ApplicationContext */
 public static final String DEFAULT_CONTEXT_CLASS = "org.springframework.context."
         + "annotation.AnnotationConfigApplicationContext";
@@ -67,7 +67,7 @@ protected ConfigurableApplicationContext createApplicationContext() {
 
 当前应用的类型是 `servlet`，因此创建的 `ApplicationContext` 是 `AnnotationConfigReactiveWebServerApplicationContext`，来看看它的构造方法：
 
-```
+```java
 public class AnnotationConfigServletWebServerApplicationContext 
         extends ServletWebServerApplicationContext implements AnnotationConfigRegistry {
 
@@ -91,7 +91,7 @@ public class AnnotationConfigServletWebServerApplicationContext
 
 `AnnotationConfigServletWebServerApplicationContext` 的构造方法还是比较简单的，只是设置了两个属性，就不多说了。不过，我们也要把目光放远一点，看看其父类的构造方法，最终在 `GenericApplicationContext` 的构造方法中找到这么一句：
 
-```
+```java
 public GenericApplicationContext() {
     this.beanFactory = new DefaultListableBeanFactory();
 }
@@ -104,7 +104,7 @@ public GenericApplicationContext() {
 
 创建完 ioc 容器后，接着就是对容器进行一些准备操作，代码如下：
 
-```
+```java
 public class SpringApplication {
 
     ...
@@ -162,7 +162,7 @@ public class SpringApplication {
 
 该操作的代码为
 
-```
+```java
 private void prepareContext(ConfigurableApplicationContext context, 
         ConfigurableEnvironment environment, SpringApplicationRunListeners listeners, 
         ApplicationArguments applicationArguments, Banner printedBanner) {
@@ -175,7 +175,7 @@ private void prepareContext(ConfigurableApplicationContext context,
 
 这个 `environment` 就是前面创建的 `environment`，ioc 容器也是使用这个，我们来看看设置操作：
 
-```
+```java
 public class AnnotationConfigServletWebServerApplicationContext extends ... {
 
     ...
@@ -198,7 +198,7 @@ public class AnnotationConfigServletWebServerApplicationContext extends ... {
 
 我们来看看 `postProcessApplicationContext(context);` 所做的工作：
 
-```
+```java
 public class SpringApplication {
 
     ...
@@ -248,7 +248,7 @@ public class SpringApplication {
 
 `SpringApplication#applyInitializers` 方法如下：
 
-```
+```java
 public class SpringApplication {
 
     ...
@@ -273,7 +273,7 @@ public class SpringApplication {
 
 这里还需要提下，`getInitializers()` 是怎么获取 `Initializer` 的呢？相关代码如下：
 
-```
+```java
 public class SpringApplication {
 
     private List<ApplicationContextInitializer<?>> initializers;
@@ -306,7 +306,7 @@ public class SpringApplication {
 
 代码如下：
 
-```
+```java
 private void prepareContext(ConfigurableApplicationContext context, 
         ConfigurableEnvironment environment, SpringApplicationRunListeners listeners, 
         ApplicationArguments applicationArguments, Banner printedBanner) {
@@ -320,7 +320,7 @@ private void prepareContext(ConfigurableApplicationContext context,
 
 进入 `getAllSources()` 方法：
 
-```
+```java
 // 将 primarySources 放入set中，然后将set转化为不可变的set，返回
 public Set<Object> getAllSources() {
     Set<Object> allSources = new LinkedHashSet<>();
@@ -340,7 +340,7 @@ public Set<Object> getAllSources() {
 
 那这个 `primarySources` 是啥呢？这就又要回到 `SpringApplication` 的构造方法了：
 
-```
+```java
 public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySources) {
     ...
     // 这里设置了 primarySources
@@ -353,7 +353,7 @@ public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySourc
 
 然后继续往上，最后发现 `primarySources` 是我们在 `main` 方法中传入的：
 
-```
+```java
 @SpringBootApplication
 public class Demo01Application {
 
@@ -376,7 +376,7 @@ public class Demo01Application {
 
 这个操作的代码如下：
 
-```
+```java
 private void prepareContext(ConfigurableApplicationContext context, 
         ConfigurableEnvironment environment, SpringApplicationRunListeners listeners, 
         ApplicationArguments applicationArguments, Banner printedBanner) {
@@ -390,7 +390,7 @@ private void prepareContext(ConfigurableApplicationContext context,
 
 进入 `SpringApplication#load` 方法：
 
-```
+```java
 public class SpringApplication {
     ...
 
@@ -422,7 +422,7 @@ public class SpringApplication {
 
 我们继续，进入 `BeanDefinitionLoader#load()`：
 
-```
+```java
 class BeanDefinitionLoader {
 
     ...
@@ -480,7 +480,7 @@ class BeanDefinitionLoader {
 
 那么 `Demo01Application.class` 是否有 `@Component` 注解呢？有的，不过隐藏得比较深，其注解层级如下：
 
-```
+```java
 @SpringBootApplication
 public class Demo01Application {
     ...

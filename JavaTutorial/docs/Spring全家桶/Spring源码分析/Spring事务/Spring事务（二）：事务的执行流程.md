@@ -10,7 +10,7 @@ spring 事务管理功能是基于 aop 的，使用代理对象来进行事务�
 
 我们依旧是进入 `AbstractAutoProxyCreator#postProcessBeforeInitialization`：
 
-```
+```java
 public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) {
     ...
     if (...) {
@@ -47,7 +47,7 @@ public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName
 
 > BeanFactoryAdvisorRetrievalHelper#findAdvisorBeans
 
-```
+```java
 public List<Advisor> findAdvisorBeans() {
     String[] advisorNames = this.cachedAdvisorBeanNames;
     if (advisorNames == null) {
@@ -79,7 +79,7 @@ public List<Advisor> findAdvisorBeans() {
 
 跟着方法一路往下走，接着就来到了判断 `advisor` 能否适用于目标 `class` 的地方了：
 
-```
+```java
 /**
  * 判断advisor能否适用于目标class
  */
@@ -144,7 +144,7 @@ public static boolean canApply(Pointcut pc, Class<?> targetClass, boolean hasInt
 
 这一小 节我们从 `BeanFactoryTransactionAttributeSourceAdvisor` 入手，一步步分析匹配规则。
 
-```
+```java
 public class BeanFactoryTransactionAttributeSourceAdvisor 
         extends AbstractBeanFactoryPointcutAdvisor {
 
@@ -193,7 +193,7 @@ public class BeanFactoryTransactionAttributeSourceAdvisor
 
 `BeanFactoryTransactionAttributeSourceAdvisor` 的 `transactionAttributeSource` 是什么呢？回忆下 `ProxyTransactionManagementConfiguration` 中创建 `transactionAdvisor` 的代码：
 
-```
+```java
 public class ProxyTransactionManagementConfiguration 
         extends AbstractTransactionManagementConfiguration {
 
@@ -292,7 +292,7 @@ abstract class TransactionAttributeSourcePointcut
 
 匹配类的规则是找到了，那匹配方法的规则呢？我们进入 `TransactionAttributeSourcePointcut#getMethodMatcher()` 方法，进入的是 `StaticMethodMatcherPointcut`：
 
-```
+```java
 public abstract class StaticMethodMatcherPointcut 
         extends StaticMethodMatcher implements Pointcut {
     // 省略了一些代码
@@ -347,7 +347,7 @@ abstract class TransactionAttributeSourcePointcut
 
 > AnnotationTransactionAttributeSource#isCandidateClass
 
-```
+```java
 @Override
 public boolean isCandidateClass(Class<?> targetClass) {
     // 找到所有的annotationParsers，循环匹配
@@ -367,7 +367,7 @@ public boolean isCandidateClass(Class<?> targetClass) {
 
 `this.annotationParsers` 中只有 `SpringTransactionAnnotationParser`，我们进入其 `isCandidateClass` 方法：
 
-```
+```java
 public class SpringTransactionAnnotationParser 
         implements TransactionAnnotationParser, Serializable {
 
@@ -390,7 +390,7 @@ public class SpringTransactionAnnotationParser
 
 上面的方法匹配成功后，并不能表示成功匹配，还得匹配 `TransactionAttributeSourcePointcut#matches`，两者同时满足才会匹配成功。`TransactionAttributeSourcePointcut#matches` 调用 `AnnotationTransactionAttributeSource#getTransactionAttribute` 完成匹配的，我们跟进去：
 
-```
+```java
 public abstract class AbstractFallbackTransactionAttributeSource 
         implements TransactionAttributeSource {
 
@@ -421,7 +421,7 @@ public abstract class AbstractFallbackTransactionAttributeSource
 
 > AbstractFallbackTransactionAttributeSource
 
-```
+```java
 protected TransactionAttribute computeTransactionAttribute(Method method, 
         @Nullable Class<?> targetClass) {
     // 默认必须要 public 方法才支持事务
@@ -501,7 +501,7 @@ spring 又是如何从方法或类上获取 `@Transactional` 的属性呢？继�
 
 > SpringTransactionAnnotationParser
 
-```
+```java
     /**
      * 获取 Transactional 注解，存在则继续解析，不存在则返回 null
      */
@@ -573,7 +573,7 @@ spring 又是如何从方法或类上获取 `@Transactional` 的属性呢？继�
 
 > TransactionInterceptor#invoke
 
-```
+```java
 public Object invoke(MethodInvocation invocation) throws Throwable {
     Class<?> targetClass = (invocation.getThis() != null 
         ? AopUtils.getTargetClass(invocation.getThis()) : null);
@@ -587,7 +587,7 @@ public Object invoke(MethodInvocation invocation) throws Throwable {
 
 > TransactionAspectSupport#invokeWithinTransaction
 
-```
+```java
 protected Object invokeWithinTransaction(Method method, @Nullable Class<?> targetClass,
         final InvocationCallback invocation) throws Throwable {
     TransactionAttributeSource tas = getTransactionAttributeSource();

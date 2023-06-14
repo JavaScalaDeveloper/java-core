@@ -261,8 +261,8 @@ Survivor 区（S0 和 S1）：作为年轻代 GC（Minor GC）周期的一部分
 *   当`finalize()`方法被调用时，JVM 会释放该线程上的所有同步锁。
 
 ### GC Scope 示例程序
-````
-Class GCScope {
+````java
+class GCScope {
 
     GCScope t;
 

@@ -15,7 +15,7 @@
 
 `RequestMappingHandlerMapping` 是创建是在 `WebMvcConfigurationSupport` 中：
 
-```
+```java
 @Bean
 public RequestMappingHandlerMapping requestMappingHandlerMapping(
         @Qualifier("mvcContentNegotiationManager") ContentNegotiationManager contentNegotiationManager,
@@ -68,7 +68,7 @@ protected RequestMappingHandlerMapping createRequestMappingHandlerMapping() {
 
 这个方法就是用来创建对象 `RequestMappingHandlerMapping` 对象的，先是创建了一个对象，然后设置了各种属性。对象创建后，继续进行 spring bean 的生命周期，继而调用 `RequestMappingHandlerMapping#afterPropertiesSet` 方法：
 
-```
+```java
 @Override
 public void afterPropertiesSet() {
     // 配置了一些属性
@@ -89,7 +89,7 @@ public void afterPropertiesSet() {
 
 > AbstractHandlerMethodMapping#afterPropertiesSet
 
-```
+```java
 @Override
 public void afterPropertiesSet() {
     initHandlerMethods();
@@ -112,7 +112,7 @@ protected void initHandlerMethods() {
 
 spring 在处理时，获取了容器中所有 bean 的 beanName，然后对 beanName 进行挨个处理，继续看 `AbstractHandlerMethodMapping#processCandidateBean`：
 
-```
+```java
 // 处理bean的具体逻辑
 protected void processCandidateBean(String beanName) {
     // 获取 beanName 对应的 beanType
@@ -164,7 +164,7 @@ protected void processCandidateBean(String beanName) {
 
 继续看看 `AbstractHandlerMethodMapping#detectHandlerMethods` 的内容：
 
-```
+```java
 // 检测handler方法
 protected void detectHandlerMethods(Object handler) {
     Class<?> handlerType = (handler instanceof String ?
@@ -208,7 +208,7 @@ protected void detectHandlerMethods(Object handler) {
 
 > MethodIntrospector#selectMethods(Class, MethodIntrospector.MetadataLookup)
 
-```
+```java
 public static <T> Map<Method, T> selectMethods(Class<?> targetType, final 
             MetadataLookup<T> metadataLookup) {
     final Map<Method, T> methodMap = new LinkedHashMap<>();
@@ -251,7 +251,7 @@ public static <T> Map<Method, T> selectMethods(Class<?> targetType, final
 
 > RequestMappingHandlerMapping#getMappingForMethod
 
-```
+```java
 protected RequestMappingInfo getMappingForMethod(Method method, Class<?> handlerType) {
     // 处理方法上的 @RequestMapping
     RequestMappingInfo info = createRequestMappingInfo(method);
@@ -308,7 +308,7 @@ protected RequestMappingInfo createRequestMappingInfo(
 
 再来看看 `RequestMappingInfo` 长什么样：
 
-```
+```java
 public final class RequestMappingInfo implements RequestCondition<RequestMappingInfo> {
     // 提供了很多属性，对应着 @RequestMapping的属性
     @Nullable
@@ -372,7 +372,7 @@ public final class RequestMappingInfo implements RequestCondition<RequestMapping
 
 > RequestMappingHandlerMapping#registerHandlerMethod
 
-```
+```java
 @Override
 protected void registerHandlerMethod(Object handler, Method method, RequestMappingInfo mapping) {
     // 调用父类的方法，注册相关逻辑在这里
@@ -407,7 +407,7 @@ private void updateConsumesCondition(RequestMappingInfo info, Method method) {
 
 接下来我们来看看 `AbstractHandlerMethodMapping#registerHandlerMethod` 代码：
 
-```
+```java
 public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMapping 
         implements InitializingBean {
 
@@ -477,7 +477,7 @@ public abstract class AbstractHandlerMethodMapping<T> extends AbstractHandlerMap
 
 相关代码如下：
 
-```
+```java
 protected HandlerMethod createHandlerMethod(Object handler, Method method) {
     if (handler instanceof String) {
         return new HandlerMethod((String) handler,
@@ -490,7 +490,7 @@ protected HandlerMethod createHandlerMethod(Object handler, Method method) {
 
 这段方法就是简单地调用了 `HandlerMethod` 的构造方法，继续：
 
-```
+```java
 public class HandlerMethod {
 
     // 提供了非常多的属性
@@ -547,7 +547,7 @@ bean method xxxMethod mapped.
 
 这个异常就是在验证 mapping 时，发现了重复了 mapping 而触发的，代码如下：
 
-```
+```java
 // 所有的 mapping map，/test/hello、/test/{name}
 private final Map<T, HandlerMethod> mappingLookup = new LinkedHashMap<>();
 
@@ -572,7 +572,7 @@ private void validateMethodMapping(HandlerMethod handlerMethod, T mapping) {
 
 > HandlerMethod#equals
 
-```
+```java
 @Override
 public boolean equals(@Nullable Object other) {
     if (this == other) {
@@ -589,7 +589,7 @@ public boolean equals(@Nullable Object other) {
 
 > RequestMappingInfo#equals
 
-```
+```java
 @Override
 public boolean equals(@Nullable Object other) {
     if (this == other) {
@@ -612,7 +612,7 @@ public boolean equals(@Nullable Object other) {
 
 `RequestMappingInfo` 需要各属性相同才判断相等，因此像下面这样的 `@RequestMapping`，得到的 `RequestMappingInfo` 并不相等：
 
-```
+```java
 // 以下三个 @RequestMapping，虽然请求路径都是“/hello”，但支持的请求方法各不相同
 // 因此得到的 RequestMappingInfo 并不相等
 
@@ -639,7 +639,7 @@ springmvc 中，有两种 url 类型:
 
 1. 明确的 url，如
 
-   ```
+   ```java
    @RequestMapping("/hello")
    public String hello() {
       ...
@@ -649,7 +649,7 @@ springmvc 中，有两种 url 类型:
 
 2. 不明确的 url，如
 
-   ```
+   ```java
    @RequestMapping("/{name}")
    public String hello(@PathVariable("name") String name) {
       ...

@@ -6,7 +6,7 @@
 
 这个方法是用来初始化 `MessageSource` 的，内容如下：
 
-```
+```java
 public abstract class AbstractApplicationContext extends DefaultResourceLoader
         implements ConfigurableApplicationContext {
 
@@ -61,7 +61,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 `AbstractApplicationContext#initApplicationEventMulticaster` 代码如下：
 
-```
+```java
 protected void initApplicationEventMulticaster() {
     ConfigurableListableBeanFactory beanFactory = getBeanFactory();
     // 如果用户配置了自定义事件广播器，就使用用户的
@@ -86,7 +86,7 @@ protected void initApplicationEventMulticaster() {
 
 `AbstractApplicationContext#onRefresh` 是 spring 提供的一个扩展点，方法并无内容：
 
-```
+```java
 protected void onRefresh() throws BeansException {
 
 }
@@ -103,7 +103,7 @@ protected void onRefresh() throws BeansException {
 
 > AbstractApplicationContext
 
-```
+```java
 /** 这里就是用来存放监听器的 */
 private final Set<ApplicationListener<?>> applicationListeners = new LinkedHashSet<>();
 

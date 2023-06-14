@@ -8,7 +8,7 @@
 
 刷新后的处理方法为 `SpringApplication#afterRefresh`，内容如下：
 
-```
+```java
 protected void afterRefresh(ConfigurableApplicationContext context, ApplicationArguments args) {
 }
 ```
@@ -23,7 +23,7 @@ protected void afterRefresh(ConfigurableApplicationContext context, ApplicationA
 
 处理运行器的方法是 `SpringApplication#callRunners`，代码如下：
 
-```
+```java
 private void callRunners(ApplicationContext context, ApplicationArguments args) {
     List<Object> runners = new ArrayList<>();
     // 获取所有的 ApplicationRunner 与 CommandLineRunner
@@ -71,7 +71,7 @@ private void callRunner(CommandLineRunner runner, ApplicationArguments args) {
 
 这两个方法表示，springboot 为我们提供了两个接口：`ApplicationRunner` 与 `CommandLineRunner`，我们可以实现它来完成一些操作，应用示例如下：
 
-```
+```java
 /**
  * ApplicationRunner 示例
  */

@@ -83,7 +83,7 @@ actuator（执行器） 是一个制造术语，指的是用于移动或控制�
 
 
 
-```
+```xml
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -412,7 +412,7 @@ Kotlin
 
 
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public class MySecurityConfiguration {
 
@@ -483,7 +483,7 @@ Kotlin
 
 
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public class MySecurityConfiguration {
 
@@ -696,7 +696,7 @@ Kotlin
 
 
 
-```
+```java
 @ReadOperation
 public CustomData getData() {
     return new CustomData("test", 5);
@@ -775,7 +775,7 @@ Kotlin
 
 
 
-```
+```java
 @WriteOperation
 public void updateData(String name, int counter) {
     // injects "test" and 42
@@ -1120,7 +1120,7 @@ Kotlin
 
 
 
-```
+```java
 @Component
 public class MyHealthIndicator implements HealthIndicator {
 
@@ -1286,7 +1286,7 @@ Kotlin
 
 
 
-```
+```java
 @Component
 public class MyReactiveHealthIndicator implements ReactiveHealthIndicator {
 
@@ -1968,7 +1968,7 @@ Kotlin
 
 
 
-```
+```java
 @Component
 public class MyInfoContributor implements InfoContributor {
 
@@ -2485,7 +2485,7 @@ management.endpoints.jmx.exposure.exclude=*
 
 
 
-```
+```java
 @Component
 public class MyCustomObservation {
 
@@ -2793,7 +2793,7 @@ Kotlin
 
 
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public class MyMeterRegistryConfiguration {
 
@@ -2828,7 +2828,7 @@ Kotlin
 
 
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public class MyMeterRegistryConfiguration {
 
@@ -3754,7 +3754,7 @@ scrape_configs:
 
 
 
-```
+```xml
 <dependency>
     <groupId>io.prometheus</groupId>
     simpleclient_pushgateway
@@ -4666,7 +4666,7 @@ Kotlin
 
 
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public class MyCommandTagsProviderConfiguration {
 
@@ -4768,7 +4768,7 @@ Kotlin
 
 
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public class MyConnectionPoolTagsProviderConfiguration {
 
@@ -4876,7 +4876,7 @@ Kotlin
 
 
 
-```
+```java
 @Component
 public class MyBean {
 
@@ -4913,7 +4913,7 @@ Kotlin
 
 
 
-```
+```java
 public class MyMeterBinderConfiguration {
 
     @Bean
@@ -4972,7 +4972,7 @@ Kotlin
 
 
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public class MyMetricsFilterConfiguration {
 
@@ -5213,7 +5213,7 @@ Spring Boot为以下追踪器提供了自动配置。
 
 
 
-```
+```java
 @RestController
 @SpringBootApplication
 public class MyApplication {
@@ -5438,7 +5438,7 @@ Zipkin运行后，你可以启动你的应用程序。
 
 
 
-```
+```java
 @Component
 class CustomObservation {
 
@@ -5756,7 +5756,7 @@ Kotlin
 
 
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public class MyCloudFoundryConfiguration {
 

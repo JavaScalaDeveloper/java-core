@@ -49,7 +49,7 @@ Spring 支持 **@AspectJ annotation style** 的方法和**基于模式**的方�
 
 为了在本节的描述中使用 aop 命名空间标签，你需要导入 spring-aop 架构，如下所述：
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -167,7 +167,7 @@ Spring 支持 **@AspectJ annotation style** 的方法和**基于模式**的方�
 
 这里是 **Logging.java** 文件的内容。这实际上是 aspect 模块的一个示例，它定义了在各个点调用的方法。
 
-```
+```java
 package com.tutorialspoint;
 public class Logging {
    /** 
@@ -203,7 +203,7 @@ public class Logging {
 
 下面是 **Student.java** 文件的内容：
 
-```
+```java
 package com.tutorialspoint;
 public class Student {
    private Integer age;
@@ -231,7 +231,7 @@ public class Student {
 
 下面是 **MainApp.java** 文件的内容：
 
-```
+```java
 package com.tutorialspoint;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -249,7 +249,7 @@ public class MainApp {
 
 下面是配置文件 **Beans.xml**：
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -303,7 +303,7 @@ other exception content
 
 让我们来解释一下上面定义的在 com.tutorialspoint 中 选择所有方法的 。让我们假设一下，你想要在一个特殊的方法之前或者之后执行你的建议，你可以通过替换使用真实类和方法名称的切入点定义中的星号（*）来定义你的切入点来缩短你的执行。
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -370,7 +370,7 @@ other exception content
 
 Aspects 类和其他任何正常的 bean 一样，除了它们将会用 @AspectJ 注释之外，它和其他类一样可能有方法和字段，如下所示：
 
-```
+```java
 package org.xyz;
 import org.aspectj.lang.annotation.Aspect;
 @Aspect
@@ -380,7 +380,7 @@ public class AspectModule {
 
 它们将在 XML 中按照如下进行配置，就和其他任何 bean 一样：
 
-```
+```xml
 <bean id="myAspect" class="org.xyz.AspectModule">
    <!-- configure properties of aspect here as normal -->
 </bean>
@@ -415,7 +415,7 @@ private void getname() {}
 
 你可以使用 @{ADVICE-NAME} 注释声明五个建议中的任意一个，如下所示。这假设你已经定义了一个切入点标签方法 businessService()：
 
-```
+```java
 @Before("businessService()")
 public void doBeforeTask(){
  ...
@@ -442,7 +442,7 @@ public void doAroundTask(){
 
 你可以为任意一个建议定义你的切入点内联。下面是在建议之前定义内联切入点的一个示例：
 
-```
+```java
 @Before("execution(* com.xyz.myapp.service.*.*(..))")
 public doBeforeTask(){
  ...
@@ -464,7 +464,7 @@ public doBeforeTask(){
 
 这里是 **Logging.java** 文件的内容。这实际上是 aspect 模块的一个示例，它定义了在各个点调用的方法。
 
-```
+```java
 package com.tutorialspoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
@@ -518,7 +518,7 @@ public class Logging {
 
 下面是 **Student.java** 文件的内容：
 
-```
+```java
 package com.tutorialspoint;
 public class Student {
    private Integer age;
@@ -546,7 +546,7 @@ public class Student {
 
 下面是 **MainApp.java** 文件的内容：
 
-```
+```java
 package com.tutorialspoint;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -564,7 +564,7 @@ public class MainApp {
 
 下面是配置文件 **Beans.xml**：
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 

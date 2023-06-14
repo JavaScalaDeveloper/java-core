@@ -23,7 +23,7 @@
 
 
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -127,7 +127,7 @@
 
 
 
-```
+```java
 @Configuration
 public class MyRibbonAutoConfiguration {
     //简易版的Ribbon是靠这个类去完成负载均衡算法以及真实的ip和端口替换的
@@ -180,7 +180,7 @@ public class MyRibbonAutoConfiguration {
 
 
 
-```
+```java
 public class MyLoadBalancerClient implements LoadBalancerClient {
     @Autowired
     AbstractEnvironment environment;
@@ -265,7 +265,7 @@ public class MyLoadBalancerClient implements LoadBalancerClient {
 
 
 
-```
+```java
 public class MyLoadBalancerInterceptor implements ClientHttpRequestInterceptor {
     private LoadBalancerClient loadBalancerClient;
     private LoadBalancerRequestFactory requestFactory;
@@ -296,7 +296,7 @@ public class MyLoadBalancerInterceptor implements ClientHttpRequestInterceptor {
 
 
 
-```
+```java
 @Target({ ElementType.FIELD, ElementType.PARAMETER, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -318,7 +318,7 @@ public @interface MyLoadBalanced {
 
 
 
-```
+```java
 public class Server implements ServiceInstance {
     private String serviceId;
     private String instanceId;
@@ -408,7 +408,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 
 
 
-```
+```xml
 <serverName>.ribbon.listOfServers=127.0.0.1:2223,127.0.0.1:2222
 ```
 
@@ -426,7 +426,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 
 
 
-```
+```java
 /**
  * Annotation to mark a RestTemplate or WebClient bean to be configured to use a
  * LoadBalancerClient.
@@ -457,7 +457,7 @@ public @interface LoadBalanced {
 
 
 
-```
+```java
 public interface LoadBalancerClient extends ServiceInstanceChooser {
 	<T> T execute(String serviceId, LoadBalancerRequest<T> request) throws IOException;
 	<T> T execute(String serviceId, ServiceInstance serviceInstance,
@@ -488,7 +488,7 @@ spring-cloud-netflix-ribbon这个jar包的META-INF目录找spring.factories文�
 
 
 
-```
+```java
 @LoadBalanced
 @Autowired(required = false)
 private List<RestTemplate> restTemplates = Collections.emptyList();
@@ -508,7 +508,7 @@ private List<RestTemplate> restTemplates = Collections.emptyList();
 
 
 
-```
+```java
 @Bean
 @ConditionalOnMissingBean(LoadBalancerClient.class)
 public LoadBalancerClient loadBalancerClient() {
@@ -535,7 +535,7 @@ LoadBalancerClient的实现类为RibbonLoadBalancerClient，最终的负载均�
 
 
 
-```
+```java
 public <T> T execute(String serviceId, LoadBalancerRequest<T> request, Object hint)
     throws IOException {
     ILoadBalancer loadBalancer = getLoadBalancer(serviceId);
@@ -594,7 +594,7 @@ public <T> T execute(String serviceId, ServiceInstance serviceInstance,
 
 
 
-```
+```java
 protected Server getServer(ILoadBalancer loadBalancer, Object hint) {
     if (loadBalancer == null) {
         return null;
@@ -618,7 +618,7 @@ protected Server getServer(ILoadBalancer loadBalancer, Object hint) {
 
 
 
-```
+```java
 public interface ILoadBalancer {
 	public void addServers(List<Server> newServers);
 	public Server chooseServer(Object key);
@@ -643,7 +643,7 @@ ILoadBalancer有很多实现，那具体是用的哪个类呢，在RibbonAutoCon
 
 
 
-```
+```java
 @Bean
 @ConditionalOnMissingBean
 public ILoadBalancer ribbonLoadBalancer(IClientConfig config,
@@ -674,7 +674,7 @@ ZoneAwareLoadBalancer从名字中可以看出来，这个负载均衡器和zone�
 
 
 
-```
+```java
 @Override
 public Server chooseServer(Object key) {
     //只有当负载均衡器中维护的实例所属的Zone区域的个数大于1的时候才会执行选择策略
@@ -799,7 +799,7 @@ PingTask作为一个线程任务，就是定期检查服务是否都存活，跟
 
 
 
-```
+```java
 public interface LoadBalancerRequest<T> {
     T apply(ServiceInstance instance) throws Exception;
 }
@@ -834,7 +834,7 @@ ILoadBalancer接口的代码已经看过了，现在看下AbstractLoadBalancer�
 
 
 
-```
+```java
 public abstract class AbstractLoadBalancer implements ILoadBalancer {
     public enum ServerGroup{
         ALL,
@@ -874,7 +874,7 @@ public abstract class AbstractLoadBalancer implements ILoadBalancer {
 
 
 
-```
+```java
 @Monitor(name = PREFIX + "AllServerList", type = DataSourceType.INFORMATIONAL)
 protected volatile List<Server> allServerList = Collections
     .synchronizedList(new ArrayList<Server>());
@@ -896,7 +896,7 @@ protected volatile List<Server> upServerList = Collections
 
 
 
-```
+```java
 @Override
 public List<Server> getReachableServers() {
     return Collections.unmodifiableList(upServerList);
@@ -921,7 +921,7 @@ public List<Server> getAllServers() {
 
 
 
-```
+```java
 public interface ServerList<T extends Server> {
     public List<T> getInitialListOfServers();
     /**

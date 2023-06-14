@@ -4,7 +4,7 @@
 
 
 
-```
+```java
 public interface Resource extends InputStreamSource {
 
     boolean exists();
@@ -81,7 +81,7 @@ Spring 包括几个内置的 Resource 实现：
 
 
 
-```
+```java
 public interface ResourceLoader {
 
     Resource getResource(String location);
@@ -103,7 +103,7 @@ Spring 中，所有的 `ApplicationContext` 都实现了 `ResourceLoader` 接口
 
 
 
-```
+```java
 // 如果没有指定资源前缀，Spring 会尝试返回合适的资源
 Resource template = ctx.getResource("some/resource/path/myTemplate.txt");
 // 如果指定 classpath: 前缀，Spring 会强制使用 ClassPathResource
@@ -133,7 +133,7 @@ Resource template = ctx.getResource("http://myhost.com/resource/path/myTemplate.
 
 
 
-```
+```java
 public interface ResourcePatternResolver extends ResourceLoader {
 
     String CLASSPATH_ALL_URL_PREFIX = "classpath*:";
@@ -155,7 +155,7 @@ public interface ResourcePatternResolver extends ResourceLoader {
 
 
 
-```
+```java
 public interface ResourceLoaderAware {
     void setResourceLoader(ResourceLoader resourceLoader);
 }
@@ -180,7 +180,7 @@ public interface ResourceLoaderAware {
 
 
 
-```
+```xml
 <bean id="myBean" class="example.MyBean">
     <property name="template" value="some/resource/path/myTemplate.txt"/>
 </bean>
@@ -195,7 +195,7 @@ public interface ResourceLoaderAware {
 
 
 
-```
+```xml
 <property name="template" value="classpath:some/resource/path/myTemplate.txt">
 <property name="template" value="file:///some/resource/path/myTemplate.txt"/>
 
@@ -207,7 +207,7 @@ public interface ResourceLoaderAware {
 
 
 
-```
+```java
 @Component
 public class MyBean {
 
@@ -230,7 +230,7 @@ Spring 的 `PropertyEditor` 会根据资源文件的路径字符串，加载 `Re
 
 
 
-```
+```java
 @Component
 public class MyBean {
 

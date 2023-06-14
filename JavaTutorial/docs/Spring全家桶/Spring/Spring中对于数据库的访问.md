@@ -11,7 +11,7 @@ Spring 配置数据源有多种方式，下面一一列举：
 
 
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:jee="http://www.springframework.org/schema/jee"
@@ -39,7 +39,7 @@ Spring 本身并没有提供数据库连接池的实现，需要自行选择合�
 
 
 
-```
+```xml
 <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
         init-method="init" destroy-method="close">
     <property name="driverClassName" value="${jdbc.driver}"/>
@@ -89,7 +89,7 @@ Spring 本身并没有提供数据库连接池的实现，需要自行选择合�
 
 
 
-```
+```xml
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
   <property name="driverClassName" value="${jdbc.driver}"/>
   <property name="url" value="${jdbc.url}"/>
@@ -131,7 +131,7 @@ Spring 本身并没有提供数据库连接池的实现，需要自行选择合�
 
 在`AppConfig`中，我们需要创建以下几个必须的Bean：
 
-```
+```java
 @Configuration
 @ComponentScan
 @PropertySource("jdbc.properties")
@@ -187,7 +187,7 @@ jdbc.password=
 
 可以通过HSQLDB自带的工具来初始化数据库表，这里我们写一个Bean，在Spring容器启动时自动创建一个`users`表：
 
-```
+```java
 @Component
 public class DatabaseInitializer {
     @Autowired
@@ -208,7 +208,7 @@ public class DatabaseInitializer {
 
 现在，所有准备工作都已完毕。我们只需要在需要访问数据库的Bean中，注入`JdbcTemplate`即可：
 
-```
+```java
 @Component
 public class UserService {
     @Autowired
@@ -226,7 +226,7 @@ Spring提供的`JdbcTemplate`采用Template模式，提供了一系列以回调�
 
 首先我们看`T execute(ConnectionCallback<T> action)`方法，它提供了Jdbc的`Connection`供我们使用：
 
-```
+```java
 public User getUserById(long id) {
     // 注意传入的是ConnectionCallback:
     return jdbcTemplate.execute((Connection conn) -> {
@@ -254,7 +254,7 @@ public User getUserById(long id) {
 
 我们再看`T execute(String sql, PreparedStatementCallback<T> action)`的用法：
 
-```
+```java
 public User getUserByName(String name) {
     // 需要传入SQL语句，以及PreparedStatementCallback:
     return jdbcTemplate.execute("SELECT * FROM users WHERE name = ?", (PreparedStatement ps) -> {
@@ -277,7 +277,7 @@ public User getUserByName(String name) {
 
 最后，我们看`T queryForObject(String sql, RowMapper<T> rowMapper, Object... args)`方法：
 
-```
+```java
 public User getUserByEmail(String email) {
     // 传入SQL，参数和RowMapper实例:
     return jdbcTemplate.queryForObject("SELECT * FROM users WHERE email = ?",
@@ -298,7 +298,7 @@ public User getUserByEmail(String email) {
 
 `RowMapper`不一定返回JavaBean，实际上它可以返回任何Java对象。例如，使用`SELECT COUNT(*)`查询时，可以返回`Long`：
 
-```
+```java
 public long getUsers() {
     return jdbcTemplate.queryForObject("SELECT COUNT(*) FROM users", (ResultSet rs, int rowNum) -> {
         // SELECT COUNT(*)查询只有一列，取第一列数据:
@@ -310,7 +310,7 @@ public long getUsers() {
 
 如果我们期望返回多行记录，而不是一行，可以用`query()`方法：
 
-```
+```java
 public List<User> getUsers(int pageIndex) {
     int limit = 100;
     int offset = limit * (pageIndex - 1);
@@ -325,7 +325,7 @@ public List<User> getUsers(int pageIndex) {
 
 如果我们执行的不是查询，而是插入、更新和删除操作，那么需要使用`update()`方法：
 
-```
+```java
 public void updateUser(User user) {
     // 传入SQL，SQL参数，返回更新的行数:
     if (1 != jdbcTemplate.update("UPDATE users SET name = ? WHERE id = ?", user.getName(), user.getId())) {
@@ -337,7 +337,7 @@ public void updateUser(User user) {
 
 只有一种`INSERT`操作比较特殊，那就是如果某一列是自增列（例如自增主键），通常，我们需要获取插入后的自增值。`JdbcTemplate`提供了一个`KeyHolder`来简化这一操作：
 
-```
+```java
 public User register(String email, String password, String name) {
     // 创建一个KeyHolder:
     KeyHolder holder = new GeneratedKeyHolder();
@@ -399,7 +399,7 @@ Hibernate作为ORM框架，它可以替代`JdbcTemplate`，但Hibernate仍然需
 
 在`AppConfig`中，我们仍然需要创建`DataSource`、引入JDBC配置文件，以及启用声明式事务：
 
-```
+```java
 @Configuration
 @ComponentScan
 @EnableTransactionManagement
@@ -415,7 +415,7 @@ public class AppConfig {
 
 为了启用Hibernate，我们需要创建一个`LocalSessionFactoryBean`：
 
-```
+```java
 public class AppConfig {
     @Bean
     LocalSessionFactoryBean createSessionFactory(@Autowired DataSource dataSource) {
@@ -446,7 +446,7 @@ public class AppConfig {
 
 紧接着，我们还需要创建`HibernateTransactionManager`：
 
-```
+```java
 public class AppConfig {
     @Bean
     PlatformTransactionManager createTxManager(@Autowired SessionFactory sessionFactory) {
@@ -475,7 +475,7 @@ CREATE TABLE user
 
 其中，`id`是自增主键，`email`、`password`、`name`是`VARCHAR`类型，`email`带唯一索引以确保唯一性，`createdAt`存储整型类型的时间戳。用JavaBean表示如下：
 
-```
+```java
 public class User {
     private Long id;
     private String email;
@@ -491,7 +491,7 @@ public class User {
 
 这种映射关系十分易懂，但我们需要添加一些注解来告诉Hibernate如何把`User`类映射到表记录：
 
-```
+```java
 @Entity
 public class User {
     @Id
@@ -516,7 +516,7 @@ public class User {
 
 如果一个JavaBean被用于映射，我们就标记一个`@Entity`。默认情况下，映射的表名是`user`，如果实际的表名不同，例如实际表名是`users`，可以追加一个`@Table(name="users")`表示：
 
-```
+```java
 @Entity
 @Table(name="users)
 public class User {
@@ -537,7 +537,7 @@ public class User {
 
 类似的，我们再定义一个`Book`类：
 
-```
+```java
 @Entity
 public class Book {
     @Id
@@ -558,7 +558,7 @@ public class Book {
 
 不必在`User`和`Book`中重复定义这些通用字段，我们可以把它们提到一个抽象类中：
 
-```
+```java
 @MappedSuperclass
 public abstract class AbstractEntity {
 
@@ -592,7 +592,7 @@ public abstract class AbstractEntity {
 
 有了`AbstractEntity`，我们就可以大幅简化`User`和`Book`：
 
-```
+```java
 @Entity
 public class User extends AbstractEntity {
 
@@ -616,7 +616,7 @@ public class User extends AbstractEntity {
 
 最后，我们来看看如果对`user`表进行增删改查。因为使用了Hibernate，因此，我们要做的，实际上是对`User`这个JavaBean进行“增删改查”。我们编写一个`UserService`，注入`SessionFactory`：
 
-```
+```java
 @Component
 @Transactional
 public class UserService {
@@ -630,7 +630,7 @@ public class UserService {
 
 要持久化一个`User`实例，我们只需调用`persist()`方法。以`register()`方法为例，代码如下：
 
-```
+```java
 public User register(String email, String password, String name) {
     // 创建一个User对象:
     User user = new User();
@@ -652,7 +652,7 @@ public User register(String email, String password, String name) {
 
 删除一个`User`相当于从表中删除对应的记录。注意Hibernate总是用`id`来删除记录，因此，要正确设置`User`的`id`属性才能正常删除记录：
 
-```
+```java
 public boolean deleteUser(Long id) {
     User user = sessionFactory.getCurrentSession().byId(User.class).load(id);
     if (user != null) {
@@ -670,7 +670,7 @@ public boolean deleteUser(Long id) {
 
 更新记录相当于先更新`User`的指定属性，然后调用`merge()`方法：
 
-```
+```java
 public void updateUser(Long id, String name) {
     User user = sessionFactory.getCurrentSession().byId(User.class).load(id);
     user.setName(name);
@@ -706,7 +706,7 @@ List<User> list = sessionFactory.getCurrentSession()
 
 除了可以直接传入HQL字符串外，Hibernate还可以使用一种`NamedQuery`，它给查询起个名字，然后保存在注解中。使用`NamedQuery`时，我们要先在`User`类标注：
 
-```
+```java
 @NamedQueries(
     @NamedQuery(
         // 查询名称:
@@ -726,7 +726,7 @@ public class User extends AbstractEntity {
 
 使用`NamedQuery`只需要引入查询名和参数：
 
-```
+```java
 public User login(String email, String password) {
     List<User> list = sessionFactory.getCurrentSession()
         .createNamedQuery("login", User.class) // 创建NamedQuery
@@ -762,7 +762,7 @@ JPA就是JavaEE的一个ORM标准，它的实现其实和Hibernate没啥本质�
 
 然后，在`AppConfig`中启用声明式事务管理，创建`DataSource`：
 
-```
+```java
 @Configuration
 @ComponentScan
 @EnableTransactionManagement
@@ -776,7 +776,7 @@ public class AppConfig {
 
 使用Hibernate时，我们需要创建一个`LocalSessionFactoryBean`，并让它再自动创建一个`SessionFactory`。使用JPA也是类似的，我们也创建一个`LocalContainerEntityManagerFactoryBean`，并让它再自动创建一个`EntityManagerFactory`：
 
-```
+```java
 @Bean
 public LocalContainerEntityManagerFactoryBean createEntityManagerFactory(@Autowired DataSource dataSource) {
     var emFactory = new LocalContainerEntityManagerFactoryBean();
@@ -801,7 +801,7 @@ public LocalContainerEntityManagerFactoryBean createEntityManagerFactory(@Autowi
 
 最后，我们还需要实例化一个`JpaTransactionManager`，以实现声明式事务：
 
-```
+```java
 @Bean
 PlatformTransactionManager createTxManager(@Autowired EntityManagerFactory entityManagerFactory) {
     return new JpaTransactionManager(entityManagerFactory);
@@ -815,7 +815,7 @@ PlatformTransactionManager createTxManager(@Autowired EntityManagerFactory entit
 
 还是以`UserService`为例，除了标注`@Component`和`@Transactional`外，我们需要注入一个`EntityManager`，但是不要使用`Autowired`，而是`@PersistenceContext`：
 
-```
+```java
 @Component
 @Transactional
 public class UserService {
@@ -838,7 +838,7 @@ public class UserService {
 
 实际上这里注入的并不是真正的`EntityManager`，而是一个`EntityManager`的代理类，相当于：
 
-```
+```java
 public class EntityManagerProxy implements EntityManager {
     private EntityManagerFactory emf;
 }
@@ -851,7 +851,7 @@ Spring遇到标注了`@PersistenceContext`的`EntityManager`会自动注入代�
 
 因此，在`UserService`的每个业务方法里，直接使用`EntityManager`就很方便。以主键查询为例：
 
-```
+```java
 public User getUserById(long id) {
     User user = this.em.find(User.class, id);
     if (user == null) {
@@ -864,7 +864,7 @@ public User getUserById(long id) {
 
 与HQL查询类似，JPA使用JPQL查询，它的语法和HQL基本差不多：
 
-```
+```java
 public User fetchUserByEmail(String email) {
     // JPQL查询:
     TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.email = :e", User.class);
@@ -880,7 +880,7 @@ public User fetchUserByEmail(String email) {
 
 同样的，JPA也支持`NamedQuery`，即先给查询起个名字，再按名字创建查询：
 
-```
+```java
 public User login(String email, String password) {
     TypedQuery<User> query = em.createNamedQuery("login", User.class);
     query.setParameter("e", email);
@@ -893,7 +893,7 @@ public User login(String email, String password) {
 
 `NamedQuery`通过注解标注在`User`类上，它的定义和上一节的`User`类一样：
 
-```
+```java
 @NamedQueries(
     @NamedQuery(
         name = "login",
@@ -925,7 +925,7 @@ public class User {
 
 答案是使用[Proxy模式](https://www.liaoxuefeng.com/wiki/1252599548343744/1281319432618017)，从ORM框架读取的User实例实际上并不是User类，而是代理类，代理类继承自User类，但针对每个setter方法做了覆写：
 
-```
+```java
 public class UserProxy extends User {
     boolean _isNameChanged;
 
@@ -941,7 +941,7 @@ public class UserProxy extends User {
 
 针对一对多或多对一关系时，代理类可以直接通过getter方法查询数据库：
 
-```
+```java
 public class UserProxy extends User {
     Session _session;
     boolean _isNameChanged;
@@ -978,7 +978,7 @@ User user2 = session.load(User.class, 123);
 
 二级缓存是指跨Session的缓存，一般默认关闭，需要手动配置。二级缓存极大的增加了数据的不一致性，原因在于SQL非常灵活，常常会导致意外的更新。例如：
 
-```
+```java
 // 线程1读取:
 User user1 = session1.load(User.class, 123);
 ...
@@ -1017,7 +1017,7 @@ ORM无法判断`id=123`的用户是否受该`UPDATE`语句影响。考虑到数�
 
 和前面一样，先创建`DataSource`是必不可少的：
 
-```
+```java
 @Configuration
 @ComponentScan
 @EnableTransactionManagement
@@ -1038,7 +1038,7 @@ public class AppConfig {
 
 可见，ORM的设计套路都是类似的。使用MyBatis的核心就是创建`SqlSessionFactory`，这里我们需要创建的是`SqlSessionFactoryBean`：
 
-```
+```java
 @Bean
 SqlSessionFactoryBean createSqlSessionFactoryBean(@Autowired DataSource dataSource) {
     var sqlSessionFactoryBean = new SqlSessionFactoryBean();
@@ -1050,7 +1050,7 @@ SqlSessionFactoryBean createSqlSessionFactoryBean(@Autowired DataSource dataSour
 
 因为MyBatis可以直接使用Spring管理的声明式事务，因此，创建事务管理器和使用JDBC是一样的：
 
-```
+```java
 @Bean
 PlatformTransactionManager createTxManager(@Autowired DataSource dataSource) {
     return new DataSourceTransactionManager(dataSource);
@@ -1060,7 +1060,7 @@ PlatformTransactionManager createTxManager(@Autowired DataSource dataSource) {
 
 和Hibernate不同的是，MyBatis使用Mapper来实现映射，而且Mapper必须是接口。我们以`User`类为例，在`User`类和`users`表之间映射的`UserMapper`编写如下：
 
-```
+```java
 public interface UserMapper {
 	@Select("SELECT * FROM users WHERE id = #{id}")
 	User getById(@Param("id") long id);
@@ -1072,7 +1072,7 @@ public interface UserMapper {
 
 如果有多个参数，那么每个参数命名后直接在SQL中写出对应的占位符即可：
 
-```
+```java
 @Select("SELECT * FROM users LIMIT #{offset}, #{maxResults}")
 List<User> getAll(@Param("offset") int offset, @Param("maxResults") int maxResults);
 
@@ -1088,7 +1088,7 @@ SELECT id, name, email, created_time AS createdAt FROM users
 
 执行INSERT语句就稍微麻烦点，因为我们希望传入User实例，因此，定义的方法接口与`@Insert`注解如下：
 
-```
+```java
 @Insert("INSERT INTO users (email, password, name, createdAt) VALUES (#{user.email}, #{user.password}, #{user.name}, #{user.createdAt})")
 void insert(@Param("user") User user);
 
@@ -1098,7 +1098,7 @@ void insert(@Param("user") User user);
 
 如果`users`表的`id`是自增主键，那么，我们在SQL中不传入`id`，但希望获取插入后的主键，需要再加一个`@Options`注解：
 
-```
+```java
 @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
 @Insert("INSERT INTO users (email, password, name, createdAt) VALUES (#{user.email}, #{user.password}, #{user.name}, #{user.createdAt})")
 void insert(@Param("user") User user);
@@ -1109,7 +1109,7 @@ void insert(@Param("user") User user);
 
 执行`UPDATE`和`DELETE`语句相对比较简单，我们定义方法如下：
 
-```
+```java
 @Update("UPDATE users SET name = #{user.name}, createdAt = #{user.createdAt} WHERE id = #{user.id}")
 void update(@Param("user") User user);
 
@@ -1120,7 +1120,7 @@ void deleteById(@Param("id") long id);
 
 有了`UserMapper`接口，还需要对应的实现类才能真正执行这些数据库操作的方法。虽然可以自己写实现类，但我们除了编写`UserMapper`接口外，还有`BookMapper`、`BonusMapper`……一个一个写太麻烦，因此，MyBatis提供了一个`MapperFactoryBean`来自动创建所有Mapper的实现类。可以用一个简单的注解来启用它：
 
-```
+```java
 @MapperScan("com.itranswarp.learnjava.mapper")
 ...其他注解...
 public class AppConfig {
@@ -1131,7 +1131,7 @@ public class AppConfig {
 
 有了`@MapperScan`，就可以让MyBatis自动扫描指定包的所有Mapper并创建实现类。在真正的业务逻辑中，我们可以直接注入：
 
-```
+```java
 @Component
 @Transactional
 public class UserService {
@@ -1157,7 +1157,7 @@ public class UserService {
 
 上述在Spring中集成MyBatis的方式，我们只需要用到注解，并没有任何XML配置文件。MyBatis也允许使用XML配置映射关系和SQL语句，例如，更新`User`时根据属性值构造动态SQL：
 
-```
+```xml
 <update id="updateUser">
   UPDATE users SET
   <set>

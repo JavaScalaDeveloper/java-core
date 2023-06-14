@@ -17,7 +17,7 @@
 
 我们直接看 `AbstractAutowireCapableBeanFactory#createBean(String, RootBeanDefinition, Object[])`，精简后的代码如下：
 
-```
+```java
 @Override
 protected Object createBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args)
     	throws BeanCreationException {
@@ -74,7 +74,7 @@ protected Object createBean(String beanName, RootBeanDefinition mbd, @Nullable O
 
 对于前面三个操作，本文不关注，我们仅看第四个操作。进入 `AbstractAutowireCapableBeanFactory#doCreateBean`:
 
-```
+```java
 protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd, 
           final @Nullable Object[] args)  throws BeanCreationException {
 
@@ -164,7 +164,7 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
 spring 创建实例的方法是 `AbstractAutowireCapableBeanFactory#createBeanInstance`，内容如下：
 
-```
+```java
 protected BeanWrapper createBeanInstance(String beanName, RootBeanDefinition mbd, 
         @Nullable Object[] args) {
     // 确保已经加载了此 class
@@ -239,7 +239,7 @@ protected BeanWrapper createBeanInstance(String beanName, RootBeanDefinition mbd
 
 对于前面两个方法，这是开发者指定的方法，没啥好说的，后面两个方法是 spring 根据类的实际情况来选择构造方法进行实例化的。对于一个 bean 来说，如果未提供任何构造方法或提供了无参构造方法，则调用 `AbstractAutowireCapableBeanFactory#instantiateBean` 来进行实例化，否则调用 `AbstractAutowireCapableBeanFactory#autowireConstructor` 进行实例化。实际上，这两个方法最终都会执行到 `BeanUtils#instantiateClass(Constructor<T>, Object...)`:
 
-```
+```java
 public static <T> T instantiateClass(Constructor<T> ctor, Object... args) 
             throws BeanInstantiationException {
     Assert.notNull(ctor, "Constructor must not be null");
@@ -282,7 +282,7 @@ public static <T> T instantiateClass(Constructor<T> ctor, Object... args)
 
 对象创建后，接下来就是进行属性注入了，不过在注入属性前，需要知道类中有哪些属性需要注入。spring 属性查找是在 `AbstractAutowireCapableBeanFactory#applyMergedBeanDefinitionPostProcessors` 中调用后置处理器进行操作的：
 
-```
+```java
 protected void applyMergedBeanDefinitionPostProcessors(RootBeanDefinition mbd, 
         Class<?> beanType, String beanName) {
     for (BeanPostProcessor bp : getBeanPostProcessors()) {
@@ -303,7 +303,7 @@ protected void applyMergedBeanDefinitionPostProcessors(RootBeanDefinition mbd,
 
 这里为了方便说明 `@Autowired` 的注入流程，我们在 demo01 的 `org.springframework.learn.demo01.BeanObj1` 添加两行行代码：
 
-```
+```java
 package org.springframework.learn.demo01;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -330,7 +330,7 @@ public class BeanObj1 {
 
 进入 `AutowiredAnnotationBeanPostProcessor#postProcessMergedBeanDefinition` 方法：
 
-```
+```java
 @Override
 public void postProcessMergedBeanDefinition(RootBeanDefinition beanDefinition, 
         Class<?> beanType, String beanName) {
@@ -344,7 +344,7 @@ public void postProcessMergedBeanDefinition(RootBeanDefinition beanDefinition,
 
 一路跟进 `AutowiredAnnotationBeanPostProcessor#findAutowiringMetadata` 方法，跟到了 `AutowiredAnnotationBeanPostProcessor#buildAutowiringMetadata`:
 
-```
+```java
 private InjectionMetadata buildAutowiringMetadata(final Class<?> clazz) {
      ...
     // 这里跑了一个循环，找完当前类找当前类的父类，直到Object类
@@ -402,7 +402,7 @@ private InjectionMetadata buildAutowiringMetadata(final Class<?> clazz) {
 
 接下来，我们就看看 `findAutowiredAnnotation` 方法是如何进行查找的。进入 `AutowiredAnnotationBeanPostProcessor#findAutowiredAnnotation` 方法，内容如下：
 
-```
+```java
 private final Set<Class<? extends Annotation>> autowiredAnnotationTypes 
         = new LinkedHashSet<>(4);
 
@@ -434,7 +434,7 @@ private MergedAnnotation<?> findAutowiredAnnotation(AccessibleObject ao) {
 
 找到属性与方法后，接着就是注册到 `beanDefinition` 了，这是 `InjectionMetadata#checkConfigMembers` 所做的工作：
 
-```
+```java
 public void checkConfigMembers(RootBeanDefinition beanDefinition) {
     Set<InjectedElement> checkedElements = new LinkedHashSet<>(this.injectedElements.size());
     for (InjectedElement element : this.injectedElements) {
@@ -454,7 +454,7 @@ public void checkConfigMembers(RootBeanDefinition beanDefinition) {
 
 > RootBeanDefinition#registerExternallyManagedConfigMember
 
-```
+```java
 public void registerExternallyManagedConfigMember(Member configMember) {
     synchronized (this.postProcessingLock) {
         if (this.externallyManagedConfigMembers == null) {
@@ -471,7 +471,7 @@ public void registerExternallyManagedConfigMember(Member configMember) {
 
 spring 的属性注入是在方法 `AbstractAutowireCapableBeanFactory#populateBean` 中处理的，内容如下：
 
-```
+```java
 protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable BeanWrapper bw) {
     if (bw == null) {
         if (mbd.hasPropertyValues()) {
@@ -562,7 +562,7 @@ protected void populateBean(String beanName, RootBeanDefinition mbd, @Nullable B
 
 spring 的属性填充是在后置处理器中进行的，`@Autowired` 的属性填充方法为 `AutowiredAnnotationBeanPostProcessor#postProcessProperties`:
 
-```
+```java
 public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) {
      // 调用 findAutowiringMetadata 方法，确保标注 @Autowired @Value 注解的属性与方法获取成功
      // findAutowiringMetadata 可以发现，里面做了一个缓存，只有第一次才会真正去获取，之后都从缓存中获取
@@ -580,7 +580,7 @@ public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, Str
 
 我们再进入 `InjectionMetadata#inject`：
 
-```
+```java
 public void inject(Object target, @Nullable String beanName, @Nullable PropertyValues pvs) 
         throws Throwable {
     Collection<InjectedElement> checkedElements = this.checkedElements;
@@ -599,7 +599,7 @@ public void inject(Object target, @Nullable String beanName, @Nullable PropertyV
 
 我们再跟进 `element.inject(target, beanName, pvs)`，这里调用到的是 `AutowiredAnnotationBeanPostProcessor.AutowiredFieldElement#inject`：
 
-```
+```java
 @Override
 protected void inject(Object bean, @Nullable String beanName, 
                 @Nullable PropertyValues pvs) throws Throwable {
@@ -663,7 +663,7 @@ protected void inject(Object bean, @Nullable String beanName,
 
 最终运行到 `DefaultListableBeanFactory#doResolveDependency`:
 
-```
+```java
 @Nullable
 public Object doResolveDependency(DependencyDescriptor descriptor, @Nullable String beanName,
          @Nullable Set<String> autowiredBeanNames, @Nullable TypeConverter typeConverter) 
@@ -751,7 +751,7 @@ class B implements Inter {
 
 在类 `C` 中，注入 `Inter` 类型：
 
-```
+```java
 @Service
 class C {
     @Autowired
@@ -768,7 +768,7 @@ class C {
 
 这里会有个小问题：如果在 `C` 中这样注入:
 
-```
+```java
 @Service
 class C {
     @Autowired
@@ -785,7 +785,7 @@ class C {
 
 > DependencyDescriptor#resolveCandidate
 
-```
+```java
 public Object resolveCandidate(String beanName, Class<?> requiredType, BeanFactory beanFactory)
         throws BeansException {
     // 调用的上 AbstractBeanFactory#getBean(String)
@@ -840,7 +840,7 @@ public Object resolveCandidate(String beanName, Class<?> requiredType, BeanFacto
 
 spring 初始化 bean 的方法是 `AbstractAutowireCapableBeanFactory#initializeBean(String, Object, RootBeanDefinition)`:
 
-```
+```java
 protected Object initializeBean(final String beanName, final Object bean, 
              @Nullable RootBeanDefinition mbd) {
     // 1\. 运行 invokeAwareMethods
@@ -889,7 +889,7 @@ protected Object initializeBean(final String beanName, final Object bean,
 
 `invokeAwareMethods` 就是执行 Aware bean 的相关方法：
 
-```
+```java
 private void invokeAwareMethods(final String beanName, final Object bean) {
     if (bean instanceof Aware) {
         if (bean instanceof BeanNameAware) {
@@ -915,7 +915,7 @@ private void invokeAwareMethods(final String beanName, final Object bean) {
 
 接着来看看 `AbstractAutowireCapableBeanFactory#applyBeanPostProcessorsBeforeInitialization` 的运行：
 
-```
+```java
 public Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName)
          throws BeansException {
     Object result = existingBean;
@@ -934,7 +934,7 @@ public Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, S
 
 这里主要运行 `ApplicationContextAwareProcessor#postProcessBeforeInitialization` 方法，内容如下：
 
-```
+```java
 @Override
 @Nullable
 public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
@@ -988,7 +988,7 @@ private void invokeAwareInterfaces(Object bean) {
 
 顺带一提的是，如果在 bean 中，方法上有 `@PostConstruct` 注解：
 
-```
+```java
 @PostConstruct
 public void test() {
     System.out.println("PostConstruct");
@@ -1002,7 +1002,7 @@ public void test() {
 
 接着来看看 `AbstractAutowireCapableBeanFactory#invokeInitMethods` 方法:
 
-```
+```java
 protected void invokeInitMethods(String beanName, final Object bean, 
         @Nullable RootBeanDefinition mbd)  throws Throwable {
     // 执行 InitializingBean#afterPropertiesSet 方法
@@ -1048,7 +1048,7 @@ protected void invokeInitMethods(String beanName, final Object bean,
 
 这一步主要是运行 `BeanPostProcessor#postProcessAfterInitialization`，所运行的 `BeanPostProcessor` 是 `ApplicationListenerDetector`:
 
-```
+```java
 @Override
 public Object postProcessAfterInitialization(Object bean, String beanName) {
     if (bean instanceof ApplicationListener) {

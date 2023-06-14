@@ -4,7 +4,7 @@
 
 1.  准备一个事件类 `MyApplicationEvent`：
 
-```
+```java
 public class MyApplicationEvent extends ApplicationEvent {
 
     private static final long serialVersionUID = -1L;
@@ -18,7 +18,7 @@ public class MyApplicationEvent extends ApplicationEvent {
 
 1.  准备一个监听器 `MyApplicationEventListener`，对事件 `MyApplicationEvent` 进行监听：
 
-```
+```java
 @Component
 public class MyApplicationEventListener 
         implements ApplicationListener<MyApplicationEvent> {
@@ -33,7 +33,7 @@ public class MyApplicationEventListener
 
 准备一个配置类，先不指定内容：
 
-```
+```java
 @Configuration
 @ComponentScan
 public class Demo08Config {
@@ -44,7 +44,7 @@ public class Demo08Config {
 
 最后是主类：
 
-```
+```java
 @ComponentScan
 public class Demo08Main {
 
@@ -88,7 +88,7 @@ main | main | 自定义事件 ...
 
 spring 提供的事件为 `ApplicationEvent`，这是一个抽象类，继承了 jdk 提供的 `EventObject` 类，发布自定义事件时，可继承 `ApplicationEvent`：
 
-```
+```java
 public abstract class ApplicationEvent extends EventObject {
 
     private static final long serialVersionUID = 7099057708183571937L;
@@ -110,7 +110,7 @@ public abstract class ApplicationEvent extends EventObject {
 
 `ApplicationEvent` 是 `EventObject`，我们继续：
 
-```
+```java
 /**
  * EventObject 由jdk提供，位于 java.util 包。
  */
@@ -153,7 +153,7 @@ public class EventObject implements java.io.Serializable {
 
 spring 提供的发布器为 `ApplicationEventPublisher`，代码如下：
 
-```
+```java
 public interface ApplicationEventPublisher {
 
     /**
@@ -185,7 +185,7 @@ public interface ApplicationEventPublisher {
 
 广播器的作用是接收发布的事件，然后将事件广播给监听器，代码如下：
 
-```
+```java
 public interface ApplicationEventMulticaster {
 
     /**
@@ -238,7 +238,7 @@ spring 默认的广播器为 `SimpleApplicationEventMulticaster`，这个我们�
 
 监听器用来监听发布的事件，然后做一些处理操作，代码如下：
 
-```
+```java
 @FunctionalInterface
 public interface ApplicationListener<E extends ApplicationEvent> extends EventListener {
 
@@ -263,7 +263,7 @@ public interface ApplicationListener<E extends ApplicationEvent> extends EventLi
 
 相关代码如下：
 
-```
+```java
 public abstract class AbstractApplicationContext extends DefaultResourceLoader
         implements ConfigurableApplicationContext {
 
@@ -339,7 +339,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 在 demo 中，我们调用 `context.publishEvent(...)` 来发布事件，我们跟进这个方法：
 
-```
+```java
 public abstract class AbstractApplicationContext extends DefaultResourceLoader
         implements ConfigurableApplicationContext {
 
@@ -389,7 +389,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 这个方法很简单，关键代码为
 
-```
+```java
 // 这里是发布事件的操作
 getApplicationEventMulticaster().multicastEvent(applicationEvent, eventType);
 
@@ -399,7 +399,7 @@ getApplicationEventMulticaster().multicastEvent(applicationEvent, eventType);
 
 前面提到，spring 提供的默认的事件广播器是 `SimpleApplicationEventMulticaster`，我们进入 `SimpleApplicationEventMulticaster#multicastEvent(ApplicationEvent, ResolvableType)` 来看看事件的广播流程：
 
-```
+```java
 /**
  * 广播事件
  */
@@ -464,7 +464,7 @@ spring 为我们提供了两种类型的 `taskExecutor`：
 
 2. `SimpleAsyncTaskExecutor`：异步的 `taskExecutor`，其 `execute(...)` 方法为：
 
-   ```
+   ```java
    @Override
     public void execute(Runnable task, long startTimeout) {
         Assert.notNull(task, "Runnable must not be null");
@@ -514,7 +514,7 @@ spring 为我们提供了两种类型的 `taskExecutor`：
 
 准备来说，这里获取的是能监听传入事件的监听器，方法为 `AbstractApplicationEventMulticaster#getApplicationListeners(ApplicationEvent, ResolvableType)`：
 
-```
+```java
 /**
  * 这个方法就两个步骤：
  * 1\. 从缓存中获取，能获取到，直接返回
@@ -560,7 +560,7 @@ protected Collection<ApplicationListener<?>> getApplicationListeners(
 
 我们继续进入 `retrieveApplicationListeners(...)`：
 
-```
+```java
 /**
  * 在这里真正获取监听器
  *
@@ -683,7 +683,7 @@ private Collection<ApplicationListener<?>> retrieveApplicationListeners(
 
 终于到调用监听方法了，代码如下：
 
-```
+```java
 /**
  * 执行监听器
  */
@@ -737,7 +737,7 @@ private void doInvokeListener(ApplicationListener listener, ApplicationEvent eve
 
 我们要监听器该事件也十分简单，相应的 `Listener` 如下：
 
-```
+```java
 @Component
 public class ContextRefreshedListener 
         implements ApplicationListener<ContextRefreshedEvent> {
@@ -803,7 +803,7 @@ ApplicationContext context =
 
 如此一来，我们只需要自定义 `beanName` 为 `applicationEventMulticaster` 的 bean 不就行，像这样：
 
-```
+```java
 @Configuration
 @ComponentScan
 public class Demo08Config {
@@ -872,7 +872,7 @@ SimpleAsyncTaskExecutor-101 | main | 自定义事件 ...
 
 我们看下 `SimpleApplicationEventMulticaster#setTaskExecutor` 方法的参数，发现它是 `java.util.concurrent.Executor`，接下来事情就变得简单了，我们直接使用 jdk 提供的线程池：
 
-```
+```java
 @Bean
 public ApplicationEventMulticaster applicationEventMulticaster() {
     SimpleApplicationEventMulticaster applicationEventMulticaster

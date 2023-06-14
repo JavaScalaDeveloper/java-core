@@ -79,7 +79,7 @@ for(int i = 0 ; i  list.size() ;  i++){
     2、方法名称得到了改进。
 
 其接口定义如下：
-````
+````java
 public interface Iterator {
 　　boolean hasNext();
 　　Object next();
@@ -112,7 +112,7 @@ for(Iterator it = c.iterator(); it.hasNext(); ) {
 ArrayList的Iterator实现
 
 在ArrayList内部首先是定义一个内部类Itr，该内部类实现Iterator接口，如下：
-````
+````java
 private class Itr implements IteratorE {
     do something
 }
@@ -131,13 +131,13 @@ public IteratorE iterator() {
     int expectedModCount = modCount;
 
 从cursor、lastRet定义可以看出，lastRet一直比cursor少一所以hasNext()实现方法异常简单，只需要判断cursor和lastRet是否相等即可。
-````
+````java
 public boolean hasNext() {
     return cursor != size;
 }
 ````
 对于next()实现其实也是比较简单的，只要返回cursor索引位置处的元素即可，然后修改cursor、lastRet即可。
-````
+````java
 public E next() {
     checkForComodification();
     int i = cursor;    记录索引位置
@@ -203,7 +203,7 @@ HashMap中：
  记住是有可能，而不是一定。例如：假设存在两个线程（线程1、线程2），线程1通过Iterator在遍历集合A中的元素，在某个时候线程2修改了集合A的结构（是结构上面的修改，而不是简单的修改集合元素的内容），那么这个时候程序就会抛出 ConcurrentModificationException异常，从而产生fail-fast机制。
 
 #### fail-fast示例
-````
+````java
 public class FailFastTest {
     private static ListInteger list = new ArrayList();    
  
@@ -270,7 +270,7 @@ desc当i == 3时，修改list
 诚然，迭代器的快速失败行为无法得到保证，它不能保证一定会出现该错误，但是快速失败操作会尽最大努力抛出ConcurrentModificationException异常，所以因此，为提高此类操作的正确性而编写一个依赖于此异常的程序是错误的做法，正确做法是：ConcurrentModificationException 应该仅用于检测 bug。下面我将以ArrayList为例进一步分析fail-fast产生的原因。
 
  从前面我们知道fail-fast是在操作迭代器时产生的。现在我们来看看ArrayList中迭代器的源代码：
-````
+````java
 private class Itr implements IteratorE {
     int cursor;
     int lastRet = -1;
@@ -305,7 +305,7 @@ expectedModCount 是在Itr中定义的：int expectedModCount = ArrayList.this.m
 
 protected transient int modCount = 0;
 那么他什么时候因为什么原因而发生改变呢？请看ArrayList的源码：
-````
+````java
 public boolean add(E paramE) {
     ensureCapacityInternal(this.size + 1);
      省略此处代码 
@@ -379,7 +379,7 @@ CopyOnWriteArrayList为何物？ArrayList 的一个线程安全的变体，其�
 第一、CopyOnWriterArrayList的无论是从数据结构、定义都和ArrayList一样。它和ArrayList一样，同样是实现List接口，底层使用数组实现。在方法上也包含add、remove、clear、iterator等方法。
 
 第二、CopyOnWriterArrayList根本就不会产生ConcurrentModificationException异常，也就是它使用迭代器完全不会产生fail-fast机制。请看：
-````
+````java
 private static class COWIteratorE implements ListIteratorE {
     public E next() {
         if (!(hasNext()))
@@ -389,7 +389,7 @@ private static class COWIteratorE implements ListIteratorE {
 }
 ````
 CopyOnWriterArrayList的方法根本就没有像ArrayList中使用checkForComodification方法来判断expectedModCount 与 modCount 是否相等。它为什么会这么做，凭什么可以这么做呢？我们以add方法为例：
-````
+````java
 public boolean add(E paramE) {
         ReentrantLock localReentrantLock = this.lock;
         localReentrantLock.lock();

@@ -2,7 +2,7 @@ springboot 在启动类上会标注一个注解：`@SpringBootApplication`，本
 
 `@SpringBootApplication` 代码如下：
 
-```
+```java
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -57,7 +57,7 @@ public @interface SpringBootApplication {
 
 进入 `@SpringBootConfiguration`，代码如下：
 
-```
+```java
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -79,7 +79,7 @@ public @interface SpringBootConfiguration {
 
 `@EnableAutoConfiguration` 主要 用来开启自动装配功能，代码如下：
 
-```
+```java
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -118,7 +118,7 @@ public @interface EnableAutoConfiguration {
 
 `@AutoConfigurationPackage` 指定了自动装配的包，代码如下：
 
-```
+```java
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -132,7 +132,7 @@ public @interface AutoConfigurationPackage {
 
 这个注解的内容非常简单，仅使用 `@Import` 注解引入了 `AutoConfigurationPackages.Registrar`，我们来看下它的内容：
 
-```
+```java
 public abstract class AutoConfigurationPackages {
 
     private static final String BEAN = AutoConfigurationPackages.class.getName();
@@ -241,7 +241,7 @@ public abstract class AutoConfigurationPackages {
 
 `AutoConfigurationImportSelector` 是处理自动配置的关键，代码如下：
 
-```
+```java
 public class AutoConfigurationImportSelector implements DeferredImportSelector, BeanClassLoaderAware,
 
     ...
@@ -268,7 +268,7 @@ public class AutoConfigurationImportSelector implements DeferredImportSelector, 
 
 这个类表示在进行包扫描时，可以排除一些类，代码如下：
 
-```
+```java
 public class TypeExcludeFilter implements TypeFilter, BeanFactoryAware {
 
     private BeanFactory beanFactory;
@@ -316,7 +316,7 @@ public class TypeExcludeFilter implements TypeFilter, BeanFactoryAware {
 
 `AutoConfigurationExcludeFilter` 用来排除自动配置类，也就是说，spring 在进行包扫描时，不会扫描自动配置类，代码如下：
 
-```
+```java
 public class AutoConfigurationExcludeFilter implements TypeFilter, BeanClassLoaderAware {
 
     private ClassLoader beanClassLoader;

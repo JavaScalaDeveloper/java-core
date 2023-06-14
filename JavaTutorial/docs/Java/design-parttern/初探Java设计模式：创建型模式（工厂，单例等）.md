@@ -54,7 +54,7 @@ Java 设计模式
 
 和名字一样简单，非常简单，直接上代码吧：
 
-```
+```java
 public class FoodFactory {
 
     public static Food makeFood(String name) {
@@ -84,7 +84,7 @@ _其中，LanZhouNoodle 和 HuangMenChicken 都继承自 Food。_
 
 简单工厂模式很简单，如果它能满足我们的需要，我觉得就不要折腾了。之所以需要引入工厂模式，是因为我们往往需要使用两个或两个以上的工厂。
 
-```
+```java
 public interface FoodFactory {
     Food makeFood(String name);
 }
@@ -121,7 +121,7 @@ public class AmericanFoodFactory implements FoodFactory {
 
 客户端调用：
 
-```
+```java
 public class APP {
     public static void main(String[] args) {
         // 先选择一个具体的工厂
@@ -154,7 +154,7 @@ public class APP {
 
 这个时候的客户端调用是这样的：
 
-```
+```java
 // 得到 Intel 的 CPU
 CPUFactory cpuFactory = new IntelCPUFactory();
 CPU cpu = intelCPUFactory.makeCPU();
@@ -182,7 +182,7 @@ Computer computer = new Computer(cpu, mainBoard);
 
 这个时候，对于客户端来说，不再需要单独挑选 CPU厂商、主板厂商、硬盘厂商等，直接选择一家品牌工厂，品牌工厂会负责生产所有的东西，而且能保证肯定是兼容可用的。
 
-```
+```java
 public static void main(String[] args) {
     // 第一步就要选定一个“大厂”
     ComputerFactory cf = new AmdFactory();
@@ -207,7 +207,7 @@ public static void main(String[] args) {
 
 饿汉模式最简单：
 
-```
+```java
 public class Singleton {
     // 首先，将 new Singleton() 堵死
     private Singleton() {};
@@ -228,7 +228,7 @@ public class Singleton {
 
 饱汉模式最容易出错：
 
-```
+```java
 public class Singleton {
     // 首先，也是先堵死 new Singleton() 这条路
     private Singleton() {}
@@ -259,7 +259,7 @@ public class Singleton {
 
 嵌套类最经典，以后大家就用它吧：
 
-```
+```java
 public class Singleton3 {
 
     private Singleton3() {}
@@ -292,7 +292,7 @@ Food food = Food.builder().a().b().c().build();
 
 来一个中规中矩的建造者模式：
 
-```
+```java
 class User {
     // 下面是“一堆”的属性
     private String name;
@@ -368,7 +368,7 @@ class User {
 
 看看客户端的调用：
 
-```
+```java
 public class APP {
     public static void main(String[] args) {
         User d = User.builder()
@@ -385,7 +385,7 @@ public class APP {
 
 > 题外话，强烈建议读者使用 lombok，用了 lombok 以后，上面的一大堆代码会变成如下这样:
 
-```
+```java
 @Builder
 class User {
     private String  name;
@@ -413,7 +413,7 @@ User user = new User().setName("").setPassword("").setAge(20);
 
 Object 类中有一个 clone() 方法，它用于生成一个新的对象，当然，如果我们要调用这个方法，java 要求我们的类必须先**实现 Cloneable 接口**，此接口没有定义任何方法，但是不这么做的话，在 clone() 的时候，会抛出 CloneNotSupportedException 异常。
 
-```
+```java
 protected native Object clone() throws CloneNotSupportedException;
 
 ```

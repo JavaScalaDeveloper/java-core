@@ -85,7 +85,7 @@ ServletContext是代表了Servlet应用程序。每个Web应用程序只有一�
 
 将init方法中的ServletConfig赋给一个类级变量，使的可以通过getServletConfig来获取。
 
-```
+```java
 public void init(ServletConfig config) throws ServletException {
         this.config = config;
         this.init();

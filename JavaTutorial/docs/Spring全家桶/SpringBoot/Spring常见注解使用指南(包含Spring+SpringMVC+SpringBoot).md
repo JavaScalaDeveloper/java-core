@@ -21,7 +21,7 @@ Constructor injection:
 
 **构造器注入**
 
-````
+````java
 class Car {
     Engine engine;
 
@@ -33,7 +33,7 @@ class Car {
 ````
 
 **Setter注入**
-````
+````java
 class Car {
     Engine engine;
 
@@ -44,7 +44,7 @@ class Car {
 }
 ````
 **变量注入**
-````
+````java
 class Car {
     @Autowired
     Engine engine;
@@ -63,7 +63,7 @@ class Car {
 
 @Bean 标记实例化 Spring bean 的工厂方法：
 
-```
+```java
 @Bean
 Engine engine() {
     return new Engine();
@@ -74,7 +74,7 @@ Engine engine() {
 
 生成的 bean 与工厂方法同名。 如果我们想以不同的方式命名，我们可以使用此注释的名称或值参数（参数值是参数名称的别名）：
 
-````
+````java
 @Bean("engine")
 Engine getEngine() {
     return new Engine();
@@ -91,7 +91,7 @@ Engine getEngine() {
 我们使用@Qualifier 和@Autowired 来提供我们想要在不明确情况下使用的bean id 或bean 名称。
 
 例如，以下两个 bean 实现相同的接口：
-````
+````java
 class Bike implements Vehicle {}
 
 class Car implements Vehicle {}
@@ -101,7 +101,7 @@ class Car implements Vehicle {}
 如果 Spring 需要注入一个 Vehicle bean，它会以多个匹配定义结束。 在这种情况下，我们可以使用 @Qualifier 注释显式提供 bean 的名称。
 
 **构造器注入**
-````
+````java
 @Autowired
 Biker(@Qualifier("bike") Vehicle vehicle) {
 this.vehicle = vehicle;
@@ -110,7 +110,7 @@ this.vehicle = vehicle;
 
 **Setter注入**
 
-````
+````java
 @Autowired
 void setVehicle(@Qualifier("bike") Vehicle vehicle) {
 this.vehicle = vehicle;
@@ -118,7 +118,7 @@ this.vehicle = vehicle;
 ````
 或者:
 
-````
+````java
 @Autowired
 @Qualifier("bike")
 void setVehicle(Vehicle vehicle) {
@@ -126,7 +126,7 @@ this.vehicle = vehicle;
 ````
 **变量注入**
 
-````
+````java
 @Autowired
 @Qualifier("bike")
 Vehicle vehicle;
@@ -136,14 +136,14 @@ Vehicle vehicle;
 ### 2.4 @Required
 
 @Required 在 setter 方法上标记我们想要通过 XML 填充的依赖项：
-````
+````java
 @Required
 void setColor(String color) {
 this.color = color;
 }
 ````
 xml
-````
+````xml
 <bean class="com.baeldung.annotations.Bike">
     <property name="color" value="green" />
 </bean>
@@ -165,7 +165,7 @@ this.cylinderCount = cylinderCount;
 
 **setter注入**
 
-````
+````java
 @Autowired
 void setCylinderCount(@Value("8") int cylinderCount) {
 this.cylinderCount = cylinderCount;
@@ -182,7 +182,7 @@ this.cylinderCount = cylinderCount;
 ````
 
 **变量注入**
-````
+````java
 @Value("8")
 int cylinderCount;
 ````
@@ -195,7 +195,7 @@ engine.fuelType=petrol
 
 我们可以通过以下方式注入 engine.fuelType 的值：
 
-````
+````java
 @Value("${engine.fuelType}")
 String fuelType;
 ````
@@ -209,12 +209,12 @@ String fuelType;
 
 我们可以在指定依赖 bean 名称的依赖类上使用 @DependsOn。 注释的值参数需要一个包含依赖 bean 名称的数组：
 
-````
+````java
 @DependsOn("engine")
 class Car implements Vehicle {}
 ````
 Alternatively, if we define a bean with the @Bean annotation, the factory method should be annotated with @DependsOn:
-````
+````java
 @Bean
 @DependsOn("fuel")
 Engine engine() {
@@ -235,7 +235,7 @@ return new Engine();
 
 @Autowired 构造函数、setter 或字段，用于延迟加载依赖项本身（通过代理）
 
-````
+````java
 @Configuration
 @Lazy
 class VehicleFactoryConfig {
@@ -272,7 +272,7 @@ class VehicleFactoryConfig {
 要注意的是，spring默认使用的单例bean，所以如果我们要注入原型bean，我们才需要做这样的额外工作
 
 首先，让我们创建一个原型 bean，稍后我们将其注入到单例 bean 中：
-````
+````java
 @Component
 @Scope("prototype")
 public class SchoolNotification {
@@ -281,7 +281,7 @@ public class SchoolNotification {
 ````
 使用@Lookup，我们可以通过单例 bean 获取 SchoolNotification 的实例：
 
-````
+````java
 @Component
 public class StudentServices {
 
@@ -296,7 +296,7 @@ public class StudentServices {
 }
 ````
 Using @Lookup, we can get an instance of SchoolNotification through our singleton bean:
-````
+````java
 @Test
 public void whenLookupMethodCalled_thenNewInstanceReturned() {
 // ... initialize context
@@ -321,7 +321,7 @@ StudentServices second = this.context.getBean(StudentServices.class);
 
 我们可以使用@Primary 来简化这种情况：如果我们用@Primary 标记最常用的bean，它将在unqualified的注入点上被选择：
 
-````
+````java
 @Component
 @Primary
 class Car implements Vehicle {}
@@ -361,7 +361,7 @@ websocket
 ````
 
 例子
-````
+````java
 @Component
 @Scope("prototype")
 class Engine {}
@@ -383,7 +383,7 @@ class Engine {}
 我们通常这个注解来配置不同环境的配置。
 比如下面这个例子
 
-````
+````java
 public interface DatasourceConfig {
 public void setup();
 }
@@ -391,7 +391,7 @@ public void setup();
 
 下面是开发环境的配置：
 
-````
+````java
 @Component
 @Profile("dev")
 public class DevDatasourceConfig implements DatasourceConfig {
@@ -403,7 +403,7 @@ System.out.println("Setting up datasource for DEV environment. ");
 ````
 下面是生产环境的配置：
 
-````
+````java
 @Component
 @Profile("production")
 public class ProductionDatasourceConfig implements DatasourceConfig {
@@ -416,7 +416,7 @@ System.out.println("Setting up datasource for PRODUCTION environment. ");
 当然我们也可以使用xml或者其他类型的配置文件来描述这个配置bean
 
 xml
-````
+````xml
 <beans profile="local">
     <bean id="localDatasourceConfig" 
       class="org.test.profiles.LocalDatasourceConfig" />
@@ -430,7 +430,7 @@ xml
 
 这个注解还是非常常用的，看一下下面这个例子
 
-````
+````java
 @Import(VehiclePartSupplier.class)
 class VehicleFactoryConfig {}
 
@@ -444,7 +444,7 @@ class VehiclePartSupplier{
 比如说：现在有一个 bean.xml 的配置文件，需要将该 beans.xml 中定义的 bean对象 都导入到 Spring Boot 环境的容器中，该如何操作呢？
 
 1.Spring 方式的配置文件 bean.xml 此处随便举个示例，比如说 xml 中配置了一个 helloService，如下所示
-````
+````xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -455,7 +455,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 </beans>
 ````
 2.使用@ImportResource注解，引入 xml 配置
-````
+````java
 /**
  * Spring Boot里面没有Spring的配置文件，我们自己编写的配置文件，也不能自动识别；
  * 如果想让Spring的配置文件生效，加载到Spring 容器中来；
@@ -487,7 +487,7 @@ public class BootApplication {
 testbean.name=myTestBean
 ````
 以下 @Configuration 类使用 @PropertySource 将 app.properties 设置给 Environment 的 PropertySources 集合。
-````
+````java
 @Configuration
 @PropertySource("classpath:/com/myco/app.properties")
 public class AppConfig {
@@ -509,7 +509,7 @@ public class AppConfig {
 
 @PropertySource 利用了 Java 8 的重复注解特性，这意味着我们可以用它多次标记一个类：
 
-````
+````java
 @Configuration
 @PropertySource("classpath:/annotations.properties")
 @PropertySource("classpath:/vehicle-factory.properties")
@@ -518,7 +518,7 @@ class VehicleFactoryConfig {}
 
 ### 3.5 @PropertySources
 用法同上，只不过，这一次我们可以使用这个注解指定多个@PropertySource 配置：
-````
+````java
 @Configuration
 @PropertySources({
 @PropertySource("classpath:/annotations.properties"),
@@ -554,14 +554,14 @@ spring体系中的常见注解还有很多，一篇文章不可能全部覆盖�
 
 我们可以直接使用 basePackages 或 value 参数之一指定基本包名称（value 是 basePackages 的别名）
 
-````
+````java
 @Configuration
 @ComponentScan(basePackages = "com.baeldung.annotations")
 class VehicleFactoryConfig {}
 ````
 此外，我们可以使用 basePackageClasses 参数指向基础包中的类：
 
-````
+````java
 @Configuration
 @ComponentScan(basePackageClasses = VehicleFactoryConfig.class)
 class VehicleFactoryConfig {}
@@ -573,7 +573,7 @@ class VehicleFactoryConfig {}
 
 @ComponentScan 利用了 Java 8 的重复注解特性，这意味着我们可以用它多次标记一个类：
 
-````
+````java
 @Configuration
 @ComponentScan(basePackages = "com.baeldung.annotations")
 @ComponentScan(basePackageClasses = VehicleFactoryConfig.class)
@@ -582,27 +582,27 @@ class VehicleFactoryConfig {}
 
 或者，我们可以使用 @ComponentScans 指定多个 @ComponentScan 配置：
 
-````
+````java
 @Configuration
 @ComponentScans({
 @ComponentScan(basePackages = "com.baeldung.annotations"),
 @ComponentScan(basePackageClasses = VehicleFactoryConfig.class)
 })
 ````
-````
+````java
 class VehicleFactoryConfig {
 }
 ````
 使用 XML 配置时，配置组件扫描同样简单：
 
-````
+````xml
 <context:component-scan base-package="com.baeldung"/>
 ````
 
 ### 3 @Component
 
 @Component 是类级别的注解。 在组件扫描期间，Spring Framework 会自动检测使用@Component 注解的类：
-````
+````java
 @Component
 class CarUtility {
 // ...
@@ -620,7 +620,7 @@ Spring 还会在组件扫描过程中自动检测它们。
 ### 4 @Repository
 
 DAO or Repository classes usually represent the database access layer in an application, and should be annotated with @Repository:
-````
+````java
 @Repository
 class VehicleRepository {
 // ...
@@ -629,7 +629,7 @@ class VehicleRepository {
 使用此注释的一个优点是它启用了自动持久性异常转换。 当使用持久性框架（如 Hibernate）时，在使用 @Repository 注释的类中抛出的本机异常将自动转换为 Spring 的 DataAccessExeption 的子类。
 
 要启用异常转换，我们需要声明我们自己的 PersistenceExceptionTranslationPostProcessor bean：
-````
+````java
 @Bean
 public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
 return new PersistenceExceptionTranslationPostProcessor();
@@ -638,7 +638,7 @@ return new PersistenceExceptionTranslationPostProcessor();
 请注意，在大多数情况下，Spring 会自动执行上述步骤。
 
 或者通过 XML 配置：
-````
+````xml
 <bean class=
 "org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 ````
@@ -646,7 +646,7 @@ return new PersistenceExceptionTranslationPostProcessor();
 ### 5 @Service
 应用程序的业务逻辑通常驻留在服务层中，因此我们将使用@Service 注释来指示一个类属于该层：
 
-````
+````java
 @Service
 public class VehicleService {
 // ...    
@@ -657,7 +657,7 @@ public class VehicleService {
 
 spring会对@Controller 注解的bean做很多事情，具体内容我们会在SpringMVC相关的内容来讲述
 
-````
+````java
 @Controller
 public class VehicleController {
 // ...
@@ -667,7 +667,7 @@ public class VehicleController {
 ## 7 @Configuration
 
 配置类可以包含用@Bean 注释的 bean 定义方法：
-````
+````java
 @Configuration
 class VehicleFactoryConfig {
 
@@ -683,7 +683,7 @@ class VehicleFactoryConfig {
 
 例如，假设我们想测量 DAO 层方法的执行时间。 我们将创建以下方面（使用 AspectJ 注释），利用 @Repository 构造型：
 
-```
+```java
 @Aspect
 @Component
 public class PerformanceAspect {
@@ -734,7 +734,7 @@ headers：根据 HTTP 标头的存在、不存在或值过滤请求
 produces：该方法可以在 HTTP 响应正文中生成哪些媒体类型
 这是一个简单的示例：
 
-````
+````java
 @Controller
 class VehicleController {
 
@@ -748,7 +748,7 @@ class VehicleController {
 
 例如，下面的配置和上面的效果是一样的：
 
-````
+````java
 @Controller
 @RequestMapping(value = "/vehicles", method = RequestMethod.GET)
 class VehicleController {
@@ -768,7 +768,7 @@ class VehicleController {
 
 让我们继续@RequestBody——它将 HTTP 请求的主体映射到一个对象：
 
-````
+````java
 @PostMapping("/save")
 void saveVehicle(@RequestBody Vehicle vehicle) {
 // ...
@@ -783,7 +783,7 @@ void saveVehicle(@RequestBody Vehicle vehicle) {
 
 我们可以使用名称或其别名，即值参数来实现这一点：
 
-````
+````java
 @RequestMapping("/{id}")
 Vehicle getVehicle(@PathVariable("id") long id) {
 // ...
@@ -791,7 +791,7 @@ Vehicle getVehicle(@PathVariable("id") long id) {
 ````
 如果模板中部分的名称与方法参数的名称相匹配，我们就不必在注释中指定它：
 
-````
+````java
 @RequestMapping("/{id}")
 Vehicle getVehicle(@PathVariable long id) {
 // ...
@@ -799,7 +799,7 @@ Vehicle getVehicle(@PathVariable long id) {
 ````
 此外，我们可以通过将所需的参数设置为 false 来将路径变量标记为可选：
 
-````
+````java
 @RequestMapping("/{id}")
 Vehicle getVehicle(@PathVariable(required = false) long id) {
 // ...
@@ -807,7 +807,7 @@ Vehicle getVehicle(@PathVariable(required = false) long id) {
 ````
 ## 5. @RequestParam
 We use @RequestParam for accessing HTTP request parameters:
-````
+````java
 @RequestMapping
 Vehicle getVehicleByParam(@RequestParam("id") long id) {
 // ...
@@ -818,7 +818,7 @@ Vehicle getVehicleByParam(@RequestParam("id") long id) {
 除了这些设置之外，当 Spring 在请求中发现没有值或为空值时，我们可以使用 @RequestParam 指定注入值。 为此，我们必须设置 defaultValue 参数。
 
 提供默认值隐式设置 required 为 false：
-````
+````java
 @RequestMapping("/buy")
 Car buyCar(@RequestParam(defaultValue = "5") int seatCount) {
 // ...
@@ -835,7 +835,7 @@ Car buyCar(@RequestParam(defaultValue = "5") int seatCount) {
 ### 6.1 @ResponseBody
 如果我们用@ResponseBody 标记请求处理程序方法，Spring 会将方法的结果视为响应本身：
 
-````
+````java
 @ResponseBody
 @RequestMapping("/hello")
 String hello() {
@@ -849,7 +849,7 @@ return "Hello World!";
 使用此注释，我们可以声明一个自定义错误处理程序方法。 当请求处理程序方法抛出任何指定的异常时，Spring 调用此方法。
 
 捕获的异常可以作为参数传递给方法：
-````
+````java
 @ExceptionHandler(IllegalArgumentException.class)
 void onIllegalArgumentException(IllegalArgumentException exception) {
 // ...
@@ -882,7 +882,7 @@ void onIllegalArgumentException(IllegalArgumentException exception) {
 
 因此，以下声明是等效的：
 
-````
+````java
 @Controller
 @ResponseBody
 class VehicleRestController {
@@ -890,7 +890,7 @@ class VehicleRestController {
 }
 ````
 
-````
+````java
 @RestController
 class VehicleRestController {
 // ...
@@ -899,7 +899,7 @@ class VehicleRestController {
 ### 7.3 @ModelAttribute
 通过这个注解，我们可以通过提供模型键来访问已经存在于 MVC @Controller 模型中的元素：
 
-````
+````java
 @PostMapping("/assemble")
 void assembleVehicle(@ModelAttribute("vehicle") Vehicle vehicleInModel) {
 // ...
@@ -907,7 +907,7 @@ void assembleVehicle(@ModelAttribute("vehicle") Vehicle vehicleInModel) {
 ````
 与@PathVariable 和@RequestParam 一样，如果参数具有相同的名称，我们不必指定模型键：
 
-````
+````java
 @PostMapping("/assemble")
 void assembleVehicle(@ModelAttribute Vehicle vehicle) {
 // ...
@@ -915,14 +915,14 @@ void assembleVehicle(@ModelAttribute Vehicle vehicle) {
 ````
 此外，@ModelAttribute还有一个用途：如果我们用它注解一个方法，Spring会自动将方法的返回值添加到模型中：
 
-````
+````java
 @ModelAttribute("vehicle")
 Vehicle getVehicle() {
 // ...
 }
 ````
 和以前一样，我们不必指定模型键，Spring 默认使用方法的名称：
-````
+````java
 @ModelAttribute
 Vehicle vehicle() {
 // ...
@@ -935,7 +935,7 @@ Vehicle vehicle() {
 ### 7.4 @CrossOrigin
 @CrossOrigin 为带注释的请求处理程序方法启用跨域通信：
 
-````
+````java
 @CrossOrigin
 @RequestMapping("/hello")
 String hello() {
@@ -959,7 +959,7 @@ Spring Boot 通过其自动配置功能使配置 Spring 变得更加容易。
 
 @SpringBootApplication
 我们使用这个注解来标记 Spring Boot 应用程序的主类：
-````
+````java
 @SpringBootApplication
 class VehicleFactoryApplication {
 
@@ -967,7 +967,7 @@ class VehicleFactoryApplication {
         SpringApplication.run(VehicleFactoryApplication.class, args);
     }
 }
-````
+````java
 @SpringBootApplication 封装了@Configuration、@EnableAutoConfiguration 和@ComponentScan 注解及其默认属性。
 
 ## 3 @EnableAutoConfiguration
@@ -976,7 +976,7 @@ class VehicleFactoryApplication {
 
 请注意，我们必须将此注释与@Configuration 一起使用：
 
-````
+````java
 @Configuration
 @EnableAutoConfiguration
 class VehicleFactoryConfig {}
@@ -993,7 +993,7 @@ class VehicleFactoryConfig {}
 @Configuration注解的类中，使用@Bean注解标注的方法，返回的类型都会直接注册为bean。
 
 @Configure注解的定义如下：
-````
+````java
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -1017,7 +1017,7 @@ String value() default "";
 
 使用这些条件，如果注释参数中的类存在/不存在，Spring 将仅使用标记的自动配置 bean：
 
-````
+````java
 @Configuration
 @ConditionalOnClass(DataSource.class)
 class MySQLAutoconfiguration {
@@ -1031,7 +1031,7 @@ class MySQLAutoconfiguration {
 
 和上面一个注解稍有些不同，因为我们的判断条件变成了bean
 
-````
+````java
 @Bean
 @ConditionalOnBean(name = "dataSource")
 LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -1043,7 +1043,7 @@ LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 
 要注意，这里的属性值来源于application.properties文件中的配置
 
-````
+````java
 @Bean
 @ConditionalOnProperty(
 name = "usemysql",
@@ -1084,7 +1084,7 @@ springboot真的为我们想到了所有情况，如果上面的注解还不能�
 
 我们可以在更复杂的情况下使用这个注解。 当 SpEL 表达式被评估为真时，Spring 将使用标记的定义：
 
-````
+````java
 @Bean
 @ConditionalOnExpression("${usemysql} && ${mysqlserver == 'local'}")
 DataSource dataSource() {
@@ -1098,7 +1098,7 @@ DataSource dataSource() {
 
 对于更复杂的条件，我们可以创建一个评估自定义条件的类。 我们告诉 Spring 将这个自定义条件与 @Conditional 一起使用：
 
-````
+````java
 @Conditional(HibernateCondition.class)
 Properties  ditionalProperties() {
 //...

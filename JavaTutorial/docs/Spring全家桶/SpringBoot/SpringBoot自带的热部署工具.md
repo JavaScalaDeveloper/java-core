@@ -56,7 +56,7 @@ LiveLoad是提供浏览器客户端自动加载更新的工具，分为LiveLoad�
 
 
 
-```
+```xml
 <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -268,7 +268,7 @@ restart:
 
 
 
-```
+```java
 public class DevToolsPropertyDefaultsPostProcessor implements EnvironmentPostProcessor {
 
 	static {

@@ -18,7 +18,7 @@ retVal = invocation.proceedWithInvocation();
 
 处理异常的方法为 `TransactionAspectSupport#completeTransactionAfterThrowing`，代码如下：
 
-```
+```java
 protected void completeTransactionAfterThrowing(@Nullable TransactionInfo txInfo, Throwable ex) {
     if (txInfo != null && txInfo.getTransactionStatus() != null) {
         // 异常符合才回滚
@@ -50,7 +50,7 @@ protected void completeTransactionAfterThrowing(@Nullable TransactionInfo txInfo
 
 判断异常是否符合的方法为 `RuleBasedTransactionAttribute#rollbackOn`：
 
-```
+```java
 public boolean rollbackOn(Throwable ex) {
     RollbackRuleAttribute winner = null;
     int deepest = Integer.MAX_VALUE;
@@ -75,7 +75,7 @@ public boolean rollbackOn(Throwable ex) {
 
 获取树深的方法为 `RollbackRuleAttribute#getDepth(Throwable)`，代码如下：
 
-```
+```java
 public int getDepth(Throwable ex) {
     return getDepth(ex.getClass(), 0);
 }
@@ -99,7 +99,7 @@ private int getDepth(Class<?> exceptionClass, int depth) {
 
 之所以使用树深来判断是否需要回滚，原因是设置回滚的异常时，可以设置异常名称：
 
-```
+```java
 public @interface Transactional {
     ...
 
@@ -113,7 +113,7 @@ public @interface Transactional {
 
 `RuleBasedTransactionAttribute#rollbackOn` 中的 `RollbackRuleAttribute` 与 `NoRollbackRuleAttribute` 又是啥呢？它们 `rollbackFor` 与 `noRollbackFor` 的包装类，在 `SpringTransactionAnnotationParser#parseTransactionAnnotation(AnnotationAttributes)` 方法中设置，代码如下：
 
-```
+```java
 protected TransactionAttribute parseTransactionAnnotation(AnnotationAttributes attributes) {
     RuleBasedTransactionAttribute rbta = new RuleBasedTransactionAttribute();
     ...
@@ -226,7 +226,7 @@ txInfo.getTransactionManager().commit(txInfo.getTransactionStatus());
 
 我们跟进这个方法，一直跟到 `AbstractPlatformTransactionManager#processCommit`：
 
-```
+```java
 private void processCommit(DefaultTransactionStatus status) throws TransactionException {
     try {
         ...
@@ -270,7 +270,7 @@ private void processCommit(DefaultTransactionStatus status) throws TransactionEx
 
 我们先来看提交操作，直接进入最终代码：`DataSourceTransactionManager#doCommit`
 
-```
+```java
 protected void doCommit(DefaultTransactionStatus status) {
     DataSourceTransactionObject txObject = (DataSourceTransactionObject) status.getTransaction();
     // 获取连接，Connection 为 java.sql.Connection
@@ -290,7 +290,7 @@ protected void doCommit(DefaultTransactionStatus status) {
 
 再来看下完成操作的处理，进入 `AbstractPlatformTransactionManager#cleanupAfterCompletion` 方法：
 
-```
+```java
 private void cleanupAfterCompletion(DefaultTransactionStatus status) {
     status.setCompleted();
     if (status.isNewSynchronization()) {
@@ -312,7 +312,7 @@ private void cleanupAfterCompletion(DefaultTransactionStatus status) {
 
 我们先来看 `DataSourceTransactionManager#doCleanupAfterCompletion` 方法:
 
-```
+```java
 protected void doCleanupAfterCompletion(Object transaction) {
     DataSourceTransactionObject txObject = (DataSourceTransactionObject) transaction;
 
@@ -346,7 +346,7 @@ protected void doCleanupAfterCompletion(Object transaction) {
 
 再来看看事务的恢复操作，也就是 `resume(...)` 方法，跟进这个方法后，发现最终调用的是 `DataSourceTransactionManager#doResume` 方法，代码如下：
 
-```
+```java
 @Override
 protected void doResume(@Nullable Object transaction, Object suspendedResources) {
     // 将数据源、挂起的数据库连接与当前线程绑定
@@ -361,7 +361,7 @@ protected void doResume(@Nullable Object transaction, Object suspendedResources)
 
 在某些传播方式下，比如 `PROPAGATION_REQUIRES_NEW`，我们需要挂起当前事务，然后创建新的事务，在新事务执行完成后，需要恢复原来的事务，这里的重置事务信息就是将当前事务信息恢复为挂起的事务的信息（只是恢复了事务信息，挂起的数据库连接不是在这里恢复）：
 
-```
+```java
 public abstract class TransactionAspectSupport implements BeanFactoryAware, InitializingBean {
 
     // 存放当前使用的事物信息
@@ -408,7 +408,7 @@ public abstract class TransactionAspectSupport implements BeanFactoryAware, Init
 
 处理事务提交的代码为 `TransactionAspectSupport#commitTransactionAfterReturning`，代码如下：
 
-```
+```java
 protected void commitTransactionAfterReturning(@Nullable TransactionInfo txInfo) {
     // 判断下事务的状态
     if (txInfo != null && txInfo.getTransactionStatus() != null) {

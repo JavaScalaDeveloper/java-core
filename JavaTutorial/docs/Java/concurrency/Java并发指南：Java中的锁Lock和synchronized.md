@@ -136,7 +136,7 @@ ReentrantLock分为公平锁和非公平锁，我们首先分析公平锁。
 
 在第4步真正开始加锁，下面是该方法的源代码：
 
-````
+````java
 protected final boolean tryAcquire(int acquires) {
     final Thread current = Thread.currentThread();
     int c = getState();   //获取锁的开始，首先读volatile变量state
@@ -168,7 +168,7 @@ protected final boolean tryAcquire(int acquires) {
 
 在第3步真正开始释放锁，下面是该方法的源代码：
 
-````
+````java
 protected final boolean tryRelease(int releases) {
     int c = getState() - releases;
     if (Thread.currentThread() != getExclusiveOwnerThread())
@@ -198,7 +198,7 @@ protected final boolean tryRelease(int releases) {
 3.  AbstractQueuedSynchronizer : compareAndSetState(int expect, int update)
 
 在第3步真正开始加锁，下面是该方法的源代码：
-````
+````java
 protected final boolean compareAndSetState(int expect, int update){
     return unsafe.compareAndSwapInt(this, stateOffset, expect, update);
 }
@@ -315,7 +315,7 @@ Java中每一个对象都可以作为锁，这是synchronized实现同步的基�
 当一个线程访问同步代码块时，它首先是需要得到锁才能执行同步代码，**当退出或者抛出异常时必须要释放锁，那么它是如何来实现这个机制的呢？**
 
 我们先看一段简单的代码：
-````
+````java
 public class SynchronizedTest{ public synchronized void test1(){
 
 　　} public void test2(){
@@ -443,7 +443,7 @@ Monitor 是线程私有的数据结构，每一个线程都有一个可用monito
 
 **　　比如StringBuffer的append()方法，Vector的add()方法：**
 
-````
+````java
 public void vectorTest(){
     Vector<String> vector = new Vector<String>(); for(int i = 0 ; i < 10 ; i++){
         vector.add(i + "");

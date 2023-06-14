@@ -14,7 +14,7 @@ commons.logging-1.2.jar
    在 HelloSpring 中创建 net.biancheng.c 包，然后在这个包下创建 HelloWorld.java 和 MainApp.java 类。
 
 HelloWorld.java 类的代码如下
-````
+````java
 package net.biancheng.c;
 public class HelloWorld {
     private String message;
@@ -27,7 +27,7 @@ public class HelloWorld {
 }
 ````
 MainApp.java 类的代码如下
-````
+````java
 package net.biancheng.c;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -48,7 +48,7 @@ ApplicationContext.getBean() 方法用来获取 Bean，该方法返回值类型�
 ## 创建配置文件
 
 在 src 目录下，创建一个 Spring 配置文件 Beans.xml，内容如下。
-````
+````xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

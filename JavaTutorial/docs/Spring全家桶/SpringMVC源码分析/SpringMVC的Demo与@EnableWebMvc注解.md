@@ -15,7 +15,7 @@ optional("org.apache.tomcat.embed:tomcat-embed-core")
 
 #### 2\. 准备配置类
 
-```
+```java
 package org.springframework.learn.mvc.demo01;
 
 import org.springframework.context.annotation.ComponentScan;
@@ -35,7 +35,7 @@ public class MvcConfig {
 
 #### 3\. 实现 `WebApplicationInitializer`
 
-```
+```java
 package org.springframework.learn.mvc.demo01;
 
 import org.springframework.web.WebApplicationInitializer;
@@ -65,7 +65,7 @@ spring 提供了一个接口 ——`WebApplicationInitializer`，实现该接口
 
 #### 4\. 准备 controller
 
-```
+```java
 package org.springframework.learn.mvc.demo01;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -90,7 +90,7 @@ public class TestController {
 
 接下来就是主类了：
 
-```
+```java
 package org.springframework.learn.mvc.demo01;
 
 import org.apache.catalina.Context;
@@ -159,7 +159,7 @@ org.springframework.web.SpringServletContainerInitializer
 
 1.  `org.springframework.web.SpringServletContainerInitializer` 实现了 servlet 规范：
 
-```
+```java
 // @HandlesTypes 注解来自于servlet规范，表示 webAppInitializerClass 为 WebApplicationInitializer.class
 @HandlesTypes(WebApplicationInitializer.class)
 public class SpringServletContainerInitializer implements ServletContainerInitializer {
@@ -208,7 +208,7 @@ public class SpringServletContainerInitializer implements ServletContainerInitia
 
 1.  `WebApplicationInitializer` 的实现 我们来看看 demo 中对 `WebApplicationInitializer` 的实现：
 
-```
+```java
 package org.springframework.learn.mvc.demo01;
 
 import org.springframework.web.WebApplicationInitializer;
@@ -249,7 +249,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 
 在 demo 中，我们通过 `@EnableWebMvc` 来启动 mvc 功能，那么这个注解做了什么呢？我们进入 `EnableWebMvc` 类：
 
-```
+```java
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Documented
@@ -261,7 +261,7 @@ public @interface EnableWebMvc {
 
 可以看到，这个注解通过 `@Import` 注解引入了 `DelegatingWebMvcConfiguration.class`，我们再来看看 `DelegatingWebMvcConfiguration`:
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
     ...
@@ -515,7 +515,7 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
 
 2. 方式 2：实现 `WebMvcConfigurationSupport` 类，重写其中的配置方法
 
-   ```
+   ```java
    @Component
    public class MyWebMvcConfigurationSupport extends WebMvcConfigurationSupport {
        // 重写配置方法，处理自定义配置

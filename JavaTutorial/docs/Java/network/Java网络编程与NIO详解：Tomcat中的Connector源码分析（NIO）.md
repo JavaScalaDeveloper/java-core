@@ -80,7 +80,7 @@ Tomcat 9.0.6 下载地址：[https://tomcat.apache.org/download-90.cgi](https://
 
 然后，使用以下启动方法：
 
-```
+```java
 public static void main(String[] args) throws LifecycleException {
 
    Tomcat tomcat = new Tomcat();
@@ -136,7 +136,7 @@ public static void main(String[] args) throws LifecycleException {
 
 打开`Http11NioProtocol`和`Http11Nio2Protocol`源码，我们可以看到，在构造方法中，它们分别指定了 NioEndpoint 和 Nio2Endpoint。
 
-```
+```java
 // 非阻塞模式
 public class Http11NioProtocol extends AbstractHttp11JsseProtocol<NioChannel> {
     public Http11NioProtocol() {
@@ -166,7 +166,7 @@ public class Http11Nio2Protocol extends AbstractHttp11JsseProtocol<Nio2Channel> 
 
 **1\. AbstractProtocol**#**init**
 
-```
+```java
 @Override
 public void init() throws Exception {
     ...
@@ -180,7 +180,7 @@ public void init() throws Exception {
 
 **2\. AbstractEndpoint**#**init**
 
-```
+```java
 public final void init() throws Exception {
     if (bindOnInit) {
         bind(); // 这里对应的当然是子类 NioEndpoint 的 bind() 方法
@@ -194,7 +194,7 @@ public final void init() throws Exception {
 
 这里就到我们的 NioEndpoint 了，要使用到我们之前学习的 NIO 的知识了。
 
-```
+```java
 @Override
 public void bind() throws Exception {
     // initServerSocket(); 原代码是这行，我们 “内联” 过来一起说
@@ -251,7 +251,7 @@ public void bind() throws Exception {
 
 AbstractProtocol # start
 
-```
+```java
 @Override
 public void start() throws Exception {
     ...
@@ -273,7 +273,7 @@ public void start() throws Exception {
 
 AbstractEndpoint # start
 
-```
+```java
 public final void start() throws Exception {
     // 按照我们的流程，刚刚 init 的时候，已经把 bindState 改为 BindState.BOUND_ON_INIT 了，
     // 所以下面的 if 分支我们就不进去了
@@ -290,7 +290,7 @@ public final void start() throws Exception {
 
 NioEndpoint # startInternal
 
-```
+```java
 @Override
 public void startInternal() throws Exception {
 
@@ -348,7 +348,7 @@ public void startInternal() throws Exception {
 
 它的结构非常简单，在构造函数中，已经把 endpoint 传进来了，此外就只有 threadName 和 state 两个简单的属性。
 
-```
+```java
 private final AbstractEndpoint<?,U> endpoint;
 private String threadName;
 protected volatile AcceptorState state = AcceptorState.NEW;
@@ -360,7 +360,7 @@ public Acceptor(AbstractEndpoint<?,U> endpoint) {
 
 **threadName**就是一个线程名字而已，Acceptor 的状态**state**主要是随着 endpoint 来的。
 
-```
+```java
 public enum AcceptorState {
     NEW, RUNNING, PAUSED, ENDED
 }
@@ -370,7 +370,7 @@ public enum AcceptorState {
 
 Acceptor # run
 
-```
+```java
 @Override
 public void run() {
 
@@ -466,7 +466,7 @@ public void run() {
 
 NioEndpoint # setSocketOptions
 
-```
+```java
 @Override
 protected boolean setSocketOptions(SocketChannel socket) {
     try {
@@ -519,7 +519,7 @@ protected boolean setSocketOptions(SocketChannel socket) {
 
 之前我们看到 acceptor 将一个 NioChannel 实例 register 到了一个 poller 中。在看 register 方法之前，我们需要先对 poller 要有个简单的认识。
 
-```
+```java
 public class Poller implements Runnable {
 
     public Poller() throws IOException {
@@ -547,7 +547,7 @@ public class Poller implements Runnable {
 
 Poller 内部围着一个 events 队列转，来看看其 events() 方法：
 
-```
+```java
 public boolean events() {
     boolean result = false;
 
@@ -576,7 +576,7 @@ events() 方法比较简单，就是取出当前队列中的 PollerEvent 对象�
 
 Poller # run
 
-```
+```java
 public void run() {
     while (true) {
 
@@ -650,7 +650,7 @@ poller 的 run() 方法主要做了调用 events() 方法和处理注册到 Sele
 
 Poller # register
 
-```
+```java
 public void register(final NioChannel socket) {
     socket.setPoller(this);
     NioSocketWrapper ka = new NioSocketWrapper(socket, NioEndpoint.this);
@@ -679,7 +679,7 @@ public void register(final NioChannel socket) {
 
 PollerEvent # run
 
-```
+```java
 @Override
 public void run() {
     // 对于新来的连接，前面我们说过，interestOps == OP_REGISTER
@@ -732,7 +732,7 @@ public void run() {
 
 Poller # processKey
 
-```
+```java
 protected void processKey(SelectionKey sk, NioSocketWrapper attachment) {
     try {
         if ( close ) {
@@ -782,7 +782,7 @@ protected void processKey(SelectionKey sk, NioSocketWrapper attachment) {
 
 AbstractEndpoint # processSocket
 
-```
+```java
 public boolean processSocket(SocketWrapperBase<S> socketWrapper,
         SocketEvent event, boolean dispatch) {
     try {
@@ -819,7 +819,7 @@ public boolean processSocket(SocketWrapperBase<S> socketWrapper,
 
 NioEndpoint # createSocketProcessor
 
-```
+```java
 @Override
 protected SocketProcessorBase<NioChannel> createSocketProcessor(
         SocketWrapperBase<NioChannel> socketWrapper, SocketEvent event) {

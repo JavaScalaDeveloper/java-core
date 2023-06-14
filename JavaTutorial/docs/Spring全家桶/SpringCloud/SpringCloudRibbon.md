@@ -87,7 +87,7 @@ RestTemplate 针对各种类型的 HTTP 请求都提供了相应的方法进行�
 
 
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -232,7 +232,7 @@ public class ConfigBean {
 
 
 
-```
+```java
 package net.biancheng.c.controller;
 
 import net.biancheng.c.entity.Dept;
@@ -585,7 +585,7 @@ public class MyRandomRule extends AbstractLoadBalancerRule {
 
 
 
-```
+```java
 package net.biancheng.myrule;
 
 import com.netflix.loadbalancer.IRule;

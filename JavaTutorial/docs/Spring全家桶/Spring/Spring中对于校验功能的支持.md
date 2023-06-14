@@ -10,7 +10,7 @@ Java API 规范(`JSR303`)定义了`Bean`校验的标准`validation-api`，但没
 
 
 
-```
+```xml
 <dependency>
   <groupId>org.hibernate.validator</groupId>
   hibernate-validator-parent
@@ -34,7 +34,7 @@ Java API 规范(`JSR303`)定义了`Bean`校验的标准`validation-api`，但没
 
 
 
-```
+```java
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -61,7 +61,7 @@ public class User implements Serializable {
 
 
 
-```
+```java
 @Slf4j
 @Validated
 @RestController
@@ -114,7 +114,7 @@ public class ValidatorController {
 
 
 
-```
+```java
 @Slf4j
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -184,7 +184,7 @@ public class GlobalExceptionHandler {
 
 
 
-```
+```java
 @Target({ ElementType.FIELD, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface AddCheck { }
@@ -201,7 +201,7 @@ public @interface EditCheck { }
 
 
 
-```
+```java
 @Data
 public class User2 {
 
@@ -225,7 +225,7 @@ public class User2 {
 
 
 
-```
+```java
 @Slf4j
 @Validated
 @RestController
@@ -262,7 +262,7 @@ public class ValidatorController2 {
 
 
 
-```
+```java
 @Data
 public class UserDTO {
 
@@ -312,7 +312,7 @@ public class UserDTO {
     public interface Update {
     }
 }
-复制代码
+
 
 ```
 
@@ -326,7 +326,7 @@ public class UserDTO {
 
 
 
-```
+```java
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE })
 @Retention(RUNTIME)
 @Constraint(validatedBy = MobileValidator.class)
@@ -391,7 +391,7 @@ public class MobileValidator implements ConstraintValidator<IsMobile, String> {
 
 
 
-```
+```java
 package io.github.dunwu.spring.core.validation;
 
 import io.github.dunwu.spring.core.validation.annotation.Valid;
@@ -471,7 +471,7 @@ Spring Validation 默认会校验完所有字段，然后才抛出异常。可�
 
 
 
-```
+```java
 @Bean
 public Validator validator() {
     ValidatorFactory validatorFactory = Validation.byProvider(HibernateValidator.class)
@@ -534,7 +534,7 @@ Errors 文案生成步骤
 
 
 
-```
+```java
 @Override
 public Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewContainer mavContainer,
     NativeWebRequest webRequest, @Nullable WebDataBinderFactory binderFactory) throws Exception {
@@ -569,7 +569,7 @@ public Object resolveArgument(MethodParameter parameter, @Nullable ModelAndViewC
 
 
 
-```
+```java
 protected void validateIfApplicable(WebDataBinder binder, MethodParameter parameter) {
     // 获取参数注解，如 @RequestBody、@Valid、@Validated
     Annotation[] annotations = parameter.getParameterAnnotations();
@@ -598,7 +598,7 @@ protected void validateIfApplicable(WebDataBinder binder, MethodParameter parame
 
 
 
-```
+```java
 @Override
 public void validate(Object target, Errors errors, Object... validationHints) {
     if (this.targetValidator != null) {
@@ -620,7 +620,7 @@ Spring 支持根据方法去进行拦截、校验，原理就在于应用了 AOP
 
 
 
-```
+```java
 public class MethodValidationPostProcessor extends AbstractBeanFactoryAwareAdvisingPostProcessorimplements InitializingBean {
     @Override
     public void afterPropertiesSet() {
@@ -644,7 +644,7 @@ public class MethodValidationPostProcessor extends AbstractBeanFactoryAwareAdvis
 
 
 
-```
+```java
 public class MethodValidationInterceptor implements MethodInterceptor {
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {

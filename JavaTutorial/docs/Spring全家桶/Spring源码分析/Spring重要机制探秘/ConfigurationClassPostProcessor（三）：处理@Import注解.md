@@ -8,7 +8,7 @@
 
 我们来看下 `@Import` 注解的定义：
 
-```
+```java
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -34,7 +34,7 @@ public @interface Import {
 
 1. 首先准备 4 个 bean：
 
-```
+```java
 /**
  * Element01
  */
@@ -74,7 +74,7 @@ public class Element04 {
 
 1. 准备实现 `ImportBeanDefinitionRegistrar` 的类，将 `element02` 注入其中
 
-```
+```java
 public class Element02ImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
 
     /**
@@ -92,7 +92,7 @@ public class Element02ImportBeanDefinitionRegistrar implements ImportBeanDefinit
 
 1. 准备实现 `ImportSelector` 的类，在 `selectImports(...)` 方法中，返回 `Element03` 的 "包名。类名"
 
-```
+```java
 public class Element03Selector implements ImportSelector {
     /**
      * 返回String 为 包名.类名
@@ -109,7 +109,7 @@ public class Element03Selector implements ImportSelector {
 
 1. 准备一个被 `@Configuration` 注解标记类，通过类中被 `@Bean` 标记的方法返回 `Element04`
 
-```
+```java
 @Configuration
 public class Element04Configuration {
     @Bean
@@ -122,7 +122,7 @@ public class Element04Configuration {
 
 1. 定义 `@EnableElement` 注解，其中的 `@Import` 注解依次引入 `Element01.class`、`Element02ImportBeanDefinitionRegistrar.class`、`Element03Selector.class`、`Element04Configuration.class`
 
-```
+```java
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -143,7 +143,7 @@ public @interface EnableElement {
 
 1. 主类：
 
-```
+```java
 // 只需要 @EnableElement 注解
 @EnableElement
 public class Demo04Main {
@@ -186,7 +186,7 @@ this is element 04
 
 关于配置类的解流程，前两篇已经多次提到过了，这里我们直接看关键代码：
 
-```
+```java
 public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
     ...
     Set<BeanDefinitionHolder> candidates = new LinkedHashSet<>(configCandidates);
@@ -243,7 +243,7 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
 
 我们来看看 `@Import` 是如何解析的，进入 `ConfigurationClassParser#doProcessConfigurationClass`：
 
-```
+```java
 /**
  * 这个方法才是真正处理解析的方法
  */
@@ -292,7 +292,7 @@ processImports(configClass, sourceClass, getImports(sourceClass), true);
 
 其中，获取 `@Import` 注解引入的类是 `getImports(...)` 的功能，我们先来看看这个方法是如何获取的：
 
-```
+```java
 private Set<SourceClass> getImports(SourceClass sourceClass) throws IOException {
     Set<SourceClass> imports = new LinkedHashSet<>();
     Set<SourceClass> visited = new LinkedHashSet<>();
@@ -345,7 +345,7 @@ private void collectImports(SourceClass sourceClass, Set<SourceClass> imports,
 
 获取到 `@Import` 注解导入的类后，我们再来看 `processImports(...)` 方法：
 
-```
+```java
 private void processImports(ConfigurationClass configClass, SourceClass currentSourceClass,
         Collection<SourceClass> importCandidates, boolean checkForCircularImports) {
     ...
@@ -399,7 +399,7 @@ private void processImports(ConfigurationClass configClass, SourceClass currentS
     1. 使用反射实例化 `ImportSelector`，之后再执行 `Aware` 接口方法，所以我们在处理 `ImportSelector` 时，还可以实现 `Aware` 接口，支持的 `Aware` 有 `BeanClassLoaderAware`，`BeanFactoryAware`，`EnvironmentAware`，`ResourceLoaderAware`；
     2. 执行 `ImportSelector` 实例的 `selectImports` 方法，这一步是为了获取引入的类，结果为 `Class[]`，引入类的 "包名。类名"，`Element03Selector` 中该方法代码如下：
 
-   ```
+   ```java
    @Override
    public String[] selectImports(AnnotationMetadata importingClassMetadata) {
        return new String[] {Element03.class.getName()};
@@ -421,7 +421,7 @@ private void processImports(ConfigurationClass configClass, SourceClass currentS
 
 在分析 `@Bean` 方法时，我们分析过 `ConfigurationClassBeanDefinitionReader#loadBeanDefinitions` 加载 `@Bean` 方法的流程，这里我们来看加载 `@Import` 的流程，我们直接进入关键方法 `ConfigurationClassBeanDefinitionReader#loadBeanDefinitionsForConfigurationClass`：
 
-```
+```java
 private void loadBeanDefinitionsForConfigurationClass(
         ConfigurationClass configClass, TrackedConditionEvaluator trackedConditionEvaluator) {
     ...
@@ -462,7 +462,7 @@ private void loadBeanDefinitionsForConfigurationClass(
 
 我们进入其中一探究竟：
 
-```
+```java
 private void registerBeanDefinitionForImportedConfigurationClass(ConfigurationClass configClass) {
     AnnotationMetadata metadata = configClass.getMetadata();
     // 创建 BeanDefinition，类型为 AnnotatedGenericBeanDefinition
@@ -488,7 +488,7 @@ private void registerBeanDefinitionForImportedConfigurationClass(ConfigurationCl
 
 处理该过程的方法为 `loadBeanDefinitionsFromRegistrars(...)`，代码如下：
 
-```
+```java
 private void loadBeanDefinitionsFromRegistrars(Map<ImportBeanDefinitionRegistrar, 
         AnnotationMetadata> registrars) {
     registrars.forEach((registrar, metadata) ->
@@ -499,7 +499,7 @@ private void loadBeanDefinitionsFromRegistrars(Map<ImportBeanDefinitionRegistrar
 
 该方法先是遍历传入的 `ImportBeanDefinitionRegistrar` 集合，然后逐一调用其中的 `ImportBeanDefinitionRegistrar#registerBeanDefinitions(AnnotationMetadata, BeanDefinitionRegistry, BeanNameGenerator)` 方法，该方法位于 `ImportBeanDefinitionRegistrar` 接口，代码如下：
 
-```
+```java
 public interface ImportBeanDefinitionRegistrar {
 
     /**
@@ -522,7 +522,7 @@ public interface ImportBeanDefinitionRegistrar {
 
 `ImportBeanDefinitionRegistrar#registerBeanDefinitions(AnnotationMetadata, BeanDefinitionRegistry, BeanNameGenerator)` 仅是做了一个调用，最终调用的是 `ImportBeanDefinitionRegistrar#registerBeanDefinitions(AnnotationMetadata, BeanDefinitionRegistry)`，而我们的 `Element02ImportBeanDefinitionRegistrar` 正是实现了该方法：
 
-```
+```java
 public class Element02ImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, 
@@ -546,7 +546,7 @@ public class Element02ImportBeanDefinitionRegistrar implements ImportBeanDefinit
 
 这点在使用 `beanFactory.get(“beanName”)` 时需要注意：
 
-```
+```java
 // 获取不到，会报错
 beanFactory.get("element01");
 // 能获取到
@@ -559,7 +559,7 @@ beanFactory.get("element04");
 
 使用 `beanFactory.get(“beanName”)` 获取 `element01` 与 `element03` 需要这样获取：
 
-```
+```java
 // 能获取到
 beanFactory.get("org.springframework.learn.explore.demo04.element.Element01");
 // 能获取到
@@ -568,7 +568,7 @@ beanFactory.get("org.springframework.learn.explore.demo04.element.Element03");
 
 当然，我们也可以使用 `beanFactory.get(Class)` 的方式获取：
 
-```
+```java
 // 能获取到
 beanFactory.get(Element01.class);
 // 能获取到
@@ -589,7 +589,7 @@ beanFactory.get(Element04.class);
 
 `DeferredImportSelector` 的代码如下：
 
-```
+```java
 /**
  * DeferredImportSelector 是 ImportSelector的子接口
  */
@@ -661,7 +661,7 @@ this.deferredImportSelectorHandler.handle(configClass, (DeferredImportSelector) 
 
 来看看这行代码做做了什么，进入 `ConfigurationClassParser#handler方法`：
 
-```
+```java
 class ConfigurationClassParser {
 
     ...
@@ -696,7 +696,7 @@ class ConfigurationClassParser {
 
 到目前为止，`DeferredImportSelector` 引入的类并没有进行处理，那么 `DeferredImportSelector` 引入的类是在哪里处理的呢？让我们回到 `ConfigurationClassParser#parse(Set<BeanDefinitionHolder>)` 方法：
 
-```
+```java
 public class  ConfigurationClassParser {
     public void parse(Set<BeanDefinitionHolder> configCandidates) {
         // 循环传进来的配置类
@@ -727,7 +727,7 @@ public class  ConfigurationClassParser {
 
 我们继续：
 
-```
+```java
 class ConfigurationClassParser {
 
     private class DeferredImportSelectorHandler {
@@ -765,7 +765,7 @@ class ConfigurationClassParser {
 
 我们再来看看 `handler.processGroupImports()` 方法：
 
-```
+```java
 class ConfigurationClassParser {
 
     ...
@@ -810,7 +810,7 @@ class ConfigurationClassParser {
 
 我们来看看 `grouping.getImports()` 方法，该方法为 `ConfigurationClassParser.DeferredImportSelectorGrouping#getImports`，代码如下：
 
-```
+```java
 public Iterable<Group.Entry> getImports() {
     for (DeferredImportSelectorHolder deferredImport : this.deferredImports) {
         // 执行 Group#process

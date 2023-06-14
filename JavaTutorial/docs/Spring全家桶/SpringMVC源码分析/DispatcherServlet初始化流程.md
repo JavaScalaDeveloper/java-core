@@ -4,7 +4,7 @@
 
 我们再回忆下 `MyWebApplicationInitializer#onStartup` 方法：
 
-```
+```java
 @Override
 public void onStartup(ServletContext servletContext) {
    System.out.println("webApplicationInitializer ...");
@@ -33,7 +33,7 @@ public void onStartup(ServletContext servletContext) {
 
 由于 `DispatcherServlet` 实现了 `HttpServletBean`、`FrameworkServlet`，`DispatcherServlet#init()` 实际上继承自 `HttpServletBean#init`：
 
-```
+```java
 @Override
 public final void init() throws ServletException {
 
@@ -68,7 +68,7 @@ public final void init() throws ServletException {
 
 一直跟到 `FrameworkServlet#initWebApplicationContext`：
 
-```
+```java
 protected WebApplicationContext initWebApplicationContext() {
     // 获取类型为WebServerApplicationContext的父容器，这里得到的结果为null
     WebApplicationContext rootContext =
@@ -124,7 +124,7 @@ protected WebApplicationContext initWebApplicationContext() {
 
 这个方法的相关操作代码中已有注释，实际上这个方法最 重要的代码为
 
-```
+```java
 protected WebApplicationContext initWebApplicationContext() {
     ...
     // 在这里调用 AbstractApplicationContext#refresh 启动
@@ -139,7 +139,7 @@ protected WebApplicationContext initWebApplicationContext() {
 
 > FrameworkServlet#configureAndRefreshWebApplicationContext
 
-```
+```java
 protected void configureAndRefreshWebApplicationContext(ConfigurableWebApplicationContext wac) {
     if (ObjectUtils.identityToString(wac).equals(wac.getId())) {
         if (this.contextId != null) {
@@ -192,7 +192,7 @@ wac.addApplicationListener(new SourceFilteringListener(wac, new ContextRefreshLi
 
 我们来看看 `SourceFilteringListener`：
 
-```
+```java
 public class SourceFilteringListener implements GenericApplicationListener, SmartApplicationListener {
 
     private final Object source;
@@ -242,7 +242,7 @@ public class SourceFilteringListener implements GenericApplicationListener, Smar
 
 > FrameworkServlet.ContextRefreshListener
 
-```
+```java
 private class ContextRefreshListener implements ApplicationListener<ContextRefreshedEvent> {
 
     @Override
@@ -255,7 +255,7 @@ private class ContextRefreshListener implements ApplicationListener<ContextRefre
 
 这个类是 `FrameworkServlet` 的内部类，代码很简单，最终调用的是 `FrameworkServlet#onApplicationEvent`：
 
-```
+```java
 public void onApplicationEvent(ContextRefreshedEvent event) {
     // 修改状态，这个很关键，运行了这行后，
     // FrameworkServlet#initWebApplicationContext里的onRefresh(...)就不会运行
@@ -270,7 +270,7 @@ public void onApplicationEvent(ContextRefreshedEvent event) {
 
 接下来就是 `DispatcherServlet#onRefresh` 方法了：
 
-```
+```java
 @Override
 protected void onRefresh(ApplicationContext context) {
     initStrategies(context);
@@ -302,7 +302,7 @@ spring 在启动完成后，会发布启动完成事件，然后由监听器 `So
 
 其实这个方法很简单，里面有 9 行代码，每行代码都初始化了 springmvc 的一个组件，如 `initMultipartResolver`：
 
-```
+```java
 public static final String MULTIPART_RESOLVER_BEAN_NAME = "multipartResolver";
 
 private void initMultipartResolver(ApplicationContext context) {
@@ -321,7 +321,7 @@ private void initMultipartResolver(ApplicationContext context) {
 
 `multipartResolver` 是用来处理文件上传的 bean，在 spring 中，我们处理文件上传时，一般会像这样引入 `multipartResolver` bean；
 
-```
+```java
 @Bean(name = "multipartResolver")
 public MultipartResolver multipartResolver() {
     CommonsMultipartResolver resolver = new CommonsMultipartResolver();
@@ -341,7 +341,7 @@ public MultipartResolver multipartResolver() {
 
 > DispatcherServlet
 
-```
+```java
 public static final String HANDLER_MAPPING_BEAN_NAME = "handlerMapping";
 
 private static final String DEFAULT_STRATEGIES_PATH = "DispatcherServlet.properties";

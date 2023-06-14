@@ -48,7 +48,7 @@ CountDownLatch 这个类是比较典型的 AQS 的共享模式的使用，这是
 
 调用 latch.await() 的方法的线程会阻塞，直到所有的任务完成。
 
-```
+```java
 class Driver2 { // ...
     void main() throws InterruptedException {
         CountDownLatch doneSignal = new CountDownLatch(N);
@@ -89,7 +89,7 @@ class WorkerRunnable implements Runnable {
 
 我们再来看另一个例子，这个例子很典型，用了两个 CountDownLatch：
 
-```
+```java
 class Driver { // ...
     void main() throws InterruptedException {
         CountDownLatch startSignal = new CountDownLatch(1);
@@ -144,7 +144,7 @@ Talk is cheap, show me the code.
 
 构造方法，需要传入一个不小于 0 的整数：
 
-```
+```java
 public CountDownLatch(int count) {
     if (count < 0) throw new IllegalArgumentException("count < 0");
     this.sync = new Sync(count);
@@ -167,7 +167,7 @@ countDown() 方法每次调用都会将 state 减 1，直到 state 的值为 0�
 
 我们用以下程序来分析源码，t1 和 t2 负责调用 countDown() 方法，t3 和 t4 调用 await 方法阻塞：
 
-```
+```java
 public class CountDownLatchDemo {
 
     public static void main(String[] args) {
@@ -249,7 +249,7 @@ public class CountDownLatchDemo {
 
 首先，我们来看 await() 方法，它代表线程阻塞，等待 state 的值减为 0。
 
-```
+```java
 public void await() throws InterruptedException {
     sync.acquireSharedInterruptibly(1);
 }
@@ -272,7 +272,7 @@ protected int tryAcquireShared(int acquires) {
 
 从方法名我们就可以看出，这个方法是获取共享锁，并且此方法是可中断的（中断的时候抛出 InterruptedException 退出这个方法）。
 
-```
+```java
 private void doAcquireSharedInterruptibly(int arg)
     throws InterruptedException {
     // 1\. 入队
@@ -327,7 +327,7 @@ private void doAcquireSharedInterruptibly(int arg)
 
 我们再一步步看具体的流程。首先，我们看 countDown() 方法:
 
-```
+```java
 public void countDown() {
     sync.releaseShared(1);
 }
@@ -357,7 +357,7 @@ protected boolean tryReleaseShared(int releases) {
 
 countDown 方法就是每次调用都将 state 值减 1，如果 state 减到 0 了，那么就调用下面的方法进行唤醒阻塞队列中的线程：
 
-```
+```java
 // 调用这个方法的时候，state == 0
 // 这个方法先不要看所有的代码，按照思路往下到我写注释的地方，我们先跑通一个流程，其他的之后还会仔细分析
 private void doReleaseShared() {
@@ -386,7 +386,7 @@ private void doReleaseShared() {
 
 一旦 t3 被唤醒后，我们继续回到 await 的这段代码，parkAndCheckInterrupt 返回，我们先不考虑中断的情况：
 
-```
+```java
 private void doAcquireSharedInterruptibly(int arg)
     throws InterruptedException {
     final Node node = addWaiter(Node.SHARED);
@@ -417,7 +417,7 @@ private void doAcquireSharedInterruptibly(int arg)
 
 接下来，t3 会进到 setHeadAndPropagate(node, r) 这个方法，先把 head 给占了，然后唤醒队列中其他的线程：
 
-```
+```java
 private void setHeadAndPropagate(Node node, int propagate) {
     Node h = head; // Record old head for check below
     setHead(node);
@@ -436,7 +436,7 @@ private void setHeadAndPropagate(Node node, int propagate) {
 
 又回到这个方法了，那么接下来，我们好好分析 doReleaseShared 这个方法，我们根据流程，头节点 head 此时是 t3 节点了：
 
-```
+```java
 // 调用这个方法的时候，state == 0
 private void doReleaseShared() {
     for (;;) {
@@ -499,7 +499,7 @@ for 循环第一轮的时候会唤醒 t4，t4 醒后会将自己设置为头节�
 
 大家先把图看完，然后我们开始源码分析：
 
-```
+```java
 public class CyclicBarrier {
     // 我们说了，CyclicBarrier 是可以重复使用的，我们把每次从开始使用到穿过栅栏当做"一代"，或者"一个周期"
     private static class Generation {
@@ -540,7 +540,7 @@ public class CyclicBarrier {
 
 首先，先看怎么开启新的一代：
 
-```
+```java
 // 开启新的一代，当最后一个线程到达栅栏上的时候，调用这个方法来唤醒其他线程，同时初始化“下一代”
 private void nextGeneration() {
     // 首先，需要唤醒所有的在栅栏上等待的线程
@@ -556,7 +556,7 @@ private void nextGeneration() {
 
 看看怎么打破一个栅栏：
 
-```
+```java
 private void breakBarrier() {
     // 设置状态 broken 为 true
     generation.broken = true;
@@ -569,7 +569,7 @@ private void breakBarrier() {
 
 这两个方法之后用得到，现在开始分析最重要的等待通过栅栏方法 await 方法：
 
-```
+```java
 // 不带超时机制
 public int await() throws InterruptedException, BrokenBarrierException {
     try {
@@ -589,7 +589,7 @@ public int await(long timeout, TimeUnit unit)
 
 继续往里看：
 
-```
+```java
 private int dowait(boolean timed, long nanos)
         throws InterruptedException, BrokenBarrierException,
                TimeoutException {
@@ -689,7 +689,7 @@ private int dowait(boolean timed, long nanos)
 
 首先，我们看看怎么得到有多少个线程到了栅栏上，处于等待状态：
 
-```
+```java
 public int getNumberWaiting() {
     final ReentrantLock lock = this.lock;
     lock.lock();
@@ -703,7 +703,7 @@ public int getNumberWaiting() {
 
 判断一个栅栏是否被打破了，这个很简单，直接看 broken 的值即可：
 
-```
+```java
 public boolean isBroken() {
     final ReentrantLock lock = this.lock;
     lock.lock();
@@ -723,7 +723,7 @@ public boolean isBroken() {
 
 最后，我们来看看怎么重置一个栅栏：
 
-```
+```java
 public void reset() {
     final ReentrantLock lock = this.lock;
     lock.lock();
@@ -752,7 +752,7 @@ public void reset() {
 
 构造方法：
 
-```
+```java
 public Semaphore(int permits) {
     sync = new NonfairSync(permits);
 }
@@ -766,7 +766,7 @@ public Semaphore(int permits, boolean fair) {
 
 看 acquire 方法：
 
-```
+```java
 public void acquire() throws InterruptedException {
     sync.acquireSharedInterruptibly(1);
 }
@@ -787,7 +787,7 @@ public void acquireUninterruptibly(int permits) {
 
 我们接下来看不抛出 InterruptedException 异常的 acquireUninterruptibly() 方法吧：
 
-```
+```java
 public void acquireUninterruptibly() {
     sync.acquireShared(1);
 }
@@ -799,7 +799,7 @@ public final void acquireShared(int arg) {
 
 前面说了，Semaphore 分公平策略和非公平策略，我们对比一下两个 tryAcquireShared 方法：
 
-```
+```java
 // 公平策略：
 protected int tryAcquireShared(int acquires) {
     for (;;) {
@@ -832,7 +832,7 @@ final int nonfairTryAcquireShared(int acquires) {
 
 我们再回到 acquireShared 方法，
 
-```
+```java
 public final void acquireShared(int arg) {
     if (tryAcquireShared(arg) < 0)
         doAcquireShared(arg);
@@ -841,7 +841,7 @@ public final void acquireShared(int arg) {
 
 由于 tryAcquireShared(arg) 返回小于 0 的时候，说明 state 已经小于 0 了（没资源了），此时 acquire 不能立马拿到资源，需要进入到阻塞队列等待，虽然贴了很多代码，不在乎多这点了：
 
-```
+```java
 private void doAcquireShared(int arg) {
     final Node node = addWaiter(Node.SHARED);
     boolean failed = true;
@@ -873,7 +873,7 @@ private void doAcquireShared(int arg) {
 
 这个方法我就不介绍了，线程挂起后等待有资源被 release 出来。接下来，我们就要看 release 的方法了：
 
-```
+```java
 // 任务介绍，释放一个资源
 public void release() {
     sync.releaseShared(1);
@@ -901,7 +901,7 @@ protected final boolean tryReleaseShared(int releases) {
 
 tryReleaseShared 方法总是会返回 true，然后是 doReleaseShared，这个也是我们熟悉的方法了，我就贴下代码，不分析了，这个方法用于唤醒所有的等待线程：
 
-```
+```java
 private void doReleaseShared() {
     for (;;) {
         Node h = head;

@@ -41,7 +41,7 @@
 
 DispatcherServlet类的初始化入口方法init()定义在HttpServletBean这个父类中，HttpServletBean类作为一个直接继承于HttpServlet类的类，覆写了HttpServlet类的init()方法，实现了自己的初始化行为。
 
-```
+```java
 @Override
     public final void init() throws ServletException {
         if (logger.isDebugEnabled()) {
@@ -82,7 +82,7 @@ DispatcherServlet类的初始化入口方法init()定义在HttpServletBean这个
 
 我在web.xml中注册的DispatcherServlet配置如下：
 
-```
+```xml
 <!-- springMVC配置开始 -->
     <servlet>
         <servlet-name>appServlet</servlet-name>
@@ -120,7 +120,7 @@ HttpServletBean类的作者是大名鼎鼎的Spring之父Rod Johnson。作为POJ
 
 上一篇文章中提到过，SpringMVC使用了Spring容器来容纳自己的配置元素，拥有自己的bean容器上下文。在SpringMVC初始化的过程中，非常关键的一步就是要建立起这个容器上下文，而这个建立上下文的过程，发生在FrameworkServlet类中，由上面init()方法中的initServletBean()方法触发。
 
-```
+```java
 @Override
     protected final void initServletBean() throws ServletException {
         getServletContext().log("Initializing Spring FrameworkServlet '" + getServletName() + "'");
@@ -173,7 +173,7 @@ initWebApplicationContext()方法，封装了建立Spring容器上下文的整�
 
 初始化流程在FrameworkServlet类中流转，建立了上下文后，通过onRefresh(ApplicationContext context)方法的回调，进入到DispatcherServlet类中。
 
-```
+```java
 @Override
     protected void onRefresh(ApplicationContext context) {
         initStrategies(context);
@@ -182,7 +182,7 @@ initWebApplicationContext()方法，封装了建立Spring容器上下文的整�
 
 DispatcherServlet类覆写了父类FrameworkServlet中的onRefresh(ApplicationContext context)方法，提供了SpringMVC各种编程元素的初始化。当然这些编程元素，都是作为容器上下文中一个个bean而存在的。具体的初始化策略，在initStrategies()方法中封装。
 
-```
+```java
 protected void initStrategies(ApplicationContext context) {
         initMultipartResolver(context);
         initLocaleResolver(context);
@@ -198,7 +198,7 @@ protected void initStrategies(ApplicationContext context) {
 
 我们以其中initHandlerMappings(context)方法为例，分析一下这些SpringMVC编程元素的初始化策略，其他的方法，都是以类似的策略初始化的。
 
-```
+```java
 private void initHandlerMappings(ApplicationContext context) {
         this.handlerMappings = null;
 
@@ -237,7 +237,7 @@ detectAllHandlerMappings变量默认为true，所以在初始化HandlerMapping�
 
 点进去getDefaultStrategies看一下。
 
-```
+```java
 @SuppressWarnings("unchecked")
     protected <T> List<T> getDefaultStrategies(ApplicationContext context, Class<T> strategyInterface) {
         String key = strategyInterface.getName();
@@ -274,7 +274,7 @@ detectAllHandlerMappings变量默认为true，所以在初始化HandlerMapping�
 
 需要说明一下的是defaultStrategies变量的初始化，它是在DispatcherServlet的静态初始化代码块中加载的。
 
-```
+```java
 private static final Properties defaultStrategies;
 
     static {
@@ -291,7 +291,7 @@ private static final Properties defaultStrategies;
     }
 ```
 
-```
+```java
 private static final String DEFAULT_STRATEGIES_PATH = "DispatcherServlet.properties";
 ```
 

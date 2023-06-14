@@ -46,7 +46,7 @@ Hibernate是一种ORM框架，全称为 Object_Relative DateBase-Mapping，在Ja
 嫌弃JDBC的ConnectionStatementResultSet等对象太繁琐，使用对原生JDBC的封装组件-->DbUtils组件
 我们来看看使用DbUtils之后，程序的代码是怎么样的：
 
-````
+````java
 public class CategoryDAOImpl implements zhongfucheng.dao.CategoryDao {
 
     @Override
@@ -130,7 +130,7 @@ hibernate3.jar核心 + required 必须引入的(6个) + jpa 目录 + 数据库�
 编写对象和对象映射
 编写一个User对象->User.java
 
-````
+````java
 public class User {
 
     private int id;
@@ -264,7 +264,7 @@ public class User {
 </hibernate-configuration>
 ````
 ## 测试
-````
+````java
 package zhongfucheng.domain;
 
 import org.hibernate.SessionFactory;
@@ -322,7 +322,7 @@ public class App {
 
 我们看看快速入门案例的代码用到了什么对象吧，然后一个一个讲解
 
-````
+````java
 public static void main(String[] args) {
 
     //创建对象
@@ -393,7 +393,7 @@ Session是Hibernate最重要的对象，Session维护了一个连接（Connectio
 
 通常我们在DAO层中都会有以下的方法，Session也为我们提供了对应的方法来实现！
 
-````
+````java
 public interface IEmployeeDao {
 
     void save(Employee emp);
@@ -474,7 +474,7 @@ QBC查询: query by criteria 完全面向对象的查询
 
 我们来看一下怎么使用吧：
 
-````
+````java
 //创建关于user对象的criteria对象
 Criteria criteria = session.createCriteria(User.class);
 
@@ -494,7 +494,7 @@ System.out.println(list);
 
 我们来简单使用一下把：
 
-````
+````java
 //将所有的记录封装成User对象存进List集合中
 SQLQuery sqlQuery = session.createSQLQuery("SELECT * FROM user").addEntity(User.class);
 
@@ -515,7 +515,7 @@ Hibernate注解开发
 PO类注解配置
 
 首先肯定是搭建好Hibernate的开发环境啦，我在此也不过多赘述，读者自行实践。接着在src目录下创建一个cn.itheima.domain包，并在该包下创建一个Book实体类，由于Book实体类中写有注解配置，所以就不用编写那个映射配置文件啦！
-````
+````java
 @Entity // 定义了一个实体
 @Table(name="t_book",catalog="hibernateTest")
 public class Book {
@@ -603,7 +603,7 @@ public class Book {
     private Double price; // 价格，如果没有添加注解，也会自动的生成在表中
 ````
 最后我们在src目录下创建一个cn.itheima.test包，在该包下编写一个HibernateAnnotationTest单元测试类，并在该类中编写一个用于测试PO类的注解开发的方法：
-````
+````java
 public class HibernateAnnotationTest {
 
     // 测试PO的注解开发
@@ -630,7 +630,7 @@ public class HibernateAnnotationTest {
 如果主键生成策略我们想使用UUID类型呢？
 如何设定类的属性不在表中映射？
 这两个问题我们一起解决。废话不多说，直接上例子。在cn.itheima.domain包下再编写一个Person实体类，同样使用注解配置。
-````
+````java
 @Entity
 @Table(name="t_person", catalog="hibernateTest")
 public class Person {
@@ -676,7 +676,7 @@ public class Person {
 ````
 
 最后在HibernateAnnotationTest单元测试类中编写如下一个方法：
-````
+````java
 public class HibernateAnnotationTest {
 
     // 测试uuid的主键生成策略及不生成表中映射
@@ -706,7 +706,7 @@ Hibernate关联映射——一对多（多对一）
 
 客户(Customer)类
 
-````
+````java
 // 客户 ---- 一的一方
 @Entity
 @Table(name="t_customer")
@@ -799,20 +799,20 @@ public void setReceiverInfo(String receiverInfo) {
 
 第一种方式，可以使用JPA提供的注解。
 那么@OneToMany注解就应修改为：
-````
+````java
 @OneToMany(targetEntity=Order.class,mappedBy="c",cascade=CascadeType.ALL)
 private Set<Order> orders = new HashSet<Order>();
 ````
 第二种方式，可以使用Hibernate提供的注解。
 那么@OneToMany注解就应修改为：
-````
+````java
 @OneToMany(targetEntity=Order.class,mappedBy="c")
 @Cascade(CascadeType.SAVE_UPDATE)
 private Set<Order> orders = new HashSet<Order>();
 ````
 两种方式都可以，口味任君选择，不过我倾向于第二种方式。
 接下来在HibernateAnnotationTest单元测试类中编写如下方法进行测试：
-````
+````java
 public class HibernateAnnotationTest {
 
     // 测试one-to-many注解操作(保存客户时级联保存订单)
@@ -849,7 +849,7 @@ public class HibernateAnnotationTest {
 这时运行以上方法，会发现虽然客户表的那条记录插进去了，但是订单表就变成这个鬼样了：
 
 订单表中没有关联客户的id，这是为什么呢？原因是我们在Customer类中配置了mappedBy=”c”，它代表的是外键的维护由Order方来维护，而Customer不维护，这时你在保存客户时，级联保存订单，是可以的，但是不能维护外键，所以，我们必须在代码中添加订单与客户之间的关系。所以须将test3方法修改为：
-````
+````java
 public class HibernateAnnotationTest {
 
     // 测试one-to-many注解操作(保存客户时级联保存订单)
@@ -901,7 +901,7 @@ Hibernate关联映射——多对多
 在src目录下创建一个cn.itheima.manyToMany包，并在该包编写这两个实体类：
 
 学生类
-````
+````java
 @Entity
 @Table(name="t_student")
 public class Student {
@@ -941,7 +941,7 @@ public class Student {
 }
 ````
 老师类
-````
+````java
 @Entity
 @Table(name="t_teacher")
 public class Teacher {

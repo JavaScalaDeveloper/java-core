@@ -24,7 +24,7 @@
 
 关于这些概念本文并不会深入解读，我们重点还是关注 spring 相关的内容，spring 对事务隔离级别的定义在 `org.springframework.transaction.annotation.Isolation` 中，代码如下：
 
-```
+```java
 public enum Isolation {
 
     /**
@@ -72,7 +72,7 @@ public enum Isolation {
 
 我们试想一种情况：`方法A` 与`方式B` 都开启了事务，在`方法B` 中调用`方法A`，如果在`方法A` 执行完成后，`方法B` 报错了，代码示意如下：
 
-```
+```java
 class A {
     // 开启了事务
     @Transactional
@@ -103,7 +103,7 @@ class B {
 
 为了处理这种纠纷，spring 引入了`事务的传播类型`的概念，我们可以使用 `@Transactional` 注解的 `propagation` 来设置只读模式：
 
-```
+```java
 public @interface Transactional {
     ...
 
@@ -143,7 +143,7 @@ spring 一共定义了 7 种事务的传播类型，列举如下：
 
 先是准备一些配置：
 
-```
+```java
 @Configuration
 @ComponentScan("org.springframework.learn.tx.demo03")
 @EnableTransactionManagement(proxyTargetClass = true)
@@ -188,7 +188,7 @@ public class TxDemo03Config {
 
 准备一个 mysql 的操作，要开启事务：
 
-```
+```java
 @Service
 public class UserService {
 
@@ -215,7 +215,7 @@ public class UserService {
 
 最后是主类：
 
-```
+```java
 public class TxDemo03Main {
 
     public static void main(String[] args) {
@@ -236,7 +236,7 @@ public class TxDemo03Main {
 
 上代码：
 
-```
+```java
 protected Object invokeWithinTransaction(Method method, @Nullable Class<?> targetClass,
         final InvocationCallback invocation) throws Throwable {
     TransactionAttributeSource tas = getTransactionAttributeSource();
@@ -304,7 +304,7 @@ protected Object invokeWithinTransaction(Method method, @Nullable Class<?> targe
 
 获取事务管理器的方法为 `TransactionAspectSupport#determineTransactionManager`，直接看代码：
 
-```
+```java
 protected TransactionManager determineTransactionManager(@Nullable TransactionAttribute txAttr) {
     if (txAttr == null || this.beanFactory == null) {
         return getTransactionManager();
@@ -348,7 +348,7 @@ protected TransactionManager determineTransactionManager(@Nullable TransactionAt
 
 在 `TxDemo03Config` 中，我们配置事务管理器为 `DataSourceTransactionManager`：
 
-```
+```java
 public DataSourceTransactionManager transactionManager(DataSource dataSource) {
     return new DataSourceTransactionManager(dataSource);
 }
@@ -362,7 +362,7 @@ public DataSourceTransactionManager transactionManager(DataSource dataSource) {
 
 这个没啥好说的，`DataSourceTransactionManager` 就是 `PlatformTransactionManager` 的子类，代码里做了一个类型转换。
 
-```
+```java
 private PlatformTransactionManager asPlatformTransactionManager(
         @Nullable Object transactionManager) {
     if (transactionManager == null || transactionManager instanceof PlatformTransactionManager) {

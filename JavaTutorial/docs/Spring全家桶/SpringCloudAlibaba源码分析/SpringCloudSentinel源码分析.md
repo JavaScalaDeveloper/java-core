@@ -29,7 +29,7 @@ SentinelWebAutoConfiguration——>addInterceptors——>SentinelWebInterceptor-
 
 
 
-```
+```java
 public boolean preHandle(HttpServletRequest request, HttpServletResponseresponse, Object handler) throws Exception {  try {    String resourceName = this.getResourceName(request);    if (StringUtil.isEmpty(resourceName)) {      return true;   } else if (this.increaseReferece(request,this.baseWebMvcConfig.getRequestRefName(), 1) != 1) {      return true;   } else {      String origin = this.parseOrigin(request);      String contextName = this.getContextName(request);      ContextUtil.enter(contextName, origin);      Entry entry = SphU.entry(resourceName, 1, EntryType.IN);     request.setAttribute(this.baseWebMvcConfig.getRequestAttributeName(), entry);      return true;   } } catch (BlockException var12) {    BlockException e = var12;    try {      this.handleBlockException(request, response, e);   } finally {      ContextUtil.exit();   }    return false; }}
 ```
 
@@ -50,7 +50,7 @@ public boolean preHandle(HttpServletRequest request, HttpServletResponseresponse
 
 
 
-```
+```java
 public static Entry entry(String name) throws BlockException {    return Env.sph.entry(name, EntryType.OUT, 1, OBJECTS0);}public class Env {    public static final Sph sph = new CtSph();    ......//省略部分代码}
 ```
 
@@ -66,7 +66,7 @@ public static Entry entry(String name) throws BlockException {    return Env.sph
 
 
 
-```
+```java
 @Overridepublic Entry entry(String name, EntryType type, int count, Object... args) throws BlockException {　　 //封装了一个资源对象    StringResourceWrapper resource = new StringResourceWrapper(name, type);    return entry(resource, count, args);}
 ```
 
@@ -86,7 +86,7 @@ public static Entry entry(String name) throws BlockException {    return Env.sph
 
 
 
-```
+```java
 private Entry entryWithPriority(ResourceWrapper resourceWrapper, int count,boolean prioritized, Object... args)    throws BlockException {    //获取上下文环境，存储在ThreadLocal中，context中会存储整个调用链    Context context = ContextUtil.getContext();    //如果是 NullContext，那么说明 context name 超过了 2000 个，参见 ContextUtil#trueEnter    //这个时候，Sentinel 不再接受处理新的 context 配置，也就是不做这些新的接口的统计、限流熔断等    if (context instanceof NullContext) {        // The {@link NullContext} indicates that the amount of context has exceeded the threshold,        // so here init the entry only. No rule checking will be done.        return new CtEntry(resourceWrapper, null, context);    }    if (context == null) {//使用默认context        // 生成Context的部分        context = InternalContextUtil.internalEnter(Constants.CONTEXT_DEFAULT_NAME);    }    // Global switch is close, no rule checking will do.    if (!Constants.ON) {//全局限流开关是否已经开启，如果关闭了，就不进行限流规则检查        return new CtEntry(resourceWrapper, null, context);    }    //设计模式中的责任链模式。    //构建一个slot链表    ProcessorSlot<Object> chain = lookProcessChain(resourceWrapper);    //根据 lookProcessChain 方法，我们知道，当 resource 超过 Constants.MAX_SLOT_CHAIN_SIZE，    // 也就是 6000 的时候，Sentinel 开始不处理新的请求，这么做主要是为了 Sentinel 的性能考虑    if (chain == null) {        return new CtEntry(resourceWrapper, null, context);    }    //下面这里才真正开始，生成个entry    Entry e = new CtEntry(resourceWrapper, chain, context);    try {        //开始检测限流规则        chain.entry(context, resourceWrapper, null, count, prioritized, args);    } catch (BlockException e1) {        e.exit(count, args); //被限流，抛出异常。        throw e1;    } catch (Throwable e1) {        // This should not happen, unless there are errors existing in Sentinel internal.        RecordLog.info("Sentinel unexpected exception", e1);    }    return e;//返回正常的结果}
 ```
 
@@ -108,7 +108,7 @@ private Entry entryWithPriority(ResourceWrapper resourceWrapper, int count,boole
 
 
 
-```
+```java
 protected static Context trueEnter(String name, String origin) {    //从ThreadLocal中获取，第一次肯定是null    Context context = contextHolder.get();    if (context == null) {        //这里是根据Context的名字获取Node        Map<String, DefaultNode> localCacheNameMap = contextNameNodeMap;        DefaultNode node = localCacheNameMap.get(name);        if (node == null) {            if (localCacheNameMap.size() > Constants.MAX_CONTEXT_NAME_SIZE) {                setNullContext();                return NULL_CONTEXT;            } else {                LOCK.lock();                try {                    node = contextNameNodeMap.get(name);                    if (node == null) {                        if (contextNameNodeMap.size() > Constants.MAX_CONTEXT_NAME_SIZE) {                            setNullContext();                            return NULL_CONTEXT;                        } else {                            //创建个EntranceNode                            node = new EntranceNode(new StringResourceWrapper(name, EntryType.IN), null);                            //加入全局的节点                            // Add entrance node.                            Constants.ROOT.addChild(node);//加入map中                            Map<String, DefaultNode> newMap = new HashMap<>(contextNameNodeMap.size() + 1);                            newMap.putAll(contextNameNodeMap);                            newMap.put(name, node);                            contextNameNodeMap = newMap;                        }                    }                } finally {                    LOCK.unlock();                }            }        }        context = new Context(node, name);        context.setOrigin(origin);        //放入ThreadLocal中        contextHolder.set(context);    }    return context;}
 ```
 
@@ -151,7 +151,7 @@ ProcessorSlot<Object> lookProcessChain(ResourceWrapper resourceWrapper) {    //�
 
 
 
-```
+```java
 public static ProcessorSlotChain newSlotChain() {    if (slotChainBuilder != null) {        return slotChainBuilder.build();    }    // 这里通过spi机制去创建处理链，如果想自己创建slot的话只需要按照SPI机制实现SlotChainBuilder接口就好    //Sentinel默认的链在sentinel-core包下的META-INF.services下    slotChainBuilder = SpiLoader.loadFirstInstanceOrDefault(SlotChainBuilder.class, DefaultSlotChainBuilder.class);    if (slotChainBuilder == null) {        // Should not go through here.        RecordLog.warn("[SlotChainProvider] Wrong state when resolving slot chain builder, using default");        slotChainBuilder = new DefaultSlotChainBuilder();    } else {        RecordLog.info("[SlotChainProvider] Global slot chain builder resolved: "                       + slotChainBuilder.getClass().getCanonicalName());    }    return slotChainBuilder.build();}
 ```
 
@@ -167,7 +167,7 @@ public static ProcessorSlotChain newSlotChain() {    if (slotChainBuilder != nul
 
 
 
-```
+```java
 public class DefaultSlotChainBuilder implements SlotChainBuilder {    @Override    public ProcessorSlotChain build() {        ProcessorSlotChain chain = new DefaultProcessorSlotChain();        chain.addLast(new NodeSelectorSlot());        chain.addLast(new ClusterBuilderSlot());        chain.addLast(new LogSlot());        chain.addLast(new StatisticSlot());        chain.addLast(new SystemSlot());        chain.addLast(new AuthoritySlot());        chain.addLast(new FlowSlot());        chain.addLast(new DegradeSlot());        return chain;    }}
 ```
 
@@ -232,7 +232,7 @@ CtEntry(ResourceWrapper resourceWrapper, ProcessorSlot<Object> chain, Context co
 
 
 
-```
+```java
 @Overridepublic void entry(Context context, ResourceWrapper resourceWrapper, Object obj,                  int count, boolean prioritized, Object... args)    throws Throwable {    //这里有个缓存，根据context的名字缓存node    DefaultNode node = map.get(context.getName());    //双重检测，线程安全    if (node == null) {        synchronized (this) {            node = map.get(context.getName());            if (node == null) {                //这里生成的是DefaultNode节点                node = new DefaultNode(resourceWrapper, null);                //下面这些逻辑是放入map的逻辑，因为后期map比较大，所以这样放入，性能会高一些                HashMap<String, DefaultNode> cacheMap = new HashMap<String,DefaultNode>(map.size());                cacheMap.putAll(map);                cacheMap.put(context.getName(), node);                map = cacheMap;                // 关键在这，这是修改调用链树的地方                ((DefaultNode) context.getLastNode()).addChild(node);            }        }    }    //替换context中的curEntry中的curNode    context.setCurNode(node);    fireEntry(context, resourceWrapper, node, count, prioritized, args);}
 ```
 
@@ -276,7 +276,7 @@ StatisticSlot是 Sentinel 的核心功能插槽之一，用于统计实时的调
 
 
 
-```
+```java
 public void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode node, int count,                  boolean prioritized, Object... args) throws Throwable {    try {        // 先交由后续的限流&降级等processorSlot处理，然后根据处理结果进行统计        // Sentinel责任链的精华（不使用 for 循环遍历调用 ProcessorSlot 的原因）        fireEntry(context, resourceWrapper, node, count, prioritized, args);        //执行到这里表示通过检查，不被限流        // Request passed, add thread count and pass count.        node.increaseThreadNum(); //当前节点的请求线程数加1        node.addPassRequest(count);        //针对不同类型的node记录线程数量和请求通过数量的统计。        if (context.getCurEntry().getOriginNode() != null) {            // Add count for origin node.            context.getCurEntry().getOriginNode().increaseThreadNum();            context.getCurEntry().getOriginNode().addPassRequest(count);        }        if (resourceWrapper.getEntryType() == EntryType.IN) {            // Add count for global inbound entry node for global statistics.            Constants.ENTRY_NODE.increaseThreadNum();            Constants.ENTRY_NODE.addPassRequest(count);        }        //可调用 StatisticSlotCallbackRegistry#addEntryCallback 静态方法注册ProcessorSlotEntryCallback        for (ProcessorSlotEntryCallback<DefaultNode> handler :             StatisticSlotCallbackRegistry.getEntryCallbacks()) {            handler.onPass(context, resourceWrapper, node, count, args);        }        //优先级等待异常，这个在FlowRule中会有涉及到。    } catch (PriorityWaitException ex) {//增加线程统计        node.increaseThreadNum();        if (context.getCurEntry().getOriginNode() != null) {            // Add count for origin node.            context.getCurEntry().getOriginNode().increaseThreadNum();        }        if (resourceWrapper.getEntryType() == EntryType.IN) {            // Add count for global inbound entry node for global statistics.            Constants.ENTRY_NODE.increaseThreadNum();        }        // Handle pass event with registered entry callback handlers.        for (ProcessorSlotEntryCallback<DefaultNode> handler :             StatisticSlotCallbackRegistry.getEntryCallbacks()) {            handler.onPass(context, resourceWrapper, node, count, args);        }    } catch (BlockException e) {        // Blocked, set block exception to current entry.        context.getCurEntry().setBlockError(e); //设置限流异常到当前entry中        // Add block count.        node.increaseBlockQps(count); //增加被限流的数量        //根据不同Node类型增加阻塞限流的次数        if (context.getCurEntry().getOriginNode() != null) {            context.getCurEntry().getOriginNode().increaseBlockQps(count);        }        if (resourceWrapper.getEntryType() == EntryType.IN) {            // Add count for global inbound entry node for global statistics.            Constants.ENTRY_NODE.increaseBlockQps(count);        }        // Handle block event with registered entry callback handlers.        for (ProcessorSlotEntryCallback<DefaultNode> handler :             StatisticSlotCallbackRegistry.getEntryCallbacks()) {            handler.onBlocked(e, context, resourceWrapper, node, count, args);        }        throw e;    } catch (Throwable e) {        // Unexpected internal error, set error to current entry.        context.getCurEntry().setError(e);        throw e;    }}
 ```
 
@@ -304,7 +304,7 @@ public void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode 
 
 
 
-```
+```java
 //按照秒来统计，分成两个窗口，每个窗口500ms，用来统计QPSprivate transient volatile Metric rollingCounterInSecond = new ArrayMetric(SampleCountProperty.SAMPLE_COUNT,        IntervalProperty.INTERVAL);//按照分钟统计，生成60个窗口，每个窗口1000msprivate transient Metric rollingCounterInMinute = new ArrayMetric(60, 60 * 1000, false);public void addPassRequest(int count) {    rollingCounterInSecond.addPass(count);    rollingCounterInMinute.addPass(count);}
 ```
 
@@ -333,7 +333,7 @@ public void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode 
 
 
 
-```
+```java
 private final LeapArray<MetricBucket> data;// SAMPLE_COUNT=2  INTERVAL=1000public ArrayMetric(int sampleCount, int intervalInMs) {  //这两个参数表示，滑动窗口的大小是2个，每一个滑动窗口的时间单位是500ms    this.data = new OccupiableBucketLeapArray(sampleCount, intervalInMs);}public void addPass(int count) {    WindowWrap<MetricBucket> wrap = data.currentWindow();    wrap.value().addPass(count);}
 ```
 
@@ -349,7 +349,7 @@ private final LeapArray<MetricBucket> data;// SAMPLE_COUNT=2  INTERVAL=1000publi
 
 
 
-```
+```java
 public class WindowWrap<T> {　　// 时间窗口的长度    private final long windowLengthInMs;　　// 时间窗口的开始时间，单位是毫秒    private long windowStart;　　 //时间窗口的内容，在 WindowWrap 中是用泛型表示这个值的，但实际上就是 MetricBucket 类    private T value;    //......省略部分代码}
 ```
 
@@ -365,7 +365,7 @@ public class WindowWrap<T> {　　// 时间窗口的长度    private final long
 
 
 
-```
+```java
 public abstract class LeapArray<T> {    // 时间窗口的长度    protected int windowLength;    // 采样窗口的个数    protected int sampleCount;    // 以毫秒为单位的时间间隔    protected int intervalInMs;    // 采样的时间窗口数组    protected AtomicReferenceArray<WindowWrap<T>> array;    /**     * LeapArray对象     * @param windowLength 时间窗口的长度，单位：毫秒     * @param intervalInSec 统计的间隔，单位：秒     */    public LeapArray(int windowLength, int intervalInSec) {        this.windowLength = windowLength;        // 时间窗口的采样个数，默认为2个采样窗口        this.sampleCount = intervalInSec * 1000 / windowLength;        this.intervalInMs = intervalInSec * 1000;//在以秒为单位的时间窗口中，会初始化两个长度的数组：`AtomicReferenceArray<WindowWrap<T>>array`，这个数组表示滑动窗口的大小。其中，每个窗口会占用500ms的时间。        this.array = new AtomicReferenceArray<WindowWrap<T>>(sampleCount);    }}
 ```
 
@@ -381,7 +381,7 @@ public abstract class LeapArray<T> {    // 时间窗口的长度    protected in
 
 
 
-```
+```java
 private transient volatile Metric rollingCounterInSecond = new ArrayMetric(SampleCountProperty.SAMPLE_COUNT,IntervalProperty.INTERVAL);
 ```
 
@@ -398,7 +398,7 @@ private transient volatile Metric rollingCounterInSecond = new ArrayMetric(Sampl
 
 
 
-```
+```java
 @Overridepublic WindowWrap<Window> currentWindow(long time) {    .....//省略部分代码    //计算当前时间在滑动窗口中的索引，计算方式比较简单，当前时间除以单个时间窗口的时间长度，再从整个时间窗口长度进行取模　　 int idx = calculateTimeIdx(timeMillis);    //计算当前时间在时间窗口中的开始时间    long windowStart = calculateWindowStart(timeMillis);    // time每增加一个windowLength的长度，timeId就会增加1，时间窗口就会往前滑动一个        while (true) {        // 从采样数组中根据索引获取缓存的时间窗口        WindowWrap<Window> old = array.get(idx);        // array数组长度不宜过大，否则old很多情况下都命中不了，就会创建很多个WindowWrap对象        //如果为空，说明此处还未初始化        if (old == null) {            // 如果没有获取到，则创建一个新的            WindowWrap<Window> window = new WindowWrap<Window>(windowLength, currentWindowStart, new Window());            // 通过CAS将新窗口设置到数组中去            if (array.compareAndSet(idx, null, window)) {                // 如果能设置成功，则将该窗口返回                return window;            } else {                // 否则当前线程让出时间片，等待                Thread.yield();            }        // 如果当前窗口的开始时间与old的开始时间相等，则直接返回old窗口        } else if (currentWindowStart == old.windowStart()) {            return old;        // 如果当前时间窗口的开始时间已经超过了old窗口的开始时间，则放弃old窗口        // 并将time设置为新的时间窗口的开始时间，此时窗口向前滑动        } else if (currentWindowStart > old.windowStart()) {            if (addLock.tryLock()) {                try {                    // if (old is deprecated) then [LOCK] resetTo currentTime.                    return resetWindowTo(old, currentWindowStart);                } finally {                    addLock.unlock();                }            } else {                Thread.yield();            }        // 这个条件不可能存在        } else if (currentWindowStart < old.windowStart()) {            // Cannot go through here.            return new WindowWrap<Window>(windowLength, currentWindowStart, new Window());        }    }}
 ```
 
@@ -425,7 +425,7 @@ private transient volatile Metric rollingCounterInSecond = new ArrayMetric(Sampl
 
 
 
-```
+```java
 private int calculateTimeIdx(/*@Valid*/ long timeMillis) {    // time每增加一个windowLength的长度，timeId就会增加1，时间窗口就会往前滑动一个    long timeId = timeMillis / windowLengthInMs;     // idx被分成[0,arrayLength-1]中的某一个数，作为array数组中的索引    return (int)(timeId % array.length());}protected long calculateWindowStart(/*@Valid*/ long timeMillis) {    return timeMillis - timeMillis % windowLengthInMs;}
 ```
 
@@ -445,7 +445,7 @@ private int calculateTimeIdx(/*@Valid*/ long timeMillis) {    // time每增加�
 
 
 
-```
+```java
 protected WindowWrap<MetricBucket> resetWindowTo(WindowWrap<MetricBucket> w, long time) {    // Update the start time and reset value.    // 重置windowStart    w.resetTo(time);    MetricBucket borrowBucket = borrowArray.getWindowValue(time);    if (borrowBucket != null) {        w.value().reset();        w.value().addPass((int)borrowBucket.pass());    } else {        w.value().reset();    }    return w;}
 ```
 
@@ -461,7 +461,7 @@ protected WindowWrap<MetricBucket> resetWindowTo(WindowWrap<MetricBucket> w, lon
 
 
 
-```
+```java
 public void addPass(int count) {    WindowWrap<MetricBucket> wrap = data.currentWindow();    wrap.value().addPass(count);}
 ```
 
@@ -477,7 +477,7 @@ public void addPass(int count) {    WindowWrap<MetricBucket> wrap = data.current
 
 
 
-```
+```java
 public void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode node, int count,                  boolean prioritized, Object... args) throws Throwable {    checkFlow(resourceWrapper, context, node, count, prioritized);    fireEntry(context, resourceWrapper, node, count, prioritized, args);}
 ```
 
@@ -493,7 +493,7 @@ public void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode 
 
 
 
-```
+```java
 public void checkFlow(Function<String, Collection<FlowRule>> ruleProvider, ResourceWrapper resource,                      Context context, DefaultNode node, int count, boolean prioritized) throws BlockException {    if (ruleProvider == null || resource == null) {        return;    }    Collection<FlowRule> rules = ruleProvider.apply(resource.getName());    if (rules != null) {        for (FlowRule rule : rules) {            if (!canPassCheck(rule, context, node, count, prioritized)) {                throw new FlowException(rule.getLimitApp(), rule);            }        }    }}
 ```
 
@@ -516,7 +516,7 @@ public void checkFlow(Function<String, Collection<FlowRule>> ruleProvider, Resou
 
 
 
-```
+```java
 @Overridepublic void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode node, int count,                  boolean prioritized, Object... args) throws Throwable {    checkFlow(resourceWrapper, context, node, count, prioritized);    fireEntry(context, resourceWrapper, node, count, prioritized, args);}
 ```
 
@@ -536,7 +536,7 @@ public void checkFlow(Function<String, Collection<FlowRule>> ruleProvider, Resou
 
 
 
-```
+```java
 public void checkFlow(Function<String, Collection<FlowRule>> ruleProvider,ResourceWrapper resource,                      Context context, DefaultNode node, int count, boolean prioritized) throws BlockException {    if (ruleProvider == null || resource == null) {        return;    }    Collection<FlowRule> rules = ruleProvider.apply(resource.getName());    if (rules != null) {        for (FlowRule rule : rules) {            if (!canPassCheck(rule, context, node, count, prioritized)) {                throw new FlowException(rule.getLimitApp(), rule);            }        }    }}
 ```
 
@@ -553,7 +553,7 @@ public void checkFlow(Function<String, Collection<FlowRule>> ruleProvider,Resour
 
 
 
-```
+```java
 public boolean canPassCheck(/*@NonNull*/ FlowRule rule, Context context,DefaultNode node, int acquireCount,                            boolean prioritized) {    String limitApp = rule.getLimitApp();    if (limitApp == null) {        return true;    }    if (rule.isClusterMode()) {        return passClusterCheck(rule, context, node, acquireCount, prioritized);    }    return passLocalCheck(rule, context, node, acquireCount, prioritized);}
 ```
 
@@ -572,7 +572,7 @@ public boolean canPassCheck(/*@NonNull*/ FlowRule rule, Context context,DefaultN
 
 
 
-```
+```java
 private static boolean passLocalCheck(FlowRule rule, Context context,DefaultNode node, int acquireCount,                                      boolean prioritized) {    Node selectedNode = selectNodeByRequesterAndStrategy(rule, context, node);    if (selectedNode == null) {        return true;    }    return rule.getRater().canPass(selectedNode, acquireCount, prioritized);}
 ```
 
@@ -589,7 +589,7 @@ private static boolean passLocalCheck(FlowRule rule, Context context,DefaultNode
 
 
 
-```
+```java
 @Overridepublic boolean canPass(Node node, int acquireCount, boolean prioritized) {    //先根据node获取资源当前的使用数量，这里会根据qps或者并发数策略来获得相关的值    int curCount = avgUsedTokens(node);    //当前已使用的请求数加上本次请求的数量是否大于阈值    if (curCount + acquireCount > count) {//如果为true，说明应该被限流        // 如果此请求是一个高优先级请求，并且限流类型为qps，则不会立即失败，而是去占用未来的时间窗口，等到下一个时间窗口通过请求。        if (prioritized && grade == RuleConstant.FLOW_GRADE_QPS) { //            long currentTime;            long waitInMs;            currentTime = TimeUtil.currentTimeMillis();            waitInMs = node.tryOccupyNext(currentTime, acquireCount, count);            if (waitInMs < OccupyTimeoutProperty.getOccupyTimeout()) {                node.addWaitingRequest(currentTime + waitInMs, acquireCount);                node.addOccupiedPass(acquireCount);                sleep(waitInMs);                // PriorityWaitException indicates that the request will pass after waiting for {@link @waitInMs}.                throw new PriorityWaitException(waitInMs);            }        }        return false;    }    return true;}
 ```
 
@@ -626,7 +626,7 @@ borrowArray，它是一个FutureBucketLeapArray对象，这里定义的是未来
 
 
 
-```
+```java
 @Overridepublic void addWaiting(long time, int acquireCount) {    WindowWrap<MetricBucket> window = borrowArray.currentWindow(time);    window.value().add(MetricEvent.PASS, acquireCount);}
 ```
 
@@ -644,7 +644,7 @@ borrowArray，它是一个FutureBucketLeapArray对象，这里定义的是未来
 
 
 
-```
+```java
 public void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode node, int count,                  boolean prioritized, Object... args) throws Throwable {    try{        //...    } catch (PriorityWaitException ex) {        node.increaseThreadNum();        if (context.getCurEntry().getOriginNode() != null) {            // Add count for origin node.            context.getCurEntry().getOriginNode().increaseThreadNum();        }        if (resourceWrapper.getEntryType() == EntryType.IN) {            // Add count for global inbound entry node for global statistics.            Constants.ENTRY_NODE.increaseThreadNum();        }        // Handle pass event with registered entry callback handlers.        for (ProcessorSlotEntryCallback<DefaultNode> handler :             StatisticSlotCallbackRegistry.getEntryCallbacks()) {            handler.onPass(context, resourceWrapper, node, count, args);        }    }}
 ```
 

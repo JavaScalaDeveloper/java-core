@@ -142,7 +142,7 @@ J2EE 后来改成了Java EE。
 
 
 他们希望这个样子：
-````
+````java
 public class HelloworldBean{
 
   public String hello(){

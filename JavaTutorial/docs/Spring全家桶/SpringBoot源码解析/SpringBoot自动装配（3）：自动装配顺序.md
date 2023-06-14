@@ -12,7 +12,7 @@
 
 再回到 `@ConditionalOnBean/@ConditionalOnMissingBean`，对如下两个自动装配类：
 
-```
+```java
 // A是自动装配类
 @Configuration
 public class A {
@@ -49,7 +49,7 @@ springboot 为我们提供了两种自动装配类的排序手段：
 
 回到示例，我们可以这样指定装配顺序：
 
-```
+```java
 // A是自动装配类
 @Configuration
 // 在B.class之后自动装配
@@ -83,7 +83,7 @@ public class B {
 
 而对自动装配类的排序正是在第 6 步，对应的方法是 `AutoConfigurationImportSelector.AutoConfigurationGroup#sortAutoConfigurations`，代码如下：
 
-```
+```java
 private List<String> sortAutoConfigurations(Set<String> configurations,
         AutoConfigurationMetadata autoConfigurationMetadata) {
     // 先创建了 AutoConfigurationSorter 对象，
@@ -101,7 +101,7 @@ private List<String> sortAutoConfigurations(Set<String> configurations,
 
 我们先来看看 `AutoConfigurationSorter` 的创建操作：
 
-```
+```java
 class AutoConfigurationSorter {
 
     private final MetadataReaderFactory metadataReaderFactory;
@@ -163,7 +163,7 @@ List<String> getInPriorityOrder(Collection<String> classNames) {
 
 该操作位于 `AutoConfigurationSorter.AutoConfigurationClasses#AutoConfigurationClasses` 方法，代码如下：
 
-```
+```java
 private static class AutoConfigurationClasses {
 
     // 保存结果
@@ -260,7 +260,7 @@ boolean isAvailable() {
 
 我们继续跟进 `AutoConfigurationSorter.AutoConfigurationClass#wasProcessed` 方法：
 
-```
+```java
 private boolean wasProcessed() {
     return (this.autoConfigurationMetadata != null
         // 判断 META-INF/spring-autoconfigure-metadata.properties 文件中是否存在该配置
@@ -271,7 +271,7 @@ private boolean wasProcessed() {
 
 这个方法里主要调用了 `AutoConfigurationMetadataLoader.PropertiesAutoConfigurationMetadata#wasProcessed` 方法来判断：
 
-```
+```java
 @Override
 public boolean wasProcessed(String className) {
     // 判断 properties 是否存在对应的 className
@@ -294,7 +294,7 @@ public boolean wasProcessed(String className) {
 
 让我们回到 `AutoConfigurationSorter.AutoConfigurationClass#isAvailable`，再来看看另一个方法：`getAnnotationMetadata()`，该方法位于 `AutoConfigurationSorter.AutoConfigurationClass` 中，代码如下：
 
-```
+```java
 private AnnotationMetadata getAnnotationMetadata() {
     if (this.annotationMetadata == null) {
         try {
@@ -314,7 +314,7 @@ private AnnotationMetadata getAnnotationMetadata() {
 
 继续进入 `SimpleMetadataReaderFactory#getMetadataReader(String)`：
 
-```
+```java
 @Override
 /**
  * 这个方法会获取 className 对应的 .class 文件
@@ -440,7 +440,7 @@ List<String> getInPriorityOrder(Collection<String> classNames) {
 
 这个排序操作使用的是 `List#sort`，`sort(...)` 里的参数为 `Comparator`，指定了排序规则。从代码来看，通过 `getOrder()` 获取到当前类的顺序后，再使用的是 `Integer` 的比较规则进行排序，因此 `getOrder()` 是排序的关键，它所对就的方法是 `AutoConfigurationSorter.AutoConfigurationClass#getOrder`，代码如下：
 
-```
+```java
 private int getOrder() {
     // 判断 META-INF/spring-autoconfigure-metadata.properties 文件中是否存在当前 className
     if (wasProcessed()) {
@@ -464,7 +464,7 @@ private int getOrder() {
 
 接下来就是最激动人心的 `@AutoConfigureBefore` 与 `@AutoConfigureAfter` 注解的排序了，对应的方法为 `AutoConfigurationSorter#sortByAnnotation`，代码如下：
 
-```
+```java
 /**
  * 进行排序，
  * 实际上这个方法里只是准备了一些数据，真正干活的是 doSortByAfterAnnotation(...)

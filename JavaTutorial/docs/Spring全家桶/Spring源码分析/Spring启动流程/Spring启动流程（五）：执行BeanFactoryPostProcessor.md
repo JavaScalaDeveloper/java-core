@@ -37,7 +37,7 @@
 
 我们直接看 `invokeBeanFactoryPostProcessors` 方法：
 
-```
+```java
 public static void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory, 
             List<BeanFactoryPostProcessor> beanFactoryPostProcessors) {
 
@@ -284,7 +284,7 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(java.lang.
 
 我们直接进入 `ConfigurationClassPostProcessor#processConfigBeanDefinitions`：
 
-```
+```java
 public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
     List<BeanDefinitionHolder> configCandidates = new ArrayList<>();
     String[] candidateNames = registry.getBeanDefinitionNames();
@@ -418,7 +418,7 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
 
 `ConfigurationClassPostProcessor` 的 `postProcessBeanFactory` 方法比较简单，所做的事还是对 `@Configuration` 的增强：
 
-```
+```java
 @Override
 public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
     // 省略其他代码
@@ -455,7 +455,7 @@ public void enhanceConfigurationClasses(ConfigurableListableBeanFactory beanFact
 
 这个方法是用来处理事件监听器的，我们直接上代码：
 
-```
+```java
 @Override
 public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
     this.beanFactory = beanFactory;

@@ -161,7 +161,7 @@ Java内存模型没有具体讲述前面讨论的执行策略是由编译器，C
 ### volatile的特性
 
 当我们声明共享变量为volatile后，对这个变量的读/写将会很特别。理解volatile特性的一个好方法是：把对volatile变量的单个读/写，看成是使用同一个监视器锁对这些单个读/写操作做了同步。下面我们通过具体的示例来说明，请看下面的示例代码：
-````
+````java
 class VolatileFeaturesExample {
     volatile long vl = 0L; // 使用volatile声明64位的long型变量
  
@@ -182,7 +182,7 @@ class VolatileFeaturesExample {
     
 
 假设有多个线程分别调用上面程序的三个方法，这个程序在语意上和下面程序等价：
-````
+````java
 class VolatileFeaturesExample {
     long vl = 0L;               // 64位的long型普通变量
  
@@ -222,7 +222,7 @@ class VolatileFeaturesExample {
 从内存语义的角度来说，volatile与监视器锁有相同的效果：volatile写和监视器的释放有相同的内存语义；volatile读与监视器的获取有相同的内存语义。
 
 请看下面使用volatile变量的示例代码：
-````
+````java
 class VolatileExample {
 	int a = 0;
 	volatile boolean flag = false;
@@ -327,7 +327,7 @@ volatile读的内存语义如下：
 上图中的LoadLoad屏障用来禁止处理器把上面的volatile读与下面的普通读重排序。LoadStore屏障用来禁止处理器把上面的volatile读与下面的普通写重排序。
 
 上述volatile写和volatile读的内存屏障插入策略非常保守。在实际执行时，只要不改变volatile写-读的内存语义，编译器可以根据具体情况省略不必要的屏障。下面我们通过具体的示例代码来说明：
-````
+````java
 class VolatileBarrierExample {
     int a;
     volatile int v1 = 1;
@@ -424,7 +424,7 @@ class VolatileBarrierExample {
 
 JVM中的CAS操作正是利用了上一节中提到的处理器提供的CMPXCHG指令实现的。自旋CAS实现的基本思路就是循环进行CAS操作直到成功为止，以下代码实现了一个基于CAS线程安全的计数器方法safeCount和一个非线程安全的计数器count。
 
-````
+````java
 package Test;
  
 import java.util.ArrayList;

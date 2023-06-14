@@ -86,7 +86,7 @@ Fork/Join框架是Java7提供的一个用于并行执行任务的框架， 是�
 
 大家学习时，通常借助的例子都类似于下面这段：
 
-```
+```java
 @Slf4j
 public class ForkJoinTaskExample extends RecursiveTask<Integer> {
 

@@ -107,7 +107,7 @@ SocketChannel、ServerSocketChannel和Selector的实例初始化都通过Selecto
 
 ServerSocketChannel.open();
 
-```
+```java
 public static ServerSocketChannel open() throws IOException {
     return SelectorProvider.provider().openServerSocketChannel();
 }
@@ -116,7 +116,7 @@ public static ServerSocketChannel open() throws IOException {
 
 SocketChannel.open();
 
-```
+```java
 public static SocketChannel open() throws IOException {
     return SelectorProvider.provider().openSocketChannel();
 }
@@ -125,7 +125,7 @@ public static SocketChannel open() throws IOException {
 
 Selector.open();
 
-```
+```java
 public static Selector open() throws IOException {
     return SelectorProvider.provider().openSelector();
 }
@@ -134,7 +134,7 @@ public static Selector open() throws IOException {
 
 我们来进一步的了解下SelectorProvider.provider()
 
-```
+```java
 public static SelectorProvider provider() {
     synchronized (lock) {
         if (provider != null)
@@ -167,7 +167,7 @@ public static SelectorProvider provider() {
 
 这里我们看linux下面的sun.nio.ch.DefaultSelectorProvider
 
-```
+```java
 public class DefaultSelectorProvider {
 
     /**
@@ -190,7 +190,7 @@ public class DefaultSelectorProvider {
 
 ###### 接下来看下 selector.open()：
 
-```
+```java
     /**
      * Opens a selector.
      *
@@ -214,7 +214,7 @@ public class DefaultSelectorProvider {
 
 ### EPollSelectorImpl
 
-```
+```java
 class EPollSelectorImpl
     extends SelectorImpl
 {
@@ -297,7 +297,7 @@ epoll_event的数据成员(epoll_data_t data)包含有与通过epoll_ctl将文�
 
 EPollArrayWrapper将Linux的epoll相关系统调用封装成了native方法供EpollSelectorImpl使用。
 
-```
+```java
 private native int epollCreate();
 private native void epollCtl(int epfd, int opcode, int fd, int events);
 private native int epollWait(long pollAddress, int numfds, long timeout,
@@ -307,7 +307,7 @@ private native int epollWait(long pollAddress, int numfds, long timeout,
 
 上述三个native方法就对应Linux下epoll相关的三个系统调用
 
-```
+```java
 // The fd of the epoll driver
 private final int epfd;
 
@@ -319,7 +319,7 @@ private final long pollArrayAddress;
 
 ```
 
-```
+```java
 // 用于存储已经注册的文件描述符和其注册等待改变的事件的关联关系。在epoll_wait操作就是要检测这里文件描述法注册的事件是否有发生。
 private final byte[] eventsLow = new byte[MAX_UPDATE_ARRAY_SIZE];
 private final Map<Integer,Byte> eventsHigh = new HashMap<>();
@@ -347,7 +347,7 @@ ServerSocketChannel.open();
 
 返回ServerSocketChannelImpl对象，构建linux系统下ServerSocket的文件描述符。
 
-```
+```java
 // Our file descriptor
 private final FileDescriptor fd;
 
@@ -371,7 +371,7 @@ ServerSocketChannelImpl(SelectorProvider sp) throws IOException {
 
 serverChannel.register(selector, SelectionKey.OP_ACCEPT);
 
-```
+```java
 public final SelectionKey register(Selector sel, int ops,
                                    Object att)
     throws ClosedChannelException
@@ -403,7 +403,7 @@ public final SelectionKey register(Selector sel, int ops,
 
 ```
 
-```
+```java
 protected final SelectionKey register(AbstractSelectableChannel ch,
                                       int ops,
                                       Object attachment)
@@ -429,7 +429,7 @@ b) 同时该操作还会将设置SelectionKey的interestOps字段，这是给我
 
 ### EPollSelectorImpl. implRegister
 
-```
+```java
 protected void implRegister(SelectionKeyImpl ski) {
     if (closed)
         throw new ClosedSelectorException();
@@ -455,7 +455,7 @@ selection操作有3中类型：
 
 我们主要来看看select()的实现 ：int n = selector.select();
 
-```
+```java
 public int select() throws IOException {
     return select(0);
 }
@@ -464,7 +464,7 @@ public int select() throws IOException {
 
 最终会调用到EPollSelectorImpl的doSelect
 
-```
+```java
 protected int doSelect(long timeout) throws IOException {
     if (closed)
         throw new ClosedSelectorException();
@@ -527,7 +527,7 @@ void processDeregisterQueue() throws IOException {
 
 从cancelledKeys集合中依次取出注销的SelectionKey，执行注销操作，将处理后的SelectionKey从cancelledKeys集合中移除。执行processDeregisterQueue()后cancelledKeys集合会为空。
 
-```
+```java
 protected void implDereg(SelectionKeyImpl ski) throws IOException {
     assert (ski.getIndex() >= 0);
     SelChImpl ch = ski.channel;
@@ -576,7 +576,7 @@ updateRegistrations()方法会将已经注册到该selector的事件(eventsLow�
 
 再看updateSelectedKeys()：
 
-```
+```java
 private int updateSelectedKeys() {
     int entries = pollWrapper.updated;
     int numKeysUpdated = 0;

@@ -48,7 +48,7 @@ auditevents端点用于显示应用暴露的审计事件 (比如认证进入、订单失败)，即使我们打开
 单纯添加这个依赖还是不够的，还需要加入security的配置，不然AuthorizationAuditListener,AuthenticationAuditListener 监听什么事件呢? 因此,我们加入如下代码：
 
 
-````
+````java
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -77,7 +77,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-````
+````java
 @Configuration
 public class AuditEventConfig {
 
@@ -121,7 +121,7 @@ InMemoryAuditEventRepository是AuditEventRepository接口的唯一实现类。
 我们在项目中定义一个TestController，并注入一个UserService：
 
 
-````
+````java
 @Controller
 public class TestController {
 
@@ -155,7 +155,7 @@ caches端点主要用于暴露应用程序中的缓冲。这里以Spring Boot提供的Cache组件来展示一
 定义一个CacheController，对其方法queryAll使用缓存机制：
 
 
-````
+````java
 @RestController
 public class CacheController {
 
@@ -324,7 +324,7 @@ curl -X POST "http://localhost:8080/actuator/shutdown"
 比如前面的info配置，我们就可以定义一个类InfoProperties：
 
 
-````
+````java
 @Component
 @ConfigurationProperties(prefix = "info")
 public class InfoProperties {
@@ -509,7 +509,7 @@ metrics-requiredMetricName端点，用于访问指定指标的报告，一般会配合/metrics端点先
 
 先在项目中构建两个定时任务，首先在启动类上添加@EnableScheduling开启定时任务功能。然后创建定时任务类：
 
-````
+````java
 @Component
 public class MyTask {
 

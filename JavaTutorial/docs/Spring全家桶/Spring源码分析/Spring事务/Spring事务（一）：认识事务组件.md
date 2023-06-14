@@ -4,7 +4,7 @@
 
 在正式分析前，我们先来思考下，如果让我们自己来基于 spring aop 来设计一套事务处理机制，该如何实现呢？如果没有 spring，我们的事务处理代码一般长这样：
 
-```
+```java
 public void fun() {
     // 开启事务
     start();
@@ -30,7 +30,7 @@ public void fun() {
 
 1.  定义一个注解：`@MyTransactional`
 
-```
+```java
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
@@ -42,7 +42,7 @@ public @interface MyTransactional {
 
 1.  定义 aop 操作
 
-```
+```java
 @Aspect
 @Component
 public class MyAopAspectj {
@@ -72,7 +72,7 @@ public class MyAopAspectj {
 
 1.  config，进行一些必要的配置
 
-```
+```java
 @Configuration
 @ComponentScan("org.springframework.learn.tx.demo02")
 @EnableAspectJAutoProxy(proxyTargetClass = true)
@@ -84,7 +84,7 @@ public class TxDemo02Config {
 
 1.  添加一个 service 类，其中一个方法上有 `@MyTransactional` 注解
 
-```
+```java
 @Service
 public class TxTestService {
 
@@ -103,7 +103,7 @@ public class TxTestService {
 
 1.  主类
 
-```
+```java
 public class TxDemo02Main {
 
     public static void main(String[] args) {
@@ -145,7 +145,7 @@ public class TxDemo02Main {
 
 1.  准备 `advice`
 
-```
+```java
 /**
  * 这个advice就是advisor的一个属性，切面逻辑在这里处理
  */
@@ -171,7 +171,7 @@ public class MyAdvice implements MethodInterceptor {
 
 1.  准备 `pointcut`
 
-```
+```java
 /**
  * 切点
  * 判断哪些方法能用于该advisor
@@ -191,7 +191,7 @@ public class MyPointcut extends StaticMethodMatcherPointcut {
 
 1.  准备 `advisor`
 
-```
+```java
 /**
  * advisor 可看作是 advice 与 pointcut 的包装
  */
@@ -220,7 +220,7 @@ public class MyAdvisor extends AbstractBeanFactoryPointcutAdvisor {
 
 1.  准备一个注解：`@MyTransactional`
 
-```
+```java
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
@@ -232,7 +232,7 @@ public @interface MyTransactional {
 
 1.  处理项目配置
 
-```
+```java
 @Configuration
 @ComponentScan("org.springframework.learn.tx.demo01")
 @EnableAspectJAutoProxy(proxyTargetClass = true)
@@ -244,7 +244,7 @@ public class TxDemo01Config {
 
 1.  准备一个 service
 
-```
+```java
 @Service
 public class TxTestService {
 
@@ -263,7 +263,7 @@ public class TxTestService {
 
 1.  主类
 
-```
+```java
 public class TxDemo01Main {
 
     public static void main(String[] args) {
@@ -308,7 +308,7 @@ optional("mysql:mysql-connector-java:5.1.48")
 
 1.  配置类
 
-```
+```java
 @Configuration
 @ComponentScan("org.springframework.learn.tx.demo03")
 @EnableTransactionManagement(proxyTargetClass = true)
@@ -354,7 +354,7 @@ public class TxDemo01Config {
 
 1.  数据库操作类
 
-```
+```java
 @Service
 public class UserService {
 
@@ -383,7 +383,7 @@ public class UserService {
 
 1.  主类
 
-```
+```java
 public class TxDemo01Main {
 
     public static void main(String[] args) {
@@ -438,7 +438,7 @@ CREATE TABLE `user` (
 
 ### 3. `@EnableTransactionManagement` 注解
 
-```
+```java
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -469,7 +469,7 @@ public @interface EnableTransactionManagement {
 
 这个注解本身没什么，就三个属性，注释已经很明确了，我们关键还是看这个注解引入的类：`TransactionManagementConfigurationSelector`：
 
-```
+```java
 public class TransactionManagementConfigurationSelector extends 
         AdviceModeImportSelector<EnableTransactionManagement> {
     @Override
@@ -501,7 +501,7 @@ public class TransactionManagementConfigurationSelector extends
 
 我们来看看里面究竟做了啥：
 
-```
+```java
 public class AutoProxyRegistrar implements ImportBeanDefinitionRegistrar {
 
     private final Log logger = LogFactory.getLog(getClass());
@@ -568,7 +568,7 @@ public class AutoProxyRegistrar implements ImportBeanDefinitionRegistrar {
 
 看到这里，是不是有种深深的熟悉感？aop 中的 `AspectJAnnotationAutoProxyCreator` 也 是这么注册的！进入 `AopConfigUtils#registerOrEscalateApcAsRequired` 方法：
 
-```
+```java
 // AopConfigUtils 可注册的类都在这里了
 private static final List<Class<?>> APC_PRIORITY_LIST = new ArrayList<>(3);
 
@@ -636,7 +636,7 @@ private static int findPriorityForClass(@Nullable String className) {
 
 我们也来看看 `InfrastructureAdvisorAutoProxyCreator`：
 
-```
+```java
 // 继承了 AbstractAdvisorAutoProxyCreator，这个类非常关键
 public class InfrastructureAdvisorAutoProxyCreator extends AbstractAdvisorAutoProxyCreator {
 
@@ -679,7 +679,7 @@ public class InfrastructureAdvisorAutoProxyCreator extends AbstractAdvisorAutoPr
 
 接下来我们来看看 `ProxyTransactionManagementConfiguration` 类。名字上来看，这是个配置类：
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public class ProxyTransactionManagementConfiguration 
         extends AbstractTransactionManagementConfiguration {
@@ -744,7 +744,7 @@ public class ProxyTransactionManagementConfiguration
 
 `ProxyTransactionManagementConfiguration` 继承了 `AbstractTransactionManagementConfiguration`，而 `AbstractTransactionManagementConfiguration` 中也引入了一些 `bean`：
 
-```
+```java
 @Configuration
 public abstract class AbstractTransactionManagementConfiguration implements ImportAware {
 

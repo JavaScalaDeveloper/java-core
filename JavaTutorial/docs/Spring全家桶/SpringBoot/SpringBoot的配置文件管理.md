@@ -64,7 +64,7 @@ java –jar -Dspring.config.location=xxx/xxx/xxxx.properties xxxx.jar
 
 **打包配置**
 
-```
+```xml
 <build>
 		<resources>
 			<resource>
@@ -347,7 +347,7 @@ Kotlin
 
 
 
-```
+```java
 @Component
 public class MyBean {
 
@@ -1635,7 +1635,7 @@ Kotlin
 
 
 
-```
+```java
 @ConfigurationProperties("my.service")
 public class MyProperties {
 
@@ -1725,7 +1725,7 @@ Kotlin
 
 
 
-```
+```java
 @ConfigurationProperties("my.service")
 public class MyProperties {
 
@@ -1797,7 +1797,7 @@ Kotlin
 
 
 
-```
+```java
 public MyProperties(boolean enabled, InetAddress remoteAddress, @DefaultValue Security security) {
     this.enabled = enabled;
     this.remoteAddress = remoteAddress;
@@ -1861,7 +1861,7 @@ Kotlin
 
 
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 @EnableConfigurationProperties(SomeProperties.class)
 public class MyConfiguration {
@@ -1886,7 +1886,7 @@ Kotlin
 
 
 
-```
+```java
 @ConfigurationProperties("some.properties")
 public class SomeProperties {
 
@@ -1916,7 +1916,7 @@ Kotlin
 
 
 
-```
+```java
 @SpringBootApplication
 @ConfigurationPropertiesScan({ "com.example.app", "com.example.another" })
 public class MyApplication {
@@ -1991,7 +1991,7 @@ Kotlin
 
 
 
-```
+```java
 @Service
 public class MyService {
 
@@ -2054,7 +2054,7 @@ Kotlin
 
 
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public class ThirdPartyConfiguration {
 
@@ -2108,7 +2108,7 @@ Kotlin
 
 
 
-```
+```java
 @ConfigurationProperties(prefix = "my.main-project.person")
 public class MyPersonProperties {
 
@@ -2307,7 +2307,7 @@ Kotlin
 
 
 
-```
+```java
 @ConfigurationProperties("my")
 public class MyProperties {
 
@@ -2419,7 +2419,7 @@ Kotlin
 
 
 
-```
+```java
 @ConfigurationProperties("my")
 public class MyProperties {
 
@@ -2540,7 +2540,7 @@ Kotlin
 
 
 
-```
+```java
 @ConfigurationProperties("my")
 public class MyProperties {
 
@@ -2613,7 +2613,7 @@ Kotlin
 
 
 
-```
+```java
 @ConfigurationProperties("my")
 public class MyProperties {
 
@@ -2727,7 +2727,7 @@ Kotlin
 
 
 
-```
+```java
 @ConfigurationProperties("my")
 public class MyProperties {
 
@@ -2796,7 +2796,7 @@ Kotlin
 
 
 
-```
+```java
 @ConfigurationProperties("my")
 public class MyProperties {
 
@@ -2851,7 +2851,7 @@ Kotlin
 
 
 
-```
+```java
 @ConfigurationProperties("my.service")
 @Validated
 public class MyProperties {
@@ -2894,7 +2894,7 @@ Kotlin
 
 
 
-```
+```java
 @ConfigurationProperties("my.service")
 @Validated
 public class MyProperties {

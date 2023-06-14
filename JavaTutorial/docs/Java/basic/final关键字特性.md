@@ -43,7 +43,7 @@ final关键字在java中使用非常广泛，可以申明成员变量、方法�
 
 final变量有成员变量或者是本地变量(方法内的局部变量)，在类成员中final经常和static一起使用，作为类常量使用。**其中类常量必须在声明时初始化，final成员常量可以在构造函数初始化。**
 
-```
+```java
 public class Main {
     public static final int i; //报错，必须初始化 因为常量在常量池中就存在了，调用时不需要类的初始化，所以必须在声明时初始化
     public static final int j;
@@ -87,7 +87,7 @@ public class Main {
 
 final方法表示该方法不能被子类的方法重写，将方法声明为final，在编译的时候就已经静态绑定了，不需要在运行时动态绑定。final方法调用时使用的是invokespecial指令。
 
-```
+```java
 class PersonalLoan{
     public final String getName(){
         return"personal loan”;
@@ -439,7 +439,7 @@ final修饰的函数会被编译器优化，优化的结果是减少了函数调
 2.  初次读一个包含 final 域的对象的引用，与随后初次读这个 final 域，这两个操作之间不能重排序。
 
 下面，我们通过一些示例性的代码来分别说明这两个规则：
-````
+````java
 public class FinalExample {
     int i;                            // 普通变量 
     final int j;                      //final 变量 
@@ -511,7 +511,7 @@ reader() 方法包含三个操作：
 上面我们看到的 final 域是基础数据类型，下面让我们看看如果 final 域是引用类型，将会有什么效果？
 
 请看下列示例代码：
-````
+````java
 public class FinalReferenceExample {
 final int[] intArray;                     //final 是引用类型 
 static FinalReferenceExample obj;

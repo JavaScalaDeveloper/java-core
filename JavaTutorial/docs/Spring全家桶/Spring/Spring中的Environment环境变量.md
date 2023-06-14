@@ -17,14 +17,14 @@
 > spring.datasource.hikari.driver-class-name=com.mysql.cj.jdbc.Driver
 > spring.datasource.hikari.username=root
 > spring.datasource.hikari.password=ENC(qS8+DEIlHxvhPHgn1VaW3oHkn2twrmwNOHewWLIfquAXiCDBrKwvIhDoqalKyhIF)
-> 复制代码
+> 
 > ```
 
 ## 1 认识 Environmnent
 
 在实际工作中，我们与 _Environment_ 打交道的机会并不多；如果业务 Bean 确实需要获取外部配置源中的某一属性值，可以手动将 _Environment_ 注入到该业务 Bean 中，也可以直接实现`EnvironmentAware`接口，得到 _Environment_ 类型的 Bean 实例之后可以通过`getProperty()`获取具体属性值。_Environment_ 接口内容如下所示：
 
-```
+```java
 public interface Environment extends PropertyResolver {
     String[] getActiveProfiles();
     String[] getDefaultProfiles();
@@ -39,12 +39,12 @@ public interface PropertyResolver {
     <T> T getProperty(String key, Class<T> targetType, T defaultValue);
     String resolvePlaceholders(String text);
 }
-复制代码
+
 ```
 
 **大家不要受 _Environment_ 中 _getProperty()_ 方法的误导，外部配置源中的属性并不是以单个属性为维度被添加到 _Environment_ 中的，而是以`PropertySource`为维度**。_PropertySource_ 是对属性源名称和该属性源中一组属性的抽象，`MapPropertySource`是一种最简单的实现，它通过 _Map<String, Object>_ 来承载相关的属性。_PropertySource_ 内容如下：
 
-```
+```java
 public abstract class PropertySource<T> {
     protected final String name;
     protected final T source;
@@ -58,7 +58,7 @@ public abstract class PropertySource<T> {
     public T getSource() { return this.source; }
     public abstract Object getProperty(String name);
 }
-复制代码
+
 ```
 
 从上述 _PropertySource_ 内容来看，_PropertySource_ 自身是具备根据属性名获取属性值这一能力的。
@@ -83,7 +83,7 @@ _Environment_ 实现类中除了持有`PropertyResolver`类型的成员变量外
 
 在 Spring 发布3.1版本时，Spring Boot 还未问世，可以说此时的 _Profile_ 特性还是有些**瑕疵**的，但瑕不掩瑜。主要体现在：针对同一类型的 Bean，必须声明多次。一起来感受下这种小瑕疵：
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public class DataSourceConfig {
     @Bean
@@ -108,14 +108,14 @@ public class DataSourceConfig {
                 .build();
     }
 }
-复制代码
+
 ```
 
 **Profile in Spring Boot**
 
 Spring Boot 发布后，`@Profile`注解可以扔到九霄云外了。官方开发大佬肯定也意识到 _Profile in Spring 3.1_ 中这种瑕疵，于是在 Spring Boot 的第一版本 _(1.0.0.RELEASE)_ 中就迫不及待地支持为 _application.properties_ 和 _application.yml_ 里的属性项配置 _Profile_ 了。换个口味，一起来感受下这种优雅：
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 public class DataSourceConfig {
     @Bean
@@ -128,7 +128,7 @@ public class DataSourceConfig {
                 .build();
     }
 }
-复制代码
+
 ```
 
 _application-dev.properties_ 内容如下：
@@ -138,7 +138,7 @@ spring.datasource.url=jdbc:mysql://DEV_HOST:PORT/db_sql_boy?characterEncoding=UT
 spring.datasource.hikari.driver-class-name=com.mysql.jdbc.Driver
 spring.datasource.hikari.password=dev
 spring.datasource.hikari.username=dev
-复制代码
+
 ```
 
 _application-test.properties_ 内容如下：
@@ -148,12 +148,12 @@ spring.datasource.url=jdbc:mysql://TEST_HOST:PORT/db_sql_boy?characterEncoding=U
 spring.datasource.hikari.driver-class-name=com.mysql.jdbc.Driver
 spring.datasource.hikari.password=test
 spring.datasource.hikari.username=test
-复制代码
+
 ```
 
 在原生 Spring 3.1 和 Spring Boot 中，均是通过`spring.profiles.active`来为 _Environment_ 指定激活的 _Profile_，否则_Environment_ 中默认激活的 _Profile_ 名称为`default`。写到这里，笔者脑海中闪现一个问题：一般，`@Profile` 注解主要与 _@Configuration_ 注解或 _@Bean_ 注解搭配使用，如果 _spring.profiles.active_ 的值为 _dev_ 时，那么那些由 _@Configuration_ 或 _@Bean_ 注解标记 (但没有`@Profile`注解的身影哈) 的 Bean 还会被解析为若干`BeanDefinition`实例吗？答案是会的。`ConfigurationClassPostProcessor`负责将 _@Configuration_ 配置类解析为 _BeanDefinition_，在此过程中会执行`ConditionEvaluator`的`shouldSkip()`方法，主要内容如下：
 
-```
+```java
 public class ConditionEvaluator {
     public boolean shouldSkip(AnnotatedTypeMetadata metadata, ConfigurationCondition.ConfigurationPhase phase) {
         if (metadata == null || !metadata.isAnnotated(Conditional.class.getName())) {
@@ -191,7 +191,7 @@ public class ConditionEvaluator {
         return false;
     }
 }
-复制代码
+
 ```
 
 `shouldSkip()`方法第一行 _if_ 语句就是答案，`@Profile`注解由`@Conditional(ProfileCondition.class)`修饰，那如果一个配置类头上没有`Condition`的身影，直接返回`false`了，那就是不跳过该配置类的意思喽！
@@ -206,7 +206,7 @@ _Environment_ 中的这些 _PropertySource_ 究竟有啥用啊？当然是为了
 
 本节主要介绍 Spring Boot 在启动过程中向 _Environmnt_ 中究竟注册了哪些 _PropertySource_。启动入口位于`SpringApplication`中的`run(String... args)`方法，如下：
 
-```
+```java
 public class SpringApplication {
     public ConfigurableApplicationContext run(String... args) {
         StopWatch stopWatch = new StopWatch();
@@ -246,14 +246,14 @@ public class SpringApplication {
         return context;
     }
 }
-复制代码
+
 ```
 
 可以明显看出，_Environmnt_ 的初始化是在`refreshContext(context)`之前完成的，这是毫无疑问的。_run()_ 方法很复杂，但与本文主题契合的逻辑只有**一**处：
 
 ```
 prepareEnvironment(listeners, bootstrapContext, applicationArguments);
-复制代码
+
 ```
 
 下面分别分析这两处核心逻辑。
@@ -262,7 +262,7 @@ prepareEnvironment(listeners, bootstrapContext, applicationArguments);
 
 显然，核心内容都在`prepareEnvironment()`方法内，下面分小节逐一分析。
 
-```
+```java
 public class SpringApplication {
     private ConfigurableEnvironment prepareEnvironment(SpringApplicationRunListeners listeners,
                                                        DefaultBootstrapContext bootstrapContext,
@@ -281,7 +281,7 @@ public class SpringApplication {
         return environment;
     }
 }
-复制代码
+
 ```
 
 #### 2.1.1 getOrCreateEnvironment()
@@ -292,7 +292,7 @@ public class SpringApplication {
 
 从上图可以看出 _ApplicationServletEnvironment_ 家族相当庞大，在执行 _ApplicationServletEnvironment_ 构造方法的时候必然会触发各级父类构造方法中的逻辑，**依次为**：
 
-```
+```java
 public abstract class AbstractEnvironment implements ConfigurableEnvironment {
     public AbstractEnvironment() {
         this(new MutablePropertySources());
@@ -307,10 +307,10 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
         customizePropertySources(propertySources);
     }
 }
-复制代码
-```
 
 ```
+
+```java
 public class StandardServletEnvironment extends StandardEnvironment implements ConfigurableWebEnvironment {
     @Override
     protected void customizePropertySources(MutablePropertySources propertySources) {
@@ -319,10 +319,10 @@ public class StandardServletEnvironment extends StandardEnvironment implements C
         super.customizePropertySources(propertySources);
     }
 }
-复制代码
-```
 
 ```
+
+```java
 public class StandardEnvironment extends AbstractEnvironment {
     @Override
     protected void customizePropertySources(MutablePropertySources propertySources) {
@@ -332,7 +332,7 @@ public class StandardEnvironment extends AbstractEnvironment {
                 new SystemEnvironmentPropertySource("systemEnvironment", (Map) System.getenv()));
     }
 }
-复制代码
+
 ```
 
 随着 _ApplicationServletEnvironment_ 构造方法的执行，此时在 _Environment_ 里 _MutablePropertySources_ 类型的成员变量`propertySources`中已经有了**四**个 _PropertySource_ 了，名称依次是：`servletConfigInitParams`、`servletContextInitParams`、`systemProperties`和`systemEnvironment`。此外，也要记住 _ApplicationServletEnvironment_ 中的两个重要成员变量，即`MutablePropertySources`和`ConfigurationPropertySourcesPropertyResolver`。
@@ -341,7 +341,7 @@ public class StandardEnvironment extends AbstractEnvironment {
 
 `configureEnvironment()`方法中的逻辑也很简单哈。首先，为 _Environment_ 中的 _PropertySourcesPropertyResolver_ 设定 _ConversionService_；然后，向 _Environment_ 中的 _MutablePropertySources_ 追加一个名称为`commandLineArgs`的 _PropertySource_ 实例，注意使用的是`addFirst()`方法哦，这意味着这个名称为`commandLineArgs`的 _PropertySource_ 优先级是最高的。主要逻辑如下：
 
-```
+```java
 public class SpringApplication {
     protected void configureEnvironment(ConfigurableEnvironment environment, String[] args) {
         if (this.addConversionService) {
@@ -353,19 +353,19 @@ public class SpringApplication {
         }
     }
 }
-复制代码
+
 ```
 
 继续`SimpleCommandLinePropertySource`：
 
-```
+```java
 public class SimpleCommandLinePropertySource extends CommandLinePropertySource<CommandLineArgs> {
     public SimpleCommandLinePropertySource(String... args) {
         // 其父类构造方法为：super("commandLineArgs", source)
         super(new SimpleCommandLineArgsParser().parse(args));
     }
 }
-复制代码
+
 ```
 
 命令行参数还是比较常用的，比如我们在启动 Spring Boot 应用时会这样声明命令行参数：`java -jar app.jar --server.port=8088`。
@@ -374,7 +374,7 @@ public class SimpleCommandLinePropertySource extends CommandLinePropertySource<C
 
 `attach()`方法主要就是在 _Environment_ 中 _MutablePropertySources_ 的头部位置插入加一个名称为`configurationProperties`的 _PropertySource_ 实例。主要逻辑如下：
 
-```
+```java
 public final class ConfigurationPropertySources {
     public static void attach(org.springframework.core.env.Environment environment) {
         MutablePropertySources sources = ((ConfigurableEnvironment) environment).getPropertySources();
@@ -392,12 +392,12 @@ public final class ConfigurationPropertySources {
         return (sources != null) ? sources.get("configurationProperties") : null;
     }
 }
-复制代码
+
 ```
 
 笔者盯着这玩意儿看了好久，压根没看出这个名称为`configurationProperties`的 _PropertySource_ 究竟有啥用。最后，还是在官方文档中关于`Relaxed Binding` (宽松绑定) 的描述中猜出了些端倪。还是通过代码来解读比较直接。首先，在 _application.properties_ 中追加一个配置项：`a.b.my-first-key=hello spring environment`；然后，通过 _Environment_ 取出这个配置项的值，如下：
 
-```
+```java
 @SpringBootApplication
 public class DemoApplication {
     public static void main(String[] args) {
@@ -407,7 +407,7 @@ public class DemoApplication {
         System.out.println(environment.getProperty("a.b.my-first-key"));
     }
 }
-复制代码
+
 ```
 
 启动应用后，控制台打印出了 _hello spring environment_ 字样，这与预期是相符的。可当我们通过`environment.getProperty("a.b.myfirstkey")`或者`environment.getProperty("a.b.my-firstkey")`依然能够获取到配置项的内容。`a.b.myfirstkey`和`a.b.my-firstkey`并不是配置文件中的属性名称，只是相似而已，这的确很**宽松**啊，哈哈。感兴趣的读者可以自行 DEBUG 看看其中的原理。
@@ -416,7 +416,7 @@ public class DemoApplication {
 
 敲黑板，各位大佬，这个要考的 ！`environmentPrepared()`方法会广播一个`ApplicationEnvironmentPreparedEvent`事件，接着由`EnvironmentPostProcessorApplicationListener`响应该事件，这应该是典型的**观察者模式**。主要内容如下：
 
-```
+```java
 public class SpringApplicationRunListeners {
     private final List<SpringApplicationRunListener> listeners;
 
@@ -460,12 +460,12 @@ public class SimpleApplicationEventMulticaster extends AbstractApplicationEventM
         }
     }
 }
-复制代码
+
 ```
 
 下面来看一下`EnvironmentPostProcessorApplicationListener`的庐山真面目：
 
-```
+```java
 public class EnvironmentPostProcessorApplicationListener implements SmartApplicationListener, Ordered {
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
@@ -487,21 +487,21 @@ public class EnvironmentPostProcessorApplicationListener implements SmartApplica
         }
     }
 }
-复制代码
+
 ```
 
 `EnvironmentPostProcessor`是 Spring Boot 为 _Environment_ 量身打造的扩展点。这里引用官方文档中比较精炼的一句话：_Allows for customization of the application's Environment prior to the application context being refreshed_。_EnvironmentPostProcessor_ 是一个函数性接口，内容如下：
 
-```
+```java
 public interface EnvironmentPostProcessor {
     void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application);
 }
-复制代码
+
 ```
 
 在上述 _EnvironmentPostProcessorApplicationListener_ 事件处理逻辑中，`getEnvironmentPostProcessors`负责加载出所有的 _EnvironmentPostProcessor_ 。看一下内部加载逻辑：
 
-```
+```java
 public interface EnvironmentPostProcessorsFactory {
     static EnvironmentPostProcessorsFactory fromSpringFactories(ClassLoader classLoader) {
         return new ReflectionEnvironmentPostProcessorsFactory(
@@ -510,12 +510,12 @@ public interface EnvironmentPostProcessorsFactory {
         );
     }
 }
-复制代码
+
 ```
 
 继续进入`SpringFactoriesLoader`一探究竟：
 
-```
+```java
 public final class SpringFactoriesLoader {
 
     public static final String FACTORIES_RESOURCE_LOCATION = "META-INF/spring.factories";
@@ -560,7 +560,7 @@ public final class SpringFactoriesLoader {
         return result;
     }
 }
-复制代码
+
 ```
 
 > **Spring SPI**
@@ -573,7 +573,7 @@ public final class SpringFactoriesLoader {
 
 `RandomValuePropertySourceEnvironmentPostProcessor`向 _Environment_ 中追加了一个名称为`random`的 _PropertySource_，即`RandomValuePropertySource`。内容如下：
 
-```
+```java
 public class RandomValuePropertySourceEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
     public static final int ORDER = Ordered.HIGHEST_PRECEDENCE + 1;
     private final Log logger;
@@ -592,7 +592,7 @@ public class RandomValuePropertySourceEnvironmentPostProcessor implements Enviro
         RandomValuePropertySource.addToEnvironment(environment, this.logger);
     }
 }
-复制代码
+
 ```
 
 那么这个 _RandomValuePropertySource_ 有啥作用呢？主要就是用于生成随机数，比如：`environment.getProperty("random.int(5,10)")`可以获取一个随机数。以`random.int`为属性名可以获取一个 _int_ 类型的随机数；以`random.long`为属性名可以获取一个 _long_ 类型的随机数；以`random.int(5,10)`为属性名可以获取一个 _[5, 10}_ 区间内 _int_ 类型的随机数，更多玩法大家自行探索。
@@ -601,7 +601,7 @@ _SystemEnvironmentPropertySourceEnvironmentPostProcessor_
 
 当前，_Environment_ 中已经存在一个名称为`systemEnvironment`的 _PropertySource_，即`SystemEnvironmentPropertySource`。`SystemEnvironmentPropertySourceEnvironmentPostProcessor`用于将该 _SystemEnvironmentPropertySource_ 替换为`OriginAwareSystemEnvironmentPropertySource`，咋有点“脱裤子放屁，多此一举”的感觉呢，哈哈。
 
-```
+```java
 public class SystemEnvironmentPropertySourceEnvironmentPostProcessor implements EnvironmentPostProcessor, Ordered {
     public static final int DEFAULT_ORDER = SpringApplicationJsonEnvironmentPostProcessor.DEFAULT_ORDER - 1;
     private int order = DEFAULT_ORDER;
@@ -626,7 +626,7 @@ public class SystemEnvironmentPropertySourceEnvironmentPostProcessor implements 
         environment.getPropertySources().replace(sourceName, source);
     }
 }
-复制代码
+
 ```
 
 **SpringApplicationJsonEnvironmentPostProcessor**
@@ -645,14 +645,14 @@ _application.properties_ 配置文件中关于数据源的密码是一个加密�
 
 ```
 spring.datasource.hikari.password=ENC(4+t9a5QG8NkNdWVS6UjIX3dj18UtYRMqU6eb3wUKjivOiDHFLZC/RTK7HuWWkUtV)
-复制代码
+
 ```
 
 当`HikariDataSource`完成属性填充操作后，该 Bean 中 _password_ 字段的值咋就变为解密后的 _qwe@1234_ 这一明文了呢？显然，Spring Boot 为 _Environment_ 提供的`EnvironmentPostProcessor`这一拓展点可以实现偷天换日！但作者没有用它，而是使用了 Spring 中的一个 _IoC 拓展点_，即`BeanFactoryPostProcessor`，这也是完全可以的，因为当执行到 _BeanFactoryPostProcessor_ 中的`postProcessBeanFactory()`逻辑时，只是完成了所有`BeanDefinition`的加载，但还没有实例化 _BeanDefinition_ 各自所对应的 Bean。
 
 下面看一下`EnableEncryptablePropertiesBeanFactoryPostProcessor`中的内容：
 
-```
+```java
 public class EnableEncryptablePropertiesBeanFactoryPostProcessor implements BeanFactoryPostProcessor, Ordered {
 
     private final ConfigurableEnvironment environment;
@@ -674,14 +674,14 @@ public class EnableEncryptablePropertiesBeanFactoryPostProcessor implements Bean
         return Ordered.LOWEST_PRECEDENCE - 100;
     }
 }
-复制代码
+
 ```
 
 上述源码表明该 _BeanFactoryPostProcessor_ 借助`EncryptablePropertySourceConverter`对 _MutablePropertySources_ 做了一层转换，那么转换成啥了呢？
 
 接着，跟进 _EncryptablePropertySourceConverter_，核心内容如下：
 
-```
+```java
 public class EncryptablePropertySourceConverter {
 
     public void convertPropertySources(MutablePropertySources propSources) {
@@ -715,14 +715,14 @@ public class EncryptablePropertySourceConverter {
         return encryptablePropertySource;
     }
 }
-复制代码
+
 ```
 
 显然，它将相关原生 _PropertySource_ 转换为了一个`EncryptablePropertySourceWrapper`，那这个肯定可以实现密文解密，必须的！
 
 继续，跟进`EncryptablePropertySourceWrapper`，内容如下：
 
-```
+```java
 public class EncryptablePropertySourceWrapper<T> extends PropertySource<T> implements EncryptablePropertySource<T> {
     private final CachingDelegateEncryptablePropertySource<T> encryptableDelegate;
 
@@ -741,14 +741,14 @@ public class EncryptablePropertySourceWrapper<T> extends PropertySource<T> imple
         return encryptableDelegate;
     }
 }
-复制代码
+
 ```
 
 失望！没看出啥解密逻辑，但从其 _getProperty_ 方法来看，将具体解析逻辑委派给了`CachingDelegateEncryptablePropertySource`。
 
 没办法，只能到 _CachingDelegateEncryptablePropertySource_ 中一探究竟了：
 
-```
+```java
 public class CachingDelegateEncryptablePropertySource<T> extends PropertySource<T> implements EncryptablePropertySource<T> {
     private final PropertySource<T> delegate;
     private final EncryptablePropertyResolver resolver;
@@ -784,12 +784,12 @@ public class CachingDelegateEncryptablePropertySource<T> extends PropertySource<
         }
     }
 }
-复制代码
+
 ```
 
 终于，跟进到`EncryptablePropertySource`中看到了解密的最终逻辑。其中，`EncryptablePropertyDetector`负责探测相关属性是否需要对其解密，主要通过判断该属性值是否由`ENC()`包裹。
 
-```
+```java
 public interface EncryptablePropertySource<T> extends OriginLookup<String> {
     default Object getProperty(EncryptablePropertyResolver resolver, EncryptablePropertyFilter filter, PropertySource<T> source, String name) {
         Object value = source.getProperty(name);
@@ -825,7 +825,7 @@ public class DefaultPropertyResolver implements EncryptablePropertyResolver {
                 .orElse(value);
     }
 }
-复制代码
+
 ```
 
 ## 4 总结

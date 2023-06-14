@@ -303,7 +303,7 @@ private void insertFixUp(RBTreeNode<T> node){
 
 如下为删除节点的代码
 
-````
+````java
 private void remove(RBTreeNode<T> node){
     RBTreeNode<T> child,parent;
     boolean color;

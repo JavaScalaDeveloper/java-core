@@ -126,7 +126,7 @@ IDEA 会自动帮我们下载好必要的 jar 包，并且为我们创建好一�
 
 
 
-```
+```xml
 <servlet-mapping>
     <servlet-name>dispatcher</servlet-name>
     <url-pattern>/</url-pattern>
@@ -142,7 +142,7 @@ IDEA 会自动帮我们下载好必要的 jar 包，并且为我们创建好一�
 
 
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -170,7 +170,7 @@ IDEA 会自动帮我们下载好必要的 jar 包，并且为我们创建好一�
 
 
 
-```
+```java
 package controller;
 
 import org.springframework.web.servlet.ModelAndView;
@@ -207,7 +207,7 @@ mav.addObject("message", "Hello Spring MVC");
 
 
 
-```
+```java
 package controller;
 
 import org.springframework.web.servlet.ModelAndView;
@@ -232,7 +232,7 @@ public class HelloController implements Controller {
 
 
 
-```
+```xml
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 
@@ -348,7 +348,7 @@ public class HelloController implements Controller {
 
 
 
-```
+```xml
 <servlet>
     <servlet-name>dispatcher</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -374,7 +374,7 @@ public class HelloController implements Controller {
 
 
 
-```
+```xml
 <bean id="simpleUrlHandlerMapping"
       class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
     <property name="mappings">
@@ -396,7 +396,7 @@ public class HelloController implements Controller {
 
 
 
-```
+```java
 public ModelAndView handleRequest(javax.servlet.http.HttpServletRequest httpServletRequest, javax.servlet.http.HttpServletResponse httpServletResponse) throws Exception {
     // 处理逻辑
     ....
@@ -414,7 +414,7 @@ public ModelAndView handleRequest(javax.servlet.http.HttpServletRequest httpServ
 
 
 
-```
+```java
 public ModelAndView handleRequest(javax.servlet.http.HttpServletRequest httpServletRequest, javax.servlet.http.HttpServletResponse httpServletResponse) throws Exception {
     // 处理逻辑
     ....
@@ -442,7 +442,7 @@ DispatcherServlet 将会使用视图解析器（view resolver）来将逻辑视�
 
 
 
-```
+```xml
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false"%>
 
@@ -462,7 +462,7 @@ DispatcherServlet 将会使用视图解析器（view resolver）来将逻辑视�
 
 
 
-```
+```java
 package controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -497,7 +497,7 @@ public class HelloController{
 
 
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -543,7 +543,7 @@ public class HelloController{
 
 
 
-```
+```java
 @Controller
 @RequestMapping("/wmyskxz")
 public class HelloController {
@@ -578,7 +578,7 @@ public class HelloController {
 
 
 
-```
+```xml
 <bean id="viewResolver"
       class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="prefix" value="/WEB-INF/page/" />
@@ -611,7 +611,7 @@ public class HelloController {
 
 
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -694,7 +694,7 @@ public class HelloController {
 
 
 
-```
+```xml
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" import="java.util.*" isELIgnored="false"%>
@@ -734,7 +734,7 @@ public class HelloController {
 
 
 
-```
+```java
 @RequestMapping("/param")
 public ModelAndView getParam(HttpServletRequest request,
                          HttpServletResponse response) {
@@ -768,7 +768,7 @@ public ModelAndView getParam(HttpServletRequest request,
 
 
 
-```
+```java
 @RequestMapping("/param")
 public ModelAndView getParam(String userName,
                              String password) {
@@ -820,7 +820,7 @@ public ModelAndView getParam(String userName,
 
 
 
-```
+```java
 package pojo;
 
 public class User {
@@ -855,7 +855,7 @@ public class User {
 
 
 
-```
+```xml
 <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -882,7 +882,7 @@ public class User {
 
 
 
-```
+```xml
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" import="java.util.*" isELIgnored="false" %>
@@ -905,7 +905,7 @@ public class User {
 
 
 
-```
+```java
 @RequestMapping("/value")
 public ModelAndView handleRequest(HttpServletRequest request,
                                   HttpServletResponse response) {
@@ -959,7 +959,7 @@ public ModelAndView handleRequest(HttpServletRequest request,
 
 
 
-```
+```java
 @ModelAttribute
 public void model(Model model) {
     model.addAttribute("message", "注解成功");
@@ -986,7 +986,7 @@ public String handleRequest() {
 
 
 
-```
+```java
 @RequestMapping("/hello")
 public ModelAndView handleRequest(javax.servlet.http.HttpServletRequest httpServletRequest, javax.servlet.http.HttpServletResponse httpServletResponse) throws Exception {
     ModelAndView mav = new ModelAndView("index");
@@ -1020,7 +1020,7 @@ public ModelAndView jump() {
 
 
 
-```
+```java
 @RequestMapping("/jump")
 public String jump() {
     return "redirect: ./hello";
@@ -1046,7 +1046,7 @@ public String jump() {
 
 
 
-```
+```xml
 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
 ```
@@ -1061,7 +1061,7 @@ public String jump() {
 
 
 
-```
+```xml
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -1085,7 +1085,7 @@ public String jump() {
 
 
 
-```
+```java
 package controller;
 
 import org.springframework.stereotype.Controller;

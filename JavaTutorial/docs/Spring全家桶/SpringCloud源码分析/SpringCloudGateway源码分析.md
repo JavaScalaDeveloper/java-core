@@ -10,7 +10,7 @@ GatewayClassPathWarningAutoConfiguration这个配置类
 
 
 
-```
+```java
 @Configuration(proxyBeanMethods = false)
 //当前配置类在GatewayAutoConfiguration这个核心配置类之前加载
 @AutoConfigureBefore(GatewayAutoConfiguration.class)
@@ -77,7 +77,7 @@ org.springframework.web.servlet.DispatcherServlet类的话，则实例第一个B
 
 
 
-```
+```java
 @Override
 public Mono<Void> handle(ServerWebExchange exchange) {
     if (this.handlerMappings == null) {
@@ -114,7 +114,7 @@ AbstractHandlerMapping.getHandler的源码
 
 
 
-```
+```java
 @Override
 public Mono<Object> getHandler(ServerWebExchange exchange) {
     //这一步会获取路由的实现类，会进入到RoutePredicateHandlerMapping
@@ -146,7 +146,7 @@ public Mono<Object> getHandler(ServerWebExchange exchange) {
 
 
 
-```
+```java
 @Override
 protected Mono<?> getHandlerInternal(ServerWebExchange exchange) {
     // don't handle requests on management port if set and different than server port
@@ -191,7 +191,7 @@ protected Mono<?> getHandlerInternal(ServerWebExchange exchange) {
 
 
 
-```
+```java
 protected Mono<Route> lookupRoute(ServerWebExchange exchange) {
     // getRoutes 获取所有的断言工厂
     return this.routeLocator.getRoutes()
@@ -228,7 +228,7 @@ RouteDefinitionRouteLocator从配置文件中获取所有路由的，然后把�
 
 
 
-```
+```java
 @Override
 public Flux<Route> getRoutes() {
     // getRouteDefinitions() 从配置文件中获取所有路由
@@ -249,7 +249,7 @@ public Flux<Route> getRoutes() {
 
 
 
-```
+```java
 public class Route implements Ordered {
 	private final String id;
 	private final URI uri;
@@ -274,7 +274,7 @@ Gateway由于在上一步匹配路由后返回的是webHandler类型的，所以
 
 
 
-```
+```java
 private Mono<HandlerResult> invokeHandler(ServerWebExchange exchange, Object handler) {
     if (this.handlerAdapters != null) {
         //找到所有的HandlerAdapter去匹配WebFlux类型
@@ -300,7 +300,7 @@ SimpleHandlerAdapter 中的handle方法如下
 
 
 
-```
+```java
 @Override
 public Mono<HandlerResult> handle(ServerWebExchange exchange, Object handler) {
     //处理WebHandler 类型
@@ -322,7 +322,7 @@ public Mono<HandlerResult> handle(ServerWebExchange exchange, Object handler) {
 
 
 
-```
+```java
 @Override
 public Mono<Void> handle(ServerWebExchange exchange) {
     // 1\. 根据路由与上下文绑定关系，获取对应的路由Route
@@ -365,7 +365,7 @@ http://localhost:9527/get/3为例！9527为网关Gateway的端口
 
 
 
-```
+```java
 public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
     // 1\. 根据路由与上下文绑定关系
     // 获取原始的url：http://localhost:9527/get/3

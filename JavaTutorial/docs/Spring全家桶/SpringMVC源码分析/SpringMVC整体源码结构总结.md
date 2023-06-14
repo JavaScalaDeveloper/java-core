@@ -18,7 +18,7 @@
 
 这种方式很简单，只需要这样：
 
-```
+```java
 // 使用@EnableWebMvc注解启用mvc功能
 @Component
 @EnableWebMvc
@@ -30,7 +30,7 @@ public class MvcConfig {
 
 如果我们要处理 webMvc 的一些配置时，需要实现 `WebMvcConfigurer`:
 
-```
+```java
 // 实现 WebMvcConfigurer，添加自定义配置
 @Component
 public class MyWebMvcConfigurer implements WebMvcConfigurer {
@@ -44,7 +44,7 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
 
 还有一种方式启用 `webMvc` 的 方式是实现 `WebMvcConfigurationSupport`：
 
-```
+```java
 @Component
 public class MyWebMvcConfigurationSupport extends WebMvcConfigurationSupport {
     // 重写配置方法，处理自定义配置

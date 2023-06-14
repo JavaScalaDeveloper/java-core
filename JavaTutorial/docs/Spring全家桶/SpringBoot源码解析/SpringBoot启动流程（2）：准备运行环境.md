@@ -4,7 +4,7 @@
 
 方法内容如下：
 
-```
+```java
 public ConfigurableApplicationContext run(String... args) {
     // 1\. 创建 StopWatch 实例，其实就是个计时器，用来统计springboot启动耗时
     StopWatch stopWatch = new StopWatch();
@@ -84,7 +84,7 @@ public ConfigurableApplicationContext run(String... args) {
 
 `SpringApplication#configureHeadlessProperty`方法的相关代码如下：
 
-```
+```java
 public class SpringApplication {
 
     private static final String SYSTEM_PROPERTY_JAVA_AWT_HEADLESS = "java.awt.headless";
@@ -115,7 +115,7 @@ public class SpringApplication {
 
 继续，这一步是获取运行监听器，可以监听运行期间的一些状态，看代码：
 
-```
+```java
 // 获取监听器，也是从 META-INF/spring.factories 中获取
 SpringApplicationRunListeners listeners = getRunListeners(args);
 
@@ -123,7 +123,7 @@ SpringApplicationRunListeners listeners = getRunListeners(args);
 
 进入`SpringApplication#getRunListeners`：
 
-```
+```java
 public class SpringApplication {
     ...
 
@@ -140,7 +140,7 @@ public class SpringApplication {
 
 可以看到，`SpringApplicationRunListener`依然是从`META-INF/spring.factories`中获取，那`SpringApplicationRunListener`是个啥呢？我们来看代码：
 
-```
+```java
 public interface SpringApplicationRunListener {
 
     /**
@@ -200,7 +200,7 @@ public interface SpringApplicationRunListener {
 
 回到`SpringApplication#run(java.lang.String...)`，获取到运行监听器后，会立即调用`starting()`方法来发布启动事件：
 
-```
+```java
 // 获取监听器
 SpringApplicationRunListeners listeners = getRunListeners(args);
 // starting()：首次启动run方法时立即调用。可用于非常早期的初始化（准备运行时环境之前）。
@@ -225,7 +225,7 @@ void starting() {
 
 接下我们来看看环境参数的处理，代码如下：
 
-```
+```java
 // 封装传入的参数
 ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
 // 处理环境参数
@@ -235,7 +235,7 @@ ConfigurableEnvironment environment = prepareEnvironment(listeners, applicationA
 
 进入`SpringApplication#prepareEnvironment`：
 
-```
+```java
 private ConfigurableEnvironment prepareEnvironment(SpringApplicationRunListeners listeners,
         ApplicationArguments applicationArguments) {
     // 获取环境，如果不存在则创建
@@ -264,7 +264,7 @@ private ConfigurableEnvironment prepareEnvironment(SpringApplicationRunListeners
 
 直接进入`SpringApplication#getOrCreateEnvironment`：
 
-```
+```java
 private ConfigurableEnvironment getOrCreateEnvironment() {
     if (this.environment != null) {
         return this.environment;
@@ -302,7 +302,7 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 
 发现在`AbstractEnvironment`的构造方法中，调用了`customizePropertySources()`，而这个方法在`StandardServletEnvironment`实现：
 
-```
+```java
 public class StandardServletEnvironment extends StandardEnvironment 
         implements ConfigurableWebEnvironment {
     public static final String SERVLET_CONTEXT_PROPERTY_SOURCE_NAME = "servletContextInitParams";
@@ -339,7 +339,7 @@ public class StandardServletEnvironment extends StandardEnvironment
 
 这个类似乎并没有做什么，我们继续追踪，看它父类的构造方法：
 
-```
+```java
 public class StandardEnvironment extends AbstractEnvironment {
 
     /** 系统环境 */
@@ -376,7 +376,7 @@ public class StandardEnvironment extends AbstractEnvironment {
 
 我们继续分析，接着看看配置环境的流程，也就是`SpringApplication#configureEnvironment`方法：
 
-```
+```java
 protected void configureEnvironment(ConfigurableEnvironment environment, String[] args) {
     if (this.addConversionService) {
         // 添加转换器，处理参数类型转换，如 String转Number，Integer转Enum等
@@ -393,7 +393,7 @@ protected void configureEnvironment(ConfigurableEnvironment environment, String[
 
 这个方法代码不多，关键点都已在代码中注释清楚了，这里需要稍微提下`SpringApplication#configurePropertySources`：
 
-```
+```java
 protected void configurePropertySources(ConfigurableEnvironment environment, String[] args) {
     MutablePropertySources sources = environment.getPropertySources();
     // 设置默认属性，如果指定了默认属性，就在这里配置
@@ -421,7 +421,7 @@ protected void configurePropertySources(ConfigurableEnvironment environment, Str
 
 在这个方法里会对传入的参数进行解析，进入`SimpleCommandLinePropertySource`：
 
-```
+```java
 public class SimpleCommandLinePropertySource 
         extends CommandLinePropertySource<CommandLineArgs> {
 
@@ -435,7 +435,7 @@ public class SimpleCommandLinePropertySource
 
 最终解析的方法是`SimpleCommandLineArgsParser#parse`：
 
-```
+```java
 public class SimpleCommandLineArgsParser {
     public CommandLineArgs parse(String... args) {
         CommandLineArgs commandLineArgs = new CommandLineArgs();

@@ -58,7 +58,7 @@ server:
 
 
 
-````
+````java
 @EnableAdminServer
 @SpringBootApplication
 public class AdminServerApplication {
@@ -315,7 +315,7 @@ eureka:
 
 
 
-```
+```java
 @EnableDiscoveryClient
 @SpringBootApplication
 public class AdminClientApplication {
@@ -460,7 +460,7 @@ public class SecuritySecureConfig extends WebSecurityConfigurerAdapter {
 
 
 
-```
+```java
 @EnableDiscoveryClient
 @EnableAdminServer
 @SpringBootApplication

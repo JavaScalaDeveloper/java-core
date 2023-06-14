@@ -4,7 +4,7 @@
 
 事务的信息会在 `TransactionAspectSupport#createTransactionIfNecessary` 方法中获取，这个方法非常重要，前面介绍隔离级别、传播方式都会在这个方法里处理。该方法代码如下：
 
-```
+```java
 protected TransactionInfo createTransactionIfNecessary(@Nullable PlatformTransactionManager tm,
         @Nullable TransactionAttribute txAttr, final String joinpointIdentification) {
     // 如果未指定名称，则将方法名当做事务名称
@@ -37,7 +37,7 @@ protected TransactionInfo createTransactionIfNecessary(@Nullable PlatformTransac
 
 先来看下获取事务状态的流程，方法为 `AbstractPlatformTransactionManager#getTransaction`：
 
-```
+```java
 public final TransactionStatus getTransaction(@Nullable TransactionDefinition definition)
         throws TransactionException {
 
@@ -100,7 +100,7 @@ public final TransactionStatus getTransaction(@Nullable TransactionDefinition de
 
 获取事务对象的方法为 `DataSourceTransactionManager#doGetTransaction`：
 
-```
+```java
 protected Object doGetTransaction() {
     DataSourceTransactionObject txObject = new DataSourceTransactionObject();
     txObject.setSavepointAllowed(isNestedTransactionAllowed());
@@ -120,7 +120,7 @@ protected Object doGetTransaction() {
 
 我们先来看看数据源是如何获取的：
 
-```
+```java
 public class DataSourceTransactionManager extends AbstractPlatformTransactionManager
         implements ResourceTransactionManager, InitializingBean {
 
@@ -170,7 +170,7 @@ public class DataSourceTransactionManager extends AbstractPlatformTransactionMan
 
 `obtainDataSource()` 实际上是调用了 `getDataSource()` 方法，返回的是 `dataSource` 成员变量，而 `dataSource` 又是在 `DataSourceTransactionManager` 的构造方法里传入的，因此，得到的结论是，这里获取的数据源就是我们在设置 `DataSourceTransactionManager` 时传入的：
 
-```
+```java
 @Configuration
 public class TxDemo03Config {
 
@@ -208,7 +208,7 @@ public class TxDemo03Config {
 
 我们再来看看 `ConnectionHolder` 的获取，该方法为 `TransactionSynchronizationManager#getResource` ，代码如下：
 
-```
+```java
 // 用 ThreadLocal 来存放  ConnectionHolder 信息
 private static final ThreadLocal<Map<Object, Object>> resources =
         new NamedThreadLocal<>("Transactional resources");
@@ -260,7 +260,7 @@ private static Object doGetResource(Object actualKey) {
 
 获取到事务对象 `DataSourceTransactionObject` 后，接下来就是判断是否存在事务了，判断方法在 `DataSourceTransactionManager#isExistingTransaction`，代码如下：
 
-```
+```java
 protected boolean isExistingTransaction(Object transaction) {
     DataSourceTransactionObject txObject = (DataSourceTransactionObject) transaction;
     return (txObject.hasConnectionHolder() 
@@ -275,7 +275,7 @@ protected boolean isExistingTransaction(Object transaction) {
 
 这里我们来看看如果当前存在事务，spring 是怎么处理的，处理已存在事务的方法为 `AbstractPlatformTransactionManager#handleExistingTransaction`，代码如下：
 
-```
+```java
 private TransactionStatus handleExistingTransaction(TransactionDefinition definition, 
         Object transaction, boolean debugEnabled) throws TransactionException {
     // 当传播方式为【不使用事务】时，抛出异常
@@ -358,7 +358,7 @@ private TransactionStatus handleExistingTransaction(TransactionDefinition defini
 
 让我们再回到 `AbstractPlatformTransactionManager#getTransaction` 方法，继续剩下的流程：
 
-```
+```java
 public final TransactionStatus getTransaction(@Nullable TransactionDefinition definition)
         throws TransactionException {
 
@@ -412,7 +412,7 @@ public final TransactionStatus getTransaction(@Nullable TransactionDefinition de
 
 `handleExistingTransaction(...)` 方法与 `getTransaction(...)` 方法在处理返回结果时，都使用了 `prepareTransactionStatus(...)` 方法：
 
-```
+```java
 // `handleExistingTransaction(...)`方法
 return prepareTransactionStatus(definition, transaction, false, 
             newSynchronization, debugEnabled, null);
@@ -424,7 +424,7 @@ return prepareTransactionStatus(def, null, true, newSynchronization, debugEnable
 
 我们来分析下这个方法是做了啥，进入 `AbstractPlatformTransactionManager#prepareTransactionStatus`：
 
-```
+```java
 protected final DefaultTransactionStatus prepareTransactionStatus(
         TransactionDefinition definition, @Nullable Object transaction, boolean newTransaction,
         boolean newSynchronization, boolean debug, @Nullable Object suspendedResources) {
@@ -462,7 +462,7 @@ protected DefaultTransactionStatus newTransactionStatus(
 
 回到 `TransactionAspectSupport#createTransactionIfNecessary` 方法：
 
-```
+```java
 protected TransactionInfo createTransactionIfNecessary(@Nullable PlatformTransactionManager tm,
         @Nullable TransactionAttribute txAttr, final String joinpointIdentification) {
     ...
@@ -481,7 +481,7 @@ protected TransactionInfo createTransactionIfNecessary(@Nullable PlatformTransac
 
 前面分析了那么多，只是得到了 `TransactionStatus`，我们再接再厉，继续分析准备事务信息的方法 `prepareTransactionInfo(...)`：
 
-```
+```java
 protected TransactionInfo prepareTransactionInfo(@Nullable PlatformTransactionManager tm,
         @Nullable TransactionAttribute txAttr, String joinpointIdentification,
         @Nullable TransactionStatus status) {
@@ -503,7 +503,7 @@ protected TransactionInfo prepareTransactionInfo(@Nullable PlatformTransactionMa
 
 嗯，同 `prepareTransactionStatus(...)` 类似，这个方法也是创建了一个 `TransactionInfo` 对象，并且将 `TransactionInfo` 与当前线程绑定，绑定的代码如下：
 
-```
+```java
 public abstract class TransactionAspectSupport implements BeanFactoryAware, InitializingBean {
 
     // 存放当前使用的事物信息

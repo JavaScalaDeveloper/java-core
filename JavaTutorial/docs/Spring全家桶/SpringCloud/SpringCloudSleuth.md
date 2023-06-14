@@ -14,7 +14,7 @@
 
 
 
-```
+```xml
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     spring-cloud-starter-zipkin

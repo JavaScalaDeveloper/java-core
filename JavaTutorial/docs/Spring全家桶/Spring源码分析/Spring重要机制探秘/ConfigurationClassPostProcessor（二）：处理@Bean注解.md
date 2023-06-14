@@ -10,7 +10,7 @@
 
 首先准备两个 Bean:
 
-```
+```java
 public class BeanObj1 {
     public BeanObj1() {
         System.out.println("调用beanObj1的构造方法");
@@ -39,7 +39,7 @@ public class BeanObj2 {
 
 再准备一个配置类，通过 `@Bean` 注解的方法生成两个 bean：
 
-```
+```java
 @Component
 public class BeanConfigs {
 
@@ -61,7 +61,7 @@ public class BeanConfigs {
 
 最后是启动类：
 
-```
+```java
 @ComponentScan
 public class Demo02Main {
 
@@ -175,7 +175,7 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(Class)
 
 接下来我们来看看 `ConfigurationClassParser#doProcessConfigurationClass` 对 `@Bean` 注解的处理，代码如下：
 
-```
+```java
 /**
  * 这个方法才是真正处理解析的方法
  */
@@ -213,7 +213,7 @@ protected final SourceClass doProcessConfigurationClass(ConfigurationClass confi
 
 获取 `@Bean` 的方法调用的是 `retrieveBeanMethodMetadata(...)`，我们跟进去：
 
-```
+```java
 private Set<MethodMetadata> retrieveBeanMethodMetadata(SourceClass sourceClass) {
     AnnotationMetadata original = sourceClass.getMetadata();
     // 获取包含 @Bean 注解的方法
@@ -226,7 +226,7 @@ private Set<MethodMetadata> retrieveBeanMethodMetadata(SourceClass sourceClass) 
 
 再跟进去，最终调用的是 `StandardAnnotationMetadata#getAnnotatedMethods`:
 
-```
+```java
 public Set<MethodMetadata> getAnnotatedMethods(String annotationName) {
     Set<MethodMetadata> annotatedMethods = null;
     if (AnnotationUtils.isCandidateClass(getIntrospectedClass(), annotationName)) {
@@ -270,7 +270,7 @@ public Set<MethodMetadata> getAnnotatedMethods(String annotationName) {
 
 还记得 `ConfigurationClassPostProcessor#processConfigBeanDefinition` 吗，其中有这么一行代码：
 
-```
+```java
 public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
     ...
     // 处理本次解析的类
@@ -411,7 +411,7 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
 
 > AbstractAutowireCapableBeanFactory#createBeanInstance
 
-```
+```java
 /**
  * 实例的创建方式
  * 1\. 使用 instanceSupplier，Supplier是java8提供的类，可以传入一个lambda表达式
@@ -478,7 +478,7 @@ protected BeanWrapper createBeanInstance(String beanName,
 
 这里我们主要关注 `@Bean` 的实例方式，也就是工厂方法实例化方式，我们进去看下：
 
-```
+```java
 public BeanWrapper instantiateUsingFactoryMethod(String beanName, 
              RootBeanDefinition mbd, @Nullable Object[] explicitArgs) {
     BeanWrapperImpl bw = new BeanWrapperImpl();
@@ -536,7 +536,7 @@ public BeanWrapper instantiateUsingFactoryMethod(String beanName,
 
 > ConstructorResolver#instantiate(...)
 
-```
+```java
 private Object instantiate(String beanName, RootBeanDefinition mbd,
         @Nullable Object factoryBean, Method factoryMethod, Object[] args) {
     try {
@@ -553,7 +553,7 @@ private Object instantiate(String beanName, RootBeanDefinition mbd,
 
 > SimpleInstantiationStrategy#instantiate(...)
 
-```
+```java
 @Override
 public Object instantiate(RootBeanDefinition bd, @Nullable String beanName, BeanFactory owner,
         @Nullable Object factoryBean, final Method factoryMethod, Object... args) {
@@ -587,7 +587,7 @@ public Object instantiate(RootBeanDefinition bd, @Nullable String beanName, Bean
 
 上面介绍了 `@Component` 与 `@Bean` 使用时的代码分析，即
 
-```
+```java
 @Component
 public class BeanConfigs {
     @Bean
@@ -600,7 +600,7 @@ public class BeanConfigs {
 
 实际上，大多数情况下我们使用的是 `@Configuration` 与 `@Bean` 的组合：
 
-```
+```java
 @Configuration
 public class BeanConfigs {
     @Bean
@@ -617,7 +617,7 @@ public class BeanConfigs {
 
 demo 准备：
 
-```
+```java
 //@Component
 @Configuration
 public class BeanConfigs {
@@ -670,7 +670,7 @@ org.springframework.learn.explore.demo02.BeanConfigs$$EnhancerBySpringCGLIB$$dca
 
 > ConfigurationClassPostProcessor#enhanceConfigurationClasses
 
-```
+```java
 public void enhanceConfigurationClasses(ConfigurableListableBeanFactory beanFactory) {
     Map<String, AbstractBeanDefinition> configBeanDefs = new LinkedHashMap<>();
     for (String beanName : beanFactory.getBeanDefinitionNames()) {
@@ -718,7 +718,7 @@ public void enhanceConfigurationClasses(ConfigurableListableBeanFactory beanFact
 
 生成代理对象后，代理方法是如何执行的呢？即 spring 是如何执行 `beanConfigs.beanObj1()` 的呢？说起这个，就需要谈到 cglib 代理对象的方法执行了。我们直接来看代理的生成，进入 `enhancer.enhance(configClass, this.beanClassLoader)`：
 
-```
+```java
 public Class<?> enhance(Class<?> configClass, @Nullable ClassLoader classLoader) {
     if (EnhancedConfiguration.class.isAssignableFrom(configClass)) {
         return configClass;
@@ -732,7 +732,7 @@ public Class<?> enhance(Class<?> configClass, @Nullable ClassLoader classLoader)
 
 继续进入：
 
-```
+```java
 private static final Callback[] CALLBACKS = new Callback[] {
         // 这个类用来保证 @Bean 方法的单例
         new BeanMethodInterceptor(),
@@ -764,7 +764,7 @@ private Enhancer newEnhancer(Class<?> configSuperClass, @Nullable ClassLoader cl
 
 > ConfigurationClassEnhancer.BeanMethodInterceptor
 
-```
+```java
 private static class BeanMethodInterceptor implements MethodInterceptor, ConditionalCallback {
     @Override
     @Nullable
@@ -819,7 +819,7 @@ private static class BeanMethodInterceptor implements MethodInterceptor, Conditi
 
 最后再提一句，`@Configuration` 提供了 `proxyBeanMethods()` 方法来让我们选择是否开启配置类的代理，默认值是 true，如果像这样设置：
 
-```
+```java
 @Configuration(proxyBeanMethods=false)
 public class BeanConfigs {
     ...
@@ -849,7 +849,7 @@ public class BeanConfigs {
 
 **回答**：cglib 代理的调用方法有两种：
 
-```
+```java
 @Override
 public Object intercept(Object proxyObj, Method method, Object[] objects, 
             MethodProxy proxy) throws Throwable {
@@ -873,7 +873,7 @@ public Object intercept(Object proxyObj, Method method, Object[] objects,
 
 比如，我们现在有一个 `BeanObj3`:
 
-```
+```java
 @Component
 public class BeanObj3 {
 
@@ -891,7 +891,7 @@ public class BeanObj3 {
 
 然后在 `BeanConfigs` 中注入：
 
-```
+```java
 @Configuration
 public class BeanConfigs {
 

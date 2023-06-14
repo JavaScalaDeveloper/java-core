@@ -58,7 +58,7 @@
 Java多线程中可以通过callable和future或futuretask结合来获取线程执行后的返回值。实现方法是通过get方法来调用callable的call方法获取返回值。
 
 其实这种方法本质上不是回调，回调要求的是任务完成以后被调用者主动回调调用者的接口。而这里是调用者主动使用get方法阻塞获取返回值。
-````
+````java
 public class 多线程中的回调 {
     //这里简单地使用future和callable实现了线程执行完后
     public static void main(String[] args) throws ExecutionException, InterruptedException {
@@ -128,7 +128,7 @@ public void test () {
 
 **1.1.1 底层服务类:BottomService.java**
 
-````
+````java
 package synchronization.demo;
 
 /**
@@ -281,7 +281,7 @@ callBottomService start -->  callBottomService.bottom() execute -->  BottomServi
 解答：回调更像是一个约定，就是如果我调用了b()方法，那么就必须要回调，而不需要显示调用
 一、Java的回调-浅
 我们用例子来解释：小明和小李相约一起去吃早饭，但是小李起的有点晚要先洗漱，等小李洗漱完成后，通知小明再一起去吃饭。小明就是类A，小李就是类B。一起去吃饭这个事件就是方法a(),小李去洗漱就是方法b()。
-````
+````java
 public class XiaoMing { 
    //小明和小李一起吃饭
    public void eatFood() {
@@ -329,7 +329,7 @@ public class XiaoMing {
 小明和小李相约一起去吃早饭，但是小李起的有点晚要先洗漱，等小李洗漱完成后，通知小明再一起去吃饭。小明就是类A，小李就是类B。不同的是我们新建一个吃饭的接口EatRice，接口中有个抽象方法eat()。在小明中调用这个接口，并实现eat()；小李声明这个接口对象，并且调用这个接口的抽象方法。这里可能有点绕口，不过没关系，看看例子就很清楚了。
 
 EatRice接口：
-````
+````java
 public interface EatRice {
    public void eat(String food);
 }
@@ -400,7 +400,7 @@ public class demo {
 > 3 Tom需要数学老师的一个引用，以便Tom把答案给这位老师，而不是隔壁的体育老师。
 
 回调接口，可以理解为老师接口
-````
+````java
 //回调指的是A调用B来做一件事，B做完以后将结果告诉给A，这期间A可以做别的事情。
 //这个接口中有一个方法，意为B做完题目后告诉A时使用的方法。
 //所以我们必须提供这个接口以便让B来回调。

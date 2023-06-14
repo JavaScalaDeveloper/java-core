@@ -14,7 +14,7 @@ spring cglib 操作位于 `spring-core` 模块：
 
 再来看看 asm 与 cglib 包说明：
 
-```
+```java
 /**
  * Spring's repackaging of
  * ASM 7.0
@@ -33,7 +33,7 @@ spring cglib 操作位于 `spring-core` 模块：
 
 注意第一句：`Spring's repackaging of ASM 7.0`，表明这是 spring 对 `asm7.0` 重新打包.
 
-```
+```java
 /**
  * Spring's repackaging of
  * CGLIB 3.3
@@ -60,7 +60,7 @@ package org.springframework.cglib;
 
 首先准备一个类：
 
-```
+```java
 package org.springframework.learn.demo04;
 
 public class CglibProxyService {
@@ -73,7 +73,7 @@ public class CglibProxyService {
 
 再准备一个 `MethodInterceptor`（类比 jdk 动态代理中的 `InvocationHandler`）：
 
-```
+```java
 package org.springframework.learn.demo04;
 
 import org.springframework.cglib.proxy.MethodInterceptor;
@@ -102,7 +102,7 @@ public class MyMethodInterceptor implements MethodInterceptor {
 
 最后是主类：
 
-```
+```java
 package org.springframework.learn.demo04;
 
 import org.springframework.cglib.proxy.Enhancer;
@@ -158,7 +158,7 @@ hello01
 
 > CglibAopProxy#getProxy(java.lang.ClassLoader)
 
-```
+```java
 public Object getProxy(@Nullable ClassLoader classLoader) {
     try {
         Class<?> rootClass = this.advised.getTargetClass();
@@ -227,7 +227,7 @@ public Object getProxy(@Nullable ClassLoader classLoader) {
 
 > ObjenesisCglibAopProxy#createProxyClassAndInstance
 
-```
+```java
 protected Object createProxyClassAndInstance(Enhancer enhancer, Callback[] callbacks) {
     // 创建代理类
     Class<?> proxyClass = enhancer.createClass();
@@ -268,7 +268,7 @@ protected Object createProxyClassAndInstance(Enhancer enhancer, Callback[] callb
 
 > CglibAopProxy#getCallbacks
 
-```
+```java
 private Callback[] getCallbacks(Class<?> rootClass) throws Exception {
     boolean exposeProxy = this.advised.isExposeProxy();
     boolean isFrozen = this.advised.isFrozen();
@@ -362,7 +362,7 @@ cglib 切面方法的执行 `CglibAopProxy.DynamicAdvisedInterceptor#intercept` 
 
 > `CglibAopProxy.DynamicAdvisedInterceptor#intercept`
 
-```
+```java
 public Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) 
         throws Throwable {
     Object oldProxy = null;
@@ -416,7 +416,7 @@ public Object intercept(Object proxy, Method method, Object[] args, MethodProxy 
 
 > CglibAopProxy.CglibMethodInvocation#proceed
 
-```
+```java
 public Object proceed() throws Throwable {
     try {
         return super.proceed();

@@ -62,7 +62,7 @@ https://www.jianshu.com/p/0e84b8d3606c
 #### 定义
 
   首先我们先看LinkedList的定义：
-````
+````java
 public class LinkedList<E>
 extends AbstractSequentialList<E>
 implements List<E>, Deque<E>, Cloneable, java.io.Serializable
@@ -72,7 +72,7 @@ implements List<E>, Deque<E>, Cloneable, java.io.Serializable
 #### 属性
 
 在LinkedList中提供了两个基本属性size、header。
-````
+````java
 private transient Entry<E> header = new Entry<E>(null, null, null);
 private transient int size = 0;
 //其中size表示的LinkedList的大小，header表示链表的表头，Entry为节点对象。
@@ -190,7 +190,7 @@ private Entry<E> entry(int index) {
 
 add(E e): 将指定元素添加到此列表的结尾。
 
-````
+````java
 public boolean add(E e) {
     addBefore(e, header);
         return true;

@@ -50,7 +50,7 @@ Spring 提供了以下的标准事件：
 
 这里是 **HelloWorld.java** 文件的内容：
 
-```
+```java
 package com.tutorialspoint;
 public class HelloWorld {
    private String message;
@@ -65,7 +65,7 @@ public class HelloWorld {
 
 下面是 **CStartEventHandler.java** 文件的内容：
 
-```
+```java
 package com.tutorialspoint;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextStartedEvent;
@@ -79,7 +79,7 @@ public class CStartEventHandler
 
 下面是 **CStopEventHandler.java** 文件的内容：
 
-```
+```java
 package com.tutorialspoint;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextStoppedEvent;
@@ -93,7 +93,7 @@ public class CStopEventHandler
 
 下面是 **MainApp.java** 文件的内容：
 
-```
+```java
 package com.tutorialspoint;
 
 import org.springframework.context.ConfigurableApplicationContext;
@@ -119,7 +119,7 @@ public class MainApp {
 
 下面是配置文件 **Beans.xml** 文件：
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -170,7 +170,7 @@ ContextStoppedEvent Received
 
 这个是 **CustomEvent.java** 文件的内容：
 
-```
+```java
 package com.tutorialspoint;
 import org.springframework.context.ApplicationEvent;
 public class CustomEvent extends ApplicationEvent{ 
@@ -186,7 +186,7 @@ public class CustomEvent extends ApplicationEvent{
 
 下面是 **CustomEventPublisher.java** 文件的内容：
 
-```
+```java
 package com.tutorialspoint;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
@@ -206,7 +206,7 @@ public class CustomEventPublisher
 
 下面是 **CustomEventHandler.java** 文件的内容：
 
-```
+```java
 package com.tutorialspoint;
 import org.springframework.context.ApplicationListener;
 public class CustomEventHandler 
@@ -219,7 +219,7 @@ public class CustomEventHandler
 
 下面是 **MainApp.java** 文件的内容：
 
-```
+```java
 package com.tutorialspoint;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -237,7 +237,7 @@ public class MainApp {
 
 下面是配置文件 **Beans.xml**：
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"

@@ -8,7 +8,7 @@
 
 接下来我们来看看 `SpringApplication#refreshContext` 方法：
 
-```
+```java
 private void refreshContext(ConfigurableApplicationContext context) {
     // 启动spring容器
     refresh(context);
@@ -34,7 +34,7 @@ private void refreshContext(ConfigurableApplicationContext context) {
 
 进入 `SpringApplication#refresh`：
 
-```
+```java
 protected void refresh(ApplicationContext applicationContext) {
     Assert.isInstanceOf(AbstractApplicationContext.class, applicationContext);
     // spring 容器的启动操作了
@@ -75,7 +75,7 @@ AbstractApplicationContext#refresh
 
 最终调用的是 `GenericWebApplicationContext#initPropertySources`：
 
-```
+```java
 protected void initPropertySources() {
     ConfigurableEnvironment env = getEnvironment();
     if (env instanceof ConfigurableWebEnvironment) {
@@ -87,7 +87,7 @@ protected void initPropertySources() {
 
 这个方法里先获取 `Environment`，然后判断是否为 `ConfigurableWebEnvironment` 的实例，在前面分析**准备运行时环境**时，我们得到的 `Environment` 为 `StandardServletEnvironment`，是 `ConfigurableWebEnvironment` 的符合，然后调用 `ConfigurableWebEnvironment#initPropertySources` 方法，结果到了 `StandardServletEnvironment#initPropertySources`：
 
-```
+```java
 public void initPropertySources(@Nullable ServletContext servletContext, 
         @Nullable ServletConfigservletConfig) {
     // 替换上面设置的 servletContextInitParams 为 servletContext
@@ -112,7 +112,7 @@ public void initPropertySources(@Nullable ServletContext servletContext,
 
 `AnnotationConfigServletWebServerApplicationContext` 重写了这个方法：
 
-```
+```java
 @Override
 protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
     // 调用父类的方法
@@ -137,7 +137,7 @@ protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactor
 
 我们主要来看看 `super.postProcessBeanFactory(beanFactory)`，该方法在 `ServletWebServerApplicationContext` 中：
 
-```
+```java
 @Override
 protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
     // 添加一个 BeanPostProcessor
@@ -153,7 +153,7 @@ protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactor
 
 这个方法内容比较简单，主要是注册 `BeanPostProcessor` 以及注册 `web bean` 的作用范围。这里我们主要看下 `WebApplicationContextServletContextAwareProcessor` 的作用，代码如下：
 
-```
+```java
 public class WebApplicationContextServletContextAwareProcessor 
         extends ServletContextAwareProcessor {
 
@@ -189,7 +189,7 @@ public class WebApplicationContextServletContextAwareProcessor
 
 这个类似乎并没有做什么，我们再跟进父类，由于它是个 `BeanPostProcessor`，我们主要关注它的 `postProcessBeforeInitialization()` 与 `postProcessAfterInitialization()` 两个方法：
 
-```
+```java
 public class ServletContextAwareProcessor implements BeanPostProcessor {
 
     ...
@@ -240,7 +240,7 @@ public class ServletContextAwareProcessor implements BeanPostProcessor {
 
 当前 `applicationContext` 对该方法的扩展为 `ServletWebServerApplicationContext#onRefresh` 方法，代码如下：
 
-```
+```java
 @Override
 protected void onRefresh() {
     // 调用父类方法
@@ -270,7 +270,7 @@ protected void onRefresh() {
 
 当前 `applicationContext` 对该方法的扩展为 `ServletWebServerApplicationContext#finishRefresh` 方法，代码如下：
 
-```
+```java
 @Override
 protected void finishRefresh() {
     super.finishRefresh();
@@ -305,7 +305,7 @@ private WebServer startWebServer() {
 
 我们再来看 `context.registerShutdownHook()`，该方法由 `AbstractApplicationContext#registerShutdownHook` 提供：
 
-```
+```java
 public abstract class AbstractApplicationContext extends DefaultResourceLoader
         implements ConfigurableApplicationContext {
     ...

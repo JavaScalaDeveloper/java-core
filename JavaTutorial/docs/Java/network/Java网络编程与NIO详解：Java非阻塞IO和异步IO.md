@@ -57,7 +57,7 @@
 
 我们已经介绍过使用 Java NIO 包组成一个简单的**客户端-服务端**网络通讯所需要的 ServerSocketChannel、SocketChannel 和 Buffer，我们这里整合一下它们，给出一个完整的可运行的例子：
 
-```
+```java
 public class Server {
 
     public static void main(String[] args) throws IOException {
@@ -82,7 +82,7 @@ public class Server {
 
 这里看一下新的线程需要做什么，SocketHandler：
 
-```
+```java
 public class SocketHandler implements Runnable {
 
     private SocketChannel socketChannel;
@@ -124,7 +124,7 @@ public class SocketHandler implements Runnable {
 
 最后，贴一下客户端 SocketChannel 的使用，客户端比较简单：
 
-```
+```java
 public class SocketChannelTest {
     public static void main(String[] args) throws IOException {
         SocketChannel socketChannel = SocketChannel.open();
@@ -183,7 +183,7 @@ select 和 poll 都有一个共同的问题，那就是**它们都只会告诉�
 
 之前在介绍 Selector 的时候已经了解过了它的基本用法，这边来一个可运行的实例代码，大家不妨看看：
 
-```
+```java
 public class SelectorServer {
 
     public static void main(String[] args) throws IOException {
@@ -292,7 +292,7 @@ Java 异步 IO 提供了两种使用方式，分别是返回 Future 实例和使
 
 java.nio.channels.CompletionHandler 接口定义：
 
-```
+```java
 public interface CompletionHandler<V,A> {
 
     void completed(V result, A attachment);
@@ -343,7 +343,7 @@ Future<Integer> result = channel.read(buffer, 0);
 
 除了使用返回 Future 实例的方式，也可以采用回调函数进行操作，接口如下：
 
-```
+```java
 public abstract <A> void read(ByteBuffer dst,
                               long position,
                               A attachment,
@@ -352,7 +352,7 @@ public abstract <A> void read(ByteBuffer dst,
 
 顺便也贴一下写操作的两个版本的接口：
 
-```
+```java
 public abstract Future<Integer> write(ByteBuffer src, long position);
 
 public abstract <A> void write(ByteBuffer src,
@@ -365,7 +365,7 @@ public abstract <A> void write(ByteBuffer src,
 
 另外，还提供了用于将内存中的数据刷入到磁盘的方法：
 
-```
+```java
 public abstract void force(boolean metaData) throws IOException;
 ```
 
@@ -373,7 +373,7 @@ public abstract void force(boolean metaData) throws IOException;
 
 还有，还提供了对文件的锁定功能，我们可以锁定文件的部分数据，这样可以进行排他性的操作。
 
-```
+```java
 public abstract Future<FileLock> lock(long position, long size, boolean shared);
 ```
 
@@ -381,7 +381,7 @@ public abstract Future<FileLock> lock(long position, long size, boolean shared);
 
 当然，也可以使用回调函数的版本：
 
-```
+```java
 public abstract <A> void lock(long position,
                               long size,
                               boolean shared,
@@ -391,7 +391,7 @@ public abstract <A> void lock(long position,
 
 文件锁定功能上还提供了 tryLock 方法，此方法会快速返回结果：
 
-```
+```java
 public abstract FileLock tryLock(long position, long size, boolean shared)
     throws IOException;
 ```
@@ -406,7 +406,7 @@ AsynchronousFileChannel 操作大体上也就以上介绍的这些接口，还�
 
 我们就废话少说，用代码说事吧：
 
-```
+```java
 package com.javadoop.aio;
 
 import java.io.IOException;
@@ -468,7 +468,7 @@ public class Server {
 
 看一下 ChannelHandler 类：
 
-```
+```java
 package com.javadoop.aio;
 
 import java.io.IOException;
@@ -519,7 +519,7 @@ public class ChannelHandler implements CompletionHandler<Integer, Attachment> {
 
 顺便再贴一下自定义的 Attachment 类：
 
-```
+```java
 public class Attachment {
     private AsynchronousServerSocketChannel server;
     private AsynchronousSocketChannel client;
@@ -537,7 +537,7 @@ public class Attachment {
 
 这边做个简单演示，这样读者就可以配合之前介绍的 Server 进行测试使用了。
 
-```
+```java
 package com.javadoop.aio;
 
 import java.io.IOException;
@@ -576,7 +576,7 @@ public class Client {
 
 往里面看下 ClientChannelHandler 类：
 
-```
+```java
 package com.javadoop.aio;
 
 import java.io.IOException;
@@ -663,7 +663,7 @@ AsynchronousSocketChannel client = AsynchronousSocketChannel.open(group);
 
 **AsynchronousFileChannels 不属于 group**。但是它们也是关联到一个线程池的，如果不指定，会使用系统默认的线程池，如果想要使用指定的线程池，可以在实例化的时候使用以下方法：
 
-```
+```java
 public static AsynchronousFileChannel open(Path file,
                                            Set<? extends OpenOption> options,
                                            ExecutorService executor,

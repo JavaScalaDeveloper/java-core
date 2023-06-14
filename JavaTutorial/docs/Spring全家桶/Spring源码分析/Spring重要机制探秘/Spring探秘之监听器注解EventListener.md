@@ -4,7 +4,7 @@
 
 先定义一个事件：
 
-```
+```java
 public class MyApplicationEvent extends ApplicationEvent {
 
     private static final long serialVersionUID = -1L;
@@ -18,7 +18,7 @@ public class MyApplicationEvent extends ApplicationEvent {
 
 再准备一个事件监听器，这次使用 `@EventListener` 指定监听器：
 
-```
+```java
 @Configuration
 public class Demo08Config {
 
@@ -36,7 +36,7 @@ public class Demo08Config {
 
 然后发布事件：
 
-```
+```java
 @ComponentScan
 public class Demo08Main {
 
@@ -52,7 +52,7 @@ public class Demo08Main {
 
 运行，结果如下：
 
-```
+```java
 @EventListener监听到了事件：main | main | 自定义事件 ...
 
 ```
@@ -65,7 +65,7 @@ public class Demo08Main {
 
 `@EventListener` 的代码如下：
 
-```
+```java
 @Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -108,7 +108,7 @@ public @interface EventListener {
 
 首先我们来认识下 `EventListenerMethodProcessor`：
 
-```
+```java
 public class EventListenerMethodProcessor
         implements SmartInitializingSingleton, ApplicationContextAware, BeanFactoryPostProcessor {
     ...
@@ -158,7 +158,7 @@ public class EventListenerMethodProcessor
 
 接下来我们再来看看它对 `SmartInitializingSingleton#afterSingletonsInstantiated()` 的实现：
 
-```
+```java
     /**
      * 这个方法是 SmartInitializingSingleton 的 afterSingletonsInstantiated() 方法.
      * 会在bean初始化完成后调用。
@@ -215,7 +215,7 @@ public class EventListenerMethodProcessor
 
 看来关键是在 `EventListenerMethodProcessor#processBean` 方法了：
 
-```
+```java
 /**
  * 处理 bean， 这个方法会将 @EventListener 注解标记的方法转换为 ApplicationListener 对象，并注册到监听器.
  * @param beanName
@@ -293,7 +293,7 @@ private void processBean(final String beanName, final Class<?> targetType) {
 
 前面分析了 `@EventListener` 的处理流程，本节将来分析 `ApplicationListener` 对象的生成，对应的代码为：
 
-```
+```java
 // EventListenerMethodProcessor#processBean
 ApplicationListener<?> applicationListener = factory
         .createApplicationListener(beanName, targetType, methodToUse);
@@ -309,7 +309,7 @@ ApplicationListener<?> applicationListener = factory
 
 #### 5.1 `DefaultEventListenerFactory`
 
-```
+```java
 public class DefaultEventListenerFactory implements EventListenerFactory, Ordered {
     ...
 
@@ -340,7 +340,7 @@ public class DefaultEventListenerFactory implements EventListenerFactory, Ordere
 
 我们继续看 `ApplicationListenerMethodAdapter`：
 
-```
+```java
 public class ApplicationListenerMethodAdapter implements GenericApplicationListener {
 
     ...
@@ -369,7 +369,7 @@ public class ApplicationListenerMethodAdapter implements GenericApplicationListe
 
 `ApplicationListenerMethodAdapter` 的构造方法就是一堆的赋值操作，这里我们重点来关注下事件的处理：
 
-```
+```java
 public class ApplicationListenerMethodAdapter implements GenericApplicationListener {
 
     ...
@@ -417,7 +417,7 @@ public class ApplicationListenerMethodAdapter implements GenericApplicationListe
 
 接下来我们再来看看 `TransactionalEventListenerFactory`：
 
-```
+```java
 public class TransactionalEventListenerFactory implements EventListenerFactory, Ordered {
 
     ...
@@ -449,7 +449,7 @@ public class TransactionalEventListenerFactory implements EventListenerFactory, 
 
 我们先来看看 `@TransactionalEventListener` 是个啥：
 
-```
+```java
 @Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -492,7 +492,7 @@ public @interface TransactionalEventListener {
 
 了解了 `TransactionalEventListener` 之后，我们再来看看 `ApplicationListenerMethodTransactionalAdapter`：
 
-```
+```java
 /**
  * 继承了 ApplicationListenerMethodAdapter
  */
@@ -534,7 +534,7 @@ class ApplicationListenerMethodTransactionalAdapter extends ApplicationListenerM
 
 我们来看看 `ApplicationListenerMethodAdapter` 的这两个操作：
 
-```
+```java
 public class ApplicationListenerMethodAdapter implements GenericApplicationListener {
 
     ...
@@ -604,7 +604,7 @@ public class ApplicationListenerMethodAdapter implements GenericApplicationListe
 
 `ApplicationListenerMethodTransactionalAdapter` 的事件监听比 `ApplicationListenerMethodAdapter` 要简单一些：
 
-```
+```java
 /**
  * 继承了 ApplicationListenerMethodAdapter
  */

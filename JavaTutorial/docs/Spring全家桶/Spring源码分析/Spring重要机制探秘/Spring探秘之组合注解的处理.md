@@ -2,7 +2,7 @@
 
 在 spring 中，有一类特别的注解：组合注解。举例来说，springmvc 中，`@Controller` 注解用来配置访问路径等，`@ResponseBody` 注解用来表明不做视图渲染，直接展示方法的运行结果（一般是转成 json 返回），而 `@RestController` 组合了两者的功能，可以配置访问路径，同时也可以直接展示方法的运行结果，代码如下：
 
-```
+```java
 @Controller
 @ResponseBody
 public @interface RestController {
@@ -20,7 +20,7 @@ public @interface RestController {
 
 再来看一个例子，spring 中，我们在标识一个类为 spring bean 的时候，可以用到这些注解：`@Component`、`@Repository`、`@Service` 等，再进一步看其代码，发现 `@Repository`、`@Service` 中都有 `@Component`：
 
-```
+```java
 @Component
 public @interface Repository {
     @AliasFor(annotation = Component.class)
@@ -39,7 +39,7 @@ public @interface Service {
 
 实际上，如果我们自己写一个注解，像这样：
 
-```
+```java
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -55,7 +55,7 @@ public @interface MyComponent {
 
 然后这样使用：
 
-```
+```java
 @MyComponent("beanObj3")
 public class BeanObj3 {
     ...
@@ -82,7 +82,7 @@ RestController annotation = BeanObj3.class.getAnnotation(MyComponent.class);
 
 得到的 `annotation` 必定为 `null`，原因是 `Class#getAnnotation` 方法只能获取到类上直接出现的注解，`BeanObj3` 是没有直接出现 `@Component` 的，因此得到的结果为 null，办法也许你也想到了，就是继续往下读取 "注解的注解"，用代码示意下，类似这样：
 
-```
+```java
 public class AnnotationHandler {
 
     /**
@@ -140,7 +140,7 @@ public class AnnotationHandler {
 
 我们要获取 `BeanObj3` 上所有注解，就可以这样操作了：
 
-```
+```java
 // 得到 BeanObj3 上的所有注解，包括“注解的注解”
 List<Class<?>> list = AnnotationHandler.getAnnotations(BeanObj3.class);
 // 判断 BeanObj3 的注解中是否包含 @Component
@@ -150,7 +150,7 @@ list.contains(Component.class);
 
 以上 demo 还是比较粗糙，首先是 jdk 的元注解，这里只排除了三个，这三个都是在 `@Component` 中出现的，处理 `@Component` 之上的注解读取已经足够了；其次也是最重要的，就是没有获取注解的数据。在 spring 中，注解并不只是一个标记，还可以定义一系列数量，像这样：
 
-```
+```java
 // 定义 spring bean 的名称为 beanObj3
 @MyComponent("beanObj3")
 public class BeanObj3 {
@@ -222,7 +222,7 @@ AnnotationMetadata getAnnotationMetadata();
 
 如果进一步看这几个方法的默认实现，发现都调用 `getAnnotations()` 方法：
 
-```
+```java
 public interface AnnotationMetadata extends ClassMetadata, AnnotatedTypeMetadata {
 
     default Set<String> getAnnotationTypes() {
@@ -258,7 +258,7 @@ public interface AnnotationMetadata extends ClassMetadata, AnnotatedTypeMetadata
 
 再进一步查看 `getAnnotations()` 方法，进入了 `AnnotatedTypeMetadata`：
 
-```
+```java
 public interface AnnotatedTypeMetadata {
 
     /**
@@ -284,7 +284,7 @@ public interface AnnotatedTypeMetadata {
 
 看来，`MergedAnnotations` 才是最终的组合注解的集合了，我们来看看它的几个方法：
 
-```
+```java
 // 判断注解是否存在，会从所有的注解中判断
 <A extends Annotation> boolean isPresent(Class<A> annotationType);
 
@@ -319,7 +319,7 @@ boolean isDirectlyPresent(String annotationType);
 
 下面来看个示例：
 
-```
+```java
 // 得到 SimpleMetadataReaderFactory 实例，最终调用的是 SimpleAnnotationMetadataReadingVisitor 来读取
 SimpleMetadataReaderFactory readerFactory = new SimpleMetadataReaderFactory();
 MetadataReader metadataReader = readerFactory.getMetadataReader(BeanObj3.class.getName());
@@ -390,7 +390,7 @@ Component value:beanObj3
 
 补充说明下 `AnnotationAttributes`：
 
-```
+```java
 public class AnnotationAttributes extends LinkedHashMap<String, Object> {
     ...
 }
@@ -407,7 +407,7 @@ public class AnnotationAttributes extends LinkedHashMap<String, Object> {
 
 我们接着来看看 `StandardAnnotationMetadata`:
 
-```
+```java
 public class StandardAnnotationMetadata extends StandardClassMetadata 
         implements AnnotationMetadata {
 
@@ -432,7 +432,7 @@ public class StandardAnnotationMetadata extends StandardClassMetadata
 
 从 `StandardAnnotationMetadata` 的构造方法来看，它已经废弃了，让我们使用 `AnnotationMetadata#introspect(Class)` 来获取 `StandardAnnotationMetadata` 的实例，于是，我们可以像这样来操作：
 
-```
+```java
 // 获取到的 annotationMetadata 实际上是 StandardAnnotationMetadata
 AnnotationMetadata annotationMetadata = AnnotationMetadata.introspect(BeanObj3.class);
 
@@ -513,7 +513,7 @@ Component value:beanObj3
 
 在前面的示例中，我们是这样读取注解的：
 
-```
+```java
 // 读取 annotationMetadata，也可以使用 SimpleMetadataReaderFactory 读取
 AnnotationMetadata annotationMetadata = AnnotationMetadata.introspect(BeanObj3.class);
 MergedAnnotations annotations = annotationMetadata.getAnnotations();
@@ -532,7 +532,7 @@ AnnotationAttributes annotationAttributes = mergedAnnotation.asAnnotationAttribu
 
 举例来说，`@MyComponent` 长这样：
 
-```
+```java
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -549,7 +549,7 @@ public @interface MyComponent {
 
 在 `@MyComponent` 注解中，我们指定了 `@Component` 的 `value` 值为 “123”，然后又这么指定 `@MyComponent` 的 `value` 值：
 
-```
+```java
 @MyComponent("beanObj3")
 public class BeanObj3 {
 
@@ -566,7 +566,7 @@ public class BeanObj3 {
 
 `AnnotationUtils#getAnnotation(AnnotatedElement, Class<A>)` 方法：
 
-```
+```java
 public static <A extends Annotation> A getAnnotation(AnnotatedElement annotatedElement, 
         Class<A> annotationType) {
     if (AnnotationFilter.PLAIN.matches(annotationType) ||
@@ -584,7 +584,7 @@ public static <A extends Annotation> A getAnnotation(AnnotatedElement annotatedE
 
 `AnnotatedElementUtils#getAllMergedAnnotations(AnnotatedElement, Class<A>)` 方法：
 
-```
+```java
 public static <A extends Annotation> Set<A> getAllMergedAnnotations(
         AnnotatedElement element, Class<A> annotationType) {
     return getAnnotations(element).stream(annotationType)
@@ -609,7 +609,7 @@ private static MergedAnnotations getAnnotations(AnnotatedElement element) {
 
 我们来实际使用下这些方法：
 
-```
+```java
 // 在 BeanObj3 获取 @Component
 Annotation annotation = AnnotationUtils.getAnnotation(BeanObj3.class, Component.class);
 if(null == annotation) {
@@ -653,7 +653,7 @@ value: 123
 
 给个示例吧：
 
-```
+```java
 // 1\. 判断是否有 Component 注解
 boolean result = AnnotatedElementUtils.hasAnnotation(BeanObj3.class, Component.class);
 System.out.println("hasAnnotation: " + result);

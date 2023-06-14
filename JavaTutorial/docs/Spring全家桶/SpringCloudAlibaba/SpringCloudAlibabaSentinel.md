@@ -23,7 +23,7 @@ Sentinel具有如下特性:
 
 ```
 java -jar sentinel-dashboard-1.6.3.jar
-复制代码
+
 ```
 
 *   Sentinel控制台默认运行在8080端口上，登录账号密码均为`sentinel`，通过如下地址可以进行访问：[http://localhost:8080](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080 "http://localhost:8080")
@@ -50,7 +50,7 @@ java -jar sentinel-dashboard-1.6.3.jar
 
 *   在pom.xml中添加相关依赖，这里我们使用Nacos作为注册中心，所以需要同时添加Nacos的依赖：
 
-```
+```xml
 <dependency>
     <groupId>com.alibaba.cloud</groupId>
     spring-cloud-starter-alibaba-nacos-discovery
@@ -59,7 +59,7 @@ java -jar sentinel-dashboard-1.6.3.jar
     <groupId>com.alibaba.cloud</groupId>
     spring-cloud-starter-alibaba-sentinel
 </dependency>
-复制代码
+
 ```
 
 *   在application.yml中添加相关配置，主要是配置了Nacos和Sentinel控制台的地址：
@@ -85,7 +85,7 @@ management:
     web:
       exposure:
         include: '*'
-复制代码
+
 ```
 
 ## 限流功能
@@ -96,7 +96,7 @@ management:
 
 > 用于测试熔断和限流功能。
 
-```
+```java
 /**
  * 限流功能
  * Created by macro on 2019/11/7.
@@ -128,7 +128,7 @@ public class RateLimitController {
     }
 
 }
-复制代码
+
 ```
 
 ### 根据资源名称限流
@@ -185,7 +185,7 @@ public class RateLimitController {
 
 *   创建CustomBlockHandler类用于自定义限流处理逻辑：
 
-```
+```java
 /**
  * Created by macro on 2019/11/7.
  */
@@ -195,12 +195,12 @@ public class CustomBlockHandler {
         return new CommonResult("自定义限流信息",200);
     }
 }
-复制代码
+
 ```
 
 *   在RateLimitController中使用自定义限流处理逻辑：
 
-```
+```java
 /**
  * 限流功能
  * Created by macro on 2019/11/7.
@@ -219,7 +219,7 @@ public class RateLimitController {
     }
 
 }
-复制代码
+
 ```
 
 ## 熔断功能
@@ -228,7 +228,7 @@ public class RateLimitController {
 
 *   首先我们需要使用@SentinelRestTemplate来包装下RestTemplate实例：
 
-```
+```java
 /**
  * Created by macro on 2019/8/29.
  */
@@ -241,12 +241,12 @@ public class RibbonConfig {
         return new RestTemplate();
     }
 }
-复制代码
+
 ```
 
 *   添加CircleBreakerController类，定义对nacos-user-service提供接口的调用：
 
-```
+```java
 /**
  * 熔断功能
  * Created by macro on 2019/11/7.
@@ -289,7 +289,7 @@ public class CircleBreakerController {
         return new CommonResult<>(defaultUser,"服务降级返回",200);
     }
 }
-复制代码
+
 ```
 
 *   启动nacos-user-service和sentinel-service服务：
@@ -306,7 +306,7 @@ public class CircleBreakerController {
 	"message": "服务降级返回",
 	"code": 200
 }
-复制代码
+
 ```
 
 *   由于我们使用了exceptionsToIgnore参数忽略了NullPointerException，所以我们访问接口报空指针时不会发生服务降级：[http://localhost:8401/breaker/fallbackException/2](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8401%2Fbreaker%2FfallbackException%2F2 "http://localhost:8401/breaker/fallbackException/2")
@@ -324,12 +324,12 @@ public class CircleBreakerController {
 
 *   首先我们需要在pom.xml中添加Feign相关依赖：
 
-```
+```xml
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     spring-cloud-starter-openfeign
 </dependency>
-复制代码
+
 ```
 
 *   在application.yml中打开Sentinel对Feign的支持：
@@ -338,14 +338,14 @@ public class CircleBreakerController {
 feign:
   sentinel:
     enabled: true #打开sentinel对feign的支持
-复制代码
+
 ```
 
 *   在应用启动类上添加@EnableFeignClients启动Feign的功能；
 
 *   创建一个UserService接口，用于定义对nacos-user-service服务的调用：
 
-```
+```java
 /**
  * Created by macro on 2019/9/5.
  */
@@ -366,12 +366,12 @@ public interface UserService {
     @PostMapping("/user/delete/{id}")
     CommonResult delete(@PathVariable Long id);
 }
-复制代码
+
 ```
 
 *   创建UserFallbackService类实现UserService接口，用于处理服务降级逻辑：
 
-```
+```java
 /**
  * Created by macro on 2019/9/5.
  */
@@ -405,12 +405,12 @@ public class UserFallbackService implements UserService {
         return new CommonResult("调用失败，服务被降级",500);
     }
 }
-复制代码
+
 ```
 
 *   在UserFeignController中使用UserService通过Feign调用nacos-user-service服务中的接口：
 
-```
+```java
 /**
  * Created by macro on 2019/8/29.
  */
@@ -445,7 +445,7 @@ public class UserFeignController {
         return userService.delete(id);
     }
 }
-复制代码
+
 ```
 
 *   调用如下接口会发生服务降级，返回服务降级处理信息：[http://localhost:8401/user/4](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8401%2Fuser%2F4 "http://localhost:8401/user/4")
@@ -460,7 +460,7 @@ public class UserFeignController {
 	"message": "服务降级返回",
 	"code": 200
 }
-复制代码
+
 ```
 
 ## 使用Nacos存储规则
@@ -484,12 +484,12 @@ public class UserFeignController {
 
 *   先在pom.xml中添加相关依赖：
 
-```
+```xml
 <dependency>
     <groupId>com.alibaba.csp</groupId>
     sentinel-datasource-nacos
 </dependency>
-复制代码
+
 ```
 
 *   修改application.yml配置文件，添加Nacos数据源配置：
@@ -506,7 +506,7 @@ spring:
             groupId: DEFAULT_GROUP
             data-type: json
             rule-type: flow
-复制代码
+
 ```
 
 *   在Nacos中添加配置：
@@ -532,7 +532,7 @@ spring:
         "clusterMode": false
     }
 ]
-复制代码
+
 ```
 
 *   相关参数解释：
@@ -572,7 +572,7 @@ Spring Cloud Alibaba 官方文档：[github.com/alibaba/spr…](https://link.jue
 springcloud-learning
 ├── nacos-user-service -- 注册到nacos的提供User对象CRUD接口的服务
 └── sentinel-service -- sentinel功能测试服务
-复制代码
+
 ```
 
 ## 项目源码地址

@@ -227,7 +227,7 @@ public interface DeptService {
 
 
 
-```
+```java
 package net.biancheng.c.service.impl;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
@@ -446,7 +446,7 @@ public interface DeptHystrixService {
 
 
 
-```
+```java
 package net.biancheng.c.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
@@ -579,7 +579,7 @@ public class MicroServiceCloudConsumerDeptFeignApplication {
 
 
 
-```
+```java
 //一旦该方法失败并抛出了异常信息后，会自动调用  @HystrixCommand 注解标注的 fallbackMethod 指定的方法
 @HystrixCommand(fallbackMethod = "dept_TimeoutHandler",
         commandProperties =
@@ -742,7 +742,7 @@ public class DeptHystrixFallBackService implements DeptHystrixService {
 
 
 
-```
+```java
 package net.biancheng.c.service;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -834,7 +834,7 @@ public interface DeptService {
 
 
 
-```
+```java
 //Hystrix 熔断案例
 @Override
 @HystrixCommand(fallbackMethod = "deptCircuitBreaker_fallback", commandProperties = {

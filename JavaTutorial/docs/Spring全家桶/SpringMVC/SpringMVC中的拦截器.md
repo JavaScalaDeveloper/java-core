@@ -24,7 +24,7 @@ Spring的处理器映射机制包含了处理器拦截器。拦截器在你需�
 
 拦截器可以通过`interceptors`属性来配置，该选项在所有继承了`AbstractHandlerMapping`的处理器映射类`HandlerMapping`都提供了配置的接口。如下面代码样例所示：
 
-```
+```xml
 <beans>
     <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
         <property name="interceptors">
@@ -42,7 +42,7 @@ Spring的处理器映射机制包含了处理器拦截器。拦截器在你需�
 
 ```
 
-```
+```java
 package samples;
 
 public class TimeBasedAccessInterceptor extends HandlerInterceptorAdapter {

@@ -46,7 +46,7 @@
 
 在完成初始化的过程后，Bean们就在BeanFactory中蓄势以待地等调用了。下面通过一个具体的例子，来详细地学习一下初始化过程，例如当加载下面一个bean：
 
-```
+```xml
 <bean id="XiaoWang" class="com.springstudy.talentshow.SuperInstrumentalist">
     <property name="instruments">
         <list>
@@ -67,7 +67,7 @@
 保存配置位置，并刷新
 在调用ClassPathXmlApplicationContext后，先会将配置位置信息保存到configLocations，供后面解析使用，之后，会调用`AbstractApplicationContext`的refresh方法进行刷新：
 
-```
+```java
 public ClassPathXmlApplicationContext(String[] configLocations, boolean refresh,
         ApplicationContext parent) throws BeansException {
 
@@ -122,7 +122,7 @@ public void refresh() throws BeansException, IllegalStateException {
 
 创建载入BeanFactory
 
-```
+```java
 protected final void refreshBeanFactory() throws BeansException {
     // ... ...
     DefaultListableBeanFactory beanFactory = createBeanFactory();
@@ -134,7 +134,7 @@ protected final void refreshBeanFactory() throws BeansException {
 
 创建XMLBeanDefinitionReader
 
-```
+```java
 protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory)
      throws BeansException, IOException {
     // Create a new XmlBeanDefinitionReader for the given BeanFactory.
@@ -150,7 +150,7 @@ protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory)
 
 创建处理每一个resource
 
-```
+```java
 public int loadBeanDefinitions(String location, Set<Resource> actualResources)
      throws BeanDefinitionStoreException {
     // ... ...
@@ -173,7 +173,7 @@ public int loadBeanDefinitions(Resource... resources) throws BeanDefinitionStore
 
 处理XML每个元素
 
-```
+```java
 protected void parseBeanDefinitions(Element root, BeanDefinitionParserDelegate delegate) {
     // ... ...
     NodeList nl = root.getChildNodes();
@@ -196,7 +196,7 @@ protected void parseBeanDefinitions(Element root, BeanDefinitionParserDelegate d
 
 解析和注册bean
 
-```
+```java
 protected void processBeanDefinition(Element ele, BeanDefinitionParserDelegate delegate) {
     // 解析
     BeanDefinitionHolder bdHolder = delegate.parseBeanDefinitionElement(ele);
@@ -226,7 +226,7 @@ protected void processBeanDefinition(Element ele, BeanDefinitionParserDelegate d
 
 处理每个Bean的元素
 
-```
+```java
 public AbstractBeanDefinition parseBeanDefinitionElement(
         Element ele, String beanName, BeanDefinition containingBean) {
 
@@ -251,7 +251,7 @@ public AbstractBeanDefinition parseBeanDefinitionElement(
 
 处理属性的值
 
-```
+```java
 public Object parsePropertyValue(Element ele, BeanDefinition bd, String propertyName) {
     String elementName = (propertyName != null) ?
                     "<property> element for property '" + propertyName + "'" :
@@ -285,7 +285,7 @@ public Object parsePropertyValue(Element ele, BeanDefinition bd, String property
 
 1.4 注册
 
-```
+```java
 public static void registerBeanDefinition(
         BeanDefinitionHolder definitionHolder, BeanDefinitionRegistry registry)
         throws BeanDefinitionStoreException {
@@ -371,7 +371,7 @@ public void registerBeanDefinition(String beanName, BeanDefinition beanDefinitio
 
 在创建bean和注入bean的属性时，都是在doCreateBean函数中进行的，我们重点看下：
 
-```
+```java
 protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd,
             final Object[] args) {
         // Instantiate the bean.

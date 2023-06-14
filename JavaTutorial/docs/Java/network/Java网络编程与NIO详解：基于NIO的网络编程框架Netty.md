@@ -249,7 +249,7 @@ Unix中提供了两种I/O多路复用函数，select()和poll()。select()的兼
 还有一种比select()与poll()更加高效的实现叫做epoll()，它是由Linux内核2.6推出的可伸缩的I/O多路复用实现，目的是为了替代select()与poll()。epoll()同样**没有文件描述符上限的限制**，它**使用一个文件描述符来管理多个文件描述符**，并**使用一个红黑树来作为存储结构**。同时它还支持边缘触发（edge-triggered）与水平触发（level-triggered）两种模式（poll()只支持水平触发），在**边缘触发模式**下，**`epoll_wait`仅会在新的事件对象首次被加入到epoll时返回**，而在**水平触发**模式下，**`epoll_wait`会在事件状态未变更前不断地触发**。也就是说，边缘触发模式**只会**在文件描述符**变为就绪状态时通知一次**，水平触发模式会**不断地通知**该文件描述符**直到被处理**。
 
 关于`epoll_wait`请参考如下epoll API。
-````
+````java
 // 创建一个epoll对象并返回它的文件描述符。
 // 参数flags允许修改epoll的行为，它只有一个有效值EPOLL_CLOEXEC。
 int epoll_create1(int flags);
@@ -262,7 +262,7 @@ int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout)
 epoll另一亮点是**采用了事件驱动的方式而不是轮询**，在**epoll_ctl**中注册的文件描述符**在事件触发的时候会通过一个回调机制**来激活该文件描述符，**`epoll_wait`便可以收到通知**。这样效率就不会与文件描述符的数量成正比
 
 在Java NIO2（从JDK1.7开始引入）中，只要Linux内核版本在2.6以上，就会采用epoll，如下源码所示（DefaultSelectorProvider.java）。
-````
+````java
 public static SelectorProvider create() {
 String osname = AccessController.doPrivileged(
 new GetPropertyAction("os.name"));
@@ -413,7 +413,7 @@ return limit - position;
 Java NIO中的**Buffer API操作的麻烦之处就在于读写转换需要手动重置指针。而ByteBuf没有这种繁琐性，它维护了两个不同的索引，一个用于读取，一个用于写入**。当你从ByteBuf读取数据时，它的readerIndex将会被递增已经被读取的字节数，同样的，当你写入数据时，writerIndex则会递增。readerIndex的最大范围在writerIndex的所在位置，如果试图移动readerIndex超过该值则会触发异常。
 
 ByteBuf中名称以read或write开头的方法将会递增它们其对应的索引，而名称以get或set开头的方法则不会。ByteBuf同样可以指定一个最大容量，试图移动writerIndex超过该值则会触发异常。
-````
+````java
 public byte readByte() {
  this.checkReadableBytes0(1); // 检查readerIndex是否已越界
  int i = this.readerIndex;
@@ -494,7 +494,7 @@ System.out.println(buf.toString());
 CompositeByteBuf透明的实现了**zero-copy**，zero-copy其实就是避免数据在两个内存区域中来回的复制。从操作系统层面上来讲，zero-copy指的是**避免在内核态与用户态之间的数据缓冲区复制（通过mmap避免）**，而Netty中的zero-copy更偏向于在用户态中的数据操作的优化，就像使用CompositeByteBuf来复用多个ByteBuf以避免额外的复制，也可以使用wrap()方法来将一个字节数组包装成ByteBuf，又或者使用ByteBuf的slice()方法把它分割为多个共享同一内存区域的ByteBuf，这些都是为了优化内存的使用率。
 
 那么如何创建ByteBuf呢？在上面的代码中使用到了**Unpooled**，它是Netty提供的一个用于创建与分配ByteBuf的工具类，建议都使用这个工具类来创建你的缓冲区，不要自己去调用构造函数。经常使用的是wrappedBuffer()与copiedBuffer()，它们一个是用于将一个字节数组或ByteBuffer包装为一个ByteBuf，一个是根据传入的字节数组与ByteBuffer/ByteBuf来复制出一个新的ByteBuf。
-````
+````java
 // 通过array.clone()来复制一个数组进行包装
 public static ByteBuf copiedBuffer(byte[] array) {
 return array.length == 0?EMPTY_BUFFER:wrappedBuffer((byte[])array.clone());
@@ -521,7 +521,7 @@ do something.......
 为了优化内存使用率，**Netty提供了一套手动的方式来追踪不活跃对象**，像UnpooledHeapByteBuf这种分配在堆内的对象得益于JVM的GC管理，无需额外操心，而UnpooledDirectByteBuf是在堆外分配的，它的内部基于DirectByteBuffer，DirectByteBuffer会先向Bits类申请一个额度（Bits还拥有一个全局变量totalCapacity，记录了所有DirectByteBuffer总大小），每次申请前都会查看是否已经超过-XX:MaxDirectMemorySize所设置的上限，**如果超限就会尝试调用System.gc()**，**以试图回收一部分内存，然后休眠100毫秒，如果内存还是不足，则只能抛出OOM异常**。堆外内存的回收虽然有了这么一层保障，但为了提高性能与使用率，主动回收也是很有必要的。由于Netty还实现了ByteBuf的池化，像PooledHeapByteBuf和PooledDirectByteBuf就必须**依赖于手动的方式来进行回收**（放回池中）。
 
 Netty使用了**引用计数器的方式来追踪那些不活跃的对象**。引用计数的接口为**ReferenceCounted**，它的思想很简单，只要ByteBuf对象的**引用计数大于0**，就保证该对象**不会被释放回收**，可以通过**手动调用release()与retain()**方法来操作该对象的引用计数值**递减或递增**。用户也可以通过自定义一个ReferenceCounted的实现类，以满足自定义的规则。
-````
+````java
 package io.netty.buffer;
 public abstract class AbstractReferenceCountedByteBuf extends AbstractByteBuf {
 // 由于ByteBuf的实例对象会非常多,所以这里没有将refCnt包装为AtomicInteger
@@ -683,7 +683,7 @@ cause.printStackTrace();
 ````
 
 ChannelFutureListener接口中还提供了几个简单的默认实现，方便我们使用。
-````
+````java
 package io.netty.channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.util.concurrent.GenericFutureListener;
@@ -714,7 +714,7 @@ future.channel().pipeline().fireExceptionCaught(future.cause());
 ````
 
 ChannelHandler接口**定义了对它生命周期进行监听的回调函数**，在ChannelHandler被添加到ChannelPipeline或者被移除时都会调用这些函数。
-````
+````java
 package io.netty.channel;
 public interface ChannelHandler {
 void handlerAdded(ChannelHandlerContext var1) throws Exception;
@@ -734,7 +734,7 @@ public @interface Sharable {
 
 
 **入站消息与出站消息**由其对应的接口**ChannelInboundHandler与ChannelOutboundHandle**r负责，这两个接口定义了监听Channel的**生命周期的状态改变事件**的回调函数。
-````
+````java
 package io.netty.channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -759,7 +759,7 @@ void channelWritabilityChanged(ChannelHandlerContext var1) throws Exception;
 void exceptionCaught(ChannelHandlerContext var1, Throwable var2) throws Exception;
 }
 ````
-````
+````java
 package io.netty.channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -789,7 +789,7 @@ void flush(ChannelHandlerContext var1) throws Exception;
 通过实现ChannelInboundHandler或者ChannelOutboundHandler就可以完成用户自定义的应用逻辑处理程序，不过Netty已经帮你实**现了一些基本操作，用户只需要继承并扩展ChannelInboundHandlerAdapter或ChannelOutboundHandlerAdapter**来作为自定义实现的起始点。
 
 ChannelInboundHandlerAdapter与ChannelOutboundHandlerAdapter都继承于ChannelHandlerAdapter，该抽象类简单实现了ChannelHandler接口。
-````
+````java
 public abstract class ChannelHandlerAdapter implements ChannelHandler {
 boolean added;
 public ChannelHandlerAdapter() {
@@ -822,7 +822,7 @@ ctx.fireExceptionCaught(cause);
 ````
 
 ChannelInboundHandlerAdapter与ChannelOutboundHandlerAdapter**默认只是简单地将请求传递给ChannelPipeline中的下一个ChannelHandler**，源码如下：
-````
+````java
 public class ChannelInboundHandlerAdapter extends ChannelHandlerAdapter implements ChannelInboundHandler {
 public ChannelInboundHandlerAdapter() {
 }
@@ -887,7 +887,7 @@ ctx.flush();
 对于处理入站消息，另外一种选择是**继承SimpleChannelInboundHandler**，它是Netty的一个继承于ChannelInboundHandlerAdapter的抽象类，并在其之上实现了**自动释放资源的功能**。
 
 我们在了解ByteBuf时就已经知道了**Netty使用了一套自己实现的引用计数算法来主动释放资源**，假设你的ChannelHandler继承于ChannelInboundHandlerAdapter或ChannelOutboundHandlerAdapter，那么你就有责任去管理你所分配的ByteBuf，一般来说，一个消息对象（**ByteBuf**）已经被消费（或丢弃）了，**并不会传递给ChannelHandler链中的下一个处理器**（如果该消息到达了实际的传输层，那么当它被写入或Channel关闭时，都会被自动释放），所以你就需要去手动释放它。通过一个简单的工具类**ReferenceCountUtil的release方法**，就可以做到这一点。
-````
+````java
 // 这个泛型为消息对象的类型
 public abstract class SimpleChannelInboundHandler<I> extends ChannelInboundHandlerAdapter {
 private final TypeParameterMatcher matcher;
@@ -959,7 +959,7 @@ return msg instanceof ReferenceCounted?((ReferenceCounted)msg).release():false;
 在阅读ChannelHandler的源码时，发现很多方法需要一个ChannelHandlerContext类型的参数，该接口是ChannelPipeline与ChannelHandler之间相关联的关键。ChannelHandlerContext可以通知ChannelPipeline中的当前ChannelHandler的下一个ChannelHandler，还可以动态地改变当前ChannelHandler在ChannelPipeline中的位置（通过调用ChannelPipeline中的各种方法来修改）。
 
 ChannelHandlerContext负责了在同一个ChannelPipeline中的ChannelHandler与其他ChannelHandler之间的交互，每个ChannelHandlerContext都对应了一个ChannelHandler。在DefaultChannelPipeline的源码中，已经表现的很明显了。
-````
+````java
 public class DefaultChannelPipeline implements ChannelPipeline {
 .........
 // 头部节点和尾部节点的引用变量
@@ -1014,7 +1014,7 @@ this.tail.prev = newCtx;
 ````
 
 ChannelHandlerContext还定义了许多与Channel和ChannelPipeline重合的方法（像read()、write()、connect()这些用于出站的方法或者如fireChannelXXXX()这样用于**入站的方法**），不同之处在于**调用Channel或者ChannelPipeline上的这些方法，它们将会从头沿着整个ChannelHandler实例链进行传播，而调用位于ChannelHandlerContext上的相同方法，则会从当前所关联的ChannelHandler开始，且只会传播给实例链中的下一个ChannelHandler**。而且，**事件之间的移动**（从一个ChannelHandler到下一个ChannelHandler）也是**通过ChannelHandlerContext中的方法调用完成**的。
-````
+````java
 public class DefaultChannelPipeline implements ChannelPipeline {
 public final ChannelPipeline fireChannelRead(Object msg) {
 // 注意这里将头节点传入了进去
@@ -1079,7 +1079,7 @@ return ctx;
 [![](http://wx3.sinaimg.cn/large/63503acbly1fm296hz0p9j20ff0kc3z2.jpg)](http://wx3.sinaimg.cn/large/63503acbly1fm296hz0p9j20ff0kc3z2.jpg)
 
 在Netty的线程模型中，一个EventLoop将由一个永远不会改变的Thread驱动，而一个Channel一生只会使用一个EventLoop（但是一个EventLoop可能会被指派用于服务多个Channel），在Channel中的所有I/O操作和事件都由EventLoop中的线程处理，也就是说**一个Channel的一生之中都只会使用到一个线程**。不过在Netty3，只有入站事件会被EventLoop处理，所有出站事件都会由调用线程处理，这种设计导致了ChannelHandler的线程安全问题。Netty4简化了线程模型，通过在同一个线程处理所有事件，既解决了这个问题，还提供了一个更加简单的架构。
-````
+````java
 package io.netty.channel;
 public abstract class SingleThreadEventLoop extends SingleThreadEventExecutor implements EventLoop {
 protected static final int DEFAULT_MAX_PENDING_TASKS = Math.max(16, SystemPropertyUtil.getInt("io.netty.eventLoop.maxPendingTasks", 2147483647));
@@ -1153,7 +1153,7 @@ interface NonWakeupRunnable extends Runnable {
 如果当前（调用）线程正是EventLoop中的线程，那么所提交的任务将会被**(true)直接执行**，否则，EventLoop将调度该任务以便**(false)稍后执行**，并将它**放入内部的任务队列**（每个EventLoop都有它自己的任务队列，SingleThreadEventLoop的源码就能发现很多用于调度内部任务队列的方法），在下次处理它的事件时，将会执行队列中的那些任务。这种设计可以让任何线程与Channel直接交互，而无需在ChannelHandler中进行额外的同步。
 
 从性能上来考虑，千万**不要将一个需要长时间来运行的任务放入到任务队列中**，它会影响到该队列中的其他任务的执行。**解决方案**是**使用一个专门的EventExecutor来执行它**（ChannelPipeline提供了带有EventExecutorGroup参数的addXXX()方法，该方法可以**将传入的ChannelHandler绑定到你传入的EventExecutor之中**），这样它就会在另一条线程中执行，与其他任务隔离。
-````
+````java
 public abstract class SingleThreadEventExecutor extends AbstractScheduledEventExecutor implements OrderedEventExecutor {
 .....
 public void execute(Runnable task) {
@@ -1195,7 +1195,7 @@ EventLoopGroup**负责管理和分配EventLoop（创建EventLoop和为每个新�
 在深入了解地Netty的核心组件之后，发现它们的**设计**都很**模块化**，如果想要实现你自己的应用程序，就需要**将这些组件组装到一起**。Netty通过Bootstrap类，以对一个Netty应用程序进行配置（**组装各个组件**），并最终使它运行起来。对于客户端程序和服务器程序所使用到的Bootstrap类是不同的，后者需要使用ServerBootstrap，这样设计是因为，在如TCP这样有连接的协议中，服务器程序往往需要一个以上的Channel，通过父Channel来接受来自客户端的连接，然后创建子Channel用于它们之间的通信，而像UDP这样无连接的协议，它不需要每个连接都创建子Channel，只需要一个Channel即可。
 
 一个比较明显的差异就是Bootstrap与ServerBootstrap的group()方法，后者提供了一个接收2个EventLoopGroup的版本。
-````
+````java
 // 该方法在Bootstrap的父类AbstractBootstrap中，泛型B为它当前子类的类型（为了链式调用）
 public B group(EventLoopGroup group) {
 if(group == null) {
@@ -1231,7 +1231,7 @@ Bootstrap其实没有什么可以好说的，它就只是一个**装配工**，�
 下面我们将通过一个经典的Echo客户端与服务器的例子，来梳理一遍创建Netty应用的流程。
 
 首先实现的是服务器，我们先实现一个EchoServerInboundHandler，处理入站消息。
-````
+````java
 public class EchoServerInboundHandler extends ChannelInboundHandlerAdapter {
 @Override
 public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
@@ -1257,7 +1257,7 @@ ctx.close();
 
 ````
 服务器的应用逻辑只有这么多，剩下就是用ServerBootstrap进行配置了。
-````
+````java
 public class EchoServer {
 private final int port;
 public EchoServer(int port) {
@@ -1302,7 +1302,7 @@ new EchoServer(port).start();
 ````
 
 接下来实现客户端，同样需要先实现一个入站消息处理器。
-````
+````java
 public class EchoClientInboundHandler extends SimpleChannelInboundHandler<ByteBuf> {
 /**
 * 我们在Channel连接到远程节点直接发送一条消息给服务器
@@ -1325,7 +1325,7 @@ ctx.close();
 ````
 
 然后配置客户端。
-````
+````java
 public class EchoClient {
 private final String host;
 private final int port;

@@ -4,7 +4,7 @@
 
 parent 方式，即在 pom 文件中，将 springboot 的依赖当成项目的 parent 引入，pom 文件示例如下：
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -73,7 +73,7 @@ parent 方式，即在 pom 文件中，将 springboot 的依赖当成项目的 p
 
 添加一个 controller:
 
-```
+```java
 package com.gitee.funcy.mavenparent.jar.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -99,7 +99,7 @@ public class IndexController {
 
 再引入启动类：
 
-```
+```java
 package com.gitee.funcy.mavenparent.jar;
 
 import org.springframework.boot.SpringApplication;
@@ -148,7 +148,7 @@ hello world
 
 在实际项目中，项目的 parent 依赖可能给了其他项目，此时 parent 引用就无法进行了，这时我们需要非 parent 引入。非 parent 引入的 pom 如下：
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -254,7 +254,7 @@ hello world
 
 以上两种方式都是打成 jar，为了兼容传统的 servlet 应用，springboot 也支持打包 war 包，parent 引入打包 war 包的 pom 文件如下：
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -332,7 +332,7 @@ hello world
 
 除此之外，war 包方式还需要添加一个类，用以实现`SpringBootServletInitializer`，该类与启动类`Main.java`位于同一个包下，主要是用来引导 tomcat 等 servlet 容器加载 servlet，内容如下：
 
-```
+```java
 /**
  * ｛这里添加描述｝
  *
@@ -376,7 +376,7 @@ hello world
 
 同样地，打成 war 包时，也可使用非 parent 引入方式：
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1036,7 +1036,7 @@ Main-Class: org.springframework.boot.loader.JarLauncher
 
 查看`JarLauncher`源码，如下：
 
-```
+```java
 public class JarLauncher extends ExecutableArchiveLauncher {
 
 	static final String BOOT_INF_CLASSES = "BOOT-INF/classes/";
@@ -1095,7 +1095,7 @@ public class JarLauncher extends ExecutableArchiveLauncher {
 
 `WarLauncher`代码如下：
 
-```
+```java
 public class WarLauncher extends ExecutableArchiveLauncher {
 
 	private static final String WEB_INF = "WEB-INF/";
@@ -1136,7 +1136,7 @@ public class WarLauncher extends ExecutableArchiveLauncher {
 
 为了验证以上猜想，修改的 pom.xml 文件如下：
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

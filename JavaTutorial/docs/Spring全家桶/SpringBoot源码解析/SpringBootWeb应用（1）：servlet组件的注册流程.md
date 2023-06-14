@@ -6,7 +6,7 @@
 
 springboot 提供了三个类型的 `RegistrationBean` 来处理 servlet 三大组件的注册，分别是 `ServletRegistrationBean`、`FilterRegistrationBean`、`ServletListenerRegistrationBean`，这里我们简单示意下它们的用法：
 
-```
+```java
 /**
  * 准备了一个servlet
  */
@@ -46,7 +46,7 @@ public ServletRegistrationBean registerServlet() {
 
 还是以 `servlet` 注册为例，先来看看 `@WebServlet`:
 
-```
+```java
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -76,7 +76,7 @@ public @interface WebServlet {
 
 可以看到，`@WebServlet` 支持多个属性配置，像指定 servlet 的名称、映射的 url 都可以在这里指定，我们也提供一个示例：
 
-```
+```java
 @WebServlet(name = "myServlet", urlPatterns = "/myServlet")
 public class JavaServlet extends HttpServlet {
 
@@ -92,7 +92,7 @@ public class JavaServlet extends HttpServlet {
 
 这样处理后，还要做一个重要的操作，那就是使用 `@ServletComponentScan` 来开启扫描功能：
 
-```
+```java
 // 使用 @ServletComponentScan 来开启 servlet 组件的扫描功能
 @ServletComponentScan
 @SpringBootApplication
@@ -108,7 +108,7 @@ public class MyApplication {
 
 使用这种方式注册，需要实现 `ServletContextInitializer` 接口：
 
-```
+```java
 /**
  * 准备一个servlet
  */
@@ -149,7 +149,7 @@ public class ServletConfig implements ServletContextInitializer {
 
 我们直接进入 `@ServletComponentScan`：
 
-```
+```java
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -162,7 +162,7 @@ public @interface ServletComponentScan {
 
 这个注册上面标记了 `@Import` 注解，引入了一个类：`ServletComponentScanRegistrar`，我们看看这个类究竟做了啥：
 
-```
+```java
 /**
  * 实现了ImportBeanDefinitionRegistrar
  * 向容器中注册了 ServletComponentRegisteringPostProcessor
@@ -206,7 +206,7 @@ class ServletComponentScanRegistrar implements ImportBeanDefinitionRegistrar {
 
 可以看到，这个类实现了 `ImportBeanDefinitionRegistrar`，主要是向 spring 容器中注册了 `ServletComponentRegisteringPostProcessor`。我们继续看下去，进入 `ServletComponentRegisteringPostProcessor`：
 
-```
+```java
 class ServletComponentRegisteringPostProcessor implements BeanFactoryPostProcessor, 
         ApplicationContextAware {
 
@@ -250,7 +250,7 @@ class ServletComponentRegisteringPostProcessor implements BeanFactoryPostProcess
 
 我们先来看扫描器的创建方法 `createComponentProvider()`：
 
-```
+```java
 // 处理各种 handler
 private static final List<ServletComponentHandler> HANDLERS;
 
@@ -312,7 +312,7 @@ abstract class ServletComponentHandler {
 
 了解完这个 `typeFilter` 的来源后，我们来看看它的几个实现类：
 
-```
+```java
 /**
  * WebFilterHandler 构造方法传入的参数是 WebFilter
  */
@@ -353,7 +353,7 @@ class WebServletHandler extends ServletComponentHandler {
 
 我们继续，接下来看看扫描流程，方法为 `ServletComponentRegisteringPostProcessor#scanPackage`:
 
-```
+```java
 private void scanPackage(ClassPathScanningCandidateComponentProvider componentProvider, 
         String packageToScan) {
     for (BeanDefinition candidate : componentProvider.findCandidateComponents(packageToScan)) {
@@ -388,7 +388,7 @@ void handle(AnnotatedBeanDefinition beanDefinition, BeanDefinitionRegistry regis
 
 那么这个 `doHandler()` 方法干了什么呢？我们进入 `WebServletHandler#doHandle`：
 
-```
+```java
 public void doHandle(Map<String, Object> attributes, AnnotatedBeanDefinition beanDefinition,
         BeanDefinitionRegistry registry) {
     // 注册的是 ServletRegistrationBean 对应的 BeanDefinition
@@ -430,7 +430,7 @@ public void doHandle(Map<String, Object> attributes, AnnotatedBeanDefinition bea
 
 `ServletContextInitializer` 中只有一个方法 `onStartup(...)`：
 
-```
+```java
 @FunctionalInterface
 public interface ServletContextInitializer {
 
@@ -449,7 +449,7 @@ public interface ServletContextInitializer {
 
 `ServletRegistrationBean` 没有重写 `onStartup(...)` 方法，直接继承自 `RegistrationBean`:
 
-```
+```java
 public final void onStartup(ServletContext servletContext) throws ServletException {
     // 获取描述信息 
     String description = getDescription();
@@ -466,7 +466,7 @@ public final void onStartup(ServletContext servletContext) throws ServletExcepti
 
 这个方法并不复杂，先获取了一下描述信息，然后判断是否开启了注册，接着就是进行注册操作了。我们直接查看注册操作，进入 `DynamicRegistrationBean#register`:
 
-```
+```java
 protected final void register(String description, ServletContext servletContext) {
     D registration = addRegistration(description, servletContext);
     if (registration == null) {
@@ -481,7 +481,7 @@ protected final void register(String description, ServletContext servletContext)
 
 这个方法主要做了两个件事：注册 `servlet` 与处理配置，我们先来看看注册操作，进入 `ServletRegistrationBean#addRegistration` 方法:
 
-```
+```java
 protected ServletRegistration.Dynamic addRegistration(String description, 
         ServletContext servletContext) {
     String name = getServletName();
@@ -495,7 +495,7 @@ protected ServletRegistration.Dynamic addRegistration(String description,
 
 继续查看配置处理，进入 `ServletRegistrationBean#configure` 方法：
 
-```
+```java
 protected void configure(ServletRegistration.Dynamic registration) {
     // 调用父类
     super.configure(registration);
@@ -521,7 +521,7 @@ protected void configure(ServletRegistration.Dynamic registration) {
 
 我们再来看看 `super.configure(...)` 配置了啥，进入 `DynamicRegistrationBean#configure`:
 
-```
+```java
 /**
  * 也是处理一些配置
  */
@@ -550,7 +550,7 @@ protected void configure(D registration) {
 
 以 tomcat 容器为例，经过一系列的调试与代码追踪，发现它是在 `TomcatStarter` 中运行的，代码如下：
 
-```
+```java
 class TomcatStarter implements ServletContainerInitializer {
 
     private final ServletContextInitializer[] initializers;
@@ -592,7 +592,7 @@ class TomcatStarter implements ServletContainerInitializer {
 
 那么，这个 `initializers` 是在哪里获取到的呢？事实上，我们的 `XxxRegistrationBean` 都要 spring 容器中，要获取的话，只要调用 `beanFactory.getBeansOfType(...)` 就可以了，`ServletContextInitializerBeans#addServletContextInitializerBean(String, ServletContextInitializer, ListableBeanFactory)` 就是干这件事的：
 
-```
+```java
 private void addServletContextInitializerBeans(ListableBeanFactory beanFactory) {
     for (Class<? extends ServletContextInitializer> initializerType : this.initializerTypes) {
         // 获取 ServletContextInitializer: getOrderedBeansOfType(beanFactory, initializerType)

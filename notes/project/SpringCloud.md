@@ -185,3 +185,34 @@ Cache 层模块：Cache层通常用于缓存查询结果，以提高系统的性
 全局配置：如果需要全局统一配置命令的超时时间，可以在配置文件中设置spring.cloud.hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds属性的值，从而为所有命令设置相同的超时时间。
 
 综上所述，在Spring Cloud中，可以通过定义SLA、监控和管理、动态调整和全局配置等方式，来实现动态修改超时时间的功能，以提高系统的可用性和性能。
+
+
+# 怎样通过SpringCloud Alibaba的Sentinel实现服务高可用？
+
+使用 SpringCloud Alibaba 的 Sentinel 实现服务高可用，可以考虑采用以下几个步骤：
+
+- 引入 Sentinel 相关依赖和配置：在项目中引入 Sentinel 相关的依赖和配置，例如 spring-cloud-starter-alibaba-sentinel 和 sentinel.yml 文件等。
+
+- 定义应用资源和规则：在 Sentinel 中，对于需要进行流量控制和熔断的服务，需要将其定义为 Sentinel 的资源（Resource），以便后续进行规则配置。同时，需要根据实际需要，定义不同的规则（Rule）类型，例如流量控制规则（Flow Rule）、熔断规则（Degrade Rule）、系统保护规则（System Rule）等。这些规则可以通过 Sentinel Dashboard 进行可视化配置。
+
+- 集成 Sentinel 和 Dubbo：如果使用 Sentinel 对 Dubbo 服务进行流量控制或熔断处理，需要将 Sentinel 和 Dubbo 进行集成。这可以通过使用 Sentinel 的 Dubbo Adapter 实现，具体可以参考 Dubbo 的 Sentinel 扩展模块。
+
+- 监控 Sentinel 实时状态：为了更好地观察服务运行情况，我们可以使用 Sentinel Dashboard 来实现 Sentinel 监控的可视化，从而实时查看 Sentinel 的资源使用情况、规则生效情况等数据。
+
+综上所述，通过上述步骤，我们就可以使用 SpringCloud Alibaba 的 Sentinel 实现服务高可用，提高服务的稳定性和可靠性，并且可以随时对资源进行限流和熔断处理，以应对不同的流量峰值和异常情况。需要注意的是，在使用 Sentinel 进行配置时，需要根据实际需求进行规则调整和优化，并且与其他的服务治理组件（例如 Spring Cloud Gateway、Nacos 等）进行配合，才能实现完整的服务高可用架构。
+
+参考：[Sentinel官网](https://sentinelguard.io/zh-cn/docs/basic-api-resource-rule.html)
+
+
+# SOA和微服务的区别？
+SOA（Service Oriented Architecture，面向服务的架构）和微服务都是一种基于服务的架构风格，它们都能够帮助实现系统解耦和灵活性的提高，但是它们有以下几个不同点：
+
+- 范围不同。SOA 是一种宏观的架构模式，其设计思想主要在于整合企业中各个系统之间的互操作性，将应用系统划分为相互独立且自治的服务；而微服务是一种更加细粒度的架构模式，将一个大的应用拆分成多个小的、独立的、可组合和可替换的服务。
+
+- 服务粒度不同。SOA 的服务通常比较粗粒度，因为它需要处理大量的业务逻辑；而微服务的服务粒度更加细致，每个服务只需专注于自己的一部分业务逻辑，并且具有明确的边界，避免了因为服务过于庞大而难以维护的风险。
+
+- 部署方式不同。SOA 中的服务通常使用统一的技术栈和框架进行开发和部署，而微服务的服务可以使用不同的技术栈和框架进行开发和部署，这意味着微服务可以更加灵活地满足业务需求。
+
+- 交互方式不同。在 SOA 中，服务之间的通讯通常使用 SOAP 和 REST 等标准协议进行交互；而在微服务中，服务之间的通讯通常使用轻量级的通信协议，如 HTTP/REST、gRPC 等协议。
+
+总的来说，SOA 更加适用于大型企业级应用系统的整合，其设计思想主要在于提高系统内部各个子系统之间的协作效率；而微服务则更加适用于分布式应用的开发和部署，其设计思想主要在于提高系统的可伸缩性、可维护性和可测试性。

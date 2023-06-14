@@ -4,7 +4,7 @@
 
 依旧是 `AnnotationConfigApplicationContext` 的构造方法：
 
-```
+```java
 public AnnotationConfigApplicationContext(String... basePackages) {
     this();
     //对传入的包进行扫描，扫描完成后，会得到一个 BeanDefinition 的集合
@@ -18,7 +18,7 @@ public AnnotationConfigApplicationContext(String... basePackages) {
 
 > AnnotationConfigApplicationContext#scan
 
-```
+```java
 public void scan(String... basePackages) {
      Assert.notEmpty(basePackages, "At least one base package must be specified");
      // 这里的scanner对象就是在this()中创建的
@@ -29,7 +29,7 @@ public void scan(String... basePackages) {
 
 这个方法关键代码是 `this.scanner.scan(basePackages);`，这个 `scanner` 就是在 `this()` 中创建的对象：
 
-```
+```java
 public AnnotationConfigApplicationContext() {
     this.reader = new AnnotatedBeanDefinitionReader(this);
     // scanner 就是在这里创建的
@@ -50,7 +50,7 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
 
 `ClassPathBeanDefinitionScanner#doScan` 代码如下：
 
-```
+```java
 protected Set<BeanDefinitionHolder> doScan(String... basePackages) {
     Assert.notEmpty(basePackages, "At least one base package must be specified");
     Set<BeanDefinitionHolder> beanDefinitions = new LinkedHashSet<>();
@@ -117,7 +117,7 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
 
 最终调用到了 `ClassPathScanningCandidateComponentProvider#scanCandidateComponents`，代码如下 (有删减)：
 
-```
+```java
 private Set<BeanDefinition> scanCandidateComponents(String basePackage) {
     Set<BeanDefinition> candidates = new LinkedHashSet<>();
     //组装扫描路径（组装完成后是这种格式：classpath*:org/springframework/learn/demo01/**/*.class）
@@ -192,7 +192,7 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)
 
 我们将代码聚集于 `PathMatchingResourcePatternResolver#findPathMatchingResources`:
 
-```
+```java
 protected Resource[] findPathMatchingResources(String locationPattern) throws IOException {
     // 传入的 locationPattern 是 classpath*:org/springframework/learn/demo01/**/*.class
     // rootDirPath 是 classpath*:org/springframework/learn/demo01/
@@ -251,7 +251,7 @@ protected Resource[] findPathMatchingResources(String locationPattern) throws IO
 
 最终代码到了 `PathMatchingResourcePatternResolver#doFindAllClassPathResources`:
 
-```
+```java
 protected Set<Resource> doFindAllClassPathResources(String path) throws IOException {
     Set<Resource> result = new LinkedHashSet<>(16);
     ClassLoader cl = getClassLoader();
@@ -295,7 +295,7 @@ protected Resource convertClassLoaderURL(URL url) {
 
 ```
 
-```
+```java
 protected Set<Resource> doFindMatchingFileSystemResources(File rootDir, 
             String subPattern) throws IOException {
     // 这里进行文件查找
@@ -322,7 +322,7 @@ protected Set<Resource> doFindMatchingFileSystemResources(File rootDir,
 
 ```
 
-```
+```java
 protected void doRetrieveMatchingFiles(String fullPattern, File dir, Set<File> result) 
         throws IOException {
     for (File content : listDirectory(dir)) {
@@ -356,7 +356,7 @@ protected void doRetrieveMatchingFiles(String fullPattern, File dir, Set<File> r
 
 > ClassPathScanningCandidateComponentProvider#scanCandidateComponents
 
-```
+```java
 // 从 resource 得到 MetadataReader
 MetadataReader metadataReader = getMetadataReaderFactory().getMetadataReader(resource);
 
@@ -440,7 +440,7 @@ SimpleMetadataReader(Resource resource, @Nullable ClassLoader classLoader) throw
 
 在上一步中，我们得到了 basePackage 下**所有类**的 `MetadataReader` 描述文件，注意这里是**所有类**，但这些类是不是都要转成 `spring bean`，托管到 spring 容器呢？这就是 `isCandidateComponent(MetadataReader)` 的功能了。废话少说，上代码：
 
-```
+```java
 protected boolean isCandidateComponent(MetadataReader metadataReader) throws IOException {
     // 省略部分代码
     for (TypeFilter tf : this.includeFilters) {
@@ -464,7 +464,7 @@ protected boolean isCandidateComponent(MetadataReader metadataReader) throws IOE
 
 在 spring 中，标明 spring bean 的注解有很多，像 `@Component`、`@Repository`、`@Service`、`@Controller`、`@Configuration`，甚至是你自己写的注解类，只要上面标了这些注解，像
 
-```
+```java
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -496,7 +496,7 @@ if(annotation == Component.class || annotation == Repository.class) {
 
 代码最终到了 `AnnotationTypeFilter#matchSelf`:
 
-```
+```java
 @Override
 protected boolean matchSelf(MetadataReader metadataReader) {
     AnnotationMetadata metadata = metadataReader.getAnnotationMetadata();
@@ -518,7 +518,7 @@ this.considerMetaAnnotations && metadata.hasMetaAnnotation(this.annotationType.g
 
 我们先看 `metadata.hasAnnotation(this.annotationType.getName())` 的比较：
 
-```
+```java
 // AnnotationMetadata#hasAnnotation
 default boolean hasAnnotation(String annotationName) {
     return getAnnotations().isDirectlyPresent(annotationName);
@@ -543,7 +543,7 @@ mappings 里的内容是
 
 再追踪下去，发现 `isDirectlyPresent` 就是判断 `annotations` 与 `mappings` 里有没有出现 `@Component`:
 
-```
+```java
 private boolean isPresent(Object requiredType, boolean directOnly) {
     // 判断 annotations 里有没有出现 @Component
     for (MergedAnnotation<?> annotation : this.annotations) {
@@ -581,7 +581,7 @@ private boolean isPresent(Object requiredType, boolean directOnly) {
 
 最终的查找方法在 `MergedAnnotationsCollection#find`:
 
-```
+```java
 private <A extends Annotation> MergedAnnotation<A> find(Object requiredType,
         @Nullable Predicate<? super MergedAnnotation<A>> predicate,
         @Nullable MergedAnnotationSelector<A> selector) {
@@ -619,7 +619,7 @@ private <A extends Annotation> MergedAnnotation<A> find(Object requiredType,
 
 在 `java` 中，注解是不能继承的，如
 
-```
+```java
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -640,7 +640,7 @@ public @interface Child extends  Base {
 
 接着我们再来看 `ClassPathScanningCandidateComponentProvider#isConditionMatch` 方法。实际上，这个方法是用来判断类是否含有 `@Conditional` 注解的，满足条件则会识别为 spring bean，代码最终调用到了 `ConditionEvaluator#shouldSkip(AnnotatedTypeMetadata, ConfigurationCondition.ConfigurationPhase)`:
 
-```
+```java
 public boolean shouldSkip(@Nullable AnnotatedTypeMetadata metadata, @Nullable ConfigurationPhase phase) {
     // 省略了一些代码
 
@@ -690,7 +690,7 @@ private Condition getCondition(String conditionClassName, @Nullable ClassLoader 
 
 > ScannedGenericBeanDefinition#ScannedGenericBeanDefinition
 
-```
+```java
 public ScannedGenericBeanDefinition(MetadataReader metadataReader) {
     Assert.notNull(metadataReader, "MetadataReader must not be null");
     this.metadata = metadataReader.getAnnotationMetadata();
@@ -705,7 +705,7 @@ public ScannedGenericBeanDefinition(MetadataReader metadataReader) {
 
 历经千难万险，终于得到了 `beanDefinition`，但此时 `beanDefinition` 并不丰富，接下来就是进一步扩展 `beanDefinition` 的信息了。这些信息包括 `bean的名称`、`bean的作用域`、`@Lazy` 注解、`@Primary` 注解、`@DependsOn` 注解等，代码如下：
 
-```
+```java
 public abstract class AnnotationConfigUtils {
 
     ...

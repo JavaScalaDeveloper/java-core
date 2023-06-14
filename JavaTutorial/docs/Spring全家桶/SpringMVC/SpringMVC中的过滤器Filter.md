@@ -7,7 +7,7 @@
 有的童鞋在上一节的Web应用中可能发现了，如果注册时输入中文会导致乱码，因为Servlet默认按非UTF-8编码读取参数。为了修复这一问题，我们可以简单地使用一个EncodingFilter，在全局范围类给HttpServletRequest和HttpServletResponse强制设置为UTF-8编码。
 
 可以自己编写一个EncodingFilter，也可以直接使用Spring MVC自带的一个CharacterEncodingFilter。配置Filter时，只需在web.xml中声明即可：
-````
+````xml
 <web-app>
     <filter>
         <filter-name>encodingFilter</filter-name>
@@ -34,7 +34,7 @@
 我们再考虑这样一个问题：如果允许用户使用Basic模式进行用户验证，即在HTTP请求中添加头Authorization: Basic email:password，这个需求如何实现？
 
 编写一个AuthFilter是最简单的实现方式：
-````
+````java
 @Component
 public class AuthFilter implements Filter {
 @Autowired
@@ -64,7 +64,7 @@ UserService userService;
 如果我们直接在web.xml中声明这个AuthFilter，注意到AuthFilter的实例将由Servlet容器而不是Spring容器初始化，因此，@Autowire根本不生效，用于登录的UserService成员变量永远是null。
 
 所以，得通过一种方式，让Servlet容器实例化的Filter，间接引用Spring容器实例化的AuthFilter。Spring MVC提供了一个DelegatingFilterProxy，专门来干这个事情：
-````
+````xml
 <web-app>
     <filter>
         <filter-name>authFilter</filter-name>
@@ -85,7 +85,7 @@ Spring容器通过扫描@Component实例化AuthFilter。
 当DelegatingFilterProxy生效后，它会自动查找注册在ServletContext上的Spring容器，再试图从容器中查找名为authFilter的Bean，也就是我们用@Component声明的AuthFilter。
 
 DelegatingFilterProxy将请求代理给AuthFilter，核心代码如下：
-````
+````java
 public class DelegatingFilterProxy implements Filter {
     private Filter delegate;
     public void doFilter(...) throws ... {
@@ -110,7 +110,7 @@ public class DelegatingFilterProxy implements Filter {
 ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─   ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘
 ````
 如果在web.xml中配置的Filter名字和Spring容器的Bean的名字不一致，那么需要指定Bean的名字：
-````
+````xml
 <filter>
     <filter-name>basicAuthFilter</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>

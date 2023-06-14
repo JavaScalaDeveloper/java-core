@@ -53,8 +53,8 @@ java之所以能够实现跨平台，便在于其编译阶段不是将代码直�
 
 是不是一脸懵逼，不过java虚拟机规范中给出了class文件的基本格式，只要按照这个格式去解析就可以了：
 
-```
-ClassFile {
+```java
+classFile {
     u4 magic;
        u2 minor_version;
        u2 major_version;
@@ -86,7 +86,7 @@ ClassFile中的字段类型有u1、u2、u4,这是什么类型呢？其实很简�
 
 上面说到ClassFile中的字段类型有u1、u2、u4，分别表示1个字节，2个字节和4个字节的无符号整数。java中short、int、long分别为2、4、8个字节的有符号整数，去掉符号位，刚好可以用来表示u1、u2、u4。
 
-```
+```java
 public class U1 {
     public static short read(InputStream inputStream) {
         byte[] bytes = new byte[1];
@@ -163,7 +163,7 @@ cp_info {
 
 这里首先读取常量池的大小，初始化常量池：
 
-```
+```java
 //解析常量池
 int constant_pool_count = U2.read(inputStream);
 ConstantPool constantPool = new ConstantPool(constant_pool_count);
@@ -172,7 +172,7 @@ constantPool.read(inputStream);
 
 接下来再逐个读取每项内容，并存储到数组cpInfo中，这里需要注意的是，cpInfo[]下标从1开始，0无效，且真正的常量池大小为constant_pool_count-1。
 
-```
+```java
 public class ConstantPool {
     public int constant_pool_count;
     public ConstantInfo[] cpInfo;
@@ -208,7 +208,7 @@ CONSTANT_Utf8_info {
 
 那么如何读取这一项呢？
 
-```
+```java
 public class ConstantUtf8 extends ConstantInfo {
     public String value;
 
@@ -247,7 +247,7 @@ CONSTANT_Class_info {
 
 注意这里的name_index并不是直接的字符串，而是指向常量池中cpInfo数组的name_index项，且cpInfo[name_index]一定是CONSTANT_Utf8格式。
 
-```
+```java
 public class ConstantClass extends ConstantInfo {
     public int nameIndex;
 

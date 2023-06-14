@@ -63,7 +63,7 @@ java提供了JavaCompiler，我们可以通过它来编译java源文件为class�
 通过上面一个查找class，得到Class对象后，可以通过newInstance()或构造器的newInstance()得到对象。然后得到Method，最后调用方法，传入相关参数即可。
 
 示例代码：
-````
+````java
 public class MyIDE {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
@@ -375,7 +375,7 @@ Xml代码
 举个例子，
 
 
-````
+````java
 public class A
 {
     public static void main(String[] args) {
@@ -454,7 +454,7 @@ javac -d bin src/com/Main.java
 •如果有文件为A.java（其中有类A），且在类A中使用了类B，类B在B.java中，则编译A.java时，默认会自动编译B.java，且生成B.class。
 •implicit:none：不自动生成隐式引用的类文件。
 •implicit:class（默认）：自动生成隐式引用的类文件。
-````
+````java
 public class A
 {
     public static void main(String[] args) {
@@ -821,7 +821,7 @@ public class DocFooter extends Applet {
 
 
 Compiled from "DocFooter.java"
-````
+````java
 public class DocFooter extends java.applet.Applet {
   java.lang.String date;
   java.lang.String email;

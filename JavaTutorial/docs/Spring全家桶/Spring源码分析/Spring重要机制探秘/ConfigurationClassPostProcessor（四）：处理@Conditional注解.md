@@ -6,7 +6,7 @@
 
 在前面分析 `ConfigurationClassParser#processConfigurationClass` 方法时，有这么一行：
 
-```
+```java
 class ConfigurationClassParser {
     protected void processConfigurationClass(ConfigurationClass configClass) throws IOException {
         // 判断是否需要跳过处理，针对于 @Conditional 注解，判断是否满足条件
@@ -23,7 +23,7 @@ class ConfigurationClassParser {
 
 `conditionEvaluator.shouldSkip(...)` 方法就是用来处理 `@Conditional` 注解的，关于这个方法的处理流程，我们晚点再分析，我们先来看看什么是 `@Conditional` 注解：
 
-```
+```java
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -40,7 +40,7 @@ public @interface Conditional {
 
 `@Conditional` 注解非常简单，仅有一个属性，返回值是 `Class[]`，且必须是 `Condition` 的子类。我们再来看看 `Condition`：
 
-```
+```java
 public interface Condition {
 
     /**
@@ -56,7 +56,7 @@ public interface Condition {
 
 接着我们来看看 `conditionEvaluator.shouldSkip(...)` 的处理流程：
 
-```
+```java
 class ConditionEvaluator {
     public boolean shouldSkip(@Nullable AnnotatedTypeMetadata metadata, 
             @Nullable ConfigurationPhase phase) {
@@ -153,7 +153,7 @@ class ConditionEvaluator {
 
 3. 准备配置类
 
-   ```
+   ```java
    @ComponentScan
    public class BeanConfigs {
        @Bean
@@ -194,7 +194,7 @@ beanObj 存在！
 
 在 `MyCondition#matches` 中，我们判断的是当前项目中是否存在 `java.lang.Object`，显然这是存在的，因此 `beanObj` 会在 spring 容器中，接着我们换下 `className`:
 
-```
+```java
 public class MyCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
@@ -232,7 +232,7 @@ beanObj 不存在！
 
 2. 准备注解 `@ConditionalForClass`，该注解组合了 `@Conditional` 的功能，处理条件匹配的类为 `MyCondition`，`className` 属性就是必须存在的类：
 
-```
+```java
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -280,7 +280,7 @@ public @interface ConditionalForClass {
 
 2. 准备配置类，此时的条件注解为 `@ConditionalForClass`：
 
-   ```
+   ```java
    @ComponentScan
    public class BeanConfigs {
        @Bean
@@ -323,7 +323,7 @@ beanObj 存在！
 
 我们再来调整下 `@ConditionalForClass` 的 `className` 值：
 
-```
+```java
 @ComponentScan
 public class BeanConfigs {
     @Bean
@@ -349,7 +349,7 @@ beanObj 不存在！
 
 有了 `@ConditionalForClass` 注解后，我们并不需要这么麻烦，只需要在各自的 `@Bean` 方法上添加 `@ConditionalForClass` 就行了，像这样：
 
-```
+```java
 @Bean
 @ConditionalForClass(className = "A1")
 public A a() {

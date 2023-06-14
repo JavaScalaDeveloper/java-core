@@ -36,7 +36,7 @@
 
 > 理解**代理**这个词，这个模式其实就简单了。
 
-```
+```java
 public interface FoodService {
     Food makeChicken();
     Food makeNoodle();
@@ -88,7 +88,7 @@ public class FoodServiceProxy implements FoodService {
 
 客户端调用，注意，我们要用代理来实例化接口：
 
-```
+```java
 // 这里用代理类来实例化
 FoodService foodService = new FoodServiceProxy();
 foodService.makeChicken();
@@ -115,7 +115,7 @@ foodService.makeChicken();
 
 我们用 Appache commons-io 包中的 FileAlterationListener 做例子，此接口定义了很多的方法，用于对文件或文件夹进行监控，一旦发生了对应的操作，就会触发相应的方法。
 
-```
+```java
 public interface FileAlterationListener {
     void onStart(final FileAlterationObserver observer);
     void onDirectoryCreate(final File directory);
@@ -133,7 +133,7 @@ public interface FileAlterationListener {
 
 所以，我们需要下面的一个**适配器**，它用于实现上面的接口，但是**所有的方法都是空方法**，这样，我们就可以转而定义自己的类来继承下面这个类即可。
 
-```
+```java
 public class FileAlterationListenerAdaptor implements FileAlterationListener {
 
     public void onStart(final FileAlterationObserver observer) {
@@ -165,7 +165,7 @@ public class FileAlterationListenerAdaptor implements FileAlterationListener {
 
 比如我们可以定义以下类，我们仅仅需要实现我们想实现的方法就可以了：
 
-```
+```java
 public class FileMonitor extends FileAlterationListenerAdaptor {
     public void onFileCreate(final File file) {
         // 文件创建
@@ -186,7 +186,7 @@ public class FileMonitor extends FileAlterationListenerAdaptor {
 
 来看一个《Head First 设计模式》中的一个例子，我稍微修改了一下，看看怎么将鸡适配成鸭，这样鸡也能当鸭来用。因为，现在鸭这个接口，我们没有合适的实现类可以用，所以需要适配器。
 
-```
+```java
 public interface Duck {
     public void quack(); // 鸭的呱呱叫
       public void fly(); // 飞
@@ -210,7 +210,7 @@ public class WildCock implements Cock {
 
 鸭接口有 fly() 和 quare() 两个方法，鸡 Cock 如果要冒充鸭，fly() 方法是现成的，但是鸡不会鸭的呱呱叫，没有 quack() 方法。这个时候就需要适配了：
 
-```
+```java
 // 毫无疑问，首先，这个适配器肯定需要 implements Duck，这样才能当做鸭来用
 public class CockAdapter implements Duck {
 
@@ -237,7 +237,7 @@ public class CockAdapter implements Duck {
 
 客户端调用很简单了：
 
-```
+```java
 public static void main(String[] args) {
     // 有一只野鸡
       Cock wildCock = new WildCock();
@@ -285,7 +285,7 @@ public static void main(String[] args) {
 
 我们首先需要一个桥梁，它是一个接口，定义提供的接口方法。
 
-```
+```java
 public interface DrawAPI {
    public void draw(int radius, int x, int y);
 }
@@ -294,7 +294,7 @@ public interface DrawAPI {
 
 然后是一系列实现类：
 
-```
+```java
 public class RedPen implements DrawAPI {
    @Override
    public void draw(int radius, int x, int y) {
@@ -318,7 +318,7 @@ public class BluePen implements DrawAPI {
 
 定义一个抽象类，此类的实现类都需要使用 DrawAPI：
 
-```
+```java
 public abstract class Shape {
    protected DrawAPI drawAPI;
 
@@ -332,7 +332,7 @@ public abstract class Shape {
 
 定义抽象类的子类：
 
-```
+```java
 // 圆形
 public class Circle extends Shape {
    private int radius;
@@ -365,7 +365,7 @@ public class Rectangle extends Shape {
 
 最后，我们来看客户端演示：
 
-```
+```java
 public static void main(String[] args) {
     Shape greenCircle = new Circle(10, new GreenPen());
       Shape redRectangle = new Rectangle(4, 8, new RedPen());
@@ -409,7 +409,7 @@ public static void main(String[] args) {
 
 首先，定义饮料抽象基类：
 
-```
+```java
 public abstract class Beverage {
       // 返回描述
       public abstract String getDescription();
@@ -421,7 +421,7 @@ public abstract class Beverage {
 
 然后是三个基础饮料实现类，红茶、绿茶和咖啡：
 
-```
+```java
 public class BlackTea extends Beverage {
       public String getDescription() {
         return "红茶";
@@ -444,7 +444,7 @@ public class GreenTea extends Beverage {
 
 定义调料，也就是装饰者的基类，此类必须继承自 Beverage：
 
-```
+```java
 // 调料
 public abstract class Condiment extends Beverage {
 
@@ -454,7 +454,7 @@ public abstract class Condiment extends Beverage {
 
 然后我们来定义柠檬、芒果等具体的调料，它们属于装饰者，毫无疑问，这些调料肯定都需要继承 Condiment 类：
 
-```
+```java
 public class Lemon extends Condiment {
     private Beverage bevarage;
       // 这里很关键，需要传入具体的饮料，如需要传入没有被装饰的红茶或绿茶，
@@ -489,7 +489,7 @@ public class Mango extends Condiment {
 
 看客户端调用：
 
-```
+```java
 public static void main(String[] args) {
       // 首先，我们需要一个基础饮料，红茶、绿茶或咖啡
     Beverage beverage = new GreenTea();
@@ -551,7 +551,7 @@ DataInputStream is = new DataInputStream(
 
 首先，我们定义一个接口：
 
-```
+```java
 public interface Shape {
    void draw();
 }
@@ -560,7 +560,7 @@ public interface Shape {
 
 定义几个实现类：
 
-```
+```java
 public class Circle implements Shape {
 
    @Override
@@ -581,7 +581,7 @@ public class Rectangle implements Shape {
 
 客户端调用：
 
-```
+```java
 public static void main(String[] args) {
     // 画一个圆形
       Shape circle = new Circle();
@@ -600,7 +600,7 @@ public static void main(String[] args) {
 
 我们先定义一个门面：
 
-```
+```java
 public class ShapeMaker {
    private Shape circle;
    private Shape rectangle;
@@ -631,7 +631,7 @@ public class ShapeMaker {
 
 看看现在客户端怎么调用：
 
-```
+```java
 public static void main(String[] args) {
   ShapeMaker shapeMaker = new ShapeMaker();
 
@@ -651,7 +651,7 @@ public static void main(String[] args) {
 
 直接看一个例子吧，每个员工都有姓名、部门、薪水这些属性，同时还有下属员工集合（虽然可能集合为空），而下属员工和自己的结构是一样的，也有姓名、部门这些属性，同时也有他们的下属员工集合。
 
-```
+```java
 public class Employee {
    private String name;
    private String dept;

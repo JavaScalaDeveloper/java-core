@@ -22,7 +22,7 @@
 
 下面给出了用于JAR文件部署的Spring Boot应用程序类文件的代码 -
 
-```
+```java
 package com.yiibai.demo;
 
 import org.springframework.boot.SpringApplication;
@@ -39,7 +39,7 @@ public class DemoApplication {
 
 需要扩展类`SpringBootServletInitializer`以支持WAR文件部署。 Spring Boot应用程序类文件的代码如下 -
 
-```
+```java
 package com.yiibai.demo;
 
 import org.springframework.boot.SpringApplication;
@@ -65,7 +65,7 @@ public class DemoApplication  extends SpringBootServletInitializer {
 在Spring Boot中，需要在构建文件中指定启动的主类。
 对于Maven，在`pom.xml`属性中添加`start`类，如下所示 -
 
-```
+```xml
 <start-class>com.yiibai.demo.DemoApplication</start-class>
 
 ```
@@ -83,7 +83,7 @@ mainClassName="com.yiibai.demo.DemoApplication"
 
 对于Maven，在_pom.xml_ 中将包装添加为WAR，如下所示 -
 
-```
+```xml
 <packaging>war</packaging>
 
 ```
@@ -100,7 +100,7 @@ apply plugin: 'application'
 
 对于Maven，使用如下所示的代码在_pom.xml_ 中添加Spring Boot启动程序依赖项 -
 
-```
+```xml
 <dependency>
    <groupId>org.springframework.boot</groupId>
    spring-boot-starter-web
@@ -119,7 +119,7 @@ dependencies {
 
 现在，使用如下所示的代码在Spring Boot Application类文件中编写一个简单的Rest端点 -
 
-```
+```java
 package com.yiibai.demo;
 
 import org.springframework.boot.SpringApplication;
@@ -174,7 +174,7 @@ public class DemoApplication  extends SpringBootServletInitializer {
 
 文件：_pom.xml_ -
 
-```
+```xml
 <?xml version = "1.0" encoding = "UTF-8"?>
 <project xmlns = "http://maven.apache.org/POM/4.0.0" 
    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
@@ -266,7 +266,7 @@ dependencies {
 
 Spring Boot应用程序类文件的代码如下 -
 
-```
+```java
 package com.yiibai.demo;
 
 import org.springframework.boot.SpringApplication;

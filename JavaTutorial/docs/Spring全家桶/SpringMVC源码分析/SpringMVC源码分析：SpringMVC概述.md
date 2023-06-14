@@ -102,7 +102,7 @@ SpringMVC是一个**典型的轻量级MVC框架**，在整个MVC架构中充当�
 
 
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -124,7 +124,7 @@ SpringMVC是一个**典型的轻量级MVC框架**，在整个MVC架构中充当�
     <property name="suffix" value=".jsp"/>
   </bean>
 </beans>
-复制代码
+
 ```
 
 
@@ -133,7 +133,7 @@ SpringMVC是一个**典型的轻量级MVC框架**，在整个MVC架构中充当�
 
 
 
-```
+```xml
 <!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
@@ -157,7 +157,7 @@ SpringMVC是一个**典型的轻量级MVC框架**，在整个MVC架构中充当�
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 </web-app>
-复制代码
+
 ```
 
 
@@ -166,7 +166,7 @@ SpringMVC是一个**典型的轻量级MVC框架**，在整个MVC架构中充当�
 
 
 
-```
+```java
 package com.lin.controller;
 
 import org.apache.ibatis.annotations.Param;
@@ -199,7 +199,7 @@ public class HellowController {
   }
 }
 
-复制代码
+
 ```
 
 
@@ -229,7 +229,7 @@ public class HellowController {
 
 
 
-```
+```java
 @Controller
 @RequestMapping("forwoartAndRedirect")
 public class TestForwoartAndRedirect {
@@ -240,7 +240,7 @@ public class TestForwoartAndRedirect {
     return"index";
   }
 }
-复制代码
+
 ```
 
 
@@ -275,10 +275,10 @@ public class TestForwoartAndRedirect {
 
 
 
-```
+```java
 // 接收名字为name的参数
 request.getParameter(name)
-复制代码
+
 ```
 
 
@@ -332,7 +332,7 @@ SpringMVC中默认没有对POST请求进行任何编码处理，所以无论什�
 
 
 
-```
+```java
 package com.filter;
 
 import javax.servlet.*;
@@ -360,7 +360,7 @@ public class CharacterEncodingFilter  implements Filter {
 
     }
 }
-复制代码
+
 <!--配置post请求方式中文乱码的Filter-->
   <filter>
     <filter-name>charset</filter-name>
@@ -375,7 +375,7 @@ public class CharacterEncodingFilter  implements Filter {
     <filter-name>charset</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-复制代码
+
 ```
 
 
@@ -384,7 +384,7 @@ public class CharacterEncodingFilter  implements Filter {
 
 
 
-```
+```xml
 <!--配置post请求方式中文乱码的Filter-->
   <filter>
     <filter-name>charset</filter-name>
@@ -399,7 +399,7 @@ public class CharacterEncodingFilter  implements Filter {
     <filter-name>charset</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-复制代码
+
 package com.filter;
 
 import javax.servlet.*;
@@ -427,7 +427,7 @@ public class CharacterEncodingFilter  implements Filter {
 
     }
 }
-复制代码
+
 ```
 
 
@@ -472,7 +472,7 @@ Spring MVC 已经提供了一个 DispatcherServlet 类作为前端控制器，�
 
 
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -497,7 +497,7 @@ Spring MVC 已经提供了一个 DispatcherServlet 类作为前端控制器，�
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 </web-app>
-复制代码
+
 ```
 
 
@@ -522,7 +522,7 @@ load-on-startup 元素是可选的：若值为 0 或者大于 0 时，表示容�
 Tomcat 容器处理静态资源是交由内置 DefaultServlet 来处理的（拦截路径是 /），处理 JSP 资源是交由内置的 JspServlet 处理的（拦截路径是*.jsp | *.jspx）。
     启动项目时，先加载容器的 web.xml，而后加载项目中的 web.xml。当拦截路径在两者文件中配置的一样，后面会覆盖掉前者。
     所以前端控制器配置拦截路径是 / 的所有静态资源都会交由前端控制器处理，而拦截路径配置 /*，所有静态资源和 JSP 都会交由前端控制器处理。
-复制代码
+
 ```
 
 
@@ -535,12 +535,12 @@ Tomcat 容器处理静态资源是交由内置 DefaultServlet 来处理的（拦
 
 
 
-```
+```xml
 <servlet-mapping>
 	<servlet-name>dispatcherServlet</servlet-name>
 	<url-pattern>*.do</url-pattern>
 </servlet-mapping>	
-复制代码
+
 ```
 
 
@@ -551,9 +551,9 @@ Tomcat 容器处理静态资源是交由内置 DefaultServlet 来处理的（拦
 
 
 
-```
+```xml
 <mvc:default-servlet-handler/>
-复制代码
+
 ```
 
 
@@ -564,7 +564,7 @@ Tomcat 容器处理静态资源是交由内置 DefaultServlet 来处理的（拦
 
 
 
-```
+```java
 package cn.wolfcode.web.controller;
 	@Controller
 	public class RequestController {
@@ -573,7 +573,7 @@ package cn.wolfcode.web.controller;
 			return "m";
 		}
 }
-复制代码
+
 ```
 
 
@@ -591,7 +591,7 @@ SpringMVC的作用是请求和处理响应，响应处理是指怎么编写控�
 
 
 
-```
+```java
 package cn.linstudy.web.controller;
 
 import org.springframework.stereotype.Controller;
@@ -611,7 +611,7 @@ public class ResponseController {
     mv.setViewName("/WEB-INF/views/resp.jsp");
     return mv;
   }
-复制代码
+
 ```
 
 
@@ -622,7 +622,7 @@ public class ResponseController {
 
 
 
-```
+```java
 package cn.instudy.web.controller;
 
 import org.springframework.stereotype.Controller;
@@ -640,7 +640,7 @@ public class ResponseController {
     return "/WEB-INF/views/resp.jsp";
   }
 }
-复制代码
+
 ```
 
 
@@ -651,7 +651,7 @@ public class ResponseController {
 
 
 
-```
+```xml
 <!--
 配置视图解析器 配置这个Spring MVC 找视图的路径就是：前缀 + 逻辑视图名（处理方法设置或返回视图名）+ 后缀名
 -->
@@ -661,7 +661,7 @@ public class ResponseController {
 	<!-- 视图后缀 -->
 	<property name="suffix" value=".jsp"/>
 </bean>
-复制代码
+
 ```
 
 
@@ -681,7 +681,7 @@ public class ResponseController {
 
 
 
-```
+```java
 package cn.linstudy.web.controller;
 @Controller
 public class ResponseController {
@@ -691,7 +691,7 @@ public class ResponseController {
 		return "forward:/WEB-INF/views/welcome.jsp";
 	}
 }
-复制代码
+
 ```
 
 
@@ -702,7 +702,7 @@ public class ResponseController {
 
 
 
-```
+```java
 package cn.linstudy.web.controller;
 @Controller
 public class ResponseController {
@@ -712,7 +712,7 @@ public class ResponseController {
 		return "redirect:/static/demo.html";
 	}
 }
-复制代码
+
 ```
 
 
@@ -736,7 +736,7 @@ public class ResponseController {
 
 
 
-```
+```java
 // 请求路径为：/req1?username=zs&age=18
 package cn.linstudy.web.controller;
 	@Controller
@@ -748,7 +748,7 @@ package cn.linstudy.web.controller;
 			return null;
 		}
 }
-复制代码
+
 ```
 
 
@@ -759,7 +759,7 @@ package cn.linstudy.web.controller;
 
 
 
-```
+```java
 // 请求路径为：/req1?username=zs&age=18
 package cn.linstudy.web.controller;
 	@Controller
@@ -771,7 +771,7 @@ package cn.linstudy.web.controller;
 			return null;
 		}
 }
-复制代码
+
 ```
 
 
@@ -784,7 +784,7 @@ package cn.linstudy.web.controller;
 
 
 
-```
+```java
 // 请求路径 /req3?ids=1&ids=2&ids=3
 package cn.linstudy.web.controller;
 	@Controller
@@ -795,7 +795,7 @@ package cn.linstudy.web.controller;
 			return null;
 		}
 }
-复制代码
+
 ```
 
 
@@ -806,7 +806,7 @@ package cn.linstudy.web.controller;
 
 
 
-```
+```java
 // /req4?username=hehe&password=666
 package cn.linstudy.web.controller;	
 	@Controller
@@ -817,7 +817,7 @@ package cn.linstudy.web.controller;
 			return null
 		}
 }
-复制代码
+
 ```
 
 
@@ -832,7 +832,7 @@ package cn.linstudy.web.controller;
 
 
 
-```
+```java
 package cn.linstudy.controller;
 	@Controller
 	public class RequestController {
@@ -843,7 +843,7 @@ package cn.linstudy.controller;
 			return null;
 		}
 }
-复制代码
+
 ```
 
 
@@ -854,7 +854,7 @@ package cn.linstudy.controller;
 
 
 
-```
+```java
 package cn.linstudy.domain;
 	public class User {
 	private Long id;
@@ -865,7 +865,7 @@ package cn.linstudy.domain;
 	private Date date;
 	// 省略 setter getter toString
 }
-复制代码
+
 package cn.linstudy.controller;
 	@Controller
 	public class RequestController {
@@ -875,7 +875,7 @@ package cn.linstudy.controller;
 			return null;
 		}
 }
-复制代码
+
 ```
 
 
@@ -892,7 +892,7 @@ package cn.linstudy.controller;
 
 
 
-```
+```xml
 <!DOCTYPE html>
 <html>
 <head>
@@ -906,7 +906,7 @@ package cn.linstudy.controller;
 	</form>
 </body>
 </html>
-复制代码
+
 ```
 
 
@@ -917,7 +917,7 @@ package cn.linstudy.controller;
 
 
 
-```
+```xml
 <servlet>
 	<servlet-name>dispatcherServlet</servlet-name>
 	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -935,7 +935,7 @@ package cn.linstudy.controller;
 	<servlet-name>dispatcherServlet</servlet-name>
 	<url-pattern>/</url-pattern>
 </servlet-mapping>
-复制代码
+
 ```
 
 
@@ -946,12 +946,12 @@ package cn.linstudy.controller;
 
 
 
-```
+```xml
 <bean id="multipartResolver" >
   <!--控制文件上传大小单位字节 默认没有大小限制 这里是2-->
   <property name="maxUploadSize" value="2097152"/>
 </bean>
-复制代码
+
 ```
 
 
@@ -960,7 +960,7 @@ package cn.linstudy.controller;
 
 
 
-```
+```java
 package cn.linstudy.controller;
 	@Controller
 	public class UploadController {
@@ -979,7 +979,7 @@ package cn.linstudy.controller;
 		return null;
 	}
 }
-复制代码
+
 ```
 
 
@@ -994,7 +994,7 @@ package cn.linstudy.controller;
 
 
 
-```
+```java
 /**
      * 测试文件下载
      * @param fileName 要下载文件名
