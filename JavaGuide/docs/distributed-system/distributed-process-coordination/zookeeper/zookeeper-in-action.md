@@ -214,7 +214,7 @@ zkClient.start();
 
 #### 创建节点
 
-我们在 [ZooKeeper 常见概念解读](./zookeeper-intro.md) 中介绍到，我们通常是将 znode 分为 4 大类：
+我们在 [ZooKeeper 常见概念解读](./1、ZooKeeper相关概念总结(入门).md) 中介绍到，我们通常是将 znode 分为 4 大类：
 
 - **持久（PERSISTENT）节点**：一旦创建就一直存在即使 ZooKeeper 集群宕机，直到将其删除。
 - **临时（EPHEMERAL）节点**：临时节点的生命周期是与 **客户端会话（session）** 绑定的，**会话消失则节点消失** 。并且，临时节点 **只能做叶子节点** ，不能创建子节点。
