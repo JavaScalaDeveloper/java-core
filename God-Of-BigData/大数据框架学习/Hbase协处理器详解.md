@@ -314,7 +314,7 @@ hbase >  create 'magazine','article','picture'
 
 ### 6.2 协处理器编程
 
-> 完整代码可见本仓库：[hbase-observer-coprocessor](https://github.com/heibaiying/BigData-Notes/tree/master/code/Hbase\hbase-observer-coprocessor)
+> 完整代码可见本仓库：[hbase-observer-coprocessor](images/https://github.com/heibaiying/BigData-Notes/tree/master/code/Hbase\hbase-observer-coprocessor)
 
 新建 Maven 工程，导入下面依赖：
 
@@ -485,6 +485,6 @@ hbase > get 'magazine','rowkey1','article:content'
 
 ## 参考资料
 
-1. [Apache HBase Coprocessors](http://hbase.apache.org/book.html#cp)
-2. [Apache HBase Coprocessor Introduction](https://blogs.apache.org/hbase/entry/coprocessor_introduction)
-3. [HBase 高階知識](https://www.itread01.com/content/1546245908.html)
+1. [Apache HBase Coprocessors](images/http://hbase.apache.org/book.html#cp)
+2. [Apache HBase Coprocessor Introduction](images/https://blogs.apache.org/hbase/entry/coprocessor_introduction)
+3. [HBase 高階知識](images/https://www.itread01.com/content/1546245908.html)

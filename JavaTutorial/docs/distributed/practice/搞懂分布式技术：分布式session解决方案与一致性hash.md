@@ -45,6 +45,7 @@
 
 当Web服务器从一台变为多台时，就会出现Session一致性问题。
 
+
 ![](http://img.kiterunner.top/distributed_session_consistent_situation.png)
 
 如上图所示，当一个带有会话标识的HTTP请求到了Web服务器后，需要在HTTP请求的处理过程中找到对应的会话数据（Session）。但是，现在存在的问题就是：如果我第一次访问网站时请求落到了左边的服务器，那么我的Session就创建在左边的服务器上了，如果我们不做处理，就不能保证接下来的请求每次都落在同一边的服务器上了。这就是Session一致性问题。
@@ -56,6 +57,7 @@
 在单机的情况下，会话保存在单机上，请求也是由这个机器处理，因此不会有问题。当Web服务器变为多台以后，如果保证同一个会话的请求都在同一个Web服务器上处理，则对该会话来说，与之前单机的情况是一样的。
 
 如果要做到这样，就需要负载均衡器能够根据每次请求的会话标识SessionID来进行请求转发，如下图所示。这种方式称之为**Session Stiky**方式。
+
 
 ![](http://img.kiterunner.top/distributed_session_stiky.png)
 
@@ -73,6 +75,7 @@
 
 如果我们继续以去饭店吃饭类比，那么除了前面的方式之外，如果我在每个店都存放一套自己的餐具，就可以更加自由地选择饭店。Session Replication就是这样一种方式，如下图所示。
 
+
 ![](http://img.kiterunner.top/distributed_session_replication.png)
 
 可以看到，在Session Replication方案中，不再要求负载均衡器来保证同一个会话地多次请求必须到同一个Web服务器上了。而我们的Web服务器之间则增加了会话数据的同步。通过同步就保证了不同Web服务器之间的Session数据的一致。
@@ -89,6 +92,7 @@
 
 同样是希望同一个会话的请求可以发到不同的Web服务器上，前面的Session Replication是一种方案，还有一种方案就是把Session数据集中存储起来，然后不同Web服务器从同样的地方来获取Session。其大概的结构如下图所示：
 
+
 ![](http://img.kiterunner.top/distributed_session_center_store.png)
 
 可以看到，与Session Replication方案一样的部分是，会话请求经过负载均衡器后，不会被固定在同样的Web服务器上。不同的地方是，Web服务器之间没有Session数据复制，并且Session数据也不是保存在本机了，而是放在了另一个集中存储的地方。这样，无论是哪台Web服务器，也无论修改的是哪个Session的数据，最终的修改都发生在这个集中存储的地方，而Web服务器使用Session数据时，也是从这个集中存储Session数据的地方来读取。对于Session数据存储的具体方式，可以使用数据库，也可以使用其他分布式存储系统。这个方案解决了Session Replication方案中内存的问题，而对于网络带宽，该方案也比Session Replication要好。
@@ -103,6 +107,7 @@
 ## 4. Cookie Based
 
 对于Cookie Based方案，它对同一个会话的不同请求也是不限制具体处理机器的。与Session Replication和Session数据集中管理的方案不同，这个方案是通过Cookie来传递Session数据的。具体如下图所示。
+
 
 ![](http://img.kiterunner.top/distributed_session_cookie_based.png)
 
@@ -132,11 +137,13 @@
 
 一致性hash是首先计算四个ip地址对应的hash值hash(ip1),hash(ip2),hash(ip3),hash(ip3)，计算出来的hash值是0~最大正整数直接的一个值，这四个值在一致性hash环上呈现如下图：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407214157.png)
 
 
 
 hash环上顺时针从整数0开始，一直到最大正整数，我们根据四个ip计算的hash值肯定会落到这个hash环上的某一个点，至此我们把服务器的四个ip映射到了一致性hash环当用户在客户端进行请求时候，首先根据hash(用户id)计算路由规则（hash值），然后看hash值落到了hash环的那个地方，根据hash值在hash环上的位置顺时针找距离最近的ip作为路由ip.  
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407214219.png)
 
 
@@ -146,6 +153,7 @@ hash环上顺时针从整数0开始，一直到最大正整数，我们根据四
 下面考虑当ip2的服务器挂了的时候会出现什么情况？
 
 当ip2的服务器挂了的时候，一致性hash环大致如下图：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407214245.png)
 
@@ -157,6 +165,7 @@ hash环上顺时针从整数0开始，一直到最大正整数，我们根据四
 
 当新增一个ip5的服务器后，一致性hash环大致如下图：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407214301.png)
 
 
@@ -167,6 +176,7 @@ hash环上顺时针从整数0开始，一直到最大正整数，我们根据四
 
 单调性(Monotonicity)，单调性是指如果已经有一些请求通过哈希分派到了相应的服务器进行处理，又有新的服务器加入到系统中时候，应保证原有的请求可以被映射到原有的或者新的服务器中去，而不会被映射到原来的其它服务器上去。 这个通过上面新增服务器ip5可以证明，新增ip5后，原来被ip1处理的user6现在还是被ip1处理，原来被ip1处理的user5现在被新增的ip5处理。分散性(Spread)：分布式环境中，客户端请求时候可能不知道所有服务器的存在，可能只知道其中一部分服务器，在客户端看来他看到的部分服务器会形成一个完整的hash环。如果多个客户端都把部分服务器作为一个完整hash环，那么可能会导致，同一个用户的请求被路由到不同的服务器进行处理。这种情况显然是应该避免的，因为它不能保证同一个用户的请求落到同一个服务器。所谓分散性是指上述情况发生的严重程度。平衡性(Balance)：平衡性也就是说负载均衡，是指客户端hash后的请求应该能够分散到不同的服务器上去。一致性hash可以做到每个服务器都进行处理请求，但是不能保证每个服务器处理的请求的数量大致相同，如下图
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407214309.png)
 
 
@@ -176,6 +186,7 @@ hash环上顺时针从整数0开始，一直到最大正整数，我们根据四
 ## 虚拟节点
 
 当服务器节点比较少的时候会出现上节所说的一致性hash倾斜的问题，一个解决方法是多加机器，但是加机器是有成本的，那么就加虚拟节点，比如上面三个机器，每个机器引入1个虚拟节点后的一致性hash环的图如下：  
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407214322.png)
 
 
@@ -187,12 +198,14 @@ hash环上顺时针从整数0开始，一直到最大正整数，我们根据四
 ## 均匀一致性hash
 
 上节我们使用虚拟节点后的图看起来比较均衡，但是如果生成虚拟节点的算法不够好很可能会得到下面的环：  
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407214331.png)
 
 
 可知每个服务节点引入1个虚拟节点后，情况相比没有引入前均衡性有所改善，但是并不均衡。
 
 均衡的一致性hash应该是如下图：  
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407214345.png)
 
 

@@ -75,5 +75,5 @@ storm 和 Flink 都是真正意义上的流计算框架，但 Spark Streaming �
 
 ## 参考资料
 
-1. [Spark Streaming Programming Guide](https://spark.apache.org/docs/latest/streaming-programming-guide.html)
-2. [What is stream processing?](https://www.ververica.com/what-is-stream-processing)
+1. [Spark Streaming Programming Guide](images/https://spark.apache.org/docs/latest/streaming-programming-guide.html)
+2. [What is stream processing?](images/https://www.ververica.com/what-is-stream-processing)

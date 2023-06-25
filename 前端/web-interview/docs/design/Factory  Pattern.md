@@ -1,7 +1,9 @@
 # 面试官：说说你对工厂模式的理解？应用场景？
 
 
- ![](https://static.vue-js.com/27a84d10-3bea-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/27a84d10-3bea-11ec-8e64-91fdec0f05a1.png)
 
 ## 一、是什么
 

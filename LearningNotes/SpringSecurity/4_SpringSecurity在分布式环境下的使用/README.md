@@ -14,6 +14,7 @@
 首先，我们要明确，在分布式项目中，每台服务器都有各自独立的session，而这些session之间是无法直接共享资
 源的，所以，session通常不能被作为单点登录的技术方案。最合理的单点登录方案流程如下图所示：
 
+
 ![image-20200920202612159](images/image-20200920202612159.png)
 
 **总结一下，单点登录的实现分两大环节：**
@@ -411,6 +412,7 @@ SpringSecurity主要是通过过滤器来实现功能的！我们要找到Spring
 
 工具类如下
 
+
 ![image-20200920210659250](images/image-20200920210659250.png)
 
 ### Payload.java
@@ -689,6 +691,7 @@ public class RsaUtilsTest {
 
 执行后查看D:\auth_key目录发现私钥和公钥文件生成成功
 
+
 ![image-20200920211051749](images/image-20200920211051749.png)
 
 ## 认证服务
@@ -795,6 +798,7 @@ public class AuthApplication {
 ### 将上面集中式案例中数据库认证相关代码复制到认证服务中
 
 需要复制的代码如果所示：
+
 
 ![image-20200920211547261](images/image-20200920211547261.png)
 
@@ -942,17 +946,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 认证请求
 
+
 ![image-20200920213350978](images/image-20200920213350978.png)
 
 认证通过结果
+
 
 ![image-20200920213403708](images/image-20200920213403708.png)
 
 token在Headers中：
 
+
 ![image-20200920213423316](images/image-20200920213423316.png)
 
 验证认证请求
+
 
 ![image-20200920213442797](images/image-20200920213442797.png)
 
@@ -1083,6 +1091,7 @@ public class AuthSourceApplication {
 
 这时目录结构如图：
 
+
 ![image-20200920214004611](images/image-20200920214004611.png)
 
 复制认证服务中SpringSecurity配置类做修改，去掉“增加自定义认证过滤器”即可！
@@ -1128,6 +1137,7 @@ public class ProductController {
 
 携带token
 
+
 ![image-20200920214127083](images/image-20200920214127083.png)
 
 在产品处理器上添加访问需要ADMIN角色
@@ -1146,12 +1156,15 @@ public class ProductController {
 
 重启测试权限不足
 
+
 ![image-20200920214208492](images/image-20200920214208492.png)
 
 在数据库中手动给用户添加ADMIN角色
 
+
 ![image-20200920214220620](images/image-20200920214220620.png)
 
 重新认证获取新token再测试OK了！
+
 
 ![image-20200920214234884](images/image-20200920214234884.png)

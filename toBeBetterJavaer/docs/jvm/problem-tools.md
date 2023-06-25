@@ -19,6 +19,7 @@ head:
 
 在JDK的bin目录下有很多命令行工具：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-547b1b2c-9fb4-4d1d-9c72-013ec210f6a5.jpg)
 
 　　我们可以看到各个工具的大小基本上都稳定在27kb左右，这个不是JDK开发团队刻意为之的，而是因为这些工具大多数是 `jdk\lib\tools.jar` 类库的一层薄包装而已，他们的主要功能代码是在tools类库中实现的。
@@ -28,6 +29,7 @@ head:
 ### 常用命令：
 
 这里主要介绍如下几个工具：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-01.png)
 
@@ -59,19 +61,23 @@ JAVA Dump就是虚拟机运行时的快照，将虚拟机运行时的状态和�
 
 显示当前所有java进程pid的命令，我们可以通过这个命令来查看到底启动了几个java进程（因为每一个java程序都会独占一个java虚拟机实例），不过jps有个缺点是只能显示当前用户的进程id，要显示其他用户的还只能用linux的ps命令。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-2017daf6-832a-4673-b776-ad3380e47402.png)
 
 执行jps命令，会列出所有正在运行的java进程，其中jps命令也是一个java程序。前面的数字就是进程的id，这个id的作用非常大，后面会有相关介绍。
 
 **jps -help：**
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-031be661-e47e-44f0-9e33-34368b187662.png)
 
 **jps -l** 输出应用程序main.class的完整package名或者应用程序jar文件完整路径名
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-0ccc96dc-8053-4222-9824-b116f02776a4.png)
 
 **jps -v** 输出传递给JVM的参数
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-059a3285-4a01-4f7a-a6ed-1cc5dcbf3f18.png)
 
@@ -96,6 +102,7 @@ java程序启动后，会在目录/tmp/hsperfdata_{userName}/下生成几个文�
 
 主要用于生成指定进程当前时刻的线程快照，线程快照是当前java虚拟机每一条线程正在执行的方法堆栈的集合，生成线程快照的主要目的是用于定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致长时间等待。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-e80d0925-2dcf-4204-b46d-47312df2a673.png)
 
 **3、jmap**
@@ -106,9 +113,11 @@ java程序启动后，会在目录/tmp/hsperfdata_{userName}/下生成几个文�
 
 jmap的用法摘要：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-96a70bab-5cee-4068-8ccb-1d35124abeea.png)
 
 **1、`jmap pid`**
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-38d5c9da-e433-43d2-b1bc-3f3634e05497.png)
 
@@ -116,9 +125,11 @@ jmap的用法摘要：
 
 **2、`jmap -heap pid`:查看堆使用情况**
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-75acf4c8-393d-43d1-b208-04de1f0ba6bd.png)
 
 **3、`jmap -histo pid`：查看堆中对象数量和大小**
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-5e42fe47-e1e6-4649-acb5-e17bd277a771.png)
 
@@ -149,6 +160,7 @@ interval：间隔时间，单位为毫秒
 count：打印次数
 
 **1、jstat -gc PID 5000 20**
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-3f71397d-3ff6-430d-adf4-ff5ab9f111d5.png)
 
@@ -182,6 +194,7 @@ FGCT：从应用程序启动到采样时老年代中GC所使用的时间（单�
 
 **2、jstat -gcutil PID 5000 20**
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-c2a84c1d-e853-482a-88a5-27ef39da66a0.png)
 
 s0:年轻代中第一个survivor已使用的占当前容量百分比
@@ -202,6 +215,7 @@ P:永久代中已使用的占当前容量百分比
 
 **jhat heapdump**
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-fd76ac30-53a5-4549-8206-18283f330758.png)
 
 这个命令将heapdump文件转换成html格式，并且启动一个http服务，默认端口为7000。
@@ -209,6 +223,7 @@ P:永久代中已使用的占当前容量百分比
 如果端口冲突，可以使用以下命令指定端口：**jhat -port 4000 heapdump**
 
 下面我们来访问下：ip：port
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-059e61f1-8263-4ee0-b36b-f117ecaf0a07.png)
 
@@ -228,13 +243,16 @@ jinfo可以用来查看正在运行的java运用程序的扩展参数，甚至�
 
 下面的命令显示了新生代对象晋升到老年代对象的最大年龄。在运行程序运行时并没有指定这个参数，但是通过jinfo，可以查看这个参数的当前的值。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-f37517b7-20b4-4243-ae03-d41126ae43e5.png)
 
 下面的命令显示是否打印gc详细信息：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-86c5ace2-7377-4d5a-a780-0a194e14c9a0.png)
 
 下面的命令在运用程序运行时动态打开打印详细gc信息开关：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-d258d260-65eb-48f9-8585-6bed74de5a47.png)
 
@@ -245,9 +263,11 @@ jinfo可以用来查看正在运行的java运用程序的扩展参数，甚至�
 在JDK 1.7之后，新增了一个命令行工具jcmd。它是一个多功能工具，可以用来导出堆，查看java进程，导出线程信息，执行GC等。jcmd拥有jmap的大部分功能，Oracle官方建议使用jcmd代替jmap。
 
 使用 jcmd -l 命令列出当前运行的所有虚拟机，示例：
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-4fa6915b-d39c-4d6d-a6e7-edc989cac76f.png)
 
 针对每一个虚拟机，可以使用help命令列出该虚拟机支持的所有命令，示例：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-219b7cac-c9a9-4d47-8ecf-93a4a04fc1db.png)
 
@@ -273,6 +293,7 @@ jinfo可以用来查看正在运行的java运用程序的扩展参数，甚至�
 
 示例：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-b0742677-4ad0-4fd3-b985-054238af8865.png)
 
 ## 8、可视化监控工具（JConsole、JVisualVM）
@@ -291,10 +312,12 @@ JConsole（Java Monitoring and Management Console）是一款基于 JMX（Java M
 
 打开位于 bin 目录下的 `jconsole` 程序后，它会自动扫描当前主机上的所有 JVM 进程：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-6b614bd9-5e75-48e0-b51e-50cbd33669a5.png)
 
 
 选中需要监控的进程后，点击连接，即可进入监控界面。监控界面包含了 *概览*、*内存*、*线程*、*类*、*VM 概要*、*MBean* 六个选项卡。其中概览界面显示的是 *内存*、*线程*、*类* 等三个选项卡界面的概览信息，如下所示：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-10f3df05-e209-4bca-a8dc-99668a2d8e07.png)
 
@@ -302,6 +325,7 @@ JConsole（Java Monitoring and Management Console）是一款基于 JMX（Java M
 
 
 而内存界面主要用于显示堆和非堆上各个区域的使用量：
+
 
 
 
@@ -314,6 +338,7 @@ JConsole（Java Monitoring and Management Console）是一款基于 JMX（Java M
 
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-a97902be-6084-4009-81b2-cbe08d60a617.png)
 
 
@@ -321,12 +346,14 @@ JConsole（Java Monitoring and Management Console）是一款基于 JMX（Java M
 
 点击死锁选项卡则可以看到造成死锁的线程：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-a76f6714-0efd-4208-a203-9264bc9963d9.png)
 
 
 
 
 最后的 **类** 选项卡主要用于显示当前已加载和已卸载的类的数量。而 **VM 概要** 选项卡则主要用于显示虚拟机的相关参数，如下所示：
+
 
 
 
@@ -351,12 +378,14 @@ VisualVM（All-in-One Java Troubleshooting Tool）是 Oracle 提供的功能最�
 
 打开位于 bin 目录下的 `jvisualvm` 程序， 它会自动扫描当前主机上的所有 JVM 进程：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-221c1e6e-bcfd-4bf3-be85-6172a3f72962.png)
 
 
 
 
 点击需要监控的进程后，右侧即会显示相关的监控信息：
+
 
 
 
@@ -371,6 +400,7 @@ VisualVM（All-in-One Java Troubleshooting Tool）是 Oracle 提供的功能最�
 
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-afaf433c-6ae7-4c4b-b686-48504cd4c3e9.png)
 
 
@@ -380,12 +410,14 @@ VisualVM（All-in-One Java Troubleshooting Tool）是 Oracle 提供的功能最�
 
 在线程界面可以查看所有线程的状态，如果出现死锁，该界面还会进行提示：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-9dbc6b53-c9e6-4051-845f-ef2d848b5d60.png)
 
 
 
 
 此时可以进行 **线程 Dump** 来获取具体的线程信息，效果和 jstack 命令类似：
+
 
 
 
@@ -398,6 +430,7 @@ VisualVM（All-in-One Java Troubleshooting Tool）是 Oracle 提供的功能最�
 
 在 Profiler 界面，可以进行 CPU 和 内存的性能分析。要开始性能分析，需要先选择 **CPU** 或 **内存** 按钮中的一个，VisualVM 将会开始记录应用程序执行过的所有方法：如果是进行的是 CPU 执行时间分析，将会统计每个方法的执行次数、执行耗时；如果是内存分析，则会统计每个方法关联的对象数以及这些对象所占的空间。想要结束性能分析，点击停止按钮即可：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-946d7f3e-9519-4a0b-8905-0bf2c1d83fcb.png)
 
 
@@ -406,6 +439,7 @@ VisualVM（All-in-One Java Troubleshooting Tool）是 Oracle 提供的功能最�
 **4.  Visual GC**
 
 Visual GC 面板默认是不显示的，需要通过插件进行扩展。它会实时监控虚拟机的状态，在功能上类似于 jstat 命令：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-b6f23234-8b1d-44df-8b12-e723dc0d1903.png)
 
@@ -416,6 +450,7 @@ Visual GC 面板默认是不显示的，需要通过插件进行扩展。它会�
 
 在主界面，点击 **工具 => 插件** ，可以打开插件面板。右击插件选项或者点击安装按钮即可完成对应插件的安装：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-4518bc2f-ef1f-4ed6-8da9-47a0fdc03338.png)
 
 
@@ -425,12 +460,14 @@ Visual GC 面板默认是不显示的，需要通过插件进行扩展。它会�
 
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-146f715c-a902-4725-9101-07d608a04770.png)
 
 
 
 
 之后需要将正确的插件中心的地址配置到程序中：
+
 
 
 
@@ -492,6 +529,7 @@ chown root:root /usr/local/jmxremote.password
 
 之后在使用 VisualVM 进行远程连接时，配置如下：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-f84f1b0a-3ff7-444f-8285-709a234ce670.png)
 
 
@@ -541,6 +579,7 @@ openJDK源码：查看 JDK native 方法的实现
 strace：跟踪程序运行过程发起的系统调用
 
 https://fastthread.io：线程栈分析的网站
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/problem-tools-6d57b323-9665-4453-9fee-ea3111ad8629.png)
 

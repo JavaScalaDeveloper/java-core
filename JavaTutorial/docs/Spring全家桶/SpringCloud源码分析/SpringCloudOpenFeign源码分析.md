@@ -17,6 +17,7 @@
 4.  除了上面的问题，再联想一下，既然存在服务端是集群的情况，那服务端的地址和端口还需要一个注册中心来注册，这肯定也不能由客户端来完成，因为客户端只关注业务代码。那想都不用想，也是OpenFeign来完成了。
 
 OK，上面推导了OpenFeign应该完成的主要目标，接下来我们再来分析分析它是怎么做的。
+
 ![SpringCloud系列—Spring Cloud 源码分析之OpenFeign-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b45564c706ab4113cc23492cc0796907b851f8.jpg "SpringCloud系列—Spring Cloud 源码分析之OpenFeign-开源基础软件社区")之前的文章有讲过一个概念，不管是什么组件，只要是集成spring或者springboot的话，那一定是想通过spring或者springboot去管理bean对象的创建的，当通过容器拿到对象之后再去调用对象的核心方法，那OpenFeign在集成springboot的时候理念也应该是这样。
 
 1.  所以第一步，OpenFeign集成springboot，通过springboot拿到核心bean对象，例如上图中的userService对象。
@@ -26,6 +27,7 @@ OK，上面推导了OpenFeign应该完成的主要目标，接下来我们再来
     OK，以上分析了OpenFeign底层要实现的具体功能，也分析了它的处理流程，那么接下来我们通过源码来验证一下，它是不是这么玩的。
 
 **第2章 源码验证**
+
 
 ![SpringCloud系列—Spring Cloud 源码分析之OpenFeign-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/93070e354fbacedc2b85274846d2dde7dd170a.jpg "SpringCloud系列—Spring Cloud 源码分析之OpenFeign-开源基础软件社区")**2.1 EnableFeignClients**
 我们从下面这个注解进行切入，这个注解开启了FeignClient的解析过程。
@@ -292,7 +294,10 @@ public class FeignContext extends NamedContextFactory<FeignClientSpecification> 
 FeignContext是哪里构建的呢？
 
 配置见：
-pring-cloud-openfeign-core-2.2.3.RELEASE.jar!\META-INF\spring.factories![SpringCloud系列—Spring Cloud 源码分析之OpenFeign-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/d830f20713aca01438472786f5f84c7058232b.jpg "SpringCloud系列—Spring Cloud 源码分析之OpenFeign-开源基础软件社区")**2.2.1 FeignAutoConfiguration**
+pring-cloud-openfeign-core-2.2.3.RELEASE.jar!\META-INF\spring.factories
+
+![SpringCloud系列—Spring Cloud 源码分析之OpenFeign-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/d830f20713aca01438472786f5f84c7058232b.jpg "SpringCloud系列—Spring Cloud 源码分析之OpenFeign-开源基础软件社区")**2.2.1 FeignAutoConfiguration**
+
 
 ![SpringCloud系列—Spring Cloud 源码分析之OpenFeign-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/894c73791fbf7215782217d7132bc57f004085.jpg "SpringCloud系列—Spring Cloud 源码分析之OpenFeign-开源基础软件社区")
 

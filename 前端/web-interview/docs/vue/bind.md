@@ -1,16 +1,21 @@
 #  面试官：双向数据绑定是什么
 
+
 ![](https://static.vue-js.com/cef7dcc0-3ac9-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、什么是双向绑定
 
 我们先从单向绑定切入单向绑定非常简单，就是把`Model`绑定到`View`，当我们用`JavaScript`代码更新`Model`时，`View`就会自动更新双向绑定就很容易联想到了，在单向绑定的基础上，用户更新了`View`，`Model`的数据也自动被更新了，这种情况就是双向绑定举个栗子
 
- ![](https://static.vue-js.com/d65738d0-3ac9-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/d65738d0-3ac9-11eb-ab90-d9ae814b240d.png)
 
 当用户填写表单时，`View`的状态就被更新了，如果此时可以自动更新`Model`的状态，那就相当于我们把`Model`和`View`做了双向绑定关系图如下
 
- ![](https://static.vue-js.com/dcc1d4a0-3ac9-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/dcc1d4a0-3ac9-11eb-ab90-d9ae814b240d.png)
 
 ## 二、双向绑定的原理是什么
 
@@ -46,7 +51,9 @@
 
 流程图如下：
 
- ![](https://static.vue-js.com/e5369850-3ac9-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/e5369850-3ac9-11eb-85f6-6fac77c0c9b3.png)
 
 ### 实现
 
@@ -97,7 +104,9 @@ class Observer {
 
 对每个元素节点的指令进行扫描跟解析,根据指令模板替换数据,以及绑定相应的更新函数
 
- ![](https://static.vue-js.com/f27e19c0-3ac9-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/f27e19c0-3ac9-11eb-85f6-6fac77c0c9b3.png)
 
 ```js
 class Compile {  
@@ -135,7 +144,9 @@ class Compile {
 
 视图中会用到`data`中某`key`，这称为依赖。同⼀个`key`可能出现多次，每次都需要收集出来用⼀个`Watcher`来维护它们，此过程称为依赖收集多个`Watcher`需要⼀个`Dep`来管理，需要更新时由`Dep`统⼀通知
 
- ![](https://static.vue-js.com/fa191f40-3ac9-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/fa191f40-3ac9-11eb-ab90-d9ae814b240d.png)
 
 实现思路
 
@@ -226,5 +237,6 @@ function defineReactive(obj, key, val) {
 
 [面试官：说说你对vue的理解\?](http://mp.weixin.qq.com/s?__biz=MzU1OTgxNDQ1Nw==&mid=2247484101&idx=1&sn=83b0983f0fca7d7c556e4cb0bff8c9b8&chksm=fc10c093cb674985ef3bd2966f66fc28c5eb70b0037e4be1af4bf54fb6fa9571985abd31d52f&scene=21#wechat_redirect)  
 [面试官：说说你对SPA（单页应用）的理解\?](http://mp.weixin.qq.com/s?__biz=MzU1OTgxNDQ1Nw==&mid=2247484119&idx=1&sn=d171b28a00d42549d279498944a98519&chksm=fc10c081cb6749976814aaeda6a6433db418223cec57edda7e15b9e5a0ca69ad549655639c61&scene=21#wechat_redirect)
+
 
 ![](https://static.vue-js.com/821b87b0-3ac6-11eb-ab90-d9ae814b240d.png)

@@ -1,6 +1,8 @@
 # 面试官：说说你对链表的理解？常见的操作有哪些？
 
- ![](https://static.vue-js.com/d6638dd0-1c76-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/d6638dd0-1c76-11ec-8e64-91fdec0f05a1.png)
 
 ## 一、是什么
 
@@ -8,7 +10,9 @@
 
 每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域
 
- ![](https://static.vue-js.com/e4e93490-1c76-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/e4e93490-1c76-11ec-8e64-91fdec0f05a1.png)
 
 节点用代码表示，则如下：
 
@@ -59,7 +63,9 @@ while(current){
 
 向链表中间插入一个元素，可以如下图所示：
 
- ![](https://static.vue-js.com/f5fe5fd0-1c76-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/f5fe5fd0-1c76-11ec-8e64-91fdec0f05a1.png)
 
 可以看到，插入节点可以分成如下步骤：
 
@@ -92,7 +98,9 @@ node.next = current;
 
 向链表任意位置删除节点，如下图操作：
 
- ![](https://static.vue-js.com/0160cd90-1c77-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/0160cd90-1c77-11ec-a752-75723a64e8f5.png)
 
 从上图可以看到删除节点的步骤为如下：
 

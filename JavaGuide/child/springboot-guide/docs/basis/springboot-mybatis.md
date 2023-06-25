@@ -44,6 +44,7 @@ SpringBoot 整合 Mybatis 有两种常用的方式，一种就是我们常见的
 
 我们的用户表很简单，只有 4 个字段：用户 id、姓名、年龄、余额，如下图所示：
 
+
 ![表信息](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-29/99248060.jpg)
 
 添加了“余额money”字段是为了给大家简单的演示一下事务管理的方式。
@@ -130,6 +131,7 @@ public class User {
 先来看一下 全注解的方式，这种方式和后面提到的 xml 的方式的区别仅仅在于 一个将 sql 语句写在 java 代码中，一个写在 xml 配置文件中。全注方式解转换成 xml 方式仅需做一点点改变即可，我在后面会提到。
 
 **项目结构：**
+
 
 ![全注解方式项目结构](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-29/1909910.jpg)
 
@@ -283,11 +285,13 @@ public class MainApplication {
 
 上述代码经过测试都没问题，这里贴一下根据姓名查询的测试的结果。
 
+
 ![根据姓名查询的测试的结果](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-29/92834920.jpg)
 
 ## 三 xml 的方式
 
 **项目结构：**
+
 ![项目结构](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-29/485492.jpg)
 
 相比于注解的方式主要有以下几点改变，非常容易实现。

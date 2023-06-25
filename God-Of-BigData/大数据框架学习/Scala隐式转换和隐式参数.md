@@ -312,7 +312,7 @@ trait Ordered[A] extends Any with java.lang.Comparable[A] {
 object Pair extends App {
 
  // 视图界定
-  def smaller[T<% Ordered[T]](a: T, b: T) = if (a < b) a else b
+  def smaller[T<% Ordered[T]](images/a: T, b: T) = if (a < b) a else b
  
   println(smaller(1,2)) //输出 1
 }
@@ -339,7 +339,7 @@ Scala2.11+ 后，视图界定被标识为废弃，官方推荐使用类型限定
 object Pair extends App {
 
    // order 既是一个隐式参数也是一个隐式转换，即如果 a 不存在 < 方法，则转换为 order(a)<b
-  def smaller[T](a: T, b: T)(implicit order: T => Ordered[T]) = if (a < b) a else b
+  def smaller[T](images/a: T, b: T)(implicit order: T => Ordered[T]) = if (a < b) a else b
 
   println(smaller(1,2)) //输出 1
 }

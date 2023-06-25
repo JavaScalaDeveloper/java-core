@@ -2,7 +2,7 @@
 
 在开发TCP服务时，一个常见的需求便是使用心跳保活客户端。而Netty自带的三个超时处理器IdleStateHandler，ReadTimeoutHandler和WriteTimeoutHandler可完美满足此需求。其中IdleStateHandler可处理读超时（客户端长时间没有发送数据给服务端）、写超时（服务端长时间没有发送数据到客户端）和读写超时（客户端与服务端长时间无数据交互）三种情况。这三种情况的枚举为：
 
-```
+```java
 public enum IdleState {
         READER_IDLE,    // 读超时
         WRITER_IDLE,    // 写超时
@@ -91,7 +91,7 @@ private void destroy() {
 
 可知销毁的处理也很简单，分析完初始化和销毁，再看这两个方法被调用的地方，initialize()在三个方法中被调用：
 
-```
+```java
 public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
         if (ctx.channel().isActive() &&
                 ctx.channel().isRegistered()) {

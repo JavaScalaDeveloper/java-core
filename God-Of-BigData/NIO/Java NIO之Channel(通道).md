@@ -17,7 +17,8 @@ http://tutorials.jenkov.com/java-nio/index.html
 * 从通道进行数据写入 ：创建一个缓冲区，填充数据，并要求通道写入数据。
 
 数据读取和写入操作图示：
-![342194a2fdfeaf96e6051e08c9951de3](Java NIO之Channel(通道).resources/2958433B-EEAF-4D8B-98A2-39941C7C1733.png)
+
+![342194a2fdfeaf96e6051e08c9951de3](images/Java NIO之Channel(通道).resources/2958433B-EEAF-4D8B-98A2-39941C7C1733.png)
 
 **Java NIO Channel通道和流非常相似，主要有以下几点区别：**
 
@@ -34,7 +35,8 @@ http://tutorials.jenkov.com/java-nio/index.html
 
 **类层次结构：**
 下面的UML图使用Idea生成的。
-![5153431ea4cfbf8d64f746d098f8bda5](Java NIO之Channel(通道).resources/3A2E73E4-2445-4B90-93F0-0EB34EB8C82B.png)
+
+![5153431ea4cfbf8d64f746d098f8bda5](images/Java NIO之Channel(通道).resources/3A2E73E4-2445-4B90-93F0-0EB34EB8C82B.png)
 
 
 #### FileChannel的使用
@@ -83,7 +85,8 @@ public class FileChannelTxt {
 
 ```
 运行效果：
-![93e3d051206ec5c22f1997fae7e3a143](Java NIO之Channel(通道).resources/0CC9E605-79FB-455E-AF3F-1CD41832B4A6.png)
+
+![93e3d051206ec5c22f1997fae7e3a143](images/Java NIO之Channel(通道).resources/0CC9E605-79FB-455E-AF3F-1CD41832B4A6.png)
 通过上述实例代码，我们可以大概总结出FileChannel的一般使用规则：
 >**1. 开启FileChannel**
 
@@ -208,9 +211,11 @@ public class WebServer {
 ```
 **运行效果**
 客户端：
-![37ac5661df301bcc55f3bab690d6c3ea](Java NIO之Channel(通道).resources/6AF85EF7-83C7-48B6-A6AB-C70AD22A91D4.png)
+
+![37ac5661df301bcc55f3bab690d6c3ea](images/Java NIO之Channel(通道).resources/6AF85EF7-83C7-48B6-A6AB-C70AD22A91D4.png)
 服务端：
-![d6b8298bd2108e3fcd6ed422cec8daa8](Java NIO之Channel(通道).resources/821A61BD-80DF-493F-99D8-4F5330211339.png)
+
+![d6b8298bd2108e3fcd6ed422cec8daa8](images/Java NIO之Channel(通道).resources/821A61BD-80DF-493F-99D8-4F5330211339.png)
 通过上述实例代码，我们可以大概总结出SocketChannel和ServerSocketChannel的使用的一般使用规则：
 考虑到篇幅问题，下面只给出大致步骤，不贴代码，可以结合上述实例理解。
 **客户端**
@@ -265,7 +270,8 @@ Scatter/Gather功能是通道(Channel)提供的  并不是Buffer。
 
 **Scattering Reads**
 "scattering read"是把数据从单个Channel写入到多个buffer,如下图所示：
-![820b8ed4fd205e451772c9d18e0d629f](Java NIO之Channel(通道).resources/D2633F82-0A59-488A-AEC6-AB443A3125F4.png)
+
+![820b8ed4fd205e451772c9d18e0d629f](images/Java NIO之Channel(通道).resources/D2633F82-0A59-488A-AEC6-AB443A3125F4.png)
 示例代码:
 ```
 ByteBuffer header = ByteBuffer.allocate(128);
@@ -279,7 +285,8 @@ read()方法内部会负责把数据按顺序写进传入的buffer数组内。�
 无论是scatter还是gather操作，都是按照buffer在数组中的顺序来依次读取或写入的；
 **Gathering Writes**
 "gathering write"把多个buffer的数据写入到同一个channel中，下面是示意图
-![f39ff57a4463a05cc93ae22f402e6683](Java NIO之Channel(通道).resources/19060EA5-78B2-49F1-A706-0C99F3BC51A5.png)
+
+![f39ff57a4463a05cc93ae22f402e6683](images/Java NIO之Channel(通道).resources/19060EA5-78B2-49F1-A706-0C99F3BC51A5.png)
 示例代码：
 ```
 ByteBuffer header = ByteBuffer.allocate(128);

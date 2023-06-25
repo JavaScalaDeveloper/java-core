@@ -1,6 +1,8 @@
 # 面试官：如何实现单行／多行文本溢出的省略样式？
 
- ![](https://static.vue-js.com/ada8d840-a0e9-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/ada8d840-a0e9-11eb-ab90-d9ae814b240d.png)
 
 
 ## 一、前言
@@ -58,7 +60,9 @@
 
 效果如下：
 
- ![](https://static.vue-js.com/bb3048e0-a0e9-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/bb3048e0-a0e9-11eb-85f6-6fac77c0c9b3.png)
 
 可以看到，设置单行文本溢出较为简单，并且省略号显示的位置较好
 

@@ -83,6 +83,7 @@ SpringMVC是一个**典型的轻量级MVC框架**，在整个MVC架构中充当�
 
 <figure data-size="normal">
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-3363c79f645a232562a2d6e800a11967_720w.webp)
 </figure>
 
@@ -456,12 +457,14 @@ public class CharacterEncodingFilter  implements Filter {
 
 <figure data-size="normal">
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/52752e7a606d50ae243cf94309de682b_v2-aadb0832d3c878ff17af7dfe66e7f914_720w.webp)
 </figure>
 
 有了前端控制器之后，我们变成了这样。
 
 <figure data-size="normal">
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-cb0dcdd3922ebfba4781800dd492dd69_720w.webp)
 </figure>

@@ -271,7 +271,7 @@ CREATE TEMPORARY EXTERNAL TABLE  IF NOT EXISTS  emp_co  LIKE emp
 load data local inpath "/usr/file/emp.txt" into table emp;
 ```
 
-其中 emp.txt 的内容如下，你可以直接复制使用，也可以到本仓库的[resources](https://github.com/heibaiying/BigData-Notes/tree/master/resources) 目录下载：
+其中 emp.txt 的内容如下，你可以直接复制使用，也可以到本仓库的[resources](images/https://github.com/heibaiying/BigData-Notes/tree/master/resources) 目录下载：
 
 ```txt
 7369	SMITH	CLERK	7902	1980-12-17 00:00:00	800.00		20
@@ -447,4 +447,4 @@ SHOW CREATE TABLE ([db_name.]table_name|view_name);
 
 ## 参考资料
 
-[LanguageManual DDL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL)
+[LanguageManual DDL](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL)

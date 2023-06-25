@@ -1,6 +1,8 @@
 # 面试官：说说对受控组件和非受控组件的理解？应用场景？
 
- ![](https://static.vue-js.com/12990fd0-df2f-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/12990fd0-df2f-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -75,7 +77,9 @@ export class UnControll extends Component {
 
 针对两者的区别，其应用场景如下图所示：
 
- ![](https://static.vue-js.com/f28aed20-df2f-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/f28aed20-df2f-11eb-ab90-d9ae814b240d.png)
 
 
 

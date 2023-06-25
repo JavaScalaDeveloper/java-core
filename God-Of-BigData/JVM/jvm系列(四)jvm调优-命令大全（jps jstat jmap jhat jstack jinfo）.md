@@ -35,7 +35,8 @@ LVMID : 本地虚拟机进程ID
 [count] : 连续输出的次数
 
 option 参数总览
-![9ae139c199be662b76b7860da58f0f07](jvm系列(四)jvm调优-命令大全（jps jstat jmap jhat jstack jinfo）.resources/3358A9D6-B4C7-4831-B26B-AD24973357EB.png)
+
+![9ae139c199be662b76b7860da58f0f07](images/jvm系列(四)jvm调优-命令大全（jps jstat jmap jhat jstack jinfo）.resources/3358A9D6-B4C7-4831-B26B-AD24973357EB.png)
 
 option 参数详解
 -class
@@ -399,8 +400,11 @@ Show finalizer summary
 Execute Object Query Language (OQL) query
 ```
 一般查看堆异常情况主要看这个两个部分： Show instance counts for all classes (excluding platform)，平台外的所有对象信息。如下图：
-![7f32f8469cc634a9c9a344ee905f9654](jvm系列(四)jvm调优-命令大全（jps jstat jmap jhat jstack jinfo）.resources/E7DB83E0-2344-4149-8603-C606D78AB943.png)
-Show heap histogram 以树状图形式展示堆情况。如下图：![80be25d2f1c6b019c28d96c42842fac6](jvm系列(四)jvm调优-命令大全（jps jstat jmap jhat jstack jinfo）.resources/8DE752AB-6C96-4A58-8E01-8970BA3E2014.png)
+
+![7f32f8469cc634a9c9a344ee905f9654](images/jvm系列(四)jvm调优-命令大全（jps jstat jmap jhat jstack jinfo）.resources/E7DB83E0-2344-4149-8603-C606D78AB943.png)
+Show heap histogram 以树状图形式展示堆情况。如下图：
+
+![80be25d2f1c6b019c28d96c42842fac6](images/jvm系列(四)jvm调优-命令大全（jps jstat jmap jhat jstack jinfo）.resources/8DE752AB-6C96-4A58-8E01-8970BA3E2014.png)
 具体排查时需要结合代码，观察是否大量应该被回收的对象在一直被引用或者是否有占用内存特别大的对象无法被回收。一般情况，会down到客户端用工具来分析
 
 **jstack**
@@ -444,7 +448,7 @@ Full thread dump Java HotSpot(TM) 64-Bit Server VM (24.71-b01 mixed mode):
         - None
       .....
 ```
-这里有一篇文章解释的很好 [分析打印出的文件内容](http://www.hollischuang.com/archives/110)
+这里有一篇文章解释的很好 [分析打印出的文件内容](images/http://www.hollischuang.com/archives/110)
 jinfo
 jinfo(JVM Configuration info)这个命令作用是实时查看和调整虚拟机运行参数。 之前的jps -v口令只能查看到显示指定的参数，如果想要查看未被显示指定的参数的值就要使用jinfo口令
 

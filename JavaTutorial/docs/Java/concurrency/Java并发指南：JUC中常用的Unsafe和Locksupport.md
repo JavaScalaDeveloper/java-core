@@ -27,6 +27,7 @@
 
 最近在看Java并发包的源码，发现了神奇的Unsafe类，仔细研究了一下，在这里跟大家分享一下。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404202919.png)
 
 Unsafe类是在sun.misc包下，不属于Java标准。但是很多Java的基础类库，包括一些被广泛使用的高性能开发库都是基于Unsafe类开发的，比如Netty、Cassandra、Hadoop、Kafka等。Unsafe类在提升Java运行效率，增强Java语言底层操作能力方面起了很大的作用。

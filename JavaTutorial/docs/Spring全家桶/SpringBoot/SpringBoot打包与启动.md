@@ -508,6 +508,7 @@ springboot 引入及打包方式组合下来有如下四种：
 
 自从有了 springboot 后，web 项目就不必再放到 web 容器中运行了，直接运行项目的`main()`方法就行了：
 
+
 ![](https://oscimg.oschina.net/oscnet/up-040888025c22694b18d7be748b8cbb89f06.png)
 
 启动日志如下：

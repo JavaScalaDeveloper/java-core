@@ -43,6 +43,7 @@
 
 开篇来一些废话。下图是 java 线程池几个相关类的继承结构：
 
+
 ![1](https://www.javadoop.com/blogimages/java-thread-pool/1.jpg)
 
 先简单说说这个继承结构，Executor 位于最顶层，也是最简单的，就一个 execute(Runnable runnable) 接口方法定义。
@@ -54,6 +55,7 @@ ExecutorService 也是接口，在 Executor 接口的基础上添加了很多的
 然后才到我们的重点部分 ThreadPoolExecutor 类，这个类提供了关于线程池所需的非常丰富的功能。
 
 另外，我们还涉及到下图中的这些类：
+
 
 ![others](https://www.javadoop.com/blogimages/java-thread-pool/others.png)
 
@@ -595,6 +597,7 @@ public <T> Future<T> submit(Callable<T> task) {
 初学者往往会搞混这个，因为 Runnable 总是在各个地方出现，经常把一个 Runnable 包到另一个 Runnable 中。请把它想象成有个 Task 接口，这个接口里面有一个 run() 方法。
 
 我们回过神来继续往下看，我画了一个简单的示意图来描述线程池中的一些主要的构件：
+
 
 ![pool-1](https://www.javadoop.com/blogimages/java-thread-pool/pool-1.png)
 

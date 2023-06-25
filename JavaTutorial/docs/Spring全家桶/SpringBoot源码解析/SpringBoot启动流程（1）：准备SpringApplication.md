@@ -206,6 +206,7 @@ public class SpringApplication {
 
 最终会有多少个?`ApplicationContextInitializer`?加载进来呢？通过调试，发现一共有 7 个：
 
+
 ![](https://oscimg.oschina.net/oscnet/up-53f764fefeb0c55fcfef6e34634805162f5.png)
 
 对这 7 个?`ApplicationContextInitializer`，说明如下：
@@ -244,6 +245,7 @@ setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class)
 ```
 
 从形式上看，同?`Initializer`?一样，也是先从?`META-INF/spring.factories`?中加载?`ApplicationListener`，然后添加到成员变量中，这里我们直接看能获取到哪些?`listener`：
+
 
 ![](https://oscimg.oschina.net/oscnet/up-0440eb21c69a75686850a1b44eb9f1287c8.png)
 
@@ -298,6 +300,7 @@ private Class<?> deduceMainApplicationClass() {
 
 这里主要是通过?`new RuntimeException().getStackTrace()`?获取调用栈，然后遍历，得到包含?`main`?方法的类，得到的调用栈如下：
 
+
 ![](https://oscimg.oschina.net/oscnet/up-8c04487e6b05f583e7d45b83c293634f42a.png)
 
 可以看到，`main()`?就包含在调用栈中了。
@@ -310,6 +313,7 @@ private Class<?> deduceMainApplicationClass() {
 2.  设置初始化器：`ApplicationContextInitializer`；
 3.  设置监听器：`ApplicationListener`；
 4.  推断主类。
+
 
 ![](https://oscimg.oschina.net/oscnet/up-e9a43f1c523c0f19d37e4741580ed32ca08.png)
 

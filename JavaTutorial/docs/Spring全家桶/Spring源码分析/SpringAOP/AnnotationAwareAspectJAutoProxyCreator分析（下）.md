@@ -548,6 +548,7 @@ public Object getProxy(@Nullable ClassLoader classLoader) {
 
 最后我们来看看得到的代理对象是什么样的：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-ee46c03d86755b936862c9e8cde266fca1e.png)
 
 可以看到，代理对象的 `h` 属性保存的就是 `JdkDynamicAopProxy` 对象，`JdkDynamicAopProxy` 对象的 `advised` 属性保存了代理的代理的相关信息。
@@ -612,6 +613,7 @@ public Object getProxy(@Nullable ClassLoader classLoader) {
 spring 使用 cglib 创建对象，主要用到了 `Enhancer` 类，关于这一块后面会再分析。
 
 最后我们也来看看创建后得到的对象：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-97d647a818f62fa0979dabd58f3aa19e473.png)
 

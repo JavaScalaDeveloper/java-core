@@ -9,6 +9,7 @@ tag:
 
 **OSI 七层模型** 是国际标准化组织提出一个网络分层模型，其大体结构以及每一层提供的功能如下图所示：
 
+
 ![OSI 七层模型](https://oss.javaguide.cn/github/javaguide/cs-basics/network/osi-7-model.png)
 
 每一层都专注做一件事情，并且每一层都需要使用下一层提供的功能比如传输层需要使用网络层提供的路由和寻址功能，这样传输层才知道把数据传输到哪里去。
@@ -16,6 +17,7 @@ tag:
 **OSI 的七层体系结构概念清楚，理论也很完整，但是它比较复杂而且不实用，而且有些功能在多个层中重复出现。**
 
 上面这种图可能比较抽象，再来一个比较生动的图片。下面这个图片是我在国外的一个网站上看到的，非常赞！
+
 
 ![osi七层模型2](https://oss.javaguide.cn/github/javaguide/osi七层模型2.png)
 
@@ -32,6 +34,7 @@ OSI 七层模型虽然失败了，但是却提供了很多不错的理论基础�
 
 最后再分享一个关于 OSI 七层模型非常不错的总结图片！
 
+
 ![](https://oss.javaguide.cn/github/javaguide/cs-basics/network/osi-model-detail.png)
 
 ## TCP/IP 四层模型
@@ -45,17 +48,20 @@ OSI 七层模型虽然失败了，但是却提供了很多不错的理论基础�
 
 需要注意的是，我们并不能将 TCP/IP 四层模型 和 OSI 七层模型完全精确地匹配起来，不过可以简单将两者对应起来，如下图所示：
 
+
 ![TCP/IP 四层模型](https://oss.javaguide.cn/github/javaguide/cs-basics/network/tcp-ip-4-model.png)
 
 ### 应用层（Application layer）
 
 **应用层位于传输层之上，主要提供两个终端设备上的应用程序之间信息交换的服务，它定义了信息交换的格式，消息会交给下一层传输层来传输。** 我们把应用层交互的数据单元称为报文。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/cs-basics/network/network-five-layer-sample-diagram.png)
 
 应用层协议定义了网络通信规则，对于不同的网络应用需要不同的应用层协议。在互联网中应用层协议很多，如支持 Web 应用的 HTTP 协议，支持电子邮件的 SMTP 协议等等。
 
 **应用层常见协议**：
+
 
 ![应用层常见协议](https://oss.javaguide.cn/github/javaguide/cs-basics/network/application-layer-protocol.png)
 
@@ -76,6 +82,7 @@ OSI 七层模型虽然失败了，但是却提供了很多不错的理论基础�
 
 **传输层常见协议**：
 
+
 ![传输层常见协议](https://oss.javaguide.cn/github/javaguide/cs-basics/network/transport-layer-protocol.png)
 
 - **TCP（Transmisson Control Protocol，传输控制协议 ）**：提供 **面向连接** 的，**可靠** 的数据传输服务。
@@ -94,6 +101,7 @@ OSI 七层模型虽然失败了，但是却提供了很多不错的理论基础�
 互联网是由大量的异构（heterogeneous）网络通过路由器（router）相互连接起来的。互联网使用的网络层协议是无连接的网际协议（Internet Protocol）和许多路由选择协议，因此互联网的网络层也叫做 **网际层** 或 **IP 层**。
 
 **网络层常见协议**：
+
 
 ![网络层常见协议](https://oss.javaguide.cn/github/javaguide/cs-basics/network/nerwork-layer-protocol.png)
 
@@ -114,11 +122,13 @@ OSI 七层模型虽然失败了，但是却提供了很多不错的理论基础�
 
 网络接口层重要功能和协议如下图所示：
 
+
 ![网络接口层重要功能和协议](https://oss.javaguide.cn/github/javaguide/cs-basics/network/network-interface-layer-protocol.png)
 
 ### 总结
 
 简单总结一下每一层包含的协议和核心技术:
+
 
 ![TCP/IP 各层协议概览](https://oss.javaguide.cn/github/javaguide/cs-basics/network/network-protocol-overview.png)
 

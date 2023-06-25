@@ -49,6 +49,7 @@ java之所以能够实现跨平台，便在于其编译阶段不是将代码直�
 
 随便找到一个class文件，用Sublime Text打开是这样的：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404220426.png)
 
 是不是一脸懵逼，不过java虚拟机规范中给出了class文件的基本格式，只要按照这个格式去解析就可以了：
@@ -334,6 +335,7 @@ for (int j = 0; j < methodInfo.attributesCount; j++) {
 ## 运行
 
 整个项目终于写完了，接下来就来看看效果如何，随便找一个class文件解析运行：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404220510.png)
 

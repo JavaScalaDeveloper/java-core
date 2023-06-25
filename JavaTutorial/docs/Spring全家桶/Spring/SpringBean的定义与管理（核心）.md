@@ -133,6 +133,7 @@ Bean后处理器是一种特殊的Bean，这种特殊的Bean并不对外提供�
 
 容器中一旦注册了Bean后处理器，Bean后处理器就会自动启动，在容器中每个Bean创建时自动工作，Bean后处理器两个方法的回调时机如下图：
 
+
 ![bean-post-process](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/e8970a58f831cd7613b680ef0541e7c7.jpg)
 
 注意一点，如果使用`BeanFactory`作为Spring容器，则必须手动注册Bean后处理器，程序必须获取Bean后处理器实例，然后手动注册。

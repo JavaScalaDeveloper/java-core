@@ -125,17 +125,21 @@ public class VolatileDemo {
 
 第一次：
 
+
 ![image-20200309172900462](images/image-20200309172900462.png)
 
 第二次：
+
 
 ![image-20200309172919295](images/image-20200309172919295.png)
 
 第三次：
 
+
 ![image-20200309172929820](images/image-20200309172929820.png)
 
 ## 为什么出现数值丢失
+
 
 ![image-20200309174220675](images/image-20200309174220675.png)
 
@@ -183,9 +187,11 @@ public class com.moxi.interview.study.thread.T1 {
 
 我们首先，使用IDEA提供的External Tools，来扩展javap命令
 
+
 ![image-20200309183026329](images/image-20200309183026329.png)
 
 完成上述操作后，我们在需要查看字节码的文件下，右键选择 External Tools即可
+
 
 ![image-20200309183115613](images/image-20200309183115613.png)
 
@@ -228,6 +234,7 @@ public class com.moxi.interview.study.thread.T1 {
 ```
 
 运行结果：
+
 
 ![image-20200309173315294](images/image-20200309173315294.png)
 
@@ -275,6 +282,7 @@ public class com.moxi.interview.study.thread.T1 {
 ```
 
 下面的结果，一个是引入synchronized，一个是使用了原子包装类AtomicInteger
+
 
 ![image-20200309205242622](images/image-20200309205242622.png)
 

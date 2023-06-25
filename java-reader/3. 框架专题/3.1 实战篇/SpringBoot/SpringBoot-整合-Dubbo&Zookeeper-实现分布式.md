@@ -58,6 +58,7 @@
 ```
 #####    2.2. Service填写
 大概给下项目架构:
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-a05bc3bb67e3a211.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 为了方便，我用的springboot data jpa做持久性框架。如果不会jpa，请先看我[springboot jpa整合](https://www.jianshu.com/p/3b31270a44b1)。
 1. SchoolRepository .java
@@ -100,6 +101,7 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 注意： 每一个服务都需要一个未被使用的dubbo端口 。
 ###   3. 服务消费
 为了和服务提供者解耦，我们需要把Service接口类单独拿出来放到client模块里，这里不贴详细代码了。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-a4bca55f35dceb46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #####    3.1 pom.xml
@@ -131,6 +133,7 @@ spring.dubbo.scan=com.xxx.web.controller
 ```
 
 成功截图：
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-67aa4b93fba140f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

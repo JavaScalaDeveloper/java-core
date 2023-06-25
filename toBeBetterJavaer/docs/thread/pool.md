@@ -230,6 +230,7 @@ public void execute(Runnable command) {
 
 整个过程如图所示：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/pool-f9e419fa-9d42-44fc-b14e-5b618a6f906d.png)
 
 ### ThreadPoolExecutor如何做到线程复用的？

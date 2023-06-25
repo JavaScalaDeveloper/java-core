@@ -25,6 +25,7 @@ head:
 
 想要系统性地掌握 GC 问题处理，笔者这里给出一个学习路径，整体文章的框架也是按照这个结构展开，主要分四大步。
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-22ed8367a864013b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 *   **建立知识体系：**从 JVM 的内存结构到垃圾收集的算法和收集器，学习 GC 的基础知识，掌握一些常用的 GC 问题分析工具。
@@ -58,6 +59,7 @@ head:
 **2.2 JVM 内存划分**
 
 从 JCP（Java Community Process）的官网中可以看到，目前 Java 版本最新已经到了 Java 16，未来的 Java 17 以及现在的 Java 11 和 Java 8 是 LTS 版本，JVM 规范也在随着迭代在变更，由于本文主要讨论 CMS，此处还是放 Java 8 的内存结构。
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-5379d37a996aabf9?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -95,9 +97,11 @@ Java 中对象地址操作主要使用 Unsafe 调用了 C 的 allocate 和 free 
 
 三种算法在是否移动对象、空间和时间方面的一些对比，假设存活对象数量为 *L*、堆空间大小为 *H*，则：
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-03f497067b9ff350?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 把 mark、sweep、compaction、copying 这几种动作的耗时放在一起看，大致有这样的关系：
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-a1c69e01cb02c636?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -106,6 +110,7 @@ Java 中对象地址操作主要使用 Unsafe 调用了 C 的 allocate 和 free 
 **2.5 收集器**
 
 目前在 Hotspot VM 中主要有分代收集和分区收集两大类，具体可以看下面的这个图，不过未来会逐渐向分区收集发展。在美团内部，有部分业务尝试用了 ZGC（感兴趣的同学可以学习下这篇文章《[新一代垃圾回收器ZGC的探索与实践](http://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&mid=2651752559&idx=1&sn=c720b67e93db1885d72dab8799bba78c&chksm=bd1251228a65d834db610deb2ce55003e0fc1f90793e84873096db19027936f6add301242545&scene=21#wechat_redirect)》），其余基本都停留在 CMS 和 G1 上。另外在 JDK11 后提供了一个不执行任何垃圾回收动作的回收器 Epsilon（A No-Op Garbage Collector）用作性能分析。另外一个就是 Azul 的 Zing JVM，其 C4（Concurrent Continuously Compacting Collector）收集器也在业内有一定的影响力。
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-6c3339b84c2861cf?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -125,11 +130,13 @@ Java 中对象地址操作主要使用 Unsafe 调用了 C 的 allocate 和 free 
 
 *   **Shenandoah：**由 Red Hat 的一个团队负责开发，与 G1 类似，基于 Region 设计的垃圾收集器，但不需要 Remember Set 或者 Card Table 来记录跨 Region 引用，停顿时间和堆的大小没有任何关系。停顿时间与 ZGC 接近，下图为与 CMS 和 G1 等收集器的 benchmark。
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-238d04be0f931ddc?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **2.5.3 常用收集器**
 
 目前使用最多的是 CMS 和 G1 收集器，二者都有分代的概念，主要内存结构如下：
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-8082240b37153163.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -171,6 +178,7 @@ Java 中对象地址操作主要使用 Unsafe 调用了 C 的 allocate 和 free 
 
 目前各大互联网公司的系统基本都更追求低延时，避免一次 GC 停顿的时间过长对用户体验造成损失，衡量指标需要结合一下应用服务的 SLA，主要如下两点来判断：
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-0116d4ae68567826?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 简而言之，即为**一次停顿的时间不超过应用服务的 TP9999，GC 的吞吐量不小于 99.99%**。举个例子，假设某个服务 A 的 TP9999 为 80 ms，平均 GC 停顿为 30 ms，那么该服务的最大停顿时间最好不要超过 80 ms，GC 频次控制在 5 min 以上一次。如果满足不了，那就需要调优或者通过更多资源来进行并联冗余。（大家可以先停下来，看看监控平台上面的 gc.meantime 分钟级别指标，如果超过了 6 ms 那单机 GC 吞吐量就达不到 4 个 9 了。）
@@ -180,6 +188,7 @@ Java 中对象地址操作主要使用 Unsafe 调用了 C 的 allocate 和 free 
 **3.1.2 读懂 GC Cause**
 
 拿到 GC 日志，我们就可以简单分析 GC 情况了，通过一些工具，我们可以比较直观地看到 Cause 的分布情况，如下图就是使用 gceasy 绘制的图表：
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-955a1b25ed4cf223?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -407,6 +416,7 @@ Mutator 的类型根据对象存活时间比例图来看主要分为两种，在
 
 当然，除了二者之外还有介于两者之间的场景，本篇文章主要讨论第一种情况。对象 Survival Time 分布图，对我们设置 GC 参数有着非常重要的指导意义，如下图就可以简单推算分代的边界。
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-60042d509303a8da.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **3.3.2 GC 问题分类**
@@ -450,6 +460,7 @@ Mutator 的类型根据对象存活时间比例图来看主要分为两种，在
 **4.1.1 现象**
 
 服务**刚刚启动时 GC 次数较多**，最大空间剩余很多但是依然发生 GC，这种情况我们可以通过观察 GC 日志或者通过监控工具来观察堆的空间变化情况即可。GC Cause 一般为 Allocation Failure，且在 GC 日志中会观察到经历一次 GC ，堆内各个空间的大小会被调整，如下图所示：
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-67e901a7c5e7e30f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -506,6 +517,7 @@ HeapWord* GenCollectedHeap::expand_heap_and_allocate(size_t size, bool   is_tlab
 ```
 
 整个伸缩的模型理解可以看这个图，当 committed 的空间大小超过了低水位/高水位的大小，capacity 也会随之调整：
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-3aeae4ad893ad80e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -821,6 +833,7 @@ void MetaspaceGC::compute_new_size() {
 jcmd <PID> GC.class_stats|awk '{print$13}'|sed  's/\(.*\)\.\(.*\)/\1/g'|sort |uniq -c|sort -nrk1
 ```
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-ccbcb6abec0be074?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 如果无法从整体的角度定位，可以添加 `-XX:+TraceClassLoading` 和 `-XX:+TraceClassUnLoading` 参数观察详细的类加载和卸载信息。
@@ -844,6 +857,7 @@ GC 日志中出现“Desired survivor size 107347968 bytes, **new threshold 1(m
 **Full GC 比较频繁**，且经历过一次 GC 之后 Old 区的**变化比例非常大**。
 
 比如说 Old 区触发的回收阈值是 80%，经历过一次 GC 之后下降到了 10%，这就说明 Old 区的 70% 的对象存活时间其实很短，如下图所示，Old 区大小每次 GC 后从 2.1G 回收到 300M，也就是说回收掉了 1.8G 的垃圾，只有 **300M 的活跃对象**。整个 Heap 目前是 4G，活跃对象只占了不到十分之一。
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-c54bcc03f90e3453?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -934,7 +948,9 @@ uint ageTable::compute_tenuring_threshold(size_t survivor_capacity) {
 
 拿笔者的一次典型过早晋升优化来看，原配置为 Young 1.2G + Old 2.8G，通过观察 CMS GC 的情况找到存活对象大概为 300~400M，于是调整 Old 1.5G 左右，剩下 2.5G 分给 Young 区。仅仅调了一个 Young 区大小参数（`-Xmn`），整个 JVM 一分钟 Young GC 从 26 次降低到了 11 次，单次时间也没有增加，总的 GC 时间从 1100ms 降低到了 500ms，CMS GC 次数也从 40 分钟左右一次降低到了 7 小时 30 分钟一次。 
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-275fb3e2ef819510.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-f35d8959165c9626.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -954,7 +970,9 @@ uint ageTable::compute_tenuring_threshold(size_t survivor_capacity) {
 
 关于在调整 Young 与 Old 的比例时，如何选取具体的 NewRatio 值，这里将问题抽象成为一个蓄水池模型，找到以下关键衡量指标，大家可以根据自己场景进行推算。
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-d2e906333a2d992a.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-db3d904f3a8e35c5.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -1141,6 +1159,7 @@ bool CMSCollector::shouldConcurrentCollect() {
 
 处理这种常规内存泄漏问题基本是一个思路，主要步骤如下：
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-8d4ff8c462410a8b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Dump Diff 和 Leak Suspects 比较直观就不介绍了，这里说下其它几个关键点：
@@ -1150,6 +1169,7 @@ Dump Diff 和 Leak Suspects 比较直观就不介绍了，这里说下其它几�
 *   **分析 Top Component：**要记得按照对象、类、类加载器、包等多个维度观察 Histogram，同时使用 outgoing 和 incoming 分析关联的对象，另外就是 Soft Reference 和 Weak Reference、Finalizer 等也要看一下。
 
 *   **分析 Unreachable：**重点看一下这个，关注下 Shallow 和 Retained 的大小。如下图所示，笔者之前一次 GC 优化，就根据 Unreachable Objects 发现了 Hystrix 的滑动窗口问题。
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-887b79c6e849022f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -1162,6 +1182,7 @@ Dump Diff 和 Leak Suspects 比较直观就不介绍了，这里说下其它几�
 **4.6.1 现象**
 
 CMS GC 单次 STW 最大超过 1000ms，不会频繁发生，如下图所示最长达到了 8000ms。某些场景下会引起“雪崩效应”，这种场景非常危险，我们应该尽量避免出现。
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-9be8760d24bfa6bd?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -1273,6 +1294,7 @@ void CMSCollector::checkpointRootsInitialWork() {
 }
 ```
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-e7fa98f83dac0698.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 整个过程比较简单，从 GC Root 出发标记 Old 中的对象，处理完成后借助 BitMap 处理下 Young 区对 Old 区的引用，整个过程基本都比较快，很少会有较大的停顿。
@@ -1374,6 +1396,7 @@ void CMSCollector::checkpointRootsFinalWork() {
 }
 ```
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-1a98f9a720335361?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Final Remark 是最终的第二次标记，这种情况只有在 Background GC 执行了 InitialMarking 步骤的情形下才会执行，如果是 Foreground GC 执行的 InitialMarking 步骤则不需要再次执行 FinalRemark。Final Remark 的开始阶段与 Init Mark 处理的流程相同，但是后续多了 Card Table 遍历、Reference 实例的清理并将其加入到 Reference 维护的 `pend_list` 中，如果要收集元数据信息，还要清理 SystemDictionary、CodeCache、SymbolTable、StringTable 等组件中不再使用的资源。
@@ -1457,6 +1480,7 @@ CMS 发生收集器退化主要有以下几种情况。
 
 使用 CMS 作为 GC 收集器时，运行过一段时间的 Old 区如下图所示，清除算法导致内存出现多段的不连续，出现大量的内存碎片。
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-46bc05c0c97a2403?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 碎片带来了两个问题：
@@ -1539,13 +1563,16 @@ Netty 中是：`OutOfDirectMemoryError: failed to allocate capacity byte(s) of d
 
 gperftools 是 Google 开发的一款非常实用的工具集，它的原理是在 Java 应用程序运行时，当调用 malloc 时换用它的 libtcmalloc.so，这样就能对内存分配情况做一些统计。我们使用 gperftools 来追踪分配内存的命令。如下图所示，通过 gperftools 发现 `Java_java_util_zip_Inflater_init` 比较可疑。
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-11fd0d748962a60e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 接下来可以使用 Btrace，尝试定位具体的调用栈。Btrace 是 Sun 推出的一款 Java 追踪、监控工具，可以在不停机的情况下对线上的 Java 程序进行监控。如下图所示，通过 Btrace 定位出项目中的 `ZipHelper` 在频繁调用 `GZIPInputStream` ，在堆外内存分配对象。
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-78a2708e3652f668?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 最终定位到是，项目中对 `GIPInputStream` 的使用错误，没有正确的 close()。
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-7aeb1bd968da52f7?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -1554,6 +1581,7 @@ gperftools 是 Google 开发的一款非常实用的工具集，它的原理是�
 **4.8.4 小结**
 
 首先可以使用 NMT + jcmd 分析泄漏的堆外内存是哪里申请，确定原因后，使用不同的手段，进行原因定位。
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-7bbcc8abc365209c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -1635,6 +1663,7 @@ JNIEXPORT void JNICALL Java_GCLockerTest_release(JNIEnv* env, jclass klass, jint
 
 运行该 JNI 程序，可以看到发生的 GC 都是 GCLocker Initiated GC，并且注意在 “Acquired” 和 “Released” 时不可能发生 GC。
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-be1f08f7671866b1?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 GC Locker 可能导致的不良后果有：
@@ -1650,6 +1679,7 @@ GC Locker 可能导致的不良后果有：
 *   JNI 调用需要谨慎，不一定可以提升性能，反而可能造成 GC 问题。
 *   升级 JDK 版本到 14，避免 [JDK-8048556](https://bugs.openjdk.java.net/browse/JDK-8048556) 导致的重复 GC。
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-dc4a53598d2ffd0a.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **4.9.4 小结**
@@ -1664,6 +1694,7 @@ JNI 产生的 GC 问题较难排查，需要谨慎使用。
 
 下图为整体 GC 问题普适的处理流程，重点的地方下面会单独标注，其他的基本都是标准处理流程，此处不再赘述，最后在整个问题都处理完之后有条件的话建议做一下复盘。
 
+
 ![](https://upload-images.jianshu.io/upload_images/1179389-06b02637605cdf5f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 *   **制定标准：**这块内容其实非常重要，但大部分系统都是缺失的，笔者过往面试的同学中只有不到一成的同学能给出自己的系统 GC 标准到底什么样，其他的都是用的统一指标模板，缺少预见性，具体指标制定可以参考 3.1 中的内容，需要结合应用系统的 TP9999 时间和延迟、吞吐量等设定具体的指标，而不是被问题驱动。
@@ -1676,6 +1707,7 @@ JNI 产生的 GC 问题较难排查，需要谨慎使用。
 **5.2 根因鱼骨图**
 
 送上一张问题根因鱼骨图，一般情况下我们在处理一个 GC 问题时，只要能定位到问题的“病灶”，有的放矢，其实就相当于解决了 80%，如果在某些场景下不太好定位，大家可以借助这种根因分析图通过**排除法**去定位。
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-7dd5d0e42488ebaa?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -1692,6 +1724,7 @@ JNI 产生的 GC 问题较难排查，需要谨慎使用。
 *   **调优重点：**总体上来讲，我们开发的过程中遇到的问题类型也基本都符合正态分布，太简单或太复杂的基本遇到的概率很低，笔者这里将中间最重要的三个场景添加了“*”标识，希望阅读完本文之后可以观察下自己负责的系统，是否存在上述问题。
 
 *   **GC 参数：**如果堆、栈确实无法第一时间保留，一定要保留 GC 日志，这样我们最起码可以看到 GC Cause，有一个大概的排查方向。关于 GC 日志相关参数，最基本的 `-XX:+HeapDumpOnOutOfMemoryError` 等一些参数就不再提了，笔者建议添加以下参数，可以提高我们分析问题的效率。
+
 
 ![](https://upload-images.jianshu.io/upload_images/1179389-28d7362e83e88266?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

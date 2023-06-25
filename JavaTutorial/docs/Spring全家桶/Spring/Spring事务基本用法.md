@@ -8,6 +8,7 @@
 
 将该 JAR 包的后缀名 jar 改成 zip 的形式后，解压压缩包，进入解压文件夹中的 \org\springframework\transaction 目录后，该目录中的文件如图 1 所示。
 
+
 ![事务管理核心接口](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/760_a12_405.png)  
 图 1  事务管理核心接口
 
@@ -80,6 +81,7 @@ Spring 实现声明式事务管理主要有两种方式：
 
 在 MyEclipse 中创建一个名为 springDemo03 的 Web 项目，将 Spring 支持和依赖的 JAR 包复制到 Web 项目的 lib 目录中，并添加到类路径下。所添加的 JAR 包如图 1 所示。
 
+
 ![需要导入的JAR包](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/761_732_fcf.png)  
 图 1  需要导入的JAR包
 
@@ -100,6 +102,7 @@ INSERT INTO account VALUES (1,'zhangsan',1000);
 INSERT INTO account VALUES (2,'lisi',1000);
 
 执行后的 account 表中的数据如图 2 所示。
+
 
 ![执行结果](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/762_276_8a5.PNG)  
 图 2  执行结果
@@ -199,6 +202,7 @@ String xmlPath = "applicationContext.xml";        ApplicationContext application
 
 从图 3 的查询结果中可以看出，zhangsan 成功向 lisi 转账 100 元。
 
+
 ![查询结果](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/763_9ae_de5.PNG)  
 图 3  查询结果
 
@@ -211,6 +215,7 @@ String xmlPath = "applicationContext.xml";        ApplicationContext application
     
 重新测试运行 test() 方法，JUnit 控制台输出的信息如图 4 所示。  
   
+
 ![控制台输出结果](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/764_7a3_f52.png)  
 图 4  控制台输出结果  
   
@@ -218,6 +223,7 @@ String xmlPath = "applicationContext.xml";        ApplicationContext application
   
 从图 5 的查询结果中可以看出，表中的数据并没有发生变化。由于程序在执行过程中抛出了异常，事务不能正常被提交，所以转账失败。由此可知，Spring 的事务管理生效了。  
   
+
 ![查询结果](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/763_9ae_de5.PNG)  
 图 5  查询结果  
   
@@ -233,6 +239,7 @@ String xmlPath = "applicationContext.xml";        ApplicationContext application
 ````  
 #### 2）在需要使用事务的业务类或者方法中添加注解 @Transactional，并配置 @Transactional 的参数。关于 @Transactional 的参数如图 1 所示。  
   
+
 ![@Transactional参数列表](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/765_7af_ff7.png)  
 图 1  @Transactional参数列表  
   
@@ -280,6 +287,7 @@ public class AccountServiceImpl {
   
 使用 JUnit 测试再次运行 test() 方法时，控制台同样会输出如图 2 所示的异常信息，这说明使用基于 Annotation 注解的方式同样实现了 Spring 的声明式事务管理。如果注释掉模拟断电的代码进行测试，则转账操作可以正常完成。  
   
+
 ![运行结果](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/764_7a3_f52.png)  
 图 2  运行结果  
   

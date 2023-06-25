@@ -1,5 +1,6 @@
 # 面试官：说说JavaScript中的事件模型
 
+
 ![](https://static.vue-js.com/32a182f0-74cf-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、事件与事件流
@@ -14,7 +15,9 @@
 - 处于目标阶段(target phase)
 - 事件冒泡阶段(bubbling phase)
 
- ![](https://static.vue-js.com/3e9a6450-74cf-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/3e9a6450-74cf-11eb-85f6-6fac77c0c9b3.png)
 
 事件冒泡是一种从下往上的传播方式，由最具体的元素（触发节点）然后逐渐向上传播到最不具体的那个节点，也就是`DOM`中最高层的父节点
 

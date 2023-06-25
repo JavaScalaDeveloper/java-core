@@ -54,6 +54,7 @@ https://blog.csdn.net/qq_34337272/article/details/79563606
 
 ### 1.5 项目结构 
 
+
 ![项目结构 ](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-12-4/75109079.jpg)
 
 ### 1.6 配置 pom 文件中的相关依赖
@@ -132,13 +133,16 @@ public class AliyunOSSConfigConstant {
 
 获取 BUCKE_NAME 和 END_POINT：
 
+
 ![获取BUCKE_NAME和END_POINT](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-12-4/62719967.jpg)
 
 获取AccessKey ID和Access Key Secret第一步：
 
+
 ![获取AccessKey ID和Access Key Secret第一步](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-12-4/56702589.jpg)
 
 获取AccessKey ID和Access Key Secret第二步：
+
 
 ![获取AccessKey ID和Access Key Secret第二步](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-12-5/3395348.jpg)
 
@@ -497,13 +501,16 @@ JS 的内容主要是让我们上传的图片可以预览，就像我们在网�
 
 ① 上传图片
 
+
 ![](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-12-4/6278013.jpg)
 
 ② 图片上传成功返回图片地址
 
+
 ![](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-12-4/72081846.jpg)
 
 ③ 通过图片 URL 访问图片
+
 
 ![通过图片 URL 访问图片](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-12-4/27895245.jpg)
 

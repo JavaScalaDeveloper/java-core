@@ -129,6 +129,7 @@ public class CronTask {
 启动服务器端，发现每隔一秒钟会打印一次日志，证明 Spring Task 的 cron 表达式形式已经起效了。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/springtask-747c6f2e-66bc-4e3e-b81a-b0416ea4bb9d.png)
 
 
@@ -154,10 +155,12 @@ public class SpringTaskConfig implements SchedulingConfigurer {
 服务热部署完成后，会在控制台看到这样的信息：
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/springtask-54773f3f-ad58-44d5-a94a-8543f14f8c57.png)
 
 
 可以确认自定义线程池大小已经生效了，有的任务用的是线程led-task-pool-3，有的是线程led-task-pool-7，跑时间长了，可以发现 led-task-pool-1 到 led-task-pool-10 的都有。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/springtask-825fd59c-d2cd-471d-a9a9-ee1194cbfc51.png)

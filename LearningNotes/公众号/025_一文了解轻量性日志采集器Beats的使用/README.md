@@ -8,9 +8,11 @@
 
 > 官网地址：https://www.elastic.co/cn/beats/
 
+
 ![ElasticStack组成](images/image-20200924091657242.png)
 
 **Beats** 平台其实是一个轻量性数据采集器，通过集合多种单一用途的采集器，从成百上千台机器中向 **Logstash** 或 **ElasticSearch** 中发送数据。
+
 
 ![Beats-轻量级数据采集器](images/image-20200924091716757.png)
 
@@ -20,9 +22,11 @@
 - **Metricbeat**：采集指标
 - **Packetbeat**：采集网络数据
 
+
 ![Beats全家桶](images/image-20200924092015934.png)
 
 如果使用 **Beats** 收集的数据不需要任何处理，那么就可以直接发送到 **ElasticSearch** 中。但是，如果们的数据需要经过一些处理的话，那么就可以发送到 **Logstash** 中，然后处理完成后，在发送到 **ElasticSearch**，最后在通过 **Kibana** 对我们的数据进行一系列的可视化展示。
+
 
 ![](images/image-20200924092348121.png)
 
@@ -31,6 +35,7 @@
 ### 介绍
 
 **Filebeat** 是一个轻量级的日志采集器
+
 
 ![FileBeats](images/image-20200924092551044.png)
 
@@ -44,6 +49,7 @@
 ### 架构
 
 用于监控、收集服务器日志文件
+
 
 ![FileBeats架构图](images/image-20200924092749077.png)
 
@@ -60,6 +66,7 @@
 > https://www.elastic.co/cn/downloads/beats/filebeat
 
 选中对应版本的 **Filebeat**，我这里是 **Centos** 部署的，所以下载 **Linux** 版本
+
 
 ![下载](images/image-20200924093459418.png)
 
@@ -104,9 +111,11 @@ output.console:  # 控制台输出
 ./filebeat -e -c mogublog.yml
 ```
 
+
 ![启动FileBeats](images/image-20200924094825962.png)
 
 然后我们在控制台输入 **hello**，就能看到我们会有一个 **json** 的输出，是通过读取到我们控制台的内容后输出的
+
 
 ![](images/image-20200924095032365.png)
 
@@ -178,6 +187,7 @@ echo "hello" >> a.log
 
 能够发现，它已经成功加载到了我们的日志文件 **a.log**
 
+
 ![](images/image-20200924095926036.png)
 
 同时我们还可以继续往文件中追加内容
@@ -187,6 +197,7 @@ echo "are you ok ?" >> a.log
 ```
 
 追加后，我们再次查看filebeat，也能看到刚刚我们追加的内容
+
 
 ![](images/image-20200924102409656.png)
 
@@ -227,6 +238,7 @@ echo "test-web" >> a.log
 
 我们就可以看到字段在原来的基础上，增加了两个
 
+
 ![](images/image-20200924103323033.png)
 
 ### 输出到ElasticSearch
@@ -251,6 +263,7 @@ output.elasticsearch:
 
 启动成功后，我们就能看到它已经成功连接到了 **ElasticSearch** 了
 
+
 ![](images/image-20200924145624812.png)
 
 然后我们到刚刚的 **logs** 文件夹向 **a.log** 文件中添加内容
@@ -261,9 +274,11 @@ echo "hello mogublog" >> a.log
 
 在 **ElasticSearch** 中，我们可以看到，多出了一个 **filebeat** 的索引库
 
+
 ![查看索引库](images/image-20200924145928050.png)
 
 然后我们浏览对应的数据，看看是否有插入的数据内容
+
 
 ![数据插入成功](images/image-20200924150500441.png)
 
@@ -340,9 +355,11 @@ output.elasticsearch:
 
 启动后，可以在 **Elasticsearch** 中看到索引以及查看数据
 
+
 ![image-20200924161739842](images/image-20200924161739842.png)
 
 可以看到，在 **message** 中已经获取到了 **nginx** 的日志，但是，内容并没有经过处理，只是读取到原数据，那么对于我们后期的操作是不利的，有办法解决吗？
+
 
 ![收集的数据](images/image-20200924161814066.png)
 
@@ -437,6 +454,7 @@ commands on all the Elasticsearch nodes:
 
 启动成功后，能看到日志记录已经成功刷新进去了
 
+
 ![](images/image-20200924164750123.png)
 
 我们可以测试一下，刷新 **nginx** 页面，或者向错误日志中，插入数据
@@ -446,6 +464,7 @@ echo "err" >> error.log
 ```
 
 能够看到，刚刚的记录已经成功插入了
+
 
 ![插入数据成功](images/image-20200924164927557.png)
 
@@ -458,6 +477,7 @@ echo "err" >> error.log
 ## Metricbeat
 
 **Metricbeat** 是一个轻量性指标采集器，用于从系统和服务收集指标。**Metricbeat** 能够以一种轻量型的方式，输送各种系统和服务统计数据，从 **CPU** 到内存，从 **Redis** 到 **Nginx**，不一而足。
+
 
 ![什么是MetricBeat](images/image-20200924170741928.png)
 
@@ -473,6 +493,7 @@ echo "err" >> error.log
 
 以 **Redis Module**为例，我们查看一下它的组成结构如下所示：
 
+
 ![Metricbeat组成](images/image-20200924170958343.png)
 
 ### 下载
@@ -482,6 +503,7 @@ echo "err" >> error.log
 > 下载地址：
 >
 > https://www.elastic.co/cn/downloads/beats/metricbeat
+
 
 ![下载](images/image-20200924171232384.png)
 
@@ -536,6 +558,7 @@ ${path.config}/modules.d/*.yml
 ```
 
 在 **ELasticsearch** 中可以看到，系统的一些指标数据已经写入进去了：
+
 
 ![指标写入成功](images/image-20200924171839291.png)
 
@@ -592,6 +615,7 @@ location /nginx-status {
 
 重启完成后，进行测试
 
+
 ![](images/image-20200924172317526.png)
 
 结果说明：
@@ -647,6 +671,7 @@ html
 
 我们能看到，我们的 **nginx** 数据已经成功的采集到我们的系统中了
 
+
 ![收集nginx数据](images/image-20200924173058267.png)
 
 ## 参考
@@ -660,6 +685,7 @@ html
 **陌溪**是一个从三本院校一路摸滚翻爬上来的互联网大厂程序员。独立做过几个开源项目，其中**蘑菇博客**在码云上有 **2K Star** 。目前就职于**字节跳动的Data广告部门**，是字节跳动全线产品的商业变现研发团队。本公众号将会持续性的输出很多原创小知识以及学习资源。如果你觉得本文对你有所帮助，麻烦给文章点个「赞」和「在看」。
 
 同时，因为本公众号**申请较晚**，暂时没有开通**留言**功能，欢迎小伙伴们添加我的私人微信【备注：**加群**】，我将邀请你加入到**蘑菇博客交流群**中，欢迎小伙伴们找陌溪一块聊天唠嗑，共同学习进步。
+
 
 ![img](https://gitee.com/moxi159753/LearningNotes/raw/master/doc/images/qq/%E6%B7%BB%E5%8A%A0%E9%99%8C%E6%BA%AA.png)
 

@@ -63,17 +63,21 @@ java -jar zipkin-server-2.12.9-exec.jar
 
 *   Zipkin页面访问地址：http://localhost:9411
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/springcloud_sleuth_01.625f37c3.png)
 
 *   启动eureka-sever，ribbon-service，user-service：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/springcloud_sleuth_02.baf7b77c.png)
 
 *   多次调用（Sleuth为抽样收集）ribbon-service的接口[http://localhost:8301/user/1open in new window](http://localhost:8301/user/1) ，调用完后查看Zipkin首页发现已经有请求链路跟踪信息了；
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/springcloud_sleuth_03.a71d1cf1.png)
 
 *   点击查看详情可以直观地看到请求调用链路和通过每个服务的耗时：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/springcloud_sleuth_04.d13e3d99.png)
 
@@ -85,9 +89,11 @@ java -jar zipkin-server-2.12.9-exec.jar
 
 *   下载Elasticsearch6.2.2的zip包，并解压到指定目录，下载地址：[https://www.elastic.co/cn/downloads/past-releases/elasticsearch-6-2-2open in new window](https://www.elastic.co/cn/downloads/past-releases/elasticsearch-6-2-2)
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/arch_screen_25.48daf958.png)
 
 *   运行bin目录下的elasticsearch.bat启动Elasticsearch
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/arch_screen_27.ba3cb8e0.png)
 
@@ -107,6 +113,7 @@ java -jar zipkin-server-2.12.9-exec.jar --STORAGE_TYPE=elasticsearch --ES_HOSTS=
 *   之后需要重新启动user-service和ribbon-service才能生效，重启后多次调用ribbon-service的接口[http://localhost:8301/user/1open in new window](http://localhost:8301/user/1)；
 
 *   如果安装了Elasticsearch的可视化工具Kibana的话，可以看到里面已经存储了跟踪信息：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/springcloud_sleuth_05.9929ce6a.png)
 

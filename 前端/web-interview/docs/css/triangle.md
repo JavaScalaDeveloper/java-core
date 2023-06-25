@@ -1,12 +1,15 @@
 # 面试官：CSS如何画一个三角形？原理是什么？
 
+
 ![](https://static.vue-js.com/bd310120-a279-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、前言
 
 在前端开发的时候，我们有时候会需要用到一个三角形的形状，比如地址选择或者播放器里面播放按钮
 
- ![](https://static.vue-js.com/d6d8ff60-a279-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/d6d8ff60-a279-11eb-85f6-6fac77c0c9b3.png)
 
 通常情况下，我们会使用图片或者`svg`去完成三角形效果图，但如果单纯使用`css`如何完成一个三角形呢？
 
@@ -31,19 +34,27 @@
 
 效果如下图所示：
 
- ![](https://static.vue-js.com/e3f244e0-a279-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/e3f244e0-a279-11eb-ab90-d9ae814b240d.png)
 
 将`border`设置`50px`，效果图如下所示：
 
- ![](https://static.vue-js.com/ee0b42b0-a279-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/ee0b42b0-a279-11eb-ab90-d9ae814b240d.png)
 
 白色区域则为`width`、`height`，这时候只需要你将白色区域部分宽高逐渐变小，最终变为0，则变成如下图所示：
 
- ![](https://static.vue-js.com/2afaa030-a27a-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/2afaa030-a27a-11eb-85f6-6fac77c0c9b3.png)
 
 这时候就已经能够看到4个不同颜色的三角形，如果需要下方三角形，只需要将上、左、右边框设置为0就可以得到下方的红色三角形
 
- ![](https://static.vue-js.com/2afaa030-a27a-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/2afaa030-a27a-11eb-85f6-6fac77c0c9b3.png)
 
 但这种方式，虽然视觉上是实现了三角形，但实际上，隐藏的部分任然占据部分高度，需要将上方的宽度去掉
 
@@ -83,13 +94,17 @@
 
 效果图如下所示：
 
- ![i](https://static.vue-js.com/59f4d720-a27a-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![i](https://static.vue-js.com/59f4d720-a27a-11eb-85f6-6fac77c0c9b3.png)
 
 伪类元素定位参照对象的内容区域宽高都为0，则内容区域即可以理解成中心一点，所以伪元素相对中心这点定位
 
 将元素定位进行微调以及改变颜色，就能够完成下方效果图：
 
- ![](https://static.vue-js.com/653a6e10-a27a-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/653a6e10-a27a-11eb-85f6-6fac77c0c9b3.png)
 
 最终代码如下：
 
@@ -111,7 +126,9 @@
 
 可以看到，边框是实现三角形的部分，边框实际上并不是一个直线，如果我们将四条边设置不同的颜色，将边框逐渐放大，可以得到每条边框都是一个梯形
 
- ![](https://static.vue-js.com/78d4bd90-a27a-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/78d4bd90-a27a-11eb-85f6-6fac77c0c9b3.png)
 
 当分别取消边框的时候，发现下面几种情况：
 
@@ -119,7 +136,9 @@
 - 当仅有邻边时， 两个边会变成对分的三角
 - 当保留边没有其他接触时，极限情况所有东西都会消失
 
- ![](https://static.vue-js.com/84586ef0-a27a-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/84586ef0-a27a-11eb-85f6-6fac77c0c9b3.png)
 
 通过上图的变化规则，利用旋转、隐藏，以及设置内容宽高等属性，就能够实现其他类型的三角形
 

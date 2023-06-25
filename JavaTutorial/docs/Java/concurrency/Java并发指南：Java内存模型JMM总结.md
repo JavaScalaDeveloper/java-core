@@ -50,6 +50,7 @@
 
 ### 一、Java内存区域（JVM内存区域）
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404195526.png)
 
 Java虚拟机在运行程序时会把其自动管理的内存划分为以上几个区域，每个区域都有的用途以及创建销毁的时机，其中蓝色部分代表的是所有线程共享的数据区域，而绿色部分代表的是每个线程的私有数据区域。
@@ -70,6 +71,7 @@ Java虚拟机在运行程序时会把其自动管理的内存划分为以上几�
 
     属于线程私有的数据区域，与线程同时创建，总数与线程关联，代表Java方法执行的内存模型。栈中只保存基础数据类型和自定义对象的引用(不是对象)，对象都存放在堆区中。每个方法执行时都会创建一个栈桢来存储方法的的变量表、操作数栈、动态链接方法、返回值、返回地址等信息。每个方法从调用直结束就对于一个栈桢在虚拟机栈中的入栈和出栈过程，如下（图有误，应该为栈桢）：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404195609.png)
 
 *   本地方法栈(Native Method Stacks)：
@@ -85,6 +87,7 @@ Java内存模型(即Java Memory Model，简称JMM)本身是一种抽象的概念
 
 　　
 首先要将变量从主内存拷贝的自己的工作内存空间，然后对变量进行操作，操作完成后再将变量写回主内存，不能直接操作主内存中的变量，工作内存中存储着主内存中的变量副本拷贝，前面说过，工作内存是每个线程的私有数据区域，因此不同的线程间无法访问对方的工作内存，线程间的通信(传值)必须通过主内存来完成，其简要访问过程如下图
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404195704.png)
 
@@ -107,6 +110,7 @@ Java内存模型(即Java Memory Model，简称JMM)本身是一种抽象的概念
 弄清楚主内存和工作内存后，接了解一下主内存与工作内存的数据存储类型以及操作方式，根据虚拟机规范，对于一个实例对象中的成员方法而言，如果方法中包含本地变量是基本数据类型（boolean,byte,short,char,int,long,float,double），将直接存储在工作内存的帧栈结构中，但倘若本地变量是引用类型，那么该变量的引用会存储在功能内存的帧栈中，而对象实例将存储在主内存(共享数据区域，堆)中。
 　　
 但对于实例对象的成员变量，不管它是基本数据类型或者包装类型(Integer、Double等)还是引用类型，都会被存储到堆区。至于static变量以及类本身相关信息将会存储在主内存中。需要注意的是，在主内存中的实例对象可以被多线程共享，倘若两个线程同时调用了同一个对象的同一个方法，那么两条线程会将要操作的数据拷贝一份到自己的工作内存中，执行完成操作后才刷新到主内存，简单示意图如下所示：
+
 
 ![](https://images2018.cnblogs.com/blog/1332556/201805/1332556-20180530111627434-363867932.png)
 
@@ -150,6 +154,7 @@ JMM对这两种不同性质的重排序，采取了不同的策略，如下：
 
 JMM的设计图为：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404195805.png)
 
 JMM设计示意图 从图可以看出：
@@ -185,6 +190,7 @@ happens-before的概念最初由Leslie Lamport在其一篇影响深远的论文�
 *   join()规则：如果线程A执行操作ThreadB.join()并成功返回，那么线程B中的任意操作happens-before于线程A从ThreadB.join()操作成功返回。
 
 ### 3.5 happens-before与JMM的关系图
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404195827.png)
 
@@ -257,11 +263,13 @@ volatile写和读的内存语义总结总结：
 
 下面是保守策略下，volatile写插入内存屏障后生成的指令序列示意图：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404195915.png)
 
 上图中的StoreStore屏障可以保证在volatile写之前，其前面的所有普通写操作已经对任意处理器可见了。这是因为StoreStore屏障将保障上面所有的普通写在volatile写之前刷新到主内存。
 
 这里比较有意思的是volatile写后面的StoreLoad屏障。这个屏障的作用是避免volatile写与后面可能有的volatile读/写操作重排序。因为编译器常常无法准确判断在一个volatile写的后面，是否需要插入一个StoreLoad屏障（比如，一个volatile写之后方法立即return）。为了保证能正确实现volatile的内存语义，JMM在这里采取了保守策略：在每个volatile写的后面或在每个volatile读的前面插入一个StoreLoad屏障。从整体执行效率的角度考虑，JMM选择了在每个volatile写的后面插入一个StoreLoad屏障。因为volatile写-读内存语义的常见使用模式是：一个写线程写volatile变量，多个读线程读同一个volatile变量。当读线程的数量大大超过写线程时，选择在volatile写之后插入StoreLoad屏障将带来可观的执行效率的提升。从这里我们可以看到JMM在实现上的一个特点：首先确保正确性，然后再去追求执行效率。下面是在保守策略下，volatile读插入内存屏障后生成的指令序列示意图：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404195934.png)
 上图中的LoadLoad屏障用来禁止处理器把上面的volatile读与下面的普通读重排序。LoadStore屏障用来禁止处理器把上面的volatile读与下面的普通写重排序。
@@ -282,6 +290,7 @@ class VolatileBarrierExample { int a; volatile int v1 = 1; volatile int v2 = 2; 
 }
 ````
 针对readAndWrite()方法，编译器在生成字节码时可以做如下的优化：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404195956.png)
 
@@ -426,6 +435,7 @@ public class FinalTest { int i;//普通变量
 
 假设线程B的读对象引用与读对象的成员域之间没有重排序，下图是一种可能的执行时序
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404200259.png)
 
 在上图中，写普通域的操作被编译器重排序到了构造函数之外，读线程B错误的读取到了普通变量i初始化之前的值。而写final域的操作被写final域重排序的规则限定在了构造函数之内，读线程B正确的读取到了final变量初始化之后的值。
@@ -445,6 +455,7 @@ public class FinalTest { int i;//普通变量
 3）初次读引用变量指向对象的final域
 
 现在假设写线程A没有发生任何重排序，同时程序在不遵守间接依赖的处理器上执行，下图是一种可能的执行时序：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404200319.png)
 

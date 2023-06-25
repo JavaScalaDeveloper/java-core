@@ -37,6 +37,7 @@
 
 这是一个Java8新增特性的总结图。接下来让我们一次实践一下这些新特性吧
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230403215737.png)
 ## Java语言新特性
 

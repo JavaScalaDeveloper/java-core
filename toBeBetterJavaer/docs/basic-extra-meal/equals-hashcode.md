@@ -201,6 +201,7 @@ null
 
 “原因就在于重写 equals 方法的时候没有重写 hashCode 方法。”我回答道，“equals 方法虽然认定名字和年纪相同就是同一个学生，但它们本质上是两个对象，hashCode 并不相同。”
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/equals-hashcode-01.png)
 
 “那怎么重写 hashCode 方法呢？”三妹问。
@@ -251,6 +252,7 @@ result = (31*1 + Integer(18).hashCode()) * 31 + String("张三").hashCode();
 ```
 
 因为此时 s1 和 s2 对象的哈希值都为 776408。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/equals-hashcode-02.png)
 

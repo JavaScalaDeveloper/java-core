@@ -59,6 +59,7 @@ Annotation 中文译过来就是注解、标释的意思，在 Java 中注解是
 
 并且，往抽象地说，标签并不一定是一张纸，它可以是对人和事物的属性评价。也就是说，标签具备对于抽象事物的解释。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230403213103.png)
 
 所以，基于如此，我完成了自我的知识认知升级，我决定用标签来解释注解。
@@ -71,6 +72,7 @@ Annotation 中文译过来就是注解、标释的意思，在 Java 中注解是
 广大网友给罗永浩贴了一个名为“傻x”的标签，他们并不真正了解罗永浩，不知道他当教师、砸冰箱、办博客的壮举，但是因为“傻x”这样的标签存在，这有助于他们直接快速地对罗永浩这个人做出评价，然后基于此，罗永浩就可以成为茶余饭后的谈资，这就是标签的力量。
 
 而在网络的另一边，老罗靠他的人格魅力自然收获一大批忠实的拥泵，他们对于老罗贴的又是另一种标签。 
+
 
 ![](https://img-blog.csdn.net/20170627213530055?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYnJpYmx1ZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 

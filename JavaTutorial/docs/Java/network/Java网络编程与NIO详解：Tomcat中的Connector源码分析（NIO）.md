@@ -56,6 +56,7 @@
 
 先简单画一张图示意一下本文的主要内容：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405105401.png)
 
 **目录**
@@ -335,6 +336,7 @@ public void startInternal() throws Exception {
 ```
 
 到这里，我们启动了**工作线程池**、**poller 线程组**、**acceptor 线程组**。同时，工作线程池初始就已经启动了 10 个线程。我们用**jconsole**来看看此时的线程，请看下图：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405105500.png)
 
@@ -832,6 +834,7 @@ protected SocketProcessorBase<NioChannel> createSocketProcessor(
 ## 总结
 
 最后，再祭出文章开始的那张图来总结一下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405105530.png)
 

@@ -202,6 +202,7 @@ Storm集群和Hadoop集群表面上看很类似。但是Hadoop上运行的是Map
 在Storm的集群里面有两种节点： 控制节点（master node）和工作节点（worker node）。控制节点上面运行一个叫Nimbus后台程序，它的作用类似Hadoop里面的JobTracker。Nimbus负责在集群里面分发代码，分配计算任务给机器， 并且监控状态。
 
 每一个工作节点上面运行一个叫做Supervisor的节点。Supervisor会监听分配给它那台机器的工作，根据需要启动/关闭工作进程。每一个工作进程执行一个topology的一个子集；一个运行的topology由运行在很多机器上的很多工作进程组成。   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230408112703.png)
 
 Nimbus和Supervisor之间的所有协调工作都是通过Zookeeper集群完成。另外，Nimbus进程和Supervisor进程都是快速失败（fail-fast)和无状态的。所有的状态要么在zookeeper里面， 要么在本地磁盘上。这也就意味着你可以用kill -9来杀死Nimbus和Supervisor进程， 然后再重启它们，就好像什么都没有发生过。这个设计使得Storm异常的稳定。
@@ -240,6 +241,7 @@ Spout负责从数据源上获取数据，简单处理 封装成tuple向后面的
 数据处理器　　二：开发wordcount案例
 
 1.书写整个大纲的点线图
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230408112730.png) 
 　　topology就是一个拓扑图，类似于spark中的dag有向图，只不过storm执行的流式的数据，比dag执行更加具有实时性。

@@ -4,6 +4,7 @@ Spring Cloud Alibaba致力于提供微服务开发的一站式解决方案，它
 
 好吧我们先看看Spring Cloud Alibaba的官网，如下图所示。
 
+
 ![image-20230423165959115](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423165959115.png)
 
 从图中就可以看出，Spring Cloud Alibaba是Spring Cloud的子项目，好吧，这两项目一开始的定位就是父子关系。
@@ -51,6 +52,7 @@ Seata：一个高性能且易于使用的分布式事务解决方案，可用于
 
 
 我们再来看看Spring Cloud Alibaba的各个版本的对比，如下图所示。
+
 
 ![image-20230423170034102](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423170034102.png)
 
@@ -101,6 +103,7 @@ Spring Cloud为了方便软件开发人员快速的接入不同的注册中心�
 
 Spring Cloud Alibaba整体架构，如下图。
 
+
 ![image-20230423170108696](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423170108696.png)
 
 Spring Cloud Alibaba架构的木目标是将开源产品和云厂商融合，做到业务云上和云下的无缝兼容，业务开发人员只需要关心业务项目开发，底层技术细节就交给Spring Cloud Alibaba。
@@ -147,7 +150,9 @@ Copyright ? 俊逸 Link: [https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html]
 
 # 整体大纲
 
-## ![springCloud-Alibaba-1](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/springCloud-Alibaba-1.png)[#](#版本关系) 版本关系
+## 
+
+![springCloud-Alibaba-1](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/springCloud-Alibaba-1.png)[#](#版本关系) 版本关系
 
 [官方版本说明(opens new window)](https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E)
 

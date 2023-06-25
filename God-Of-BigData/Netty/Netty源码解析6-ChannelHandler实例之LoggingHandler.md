@@ -86,5 +86,6 @@
 
 其中的数字计算，容易让人失去耐心，使用逆向思维，放上结果反推：
 
+
 ![42a9d3e0d278b97382fcbd706a3d29d2](images/Netty源码解析6-ChannelHandler实例之LoggingHandler.resources/37CFD95E-B857-4C56-94C5-7BA428F61F71.png)
 

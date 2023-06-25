@@ -10,6 +10,7 @@ bin/kafka-server-start.sh config/server.properties
 
 nohup bin/kafka-server-start.sh config/server.properties > ./dev/null 2>&1 &
 
+
 ![](https://img2022.cnblogs.com/blog/796632/202208/796632-20220812161146385-332776455.png)
 
 多个kafka的话，在各个虚拟机上运行kafka启动命令多次即可。
@@ -20,9 +21,11 @@ nohup bin/kafka-server-start.sh config/server.properties > ./dev/null 2>&1 &
 
 jps -lm
 
+
 ![](https://img2022.cnblogs.com/blog/796632/202208/796632-20220812161210221-836644701.png)
 
 说明没有启动kfka
+
 
 ![](https://img2022.cnblogs.com/blog/796632/202208/796632-20220812161224734-562363764.png)
 
@@ -83,6 +86,7 @@ bin/kafka-topics.sh --list --zookeeper localhost:2181
 ## **描述topic**
 
 bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic my-replicated-topic
+
 
 ![](https://img2022.cnblogs.com/blog/796632/202208/796632-20220812161250801-1389051022.png)
 
@@ -170,6 +174,7 @@ rmr ./config/topics/topic-name .
 
 在config/server.properties中找到如下的位置
 
+
 ![](https://img2022.cnblogs.com/blog/796632/202208/796632-20220812161312458-550425542.png)
 
 删除log.dirs指定的文件目录，
@@ -216,6 +221,7 @@ kafka-consumer-groups.sh --bootstrap-server 172.20.72.93:9092 --describe --group
 
 运行结果：
 
+
 ![](https://img2022.cnblogs.com/blog/796632/202208/796632-20220816164455794-344440282.png)
 
 *   GROUP:消费者组
@@ -231,6 +237,7 @@ kafka-consumer-groups.sh --bootstrap-server 172.20.72.93:9092 --describe --group
 ## .查看所有group的消费情况
 
 kafka-consumer-groups.sh --bootstrap-server 172.20.72.93:9092 --all-groups --all-topics --describe
+
 
 ![](https://img2022.cnblogs.com/blog/796632/202208/796632-20220816172442100-1560497638.png)
 

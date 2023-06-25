@@ -1,6 +1,8 @@
 # 面试官：说说你对闭包的理解？闭包使用场景
 
- ![](https://static.vue-js.com/c141a030-6a7a-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/c141a030-6a7a-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 

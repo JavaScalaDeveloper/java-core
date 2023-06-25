@@ -6,6 +6,7 @@
 
 我先和你说说连接池的结构。连接池一般对外提供获得连接、归还连接的接口给客户端使用，并暴露最小空闲连接数、最大连接数等可配置参数，在内部则实现连接建立、连接心跳保持、连接管理、空闲连接回收、连接可用性检测等功能。连接池的结构示意图，如下所示：
 
+
 ![img](images/1685d9db2602e1de8483de171af6fd7e.png)
 
 业务项目中经常会用到的连接池，主要是数据库连接池、Redis 连接池和 HTTP 连接池。所以，今天我就以这三种连接池为例，和你聊聊使用和配置连接池容易出错的地方。
@@ -148,6 +149,7 @@ public class Connection implements Closeable {
 ```
 
 可以看到，Jedis 继承了 BinaryJedis，BinaryJedis 中保存了单个 Client 的实例，Client 最终继承了 Connection，Connection 中保存了单个 Socket 的实例，和 Socket 对应的两个读写流。因此，一个 Jedis 对应一个 Socket 连接。类图如下：
+
 
 ![img](images/e72120b1f6daf4a951e75c05b9191a0f.png)
 
@@ -342,13 +344,16 @@ public String wrong1() {
 
 访问这个接口几次后查看应用线程情况，可以看到有大量叫作 Connection evictor 的线程，且这些线程不会销毁：
 
+
 ![img](images/33a2389c20653e97b8157897d06c1510.png)
 
 对这个接口进行几秒的压测（压测使用 wrk，1 个并发 1 个连接）可以看到，已经建立了三千多个 TCP 连接到 45678 端口（其中有 1 个是压测客户端到 Tomcat 的连接，大部分都是 HttpClient 到 Tomcat 的连接）：
 
+
 ![img](images/54a71ee9a7bbbd5e121b12fe6289aff2.png)
 
 好在有了空闲连接回收的策略，60 秒之后连接处于 CLOSE_WAIT 状态，最终彻底关闭。
+
 
 ![img](images/8ea5f53e6510d76cf447c23fb15daa77.png)
 
@@ -405,6 +410,7 @@ public String wrong2() {
 
 使用 wrk 对 wrong2 和 right 两个接口分别压测 60 秒，可以看到两种使用方式性能上的差异，每次创建连接池的 QPS 是 337，而复用连接池的 QPS 是 2022：
 
+
 ![img](images/b79fb99cf8a5c3a17e60b0850544472d.png)
 
 如此大的性能差异显然是因为 TCP 连接的复用。你可能注意到了，刚才定义连接池时，我将最大连接数设置为 1。所以，复用连接池方式复用的始终应该是同一个连接，而新建连接池方式应该是每次都会创建新的 TCP 连接。
@@ -413,13 +419,16 @@ public String wrong2() {
 
 如果调用 wrong2 接口每次创建新的连接池来发起 HTTP 请求，从 Wireshark 可以看到，每次请求服务端 45678 的客户端端口都是新的。这里我发起了三次请求，程序通过 HttpClient 访问服务端 45678 的客户端端口号，分别是 51677、51679 和 51681：
 
+
 ![img](images/7b8f651755cef0c05ecb08727d315e35.png)
 
 也就是说，每次都是新的 TCP 连接，放开 HTTP 这个过滤条件也可以看到完整的 TCP 握手、挥手的过程：
 
+
 ![img](images/4815c0edd21d5bf0cae8c0c3e578960d.png)
 
 而复用连接池方式的接口 right 的表现就完全不同了。可以看到，第二次 HTTP 请求 #41 的客户端端口 61468 和第一次连接 #23 的端口是一样的，Wireshark 也提示了整个 TCP 会话中，当前 #41 请求是第二次请求，前一次是 #23，后面一次是 #75：
+
 
 ![img](images/2cbada9be98ce33321b29d38adb09f2c.png)
 
@@ -463,9 +472,11 @@ spring.datasource.hikari.register-mbeans=true
 
 启动程序并通过 JConsole 连接进程后，可以看到默认情况下最大连接数为 10：
 
+
 ![img](images/7b8e5aff5a3ef6ade1d8027c20c92f94.png)
 
 使用 wrk 对应用进行压测，可以看到连接数一下子从 0 到了 10，有 20 个线程在等待获取连接：
+
 
 ![img](images/b22169b8d8bbfabbb8b93ece11a1f9ef.png)
 
@@ -484,6 +495,7 @@ spring.datasource.hikari.maximum-pool-size=50
 ```
 
 然后，再观察一下这个参数是否适合当前压力，满足需求的同时也不占用过多资源。从监控来看这个调整是合理的，有一半的富余资源，再也没有线程需要等待连接了：
+
 
 ![img](images/d24f23f05d49378a10a857cd8b9ef031.png)
 

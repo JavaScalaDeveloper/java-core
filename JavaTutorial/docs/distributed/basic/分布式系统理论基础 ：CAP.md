@@ -47,6 +47,7 @@ CAP由[Eric Brewer](https://en.wikipedia.org/wiki/Eric_Brewer_(scientist))在200
 
 C、A、P三者最多只能满足其中两个，和FLP定理一样，CAP定理也指示了一个不可达的结果(impossibility result)。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407204500.png)
 
 ## **CAP的工程启示**
@@ -70,6 +71,7 @@ Partition字面意思是网络分区，即因网络因素将系统分隔为多�
 ### **2、CA非0/1的选择**
 
 P 是必选项，那3选2的选择题不就变成数据一致性(consistency)、服务可用性(availability) 2选1？工程实践中一致性有不同程度，可用性也有不同等级，在保证分区容错性的前提下，放宽约束后可以兼顾一致性和可用性，两者不是非此即彼<sup>[12]</sup>。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20160401221124957-2025686892.jpg)
 

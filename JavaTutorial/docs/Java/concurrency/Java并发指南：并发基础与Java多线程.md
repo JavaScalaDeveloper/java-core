@@ -132,6 +132,7 @@ public class Counter {
 
 在java中，每次程序运行至少启动2个线程。一个是main线程，一个是垃圾收集线程。因为每当使用java命令执行一个类的时候，实际上都会启动一个jvm，每一个jvm实际上就是在操作系统中启动了一个进程。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404183859.png)
 ## 5线程的状态和优先级
 
@@ -147,6 +148,7 @@ public class Counter {
 *   terminated（终止）
 
 **状态转换**
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404183924.png)
 **线程状态流程如下：**

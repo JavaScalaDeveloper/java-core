@@ -1,6 +1,8 @@
 # 面试官：说说webpack中常见的Plugin？解决了什么问题？
 
- ![](https://static.vue-js.com/8d3978a0-a7c2-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/8d3978a0-a7c2-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -10,6 +12,7 @@
 是一种遵循一定规范的应用程序接口编写出来的程序，只能运行在程序规定的系统下，因为其需要调用原纯净系统提供的函数库或者数据
 
 `webpack`中的`plugin`也是如此，`plugin`赋予其各种灵活的功能，例如打包优化、资源管理、环境变量注入等，它们会运行在 `webpack` 的不同阶段（钩子 / 生命周期），贯穿了`webpack`整个编译周期
+
 
 ![](https://static.vue-js.com/9a04ec40-a7c2-11eb-ab90-d9ae814b240d.png)
 
@@ -73,6 +76,7 @@ module.exports = ConsoleLogOnBuildWebpackPlugin;
 ## 三、常见的Plugin
 
 常见的`plugin`有如图所示：
+
 
 ![](https://static.vue-js.com/bd749400-a7c2-11eb-85f6-6fac77c0c9b3.png)
 

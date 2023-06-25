@@ -2,7 +2,9 @@
 
 
 
- ![](https://static.vue-js.com/193389b0-0b2b-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/193389b0-0b2b-11ec-8e64-91fdec0f05a1.png)
 
 
 
@@ -44,7 +46,9 @@ const getUserName = (user: User) => user.name
 
 这些属性并不一定全部实现，上述传入的对象必须拥有`name`和`age`属性，否则`typescript`在编译阶段会报错，如下图：
 
- ![](https://static.vue-js.com/25d3a790-0b2b-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/25d3a790-0b2b-11ec-a752-75723a64e8f5.png)
 
 如果不想要`age`属性的话，这时候可以采用**可选属性**，如下表示：
 
@@ -69,7 +73,9 @@ interface User {
 
 当我们修改属性的时候，就会出现警告，如下所示：
 
- ![](https://static.vue-js.com/2f6d3c30-0b2b-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/2f6d3c30-0b2b-11ec-8e64-91fdec0f05a1.png)
 
 这是属性中有一个函数，可以如下表示：
 
@@ -108,7 +114,9 @@ interface User {
 
 接口还能实现继承，如下图：
 
- ![](https://static.vue-js.com/38a41760-0b2b-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/38a41760-0b2b-11ec-8e64-91fdec0f05a1.png)
 
 也可以继承多个，父类通过逗号隔开，如下：
 

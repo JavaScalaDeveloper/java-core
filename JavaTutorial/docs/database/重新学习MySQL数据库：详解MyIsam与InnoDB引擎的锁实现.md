@@ -185,6 +185,7 @@ InnoDB实现了两种类型的行锁。
 
 InnoDB行锁模式兼容列表：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405210259.png)
 
 
@@ -204,9 +205,11 @@ InnoDB行锁模式兼容列表：
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405210309.png)
 
 利用select....forupdate加入排他锁
+
 
 
 

@@ -97,6 +97,7 @@ appendonly no  #是否使用AOF持久化appendfsync everysec  #多久执行一�
 
 各虚拟机类别，创建子线程所耗时间：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230406210020.png)
 
 因此，为了防止Redis因为创建子进程的时候出现停顿，我们可以考虑关闭自动保存，转而通过手动的方式发送BGSAVE或者SAVE来进行持久化，
@@ -130,6 +131,7 @@ appendfsync everysec/always/no
 二、appendfsync同步频率的区别
 
 appendfsync同步频率的区别如下图：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230406210035.png)
 

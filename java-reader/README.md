@@ -2,16 +2,20 @@
 #  java-reader
 [
 
+
 ![License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/fantj2016/java-reader/blob/master/LICENSE)
 [
 
+
 ![我的微信](https://img.shields.io/badge/%E5%BE%AE%E4%BF%A1%E7%BE%A4-%E4%BA%8C%E7%BB%B4%E7%A0%81-orange.svg)](https://upload-images.jianshu.io/upload_images/5786888-aceaf4a8c7d17891.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 [
+
 
 ![微信公众号](https://img.shields.io/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-PlayInJava-red.svg)](https://upload-images.jianshu.io/upload_images/5786888-74bca7fff151cfb8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/500)
 
 
 >【Java入门 -> 进大厂笔记📖📒】未来的你一定会感谢今天学习的自己! 本项目主打Java基础、算法、框架实战、源码、中间件、大数据、面试等知识积累和经验总结。文章共300多篇, 大部分为原创, 部分翻译和转载已标明出处。 谢谢大家的支持, 转载请标明出处, 谢谢。
+
 
 
 
@@ -129,6 +133,7 @@
 ###   公众号
 >github阅读不方便?添加公众号,随时随地当reader,不定时发放福利
 
+
 ![我的公众号](https://upload-images.jianshu.io/upload_images/5786888-74bca7fff151cfb8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/500)
 
 ####    公众号留言
@@ -140,7 +145,9 @@
 ###   交流群
 >不定时会分享一些学习方法, 书籍, 企业技术, 算法等知识, 一起成长、一起进步。 有需要阿里社招内推的同学也可以联系哈，会帮你一直跟进流程。
 
+
 ![微信群加我备注进群](https://upload-images.jianshu.io/upload_images/5786888-9d87c2d1812f322e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/200)
+
 
 ![QQ交流群](https://upload-images.jianshu.io/upload_images/5786888-bc946ca74be7d601.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/200)
 

@@ -22,11 +22,13 @@ Hystrix存在的问题
 
 首先我们到Sentinel的[Github官网](https://github.com/alibaba/Sentinel/releases)，下载对应的jar包
 
+
 ![image-20200814152203586](images/image-20200814152203586.png)
 
 > 如果Github下载缓慢，可以使用 [备用下载地址](https://wws.lanzous.com/iXUolhrte2j)
 
 下载完成后，放到我们的Sentinel文件夹下
+
 
 ![image-20200814152301259](images/image-20200814152301259.png)
 
@@ -38,6 +40,7 @@ Hystrix存在的问题
 start java -jar sentinel-dashboard-1.6.3.jar --server.port=8070
 ```
 
+
 ![image-20200814152808028](images/image-20200814152808028.png)
 
 然后我们输入URL： http://localhost:8070/，然后输入默认的账号和密码
@@ -46,9 +49,11 @@ start java -jar sentinel-dashboard-1.6.3.jar --server.port=8070
 >
 > 密码：sentinel
 
+
 ![image-20200814152900162](images/image-20200814152900162.png)
 
 进入后，因为我们的项目还没有启动，所以看不到对应的配置信息
+
 
 ![image-20200814153013010](images/image-20200814153013010.png)
 
@@ -60,21 +65,26 @@ start java -jar sentinel-dashboard-1.6.3.jar --server.port=8070
 >
 >mogu-sms、mogu-picture、mogu-admin、mogu-web
 
+
 ![image-20200814154038280](images/image-20200814154038280.png)
 
 然后在启动前端服务后，再次查看Sentinel，我们就看到了三个微服务被监控了
+
 
 ![image-20200814154404812](images/image-20200814154404812.png)
 
 然后我们打开 mogu-web，点击系统规则，然后新增系统规则
 
+
 ![image-20200814154515420](images/image-20200814154515420.png)
 
 我们设置一个入口QPS为 30，也就是每秒30个请求
 
+
 ![image-20200814155422571](images/image-20200814155422571.png)
 
 然后我们打开首页  http://localhost:9527/，发现能够正常的访问，但是如果我们反复的刷新该页面，当超过对应的QPS数后，就会出现500页面了
+
 
 ![image-20200814155402193](images/image-20200814155402193.png)
 

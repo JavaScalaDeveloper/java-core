@@ -45,7 +45,8 @@ LinkedHashMap的排序方式有两种：
     }
 ```
 调试可以看到 map 的组成：
-![fbafa65540e4fca96fa09fdc5b0db83b](大数据成神之路-Java高级特性增强(LinkedHashMap).resources/2BC36CA6-D029-4249-A984-86F29FE10381.jpg)
+
+![fbafa65540e4fca96fa09fdc5b0db83b](images/大数据成神之路-Java高级特性增强(LinkedHashMap).resources/2BC36CA6-D029-4249-A984-86F29FE10381.jpg)
 打开源码可以看到：
 ```
     /**
@@ -73,7 +74,8 @@ LinkedHashMap的排序方式有两种：
 其中 Entry 继承于 HashMap 的 Entry，并新增了上下节点的指针，也就形成了双向链表。
 还有一个 header 的成员变量，是这个双向链表的头结点。
 上边的 demo 总结成一张图如下：
-![b4bdc740a7b9d5820b9e7960aaf44bec](大数据成神之路-Java高级特性增强(LinkedHashMap).resources/A9332FA3-2758-40CD-95DC-2A2BAC724F73.jpg)
+
+![b4bdc740a7b9d5820b9e7960aaf44bec](images/大数据成神之路-Java高级特性增强(LinkedHashMap).resources/A9332FA3-2758-40CD-95DC-2A2BAC724F73.jpg)
 第一个类似于 HashMap 的结构，利用 Entry 中的 next 指针进行关联。
 
 下边则是 LinkedHashMap 如何达到有序的关键。
@@ -81,7 +83,7 @@ LinkedHashMap的排序方式有两种：
 就是利用了头节点和其余的各个节点之间通过 Entry 中的 after 和 before 指针进行关联。
 
 其中还有一个 accessOrder 成员变量，默认是 false，默认按照插入顺序排序，为 true 时按照访问顺序排序，也可以调用:
-```
+```java
 public LinkedHashMap(int initialCapacity,
                          float loadFactor,
                          boolean accessOrder) {
@@ -101,7 +103,7 @@ LinkedHashMap 的构造方法:
 ```
 其实就是调用的 HashMap 的构造方法:
 HashMap 实现:
-```
+```java
 public HashMap(int initialCapacity, float loadFactor) {
         if (initialCapacity < 0)
             throw new IllegalArgumentException("Illegal initial capacity: " +
@@ -130,7 +132,7 @@ public HashMap(int initialCapacity, float loadFactor) {
 
 ##### put() 方法
 看 LinkedHashMap 的 put() 方法之前先看看 HashMap 的 put 方法:
-```
+```java
 public V put(K key, V value) {
         if (table == EMPTY_TABLE) {
             inflateTable(threshold);

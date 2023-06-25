@@ -20,6 +20,7 @@ Hutool 的作者在[官网](https://hutool.cn/)上说，Hutool 是 Hu+tool 的�
 
 看了一下开发团队的一个成员介绍，一个 Java 后端工具的作者竟然爱前端、爱数码，爱美女，嗯嗯嗯，确实“难得糊涂”（手动狗头）。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-01.png)
 
 废话就说到这，来吧，实操走起！
@@ -44,6 +45,7 @@ Hutool 的设计思想是尽量减少重复的定义，让项目中的 util 包�
 - 有了 Hutool 以后呢，引入 Hutool -> 直接 `SecureUtil.md5()`
 
 Hutool 对不仅对 JDK 底层的文件、流、加密解密、转码、正则、线程、XML等做了封装，还提供了以下这些组件：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-02.png)
 
@@ -161,9 +163,11 @@ long copySize = IoUtil.copy(in, out, IoUtil.DEFAULT_BUFFER_SIZE);
 
 在实际编码当中，我们通常需要从某些文件里面读取一些数据，比如配置文件、文本文件、图片等等，那这些文件通常放在什么位置呢？
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-03.png)
 
 放在项目结构图中的 resources 目录下，当项目编译后，会出现在 classes 目录下。对应磁盘上的目录如下图所示：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-04.png)
 
@@ -318,6 +322,7 @@ public class ConsoleDemo {
 - 是不是电话号码
 - 等等
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-05.png)
 
 ```java
@@ -344,6 +349,7 @@ biMap.getKey("沉默王三");
 ```
 
 在实际的开发工作中，其实我更倾向于使用 Guava 的 BiMap，而不是 Hutool 的。这里提一下，主要是我发现了 Hutool 在线文档上的一处错误，提了个 issue（从中可以看出我一颗一丝不苟的心和一双清澈明亮的大眼睛啊）。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-06.png)
 
@@ -386,6 +392,7 @@ ImgUtil.pressText(//
 ```
 
 趁机让大家欣赏一下二哥帅气的真容。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-07.png)
 

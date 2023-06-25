@@ -16,6 +16,7 @@ head:
 
 字符流 Reader 和 Writer 的故事要从它们的类关系图开始，来看图。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/reader-writer-20230320164938.png)
 
 字符流是一种用于读取和写入字符数据的输入输出流。与字节流不同，字符流以字符为单位读取和写入数据，而不是以字节为单位。常用来处理文本信息。
@@ -39,6 +40,7 @@ while ((len=inputStream.read())!=-1){
 ```
  
 看一下截图：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-0b68ef81-26d0-4a4e-9c1b-61928ce8646c.png)
 
@@ -286,6 +288,7 @@ try (FileWriter fw = new FileWriter("output.txt")) {
 
 因为 FileWriter 内置了缓冲区 ByteBuffer，所以如果不关闭输出流，就无法把字符写入到文件中。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/reader-writer-20230320183546.png)
 
 但是关闭了流对象，就无法继续写数据了。如果我们既想写入数据，又想继续使用流，就需要 `flush` 方法了。
@@ -309,6 +312,7 @@ while((len=fr.read())!=-1){
 ```
  
 运行效果是怎么样的呢？答案是b.txt文件中依旧是空的，并没有任何东西。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/reader-writer-3b4fd024-856f-45ee-8183-1a1ee808e5ce.png)
 

@@ -2,12 +2,15 @@
 
 在前面的章节中，我们了解了蘑菇博客的日志收集模块，下面我们一起来学习蘑菇博客中的链路追踪模块~
 
+
 ![蘑菇博客中的链路追踪服务](images/image-20210618190706851.png)
 
 随着微服务架构的流行，服务按照不同的维度进行拆分。一个由客户端发起的请求在后端系统中会经过多个不同的服务节点调用来协同产生最后的请求结果，每一个前端请求都会形成一条复杂的分布式服务调用链路，链路中的任何一环出现高延时或错误都会引起整个请求最后的失败。
+
 ![服务调用链路](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevgqgm3j30n60bjdj9.jpg)
 
 并且，伴随着微服务数量的增加，对调用链路的分析将会越来越复杂，它们之间的关系可能如下所示。（密集恐惧症慎入~）
+
 
 ![庞大的调用链路](images/28aece2941f54d3aa76fedf64d2edb77)
 
@@ -19,11 +22,13 @@
 
 **Zipkin** 是 **Twitter** 的一个开源项目，它基于 **Google Dapper** 实现，它致力于收集服务的定时数据，以解决微服务架构中的延迟问题，包括数据的收集、存储、查找和展现。 我们可以使用它来收集各个服务器上请求链路的跟踪数据，并通过它提供的 **REST API** 接口来辅助我们查询跟踪数据以实现对分布式系统的监控程序，从而及时地发现系统中出现的延迟升高问题并找出系统性能瓶颈的根源。除了面向开发的 **API** 接口之外，它也提供了方便的 **UI** 组件来帮助我们直观的搜索跟踪信息和分析请求链路明细，比如：可以查询某段时间内各用户请求的处理时间等。
 
+
 ![zipkin收集信息](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevh2wpyj30j70g0t9d.jpg)
 
 如上图所示，各业务系统在彼此调用时，将特定的跟踪消息传递至 **zipkin** , 同时 **zipkin**在收集到跟踪信息后将其聚合处理、存储、展示等，用户可通过 **web UI** 方便获得网络延迟、调用链路、系统依赖等等。
 
 并且 **zipkin** 会根据调用关系通过 **zipkin ui** 生成依赖关系图，下面是我搭建成功后，蘑菇博客链路追踪的依赖图。
+
 
 ![蘑菇博客中的服务依赖图](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevha5o9j30wd0ifgmh.jpg)
 
@@ -46,17 +51,21 @@
 
 ### 完整的调用链路图
 
+
 ![完整的调用链路图](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevil1kkj30ow0dlwgk.jpg)
 
 上图表示一请求链路，一条链路通过 **Trace Id** 唯一标识，**Span** 标识发起的请求信息，各 **span** 通过 **parent id** 关联起来，如图
+
 
 ![](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevirn9bj30ix06kq33.jpg)
 
 整个链路的依赖关系如下:
 
+
 ![链路依赖关系](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevizirjj30qj05gjrm.jpg)
 
 完成链路调用的记录后，如何来计算调用的延迟呢，这就需要利用 **Annotation** 信息
+
 
 ![计算调用延迟](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevjdkn4j30gw06fdg6.jpg)
 
@@ -132,6 +141,7 @@ java -jar zipkin-server-2.12.5-exec.jar --zipkin.collector.rabbitmq.addresses=12
 ```
 
 如果出现下图，表示 **zipkin**以内存存储的方式进行启动了。
+
 
 ![zipkin启动成功](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevhmkp6j30q309dq5o.jpg)
 
@@ -214,6 +224,7 @@ CREATE TABLE IF NOT EXISTS zipkin_dependencies (
 
 执行完成后，我们将会得到下面的三个表
 
+
 ![创建三个表](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevhte5bj306x04ywec.jpg)
 
 其中
@@ -229,6 +240,7 @@ java -jar zipkin.jar --STORAGE_TYPE=mysql --MYSQL_DB=zipkin --MYSQL_USER=root --
 ```
 
 启动完成后，我们在运行我们的服务，在打开数据库就能看到信息存储在 **mysql** 中了
+
 
 ![收集的数据](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevi1l98j31hb0fsgog.jpg)
 
@@ -269,6 +281,7 @@ spring:
 
 然后浏览器输入下面的地址：http://localhost:9411 ，如果出现下面的画面，那么代表我们 **zipkin** 服务配置成功了
 
+
 ![zipkin ui](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevibv3pj31ai0p7jsr.jpg)
 
 ## Zipkin ui界面介绍
@@ -277,13 +290,16 @@ spring:
 
 首页里面主要承载了trace的查询功能，根据不同的条件，搜索数据
 
+
 ![首页字段解释](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevjo5eoj30za0l7q65.jpg)
 
 ### trace详情
 
+
 ![详情页](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevjzpzlj31580cjwk6.jpg)
 
 ### span详情
+
 
 ![span详情页](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevk9vynj30qs0ew77a.jpg)
 
@@ -297,7 +313,9 @@ spring:
 
 **CR - Client Receive**： 客户端已经收到来自服务器的响应。这就设置了跨度的终点。当记录注释时，RPC被认为是完整的。
 
-**相对时间**：表示在调用链开始到现在的时间，如下所示![](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevkim2tj30oa06hdg7.jpg)
+**相对时间**：表示在调用链开始到现在的时间，如下所示
+
+![](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevkim2tj30oa06hdg7.jpg)
 
 **17ms** 的时候，**Client Send bas-ms** 这个应用发出了调用
 
@@ -311,13 +329,16 @@ spring:
 
 ### 全局依赖
 
+
 ![全局依赖](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevld3bbj30r3051jrl.jpg)
 
 点击服务名，弹出如下框，显示出了调用关系
 
+
 ![调用关系](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevljr4rj30r409ht8x.jpg)
 
 点击具体的服务名，出现如下界面
+
 
 ![](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevmbq7qj30h007mgll.jpg)
 
@@ -346,16 +367,21 @@ spring:
 
 以下笔记仓库的部分 **PDF** 文件 ~
 
+
 ![大厂面试第二季笔记](images/image-20210523171559176.png)
 
+
 ![Java面试突击笔记](images/image-20210523171833579.png)
+
 
 ![JVM笔记](images/image-20210523172056549.png)
 
 如果有需要离线阅读的小伙伴可以到公众号回复 **PDF** ，即可获取下载地址~
 
+
 ![img](https://gitee.com/moxi159753/LearningNotes/raw/master/doc/images/qq/%E8%8E%B7%E5%8F%96PDF.jpg)
 
 同时本公众号**申请较晚**，暂时没有开通**留言**功能，欢迎小伙伴们添加我的私人微信【备注：**加群**】，我将邀请你加入到**蘑菇博客交流群**中，欢迎小伙伴们找陌溪一块聊天唠嗑，共同学习进步，如果你觉得本文对你有所帮助，麻烦小伙伴们动动手指给文章点个「**赞**」和「**在看**」。
+
 
 ![快来找陌溪唠嗑吧](https://gitee.com/moxi159753/LearningNotes/raw/master/doc/images/qq/%E6%B7%BB%E5%8A%A0%E9%99%8C%E6%BA%AA.png)

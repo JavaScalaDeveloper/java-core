@@ -14,6 +14,7 @@ API 网关是一个搭建在客户端和微服务之间的服务，我们可以�
 
 API 网关就像整个微服务系统的门面一样，是系统对外的唯一入口。有了它，客户端会先将请求发送到 API 网关，然后由 API 网关根据请求的标识信息将请求转发到微服务实例。
 
+
 ![](http://c.biancheng.net/uploads/allimg/211210/101P46212-0.png)
 图1：两种服务访问方式对比
 
@@ -72,6 +73,7 @@ Spring Cloud Gateway 具有以下特性：
 
 Spring Cloud Gateway 工作流程如下图。
 
+
 ![Spring Cloud Gateway 工作流程](http://c.biancheng.net/uploads/allimg/211210/101P45T2-1.png)
 图2：Spring Cloud Gateway 工作流程
 
@@ -98,6 +100,7 @@ Spring Cloud Gateway 通过```Predicate 断言来实现 Route 路由的匹配规
 *   Route 路由与 Predicate 断言的对应关系为“一对多”，一个路由可以包含多个不同断言。
 *   一个请求想要转发到指定的路由上，就必须同时匹配路由上的所有断言。
 *   当一个请求同时满足多个路由的断言条件时，请求只会被首个成功匹配的路由转发。
+
 
 ![](http://c.biancheng.net/uploads/allimg/211210/101P42B6-2.png)
 图3：Predicate 断言匹配
@@ -266,6 +269,7 @@ public class MicroServiceCloudGateway9527Application {
 
 4\. 依次启动 Eureka 服务注册中心（集群）、micro-service-cloud-provider-dept-8001 以及```micro-service-cloud-gateway-9527，使用浏览器访问“http://localhost:9527/dept/list”，结果如下图。
 
+
 ![Spring Cloud 断言条件](http://c.biancheng.net/uploads/allimg/211210/101P43419-3.png)
 图4：Spring Cloud Gateway 路由转发
 
@@ -334,6 +338,7 @@ eureka:
 2\. 依次启动 Eureka 服务注册中心（集群）、服务提供者集群（micro-service-cloud-provider-dept-8001/8002/8003）以及```micro-service-cloud-gateway-9527。
 
 3\. 在浏览器中访问“http://localhost:9527/dept/list”，结果如下图。
+
 
 ![Gateway 动态路由](http://c.biancheng.net/uploads/allimg/211210/101P46240-4.gif)
 图5：Spring Cloud 实现动态路由
@@ -434,6 +439,7 @@ spring:
 
 2\. 重启```micro-service-cloud-gateway-9527，使用浏览器访问“http://eureka7001.com:9527/get/1”，结果如下图。
 
+
 ![Gateway 路由过滤器](http://c.biancheng.net/uploads/allimg/211210/101P4J58-5.png)
 图6：路由过滤器示例
 
@@ -500,6 +506,7 @@ eureka:
 ```
 
 3\. 使用浏览器访问“http://eureka7001.com:9527/dept/list?uname=123”,结果如下图。
+
 
 ![自定义全局网关过滤器](http://c.biancheng.net/uploads/allimg/211210/101P43096-6.png)
 图7：自定义全局网关过滤器

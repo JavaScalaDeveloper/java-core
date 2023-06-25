@@ -51,6 +51,7 @@ TCP报文有个比较大的特点，就是它传输的时候，会先把应用�
 
 来一个官方给的图，我想这个答案就很明显了：
 
+
 ![virtual buffer in Netty][3]
 
 这里可以看到，TCP层HTTP报文被分成了两个ChannelBuffer，这两个Buffer对我们上层的逻辑(HTTP处理)是没有意义的。但是两个ChannelBuffer被组合起来，就成为了一个有意义的HTTP报文，这个报文对应的ChannelBuffer，才是能称之为"Message"的东西。这里用到了一个词"Virtual Buffer"，也就是所谓的"Zero-Copy-Capable Byte Buffer"了。顿时觉得豁然开朗了有没有！
@@ -64,6 +65,7 @@ TCP报文有个比较大的特点，就是它传输的时候，会先把应用�
 好了，终于来到了代码实现部分。之所以啰嗦了这么多，因为我觉得，关于"Zero-Copy-Capable Rich Byte Buffer"，理解为什么需要它，比理解它是怎么实现的，可能要更重要一点。
 
 我想可能很多朋友跟我一样，喜欢"顺藤摸瓜"式读代码--找到一个入口，然后顺着查看它的调用，直到理解清楚。很幸运，`ChannelBuffers`(注意有s!)就是这样一根"藤"，它是所有ChannelBuffer实现类的入口，它提供了很多静态的工具方法来创建不同的Buffer，靠“顺藤摸瓜”式读代码方式，大致能把各种ChannelBuffer的实现类摸个遍。先列一下ChannelBuffer相关类图。
+
 
 ![channel buffer in Netty][1]
 
@@ -103,7 +105,7 @@ TCP报文有个比较大的特点，就是它传输的时候，会先把应用�
 
 在创建Buffer时，我们注意到了这样一个方法：`public static ChannelBuffer buffer(ByteOrder endianness, int capacity);`，其中`ByteOrder`是什么意思呢？
 
-这里有个很基础的概念：字节序(ByteOrder/Endianness)。它规定了多余一个字节的数字(int啊long什么的)，如何在内存中表示。BIG_ENDIAN(大端序)表示高位在前，整型数`12`会被存储为`0 0 0 12`四字节，而LITTLE_ENDIAN则正好相反。可能搞C/C++的程序员对这个会比较熟悉，而Javaer则比较陌生一点，因为Java已经把内存给管理好了。但是在网络编程方面，根据协议的不同，不同的字节序也可能会被用到。目前大部分协议还是采用大端序，可参考[RFC1700](http://tools.ietf.org/html/rfc1700)。
+这里有个很基础的概念：字节序(ByteOrder/Endianness)。它规定了多余一个字节的数字(int啊long什么的)，如何在内存中表示。BIG_ENDIAN(大端序)表示高位在前，整型数`12`会被存储为`0 0 0 12`四字节，而LITTLE_ENDIAN则正好相反。可能搞C/C++的程序员对这个会比较熟悉，而Javaer则比较陌生一点，因为Java已经把内存给管理好了。但是在网络编程方面，根据协议的不同，不同的字节序也可能会被用到。目前大部分协议还是采用大端序，可参考[RFC1700](images/http://tools.ietf.org/html/rfc1700)。
 
 了解了这些知识，我们也很容易就知道为什么会有`BigEndianHeapChannelBuffer`和`LittleEndianHeapChannelBuffer`了！
 
@@ -170,16 +172,18 @@ DynamicChannelBuffer是一个很方便的Buffer，之所以叫Dynamic是因为�
 
 ### WrappedChannelBuffer
 
+
 ![virtual buffer in Netty][2]
 
 `WrappedChannelBuffer`都是几个对已有ChannelBuffer进行包装，完成特定功能的类。代码不贴了，实现都比较简单，列一下功能吧。
+
 
 ![d205e7c6ea983ad4080661d14b44efc9](images/Netty源码解析1-Buffer.resources/DCE71693-EAB2-4A70-9F4B-879F154FE421.png)
 
 
 可以看到，关于实现方面，Netty 3.7的buffer相关内容还是比较简单的，也没有太多费脑细胞的地方。
 
-而Netty 4.0之后就不同了。4.0，ChannelBuffer改名ByteBuf，成了单独项目buffer，并且为了性能优化，加入了BufferPool之类的机制，已经变得比较复杂了(本质倒没怎么变)。性能优化是个很复杂的事情，研究源码时，建议先避开这些东西，除非你对算法情有独钟。举个例子，Netty4.0里为了优化，将Map换成了Java 8里6000行的[ConcurrentHashMapV8](https://github.com/netty/netty/blob/master/common/src/main/java/io/netty/util/internal/chmv8/ConcurrentHashMapV8.java)，你们感受一下…
+而Netty 4.0之后就不同了。4.0，ChannelBuffer改名ByteBuf，成了单独项目buffer，并且为了性能优化，加入了BufferPool之类的机制，已经变得比较复杂了(本质倒没怎么变)。性能优化是个很复杂的事情，研究源码时，建议先避开这些东西，除非你对算法情有独钟。举个例子，Netty4.0里为了优化，将Map换成了Java 8里6000行的[ConcurrentHashMapV8](images/https://github.com/netty/netty/blob/master/common/src/main/java/io/netty/util/internal/chmv8/ConcurrentHashMapV8.java)，你们感受一下…
 
   [1]: http://static.oschina.net/uploads/space/2013/0925/081551_v8pK_190591.png
   [2]: http://static.oschina.net/uploads/space/2013/0925/074748_oSkl_190591.png
@@ -188,6 +192,6 @@ DynamicChannelBuffer是一个很方便的Buffer，之所以叫Dynamic是因为�
 
 参考资料：
 
-* TCP/IP协议 [http://zh.wikipedia.org/zh-cn/TCP/IP%E5%8D%8F%E8%AE%AE](http://zh.wikipedia.org/zh-cn/TCP/IP%E5%8D%8F%E8%AE%AE)
-* Data_buffer [http://en.wikipedia.org/wiki/Data_buffer](http://en.wikipedia.org/wiki/Data_buffer)
-* Endianness [http://en.wikipedia.org/wiki/Endianness](http://en.wikipedia.org/wiki/Endianness)
+* TCP/IP协议 [http://zh.wikipedia.org/zh-cn/TCP/IP%E5%8D%8F%E8%AE%AE](images/http://zh.wikipedia.org/zh-cn/TCP/IP%E5%8D%8F%E8%AE%AE)
+* Data_buffer [http://en.wikipedia.org/wiki/Data_buffer](images/http://en.wikipedia.org/wiki/Data_buffer)
+* Endianness [http://en.wikipedia.org/wiki/Endianness](images/http://en.wikipedia.org/wiki/Endianness)

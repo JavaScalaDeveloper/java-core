@@ -234,7 +234,7 @@ public class PhoenixJavaApi {
 <div align="center"> <img  src="../pictures/Phoenix-java-api-result.png"/> </div>
 
 
-实际的开发中我们通常都是采用第三方框架来操作数据库，如 `mybatis`，`Hibernate`，`Spring Data` 等。关于 Phoenix 与这些框架的整合步骤参见下一篇文章：[Spring/Spring Boot + Mybatis + Phoenix](https://github.com/heibaiying/BigData-Notes/blob/master/notes/Spring+Mybtais+Phoenix整合.md)
+实际的开发中我们通常都是采用第三方框架来操作数据库，如 `mybatis`，`Hibernate`，`Spring Data` 等。关于 Phoenix 与这些框架的整合步骤参见下一篇文章：[Spring/Spring Boot + Mybatis + Phoenix](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/Spring+Mybtais+Phoenix整合.md)
 
 # 参考资料
 

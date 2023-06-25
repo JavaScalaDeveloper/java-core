@@ -8,6 +8,7 @@
 * 实例数据（Instance Data）
 * 对齐填充（Padding）
 
+
 ![c716b7dab73b395ce177f282ac257e9b](images/HotSpot虚拟机对象探秘.resources/0455EAC5-DBCC-4956-A843-DF363813D9E1.png)
 
 ### 对象头
@@ -68,11 +69,13 @@ HotSpot VM 的自动内存管理系统要求对象的大小必须是 8 字节的
 
 引用类型的变量存放的是该对象的句柄地址（reference）。访问对象时，首先需要通过引用类型的变量找到该对象的句柄，然后根据句柄中对象的地址找到对象。
 
+
 ![3955fd1345d45baf4d42746d78ad112c](images/HotSpot虚拟机对象探秘.resources/FE9CC6BA-3D79-4CBD-8392-ABDB40E678E4.jpg)
 
 ### 直接指针访问方式
 
 引用类型的变量直接存放对象的地址，从而不需要句柄池，通过引用能够直接访问对象。但对象所在的内存空间需要额外的策略存储对象所属的类信息的地址。
+
 
 ![d84bacb25c024fd9925cc5280722b810](images/HotSpot虚拟机对象探秘.resources/4CFF1522-9C12-4100-9F5F-6251AB79991F.jpg)
 

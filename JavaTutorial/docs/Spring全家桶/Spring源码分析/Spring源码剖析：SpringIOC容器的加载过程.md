@@ -128,7 +128,9 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.spri
 > 总体来说继承实现结构较深，内部使用了大量适配器模式。  
 > 以ClassPathXmlApplicationContext为例，继承类图如下图所示：
 >
-> ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825134835291-1628501369.png)
+> 
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825134835291-1628501369.png)
 
 ## Spring Ioc容器加载过程源码详解
 
@@ -200,6 +202,7 @@ public interface BeanDefinitionRegistry extends AliasRegistry {
 ## 调试栈截图
 
 * * *  
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825134839933-520783623.png)
 
@@ -687,6 +690,7 @@ XmlBeanDefinitionReader（计数、解析XML文档），BeanDefinitionDocumentRe
 **考研复习资料：**  
 计算机考研大礼包，都是我自己考研复习时用的一些复习资料,包括公共课和专业的复习视频，这里也推荐给大家，关注公众号后，后台回复关键字 **“考研”** 即可免费获取。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20190829222750556.jpg)
 
 
@@ -695,5 +699,6 @@ XmlBeanDefinitionReader（计数、解析XML文档），BeanDefinitionDocumentRe
 如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号【Java技术江湖】一位阿里 Java 工程师的技术小站，作者黄小斜，专注 Java 相关技术：SSM、SpringBoot、MySQL、分布式、中间件、集群、Linux、网络、多线程，偶尔讲点Docker、ELK，同时也分享技术干货和学习经验，致力于Java全栈开发！
 
 **Java工程师必备学习资源:** 一些Java工程师常用学习资源，关注公众号后，后台回复关键字 **“Java”** 即可免费无套路获取。
+
 
 ![我的公众号](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20190805090108984.jpg)

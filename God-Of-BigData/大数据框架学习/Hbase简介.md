@@ -82,7 +82,7 @@ Hbase 的表具有以下特点：
 
 ## 参考资料
 
-1. [HBase - Overview](https://www.tutorialspoint.com/hbase/hbase_overview.htm)
+1. [HBase - Overview](images/https://www.tutorialspoint.com/hbase/hbase_overview.htm)
 
 
 

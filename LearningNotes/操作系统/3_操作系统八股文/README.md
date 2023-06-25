@@ -244,7 +244,9 @@ CPU调度问题
   - 静态非抢占式
   - 抢占式：每次调度时选择当前已到达且优先级最高的进程。当前进程主动放弃处理机时发生调度。就是在运行进程的过程中，放弃当前进行，去进行优先级高的进程。
 - 多级队列
-  - ![image-20210628202032099](C:\Users\huami\AppData\Roaming\Typora\typora-user-images\image-20210628202032099.png)
+  - 
+
+![image-20210628202032099](C:\Users\huami\AppData\Roaming\Typora\typora-user-images\image-20210628202032099.png)
 - 保证调度：系统跟踪各个进程自创以来使用过多少CPU的时间
 - 公平分享调度算法：对于上述的保证调度算法，是对诸进程而言体现的一定程度的公平性。但是对于**用户**来讲就不一定公平了。
 - 彩票调度：权重高的进程拥有更多的票，然后随机
@@ -444,6 +446,7 @@ TLB寄存器：相当于给页表加个缓存，为了解决虚拟地址到物�
   - 每一条引用内存的指令也可以引用控制寄存器
   - 但是需要缓存
   - 因为只有一个地址空间，所有主内存模块和所有I/O设备控制器必须检查所有内存引用才能看到该回应哪一个呢
+
 
 
 
@@ -857,6 +860,7 @@ pthread_join函数可以等待一个函数终止
 
 页表项
 
+
 ![image-20210717232227535](C:\Users\huami\AppData\Roaming\Typora\typora-user-images\image-20210717232227535.png)
 
 通过虚拟地址页号去**页表**找对应的页框同时判断其在不在内存中
@@ -982,11 +986,13 @@ pthread_join函数可以等待一个函数终止
 
 cpu的干预非常频繁
 
+
 ![image-20210729214538130](C:\Users\huami\AppData\Roaming\Typora\typora-user-images\image-20210729214538130.png)
 
 **中断驱动**
 
 容控制器自己完成任务后向cpu发一个中断信号，处理中断过程就是从控制器中读**一个字的数据**到cpu寄存器中，再写入内存，接着恢复去执行别的，等待下一次中断信号；但是中断次数过多也不好
+
 
 ![image-20210729215353822](C:\Users\huami\AppData\Roaming\Typora\typora-user-images\image-20210729215353822.png)
 
@@ -999,6 +1005,7 @@ IO多路复用的事件驱动服务器是运行在单一进程上下文中的，
 
 
 **DMA**
+
 
 ![image-20210729220610942](C:\Users\huami\AppData\Roaming\Typora\typora-user-images\image-20210729220610942.png)
 
@@ -1029,7 +1036,9 @@ CPU**如何与设备控制器何数据缓冲区进行通信**？
 
 1. 同步阻塞IO
 
-   ![preview](https://pic3.zhimg.com/v2-abef476a75afe52193be9577dcbcb88a_r.jpg)
+   
+
+![preview](https://pic3.zhimg.com/v2-abef476a75afe52193be9577dcbcb88a_r.jpg)
 
 2. 同步非阻塞IO
 
@@ -1037,7 +1046,9 @@ CPU**如何与设备控制器何数据缓冲区进行通信**？
 
 3. 多路复用IO
 
-   ![preview](https://pic3.zhimg.com/v2-260e80cbec13cbcc677779690f6ab2fa_r.jpg)
+   
+
+![preview](https://pic3.zhimg.com/v2-260e80cbec13cbcc677779690f6ab2fa_r.jpg)
 
    - 为什么会产生多路复用IO？
 
@@ -1049,7 +1060,9 @@ CPU**如何与设备控制器何数据缓冲区进行通信**？
 
 5. 异步IO
 
-   ![preview](https://pic4.zhimg.com/v2-5095ab1ffe868a2577bc15310d740293_r.jpg)
+   
+
+![preview](https://pic4.zhimg.com/v2-5095ab1ffe868a2577bc15310d740293_r.jpg)
 
    异步IO需要更强的操作系统支持；当用户线程收到通知时，数据已经被内核读取完毕，**并放在了用户线程指定的缓冲区内**，内核在IO完成后通知用户线程直接使用即可。
 

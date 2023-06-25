@@ -8,9 +8,11 @@
 
 首先问题出现的原因是因为远程登录的密码使用的默认密码而造成的，也就是说使用 mysql -u root -p的密码
 
+
 ![](http://image.moguit.cn/3eb7ca28be7a4cae9ef3fb9632f7d532)
 
 和 sqlyog连接的密码不一样，但是都能够成功连接上服务器
+
 
 ![](http://image.moguit.cn/c1baf8e7362d4a58bbaf28cc661ed4ad)
 
@@ -29,6 +31,7 @@
     select user, host from mysql.user;
 
 我们能够发现有4个用户
+
 
 ![](http://image.moguit.cn/3dacdadbcbbb4abaa467130fdc0e12dc)
 

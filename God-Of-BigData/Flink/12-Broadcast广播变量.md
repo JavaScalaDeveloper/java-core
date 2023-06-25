@@ -10,15 +10,15 @@
 
 ```
 1：初始化数据
-  DataSet<Integer> num = env.fromElements(1, 2, 3)
-  2：广播数据
-  .withBroadcastSet(toBroadcast, "num");
-  3：获取数据
-  Collection<Integer> broadcastSet = getRuntimeContext().getBroadcastVariable("num");
-  
-  注意：
-  1：广播出去的变量存在于每个节点的内存中，所以这个数据集不能太大。因为广播出去的数据，会常驻内存，除非程序执行结束
-  2：广播变量在初始化广播出去以后不支持修改，这样才能保证每个节点的数据都是一致的。
+DataSet<Integer> num = env.fromElements(1, 2, 3)
+2：广播数据
+.withBroadcastSet(toBroadcast, "num");
+3：获取数据
+Collection<Integer> broadcastSet = getRuntimeContext().getBroadcastVariable("num");
+
+注意：
+1：广播出去的变量存在于每个节点的内存中，所以这个数据集不能太大。因为广播出去的数据，会常驻内存，除非程序执行结束
+2：广播变量在初始化广播出去以后不支持修改，这样才能保证每个节点的数据都是一致的。
 
 ```
 
@@ -40,7 +40,7 @@
 
 ## 案例
 
-```
+```java
 public class BroadCastTest {
 
     public static void main(String[] args) throws Exception{

@@ -16,11 +16,13 @@ head:
 
 需要刷题笔记的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**100**」就可以拉取到下载链接了。
 
+
 ![扫码关注后回复 100 关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 
 > 二哥，去年校招前准备算法时，我在 LeetCode 上刷了很多题，但总感觉题虽然刷了很多，解题能力却没怎么提高，怎么解决这种刷题效率低下的问题呢？
 
 这是三个月前一个读者给我的私信，他的困惑让我心有戚戚焉！于是我赶紧问了身边的一些就职于大厂的朋友，他们不约而同地给我推荐了这份刷题笔记。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/bat-shuati-3660f789-59a4-4310-b565-8253be370904.jpg)
 
@@ -32,11 +34,14 @@ head:
 
 不管你使用的编程语言是 Java、C++，还是 Go，都可以学习，适合刷题的同学反复学习。认真地揣摩其中的框架思维，你会发现，这是一本非常用心的刷题类书籍。笔记总共 1200 页，分编程技巧、线性表、字符串、栈队列、树、排序、查找、BFS、DFS、贪心、动态规划等。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/bat-shuati-8941c10e-e9de-4b50-a6e8-7b50c2a142f7.jpg)
 
 每个章节都会先讲解框架思维，然后挑选非常典型的十几道 LeetCode 题进行实战讲解。这份笔记不仅排版十分精美，内容也异常充实，每一题都是细致的讲解，有时候还会配上图片，就怕你搞不懂，大大的良心啊！
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/bat-shuati-f2a840fd-a372-4de9-b420-4335a9e0316e.jpg)
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/download/bat-shuati-2e751738-1c8d-43b3-8e9b-d7593b62a55e.jpg)
 
@@ -50,6 +55,7 @@ head:
 那**这份刷题笔记中所有题目的解答，都是 Beats 100%**，这一点非常难能可贵！也就是说，这份刷题笔记中的解答都是大厂考核时候的标准答案，如果说你吃透了这份刷题笔记，可以吊打面试官了——当然了，吃透会比较难，但如果能应付面试，就直了呀，不不不，就值了呀！
 
 二哥已经把这份刷题笔记下载好了，需要的小伙伴请扫描下方的二维码关注作者的原创公众号「**沉默王二**」回复关键字「**100**」就可以拉取到下载链接了（无套路，没加密）。
+
 
 ![扫码关注后回复 100 关键字](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)
 

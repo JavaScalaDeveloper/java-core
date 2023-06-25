@@ -1,5 +1,5 @@
 # 怎样使用Flink将日志数据和ODPS元表做JOIN？
-
+## 方案1：使用Java代码
 要使用Flink将日志数据和ODPS元表做JOIN，可以按照以下步骤进行：
 
 - 1.使用Flink读取ODPS元表数据，并将数据转换成流。
@@ -69,6 +69,68 @@ DataStream<Tuple3<String, String, String>> joinedStream = logKeyedStream.join(me
 joinedStream.writeAsText(outputPath);
 ```
 其中，odpsMetaInputFormat和logInputFormat是读取ODPS元表和日志数据的输入格式，可以根据实际情况进行定义和实现。JOIN算子的详细说明可以参考Flink官方文档。
+
+## 方案二：使用SQL
+假设有一张表t，记录了a和b字段的映射关系，现在有个JSON格式的日志作为数据源，日志里包含a字段，怎样通过Flink SQL的方式解析出SQL的a字段并用来和t表做join拿到对应的b值并把日志里的a值替换成b值，然后通过消息队列输出？
+
+要通过Flink SQL的方式解析JSON格式的日志，并将其与表t进行Join操作，获取对应的b值并替换日志中的a值，最后将结果通过消息队列输出，可以按照以下步骤进行：
+
+- 定义表结构：首先需要定义表t和日志数据源的表结构。假设表t的结构为(a STRING, b STRING)，日志数据源的结构为(log JSON)。
+
+创建表：使用Flink SQL的CREATE TABLE语句创建表t和日志数据源的临时表。
+
+```sql
+CREATE TABLE t (
+a STRING,
+b STRING
+) WITH (
+'connector.type' = 'filesystem',
+'format.type' = 'csv',
+'connector.path' = '/path/to/t'
+);
+
+CREATE TABLE logSource (
+log JSON
+) WITH (
+'connector.type' = 'kafka',
+'connector.version' = 'universal',
+'connector.topic' = 'your-topic',
+-- 设置Kafka相关配置
+...
+);
+```
+以上示例中，表t是以CSV文件形式存储在文件系统中，可根据实际情况进行调整，在connector.path中指定实际的文件路径。日志数据源使用Kafka作为连接器，并指定相关的Kafka配置。
+
+- 解析JSON字段并进行Join操作：使用Flink SQL的内置函数对日志数据源中的JSON字段进行解析，并与表t进行Join操作，获取对应的b值，并将结果插入到临时表中。
+```sql
+INSERT INTO joinedLog
+SELECT
+CAST(JSON_VALUE(log, '$.a') AS STRING) AS a,
+t.b
+FROM logSource
+JOIN t
+ON JSON_VALUE(log, '$.a') = t.a;
+```
+上述示例中，我们使用JSON_VALUE函数从log字段中提取出a字段，并将其转换为字符串类型，然后与表t按照a字段进行Join操作。最后，将a字段和对应的b值插入到名为joinedLog的临时表中。
+
+替换日志中的a字段为b值：使用Flink SQL的UPDATE语句根据Join操作的结果，替换日志数据中的a字段为对应的b值。
+```sql
+UPDATE logSource
+SET log = JSON_REPLACE(log, '$.a', j.b)
+FROM joinedLog j
+WHERE CAST(JSON_VALUE(log, '$.a') AS STRING) = j.a;
+```
+上述示例中，我们使用JSON_REPLACE函数将日志数据中的a字段替换为Join操作结果中对应的b值。该更新操作将直接修改logSource表中的数据，将a字段替换为b值。
+
+- 输出至消息队列：使用Flink SQL的INSERT INTO语句将更新后的日志数据发送至消息队列。
+```sql
+INSERT INTO outputTopic
+SELECT log
+FROM logSource;
+```
+以上示例中，我们将更新后的日志数据从logSource表中提取出来，并发送到名为outputTopic的消息队列中。
+
+最后，通过上述步骤，在Flink SQL中可以解析日志、进行Join操作，获取对应的b值，并将日志中的a字段替换为b值，最终将结果发送至消息队列。请根据实际情况调整相关的代码和配置，确保能够正确解析日志、进行Join操作并输出至消息队列。
 
 # 什么是有界流和无界流？什么事滑动窗口、滚动窗口、会话窗口？
 有界流和无界流是 Flink 中流处理的两种基本类型。其中，有界流（Bounded Streams）指的是具有固定大小的数据集，例如从文件或数据库中读取的数据，这些数据集是有限的，可以被精确地计算和处理。相对地，无界流（Unbounded Streams）则是指在时间上不断增长的数据流，例如传感器数据、网络流量等实时数据，这些数据流通常无法预先知道其大小，并且无法进行精确的计算和处理。

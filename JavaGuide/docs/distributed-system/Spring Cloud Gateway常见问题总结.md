@@ -11,6 +11,7 @@ Spring Cloud Gateway 属于 Spring Cloud 生态系统中的网关，其诞生的
 
 为了提升网关的性能，Spring Cloud Gateway 基于 Spring WebFlux 。Spring WebFlux 使用 Reactor 库来实现响应式编程模型，底层基于 Netty 实现同步非阻塞的 I/O。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/api-gateway/springcloud-gateway-%20demo.png)
 
 Spring Cloud Gateway 不仅提供统一的路由方式，并且基于 Filter 链的方式提供了网关基本的功能，例如：安全，监控/指标，限流。
@@ -23,6 +24,7 @@ Spring Cloud Gateway 和 Zuul 2.x 的差别不大，也是通过过滤器来处�
 ## Spring Cloud Gateway 的工作流程？
 
 Spring Cloud Gateway 的工作流程如下图所示：
+
 
 ![Spring Cloud Gateway 的工作流程](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/api-gateway/spring-cloud-gateway-workflow.png)
 
@@ -46,15 +48,18 @@ Spring Cloud Gateway 的工作流程如下图所示：
 
 断言配置的示例如下，配置了两个路由规则，有一个 predicates 断言配置，当请求 url 中包含 `api/thirdparty`，就匹配到了第一个路由 `route_thirdparty`。
 
+
 ![断言配置示例](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/api-gateway/spring-cloud-gateway-predicate-example.png)
 
 常见的路由断言规则如下图所示：
+
 
 ![Spring Cloud GateWay 路由断言规则](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/api-gateway/spring-cloud-gateway-predicate-rules.png)
 
 ## Spring Cloud Gateway 的路由和断言是什么关系？
 
 Route 路由和 Predicate 断言的对应关系如下：：
+
 
 ![路由和断言的对应关系](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/api-gateway/spring-cloud-gateway-predicate-route.png)
 
@@ -88,6 +93,7 @@ Spring Cloud Gateway 作为微服务的入口，需要尽量避免重启，而�
 
 常见的局部过滤器如下图所示：
 
+
 ![](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/api-gateway/spring-cloud-gateway-gatewayfilters.png)
 
 具体怎么用呢？这里有个示例，如果 URL 匹配成功，则去掉 URL 中的 “api”。
@@ -102,6 +108,7 @@ filters: #过滤器
 ### 全局过滤器
 
 常见的全局过滤器如下图所示：
+
 
 ![](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/api-gateway/spring-cloud-gateway-globalfilters.png)
 

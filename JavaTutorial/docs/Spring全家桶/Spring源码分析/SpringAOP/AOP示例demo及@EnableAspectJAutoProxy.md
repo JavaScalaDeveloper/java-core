@@ -134,6 +134,7 @@ public void refresh() throws BeansException, IllegalStateException {
 
 整个流程总结如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-9307fefa65470e5c36ae6044631b5416aef.png)
 
 ### 2\. spring 启动中 `beanFactory` 的变化
@@ -144,21 +145,26 @@ public void refresh() throws BeansException, IllegalStateException {
 
 我们将断点打在 `AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)` 的 `this()` 方法上，然后运行 demo01 的 `main()` 方法：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-c3c672a675d9b06f03ea29cb31f6ed5d012.png)
 
 此时的变量中，并没有 `beanFactory`，我们自己添加 `beanFactory` 到调度窗口的变量列表中：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-e9d8ae8fdd3b02b2279376303e3eae4cf2f.png)
 
 这样就能看到对应的值了：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-44d1ade26f0cb667425b0dd99d82666877f.png)
 
 可以看到，此时的 `beanFactory` 为 null，表明 `beanFactory` 并未实例化，我们继续运行：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-664780be9dfef73c12a3f163b349e7e54d8.png)
 
 当运行完 `this()` 后，发现 `beanFactory` 已经有值了，类型为 `DefaultListableBeanFactory`。但是，在查看 `beanFactory` 对象时，发现 `beanFactory` 的属性太多了，我们应该重点关注啥呢？
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-1b617cf7edda29c652a7661d4be3779ec85.png)
 
@@ -171,11 +177,13 @@ public void refresh() throws BeansException, IllegalStateException {
 
 我们手动添加变量，如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0c6368478258f8b9f76b47fc1c85b02f13f.png)
 
 可以看到，此时的 `beanDefinitionMap` 中已经有 4 个对象了，显然是在 `this()` 方法中添加的，关于这块我们后面会分析。
 
 接着运行，发现 `beanDefinitionMap` 又多了两个：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a493061fbd4b4066f9a4d91e91ff61e8c4e.png)
 
@@ -183,11 +191,13 @@ public void refresh() throws BeansException, IllegalStateException {
 
 接下来，代码执行进入 `AbstractApplicationContext#refresh` 方法，我们一行行运行下去，发现运行到 `prepareBeanFactory(beanFactory);` 时，`singletonObjects` 中第一次出现了对象：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8cebcb82f5a8754fd1bb4bb3eb3c57dda2d.png)
 
 可以看到，这里出现了 3 个类，基本都跟系统、环境相关，如 `environment` 是 spring 当前使用的环境 (`profile`)，`systemProperties` 当前系统的属性（操作系统、操作系统版本等）。
 
 继续往下运行，发现代码运行到 `invokeBeanFactoryPostProcessors(beanFactory)` 时，又多了 4 个类：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-baa09e51272baa384418cb2c82b9dfb079b.png)
 
@@ -213,6 +223,7 @@ applicationEventMulticaster -> {SimpleApplicationEventMulticaster@1869}
 ```
 
 显然，这个对象是用来处理 `ApplicationContext` 的广播事件的，我们的 demo 中并没有用到，暂时不必理会。继续下去，发现在运行完 `finishBeanFactoryInitialization(beanFactory);`，`singletonObjects` 中终于出现了我们期待的对象：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-68b1ee71e468ef8cf839230c07b64c45563.png)
 

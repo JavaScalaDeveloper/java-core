@@ -117,9 +117,11 @@ for (String s : cmowers) {
 
 `Arrays.toString()` 可以将任意类型的数组转成字符串，包括基本类型数组和引用类型数组。该方法有多种重载形式。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/array/print-01.png)
 
 使用 `Arrays.toString()` 方法来打印数组再优雅不过了，就像，就像，就像蒙娜丽莎的微笑。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/array/print-02.png)
 
@@ -160,6 +162,7 @@ System.out.println(Arrays.deepToString(deepArray));
 ### POJO 的打印规约
 
 “说到打印，三妹，哥给你提醒一点。阿里巴巴的 Java 开发手册上有这样一条规约，你看。”
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/array/print-03.png)
 

@@ -17,7 +17,9 @@ ArrayBlockingQueue是数组实现的线程安全的有界的阻塞队列。
 注意:ArrayBlockingQueue不同于ConcurrentLinkedQueue，ArrayBlockingQueue是数组实现的，并且是有界限的;而ConcurrentLinkedQueue是链表实现的，是无界限的.
 
 ### ArrayBlockingQueue原理和数据结构
-ArrayBlockingQueue的数据结构，如下图所示：![7adae419f9a6f74c644642c6bda2673b](大数据成神之路-Java高级特性增强(ArrayBlockingQueue).resources/0BA99FFA-FAC7-470F-AB00-4523EDCCFF80.jpg)
+ArrayBlockingQueue的数据结构，如下图所示：
+
+![7adae419f9a6f74c644642c6bda2673b](images/大数据成神之路-Java高级特性增强(ArrayBlockingQueue).resources/0BA99FFA-FAC7-470F-AB00-4523EDCCFF80.jpg)
 说明：    
 1. ArrayBlockingQueue继承于AbstractQueue，并且它实现了BlockingQueue接口。    
 2. ArrayBlockingQueue内部是通过Object[]数组保存数据的，也就是说ArrayBlockingQueue本质上是通过数组实现的。ArrayBlockingQueue的大小，即数组的容量是创建ArrayBlockingQueue时指定的。    
@@ -76,7 +78,7 @@ String toString()
 下面从ArrayBlockingQueue的创建，添加，取出，遍历这几个方面对ArrayBlockingQueue进行分析。
 **1. 创建**
 下面以ArrayBlockingQueue(int capacity, boolean fair)来进行说明。
-```
+```java
 public ArrayBlockingQueue(int capacity, boolean fair) {
     if (capacity <= 0)
         throw new IllegalArgumentException();
@@ -105,7 +107,7 @@ notEmpty表示“锁的非空条件”。当某线程想从队列中取数据时
 **2. 添加**
 
 下面以offer(E e)为例，对ArrayBlockingQueue的添加方法进行说明。
-```
+```java
 public boolean offer(E e) {
     // 创建插入的元素是否为null，是的话抛出NullPointerException异常
     checkNotNull(e);
@@ -159,7 +161,7 @@ final int inc(int i) {
 **3. 取出**
 
 下面以take()为例，对ArrayBlockingQueue的取出方法进行说明。
-```
+```java
 public E take() throws InterruptedException {
     // 获取“队列的独占锁”
     final ReentrantLock lock = this.lock;
@@ -199,7 +201,7 @@ private E extract() {
 
 **4. 遍历**
 下面对ArrayBlockingQueue的遍历方法进行说明。
-```
+```java
 public Iterator<E> iterator() {
     return new Itr();
 }

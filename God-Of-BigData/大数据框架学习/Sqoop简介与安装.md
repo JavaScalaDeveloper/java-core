@@ -90,7 +90,7 @@ export ZOOCFGDIR=/usr/app/zookeeper-3.4.13/conf
 
 ### 2.4 拷贝数据库驱动
 
-将 MySQL 驱动包拷贝到 Sqoop 安装目录的 `lib` 目录下, 驱动包的下载地址为 https://dev.mysql.com/downloads/connector/j/  。在本仓库的[resources](https://github.com/heibaiying/BigData-Notes/tree/master/resources) 目录下我也上传了一份，有需要的话可以自行下载。
+将 MySQL 驱动包拷贝到 Sqoop 安装目录的 `lib` 目录下, 驱动包的下载地址为 https://dev.mysql.com/downloads/connector/j/  。在本仓库的[resources](images/https://github.com/heibaiying/BigData-Notes/tree/master/resources) 目录下我也上传了一份，有需要的话可以自行下载。
 
 <div align="center"> <img  src="../pictures/sqoop-mysql-jar.png"/> </div>
 

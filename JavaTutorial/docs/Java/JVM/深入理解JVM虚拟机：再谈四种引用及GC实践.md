@@ -77,6 +77,7 @@ public class StrongReferenceTest {
 
 运行结果：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404223852.png)
 ### 2.弱引用 WeakReference
 
@@ -109,6 +110,7 @@ public class WeakReferenceTest {
 ````
 
 运行结果：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404223905.png)
 ### 3.软引用 SoftReference
@@ -149,6 +151,7 @@ public class SoftReferenceTest {
 
 ````
 运行结果：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404223922.png)
 ### 4.虚引用 PhantomReference
@@ -202,6 +205,7 @@ public class PhantomReferenceTest {
 
 ````
 运行结果：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404223938.png)
 ## 三、小结

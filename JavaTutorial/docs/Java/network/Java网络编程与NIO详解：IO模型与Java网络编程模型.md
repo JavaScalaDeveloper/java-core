@@ -124,6 +124,7 @@ asynchronous IO
 
 在linux中，默认情况下所有的socket都是blocking，一个典型的读操作流程大概是这样：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405094447.png)
 阻塞IO流程
 
@@ -136,6 +137,7 @@ asynchronous IO
 * * *
 
 linux下，可以通过设置socket使其变为non-blocking。当对一个non-blocking socket执行读操作时，流程是这个样子：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405094507.png)
 非阻塞 I/O 流程
@@ -151,6 +153,7 @@ linux下，可以通过设置socket使其变为non-blocking。当对一个non-bl
 * * *
 
 IO multiplexing就是我们说的select，poll，epoll，有些地方也称这种IO方式为event driven IO。select/epoll的好处就在于单个process就可以同时处理多个网络连接的IO。它的基本原理就是select，poll，epoll这个function会不断的轮询所负责的所有socket，当某个socket有数据到达了，就通知用户进程。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405094539.png)
 
@@ -200,6 +203,7 @@ epoll的出现，解决了select、poll的缺点：
 * * *
 
 linux下的asynchronous IO其实用得很少。先看一下它的流程：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405094934.png)
 异步IO 流程

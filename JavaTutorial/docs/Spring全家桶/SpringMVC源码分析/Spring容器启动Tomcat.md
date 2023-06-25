@@ -1,5 +1,6 @@
 ''在 [spring mvc 之 springmvc demo 与 @EnableWebMvc 注解](https://my.oschina.net/funcy/blog/4696657)一文中，我们提供了一个示例 demo，该 demo 会先启动 servlet 容器，然后通过 `servlet3.0` 规范将 `DispatcherServlet` 注册到 `servlet` 容器中，然后在 `DispatcherServlet#init` 方法中启动 spring 容器，整个流程就像这样：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0874fa7ef39ca9c405cdf55d99ca891ebf2.png)
 
 这没什么问题，能正常启动也运行良好，只不过我们在 spring 容器中无法获取 `DispatcherServlet`，像这样：
@@ -250,9 +251,11 @@ public class MvcDemo03Main {
 
 页面：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d87b4a09e7a87e0535eb52a09759fcc6534.png)
 
 控制台：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-c608886c751dcf595d74efb8506e5d67306.png)
 
@@ -261,6 +264,7 @@ public class MvcDemo03Main {
 前面我们分析到，使用 tomcat 启动 spring 容器的方式时，spring 容器是在 `DispatcherServlet#init` 方法中启动的，在我们使用 **spring 容器启动 tomcat** 的启动方式时，tomcat 执行 `DispatcherServlet#init` 方法时，会再次启动 spring 容器吗？
 
 这里我们直接进入 `FrameworkServlet#initWebApplicationContext` 方法，打上断点：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-64ee29f90ef5683f7968f782b9175d42e0f.png)
 

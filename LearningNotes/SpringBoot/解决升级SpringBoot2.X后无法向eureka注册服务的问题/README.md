@@ -36,6 +36,7 @@
 
 在启动eureka之前，我们还需要添加一个配置文件：WebSecurityConfig
 
+
 ![](http://image.moguit.cn/1576929701250.png)
 
     package com.moxi.mogublog.eureka.config;

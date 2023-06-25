@@ -21,6 +21,7 @@ tag:
 
 为了解决这个问题，人们很久以前就开发了许多种本地版本控制系统，大多都是采用某种简单的数据库来记录文件的历次更新差异。
 
+
 ![本地版本控制系统](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3/本地版本控制系统.png)
 
 ### 集中化的版本控制系统
@@ -28,6 +29,7 @@ tag:
 接下来人们又遇到一个问题，如何让在不同系统上的开发者协同工作？ 于是，集中化的版本控制系统（Centralized Version Control Systems，简称 CVCS）应运而生。
 
 集中化的版本控制系统都有一个单一的集中管理的服务器，保存所有文件的修订版本，而协同工作的人们都通过客户端连到这台服务器，取出最新的文件或者提交更新。
+
 
 ![集中化的版本控制系统](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3/集中化的版本控制系统.png)
 
@@ -41,6 +43,7 @@ tag:
 于是分布式版本控制系统（Distributed Version Control System，简称 DVCS）面世了。 Git 就是一个典型的分布式版本控制系统。
 
 这类系统，客户端并不只提取最新版本的文件快照，而是把代码仓库完整地镜像下来。 这么一来，任何一处协同工作用的服务器发生故障，事后都可以用任何一个镜像出来的本地仓库恢复。 因为每一次的克隆操作，实际上都是一次对代码仓库的完整备份。
+
 
 ![分布式版本控制系统](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3/分布式版本控制系统.png)
 
@@ -66,6 +69,7 @@ Git 在保存和对待各种信息的时候与其它版本控制系统有很大�
 
 具体原理如下图所示，理解起来其实很简单，每当我们提交更新一个文件之后，系统都会记录这个文件做了哪些更新，以增量符号 Δ(Delta)表示。
 
+
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3deltas.png)
 
 **我们怎样才能得到一个文件的最终版本呢？**
@@ -78,6 +82,7 @@ Git 在保存和对待各种信息的时候与其它版本控制系统有很大�
 
 Git 不按照以上方式对待或保存数据。 反之，Git 更像是把数据看作是对小型文件系统的一组快照。 每次你提交更新，或在 Git 中保存项目状态时，它主要对当时的全部文件制作一个快照并保存这个快照的索引。 为了高效，如果文件没有修改，Git 不再重新存储该文件，而是只保留一个链接指向之前存储的文件。 Git 对待数据更像是一个 **快照流**。
 
+
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3snapshots.png)
 
 ### Git 的三种状态
@@ -89,6 +94,7 @@ Git 有三种状态，你的文件可能处于其中之一：
 3. **已暂存（staged）**：表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。
 
 由此引入 Git 项目的三个工作区域的概念：**Git 仓库(.git directory)**、**工作目录(Working Directory)** 以及 **暂存区域(Staging Area)** 。
+
 
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3areas.png)
 
@@ -199,6 +205,7 @@ git branch test
 ```shell
 git checkout test
 ```
+
 
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3切换分支.png)
 

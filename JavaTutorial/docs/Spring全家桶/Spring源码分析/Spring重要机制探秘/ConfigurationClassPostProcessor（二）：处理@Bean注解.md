@@ -118,6 +118,7 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(Class)
 
 此时的 `candidates` 只有一个 元素：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0d50f32d5ea1d2b79b8e17612d30693f753.png)
 
 ### 3.2 解析 `demo02Main`：ConfigurationClassParser#doProcessConfigurationClass
@@ -142,9 +143,11 @@ AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(Class)
 
 处理 `Demo02Main` 的 `@ComponentScan` 之后，可以看到 `beanConfigs` 已经扫描到了：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-7fef6007424562f63dda7f2a0b25e9c293b.png)
 
 由于 `beanConfigs` 是配置类，因此会对其进行解析：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-fba3821df9cf2926b16bd064cf164e83471.png)
 
@@ -260,7 +263,9 @@ public Set<MethodMetadata> getAnnotatedMethods(String annotationName) {
 
 到了这里，`beanConfigs` 中的两个方法终于获取到了（保存在 `ConfigurationClass` 对象的 `beanMethods` 属性）：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-121f4d518fa57c8932e6b7fd3e7def8704b.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a4d91c1f52703b8c911bdb9d9afaf697d92.png)
 
@@ -651,6 +656,7 @@ org.springframework.learn.explore.demo02.BeanConfigs$$EnhancerBySpringCGLIB$$dca
 
 看出区别了吗，我们将之前的执行也放在这里：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-88e5047479e4f30e70d09397d2631c0c6a5.png)
 
 经过比较，发现有两处不同：
@@ -709,6 +715,7 @@ public void enhanceConfigurationClasses(ConfigurableListableBeanFactory beanFact
 3.  将生成的 `enhancedClass` 设置到 `beanDefinition` 的 `beanClass` 中。
 
 执行完此方法后，`beanConfigs` 对应的 `beanDefinition` 的 `beanClass` 就是代理类了：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-f617fc93f72b13b8f785ccf5a12624dec0b.png)
 
@@ -863,6 +870,7 @@ public Object intercept(Object proxyObj, Method method, Object[] objects,
 
 `beanObj2()` 的调用使用是`方案2`，也就是使用代理对象调用 `beanObj2()`，`beanObj2()` 的 `this` 为代理对象：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-7ef891450ace815d22a5bf5c8e78e65c2db.png)
 
 因此在 `beanObj2()` 中直接调用 `beanObj1()`，就相当于使用代理对象调用 `beanObj1()`，当然能被代理了。
@@ -917,6 +925,7 @@ public class BeanConfigs {
 
 在 `BeanConfigs` 中自动注入了 `beanObj3` 属性，然后在 `beanObj2()` 中又打印了 `beanObj3` 属性。运行，结果如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-e21bf76da41fcf12e674fa155de4b636253.png)
 
 可以看到，注入的 `beanObj3` 也能获取到了。这里就有个问题了：`beanObj3` 是属于目标对象的，而 `this` 是代理对象，难不成代理对象能拿到目标对象的私有属性？
@@ -924,6 +933,7 @@ public class BeanConfigs {
 首先，添加到 `beanFactory` 的 `beanDefinitionMap` 中的类是 `BeanConfigs$$EnhancerBySpringCGLIB$$Xxx` 类（代理类），而不是 `BeanConfigs`，spring 在进行属性注入时，会查找当前类及其父类的所有等注入属性进行注入，因此，虽然添加到 spring 容器中的 是 `BeanConfigs$$EnhancerBySpringCGLIB$$Xxx` 类，但 `BeanConfigs` 中的 `beanObj3` 一样会被注入，至于原因嘛，由于 cglib 的代理关系，`BeanConfigs` 是 `BeanConfigs$$EnhancerBySpringCGLIB$$Xxx` 的父类。
 
 那 `BeanConfigs$$EnhancerBySpringCGLIB$$Xxx` 会继承 `beanObj3` 属性吗？这里直接看运行结果吧：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-27ebdebfd8c958f1de362ca1b30f2d0fc7c.png)
 

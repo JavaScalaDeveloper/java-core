@@ -2,13 +2,15 @@
 先看一张图，这张图能很清晰的说明JVM内存结构布局。
 
 Java的内存结构：
-![a87faa872e41f9de5330cb1c8c413927](jvm系列(二)JVM内存结构.resources/476AD977-8808-4422-8349-06754DB023F5.png)
+
+![a87faa872e41f9de5330cb1c8c413927](images/jvm系列(二)JVM内存结构.resources/476AD977-8808-4422-8349-06754DB023F5.png)
 JVM内存结构主要有三大块：堆内存、方法区和栈。堆内存是JVM中最大的一块由年轻代和老年代组成，而年轻代内存又被分成三部分，Eden空间、From Survivor空间、To Survivor空间,默认情况下年轻代按照8:1:1的比例来分配；
 
 方法区存储类信息、常量、静态变量等数据，是线程共享的区域，为与Java堆区分，方法区还有一个别名Non-Heap(非堆)；栈又分为java虚拟机栈和本地方法栈主要用于方法的执行。
 
 在通过一张图来了解如何通过参数来控制各区域的内存大小
-![78f8eb4e67f1bf3d93cfd257be090683](jvm系列(二)JVM内存结构.resources/150E44D4-976A-4736-98B8-6E8681BA307B.png)
+
+![78f8eb4e67f1bf3d93cfd257be090683](images/jvm系列(二)JVM内存结构.resources/150E44D4-976A-4736-98B8-6E8681BA307B.png)
 
 
 控制参数
@@ -31,7 +33,8 @@ JVM内存结构主要有三大块：堆内存、方法区和栈。堆内存是JV
 
 从更高的一个维度再次来看JVM和系统调用之间的关系
 
-![10ffdb75c5cecded53db7a22b5b6e6cc](jvm系列(二)JVM内存结构.resources/CD206F3C-4EF8-47AC-9DB5-8B67574E8ADB.png)
+
+![10ffdb75c5cecded53db7a22b5b6e6cc](images/jvm系列(二)JVM内存结构.resources/CD206F3C-4EF8-47AC-9DB5-8B67574E8ADB.png)
 方法区和对是所有线程共享的内存区域；而java栈、本地方法栈和程序员计数器是运行是线程私有的内存区域。
 
  下面我们详细介绍每个区域的作用

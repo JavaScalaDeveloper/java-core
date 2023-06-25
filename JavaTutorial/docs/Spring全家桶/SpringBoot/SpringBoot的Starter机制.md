@@ -2,6 +2,7 @@ starter是SpringBoot中的一个新发明，它有效的降低了项目开发过
 
 Spring Boot Starter是在SpringBoot组件中被提出来的一种概念，stackoverflow上面已经有人概括了这个starter是什么东西，想看完整的回答戳[这里](https://stackoverflow.com/a/28273660)（https://stackoverflow.com/questions/28273543/what-are-spring-boot-starter-jars/28273660#28273660）
 
+
 ![](https://images2018.cnblogs.com/blog/697611/201804/697611-20180409110042391-1447358002.png)
 
 大概意思就是说starter是一种对依赖的synthesize（合成），这是什么意思呢？我可以举个例子来说明。
@@ -33,6 +34,7 @@ starter的实现：虽然不同的starter实现起来各有差异，但是他们
 
 starter的整体逻辑：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/697611-20180409110236645-2097376440.png)
 
 上面的starter依赖的jar和我们自己手动配置的时候依赖的jar并没有什么不同，所以我们可以认为starter其实是把这一些繁琐的配置操作交给了自己，而把简单交给了用户。除了帮助用户去除了繁琐的构建操作，在“约定大于配置”的理念下，ConfigurationProperties还帮助用户减少了无谓的配置操作。并且因为?`application.properties`?文件的存在，即使需要自定义配置，所有的配置也只需要在一个文件中进行，使用起来非常方便。
@@ -40,6 +42,7 @@ starter的整体逻辑：
 了解了starter其实就是帮助用户简化了配置的操作之后，要理解starter和被配置了starter的组件之间并不是竞争关系，而是辅助关系，即我们可以给一个组件创建一个starter来让最终用户在使用这个组件的时候更加的简单方便。基于这种理念，我们可以给任意一个现有的组件创建一个starter来让别人在使用这个组件的时候更加的简单方便，事实上Spring Boot团队已经帮助现有大部分的流行的组件创建好了它们的starter，你可以在[这里](https://github.com/spring-projects/spring-boot/tree/v1.5.7.RELEASE/spring-boot-starters)查看这些starter的列表。
 
 用了springboot 那么久了居然都还没自定义过starter，想想都觉得羞愧，所以今天来玩一下。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416200541.png)
 
@@ -191,7 +194,9 @@ spring-configuration-metadata.json
 
 ## 打包测试
 
-找到如图maven，点击install，安装到本地 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230416200527082.png)
+找到如图maven，点击install，安装到本地 
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230416200527082.png)
 
 然后新建一个项目导包进行测试，创建项目过程就不介绍了。
 

@@ -97,6 +97,7 @@ https://github.com/docker/compose/releases
 
 然后选择Linux版本下载
 
+
 ![image-20201124204747145](images/image-20201124204747145.png)
 
 > 如果上述地址下载过于缓慢，请备用地址：[点我传送](https://wws.lanzous.com/iTHoIiuilvi)
@@ -284,6 +285,7 @@ networks:
 
 执行后，即会给我们拉取对应的mysql镜像
 
+
 ![image-20201124213715204](images/image-20201124213715204.png)
 
 拉取完成后，我们使用下面命令，查看我们的启动情况
@@ -291,6 +293,7 @@ networks:
 ```bash
 docker ps -a
 ```
+
 
 ![image-20201125092216871](images/image-20201125092216871.png)
 
@@ -355,6 +358,7 @@ networks:
 ```
 
 执行完命令后，就会开始拉取 nacos、redis、rabbitmq的镜像
+
 
 ![image-20201125093823312](images/image-20201125093823312.png)
 
@@ -478,6 +482,7 @@ docker build -t registry.cn-shenzhen.aliyuncs.com/mogublog/sentinel .
 
 完成后，即可看到构建成功的镜像了【体积相对较少】
 
+
 ![image-20201206091428787](images/image-20201206091428787.png)
 
 #### 启动
@@ -513,6 +518,7 @@ docker-compose -f docker-compose.yaml down
 http://ip:8070
 ```
 
+
 ![image-20201206091653953](images/image-20201206091653953.png)
 
 ### 部署ELK【可选】
@@ -547,6 +553,7 @@ cd elk && docker-compose up -d && cd ..
 ```
 
 ELK：ElasticSearch + Logstash + Kibana
+
 
 ![image-20201129091936117](images/image-20201129091936117.png)
 
@@ -801,6 +808,7 @@ docker rmi $(docker images | grep "none" | awk '{print $3}')
 ```bash
 docker images;
 ```
+
 
 ![image-20201125144121048](images/image-20201125144121048.png)
 
@@ -1184,13 +1192,16 @@ http://ip:9000
 
 即可看到我们的图形化页面了【首次登录需要填写默认密码】
 
+
 ![image-20201125143917252](images/image-20201125143917252.png)
 
 登录后，即可看到我们的容器信息
 
+
 ![image-20201125144030439](images/image-20201125144030439.png)
 
 最后附上一张，蘑菇博客所有容器启动后的图片
+
 
 ![image-20201125202352995](images/image-20201125202352995.png)
 

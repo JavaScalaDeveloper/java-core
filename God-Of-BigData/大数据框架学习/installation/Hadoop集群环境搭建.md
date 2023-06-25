@@ -29,7 +29,7 @@
 
 Hadoop 的运行依赖 JDK，需要预先安装。其安装步骤单独整理至：
 
-+ [Linux 下 JDK 的安装](https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Linux下JDK安装.md)
++ [Linux 下 JDK 的安装](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Linux下JDK安装.md)
 
 
 

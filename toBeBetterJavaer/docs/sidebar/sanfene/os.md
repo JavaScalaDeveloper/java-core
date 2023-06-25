@@ -24,6 +24,7 @@ head:
 
 它是应用程序和硬件之间的媒介，向应用程序提供硬件的抽象，以及管理硬件资源。
 
+
 ![操作系统是什么](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-be55aec1-e7ab-433f-97f1-14d99960b6bf.png)
 
 
@@ -38,6 +39,7 @@ head:
 - I/O管理：对输入/输出设备的统一管理。
 
 除此之外，还有保证自身正常运行的健壮性管理，防止非法操作和入侵的安全性管理。
+
 
 ![操作系统主要功能](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-eee82952-c96f-45c9-835e-29db37c0f6d8.png)
 
@@ -61,6 +63,7 @@ head:
 
 应⽤程序如果需要进⼊内核空间，就需要通过系统调⽤，来进入内核态：
 
+
 ![用户态&内核态切换](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-b358cdae-18b6-45d4-8a5b-4ea3a7cfc273.png)
 
 内核程序执⾏在内核态，⽤户程序执⾏在⽤户态。当应⽤程序使⽤系统调⽤时，会产⽣⼀个中断。发⽣中断后， CPU 会中断当前在执⾏的⽤户程序，转⽽跳转到中断处理程序，也就是开始执⾏内核程序。内核处理完后，主动触发中断，把 CPU 执⾏权限交回给⽤户程序，回到⽤户态继续⼯作。
@@ -74,6 +77,7 @@ head:
 
 并行就是在同一时刻，有多个任务在执行。这个需要多核处理器才能完成，在微观上就能同时执行多条指令，不同的程序被放到不同的处理器上运行，这个是物理上的多个进程同时进行。
 
+
 ![并发和并行](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-fb7891d8-8330-494b-9bc1-cf829b5cc82d.png)
 
 
@@ -81,6 +85,7 @@ head:
 ### 什么是进程上下文切换？
 
 对于单核单线程 CPU 而言，在某一时刻只能执行一条 CPU 指令。上下文切换 (Context Switch) 是一种将 CPU 资源从一个进程分配给另一个进程的机制。从用户角度看，计算机能够并行运行多个进程，这恰恰是操作系统通过快速上下文切换造成的结果。在切换的过程中，操作系统需要先存储当前进程的状态 (包括内存空间的指针，当前执行完的指令等等)，再读入下一个进程的状态，然后执行此进程。
+
 
 ![进程上下文切换-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-187d1cf9-971d-4395-b888-5e6eaf2be5f1.png)
 
@@ -94,12 +99,14 @@ head:
 - 就绪状态（*Ready*）：可运⾏，由于其他进程处于运⾏状态⽽暂时停⽌运⾏；
 - 阻塞状态（*Blocked*）：该进程正在等待某⼀事件发⽣（如等待输⼊/输出操作的完成）⽽暂时停⽌运⾏，这时，即使给它CPU控制权，它也⽆法运⾏；
 
+
 ![进程3种状态](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-5df30631-ad7d-4c65-af20-50b7b615eca8.png)
 
 当然，进程还有另外两个基本状态：
 
 - 创建状态（*new*）：进程正在被创建时的状态；
 - 结束状态（*Exit*）：进程正在从系统中消失时的状态；
+
 
 ![进程5种状态](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-ae17a9dc-f555-481a-ba4a-caca06120be7.png)
 
@@ -117,11 +124,13 @@ head:
 
 进程调度就是确定某一个时刻CPU运行哪个进程，常见的进程调度算法有：
 
+
 ![进程调度算法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-18911b0a-7326-467f-94fb-8c01a6980578.png)
 
 - **先来先服务**
 
 非抢占式的调度算法，按照请求的顺序进行调度。有利于长作业，但不利于短作业，因为短作业必须一直等待前面的长作业执行完毕才能执行，而长作业又需要执行很长时间，造成了短作业等待时间过长。另外，对I/O密集型进程也不利，因为这种进程每次进行I/O操作之后又得重新排队。
+
 
 ![先来先服务](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-93088d03-80c9-46c5-9eaf-eead2adb6e12.png)
 
@@ -129,11 +138,13 @@ head:
 
 非抢占式的调度算法，按估计运行时间最短的顺序进行调度。长作业有可能会饿死，处于一直等待短作业执行完毕的状态。因为如果一直有短作业到来，那么长作业永远得不到调度。
 
+
 ![短作业优先](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-517e8392-64fe-4de3-9e1c-b3a944822aba.png)
 
 - **优先级调度**
 
 为每个进程分配一个优先级，按优先级进行调度。为了防止低优先级的进程永远等不到调度，可以随着时间的推移增加等待进程的优先级。
+
 
 ![优先级调度](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-7c4441cf-7b8c-4660-8ba8-29b8076e2da1.png)
 
@@ -143,6 +154,7 @@ head:
 
 时间片轮转算法的效率和时间片的大小有很大关系：因为进程切换都要保存进程的信息并且载入新进程的信息，如果时间片太小，会导致进程切换得太频繁，在进程切换上就会花过多时间。 而如果时间片过长，那么实时性就不能得到保证。
 
+
 ![时间片轮转](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-ad224c3a-8ac9-4230-84e4-ec434d5b49f9.png)
 
 - **最短剩余时间优先**
@@ -151,13 +163,16 @@ head:
 
 ### 进程间通信有哪些方式？
 
+
 ![进程间通信方式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-34b8635f-ec27-46c6-87c3-91440fea662d.png)
 
 - 管道：管道可以理解成不同进程之间的对白，一方发声，一方接收，声音的介质可是是空气或者电缆，进程之间就可以通过管道，**所谓的管道就是内核中的一串缓存**，从管道的一端写入数据，就是缓存在了内核里，另一端读取，也是从内核中读取这段数据。
 
   管道可以分为两类：**匿名管道**和**命名管道**。匿名管道是单向的，只能在有亲缘关系的进程间通信；命名管道是双向的，可以实现本机任意两个进程通信。
 
-  ![“奉先我儿”](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-5994e202-0d59-4a86-8f79-a17a5d0bd3d3.png)
+  
+
+![“奉先我儿”](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-5994e202-0d59-4a86-8f79-a17a5d0bd3d3.png)
 
   
 
@@ -178,9 +193,11 @@ head:
 
 - 消息队列：**消息队列就是保存在内核中的消息链表**，包括Posix消息队列和System V消息队列。有足够权限的进程可以向队列中添加消息，被赋予读权限的进程则可以读走队列中的消息。消息队列克服了信号承载信息量少，管道只能承载无格式字节流以及缓冲区大小受限等缺点。
 
+
 ![消息队列](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-d3d8bef5-ae32-487f-828d-aaddb93867c4.png)
 
 - 共享内存：**共享内存的机制，就是拿出⼀块虚拟地址空间来，映射到相同的物理内存中**。这样这个进程写⼊的东西，另外的进程⻢上就能看到。共享内存是最快的 IPC 方式，它是针对其他进程间通信方式运行效率低而专门设计的。它往往与其他通信机制，如信号量，配合使用，来实现进程间的同步和通信。
+
 
 ![共享内存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-d9e3cfaf-01e7-42ff-9290-94ef4a5c7d5e.png)
 
@@ -193,7 +210,9 @@ head:
 
   P 操作是⽤在进⼊共享资源之前，V 操作是⽤在离开共享资源之后，这两个操作是必须成对出现的。
 
-  ![信号量](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-5fb765af-918c-4037-a3ad-4cad4d985e16.png)
+  
+
+![信号量](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-5fb765af-918c-4037-a3ad-4cad4d985e16.png)
 
   
 
@@ -215,6 +234,7 @@ head:
 **线程是进程当中的⼀条执⾏流程。**
 
 同⼀个进程内多个线程之间可以共享代码段、数据段、打开的⽂件等资源，但每个线程各⾃都有⼀套独⽴的寄存器和栈，这样可以确保线程的控制流是相对独⽴的。
+
 
 ![多线程-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-271e450b-66ef-4f6c-b823-8e0b73347825.png)
 
@@ -241,13 +261,16 @@ head:
 
 - **内核态线程实现**：在内核空间实现的线程，由内核直接管理直接管理线程。
 
+
 ![内核态线程实现](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-30b84285-8027-4720-b50b-3b0fb18c756f.png)
 
 - **⽤户态线程实现**：在⽤户空间实现线程，不需要内核的参与，内核对线程无感知。
 
+
 ![用户态线程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-57886181-56fe-42bf-85e1-4d062455788a.png)
 
 - **混合线程实现**：现代操作系统基本都是将两种方式结合起来使用。用户态的执行系统负责进程内部线程在非阻塞时的切换；内核态的操作系统负责阻塞线程的切换。即我们同时实现内核态和用户态线程管理。其中内核态线程数量较少，而用户态线程数量较多。每个内核态线程可以服务一个或多个用户态线程。
+
 
 ![混合线程实现](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-1597d159-1b07-48ae-ac86-7e9b9cb85876.png)
 
@@ -258,6 +281,7 @@ head:
 我们前面知道线程和进程的关系：线程是进程当中的⼀条执⾏流程。所以说下面的一些同步机制不止针对线程，同样也可以针对进程。
 
 **临界区**：我们把对共享资源访问的程序片段称为`临界区`，我们希望这段代码是`互斥`的，保证在某时刻只能被一个线程执行，也就是说一个线程在临界区执行时，其它线程应该被阻止进入临界区。
+
 
 ![临界区互斥-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-48a5b48b-2474-4460-ac5b-9502883b353f.png)
 
@@ -272,6 +296,7 @@ head:
 任何想进⼊临界区的线程，必须先执⾏加锁操作。若加锁操作顺利通过，则线程可进⼊临界区；在完成对临界资源的访问后再执⾏解锁操作，以释放该临界资源。
 
 加锁和解锁锁住的是什么呢？可以是`临界区对象`，也可以只是一个简单的`互斥量`，例如互斥量是`0`无锁，`1`表示加锁。
+
 
 ![加锁和解锁-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-4bd37c12-992d-4660-8b63-15c3b35d105f.png)
 
@@ -298,6 +323,7 @@ P 操作是⽤在进⼊临界区之前，V 操作是⽤在离开临界区之后�
 ### 什么是死锁？
 
 在两个或者多个并发线程中，如果每个线程持有某种资源，而又等待其它线程释放它或它们现在保持着的资源，在未改变这种状态之前都不能向前推进，称这一组线程产生了死锁。通俗的讲就是两个或多个线程无限期的阻塞、相互等待的一种状态。
+
 
 ![死锁](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-e0069c37-d758-4df0-a2fd-3722ec93c61a.png)
 
@@ -363,6 +389,7 @@ P 操作是⽤在进⼊临界区之前，V 操作是⽤在离开临界区之后�
 
 实际存在硬件⾥⾯的空间地址叫**物理内存地址**（*Physical Memory Address*）。
 
+
 ![虚拟内存](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-ec171cea-0046-4709-a390-7babf3272c49.png)
 
 ### 什么是内存分段？
@@ -373,9 +400,11 @@ P 操作是⽤在进⼊临界区之前，V 操作是⽤在离开临界区之后�
 
 虚拟地址和物理地址通过段表映射，段表主要包括**段号**、`段的界限`。
 
+
 ![虚拟地址、段表、物理地址](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-075df152-7b77-40c7-abdb-1aa0280d958b.png)
 
 我们来看一个映射，虚拟地址：段3、段偏移量500  ---->  段基地址7000+段偏移量500 ----> 物理地址：7600+。
+
 
 ![段虚拟地址映射](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-a57baf1c-9612-49dd-8b23-8b00a0c63cef.png)
 
@@ -384,6 +413,7 @@ P 操作是⽤在进⼊临界区之前，V 操作是⽤在离开临界区之后�
 **分⻚是把整个虚拟和物理内存空间切成⼀段段固定尺⼨的⼤⼩**。这样⼀个连续并且尺⼨固定的内存空间，我们叫**⻚**（*Page*）。在 Linux 下，每⼀⻚的⼤⼩为 4KB 。
 
 访问分页系统中内存数据需要两次的内存访问 ：一次是从内存中访问页表，从中找到指定的物理页号，加上页内偏移得到实际物理地址，第二次就是根据第一次得到的物理地址访问内存取出数据。
+
 
 ![内存分页](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-4cdd5179-4b88-4aa6-b9c2-9ef8fdc745dc.png)
 
@@ -395,6 +425,7 @@ P 操作是⽤在进⼊临界区之前，V 操作是⽤在离开临界区之后�
 
 所谓的多级页表，就是把我们原来的单级页表再次分页，这里利用了`局部性原理`，除了顶级页表，其它级别的页表一来可以在需要的时候才被创建，二来内存紧张的时候还可以被置换到磁盘中。
 
+
 ![多级页表示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-3021f22f-b9a3-49d9-9e80-6d3abaf5a61a.png)
 
 ### 什么是块表？
@@ -402,6 +433,7 @@ P 操作是⽤在进⼊临界区之前，V 操作是⽤在离开临界区之后�
 同样利用了`局部性原理`，即在⼀段时间内，整个程序的执⾏仅限于程序中的某⼀部分。相应地，执⾏所访问的存储空间也局限于某个内存区域。
 
 利⽤这⼀特性，把最常访问的⼏个⻚表项存储到访问速度更快的硬件，于是计算机科学家们，就在 CPU 芯⽚中，加⼊了⼀个专⻔存放程序最常访问的⻚表项的 Cache，这个 Cache 就是 TLB（*Translation Lookaside Buffer*） ，通常称为⻚表缓存、转址旁路缓存、快表等。
+
 
 ![TLB示意图-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-cdc02a2f-59bf-45dc-8531-83b46f77bd65.png)
 
@@ -429,6 +461,7 @@ P 操作是⽤在进⼊临界区之前，V 操作是⽤在离开临界区之后�
 
 常见的页面置换算法：
 
+
 ![常见页面置换算法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-6effefb6-67d2-4155-a3fc-4b27a319391a.png)
 
 - **最佳⻚⾯置换算法（*OPT*）**
@@ -445,6 +478,7 @@ P 操作是⽤在进⼊临界区之前，V 操作是⽤在离开临界区之后�
 
 FIFO的实现机制是使用链表将所有在内存的页面按照进入时间的早晚链接起来，然后每次置换链表头上的页面就行了，新加进来的页面则挂在链表的末端。
 
+
 ![按照进入内存早晚构建的页面链表 ](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-8cccc78d-ba25-4c0a-8ee8-0913e80af7b7.png)
 
 - **最近最久未使⽤的置换算法（LRU）**
@@ -455,6 +489,7 @@ FIFO的实现机制是使用链表将所有在内存的页面按照进入时间�
 
  LRU 在理论上是可以实现的，但代价很⾼。为了完全实现 LRU，需要在内存中维护⼀个所有⻚⾯的链表，最近最多使⽤的⻚⾯在表头，最近最少使⽤的⻚⾯在表尾。
 
+
 ![LRU实现](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-90810f7f-aa5b-4626-9761-c2c622b5e561.png)
 
 困难的是，在每次访问内存时都必须要更新整个链表。在链表中找到⼀个⻚⾯，删除它，然后把它移动到表头是⼀个⾮常费时的操作。
@@ -464,6 +499,7 @@ FIFO的实现机制是使用链表将所有在内存的页面按照进入时间�
 - **时钟页面置换算法**
 
 这个算法的思路是，把所有的⻚⾯都保存在⼀个类似钟⾯的环形链表中，⼀个表针指向最⽼的⻚⾯。
+
 
 ![时钟页面置换算法](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-3646408f-999e-48a1-84e9-113525778aca.png)
 
@@ -486,17 +522,21 @@ FIFO的实现机制是使用链表将所有在内存的页面按照进入时间�
 
 - 硬链接就是在目录下创建一个条目，记录着文件名与 inode 编号，这个 inode 就是源文件的 inode。删除任意一个条目，文件还是存在，只要引用数量不为 0。但是硬链接有限制，它不能跨越文件系统，也不能对目录进行链接。
 
+
 ![硬链接-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-d3f778f9-506b-4b93-9fb7-40eb0a79874e.png)
 
 - 软链接相当于重新创建⼀个⽂件，这个⽂件有**独⽴的** **inode**，但是这个**⽂件的内容是另外⼀个⽂件的路径**，所以访问软链接的时候，实际上相当于访问到了另外⼀个⽂件，所以**软链接是可以跨⽂件系统的**，甚⾄**⽬标⽂件被删除了，链接⽂件还是在的，只不过打不开指向的文件了而已。**
 
-  ![软链接-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-81abf13c-5c60-4263-8fcb-c79c33d865e8.png)
+  
+
+![软链接-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-81abf13c-5c60-4263-8fcb-c79c33d865e8.png)
 
 ## IO
 
 ### 零拷贝了解吗？
 
 假如需要文件传输，使用传统I/O，数据读取和写入是用户空间到内核空间来回赋值，而内核空间的数据是通过操作系统的I/O接口从磁盘读取或者写入，这期间发生了多次用户态和内核态的上下文切换，以及多次数据拷贝。
+
 
 ![传统文件传输示意图-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-1e595664-6585-4d56-8939-08b7ce510218.png)
 
@@ -508,6 +548,7 @@ FIFO的实现机制是使用链表将所有在内存的页面按照进入时间�
 
 mmap() 系统调⽤函数会直接把内核缓冲区⾥的数据「**映射**」到⽤户空间，这样，操作系统内核与⽤户空间就不需要再进⾏任何的数据拷⻉操作。
 
+
 ![mmap示意图-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-6dc49f9d-0bc3-4956-a650-7c7236f234a2.png)
 
 - **sendfile**
@@ -517,6 +558,7 @@ mmap() 系统调⽤函数会直接把内核缓冲区⾥的数据「**映射**」
 ⾸先，它可以替代前⾯的 read() 和 write() 这两个系统调⽤，这样就可以减少⼀次系统调⽤，也就减少了 2 次上下⽂切换的开销。
 
 其次，该系统调⽤，可以直接把内核缓冲区⾥的数据拷⻉到 socket 缓冲区⾥，不再拷⻉到⽤户态，这样就只有 2 次上下⽂切换，和 3 次数据拷⻉。
+
 
 ![sendfile示意图-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-0b087b8a-8d51-4aad-898d-d99c38d36592.png)
 
@@ -530,11 +572,13 @@ mmap() 系统调⽤函数会直接把内核缓冲区⾥的数据「**映射**」
 
 注意，**阻塞等待的是`内核数据准备好`和`数据从内核态拷⻉到⽤户态`这两个过程**。
 
+
 ![阻塞I/O](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-f06db5ff-661c-4ddf-9115-4ed9c9a21d01.png)
 
 - **非阻塞I/O**
 
 ⾮阻塞的 read 请求在数据未准备好的情况下⽴即返回，可以继续往下执⾏，此时应⽤程序不断轮询内核，直到数据准备好，内核将数据拷⻉到应⽤程序缓冲区， read 调⽤才可以获取到结果。
+
 
 ![非阻塞I/O](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-771e014e-7ed9-4101-8bb5-4413b8069fd6.png)
 
@@ -545,6 +589,7 @@ mmap() 系统调⽤函数会直接把内核缓冲区⾥的数据「**映射**」
 我们上面的非阻塞I/O有一个问题，什么问题呢？应用程序要一直轮询，这个过程没法干其它事情，所以引入了**I/O** **多路复⽤**技术。
 
 当内核数据准备好时，以事件通知应⽤程序进⾏操作。
+
 
 ![基于非阻塞的I/O多路复用](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-86e54fa3-ad36-43c7-9d2d-5a68139c310f.png)
 
@@ -557,6 +602,7 @@ mmap() 系统调⽤函数会直接把内核缓冲区⾥的数据「**映射**」
 真正的**异步** **I/O** 是`内核数据准备好`和`数据从内核态拷⻉到⽤户态`这两个过程都不⽤等待。
 
 发起 aio_read 之后，就⽴即返回，内核⾃动将数据从内核空间拷⻉到应⽤程序空间，这个拷⻉过程同样是异步的，内核⾃动完成的，和前⾯的同步操作不⼀样，应⽤程序并不需要主动发起拷⻉动作。
+
 
 ![异步/IO](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-869021ed-5e4e-4490-9174-7291d8ddf55c.png)
 
@@ -571,6 +617,7 @@ mmap() 系统调⽤函数会直接把内核缓冲区⾥的数据「**映射**」
 基于⾮阻塞的 I/O 多路复⽤好⽐，老三发现UP没更，就去干别的，过了一会儿B站推送消息了，老三一看，有很多条，就去翻动态，看看等的UP是不是更新了。
 
 异步I/O就是，老三说UP你该更了，UP赶紧爆肝把视频做出来，然后把视频亲自呈到老三面前，这个过程不用等待。
+
 
 ![鸽宗](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-54c60eb2-2a1c-4268-88b5-6b462e00144c.png)
 
@@ -587,6 +634,7 @@ mmap() 系统调⽤函数会直接把内核缓冲区⾥的数据「**映射**」
 所以就引入了**I/O多路复用** 技术。
 
 简单说，就是一个进程/线程维护多个Socket，这个多路复用就是多个连接复用一个进程/线程。
+
 
 ![I/O多路复用](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-9b276b14-eb1b-47bf-b2aa-25212e1bbdf8.png)
 
@@ -623,6 +671,7 @@ epoll 通过两个⽅⾯，很好解决了 select/poll 的问题。
 第⼀点，epoll 在内核⾥使⽤**红⿊树来跟踪进程所有待检测的⽂件描述字**，把需要监控的 socket 通过epoll_ctl() 函数加⼊内核中的红⿊树⾥，红⿊树是个⾼效的数据结构，增删查⼀般时间复杂度是O(logn) ，通过对这棵⿊红树进⾏操作，这样就不需要像 select/poll 每次操作时都传⼊整个 socket 集合，只需要传⼊⼀个待检测的 socket，**减少了内核和⽤户空间⼤量的数据拷⻉和内存分配**。
 
 第⼆点， epoll 使⽤事件驱动的机制，内核⾥**维护了⼀个链表来记录就绪事件**，当某个 socket 有事件发⽣时，通过回调函数，内核会将其加⼊到这个就绪事件列表中，当⽤户调⽤ epoll_wait() 函数时，只会返回有事件发⽣的⽂件描述符的个数，不需要像 select/poll 那样轮询扫描整个 socket 集合，⼤⼤提⾼了检测的效率。
+
 
 ![epoll接口作用-来源参考[3]](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene/os-cca76ac4-cfb4-4374-8fc6-256cd4d3893f.png)
 

@@ -1,5 +1,6 @@
 
 看图说话
+
 ![distributed-lock](images/zookeeper-distribute-lock.png)
 一般很少自己手撸，curator，基于zk实现了一整套的高级功能
 

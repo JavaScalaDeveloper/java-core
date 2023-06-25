@@ -8,13 +8,17 @@
 
 spring aop 基于注解方式的实现是通过 `AnnotationAwareAspectJAutoProxyCreator` 类来操作的，这个类是一个 `BeanPostProcessor`，在 bean 的初始化前后执行的操作如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-c634a0bda86d94cce68aaa46ac74f57d41d.png)
 
 ### 3\. 切面方法的执行
 
 当调用代理对象的方法，jdk 会根据代理的类型而选择执行 `InvocationHandler#invoke`(jdk 动态代理) 还是 `MethodInterceptor#intercept`(cglib 代理)，这一步在创建代理对象时，已经与代理对象结合了，开发者无法干涉调用哪个方法，不过这两个方法里的内容开发者可以自由发挥。在这两个方法中，spring 会获取可用用当前方法的所有 Advisors，然后执行 Advisors 里的切面方法，整个过程如下：
 
-![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-96bb9ba4b77e60a85a1da1c2cec3858edf7.png) ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-013fb0c06e03fbe5044c211497df8ce306a.png)
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-96bb9ba4b77e60a85a1da1c2cec3858edf7.png) 
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-013fb0c06e03fbe5044c211497df8ce306a.png)
 
 * * *
 

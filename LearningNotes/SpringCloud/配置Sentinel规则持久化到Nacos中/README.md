@@ -79,11 +79,13 @@ spring:
 
 因为我们没有指定对应的namespace，也就是命名空间，所以我们就默认在public下创建，这样在dev 或者 prod下都可以进行使用
 
+
 ![image-20201002112029866](images/image-20201002112029866.png)
 
 ### mogu-web-flow-rules
 
 首先创建流量规则，主要用于接口的流量控制
+
 
 ![image-20201002111931443](images/image-20201002111931443.png)
 
@@ -116,6 +118,7 @@ spring:
 ### mogu-web-degrade-rules
 
 首先创建降级规则，主要用于接口的请求出错时，快速返回
+
 
 ![image-20201002111905809](images/image-20201002111905809.png)
 
@@ -150,6 +153,7 @@ http://localhost:9527
 
 然后发现成功跳转出500页面，说明我们的流控规则已经生效
 
+
 ![image-20201002112307192](images/image-20201002112307192.png)
 
 然后到我们的sentinel图形化页面
@@ -160,7 +164,9 @@ http://localhost:8070
 
 输入默认账号和密码：sentinel  sentinel
 
+
 ![image-20201002112409723](images/image-20201002112409723.png)
+
 
 ![image-20201002112435951](images/image-20201002112435951.png)
 

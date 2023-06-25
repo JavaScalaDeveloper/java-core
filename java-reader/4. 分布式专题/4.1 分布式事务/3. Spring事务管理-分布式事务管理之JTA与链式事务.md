@@ -235,7 +235,9 @@ Resuming suspended transaction after completion of inner transaction
 Rolled back transaction for test: [DefaultTestContext@1dde4cb2 testClass = JtaMultiApplicationTests, testInstance = springbootjtamultidb.jtamulti.JtaMultiApplicationTests@441772e,
 ```
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-2cec11a8ea65f560.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-769ddb682dcfefdb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 其实只要是两个dao操作中间出错或者第一个dao操作之前出错，事务都能正常回滚。如果result操作再前，user操作再后，user操作完抛出异常，也能回滚事务，原因上文有讲。
@@ -270,6 +272,7 @@ public void testTX(){
 }
 ```
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-c680e14588b7e448.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 注意拦截到断点时，先放行一个commit，也就是result事务的commit，然后拦截到第二个commit请求时，关闭user所在的数据库，然后放行。
 
@@ -287,7 +290,9 @@ Committing JDBC transaction on Connection [HikariProxyConnection@810768078 wrapp
 ```
 注意倒数第三行日志，它出现证明我们第一个result的sql事务已经提交，此时你刷新数据库数据已经更新了，但是我们断点并还没有放行，user的事务还没有提交，我把user的数据库源关闭，再放行，可以看到，result已经有数据，user没有数据，此时result并没有进行回滚，这是链式事务的缺点。
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-f5446fc17114ff0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-2b17fb8f99cdf3d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ###   谈谈使用环境

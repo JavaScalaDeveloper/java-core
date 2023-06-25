@@ -289,7 +289,7 @@ env.getCheckpointConfig().setPreferCheckpointForRecovery(true);
 bin/flink savepoint :jobId [:targetDirectory]
 ```
 
-更多命令和配置可以参考官方文档：[savepoints]( https://ci.apache.org/projects/flink/flink-docs-release-1.9/zh/ops/state/savepoints.html )
+更多命令和配置可以参考官方文档：[savepoints](images/ https://ci.apache.org/projects/flink/flink-docs-release-1.9/zh/ops/state/savepoints.html )
 
 ## 四、状态后端
 
@@ -347,16 +347,16 @@ state.checkpoints.dir: hdfs://namenode:40010/flink/checkpoints
 
 
 
-> 注：本篇文章所有示例代码下载地址：[flink-state-management]( https://github.com/heibaiying/BigData-Notes/tree/master/code/Flink/flink-state-management)
+> 注：本篇文章所有示例代码下载地址：[flink-state-management](images/ https://github.com/heibaiying/BigData-Notes/tree/master/code/Flink/flink-state-management)
 
 
 
 ## 参考资料
 
-+ [Working with State](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/state/state.html)
-+ [Checkpointing](https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/state/checkpointing.html)
-+ [Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/state/savepoints.html#savepoints)
-+ [State Backends](https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/state/state_backends.html)
++ [Working with State](images/https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/state/state.html)
++ [Checkpointing](images/https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/stream/state/checkpointing.html)
++ [Savepoints](images/https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/state/savepoints.html#savepoints)
++ [State Backends](images/https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/state/state_backends.html)
 + Fabian Hueske , Vasiliki Kalavri . 《Stream Processing with Apache Flink》.  O'Reilly Media .  2019-4-30 
 
 

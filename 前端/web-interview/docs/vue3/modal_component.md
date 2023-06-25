@@ -1,6 +1,8 @@
 # 面试官：用Vue3.0 写过组件吗？如果想实现一个 Modal你会怎么设计？
 
- ![](https://static.vue-js.com/e294c660-6370-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/e294c660-6370-11eb-ab90-d9ae814b240d.png)
 
 
 

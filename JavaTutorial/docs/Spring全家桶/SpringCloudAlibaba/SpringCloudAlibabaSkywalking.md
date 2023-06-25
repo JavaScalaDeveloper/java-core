@@ -90,6 +90,7 @@ volumes:
 
 **注意**：如果我们想覆盖 oap 镜像中的 /skywalking/config 目录下的配置文件，我们可以在 docker 中挂载一个 /skywalking/ext-config 目录，将配置文件丢到此目录中即可。
 
+
 ![image-20230423174422281](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174422281.png)
 
 1.  **执行 skywalking.yaml 脚本启动容器**：
@@ -105,6 +106,7 @@ docker-compose -f skywalking.yaml up
 http://(安装SkyWalking机器的IP):9020
 
 ```
+
 
 ![image-20230423174444272](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174444272.png)
 
@@ -162,7 +164,9 @@ http://(安装SkyWalking机器的IP):9020
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
             <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.mdc.TraceIdMDCPatternLogbackLayout">
                 <Pattern>
-                    <![CDATA[%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} [%X{tid}] %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}]]></Pattern>
+                    <
+
+![CDATA[%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} [%X{tid}] %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}]]></Pattern>
             </layout>
         </encoder>
     
@@ -298,17 +302,21 @@ http://(安装SkyWalking机器的IP):9020
 
 skywalking 官网下载地址：[skywalking.apache.org/downloads/](https://link.juejin.cn?target=http%3A%2F%2Fskywalking.apache.org%2Fdownloads%2F "http://skywalking.apache.org/downloads/")
 
+
 ![image-20230423174506711](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174506711.png)
 
 1.  **解压下载的 apache-skywalking-apm-es7-8.0.1.tar.gz 包，目录结构如图**：
+
 
 ![image-20230423174522153](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174522153.png)
 
 我们只要其中的 agent 目录就行，agent 里的东西大概有这些：
 
+
 ![image-20230423174533023](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174533023.png)
 
 把 agent 目录复制到一个妥善的目录下，一会儿需要配置 JVM 启动参数目录，当然作者直接放到了项目里：
+
 
 ![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8deaee160419423e9a71e710d3b2c3dd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
 
@@ -318,6 +326,7 @@ skywalking 官网下载地址：[skywalking.apache.org/downloads/](https://link.
 -javaagent:(agent文件夹所在的目录)\agent\skywalking-agent.jar -Dskywalking.agent.service_name=(服务名)-service -Dskywalking.agent.instance_name=(服务名)-instance -Dskywalking.collector.backend_service=(安装SkyWalking机器的IP):9022
 
 ```
+
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96e9d5a3aa5c44c3b0b948929609ae1f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp)
 
@@ -339,6 +348,7 @@ skywalking 官网下载地址：[skywalking.apache.org/downloads/](https://link.
 *   会员服务：herring-member-service，微服务之一，接收到请求后会到认证中心验证。
 *   订单服务：herring-orders-service，微服务之二，接收到请求后会到认证中心验证。
 *   商品服务：herring-product-service，微服务之三，接收到请求后会到认证中心验证。
+
 
 ![image-20230423174600279](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174600279.png)
 
@@ -382,19 +392,25 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiZ2F0ZXdhe
 
 **仪表盘结果展示**:
 
+
 ![image-20230423174639471](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174639471.png)
 
+
 ![image-20230423174721822](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174721822.png)
+
 
 ![image-20230423174742703](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174742703.png)
 
 **拓扑图结果展示**：
 
+
 ![image-20230423174809108](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174809108.png)
+
 
 ![image-20230423174831290](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174831290.png)
 
 **链路追踪结果展示**：
+
 
 ![image-20230423174845526](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423174845526.png)
 

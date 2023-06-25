@@ -37,11 +37,13 @@ Paxos偏向于理论、对如何应用到工程实践提及较少。理解的难
 
 > **There are significant gaps between the description of the Paxos algorithm and the needs of a real-world system**. In order to build a real-world system, an expert needs to use numerous ideas scattered in the literature and make several relatively small protocol extensions. The cumulative effort will be substantial and**the final system will be based on an unproven protocol**.
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20161023233740326-287853098.png)
 
 Raft[2](#)在2013年提出，提出的时间虽然不长，但已经有很多系统基于Raft实现。相比Paxos，Raft的买点就是更利于理解、更易于实行。
 
 为达到更容易理解和实行的目的，Raft将问题分解和具体化：Leader统一处理变更操作请求，一致性协议的作用具化为保证节点间操作日志副本(log replication)一致，以term作为逻辑时钟(logical clock)保证时序，节点运行相同状态机(state machine)[4]得到一致结果。Raft协议具体过程如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20161024005549560-244386650.png)
 
@@ -65,6 +67,7 @@ Paxos中Leader的存在是为了提升决议效率，Leader的有无和数目并
 Zab[5](#)的全称是Zookeeper atomic broadcast protocol，是Zookeeper内部用到的一致性协议。相比Paxos，Zab最大的特点是保证强一致性(strong consistency，或叫线性一致性linearizable consistency)。
 
 和Raft一样，Zab要求唯一Leader参与决议，Zab可以分解成discovery、sync、broadcast三个阶段：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20161025133734734-658183229.jpg)
 
@@ -99,6 +102,7 @@ Zab中每个事务对应一个zxid，它由两部分组成：<e, c>，e即Leader
 除Paxos、Raft和Zab外，Viewstamped Replication(简称VR)[7](#)也是讨论比较多的一致性协议。这些协议包含很多共同的内容(Leader、quorum、state machine等)，因而我们不禁要问：Paxos、Raft、Zab和VR等分布式一致性协议区别到底在哪，还是根本就是一回事？[9]
 
 Paxos、Raft、Zab和VR都是解决一致性问题的协议，Paxos协议原文倾向于理论，Raft、Zab、VR倾向于实践，一致性保证程度等的不同也导致这些协议间存在差异。下图帮助我们理解这些协议的相似点和区别[10]：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20161025213003515-974965973.jpg)
 

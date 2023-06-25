@@ -35,6 +35,7 @@ public class Lambda_Runnable {
     }
 }
 ```
+
 ![image.png](http://upload-images.jianshu.io/upload_images/5786888-034dab23f831bd69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ####   3. Lambda实现自定义接口
@@ -66,5 +67,6 @@ public class Lambda_Interface {
     }
 }
 ```
+
 ![image.png](http://upload-images.jianshu.io/upload_images/5786888-2c596b4f8c7ff2fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

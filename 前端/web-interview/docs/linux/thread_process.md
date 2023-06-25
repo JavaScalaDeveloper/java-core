@@ -2,6 +2,7 @@
 
  
 
+
 ![](https://static.vue-js.com/f414d8a0-02f6-11ec-a752-75723a64e8f5.png)
 
 
@@ -12,7 +13,9 @@
 
 操作系统的其他所有内容都是围绕着进程展开的，负责执行这些任务的是`CPU`
 
- ![](https://static.vue-js.com/3ff146b0-02f6-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/3ff146b0-02f6-11ec-8e64-91fdec0f05a1.png)
 
 
 
@@ -33,7 +36,9 @@
 
 后来业务拓展了，你雇佣了几个工人，这样，你的物业公司就可以同时为多户人家提供服务了——这叫多线程，你是主线程
 
- ![](https://static.vue-js.com/63de34c0-02f6-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/63de34c0-02f6-11ec-a752-75723a64e8f5.png)
 
 但实际上，并不是线程越多，进程的工作效率越高，这是因为在一个进程内，不管你创建了多少线程，它们总是被限定在一颗`CPU`内，或者多核`CPU`的一个核内
 

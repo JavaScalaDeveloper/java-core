@@ -96,7 +96,7 @@ HADOOP_HOME=/usr/app/hadoop-2.6.0-cdh5.15.2
 
 ### 1.4 拷贝数据库驱动
 
-将 MySQL 驱动包拷贝到 Hive 安装目录的 `lib` 目录下, MySQL 驱动的下载地址为：https://dev.mysql.com/downloads/connector/j/  , 在本仓库的[resources](https://github.com/heibaiying/BigData-Notes/tree/master/resources) 目录下我也上传了一份，有需要的可以自行下载。
+将 MySQL 驱动包拷贝到 Hive 安装目录的 `lib` 目录下, MySQL 驱动的下载地址为：https://dev.mysql.com/downloads/connector/j/  , 在本仓库的[resources](images/https://github.com/heibaiying/BigData-Notes/tree/master/resources) 目录下我也上传了一份，有需要的可以自行下载。
 
 <div align="center"> <img  src="../../pictures/hive-mysql.png"/> </div>
 
@@ -156,7 +156,7 @@ Hive 内置了 HiveServer 和 HiveServer2 服务，两者都允许客户端使�
 
 之所以要配置这一步，是因为 hadoop 2.0 以后引入了安全伪装机制，使得 hadoop 不允许上层系统（如 hive）直接将实际用户传递到 hadoop 层，而应该将实际用户传递给一个超级代理，由该代理在 hadoop 上执行操作，以避免任意客户端随意操作 hadoop。如果不配置这一步，在之后的连接中可能会抛出 `AuthorizationException` 异常。
 
->关于 Hadoop 的用户代理机制，可以参考：[hadoop 的用户代理机制](https://blog.csdn.net/u012948976/article/details/49904675#官方文档解读) 或 [Superusers Acting On Behalf Of Other Users](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/Superusers.html)
+>关于 Hadoop 的用户代理机制，可以参考：[hadoop 的用户代理机制](images/https://blog.csdn.net/u012948976/article/details/49904675#官方文档解读) 或 [Superusers Acting On Behalf Of Other Users](images/http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/Superusers.html)
 
 
 

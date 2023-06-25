@@ -454,6 +454,7 @@ Process finished with exit code 0
 
 从GC Roots（每种具体实现对GC Roots有不同的定义）作为起点，向下搜索它们引用的对象，可以生成一棵引用树，树的节点视为可达对象，反之视为不可达。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404215732.png)
 
 在Java语言中，可以作为GC Roots的对象包括下面几种：
@@ -521,6 +522,7 @@ Stop-the-world意味着 JVM由于要执行GC而停止了应用程序的执行，
 *   标记和清除过程效率都不高
 *   会产生大量碎片，内存碎片过多可能导致无法给大对象分配内存。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404215805.png)
 ## 复制算法（Copying）
 
@@ -533,6 +535,7 @@ Stop-the-world意味着 JVM由于要执行GC而停止了应用程序的执行，
 *   将内存缩小为原来的一半，浪费了一半的内存空间，代价太高；如果不想浪费一半的空间，就需要有额外的空间进行分配担保，以应对被使用的内存中所有对象都100%存活的极端情况，所以在老年代一般不能直接选用这种算法。
 *   复制收集算法在对象存活率较高时就要进行较多的复制操作，效率将会变低。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404215817.png)
 
 ## 标记—整理算法（Mark-Compact）
@@ -542,6 +545,7 @@ Stop-the-world意味着 JVM由于要执行GC而停止了应用程序的执行，
 不足：
 
 效率不高，不仅要标记存活对象，还要整理所有存活对象的引用地址，在效率上不如复制算法。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404215845.png)
 

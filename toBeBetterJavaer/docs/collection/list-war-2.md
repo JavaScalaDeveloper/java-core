@@ -28,6 +28,7 @@ head:
 
 ArrayList 实现了 List 接口，继承了 AbstractList 抽象类。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-01.png)
 
 底层是基于数组实现的，并且实现了动态扩容（当需要添加新元素时，如果 elementData 数组已满，则会自动扩容，新的容量将是原来的 1.5 倍），来看一下 ArrayList 的部分源码。
@@ -192,6 +193,7 @@ private void readObject(java.io.ObjectInputStream s)
 ### 02、LinkedList 是如何实现的？
 
 LinkedList 是一个继承自 AbstractSequentialList 的双向链表，因此它也可以被当作堆栈、队列或双端队列进行操作。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-02.png)
 
@@ -382,6 +384,7 @@ void linkBefore(E e, LinkedList.Node<E> succ) {
 在执行 `linkBefore()` 方法之前，会调用 `node()` 方法查找指定位置上的元素，这一步是需要遍历 LinkedList 的。如果插入的位置靠前前半段，就从队头开始往后找；否则从队尾往前找。也就是说，如果插入的位置越靠近 LinkedList 的中间位置，遍历所花费的时间就越多。
 
 找到指定位置上的元素（参数succ）之后，就开始执行 `linkBefore()` 方法，先将 succ 的前一个节点（prev）存放到临时变量 pred 中，然后生成新的 Node 节点（newNode），并将 succ 的前一个节点变更为 newNode，如果 pred 为 null，说明插入的是队头，所以 first 为新节点；否则将 pred 的后一个节点变更为 newNode。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-03.png)
 
@@ -825,6 +828,7 @@ for (Iterator<String> it = list.iterator(); it.hasNext();) {
 ```
 
 迭代器只会调用一次 `node(int)` 方法，在执行 `list.iterator()` 的时候：先调用 AbstractSequentialList 类的 `iterator()` 方法，再调用 AbstractList 类的 `listIterator()` 方法，再调用 LinkedList 类的 `listIterator(int)` 方法，如下图所示。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-04.png)
 

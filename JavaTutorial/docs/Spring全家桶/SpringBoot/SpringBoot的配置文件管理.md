@@ -34,16 +34,19 @@ java –jar -Dspring.config.location=xxx/xxx/xxxx.properties xxxx.jar
 上面描述的Springboot核心文件已经能够提取出jar包外进行管理了，但是还有其他一些业务上的配置文件，如数据源配置文件，公共资源定义配置文件（常量，FTP信息等），quartz定时器，日志等配置文件我们如何去提取出来并确保能在代码中引用到呢
 
 我们知道Springboot项目可以通过注解方式来获取相关配置文件，所以我们也是通过注解方式让项目能够引用到jar包外部的配置文件的，如下图：
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190121170400864.png)
 
 @PropertySource里面的value有两个值，第一个是classpath下config目录下的数据源配置文件，第二个则是根据spring.profiles.path动态获取的目录，spring.profiles.path是我们在核心文件自定义的一个配置项，它的值是我们配置文件统一管理的文件夹路径，后面的ignoreResourceNotFound=true则是设定假如根据前面一个路径没有找到相关配置文件，则根据第二个路径去找。
 
 我们还可以直接根据路径，用FileSystemResource类去加载一个配置文件实例出来，如下图
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190121170338934.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0dlZUxvb25n,size_16,color_FFFFFF,t_70)
 
 原理类似，根据在核心文件自定义的统一配置目录的路径来加载配置文件
 
 另外logback日志配置文件加载方式如下：
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190121170306979.png)
 
 综上所述，我们梳理一下实现方案的思路
@@ -227,6 +230,7 @@ esac
 **部署**
 
 linux服务器上新建个文件夹，将我们打好的项目jar包都丢进去，在jar包的同级目录新建config和lib文件夹，分别将配置文件和第三方依赖包丢进去，其结构如下图，*.sh为自己写的项目启动shell脚本
+
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190121170223384.png)
 

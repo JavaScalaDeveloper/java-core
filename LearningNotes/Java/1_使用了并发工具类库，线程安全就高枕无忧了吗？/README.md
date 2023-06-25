@@ -49,9 +49,11 @@ server.tomcat.max-threads=1
 
 运行程序后先让 **用户1** 来请求接口，可以看到第一和第二次获取到用户 **ID** 分别是 **null** 和 **1**，符合预期：
 
+
 ![image-20220514214512266](images/image-20220514214512266.png)
 
 随后 **用户 2** 来请求接口，这次就出现了 Bug，第一和第二次获取到用户 **ID** 分别是 **1** 和 **2**，显然第一次获取到了用户 **1** 的信息，原因就是 **Tomcat** 的线程池重用了线程。从图中可以看到，两次请求的线程都是同一个线程：**http-nio-8080-exec-1**。
+
 
 ![image-20220514214623717](images/image-20220514214623717.png)
 
@@ -82,6 +84,7 @@ server.tomcat.max-threads=1
 ```
 
 重新运行程序可以验证，再也不会出现第一次查询用户信息查询到之前用户请求的 **Bug**：
+
 
 ![image-20220514215302118](images/image-20220514215302118.png)
 
@@ -131,6 +134,7 @@ private ConcurrentHashMap < String, Long > getData(int count){
 
 访问接口后程序输出的日志内容如下：
 
+
 ![image-20220514215723352](images/image-20220514215723352.png)
 
 从日志中可以看到：
@@ -173,6 +177,7 @@ publicStringright()throwsInterruptedException{
 ```
 
 重新调用接口，程序的日志输出结果符合预期：
+
 
 ![image-20220514220033215](images/image-20220514220033215.png)
 
@@ -284,6 +289,7 @@ publicStringgood()throwsInterruptedException{
 
 这段测试代码并无特殊之处，使用 StopWatch 来测试两段代码的性能，最后跟了一个断言判断 Map 中元素的个数以及所有 Value 的和，是否符合预期来校验代码的正确性。测试结果如下：
 
+
 ![image-20220514220157751](images/image-20220514220157751.png)
 
 可以看到，优化后的代码，相比使用锁来操作 ConcurrentHashMap 的方式，性能提升了 10 倍。
@@ -362,9 +368,11 @@ publicMaptestRead(){
 
 运行程序可以看到，**大量写的场景（10 万次 add 操作），CopyOnWriteArray 几乎比同步的 ArrayList 慢一百倍**：
 
+
 ![image-20220514220243945](images/image-20220514220243945.png)
 
 而在大量读的场景下（100 万次 get 操作），CopyOnWriteArray 又比同步的 ArrayList快五倍以上：
+
 
 ![image-20220514220304455](images/image-20220514220304455.png)
 

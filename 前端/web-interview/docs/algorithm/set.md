@@ -2,7 +2,9 @@
 
 
 
- ![](https://static.vue-js.com/e3de7810-1d36-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/e3de7810-1d36-11ec-8e64-91fdec0f05a1.png)
 
 
 
@@ -89,7 +91,9 @@ s.clear()
 
 两个集合的共同元素，如下图所示：
 
- ![](https://static.vue-js.com/ed96df50-1d36-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/ed96df50-1d36-11ec-a752-75723a64e8f5.png)
 
 代码实现方式如下：
 
@@ -110,7 +114,9 @@ let union = new Set([...a, ...b]);
 
 两个集合`A` 和 `B`，即属于`A`又属于`B`的元素，如下图所示：
 
- ![](https://static.vue-js.com/f8a9cd80-1d36-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/f8a9cd80-1d36-11ec-a752-75723a64e8f5.png)
 
 用代码标识则如下：
 
@@ -129,7 +135,9 @@ let intersect = new Set([...a].filter(x => b.has(x)));
 
 两个集合`A` 和 `B`，属于`A`的元素但不属于`B`的元素称为`A`相对于`B`的差集，如下图所示：
 
- ![](https://static.vue-js.com/0191c560-1d37-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/0191c560-1d37-11ec-8e64-91fdec0f05a1.png)
 
 代码标识则如下：
 

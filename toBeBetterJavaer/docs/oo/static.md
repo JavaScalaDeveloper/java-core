@@ -68,6 +68,7 @@ public class Student {
 
 “哦哦，别担心，三妹，画幅图你就全明白了。”说完我就打开 draw.io 这个网址，认真地画起了图。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/19-01.png)
 
 “现在，是不是一下子就明白了？”看着这幅漂亮的手绘图，我心里有点小开心。
@@ -96,6 +97,7 @@ public class Counter {
 “我们创建一个成员变量 count，并且在构造函数中让它自增。因为成员变量会在创建对象的时候获取内存，因此每一个对象都会有一个 count 的副本， count 的值并不会随着对象的增多而递增。”
 
 我在侃侃而谈，而三妹似乎有些不太明白。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/19-02.png)
 
@@ -148,6 +150,7 @@ public class StaticCounter {
 “简单解释一下哈，由于静态变量只会获取一次内存空间，所以任何对象对它的修改都会得到保留，所以每创建一个对象，count 的值就会加 1，所以最终的结果是 3，明白了吧？三妹。这就是静态变量和成员变量之间的差别。”
 
 “另外，需要注意的是，由于静态变量属于一个类，所以不要通过对象引用来访问，而应该直接通过类名来访问，否则编译器会发出警告。”
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/19-03.png)
 
@@ -210,9 +213,11 @@ public class StaticMethodStudent {
 
 “先是在静态方法中访问非静态变量，编译器不允许。”
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/19-04.png)
 
 “然后在静态方法中访问非静态方法，编译器同样不允许。”
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/19-05.png)
 
@@ -225,6 +230,7 @@ public class StaticMethodStudent {
 “如果 main 方法不是静态的，就意味着 Java 虚拟机在执行的时候需要先创建一个对象才能调用 main 方法，而 main 方法作为程序的入口，创建一个额外的对象显得非常多余。”我不假思索的回答令三妹感到非常的钦佩。
 
 “java.lang.Math 类的几乎所有方法都是静态的，可以直接通过类名来调用，不需要创建类的对象。”
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/19-06.png)
 
@@ -279,6 +285,7 @@ public class StaticBlockNoMain {
 ```
 
 “在命令行中执行 `java StaticBlockNoMain` 的时候，会抛出 NoClassDefFoundError 的错误。”
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/19-07.png)
 
@@ -344,6 +351,7 @@ public class Singleton {
 “需要注意的是。第一，静态内部类不能访问外部类的所有成员变量；第二，静态内部类可以访问外部类的所有静态变量，包括私有静态变量。第三，外部类不能声明为 static。”
 
 “三妹，你看，在 Singleton 类上加 static 后，编译器就提示错误了。”
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/keywords/19-08.png)
 

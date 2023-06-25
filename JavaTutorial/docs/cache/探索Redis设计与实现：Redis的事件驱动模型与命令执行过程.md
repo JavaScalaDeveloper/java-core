@@ -30,6 +30,7 @@ Reactor
 Redis 基于 Reactor 模式开发了自己的事件处理器。
 
 这里就先展开讲一讲 Reactor 模式。看下图：  
+
 ![image](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/Reactor.jpg)  
 reactor
 
@@ -135,6 +136,7 @@ Reids 有很多操作需要在给定的时间点进行处理，时间事件就�
         struct aeTimeEvent *next;        } aeTimeEvent;  
 ````
 看见 next 我们就知道这个 aeTimeEvent 是一个链表结构。看图：  
+
 ![image](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/timeEvent.jpg)
 
 timeEvent

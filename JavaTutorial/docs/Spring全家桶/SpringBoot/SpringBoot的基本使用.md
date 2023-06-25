@@ -20,6 +20,7 @@
 
 点击“生成”按钮，下载 zip 文件，并将其解压到您计算机上的一个文件夹中。
 
+
 ![Start.spring.io 快速入门](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/quickstart-1.png)
 
 [start.spring.io](http://start.spring.io/)创建的项目包含[Spring Boot](https://spring.io/projects/spring-boot)，一个让Spring准备好在您的应用程序内部工作，但不需要太多代码或配置。 Spring Boot 是启动 Spring 项目的最快和最流行的方式。
@@ -88,6 +89,7 @@ COPY.\gradlew.bat bootRun
 ```  
 
 您应该会看到一些与此非常相似的输出：  
+
 ![Quick Start On Start.spring.io](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/quickstart-2.png)
 
 这里的最后几行告诉我们，Spring应用已经开始运行了。 Spring Boot 的嵌入式 Apache Tomcat 服务器充当网络服务器，并正在监听“localhost”端口“8080”上的请求。
@@ -95,6 +97,7 @@ COPY.\gradlew.bat bootRun
 打开浏览器，在顶部的地址栏中输入`http://localhost:8080/hello`。
 
 你应该得到这样一个友好的回应：  
+
 ![Quick Start On Start.spring.io](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/quickstart-3.png)
 
 # 总结

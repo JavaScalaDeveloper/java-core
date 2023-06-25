@@ -7,12 +7,13 @@ Apache Flink具有两个关系API - 表API和SQL - 用于统一流和批处理�
 
 ### 创建一个TableEnvironment
 TableEnvironment是Table API和SQL集成的核心概念，它主要负责:
-　　1、在内部目录中注册一个Table
-　　2、注册一个外部目录
-　　3、执行SQL查询
-　　4、注册一个用户自定义函数(标量、表及聚合)
-　　5、将DataStream或者DataSet转换成Table
-　　6、持有ExecutionEnvironment或者StreamExecutionEnvironment的引用
+
+- 1、在内部目录中注册一个Table
+- 2、注册一个外部目录
+- 3、执行SQL查询
+- 4、注册一个用户自定义函数(标量、表及聚合)
+- 5、将DataStream或者DataSet转换成Table
+- 6、持有ExecutionEnvironment或者StreamExecutionEnvironment的引用
 一个Table总是会绑定到一个指定的TableEnvironment中，相同的查询不同的TableEnvironment是无法通过join、union合并在一起。
 TableEnvironment有一个在内部通过表名组织起来的表目录，Table API或者SQL查询可以访问注册在目录中的表，并通过名称来引用它们。
 
@@ -38,16 +39,16 @@ TableSink csvSink = new CsvTableSink("/path/to/file", ...);
 　　
 ```
 ```
-　　2、 String[] fieldNames = {"a", "b", "c"}; 
-                TypeInformation[] fieldTypes = {Types.INT, Types.STRING, Types.LONG}; 
-                tableEnv.registerTableSink("CsvSinkTable", fieldNames, fieldTypes, csvSink);
+String[] fieldNames = {"a", "b", "c"}; 
+TypeInformation[] fieldTypes = {Types.INT, Types.STRING, Types.LONG}; 
+tableEnv.registerTableSink("CsvSinkTable", fieldNames, fieldTypes, csvSink);
 ```
 
 ## 实战案例一
 
 基于Flink SQL的WordCount:
 
-```
+```java
 public class WordCountSQL {
 
     public static void main(String[] args) throws Exception{
@@ -102,7 +103,7 @@ WC Flink 1
 
 本例稍微复杂，首先读取一个文件中的内容进行统计，并写入到另外一个文件中：
 
-```
+```java
 public class SQLTest {
 
 	public static void main(String[] args) throws Exception{

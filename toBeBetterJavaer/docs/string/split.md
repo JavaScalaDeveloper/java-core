@@ -101,6 +101,7 @@ cmower.split("[.]");
 
 除此之外， 还可以使用 Pattern 类的 `quote()` 方法来包裹英文逗点“.”，该方法会返回一个使用 `\Q\E` 包裹的字符串。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/split-01.png)
 
 来看示例：
@@ -192,6 +193,7 @@ String [] parts = cmower.split("(?=，)");
 
 “它其实是正则表达式中的断言模式。”我说，“你有时间的话，可以看看前面我推荐的两份开源文档。”
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/split-02.png)
 
 “`split()` 方法可以传递 2 个参数，第一个为分隔符，第二个为拆分的字符串个数。”我说。
@@ -205,6 +207,7 @@ if (cmower.contains("，")) {
 ```
 
 进入 debug 模式的话，可以看到以下内容：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/split-03.png)
 

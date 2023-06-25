@@ -10,6 +10,7 @@ cglib 底层是基于 asm 的，也就是直接操作字节码，相当于对 as
 
 spring cglib 操作位于 `spring-core` 模块：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-6b64440344221ca08ed8c822b5b22c1d341.png)
 
 再来看看 asm 与 cglib 包说明：
@@ -144,9 +145,13 @@ hello01
 
 同 jdk 动态代理比较后，发现两者代码高度相似：
 
-*   `InvocationHandler` 与 `InvocationHandler`：两者代码形式几乎一致 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-6f3e8213e743554a7a8ffc587b98b1d7d3a.png)
+*   `InvocationHandler` 与 `InvocationHandler`：两者代码形式几乎一致 
 
-*   代理对象的创建：一个是使用 `Enhangcer` 进行代理对象创建，一个是使用封装好的方法进行对象创建。 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8ee847f9cbb7ec7fa6c35b2ad5a5537ef3a.png)
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-6f3e8213e743554a7a8ffc587b98b1d7d3a.png)
+
+*   代理对象的创建：一个是使用 `Enhangcer` 进行代理对象创建，一个是使用封装好的方法进行对象创建。 
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8ee847f9cbb7ec7fa6c35b2ad5a5537ef3a.png)
 
 从代理对象创建来看，可以看出 `cglib` 生成对象时，配置的参数较多，功能较丰富。
 
@@ -434,9 +439,11 @@ public Object proceed() throws Throwable {
 
 最后用一张图来说明切面通知的执行过程：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-1c31c8e6279af4c150df18ebbd345c7f110.png)
 
 最终的执行顺序：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a1f3ccebe3b7335eaef88b8a39ca36b9e05.png)
 

@@ -262,6 +262,7 @@ public class AutoConfigurationImportSelector implements DeferredImportSelector, 
 
 本文我们来分析这个注解属性中使用的 2 个类：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-19d14d3d8262eead434d5ca09369e1789d5.png)
 
 #### 3.1 `TypeExcludeFilter`

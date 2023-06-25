@@ -277,10 +277,12 @@ Spring Cloud 应用在启动时，OpenFeign 会扫描标有 @FeignClient 注解�
 
 6\. 依次启动服务注册中心集群、服务提供者以及 micro-service-cloud-consumer-dept-feign，启动完成后，使用浏览器访问“http://eureka7001.com/consumer/dept/list”，结果如下图。
 
+
 ![OpenFeign 实现服务调用](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1014296212-0.png)
 图1：OpenFeign 实现远程服务调用
 
 7\. 连续多次访问“http://eureka7001.com/consumer/dept/list”，结果如下图。
+
 
 ![OpenFeign 默认负载均衡](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1014294062-1.gif)
 图2：OpenFeign 负载均衡
@@ -358,10 +360,12 @@ public String DeptFeignTimeout() {
 
 4\. 重启所有服务提供者，使用浏览器依次访问“http://eureka7001.com:8001/dept/feign/timeout”、“http://eureka7001.com:8002/dept/feign/timeout”和“http://eureka7001.com:8003/dept/feign/timeout”，确保所有服务提供者提供的超时服务都能正常使用，如下图。
 
+
 ![服务提供者超时服务](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10142a102-2.png)
 图3：服务提供者的超时服务
 
 5\. 重启 micro-service-cloud-consumer-dept-feign，使用浏览器访问“http://eureka7001.com/consumer/dept/feign/timeout”，结果如下图。
+
 
 ![OpenFeign 超时报错](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1014293G1-3.png)
 图4：OpenFeign 超时报错
@@ -388,6 +392,7 @@ ribbon:
 > 注：由于 OpenFeign 集成了 Ribbon ，其服务调用以及负载均衡在底层都是依靠 Ribbon 实现的，因此 OpenFeign 超时控制也是通过 Ribbon 来实现的。
 
 7\. 再次重启 micro-service-cloud-consumer-dept-feign，使用浏览器访问“http://eureka7001.com/consumer/dept/feign/timeout”，结果如下图。
+
 
 ![OpenFeign 超时控制](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10142942D-4.png)
 图5：OpenFeign 超时控制

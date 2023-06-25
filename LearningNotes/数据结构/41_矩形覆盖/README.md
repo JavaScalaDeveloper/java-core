@@ -10,6 +10,7 @@ https://www.nowcoder.com/practice/72a5a919508a4251859fb2cfb987a0e6
 
 比如n=3时，2*3的矩形块有3种覆盖方法：
 
+
 ![image-20200625090357495](images/image-20200625090357495.png)
 
 ## 思考

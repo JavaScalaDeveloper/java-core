@@ -5,6 +5,7 @@ Kafka中消息是以topic进行分类的，Producer生产消息，Consumer消费
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-b9d626794f6625526598db6627b780e7_720w.webp)
 
 </figure>
@@ -20,6 +21,7 @@ Kafka文件存储也是通过本地落盘的方式存储的，主要是通过相
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-116ebd7dffd85595d69f080e5b5f6948_720w.webp)
 
 </figure>
@@ -31,11 +33,13 @@ Kafka文件存储也是通过本地落盘的方式存储的，主要是通过相
 <figure data-size="normal">
 
 
+
 ![](https://pic3.zhimg.com/80/v2-c6de61f43ecbe58d4f3e7aa29541220e_720w.webp)
 
 </figure>
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-8345e4966d8c5274a1e74e29151bd9c6_720w.webp)
@@ -45,6 +49,7 @@ Kafka文件存储也是通过本地落盘的方式存储的，主要是通过相
 副本目的是为了备份，所以同一个分区存储在不同的broker上，即当third-2存在当前机器kafka01上，实际上再kafka03中也有这个分区的文件（副本），分区中包含副本，即一个分区可以设置多个副本，副本中有一个是leader，其余为follower。
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-6e8de9e7dcbdac0b7bd424eaaf4f8568_720w.webp)
@@ -93,6 +98,7 @@ Kafka文件存储也是通过本地落盘的方式存储的，主要是通过相
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-409ea1af4f66bd2f44398850cc2ba9e2_720w.webp)
 
 </figure>
@@ -138,6 +144,7 @@ Kafka为用户提供了三种可靠性级别，用户根据可靠性和延迟的
 <figure data-size="normal">
 
 
+
 ![](https://pic1.zhimg.com/80/v2-a219d261edd97432347f4edf5794e170_720w.webp)
 
 </figure>
@@ -145,6 +152,7 @@ Kafka为用户提供了三种可靠性级别，用户根据可靠性和延迟的
 -1(all)：producer等待broker的ack，partition的leader和ISR的follower全部落盘成功才返回ack，但是如果在follower同步完成后，broker发送ack之前，如果leader发生故障，会造成数据重复。(这里的数据重复是因为没有收到，所以继续重发导致的数据重复)
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-c9741a10f418f7ea4eed929f0f266bbb_720w.webp)
@@ -156,6 +164,7 @@ producer返ack，0无落盘直接返，1只leader落盘然后返，-1全部落�
 ## 六. 数据一致性问题
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-031d84a2012f64b122dd64ab67a4e52a_720w.webp)
@@ -205,6 +214,7 @@ pull模式不足在于如果Kafka中没有数据，消费者可能会陷入循�
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-21eed325191d7d72c9d4c39455c4cae5_720w.webp)
 
 </figure>
@@ -218,6 +228,7 @@ range按照topic一次进行分配，即消费者遍历topic，t0，含有三个
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-d642ed5512a4abdca9a8f35f2d27c277_720w.webp)
 
 </figure>
@@ -227,6 +238,7 @@ range按照topic一次进行分配，即消费者遍历topic，t0，含有三个
 由于Consumer在消费过程中可能会出现断电宕机等故障，Consumer恢复以后，需要从故障前的位置继续消费，所以Consumer需要实时记录自己消费到了那个offset，以便故障恢复后继续消费。
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-f2a50fd7f054821e36a80b1f6d99ecb0_720w.webp)
@@ -248,6 +260,7 @@ NIC：Network Interface Controller网络接口控制器
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-2807d010381d304949bf8cea16ba1744_720w.webp)
 
 </figure>
@@ -255,6 +268,7 @@ NIC：Network Interface Controller网络接口控制器
 这是常规的读取操作： 1\. 操作系统将数据从磁盘文件中读取到内核空间的页面缓存 2\. 应用程序将数据从内核空间读入到用户空间缓冲区 3\. 应用程序将读到的数据写回内核空间并放入到socket缓冲区 4\. 操作系统将数据从socket缓冲区复制到网卡接口，此时数据通过网络发送给消费者
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-390cbabdeaba6f9e79a8ba6f4d08d75f_720w.webp)
@@ -272,6 +286,7 @@ Kafka集群中有一个broker会被选举为Controller，负责管理集群broke
 **Partition的Leader的选举过程**
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-fc64ea72cba32e702b15344767bdace9_720w.webp)

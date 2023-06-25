@@ -45,6 +45,7 @@
 
 数据库复制指的是发生在不同数据库实例之间，单向的信息传播的行为，通常由被复制方和复制方组成，被复制方和复制方之间建立网络连接，复制方式通常为被复制方主动将数据发送到复制方，复制方接收到数据存储在当前实例，最终目的是为了保证双方的数据一致、同步。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/130324_yGmz_1759553.png)
 
 复制示意图
@@ -54,6 +55,7 @@
 ## Redis复制方式
 
 Redis的复制方式有两种，一种是主（master）-从（slave）模式，一种是从（slave）-从（slave）模式，因此Redis的复制拓扑图会丰富一些，可以像星型拓扑，也可以像个有向无环：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/131412_Ak0S_1759553.png)
 
@@ -124,6 +126,7 @@ Redis提供了提高数据一致性的解决方案，本文后面会进行介绍
 ```   
 这样，我们就成功的启动了四台Redis实例，master实例的服务端口为8000，R1、R2、R3的服务端口分别为8001、8002、8003，集群图如下：  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/135124_AfX5_1759553.png)  
   
 Redis集群复制拓扑  
@@ -136,6 +139,7 @@ Redis集群复制拓扑
   
 Redis复制主要由SYNC命令实现，复制过程如下图：  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/142921_LCDS_1759553.png)  
   
 Redis复制过程  
@@ -156,6 +160,7 @@ Redis复制过程
   
 上面复制过程介绍的最后提到，slave和master断开了、当slave和master重新连接上之后需要全量复制，这个策略是很不友好的，从Redis2.8开始，Redis提供了增量复制的机制：  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/150147_XvpH_1759553.png)  
   
 增量复制机制  

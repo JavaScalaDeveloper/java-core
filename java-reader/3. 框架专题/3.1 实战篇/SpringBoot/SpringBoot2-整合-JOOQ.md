@@ -194,9 +194,11 @@ JooqConfig.xml
 </configuration>
 ```
 #####    2.2 mvn执行逆向工程
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-bb65c26b6bb77bb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 先进行clean 再compile，然后我们就会发现，生成了很多个类
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-b39e14acbd401270.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 如果你看到了这些，那么恭喜。你的jooq环境搭建成功了！
@@ -329,6 +331,7 @@ com.generator.tables.User u =  User.USER_.as("u");
 
 还有，我在这里只测试了一个方法`selectById()`，别的我没有测试，大概应该差不多。
 好了，让大家看看方法`selectById()`的运行结果。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-fffb5f43bd7aabcd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 控制台打印分别对应上面代码中的这两个语句
 ```
@@ -437,7 +440,9 @@ public class UserController {
         return list;
     }
 ```
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-794ef1acdd3ec80b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-34b7dcf37876dae3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 

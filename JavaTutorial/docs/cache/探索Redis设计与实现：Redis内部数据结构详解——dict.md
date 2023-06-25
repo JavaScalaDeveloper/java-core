@@ -112,6 +112,7 @@ dict的C代码定义如下（出自Redis源码dict.h）：
 ````
 为了能更清楚地展示dict的数据结构定义，我们用一张结构图来表示它。如下。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230406203512.png)
 
 结合上面的代码和结构图，可以很清楚地看出dict的结构。一个dict由如下若干项组成：

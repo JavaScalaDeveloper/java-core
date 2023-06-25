@@ -28,6 +28,7 @@ SPI 将服务接口和具体的服务实现分离开来，将服务调用方和�
 
 很多框架都使用了 Java 的 SPI 机制，比如：Spring 框架、数据库加载驱动、日志接口、以及 Dubbo 的扩展实现等等。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/java/basis/spi/22e1830e0b0e4115a882751f6c417857tplv-k3u1fbpfcp-zoom-1.jpeg)
 
 ### SPI 和 API 有什么区别？
@@ -35,6 +36,7 @@ SPI 将服务接口和具体的服务实现分离开来，将服务调用方和�
 **那 SPI 和 API 有啥区别？**
 
 说到 SPI 就不得不说一下 API 了，从广义上来说它们都属于接口，而且很容易混淆。下面先用一张图说明一下：
+
 
 ![](https://oss.javaguide.cn/github/javaguide/java/basis/spi/1ebd1df862c34880bc26b9d494535b3dtplv-k3u1fbpfcp-watermark.png)
 
@@ -49,6 +51,7 @@ SPI 将服务接口和具体的服务实现分离开来，将服务调用方和�
 ## 实战演示
 
 SLF4J （Simple Logging Facade for Java）是 Java 的一个日志门面（接口），其具体实现有几种，比如：Logback、Log4j、Log4j2 等等，而且还可以切换，在切换日志具体实现的时候我们是不需要更改项目代码的，只需要在 Maven 依赖里面修改一些 pom 依赖就好了。
+
 
 ![](https://oss.javaguide.cn/github/javaguide/java/basis/spi/image-20220723213306039-165858318917813.png)
 
@@ -222,9 +225,11 @@ public class Logback implements Logger {
 
 新建 lib 目录，然后将 jar 包拷贝过来，再添加到项目中。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/java/basis/spi/523d5e25198444d3b112baf68ce49daetplv-k3u1fbpfcp-watermark.png)
 
 再点击 OK 。
+
 
 ![](https://oss.javaguide.cn/github/javaguide/java/basis/spi/f4ba0aa71e9b4d509b9159892a220850tplv-k3u1fbpfcp-watermark.png)
 
@@ -245,6 +250,7 @@ public class Logback implements Logger {
 为了更直观的展示效果，我这里再新建一个专门用来测试的工程项目：`java-spi-test`
 
 然后先导入 `Logger` 的接口 jar 包，再导入具体的实现类的 jar 包。
+
 
 ![](https://oss.javaguide.cn/github/javaguide/java/basis/spi/image-20220723215812708-165858469599214.png)
 

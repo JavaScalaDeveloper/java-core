@@ -16,6 +16,7 @@ head:
 
 在古代，由于通信不便利，一些聪明的人就利用鸽子会飞且飞得比较快、会辨认方向的优点，对其进行了驯化，用来进行消息的传递——也就是所谓的“飞鸽传书”。而在 Java 中，网络套接字（Socket）扮演了同样的角色。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-a1a012de-33e5-424a-a4cf-bd929cd60200.jpg)
 
 套接字（Socket）是一个抽象层，应用程序可以通过它发送或接收数据；就像操作文件那样可以打开、读写和关闭。套接字允许应用程序将 I/O 应用于网络中，并与其他应用程序进行通信。网络套接字是 IP 地址与端口的组合。
@@ -34,16 +35,19 @@ ping，一种计算机网络工具，用来测试数据包能否透过 IP 协议
 
 例如，我们 ping 一下博客园。截图如下。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-ce54bbbe-3627-4af4-9f9c-4c041a7ef2a7.jpg)
 
 
 telnet，Internet 远程登录服务的标准协议和主要方式，可以让我们坐在家里的计算机面前，登录到另一台远在天涯海角的远程计算机上。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-f94e1fa5-16d0-4414-9a53-a2aa43b2a512.jpg)
 
 在 Windows 系统中，telnet 一般是默认安装的，但未激活（可以在控制面板中激活它）。
 
 例如，我们 telnet 一下火（shui）土（mu）社区。截图如下。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-9d7051d9-e7de-48a8-9b28-b482d84f56c9.jpg)
 
@@ -100,6 +104,7 @@ while (scanner.hasNextLine()) {
 ```
 
 部分结果（完整结果自己亲手实践一下哦）如下图所示：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-6b60e4b2-14d0-4d95-bb5c-146bc6a06147.jpg)
 
@@ -174,6 +179,7 @@ while (!done && scanner.hasNextLine()) {
 
 
 运行该服务后，可以通过 `telnet localhost 8888` 命令连接该远程服务，不出所料，你将会看到以下信息。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-fac025fa-8cbf-448d-8a6d-cd8993ba87f4.jpg)
 
@@ -315,6 +321,7 @@ public class Client {
 
 启动服务器端，然后多启动几个客户端，就可以体验到交互的乐趣了。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/socket-20230330192826.png)
 
 ### 08、DatagramSocket 实例
@@ -379,6 +386,7 @@ public class UDPClient {
 客户端首先解析服务器的 IP 地址，然后创建一个 DatagramSocket 对象。接着，客户端创建一个包含要发送消息的 DatagramPacket 对象，并指定目标地址和端口。最后，客户端通过调用 `clientSocket.send(packet)` 方法发送数据包。
 
 运行结果如下所示：
+
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/socket-20230330193654.png)
 

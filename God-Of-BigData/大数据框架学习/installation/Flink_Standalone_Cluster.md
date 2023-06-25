@@ -29,11 +29,11 @@ Flink 支持使用多种部署模式来满足不同规模应用的需求，常�
 
 **1. 前置条件**
 
-Flink 的运行依赖 JAVA 环境，故需要预先安装好 JDK，具体步骤可以参考：[Linux 环境下 JDK 安装](https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Linux下JDK安装.md)
+Flink 的运行依赖 JAVA 环境，故需要预先安装好 JDK，具体步骤可以参考：[Linux 环境下 JDK 安装](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Linux下JDK安装.md)
 
 **2. 下载 & 解压 & 运行**
 
-Flink 所有版本的安装包可以直接从其[官网](https://flink.apache.org/downloads.html)进行下载，这里我下载的 Flink 的版本为 `1.9.1` ，要求的 JDK 版本为 `1.8.x +`。 下载后解压到指定目录：
+Flink 所有版本的安装包可以直接从其[官网](images/https://flink.apache.org/downloads.html)进行下载，这里我下载的 Flink 的版本为 `1.9.1` ，要求的 JDK 版本为 `1.8.x +`。 下载后解压到指定目录：
 
 ```shell
 tar -zxvf flink-1.9.1-bin-scala_2.12.tgz  -C /usr/app
@@ -71,7 +71,7 @@ nc -lk 9999
 bin/flink run examples/streaming/SocketWindowWordCount.jar --port 9999
 ```
 
-该 JAR 包的源码可以在 Flink 官方的 GitHub 仓库中找到，地址为 ：[SocketWindowWordCount](https://github.com/apache/flink/blob/master/flink-examples/flink-examples-streaming/src/main/java/org/apache/flink/streaming/examples/socket/SocketWindowWordCount.java) ，可选传参有 hostname， port，对应的词频数据需要使用空格进行分割。
+该 JAR 包的源码可以在 Flink 官方的 GitHub 仓库中找到，地址为 ：[SocketWindowWordCount](images/https://github.com/apache/flink/blob/master/flink-examples/flink-examples-streaming/src/main/java/org/apache/flink/streaming/examples/socket/SocketWindowWordCount.java) ，可选传参有 hostname， port，对应的词频数据需要使用空格进行分割。
 
 **3. 输入测试数据**
 
@@ -176,7 +176,7 @@ bin/start-cluster.sh
 - **parallelism.default**：任务默认的并行度。
 - **io.tmp.dirs**：存储临时文件的路径，如果没有配置，则默认采用服务器的临时目录，如 LInux 的 `/tmp` 目录。
 
-更多配置可以参考 Flink 的官方手册：[Configuration](https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/config.html)
+更多配置可以参考 Flink 的官方手册：[Configuration](images/https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/config.html)
 
 ## 四、Standalone Cluster HA
 
@@ -188,8 +188,8 @@ bin/start-cluster.sh
 
 另外在高可用模式下，还需要使用分布式文件系统来持久化存储 JobManager 的元数据，最常用的就是 HDFS，所以 Hadoop 也需要预先安装。关于 Hadoop 集群和 ZooKeeper 集群的搭建可以参考：
 
-+ [Hadoop 集群环境搭建](https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Hadoop集群环境搭建.md)
-+ [Zookeeper 单机环境和集群环境搭建](https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Zookeeper单机环境和集群环境搭建.md) 
++ [Hadoop 集群环境搭建](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Hadoop集群环境搭建.md)
++ [Zookeeper 单机环境和集群环境搭建](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Zookeeper单机环境和集群环境搭建.md) 
 
 ### 4.2 搭建步骤
 
@@ -253,7 +253,7 @@ the classpath/dependencies.
 ......
 ```
 
-可以看到是因为在 classpath 目录下找不到 Hadoop 的相关依赖，此时需要检查是否在环境变量中配置了 Hadoop 的安装路径，如果路径已经配置但仍然存在上面的问题，可以从 [Flink 官网](https://flink.apache.org/downloads.html)下载对应版本的 Hadoop 组件包：
+可以看到是因为在 classpath 目录下找不到 Hadoop 的相关依赖，此时需要检查是否在环境变量中配置了 Hadoop 的安装路径，如果路径已经配置但仍然存在上面的问题，可以从 [Flink 官网](images/https://flink.apache.org/downloads.html)下载对应版本的 Hadoop 组件包：
 
 <div align="center"> <img src="../../pictures/flink-optional-components.png"/> </div>
 
@@ -265,6 +265,6 @@ the classpath/dependencies.
 
 ## 参考资料
 
-+ [Standalone Cluster](https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/deployment/cluster_setup.html#standalone-cluster)
-+ [JobManager High Availability (HA)](https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/jobmanager_high_availability.html)
++ [Standalone Cluster](images/https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/deployment/cluster_setup.html#standalone-cluster)
++ [JobManager High Availability (HA)](images/https://ci.apache.org/projects/flink/flink-docs-release-1.9/ops/jobmanager_high_availability.html)
 

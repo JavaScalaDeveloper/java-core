@@ -42,6 +42,7 @@ public interface ApplicationContext extends EnvironmentCapable, ListableBeanFact
 
 我们来看看 `ApplicationContext` 自身提供的方法：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-82de66bd51d650aa8a1fda29bdda3efd6b4.png)
 
 可以看到，它自身的方法并不多。
@@ -55,9 +56,11 @@ public interface ApplicationContext extends EnvironmentCapable, ListableBeanFact
 
 我们再来看看 `AnnotationConfigApplicationContext` 的继承结构：
 
+
 ![图片来自网络](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-6e20477e8f5948894a5f241cd41038cfa15.png)
 
 我们再来看看 `AnnotationConfigWebApplicationContext` 的继承结构：
+
 
 ![图片来自网络](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-23a6c84d82370afe39245a568cbcf918209.png)
 
@@ -443,6 +446,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
 `BeanDefinition` 是一个接口，我们当然不能直接使用，接下来我们来看看 Spring 提供了哪些 `BeanDefinition`：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-49cbc9cb32badc1db52717cd19a9447eca7.png)
 
 spring 提供的 `BeanDefinition` 基本就是上图所示的几种了，这里我们主要看这向种：
@@ -509,6 +513,7 @@ User{name='123', age=12}
 
 这是个通用的 `BeanDefinition`，直接继承了 `AbstractBeanDefinition`，它自身提供的方法如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-5ed980070b301dc84926fac2494093d4fc6.png)
 
 可以看到，它自身提供的方法并不多，其操作基本继承 `AbstractBeanDefinition`，一般情况下，我们要生成自己的 `BeanDefinition` 时，只需要使用这个类就可以了，这里也提供一个示例：
@@ -538,6 +543,7 @@ AnnotationConfigApplicationContext context = new AnnotationConfigApplicationCont
 
 `ScannedGenericBeanDefinition` 继承了 `GenericBeanDefinition`，同时也实现了 `AnnotatedBeanDefinition` 接口，本身提供的方法并不多：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-9ed3925090a9ae5fc1d4218ed5a59c2ea19.png)
 
 其操作基本来自 `GenericBeanDefinition`，这里就不提供示例了。
@@ -545,6 +551,7 @@ AnnotationConfigApplicationContext context = new AnnotationConfigApplicationCont
 ### 2.4 `AnnotatedGenericBeanDefinition`
 
 `AnnotatedGenericBeanDefinition` 继承了 `GenericBeanDefinition`，同时也实现了 `AnnotatedBeanDefinition` 接口，本身提供的方法并不多：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b2e7f49fcdcae4f7272e2670b4fbb92766a.png)
 
@@ -686,6 +693,7 @@ context.refresh();
 
 运行，结果如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-268bb546197c4eb9d1686118a12fabb0009.png)
 
 确实没有报错，但是我们的修改也没起作用。在代码里，我们给 `service01` 的 `name` 属性指定值为 `123`，运行结果还是 `null`，没起作用的原因是 `service01` 是在 `context.refresh()` 进行初始化 的，后面再怎么对它的 `BeanDefinition` 修改，也体现不到它身上。
@@ -753,6 +761,7 @@ hello null, from service02
 可以看到 `service01` 的 `name` 确实变成 `123` 了。
 
 实际上，`BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry` 主要就是使用 `BeanDefinitionRegistry` 来完成 `BeanDefinition` 的操作，它支持的方法如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-5812a2cac994c5940d57c7e6ab55c23a63e.png)
 

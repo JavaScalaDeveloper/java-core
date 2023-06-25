@@ -105,6 +105,7 @@ public class Stream_Collection {
 }
 ```
 
+
 ![stream.png](http://upload-images.jianshu.io/upload_images/5786888-d331d0d854e92068.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #####   5. stream filter实战
@@ -119,9 +120,12 @@ public class Stream_Collection {
 ```
 这个过滤器是实现对性别是“女”进行过滤并打印。
 
+
 ![stream filter.png](http://upload-images.jianshu.io/upload_images/5786888-8db387132920dab3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ######  6.进阶
 
+
 ![image.png](http://upload-images.jianshu.io/upload_images/5786888-b1058a32a9ba5938.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ![image.png](http://upload-images.jianshu.io/upload_images/5786888-f0afb4730a6afb5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

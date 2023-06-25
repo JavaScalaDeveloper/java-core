@@ -2,6 +2,7 @@
 
 首先我们来看看这个类的继承关系：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-53b639dcaacb2480e9098a046407a80a574.png)
 
 从继承关系上来看，`AnnotationAwareAspectJAutoProxyCreator` 是一个 `BeanPostProcessor`，结合前面的分析，spring `BeanPostProcessor` 的执行是在 spring bean 初始化前后，这里我们通过断点调试的方式验证下。
@@ -10,15 +11,18 @@
 
 我们将断点打在 `AbstractAutowireCapableBeanFactory#initializeBean(String, Object, RootBeanDefinition)` 方法上，然后在 debug 模式下运行：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-449fe5a3456350ae0d9854c1c13f4a59a80.png)
 
 此时的 `wrappedBean` 的类型还是 `AopBean1`，继续往下，当运行完 `applyBeanPostProcessorsAfterInitialization` 后，`wrappedBean` 的类型就变了样：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8b791334bf1873c652a265db9ab1d0e1441.png)
 
 表现上看还是 `AopBean1`，但前面出现了 `$Poxy19` 字样，且多了一个属性：`JdkDynamicAopProxy`，这表明该动态是 jdk 动态代理生成的对象。
 
 再看看 `AopBean2` 运行到此处的变化：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-4fc5d03af4298f55d69e5c619cd72df1ff0.png)
 
@@ -514,6 +518,7 @@ public Advice getAdvice(Method candidateAdviceMethod, AspectJExpressionPointcut 
 我们知道，切面注解标识的方法第一个参数要求是 `JoinPoint`，如果是 `@Around` 注解，则第一个参数可以是 `ProceedingJoinPoint`，计算参数绑定就是来验证参数类型的。
 
 对于不同的通知，spring 会封装成不同的 `advice`，这里先来看看 `advice` 的继承结构：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-671bd92a16642a059ff722ec42c8ea7ef28.png)
 

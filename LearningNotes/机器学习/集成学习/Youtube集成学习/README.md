@@ -21,17 +21,20 @@ https://www.kaggle.com/arthurtok/introduction-to-ensembling-stacking-in-python
 
 ## Alogorithms
 
+
 ![image-20200509164810523](images/image-20200509164810523.png)
 
 ## Cross-validation
 
 交叉验证
 
+
 ![image-20200509165602740](images/image-20200509165602740.png)
 
 
 
 不平衡的数据集
+
 
 ![image-20200509170021718](images/image-20200509170021718.png)
 
@@ -53,6 +56,7 @@ https://www.kaggle.com/arthurtok/introduction-to-ensembling-stacking-in-python
 - Area under curve（AUC）
 - Hamming loss
 
+
 ![image-20200509170428165](images/image-20200509170428165.png)
 
 
@@ -64,5 +68,6 @@ https://www.kaggle.com/arthurtok/introduction-to-ensembling-stacking-in-python
   - Expensive computation
   - Less efficient
 - Random Search
+
 
 ![image-20200509171212009](images/image-20200509171212009.png)

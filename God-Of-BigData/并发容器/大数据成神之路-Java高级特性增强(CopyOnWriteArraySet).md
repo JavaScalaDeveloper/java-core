@@ -27,7 +27,9 @@
 
 #### CopyOnWriteArraySet原理和数据结构
 
-CopyOnWriteArraySet的数据结构，如下图所示：![126a88369f7024046d46da2fb20bba03](大数据成神之路-Java高级特性增强(CopyOnWriteArraySet).resources/F023A78F-7010-495C-B34F-FBCDE1801AF8.jpg)
+CopyOnWriteArraySet的数据结构，如下图所示：
+
+![126a88369f7024046d46da2fb20bba03](images/大数据成神之路-Java高级特性增强(CopyOnWriteArraySet).resources/F023A78F-7010-495C-B34F-FBCDE1801AF8.jpg)
 说明：  
 1. CopyOnWriteArraySet继承于AbstractSet，这就意味着它是一个集合。  
 2. CopyOnWriteArraySet包含CopyOnWriteArrayList对象，它是通过CopyOnWriteArrayList实现的。而CopyOnWriteArrayList本质是个动态数组队列，所以CopyOnWriteArraySet相当于通过通过动态数组实现的“集合”！ CopyOnWriteArrayList中允许有重复的元素；但是,CopyOnWriteArraySet是一个集合,所以它不能有重复集合。因此,CopyOnWriteArrayList额外提供了addIfAbsent()和addAllAbsent()这两个添加元素的API,通过这些API来添加元素时，只有当元素不存在时才执行添加操作！   

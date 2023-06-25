@@ -70,6 +70,7 @@ public ConfigurableApplicationContext run(String... args) {
 
 整个启动流程如下：
 
+
 ![](https://oscimg.oschina.net/oscnet/up-07a6b491fbe69b8dcbd41e59a8543f06671.png)
 
 接下来我们来重点分析这 13 个启动流程。
@@ -77,6 +78,7 @@ public ConfigurableApplicationContext run(String... args) {
 ### 3.1`stopWatch`：创建计时器并启动
 
 一开始，springboot 就创建了`stopWatch`实例，然后调用`StopWatch#start()`启动计时功能，关于这个类没啥好说的，它就是个计时器，这里是用来计算 springboot 启动耗时，以下日志中的时间就是由这个计时器得到的：
+
 
 ![](https://oscimg.oschina.net/oscnet/up-70a9e95e6c1208288334341bdb54bd59c17.png)
 
@@ -193,6 +195,7 @@ public interface SpringApplicationRunListener {
 `SpringApplicationRunListener`是一个接口，定义了一系列的方法来监听 springboot 的启动过程，方法的说明已经在文档中有详细定义，如果我们需要在 springboot 的启动中的某个过程做一些事情，就可以实现`SpringApplicationRunListener`然后重写对应的方法。
 
 通过调试，发现 springboot 获得的运行监听器如下：
+
 
 ![](https://oscimg.oschina.net/oscnet/up-3ed62d827b3bf1989af74f9c4db1fc0b9ce.png)
 
@@ -364,6 +367,7 @@ public class StandardEnvironment extends AbstractEnvironment {
 
 可以看到，`StandardEnvironment`的`customizePropertySources()`方法主要是将系统属性与系统环境添加到`Environment`中。而实际上，`Environment`中包含了许多的系统与环境相关的参数，本身也提供了一些`getter`方法可以很方便地获取这些参数：
 
+
 ![](https://oscimg.oschina.net/oscnet/up-d2d69692db15146f2981db94633e7c575d5.png)
 
 到这里，我们就明白了，`StandardServletEnvironment`中包含了如下内容：
@@ -500,6 +504,7 @@ Banner printedBanner = printBanner(environment);
 关于`banner`，与 springboot 的启动流程关系不大，就不分析了，小伙伴们只需了解怎么样用即可。
 
 好了，限于篇幅，本文就到这里了，下篇我们继续。
+
 
 ![](https://oscimg.oschina.net/oscnet/up-38d3824690292937a6b0cba5b081c8f8fec.png)
 

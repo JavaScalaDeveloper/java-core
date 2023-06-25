@@ -6,13 +6,16 @@
 远程调用时，要能够像本地调用一样方便，让调用者感知不到远程调用的逻辑。
 还是以计算器Calculator为例，如果实现类CalculatorImpl是放在本地的，那么直接调用即可：
 
+
 ![116e0941623cad855218ce0f2372f72d](images/手把手教你实现一个简单的RPC.resources/35D32263-56C5-4251-A767-968E1CDD5AA0.png)
 
 现在系统变成分布式了，CalculatorImpl和调用方不在同一个地址空间，那么就必须要进行远程过程调用：
 
+
 ![6163b3c7bf343d2704baf8191a4bb14b](images/手把手教你实现一个简单的RPC.resources/C94525C4-DC16-41E4-973D-7B438683B64C.png)
 
 那么如何实现远程过程调用，也就是RPC呢，一个完整的RPC流程，可以用下面这张图来描述：
+
 
 
 ![e0876518a5b3b62cee126075de90d50d](images/手把手教你实现一个简单的RPC.resources/D40C4121-5F8D-46FA-B8F0-5F45B9DE1CA0.png)
@@ -35,7 +38,7 @@
 
 首先是Client端的应用层怎么发起RPC，ComsumerApp：
 
-```
+```java
 public class ComsumerApp {
     public static void main(String[] args) {
         Calculator calculator = new CalculatorRemoteImpl();
@@ -46,7 +49,7 @@ public class ComsumerApp {
 
 通过一个CalculatorRemoteImpl，我们把RPC的逻辑封装进去了，客户端调用时感知不到远程调用的麻烦。下面再来看看CalculatorRemoteImpl，代码有些多，但是其实就是把上面的2、3、4几个步骤用代码实现了而已，CalculatorRemoteImpl：
 
-```
+```java
 public class CalculatorRemoteImpl implements Calculator {
     public int add(int a, int b) {
         List<String> addressList = lookupProviders("Calculator.add");
@@ -90,7 +93,7 @@ add方法的前面两行，lookupProviders和chooseTarget，可能大家会觉�
 
 最后再来看看Server端的实现，和Client端非常类似，ProviderApp：
 
-```
+```java
 public class ProviderApp {
     private Calculator calculator = new CalculatorImpl();
 
@@ -170,7 +173,7 @@ Dubbo通过和Spring的集成，在Spring容器初始化的时候，如果扫描
 我们可以先不和Spring集成，也就是先不采用依赖注入，但是我们要做到像Dubbo一样，无需自己手动写代理对象，怎么做呢？那自然是要求所有的远程调用都遵循一套模板，把远程调用的信息放到一个RpcRequest对象里面，发给Server端，Server端解析之后就知道你要调用的是哪个RPC接口、以及入参是什么类型、入参的值又是什么，就像Dubbo的RpcInvocation：
 
 
-```
+```java
 public class RpcInvocation implements Invocation, Serializable {
 
     private static final long serialVersionUID = -4355285085441097045L;

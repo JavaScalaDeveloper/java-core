@@ -128,6 +128,7 @@ Employee(id=3, lastName=jerry, email=jerry@qq.com, age=40)
 
 `BaseMapper` 提供了常用的一些增删改查方法：
 
+
 ![](https://img-blog.csdnimg.cn/20210519084059865.png)
 
 具体细节可以查阅其源码自行体会，注释都是中文的，非常容易理解。
@@ -205,6 +206,7 @@ public interface EmployeeMapper extends BaseMapper<Employee> {
 
 `MyBatisPlus` 默认扫描的是类路径下的 `mapper` 目录，这可以从源码中得到体现：
 
+
 ![](https://img-blog.csdnimg.cn/20210519084046472.png)
 
 所以我们直接将 `Mapper` 配置文件放在该目录下就没有任何问题，可如果不是这个目录，我们就需要进行配置，比如：
@@ -233,6 +235,7 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
 ```
 
 在 `EmployeeServiceImpl` 中我们无需将 `EmployeeMapper` 注入进来，而是使用 `BaseMapper`，查看 `ServiceImpl` 的源码：
+
 
 ![](https://img-blog.csdnimg.cn/2021051908403249.png)
 
@@ -313,6 +316,7 @@ mysql> select * from tbl_employee;
 - **第 42~52 位** ：一共 10 位，一般来说，前 5 位表示机房 ID，后 5 位表示机器 ID（实际项目中可以根据实际情况调整）。这样就可以区分不同集群/机房的节点。
 - **第 53~64 位** ：一共 12 位，用来表示序列号。 序列号为自增值，代表单台机器每毫秒能够产生的最大 ID 数(2^12 = 4096),也就是说单台机器每毫秒最多可以生成 4096 个 唯一 ID。
 
+
 ![](https://oscimg.oschina.net/oscnet/up-a7e54a77b5ab1d9fa16d5ae3a3c50c5aee9.png)
 
 这也就是为什么插入数据后新的数据 id 是一长串数字的原因了，我们可以在实体类中使用 `@TableId` 来设置主键的策略：
@@ -331,6 +335,7 @@ public class Employee {
 ```
 
 `MyBatisPlus` 提供了几种主键的策略：
+
 ![](https://img-blog.csdnimg.cn/20210519084011745.png)
 其中 `AUTO` 表示数据库自增策略，该策略下需要数据库实现主键的自增（auto_increment)，`ASSIGN_ID` 是雪花算法，默认使用的是该策略，`ASSIGN_UUID` 是 UUID 策略，一般不会使用该策略。
 
@@ -355,6 +360,7 @@ mybatis-plus:
 ## 属性自动填充
 
 翻阅《阿里巴巴Java开发手册》，在第 5 章 MySQL 数据库可以看到这样一条规范：
+
 ![](https://img-blog.csdnimg.cn/20210426214821389.png)
 对于一张数据表，它必须具备三个字段：
 
@@ -535,6 +541,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 
 在这个数据为王的时代，数据就是财富，所以一般并不会有哪个系统在删除某些重要数据时真正删掉了数据，通常都是在数据库中建立一个状态列，让其默认为 0，当为 0 时，用户可见；当执行了删除操作，就将状态列改为 1，此时用户不可见，但数据还是在表中的。
 
+
 ![](https://img-blog.csdnimg.cn/20210426215107210.png)
 
 按照《阿里巴巴Java开发手册》第 5 章 MySQL 数据库相关的建议，我们来为数据表新增一个`is_deleted` 字段：
@@ -567,6 +574,7 @@ public class Employee {
     private Boolean deleted;
 }
 ```
+
 
 ![](https://img-blog.csdnimg.cn/2021042621530162.png)
 
@@ -735,6 +743,7 @@ void contextLoads() {
 
 而 A 管理员马上也提交了修改操作，但是此时的版本号为 2，与最开始读取到的版本号并不对应，这就说明数据发生了冲突，此时应该提示 A 管理员操作失败，并让 A 管理员重新查询一次数据。
 
+
 ![](https://img-blog.csdnimg.cn/20210426221408623.png)
 
 乐观锁的优势在于采取了更加宽松的加锁机制，能够提高程序的吞吐量，适用于读操作多的场景。
@@ -875,6 +884,7 @@ Shop(id=1, name=笔记本电脑, price=9000, version=2)
 
 在分页插件中我们简单地使用了一下条件构造器（`Wrapper`），下面我们来详细了解一下。
 先来看看 `Wrapper` 的继承体系：
+
 ![](https://img-blog.csdnimg.cn/20210519083944315.png)
 分别介绍一下它们的作用：
 

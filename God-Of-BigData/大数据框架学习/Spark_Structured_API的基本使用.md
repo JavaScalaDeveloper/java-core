@@ -240,4 +240,4 @@ spark.sql("SELECT ename,job FROM global_temp.gemp").show()
 
 ## 参考资料
 
-[Spark SQL, DataFrames and Datasets Guide > Getting Started](https://spark.apache.org/docs/latest/sql-getting-started.html)
+[Spark SQL, DataFrames and Datasets Guide > Getting Started](images/https://spark.apache.org/docs/latest/sql-getting-started.html)

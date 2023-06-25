@@ -12,6 +12,7 @@ https://www.nowcoder.com/practice/6e196c44c7004d15b1610b9afca8bd88
 
 首先我们需要考虑的是，什么才是子结构，如下图所示，rootB就是rootA的子结构
 
+
 ![image-20200529153030088](images/image-20200529153030088.png)
 
 遍历过程如下，首先先遍历rootB的根节点，然后rootA的根节点比较，如果一样，就继续遍历rootB的左右子树，不一样，我们就换个其他节点进行遍历，但我们遍历到rootA的2节点时候，发现和rootB的根节点一样，那么这个时候，就在遍历RootB的左子树，发现也和rootA的一样，在遍历右子树，也相等，这个时候，在rootB全部遍历完成后，我们就能够确定，rootB为rootA的子结构了。

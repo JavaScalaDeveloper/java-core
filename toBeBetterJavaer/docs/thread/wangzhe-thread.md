@@ -81,6 +81,7 @@ t3.start();
 来看一下执行后的结果：
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/wangzhe-thread-01.png)
 
 
@@ -118,6 +119,7 @@ t3.start();
 ```
 
 来看一下执行后的结果：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/wangzhe-thread-02.png)
 
@@ -202,6 +204,7 @@ t3.start();
 
 来看一下执行后的结果：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/wangzhe-thread-03.png)
 
 
@@ -227,6 +230,7 @@ t3.start();
 如果其他线程都执行完毕，main 方法（主线程）也执行完毕，JVM 就会退出，也就是停止运行。如果 JVM 都停止运行了，守护线程自然也就停止了。
 
 最后再来看一下线程的生命周期吧，一图胜千言。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/wangzhe-thread-04.png)
 

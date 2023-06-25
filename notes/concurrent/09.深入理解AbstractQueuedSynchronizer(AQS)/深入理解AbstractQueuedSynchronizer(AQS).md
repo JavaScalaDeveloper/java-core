@@ -78,6 +78,7 @@ public static void main(String[] args) {
 
 实例代码中开启了5个线程，先获取锁之后再睡眠10S中，实际上这里让线程睡眠是想模拟出当线程无法获取锁时进入同步队列的情况。通过debug，当Thread-4（在本例中最后一个线程）获取锁失败后进入同步时，AQS时现在的同步队列如图所示：
 
+
 ![LockDemo debug下 .png](http://upload-images.jianshu.io/upload_images/2615789-d05d3f44ce4c205a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 Thread-0先获得锁后进行睡眠，其他线程（Thread-1,Thread-2,Thread-3,Thread-4）获取锁失败进入同步队列，同时也可以很清楚的看出来每个节点有两个域：prev(前驱)和next(后继)
@@ -87,6 +88,7 @@ private transient volatile Node head;
 private transient volatile Node tail;
 ```
 也就是说AQS实际上通过头尾指针来管理同步队列，同时实现包括获取锁失败的线程进行入队，释放锁时对同步队列中的线程进行通知等核心方法。其示意图如下：
+
 
 ![队列示意图.png](http://upload-images.jianshu.io/upload_images/2615789-dbfc975d3601bb52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -208,6 +210,7 @@ final boolean acquireQueued(final Node node, int arg) {
 程序逻辑通过注释已经标出，整体来看这是一个这又是一个自旋的过程（for (;;)），代码首先获取当前节点的先驱节点，**如果先驱节点是头结点的并且成功获得同步状态的时候（if (p == head && tryAcquire(arg))
 ），当前节点所指向的线程能够获取锁**。反之，获取锁失败进入等待状态。整体示意图为下图：
 
+
 ![自旋获取锁整体示意图.png](http://upload-images.jianshu.io/upload_images/2615789-3fe83cfaf03a02c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
@@ -231,6 +234,7 @@ private void setHead(Node node) {
 }
 ```
 将当前节点通过setHead()方法设置为队列的头结点，然后将之前的头结点的next域设置为null并且pre域也为null，即与队列断开，无任何引用方便GC时能够将内存进行回收。示意图如下：
+
 
 ![当前节点引用线程获取锁，当前节点设置为队列头结点.png](http://upload-images.jianshu.io/upload_images/2615789-13963e1b3bcfe656.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -282,6 +286,7 @@ private final boolean parkAndCheckInterrupt() {
 2. **获取锁失败的话，先将节点状态设置成SIGNAL，然后调用LookSupport.park方法使得当前线程阻塞**。
 
 经过上面的分析，独占式锁的获取过程也就是acquire()方法的执行流程如下图所示：
+
 
 ![独占式锁获取（acquire()方法）流程图.png](http://upload-images.jianshu.io/upload_images/2615789-a0d913dc40da5629.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -450,6 +455,7 @@ private boolean doAcquireNanos(int arg, long nanosTimeout)
 }
 ```
 程序逻辑如图所示：
+
 
 ![超时等待式获取锁（doAcquireNanos()方法）](http://upload-images.jianshu.io/upload_images/2615789-a80779d4736afb87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

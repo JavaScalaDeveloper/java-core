@@ -23,6 +23,7 @@
 
 我们知道CPU的处理速度和主存的读写速度不是一个量级的，为了平衡这种巨大的差距，每个CPU都会有缓存。因此，共享变量会先放在主存中，每个线程都有属于自己的工作内存，并且会把位于主存中的共享变量拷贝到自己的工作内存，之后的读写操作均使用位于工作内存的变量副本，并在某个时刻将工作内存的变量副本写回到主存中去。JMM就从抽象层次定义了这种方式，并且JMM决定了一个线程对共享变量的写入何时对其他线程是可见的。
 
+
 ![JMM内存模型的抽象结构示意图](http://upload-images.jianshu.io/upload_images/2615789-8c0b960a27af28db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800)
 
 如图为JMM抽象示意图，线程A和线程B之间要完成通信的话，要经历如下两步：
@@ -33,6 +34,7 @@
 
 # 3. 重排序 #
 一个好的内存模型实际上会放松对处理器和编译器规则的束缚，也就是说软件技术和硬件技术都为同一个目标而进行奋斗：在不改变程序执行结果的前提下，尽可能提高并行度。JMM对底层尽量减少约束，使其能够发挥自身优势。因此，在执行程序时，**为了提高性能，编译器和处理器常常会对指令进行重排序**。一般重排序可以分为如下三种：
+
 
 ![从源码到最终执行的指令序列的示意图](http://upload-images.jianshu.io/upload_images/2615789-4a1ae3e7c7906823.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800)
 1. 编译器优化的重排序。编译器在不改变单线程程序语义的前提下，可以重新安排语句的执行顺序；
@@ -101,6 +103,7 @@ happens-before的概念最初由Leslie Lamport在其一篇影响深远的论文�
 
 ## 5.1 JMM的设计 ##
 
+
 ![JMM层级图](http://upload-images.jianshu.io/upload_images/2615789-b96f4b4edada03a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800)
 
 JMM是语言级的内存模型，在我的理解中JMM处于中间层，包含了两个方面：（1）内存模型；（2）重排序以及happens-before规则。同时，为了禁止特定类型的重排序会对编译器和处理器指令序列加以控制。而上层会有基于JMM的关键字和J.U.C包下的一些具体类用来方便程序员能够迅速高效率的进行并发编程。站在JMM设计者的角度，在设计JMM时需要考虑两个关键因素:
@@ -123,12 +126,14 @@ JMM对这两种不同性质的重排序，采取了不同的策略，如下。
 
 JMM的设计图为：
 
+
 ![JMM设计示意图](http://upload-images.jianshu.io/upload_images/2615789-b288451befb6a441.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800)
 从图可以看出：
 
 1. JMM向程序员提供的happens-before规则能满足程序员的需求。JMM的happens-before规则不但简单易懂，而且也向程序员提供了足够强的内存可见性保证（有些内存可见性保证其实并不一定真实存在，比如上面的A happens-before B）。
 2. JMM对编译器和处理器的束缚已经尽可能少。从上面的分析可以看出，JMM其实是在遵循一个基本原则：只要不改变程序的执行结果（指的是单线程程序和正确同步的多线程程序），编译器和处理器怎么优化都行。例如，如果编译器经过细致的分析后，认定一个锁只会被单个线程访问，那么这个锁可以被消除。再如，如果编译器经过细致的分析后，认定一个volatile变量只会被单个线程访问，那么编译器可以把这个volatile变量当作一个普通变量来对待。这些优化既不会改变程序的执行结果，又能提高程序的执行效率。
 ## 5.2 happens-before与JMM的关系 ##
+
 
 
 ![happens-before与JMM的关系](http://upload-images.jianshu.io/upload_images/2615789-dd96af34a8df5c49.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800)

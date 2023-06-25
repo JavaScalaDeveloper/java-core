@@ -59,6 +59,7 @@ public class PersonController {
 
 基于 Spring Boot 的话，就比较简单了，只需要给项目添加上 `spring-boot-starter-web` 依赖就够了，它的子依赖包含了我们所需要的东西。另外，我们的示例项目中还使用到了 Lombok。
 
+
 ![](https://img-blog.csdnimg.cn/20210421172058450.png)
 
 ```xml
@@ -87,6 +88,7 @@ public class PersonController {
 ```
 
 但是！！！ Spring Boot 2.3 1 之后，`spring-boot-starter-validation` 已经不包括在了 `spring-boot-starter-web` 中，需要我们手动加上！
+
 
 ![](https://img-blog.csdnimg.cn/20210421170846695.png)
 
@@ -205,6 +207,7 @@ public class PersonControllerTest {
 
 **使用 `Postman` 验证**
 
+
 ![](https://img-blog.csdnimg.cn/20210421175345253.png)
 
 ### 验证请求参数
@@ -265,7 +268,9 @@ public void should_check_request_param_value2() throws Exception {
 
 **使用 `Postman` 验证**
 
+
 ![](https://img-blog.csdnimg.cn/20210421190508416.png)
+
 
 ![](https://img-blog.csdnimg.cn/20210421190810975.png)
 
@@ -416,6 +421,7 @@ mockMvc.perform(post("/api/person")
 
 **使用 `Postman` 验证**
 
+
 ![](https://img-blog.csdnimg.cn/20210421203330978.png)
 
 ### 案例二:校验电话号码
@@ -476,6 +482,7 @@ mockMvc.perform(post("/api/person")
                 .content(objectMapper.writeValueAsString(personRequest)))
   .andExpect(MockMvcResultMatchers.jsonPath("phoneNumber").value("phoneNumber 格式不正确"));
 ```
+
 
 ![](https://img-blog.csdnimg.cn/20210421204116640.png)
 

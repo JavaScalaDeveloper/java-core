@@ -42,6 +42,7 @@ mysql> select word from words order by rand() limit 3;
 
 我们先用 explain 命令来看看这个语句的执行情况。
 
+
 ![img](images/59a4fb0165b7ce1184e41f2d061ce350.png)
 
 图 1 使用 explain 命令查看语句的执行情况
@@ -52,9 +53,11 @@ Extra 字段显示 Using temporary，表示的是需要使用临时表；Using f
 
 这里，你可以先回顾一下[上一篇文章]中全字段排序和 rowid 排序的内容。我把上一篇文章的两个流程图贴过来，方便你复习。
 
+
 ![img](images/6c821828cddf46670f9d56e126e3e772.jpg)
 
 图 2 全字段排序
+
 
 ![img](images/dc92b67721171206a302eb679c83e86d.jpg)
 
@@ -89,6 +92,7 @@ select word from words order by rand() limit 3;
 这里插一句题外话，在平时学习概念的过程中，你可以经常这样做，先通过原理分析算出扫描行数，然后再通过查看慢查询日志，来验证自己的结论。我自己就是经常这么做，这个过程很有趣，分析对了开心，分析错了但是弄清楚了也很开心。
 
 现在，我来把完整的排序执行流程图画出来。
+
 
 ![img](images/2abe849faa7dcad0189b61238b849ffc.png)
 
@@ -136,6 +140,7 @@ select word from words order by rand() limit 3;
 SELECT * FROM `information_schema`.`OPTIMIZER_TRACE`\G
 ```
 
+
 ![img](images/78d2db9a4fdba81feadccf6e878b4aab.png)
 
 图 5 OPTIMIZER_TRACE 部分结果
@@ -162,6 +167,7 @@ SELECT * FROM `information_schema`.`OPTIMIZER_TRACE`\G
 2. 重复第 2 步，直到第 10000 个 (R’,rowid’) 完成比较。
 
 这里我简单画了一个优先队列排序过程的示意图。
+
 
 ![img](images/e9c29cb20bf9668deba8981e444f6897.png)
 

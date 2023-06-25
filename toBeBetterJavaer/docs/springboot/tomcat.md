@@ -33,14 +33,17 @@ tag:
 
 如果你不确定自己的 Maven 本地仓库在哪里，可以在终端执行 `mvn help:effective-settings` 命令。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-01.png)
 
 
 顺藤摸瓜，根据 parent 的 groupId、artifactId、version 可以锁定 spring-boot-starter-parent.pom 文件的位置。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-02.png)
 
 使用文本编辑器打开以后大致可以看到以下内容：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-03.png)
 
@@ -50,6 +53,7 @@ tag:
 - 以及父依赖 spring-boot-dependencies
 
 照葫芦画瓢，我们按照同样的方法找到 spring-boot-dependencies.pom 文件。可以看到这里面定义了一系列的属性和依赖，差不多 2800 行。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-04.png)
 
@@ -62,6 +66,7 @@ tag:
 Spring Boot 会帮我们选好最稳定的新版本，这体现出了 Spring Boot 项目的灵魂：“**约定优于配置**”，你想配置当然可以，但没必要，按照约定俗成的来就行。
 
 理解了这一点，我们再来继续看 pom.xml 文件，里面有一个 `spring-boot-starter-web` 依赖。这一次，我们直接按住 Ctrl 键（macOS 是 Command 键），点击鼠标左键就可以跳转到 spring-boot-starter-web.pom 的源文件了。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-05.png)
@@ -160,14 +165,17 @@ spring-webmvc 是 Spring MVC 的一个实现。spring-webmvc 依赖于 spring-we
 从这里可以看出来SpringBoot默认的启动容器是Tomcat，Tomcat 的组成核心 jakarta.annotation、tomcat-embed-core、tomcat-annotations-api、org.apache.tomcat.embed 全部都通过 Maven 引入过来了。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-06.png)
 
 core 的版本是 9.0.55，Tomcat 官网上最新的 9.0.x 版本是 9.0.56，高了一个版本。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-07.png)
 
 不过无所谓，直接下载 9.0.56 的 src，对比看一下，是否大致相同。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/tomcat-08.png)

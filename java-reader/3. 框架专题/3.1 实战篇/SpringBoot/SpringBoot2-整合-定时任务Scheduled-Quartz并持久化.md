@@ -688,6 +688,7 @@ CREATE INDEX IDX_QRTZ_FT_TG ON QRTZ_FIRED_TRIGGERS(SCHED_NAME,TRIGGER_GROUP);
   
 commit;   
 ```
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-6363ad395ae68c58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #####   好了，开始写定时任务业务

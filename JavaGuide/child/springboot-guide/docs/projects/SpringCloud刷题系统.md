@@ -14,11 +14,13 @@ _昨晚肝了很久~原创不易，若有帮助，求赞求转发啊！_
 
 另外，因为项目作者提供了详细的技术文档，所以你不用担心上手太难！
 
+
 ![PassJava文档](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-12-21/PassJava%E6%96%87%E6%A1%A3%E5%9C%B0%E5%9D%80.png)
 
 ## 效果图
 
 我们先来看看这个面试刷题系统的效果图。这里我们只展示的是这个系统的前端（微信小程序），后台管理系统这里就不展示了。
+
 
 ![PassJava前端展示](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-12-21/PassJava%E5%89%8D%E7%AB%AF%E5%B1%95%E7%A4%BA.png)
 
@@ -34,6 +36,7 @@ _昨晚肝了很久~原创不易，若有帮助，求赞求转发啊！_
 
 了解了技术栈之后，那必然需要简单了解一下整个 **系统的架构设计** ，这是系统的灵魂所在了（图源：[PassJava 官方文档](http://jayh2018.gitee.io/passjava-learning/#/01.项目简介/2.项目微服务架构图 "PassJava官方文档")）。
 
+
 ![](http://cdn.jayh.club/blog/20200407/scg1XhlvGbUV.png?imageslim)
 
 ### 网关
@@ -47,6 +50,7 @@ _昨晚肝了很久~原创不易，若有帮助，求赞求转发啊！_
 注册中心和配置中心这块使用的是阿里巴巴开源的 **Nacos** 。Nacos 目前属于 Spring Cloud Alibaba 中的一员。主要用于发现、配置和管理微服务，类似于 Consul、Eureka。并且，提供了分布式配置管理功能。
 
 Nacos 的基本介绍如下（图源：[官网文档-什么是 Nacos](https://nacos.io/zh-cn/docs/what-is-nacos.html "官网文档-什么是 Nacos")）：
+
 
 ![nacos_map](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-12-21/nacosMap.jpg)
 

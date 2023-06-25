@@ -19,6 +19,7 @@ Eureka 采用 CS（Client/Server，客户端/服务器） 架构，它包括以�
 
 Eureka 实现服务注册与发现的原理，如下图所示。
 
+
 ![Eureka 服务注册与发现](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010305209-0.png)
 图1：Eureka 原理图
 
@@ -329,6 +330,7 @@ public class MicroServiceCloudEureka7001Application {
 
 
 4) 启动 micro-service-cloud-eureka-7001，使用浏览器访问 Eureka 服务注册中心主页，地址为“http://localhost:7001/”，结果如下图。
+
 
 ![Eureka Server 7001 服务注册中心](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010306360-1.png)
 
@@ -739,6 +741,7 @@ public class MicroServiceCloudProviderDept8001Application {
 
 9) 依次启动 micro-service-cloud-eureka-7001 和 micro-service-cloud-provider-dept-8001，使用浏览器访再次问 Eureka 服务注册中心主页（http://localhost:7001/），如下图。
 
+
 ![Eureka Client 注册到服务注册中心](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010304436-2.png)
 图3：服务提供者注册到服务注册中心
 
@@ -769,6 +772,7 @@ INSERT INTO `dept` VALUES ('5', '运维部', 'bianchengbang_jdbc');
 ```
 
 11) 使用浏览器访问“http://localhost:8001/dept/list”，结果如下图。
+
 
 ![Eureka Client 8001 访问数据库](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010301b2-3.png)
 图4：服务提供者提供服务访问数据库
@@ -921,6 +925,7 @@ eureka:
 
 5\. 启动 micro-service-cloud-eureka-7001，使用浏览器访问“http://eureka7001.com:7001/”，结果如下图。
 
+
 ![Eureka 集群 7001](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010302b3-4.png)
 
 图5：Eureka Server 集群 -7001
@@ -929,6 +934,7 @@ eureka:
 
 6\. 启动 micro-service-cloud-eureka-7002，使用浏览器访问“http://eureka7002.com:7002/”，结果如下图。
 
+
 ![Eureka 集群 7002](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101030E36-5.png)
 图6：Eureka Server 集群 -7002
 
@@ -936,6 +942,7 @@ eureka:
 从上图可以看到， 服务提供者（micro-service-cloud-provider-dept-8001）所提供的服务已经注册到了 Eureka Server 7002，并且在 DS Replicas 选项中也显示了集群中的另外两个 Eureka Server：Eureka Server 7001 和 Eureka Server 7003。
 
 7. 启动 micro-service-cloud-eureka-7003，使用浏览器访问“http://eureka7003.com:7003/”，结果如下图。
+
 
 ![Eureka 集群 7003](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010306034-6.png)
 图7：Eureka Server 集群 -7003
@@ -947,6 +954,7 @@ eureka:
 ## Eureka 自我保护机制
 
 当我们在本地调试基于 Eureka 的程序时，Eureka 服务注册中心很有可能会出现如下图所示的红色警告。
+
 
 ![Eureka 自我保护机制](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10103014a-7.png)
 图8：Eureka 自我保护提示
@@ -1008,6 +1016,7 @@ enable-self-preservation: false # false 关闭 Eureka 的自我保护机制，�
 
 3\. 重启 Eureka Server 集群以及 micro-service-cloud-provider-dept-8001，使用浏览器访问“http://eureka7001.com:7001/”，结果如下图。
 
+
 ![Eureka 自我保护机制 7001](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101030J48-8.png)
 图9：Eureka 关闭自我保护机制
 
@@ -1018,12 +1027,14 @@ enable-self-preservation: false # false 关闭 Eureka 的自我保护机制，�
 
 4\. 使用浏览器访问“http://eureka7002.com:7002/”，结果如下图。
 
+
 ![Eureka 自我保护机制 7002](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010301938-9.png)
 图10：Eureka 自我保护机制
 
 从图 9 可以看出，micro-service-cloud-provider-dept-8001 提供的服务也已经注册到当前 Eureka Server 中，但 DS Replicas 选项上方没有任何警告提示。
 
 5\. 关闭 micro-service-cloud-provider-dept-8001，等待几分钟，再次访问“http://eureka7001.com:7001/”，结果如下图。
+
 
 ![Eureka 自我保护机制](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10103014J-10.png)
 图11：Eureka 关闭自我保护机制-2
@@ -1034,6 +1045,7 @@ enable-self-preservation: false # false 关闭 Eureka 的自我保护机制，�
 *   micro-service-cloud-provider-dept-8001 提供的服务已经从服务列表中移除。
 
 6\. 再次访问“http://eureka7002.com:7002/”，结果如下图。
+
 
 ![Eureka 自我保护机制开启](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1010301210-11.png)
 图12：Eureka 自我保护机制生效

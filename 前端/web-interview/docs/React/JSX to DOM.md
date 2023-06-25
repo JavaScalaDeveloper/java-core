@@ -1,6 +1,8 @@
 # 面试官：说说React Jsx转换成真实DOM过程？
 
- ![](https://static.vue-js.com/1d340620-f00a-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/1d340620-f00a-11eb-ab90-d9ae814b240d.png)
 
 
 ## 一、是什么
@@ -229,7 +231,9 @@ export default {
 
 在`react`源码中，虚拟`Dom`转化成真实`Dom`整体流程如下图所示：
 
- ![](https://static.vue-js.com/28824fa0-f00a-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/28824fa0-f00a-11eb-ab90-d9ae814b240d.png)
 
 其渲染流程如下所示：
 

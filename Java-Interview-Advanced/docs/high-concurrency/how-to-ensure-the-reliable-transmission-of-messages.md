@@ -10,6 +10,7 @@
 数据的丢失问题，可能出现在生产者、MQ、消费者中，咱们从 RabbitMQ 和 Kafka 分别来分析一下吧。
 
 ### RabbitMQ
+
 ![rabbitmq-message-lose](/images/rabbitmq-message-lose.png)
 
 #### 生产者弄丢了数据
@@ -60,6 +61,7 @@ channel.txCommit
 RabbitMQ 如果丢失了数据，主要是因为你消费的时候，**刚消费到，还没处理，结果进程挂了**，比如重启了，那么就尴尬了，RabbitMQ 认为你都消费了，这数据就丢了。
 
 这个时候得用 RabbitMQ 提供的 `ack` 机制，简单来说，就是你必须关闭 RabbitMQ 的自动 `ack`，可以通过一个 api 来调用就行，然后每次你自己代码里确保处理完的时候，再在程序里 `ack` 一把。这样的话，如果你还没处理完，不就没有 `ack` 了？那 RabbitMQ 就认为你还没处理完，这个时候 RabbitMQ 会把这个消费分配给别的 consumer 去处理，消息是不会丢的。
+
 
 ![rabbitmq-message-lose-solution](/images/rabbitmq-message-lose-solution.png)
 

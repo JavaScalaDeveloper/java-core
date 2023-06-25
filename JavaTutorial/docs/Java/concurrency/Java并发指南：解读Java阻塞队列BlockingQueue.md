@@ -101,6 +101,7 @@ private final Condition notFull;
 
 我们用个示意图来描述其同步机制：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404201844.png)
 ArrayBlockingQueue 实现并发同步的原理就是，读操作和写操作都需要获取到 AQS 独占锁才能进行操作。如果队列为空，这个时候读操作的线程进入到**读线程队列**排队，等待写线程写入新的元素，然后唤醒读线程队列的第一个等待线程。如果队列已满，这个时候写操作的线程进入到**写线程队列**排队，等待读线程将队列元素移除腾出空间，然后唤醒写线程队列的第一个等待线程。
 
@@ -167,6 +168,7 @@ private final Condition notFull = putLock.newCondition();
 **putLock 需要和 notFull 搭配：**如果要插入（put）一个元素，需要获取 putLock 锁，但是获取了锁还不够，如果队列此时已满，还需要队列不是满的（notFull）这个条件（Condition）。
 
 首先，这里用一个示意图来看看 LinkedBlockingQueue 的并发读写控制，然后再开始分析源码：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404201927.png)
 看懂这个示意图，源码也就简单了，读操作是排好队的，写操作也是排好队的，唯一的并发问题在于一个写操作和一个读操作同时进行，只要控制好这个就可以了。
@@ -329,6 +331,7 @@ abstract static class Transferer {
 ```
 
 Transferer 有两个内部实现类，是因为构造 SynchronousQueue 的时候，我们可以指定公平策略。公平模式意味着，所有的读写线程都遵守先来后到，FIFO 嘛，对应 TransferQueue。而非公平模式则对应 TransferStack。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404202000.png)
 
@@ -569,6 +572,7 @@ PriorityBlockingQueue 使用了基于数组的**二叉堆**来存放元素，所
 
 简单用个图解释一下二叉堆，我就不说太多专业的严谨的术语了，这种数据结构的优点是一目了然的，最小的元素一定是根元素，它是一棵满的树，除了最后一层，最后一层的节点从左到右紧密排列。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404202057.png)
 下面开始 PriorityBlockingQueue 的源码分析，首先我们来看看构造方法:
 
@@ -734,6 +738,7 @@ private static <T> void siftUpComparable(int k, T x, Object[] array) {
 
 我们用图来示意一下，我们接下来要将**11**插入到队列中，看看 siftUp 是怎么操作的。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404202125.png)
 
 我们再看看 take 方法：
@@ -817,11 +822,13 @@ private static <T> void siftDownComparable(int k, T x, Object[] array,
 }
 ```
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404202147.png)
 
 记住二叉堆是一棵完全二叉树，那么根节点 10 拿掉后，最后面的元素 17 必须找到合适的地方放置。首先，17 和 10 不能直接交换，那么先将根节点 10 的左右子节点中较小的节点往上滑，即 12 往上滑，然后原来 12 留下了一个空节点，然后再把这个空节点的较小的子节点往上滑，即 13 往上滑，最后，留出了位子，17 补上即可。
 
 我稍微调整下这个树，以便读者能更明白：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404202208.png)
 好了， PriorityBlockingQueue 我们也说完了。

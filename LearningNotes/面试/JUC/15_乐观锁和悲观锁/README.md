@@ -31,6 +31,7 @@ where id = 2 and version = 1
 
 首先需要在数据库增加version字典，默认为1
 
+
 ![image-20200329172158610](images/image-20200329172158610.png)
 
 然后在实体类增加对应的字段

@@ -7,6 +7,7 @@
     **第1章 限流原理**
     在Sentinel中，所有的资源都对应一个资源名称以及一个Entry。每一个entry可以表示一个请求。而Sentinel中，会针对当前请求基于规则的判断来实现流控的控制，原理如下图所示。
 
+
 ![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1296c955070646bbc74310e726679bbabfe585.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")上图仅作为设计思想的展示，图中 Slot 的顺序已和最新版 Sentinel Slot Chain 顺序不一致
 当一个外部请求过来之后，会创建一个Entry，而创建Entry的同时，也会创建一系列的slot 组成一个责任链，每个slot有不同的工作职责。
 
@@ -20,6 +21,7 @@
 *   LogSlot 在出现限流、熔断、系统保护时负责记录日志
 *   ...
     Sentinel 将 ProcessorSlot 作为 SPI 接口进行扩展（1.7.2 版本以前 SlotChainBuilder 作为SPI），使得 Slot Chain 具备了扩展的能力。您可以自行加入自定义的 slot 并编排 slot 间的顺序，从而可以给 Sentinel 添加自定义的功能。
+
 
 ![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/d65c2688084bf5be06d3687ce8663cb1b7167b.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")**Spring Cloud 集成Sentinel的原理**
 
@@ -128,7 +130,9 @@ protected static Context trueEnter(String name, String origin) {    //从ThreadL
 *   创建Context，设置node，name，origin，再放入ThreadLocal中
     到此Context就创建完成
 
-目前Context对象的状态如下图![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/a114ee154527b7fcf24169d5291c7bac87ac93.png "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")**2.2 构建slot链**
+目前Context对象的状态如下图
+
+![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/a114ee154527b7fcf24169d5291c7bac87ac93.png "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")**2.2 构建slot链**
 构建一个slot链，链路的组成为
 
 > DefaultProcessorSlotChain -> NodeSelectorSlot -> ClusterBuilderSlot -> LogSlot ->StatisticSlot -> AuthoritySlot -> SystemSlot -> ParamFlowSlot -> FlowSlot -> DegradeSlot
@@ -223,9 +227,13 @@ CtEntry(ResourceWrapper resourceWrapper, ProcessorSlot<Object> chain, Context co
 
 当第一次Entry生成的时候，context.getCurEntry必定是NULL，那么直接执行Context.setCurEntry方法
 
-然后这个Context的状态如下图  ![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/57273a794d51cfc587c923de97943491e9da0b.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")再执行一次新的Sphu.entry后会再次新建一个Entry，这个时候curEntry不是null，那么执行((CtEntry)parent).child = this;
+然后这个Context的状态如下图  
 
-结果如下图![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c3c36f101ef031102dd270287bf7635e715229.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")可以看出，原来的CtEntry被移出Context，新建的CtEntry和旧CtEntry通过内部的parent和child引用相连
+![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/57273a794d51cfc587c923de97943491e9da0b.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")再执行一次新的Sphu.entry后会再次新建一个Entry，这个时候curEntry不是null，那么执行((CtEntry)parent).child = this;
+
+结果如下图
+
+![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c3c36f101ef031102dd270287bf7635e715229.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")可以看出，原来的CtEntry被移出Context，新建的CtEntry和旧CtEntry通过内部的parent和child引用相连
 
 **2.4 NodeSelectorSlot**
 这个类主要用于构建调用链，这个需要讲解一下，在后续过程中会比较关键，代码如下。
@@ -316,7 +324,9 @@ public void entry(Context context, ResourceWrapper resourceWrapper, DefaultNode 
 
 
 
-这里采用的是滑动窗口的方式来记录请求的次数。![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/e4624bb214fd8020d1447098c8cde98a554e59.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")整个类的关系图实际上是比较清晰的，ArrayMetric实际上是一个包装类，内部通过LeapArray来实现具体的统计逻辑，而LeapArray中维护了多个WindowWrap（滑动窗口），而WindowWrap中采用了MetricBucket来进行指标数据的统计。
+这里采用的是滑动窗口的方式来记录请求的次数。
+
+![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/e4624bb214fd8020d1447098c8cde98a554e59.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")整个类的关系图实际上是比较清晰的，ArrayMetric实际上是一个包装类，内部通过LeapArray来实现具体的统计逻辑，而LeapArray中维护了多个WindowWrap（滑动窗口），而WindowWrap中采用了MetricBucket来进行指标数据的统计。
 
 *   Metric: 指标收集的接口，定义滑动窗口中成功数量、异常数量、阻塞数量、TPS、响应时间等数据
 *   ArrayMetric 滑动窗口核心实现类
@@ -439,9 +449,13 @@ private int calculateTimeIdx(/*@Valid*/ long timeMillis) {    // time每增加�
 
 根据当前时间除于 windowLength 得到一个 timeId(相差500ms计算出来的值将是一致的),再用timeId跟取样窗口的长度进行一个取模，那么她一定会落在 0，1两个位置的其中一个。然后根据当前时间算出当前窗口的应该对应的开始时间time。由于刚刚开始的时候 array 是空的，那么她获取到的old应当是null，那么他会创建一个新的实例，我们用图看一下初始化的 LeapArray：
 
-对应上面 currentWindow 方法的 4.1 步骤(假设idx=0)：![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/95b0b64926eae4d2753986af9c978da9980da0.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")当获取到的是null,那么初始的时候arrays数组中只有一个窗口(可能是第一个(idx=0)，也可能是第二个(idx=1))，每个时间窗口的长度是500ms，这就意味着只要当前时间与时间窗口的差值在500ms之内，时间窗口就不会向前滑动。例如，假如当前时间走到300或者500时，当前时间窗口仍然是相同的那个：
+对应上面 currentWindow 方法的 4.1 步骤(假设idx=0)：
 
-对应上面 currentWindow 方法的 4.2 步骤：![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/85c047336a2c2186bcc7737a4c28da852cb603.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")时间继续往前走，当超过500ms时，时间窗口就会向前滑动到下一个，这时就会更新当前窗口的开始时间,时间继续往前走，只要不超过1000ms，则当前窗口不会发生变化，其中代码实现是 resetWindowTo 方法：
+![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/95b0b64926eae4d2753986af9c978da9980da0.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")当获取到的是null,那么初始的时候arrays数组中只有一个窗口(可能是第一个(idx=0)，也可能是第二个(idx=1))，每个时间窗口的长度是500ms，这就意味着只要当前时间与时间窗口的差值在500ms之内，时间窗口就不会向前滑动。例如，假如当前时间走到300或者500时，当前时间窗口仍然是相同的那个：
+
+对应上面 currentWindow 方法的 4.2 步骤：
+
+![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/85c047336a2c2186bcc7737a4c28da852cb603.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")时间继续往前走，当超过500ms时，时间窗口就会向前滑动到下一个，这时就会更新当前窗口的开始时间,时间继续往前走，只要不超过1000ms，则当前窗口不会发生变化，其中代码实现是 resetWindowTo 方法：
 
 
 
@@ -457,7 +471,11 @@ protected WindowWrap<MetricBucket> resetWindowTo(WindowWrap<MetricBucket> w, lon
 
 
 
-对应上面 currentWindow 方法的 4.3 步骤![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/03d6e3886f95f5768e05969d7eb8307c26f381.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")当时间继续往前走，当前时间超过1000ms时，就会再次进入下一个时间窗口，此时arrays数组中的窗口将会有一个失效，会有另一个新的窗口进行替换：![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/241926a53c2a5b06938844199046d31e593d62.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")以此类推随着时间的流逝，时间窗口也在发生变化，在当前时间点中进入的请求，会被统计到当前时间对应的时间窗口中，回到addpass 方法中：
+对应上面 currentWindow 方法的 4.3 步骤
+
+![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/03d6e3886f95f5768e05969d7eb8307c26f381.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")当时间继续往前走，当前时间超过1000ms时，就会再次进入下一个时间窗口，此时arrays数组中的窗口将会有一个失效，会有另一个新的窗口进行替换：
+
+![SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/241926a53c2a5b06938844199046d31e593d62.jpg "SpringCloud Alibaba系列——15Sentinel原理分析-开源基础软件社区")以此类推随着时间的流逝，时间窗口也在发生变化，在当前时间点中进入的请求，会被统计到当前时间对应的时间窗口中，回到addpass 方法中：
 
 
 

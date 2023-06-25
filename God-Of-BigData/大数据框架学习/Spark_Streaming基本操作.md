@@ -86,12 +86,12 @@ Spark Streaming 编程的入口类是 StreamingContext，在创建时候需要�
 // 对于文本文件，指明监听目录即可
 streamingContext.textFileStream(dataDirectory)
 // 对于其他文件，需要指明目录，以及键的类型、值的类型、和输入格式
-streamingContext.fileStream[KeyClass, ValueClass, InputFormatClass](dataDirectory)
+streamingContext.fileStream[KeyClass, ValueClass, InputFormatClass](images/dataDirectory)
 ```
 
 被监听的目录可以是具体目录，如 `hdfs://host:8040/logs/`；也可以使用通配符，如 `hdfs://host:8040/logs/2017/*`。
 
-> 关于高级数据源的整合单独整理至：[Spark Streaming 整合 Flume](https://github.com/heibaiying/BigData-Notes/blob/master/notes/Spark_Streaming整合Flume.md) 和 [Spark Streaming 整合 Kafka](https://github.com/heibaiying/BigData-Notes/blob/master/notes/Spark_Streaming整合Kafka.md)
+> 关于高级数据源的整合单独整理至：[Spark Streaming 整合 Flume](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/Spark_Streaming整合Flume.md) 和 [Spark Streaming 整合 Kafka](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/Spark_Streaming整合Kafka.md)
 
 ### 3.3 服务的启动与停止
 
@@ -129,7 +129,7 @@ object NetworkWordCountV2 {
     ssc.checkpoint("hdfs://hadoop001:8020/spark-streaming")
     val lines = ssc.socketTextStream("hadoop001", 9999)
     lines.flatMap(_.split(" ")).map(x => (x, 1))
-      .updateStateByKey[Int](updateFunction _)   //updateStateByKey 算子
+      .updateStateByKey[Int](images/updateFunction _)   //updateStateByKey 算子
       .print()
 
     ssc.start()
@@ -326,7 +326,7 @@ storm storm flink azkaban
 <div align="center"> <img  src="../pictures/spark-streaming-word-count-v3.png"/> </div>  
 <br/>
 
-> 本片文章所有源码见本仓库：[spark-streaming-basis](https://github.com/heibaiying/BigData-Notes/tree/master/code/spark/spark-streaming-basis)
+> 本片文章所有源码见本仓库：[spark-streaming-basis](images/https://github.com/heibaiying/BigData-Notes/tree/master/code/spark/spark-streaming-basis)
 
 
 

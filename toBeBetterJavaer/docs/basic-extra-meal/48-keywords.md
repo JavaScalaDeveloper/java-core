@@ -551,6 +551,7 @@ public class Ieee754Demo {
 
 输出结果：
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/override-overload-20230408151129.png)
 
 我们可以看到 IEEE 754 标准中的浮点数表示和运算：

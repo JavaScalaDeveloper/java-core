@@ -27,9 +27,11 @@ redis cluster，主要是针对**海量数据+高并发+高可用**的场景。r
 
 **集中式**是将集群元数据（节点信息、故障等等）几种存储在某个节点上。集中式元数据集中存储的一个典型代表，就是大数据领域的 `storm`。它是分布式的大数据实时计算引擎，是集中式的元数据存储的结构，底层基于 zookeeper（分布式协调的中间件）对所有元数据进行存储维护。
 
+
 ![zookeeper-centralized-storage](/images/zookeeper-centralized-storage.png)
 
 redis 维护集群元数据采用另一个方式， `gossip` 协议，所有节点都持有一份元数据，不同的节点如果出现了元数据的变更，就不断将元数据发送给其它的节点，让其它节点也进行元数据的变更。
+
 
 ![redis-gossip](/images/redis-gossip.png)
 
@@ -71,6 +73,7 @@ ping 时要携带一些元数据，如果很频繁，可能会加重网络负担
 #### hash 算法
 来了一个 key，首先计算 hash 值，然后对节点数取模。然后打在不同的 master 节点上。一旦某一个 master 节点宕机，所有请求过来，都会基于最新的剩余 master 节点数去取模，尝试去取数据。这会导致**大部分的请求过来，全部无法拿到有效的缓存**，导致大量的流量涌入数据库。
 
+
 ![hash](/images/hash.png)
 
 #### 一致性 hash 算法
@@ -82,6 +85,7 @@ ping 时要携带一些元数据，如果很频繁，可能会加重网络负担
 
 燃鹅，一致性哈希算法在节点太少时，容易因为节点分布不均匀而造成**缓存热点**的问题。为了解决这种热点问题，一致性 hash 算法引入了虚拟节点机制，即对每一个节点计算多个 hash，每个计算结果位置都放置一个虚拟节点。这样就实现了数据的均匀分布，负载均衡。
 
+
 ![consistent-hashing-algorithm](/images/consistent-hashing-algorithm.png)
 
 #### redis cluster 的 hash slot 算法
@@ -90,6 +94,7 @@ redis cluster 有固定的 `16384` 个 hash slot，对每个 `key` 计算 `CRC16
 redis cluster 中每个 master 都会持有部分 slot，比如有 3 个 master，那么可能每个 master 持有 5000 多个 hash slot。hash slot 让 node 的增加和移除很简单，增加一个 master，就将其他 master 的 hash slot 移动部分过去，减少一个 master，就将它的 hash slot 移动到其他 master 上去。移动 hash slot 的成本是非常低的。客户端的 api，可以对指定的数据，让他们走同一个 hash slot，通过 `hash tag` 来实现。
 
 任何一台机器宕机，另外两个节点，不影响的。因为 key 找的是 hash slot，不是机器。
+
 
 ![hash-slot](/images/hash-slot.png)
 

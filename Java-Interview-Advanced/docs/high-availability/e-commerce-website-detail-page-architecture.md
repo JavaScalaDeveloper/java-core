@@ -3,6 +3,7 @@
 ### 小型电商网站的商品详情页系统架构
 小型电商网站的页面展示采用页面全量静态化的思想。数据库中存放了所有的商品信息，页面静态化系统，将数据填充进静态模板中，形成静态化页面，推入 Nginx 服务器。用户浏览网站页面时，取用一个已经静态化好的 html 页面，直接返回回去，不涉及任何的业务逻辑处理。
 
+
 ![e-commerce-website-detail-page-architecture-1](/images/e-commerce-website-detail-page-architecture-1.png)
 
 下面是页面模板的简单 Demo 。
@@ -27,6 +28,7 @@
 大型电商网站商品详情页的系统设计中，当商品数据发生变更时，会将变更消息压入 MQ 消息队列中。**缓存服务**从消息队列中消费这条消息时，感知到有数据发生变更，便通过调用数据服务接口，获取变更后的数据，然后将整合好的数据推送至 redis 中。Nginx 本地缓存的数据是有一定的时间期限的，比如说 10 分钟，当数据过期之后，它就会从 redis 获取到最新的缓存数据，并且缓存到自己本地。
 
 用户浏览网页时，动态将 Nginx 本地数据渲染到本地 html 模板并返回给用户。
+
 
 ![e-commerce-website-detail-page-architecture-2](/images/e-commerce-website-detail-page-architecture-2.png)
 

@@ -80,6 +80,7 @@ private static class Node<E> {
 
 我画幅图给你们展示下吧。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/linkedlist-01.png)
 
 - 对于第一个节点来说，prev 为 null；
@@ -149,6 +150,7 @@ void linkLast(E e) {
 
 此时还不能称之为链表，因为前后节点都是断裂的。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/linkedlist-02.png)
 
 - 添加第二个元素的时候，first 和 last 都指向的是第一个节点。
@@ -157,6 +159,7 @@ void linkLast(E e) {
 
 此时的链表还不完整。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/linkedlist-03.png)
 
 - 添加第三个元素的时候，first 指向的是第一个节点，last 指向的是最后一个节点。
@@ -164,6 +167,7 @@ void linkLast(E e) {
 - 然后把第二个节点的 next 赋值为 newNode。
 
 此时的链表已经完整了。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/linkedlist-04.png)
 

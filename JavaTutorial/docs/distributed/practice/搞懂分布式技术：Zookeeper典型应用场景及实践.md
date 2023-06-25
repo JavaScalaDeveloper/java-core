@@ -52,7 +52,9 @@ ZooKeeper是一个`高可用的分布式数据管理与系统协调框架`。`�
 
 Zookeeper 会维护`一个具有层次关系的数据结构`，它非常类似于一个标准的文件系统，如图所示：
 
-[![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/17163447_w7k1.png)](https://static.oschina.net/uploads/img/201511/17163447_w7k1.png)
+[
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/17163447_w7k1.png)](https://static.oschina.net/uploads/img/201511/17163447_w7k1.png)
 
 **图中的每个节点称为一个znode. 每个znode由3部分组成：**
 
@@ -262,7 +264,9 @@ Zookeeper 从设计模式角度来看，是一个`基于观察者模式设计的
 
 像这样的配置信息完全可以交给 Zookeeper 来管理，`将配置信息保存在 Zookeeper 的某个目录节点中，然后将所有需要修改的应用机器监控配置信息的状态，一旦配置信息发生变化，每台应用机器就会收到 Zookeeper 的通知，然后从 Zookeeper 获取新的配置信息应用到系统中`。
 
-[![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18093533_GnwN.png)](https://static.oschina.net/uploads/img/201511/18093533_GnwN.png)
+[
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18093533_GnwN.png)](https://static.oschina.net/uploads/img/201511/18093533_GnwN.png)
 
 **发布与订阅模型，即所谓的配置中心**，顾名思义就是**发布者将数据发布到ZK节点上，供订阅者动态获取数据**，`实现配置信息的集中式管理和动态更新`。例如全局的配置信息，服务式服务框架的服务地址列表等就非常适合使用。
 
@@ -288,7 +292,9 @@ Zookeeper 不仅能够帮你维护当前的集群中机器的服务状态，而�
 
 Zookeeper 如何实现 Leader Election，也就是选出一个 Master Server。和前面的一样`每台 Server 创建一个 EPHEMERAL 目录节点，不同的是它还是一个 SEQUENTIAL 目录节点，所以它是个 EPHEMERAL_SEQUENTIAL 目录节点`。之所以它是**EPHEMERAL_SEQUENTIAL**目录节点，是因为我们可以给每台 Server 编号，我们可以`选择当前是最小编号的 Server 为 Master`，假如这个最小编号的 Server 死去，由于是 EPHEMERAL 节点，`死去的 Server 对应的节点也被删除，所以当前的节点列表中又出现一个最小编号的节点，我们就选择这个节点为当前 Master`。这样就实现了动态选择 Master，避免了传统意义上单 Master 容易出现单点故障的问题。
 
-[![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18095931_70Ol.png)](https://static.oschina.net/uploads/img/201511/18095931_70Ol.png)
+[
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18095931_70Ol.png)](https://static.oschina.net/uploads/img/201511/18095931_70Ol.png)
 
 **1\. 集群机器监控**
 
@@ -320,7 +326,9 @@ Zookeeper 如何实现 Leader Election，也就是选出一个 Master Server。�
 
 **4\. 在Hbase中，也是使用ZooKeeper来实现动态HMaster的选举。**在Hbase实现中，会在ZK上存储一些ROOT表的地址和HMaster的地址，HRegionServer也会把自己以临时节点（Ephemeral）的方式注册到Zookeeper中，使得HMaster可以随时感知到各个HRegionServer的存活状态，同时，一旦HMaster出现问题，会重新选举出一个HMaster来运行，从而避免了HMaster的单点问题。
 
-[![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18102032_cFyc.png)](https://static.oschina.net/uploads/img/201511/18102032_cFyc.png)
+[
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18102032_cFyc.png)](https://static.oschina.net/uploads/img/201511/18102032_cFyc.png)
 
 ## 3.4 共享锁（Locks）
 
@@ -332,9 +340,13 @@ Zookeeper 如何实现 Leader Election，也就是选出一个 Master Server。�
 
 2.  **控制时序，就是所有视图来获取这个锁的客户端，最终都是会被安排执行，只是有个全局时序了**。做法和上面基本类似，只是这里 /distribute_lock 已经预先存在，客户端在它下面创建临时有序节点（这个可以通过节点的属性控制：CreateMode.EPHEMERAL_SEQUENTIAL来指定）。**Zk的父节点（/distribute_lock）维持一份sequence,保证子节点创建的时序性，从而也形成了每个客户端的全局时序。**
 
-[![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18103433_BJs7.png)](https://static.oschina.net/uploads/img/201511/18103433_BJs7.png)
+[
 
-[![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18103709_c4c3.png)](https://static.oschina.net/uploads/img/201511/18103709_c4c3.png)
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18103433_BJs7.png)](https://static.oschina.net/uploads/img/201511/18103433_BJs7.png)
+
+[
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18103709_c4c3.png)](https://static.oschina.net/uploads/img/201511/18103709_c4c3.png)
 
 ## 3.5 队列管理
 
@@ -348,15 +360,21 @@ Zookeeper 可以处理两种类型的队列：
 
 创建一个父目录 /synchronizing，每个成员都监控标志（Set Watch）位目录 /synchronizing/start 是否存在，然后每个成员都加入这个队列，**加入队列的方式**就是创建 /synchronizing/member_i 的**临时目录节点**，然后每个成员获取 / synchronizing 目录的所有目录节点，也就是 member_i。判断 i 的值是否已经是成员的个数，如果小于成员个数等待 /synchronizing/start 的出现，`如果已经相等就创建 /synchronizing/start`。
 
-[![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18104311_7kNc.png)](https://static.oschina.net/uploads/img/201511/18104311_7kNc.png)
+[
 
-[![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18104433_Rdxx.png)](https://static.oschina.net/uploads/img/201511/18104433_Rdxx.png)
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18104311_7kNc.png)](https://static.oschina.net/uploads/img/201511/18104311_7kNc.png)
+
+[
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18104433_Rdxx.png)](https://static.oschina.net/uploads/img/201511/18104433_Rdxx.png)
 
 **FIFO 队列用 Zookeeper 实现思路如下：**
 
 实现的思路也非常简单，就是在特定的目录下**创建 SEQUENTIAL 类型的子目录 /queue_i**，这样就能保证所有成员加入队列时都是有编号的`，出队列时通过 getChildren( ) 方法可以返回当前所有的队列中的元素，然后消费其中最小的一个，这样就能保证 FIFO。
 
-[![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18104614_ncNj.png)
+[
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18104614_ncNj.png)
 
 ## 3.6 负载均衡
 

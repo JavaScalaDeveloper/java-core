@@ -54,6 +54,7 @@ head:
 
 ## 三、架构图
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-0dff19b2-e1ef-4e04-8c52-ba711186d65c.jpg)
 
 上面这张图就是在官网首页的架构图，我们从上到下分析一下。
@@ -69,6 +70,7 @@ head:
 ## 四、永远的Hello Word
 
 首先搭建一个HelloWord工程，先熟悉一下API，还有为后面的学习做铺垫。以下面这张图为依据：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-32a186fc-8926-47ba-83cc-bce135c0f9f1.jpg)
 
@@ -215,9 +217,11 @@ public class MyClientHandler extends ChannelInboundHandlerAdapter {
 
 MyServer打印结果:
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-c50ff1f0-da13-4d73-b898-40c75e5e9386.jpg)
 
 MyClient打印结果：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-5372b75c-6a67-4ac4-80ab-a4e480cdd956.jpg)
 
@@ -251,6 +255,7 @@ public class MyServerHandler extends ChannelInboundHandlerAdapter {
 
 我们打一个debug调试，是可以看到添加进去的taskQueue有一个任务。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-8537e15b-e13a-4d71-b5fe-4d8ac4b07da9.jpg)
 
 ### 5.2 scheduleTaskQueue延时任务队列
@@ -273,6 +278,7 @@ ctx.channel().eventLoop().schedule(new Runnable() {
 ```
 
 依然打开debug进行调试查看，我们可以有一个scheduleTaskQueue任务待执行中
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-3327d3b2-b052-4bb3-bbb6-bf69609de339.jpg)
 
@@ -309,11 +315,13 @@ channelFuture.addListener(new ChannelFutureListener() {
 
 Bootstrap和ServerBootStrap是Netty提供的一个创建客户端和服务端启动器的工厂类，使用这个工厂类非常便利地创建启动类，根据上面的一些例子，其实也看得出来能大大地减少了开发的难度。首先看一个类图：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-86c33d9f-8f65-4871-bfb3-cec828bd3f20.jpg)
 
 可以看出都是继承于AbstractBootStrap抽象类，所以大致上的配置方法都相同。
 
 一般来说，使用Bootstrap创建启动器的步骤可分为以下几步：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-cb7842a4-a884-455a-baf5-489367d15067.jpg)
 
@@ -367,9 +375,11 @@ EventLoopGroup workerGroup = new NioEventLoopGroup(16);
 
 这个方法用于设置通道类型，当建立连接后，会根据这个设置创建对应的Channel实例。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-e1e6e6e3-fdd6-4471-9f8a-c366225ad91d.jpg)
 
 使用debug模式可以看到
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-278f5642-f166-4686-90a6-4711c8b75605.jpg)
 
@@ -601,6 +611,7 @@ pipeline.addLast(new MyServerHandler());
 
 Netty中的Selector也和NIO的Selector是一样的，就是用于监听事件，管理注册到Selector中的channel，实现多路复用器。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-bce8b24b-fab1-4ed4-8350-698673578051.jpg)
 
 ### 5.7 PiPeline与ChannelPipeline
@@ -608,6 +619,7 @@ Netty中的Selector也和NIO的Selector是一样的，就是用于监听事件�
 在前面介绍Channel时，我们知道可以在channel中装配ChannelHandler流水线处理器，那一个channel不可能只有一个channelHandler处理器，肯定是有很多的，既然是很多channelHandler在一个流水线工作，肯定是有顺序的。
 
 于是pipeline就出现了，pipeline相当于处理器的容器。初始化channel时，把channelHandler按顺序装在pipeline中，就可以实现按序执行channelHandler了。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-93e2b3ef-90cd-4768-b7b7-c7977c365b34.jpg)
 
@@ -618,6 +630,7 @@ Netty中的Selector也和NIO的Selector是一样的，就是用于监听事件�
 在Netty中，Handler处理器是有我们定义的，上面讲过通过集成入站处理器或者出站处理器实现。这时如果我们想在Handler中获取pipeline对象，或者channel对象，怎么获取呢。
 
 于是Netty设计了这个ChannelHandlerContext上下文对象，就可以拿到channel、pipeline等对象，就可以进行读写等操作。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-ae9babfa-708d-4f1f-a13b-ff5ceeb6aa4f.jpg)
 
@@ -642,11 +655,13 @@ protected DefaultChannelPipeline(Channel channel) {
 
 下面我用一张图来表示，会更加清晰一点：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-419f9b8e-684e-4410-b11d-a955db5ae046.jpg)
 
 ### 5.9 EventLoopGroup
 
 我们先看一下EventLoopGroup的类图：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-e589d377-fbf9-47a0-9db5-f4cc0e5a4bf9.jpg)
 
@@ -672,6 +687,7 @@ public EventExecutor next() {
 ```
 
 这段代码可以确定执行的方式是轮询机制，接下来debug调试一下：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/segmentfault-chaoxxnettyrmkzpjglsegmentfaultsf-cedfb2fd-2e25-4fb5-b13c-13d85aa14f0b.jpg)
 

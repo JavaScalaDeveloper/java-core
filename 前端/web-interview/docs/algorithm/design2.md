@@ -2,7 +2,9 @@
 
 
 
- ![](https://static.vue-js.com/1d49eae0-2e8e-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/1d49eae0-2e8e-11ec-a752-75723a64e8f5.png)
 
 ## 一、贪心算法
 
@@ -70,7 +72,9 @@ function backtrack(路径, 选择列表):
 - 遇到包含重复元素的情况则回溯
 - 收集到所有到达递归终点的情况，并返回、
 
- ![](https://static.vue-js.com/2a030f00-2e8e-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/2a030f00-2e8e-11ec-8e64-91fdec0f05a1.png)
 
 用代码表示则如下：
 
@@ -107,11 +111,15 @@ var permute = function(nums) {
 
 其中关于分而治之、动态规划、贪心策略三者的求解思路如下：
 
- ![](https://static.vue-js.com/504b5230-2e8e-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/504b5230-2e8e-11ec-8e64-91fdec0f05a1.png)
 
 其中三者对应的经典问题如下图：
 
- ![](https://static.vue-js.com/62cdc910-2e8e-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/62cdc910-2e8e-11ec-8e64-91fdec0f05a1.png)
 
 
 

@@ -8,13 +8,19 @@
     **1.1 思维流程推导**
     上文中已经讲了AT模式的大体原理，在源码中，通过README也能看出来AT模式的使用，那本文将从底层源码层面去分析AT模式的原理，在分析原理之前咱们先来看三幅图，理解一下他的工作思路和模式：
 
-先看看思维推导图![SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/0388859932ccee17ed32246e2e5f4e0a88dee6.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区")1.2 初始化流程推导
+先看看思维推导图
+
+![SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/0388859932ccee17ed32246e2e5f4e0a88dee6.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区")1.2 初始化流程推导
+
 ![SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f24e8bd05e84b683e3f3227490146155bf5b17.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区")1.3 执行流程推导
+
 ![SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/93dea0538eba8be5778699ea2af8f71c0e396c.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区")**第2章 源码分析**
 **2.1 SeataAutoConfiguration**
 对于seata源码的研究主要看seata如何拦截业务SQL生成undo_log数据，如何在一阶段完成后提交全局事务，如何在一阶段业务失败后通过undo_log回滚事务，进行事务补偿。
 
-seata也是与spring整合使用的，结合SpringBoot，seata也是做了一些自动配置![SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/719ef4a775ece0688c929227415e97f68f1c58.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区")seata的自动配置类命名非常的直接，就叫做：SeataAutoConfiguration，我们打开这个类
+seata也是与spring整合使用的，结合SpringBoot，seata也是做了一些自动配置
+
+![SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/719ef4a775ece0688c929227415e97f68f1c58.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区")seata的自动配置类命名非常的直接，就叫做：SeataAutoConfiguration，我们打开这个类
 
 
 
@@ -68,7 +74,9 @@ new了一个GlobalTransactionScanner对象，SeataAutoConfiguration这个自动�
 **2.2 GlobalTransactionScanner**
 既然核心点落在GlobalTransactionScanner这个类，我们继续关注它。看这个名字其实就可以猜测到一点它的作用，扫描@GlobalTransactional这个注解，并对代理方法进行拦截增强事务的功能。
 
-要了解这个类，不得不先阅读一下它的UML图![SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/83cb3ed76073a33cb19242ffe542b615346d16.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区")可以看到，GlobalTransactionScanner主要有4个点值得关注：
+要了解这个类，不得不先阅读一下它的UML图
+
+![SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/83cb3ed76073a33cb19242ffe542b615346d16.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区")可以看到，GlobalTransactionScanner主要有4个点值得关注：
 
 1）ApplicationContextAware表示可以拿到spring容器
 
@@ -167,7 +175,9 @@ private List<String> getAvailServerList(String transactionServiceGroup) throws E
 
 
 
-RegistryFactory.getInstance().lookup(transactionServiceGroup);是对不同注册中心做了适配的，默认看下Nacos形式的实现![SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/745b802128d80980a6e082f91406451526cbb3.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区")先根据事务分组找到分组所属的server集群名称，这里是default，然后根据集群名称找到server对应ip端口地址
+RegistryFactory.getInstance().lookup(transactionServiceGroup);是对不同注册中心做了适配的，默认看下Nacos形式的实现
+
+![SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/745b802128d80980a6e082f91406451526cbb3.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区")先根据事务分组找到分组所属的server集群名称，这里是default，然后根据集群名称找到server对应ip端口地址
 
 
 
@@ -243,7 +253,9 @@ public class DefaultResourceManager implements ResourceManager {    protected vo
 
 
 
-可以看到初始化DefaultResouceManager时会使用ClassLoader去加载对应Jar下的实现，而默认AT模式使用的实现是数据库，也就是rm-datasource包下的实现，找实现类路径需要定位到/resources/META-INF/扩展接口全路径去找，就会找到对应的实现类 ![SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/84399f558194f3dce18275c72cb9a92219db25.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区")ResourceManager对应实现类全路径
+可以看到初始化DefaultResouceManager时会使用ClassLoader去加载对应Jar下的实现，而默认AT模式使用的实现是数据库，也就是rm-datasource包下的实现，找实现类路径需要定位到/resources/META-INF/扩展接口全路径去找，就会找到对应的实现类 
+
+![SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/84399f558194f3dce18275c72cb9a92219db25.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（上）-开源基础软件社区")ResourceManager对应实现类全路径
 io.seata.rm.datasource.DataSourceManager，该类中指定了了提交和回滚的方法，DefaultRMHandler对应实现类全路径io.seata.rm.RMHandlerAT，是个接收server消息并做对应提交或者回滚操作的回调处理类。
 
 RMClinet的init()方法与TMClient基本一致
@@ -410,6 +422,7 @@ io.seata.server.coordinator.DefaultCoordinator#doGlobalBegin方法接受客户�
 
 
 
+
 ![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/e7c784186f75581eba83325a0fc4708602dadf.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")
 
 调用
@@ -464,7 +477,9 @@ io.seata.server.session.AbstractSessionManager#onBegin方法，又调用io.seata
 
 
 
-项目中使用的数据源均用seata的DataSourceProxy代替![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c8a7a189816e282015a950bfd3c13b7d859974.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")最终对Sql进行解析操作，发生在StatementProxy类中
+项目中使用的数据源均用seata的DataSourceProxy代替
+
+![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c8a7a189816e282015a950bfd3c13b7d859974.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")最终对Sql进行解析操作，发生在StatementProxy类中
 
 
 
@@ -499,6 +514,7 @@ public static <T, S extends Statement> T execute(List<SQLRecognizer> sqlRecogniz
 *   针对特定类型sql操作(INSERT,UPDATE,DELETE,SELECT_FOR_UPDATE)等进行特殊解析
 *   执行sql并返回结果
     不同类型的SQL处理方法不一样，这里以insert为例
+
 
 ![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b1eb1b610beb647b230995f19ecbb4bbc98602.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")insert使用的是InsertExecutor.execute方法，但其实最终还是使用
 io.seata.rm.datasource.exec.BaseTransactionalExecutor#execute方法
@@ -585,7 +601,9 @@ protected T executeAutoCommitFalse(Object[] args) throws Exception {    //跟入
 执行业务sql还是使用
 com.alibaba.druid.pool.DruidPooledPreparedStatement#execute方法执行
 
-获取afterImage![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/540ff5c254dde029bed208247025e97bd1f497.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")在提交事务时，插入undo_log日志
+获取afterImage
+
+![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/540ff5c254dde029bed208247025e97bd1f497.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")在提交事务时，插入undo_log日志
 
 
 
@@ -657,7 +675,11 @@ public void flushUndoLogs(ConnectionProxy cp) throws SQLException {    Connectio
 
 
 
-在该方法中注册分支事务![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/92309a950c73829078a3170c585fc58fb03b0d.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")提交事务，向seata-server注册分支信息，seata-server接收到请求（seata源码）![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c116df5929a1116e61e683298e14b953450bb7.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")
+在该方法中注册分支事务
+
+![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/92309a950c73829078a3170c585fc58fb03b0d.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")提交事务，向seata-server注册分支信息，seata-server接收到请求（seata源码）
+
+![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c116df5929a1116e61e683298e14b953450bb7.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")
 
 io.seata.server.coordinator.DefaultCoordinator#doBranchRegister方法
 
@@ -785,6 +807,7 @@ private void commitTransaction(GlobalTransaction tx) throws TransactionalExecuto
 
 
 
+
 ![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/61b35980530bd17bff9025f1112baa9e3e93e5.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")
 
 
@@ -833,10 +856,17 @@ DefaultCoordinator中
 
 
 
-![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/185262d74acd3a723a7770d5771c19fa9fa5cf.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/51249f8944b29b9ffc82897a818cb4c33ed06a.png "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/14a2f2b58ad3f11be518376d5e6f68cc678af9.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")
+
+![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/185262d74acd3a723a7770d5771c19fa9fa5cf.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")
+
+![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/51249f8944b29b9ffc82897a818cb4c33ed06a.png "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")
+
+![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/14a2f2b58ad3f11be518376d5e6f68cc678af9.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")
 Seata-server接收到客户端全局提交请求后，先回调客户端，删除undo_log，seata在删除分支及全局事务
 
-之前说过RMClient在初始化时，设置资源管理器resourceManager，设置消息回调监听器用于接收TC在二阶段发出的提交或者回滚请求![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/884c07085b1230a1aab1883d691532ccf6b79c.png "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")Seata-server删除分支数据及全局事务数据
+之前说过RMClient在初始化时，设置资源管理器resourceManager，设置消息回调监听器用于接收TC在二阶段发出的提交或者回滚请求
+
+![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/884c07085b1230a1aab1883d691532ccf6b79c.png "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")Seata-server删除分支数据及全局事务数据
 
 
 
@@ -944,6 +974,7 @@ public synchronized void init() {    LOGGER.info("Async Commit Buffer Limit: {}"
 
 
 
+
 ![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/a730eb7781ec4bd3ad2578fb7855aa02d45fbc.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")删除Undo_log
 
 **二阶段回滚**
@@ -994,7 +1025,9 @@ public BranchStatus branchRollback(BranchType branchType, String xid, long branc
 
 
 
-最终回滚方法调用的是UndoLogManager.undo(dataSourceProxy, xid, branchId);![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/4842a0701546824cf2720855d8310a1274c576.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")判断undolog是否存在，存在则删除对应undolog，并一起提交，到此seata的AT模式源码解析完毕。
+最终回滚方法调用的是UndoLogManager.undo(dataSourceProxy, xid, branchId);
+
+![SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/4842a0701546824cf2720855d8310a1274c576.jpg "SpringCloud Alibaba系列——17Seata AT模式源码分析（下）-开源基础软件社区")判断undolog是否存在，存在则删除对应undolog，并一起提交，到此seata的AT模式源码解析完毕。
 
 # 参考文章
 https://lijunyi.xyz/docs/SpringCloud/SpringCloud.html#_2-2-x-%E5%88%86%E6%94%AF

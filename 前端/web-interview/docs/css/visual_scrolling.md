@@ -1,6 +1,8 @@
 # 面试官：如何使用css完成视差滚动效果?
 
- ![](https://static.vue-js.com/1b2d33e0-a18d-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/1b2d33e0-a18d-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 
@@ -8,11 +10,15 @@
 
 我们可以把网页解刨成：背景层、内容层、悬浮层
 
- ![](https://static.vue-js.com/57c942a0-a1cc-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/57c942a0-a1cc-11eb-85f6-6fac77c0c9b3.png)
 
 当滚动鼠标滑轮的时候，各个图层以不同的速度移动，形成视觉差的效果
 
- ![image.png](https://static.vue-js.com/e57ab280-a1dd-11eb-ab90-d9ae814b240d.png)
+ 
+
+![image.png](https://static.vue-js.com/e57ab280-a1dd-11eb-ab90-d9ae814b240d.png)
 
 
 ## 二、实现方式
@@ -109,7 +115,9 @@ div {
 
 `3D`视角示意图如下所示：
 
- ![](https://static.vue-js.com/24f37dd0-a18d-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/24f37dd0-a18d-11eb-85f6-6fac77c0c9b3.png)
 
 
 举个例子：

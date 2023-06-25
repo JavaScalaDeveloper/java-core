@@ -181,7 +181,7 @@ ParallelSourceFunction 直接继承自 ParallelSourceFunction，具有并行度�
 - Akka (sink)
 - Netty (source)
 
-随着 Flink 的不断发展，可以预见到其会支持越来越多类型的连接器，关于连接器的后续发展情况，可以查看其官方文档：[Streaming Connectors]( https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/connectors/index.html) 。在所有 DataSource 连接器中，使用的广泛的就是 Kafka，所以这里我们以其为例，来介绍 Connectors 的整合步骤。
+随着 Flink 的不断发展，可以预见到其会支持越来越多类型的连接器，关于连接器的后续发展情况，可以查看其官方文档：[Streaming Connectors](images/ https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/connectors/index.html) 。在所有 DataSource 连接器中，使用的广泛的就是 Kafka，所以这里我们以其为例，来介绍 Connectors 的整合步骤。
 
 ### 3.2 整合 Kakfa
 

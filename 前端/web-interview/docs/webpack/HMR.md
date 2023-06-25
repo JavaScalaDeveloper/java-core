@@ -1,6 +1,8 @@
 # 面试官：说说webpack的热更新是如何做到的？原理是什么？
 
- ![](https://static.vue-js.com/a076da40-acd4-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/a076da40-acd4-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -48,7 +50,9 @@ if(module.hot){
 
 首先来看看一张图，如下：
 
- ![](https://static.vue-js.com/adc05780-acd4-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/adc05780-acd4-11eb-ab90-d9ae814b240d.png)
 
 - Webpack Compile：将 JS 源代码编译成 bundle.js
 - HMR Server：用来将热更新的文件输出给 HMR Runtime
@@ -71,7 +75,9 @@ if(module.hot){
 
 由于`socket`服务器在`HMR Runtime` 和 `HMR Server`之间建立 `websocket`链接，当文件发生改动的时候，服务端会向浏览器推送一条消息，消息包含文件改动后生成的`hash`值，如下图的`h`属性，作为下一次热更细的标识
 
- ![](https://static.vue-js.com/05a0edf0-ad4a-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/05a0edf0-ad4a-11eb-85f6-6fac77c0c9b3.png)
 
 在浏览器接受到这条消息之前，浏览器已经在上一次` socket` 消息中已经记住了此时的` hash` 标识，这时候我们会创建一个 `ajax` 去服务端请求获取到变化内容的 `manifest` 文件
 
@@ -79,7 +85,9 @@ if(module.hot){
 
 浏览器根据 `manifest` 文件获取模块变化的内容，从而触发`render`流程，实现局部模块更新
 
- ![](https://static.vue-js.com/0e7b7850-ad4a-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/0e7b7850-ad4a-11eb-ab90-d9ae814b240d.png)
 
 
 

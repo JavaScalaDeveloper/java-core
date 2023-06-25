@@ -24,6 +24,7 @@ public interface Queue<E> extends Collection<E> {}
 
 当需要使用栈时，Java 已不推荐使用*Stack*，而是推荐使用更高效的*ArrayDeque*（双端队列），原因我们第一次讲[集合框架](https://tobebetterjavaer.com/collection/gailan.html)的时候，其实已经聊过了，Stack 是一个“原始”类，它的核心方法上都加了 `synchronized` 关键字以确保线程安全，当我们不需要线程安全（比如说单线程环境下）性能就会比较差。
 
+
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection//arraydeque-51e3552c-af39-4d00-8494-1ff0a4913357.png)
 
 也就是说，当需要使用栈时候，请首选*ArrayDeque*。
@@ -203,6 +204,7 @@ while (iterator.hasNext()) {
 
 *ArrayDeque*是非线程安全的（not thread-safe），当多个线程同时使用的时候，需要手动同步；另外，该容器不允许放入`null`元素。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-1e7086a3-3d31-4553-aa16-5eaf2193649e.png)
 
 
@@ -213,6 +215,7 @@ while (iterator.hasNext()) {
 #### addFirst()
 
 `addFirst(E e)`的作用是在*Deque*的首端插入元素，也就是在`head`的前面插入元素，在空间足够且下标没有越界的情况下，只需要将`elements[--head] = e`即可。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-459afbba-2778-4241-97fb-f01a29b79458.png)
@@ -241,6 +244,7 @@ public void addFirst(E e) {
 下标越界的处理解决起来非常简单，`head = (head - 1) & (elements.length - 1)`就可以了，**这段代码相当于取余，同时解决了`head`为负值的情况**。因为`elements.length`必需是`2`的指数倍，`elements - 1`就是二进制低位全`1`，跟`head - 1`相与之后就起到了取模的作用，如果`head - 1`为负数（其实只可能是-1），则相当于对其取相对于`elements.length`的补码。
 
 下面再说说扩容函数`doubleCapacity()`，其逻辑是申请一个更大的数组（原数组的两倍），然后将原数组复制过去。过程如下图所示：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-f1386b63-10be-4998-bb6d-bf6560cca7ee.png)
 
@@ -274,6 +278,7 @@ private void doubleCapacity() {
 #### addLast()
 
 `addLast(E e)`的作用是在*Deque*的尾端插入元素，也就是在`tail`的位置插入元素，由于`tail`总是指向下一个可以插入的空位，因此只需要`elements[tail] = e;`即可。插入完成后再检查空间，如果空间已经用光，则调用`doubleCapacity()`进行扩容。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-832c796a-6c24-4546-9f91-22ed39884363.png)
 

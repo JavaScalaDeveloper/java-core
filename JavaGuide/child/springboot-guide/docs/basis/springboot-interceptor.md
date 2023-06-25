@@ -41,9 +41,11 @@ public void afterCompletion(HttpServletRequest request,
 
 注意： ***preHandle***方法返回 **true**或 **false**。如果返回 **true**，则意味着请求将继续到达 **Controller** 被处理。
 
+
 ![Interceptor示意图](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/interceptor-spring.png)
 
 每个请求可能会通过许多拦截器。下图说明了这一点。
+
 
 ![每个请求可能会通过许多拦截器](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/interceptor-spring.png)
 
@@ -140,7 +142,9 @@ public class OldLoginInterceptor extends HandlerInterceptorAdapter {
 }
 ```
 
+
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/OldLoginInterceptor.png)
+
 
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/OldLoginInterceptor2.png)
 

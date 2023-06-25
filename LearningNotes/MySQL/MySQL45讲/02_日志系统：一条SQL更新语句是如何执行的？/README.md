@@ -18,6 +18,7 @@ mysql> update T set c=c+1 where ID=2;
 
 前面我有跟你介绍过 SQL 语句基本的执行链路，这里我再把那张图拿过来，你也可以先简单看看这个图回顾下。首先，可以确定的说，查询语句的那一套流程，更新语句也是同样会走一遍。
 
+
 ![img](images/0d2070e8f84c4801adbfa03bda1f98d9.png)
 
 MySQL 的逻辑架构图
@@ -53,6 +54,7 @@ MySQL 的逻辑架构图
 
 与此类似，InnoDB 的 redo log 是固定大小的，比如可以配置为一组 4 个文件，每个文件的大小是 1GB，那么这块“粉板”总共就可以记录 4GB 的操作。从头开始写，写到末尾就又回到开头循环写，如下面这个图所示。
 
+
 ![img](images/16a7950217b3f0f4ed02db5db59562a7.png)
 
 write pos 是当前记录的位置，一边写一边后移，写到第 3 号文件末尾后就回到 0 号文件开头。checkpoint 是当前要擦除的位置，也是往后推移并且循环的，擦除记录前要把记录更新到数据文件。
@@ -86,6 +88,7 @@ write pos 和 checkpoint 之间的是“粉板”上还空着的部分，可以�
 5. 执行器调用引擎的提交事务接口，引擎把刚刚写入的 redo log 改成提交（commit）状态，更新完成。
 
 这里我给出这个 update 语句的执行流程图，图中浅色框表示是在 InnoDB 内部执行的，深色框表示是在执行器中执行的。
+
 
 ![img](https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/assets/2e5bff4910ec189fe1ee6e2ecc7b4bbe.png)
 

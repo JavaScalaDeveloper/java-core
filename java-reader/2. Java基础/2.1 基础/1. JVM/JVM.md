@@ -101,6 +101,7 @@ a7
 
 
 ###   9. java中的switch选择结构可以使用数据类型的数据(JDK1.8)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-2ac44edc213e77c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 1. char
@@ -178,6 +179,7 @@ System.out.println(4&10>>1);
 ###   12. JVM垃圾处理方法
 ######   标记-清除算法（老年代）
 该算法分为“标记”和“清除”两个阶段: 首先标记出所有需要回收的对象(可达性分析), 在标记完成后统一清理掉所有被标记的对象.
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-fe117c02e0afe526.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 该算法会有两个问题：
@@ -193,6 +195,7 @@ System.out.println(4&10>>1);
 
 现代商用VM的新生代均采用复制算法, 但由于新生代中的98%的对象都是生存周期极短的, 因此并不需完全按照1∶1的比例划分新生代空间, 而是将新生代划分为一块较大的Eden区和两块较小的Survivor区(HotSpot默认Eden和Survivor的大小比例为8∶1), 每次只用Eden和其中一块Survivor. 当发生MinorGC时, 将Eden和Survivor中还存活着的对象一次性地拷贝到另外一块Survivor上, 最后清理掉Eden和刚才用过的Survivor的空间. 当Survivor空间不够用(不足以保存尚存活的对象)时, 需要依赖老年代进行空间分配担保机制, 这部分内存直接进入老年代。
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-c4f578b8b9d56356.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
@@ -205,6 +208,7 @@ System.out.println(4&10>>1);
 
 ######   标记-整理算法（老年代）
 标记清除算法会产生内存碎片问题, 而复制算法需要有额外的内存担保空间, 于是针对老年代的特点, 又有了标记整理算法. 标记整理算法的标记过程与标记清除算法相同, 但后续步骤不再对可回收对象直接清理, 而是让所有存活的对象都向一端移动,然后清理掉端边界以外的内存.
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-da40e93e00c99d86.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ###   13. 新生代、老年代、持久代都存储哪些东西
@@ -250,12 +254,14 @@ FullGC:
 在对象中添加一个引用计数器，当有地方引用这个对象的时候，引用计数器的值就+1，当引用失效的时候，计数器的值就-1，当引用计数器被减为零的时候，标志着这个对象已经没有引用了，可以回收了！
 
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-600690e652e1f10a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 **问题：**如果在A类中调用B类的方法，B类中调用A类的方法，这样当其他所有的引用都消失了之后，A和B还有一个相互的引用，也就是说两个对象的引用计数器各为1，而实际上这两个对象都已经没有额外的引用，已经是垃圾了。但是该算法并不会计算出该类型的垃圾。
 
 
 ######   可达性分析法
 在主流商用语言(如Java、C# )的主流实现中, 都是通过可达性分析算法来判定对象是否存活的: 通过一系列的称为 GC Roots 的对象作为起点, 然后向下搜索; 搜索所走过的路径称为引用链/Reference Chain, 当一个对象到 GC Roots 没有任何引用链相连时, 即该对象不可达, 也就说明此对象是不可用的, 如下图:虽然E和F相互关联， 但它们到GC Roots是不可达的, 因此也会被判定为可回收的对象。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-37cee8b2398fc4d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 **注:** 即使在可达性分析算法中不可达的对象, VM也并不是马上对其回收, 因为要真正宣告一个对象死亡, 至少要经历两次标记过程: 第一次是在可达性分析后发现没有与GC Roots相连接的引用链, 第二次是GC对在F-Queue执行队列中的对象进行的小规模标记(对象需要覆盖finalize()方法且没被调用过).
@@ -265,17 +271,20 @@ FullGC:
 #####    Serial
 
 Serial收集器是Hotspot运行在Client模式下的**默认新生代收集器**, 它在进行垃圾收集时，会暂停所有的工作进程，用一个线程去完成GC工作
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-252c53a3c2bb9915.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 特点：简单高效，适合jvm管理内存不大的情况（十兆到百兆）。
 #####    Parnew
 ParNew收集器其实是Serial的多线程版本，回收策略完全一样，但是他们又有着不同。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-1595c74d6b0c74ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 我们说了Parnew是多线程gc收集，所以它配合多核心的cpu效果更好，如果是一个cpu，他俩效果就差不多。（可用-XX:ParallelGCThreads参数控制GC线程数）
 #####    Cms
 CMS(Concurrent Mark Sweep)收集器是一款具有划时代意义的收集器, 一款**真正意义上的并发收集器**, 虽然现在已经有了理论意义上表现更好的G1收集器, 但现在主流互联网企业线上选用的仍是CMS(如Taobao),又称多并发低暂停的收集器。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-a259cf6c47afdc51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 由他的英文组成可以看出，它是基于标记-清除算法实现的。整个过程分4个步骤：
@@ -299,6 +308,7 @@ CMS(Concurrent Mark Sweep)收集器是一款具有划时代意义的收集器, �
 #####    G1
 
 同优秀的CMS垃圾回收器一样，G1也是关注最小时延的垃圾回收器，也同样适合大尺寸堆内存的垃圾收集，官方也推荐使用G1来代替选择CMS。G1最大的特点是**引入分区**的思路，**弱化分代**的概念，合理利用垃圾收集各个周期的资源，解决了其他收集器甚至CMS的众多缺陷。
+
 
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-128c8d9f95e69320.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

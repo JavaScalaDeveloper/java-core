@@ -54,13 +54,17 @@ static int hash(int h) {
 
 所谓 “拉链法” 就是：将链表和数组相结合。也就是说创建一个链表数组，数组中每一格就是一个链表。若遇到哈希冲突，则将冲突的值加到链表中即可。
 
-![06e4f7c0144706690bae15e7d5ceab61](大数据成神之路-Java高级特性增强(HashMap).resources/6EBF1755-C6EA-48A3-A99F-55D598EDDFD2.png)
+
+![06e4f7c0144706690bae15e7d5ceab61](images/大数据成神之路-Java高级特性增强(HashMap).resources/6EBF1755-C6EA-48A3-A99F-55D598EDDFD2.png)
+
 JDK1.8之后
 相比于之前的版本，jdk1.8在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间。
-![6a14a1fe10e977fd7221ffa11f42dcc1](大数据成神之路-Java高级特性增强(HashMap).resources/435C0F08-CE65-413F-8D3A-EE5B20EDCA0D.jpg)
+
+
+![6a14a1fe10e977fd7221ffa11f42dcc1](images/大数据成神之路-Java高级特性增强(HashMap).resources/435C0F08-CE65-413F-8D3A-EE5B20EDCA0D.jpg)
 
 类的属性：
-```
+```java
 public class HashMap<K,V> extends AbstractMap<K,V> implements Map<K,V>, Cloneable, Serializable {
     // 序列号
     private static final long serialVersionUID = 362498820763181265L;    
@@ -166,7 +170,9 @@ static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
 
 ##### HashMap源码分析
 **构造方法**
-![3b09ddf77229ea3bb9d4c70e64c5c6a0](大数据成神之路-Java高级特性增强(HashMap).resources/D02AB301-FD17-40DF-9B99-7B6C6911D4F9.jpg)
+
+
+![3b09ddf77229ea3bb9d4c70e64c5c6a0](images/大数据成神之路-Java高级特性增强(HashMap).resources/D02AB301-FD17-40DF-9B99-7B6C6911D4F9.jpg)
 
 ```
 // 默认构造函数。
@@ -231,9 +237,11 @@ HashMap只提供了put用于添加元素，putVal方法只是给put方法调用�
 
 ①如果定位到的数组位置没有元素 就直接插入。
 ②如果定位到的数组位置有元素就和要插入的key比较，如果key相同就直接覆盖，如果key不相同，就判断p是否是一个树节点，如果是就调用e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value)将元素添加进入。如果不是就遍历链表插入。
-![4bead5208e185a1bbac5ccdfe2fa1975](大数据成神之路-Java高级特性增强(HashMap).resources/97F816CA-9593-4F26-A189-38BEEF2FEE24.png)
 
-```
+
+![4bead5208e185a1bbac5ccdfe2fa1975](images/大数据成神之路-Java高级特性增强(HashMap).resources/97F816CA-9593-4F26-A189-38BEEF2FEE24.png)
+
+```java
 public V put(K key, V value) {
     return putVal(hash(key), key, value, false, true);
 }
@@ -313,7 +321,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
 ①如果定位到的数组位置没有元素 就直接插入。
 ②如果定位到的数组位置有元素，遍历以这个元素为头结点的链表，依次和插入的key比较，如果key相同就直接覆盖，不同就采用头插法插入元素。
 
-```
+```java
 public V put(K key, V value)
     if (table == EMPTY_TABLE) { 
     inflateTable(threshold); 
@@ -339,7 +347,7 @@ public V put(K key, V value)
 ```
 
 **get方法**
-```
+```java
 public V get(Object key) {
     Node<K,V> e;
     return (e = getNode(hash(key), key)) == null ? null : e.value;

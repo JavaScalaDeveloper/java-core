@@ -13,6 +13,7 @@
 - 访问过程中，需要证书、token、或者用户名和密码
 - 如果访问pod需要serviceAccount
 
+
 ![image-20201118092356107](images/image-20201118092356107.png)
 
 ### 认证
@@ -38,6 +39,7 @@
 ## RBAC介绍
 
 基于角色的访问控制，为某个角色设置访问内容，然后用户分配该角色后，就拥有该角色的访问权限
+
 
 ![image-20201118093949893](images/image-20201118093949893.png)
 
@@ -71,6 +73,7 @@ k8s中有默认的几个角色
 kubectl get namespace
 ```
 
+
 ![image-20201118094516426](images/image-20201118094516426.png)
 
 然后我们创建一个自己的命名空间  roledemo
@@ -91,6 +94,7 @@ kubectl run nginx --image=nginx -n roledemo
 
 我们通过 rbac-role.yaml进行创建
 
+
 ![image-20201118094851338](images/image-20201118094851338.png)
 
 tip：这个角色只对pod 有 get、list权限
@@ -104,11 +108,13 @@ kubectl apply -f rbac-role.yaml
 kubectl get role -n roledemo
 ```
 
+
 ![image-20201118095141786](images/image-20201118095141786.png)
 
 ### 创建角色绑定
 
 我们还是通过 role-rolebinding.yaml 的方式，来创建我们的角色绑定
+
 
 ![image-20201118095248052](images/image-20201118095248052.png)
 
@@ -121,13 +127,16 @@ kubectl apply -f rbac-rolebinding.yaml
 kubectl get role, rolebinding -n roledemo
 ```
 
+
 ![image-20201118095357067](images/image-20201118095357067.png)
 
 ### 使用证书识别身份
 
 我们首先得有一个 rbac-user.sh 证书脚本
 
+
 ![image-20201118095541427](images/image-20201118095541427.png)
+
 
 ![image-20201118095627954](images/image-20201118095627954.png)
 
@@ -147,5 +156,6 @@ kubectl get pods -n roledemo
 # 用get命令查看svc 【没权限】
 kubectl get svc -n roledmeo
 ```
+
 
 ![image-20201118100051043](images/image-20201118100051043.png)

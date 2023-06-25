@@ -46,6 +46,7 @@ System.out.println(a == b);// false
 
 《阿里巴巴 Java 开发手册》中提到：**浮点数之间的等值判断，基本数据类型不能用 == 来比较，包装数据类型不能用 equals 来判断。**
 
+
 ![](https://oss.javaguide.cn/javaguide/image-20211213101646884.png)
 
 具体原因我们在上面已经详细介绍了，这里就不多提了。
@@ -70,6 +71,7 @@ System.out.println(x.compareTo(y));// 0
 我们在使用 `BigDecimal` 时，为了防止精度丢失，推荐使用它的`BigDecimal(String val)`构造方法或者 `BigDecimal.valueOf(double val)` 静态方法来创建对象。
 
 《阿里巴巴 Java 开发手册》对这部分内容也有提到，如下图所示。
+
 
 ![](https://oss.javaguide.cn/javaguide/image-20211213102222601.png)
 
@@ -142,6 +144,7 @@ System.out.println(n);// 1.255
 
 《阿里巴巴 Java 开发手册》中提到：
 
+
 ![](https://oss.javaguide.cn/github/javaguide/java/basis/image-20220714161315993.png)
 
 `BigDecimal` 使用 `equals()` 方法进行等值比较出现问题的代码示例：
@@ -155,6 +158,7 @@ System.out.println(a.equals(b));//false
 这是因为 `equals()` 方法不仅仅会比较值的大小（value）还会比较精度（scale），而 `compareTo()` 方法比较的时候会忽略精度。
 
 1.0 的 scale 是 1，1 的 scale 是 0，因此 `a.equals(b)` 的结果是 false。
+
 
 ![](https://oss.javaguide.cn/github/javaguide/java/basis/image-20220714164706390.png)
 

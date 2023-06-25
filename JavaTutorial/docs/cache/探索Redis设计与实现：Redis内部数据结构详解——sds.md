@@ -37,6 +37,7 @@
 
 在讨论sds的具体实现之前，我们先站在Redis使用者的角度，来观察一下string所支持的一些主要操作。下面是一个操作示例：
 
+
 ![image](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis_string_op_examples.png)  
 Redis string操作示例
 

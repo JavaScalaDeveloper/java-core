@@ -153,6 +153,7 @@ TCP粘包/分包的原因：
 
 ## 10.NIOEventLoopGroup源码
 
+
 ![9a1e7b6b029777b40e9c8213d50be95c](images/关于Netty我们都需要知道什么.resources/95F6A224-61C4-48EC-90D4-A4681751B545.png)
 
 * NioEventLoopGroup(其实是MultithreadEventExecutorGroup) 内部维护一个类型为 EventExecutor children [], 默认大小是处理器核数 * 2, 这样就构成了一个线程池，初始化EventExecutor时NioEventLoopGroup重载newChild方法，所以children元素的实际类型为NioEventLoop。

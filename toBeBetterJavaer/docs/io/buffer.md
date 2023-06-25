@@ -138,6 +138,7 @@ public synchronized int read() throws IOException {
 
 再来看 FileInputStream 的 read 方法：
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/buffer-20230321154534.png)
 
 在这段代码中，`read0()` 方法是一个[本地方法](https://tobebetterjavaer.com/oo/native-method.html)，它的实现是由底层操作系统提供的，并不是 Java 语言实现的。在不同的操作系统上，`read0()` 方法的实现可能会有所不同，但是它们的功能都是相同的，都是用于**读取一个字节**。
@@ -181,6 +182,7 @@ public BufferedOutputStream(OutputStream out) {
 如果 buf 没有写满，会继续写 buf。
 
 对比一下 FileOutputStream 的 write 方法，同样是本地方法，一次只能写入一个字节。
+
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/buffer-20230321162808.png)
 

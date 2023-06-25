@@ -25,9 +25,11 @@ category: 分布式
 
 这个时候就需要生成**分布式 ID**了。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/id-after-the-sub-table-not-conflict.png)
 
 ### 分布式 ID 需要满足哪些要求?
+
 
 ![](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/distributed-id-requirements.png)
 
@@ -54,6 +56,7 @@ category: 分布式
 #### 数据库主键自增
 
 这种方式就比较简单直白了，就是通过关系型数据库的自增主键产生来唯一的 ID。
+
 
 ![数据库主键自增](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/the-primary-key-of-the-database-increases-automatically.png)
 
@@ -117,6 +120,7 @@ CREATE TABLE `sequence_id_generator` (
 
 `current_max_id` 字段和`step`字段主要用于获取批量 ID，获取的批量 id 为：`current_max_id ~ current_max_id+step`。
 
+
 ![数据库号段模式](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/database-number-segment-mode.png)
 
 `version` 字段主要用于解决并发问题（乐观锁）,`biz_type` 主要用于表示业务类型。
@@ -167,6 +171,7 @@ id current_max_id step version biz_type
 
 #### NoSQL
 
+
 ![](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/nosql-distributed-id.png)
 
 一般情况下，NoSQL 方案使用 Redis 多一些。我们通过 Redis 的 `incr` 命令即可实现对 id 原子顺序递增。
@@ -194,6 +199,7 @@ OK
 - **缺点**：和数据库主键自增方案的缺点类似
 
 除了 Redis 之外，MongoDB ObjectId 经常也会被拿来当做分布式 ID 的解决方案。
+
 
 ![](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/mongodb9-objectId-distributed-id.png)
 
@@ -224,6 +230,7 @@ UUID.randomUUID()
 
 [RFC 4122](https://tools.ietf.org/html/rfc4122) 中关于 UUID 的示例是这样的：
 
+
 ![](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/rfc-4122-uuid.png)
 
 我们这里重点关注一下这个 Version(版本)，不同的版本对应的 UUID 的生成规则是不同的。
@@ -236,6 +243,7 @@ UUID.randomUUID()
 - **版本 4** : UUID 使用[随机性](https://zh.wikipedia.org/wiki/随机性)或[伪随机性](https://zh.wikipedia.org/wiki/伪随机性)生成。
 
 下面是 Version 1 版本下生成的 UUID 的示例：
+
 
 ![Version 1 版本下生成的 UUID 的示例](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/version1-uuid.png)
 
@@ -273,6 +281,7 @@ Snowflake 是 Twitter 开源的分布式 ID 生成算法。Snowflake 由 64 bit 
 - **第 42~52 位**：一共 10 位，一般来说，前 5 位表示机房 ID，后 5 位表示机器 ID（实际项目中可以根据实际情况调整）。这样就可以区分不同集群/机房的节点。
 - **第 53~64 位**：一共 12 位，用来表示序列号。 序列号为自增值，代表单台机器每毫秒能够产生的最大 ID 数(2^12 = 4096),也就是说单台机器每毫秒最多可以生成 4096 个 唯一 ID。
 
+
 ![Snowflake 示意图](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/snowflake-distributed-id-schematic-diagram.png)
 
 如果你想要使用 Snowflake 算法的话，一般不需要你自己再造轮子。有很多基于 Snowflake 算法的开源实现比如美团 的 Leaf、百度的 UidGenerator，并且这些开源实现对原有的 Snowflake 算法进行了优化。
@@ -292,11 +301,13 @@ Snowflake 是 Twitter 开源的分布式 ID 生成算法。Snowflake 由 64 bit 
 
 不过，UidGenerator 对 Snowflake(雪花算法)进行了改进，生成的唯一 ID 组成如下。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/uidgenerator-distributed-id-schematic-diagram.png)
 
 可以看出，和原始 Snowflake(雪花算法)生成的唯一 ID 的组成不太一样。并且，上面这些参数我们都可以自定义。
 
 UidGenerator 官方文档中的介绍如下：
+
 
 ![](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/uidgenerator-introduction-official-documents.png)
 
@@ -312,6 +323,7 @@ Leaf 的诞生主要是为了解决美团各个业务线生成分布式 ID 的�
 
 Leaf 对原有的号段模式进行改进，比如它这里增加了双号段避免获取 DB 在获取号段的时候阻塞请求获取 ID 的线程。简单来说，就是我一个号段还没用完之前，我自己就主动提前去获取下一个号段（图片来自于美团官方文章：[《Leaf——美团点评分布式 ID 生成系统》](https://tech.meituan.com/2017/04/21/mt-leaf.html)）。
 
+
 ![](https://oscimg.oschina.net/oscnet/up-5c152efed042a8fe7e13692e0339d577f5c.png)
 
 根据项目 README 介绍，在 4C8G VM 基础上，通过公司 RPC 方式调用，QPS 压测结果近 5w/s，TP999 1ms。
@@ -323,6 +335,7 @@ Leaf 对原有的号段模式进行改进，比如它这里增加了双号段避
 数据库号段模式的原理我们在上面已经介绍过了。**Tinyid 有哪些亮点呢？**
 
 为了搞清楚这个问题，我们先来看看基于数据库号段模式的简单架构方案。（图片来自于 Tinyid 的官方 wiki:[《Tinyid 原理介绍》](https://github.com/didi/tinyid/wiki/tinyid%E5%8E%9F%E7%90%86%E4%BB%8B%E7%BB%8D)）
+
 
 ![](https://oscimg.oschina.net/oscnet/up-4afc0e45c0c86ba5ad645d023dce11e53c2.png)
 
@@ -336,6 +349,7 @@ Leaf 对原有的号段模式进行改进，比如它这里增加了双号段避
 除此之外，HTTP 调用也存在网络开销。
 
 Tinyid 的原理比较简单，其架构如下图所示：
+
 
 ![](https://oscimg.oschina.net/oscnet/up-53f74cd615178046d6c04fe50513fee74ce.png)
 

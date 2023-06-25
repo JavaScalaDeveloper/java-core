@@ -67,7 +67,7 @@ ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment(); 	env.
 
 ## 实际代码演示
 
-```
+```java
 public class RestartTest {
 
     public static void main(String[] args) {

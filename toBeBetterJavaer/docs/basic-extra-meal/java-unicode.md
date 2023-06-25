@@ -17,6 +17,7 @@ head:
 
 就在昨天，我在[二哥的编程星球](https://tobebetterjavaer.com/zhishixingqiu/)里看到这样一张截图，有球友反馈说支付宝的理财页面出现了中文乱码，估计不少小伙伴和我一样，都惊呆了😮！阿里这种大厂还能出现这种低级错误？
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/java-unicode-20230408135521.png)
 
 难道昨天的人力都投入到“通义千问”的突然发布上了？
@@ -31,6 +32,7 @@ GPT4：中文乱码是指在计算机系统或软件中，由于字符编码不�
 
 比如说，历史上著名的“锟斤拷”同学，就是中文乱码的绝佳代言人。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-06.png)
 
 ### 什么是字符编码
@@ -43,6 +45,7 @@ GPT4：字符编码（Character Encoding）是一种规则或约定，它将字�
 
 为了让计算机能够识别和处理各种字符，需要使用字符编码来对字符进行编码和解码。常见的字符编码包括 ASCII、UTF-8、UTF-16、GBK、GB2312 等。
 
+
 ![](https://cdn.tobebetterjavaer.com/studymore/char-byte-20230322174312.png)
 
 #### **1）ASCII**
@@ -50,6 +53,7 @@ GPT4：字符编码（Character Encoding）是一种规则或约定，它将字�
 ASCII 码由电报码发展而来，第一版标准发布于 1963 年，最后一次更新则是在 1986 年，至今为止共定义了 128 个字符。其中 33 个字符无法显示在一般的设备上，需要用特殊的设备才能显示。
 
 ASCII 码的局限在于只能显示 26 个基本拉丁字母、阿拉伯数字和英式标点符号，因此只能用于显示现代美国英语，对于其他一些语言则无能无力，比如在法语中，字母上方有注音符号，它就无法用 ASCII 码表示。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-01.png)
 
@@ -59,13 +63,16 @@ PS：拉丁字母（也称为罗马字母）是多数欧洲语言采用的字母
 
 在我的印象中，可能说拉丁字母多少有些陌生，说英语字母可能就有直观的印象了。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-02.png)
 
 阿拉伯数字，我们都很熟悉了。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-03.png)
 
 但是，阿拉伯数字并非起源于阿拉伯，而是起源于古印度。学过历史的你应该有一些印象，阿拉伯分布于西亚和北非，以阿拉伯语为主要语言，以伊斯兰教为主要信仰。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-04.png)
 
@@ -76,6 +83,7 @@ PS：拉丁字母（也称为罗马字母）是多数欧洲语言采用的字母
 英文标点符号在 16 世纪时，分为朗诵学派和句法学派，主要由古典时期的希腊文和拉丁文演变而来，在 17 世纪后进入稳定阶段。俄文的标点符号依据希腊文而来，到了 18 世纪后也采用了英文标点符号。
 
 在很多人的印象中，古文是没有标点符号的，但管锡华博士研究指出，**中国早在先秦时代就有标点符号了**，后来融合了一些英文标点符号后，逐渐形成了现在的中文标点符号。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-05.png)
 
@@ -100,6 +108,7 @@ PS：拉丁字母（也称为罗马字母）是多数欧洲语言采用的字母
 这个艰巨的任务由谁来完成呢？**Unicode**，中文译作万国码、国际码、统一码、单一码，就像它的名字都表示的，这是一种所有符号的编码。
 
 Unicode 至今仍在不断增修，每个新版本都会加入更多新的字符。目前最新的版本为 2020 年 3 月公布的 13.0，收录了 13 万个字符。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/ten-07.png)
 

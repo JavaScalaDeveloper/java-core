@@ -14,6 +14,7 @@ https://www.nowcoder.com/practice/6a296eb82cf844ca8539b57c23e6e9bf
 
 最小堆：根结点的键值是所有堆结点键值中最小者，且每个结点的值都比其孩子的值小
 
+
 ![image-20200531214512859](images/image-20200531214512859.png)
 
 ## 代码

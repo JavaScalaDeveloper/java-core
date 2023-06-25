@@ -31,9 +31,9 @@
 
 Storm 运行依赖于 Java 7+ 和 Python 2.6.6 +，所以需要预先安装这两个软件。同时为了保证高可用，这里我们不采用 Storm 内置的 Zookeeper，而采用外置的 Zookeeper 集群。由于这三个软件在多个框架中都有依赖，其安装步骤单独整理至 ：
 
-- [Linux 环境下 JDK 安装](https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Linux下JDK安装.md)
-- [Linux 环境下 Python 安装](https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Linux下Python安装.md)
-- [Zookeeper 单机环境和集群环境搭建](https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Zookeeper单机环境和集群环境搭建.md)
+- [Linux 环境下 JDK 安装](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Linux下JDK安装.md)
+- [Linux 环境下 Python 安装](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Linux下Python安装.md)
+- [Zookeeper 单机环境和集群环境搭建](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Zookeeper单机环境和集群环境搭建.md)
 
 
 

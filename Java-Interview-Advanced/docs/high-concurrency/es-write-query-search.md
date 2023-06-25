@@ -13,6 +13,7 @@ es 写入数据的工作原理是什么啊？es 查询数据的工作原理是�
 - 实际的 node 上的 `primary shard` 处理请求，然后将数据同步到 `replica node`。
 - `coordinating node` 如果发现 `primary node` 和所有 `replica node` 都搞定之后，就返回响应结果给客户端。
 
+
 ![es-write](/images/es-write.png)
 
 ### es 读数据过程
@@ -41,6 +42,7 @@ j2ee特别牛
 > 写请求是写入 primary shard，然后同步给所有的 replica shard；读请求可以从 primary shard 或 replica shard 读取，采用的是随机轮询算法。
 
 ### 写数据底层原理
+
 
 ![es-write-detail](/images/es-write-detail.png)
 

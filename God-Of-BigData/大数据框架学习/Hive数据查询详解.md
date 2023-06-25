@@ -33,7 +33,7 @@
 
 为了演示查询操作，这里需要预先创建三张表，并加载测试数据。
 
-> 数据文件 emp.txt 和 dept.txt 可以从本仓库的[resources](https://github.com/heibaiying/BigData-Notes/tree/master/resources) 目录下载。
+> 数据文件 emp.txt 和 dept.txt 可以从本仓库的[resources](images/https://github.com/heibaiying/BigData-Notes/tree/master/resources) 目录下载。
 
 ### 1.1 员工表
 
@@ -390,7 +390,7 @@ SET hive.exec.mode.local.auto=true;
 
 ## 参考资料
 
-1. [LanguageManual Select](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Select)
-2. [LanguageManual Joins](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Joins)
-3. [LanguageManual GroupBy](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+GroupBy)
-4. [LanguageManual SortBy](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+SortBy)
+1. [LanguageManual Select](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Select)
+2. [LanguageManual Joins](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Joins)
+3. [LanguageManual GroupBy](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+GroupBy)
+4. [LanguageManual SortBy](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+SortBy)

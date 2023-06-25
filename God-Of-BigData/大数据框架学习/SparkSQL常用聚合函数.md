@@ -36,7 +36,7 @@ empDF.createOrReplaceTempView("emp")
 empDF.show()
 ```
 
-> 注：emp.json 可以从本仓库的[resources](https://github.com/heibaiying/BigData-Notes/tree/master/resources) 目录下载。
+> 注：emp.json 可以从本仓库的[resources](images/https://github.com/heibaiying/BigData-Notes/tree/master/resources) 目录下载。
 
 ### 1.2 count
 

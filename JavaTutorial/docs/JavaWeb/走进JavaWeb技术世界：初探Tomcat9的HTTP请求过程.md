@@ -32,6 +32,7 @@
 
 2.下图为 apache-tomcat-8.5.23.zip 在windows解压后的目录。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405152548.png)
 
 下面是解压后的一些关键目录:
@@ -44,6 +45,7 @@
 ```
 
 3.从最本质上讲，tomcat为一个servlet容器，首先研究一下Tomcat的架构，如下图：
+
 
 ![图片描述](https://img.mukewang.com/5a26687d0001ca2712300718.png)
 
@@ -319,6 +321,7 @@ Resource模块: 这个子模块包含一些资源文件，如Server.xml及Web.xm
 </Server>
 ````
 由上可得出Tomcat的体系结构：
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405152741.png)
 
 图一：Tomcat的体系结构
@@ -326,6 +329,7 @@ Resource模块: 这个子模块包含一些资源文件，如Server.xml及Web.xm
 由上图可看出Tomca的心脏是两个组件：Connecter和Container。一个Container可以选择多个Connecter，多个Connector和一个Container就形成了一个Service。Service可以对外提供服务，而Server服务器控制整个Tomcat的生命周期。
 
 ## Tomcat Server处理一个HTTP请求的过程
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405152756.png)
 

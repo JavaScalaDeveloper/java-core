@@ -1,5 +1,6 @@
 # 面试官：super() 和 super(props) 有什么区别？
 
+
 ![](https://static.vue-js.com/618abaf0-d71c-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、ES6 类
@@ -36,6 +37,7 @@ jack.printAge(); //输出 : 20
 在上面的例子中，可以看到通过 `super` 关键字实现调用父类，`super` 代替的是父类的构建函数，使用 `super(name)` 相当于调用 `sup.prototype.constructor.call(this,name)`
 
 如果在子类中不使用 `super`，关键字，则会引发报错，如下：
+
 
 ![](https://static.vue-js.com/6ab40190-d71c-11eb-85f6-6fac77c0c9b3.png)
 

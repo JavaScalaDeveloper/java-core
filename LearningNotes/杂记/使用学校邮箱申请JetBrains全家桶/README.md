@@ -8,13 +8,16 @@
 
 首先到Jetbrains的官网上，找到[学生申请入口](https://www.jetbrains.com/pycharm/buy/?fromIDE#discounts?billing=yearly)
 
+
 ![image-20200908185502429](images/image-20200908185502429.png)
 
 然后在填写你的信息，以及教育邮箱
 
+
 ![image-20200908190155994](images/image-20200908190155994.png)
 
 填写完成后，即可收到一个邮件
+
 
 ![image-20200908190218912](images/image-20200908190218912.png)
 

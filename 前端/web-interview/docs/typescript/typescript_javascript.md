@@ -1,5 +1,6 @@
 # 面试官：说说你对 TypeScript 的理解？与 JavaScript 的区别？
 
+
 ![](https://static.vue-js.com/58cd3580-0950-11ec-8e64-91fdec0f05a1.png)
 
 ## 一、是什么
@@ -7,6 +8,7 @@
 `TypeScript` 是 `JavaScript` 的类型的超集，支持`ES6`语法，支持面向对象编程的概念，如类、接口、继承、泛型等
 
 > 超集，不得不说另外一个概念，子集，怎么理解这两个呢，举个例子，如果一个集合 A 里面的的所有元素集合 B 里面都存在，那么我们可以理解集合 B 是集合 A 的超集，集合 A 为集合 B 的子集
+
 
 ![](https://static.vue-js.com/61c2c1f0-0950-11ec-a752-75723a64e8f5.png)
 
@@ -93,6 +95,7 @@ let tom: Person = {
 - 在编写 TypeScript 的文件的时候就会自动编译成 js 文件
 
 更多的区别如下图所示：
+
 
 ![](https://static.vue-js.com/6b544040-0950-11ec-8e64-91fdec0f05a1.png)
 

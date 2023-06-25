@@ -45,6 +45,7 @@ Java 字节码由操作码和操作数组成。
 
 x 为操作码助记符，表明是哪一种数据类型。见下表所示。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-879da2f2-fb72-48a9-985e-5a28a9fc8814.png)
 
 像 arraylength 指令，没有操作码助记符，它没有代表数据类型的特殊字符，但操作数只能是一个数组类型的对象。
@@ -61,6 +62,7 @@ private void load(int age, String name, long birthday, boolean sex) {
 
 通过 jclasslib 看一下 `load()` 方法（4 个参数）的字节码指令。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-05bfae95-2a33-402c-9041-570093729c42.png)
 
 - iload_1：将局部变量表中下标为 1 的 int 变量压入操作数栈中。
@@ -70,6 +72,7 @@ private void load(int age, String name, long birthday, boolean sex) {
 
 通过查看局部变量表就能关联上了。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-79d74946-ce9e-41d4-b889-bda861f847bc.png)
 
 
@@ -78,6 +81,7 @@ private void load(int age, String name, long birthday, boolean sex) {
 根据数据类型和入栈内容的不同，此类又可以细分为 const 系列、push 系列和 Idc 指令。
 
 **const 系列**，用于特殊的常量入栈，要入栈的常量隐含在指令本身。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-270c314d-872b-43b0-861f-417eafc046fd.png)
 
@@ -106,6 +110,7 @@ public void pushConstLdc() {
 ```
 
 通过 jclasslib 看一下 `pushConstLdc()` 方法的字节码指令。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-b34fc802-18bb-46a1-8d24-de2087c9b6bf.png)
 
@@ -142,12 +147,14 @@ public void store(int age, String name) {
 
 通过 jclasslib 看一下 `store()` 方法的字节码指令。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-d955468c-d07d-47cd-b82b-c03ecea8753d.png)
 
 - istore_3：从操作数中弹出一个整数，并把它赋值给局部变量表中索引为 3 的变量。
 - astore 4：从操作数中弹出一个引用数据类型，并把它赋值给局部变量表中索引为 4 的变量。
 
 通过查看局部变量表就能关联上了。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-a08c20cb-c148-47c9-91e2-df37e68989a9.png)
 
@@ -206,6 +213,7 @@ public void calculate(int age) {
 
 通过 jclasslib 看一下 `calculate()` 方法的字节码指令。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-598e4204-fd77-425b-b536-1e001cda8e13.png)
 
 - iadd，加法
@@ -244,6 +252,7 @@ public void updown() {
 
 通过 jclasslib 看一下 `updown()` 方法的字节码指令。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-0c3e47c6-1e25-4926-a838-20cf146a8993.png)
 
 - i2d，int 宽化为 double
@@ -274,6 +283,7 @@ public void newObject() {
 ```
 
 通过 jclasslib 看一下 `newObject()` 方法的字节码指令。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-8125da3d-876c-43fe-8347-cb2341408088.png)
 
@@ -309,6 +319,7 @@ public class Writer {
 ```
 
 通过 jclasslib 看一下 `main()` 方法的字节码指令。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-70441cfc-7c6e-4a5e-b0dd-818fc3fa1a67.png)
 
@@ -434,6 +445,7 @@ invokestatic  #11 // Method print:()V
 
 方法返回指令根据方法的返回值类型进行区分，常见的返回指令见下图。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-37513fa2-fdba-45db-adfc-c18225c6ff8b.png)
 
 ### 06、操作数栈管理指令
@@ -458,6 +470,7 @@ public class Dup {
 ```
 
 通过 jclasslib 看一下 `incAndGet()` 方法的字节码指令。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-642ca54e-5808-428d-9840-ebf478e95c17.png)
 
@@ -496,11 +509,13 @@ public void lcmp(long a, long b) {
 
 通过 jclasslib 看一下 `lcmp()` 方法的字节码指令。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-e8fa6685-b3d4-4f42-8fc5-8a4d8a9efe7b.png)
 
 lcmp 用于两个 long 型的数据进行比较。
 
 **2）条件跳转指令**
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-5de34f26-52ad-4e07-a20d-91ea92038984.png)
 
@@ -525,11 +540,13 @@ public void fi() {
 
 通过 jclasslib 看一下 `fi()` 方法的字节码指令。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-d0561d5c-ae21-48e7-9e7c-4aae87d02f56.png)
 
 `3 ifne 12 (+9)` 的意思是，如果栈顶的元素不等于 0，跳转到第 12（3+9）行 `12 bipush 20`。
 
 **3）比较条件转指令**
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-bfab6edd-d63f-45a7-8838-997e7630fa2a.png)
 
@@ -546,6 +563,7 @@ public void compare() {
 ```
 
 通过 jclasslib 看一下 `compare()` 方法的字节码指令。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-d4f9a680-1364-4af9-9474-c0763c9bc6f7.png)
 
@@ -576,6 +594,7 @@ public void switchTest(int select) {
 ```
 
 通过 jclasslib 看一下 `switchTest()` 方法的字节码指令。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/zijiema-zhiling-04e166ae-13c7-4025-804a-be88e2923a50.png)
 

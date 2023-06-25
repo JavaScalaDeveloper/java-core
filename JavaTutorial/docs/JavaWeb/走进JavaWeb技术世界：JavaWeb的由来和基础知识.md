@@ -44,6 +44,7 @@ web开发的历史其实并不久远，要搞清楚java web开发的特点（主
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405151003.png)
 
 
@@ -52,6 +53,7 @@ web开发的历史其实并不久远，要搞清楚java web开发的特点（主
 图中的服务器保持了一系列html脚本来响应用户的请求，可以说这个时期的web应用还是比较简单的，但是却确立了两个重要的对象：一个request（代表请求），另一个是response（代表回应）。如果把web开发的历史比喻成一部美国大片的话，那么request和response绝对是这部大片的那女主角，而且每一部都是不可或缺的主角（简单的说就是死不了）。
 
 看到这个图，不知道第一批从事web开发的80后是否和我一样，已经有点感触了，当年为了搞清楚这个结构，曾经连续多少个通宵做实验（实验环境比较恶劣）。没关系，这仅仅是个开始，我想当你看完这篇文章的时候，你会泪流满面的（相信我）。为了配合一下这张结构图，在web发展过程中，有一个小插曲，就是在web site向web application发展的过程中，出现了一个小“玩意儿”，就是applet，很多人了解java都是从使用java applet开始的（70，80后那一批程序员）。当时风靡校园（我当时在读大一）的网易聊天室，哎呀那个火啊（大家回忆一下你在学校机房上网时的兴奋），这个聊天室就是采用了applet构建的，当时applet给静态页面一个动态交互的可能，着实火了一段时间。现在知道applet的程序员，你已经暴露年龄了。看一张图片吧：
+
 
 
 
@@ -70,6 +72,7 @@ web开发的历史其实并不久远，要搞清楚java web开发的特点（主
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405151039.png)
 
 
@@ -81,12 +84,14 @@ CGI的推出，使得web开发正式进入了动态处理时代，服务器能�
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405151104.png)
 
 
 
 
 再看一下java web中的servlet资源图：
+
 
 
 
@@ -105,12 +110,14 @@ CGI的推出，使得web开发正式进入了动态处理时代，服务器能�
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405151132.png)
 
 
 
 
 这个代码结构是不是很亲切，是不是很有Coding的感觉，其实Servlet就是个java 类而已，只不过增加了几个限制而已，所以开发一个Servlet并不复杂。然后就是把它部署到web服务器上（Tomcat这个老人家现在身体依然硬朗！），然后就等待客户的请求就可以了。这是Servlet的三层部署图：
+
 
 
 
@@ -127,12 +134,14 @@ java web开发的技术体系还包括javabean和jsp，采用MVC结构来组合�
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405151230.png)
 
 
 
 
 再看一下组合使用Servlet+javaBean+JSP的Model2开发结构：
+
 
 
 

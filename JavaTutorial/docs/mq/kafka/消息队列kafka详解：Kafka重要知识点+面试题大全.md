@@ -1,5 +1,6 @@
 ## 重要面试知识点
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-75cd70ad3052ba44bf706a3ab39e59d5_720w.webp)
 
 
@@ -29,6 +30,7 @@ Kafka 消费端确保一个 Partition 在一个消费者组内只能被一个消
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-a9ef6a29cb9ba3456a05ad75cb91cb03_720w.webp)
 
 <figcaption>消费者宕机情况</figcaption>
@@ -40,6 +42,7 @@ Kafka 消费端确保一个 Partition 在一个消费者组内只能被一个消
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-8803223d712fdde035b8e7b9170dd3fb_720w.webp)
 
 <figcaption>新增消费者情况</figcaption>
@@ -49,6 +52,7 @@ Kafka 消费端确保一个 Partition 在一个消费者组内只能被一个消
 3.Topic 下的 Partition 增多，触发 Repartition 操作，如下图所示。一般这种调整 Partition 个数的情况也是为了提高消费端消费速度的，因为当消费者个数大于等于 Partition 个数时，在增加消费者个数是没有用的（原因是：在一个消费组内，消费者:Partition = 1:N，当 N 小于 1 时，相当于消费者过剩了），所以一方面增加 Partition 个数同时增加消费者个数可以提高消费端的消费速度。
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-8f1a427c6842d9babf139454ce23cfa3_720w.webp)
@@ -74,6 +78,7 @@ Kafka 消费端确保一个 Partition 在一个消费者组内只能被一个消
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-122b4a706de39655d257928005a83ff1_720w.webp)
 
 <figcaption>消费端工作流程</figcaption>
@@ -83,6 +88,7 @@ Kafka 消费端确保一个 Partition 在一个消费者组内只能被一个消
 我们在从消费者与 ZK 的角度来看看其工作流程是什么样的？
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-4ed25ebb9236986b2084ce8a042f65b9_720w.webp)
@@ -108,6 +114,7 @@ Kafka 消费端确保一个 Partition 在一个消费者组内只能被一个消
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-1a047ed616ba44daebdb4b6ce786a61a_720w.webp)
 
 <figcaption>先消费后保存消费进度</figcaption>
@@ -119,6 +126,7 @@ Kafka 消费端确保一个 Partition 在一个消费者组内只能被一个消
 消费者读取消息，先保存消费进度，在处理消息。消费者拉取到消息，先保存了偏移量，当保存了偏移量后还没消费完消息，消费者挂了，则会造成未消费的消息丢失。如下图所示：
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-1f9f91ae54396c5e5d93ae89251eb1ed_720w.webp)
@@ -134,6 +142,7 @@ Kafka 消费端确保一个 Partition 在一个消费者组内只能被一个消
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-a0bbb114e2ad551227f81c1f26d4bd5d_720w.webp)
 
 <figcaption>正好消费一次</figcaption>
@@ -145,6 +154,7 @@ Kafka 消费端确保一个 Partition 在一个消费者组内只能被一个消
 假设有一个 Kafka 集群，Broker 个数为 3，Topic 个数为 1，Partition 个数为 3，Replica 个数为 2。Partition 的物理分布如下图所示。
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-f8f21631b138321f25c8821c677c5579_720w.webp)
@@ -168,6 +178,7 @@ Partition 的实际物理存储是以 Log 文件的形式展示的，而每个 L
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-eb66e4ecf7cf07fcb6b12029bfdd9b71_720w.webp)
 
 <figcaption>消息写入及落盘流程</figcaption>
@@ -187,6 +198,7 @@ Partition 的实际物理存储是以 Log 文件的形式展示的，而每个 L
 了解以上过程后，我们在来看看消息的具体构成情况。
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-6e993c95decd5d274b032cd423936504_720w.webp)
@@ -222,6 +234,7 @@ Partition 的实际物理存储是以 Log 文件的形式展示的，而每个 L
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-cd9c62a71cddccd7bc8a5d810d5af216_720w.webp)
 
 <figcaption>位置关系图</figcaption>
@@ -238,6 +251,7 @@ Partition 的实际物理存储是以 Log 文件的形式展示的，而每个 L
 假设拉取消息起始位置为 00000313，消息拉取流程图如下：
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-9417ca60a0c5e9474ec49a77fff18b1b_720w.webp)
@@ -261,6 +275,7 @@ Partition 的实际物理存储是以 Log 文件的形式展示的，而每个 L
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-7946f258c85fb8ca3d4aa423269c483a_720w.webp)
 
 <figcaption>request.required.acks=1</figcaption>
@@ -272,6 +287,7 @@ Partition 的实际物理存储是以 Log 文件的形式展示的，而每个 L
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-382c9f37f644feb37dd975c67bc1038f_720w.webp)
 
 <figcaption>request.required.acks=0</figcaption>
@@ -281,6 +297,7 @@ Partition 的实际物理存储是以 Log 文件的形式展示的，而每个 L
 设置为 0 时代表 Producer 发送消息后就认为成功，消息有可能丢失。
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-592996f264baadc64967d6f4b28f4d23_720w.webp)
@@ -298,6 +315,7 @@ Partition 的实际物理存储是以 Log 文件的形式展示的，而每个 L
 1.  **从 Consumer 端来看，同一条消息在多个 Partition 上读取到的消息是一直的，Kafka 通过引入 HW（High Water）来实现这一特性。**
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-9975539d98bf1a4e1a3038f2eceb2bb9_720w.webp)
@@ -323,6 +341,7 @@ kafka 使用了顺序写入和“零拷贝”技术，来达到每秒钟 200w（
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-6930901956f341f1ab4a6e5650a0680b_720w.webp)
 
 <figcaption>普通数据拷贝流程图</figcaption>
@@ -332,6 +351,7 @@ kafka 使用了顺序写入和“零拷贝”技术，来达到每秒钟 200w（
 普通的数据拷贝流程如上图所示，数据由磁盘 copy 到内核态，然后在拷贝到用户态，然后再由用户态拷贝到 socket，然后由 socket 协议引擎，最后由协议引擎将数据发送到网络中。
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-9e44873a63d8addca917e658667f0b61_720w.webp)
@@ -362,6 +382,7 @@ Kafka 官方提供了多种压缩协议，包括 gzip、snappy、lz4 等等，�
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-f7c1bb87ab46ddd03255c58109ce360f_720w.webp)
 
 <figcaption>系统调用图</figcaption>
@@ -371,6 +392,7 @@ Kafka 官方提供了多种压缩协议，包括 gzip、snappy、lz4 等等，�
 随着业务的发展，相信有不少朋友公司遇到过如上图所示的情况，系统 A 处理的结构被 B、C、D 系统所依赖，当新增系统 E 时，也需要系统 A 配合进行联调和上线等操作；还有当系统 A 发生变更时同样需要告知 B、C、D、E 系统需要同步升级改造。
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-0f0c8f9531a38f6d79b2cbb2973bfbfc_720w.webp)
@@ -406,6 +428,7 @@ Kafka 如果支持读写分离的话，有如下几个问题。
 1.  **系统设计的复杂度会比较大，当然这个比较牵强，毕竟高版本的 Kafka 已经实现了。**
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-98093ad82970feb7a0c52954c6942aa1_720w.webp)

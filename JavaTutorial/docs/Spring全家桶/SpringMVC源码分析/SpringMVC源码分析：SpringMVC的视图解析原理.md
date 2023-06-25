@@ -52,6 +52,7 @@ SpringMVC是目前主流的Web MVC框架之一。
 **1.View接口**
 
 视图基础接口，它的各种实现类是无状态的，因此是线程安全的。 该接口定义了两个方法：　  
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/092359485145662.png)
 
 **2.AbstractView抽象类**
@@ -59,14 +60,17 @@ SpringMVC是目前主流的Web MVC框架之一。
 View接口的基础实现类。我们稍微介绍一下这个抽象类。
 
 首先看下这个类的属性：  
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/100014083899865.png)
 
 再看下抽象类中接口方法的实现：  
 　　getContentType方法直接返回contentType属性即可。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/100110310773735.png)
 
 render方法：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/102247323892787.png)
 
@@ -79,6 +83,7 @@ render方法：
 继承自AbstractUrlBasedView抽象类的类，表示JSP视图。
 
 我们看下这个类的renderMergedOutputModel方法(AbstractView抽象类定义的抽象方法，为View接口提供的render方法服务)。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/102252020309641.png)
 
@@ -99,6 +104,7 @@ JSTL视图，继承自InternalResourceView，该类大致上与InternalResourceV
 继承自AbstractTemplateView抽象类。
 
 直接看renderMergedTemplateModel方法，renderMergedTemplateModel内部会调用doRender方法：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/102258387178319.png)
 
@@ -129,16 +135,20 @@ JSTL视图，继承自InternalResourceView，该类大致上与InternalResourceV
   
 　　继承自AbstractCachingViewResolver抽象类、并实现Ordered接口的类，是ViewResolver接口简单的实现类。  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/102341126705605.png)  
   
 　　该类复写了createView方法：  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/102349273585708.png)  
   
 　　父类(AbstractCachingViewResolver)的createView方法内部会调用loadView抽象方法，UrlBasedViewResolver实现了这个抽象方法：  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/110037187498815.png)  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/110043510779523.png)  
   
 　　下面对UrlBasedViewResolver做1个test，配置如下：  
@@ -154,16 +164,20 @@ JSTL视图，继承自InternalResourceView，该类大致上与InternalResourceV
   
 　　我们看到：以InternalResourceView这个JSP视图作为视图；viewNames我们设置了_，这里的_代表全部视图名(这个viewNames属性不设置也可以，代表全部视图名都处理)；http响应头部contentType信息：text/html;charset=utf-8；attributesMap和attributes传入的Map和Properties参数都会被丢入到staticAttributes属性中，这个staticAttributes会被设置成AbstractView的staticAttributes属性，也就是request域中的参数。  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/122254034056621.png)  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/122255053584961.png)  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/122253337649444.png)  
   
 　　我们看到request域中没有设置mytest和testvalue值。但是页面中会显示，因为我们配置了attributesMap和attributes参数。  
   
 　　如果我们把viewNames中的"*"改成"index1"。那么就报错了，因为处理视图名的时候index匹配不上index1。  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/122258119528822.png)  
   
 **12.InternalResourceViewResolver类**  
@@ -182,6 +196,7 @@ JSTL视图，继承自InternalResourceView，该类大致上与InternalResourceV
   
 　　顾名思义，带有视图和Model属性的一个模型和视图类。  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/122342141709643.png)  
   
 　　值得注意的是，这个视图属性是一个Object类型的数据，可以直接是View接口的实现类或者视图名(字符串)。  
@@ -194,8 +209,10 @@ SpringMVC在处理请求的时候，通过RequestMappingHandlerMapping得到Hand
   
 processDispatchResult方法如下：  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/122331490924509.png)  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/122339489831665.png)  
   
 如果配置的ViewResolver如下：  
@@ -210,6 +227,7 @@ processDispatchResult方法如下：
   
 之前分析过，InternalResourceViewResolver重写了UrlBasedViewResolver的buildView方法。但是还是会调用UrlBasedViewResolver的buildView方法。  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/130106345772394.png)  
   
 最终得到InternalResourceView或JstlView视图。这两个视图的render方法本文介绍重要接口及类的时候已分析。  
@@ -288,8 +306,10 @@ public class TestViewResolverController {
   
 ### This is freemarker page  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/140202040149946.png)  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/140202212495247.png)  
   
 ## 总结  

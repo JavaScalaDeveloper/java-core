@@ -86,6 +86,7 @@ public class TryCatchTest {
 
 我懒得跟他BB，直接开始了 benchmark，跑的结果如下：
 
+
 ![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326204136.png)
 
 可以看到，两者的性能（数字越大越好）其实差不多：551063.024 VS 551525.861。
@@ -111,9 +112,11 @@ public class TryCatchTest {
 
 >第二步，Intellij IDEA 中安装 JMH 插件。
 
+
 ![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326200811.png)
 
 >第三步，在代码编辑器中点击这个带有时间和运行的图标。然后静静等待结果就可以了，我本机（32G 内存 Intel i7 跑了 16 分钟，贼慢，因为 JMH 比较喜欢追求公平公正😂）
+
 
 ![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326200922.png)
 
@@ -125,11 +128,13 @@ public class TryCatchTest {
 
 异常表记录的是 0 - 20 行，如果这些行里面的代码出现问题，直接跳到 23 行处理。
 
+
 ![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326202911.png)
 
 > fortry 的字节码
 
 差别也就是异常表的范围小点，包的是 9-14 行，其它跟 tryfor 都差不多。
+
 
 ![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326203005.png)
 
@@ -138,6 +143,7 @@ public class TryCatchTest {
 “那为什么网上流传着`try-catch`会有性能问题的说法啊？” 老王觉得非常奇怪。
 
 这个说法确实有，在《Effective Java》这本书里就提到了 `try-catch` 性能问题：
+
 
 ![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326203449.png)
 
@@ -189,6 +195,7 @@ public class TryCatchTest1 {
 ```
 
 结果如下：
+
 
 ![](https://cdn.tobebetterjavaer.com/studymore/try-catch-xingneng-20230326210303.png)
 

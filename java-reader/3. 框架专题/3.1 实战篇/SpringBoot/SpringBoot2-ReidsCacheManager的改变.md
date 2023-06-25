@@ -16,9 +16,11 @@
 下面看一看两个版本的差别：
 
 ######   1.0 版本的CacheManager构造器
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-4b9cd30262f4cec9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ######   2.0 版本的CacheManager构造器
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-0b8cd322165452c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 `RedisCacheWriter`提供了对Redis的set、setnx、get等命令的访问权限，可以由多个缓存实现共享，并负责写/读来自Redis的二进制数据。

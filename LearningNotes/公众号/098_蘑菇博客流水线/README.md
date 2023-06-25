@@ -2,13 +2,16 @@
 
 由于Coding每个月都有使用限额 300 分钟，超过后将无法正常的使用
 
+
 ![image-20220817092713192](images/image-20220817092713192.png)
 
 不过，**Coding** 支持使用自建节点进行构建，在构建计划中，选择 自定义的构建节点进行构建
 
+
 ![image-20220817092813569](images/image-20220817092813569.png)
 
 然后选择接入，然后找到 Linux 接入方式，复制一键接入命令
+
 
 ![image-20220817092858064](images/image-20220817092858064.png)
 
@@ -85,5 +88,6 @@ curl -fL 'https://coding.net/public-files/coding-ci/install/linux/install.sh?ver
 ```
 
 执行后，在右侧看到自己接入的节点了
+
 
 ![image-20220817093749662](images/image-20220817093749662.png)

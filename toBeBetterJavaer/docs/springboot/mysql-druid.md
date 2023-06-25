@@ -14,6 +14,7 @@ MySQL 体积小、速度快、源码开放，所以广受开发者喜爱。
 
 MySQL 的安装非常简单，针对不同的操作系统，MySQL 都提供了安装包的下载。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-f75e7dfe-7dc2-43b2-94d1-68ff775cd2ed.png)
 
 MySQL 目前主推的版本是 8.0，参考手册的地址如下所示：
@@ -31,9 +32,11 @@ MySQL 目前主推的版本是 8.0，参考手册的地址如下所示：
 >宝塔面板安装脚本地址：[https://www.bt.cn/new/download.html](https://www.bt.cn/new/download.html)
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-89f6d126-b059-4511-b64d-720aa8df354f.png)
 
 安装完成后，就可以在数据库管理页面添加数据库并且进行管理了。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-86d80ab6-968e-42ec-a532-1eeb341779c1.png)
@@ -51,9 +54,11 @@ MySQL 目前主推的版本是 8.0，参考手册的地址如下所示：
 Windows 和 macOS 的安装都非常的简单，主要就是下载对应操作系统的 MySQL 包安装管理器。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-ab94f6df-2031-42ff-8746-b4ad5a4e3a81.png)
 
 然后按照包安装向导的提示一步步傻瓜式安装即可。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-e7031aec-74c5-4079-a6f3-97368c921620.png)
@@ -64,10 +69,12 @@ Spring Boot 整合 MySQL 数据库非常简单，只需要添加 MySQL 依赖并
 
 1）使用 Intellij IDEA 新建一个 Spring Boot 项目，使用 Java 8 版本「社区版没有此功能，需要到 (Spring initializr)[https://start.spring.io/]）生成项目后导入，推荐使用旗舰版，功能更加强大」。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-d7765111-9dcb-4125-a87a-da1439a0a6cf.png)
 
 
 添加 MySQL 的 Java连接驱动依赖和 JDBC Starter。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-201eb6fa-0a09-46d7-a555-3988bee92a9f.png)
@@ -128,6 +135,7 @@ spring:
 ```
 
 推荐安装 Spring Initializr and assistant 插件。可以自动补全配置信息。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-be486130-539a-49b5-ac6f-dc1bf7f8cba6.png)
@@ -201,6 +209,7 @@ Spring Boot 的测试类主要放置在 `src/test/java` 目录下面，项目创
 
 右键菜单运行 testMysql 方法就可以在日志中看到 SQL 执行的结果。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-92a53c8e-e99a-4ca6-8ad1-f5ec4653da3b.png)
 
 ## 如何通过 Navicat 连接 MySQL
@@ -208,9 +217,11 @@ Spring Boot 的测试类主要放置在 `src/test/java` 目录下面，项目创
 Navicat 是一个从我参加工作到现在一直都在用的 MySQL 客户端工具，通过 Navicat 可以轻松连接数据库，并执行增删改查操作。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-2daef9fc-4a97-41bb-bd1c-875f468d90bc.png)
 
 连接数据库也非常的简单，只需要填写主机 IP 地址、端口、用户名和密码即可。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-18d120ea-0f84-4ca0-b0fd-020587e43fc4.png)
 
@@ -220,21 +231,26 @@ Navicat 是一个从我参加工作到现在一直都在用的 MySQL 客户端�
 
 点击「database」面板，在左上角选择 + 号，选择 DataSource，再选择 MySQL。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-070ab8b8-0629-4238-b35d-438dbcbb130e.png)
 
 在弹出面板中填写连接信息。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-29ba218a-7528-49bf-b2da-c5fa48b40d2b.png)
 
 如果是第一次连接 MySQL 的话，记得点击「download」下载 MySQL 驱动，之后点击「test connection」测试是否链接成功，如果出现以下界面，则表示 OK。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-1b86d117-412c-47a2-82c8-c22f9bcf6455.png)
 
 选择右侧的数据库表，双击，就可以查看到数据了。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-8c0288ae-ee22-4983-8d91-7ed7125b17a5.png)
 
 在「console」SQL 查询面板里可以编写 SQL 语句来执行增删改查操作。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-e1c9e85c-382a-40a8-a4fa-3fe32ee612fb.png)
 
@@ -246,6 +262,7 @@ Druid 在 GitHub 上已经收获了 25.4k 的 star，可以说非常的知名，
 
 >[https://github.com/alibaba/druid/](https://github.com/alibaba/druid/)
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-a1f53d5b-1048-4707-bebc-1a59d7793880.png)
 
 Druid 包含了三个重要的组成部分：
@@ -255,6 +272,7 @@ Druid 包含了三个重要的组成部分：
 - SQLParser，支持所有 JDBC 兼容的数据库，包括 Oracle、MySQL 等。
 
 Spring Boot2.0 以上默认使用的是 Hikari 连接池，我们从之前的日志信息里就可以看得到。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mysql-druid-0982b47e-b211-41a6-ab88-355e1d2ae7be.png)
 
@@ -286,5 +304,6 @@ Spring Boot2.0 以上默认使用的是 Hikari 连接池，我们从之前的日
 > - codingmore-mysql-druid：[https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-mysql)
 
 ---
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

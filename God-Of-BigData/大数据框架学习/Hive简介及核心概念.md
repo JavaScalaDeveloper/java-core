@@ -55,7 +55,7 @@ Hive 在执行一条 HQL 的时候，会经过以下步骤：
 5. 生成物理执行计划：遍历 OperatorTree，翻译为 MapReduce 任务；
 6. 优化物理执行计划：物理层优化器进行 MapReduce 任务的变换，生成最终的执行计划。
 
-> 关于 Hive SQL 的详细执行流程可以参考美团技术团队的文章：[Hive SQL 的编译过程](https://tech.meituan.com/2014/02/12/hive-sql-to-mapreduce.html)
+> 关于 Hive SQL 的详细执行流程可以参考美团技术团队的文章：[Hive SQL 的编译过程](images/https://tech.meituan.com/2014/02/12/hive-sql-to-mapreduce.html)
 
 
 
@@ -195,8 +195,8 @@ CREATE TABLE page_view(viewTime INT, userid BIGINT)
 
 ## 参考资料
 
-1. [Hive Getting Started](https://cwiki.apache.org/confluence/display/Hive/GettingStarted)
-2. [Hive SQL 的编译过程](https://tech.meituan.com/2014/02/12/hive-sql-to-mapreduce.html)
-3. [LanguageManual DDL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL)
-4. [LanguageManual Types](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types)
-5. [Managed vs. External Tables](https://cwiki.apache.org/confluence/display/Hive/Managed+vs.+External+Tables)
+1. [Hive Getting Started](images/https://cwiki.apache.org/confluence/display/Hive/GettingStarted)
+2. [Hive SQL 的编译过程](images/https://tech.meituan.com/2014/02/12/hive-sql-to-mapreduce.html)
+3. [LanguageManual DDL](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL)
+4. [LanguageManual Types](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types)
+5. [Managed vs. External Tables](images/https://cwiki.apache.org/confluence/display/Hive/Managed+vs.+External+Tables)

@@ -107,7 +107,8 @@ C:\Users\Administrator\NIODemo\.
 执行normalize（）方法之后：C:\Users\Administrator
 执行toRealPath()方法之后：C:\Users\Administrator
 ```
-![d6a70ed9337b5e22fa34de22f36236b4](Java NIO之拥抱Path和Files.resources/1E6CACD6-76A0-4D6C-8E05-C1D9353E293A.png)
+
+![d6a70ed9337b5e22fa34de22f36236b4](images/Java NIO之拥抱Path和Files.resources/1E6CACD6-76A0-4D6C-8E05-C1D9353E293A.png)
 
 #### 拥抱Files类
 Java NIO中的Files类（java.nio.file.Files）提供了多种操作文件系统中文件的方法。本节教程将覆盖大部分方法。Files类包含了很多方法，所以如果本文没有提到的你也可以直接查询JavaDoc文档。
@@ -232,7 +233,7 @@ solr-7.2.1
 **7 遍历整个文件目录：**
 walkFileTree接受一个Path和FileVisitor作为参数。Path对象是需要遍历的目录，FileVistor则会在每次遍历中被调用。
 FileVisitor需要调用方自行实现，然后作为参数传入walkFileTree().FileVisitor的每个方法会在遍历过程中被调用多次。如果不需要处理每个方法，那么可以继承它的默认实现类SimpleFileVisitor，它将所有的接口做了空实现。
-```
+```java
 public class WorkFileTree {
     public static void main(String[] args) throws IOException{
         Path startingDir = Paths.get("D:\\apache-tomcat-9.0.0.M17");

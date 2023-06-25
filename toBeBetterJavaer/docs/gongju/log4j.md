@@ -12,6 +12,7 @@ tag:
 
 这不，我在战国时代读者群里发现了这么一串聊天记录：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j-cacd9e88-4a4d-4127-a18b-f99b2e2296a3.png)
 
 竟然有小伙伴不知道“打日志”是什么意思，不知道该怎么学习，还有小伙伴回答说，只知道 Log4j！
@@ -21,6 +22,7 @@ tag:
 我就想问一下，怎么了，入门的文章有入门的群体需要，而我恰好帮助了这么一大批初学者，我应该受到褒奖好不好？
 
 （说好的不在乎，怎么在乎起来了呢？手动狗头）
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j-58282c4d-8178-45bd-8ba3-26740f6dd4a3.png)
 
@@ -36,6 +38,7 @@ tag:
 `System.out.println()` 恐怕是我们在学习 Java 的时候，最常用的一种打印日志的方式了，几乎每个 Java 初学者都这样干过，甚至一些老鸟。
 
 之所以这样打印日志，是因为很方便，上手难度很低，尤其是在 IDEA 的帮助下，只需在键盘上按下 `so` 两个字母就可以调出 `System.out.println()`。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j-64dbb12b-8f6b-4ee3-ab5a-60519dd9112f.png)
 
@@ -63,6 +66,7 @@ OFF，最高级别，意味着所有消息都不会输出了。
 
 这个级别是基于 Log4j 的，和 java.util.logging 有所不同，后者提供了更多的日志级别，比如说 SEVERE、FINER、FINEST。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j-4919cd20-e524-43a2-8b41-9eab6ac0c1e4.png)
 
 
@@ -85,6 +89,7 @@ if(logger.isDebugEnabled()){
 当 DEBUG 级别是开启的时候再打印日志，这种方式在你看很多源码的时候就可以发现，很常见。
 
 切记，在生产环境下，一定不要开启 DEBUG 级别的日志，否则程序在大量记录日志的时候会变很慢，还有可能在你不注意的情况下，悄悄地把磁盘空间撑爆。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j-fd2149c5-2d0c-4c15-897d-d5fa06cce71f.png)
 
@@ -122,6 +127,7 @@ public class JavaUtilLoggingDemo {
 ```
 
 程序运行后会在 target 目录下生成一个名叫 javautillog.txt 的文件，内容如下所示：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j-222181d4-04ba-4487-8386-69b8737d2d5c.png)
 
@@ -348,6 +354,7 @@ if(logger.isDebugEnabled()) {
 7）要对日志信息加以区分，把某一类的日志信息在输出的时候加上前缀，比如说所有数据库级别的日志里添加 `DB_LOG`，这样的日志非常大的时候可以通过 `grep` 这样的 Linux 命令快速定位。
 
 8）不要在日志文件中打印密码、银行账号等敏感信息。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/log4j-42d3a052-daeb-450a-a775-a32f983dd688.png)
 

@@ -334,6 +334,7 @@ abstract class TransactionAttributeSourcePointcut
 
 我们来看下这两个方法：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-133740c93d470e16ec8dc9a34106adb8fc8.png)
 
 *   `TransactionAttributeSourceClassFilter#matches`：先判断当前类是否为是否为 `TransactionalProxy`、`PlatformTransactionManager`、`PersistenceExceptionTranslator` 或其实现类，然后调用 `AnnotationTransactionAttributeSource#isCandidateClass` 继续判断；
@@ -362,6 +363,7 @@ public boolean isCandidateClass(Class<?> targetClass) {
 ```
 
 可以看到，这是在循环里调用 `TransactionAnnotationParser` 的 `isCandidateClass` 方法。`this.annotationParsers` 是啥呢？通过调试，内容如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-5e16d6769e5a74c2f3064afdd090de08d42.png)
 

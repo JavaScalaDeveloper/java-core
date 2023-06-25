@@ -16,6 +16,7 @@ head:
 
 “老王，Java IO 也太上头了吧？”新兵蛋子小二向头顶很凉快的老王抱怨道，“你瞧，我就按照传输方式对 IO 进行了一个简单的分类，就能搞出来这么多的玩意！”
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/shangtou-01.png)
 
 好久没搞过 IO 了，老王看到这幅思维导图也是吃了一惊。想想也是，他当初学习 Java IO 的时候头也大，乌央乌央的一片，全是类，估计是所有 Java 包里面类最多的，一会是 Input 一会是 Output，一会是 Reader 一会是 Writer，真不知道 Java 的设计者是怎么想的。
@@ -49,6 +50,7 @@ Java 中是通过流处理IO 的，那么什么是流？
 字符（char）可以是计算机中使用的字母、数字、和符号，比如说 A 1 $ 这些。
 
 通常来说，一个字母或者一个字符占用一个字节，一个汉字占用两个字节。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/shangtou-02.png)
 
@@ -180,6 +182,7 @@ try (FileReader fr = new FileReader("input.txt");
 所有的程序，在执行的时候，都是在内存上进行的，一旦关机，内存中的数据就没了，那如果想要持久化，就需要把内存中的数据输出到外部，比如说文件。
 
 文件操作算是 IO 中最典型的操作了，也是最频繁的操作。那其实你可以换个角度来思考，比如说按照 IO 的操作对象来思考，IO 就可以分类为：文件、数组、管道、基本数据类型、缓冲、打印、对象序列化/反序列化，以及转换等。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/shangtou-03.png)
 
@@ -491,6 +494,7 @@ public static void main(String[] args) {
 CPU 很快，它比内存快 100 倍，比磁盘快百万倍。那也就意味着，程序和内存交互会很快，和硬盘交互相对就很慢，这样就会导致性能问题。
 
 为了减少程序和硬盘的交互，提升程序的效率，就引入了缓冲流，也就是类名前缀带有 Buffer 的那些，比如说 BufferedInputStream、BufferedOutputStream、BufferedReader、BufferedWriter。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/shangtou-04.png)
 

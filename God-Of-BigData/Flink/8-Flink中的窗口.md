@@ -30,6 +30,7 @@
 
 上一张经典图：
 
+
 ![1ee4f402b32040ef6ed9dcc44a212078](images/8-Flink中的窗口.resources/CD34BCB4-E2D4-41AD-B8E7-B6EFDB0BAB82.png)
 
 

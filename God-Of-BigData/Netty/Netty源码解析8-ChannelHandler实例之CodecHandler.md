@@ -54,7 +54,7 @@
 
 自动扩容的方法简单粗暴，直接使用大容量的Bytebuf替换旧的ByteBuf。Netty定义了两个累积器，一个为MERGE_CUMULATOR：
 
-```
+```java
 public static final Cumulator MERGE_CUMULATOR = new Cumulator() {
         @Override
         public ByteBuf cumulate(ByteBufAllocator alloc, ByteBuf cumulation, ByteBuf in) {
@@ -80,7 +80,7 @@ public static final Cumulator MERGE_CUMULATOR = new Cumulator() {
 
 另一个累积器为COMPOSITE_CUMULATOR：
 
-```
+```java
 public static final Cumulator COMPOSITE_CUMULATOR = new Cumulator() {
         @Override
         public ByteBuf cumulate(ByteBufAllocator alloc, ByteBuf cumulation, ByteBuf in) {
@@ -108,7 +108,7 @@ public static final Cumulator COMPOSITE_CUMULATOR = new Cumulator() {
 这个累积器只在第二种情况refCnt>1时扩容，除此之外处理和MERGE_CUMULATOR一致，不同的是当cumulation不是CompositeByteBuf时会创建新的同类CompositeByteBuf，这样最后返回的ByteBuf必定是CompositeByteBuf。使用这个累积器后，当容量不够时并不会进行内存复制，只会讲新读入的in加到CompositeByteBuf中。需要注意的是：此种情况下虽然不需内存复制，却要求用户维护复杂的索引，在某些使用中可能慢于MERGE_CUMULATOR。故Netty默认使用MERGE_CUMULATOR累积器。
 累积器分析完毕，步入正题ByteToMessageDecoder，首先看类签名：
 
-```
+```java
 public abstract class ByteToMessageDecoder extends
                                 ChannelInboundHandlerAdapter
 ```
@@ -267,7 +267,7 @@ List<Object> out) throws Exception;
 循环中的第一个if分支，检查解码结果，如果已经解码出消息则立即将消息传播到下一个处理器进行处理，这样可使消息得到及时处理。在调用decode()方法的前后，都检查该Handler是否被用户从ChannelPipeline中删除，如果删除则跳出解码步骤不对输入缓冲区in进行操作，因为继续操作in已经不安全。解码完成后，对in解码前后的读索引进行了检查，防止用户的错误使用，如果用户错误使用将抛出异常。
 至此，核心的解码框架已经分析完毕，再看最后的一些边角处理。首先是channelReadComplete()读事件完成后的处理：
 
-```
+```java
 public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         numReads = 0;   // 连续读次数置0
         discardSomeReadBytes(); // 丢弃已读数据，节约内存

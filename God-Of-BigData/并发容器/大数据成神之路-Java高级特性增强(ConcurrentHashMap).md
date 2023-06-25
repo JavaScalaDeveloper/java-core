@@ -31,10 +31,12 @@ Segment继承ReentrantLock用来充当锁的角色，每个 Segment 对象守护
 HashEntry 用来封装映射表的键/值对；
 每个桶是由若干个 HashEntry 对象链接起来的链表。
 一个 ConcurrentHashMap 实例中包含由若干个 Segment 对象组成的数组，下面我们通过一个图来演示一下 ConcurrentHashMap 的结构：
-![68c2784b9b62e5bfb40a1db079754bde](大数据成神之路-Java高级特性增强(ConcurrentHashMap).resources/4C9E2E7A-9471-46E4-BC40-3F7803EA8C2B.png)
+
+![68c2784b9b62e5bfb40a1db079754bde](images/大数据成神之路-Java高级特性增强(ConcurrentHashMap).resources/4C9E2E7A-9471-46E4-BC40-3F7803EA8C2B.png)
 #### JDK1.8分析
 1.8的实现已经抛弃了Segment分段锁机制，利用CAS+Synchronized来保证并发更新的安全，底层采用数组+链表+红黑树的存储结构。
-![d6f12bc8a40be41b048307d46102a014](大数据成神之路-Java高级特性增强(ConcurrentHashMap).resources/33571F0A-5AF5-4191-AC11-06AC6A8D8E03.png)
+
+![d6f12bc8a40be41b048307d46102a014](images/大数据成神之路-Java高级特性增强(ConcurrentHashMap).resources/33571F0A-5AF5-4191-AC11-06AC6A8D8E03.png)
 **重要概念**
 在开始之前，有些重要的概念需要介绍一下:
 
@@ -323,7 +325,7 @@ TreeBin(TreeNode<K,V> b) {
 主要根据Node节点的hash值大小构建二叉树。这个红黑树的构造过程实在有点复杂，感兴趣的同学可以看看源码。
 **get操作**
 get操作和put操作相比，显得简单了许多
-```
+```java
 public V get(Object key) {
     Node<K,V>[] tab; Node<K,V> e, p; int n, eh; K ek;
     int h = spread(key.hashCode());

@@ -39,7 +39,7 @@ Storm-Redis 使用 Jedis 为 Redis 客户端，并提供了如下三个基本的
 
 <div align="center"> <img  src="../pictures/storm-wordcounttoredis.png"/> </div>
 
-> 用例源码下载地址：[storm-redis-integration](https://github.com/heibaiying/BigData-Notes/tree/master/code/Storm/storm-redis-integration)
+> 用例源码下载地址：[storm-redis-integration](images/https://github.com/heibaiying/BigData-Notes/tree/master/code/Storm/storm-redis-integration)
 
 ### 2.2 项目依赖
 
@@ -652,4 +652,4 @@ public class CustomRedisCountApp {
 
 ## 参考资料
 
-1. [Storm Redis Integration](http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-redis.html)
+1. [Storm Redis Integration](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-redis.html)

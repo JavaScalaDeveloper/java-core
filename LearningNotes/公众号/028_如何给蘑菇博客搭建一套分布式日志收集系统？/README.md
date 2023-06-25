@@ -7,6 +7,7 @@
 
 下面陌溪开始手把手搭建蘑菇博客技术栈的**日志收集模块**，坐稳扶好，一起开车啦~
 
+
 ![蘑菇博客架构图](images/image-20210603111452950.png)
 
 ## 拉取ElasticStack镜像
@@ -24,6 +25,7 @@ docker images;
 ```
 
 拉取完成后，查看我们的镜像信息，容量大概在**4.16G** 左右
+
 
 ![拉取ELK镜像](images/image-20200925203411844.png)
 
@@ -44,9 +46,11 @@ docker run --privileged -d -it -h elastic_stack --name elastic_stack -v /etc/loc
 
 执行完上面的命令后，如果没有错误，那么就代表执行成功
 
+
 ![image-20200925204214191](images/image-20200925204214191.png)
 
 然后我们就可以通过在启动一个 **xshell** 窗口，连接我们的容器了
+
 
 ![连接进入容器内](images/image-20200925204336586.png)
 
@@ -56,6 +60,7 @@ docker run --privileged -d -it -h elastic_stack --name elastic_stack -v /etc/loc
 - 密码：**mogu2018**
 
 即可进入到我们的容器内部，我们到 **/soft** 目录下，能看到里面安装的软件
+
 
 ![容器内部安装的软件](images/image-20200930092513748.png)
 
@@ -99,6 +104,7 @@ cd elsearch
 
 启动完成后，我们就可以看到 **ElasticSearch** 运行在9200端口上
 
+
 ![ElasticSearch成功运行](images/image-20200925205336945.png)
 
 我们输入下面的地址到浏览器中访问
@@ -108,6 +114,7 @@ http://your_ip:9200/
 ```
 
 如果出现下面的内容，表示 **ElasticSearch** 服务已经正常启动~
+
 
 ![验证ElasticSearch](images/image-20200925205443777.png)
 
@@ -206,6 +213,7 @@ output {
 
 > 我们可以通过获取到传递过来的 **from** 字段，就是在 **filebeat** 时候指定的 一个字段，代表是这条日志属于哪个模块的，然后在根据 **logstash** 的 **if** 判断，然后生成不同的 **ElasticSearch** 索引
 
+
 ![](images/image-20200927144647484.png)
 
 下面，我们指定该配置文件后，然后启动项目
@@ -220,6 +228,7 @@ nohup ./bin/logstash -f ./mogu-dashboard.conf  > catalina.out  2>&1 &
 
 注意：**logstash** 的启动可能会比较慢，需要耐心的等待一会~
 
+
 ![启动logstash](images/image-20200925210154370.png)
 
 启动完成后，会占用 **9600** 端口~，同时经过 **logstash** 的数据都会发送到 **ElasticSearch** 中
@@ -231,6 +240,7 @@ nohup ./bin/logstash -f ./mogu-dashboard.conf  > catalina.out  2>&1 &
 **filebeat** 是一个轻量级的日志文件收集器，主要用于收集我们的一些日志文件【它和应用服务器存放在一起】
 
 需要注意，**Beats** 不在我们ELK服务器上进行启动了，我们需要到部署蘑菇博客的服务器上，然后找到 **Beats** 目录
+
 
 ![安装beat](images/image-20200930092617884.png)
 
@@ -303,6 +313,7 @@ nohup ./filebeat -e -c mogu-dashboard.yml > catalina.out  2>&1 &
 
 启动完成后，我们能够看到日志文件已经被加载
 
+
 ![开始收集日志](images/image-20200927144808408.png)
 
 ## 启动Kibana
@@ -328,6 +339,7 @@ su elsearch
 
 查看启动信息，我们发现 **Kibana** 启动在 **5601** 端口号
 
+
 ![启动kibana](images/image-20200925210626499.png)
 
 启动后，我们在浏览器中访问我们的地址
@@ -336,11 +348,13 @@ su elsearch
 http://your_ip:5601
 ```
 
+
 ![浏览器访问kibana](images/image-20200925210805478.png)
 
 
 
 我们找到 **dashboard** 就可以看到蘑菇博客的日志记录了
+
 
 ![收集到的日志记录](images/image-20200927145854642.png)
 
@@ -365,16 +379,21 @@ http://your_ip:5601
 
 以下笔记仓库的部分 **PDF** 文件 ~
 
+
 ![大厂面试第二季笔记](images/image-20210523171559176.png)
 
+
 ![Java面试突击笔记](images/image-20210523171833579.png)
+
 
 ![JVM笔记](images/image-20210523172056549.png)
 
 如果有需要离线阅读的小伙伴可以到公众号回复 **PDF** ，即可获取下载地址~
 
+
 ![img](https://gitee.com/moxi159753/LearningNotes/raw/master/doc/images/qq/%E8%8E%B7%E5%8F%96PDF.jpg)
 
 同时本公众号**申请较晚**，暂时没有开通**留言**功能，欢迎小伙伴们添加我的私人微信【备注：**加群**】，我将邀请你加入到**蘑菇博客交流群**中，欢迎小伙伴们找陌溪一块聊天唠嗑，共同学习进步，如果你觉得本文对你有所帮助，麻烦小伙伴们动动手指给文章点个「**赞**」和「**在看**」。
+
 
 ![快来找陌溪唠嗑吧](https://gitee.com/moxi159753/LearningNotes/raw/master/doc/images/qq/%E6%B7%BB%E5%8A%A0%E9%99%8C%E6%BA%AA.png)

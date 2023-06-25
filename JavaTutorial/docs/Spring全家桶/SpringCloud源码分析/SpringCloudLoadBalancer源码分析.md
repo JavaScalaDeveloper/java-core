@@ -114,13 +114,16 @@ server:
 
 ```
 
+
 ![image-20220505191143684](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/938570a0b63b56671a862e8bda11577a.png)
 
 查看nacos服务管理-服务列表里服务详情，可以看到3个健康的库存实例和1个订单微服务实例
 
+
 ![image-20220505182432182](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/33fa03d937354fe00bb0bb2f3dd5c805.png)
 
 访问6次订单dedect接口：[http://localhost:4070/deductRest/1001/1](http://localhost:4070/deductRest/1001/1) ，从测试的结果也验证了LoadBalancer默认是轮询负载均衡策略。
+
 
 ![image-20220505192217715](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1fc20b1d482d2a4e3924c5707ac2ff19.png)
 
@@ -184,6 +187,7 @@ public class RestTemplateConfig {
 
 官网提供3中集成Spring Cloud LoadBalancer的方式，除了第一种上面已使用过，还支持Spring Web Flux响应式编程，WebClient是从Spring WebFlux 5.0版本开始提供的一个非阻塞的基于响应式编程的进行Http请求的客户端工具。它的响应式编程的基于Reactor的。WebClient中提供了标准Http请求方式对应的get、post、put、delete等方法，可以用来发起相应的请求。
 
+
 ![image-20220506233248585](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/ad44f363342f540b1cb1805b20be6ef0.png)
 
 在订单微服务中引入spring-boot-starter-webflux依赖
@@ -241,9 +245,11 @@ public class WebClientConfig {
 
 重新启动订单微服务
 
+
 ![image-20220506234934948](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/ec48e022accfb3298069c96b7e3799e7.png)
 
 访问订单控制器中的减库存WebClient接口，[http://localhost:4070/deductWebClient/1001/1](http://localhost:4070/deductWebClient/1001/1) ，结果返回成功
+
 
 ![image-20220506234627330](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/5f737fc9d8806dc072ce3e1fdf983de6.png)
 
@@ -272,13 +278,16 @@ public class WebClientConfig {
 
 重新启动订单微服务
 
+
 ![image-20220507000930179](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/3546b9913f1253a1b23039ad6f7546d1.png)
 
 访问订单控制器中的减库存WebClient接口，[http://localhost:4070/deductWebFluxReactor/1001/1](http://localhost:4070/deductWebFluxReactor/1001/1) ，结果返回成功
 
+
 ![image-20220507000746900](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/0bc2b04d23d11bc85009c7e040900b2b.png)
 
 关于LoadBalancer官网还提供很多其他功能，有兴趣可自行详细查阅和动手实验
+
 
 ![image-20220507001132987](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1d8f35933945b317a2dd71627fdfa748.png)
 
@@ -287,6 +296,7 @@ public class WebClientConfig {
 ### RestTemplate
 
 Spring Cloud LoadBalancer源码分析我们先从RestTemplate负载均衡的简单实现来分析入手，除此之外其支持Spring Web Flux响应式编程的实现原理思想也是相同，都是通过客户端添加拦截器，在拦截器中实现负载均衡。从RestTemplate的源码中可以知道其继承自InterceptingHttpAccessor抽象类
+
 
 ![image-20220508142236428](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c3ee7af69f54aeed5f1026823779fee8.png)
 
@@ -307,15 +317,18 @@ Spring Cloud LoadBalancer源码分析我们先从RestTemplate负载均衡的简�
 
 ```
 
+
 ![image-20220508142443637](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/5062f793bb2bd7f996eb944f77af7137.png)
 
 ### **LoadBalancerAutoConfiguration**
 
 从官网可以知道Spring Cloud LoadBalancer放在spring-cloud-commons，因此也作为其核心的@LoadBalanced注解也就是由spring-cloud-commons来实现，依据SpringBoot自动装配的原理先查看依赖包的实现逻辑，不难发现spring-cloud-commons引入了自动配置类LoadBalancerAutoConfiguration和ReactorLoadBalancerClientAutoConfiguration。
 
+
 ![image-20220509001530634](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b5be12e0dd8d515aa07613738efab122.png)
 
 当满足上述的条件时（@Conditional为条件注解），将自动创建LoadBalancerInterceptor并注入到RestTemplate中。
+
 
 ![image-20220508143752218](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/676f6d81529228511c862c780b0c4532.png)
 
@@ -323,15 +336,18 @@ Spring Cloud LoadBalancer源码分析我们先从RestTemplate负载均衡的简�
 
 LoadBalancerInterceptor实现了ClientHttpRequestInterceptor接口，因此也实现intercept方法，用于实现负载均衡的拦截处理。
 
+
 ![image-20220508144048248](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/bb587d8122fee4973eba2fc00ed1af3f.png)
 
 ### **LoadBalancerClient**
 
 LoadBalancerClient用于进行负载均衡逻辑，继承自ServiceInstanceChooser接口，从服务列表中选择出一个服务地址进行调用。在LoadBalancerClient种存在两个execute()方法，均是用来执行请求的，reconstructURI()是用来重构URL。
 
+
 ![image-20220508144435104](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/a3590c0ab24cb5ee04cf1cf513724fc0.png)
 
 对于LoadBalancerClient接口Spring Cloud LoadBalancer的提供默认实现为BlockingLoadBalancerClient
+
 
 ![image-20220508144750601](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/256e4815a982966d7d6bfb82e0e97f67.png)
 
@@ -460,15 +476,18 @@ public class BlockingLoadBalancerClient implements LoadBalancerClient {
 ### **LoadBalancerClientFactory**
 
 BlockingLoadBalancerClient中持有LoadBalancerClientFactory通过调用其getInstance方法获取具体的负载均衡客户端。通过工厂类LoadBalancerClientFactory获取具体的负载均衡器实例，后面的loadBalancer.choose(request)调用其接口choose()方法实现根据负载均衡算法选择下一个服务器完成负载均衡，而ReactiveLoadBalancer<t> getInstance(String serviceId) 有默认实现LoadBalancerClientFactory
+
 ![image-20220508190132565](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/4014445b0c2ea7189a232b5d257fb938.png)</t>
 
 LoadBalancerClientFactory客户端实现了不同的负载均衡算法，比如轮询、随机等。LoadBalancerClientFactory继承自NamedContextFactory，NamedContextFactory继承ApplicationContextAware，实现Spring ApplicationContext容器操作。
+
 
 ![image-20220508190412076](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/18f62338fdb636327fcdb2d08d33661b.png)
 
 ### ReactiveLoadBalancer
 
 ReactiveLoadBalancer负载均衡器实现服务选择，Spring Cloud Balancer中实现了轮询RoundRobinLoadBalancer、随机RandomLoadBalancer、NacosLoadBalancer算法。
+
 
 ![image-20220508235128931](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f19b9fd0d246dbae37b05e67b1a79805.png)
 
@@ -488,11 +507,13 @@ ReactiveLoadBalancer负载均衡器实现服务选择，Spring Cloud Balancer中
 
 ```
 
+
 ![image-20220508235645313](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c8ae46d4cedb33f40939edb4f6fde542.png)
 
 ### **LoadBalancerRequestFactory**
 
 LoadBalancerRequest工厂类调用createRequest方法用于创建LoadBalancerRequest。其内部持有LoadBalancerClient对象也即持有BlockingLoadBalancerClient。
+
 
 ![image-20220509000049541](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c928dcb312df87a44c33ee77a296ee84.png)
 
@@ -501,6 +522,7 @@ LoadBalancerRequest工厂类调用createRequest方法用于创建LoadBalancerReq
 ### ReactorLoadBalancerClientAutoConfiguration
 
 我们也抛一下基于WebClient的@Loadbalanced的流程的引入，首先声明负载均衡过滤器ReactorLoadBalancerClientAutoConfiguration是一个自动装配器类，在项目中引入了 WebClient 和 ReactiveLoadBalancer 类之后，自动装配流程就开始运行，它会初始化一个实现了 ExchangeFilterFunction 的实例，在后面该实例将作为过滤器被注入到WebClient。后续流程有兴趣再自行研究
+
 
 ![image-20220509001650781](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/869a4ea9a6e1409b84c927db08cebea1.png)
 
@@ -657,7 +679,9 @@ public class CustomLoadBalancerConfiguration {
 
 启动库存微服务和订单微服务，访问http://localhost:4070/deductRest/1001/1 ，控制台已打印自定义ItxsRandomLoadBalancerClient中的日志和成功访问结果
 
+
 ![image-20220509003807968](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c72e3f02f7e0d5d3343f8ae9c464b69c.png)
+
 
 ![image-20220509003927550](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/59796bbbd6b3524e32759d42b622f1bc.png)
 

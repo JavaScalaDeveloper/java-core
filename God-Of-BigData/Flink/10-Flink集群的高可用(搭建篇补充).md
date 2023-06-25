@@ -14,7 +14,8 @@ JobManager 协调每个 Flink 部署。它负责调度和资源管理。
 针对 Standalone 集群的 JobManager 高可用性的一般概念是，任何时候都有一个 主 JobManager 和多个备 JobManagers，以便在主节点失败时有备 JobManagers 来接管集群。这保证了没有单点故障，一旦备 JobManager 接管集群，作业就可以正常运行。主备  JobManager 实例之间没有明显的区别。每个 JobManager 都可以充当主备节点。
 例如，请考虑以下三个 JobManager 实例的设置:
 
-![2278c5ee57d47a73498685c4c728c432](10-Flink集群的高可用(搭建篇补充).resources/6278EDED-A65A-4539-A16D-7BCD9FE77864.png)
+
+![2278c5ee57d47a73498685c4c728c432](images/10-Flink集群的高可用(搭建篇补充).resources/6278EDED-A65A-4539-A16D-7BCD9FE77864.png)
 
 ### 配置
 

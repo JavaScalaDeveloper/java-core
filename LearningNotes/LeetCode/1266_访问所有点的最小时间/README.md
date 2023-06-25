@@ -16,6 +16,7 @@ https://leetcode-cn.com/problems/minimum-time-visiting-all-points/
 
 示例 1：
 
+
 ![image-20200703152246832](images/image-20200703152246832.png)
 
 ```

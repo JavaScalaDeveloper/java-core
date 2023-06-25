@@ -94,5 +94,5 @@ storm 和 Flink 都是真正意义上的实时计算框架。其对比如下：
 
 ## 参考资料
 
-1.  [What is stream processing?](https://www.ververica.com/what-is-stream-processing)
-2. [流计算框架 Flink 与 Storm 的性能对比](http://bigdata.51cto.com/art/201711/558416.htm)
+1.  [What is stream processing?](images/https://www.ververica.com/what-is-stream-processing)
+2. [流计算框架 Flink 与 Storm 的性能对比](images/http://bigdata.51cto.com/art/201711/558416.htm)

@@ -37,6 +37,7 @@
 
 用Eclipse IDE打开DispatcherServlet类的源码，ctrl+T看一下。
 
+
 ![](https://img2018.cnblogs.com/blog/1092007/201908/1092007-20190825145640146-1198909724.jpg)
 
 DispatcherServlet类的初始化入口方法init()定义在HttpServletBean这个父类中，HttpServletBean类作为一个直接继承于HttpServlet类的类，覆写了HttpServlet类的init()方法，实现了自己的初始化行为。
@@ -102,11 +103,13 @@ DispatcherServlet类的初始化入口方法init()定义在HttpServletBean这个
 
 可以看到，我注册了一个名为contextConfigLocation的<init-param>元素，其值为“classpath:spring/spring-servlet.xml”，这也是大家常常用来指定SpringMVC配置文件路径的方法。上面那段try,catch块包裹的代码发挥的作用，一个是将“classpath:spring/spring-servlet.xml”这段字符串转换成classpath路径下的一个资源文件，供框架初始化读取配置元素。在我的工程中是在spring文件夹下面的配置文件spring-servlet.xml。</init-param>
 
+
 ![](https://img2018.cnblogs.com/blog/1092007/201908/1092007-20190825145640348-460637659.jpg)
 
 另外一个作用，就是将contextConfigLocation的值读取出来，然后通过setContextConfigLocation()方法设置到DispatcherServlet中，这个setContextConfigLocation()方法是在FrameworkServlet类中定义的，也就是上面继承类图中DispatcherServlet的直接父类。
 
 我们在setContextConfigLocation()方法上面打上一个断点，启动web工程，可以看到下面的调试结果。
+
 
 ![](https://img2018.cnblogs.com/blog/1092007/201908/1092007-20190825145640835-96255521.jpg)
 

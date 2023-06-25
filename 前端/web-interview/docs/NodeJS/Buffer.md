@@ -1,6 +1,8 @@
 # 面试官：说说对 Node 中的 Buffer 的理解？应用场景？
 
- ![](https://static.vue-js.com/176d02b0-c69c-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/176d02b0-c69c-11eb-ab90-d9ae814b240d.png)
 
 
 ## 一、是什么
@@ -25,7 +27,9 @@ const buffer = Buffer.from("why")
 
 其存储过程如下图所示：
 
- ![](https://static.vue-js.com/20371250-c69c-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/20371250-c69c-11eb-ab90-d9ae814b240d.png)
 
 
 ## 二、使用方法

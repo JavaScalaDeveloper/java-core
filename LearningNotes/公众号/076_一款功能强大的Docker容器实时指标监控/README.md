@@ -4,17 +4,21 @@
 
 我们都知道，在 **Linux** 系统下，可以通过 **top** 命令进行性能分析，能够实时显示各个进程下资源的占有状况，类似于 **Windows** 的任务管理器。
 
+
 ![top命令](images/image-20220402083014632.png)
 
 但是，蘑菇博客都是部署在 **Docker** 容器里的，每个微服务服务都是一个 **Java** 程序
+
 
 ![top命令无法区分](images/image-20220402083809786.png)
 
 所以，用 **top** 命令没有办法到底是哪个服务了，因为每个服务都叫 **Java**
 
+
 ![](images/image-20220402083939546.png)
 
 为了解决这个困惑，陌溪在网上冲浪的时候，发现了一款容器监视器 **ctop**，
+
 
 ![](images/11.jpg)
 
@@ -22,9 +26,11 @@
 
 > Github：https://github.com/bcicen/ctop
 
+
 ![ctop官网](images/image-20220402085259830.png)
 
 下面我们从官网上的示例，看看 **ctop** 命令运行后的效果
+
 
 ![ctop运行后](images/screencap.gif)
 
@@ -41,15 +47,18 @@ sudo chmod +x /usr/local/bin/ctop
 
 如果，你的网速也和陌溪家里的一样，在这里卡了半天了，没动静（或许重新执行一次又行了）
 
+
 ![卡住了。。](images/image-20220402085927146.png)
 
 那么，也可以自己去 **release** 页面，下载对应版本的包
 
 > 发行页：https://github.com/bcicen/ctop/releases/tag/v0.7.7
 
+
 ![发行版](images/image-20220402090055403.png)
 
 然后再给把下载的文件通过 **xftp** 丢到 **/user/local/bin** 目录下
+
 
 ![](images/image-20220402090425350.png)
 
@@ -62,9 +71,11 @@ sudo chmod +x /usr/local/bin/ctop
 
 然后直接运行 **ctop** 命令即可，可以看到每个容器运行占用的 **CPU**、**内存**、**网卡流量**、**磁盘IO** 都一目了了
 
+
 ![ctop查看蘑菇容器](images/image-20220402091106721.png)
 
 同时，我们可以移动到你想查看的容器上，按下**回车键**
+
 
 ![ctop菜单栏](images/image-20220402092555632.png)
 
@@ -72,11 +83,13 @@ sudo chmod +x /usr/local/bin/ctop
 
 - **Single View**：容器的单视图页面，能够详细的看到容器运行的**镜像**、**端口**、**容器环境**，以及实时的 **CPU**、**内存**、**网络**、**磁盘** 等信息
 
+
 ![单个容器信息](images/image-20220402092819032.png)
 
 - **log view**：日志视图，通过这个命令就可以非常方便的看到容器内部的运行日志了，按回车键可退出
 
 > 其实就是 docker logs 命令
+
 
 ![查看容器日志](images/image-20220402093209596.png)
 
@@ -85,6 +98,7 @@ sudo chmod +x /usr/local/bin/ctop
 - **exec shell**：这个命令是进入容器的内部，在里面可以查看容器内的一些信息，通过 **exit** 命令退出
 
 > 相当于docker 的  exec 命令
+
 
 ![进入容器内部](images/image-20220402093534657.png)
 

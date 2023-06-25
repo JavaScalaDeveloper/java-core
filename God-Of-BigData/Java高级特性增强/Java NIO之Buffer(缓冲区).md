@@ -23,7 +23,8 @@ Buffer本质上就是一块内存区，可以用来写入数据，并在稍后�
 * FloatBuffer
 * DoubleBuffer
 * LongBuffer
-![481220701ebf3276c284ea0a2fa17928](Java NIO之Buffer(缓冲区).resources/1E718F2D-CAEB-4378-8FDB-780BE9803BF5.png)
+
+![481220701ebf3276c284ea0a2fa17928](images/Java NIO之Buffer(缓冲区).resources/1E718F2D-CAEB-4378-8FDB-780BE9803BF5.png)
 利用Buffer读写数据，通常遵循四个步骤：
 
 * 把数据写入buffer
@@ -45,7 +46,8 @@ Buffer缓冲区实质上就是一块内存，用于写入数据，也供后续�
 position和limit的具体含义取决于当前buffer的模式。capacity在两种模式下都表示容量。
 下面有张示例图，描诉了读写模式下position和limit的含义：
 
-![ccf1e3514f39dbc5ebc2b74818005ca0](Java NIO之Buffer(缓冲区).resources/CDDCF910-B3A2-41C1-AB22-6EAFAAD9BE35.png)
+
+![ccf1e3514f39dbc5ebc2b74818005ca0](images/Java NIO之Buffer(缓冲区).resources/CDDCF910-B3A2-41C1-AB22-6EAFAAD9BE35.png)
 
 >**容量（Capacity）**
 作为一块内存，buffer有一个固定的大小，叫做capacit（容量）。也就是最多只能写入容量值得字节，整形等数据。一旦buffer写满了就需要清空已读数据以便下次继续写入新的数据.
@@ -62,7 +64,8 @@ position和limit的具体含义取决于当前buffer的模式。capacity在两�
 
 #### Buffer的常见方法
 
-![58fb3ee7569b404a67362f82a7c9296c](Java NIO之Buffer(缓冲区).resources/03F3F860-14A4-4D45-A998-313304B775E1.png)
+
+![58fb3ee7569b404a67362f82a7c9296c](images/Java NIO之Buffer(缓冲区).resources/03F3F860-14A4-4D45-A998-313304B775E1.png)
 
 
 #### Buffer的使用方式/方法介绍

@@ -11,6 +11,7 @@ tag:
 
 HTTP 使用客户端-服务器模型，客户端向服务器发送 HTTP Request（请求），服务器响应请求并返回 HTTP Response（响应），整个过程如下图所示。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/450px-HTTP-Header.png)
 
 HTTP 协议基于 TCP 协议，发送 HTTP 请求之前首先要建立 TCP 连接也就是要经历 3 次握手。目前使用的 HTTP 协议大部分都是 1.1。在 1.1 的协议里面，默认是开启了 Keep-Alive 的，这样的话建立的连接就可以在多次请求中被复用了。
@@ -20,6 +21,7 @@ HTTP 协议基于 TCP 协议，发送 HTTP 请求之前首先要建立 TCP 连�
 ## SMTP:简单邮件传输(发送)协议
 
 **简单邮件传输(发送)协议（SMTP，Simple Mail Transfer Protocol）** 基于 TCP 协议，是一种用于发送电子邮件的协议
+
 
 ![SMTP 协议](https://oss.javaguide.cn/github/javaguide/cs-basics/network/what-is-smtp.png)
 
@@ -72,6 +74,7 @@ FTP 是基于客户—服务器（C/S）模型而设计的，在客户端与 FTP
 >
 > 这种将命令和数据分开传送的思想大大提高了 FTP 的效率。
 
+
 ![FTP工作过程](https://oss.javaguide.cn/github/javaguide/cs-basics/network/ftp.png)
 
 注意 ⚠️：FTP 是一种不安全的协议，因为它在传输过程中不会对数据进行加密。因此，FTP 传输的文件可能会被窃听或篡改。建议在传输敏感数据时使用更安全的协议，如 SFTP（一种基于 SSH 协议的安全文件传输协议，用于在网络上安全地传输文件）。
@@ -79,6 +82,7 @@ FTP 是基于客户—服务器（C/S）模型而设计的，在客户端与 FTP
 ## Telnet:远程登陆协议
 
 **Telnet 协议** 基于 TCP 协议，用于通过一个终端登陆到其他服务器。Telnet 协议的最大缺点之一是所有数据（包括用户名和密码）均以明文形式发送，这有潜在的安全风险。这就是为什么如今很少使用 Telnet，而是使用一种称为 SSH 的非常安全的网络传输协议的主要原因。
+
 
 ![Telnet:远程登陆协议](https://oss.javaguide.cn/github/javaguide/cs-basics/network/Telnet_is_vulnerable_to_eavesdropping-2.png)
 
@@ -89,6 +93,7 @@ FTP 是基于客户—服务器（C/S）模型而设计的，在客户端与 FTP
 SSH 的经典用途是登录到远程电脑中执行命令。除此之外，SSH 也支持隧道协议、端口映射和 X11 连接。借助 SFTP 或 SCP 协议，SSH 还可以传输文件。
 
 SSH 使用客户端-服务器模型，默认端口是 22。SSH 是一个守护进程，负责实时监听客户端请求，并进行处理。大多数现代操作系统都提供了 SSH。
+
 
 ![SSH:安全的网络传输协议](https://oss.javaguide.cn/github/javaguide/cs-basics/network/ssh-client-server.png)
 
@@ -104,6 +109,7 @@ RTP 协议分为两种子协议：
 ## DNS:域名系统
 
 DNS（Domain Name System，域名管理系统）基于 UDP 协议，用于解决域名和 IP 地址的映射问题。
+
 
 ![DNS:域名系统](https://oss.javaguide.cn/github/javaguide/cs-basics/network/dns-overview.png)
 

@@ -20,6 +20,7 @@ head:
 
 “好吧。”我只好摊摊手地说，“那我先画张集合框架的结构图等着你。”
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/gailan-01.png)
 
 
@@ -142,6 +143,7 @@ public synchronized boolean add(E e) {
 这种加了同步方法的类，注定会被淘汰掉，就像[StringBuilder取代StringBuffer](https://tobebetterjavaer.com/string/builder-buffer.html)那样。JDK 源码也说了：
 
 >如果不需要线程安全，建议使用ArrayList代替Vector。
+
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection//gailan-20bfd65a-1f1d-4de7-a3e3-3dda739e6f9d.png)
 
@@ -340,6 +342,7 @@ Queue，也就是队列，通常遵循先进先出（FIFO）的原则，新元�
 从名字上可以看得出，ArrayDeque 是一个基于数组实现的双端队列，为了满足可以同时在数组两端插入或删除元素的需求，数组必须是循环的，也就是说数组的任何一点都可以被看作是起点或者终点。
 
 这是一个包含了 4 个元素的双端队列，和一个包含了 5 个元素的双端队列。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/gailan-02.png)
 

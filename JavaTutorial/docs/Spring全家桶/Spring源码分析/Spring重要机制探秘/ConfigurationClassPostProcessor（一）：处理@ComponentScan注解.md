@@ -192,9 +192,11 @@ public void register(Class<?>... componentClasses) {
 
 执行前：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-c317168bfde886f7817e6e9a11301c84b52.png)
 
 执行后：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-cc2f7bcdb4b56f67893ac29774bb8119892.png)
 
@@ -322,11 +324,15 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
 
 1. 获取所有 `BeanDefinition` 的名称这步执行完成后，结果如下：
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-df320c2911c4222a6867a0f0a4fe7d9987d.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-df320c2911c4222a6867a0f0a4fe7d9987d.png)
 
 2. 循环 `candidateNames` 数组，标识配置类的类型为 `Full` 还是 `Lite`，这一步所做的工作就是对配置类对应的 `BeanDefinition` 进行标识（至于标识后有什么作用，在后面分析 `@Configuration` 注解时会再分析），`beanConfigs` 没有 `@Configuration` 注解，因此是 `Lite` 配置类。这一步得到的 `configCandidates` 如下：
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-81a68ec905807d77153158af4c86d48a1d3.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-81a68ec905807d77153158af4c86d48a1d3.png)
 
 3. 解析配置类，即解析 `@Component`，`@PropertySources`，`@ComponentScans`，`@ImportResource` 等注解标注的类，这个方法非常重要，下面会重点分析；
 
@@ -599,9 +605,11 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
 
 执行前：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-85e400f7d45b4fe5e2353e359f034b1a726.png)
 
 执行后：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a6d02c305f562414326ca7836c281ebf472.png)
 

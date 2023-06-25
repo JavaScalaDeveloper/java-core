@@ -4,12 +4,13 @@
 我们可以把Zookeeper理解为一个高可用的文件系统。但是它没有文件和文件夹的概念，只有一个叫做znode的节点概念。那么znode即是数据的容器，也是其他节点的容器。（其实znode就可以理解为文件或者是文件夹）我们用父节点和子节点的关系来表示组和成员的关系。那么一个节点代表一个组，组节点下的子节点代表组内的成员.
 如下图所示：
 
-![zk](https://github.com/wangzhiwubigdata/God-Of-BigData/blob/master/zookeeeper/859b65a6868f6b56eadd77a226db5e03.jpeg)
+
+![zk](images/https://github.com/wangzhiwubigdata/God-Of-BigData/blob/master/zookeeeper/859b65a6868f6b56eadd77a226db5e03.jpeg)
 
 ## 创建组
 
 我们使用zookeeper的Java API来创建一个/zoo的组节点：
-```
+```java
 public class CreateGroup implements Watcher {
  private static final int SESSION_TIMEOUT = 5000;
  private ZooKeeper zk;
@@ -49,7 +50,7 @@ public class CreateGroup implements Watcher {
 当main()执行时，首先创建了一个CreateGroup的对象，然后调用connect()方法，通过zookeeper的API与zookeeper服务器连接。创建连接我们需要3个参数：一是服务器端主机名称以及端口号，二是客户端连接服务器session的超时时间，三是Watcher接口的一个实例。Watcher实例负责接收Zookeeper数据变化时产生的事件回调。
 
 在连接函数中创建了zookeeper的实例，然后建立与服务器的连接。建立连接函数会立即返回，所以我们需要等待连接建立成功后再进行其他的操作。我们使用CountDownLatch来阻塞当前线程，直到zookeeper准备就绪。这时，我们就看到Watcher的作用了。我们实现了Watcher接口的一个方法：
-```
+```java
 public void process(WatchedEvent event);
 ```
 当客户端连接上了zookeeper服务器，Watcher将由process()函数接收一个连接成功的事件。我们接下来调用CountDownLatch，释放之前的阻塞。
@@ -70,7 +71,7 @@ Created /zoo
 接下来我们实现如何在一个组中注册成员。我们将使用ephemeral znode来创建这些成员节点。那么当客户端程序退出时，这些成员将被删除。
 我们创建一个ConnetionWatcher类，然后继承实现一个JoinGroup类：
 
-```
+```java
 public class ConnectionWatcher implements Watcher {
 
  private static final int SESSION_TIMEOUT = 5000;
@@ -121,7 +122,7 @@ public class JoinGroup extends ConnectionWatcher {
 
 下面我们实现一个程序来列出一个组中的所有成员。
 
-```
+```java
 public class ListGroup extends ConnectionWatcher {
 
  public void list(String groupName) throws KeeperException,
@@ -201,7 +202,7 @@ ZooKeeper的API提供一个delete()方法来删除一个znode。我们通过输�
 删除一个znode之前，我们需要先删除它的子节点，就下如下代码中实现的那样：
 
 
-```
+```java
 public class DeleteGroup extends ConnectionWatcher {
 
  public void delete(String groupName) throws KeeperException,

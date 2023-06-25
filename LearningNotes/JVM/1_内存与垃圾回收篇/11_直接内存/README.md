@@ -22,6 +22,7 @@ ByteBuffer byteBuffer = ByteBuffer.allocateDirect(BUFFER);
 
 原来采用BIO的架构，我们需要从用户态切换成内核态
 
+
 ![image-20200709170907611](images/image-20200709170907611.png)
 
 NIO的方式使用了缓存区的概念
@@ -39,5 +40,6 @@ NIO的方式使用了缓存区的概念
 直接内存大小可以通过MaxDirectMemorySize设置
 
 如果不指定，默认与堆的最大值-xmx参数值一致
+
 
 ![image-20200709230647277](images/image-20200709230647277.png)

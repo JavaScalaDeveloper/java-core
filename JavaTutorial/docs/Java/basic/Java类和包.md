@@ -284,6 +284,7 @@ dt.jar里面主要是swing组件的BeanInfo。IDE根据这些BeanInfo显示这�
 ### rt.jar
 rt.jar是runtime的归档。Java基础类库，也就是Java doc里面看到的所有的类的class文件。
 
+
 ![image](https://www.pianshen.com/images/75/856cbbdf52da90fa4f9bbb7b0597ce63.png)
 
 rt.jar 默认就在Root Classloader的加载路径里面的，而在Claspath配置该变量是不需要的；同时jre/lib目录下的其他jar:jce.jar、jsse.jar、charsets.jar、resources.jar都在Root Classloader中。

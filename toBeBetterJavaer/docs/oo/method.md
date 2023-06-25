@@ -28,6 +28,7 @@ head:
 
 方法的声明反映了方法的一些信息，比如说可见性、返回类型、方法名和参数。如下图所示。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/17-01.png)
 
 **访问权限**：它指定了方法的可见性。Java 提供了四种[访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)：
@@ -76,6 +77,7 @@ public class PredefinedMethodDemo {
 在上面的代码中，我们使用了两个预先定义的方法，`main()` 方法是程序运行的入口，`println()` 方法是 `PrintStream` 类的一个方法。这些方法已经提前定义好了，所以我们可以直接使用它们。
 
 我们可以通过集成开发工具查看预先定义方法的方法签名，当我们把鼠标停留在 `println()` 方法上面时，就会显示下图中的内容：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/17-02.png)
 

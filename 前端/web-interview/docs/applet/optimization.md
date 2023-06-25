@@ -1,6 +1,8 @@
 # 面试官：说说提高微信小程序的应用速度的手段有哪些？
 
- ![](https://static.vue-js.com/f606d530-3278-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/f606d530-3278-11ec-a752-75723a64e8f5.png)
 
 
 
@@ -8,7 +10,9 @@
 
 小程序启动会常常遇到如下图场景：
 
- ![](https://static.vue-js.com/03941230-3279-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/03941230-3279-11ec-8e64-91fdec0f05a1.png)
 
 这是因为，小程序首次启动前，微信会在小程序启动前为小程序准备好通用的运行环境，如运行中的线程和一些基础库的初始化
 
@@ -22,7 +26,9 @@
 
 整体流程如下图：
 
- ![](https://static.vue-js.com/11c0ea90-3279-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/11c0ea90-3279-11ec-a752-75723a64e8f5.png)
 
 
 
@@ -47,7 +53,9 @@
 
 当用户点击到子包的目录时，还是有一个代码包下载的过程，这会感觉到明显的卡顿，所以子包也不建议拆的太大，当然我们可以采用子包预加载技术，并不需要等到用户点击到子包页面后在下载子包
 
- ![](https://static.vue-js.com/2034de10-3279-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/2034de10-3279-11ec-8e64-91fdec0f05a1.png)
 
 
 

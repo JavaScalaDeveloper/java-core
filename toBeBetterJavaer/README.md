@@ -41,6 +41,7 @@
 
 > 知识库收录的核心内容就全在这里面了，大类分为 Java 核心、Java 企业级开发、数据库、计算机基础、求职面试、学习资源、程序人生，几乎你需要的这里都有。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/tobebetterjavaer-map.png)
 
 
@@ -553,12 +554,15 @@
 
 关注二哥的原创公众号 **沉默王二**，回复**111** 即可免费领取。
 
+
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xingbiaogongzhonghao.png)
     
     
 ### star趋势图
 
-[![Star History Chart](https://api.star-history.com/svg?repos=itwanger/toBeBetterJavaer&type=Date)](https://star-history.com/#itwanger/toBeBetterJavaer&Date)
+[
+
+![Star History Chart](https://api.star-history.com/svg?repos=itwanger/toBeBetterJavaer&type=Date)](https://star-history.com/#itwanger/toBeBetterJavaer&Date)
 
 
 ### 友情链接

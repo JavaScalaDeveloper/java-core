@@ -83,11 +83,13 @@
 
 mmap是一种内存映射文件的方法，即将一个文件或者其它对象映射到进程的地址空间，实现文件磁盘地址和进程虚拟地址空间中一段虚拟地址的一一对映关系。实现这样的映射关系后，进程就可以采用指针的方式读写操作这一段内存，而系统会自动回写脏页面到对应的文件磁盘上，即完成了对文件的操作而不必再调用read,write等系统调用函数。相反，内核空间对这段区域的修改也直接反映用户空间，从而可以实现不同进程间的文件共享。如下图所示：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405100810.png)
 
 由上图可以看出，进程的虚拟地址空间，由多个虚拟内存区域构成。虚拟内存区域是进程的虚拟地址空间中的一个同质区间，即具有同样特性的连续地址范围。上图中所示的text数据段（代码段）、初始数据段、BSS数据段、堆、栈和内存映射，都是一个独立的虚拟内存区域。而为内存映射服务的地址空间处在堆栈之间的空余部分。
 
 linux内核使用vm_area_struct结构来表示一个独立的虚拟内存区域，由于每个不同质的虚拟内存区域功能和内部机制都不同，因此一个进程使用多个vm_area_struct结构来分别表示不同类型的虚拟内存区域。各个vm_area_struct结构使用链表或者树形结构链接，方便进程快速访问，如下图所示：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405100838.png)
 
@@ -177,6 +179,7 @@ mmap内存映射的实现过程，总的来说可以分为三个阶段：
 
 分析：因为单位物理页面的大小是4096字节，虽然被映射的文件只有5000字节，但是对应到进程虚拟地址区域的大小需要满足整页大小，因此mmap函数执行后，实际映射到虚拟内存区域8192个 字节，5000~8191的字节部分用零填充。映射后的对应关系如下图所示：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405100908.png)
 此时：
 
@@ -189,6 +192,7 @@ mmap内存映射的实现过程，总的来说可以分为三个阶段：
 **情形二：一个文件的大小是5000字节，mmap函数从一个文件的起始位置开始，映射15000字节到虚拟内存中，即映射大小超过了原始文件的大小。**
 
 分析：由于文件的大小是5000字节，和情形一一样，其对应的两个物理页。那么这两个物理页都是合法可以读写的，只是超出5000的部分不会体现在原文件中。由于程序要求映射15000字节，而文件只占两个物理页，因此8192字节~15000字节都不能读写，操作时会返回异常。如下图所示：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405100917.png)
 
@@ -226,11 +230,13 @@ PhantomReference 是所有“弱引用”中最弱的引用类型。不同于软
 
 #### 关于linux的内核态和用户态
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405100942.png)
 
 *   内核态：控制计算机的硬件资源，并提供上层应用程序运行的环境。比如socket I/0操作或者文件的读写操作等
 *   用户态：上层应用程序的活动空间，应用程序的执行必须依托于内核提供的资源。
 *   系统调用：为了使上层应用能够访问到这些资源，内核为上层应用提供访问的接口。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405100954.png)
 
@@ -242,6 +248,7 @@ A：intel cpu提供Ring0-Ring3四种级别的运行模式，Ring0级别最高，
 ### DirectByteBuffer ———— 直接缓冲
 
 DirectByteBuffer是Java用于实现堆外内存的一个重要类，我们可以通过该类实现堆外内存的创建、使用和销毁。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405101025.png)
 
@@ -259,6 +266,7 @@ DirectByteBuffer该类本身还是位于Java内存模型的堆中。堆内内存
 address只会被直接缓存给使用到。之所以将address属性升级放在Buffer中，是为了在JNI调用GetDirectBufferAddress时提升它调用的速率。
 address表示分配的堆外内存的地址。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405101047.png)
 
 unsafe.allocateMemory(size);分配完堆外内存后就会返回分配的堆外内存基地址，并将这个地址赋值给了address属性。这样我们后面通过JNI对这个堆外内存操作时都是通过这个address来实现的了。
@@ -269,6 +277,7 @@ A：这是因为JNI方法访问的内存区域是一个已经确定了的内存�
 
 Q：如上面所说，JNI调用的内存是不能进行GC操作的，那该如何解决了？
 A：①堆内内存与堆外内存之间数据拷贝的方式(并且在将堆内内存拷贝到堆外内存的过程JVM会保证不会进行GC操作)：比如我们要完成一个从文件中读数据到堆内内存的操作，即FileChannelImpl.read(HeapByteBuffer)。这里实际上File I/O会将数据读到堆外内存中，然后堆外内存再讲数据拷贝到堆内内存，这样我们就读到了文件中的内存。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405101116.png)
 ```java
@@ -450,6 +459,7 @@ System.gc()会触发一个full gc，当然前提是你没有显示的设置-XX:+
 所以在后面打代码中，会进行最多9次尝试，看是否有足够的可用堆外内存来分配堆外内存。并且每次尝试之前，都对延迟等待时间，已给JVM足够的时间去完成full gc操作。如果9次尝试后依旧没有足够的可用堆外内存来分配本次堆外内存，则抛出OutOfMemoryError("Direct buffer memory”)异常。
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405101406.png)
 
 注意，这里之所以用使用full gc的很重要的一个原因是：System.gc()会对新生代的老生代都会进行内存回收，这样会比较彻底地回收DirectByteBuffer对象以及他们关联的堆外内存.
@@ -495,7 +505,9 @@ Cleaner是PhantomReference的子类，并通过自身的next和prev字段维护�
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405101539.png)
+
 
 
 
@@ -512,6 +524,7 @@ Cleaner是PhantomReference的子类，并通过自身的next和prev字段维护�
 👆虽然Cleaner不会调用到Reference.clear()，但Cleaner的clean()方法调用了remove(this)，即将当前Cleaner从Cleaner链表中移除，这样当clean()执行完后，Cleaner就是一个无引用指向的对象了，也就是可被GC回收的对象。
 
 thunk方法：
+
 
 
 

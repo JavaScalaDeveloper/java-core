@@ -52,6 +52,7 @@ HandlerExecutionChain getHandler(HttpServletRequest var1) throws Exception;
 
 Spring3.1版本之后引入的。 是一个封装了方法参数、方法注解，方法返回值等众多元素的类。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/232033308878895.jpg)
 
 它的子类InvocableHandlerMethod有两个重要的属性WebDataBinderFactory和HandlerMethodArgumentResolverComposite， 很明显是对请求进行处理的。
@@ -59,6 +60,7 @@ Spring3.1版本之后引入的。 是一个封装了方法参数、方法注解�
 InvocableHandlerMethod的子类ServletInvocableHandlerMethod有个重要的属性HandlerMethodReturnValueHandlerComposite，很明显是对响应进行处理的。
 
 ServletInvocableHandlerMethod这个类在HandlerAdapter对每个请求处理过程中，都会实例化一个出来(上面提到的属性由HandlerAdapter进行设置)，分别对请求和返回进行处理。　　(RequestMappingHandlerAdapter源码，实例化ServletInvocableHandlerMethod的时候分别set了上面提到的重要属性)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/240149411377243.png)
 
@@ -82,15 +84,18 @@ public class DeptController {
 ```  
 
 (刚初始化时的数据)　　  
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/241246397157212.png)
 
 (HandlerAdapter处理后的数据)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/241246574657656.png)
 
 **RequestCondition接口：**
 
 **Spring3.1版本之后引入的。 是SpringMVC的映射基础中的请求条件，可以进行combine, compareTo，getMatchingCondition操作。这个接口是映射匹配的关键接口，其中getMatchingCondition方法关乎是否能找到合适的映射。**
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/241429158878034.png)
 
@@ -99,6 +104,7 @@ public class DeptController {
 Spring3.1版本之后引入的。 是一个封装了各种请求映射条件并实现了RequestCondition接口的类。
 
 有各种RequestCondition实现类属性，patternsCondition，methodsCondition，paramsCondition，headersCondition，consumesCondition以及producesCondition，这个请求条件看属性名也了解，分别代表http请求的路径模式、方法、参数、头部等信息。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/241556162777007.png)
 
@@ -110,25 +116,32 @@ Spring3.1版本之后引入的。 是一个封装了各种请求映射条件并�
 
 先看AbstractHandlerMethodMapping的initHandlerMethods方法中。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/241831201065104.png)
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/241922304028276.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/241932113242502.png)
 
 我们进入createRequestMappingInfo方法看下是如何构造RequestMappingInfo对象的。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/251242523404424.png)
 
 PatternsRequestCondition构造函数：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/252348515124305.png)
 
 类对应的RequestMappingInfo存在的话，跟方法对应的RequestMappingInfo进行combine操作。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/250107154024892.png)
 
 然后使用符合条件的method来注册各种HandlerMethod。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/260023477461660.png)
 
@@ -136,13 +149,16 @@ PatternsRequestCondition构造函数：
 
 PatternsRequestCondition：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/251617000436911.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/251917084021029.png)
 
 RequestMethodsRequestCondition：
 
 方法的请求条件，用个set直接add即可。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/251919265597456.png)
 
@@ -164,13 +180,16 @@ T为RequestMappingInfo。
 
 首先看HandlerMethod的获得(直接看关键代码了)：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/252206079491274.png)
 
 这里的比较器是使用RequestMappingInfo的compareTo方法(RequestCondition接口定义的)。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/252219494658063.png)
 
 然后构造HandlerExecutionChain加上拦截器
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/252208290431970.png)
 
@@ -193,6 +212,7 @@ public class TestWildcardController {
 
 由于这里的每个pattern都带了*因此，都不会加入到urlMap中，但是handlerMethods还是有的。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/260032509654870.png)
 
 当我们访问：http://localhost:8888/SpringMVCDemo/wildcard/test1的时候。
@@ -201,9 +221,11 @@ public class TestWildcardController {
 
 然后进行匹配，匹配根据RequestCondition的getMatchingCondition方法。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/260046407936253.png)
 
 最终匹配到2个RequestMappingInfo：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/260049401063106.png)
 
@@ -215,15 +237,19 @@ public class TestWildcardController {
 
 我们看下PatternsRequestCondition比较的逻辑：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/260125371817100.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/260125488223078.png)
 
 因此，/test*的通配符比/test?的多，因此，最终选择了/test?
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/260129091195087.png)
 
 直接比较优先于通配符。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/260129342756267.png)
 
@@ -242,9 +268,11 @@ public class TestPriorityController {
 
 这里例子，其他requestCondition都一样，只有RequestMethodCondition不一样。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/260151358222728.png)
 
 看出，方法多的优先级越多。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/260152065252948.png)
 
@@ -266,7 +294,9 @@ DispatcherServlet找对应的HandlerExecutionChain的时候会遍历属性handle
 
 Spring解析配置文件会使用ResourcesBeanDefinitionParser进行解析的时候，会实例化出SimpleUrlHandlerMapping。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/261025451501584.jpg)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/261026409781228.jpg)
 
@@ -274,7 +304,9 @@ Spring解析配置文件会使用ResourcesBeanDefinitionParser进行解析的时
 
 访问地址：http://localhost:8888/SpringMVCDemo/static/js/jquery-1.11.0.js
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/261013551199069.jpg)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/261028504315946.jpg)
 

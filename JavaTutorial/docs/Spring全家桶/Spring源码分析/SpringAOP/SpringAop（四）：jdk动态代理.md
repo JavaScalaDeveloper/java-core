@@ -727,9 +727,11 @@ spring 对以上五种通知的执行，主要分为两个部分：
 
 画图示意通知的执行过程如下：
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-e88e0cec49c47648005e5d3160663425739.png)
 
 最终的执行顺序：
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-97026239d0b2dc02abbe87a9b76325c3cc0.png)
 

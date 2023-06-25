@@ -74,6 +74,7 @@ public class Main {
 
 那么，在 spring 中，两个类相互注入对方实例的情况，会有什么问题呢？我们来看 `spring bean` 的创建过程（**注意：这里我们仅分析 `bean` 的 `scope` 为 `singleton` 的情况，也就是 `scope` 为`单例`的情况**）：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-ca36e17077b1b191834645b3c8e588ff6c4.png)
 
 这个过程中有几点需要说明下：
@@ -93,6 +94,7 @@ public class Main {
 
 spring bean 的创建过程如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b55a211447b5fabeaa0c3ef0bfee0920c82.png)
 
 对上图说明如下：
@@ -106,6 +108,7 @@ spring bean 的创建过程如下：
 #### 2.2 引入 `earlySingletonObjects` 解决循环依赖
 
 我们分析下，循环出现的原因在于，在 `service2` 获取 `service1` 时，由于 `singletonObjects` 中此时并不存在 `service1`，因此会再走 `service1` 的创建过程，重新创建 `service1`，因此，我们有个大胆的想法：如果在 `service1` 实例化后就把它保存起来，后面再再找 `service1` 时，就返回这个未进行依赖注入的 `service1`，像下面这样：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-c0eaecbe82b144a6fcd9fd048f2cca53497.png)
 
@@ -133,6 +136,7 @@ spring bean 的创建过程如下：
 *   `代理对象`：进行过 aop 的对象，可以是 java 对象仅进行过 aop 得到的对象 (仅进行过 aop，未进行依赖注入，也未进行初始化)，也可以是进行过 aop 的 `spring bean`.
 
 我们先来看看 aop 是如何创建对象的：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-e92991c1c173bbd5579be3001a977555be7.png)
 
@@ -273,6 +277,7 @@ public static main(String[] args) {
 
 从代码上看，`proxyObj2(代理对象)` 中持有 `ob2(原始对象)`，生成代理对象后，继续对原始对象进行属性注入，依然能影响代理对象，最终代理对象持有的原始对象也完成了依赖注入，整个过程用图形示意如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8ff5579425f73dd5c2d321a86d0303390ac.png)
 
 这里我们再次申明，从 java 对象到 spring bean 的步骤有好多，这里我们仅关注与循环依赖相关的步骤，如果想了解 spring bean 详细的初始化过程，可查看 [spring 启动流程之启动流程概览](https://my.oschina.net/funcy/blog/4597493)。
@@ -287,6 +292,7 @@ public static main(String[] args) {
 ##### 2\. 为什么用 `earlySingletonObjects` 无法解决循环依赖？
 
 前面我们主要说明了代理对象的创建过程，接下来我们来看看在 aop 下，使用 `earlySingletonObjects` 来解决循环依赖有什么问题：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d3d00d76ab0c72339faccb7ccd853723d6c.png)
 
@@ -311,6 +317,7 @@ public static main(String[] args) {
 为了说明方便，下面对 `singletonObjects`、`earlySingletonObjects` 和 `singletonFactories` 分别称为**一级缓存**、**二级缓存**和**三级缓存**。
 
 spring 解决 aop 下的循环依赖流程如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-dc325a87b321e4c246a1b2f14169821a75a.png)
 
@@ -564,6 +571,7 @@ public class Main {
 
 那么，在 spring 中，两个类相互注入对方实例的情况，会有什么问题呢？我们来看 `spring bean` 的创建过程（**注意：这里我们仅分析 `bean` 的 `scope` 为 `singleton` 的情况，也就是 `scope` 为`单例`的情况**）：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-ca36e17077b1b191834645b3c8e588ff6c4.png)
 
 这个过程中有几点需要说明下：
@@ -583,6 +591,7 @@ public class Main {
 
 spring bean 的创建过程如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b55a211447b5fabeaa0c3ef0bfee0920c82.png)
 
 对上图说明如下：
@@ -596,6 +605,7 @@ spring bean 的创建过程如下：
 #### 2.2 引入 `earlySingletonObjects` 解决循环依赖
 
 我们分析下，循环出现的原因在于，在 `service2` 获取 `service1` 时，由于 `singletonObjects` 中此时并不存在 `service1`，因此会再走 `service1` 的创建过程，重新创建 `service1`，因此，我们有个大胆的想法：如果在 `service1` 实例化后就把它保存起来，后面再再找 `service1` 时，就返回这个未进行依赖注入的 `service1`，像下面这样：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-c0eaecbe82b144a6fcd9fd048f2cca53497.png)
 
@@ -623,6 +633,7 @@ spring bean 的创建过程如下：
 *   `代理对象`：进行过 aop 的对象，可以是 java 对象仅进行过 aop 得到的对象 (仅进行过 aop，未进行依赖注入，也未进行初始化)，也可以是进行过 aop 的 `spring bean`.
 
 我们先来看看 aop 是如何创建对象的：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-e92991c1c173bbd5579be3001a977555be7.png)
 
@@ -763,6 +774,7 @@ public static main(String[] args) {
 
 从代码上看，`proxyObj2(代理对象)` 中持有 `ob2(原始对象)`，生成代理对象后，继续对原始对象进行属性注入，依然能影响代理对象，最终代理对象持有的原始对象也完成了依赖注入，整个过程用图形示意如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8ff5579425f73dd5c2d321a86d0303390ac.png)
 
 这里我们再次申明，从 java 对象到 spring bean 的步骤有好多，这里我们仅关注与循环依赖相关的步骤，如果想了解 spring bean 详细的初始化过程，可查看 [spring 启动流程之启动流程概览](https://my.oschina.net/funcy/blog/4597493)。
@@ -777,6 +789,7 @@ public static main(String[] args) {
 ##### 2\. 为什么用 `earlySingletonObjects` 无法解决循环依赖？
 
 前面我们主要说明了代理对象的创建过程，接下来我们来看看在 aop 下，使用 `earlySingletonObjects` 来解决循环依赖有什么问题：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d3d00d76ab0c72339faccb7ccd853723d6c.png)
 
@@ -801,6 +814,7 @@ public static main(String[] args) {
 为了说明方便，下面对 `singletonObjects`、`earlySingletonObjects` 和 `singletonFactories` 分别称为**一级缓存**、**二级缓存**和**三级缓存**。
 
 spring 解决 aop 下的循环依赖流程如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-dc325a87b321e4c246a1b2f14169821a75a.png)
 

@@ -79,7 +79,7 @@ try {
 }
 ```
 
-> 本篇文章的所有示例代码可以从 Github 上进行下载：[kafka-basis](https://github.com/heibaiying/BigData-Notes/tree/master/code/Kafka/kafka-basis)
+> 本篇文章的所有示例代码可以从 Github 上进行下载：[kafka-basis](images/https://github.com/heibaiying/BigData-Notes/tree/master/code/Kafka/kafka-basis)
 
 ## 三、 自动提交偏移量
 

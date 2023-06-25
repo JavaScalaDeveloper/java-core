@@ -25,6 +25,7 @@ Spring Cloud Config 默认使用 Git 存储配置信息，因此使用 Spirng Cl
 
 Spring Cloud Config 工作原理如下图。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019425240-0.png)
 图1：Spring Cloud Config 工作原理
 
@@ -201,6 +202,7 @@ config:
 
 6\. 依次启动服务注册中心（集群）和 micro-service-cloud-config-center-3344，使用浏览器访问“http://localhost:3344/master/config-dev.yml”，结果如下图。
 
+
 ![Spring Cloud Config 访问配置文件](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019423313-2.png)
 图2：访问配置文件
 
@@ -222,6 +224,7 @@ Spring Cloud Config 规定了一套配置文件访问规则，如下表。
 通过这套规则，我们在浏览器上就直接对配置文件进行访问。
 
 7\. 在浏览器上访问“http://localhost:3344/config-dev.yml”，结果如下图。
+
 
 ![Spring Cloud Config 访问配置文件2](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019422606-3.png)
 图3：Spring Cloud Config 访问配置文件
@@ -417,6 +420,7 @@ public class MicroServiceCloudConfigClient3355Application {
 
 5\. 启动 micro-service-cloud-config-client-3355，使用浏览器访问“http://localhost:3355/getConfig”,结果如下图。
 
+
 ![Config 客户端获取配置信息](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019422604-4.png)
 图4：Spring Cloud Config 客户端获取配置信息
 
@@ -431,6 +435,7 @@ config:
 
 7\. 依次启动 Eureka 服务注册中心（集群）和 micro-service-cloud-config-center-3344， 使用浏览器访问“http://localhost:3344/master/config-dev.yml”，结果如下图。
 
+
 ![配置中心获取修改后的配置文件](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10194255O-5.png)
 图5：配置中心获取修改后的配置文件
 
@@ -438,10 +443,12 @@ config:
 
 8\. 再次访问“http://localhost:3355/getConfig”，尝试通过 Spring Cloud Config 客户端获取修改后的配置信息，结果如下图。
 
+
 ![Config 客户端获取配置信息](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019422604-4.png)
 图6：Spring Cloud Config 客户端获取修改后的配置信息
 
 9\. 重启 micro-service-cloud-config-client-3355，再次使用访问“http://localhost:3355/getConfig”，结果如下图。
+
 
 ![重启Config 客户端](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019425023-7.png)
 图7：重启 Spring Cloud Config 客户端获取配置
@@ -547,6 +554,7 @@ config:
 
 5\. 使用浏览器再次访问“http://localhost:3355/getConfig”，结果如下图。
 
+
 ![重启Config 客户端](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019425023-7.png)
 图8：重启 Spring Cloud Config 客户端后获取配置
 
@@ -558,12 +566,14 @@ config:
 
 7. 使用浏览器再次访问“http://localhost:3355/getConfig”，结果如下图。
 
+
 ![手动刷新](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101942C62-9.png)
 图9：手动刷新客户端
 
 #### 手动刷新配置的问题
 
 在上面的实例中，我们通过在 Config 客户端（端口号：3355）中引入 Spring Boot actuator 监控组件来监控配置的变化，使我们可以在不重启 Config 客户端的情况下获取到了最新配置，原理如下图。
+
 
 ![Spring Cloud Config 手动刷新](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019424S8-10.png)
 图10：Spring Cloud Congfig 手动刷新
@@ -591,6 +601,7 @@ Spring Cloud Bus 会使用一个轻量级的消息代理来构建一个公共的
 当 Git 仓库中的配置发生了改变，我们只需要向某一个服务（既可以是 Config 服务端，也可以是 Config 客户端）发送一个 POST 请求，Spring Cloud Bus 就可以通过消息代理通知其他服务重新拉取最新配置，以实现配置的动态刷新。
 
 Spring Cloud Bus 动态刷新配置的工作原理，如下图所示。
+
 
 ![bus+config 动态刷新配置](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101942GY-11.png)
 图11：Bus+Config 实现配置的动态刷新
@@ -751,10 +762,12 @@ management:
 
 6\. 依次重启 micro-service-cloud-config-center-3344、micro-service-cloud-config-client-3355，使用浏览器访问“http://localhost:3355/getConfig”，结果如下图。
 
+
 ![Bus 动态配置更新](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019422S4-12.png)
 图12：Spring Cloud Bus 动态刷新配置
 
 7\. 启动 micro-service-cloud-config-client-bus-3366，使用浏览器访问“http://localhost:3366/getConfig”，结果如下图。
+
 
 ![Bus 动态更新](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10194254S-13.png)
 图13：Spring Cloud Bus 动态刷新配置
@@ -774,10 +787,12 @@ config:
 
 10. 使用浏览器再次访问“http://localhost:3355/getConfig”，结果如下图。
 
+
 ![bus 动态刷新配置](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1019423453-14.png)
 图14：Spring Cloud Bus 动态刷新
 
 11. 使用浏览器再次访问“http://localhost:3366/getConfig”，结果如下图。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10194222Y-15.png)
 图15：Spring Cloud Bus 动态刷新
@@ -815,10 +830,12 @@ config:
 
 3\. 使用浏览器访问“http://localhost:3355/getConfig”，结果如下图。
 
+
 ![Bus 定点通知 3355](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10194233O-16.png)
 图16：Spring Cloud Bus 定点通知
 
 4\. 使用浏览器再次访问“http://localhost:3366/getConfig”，结果如下图。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10194222Y-15.png)
 图17：Spring Cloud Bus 定点通知

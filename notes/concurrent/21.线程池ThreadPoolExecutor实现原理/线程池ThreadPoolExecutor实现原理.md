@@ -11,6 +11,7 @@
 当一个并发任务提交给线程池，线程池分配线程去执行任务的过程如下图所示：
 
 
+
 ![线程池执行流程图.jpg](https://upload-images.jianshu.io/upload_images/2615789-2d3eb90c8e2cf51f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
@@ -97,6 +98,7 @@ public void execute(Runnable command) {
 }
 ```
 ThreadPoolExecutor的execute方法执行逻辑请见注释。下图为ThreadPoolExecutor的execute方法的执行示意图：
+
 
 ![execute执行过程示意图.jpg](https://upload-images.jianshu.io/upload_images/2615789-1c5c07e48180130a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

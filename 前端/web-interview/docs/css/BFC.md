@@ -1,5 +1,6 @@
 # 面试官：谈谈你对BFC的理解？
 
+
 ![](https://static.vue-js.com/c3d68290-9511-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
@@ -62,7 +63,9 @@
 
 页面显示如下：
 
- ![](https://static.vue-js.com/d0ce3650-9511-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/d0ce3650-9511-11eb-85f6-6fac77c0c9b3.png)
 
 两个`p`元素之间的距离为`100px`，发生了`margin`重叠（塌陷），以最大的为准，如果第一个P的`margin`为80的话，两个P之间的距离还是100，以最大的为准。
 
@@ -94,7 +97,9 @@
 
 这时候，边距则不会重叠：
 
- ![](https://static.vue-js.com/dec44740-9511-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/dec44740-9511-11eb-85f6-6fac77c0c9b3.png)
 
 #### 清除内部浮动
 
@@ -122,7 +127,9 @@
 
 页面显示如下：
 
- ![](https://static.vue-js.com/ec5d4410-9511-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/ec5d4410-9511-11eb-85f6-6fac77c0c9b3.png)
 
 而`BFC`在计算高度时，浮动元素也会参与，所以我们可以触发`.par`元素生成`BFC`，则内部浮动元素计算高度时候也会计算
 
@@ -134,7 +141,9 @@
 
 实现效果如下：
 
- ![](https://static.vue-js.com/f6487b20-9511-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/f6487b20-9511-11eb-ab90-d9ae814b240d.png)
 
 #### 自适应多栏布局
 
@@ -167,7 +176,9 @@
 
 效果图如下：
 
- ![](https://static.vue-js.com/ffb95210-9511-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/ffb95210-9511-11eb-ab90-d9ae814b240d.png)
 
 前面讲到，每个元素的左外边距与包含块的左边界相接触
 
@@ -187,7 +198,9 @@
 
 效果如下：
 
- ![](https://static.vue-js.com/0a5f2690-9512-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/0a5f2690-9512-11eb-ab90-d9ae814b240d.png)
 
 
 

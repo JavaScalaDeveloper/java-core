@@ -17,6 +17,7 @@ It is impossible for a web service to provide the three following guarantees : C
  
 C、A、P三者最多只能满足其中两个，和FLP定理一样，CAP定理也指示了一个不可达的结果(impossibility result)。
 
+
 ![91ac5357657dbc883f5b40725f7b4140](images/分布式系统理论基础二-CAP.resources/F2B0C729-3117-4256-BBED-AC3105092464.png)
 
 ## CAP的工程启示

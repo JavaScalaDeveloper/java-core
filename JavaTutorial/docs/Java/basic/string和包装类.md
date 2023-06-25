@@ -95,6 +95,7 @@ runoob
 
 ### String中常用的方法，用法如图所示，具体问度娘
 
+
 ![](https://img2018.cnblogs.com/blog/710412/201902/710412-20190213220237169-1966705420.png)
 
 ### 三个方法的使用： lenth()   substring()   charAt()
@@ -176,6 +177,7 @@ package com.mpp.string; public class StringDemo5 {
 String的对象一旦被创建，则不能修改，是不可变的
 
 所谓的修改其实是创建了新的对象，所指向的内存空间不变
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/blog/Java%E6%8A%80%E6%9C%AF%E6%B1%9F%E6%B9%96/%E4%BA%8C%E7%BB%B4%E7%A0%81/710412-20190214224055939-746946317.png)
 

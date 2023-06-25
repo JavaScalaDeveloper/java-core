@@ -41,6 +41,7 @@
 
 用最直观的图，来征服你的心！
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405165221.png)
 
 ## 工作原理解析
@@ -66,6 +67,7 @@ d、JDBC执行sql。
 e、借助MappedStatement中的结果映射关系，将返回结果转化成HashMap、JavaBean等存储结构并返回。
 
 ## mybatis层次图：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405165208.png)
 
@@ -130,6 +132,7 @@ MyBatis框架和其他绝大部分框架一样，需要一个配置文件，其�
 *   BoundSql       表示动态生成的SQL语句以及相应的参数信息
 
 以上主要成员在一次数据库操作中基本都会涉及，在SQL操作中重点需要关注的是SQL参数什么时候被设置和结果集怎么转换为JavaBean对象的，这两个过程正好对应StatementHandler和ResultSetHandler类中的处理逻辑。
+
 
 ![](http://img.blog.csdn.net/20141028140852531?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbHVhbmxvdWlz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 

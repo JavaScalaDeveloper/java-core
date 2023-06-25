@@ -46,6 +46,7 @@ mysql> select * from t where a between 10000 and 20000;
 
 你说得没错，图 1 显示的就是使用 explain 命令看到的这条语句的执行情况。
 
+
 ![img](https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/assets/2cfce769551c6eac9bfbee0563d48fe3.png)
 
 图 1 使用 explain 命令查看语句执行情况
@@ -53,6 +54,7 @@ mysql> select * from t where a between 10000 and 20000;
 从图 1 看上去，这条查询语句的执行也确实符合预期，key 这个字段值是’a’，表示优化器选择了索引 a。
 
 不过别急，这个案例不会这么简单。在我们已经准备好的包含了 10 万行数据的表上，我们再做如下操作。
+
 
 ![img](https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/assets/1e5ba1c2934d3b2c0d96b210a27e1a1e.png)
 
@@ -77,6 +79,7 @@ select * from t force index(a) where a between 10000 and 20000;/*Q2*/
 - 第三句，Q2 是加了 force index(a) 来和 session B 原来的查询语句执行情况对比。
 
 如图 3 所示是这三条 SQL 语句执行完成后的慢查询日志。
+
 
 ![img](https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/assets/7c58b9c71853b8bba1a8ad5e926de1f6.png)
 
@@ -103,6 +106,7 @@ MySQL 在真正开始执行语句之前，并不能精确地知道满足这个�
 这个统计信息就是索引的“区分度”。显然，一个索引上不同的值越多，这个索引的区分度就越好。而一个索引上不同的值的个数，我们称之为“基数”（cardinality）。也就是说，这个基数越大，索引的区分度越好。
 
 我们可以使用 show index 方法，看到一个索引的基数。如图 4 所示，就是表 t 的 show index 的结果 。虽然这个表的每一行的三个字段值都是一样的，但是在统计信息中，这三个索引的基数值并不同，而且其实都不准确。
+
 
 ![img](https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/assets/16dbf8124ad529fec0066950446079d4.png)
 
@@ -131,6 +135,7 @@ MySQL 在真正开始执行语句之前，并不能精确地知道满足这个�
 
 接下来，我们再一起看看优化器预估的，这两个语句的扫描行数是多少。
 
+
 ![img](https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/assets/e2bc5f120858391d4accff05573e1289.png)
 
 图 5 意外的 explain 结果
@@ -152,6 +157,7 @@ rows 这个字段表示的是预计扫描行数。
 所以冤有头债有主，MySQL 选错索引，这件事儿还得归咎到没能准确地判断出扫描行数。至于为什么会得到错误的扫描行数，这个原因就作为课后问题，留给你去分析了。
 
 既然是统计信息不对，那就修正。analyze table t 命令，可以用来重新统计索引信息。我们来看一下执行效果。
+
 
 ![img](https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/assets/209e9d3514688a3bcabbb75e54e1e49c.png)
 
@@ -175,6 +181,7 @@ mysql> select * from t where (a between 1 and 1000)  and (b between 50000 and 10
 
 为了便于分析，我们先来看一下 a、b 这两个索引的结构图。
 
+
 ![img](https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/assets/1d037f92063e800c3bfff3f4dbf1a2b9.png)
 
 图 7 a、b 索引的结构图
@@ -190,6 +197,7 @@ mysql> select * from t where (a between 1 and 1000)  and (b between 50000 and 10
 ```sql
 mysql> explain select * from t where (a between 1 and 1000) and (b between 50000 and 100000) order by b limit 1;
 ```
+
 
 ![img](https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/assets/483bcb1ef3bb902844e80d9cbdd73ab8.png)
 
@@ -210,6 +218,7 @@ mysql> explain select * from t where (a between 1 and 1000) and (b between 50000
 
 我们来看看第二个例子。刚开始分析时，我们认为选择索引 a 会更好。现在，我们就来看看执行效果：
 
+
 ![img](https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/assets/9582401a6bed6cb8fd803c9555750b54.png)
 
 图 9 使用不同索引的语句执行耗时
@@ -228,6 +237,7 @@ mysql> explain select * from t where (a between 1 and 1000) and (b between 50000
 
 我们来看看改之后的效果：
 
+
 ![img](https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/assets/14cd598e52a2b72dd334a42603e5b894.png)
 
 图 10 order by b,a limit 1 执行结果
@@ -243,6 +253,7 @@ mysql> explain select * from t where (a between 1 and 1000) and (b between 50000
 ```sql
 mysql> select * from  (select * from t where (a between 1 and 1000)  and (b between 50000 and 100000) order by b limit 100)alias limit 1;
 ```
+
 
 ![img](https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/MySQL%E5%AE%9E%E6%88%9845%E8%AE%B2/assets/b1a2ad43c78477d7f93dbc692cbaa0d7.png)
 

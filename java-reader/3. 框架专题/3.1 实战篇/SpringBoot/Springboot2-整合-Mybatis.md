@@ -156,12 +156,16 @@ jdk1.8+maven3+IDEA
 </generatorConfiguration>
 ```
 ######  3. 利用IDE创建逆向工程启动类
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-d1a0d44f736b173b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ######  4. add一个Maven configuration
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-69d75a2469eed01e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-06dd1e5a1ecf042d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ######  5. 我的数据库和表结构
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-df4403640a519a5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ######  6. application配置文件
@@ -530,13 +534,16 @@ public class UserServiceImpl implements UserService {
 
 ```
 ######  浏览器访问127.0.0.1/user/selectAll/0/1
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-a76859c6557bcc09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 说明我们成功了。
 ######  一个小甜点
 有人问，get方法可以直接从浏览器地址中的url来测试，那post请求怎么测试呢？
 个人建议用postman工具，也可以写测试类用代码来完成测试。也可以使用idea的一个测试工具Test RESTful Web Service
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-55cafea621c1eb87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-54b858f78cfd90a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -605,6 +612,7 @@ public interface UserMapper {
 
 ###  最后一个甜点
 还有一个东西忘说了 -.-,就是用cmd来逆向生成代码。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-6ce55ef0b8af8089.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ######  声称语句
 `java -jar mybatis-generator-core-1.3.2.jar -configfile generator.xml -overwrite`

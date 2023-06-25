@@ -57,6 +57,7 @@ public interface Resource extends InputStreamSource {
 
 
 
+
 ![](https://raw.githubusercontent.com/dunwu/images/dev/snap/20221223155859.png)
 
 ## [#](https://dunwu.github.io/spring-tutorial/pages/a1549f/#%E5%86%85%E7%BD%AE%E7%9A%84-resource-%E5%AE%9E%E7%8E%B0)内置的 Resource 实现
@@ -94,6 +95,7 @@ public interface ResourceLoader {
 
 
 Spring 中主要的 ResourceLoader 实现：
+
 
 ![](https://raw.githubusercontent.com/dunwu/images/dev/snap/20221223164745.png)
 

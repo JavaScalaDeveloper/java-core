@@ -48,6 +48,7 @@ age 是基本类型，值就保存在变量中，而 name 是引用类型，变�
 
 “画幅图。”
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/pass-by-value-01.png)
 
 当用 = 赋值运算符改变 age 和 name 的值时。
@@ -60,6 +61,7 @@ name = "三妹";
 对于基本类型 age，赋值运算符会直接改变变量的值，原来的值被覆盖。
 
 对于引用类型 name，赋值运算符会改变对象引用中保存的地址，原来的地址被覆盖，但原来的对象不会被覆盖。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/pass-by-value-02.png)
 
@@ -130,9 +132,11 @@ class ReferenceTypeDemo {
 
 在调用 `modify()` 方法的时候，形参 name1 复制了 name 的地址，指向的是堆中“二哥”的位置。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/pass-by-value-03.png)
 
 当 `modify()` 方法调用结束后，改变了形参 name1 的地址，但 `main()` 方法中 name 并没有发生改变。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-points/pass-by-value-04.png)
 

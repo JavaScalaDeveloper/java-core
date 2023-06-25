@@ -12,9 +12,11 @@
 #### (1)服务注册发现的原理
 
 集群模式
+
 ![ZooKeeper](images/eureka-register.png)
 
 **Eureka，peer-to-pee**r，部署一个集群，**但是集群里每个机器的地位是对等的，各个服务可以向任何一个Eureka实例服务注册和服务发现，集群里任何一个Euerka实例接收到写请求之后，会自动同步给其他所有的Eureka实例**
+
 ![ZooKeeper](images/zookeeper-register.png)
 
 **ZooKeeper，服务注册和发现的原理，Leader + Follower两种角色，只有Leader可以负责写也就是服务注册，他可以把数据同步给Follower，读的时候leader/follower都可以读**

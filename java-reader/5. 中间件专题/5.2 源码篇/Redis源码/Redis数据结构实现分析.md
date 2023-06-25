@@ -34,6 +34,7 @@ struct sdshdr{
 >Redis的链表在双向链表上扩展了头、尾节点、元素数等属性。
 
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-f6280610218dac01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ####    2.1 源码
 
@@ -73,6 +74,7 @@ typedef struct list{
 
 ###   3. 字典(Hash)
 >Redis的Hash，就是在`数组+链表`的基础上，进行了一些rehash优化等。
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-e40d385f15f6c461.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -151,6 +153,7 @@ typedef struct dict {
 
 ###   4. 跳跃表
 >这个数据结构是我面试中见过最多的，它其实特别简单。学过的人可能都知道，它和平衡树性能很相似，但为什么不用平衡树而用skipList呢?
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-173930379a3690fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ####    4.1 skipList & AVL 之间的选择
@@ -291,7 +294,9 @@ typedef struct intset {
 
 引用https://segmentfault.com/a/1190000016901154中的两个图：
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-336a0927247c66c9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-560c7b73056a190d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ####    6.1 源码
 >ziplist没有明确定义结构体，这里只作大概的演示。
@@ -344,6 +349,7 @@ entry结构体里面有三个重要的字段：
 
 ###   7. 快速列表(quicklist)
 >一个由ziplist组成的双向链表。但是一个quicklist可以有多个quicklist节点，它很像B树的存储方式。是在redis3.2版本中新加的数据结构，用在列表的底层实现。
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-5c5d06777182c89a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

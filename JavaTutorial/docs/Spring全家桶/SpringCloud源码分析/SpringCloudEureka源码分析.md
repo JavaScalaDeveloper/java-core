@@ -22,6 +22,7 @@ Eureka源码分析
     **1.2 核心流程推导**
     明确了核心功能，以及如何调用的，接下来我们来大胆地推导一下核心流程图：
 
+
 ![SpringCloud系列—Spring Cloud 源码分析之Eureka-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f15564313c2406546821713bcaf3eb0e9ac73d.jpg "SpringCloud系列—Spring Cloud 源码分析之Eureka-开源基础软件社区")大体流程推导出来之后，我们再来通过源码做一个验证。
 
 **第2章 源码分析**
@@ -32,6 +33,7 @@ Eureka源码分析
 org.springframework.cloud.client.serviceregistry 路径下，可以看到一个服务注册的接口定 义 ServiceRegistry 。它就是定义了spring cloud中服务注册的一个接口。
 
 我们看一下它的类关系图，这个接口有一个唯一的实现 EurekaServiceRegistry 。表示采用的是Eureka Server作为服务注册中心。
+
 
 ![SpringCloud系列—Spring Cloud 源码分析之Eureka-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/49d085328febfffcbae4030dac151db2d0bfcb.jpg "SpringCloud系列—Spring Cloud 源码分析之Eureka-开源基础软件社区")**2.1.1 注册的时机**
 服务注册的发起，我们可以猜测一下应该是什么时候完成？大家自要想想其实应该不难猜测到，服务的注册取决于服务是否已经启动好了。而在spring boot中，会等到spring 容器启动并且所有的配置都完成之后来进行注册。而这个动作在spring boot的启动方法中的refreshContext中完成。
@@ -145,7 +147,9 @@ public class TestSmartLifeCycle implements SmartLifecycle {
 
 接着，我们启动spring boot应用后，可以看到控制台输出了 start 字符串。
 
-我们在DefaultLifecycleProcessor.startBeans方法上加一个debug，可以很明显的看到我们自己定义的TestSmartLifeCycle被扫描到了，并且最后会调用该bean的start方法。![SpringCloud系列—Spring Cloud 源码分析之Eureka-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/75b18e528ba1879148c106d9bd3fb61ab9b5bb.jpg "SpringCloud系列—Spring Cloud 源码分析之Eureka-开源基础软件社区")在startBeans方法中，我们可以看到它首先会获得所有实现了SmartLifeCycle的Bean，然后会循环调用实现了SmartLifeCycle的bean的start方法，代码如下。
+我们在DefaultLifecycleProcessor.startBeans方法上加一个debug，可以很明显的看到我们自己定义的TestSmartLifeCycle被扫描到了，并且最后会调用该bean的start方法。
+
+![SpringCloud系列—Spring Cloud 源码分析之Eureka-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/75b18e528ba1879148c106d9bd3fb61ab9b5bb.jpg "SpringCloud系列—Spring Cloud 源码分析之Eureka-开源基础软件社区")在startBeans方法中，我们可以看到它首先会获得所有实现了SmartLifeCycle的Bean，然后会循环调用实现了SmartLifeCycle的bean的start方法，代码如下。
 
 
 
@@ -876,6 +880,7 @@ PeerAwareInstanceRegistryImpl的类关系图，从类关系图可以看出，Pee
 
 *   其中LookupService定义了最基本的发现示例的行为
 *   LeaseManager定义了处理客户端注册，续约，注销等操作
+
 
 ![SpringCloud系列—Spring Cloud 源码分析之Eureka-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/897d97d444664479bda0430417ec683f1f079a.jpg "SpringCloud系列—Spring Cloud 源码分析之Eureka-开源基础软件社区")在 addInstance 方法中，最终调用的是
 PeerAwareInstanceRegistryImpl.register 方法。

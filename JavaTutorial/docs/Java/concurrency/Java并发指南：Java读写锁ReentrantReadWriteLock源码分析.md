@@ -83,9 +83,11 @@ ReentrantReadWriteLock 分为读锁和写锁两个实例，读锁是共享锁，
 
 首先，我们来看下 ReentrantReadWriteLock 的结构，它有好些嵌套类：
 
+
 ![11](https://www.javadoop.com/blogimages/reentrant-read-write-lock/11.png)
 
 大家先仔细看看这张图中的信息。然后我们把 ReadLock 和 WriteLock 的代码提出来一起看，清晰一些：
+
 
 ![12](https://www.javadoop.com/blogimages/reentrant-read-write-lock/12.png)
 
@@ -96,6 +98,7 @@ ReentrantReadWriteLock 分为读锁和写锁两个实例，读锁是共享锁，
 等等，**同一个 AQS 实例怎么可以同时使用共享模式和独占模式**？？？
 
 这里给大家回顾下 AQS，我们横向对比下 AQS 的共享模式和独占模式：
+
 
 ![13](https://www.javadoop.com/blogimages/reentrant-read-write-lock/13.png)
 
@@ -591,6 +594,7 @@ protected final boolean tryAcquire(int acquires) {
 仔细想想，如果线程 a 先获取了读锁，然后获取写锁，那么线程 a 就到阻塞队列休眠了，自己把自己弄休眠了，而且可能之后就没人去唤醒它了。
 
 ## 总结
+
 
 ![14](https://www.javadoop.com/blogimages/reentrant-read-write-lock/14.png)
 

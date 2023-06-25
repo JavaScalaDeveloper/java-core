@@ -12,6 +12,7 @@ CatBoost算法也是GBDT家族中的一种，是由俄罗斯大兄弟于2017年�
 
 下面我们使用conda进行安装，首先需要删除之前的 `.condarc` 文件，一般在 `C:\Users\Administrator` 目录
 
+
 ![image-20200520181910922](images/image-20200520181910922.png)
 
 然后需要配置国内镜像源

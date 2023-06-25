@@ -450,6 +450,7 @@ Externalizable 和 Serializable 都是用于实现 Java 对象的序列化和反
 
 ①、Serializable 是 Java 标准库提供的接口，而 Externalizable 是 Serializable 的子接口；
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/Serializbale-20230323161831.png)
 
 
@@ -466,6 +467,7 @@ Externalizable 和 Serializable 都是用于实现 Java 对象的序列化和反
 `serialVersionUID` 被称为序列化 ID，它是决定 Java 对象能否反序列化成功的重要因子。在反序列化时，Java 虚拟机会把字节流中的 `serialVersionUID` 与被序列化类中的 `serialVersionUID` 进行比较，如果相同则可以进行反序列化，否则就会抛出序列化版本不一致的异常。
 
 当一个类实现了 `Serializable` 接口后，IDE 就会提醒该类最好产生一个序列化 ID，就像下面这样：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/io/Serializbale-7a9a05f6-a65c-46b0-b4d7-8b619297f351.jpg)
 

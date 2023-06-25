@@ -1,6 +1,8 @@
 # 面试官：说说你对BOM的理解，常见的BOM对象你了解哪些？
 
- ![](https://static.vue-js.com/3e191c40-8089-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/3e191c40-8089-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 
@@ -9,6 +11,7 @@
 其作用就是跟浏览器做一些交互效果,比如如何进行页面的后退，前进，刷新，浏览器的窗口发生变化，滚动条的滚动，以及获取客户的一些信息如：浏览器品牌版本，屏幕分辨率
 
 浏览器的全部内容可以看成`DOM`，整个浏览器可以看成`BOM`。区别如下：
+
 
 ![](https://static.vue-js.com/482f33e0-8089-11eb-85f6-6fac77c0c9b3.png)
 
@@ -100,9 +103,13 @@ http://foouser:barpassword@www.wrox.com:80/WileyCDA/?q=javascript#contents
 
 下表列出了`navigator`对象接口定义的属性和方法：
 
- ![](https://static.vue-js.com/6797ab40-8089-11eb-ab90-d9ae814b240d.png)
+ 
 
- ![](https://static.vue-js.com/74096620-8089-11eb-ab90-d9ae814b240d.png)
+![](https://static.vue-js.com/6797ab40-8089-11eb-ab90-d9ae814b240d.png)
+
+ 
+
+![](https://static.vue-js.com/74096620-8089-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -110,7 +117,9 @@ http://foouser:barpassword@www.wrox.com:80/WileyCDA/?q=javascript#contents
 
 保存的纯粹是客户端能力信息，也就是浏览器窗口外面的客户端显示器的信息，比如像素宽度和像素高度
 
- ![](https://static.vue-js.com/7d6b21e0-8089-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/7d6b21e0-8089-11eb-85f6-6fac77c0c9b3.png)
 
 
 

@@ -38,6 +38,7 @@ zookeeper在分布式系统中作为协调员的角色，可应用于Leader选�
 
 ZK以Unix文件系统树结构的形式管理存储的数据，图示如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/142337054797921.png)
 
 其中每个树节点被称为**znode**，每个znode类似一个文件，包含文件元信息(meta data)和数据。

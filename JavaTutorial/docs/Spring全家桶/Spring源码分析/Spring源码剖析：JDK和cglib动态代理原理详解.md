@@ -49,17 +49,21 @@ Java中代理的实现一般分为三种：JDK静态代理、JDK动态代理以�
 
 ## 静态代理
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140729721-1002455386.png)
 
 接口
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140729978-492174823.png)
 
 被代理类
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140730312-501564524.png)
 
 代理类
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140730518-1275832673.png)
 
@@ -71,17 +75,21 @@ Java中代理的实现一般分为三种：JDK静态代理、JDK动态代理以�
 
 ## JDK动态代理
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140729721-1002455386.png)
 
 接口
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140729978-492174823.png)
 
 被代理类
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140731035-1119549632.png)
 
 代理类
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140731317-1929161422.png)
 
@@ -262,6 +270,7 @@ Cglib是什么
   
 Cglib是一个强大的、高性能的代码生成包，它广泛被许多AOP框架使用，为他们提供方法的拦截。下图是我网上找到的一张Cglib与一些框架和语言的关系：  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/801753-20170403122105941-1116862243.gif)  
   
 对此图总结一下：  
@@ -285,18 +294,22 @@ cglib is a powerful, high performance and quality Code Generation Library, It is
   
 下面由一个简单的示例开始我们对CGLIB动态代理的介绍：  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140731697-1665999459.png)  
   
 为了后续编码的顺利进行，我们需要使用Maven引入CGLIB的包  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140732067-1529903146.png)  
   
 图1.1 被代理类  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140732309-293903217.png)  
   
 图1.2 实现MethodInterceptor接口生成方法拦截器  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140732746-1527907182.png)  
   
 图1.3 生成代理类对象并打印在代理类对象调用方法之后的执行结果  
@@ -358,10 +371,12 @@ private static final void CGLIB$BIND_CALLBACKS(Object paramObject)  {    82ef2d0
 *   代理类会为委托方法生成两个方法，一个是重写的sayHello方法，另一个是CGLIB$sayHello$0方法，我们可以看到它是直接调用父类的sayHello方法；  
 *   当执行代理对象的sayHello方法时，会首先判断一下是否存在实现了MethodInterceptor接口的CGLIB$CALLBACK_0;，如果存在，则将调用MethodInterceptor中的intercept方法，如图2.1。  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140733103-2101709172.png)  
   
 图2.1 intercept方法  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140733381-1955520660.png)  
   
 图2.2 代理类为每个委托方法都会生成两个方法  
@@ -370,6 +385,7 @@ private static final void CGLIB$BIND_CALLBACKS(Object paramObject)  {    82ef2d0
   
 我们从图2.1中看到，调用委托方法是通过代理方法的MethodProxy对象调用invokeSuper方法来执行的，下面我们看看invokeSuper方法中的玄机：  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140733825-816756585.png)  
   
 图2.3 invokeSuper方法  
@@ -377,10 +393,12 @@ private static final void CGLIB$BIND_CALLBACKS(Object paramObject)  {    82ef2d0
 在这里好像不能直接看出代理方法的调用。没关系，我会慢慢介绍。  
 我们知道，在JDK动态代理中方法的调用是通过反射来完成的。如果有对此不太了解的同学，可以看下我之前的博客----[深入理解JDK动态代理机制](https://www.jianshu.com/p/471c80a7e831)。但是在CGLIB中，方法的调用并不是通过反射来完成的，而是直接对方法进行调用：FastClass对Class对象进行特别的处理，比如将会用数组保存method的引用，每次调用方法的时候都是通过一个index下标来保持对方法的引用。比如下面的getIndex方法就是通过方法签名来获得方法在存储了Class信息的数组中的下标。  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140734172-226519980.png)  
   
 图2.4 getIndex方法  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825140734361-1715137603.png)  
   
 图2.5 FastClassInfo类中持有两个FastClass对象的引用.png  
@@ -415,6 +433,7 @@ private static final void CGLIB$BIND_CALLBACKS(Object paramObject)  {    82ef2d0
 **考研复习资料：**  
 计算机考研大礼包，都是我自己考研复习时用的一些复习资料,包括公共课和专业的复习视频，这里也推荐给大家，关注公众号后，后台回复关键字 **“考研”** 即可免费获取。  
   
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20190829222750556.jpg)  
   
   
@@ -424,4 +443,5 @@ private static final void CGLIB$BIND_CALLBACKS(Object paramObject)  {    82ef2d0
   
 **Java工程师必备学习资源:** 一些Java工程师常用学习资源，关注公众号后，后台回复关键字 **“Java”** 即可免费无套路获取。  
   
+
 ![我的公众号](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20190805090108984.jpg)

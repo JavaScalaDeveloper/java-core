@@ -1,6 +1,8 @@
 # 面试官：深拷贝浅拷贝的区别？如何实现一个深拷贝？
 
- ![](https://static.vue-js.com/cdf952e0-69b8-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/cdf952e0-69b8-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、数据类型存储
 
@@ -209,7 +211,9 @@ function deepClone(obj, hash = new WeakMap()) {
 
 下面首先借助两张图，可以更加清晰看到浅拷贝与深拷贝的区别
 
- ![](https://static.vue-js.com/d9862c00-69b8-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/d9862c00-69b8-11eb-ab90-d9ae814b240d.png)
 
 从上图发现，浅拷贝和深拷贝都创建出一个新的对象，但在复制对象属性的时候，行为就不一样
 

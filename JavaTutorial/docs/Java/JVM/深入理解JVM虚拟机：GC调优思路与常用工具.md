@@ -68,6 +68,7 @@ GC调优(Tuning Garbage Collection)和其他性能调优是同样的原理。初
 
 我们先来看一家工厂的装配流水线。工人在流水线将现成的组件按顺序拼接,组装成自行车。通过实地观测, 我们发现从组件进入生产线，到另一端组装成自行车需要4小时。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404224347.png)
 继续观察,我们还发现,此后每分钟就有1辆自行车完成组装, 每天24小时,一直如此。将这个模型简化, 并忽略维护窗口期后得出结论：**这条流水线每小时可以组装60辆自行车**。
 
@@ -85,6 +86,7 @@ GC调优(Tuning Garbage Collection)和其他性能调优是同样的原理。初
 看起来总经理很容易得出正确的判断, 系统的延迟没法子进行处理 —— 他关注的是每天的自行车生产总量。得出这个结论以后, 假若工厂资金充足, 那么应该立即采取措施, 改善吞吐量以增加产能。
 
 我们很快会看到, 这家工厂有两条相同的生产线。每条生产线一分钟可以组装一辆成品自行车。 可以想象，每天生产的自行车数量会增加一倍。达到 2880辆/天。要注意的是, 不需要减少自行车的装配时间 —— 从开始到结束依然需要 4 小时。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404224359.png)
 
@@ -429,9 +431,11 @@ java -Dcom.sun.management.jmxremote.port=5432 com.yourcompany.YourApp
 
 通过 JVisualVM 连接到某个JVM以后, 切换到 MBeans 标签, 展开 “java.lang/GarbageCollector” . 就可以看到GC行为信息, 下图是 JVisualVM 中的截图:
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404224430.png)
 
 下图是Java Mission Control 中的截图:
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404224439.png)
 
@@ -451,9 +455,11 @@ java -Dcom.sun.management.jmxremote.port=5432 com.yourcompany.YourApp
 
 ## JVisualVM
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404224451.png)
 
 Visual GC 插件常用来监控本机运行的Java程序, 比如开发者和性能调优专家经常会使用此插件, 以快速获取程序运行时的GC信息。
+
 
 ![06_03_jvmsualvm-garbage-collection-monitoring.png](https://s4.51cto.com/images/blog/202106/25/eabd68ba262d004c4919475f00d8ec9c.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_30,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk= "06_03_jvmsualvm-garbage-collection-monitoring.png")
 
@@ -612,6 +618,7 @@ GC日志一般输出到文件之中, 是纯 text 格式的, 当然也可以打�
 
 获取到日志文件之后, 就可以用 GCViewer 进行分析, 大致会看到类似下面的图形界面:
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404224526.png)
 
 使用的命令行大致如下:
@@ -652,11 +659,13 @@ java -jar gcviewer_1.3.4.jar gc.log summary.csv chart.png
 
 下一个有意思的地方是“**Pause**”(暂停)选项卡:
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404224540.png)
 
 “`Pause`” 展示了GC暂停的总时间,平均值,最小值和最大值, 并且将 total 与minor/major 暂停分开统计。如果要优化程序的延迟指标, 这些统计可以很快判断出暂停时间是否过长。另外, 我们可以得出明确的信息: 累计暂停时间为`634.59 秒`, GC暂停的总次数为`3,938 次`, 这在`11分钟/660秒`的总运行时间里那不是一般的高。
 
 更详细的GC暂停汇总信息, 请查看主界面中的 “**Event details**” 标签:
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404224553.png)
 
@@ -744,13 +753,16 @@ JVisualVM 通过GUI的方式连接到正在运行的JVM。 连接上目标JVM之
 4.  让程序运行一段时间,以收集关于对象分配的足够信息。
 5.  单击下方的 “Snapshot”(快照) 按钮。可以获取收集到的快照信息。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404224729.png)
 
 完成上面的步骤后, 可以得到类似这样的信息:
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404224743.png)
 
 上图按照每个类被创建的对象数量多少来排序。看第一行可以知道, 创建的最多的对象是`int[]`数组. 鼠标右键单击这行, 就可以看到这些对象都在哪些地方创建的:
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404224753.png)
 

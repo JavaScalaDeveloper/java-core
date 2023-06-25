@@ -265,6 +265,7 @@ public abstract class ResourceHolderSupport implements ResourceHolder {
 
 不得不说，这个超时的控制是有点难找，本文是通过调试找到的，超时时间的设置在在 `DataSourceUtils#applyTimeout` 方法中，这其中可谓是经过了千山万水：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-9fc1a75dc7b0644269b6dba16dfd5d0e676.png)
 
 感谢调试功能，没有它，天知道要多久才能找到这个时间的设置！我这里使用的是 `jdbcTemplate`，在其他 `orm` 框架下，设置超时时间应该会有所不同 。

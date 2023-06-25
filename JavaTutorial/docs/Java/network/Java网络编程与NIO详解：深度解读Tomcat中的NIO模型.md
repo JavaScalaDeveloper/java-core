@@ -48,6 +48,7 @@
 
 Tomcat的NIO是基于I/O复用来实现的。对这点一定要清楚，不然我们的讨论就不在一个逻辑线上。下面这张图学习过I/O模型知识的一般都见过，出自《UNIX网络编程》，I/O模型一共有阻塞式I/O，非阻塞式I/O，I/O复用(select/poll/epoll)，信号驱动式I/O和异步I/O。这篇文章讲的是I/O复用。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405104442.png)
 IO复用.png
 
@@ -61,10 +62,12 @@ IO复用.png
 
 上面提到的网络事件有连接就绪，接收就绪，读就绪，写就绪四个网络事件。I/O复用主要是通过Selector复用器来实现的，可以结合下面这个图理解上面的叙述。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405104504.png)
 Selector图解.png
 
 ## 二、TOMCAT对IO模型的支持
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405104517.png)
 
@@ -79,6 +82,7 @@ tomcat从6以后开始支持NIO模型，实现是基于JDK的java.nio包。这�
 在BIO模式下实际上是没有maxConnections，即使配置也不会生效，BIO模式下的maxConnections是保持跟maxThreads大小一致，因为它是一请求一线程模式。
 
 ## 四、NioEndpoint组件关系图解读
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405104543.png)
 
@@ -96,6 +100,7 @@ LimitLatch是连接控制器，它负责维护连接数的计算，nio模式下�
 
 ## 五、NioEndpoint执行序列图
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405104621.png)
 tomcatnio序列图.png
 
@@ -106,6 +111,7 @@ tomcatnio序列图.png
 6.1、初始化
 
 无论是BIO还是NIO，开始都会初始化连接限制，不可能无限增大，NIO模式下默认是10000。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405104637.png)
 **6.2、步骤解读**
@@ -118,11 +124,13 @@ tomcatnio序列图.png
 
 Socket，NIO下这里返回的是SocketChannel。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405104855.png)
 **步骤2**：启动接收线程
 
 
 **步骤3**：ServerSocketChannel.accept()接收新连接
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405104937.png)
 
@@ -132,26 +140,33 @@ Socket，NIO下这里返回的是SocketChannel。
 
 **步骤6**：register注册到轮询线程
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405104957.png)
 
 **步骤7**：构造PollerEvent，并添加到事件队列
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405105014.png)
 
 **步骤8**：启动轮询线程
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405105027.png)
 
 **步骤9**：取出队列中新增的PollerEvent并注册到Selector
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405105043.png)
 
 **步骤10**：Selector.select()
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405105057.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405105110.png)
 **步骤11**：根据选择的SelectionKey构造SocketProcessor提交到请求处理线程
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405105154.png)
 **6.3、NioBlockingSelector和BlockPoller介绍**
 
@@ -161,11 +176,14 @@ Socket，NIO下这里返回的是SocketChannel。
 
 以执行servlet后，得到response，往socket中写数据为例，最终写的过程调用NioBlockingSelector的write方法。代码如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405105223.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405105237.png)
 
 也就是说当socket.write()返回0时，说明网络状态不稳定，这时将socket注册OP_WRITE事件到辅Selector，由BlockPoller线程不断轮询这个辅Selector，直到发现这个socket的写状态恢复了，通过那个倒数计数器，通知Worker线程继续写socket动作。看一下BlockSelector线程的代码逻辑：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405105251.png)
 
@@ -177,7 +195,9 @@ Socket，NIO下这里返回的是SocketChannel。
 
 NIO的优势更在于用少量的线程hold住大量的连接。还有一点，我们在压测的过程中，遇到在NIO模式下刚开始的一小段时间内容，会有错误，这是因为一般的压测工具是基于一种长连接，也就是说比如模拟1000并发，那么同时建立1000个连接，下一时刻再发送请求就是基于先前的这1000个连接来发送，还有TOMCAT的NIO处理是有POLLER线程来接管的，它的线程数一般等于CPU的核数，如果一瞬间有大量并发过来，POLLER也会顿时处理不过来。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405105304.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405105318.png)
 

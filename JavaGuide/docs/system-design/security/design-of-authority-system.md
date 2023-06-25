@@ -41,6 +41,7 @@ head:
 
 用一个图来描述如下：
 
+
 ![RBAC 权限模型示意图](https://oss.javaguide.cn/github/javaguide/system-design/security/design-of-authority-system/rbac.png)
 
 当使用 `RBAC模型` 时，通过分析用户的实际情况，基于共同的职责和需求，授予他们不同角色。这种 `用户 -> 角色 -> 权限` 间的关系，让我们可以不用再单独管理单个用户权限，用户从授予的角色里面获取所需的权限。
@@ -84,6 +85,7 @@ head:
 **新权限系统的权限模型**：用户最终权限 = 用户拥有的角色带来的权限 + 用户独立配置的权限，两者取并集。
 
 新权限系统方案如下图：
+
 
 ![新权限系统方案](https://oss.javaguide.cn/github/javaguide/system-design/security/design-of-authority-system/new-authority-system-design.png)
 
@@ -140,6 +142,7 @@ head:
 
 其中，1、2、3 的步骤，都是在系统管理模块完成，具体流程如下图:
 
+
 ![系统接入流程图](https://oss.javaguide.cn/github/javaguide/system-design/security/design-of-authority-system/new-authority-system-design-access-flow-chart.png)
 
 用户可以对系统的基本信息进行增删改查的操作，不同系统之间通过 `系统编码` 作为唯一区分。同时 `系统编码` 也会用作于菜单和数据权限编码的前缀，通过这样的设计保证权限编码全局唯一性。
@@ -148,11 +151,13 @@ head:
 
 系统管理界面设计如下：
 
+
 ![系统管理界面设计](https://oss.javaguide.cn/github/javaguide/system-design/security/design-of-authority-system/new-authority-system-management-interface.png)
 
 #### 菜单管理
 
 新权限系统首先对菜单进行了分类，分别是 `目录`、`菜单` 和 `操作`，示意如下图
+
 
 ![菜单管理界面](https://oss.javaguide.cn/github/javaguide/system-design/security/design-of-authority-system/new-authority-system-menu.png)
 
@@ -163,6 +168,7 @@ head:
 - **操作**：指页面中的按钮、接口等一系列可以定义为操作或页面元素的部分。
 
 菜单管理界面设计如下：
+
 
 ![菜单管理界面设计](https://oss.javaguide.cn/github/javaguide/system-design/security/design-of-authority-system/new-authority-system-menu-management-interface.png)
 
@@ -175,6 +181,7 @@ head:
 
 角色与用户管理都是可以直接改变用户权限的核心模块，整个设计思路如下图：
 
+
 ![角色与用户管理模块设计](https://oss.javaguide.cn/github/javaguide/system-design/security/design-of-authority-system/role-and-user-management.png)
 
 这个模块设计重点是需要考虑到批量操作。无论是通过角色关联用户，还是给用户批量增加/删除/重置权限，批量操作的场景都是系统需要设计好的。
@@ -182,6 +189,7 @@ head:
 ### 权限申请
 
 除了给其他用户添加权限外，新权限系统同时支持了用户自主申请权限。这个模块除了常规的审批流（申请、审批、查看）等，有一个比较特别的功能，就是如何让用户能选对自己要的权限。所以在该模块的设计上，除了直接选择角色外，还支持通过菜单/数据权限点，反向选择角色，如下图：
+
 
 ![权限申请界面](https://oss.javaguide.cn/github/javaguide/system-design/security/design-of-authority-system/permission-application.png)
 

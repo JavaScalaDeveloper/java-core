@@ -42,6 +42,7 @@
 
 LiveLoad是提供浏览器客户端自动加载更新的工具，分为LiveLoad服务器和Liveload浏览器插件两部分； devtools中已经集成了LiveLoad服务器，所以如果我们开发的是web应用，并且期望浏览器自动刷新， 这时候可以考虑LiveLoad.
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416205152.png)
 
 同一时间只能运行一个LiveReload服务器。 开始应用程序之前，请确保没有其他LiveReload服务器正在运行。如果从IDE启动多个应用程序，则只有第一个应用程序将支持LiveReload。
@@ -75,6 +76,7 @@ LiveLoad是提供浏览器客户端自动加载更新的工具，分为LiveLoad�
 
 *   方式一： **无任何配置时，手动触发重启更新（Ctrl+F9）**
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416205320.png)
 （也可以用`mvn compile`编译触发重启更新）
 
@@ -85,6 +87,7 @@ LiveLoad是提供浏览器客户端自动加载更新的工具，分为LiveLoad�
 File->Setting->Build,Execution,Deployment->Compile
 
 勾选：Make project automatically
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416205335.png)
 
@@ -97,6 +100,7 @@ File->Setting->Build,Execution,Deployment->Compile
 勾选：compiler.automake.allow.when.app.running
 
 新版本的IDEA可以在File->setting->Advanced Setttings里面的第一个设置：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416205405.png)
 ### [#](#application-yml配置) application.yml配置
@@ -121,12 +125,15 @@ spring:
 
 spring-boot-devtools模块包含**嵌入式LiveReload服务器**，可以在资源更改时用于触发浏览器刷新。 LiveReload浏览器扩展程序支持Chrome，Firefox和Safari，你可以从livereload.com免费下载。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416205417.png)
 或者从浏览器插件中心下载，比如firefox:
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416205426.png)
 
 安装完之后，可以通过如下图标管理
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416205442.png)
 
@@ -325,6 +332,7 @@ spring:
 *   开发调试最重要的还是一种权衡
     *   自动重启的开销如果和手动重启没有什么太大差别，那么还不如手动重启（按需重启）
     *   多数情况下，如果是**方法内部的修改或者静态资源的修改**，在IDEA中是可以通过Rebuild（Ctrl + Shift + F9）进行热更的
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416211745.png)
 

@@ -11,6 +11,7 @@
 
 下面我就开门见山，展示一下最终结果
 
+
 ![1578295198026](images/1578295198026.gif)
 
 当我们提交代码时，会自动执行对应的actions，然后开始进行脚本构建，自动完成项目的编译、打包、部署。
@@ -28,6 +29,7 @@
 Github统一将上述操作称为Actions，其中里面的很多操作在项目中是相同的，完全可以共享，因此Github就想到了把每个操作写成一个独立的脚本文件，存放到代码仓库中，让其它用户可以直接引入某个action，从而不必自己写复杂的脚本。
 
 我们通过一系列的Action组合，在加上自己部分业务逻辑的脚本，就组合成了一个Actions，我们称这个Actions为持续集成，这就是Github Actions的特别之处，同时Github有专门一个Action仓库，我们通过在里面挑选合适的脚本进行组合，即可完成自己的持续集成方案了
+
 
 ![image-20200106105526046](images/image-20200106105526046.png)
 
@@ -155,6 +157,7 @@ steps字段指定了每个job的运行步骤，可以包含多个每周，并且
 
 我们进入我们的Github项目，然后点击Actions
 
+
 ![image-20200101133018350](images/image-20200101133018350.png)
 
 这时候会自动创建一个maven.yml
@@ -207,19 +210,23 @@ steps:
 
 下面我创建了一个私有仓库：mogu_prod_configuration，里面主要存放了线上环境，以及测试环境的配置文件
 
+
 ![image-20200106123857563](images/image-20200106123857563.png)
 
 里面目录结构如下所示：
 
+
 ![image-20200106124131629](images/image-20200106124131629.png)
 
 每个项目里面存放了对应的配置文件，如mogu_admin、mogu_eureka、mogu_picture、mogu_sms、mogu_web存在的是各自的application.yml文件
+
 
 ![image-20200106124233574](images/image-20200106124233574.png)
 
 而vue_mogu_admin 和 vue_mogu_web 则存在的是对应的prod.env.js文件
 
 其中需要注意的是，因为admin还需要修改ckeditor的配置，所以里面也存在的ckeditor 的config.js文件
+
 
 ![image-20200106124354788](images/image-20200106124354788.png)
 
@@ -233,13 +240,16 @@ ssh-keygen -t rsa
 
 Settings->Deploy keys
 
+
 ![image-20200106124637149](images/image-20200106124637149.png)
 
 将id_rsa中的内容写入蘑菇博客项目的Secrets中（非配置文件私有库），这样我们就可以在Actions中引入该私钥而不会暴露出来。在Actions中写入该步骤，实现Actions中的服务器可以访问私有库
 
+
 ![image-20200106124848340](images/image-20200106124848340.png)
 
 然后进行添加：
+
 
 ![image-20200106125010689](images/image-20200106125010689.png)
 
@@ -279,6 +289,7 @@ ID_RSA_PUB：公钥
 ## 获取蘑菇博客配置文件
 
 下面我们就需要使用git clone命令下载我们的配置文件了，在下载之前，我们首先需要配置好ssh免密登录
+
 
 ![image-20200106144749341](images/image-20200106144749341.png)
 

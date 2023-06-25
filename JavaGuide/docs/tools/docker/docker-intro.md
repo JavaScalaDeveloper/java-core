@@ -25,6 +25,7 @@ tag:
 
 **如果需要通俗地描述容器的话，我觉得容器就是一个存放东西的地方，就像书包可以装各种文具、衣柜可以放各种衣服、鞋架可以放各种鞋子一样。我们现在所说的容器存放的东西可能更偏向于应用比如网站、程序甚至是系统环境。**
 
+
 ![认识容器](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/container.png)
 
 ### 1.2 图解物理机,虚拟机与容器
@@ -33,13 +34,16 @@ tag:
 
 **物理机：**
 
+
 ![物理机](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/物理机图解.png)
 
 **虚拟机：**
 
+
 ![虚拟机](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/虚拟机图解.png)
 
 **容器：**
+
 
 ![](https://oss.javaguide.cn/javaguide/image-20211110104003678.png)
 
@@ -93,9 +97,11 @@ tag:
 
 传统虚拟机技术是虚拟出一套硬件后，在其上运行一个完整操作系统，在该系统上再运行所需应用进程；而容器内的应用进程直接运行于宿主的内核，容器内没有自己的内核，而且也没有进行硬件虚拟。因此容器要比传统虚拟机更为轻便。
 
+
 ![](https://oss.javaguide.cn/javaguide/2e2b95eebf60b6d03f6c1476f4d7c697.png)
 
 ### 3.2 容器与虚拟机总结
+
 
 ![](https://oss.javaguide.cn/javaguide/4ef8691d67eb1eb53217099d0a691eb5.png)
 
@@ -108,6 +114,7 @@ tag:
 ### 3.3 容器与虚拟机两者是可以共存的
 
 就我而言，对于两者无所谓谁会取代谁，而是两者可以和谐共存。
+
 
 ![](https://oss.javaguide.cn/javaguide/056c87751b9dd7b56f4264240fe96d00.png)
 
@@ -122,6 +129,7 @@ tag:
 - **仓库（Repository）**
 
 理解了这三个概念，就理解了 Docker 的整个生命周期
+
 
 ![docker基本概念](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/docker基本概念.png)
 
@@ -164,6 +172,7 @@ Docker 设计时，就充分利用 **Union FS** 的技术，将其设计为**分
 > Docker Hub 是 Docker 官方提供的一项服务，用于与您的团队查找和共享容器镜像。
 
 比如我们想要搜索自己想要的镜像：
+
 
 ![利用Docker Hub 搜索镜像](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/Screen%20Shot%202019-11-04%20at%208.21.39%20PM.png)
 
@@ -242,6 +251,7 @@ docker rmi f6509bac4980 #  或者 docker rmi mysql
 **Docker 的概念以及常见命令基本上已经讲完，我们再来谈谈：Build, Ship, and Run。**
 
 如果你搜索 Docker 官网，会发现如下的字样：**“Docker - Build, Ship, and Run Any App, Anywhere”**。那么 Build, Ship, and Run 到底是在干什么呢？
+
 
 ![](https://oscimg.oschina.net/oscnet/up-4123a5154118e1aaaf6e5a01286f463a1e2.png)
 

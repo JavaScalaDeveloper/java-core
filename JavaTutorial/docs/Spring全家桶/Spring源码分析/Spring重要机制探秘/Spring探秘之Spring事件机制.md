@@ -259,6 +259,7 @@ public interface ApplicationListener<E extends ApplicationEvent> extends EventLi
 
 在处理 spring 容器启动的 `AbstractApplicationContext#refresh` 方法中，`事件广播器的初始化`与`监听器的注册`分别发生在第 8 步与第 10 步：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-c4d4ac83c23e41a706b7ba545fd8d0f7681.png)
 
 相关代码如下：
@@ -497,6 +498,7 @@ spring 为我们提供了两种类型的 `taskExecutor`：
 
 这里能不能获取到执行器呢？通过调试发现，执行器的获取结果为 `null`：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-2e6ba6389e603a6373287dac26a89a24109.png)
 
 因此在下面执行 `invokeListener(...)` 方法时，是直接调用的：
@@ -733,6 +735,7 @@ private void doInvokeListener(ApplicationListener listener, ApplicationEvent eve
 
 在 spring 启动流程中，容器启动完成会发布 `ContextRefreshed` 事件：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-f60ea2710c59e2ce9e1401f1b54cbd9d700.png)
 
 我们要监听器该事件也十分简单，相应的 `Listener` 如下：
@@ -766,11 +769,14 @@ context.refresh();
 
 ```
 
-运行后，会报错： ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-4fc18c95f69d8c3d65be2a0f603d42e19ce.png)
+运行后，会报错： 
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-4fc18c95f69d8c3d65be2a0f603d42e19ce.png)
 
 从错误信息来看，是说广播器未初始化。
 
 那么广播器是在哪里初始化的呢？回忆下前面的分析，很清楚地知道是在 `refresh()` 过程的第 8 步，而早期事件的发布又在第 10 步，这样一来，早期事件就只能在第 9 步了：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-1fecd516c6d58d628937b20ebd806065891.png)
 
@@ -794,6 +800,7 @@ ApplicationContext context =
 #### 5.3 异步广播事件
 
 从前面的源码分析来看，事件的执行是在同一个线程中进行的，这点在 demo 的运行结果中也能看出来：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-afed97c136df717ba3d9397ff142ae0675f.png)
 

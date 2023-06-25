@@ -29,7 +29,7 @@ Scala 支持类型参数化，使得我们能够编写泛型程序。
 Java 中使用 `<>` 符号来包含定义的类型参数，Scala 则使用 `[]`。
 
 ```scala
-class Pair[T, S](val first: T, val second: S) {
+class Pair[T, S](images/val first: T, val second: S) {
   override def toString: String = first + ":" + second
 }
 ```
@@ -39,7 +39,7 @@ object ScalaApp extends App {
 
   // 使用时候你直接指定参数类型，也可以不指定，由程序自动推断
   val pair01 = new Pair("heibai01", 22)
-  val pair02 = new Pair[String,Int]("heibai02", 33)
+  val pair02 = new Pair[String,Int](images/"heibai02", 33)
 
   println(pair01)
   println(pair02)
@@ -52,7 +52,7 @@ object ScalaApp extends App {
 
 ```scala
 object Utils {
-  def getHalf[T](a: Array[T]): Int = a.length / 2
+  def getHalf[T](images/a: Array[T]): Int = a.length / 2
 }
 ```
 
@@ -64,7 +64,7 @@ Scala 和 Java 一样，对于对象之间进行大小比较，要求被比较�
 
 ```scala
 // 使用 <: 符号，限定 T 必须是 Comparable[T]的子类型
-class Pair[T <: Comparable[T]](val first: T, val second: T) {
+class Pair[T <: Comparable[T]](images/val first: T, val second: T) {
   // 返回较小的值
   def smaller: T = if (first.compareTo(second) < 0) first else second
 }
@@ -128,7 +128,7 @@ trait Ordered[A] extends Any with java.lang.Comparable[A] {
 
 ```scala
 // 视图界定符号 <%
-class Pair[T <% Comparable[T]](val first: T, val second: T) {
+class Pair[T <% Comparable[T]](images/val first: T, val second: T) {
   // 返回较小的值
   def smaller: T = if (first.compareTo(second) < 0) first else second
 }
@@ -138,7 +138,7 @@ class Pair[T <% Comparable[T]](val first: T, val second: T) {
 >
 > ```scala
 > // 隐式转换为 Ordered[T]
->    class Pair[T <% Ordered[T]](val first: T, val second: T) {
+>    class Pair[T <% Ordered[T]](images/val first: T, val second: T) {
 > def smaller: T = if (first.compareTo(second) < 0) first else second
 >    }
 > ```
@@ -149,12 +149,12 @@ class Pair[T <% Comparable[T]](val first: T, val second: T) {
 
 ```scala
  // 1.使用隐式参数隐式转换为 Comparable[T]
-class Pair[T](val first: T, val second: T)(implicit ev: T => Comparable[T]) 
+class Pair[T](images/val first: T, val second: T)(implicit ev: T => Comparable[T]) 
   def smaller: T = if (first.compareTo(second) < 0) first else second
 }
 
 // 2.由于直接继承 Java 中 Comparable 接口的是特质 Ordered，所以也可以隐式转换为 Ordered[T]
-class Pair[T](val first: T, val second: T)(implicit ev: T => Ordered[T]) {
+class Pair[T](images/val first: T, val second: T)(implicit ev: T => Ordered[T]) {
   def smaller: T = if (first.compareTo(second) < 0) first else second
 }
 ```
@@ -163,7 +163,7 @@ class Pair[T](val first: T, val second: T)(implicit ev: T => Ordered[T]) {
 
 ```scala
 object PairUtils{
-  def smaller[T](a: T, b: T)(implicit order: T => Ordered[T]) = if (a < b) a else b
+  def smaller[T](images/a: T, b: T)(implicit order: T => Ordered[T]) = if (a < b) a else b
 }
 ```
 
@@ -172,7 +172,7 @@ object PairUtils{
 上下文界定的形式为 `T:M`，其中 M 是一个泛型，它要求必须存在一个类型为 M[T]的隐式值，当你声明一个带隐式参数的方法时，需要定义一个隐式默认值。所以上面的程序也可以使用上下文界定进行改写：
 
 ```scala
-class Pair[T](val first: T, val second: T) {
+class Pair[T](images/val first: T, val second: T) {
   // 请注意 这个地方用的是 Ordering[T]，而上面视图界定和类型约束，用的是 Ordered[T]，两者的区别会在后文给出解释
   def smaller(implicit ord: Ordering[T]): T = if (ord.compare(first, second) < 0) first else second 
 }
@@ -195,7 +195,7 @@ class PersonOrdering extends Ordering[Person] {
   override def compare(x: Person, y: Person): Int = if (x.age > y.age) 1 else -1
 }
 
-class Pair[T](val first: T, val second: T) {
+class Pair[T](images/val first: T, val second: T) {
   def smaller(implicit ord: Ordering[T]): T = if (ord.compare(first, second) < 0) first else second
 }
 
@@ -215,9 +215,9 @@ object ScalaApp extends App {
 
 ```scala
 object ScalaApp extends App {
-  def makePair[T](first: T, second: T) = {
+  def makePair[T](images/first: T, second: T) = {
     // 创建以一个数组 并赋值
-    val r = new Array[T](2); r(0) = first; r(1) = second; r
+    val r = new Array[T](images/2); r(0) = first; r(1) = second; r
   }
 }
 ```
@@ -227,8 +227,8 @@ Scala 针对这个问题，提供了 ClassTag 上下文界定，即把泛型的�
 ```scala
 import scala.reflect._
 object ScalaApp extends App {
-  def makePair[T : ClassTag](first: T, second: T) = {
-    val r = new Array[T](2); r(0) = first; r(1) = second; r
+  def makePair[T : ClassTag](images/first: T, second: T) = {
+    val r = new Array[T](images/2); r(0) = first; r(1) = second; r
   }
 }
 ```
@@ -253,7 +253,7 @@ class OtherCompany
 object ScalaApp extends App {
 
   // 限定：只有本公司部门经理以上人员才能获取权限
-  def Check[T >: Manager](t: T): T = {
+  def Check[T >: Manager](images/t: T): T = {
     println("获得审核权限")
     t
   }
@@ -266,15 +266,15 @@ object ScalaApp extends App {
 
 
   // 正确写法,传入泛型参数
-  Check[CEO](new CEO)
-  Check[Manager](new Manager)
+  Check[CEO](images/new CEO)
+  Check[Manager](images/new Manager)
   /*
    * 以下两条语句无法通过编译,异常信息为: 
    * do not conform to method Check's type parameter bounds(不符合方法 Check 的类型参数边界)
    * 这种情况就完成了下界限制，即只有本公司经理及以上的人员才能获得审核权限
    */
-  Check[Employee](new Employee)
-  Check[OtherCompany](new OtherCompany)
+  Check[Employee](images/new Employee)
+  Check[OtherCompany](images/new OtherCompany)
 }
 ```
 
@@ -394,7 +394,7 @@ class PersonOrdering extends Ordering[Person] {
   override def compare(x: Person, y: Person): Int = if (x.age > y.age) 1 else -1
 }
 
-class Pair[T](val first: T, val second: T) {
+class Pair[T](images/val first: T, val second: T) {
   def smaller(implicit ord: Ordering[T]): T = if (ord.compare(first, second) < 0) first else second
 }
 
@@ -434,7 +434,7 @@ class Manager(name: String) extends Ceo(name)
 
 class Employee(name: String) extends Manager(name)
 
-class Pair[T](val first: T, val second: T) {
+class Pair[T](images/val first: T, val second: T) {
   override def toString: String = "first:" + first + ", second: " + second
 }
 
@@ -448,14 +448,14 @@ object ScalaApp extends App {
 目前 Scala 中的通配符在某些复杂情况下还不完善，如下面的语句在 Scala 2.12 中并不能通过编译：
 
 ```scala
-def min[T <: Comparable[_ >: T]](p: Pair[T]) ={}
+def min[T <: Comparable[_ >: T]](images/p: Pair[T]) ={}
 ```
 
 可以使用以下语法代替：
 
 ```scala
 type SuperComparable[T] = Comparable[_ >: T]
-def min[T <: SuperComparable[T]](p: Pair[T]) = {}
+def min[T <: SuperComparable[T]](images/p: Pair[T]) = {}
 ```
 
 

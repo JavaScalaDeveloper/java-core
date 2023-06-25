@@ -1,5 +1,6 @@
 到了这里，spring 容器的启动流程终于是分析完成了，这里使用一张图来总结整个启动流程：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-72a4008f2ad3401de6b4f2d5c7f697923a3.png)
 
 本系列从 `AnnotationConfigApplicationContext#AnnotationConfigApplicationContext(String...)` 方法出发，分析了 `AnnotationConfigApplicationContext` 的无参构造方法、包扫描流程、容器的启动流程等，这部分内容比较多，重点流程如下：

@@ -81,6 +81,7 @@ Netty的源码非常好，质量极高，是Java中质量最高的开源项目�
 
 下图描述了Netty进行事件处理的流程。`Channel`是连接的通道，是ChannelEvent的产生者，而`ChannelPipeline`可以理解为ChannelHandler的集合。
 
+
 ![event driven in Netty][1]
 
 
@@ -102,9 +103,10 @@ Netty的源码非常好，质量极高，是Java中质量最高的开源项目�
 
 在这里面，`channel`和`handler`两部分比较复杂。我们不妨与Netty官方的结构图对照一下，来了解其功能。
 
+
 ![components in Netty][2]
 
-具体的解释可以看这里：[http://netty.io/3.7/guide/#architecture](http://netty.io/3.7/guide/#architecture)。图中可以看到，除了之前说到的事件驱动机制之外，Netty的核心功能还包括两部分：
+具体的解释可以看这里：[http://netty.io/3.7/guide/#architecture](images/http://netty.io/3.7/guide/#architecture)。图中可以看到，除了之前说到的事件驱动机制之外，Netty的核心功能还包括两部分：
 
 * Zero-Copy-Capable Rich Byte Buffer
 
@@ -122,9 +124,9 @@ Netty的源码非常好，质量极高，是Java中质量最高的开源项目�
 
 ### 参考资料：
 
-* Netty 3.7 User Guide [http://netty.io/3.7/guide/](http://netty.io/3.7/guide/)
+* Netty 3.7 User Guide [http://netty.io/3.7/guide/](images/http://netty.io/3.7/guide/)
 
-* What is Netty? [http://ayedo.github.io/netty/2013/06/19/what-is-netty.html](http://ayedo.github.io/netty/2013/06/19/what-is-netty.html)
+* What is Netty? [http://ayedo.github.io/netty/2013/06/19/what-is-netty.html](images/http://ayedo.github.io/netty/2013/06/19/what-is-netty.html)
 
   [1]: http://static.oschina.net/uploads/space/2013/0921/174032_18rb_190591.png
   [2]: http://static.oschina.net/uploads/space/2013/0921/225721_R0w2_190591.png

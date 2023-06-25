@@ -1,6 +1,8 @@
 # 面试官：什么是防抖和节流？有什么区别？如何实现？
 
- ![](https://static.vue-js.com/912f1a10-8787-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/912f1a10-8787-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 本质上是优化高频率执行代码的一种手段
@@ -149,7 +151,9 @@ function debounce(func, wait, immediate) {
 
 如下图所示：
 
- ![](https://static.vue-js.com/a2c81b50-8787-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/a2c81b50-8787-11eb-ab90-d9ae814b240d.png)
 
 
 ## 三、应用场景

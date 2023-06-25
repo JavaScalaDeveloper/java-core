@@ -202,7 +202,7 @@ object PushBasedWordCount {
     </plugins>
 </build>
 ```
-> 本项目完整源码见：[spark-streaming-flume](https://github.com/heibaiying/BigData-Notes/tree/master/code/spark/spark-streaming-flume)
+> 本项目完整源码见：[spark-streaming-flume](images/https://github.com/heibaiying/BigData-Notes/tree/master/code/spark/spark-streaming-flume)
 
 使用 `mvn clean package` 命令打包后会生产以下两个 Jar 包，提交 ` 非 original` 开头的 Jar 即可。
 
@@ -355,5 +355,5 @@ spark-submit \
 
 ## 参考资料
 
-- [streaming-flume-integration](https://spark.apache.org/docs/latest/streaming-flume-integration.html)
-- 关于大数据应用常用的打包方式可以参见：[大数据应用常用打包方式](https://github.com/heibaiying/BigData-Notes/blob/master/notes/大数据应用常用打包方式.md)
+- [streaming-flume-integration](images/https://spark.apache.org/docs/latest/streaming-flume-integration.html)
+- 关于大数据应用常用的打包方式可以参见：[大数据应用常用打包方式](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/大数据应用常用打包方式.md)

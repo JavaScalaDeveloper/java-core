@@ -28,6 +28,7 @@ JMM(Java 内存模型)主要定义了对于一个共享变量，当另一个线�
 
 > **🐛 修正（参见：[issue#1848](https://github.com/Snailclimb/JavaGuide/issues/1848)）**：对 CPU 缓存模型绘图不严谨的地方进行完善。
 
+
 ![CPU 缓存模型示意图](https://oss.javaguide.cn/github/javaguide/java/concurrent/cpu-cache.png)
 
 现代的 CPU Cache 通常分为三层，分别叫 L1,L2,L3 Cache。有些 CPU 可能还有 L4 Cache，这里不做讨论，并不常见
@@ -35,6 +36,7 @@ JMM(Java 内存模型)主要定义了对于一个共享变量，当另一个线�
 **CPU Cache 的工作方式：** 先复制一份数据到 CPU Cache 中，当 CPU 需要用到的时候就可以直接从 CPU Cache 中读取数据，当运算完成后，再将运算得到的数据写回 Main Memory 中。但是，这样存在 **内存缓存不一致性的问题** ！比如我执行一个 i++ 操作的话，如果两个线程同时执行的话，假设两个线程从 CPU Cache 中读取的 i=1，两个线程做了 1++ 运算完之后再写回 Main Memory 之后 i=2，而正确结果应该是 i=3。
 
 **CPU 为了解决内存缓存不一致性问题可以通过制定缓存一致协议（比如 [MESI 协议](https://zh.wikipedia.org/wiki/MESI%E5%8D%8F%E8%AE%AE)）或者其他手段来解决。** 这个缓存一致性协议指的是在 CPU 高速缓存与主内存交互的时候需要遵守的原则和规范。不同的 CPU 中，使用的缓存一致性协议通常也会有所不同。
+
 
 ![缓存一致性协议](https://oss.javaguide.cn/github/javaguide/java/concurrent/cpu-cache-protocol.png)
 
@@ -94,6 +96,7 @@ JMM 说白了就是定义了一些规范来解决这些问题，开发者可以�
 
 Java 内存模型的抽象示意图如下：
 
+
 ![JMM(Java 内存模型)](https://oss.javaguide.cn/github/javaguide/java/concurrent/jmm.png)
 
 从上图来看，线程 1 与线程 2 之间如果要进行通信的话，必须要经历下面 2 个步骤：
@@ -150,6 +153,7 @@ JSR 133 引入了 happens-before 这个概念来描述两个操作之间的内�
 
 下面这张是 《Java 并发编程的艺术》这本书中的一张 JMM 设计思想的示意图，非常清晰。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/java/concurrent/image-20220731155332375.png)
 
 了解了 happens-before 原则的设计思想，我们再来看看 JSR-133 对 happens-before 原则的定义：
@@ -190,6 +194,7 @@ happens-before 的规则就 8 条，说多不多，重点了解下面列举的 5
 ### happens-before 和 JMM 什么关系？
 
 happens-before 与 JMM 的关系用《Java 并发编程的艺术》这本书中的一张图就可以非常好的解释清楚。
+
 
 ![happens-before 与 JMM 的关系](https://oss.javaguide.cn/github/javaguide/java/concurrent/image-20220731084604667.png)
 

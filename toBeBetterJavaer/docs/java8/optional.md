@@ -18,6 +18,7 @@ head:
 
 当然了，我们程序员是富有责任心的，不会坐视不管，于是就有了大量的 null 值检查。尽管有时候这种检查完全没有必要，但我们已经习惯了例行公事。终于，Java 8 看不下去了，就引入了 Optional，以便我们编写的代码不再那么刻薄呆板。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/guava-20230329172935.png)
 
 
@@ -350,6 +351,7 @@ public class OptionalMapFilterDemo {
     }
 }
 ```
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/java8/optional-2.jpg)
 

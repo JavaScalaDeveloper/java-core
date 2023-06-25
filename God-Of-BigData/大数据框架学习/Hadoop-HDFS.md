@@ -124,7 +124,7 @@ HDFS 具有良好的跨平台移植性，这使得其他大数据计算框架都
 
 ## 附：图解HDFS存储原理
 
-> 说明：以下图片引用自博客：[翻译经典 HDFS 原理讲解漫画](https://blog.csdn.net/hudiefenmu/article/details/37655491)
+> 说明：以下图片引用自博客：[翻译经典 HDFS 原理讲解漫画](images/https://blog.csdn.net/hudiefenmu/article/details/37655491)
 
 ### 1. HDFS写数据原理
 
@@ -170,7 +170,7 @@ HDFS 具有良好的跨平台移植性，这使得其他大数据计算框架都
 
 ## 参考资料
 
-1. [Apache Hadoop 2.9.2 > HDFS Architecture](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)
+1. [Apache Hadoop 2.9.2 > HDFS Architecture](images/http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)
 2. Tom White . hadoop 权威指南 [M] . 清华大学出版社 . 2017.
-3. [翻译经典 HDFS 原理讲解漫画](https://blog.csdn.net/hudiefenmu/article/details/37655491)
+3. [翻译经典 HDFS 原理讲解漫画](images/https://blog.csdn.net/hudiefenmu/article/details/37655491)
 

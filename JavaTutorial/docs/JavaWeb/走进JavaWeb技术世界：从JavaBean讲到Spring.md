@@ -33,6 +33,7 @@ Java语言欠缺属性、事件、多重继承功能。所以，如果要在Java
 
 举个例子，假如有人要用Java实现一个单向链表类，可能会这样写：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405154643.png)
 
 
@@ -43,6 +44,7 @@ JavaIntList myList = new JavaIntList( );
 System.out.println(myList.size);
 
 要节省内存，不要缓存size变量了，把代码改成这样：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405154703.png)
 
@@ -59,6 +61,7 @@ public int getSize( ){return size;}
 在jsp上， 可以用java bean 来封装业务逻辑，保存数据到数据库， 像这样：
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405154720.png)
 
 其中jsp 直接用来接受用户的请求， 然后通过java bean 来处理业务， 具体的使用方法是：
@@ -72,6 +75,7 @@ public int getSize( ){return size;}
 但在项目中频繁使用了Model 1 导致整个系统的崩溃，因为系统中有好几千个jsp， 这些jsp互相调用(通过GET/POST), 到了最后调用关系无人能搞懂。
 
 为了解决这个问题，又推出了 ：JSP Model 2 ,  这是个模型真正的体现了Model-View-Controller的思想：
+
 
 
 
@@ -131,6 +135,7 @@ J2EE 后来改成了Java EE。
 在定义EJB的时候没考虑那么多，程序员在定义一个Session bean的时候，需要写一大堆和业务完全没有关系的类。
 
 还需要被迫实现一些根本不应该实现的接口及其方法：
+
 
 
 

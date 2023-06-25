@@ -68,6 +68,7 @@ Nacos 能让我们从微服务平台建设的视角管理数据中心的所有�
 
 Nacos 作为服务注册中心可以实现服务的注册与发现，流程如下图。
 
+
 ![Nacos 服务注册与发现](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022563360-0.png)
 图1：Nacos 服务注册与发现
 
@@ -91,10 +92,12 @@ Nacos 实现服务注册与发现的流程如下：
 
 1\. 使用浏览器访问 [Nacos Server 下载页面](https://github.com/alibaba/nacos/releases/tag/2.0.3)，并在页面最下方点击链接 nacos-server-2.0.3.zip，如下图。
 
+
 ![Nacos 下载](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022562c6-1.png)
 图2：Nacos Server 下载
 
 2\. 下载完成后，解压 nacos-server-2.0.3.zip，目录结构如下。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022563922-2.png)
 图3：Nacos Server 目录结构
@@ -151,10 +154,12 @@ ramework.security.web.access.ExceptionTranslationFilter@3727f0ee]
 ````
 5\. 使用浏览器访问“http://localhost:8848/nacos”，跳转到 Nacos Server 登陆页面，如下图。
 
+
 ![Nacos 登陆页面](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022562045-3.png)
 图4：Nacos Server 登陆页面
 
 6\. 在登陆页输入登录名和密码（默认都是 nacos），点击提交按钮，跳转到 Nacos Server 控制台主页，如下图。
+
 
 ![Nacos Server 主页](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225633C-4.png)
 图5：Nacos Server 控制台
@@ -377,12 +382,15 @@ public class SpringCloudAlibabaProvider8001Application {
 
 6\. 启动 spring-cloud-alibaba-provider-8001，使用浏览器访问“http://localhost:8001/dept/nacos/1”，结果如下图。
 
+
 ![访问服务提供者的服务](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225C033-5.png)
 图6：服务提供者
 
 7\. 使用浏览器访问“http://localhost:8848/nacos”，查看“服务管理”下的“服务列表”，如下图。
 
-[![Nacos 服务列表](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225Ab5-6.png)](http://new-local.weixueyuan.net/uploads/allimg/211108/6-21110QJ12b02.png)
+[
+
+![Nacos 服务列表](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225Ab5-6.png)](http://new-local.weixueyuan.net/uploads/allimg/211108/6-21110QJ12b02.png)
 图7：服务注册列表
 
 从图 7 可以看到，我们搭建的服务提供者 spring-cloud-alibaba-provider-8001 所提供的服务已经被注册到了 Nacos Server 上了。
@@ -598,10 +606,13 @@ public class DeptController_Consumer {
 
 6\. 启动 spring-cloud-alibaba-consumer-nacos-8801，查看 Nacos Server 的服务列表，如下图。
 
-[![服务消费者这 Nacos Server ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225621N-7.png)](http://new-local.weixueyuan.net/uploads/allimg/211109/6-21110Z91435H1.png)
+[
+
+![服务消费者这 Nacos Server ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225621N-7.png)](http://new-local.weixueyuan.net/uploads/allimg/211109/6-21110Z91435H1.png)
 图8：服务消费者
 
 7\. 使用浏览器访问“http://localhost:8801/consumer/dept/nacos/1”，结果如下图。
+
 
 ![Nacos 服务消费者消费服务](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225B156-8.png)
 图9：服务消费者调用服务
@@ -830,6 +841,7 @@ dataId 格式中各参数说明如下：
 
 7\. 启动 spring-cloud-alibaba-config-client-3377，并使用浏览器访问“http://localhost:3377/config/info”，结果如下图。
 
+
 ![Nacos Config](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225B3C-9.png)
 图10：Nacos Config
 
@@ -841,6 +853,7 @@ config:
 
 9\. 在不重启 spring-cloud-alibaba-config-client-3377 的情况下，使用浏览器再次访问“http://localhost:3377/config/info”，结果如下图。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022563A7-10.png)
 图11：Nacos Cofig
 
@@ -851,6 +864,7 @@ config:
 Nacos Server 的集群化部署有一个十分明显的优点，那就是可以保障系统的高可用性。在集群化部署中，只要不是所有的 Nacos Server 都停止工作，Nacos Client 就还可以从集群中正常的 Nacos Server 上获取服务信息及配置，而不会导致系统的整体瘫痪，这就是 Nacos Server 集群化部署的高可用性。
 
 下图展示了 Nacos Server 集群化部署的基本架构。
+
 
 ![Nacos Server 集群架构](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1022563543-11.png)
 图12：Nacos Server 集群架构
@@ -1164,10 +1178,12 @@ http {
 ````
 7\. 当集群中的所有 Nacos Server 都启动成功后，双击 Nignx 安装目录下的 nginx.exe，启动 Nginx。
 
+
 ![Nginx ](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225BO0-12.png)
 图13：Nginx 启动脚本
 
 8\. 使用浏览器访问“http://localhost:1111/nacos/”，若成功访问 Nacos Server 的控制台，则说明 Nacos 集群部署成功，如下图。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225C554-13.png)
 图14：Nacos 集群
@@ -1201,7 +1217,9 @@ service-url:
 
 10\. 重启 spring-cloud-alibaba-consumer-nacos-8801，并使用浏览器访问“http://localhost:1111/nacos”，查看“服务管理”下的“服务列表”，结果如下图。
 
-[![Nacos 集群 2](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225A913-14.png)](http://new-local.weixueyuan.net/uploads/allimg/211109/6-2111091H412N8.png)
+[
+
+![Nacos 集群 2](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10225A913-14.png)](http://new-local.weixueyuan.net/uploads/allimg/211109/6-2111091H412N8.png)
 图15：服务注册到 Nacos Server 集群上
 
 # 参考文章

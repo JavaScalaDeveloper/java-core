@@ -29,6 +29,7 @@ head:
 
 MySQL 体系架构如下图所示：
 
+
 ![](https://oss.javaguide.cn/github/javaguide/mysql/mysql-architecture.png)
 
 为了提高完全相同的查询语句的响应速度，MySQL Server 会对查询语句进行 Hash 计算得到一个 Hash 值。MySQL Server 不会对 SQL 做任何处理，SQL 必须完全一致 Hash 值才会一样。得到 Hash 值之后，通过该 Hash 值到查询缓存中匹配该查询的结果。
@@ -37,6 +38,7 @@ MySQL 体系架构如下图所示：
 - 如果没有匹配（未命中），则将 Hash 值和结果集保存在查询缓存中，以便以后使用。
 
 也就是说，**一个查询语句（select）到了 MySQL Server 之后，会先到查询缓存看看，如果曾经执行过的话，就直接返回结果集给客户端。**
+
 
 ![](https://oss.javaguide.cn/javaguide/13526879-3037b144ed09eb88.png)
 

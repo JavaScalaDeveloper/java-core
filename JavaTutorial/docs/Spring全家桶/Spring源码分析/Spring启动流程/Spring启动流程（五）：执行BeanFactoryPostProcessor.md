@@ -1,3 +1,5 @@
+
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-c8c446fca94a382109bdc7b6babd6db4c0d.png)
 
 接上文，我们继续分析。
@@ -474,6 +476,7 @@ public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) 
 #### 5.4 总结
 
 本文介绍了 `invokeBeanFactoryPostProcessors` 的执行流程，整个类下来就是为了执行两个方法：`BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry` 与 `BeanFactoryPostProcessor#postProcessBeanFactory`，这两个方法的执行过程如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b6188601112b2b2c031b0a70f64f2cc885f.png)
 

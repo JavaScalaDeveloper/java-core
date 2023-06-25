@@ -49,6 +49,7 @@ xml的读取应该是Spring的重要功能，因为Spring的大部分功能都�
 
 ## step1:
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/bb0bf7543226c4ada238d93363f864d39da8e3e8.png)
 
 在平常开发中，我们也可以使用Resource 获取 资源文件：
@@ -59,6 +60,7 @@ xml的读取应该是Spring的重要功能，因为Spring的大部分功能都�
 ```
 
 ## step2:
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/13bd511377c0957e4ef8daebdf457585a9acabea.png)
 
@@ -72,9 +74,11 @@ xml的读取应该是Spring的重要功能，因为Spring的大部分功能都�
 
 （3） 核心处理
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405185226.png)
 
 可以很直观的看出来是这个function是在解析xml文件从而获得对应的Document对象。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405185240.png)
 
@@ -82,11 +86,13 @@ xml的读取应该是Spring的重要功能，因为Spring的大部分功能都�
 
 转换成document也是最常用的方法：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405185253.png)
 
 ## step3
 
 /**Register the bean definitions contained in the given DOM document*/
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405185301.png)
 
@@ -96,9 +102,11 @@ xml的读取应该是Spring的重要功能，因为Spring的大部分功能都�
 
 核心方法：<font color="#FF0000">documentReader.registerBeanDefinitions(doc, createReaderContext(resource));</font>
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405185308.png)
 
 <font color="#FF0000">开始解析：</font>
+
 
 ![image-20230405185319712](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230405185319712.png)
 
@@ -110,21 +118,26 @@ xml的读取应该是Spring的重要功能，因为Spring的大部分功能都�
 
 还有一种是自定义的： < tx : annotation-driven / >
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405185328.png)
 
 通过xml配置文件的默认配置空间来判断：http://www.springframework.org/schema/beans
 
 对于默认标签的解析：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405185340.png)
 
 对Bean 配置的解析：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405185347.png)
 
 **BeanDefinitionHolder bdHolder = delegate.parseBeanDefinitionElement(ele); 返回BeanDefinitionHolder**
 
+
 ![image-20230405185356720](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230405185356720.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405185402.png)
 
@@ -139,6 +152,7 @@ xml的读取应该是Spring的重要功能，因为Spring的大部分功能都�
 
 BeanDefinition是一个接口，对应着配置文件中<bean>里面的所有配置，在Spring中存在着三个实现类：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405185457.png)
 
 在配置文件中，可以定义父<bean>和子<bean>，父<bean>是用RootDefinition来表示，子<bean>是用ChildBeanDefinition来表示。
@@ -149,9 +163,11 @@ Spring容器的BeanDefinitonRegistry就像是Spring配置信息的内存数据�
 
 因此解析属性首先要创建用于承载属性的实例：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405185505.png)
 
 然后就是各种对属性的解析的具体方法：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405185520.png)
 
@@ -174,6 +190,7 @@ Spring容器的BeanDefinitonRegistry就像是Spring配置信息的内存数据�
 **考研复习资料：**
 计算机考研大礼包，都是我自己考研复习时用的一些复习资料,包括公共课和专业的复习视频，这里也推荐给大家，关注公众号后，后台回复关键字 **“考研”** 即可免费获取。
 
+
 ![](https://img-blog.csdnimg.cn/20190829222750556.jpg)
 
 
@@ -182,6 +199,7 @@ Spring容器的BeanDefinitonRegistry就像是Spring配置信息的内存数据�
 如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号【Java技术江湖】一位阿里 Java 工程师的技术小站，作者黄小斜，专注 Java 相关技术：SSM、SpringBoot、MySQL、分布式、中间件、集群、Linux、网络、多线程，偶尔讲点Docker、ELK，同时也分享技术干货和学习经验，致力于Java全栈开发！
 
 **Java工程师必备学习资源:** 一些Java工程师常用学习资源，关注公众号后，后台回复关键字 **“Java”** 即可免费无套路获取。
+
 
 ![我的公众号](https://img-blog.csdnimg.cn/20190805090108984.jpg)
 

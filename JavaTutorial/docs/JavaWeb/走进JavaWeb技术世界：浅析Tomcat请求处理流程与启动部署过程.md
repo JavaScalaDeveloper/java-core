@@ -42,6 +42,7 @@ Tomcat-9.0.0.M22 是 Tomcat 目前最新的版本，但尚未发布，它实现�
 
 ## Overview
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405154006.png)
 
 Connector 启动以后会启动一组线程用于不同阶段的请求处理过程。
@@ -55,6 +56,7 @@ Connector 启动以后会启动一组线程用于不同阶段的请求处理过�
 Acceptor、Poller、worker 所在的 ThreadPoolExecutor 都维护在 NioEndpoint 中。
 
 ## Connector Init and Start
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405154024.png)
 
@@ -70,6 +72,7 @@ Acceptor、Poller、worker 所在的 ThreadPoolExecutor 都维护在 NioEndpoint
 
 ### Acceptor
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405154041.png)
 
 1.  Acceptor 在启动后会阻塞在 ServerSocketChannel.accept(); 方法处，当有新连接到达时，该方法返回一个 SocketChannel。
@@ -79,6 +82,7 @@ Acceptor、Poller、worker 所在的 ThreadPoolExecutor 都维护在 NioEndpoint
 3.  addEvent() 方法会将 Socket 添加到该 Poller 的 PollerEvent 队列中。到此 Acceptor 的任务就完成了。
 
 ### Poller
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405154054.png)
 1.  selector.select(1000)。当 Poller 启动后因为 selector 中并没有已注册的 Channel，所以当执行到该方法时只能阻塞。所有的 Poller 共用一个 Selector，其实现类是 sun.nio.ch.EPollSelectorImpl
@@ -90,6 +94,7 @@ Acceptor、Poller、worker 所在的 ThreadPoolExecutor 都维护在 NioEndpoint
 4.  execute(SocketProcessor) 方法将 SocketProcessor 提交到线程池，放入线程池的 workQueue 中。workQueue 是 BlockingQueue 的实例。到此 Poller 的任务就完成了。
 
 ### Worker
+
 
 ![](https://img-blog.csdnimg.cn/20190808094814420.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FsYmVuWGll,size_16,color_FFFFFF,t_70)
 
@@ -108,6 +113,7 @@ Acceptor、Poller、worker 所在的 ThreadPoolExecutor 都维护在 NioEndpoint
 *   connector.getService().getContainer().getPipeline().getFirst().invoke() 会将请求传递到 Container 处理，当然了 Container 处理也是在 Worker 线程中执行的，但是这是一个相对独立的模块，所以单独分出来一节。
 
 ### Container
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405154120.png)
 

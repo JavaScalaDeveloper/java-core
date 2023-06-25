@@ -7,6 +7,7 @@ helm学习文档：https://helm.sh/zh/docs/
 **K8S** 上的应用对象，都是由特定的资源描述组成，包括 **deployment**、**services** 等。都保存各自文件中或者集中写到
 一个配置文件。然后 **kubectl apply -f** 部署。
 
+
 ![image-20220815224019379](images/image-20220815224019379.png)
 
  如果应用只由一个或几个这样的服务组成，上面部署方式足够了。
@@ -40,6 +41,7 @@ Heml 有两个重要的概念：
 ### 架构变化
 
 最明显的是 Tiller 的删除
+
 
 ![image-20220815224715228](images/image-20220815224715228.png)
 
@@ -162,6 +164,7 @@ cat config.yaml
 
 然后在 config.yaml 中，写上下面的数据
 
+
 ![image-20220815232418023](images/image-20220815232418023.png)
 
 然后执行下列命令
@@ -187,11 +190,13 @@ helm pull stable/mysql --untar
 
 values yaml 与 set 使用
 
+
 ![image-20220815233153748](images/image-20220815233153748.png)
 
 
 
 以蘑菇为例，如何制作 heml 包
+
 
 ![image-20220815233329363](images/image-20220815233329363.png)
 

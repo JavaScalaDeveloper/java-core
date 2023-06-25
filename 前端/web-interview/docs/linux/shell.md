@@ -1,6 +1,8 @@
 # 面试官：说说你对 shell 的理解？常见的命令？
 
- ![](https://static.vue-js.com/71003620-0883-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/71003620-0883-11ec-a752-75723a64e8f5.png)
 
 
 ## 一、是什么
@@ -13,7 +15,9 @@
 
 主要作用是接收用户输入的命令，并对命令进行处理，处理完毕后再将结果反馈给用户，比如输出到显示器、写入到文件等，同样能够调用和组织其他的应用程序，相当于一个领导者的身份，如下图：
 
- ![](https://static.vue-js.com/80db0ca0-0883-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/80db0ca0-0883-11ec-8e64-91fdec0f05a1.png)
 
 那么`shell`脚本就是多个 `Shell` 命令的组合并通过 `if` 条件分支控制或循环来组合运算，实现一些复杂功能，文件后缀名为`.sh`
 
@@ -50,6 +54,7 @@ echo "hello world"
 - Korn shell（ksh） ，一般在收费的 Unix 版本上比较多见
 
 - Z Shell（zsh） ，它是一种比较新近的 Shell ，集 bash 、 ksh 和 tcsh 各家之大成
+
 
 ![](https://static.vue-js.com/8e739440-0883-11ec-a752-75723a64e8f5.png)
 

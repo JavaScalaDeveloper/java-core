@@ -37,6 +37,7 @@ Kafka是一个分布式系统，由服务器和客户端组成，通过高性能
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-39059344afb24ff7436bf7fb06bddde4_720w.webp)
 
 </figure>
@@ -50,6 +51,7 @@ Kafka是一种消息队列，主要用来处理大量数据状态下的消息队
 **消息队列的好处** 1. 解耦合 耦合的状态表示当你实现某个功能的时候，是直接接入当前接口，而利用消息队列，可以将相应的消息发送到消息队列，这样的话，如果接口出了问题，将不会影响到当前的功能。
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-e37a18ea7eddc69582d634cc881eb257_720w.webp)
@@ -69,6 +71,7 @@ Kafka的消费模式主要有两种：一种是一对一的消费，也即点对
 <figure data-size="normal">
 
 
+
 ![image-20230525200024084](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230525200024084.png)
 
 </figure>
@@ -80,6 +83,7 @@ Kafka的消费模式主要有两种：一种是一对一的消费，也即点对
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-d97a2898f3bdc417262bc88be616281c_720w.webp)
 
 </figure>
@@ -89,6 +93,7 @@ Kafka的消费模式主要有两种：一种是一对一的消费，也即点对
 ## 2.2 Kafka的基础架构
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-ef94691300117c049301d88c6337c9c2_720w.webp)

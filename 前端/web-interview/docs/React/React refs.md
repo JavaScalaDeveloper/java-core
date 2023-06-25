@@ -1,6 +1,8 @@
 # 面试官：说说对React refs 的理解？应用场景？ 
 
- ![](https://static.vue-js.com/25162040-de02-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/25162040-de02-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 `Refs` 在计算机中称为弹性文件系统（英语：Resilient File System，简称ReFS）

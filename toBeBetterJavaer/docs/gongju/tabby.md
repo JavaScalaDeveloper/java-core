@@ -24,6 +24,7 @@ head:
 
 答案是有的，它就是 **Tabby**！
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-01.png)
 
 GitHub 上已经有 21.4k 的 star 了，这说明 Tabby 非常的受欢迎：
@@ -37,6 +38,7 @@ Tabby 是一个高度可定制化的 跨平台的终端工具，支持 Windows�
 ## 一、安装 Tabby
 
 直接到官网 [tabby.sh](https://tabby.sh/) 点击「download」按钮就可以跳转到下载页面，最新的 release 版本是 1.0.164。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-02.png)
 
@@ -58,6 +60,7 @@ Apple M1 是苹果公司的第一款基于ARM架构的自研处理器单片系�
 
 按照提示，一步步安装就 OK 了。完成后打开，这界面还是非常炫酷的。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-03.png)
 
 ## 二、SSH 连接
@@ -70,18 +73,22 @@ SSH，也就是 Secure Shell（安全外壳协议），是一种加密的网络�
 
 点击「setting」→「profiles & connections」→「new profile」。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-04.png)
 
 填写服务器的 IP 地址和密码，然后点击「save」。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-05.png)
 
 之后点击「运行」按钮，就可以进入到终端页面了。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-06.png)
 
 
 好了，现在可以对服务器进行操作了，执行下 top 命令可以查看服务器上正在运行的进程信息。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-07.png)
 
@@ -89,13 +96,16 @@ SSH，也就是 Secure Shell（安全外壳协议），是一种加密的网络�
 
 Tabby 集成了 SFTP，所以上传下载文件就变得非常的简单。只需要点击一下「SFTP」图标就可以打开文件传输窗口。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-08.png)
 
 上传的时候支持拖拽，完成后会弹出文件传输成功的提示消息。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-09.png)
 
 下载的时候点击要下载的文件，然后会弹出存储对话框，选择对应的文件夹，以及修改对应的文件名点击「存储」就可以了。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-10.png)
 
@@ -103,14 +113,17 @@ Tabby 集成了 SFTP，所以上传下载文件就变得非常的简单。只需
 
 「Settings」 的面板下有一个「Appearance」的菜单，可以对 Tabby 的外观进行设置，比如说调整字体，比如说自定义样式。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-11.png)
 
 「Appearance」的菜单可以对 Tabby 的配色方案进行修改，里面的主题非常多，不过我感觉默认的就挺不错，毕竟是官方推荐的。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-12.png)
 
  「Plugins」 菜单中还有不少插件可供扩展。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-13.png)
 
@@ -122,23 +135,28 @@ Tabby 集成了 SFTP，所以上传下载文件就变得非常的简单。只需
 
 这里重点说一下「sync config」 这个插件，可以将配置同步到Github或者Gitee的插件。点击「Get」就可以安装，之后会提示你重启生效。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-14.png)
 
 生效后点击「Sync Config」菜单，就可以看到配置项了，类型可以选择 GitHub、Gitee、GitLab。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-15.png)
 
 这里以 Gitee 为例，进入个人 Gitee 主页，左侧菜单中选择「私人令牌」，然后点击「生成新令牌」。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-16.png)
 
 提交后会生成 token，复制到 Tabby 的 Token 输入框中，然后点击「Upload config」，就可以看到配置信息同步成功了。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-17.png)
 
 
 
  「Window」 菜单中可以对当前窗口进行设置，比如说改变窗口的主题为 Paper，改变 tab 的位置到底部等等。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/tabby-18.png)
 

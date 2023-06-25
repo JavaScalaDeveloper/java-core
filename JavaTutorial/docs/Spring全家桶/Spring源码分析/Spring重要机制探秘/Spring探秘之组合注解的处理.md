@@ -175,6 +175,7 @@ spring 5.2 中，对于注解信息的读取有提供了三个类：
 
 spring 并没有提供直接操作 `SimpleAnnotationMetadataReadingVisitor` 的机会，而是封装到 `SimpleMetadataReaderFactory` 了，我们先来看看这个类：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-f2926fbc022517409bfb6f6641c87a193c2.png)
 
 可以看到，`SimpleMetadataReaderFactory` 的类主要分为两部分：
@@ -191,6 +192,7 @@ spring 并没有提供直接操作 `SimpleAnnotationMetadataReadingVisitor` 的�
 ##### `MetadataReader`
 
 `MetadataReader` 的部分方法如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-4a1184918664e8a4bd363d6399ed4092692.png)
 
@@ -212,6 +214,7 @@ AnnotationMetadata getAnnotationMetadata();
 ##### `AnnotationMetadata`
 
 先来看看它的方法：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-fc19d57bbba3d70da04fd32e6eef511ad4f.png)
 
@@ -311,6 +314,7 @@ boolean isDirectlyPresent(String annotationType);
 
 `MergedAnnotations` 是注解的集合，那这个集合中放的是啥呢？从它的 `get(...)` 方法来看，它存放的是 `MergedAnnotation`，我们再来看看 `MergedAnnotation` 支持的方法：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a3a749f4546d63b49bfd25d2fc2c73dcb6f.png)
 
 从以上的方法可以看到，`MergedAnnotation` 就是注解的数据抽象，它提供了丰富的 api 用来获取注解的数据。
@@ -398,6 +402,7 @@ public class AnnotationAttributes extends LinkedHashMap<String, Object> {
 ```
 
 它实现了 `LinkedHashMap`，提供的部分方法如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a8c8dc975790719c37a8e41a4b0067c517c.png)
 
@@ -605,6 +610,7 @@ private static MergedAnnotations getAnnotations(AnnotatedElement element) {
 
 `AnnotationUtils` 支持的部分方法如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-51b0f496180a16d947b8f83285370cabd8f.png)
 
 我们来实际使用下这些方法：
@@ -648,6 +654,7 @@ value: 123
 #### 4.2 `AnnotatedElementUtils`
 
 `AnnotatedElementUtils` 支持的部分方法如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-9815fe697f5ccf14d3aa215952bfcbcc3ab.png)
 

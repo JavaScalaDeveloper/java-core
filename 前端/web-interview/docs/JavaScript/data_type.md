@@ -1,6 +1,8 @@
 # 面试官：说说JavaScript中的数据类型？存储上的差别？
 
- ![](https://static.vue-js.com/6d133f90-6463-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/6d133f90-6463-11eb-ab90-d9ae814b240d.png)
 
 ## 前言
 
@@ -251,7 +253,9 @@ console.log(a); // 10值
 
 下图演示了基本类型赋值的过程：
 
- ![](https://static.vue-js.com/906ffb90-6463-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/906ffb90-6463-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -270,7 +274,9 @@ console.log(obj1.name); // xxx
 
 下图演示这个引用类型赋值过程
 
- ![](https://static.vue-js.com/a34bdd10-6463-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/a34bdd10-6463-11eb-ab90-d9ae814b240d.png)
 
 
 

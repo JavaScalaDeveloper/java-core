@@ -51,6 +51,7 @@ public class VolatileExample {
 ```
 上面的实例代码对应的happens-before关系如下图所示：
 
+
 ![VolatileExample的happens-before关系推导](http://upload-images.jianshu.io/upload_images/2615789-c9c291d6c0b3e0f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
@@ -58,10 +59,12 @@ public class VolatileExample {
 # 4. volatile的内存语义 #
 还是按照**两个核心**的分析方式，分析完happens-before关系后我们现在就来进一步分析volatile的内存语义（按照这种方式去学习，会不会让大家对知识能够把握的更深，而不至于不知所措，如果大家认同我的这种方式，不妨给个赞，小弟在此谢过，对我是个鼓励）。还是以上面的代码为例，假设线程A先执行writer方法，线程B随后执行reader方法，初始时线程的本地内存中flag和a都是初始状态，下图是线程A执行volatile写后的状态图。
 
+
 ![线程A执行volatile写后的内存状态图](http://upload-images.jianshu.io/upload_images/2615789-9e5098f09d5ad065.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 当volatile变量写后，线程中本地内存中共享变量就会置为失效的状态，因此线程B再需要读取从主内存中去读取该变量的最新值。下图就展示了线程B读取同一个volatile变量的内存变化示意图。
+
 
 ![线程B读volatile后的内存状态图](http://upload-images.jianshu.io/upload_images/2615789-606771789255958f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -77,11 +80,13 @@ public class VolatileExample {
 
 JMM内存屏障分为四类见下图，
 
+
 ![内存屏障分类表](http://upload-images.jianshu.io/upload_images/2615789-27cf04634cbdf284.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/680)
 
 
 
 java编译器会在生成指令系列时在适当的位置会插入内存屏障指令来禁止特定类型的处理器重排序。为了实现volatile的内存语义，JMM会限制特定类型的编译器和处理器重排序，JMM会针对编译器制定volatile重排序规则表：
+
 
 
 ![volatile重排序规则表](http://upload-images.jianshu.io/upload_images/2615789-fa62c72e7ec4ccb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/680)
@@ -106,7 +111,9 @@ java编译器会在生成指令系列时在适当的位置会插入内存屏障�
 
 下面以两个示意图进行理解，图片摘自相当好的一本书《java并发编程的艺术》。
 
+
 ![volatile写插入内存屏障示意图](http://upload-images.jianshu.io/upload_images/2615789-a31dbae587e8a946.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620)
+
 
 
 ![volatile读插入内存屏障示意图](http://upload-images.jianshu.io/upload_images/2615789-dc628461898a66a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620)

@@ -50,9 +50,13 @@
 
 1.  ZAB协议是专门为zookeeper实现分布式协调功能而设计。zookeeper主要是根据ZAB协议是实现分布式系统数据一致性。
 2.  zookeeper根据ZAB协议建立了主备模型完成zookeeper集群中数据的同步。这里所说的主备系统架构模型是指，在zookeeper集群中，只有一台leader负责处理外部客户端的事物请求(或写操作)，然后leader服务器将客户端的写操作数据同步到所有的follower节点中。  
-    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210824.png)
+    
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210824.png)
 3.  ZAB的协议核心是在整个zookeeper集群中只有一个节点即Leader将客户端的写操作转化为事物(或提议proposal)。Leader节点再数据写完之后，将向所有的follower节点发送数据广播请求(或数据复制)，等待所有的follower节点反馈。在ZAB协议中，只要超过半数follower节点反馈OK，Leader节点就会向所有的follower服务器发送commit消息。即将leader节点上的数据同步到follower节点之上。  
-    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210834.png)
+    
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210834.png)
 4.  ZAB协议中主要有两种模式，第一是消息广播模式；第二是崩溃恢复模式
 
 ## 消息广播模式
@@ -60,7 +64,9 @@
 1.  在zookeeper集群中数据副本的传递策略就是采用消息广播模式。zookeeper中数据副本的同步方式与二阶段提交相似但是却又不同。二阶段提交的要求协调者必须等到所有的参与者全部反馈ACK确认消息后，再发送commit消息。要求所有的参与者要么全部成功要么全部失败。二阶段提交会产生严重阻塞问题。
 2.  ZAB协议中Leader等待follower的ACK反馈是指”只要半数以上的follower成功反馈即可，不需要收到全部follower反馈”
 3.  图中展示了消息广播的具体流程图  
-    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210854.png)
+    
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210854.png)
 4.  zookeeper中消息广播的具体步骤如下：  
     4.1\. 客户端发起一个写操作请求  
     4.2\. Leader服务器将客户端的request请求转化为事物proposql提案，同时为每个proposal分配一个全局唯一的ID，即ZXID。  
@@ -88,7 +94,9 @@
 1.  在zookeeper集群中新的leader选举成功之后，leader会将自身的提交的最大proposal的事物ZXID发送给其他的follower节点。follower节点会根据leader的消息进行回退或者是数据同步操作。最终目的要保证集群中所有节点的数据副本保持一致。
 2.  数据同步完之后，zookeeper集群如何保证新选举的leader分配的ZXID是全局唯一呢？这个就要从ZXID的设计谈起。  
     2.1 ZXID是一个长度64位的数字，其中低32位是按照数字递增，即每次客户端发起一个proposal,低32位的数字简单加1。高32位是leader周期的epoch编号，至于这个编号如何产生(我也没有搞明白)，每当选举出一个新的leader时，新的leader就从本地事物日志中取出ZXID,然后解析出高32位的epoch编号，进行加1，再将低32位的全部设置为0。这样就保证了每次新选举的leader后，保证了ZXID的唯一性而且是保证递增的。  
-    ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210906.png)
+    
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210906.png)
 
 ## ZAB协议原理
 
@@ -164,6 +172,7 @@ Google的粗粒度锁服务Chubby的设计开发者Burrows曾经说过：“所�
 
 因为每个服务器都是独立的，在启动时均从初始状态开始参与选举，下面是简易流程图。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/17071-20170220211539679-433574967.jpg)
 
 
@@ -215,7 +224,10 @@ b)否则这是一条与当前逻辑时钟不符合的消息，那么说明在另
 
 Zookeeper具体的启动日志如下图所示：
 
-![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210921.png)![](https://img-blog.csdn.net/20161028191618720?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210921.png)
+
+![](https://img-blog.csdn.net/20161028191618720?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 以上就是我自己配置的Zookeeper选主日志，从一开始LOOKING,然后new election, my id = 1, proposedzxid=0x0 也就是选自己为Leader,之后广播选举并重复之前Fast选主算法，最终确定Leader。
 
@@ -243,6 +255,7 @@ Zookeeper具体的启动日志如下图所示：
 
 各服务器初始化后，都投票给自己，并将自己的一票存入自己的票箱，如下图所示。
 
+
 ![fsdfsdfsdsdfsdfsfsdf](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/start_election_1.png)
 
 
@@ -252,6 +265,7 @@ Zookeeper具体的启动日志如下图所示：
 
 **_更新选票_**  
 服务器收到外部投票后，进行选票PK，相应更新自己的选票并广播出去，并将合适的选票存入自己的票箱，如下图所示。
+
 
 
 
@@ -271,6 +285,7 @@ Zookeeper具体的启动日志如下图所示：
 **_根据选票确定角色_**  
 根据上述选票，三个服务器一致认为此时服务器3应该是Leader。因此服务器1和2都进入FOLLOWING状态，而服务器3进入LEADING状态。之后Leader发起并维护与Follower间的心跳。
 
+
 ![Cluster start election step 3](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/start_election_3.png)
 
 
@@ -279,10 +294,12 @@ Zookeeper具体的启动日志如下图所示：
 **_Follower重启投票给自己_**  
 Follower重启，或者发生网络分区后找不到Leader，会进入LOOKING状态并发起新的一轮投票。
 
+
 ![Follower restart election step 1](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/follower_restart_election_1.png)
 
 **_发现已有Leader后成为Follower_**  
 服务器3收到服务器1的投票后，将自己的状态LEADING以及选票返回给服务器1。服务器2收到服务器1的投票后，将自己的状态FOLLOWING及选票返回给服务器1。此时服务器1知道服务器3是Leader，并且通过服务器2与服务器3的选票可以确定服务器3确实得到了超过半数的选票。因此服务器1进入FOLLOWING状态。
+
 
 ![Follower restart election step 2](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/follower_restart_election_2.png)
 
@@ -291,6 +308,7 @@ Follower重启，或者发生网络分区后找不到Leader，会进入LOOKING�
 
 **_Follower发起新投票_**  
 Leader（服务器3）宕机后，Follower（服务器1和2）发现Leader不工作了，因此进入LOOKING状态并发起新的一轮投票，并且都将票投给自己。
+
 
 ![Leader restart election step 1](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/leader_restart_election_1.png)
 
@@ -303,20 +321,24 @@ Leader（服务器3）宕机后，Follower（服务器1和2）发现Leader不工
 
 在上图中，服务器1的zxid为11，而服务器2的zxid为10，因此服务器2将自身选票更新为（3, 1, 11），如下图所示。
 
+
 ![Leader restart election step 2](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/leader_restart_election_2.png)
 
 **_选出新Leader_**  
 经过上一步选票更新后，服务器1与服务器2均将选票投给服务器1，因此服务器2成为Follower，而服务器1成为新的Leader并维护与服务器2的心跳。
+
 
 ![Leader restart election step 3](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/leader_restart_election_3.png)
 
 **_旧Leader恢复后发起选举_**  
 旧的Leader恢复后，进入LOOKING状态并发起新一轮领导选举，并将选票投给自己。此时服务器1会将自己的LEADING状态及选票（3, 1, 11）返回给服务器3，而服务器2将自己的FOLLOWING状态及选票（3, 1, 11）返回给服务器3。如下图所示。
 
+
 ![Leader restart election step 4](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/leader_restart_election_4.png)
 
 **_旧Leader成为Follower_**  
 服务器3了解到Leader为服务器1，且根据选票了解到服务器1确实得到过半服务器的选票，因此自己进入FOLLOWING状态。
+
 
 ![Leader restart election step 5](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/leader_restart_election_5.png)
 
@@ -330,6 +352,7 @@ ZAB协议保证了在Leader选举的过程中，已经被Commit的数据不会�
 **_Failover前状态_**
 为更好演示Leader Failover过程，本例中共使用5个Zookeeper服务器。A作为Leader，共收到P1、P2、P3三条消息，并且Commit了1和2，且总体顺序为P1、P2、C1、P3、C2。根据顺序性原则，其它Follower收到的消息的顺序肯定与之相同。其中B与A完全同步，C收到P1、P2、C1，D收到P1、P2，E收到P1，如下图所示。
 
+
 ![Leader Failover step 1](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/recovery_1.png)
 
 
@@ -341,6 +364,7 @@ ZAB协议保证了在Leader选举的过程中，已经被Commit的数据不会�
 **_选出新Leader_**  
 旧Leader也即A宕机后，其它服务器根据上述FastLeaderElection算法选出B作为新的Leader。C、D和E成为Follower且以B为Leader后，会主动将自己最大的zxid发送给B，B会将Follower的zxid与自身zxid间的所有被Commit过的消息同步给Follower，如下图所示。
 
+
 ![Leader Failover step 2](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/recovery_2.png)
 
 
@@ -351,6 +375,7 @@ ZAB协议保证了在Leader选举的过程中，已经被Commit的数据不会�
 
 **_通知Follower可对外服务_**  
 同步完数据后，B会向D、C和E发送NEWLEADER命令并等待大多数服务器的ACK（下图中D和E已返回ACK，加上B自身，已经占集群的大多数），然后向所有服务器广播UPTODATE命令。收到该命令后的服务器即可对外提供服务。
+
 
 ![Leader Failover step 3](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/recovery_3.png)
 
@@ -367,6 +392,7 @@ ZAB协议保证了在Leader选举的过程中，已经被Commit的数据不会�
 上述操作保证了未被Commit过的消息不会被Commit从而对外不可见。
 
 上述例子中Follower上并不存在未被Commit的消息。但可考虑这种情况，如果将上述例子中的服务器数量从五增加到七，服务器F包含P1、P2、C1、P3，服务器G包含P1、P2。此时服务器F、A和B都包含P3，但是因为票数未过半，因此B作为Leader不会Commit P3，而会通过TRUNC命令通知F删除P3。如下图所示。
+
 
 ![Leader Failover step 4](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/recovery_4.png)
 

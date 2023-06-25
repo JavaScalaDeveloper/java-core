@@ -1,5 +1,6 @@
 # 面试官：说说webpack的构建流程?
 
+
 ![](https://static.vue-js.com/96cf6840-a658-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、运行流程
@@ -14,7 +15,9 @@
 - 编译构建流程：从 Entry 发出，针对每个 Module 串行调用对应的 Loader 去翻译文件内容，再找到该 Module 依赖的 Module，递归地进行编译处理
 - 输出流程：对编译后的 Module 组合成 Chunk，把 Chunk 转换成文件，输出到文件系统
 
- ![](https://static.vue-js.com/b566d400-a658-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/b566d400-a658-11eb-85f6-6fac77c0c9b3.png)
 
 
 ### 初始化流程
@@ -207,7 +210,9 @@ output: {
 
 ### 小结
 
- ![](https://static.vue-js.com/d77fc560-a658-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/d77fc560-a658-11eb-85f6-6fac77c0c9b3.png)
 
 
 

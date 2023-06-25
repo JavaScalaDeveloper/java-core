@@ -1,6 +1,8 @@
 # 面试官：Javascript本地存储的方式有哪些？区别及应用场景？
 
- ![](https://static.vue-js.com/68dccf20-849f-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/68dccf20-849f-11eb-ab90-d9ae814b240d.png)
 
 ## 一、方式
 

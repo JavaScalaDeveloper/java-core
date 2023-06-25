@@ -416,13 +416,16 @@ CREATE TABLE `user` (
 
 第一次不抛出异常，数据库结果：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-30bbe23a8e0491d1f59378469ad04703e03.png)
 
 第二次抛出异常，数据库结果：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-edf98369ccef9735d83813cef7af7ea1dcd.png)
 
 第三次不抛出异常，数据库结果：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-fab4169dbec7661f27bba203c5e77232f65.png)
 
@@ -663,11 +666,13 @@ public class InfrastructureAdvisorAutoProxyCreator extends AbstractAdvisorAutoPr
 
 `InfrastructureAdvisorAutoProxyCreator` 其实并没有做什么与 aop 相关的事，但它继承了一个关键的类：`AbstractAdvisorAutoProxyCreator`，这个类可是大有来头：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-2881f63ac07afc5095c449ddb9a0df2bb55.png)
 
 从继承关系来看，这个类继承了 `AbstractAutoProxyCreator`，而 `AbstractAutoProxyCreator` 正是我们在 - [spring aop 之 AnnotationAwareAspectJAutoProxyCreator 分析（上）](https://my.oschina.net/funcy/blog/4678817) 与 [spring aop 之 AnnotationAwareAspectJAutoProxyCreator 分析（下）](https://my.oschina.net/funcy/blog/4687961)中重点分析的、代理对象的产生所在！
 
 我们再来看下 `AnnotationAwareAspectJAutoProxyCreator`、`AspectJAwareAdvisorAutoProxyCreator` 、`InfrastructureAdvisorAutoProxyCreator` 这三者的关系：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-acd72335503eeb686abe81d930b45f1f3f0.png)
 

@@ -27,6 +27,7 @@ git branch
 
 这里显示的是目前在Nacos分支，那我们就无需切换
 
+
 ![image-20201110090336834](images/image-20201110090336834.png)
 
 如果不在Nacos分支，使用下面命令切换分支
@@ -56,6 +57,7 @@ nacos_config.sql：表示Nacos配置脚本（仅用于Nacos分支）
 - 如果你系统已经上线【已经添加了自己的一些内容】，那么就需要查看 mogu_picture_update.sql 和 mogu_picture_update.sql，然后查看在 2020.10.15 - 2020.11.17 这一段时间内，是否更新了新的字段，如果有更新，那么为了不破坏原有的数据库，那么你需要把里面的字段插入到执行的数据库表中
 
 每次更新的时间，在mogu_*_update.sql 表里都有体现，只需要进去查看即可 ，然后找到对应访问内的，增量更新即可
+
 
 ![img](images/0065b6c10d584aca9dfc31472a2d2d12)
 
@@ -92,6 +94,7 @@ http://your_ip:8848/nacos
 
 打开后，选中我们的配置列表， prod环境
 
+
 ![image-20201110095729364](images/image-20201110095729364.png)
 
 然后我们就开始修改我们的一些配置信息了，关于修改哪些配置，这里不再重复，参考这篇博客
@@ -99,6 +102,7 @@ http://your_ip:8848/nacos
  [使用Docker快速搭建蘑菇博客（Nacos分支）](http://moguit.cn/#/info?blogUid=8100dcb585fff77e3fa25eed50e3708e)
 
 然后找到这一节的内容进行修改
+
 
 ![image-20201110100148643](images/image-20201110100148643.png)
 
@@ -115,6 +119,7 @@ mvn clean install
 
 完成上面操作后，能看到下面的图，说明已经成功打包了
 
+
 ![image-20201110095324397](images/image-20201110095324397.png)
 
 下面我们需要进入下列的目录，把对应的 jar上传到我们之前制作的docker容器中
@@ -126,6 +131,7 @@ cd mogu_sms\target
 
 我们把下面的jar包复制我服务器中
 
+
 ![image-20201110095349465](images/image-20201110095349465.png)
 
 然后通过xftp工具，把jar复制到Docker容器的/home/mogu_blog/mogu_sms目录，替换里面的jar包
@@ -133,6 +139,7 @@ cd mogu_sms\target
 ```bash
 cd /home/mogu_blog/mogu_sms
 ```
+
 
 ![image-20201110095521307](images/image-20201110095521307.png)
 
@@ -198,6 +205,7 @@ netstat -tunlp
 - mogu_web：8603
 - mogu_gateway：8607
 
+
 ![image-20200101131754872](images/image-20200101131754872.png)
 
 到目前为止已经启动了对应的端口了
@@ -219,6 +227,7 @@ http://your_ip:8848/nacos
 
 如果我们看到下面五个服务都注册到Nacos中，那说明启动成功
 
+
 ![image-20201212145951100](images/image-20201212145951100.png)
 
 ### 查看swagger-ui页面
@@ -236,17 +245,21 @@ http://your_ip:8603/swagger-ui/index.html
 
 进入 admin接口是这样的
 
+
 ![image-20201110100642821](images/image-20201110100642821.png)
 
 选择LoginRestApi，验证登录，输入默认用户名和密码：admin  mogu2018，同时选择记住账号密码  true
+
 
 ![image-20201212151219659](images/image-20201212151219659.png)
 
 登录成功后，复制我们的token
 
+
 ![image-20201110103543712](images/image-20201110103543712.png)
 
 然后在swagger页面的右上角，有一个authorize的按钮，点击后，将token粘贴进去，然后所有接口都可测试~
+
 
 ![image-20201110104018600](images/image-20201110104018600.png)
 
@@ -257,6 +270,7 @@ http://your_ip:8603/swagger-ui/index.html
 ### vue_mogu_web项目打包
 
 下面我们到 vue_mogu_web目录下【在windows下】
+
 
 ![image-20201212150424856](images/image-20201212150424856.png)
 
@@ -288,9 +302,11 @@ npm run build
 
 打包完成后，会生成一个dist目录，我们将整个dist目录，压缩成 zip格式
 
+
 ![img](images/1574822138267.png)
 
 然后使用xftp工具，丢入到我们的前端目录下，目录在 /home/mogu_blog/vue_mogu_web
+
 
 ![image-20200103103853899](images/image-20200103103853899.png)
 
@@ -303,6 +319,7 @@ unzip dist.zip
 ### vue_mogu_admin项目打包
 
 前台admin项目，修改配置的方式基本类似，我们到 vue_mogu_admin目录下，修改.env文件
+
 
 ![image-20201212150503542](images/image-20201212150503542.png)
 
@@ -337,6 +354,7 @@ npm run build
 ```
 
 我们在按上述操作，把 **dist** 压缩，然后放到/home/mogu_blog/vue_mogu_admin文件夹下
+
 
 ![img](images/1574822290047.png)
 

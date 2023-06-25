@@ -3,6 +3,7 @@
 ## 前言
 
 Zipkin是一个开源的分布式的链路追踪系统，每个微服务都会向zipkin报告计时数据，聚合各业务系统调用延迟数据，达到链路调用监控跟踪。
+
 ![image-20200206123422800](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevgqgm3j30n60bjdj9.jpg)
 
 如图，在复杂的调用链路中假设存在一条调用链路响应缓慢，如何定位其中延迟高的服务呢？
@@ -10,11 +11,13 @@ Zipkin是一个开源的分布式的链路追踪系统，每个微服务都会�
 - 日志： 通过分析调用链路上的每个服务日志得到结果
 - zipkin：使用`zipkin`的`web UI`可以一眼看出延迟高的服务
 
+
 ![image-20200206123502226](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevh2wpyj30j70g0t9d.jpg)
 
 如图所示，各业务系统在彼此调用时，将特定的跟踪消息传递至`zipkin`,zipkin在收集到跟踪信息后将其聚合处理、存储、展示等，用户可通过`web UI`方便获得网络延迟、调用链路、系统依赖等等。
 
 同时zipkin会根据调用关系通过zipkin ui生成依赖关系图，下面是我搭建成功后，蘑菇博客链路追踪的依赖图。
+
 
 ![image-20200206103258522](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevha5o9j30wd0ifgmh.jpg)
 
@@ -45,6 +48,7 @@ java -jar zipkin-server-2.12.5-exec.jar --zipkin.collector.rabbitmq.addresses=12
 ```
 
 这样zipkin就是以内存存储的方式进行启动了
+
 
 ![image-20200206124625792](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevhmkp6j30q309dq5o.jpg)
 
@@ -134,6 +138,7 @@ CREATE TABLE IF NOT EXISTS zipkin_dependencies (
 
 执行完成后，我们将会得到下面的三个表
 
+
 ![image-20200206130303873](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevhte5bj306x04ywec.jpg)
 
 其中
@@ -149,6 +154,7 @@ java -jar zipkin.jar --STORAGE_TYPE=mysql --MYSQL_DB=zipkin --MYSQL_USER=root --
 ```
 
 启动完成后，我们在运行我们的服务，在打开数据库就能看到信息存储在mysql中了
+
 
 ![image-20200206194458065](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevi1l98j31hb0fsgog.jpg)
 
@@ -188,6 +194,7 @@ spring:
 ```
 
 然后浏览器输入下面的地址：http://localhost:9411 ，如果出现下面的画面，那么代表我们zipkin服务配置成功了
+
 
 ![image-20200206112551615](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevibv3pj31ai0p7jsr.jpg)
 
@@ -245,17 +252,21 @@ https://github.com/apache/incubator-zipkin
 
 ### 完整的调用链路图
 
+
 ![image-20200206124108256](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevil1kkj30ow0dlwgk.jpg)
 
 上图表示一请求链路，一条链路通过`Trace Id`唯一标识，`Span`标识发起的请求信息，各`span`通过`parent id` 关联起来，如图
+
 
 ![image-20200206124142798](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevirn9bj30ix06kq33.jpg)
 
 整个链路的依赖关系如下:
 
+
 ![image-20200206124156502](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevizirjj30qj05gjrm.jpg)
 
 完成链路调用的记录后，如何来计算调用的延迟呢，这就需要利用`Annotation`信息
+
 
 ![image-20200206124208350](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevjdkn4j30gw06fdg6.jpg)
 
@@ -285,13 +296,16 @@ Zipkin Server主要包括四个模块：
 
 首页里面主要承载了trace的查询功能，根据不同的条件，搜索数据
 
+
 ![image-20200206112747752](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevjo5eoj30za0l7q65.jpg)
 
 ### trace详情
 
+
 ![image-20200206113151796](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevjzpzlj31580cjwk6.jpg)
 
 ### span详情
+
 
 ![image-20200206114035194](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevk9vynj30qs0ew77a.jpg)
 
@@ -310,6 +324,7 @@ cr - Client Receive : 客户端已经收到来自服务器的响应。这就设�
 相对时间：
 
 表示在调用链开始到现在的时间，比如
+
 ![image-20200206114610081](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevkim2tj30oa06hdg7.jpg)
 
 从trace生成到现在，
@@ -326,13 +341,16 @@ cr - Client Receive : 客户端已经收到来自服务器的响应。这就设�
 
 ### 全局依赖
 
+
 ![image-20200206114642063](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevld3bbj30r3051jrl.jpg)
 
 点击服务名，弹出如下框，显示出了调用关系
 
+
 ![image-20200206114831472](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevljr4rj30r409ht8x.jpg)
 
 点击具体的服务名，出现如下界面
+
 
 ![image-20200206115433974](http://ww3.sinaimg.cn/large/005HgCsWgy1gcyevmbq7qj30h007mgll.jpg)
 

@@ -8,6 +8,7 @@
 
            Nacos 数据模型 Key 由三元组唯一确定, Namespace默认是空串，公共命名空间（public），分组默认是 DEFAULT_GROUP
 
+
 ![image-20230429084711954](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084711954.png)
 
 * **支持配置的动态更新**
@@ -140,6 +141,7 @@ public class TestController {
 
 ### 配置中心架构
 
+
 ![image-20230429084840636](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084840636.png)
 
 配置中心使用demo
@@ -197,11 +199,13 @@ public class ConfigServerDemo {
 
 配置中心核心接口ConfigService
 
+
 ![image-20230429084850542](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084850542.png)
 
 ### 获取配置
 
         获取配置的主要方法是 NacosConfigService 类的 getConfig 方法，通常情况下该方法直接从本地文件中取得配置的值，如果本地文件不存在或者内容为空，则再通过 HTTP GET 方法从远端拉取配置，并保存到本地快照中。当通过 HTTP 获取远端配置时，Nacos 提供了两种熔断策略，一是超时时间，二是最大重试次数，默认重试三次。
+
 
 ![image-20230429084858759](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084858759.png)
 
@@ -215,7 +219,9 @@ public class ConfigServerDemo {
 
         Nacos 可以通过以上方式注册监听器，它们内部的实现均是调用 ClientWorker 类的 addCacheDataIfAbsent。其中 CacheData 是一个维护配置项和其下注册的所有监听器的实例，所有的 CacheData 都保存在 ClientWorker 类中的原子 cacheMap 中，其内部的核心成员有：
 
+
 ![image-20230429084908207](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084908207.png)
+
 
 ![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f14749bd9b614b21a55a261187cd5521~tplv-k3u1fbpfcp-zoom-in-crop-mark:4536:0:0:0.awebp)
 
@@ -223,11 +229,13 @@ public class ConfigServerDemo {
 
          ClientWorker 通过其下的两个线程池完成配置长轮询的工作，一个是单线程的 executor，每隔 10ms 按照每 3000 个配置项为一批次捞取待轮询的 cacheData 实例，将其包装成为一个 LongPollingTask 提交进入第二个线程池 executorService 处理。
 
+
 ![image-20230429084917535](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084917535.png)
 
 ## nacos config server源码分析
 
 ### 配置dump
+
 
 ![image-20230429084926987](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084926987.png)
 
@@ -242,6 +250,7 @@ public class ConfigServerDemo {
 ### 处理长轮询
 
         客户端会有一个长轮询任务，拉取服务端的配置变更，服务端处理逻辑在LongPollingService类中，其中有一个 Runnable 任务名为ClientLongPolling，服务端会将受到的轮询请求包装成一个 ClientLongPolling 任务，该任务持有一个 AsyncContext 响应对象，通过定时线程池延后 29.5s 执行。比客户端 30s 的超时时间提前 500ms 返回是为了最大程度上保证客户端不会因为网络延时造成超时.
+
 
 ![image-20230429084934117](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230429084934117.png)
 

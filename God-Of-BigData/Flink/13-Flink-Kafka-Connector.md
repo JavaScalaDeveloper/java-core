@@ -13,11 +13,16 @@ Kafka可以作为Flink的source和sink
 关于kafka，我们会有专题文章介绍，这里简单介绍几个必须知道的概念。
 
 **1.生产者（Producer）**
-    顾名思义，生产者就是生产消息的组件，它的主要工作就是源源不断地生产出消息，然后发送给消息队列。生产者可以向消息队列发送各种类型的消息，如狭义的字符串消息，也可以发送二进制消息。生产者是消息队列的数据源，只有通过生产者持续不断地向消息队列发送消息，消息队列才能不断处理消息。
+
+顾名思义，生产者就是生产消息的组件，它的主要工作就是源源不断地生产出消息，然后发送给消息队列。生产者可以向消息队列发送各种类型的消息，如狭义的字符串消息，也可以发送二进制消息。生产者是消息队列的数据源，只有通过生产者持续不断地向消息队列发送消息，消息队列才能不断处理消息。
+
 **2.消费者（Consumer）**
-    所谓消费者，指的是不断消费（获取）消息的组件，它获取消息的来源就是消息队列（即Kafka本身）。换句话说，生产者不断向消息队列发送消息，而消费者则不断从消息队列中获取消息。
+
+所谓消费者，指的是不断消费（获取）消息的组件，它获取消息的来源就是消息队列（即Kafka本身）。换句话说，生产者不断向消息队列发送消息，而消费者则不断从消息队列中获取消息。
+
 **3.主题（Topic）**
-    主题是Kafka中一个极为重要的概念。首先，主题是一个逻辑上的概念，它用于从逻辑上来归类与存储消息本身。多个生产者可以向一个Topic发送消息，同时也可以有多个消费者消费一个Topic中的消息。Topic还有分区和副本的概念。Topic与消息这两个概念之间密切相关，Kafka中的每一条消息都归属于某一个Topic，而一个Topic下面可以有任意数量的消息。
+
+主题是Kafka中一个极为重要的概念。首先，主题是一个逻辑上的概念，它用于从逻辑上来归类与存储消息本身。多个生产者可以向一个Topic发送消息，同时也可以有多个消费者消费一个Topic中的消息。Topic还有分区和副本的概念。Topic与消息这两个概念之间密切相关，Kafka中的每一条消息都归属于某一个Topic，而一个Topic下面可以有任意数量的消息。
 
 ### kafka简单操作
 
@@ -66,6 +71,7 @@ env.enableCheckpointing(5000); // 每5s checkpoint一次
 
 我本地安装了一个kafka_2.11-2.1.0版本的kafka
 
+
 ![00a9a6e5a8ef9db0e1806cae88f833fb](images/13-Flink-Kafka-Connector.resources/0174F674-797A-4C03-A020-944EA4D00C00.png)
 
 启动Zookeeper和kafka server:
@@ -79,6 +85,7 @@ env.enableCheckpointing(5000); // 每5s checkpoint一次
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
 ```
 
+
 ![4ca97fc9c79240ec7c25251b0ae78331](images/13-Flink-Kafka-Connector.resources/BCED174D-B20F-4CEA-9DF0-D5796CF3E5CD.png)
 
 
@@ -90,7 +97,8 @@ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 -
 *  海量【**java和大数据的面试题+视频资料**】整理在公众号，关注后可以下载~
 *  更多大数据技术欢迎和作者一起探讨~
 
-![](https://user-gold-cdn.xitu.io/2019/2/23/1691a0d20e61eb0d?w=300&h=390&f=png&s=14824)
+
+![](images/https://user-gold-cdn.xitu.io/2019/2/23/1691a0d20e61eb0d?w=300&h=390&f=png&s=14824)
 
 ### Kafka作为Flink Sink
 
@@ -105,7 +113,7 @@ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 -
 
 向kafka写入数据：
 
-```
+```java
 public class KafkaProducer {
 
 
@@ -175,6 +183,7 @@ public class MyNoParalleSource implements SourceFunction<String> {//1
 
 然后右键运行我们的程序，控制台输出如下：
 
+
 ![b4819de0dcc717fc2286fbf1e834c31c](images/13-Flink-Kafka-Connector.resources/5241B014-3ECE-42BD-811F-63C1A95DDCD3.png)
 
 开始源源不断的生产数据了。
@@ -187,6 +196,7 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --f
 
 输出如下：
 
+
 ![6e94e74c501b60a856d8330a3fa9ceca](images/13-Flink-Kafka-Connector.resources/89A29311-55D2-4DD0-9B5C-8C1BCDDA2C73.png)
 
 
@@ -194,7 +204,7 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --f
 
 直接上代码：
 
-```
+```java
 public class KafkaConsumer {
 
     public static void main(String[] args) throws Exception{
@@ -217,6 +227,7 @@ public class KafkaConsumer {
 ```
 
 控制台输出如下：
+
 
 ![40873b1f64d5b99b13508d1c45d1d27d](images/13-Flink-Kafka-Connector.resources/04A6ACBD-88E2-417D-8DAC-0E93546BA144.png)
 

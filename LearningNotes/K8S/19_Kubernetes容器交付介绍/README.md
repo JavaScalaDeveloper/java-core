@@ -35,6 +35,7 @@
 
 第一步，准备java项目，把java进行打包【jar包或者war包】
 
+
 ![image-20201121213239222](images/image-20201121213239222.png)
 
 ### 依赖环境
@@ -49,6 +50,7 @@
 ```bash
 mvn clean install
 ```
+
 
 ![image-20201121213654216](images/image-20201121213654216.png)
 
@@ -69,6 +71,7 @@ ENTRYPOINT ["java","-jar","/demojenkins.jar", "&"]
 
 我们首先将我们的项目，放到我们的服务器上
 
+
 ![image-20201121214251023](images/image-20201121214251023.png)
 
 然后执行下面命令打包镜像
@@ -78,6 +81,7 @@ docker build -t java-demo-01:latest .
 ```
 
 等待一段后，即可制作完成我们的镜像
+
 
 ![image-20201121214701015](images/image-20201121214701015.png)
 
@@ -107,13 +111,16 @@ http://192.168.177.130:8111/user
 
 首先我们需要到 阿里云 [容器镜像服务](https://cr.console.aliyun.com/cn-hangzhou/instances/repositories)，然后开始创建镜像仓库
 
+
 ![image-20201121223435851](images/image-20201121223435851.png)
 
 然后选择本地仓库
 
+
 ![image-20201121223516789](images/image-20201121223516789.png)
 
 我们点击我们刚刚创建的镜像仓库，就能看到以下的信息
+
 
 ![image-20201121224233092](images/image-20201121224233092.png)
 
@@ -141,6 +148,7 @@ docker tag 33f11349c27d registry.cn-shenzhen.aliyuncs.com/mogublog/java-project-
 
 操作完成后
 
+
 ![image-20201121224609890](images/image-20201121224609890.png)
 
 #### 推送镜像
@@ -151,9 +159,11 @@ docker tag 33f11349c27d registry.cn-shenzhen.aliyuncs.com/mogublog/java-project-
 docker push registry.cn-shenzhen.aliyuncs.com/mogublog/java-project-01:1.0.0
 ```
 
+
 ![image-20201121224714068](images/image-20201121224714068.png)
 
 操作完成后，我们在我们的阿里云镜像服务，就能看到推送上来的镜像了
+
 
 ![image-20201121224858651](images/image-20201121224858651.png)
 
@@ -206,6 +216,7 @@ kubectl apply -f javademo1.yaml
 # 查看 pods
 ```
 
+
 ![image-20201121225413122](images/image-20201121225413122.png)
 
 或者我们可以进行扩容，多创建几个副本
@@ -213,6 +224,7 @@ kubectl apply -f javademo1.yaml
 ```bash
 kubectl scale deployment javademo1 --replicas=3
 ```
+
 
 ![image-20201121225600554](images/image-20201121225600554.png)
 
@@ -224,6 +236,7 @@ kubectl expose deployment javademo1 --port=8111  --target-port=8111 --type=NodeP
 # 查看对外端口号
 kubectl get svc
 ```
+
 
 ![image-20201121225818003](images/image-20201121225818003.png)
 

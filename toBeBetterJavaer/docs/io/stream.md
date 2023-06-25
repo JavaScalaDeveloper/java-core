@@ -143,6 +143,7 @@ try {
 
 来看一下结果：
 
+
 ![](https://cdn.tobebetterjavaer.com/studymore/stream-20230318105229.png)
 
 果然是 3 个 x。

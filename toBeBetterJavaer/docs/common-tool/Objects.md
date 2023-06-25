@@ -198,6 +198,7 @@ System.out.println(Objects.deepEquals(nestedArray1, nestedArray3)); // 输出：
 
 除了上面提到的这些方法，Objects 还提供了一些其他的方法，比如说 toString，感兴趣的话可以试一下。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/Objects-83489814-9784-4274-841a-27ee75c046ac.jpg)
 
 总之，Objects 类提供的这些方法在许多情况下还是非常有用得，可以简化代码并减少出错的可能性。

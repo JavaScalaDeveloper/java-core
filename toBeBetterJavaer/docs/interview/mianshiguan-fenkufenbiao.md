@@ -32,6 +32,7 @@ head:
 
 系统初期的数据库架构如下：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-965dbc52-1fad-4cf7-a6fc-f04ff445101f.jpg)
 
 此时，使用的数据库方案是：`一个数据库`包含`多张业务表`。用户读数据请求和写数据请求，都是操作的同一个数据库。
@@ -47,6 +48,7 @@ head:
 答：`分表`。
 
 将`用户表`拆分为：`用户基本信息表` 和 `用户扩展表`。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-32cbe5e1-b88b-4125-b990-8f901467fbb2.jpg)
 
@@ -76,6 +78,7 @@ head:
 
 具体拆分过程如下：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-9cab165b-f2e0-4c80-9bd1-cc272a78429c.jpg)
 
 将用户、产品、物流、订单相关的表，从原来一个数据库中，拆分成单独的用户库、产品库、物流库和订单库，一共四个数据库。
@@ -91,6 +94,7 @@ head:
 这就需要做：`分库分表`了。
 
 每年都有个单独的数据库，每个数据库中，都有12张表，每张表存储一个月的用户资金数据。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-38434e50-9dce-467f-a036-e75038d9f3f6.jpg)
 
@@ -109,6 +113,7 @@ head:
 在系统初期，由于用户非常少，所以系统并发量很小。并且存在表中的数据量也非常少。
 
 这时的数据库架构如下：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-965dbc52-1fad-4cf7-a6fc-f04ff445101f.jpg)
 
@@ -132,6 +137,7 @@ head:
 
 于是，就出现了主从读写分离架构：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-e56c2d22-9aa2-4502-8d2a-f4416ce20db9.jpg)
 
 考虑刚开始用户量还没那么大，选择的是`一主一从`的架构，也就是常说的一个master一个slave。
@@ -150,11 +156,13 @@ head:
 
 这就需要`一主多从`的架构了：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-1fc49e99-76ac-4aea-8c3d-e438de2cdd1c.jpg)
 
 上图中我列的是`一主两从`，如果master挂了，可以选择从库1或从库2中的一个，升级为新master。假如我们在这里升级从库1为新master，则原来的从库2就变成了新master的的slave了。
 
 调整之后的架构图如下：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-bbf8495d-2338-4bcf-b8e3-cebaea4fac29.jpg)
 
@@ -171,6 +179,7 @@ head:
 答：建立多个用户库。
 
 用户库的拆分过程如下：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-f2354590-0161-45e7-afb7-4ad07a3763fb.jpg)
 
@@ -192,6 +201,7 @@ head:
 
 表拆分过程如下：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-8830dc2f-b088-4190-bc9a-a19bf55de99b.jpg)
 
 我在这里将用户库中的用户表，拆分成了四张表（真实场景不一定是这样的），每张表的表结构是一模一样的，只是存储的数据不一样。
@@ -205,6 +215,7 @@ head:
 答：需要做`分库分表`。
 
 如下图所示：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-1cfacfbf-283a-4415-91da-c0c2616c2f0a.jpg)
 
@@ -239,6 +250,7 @@ head:
 
 为了解决这两个问题，我们当时采用的方案是：`分库`。即针对每一个游戏都单独建一个数据库，数据库中的表结构允许存在差异。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-f9f55b53-0465-48d1-9715-241129fe7833.jpg)
 
 我们当时没有进一步分表，是因为当时考虑每种游戏的用户量，还没到大到离谱的地步。不像王者荣耀这种现象级的游戏，有上亿的玩家。
@@ -271,6 +283,7 @@ head:
 
 当时使用一个积分数据库就够了，但是分了128张表。然后根据用户id，进行hash除以128取模。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-884b58a4-3009-4056-904d-cd235db41aa6.jpg)
 
 > 需要特别注意的是，分表的数量最好是2的幂次方，方便以后扩容。
@@ -288,6 +301,7 @@ head:
 经过调研之后，觉得使用了当当网开源的基于jdbc的中间件框架：`sharding-jdbc`。
 
 当时分了4个库，每个库有32张表。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-alemwsyyfkfb-ed3d9006-7dd5-4f90-a566-8874020df4ea.jpg)
 

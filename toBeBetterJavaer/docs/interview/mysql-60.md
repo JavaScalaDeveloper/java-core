@@ -145,6 +145,7 @@ Server 层按顺序执行 SQL 的步骤为：
 
 ### 13、MySQL 的 redo log 和 binlog 区别？
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-a2b8e123-41cb-4717-9225-3a8b49197004.png)
 
 ### 14、为什么需要 redo log？ 
@@ -183,6 +184,7 @@ redo log包括两部分内容，分别是内存中的**日志缓冲**(redo log b
 
 MySQL 每执行一条 DML 语句，会先把记录写入 **redo log buffer（用户空间）** ，再保存到内核空间的缓冲区 OS-buffer 中，后续某个时间点再一次性将多个操作记录写到 **redo log file（刷盘）** 。这种先写日志，再写磁盘的技术，就是**WAL**。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-f901a97f-9d82-4d4e-a5be-559a64b3d9b8.png)
 
 
@@ -199,6 +201,7 @@ MySQL 每执行一条 DML 语句，会先把记录写入 **redo log buffer（用
 ```
 update T set a =1 where id =666
 ```
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-43fe6587-0cb8-49aa-bd93-0119e46430d7.png)
 
@@ -220,6 +223,7 @@ update T set a =1 where id =666
 ### 20、什么是两阶段提交？
 
 MySQL 将 redo log 的写入拆成了两个步骤：prepare 和 commit，中间再穿插写入binlog，这就是"两阶段提交"。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-11420486-f9d0-483a-ba2e-a742ec4c518d.png)
@@ -276,6 +280,7 @@ WAL，中文全称是 Write-Ahead Logging，它的关键点就是日志先写内
  实际上就是 Statement 与 Row 的结合。一般的语句修改使用 statment 格式保存 binlog，如一些函数，statement 无法完成主从复制的操作，则采用 row 格式保存 binlog，MySQL 会根据执行的每一条具体的 SQL 语句来区分对待记录的日志形式。
 
 ### 24、redo log日志格式
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-ee8a859f-d1e8-4ab6-94d1-9733373be825.png)
 

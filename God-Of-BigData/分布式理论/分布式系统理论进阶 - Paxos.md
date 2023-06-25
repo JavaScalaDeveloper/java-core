@@ -66,7 +66,8 @@ P2c. 对于提议(n,v)，acceptor的多数派S中，如果存在acceptor最近�
 
 条件P2c是Basic Paxos的核心，光看P2c的描述可能会觉得一头雾水，我们通过 The Part-Time Parliament 中的例子加深理解：
 
-![97d42599c38593043960af7a662cd4c4](分布式系统理论进阶 - Paxos.resources/AAEEBF57-8486-4EAC-B8F7-C66AE6967BF9.png)
+
+![97d42599c38593043960af7a662cd4c4](images/分布式系统理论进阶 - Paxos.resources/AAEEBF57-8486-4EAC-B8F7-C66AE6967BF9.png)
 
 假设有A~E 5个acceptor，- 表示acceptor因宕机等原因缺席当次决议，x 表示acceptor不接受提议，o 表示接受提议；多数派acceptor接受提议后提议被确定，以上表格对应的决议过程如下：
 
@@ -93,7 +94,8 @@ B3(ß): 对于ß中的任意提议B(n,v)，acceptor的多数派中如果存在ac
 
 至此，proposer/acceptor完成一轮决议可归纳为prepare和accept两个阶段。prepare阶段proposer发起提议问询提议值、acceptor回应问询并进行promise；accept阶段完成决议，图示如下：
 
-![9000315110586d6ebbdf455c7a03d3e0](分布式系统理论进阶 - Paxos.resources/CF8854FA-A0E7-4FEF-A9F2-ABC66CA49297.png)
+
+![9000315110586d6ebbdf455c7a03d3e0](images/分布式系统理论进阶 - Paxos.resources/CF8854FA-A0E7-4FEF-A9F2-ABC66CA49297.png)
 
 还有一个问题需要考量，假如proposer A发起ID为n的提议，在提议未完成前proposer B又发起ID为n+1的提议，在n+1提议未完成前proposer C又发起ID为n+2的提议…… 如此acceptor不能完成决议、形成活锁(livelock)，虽然这不影响一致性，但我们一般不想让这样的情况发生。解决的方法是从proposer中选出一个leader，提议统一由leader发起。
 
@@ -108,7 +110,8 @@ B3(ß): 对于ß中的任意提议B(n,v)，acceptor的多数派中如果存在ac
  
 其实不断地进行“确定一个值”的过程、再为每个过程编上序号，就能得到具有全序关系(total order)的系列值，进而能应用在数据库副本存储等很多场景。我们把单次“确定一个值”的过程称为实例(instance)，它由proposer/acceptor/learner组成，下图说明了A/B/C三机上的实例：
 
-![1824716a2ad8ce8300c01f2a876e63fb](分布式系统理论进阶 - Paxos.resources/225D3AF6-7029-4731-A45A-2A66050338BB.png)
+
+![1824716a2ad8ce8300c01f2a876e63fb](images/分布式系统理论进阶 - Paxos.resources/225D3AF6-7029-4731-A45A-2A66050338BB.png)
 
 不同序号的实例之间互相不影响，A/B/C三机输入相同、过程实质等同于执行相同序列的状态机(state machine)指令 ，因而将得到一致的结果。
 

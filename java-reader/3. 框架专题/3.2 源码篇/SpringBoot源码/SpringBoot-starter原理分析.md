@@ -10,6 +10,7 @@
 
 ###   手写一个starter
 项目结构：
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-ad75e17a45356eb4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #####    pom.xml
@@ -127,6 +128,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 
 ###   调用
 >项目结构：
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-9c11738863f84727.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #####    pom.xml
@@ -164,4 +166,5 @@ public class SimpleSpringBootCustomerApplicationTests {
 ```
 
 #####    结果
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-6471d890c6c74555.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

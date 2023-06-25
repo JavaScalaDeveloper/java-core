@@ -10,6 +10,7 @@
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-7b3f9cd59394b017.png)
 
 
@@ -23,6 +24,7 @@
 *   代码难以复用
 
 正因为上面的种种弊端，所以很快这种方式就被 Servlet + JSP + Java Bean 所替代了，早期的 MVC 模型**（Model2）**就像下图这样：
+
 
 
 
@@ -53,6 +55,7 @@
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-a25782fb05f315de.png)
 
 
@@ -78,6 +81,7 @@
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-74ea4c339e8f35f8.png)
 
 
@@ -85,6 +89,7 @@
 
 
 并且取名为 【HelloSpringMVC】，点击【Finish】：
+
 
 
 
@@ -102,6 +107,7 @@ IDEA 会自动帮我们下载好必要的 jar 包，并且为我们创建好一�
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-f6fd3173da6e4939.png)
 
 
@@ -111,6 +117,7 @@ IDEA 会自动帮我们下载好必要的 jar 包，并且为我们创建好一�
 #### 第二步：修改 web.xml
 
 我们打开 web.xml ，按照下图完成修改：
+
 
 
 
@@ -252,6 +259,7 @@ public class HelloController implements Controller {
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-bcca5f5a7c097d6b.png)
 
 
@@ -259,6 +267,7 @@ public class HelloController implements Controller {
 
 
 配置 Tomcat 环境：
+
 
 
 
@@ -276,6 +285,7 @@ public class HelloController implements Controller {
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-5f033d1463f08d7b.png)
 
 
@@ -283,6 +293,7 @@ public class HelloController implements Controller {
 
 
 在 Deployment 标签页下完成如下操作：
+
 
 
 
@@ -304,6 +315,7 @@ public class HelloController implements Controller {
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-b8fcf3da677299cf.png)
 
 
@@ -313,6 +325,7 @@ public class HelloController implements Controller {
 #### 第七步：重启服务器
 
 重启服务器，输入地址：localhost/hello
+
 
 
 
@@ -331,6 +344,7 @@ public class HelloController implements Controller {
 ## 跟踪 Spring MVC 的请求
 
 每当用户在 Web 浏览器中点击链接或者提交表单的时候，请求就开始工作了，像是邮递员一样，从离开浏览器开始到获取响应返回，它会经历很多站点，在每一个站点都会留下一些信息同时也会带上其他信息，下图为 Spring MVC 的请求流程：
+
 
 
 
@@ -531,6 +545,7 @@ public class HelloController{
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-390fb571e9f6ff03.png)
 
 
@@ -599,6 +614,7 @@ public class HelloController {
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-2ce49e171bd6d547.png)
 
 
@@ -650,6 +666,7 @@ public class HelloController {
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-88995fd05ccd0f80.png)
 
 
@@ -664,6 +681,7 @@ public class HelloController {
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-390fb571e9f6ff03.png)
 
 
@@ -671,6 +689,7 @@ public class HelloController {
 
 
 *   **原理：**
+
 
 
 
@@ -722,6 +741,7 @@ public class HelloController {
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-b50a42db8debde97.png)
 
 
@@ -751,6 +771,7 @@ public ModelAndView getParam(HttpServletRequest request,
 
 
 测试成功：
+
 
 
 
@@ -787,6 +808,7 @@ public ModelAndView getParam(String userName,
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-55a1c296c778e506.png)
 
 
@@ -795,6 +817,7 @@ public ModelAndView getParam(String userName,
 
 *   **问题：** 这样又会和前台产生很强的耦合，这是我们不希望的
 *   **解决：** 使用 `@RequestParam("前台参数名")` 来注入：
+
 
 
 
@@ -836,6 +859,7 @@ public class User {
 
 
 然后测试仍然成功：
+
 
 
 
@@ -923,6 +947,7 @@ public ModelAndView handleRequest(HttpServletRequest request,
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-66d2f24a876306e6.png)
 
 
@@ -930,6 +955,7 @@ public ModelAndView handleRequest(HttpServletRequest request,
 
 
 #### 使用 Spring MVC 所提供的 ModelAndView 对象
+
 
 
 
@@ -944,6 +970,7 @@ public ModelAndView handleRequest(HttpServletRequest request,
 #### 使用 Model 对象
 
 在 Spring MVC 中，我们通常都是使用这样的方式来绑定数据，
+
 
 
 
@@ -1005,6 +1032,7 @@ public ModelAndView jump() {
 
 
 我们使用 `redirect:/hello` 就表示我们要跳转到 `/hello` 这个路径，我们重启服务器，在地址栏中输入：`localhost/jump` ，会自动跳转到 `/hello` 路径下：
+
 
 
 
@@ -1116,6 +1144,7 @@ public class UploadController {
 #### 第四步：测试
 
 在浏览器地址栏中输入：`localhost/test2` ，选择文件点击上传，测试成功：
+
 
 
 

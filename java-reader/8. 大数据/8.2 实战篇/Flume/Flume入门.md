@@ -154,8 +154,11 @@ this is a spoordir agent test
 上传完成后，它会给这个文件加个后缀变成`test.txt.COMPLETED`来表示成功。
 
 我们打开hadoop的管理页:http://192.168.27.166:50070
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-d8414a27cd1be075.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-78049fadb9c90c3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![打开文件查看](https://upload-images.jianshu.io/upload_images/5786888-3efbfa43077ffe33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ###   实例3：监听一个指定的文件，每当有新更改，就需要把文件采集到HDFS中去
@@ -226,4 +229,5 @@ test
 ```
 Creating(刚启动日志) ->Closing ->Renaming (修改文件后日志)
 同理我把文件下载下来打开：
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-dd8808565e9dfd81.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

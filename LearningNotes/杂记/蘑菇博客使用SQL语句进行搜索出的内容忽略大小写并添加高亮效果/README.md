@@ -109,4 +109,5 @@
 
 从下图我们能够看到，搜索nginx后，能够把大写开头的Nginx，和小写的nginx都能够显示高亮
 
+
 ![](http://image.moguit.cn/98a2a223f0334e67a68dfbea88d8810c)

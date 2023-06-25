@@ -132,6 +132,7 @@ public class SwaggerConfig {
 运行我们的Spring Boot项目，（我默认是8080端口，如果你不一样，请注意修改后续的url），访问`http://localhost:8080/swagger-ui.html`
 然后你就可以看到一个如下的界面，由于我们暂时没有配置接口数据，所以下面显示`No operations defined in spec!`
 
+
 ![20200711013419](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200711013419.png)
 
 ?下面我们将介绍如何定义接口，以及在swagger UI界面中的内容。
@@ -169,6 +170,7 @@ public class UserController {
 
 ?你也可以理解成基于tags来分组，就好像一些文章里面的标签一样，使用标签来分类。
 ?如果这个Controller下（接口组）下面没有接口，那么在swagger ui中是不会显示的，如果有的话就会这样显示：
+
 ![20200712022545](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712022545.png)
 
 ## 定义接口
@@ -191,7 +193,9 @@ public class UserController {
 
 ```
 
+
 ![20200711015840](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200711015840.png)
+
 
 ![20200711020149](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200711020149.png)
 
@@ -207,6 +211,7 @@ public class UserController {
     }
 
 ```
+
 
 ![20200711021112](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200711021112.png)
 常用配置项：
@@ -268,6 +273,7 @@ public class LoginForm {
 ```
 
 效果：
+
 
 ![20200711181038](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200711181038.png)
 
@@ -438,6 +444,7 @@ public class LoginForm {
 
 ```
 
+
 ![20200712000406](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712000406.png)
 
 ### 响应是非实体类：
@@ -467,6 +474,7 @@ swagger无法对非实体类的响应进行详细说明，只能标注响应码�
 
 ```
 
+
 ![20200712013503](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712013503.png)
 
 * * *
@@ -477,7 +485,9 @@ swagger无法对非实体类的响应进行详细说明，只能标注响应码�
 
 ## UI对比：
 
+
 ![20200712013653](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712013653.png)
+
 
 ![20200712013723](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712013723.png)
 
@@ -529,10 +539,13 @@ public class SwaggerConfig {
 1.?界面好看了一点
 
 2.上面说过了，基于BootstrapUI的swagger支持指定`form-data`或`x-www-form-urlencoded`：
+
 ![20200712024858](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712024858.png)
 
 3.支持复制单个API文档和导出全部API文档：
+
 ![20200712025020](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712025020.png)
+
 
 ![20200712025044](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20200712025044.png)
 

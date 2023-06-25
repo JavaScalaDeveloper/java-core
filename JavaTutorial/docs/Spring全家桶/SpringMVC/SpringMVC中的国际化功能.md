@@ -166,9 +166,11 @@ public class LocaleController {
 
 在页面设计中，通常在右上角给用户提供一个语言选择列表，来看看效果：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416194544.png)
 
 切换到中文：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230416194602.png)
 

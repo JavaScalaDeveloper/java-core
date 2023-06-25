@@ -95,6 +95,7 @@ foodService.makeChicken();
 
 ```
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404212100.png)
 
 我们发现没有，代理模式说白了就是做**“方法包装”**或做**“方法增强”**。在面向切面编程中，算了还是不要吹捧这个名词了，在 AOP 中，其实就是动态代理的过程。比如 Spring 中，我们自己不定义代理类，但是 Spring 会帮我们动态来定义代理，然后把我们定义在 @Before、@After、@Around 中的代码逻辑动态添加到代理中。
@@ -252,12 +253,14 @@ public static void main(String[] args) {
 
 我们用一个图来简单说明下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404212138.png)
 上图应该还是很容易理解的，我就不做更多的解释了。下面，我们看看类适配模式怎么样的。
 
 类适配器模式
 
 废话少说，直接上图：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404212155.png)
 
@@ -276,6 +279,7 @@ public static void main(String[] args) {
 2.  适配器模式和代理模式的异同
 
     比较这两种模式，其实是比较对象适配器模式和代理模式，在代码结构上，它们很相似，都需要一个具体的实现类的实例。但是它们的目的不一样，代理模式做的是增强原方法的活；适配器做的是适配的活，为的是提供“把鸡包装成鸭，然后当做鸭来使用”，而鸡和鸭它们之间原本没有继承关系。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404212256.png)
 
@@ -378,6 +382,7 @@ public static void main(String[] args) {
 
 可能大家看上面一步步还不是特别清晰，我把所有的东西整合到一张图上：
 
+
 ![](https://javadoop.com/blogimages/design-pattern/bridge-1.png)
 
 这回大家应该就知道抽象在哪里，怎么解耦了吧。桥梁模式的优点也是显而易见的，就是非常容易进行扩展。
@@ -389,6 +394,7 @@ public static void main(String[] args) {
 要把装饰模式说清楚明白，不是件容易的事情。也许读者知道 Java IO 中的几个类是典型的装饰模式的应用，但是读者不一定清楚其中的关系，也许看完就忘了，希望看完这节后，读者可以对其有更深的感悟。
 
 首先，我们先看一个简单的图，看这个图的时候，了解下层次结构就可以了：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404212315.png)
 我们来说说装饰模式的出发点，从图中可以看到，接口`Component`其实已经有了`ConcreteComponentA`和`ConcreteComponentB`两个实现类了，但是，如果我们要**增强**这两个实现类的话，我们就可以采用装饰模式，用具体的装饰器来**装饰**实现类，以达到增强的目的。
@@ -514,10 +520,12 @@ Beverage beverage = new Mongo(new Pearl(new Lemon(new Lemon(new BlackTea()))));
 
 看看下图可能会清晰一些：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404212336.png)
 到这里，大家应该已经清楚装饰模式了吧。
 
 下面，我们再来说说 java IO 中的装饰模式。看下图 InputStream 派生出来的部分类：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404212353.png)
 

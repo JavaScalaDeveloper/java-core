@@ -4,11 +4,13 @@
 
 **1. 你可以通过 [https://start.spring.io/](https://start.spring.io/) 这个网站来生成一个 Spring Boot 的项目。**
 
+
 ![start.spring.io](https://img-blog.csdnimg.cn/img_convert/69f88b648b5f94fe8fa509fc4d987057.png)
 
 注意勾选上 Spring Web 这个模块，这是我们所必需的一个依赖。当所有选项都勾选完毕之后，点击下方的按钮 Generate 下载这个 Spring Boot 的项目。下载完成并解压之后，我们直接使用 IDEA 打开即可。
 
 另外，阿里也有一个类似的网站 [https://start.aliyun.com/bootstrap.html](https://start.aliyun.com/bootstrap.html) ，功能甚至还要更强大点，支持生成特定应用架构的项目模板！
+
 
 ![](https://img-blog.csdnimg.cn/20210421220259726.png)
 
@@ -17,6 +19,7 @@
 ## Spring Boot 项目结构分析
 
 成功打开项目之后，项目长下面这个样子：
+
 
 ![](https://img-blog.csdnimg.cn/img_convert/1f1a3ee40347e941891988cbb72ceee1.png#pic_center)
 

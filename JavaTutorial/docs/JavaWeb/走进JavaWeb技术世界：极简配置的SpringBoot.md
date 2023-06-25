@@ -38,6 +38,7 @@
 <!-- more -->  
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-9323041dd0ce883e.png)
 
 ## Spring Boot 概述
@@ -73,21 +74,26 @@
 
 选择 Spring Initializr ，然后选择默认的 url 点击【Next】：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-3e2c9c5742c10c86.png)
 
 然后修改一下项目的信息：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-28dbe478ff25a3a0.png)
 
 勾选上 Web 模板：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-532868b7e6760e03.png)
 
 选择好项目的位置，点击【Finish】：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-931cc2fb5c8964e9.png)
 
 如果是第一次配置 Spring Boot 的话可能需要等待一会儿 IDEA 下载相应的 依赖包，默认创建好的项目结构如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-9ac7acc56d5a32f0.png)
 
@@ -123,15 +129,18 @@ public class HelloController {
 
 我们回到 SpringbootApplication 这个类中，然后右键点击运行：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-bf1aa6ed5c0db7b4.png)
 
 *   **注意**：我们之所以在上面的项目中没有手动的去配置 Tomcat 服务器，是因为 Spring Boot 内置了 Tomcat
 
 等待一会儿就会看到下方的成功运行的提示信息：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-63e43dc6a277de3e.png)
 
 可以看到我们的 Tomcat 运行在 8080 端口，我们来访问 “`/hello`” 地址试一下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-6111e1913c5bf6d6.png)
 
@@ -190,6 +199,7 @@ Spring Boot 的全局配置文件的作用是对一些默认配置的配置值�
 
 > *   简单实例一下
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-bcd65f7469b06608.png)
 
 我们同样的将 Tomcat 默认端口设置为 8080 ，并将默认的访问路径从 “`/`” 修改为 “`/hello`” 时，使用 properties 文件和 yml 文件的区别如上图。
@@ -200,9 +210,11 @@ Spring Boot 的全局配置文件的作用是对一些默认配置的配置值�
 
 我们直接把 .properties 后缀的文件删掉，使用 .yml 文件来进行简单的配置，然后使用 @Value 来获取配置属性：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-0e808a82254d6a4b.png)
 
 重启 Spring Boot ，输入地址：localhost:8080/hello 能看到正确的结果：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-c85216e8ea7910f0.png)
 
@@ -210,15 +222,18 @@ Spring Boot 的全局配置文件的作用是对一些默认配置的配置值�
 
 你也可以在配置文件中使用当前配置：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-37e91abbc4550982.png)
 
 仍然可以得到正确的结果：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-eabc3cd39b44fd0d.png)
 
 *   **问题：**这样写配置文件繁琐而且可能会造成类的臃肿，因为有许许多多的 @Value 注解。
 
 > *   封装配置信息
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-2599817d8f2f50d2.png)
 
@@ -228,6 +243,7 @@ Spring Boot 的全局配置文件的作用是对一些默认配置的配置值�
 *   @ConfigurationProperties(prefix = "student")：表示获取前缀为 sutdent 的配置信息
 
 这样我们就可以在控制器中使用，重启得到正确信息：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-84dc1215d01f3fa9.png)
 
@@ -245,6 +261,7 @@ Spring Boot 的全局配置文件的作用是对一些默认配置的配置值�
 ```  
 
 重新启动 Spring Boot ，然后修改任意代码，就能观察到控制台的自动重启现象：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-cec869956c3cf158.png)
 
@@ -278,11 +295,13 @@ Spring Boot 的默认视图支持是 Thymeleaf 模板引擎，但是这个我们
 
 修改 application.yml 文件，将我们的 JSP 文件重定向到 /WEB-INF/views/ 目录下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-7c17f7e10cfb2629.png)
 
 > *   第三步：修改 HelloController
 
 修改 @RestController 注解为 @Controller ，然后将 hello 方法修改为：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-2dc2c39cd962edc1.png)
 
@@ -290,15 +309,18 @@ Spring Boot 的默认视图支持是 Thymeleaf 模板引擎，但是这个我们
 
 在【src/main】目录下依次创建 webapp、WEB-INF、views 目录，并创建一个 hello.jsp 文件：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-a180556d7ead9605.png)
 
 > *   第五步：刷新网页
 
 因为我们部署了热部署功能，所以只需要等待控制台重启信息完成之后再刷新网页就可以看到正确效果了：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-cfd20f747ffca978.png)
 
 *   关于 404，使用 spring-boot:run 运行项目可以解决：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-27c1bf46487ba5eb.png)
 
@@ -319,6 +341,7 @@ Spring Boot 的默认视图支持是 Thymeleaf 模板引擎，但是这个我们
 > *   第二步：新增数据库链接参数
 
 这里我们就直接使用之前创建好的 student 表了吧：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-1eda563cfdfbae65.png)
 
@@ -392,6 +415,7 @@ public class StudentController {
 > *   第六步：重启服务器运行
 
 因为往 pom.xml 中新增加了依赖的包，所以自动重启服务器没有作用，我们需要手动重启一次，然后在地址输入：localhost:8080/listStudent 查看效果：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/7896890-5fd3c075d07b5840.png)
 

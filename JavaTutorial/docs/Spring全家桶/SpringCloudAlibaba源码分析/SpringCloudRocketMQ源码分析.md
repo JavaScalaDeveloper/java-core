@@ -31,6 +31,7 @@ NameServer的作用主要有两个：
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/3245844-46ca880d83fb583b.png)
 
 

@@ -120,9 +120,9 @@ YARN 中的任务将其进度和状态 (包括 counter) 返回给应用管理器
 
 ## 参考资料
 
-1. [初步掌握 Yarn 的架构及原理](https://www.cnblogs.com/codeOfLife/p/5492740.html)
+1. [初步掌握 Yarn 的架构及原理](images/https://www.cnblogs.com/codeOfLife/p/5492740.html)
 
-2. [Apache Hadoop 2.9.2 > Apache Hadoop YARN](http://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html)
+2. [Apache Hadoop 2.9.2 > Apache Hadoop YARN](images/http://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html)
 
    
 

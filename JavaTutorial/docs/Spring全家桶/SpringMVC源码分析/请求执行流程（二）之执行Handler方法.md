@@ -77,9 +77,11 @@ void triggerAfterCompletion(HttpServletRequest request,
 
 我们来看一眼 `HandlerExecutionChain`：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-40ba62630b5d83a16ed9aba35aba48af8be.png)
 
 再来看看传入 `HandlerInterceptor` 的 `handler` 是啥：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-6c50a936804c1db4a7b817dbb5ff417034d.png)
 
@@ -346,7 +348,10 @@ public interface HandlerMethodArgumentResolver {
 
 这个就是真正的参数解析器了。在 springmvc 中，提供了多少种参数解析器呢？经过本人的调试，发现多达 26 个：
 
-![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-fd30bc847fc2cf7082de3731e68df6ae5f9.png) ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-894b391bbe4567734ee7237d900bc55ee31.png)
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-fd30bc847fc2cf7082de3731e68df6ae5f9.png) 
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-894b391bbe4567734ee7237d900bc55ee31.png)
 
 正是在这些参数解析器的帮助下，springmvc 能支持多种参数接收方式！对于参数解析器，由于设计比较复杂，涉及多种传参方式，本文并不想展开讨论，感兴趣的小伙伴可自行查阅相关文档。
 
@@ -471,6 +476,7 @@ public interface HandlerMethodReturnValueHandler {
 *   `void handleReturnValue(xxx)`：具体的处理逻辑
 
 同样地，springmvc 也提供了非常多的实现来处理返回参数：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8e3c1fd4dca7c13efbceac5800e26145963.png)
 

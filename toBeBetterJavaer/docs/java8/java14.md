@@ -16,6 +16,7 @@ head:
 
 Java 14 的时候，新增了记录 Record、模式匹配 instanceof 等新特性，转正了 Java 12 时的 switch 表达式，我们一起来过一遍。
 
+
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xMTc5Mzg5LTA2N2E2NGZiZWY3OTU0MTAucG5n?x-oss-process=image/format,png)
 
 ### 01、下载 JDK 14
@@ -23,6 +24,7 @@ Java 14 的时候，新增了记录 Record、模式匹配 instanceof 等新特�
 > 截止到2023年03月30日，Java 20 已经发布了，不过不是 LTS（长期支持）版本，Java 17、11、8 是目前提供支持的 LTS 版本。
 
 要想开箱，得先下载 JDK 14（如果你有更高版本，当然也可以），不然拿什么开箱呢，对吧？有 2 处地方可供下载，Oracle 上可以下载商用版， [jdk.java.net](https://jdk.java.net/14/)  上可以下载开源版。我们就选择后者吧。
+
 
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xMTc5Mzg5LTJkM2Q3MGQ4ODQ0NDk1MDEucG5n?x-oss-process=image/format,png)
 
@@ -34,6 +36,7 @@ Java 14 的时候，新增了记录 Record、模式匹配 instanceof 等新特�
 
 需要把 IDEA 升级到抢先体验版 2020.1 EAP（如果你当前使用的版本大于此，当然也可以），否则无法支持 Java 14 的新特性。
 
+
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xMTc5Mzg5LThhYjFjYmRiNDA3MjBiM2UucG5n?x-oss-process=image/format,png)
 
 社区版的下载地址如下所示：
@@ -43,6 +46,7 @@ Java 14 的时候，新增了记录 Record、模式匹配 instanceof 等新特�
 ```
 
 安装的时候可以把之前的版本卸载，也可以选择保留。完成后，我们来新建一个 Java 14 的项目。
+
 
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xMTc5Mzg5LTBhYWIwYWNiY2RiMzllZGIucG5n?x-oss-process=image/format,png)
 
@@ -79,9 +83,11 @@ public class NewInstanceOf {
 
 可以直接在 if 条件判断类型的时候添加一个变量，就不需要再强转和声明新的变量了。是不是特别简洁？但模式匹配的 instanceof 在 Java 14 中是预览版的，默认是不启用的，所以这段代码会有一个奇怪的编译错误（Java 14 中不支持模式匹配的 instanceof）。
 
+
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xMTc5Mzg5LTg1MTQ4YWI3MjI2ZmM4ZTUucG5n?x-oss-process=image/format,png)
 
 那怎么解决这个问题呢？需要在项目配置中手动设置一下语言的版本。
+
 
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xMTc5Mzg5LTdhMzE3MDYwNjk5NTJmMDgucG5n?x-oss-process=image/format,png)
 
@@ -264,6 +270,7 @@ public class NewTextBlock {
 ```
 
 多余的英文双引号、加号、换行转义符，统统不见了。仅仅是通过前后三个英文双引号就实现了。我只能说，香，它真的香！
+
 
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xMTc5Mzg5LTU3Njg1YmQzZDdmNzRkMDcuZ2lm)
 

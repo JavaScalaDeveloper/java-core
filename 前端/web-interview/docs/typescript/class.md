@@ -1,6 +1,8 @@
 # 面试官：说说你对 TypeScript 中类的理解？应用场景？
 
- ![](https://static.vue-js.com/e4c19060-0cb4-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/e4c19060-0cb4-11ec-a752-75723a64e8f5.png)
 
 
 
@@ -112,11 +114,15 @@ class StringPrinter extends PrinterClass {
 
 只能够在该类的内部进行访问，实例对象并不能够访问
 
- ![](https://static.vue-js.com/f57365f0-0cb4-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/f57365f0-0cb4-11ec-a752-75723a64e8f5.png)
 
 并且继承该类的子类并不能访问，如下图所示：
 
- ![](https://static.vue-js.com/0072cc20-0cb5-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/0072cc20-0cb5-11ec-8e64-91fdec0f05a1.png)
 
 
 
@@ -124,11 +130,15 @@ class StringPrinter extends PrinterClass {
 
 跟私有修饰符很相似，实例对象同样不能访问受保护的属性，如下：
 
- ![](https://static.vue-js.com/09e72580-0cb5-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/09e72580-0cb5-11ec-a752-75723a64e8f5.png)
 
 有一点不同的是 `protected` 成员在子类中仍然可以访问
 
- ![](https://static.vue-js.com/137f81a0-0cb5-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/137f81a0-0cb5-11ec-8e64-91fdec0f05a1.png)
 
 
 
@@ -140,7 +150,9 @@ class StringPrinter extends PrinterClass {
 
 通过`readonly`关键字进行声明，只读属性必须在声明时或构造函数里被初始化，如下：
 
- ![](https://static.vue-js.com/1e848d20-0cb5-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/1e848d20-0cb5-11ec-8e64-91fdec0f05a1.png)
 
 
 

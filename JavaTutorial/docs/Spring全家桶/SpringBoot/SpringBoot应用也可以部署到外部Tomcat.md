@@ -154,9 +154,11 @@ public class DemoApplication  extends SpringBootServletInitializer {
 
 对于Maven，使用命令`mvn package`打包应用程序。 然后创建WAR文件，可以在目标目录中找到它，如下面给出的屏幕截图所示 -
 
+
 ![](/uploads/images/2018/09/27/084613_17931.jpg)
 
 对于Gradle，使用命令`gradle clean build`打包应用程序。 然后，将创建WAR文件，可以在`build/libs`目录下找到它。观察此处给出的屏幕截图以便更好地理解 -
+
 
 ![](/uploads/images/2018/09/27/084717_10144.jpg)
 
@@ -164,9 +166,11 @@ public class DemoApplication  extends SpringBootServletInitializer {
 
 现在，运行Tomcat服务器，并在webapps目录下部署WAR文件。观察此处显示的屏幕截图以便更好地理解 -
 
+
 ![](/uploads/images/2018/09/27/084759_50620.jpg)
 
 成功部署后，点击网页浏览器中的URL => `http://localhost:8080/demo-0.0.1-SNAPSHOT/`，观察输出结果如下图所示 -
+
 
 ![](/uploads/images/2018/09/27/084848_70593.jpg)
 

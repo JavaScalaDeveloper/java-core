@@ -1,5 +1,6 @@
 # 面试官：说说 linux系统下 文件操作常用的命令有哪些？
 
+
 ![](https://static.vue-js.com/6cb38ac0-03c1-11ec-a752-75723a64e8f5.png)
 
 
@@ -14,7 +15,9 @@
 
 文件系统是一个**目录树的结构**，文件系统结构从一个根目录开始，根目录下可以有任意多个文件和子目录，子目录中又可以有任意多个文件和子目录
 
- ![](https://static.vue-js.com/b71b64c0-03c1-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/b71b64c0-03c1-11ec-a752-75723a64e8f5.png)
 
 
 
@@ -197,7 +200,9 @@ ln file1 file2
 
 
 
- ![](https://static.vue-js.com/c92e7800-03c1-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/c92e7800-03c1-11ec-8e64-91fdec0f05a1.png)
 
 删除文件1不会影响删除文件2，对于硬链接来说，删除任意一方的文件，共同指向的文件内容并不会从硬盘上删除
 
@@ -215,7 +220,9 @@ ln file1 file2
 ln -s file1 file2
 ```
 
- ![](https://static.vue-js.com/d5a22eb0-03c1-11ec-8e64-91fdec0f05a1.png)其实 `file2` 只是 `file1` 的一个快捷方式，它指向的是 `file1` ，所以显示的是 `file1` 的内容，但其实 `file2` 的 `inode` 与 `file1` 并不相同
+ 
+
+![](https://static.vue-js.com/d5a22eb0-03c1-11ec-8e64-91fdec0f05a1.png)其实 `file2` 只是 `file1` 的一个快捷方式，它指向的是 `file1` ，所以显示的是 `file1` 的内容，但其实 `file2` 的 `inode` 与 `file1` 并不相同
 
 如果
 

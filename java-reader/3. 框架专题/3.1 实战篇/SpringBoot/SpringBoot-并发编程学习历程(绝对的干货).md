@@ -31,8 +31,10 @@ public class AsyncController {
 }
 ```
 我们把线程休息一秒当作模拟处理业务所花费的时间。很明显能看出来，这是个单线程。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-37af9e86ac5785cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 `nio-8080-exec-1`表示主线程的线程1。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-fd64232446f15343.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ###   用Callable实现 并发编程
@@ -59,7 +61,9 @@ public class AsyncController {
     }
 
 ```
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-60ec91ba57723b27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-10eee7e882588257.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 我们可以看到，主线程的开始和返回（结束处理）是首先执行的，然后副线程才执行真正的业务处理。说明主线程在这里的作用是调用(唤醒)子线程，子线程处理完会返回一个Object对象，然后返回给用户。
@@ -221,8 +225,10 @@ public class QueueListener implements ApplicationListener<ContextRefreshedEvent>
 }
 
 ```
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-9faf2aa241a46579.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 我们可以看到一共有三个不同的线程来处理。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-07da274940b2c7a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
@@ -254,6 +260,7 @@ public class QueueListener implements ApplicationListener<ContextRefreshedEvent>
 ```
 
 我们看看效果：
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-b34a9ad0649dd668.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 圈红圈的就是我们自己定义的线程池里分配的线程。

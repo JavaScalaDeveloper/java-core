@@ -80,6 +80,7 @@ autopurge.purgeInterval=1
 
 利用“zkServer.sh help”命令，可以查看支持的参数：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212604.png)
 
 可见，“zkServer.sh”可以附带的参数有：
@@ -96,9 +97,11 @@ autopurge.purgeInterval=1
 
 例如，使用命令“**zkServer.sh start**”启动ZooKeeper服务端，该命令后面可以附带参数，用于指定配置文件的路径，比如“zkServer.sh start ../conf/ZooKeeper.cfg”,代表使用ZooKeeper.cfg作为配置文件，如果不指定路径，默认加载“conf/zoo.cfg”文件：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212614.png)
 
 使用**“zkServer.sh stop**”停止服务端：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212621.png)
 
@@ -106,9 +109,11 @@ autopurge.purgeInterval=1
 
 使用命令“**zkCli.sh -server 127.0.0.1:2181**”可以连接到IP为“127.0.0.1”，端口为“2181”的ZooKeeper服务器。如果连接本机的2181端口，则后面的参数可以省略。如：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212629.png)
 
 此时，输入“help”可以查看命令参数：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212637.png)
 
@@ -117,6 +122,7 @@ autopurge.purgeInterval=1
 在前面已经提到过，ZooKeeper维护者一个树形的数据结构，根节点为“/”。
 
 “**ls path**”用于查看路径path下的所有直接子节点：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212645.png)
 
@@ -132,6 +138,7 @@ autopurge.purgeInterval=1
 
 create /firstNode HelloWorld
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212654.png)
 
 ### 4.3.3 查看节点数据
@@ -139,6 +146,7 @@ create /firstNode HelloWorld
 “get path”用于获取path节点下的数据，例如：
 
 get /firstNode
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212702.png)
 
@@ -161,6 +169,7 @@ set /firstNode WorldHello
 如，删除“/firstNode”节点：
 
 delete /firstNode
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212739.png)
 
@@ -229,6 +238,7 @@ wchp
 nc为“NetCat”工具提供的命令，通常的Linux发行版中都带有NetCat。NetCat在网络工具中有“瑞士军刀”美誉，被设计为一个简单、可靠的网络工具，可通过TCP或UDP协议传输读写数据。
 
 该命令的意思为，将“conf”命令传递给127.0.0.1的2181端口（即本机的ZooKeeper服务端口），并将响应打印出来：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212748.png)
 
@@ -315,9 +325,11 @@ server.3=127.0.0.1:2890:3890
 
 依次启动三个实例：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212755.png)
 
 查看Server状态：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212802.png)
 
@@ -325,13 +337,16 @@ server.3=127.0.0.1:2890:3890
 
 使用三个客户端连接三个Server，在zk1的客户端下，新增“/newNode”节点，储存数据“zk1”：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212808.png)
 
 在zk2的客户端与查看该节点：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212816.png)
 
 在zk3的客户端与查看该节点：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212822.png)
 
@@ -341,11 +356,13 @@ server.3=127.0.0.1:2890:3890
 
 如果我们把身为Leader的zk2关闭，会发生什么呢？
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212828.png)
 
 可见，集群自动完成了切换，zk3变成了Leader。实际应用中，如果集群中的Leader宕机了，或者Leader与超过半数的Follower失去联系，都会触发ZooKeeper的选举流程，选举出新的Leader之后继续对外服务。
 
 如果我们再把zk3关闭，会发生什么呢？
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407212836.png))
 

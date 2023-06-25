@@ -478,6 +478,7 @@ public class FinalExample {
 
 假设线程 B 读对象引用与读对象的成员域之间没有重排序（马上会说明为什么需要这个假设），下图是一种可能的执行时序：
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/6628576a54f0ba625c8c3af4586cef3a.jpg)
 
 在上图中，写普通域的操作被编译器重排序到了构造函数之外，读线程 B 错误的读取了普通变量 i 初始化之前的值。而写 final 域的操作，被写 final 域的重排序规则“限定”在了构造函数之内，读线程 B 正确的读取了 final 变量初始化之后的值。
@@ -499,6 +500,7 @@ reader() 方法包含三个操作：
 3.  初次读引用变量 obj 指向对象的 final 域 j。
 
 现在我们假设写线程 A 没有发生任何重排序，同时程序在不遵守间接依赖的处理器上执行，下面是一种可能的执行时序：
+
 
 ![](https://static001.infoq.cn/resource/image/a0/36/a0a9b023bc56ab97bbda8812cdca7236.png)
 
@@ -542,6 +544,7 @@ public static void reader () {              // 读线程 C 执行
 1.  在构造函数内对一个 final 引用的对象的成员域的写入，与随后在构造函数外把这个被构造对象的引用赋值给一个引用变量，这两个操作之间不能重排序。
 
 对上面的示例程序，我们假设首先线程 A 执行 writerOne() 方法，执行完后线程 B 执行 writerTwo() 方法，执行完后线程 C 执行 reader () 方法。下面是一种可能的线程执行时序：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/29b097c36fd531028991826bb7c835db.png)
 在上图中，1 是对 final 域的写入，2 是对这个 final 域引用的对象的成员域的写入，3 是把被构造的对象的引用赋值给某个引用变量。这里除了前面提到的 1 不能和 3 重排序外，2 和 3 也不能重排序。

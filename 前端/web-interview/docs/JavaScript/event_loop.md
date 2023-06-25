@@ -1,6 +1,8 @@
 # 面试官：说说你对事件循环的理解
 
- ![](https://static.vue-js.com/50f062d0-7cb8-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/50f062d0-7cb8-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 
@@ -14,7 +16,9 @@
 
 同步任务与异步任务的运行流程图如下：
 
- ![](https://static.vue-js.com/61efbc20-7cb8-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/61efbc20-7cb8-11eb-85f6-6fac77c0c9b3.png)
 
 从上面我们可以看到，同步任务进入主线程，即主执行栈，异步任务进入任务队列，主线程内的任务执行完毕为空，会去任务队列读取对应的任务，推入主线程执行。上述过程的不断重复就事件循环
 
@@ -91,7 +95,9 @@ console.log(3)
 
 这时候，事件循环，宏任务，微任务的关系如图所示
 
- ![](https://static.vue-js.com/6e80e5e0-7cb8-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/6e80e5e0-7cb8-11eb-85f6-6fac77c0c9b3.png)
 
 按照这个流程，它的执行机制是：
 

@@ -27,6 +27,7 @@ public native int hashCode();
 
 具体的实现可以参考 `jdk/src/hotspot/share/runtime/synchronizer.cpp`（源码可以到 [GitHub 上 OpenJDK 的仓库中下载](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/runtime/synchronizer.cpp)）。`get_next_hash()` 方法会根据 hashCode 的取值来决定采用哪一种哈希值的生成策略。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/hashcode-1.png)
 
 Java 9 之后，`hashCode()` 方法会被 `@HotSpotIntrinsicCandidate` 注解修饰，表明它在 HotSpot 虚拟机中有一套高效的实现，基于 CPU 指令。
@@ -164,6 +165,7 @@ public static int hashCode(Object a[]) {
 ```
 
 代码似乎很简单，归纳出的数学公式如下所示（n 为字符串长度）。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/hashcode-2.png)
 

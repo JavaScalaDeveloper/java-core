@@ -40,6 +40,7 @@ HTTP 协议只是一个规范，定义服务请求和响应的大致式样。Jav
 
 ## Servlet体系结构
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405152028.png)
 Servlet顶级类关联图
 
@@ -48,6 +49,7 @@ Servlet顶级类关联图
 **Servlet**
 
 Servlet的框架是由两个Java包组成的：javax.servlet与javax.servlet.http。在javax.servlet包中定义了所有的Servlet类都必须实现或者扩展的通用接口和类。在javax.servlet.http包中定义了采用Http协议通信的HttpServlet类。Servlet的框架的核心是javax.servlet.Servlet接口，所有的Servlet都必须实现这个接口。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405152057.png)
 
@@ -113,6 +115,7 @@ public void init(ServletConfig config) throws ServletException {
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405152119.png)
 
 
@@ -121,6 +124,7 @@ Web服务器工作流程
 
 
 接着我们描述一下Tomcat与Servlet是如何工作的，首先看下面的时序图：
+
 
 
 
@@ -193,6 +197,7 @@ Servlet类加载--->实例化--->服务--->销毁；
 
 ```
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405152215.png)
 
 
@@ -247,6 +252,7 @@ Servlet生命周期
 在整个Servlet的生命周期过程中，**创建Servlet实例、调用实例的init()和destroy()方法都只进行一次**，当初始化完成后，Servlet容器会将该实例保存在内存中，通过调用它的service()方法，为接收到的请求服务。下面给出Servlet整个生命周期过程的UML序列图，如图所示：
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405152252.png)
 
 
@@ -258,6 +264,7 @@ Servlet生命周期
 ## Servlet中的Listener
 
 Listener 使用的非常广泛，它是基于观察者模式设计的，Listener 的设计对开发 Servlet 应用程序提供了一种快捷的手段，能够方便的从另一个纵向维度控制程序和数据。目前 Servlet 中提供了 5 种两类事件的观察者接口，它们分别是：4 个 EventListeners 类型的，ServletContextAttributeListener、ServletRequestAttributeListener、ServletRequestListener、HttpSessionAttributeListener 和 2 个 LifecycleListeners 类型的，ServletContextListener、HttpSessionListener。如下图所示：
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405152314.png)
@@ -298,6 +305,7 @@ Session 与 Cookie 的作用都是为了保持访问用户与后端服务器的�
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405152357.png)
 
 
@@ -306,6 +314,7 @@ Session相关类图
 
 
 上从图中可以看出从 request.getSession 中获取的 HttpSession 对象实际上是 StandardSession 对象的门面对象，这与前面的 Request 和 Servlet 是一样的原理。下图是 Session 工作的时序图：
+
 
 
 

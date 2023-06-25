@@ -1,6 +1,8 @@
 # 面试官：说说React render方法的原理？在什么时候会被触发？
 
- ![](https://static.vue-js.com/3d855230-ec6d-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/3d855230-ec6d-11eb-ab90-d9ae814b240d.png)
 
 ## 一、原理
 
@@ -208,7 +210,9 @@ function Foo() {
 
 所以，一旦执行了`setState`就会执行`render`方法，`useState` 会判断当前值有无发生改变确定是否执行`render`方法，一旦父组件发生渲染，子组件也会渲染
 
- ![](https://static.vue-js.com/229784b0-ecf5-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/229784b0-ecf5-11eb-ab90-d9ae814b240d.png)
 
 
 

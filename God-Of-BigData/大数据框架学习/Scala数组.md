@@ -14,15 +14,15 @@
 在 Scala 中，如果你需要一个长度不变的数组，可以使用 Array。但需要注意以下两点：
 
 - 在 Scala 中使用 `(index)` 而不是 `[index]` 来访问数组中的元素，因为访问元素，对于 Scala 来说是方法调用，`(index)` 相当于执行了 `.apply(index)` 方法。
-- Scala 中的数组与 Java 中的是等价的，`Array[Int]()` 在虚拟机层面就等价于 Java 的 `int[]`。
+- Scala 中的数组与 Java 中的是等价的，`Array[Int](images/)` 在虚拟机层面就等价于 Java 的 `int[]`。
 
 ```scala
 // 10 个整数的数组，所有元素初始化为 0
-scala> val nums=new Array[Int](10)
+scala> val nums=new Array[Int](images/10)
 nums: Array[Int] = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 // 10 个元素的字符串数组，所有元素初始化为 null
-scala> val strings=new Array[String](10)
+scala> val strings=new Array[String](images/10)
 strings: Array[String] = Array(null, null, null, null, null, null, null, null, null, null)
 
 // 使用指定值初始化，此时不需要 new 关键字
@@ -46,7 +46,7 @@ object ScalaApp {
   // 相当于 Java 中的 main 方法
   def main(args: Array[String]): Unit = {
     // 1.声明变长数组 (缓冲数组)
-    val ab = new ArrayBuffer[Int]()
+    val ab = new ArrayBuffer[Int](images/)
     // 2.在末端增加元素
     ab += 1
     // 3.在末端添加多个元素

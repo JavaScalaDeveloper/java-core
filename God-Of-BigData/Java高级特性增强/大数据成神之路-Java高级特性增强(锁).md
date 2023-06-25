@@ -169,13 +169,13 @@ protected final boolean tryRelease(int releases) {
 
 ##### 公平锁与非公平锁
 ReentrantLock支持两种锁：公平锁和非公平锁。何谓公平性，是针对获取锁而言的，如果一个锁是公平的，那么锁的获取顺序就应该符合请求上的绝对时间顺序，满足FIFO。ReentrantLock的构造方法无参时是构造非公平锁，源码为：
-```
+```java
 public ReentrantLock() {
     sync = new NonfairSync();
 }
 ```
 另外还提供了另外一种方式，可传入一个boolean值，true时为公平锁，false时为非公平锁，源码为：
-```
+```java
 public ReentrantLock(boolean fair) {
     sync = fair ? new FairSync() : new NonfairSync();
 }
@@ -276,7 +276,8 @@ EXCLUSIVE_MASK为1左移16位然后减1，即为0x0000FFFF。而exclusiveCount�
 static int sharedCount(int c)    { return c >>> SHARED_SHIFT; }
 ```
 该方法是获取读锁被获取的次数，是将同步状态（int c）右移16次，即取同步状态的高16位，现在我们可以得出另外一个结论同步状态的高16位用来表示读锁被获取的次数。现在还记得我们开篇说的需要弄懂的第一个问题吗？读写锁是怎样实现分别记录读锁和写锁的状态的，现在这个问题的答案就已经被我们弄清楚了，其示意图如下图所示：
-![f4bab9ebca5a35df042a681e4c91c7eb](大数据成神之路-Java高级特性增强(锁).resources/46AF9BE6-A1C5-418C-9836-CDE377311CC0.png)
+
+![f4bab9ebca5a35df042a681e4c91c7eb](images/大数据成神之路-Java高级特性增强(锁).resources/46AF9BE6-A1C5-418C-9836-CDE377311CC0.png)
 现在我们回过头来看写锁获取方法tryAcquire，其主要逻辑为：当读锁已经被读线程获取或者写锁已经被其他写线程获取，则写锁获取失败；否则，获取成功并支持重入，增加写状态。
 
 **写锁的释放**

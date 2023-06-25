@@ -30,6 +30,7 @@ Kafka凭借着自身的优势，越来越受到互联网企业的青睐，唯品
 
 ## 三、Kafka基本架构
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181201215942487-1393117307.png)
 
 如上图所示，一个典型的Kafka体系架构包括：
@@ -45,6 +46,7 @@ Kafka通过Zookeeper管理集群配置，选举leader，以及在consumer group�
 ### 1、Topic & Partition
 
 一个topic可以认为一个一类消息，每个topic将被分成多个partition，每个partition在存储层面是append log文件。任何发布到此partition的消息都会被追加到log文件的尾部，每条消息在文件中的位置称为offset(偏移量)，offset为一个long型的数字，它唯一标记一条消息。每条消息都被append到partition中，是顺序写磁盘，因此效率非常高(经验证，顺序写磁盘效率比随机写内存还要高，这是Kafka高吞吐率的一个很重要的保证)。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181201220820060-2075971944.png)
 
@@ -97,7 +99,9 @@ drwxr-xr-x 2 root root 4096 Apr 10 16:10 topic_zzh_test-3  </pre>
 
 
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
+[
+
+![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
 
 <pre> #在强制刷新数据到磁盘允许接收消息的数量
 #log.flush.interval.messages=10000 # 在强制刷新之前，消息可以在日志中停留的最长时间
@@ -108,7 +112,9 @@ log.segment.bytes=1073741824 # 检查日志段的时间间隔，看是否可以�
 log.retention.check.interval.ms=300000</pre>
 
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
+[
+
+![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
 
 
 
@@ -120,15 +126,20 @@ segment文件由两部分组成，分别为“.index”文件和“.log”文件
 
 
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
+[
+
+![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
 
 <pre>00000000000000000000.index 00000000000000000000.log 00000000000000170410.index 00000000000000170410.log 00000000000000239430.index 00000000000000239430.log  </pre>
 
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
+[
+
+![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0); "复制代码")
 
 
 
 以上面的segment文件为例，展示出segment：00000000000000170410的“.index”文件和“.log”文件的对应的关系，如下图：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181201224133022-2085407889.png)
 
@@ -152,6 +163,7 @@ segment文件由两部分组成，分别为“.index”文件和“.log”文件
 
 Kafka中topic的每个partition有一个预写式的日志文件，虽然partition可以继续细分为若干个segment文件，但是对于上层应用来说可以将partition看成最小的存储单元(一个有多个segment文件拼接的“巨型”文件)，每个partition都由一些列有序的、不可变的消息组成，这些消息被连续的追加到partition中。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181201231403669-958736996.png)
 
 上图中有两个新名词：HW和LEO。这里先介绍下LEO，LogEndOffset的缩写，表示每个partition的log最后一条Message的位置。HW是HighWatermark的缩写，是指consumer能够看到的此partition的位置，这个涉及到多副本的概念，这里先提及一下，下节再详表。
@@ -159,6 +171,7 @@ Kafka中topic的每个partition有一个预写式的日志文件，虽然partiti
 言归正传，为了提高消息的可靠性，Kafka每个topic的partition有N个副本(replicas)，其中N(大于等于1)是topic的复制因子(replica fator)的个数。Kafka通过多副本机制实现故障自动转移，当Kafka集群中一个broker失效情况下仍然保证服务可用。在Kafka中发生复制时确保partition的日志能有序地写到其他节点上，N个replicas中，其中一个replica为leader，其他都为follower, leader处理partition的所有读写请求，与此同时，follower会被动定期地去复制leader上的数据。
 
 如下图所示，Kafka集群中有4个broker, 某topic有3个partition,且复制因子即副本个数也为3：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181201231724531-2038730622.png)
 
@@ -186,11 +199,13 @@ Socket.send(buffer)</pre>
 
 这一过程实际上发生了四次数据拷贝。首先通过系统调用将文件数据读入到内核态Buffer（DMA拷贝），然后应用程序将内存态Buffer数据读入到用户态Buffer（CPU拷贝），接着用户程序通过Socket发送数据时将用户态Buffer数据拷贝到内核态Buffer（CPU拷贝），最后通过DMA拷贝将数据拷贝到NIC Buffer。同时，还伴随着四次上下文切换，如下图所示。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181227142339448-1209004133.png)
 
 ### 2、sendfile和transferTo实现零拷贝
 
 Linux 2.4+内核通过`sendfile`系统调用，提供了零拷贝。数据通过DMA拷贝到内核态Buffer后，直接通过DMA拷贝到NIC Buffer，无需CPU拷贝。这也是零拷贝这一说法的来源。除了减少数据拷贝外，因为整个读文件-网络发送由一个`sendfile`调用完成，整个过程只有两次上下文切换，因此大大提高了性能。零拷贝过程如下图所示。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181227142423000-1025665055.png)
 
@@ -223,6 +238,7 @@ Kafka 0.10.x版本后移除了replica.lag.max.messages参数，只保留了repli
 上面一节还涉及到一个概念，即HW。HW俗称高水位，HighWatermark的缩写，取一个partition对应的ISR中最小的LEO作为HW，consumer最多只能消费到HW所在的位置。另外每个replica都有HW,leader和follower各自负责更新自己的HW的状态。对于leader新写入的消息，consumer不能立刻消费，leader会等待该消息被所有ISR中的replicas同步后更新HW，此时消息才能被consumer消费。这样就保证了如果leader所在的broker失效，该消息仍然可以从新选举的leader中获取。对于来自内部broKer的读取请求，没有HW的限制。
 
 下图详细的说明了当producer生产消息至broker后，ISR以及HW和LEO的流转过程：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181202175002622-1830127657.png)
 
@@ -270,6 +286,7 @@ leader来维护：leader有单独的线程定期检测ISR中follower是否脱离
 
 producer发送数据到leader，leader写本地日志成功，返回客户端成功;此时ISR中的副本还没有来得及拉取该消息，leader就宕机了，那么此次发送的消息就会丢失。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181202181329621-1088596676.png)
 
 
@@ -280,9 +297,11 @@ producer发送数据到leader，leader写本地日志成功，返回客户端成
 
 有两种典型情况。acks=-1的情况下(如无特殊说明，以下acks都表示为参数request.required.acks)，数据发送到leader, ISR的follower全部完成数据同步后，leader此时挂掉，那么会选举出新的leader，数据不会丢失。
 
+
 ![](https://img2018.cnblogs.com/blog/843808/201812/843808-20181202212242480-242555451.png)
 
 acks=-1的情况下，数据发送到leader后 ，部分ISR的副本同步，leader此时挂掉。比如follower1h和follower2都有可能变成新的leader, producer端会得到返回异常，producer端会重新发送数据，数据可能会重复
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181202212407453-662912091.png)
 
 当然上图中如果在leader crash的时候，follower2还没有同步到任何数据，而且follower2被选举为新的leader的话，这样消息就不会重复。
@@ -298,6 +317,7 @@ acks=-1的情况下，数据发送到leader后 ，部分ISR的副本同步，lea
 考虑上图(即acks=-1,部分ISR副本同步)中的另一种情况，如果在Leader挂掉的时候，follower1同步了消息4,5，follower2同步了消息4，与此同时follower2被选举为leader，那么此时follower1中的多出的消息5该做如何处理呢?
 
 这里就需要HW的协同配合了。如前所述，一个partition中的ISR列表中，leader的HW是所有ISR列表里副本中最小的那个的LEO。类似于木桶原理，水位取决于最低那块短板。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181203204010599-1107873190.png)
 
@@ -342,6 +362,7 @@ Kafka在Zookeeper中为每一个partition动态的维护了一个ISR，这个ISR
 
 下面我们来分析下几种典型的场景。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181203213455180-1212737615.png)
 
 如果上图所示，假设某个partition中的副本数为3，replica-0, replica-1, replica-2分别存放在broker0, broker1和broker2中。AR=(0,1,2)，ISR=(0,1)。
@@ -371,6 +392,7 @@ replica-0和replica-1都不能恢复，这种情况可以参考情形2.
 Kafka的发送模式由producer端的配置参数producer.type来设置，这个参数指定了在后台线程中消息的发送方式是同步的还是异步的，默认是同步的方式，即producer.type=sync。如果设置成异步的模式，即producer.type=async，可以是producer以batch的形式push数据，这样会极大的提高broker的性能，但是这样会增加丢失数据的风险。如果需要确保消息的可靠性，必须要将producer.type设置为sync。
 
 对于异步模式，还有4个配套的参数，如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181203213857717-291133501.png)
 
@@ -440,6 +462,7 @@ Kafka提供了很高的数据冗余弹性，对于需要数据高可靠性的场
 
 ## 十一、内部网络框架
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181212101055804-450926848.png)
 
 Broker的内部处理流水线化，分为多个阶段来进行(SEDA)，以提高吞吐量和性能，尽量避免Thead盲等待，以下为过程说明。
@@ -451,6 +474,7 @@ Broker的内部处理流水线化，分为多个阶段来进行(SEDA)，以提�
 [回到顶部](https://www.cnblogs.com/wangzhuxing/p/10051512.html#_labelTop)
 
 ## 十二、rebalance机制
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181212101229091-1187958161.png)
 
@@ -534,6 +558,7 @@ broker端JVM参数设置：
 
 具体测试数据如下表(min.insync.replicas只在acks=-1时有效)：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181203221444373-736905445.png)
 
 测试结果分析：
@@ -554,6 +579,7 @@ broker端JVM参数设置：
 
 测试结果如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181203221832812-2007554062.png)
 
 测试结果分析：
@@ -567,6 +593,7 @@ broker端JVM参数设置：
 具体配置：一个producer;发送方式为sync;消息体大小为1kB;min.insync.replicas=1。topic副本数为：1/2/4;acks： 0/1/-1。
 
 测试结果如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181203222003811-323209661.png)
 
@@ -593,6 +620,7 @@ broker端JVM参数设置：
 
 具体配置：一个producer;消息体大小为1KB;发送方式为sync;topic副本数为2;min.insync.replicas=2;acks=-1。partition数量设置为1/2/4/8/12。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181203222113272-1167910484.png)
 
 测试结果分析：
@@ -604,6 +632,7 @@ partition的不同会影响TPS，随着partition的个数的增长TPS会有所�
 通过将集群中部分broker设置成不可服务状态，测试对客户端以及消息落盘的影响。
 
 具体配置：一个producer;消息体大小1KB;发送方式为sync;topic副本数为4;min.insync.replicas设置为2;acks=-1;retries=0/100000000;partition数为12。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181203222220687-1891442968.png)
 
@@ -622,6 +651,7 @@ partition的不同会影响TPS，随着partition的个数的增长TPS会有所�
 具体配置：一个producer;消息体大小1KB;发送方式为sync;topic副本数为4;min.insync.replicas设置为2;acks=-1;partition数为12。
 
 测试数据及结果(单位为ms)：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/843808-20181203222407063-2086989349.png)
 

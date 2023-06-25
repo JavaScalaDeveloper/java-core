@@ -1,5 +1,6 @@
 在 [spring 探秘之循环依赖（一）：理论基石](https://my.oschina.net/funcy/blog/4659555 "spring探秘之循环依赖（一）：理论基石")一文中 ，我们提到 spring 解决循环依赖的流程如下:
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-dc325a87b321e4c246a1b2f14169821a75a.png)
 
 为了能让以上流程能顺利进行，spring 中又提供了 5 个数据结构来保存流程中产生的关键信息，这 5 个数据结构如下（下文将这 5 个数据结构称为 **5 大结构**）：
@@ -106,7 +107,9 @@ Service2 Autowired:class org.springframework.learn.explore.demo03.Service1$$Enha
 
 得到的 obj1、obj2 分别为
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-201844d13a7b489d1a18a8218d6440d6068.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-3781280ce3f4da91504b0665ebfd3aed05b.png)
 
@@ -381,7 +384,9 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
 1. 实例化 Bean，调用 java 反射进行实例化，这个就不多说了，实例化后的 `service1` 如下，可以看到 `service2` 还是 `null`（表明未进行属性注入）：
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8b2f5fdf0efd6beb7f62d4f35f5c5562b83.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8b2f5fdf0efd6beb7f62d4f35f5c5562b83.png)
 
 2. 获取需要注入的属性与方法，**必须在原始对象中才能获取到，代理对象是获取不到的**，查找 `@Autowired` 的 `beanPostProcessor` 是 `AutowiredAnnotationBeanPostProcessor`；
 
@@ -406,7 +411,9 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
    加入的对象为
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-3d9a56a0d655fe1e95d8857095fb46aa71a.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-3d9a56a0d655fe1e95d8857095fb46aa71a.png)
 
    此时那 5 个结构中的内容如下：
 
@@ -494,7 +501,9 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
 1. 对象创建，这里会创建 `service2`，创建完成后的对象如下：
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-393811afa91cc1ff696b02ce6d683c97640.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-393811afa91cc1ff696b02ce6d683c97640.png)
 
    同样的，`service2` 中的属性 `service1` 也为 `null`；
 
@@ -605,7 +614,9 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 
 5. 继续从从三级缓存中获取，对照着 5 个结构中的内容，`service1` 在 `singletonFactories` 中，这里能获取到，返回的结果如下：
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-57677e20855580e5bc2f5163d87ecfda7d2.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-57677e20855580e5bc2f5163d87ecfda7d2.png)
 
 6. 调用 `singletonFactory.getObject()` 方法，当初我们传入 `singletonFactories` 的还是个 lambda 表达式：`() -> getEarlyBeanReference(beanName, mbd, bean)`，调用 `singletonFactory.getObject()` 最终调用的就是 `AbstractAutowireCapableBeanFactory#getEarlyBeanReference`：
 
@@ -652,7 +663,9 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 
    让我们再回到 `getSingleton` 方法，执行完 `singletonFactory.getObject()` 后，得到的 `singletonObject` 为
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-cf72a8ff3d91c3d2a4e300741ba7f0268e6.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-cf72a8ff3d91c3d2a4e300741ba7f0268e6.png)
 
    这是一个代理对象，并且 `service2` 为 `null`。
 
@@ -706,7 +719,9 @@ protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredTy
 
 2. `service1` 不是 `FactoryBean`，与 `getSingleton(beanName)` 得到的对象是同一个对象，内容如下：
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0cd9c129bf2387d85a7bee4f4e135143f63.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0cd9c129bf2387d85a7bee4f4e135143f63.png)
 
 3. 返回从 `getSingleton(beanName)` 得到的对象，在 `getSingleton(beanName)` 中返回的对象不为空后，就不再执行 bean 的创建流程了，最终返回的是第 2 步中得到的 bean 了。
 
@@ -774,7 +789,9 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
 1. 处理依赖注入，就是这里触发了第 4 部分的流程，执行完得到的 `service2` 如下：
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b294a02be5431c0aa66e5f126a6c6abbb92.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b294a02be5431c0aa66e5f126a6c6abbb92.png)
 
    可以看到，此时注入到 `service2` 中的 `service1` 就是代理对象了；
 
@@ -808,7 +825,9 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
    因此，这里返回 `null`，显然不等于传入的 bean，因此 if 中的代码会执行，`service2` 进行 aop。执行完这一步后，得到的 `exposedObject` 为：
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d62ebdbb71b76ada963a01c9b8c84b88b00.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d62ebdbb71b76ada963a01c9b8c84b88b00.png)
 
    `service2` 也变成了代理对象，且已完成了依赖注入。
 
@@ -933,6 +952,7 @@ public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
 
 到此，`service2` 获取完成，最终保存到 `singletonObjects` 中的 bean 为：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-763dad35376ed1d88086c45f01ee9c4cedd.png)
 
 本节的最后，我们也来看下 5 个结构中的内容：
@@ -1000,7 +1020,9 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
 1. 处理依赖注入，就是这里触发了第 3 节的流程，执行完得到的 `service1` 如下：
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-3883285be5904e056bc517d35bfd44c47a0.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-3883285be5904e056bc517d35bfd44c47a0.png)
 
    可以看到，`service1` 已经完成了依赖注入，且此时注入到 `service1` 中的 `service2` 已经是代理对象了，不过 `service1` 此时还是原始对象，我们继续往下看；
 
@@ -1082,7 +1104,9 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
 4. 上一步得到的 `earlySingletonReference` 为
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-425636328820897c75890f01614d94fe9dd.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-425636328820897c75890f01614d94fe9dd.png)
 
    代理对象已经返回来了，可以继续执行 if 块的代码了；
 
@@ -1106,11 +1130,15 @@ protected Object doCreateBean(final String beanName, final RootBeanDefinition mb
 
 1. service1
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b6ba35a7a701056ae55a8f9b2ef9345cac5.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b6ba35a7a701056ae55a8f9b2ef9345cac5.png)
 
 2. service2
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-563d6e323ef8fc5e9fd02f7a938ddbac655.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-563d6e323ef8fc5e9fd02f7a938ddbac655.png)
 
 可以看到，`singletonObjects` 中两者都是代理对象，彼此注入的，也是代理对象，循环依赖得到了解决。
 

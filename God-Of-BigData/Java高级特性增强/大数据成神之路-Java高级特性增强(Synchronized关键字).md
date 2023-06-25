@@ -104,7 +104,7 @@ thread2.start();
 
 **修饰一个方法**
 Synchronized修饰一个方法很简单，就是在方法的前面加synchronized，public synchronized void method(){//todo}; synchronized修饰方法和修饰一个代码块类似，只是作用范围不一样，修饰代码块是大括号括起来的范围，而修饰方法范围是整个函数。
-```
+```java
 public synchronized void run() {
    for (int i = 0; i < 5; i ++) {
       try {
@@ -117,7 +117,7 @@ public synchronized void run() {
 ```
 **修饰一个静态的方法**
 Synchronized也可修饰一个静态方法，用法如下：
-```
+```java
 public synchronized static void method() {
    // todo
 }
@@ -136,7 +136,8 @@ class ClassName {
 }
 ```
 **总结：**
-![34110231aa12f351a94b5384a1245a59](大数据成神之路-Java高级特性增强(Synchronized关键字).resources/07D5A65F-74BE-4357-8309-B0D71C4D45B4.png)
+
+![34110231aa12f351a94b5384a1245a59](images/大数据成神之路-Java高级特性增强(Synchronized关键字).resources/07D5A65F-74BE-4357-8309-B0D71C4D45B4.png)
 A. 无论synchronized关键字加在方法上还是对象上，如果它作用的对象是非静态的，则它取得的锁是对象；如果synchronized作用的对象是一个静态方法或一个类，则它取得的锁是对类，该类所有的对象同一把锁。
 B. 每个对象只有一个锁（lock）与之相关联，谁拿到这个锁谁就可以运行它所控制的那段代码。
 C. 实现同步是要很大的系统开销作为代价的，甚至可能造成死锁，所以尽量避免无谓的同步控制。
@@ -146,7 +147,7 @@ C. 实现同步是要很大的系统开销作为代价的，甚至可能造成�
 ##### 对象锁（monitor）机制
 
 现在我们来看看synchronized的具体底层实现。先写一个简单的demo:
-```
+```java
 public class SynchronizedDemo {
     public static void main(String[] args) {
         synchronized (SynchronizedDemo.class) {
@@ -159,9 +160,11 @@ public class SynchronizedDemo {
 }
 ```
 上面的代码中有一个同步代码块，锁住的是类对象，并且还有一个同步静态方法，锁住的依然是该类的类对象。编译之后，切换到SynchronizedDemo.class的同级目录之后，然后用javap -v SynchronizedDemo.class查看字节码文件:
-![98cdb1130796f19ed87ac94054035d7c](大数据成神之路-Java高级特性增强(Synchronized关键字).resources/57E615FE-9961-40F9-832C-FE2313570D85.png)
+
+![98cdb1130796f19ed87ac94054035d7c](images/大数据成神之路-Java高级特性增强(Synchronized关键字).resources/57E615FE-9961-40F9-832C-FE2313570D85.png)
 synchronized关键字基于上述两个指令实现了锁的获取和释放过程，解释器执行monitorenter时会进入到InterpreterRuntime.cpp的InterpreterRuntime::monitorenter函数，具体实现如下：
-![0ffb2d827a6b326cd8ad5b40b444eb71](大数据成神之路-Java高级特性增强(Synchronized关键字).resources/6C874101-939A-42B6-A2F8-4A502472DC6D.png)
+
+![0ffb2d827a6b326cd8ad5b40b444eb71](images/大数据成神之路-Java高级特性增强(Synchronized关键字).resources/6C874101-939A-42B6-A2F8-4A502472DC6D.png)
 执行同步代码块后首先要先执行monitorenter指令，退出的时候monitorexit指令。通过分析之后可以看出，使用Synchronized进行同步，其关键就是必须要对对象的监视器monitor进行获取，当线程获取monitor后才能继续往下执行，否则就只能等待。而这个获取的过程是互斥的，即同一时刻只有一个线程能够获取到monitor。上面的demo中在执行完同步代码块之后紧接着再会去执行一个静态同步方法，而这个方法锁的对象依然就这个类对象，那么这个正在执行的线程还需要获取该锁吗？答案是不必的，从上图中就可以看出来，执行静态同步方法的时候就只有一条monitorexit指令，并没有monitorenter获取锁的指令。这就是锁的重入性，即在同一锁程中，线程不需要再次获取同一把锁。Synchronized先天具有重入性。每个对象拥有一个计数器，当线程获取该对象锁后，计数器就会加一，释放锁后就会将计数器减一。
 
 ##### synchronized的happens-before关系
@@ -190,7 +193,7 @@ happens-before的概念最初由Leslie Lamport在其一篇影响深远的论文�
 
 ###### synchronized的happens-before关系
 Synchronized的happens-before规则，即监视器锁规则：对同一个监视器的解锁，happens-before于对该监视器的加锁。继续来看代码：
-```
+```java
 public class MonitorDemo {
     private int a = 0;
 
@@ -204,7 +207,8 @@ public class MonitorDemo {
 }
 ```
 该代码的happens-before关系如图所示：
-![b3d7851276b01f579cac06a858d67df7](大数据成神之路-Java高级特性增强(Synchronized关键字).resources/B079BB99-25B3-4365-8938-A75246E6237E.png)
+
+![b3d7851276b01f579cac06a858d67df7](images/大数据成神之路-Java高级特性增强(Synchronized关键字).resources/B079BB99-25B3-4365-8938-A75246E6237E.png)
 在图中每一个箭头连接的两个节点就代表之间的happens-before关系，黑色的是通过程序顺序规则推导出来，红色的为监视器锁规则推导而出：线程A释放锁happens-before线程B加锁，蓝色的则是通过程序顺序规则和监视器锁规则推测出来happens-befor关系，通过传递性规则进一步推导的happens-before关系。现在我们来重点关注2 happens-before 5，通过这个关系我们可以得出什么？
 根据happens-before的定义中的一条:如果A happens-before B，则A的执行结果对B可见，并且A的执行顺序先于B。线程A先对共享变量A进行加一，由2 happens-before 5关系可知线程A的执行结果对线程B可见即线程B所读取到的a的值为1。
 ###### synchronized的优化

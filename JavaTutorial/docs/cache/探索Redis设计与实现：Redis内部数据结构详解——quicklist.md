@@ -197,7 +197,9 @@ quicklistLZF结构表示一个被压缩过的ziplist。其中：
 *   fill: 16bit，ziplist大小设置，存放`list-max-ziplist-size`参数的值。
 *   compress: 16bit，节点压缩深度设置，存放`list-compress-depth`参数的值。
 
-[![Redis quicklist 结构图](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis_quicklist_structure.png)](http://zhangtielei.com/assets/photos_redis/redis_quicklist_structure.png)
+[
+
+![Redis quicklist 结构图](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis_quicklist_structure.png)](http://zhangtielei.com/assets/photos_redis/redis_quicklist_structure.png)
 
 上图是一个quicklist的结构图举例。图中例子对应的ziplist大小配置和节点压缩深度配置，如下：
 
@@ -308,5 +310,6 @@ quicklist不仅实现了从头部或尾部插入，也实现了从任意指定�
 
 **原创文章，转载请注明出处，并包含下面的二维码！否则拒绝转载！**  
 **本文链接：**[http://zhangtielei.com/posts/blog-redis-quicklist.html](http://zhangtielei.com/posts/blog-redis-quicklist.html)
+
 
 ![我的微信公众号: tielei-blog (张铁蕾)](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/my_weixin_sign_sf_840.jpg)

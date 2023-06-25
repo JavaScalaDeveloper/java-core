@@ -85,6 +85,7 @@ MySQL数据库的架构可以分为客户端，服务端，存储引擎和文件
 
     最高层的客户端，通过tcp连接mysql的服务器，然后执行sql语句，其中涉及了查询缓存，执行计划处理和优化，接下来再到存储引擎层执行查询，底层实际上访问的是主机的文件系统。
 
+
 ![image](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/39b96aa41090f9bb.png)
 ## mysql常用语法
 
@@ -158,10 +159,12 @@ mysql使用两个文件分别存储数据库的元数据和数据库的真正数
 数据页结构
 页是 InnoDB 存储引擎管理数据的最小磁盘单位，而 B-Tree 节点就是实际存放表中数据的页面，我们在这里将要介绍页是如何组织和存储记录的；首先，一个 InnoDB 页有以下七个部分：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405195759.png)
 每一个页中包含了两对 header/trailer：内部的 Page Header/Page Directory 关心的是页的状态信息，而 Fil Header/Fil Trailer 关心的是记录页的头信息。
 
     也就是说，外部的h-t对用来和其他页形成联系，而内部的h-t用来是保存内部记录的状态。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405195900.png)
 User Records 就是整个页面中真正用于存放行记录的部分，而 Free Space 就是空余空间了，它是一个链表的数据结构，为了保证插入和删除的效率，整个页面并不会按照主键顺序对所有记录进行排序，它会自动从左侧向右寻找空白节点进行插入，行记录在物理存储上并不是按照顺序的，它们之间的顺序是由 next_record 这一指针控制的。

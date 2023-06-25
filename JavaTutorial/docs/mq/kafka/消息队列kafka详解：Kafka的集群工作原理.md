@@ -33,6 +33,7 @@ KafkaController 正是利用了临时的这一特性来完成选主的，在 Bro
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-af1f22f109f85fe6b169c6e4a271016f_720w.webp)
 
 <figcaption>Leader选举流程图</figcaption>
@@ -50,6 +51,7 @@ KafkaController 在初始化的时候，会针对不同的 zNode 注册各种各
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-2a603adc2e06f3663e693259e8bf16d4_720w.webp)
 
 </figure>
@@ -57,6 +59,7 @@ KafkaController 在初始化的时候，会针对不同的 zNode 注册各种各
 ## **Partition 分布算法**
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-36d40cb264f6432a81ad83c9365d7997_720w.webp)
@@ -75,6 +78,7 @@ KafkaController 在初始化的时候，会针对不同的 zNode 注册各种各
 用户针对特定的 Topic 创建了相应的 Partition ，但是这些 Partition 不一定时刻都能够正常工作，所有 Partition 在同一时刻会对应 4 个状态中的某一个；其整个生命周期会经历如下状态的转移，分别是 NonExistentPartition、NewPartition、OnlinePartition、OfflinePartition，其对应的状态转移情况如下图所示。
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-58a8609aa2698130679d9fb80541d19b_720w.webp)
@@ -98,6 +102,7 @@ KafkaController 在初始化的时候，会针对不同的 zNode 注册各种各
 前面的文章讲到过，Partition 有 Leader Replica 和 Preferred Replica 两种角色，Leader Replica 负责对外提供读写服务 Preferred Replica 负责同步 Leader Replica 上的数据。现在集群中假设有 3 个 Broker，3 个 Partition，每个 Partition 有 3 个 Replica，当集群运行一段时候后，集群中某些 Broker 宕机，Leader Replica 进行转移，其过程如下图所示。
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-dc0bcd6f072f7e6cef8289882259d59e_720w.webp)

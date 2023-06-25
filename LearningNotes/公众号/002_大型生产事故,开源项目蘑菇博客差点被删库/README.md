@@ -15,9 +15,11 @@ mogu2020
 
 发现使用密码： **mogu2020** ，能够成功在服务器上登录MySQL
 
+
 ![命令行方式进入MySQL](images/3eb7ca28be7a4cae9ef3fb9632f7d532.jpg)
 
 然后我们在通过 **SQLyog** 进行测试，我们输入密码  **mogu2018**
+
 
 ![通过SQLyog远程连接MySQL](images/c1baf8e7362d4a58bbaf28cc661ed4ad.jpg)
 
@@ -39,6 +41,7 @@ select user, host from mysql.user;
 ```
 
 我们能够发现有4个用户
+
 
 ![查询mysql的连接用户](images/3dacdadbcbbb4abaa467130fdc0e12dc.jpg)
 
@@ -68,5 +71,6 @@ flush privileges;
 ## 结语
 
 **陌溪**是一个从三本院校一路摸滚翻爬上来的互联网大厂程序员。独立做过几个开源项目，其中**蘑菇博客**在码云上有 **2K Star** 了。目前就职于**字节跳动的Data广告部门**，是字节跳动全线产品的商业变现研发团队。同时本公众号将会持续性的输出很多原创小知识以及学习资源。欢迎各位小伙伴关注陌溪，让我们一起成长~
+
 
 ![和陌溪一起学编程](images/640.jpg)

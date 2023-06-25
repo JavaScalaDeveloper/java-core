@@ -5,6 +5,7 @@
 官方网站：https://flatpak.org/
 应用程序库：https://flathub.org/home
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-6b8738fa662816c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 基本上支持所有发行版的linux.你在官方的app store 中可能发现不了TIM，微信，迅雷，百度云等，有些大佬将深度的包重打包成flatpak，我们可以直接安装，不过需要安装深度的flatpak依赖，具体看下面的贴吧。
@@ -93,6 +94,7 @@ Application Options:
 
 #####    下载
 官方链接：http://www.crossoverchina.com/xiazai.html
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-72d81cac5ab34ca1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 直接运行rpm包或者命令`rpm -ivh crossoverxxxx.rpm`进行安装。
@@ -105,6 +107,7 @@ Application Options:
 
 #####    使用
 http://www.crossoverchina.com/rumen/
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-584fc4687b077137.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -169,6 +172,7 @@ sudo snap install vlc
 ```
 /snap/bin/redis-desktop-manager.rdm
 ```
+
 ![我用它安装的redis-desktop](https://upload-images.jianshu.io/upload_images/5786888-b6bc384a518e61da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ######   列出已安装的应用：

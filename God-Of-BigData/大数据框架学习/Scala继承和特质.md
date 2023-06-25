@@ -134,7 +134,7 @@ object ScalaApp extends App {
 class Person {
   println("父类的默认构造器")
   val range: Int = 10
-  val array: Array[Int] = new Array[Int](range)
+  val array: Array[Int] = new Array[Int](images/range)
 }
 
 //子类
@@ -161,7 +161,7 @@ object ScalaApp extends App {
 
 可以看到 array 被初始化为 Array(0)，主要原因在于父类构造器的执行顺序先于子类构造器，这里给出实际的执行步骤：
 
-1. 父类的构造器被调用，执行 `new Array[Int](range)` 语句;
+1. 父类的构造器被调用，执行 `new Array[Int](images/range)` 语句;
 2. 这里想要得到 range 的值，会去调用子类 range() 方法，因为 `override val` 重写变量的同时也重写了其 get 方法；
 3. 调用子类的 range() 方法，自然也是返回子类的 range 值，但是由于子类的构造器还没有执行，这也就意味着对 range 赋值的 `range = 2` 语句还没有被执行，所以自然返回 range 的默认值，也就是 0。
 
@@ -170,7 +170,7 @@ object ScalaApp extends App {
 ```scala
 class Person {
   // val range: Int = 10 正常代码 array 为 Array(10)
-  val array: Array[Int] = new Array[Int](range)
+  val array: Array[Int] = new Array[Int](images/range)
   val range: Int = 10  //如果把变量的声明放在使用之后，此时数据 array 为 array(0)
 }
 
@@ -191,7 +191,7 @@ object Person {
 (2) . 将变量使用 lazy 修饰，代表懒加载，即只有当你实际使用到 array 时候，才去进行初始化；
 
 ```scala
-lazy val array: Array[Int] = new Array[Int](range)
+lazy val array: Array[Int] = new Array[Int](images/range)
 ```
 
 (3) . 采用提前定义，代码如下，代表 range 的定义优先于超类构造器。

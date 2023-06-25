@@ -1,5 +1,6 @@
 # 面试官：说说new操作符具体干了什么？
 
+
 ![](https://static.vue-js.com/880d0010-7a39-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
@@ -79,7 +80,9 @@ t.sayName() // 'Tom'
 
 流程图如下：
 
- ![](https://static.vue-js.com/b429b990-7a39-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/b429b990-7a39-11eb-85f6-6fac77c0c9b3.png)
 
 
 

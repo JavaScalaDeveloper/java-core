@@ -15,6 +15,7 @@ AOP，也就是 Aspect-oriented Programming，译为面向切面编程，是计�
 
 这种思想非常适用于，将那些与核心业务不那么密切关联的功能添加到程序中，就好比我们今天的主题——日志功能，就是一个典型的案例。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/aop-log-1.png)
 
 AOP 是对面向对象编程（Object-oriented Programming，俗称 OOP）的一种补充，OOP 的核心单元是类（class），而 AOP 的核心单元是切面（Aspect）。利用 AOP 可以对业务逻辑的各个部分进行隔离，从而降低耦合度，提高程序的可重用性，同时也提高了开发效率。
@@ -24,6 +25,7 @@ AOP 是对面向对象编程（Object-oriented Programming，俗称 OOP）的一
 ### 二、AOP 的相关术语
 
 来看下面这幅图，这是一个 AOP 的模型图，就是在某些方法执行前后执行一些通用的操作，并且这些操作不会影响程序本身的运行。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/aop-log-2.png)
 我们了解下 AOP 涉及到的 5 个关键术语：
@@ -165,9 +167,11 @@ public class WebLogAspect {
 
 执行登录用户查询操作：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/aop-log-3.png)
 
 可以在控制台可以看到以下日志信息：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/aop-log-4.png)
 源码地址：
@@ -180,6 +184,7 @@ public class WebLogAspect {
 >灰小猿：https://bbs.huaweicloud.com/blogs/289045<br>
 >山高我为峰：https://www.cnblogs.com/liaojie970/p/7883687.html<br>
 >macrozheng：https://github.com/macrozheng/mall
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

@@ -238,7 +238,7 @@ DELETE FROM tablename [WHERE expression]
 
 **2. 创建测试表**
 
-创建用于测试的事务表，建表时候指定属性 `transactional = true` 则代表该表是事务表。需要注意的是，按照[官方文档](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions) 的说明，目前 Hive 中的事务表有以下限制：
+创建用于测试的事务表，建表时候指定属性 `transactional = true` 则代表该表是事务表。需要注意的是，按照[官方文档](images/https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions) 的说明，目前 Hive 中的事务表有以下限制：
 
 + 必须是 buckets Table;
 + 仅支持 ORC 文件格式；
@@ -325,5 +325,5 @@ SELECT * FROM emp_ptn;
 
 ## 参考资料
 
-1. [Hive Transactions](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions)
-2. [Hive Data Manipulation Language](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DML)
+1. [Hive Transactions](images/https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions)
+2. [Hive Data Manipulation Language](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DML)

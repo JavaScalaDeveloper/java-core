@@ -1,5 +1,6 @@
 # 面试官：说说对设计模式的理解？常见的设计模式有哪些？
 
+
 ![](https://static.vue-js.com/065bc170-37ce-11ec-a752-75723a64e8f5.png)
 
 
@@ -44,7 +45,9 @@
 
 如下图的车，只有一辆，一旦借出去则不能再借给别人：
 
- ![](https://static.vue-js.com/ea527aa0-37cd-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/ea527aa0-37cd-11ec-8e64-91fdec0f05a1.png)
 
 
 
@@ -58,7 +61,9 @@
 - 抽象产品角色-是所创建的所有对象的父类，负责描述所有实例所共有的公共接口
 - 具体产品角色-是创建目标，所有创建的对象都充当这个角色的某个具体类的实例
 
- ![](https://static.vue-js.com/fadd1920-37cd-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/fadd1920-37cd-11ec-8e64-91fdec0f05a1.png)
 
 
 

@@ -74,6 +74,7 @@ false
 
 “我来画幅图，帮助你理解下。”看到三妹惊讶的表情，我耐心地说。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/intern-01.png)
 
 “这下理解了吧？”我问三妹。
@@ -105,6 +106,7 @@ true
 ```
 
 “我再来画幅图，帮助你理解下。”
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/intern-02.png)
 

@@ -17,12 +17,14 @@
     # 参数 -h 表示使用「Human-readable」的输出，也就是在档案系统大小使用 GB、MB 等易读的格式
     df -h
 
+
 ![](http://image.moguit.cn/1577332994777.png)
 
 或者使用du命令来对每个文件及文件夹大小进行查看：
 
     # 仅列出/ 目录下面所有的一级目录文件大小, --max-depth=1 是指定深度
     du -h --max-depth=1 /
+
 
 ![](http://image.moguit.cn/1577333099896.png)
 

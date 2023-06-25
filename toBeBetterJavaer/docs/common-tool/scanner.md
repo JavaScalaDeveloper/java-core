@@ -38,9 +38,11 @@ scanner.close(); // 关闭 Scanner 对象
 
 运行后就可以在控制台交互了，对于新手来说，估计会觉得比较有趣。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329150001.png)
 
 其中 System.in 返回的是一个[字节输入流](https://tobebetterjavaer.com/io/stream.html) InputStream，和 System.out 刚好对应。
+
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329151635.png)
 
@@ -64,6 +66,7 @@ scanner.close(); // 关闭 Scanner 对象
 #### 2）nextInt
 
 `nextInt()` 用于从输入流中读取下一个整数并返回，如果输入流中没有整数，或者不是整数，将抛出 InputMismatchException 异常。
+
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329153155.png)
 
@@ -155,6 +158,7 @@ scanner.close(); // 关闭 Scanner 对象
 
 除了上面提到的扫描控制台输入流、文件，Scanner 还提供了另外四个以 find 开头的查找匹配项的方法：
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329162213.png)
 
 来看示例：
@@ -182,6 +186,7 @@ scanner.close(); // 关闭 Scanner 对象
 
 当然我们也可以使用正则表达式，比如说我们要在下面的文件中查找 openjdk 这个关键字。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329163743.png)
 
 代码就可以这样写：
@@ -200,9 +205,11 @@ while ((result = scanner.findWithinHorizon(pattern, 0)) != null) {
 
 然后我们使用 while 循环来查找文件中所有的 `openjdk`，其中 findWithinHorizon 方法的第二个参数如果为 0 则表示忽略边界，如果没找到，会返回 null。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329165146.png)
 
 由于文件中有两个 openjdk 关键字，所以输出结果如下所示：
+
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/scanner-20230329165213.png)
 

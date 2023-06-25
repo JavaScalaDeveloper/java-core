@@ -10,6 +10,7 @@
 
 这就是缓存雪崩。
 
+
 ![redis-caching-avalanche](/images/redis-caching-avalanche.png)
 
 大约在 3 年前，国内比较知名的一个互联网公司，曾因为缓存事故，导致雪崩，后台系统全部崩溃，事故从当天下午持续到晚上凌晨 3~4 点，公司损失了几千万。
@@ -18,6 +19,7 @@
 - 事前：redis 高可用，主从+哨兵，redis cluster，避免全盘崩溃。
 - 事中：本地 ehcache 缓存 + hystrix 限流&降级，避免 MySQL 被打死。
 - 事后：redis 持久化，一旦重启，自动从磁盘上加载数据，快速恢复缓存数据。
+
 
 ![redis-caching-avalanche-solution](/images/redis-caching-avalanche-solution.png)
 
@@ -36,6 +38,7 @@
 黑客发出的那 4000 个攻击，缓存中查不到，每次你去数据库里查，也查不到。
 
 举个栗子。数据库 id 是从 1 开始的，结果黑客发过来的请求 id 全部都是负数。这样的话，缓存中不会有，请求每次都“**视缓存于无物**”，直接查询数据库。这种恶意攻击场景的缓存穿透就会直接把数据库给打死。
+
 
 ![redis-caching-penetration](/images/redis-caching-penetration.png)
 

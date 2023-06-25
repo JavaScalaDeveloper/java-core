@@ -9,6 +9,7 @@ tag:
 
 AQS 的全称为 `AbstractQueuedSynchronizer` ，翻译过来的意思就是抽象队列同步器。这个类在 `java.util.concurrent.locks` 包下面。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/AQS.png)
 
 AQS 就是一个抽象类，主要用来构建锁和同步器。
@@ -32,11 +33,13 @@ CLH 锁是对自旋锁的一种改进，是一个虚拟的双向队列（虚拟�
 
 CLH 队列锁结构如下图所示：
 
+
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/40cb932a64694262993907ebda6a0bfe~tplv-k3u1fbpfcp-zoom-1.image)
 
 关于 AQS 核心数据结构-CLH 锁的详细解读，强烈推荐阅读 [Java AQS 核心数据结构-CLH 锁 - Qunar 技术沙龙](https://mp.weixin.qq.com/s/jEx-4XhNGOFdCo4Nou5tqg) 这篇文章。
 
 AQS(`AbstractQueuedSynchronizer`)的核心原理图（图源[Java 并发之 AQS 详解](https://www.cnblogs.com/waterystone/p/4920797.html)）如下：
+
 
 ![](https://oss.javaguide.cn/github/javaguide/CLH.png)
 

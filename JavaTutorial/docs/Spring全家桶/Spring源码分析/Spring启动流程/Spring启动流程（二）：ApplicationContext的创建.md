@@ -1,3 +1,5 @@
+
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-07194ddebd25cb2b71ee5e422bf84e8a397.png)
 
 在前面一篇文章中，我们分析了 spring 的整体启动流程，从这篇开始 ，我们将对启动过程中的一些关键代码进行分析。
@@ -142,6 +144,7 @@ public static Set<BeanDefinitionHolder> registerAnnotationConfigProcessors(
 
 这个方法代码虽然有点长，但功能却相当直白，就是向 `beanFactory` 添加 `annotation` 相关的处理器。实际上，在 [spring 启动流程概览](https://my.oschina.net/funcy/blog/4597493 "spring启动流程概览")提到的 beanDefinitionMap 中 4 个默认的 beanDefinition 就是在这里添加的：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a490052bdc1379ef24a7754c65584214c1c.png)
 
 接着我们再关注 `this.scanner = new ClassPathBeanDefinitionScanner(this)`，这是初始化 `scanner` 对象，类型为 `ClassPathBeanDefinitionScanner`，该类从名字上可以看出，这是与 `classPath` 相关的，`beanDefinition` 扫描器，通俗地说，就是**扫描 classPath 路径，将 java class 文件组装成 `beanDefinition` 对象**。
@@ -155,6 +158,7 @@ public static Set<BeanDefinitionHolder> registerAnnotationConfigProcessors(
 3.  创建了类型为 `ClassPathBeanDefinitionScanner` 的 `scanner`
 
 本文流程图示如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b7a7a01b4d38769419a0e25e8f60037cbb5.png)
 

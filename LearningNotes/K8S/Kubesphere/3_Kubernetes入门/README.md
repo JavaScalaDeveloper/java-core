@@ -2,6 +2,7 @@
 
 # 1、是什么 
 
+
 ![img](images/image.png)
 
 
@@ -38,6 +39,7 @@ kubernetes具有以下特性：
 Kubernetes **Cluster** **=** N **Master** Node **+** N **Worker** Node：N主节点+N工作节点； N>=1
 
 ## 2、组件架构
+
 
 ![img](images/image-1636471368715.png)
 
@@ -114,9 +116,11 @@ kube-proxy 维护节点上的网络规则。这些网络规则允许从集群内
 
 如果操作系统提供了数据包过滤层并可用的话，kube-proxy 会通过它来实现网络规则。否则， kube-proxy 仅转发流量本身。
 
+
 ![img](images/image.png)
 
 ### 动态演示
+
 
 ![image-20211110083453090](images/image-20211110083453090.png)
 
@@ -129,7 +133,9 @@ kube-proxy 维护节点上的网络规则。这些网络规则允许从集群内
   - 如 scheduler、kube-proxy、api-server、etcd、controller-managet
 - 然后另外的节点就需要加入到主节点中，通过 kubeadm join 命令
 
+
 ![image-20211110083932498](images/image-20211110083932498.png)
+
 
 
 
@@ -313,6 +319,7 @@ kubectl get pods -A
 ### 3、根据提示继续
 
 master成功后提示如下：
+
 
 ![img](images/image-1636471368714.png)
 
@@ -748,5 +755,6 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6InpXSkU0TjhCUmVKQzBJaC03Nk9ES2NMZ1daRTRmQ1FMZU9rRUJ3
 ```
 
 #### 5、界面
+
 
 ![img](images/image-1636471368716.png)

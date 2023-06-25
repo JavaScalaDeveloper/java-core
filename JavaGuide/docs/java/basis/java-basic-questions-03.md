@@ -16,6 +16,7 @@ head:
 
 **Java 异常类层次结构图概览**：
 
+
 ![Java 异常类层次结构图](https://oss.javaguide.cn/github/javaguide/java/basis/types-of-exceptions-in-java.png)
 
 ### Exception 和 Error 有什么区别？
@@ -30,6 +31,7 @@ head:
 **Checked Exception** 即 受检查异常 ，Java 代码在编译过程中，如果受检查异常没有被 `catch`或者`throws` 关键字处理的话，就没办法通过编译。
 
 比如下面这段 IO 操作的代码：
+
 
 ![](https://oss.javaguide.cn/github/javaguide/java/basis/checked-exception.png)
 
@@ -48,6 +50,7 @@ head:
 - `SecurityException` （安全错误比如权限不够）
 - `UnsupportedOperationException`(不支持的操作错误比如重复创建同一用户)
 - ......
+
 
 ![](https://oss.javaguide.cn/github/javaguide/java/basis/unchecked-exception.png)
 
@@ -415,6 +418,7 @@ SPI 将服务接口和具体的服务实现分离开来，将服务调用方和�
 
 很多框架都使用了 Java 的 SPI 机制，比如：Spring 框架、数据库加载驱动、日志接口、以及 Dubbo 的扩展实现等等。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/java/basis/spi/22e1830e0b0e4115a882751f6c417857tplv-k3u1fbpfcp-zoom-1.jpeg)
 
 ### SPI 和 API 有什么区别？
@@ -422,6 +426,7 @@ SPI 将服务接口和具体的服务实现分离开来，将服务调用方和�
 **那 SPI 和 API 有啥区别？**
 
 说到 SPI 就不得不说一下 API 了，从广义上来说它们都属于接口，而且很容易混淆。下面先用一张图说明一下：
+
 
 ![](https://oss.javaguide.cn/github/javaguide/java/basis/spi/1ebd1df862c34880bc26b9d494535b3dtplv-k3u1fbpfcp-watermark.png)
 
@@ -468,6 +473,7 @@ SPI 将服务接口和具体的服务实现分离开来，将服务调用方和�
 
 综上：**序列化的主要目的是通过网络传输对象或者说是将对象存储到文件系统、数据库、内存中。**
 
+
 ![](https://oss.javaguide.cn/github/javaguide/a478c74d-2c48-40ae-9374-87aacf05188c.png)
 
 <p style="text-align:right;font-size:13px;color:gray">https://www.corejavaguru.com/java/serialization/interview-questions-1</p>
@@ -480,6 +486,7 @@ SPI 将服务接口和具体的服务实现分离开来，将服务调用方和�
 2. 传输层
 3. 网络层
 4. 网络接口层
+
 
 ![TCP/IP 四层模型](https://oss.javaguide.cn/github/javaguide/cs-basics/network/tcp-ip-4-model.png)
 

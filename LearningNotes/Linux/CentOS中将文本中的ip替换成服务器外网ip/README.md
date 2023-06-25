@@ -26,6 +26,7 @@ http://ip.42.pl/raw
 
 然后就会返回本机器的外网地址
 
+
 ![image-20201214214902884](images/image-20201214214902884.png)
 
 最后用变量保存即可
@@ -113,6 +114,7 @@ ELASTIC_SEARCH=http://127.0.0.1:5601
 ```bash
 python2 replaceIp.py
 ```
+
 
 ![image-20201214215614127](images/image-20201214215614127.png)
 

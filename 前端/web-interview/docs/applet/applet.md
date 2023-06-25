@@ -1,6 +1,8 @@
 # 面试官：说说你对微信小程序的理解？优缺点？
 
- ![](https://static.vue-js.com/be367c80-300e-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/be367c80-300e-11ec-8e64-91fdec0f05a1.png)
 
 ## 一、是什么
 
@@ -8,7 +10,9 @@
 
 截至目前，小程序已经成为国内前端的一个重要业务，跟 `Web` 和手机 `App` 有着同等的重要性
 
- ![](https://static.vue-js.com/ce751de0-300e-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/ce751de0-300e-11ec-8e64-91fdec0f05a1.png)
 
 小程序是一种不需要下载安装即可使用的应用，它实现了应用“触手可及”的梦想，用户扫一扫或者搜一下即可打开应用
 

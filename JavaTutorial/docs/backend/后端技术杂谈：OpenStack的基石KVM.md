@@ -60,6 +60,7 @@ KVM（Kernel-based Virtual Machine的英文缩写）是内核内建的虚拟机�
 
 Qemu向Guest OS模拟CPU，也模拟其他的硬件，GuestOS认为自己和硬件直接打交道，其实是同Qemu模拟出来的硬件打交道，Qemu将这些指令转译给真正的硬件。由于所有的指令都要从Qemu里面过一手，因而性能比较差
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/635909-20180307150620008-108720261.jpg)
 
 按照上一次的理论，完全虚拟化是非常慢的，所以要使用硬件辅助虚拟化技术Intel-VT，AMD-V，所以需要CPU硬件开启这个标志位，一般在BIOS里面设置。查看是否开启
@@ -74,15 +75,18 @@ Qemu向Guest OS模拟CPU，也模拟其他的硬件，GuestOS认为自己和硬�
 
 查看内核模块中是否含有kvm, ubuntu默认加载这些模块
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/635909-20180307150634298-628102674.png)
 
 KVM内核模块通过/dev/kvm暴露接口，用户态程序可以通过ioctl来访问这个接口，例如书写下面的程序
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/635909-20180307150654328-1662633336.png)
 
 Qemu将KVM整合进来，通过ioctl调用/dev/kvm接口，将有关CPU指令的部分交由内核模块来做，就是qemu-kvm (qemu-system-XXX)
 
 Qemu-kvm对kvm的整合从release_0_5_1开始有branch，在1.3.0正式merge到master
+
 
 ![](https://images2018.cnblogs.com/blog/635909/201803/635909-20180307150710177-1591777831.png)
 
@@ -94,17 +98,20 @@ qemu和kvm整合之后，CPU的性能问题解决了，另外Qemu还会模拟其
 
 至此整个关系如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/635909-20180307150733042-369996016.jpg)
 
 qemu-kvm会创建Guest OS，当需要执行CPU指令的时候，通过/dev/kvm调用kvm内核模块，通过硬件辅助虚拟化方式加速。如果需要进行网络和存储访问，则通过类虚拟化或者直通Pass through的方式，通过加载特殊的驱动，加速访问网络和存储资源。
 
 然而直接用qemu或者qemu-kvm或者qemu-system-xxx的少，大多数还是通过virsh启动，virsh属于libvirt工具，libvirt是目前使用最为广泛的对KVM虚拟机进行管理的工具和API，可不止管理KVM。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/635909-20180307150801681-1586679180.jpg)
 
 Libvirt分服务端和客户端，Libvirtd是一个daemon进程，是服务端，可以被本地的virsh调用，也可以被远程的virsh调用，virsh相当于客户端。
 
 Libvirtd调用qemu-kvm操作虚拟机，有关CPU虚拟化的部分，qemu-kvm调用kvm的内核模块来实现
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/635909-20180307150815111-1223973253.jpg)
 

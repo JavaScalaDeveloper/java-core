@@ -59,8 +59,10 @@ tags:
 
 在编写java程序中，我们最常用的除了八种基本数据类型，String对象外还有一个集合类，在我们的的程序中到处充斥着集合类的身影！
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230403214433.png)
 java中集合大家族的成员实在是太丰富了，有常用的ArrayList、HashMap、HashSet，也有不常用的Stack、Queue，有线程安全的Vector、HashTable，也有线程不安全的LinkedList、TreeMap等等！
+
 
 ![](https://images0.cnblogs.com/blog/381060/201312/28124707-3a873160808e457686d67c118af6fa70.png)
 
@@ -71,12 +73,16 @@ java中集合大家族的成员实在是太丰富了，有常用的ArrayList、H
 > Collections和Collection。
 > Arrays和Collections。
 >
-> ![](https://www.programcreek.com/wp-content/uploads/2009/02/CollectionVsCollections.jpeg)
+> 
+
+![](https://www.programcreek.com/wp-content/uploads/2009/02/CollectionVsCollections.jpeg)
 
 > Collection的子接口
 
+
 ![](https://www.programcreek.com/wp-content/uploads/2009/02/java-collection-hierarchy.jpeg)
 > map的实现类
+
 
 ![](https://www.programcreek.com/wp-content/uploads/2009/02/MapClassHierarchy-600x354.jpg)
 

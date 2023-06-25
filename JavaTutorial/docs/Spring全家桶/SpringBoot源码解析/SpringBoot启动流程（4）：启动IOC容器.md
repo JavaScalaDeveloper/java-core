@@ -1,5 +1,6 @@
 上一篇文章总结 springboot 启动流程如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-07a6b491fbe69b8dcbd41e59a8543f06671.png)
 
 接上文，我们继续分析接下来的步骤。
@@ -56,6 +57,7 @@ protected void refresh(ApplicationContext applicationContext) {
 *   [【spring 源码分析】spring 启动流程（十）：启动完成的处理](https://my.oschina.net/funcy/blog/4892555)
 
 在 `AbstractApplicationContext#refresh()` 中，spring 提供了几个扩展点：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b86d0fb2e3790f63b5c6590884be9401354.png)
 
@@ -381,6 +383,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 可以看到，`context.registerShutdownHook()` 实际上是运行了 `doClose()` 方法，用来处理容器的关闭操作。关闭 spring 容器的关闭，注释已经相当清楚了，这里就不深入了。
 
 好了，容器的启动就分析到这里了，从流程上来讲，与 spring 容器启动的最大扩展在于 `onRefresh()` 与 `finishRefresh()`，前者创建了 `webServer` 容器，后者启动了 `webServer` 容器。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-81033ec78641ad875623cf452ef9cd62eb6.png)
 

@@ -125,6 +125,7 @@ class People {//默认访问权限（包访问权限）
 下面是 Main 类中的提示的错误：
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/bokeyuan-jianxijavazhongdifangwenquanxiankongzhi-154ae82f-72a5-45fc-ad3c-e1eb575d8572.png)
 
 
@@ -195,6 +196,7 @@ public class People {
 此时在 Main 类中会提示错误：
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/bokeyuan-jianxijavazhongdifangwenquanxiankongzhi-b3e9dc56-53e8-42f1-b8ee-35115edfe7e7.png)
 
 
@@ -251,6 +253,7 @@ public class People {
 ```
 
 则会在 Main 中报错：
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/bokeyuan-jianxijavazhongdifangwenquanxiankongzhi-b1d4b7ed-fc87-47d4-bdd9-3f6a8ea96100.png)

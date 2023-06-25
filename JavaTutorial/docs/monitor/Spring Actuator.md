@@ -24,6 +24,7 @@ Actuator 2.xĞÂÔöµÄÄ¬ÈÏ¶Ëµã£¬ÓÃÓÚÕ¹Ê¾Ä¿Ç°Ó¦ÓÃÖĞ±©Â¶³öÀ´µÄ¶Ëµã»ã×Ü£¬Äã¿ÉÒÔÀí½âÎª¿É
 
 ·ÃÎÊURL£º[http://localhost:8080/actuator](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080%2Factuator "http://localhost:8080/actuator") £¬¶ÔÓ¦Õ¹Ê¾½á¹ûÈçÏÂÍ¼£º
 
+
 ![image-20230530233537559](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530233537559.png)
 
 ÉÏÊöÖ»Õ¹Ê¾ÁËÒ»²¿·ÖµÄ¶Ëµã£¬·µ»Ø½á¹ûÎª£¬ÕâÀï²ÉÓÃÁËä¯ÀÀÆ÷µÄ²å¼ş-Handler½øĞĞÁË¸ñÊ½ÃÀ»¯¡£Í¨¹ıactuator¿ÉÒÔÖ±¹ÛµÄ¿´³öÄ¿Ç°¿ª·ÅÁËÄÄĞ©¶Ëµã£¬ÒÔ¼°ÕâĞ©¶ËµãµÄÃû³ÆºÍÇëÇóÂ·¾¶¡£
@@ -92,13 +93,16 @@ InMemoryAuditEventRepositoryÊÇAuditEventRepository½Ó¿ÚµÄÎ¨Ò»ÊµÏÖÀà¡£
 
 ÖØÆôÏîÄ¿£¬auditevents¶Ëµã±ã¿ÉÓÃÁË¡£·ÃÎÊ[http://localhost:8080/actuator](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080%2Factuator "http://localhost:8080/actuator") ,´ËÊ±»áÌø×ªµ½SecurityÌá¹©µÄµÇÂ¼Ò³Ãæ£º
 
+
 ![image-20230530233604253](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530233604253.png)
 
 ÊäÈë´úÂëÖĞÖ¸¶¨µÄÓÃ»§ÃûºÍÃÜÂë£¬µÇÂ¼³É¹¦£¬Ìø×ªµ½/actuatorÒ³Ãæ£º
 
+
 ![image-20230530233625068](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530233625068.png)
 
 ¿ÉÒÔ¿´µ½auditevents¶ËµãÒÑ¾­³É¹¦ÏÔÊ¾³öÀ´ÁË¡£ĞÂ¿ªÒ³Ãæ·ÃÎÊ[http://localhost:8080/actuator/auditevents](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080%2Factuator%2Fauditevents "http://localhost:8080/actuator/auditevents") £¬Õ¹Ê¾ÄÚÈİÈçÏÂ£º
+
 
 ![image-20230530233716752](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530233716752.png)
 
@@ -113,6 +117,7 @@ InMemoryAuditEventRepositoryÊÇAuditEventRepository½Ó¿ÚµÄÎ¨Ò»ÊµÏÖÀà¡£
 /beans¶Ëµã»á·µ»ØSpringÈİÆ÷ÖĞËùÓĞbeanµÄ±ğÃû¡¢ÀàĞÍ¡¢ÊÇ·ñµ¥Àı¡¢ÒÀÀµµÈĞÅÏ¢¡£
 
 ·ÃÎÊÂ·¾¶Îª[http://localhost:8080/actuator/beans](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080%2Factuator%2Fbeans "http://localhost:8080/actuator/beans") £¬·¶Î§½á¹ûÈçÏÂ£º
+
 
 ![image-20230530233748286](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530233748286.png)
 
@@ -131,6 +136,7 @@ public class TestController {
 ````
 
 ÖØĞÂÆô¶¯²¢·ÃÎÊ¸Ã¶Ëµã£¬»á¿´µ½ÈçÏÂĞÅÏ¢£º
+
 
 ![image-20230530233805161](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530233805161.png)
 
@@ -174,6 +180,7 @@ public class CacheController {
 
 ·ÃÎÊÒ»ÏÂ[http://localhost:8080/queryAll](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080%2FqueryAll "http://localhost:8080/queryAll") £¬Ò²¾ÍÊÇ´¥·¢Ò»ÏÂ»º´æÄÚÈİµÄÉú³É¡£´ËÊ±ÔÙ·ÃÎÊÉÏÃæµÄÁ´½Ó£¬±ã¿ÉÒÔ¿´µ½Ó¦ÓÃ³ÌĞòÖĞµÄ»º´æĞÅÏ¢ÁË£º
 
+
 ![image-20230530233852486](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530233852486.png)
 
 ¿ÉÒÔ¿´µ½£¬·µ»ØµÄÄÚÈİ²»½öÕ¹Ê¾ÁËÓ¦ÓÃ³ÌĞòµÄ»º´æ¹ÜÀíÆ÷£¬Í¬Ê±Ò²Õ¹Ê¾ÁË»º´æµÄKeyºÍ»º´æÊı¾İ´æ´¢ÀàĞÍĞÅÏ¢¡£
@@ -190,6 +197,7 @@ caches-cache¶ËµãÊÇ¶ÔÉÏÃæcaches¶ËµãµÄÀ©Õ¹£¬caches¶ËµãÕ¹Ê¾µÄËùÓĞµÄ»º´æĞÅÏ¢¡£Èç¹ûÏë
 `http://localhost:8080/actuator/caches/queryAll`
 
 ½«ÉÏÃæµÄÕ¼Î»·û»»³ÉqueryAll£¨»º´æµÄkey£©£¬Ö´ĞĞ½á¹ûÈçÏÂ£º
+
 
 ![image-20230530233906164](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530233906164.png)
 
@@ -243,11 +251,13 @@ spring:
 
 Ä¬ÈÏÖµÊÇnever£¬ËùÒÔÎÒÃÇÖ±½Ó·ÃÎÊ¿´µ½µÄÖ»ÓĞUP»òDOWN¡£ÏÖÔÚ¼¯³ÉÁËÊı¾İ¿â£¬Í¬Ê±°Ñ¸ÃÏîÖµÅäÖÃÎªalways£¬¿´Ò»ÏÂÏêÇé£º
 
+
 ![image-20230530233934501](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530233934501.png)
 
 ¿ÉÒÔ¿´µ½ÕûÌå×´Ì¬ÎªUP£¬ÆäÖĞÏÂÃæµÄÈı¸ö×é¼ş¾ùÎªUP£¬¶øÊı¾İ¿âÊÇMYSQL£¬¼ì²éÊı¾İ¿âµÄÓï¾äÎª¡°SELECT 1¡±¡£Í¬Ê±£¬»¹Õ¹Ê¾ÁË´ÅÅÌĞÅÏ¢ºÍpingµÄ×´Ì¬¡£
 
 ÏÖÔÚÎÒÃÇ°ÑÊı¾İ¿âµÄÓÃ»§ÃûºÍÃÜÂë¹ÊÒâ¸Ä´í£¬ÖØÆô·ÃÎÊ¿ÉµÃ£º
+
 
 ![image-20230530233951145](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530233951145.png)
 
@@ -281,6 +291,7 @@ info:
 
 ·ÃÎÊ[http://localhost:8080/actuator/info](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080%2Factuator%2Finfo "http://localhost:8080/actuator/info") £¬Õ¹Ê¾½á¹ûÈçÏÂ£º
 
+
 ![image-20230530234019487](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530234019487.png)
 
 ## conditions¶Ëµã
@@ -288,6 +299,7 @@ info:
 Spring BootÌá¹©ÁË×Ô¶¯ÅäÖÃ¹¦ÄÜ£¬Ê¹ÓÃÆğÀ´·Ç³£·½±ã¡£µ«ÕâĞ©×Ô¶¯ÅäÖÃÀàÊÇÊ²Ã´Çé¿öÏÂÉúĞ§µÄ£¬ÊÇ·ñÉúĞ§ÊÇ±È½ÏÄÑÅÅ²éµÄ¡£´ËÊ±£¬¿ÉÒÔÊ¹ÓÃ conditions ÔÚÓ¦ÓÃÔËĞĞÊ±²é¿´Ä³¸öÅäÖÃÀàÔÚÊ²Ã´Ìõ¼şÏÂÉúĞ§£¬»òÎªÊ²Ã´Ã»ÓĞÉúĞ§¡£
 
 ·ÃÎÊURL£º[http://localhost:8080/actuator/conditions](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080%2Factuator%2Fconditions "http://localhost:8080/actuator/conditions") £¬²¿·Ö·µ»ØĞÅÏ¢ÈçÏÂ£º
+
 
 ![image-20230530234053134](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530234053134.png)
 
@@ -341,6 +353,7 @@ public class InfoProperties {
 
 ·ÃÎÊURL£º[http://localhost:8080/actuator/configprops](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080%2Factuator%2Fconfigprops "http://localhost:8080/actuator/configprops") £¬²¿·ÖĞÅÏ¢ÈçÏÂ£º
 
+
 ![image-20230530234110515](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530234110515.png)
 
 ²»½ö¿ÉÒÔ¿´µ½ÏµÍ³ÖĞÄ¬ÈÏ¼¯³ÉµÄÅäÖÃÀàĞÅÏ¢£¬»¹¿ÉÒÔ¿´µ½ÎÒÃÇ×Ô¶¨ÒåµÄÅäÖÃÀàĞÅÏ¢¡£ÕâÀïĞèÒª×¢ÒâµÄÊÇ¶ÔÓ¦µÄÀàĞèÒª½øĞĞÊµÀı»¯£¨@Component£©ÕâÀï²ÅÄÜ¹»¿´µ½¡£
@@ -353,6 +366,7 @@ env¶ËµãÓÃÓÚ»ñÈ¡È«²¿»·¾³ÊôĞÔ£¬°üÀ¨applicationÅäÖÃÎÄ¼şÖĞµÄÄÚÈİ¡¢ÏµÍ³±äÁ¿µÈ¡£
 
 ·ÃÎÊURL£º[http://localhost:8080/actuator/env£¬·µ»Ø²¿·ÖĞÅÏ¢£º](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080%2Factuator%2Fenv%25EF%25BC%258C%25E8%25BF%2594%25E5%259B%259E%25E9%2583%25A8%25E5%2588%2586%25E4%25BF%25A1%25E6%2581%25AF%25EF%25BC%259A "http://localhost:8080/actuator/env%EF%BC%8C%E8%BF%94%E5%9B%9E%E9%83%A8%E5%88%86%E4%BF%A1%E6%81%AF%EF%BC%9A")
 
+
 ![image-20230530234200949](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530234200949.png)
 
 ## env-toMatch¶Ëµã
@@ -360,6 +374,7 @@ env¶ËµãÓÃÓÚ»ñÈ¡È«²¿»·¾³ÊôĞÔ£¬°üÀ¨applicationÅäÖÃÎÄ¼şÖĞµÄÄÚÈİ¡¢ÏµÍ³±äÁ¿µÈ¡£
 env-toMatch¶ËµãÓëcachesºÍcaches-cacheÀàËÆ£¬Ò»¸öÊÇ»ñÈ¡ËùÓĞµÄ£¬Ò»¸öÊÇ»ñÈ¡Ö¸¶¨µÄ¡£ÕâÀïµÄenv-toMatch¶ËµãÊÇ»ñÈ¡Ö¸¶¨keyµÄ»·¾³±äÁ¿ÊôĞÔ¡£
 
 »ù±¾¸ñÊ½Îª£º[http://localhost:8080/actuator/env/{toMatch}¡£](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080%2Factuator%2Fenv%2F%257BtoMatch%257D%25E3%2580%2582 "http://localhost:8080/actuator/env/%7BtoMatch%7D%E3%80%82") ÊµÀıURL£º[http://localhost:8080/actuator/env/info.user.name](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080%2Factuator%2Fenv%2Finfo.user.name "http://localhost:8080/actuator/env/info.user.name") £¬·µ»Ø½á¹ûÈçÏÂÍ¼£º
+
 
 ![image-20230530234238073](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530234238073.png)
 
@@ -370,6 +385,7 @@ env-toMatch¶ËµãÓëcachesºÍcaches-cacheÀàËÆ£¬Ò»¸öÊÇ»ñÈ¡ËùÓĞµÄ£¬Ò»¸öÊÇ»ñÈ¡Ö¸¶¨µÄ¡£Õ
 /loggers ¶Ëµã±©Â¶ÁË³ÌĞòÄÚ²¿ÅäÖÃµÄËùÓĞ logger µÄĞÅÏ¢£¬°üÀ¨²»Í¬µÄpackage¡¢²»Í¬µÄÀàµÄÈÕÖ¾¼¶±ğĞÅÏ¢¡£
 
 ·ÃÎÊURL£º[http://localhost:8080/actuator/loggers](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080%2Factuator%2Floggers "http://localhost:8080/actuator/loggers") £¬²¿·Ö·µ»Ø½á¹û£º
+
 
 ![image-20230530234301625](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530234301625.png)
 
@@ -396,6 +412,7 @@ heapdump¶Ëµã»á·µ»ØÒ»¸öJVM ¶Ñdump£¬Í¨¹ıJVM×Ô´øµÄ¼à¿Ø¹¤¾ßVisualVM¿É´ò¿ª´ËÎÄ¼ş²é¿´Ä
 
 ÃüÁîĞĞÖ´ĞĞjvisualvmÃüÁî£¬´ò¿ªVisualVM£¬ÒÀ´Îµã»÷¡°ÎÄ¼ş¡±¡¢¡°×°Èë¡±£¬¼ÇµÃÎÄ¼şÀàĞÍÒªÑ¡Ôñ¡°¶ÑDump(_.hprof,_.*)¡±£¬È»ºóÑ¡Ôñheapdump¡£
 
+
 ![image-20230530234346098](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530234346098.png)
 
 ´ËÊ±±ã¿ÉÒÔÍ¨¹ı¹¤¾ßÀ´½øĞĞ¶ÑÕ»ĞÅÏ¢µÄ·ÖÎöÁË¡£¶ÔÓÚÏßÉÏÎÊÌâµÄ·ÖÎöÌá¹©ÁË¼«Îª±ãÀûµÄ·½Ê½¡£
@@ -405,6 +422,7 @@ heapdump¶Ëµã»á·µ»ØÒ»¸öJVM ¶Ñdump£¬Í¨¹ıJVM×Ô´øµÄ¼à¿Ø¹¤¾ßVisualVM¿É´ò¿ª´ËÎÄ¼ş²é¿´Ä
 /threaddump ¶Ëµã»áÉú³Éµ±Ç°Ïß³Ì»î¶¯µÄ¿ìÕÕ¡£ÔÚÈÕ³£¶¨Î»ÎÊÌâµÄÊ±ºò²é¿´Ïß³ÌµÄÇé¿ö·Ç³£ÓĞÓÃ£¬Ö÷ÒªÕ¹Ê¾ÁËÏß³ÌÃû¡¢Ïß³ÌID¡¢Ïß³ÌµÄ×´Ì¬¡¢ÊÇ·ñµÈ´ıËø×ÊÔ´µÈĞÅÏ¢¡£
 
 ·ÃÎÊURL£º[http://localhost:8080/actuator/threaddump](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080%2Factuator%2Fthreaddump "http://localhost:8080/actuator/threaddump") £¬²¿·Ö·µ»Ø½á¹û£º
+
 
 ![image-20230530234405331](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530234405331.png)
 
@@ -560,6 +578,7 @@ public class MyTask {
 /mappings¶ËµãÓÃÓÚÃèÊöÈ«²¿µÄ URI Â·¾¶£¬ÒÔ¼°ºÍ¿ØÖÆÆ÷µÄÓ³Éä¹ØÏµ¡£Õâ¸ö¹¦ÄÜËãÊÇ±È½Ï³£ÓÃµÄÁË£¬Èç¹ûÏëÏµÍ³µÄ²é¿´URL¶ÔÓ¦µÄController¼°·½·¨£¬¿ÉÒÔÊ¹ÓÃ´Ë¶Ëµã¡£
 
 ·ÃÎÊURL£º[http://localhost:8080/actuator/mappings](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080%2Factuator%2Fmappings "http://localhost:8080/actuator/mappings") £¬²¿·Ö·µ»Ø½á¹ûÈçÏÂ£º
+
 
 ![image-20230530234501440](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230530234501440.png)
 

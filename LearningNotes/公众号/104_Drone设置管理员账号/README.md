@@ -43,11 +43,13 @@ update users set user_admin = 1;
 
 
 
+
 ![image-20220912150256102](images/image-20220912150256102.png)
 
 
 
 操作完成后，刷新页面，即可看到当前账号的 Project Setting 配置出现了
+
 
 ![image-20220912150348347](images/image-20220912150348347.png)
 

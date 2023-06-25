@@ -90,6 +90,7 @@ class ReorderExample {
 
 上述 happens before 关系的图形化表现形式如下：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/volatile-f4de7989-672e-43d6-906b-feffe4fb0a9c.jpg)
 
 在上图中，每一个箭头链接的两个节点，代表了一个 happens before 关系:

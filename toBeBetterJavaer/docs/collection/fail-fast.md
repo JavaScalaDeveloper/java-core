@@ -18,6 +18,7 @@ head:
 
 那天，小二去阿里面试，面试官老王一上来就甩给了他一道面试题：为什么阿里的 Java 开发手册里会强制不要在 foreach 里进行元素的删除操作？
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/fail-fast-20230428073517.png)
 
 小二听完这句话就乐了。为什么呢？因为一天前他刚在《[二哥的Java进阶之路](https://github.com/itwanger/toBeBetterJavaer)》上看到过这道题的答案。
@@ -66,6 +67,7 @@ System.out.println(list);
 ```
 
 这段代码看起来没有任何问题，但运行起来就报错了。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/fail-fast-01.png)
 
@@ -205,6 +207,7 @@ final void checkForComodification() {
 此时 expectedModCount 为 3，modCount 为 4，就只好抛出 ConcurrentModificationException 异常了。
 
 那其实在阿里巴巴的 Java 开发手册里也提到了，不要在 for-each 循环里进行元素的 remove/add 操作。remove 元素请使用 Iterator 方式。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/fail-fast-02.png)
 

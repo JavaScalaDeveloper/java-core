@@ -732,7 +732,7 @@ public class ArrayListDemo {
 #### Vector
 Vector 也是实现于 List 接口，底层数据结构和 ArrayList 类似,也是一个动态数组存放数据。不过是在 add() 方法的时候使用 synchronized 进行同步写数据，但是开销较大，所以 Vector 是一个同步容器并不是一个并发容器。
 以下是 add() 方法：
-```
+```java
 public synchronized boolean add(E e) {
         modCount++;
         ensureCapacityHelper(elementCount + 1);
@@ -741,7 +741,7 @@ public synchronized boolean add(E e) {
     }
 ```
 以及指定位置插入数据:
-```
+```java
 public void add(int index, E element) {
         insertElementAt(element, index);
     }

@@ -4,6 +4,7 @@
 
 最近我在**Gitee**逛**开源项目**的时候，发现很多**做的不错的开源项目**都拥有自己的**开源文档**。
 
+
 ![RuoYi的开源文档-采用VuePress](images/2eb93cb843fb44d39371fefe8d52552a.png)
 
 一份好的开源文档，能够方便大家快速进行内容的检索，让小伙伴在**项目搭建的时候少走弯路**。
@@ -20,7 +21,9 @@
 
 最终蘑菇博客的开源文档效果如下所示：
 
+
 ![蘑菇博客的开源文档](images/909b442c4ff7446a9ccb74e1850796d9.png)
+
 
 ![文档详情](images/image-20201225173528743.png)
 
@@ -44,6 +47,7 @@ docsify init ./docs
 
 初始化后，我们就能看到 docs文件夹，里面含有下面内容
 
+
 ![docsify初始化](images/70f38f3686a2492295a33df60707ab26.png)
 
 目录结构如下所示
@@ -62,6 +66,7 @@ docsify serve
 
 项目启动后，默认访问 [http://localhost:3000](http://localhost:3000/) ，如下图所示，我们能够看到一个帮助文档的骨架了
 
+
 ![启动成功截图](images/7de289029bbf475791fc63226101037b.png)
 
 同时 **docsify** 还提供了 **LiveReload** 功能，也就是可以在我们修改文档后，能够**实时预览**
@@ -69,6 +74,7 @@ docsify serve
 ## 修改Loading
 
 初始化时会显示 **Loading...** 内容，你可以自定义提示信息，我们只需要修改 **index.html** 中的 `<div id='app'>`标签即可，在里面加入我们需要的提示内容
+
 
 ![加入loading](images/image-20201225193340809.png)
 
@@ -109,6 +115,7 @@ window.$docsify = {
 
 效果图如下所示：
 
+
 ![侧边栏](images/image-20201225193532495.png)
 
 ## 显示页面目录
@@ -123,6 +130,7 @@ window.$docsify = {
 ```
 
 通过 `subMaxLevel` 来限制显示的标题等级，效果如下所示：
+
 
 ![页面目录](images/image-20201225193632894.png)
 
@@ -182,8 +190,12 @@ window.$docsify = {
 
 - 蘑菇博客，一个基于微服务架构的前后端分离博客系统。前台使用Vue + Element , 后端使用spring boot + spring cloud + mybatis-plus进行开发，使用 Jwt + Spring Security做登录验证和权限校验，使用ElasticSearch和Solr作为全文检索服务，使用Github Actions完成博客的持续集成，文件支持上传七牛云。
 
-[![star](https://gitee.com/moxi159753/mogu_blog_v2/badge/star.svg?theme=dark)](https://gitee.com/moxi159753/mogu_blog_v2/stargazers)
-[![fork](https://gitee.com/moxi159753/mogu_blog_v2/badge/fork.svg?theme=dark)](https://gitee.com/moxi159753/mogu_blog_v2/members)
+[
+
+![star](https://gitee.com/moxi159753/mogu_blog_v2/badge/star.svg?theme=dark)](https://gitee.com/moxi159753/mogu_blog_v2/stargazers)
+[
+
+![fork](https://gitee.com/moxi159753/mogu_blog_v2/badge/fork.svg?theme=dark)](https://gitee.com/moxi159753/mogu_blog_v2/members)
 
 [Gitee](<https://gitee.com/moxi159753/mogu_blog_v2>)
 [Github](<https://github.com/moxi624/mogu_blog_v2>)
@@ -192,9 +204,11 @@ window.$docsify = {
 
 效果图如下所示：
 
+
 ![设置封面](images/image-20201225194013287.png)
 
 在这里使用了两个 **Gitee** 挂件，可以在开源项目的挂件按钮那里获取
+
 
 ![添加Gitee的挂件](images/image-20201225194041281.png)
 
@@ -206,9 +220,11 @@ window.$docsify = {
 
 ```bash
 <!-- 背景图片 -->
+
 ![](_media/bg.png)
 
 <!-- 背景色 -->
+
 ![color](#2f4253)
 ```
 
@@ -262,11 +278,13 @@ window.$docsify = {
 
 安装后，我们就能够使用搜索功能了
 
+
 ![加入搜索功能](images/image-20201225194227046.png)
 
 ## 自定义域名
 
 首先我们需要创建项目 `moxi624.github.io` ，第一个moxi624是你的用户名，然后我们在创建一个文件 `CNAME`
+
 
 ![添加CNAME文件](images/image-20201225194257231.png)
 
@@ -278,19 +296,24 @@ doc.moguit.cn
 
 然后把当前项目提交到 **moxi624.github.io** 远程项目，然后选择 **settings**
 
+
 ![Github的Settings](images/image-20201225194327913.png)
 
 然后找到 **Github Pages**，选择主分支 **master**
 
+
 ![](images/image-20201225194352538.png)
+
 
 ![设置Github Pages](images/image-20201225194404370.png)
 
 完成后，我们能够看到这样的页面，说明我们的站点已经发布在 **doc.moguit.cn** 了
 
+
 ![](images/image-20201225194430720.png)
 
 这个时候就需要配置域名解析了，我们到阿里云下的域名解析
+
 
 ![修改阿里云域名解析](images/image-20201225194448952.png)
 
@@ -329,17 +352,21 @@ doc.moguit.cn
 
 其中我们首先需要到 **Github Settings** 中，创建一个 **New OAuth App**
 
+
 ![添加一个Oauth Apps](images/image-20201225194616569.png)
 
 然后添加如下内容
+
 
 ![填写内容](images/image-20201225194634481.png)
 
 创建完成后，在复制我们的密钥，替换上面的 **clientID** 和 **clientSecret**
 
+
 ![获取密钥](images/image-20201225194652322.png)
 
 最终，在页面引入 **Gittalk** 的效果图
+
 
 ![引入后的效果](images/image-20201225194712833.png)
 
@@ -348,6 +375,7 @@ doc.moguit.cn
 ## 结语
 
 **陌溪**是一个从三本院校一路摸滚翻爬上来的互联网大厂程序员。独立做过几个开源项目，其中**蘑菇博客**在码云上有 **2K Star** 。目前就职于**字节跳动的Data广告部门**，是字节跳动全线产品的商业变现研发团队。本公众号将会持续性的输出很多原创小知识以及学习资源。如果你觉得本文对你有所帮助，麻烦给文章点个「<font color=\#00BFFF>赞</font>」和「<font color=\#00BFFF>在看</font>」。同时欢迎各位小伙伴关注陌溪，让我们一起成长~
+
 
 ![图片](images/1608514024370.jpg)
 

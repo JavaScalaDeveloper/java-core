@@ -49,7 +49,7 @@ dept 部门表
  |-- LOC:    部门所在城市
 ```
 
-> 注：emp.json，dept.json 可以在本仓库的[resources](https://github.com/heibaiying/BigData-Notes/tree/master/resources) 目录进行下载。
+> 注：emp.json，dept.json 可以在本仓库的[resources](images/https://github.com/heibaiying/BigData-Notes/tree/master/resources) 目录进行下载。
 
 
 

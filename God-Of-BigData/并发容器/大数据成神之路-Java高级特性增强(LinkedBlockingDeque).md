@@ -14,7 +14,8 @@ LinkedBlockingDeque是双向链表实现的双向并发阻塞队列。该阻塞�
 LinkedBlockingDeque的数据结构，如下图所示：
 
 
-![6da00030f98f048da20fa09de9784f74](大数据成神之路-Java高级特性增强(LinkedBlockingDeque).resources/385B998A-3394-4B44-AE6B-B66F7775E0A4.jpg)
+
+![6da00030f98f048da20fa09de9784f74](images/大数据成神之路-Java高级特性增强(LinkedBlockingDeque).resources/385B998A-3394-4B44-AE6B-B66F7775E0A4.jpg)
 说明：1. LinkedBlockingDeque继承于AbstractQueue，它本质上是一个支持FIFO和FILO的双向的队列。
 2. LinkedBlockingDeque实现了BlockingDeque接口，它支持多线程并发。当多线程竞争同一个资源时，某线程获取到该资源之后，其它线程需要阻塞等待。
 3. LinkedBlockingDeque是通过双向链表实现的。
@@ -132,7 +133,7 @@ String toString()
 **1. 创建**
 
 下面以LinkedBlockingDeque(int capacity)来进行说明。
-```
+```java
 public LinkedBlockingDeque(int capacity) {
     if (capacity <= 0) throw new IllegalArgumentException();
     this.capacity = capacity;
@@ -170,14 +171,14 @@ static final class Node<E> {
 2. 添加
 
 下面以offer(E e)为例，对LinkedBlockingDeque的添加方法进行说明。
-```
+```java
 public boolean offer(E e) {
     return offerLast(e);
 }
 ```
 offer()实际上是调用offerLast()将元素添加到队列的末尾。
 offerLast()的源码如下：
-```
+```java
 public boolean offerLast(E e) {
     if (e == null) throw new NullPointerException();
     // 新建节点
@@ -222,14 +223,14 @@ private boolean linkLast(Node<E> node) {
 **3. 删除**
 
 下面以take()为例，对LinkedBlockingDeque的取出方法进行说明。
-```
+```java
 public E take() throws InterruptedException {
     return takeFirst();
 }
 ```
 take()实际上是调用takeFirst()队列的第一个元素。
 takeFirst()的源码如下：
-```
+```java
 public E takeFirst() throws InterruptedException {
     final ReentrantLock lock = this.lock;
     // 获取锁
@@ -277,7 +278,7 @@ private E unlinkFirst() {
 4. 遍历
 下面对LinkedBlockingDeque的遍历方法进行说明。
 
-```
+```java
 public Iterator<E> iterator() {
     return new Itr();
 }

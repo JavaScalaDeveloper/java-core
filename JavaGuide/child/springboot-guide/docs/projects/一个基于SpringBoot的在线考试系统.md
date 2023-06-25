@@ -4,6 +4,7 @@
 
 最近看到了一个考试系统，感觉做的挺不错，并且也比较成熟，所以我就简单玩了一下。另外，考试系统应用场景还挺多的，不论是对于在校大学生还是已经工作的小伙伴，并且，类似的私活也有很多。
 
+
 ![在线考试系统后台管理主页](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-9/FireShot%20Capture%20027%20-%20%E4%B8%BB%E9%A1%B5%20-%20localhost.png)
 
 下面我就把这个项目分享给小伙伴们，非常值得学习，拿来即用！
@@ -28,6 +29,7 @@ _如果你“感动”的话，点个赞/在看，就是对我最大的支持！
 
 ## 软件架构
 
+
 ![软件架构图](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-9/%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg)
 
 ## 使用效果
@@ -40,19 +42,23 @@ _如果你“感动”的话，点个赞/在看，就是对我最大的支持！
 
 在创建题目之前，你需要首要创建学科。这里我们创建的学科是编程，年级是三年级。
 
+
 ![添加学科](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-9/%E6%B7%BB%E5%8A%A0%E5%AD%A6%E7%A7%91.jpg)
 
 #### 添加题目
 
 可以看到这里可以添加多种题型: 单选题、多选题、判断题、填空题、简答题。
 
+
 ![添加题目](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-9/%E6%B7%BB%E5%8A%A0%E9%A2%98%E7%9B%AE.jpg)
 
 我们以单选题为例，添加题目界面如下。
 
+
 ![添加题目页面](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-9/iShot2020-09-03%E4%B8%8B%E5%8D%8805.25.30.jpg)
 
 添加成功之后，题目列表就会出现我们刚刚添加的题目。
+
 
 ![题目创建成功](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-9/%E9%A2%98%E7%9B%AE%E5%88%9B%E5%BB%BA%E6%88%90%E5%8A%9F.jpg)
 
@@ -60,9 +66,11 @@ _如果你“感动”的话，点个赞/在看，就是对我最大的支持！
 
 有了学科和题目之后才能添加试卷。
 
+
 ![添加试卷](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-9/%E6%B7%BB%E5%8A%A0%E8%AF%95%E5%8D%B7.jpg)
 
 添加成功之后，试卷列表就会出现我们刚刚添加的试卷。
+
 
 ![试卷创建成功](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-9/%E8%AF%95%E5%8D%B7%E5%88%9B%E5%BB%BA%E6%88%90%E5%8A%9F.jpg)
 
@@ -70,15 +78,18 @@ _如果你“感动”的话，点个赞/在看，就是对我最大的支持！
 
 **注意：这里的学生要和我们前面创建的学科对应的年级对应上。**
 
+
 ![添加学生](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-9/%E6%B7%BB%E5%8A%A0%E5%AD%A6%E7%94%9F.jpg)
 
 ### 学生端
 
 使用我们刚刚创建的学生账号登录，你会发现主页多了一个试卷。这个试卷就是我们刚刚在管理端创建的。
 
+
 ![学生端-主页](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-9/%E5%AD%A6%E7%94%9F%E7%AB%AF-%E4%B8%BB%E9%A1%B5.jpg)
 
 试卷答题界面如下。
+
 
 ![学生端-试卷](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-9/%E5%AD%A6%E7%94%9F%E7%AB%AF-%E8%AF%95%E5%8D%B7.jpg)
 
@@ -140,6 +151,7 @@ $ docker run -itd --name redis-test -p 6379:6379 redis
 #### 启动项目
 
 直接运行 `XzsApplication` 即可。
+
 
 ![](https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/2020-9/image-20200903180710467.png)
 

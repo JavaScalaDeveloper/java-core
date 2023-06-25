@@ -11,6 +11,7 @@
 
 这个方法的流程如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-e9a43f1c523c0f19d37e4741580ed32ca08.png)
 
 其中，
@@ -22,6 +23,7 @@
 ### `SpringApplication#run(...)`
 
 这部分的流程如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-07a6b491fbe69b8dcbd41e59a8543f06671.png)
 

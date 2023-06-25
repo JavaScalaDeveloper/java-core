@@ -46,6 +46,7 @@ public class MyConfiguration {
 
 输出结果如下：
 
+
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/life-cycle-annotation01.jpg)
 
 但是 J2EE已在Java 9中弃用 `@PostConstruct`和`@PreDestroy`这两个注解 ，并计划在Java 11中将其删除。我们有什么更好的替代方法吗？当然有！
@@ -78,6 +79,7 @@ public class MyConfiguration2 implements InitializingBean, DisposableBean {
 ```
 
 输出结果如下，可以看出实现Spring 提供的  `InitializingBean`和 `DisposableBean`接口的效果和使用`@PostConstruct`和`@PreDestroy` 注解的效果一样。
+
 
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/life-cycle-annotation02.jpg)
 

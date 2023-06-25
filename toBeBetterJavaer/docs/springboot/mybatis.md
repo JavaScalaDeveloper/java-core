@@ -42,6 +42,7 @@ spring:
 
 第三步，导入 SQL 文件。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mybatis-3a1794fa-7c6b-4499-9c7d-a69e088c28fe.png)
 
 
@@ -226,6 +227,7 @@ public interface PostMapper {
 
 接口中方法对应的 SQL 直接写在 xml 文件中，具体位置见下图：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mybatis-cc8515b1-e501-41e2-8dea-7612022e1bb7.png)
 
 
@@ -359,6 +361,7 @@ public class PostTag {
 
 对应的数据库表为 post-tag。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mybatis-d4471207-9284-43bf-b1aa-50bbc6001a9f.png)
 
 
@@ -371,6 +374,7 @@ public interface PostTagMapper extends BaseMapper<PostTag> {}
 ```
 
 BaseMapper里提供的方法如下：
+
 
 ![image.png](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/mybatis-79ac66eb-25fd-44a0-8668-359d1b95b80d.png)
 
@@ -390,5 +394,6 @@ BaseMapper里提供的方法如下：
 
 
 ---
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

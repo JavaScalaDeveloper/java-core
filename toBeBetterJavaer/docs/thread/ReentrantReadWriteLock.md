@@ -91,6 +91,7 @@ protected final boolean tryAcquire(int acquires) {
 
 该方法是获取读锁被获取的次数，是将同步状态（int c）右移16次，即取同步状态的高16位，现在我们可以得出另外一个结论**同步状态的高16位用来表示读锁被获取的次数**。现在还记得我们开篇说的需要弄懂的第一个问题吗？读写锁是怎样实现分别记录读锁和写锁的状态的，现在这个问题的答案就已经被我们弄清楚了，其示意图如下图所示：
 
+
 ![读写锁的读写状态设计](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ReentrantReadWriteLock-f714bdd6-917a-4d25-ac11-7e85b0ec1b14.png)
 
 

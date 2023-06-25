@@ -16,6 +16,7 @@ head:
 
 看阿里巴巴开发手册并发编程这块有一条：**线程池不允许使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式**，今天我们来通过源码分析一下禁用的原因。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ali-executors-1.png)
 
 
@@ -75,6 +76,7 @@ public ThreadPoolExecutor(int corePoolSize,
 - handler => 线程池对拒绝任务的处理策略
 
 线程池执行任务逻辑和线程池参数的关系。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ali-executors-2.png)
@@ -186,6 +188,7 @@ public class TaskTest {
 使用 Executors 创建的 CachedThreadPool，往线程池中无限添加线程。
 
 在启动测试类之前先将 JVM 内存调整小一点，不然很容易将电脑跑出问题【别问我为什么知道，是铁憨憨没错了！！！】，在 idea 里：Run -> Edit Configurations。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ali-executors-3.png)

@@ -89,6 +89,7 @@ Java内存模型是Java语言规范的一部分，主要在JLS的第17章节介�
 
 我们假设Java内存模型可以被看作在1.2.4中描述的那种标准的SMP机器的理想化模型。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404190605.png)
 
 （1.2.4）
@@ -256,6 +257,7 @@ volatile写的内存语义如下：
 
 以上面示例程序VolatileExample为例，假设线程A首先执行writer()方法，随后线程B执行reader()方法，初始时两个线程的本地内存中的flag和a都是初始状态。下图是线程A执行volatile写后，共享变量的状态示意图：
 
+
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9UTEgzQ2ljUFZpYnJlMXJ3emFJWjJkT3VVdDVjekVBdVQ3dmRtZ0NFNjBKeTlRODRsZ0VwdzNqaWFCREJmSjE2TkxZUEQ2a1dNeHBnOTNad0tUOVY2Ym1Ydy82NDA?x-oss-process=image/format,png)
 
 如上图所示，线程A在写flag变量后，本地内存A中被线程A更新过的两个共享变量的值被刷新到主内存中。此时，本地内存A和主内存中的共享变量的值是一致的。
@@ -265,6 +267,7 @@ volatile读的内存语义如下：
 *   当读一个volatile变量时，JMM会把该线程对应的本地内存置为无效。线程接下来将从主内存中读取共享变量。
 
 下面是线程B读同一个volatile变量后，共享变量的状态示意图：
+
 
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9UTEgzQ2ljUFZpYnJlMXJ3emFJWjJkT3VVdDVjekVBdVQ3WWcwMEt1bGVicDAza0MyU2ZHWmI3Tm5vaDcxaG5JS3dpYW5qcnJsUzBUN3dNZWljWUJySmY4YVEvNjQw?x-oss-process=image/format,png)
 
@@ -314,6 +317,7 @@ volatile读的内存语义如下：
 
 下面是保守策略下，volatile写插入内存屏障后生成的指令序列示意图：
 
+
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9UTEgzQ2ljUFZpYnJlMXJ3emFJWjJkT3VVdDVjekVBdVQ3U2dxcTJ0SnF1N1pwQllpYVZmZnpTd3F5NGhDY1dSWVhNVzlzM0VWSmljRFZzODY5cWc1M1A3eEEvNjQw?x-oss-process=image/format,png)
 
 上图中的StoreStore屏障可以保证在volatile写之前，其前面的所有普通写操作已经对任意处理器可见了。这是因为StoreStore屏障将保障上面所有的普通写在volatile写之前刷新到主内存。
@@ -321,6 +325,7 @@ volatile读的内存语义如下：
 这里比较有意思的是volatile写后面的StoreLoad屏障。这个屏障的作用是避免volatile写与后面可能有的volatile读/写操作重排序。因为编译器常常无法准确判断在一个volatile写的后面，是否需要插入一个StoreLoad屏障（比如，一个volatile写之后方法立即return）。为了保证能正确实现volatile的内存语义，JMM在这里采取了保守策略：在每个volatile写的后面或在每个volatile读的前面插入一个StoreLoad屏障。从整体执行效率的角度考虑，JMM选择了在每个volatile写的后面插入一个StoreLoad屏障。因为volatile写-读内存语义的常见使用模式是：一个写线程写volatile变量，多个读线程读同一个volatile变量。当读线程的数量大大超过写线程时，选择在volatile写之后插入StoreLoad屏障将带来可观的执行效率的提升。从这里我们可以看到JMM在实现上的一个特点：首先确保正确性，然后再去追求执行效率。
 
 下面是在保守策略下，volatile读插入内存屏障后生成的指令序列示意图：
+
 
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9UTEgzQ2ljUFZpYnJlMXJ3emFJWjJkT3VVdDVjekVBdVQ3U2dxcTJ0SnF1N1pwQllpYVZmZnpTd3F5NGhDY1dSWVhNVzlzM0VWSmljRFZzODY5cWc1M1A3eEEvNjQw?x-oss-process=image/format,png)
 
@@ -346,6 +351,7 @@ class VolatileBarrierExample {
 
 针对readAndWrite()方法，编译器在生成字节码时可以做如下的优化：
 
+
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9UTEgzQ2ljUFZpYnJlMXJ3emFJWjJkT3VVdDVjekVBdVQ3RzlISFVoNTh0MHNCVUZwMEJyZVU4Njc0OGZHMFhKdmxRTXFpYXE3dUhRNklGd1Q5a1pZQktjZy82NDA?x-oss-process=image/format,png)
 
 注意，最后的StoreLoad屏障不能省略。因为第二个volatile写之后，方法立即return。此时编译器可能无法准确断定后面是否会有volatile读或写，为了安全起见，编译器常常会在这里插入一个StoreLoad屏障。
@@ -354,6 +360,7 @@ class VolatileBarrierExample {
 
 前面保守策略下的volatile读和写，在 x86处理器平台可以优化成：
 
+
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9UTEgzQ2ljUFZpYnJlMXJ3emFJWjJkT3VVdDVjekVBdVQ3aWNaU1h6dURzT2pnZ0hBTmljYnljbTNPYjkwbkVVOURCTm1JaHE1Y2NVdTZMUnZxS3V1cmlhQ29nLzY0MA?x-oss-process=image/format,png)
 
 前文提到过，x86处理器仅会对写-读操作做重排序。X86不会对读-读，读-写和写-写操作做重排序，因此在x86处理器中会省略掉这三种操作类型对应的内存屏障。在x86中，JMM仅需在volatile写后面插入一个StoreLoad屏障即可正确实现volatile写-读的内存语义。这意味着在x86处理器中，volatile写的开销比volatile读的开销会大很多（因为执行StoreLoad屏障开销会比较大）。
@@ -361,6 +368,7 @@ class VolatileBarrierExample {
 ### JSR-133为什么要增强volatile的内存语义
 
 在JSR-133之前的旧Java内存模型中，虽然不允许volatile变量之间重排序，但旧的Java内存模型允许volatile变量与普通变量之间重排序。在旧的内存模型中，VolatileExample示例程序可能被重排序成下列时序来执行：
+
 
 ![](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9UTEgzQ2ljUFZpYnJlMXJ3emFJWjJkT3VVdDVjekVBdVQ3TG9aamN2em13WUk3aGVJcksyemp2YWs5RGI5cHZKaFJ3NVR0cHFGMzNWUjFHb0tzd1lwNUdnLzY0MA?x-oss-process=image/format,png)
 
@@ -399,6 +407,7 @@ class VolatileBarrierExample {
 #### 3.2 使用总线锁保证原子性
 
 第一个机制是通过总线锁保证原子性。如果多个处理器同时对共享变量进行读改写（i++就是经典的读改写操作）操作，那么共享变量就会被多个处理器同时进行操作，这样读改写操作就不是原子的，操作完之后共享变量的值会和期望的不一致，举个例子：如果i=1,我们进行两次i++操作，我们期望的结果是3，但是有可能结果是2。如下图
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404191936.png)
 （例1）
 

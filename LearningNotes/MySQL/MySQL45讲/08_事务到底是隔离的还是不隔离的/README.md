@@ -15,6 +15,7 @@ mysql> CREATE TABLE `t` (
 insert into t(id, k) values(1,1),(2,2);
 ```
 
+
 ![img](images/823acf76e53c0bdba7beab45e72e90d6.png)
 
 图 1 事务 A、B、C 的执行流程
@@ -58,6 +59,7 @@ InnoDB 里面每个事务有一个唯一的事务 ID，叫作 transaction id。�
 
 如图 2 所示，就是一个记录被多个事务连续更新后的状态。
 
+
 ![img](images/68d08d277a6f7926a41cc5541d3dfced.png)
 
 图 2 行状态变更图
@@ -86,6 +88,7 @@ InnoDB 里面每个事务有一个唯一的事务 ID，叫作 transaction id。�
 
 这个视图数组把所有的 row trx_id 分成了几种不同的情况。
 
+
 ![img](images/882114aaf55861832b4270d44507695e.png)
 
 图 3 数据版本可见性规则
@@ -113,6 +116,7 @@ InnoDB 里面每个事务有一个唯一的事务 ID，叫作 transaction id。�
 这样，事务 A 的视图数组就是 [99,100], 事务 B 的视图数组是 [99,100,101], 事务 C 的视图数组是 [99,100,101,102]。
 
 为了简化分析，我先把其他干扰语句去掉，只画出跟事务 A 查询逻辑有关的操作：
+
 
 ![img](images/9416c310e406519b7460437cb0c5c149.png)
 
@@ -154,6 +158,7 @@ InnoDB 里面每个事务有一个唯一的事务 ID，叫作 transaction id。�
 
 你看图 5 中，事务 B 的视图数组是先生成的，之后事务 C 才提交，不是应该看不见 (1,2) 吗，怎么能算出 (1,3) 来？
 
+
 ![img](images/86ad7e8abe7bf16505b97718d8ac149f.png)
 
 图 5 事务 B 更新逻辑图
@@ -179,6 +184,7 @@ mysql> select k from t where id=1 for update;
 
 再往前一步，假设事务 C 不是马上提交的，而是变成了下面的事务 C’，会怎么样呢？
 
+
 ![img](images/cda2a0d7decb61e59dddc83ac51efb6e.png)
 
 图 6 事务 A、B、C'的执行流程
@@ -186,6 +192,7 @@ mysql> select k from t where id=1 for update;
 事务 C’的不同是，更新后并没有马上提交，在它提交前，事务 B 的更新语句先发起了。前面说过了，虽然事务 C’还没提交，但是 (1,2) 这个版本也已经生成了，并且是当前的最新版本。那么，事务 B 的更新语句会怎么处理呢？
 
 这时候，我们在上一篇文章中提到的“两阶段锁协议”就要上场了。事务 C’没提交，也就是说 (1,2) 这个版本上的写锁还没释放。而事务 B 是当前读，必须要读最新版本，而且必须加锁，因此就被锁住了，必须等到事务 C’释放这个锁，才能继续它的当前读。
+
 
 ![img](images/540967ea905e8b63630e496786d84c92.png)
 
@@ -207,6 +214,7 @@ mysql> select k from t where id=1 for update;
 这里需要说明一下，“start transaction with consistent snapshot; ”的意思是从这个语句开始，创建一个持续整个事务的一致性快照。所以，在读提交隔离级别下，这个用法就没意义了，等效于普通的 start transaction。
 
 下面是读提交时的状态图，可以看到这两个查询语句的创建视图数组的时机发生了变化，就是图中的 read view 框。（注意：这里，我们用的还是事务 C 的逻辑直接提交，而不是事务 C’）
+
 
 ![img](images/18fd5179b38c8c3804b313c3582cd1be.jpg)
 
@@ -244,6 +252,7 @@ mysql> CREATE TABLE `t` (
 ) ENGINE=InnoDB;
 insert into t(id, c) values(1,1),(2,2),(3,3),(4,4);
 ```
+
 
 ![img](images/9b8fe7cf88c9ba40dc12e93e36c3060b.png)复现出来以后，请你再思考一下，在实际的业务开发中有没有可能碰到这种情况？你的应用代码会不会掉进这个“坑”里，你又是怎么解决的呢？
 

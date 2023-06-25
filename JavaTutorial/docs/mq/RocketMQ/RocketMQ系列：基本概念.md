@@ -8,6 +8,7 @@ RocketMQ是阿里出品的一款开源的消息中间件，让其声名大噪的就是它的事务消息的功能。
 
 RocketMQ由4部分组成，分别是：名称服务（Name Server）、消息队列（Brokers）、生产者（producer）和消费者（consumer）。这4部分都可以进行水平扩展，从而避免单点故障，如下图，
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1191201-20200603173058174-1551688390.png)
 
 这是RocketMQ官网上的一张图，非常清晰的列出了4个部分，并且都是集群模式。下面我们就分别说一说这4部分。

@@ -351,6 +351,7 @@ public class CreatThreadDemo3 extends Thread{
 ```
 创建带线程任务并且重写run方法的线程对象中，为什么只运行了Thread的run方法。我们看看Thread类的源码，
 
+
 ![image.png](http://upload-images.jianshu.io/upload_images/5786888-8fc80d17feb58198.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ，我们可以看到Thread实现了Runnable接口，而Runnable接口里有一个run方法。
 所以，我们最终调用的重写的方法应该是Thread类的run方法。而不是Runnable接口的run方法。

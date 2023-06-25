@@ -14,6 +14,7 @@ diff-test
 ~            
 ```
 diff test test2
+
 ![diff .png](http://upload-images.jianshu.io/upload_images/5786888-4aa022b7dc7e01a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 * 功能说明：比较文件的差异。
 * 语 法：diff [-abBcdefHilnNpPqrstTuvwy][-<行数>][-C <行数>][-D <巨集名称>][-I <

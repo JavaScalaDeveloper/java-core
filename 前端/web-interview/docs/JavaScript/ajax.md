@@ -1,6 +1,8 @@
 # 面试官：ajax原理是什么？如何实现？
 
- ![](https://static.vue-js.com/a35a2950-7b2a-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/a35a2950-7b2a-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 
@@ -12,7 +14,9 @@
 
 流程图如下：
 
- ![](https://static.vue-js.com/af42de10-7b2a-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/af42de10-7b2a-11eb-85f6-6fac77c0c9b3.png)
 
 下面举个例子：
 
@@ -97,6 +101,7 @@ xhr.send([body])
 `onreadystatechange` 事件用于监听服务器端的通信状态，主要监听的属性为`XMLHttpRequest.readyState` ,
 
 关于`XMLHttpRequest.readyState`属性有五个状态，如下图显示
+
 
 ![](https://static.vue-js.com/9782fc90-7b31-11eb-ab90-d9ae814b240d.png)
 

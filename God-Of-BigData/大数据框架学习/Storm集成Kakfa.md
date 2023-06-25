@@ -11,8 +11,8 @@
 
 Storm 官方对 Kafka 的整合分为两个版本，官方说明文档分别如下：
 
-+ [Storm Kafka Integration](http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-kafka.html) : 主要是针对 0.8.x 版本的 Kafka 提供整合支持；
-+  [Storm Kafka Integration (0.10.x+)]() : 包含 Kafka 新版本的 consumer API，主要对 Kafka 0.10.x + 提供整合支持。
++ [Storm Kafka Integration](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-kafka.html) : 主要是针对 0.8.x 版本的 Kafka 提供整合支持；
++  [Storm Kafka Integration (0.10.x+)](images/) : 包含 Kafka 新版本的 consumer API，主要对 Kafka 0.10.x + 提供整合支持。
 
 这里我服务端安装的 Kafka 版本为 2.2.0(Released Mar 22, 2019) ，按照官方 0.10.x+ 的整合文档进行整合，不适用于 0.8.x 版本的 Kafka。
 
@@ -358,10 +358,10 @@ public class DefaultRecordTranslator<K, V> implements RecordTranslator<K, V> {
 
 <br>
 
-> 用例源码下载地址：[storm-kafka-integration](https://github.com/heibaiying/BigData-Notes/tree/master/code/Storm/storm-kafka-integration)
+> 用例源码下载地址：[storm-kafka-integration](images/https://github.com/heibaiying/BigData-Notes/tree/master/code/Storm/storm-kafka-integration)
 
 
 
 ## 参考资料
 
-1. [Storm Kafka Integration (0.10.x+)](http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-kafka-client.html)
+1. [Storm Kafka Integration (0.10.x+)](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-kafka-client.html)

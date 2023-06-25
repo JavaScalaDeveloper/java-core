@@ -84,9 +84,11 @@ static {
 
 排序前：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-23df6d6a46f37badb1017ceee8dcfa6533e.png)
 
 排序后：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-85bdb16953c1c6348d39578de6b6144c1cc.png)
 
@@ -427,6 +429,7 @@ protected List<Advisor> sortAdvisors(List<Advisor> advisors) {
 
 `Ordered.LOWEST_PRECEDENCE` 为 `Integer.MAX_VALUE`，即 `2147483647`，我们再看看 `BeanFactoryTransactionAttributeSourceAdvisor` 的 `getOrder()` 方法返回的值：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d05044b7dcd41855ab6e59727c4be74bdb9.png)
 
 可见，`BeanFactoryTransactionAttributeSourceAdvisor` 的执行顺序是默认的 `Integer.MAX_VALUE`。如果调度的话，发现这个值是在 `return this.order` 返回的：
@@ -500,6 +503,7 @@ public int getOrder() {
 
 在 [spring aop 之 AnnotationAwareAspectJAutoProxyCreator 分析（上）](https://my.oschina.net/funcy/blog/4678817)我们已经详细分析了 `method` 到 `advisor` 的转变过程，能从代码上轻松找到 `aspectInstanceFactory` 的类型，这里我们就不再一步步分析源码了，直接通过调试的方法获取 `aspectInstanceFactory` 的类型：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-e2784fc573474f56e8555ef60d57a07bcbf.png)
 
 从调试的结果来看，`aspectInstanceFactory` 类型为 `LazySingletonAspectInstanceFactoryDecorator`，我们跟进其 `getOrder()` 方法：
@@ -515,6 +519,7 @@ public int getOrder() {
 ```
 
 我们依然使用调试的方式获取 `maaif` 的类型：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-2a4b87b6c8c824c55c4a3d86d736796def0.png)
 

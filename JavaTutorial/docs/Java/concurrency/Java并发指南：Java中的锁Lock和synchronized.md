@@ -65,6 +65,7 @@
 
 上述happens before 关系的图形化表现形式如下：
 
+
 ![](http://blog.itpub.net/ueditor/php/upload/image/20190811/1565506398748401.png)
 
 在上图中，每一个箭头链接的两个节点，代表了一个happens before 关系。黑色箭头表示程序顺序规则；橙色箭头表示监视器锁规则；蓝色箭头表示组合这些规则后提供的happens before保证。
@@ -75,9 +76,11 @@
 
 当线程释放锁时，JMM会把该线程对应的本地内存中的共享变量刷新到主内存中。以上面的MonitorExample程序为例，A线程释放锁后，共享数据的状态示意图如下：
 
+
 ![](http://blog.itpub.net/ueditor/php/upload/image/20190811/1565506402638665.png)
 
 当线程获取锁时，JMM会把该线程对应的本地内存置为无效。从而使得被监视器保护的临界区代码必须要从主内存中去读取共享变量。下面是锁获取的状态示意图：
+
 
 ![](http://blog.itpub.net/ueditor/php/upload/image/20190811/1565506405253375.png)
 
@@ -122,6 +125,7 @@
 在ReentrantLock中，调用lock()方法获取锁；调用unlock()方法释放锁。
 
 ReentrantLock的实现依赖于java同步器框架AbstractQueuedSynchronizer（本文简称之为AQS）。AQS使用一个整型的volatile变量（命名为state）来维护同步状态，马上我们会看到，这个volatile变量是ReentrantLock内存语义实现的关键。 下面是ReentrantLock的类图（仅画出与本文相关的部分）：
+
 
 ![](http://blog.itpub.net/ueditor/php/upload/image/20190811/1565506414141304.png)
 
@@ -287,6 +291,7 @@ Java的CAS会使用现代处理器上提供的高效机器级别原子指令，�
 
 AQS，非阻塞数据结构和原子变量类（java.util.concurrent.atomic包中的类），这些concurrent包中的基础类都是使用这种模式来实现的，而concurrent包中的高层类又是依赖于这些基础类来实现的。从整体来看，concurrent包的实现示意图如下：
 
+
 ![](http://blog.itpub.net/ueditor/php/upload/image/20190811/1565506416227137.png)
 
 ## synchronized实现原理
@@ -329,6 +334,7 @@ public class SynchronizedTest{ public synchronized void test1(){
 
 **利用Javap工具查看生成的class文件信息来分析Synchronize的实现：**
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404192352.png)
 
 　　从上面可以看出，同步代码块是使用monitorenter和monitorexit指令实现的，同步方法（在这看不出来需要看JVM底层实现）依靠的是方法修饰符上的ACCSYNCHRONIZED实现。
@@ -361,9 +367,11 @@ Hotspot虚拟机的对象头主要包括两部分数据：**Mark Word（标记�
 
 下图是Java对象头的存储结构（32位虚拟机）：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404192459.png)
 
 对象头信息是与对象自身定义的数据无关的额外存储成本，但是考虑到虚拟机的空间效率，Mark Word被设计成一个非固定的数据结构以便在极小的空间内存存储尽量多的数据，它会根据对象的状态复用自己的存储空间，也就是说，Mark Word会随着程序的运行发生变化，变化状态如下（32位虚拟机）：
+
 
 ![](https://images2018.cnblogs.com/blog/1169376/201807/1169376-20180726111757632-1279497345.png)
 
@@ -380,6 +388,7 @@ Hotspot虚拟机的对象头主要包括两部分数据：**Mark Word（标记�
 Monitor 是线程私有的数据结构，每一个线程都有一个可用monitor record列表，同时还有一个全局的可用列表。每一个被锁住的对象都会和一个monitor关联（对象头的MarkWord中的LockWord指向monitor的起始地址），**同时monitor中有一个Owner字段存放拥有该锁的线程的唯一标识，表示该锁被这个线程占用**。　　
 
 其结构如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404192639.png)
 
@@ -499,6 +508,7 @@ https://blog.csdn.net/qq_35357656/article/details/78657373
 
 下图是轻量级锁的获取和释放过程：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404192732.png)
 
 ### **10、偏向锁**
@@ -526,6 +536,7 @@ https://blog.csdn.net/qq_35357656/article/details/78657373
 2.  **撤销偏向苏，恢复到无锁状态（01）或者轻量级锁的状态。**
 
 下图是偏向锁的获取和释放流程：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404192911.png)
 

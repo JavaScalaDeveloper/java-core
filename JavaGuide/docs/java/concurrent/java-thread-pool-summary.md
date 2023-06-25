@@ -39,6 +39,7 @@ tag:
 
 如下图所示，包括任务执行机制的核心接口 **`Executor`** ，以及继承自 `Executor` 接口的 **`ExecutorService` 接口。`ThreadPoolExecutor`** 和 **`ScheduledThreadPoolExecutor`** 这两个关键类实现了 **`ExecutorService`** 接口。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/java/concurrent/executor-class-diagram.png)
 
 这里提了很多底层的类关系，但是，实际上我们需要更多关注的是 `ThreadPoolExecutor` 这个类，这个类在我们实际使用线程池的过程中，使用频率还是非常高的。
@@ -68,6 +69,7 @@ public class ScheduledThreadPoolExecutor
 当我们把 **`Runnable`接口** 或 **`Callable` 接口** 的实现类提交给 **`ThreadPoolExecutor`** 或 **`ScheduledThreadPoolExecutor`** 执行。（调用 `submit()` 方法时会返回一个 **`FutureTask`** 对象）
 
 **`Executor` 框架的使用示意图**：
+
 
 ![Executor 框架的使用示意图](./images/java-thread-pool-summary/Executor框架的使用示意图.png)
 
@@ -129,6 +131,7 @@ public class ScheduledThreadPoolExecutor
 
 下面这张图可以加深你对线程池中各个参数的相互关系的理解（图片来源：《Java 性能调优实战》）：
 
+
 ![线程池各个参数的关系](./images/java-thread-pool-summary/线程池各个参数之间的关系.png)
 
 **`ThreadPoolExecutor` 饱和策略定义:**
@@ -148,6 +151,7 @@ Spring 通过 `ThreadPoolTaskExecutor` 或者我们直接通过 `ThreadPoolExecu
 
 **方式一：通过`ThreadPoolExecutor`构造函数来创建（推荐）。**
 
+
 ![通过构造方法实现](./images/java-thread-pool-summary/threadpoolexecutor构造函数.png)
 
 **方式二：通过 `Executor` 框架的工具类 `Executors` 来创建。**
@@ -160,6 +164,7 @@ Spring 通过 `ThreadPoolTaskExecutor` 或者我们直接通过 `ThreadPoolExecu
 - **`ScheduledThreadPool`**：该返回一个用来在给定的延迟后运行任务或者定期执行任务的线程池。
 
 对应 `Executors` 工具类中的方法如图所示：
+
 
 ![](https://oss.javaguide.cn/github/javaguide/java/concurrent/executors-inner-threadpool.png)
 
@@ -399,6 +404,7 @@ pool-1-thread-2 End. Time = Sun Apr 12 11:14:47 CST 2020
 2. 如果当前运行的线程数等于或大于核心线程数，但是小于最大线程数，那么就把该任务放入到任务队列里等待执行。
 3. 如果向任务队列投放任务失败（任务队列已经满了），但是当前运行的线程数是小于最大线程数的，就新建一个线程来执行任务。
 4. 如果当前运行的线程数已经等同于最大线程数了，新建线程将会使当前运行的线程超出最大线程数，那么当前任务会被拒绝，饱和策略会调用`RejectedExecutionHandler.rejectedExecution()`方法。
+
 
 ![图解线程池实现原理](https://oss.javaguide.cn/github/javaguide/java/concurrent/thread-pool-principle.png)
 
@@ -656,6 +662,7 @@ Exception in thread "main" java.util.concurrent.TimeoutException
 
 `FixedThreadPool` 的 `execute()` 方法运行示意图（该图片来源：《Java 并发编程的艺术》）：
 
+
 ![FixedThreadPool的execute()方法运行示意图](./images/java-thread-pool-summary/FixedThreadPool.png)
 
 **上图说明：**
@@ -707,6 +714,7 @@ Exception in thread "main" java.util.concurrent.TimeoutException
 
 `SingleThreadExecutor` 的运行示意图（该图片来源：《Java 并发编程的艺术》）：
 
+
 ![SingleThreadExecutor的运行示意图](./images/java-thread-pool-summary/SingleThreadExecutor.png)
 
 **上图说明** :
@@ -751,6 +759,7 @@ Exception in thread "main" java.util.concurrent.TimeoutException
 #### 执行任务过程介绍
 
 `CachedThreadPool` 的 `execute()` 方法的执行示意图（该图片来源：《Java 并发编程的艺术》）：
+
 
 ![CachedThreadPool的execute()方法的执行示意图](./images/java-thread-pool-summary/CachedThreadPool-execute.png)
 

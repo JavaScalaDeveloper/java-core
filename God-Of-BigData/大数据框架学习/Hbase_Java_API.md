@@ -13,9 +13,9 @@
 
 截至到目前 (2019.04)，HBase 有两个主要的版本，分别是 1.x 和 2.x ，两个版本的 Java API 有所不同，1.x 中某些方法在 2.x 中被标识为 `@deprecated` 过时。所以下面关于 API 的样例，我会分别给出 1.x 和 2.x 两个版本。完整的代码见本仓库：
 
->+ [Java API 1.x Examples](https://github.com/heibaiying/BigData-Notes/tree/master/code/Hbase/hbase-java-api-1.x)
+>+ [Java API 1.x Examples](images/https://github.com/heibaiying/BigData-Notes/tree/master/code/Hbase/hbase-java-api-1.x)
 >
->+ [Java API 2.x Examples](https://github.com/heibaiying/BigData-Notes/tree/master/code/Hbase/hbase-java-api-2.x)
+>+ [Java API 2.x Examples](images/https://github.com/heibaiying/BigData-Notes/tree/master/code/Hbase/hbase-java-api-2.x)
 
 同时你使用的客户端的版本必须与服务端版本保持一致，如果用 2.x 版本的客户端代码去连接 1.x 版本的服务端，会抛出 `NoSuchColumnFamilyException` 等异常。
 
@@ -697,7 +697,7 @@ try (Connection connection = ConnectionFactory.createConnection(conf);
 }
 ```
 
-之所以能这样使用，这是因为 Connection 并不是一个简单的 socket 连接，[接口文档](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/client/Connection.html) 中对 Connection 的表述是：
+之所以能这样使用，这是因为 Connection 并不是一个简单的 socket 连接，[接口文档](images/https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/client/Connection.html) 中对 Connection 的表述是：
 
 ```properties
 A cluster connection encapsulating lower level individual connections to actual servers and a  
@@ -721,7 +721,7 @@ Connection 对象和实际的 Socket 连接之间的对应关系如下图：
 
 <div align="center"> <img width="700px"   src="../pictures/hbase-connection.png"/> </div>
 
-> 上面两张图片引用自博客：[连接 HBase 的正确姿势](https://yq.aliyun.com/articles/581702?spm=a2c4e.11157919.spm-cont-list.1.146c27aeFxoMsN%20%E8%BF%9E%E6%8E%A5HBase%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF)
+> 上面两张图片引用自博客：[连接 HBase 的正确姿势](images/https://yq.aliyun.com/articles/581702?spm=a2c4e.11157919.spm-cont-list.1.146c27aeFxoMsN%20%E8%BF%9E%E6%8E%A5HBase%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF)
 
 在 HBase 客户端代码中，真正对应 Socket 连接的是 `RpcConnection` 对象。HBase 使用 `PoolMap` 这种数据结构来存储客户端到 HBase 服务器之间的连接。`PoolMap` 的内部有一个 `ConcurrentHashMap` 实例，其 key 是 `ConnectionId`(封装了服务器地址和用户 ticket)，value 是一个 `RpcConnection` 对象的资源池。当 HBase 需要连接一个服务器时，首先会根据 `ConnectionId` 找到对应的连接池，然后从连接池中取出一个连接对象。
 
@@ -756,6 +756,6 @@ connection = ConnectionFactory.createConnection(config);
 
 ## 参考资料
 
-1. [连接 HBase 的正确姿势](https://yq.aliyun.com/articles/581702?spm=a2c4e.11157919.spm-cont-list.1.146c27aeFxoMsN%20%E8%BF%9E%E6%8E%A5HBase%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF)
-2. [Apache HBase ™ Reference Guide](http://hbase.apache.org/book.htm)
+1. [连接 HBase 的正确姿势](images/https://yq.aliyun.com/articles/581702?spm=a2c4e.11157919.spm-cont-list.1.146c27aeFxoMsN%20%E8%BF%9E%E6%8E%A5HBase%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF)
+2. [Apache HBase ™ Reference Guide](images/http://hbase.apache.org/book.htm)
 

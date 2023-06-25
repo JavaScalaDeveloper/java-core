@@ -141,6 +141,7 @@ public class APP {
 
 虽然简单，不过我也把所有的构件都画到一张图上，这样读者看着比较清晰：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404211801.png)
 ### 抽象工厂模式
 
@@ -149,6 +150,7 @@ public class APP {
 一个经典的例子是造一台电脑。我们先不引入抽象工厂模式，看看怎么实现。
 
 因为电脑是由许多的构件组成的，我们将 CPU 和主板进行抽象，然后 CPU 由 CPUFactory 生产，主板由 MainBoardFactory 生产，然后，我们再将 CPU 和主板搭配起来组合在一起，如下图：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404211822.png)
 
@@ -174,9 +176,11 @@ Computer computer = new Computer(cpu, mainBoard);
 
 下面就是我们要说的**产品族**的概念，它代表了组成某个产品的一系列附件的集合：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404211846.png)
 
 当涉及到这种产品族的问题的时候，就需要抽象工厂模式来支持了。我们不再定义 CPU 工厂、主板工厂、硬盘工厂、显示屏工厂等等，我们直接定义电脑工厂，每个电脑工厂负责生产所有的设备，这样能保证肯定不存在兼容问题。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404212006.png)
 

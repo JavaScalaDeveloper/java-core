@@ -24,13 +24,15 @@ jvm 中，程序计数器、虚拟机栈、本地方法栈都是随线程而生�
 
 它的主要缺点有两个：一个是效率问题，标记和清除过程的效率都不高；另外一个是空间问题，标记清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致，当程序在以后的运行过程中需要分配较大对象时无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。
 
-![8b1a4c0777e1e037ff6874f9fbcc56ec](jvm系列(三)GC算法 垃圾收集器.resources/1082B388-1A45-4177-98E2-30394876769B.png)
+
+![8b1a4c0777e1e037ff6874f9fbcc56ec](images/jvm系列(三)GC算法 垃圾收集器.resources/1082B388-1A45-4177-98E2-30394876769B.png)
 
 ### 复制算法
 “复制”（Copying）的收集算法，它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。
 
 这样使得每次都是对其中的一块进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况，只要移动堆顶指针，按顺序分配内存即可，实现简单，运行高效。只是这种算法的代价是将内存缩小为原来的一半，持续复制长生存期的对象则导致效率降低。
-![b060ac47eba636510cf599a87cfb9d2d](jvm系列(三)GC算法 垃圾收集器.resources/02057726-396E-47F9-9339-2DEF5B338ED2.png)
+
+![b060ac47eba636510cf599a87cfb9d2d](images/jvm系列(三)GC算法 垃圾收集器.resources/02057726-396E-47F9-9339-2DEF5B338ED2.png)
 
 ### 标记-压缩算法
 
@@ -38,7 +40,8 @@ jvm 中，程序计数器、虚拟机栈、本地方法栈都是随线程而生�
 
 根据老年代的特点，有人提出了另外一种“标记-整理”（Mark-Compact）算法，标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存
 
-![ae82f1a4dfad773ab0c8adf15104545c](jvm系列(三)GC算法 垃圾收集器.resources/7F6F3B11-DDA0-4E80-8162-442B66A71632.png)
+
+![ae82f1a4dfad773ab0c8adf15104545c](images/jvm系列(三)GC算法 垃圾收集器.resources/7F6F3B11-DDA0-4E80-8162-442B66A71632.png)
 
 ### 分代收集算法
 GC分代的基本假设：绝大部分对象的生命周期都非常短暂，存活时间短。
@@ -54,7 +57,8 @@ GC分代的基本假设：绝大部分对象的生命周期都非常短暂，存
 
 参数控制：-XX:+UseSerialGC  串行收集器
 
-![3d1073b4d51269932e5dcd6821defef3](jvm系列(三)GC算法 垃圾收集器.resources/BC391A2A-4905-4708-9052-2422C0E9D692.png)
+
+![3d1073b4d51269932e5dcd6821defef3](images/jvm系列(三)GC算法 垃圾收集器.resources/BC391A2A-4905-4708-9052-2422C0E9D692.png)
 
 ### ParNew收集器
 ParNew收集器其实就是Serial收集器的多线程版本。新生代并行，老年代串行；新生代复制算法、老年代标记-压缩
@@ -62,7 +66,8 @@ ParNew收集器其实就是Serial收集器的多线程版本。新生代并行�
 参数控制：-XX:+UseParNewGC  ParNew收集器
 -XX:ParallelGCThreads 限制线程数量
 
-![97ff89bcbbc18cd50ba5287850435f43](jvm系列(三)GC算法 垃圾收集器.resources/B6AC79A9-21A8-48B4-B29E-CF755E0970FC.png)
+
+![97ff89bcbbc18cd50ba5287850435f43](images/jvm系列(三)GC算法 垃圾收集器.resources/B6AC79A9-21A8-48B4-B29E-CF755E0970FC.png)
 
 ### Parallel收集器
 Parallel Scavenge收集器类似ParNew收集器，Parallel收集器更关注系统的吞吐量。可以通过参数来打开自适应调节策略，虚拟机会根据当前系统的运行情况收集性能监控信息，动态调整这些参数以提供最合适的停顿时间或最大的吞吐量；也可以通过参数控制GC的时间不大于多少毫秒或者比例；新生代复制算法、老年代标记-压缩
@@ -100,7 +105,8 @@ CMS（Concurrent Mark Sweep）收集器是一种以获取最短回收停顿时�
           -XX:+CMSFullGCsBeforeCompaction  设置进行几次Full GC后，进行一次碎片整理
           -XX:ParallelCMSThreads  设定CMS的线程数量（一般情况约等于可用CPU数量）
           
-![4f827822133a7ae26d463f1a686fcdc7](jvm系列(三)GC算法 垃圾收集器.resources/4F09EDEB-C98A-43BB-BF13-BAE28C01B961.png)
+
+![4f827822133a7ae26d463f1a686fcdc7](images/jvm系列(三)GC算法 垃圾收集器.resources/4F09EDEB-C98A-43BB-BF13-BAE28C01B961.png)
 
 ### G1收集器
 
@@ -112,7 +118,8 @@ G1是目前技术发展的最前沿成果之一，HotSpot开发团队赋予它�
 
 上面提到的垃圾收集器，收集的范围都是整个新生代或者老年代，而G1不再是这样。使用G1收集器时，Java堆的内存布局与其他收集器有很大差别，它将整个Java堆划分为多个大小相等的独立区域（Region），虽然还保留有新生代和老年代的概念，但新生代和老年代不再是物理隔阂了，它们都是一部分（可以不连续）Region的集合。
 
-![b09eae8555ae04dd04e2a19e05d9e830](jvm系列(三)GC算法 垃圾收集器.resources/C3FF8C8A-97F5-4DC1-8E90-54FFAACD3D25.jpg)
+
+![b09eae8555ae04dd04e2a19e05d9e830](images/jvm系列(三)GC算法 垃圾收集器.resources/C3FF8C8A-97F5-4DC1-8E90-54FFAACD3D25.jpg)
 
 G1的新生代收集跟ParNew类似，当新生代占用达到一定比例的时候，开始出发收集。和CMS类似，G1收集器收集老年代对象会有短暂停顿。
 
@@ -124,18 +131,22 @@ G1的新生代收集跟ParNew类似，当新生代占用达到一定比例的时
 
 3、Concurrent Marking，在整个堆中进行并发标记(和应用程序并发执行)，此过程可能被young GC中断。在并发标记阶段，若发现区域对象中的所有对象都是垃圾，那个这个区域会被立即回收(图中打X)。同时，并发标记过程中，会计算每个区域的对象活性(区域中存活对象的比例)。
 
-![5757a98181cd217c55ea922727f3868e](jvm系列(三)GC算法 垃圾收集器.resources/E8512714-576B-47AD-928D-72543F14014C.png)
+
+![5757a98181cd217c55ea922727f3868e](images/jvm系列(三)GC算法 垃圾收集器.resources/E8512714-576B-47AD-928D-72543F14014C.png)
 
 4、Remark, 再标记，会有短暂停顿(STW)。再标记阶段是用来收集 并发标记阶段 产生新的垃圾(并发阶段和应用程序一同运行)；G1中采用了比CMS更快的初始快照算法:snapshot-at-the-beginning (SATB)。
 
 5、Copy/Clean up，多线程清除失活对象，会有STW。G1将回收区域的存活对象拷贝到新区域，清除Remember Sets，并发清空回收区域并把它返回到空闲区域链表中。
 
-![d6d277cbe1a4c3ce5e02c91ed00e0cb5](jvm系列(三)GC算法 垃圾收集器.resources/64EEE171-56CA-4292-B8C8-74512B629639.png)
+
+![d6d277cbe1a4c3ce5e02c91ed00e0cb5](images/jvm系列(三)GC算法 垃圾收集器.resources/64EEE171-56CA-4292-B8C8-74512B629639.png)
 
 6、复制/清除过程后。回收区域的活性对象已经被集中回收到深蓝色和深绿色区域。
 
-![9c57c95634a548e8d22bb01f4ae1955d](jvm系列(三)GC算法 垃圾收集器.resources/A426A5C0-99CE-47B1-933C-EE2E0F34D408.png)
+
+![9c57c95634a548e8d22bb01f4ae1955d](images/jvm系列(三)GC算法 垃圾收集器.resources/A426A5C0-99CE-47B1-933C-EE2E0F34D408.png)
 
 常用的收集器组合
 
-![bd16928f321b5275f06a54366d85a128](jvm系列(三)GC算法 垃圾收集器.resources/7B29E97B-2070-485D-AACD-B47E5D8B6B65.png)
+
+![bd16928f321b5275f06a54366d85a128](images/jvm系列(三)GC算法 垃圾收集器.resources/7B29E97B-2070-485D-AACD-B47E5D8B6B65.png)

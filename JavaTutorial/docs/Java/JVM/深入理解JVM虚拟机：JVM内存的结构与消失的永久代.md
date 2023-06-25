@@ -52,6 +52,7 @@
 
 先看一张图，这张图能很清晰的说明JVM内存结构布局。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404214718.png)
 
 JVM内存结构主要有三大块：堆内存、方法区和栈。堆内存是JVM中最大的一块由年轻代和老年代组成，而年轻代内存又被分成三部分，Eden空间、From Survivor空间、To Survivor空间,默认情况下年轻代按照8:1:1的比例来分配；
@@ -59,6 +60,7 @@ JVM内存结构主要有三大块：堆内存、方法区和栈。堆内存是JV
 方法区存储类信息、常量、静态变量等数据，是线程共享的区域，为与Java堆区分，方法区还有一个别名Non-Heap(非堆)；栈又分为java虚拟机栈和本地方法栈主要用于方法的执行。
 
 在通过一张图来了解如何通过参数来控制各区域的内存大小
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404214735.png)
 控制参数
@@ -76,6 +78,7 @@ JVM内存结构主要有三大块：堆内存、方法区和栈。堆内存是JV
 > 老年代空间大小=堆空间大小-年轻代大空间大小
 
 从更高的一个维度再次来看JVM和系统调用之间的关系
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404214754.png)
 
@@ -105,6 +108,7 @@ Java虚拟机规范对这个区域的限制非常宽松，除了和Java堆一样
 
 方法区有时被称为持久代（PermGen）。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404214839.png)
 
 所有的对象在实例化后的整个运行周期内，都被存放在堆内存中。堆内存又被划分成不同的部分：伊甸区(Eden)，幸存者区域(Survivor Sapce)，老年代（Old Generation Space）。
@@ -130,8 +134,10 @@ import java.text.SimpleDateFormat;import java.util.Date;import org.apache.log4j.
 
 这段程序的数据在内存中的存放如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404214906.png)
 通过JConsole工具可以查看运行中的Java程序（比如Eclipse）的一些信息：堆内存的分配，线程的数量以及加载的类的个数；
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404214922.png)
 
@@ -214,6 +220,7 @@ JDK8-废弃永久代（PermGen）迎来元空间（Metaspace）
 
 根据，hotspot jvm结构如下(虚拟机栈和本地方法栈合一起了)：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404215109.png)
 上图引自网络，但有个问题：方法区和heap堆都是线程共享的内存区域。
 
@@ -224,6 +231,7 @@ JDK8-废弃永久代（PermGen）迎来元空间（Metaspace）
 ### 1.2 JDK8永久代的废弃
 
 JDK8 永久代变化如下图：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404215123.png)
 1.新生代：Eden+From Survivor+To Survivor
@@ -305,9 +313,11 @@ public class StringOomMock {
 
 在eclipse中选中类--》run configuration-->java application--》new 参数如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404215213.png)
 
 由于设定了最大内存20M，很快就溢出，如下图：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404215254.png)
 
@@ -367,6 +377,7 @@ public class OOMTest {
 
 为了快速溢出，设置参数：-XX:MetaspaceSize=8m -XX:MaxMetaspaceSize=80m，运行结果如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404215337.png)
 
 上图证实了，我们的JDK8中类加载（方法区的功能）已经不在永久代PerGem中了，而是Metaspace中。可以配合JVisualVM来看，更直观一些。
@@ -396,6 +407,7 @@ https://blog.csdn.net/android_hl/article/details/53228348
 
 **Java工程师必备学习资源:** 一些Java工程师常用学习资源，关注公众号后，后台回复关键字 **“Java”** 即可免费无套路获取。
 
+
 ![我的公众号](https://img-blog.csdnimg.cn/20190805090108984.jpg)
 
 ### 个人公众号：黄小斜
@@ -403,5 +415,6 @@ https://blog.csdn.net/android_hl/article/details/53228348
 作者是 985 硕士，蚂蚁金服 JAVA 工程师，专注于 JAVA 后端技术栈：SpringBoot、MySQL、分布式、中间件、微服务，同时也懂点投资理财，偶尔讲点算法和计算机理论基础，坚持学习和写作，相信终身学习的力量！
 
 **程序员3T技术学习资源：** 一些程序员学习技术的资源大礼包，关注公众号后，后台回复关键字 **“资料”** 即可免费无套路获取。 
+
 
 ![](https://img-blog.csdnimg.cn/20190829222750556.jpg)

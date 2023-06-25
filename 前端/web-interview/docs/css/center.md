@@ -1,6 +1,8 @@
 # 面试官：元素水平垂直居中的方法有哪些？如果元素不定宽高呢？
 
- ![](https://static.vue-js.com/7b64c8d0-95f9-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/7b64c8d0-95f9-11eb-ab90-d9ae814b240d.png)
 
 ## 一、背景
 
@@ -93,7 +95,9 @@
 
 整个实现思路如下图所示：
 
- ![](https://static.vue-js.com/922dc300-95f9-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/922dc300-95f9-11eb-ab90-d9ae814b240d.png)
 
 - 初始位置为方块1的位置
 - 当设置left、top为50%的时候，内部子元素为方块2的位置

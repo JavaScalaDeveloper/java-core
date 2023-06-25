@@ -50,6 +50,7 @@ sds 的数据结构：
 
 所以一个 SDS 的就如下图：
 
+
 ![sds](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2019-04-25-022158.jpg)
 
 所以我们看到，sds 包含3个参数。buf 的长度 len，buf 的剩余长度，以及buf。
@@ -95,6 +96,7 @@ C语言中并没有链表这个数据结构所以 Redis 自己实现了一个。
 ````
 链表的结构比较简单，数据结构如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2019-04-25-22159.jpg)
 
 总结一下性质：
@@ -129,6 +131,7 @@ typedef struct dictht {
 ````
 通过图示我们观察：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2019-04-25-022159.jpg)
 
 实际上，如果对java 的基本数据结构了解的同学就会发现，这个数据结构和 java 中的 HashMap 是很类似的，就是数组加链表的结构。
@@ -160,6 +163,7 @@ typedef struct dictType {    // 计算哈希值的函数
 } 
 ````
 字典的数据结构如下图：
+
 
 ![dict](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2019-04-25-022200.jpg)
 

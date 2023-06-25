@@ -90,6 +90,7 @@ checked 异常（检查型异常）在源代码里必须显式地捕获或者抛
 
 “我先画一幅思维导图给你感受一下。”
 
+
 ![](https://cdn.tobebetterjavaer.com/studymore/gailan-20230326090207.png)
 
 首先，Exception 和 Error 都继承了 Throwable 类。换句话说，只有 Throwable 类（或者子类）的对象才能使用 throw 关键字抛出，或者作为 catch 的参数类型。
@@ -117,6 +118,7 @@ Class clz = Class.forName("com.itwanger.s41.Demo1");
 ```
 
 如果没做处理，比如说在 Intellij IDEA 环境下，就会提示你这行代码可能会抛出 `java.lang.ClassNotFoundException`。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/gailan-02.png)
 
@@ -226,6 +228,7 @@ Exception in thread "main" java.lang.ArithmeticException: 年纪未满 18 岁，
 “throws 关键字的作用就和 throw 完全不同。”我说，“前面的小节里已经讲了 checked exception 和 unchecked exception，也就是检查型异常和非检查型异常；对于检查型异常来说，如果你没有做处理，编译器就会提示你。”
 
 `Class.forName()` 方法在执行的时候可能会遇到 `java.lang.ClassNotFoundException` 异常，一个检查型异常，如果没有做处理，IDEA 就会提示你，要么在方法签名上声明，要么放在 try-catch 中。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/throw-throws-01.png)
 
@@ -463,6 +466,7 @@ static int test2 () {
 `System.exit()` 和 `return` 语句不同，前者是用来退出程序的，后者只是回到了上一级方法调用。
 
 “三妹，来看一下源码的文档注释就全明白了！”
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/try-catch-finally-01.png)
 

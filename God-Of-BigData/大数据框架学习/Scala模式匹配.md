@@ -44,7 +44,7 @@ object ScalaApp extends App {
 ```scala
 object ScalaApp extends App {
 
-  def matchTest[T](x: T) = x match {
+  def matchTest[T](images/x: T) = x match {
     case x: Int => "数值型"
     case x: String => "字符型"
     case x: Float => "浮点型"
@@ -82,7 +82,7 @@ object ScalaApp extends App {
 ```scala
 object ScalaApp extends App {
 
-  def matchTest[T](x: Array[T]) = x match {
+  def matchTest[T](images/x: Array[T]) = x match {
     case Array(0) => "匹配只有一个元素 0 的数组"
     case Array(a, b) => println(a + "~" + b)
     case Array(10, _*) => "第一个元素为 10 的数组"
@@ -106,7 +106,7 @@ object ScalaApp extends App {
 这里以数组为例，`Array.scala` 定义了 `unapplySeq` 方法：
 
 ```scala
-def unapplySeq[T](x : scala.Array[T]) : scala.Option[scala.IndexedSeq[T]] = { /* compiled code */ }
+def unapplySeq[T](images/x : scala.Array[T]) : scala.Option[scala.IndexedSeq[T]] = { /* compiled code */ }
 ```
 
 `unapplySeq` 返回一个序列，包含数组中的所有值，这样在模式匹配时，才能知道对应位置上的值。

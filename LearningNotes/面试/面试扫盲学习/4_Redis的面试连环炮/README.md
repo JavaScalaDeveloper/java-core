@@ -117,9 +117,11 @@ Redis持久化的意义，在于故障恢复，也属于高可用的一个环节
 
 当存放在内存中数据，会因为Redis的突然挂掉，而导致数据丢失
 
+
 ![image-20200422075753772](images/image-20200422075753772.png)
 
 Redis的持久化，就是将内存中的数据，持久化到磁盘上中，然后将磁盘上的数据放到阿里云ODPS中
+
 
 ![image-20200422080013776](images/image-20200422080013776.png)
 
@@ -133,6 +135,7 @@ Redis的持久化，就是将内存中的数据，持久化到磁盘上中，然
 
 简单来说RDB：就是将Redis中的数据，每个一段时间，进行数据持久化
 
+
 ![image-20200422083709495](images/image-20200422083709495.png)
 
 ### AOF持久化机制
@@ -140,6 +143,7 @@ Redis的持久化，就是将内存中的数据，持久化到磁盘上中，然
 Redis将内存中的数据，存放到一个AOF文件中，但是因为Redis只会写一个AOF文件，因此这个AOF文件会越来越大。
 
 AOF机制对每条写入命令作为日志，以append-only的模式写入一个日志文件中，在Redis重启的时候，可以通过回放AOF日志中的写入指令来重新构建整个数据集。
+
 
 ![image-20200422083910566](images/image-20200422083910566.png)
 
@@ -150,6 +154,7 @@ AOF机制对每条写入命令作为日志，以append-only的模式写入一个
 AOF，是存放每条写命令的，所以会不断的膨胀，当大到一定的时候，AOF做rewrite操作。
 
 AOF rewrite操作，就会基于当时redis内存中的数据，来重新构造一个更小的AOF文件，然后将旧的膨胀的很大的文件给删了。
+
 
 ![image-20200422085957064](images/image-20200422085957064.png)
 
@@ -179,6 +184,7 @@ AOF rewrite操作，就会基于当时redis内存中的数据，来重新构造�
 ### RDB持久化的缺点
 
 - 如果想要在Redis故障时，尽可能的少丢失数据，那么RDB没有AOF好，一般来说，RDB数据快照文件，都是每隔5分钟，或者更长时间生成一次，这个时候就得接受一旦Redis经常宕机，那么丢失最近5分钟的数据。
+
 
 ![image-20200422093446392](images/image-20200422093446392.png)
 
@@ -230,7 +236,9 @@ Redis基于reactor模式开发了网络事件处理器，这个处理器叫做�
 
 多个socket可能并发的产生不同的操作，每个操作对应不同的文件事件，但是IO多路复用程序会监听多个socket，但是会把socket放入到一个队列中排队，每次从队列中取出一个socket给事件分派器，事件分派器把socket给对应的时间处理器。
 
+
 ![image-20200421185741787](images/image-20200421185741787.png)
+
 
 ![image-20200421185725418](images/image-20200421185725418.png)
 
@@ -377,13 +385,16 @@ mysql，高并发，做到了，那么也是通过一系列复杂的分库分表
 
 因为单机的Redis，QPS只能在上万左右，成为了支撑高并发的瓶颈。
 
-### ![redis单机的瓶颈](images/redis单机的瓶颈.png)如果redis要支撑超过10万+的并发，那应该怎么做？
+### 
+
+![redis单机的瓶颈](images/redis单机的瓶颈.png)如果redis要支撑超过10万+的并发，那应该怎么做？
 
 单机的redis几乎不太可能说QPS超过10万+，除非一些特殊情况，比如你的机器性能特别好，配置特别高，物理机，维护做的特别好，而且你的整体的操作不是太复杂，单机在几万。
 
 读写分离，一般来说，对缓存，一般都是用来支撑读高并发的，写的请求是比较少的，可能写请求也就一秒钟几千，一两千。大量的请求都是读，一秒钟二十万次读
 
 读写分离：主从架构 -> 读写分离 -> 支撑10万+读QPS的架构
+
 
 ![redis主从实现读写分离支撑10万+的高并发](images/redis主从实现读写分离支撑10万+的高并发.png)
 
@@ -403,6 +414,7 @@ redis主从架构 -> 读写分离架构 -> 可支持水平扩展的读高并发�
 - slave node做复制的时候，是不会block master node的正常工作的
 - slave node在做复制的时候，也不会block对自己的查询操作，它会用旧的数据集来提供服务; 但是复制完成的时候，需要删除旧数据集，加载新数据集，这个时候就会暂停对外服务了
 - slave node主要用来进行横向扩容，做读写分离，扩容的slave node可以提高读的吞吐量
+
 
 ![image-20200422073720488](images/image-20200422073720488.png)
 
@@ -434,7 +446,9 @@ master节点，必须要使用持久化机制
 
 开始full resynchronization的时候，master会启动一个后台线程，开始生成一份RDB快照文件，同时还会将从客户端收到的所有写命令缓存在内存中。RDB文件生成完毕之后，master会将这个RDB发送给slave，slave会先写入本地磁盘，然后再从本地磁盘加载到内存中。然后master会将内存中缓存的写命令发送给slave，slave也会同步这些数据。
 
-slave node如果跟master node有网络故障，断开了连接，会自动重连。master如果发现有多个slave node都来重新连接，仅仅会启动一个rdb save操作，用一份数据服务所有slave node。![redis主从复制的原理](images/redis主从复制的原理.png)
+slave node如果跟master node有网络故障，断开了连接，会自动重连。master如果发现有多个slave node都来重新连接，仅仅会启动一个rdb save操作，用一份数据服务所有slave node。
+
+![redis主从复制的原理](images/redis主从复制的原理.png)
 
 ### 主从复制的断点续传
 
@@ -464,6 +478,7 @@ repl-diskless-sync-delay
 - 口令认证，如果master设置了requirepass，那么salve node必须发送masterauth的口令过去进行认证
 - master node第一次执行全量复制，将所有数据发给slave node
 - master node后续持续将写命令，异步复制给slave node
+
 
 ![复制的完整的基本流程](images/复制的完整的基本流程.png)
 
@@ -496,7 +511,9 @@ info server，可以看到master run id
 - psync
 
 
-从节点使用psync从master node进行复制，psync runid offset master node会根据自身的情况返回响应信息，可能是FULLRESYNC runid offset触发全量复制，可能是CONTINUE触发增量复制![maste run id的作用](images/maste run id的作用.png)
+从节点使用psync从master node进行复制，psync runid offset master node会根据自身的情况返回响应信息，可能是FULLRESYNC runid offset触发全量复制，可能是CONTINUE触发增量复制
+
+![maste run id的作用](images/maste run id的作用.png)
 
 #### 全量复制
 
@@ -537,15 +554,18 @@ master默认每隔10秒发送一次心跳，salve node每隔1秒发送一个心�
 
 #### 系统可用性
 
+
 ![什么是99.99%高可用性](images/什么是99.99%高可用性.png)
 
 #### 系统处于不可用
+
 
 ![系统处于不可用是什么意思](images/系统处于不可用是什么意思.png)
 
 #### Redis的不可用
 
 一个slave宕机后，不会影响系统的可用性，还有其它slave在提供相同数据的情况下对外提供查询服务。
+
 
 ![redis的不可用](images/redis的不可用.png)
 
@@ -554,6 +574,7 @@ master宕机后，相当于系统不可用了。
 #### Redis高可用的方案
 
 当Redis的master节点宕机后，redis的高可用架构中，有一个故障转移，叫failover，也可以做主备切换。
+
 
 ![redis基于哨兵的高可用性](images/redis基于哨兵的高可用性.png)
 
@@ -639,6 +660,7 @@ Configuration: quorum = 2，majority
 
 因为master -> slave的复制是异步的，所以可能有部分数据还没复制到slave，master就宕机了，此时这些部分数据就丢失了。
 
+
 ![异步复制导致的数据丢失问题](images/异步复制导致的数据丢失问题.png)
 
 #### 脑裂导致的数据丢失
@@ -648,6 +670,7 @@ Configuration: quorum = 2，majority
 这个时候，集群里就会有两个master，也就是所谓的脑裂。此时虽然某个slave被切换成了master，但是可能client还没来得及切换到新的master，还继续写向旧master的数据可能也丢失了
 
 因此旧master再次恢复的时候，会被作为一个slave挂到新的master上去，自己的数据会清空，重新从新的master复制数据
+
 
 ![集群脑裂导致的数据丢失问题](images/集群脑裂导致的数据丢失问题.png)
 
@@ -669,12 +692,15 @@ min-slaves-max-lag 10
 
 有了min-slaves-max-lag这个配置，就可以确保说，一旦slave复制数据和ack延时太长，就认为可能master宕机后损失的数据太多了，那么就拒绝写请求，这样可以把master宕机时由于部分数据未同步到slave导致的数据丢失降低的可控范围内
 
+
 ![异步复制导致数据丢失如何降低损失](images/异步复制导致数据丢失如何降低损失.png)
 
 - 减少脑裂的数据丢失
 
 
-如果一个master出现了脑裂，跟其他slave丢了连接，那么上面两个配置可以确保说，如果不能继续给指定数量的slave发送数据，而且slave超过10秒没有给自己ack消息，那么就直接拒绝客户端的写请求，这样脑裂后的旧master就不会接受client的新数据，也就避免了数据丢失，上面的配置就确保了，如果跟任何一个slave丢了连接，在10秒后发现没有slave给自己ack，那么就拒绝新的写请求，因此在脑裂场景下，最多就丢失10秒的数据![脑裂导致数据丢失的问题如何降低损失](images/脑裂导致数据丢失的问题如何降低损失.png)
+如果一个master出现了脑裂，跟其他slave丢了连接，那么上面两个配置可以确保说，如果不能继续给指定数量的slave发送数据，而且slave超过10秒没有给自己ack消息，那么就直接拒绝客户端的写请求，这样脑裂后的旧master就不会接受client的新数据，也就避免了数据丢失，上面的配置就确保了，如果跟任何一个slave丢了连接，在10秒后发现没有slave给自己ack，那么就拒绝新的写请求，因此在脑裂场景下，最多就丢失10秒的数据
+
+![脑裂导致数据丢失的问题如何降低损失](images/脑裂导致数据丢失的问题如何降低损失.png)
 
 ### Redis哨兵的底层原理
 

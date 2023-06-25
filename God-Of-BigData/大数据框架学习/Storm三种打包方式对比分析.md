@@ -30,7 +30,7 @@
 
 但如果项目中使用了第三方 JAR 包，就会出现问题，因为 `mvn package` 打包后的 JAR 中是不含有依赖包的，如果此时你提交到服务器上运行，就会出现找不到第三方依赖的异常。
 
-如果你想采用这种方式进行打包，但是又使用了第三方 JAR，有没有解决办法？答案是有的，这一点在官方文档的[Command Line Client](http://storm.apache.org/releases/2.0.0-SNAPSHOT/Command-line-client.html) 章节有所讲解，主要解决办法如下。
+如果你想采用这种方式进行打包，但是又使用了第三方 JAR，有没有解决办法？答案是有的，这一点在官方文档的[Command Line Client](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/Command-line-client.html) 章节有所讲解，主要解决办法如下。
 
 ### 2.2 解决办法
 
@@ -55,9 +55,9 @@ HDPRepo^http://repo.hortonworks.com/content/groups/public/"
 
 ## 三、maven-assembly-plugin插件
 
-maven-assembly-plugin 是官方文档中介绍的打包方法，来源于官方文档：[Running Topologies on a Production Cluster](http://storm.apache.org/releases/2.0.0-SNAPSHOT/Running-topologies-on-a-production-cluster.html)
+maven-assembly-plugin 是官方文档中介绍的打包方法，来源于官方文档：[Running Topologies on a Production Cluster](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/Running-topologies-on-a-production-cluster.html)
 
-> If you're using Maven, the [Maven Assembly Plugin](http://maven.apache.org/plugins/maven-assembly-plugin/) can do the packaging for you. Just add this to your pom.xml:
+> If you're using Maven, the [Maven Assembly Plugin](images/http://maven.apache.org/plugins/maven-assembly-plugin/) can do the packaging for you. Just add this to your pom.xml:
 >
 > ```xml
 > <plugin>
@@ -75,7 +75,7 @@ maven-assembly-plugin 是官方文档中介绍的打包方法，来源于官方�
 > </plugin>
 > ```
 >
-> Then run mvn assembly:assembly to get an appropriately packaged jar. Make sure you [exclude](http://maven.apache.org/plugins/maven-assembly-plugin/examples/single/including-and-excluding-artifacts.html) the Storm jars since the cluster already has Storm on the classpath.
+> Then run mvn assembly:assembly to get an appropriately packaged jar. Make sure you [exclude](images/http://maven.apache.org/plugins/maven-assembly-plugin/examples/single/including-and-excluding-artifacts.html) the Storm jars since the cluster already has Storm on the classpath.
 
 官方文档主要说明了以下几点：
 
@@ -84,7 +84,7 @@ maven-assembly-plugin 是官方文档中介绍的打包方法，来源于官方�
 - 通过 `  <mainClass>` 标签指定主入口类；
 - 通过 `<descriptorRef>` 标签指定打包相关配置。
 
-`jar-with-dependencies` 是 Maven[预定义](http://maven.apache.org/plugins/maven-assembly-plugin/descriptor-refs.html#jar-with-dependencies) 的一种最基本的打包配置，其 XML 文件如下：
+`jar-with-dependencies` 是 Maven[预定义](images/http://maven.apache.org/plugins/maven-assembly-plugin/descriptor-refs.html#jar-with-dependencies) 的一种最基本的打包配置，其 XML 文件如下：
 
 ```xml
 <assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
@@ -164,7 +164,7 @@ maven-assembly-plugin 是官方文档中介绍的打包方法，来源于官方�
 </assembly>
 ```
 
->在配置文件中不仅可以排除依赖，还可以排除指定的文件，更多的配置规则可以参考官方文档：[Descriptor Format](http://maven.apache.org/plugins/maven-assembly-plugin/assembly.html#)
+>在配置文件中不仅可以排除依赖，还可以排除指定的文件，更多的配置规则可以参考官方文档：[Descriptor Format](images/http://maven.apache.org/plugins/maven-assembly-plugin/assembly.html#)
 
 ### 2.  打包命令
 
@@ -184,9 +184,9 @@ maven-assembly-plugin 是官方文档中介绍的打包方法，来源于官方�
 
 ### 4.1 官方文档说明
 
-第三种方式是使用 maven-shade-plugin，既然已经有了 maven-assembly-plugin，为什么还需要 maven-shade-plugin，这一点在官方文档中也是有所说明的，来自于官方对 HDFS 整合讲解的章节[Storm HDFS Integration](http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-hdfs.html)，原文如下：
+第三种方式是使用 maven-shade-plugin，既然已经有了 maven-assembly-plugin，为什么还需要 maven-shade-plugin，这一点在官方文档中也是有所说明的，来自于官方对 HDFS 整合讲解的章节[Storm HDFS Integration](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-hdfs.html)，原文如下：
 
->When packaging your topology, it's important that you use the [maven-shade-plugin](http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-hdfs.html) as opposed to the [maven-assembly-plugin](http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-hdfs.html).
+>When packaging your topology, it's important that you use the [maven-shade-plugin](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-hdfs.html) as opposed to the [maven-assembly-plugin](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-hdfs.html).
 >
 >The shade plugin provides facilities for merging JAR manifest entries, which the hadoop client leverages for URL scheme resolution.
 >
@@ -280,7 +280,7 @@ maven-assembly-plugin 是官方文档中介绍的打包方法，来源于官方�
 
 ## 五、结论
 
-通过以上三种打包方式的详细介绍，这里给出最后的结论：**建议使用 maven-shade-plugin 插件进行打包**，因为其通用性最强，操作最简单，并且 Storm Github 中所有[examples](https://github.com/apache/storm/tree/master/examples) 都是采用该方式进行打包。
+通过以上三种打包方式的详细介绍，这里给出最后的结论：**建议使用 maven-shade-plugin 插件进行打包**，因为其通用性最强，操作最简单，并且 Storm Github 中所有[examples](images/https://github.com/apache/storm/tree/master/examples) 都是采用该方式进行打包。
 
 
 
@@ -312,4 +312,4 @@ jar:file:/usr/appjar/storm-hdfs-integration-1.0.jar!/defaults.yaml]
 
 ## 参考资料
 
-关于 maven-shade-plugin 的更多配置可以参考： [maven-shade-plugin 入门指南](https://www.jianshu.com/p/7a0e20b30401)
+关于 maven-shade-plugin 的更多配置可以参考： [maven-shade-plugin 入门指南](images/https://www.jianshu.com/p/7a0e20b30401)

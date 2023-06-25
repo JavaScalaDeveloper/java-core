@@ -1,6 +1,8 @@
 # 面试官：说说 React中的setState执行机制
 
- ![](https://static.vue-js.com/3acb8ca0-d825-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/3acb8ca0-d825-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 

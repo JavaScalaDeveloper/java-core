@@ -26,7 +26,9 @@
 建议：在学习CopyOnWriteArraySet之前,先对ArrayList进行了解！ 
 
 #### CopyOnWriteArrayList原理和数据结构
-CopyOnWriteArrayList的数据结构，如下图所示：![8c9a554d0e197a027a35fe2f0d483b81](大数据成神之路-Java高级特性增强(CopyOnWriteArrayList).resources/D89A47F9-4C4F-4E57-BAE1-A314892BFFD8.jpg)
+CopyOnWriteArrayList的数据结构，如下图所示：
+
+![8c9a554d0e197a027a35fe2f0d483b81](images/大数据成神之路-Java高级特性增强(CopyOnWriteArrayList).resources/D89A47F9-4C4F-4E57-BAE1-A314892BFFD8.jpg)
 说明：
 1.CopyOnWriteArrayList实现了List接口,因此它是一个队列。
 2.CopyOnWriteArrayList包含了成员lock。每一个CopyOnWriteArrayList都和一个互斥锁lock绑定,通过lock，实现了对CopyOnWriteArrayList的互斥访问。
@@ -110,7 +112,7 @@ String toString()
 下面我们从"创建,添加,删除,获取,遍历"这5个方面去分析CopyOnWriteArrayList的原理。
 **1. 创建**
 CopyOnWriteArrayList共3个构造函数。它们的源码如下：
-```
+```java
 public CopyOnWriteArrayList() {
     setArray(new Object[0]);
 }
@@ -139,7 +141,7 @@ final void setArray(Object[] a) {
 说明：setArray()的作用是给array赋值；其中，array是volatile transient Object[]类型，即array是“volatile数组”。关于volatile关键字，我们知道“volatile能让变量变得可见”，即对一个volatile变量的读，总是能看到（任意线程）对这个volatile变量最后的写入。正在由于这种特性，每次更新了“volatile数组”之后，其它线程都能看到对它所做的更新。关于transient关键字，它是在序列化中才起作用，transient变量不会被自动序列化。
 **2. 添加**
 以add(E e)为例，来对"CopyOnWriteArrayList"的添加操作进行说明。下面是add(E e)的代码:
-```
+```java
 public boolean add(E e) {
     final ReentrantLock lock = this.lock;
     // 获取“锁”
@@ -170,7 +172,9 @@ new ReentrantLock();  
 ```
 第二,操作完毕时，会通过setArray()来更新”volatile数组“。而且，前面我们提过”即对一个volatile变量的读，总是能看到（任意线程）对这个volatile变量最后的写入“；这样，每次添加元素之后，其它线程都能看到新添加的元素。 
 **3. 获取**
-以get(int index)为例，来对“CopyOnWriteArrayList的删除操作”进行说明。下面是get(int index)的代码：![51e409b11aa51c150090697429a953ed](大数据成神之路-Java高级特性增强(CopyOnWriteArrayList).resources/465A838B-6367-4535-96B8-C9693E5D0B61.gif)
+以get(int index)为例，来对“CopyOnWriteArrayList的删除操作”进行说明。下面是get(int index)的代码：
+
+![51e409b11aa51c150090697429a953ed](images/大数据成神之路-Java高级特性增强(CopyOnWriteArrayList).resources/465A838B-6367-4535-96B8-C9693E5D0B61.gif)
 public E get(int index) {
     return get(getArray(), index);
 }
@@ -178,11 +182,12 @@ public E get(int index) {
 private E get(Object[] a, int index) {
     return (E) a[index];
 }
-![51e409b11aa51c150090697429a953ed](大数据成神之路-Java高级特性增强(CopyOnWriteArrayList).resources/465A838B-6367-4535-96B8-C9693E5D0B61.gif)
+
+![51e409b11aa51c150090697429a953ed](images/大数据成神之路-Java高级特性增强(CopyOnWriteArrayList).resources/465A838B-6367-4535-96B8-C9693E5D0B61.gif)
 说明：get(int index)的实现很简单，就是返回"volatile数组"中的第index个元素。 
 **4. 删除**
 以remove(int index)为例，来对“CopyOnWriteArrayList的删除操作”进行说明。下面是remove(int index)的代码：
-```
+```java
 public E remove(int index) {
     final ReentrantLock lock = this.lock;
     // 获取“锁”
@@ -216,7 +221,7 @@ public E remove(int index) {
 **5. 遍历**
 以iterator()为例，来对CopyOnWriteArrayList的遍历操作进行说明。
 下面是iterator()的代码：
-```
+```java
 public Iterator<E> iterator() {
     return new COWIterator<E>(getArray(), 0);
 }

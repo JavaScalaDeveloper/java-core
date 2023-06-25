@@ -134,6 +134,7 @@ class Worker implements Runnable {
 
 这个例子中，doneSignal 同第一个例子的使用，我们说说这里的 startSignal。N 个新开启的线程都调用了startSignal.await() 进行阻塞等待，它们阻塞在**栅栏**上，只有当条件满足的时候（startSignal.countDown()），它们才能同时通过这个栅栏，目的是让所有的线程站在一个起跑线上。
 
+
 ![5](https://www.javadoop.com/blogimages/AbstractQueuedSynchronizer-3/5.png)
 
 如果始终只有一个线程调用 await 方法等待任务完成，那么 CountDownLatch 就会简单很多，所以之后的源码分析读者一定要在脑海中构建出这么一个场景：有 m 个线程是做任务的，有 n 个线程在某个栅栏上等待这 m 个线程做完任务，直到所有 m 个任务完成后，n 个线程同时通过栅栏。
@@ -305,9 +306,11 @@ private void doAcquireSharedInterruptibly(int arg)
 
 我们来仔细分析这个方法，线程 t3 经过第 1 步 addWaiter 入队以后，我们应该可以得到这个：
 
+
 ![2](https://www.javadoop.com/blogimages/AbstractQueuedSynchronizer-3/2.png)
 
 由于 tryAcquireShared 这个方法会返回 -1，所以 if (r >= 0) 这个分支不会进去。到 shouldParkAfterFailedAcquire 的时候，t3 将 head 的 waitStatus 值设置为 -1，如下：
+
 
 ![3](https://www.javadoop.com/blogimages/AbstractQueuedSynchronizer-3/3.png)
 
@@ -315,11 +318,13 @@ private void doAcquireSharedInterruptibly(int arg)
 
 我们再分析 t4 入队，t4 会将前驱节点 t3 所在节点的 waitStatus 设置为 -1，t4 入队后，应该是这样的：
 
+
 ![4](https://www.javadoop.com/blogimages/AbstractQueuedSynchronizer-3/4.png)
 
 然后，t4 也挂起。接下来，t3 和 t4 就等待唤醒了。
 
 接下来，我们来看唤醒的流程。为了让下面的示意图更丰富些，我们假设用 10 初始化 CountDownLatch。
+
 
 ![1](https://www.javadoop.com/blogimages/AbstractQueuedSynchronizer-3/1.png)
 
@@ -485,6 +490,7 @@ for 循环第一轮的时候会唤醒 t4，t4 醒后会将自己设置为头节�
 
 字面意思是“可重复使用的栅栏”或“周期性的栅栏”，总之不是用了一次就没用了的，CyclicBarrier 相比 CountDownLatch 来说，要简单很多，其源码没有什么高深的地方，它是 ReentrantLock 和 Condition 的组合使用。看如下示意图，CyclicBarrier 和 CountDownLatch 是不是很像，只是 CyclicBarrier 可以有不止一个栅栏，因为它的栅栏（Barrier）可以重复使用（Cyclic）。
 
+
 ![cyclicbarrier-2](https://www.javadoop.com/blogimages/AbstractQueuedSynchronizer-3/cyclicbarrier-2.png)
 
 首先，CyclicBarrier 的源码实现和 CountDownLatch 大相径庭，CountDownLatch 基于 AQS 的共享模式的使用，而 CyclicBarrier 基于 Condition 来实现。
@@ -492,6 +498,7 @@ for 循环第一轮的时候会唤醒 t4，t4 醒后会将自己设置为头节�
 因为 CyclicBarrier 的源码相对来说简单许多，读者只要熟悉了前面关于 Condition 的分析，那么这里的源码是毫无压力的，就是几个特殊概念罢了。
 
 先用一张图来描绘下 CyclicBarrier 里面的一些概念，和它的基本使用流程：
+
 
 ![cyclicbarrier-3](https://www.javadoop.com/blogimages/AbstractQueuedSynchronizer-3/cyclicbarrier-3.png)
 

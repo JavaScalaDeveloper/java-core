@@ -19,6 +19,7 @@ head:
 
 >作者：RednaxelaFX，整理：沉默王二，链接：[https://www.zhihu.com/question/21574535/answer/18998914](https://www.zhihu.com/question/21574535/answer/18998914)
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/instanceof-jvm-b676fee6-bfd4-4ae9-9c7b-e488e345f775.gif)
 
 --------

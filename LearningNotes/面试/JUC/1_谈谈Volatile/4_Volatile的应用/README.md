@@ -38,6 +38,7 @@ public class SingletonDemo {
 
 最后输出的结果
 
+
 ![image-20200310164513408](images/image-20200310164513408.png)
 
 
@@ -78,6 +79,7 @@ public class SingletonDemo {
 
 从下面的结果我们可以看出，我们通过SingletonDemo.getInstance() 获取到的对象，并不是同一个，而是被下面几个线程都进行了创建，那么在多线程环境下，单例模式如何保证呢？
 
+
 ![image-20200310164720940](images/image-20200310164720940.png)
 
 ### 解决方法1
@@ -94,6 +96,7 @@ public class SingletonDemo {
 ```
 
 输出结果
+
 
 ![image-20200310164946940](images/image-20200310164946940.png)
 
@@ -122,6 +125,7 @@ public class SingletonDemo {
 ```
 
 最后输出的结果为：
+
 
 ![image-20200310165703190](images/image-20200310165703190.png)
 

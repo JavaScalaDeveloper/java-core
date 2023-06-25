@@ -111,6 +111,7 @@ Fixed Rate Task : The time is now 20:58:51
 
  看下面的运行任务示意图应该很好理解了。
 
+
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/fixdrate-single-thread.png)
 
 如果我们将这个方法改为并行运行，运行结果就截然不同了。

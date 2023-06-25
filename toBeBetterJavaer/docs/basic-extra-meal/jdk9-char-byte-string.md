@@ -24,6 +24,7 @@ head:
 
 以我正在运行着的[编程喵](https://github.com/itwanger/coding-more)项目实例（基于 Java 8）来说，结果是这样的。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/jdk9-char-byte-string-d826ce88-bbbe-47a3-a1a9-4dd86dd3632f.png)
 
 其中 String 对象有 17638 个，占用了 423312 个字节的内存，排在第三位。

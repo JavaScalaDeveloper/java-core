@@ -27,6 +27,7 @@ centos              latest        8efe422e6104      210 MB
 
 > Alpine包查询网站: https://pkgs.alpinelinux.org/packages
 
+
 ![Alpine包查询](images/image-20201206093447554.png)
 
 如果想在 **Apline** 镜像中使用 **vim** 命令的话，只需要应用包管理工具 **apk** 安装即可
@@ -41,6 +42,7 @@ apk add vim
 官网：https://registry.hub.docker.com/_/alpine
 ```
 
+
 ![alpine查询](images/image-20201206093922397.png)
 
 可以发现，它提供了只有 **5MB** 的系统镜像可供我们进行下载使用
@@ -51,6 +53,7 @@ docker pull alpine
 ```
 
 同时，它还列举了一个例子 ，通过 **alpine** 制作一个 **mysql** 镜像
+
 
 ![制作mysql镜像](images/image-20201206094302242.png)
 
@@ -66,6 +69,7 @@ docker pull alpine
 docker run alpine echo "hello alpine"
 ```
 
+
 ![运行alpine镜像](images/image-20201206094817959.png)
 
 ## 迁移至Alpine
@@ -75,6 +79,7 @@ docker run alpine echo "hello alpine"
 例如，通过 **nginx** 的 官方 **DockerHub** 地址，我们可以看到，也专门有 **alpine** 稳定版本
 
 > nginx: https://registry.hub.docker.com/_/nginx
+
 
 ![nginx的alpine版本](images/image-20201206095346672.png)
 
@@ -93,6 +98,7 @@ apk add --no-cache <package>
 ```
 
 同时如果细心看过**蘑菇博客镜**像制作过程的小伙伴，可以看到对应项目的 **Dockerfile** 文件依赖的基础镜像，其实就是带有 **alpine** 后缀的精简镜像。 
+
 
 ![alpine镜像在蘑菇中的使用](images/image-20210719085125924.png) 
 
@@ -125,5 +131,6 @@ apk add --no-cache <package>
 ## 结语
 
 因为本公众号**申请较晚**，暂时没有开通**留言**功能，欢迎小伙伴们添加我的私人微信【备注：**加群**】，我将邀请你加入到**蘑菇博客交流群**中，欢迎小伙伴们找陌溪一块聊天唠嗑，共同学习进步，如果你觉得本文对你有所帮助，麻烦小伙伴们动动手指给文章点个「**赞**」和「**在看**」。
+
 
 ![快来找陌溪唠嗑吧](https://gitee.com/moxi159753/LearningNotes/raw/master/doc/images/qq/%E6%B7%BB%E5%8A%A0%E9%99%8C%E6%BA%AA.png)

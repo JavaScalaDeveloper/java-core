@@ -16,6 +16,7 @@ Spring Boot 2.0 的推出又激起了一阵学习 Spring Boot 热，就单从我
 
 他是谁呢，他就是大名鼎鼎的 Rod Johnson （下图）, Rod Johnson 在悉尼大学不仅获得了计算机学位，同时还获得了音乐学位，更令人吃惊的是在回到软件开发领域之前，他还获得了音乐学的博士学位。现在 Rod Johnson 已经离开了 Spring ，成为了一个天使投资人，同时也是多个公司的董事，早已走上人生巅峰。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/springboot-hot.png)
 
 在这本书发布后，一对一的 J2EE 设计和开发一炮而红。这本书免费提供的大部分基础架构代码都是高度可重用的。 2003 年 Rod Johnson 和同伴在此框架的基础上开发了一个全新的框架命名为 Spring ,据 Rod Johnson 介绍 Spring 是传统 J2EE 新的开始。随后 Spring 发展进入快车道。
@@ -37,6 +38,7 @@ Spring 似乎也意识到了这些问题，急需有这么一套软件可以解�
 
 Spring Boot 诞生之初，就受到开源社区的持续关注，陆续有一些个人和企业尝试着使用了 Spring Boot，并迅速喜欢上了这款开源软件。直到2016年，在国内 Spring Boot 才被正真使用了起来，期间很多研究 Spring Boot 的开发者在网上写了大量关于 Spring Boot 的文章，同时有一些公司在企业内部进行了小规模的使用，并将使用经验分享了出来。从2016年到2018年，使用 Spring Boot 的企业和个人开发者越来越多，我们从 Spring Boot 关键字的百度指数就可以看出。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/springboot-hot.png)
 
 上图为2014年到2018年 Spring Boot 的百度指数，可以看出 Spring Boot 2.0 的推出引发了搜索高峰。
@@ -44,6 +46,7 @@ Spring Boot 诞生之初，就受到开源社区的持续关注，陆续有一�
 当然 Spring Boot 不是为了取代 Spring ,Spring Boot 基于 Spring 开发，是为了让人们更容易的使用 Spring。看到 Spring Boot 的市场反应，Spring 官方也非常重视 Spring Boot 的后续发展，已经将 Spring Boot 作为公司最顶级的项目来推广，放到了官网上第一的位置，因此后续 Spring Boot 的持续发展也被看好。
 
 # 基本介绍
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230415111020.png)
 
@@ -86,6 +89,7 @@ Features
 
 # 和Spring的关系
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230415111139.png)
 
 ## SpringFramework解决了什么问题？
@@ -122,6 +126,7 @@ SpringBoot对上述Spring的缺点进行的改善和优化，基于约定优于�
 
 # 和SpringMVC的关系
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230415111153.png)
 
 Spring Boot：Spring Boot使快速引导和开始开发基于Spring的应用程序变得容易。 它避免了很多样板代码。 它在幕后隐藏了很多复杂性，因此开发人员可以快速上手并轻松开发基于Spring的应用程序。
@@ -147,7 +152,9 @@ Spring Boot和Spring MVC出于不同的目的而存在。 下面讨论了Spring 
 
 Spring Boot是Spring家族的成员，它是一个全新的框架，它的设计目的是尽可能简单和快速的开发、运行Spring应用程序，简化配置。它为开发者快捷的使用Spring及相关开发框架提供了便利，但是它并不是微服务的框架，它只是为微服务框架的使用也提供了很好的脚手架。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230415111929.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230415111950.png)
 上面两张图表明了两者的基本区别，springboot用于构建单个服务应用，也就是我们常说的微服务

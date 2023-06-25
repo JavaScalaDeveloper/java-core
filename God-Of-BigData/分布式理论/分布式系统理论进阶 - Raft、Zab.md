@@ -15,7 +15,8 @@ Raft[2][3]在2013年提出，提出的时间虽然不长，但已经有很多系
 
 为达到更容易理解和实行的目的，Raft将问题分解和具体化：Leader统一处理变更操作请求，一致性协议的作用具化为保证节点间操作日志副本(log replication)一致，以term作为逻辑时钟(logical clock)保证时序，节点运行相同状态机(state machine)[4]得到一致结果。Raft协议具体过程如下：
 
-![c91c3cc5d7bfefe7b23c4df34a151e74](分布式系统理论进阶 - Raft、Zab.resources/FEA133A1-AA08-40B3-88E7-365EF36E0C0C.png)
+
+![c91c3cc5d7bfefe7b23c4df34a151e74](images/分布式系统理论进阶 - Raft、Zab.resources/FEA133A1-AA08-40B3-88E7-365EF36E0C0C.png)
 
 * Client发起请求，每一条请求包含操作指令
 * 请求交由Leader处理，Leader将操作指令(entry)追加(append)至操作日志，紧接着对Follower发起AppendEntries请求、尝试让操作日志副本在Follower落地
@@ -40,7 +41,8 @@ Zab[5][6]的全称是Zookeeper atomic broadcast protocol，是Zookeeper内部用
 
 和Raft一样，Zab要求唯一Leader参与决议，Zab可以分解成discovery、sync、broadcast三个阶段：
 
-![e8f0afe96afec603ec0c9ec8fb33936d](分布式系统理论进阶 - Raft、Zab.resources/65E43779-4B2D-4D8C-93F1-D8161F8FD746.jpg)
+
+![e8f0afe96afec603ec0c9ec8fb33936d](images/分布式系统理论进阶 - Raft、Zab.resources/65E43779-4B2D-4D8C-93F1-D8161F8FD746.jpg)
 
 * discovery: 选举产生PL(prospective leader)，PL收集Follower epoch(cepoch)，根据Follower的反馈PL产生newepoch(每次选举产生新Leader的同时产生新epoch，类似Raft的term)
 * sync: PL补齐相比Follower多数派缺失的状态、之后各Follower再补齐相比PL缺失的状态，PL和Follower完成状态同步后PL变为正式Leader(established leader)
@@ -77,7 +79,8 @@ Zab中每个事务对应一个zxid，它由两部分组成：<e, c>，e即Leader
 
 Paxos、Raft、Zab和VR都是解决一致性问题的协议，Paxos协议原文倾向于理论，Raft、Zab、VR倾向于实践，一致性保证程度等的不同也导致这些协议间存在差异。下图帮助我们理解这些协议的相似点和区别[10]：
 
-![c1cfddbcac1c7b471bf329d6e94eaecb](分布式系统理论进阶 - Raft、Zab.resources/C9F431A6-CA52-4A5A-8EFC-1225C4E96FDB.jpg)
+
+![c1cfddbcac1c7b471bf329d6e94eaecb](images/分布式系统理论进阶 - Raft、Zab.resources/C9F431A6-CA52-4A5A-8EFC-1225C4E96FDB.jpg)
 相比Raft、Zab、VR，Paxos更纯粹、更接近一致性问题本源，尽管Paxos倾向理论，但不代表Paxos不能应用于工程。基于Paxos的工程实践，须考虑具体需求场景(如一致性要达到什么程度)，再在Paxos原始语意上进行包装。
 
 

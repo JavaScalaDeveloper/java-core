@@ -2,6 +2,7 @@
 
 例如一个微服务系统中存在 A、B、C、D、E、F 等多个服务，它们的依赖关系如下图。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101623H11-0.png)
 
 图1：服务依赖关系
@@ -358,10 +359,12 @@ public class MicroServiceCloudProviderDeptHystrix8004Application {
 
 7\. 依次启动服务注册中心（Eureka Server）集群和 micro-service-cloud-provider-dept-hystrix-8004，并使用浏览器访问“http://eureka7001.com:8004/dept/hystrix/ok/1”，结果如下图。
 
+
 ![Hystrix ok](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016234615-1.png)
 图2：Hystrix 正常服务案例
 
 8\. 使用浏览器访问“http://eureka7001.com:8004/dept/hystrix/timeout/1”，结果如下图。
+
 
 ![Hystrix 服务降级](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101623FR-2.png)
 图3：Hystrix 服务端服务降级
@@ -604,10 +607,12 @@ public String deptInfo_Timeout(Integer id) {
 
 8\. 重启 micro-service-cloud-provider-dept-hystrix-8004 和 micro-service-cloud-consumer-dept-feign，使用浏览器访问“http://eureka7001.com:8004/dept/hystrix/timeout/1”，直接调用服务端的 deptInfo_Timeout() 方法，结果如下图。
 
+
 ![Hystrix 服务端请求正常](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016231059-3.png)
 图4：Hystrix 服务端请求正常
 
 9\. 使用浏览器访问“http://eureka7001.com/consumer/dept/hystrix/timeout/1”，结果如下图。
+
 
 ![Hystrix 客户端服务降级](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101623C94-4.png)
 图5：Hystrix 客户端服务降级
@@ -693,6 +698,7 @@ public String deptInfo_Timeout(@PathVariable("id") Integer id) {
 
 4\. 重启 micro-service-cloud-consumer-dept-feign，使用浏览器访问“http://eureka7001.com/consumer/dept/hystrix/timeout/1”，结果如下图。
 
+
 ![Hystrix 全局回退方法](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101623J11-5.png)
 图6：全局回退方法
 
@@ -765,6 +771,7 @@ public interface DeptHystrixService {
 
 3\. 重启 micro-service-cloud-consumer-dept-feign，然后关闭服务端 micro-service-cloud-provider-dept-hystrix-8004，使用浏览器访问“http://eureka7001.com/consumer/dept/hystrix/ok/1”，结果如下图。
 
+
 ![Hystrix 解耦回退逻辑](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016233063-6.png)
 图7：Hystrix 解耦回退方法
 
@@ -783,6 +790,7 @@ public interface DeptHystrixService {
 *   半熔断状态（Half-Open）： 在熔断开启一段时间之后，熔断器会进入半熔断状态。在半熔断状态下，熔断器会尝试恢复服务调用方对服务的调用，允许部分请求调用该服务，并监控其调用成功率。如果成功率达到预期，则说明服务已恢复正常，熔断器进入关闭状态；如果成功率仍旧很低，则重新进入熔断开启状态。
 
 三种熔断状态之间的转化关系如下图：
+
 
 ![熔断状态转换](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10162355X-7.png)
 图8：三种熔断状态转换
@@ -898,15 +906,18 @@ public String deptCircuitBreaker(@PathVariable("id") Integer id){
 
 4\. 重启 micro-service-cloud-provider-dept-hystrix-8004，使用浏览器访问“http://eureka7001.com:8004/dept/hystrix/circuit/1”，结果如下图。
 
+
 ![Hystrix 实现熔断机制 调用正确](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016233Q8-8.png)
 图9：Hystrix 实现熔断机制 调用正确示例
 
 5\. 浏览器多次（调用次数大于请求总数阀值）访问“http://eureka7001.com:8004/dept/hystrix/circuit/-2”，使调用出错率大于错误百分比阀值，结果下图。
 
+
 ![Hystrix 实现熔断机制 错误调用](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10162332D-9.png)
 图10：Hystrix 实现熔断机制 错误调用
 
 6\. 重新将参数修改为正数（例如参数为 3），使用浏览器访问“http://eureka7001.com:8004/dept/hystrix/circuit/3”，结果如下图。
+
 
 ![Hystrix 熔断开启转台](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016235592-10.png)
 图11：Hystrix 熔断开启状态传入正数
@@ -914,6 +925,7 @@ public String deptCircuitBreaker(@PathVariable("id") Integer id){
 通过图 11 可以看到，在熔断开启状态下，即使我们传入的参数已经是正数，调用的依然降级逻辑。
 
 7\. 继续连续访问“http://eureka7001.com:8004/dept/hystrix/circuit/3”，结果下图。
+
 
 ![Hystrix 熔断关闭](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016231R0-11.gif)
 图12：Hystrix 进入熔断关闭状态
@@ -1093,20 +1105,24 @@ public class HystrixDashboardConfig {
 
 5\. 启动 micro-service-cloud-consumer-dept-hystrix-dashboard-9002，使用浏览器访问“http://eureka7001.com:9002/hystrix”，结果如下图。
 
+
 ![Hystrix 监控](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016234440-12.png)
 图13：Hystrix 监控页面
 
 6\. 重启 micro-service-cloud-provider-dept-hystrix-8004，并将以下信息填到 Hystrix 监控页面中，如下图。
+
 
 ![Hystrix 监控信息](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016232636-13.png)
 图14：Hystrix 监控信息
 
 7\. 点击下方的 Monitor Stream 按钮，跳转到 Hystrix 对 micro-service-cloud-provider-dept-hystrix-8004 的监控页面，如下图。
 
+
 ![Hystrix 监控 8004](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1016231229-14.png)
 图15：Hystrix 监控微服务运行情况
 
 8\. 使用浏览器多次访问“http://eureka7001.com:8004/dept/hystrix/circuit/1”和 “http://eureka7001.com:8004/dept/hystrix/circuit/-1”，查看 Hystrix 监控页面，如下图。
+
 
 ![Hystrix 监控 8004 运行情况](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10162345J-15.png)
 图16：Hystrix 监控服务运行情况

@@ -24,6 +24,7 @@ Fork/Join框架是一个实现了ExecutorService接口的多线程处理器，�
 
 Fork/Join的运行流程大致如下所示：
 
+
 ![fork/join流程图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/fork-join-ba0c0e3f-dc9b-445d-874a-5878503a98f7.png)
 
 需要注意的是，图里的次级子任务可以一直分下去，一直分到子任务足够小为止。用伪代码来表示如下：
@@ -46,6 +47,7 @@ solve(任务):
 工作窃取算法指的是在多线程执行不同任务队列的过程中，某个线程执行完自己队列的任务后从其他线程的任务队列里窃取任务来执行。
 
 工作窃取流程如下图所示：
+
 
 ![工作窃取算法流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/fork-join-819f4ad9-25ce-4e7e-a1d7-e36a70e584a4.png)
 
@@ -120,6 +122,7 @@ private int doJoin() {
 ```
 
 我们在之前介绍过说Thread.join()会使线程阻塞，而ForkJoinPool.join()会使线程免于阻塞，下面是ForkJoinPool.join()的流程图：
+
 ![join流程图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/fork-join-8e03485d-efe0-4edf-8516-a9b10dea6e7f.png)
 
 **RecursiveAction和RecursiveTask**

@@ -40,6 +40,7 @@ OpenStack通过各种补充服务提供基础设施即服务 Infrastructure-as-a
 
 ## openstack 逻辑架构图
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230408115819.png)
 
 OpenStack 本身是一个分布式系统，不但各个服务可以分布部署，服务中的组件也可以分布部署。 这种分布式特性让 OpenStack 具备极大的灵活性、伸缩性和高可用性。 当然从另一个角度讲，这也使得 OpenStack 比一般系统复杂，学习难度也更大。
@@ -100,6 +101,7 @@ OpenStack services
 
 建议使用自动化部署工具，例如Ansible, Chef, Puppet, or Salt来自动化部署，管理生产环境。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230408115834.png)
 
 这个示例架构需要至少2个（主机）节点来启动基础服务`virtual machine <virtual machine (VM)>`或者实例。像块存储服务，对象存储服务这一类服务还需要额外的节点。
@@ -158,11 +160,13 @@ openstack网络是非常复杂的，并且也支持多种模式其中支持GRE�
 
 *   port 可以看做虚拟交换机上的一个端口。port 上定义了 MAC 地址和 IP 地址，当 instance 的虚拟网卡 VIF（Virtual Interface） 绑定到 port 时，port 会将 MAC 和 IP 分配给 VIF。port 与 subnet 是 1对多 关系。一个 port 必须属于某个 subnet；一个 subnet 可以有多个 port。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230408115845.png)
 
 如上图所示，为VLAN模式下，网络节点的通信方式。
 
 在我们后续实施安装的时候，选择使用VXLAN网络模式，下面我们来重点介绍一下VXLAN模式。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230408115856.png)
 

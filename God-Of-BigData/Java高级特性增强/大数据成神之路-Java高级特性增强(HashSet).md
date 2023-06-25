@@ -23,7 +23,9 @@ LinkedHashMap
 
 HashSet 是一个不允许存储重复元素的集合，它的实现比较简单，只要理解了 HashMap，HashSet就水到渠成了。
 
-![77c391135721e3ab98ac61791046d6bc](大数据成神之路-Java高级特性增强(HashSet).resources/8C932B6E-3C26-40E7-B797-EAAE2194E5BF.jpg)
+
+![77c391135721e3ab98ac61791046d6bc](images/大数据成神之路-Java高级特性增强-HashSet.resources/8C932B6E-3C26-40E7-B797-EAAE2194E5BF.jpg)
+
 从图中可以看出：
 1. HashSet继承于AbstractSet，并且实现了Set接口。
 2. HashSet的本质是一个"没有重复元素"的集合，它是通过HashMap实现的。HashSet中含有一个"HashMap类型的成员变量"map，HashSet的操作函数，实际上都是通过map实现的。
@@ -55,7 +57,7 @@ PRESENT: 是所有写入 map 的 value 值。
 构造函数很简单，利用了HashMap初始化了map。
 
 **add**
-```
+```java
 public boolean add(E e) {
         return map.put(e, PRESENT)==null;
     }

@@ -20,6 +20,7 @@ Java 的序列流（ObjectInputStream 和 ObjectOutputStream）是一种可以�
 
 反序列化是指将一个字节序列转换为一个对象，以便在程序中使用。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/serialize-20230323105551.png)
 
 ### 01、ObjectOutputStream

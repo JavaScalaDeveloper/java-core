@@ -506,6 +506,7 @@ Elastic 默认一次返回10条结果，可以通过`size`字段改变这个设�
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-3a3865f474573947.png)
 
 
@@ -544,6 +545,7 @@ Elastic 默认一次返回10条结果，可以通过`size`字段改变这个设�
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-ddbb880dd1a7bcb0.png)
 
 
@@ -553,6 +555,7 @@ Solr 6.2 目录结构
 
 
 启动 Solr 服务之前，确认已经安装 Java 1.8 ：
+
 
 
 
@@ -580,6 +583,7 @@ Solr 将默认监听 8983 端口，其中 -m 1g 指定分配给 JVM 的内存为
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-19bdf6ec1077db99.png)
 
 
@@ -598,6 +602,7 @@ Solr 管理后台
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-9911b7416917ca06.png)
 
 
@@ -607,6 +612,7 @@ my_news 目录结构
 
 
 同时，可以在管理后台看到 my_news：
+
 
 
 
@@ -630,6 +636,7 @@ my_news 目录结构
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-cbc2ba3d84087319.png)
 
 
@@ -648,6 +655,7 @@ fieldType 指定一个字段类型的名称以及在查询/索引的时候可能
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-2657cfb3507d1bae.png)
 
 
@@ -657,6 +665,7 @@ fieldType 指定一个字段类型的名称以及在查询/索引的时候可能
 
 
 在 my_news 目录下创建 lib 目录，将用到的分词插件 ik-analyzer-solr5-5.x.jar 加到 lib 目录，结构如下：
+
 
 
 
@@ -680,6 +689,7 @@ my_news 目录结构
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-5609a84930ed96f0.png)
 
 
@@ -689,6 +699,7 @@ text_ik 类型
 
 
 接下来创建和我们数据库字段对应的 field：title 和 content，类型选为 text_ik：
+
 
 
 
@@ -708,6 +719,7 @@ text_ik 类型
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-ab4dec5179c0f5c3.png)
 
 
@@ -720,11 +732,13 @@ text_ik 类型
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-e3dc609b92f395a1.png)
 
 
 
 类库
+
 
 
 
@@ -746,6 +760,7 @@ dataimport config
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-edc3bb352c36e8c2.png)
 
 
@@ -755,6 +770,7 @@ dataimport config
 
 
 将数据库连接组件 mysql-connector-java-5.1.39-bin.jar 放到 lib 目录下，重启 Solr，访问管理后台，执行全量导入数据：
+
 
 
 
@@ -774,6 +790,7 @@ dataimport config
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-f437d561069eedd2.png)
 
 
@@ -788,6 +805,7 @@ dataimport config
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-73d93e996f0a132c.png)
 
 
@@ -797,6 +815,7 @@ dataimport config
 
 
 在 Solr 管理后台测试搜索结果：
+
 
 
 
@@ -822,6 +841,7 @@ dataimport config
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-09494ec9437338cd.png)
 
 
@@ -831,6 +851,7 @@ dataimport config
 
 
 定义了搜索组件 elevator，应用在 /elevate 的搜索请求中，干预结果的配置文件在 solrconfig.xml 同目录下的 elevate.xml 中，干预配置示例：
+
 
 
 
@@ -848,6 +869,7 @@ dataimport config
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-b12a6ec2234beaef.png)
 
 
@@ -857,6 +879,7 @@ dataimport config
 
 
 当有搜索干预的时候：
+
 
 
 
@@ -880,6 +903,7 @@ dataimport config
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-bc4dfa9a4801846f.png)
 
 
@@ -898,6 +922,7 @@ dataimport config
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19687-ac9e935a3b98661c.png)
 
 
@@ -907,6 +932,7 @@ dataimport config
 
 
 分词插件还可以指定停止词库，将某些无意义的词汇剔出分词结果，比如：“的”、“哼” 等，例如：
+
 
 
 
@@ -1036,13 +1062,16 @@ Solr是用Java编写、运行在Servlet容器（如 Apache Tomcat 或Jetty）的
 
 当单纯的对已有数据进行搜索时，Solr更快。
 
+
 ![](https://user-gold-cdn.xitu.io/2016/12/30/d5944021d5ad35ab6c62e4e56ae21e22.png?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)Search Fesh Index While Idle
 
 当实时建立索引时, Solr会产生io阻塞，查询性能较差, Elasticsearch具有明显的优势。
 
+
 ![](https://user-gold-cdn.xitu.io/2016/12/30/8c908279adf11197d4631c95915fc167.png?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)search_fresh_index_while_indexing
 
 随着数据量的增加，Solr的搜索效率会变得更低，而Elasticsearch却没有明显的变化。
+
 
 ![](https://user-gold-cdn.xitu.io/2016/12/30/931c2f218ae2c0c145279507b4eb0e7b.png?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)search_fresh_index_while_indexing
 
@@ -1051,6 +1080,7 @@ Solr是用Java编写、运行在Servlet容器（如 Apache Tomcat 或Jetty）的
 ## 实际生产环境测试
 
 下图为将搜索引擎从Solr转到Elasticsearch以后的平均查询速度有了50倍的提升。
+
 
 ![](https://user-gold-cdn.xitu.io/2016/12/30/76c108b2590ef4835b114dec4a018b8a.jpg?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)average_execution_time
 

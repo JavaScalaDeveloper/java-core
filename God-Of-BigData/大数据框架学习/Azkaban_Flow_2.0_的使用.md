@@ -291,6 +291,6 @@ nodes:
 
 ## 参考资料
 
-1. [Azkaban Flow 2.0 Design](https://github.com/azkaban/azkaban/wiki/Azkaban-Flow-2.0-Design)
-2. [Getting started with Azkaban Flow 2.0](https://github.com/azkaban/azkaban/wiki/Getting-started-with-Azkaban-Flow-2.0)
+1. [Azkaban Flow 2.0 Design](images/https://github.com/azkaban/azkaban/wiki/Azkaban-Flow-2.0-Design)
+2. [Getting started with Azkaban Flow 2.0](images/https://github.com/azkaban/azkaban/wiki/Getting-started-with-Azkaban-Flow-2.0)
 

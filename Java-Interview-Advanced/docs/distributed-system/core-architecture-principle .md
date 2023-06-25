@@ -24,6 +24,7 @@ Java工程师，Dubbo和Spring Cloud起码是基本原理，都有一定的了�
 
 我们不会让每个视频太长，按照我们大纲来讲，说是60讲，粗略的大纲，其实最终会拆分成可能上百讲，Spring Cloud架构原理，我们就要分为上下两讲来说
 
+
 ![Spring Cloud核心架构原理](images/SpringCloud-core-architecture.png)
 
 ### Spring Cloud

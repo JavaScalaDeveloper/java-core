@@ -20,6 +20,7 @@ head:
 
 `synchronized`是悲观锁，线程开始执行第一步就是获取锁，一旦获得锁，其他的线程进入后就会阻塞等待锁。如果不好理解，举个生活中的例子：一个人进入厕所后首先把门锁上（获取锁），然后开始上厕所，这个时候有其他人来了只能在外面等（阻塞），就算再急也没用。上完厕所完事后把门打开（解锁），其他人就可以进入了。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/cas-973e8804-c713-43f6-9a63-4b9f2be54f10.png)
 
 `CAS`是乐观锁，线程执行的时候不会加锁，假设没有冲突去完成某项操作，如果因为冲突失败了就重试，最后直到成功为止。
@@ -95,6 +96,7 @@ Linux的X86下主要是通过`cmpxchgl`这个指令在CPU级完成CAS操作的�
 上面介绍了Unsafe类的几个支持CAS的方法。那Java具体是如何使用这几个方法来实现原子操作的呢？
 
 JDK提供了一些用于原子操作的类，在`java.util.concurrent.atomic`包下面。在JDK 11中，有如下17个类：
+
 
 ![原子类](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/cas-f6a2281a-d322-4022-8c07-162ccc9dcede.jpg)
 

@@ -11,7 +11,7 @@
 
 <div align="center"> <img  src="../pictures/datasourcetohdfs.png"/> </div>
 
-> 本用例源码下载地址：[storm-hdfs-integration](https://github.com/heibaiying/BigData-Notes/tree/master/code/Storm/storm-hdfs-integration)
+> 本用例源码下载地址：[storm-hdfs-integration](images/https://github.com/heibaiying/BigData-Notes/tree/master/code/Storm/storm-hdfs-integration)
 
 ### 1.2 项目主要依赖
 
@@ -230,7 +230,7 @@ hadoop fs -tail -f /strom-hdfs/文件名
 
 <div align="center"> <img  src="../pictures/WordCountToHBaseApp.png"/> </div>
 
-> 本用例源码下载地址：[storm-hbase-integration](https://github.com/heibaiying/BigData-Notes/tree/master/code/Storm/storm-hbase-integration)
+> 本用例源码下载地址：[storm-hbase-integration](images/https://github.com/heibaiying/BigData-Notes/tree/master/code/Storm/storm-hbase-integration)
 
 ### 2.2 项目主要依赖
 
@@ -485,5 +485,5 @@ SimpleHBaseMapper mapper = new SimpleHBaseMapper()
 
 ## 参考资料
 
-1. [Apache HDFS Integration](http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-hdfs.html)
-2. [Apache HBase Integration](http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-hbase.html)
+1. [Apache HDFS Integration](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-hdfs.html)
+2. [Apache HBase Integration](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-hbase.html)

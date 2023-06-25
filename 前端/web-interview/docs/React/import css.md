@@ -1,6 +1,8 @@
 # 面试官：说说react中引入css的方式有哪几种？区别？
 
- ![](https://static.vue-js.com/7d825230-e217-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/7d825230-e217-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 

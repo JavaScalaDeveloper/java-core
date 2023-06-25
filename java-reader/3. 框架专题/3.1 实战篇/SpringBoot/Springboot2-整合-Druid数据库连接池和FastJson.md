@@ -159,6 +159,7 @@ public class DruidConfiguration {
         servletRegistrationBean.addInitParameter("loginPassword","123456");
 ```
 这是druid监控端的账号和密码，其登录入口的官方url为：[127.0.0.1:8080/druid/login.html](http://127.0.0.1:8080/druid/login.html)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-ee89e6b5e5e954ab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
@@ -234,4 +235,5 @@ public class User {
 }
 ```
 注意` @JSONField(format="yyyy-MM-dd HH:mm:ss")`，如果它能显示出效果，证明druid配置成功。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-60822b4eccac4e03.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

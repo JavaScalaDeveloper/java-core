@@ -11,6 +11,7 @@
 
 这里是整个 8 大步骤的流程图，我会对每个步骤进行细致的讲解。学习的过程中，对照着这个流程图，相信思路会比较清晰。
 
+
 ![hystrix-process](/images/hystrix-process.png)
 
 ### 步骤一：创建 command
@@ -63,6 +64,7 @@ final Future<R> delegate = toObservable().toBlocking().toFuture();
 ```
 
 也就是说，先通过 toObservable() 获得 Future 对象，然后调用 Future 的 get() 方法。那么，其实无论是哪种方式执行 command，最终都是依赖于 toObservable() 去执行的。
+
 
 ![hystrix-process](/images/hystrix-process.png)
 
@@ -121,6 +123,7 @@ observable.subscribe(new Observer<ProductInfo>() {
 **注意**，我们是不可能终止掉一个调用严重延迟的依赖服务的线程的，只能说给你抛出来一个 TimeoutException。
 
 如果没有 timeout，也正常执行的话，那么调用线程就会拿到一些调用依赖服务获取到的结果，然后 Hystrix 也会做一些 logging 记录和 metric 度量统计。
+
 
 ![hystrix-process](/images/hystrix-process.png)
 

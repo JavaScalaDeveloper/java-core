@@ -217,6 +217,7 @@ private static class AutoConfigurationClasses {
 
 在分析 `addToClasses(...)` 的具体逻辑前，我们先来看看 `AutoConfigurationClass` 是个啥：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-fd9c1a4c335951391a33f86a86fe89ff496.png)
 
 可以看到 ，`AutoConfigurationClass` 是类名的包装，并且还保存了 `@AutoConfigureBefore` 与 `@AutoConfigureAfter` 指定的类，以及提供了跟 `@AutoConfigureOrder`、 `@AutoConfigureBefore`、`@AutoConfigureAfter` 相关的一些方法。
@@ -281,6 +282,7 @@ public boolean wasProcessed(String className) {
 ```
 
 可以看到，这个方法仅是判断 `properties` 里是否包含传入的 `className`，`properties` 的内容来自于 `META-INF/spring-autoconfigure-metadata.properties`，内容示例如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-069444fdaa952c6fa8c39576e776275982b.png)
 

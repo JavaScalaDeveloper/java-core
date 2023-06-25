@@ -81,22 +81,34 @@ Maven不仅是构建工具，还是一个依赖管理工具和项目管理工具
 ### maven的安装
 
 一：因为本人是window系统，所以这里只介绍window下如何安装，在安装Maven之前，先确认已经安装了JDK.
-[![image.png](http://www.pianshen.com/images/221/09092452baf3edd653f387516fb8be0d.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-5a7737962f83f677.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
+[
+
+![image.png](http://www.pianshen.com/images/221/09092452baf3edd653f387516fb8be0d.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-5a7737962f83f677.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
 
 二：接着去[Maven官网](https://maven.apache.org/download.cgi)下载界面下载想要的版本解压到你想要的目录就行
-[![image.png](http://www.pianshen.com/images/434/28b5fb0701c54ac4ada5500ed99bdc12.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-16d9fd82c7f938ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
+[
 
-[![image.png](http://www.pianshen.com/images/370/fb1719c12ec1fec62d766168eb5fb2d2.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-7482108a7ff71031.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
+![image.png](http://www.pianshen.com/images/434/28b5fb0701c54ac4ada5500ed99bdc12.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-16d9fd82c7f938ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
+
+[
+
+![image.png](http://www.pianshen.com/images/370/fb1719c12ec1fec62d766168eb5fb2d2.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-7482108a7ff71031.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
 
 三：最后设置一下环境变量，将Maven安装配置到操作系统环境中，主要就是配置M2_HOME和PATH两项，如图
-[![image.png](http://www.pianshen.com/images/162/46a29661ccbce3f798e931c61c9b39aa.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-ffdf167e64415703.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
+[
+
+![image.png](http://www.pianshen.com/images/162/46a29661ccbce3f798e931c61c9b39aa.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-ffdf167e64415703.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
 
 都搞定后，验证一下，打开doc输入 mvn -v如何得到下面信息就说明配置成功了
-[![image.png](http://www.pianshen.com/images/496/373fd8fcc75b3e1af5f038ea33c36aa0.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-c473853017951ebe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
+[
+
+![image.png](http://www.pianshen.com/images/496/373fd8fcc75b3e1af5f038ea33c36aa0.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-c473853017951ebe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
 
 ### maven目录
 
-[![image.png](http://www.pianshen.com/images/307/3244327db95e1096a8f82cf2fc66e62b.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-8a4c77bcc9a4565a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
+[
+
+![image.png](http://www.pianshen.com/images/307/3244327db95e1096a8f82cf2fc66e62b.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-8a4c77bcc9a4565a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
 
 *   bin目录：
     该目录包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的Java系统属性，然后执行Java命令。
@@ -202,7 +214,9 @@ name元素生命了一个对于用户更为友好的项目名称，虽然这不�
 *   import:导入依赖范围。该依赖范围不会对三种classpath产生实际的影响。
     上述除import以外的各种依赖范围与三种classpath的关系如下:
 
-[![image.png](http://www.pianshen.com/images/89/9304bde50143be84e01bb47451e00a99.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-e7cdb7800f523b6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
+[
+
+![image.png](http://www.pianshen.com/images/89/9304bde50143be84e01bb47451e00a99.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-e7cdb7800f523b6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
 
 ### 传递性依赖
 
@@ -215,7 +229,9 @@ name元素生命了一个对于用户更为友好的项目名称，虽然这不�
 
 假设A依赖于B,B依赖于C，我们说A对于B是第一直接依赖，B对于C是第二直接依赖，A对于C是传递性依赖。第一直接依赖和第二直接依赖的范围决定了传递性依赖的范围，如下图所示，最左边一行表示第一直接依赖范围，最上面一行表示第二直接依赖范围，中间的交叉单元格则表示传递依赖范围。
 
-[![image.png](http://www.pianshen.com/images/361/15e6b876f6226edf630f3fc9f92c9ec9.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-9e1e45b117656aac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
+[
+
+![image.png](http://www.pianshen.com/images/361/15e6b876f6226edf630f3fc9f92c9ec9.png "image.png")](http://upload-images.jianshu.io/upload_images/5811881-9e1e45b117656aac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 "image.png")
 
 从上图中，我们可以发现这样的规律：
 

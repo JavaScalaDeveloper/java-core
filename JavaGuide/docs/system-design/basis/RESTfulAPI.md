@@ -3,6 +3,7 @@ title: RestFul API 简明教程
 category: 代码质量
 ---
 
+
 ![](https://oss.javaguide.cn/system-design/basis/2021050713553862.png)
 
 这篇文章简单聊聊后端程序员必备的 RESTful API 相关的知识。
@@ -11,11 +12,13 @@ category: 代码质量
 
 ## 何为 API？
 
+
 ![](https://oss.javaguide.cn/system-design/basis/20210507153833945.png)
 
 **API（Application Programming Interface）** 翻译过来是应用程序编程接口的意思。
 
 我们在进行后端开发的时候，主要的工作就是为前端或者其他后端服务提供 API 比如查询用户数据的 API 。
+
 
 ![](https://oss.javaguide.cn/system-design/basis/20210507130629538.png)
 
@@ -65,6 +68,7 @@ POST   /classes：新建一个班级
 3. 客户端通过特定的 HTTP 动词，对服务器端资源进行操作，实现"表现层状态转化"。
 
 ## RESTful API 规范
+
 
 ![](https://oss.javaguide.cn/system-design/basis/20210507154007779.png)
 

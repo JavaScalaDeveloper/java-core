@@ -13,6 +13,7 @@
 
 首先我们到Nacos的 [Github页面](https://github.com/alibaba/nacos/releases)，找到我们需要安装的版本
 
+
 ![image-20200814144224359](images/image-20200814144224359.png)
 
 因为我现在用的是window，所以我下载了windows版本，也就是 nacos-server.zip
@@ -20,6 +21,7 @@
 > 如果国内环境下载过慢，可以使用 [备用下载地址](https://wws.lanzous.com/i1rAmhrtroj)
 
 下载完成后，我们进行解压缩，然后进入 conf目录，打开 application.properties文件
+
 
 ![image-20200814144515174](images/image-20200814144515174.png)
 
@@ -35,6 +37,7 @@ db.password=root
 ```
 
 配置完成后，我们到项目的doc文件夹，找到数据库脚本 nacos_config.sql
+
 
 ![image-20200814150620395](images/image-20200814150620395.png)
 
@@ -56,6 +59,7 @@ db.password=root
 
 然后我们到nacos目录，双击startup.bat启动
 
+
 ![image-20200814150743682](images/image-20200814150743682.png)
 
 > 注意：如果上述启动出现错误，那么可能是因为集群模式启动出现问题，使用下面命令改成单机模式
@@ -66,6 +70,7 @@ db.password=root
 
 启动成功的页面
 
+
 ![image-20200814150938013](images/image-20200814150938013.png)
 
 项目启动成功后，我们访问 http://localhost:8848/nacos，输入下方的默认密码
@@ -74,9 +79,11 @@ db.password=root
 >
 > 密码：nacos
 
+
 ![image-20200814151027589](images/image-20200814151027589.png)
 
 然后我们点击 配置列表 -> dev，即可查看到我们的配置文件了，如果我们需要修改配置的话，只需要点击编辑
+
 
 ![image-20200814151141045](images/image-20200814151141045.png)
 
@@ -87,6 +94,7 @@ db.password=root
 > 因为我们将Eureka替换成Nacos，所以我们只需要启动服务为
 >
 > mogu-sms、mogu-picture、mogu-admin、mogu-web
+
 
 ![image-20200814154136820](images/image-20200814154136820.png)
 

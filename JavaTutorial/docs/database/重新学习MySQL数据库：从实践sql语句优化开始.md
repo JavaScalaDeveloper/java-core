@@ -330,6 +330,7 @@ id select_type table partitions type possible_keys key key_len ref rows filtered
 
 show global variables like "%slow%";
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/318ac710c3fcf1b293f4a280bbb4642a951.jpg)
 
 2.开启慢查询日志
@@ -339,6 +340,7 @@ set global slow_query_log=on;
 3.查看慢查询日志的设置时间，是否是自己需要的
 
 show global variables like "%long%";
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/25c18a8fbb6cc43a48b554bde844191d75d.jpg)
 
@@ -350,13 +352,16 @@ set global long_query_time=1;
 
 Sql查询语句：select sql_no_cache * from employees_tmp where first_name='Duangkaew' and gender='M'
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/19fa580673fef04c767680a8010c444b786.jpg)
 
 发现查数据的总时间去掉了17.74S
 
 查看日志：打开日志
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/a55efa460d5393061ddb62d6d225d62532a.jpg)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/290fac71753491a5a18fe66015adc1f7687.jpg)
 
@@ -378,6 +383,7 @@ Sql查询语句：select sql_no_cache * from employees_tmp where first_name='Dua
 explain select sql_no_cache * from employees_tmp where first_name='Duangkaew' and gender='M';
 ````
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/c15fd4c1db312050661a019557401f4b1cf.jpg)
 
 描述extra中，表示只使用了where条件，没有其他什么索引之类的
@@ -387,6 +393,7 @@ explain select sql_no_cache * from employees_tmp where first_name='Duangkaew' an
 ````
 create index firstname on employees_tmp(first_name);
 ````
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/325f92967bec30c8fcec3376725d21ea9ad.jpg)
 
@@ -398,6 +405,7 @@ create index firstname on employees_tmp(first_name);
 show index from employees_tmp;
 ````
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/240bdc203ec8db9c4e2f9a1715816dcf928.jpg)
 
 9.在执行查询语句，查看语句的执行时间
@@ -405,6 +413,7 @@ show index from employees_tmp;
 ````
 select sql_no_cache * from employees_tmp where first_name='Duangkaew' and gender='M'
 ````
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/addc98d4a52648e09b8c29f773865cf00ba.jpg)
 
@@ -426,6 +435,7 @@ create index index_gendar on employees_tmp(gender);
 
 为嘛还变长了，这个我没有弄懂
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/d043c97d87b9fa6eb65f17b281db14d4df8.jpg)
 
 12.我们在试试使用创建组合索引，使用性别和姓名
@@ -442,6 +452,7 @@ select sql_no_cache * from employees_tmp where first_name='Duangkaew' and gender
 
 速度提升了N多倍啊
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/a2da1ce647c8e31ec16d9a6750f1e29b014.jpg)
 
 查看创建的索引
@@ -449,6 +460,7 @@ select sql_no_cache * from employees_tmp where first_name='Duangkaew' and gender
 ````
 show index from employees_tmp;
 ````
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/9704ee337b205ce64e31dbe4c12af495c5b.jpg)
 
@@ -504,6 +516,7 @@ select s.* from Student s where s.s_id in (select s_id from SC sc where sc.c_id 
 ```
 EXPLAIN  select s.* from Student s where s.s_id in (select s_id from SC sc where sc.c_id = 0 and sc.score = 100 )
 ```
+
 
 ![image](http://static.codeceo.com/images/2015/04/d70d7123827c0d988fdc69074a97105b.png "image")
 
@@ -679,6 +692,7 @@ SELECT * from user limit **100001**,**20**; //time **0**.151s explain SELECT * f
 
 我们可以用explain分析下语句，没有用到任何索引，MySQL执行的行数是16W+，于是我们可以想用到索引去实现分页
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/d327669b28bc017d62dfe25833ba98245cf.jpg)
 
 ### 优化分页
@@ -690,6 +704,7 @@ SELECT * from user limit **100001**,**20**; //time **0**.151s explain SELECT * f
 使用explain分析语句，MySQL这次扫描的行数是8W+，时间也大大缩短。
 
  explain select * from user where id>(select id from user where id>=**100000** limit **1**) limit **20**;
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/05fffbffc5e3ef9add4719846ad53f25099.jpg)
 

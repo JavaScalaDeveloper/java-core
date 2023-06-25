@@ -254,6 +254,7 @@ public class ServerProperties {
 
 它上面了 `ConfigurationProperties` 注解，`prefix` 为 "server"，这表明它的配置都是以 `server` 开头，支持的配置如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-586d95875e2eeefd295643c3e6acf0091e1.png)
 
 例如，我们要配置它的端口，只需在 `application.properties` 中这样配置即可：
@@ -687,6 +688,7 @@ public class WebMvcProperties {
 ```
 
 很明显，它是个配置类 ，可以看到，它的配置前缀为 `spring.mvc`，支持的配置如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-062f490afbb74e496f50f4cad4bd13ede82.png)
 

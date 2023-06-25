@@ -10,6 +10,7 @@ tag:
 
 我们项目之前用的 Log4j，在我看来，已经足够用了，毕竟是小公司，性能上的要求没那么苛刻。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/logback-320329e9-a754-427f-8a19-2e4f809b6a6f.png)
 
 [Log4j](https://mp.weixin.qq.com/s/AXgNnJe8djD901EmhFkWUg) 介绍过了，[SLF4J](https://mp.weixin.qq.com/s/EhKf1rHWL-QII0f6eo0uVA) 也介绍过了，那接下来，你懂的，Logback 就要隆重地登场了，毕竟它哥仨有一个爹，那就是巨佬 Ceki Gulcu。
@@ -18,17 +19,21 @@ tag:
 
 1）非常自然地实现了 SLF4J，不需要像 Log4j 和 JUL 那样加一个适配层。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/logback-6ba1b465-5533-49dd-b875-48a10ba29f8e.png)
 
 2）Spring Boot 的默认日志框架使用的是 Logback。一旦某款工具库成为了默认选项，那就说明这款工具已经超过了其他竞品。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/logback-2696cd8b-7e8c-4476-9a06-272fd22fa4b6.png)
 
 注意看下图（证据找到了，来自 [Spring Boot 官网](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-logging)）：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/logback-82d78a15-8ae0-4377-a7af-aebd5cda4fda.png)
 
 也可以通过源码的形式看得到：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/logback-2df2d06e-1b01-428b-8444-d765056e25bb.png)
 
@@ -50,6 +55,7 @@ tag:
 ```
 
 Maven 会自动导入另外两个依赖：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/logback-1f7d8e00-4be6-4863-940c-037862ad2c41.png)
 
@@ -119,6 +125,7 @@ StatusPrinter.print(lc);
 
 Logback 的配置文件非常灵活，最基本的结构为 `<configuration>` 元素，包含 0 或多个 `<appender>` 元素，其后跟 0 或多个 `<logger>` 元素，其后再跟最多只能存在一个的 `<root>` 元素。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/logback-b81ab795-2a2c-44c3-a4b8-b96ef78dcd88.png)
 
 
@@ -139,6 +146,7 @@ pattern 用来指定日志的输出格式：
 - `%-5level`：日志的输出级别，填充到 5 个字符。比如说 info 只有 4 个字符，就填充一个空格，这样日志信息就对齐了。
 
 反例（没有指定 -5 的情况）：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/logback-b30bc0ca-5c78-4853-922b-36bb0c7d8628.png)
 
@@ -231,6 +239,7 @@ log4j.appender.E.layout.ConversionPattern = %d{yyyy-MM-dd HH:mm:ss}  [ %t:%r ] -
 
 粘贴到该网址的文本域：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/logback-6c934584-3624-4f40-8108-13bfffc0c40b.png)
 
 点击「Translate」，可以得到以下内容：
@@ -287,6 +296,7 @@ log4j.appender.E.layout.ConversionPattern = %d{yyyy-MM-dd HH:mm:ss}  [ %t:%r ] -
 ```
 
 可以确认一下内容，发现三个 appender 都在。 
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/logback-7a0edcdf-8706-4a83-9c09-413fc07967ad.png)
 
@@ -391,6 +401,7 @@ public class Test {
 ```
 
 运行后，可以在 target 目录下看到两个文件：debug.log 和 errror.log。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/logback-536aa50e-b195-403e-8409-85e4f6966522.png)
 

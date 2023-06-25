@@ -1,6 +1,8 @@
 # 面试官：说说 linux 系统下 文本编辑常用的命令有哪些？
 
- ![](https://static.vue-js.com/1062b8b0-049b-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/1062b8b0-049b-11ec-8e64-91fdec0f05a1.png)
 
 ## 一、是什么
 
@@ -20,7 +22,9 @@
 - 输入模式（Insert mode）
 - 底线命令模式（Last line mode）
 
- ![](https://static.vue-js.com/265a0080-03d6-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/265a0080-03d6-11ec-a752-75723a64e8f5.png)
 
 
 

@@ -43,6 +43,7 @@
 
 本项目结构：
 
+
 ![基于SpirngBoot2.0+ 的 SpringBoot+Mybatis 多数据源配置项目结构](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-30/26886896.jpg)
 
 ### 1.3 创建两个数据库和 user 用户表、money工资详情表
@@ -51,11 +52,13 @@
 
 我们的用户表很简单，只有 4 个字段：用户 id、姓名、年龄、余额。如下图所示：
 
+
 ![用户表信息](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-29/99248060.jpg)
 
 添加了“余额money”字段是为了给大家简单的演示一下事务管理的方式。
 
 我们的工资详情表也很简单，也只有 4 个字段： id、基本工资、奖金和惩罚金。如下图所示：
+
 
 ![工资详情表信息](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-30/55857794.jpg)
 
@@ -270,6 +273,7 @@ public class DataSource2Config {
 ## 三 Dao 层开发和 Service 层开发 
 
 新建两个不同的包存放两个不同数据库的 dao 和 service。
+
 
 
 ![](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-30/72856252.jpg)

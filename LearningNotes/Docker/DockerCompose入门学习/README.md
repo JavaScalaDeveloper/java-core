@@ -244,9 +244,11 @@ redis_1  | 1:M 17 Aug 22:11:10.483 * Ready to accept connections
 
 最后查看服务是否启动成功
 
+
 ![image-20200727212451516](images/image-20200727212451516.png)
 
 使用 docker images命令，我们发现在docker compose中的镜像都已经下载好了
+
 
 ![image-20200727212555232](images/image-20200727212555232.png)
 
@@ -258,6 +260,7 @@ redis_1  | 1:M 17 Aug 22:11:10.483 * Ready to accept connections
 docker network ls
 ```
 
+
 ![image-20200727212932704](images/image-20200727212932704.png)
 
 通过compose构建的服务，compose帮我们维护了，都会在一个网络下面，就可以通过域名访问
@@ -267,6 +270,7 @@ docker network ls
 ```bash
 docker network inspect composetest_default
 ```
+
 
 ![image-20200727213527466](images/image-20200727213527466.png)
 

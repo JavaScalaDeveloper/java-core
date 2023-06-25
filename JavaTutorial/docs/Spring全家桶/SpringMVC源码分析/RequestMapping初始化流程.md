@@ -399,6 +399,7 @@ private void updateConsumesCondition(RequestMappingInfo info, Method method) {
 
 最终，发现具体的注册逻辑是在 `AbstractHandlerMethodMapping#registerHandlerMethod` 中完成的，看来这个就是最终方法了。在分析这个方法前，我们先来看看这一步得到的 `Map<Method, T> methods`:
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-ec6b4b2d2156e0e041982425173feda38fc.png)
 
 可以看到，对应的 `T` 就是 `RequestMappingInfo` 了。
@@ -752,6 +753,7 @@ public boolean isPattern(@Nullable String path) {
    *   `MultiValueMap<String, LinkedList<RequestMappingInfo>>`、
    *   `Map<RequestMappingInfo, HandlerMethod>`(`HandlerMethod` 为 `Method` 的包装类)
    *   `Map<RequestMappingInfo, MappingRegistration<RequestMappingInfo>>`(`MappingRegistration` 为 `RequestMappingInfo`, `HandlerMethod`, `directUrls`, `beanName` 的包装类)；
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-fe807564e60040b262b28977a46a74f60e9.png)
 

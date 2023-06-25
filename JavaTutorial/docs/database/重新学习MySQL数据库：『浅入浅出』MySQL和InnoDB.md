@@ -47,6 +47,7 @@
 
 作为一名开发人员，在日常的工作中会难以避免地接触到数据库，无论是基于文件的 sqlite 还是工程上使用非常广泛的 MySQL、PostgreSQL，但是一直以来也没有对数据库有一个非常清晰并且成体系的认知，所以最近两个月的时间看了几本数据库相关的书籍并且阅读了 MySQL 的官方文档，希望对各位了解数据库的、不了解数据库的有所帮助。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405202853.png)
 本文中对于数据库的介绍以及研究都是在 MySQL 上进行的，如果涉及到了其他数据库的内容或者实现会在文中单独指出。
 
@@ -63,6 +64,7 @@
 
 在 MySQL 中，实例和数据库往往都是一一对应的，而我们也无法直接操作数据库，而是要通过数据库实例来操作数据库文件，可以理解为数据库实例是数据库为上层提供的一个专门用于操作的接口。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405202622.png)
 
 在 Unix 上，启动一个 MySQL 实例往往会产生两个进程，`mysqld`就是真正的数据库服务守护进程，而`mysqld_safe`是一个用于检查和设置`mysqld`启动的控制程序，它负责监控 MySQL 进程的执行，当`mysqld`发生错误时，`mysqld_safe`会对其状态进行检查并在合适的条件下重启。
@@ -70,6 +72,7 @@
 ### MySQL 的架构
 
 MySQL 从第一个版本发布到现在已经有了 20 多年的历史，在这么多年的发展和演变中，整个应用的体系结构变得越来越复杂：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405202911.png)
 
@@ -81,9 +84,11 @@ MySQL 从第一个版本发布到现在已经有了 20 多年的历史，在这�
 
 在 InnoDB 存储引擎中，所有的数据都被**逻辑地**存放在表空间中，表空间（tablespace）是存储引擎中最高的存储逻辑单位，在表空间的下面又包括段（segment）、区（extent）、页（page）：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405202927.png)
 
 同一个数据库实例的所有表空间都有相同的页大小；默认情况下，表空间中的页大小都为 16KB，当然也可以通过改变`innodb_page_size`选项对默认大小进行修改，需要注意的是不同的页大小最终也会导致区大小的不同：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405202938.png)
 
@@ -92,6 +97,7 @@ MySQL 从第一个版本发布到现在已经有了 20 多年的历史，在这�
 ### 如何存储表
 
 MySQL 使用 InnoDB 存储表时，会将**表的定义**和**数据索引**等信息分开存储，其中前者存储在`.frm`文件中，后者存储在`.ibd`文件中，这一节就会对这两种不同的文件分别进行介绍。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203010.png)
 .frm 文件
@@ -103,6 +109,7 @@ MySQL 使用 InnoDB 存储表时，会将**表的定义**和**数据索引**等�
 ```
 
 当我们使用上面的代码创建表时，会在磁盘上的`datadir`文件夹中生成一个`test_frm.frm`的文件，这个文件中就包含了表结构相关的信息：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203026.png)
 > MySQL 官方文档中的[11.1 MySQL .frm File Format](https://dev.mysql.com/doc/internals/en/frm-file-format.html)一文对于`.frm`文件格式中的二进制的内容有着非常详细的表述，在这里就不展开介绍了。
@@ -119,10 +126,12 @@ InnoDB 中用于存储数据的文件总共有两个部分，一是系统表空�
 
 当 InnoDB 存储数据时，它可以使用不同的行格式进行存储；MySQL 5.7 版本支持以下格式的行存储方式：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203135.png)
 > Antelope 是 InnoDB 最开始支持的文件格式，它包含两种行格式 Compact 和 Redundant，它最开始并没有名字；Antelope 的名字是在新的文件格式 Barracuda 出现后才起的，Barracuda 的出现引入了两种新的行格式 Compressed 和 Dynamic；InnoDB 对于文件格式都会向前兼容，而官方文档中也对之后会出现的新文件格式预先定义好了名字：Cheetah、Dragon、Elk 等等。
 
 两种行记录格式 Compact 和 Redundant 在磁盘上按照以下方式存储：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203147.png)
 
@@ -132,9 +141,11 @@ Compact 和 Redundant 格式最大的不同就是记录格式的第一个部分�
 
 当 InnoDB 使用 Compact 或者 Redundant 格式存储极长的 VARCHAR 或者 BLOB 这类大对象时，我们并不会直接将所有的内容都存放在数据页节点中，而是将行数据中的前 768 个字节存储在数据页中，后面会通过偏移量指向溢出页。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203203.png)
 
 但是当我们使用新的行记录格式 Compressed 或者 Dynamic 时都只会在行记录中保存 20 个字节的指针，实际的数据都会存放在溢出页面中。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203320.png)
 
@@ -146,10 +157,12 @@ Compact 和 Redundant 格式最大的不同就是记录格式的第一个部分�
 
 页是 InnoDB 存储引擎管理数据的最小磁盘单位，而 B-Tree 节点就是实际存放表中数据的页面，我们在这里将要介绍页是如何组织和存储记录的；首先，一个 InnoDB 页有以下七个部分：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203334.png)
 每一个页中包含了两对 header/trailer：内部的 Page Header/Page Directory 关心的是页的状态信息，而 Fil Header/Fil Trailer 关心的是记录页的头信息。
 
 在页的头部和尾部之间就是用户记录和空闲空间了，每一个数据页中都包含 Infimum 和 Supremum 这两个**虚拟**的记录（可以理解为占位符），Infimum 记录是比该页中任何主键值都要小的值，Supremum 是该页中的最大值：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203346.png)
 User Records 就是整个页面中真正用于存放行记录的部分，而 Free Space 就是空余空间了，它是一个链表的数据结构，为了保证插入和删除的效率，整个页面并不会按照主键顺序对所有记录进行排序，它会自动从左侧向右寻找空白节点进行插入，行记录在物理存储上并不是按照顺序的，它们之间的顺序是由`next_record`这一指针控制的。
@@ -165,6 +178,7 @@ InnoDB 存储引擎中对数据的存储是一个非常复杂的话题，这一�
 ### 索引的数据结构
 
 在上一节中，我们谈了行记录的存储和页的存储，在这里我们就要从更高的层面看 InnoDB 中对于数据是如何存储的；InnoDB 存储引擎在绝大多数情况下使用 B+ 树建立索引，这是关系型数据库中查找最为常用和有效的索引，但是 B+ 树索引并不能找到一个给定键对应的具体值，它只能找到数据行对应的页，然后正如上一节所提到的，数据库把整个页读入到内存中，并在内存中查找具体的数据行。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203520.png)
 
@@ -184,6 +198,7 @@ InnoDB 存储引擎中的表都是使用索引组织的，也就是按照键的�
 
 如果使用上面的 SQL 在数据库中创建一张表，B+ 树就会使用`id`作为索引的键，并在叶子节点中存储一条记录中的**所有**信息。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203541.png)
 
 > 图中对 B+ 树的描述与真实情况下 B+ 树中的数据结构有一些差别，不过这里想要表达的主要意思是：聚集索引叶节点中保存的是整条行记录，而不是其中的一部分。
@@ -200,9 +215,11 @@ InnoDB 存储引擎中的表都是使用索引组织的，也就是按照键的�
 
 > 一张表一定包含一个聚集索引构成的 B+ 树以及若干辅助索引的构成的 B+ 树。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203552.png)
 
 如果在表`users`中存在一个辅助索引`(first_name, age)`，那么它构成的 B+ 树大致就是上图这样，按照`(first_name, age)`的字母顺序对表中的数据进行排序，当查找到主键时，再通过聚集索引获取到整条行记录。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203606.png)
 
@@ -225,6 +242,7 @@ InnoDB 存储引擎中的表都是使用索引组织的，也就是按照键的�
 
 虽然乐观锁和悲观锁在本质上并不是同一种东西，一个是一种思想，另一个是一种真正的锁，但是它们都是一种并发控制机制。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203616.png)
 
 乐观锁不会存在死锁的问题，但是由于更新后验证，所以当**冲突频率**和**重试成本**较高时更推荐使用悲观锁，而需要非常高的**响应速度**并且**并发量**非常大的时候使用乐观锁就能较好的解决问题，在这时使用悲观锁就可能出现严重的性能问题；在选择并发控制机制时，需要综合考虑上面的四个方面（冲突频率、重试成本、响应速度和并发量）进行选择。
@@ -237,6 +255,7 @@ InnoDB 存储引擎中的表都是使用索引组织的，也就是按照键的�
 *   **互斥锁（写锁）**：允许事务对一条行数据进行删除或更新；
 
 而它们的名字也暗示着各自的另外一个特性，共享锁之间是兼容的，而互斥锁与其他任意锁都不兼容：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203627.png)
 
@@ -252,6 +271,7 @@ InnoDB 存储引擎中的表都是使用索引组织的，也就是按照键的�
 *   **意向互斥锁**：事务想要在获得表中某些记录的互斥锁，需要在表上先加意向互斥锁；
 
 随着意向锁的加入，锁类型之间的兼容矩阵也变得愈加复杂：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203640.png)
 
@@ -305,6 +325,7 @@ Next-Key 锁的作用其实是为了解决幻读的问题，我们会在下一�
 
 既然 InnoDB 中实现的锁是悲观的，那么不同事务之间就可能会互相等待对方释放锁造成死锁，最终导致事务发生错误；想要在 MySQL 中制造死锁的问题其实非常容易：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203653.png)
 两个会话都持有一个锁，并且尝试获取对方的锁时就会发生死锁，不过 MySQL 也能在发生死锁时及时发现问题，并保证其中的一个事务能够正常工作，这对我们来说也是一个好消息。
 
@@ -327,6 +348,7 @@ ISO 和 ANIS SQL 标准制定了四种事务隔离级别，而 InnoDB 遵循了 
 
 MySQL 中默认的事务隔离级别就是`REPEATABLE READ`，但是它通过 Next-Key 锁也能够在某种程度上解决幻读的问题。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203715.png)
 接下来，我们将数据库中创建如下的表并通过个例子来展示在不同的事务隔离级别之下，会发生什么样的问题：
 
@@ -340,12 +362,14 @@ MySQL 中默认的事务隔离级别就是`REPEATABLE READ`，但是它通过 Ne
 
 当事务的隔离级别为`READ UNCOMMITED`时，我们在`SESSION 2`中插入的**未提交**数据在`SESSION 1`中是可以访问的。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203738.png)
 ### 不可重复读
 
 > 在一个事务中，同一行记录被访问了两次却得到了不同的结果。
 
 当事务的隔离级别为`READ COMMITED`时，虽然解决了脏读的问题，但是如果在`SESSION 1`先查询了**一行**数据，在这之后`SESSION 2`中修改了同一行数据并且提交了修改，在这时，如果`SESSION 1`中再次使用相同的查询语句，就会发现两次查询的结果不一样。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203753.png)
 不可重复读的原因就是，在`READ COMMITED`的隔离级别下，存储引擎不会在查询记录时添加行锁，锁定`id = 3`这条记录。
@@ -356,10 +380,12 @@ MySQL 中默认的事务隔离级别就是`REPEATABLE READ`，但是它通过 Ne
 
 重新开启了两个会话`SESSION 1`和`SESSION 2`，在`SESSION 1`中我们查询全表的信息，没有得到任何记录；在`SESSION 2`中向表中插入一条数据并提交；由于`REPEATABLE READ`的原因，再次查询全表的数据时，我们获得到的仍然是空集，但是在向表中插入同样的数据却出现了错误。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203803.png)
 这种现象在数据库中就被称作幻读，虽然我们使用查询语句得到了一个空的集合，但是插入数据时却得到了错误，好像之前的查询是幻觉一样。
 
 在标准的事务隔离级别中，幻读是由更高的隔离级别`SERIALIZABLE`解决的，但是它也可以通过 MySQL 提供的 Next-Key 锁解决：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405203813.png)
 

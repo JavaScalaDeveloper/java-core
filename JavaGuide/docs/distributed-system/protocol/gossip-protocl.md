@@ -18,6 +18,7 @@ tag:
 
 Gossip 直译过来就是闲话、流言蜚语的意思。流言蜚语有什么特点呢？容易被传播且传播速度还快，你传我我传他，然后大家都知道了。
 
+
 ![](./images/gossip/gossip.png)
 
 **Gossip 协议** 也叫 Epidemic 协议（流行病协议）或者 Epidemic propagation 算法（疫情传播算法），别名很多。不过，这些名字的特点都具有 **随机传播特性** （联想一下病毒传播、癌细胞扩散等生活中常见的情景），这也正是 Gossip 协议最主要的特点。
@@ -38,6 +39,7 @@ NoSQL 数据库 Redis 和 Apache Cassandra、服务网格解决方案 Consul 等
 
 我们经常使用的分布式缓存 Redis 的官方集群解决方案（3.0 版本引入） Redis Cluster 就是基于 Gossip 协议来实现集群中各个节点数据的最终一致性。
 
+
 ![](https://oscimg.oschina.net/oscnet/up-fcacc1eefca6e51354a5f1fc9f2919f51ec.png)
 
 Redis Cluster 是一个典型的分布式系统，分布式系统中的各个节点需要互相通信。既然要相互通信就要遵循一致的通信协议，Redis Cluster 中的各个节点基于 **Gossip 协议** 来进行通信共享信息，每个 Redis 节点都维护了一份集群的状态信息。
@@ -50,6 +52,7 @@ Redis Cluster 的节点之间会相互发送多种 Gossip 消息：
 - ......
 
 下图就是主从架构的 Redis Cluster 的示意图，图中的虚线代表的就是各个节点之间使用 Gossip 进行通信 ，实线表示主从复制。
+
 
 ![](./images/gossip/redis-cluster-gossip.png)
 
@@ -79,9 +82,11 @@ Gossip 设计了两种可能的消息传播模式：**反熵（Anti-Entropy）**
 
 伪代码如下：
 
+
 ![](https://oscimg.oschina.net/oscnet/up-df16e98bf71e872a7e1f01ca31cee93d77b.png)
 
 在我们实际应用场景中，一般不会采用随机的节点进行反熵，而是需要可以的设计一个闭环。这样的话，我们能够在一个确定的时间范围内实现各个节点数据的最终一致性，而不是基于随机的概率。像 InfluxDB 就是这样来实现反熵的。
+
 
 ![](./images/gossip/反熵-闭环.png)
 
@@ -98,9 +103,11 @@ Gossip 设计了两种可能的消息传播模式：**反熵（Anti-Entropy）**
 
 如下图所示（下图来自于[INTRODUCTION TO GOSSIP](https://managementfromscratch.wordpress.com/2016/04/01/introduction-to-gossip/) 这篇文章）：
 
+
 ![Gossip 传播示意图](./images/gossip/gossip-rumor- mongering.gif)
 
 伪代码如下：
+
 
 ![](https://oss.javaguide.cn/github/javaguide/csdn/20210605170707933.png)
 

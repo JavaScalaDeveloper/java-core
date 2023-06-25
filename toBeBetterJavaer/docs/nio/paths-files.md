@@ -33,6 +33,7 @@ Path absolutePath = Paths.get("/home/user/example.txt");
 
 java.nio.file.Path 接口在 Java NIO.2 中代表一个文件系统中的路径。它提供了一系列方法来操作和查询路径。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/paths-files-20230404181334.png)
 
 下面是 Paths 和 Path 一起使用的实例：
@@ -352,6 +353,7 @@ public class FindFileWithWalkFileTree {
 在主方法中，我们使用 Files.walkFileTree 方法遍历文件树，并传递一个起始目录和 FindFileVisitor 实例。遍历完成后，我们检查是否找到了目标文件，如果找到了，就打印出它的路径。
 
 搜索结果如下所示：
+
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/paths-files-20230404190926.png)
 

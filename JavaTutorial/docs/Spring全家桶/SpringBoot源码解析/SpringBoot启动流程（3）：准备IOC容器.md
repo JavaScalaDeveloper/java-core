@@ -1,5 +1,6 @@
 上一篇文章总结 springboot 启动流程如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-07a6b491fbe69b8dcbd41e59a8543f06671.png)
 
 接上文，我们继续分析接下来的步骤。
@@ -370,6 +371,7 @@ public class Demo01Application {
 
 因此，`getAllSources()` 返回了一个 set，set 中只有一个元素：`Demo01Application.class`，我们也可以通过调试来验证：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-29dd8056dc457c56e6fe41020516d02fe80.png)
 
 #### 5\. 加载资源
@@ -527,6 +529,7 @@ public @interface Configuration {
 关于 `this.annotatedReader.register(source)` 注册的具体操作，这块在 [spring 分析](https://my.oschina.net/funcy/blog/4527454)中，已经分析过了，这里就不再分析了。
 
 限于篇幅，本文就到这里了，下篇继续分析剩下的流程。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-fba95ddd84c68cdd1757f060ab131478a3c.png)
 

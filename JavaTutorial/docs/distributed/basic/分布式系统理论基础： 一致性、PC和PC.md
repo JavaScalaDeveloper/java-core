@@ -44,6 +44,7 @@
 
 何为一致性问题？简单而言，一致性问题就是相互独立的节点之间如何达成一项决议的问题。分布式系统中，进行数据库事务提交(commit transaction)、Leader选举、序列号生成等都会遇到一致性问题。这个问题在我们的日常生活中也很常见，比如牌友怎么商定几点在哪打几圈麻将：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20160313132041413-375351900.jpg)
 
 _《赌圣》，1990_
@@ -85,7 +86,9 @@ _《赌圣》，1990_
 
 
 
-还能不能一起愉快地玩耍...![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20160313010025194-2394933.png)
+还能不能一起愉快地玩耍...
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20160313010025194-2394933.png)
 
 我们把以上所列的问题称为系统模型(system model)，讨论分布式系统理论和工程实践的时候，必先划定模型。例如有以下两种模型：
 
@@ -98,6 +101,7 @@ _《赌圣》，1990_
 
 FLP定理是分布式系统理论中的基础理论，正如物理学中的能量守恒定律彻底否定了永动机的存在，FLP定理否定了同时满足safety 和 liveness 的一致性协议的存在。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20160314181639599-564845788.jpg)
 
 _《怦然心动 (Flipped)》，2010_   
@@ -107,11 +111,13 @@ _《怦然心动 (Flipped)》，2010_
 
 2PC(tow phase commit)两阶段提交<sup>[5]</sup>顾名思义它分成两个阶段，先由一方进行提议(propose)并收集其他节点的反馈(vote)，再根据反馈决定提交(commit)或中止(abort)事务。我们将提议的节点称为协调者(coordinator)，其他参与决议节点称为参与者(participants, 或cohorts)：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20160313202532507-1396598167.png)
 
 _2PC, phase one_
 
 在阶段1中，coordinator发起一个提议，分别问询各participant是否接受。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20160313203429600-179395429.png)
 
@@ -135,6 +141,7 @@ coordinator如果在发起提议后宕机，那么participant将进入阻塞(blo
 2.  当次决议中，participant间能不能相互知道对方的状态，又或者participant间根本不依赖对方的状态
 
 相比2PC，3PC增加了一个准备提交(prepare to commit)阶段来解决以上问题：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20160314002734304-489496391.png)
 

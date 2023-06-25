@@ -1,3 +1,5 @@
+
+
 ![](images/0.jpg)
 
 ​                                                                                                                                                                           作者：陌溪
@@ -7,6 +9,7 @@
 这阵子很多小伙伴向陌溪吐槽，说蘑菇博客微服务太吃内存了，**1C2G** 的入门服务器根本无法玩转蘑菇。
 
 这阵子陌溪把重心迁移到了蘑菇博客**Go** 版本，同时重新制作了蘑菇博客 **Go** 版本一键部署脚本，让小伙伴们能够快速通过入门服务器 **1C2G** 搭建好蘑菇博客。
+
 
 ![蘑菇博客Go版本](images/image-20211018082336948.png)
 
@@ -24,9 +27,11 @@
 
 > 地址：https://curl.qcloud.com/zry6xub9
 
+
 ![image-20210922215015746](images/image-20210922215015746.png)
 
 选择好 **Centos 7.X** 的版本，然后配置好对应的安全组，陌溪为了测试方便，直接是全部端口都放行的
+
 
 ![image-20210922215651575](images/image-20210922215651575.png)
 
@@ -37,6 +42,7 @@ wget http://oss.moguit.cn/script/moguGoInit.sh && chmod +x moguGoInit.sh && sh m
 ```
 
 执行后，并会开始进行 **Go** 版所需的环境安装，比如 **校验版本**；判断是否安装 **docker**；判断是否安装 **docker-compose** 等等。
+
 
 ![image-20211105082615855](images/image-20211105082615855.png)
 
@@ -50,11 +56,13 @@ wget http://oss.moguit.cn/script/moguGoInit.sh && chmod +x moguGoInit.sh && sh m
 - **redis**：缓存
 - **mysql**：数据库
 
+
 ![image-20211105082844847](images/image-20211105082844847.png)
 
 ## 修改配置
 
 启动完成后，访问 **http://your_ip:9527**  即可进入到门户页面
+
 
 ![image-20211105084505405](images/image-20211105084505405.png)
 
@@ -64,13 +72,16 @@ wget http://oss.moguit.cn/script/moguGoInit.sh && chmod +x moguGoInit.sh && sh m
 
 登录成功后，点击 **Buckets**，找到 **mogublog**，然后在点击 **Manage** 进行设置。
 
+
 ![image-20211105085534407](images/image-20211105085534407.png)
 
 修改对应的桶的访问权限 
 
+
 ![image-20211105085757488](images/image-20211105085757488.png)
 
 由 **private** ->  **public**，这样就可以允许访问了。
+
 
 ![image-20211105085856144](images/image-20211105085856144.png)
 
@@ -84,13 +95,16 @@ wget http://oss.moguit.cn/script/moguGoInit.sh && chmod +x moguGoInit.sh && sh m
 
 登录系统后，找到 **系统配置**，然后选择 **Minio对象存储** ，将上述的 **ip** 地址，修改为自己云服务器的。
 
+
 ![image-20211105090043412](images/image-20211105090043412.png)
 
 配置完成后，再到 **图片管理**，上传图片即可
 
+
 ![image-20211105090304914](images/image-20211105090304914.png)
 
 最后回到博客管理，给文章添加对应的标题图即可正常显示了~
+
 
 ![image-20211105090614113](images/image-20211105090614113.png)
 

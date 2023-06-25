@@ -18,7 +18,7 @@
 
 ### 向Kafka发消息模拟购买事件
 
-```
+```java
 public class KafkaProducer {
 
 
@@ -43,7 +43,7 @@ public class KafkaProducer {
 ```
 其中的：`MyNoParalleSource` 是作者自己实现的一个并行度为1的发送器，用来向kafka发送数据：
 
-```
+```java
 public class MyNoParalleSource implements SourceFunction<String> {//1
 
     //private long count = 1L;
@@ -87,7 +87,7 @@ public class MyNoParalleSource implements SourceFunction<String> {//1
 
 整体实现代码如下：
 
-```
+```java
 public class TopN {
 
 	public static void main(String[] args) throws Exception{

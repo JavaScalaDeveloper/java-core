@@ -8,6 +8,7 @@ TIM 迅雷 用crossover安装，微信 百度云 用flatpak安装，redis-manage
 ###   1. flatpak
 >Linux 上应用程序的未来。Flatpak是用于在Linux上构建和分发桌面应用程序的下一代技术,使用Flatpak，每个应用程序都在隔离的环境中构建和运行。
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-6b8738fa662816c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 官方网站：https://flatpak.org/
@@ -108,6 +109,7 @@ Wine与 Crossover 的本质区别就是 Crossover 是商业版的Wine; Wine 是�
 
 #####    下载
 官方链接：http://www.crossoverchina.com/xiazai.html
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-72d81cac5ab34ca1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 直接运行rpm包或者命令`rpm -ivh crossoverxxxx.rpm`进行安装。
@@ -122,6 +124,7 @@ Wine与 Crossover 的本质区别就是 Crossover 是商业版的Wine; Wine 是�
 >官方使用手册：http://www.crossoverchina.com/rumen/ ，可以从本地安装也可以从app store中安装，当然，本地安装一般用不了，除非老版本的应用~
 
 主要介绍从它本身应用市场中安装，下面是截图：
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-584fc4687b077137.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 软件本身就有应用市场，可以直接搜。也可以安装本地的exe文件，但是不能保证可用，自己要琢磨，多百度。
@@ -131,6 +134,7 @@ Wine与 Crossover 的本质区别就是 Crossover 是商业版的Wine; Wine 是�
 安装官网：https://www.folkswithhats.org/
 
 它的使用比较方便，直接打开后用鼠标点击安装即可。
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-c8dcad9f1c1dba82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -190,6 +194,7 @@ sudo snap install vlc
 ```
 /snap/bin/redis-desktop-manager.rdm
 ```
+
 ![我用它安装的redis-desktop](https://upload-images.jianshu.io/upload_images/5786888-b6bc384a518e61da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ######   列出已安装的应用：

@@ -41,6 +41,7 @@
 
 小梁的邮件里说了一个RPC调用的问题，本来公司的架构组开发了一个RPC框架让各个组去使用，但是各开发小组纷纷抱怨：这个RPC框架不支持动态的服务注册和发现。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/640.webp)
 
 张大胖一看这个图就明白怎么回事了，为了支持高并发，OrderService被部署了4份，每个客户端都保存了一份服务提供者的列表，但是这个列表是静态的（在配置文件中写死的），如果服务的提供者发生了变化，例如有些机器down了，或者又新增了OrderService的实例，客户端根本不知道，可能还在傻乎乎地尝试那些已经坏掉的实例呢！
@@ -53,15 +54,18 @@
 
 张大胖想到，应该有个注册中心，首先给这些服务命名（例如orderService），其次那些OrderService 都可以在这里注册一下，客户端就到这里来查询，只需要给出名称orderService，注册中心就可以给出一个可以使用的url， 再也不怕服务提供者的动态增减了。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/640.webp)
 
 不知道是不是下意识的行为，**张大胖把这个注册中心的数据结构设计成为了一个树形结构**：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/640.webp)
 
 /orderService 表达了一个服务的概念， 下面的每个节点表示了一个服务的实例。 例如/orderService/node2表示的order service 的第二个实例， 每个节点上可以记录下该实例的url , 这样就可以查询了。
 
 当然这个注册中心必须得能和各个服务实例通信，如果某个服务实例不幸down掉了，那它在树结构中对于的节点也必须删除， 这样客户端就查询不到了。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407205952.png)
 
@@ -72,6 +76,7 @@
 ## 小王的Master选举
 
 小王邮件中说的是三个Batch Job的协调问题，这三个Batch Job 部署在三台机器上，但是这三个Batch Job同一个时刻只能有一个运行，如果其中某个不幸down掉，剩下的两个就需要做个选举，选出来的那个Batch Job 需要“继承遗志”，继续工作。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/640.webp)
 
@@ -89,9 +94,11 @@
 
 其实不是吼一声，三个Batch Job启动以后，都去注册中心争抢着去创建一个树的节点（例如/master ），谁创建成功谁就是Master （**当然注册中心必须保证只能创建成功一次，其他请求就失败了**），其他两个Batch Job就对这个节点虎视眈眈地监控，如果这个节点被删除，就开始新一轮争抢，去创建那个/master节点。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210038.png)
 
 什么时候节点会被删除呢？ 对，就是当前Master的机器down掉了 ！ 很明显，注册中心也需要和各个机器通信，看看他们是否活着。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210049.png)
 
@@ -107,6 +114,7 @@
 
 小蔡的邮件里说的问题更加麻烦，有多个不同的系统（当然是分布在不同的机器上！），要对同一个资源操作。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210101.png)
 
 这要是在一个机器上，使用某个语言内置的锁就可以搞定，例如Java的synchronized ， 但是现在是分布式啊，程序都跑在不同机器的不同进程中， synchcronized一点用都没有了！
@@ -119,15 +127,18 @@
 
 如果让这些系统在注册中心的/distribute_lock下都创建子节点， 然后给每个系统一个编号，会是这个样子：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210111.png)
 
 然后各个系统去检查自己的编号，谁的编号小就认为谁持有了锁， 例如系统1。
 
 系统1持有了锁，就可以对共享资源进行操作了， 操作完成以后process_01这个节点删除， 再创建一个新的节点（编号变成process_04了）：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210450.png)
 
 其他系统一看，编号为01的删除了，再看看谁是最小的吧，是process_02，那就认为系统2持有了锁，可以对共享资源操作了。 操作完成以后也要把process_02节点删除，创建新的节点。这时候process_03就是最小的了，可以持有锁了。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407210132.png)
 

@@ -1,6 +1,8 @@
 # 面试官：说说对React Hooks的理解？解决了什么问题？
 
- ![](https://static.vue-js.com/8d357c50-e12e-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/8d357c50-e12e-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 

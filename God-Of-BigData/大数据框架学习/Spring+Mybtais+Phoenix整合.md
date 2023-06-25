@@ -23,8 +23,8 @@
 
 使用 Spring+Mybatis 操作 Phoenix 和操作其他的关系型数据库（如 Mysql，Oracle）在配置上是基本相同的，下面会分别给出 Spring/Spring Boot 整合步骤，完整代码见本仓库：
 
-+ [Spring + Mybatis + Phoenix](https://github.com/heibaiying/BigData-Notes/tree/master/code/Phoenix/spring-mybatis-phoenix)
-+ [SpringBoot + Mybatis + Phoenix](https://github.com/heibaiying/BigData-Notes/tree/master/code/Phoenix/spring-boot-mybatis-phoenix)
++ [Spring + Mybatis + Phoenix](images/https://github.com/heibaiying/BigData-Notes/tree/master/code/Phoenix/spring-mybatis-phoenix)
++ [SpringBoot + Mybatis + Phoenix](images/https://github.com/heibaiying/BigData-Notes/tree/master/code/Phoenix/spring-boot-mybatis-phoenix)
 
 ## 二、Spring + Mybatis + Phoenix
 
@@ -112,7 +112,7 @@ phoenix.url=jdbc:phoenix:192.168.0.105:2181
 
 ### 2.5 Mybtais参数配置
 
-新建 mybtais 配置文件，按照需求配置额外参数， 更多 settings 配置项可以参考[官方文档](http://www.mybatis.org/mybatis-3/zh/configuration.html)
+新建 mybtais 配置文件，按照需求配置额外参数， 更多 settings 配置项可以参考[官方文档](images/http://www.mybatis.org/mybatis-3/zh/configuration.html)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>

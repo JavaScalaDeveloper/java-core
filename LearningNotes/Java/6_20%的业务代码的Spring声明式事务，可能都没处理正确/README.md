@@ -132,6 +132,7 @@ public void createUserPublic(UserEntity entity) {
 
 this 指针代表对象自己，Spring 不可能注入 this，所以通过 this 访问方法必然不是代理。
 
+
 ![img](images/b077c033fa394353309fbb4f8368e46c.png)
 
 把 this 改为 self 后测试发现，在 Controller 中调用 createUserRight 方法可以验证事务是生效的，非法的用户注册操作可以回滚。
@@ -151,6 +152,7 @@ public int right2(@RequestParam("name") String name) {
 ```
 
 我们再通过一张图来回顾下 this 自调用、通过 self 调用，以及在 Controller 中调用 UserService 三种实现的区别：
+
 
 ![img](images/c43ea620b0b611ae194f8438506d7570.png)
 
@@ -525,6 +527,7 @@ public void createUserRight(UserEntity entity) {
 ```
 
 运行测试程序看到如下结果，getUserCount 得到的用户数量为 1，代表只有一个用户也就是主用户注册完成了，符合预期：
+
 
 ![img](images/3bd9c32b5144025f1a2de5b4ec436ff8.png)
 

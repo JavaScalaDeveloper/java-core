@@ -1,6 +1,8 @@
 # 面试官：说说对WebSocket的理解？应用场景？
 
- ![](https://static.vue-js.com/a358a8c0-c0f1-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/a358a8c0-c0f1-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 
@@ -8,7 +10,9 @@ WebSocket，是一种网络传输协议，位于`OSI`模型的应用层。可在
 
 客户端和服务器只需要完成一次握手，两者之间就可以创建持久性的连接，并进行双向数据传输
 
- ![](https://static.vue-js.com/ad386e20-c0f1-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/ad386e20-c0f1-11eb-85f6-6fac77c0c9b3.png)
 
 从上图可见，`websocket`服务器与客户端通过握手连接，连接成功后，两者都能主动的向对方发送或接受数据
 

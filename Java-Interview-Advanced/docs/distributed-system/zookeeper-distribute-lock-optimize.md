@@ -1,4 +1,5 @@
 
+
 ![zookeeper-distribute-lock-optimize](images/zookeeper-distribute-lock-optimize.png)
 也可以，羊群效应
 

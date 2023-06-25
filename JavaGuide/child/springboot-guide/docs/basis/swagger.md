@@ -29,6 +29,7 @@ Swagger3.0 官方已经有了自己的 Spring Boot Starter，只需要添加一�
 
 什么都不用配置！直接在浏览器中访问 :[http://ip:port/swagger-ui/](http://ip:port/swagger-ui/) 即可。
 
+
 ![](https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images-6@main/12-08-1/swagger%E5%9C%A8SpringBoot%E4%B8%AD%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8.png)
 
 ## Spring Security 项目中如何使用？
@@ -67,6 +68,7 @@ Swagger3.0 官方已经有了自己的 Spring Boot Starter，只需要添加一�
 ### 登录后自动为请求添加 token
 
 通过这种方式我们只需要授权一次即可使用所有需要授权的接口。
+
 
 ![](https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images-6@main/12-15-1/%E7%99%BB%E5%BD%95%E5%90%8E%E8%87%AA%E5%8A%A8%E4%B8%BA%E8%AF%B7%E6%B1%82%E6%B7%BB%E5%8A%A0token.png)
 
@@ -119,15 +121,18 @@ public class SwaggerConfig {
 
 **未登录前：**
 
+
 ![](https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images-6@main/12-15-1/%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0token-%E7%99%BB%E5%BD%95%E5%89%8D.png)
 
 **登录后：**
+
 
 ![](https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images-6@main/12-15-1/%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0token-%E7%99%BB%E5%BD%95%E5%90%8E.png)
 
 ### 为请求的 Header 添加一个认证参数
 
 每次请求的时候，我们需要手动输入 token 到指定位置。
+
 
 ![](https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images-6@main/12-15-1/%E4%B8%BA%E8%AF%B7%E6%B1%82%E7%9A%84Header%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E8%AE%A4%E8%AF%81%E5%8F%82%E6%95%B0.png)
 
@@ -191,11 +196,13 @@ public class SwaggerConfig {
 
 效果如下。可以看出，相比于 swagger 原生 ui 确实好看实用了很多。
 
+
 ![](https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images-6@main/12-08-1/image-20201211214120861.png)
 
 除了 UI 上的增强之外，knife4j 还提供了一些开箱即用的功能。
 
 比如：**搜索 API 接口** （`knife4j` 版本>2.0.1 ）
+
 
 ![](https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images-6@main/12-08-1/image-20201211214620338.png)
 
@@ -210,6 +217,7 @@ public class SwaggerConfig {
 > - PDF:未实现
 
 以 HTML 格式导出的效果图如下。
+
 
 ![](https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images-6@main/12-08-1/image-20201211215552314.png)
 

@@ -21,6 +21,7 @@ tag:
 
 **IP 头部格式** :
 
+
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/843fd07074874ee0b695eca659411b42~tplv-k3u1fbpfcp-zoom-1.image)
 
 ### IP 欺骗技术是什么？
@@ -32,6 +33,7 @@ IP 欺骗技术就是**伪造**某台主机的 IP 地址的技术。通过 IP �
 假设现在有一个合法用户 **(1.1.1.1)** 已经同服务器建立正常的连接，攻击者构造攻击的 TCP 数据，伪装自己的 IP 为 **1.1.1.1**，并向服务器发送一个带有 RSI 位的 TCP 数据段。服务器接收到这样的数据后，认为从 **1.1.1.1** 发送的连接有错误，就会清空缓冲区中建立好的连接。
 
 这时，如果合法用户 **1.1.1.1** 再发送合法数据，服务器就已经没有这样的连接了，该用户就必须从新开始建立连接。攻击时，伪造大量的 IP 地址，向目标发送 RST 数据，使服务器不对合法用户服务。虽然 IP 地址欺骗攻击有着相当难度，但我们应该清醒地意识到，这种攻击非常广泛，入侵往往从这种攻击开始。
+
 
 ![IP 欺骗 DDoS 攻击](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7547a145adf9404aa3a05f01f5ca2e32~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -48,11 +50,13 @@ SYN Flood 是互联网上最原始、最经典的 DDoS（Distributed Denial of S
 SYN Flood 利用了 TCP 协议的三次握手机制，攻击者通常利用工具或者控制僵尸主机向服务器发送海量的变源 IP 地址或变源端口的 TCP SYN 报文，服务器响应了这些报文后就会生成大量的半连接，当系统资源被耗尽后，服务器将无法提供正常的服务。
 增加服务器性能，提供更多的连接能力对于 SYN Flood 的海量报文来说杯水车薪，防御 SYN Flood 的关键在于判断哪些连接请求来自于真实源，屏蔽非真实源的请求以保障正常的业务请求能得到服务。
 
+
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2b3d2d4dc8f24890b5957df1c7d6feb8~tplv-k3u1fbpfcp-zoom-1.image)
 
 ### TCP SYN Flood 攻击原理是什么？
 
 **TCP SYN Flood** 攻击利用的是 **TCP** 的三次握手（**SYN -> SYN/ACK -> ACK**），假设连接发起方是 A，连接接受方是 B，即 B 在某个端口（**Port**）上监听 A 发出的连接请求，过程如下图所示，左边是 A，右边是 B。
+
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a39355a1ea404323a11ca6644e009183~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -70,6 +74,7 @@ A 首先发送 **SYN**（Synchronization）消息给 B，要求 B 做好接收�
 但实际情况是，网络可能不稳定会丢包，使握手消息不能抵达对方，也可能是对方故意不按规矩来，故意延迟或不发送握手确认消息。
 
 假设 B 通过某 **TCP** 端口提供服务，B 在收到 A 的 **SYN** 消息时，积极的反馈了 **SYN-ACK** 消息，使连接进入**半开状态**，因为 B 不确定自己发给 A 的 **SYN-ACK** 消息或 A 反馈的 ACK 消息是否会丢在半路，所以会给每个待完成的半开连接都设一个**Timer**，如果超过时间还没有收到 A 的 **ACK** 消息，则重新发送一次 **SYN-ACK** 消息给 A，直到重试超过一定次数时才会放弃。
+
 
 ![图片](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7ff1daddcec44d61994f254e664987b4~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -118,6 +123,7 @@ B 为帮助 A 能顺利连接，需要**分配内核资源**维护半开连接�
 
 由于目标服务器利用资源检查并响应每个接收到的 **UDP** 数据包的结果，当接收到大量 **UDP** 数据包时，目标的资源可能会迅速耗尽，导致对正常流量的拒绝服务。
 
+
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/23dbbc8243a84ed181e088e38bffb37a~tplv-k3u1fbpfcp-zoom-1.image)
 
 ### 如何缓解 UDP Flooding？
@@ -129,6 +135,7 @@ B 为帮助 A 能顺利连接，需要**分配内核资源**维护半开连接�
 ### HTTP Flood 是什么？
 
 HTTP Flood 是一种大规模的 DDoS（Distributed Denial of Service，分布式拒绝服务）攻击，旨在利用 HTTP 请求使目标服务器不堪重负。目标因请求而达到饱和，且无法响应正常流量后，将出现拒绝服务，拒绝来自实际用户的其他请求。
+
 
 ![HTTP 洪水攻击](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/aa64869551d94c8d89fa80eaf4395bfa~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -156,6 +163,7 @@ HTTP 洪水攻击有两种：
 域名系统（DNS）服务器是互联网的“电话簿“；互联网设备通过这些服务器来查找特定 Web 服务器以便访问互联网内容。DNS Flood 攻击是一种分布式拒绝服务（DDoS）攻击，攻击者用大量流量淹没某个域的 DNS 服务器，以尝试中断该域的 DNS 解析。如果用户无法找到电话簿，就无法查找到用于调用特定资源的地址。通过中断 DNS 解析，DNS Flood 攻击将破坏网站、API 或 Web 应用程序响应合法流量的能力。很难将 DNS Flood 攻击与正常的大流量区分开来，因为这些大规模流量往往来自多个唯一地址，查询该域的真实记录，模仿合法流量。
 
 ### DNS Flood 的攻击原理是什么？
+
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/97ea11a212924900b10d159226783887~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -210,11 +218,13 @@ $ nc 127.0.0.1 8000
 
 该命令会尝试与上面的服务建立连接，在其中一个窗口输入一些字符，就会通过 TCP 连接发送给另一个窗口并打印出来。
 
+
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df0508cbf26446708cf98f8ad514dbea~tplv-k3u1fbpfcp-zoom-1.image)
 
 > 嗅探流量
 
 编写一个攻击程序，使用 Python 网络库 `scapy` 来读取两个终端窗口之间交换的数据，并将其打印到终端上。代码比较长，下面为一部份，完整代码后台回复 TCP 攻击，代码的核心是调用 `scapy` 的嗅探方法：
+
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/27feb834aa9d4b629fd938611ac9972e~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -251,6 +261,7 @@ $ nc 127.0.0.1 8000
 ### 什么是中间人?
 
 攻击中间人攻击英文名叫 Man-in-the-MiddleAttack，简称「MITM 攻击」。指攻击者与通讯的两端分别创建独立的联系，并交换其所收到的数据，使通讯的两端认为他们正在通过一个私密的连接与对方 直接对话，但事实上整个会话都被攻击者完全控制。我们画一张图：
+
 
 ![图片](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d69b74e63981472b852797f2fa08976f~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -292,6 +303,7 @@ $ nc 127.0.0.1 8000
 
 同样的，举个例子。Sum 和 Mike 两个人签合同。Sum 首先用 **SHA** 算法计算合同的摘要，然后用自己私钥将摘要加密，得到数字签名。Sum 将合同原文、签名，以及公钥三者都交给 Mike
 
+
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e4b7d6fca78b45c8840c12411b717f2f~tplv-k3u1fbpfcp-zoom-1.image)
 
 如果 Sum 想要证明合同是 Mike 的，那么就要使用 Mike 的公钥，将这个签名解密得到摘要 x，然后 Mike 计算原文的 sha 摘要 Y，随后对比 x 和 y，如果两者相等，就认为数据没有被篡改
@@ -308,6 +320,7 @@ $ nc 127.0.0.1 8000
 
 对称加密，顾名思义，加密方与解密方使用同一钥匙(秘钥)。具体一些就是，发送方通过使用相应的加密算法和秘钥，对将要发送的信息进行加密；对于接收方而言，使用解密算法和相同的秘钥解锁信息，从而有能力阅读信息。
 
+
 ![图片](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef81cb5e2f0a4d3d9ac5a44ecf97e3cc~tplv-k3u1fbpfcp-zoom-1.image)
 
 #### 常见的对称加密算法有哪些？
@@ -315,6 +328,7 @@ $ nc 127.0.0.1 8000
 **DES**
 
 DES 使用的密钥表面上是 64 位的，然而只有其中的 56 位被实际用于算法，其余 8 位可以被用于奇偶校验，并在算法中被丢弃。因此，**DES** 的有效密钥长度为 56 位，通常称 **DES** 的密钥长度为 56 位。假设秘钥为 56 位，采用暴力破 Jie 的方式，其秘钥个数为 2 的 56 次方，那么每纳秒执行一次解密所需要的时间差不多 1 年的样子。当然，没人这么干。**DES** 现在已经不是一种安全的加密方法，主要因为它使用的 56 位密钥过短。
+
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9eb3a2bf6cf14132a890bc3447480eeb~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -332,11 +346,13 @@ DES 使用的密钥表面上是 64 位的，然而只有其中的 56 位被实�
 
 **总结**：
 
+
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/578961e3175540e081e1432c409b075a~tplv-k3u1fbpfcp-zoom-1.image)
 
 #### 常见的非对称加密算法有哪些？
 
 在对称加密中，发送方与接收方使用相同的秘钥。那么在非对称加密中则是发送方与接收方使用的不同的秘钥。其主要解决的问题是防止在秘钥协商的过程中发生泄漏。比如在对称加密中，小蓝将需要发送的消息加密，然后告诉你密码是 123balala,ok,对于其他人而言，很容易就能劫持到密码是 123balala。那么在非对称的情况下，小蓝告诉所有人密码是 123balala,对于中间人而言，拿到也没用，因为没有私钥。所以，非对称密钥其实主要解决了密钥分发的难题。如下图
+
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/153cf04a0ecc43c38003f3a1ab198cc0~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -350,6 +366,7 @@ DES 使用的密钥表面上是 64 位的，然而只有其中的 56 位被实�
 - SM2：同样基于椭圆曲线问题设计。最大优势就是国家认可和大力支持。
 
 总结：
+
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/28b96fb797904d4b818ee237cdc7614c~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -371,6 +388,7 @@ MD5 可以用来生成一个 128 位的消息摘要，它是目前应用比较�
 
 **总结**：
 
+
 ![图片](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/79c3c2f72d2f44c7abf2d73a49024495~tplv-k3u1fbpfcp-zoom-1.image)
 
 **大部分情况下使用对称加密，具有比较不错的安全性。如果需要分布式进行秘钥分发，考虑非对称。如果不需要可逆计算则散列算法。** 因为这段时间有这方面需求，就看了一些这方面的资料，入坑信息安全，就怕以后洗发水都不用买。谢谢大家查看！
@@ -383,6 +401,7 @@ MD5 可以用来生成一个 128 位的消息摘要，它是目前应用比较�
 
 证书之所以会有信用，是因为证书的签发方拥有信用。所以如果 Sum 想让 Mike 承认自己的公钥，Sum 不会直接将公钥给 Mike ，而是提供由第三方机构，含有公钥的证书。如果 Mike 也信任这个机构，法律都认可，那 ik，信任关系成立
 
+
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b1a3dbf87e3e41ff894f39512a10f66d~tplv-k3u1fbpfcp-zoom-1.image)
 
 如上图所示，Sum 将自己的申请提交给机构，产生证书的原文。机构用自己的私钥签名 Sum 的申请原文（先根据原文内容计算摘要，再用私钥加密），得到带有签名信息的证书。Mike 拿到带签名信息的证书，通过第三方机构的公钥进行解密，获得 Sum 证书的摘要、证书的原文。有了 Sum 证书的摘要和原文，Mike 就可以进行验签。验签通过，Mike 就可以确认 Sum 的证书的确是第三方机构签发的。
@@ -390,6 +409,7 @@ MD5 可以用来生成一个 128 位的消息摘要，它是目前应用比较�
 用上面这样一个机制，合同的双方都无法否认合同。这个解决方案的核心在于需要第三方信用服务机构提供信用背书。这里产生了一个最基础的信任链，如果第三方机构的信任崩溃，比如被黑客攻破，那整条信任链条也就断裂了
 
 为了让这个信任条更加稳固，就需要环环相扣，打造更长的信任链，避免单点信任风险
+
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1481f0409da94ba6bb0fee69bf0996f8~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -406,6 +426,7 @@ MD5 可以用来生成一个 128 位的消息摘要，它是目前应用比较�
 ### 中间人攻击如何避免?
 
 既然知道了中间人攻击的原理也知道了他的危险，现在我们看看如何避免。相信我们都遇到过下面这种状况：
+
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0dde4b76be6240699312d822a3fe1ed3~tplv-k3u1fbpfcp-zoom-1.image)
 

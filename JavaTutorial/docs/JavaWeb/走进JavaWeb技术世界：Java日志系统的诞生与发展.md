@@ -81,6 +81,7 @@ oldD-logging.jar开发完成之后，需要把原来的xiaoC-logging.jar中的�
 3.  Log4j2：  一个具体的日志实现框架，是LOG4J1的下一个版本，与Log4j 1发生了很大的变化，Log4j 2不兼容Log4j 1。
 4.  Logback：一个具体的日志实现框架，和Slf4j是同一个作者，但其性能更好。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405154329.png)
 
 ## 二、发展历程
@@ -102,6 +103,7 @@ oldD-logging.jar开发完成之后，需要把原来的xiaoC-logging.jar中的�
 在程序中日志创建和记录都是用JCL中的接口，在真正运行时，会看当前ClassPath中有什么实现，如果有Log4j 就是用 Log4j, 如果啥都没有就是用 JDK 的 JUL。
 这样，在你的项目中，还有第三方的项目中，大家记录日志都使用 JCL 的接口，然后最终运行程序时，可以按照自己的需求(或者喜好)来选择使用合适的Log Implementation。如果用Log4j, 就添加 Log4j 的jar包进去，然后写一个 Log4j 的配置文件；如果喜欢用JUL，就只需要写个 JUL 的配置文件。如果有其他的新的日志库出现，也只需要它提供一个Adapter，运行的时候把这个日志库的 jar 包加进去。
 不过，commons-logging对Log4j和j.u.l的配置问题兼容的并不好，使用commons-loggings还可能会遇到类加载问题，导致NoClassDefFoundError的错误出现。
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405154402.png)
@@ -145,6 +147,7 @@ Logback相较于log4j有更多的优点：
 
 现在事情就变复杂了。我们有了两个流行的 Log Facade，以及三个流行的 Log Implementation。Gülcü 是个追求完美的人，他决定让这些Log之间都能够方便的互相替换，所以做了各种 Adapter 和 Bridge 来连接:
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405154425.png)
 
 可以看到甚至 Log4j 和 JUL 都可以桥接到SLF4J，再通过 SLF4J 适配到到 Logback！需要注意的是不能有循环的桥接，比如下面这些依赖就不能同时存在:
@@ -162,6 +165,7 @@ Log4j2
 Log4j2 和 Log4j1.x 并不兼容，设计上很大程度上模仿了 SLF4J/Logback，性能上也获得了很大的提升。Log4j2 也做了 Facade/Implementation 分离的设计，分成了 log4j-api 和 log4j-core。
 
 现在好了，我们有了三个流行的Log 接口和四个流行的Log实现，如果画出桥接关系的图来回事什么样子呢?
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405154503.png)
 

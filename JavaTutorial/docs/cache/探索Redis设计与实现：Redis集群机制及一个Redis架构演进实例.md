@@ -170,11 +170,13 @@ redis-server sentinel.conf --sentinel
 
 
 以上两种方式，都必须指定一个sentinel的配置文件sentinel.conf， 如果不指定将无法启动sentinel。sentinel默认监听26379端口，所以运行前必须确定该端口没有被别的进程占用。
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/sentinel01.png)
 
 ### 测试
 
 此时，我们开启两个Sentinel，关闭主服务器，我们来验证下Sentinel。发现，服务器发生切换了。
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/sentinel02.png)
 当6300端口的这个服务重启的时候，他会变成6301端口服务的slave。
 
@@ -183,6 +185,7 @@ redis-server sentinel.conf --sentinel
 Twemproxy是由Twitter开源的Redis代理， Redis客户端把请求发送到Twemproxy，Twemproxy根据路由规则发送到正确的Redis实例，最后Twemproxy把结果汇集返回给客户端。
 
 Twemproxy通过引入一个代理层，将多个Redis实例进行统一管理，使Redis客户端只需要在Twemproxy上进行操作，而不需要关心后面有多少个Redis实例，从而实现了Redis集群。
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/twemproxy01.png)
 Twemproxy本身也是单点，需要用Keepalived做高可用方案。
 
@@ -203,6 +206,7 @@ Codis 3.x 由以下组件组成：
 *   Codis FE：集群管理界面。多个集群实例共享可以共享同一个前端展示页面；通过配置文件管理后端 codis-dashboard 列表，配置文件可自动更新。
 *   Codis HA：为集群提供高可用。依赖 codis-dashboard 实例，自动抓取集群各个组件的状态；会根据当前集群状态自动生成主从切换策略，并在需要时通过 codis-dashboard 完成主从切换。
 *   Storage：为集群状态提供外部存储。提供 Namespace 概念，不同集群的会按照不同 product name 进行组织；目前仅提供了 Zookeeper 和 Etcd 两种实现，但是提供了抽象的 interface 可自行扩展。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/codis02.png)
 
@@ -225,9 +229,12 @@ Redis 3.0集群，目前支持的cluster特性
 *   基于配置(nodes-port.conf)的集群管理
 *   ASK 转向/MOVED 转向机制
 
-* ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis3-cluster01.png)
+* 
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis3-cluster01.png)
 
 如上图所示，所有的redis节点彼此互联(PING-PONG机制),内部使用二进制协议优化传输速度和带宽。节点的fail是通过集群中超过半数的节点检测失效时才生效。客户端与redis节点直连，不需要中间proxy层。客户端不需要连接集群所有节点，连接集群中任何一个可用节点即可。redis-cluster把所有的物理节点映射到[0-16383]slot上cluster负责维护node<->slot<->value。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis3-cluster02.png)
 
@@ -277,9 +284,11 @@ appendonly yes
 
 1.  redis-trib.rb create --replicas 1  127.0.0.1:7001  127.0.0.1:7002  127.0.0.1:7003  127.0.0.1:7004  127.0.0.1:7005  127.0.0.1:7006
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis3-cluster03.png)
 
 5.3、测试
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis3-cluster04.png)
 
 *   版权声明：本文由 **梁桂钊** 发表于 [梁桂钊的博客](http://blog.720ui.com/)

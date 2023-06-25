@@ -10,6 +10,7 @@
 
 我们选
 
+
 ![image-20200101133018350](assets/image-20200101133018350.png)
 
 
@@ -70,6 +71,7 @@ ssh-keygen -t rsa
 我们将id_rsa.pub文件中的内容放入该私有库
 
 Settings->Deploy keys
+
 
 ![image-20200101134437785](assets/image-20200101134437785.png)
 
@@ -148,6 +150,7 @@ git clone git@github.com:xxxx/xxxx_config.git
 由于Actions服务器本身的限制问题，我们无法使用系统自带的scp和ssh命令，只能使用别人重写的脚本执行相关命令。
 
 ## 7.最终效果
+
 
 ![image-20200106102921524](images/image-20200106102921524.png)
 

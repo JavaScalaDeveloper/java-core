@@ -1,7 +1,9 @@
 # 面试官：为什么data属性是一个函数而不是一个对象？
 
 
- ![](https://static.vue-js.com/83e51560-3acc-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/83e51560-3acc-11eb-85f6-6fac77c0c9b3.png)
 
 
 ## 一、实例和组件定义data的区别
@@ -40,7 +42,9 @@ Vue.component('component1',{
 则会得到警告信息
 
 
- ![](https://static.vue-js.com/8e6fc0c0-3acc-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/8e6fc0c0-3acc-11eb-ab90-d9ae814b240d.png)
 
 
 警告说明：返回的`data`应该是一个函数在每一个组件实例中

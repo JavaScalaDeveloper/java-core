@@ -81,6 +81,7 @@ public abstract class HttpServlet extends GenericServlet {
 
 请求流程大概如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-60d0e2afcbdb75a175c6f28471fc467f0e5.png)
 
 #### 1.2 `DispatcherServlet` 的父类：`FrameworkServlet`
@@ -233,6 +234,7 @@ public class DispatcherServlet extends FrameworkServlet {
 
 这一节我们来总结下 `DispatcherServlet` 的请求流程：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-f854710c25924666cd5ab755c2983a9baf7.png)
 
 ### 2\. springmvc 请求分发：`DispatcherServlet#doDispatch`
@@ -350,6 +352,7 @@ protected HandlerExecutionChain getHandler(HttpServletRequest request) throws Ex
 ```
 
 这里的 `handlerMappings` 是在 `WebMvcConfigurationSupport` 中引入的，关于这一块的分析，可能参考 [springmvc demo 与 @EnableWebMvc 注解](https://my.oschina.net/funcy/blog/4678093 "springmvc demo 与 @EnableWebMvc 注解")一文，这里来看看这个 `handlerMappings` 有些啥：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-4465a638ca6c52f24f8c9343986be0bbee9.png)
 
@@ -736,6 +739,7 @@ protected HandlerAdapter getHandlerAdapter(Object handler) throws ServletExcepti
 ```
 
 可以看到，这里会找到当前所有的 `adapter`，然后遍历，逐个判断是否能处理当前的 `handler`，所有的 `adapter` 如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-dedb2d58b9e99091aeb559f6c5a4aab4ccc.png)
 

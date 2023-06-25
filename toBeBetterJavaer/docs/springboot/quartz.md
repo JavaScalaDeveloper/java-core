@@ -11,12 +11,14 @@ tag:
 
 编程喵🐱实战项目中需要做一个定时发布文章的功能，于是我就很自然地想到了 Quartz，这是一个老而弥坚的开源任务调度框架。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/quartz-39e31fbf-5546-4627-9d49-651beeb961c1.png)
 
 
 记得我在 14 年开发大宗期货交易平台的时候就用到了它，每天凌晨定时需要统计一波交易数据，生成日报报表，「配合 Cron 表达式」（上一节有讲）用起来非常自洽。
 
 可惜后来平台稳定了，新的政策出来了，直接把大宗期货交易灭了。于是我发财的机会也随着破灭了。想想都觉得可惜，哈哈哈。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/quartz-573fa3b6-551b-418d-9616-3066bb4f75d2.png)
 
@@ -25,6 +27,7 @@ tag:
 ### 关于 Quartz
 
 Quartz 是一款功能强大的开源的任务调度框架，在 GitHub 上已经累计有 5k+ 的 star 了。小到单机应用，大到分布式，都可以整合 Quartz。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/quartz-ea2d0b63-4b99-4654-a03d-45023a741e88.png)
 
@@ -89,10 +92,12 @@ Quartz 默认使用的是内存的方式来存储任务，为了持久化，我�
 
 为了方便小伙伴们下载，我把它放在了本教程的源码里面了：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/quartz-407d9133-7487-444e-83dd-d11524bfd748.png)
 
 
 如果使用 Intellij IDEA 旗舰版的话，首次打开 SQL 文件的时候会提示你指定数据源。在上图中，我配置了本地的 MySQL 数据库，导入成功后可以在数据库中查看到以下数据表：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/quartz-277dc414-4d2d-4a68-91d5-10332998c8bf.png)
 
@@ -250,18 +255,22 @@ public class PostsServiceImpl extends ServiceImpl<PostsMapper, Posts> implements
 好，我们现在启动服务，通过Swagger 来测试一下，注意设置文章的定时发布时间。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/quartz-12f8b138-33db-4faa-b31f-1d1b3fa5afe9.png)
 
 查看 Quartz 的数据表 qrtz_cron_triggers，发现任务已经添加进来了。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/quartz-0acacdc6-3cf3-4042-a784-388bb10f0368.png)
 
 qrtz_job_details 表里也可以查看具体的任务详情。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/quartz-ef1bd1b0-0f13-4dde-a84b-a1ae20b78430.png)
 
 文章定时发布的时间到了之后，在日志里也可以看到 Quartz 的执行日志。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/quartz-45abe530-05fe-498b-b32a-0d2bc5bd6996.png)
@@ -291,5 +300,6 @@ qrtz_job_details 表里也可以查看具体的任务详情。
 > - codingmore-quartz：[https://github.com/itwanger/codingmore-learning](https://github.com/itwanger/codingmore-learning/tree/main/codingmore-quartz)
 
 ---
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

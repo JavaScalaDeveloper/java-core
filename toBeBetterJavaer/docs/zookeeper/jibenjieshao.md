@@ -33,6 +33,7 @@ ZooKeeper 中的数据模型是一种树形结构，非常像电脑中的文件�
 
 *   ZooKeeper 树中的每一层级用斜杠`（/）`分隔开，且只能用绝对路径（如`get /work/task`）的方式查询 ZooKeeper 节点，而不能使用相对路径。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/shujumoxing-1.png)
 
 **「为什么 ZooKeeper 不能采用相对路径查找节点呢？」**
@@ -180,6 +181,7 @@ getData(String path, Watcher watcher, Stat stat)
 ```
 
 触发通知的条件：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/watch-1.png)
 
@@ -335,6 +337,7 @@ ZooKeeper 底层实现的原理，核心的一点就是过期队列这个数据�
 *   每个 bucket 中存放了在某一时间内过期的会话。
 
 将会话按照不同的过期时间段分别维护到过期队列之后，在 ZooKeeper 服务运行的过程中，具体的执行过程如下图所示。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/huihuajizhi-1.png)
 
@@ -773,6 +776,7 @@ ZAB 协议算法（Zookeeper Atomic Broadcast  ，Zookeeper 原子广播协议�
 
 以 Fast Leader Election 选举的实现方式来讲，如下图所示，一个选票的整体结果可以分为一下六个部分：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/zab-1.png)
 
 
@@ -800,6 +804,7 @@ ZAB 协议算法（Zookeeper Atomic Broadcast  ，Zookeeper 原子广播协议�
 
 Follow 服务器进行选票对比的过程，如下图所示。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/zab-2.png)
 
 
@@ -816,6 +821,7 @@ Follow 服务器进行选票对比的过程，如下图所示。
 在 Leader 节点服务器处理请求后，需要通知集群中的其他角色服务器进行数据同步。ZooKeeper 集群采用消息广播的方式发送通知。
 
 ZooKeeper 集群使用原子广播协议进行消息发送，该协议的底层实现过程与二阶段提交过程非常相似，如下图所示。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/zab-3.png)
 
@@ -886,6 +892,7 @@ PurgeTxnLog 方式与 crontab 相比，使用起来更加容易而且也更加�
 
 使用子节点，每当有线程来请求锁的时候，便在锁的节点下创建一个子节点，子节点类型必须维护一个顺序，对子节点的自增序号进行排序，默认总是最小的子节点对应的线程获得锁，释放锁时删除对应子节点便可
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/fenbushisuo-1.png)
 
 
@@ -912,6 +919,7 @@ PurgeTxnLog 方式与 crontab 相比，使用起来更加容易而且也更加�
 每次锁被释放，只会有一个锁请求者 会被通知到。
 
 这样做还让锁的分配具有公平性，锁定的分配遵循先到先得的原则。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/fenbushisuo-2.png)
 
@@ -1026,10 +1034,12 @@ PurgeTxnLog 方式与 crontab 相比，使用起来更加容易而且也更加�
 
 在它下面创建 servers_host1、servers_host2、servers_host3等临时节点来存储集群中的服务器运行状态信息。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/fuzaijunheng-1.png)
 
 
 整个实现的过程如下图所示。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/fuzaijunheng-2.png)
 
@@ -1078,6 +1088,7 @@ Dubbo 是阿里巴巴开发的一套开源的技术框架，是一款高性能�
 
 该操作是通过 ZooKeeper 服务器在 /consumers 节点路径下创建一个子数据节点，然后再在请求会话中发起对 /providers 节点的 watch 监控
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/shiyonganli-1.png)
 
 
@@ -1094,6 +1105,7 @@ Dubbo 是阿里巴巴开发的一套开源的技术框架，是一款高性能�
 而在 Kafka 集群中，每台 Broker 服务器又相对独立。
 
 为了能够读取这些以分布式方式存储的分区信息，Kafka 会将这些分区信息在 Broker 服务器中的对应关系存储在 ZooKeeper 数据模型的 topic 节点上，每一个 topic 在 ZooKeeper 数据节点上都会以 `/brokers/topics/[topic]` 的形式存在。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/zookeeper/shiyonganli-2.png)
 

@@ -163,6 +163,7 @@ public static SelectorProvider provider() {
 不同系统对应着不同的sun.nio.ch.DefaultSelectorProvider
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405100409.png)
 
 这里我们看linux下面的sun.nio.ch.DefaultSelectorProvider
@@ -654,10 +655,12 @@ epoll是Linux下的一种IO多路复用技术，可以非常高效的处理数�
 
 socket读数据
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405100605.png)
 
 
 socket写数据
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405100624.png)

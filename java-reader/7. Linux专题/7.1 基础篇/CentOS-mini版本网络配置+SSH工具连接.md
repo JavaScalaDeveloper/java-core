@@ -1,8 +1,10 @@
 ###   1. VM网络设置
 
 
+
 ![图1.png](https://upload-images.jianshu.io/upload_images/5786888-565a162cbca07fa6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 点击NAT设置
+
 ![图2](https://upload-images.jianshu.io/upload_images/5786888-991e7fb546867fbe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 记住网关和子网ip，后面会用
@@ -18,6 +20,7 @@ ifdown-bnep  ifdown-isdn  ifdown-sit     ifup             ifup-ippp     ifup-plu
 
 ```
 用vim打开 `ifcfg-ens33`
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-36c9bc0cd9e0fa37.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 修改我圈中的这几项，网关和子网ip与之前一一对应起来。
 
@@ -90,14 +93,18 @@ vi /etc/selinux/config
 ```
 ######   开始连接
 我用的是XShell工具
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-85b29f12f94b3395.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-442fcf301896f45e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ###   什么？ssh还连接不上？
 在VM里还原默认网络配置，然后注意把NAT模式的子网ip也对应做修改。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-ede0b5dbcefc5b40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-52344b473bdf8f51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

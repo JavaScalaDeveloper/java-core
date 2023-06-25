@@ -15,6 +15,7 @@ tag:
 
 下图就是一颗树，并且是一颗二叉树。
 
+
 ![二叉树](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/二叉树-2.png)
 
 如上图所示，通过上面这张图说明一下树中的常用概念：
@@ -40,11 +41,13 @@ tag:
 
 **二叉树** 的第 i 层至多拥有 `2^(i-1)` 个节点，深度为 k 的二叉树至多总共有 `2^(k+1)-1` 个节点（满二叉树的情况），至少有 2^(k) 个节点（关于节点的深度的定义国内争议比较多，我个人比较认可维基百科对[节点深度的定义](<https://zh.wikipedia.org/wiki/%E6%A0%91_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)#/%E6%9C%AF%E8%AF%AD>)）。
 
+
 ![危机百科对节点深度的定义](https://oss.javaguide.cn/github/javaguide/image-20220119112736158.png)
 
 ### 满二叉树
 
 一个二叉树，如果每一个层的结点数都达到最大值，则这个二叉树就是 **满二叉树**。也就是说，如果一个二叉树的层数为 K，且结点总数是(2^k) -1 ，则它就是 **满二叉树**。如下图所示：
+
 
 ![满二叉树](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/full-binary-tree.png)
 
@@ -53,6 +56,7 @@ tag:
 除最后一层外，若其余层都是满的，并且最后一层或者是满的，或者是在右边缺少连续若干节点，则这个二叉树就是 **完全二叉树** 。
 
 大家可以想象为一棵树从根结点开始扩展，扩展完左子节点才能开始扩展右子节点，每扩展完一层，才能继续扩展下一层。如下图所示：
+
 
 ![完全二叉树](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/complete-binary-tree.png)
 
@@ -71,6 +75,7 @@ tag:
 
 在给大家展示平衡二叉树之前，先给大家看一棵树：
 
+
 ![斜树](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/oblique-tree.png)
 
 **你管这玩意儿叫树？？？**
@@ -84,6 +89,7 @@ tag:
 二叉树相比于链表，由于父子节点以及兄弟节点之间往往具有某种特殊的关系，这种关系使得我们在树中对数据进行**搜索**和**修改**时，相对于链表更加快捷便利。
 
 但是，如果二叉树退化为一个链表了，那么那么树所具有的优秀性质就难以表现出来，效率也会大打折，为了避免这样的情况，我们希望每个做 “家长”（父结点） 的，都 **一碗水端平**，分给左儿子和分给右儿子的尽可能一样多，相差最多不超过一层，如下图所示：
+
 
 ![平衡二叉树](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/balanced-binary-tree.png)
 
@@ -105,6 +111,7 @@ tag:
 
 那就直接引用对象呗（别问我对象哪里找）
 
+
 ![链式存储二叉树](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/chain-store-binary-tree.png)
 
 ### 顺序存储
@@ -113,9 +120,11 @@ tag:
 
 一棵完全二叉树的数组顺序存储如下图所示：
 
+
 ![完全二叉树的数组顺序存储](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/sequential-storage.png)
 
 大家可以试着填写一下存储如下二叉树的数组，比较一下和完全二叉树的顺序存储有何区别：
+
 
 ![非完全二叉树的数组顺序存储](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/sequential-storage2.png)
 
@@ -124,6 +133,7 @@ tag:
 ## 二叉树的遍历
 
 ### 先序遍历
+
 
 ![先序遍历](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/preorder-traversal.png)
 
@@ -144,9 +154,11 @@ public void preOrder(TreeNode root){
 
 ### 中序遍历
 
+
 ![中序遍历](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/inorder-traversal.png)
 
 二叉树的中序遍历，就是先递归中序遍历左子树，再输出根结点的值，再递归中序遍历右子树，大家可以想象成一巴掌把树压扁，父结点被拍到了左子节点和右子节点的中间，如下图所示：
+
 
 ![中序遍历](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/inorder-traversal2.png)
 
@@ -164,6 +176,7 @@ public void inOrder(TreeNode root){
 ```
 
 ### 后序遍历
+
 
 ![后序遍历](https://oss.javaguide.cn/github/javaguide/cs-basics/data-structure/postorder-traversal.png)
 

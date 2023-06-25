@@ -18,7 +18,7 @@ Reactor是一种广泛应用在服务器端开发的设计模式。Reactor中文
 
 ### 2、Reactor与NIO
 
-Java中的NIO可以很好的和Reactor模式结合。关于NIO中的Reactor模式，我想没有什么资料能比Doug Lea大神（不知道Doug Lea？看看JDK集合包和并发包的作者吧）在[《Scalable IO in Java》](http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf)解释的更简洁和全面了。NIO中Reactor的核心是`Selector`，我写了一个简单的Reactor示例，这里我贴一个核心的Reactor的循环（这种循环结构又叫做`EventLoop`），剩余代码在[learning-src](learning-src/src/main/java/us/codecraft/netty/reactor)目录下。
+Java中的NIO可以很好的和Reactor模式结合。关于NIO中的Reactor模式，我想没有什么资料能比Doug Lea大神（不知道Doug Lea？看看JDK集合包和并发包的作者吧）在[《Scalable IO in Java》](images/http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf)解释的更简洁和全面了。NIO中Reactor的核心是`Selector`，我写了一个简单的Reactor示例，这里我贴一个核心的Reactor的循环（这种循环结构又叫做`EventLoop`），剩余代码在[learning-src](images/learning-src/src/main/java/us/codecraft/netty/reactor)目录下。
 
 ```java
 	public void run() {
@@ -40,7 +40,7 @@ Java中的NIO可以很好的和Reactor模式结合。关于NIO中的Reactor模�
 
 前面提到了Proactor模式，这又是什么呢？简单来说，Reactor模式里，操作系统只负责通知IO就绪，具体的IO操作（例如读写）仍然是要在业务进程里阻塞的去做的，而Proactor模式则更进一步，由操作系统将IO操作执行好（例如读取，会将数据直接读到内存buffer中），而handler只负责处理自己的逻辑，真正做到了IO与程序处理异步执行。所以我们一般又说Reactor是同步IO，Proactor是异步IO。
 
-关于阻塞和非阻塞、异步和非异步，以及UNIX底层的机制，大家可以看看这篇文章[IO - 同步，异步，阻塞，非阻塞 （亡羊补牢篇）](http://blog.csdn.net/historyasamirror/article/details/5778378)，以及陶辉（《深入理解nginx》的作者）[《高性能网络编程》](http://blog.csdn.net/russell_tao/article/details/17452997)的系列。
+关于阻塞和非阻塞、异步和非异步，以及UNIX底层的机制，大家可以看看这篇文章[IO - 同步，异步，阻塞，非阻塞 （亡羊补牢篇）](images/http://blog.csdn.net/historyasamirror/article/details/5778378)，以及陶辉（《深入理解nginx》的作者）[《高性能网络编程》](images/http://blog.csdn.net/russell_tao/article/details/17452997)的系列。
 
 ## 三：由Reactor出发来理解Netty
 
@@ -49,6 +49,7 @@ Java中的NIO可以很好的和Reactor模式结合。关于NIO中的Reactor模�
 讲了一堆Reactor，我们回到Netty。在《Scalable IO in Java》中讲到了一种多线程下的Reactor模式。在这个模式里，mainReactor只有一个，负责响应client的连接请求，并建立连接，它使用一个NIO Selector；subReactor可以有一个或者多个，每个subReactor都会在一个独立线程中执行，并且维护一个独立的NIO Selector。
 
 这样的好处很明显，因为subReactor也会执行一些比较耗时的IO操作，例如消息的读写，使用多个线程去执行，则更加有利于发挥CPU的运算能力，减少IO等待时间。
+
 
 ![Multiple Reactors][2]
 
@@ -170,14 +171,14 @@ abstract class AbstractNioSelector implements NioSelector {
 
 参考资料：
 
-* Scalable IO in Java [http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf](http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf)
-* Netty5.0架构剖析和源码解读 [http://vdisk.weibo.com/s/C9LV9iVqH13rW/1391437855](http://vdisk.weibo.com/s/C9LV9iVqH13rW/1391437855)
-* Reactor pattern [http://en.wikipedia.org/wiki/Reactor_pattern](http://en.wikipedia.org/wiki/Reactor_pattern)
-* Reactor - An Object Behavioral Pattern for Demultiplexing and Dispatching Handles for Synchronous Events [http://www.cs.wustl.edu/~schmidt/PDF/reactor-siemens.pdf](http://www.cs.wustl.edu/~schmidt/PDF/reactor-siemens.pdf)
-* 高性能网络编程6--reactor反应堆与定时器管理 [http://blog.csdn.net/russell_tao/article/details/17452997](http://blog.csdn.net/russell_tao/article/details/17452997)
-* IO - 同步，异步，阻塞，非阻塞 （亡羊补牢篇）[http://blog.csdn.net/historyasamirror/article/details/5778378](http://blog.csdn.net/historyasamirror/article/details/5778378)
+* Scalable IO in Java [http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf](images/http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf)
+* Netty5.0架构剖析和源码解读 [http://vdisk.weibo.com/s/C9LV9iVqH13rW/1391437855](images/http://vdisk.weibo.com/s/C9LV9iVqH13rW/1391437855)
+* Reactor pattern [http://en.wikipedia.org/wiki/Reactor_pattern](images/http://en.wikipedia.org/wiki/Reactor_pattern)
+* Reactor - An Object Behavioral Pattern for Demultiplexing and Dispatching Handles for Synchronous Events [http://www.cs.wustl.edu/~schmidt/PDF/reactor-siemens.pdf](images/http://www.cs.wustl.edu/~schmidt/PDF/reactor-siemens.pdf)
+* 高性能网络编程6--reactor反应堆与定时器管理 [http://blog.csdn.net/russell_tao/article/details/17452997](images/http://blog.csdn.net/russell_tao/article/details/17452997)
+* IO - 同步，异步，阻塞，非阻塞 （亡羊补牢篇）[http://blog.csdn.net/historyasamirror/article/details/5778378](images/http://blog.csdn.net/historyasamirror/article/details/5778378)
 
-题图来自：[http://www.worldindustrialreporter.com/france-gives-green-light-to-tokamak-fusion-reactor/](http://www.worldindustrialreporter.com/france-gives-green-light-to-tokamak-fusion-reactor/)
+题图来自：[http://www.worldindustrialreporter.com/france-gives-green-light-to-tokamak-fusion-reactor/](images/http://www.worldindustrialreporter.com/france-gives-green-light-to-tokamak-fusion-reactor/)
 
   [1]: http://static.oschina.net/uploads/space/2014/0208/164000_EQQb_190591.jpg
   [2]: http://static.oschina.net/uploads/space/2013/1125/130828_uKWD_190591.jpeg

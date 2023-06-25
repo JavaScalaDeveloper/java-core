@@ -21,12 +21,13 @@ LinkedHashMap
 #### LinkedList（基于JDK1.8）
 ##### LinkedList 定义
 **LinkedList 是一个用链表实现的集合，元素有序且可以重复。**
-```
+```java
 public class LinkedList<E>
      extends AbstractSequentialList<E>
      implements List<E>, Deque<E>, Cloneable, java.io.Serializable
 ```
-![5c1b35ed236b91d19b2ca1c0990e634a](大数据成神之路-Java高级特性增强.resources/1120165-20180329133938645-733252704.png)
+
+![5c1b35ed236b91d19b2ca1c0990e634a](images/大数据成神之路-Java高级特性增强.resources/1120165-20180329133938645-733252704.png)
 和 ArrayList 集合一样，LinkedList 集合也实现了Cloneable接口和Serializable接口，分别用来支持克隆以及支持序列化。List 接口也不用多说，定义了一套 List 集合类型的方法规范。
 　　注意，相对于 ArrayList 集合，LinkedList 集合多实现了一个 Deque 接口，这是一个双向队列接口，双向队列就是两端都可以进行增加和删除操作。
 
@@ -61,11 +62,12 @@ private static class Node<E> {
     }
 ```
 如下图所示：
-![5ae4ad6157d68b83b54b3e4f9684f7aa](大数据成神之路-Java高级特性增强.resources/1120165-20180402091402743-458763981.png)
+
+![5ae4ad6157d68b83b54b3e4f9684f7aa](images/大数据成神之路-Java高级特性增强.resources/1120165-20180402091402743-458763981.png)
 上图的 LinkedList 是有四个元素，也就是由 4 个 Node 对象组成，size=4，head 指向第一个elementA,tail指向最后一个节点elementD。
 
 ##### 构造函数 
-```
+```java
 public LinkedList() {
     }
     public LinkedList(Collection<? extends E> c) {
@@ -188,7 +190,7 @@ addAll(Collection<? extends E> c) ==  addAll(size, Collection<? extends E> c)
   
 ##### 修改元素
 通过调用 set(int index, E element) 方法，用指定的元素替换此列表中指定位置的元素。
-```
+```java
 public E set(int index, E element) {
         //判断索引 index >= 0 && index <= size中时抛出IndexOutOfBoundsException异常
         checkElementIndex(index);
@@ -251,7 +253,7 @@ while(it.hasNext()){
 }
 ```
 在 LinkedList 集合中也有一个内部类 ListItr，方法实现大体上也差不多，通过移动游标指向每一次要遍历的元素，不用在遍历某个元素之前都要从头开始。其方法实现也比较简单：
-```
+```java
 public ListIterator<E> listIterator(int index) {
         checkPositionIndex(index);
         return new ListItr(index);

@@ -213,6 +213,7 @@ spring:
 
 点击配置列表，然后添加配置：
 
+
 ![image-20200614154133644](assets/image-20200614154133644.png)
 
 
@@ -223,9 +224,11 @@ spring:
 
 {微服务名称}-{版本名称(spring.profiles.active)}.**yaml**
 
+
 ![image-20200614153901946](assets/image-20200614153901946.png)
 
 例如：
+
 
 ![image-20200614154418823](assets/image-20200614154418823.png)
 

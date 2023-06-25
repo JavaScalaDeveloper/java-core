@@ -250,9 +250,11 @@ private static Object doGetResource(Object actualKey) {
 
 那么这个 `ConnectionHolder` 是什么呢？可以简单地将其理解为 `Connection`(数据库连接) 的包装类，其中最重要的属性就是 `Connection` 了：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d8c4ae3884177f485fbb95d1828fdb39ae2.png)
 
 好了，到这里就把 `doGetTransaction(xxx)` 方法分析完了，再来看看这个方法返回的结果：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0944429e31a6c0b67e121674202dd5ec0fd.png)
 
@@ -456,6 +458,7 @@ protected DefaultTransactionStatus newTransactionStatus(
 
 所以这个方法主要就是为了创建 `DefaultTransactionStatus` 对象！我们来看下这一步的运行结果：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a491ee7ca22238b2d9c698c55ae9dd6d005.png)
 
 ##### 6\. 准备事务信息：`TransactionAspectSupport#prepareTransactionInfo`
@@ -558,6 +561,7 @@ public abstract class TransactionAspectSupport implements BeanFactoryAware, Init
 `TransactionAspectSupport` 中有一个 `ThreadLocal`，用来存放当前的 `TransactionInfo` 对象，进行线程绑定时，会先拿到旧的事务信息，保存在 `TransactionInfo` 的成员变量 `oldTransactionInfo` 中，然后将新的 `TransactionInfo` 放入 `ThreadLocal` 中；当事务执行完成后，会从 `TransactionInfo` 的成员变量 `oldTransactionInfo` 中拿到旧的事务信息，再将旧的事务信息放入 `ThreadLocal` 中，这就完成了事务 "旧 - 新 - 旧" 的切换.
 
 这一步得到的 `TransactionInfo` 如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-ab882613ce67ba3bf7afcbd2eab01c6cf27.png)
 

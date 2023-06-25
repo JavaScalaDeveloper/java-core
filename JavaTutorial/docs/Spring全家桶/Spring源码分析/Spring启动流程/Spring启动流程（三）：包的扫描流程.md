@@ -1,3 +1,5 @@
+
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-3ed1cf4bd6fc2ef3f569376093a6462987d.png)
 
 在 [applicationContext 的创建](https://my.oschina.net/funcy/blog/4608767)中，我们分析了 `applicationContext` 的创建过程，在本文中，我们将分析 spring 是如何进行包扫描的。
@@ -399,6 +401,7 @@ SimpleMetadataReader(Resource resource, @Nullable ClassLoader classLoader) throw
 
 再进一步追踪，发现 class 文件的读取与解析发生在 `ClassReader` 类：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-595687d3a766ffaacf69f31216a5b09f9d5.png)
 
 这个类使用 asm 来读取 class 文件，代码比较复杂，就不深究了。
@@ -406,6 +409,7 @@ SimpleMetadataReader(Resource resource, @Nullable ClassLoader classLoader) throw
 一直以来，我都以为 spring 是通过反射来获取类信息的，到这里才知道，**原来 spring 是通过 asm 直接读取 class 文件来获取类的信息的** 。
 
 最后我们来看下得到的 `MetadataReader` 的结果：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-9df07587a3a8191231da87fe21d80052357.png)
 
@@ -418,19 +422,25 @@ SimpleMetadataReader(Resource resource, @Nullable ClassLoader classLoader) throw
 
 ```
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-f5c7e8768b92b7a4303c4e1beb58863fe03.png)
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-38b493e0b4b7b73dda5f06f371b66f16d3e.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-930a4e6844efd3f9f52c6d3f4e13a200337.png)
 
 `annotations` 本人猜测是 `BeanObj1` 上的注解：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-77271c438dde39f2bc905aa9f2cf9fb73d8.png)
 
 至于 `mappings` 是啥，我不好猜测，不过也可以从注解中发现一些端倪：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-f31efb6252beb2108dc0ce93d482666f8d0.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-a8ce5d11b4b02907f0ff497c6369a1c1dde.png)
 
@@ -527,6 +537,7 @@ default boolean hasAnnotation(String annotationName) {
 ```
 
 这里的 `getAnnotations()` 得到的结果是
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-3e46b2ece5ddb2328342a469dc7dd554d9e.png)
 
@@ -785,6 +796,7 @@ this.beanDefinitionMap.put(beanName, beanDefinition);
 6.  将上面得到的 `BeanDefinition` 添加到 `BeanFactory` 中
 
 至此，包名转换为 `BeanDefinition` 完成。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-f8ff2e4071ba3941e2a0664f6e478b78961.png)
 

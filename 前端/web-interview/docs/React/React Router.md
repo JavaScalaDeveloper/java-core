@@ -1,6 +1,8 @@
 # 面试官：说说你对React Router的理解？常用的Router组件有哪些？
 
- ![](https://static.vue-js.com/c6635670-e8ac-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/c6635670-e8ac-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 

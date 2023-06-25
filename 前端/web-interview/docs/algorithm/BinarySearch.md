@@ -1,6 +1,8 @@
 # 面试官：说说你对二分查找的理解？如何实现？应用场景？
 
- ![](https://static.vue-js.com/d43ca230-2987-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/d43ca230-2987-11ec-8e64-91fdec0f05a1.png)
 
 
 ## 一、是什么
@@ -22,9 +24,12 @@
 
 如下图所示：
 
- ![](https://static.vue-js.com/e2108520-2987-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/e2108520-2987-11ec-a752-75723a64e8f5.png)
 
 相比普通的顺序查找，除了数据量很少的情况下，二分查找会比顺序查找更快，区别如下所示：
+
 
 ![](https://pic2.zhimg.com/v2-43339b963db63b33107b56503ad6b1b5_b.gif)
 
@@ -92,7 +97,9 @@ function BinarySearchFirst(arr, target) {
 
 该数组的特性是存在一个分界点用来分界两个有序数组，如下：
 
- ![](https://static.vue-js.com/eeee2130-2987-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/eeee2130-2987-11ec-8e64-91fdec0f05a1.png)
 
 分界点有如下特性：
 

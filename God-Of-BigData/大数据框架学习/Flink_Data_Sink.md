@@ -256,7 +256,7 @@ env.execute();
 
 数据库成功写入，代表自定义 Sink 整合成功。
 
-> 以上所有用例的源码见本仓库：[flink-kafka-integration]( https://github.com/heibaiying/BigData-Notes/tree/master/code/Flink/flink-kafka-integration)
+> 以上所有用例的源码见本仓库：[flink-kafka-integration](images/ https://github.com/heibaiying/BigData-Notes/tree/master/code/Flink/flink-kafka-integration)
 
 
 

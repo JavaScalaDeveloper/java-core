@@ -69,6 +69,7 @@ kubectl是和Kubernetes API交互的命令行程序。现在介绍一些核心�
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1233356-838c13e9241040b4.png)
 
 
@@ -109,6 +110,7 @@ Replication Controller确保任意时间都有指定数量的Pod“副本”在�
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1233356-5f5b425bb2705525.gif)
 
 
@@ -137,6 +139,7 @@ _如果Pods是短暂的，那么重启时IP地址可能会改变，怎么才能�
 下述动画展示了Service的功能。注意该图作了很多简化。如果不进入网络配置，那么达到透明的负载均衡目标所涉及的底层网络和路由相对先进。如果有兴趣，[这里](http://www.dasblinkenlichten.com/kubernetes-101-networking/)有更深入的介绍。
 
 [](http://dockone.io/uploads/article/20151230/125bbccce0b3bbf42abab0e520d9250b.gif)
+
 
 
 

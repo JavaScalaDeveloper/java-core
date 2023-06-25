@@ -1,3 +1,5 @@
+
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-1f1ac8f3d8241fad9693d9684048ab7f3ae.png)
 
 接上文，本文依旧是分析 `finishBeanFactoryInitialization(beanFactory)`，本文将重点分析单例 bean 的创建流程。
@@ -1092,6 +1094,7 @@ public Object postProcessAfterInitialization(Object bean, String beanName) {
         *   执行自定义的 `init-method` 方法
     4.  运行 `BeanPostProcessor#postProcessAfterInitialization` 方法
         *   在 `ApplicationListenerDetector#postProcessAfterInitialization` 中处理 spring 监听器
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b7a4d4bc1bfbd76537e40cf843b0d18df93.png)
 

@@ -74,6 +74,7 @@ ok。我们在Controller中添加一个method：
 
 直接访问地址：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101449596675807.png)
 
 我们看到，短短几行配置。使用@ResponseBody注解之后，Controller返回的对象 自动被转换成对应的json数据，在这里不得不感叹SpringMVC的强大。
@@ -90,11 +91,13 @@ ok。我们在Controller中添加一个method：
 
 HttpMessageConverter接口就是Spring提供的http消息转换接口。有关这方面的知识大家可以参考"参考资料"中的[第二条链接](http://my.oschina.net/lichhao/blog/172562)，里面讲的很清楚。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101510002604230.png)
 
 下面开始分析<mvc:annotation-driven>这句配置:</mvc:annotation-driven>
 
 这句代码在spring中的解析类是：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101606162131470.png)
 
@@ -108,9 +111,11 @@ RequestMappingHandlerMapping处理请求映射的，处理@RequestMapping跟请�
 
 RequestMappingHandlerAdapter是请求处理的适配器，也就是请求之后处理具体逻辑的执行，关系到哪个类的哪个方法以及转换器等工作，这个类是我们讲的重点，其中它的属性messageConverters是本文要讲的重点。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101611179016436.png)
 
 私有方法:getMessageConverters
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101630232136603.png)
 
@@ -129,13 +134,16 @@ message-converters的子节点配置如下：
 
 我们看到这么一段：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101640298384297.png)
 
 这些boolean属性是哪里来的呢，它们是AnnotationDrivenBeanDefinitionParser的静态变量。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101641297132356.png)
 
 其中ClassUtils中的isPresent方法如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101643277139672.png)
 
@@ -153,16 +161,20 @@ HandlerMethodReturnValueHandlerComposite维护了一个HandlerMethodReturnValueH
 
 RequestResponseBodyMethodProcessor的supportsReturnType方法：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101803027605809.png)
 
 然后使用handleReturnValue方法进行处理：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101803105889900.png)
 
 我们看到，这里使用了转换器。　　  
 具体的转换方法：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101809037135949.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/102031439173571.png)
 
@@ -176,6 +188,7 @@ ok。至此，我们走遍了所有的流程。
 
 由于我们只配置了<mvc:annotation-driven>，因此使用spring默认的那些转换器。</mvc:annotation-driven>
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101816581047144.png)
 
 很明显，我们看到了2个xml和1个json转换器。**要看能不能转换，得看HttpMessageConverter接口的public boolean canWrite(Class<?> clazz, MediaType mediaType)方法是否返回true来决定的。**
@@ -184,9 +197,12 @@ ok。至此，我们走遍了所有的流程。
 
 它的canWrite方法被父类AbstractHttpMessageConverter重写了。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101830573234896.png)
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101832284176592.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101832352929525.png)
 
@@ -195,6 +211,7 @@ ok。至此，我们走遍了所有的流程。
 下面看Jaxb2RootElementHttpMessageConverter：
 
 这个类直接重写了canWrite方法。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101838053851073.png)
 
@@ -220,7 +237,9 @@ ok。至此，我们走遍了所有的流程。
 ````
 实体中加上@XmlRootElement注解
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101903141989122.png)
+
 
 
 
@@ -233,6 +252,7 @@ ok。至此，我们走遍了所有的流程。
 之前分析过，消息转换器是根据class和mediaType决定的。
 
 我们使用firebug看到：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/102222464019898.png)
 
@@ -278,6 +298,7 @@ $.ajax({
 
 如果还想用其他converters的话。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/102311480731629.png)
 
 以上是spring-mvc jar包中的converters。
@@ -286,10 +307,13 @@ $.ajax({
 
 这个converter里面使用了marshaller进行转换
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/102313161827280.png)
 
 我们这里使用XStreamMarshaller。　　  
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/102319292603758.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/102319412294581.png)
 
@@ -402,6 +426,7 @@ public @ResponseBody String readString(@RequestBody String string) {
 当SpringMVC执行readString方法后，由于返回值标识了@ResponseBody，SpringMVC将使用StringHttpMessageConverter的write()方法，将结果作为String值写入响应报文，当然，此时canWrite()方法返回true。
 
 我们可以用下面的图，简单描述一下这个过程。
+
 
 ![消息转换图](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1092007-20190825151641382-1716038917.png)
 

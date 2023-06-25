@@ -1,5 +1,6 @@
 # 面试官：说说你对vue的mixin的理解，有什么应用场景？ 
 
+
 ![](https://static.vue-js.com/8a739c90-3b7f-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、mixin是什么

@@ -81,7 +81,7 @@ LOAD DATA LOCAL INPATH "/usr/file/emp30.txt" OVERWRITE INTO TABLE emp_partition 
 
 <div align="center"> <img width="600px"  src="../pictures/HashMap-HashTable.png"/> </div>
 
-> 图片引用自：[HashMap vs. Hashtable](http://www.itcuties.com/java/hashmap-hashtable/)
+> 图片引用自：[HashMap vs. Hashtable](images/http://www.itcuties.com/java/hashmap-hashtable/)
 
 ### 1.3 创建分桶表
 
@@ -165,4 +165,4 @@ SELECT * FROM page_view WHERE dt='2009-02-25';
 
 ## 参考资料
 
-1. [LanguageManual DDL BucketedTables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL+BucketedTables)
+1. [LanguageManual DDL BucketedTables](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL+BucketedTables)

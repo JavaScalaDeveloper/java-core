@@ -243,6 +243,7 @@ ArrayList 在第一次执行 add 后会扩容为 10，那 ArrayList 第二次扩
 
 你可以通过在 ArrayList 中添加第 11 个元素来 debug 验证一下。
 
+
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection//arraylist-d01f248c-114f-47e3-af18-7135feac2a5e.png)
 
 ### 04、向 ArrayList 的指定位置添加元素
@@ -298,6 +299,7 @@ System.arraycopy(elementData, index, elementData, index + 1, size - index);
 
 
 “三妹，注意看，我画幅图来表示下。”我认真地做起了图。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraylist-01.png)
 
@@ -427,6 +429,7 @@ private void fastRemove(int index) {
 同样是调用 `System.arraycopy()` 方法对数组进行复制和移动。
 
 “三妹，注意看，我画幅图来表示下。”我认真地做起了图。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraylist-02.png)
 

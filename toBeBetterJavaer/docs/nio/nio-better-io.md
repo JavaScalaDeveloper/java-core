@@ -19,6 +19,7 @@ head:
 
 我这里先给大家展示一副传统 IO 和 NIO 的对比图，感受一下。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/nio-better-io-20230406180538.png)
 
 [传统 IO](https://tobebetterjavaer.com/io/shangtou.html) 基于字节流或字符流（如 FileInputStream、BufferedReader 等）进行文件读写，以及使用 [Socket 和 ServerSocket](https://tobebetterjavaer.com/socket/socket.html) 进行网络传输。
@@ -118,6 +119,7 @@ public class SimpleFileTransferTest {
 - 对于较大的文件，使用 NIO 的性能可能会明显优于普通 IO。因为 NIO 使用了更高效的缓冲区和通道机制，可以在内存中进行更快的数据传输。
 
 然而实际的结果，却会令你大跌眼镜：
+
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/why-20230331191748.png)
 
@@ -322,6 +324,7 @@ public class TestClient {
 ```
 
 在这个简单的性能测试中，我们使用固定线程池（10个线程）来模拟客户端并发请求。分别测试 NIO 和传统 IO 服务器处理 10000 个客户端请求所需的时间。来看一下结果。
+
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/why-20230404141335.png)
 

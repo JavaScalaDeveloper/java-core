@@ -22,6 +22,7 @@ AND s.uid=f.uid
 
 执行后的结果，如下图所示
 
+
 ![img](images/SouthEast.jpeg)
 
 这里面有下面几个结果，下面我们一个个来看一下
@@ -35,6 +36,7 @@ EXPLAIN SELECT * FROM (SELECT* FROM uchome_space LIMIT 10)AS s
 ```
 
 它的执行结果为：
+
 
 ![img](images/SouthEast-16598858078253.jpeg)
 
@@ -53,6 +55,7 @@ explain select  *  from uchome_space limit 10 union select * from uchome_space l
 ```
 
 会有如下结果
+
 
 ![img](images/SouthEast-16598860821086.jpeg)
 
@@ -83,6 +86,7 @@ explain select * from `asj_admin_log` limit 1
 
 结果如下
 
+
 ![img](images/SouthEast-16598872012339.jpeg)
 
 虽然只搜索一条数据，但是因为没有用到指定的索引，所以不会使用 **const**，继续看下面这个
@@ -90,6 +94,7 @@ explain select * from `asj_admin_log` limit 1
 ```sql
 explain SELECT * FROM `asj_admin_log` where log_id = 111
 ```
+
 
 ![img](images/SouthEast-165988724784912.jpeg)
 
@@ -104,6 +109,7 @@ explain select * from uchome_spacefield,uchome_space where uchome_spacefield.uid
 ```
 
 得到的结果是下图所示。很明显，**mysql** 使用 **eq_ref** 联接来处理 **uchome_space** 表。
+
 
 ![img](images/SouthEast-165988739401915.png)
 
@@ -153,6 +159,7 @@ ref列显示使用哪个列或常数与key一起从表中选择行
 EXPLAIN SELECT ads.id FROM ads, city WHERE   city.city_id = 8005   AND ads.status = 'online'   AND city.ads_id=ads.id ORDER BY ads.id desc
 ```
 
+
 ![image-20220829092000079](images/image-20220829092000079.png)
 
 这条语句会使用using temporary,而下面这条语句则不会
@@ -160,6 +167,7 @@ EXPLAIN SELECT ads.id FROM ads, city WHERE   city.city_id = 8005   AND ads.statu
 ```sql
 EXPLAIN SELECT ads.id FROM ads, city WHERE   city.city_id = 8005   AND ads.status = 'online'   AND city.ads_id=ads.id ORDER BYcity.ads_id desc
 ```
+
 
 ![image-20220829092032304](images/image-20220829092032304.png)
 

@@ -217,12 +217,12 @@ SHOW INDEX ON emp;
 
 索引表最主要的一个缺陷在于：索引表无法自动 rebuild，这也就意味着如果表中有数据新增或删除，则必须手动 rebuild，重新执行 MapReduce 作业，生成索引表数据。
 
-同时按照[官方文档](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Indexing) 的说明，Hive 会从 3.0 开始移除索引功能，主要基于以下两个原因：
+同时按照[官方文档](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Indexing) 的说明，Hive 会从 3.0 开始移除索引功能，主要基于以下两个原因：
 
 - 具有自动重写的物化视图 (Materialized View) 可以产生与索引相似的效果（Hive 2.3.0 增加了对物化视图的支持，在 3.0 之后正式引入）。
 - 使用列式存储文件格式（Parquet，ORC）进行存储时，这些格式支持选择性扫描，可以跳过不需要的文件或块。
 
-> ORC 内置的索引功能可以参阅这篇文章：[Hive 性能优化之 ORC 索引–Row Group Index vs Bloom Filter Index](http://lxw1234.com/archives/2016/04/632.htm)
+> ORC 内置的索引功能可以参阅这篇文章：[Hive 性能优化之 ORC 索引–Row Group Index vs Bloom Filter Index](images/http://lxw1234.com/archives/2016/04/632.htm)
 
 
 
@@ -230,7 +230,7 @@ SHOW INDEX ON emp;
 
 ## 参考资料
 
-1. [Create/Drop/Alter View](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Create/Drop/AlterView)
-2. [Materialized views](https://cwiki.apache.org/confluence/display/Hive/Materialized+views)
-3. [Hive 索引](http://lxw1234.com/archives/2015/05/207.htm)
-4. [Overview of Hive Indexes](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Indexing)
+1. [Create/Drop/Alter View](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Create/Drop/AlterView)
+2. [Materialized views](images/https://cwiki.apache.org/confluence/display/Hive/Materialized+views)
+3. [Hive 索引](images/http://lxw1234.com/archives/2015/05/207.htm)
+4. [Overview of Hive Indexes](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Indexing)

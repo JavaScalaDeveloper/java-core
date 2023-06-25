@@ -1,6 +1,8 @@
 # 面试官：说说你对immutable的理解？如何应用在react项目中？
 
- ![](https://static.vue-js.com/797e9470-ea3f-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/797e9470-ea3f-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 
@@ -18,6 +20,7 @@ Immutable，不可改变的，在计算机中，即指一旦创建，就不能�
 如果对象树中一个节点发生变化，只修改这个节点和受它影响的父节点，其它节点则进行共享
 
 如下图所示：
+
 
 ![](https://pic4.zhimg.com/80/2b4c801a7b40eefcd4ee6767fb984fdf_720w.gif)
 

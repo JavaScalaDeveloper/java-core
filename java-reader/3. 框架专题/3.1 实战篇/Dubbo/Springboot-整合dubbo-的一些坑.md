@@ -166,6 +166,7 @@ public @interface Service {
 ```
 ######   4. 修改后遗症
 如果你真的像我上面所讲的修改了dubbo的Service类，那你注册的时候会发现一个问题，也是找不到服务，但是这次不一样了，你如果在dubbo-admin上看就很清楚。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-5805391f30411c02.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 天呐，服务名是springProxy，所以我们修改了源码后必须要手动生命Service名称。`@Service(interfaceName="com.xx.xxx.service.xxx")`

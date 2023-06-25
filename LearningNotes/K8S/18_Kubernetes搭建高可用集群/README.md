@@ -4,6 +4,7 @@
 
 之前我们搭建的集群，只有一个master节点，当master节点宕机的时候，通过node将无法继续访问，而master主要是管理作用，所以整个集群将无法提供服务
 
+
 ![image-20201121164522945](images/image-20201121164522945.png)
 
 ## 高可用集群
@@ -15,6 +16,7 @@
 - 负载
 - 检查master节点的状态
 
+
 ![image-20201121164931760](images/image-20201121164931760.png)
 
 对外有一个统一的VIP：虚拟ip来对外进行访问
@@ -22,6 +24,7 @@
 ## 高可用集群技术细节
 
 高可用集群技术细节如下所示：
+
 
 ![image-20201121165325194](images/image-20201121165325194.png)
 
@@ -35,6 +38,7 @@
 ## 高可用集群步骤
 
 我们采用2个master节点，一个node节点来搭建高可用集群，下面给出了每个节点需要做的事情
+
 
 ![image-20201121170351461](images/image-20201121170351461.png)
 
@@ -201,6 +205,7 @@ systemctl status keepalived.service
 ip a s ens33
 ```
 
+
 ![image-20201121171619497](images/image-20201121171619497.png)
 
 
@@ -227,6 +232,7 @@ systemctl enable haproxy
 ```bash
 netstat -tunlp | grep haproxy
 ```
+
 
 ![image-20201121181803128](images/image-20201121181803128.png)
 
@@ -444,6 +450,7 @@ kubeadm init --config kubeadm-config.yaml
 ```
 
 执行完成后，就会在拉取我们的进行了【需要等待...】
+
 
 ![image-20201121194928988](images/image-20201121194928988.png)
 

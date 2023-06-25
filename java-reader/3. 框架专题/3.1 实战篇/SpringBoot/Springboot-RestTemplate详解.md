@@ -1,6 +1,7 @@
 >`RestTemplate`是`Spring`提供的用于访问Rest服务的客户端，`RestTemplate`提供了多种便捷访问远程Http服务的方法,能够大大提高客户端的编写效率。
 
 我之前的HTTP开发是用apache的HttpClient开发，代码复杂，还得操心资源回收等。代码很复杂，冗余代码多，稍微截个图，这是我封装好的一个post请求工具：
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-e4abc9a3d427a390.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
@@ -241,6 +242,7 @@ public void rtPostObject(){
 ```
 {"status":500,"msg":"该邮箱已被注册","data":null}
 ```
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-f042cb8a3d339be8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
@@ -269,6 +271,7 @@ if (requestBody instanceof HttpEntity) {
 
 ###   4. 使用exchange指定调用方式
 >exchange()方法跟上面的getForObject()、getForEntity()、postForObject()、postForEntity()等方法不同之处在于它可以指定请求的HTTP类型。
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-645853e2265ef89b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

@@ -99,6 +99,7 @@ public class Main {
 
 ####    2.1 Resources.getResourceAsStream(resource);源码分析
 >`Resources `是mybatis提供的一个加载资源文件的工具类。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-61fe3a71960cb343.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 我们只看getResourceAsStream方法:

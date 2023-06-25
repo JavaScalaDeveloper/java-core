@@ -29,7 +29,7 @@ tar -zxvf azkaban-3.70.0.tar.gz
 
 Azkaban 编译依赖 JDK 1.8+ ，JDK 安装方式见本仓库：
 
-> [Linux 环境下 JDK 安装](https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Linux下JDK安装.md)
+> [Linux 环境下 JDK 安装](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Linux下JDK安装.md)
 
 #### 2. Gradle
 

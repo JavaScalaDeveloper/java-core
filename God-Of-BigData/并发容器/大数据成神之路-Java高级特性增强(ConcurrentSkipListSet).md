@@ -12,7 +12,9 @@ ConcurrentSkipListSet和TreeSet，它们虽然都是有序的集合。但是，
 第二，ConcurrentSkipListSet是通过ConcurrentSkipListMap实现的，而TreeSet是通过TreeMap实现的。
 
 #### ConcurrentSkipListSet原理和数据结构
-ConcurrentSkipListSet的数据结构，如下图所示：![ceaa5eae278d00721ece58625b3b45a0](大数据成神之路-Java高级特性增强(ConcurrentSkipListSet).resources/1378EC09-5D7F-4544-AA4C-F43796D9A609.jpg)
+ConcurrentSkipListSet的数据结构，如下图所示：
+
+![ceaa5eae278d00721ece58625b3b45a0](images/大数据成神之路-Java高级特性增强(ConcurrentSkipListSet).resources/1378EC09-5D7F-4544-AA4C-F43796D9A609.jpg)
 说明：
 
 (01) ConcurrentSkipListSet继承于AbstractSet。因此，它本质上是一个集合。

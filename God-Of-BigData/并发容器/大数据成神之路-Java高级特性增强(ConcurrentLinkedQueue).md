@@ -10,7 +10,9 @@ ConcurrentLinkedQueue是线程安全的队列，它适用于“高并发”的�
 它是一个基于链接节点的无界线程安全队列，按照 FIFO（先进先出）原则对元素进行排序。队列元素中不可以放置null元素（内部实现的特殊节点除外）。
 
 ### ConcurrentLinkedQueue原理和数据结构
-ConcurrentLinkedQueue的数据结构，如下图所示：![2c9f34f0d8819f5a0c03ecbe99b7ca82](大数据成神之路-Java高级特性增强(ConcurrentLinkedQueue).resources/2C447958-48AF-4B02-A30E-52AA0038497C.jpg)
+ConcurrentLinkedQueue的数据结构，如下图所示：
+
+![2c9f34f0d8819f5a0c03ecbe99b7ca82](images/大数据成神之路-Java高级特性增强(ConcurrentLinkedQueue).resources/2C447958-48AF-4B02-A30E-52AA0038497C.jpg)
 说明：
 
 1. ConcurrentLinkedQueue继承于AbstractQueue。
@@ -53,7 +55,7 @@ Object[] toArray()
 下面从ConcurrentLinkedQueue的创建，添加，删除这几个方面对它进行分析。
 **1 创建**
 下面以ConcurrentLinkedQueue()来进行说明。
-```
+```java
 public ConcurrentLinkedQueue() {
     head = tail = new Node<E>(null);
 }
@@ -115,7 +117,7 @@ Node是个单向链表节点，next用于指向下一个Node，item用于存储�
 
 下面以add(E e)为例对ConcurrentLinkedQueue中的添加进行说明。
 
-```
+```java
 public boolean add(E e) {
     return offer(e);
 }
@@ -123,7 +125,7 @@ public boolean add(E e) {
 说明：add()实际上是调用的offer()来完成添加操作的。
 
 offer()的源码如下：
-```
+```java
 public boolean offer(E e) {
     // 检查e是不是null，是的话抛出NullPointerException异常。
     checkNotNull(e);
@@ -190,7 +192,7 @@ private static void checkNotNull(Object v) {
 
 下面以poll()为例对ConcurrentLinkedQueue中的删除进行说明。
 
-```
+```java
 public E poll() {
     // 设置“标记”
     restartFromHead:

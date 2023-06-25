@@ -27,6 +27,7 @@ head:
 
 一个线程中的方法调用链可能会很长，很多方法都处于执行状态。对于执行引擎来说，在活动线程中，只有位于栈顶的栈帧才是有效的，称为当前栈帧（Current Stack Frame），与这个栈帧相关联的方法成为当前方法。执行引擎运行的所有字节码指令对当前栈帧进行操作，在概念模型上，典型的栈帧结构如下图：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-a58ee82e-c0b0-4c06-9606-f7a0f0df0de9)
 
 #### 局部变量表
@@ -47,6 +48,7 @@ public class LocalVaraiablesTable {
 
 然后用 Intellij IDEA 的 jclasslib 查看一下编译后的字节码文件 LocalVaraiablesTable.class。可以看到 `write()` 方法的 Code 属性中，Maximum local variables（局部变量表的最大容量）的值为 3。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-70ab6bf6-4fbb-4722-99b4-a93d5061630c.png)
 
 按理说，局部变量表的最大容量应该为 2 才对，一个 age，一个 name，为什么是 3 呢？
@@ -54,6 +56,7 @@ public class LocalVaraiablesTable {
 当一个成员方法（非静态方法）被调用时，第 0 个变量其实是调用这个成员方法的对象引用，也就是那个大名鼎鼎的 this。调用方法 `write(18)`，实际上是调用 `write(this, 18)`。
 
 点开 Code 属性，查看 LocalVaraiableTable 就可以看到详细的信息了。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-e5e6037c-9be1-472f-8ab3-2754466e7828.png)
 
@@ -104,13 +107,16 @@ public void solt() {
 
 用 jclasslib 可以查看到，`solt()` 方法的 Maximum local variables 的值为 4。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-6734774b-376c-49bf-a915-508c7e829557.png)
 
 为什么等于 4 呢？带上 this 也就 3 个呀？
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-91ad04f8-1620-44c9-83d1-6fbd7860701a.png)
 
 查看 LocalVaraiableTable 就明白了，变量 i 的下标为 3，也就意味着变量 d 占了两个槽。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-630b50e3-fc37-4748-8d20-852d5358f87a.png)
 
@@ -134,9 +140,11 @@ public class OperandStack {
 
 OperandStack 类共有 2 个方法，`test()` 方法中调用了 `add()` 方法，传递了 2 个参数。用 jclasslib 可以看到，`test()` 方法的 maximum stack size 的值为 3。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-f790aa0f-d742-465b-91bf-5f143ee098c1.png)
 
 这是因为调用成员方法的时候会将 this 和所有参数压入栈中，调用完毕后 this 和参数都会一一出栈。通过 「Bytecode」 面板可以查看到对应的字节码指令。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-c37add5c-a74b-4bd6-8c8e-9085d9e6d374.png)
 
@@ -149,12 +157,14 @@ OperandStack 类共有 2 个方法，`test()` 方法中调用了 `add()` 方法�
 
 再来看一下 `add()` 方法的字节码指令。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-49e3f396-7ea8-49f5-81d4-093b9bdfa453.png)
 
 - iload_1 用于将局部变量表中下标为 1 的 int 类型变量加载到操作数栈上（下标为 0 的是 this）；
 - iload_2 用于将局部变量表中下标为 2 的 int 类型变量加载到操作数栈上；
 - iadd 用于 int 类型的加法运算；
 - ireturn 为返回值为 int 的方法返回指令。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-3ffdbe03-c0e4-49de-97a6-76666964a087.png)
 
@@ -210,6 +220,7 @@ public class DynamicLinking {
 从面向对象编程的角度，从多态的角度，我们对运行结果是很好理解的，但站在 Java 虚拟机的角度，它是如何判断 man 和 woman 该调用哪个方法的呢？
 
 用 jclasslib 看一下 main 方法的字节码指令。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-93a21aaf-ff67-445d-8ddb-ac6f72fd9b25.png)
 
@@ -565,6 +576,7 @@ Son choice 360!
 Java 语言常被人们定义成「解释执行」的语言，但随着 JIT 以及可直接将 Java 代码编译成本地代码的编译器的出现，这种说法就不对了。只有确定了谈论对象是某种具体的 Java 实现版本和执行引擎运行模式时，谈解释执行还是编译执行才会比较确切。
 
 无论是解释执行还是编译执行，无论是物理机还是虚拟机，对于应用程序，机器都不可能像人一样阅读、理解，然后获得执行能力。大部分的程序代码到物理机的目标代码或者虚拟机执行的指令之前，都需要经过下图中的各个步骤。下图中最下面的那条分支，就是传统编译原理中程序代码到目标机器代码的生成过程；中间那条分支，则是解释执行的过程。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/how-jvm-run-zijiema-zhiling-3c8a0865-2a77-464e-8dd6-5616fd6a72d7.png)
 

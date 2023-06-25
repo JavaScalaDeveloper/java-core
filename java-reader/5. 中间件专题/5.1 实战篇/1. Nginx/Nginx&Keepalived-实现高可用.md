@@ -112,9 +112,13 @@ server {
 
 我在168和169的主机`/usr/share/nginx/html/index.html`里做了简单的标识:
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-3c923bab98fe4dbf.gif?imageMogr2/auto-orient/strip)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-687dac1709191580.gif?imageMogr2/auto-orient/strip)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-5f5a1557a57cfe35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-abb806703021ef1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 注意对照地址栏看变化。就把168和169当作普通的web服务。
 
@@ -174,10 +178,13 @@ vrrp_instance VI_1 {
 
 ###   测试
 #####    1. 访问虚拟ip：
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-03237ef208620612.gif?imageMogr2/auto-orient/strip)
 
 #####    2. 查看主机路由
+
 ![166主机](https://upload-images.jianshu.io/upload_images/5786888-209d43624977d7e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ![167主机](https://upload-images.jianshu.io/upload_images/5786888-d05c13964b9512f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -212,8 +219,10 @@ Redirecting to /bin/systemctl stop keepalived.service
        valid_lft forever preferred_lft forever
 ```
 可以看到是没有`192.168.27.160`这个虚拟ip了。那我们再看一下167是否有，如果有，证明配置生效。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-5293b5a0e7b15341.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 那我们继续刷新`192.168.27.160`这个链接，会发现运行正常。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-3b4f6c2a5be7c3f6.gif?imageMogr2/auto-orient/strip)
 
 ###   脚本优化
@@ -236,6 +245,7 @@ if [ $A -eq 0 ];then
 fi
 ```
 对了，记住修改脚本可执行权限。为什么要重定向呢，因为`echo`不会打印在控制台上，我们可以跟踪`keepalived_error.log`来判断脚本是否执行。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-5dfef46197761144.gif?imageMogr2/auto-orient/strip)
 
 那既然这样，我们的脚本如何控制时间呢？sleep的时间也得控制好，在保持高性能下转换越快越好。所以，我们把脚本加载到keepalived配置中，keepalived每进行一次选举，就执行一次脚本。
@@ -306,6 +316,7 @@ vrrp_script chk_nginx {
 
 #####    优化后测试
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-99d893faa2ca4941.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 日志也会发现一直有在执行脚本。
 
@@ -325,6 +336,7 @@ if [ $A -eq 0 ];then
 #     fi
 fi
 ```
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-ed4b4e405c1b6890.gif?imageMogr2/auto-orient/strip)
 

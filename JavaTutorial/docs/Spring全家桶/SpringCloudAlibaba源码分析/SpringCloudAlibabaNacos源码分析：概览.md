@@ -11,6 +11,7 @@
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-e9966f158af7cfac39baf5bba456fd17_720w.webp)
 
 <figcaption>nacos工程目录结构</figcaption>
@@ -20,6 +21,7 @@
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-9195cfddde4e94b16f239bc101825a5a_720w.webp)
 
 <figcaption>模块依赖图</figcaption>
@@ -27,6 +29,7 @@
 </figure>
 
 <figure data-size="normal">
+
 
 
 ![](https://pic4.zhimg.com/80/v2-6b30d0fc994745002ee7dcc7b04154d3_720w.webp)
@@ -409,6 +412,7 @@ registerService方法就是封装了HTTP请求，最终在InstanceController中�
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-21ca2c51d56d6401dee0db0444df8ddf_720w.webp)
 
 <figcaption>多实例集群</figcaption>
@@ -467,6 +471,7 @@ File switchFile = new File(failoverDir + UtilAndComs.FAILOVER_SWITCH);
 整个过程如下图所示：
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-d16112ec6ff6dda0b029b019c313177c_720w.webp)

@@ -1,12 +1,15 @@
 # 面试官：如果让你来设计一个分页功能, 你会怎么设计? 前后端如何交互?
 
- ![](https://static.vue-js.com/54b0a390-cf14-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/54b0a390-cf14-11eb-85f6-6fac77c0c9b3.png)
 
 
 
 ## 一、是什么
 
 在我们做数据查询的时候，如果数据量很大，比如几万条数据，放在一个页面显示的话显然不友好，这时候就需要采用分页显示的形式，如每次只显示10条数据
+
 
 ![](https://static.vue-js.com/6070e8c0-cf14-11eb-85f6-6fac77c0c9b3.png)
 

@@ -67,6 +67,7 @@
 
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/175724-911dc459ef9cec28.png)
 
 
@@ -145,6 +146,7 @@ public interface BeanPostProcessor {
 ```  
 
 为了理解这两个方法执行的时机，简单的了解下bean的整个生命周期：
+
 
 
 

@@ -6,6 +6,7 @@
 ######  2. [拦截器（Interceptor）](https://www.jianshu.com/p/43e937436386)既能拿到http请求信息，也能拿到处理请求方法的信息，但是拿不到方法的参数信息。
 ######  3. [切片（Aspect）](https://www.jianshu.com/p/38930293748d)能拿到方法的参数信息，但是拿不到http请求信息。
 他们三个各有优缺点，需要根据自己的业务需求来选择最适合的拦截机制。
+
 ![拦截机制图](https://upload-images.jianshu.io/upload_images/5786888-821480ad23e4ce5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 好了下面开始正文。
@@ -52,6 +53,7 @@ public class TimeFilter implements Filter {
 
 
 然后我们启动服务，随便调用一个controller，控制台打印如下：
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-c2da4bacbf6a2a9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ###  2. 加载第三方过滤器

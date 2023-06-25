@@ -62,6 +62,7 @@ Dubbo 是由阿里开源，后来加入了 Apache 。正是由于 Dubbo 的出�
 
 下面我们再来看看 Dubbo 的架构，我们后面会使用 zookeeper 作为注册中心，这也是 Dubbo 官方推荐的一种方式。
 
+
 ![Dubbo 架构](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-9-26/46816446.jpg)
 
 **上述节点简单说明：**
@@ -109,6 +110,7 @@ RPC（Remote Procedure Call）—远程过程调用，它是一种通过网络�
 
 通过 [http://mirror.bit.edu.cn/apache/zookeeper/](http://mirror.bit.edu.cn/apache/zookeeper/) 这个链接下载，然后上传到Linux上。（可以说那个 Xhell 附带的文件传输功能）
 
+
 ![zookeeper下载](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-20/94203041.jpg)
 
 
@@ -119,6 +121,7 @@ RPC（Remote Procedure Call）—远程过程调用，它是一种通过网络�
 ```shell
 tar -zxvf zookeeper-3.4.12-alpha.tar.gz
 ```
+
 ![解压之后](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-20/69553556.jpg)
 
 解压完毕之后修改一下解压之后所得的文件夹名
@@ -140,6 +143,7 @@ mkdir data
 ```
 
 进入  data 文件夹 然后执行`pwd`命令，复制所得的当前目录位置(就是我用红色圈出来的文字)
+
 
 ![进入  data 文件夹 然后执行pwd命令](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-20/88358291.jpg)
 
@@ -174,6 +178,7 @@ dataDir=/usr/local/zookeeper/data
 
 或者运行 `netstat   -lntup` 命令查看网络状态,可以看到 zookeeper 的端口号 2181 已经被占用
 
+
 ![运行 netstat   -lntup命令查看网络状态](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-20/91151305.jpg)
 
 ----
@@ -184,15 +189,19 @@ dataDir=/usr/local/zookeeper/data
 如果你使用的阿里云服务器注意配置相关安全组：
 
 1. 进入本实例安全组页面
+
 ![进入本实例安全组页面](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-27/2409654.jpg)
 2. 选择配置规则
+
 ![选择配置规则](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-27/64736085.jpg)
 3. 选择添加安全组规则，然后按照下图配置
+
 ![选择添加安全组规则，然后按照下图配置](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-27/92599692.jpg)
 
 
 
 在开始实战之前提个建议：尽量新建一个文件夹，然后后面将接口项目、服务提供者以及服务消费者都放在这个文件夹。
+
 ![项目概览](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-27/82822739.jpg)
 
 ## 开始实战 2 ：实现服务接口 dubbo-interface 
@@ -206,6 +215,7 @@ dataDir=/usr/local/zookeeper/data
 
 项目结构：
 
+
 ![dubbo-interface项目结构](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-28/96213.jpg)
 
 dubbo-interface 后面被打成 jar 包，它的作用只是提供接口。
@@ -214,7 +224,9 @@ dubbo-interface 后面被打成 jar 包，它的作用只是提供接口。
 
 **File->New->Module...** ,然后选择 Maven类型的项目，其他的按照提示一步一步走就好。
 
+
 ![第一步](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-27/62198718.jpg)
+
 
 ![第二步](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-27/14782093.jpg)
 
@@ -234,6 +246,7 @@ public interface HelloService {
 ### 3. 将项目打成 jar 包供其他项目使用
 
 点击右边的 Maven Projects 然后选择 install ，这样 jar 包就打好了。
+
 ![](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-27/53371349.jpg)
 
 ## 开始实战 3 ：实现服务提供者 dubbo-provider 
@@ -248,6 +261,7 @@ public interface HelloService {
 
 项目结构：
 
+
 ![dubbo-provider 项目结构](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-27/62218555.jpg)
 
 ### 1. dubbo-provider 项目创建
@@ -255,6 +269,7 @@ public interface HelloService {
 创建一个 SpringBoot 项目，注意勾选上 web 模块。不会创建的话，可以查看下面这篇文章：，可以说很详细了。
 
 [https://blog.csdn.net/qq_34337272/article/details/79563606](https://blog.csdn.net/qq_34337272/article/details/79563606)
+
 
 ![注意勾选上 web 模块](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-27/81729699.jpg)
 
@@ -351,6 +366,7 @@ public class DubboProviderApplication {
 6. 测试效果
 
 项目结构：
+
 
 ![dubbo-consumer 项目结构](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-11-27/83395424.jpg)
 

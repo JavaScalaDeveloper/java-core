@@ -111,6 +111,7 @@ Timestamp 只需要使用 4 个字节的存储空间，但是 DateTime 需要耗
 
 下图是 MySQL 5.6 版本中日期类型所占的存储空间：
 
+
 ![](https://oss.javaguide.cn/github/javaguide/FhRGUVHFK0ujRPNA75f6CuOXQHTE.jpeg)
 
 可以看出 5.6.4 之后的 MySQL 多出了一个需要 0 ～ 3 字节的小数位。DateTime 和 Timestamp 会有几种不同的存储空间占用。
@@ -156,5 +157,6 @@ MySQL 中时间到底怎么存储才好？Datetime?Timestamp? 数值保存的时
 <img src="https://oss.javaguide.cn/github/javaguide/%E9%AB%98%E6%80%A7%E8%83%BDmysql-%E4%B8%8D%E6%8E%A8%E8%8D%90%E7%94%A8%E6%95%B0%E5%80%BC%E6%97%B6%E9%97%B4%E6%88%B3.jpg" style="zoom:50%;" />
 
 每种方式都有各自的优势，根据实际场景才是王道。下面再对这三种方式做一个简单的对比，以供大家实际开发中选择正确的存放时间的数据类型：
+
 
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/总结-常用日期存储方式.jpg)

@@ -1,7 +1,9 @@
 # 面试官：说说你在使用React 过程中遇到的常见问题？如何解决?
 
 
- ![](https://static.vue-js.com/7efcd400-f47d-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/7efcd400-f47d-11eb-ab90-d9ae814b240d.png)
 
 ## 一、前言
 在使用`react`开发项目过程中，每个人或多或少都会遇到一些"奇怪"的问题，本质上都是我们对其理解的不够透彻
@@ -56,11 +58,15 @@
 
 - 新版生命周期整体流程如下图所示：
 
-   ![](https://static.vue-js.com/66c999c0-d373-11eb-85f6-6fac77c0c9b3.png)
+   
+
+![](https://static.vue-js.com/66c999c0-d373-11eb-85f6-6fac77c0c9b3.png)
 
   旧的生命周期流程图如下：
 
-  ![](https://static.vue-js.com/d379e420-d374-11eb-ab90-d9ae814b240d.png)
+  
+
+![](https://static.vue-js.com/d379e420-d374-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -207,7 +213,9 @@
 
 工作流程图如下所示：
 
- ![](https://static.vue-js.com/27b2e930-e56b-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/27b2e930-e56b-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -277,4 +285,6 @@
 
 浏览器开始进行渲染和节点对比，然后执行完成组件内事件绑定和一些交互，浏览器重用了服务端输出的 `html` 节点，整个流程结束
 
- ![](https://static.vue-js.com/a2894970-f3f7-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/a2894970-f3f7-11eb-85f6-6fac77c0c9b3.png)

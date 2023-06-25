@@ -21,10 +21,12 @@ public class User  implements Serializable {
 
 ###   2. 数据库字段
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-8f482e9373923dab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 ###   3. 执行save方法后
 不需要给user.id字段设置值，jpa会自动生成uuid并作为它的主键添加到表中。
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-2fd1e50f235e75dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

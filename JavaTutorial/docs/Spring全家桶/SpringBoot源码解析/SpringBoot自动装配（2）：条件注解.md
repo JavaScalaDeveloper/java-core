@@ -4,6 +4,7 @@
 
 springboot 提供的条件注解如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0e8d27c887fb6ca142672cad1c60e9de207.png)
 
 这里列举部分如下：
@@ -515,6 +516,7 @@ public class B {
 
 那么 springboot 如何解决以上问题呢？我们来看看 `@ConditionalOnBean`/`@ConditionalOnMissingBean` 的说明：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-30df67cb01c73a6b201695298aad14fd0a5.png)
 
 稍微翻译如下：
@@ -687,6 +689,7 @@ public ConditionOutcome getMatchOutcome(ConditionContext context, AnnotatedTypeM
 ```
 
 先是通过 `OnResourceCondition#getOutcomes` 方法来获取 `ResourceLoader`，通过调试方式发现当前的 `ResourceLoader` 为 `AnnotationConfigServletWebServerApplicationContext`：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8f1de99f757eca7aeb0307b06b28d1020d2.png)
 
@@ -951,6 +954,7 @@ private Boolean evaluateExpression(ConfigurableListableBeanFactory beanFactory,
 可以看到，springboot 最终是通过 `BeanExpressionResolver#evaluate` 方法来计算表达式结果，关于 spring 表达式，本文就不展开分析了。
 
 好了，spring 条件注解的分析就到这里了，需要说明的是，springboot 还 有其他条件注解：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0e8d27c887fb6ca142672cad1c60e9de207.png)
 

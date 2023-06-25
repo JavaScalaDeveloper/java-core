@@ -26,6 +26,7 @@ Spring 是重量级企业开发框架 **Enterprise JavaBean（EJB）** 的替代
 
 Spring Framework 旨在简化 J2EE 企业应用程序开发。Spring Boot Framework 旨在简化 Spring 开发。
 
+
 ![why-we-need-springboot](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/why-we-need-springboot.png)
 
 #### 1.2.2 Spring Boot 的主要优点

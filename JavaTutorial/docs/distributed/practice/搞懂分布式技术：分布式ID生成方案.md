@@ -96,6 +96,7 @@ select message-id/ (order by message-id)/limit 100
 
 *   数据水平切分，保证各主库生成的ID不重复
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/74f8cc978f9046e38e613d4d0d30698d.jpg)
 
 如上图所述，由1个写库变成3个写库，**每个写库设置不同的auto_increment初始值，以及相同的增长步长**，以保证每个数据库生成的ID是不同的（上图中库0生成0,3,6,9…，库1生成1,4,7,10，库2生成2,5,8,11…）
@@ -113,6 +114,7 @@ select message-id/ (order by message-id)/limit 100
 分布式系统之所以难，很重要的原因之一是“没有一个全局时钟，难以保证绝对的时序”，要想保证绝对的时序，还是只能使用单点服务，用本地时钟保证“绝对时序”。
 
 数据库写压力大，是因为每次生成ID都访问了数据库，可以使用批量的方式降低数据库写压力。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/93ae092c4e8c4d3aa92a59afa81abb53.jpg)
 
@@ -139,6 +141,7 @@ ID生成服务假设每次批量拉取6个ID，服务访问数据库，将当前
 **改进方法**：
 
 单点服务的常用高可用优化方案是“备用服务”，也叫“影子服务”，所以我们能用以下方法优化上述缺点（1）：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/449c222f7c344209af44df830479ddde.jpg)
 

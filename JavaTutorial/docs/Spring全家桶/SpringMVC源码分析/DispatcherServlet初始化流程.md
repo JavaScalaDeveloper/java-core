@@ -27,6 +27,7 @@ public void onStartup(ServletContext servletContext) {
 
 我们先来看下 `DispatcherServlet` 的继承结构：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-1df54493011b3fc9cb9cafbb944f1a88256.png)
 
 从上图可以看到，spring 提供的、跟 servlet 相关的类有三个：`HttpServletBean`、`FrameworkServlet` 与 `DispatcherServlet`。作为 servlet，我们知道其初始化方法为 `GenericServlet#init()`，也就是 servlet 的入口方法，我们的分析也将从这里开始。
@@ -459,6 +460,7 @@ org.springframework.web.servlet.HandlerMapping=org.springframework.web.servlet.h
 ### 4\. 总结
 
 本文主要分析了 springmvc 的启动过程，总结如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-7ab3fae1e39f545c1d7c1811351227fa434.png)
 

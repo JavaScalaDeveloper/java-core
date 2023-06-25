@@ -36,6 +36,7 @@ Selector 是一个选择器，用于处理网络连接和读写处理，使用�
 
 <figure data-size="normal">
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-7d57acd1d7dc5942e999e6ffebb28679_720w.webp)
 
 </figure>
@@ -47,6 +48,7 @@ Selector 是一个选择器，用于处理网络连接和读写处理，使用�
 ## **客户端缓存存储模型**
 
 <figure data-size="normal">
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-5da65c5f9f8c0c9082e07c6431e78cd2_720w.webp)
 
@@ -83,6 +85,7 @@ Sender 线程的主要工作是收集满足条件的批数据，何为满足条�
 partition 维度和 Broker 维度发送消息模型对比。
 
 <figure data-size="normal">
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-36b7c2761f17fb2d6481747523999011_720w.webp)
 

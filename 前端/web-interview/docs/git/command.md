@@ -1,6 +1,8 @@
 # 面试官：说说Git常用的命令有哪些？
 
- ![](https://static.vue-js.com/f66b3290-f7af-11eb-bc6f-3f06e1491664.png)
+ 
+
+![](https://static.vue-js.com/f66b3290-f7af-11eb-bc6f-3f06e1491664.png)
 
 
 
@@ -8,7 +10,9 @@
 
 `git `的操作可以通过命令的形式如执行，日常使用就如下图6个命令即可
 
- ![](https://static.vue-js.com/fe150520-f7af-11eb-991d-334fd31f0201.png)
+ 
+
+![](https://static.vue-js.com/fe150520-f7af-11eb-991d-334fd31f0201.png)
 
 实际上，如果想要熟练使用，超过60多个命令需要了解，下面则介绍下常见的的`git `命令
 
@@ -142,7 +146,9 @@
 
 `git`常用命令速查表如下所示：
 
- ![](https://static.vue-js.com/0a10f3c0-f7b0-11eb-991d-334fd31f0201.png)
+ 
+
+![](https://static.vue-js.com/0a10f3c0-f7b0-11eb-991d-334fd31f0201.png)
 
 
 

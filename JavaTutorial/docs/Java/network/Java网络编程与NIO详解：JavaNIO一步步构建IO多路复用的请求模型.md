@@ -60,6 +60,7 @@ git 地址：[https://github.com/jasonGeng88/java-network-programming](https://g
 有了上一篇 socket 的经验，我们的第一步一定也是建立 socket 连接。只不过，这里不是采用`new socket()`的方式，而是引入了一个新的概念`SocketChannel`。它可以看作是 socket 的一个完善类，除了提供 Socket 的相关功能外，还提供了许多其他特性，如后面要讲到的向选择器注册的功能。
 
 类图如下：
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405094035.png)
 
 建立连接代码实现：
@@ -157,6 +158,7 @@ public class NioBlockingHttpClient {
 nio 的阻塞实现，基本与使用原生的 socket 类似，没有什么特别大的差别。
 
 下面我们来看看它真正强大的地方。到目前为止，我们将的都是阻塞 I/O。何为阻塞 I/O，看下图：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405094141.png)
 
@@ -357,6 +359,7 @@ private void receive(SelectionKey key) throws IOException {
 
 最后，将一下`ByteBuffer`的结构，它主要有 position, limit,capacity 以及 mark 属性。以`buffer.flip();`为例，讲下各属性的作用（_mark 主要是用来标记之前 position 的位置，是在当前 postion 无法满足的情况下使用的，这里不作讨论_）。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405094314.png)
 从图中看出，
 
@@ -482,6 +485,7 @@ public class NioNonBlockingHttpClient {
     }
 }
 ````
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405094343.png)
 
 本文从 nio 的阻塞方式讲起，介绍了阻塞 I/O 与非阻塞 I/O 的区别，以及在 nio 下是如何一步步构建一个 IO 多路复用的模型的客户端。文中需要理解的内容比较多，如果有理解错误的地方，欢迎指正~

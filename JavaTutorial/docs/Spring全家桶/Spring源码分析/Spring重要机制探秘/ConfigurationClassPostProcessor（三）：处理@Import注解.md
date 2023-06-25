@@ -233,7 +233,9 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
 
 1. 解析配置类，对 `@Component`，`@PropertySources`，`@ComponentScans`，`@ImportResource` 等的解析，这个 方法前两篇文章也分析了，这次我们聚集于 `@Import` 会再次分析，在这一步，要解析的配置类只有一个，就是我们在 `main()` 方法中注册的 `Demo04.class`：
 
-   ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-840c14685be569012b54d94aad67ee48825.png)
+   
+
+![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-840c14685be569012b54d94aad67ee48825.png)
 
 2. 把 `@Import` 引入的类、配置类中带 `@Bean` 的方法、`@ImportResource` 引入的资源等转换成 `BeanDefinition`，这个方法在前面分析 `@Bean` 的时候也分析过了，这次我们也会分析到；
 
@@ -329,15 +331,20 @@ private void collectImports(SourceClass sourceClass, Set<SourceClass> imports,
 
 这个方法运行后 ，得到的结果如下：
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-05c7fb442b4bb84d13ff6688e5fbf31cfa5.png)
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-4e7153f9cbb922496e7c303cc3c35e7eceb.png)
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b238838641af43b783fc9b14c4226f5c1eb.png)
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d7e2063676e6e19850c35893b62f4ab76a9.png)
 
 得到的结果为 `LinkedHashSet`，一次截图不方便，因此分为了 4 张图。可以看到，`@Import` 注解引入的 4 个类都获取到了：
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d615198a8f6dbef1ac6a800526311f36078.png)
 
@@ -538,9 +545,11 @@ public class Element02ImportBeanDefinitionRegistrar implements ImportBeanDefinit
 
 到了这里，`Element01`、`Element02`、`Element03`、`Element04` 就到注册到 `beanDefinitionMap` 中了，让我们看一眼 `beanDefinitionNames` 中的内容：
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-68171a4af503b3e80b23d10a91834e231aa.png)
 
 可以发现，`Element01` 与 `Element03` beanName 不同寻常，这两个 bean 的引入方式为
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0e07154a732c2a884803531e54aa10a0ef9.png)
 
@@ -582,6 +591,7 @@ beanFactory.get(Element04.class);
 ### 4.6 补充：`DeferredImportSelector` 的处理
 
 在分析 `ConfigurationClassParser#processImports` 方法时，处理 `ImportSelector` 的类型时，有这么一段代码：
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-4fb0dddcbf45d84ad5260c43a5b55e85a0a.png)
 

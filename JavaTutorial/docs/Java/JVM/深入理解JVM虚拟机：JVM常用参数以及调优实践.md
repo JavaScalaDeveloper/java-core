@@ -13,6 +13,7 @@
 
 
 
+
 ![](https://pic.rmb.bdstatic.com/bjh/down/97522789c423e19931adafa65bd5424d.png)
 
 ## JVM优化的必要性
@@ -35,6 +36,7 @@
 
 2、64位的操作系统 --- 寻址能力 2^64 = 16384PB , 高性能计算机（IBM Z unix 128G 200+）
 
+
 ![](https://pic.rmb.bdstatic.com/bjh/down/aae367a929e2d1361975942091ffadfe.png)
 
 Jvm堆内存不能设置太大，否则会导致寻址垃圾的时间过长，也就是导致整个程序STW, 也不能设置太小，否则会导致回收垃圾过于频繁；
@@ -56,6 +58,7 @@ Jvm堆内存不能设置太大，否则会导致寻址垃圾的时间过长，�
 *   系统吞吐量与响应性能不高或下降。
 
 ## JVM调优原则
+
 
 ![](https://pic.rmb.bdstatic.com/bjh/down/7cd4f5c19ab4f5f5d3087422097ee931.png)
 
@@ -123,6 +126,7 @@ JVM调优是一个手段，但并不一定所有问题都可以通过JVM进行�
 
 以上操作步骤中，某些步骤是需要多次不断迭代完成的。一般是从满足程序的内存使用需求开始的，之后是时间延迟的要求，最后才是吞吐量的要求，要基于这个步骤来不断优化，每一个步骤都是进行下一步的基础，不可逆行之。
 
+
 ![](https://pic.rmb.bdstatic.com/bjh/down/c271890a3714d538ed3362073c66893d.png)
 
 **调优原则总结**
@@ -132,6 +136,7 @@ JVM的自动内存管理本来就是为了将开发人员从内存管理的泥�
 即使不得不进行JVM调优，也绝对不能拍脑门就去调整参数，一定要全面监控，详细分析性能数据。
 
 **附录：系统性能优化指导**
+
 
 ![](https://pic.rmb.bdstatic.com/bjh/down/00d90cef8369568f8581a9850dcd42e6.png)
 
@@ -240,6 +245,7 @@ TLAB空间一般不会太大，当大对象无法在TLAB分配时，则会直接
 -XX:TLABRefillWasteFraction=100 -XX:-DoEscapeAnalysis -server
 
 内存参数
+
 
 
 
@@ -550,6 +556,7 @@ jvm堆内存设置:
 
 TPS性能曲线：
 
+
 ![](https://pic.rmb.bdstatic.com/bjh/down/ee3949fc51c360330ece8f6729cd0560.png)
 
 **7.2 分析gc日志**
@@ -562,13 +569,16 @@ TPS性能曲线：
 
 Throughput: 业务线程执行时间 / (gc时间+业务线程时间)
 
+
 ![](https://pic.rmb.bdstatic.com/bjh/down/25529b786b50b8b30067e6f721101369.png)
 
 分析gc日志，发现，一开始就发生了3次fullgc，很明显jvm优化参数的设置是有问题的；
 
+
 ![](https://pic.rmb.bdstatic.com/bjh/down/e70f3ffedc03bc0b387ff860cb8c948b.png)
 
 查看fullgc发生问题原因： jstat -gcutil pid
+
 
 ![](https://pic.rmb.bdstatic.com/bjh/down/0e135e59c1e140aaded9223edd2f0177.png)
 
@@ -580,6 +590,7 @@ Metaspace持久代： 初始化分配大小20m , 当metaspace被占满后，必�
 
 经过调优后，fullgc现象已经消失了：
 
+
 ![](https://pic.rmb.bdstatic.com/bjh/down/0f8e8b90a8f9d810759ae43b3b0ed1b9.png)
 
 **7.3 Young&Old比例**
@@ -588,11 +599,13 @@ Metaspace持久代： 初始化分配大小20m , 当metaspace被占满后，必�
 
 1） -XX:NewRetio = 4
 
+
 ![](https://pic.rmb.bdstatic.com/bjh/down/f8353c852a2f65626b5b3a23f9616208.png)
 
 年轻代分配的内存大小变小了，这样YGC次数变多了，虽然fullgc不发生了，但是YGC花费的时间更多了！
 
 2） -XX:NewRetio = 2 YGC发生的次数必然会减少；因为eden区域的大小变大了，因此YGC就会变少；
+
 
 ![](https://pic.rmb.bdstatic.com/bjh/down/11ca145ee5a93f511feda69e749582cb.png)
 
@@ -602,6 +615,7 @@ Metaspace持久代： 初始化分配大小20m , 当metaspace被占满后，必�
 
 1） 设置比值：8:1:1
 
+
 ![](https://pic.rmb.bdstatic.com/bjh/down/6330cbdd9acd6a5c18e91c5bea13cca2.png)
 
 2） Xmn2g 8:1:1
@@ -609,6 +623,7 @@ Metaspace持久代： 初始化分配大小20m , 当metaspace被占满后，必�
 nohup java -Xmx3550m -Xms3550m -Xmn2g -XX:SurvivorRatio=8 -Xss256k -XX:MetaspaceSize=256m -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintHeapAtGC -Xloggc:gc.log -jar jshop-web-1.0-SNAPSHOT.jar --spring.addition-location=application.yaml > jshop.log 2>&1 ><
 
 根据gc调优，垃圾回收次数，时间，吞吐量都是一个比较优的一个配置；
+
 
 ![](https://pic.rmb.bdstatic.com/bjh/down/68edd8bfceb7d5e85d18a53e150cad2a.png)
 
@@ -633,6 +648,7 @@ nohup java -Xmx3550m -Xms3550m -Xmn2g -XX:SurvivorRatio=8 -Xss256k -XX:Metaspace
 配置方式如下所示：
 
 > nohup java -Xmx3550m -Xms3550m -Xmn2g -XX:SurvivorRatio=8 -Xss256k -XX:+UseG1GC -XX:MetaspaceSize=256m -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintHeapAtGC -Xloggc:gc.log -jar jshop-web-1.0-SNAPSHOT.jar --spring.addition-location=application.yaml > jshop.log 2>&1 ><
+
 
 ![](https://pic.rmb.bdstatic.com/bjh/down/4146281952d45f65334e7ba97c6ba873.png)
 

@@ -298,6 +298,7 @@ protected Object invokeWithinTransaction(Method method, @Nullable Class<?> targe
 
 这个就是获取 `UserService#insert` 方法上标记的 `@Transactional` 的属性配置，得到的结果如下：
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-aefbe56da2db53982f73092a191e587fcc8.png)
 
 #### 3.2 获取事务管理器
@@ -356,6 +357,7 @@ public DataSourceTransactionManager transactionManager(DataSource dataSource) {
 
 这里得到的也是 `DataSourceTransactionManager`：
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-34ac74501b184c44f95432b31b21a041619.png)
 
 #### 3.3 将 `TransactionManager` 转换为 `PlatformTransactionManager`
@@ -377,6 +379,7 @@ private PlatformTransactionManager asPlatformTransactionManager(
 #### 3.4 获取方法的全限定名
 
 这一步会拿到方法的全限定名，格式为："包名。类型。方法名"，这也没啥好说的，这一步得到的结果如下：
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-656a73b9eb1cd3120d3586fe4f1302de373.png)
 

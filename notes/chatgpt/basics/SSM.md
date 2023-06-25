@@ -108,7 +108,68 @@ FactoryBean 接口是一个高级工厂，它允许开发者自定义实例化 B
 
 因此，BeanFactory 是 Spring IOC 容器最基本的管理 Bean 的接口，而 FactoryBean 则是一个更高级的工厂，它可以帮助开发者自定义实例化 Bean 的过程。两者之间的区别在于，BeanFactory 直接管理和维护 Bean 实例，而 FactoryBean 通过 getObject() 方法委托给外部方法来创建 Bean 实例。
 
+## 简述Spring Bean的生命周期
+Spring Bean的生命周期由以下几个阶段组成：
+
+- 实例化（Instantiation）：在该阶段，Spring容器会根据配置或注解创建Bean的实例。这可以通过构造函数实例化、工厂方法或者其他方式完成。
+
+- 属性赋值（Population）：在实例化后，Spring会通过依赖注入或者其他方式为Bean的属性进行赋值。这可以使用@Autowired、@Value等注解来完成。
+
+- 初始化（Initialization）：在属性赋值完成后，Spring会调用Bean的初始化方法，可以自定义初始化逻辑。常用的初始化方法有@PostConstruct注解、实现InitializingBean接口和配置init-method。
+
+- 使用（In Use）：在初始化完成后，Bean进入可使用状态。此时，容器将Bean交给相关的组件使用。
+
+- 销毁（Destruction）：当Bean不再需要时，容器会调用Bean的销毁方法进行资源释放和清理工作。常用的销毁方法有@PreDestroy注解、实现DisposableBean接口和配置destroy-method。
+
+需要注意的是，Spring容器并不管理原型作用域（prototype scope）的Bean的销毁，因此如果某个Bean是原型作用域的，在使用完后需要手动进行资源的清理。
+
+整个生命周期过程中，可以通过实现一些扩展接口或使用注解来对Bean的行为进行定制，例如BeanPostProcessor接口可以在Bean实例化前后进行一些处理，BeanFactoryPostProcessor接口可以对BeanFactory的配置进行修改等。
+
+总之，Spring Bean的生命周期涵盖了实例化、属性赋值、初始化、使用和销毁等阶段。通过控制每个阶段的行为，我们可以灵活地管理和定制Bean的创建和管理过程。
+
+## 简述Spring的启动流程
+Spring的启动流程可以分为以下几个主要步骤：
+
+- 加载配置文件：Spring会加载配置文件（通常是XML文件或注解配置）来获取应用程序的配置信息。
+
+- 创建IOC容器：Spring容器会根据配置文件创建一个IOC（Inversion of Control）容器，用于管理Bean对象及其依赖关系。
+
+- 扫描组件：Spring会扫描配置文件中指定的包或目录，查找带有特定注解的类（例如@Controller、@Service、@Repository等），并将它们注册为Bean对象。
+
+- 创建Bean对象：在IOC容器创建过程中，Spring会根据配置信息通过反射机制实例化每个Bean对象，并将其放入IOC容器中。同时，Spring会注入依赖关系，将相互依赖的Bean对象进行关联。
+
+- 属性赋值和初始化：在创建Bean对象后，Spring会根据配置文件中的属性注入方式，对Bean的属性进行赋值。这可以通过构造函数注入、Setter方法注入或字段注入实现。之后，Spring会调用初始化回调方法，如@PostConstruct注解、InitializingBean接口的afterPropertiesSet()方法或配置文件中的init-method来进行初始化操作。
+
+- 就绪状态：完成属性赋值和初始化后，Bean对象进入就绪状态，表示它已经可以被其他组件使用。
+
+- 应用程序使用Bean：在IOC容器初始化完毕后，应用程序可以通过获取Bean对象的方式来使用它们。这可以通过依赖注入、ApplicationContext的getBean()方法或使用注解进行自动装配来实现。
+
+以上是Spring的基本启动流程，但实际情况可能因为具体的配置和使用方式而有所差异。另外，还有一些细节的处理过程，如AOP代理的创建、事件的发布等，这些步骤会在Spring的启动流程中被执行。
+
+
 # SpringMVC
+
+## 简述SpringMVC的执行流程
+Spring MVC的执行流程主要包括以下几个步骤：
+
+- 客户端发送请求：客户端通过浏览器或其他方式发送HTTP请求到Spring MVC应用程序。
+
+- DispatcherServlet的接收：请求首先被前置的DispatcherServlet捕获，它是Spring MVC的核心Servlet。DispatcherServlet充当了控制器的角色，负责协调和处理请求。
+
+- 处理器映射（Handler Mapping）：DispatcherServlet将根据配置的处理器映射器（Handler Mapping）来确定请求所对应的处理器（Controller）。处理器映射器将请求的URL与Controller进行匹配。
+
+- 处理器适配器（Handler Adapter）：确定了处理器后，DispatcherServlet会根据配置的处理器适配器（Handler Adapter）来调用相应的处理器方法，并传入请求参数。处理器适配器会对各种不同类型的处理器进行适配，使得它们能够统一处理请求。
+
+- 控制器处理请求：处理器（Controller）是真正处理请求的组件，它会根据请求的内容进行相应的逻辑处理，并返回一个ModelAndView对象，其中包含了处理结果和要渲染的视图名称。
+
+- 视图解析器（View Resolver）：DispatcherServlet会使用视图解析器（View Resolver）来解析处理器返回的视图名称，从而确定要使用的具体视图。视图解析器可以根据配置规则将逻辑视图名称解析为物理视图路径。
+
+- 视图渲染：根据确定的视图，DispatcherServlet将将数据模型（Model）中的数据传递给视图，并由视图负责渲染生成响应内容。
+
+- 响应返回：DispatcherServlet最终将处理结果封装成HTTP响应，发送给客户端。
+
+整个流程中，Spring MVC提供了一系列的组件来支持请求的处理和响应的生成。其中，DispatcherServlet充当总控制器，协调各个组件的工作。处理器映射器确定请求的处理器，处理器适配器调用处理器方法，视图解析器解析视图，而视图则负责渲染生成最终的响应内容。通过这种方式，Spring MVC能够将请求和处理分离，实现了松耦合的设计，提供了灵活且可扩展的Web开发框架。
+
 
 # Mybatis
 

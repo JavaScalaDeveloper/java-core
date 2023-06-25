@@ -51,7 +51,7 @@ Spark 支持以下六个核心数据源，同时 Spark 社区还提供了多达�
 - JDBC/ODBC connections
 - Plain-text files
 
-> 注：以下所有测试文件均可从本仓库的[resources](https://github.com/heibaiying/BigData-Notes/tree/master/resources) 目录进行下载
+> 注：以下所有测试文件均可从本仓库的[resources](images/https://github.com/heibaiying/BigData-Notes/tree/master/resources) 目录进行下载
 
 ### 1.2 读数据格式
 

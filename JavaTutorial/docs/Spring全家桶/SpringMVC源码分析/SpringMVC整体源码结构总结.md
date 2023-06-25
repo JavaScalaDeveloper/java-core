@@ -8,6 +8,7 @@
 
 以上整个流程就这样：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0874fa7ef39ca9c405cdf55d99ca891ebf2.png)
 
 ### 2\. 启用 webMvc 的方式
@@ -69,11 +70,15 @@ public class MyWebMvcConfigurationSupport extends WebMvcConfigurationSupport {
 
 用一张图来总结整个启动流程：
 
-![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-74d675bbae28247726b8d054e8758c3d8b1.png) ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-aa6bb35d0ab26925c45c62ab4d709d05cdd.png)
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-74d675bbae28247726b8d054e8758c3d8b1.png) 
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-aa6bb35d0ab26925c45c62ab4d709d05cdd.png)
 
 ### 4\. 请求流程
 
 也用一张图来总结整个请求流程：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-024b75e7f7952dbf1ace7aa5a8cfe3bcb77.png)
 

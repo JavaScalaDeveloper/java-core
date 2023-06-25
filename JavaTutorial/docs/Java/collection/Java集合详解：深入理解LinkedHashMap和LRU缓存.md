@@ -66,19 +66,23 @@
 
 > 　　特别地，该迭代顺序可以是插入顺序，也可以是访问顺序。因此，根据链表中元素的顺序可以将LinkedHashMap分为：保持插入顺序的LinkedHashMap和保持访问顺序的LinkedHashMap，其中LinkedHashMap的默认实现是按插入顺序排序的。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404153000.png)
 
 > 　 本质上，HashMap和双向链表合二为一即是LinkedHashMap。所谓LinkedHashMap，其落脚点在HashMap，因此更准确地说，它是一个将所有Entry节点链入一个双向链表双向链表的HashMap。
 
 > 　 在LinkedHashMapMap中，所有put进来的Entry都保存在如下面第一个图所示的哈希表中，但由于它又额外定义了一个以head为头结点的双向链表(如下面第二个图所示)，因此对于每次put进来Entry，除了将其保存到哈希表中对应的位置上之外，还会将其插入到双向链表的尾部。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404153032.png)
 
 　　更直观地，下图很好地还原了LinkedHashMap的原貌：HashMap和双向链表的密切配合和分工合作造就了LinkedHashMap。特别需要注意的是，next用于维护HashMap各个桶中的Entry链，before、after用于维护LinkedHashMap的双向链表，虽然它们的作用对象都是Entry，但是各自分离，是两码事儿。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404153119.png)
 　　 
 　　其中，HashMap与LinkedHashMap的Entry结构示意图如下图所示：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404153144.png)
 
@@ -119,6 +123,7 @@ private final boolean accessOrder;  //true表示按照访问顺序迭代，false
 
 从下图我们可以看出，LinkedHashMap中并增加没有额外方法。也就是说，LinkedHashMap与HashMap在操作上大致相同，只是在实现细节上略有不同罢了。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404153251.png)
 ### 基本元素 Entry
 
@@ -136,6 +141,7 @@ private static class Entry<K,V> extends HashMap.Entry<K,V> {
 }
 ````
 形象地，HashMap与LinkedHashMap的Entry结构示意图如下图所示：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404153428.png)
 
@@ -234,6 +240,7 @@ LinkedHashMap 一共提供了五个构造函数，它们都是在HashMap的构�
 > 也可以这样理解，LinkedHashMap 在不对HashMap做任何改变的基础上，给HashMap的任意两个节点间加了两条连线(before指针和after指针)，使这些节点形成一个双向链表。
 
 > 在LinkedHashMapMap中，所有put进来的Entry都保存在HashMap中，但由于它又额外定义了一个以head为头结点的空的双向链表，因此对于每次put进来Entry还会将其插入到双向链表的尾部。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404153615.png)
 
@@ -691,6 +698,7 @@ public class LRU<K,V> extends LinkedHashMap<K, V> implements Map<K, V>{
 }
 ````
 　　下图是程序的运行结果： 
+
 ![](http://static.zybuluo.com/Rico123/gjz8mjvhkkhwjlzr5o8b27yv/LRU.png)
 ## LinkedHashMap 有序性原理分析
 

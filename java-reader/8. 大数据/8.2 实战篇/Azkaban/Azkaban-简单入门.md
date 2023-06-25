@@ -229,13 +229,16 @@ executor.flow.threads=30
 `
 
 #####    6.3 浏览器访问`https://s166:8443/`
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-59d2973d0279d974.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 如果你看到这样的画面，证明你错了，没有在根目录下执行，而是习惯性的在bin目录下执行启动文件，所以它的很多css都加载不到。
 
+
 ![这才是正确的打开方式](https://upload-images.jianshu.io/upload_images/5786888-d5f658ac0378a33e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 用设置的账号密码登录。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-886dbced00517610.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ###   7. Azkaban实战
@@ -253,8 +256,11 @@ zip command.job
 
 3. 通过azkaban的web管理平台创建project并上传job压缩包
 首先创建project
+
 ![创建工程](https://upload-images.jianshu.io/upload_images/5786888-324ed400a42fa942.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![上传文件](https://upload-images.jianshu.io/upload_images/5786888-98d49ae08853eec7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![执行日志](https://upload-images.jianshu.io/upload_images/5786888-b86414f532e482ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #####    7.2 多job工作流flow
@@ -275,8 +281,11 @@ command=echo bar
 2. 将所有job资源文件打到一个zip包中
 3. 上传zip包并启动
 4. 查看job log
+
 ![job list](https://upload-images.jianshu.io/upload_images/5786888-1a55a737bb4e2c91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![foo job log](https://upload-images.jianshu.io/upload_images/5786888-1ae8b79becbcdf52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![bar job log](https://upload-images.jianshu.io/upload_images/5786888-cca333b487bd2cbd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #####    7.3 操作hadoop
@@ -288,6 +297,7 @@ command=/home/fantj/hadoop/bin/hadoop fs -lsr /
 ```
 2. 打包成zip上传
 3. 启动job并查看lob
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-26ea3191e6640569.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ######   7.4 操作hive
@@ -310,5 +320,6 @@ command=/home/fantj/hive/bin/hive -f 'test.sql'
 ```
 
 打zip包-上传-执行-查log
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-eadfcb7548abeb16.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

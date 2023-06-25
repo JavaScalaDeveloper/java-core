@@ -27,6 +27,7 @@ head:
 
 如今的 Java 虚拟机非常强大，不仅支持 Java 语言，还支持很多其他的编程语言，比如说 Groovy、Scala、Koltin 等等。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/bytecode-dd31bbd6-c75c-4426-9437-c0f57ea3b86f.png)
 
 来看一段代码吧。
@@ -41,6 +42,7 @@ public class Main {
 ```
 
 编译生成  Main.class  文件后，可以在命令行使用 `xxd Main.class` 打开 class 文件（我用的是 Intellij IDEA，在 macOS 环境下）。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/bytecode-bd941085-ff0e-4abf-a5f9-afb0493bfed7.png)
 
@@ -57,6 +59,7 @@ public class Main {
 ### **02、反编译字节码文件**
 
 Java 内置了一个反编译命令 javap，可以通过 `javap -help` 了解 javap 的基本用法。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/bytecode-84b7af5c-93b1-4f63-bb30-946ab3d7e98c.png)
 
@@ -190,6 +193,7 @@ flags: (0x0021) ACC_PUBLIC, ACC_SUPER
 ```
 
 类访问标记，一共有 8 种。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/bytecode-d12d6983-f427-40d2-bb4b-3a2c6c4c7806.png)
 
@@ -339,6 +343,7 @@ Java 虚拟机是在加载字节码文件的时候才进行的动态链接，也
 
 关于字段类型的描述符映射表如下图所示。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/bytecode-cbf16ce9-7853-4050-a1c0-8b874f3b0c1e.png)
 
 到此为止，第 2 个常量算是摸完了。组合起来的意思就是，声明了一个类型为 int 的字段 age。
@@ -371,6 +376,7 @@ private int age;
 
 字段的访问标志和类的访问标志非常类似。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/bytecode-5f328e11-3486-4eb4-8fa9-5c5febfab894.png)
 
 
@@ -379,6 +385,7 @@ private int age;
 ### **05、方法表集合**
 
 方法表用来描述接口或者类中声明的方法，包括类方法和成员方法，以及构造方法。方法的修饰符和字段略有不同，比如说 volatile 和 transient 不能用来修饰方法，再比如说方法的修饰符多了 synchronized、native、strictfp 和 abstract。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/bytecode-fd434d5c-ffc6-4a24-9787-98e573035068.png)
 

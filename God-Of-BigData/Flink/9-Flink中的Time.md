@@ -11,6 +11,7 @@
 * 如果以ProcessingTime基准来定义时间窗口将形成ProcessingTimeWindow，以operator的systemTime为准。
 
 
+
 ![54544878430fd9d3047b60740a0161f8](images/9-Flink中的Time.resources/895DEF14-E8B4-4A1C-9D96-66D88517DDA6.png)
 
 

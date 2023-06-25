@@ -64,6 +64,7 @@
 
 ## 异常体系
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/22185952-834d92bc2bfe498f9a33414cc7a2c8a4.png)
 
 从上面这幅图可以看出，Throwable是java语言中所有错误和异常的超类（万物即可抛）。它有两个子类：Error、Exception。

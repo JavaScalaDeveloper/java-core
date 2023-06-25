@@ -31,9 +31,11 @@
 
 也就是用于替换我们启动时候的这个页面
 
+
 ![image-20200107193657995](images/image-20200107193657995.png)
 
 其实修改的方法也比较简单，只需要在resource目录下，放一个banner.txt文件即可，文件下面就存放我们需要显示的banner，那么在启动的时候，就会加载出对应的图像出来
+
 
 ![image-20200107194508978](images/image-20200107194508978.png)
 
@@ -44,6 +46,7 @@
 [http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20](http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type Something )
 
 我们在上面输入我们需要显示的内容，然后复制里面的文本到banner.txt即可
+
 
 ![image-20200107194722140](images/image-20200107194722140.png)
 
@@ -77,6 +80,7 @@ Spring Boot Version: ${spring-boot.version}${spring-boot.formatted-version}
 这里因为设置字体颜色会让后面的颜色都会变成对应的颜色，所以我们需要在之前在设置成黑色，这样才不会出现满屏的绿色了
 
 下面是我的启动页面，如下所示：
+
 
 ![image-20200107195404379](images/image-20200107195404379.png)
 

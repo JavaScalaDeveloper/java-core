@@ -5,6 +5,7 @@
     前面也讲了这么多组件了，这会儿我们集成
     spring-cloud-starter-gateway组件发现，又是一个starter组件，二话不说，先去找spring.factories文件，分析一下有哪些重要的bean被自动装配进IoC容器里面了。
 
+
 ![SpringCloud系列—Spring Cloud 源码分析之Gateway网关-开源基础软件社区](https://dl-harmonyos.51cto.com/images/202207/788f3c1494307a2ad7d935811c9e62bab2c435.jpg "SpringCloud系列—Spring Cloud 源码分析之Gateway网关-开源基础软件社区")1.先来看
 GatewayClassPathWarningAutoConfiguration这个配置类
 

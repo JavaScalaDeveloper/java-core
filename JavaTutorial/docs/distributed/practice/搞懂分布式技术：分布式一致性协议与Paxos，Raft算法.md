@@ -415,6 +415,7 @@ Paxos算法在出现竞争的情况下，其收敛速度很慢，甚至可能出
 
 (3).服务阶段为客户端服务，提议案;
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407205423.png)
 
 1.3.1学习阶段

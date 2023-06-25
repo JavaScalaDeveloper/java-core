@@ -40,6 +40,7 @@ public class ArrayListNotSafeDemo {
 
 为什么ArrayList是线程不安全的？因为在进行写操作的时候，方法上为了保证并发性，是没有添加synchronized修饰，所以并发写的时候，就会出现问题
 
+
 ![image-20200312202720715](images/image-20200312202720715.png)
 
 当我们同时启动30个线程去操作List的时候
@@ -67,6 +68,7 @@ public class ArrayListNotSafeDemo {
 
 这个时候出现了错误，也就是java.util.ConcurrentModificationException
 
+
 ![image-20200312205142763](images/image-20200312205142763.png)
 
 这个异常是 并发修改的异常
@@ -78,6 +80,7 @@ public class ArrayListNotSafeDemo {
 第一种方法，就是不用ArrayList这种不安全的List实现类，而采用Vector，线程安全的
 
 关于Vector如何实现线程安全的，而是在方法上加了锁，即synchronized
+
 
 ![image-20200312210401865](images/image-20200312210401865.png)
 
@@ -147,11 +150,13 @@ newElements[len] = e;
 
 底层还是使用CopyOnWriteArrayList进行实例化
 
+
 ![image-20200312221602095](images/image-20200312221602095.png)
 
 ### HashSet底层结构
 
 同理HashSet的底层结构就是HashMap
+
 
 ![image-20200312221735178](images/image-20200312221735178.png)
 

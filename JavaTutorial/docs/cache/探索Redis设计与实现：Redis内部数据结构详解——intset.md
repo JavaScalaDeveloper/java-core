@@ -93,7 +93,9 @@ typedef struct intset {
 
 下图给出了一个添加数据的具体例子（点击看大图）。
 
-[![intset添加数据举例](http://zhangtielei.com/assets/photos_redis/intset/redis_intset_add_example.png)](http://zhangtielei.com/assets/photos_redis/intset/redis_intset_add_example.png)
+[
+
+![intset添加数据举例](http://zhangtielei.com/assets/photos_redis/intset/redis_intset_add_example.png)](http://zhangtielei.com/assets/photos_redis/intset/redis_intset_add_example.png)
 
 在上图中：
 
@@ -241,7 +243,9 @@ intset *intsetAdd(intset *is, int64_t value, uint8_t *success) {
 
 为了更好地理解Redis对外暴露的set数据结构，我们先看一下set的一些关键的命令。下面是一些命令举例：
 
-[![set命令举例](http://zhangtielei.com/assets/photos_redis/intset/redis_set_cmd_example.png)](http://zhangtielei.com/assets/photos_redis/intset/redis_set_cmd_example.png)
+[
+
+![set命令举例](http://zhangtielei.com/assets/photos_redis/intset/redis_set_cmd_example.png)](http://zhangtielei.com/assets/photos_redis/intset/redis_set_cmd_example.png)
 
 上面这些命令的含义：
 
@@ -327,5 +331,6 @@ Redis set的并、交、差算法的实现代码，在t_set.c中。其中计算�
 
 **原创文章，转载请注明出处，并包含下面的二维码！否则拒绝转载！**
 **本文链接：**[http://zhangtielei.com/posts/blog-redis-intset.html](http://zhangtielei.com/posts/blog-redis-intset.html)
+
 
 ![我的微信公众号: tielei-blog (张铁蕾)](http://zhangtielei.com/assets/my_weixin_sign_sf_840.jpg)

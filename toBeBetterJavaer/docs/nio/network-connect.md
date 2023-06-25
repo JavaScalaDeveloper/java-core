@@ -105,6 +105,7 @@ public class BlockingClient {
 
 先运行 BlockingServer，再运行 BlockingClient，可以在 Server 端的控制台收到以下信息。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407124624.png)
 
 好，我们再来看非阻塞模式下的示例。
@@ -186,6 +187,7 @@ serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
 ```
 
 看一下 OP_ACCEPT 的注释：
+
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407130621.png)
 
@@ -291,6 +293,7 @@ public class NonBlockingClient {
 ```
 
 客户端代码依然比较简单，我们直接略过，不再解释。然后运行 Server，再运行 Client。可以运行多次，结果如下：
+
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407131553.png)
 
@@ -498,11 +501,13 @@ public class AsynchronousClient {
 
 就是简单的连接和写入数据，就不多做解释了。这里先运行一下 Server 端，然后再运行一下客户端，看一下结果。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407161351.png)
 
 ### 简单的聊天室
 
 我们来通过 SocketChannel 和 ServerSocketChannel 实现一个 0.1 版的聊天室，先说一下需求，比较简单，服务端启动监听客户端请求，当客户端向服务器端发送信息后，服务器端接收到后把客户端消息回显给客户端，比较呆瓜，但可以先来看一下。
+
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407164326.png)
 
@@ -684,9 +689,11 @@ public class ChatClient {
 
 来看运行后的效果。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407164913.png)
 
 好，接下来，我们来升级一下需求，也就是 0.2 版聊天室，要求服务器端也能从控制台敲入信息主动发送给客户端。
+
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407165110.png)
 
@@ -840,13 +847,16 @@ public class Chat2Client {
 
 运行 Server，再运行 Client，交互信息如下：
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407180853.png)
 
 我们使用了 Selector 和非阻塞 I/O，这使得服务器可以同时处理多个连接。所以我们在 Intellij IDEA 中可以再配置一个客户端，见下图（填上这四项内容）。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407181717.png)
 
 然后启动，就可以完成一个 Server 和多个 Client 交互了。
+
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/network-connect-20230407181906.png)
 

@@ -8,6 +8,7 @@
 
 对比 **Coding** 的流水线，在我使用了 **300** 分钟后。。就提示我要充值了，**Github** 的流水线还是非常良心的~
 
+
 ![Coding流水线](images/dd9cb3bb35ad4d99b88854b47e7e220d.png)
 
 好了，下面回归正题，在接受了群友的安利后。抱着学习的新技术的态度，周末两天开启了 **Drone** 学习之旅，
@@ -16,15 +17,18 @@
 
 > Github地址：https://github.com/harness/drone
 
+
 ![Drone Github](images/image-20220904220158885.png)
 
 再去看看 **jenkins**  **19.4K** Star， 通过点赞数就能看出来， **Drone** 是比 **Jenkins** 更火了~
+
 
 ![Jenkins Github官网](images/image-20220904220334635.png)
 
 相比 **Gitlab + Jenkins** 实现自动化部署，大概需要 **4G** 以上的内存才能够运行起来。而 **Drone** + **Gitee** 使用内存不到 **1G** ~
 
 以下是两者的对比图，小伙伴也可以了解一下~
+
 
 ![对比图](images/image-20220905125416493.png)
 
@@ -38,6 +42,7 @@
 
 简单来说，**Drone** 其实就是一款轻量级的 **Jenkins** ，可以占用更少的资源，实现软件的流水线操作，并且可以轻松的和 **Gitlab**、**Gitee**、**Github** 相结合。
 
+
 ![Drone官网](images/image-20220904223731751.png)
 
 ## 创建 OAuth2应用
@@ -48,6 +53,7 @@
 
 > 地址：https://gitee.com/oauth/applications
 
+
 ![创建Gitee应用](images/image-20220904224325440.png)
 
 然后填写相关的信息，需要注意的是，这里的 **ip** 地址，需要换成自己服务器的
@@ -57,9 +63,11 @@
 - **应用回调地址**：服务器地址+端口号/login 
 - **权限**：把这四个都勾选上，否则后面登录可能会报错
 
+
 ![配置应用信息](images/image-20220904224546243.png)
 
 点击创建应用，就会得到 **ClientKey** 和 **ClientSecret** ，需要保存好，后续在编写 **docker-compose.yml** 文件的时候会用到
+
 
 ![获取ClientId](images/image-20220904225103874.png)
 
@@ -174,6 +182,7 @@ https://github.com/docker/compose/releases
 
 然后选择 **Linux** 版本下载
 
+
 ![下载 docker-compose](images/2349756c7481408896e00f6a6cf8a8b7.png)
 
 把下载到的文件使用 **Xftp** 工具，拷贝到 `/usr/local/bin/` 目录下
@@ -189,6 +198,7 @@ docker-compose -v
 
 安装完成后，再次使用上面的命令，安装 **drone**，安装完成后，使用 **docker ps  -a** 即可查看到安装的 **drone** 了
 
+
 ![运行的drone容器](images/image-20220904231425541.png)
 
 下面两个运行的容器的作用分别如下：
@@ -199,17 +209,21 @@ docker-compose -v
 
 如果你正确的启动了上述的两个容器，那么你打开浏览器，输入**IP:8611** 可以进入到 **Drone** 主服务的 **Web** 管理界面的登录界面，
 
+
 ![drone登录页](images/image-20220904231651466.png)
 
 点击 **Continue** 后，即可跳转到 **Gitee** 的 **OAuth** 授权页面，这里直接点击 **同意授权**
+
 
 ![Gitee授权登录](images/image-20220904231738315.png)
 
 授权通过后，在我们仓库的管理页面，即可看到新增了一条 **WebHook** 记录，当 **Gitee** 有新的代码提交请求后，就会通过调用下面的地址，从而让 **Drone** 能够启动流水线操作。 
 
+
 ![新增Webhook记录](images/image-20220904232045948.png)
 
 登录成功后，即可跳转到 **Drone** 的主页，在这里是能够看到 **Gitee** 上全部的项目的
+
 
 ![查看所有项目](images/image-20220904232627233.png)
 
@@ -217,9 +231,11 @@ docker-compose -v
 
 > 这里是有BUG的，如果你的项目是中文名称的话，进去是会 404 
 
+
 ![激活项目](images/image-20220904232858152.png)
 
 然后把下面几个开关进行打开，主要是开启容器特权，以及自动取消构建
+
 
 ![开启开关](images/image-20220904233033596.png)
 
@@ -229,13 +245,16 @@ docker-compose -v
 
 > https://gitee.com/projects/new
 
+
 ![新建一个仓库](images/image-20220904235604920.png)
 
 然后打开网站 **start.spring.io** 初始化一个最简单的 **SpringBoot** 项目
 
+
 ![初始化一个SpringBoot项目](images/image-20220904235847611.png)
 
 然后下载后解压，即可看到以下的目录
+
 
 ![解压项目](images/image-20220904235934524.png)
 
@@ -249,6 +268,7 @@ git push -u origin "master"
 ```
 
 下面即可看到代码成功推送到 **Gitee** 上了
+
 
 ![推送到Gitee](images/image-20220905000632080.png)
 
@@ -275,21 +295,26 @@ steps: # 步骤部分定义了一系列串行执行的管道步骤。如果管�
 
 写完后，再次将该提交提交到远程仓库，然后找到刚刚创建的仓库（如果没有，先执行 **SYNC** 操作）
 
+
 ![Drone中找到刚刚创建的仓库](images/image-20220905000816874.png)
 
 点击仓库内，设置好配置，点击保存
+
 
 ![修改配置并保存](images/image-20220905000915796.png)
 
 然后切换到构建页面，点击创建
 
+
 ![启动构建](images/image-20220905001021162.png)
 
 创建完成后，项目就会进行流水线构建【以后可以设置代码提交，主动触发】
 
+
 ![构建记录](images/image-20220905001105048.png)
 
 点击记录详情页，可以看到打印出来的 **hello world**
+
 
 ![构建详情页](images/image-20220905001208643.png)
 
@@ -317,6 +342,7 @@ steps:
 ```
 
 在我们推送代码后，就可以看到流水线已经正常输出内容了
+
 
 ![流水线运行成功](images/image-20220905083537532.png)
 
@@ -371,6 +397,7 @@ trigger:
 
 首先，我们在刚刚的 **SpringBoot** 项目中，创建一个 **Controller** 文件，写上一个 hello 蘑菇的方法
 
+
 ![hello mogu](images/image-20220905085002294.png)
 
 ```java
@@ -418,9 +445,11 @@ volumes: # 定义流水线挂载目录，用于共享数据
 
 将修改后的代码推送到 Gitee 中，可以看到流水线正常运行，并且在开始下载依赖进行构建 **jar** 包
 
+
 ![构建详情页](images/image-20220905085833237.png)
 
 执行成功后，我们打开自己的服务器，在 /root/hello-mogu 目录，就可以看到刚刚打包后的 **jar** 包了
+
 
 ![打包成功的jar](images/image-20220905090914303.png)
 
@@ -446,6 +475,7 @@ ENTRYPOINT ["java","-Xms256m","-Xmx256m","-jar","/hello-mogu-0.0.1-SNAPSHOT.jar"
 
 存放位置如下所示，主要拉取了带着 jdk8 环境的镜像，然后设置启动参数
 
+
 ![编写Dockerfile](images/image-20220905090730480.png)
 
 继续编写 .drone.yml 文件，这里除了需要拷贝  **jar** 文件外，还需要把刚刚写的 **Dockerfile** 文件也拷贝到宿主机上
@@ -454,13 +484,16 @@ ENTRYPOINT ["java","-Xms256m","-Xmx256m","-jar","/hello-mogu-0.0.1-SNAPSHOT.jar"
 
 这里有两个变量：**TEST_SERVER_IP** 和 **TEST_SERVER_PASSWORD**，分别是服务器的 **ip** 和 **密码**。为了防止信息泄露，我们需要配置到 **secret**
 
+
 ![新增秘钥](images/image-20220905092411935.png)
 
 然后填写秘钥的名称和值，保存即可
 
+
 ![创建秘钥](images/image-20220905092444021.png)
 
 配置完成后，一共包含以下两个值
+
 
 ![创建成功](images/image-20220905092552055.png)
 
@@ -513,29 +546,36 @@ volumes: # 定义流水线挂载目录，用于共享数据
 
 核心操作就是：在 jar 打包完成后，会通过 ssh 进入到我们服务器中，通过 Dockerfile 构建我们的 **hello-mogu** 镜像，同时使用 **docker run** 启动镜像，完成最简单的一个流水线工作，以下是流水线运行成功的截图：
 
+
 ![构建成功](images/image-20220905093019633.png)
 
 下面，我们去我们的服务器中，使用 docker images 命令，即可查看到制作完成的镜像了
+
 
 ![查看容器](images/image-20220905093042672.png)
 
 通过使用  docker ps -a ，可以看到目前 hello-mogu 容器正在运行
 
+
 ![查看运行的容器](images/image-20220905093106325.png)
 
 最后，我们访问服务器：http://81.70.100.87:8080/hello-mogu，久违的 **hello-mogu** 终于出现了
+
 
 ![hello mogu](images/image-20220905093233102.png)
 
 同时，**Drone** 还提供了很多插件，可以打开 https://plugins.drone.io/  进行查看
 
+
 ![drone插件](images/image-20220905093521208.png)
 
 在这里，可以下载别人做好的插件，例如在构建成功后，发送邮件通知，这里用到了  **Email** 插件
 
+
 ![Email插件](images/image-20220905093623288.png)
 
 或者使用 Drone Cache 插件，将中间结果缓存到**云存储**中
+
 
 ![Drone缓存插件](images/image-20220905093731999.png)
 

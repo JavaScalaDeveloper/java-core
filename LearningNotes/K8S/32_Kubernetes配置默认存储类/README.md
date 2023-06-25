@@ -4,9 +4,11 @@
 
 今天在配置Kubesphere的时候，出现了下面的错误
 
+
 ![image-20201123095552088](images/image-20201123095552088.png)
 
 经过排查，发现是这个原因
+
 
 ![image-20201123095637801](images/image-20201123095637801.png)
 
@@ -204,6 +206,7 @@ kubectl get pods
 # 查看存储类
 kubectl get storageclass
 ```
+
 
 ![image-20201123104358758](images/image-20201123104358758.png)
 

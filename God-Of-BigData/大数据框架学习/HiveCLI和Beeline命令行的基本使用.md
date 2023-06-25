@@ -192,7 +192,7 @@ Usage: java org.apache.hive.cli.beeline.BeeLine
 
 ### 2.3 常用参数
 
-在 Hive CLI 中支持的参数，Beeline 都支持，常用的参数如下。更多参数说明可以参见官方文档 [Beeline Command Options](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline%E2%80%93NewCommandLineShell)
+在 Hive CLI 中支持的参数，Beeline 都支持，常用的参数如下。更多参数说明可以参见官方文档 [Beeline Command Options](images/https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline%E2%80%93NewCommandLineShell)
 
 | 参数 | 说明 |
 | -------------------------------------- | ------------------------------------------------------------ |
@@ -268,12 +268,12 @@ No rows affected (0.025 seconds)
 
 ### 3.5 配置参数
 
-Hive 可选的配置参数非常多，在用到时查阅官方文档即可[AdminManual Configuration](https://cwiki.apache.org/confluence/display/Hive/AdminManual+Configuration)
+Hive 可选的配置参数非常多，在用到时查阅官方文档即可[AdminManual Configuration](images/https://cwiki.apache.org/confluence/display/Hive/AdminManual+Configuration)
 
 
 
 ## 参考资料
 
-1. [HiveServer2 Clients](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients)
-2. [LanguageManual Cli](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli)
-3. [AdminManual Configuration](https://cwiki.apache.org/confluence/display/Hive/AdminManual+Configuration)
+1. [HiveServer2 Clients](images/https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients)
+2. [LanguageManual Cli](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli)
+3. [AdminManual Configuration](images/https://cwiki.apache.org/confluence/display/Hive/AdminManual+Configuration)

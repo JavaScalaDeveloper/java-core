@@ -24,9 +24,11 @@ MyBatis 跟缓存相关的类都在cache 包里面，其中有一个Cache 接口
 
 　　除此之外，还有很多的装饰器，通过这些装饰器可以额外实现很多的功能：回收策略、日志记录、定时刷新等等。但是无论怎么装饰，经过多少层装饰，最后使用的还是基本的实现类（默认PerpetualCache）。可以通过 CachingExecutor 类 Debug 去查看。
 
+
 ![img](images/1383365-20190628165835198-1731504252.png)
 
 　　所有的缓存实现类总体上可分为三类：基本缓存、淘汰算法缓存、装饰器缓存。
+
 
 ![img](images/1383365-20190628172253737-1751427739.png)
 
@@ -43,6 +45,7 @@ MyBatis 跟缓存相关的类都在cache 包里面，其中有一个Cache 接口
 　　为了解决这一问题，减少资源的浪费，MyBatis会在表示会话的SqlSession对象中建立一个简单的缓存，将每次查询到的结果结果缓存起来，当下次查询的时候，如果判断先前有个完全一样的查询，会直接从缓存中直接将结果取出，返回给用户，不需要再进行一次数据库查询了。
 
 　　如下图所示，MyBatis会在一次会话的表示----一个SqlSession对象中创建一个本地缓存(local cache)，对于每一次查询，都会尝试根据查询的条件去本地缓存中查找是否在缓存中，如果在缓存中，就直接从缓存中取出，然后返回给用户；否则，从数据库读取数据，将查询结果存入缓存并返回给用户。
+
 
 ![img](images/1383365-20190628172851422-987384747.png)
 
@@ -78,7 +81,9 @@ System.out.println(mapper1.selectBlogById(1002));
 
 　　执行以上sql我们可以看到控制台打印如下信息（需配置mybatis.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl），会发现我们两次的查询就发送了一次查询数据库的操作，这说明了缓存在发生作用：
 
-*![img](images/1383365-20190628173854959-1659491558.png)*
+*
+
+![img](images/1383365-20190628173854959-1659491558.png)*
 
 　　PS：一级缓存在BaseExecutor 的query()——queryFromDatabase()中存入。在queryFromDatabase()之前会get()。
 
@@ -156,6 +161,7 @@ System.out.println(mapper2.selectBlogById(1002));
 　　作为一个作用范围更广的缓存，它肯定是在SqlSession 的外层，否则不可能被多个SqlSession 共享。而一级缓存是在SqlSession 内部的，所以第一个问题，肯定是工作在一级缓存之前，也就是只有取不到二级缓存的情况下才到一个会话中去取一级缓存。第二个问题，二级缓存放在哪个对象中维护呢？ 要跨会话共享的话，SqlSession 本身和它里面的BaseExecutor 已经满足不了需求了，那我们应该在BaseExecutor 之外创建一个对象。
 
 　　实际上MyBatis 用了一个装饰器的类来维护，就是CachingExecutor。如果启用了二级缓存，MyBatis 在创建Executor 对象的时候会对Executor 进行装饰。CachingExecutor 对于查询请求，会判断二级缓存是否有缓存结果，如果有就直接返回，如果没有委派交给真正的查询器Executor 实现类，比如SimpleExecutor 来执行查询，再走到一级缓存的流程。最后会把结果缓存起来，并且返回给用户。
+
 
 ![img](images/1383365-20190628180149776-546074458.png)
 

@@ -126,9 +126,11 @@ public class MvcDemo01Main {
 
 控制台：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-8d13bb650364488f8ce5e593eff00448ee1.png)
 
 页面返回：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-6a8407a1945dccd6e4ef217a383d4309ec5.png)
 
@@ -154,6 +156,7 @@ public class MvcDemo01Main {
 org.springframework.web.SpringServletContainerInitializer
 
 ```
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-92853ebc9c4388d325244b81557ecf80ddd.png)
 
@@ -240,6 +243,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
 ```
 
 最终执行过程如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0874fa7ef39ca9c405cdf55d99ca891ebf2.png)
 
@@ -474,6 +478,7 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
 
 这里总结下这 4 个类的关系：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-5e25e6e7303044e7282b3472492c04cf656.png)
 
 理清了这四个类的关系，`@EnableWebMvc` 的执行流程就一目了然了，这里总结如下：
@@ -489,6 +494,7 @@ public class DelegatingWebMvcConfiguration extends WebMvcConfigurationSupport {
 5.  在调用 `WebMvcConfigurationSupport#getXxx()` 获取自定义配置时，会调用 `addXxx()/configureXxx()`，该方法在 `WebMvcConfigurationSupport` 中是空方法，具体休逻辑由子类 (也就是` DelegatingWebMvcConfiguration`) 提供，最终调用方式是**遍历执行第 2 步获取的 `WebMvcConfigurer` 的 `addXxx()/configureXxx()`**；
 
 整个流程如下图所示：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-4057f913076f01ba0b507b4654e5031391c.png)
 

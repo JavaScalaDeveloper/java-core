@@ -1,6 +1,8 @@
 # 面试官：说说webpack proxy工作原理？为什么能解决跨域?
 
- ![](https://static.vue-js.com/5b871600-ace5-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/5b871600-ace5-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -86,7 +88,9 @@ app.listen(3000);
 
 当本地发送请求的时候，代理服务器响应该请求，并将请求转发到目标服务器，目标服务器响应数据后再将数据返回给代理服务器，最终再由代理服务器将数据响应给本地
 
- ![](https://static.vue-js.com/65b5e5c0-ace5-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/65b5e5c0-ace5-11eb-85f6-6fac77c0c9b3.png)
 
 在代理服务器传递数据给本地浏览器的过程中，两者同源，并不存在跨域行为，这时候浏览器就能正常接收数据
 

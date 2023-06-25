@@ -68,19 +68,19 @@ Multiupdate对于绑定一些结构化的全局变量很有用处。例如绑定
 ### APIs
 ZooKeeper客户端使用的核心编程语言有JAVA和C；同时也支持Perl、Python和REST。执行操作的方式呢，分为同步执行和异步执行。我们之前已经见识过了同步的Java API中的exists。
 
-```
+```java
 public Stat exists(String path, Watcher watcher) throws KeeperException,
  InterruptedException
  ```
  
 下面代码则是异步方式的exists:
 
-```
+```java
 public void exists(String path, Watcher watcher, StatCallback cb, Object ctx)
 ```
 Java API中，异步的方法的返回类型都是void，而操作的返回的结果将传递到回调对象的回调函数中。回调对象将实现StatCallback接口中的一个回调函数，来接收操作返回的结果。函数接口如下：
 
-```
+```java
 public void processResult(int rc, String path, Object ctx, Stat stat);
 ```
 
@@ -200,7 +200,7 @@ ZooKeeper的客户端中，配置了一个ensemble服务器列表。当启动时
 
 ZooKeeper对象在他的生命周期内会有不同的状态，我们通过getState()来获得当前的状态。
 
-```
+```java
 public States getState()
 ```
 

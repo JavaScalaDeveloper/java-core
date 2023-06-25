@@ -196,7 +196,7 @@ public interface IBolt extends Serializable {
 
 `IRichBolt` 接口继承自 `IBolt` 和 `IComponent`,自身并没有定义任何方法：
 
-```
+```java
 public interface IRichBolt extends IBolt, IComponent {
 
 }
@@ -218,7 +218,7 @@ public interface IRichBolt extends IBolt, IComponent {
 
 <div align="center"> <img  src="../pictures/storm-word-count-p.png"/> </div>
 
-> 案例源码下载地址：[storm-word-count](https://github.com/heibaiying/BigData-Notes/tree/master/code/Storm/storm-word-count)
+> 案例源码下载地址：[storm-word-count](images/https://github.com/heibaiying/BigData-Notes/tree/master/code/Storm/storm-word-count)
 
 ### 5.2 代码实现
 
@@ -503,9 +503,9 @@ private String productData() {
 
 想把依赖包一并打入最后的 JAR 中，maven 提供了两个插件来实现，分别是 `maven-assembly-plugin` 和 `maven-shade-plugin`。鉴于本篇文章篇幅已经比较长，且关于 Storm 打包还有很多需要说明的地方，所以关于 Storm 的打包方式单独整理至下一篇文章：
 
-[Storm 三种打包方式对比分析](https://github.com/heibaiying/BigData-Notes/blob/master/notes/Storm三种打包方式对比分析.md)
+[Storm 三种打包方式对比分析](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/Storm三种打包方式对比分析.md)
 
 ## 参考资料
 
-1. [Running Topologies on a Production Cluster](http://storm.apache.org/releases/2.0.0-SNAPSHOT/Running-topologies-on-a-production-cluster.html)
-2. [Pre-defined Descriptor Files](http://maven.apache.org/plugins/maven-assembly-plugin/descriptor-refs.html)
+1. [Running Topologies on a Production Cluster](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/Running-topologies-on-a-production-cluster.html)
+2. [Pre-defined Descriptor Files](images/http://maven.apache.org/plugins/maven-assembly-plugin/descriptor-refs.html)

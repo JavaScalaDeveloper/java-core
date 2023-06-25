@@ -20,6 +20,7 @@ head:
 
 ### 01、if-else 相关
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-01.png)
 
 #### **1）if 语句**
@@ -33,6 +34,7 @@ if(布尔表达式){
 ```
 
 画个流程图表示一下：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-02.png)
 
@@ -65,6 +67,7 @@ if(布尔表达式){
 ```
 
 画个流程图表示一下：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-03.png)
 
@@ -137,6 +140,7 @@ else{
 
 画个流程图表示一下：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-04.png)
 
 来写个示例：
@@ -174,6 +178,7 @@ if(外侧条件){
 ```
 
 画个流程图表示一下：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-05.png)
 
@@ -224,6 +229,7 @@ default: // 该关键字是可选项
 - default 关键字也是可选的。
 
 画个流程图：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-06.png)
 
@@ -323,6 +329,7 @@ public class SwitchEnumDemo {
 
 ### 03、for 循环
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-07.png)
 
 #### **1）普通 for 循环**
@@ -346,6 +353,7 @@ for(初始变量;条件;自增/自减){
 ```
 
 画个流程图：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-08.png)
 
@@ -467,6 +475,7 @@ while(条件){
 
 画个流程图：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-09.png)
 
 来个示例：
@@ -531,6 +540,7 @@ do{
 
 画个流程图：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-10.png)
 
 来个示例：
@@ -583,6 +593,7 @@ do {
 
 把 do-while 的条件设置为 true，并且循环体中没有 break 关键字的话，程序一旦运行起来，就根本停不下来了，除非强制停止。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-11.png)
 
 ### 06、break
@@ -592,6 +603,7 @@ break 关键字通常用于中断循环或 switch 语句，它在指定条件下
 可以将 break 关键字用于所有类型循环语句中，比如说 for 循环、while 循环，以及 do-while 循环。
 
 来画个流程图感受一下：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/control/thirteen-12.png)
 

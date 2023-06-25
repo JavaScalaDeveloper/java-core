@@ -11,6 +11,7 @@ title: Spring Boot整合Swagger-UI实现在线API文档
 Swagger 是一个用于生成、描述和调用 RESTful 接口的 Web 服务。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-febf2633-5b02-425b-a513-c8583e14d621.png)
 
 
@@ -42,6 +43,7 @@ Swagger 定义了一套规范，你只需要按照它的规范去定义接口及
 Swagger-UI 是一套 HTML/CSS/JS 框架，用于渲染 Swagger 文档，以便提供美观的 API 文档界面。
 
 也就是说，Swagger-UI 是 Swagger 提供的一套可视化渲染组件，支持在线导入描述文件和本地部署UI项目。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-9cb36679-f1f7-469e-925e-2e54090f700f.png)
 
@@ -156,15 +158,18 @@ public class SwaggerController {
 第四步，启动服务，在浏览器中输入 `http://localhost:8080/swagger-ui/` 就可以访问 Swagger 生成的 API 文档了。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-25187213-723a-4120-8485-06759a509659.png)
 
 点开 get 请求的面板，点击「try it out」再点击「excute」可以查看接口返回的数据。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-0f2b9c42-bae4-4712-be29-3771ab3bd3a8.png)
 
 ## 版本不兼容
 
 在 Spring Boot 整合 Swagger 的过程中，我发现一个大 bug，Spring Boot 2.6.7 版本和 springfox 3.0.0 版本不兼容，启动的时候直接就报错了。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-529160e4-aa31-410a-aa04-93e9576322b6.png)
 
@@ -176,13 +181,16 @@ public class SwaggerController {
 
 Spring Boot 说这是 springfox 的 bug。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-d0d336e1-2cba-49f4-bd65-6df7f89a6c9f.png)
 
 追踪过来一看，确实。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-cb3c15e7-ecfd-4e5e-92b7-673acb966a54.png)
 
 有人提到的解决方案是切换到 SpringDoc。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-0597f86d-1188-4fe1-8de8-fdb57c5cd524.png)
@@ -243,6 +251,7 @@ public static BeanPostProcessor springfoxHandlerProviderBeanPostProcessor() {
 
 查看 Swagger 接口文档，发现一切正常。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-05265d24-5242-48ac-9776-58e72798a545.png)
 
 我只能再强调一次，GitHub 仓库的 issue 区都是大神！大家遇到问题的时候，一定要多到 issue 区看看。
@@ -250,11 +259,13 @@ public static BeanPostProcessor springfoxHandlerProviderBeanPostProcessor() {
 至于为什么要这样做，问题的解决者给出了自己的答案。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-8b3d90d6-4eac-4db8-ab52-69c55078df36.png)
 
 大致的意思就是 springfox 和 Spring 在 pathPatternsCondition 上产生了分歧，这两个步骤就是用来消除这个分歧的。
 
 除此之外，还有另外一种保守的做法，直接将 Spring Boot 的版本回退到更低的版本，比如说 2.4.5。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/springboot/swagger-41096e72-bd7c-4663-b57e-fbc8506ec1cc.png)
 

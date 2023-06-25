@@ -92,6 +92,7 @@ Options: (H) means HTTP/HTTPS only, (F) means FTP only
      --proto PROTOCOLS  Enable/disable specified protocols
      --proto-redir PROTOCOLS  Enable/disable specified protocols on redirect
 * -x, **--proxy [PROTOCOL://]HOST[:PORT] Use proxy on given port**
+
 ![image.png](http://upload-images.jianshu.io/upload_images/5786888-ca09ffb2f03153b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
      --proxy-anyauth Pick "any" proxy authentication method (H)

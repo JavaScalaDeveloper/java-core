@@ -1,3 +1,4 @@
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/readme-fengmian.png)
 
 # 第一章：小册简介
@@ -686,21 +687,17 @@ UItimate 为付费版，主要针对的是企业级开发用户；Community 为�
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-2a80c17a-dbb6-4411-b88b-5bf1398db411.png)
 
 安装完成后的界面如下图所示。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-2afe2860-e3ef-4370-a0a5-f0075487f159.png)
 
 #### 启动 IDEA
 
 回到桌面，双击运行 IDEA 的快捷方式，启动 IDEA。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-937da9b9-56e3-4970-ab50-e24f4b3549da.png)
 
 假装阅读完条款后，勾选同意复选框，点击【Continue】
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-0426d0d2-26eb-4376-bcaa-cede00fc2622.png)
 
 如果想要帮助 IDEA 收集改进信息，可以点击【Send Usage Statistics】；否则点击【Don't send】。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-b880a884-dbf5-4ce8-b0c1-345d60c72eff.png)
 
 到此，Intellij IDEA 的安装就完成了，很简单。
@@ -710,13 +707,11 @@ UItimate 为付费版，主要针对的是企业级开发用户；Community 为�
 #### 下载 IDEA
 
 1、打开 [https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/download/#section=mac)，点击 Download 按钮
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-38cc7637-ed3f-44c0-b244-aafafd3634b6.png)
 
 2、选择 Community 版本，旗舰版需要激活，你可以戳这里[激活](https://tobebetterjavaer.com/nice-article/itmind/)）。
 
 确定后点击 Download 下载
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-b17d0ff0-d33c-4d19-86e0-cd491c0cc613.png)
 
 如何查看 Mac 电脑是 Intel 还是 Apple Silicon 的 CPU？
@@ -727,39 +722,31 @@ UItimate 为付费版，主要针对的是企业级开发用户；Community 为�
 - 如果在“处理器”部分中看到英特尔处理器，则表示正在使用带有英特尔芯片的 Mac。
 
 瞧，我的就是英特尔芯片的（Intel）。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-3977e9b4-9c26-4e00-bc88-1ac1f2f89d5e.png)
 
 3、打开如下页面，IntelliJ IDEA 便会开始自动下载。若未开始自动下载，可以点击如下红框内的 direct link。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-5b074f76-71c7-405e-871e-de1ee1d6376e.png)
 
 中文页面如下所示：
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-f88924e5-6470-4d44-8f85-922875a3c565.png)
 
 4、IntelliJ IDEA 下载完成，在下载文件夹内便会出现 ideaIC-2020.3.2.dmg 的文件（你应该是更新的版本）。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-7aec8534-ea7b-41f5-bc68-e6d2fb20e6c1.png)
 
 #### 安装 IDEA
 
 1、双击 ideaIC-2020.3.2.dmg 文件开始安装
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-23195fb7-3a1c-4466-bf17-4f681ef0be5e.png)
 
 2、把 IntelliJ IDEA CE.app 拖入 Applications 文件夹
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-7bd55d3b-54ce-4e4e-8e21-aa94f15d105a.png)
 
 3、在 Applications 中可以找到 IntelliJ IDEA CE.app，说明安装完成
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-96c1a054-8429-416a-ad5d-7fa3f360c19f.png)
 
 #### 打开 IDEA
 
 首次打开 IntelliJ IDEA 后展现的第一个页面如下所示。至此，IntelliJ IDEA 下载、安装和打开就搞定了。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-7637a241-8524-4e0a-bb2a-a3bd1c575c9a.png)
 
 ### 03、小结
@@ -778,23 +765,18 @@ UItimate 为付费版，主要针对的是企业级开发用户；Community 为�
 “好的，那我们直接开始。”
 
 打开 [Intellij IDEA](https://tobebetterjavaer.com/overview/IDEA-install-config.html)，新建一个学习 Java 的项目，点击 File → New → Project。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-3810664d-49fb-4bed-ad32-3cb962ab5201.png)
 
 选择 JDK 版本，比如之前我们[安装的 JDK 8](https://tobebetterjavaer.com/overview/jdk-install-config.html)。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-3773144f-ba5a-4639-8747-70eb815f1ccd.png)
 
 你也可以选择 JDK 11 或者最新的 JDK 17 或者添加新的 JDK 版本，但（不建议）。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-85e3860b-3207-45c1-85d6-09c7cfd83c77.png)
 
 然后点击「next」，直到填写项目名字，比如说 tobebetterjavaerdemo。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-aad8ff0b-61e4-4dc1-9f5b-70f64f34a49b.png)
 
 然后点击 finish，之后就可以看到我们新建的项目界面了。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-5ef6024a-86e4-4fb7-860c-526ed867ab4a.png)
 
 如果你的 Intellij IDEA 主题和二哥不一样，没关系，当然了，如果你也是个有颜值追求的家伙，可以安装 Vuesion Theme 插件，安装方法[戳这里](https://tobebetterjavaer.com/ide/shenji-chajian-10.html)。
@@ -804,15 +786,12 @@ UItimate 为付费版，主要针对的是企业级开发用户；Community 为�
 一般我们会把源代码放在 src 目录下（source 的前缀，所以学编程，英语中常用的单词必须得会，不会就去学）。
 
 右键 src 目录，在菜单中依次选择 New → Java Class。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-3dcc212c-bc06-49b0-989a-d3d129586064.png)
 
 填写 Class 名，也就是类名（不知道类名是啥，后面会讲），注意大小写敏感，然后按下 enter 键。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-c4e95c3f-1832-4fc5-bfe7-ce5def0129e2.png)
 
 就会出现这样的代码。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-380bd820-3b92-4195-86cc-1af30836ce38.png)
 
 注释是二哥配置好的，你如果没配置可能没有，`public class HelloWorld {}` 是 Intellij IDEA 帮我们自动生成的。
@@ -820,27 +799,21 @@ UItimate 为付费版，主要针对的是企业级开发用户；Community 为�
 之后在大括号里面键入 `main` 等 Intellij IDEA 给出提示后键入 enter 键。
 
 Intellij IDEA 就会帮我们自动生成 main 方法，也就是这段代码。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-e0acad2b-1735-42d9-b843-5d65d48c0946.png)
 
 然后在 main 方法中键入 `so` 等出现提示后键入 enter 键。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-9733e9ba-9e38-41d6-8a58-e73062ee9ed2.png)
 
 Intellij IDEA 就会帮我们自动添加 `System.out.println()`，这是一个向控制台输出的方法（小白先不管它是什么意思，后面会讲）。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-8eb1a438-88d8-4ea2-8861-af96862518fc.png)
 
 接着在 `println()` 的小括号中键入 `"Hello World"`，注意是英文的双引号，中文的会报错哦，三妹。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-f5aa5fd1-4498-4022-b6e6-cc50f23dacb7.png)
 
 然后在 HelloWorld.java 的代码编辑器，也就是光标所在的位置右键，选择「Run 'HelloWorld.main()'」。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-98e26e22-4811-4546-a88f-59a67d2d93ca.png)
 
 等 Intellij IDEA 编译&运行后就可以在控制台看到这样的输出内容。
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/hello-world-39d0d413-a2c6-4238-bead-f29183d271c7.png)
 
 这就表明我们的第一个 Java 代码完成了，恭喜自己一下吧，三妹！
@@ -874,15 +847,12 @@ public class HelloWorld {
 在 Intellij IDEA 的 terminal 面板中，可以看到对应的 java 源代码文件和编译后的 .class 文件。
 
 可以在对应的文件上右键选择 open in terminal 打开。
-
 ![](https://cdn.tobebetterjavaer.com/stutymore/hello-world-20230408184558.png)
 
 可以通过 pwd 命令查看当前包路径，通过 ls 命令查看包路径下面有哪些文件。
-
 ![](https://cdn.tobebetterjavaer.com/stutymore/hello-world-20230408184256.png)
 
 class 文件在 target 目录下，classes 为 src/main 目录下的 class 文件；test-classes 为 src/test 目录下的 class 文件。
-
 ![](https://cdn.tobebetterjavaer.com/stutymore/hello-world-20230408184835.png)
 
 “二哥，.class 文件和 .java 源代码，它们之间的关系是什么样的呢？”三妹还是挺喜欢学习的嘛，发现的问题都很关键。
@@ -898,7 +868,6 @@ class 文件在 target 目录下，classes 为 src/main 目录下的 class 文�
 Java 的第一道工序是通过 javac 命令把 Java 源码编译成字节码。
 
 比如说我们可以主动执行 `javac Hello.java` 命令将源代码文件编译为 Hello.class 文件（用 Intellij IDEA 的话，并不需要我们主动去编译「javac」，直接运行就可以自动生成 .class 文件）。
-
 ![](https://cdn.tobebetterjavaer.com/stutymore/hello-world-20230408185202.png)
 
 之后，我们可以通过 java 命令运行字节码（比如说 `java Hello`），此时就有 2 种处理方式了。
@@ -930,7 +899,6 @@ Java 的第一道工序是通过 javac 命令把 Java 源码编译成字节码�
 
 
 也就是说，为了跨平台，Java 源代码首先会编译成字节码，字节码不是机器语言，需要 JVM 来解释。
-
 ![](https://cdn.tobebetterjavaer.com/stutymore/hello-world-20230408190024.png)
 
 有了 JVM 这个中间层，Java 的运行效率就没有直接把源代码编译为机器码来得效率更高，这个应该能理解吗，多了中间商嘛。所以为了提高效率，JVM 引入了 JIT 编译器，把一些经常执行的字节码直接搞成机器码。
@@ -1481,7 +1449,6 @@ public class Ieee754Demo {
 ```
 
 输出结果：
-
 ![](https://cdn.tobebetterjavaer.com/stutymore/override-overload-20230408151129.png)
 
 我们可以看到 IEEE 754 标准中的浮点数表示和运算：
@@ -1811,7 +1778,6 @@ public class Circle {
 “二哥，Java 中的注释好像真没什么可讲的，我已经提前预习了，不过是单行注释，多行注释，还有文档注释。”三妹的脸上泛着甜甜的笑容，她竟然提前预习了接下来要学习的知识，有一种“士别三日，当刮目相看”的感觉。
 
 “注释的种类确实不多，但还是挺有意思的，且听哥来给你说道说道。”
-
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-01.png)
 
 ### 01、单行注释

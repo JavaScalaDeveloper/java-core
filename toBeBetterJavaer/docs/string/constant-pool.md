@@ -36,6 +36,7 @@ String s = new String("二哥");
 
 我画图表示一下，会更加清楚。
 
+
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-6dee151e-3a13-4f85-b870-3c9d1797557a.png)
 
 在Java中，栈上存储的是基本数据类型的变量和对象的引用，而对象本身则存储在堆上。
@@ -55,6 +56,7 @@ String s = "三妹";
 ```
 
 当执行 `String s = "三妹"` 时，Java 虚拟机会先在字符串常量池中查找有没有“三妹”这个字符串对象，如果有，则不创建任何对象，直接将字符串常量池中这个“三妹”的对象地址返回，赋给变量 s；如果没有，在字符串常量池中创建“三妹”这个对象，然后将其地址返回，赋给变量 s。
+
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-80ca8b18-2446-431e-98e3-b194e1c608e3.png)
@@ -107,6 +109,7 @@ String s1 = "三妹";
 画幅图，大概就是这个样子。
 
 
+
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-ed6518ec-1d51-4718-ab8a-e1e2cda774bd.png)
 
 
@@ -117,6 +120,7 @@ String s1 = "三妹";
 因此，从 Java 7 开始，为了解决永久代空间不足的问题，将字符串常量池从永久代中移动到堆中。这个改变也是为了更好地支持动态语言的运行时特性。
 
 再画幅图，大概就是这样子。
+
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-f5231378-a442-421e-a470-8256da1715e8.png)
 
@@ -131,6 +135,7 @@ String s1 = "三妹";
 - 元空间中的垃圾收集与堆中的垃圾收集是分离的，这可以避免应用程序在运行过程中因为进行类加载和卸载而频繁地触发 Full GC。
 
 再画幅图，对比来看一下，就会一目了然。
+
 
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-422e3214-97df-41ec-bcb5-132cfc76b669.png)

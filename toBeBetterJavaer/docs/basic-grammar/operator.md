@@ -18,6 +18,7 @@ head:
 
 “是的，三妹。运算符在 Java 中占据着重要的位置，对程序的执行有着很大的帮助。除了常见的加减乘除，还有许多其他类型的运算符，来看下面这张思维导图。”
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/eleven-01.png)
 
 
@@ -105,6 +106,7 @@ System.out.println(y + " " + x);// 10 11
 
 关系运算符用来比较两个操作数，返回结果为 true 或者 false。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/eleven-02.png)
 
 来看示例：
@@ -131,6 +133,7 @@ System.out.println(Integer.toBinaryString(13)); // 1101
  从程序的输出结果可以看得出来，60 的二进制是 0011 1100（用 0 补到 8 位），13 的二进制是 0000 1101。
 
 PS：现代的二进制记数系统由戈特弗里德·威廉·莱布尼茨于 1679 年设计。莱布尼茨是德意志哲学家、数学家，历史上少见的通才。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/eleven-03.png)
 
@@ -243,6 +246,7 @@ System.out.println(b);
 ```
 
 不过在进行数值的赋值时，需要小点心，比如说下面这种情况：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/eleven-04.png)
 

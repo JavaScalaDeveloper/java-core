@@ -1,6 +1,8 @@
 # 面试官：说说 Node 文件查找的优先级以及 Require 方法的文件查找策略?
 
- ![](https://static.vue-js.com/15913530-c9ba-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/15913530-c9ba-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -28,7 +30,9 @@
 
 `require`参数较为简单，但是内部的加载却是十分复杂的，其加载优先级也各自不同，如下图：
 
- ![](https://static.vue-js.com/33ae8ef0-c9ba-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/33ae8ef0-c9ba-11eb-85f6-6fac77c0c9b3.png)
 
 从上图可以看见，文件模块存在缓存区，寻找模块路径的时候都会优先从缓存中加载已经存在的模块
 

@@ -43,6 +43,7 @@ new Thread(() -> interesting.compare()).start();
 
 按道理，a 和 b 同样进行累加操作，应该始终相等，compare 中的第一次判断应该始终不会成立，不会输出任何日志。但，执行代码后发现不但输出了日志，而且更诡异的是，compare 方法在判断 a<b 成立的情况下还输出了 a>b 也成立：
 
+
 ![img](images/9ec61aada64ac6d38681dd199c0ee61d.png)
 
 群里一位同学看到这个问题笑了，说：“这哪是 JVM 的 Bug，分明是线程安全问题嘛。很明显，你这是在操作两个字段 a 和 b，有线程安全问题，应该为 add 方法加上锁，确保 a 和 b 的 ++ 是原子性的，就不会错乱了。”随后，他为 add 方法加上了锁：
@@ -108,6 +109,7 @@ public int wrong(@RequestParam(value = "count", defaultValue = "1000000") int co
 ```
 
 因为默认运行 100 万次，所以执行后应该输出 100 万，但页面输出的是 639242：
+
 
 ![img](images/777f520e9d0be89b66e814d3e7c1a30b.png)
 
@@ -203,6 +205,7 @@ public int right() {
 ```
 
 执行这段代码，同样是 1000 次业务操作，正确加锁的版本耗时 1.4 秒，而对整个业务逻辑加锁的话耗时 11 秒。
+
 
 ![img](images/1cb278c010719ee00d988dbb2a42c543.png)
 
@@ -310,6 +313,7 @@ public long wrong() {
 
 运行程序，输出如下日志：
 
+
 ![img](images/141a5ed915e08e50c0f6b066bea36e05.png)
 
 可以看到，100 次下单操作成功了 65 次，10 种商品总计 10000 件，库存总计为 9805，消耗了 195 件符合预期（65 次下单成功，每次下单包含三件商品），总耗时 50 秒。
@@ -318,9 +322,11 @@ public long wrong() {
 
 使用 JDK 自带的 VisualVM 工具来跟踪一下，重新执行方法后不久就可以看到，线程 Tab 中提示了死锁问题，根据提示点击右侧线程 Dump 按钮进行线程抓取操作：
 
+
 ![img](images/ff24ac10bd0635ef4bf5987038b622ce.png)
 
 查看抓取出的线程栈，在页面中部可以看到如下日志：
+
 
 ![img](images/c32cb32eb5433aae3b392738a80bca42.png)
 
@@ -352,6 +358,7 @@ public long right() {
 ```
 
 测试一下 right 方法，不管执行多少次都是 100 次成功下单，而且性能相当高，达到了 3000 以上的 TPS：
+
 
 ![img](images/a41d077eeecc8b922503409d13a465e4.png)
 

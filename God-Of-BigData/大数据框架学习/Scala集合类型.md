@@ -63,7 +63,7 @@ scala.collection.immutable 包中所有集合如下图：
 Scala 中所有集合的顶层实现是 `Traversable` 。它唯一的抽象方法是 `foreach`：
 
 ```scala
-def foreach[U](f: Elem => U)
+def foreach[U](images/f: Elem => U)
 ```
 
 实现 `Traversable` 的集合类只需要实现这个抽象方法，其他方法可以从 `Traversable` 继承。`Traversable` 中的所有可用方法如下：

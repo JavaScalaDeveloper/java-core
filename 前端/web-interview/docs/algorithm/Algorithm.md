@@ -1,7 +1,9 @@
 # 面试官：说说你对算法的理解？应用场景？
 
 
- ![](https://static.vue-js.com/eca03690-1620-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/eca03690-1620-11ec-8e64-91fdec0f05a1.png)
 
 ## 一、是什么
 
@@ -52,11 +54,15 @@
 
 除了这些框架或者工具底层用到算法与数据结构之外，日常业务也无处不在，例如实现一个输入框携带联想功能，如下：
 
- ![](https://static.vue-js.com/682d16c0-1621-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/682d16c0-1621-11ec-8e64-91fdec0f05a1.png)
 
 如果我们要实现这个功能， 则可以使用前缀树，如下：
 
- ![](https://static.vue-js.com/55a1ed50-1621-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/55a1ed50-1621-11ec-8e64-91fdec0f05a1.png)
 
 包括前端可能会做一些对字符串进行相似度检测，例如"每日一题"和"js每日一题"两个字符串进行相似度对比，这种情况可以通过“最小编辑距离”算法，如果`a`和`b`的编辑距离越小，我们认为越相似
 

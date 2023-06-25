@@ -1,6 +1,8 @@
 # 面试官：JavaScript原型，原型链 ? 有什么特点？
 
- ![](https://static.vue-js.com/4500e170-725e-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/4500e170-725e-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、原型
 
@@ -40,7 +42,9 @@ console.log( doSomething.prototype );
 
 可以看到，原型对象有一个自有属性`constructor`，这个属性指向该函数，如下图关系展示
 
- ![](https://static.vue-js.com/56d87250-725e-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/56d87250-725e-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -68,7 +72,9 @@ var person = new Person('person')
 
 根据代码，我们可以得到下图
 
- ![](https://static.vue-js.com/60825aa0-725e-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/60825aa0-725e-11eb-85f6-6fac77c0c9b3.png)
 
 下面分析一下：
 
@@ -88,7 +94,9 @@ var person = new Person('person')
 
 `__proto__`作为不同对象之间的桥梁，用来指向创建它的构造函数的原型对象的
 
- ![](https://static.vue-js.com/6a742160-725e-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/6a742160-725e-11eb-ab90-d9ae814b240d.png)
 
 每个对象的`__proto__`都是指向它的构造函数的原型对象`prototype`的
 

@@ -1,6 +1,7 @@
 >因为我们不能直观的看到dubbo和zk上到底有什么服务（提供者），所以我们需要一个可视化工具来方便我们管理每一个服务和每一个节点。
 
 先上个成功后的监控图：
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-47beea7849345a1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #####    示例环境
@@ -18,7 +19,9 @@ apache 下的dubbo-admin git仓库 ：https://github.com/apache/incubator-dubbo-
 
 我在这里用idea直接进行克隆并打开。
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-1cf34d7de47144d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-00370793b5be532b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 因为我已经克隆过一个项目，所以它提示我项目已经存在。
@@ -27,8 +30,10 @@ apache 下的dubbo-admin git仓库 ：https://github.com/apache/incubator-dubbo-
 
 我们再dubbo-admin 项目下找到dubbo.properties 配置文件
 `src->main->webapp->WEB-INF->dubbo.properties`
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-7d309ebd1fb4bd44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 报错不用理会（嫌烦的可以选择忽略或者fetch），不影响项目启动。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-532f0eff84b62e5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 dubbo.properties
@@ -45,9 +50,11 @@ dubbo-admin 默认两个登陆账号，一个是root，一个是guest
 ###   3.放入tomcat容器并启动
 #####    3.1 配置启动项
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-0720d3f487d92973.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #####    3.2 添加Tomcat服务
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-081ddd6704a2fd70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -57,9 +64,11 @@ dubbo-admin 默认两个登陆账号，一个是root，一个是guest
 
 1. 配置tomcat路径和端口
 我配置的是10000端口。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-0198ce0c6dd68f54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 2. 配置部署war包
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-981389940929dc7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #####    3.4 启动
@@ -70,9 +79,11 @@ dubbo-admin 默认两个登陆账号，一个是root，一个是guest
 
 #####    打包项目
 
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-15162b79be7ed531.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 成功的话我们会发现一个war包：
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-7ee18f7e48bf74a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

@@ -306,8 +306,8 @@ WatchedEvent state:SyncConnected type:NodeChildrenChanged path:/hadoop
 Zookeeper version: 3.4.13-2d71af4dbe22557fda74f9a9b4309b15a7487f03, 
 built on 06/29/2018 04:05 GMT
 Clients:
- /0:0:0:0:0:0:0:1:50584[1](queued=0,recved=371,sent=371)
- /0:0:0:0:0:0:0:1:50656[0](queued=0,recved=1,sent=0)
+ /0:0:0:0:0:0:0:1:50584[1](images/queued=0,recved=371,sent=371)
+ /0:0:0:0:0:0:0:1:50656[0](images/queued=0,recved=1,sent=0)
 Latency min/avg/max: 0/0/19
 Received: 372
 Sent: 371

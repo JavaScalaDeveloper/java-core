@@ -114,6 +114,7 @@ $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-a1e0c6db02c2822b2ad88db1c3b0b8a7_720w.webp)
 
 </figure>
@@ -146,6 +147,7 @@ $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-5e9876ca0dc733fe8c2df51d2e42d1ce_720w.webp)
 
 </figure>
@@ -155,6 +157,7 @@ $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-d1e6bfdf23c2b42e23f30d4430c587e2_720w.webp)
 
 </figure>
@@ -162,6 +165,7 @@ $ bin/kafka-console-producer.sh --broker-list localhost:9092 --topic mytopic
 ### **4.4 消费者端效果图**
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-1912f5b2b12ac766d746d88a04b9bd28_720w.webp)

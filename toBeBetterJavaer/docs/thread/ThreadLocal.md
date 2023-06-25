@@ -186,6 +186,7 @@ Entry 是一个以 ThreadLocal 为 key，Object 为 value 的键值对，另外�
 
 到这里我们可以用一个图来理解下 Thread、ThreadLocal、ThreadLocalMap、Entry 之间的关系：
 
+
 ![ThreadLocal各引用间的关系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ThreadLocal-01.png)
 
 注意上图中的实线表示强引用，虚线表示弱引用。如图所示，每个线程实例中都可以通过 ThreadLocals 获取到 ThreadLocalMap，而 ThreadLocalMap 实际上就是一个以 ThreadLocal 实例为 key，任意对象为 value 的 Entry 数组。
@@ -208,6 +209,7 @@ ThreadLocal 的内存泄漏问题，值得我们思考和注意，关于这个�
 
 理想状态下，散列表就是一个包含关键字的固定大小的数组，通过使用散列函数，将关键字映射到数组的不同位置。下面是
 
+
 ![理想散列表的一个示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ThreadLocal-02.png)
 
 在理想状态下，哈希函数可以将关键字均匀的分散到数组的不同位置，不会出现两个关键字散列值相同（假设关键字数量小于数组的大小）的情况。
@@ -220,6 +222,7 @@ ThreadLocal 的内存泄漏问题，值得我们思考和注意，关于这个�
 
 分离链表法使用链表解决冲突，将散列值相同的元素都保存到一个链表中。当查询的时候，首先找到元素所在的链表，然后遍历链表查找对应的元素，典型实现为 HashMap、ConcurrentHashMap 的拉链法。下面是一个示意图：
 
+
 ![分离链表法示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ThreadLocal-02.gif)
 
 ##### 开放地址法
@@ -227,6 +230,7 @@ ThreadLocal 的内存泄漏问题，值得我们思考和注意，关于这个�
 开放地址法不会创建链表，当关键字散列到的数组单元已经被另外一个关键字占用的时候，就会尝试在数组中寻找其他的单元，直到找到一个空的单元。
 
 探测数组空单元的方式有很多，这里介绍一种最简单的 -- 线性探测法。线性探测法就是从冲突的数组单元开始，依次往后搜索空单元，如果到数组尾部，再从头开始搜索（环形查找）。如下图所示：
+
 
 ![开放定址法示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/thread/ThreadLocal-03.jpg)
 

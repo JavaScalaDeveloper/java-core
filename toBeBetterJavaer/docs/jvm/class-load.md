@@ -23,6 +23,7 @@ head:
 
 Java 在诞生的时候喊出了一个非常牛逼的口号：“Write Once, Run Anywhere”，为了达成这个目的，Sun 公司发布了许多可以在不同平台（Windows、Linux）上运行的 Java 虚拟机（JVM）——负责载入和执行 Java 编译后的字节码。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/class-load-01.png)
 
 
@@ -173,6 +174,7 @@ sun.misc.Launcher$ExtClassLoader@15db9742
 ### 04、双亲委派模型
 
 如果以上三种类加载器不能满足要求的话，程序员还可以自定义类加载器（继承 `java.lang.ClassLoader` 类），它们之间的层级关系如下图所示。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/jvm/class-load-02.png)
 

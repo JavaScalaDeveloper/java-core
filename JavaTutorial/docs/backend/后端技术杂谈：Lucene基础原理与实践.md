@@ -117,6 +117,7 @@ Lucene是一个高效的，基于Java的全文检索库。
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-c1064a6ada64169f76ec63e44e82f0f5_720w.webp)
 
 </figure>
@@ -219,6 +220,7 @@ Stemming 和 lemmatization的异同：
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-b8477ac42cb442585aa090f33c0b34a6_720w.webp)
 
 </figure>
@@ -226,6 +228,7 @@ Stemming 和 lemmatization的异同：
 2\. 对字典按字母顺序进行排序。
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230408113241.png)
@@ -294,6 +297,7 @@ Stemming 和 lemmatization的异同：
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-5acb4fdbd41e04fe83396ea82679bee9_720w.webp)
 
 </figure>
@@ -305,6 +309,7 @@ Stemming 和 lemmatization的异同：
 经过第二步，我们得到一棵经过语言处理的语法树。
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230408113252.png)
@@ -412,6 +417,7 @@ Query Vector = {weight1, weight2, …… , weight N}
 <figure data-size="normal">
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230408113310.png)
 
 </figure>
@@ -427,6 +433,7 @@ Query Vector = {weight1, weight2, …… , weight N}
 在进入Lucene之前，对上述索引创建和搜索过程所一个总结，如图：
 
 <figure data-size="normal">
+
 
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230408113319.png)

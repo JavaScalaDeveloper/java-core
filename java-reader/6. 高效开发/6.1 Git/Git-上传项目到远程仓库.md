@@ -6,11 +6,14 @@
 IDEA可以利用插件`gitee`来快速的上传项目到gitee上。(github原生支持，不需要下载插件)
 #####    1. 安装插件
 >setting->plugins->搜索gitee
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-ae53058885760309.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-a06064bcc9112d9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #####    2. 使用插件
 > VCS -> Import into Version Control -> Share Project on Gitee (or Share Project on GitHub)
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-06ef95220fd0011b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 然后就是傻瓜式的操作了。如果有错误，自己解决不了，返回第一点，重新来。如果git密码第一次输入错误后不再提示你输入而是一直用错误的密码，看第三点的第4小点的注意事项(`3.4`)。

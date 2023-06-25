@@ -475,6 +475,7 @@ class PointRight {
 
 看到这里，你可能会觉得自己实现 equals 和 hashCode 很麻烦，实现 equals 有很多注意点而且代码量很大。不过，实现这两个方法也有简单的方式，一是后面要讲到的 Lombok 方法，二是使用 IDE 的代码生成功能。IDEA 的类代码快捷生成菜单支持的功能如下：
 
+
 ![img](images/944fe3549e4c24936e9837d0bf1e3936.jpg)
 
 ## 注意 compareTo 和 equals 的逻辑一致性
@@ -683,6 +684,7 @@ class Employee extends Person {
 最后，Lombok 的 @EqualsAndHashCode 注解实现 equals 和 hashCode 的时候，默认使用类型所有非 static、非 transient 的字段，且不考虑父类。如果希望改变这种默认行为，可以使用 @EqualsAndHashCode.Exclude 排除一些字段，并设置 callSuper = true 来让子类的 equals 和 hashCode 调用父类的相应方法。
 
 在比较枚举值和 POJO 参数值的例子中，我们还可以注意到，使用 == 来判断两个包装类型的低级错误，确实容易被忽略。所以，我建议你在 IDE 中安装阿里巴巴的 Java 规约插件（详见这里），来及时提示我们这类低级错误：
+
 
 ![img](images/fe020d747a35cec23e5d92c1277d02c3.png)
 

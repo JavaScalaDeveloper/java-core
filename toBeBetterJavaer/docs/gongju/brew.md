@@ -16,6 +16,7 @@ head:
 
 本来打算在公司偷偷摸摸给星球的用户写一篇编程喵整合 MongoDB 的文章，结果在通过 brew 安装 MongoDB 的时候竟然报错了。原因很简单，公司这台 Mac 上的 homebrew 环境没有配置好。刚好 Java程序员进阶之路上缺少这样一篇内容。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-c6756a26-8767-4135-be4c-b31d42de2a89.png)
 
 所以我就想，不如趁机水一篇吧，啊，不不不，趁机给小伙伴们普及一下 Homebrew 吧！瞧我这该死的大公无私的心（手动狗头）。
@@ -28,6 +29,7 @@ head:
 >Homebrew 的 Slogan ：The missing package manager for macOS (or Linux)
 
 Homebrew 这款命令行软件管理神器在 GitHub 上已经有 32.5k+ 的 star 了，功能也真心强大，几乎 macOS 上的软件包它都包了。Homebrew 本身没有问题，问题在于。。。。。不说了，你懂的。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-726f97d9-4de2-4d23-9973-d1a39951a0f7.png)
 
@@ -79,9 +81,11 @@ Homebrew 主要由四个部分组成: brew、homebrew-core 、homebrew-cask、ho
 
 安装脚本里提供了中科大、清华大学、北京外国语大学、腾讯、阿里巴巴等下载源。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-e7eaf096-7477-4ed0-814a-07ef8d62884f.png)
 
 但过来人告诉你，别选其他镜像源，就选中科大，速度杠杠的，40-50M/s，这速度比其他镜像源快多了，对比起来，其他就是蜗牛🐌。
+
 
 
 
@@ -91,6 +95,7 @@ Homebrew 主要由四个部分组成: brew、homebrew-core 、homebrew-cask、ho
 
 这个安装脚本非常的智能，几乎可以一件帮我们搞定所有问题。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-7c539545-d26e-45e8-9f81-bb5b439342eb.png)
 
 再次感谢 Gitee 上这位大牛，已经 3k star 了，我把地址贴出来：
@@ -98,14 +103,17 @@ Homebrew 主要由四个部分组成: brew、homebrew-core 、homebrew-cask、ho
 >[https://gitee.com/cunkai/HomebrewCN](https://gitee.com/cunkai/HomebrewCN)
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-aebf4ced-58f4-4d31-892c-4a8382cf3677.png)
 
 brew 本体安装成功后，会提示我们配置国内镜像源。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-6866eb09-75fb-4f19-9ff4-b80fd02816e9.png)
 
 nice，安装完成了。执行下面这几个命令体验下。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-33bcd6a1-d843-4a6c-a8ac-0d908095da79.png)
@@ -116,6 +124,7 @@ nice，安装完成了。执行下面这几个命令体验下。
 - `brew update` 更新版本；
 - `brew install --cask firefox` 安装图形化界面软件
 - `brew config` 查看配置。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-ac0e141f-301c-46f1-bd80-5375eb50dc4d.png)
@@ -129,9 +138,11 @@ nice，安装完成了。执行下面这几个命令体验下。
 以前的版本中，是可以直接 `brew cask list` 这样执行命令的，现在改成了 `brew list --cask`。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-c5403959-01fd-4610-b08c-4ca4e4cb0a66.png)
 
 brew 是从下载源码开始，然后编译（不一定，有些有现成的 bottle）解压，通过 `./configure && make install` 进行安装，同时会包含相关的依赖库。环境变量也是自动配置的。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-d27ec07e-cf3c-4504-9174-60881d2710fb.png)
@@ -140,9 +151,11 @@ brew 是从下载源码开始，然后编译（不一定，有些有现成的 bo
 brew cask 是下载解压已经编译好了的软件包（.dmg/.pkg），放在统一的目录中，省去了手动去下载、解压、拖拽等蛋疼步骤。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-566f4437-62de-49e5-89a7-7c666a2ad9c1.png)
 
 通过 `brew search google` 我们也可以看得出两者之间的区别。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-441127b1-f7ae-484e-801b-5b808f8e283c.png)
@@ -186,17 +199,20 @@ brew tap [user/repo] | 将开源仓库添加到源
 2）执行 `brew install openjdk@17` 安装 JDK。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-b4d7684b-2db8-4286-bf2e-389c2aed5968.png)
 
 3）但我们在 macOS 上安装了多个版本的 JDK 后，怎么管理它们呢？可以安装一下 jEnv，一个帮助我们管理 JAVA_HOME 的命令行工具，在 GitHub 上已经收获 4.3k 的 star。
 
 >GitHub 地址：[https://github.com/jenv/jenv](https://github.com/jenv/jenv)
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-1034fcfd-22a7-4968-8b6f-fb2e67d22855.png)
 
 官方文档也非常的简洁大方：
 
 >[https://www.jenv.be/](https://www.jenv.be/)
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-2e10e772-1944-474a-bbfa-b3ef3e0ec9d4.png)
@@ -221,10 +237,12 @@ jenv add /usr/local/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home/
 ```
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-b126c35d-edab-48a9-9543-831cfd0a51c6.png)
 
 
 JDK 的安装路径可以通过下图的位置查找。
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-a32accec-4044-480c-a8c8-3781bc5048b5.png)
@@ -235,6 +253,7 @@ JDK 的安装路径可以通过下图的位置查找。
 jenv versions
 jenv global 17.0.3
 ```
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-cc01fad8-53e9-4474-8923-08e97ac7090a.png)
@@ -252,6 +271,7 @@ jenv global 17.0.3
 ```
 brew tap mongodb/brew
 ```
+
 
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-4819ca75-01e3-4dea-8859-7c9ddd570142.png)
@@ -272,6 +292,7 @@ brew install mongodb-community@4.4
  OK，安装成功。
 
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-e934f3f3-c7de-4537-8c30-73c0e9fb41b4.png)
 
 ## 小结
@@ -279,6 +300,7 @@ brew install mongodb-community@4.4
 通过 Homebrew 下载的软件基本上来自于官网，所以大可以放心。而且而且它尽可能地利用了系统自带的各种库，使得软件包的编译时间大大缩短，基本上不会造成冗余。
 
 这里顺带给大家提一则小故事，教别人学算法的大佬可以拿走了：homebrew 的作者去面 Google，被考算法题: 反转二叉树，结果没通过被拒了，😆
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-8fb73388-ffaf-4241-8584-03e7aa00578b.png)
 

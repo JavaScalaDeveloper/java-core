@@ -39,9 +39,11 @@ leetcode.455 [分发饼干](https://leetcode-cn.com/problems/assign-cookies/)
 
 我们可以使用贪心算法，把最大的饼干给最贪心的小朋友，让他开心
 
+
 ![image-20201017221724239](images/image-20201017221724239.png)
 
 然后剩下的最大的，在继续分配
+
 
 ![image-20201017221742375](images/image-20201017221742375.png)
 

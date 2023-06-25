@@ -11,6 +11,7 @@ MapReduce是一种非常简单又非常强大的编程模型。
 我们以WordCount程序为例。WordCount主要解决文本处理中的词频统计问题，就是统计文本中每一个单词出现的次数。如果只是统计一篇文章的词频，几十K到几M的数据，那么写一个程序，将数据读入内存，建一个Hash表记录每个词出现的次数就可以了，如下图。
 
 
+
 ![1cf32673aae43e61a75847b066884057](images/MapReduce编程模型和计算框架架构原理.resources/9BC09734-6728-4F29-A798-AE7684F1C04E.png)
 
 
@@ -18,7 +19,7 @@ MapReduce是一种非常简单又非常强大的编程模型。
 
 WordCount的MapReduce程序如下。
 
-```
+```java
 public class WordCount {
 
 public static class TokenizerMapper
@@ -57,13 +58,13 @@ context.write(key, result);
 其核心是一个map函数，一个reduce函数。
 
 map函数的输入主要是一个<key , value>对，在这个例子里，value是要统计的所有文本中的一行数据，key在这里不重要，我们忽略。
-```
+```java
 public void map(Object key, Text value, Context context)
 ```
 map函数的计算过程就是，将这行文本中的单词提取出来，针对每个单词输出一个<word , 1>这样的<key , value>对。
 
 MapReduce计算框架会将这些<word , 1>收集起来，将相同的word放在一起，形成<word , <1,1,1,1,1,1,1.....>>这样的<key , value集合>数据，然后将其输入给reduce函数。
-```
+```java
 public void reduce(Text key, Iterable<IntWritable> values,Context context)
 ```
 这里的reduce的输入参数values就是由很多个1组成的集合，而key就是具体的单词word。
@@ -71,6 +72,7 @@ public void reduce(Text key, Iterable<IntWritable> values,Context context)
 reduce函数的计算过程就是，将这个集合里的1求和，再将单词（word）和这个和（sum）组成一个<key , value>(<word , sum>)输出。每一个输出就是一个单词和它的词频统计总和。
 
 假设有两个block的文本数据需要进行词频统计，MapReduce计算过程如下图。
+
 
 ![3ecd6347527aa0562dc545c6e8e1997c](images/MapReduce编程模型和计算框架架构原理.resources/80C38BAC-B7B6-413A-9504-44AF99C5FB27.png)
 
@@ -90,6 +92,7 @@ reduce函数的计算过程就是，将这个集合里的1求和，再将单词�
 * 这两个关键问题正好对应文章中“MapReduce计算过程”一图中两处“MapReduce框架处理”。
 
 
+
 ![fe3a4f4e8603397638a92d67964c8b0e](images/MapReduce编程模型和计算框架架构原理.resources/0EAF1DCB-D641-4F33-A093-41B6AFE34EE2.png)
 
 
@@ -106,6 +109,7 @@ reduce函数的计算过程就是，将这个集合里的1求和，再将单词�
 * TaskTracker进程：负责启动和管理map进程以及reduce进程。因为需要每个数据块都有对应的map函数，TaskTracker进程通常和HDFS的DataNode进程启动在同一个服务器，也就是说，Hadoop集群中绝大多数服务器同时运行DataNode进程和TaskTacker进程。
 
 如下图所示。
+
 
 
 ![56113971e19e97cdacc9f4b4f9993b76](images/MapReduce编程模型和计算框架架构原理.resources/011912DD-397C-4C64-B978-F932E333E232.png)
@@ -145,5 +149,6 @@ return (key.hashCode() & Integer.MAX_VALUE) % numReduceTasks;
 ```
 
 shuffle是大数据计算过程中发生奇迹的地方，不管是MapReduce还是Spark，只要是大数据批处理计算，一定会有shuffle过程，让数据关联起来，数据的内在关系和价值才会呈现出来。不理解shuffle，就会在map和reduce编程中产生困惑，不知道该如何正确设计map的输出和reduce的输入。shuffle也是整个MapReduce过程中最难最消耗性能的地方，在MapReduce早期代码中，一半代码都是关于shuffle处理的。
+
 
 ![e0eb09bb5187517b530feb90ab55f767](images/MapReduce编程模型和计算框架架构原理.resources/8DB07269-807E-435E-B65D-3A0A16E05D07.png)

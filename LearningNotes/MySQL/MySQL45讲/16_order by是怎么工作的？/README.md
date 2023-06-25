@@ -28,6 +28,7 @@ select city,name,age from t where city='杭州' order by name limit 1000  ;
 
 在 city 字段上创建索引之后，我们用 explain 命令来看看这个语句的执行情况。
 
+
 ![img](images/826579b63225def812330ef6c344a303.png)
 
 图 1 使用 explain 命令查看语句的执行情况
@@ -35,6 +36,7 @@ select city,name,age from t where city='杭州' order by name limit 1000  ;
 Extra 这个字段中的“Using filesort”表示的就是需要排序，MySQL 会给每个线程分配一块内存用于排序，称为 sort_buffer。
 
 为了说明这个 SQL 查询语句的执行过程，我们先来看一下 city 这个索引的示意图。
+
 
 ![img](images/5334cca9118be14bde95ec94b02f0a3e.png)
 
@@ -53,6 +55,7 @@ Extra 这个字段中的“Using filesort”表示的就是需要排序，MySQL 
 7. 按照排序结果取前 1000 行返回给客户端。
 
 我们暂且把这个排序过程，称为全字段排序，执行流程的示意图如下所示，下一篇文章中我们还会用到这个排序。
+
 
 ![img](images/6c821828cddf46670f9d56e126e3e772.jpg)
 
@@ -85,6 +88,7 @@ select @b-@a;
 ```
 
 这个方法是通过查看 OPTIMIZER_TRACE 的结果来确认的，你可以从 number_of_tmp_files 中看到是否使用了临时文件。
+
 
 ![img](images/89baf99cdeefe90a22370e1d6f5e6495.png)
 
@@ -140,6 +144,7 @@ city、name、age 这三个字段的定义总长度是 36，我把 max_length_fo
 
 这个执行流程的示意图如下，我把它称为 rowid 排序。
 
+
 ![img](images/dc92b67721171206a302eb679c83e86d.jpg)
 
 图 5 rowid 排序
@@ -155,6 +160,7 @@ city、name、age 这三个字段的定义总长度是 36，我把 max_length_fo
 首先，图中的 examined_rows 的值还是 4000，表示用于排序的数据是 4000 行。但是 select @b-@a 这个语句的值变成 5000 了。
 
 因为这时候除了排序过程外，在排序完成后，还要根据 id 去原表取值。由于语句是 limit 1000，因此会多读 1000 行。
+
 
 ![img](images/27f164804d1a4689718291be5d10f89b.png)
 
@@ -195,6 +201,7 @@ alter table t add index city_user(city, name);
 
 作为与 city 索引的对比，我们来看看这个索引的示意图。
 
+
 ![img](images/f980201372b676893647fb17fac4e2bf.png)
 
 图 7 city 和 name 联合索引示意图
@@ -208,11 +215,13 @@ alter table t add index city_user(city, name);
 3. 从索引 (city,name) 取下一个记录主键 id；
 4. 重复步骤 2、3，直到查到第 1000 条记录，或者是不满足 city='杭州’条件时循环结束。
 
+
 ![img](images/3f590c3a14f9236f2d8e1e2cb9686692.jpg)
 
 图 8 引入 (city,name) 联合索引后，查询语句的执行计划
 
 可以看到，这个查询过程不需要临时表，也不需要排序。接下来，我们用 explain 的结果来印证一下。
+
 
 ![img](images/fc53de303811ba3c46d344595743358a.png)
 
@@ -238,11 +247,13 @@ alter table t add index city_user_age(city, name, age);
 2. 从索引 (city,name,age) 取下一个记录，同样取出这三个字段的值，作为结果集的一部分直接返回；
 3. 重复执行步骤 2，直到查到第 1000 条记录，或者是不满足 city='杭州’条件时循环结束。
 
+
 ![img](images/df4b8e445a59c53df1f2e0f115f02cd6.jpg)
 
 图 10 引入 (city,name,age) 联合索引后，查询语句的执行流程
 
 然后，我们再来看看 explain 的结果。
+
 
 ![img](images/9e40b7b8f0e3f81126a9171cc22e3423.png)
 
@@ -284,6 +295,7 @@ mysql> select * from t where city in ('杭州'," 苏州 ") order by name limit 1
 
 假设，当前表 t 里的值是 (1,2)。
 
+
 ![img](images/6d9d8837560d01b57d252c470157ea90.png)
 
 图 12 锁验证方式
@@ -293,6 +305,7 @@ session B 的 update 语句被 blocked 了，加锁这个动作是 InnoDB 才能
 第二个选项是，MySQL 调用了 InnoDB 引擎提供的接口，但是引擎发现值与原来相同，不更新，直接返回。有没有这种可能呢？这里我用一个可见性实验来确认。
 
 假设当前表里的值是 (1,2)。
+
 
 ![img](images/441682b64a3f5dd50f35b12ca4b87c96.png)
 
@@ -310,6 +323,7 @@ session A 的第二个 select 语句是一致性读（快照读)，它是不能�
 
 作为验证，你可以看一下下面这个例子。
 
+
 ![img](images/63dd6df32dacdb827d256e5acb9837c1.png)
 
 图 14 可见性验证方式 -- 对照
@@ -325,6 +339,7 @@ session A 的第二个 select 语句是一致性读（快照读)，它是不能�
 同理，如果是 binlog_row_image=NOBLOB, 会读出除 blob 外的所有字段，在我们这个例子里，结果还是“返回 (1,2)”。
 
 对应的代码如图 15 所示。这是 MySQL 5.6 版本引入的，在此之前我没有看过。所以，特此说明。
+
 
 ![img](images/d413b9235d56c62f9829750a68b06b89.png)
 

@@ -64,6 +64,7 @@
 
 java.nio 定义了以下几个 Buffer 的实现，这个图读者应该也在不少地方见过了吧。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405095127.png)
 
 其实核心是最后的**ByteBuffer**，前面的一大串类只是包装了一下它而已，我们使用最多的通常也是 ByteBuffer。
@@ -78,6 +79,7 @@ MappedByteBuffer 用于实现内存映射文件，也不是本文关注的重点
 
 就像数组有数组容量，每次访问元素要指定下标，Buffer 中也有几个重要属性：position、limit、capacity。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405095151.png)
 
 最好理解的当然是 capacity，它代表这个缓冲区的容量，一旦设定就不可以更改。比如 capacity 为 1024 的 IntBuffer，代表其一次可以存放 1024 个 int 类型的值。一旦 Buffer 的容量达到 capacity，需要清空 Buffer，才能重新写入值。
@@ -89,6 +91,7 @@ position 和 limit 是变化的，我们分别看下读和写操作下，它们�
 从写操作模式到读操作模式切换的时候（**flip**），position 都会归零，这样就可以从头开始读写了。
 
 **Limit**：写操作模式下，limit 代表的是最大能写入的数据，这个时候 limit 等于 capacity。写结束后，切换到读模式，此时的 limit 等于 Buffer 中实际的数据大小，因为 Buffer 不一定被写满了。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405095206.png)
 
@@ -235,6 +238,7 @@ public final Buffer clear() {
 
 所有的 NIO 操作始于通道，通道是数据来源或数据写入的目的地，主要地，我们将关心 java.nio 包中实现的以下几个 Channel：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405095238.png)
 
 *   FileChannel：文件通道，用于文件的读和写
@@ -246,7 +250,9 @@ public final Buffer clear() {
 
 Channel 经常翻译为通道，类似 IO 中的流，用于读取和写入。它与前面介绍的 Buffer 打交道，读操作的时候将 Channel 中的数据填充到 Buffer 中，而写操作时将 Buffer 中的数据写入到 Channel 中。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405095252.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405095318.png)
 至少读者应该记住一点，这两个方法都是 channel 实例的方法。

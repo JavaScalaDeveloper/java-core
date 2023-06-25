@@ -57,6 +57,7 @@
 jps [options] [hostid]
 ```
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404222505.png)
 
 如果不指定hostid就默认为当前主机或服务器。
@@ -92,6 +93,7 @@ generalOption - 单个的常用的命令行选项，如-help, -options, 或 -ver
 
 outputOptions -一个或多个输出选项，由单个的statOption选项组成，可以和-t, -h, and -J等选项配合使用。复制代码
 ```
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404222543.png)
 
 参数选项：
@@ -126,6 +128,7 @@ outputOptions -一个或多个输出选项，由单个的statOption选项组成�
 jinfo[option] pid复制代码
 ```
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404222602.png)
 
 比如:获取一些当前进程的jvm运行和启动信息。
@@ -146,6 +149,7 @@ jmap [ option ] executable core
 
 jmap [ option ] [server-id@]remote-hostname-or-IP复制代码
 ```
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404222621.png)
 
 
@@ -170,6 +174,7 @@ jmap [ option ] [server-id@]remote-hostname-or-IP复制代码
 
 -J 传递参数给jmap启动的jvm. 复制代码
 ```
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404222638.png)
 ### 5、jhat:jvm堆快照分析工具

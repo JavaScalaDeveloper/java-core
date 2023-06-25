@@ -1,6 +1,8 @@
 # 面试官：web常见的攻击方式有哪些？如何防御？
 
- ![](https://static.vue-js.com/d0892930-8d1d-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/d0892930-8d1d-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 Web攻击（WebAttack）是针对用户上网行为或网站服务器等设备进行攻击的行为
@@ -246,7 +248,9 @@ CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生�
 
 Sql 注入攻击，是通过将恶意的 `Sql `查询或添加语句插入到应用的输入参数中，再在后台 `Sql `服务器上解析执行进行的攻击
 
- ![](https://static.vue-js.com/ead52fa0-8d1d-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/ead52fa0-8d1d-11eb-85f6-6fac77c0c9b3.png)
 
 流程如下所示：
 

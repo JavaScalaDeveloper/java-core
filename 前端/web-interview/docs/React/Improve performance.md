@@ -1,6 +1,8 @@
 # 面试官：说说 React 性能优化的手段有哪些？
 
- ![](https://static.vue-js.com/a9e83b00-f270-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/a9e83b00-f270-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 
@@ -10,15 +12,21 @@
 
 当我们想要更新一个子组件的时候，如下图绿色部分：
 
- ![](https://static.vue-js.com/b41f6f30-f270-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/b41f6f30-f270-11eb-ab90-d9ae814b240d.png)
 
 理想状态只调用该路径下的组件`render`：
 
- ![](https://static.vue-js.com/bc0f2460-f270-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/bc0f2460-f270-11eb-85f6-6fac77c0c9b3.png)
 
 但是`react`的默认做法是调用所有组件的`render`，再对生成的虚拟`DOM`进行对比（黄色部分），如不变则不进行更新
 
- ![](https://static.vue-js.com/c2f0c4f0-f270-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/c2f0c4f0-f270-11eb-85f6-6fac77c0c9b3.png)
 
 从上图可见，黄色部分`diff`算法对比是明显的性能浪费的情况
 

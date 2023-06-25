@@ -7,11 +7,13 @@ tag:
 
 DNS（Domain Name System）域名管理系统，是当用户使用浏览器访问网址之后，使用的第一个重要协议。DNS 要解决的是**域名和 IP 地址的映射问题**。
 
+
 ![DNS:域名系统](https://oss.javaguide.cn/github/javaguide/cs-basics/network/dns-overview.png)
 
 在实际使用中，有一种情况下，浏览器是可以不必动用 DNS 就可以获知域名和 IP 地址的映射的。浏览器在本地会维护一个`hosts`列表，一般来说浏览器要先查看要访问的域名是否在`hosts`列表中，如果有的话，直接提取对应的 IP 地址记录，就好了。如果本地`hosts`列表内没有域名-IP 对应记录的话，那么 DNS 就闪亮登场了。
 
 目前 DNS 的设计采用的是分布式、层次数据库结构，**DNS 是应用层协议，基于 UDP 协议之上，端口为 53** 。
+
 
 ![TCP/IP 各层协议概览](https://oss.javaguide.cn/github/javaguide/cs-basics/network/network-protocol-overview.png)
 
@@ -31,6 +33,7 @@ DNS 服务器自底向上可以依次分为以下几个层级(所有 DNS 服务�
 
 下图是实践中常采用的方式，从请求主机到本地 DNS 服务器的查询是递归的，其余的查询时迭代的。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/cs-basics/network/DNS-process.png)
 
 现在，主机`cis.poly.edu`想知道`gaia.cs.umass.edu`的 IP 地址。假设主机`cis.poly.edu`的本地 DNS 服务器为`dns.poly.edu`，并且`gaia.cs.umass.edu`的权威 DNS 服务器为`dns.cs.umass.edu`。
@@ -46,6 +49,7 @@ DNS 服务器自底向上可以依次分为以下几个层级(所有 DNS 服务�
 
 除了迭代式查询，还有一种递归式查询如下图，具体过程和上述类似，只是顺序有所不同。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/cs-basics/network/DNS-process2.png)
 
 另外，DNS 的缓存位于本地 DNS 服务器。由于全世界的根服务器甚少，只有 400 多台，分为 13 组，且顶级域的数量也在一个可数的范围内，因此本地 DNS 通常已经缓存了很多 TLD DNS 服务器，所以在实际查找过程中，无需访问根服务器。根服务器通常是被跳过的，不请求的。
@@ -53,6 +57,7 @@ DNS 服务器自底向上可以依次分为以下几个层级(所有 DNS 服务�
 ## DNS 报文格式
 
 DNS 的报文格式如下图所示：
+
 
 ![](https://oss.javaguide.cn/github/javaguide/cs-basics/network/DNS-packet.png)
 
@@ -70,11 +75,13 @@ DNS 报文分为查询和回答报文，两种形式的报文结构相同。
 
 DNS 服务器在响应查询时，需要查询自己的数据库，数据库中的条目被称为**资源记录(Resource Record，RR)**。RR 提供了主机名到 IP 地址的映射。RR 是一个包含了`Name`, `Value`, `Type`, `TTL`四个字段的四元组。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/cs-basics/network/20210506174303797.png)
 
 `TTL`是该记录的生存时间，它决定了资源记录应当从缓存中删除的时间。
 
 `Name`和`Value`字段的取值取决于`Type`：
+
 
 ![](https://oss.javaguide.cn/github/javaguide/cs-basics/network/20210506170307897.png)
 

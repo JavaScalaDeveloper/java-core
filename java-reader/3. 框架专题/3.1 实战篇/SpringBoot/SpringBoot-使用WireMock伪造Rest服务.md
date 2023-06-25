@@ -12,6 +12,7 @@
 ######  1.2 启动jar
 `java -jar wiremock-standalone-2.14.0.jar  --port 9000`   
 我在这里用9000端口启动
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-e1be843e5ebfd162.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 好了，看到上面的图案说明服务就搭建好了。
@@ -50,8 +51,10 @@ public class MockServer {
 
 ```
 运行这个main方法。
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-143647387324ae33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 然后访问 http://127.0.0.1:9000/user/1   
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-afa9cde1eea7342e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ####    企业级开发封装
@@ -89,12 +92,15 @@ public class MockServer {
 
 ```
 其中，user.txt文件在这里
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-7b7dc4394136194c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 文本内容：
+
 ![](https://upload-images.jianshu.io/upload_images/5786888-d432b5c8e9fc6efe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 然后我们运行程序，访问http://127.0.0.1:9000/user/2
+
 
 ![](https://upload-images.jianshu.io/upload_images/5786888-c18e0f6ead50a69b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

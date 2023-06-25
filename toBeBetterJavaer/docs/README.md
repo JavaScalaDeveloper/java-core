@@ -29,7 +29,9 @@ footer: |-
 
 ## star趋势图
 
-[![Star History Chart](https://api.star-history.com/svg?repos=itwanger/toBeBetterJavaer&type=Date)](https://star-history.com/#itwanger/toBeBetterJavaer&Date)
+[
+
+![Star History Chart](https://api.star-history.com/svg?repos=itwanger/toBeBetterJavaer&type=Date)](https://star-history.com/#itwanger/toBeBetterJavaer&Date)
 
 ## 捐赠鼓励
 

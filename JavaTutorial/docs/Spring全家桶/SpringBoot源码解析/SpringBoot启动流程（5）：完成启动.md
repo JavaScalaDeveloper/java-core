@@ -1,5 +1,6 @@
 上一篇文章总结 springboot 启动流程如下：
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-07a6b491fbe69b8dcbd41e59a8543f06671.png)
 
 接上文，我们继续分析接下来的步骤。
@@ -100,6 +101,7 @@ public class MyCommandLineRunner implements CommandLineRunner {
 这个方法的运行同前面分析的 `listeners.starting()` 套路一样，这里就不分析了。
 
 好了，本文的分析就到这里了，关于 springboot 的启动流程的分析也到这里了。
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-9b539b547c6004c40d2b6f8bd59481b8e34.png)
 

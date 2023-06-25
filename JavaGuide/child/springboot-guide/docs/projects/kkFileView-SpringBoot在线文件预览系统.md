@@ -52,6 +52,7 @@ brew cask install openoffice
 
 官方下载地址：[https://www.openoffice.org/download/](https://www.openoffice.org/download/)
 
+
 ![OpenOffice下载	](https://img-blog.csdnimg.cn/20201015194327797.png)
 
 很多小伙伴就要问了：**OpenOffice 是什么呢？**
@@ -60,17 +61,20 @@ brew cask install openoffice
 
 OpenOffice 和 Windows 下 office 办公软件有点类似，不过其实开源免费的。
 
+
 ![why openoffice](https://img-blog.csdnimg.cn/20201015194328447.png)
 
 ### 启动项目
 
 运行`FilePreviewApplication`的 main 方法，服务启动后，访问[http://localhost:8012/](http://localhost:8012/) 会看到如下界面，代表服务启动成功。
 
+
 ![项目启动成功](https://img-blog.csdnimg.cn/20201015194328801.png)
 
 ## 使用
 
 我们首先上传了 3 个不同的类型的文件来分别演示一下图片、PDF、Word 文档的预览。
+
 
 ![](https://img-blog.csdnimg.cn/20201015194328978.png)
 
@@ -79,6 +83,7 @@ OpenOffice 和 Windows 下 office 办公软件有点类似，不过其实开源�
 **kkFileView 支持 jpg，jpeg，png，gif 等多种格式图片的预览，还包括了翻转，缩放图片等操作。**
 
 图片的预览效果如下。
+
 
 ![图片的预览效果](https://img-blog.csdnimg.cn/20201015194329517.png)
 
@@ -98,9 +103,11 @@ OpenOffice 和 Windows 下 office 办公软件有点类似，不过其实开源�
 
 图片预览模式预览效果如下：
 
+
 ![](https://img-blog.csdnimg.cn/20201015194329908.png)
 
 PDF 预览模式预览效果如下：
+
 
 ![](https://img-blog.csdnimg.cn/20201015194330591.png)
 
@@ -148,6 +155,7 @@ public interface FilePreview {
 
 不同的文件类型的预览都实现了 `FilePreview` 接口，如下图所示。
 
+
 ![](https://img-blog.csdnimg.cn/20201015194330836.png)
 
 不同文件类型的预览都会实现 `FilePreview` 接口，然后重写`filePreviewHandle()`方法。比如： `OfficeFilePreviewImpl` 这个主要负责处理 office 文件的预览、`PdfFilePreviewImpl` 主要负责处理 pdf 文件的预览。
@@ -162,6 +170,7 @@ public interface FilePreview {
 
 - `武汉市文化市场管理办法.pdf`
 - 由 Word 文件所转化得到的一系列图片
+
 
 ![](https://img-blog.csdnimg.cn/2020101519433136.png)
 

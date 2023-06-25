@@ -91,6 +91,7 @@ jinfo -flag PrintGCDetails 12608
 
 下面我们需要在启动HelloGC的时候，增加 PrintGCDetails这个参数，需要在运行程序的时候配置JVM参数
 
+
 ![image-20200319122922264](images/image-20200319122922264.png)
 
 然后在VM Options中加入下面的代码，现在+号表示开启
@@ -138,7 +139,9 @@ jinfo -flags ***
     - java -XX:+PrintFlagsInitial -version
     - java -XX:+PrintFlagsInitial（重要参数）
 
-  ![image-20200320212256284](images/image-20200320212256284.png)
+  
+
+![image-20200320212256284](images/image-20200320212256284.png)
 
      
 
@@ -151,6 +154,7 @@ jinfo -flags ***
 
 
 ## 工作中常用的JVM基本配置参数
+
 
 ![image-20200322163252777](images/image-20200322163252777.png)
 
@@ -221,6 +225,7 @@ MAX_MEMORY(-Xmx) = 3790077952(字节)、3614.5MB
 
 GC日志收集流程图
 
+
 ![image-20200322185639902](images/image-20200322185639902.png)
 
 我们使用一段代码，制造出垃圾回收的过程
@@ -285,6 +290,7 @@ GC (Allocation Failure)：表示分配失败，那么就需要触发年轻代空
 
 参数对应的图为：
 
+
 ![image-20200323124000865](images/image-20200323124000865.png)
 
 #### Full GC垃圾回收
@@ -294,6 +300,7 @@ Full GC大部分发生在养老区
 ```
 [Full GC (Allocation Failure) [PSYoungGen: 0K->0K(2560K)] [ParOldGen: 648K->630K(7168K)] 648K->630K(9728K), [Metaspace: 3467K->3467K(1056768K)], 0.0058502 secs] [Times: user=0.00 sys=0.00, real=0.01 secs] 
 ```
+
 
 
 
@@ -317,6 +324,7 @@ SurvivorRatio值就是设置eden区的比例占多少，S0和S1相同
 
 Java堆从GC的角度还可以细分为：新生代（Eden区，From Survivor区合To Survivor区）和老年代
 
+
 ![image-20200323130442088](images/image-20200323130442088.png)
 
 - eden、SurvivorFrom复制到SurvivorTo，年龄 + 1
@@ -330,6 +338,7 @@ Java堆从GC的角度还可以细分为：新生代（Eden区，From Survivor区
 - SurvivorTo和SurvivorFrom互换
 
 最后，SurvivorTo和SurvivorFrom互换，原SurvivorTo成为下一次GC时的SurvivorFrom区，部分对象会在From和To区域中复制来复制去，如此交换15次（由JVM参数MaxTenuringThreshold决定，这个参数默认为15），最终如果还是存活，就存入老年代
+
 
 ![image-20200323150946414](images/image-20200323150946414.png)
 

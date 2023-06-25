@@ -32,7 +32,7 @@ Lock前缀的指令会引起处理器缓存写回内存；
 #### 我们在项目中如何使用？
 1、状态标记量
 在高并发的场景中，通过一个boolean类型的变量isopen，控制代码是否走促销逻辑，该如何实现？
-```
+```java
 public class ServerHandler {
     private volatile isopen;
     public void run() {
@@ -67,7 +67,7 @@ class Singleton {
 }
 ```
 不过在众多单例模式的实现中，我比较推荐懒加载的优雅写法Initialization on Demand Holder（IODH）。
-```
+```java
 public class Singleton {  
     static class SingletonHolder {  
         static Singleton instance = new Singleton();  
@@ -129,7 +129,7 @@ CPU为了提高处理性能，并不直接和内存进行通信，而是将内�
 #### volatile的happens-before关系
 volatile变量可以通过缓存一致性协议保证每个线程都能获得最新值，即满足数据的“可见性”。我们继续延续上一篇分析问题的方式（我一直认为思考问题的方式是属于自己，也才是最重要的，也在不断培养这方面的能力），我一直将并发分析的切入点分为两个核心，三大性质。两大核心：JMM内存模型（主内存和工作内存）以及happens-before；三条性质：原子性，可见性，有序性（关于三大性质的总结在以后得文章会和大家共同探讨）。废话不多说，先来看两个核心之一：volatile的happens-before关系。
 在六条happens-before规则中有一条是：volatile变量规则：对一个volatile域的写，happens-before于任意后续对这个volatile域的读。下面我们结合具体的代码，我们利用这条规则推导下：
-```
+```java
 public class VolatileExample {
     private int a = 0;
     private volatile boolean flag = false;
@@ -145,7 +145,8 @@ public class VolatileExample {
 }
 ```
 上面的实例代码对应的happens-before关系如下图所示：
-![ab3fc4589fa61bf75ad91d7080664a7d](大数据成神之路-Java高级特性增强(volatile关键字).resources/14BF4468-D1E0-4FBF-B503-A888E309418D.png)
+
+![ab3fc4589fa61bf75ad91d7080664a7d](images/大数据成神之路-Java高级特性增强(volatile关键字).resources/14BF4468-D1E0-4FBF-B503-A888E309418D.png)
 加锁线程A先执行writer方法，然后线程B执行reader方法图中每一个箭头两个节点就代码一个happens-before关系，黑色的代表根据程序顺序规则推导出来，红色的是根据volatile变量的写happens-before 于任意后续对volatile变量的读，而蓝色的就是根据传递性规则推导出来的。这里的2 happen-before 3，同样根据happens-before规则定义：如果A happens-before B,则A的执行结果对B可见，并且A的执行顺序先于B的执行顺序，我们可以知道操作2执行结果对操作3来说是可见的，也就是说当线程A将volatile变量 flag更改为true后线程B就能够迅速感知。
 
 -----------

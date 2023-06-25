@@ -17,7 +17,7 @@
 
 Spark 针对 Kafka 的不同版本，提供了两套整合方案：`spark-streaming-kafka-0-8` 和 `spark-streaming-kafka-0-10`，其主要区别如下：
 
-|                                               | [spark-streaming-kafka-0-8](https://spark.apache.org/docs/latest/streaming-kafka-0-8-integration.html) | [spark-streaming-kafka-0-10](https://spark.apache.org/docs/latest/streaming-kafka-0-10-integration.html) |
+|                                               | [spark-streaming-kafka-0-8](images/https://spark.apache.org/docs/latest/streaming-kafka-0-8-integration.html) | [spark-streaming-kafka-0-10](images/https://spark.apache.org/docs/latest/streaming-kafka-0-10-integration.html) |
 | :-------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Kafka 版本                                     | 0.8.2.1 or higher                                            | 0.10.0 or higher                                             |
 | AP 状态                                        | Deprecated<br/>从 Spark 2.3.0 版本开始，Kafka 0.8 支持已被弃用  | Stable(稳定版)                                               |
@@ -55,7 +55,7 @@ Spark 针对 Kafka 的不同版本，提供了两套整合方案：`spark-stream
 </dependencies>
 ```
 
-> 完整源码见本仓库：[spark-streaming-kafka](https://github.com/heibaiying/BigData-Notes/tree/master/code/spark/spark-streaming-kafka)
+> 完整源码见本仓库：[spark-streaming-kafka](images/https://github.com/heibaiying/BigData-Notes/tree/master/code/spark/spark-streaming-kafka)
 
 ## 三、整合Kafka
 
@@ -79,7 +79,7 @@ object KafkaDirectStream {
     val sparkConf = new SparkConf().setAppName("KafkaDirectStream").setMaster("local[2]")
     val streamingContext = new StreamingContext(sparkConf, Seconds(5))
 
-    val kafkaParams = Map[String, Object](
+    val kafkaParams = Map[String, Object](images/
       /*
        * 指定 broker 的地址清单，清单里不需要包含所有的 broker 地址，生产者会从给定的 broker 里查找其他 broker 的信息。
        * 不过建议至少提供两个 broker 的信息作为容错。
@@ -103,12 +103,12 @@ object KafkaDirectStream {
     
     /*可以同时订阅多个主题*/
     val topics = Array("spark-streaming-topic")
-    val stream = KafkaUtils.createDirectStream[String, String](
+    val stream = KafkaUtils.createDirectStream[String, String](images/
       streamingContext,
       /*位置策略*/
       PreferConsistent,
       /*订阅主题*/
-      Subscribe[String, String](topics, kafkaParams)
+      Subscribe[String, String](images/topics, kafkaParams)
     )
 
     /*打印输入流*/
@@ -212,7 +212,7 @@ Spark Streaming 中提供了如下三种位置策略，用于指定 Kafka 主题
 ```scala
 @Experimental
 def PreferFixed(hostMap: collection.Map[TopicPartition, String]): LocationStrategy =
-  new PreferFixed(new ju.HashMap[TopicPartition, String](hostMap.asJava))
+  new PreferFixed(new ju.HashMap[TopicPartition, String](images/hostMap.asJava))
 
 @Experimental
 def PreferFixed(hostMap: ju.Map[TopicPartition, String]): LocationStrategy =
@@ -231,7 +231,7 @@ Spark Streaming 提供了两种主题订阅方式，分别为 `Subscribe` 和 `S
   * @param Kafka 消费者参数
   * @param offsets(可选): 在初始启动时开始的偏移量。如果没有，则将使用保存的偏移量或 auto.offset.reset 属性的值
   */
-def Subscribe[K, V](
+def Subscribe[K, V](images/
     topics: ju.Collection[jl.String],
     kafkaParams: ju.Map[String, Object],
     offsets: ju.Map[TopicPartition, jl.Long]): ConsumerStrategy[K, V] = { ... }
@@ -241,7 +241,7 @@ def Subscribe[K, V](
   * @param Kafka 消费者参数
   * @param offsets(可选): 在初始启动时开始的偏移量。如果没有，则将使用保存的偏移量或 auto.offset.reset 属性的值
   */
-def SubscribePattern[K, V](
+def SubscribePattern[K, V](images/
     pattern: ju.regex.Pattern,
     kafkaParams: collection.Map[String, Object],
     offsets: collection.Map[TopicPartition, Long]): ConsumerStrategy[K, V] = { ... }
@@ -256,7 +256,7 @@ def SubscribePattern[K, V](
 + `commitSync`:  用于异步提交；
 + `commitAsync`：用于同步提交。
 
-具体提交方式可以参见：[Kafka 消费者详解](https://github.com/heibaiying/BigData-Notes/blob/master/notes/Kafka 消费者详解.md)
+具体提交方式可以参见：[Kafka 消费者详解](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/Kafka 消费者详解.md)
 
 
 

@@ -2,6 +2,7 @@
 
 spring `BeanPostProcessor` 在 bean 的创建过程中执行，执行时机如下:
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b7a4d4bc1bfbd76537e40cf843b0d18df93.png)
 
 在 bean 的创建过程中，`BeanPostProcessor` 一共执行过 8 次：
@@ -53,6 +54,7 @@ public interface BeanPostProcessor {
 实际上，`BeanPostProcessor` 还有众多的子接口，这些我们都统称为 `BeanPostProcessor`，本文的主要目的就是梳理这些 `BeanPostProcessor`。
 
 ### 2. `BeanPostProcessor` 梳理
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-102ca0d1e4db82a28871661241b05bc3956.png)
 
@@ -124,6 +126,7 @@ public interface BeanPostProcessor {
 ### 3\. 总结
 
 最后用一个表格来总结这些 `BeanPostProcessor`:
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-b1117b66c4881f366669dab69b332164d8f.png)
 

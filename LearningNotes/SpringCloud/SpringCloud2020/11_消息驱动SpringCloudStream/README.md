@@ -9,6 +9,7 @@
 - RocketMQ
 - Kafka
 
+
 ![image-20200414090346586](images/image-20200414090346586.png)
 
 存在的问题就是，中台和后台 可能存在两种MQ，那么他们之间的实现都是不一样的，这样会导致多种问题出现，而且上述我们也看到了，目前主流的MQ有四种，我们不可能每个都去学习
@@ -45,6 +46,7 @@ SpringCloudStream为一些供应商的消息中间件产品提供了个性化的
 
 #### 标准MQ
 
+
 ![image-20200414091850411](images/image-20200414091850411.png)
 
 - 生产者/消费者之间靠消息媒介传递消息内容：Message
@@ -57,6 +59,7 @@ SpringCloudStream为一些供应商的消息中间件产品提供了个性化的
 RabbitMQ和Kafka，由于这两个消息中间件的架构上不同
 
 像RabbitMQ有exchange，kafka有Tpic和Partitions分区
+
 
 ![image-20200414092237268](images/image-20200414092237268.png)
 
@@ -79,6 +82,7 @@ RabbitMQ和Kafka，由于这两个消息中间件的架构上不同
 
 Stream对消息中间件的进一步封装，可以做到代码层面对中间件的无感知，甚至于动态的切换中间件（RabbitMQ切换Kafka），使得微服务开发的高度解耦，服务可以关注更多的自己的业务流程。
 
+
 ![image-20200414093128482](images/image-20200414093128482.png)
 
 通过定义绑定器Binder作为中间层，实现了应用程序与消息中间件细节之间的隔离。
@@ -89,6 +93,7 @@ Stream中的消息通信方式遵循了发布-订阅模式，Topic主题进行�
 
 我们的消息生产者和消费者只和Stream交互
 
+
 ![image-20200414093537489](images/image-20200414093537489.png)
 
 - Binder：很方便的连接中间件，屏蔽差异
@@ -96,6 +101,7 @@ Stream中的消息通信方式遵循了发布-订阅模式，Topic主题进行�
 - Source和Sink：简单的可以理解为参照对象是SpringCloudStream自身，从Stream发布消息就是输出，接受消息就是输入。
 
 #### 编码中的注解
+
 
 ![image-20200414093854499](images/image-20200414093854499.png)
 
@@ -201,6 +207,7 @@ public class SendMessageController {
 
 我们进入RabbitAdmin页面  `http://localhost:15672`
 
+
 ![image-20200414095920920](images/image-20200414095920920.png)
 
 会发现它已经成功创建了一个studyExchange的交换机，这个就是我们上面配置的
@@ -218,6 +225,7 @@ public class SendMessageController {
 我们运行下列代码，进行测试消息发送 `http://localhost:8801/sendMessage`
 
 能够发现消息已经成功被RabbitMQ捕获，这个时候就完成了消息的发送
+
 
 ![image-20200414100125220](images/image-20200414100125220.png)
 
@@ -304,6 +312,7 @@ public class ReceiveMessageListenerController {
 
 比如在如下场景中，订单系统我们做集群部署，都会从RabbitMQ中获取订单信息，那如果一个订单同时被两个服务获取到，那么就会造成数据错误，我们得避免这种情况，这时我们就可以使用Stream中的消息分组来解决。
 
+
 ![image-20200414123004267](images/image-20200414123004267.png)
 
 注意：在Stream中处于同一个group中的多个消费者是竞争关系，就能够保证消息只能被其中一个消费一次
@@ -315,6 +324,7 @@ public class ReceiveMessageListenerController {
 分布式微服务应用为了实现高可用和负载均衡，实际上都会部署多个实例，这里部署了8802 8803
 
 多数情况下，生产者发送消息给某个具体微服务时，只希望被消费一次，按照上面我们启动两个应用的例子，虽然它们同属一个应用，但是这个消息出现了被重复消费两次的情况，为了解决这个情况，在SpringCloudStream中，就提供了 消费组 的概念
+
 
 ![image-20200414130034279](images/image-20200414130034279.png)
 
@@ -356,13 +366,16 @@ spring:
 
 我们在8801服务，同时发送了6条消息
 
+
 ![image-20200414125203160](images/image-20200414125203160.png)
 
 然后看8802服务，接收到了3条
 
+
 ![image-20200414125231537](images/image-20200414125231537.png)
 
 8803服务，也接收到了3条
+
 
 ![image-20200414125243408](images/image-20200414125243408.png)
 
@@ -386,5 +399,6 @@ spring:
 - 在启动8803，有分组属性，后台打出来MQ上的消息
 
 这就说明消息已经被持久化了，等消费者登录后，会自动从消息队列中获取消息进行消费
+
 
 ![image-20200414131334047](images/image-20200414131334047.png)

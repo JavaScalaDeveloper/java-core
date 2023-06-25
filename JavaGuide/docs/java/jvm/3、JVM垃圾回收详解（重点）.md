@@ -41,6 +41,7 @@ Java 堆是垃圾收集器管理的主要区域，因此也被称作 **GC 堆（
 
 下图所示的 Eden 区、两个 Survivor 区 S0 和 S1 都属于新生代，中间一层属于老年代，最下面一层属于永久代。
 
+
 ![堆内存结构](https://oss.javaguide.cn/github/javaguide/java/jvm/hotspot-heap-structure.png)
 
 **JDK 8 版本之后 PermGen(永久) 已被 Metaspace(元空间) 取代，元空间使用的是直接内存** 。
@@ -65,12 +66,15 @@ public class GCTest {
 ```
 
 通过以下方式运行：
+
 ![](https://oss.javaguide.cn/github/javaguide/java/jvm/25178350.png)
 
 添加的参数：`-XX:+PrintGCDetails`
+
 ![](https://oss.javaguide.cn/github/javaguide/java/jvm/run-with-PrintGCDetails.png)
 
 运行结果 (红色字体描述有误，应该是对应于 JDK1.7 的永久代)：
+
 
 ![](https://oss.javaguide.cn/github/javaguide/java/jvm/28954286.jpg)
 
@@ -81,6 +85,7 @@ public class GCTest {
 ```java
 allocation2 = new byte[900*1024];
 ```
+
 
 ![](https://oss.javaguide.cn/github/javaguide/java/jvm/28128785.jpg)
 
@@ -121,7 +126,9 @@ public class GCTest {
 >
 > jdk8 官方文档引用：https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html 。
 >
-> ![](https://oss.javaguide.cn/java-guide-blog/image-20210523201742303.png)
+> 
+
+![](https://oss.javaguide.cn/java-guide-blog/image-20210523201742303.png)
 >
 > **动态年龄计算的代码如下：**
 >
@@ -157,6 +164,7 @@ public class GCTest {
 > ~~_“老年代 GC（Major GC/Full GC），指发生在老年代的 GC……”_~~
 
 上面的说法已经在《深入理解 Java 虚拟机》第三版中被改正过来了。感谢 R 大的回答：
+
 
 ![R 大的回答](https://oss.javaguide.cn/github/javaguide/java/jvm/rf-hotspot-vm-gc.png)
 
@@ -196,6 +204,7 @@ public class GCTest {
 
 **这个方法实现简单，效率高，但是目前主流的虚拟机中并没有选择这个算法来管理内存，其最主要的原因是它很难解决对象之间循环引用的问题。**
 
+
 ![对象之间循环引用](https://oss.javaguide.cn/github/javaguide/java/jvm/object-circular-reference.png)
 
 所谓对象之间的相互引用问题，如下面代码所示：除了对象 `objA` 和 `objB` 相互引用着对方之外，这两个对象之间再无任何引用。但是他们因为互相引用对方，导致它们的引用计数器都不为 0，于是引用计数算法无法通知 GC 回收器回收他们。
@@ -219,6 +228,7 @@ public class ReferenceCountingGc {
 这个算法的基本思想就是通过一系列的称为 **“GC Roots”** 的对象作为起点，从这些节点开始向下搜索，节点所走过的路径称为引用链，当一个对象到 GC Roots 没有任何引用链相连的话，则证明此对象是不可用的，需要被回收。
 
 下图中的 `Object 6 ~ Object 10` 之间虽有引用关系，但它们到 GC Roots 不可达，因此为需要被回收的对象。
+
 
 ![可达性分析算法](https://oss.javaguide.cn/github/javaguide/java/jvm/jvm-gc-roots.png)
 
@@ -250,6 +260,7 @@ public class ReferenceCountingGc {
 JDK1.2 之前，Java 中引用的定义很传统：如果 reference 类型的数据存储的数值代表的是另一块内存的起始地址，就称这块内存代表一个引用。
 
 JDK1.2 以后，Java 对引用的概念进行了扩充，将引用分为强引用、软引用、弱引用、虚引用四种（引用强度逐渐减弱）
+
 
 ![Java 引用类型总结](https://oss.javaguide.cn/github/javaguide/java/jvm/java-reference-type.png)
 
@@ -316,6 +327,7 @@ JDK1.2 以后，Java 对引用的概念进行了扩充，将引用分为强引�
 1. **效率问题**：标记和清除两个过程效率都不高。
 2. **空间问题**：标记清除后会产生大量不连续的内存碎片。
 
+
 ![标记-清除算法](https://oss.javaguide.cn/github/javaguide/java/jvm/mark-and-sweep-garbage-collection-algorithm.png)
 
 关于具体是标记可回收对象还是不可回收对象，众说纷纭，两种说法其实都没问题，我个人更倾向于是前者。
@@ -330,6 +342,7 @@ JDK1.2 以后，Java 对引用的概念进行了扩充，将引用分为强引�
 
 为了解决标记-清除算法的效率和内存碎片问题，复制（Copying）收集算法出现了。它可以将内存分为大小相同的两块，每次使用其中的一块。当这一块的内存使用完后，就将还存活的对象复制到另一块去，然后再把使用的空间一次清理掉。这样就使每次的内存回收都是对内存区间的一半进行回收。
 
+
 ![复制算法](https://oss.javaguide.cn/github/javaguide/java/jvm/copying-garbage-collection-algorithm.png)
 
 虽然改进了标记-清除算法，但依然存在下面这些问题：
@@ -340,6 +353,7 @@ JDK1.2 以后，Java 对引用的概念进行了扩充，将引用分为强引�
 ### 标记-整理算法
 
 标记-整理（Mark-and-Compact）算法是根据老年代的特点提出的一种标记算法，标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象回收，而是让所有存活的对象向一端移动，然后直接清理掉端边界以外的内存。
+
 
 ![标记-整理算法](https://oss.javaguide.cn/github/javaguide/java/jvm/mark-and-compact-garbage-collection-algorithm.png)
 
@@ -372,6 +386,7 @@ Serial（串行）收集器是最基本、历史最悠久的垃圾收集器了�
 
 **新生代采用标记-复制算法，老年代采用标记-整理算法。**
 
+
 ![Serial 收集器](https://oss.javaguide.cn/github/javaguide/java/jvm/serial-garbage-collector.png)
 
 虚拟机的设计者们当然知道 Stop The World 带来的不良用户体验，所以在后续的垃圾收集器设计中停顿时间在不断缩短（仍然还有停顿，寻找最优秀的垃圾收集器的过程仍然在继续）。
@@ -383,6 +398,7 @@ Serial（串行）收集器是最基本、历史最悠久的垃圾收集器了�
 ParNew 收集器其实就是 Serial 收集器的多线程版本，除了使用多线程进行垃圾收集外，其余行为（控制参数、收集算法、回收策略等等）和 Serial 收集器完全一样。
 
 **新生代采用标记-复制算法，老年代采用标记-整理算法。**
+
 
 ![ParNew 收集器 ](https://oss.javaguide.cn/github/javaguide/java/jvm/parnew-garbage-collector.png)
 
@@ -412,6 +428,7 @@ Parallel Scavenge 收集器关注点是吞吐量（高效率的利用 CPU）。C
 
 **新生代采用标记-复制算法，老年代采用标记-整理算法。**
 
+
 ![Parallel Old收集器运行示意图](https://oss.javaguide.cn/github/javaguide/java/jvm/parallel-scavenge-garbage-collector.png)
 
 **这是 JDK1.8 默认收集器**
@@ -431,11 +448,13 @@ JDK1.8 默认使用的是 Parallel Scavenge + Parallel Old，如果指定了-XX:
 
 **Serial 收集器的老年代版本**，它同样是一个单线程收集器。它主要有两大用途：一种用途是在 JDK1.5 以及以前的版本中与 Parallel Scavenge 收集器搭配使用，另一种用途是作为 CMS 收集器的后备方案。
 
+
 ![Serial 收集器](https://oss.javaguide.cn/github/javaguide/java/jvm/serial-garbage-collector.png)
 
 ### Parallel Old 收集器
 
 **Parallel Scavenge 收集器的老年代版本**。使用多线程和“标记-整理”算法。在注重吞吐量以及 CPU 资源的场合，都可以优先考虑 Parallel Scavenge 收集器和 Parallel Old 收集器。
+
 
 ![Parallel Old收集器运行示意图](https://oss.javaguide.cn/github/javaguide/java/jvm/parallel-scavenge-garbage-collector.png)
 
@@ -451,6 +470,7 @@ JDK1.8 默认使用的是 Parallel Scavenge + Parallel Old，如果指定了-XX:
 - **并发标记：** 同时开启 GC 和用户线程，用一个闭包结构去记录可达对象。但在这个阶段结束，这个闭包结构并不能保证包含当前所有的可达对象。因为用户线程可能会不断的更新引用域，所以 GC 线程无法保证可达性分析的实时性。所以这个算法里会跟踪记录这些发生引用更新的地方。
 - **重新标记：** 重新标记阶段就是为了修正并发标记期间因为用户程序继续运行而导致标记产生变动的那一部分对象的标记记录，这个阶段的停顿时间一般会比初始标记阶段的时间稍长，远远比并发标记阶段时间短
 - **并发清除：** 开启用户线程，同时 GC 线程开始对未标记的区域做清扫。
+
 
 ![CMS 收集器](https://oss.javaguide.cn/github/javaguide/java/jvm/cms-garbage-collector.png)
 
@@ -477,6 +497,7 @@ G1 收集器的运作大致分为以下几个步骤：
 - **并发标记**
 - **最终标记**
 - **筛选回收**
+
 
 ![G1 收集器](https://oss.javaguide.cn/github/javaguide/java/jvm/g1-garbage-collector.png)
 

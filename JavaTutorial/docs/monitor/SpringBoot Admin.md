@@ -126,6 +126,7 @@ logging:
 
 *   访问如下地址打开Spring Boot Admin的主页：[http://localhost:9301](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A9301 "http://localhost:9301")
 
+
 ![image-20230531001002163](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230531001002163.png)
 
 
@@ -136,6 +137,7 @@ logging:
 
 *   监控信息概览；
 
+
 ![image-20230531001023644](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230531001023644.png)
 
 
@@ -143,6 +145,7 @@ logging:
 
 
 *   度量指标信息，比如JVM、Tomcat及进程信息；
+
 
 ![image-20230531001053279](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230531001053279.png)
 
@@ -152,6 +155,7 @@ logging:
 
 *   环境变量信息，比如系统属性、系统环境变量以及应用配置信息；
 
+
 ![image-20230531001103093](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230531001103093.png)
 
 
@@ -160,6 +164,7 @@ logging:
 
 *   查看所有创建的Bean信息；
 
+
 ![image-20230531001111221](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230531001111221.png)
 
 
@@ -167,6 +172,7 @@ logging:
 
 
 *   查看应用中的所有配置信息；
+
 
 ![image-20230531001124678](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230531001124678.png)
 
@@ -181,12 +187,14 @@ logging:
 `logging:
 file: admin-client.log #添加开启admin的日志监控`
 
+
 ![image-20230531001136184](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230531001136184.png)
 
 
 
 
 *   查看JVM信息；
+
 
 ![image-20230531001144614](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230531001144614.png)
 
@@ -196,6 +204,7 @@ file: admin-client.log #添加开启admin的日志监控`
 
 *   查看可以访问的Web端点；
 
+
 ![image-20230531001156191](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230531001156191.png)
 
 
@@ -203,6 +212,7 @@ file: admin-client.log #添加开启admin的日志监控`
 
 
 *   查看HTTP跟踪信息；
+
 
 ![image-20230531001206364](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230531001206364.png)
 
@@ -333,10 +343,12 @@ public class AdminClientApplication {
 
 *   查看注册中心发现服务均已注册：[http://localhost:8001/](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8001%2F "http://localhost:8001/")
 
+
 ![image-20230531001221519](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230531001221519.png)
 
 
 *   查看Spring Boot Admin 主页发现可以看到服务信息：[http://localhost:9301](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A9301 "http://localhost:9301")
+
 
 ![image-20230531001232048](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230531001232048.png)
 
@@ -473,6 +485,7 @@ public class AdminSecurityServerApplication {
 ```
 
 *   启动eureka-server，admin-security-server，访问Spring Boot Admin 主页发现需要登录才能访问：[http://localhost:9301](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A9301 "http://localhost:9301")
+
 
 ![image-20230531001242361](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230531001242361.png)
 

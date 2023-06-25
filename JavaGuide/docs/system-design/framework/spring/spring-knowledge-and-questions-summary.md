@@ -19,6 +19,7 @@ Spring 是一款开源的轻量级 Java 开发框架，旨在提高开发人员�
 
 我们一般说 Spring 框架指的都是 Spring Framework，它是很多模块的集合，使用这些模块可以很方便地协助我们进行开发，比如说 Spring 支持 IoC（Inversion of Control:控制反转） 和 AOP(Aspect-Oriented Programming:面向切面编程)、可以很方便地对数据库进行访问、可以很方便地集成第三方组件（电子邮件，任务，调度，缓存等等）、对单元测试支持比较好、支持 RESTful Java 应用程序的开发。
 
+
 ![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/38ef122122de4375abcd27c3de8f60b4.png)
 
 Spring 最核心的思想就是不重新造轮子，开箱即用，提高开发效率。
@@ -36,15 +37,18 @@ Spring 提供的核心功能主要是 IoC 和 AOP。学习 Spring ，一定要�
 
 **Spring4.x 版本**：
 
+
 ![Spring4.x主要模块](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/jvme0c60b4606711fc4a0b6faf03230247a.png)
 
 **Spring5.x 版本**：
+
 
 ![Spring5.x主要模块](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/20200831175708.png)
 
 Spring5.x 版本中 Web 模块的 Portlet 组件已经被废弃掉，同时增加了用于异步响应式处理的 WebFlux 组件。
 
 Spring 各个模块的依赖关系如下：
+
 
 ![Spring 各个模块的依赖关系](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/20200902100038.png)
 
@@ -96,9 +100,11 @@ Spring 包含了多个功能模块（上面刚刚提到过），其中最重要�
 
 下图对应的是 Spring4.x 版本。目前最新的 5.x 版本中 Web 模块的 Portlet 组件已经被废弃掉，同时增加了用于异步响应式处理的 WebFlux 组件。
 
+
 ![Spring主要模块](https://oss.javaguide.cn/github/javaguide/jvme0c60b4606711fc4a0b6faf03230247a.png)
 
 Spring MVC 是 Spring 中的一个很重要的模块，主要赋予 Spring 快速构建 MVC 架构的 Web 程序的能力。MVC 是模型(Model)、视图(View)、控制器(Controller)的简写，其核心思想是通过将业务逻辑、数据、显示分离来组织代码。
+
 
 ![](https://oss.javaguide.cn/java-guide-blog/image-20210809181452421.png)
 
@@ -118,6 +124,7 @@ Spring Boot 只是简化了配置，如果你需要构建 MVC 架构的 Web 程�
 
 - **控制**：指的是对象创建（实例化、管理）的权力
 - **反转**：控制权交给外部环境（Spring 框架、IoC 容器）
+
 
 ![IoC 图解](https://oss.javaguide.cn/java-guide-blog/frc-365faceb5697f04f31399937c059c162.png)
 
@@ -148,6 +155,7 @@ Spring 时代我们一般通过 XML 文件来配置 Bean，后来开发人员觉
 ```
 
 下图简单地展示了 IoC 容器如何使用配置元数据来管理对象。
+
 
 ![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/062b422bd7ac4d53afd28fb74b2bc94d.png)
 
@@ -336,9 +344,11 @@ public Person personPrototype() {
 
 图示：
 
+
 ![Spring Bean 生命周期](https://images.xiaozhuanlan.com/photo/2019/24bc2bad3ce28144d60d9e0a2edf6c7f.jpg)
 
 与之比较类似的中文版本:
+
 
 ![Spring Bean 生命周期](https://images.xiaozhuanlan.com/photo/2019/b5d264565657a5395c2781081a7483e1.jpg)
 
@@ -349,6 +359,7 @@ public Person personPrototype() {
 AOP(Aspect-Oriented Programming:面向切面编程)能够将那些与业务无关，却为业务模块所共同调用的逻辑或责任（例如事务处理、日志管理、权限控制等）封装起来，便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可拓展性和可维护性。
 
 Spring AOP 就是基于动态代理的，如果要代理的对象，实现了某个接口，那么 Spring AOP 会使用 **JDK Proxy**，去创建代理对象，而对于没有实现接口的对象，就无法使用 JDK Proxy 去进行代理了，这时候 Spring AOP 会使用 **Cglib** 生成一个被代理对象的子类来作为代理，如下图所示：
+
 
 ![SpringAOPProcess](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/230ae587a322d6e4d09510161987d346.jpeg)
 
@@ -417,9 +428,11 @@ public class LoggingAspect implements Ordered {
 
 MVC 是模型(Model)、视图(View)、控制器(Controller)的简写，其核心思想是通过将业务逻辑、数据、显示分离来组织代码。
 
+
 ![](https://oss.javaguide.cn/java-guide-blog/image-20210809181452421.png)
 
 网上有很多人说 MVC 不是设计模式，只是软件设计规范，我个人更倾向于 MVC 同样是众多设计模式中的一种。**[java-design-patterns](https://github.com/iluwatar/java-design-patterns)** 项目中就有关于 MVC 的相关介绍。
+
 
 ![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/159b3d3e70dd45e6afa81bf06d09264e.png)
 
@@ -431,6 +444,7 @@ MVC 是模型(Model)、视图(View)、控制器(Controller)的简写，其核心
 
 这个模式下 JSP 即是控制层（Controller）又是表现层（View）。显而易见，这种模式存在很多问题。比如控制逻辑和表现逻辑混杂在一起，导致代码重用率极低；再比如前端和后端相互依赖，难以进行测试维护并且开发效率极低。
 
+
 ![mvc-mode1](https://oss.javaguide.cn/java-guide-blog/mvc-mode1.png)
 
 **Model 2 时代**
@@ -440,6 +454,7 @@ MVC 是模型(Model)、视图(View)、控制器(Controller)的简写，其核心
 - Model:系统涉及的数据，也就是 dao 和 bean。
 - View：展示模型中的数据，只是用来展示。
 - Controller：处理用户请求都发送给 ，返回数据给 JSP 并展示给用户。
+
 
 ![](https://oss.javaguide.cn/java-guide-blog/mvc-model2.png)
 
@@ -468,6 +483,7 @@ MVC 是一种设计模式，Spring MVC 是一款很优秀的 MVC 框架。Spring
 **Spring MVC 原理如下图所示：**
 
 > SpringMVC 工作原理的图解我没有自己画，直接图省事在网上找了一个非常清晰直观的，原出处不明。
+
 
 ![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/de6d2b213f112297298f3e223bf08f28.png)
 
@@ -724,6 +740,7 @@ Spring Security 重要的是实战，这里仅对小部分知识点进行总结�
 
 ### 有哪些控制请求访问权限的方法？
 
+
 ![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/image-20220728201854641.png)
 
 - `permitAll()`：无条件允许任何形式访问，不管你登录还是没有登录。
@@ -761,6 +778,7 @@ public interface PasswordEncoder {
     }
 }
 ```
+
 
 ![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/image-20220728183540954.png)
 

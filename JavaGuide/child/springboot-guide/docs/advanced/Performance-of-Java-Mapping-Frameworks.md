@@ -363,6 +363,7 @@ public class ModelMapperConverter implements Converter {
 
 对于平均运行时间，JMH 返回以下结果(越少越好):
 
+
 ![AverageTime](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/AVGTSimple.png)
 
 这个基准测试清楚地表明，MapStruct 和 JMapper 都有最佳的平均工作时间。
@@ -370,6 +371,7 @@ public class ModelMapperConverter implements Converter {
 ### 5.2. 吞吐量
 
 在这种模式下，基准测试返回每秒的操作数。我们收到以下结果(越多越好):
+
 
 ![Throughput](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/THRPTRealLife2.png)
 
@@ -379,6 +381,7 @@ public class ModelMapperConverter implements Converter {
 
 这种模式允许测量单个操作从开始到结束的时间。基准给出了以下结果(越少越好):
 
+
 ![SingleShotTime](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/SSTSimple.png)
 
 这里，我们看到 JMapper 返回的结果比 MapStruct 好得多。
@@ -386,6 +389,7 @@ public class ModelMapperConverter implements Converter {
 ### 5.4. **采样时间**
 
 这种模式允许对每个操作的时间进行采样。三个不同百分位数的结果如下:
+
 
 ![SampleTime](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/SampleTimeSimple.png)
 
@@ -401,6 +405,7 @@ public class ModelMapperConverter implements Converter {
 
 JMH 返回以下平均运行时间结果（越少越好）：
 
+
 ![平均时间](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/AVGTRealLife.png)
 
 该基准清楚地表明，MapStruct 和 JMapper 均具有最佳的平均工作时间。
@@ -408,6 +413,7 @@ JMH 返回以下平均运行时间结果（越少越好）：
 ### 6.2. 吞吐量
 
 在这种模式下，基准测试返回每秒的操作数。我们收到以下结果(越多越好):
+
 
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/THRPTRealLife.png)
 
@@ -417,11 +423,13 @@ JMH 返回以下平均运行时间结果（越少越好）：
 
 这种模式允许测量单个操作从开始到结束的时间。基准给出了以下结果(越少越好):
 
+
 ![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/SSTRealLife.png)
 
 ### 6.4. **采样时间**
 
 这种模式允许对每个操作的时间进行采样。三个不同百分位数的结果如下:
+
 
 ![SampleTime](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/SampleTimeSimple.png)
 

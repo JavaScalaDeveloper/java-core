@@ -12,6 +12,7 @@
 
 每次看到群友被删库了，陌溪都会默默的打开 **Sqlyog**，然后默默的把数据库文件备份一次
 
+
 ![image-20220305221742934](images/image-20220305221742934.png)
 
 今天一看，好家伙，已经备份了快 **40** 次了！也就是在这几年的时间里，目睹了快 **40** 个小伙伴的数据库被删了
@@ -32,6 +33,7 @@ ssh-keygen -t rsa -C "1595833114@qq.com"
 
 按几次回车，完成秘钥的生成
 
+
 ![image-20220305231916607](images/image-20220305231916607.png)
 
 然后到ssh目录，查看刚刚生成的秘钥
@@ -41,6 +43,7 @@ cd ~/.ssh
 ```
 
 看下日期， 23:18分，没错就是刚刚生成的
+
 
 ![image-20220305232011770](images/image-20220305232011770.png)
 
@@ -52,6 +55,7 @@ https://gitee.com/profile/sshkeys
 
 添加生成的 **public key** 添加到仓库中
 
+
 ![image-20220305233047105](images/image-20220305233047105.png)
 
 添加完成后，保存即可，然后回到服务器中，使用下面的命令，测试自己刚刚添加是否成功
@@ -61,6 +65,7 @@ ssh -T git@gitee.com
 ```
 
 首次使用需要确认并添加主机到本机SSH可信列表，回复 **yes** 即可
+
 
 ![image-20220305233238081](images/image-20220305233238081.png)
 
@@ -87,9 +92,11 @@ but GITEE.COM does not provide shell access.
 
 > tip：千万记得设置成私有仓库！！
 
+
 ![image-20220305235039589](images/image-20220305235039589.png)
 
 配置完成后，选择 **SSH** 的方式
+
 
 ![image-20220305235315396](images/image-20220305235315396.png)
 
@@ -105,6 +112,7 @@ git config --global user.email "moxi0624@163.com"
 ## 下载脚本
 
 然后开始下载陌溪的备份文件 mysqlBak.zip，解压后得到如下内容
+
 
 ![image-20220306000006134](images/image-20220306000006134.png)
 
@@ -227,13 +235,16 @@ mysqldump -uroot -pmogu2018 mogu_picture > /mysqlBak/bak/$dt_now/mogu_picture.sq
 
 所以，最终我们将 **mysqlBak** 目录进行完整的推送到服务器，从而完成数据的备份
 
+
 ![image-20220306230805724](images/image-20220306230805724.png)
 
 然后去 **Gitee** 仓库中，即可看到刚刚备份的内容了
 
+
 ![image-20220306230843262](images/image-20220306230843262.png)
 
 最后，点开 **bak** 目录，可以看到我们所要备份的脚本
+
 
 ![image-20220306230919762](images/image-20220306230919762.png)
 

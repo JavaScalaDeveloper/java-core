@@ -23,6 +23,7 @@ OutofMemoryError: java heap space：堆溢出
 
 OutOfMemoryError和StackOverflowError是属于Error，不是Exception
 
+
 ![image-20200324144802828](images/image-20200324144802828.png)
 
 ## StackoverFlowError 
@@ -95,6 +96,7 @@ GC回收时间过长时会抛出OutOfMemoryError，过长的定义是，超过�
 连续多次GC都只回收了不到2%的极端情况下，才会抛出。假设不抛出GC overhead limit 错误会造成什么情况呢？
 
 那就是GC清理的这点内存很快会再次被填满，迫使GC再次执行，这样就形成了恶性循环，CPU的使用率一直都是100%，而GC却没有任何成果。
+
 
 ![image-20200324150646260](images/image-20200324150646260.png)
 

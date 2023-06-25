@@ -12,7 +12,9 @@
 
 在我们日常开发中，我们应该知道，有一个过滤器和一个拦截器其实可以做到这个操作，对吧，所以，实际上就是在获取RestTemplate对象的时候，将该对象里面添加了一个拦截器，当RestTemplate对象执行某个方法的时候，都会去拦截器里面执行一遍。然后就完事了。
 
-具体的流程图推导如下：![SpringCloud系列—Ribbon源码分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1790fb324161913dd79098940f8102d652cd86.jpg "SpringCloud系列—Ribbon源码分析-开源基础软件社区")**第2章 简易版Ribbon实现**
+具体的流程图推导如下：
+
+![SpringCloud系列—Ribbon源码分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1790fb324161913dd79098940f8102d652cd86.jpg "SpringCloud系列—Ribbon源码分析-开源基础软件社区")**第2章 简易版Ribbon实现**
 根据上面的推导过程，我们接下来来实现一个简易版的Ribbon。
 
 具体的步骤我们要有清晰的思路：
@@ -765,15 +767,25 @@ DynamicServerListLoadBalancer的核心就是获取服务列表，在Eureka中默
 *   默认的Ping策略SerialPingStrategy
 *   所有服务实例容器：allServerList
 *   在线服务实例容器：upServerList
-    ![SpringCloud系列—Ribbon源码分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b2db0bc66c3045288a762907ff72e01883bf20.jpg "SpringCloud系列—Ribbon源码分析-开源基础软件社区")从子类构造中将对应的负载均衡规则，ping策略，ping等传递过来
+    
+
+![SpringCloud系列—Ribbon源码分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/b2db0bc66c3045288a762907ff72e01883bf20.jpg "SpringCloud系列—Ribbon源码分析-开源基础软件社区")从子类构造中将对应的负载均衡规则，ping策略，ping等传递过来
 
 **ping做了些什么？**
 
-PingTask作为一个线程任务，就是定期检查服务是否都存活，跟ServerListUpdater服务更新机制不冲突。这是ribbon自己维护的一套服务检测机制，主要是为了降低访问失败的概率。默认在使用eureka时，ping是使用的是NIWSDiscoveryPing来完成服务保活检测。由eureka 和 ServerListUpdater来刷新服务列表。![SpringCloud系列—Ribbon源码分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/27db4c518aa7c100d427761832a9fa19fa8f04.jpg "SpringCloud系列—Ribbon源码分析-开源基础软件社区")这里有个常用的定时任务快速退出的方法，我觉得在我们自己写的时候也可以使用。
+PingTask作为一个线程任务，就是定期检查服务是否都存活，跟ServerListUpdater服务更新机制不冲突。这是ribbon自己维护的一套服务检测机制，主要是为了降低访问失败的概率。默认在使用eureka时，ping是使用的是NIWSDiscoveryPing来完成服务保活检测。由eureka 和 ServerListUpdater来刷新服务列表。
 
-就是在同一个定时任务如果执行时间超过了定时周期，那么下一个定时任务发现上一个定时任务还没有执行完时，就先取消。![SpringCloud系列—Ribbon源码分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f2d669b11f17530d2e62603d45949e934a5931.jpg "SpringCloud系列—Ribbon源码分析-开源基础软件社区")这里也用了很多锁机制，比如所有服务实例到一个新的对象时使用的是读锁，就是告诉allServers现在只能读不能写。![SpringCloud系列—Ribbon源码分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/711c81e67b2c1cd3fb91005f53ea1e1352ad9a.png "SpringCloud系列—Ribbon源码分析-开源基础软件社区")在发送ping后，将检测通过的服务放入newUpList中，最后通过写锁，将upServerList锁住。
+![SpringCloud系列—Ribbon源码分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/27db4c518aa7c100d427761832a9fa19fa8f04.jpg "SpringCloud系列—Ribbon源码分析-开源基础软件社区")这里有个常用的定时任务快速退出的方法，我觉得在我们自己写的时候也可以使用。
 
-这里就是只能有一个写，且不能读。![SpringCloud系列—Ribbon源码分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/047543857174aa1130b0747d1d149ffd6d5632.jpg "SpringCloud系列—Ribbon源码分析-开源基础软件社区")上面是ping在检测过程中关于读写锁和原子类的使用。
+就是在同一个定时任务如果执行时间超过了定时周期，那么下一个定时任务发现上一个定时任务还没有执行完时，就先取消。
+
+![SpringCloud系列—Ribbon源码分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/f2d669b11f17530d2e62603d45949e934a5931.jpg "SpringCloud系列—Ribbon源码分析-开源基础软件社区")这里也用了很多锁机制，比如所有服务实例到一个新的对象时使用的是读锁，就是告诉allServers现在只能读不能写。
+
+![SpringCloud系列—Ribbon源码分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/711c81e67b2c1cd3fb91005f53ea1e1352ad9a.png "SpringCloud系列—Ribbon源码分析-开源基础软件社区")在发送ping后，将检测通过的服务放入newUpList中，最后通过写锁，将upServerList锁住。
+
+这里就是只能有一个写，且不能读。
+
+![SpringCloud系列—Ribbon源码分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/047543857174aa1130b0747d1d149ffd6d5632.jpg "SpringCloud系列—Ribbon源码分析-开源基础软件社区")上面是ping在检测过程中关于读写锁和原子类的使用。
 
 主要流程就是：
 
@@ -827,7 +839,9 @@ LoadBalancerAutoConfiguration会进行配置，创建一个LoadBalancerIntercept
 **3.7 获取服务列表**
 上面说的这些，是如何对请求进行负载均衡的，但是还有个问题，我们请求的实例，是从Eureka Server上获取到的，那这个实例列表是如何获取的呢？怎么保证这个实例列表中的实例是可用的呢？
 
-在RibbonLoadBalancerClient选择实例的时候，是通过ILoadBalancer的实现类根据负载均衡算法选择服务实例的，也就是ZoneAwareLoadBalancer的chooseServer中的逻辑，那就在这里找线索。查看ZoneAwareLoadBalancer的继承关系，可以看到如下图所示。![SpringCloud系列—Ribbon源码分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/425d8ff567d9ac6171f6036dab1726a7da04a3.jpg "SpringCloud系列—Ribbon源码分析-开源基础软件社区")可以看到，最上面是ILoadBalancer接口，AbstractLoadBalancer类继承了这个接口，BaseLoadBalancer继承了AbstractLoadBalancer类，
+在RibbonLoadBalancerClient选择实例的时候，是通过ILoadBalancer的实现类根据负载均衡算法选择服务实例的，也就是ZoneAwareLoadBalancer的chooseServer中的逻辑，那就在这里找线索。查看ZoneAwareLoadBalancer的继承关系，可以看到如下图所示。
+
+![SpringCloud系列—Ribbon源码分析-开源基础软件社区](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/425d8ff567d9ac6171f6036dab1726a7da04a3.jpg "SpringCloud系列—Ribbon源码分析-开源基础软件社区")可以看到，最上面是ILoadBalancer接口，AbstractLoadBalancer类继承了这个接口，BaseLoadBalancer继承了AbstractLoadBalancer类，
 DynamicServerListLoadBalancer继承了BaseLoadBalancer，ZoneAwareLoadBalancer继承了DynamicServerListLoadBalancer。
 
 ILoadBalancer接口的代码已经看过了，现在看下AbstractLoadBalancer的代码：

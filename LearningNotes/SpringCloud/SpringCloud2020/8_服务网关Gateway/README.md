@@ -18,6 +18,7 @@ zuul目前已经出现了分歧，zuul  升级到 Zuul2的时候出现了内部�
 
 Cloud全家桶有个很重要的组件就是网关，在1.X版本中都是采用Zuul网关，但在2.X版本中，zuul的升级一直跳票，SpringCloud最后自己研发了一个网关替代Zuul，那就是SpringCloudGateway，一句话Gateway是原来Zuul 1.X 版本的替代品
 
+
 ![image-20200409142909500](images/image-20200409142909500.png)
 
 Gateway是在Spring生态系统之上构建的API网关服务，基于Spring 5，Spring Boot 2 和 Project Reactor等技术。Gateway旨在提供一种简单而且有效的方式来对API进行路由，以及提供一些强大的过滤器功能，例如：熔断，限流，重试等。
@@ -25,6 +26,7 @@ Gateway是在Spring生态系统之上构建的API网关服务，基于Spring 5�
 Spring Cloud Gateway 是Spring Cloud的一个全新项目，作为Spring Cloud生态系统中的网关，目标是替代Zuul，在Spring Cloud 2.0以上版本中，没有对新版本的Zuul 2.0以上最新高性能版本进行集成，仍然还是使用的Zuul 1.X非Reactor模式的老版本，而为了提高网关的性能，Spring Cloud Gateway是基于WebFlux框架实现的，而WebFlux框架底层则使用了高性能的Reactor模式通信框架Netty。
 
 Spring Cloud Gateway的目标提供统一的路由方式，且基于Filter链的方式提供了网关基本的功能，例如：安全，监控、指标 和 限流。
+
 
 ![image-20200409143630282](images/image-20200409143630282.png)
 
@@ -37,6 +39,7 @@ Spring Cloud Gateway的目标提供统一的路由方式，且基于Filter链的
 - 日志监控
 
 ### 使用场景
+
 
 ![image-20200409143804936](images/image-20200409143804936.png)
 
@@ -82,6 +85,7 @@ Container运行时接收请求，并为每个请求分配一个线程，（一�
 
 container关闭时，调用servlet destory() 销毁servlet
 
+
 ![image-20200409145343133](images/image-20200409145343133.png)
 
 上述模式的缺点：
@@ -120,6 +124,7 @@ Web请求通过一些匹配条件，定位到真正的服务节点，并在这�
 
 Predicate就是我们的匹配条件，而Filter就可以理解为一个无所不能的拦截器，有了这两个元素，在加上目标URL，就可以实现一个具体的路由了。
 
+
 ![image-20200409152623392](images/image-20200409152623392.png)
 
 客户端向Spring Cloud Gateway发出请求，然后在Gateway Handler Mapping中找到与请求相匹配的路由，将其发送到Gateway Web Handler。
@@ -127,6 +132,7 @@ Predicate就是我们的匹配条件，而Filter就可以理解为一个无所�
 Handler在通过指定的过滤器链来将请求发送到我们实际的服务执行业务逻辑，然后返回。
 
 过滤器之间用虚线分开是因为过滤器可能会在发送代理请求前（pre）或之后（post）执行业务逻辑。
+
 
 ![image-20200409153225014](images/image-20200409153225014.png)
 
@@ -191,6 +197,7 @@ http://localhost:9527/payment/get/31
 
 ### 路由匹配
 
+
 ![image-20200409154741550](images/image-20200409154741550.png)
 
 
@@ -249,6 +256,7 @@ uri: lb://CLOUD-PAYMENT-SERVICE
 
 断言，路径相匹配的进行路由
 
+
 ![image-20200409160651792](images/image-20200409160651792.png)
 
 Spring Cloud Gateway将路由匹配作为Spring WebFlux HandlerMapping基础架构的一部分
@@ -259,6 +267,7 @@ Spring Cloud Gateway创建Route对象时，使用RoutePredicateFactory创建Pred
 
 所有这些谓词都匹配Http请求的不同属性。多种谓词工厂可以组合，并通过逻辑 and
 
+
 ![image-20200409161216925](images/image-20200409161216925.png)
 
 
@@ -267,7 +276,9 @@ Spring Cloud Gateway创建Route对象时，使用RoutePredicateFactory创建Pred
 
 - After Route Predicate：在什么时间之后执行
 
-  ![image-20200409161713254](images/image-20200409161713254.png)
+  
+
+![image-20200409161713254](images/image-20200409161713254.png)
 
   
 

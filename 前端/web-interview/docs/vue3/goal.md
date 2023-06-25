@@ -1,5 +1,6 @@
 # 面试官：Vue3.0的设计目标是什么？做了哪些优化
 
+
 ![](https://static.vue-js.com/b93b49c0-5c58-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、设计目标
@@ -107,7 +108,9 @@ function useMouse(){
 
 `vue3`整个源码是通过 `monorepo `的方式维护的，根据功能将不同的模块拆分到`packages `目录下面不同的子目录中
 
- ![](https://static.vue-js.com/d7c32520-5c58-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/d7c32520-5c58-11eb-ab90-d9ae814b240d.png)
 
 这样使得模块拆分更细化，职责划分更明确，模块之间的依赖关系也更加明确，开发人员也更容易阅读、理解和更改所有模块源码，提高代码的可维护性
 
@@ -181,7 +184,9 @@ default {
 
 一张图，我们可以很直观地感受到 `Composition API `在逻辑组织方面的优势
 
- ![](https://static.vue-js.com/e5804bc0-5c58-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/e5804bc0-5c58-11eb-85f6-6fac77c0c9b3.png)
 
 
 

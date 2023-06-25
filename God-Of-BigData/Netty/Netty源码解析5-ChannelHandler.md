@@ -4,6 +4,7 @@ ChannelHandler并不处理事件，而由其子类代为处理：ChannelInboundH
 
 ## 核心类图
 
+
 ![8367024ae2bcb818fd07d78781b83c62](images/Netty源码解析5-ChannelHandler.resources/673AB200-CF20-4FEC-BBC8-D9B0568F70CB.png)
 上图是ChannelHandler的核心类类图，其继承层次清晰，我们逐一分析。
 

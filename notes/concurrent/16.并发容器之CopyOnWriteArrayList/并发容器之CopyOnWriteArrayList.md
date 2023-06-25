@@ -92,6 +92,7 @@ setArray(newElements);
 假设COW的变化如下图所示：
 
 
+
 ![最终一致性的分析.png](http://upload-images.jianshu.io/upload_images/2615789-4519051e92e5252b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 

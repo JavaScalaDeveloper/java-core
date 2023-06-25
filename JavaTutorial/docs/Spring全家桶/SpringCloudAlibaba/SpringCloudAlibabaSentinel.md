@@ -28,6 +28,7 @@ java -jar sentinel-dashboard-1.6.3.jar
 
 *   Sentinel控制台默认运行在8080端口上，登录账号密码均为`sentinel`，通过如下地址可以进行访问：[http://localhost:8080](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8080 "http://localhost:8080")
 
+
 ![image-20230423173003900](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173003900.png)
 
 
@@ -36,6 +37,7 @@ java -jar sentinel-dashboard-1.6.3.jar
 
 
 *   Sentinel控制台可以查看单台机器的实时监控数据。
+
 
 ![image-20230423173019956](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173019956.png)
 
@@ -141,6 +143,7 @@ public class RateLimitController {
 
 *   在Sentinel控制台配置流控规则，根据@SentinelResource注解的value值：
 
+
 ![image-20230423173034164](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173034164.png)
 
 
@@ -149,6 +152,7 @@ public class RateLimitController {
 
 
 *   快速访问上面的接口，可以发现返回了自己定义的限流处理信息：
+
 
 ![image-20230423173044930](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173044930.png)
 
@@ -163,6 +167,7 @@ public class RateLimitController {
 
 *   在Sentinel控制台配置流控规则，使用访问的URL：
 
+
 ![image-20230423173055243](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173055243.png)
 
 
@@ -171,6 +176,7 @@ public class RateLimitController {
 
 
 *   多次访问该接口，会返回默认的限流处理结果：[http://localhost:8401/rateLimit/byUrl](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8401%2FrateLimit%2FbyUrl "http://localhost:8401/rateLimit/byUrl")
+
 
 ![image-20230423173105426](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173105426.png)
 
@@ -310,6 +316,7 @@ public class CircleBreakerController {
 ```
 
 *   由于我们使用了exceptionsToIgnore参数忽略了NullPointerException，所以我们访问接口报空指针时不会发生服务降级：[http://localhost:8401/breaker/fallbackException/2](https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A8401%2Fbreaker%2FfallbackException%2F2 "http://localhost:8401/breaker/fallbackException/2")
+
 
 ![](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/11/18/16e7eb0fb3df7c01~tplv-t2oaga2asx-zoom-in-crop-mark:4536:0:0:0.awebp)
 
@@ -469,6 +476,7 @@ public class UserFeignController {
 
 ### 原理示意图
 
+
 ![image-20230423173120010](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173120010.png)
 
 
@@ -511,6 +519,7 @@ spring:
 
 *   在Nacos中添加配置：
 
+
 ![image-20230423173137516](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173137516.png)
 
 
@@ -546,6 +555,7 @@ spring:
     *   clusterMode：是否集群。
 *   发现Sentinel控制台已经有了如下限流规则：
 
+
 ![image-20230423173152487](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173152487.png)
 
 
@@ -554,6 +564,7 @@ spring:
 
 
 *   快速访问测试接口，可以发现返回了限流处理信息：
+
 
 ![image-20230423173203461](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/image-20230423173203461.png)
 

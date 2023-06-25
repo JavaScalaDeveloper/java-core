@@ -188,6 +188,7 @@ REDIS_ZSET (有序集)是ZADD 、ZCOUNT 等命令的操作对象
 
 Redis各种数据类型_以及它们的编码方式
 
+
 ![Redis各种数据类型_以及它们的编码方式](https://user-gold-cdn.xitu.io/2017/9/17/2c71cff03efc96d2280d12602cc2aa92?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)Redis各种数据类型_以及它们的编码方式
 
 ### 过期时间

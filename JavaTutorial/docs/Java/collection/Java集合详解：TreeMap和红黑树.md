@@ -84,6 +84,7 @@
 
 如图所示，这种情况不会破坏红黑树的特性，即不需要任何处理
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404155235.png)
 
 2.**红父**
@@ -94,6 +95,7 @@
 
 红叔的情况，其实相对来说比较简单的，如下图所示，只需要通过修改父、叔的颜色为黑色，祖的颜色为红色，而且回去递归的检查祖节点即可
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404155342.png)
 **黑叔**
 
@@ -101,16 +103,20 @@
 
 *   Case 1:[先右旋，在改变颜色(根节点必须为黑色，其两个子节点为红色，叔节点不用改变)],如下图所示，注意省略黑哨兵节点
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404155411.png)
 
 *   Case 2:[先左旋变成Case1中的情况，再右旋，最后改变颜色(根节点必须为黑色，其两个子节点为红色，叔节点不用改变)],如下图所示，注意省略黑哨兵节点
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404155517.png)
 *   Case 3:[先左旋，最后改变颜色(根节点必须为黑色，其两个子节点为红色，叔节点不用改变)],如下图所示，注意省略黑哨兵节点
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404155545.png)
 
 *   Case 4:[先右旋变成Case 3的情况，再左旋，最后改变颜色(根节点必须为黑色，其两个子节点为红色，叔节点不用改变)],如下图所示，注意省略黑哨兵节点
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404155622.png)
 
@@ -130,6 +136,7 @@
 
 1.对于红黑树而言，单支节点的情况只有如下图所示的一种情况，即为当前节点为黑色，其孩子节点为红色,(1.假设当前节点为红色，其两个孩子节点必须为黑色，2.若有孙子节点，则必为黑色，导致黑子数量不等，而红黑树不平衡)
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404155656.png)
 
 2.由于红黑树是特殊的二叉查找树，它的删除和二叉查找树类型，真正的删除点即为删除点A的中序遍历的后继(前继也可以)，通过红黑树的特性可知这个后继必然最多只能有一个孩子，其这个孩子节点必然是右孩子节点，从而为单支情况(即这个后继节点只能有一个红色孩子或没有孩子)
@@ -138,9 +145,11 @@
 
 *   Case 1:被删除的节点为红色，则这节点必定为叶子节点(首先这里的被删除的节点指的是真正删除的节点，通过上文得知的真正删除的节点要么是节点本身，要么是其后继节点，若是节点本身则必须为叶子节点，不为叶子节点的话其会有左右孩子，则真正删除的是其右孩子树上的最小值，若是后继节点，也必须为叶子节点，若不是则其也会有左右孩子，从而和2中相违背)，这种情况下删除红色叶节点就可以了，不用进行其他的操作了。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404155743.png)
 
 *   Case 2:被删除的节点是黑色，其子节点是红色，将其子节点顶替上来并改变其颜色为黑色，如下图所示
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404155811.png)
 
@@ -148,7 +157,9 @@
 
 *   Case 1:新节点的兄弟节点为**红色**，此时若新节点在左边则做左旋操作，否则做右旋操作，之后再将其父节点颜色改变为红色，兄弟节点
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404155834.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404155859.png)
 
@@ -158,12 +169,16 @@
 
 *   红父二黑侄：将父节点变成黑色，兄弟节点变成红色，新节点变成黑色即可,如下图所示
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404155933.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404155959.png)
 *   黑父二黑侄：将父节点变成新节点的颜色，新节点变成黑色，兄弟节点染成红色，还需要继续以父节点为判定点继续判断,如下图所示
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404160015.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404160051.png)
 
@@ -171,17 +186,21 @@
 
 情况一:新节点在右子树，红侄在兄弟节点左子树，此时的操作为右旋，并将兄弟节点变为父亲的颜色，父亲节点变为黑色，侄节点变为黑色，如下图所示
 
+
 ![](https://upload-images.jianshu.io/upload_images/4761309-62ecd431cc7a3e64.png?imageMogr2/auto-orient/strip|imageView2/2/w/895/format/webp)
 
 情况二:新节点在右子树，红侄在兄弟节点右子树，此时的操作为先左旋，后右旋并将侄节点变为父亲的颜色，父节点变为黑色，如下图所示
+
 
 ![](https://upload-images.jianshu.io/upload_images/4761309-b5e0ada3d870dcf6.png?imageMogr2/auto-orient/strip|imageView2/2/w/879/format/webp)
 
 情况三：新节点在左子树，红侄在兄弟节点左子树,此时的操作为先右旋在左旋并将侄节点变为父亲的颜色，父亲节点变为黑色，如下图所示
 
+
 ![](https://upload-images.jianshu.io/upload_images/4761309-bd3e2c1efdc7a147.png?imageMogr2/auto-orient/strip|imageView2/2/w/885/format/webp)
 
 情况四：新节点在右子树，红侄在兄弟节点右子树,此时的操作为左旋，并将兄弟节点变为父节点的颜色，父亲节点变为黑色，侄节点变为黑色，如下图所示
+
 
 ![](https://upload-images.jianshu.io/upload_images/4761309-9f34c34f7d02da29.png?imageMogr2/auto-orient/strip|imageView2/2/w/879/format/webp)
 

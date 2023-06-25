@@ -105,7 +105,9 @@ ziplist的数据结构组成是本文要讨论的重点。实际上，ziplist还
 
 好了，ziplist的数据结构定义，我们介绍完了，现在我们看一个具体的例子。
 
-[![Redis Ziplist Sample](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis_ziplist_sample.png)
+[
+
+![Redis Ziplist Sample](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis_ziplist_sample.png)
 
 上图是一份真实的ziplist数据。我们逐项解读一下：
 

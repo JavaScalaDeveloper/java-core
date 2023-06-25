@@ -12,6 +12,7 @@
 
 首先我们到Nacos的 [Github页面](https://github.com/alibaba/nacos/releases)，找到我们需要安装的版本
 
+
 ![image-20200822112106696](images/image-20200822112106696.png)
 
 我们也可以右键复制到链接，然后通过wget命令进行下载
@@ -126,10 +127,12 @@ http://youip:8848/nacos
 
 会跳转到登录页面，输入默认账号和密码  nacos  nacos即可进入
 
+
 ![image-20200822115650579](images/image-20200822115650579.png)
 
 
 
 到这里linux下的nacos已经成功安装~
+
 
 ![image-20200822120856725](images/image-20200822120856725.png)

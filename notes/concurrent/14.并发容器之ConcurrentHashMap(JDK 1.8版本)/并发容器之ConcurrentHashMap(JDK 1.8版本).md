@@ -297,6 +297,7 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
 ```
 put方法的代码量有点长，我们按照上面的分解的步骤一步步来看。**从整体而言，为了解决线程安全的问题，ConcurrentHashMap使用了synchronzied和CAS的方式**。在之前了解过HashMap以及1.8版本之前的ConcurrenHashMap都应该知道ConcurrentHashMap结构图，为了方面下面的讲解这里先直接给出，如果对这有疑问的话，可以在网上随便搜搜即可。
 
+
 ![ConcurrentHashMap散列桶数组结构示意图](http://upload-images.jianshu.io/upload_images/2615789-1884312328f221e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
@@ -601,6 +602,7 @@ private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
 2. 如果这个位置是Node节点（fh>=0），如果它是一个链表的头节点，就构造一个反序链表，把他们分别放在nextTable的i和i+n的位置上
 3. 如果这个位置是TreeBin节点（fh<0），也做一个反序处理，并且判断是否需要untreefi，把处理的结果分别放在nextTable的i和i+n的位置上
 4. 遍历过所有的节点以后就完成了复制工作，这时让nextTable作为新的table，并且更新sizeCtl为新容量的0.75倍 ，完成扩容。设置为新容量的0.75倍代码为 `sizeCtl = (n << 1) - (n >>> 1)`，仔细体会下是不是很巧妙，n<<1相当于n右移一位表示n的两倍即2n,n>>>1左右一位相当于n除以2即0.5n,然后两者相减为2n-0.5n=1.5n,是不是刚好等于新容量的0.75倍即2n*0.75=1.5n。最后用一个示意图来进行总结（图片摘自网络）：
+
 
 ![ConcurrentHashMap扩容示意图](http://upload-images.jianshu.io/upload_images/2615789-f82d0791c6493019.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

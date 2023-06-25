@@ -32,9 +32,11 @@ mysql> alter table SUser add index index2(email(6));
 
 那么，这两种不同的定义在数据结构和存储上有什么区别呢？如图 2 和 3 所示，就是这两个索引的示意图。
 
+
 ![img](images/d31da662bee595991862c439a5567eb7.jpg)
 
 图 1 email 索引结构
+
 
 ![img](images/134583875561de914991fc2e192cf842.jpg)
 
@@ -204,5 +206,6 @@ delete 语句删掉了所有的数据，然后再通过 call idata() 插入了 1
 是的，不过这个是主键，主键是直接按照表的行数来估计的。而表的行数，优化器直接用的是 show table status 的值。
 
 这个值的计算方法，我会在后面有文章为你详细讲解。
+
 
 ![img](images/e0e4c8381f3feae4d87958470760d367.png)

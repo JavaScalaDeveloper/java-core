@@ -40,11 +40,13 @@
 
 提到虚拟化技术，我们首先想到的一定是 Docker，经过四年的快速发展 Docker 已经成为了很多公司的标配，也不再是一个只能在开发阶段使用的玩具了。作为在生产环境中广泛应用的产品，Docker 有着非常成熟的社区以及大量的使用者，代码库中的内容也变得非常庞大。
 
+
 ![docker-logo](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-docker-logo.png)
 
 同样，由于项目的发展、功能的拆分以及各种奇怪的改名[PR](https://github.com/moby/moby/pull/32691)，让我们再次理解 Docker 的的整体架构变得更加困难。
 
 虽然 Docker 目前的组件较多，并且实现也非常复杂，但是本文不想过多的介绍 Docker 具体的实现细节，我们更想谈一谈 Docker 这种虚拟化技术的出现有哪些核心技术的支撑。
+
 
 ![docker-core-techs](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-docker-core-techs.png)
 
@@ -53,6 +55,7 @@
 ## Namespaces
 
 命名空间 (namespaces) 是 Linux 为我们提供的用于分离进程树、网络接口、挂载点以及进程间通信等资源的方法。在日常使用 Linux 或者 macOS 时，我们并没有运行多个完全分离的服务器的需要，但是如果我们在服务器上启动了多个服务，这些服务其实会相互影响的，每一个服务都能看到其他服务的进程，也可以访问宿主机器上的任意文件，这是很多时候我们都不愿意看到的，我们更希望运行在同一台机器上的不同服务能做到完全隔离，就像运行在多台不同的机器上一样。
+
 
 ![multiple-servers-on-linux](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-multiple-servers-on-linux.png)
 
@@ -69,6 +72,7 @@ $ ps -efUID        PID  PPID  C STIME TTY          TIME CMDroot         1     0 
 ```  
 
 当前机器上有很多的进程正在执行，在上述进程中有两个非常特殊，一个是`pid`为 1 的`/sbin/init`进程，另一个是`pid`为 2 的`kthreadd`进程，这两个进程都是被 Linux 中的上帝进程`idle`创建出来的，其中前者负责执行内核的一部分初始化工作和系统配置，也会创建一些类似`getty`的注册进程，而后者负责管理和调度其他的内核进程。
+
 
 ![linux-processes](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-linux-processes.png)
 
@@ -87,6 +91,7 @@ UID        PID  PPID  C STIME TTY          TIME CMDroot     29407     1  0 Nov16
 ```  
 
 在当前的宿主机器上，可能就存在由上述的不同进程构成的进程树：
+
 
 ![docker-process-group](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-docker-process-group.png)
 
@@ -123,9 +128,11 @@ daemon.containerd.Create(context.Background(), container.ID, spec, createOptions
 
 每一个使用`docker run`启动的容器其实都具有单独的网络命名空间，Docker 为我们提供了四种不同的网络模式，Host、Container、None 和 Bridge 模式。
 
+
 ![docker-network](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-docker-network.png)
 
 在这一部分，我们将介绍 Docker 默认的网络设置模式：网桥模式。在这种模式下，除了分配隔离的网络命名空间之外，Docker 还会为所有的容器设置 IP 地址。当 Docker 服务器在主机上启动之后会创建新的虚拟网桥 docker0，随后在该主机上启动的全部服务在默认情况下都与该网桥相连。
+
 
 ![docker-network-topology](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-docker-network-topology.png)
 
@@ -158,6 +165,7 @@ $ ping 192.168.0.4PING 192.168.0.4 (192.168.0.4) 56(84) bytes of data.64 bytes f
 
 从上述的一系列现象，我们就可以推测出 Docker 是如何将容器的内部的端口暴露出来并对数据包进行转发的了；当有 Docker 的容器需要将服务暴露给宿主机器，就会为容器分配一个 IP 地址，同时向 iptables 中追加一条新的规则。
 
+
 ![docker-network-forward](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-docker-network-forward.png)
 
 当我们使用`redis-cli`在宿主机器的命令行中访问 127.0.0.1:6379 的地址时，经过 iptables 的 NAT PREROUTING 将 ip 地址定向到了 192.168.0.4，重定向过的数据包就可以通过 iptables 中的 FILTER 配置，最终在 NAT POSTROUTING 阶段将 ip 地址伪装成 127.0.0.1，到这里虽然从外面看起来我们请求的是 127.0.0.1:6379，但是实际上请求的已经是 Docker 容器暴露出的端口了。
@@ -176,6 +184,7 @@ Docker 通过 Linux 的命名空间实现了网络的隔离，又通过 iptables
 
 libnetwork 中最重要的概念，容器网络模型由以下的几个主要组件组成，分别是 Sandbox、Endpoint 和 Network：
 
+
 ![container-network-model](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-container-network-model.png)
 
 在容器网络模型中，每一个容器内部都包含一个 Sandbox，其中存储着当前容器的网络栈配置，包括容器的接口、路由表和 DNS 设置，Linux 使用网络命名空间实现这个 Sandbox，每一个 Sandbox 中都可能会有一个或多个 Endpoint，在 Linux 上就是一个虚拟的网卡 veth，Sandbox 通过 Endpoint 加入到对应的网络中，这里的网络可能就是我们在上面提到的 Linux 网桥或者 VLAN。
@@ -190,9 +199,11 @@ libnetwork 中最重要的概念，容器网络模型由以下的几个主要组
 
 如果一个容器需要启动，那么它一定需要提供一个根文件系统（rootfs），容器需要使用这个文件系统来创建一个新的进程，所有二进制的执行都必须在这个根文件系统中。
 
+
 ![libcontainer-filesystem](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-libcontainer-filesystem.png)
 
 想要正常启动一个容器就需要在 rootfs 中挂载以上的几个特定的目录，除了上述的几个目录需要挂载之外我们还需要建立一些符号链接保证系统 IO 不会出现问题。
+
 
 ![libcontainer-symlinks-and-io](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-libcontainer-symlinks-and-io.png)
 
@@ -215,15 +226,18 @@ libnetwork 中最重要的概念，容器网络模型由以下的几个主要组
 
 我们通过 Linux 的命名空间为新创建的进程隔离了文件系统、网络并与宿主机器之间的进程相互隔离，但是命名空间并不能够为我们提供物理资源上的隔离，比如 CPU 或者内存，如果在同一台机器上运行了多个对彼此以及宿主机器一无所知的『容器』，这些容器却共同占用了宿主机器的物理资源。
 
+
 ![docker-shared-resources](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-docker-shared-resources.png)
 
 如果其中的某一个容器正在执行 CPU 密集型的任务，那么就会影响其他容器中任务的性能与执行效率，导致多个容器相互影响并且抢占资源。如何对多个容器的资源使用进行限制就成了解决进程虚拟资源隔离之后的主要问题，而 Control Groups（简称 CGroups）就是能够隔离宿主机器上的物理资源，例如 CPU、内存、磁盘 I/O 和网络带宽。
 
 每一个 CGroup 都是一组被相同的标准和参数限制的进程，不同的 CGroup 之间是有层级关系的，也就是说它们之间可以从父类继承一些用于限制资源使用的标准和参数。
 
+
 ![cgroups-inheritance](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-cgroups-inheritance.png)
 
 Linux 的 CGroup 能够为一组进程分配资源，也就是我们在上面提到的 CPU、内存、网络带宽等资源，通过对资源的分配，CGroup 能够提供以下的几种功能：
+
 
 ![groups-features](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-groups-features.png)
 
@@ -245,6 +259,7 @@ $ ls cpucgroup.clone_children  ...cpu.stat  docker  notify_on_release release_ag
 ```  
 
 `9c3057xxx`其实就是我们运行的一个 Docker 容器，启动这个容器时，Docker 会为这个容器创建一个与容器标识符相同的 CGroup，在当前的主机上 CGroup 就会有以下的层级关系：
+
 
 ![linux-cgroups](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-linux-cgroups.png)
 
@@ -284,11 +299,13 @@ FROM ubuntu:15.04COPY . /appRUN make /appCMD python /app/app.py
 
 容器中的每一层都只对当前容器进行了非常小的修改，上述的 Dockerfile 文件会构建一个拥有四层 layer 的镜像：
 
+
 ![docker-container-laye](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-docker-container-layer.png)
 
 当镜像被`docker run`命令创建时就会在镜像的最上层添加一个可写的层，也就是容器层，所有对于运行时容器的修改其实都是对这个容器读写层的修改。
 
 容器和镜像的区别就在于，所有的镜像都是只读的，而每一个容器其实等于镜像加上一个可读写的层，也就是同一个镜像可以对应多个容器。
+
 
 ![docker-images-and-container](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-12-06-docker-images-and-container.png)
 
@@ -297,6 +314,7 @@ FROM ubuntu:15.04COPY . /appRUN make /appCMD python /app/app.py
 UnionFS 其实是一种为 Linux 操作系统设计的用于把多个文件系统『联合』到同一个挂载点的文件系统服务。而 AUFS 即 Advanced UnionFS 其实就是 UnionFS 的升级版，它能够提供更优秀的性能和效率。
 
 AUFS 作为联合文件系统，它能够将不同文件夹中的层联合（Union）到了同一个文件夹中，这些文件夹在 AUFS 中称作分支，整个『联合』的过程被称为_联合挂载（Union Mount）_：
+
 
 ![docker-aufs](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-docker-aufs.png)
 
@@ -308,6 +326,7 @@ $ ls /var/lib/docker/aufs/diff/00adcccc1a55a36a610a6ebb3e07cc35577f2f5a3b671be3d
 
 而`/var/lib/docker/aufs/layers/`中存储着镜像层的元数据，每一个文件都保存着镜像层的元数据，最后的`/var/lib/docker/aufs/mnt/`包含镜像或者容器层的挂载点，最终会被 Docker 通过联合的方式进行组装。
 
+
 ![docker-filesystems](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-docker-filesystems.png)
 
 上面的这张图片非常好的展示了组装的过程，每一个镜像层都是建立在另一个镜像层之上的，同时所有的镜像层都是只读的，只有每个容器最顶层的容器层才可以被用户直接读写，所有的容器都建立在一些底层服务（Kernel）上，包括命名空间、控制组、rootfs 等等，这种容器的组装方式提供了非常大的灵活性，只读的镜像层通过共享也能够减少磁盘的占用。
@@ -315,6 +334,7 @@ $ ls /var/lib/docker/aufs/diff/00adcccc1a55a36a610a6ebb3e07cc35577f2f5a3b671be3d
 ## 其他存储驱动
 
 AUFS 只是 Docker 使用的存储驱动的一种，除了 AUFS 之外，Docker 还支持了不同的存储驱动，包括`aufs`、`devicemapper`、`overlay2`、`zfs`和`vfs`等等，在最新的 Docker 中，`overlay2`取代了`aufs`成为了推荐的存储驱动，但是在没有`overlay2`驱动的机器上仍然会使用`aufs`作为 Docker 的默认驱动。
+
 
 ![docker-storage-driver](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/2017-11-30-docker-storage-driver.png)
 

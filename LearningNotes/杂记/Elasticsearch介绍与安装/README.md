@@ -8,11 +8,13 @@
 
 Elastic官网：https://www.elastic.co/cn/
 
+
 ![1528546351055](./assets/1528546351055.png)
 
 
 
 Elastic有一条完整的产品线及解决方案：Elasticsearch、Kibana、Logstash等，前面说的三个就是大家常说的ELK技术栈。
+
 
 ![1528546493105](./assets/1528546493105.png)
 
@@ -21,6 +23,7 @@ Elastic有一条完整的产品线及解决方案：Elasticsearch、Kibana、Log
 ### 1.1.2.Elasticsearch
 
 Elasticsearch官网：https://www.elastic.co/cn/products/elasticsearch
+
 
 ![1528547087016](./assets/1528547087016.png)
 
@@ -35,6 +38,7 @@ Elasticsearch官网：https://www.elastic.co/cn/products/elasticsearch
 ### 1.1.3.版本
 
 目前Elasticsearch最新的版本是6.3.1，我们就使用6.3.0
+
 
 ![1528547283102](./assets/1528547283102.png)
 
@@ -88,9 +92,11 @@ tar -zxvf elasticsearch-6.2.4.tar.gz
 mv elasticsearch-6.2.4/ elasticsearch
 ```
 
+
 ![1528610397414](./assets/1528610397414.png)
 
 进入，查看目录结构：
+
 
 ![1528551465373](./assets/1528551465373.png)
 
@@ -101,6 +107,7 @@ mv elasticsearch-6.2.4/ elasticsearch
 我们进入config目录：`cd config`
 
 需要修改的配置文件有两个：
+
 
 ![1528551598931](./assets/1528551598931.png)
 
@@ -151,6 +158,7 @@ mkdir data
 mkdir logs
 ```
 
+
 ![1528552839032](./assets/1528552839032.png)
 
 
@@ -191,6 +199,7 @@ network.host: 0.0.0.0 # 绑定到0.0.0.0，允许任何ip来访问
 
 进入elasticsearch/bin目录，可以看到下面的执行文件：
 
+
 ![1528553103468](./assets/1528553103468.png)
 
 然后输入命令：
@@ -202,6 +211,7 @@ network.host: 0.0.0.0 # 绑定到0.0.0.0，允许任何ip来访问
 发现报错了，启动失败：
 
 ### 1.3.1.错误1：内核过低
+
 
 ![1528598315714](./assets/1528598315714.png)
 
@@ -220,6 +230,7 @@ bootstrap.system_call_filter: false
 ### 1.3.2.错误2：文件权限不足
 
 再次启动，又出错了：
+
 
 ![1528599116836](./assets/1528599116836.png)
 
@@ -317,6 +328,7 @@ sysctl -p
 
 再次启动，终于成功了！
 
+
 ![1528603044862](./assets/1528603044862.png)
 
 可以看到绑定了两个端口:
@@ -326,6 +338,7 @@ sysctl -p
 
 我们在浏览器中访问：http://192.168.56.101:9200
 
+
 ![1528611090621](./assets/1528611090621.png)
 
 
@@ -333,6 +346,7 @@ sysctl -p
 ## 1.4.安装kibana
 
 ### 1.4.1.什么是Kibana？
+
 
 ![1528603530298](./assets/1528603530298.png)
 
@@ -347,6 +361,7 @@ Kibana是一个基于Node.js的Elasticsearch索引库数据统计工具，可以
 因为Kibana依赖于node，我们的虚拟机没有安装node，而window中安装过。所以我们选择在window下使用kibana。
 
 最新版本与elasticsearch保持一致，也是6.3.0
+
 
 ![1528611218599](./assets/1528611218599.png)
 
@@ -370,15 +385,18 @@ elasticsearch.url: "http://localhost:9200"
 
 进入安装目录下的bin目录：
 
+
 ![1528612108406](./assets/1528612108406.png)
 
 双击运行：
+
 
 ![1528612216033](./assets/1528612216033.png)
 
 发现kibana的监听端口是5601
 
 我们访问：http://127.0.0.1:5601
+
 
 ![1528612265677](./assets/1528612265677.png)
 
@@ -388,11 +406,13 @@ elasticsearch.url: "http://localhost:9200"
 
 选择左侧的DevTools菜单，即可进入控制台页面：
 
+
 ![1528612350020](./assets/1528612350020.png)
 
 
 
 在页面右侧，我们就可以输入请求，访问Elasticsearch了。
+
 
 ![1528612514556](./assets/1528612514556.png)
 
@@ -408,6 +428,7 @@ https://github.com/medcl/elasticsearch-analysis-ik
 
 上传课前资料中的zip包，解压到Elasticsearch目录的plugins目录中：
 
+
 ![1526482432181](./assets/1528612654570.png)
 
 使用unzip命令解压：
@@ -417,6 +438,7 @@ unzip elasticsearch-analysis-ik-6.3.0.zip -d ik-analyzer
 ```
 
 然后重启elasticsearch：
+
 
 ![1528612928524](./assets/1528612928524.png)
 

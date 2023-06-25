@@ -1,5 +1,6 @@
 # 面试官：与webpack类似的工具还有哪些？区别？
 
+
 ![](https://static.vue-js.com/8ed8d520-b1a4-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、模块化工具
@@ -52,7 +53,9 @@ log(messages.hi)
 $ npx rollup ./src/index.js --file ./dist/bundle.js
 ```
 
-打包结果如下图![](https://static.vue-js.com/8fe07830-b143-11eb-85f6-6fac77c0c9b3.png)
+打包结果如下图
+
+![](https://static.vue-js.com/8fe07830-b143-11eb-85f6-6fac77c0c9b3.png)
 
 可以看到，代码非常简洁，完成不像`webpack`那样存在大量引导代码和模块函数
 
@@ -128,6 +131,7 @@ npx parcel src/index.html
 
 由于打包过程是多进程同时工作，构建速度会比`Webpack` 快，输出文件也会被压缩，并且样式代码也会被单独提取到单个文件中
 
+
 ![](https://static.vue-js.com/ec17e7a0-b1a2-11eb-85f6-6fac77c0c9b3.png)
 
 可以感受到，`Parcel `给开发者一种很大的自由度，只管去实现业务代码，其他事情用`Parcel`解决
@@ -142,7 +146,9 @@ Snowpack，是一种闪电般快速的前端构建工具，专为现代`Web`设�
 
 下图给出`webpack`与`snowpack`打包区别：
 
- ![](https://static.vue-js.com/79197830-b1a3-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/79197830-b1a3-11eb-85f6-6fac77c0c9b3.png)
 
 在重新构建每次变更时没有任何的时间浪费，只需要在浏览器中进行HMR更新
 
@@ -167,7 +173,9 @@ vite ，是一种新型前端构建工具，能够显著提升前端开发体验
 
 原理图如下所示：
 
- ![](https://static.vue-js.com/9f2eed30-b143-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/9f2eed30-b143-11eb-85f6-6fac77c0c9b3.png)
 
 在热模块`HMR`方面，当修改一个模块的时候，仅需让浏览器重新请求该模块即可，无须像`webpack`那样需要把该模块的相关依赖模块全部编译一次，效率更高
 

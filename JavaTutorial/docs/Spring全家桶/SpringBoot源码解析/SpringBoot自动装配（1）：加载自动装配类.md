@@ -156,7 +156,9 @@ public class AutoConfigurationImportSelector implements DeferredImportSelector,
 
 > 特别说明：`DeferredImportSelector` 是 `ImportSelector` 的子接口，`ImportSelector` 处理导入类的方法是 `selectImports(...)`，在 `DeferredImportSelector` 中也重写了该方法：
 >
-> ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-75a2839c622af2d0f374189b2e2765a64d7.png)
+> 
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-75a2839c622af2d0f374189b2e2765a64d7.png)
 >
 > 这个方法所做的也是加载自动装配类，返回最终导入的类，但需要注意的是，springboot 的自动导入类**不是**在这里处理的，关于这点，可以在方法内打个断点，然后就会发现这个方法并没有运行到！
 >
@@ -214,11 +216,15 @@ protected AutoConfigurationEntry getAutoConfigurationEntry(
 
    过滤前是 124 个：
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-773695c0161c8126f239c2e66529fc8a394.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-773695c0161c8126f239c2e66529fc8a394.png)
 
    过滤后还是 124 个：
 
-   ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-7144d971f729b5dfbddfeff2d3319c7705c.png)
+   
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-7144d971f729b5dfbddfeff2d3319c7705c.png)
 
 5. 触发 `AutoConfigurationImportEvent` 事件；
 
@@ -342,9 +348,11 @@ public final class SpringFactoriesLoader {
 
 springboot 自带的 `META-INF/spring.factories` 位于 `spring-boot-autoconfigure` 模块下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-ace5e83645626966eae1e62a50752f2417d.png)
 
 我们来看一眼 `spring.factories`：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-d7de9ecd19345f0dc77cc304843c588fe4d.png)
 
@@ -425,11 +433,13 @@ public class AutoconfigureDemo01Application {
 
 运行结果如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-9337a7ac4ce4ff7d71e69bc952bfac30b12.png)
 
 可以看到，`create object` 成功打印了。
 
 那这个 `bean` 是通过包扫描创建的，还是自动装配导入的呢？我们通过调试的方式来看下自动装配得到的类：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-27bea49ddeae2f0f720ea338914cc443aec.png)
 
@@ -438,6 +448,7 @@ public class AutoconfigureDemo01Application {
 注意到，`MyAutoConfiguration` 加了 `@Configuration` 注解， 那么它究竟是由 sping 容器扫描到的，还是由自动装配得到的呢？
 
 在[【springboot 源码分析】@SpringBootApplication 注解](https://my.oschina.net/funcy/blog/4870882)一文中，我们提到 `SpringBootApplication` 注解中的 `@ComponentScan` 会指定一个过滤器：`AutoConfigurationExcludeFilter`，这个过滤器会过滤自动装配类，这里我们看下目前为止 `beanFactory` 都有哪些 `beanName`：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-1725008451f5516ab540bcc3ae13d1f37ee.png)
 

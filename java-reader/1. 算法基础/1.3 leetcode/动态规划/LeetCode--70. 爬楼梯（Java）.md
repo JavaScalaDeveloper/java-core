@@ -41,6 +41,7 @@ public int climbStairs(int n) {
 ```
 这个算法理解难度挺大的，我刚开始看我也想不出为什么num[]的相加能，需要一个来更好的图来理解：
 
+
 ![](https://note.youdao.com/yws/api/personal/file/415C210049A84FA5A39FA5583568D579?method=download&shareKey=0ca6c3337a43b620515a573d5ee34315)
 
 5层的话就是：2+1+2+1+2 = 8

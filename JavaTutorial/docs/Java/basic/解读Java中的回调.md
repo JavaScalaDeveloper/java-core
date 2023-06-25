@@ -123,6 +123,7 @@ public void test () {
 
 同步调用时序图：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230403210703.png)
 
 

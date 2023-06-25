@@ -307,7 +307,9 @@ buf:待写入数据缓存区 // nbytes:要写入的字节数目录
 
 同样，为了保证写入数据的完整性，在《UNIX网络编程 卷1》中，作者将该函数进行了封装，具体程序如下：
 
+
 ![](http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif)
+
 
 ![复制代码](http://common.cnblogs.com/images/copycode.gif)
 
@@ -329,6 +331,7 @@ buf:待写入数据缓存区 // nbytes:要写入的字节数目录
  void
  Writen(int fd, void *ptr, size_t nbytes) 27 { 28     if (writen(fd, ptr, nbytes) != nbytes) 29         err_sys("writen error"); 30 }目录
 ```
+
 
 ![复制代码](http://common.cnblogs.com/images/copycode.gif)
 
@@ -355,7 +358,9 @@ filedes：文件描述符 // buf:读取数据缓存区 // nbytes:要读取的字
 
 在《UNIX网络编程 卷1》中，作者将该函数进行了封装，以确保数据读取的完整，具体程序如下：
 
+
 ![](http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif)
+
 
 ![复制代码](http://common.cnblogs.com/images/copycode.gif)
 
@@ -376,6 +381,7 @@ filedes：文件描述符 // buf:读取数据缓存区 // nbytes:要读取的字
 25
 26 ssize_t 27 Readn(int fd, void *ptr, size_t nbytes) 28 { 29 ssize_t n; 30
 31 if ( (n = readn(fd, ptr, nbytes)) < 0) 32 err_sys("readn error"); 33 return(n); 34 }目录
+
 
 ![复制代码](http://common.cnblogs.com/images/copycode.gif)
 
@@ -643,6 +649,7 @@ Linux进程状态(ps stat)之R、S、D、T、Z、X
     l    多线程，克隆线程  multi-threaded (using CLONE_THREAD, like NPTL pthreads do)
 
 ps aux
+
 
 ![](https://img-blog.csdn.net/20180703221736541?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2E3MjQ4ODg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 

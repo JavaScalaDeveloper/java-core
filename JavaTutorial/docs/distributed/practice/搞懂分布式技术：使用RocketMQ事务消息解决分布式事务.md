@@ -32,6 +32,7 @@
 
 # 初步认识RocketMQ的核心模块
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/4943997-9842b6eec46bd737.png)
 
 rocketmq模块
@@ -149,9 +150,11 @@ public TransactionSendResult sendMessageInTransaction(.....)  {
 }
 ```
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407220221.png)
 
 上面所说的消息中间件上注册的listener，超时以后会回调producer的接口以确定事务执行情况
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230407220230.png)
 

@@ -163,9 +163,9 @@ Flink 的所有组件都基于 Actor System 来进行通讯。Actor system是多
 
 ## 参考资料
 
-+ [Dataflow Programming Model](https://ci.apache.org/projects/flink/flink-docs-release-1.9/concepts/programming-model.html)
-+ [Distributed Runtime Environment](https://ci.apache.org/projects/flink/flink-docs-release-1.9/concepts/runtime.html)
-+  [Component Stack](https://ci.apache.org/projects/flink/flink-docs-release-1.9/internals/components.html)
++ [Dataflow Programming Model](images/https://ci.apache.org/projects/flink/flink-docs-release-1.9/concepts/programming-model.html)
++ [Distributed Runtime Environment](images/https://ci.apache.org/projects/flink/flink-docs-release-1.9/concepts/runtime.html)
++  [Component Stack](images/https://ci.apache.org/projects/flink/flink-docs-release-1.9/internals/components.html)
 + Fabian Hueske , Vasiliki Kalavri . 《Stream Processing with Apache Flink》.  O'Reilly Media .  2019-4-30 
 
 

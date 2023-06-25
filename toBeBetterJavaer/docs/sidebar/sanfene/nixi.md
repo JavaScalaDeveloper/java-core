@@ -21,6 +21,7 @@ head:
 
 话不多说，先给大家看看，手册的内容结构：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-a1c872c8-ab8e-454f-b8ab-7bb3d1cab5f0.jpg)
 
 
@@ -29,10 +30,13 @@ head:
 而且手册的内容不是杂乱无章的，每一部分都是循序渐进，由浅入深，看看目录就知道了：
 
 
+
 ![Java 篇（Java 基础、并发编程、JVM）](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//nixi-75f87853-ca11-4e6e-ab3f-ba8335a24783.png)
 
 
+
 ![Spring+MySQL+Redis](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//nixi-fda2401a-1162-438d-8fe8-19876224d2b1.png)
+
 
 
 ![操作系统+计算机网络+RocketMQ](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//nixi-3b3d55c6-7b18-4b0a-83b4-5a8535461ddb.png)
@@ -48,6 +52,7 @@ head:
 
 比如这张HTTPS的工作流程图，足足画了一个多小时：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-a037df66-a8ad-4494-aa52-2df6bc9c1c1f.jpg)
 
 
@@ -55,15 +60,18 @@ head:
 
 比如，经典的四次挥手，很多朋友看完，直呼“满脑子都是分手”：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-8ec371eb-9f68-44ad-8d94-0ddbeae72b48.jpg)
 
 
 比如，作者拿人的一生，比喻Spring Bean生命周期，有人说“泪目”：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-e6b9fe59-122e-47f2-b605-0da04d108d11.jpg)
 
 
 还有，直接让人有点yue，又有点兴奋，就像是拿“占着茅坑不拉屎”，“憋急了没坑位”来比喻内存泄露和内存溢出：
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-c4e81c79-c91e-4111-9d1b-836174eb1b36.jpg)
 
@@ -111,59 +119,71 @@ head:
 
 *   Java基础
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-472ca179-c5f6-4af2-9a06-75dd8902599a.jpg)
 
 
 *   Java集合
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-723dc8ec-c3a8-47ea-96c6-40520b064ffb.jpg)
 
 
 *   Java并发
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-f1beb175-0099-4615-847f-9ea375e391ee.jpg)
 
 
 *   JVM
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-ab2a4a0f-9006-4b83-a8c9-56a853829bb5.jpg)
 
 
 *   Spring
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-12c239b3-0b95-414b-b83f-f5a2f46dbde0.jpg)
 
 
 *   MyBatis
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-862defac-32d6-4089-a5dd-e57d114b83b2.jpg)
 
 
 *   计算机网络
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-71d6389c-d984-4c02-af74-45038616520f.jpg)
 
 
 *   操作系统
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-705651d8-1417-4c26-be5d-3f155f4b3551.jpg)
 
 
 *   MySQL
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-705acc6c-6554-4c36-a47f-d2c850287126.jpg)
 
 
 *   Redis
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-b98e0491-72f5-468a-a3a9-b55d8c205a14.jpg)
 
 
 *   RocketMQ
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-tuxbgzdtdl-18d350fd-5609-430e-8f7f-8f0848015a30.jpg)
 
 * 分布式
+
 
 ![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/sanfene//nixi-cdfba194-459d-4ec6-8b9f-07f6cca4ac80.png)
 
@@ -171,5 +191,6 @@ head:
 吊大家胃口这么久，那么这本册子该如何获取呢？
 
 关注二哥的公众号：**沉默王二** ，👇👇👇，回复 **666**即可无套路获取！
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongzhonghao.png)

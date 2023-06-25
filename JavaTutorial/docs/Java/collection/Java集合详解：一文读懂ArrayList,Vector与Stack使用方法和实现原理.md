@@ -59,6 +59,7 @@
 
 ArrayList继承AbstractList抽象父类，实现了List接口（规定了List的操作规范）、RandomAccess（可随机访问）、Cloneable（可拷贝）、Serializable（可序列化）。
 
+
 ![](https://img-blog.csdn.net/2018081819553095?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zNjM3ODkxNw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
  ### 底层数据结构
@@ -448,9 +449,12 @@ capacityIncrement：向量的大小大于其容量时，容量自动增加的量
 下面是扩容过程示意图
 
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404145205.png)
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404145237.png)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230404145305.png)
 
@@ -464,6 +468,7 @@ vector大部分方法都使用了synchronized修饰符，所以他是线层安�
 # Stack
 
   如果我们去查jdk的文档，我们会发现stack是在java.util这个包里。它对应的一个大致的类关系图如下：
+
 
 ![](http://dl.iteye.com/upload/attachment/0081/2496/006da63f-388e-3669-b57f-1cdd1909d5f8.jpg)
 

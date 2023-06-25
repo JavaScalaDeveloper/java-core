@@ -1,6 +1,8 @@
 # 面试官：介绍一下grid网格布局
 
- ![](https://static.vue-js.com/4d73e3d0-9a94-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/4d73e3d0-9a94-11eb-85f6-6fac77c0c9b3.png)
 
 
 ## 一、是什么
@@ -9,7 +11,9 @@
 
 擅长将一个页面划分为几个主要区域，以及定义这些区域的大小、位置、层次等关系
 
- ![](https://static.vue-js.com/59680a40-9a94-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/59680a40-9a94-11eb-85f6-6fac77c0c9b3.png)
 
 这与之前讲到的`flex`一维布局不相同
 
@@ -31,7 +35,9 @@
 
 网格线，即划分网格的线，如下图所示：
 
- ![](https://static.vue-js.com/61be7080-9a94-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/61be7080-9a94-11eb-ab90-d9ae814b240d.png)
 
 上图是一个 2 x 3 的网格，共有3根水平网格线和4根垂直网格线
 
@@ -159,9 +165,12 @@
 
 顺序就是由`grid-auto-flow`决定，默认为行，代表"先行后列"，即先填满第一行，再开始放入第二行
 
- ![](https://static.vue-js.com/70fb3240-9a94-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/70fb3240-9a94-11eb-ab90-d9ae814b240d.png)
 
 当修改成`column`后，放置变为如下：
+
 
 ![](https://static.vue-js.com/7c26ffa0-9a94-11eb-ab90-d9ae814b240d.png)
 
@@ -208,7 +217,9 @@
 - end - 对齐容器的结束边框
 - center - 容器内部居中
 
- ![](https://static.vue-js.com/9d1ec990-9a94-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/9d1ec990-9a94-11eb-ab90-d9ae814b240d.png)
 
 - space-around - 每个项目两侧的间隔相等。所以，项目之间的间隔比项目与容器边框的间隔大一倍
 
@@ -218,7 +229,9 @@
 
 - stretch - 项目大小没有指定时，拉伸占据整个网格容器
 
- ![](https://static.vue-js.com/a620b210-9a94-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/a620b210-9a94-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -270,7 +283,9 @@
 
 通过设置`grid-column`属性，指定1号项目的左边框是第二根垂直网格线，右边框是第四根垂直网格线
 
- ![](https://static.vue-js.com/b7925530-9a94-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/b7925530-9a94-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -320,7 +335,9 @@
 
 关于兼容性问题，结果如下：
 
- ![](https://static.vue-js.com/c24a2b10-9a94-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/c24a2b10-9a94-11eb-85f6-6fac77c0c9b3.png)
 
 总体兼容性还不错，但在 IE 10 以下不支持
 

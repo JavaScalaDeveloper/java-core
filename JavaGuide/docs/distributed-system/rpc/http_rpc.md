@@ -33,6 +33,7 @@ fd = socket(AF_INET,SOCK_STREAM,0);
 
 在定义了 socket 之后，我们就可以愉快的对这个 socket 进行操作，比如用`bind()`绑定 IP 端口，用`connect()`发起建连。
 
+
 ![握手建立连接流程](https://oss.javaguide.cn/github/javaguide/distributed-system/rpc/f410977cda814d32b0eff3645c385a8a~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp.png)
 
 在连接建立之后，我们就可以使用`send()`发送数据，`recv()`接收数据。
@@ -45,6 +46,7 @@ fd = socket(AF_INET,SOCK_STREAM,0);
 
 八股文常背，TCP 是有三个特点，**面向连接**、**可靠**、基于**字节流**。
 
+
 ![TCP是什么](https://oss.javaguide.cn/github/javaguide/distributed-system/rpc/acb4508111cb47d8a3df6734d04818bc~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp.png)
 
 这三个特点真的概括的 **非常精辟** ，这个八股文我们没白背。
@@ -53,9 +55,11 @@ fd = socket(AF_INET,SOCK_STREAM,0);
 
 字节流可以理解为一个双向的通道里流淌的二进制数据，也就是 **01 串** 。纯裸 TCP 收发的这些 01 串之间是 **没有任何边界** 的，你根本不知道到哪个地方才算一条完整消息。
 
+
 ![01二进制字节流](https://oss.javaguide.cn/github/javaguide/distributed-system/rpc/b82d4fcdd0c4491e979856c93c1750d7~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp.png)
 
 正因为这个没有任何边界的特点，所以当我们选择使用 TCP 发送 **"夏洛"和"特烦恼"** 的时候，接收端收到的就是 **"夏洛特烦恼"** ，这时候接收端没发区分你是想要表达 **"夏洛"+"特烦恼"** 还是 **"夏洛特"+"烦恼"** 。
+
 
 ![消息对比](https://oss.javaguide.cn/github/javaguide/distributed-system/rpc/4e120d0f1152419585565f693e744a3a~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp.png)
 
@@ -64,6 +68,7 @@ fd = socket(AF_INET,SOCK_STREAM,0);
 说这个的目的是为了告诉大家，纯裸 TCP 是不能直接拿来用的，你需要在这个基础上加入一些 **自定义的规则** ，用于区分 **消息边界** 。
 
 于是我们会把每条要发送的数据都包装一下，比如加入 **消息头** ，消息头里写清楚一个完整的包长度是多少，根据这个长度可以继续接收数据，截取出来后它们就是我们真正要传输的 **消息体** 。
+
 
 ![消息边界长度标志](https://oss.javaguide.cn/github/javaguide/distributed-system/rpc/cb29659d4907446e9f70551c44c6369f~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp.png)
 
@@ -79,11 +84,13 @@ fd = socket(AF_INET,SOCK_STREAM,0);
 
 我们回过头来看网络的分层图。
 
+
 ![四层网络协议](https://oss.javaguide.cn/github/javaguide/distributed-system/rpc/04b603b5bd2443209233deea87816161~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp.png)
 
 **TCP 是传输层的协议** ，而基于 TCP 造出来的 HTTP 和各类 RPC 协议，它们都只是定义了不同消息格式的 **应用层协议** 而已。
 
 **HTTP**（**H**yper **T**ext **T**ransfer **P**rotocol）协议又叫做 **超文本传输协议** 。我们用的比较多，平时上网在浏览器上敲个网址就能访问网页，这里用到的就是 HTTP 协议。
+
 
 ![HTTP调用](https://oss.javaguide.cn/github/javaguide/distributed-system/rpc/8f07a5d1c72a4c4fa811c6c3b5aadd3d~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp.png)
 
@@ -100,6 +107,7 @@ fd = socket(AF_INET,SOCK_STREAM,0);
 ```ini
 res = remoteFunc(req)
 ```
+
 
 ![RPC可以像调用本地方法那样调用远端方法](https://oss.javaguide.cn/github/javaguide/distributed-system/rpc/761da6c30af244e19b1c44075d8b4254~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp.png)
 
@@ -145,6 +153,7 @@ res = remoteFunc(req)
 
 而 **RPC** 协议，也跟 HTTP 类似，也是通过建立 TCP 长链接进行数据交互，但不同的地方在于，RPC 协议一般还会再建个 **连接池**，在请求量大的时候，建立多条连接放在池内，要发数据的时候就从池里取一条连接出来，用完放回去，下次再复用，可以说非常环保。
 
+
 ![connection_pool](https://oss.javaguide.cn/github/javaguide/distributed-system/rpc/72fcad064c9e4103a11f1a2d579f79b2~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp.png)
 
 由于连接池有利于提升网络请求性能，所以不少编程语言的网络库里都会给 HTTP 加个连接池，比如 Go 就是这么干的。
@@ -161,11 +170,13 @@ res = remoteFunc(req)
 
 这个将结构体转为二进制数组的过程就叫 **序列化** ，反过来将二进制数组复原成结构体的过程叫 **反序列化**。
 
+
 ![序列化和反序列化](https://oss.javaguide.cn/github/javaguide/distributed-system/rpc/d501dfc6f764430188ce61fda0f3e5d9~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp.png)
 
 对于主流的 HTTP1.1，虽然它现在叫超文本协议，支持音频视频，但 HTTP 设计 初是用于做网页文本展示的，所以它传的内容以字符串为主。Header 和 Body 都是如此。在 Body 这块，它使用 **JSON** 来 **序列化** 结构体数据。
 
 我们可以随便截个图直观看下。
+
 
 ![HTTP报文](https://oss.javaguide.cn/github/javaguide/distributed-system/rpc/04e8a79ddb7247759df23f1132c01655~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp.png)
 
@@ -173,7 +184,9 @@ res = remoteFunc(req)
 
 而 RPC，因为它定制化程度更高，可以采用体积更小的 Protobuf 或其他序列化协议去保存结构体数据，同时也不需要像 HTTP 那样考虑各种浏览器行为，比如 302 重定向跳转啥的。**因此性能也会更好一些，这也是在公司内部微服务中抛弃 HTTP，选择使用 RPC 的最主要原因。**
 
+
 ![HTTP原理](https://oss.javaguide.cn/github/javaguide/distributed-system/rpc/284c26bb7f2848889d1d9b95cf49decb~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp.png)
+
 
 ![RPC原理](https://oss.javaguide.cn/github/javaguide/distributed-system/rpc/edb050d383c644e895e505253f1c4d90~tplv-k3u1fbpfcp-zoom-in-crop-mark:3024:0:0:0.awebp.png)
 

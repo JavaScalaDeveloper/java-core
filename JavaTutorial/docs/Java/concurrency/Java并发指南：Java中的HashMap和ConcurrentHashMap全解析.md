@@ -65,6 +65,7 @@ HashMap 是最简单的，一来我们非常熟悉，二来就是它不支持并
 
 首先，我们用下面这张图来介绍 HashMap 的结构。
 
+
 ![1](https://www.javadoop.com/blogimages/map/1.png)
 
 > 这个仅仅是示意图，因为没有考虑到数组要扩容的情况，具体的后面再说。
@@ -249,6 +250,7 @@ ConcurrentHashMap 和 HashMap 思路是差不多的，但是因为它支持并�
 整个 ConcurrentHashMap 由一个个 Segment 组成，Segment 代表”部分“或”一段“的意思，所以很多地方都会将其描述为**分段锁**。注意，行文中，我很多地方用了“**槽**”来代表一个 segment。
 
 简单理解就是，ConcurrentHashMap 是一个 Segment 数组，Segment 通过继承 ReentrantLock 来进行加锁，所以每次需要加锁的操作锁住的是一个 segment，这样只要保证每个 Segment 是线程安全的，也就实现了全局的线程安全。
+
 
 ![3](https://www.javadoop.com/blogimages/map/3.png)
 
@@ -648,6 +650,7 @@ Java8 对 HashMap 进行了一些修改，最大的不同就是利用了红黑�
 
 来一张图简单示意一下吧：
 
+
 ![2](https://www.javadoop.com/blogimages/map/2.png)
 
 > 注意，上图是示意图，主要是描述结构，不会达到这个状态的，因为这么多数据的时候早就扩容了。
@@ -870,6 +873,7 @@ Java7 中实现的 ConcurrentHashMap 说实话还是比较复杂的，Java8 对 
 **说实话，Java8 ConcurrentHashMap 源码真心不简单，最难的在于扩容，数据迁移操作不容易看懂。**
 
 我们先用一个示意图来描述下其结构：
+
 
 ![4](https://www.javadoop.com/blogimages/map/4.png)
 

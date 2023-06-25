@@ -8,6 +8,7 @@ final能够修饰变量，方法和类，也就是final使用范围基本涵盖�
 通常每个类中的成员变量可以分为**类变量（static修饰的变量）以及实例变量**。针对这两种类型的变量赋初值的时机是不同的，类变量可以在声明变量的时候直接赋初值或者在静态代码块中给类变量赋初值。而实例变量可以在声明变量的时候给实例变量赋初值，在非静态初始化块中以及构造器中赋初值。类变量有**两个时机赋初值**，而实例变量则可以有**三个时机赋初值**。当final变量未初始化时系统不会进行隐式初始化，会出现报错。这样说起来还是比较抽象，下面用具体的代码来演示。（代码涵盖了final修饰变量所有的可能情况，耐心看下去会有收获的:) ）
 
 
+
 ![final修饰成员变量](http://upload-images.jianshu.io/upload_images/2615789-768017317b5fab78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 看上面的图片已经将每种情况整理出来了，这里用截图的方式也是觉得在IDE出现红色出错的标记更能清晰的说明情况。现在我们来将这几种情况归纳整理一下：
@@ -16,6 +17,7 @@ final能够修饰变量，方法和类，也就是final使用范围基本涵盖�
 2. **实例变量**：必要要在**非静态初始化块**，**声明该实例变量**或者在**构造器中**指定初始值，而且只能在这**三个地方**进行指定。
 ### 2.2.2 final局部变量 ###
 final局部变量由程序员进行显式初始化，如果final局部变量已经进行了初始化则后面就不能再次进行更改，如果final变量未进行初始化，可以进行赋值，**当且仅有一次**赋值，一旦赋值之后再次赋值就会出错。下面用具体的代码演示final局部变量的情况：
+
 
 ![final修饰局部变量](http://upload-images.jianshu.io/upload_images/2615789-7077bdb169d4d1c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -76,6 +78,7 @@ public class FinalExampleParent {
 ```
 然后FinalExample继承该父类，当重写test()方法时出现报错，如下图：
 
+
 ![final方法不能重写](http://upload-images.jianshu.io/upload_images/2615789-5d831da449f512e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 通过这个现象我们就可以看出来**被final修饰的方法不能够被子类所重写**。
@@ -104,6 +107,7 @@ public final class FinalExampleParent {
 }
 ```
 父类会被final修饰，当子类继承该父类的时候，就会报错，如下图：
+
 
 ![final类不能继承](http://upload-images.jianshu.io/upload_images/2615789-835b66d960e21e2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -173,6 +177,7 @@ public class FinalDemo {
 
 我们来画下存在的一种可能执行时序图，如下：
 
+
 ![final域写可能的存在的执行时序](http://upload-images.jianshu.io/upload_images/2615789-9e3937df955a9862.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800)
 
 由于a,b之间没有数据依赖性，普通域（普通变量）a可能会被重排序到构造函数之外，线程B就有可能读到的是普通变量a初始化之前的值（零值），这样就可能出现错误。而final域变量b，根据重排序规则，会禁止final修饰的变量b重排序到构造函数之外，从而b能够正确赋值，线程B就能够读到final变量初始化后的值。
@@ -191,6 +196,7 @@ read()方法主要包含了三个操作：
 3. 初次读引用变量finalDemo的final与b;
 
 假设线程A写过程没有重排序，那么线程A和线程B有一种的可能执行时序为下图：
+
 
 
 ![final域读可能存在的执行时序](http://upload-images.jianshu.io/upload_images/2615789-2a93b67948d7fc64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800)
@@ -235,6 +241,7 @@ public class FinalReferenceDemo {
 ```
 
 针对上面的实例程序，线程线程A执行wirterOne方法，执行完后线程B执行writerTwo方法，然后线程C执行reader方法。下图就以这种执行时序出现的一种情况来讨论（耐心看完才有收获）。
+
 
 
 ![写final修饰引用类型数据可能的执行时序](http://upload-images.jianshu.io/upload_images/2615789-1f5f0a39a3f6977e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/800)
@@ -287,6 +294,7 @@ public class FinalReferenceEscapeDemo {
 }
 ```
 可能的执行时序如图所示：
+
 
 ![final域引用可能的执行时序](http://upload-images.jianshu.io/upload_images/2615789-e020492056ee1242.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 

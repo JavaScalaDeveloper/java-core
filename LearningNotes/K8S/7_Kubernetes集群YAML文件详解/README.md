@@ -57,6 +57,7 @@ People: [Tom, Jack]
 
 ### 控制器的定义
 
+
 ![image-20201114110444032](images/image-20201114110444032.png)
 
 
@@ -64,6 +65,7 @@ People: [Tom, Jack]
 ### 被控制的对象
 
 包含一些 镜像，版本、端口等
+
 
 ![image-20201114110600165](images/image-20201114110600165.png)
 
@@ -115,6 +117,7 @@ kubectl create deployment web --image=nginx -o yaml --dry-run > hello.yaml
 kubectl get deploy
 ```
 
+
 ![image-20201114113115649](images/image-20201114113115649.png)
 
 然后我们导出 nginx的配置
@@ -124,6 +127,7 @@ kubectl get deploy nginx -o=yaml --export > nginx.yaml
 ```
 
 然后会生成一个 `nginx.yaml` 的配置文件
+
 
 ![image-20201114184538797](images/image-20201114184538797.png)
 

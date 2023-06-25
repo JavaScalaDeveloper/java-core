@@ -31,6 +31,7 @@
 
 ## **一、 MySQL记录存储（页为单位）**
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405205306.png)
 
 ### **页头**
@@ -63,13 +64,16 @@
 
 物理有序(利于查询，不利于插入删除)
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-db41a4ce70476cb846cbcd92d3cb6efd_720w.webp)
 
 **逻辑有序(插入删除性能高，查询效率低)** 默认
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405205330.png)
 
 所以`MySQL`是像下图所示这样子有序的组织数据的。
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-5c927bccdfd6815a65b5bb1aebb13aae_720w.webp)
 
@@ -79,6 +83,7 @@
 
 **未使用空间**
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405205347.png)
 
 **3、页内查询**
@@ -86,6 +91,7 @@
 **遍历**
 
 **二分查找(数据不一样大，不能用二分)**
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-0b09abe7fa1b04a6274003c2dd08f733_720w.webp)
 
@@ -111,6 +117,7 @@
 - 内存页耗尽
 - 需要加载新数据
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-369ec920b95324b4f2359cbe505c9a75_720w.webp)
 
 ### **页面管理**
@@ -122,6 +129,7 @@
 ### **页面淘汰**
 
 LRU(淘汰冷数据)
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-065e91777cbc08461d0e5a6d6c5de606_720w.webp)
 
@@ -145,9 +153,11 @@ LRU(淘汰冷数据)
 
 `MySQL`的解决方案
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-9bf6f401a22185ae7852b596f58c0fa4_720w.webp)
 
 MySQL内存管理—LRU
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405205410.png)
 
@@ -156,7 +166,9 @@ MySQL内存管理—LRU
 
 磁盘数据到内存
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-3ad4cc1b1a83d8a7c0ecc8f7b9befd12_720w.webp)
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405205420.png)
 
@@ -172,9 +184,11 @@ MySQL内存管理—LRU
 
 old 到 new new 到 old
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405205431.png)
 
 思考：移动时机是什么？`innodb_old_blocks_time`old区存活时间，大于此值，有机会进入new区
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405205437.png)
 
@@ -226,15 +240,18 @@ C（`Consistency`一致性）：通过AID保证
 
 –当前读（读在存储引擎中存储的那个数据）
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-241cfc7589ea0de0cac531355324d0a7_720w.webp)
 
 RR级别下
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-70c832b4a5b81c944c99a96557bcddd6_720w.webp)
 
 ### **2、undo log**
 
 回滚日志 保证事务原子性 实现数据多版本`delete undo log`：用于回滚，提交即清理；`update undo log`：用于回滚，同时实现快照读，不能随便删除
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-1e9ecbc408164c034a73c3415aa9105d_720w.webp)
 
@@ -244,11 +261,14 @@ RR级别下
 
 实现事务持久性
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-029212b1ddd7fb111cefdfe9e6648bb7_720w.webp)
 
 写入流程 l 记录页的修改，状态为prepare l 事务提交，讲事务记录为commit状态
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405205454.png)
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-7d685adf553d18f2e8dcdcd632d8696f_720w.webp)
 
@@ -258,32 +278,43 @@ RR级别下
 
 ## **四、MySQL锁实现原理**
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-44403b5fcb1bd988f68f72172c95627b_720w.webp)
 
 所有当前读加排他锁，都有哪些是当前读？`SELECT FOR UPDATEUPDATEDELETE`
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-6161f7636962904b6e17d57e1a2540dc_720w.webp)
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-c6b3c1d5c628b0c2fc104421ddc0faad_720w.webp)
 
 唯一索引/非唯一索引 `* RC/RR`4种情况逐一分析
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-323f7b0fc7e2bfbdee1bb19e8f7dea0f_720w.webp)
 
 会出现幻读问题，不可重复读了
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-3e9c8bda25b0b6788952f5024819e4ff_720w.webp)
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-7f9ba333592f1253ffa6adf619448aaf_720w.webp)
 
+
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-55b01d4fd841e1c417004c86a80746b7_720w.webp)
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-b155fff4fd294066127c2e6c2650f559_720w.webp)
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230405205509.png)
+
 
 ![img](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/v2-e87ad5dc811f52789e20adb3b53b8ba1_720w.webp)
 
 死锁在库表中有记录，通过kill 那个锁删除。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/%E5%86%B3%E5%AE%9A%E7%89%88.jpeg)

@@ -1,6 +1,8 @@
 # 面试官：说说你对归并排序的理解？如何实现？应用场景？
 
- ![](https://static.vue-js.com/fa1d5720-26ac-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/fa1d5720-26ac-11ec-8e64-91fdec0f05a1.png)
 
 
 
@@ -20,7 +22,9 @@
 
 如下图所示：
 
- ![](https://static.vue-js.com/05f14b60-26ad-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/05f14b60-26ad-11ec-a752-75723a64e8f5.png)
 
 归并合过程中，每次得到的新的子表本身有序，所以最终得到有序表
 
@@ -39,6 +43,7 @@
   - 比较两个有序数组的头部，较小者出队并且推入到上述新建的数组中
   - 如果两个数组还有值，则重复上述第二步
   - 如果只有一个数组有值，则将该数组的值出队并推入到上述新建的数组中
+
 
 ![](https://www.runoob.com/wp-content/uploads/2019/03/mergeSort.gif)
 

@@ -174,9 +174,11 @@ kubeadm init --apiserver-advertise-address=192.168.177.130 --image-repository re
 
 由于默认拉取镜像地址k8s.gcr.io国内无法访问，这里指定阿里云镜像仓库地址，【执行上述命令会比较慢，因为后台其实已经在拉取镜像了】，我们 docker images 命令即可查看已经拉取的镜像
 
+
 ![image-20200929094302491](images/image-20200929094302491.png)
 
 当我们出现下面的情况时，表示kubernetes的镜像已经安装成功
+
 
 ![image-20200929094620145](images/image-20200929094620145.png)
 
@@ -193,6 +195,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```bash
 kubectl get nodes
 ```
+
 
 ![image-20200929094933142](images/image-20200929094933142.png)
 
@@ -225,6 +228,7 @@ kubeadm token create --print-join-command
 kubectl get node
 ```
 
+
 ![image-20201113165358663](images/image-20201113165358663.png)
 
 ## 部署CNI网络插件
@@ -254,9 +258,11 @@ kubectl get pods -n kube-system
 
 运行后的结果
 
+
 ![image-20201113165929510](images/image-20201113165929510.png)
 
 运行完成后，我们查看状态可以发现，已经变成了Ready状态了
+
 
 ![image-20201113194557147](images/image-20201113194557147.png)
 
@@ -290,6 +296,7 @@ kubectl get pod
 
 如果我们出现Running状态的时候，表示已经成功运行了
 
+
 ![image-20201113203537028](images/image-20201113203537028.png)
 
 下面我们就需要将端口暴露出去，让其它外界能够访问
@@ -303,6 +310,7 @@ kubectl get pod,svc
 
 能够看到，我们已经成功暴露了 80端口  到 30529上
 
+
 ![image-20201113203840915](images/image-20201113203840915.png)
 
 我们到我们的宿主机浏览器上，访问如下地址
@@ -313,9 +321,11 @@ http://192.168.177.130:30529/
 
 发现我们的nginx已经成功启动了
 
+
 ![image-20201113204056851](images/image-20201113204056851.png)
 
 到这里为止，我们就搭建了一个单master的k8s集群
+
 
 ![image-20201113204158884](images/image-20201113204158884.png)
 

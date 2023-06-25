@@ -23,6 +23,7 @@ Spring Cloud 微服务之间的调用，API 网关的请求转发等内容，实
 
 服务端负载均衡是最常见的负载均衡方式，其工作原理如下图。
 
+
 ![服务端负载均衡工作原理](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10122164F-0.png)
 图1：服务端负载均衡工作原理
 
@@ -41,6 +42,7 @@ Spring Cloud 微服务之间的调用，API 网关的请求转发等内容，实
 相较于服务端负载均衡，客户端服务在均衡则是一个比较小众的概念。
 
 客户端负载均衡的工作原理如下图。
+
 
 ![客户端负载均衡原理](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1012212Q4-1.png)
 
@@ -304,6 +306,7 @@ public class MicroServiceCloudConsumerDept80Application {
 
 7\. 使用浏览器访问“http://eureka7001.com:80/consumer/dept/list”，结果如下图。
 
+
 ![Ribbon 实现服务调用](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/101221CG-2.png)
 图3：Ribbon 实现服务调用
 
@@ -447,6 +450,7 @@ eureka:
 
 6\. 使用浏览器连续访问“http://eureka7001.com/consumer/dept/get/1”,结果如下图。
 
+
 ![Ribbon 默认负载均衡策略](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1012215133-3.gif)
 图4：Ribbon 默认负载均衡策略
 
@@ -482,6 +486,7 @@ public IRule myRule() {
 
 
 2\. 重启 micro-service-cloud-consumer-dept-80，使用浏览器访问“http://eureka7001.com/consumer/dept/get/1”，结果如下图。
+
 
 ![切换负载均衡策略为随机](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/1012214B8-4.gif)
 图5：切换负载均衡策略为随机
@@ -650,6 +655,7 @@ public class MicroServiceCloudConsumerDept80Application {
 
 
 4\. 重启 micro-service-cloud-consumer-dept-80，使用浏览器访问“http://eureka7001.com/consumer/dept/get/1”，结果如下图。
+
 
 ![定制负载均衡策略](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/10122152E-5.gif)
 图6：定制负载均衡策略

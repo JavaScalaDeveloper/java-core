@@ -75,8 +75,8 @@ YARN ResourceManager 的高可用与 HDFS NameNode 的高可用类似，但是 R
 
 ## 三、前置条件
 
-+ 所有服务器都安装有 JDK，安装步骤可以参见：[Linux 下 JDK 的安装](https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Linux下JDK安装.md)；
-+ 搭建好 ZooKeeper 集群，搭建步骤可以参见：[Zookeeper 单机环境和集群环境搭建](https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Zookeeper单机环境和集群环境搭建.md)
++ 所有服务器都安装有 JDK，安装步骤可以参见：[Linux 下 JDK 的安装](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Linux下JDK安装.md)；
++ 搭建好 ZooKeeper 集群，搭建步骤可以参见：[Zookeeper 单机环境和集群环境搭建](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Zookeeper单机环境和集群环境搭建.md)
 + 所有服务器之间都配置好 SSH 免密登录。
 
 
@@ -505,10 +505,10 @@ yarn-daemon.sh start resourcemanager
 
 以上搭建步骤主要参考自官方文档：
 
-+ [HDFS High Availability Using the Quorum Journal Manager](https://hadoop.apache.org/docs/r3.1.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html)
-+ [ResourceManager High Availability](https://hadoop.apache.org/docs/r3.1.2/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html)
++ [HDFS High Availability Using the Quorum Journal Manager](images/https://hadoop.apache.org/docs/r3.1.2/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html)
++ [ResourceManager High Availability](images/https://hadoop.apache.org/docs/r3.1.2/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html)
 
 关于 Hadoop 高可用原理的详细分析，推荐阅读：
 
-[Hadoop NameNode 高可用 (High Availability) 实现解析](https://www.ibm.com/developerworks/cn/opensource/os-cn-hadoop-name-node/index.html)
+[Hadoop NameNode 高可用 (High Availability) 实现解析](images/https://www.ibm.com/developerworks/cn/opensource/os-cn-hadoop-name-node/index.html)
 

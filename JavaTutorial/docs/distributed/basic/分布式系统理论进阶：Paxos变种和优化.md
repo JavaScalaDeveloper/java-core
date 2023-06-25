@@ -30,11 +30,13 @@
 
 有很多基于Paxos的优化，在保证一致性协议正确(safety)的前提下，减少Paxos决议通信步骤、避免单点故障、实现节点负载均衡，从而降低时延、增加吞吐量、提升可用性，下面我们就来了解这些Paxos变种。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20161217185911917-43631009.jpg)
 
 ## **Multi Paxos**
 
 首先我们来回顾一下Multi Paxos，Multi Paxos在Basic Paxos的基础上确定一系列值，其决议过程如下：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20161218102045714-754820695.png)
 
@@ -58,6 +60,7 @@ Multi Paxos中leader用于避免活锁，但leader的存在会带来其他问题
 
 对Multi Paxos phase2a，如果可以自由提议value，则可以让proposer直接发起提议、leader退出通信过程，变为proposer -> acceptor -> learner，这就是Fast Paxos<sup>[2]</sup>的由来。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20161218102011683-1409659558.png)
 
 Multi Paxos里提议都由leader提出，因而不存在一次决议出现多个value，Fast Paxos里由proposer直接提议，一次决议里可能有多个proposer提议、出现多个value，即出现提议冲突(collision)。leader起到初始化决议进程(progress)和解决冲突的作用，当冲突发生时leader重新参与决议过程、回退到3次通信步骤。
@@ -72,9 +75,11 @@ Paxos自身隐含的一个特性也可以达到减少通信步骤的目标，如
 
 为达到这些目标，EPaxos的实现有几个要点。一是EPaxos中没有全局的leader，而是每一次提议发起提议的proposer作为当次提议的leader(command leader)；二是不相互影响(interfere)的提议可以同时提交；三是跳过prepare，直接进入accept阶段。EPaxos决议的过程如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20161218173608104-1507680298.png)
 
 左侧展示了互不影响的两个update请求的决议过程，右侧展示了相互影响的两个update请求的决议。Multi Paxos、Mencius、EPaxos时延和吞吐量对比：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20161218180622104-945213222.png)
 

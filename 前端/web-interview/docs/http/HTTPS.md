@@ -1,6 +1,8 @@
 # 面试官：为什么说HTTPS比HTTP安全? HTTPS是如何保证安全的？
 
- ![](https://static.vue-js.com/b5512250-b2ff-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/b5512250-b2ff-11eb-ab90-d9ae814b240d.png)
 
 ## 一、安全特性
 
@@ -15,7 +17,9 @@
 
  > SSL(Secure Sockets Layer 安全套接字协议),及其继任者传输层安全（Transport Layer Security，TLS）是为网络通信提供安全及数据完整性的一种安全协议
 
- ![](https://static.vue-js.com/cb559400-b2ff-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/cb559400-b2ff-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -35,7 +39,9 @@
 
 对称加密指的是加密和解密使用的秘钥都是同一个，是对称的。只要保证了密钥的安全，那整个通信过程就可以说具有了机密性
 
- ![](https://static.vue-js.com/e3f040f0-b2ff-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/e3f040f0-b2ff-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -46,7 +52,9 @@
 公钥和私钥都可以用来加密解密，但公钥加密后只能用私钥解
 密，反过来，私钥加密后也只能用公钥解密
 
- ![](https://static.vue-js.com/d9603e60-b2ff-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/d9603e60-b2ff-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -60,7 +68,9 @@
 
 具体做法是发送密文的一方使用对方的公钥进行加密处理“对称的密钥”，然后对方用自己的私钥解密拿到“对称的密钥”
 
- ![](https://static.vue-js.com/f375f290-b2ff-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/f375f290-b2ff-11eb-85f6-6fac77c0c9b3.png)
 
 这样可以确保交换的密钥是安全的前提下，使用对称加密方式进行通信
 
@@ -80,13 +90,17 @@
 
 可以理解成一种特殊的压缩算法，它能够把任意长度的数据“压缩”成固定长度、而且独一无二的“摘要”字符串，就好像是给这段数据生成了一个数字“指纹”
 
- ![](https://static.vue-js.com/12798da0-b300-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/12798da0-b300-11eb-85f6-6fac77c0c9b3.png)
 
 摘要算法保证了“数字摘要”和原文是完全等价的。所以，我们只要在原文后附上它的摘要，就能够保证数据的完整性
 
 比如，你发了条消息：“转账 1000 元”，然后再加上一个 SHA-2 的摘要。网站收到后也计算一下消息的摘要，把这两份“指纹”做个对比，如果一致，就说明消息是完整可信的，没有被修改
 
- ![](https://static.vue-js.com/023790e0-b300-11eb-ab90-d9ae814b240d.png)
+ 
+
+![](https://static.vue-js.com/023790e0-b300-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -98,7 +112,9 @@
 
 签名和公钥一样完全公开，任何人都可以获取。但这个签名只有用私钥对应的公钥才能解开，拿到摘要后，再比对原文验证完整性，就可以像签署文件一样证明消息确实是你发的
 
- ![](https://static.vue-js.com/21aa6880-b300-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/21aa6880-b300-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -114,7 +130,9 @@ CA 对公钥的签名认证要求包括序列号、用途、颁发者、有效�
 
 流程如下图：
 
- ![](https://static.vue-js.com/395648a0-b300-11eb-85f6-6fac77c0c9b3.png)
+ 
+
+![](https://static.vue-js.com/395648a0-b300-11eb-85f6-6fac77c0c9b3.png)
 
 - 服务器的运营人员向数字证书认证机构提出公开密钥的申请
 - 数字证书认证机构在判明提出申请者的身份之后，会对已申请的公开密钥做数字签名

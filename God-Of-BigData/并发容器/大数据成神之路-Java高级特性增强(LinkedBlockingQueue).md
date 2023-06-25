@@ -11,7 +11,9 @@ LinkedBlockingQueue是一个单向链表实现的阻塞队列。该队列按 FIF
 此外，LinkedBlockingQueue还是可选容量的(防止过度膨胀)，即可以指定队列的容量。如果不指定，默认容量大小等于Integer.MAX_VALUE。
 
 ### LinkedBlockingQueue原理和数据结构
-LinkedBlockingQueue的数据结构，如下图所示：![f8ea78da236a6ad11f3a04f1472e9017](大数据成神之路-Java高级特性增强(LinkedBlockingQueue).resources/C0887B04-3B23-4874-B6D5-702B2FE76242.jpg)
+LinkedBlockingQueue的数据结构，如下图所示：
+
+![f8ea78da236a6ad11f3a04f1472e9017](images/大数据成神之路-Java高级特性增强(LinkedBlockingQueue).resources/C0887B04-3B23-4874-B6D5-702B2FE76242.jpg)
 说明：
 
 1. LinkedBlockingQueue继承于AbstractQueue，它本质上是一个FIFO(先进先出)的队列。
@@ -77,7 +79,7 @@ String toString()
 下面从LinkedBlockingQueue的创建，添加，删除，遍历这几个方面对它进行分析。
 **1. 创建**
 下面以LinkedBlockingQueue(int capacity)来进行说明。
-```
+```java
 public LinkedBlockingQueue(int capacity) {
     if (capacity <= 0) throw new IllegalArgumentException();
     this.capacity = capacity;
@@ -113,7 +115,7 @@ static class Node<E> {
 **2. 添加**
 
 下面以offer(E e)为例，对LinkedBlockingQueue的添加方法进行说明。
-```
+```java
 public boolean offer(E e) {
     if (e == null) throw new NullPointerException();
     // 如果“队列已满”，则返回false，表示插入失败。
@@ -174,7 +176,7 @@ signalNotEmpty()的作用是唤醒notEmpty上的等待线程。
 **3. 取出**
 
 下面以take()为例，对LinkedBlockingQueue的取出方法进行说明。
-```
+```java
 public E take() throws InterruptedException {
     E x;
     int c = -1;
@@ -235,7 +237,7 @@ signalNotFull()的作用就是唤醒notFull上的等待线程。
 
 **4. 遍历**
 下面对LinkedBlockingQueue的遍历方法进行说明。
-```
+```java
 public Iterator<E> iterator() {
   return new Itr();
 }

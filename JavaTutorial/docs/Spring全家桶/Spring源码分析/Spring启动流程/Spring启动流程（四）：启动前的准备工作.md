@@ -1,5 +1,6 @@
 完成包的扫描后，接着就开始了 spring 的启动了，即 `AbstractApplicationContext#refresh` 方法，该方法一共包含 13 个操作，涵盖也 spring 启动的整个流程：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-88c3a2486c24ccd0ad390ba9b62b986a6b2.png)
 
 本系列从本文开始，逐步分析这 13 个方法，探索 spring 的启动流程。
@@ -222,6 +223,7 @@ class ApplicationContextAwareProcessor implements BeanPostProcessor {
 关于 `BeanPostProcessor` 的的分析，可以参考 [spring 组件之 BeanPostProcessors ](https://my.oschina.net/funcy/blog/4597551)，关于该类的作用，后续会继续讲到。
 
 好了，本文的分析就到这里了，本文仅分析了 spring 启动时对 beanFactory 的准备，内容较简单，最后用一幅图来总结下本文内容：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-1e10d7aff080b2e0bbfbef5d79c56cc54c9.png)
 

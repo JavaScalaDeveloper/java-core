@@ -37,6 +37,7 @@ Paxos协议同时又以其“艰深晦涩”著称，下面结合[Paxos Made Sim
 
 也许你会疑惑只确定一个值能起什么作用，在Paxos协议里确定并只确定一个值是确定多值的基础，如何确定多值将在第二部分Multi Paxos中介绍，这部分我们聚焦在“Paxos如何确定并只确定一个值”这一问题上。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20160711232543717-973749854.gif)
 
 和2PC类似，Paxos先把节点分成两类，发起提议(proposal)的一方为proposer，参与决议的一方为acceptor。假如只有一个proposer发起提议，并且节点不宕机、消息不丢包，那么acceptor做到以下这点就可以确定一个值：
@@ -101,6 +102,7 @@ P2b约束的是提议被确定(chosen)后proposer的行为，我们更关心提�
 
 条件P2c是Basic Paxos的核心，光看P2c的描述可能会觉得一头雾水，我们通过[The Part-Time Parliament](http://research.microsoft.com/en-us/um/people/lamport/pubs/lamport-paxos.pdf)中的例子加深理解：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20160712103935326-2086911417.png)
 
 假设有A~E 5个acceptor，- 表示acceptor因宕机等原因缺席当次决议，x 表示acceptor不接受提议，o 表示接受提议；多数派acceptor接受提议后提议被确定，以上表格对应的决议过程如下：
@@ -127,6 +129,7 @@ _(注: 希腊字母ß表示多轮决议的集合，字母B表示一轮决议)_
 
 至此，proposer/acceptor完成一轮决议可归纳为prepare和accept两个阶段。prepare阶段proposer发起提议问询提议值、acceptor回应问询并进行promise；accept阶段完成决议，图示如下：
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20160712125617045-527200085.png)
 
 还有一个问题需要考量，假如proposer A发起ID为n的提议，在提议未完成前proposer B又发起ID为n+1的提议，在n+1提议未完成前proposer C又发起ID为n+2的提议…… 如此acceptor不能完成决议、形成活锁(livelock)，虽然这不影响一致性，但我们一般不想让这样的情况发生。解决的方法是从proposer中选出一个leader，提议统一由leader发起。
@@ -137,9 +140,11 @@ _(注: 希腊字母ß表示多轮决议的集合，字母B表示一轮决议)_
 
 通过以上步骤分布式系统已经能确定一个值，“只确定一个值有什么用？这可解决不了我面临的问题。” 你心中可能有这样的疑问。
 
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20160712150303811-1635028332.gif)
 
 其实不断地进行“确定一个值”的过程、再为每个过程编上序号，就能得到具有全序关系(total order)的系列值，进而能应用在数据库副本存储等很多场景。我们把单次“确定一个值”的过程称为实例(instance)，它由proposer/acceptor/learner组成，下图说明了A/B/C三机上的实例：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/116770-20160712212514107-1914374126.png)
 

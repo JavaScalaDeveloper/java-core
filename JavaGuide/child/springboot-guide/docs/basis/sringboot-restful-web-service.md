@@ -30,6 +30,7 @@
 
 并且你需要下载 IDEA 中支持 lombok 的插件：
 
+
 ![ IDEA 中下载支持 lombok 的插件](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/lombok-idea.png)
 
 ### RESTful Web 服务开发
@@ -106,6 +107,7 @@ public class BookController {
 **1.使用 post 请求给书架增加书籍**
 
 这里我模拟添加了 3 本书籍。
+
 
 ![使用 post 请求给书架增加书籍](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/post-add-book.png)
 

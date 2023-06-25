@@ -10,7 +10,8 @@ http://tutorials.jenkov.com/java-nio/index.html
 
 #### Selector（选择器）介绍
 Selector一般称为选择器,当然你也可以翻译为多路复用器。它是Java NIO核心组件中的一个,用于检查一个或多个NIO Channel（通道）的状态是否处于可读、可写。如此可以实现单线程管理多个channels,也就是可以管理多个网络链接。
-![e87095c49bef56cb3cce7c4529cac9ad](Java NIO之Selector(选择器).resources/C32A7750-CD6E-469A-8E9E-BEC983989522.png)
+
+![e87095c49bef56cb3cce7c4529cac9ad](images/Java NIO之Selector(选择器).resources/C32A7750-CD6E-469A-8E9E-BEC983989522.png)
 使用Selector的好处在于:使用更少的线程来就可以来处理通道了,相比使用多个线程,避免了线程上下文切换带来的开销。
 
 #### Selector（选择器）的使用方法介绍
@@ -292,7 +293,8 @@ public class WebClient {
 **运行结果：**
 先运行服务端，再运行客户端，服务端会不断收到客户端发送过来的消息。
 
-![6164e7d53ea6af8d8578f1f9ae9e2d6e](Java NIO之Selector(选择器).resources/3B614359-3026-4B01-938C-605FA70D1FCD.png)
+
+![6164e7d53ea6af8d8578f1f9ae9e2d6e](images/Java NIO之Selector(选择器).resources/3B614359-3026-4B01-938C-605FA70D1FCD.png)
 
 **参考文档：**
 

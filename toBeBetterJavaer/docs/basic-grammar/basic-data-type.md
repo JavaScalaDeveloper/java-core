@@ -28,11 +28,13 @@ Java 中的数据类型可分为 2 种：
 
 来个思维导图，感受下。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-01.png)
 
 [变量](https://tobebetterjavaer.com/oo/var.html)可以分为局部变量、成员变量、静态变量。
 
 当变量是局部变量的时候，必须得先初始化，否则编译器不允许你使用它。拿 int 来举例吧，看下图。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-02.png)
 
@@ -93,6 +95,7 @@ public class LocalVar {
 在往上的单位就是 KB，并不是 1000 字节，因为计算机只认识二进制，因此是 2 的 10 次方，也就是 1024 个字节。
 
 （终于知道 1024 和程序员的关系了吧？狗头保命）
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-03.png)
 
@@ -199,11 +202,13 @@ char letterA = 'A'; // 用英文的单引号包裹住。
 
 单精度是这样的格式，1 位符号，8 位指数，23 位小数。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-04.png)
 
 单精度浮点数通常占用 32 位（4 字节）存储空间。数值范围大约是 ±1.4E-45 到 ±3.4028235E38，精度大约为 6 到 9 位有效数字。
 
 双精度是这样的格式，1 位符号，11 位指数，52 为小数。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-05.png)
 
@@ -373,6 +378,7 @@ arrays 是一个 int 类型的数组，对吧？打印结果如下所示：
 
 `[I` 表示数组是 int 类型的，@ 后面是十六进制的 hashCode——这样的打印结果太“人性化”了，一般人表示看不懂！为什么会这样显示呢？查看一下 `java.lang.Object` 类的 `toString()` 方法就明白了。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-06.png)
 
 数组虽然没有显式定义成一个类，但它的确是一个对象，继承了祖先类 Object 的所有方法。那为什么数组不单独定义一个类来表示呢？就像字符串 String 类那样呢？
@@ -412,6 +418,7 @@ public class ArrayList<E> extends AbstractList<E>
 
 对于接口类型的引用变量来说，你没法直接 new 一个：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-07.png)
 
 只能 new 一个实现它的类的对象——那自然接口也是引用数据类型了。
@@ -448,6 +455,7 @@ public class ArrayList<E> extends AbstractList<E>
 
 用图来表示一下，左侧是栈，右侧是堆。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-grammar/basic-data-type-dc26645a-3ed8-4ad4-815d-52528ad12d6b.png)
 
 这里再补充一些额外的知识点，能看懂就继续吸收，看不懂可以先去学下一节，以后再来补，没关系的。学习就是这样，可以跳过，可以温故。
@@ -472,6 +480,7 @@ public void test()
 ```
 
 我来画个图表示下。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-grammar/basic-data-type-3d5b3e40-1abb-4624-8282-b83e58388825.png)
 

@@ -97,6 +97,7 @@ dict字典与Java中的哈希表实现简直如出一辙，首先都是数组+�
 
 其中dict同时保存两个entry数组，当需要扩容时，把节点转移到第二个数组即可，平时只使用一个数组。
 
+
 ![image](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis_dict_structure.png)
 
 ### 3 压缩链表ziplist
@@ -127,6 +128,7 @@ quicklist的结构为什么这样设计呢？总结起来，大概又是一个�
 
 但是，它不利于修改操作，每次数据变动都会引发一次内存的realloc。特别是当ziplist长度很长的时候，一次realloc可能会导致大批量的数据拷贝，进一步降低性能。
 
+
 ![image](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis_quicklist_structure.png)
 
 ### 5 zset
@@ -145,6 +147,7 @@ sortedset是由skiplist，dict和ziplist组成的。
 
 在本系列前面关于ziplist的文章里，我们介绍过，ziplist就是由很多数据项组成的一大块连续内存。由于sorted set的每一项元素都由数据和score组成，因此，当使用zadd命令插入一个(数据, score)对的时候，底层在相应的ziplist上就插入两个数据项：数据在前，score在后。
 
+
 ![image](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/redis_skiplist_example.png)
 
 skiplist的节点中存着节点值和分数。并且跳表是根据节点的分数进行排序的，所以可以根据节点分数进行范围查找。
@@ -152,6 +155,7 @@ skiplist的节点中存着节点值和分数。并且跳表是根据节点的分
 ### 7inset
 
 inset是一个数字结合，他使用灵活的数据类型来保持数字。
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230406202310.png)
 
@@ -215,6 +219,7 @@ Redis的数据库使用字典作为底层实现，数据库的增、删、查、
 大的dict数组中有多个小的dict字典，他们共同负责存储redisdb的所有键值对。
 
 同时，对应的expire字典则负责存储这些键的过期时间
+
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230406201529.png)
 
 ### 4 过期键的删除策略
@@ -257,6 +262,7 @@ redis处理请求的方式基于reactor线程模型，即一个线程处理连�
 只追加文件（AOF）：他会在执行写命令的时候，将执行的写命令复制到硬盘里面，后期恢复的时候，只需要重新执行一下这个写命令就可以了。类似于我们的MySQL数据库在进行主从复制的时候，使用的是binlog二进制文件，同样的是执行一遍写命令；
 
 appendfsync同步频率的区别如下图：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/20230406201549.png)
 

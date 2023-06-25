@@ -166,6 +166,7 @@ return atomicInteger.intValue();
 
 **60** 秒后页面输出了 **17**，有3次提交失败了：
 
+
 ![image-20220517082615656](images/image-20220517082615656.png)
 
 并且日志中也出现了 **3** 次类似的错误信息：
@@ -176,6 +177,7 @@ java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.Futur
 ```
 
 我们把 **printStats** 方法打印出的日志绘制成图表，得出如下曲线：
+
 
 ![image-20220517082642564](images/image-20220517082642564.png)
 
@@ -315,6 +317,7 @@ new Thread(() -> {
 
 可以想象到，这个线程池中的2个线程任务是相当重的。通过printStats方法打印出的日志，我们观察下线程池的负担：
 
+
 ![image-20220517083249217](images/image-20220517083249217.png)
 
 可以看到，线程池的2个线程始终处于活跃状态，队列也基本处于打满状态。因为开启了CallerRunsPolicy拒绝处理策略，所以当线程满载队列也满的情况下，任务会在提交任务的线程，或者说调用execute方法的线程执行，也就是说不能认为提交到线程池的任务就一定是异步处理的。如果使用了CallerRunsPolicy策略，那么有可能异步任务变为同步执行。从日志的第四行也可以看到这点。这也是这个拒绝策略比较特别的原因。
@@ -342,6 +345,7 @@ public int wrong() throws ExecutionException, InterruptedException {
 
 我们使用 **wrk** 工具对这个接口进行一个简单的压测，可以看到 **TPS** 为 75，性能的确非常差。
 
+
 ![image-20220517083339012](images/image-20220517083339012.png)
 
 细想一下，问题其实没有这么简单。因为原来执行IO任务的线程池使用的是CallerRunsPolicy策略，所以直接使用这个线程池进行异步计算的话，当线程池饱和的时候，计算任务会在执行Web请求的Tomcat线程执行，这时就会进一步影响到其他同步处理的线程，甚至造成整个应用程序崩溃。
@@ -362,6 +366,7 @@ public int right() throws ExecutionException, InterruptedException {
 ```
 
 使用单独的线程池改造代码后再来测试一下性能，TPS提高到了1727：
+
 
 ![image-20220517083402523](images/image-20220517083402523.png)
 

@@ -34,6 +34,7 @@ Maven 坐标：
 
 StringUtils 提供了非常多实用的方法，大概有下图的四页到五页，我只截了两页，实在是太多了。
 
+
 ![](https://cdn.tobebetterjavaer.com/stutymore/StringUtils-20230330111122.png)
 
 接下来，我们来拿一些常用的方法举例说明。

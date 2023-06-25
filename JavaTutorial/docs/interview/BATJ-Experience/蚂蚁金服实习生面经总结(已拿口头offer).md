@@ -52,6 +52,7 @@
 
 逼逼了将近 30 分钟，面试官居然用周杰伦的语气对我说：
 
+
 ![not bad](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3not-bad.jpg)
 
 我突然受宠若惊，连忙说谢谢，也正是因为第一次面试得到了面试官的肯定，才让我信心大增，二三面稳定发挥。
@@ -81,6 +82,7 @@
 **我：** 先用最简单的方式实现它，再去发掘系统的问题和瓶颈，于是查资料改进架构。。。
 
 **面试官：** 好，那我给你介绍下我这边的情况吧
+
 
 ![chat-end](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3chat-end.jpg)
 
@@ -154,6 +156,7 @@
 
 **我:** 当然是 TCP！原因如下：
 
+
 ![TCP VS UDP](https://user-gold-cdn.xitu.io/2018/4/19/162db5e97e9a9e01?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 **面试官:** 好的，你有什么要问我的吗？
@@ -163,6 +166,7 @@
 **面试官：** 应该。应该有的，一周内吧。还告诉我居然转正前要实习三个月？wtf，一个大三满课的本科生让我如何在八月底前实习三个月？
 
 **我：** 面试官再见
+
 
 ![saygoodbye-smile](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3saygoodbye-smile.jpg)
 
@@ -226,6 +230,7 @@
 
 面试官人特别好，一听就是很会说话的小姐姐！说我这里给你悄悄透露下，你的评级是 A 哦！
 
+
 ![panghu-knowledge](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3panghu-knowledge.jpg)
 
 接下来就是几个经典 HR 面挂人的问题，什么难给我来什么，我看别人的 HR 面怎么都是聊聊天。。。
@@ -255,5 +260,6 @@
 **我 :** 哈哈哈哈开玩笑，就说了阿里的文化，支付宝给我们带来很多便利，想加入支付宝为人类做贡献！
 
 最后 HR 问了我实习时间，现在大几之类的问题，说肯定会给我发 offer 的，让我等着就好了，希望过两天能收到好的结果。
+
 
 ![mengbi](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3mengbi.jpg)

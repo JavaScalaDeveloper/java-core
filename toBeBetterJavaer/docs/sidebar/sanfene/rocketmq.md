@@ -23,10 +23,12 @@ head:
 
 *   **解耦**：引入消息队列之前，下单完成之后，需要订单服务去调用库存服务减库存，调用营销服务加营销数据……引入消息队列之后，可以把订单完成的消息丢进队列里，下游服务自己去调用就行了，这样就完成了订单服务和其它服务的解耦合。
 
+
 ![消息队列解耦](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-dd332b3f-d5e5-41bc-813a-9f612e582255.jpg)
 
 
 *   **异步**：订单支付之后，我们要扣减库存、增加积分、发送消息等等，这样一来这个链路就长了，链路一长，响应时间就变长了。引入消息队列，除了`更新订单状态`，其它的都可以**异步**去做，这样一来就来，就能降低响应时间。
+
 
 ![消息队列异步](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-40d8f782-08cf-48c4-98b2-cb125d287e93.jpg)
 
@@ -34,6 +36,7 @@ head:
 *   **削峰**：消息队列合一用来削峰，例如秒杀系统，平时流量很低，但是要做秒杀活动，秒杀的时候流量疯狂怼进来，我们的服务器，Redis，MySQL各自的承受能力都不一样，直接全部流量照单全收肯定有问题啊，严重点可能直接打挂了。
 
 我们可以把请求扔到队列里面，只放出我们服务能处理的流量，这样就能抗住短时间的大流量了。
+
 
 ![消息队列削峰](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-f028cb0c-b1a3-47ef-b290-f7d6f46512fb.jpg)
 
@@ -44,6 +47,7 @@ head:
 ### 2.为什么要选择RocketMQ?
 
 市场上几大消息队列对比如下：
+
 
 ![四大消息队列对比](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-c3493e70-67c7-4f0d-bb99-f0fe8074c807.jpg)
 
@@ -94,6 +98,7 @@ RocketMQ缺点：
 
 这是最初的一种消息队列模型，对应着消息队列“发-存-收”的模型。生产者往某个队列里面发送消息，一个队列可以存储多个生产者的消息，一个队列也可以有多个消费者，但是消费者之间是竞争关系，也就是说每条消息只能被一个消费者消费。
 
+
 ![队列模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-d94a9bf9-3fed-40a6-8aef-0d0395b6e409.jpg)
 
 
@@ -102,6 +107,7 @@ RocketMQ缺点：
 如果需要将一份消息数据分发给多个消费者，并且每个消费者都要求收到全量的消息。很显然，队列模型无法满足这个需求。解决的方式就是发布/订阅模型。
 
 在发布 - 订阅模型中，消息的发送方称为发布者（Publisher），消息的接收方称为订阅者（Subscriber），服务端存放消息的容器称为主题（Topic）。发布者将消息发送到主题中，订阅者在接收消息之前需要先“订阅主题”。“订阅”在这里既是一个动作，同时还可以认为是主题在消费时的一个逻辑副本，每份订阅中，订阅者都可以接收到主题的所有消息。
+
 
 ![发布-订阅模型](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-692ec6a0-8499-4de2-be17-a577996bdaef.jpg)
 
@@ -114,6 +120,7 @@ RocketMQ缺点：
 RocketMQ使用的消息模型是标准的发布-订阅模型，在RocketMQ的术语表中，生产者、消费者和主题，与发布-订阅模型中的概念是完全一样的。
 
 RocketMQ本身的消息是由下面几部分组成：
+
 
 ![RocketMQ消息的组成](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-4ab7f942-23d7-4462-8e36-e305cc0a045f.jpg)
 
@@ -161,11 +168,13 @@ RocketMQ还有一些其它的Queue——例如ConsumerQueue。
 
 RocketMQ的消息模型中，这些就是比较关键的概念了。画张图总结一下：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-e470b972-f4ac-4b76-bcde-0df5d4765ca7.jpg)
 
 ### 6.消息的消费模式了解吗？
 
 消息消费模式有两种：**Clustering**（集群消费）和**Broadcasting**（广播消费）。
+
 
 ![两种消费模式](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-2c574635-1eaa-4bdd-8aa8-1bdc3f10b274.jpg)
 
@@ -179,6 +188,7 @@ RocketMQ的消息模型中，这些就是比较关键的概念了。画张图总
 
 先看图，RocketMQ的基本架构：
 
+
 ![RocketMQ架构](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-d4c0e036-0f0e-466f-bd4b-7e6ee10daca4.jpg)
 
 
@@ -190,6 +200,7 @@ RocketMQ 一共有四个部分组成：NameServer，Broker，Producer 生产者�
 类比一下我们生活的邮政系统——
 
 邮政系统要正常运行，离不开下面这四个角色， 一是发信者，二 是收信者， 三是负责暂存传输的邮局， 四是负责协调各个地方邮局的管理机构。对应到 RocketMQ 中，这四个角色就是 Producer、 Consumer、 Broker 、NameServer。
+
 
 ![RocketMQ类比邮政体系](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-00175355-5532-4ee6-a48c-e3e3a9b87d64.jpg)
 
@@ -214,6 +225,7 @@ NameServer 是一个无状态的服务器，角色类似于 Kafka使用的 Zooke
 消息存储和中转角色，负责存储和转发消息。
 
 *   Broker 内部维护着一个个 Consumer Queue，用来存储消息的索引，真正存储消息的地方是 CommitLog（日志文件）。
+
 
 ![RocketMQ存储-图片来源官网](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-789379a9-4a0c-4992-9de1-e49283d089a4.jpg)
 
@@ -249,6 +261,7 @@ NameServer 是一个无状态的服务器，角色类似于 Kafka使用的 Zooke
 
 所以要从这三个阶段考虑：
 
+
 ![消息传递三阶段](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-692a920d-621f-4b36-87f8-edb53e7f5cd9.jpg)
 
 
@@ -268,6 +281,7 @@ NameServer 是一个无状态的服务器，角色类似于 Kafka使用的 Zooke
 *   1、消息只要持久化到CommitLog（日志文件）中，即使Broker宕机，未消费的消息也能重新恢复再消费。
 *   2、Broker的刷盘机制：同步刷盘和异步刷盘，不管哪种刷盘都可以保证消息一定存储在pagecache中（内存中），但是同步刷盘更可靠，它是Producer发送消息后等数据持久化到磁盘之后再返回响应给Producer。
 
+
 ![同步刷盘和异步刷盘-图片来源官网](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-61a3b092-1329-4738-bef9-6eb7ae429c26.jpg)
 
 
@@ -286,6 +300,7 @@ NameServer 是一个无状态的服务器，角色类似于 Kafka使用的 Zooke
 
 处理消息重复问题，主要有业务端自己保证，主要的方式有两种：**业务幂等**和**消息去重**。
 
+
 ![消息重复处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-05c0538b-abfa-4bb0-973f-6b92555a6e5b.jpg)
 
 
@@ -300,12 +315,14 @@ NameServer 是一个无状态的服务器，角色类似于 Kafka使用的 Zooke
 
 发生了消息积压，这时候就得想办法赶紧把积压的消息消费完，就得考虑提高消费能力，一般有两种办法：
 
+
 ![消息积压处理](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-5d1ea064-1a37-4746-ad26-a18a1c8c344e.jpg)
 
 
 
 *   **消费者扩容**：如果当前Topic的Message Queue的数量大于消费者数量，就可以对消费者进行扩容，增加消费者，来提高消费能力，尽快把积压的消息消费玩。
 *   **消息迁移Queue扩容**：如果当前Topic的Message Queue的数量小于或者等于消费者数量，这种情况，再扩容消费者就没什么用，就得考虑扩容Message Queue。可以新建一个临时的Topic，临时的Topic多设置一些Message Queue，然后先用一些消费者把消费的数据丢到临时的Topic，因为不用业务处理，只是转发一下消息，还是很快的。接下来用扩容的消费者去消费新的Topic里的数据，消费完了之后，恢复原状。
+
 
 ![消息迁移扩容消费](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-69aa8004-45e9-4e41-b628-1d7ed6d94c92.jpg)
 
@@ -314,6 +331,7 @@ NameServer 是一个无状态的服务器，角色类似于 Kafka使用的 Zooke
 ### 12.顺序消息如何实现？
 
 顺序消息是指消息的消费顺序和产生顺序相同，在有些业务逻辑下，必须保证顺序，比如订单的生成、付款、发货，这个消息必须按顺序处理才行。
+
 
 ![顺序消息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-e3de6bb5-b5db-47af-8ae3-73aedd269f32.jpg)
 
@@ -327,17 +345,20 @@ NameServer 是一个无状态的服务器，角色类似于 Kafka使用的 Zooke
 
 部分顺序消息相对比较好实现，生产端需要做到把同 ID 的消息发送到同一个 Message Queue ；在消费过程中，要做到从同一个Message Queue读取的消息顺序处理——消费端不能并发处理顺序消息，这样才能达到部分有序。
 
+
 ![部分顺序消息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-14ab3700-8538-473e-bb66-8acfdd6a77a2.jpg)
 
 
 
 发送端使用 MessageQueueSelector 类来控制 把消息发往哪个 Message Queue 。
 
+
 ![顺序消息生产-例子来源官方](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-4aad853e-4dd7-4cde-b28d-b6e74ca9331f.jpg)
 
 
 
 消费端通过使用 MessageListenerOrderly 来解决单 Message Queue 的消息被并发处理的问题。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-f233ab8e-87f0-4b64-91eb-d4d9ec71ab3e.jpg)
 
@@ -346,6 +367,7 @@ NameServer 是一个无状态的服务器，角色类似于 Kafka使用的 Zooke
 RocketMQ 默认情况下不保证顺序，比如创建一个 Topic ，默认八个写队列，八个读队列，这时候一条消息可能被写入任意一个队列里；在数据的读取过程中，可能有多个 Consumer ，每个 Consumer 也可能启动多个线程并行处理，所以消息被哪个 Consumer 消费，被消费的顺序和写人的顺序是否一致是不确定的。
 
 要保证全局顺序消息， 需要先把 Topic 的读写队列数设置为 一，然后Producer Consumer 的并发设置，也要是一。简单来说，为了保证整个 Topic全局消息有序，只能消除所有的并发处理，各部分都设置成单线程处理 ，这时候就完全牺牲RocketMQ的高并发、高吞吐的特性了。
+
 
 ![全局顺序消息](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-8e98ac61-ad47-4ed4-aac6-223201f9aae2.jpg)
 
@@ -361,6 +383,7 @@ RocketMQ 默认情况下不保证顺序，比如创建一个 Topic ，默认八�
 一般采用Cosumer端过滤，如果希望提高吞吐量，可以采用Broker过滤。
 
 对消息的过滤有三种方式：
+
 
 ![消息过滤](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-f2c8bf50-dc51-44c8-9d71-b8a22af199c4.jpg)
 
@@ -422,6 +445,7 @@ private String messageDelayLevel = "1s 5s 10s 30s 1m 2m 3m 4m 5m 6m
 
 Broker收到延时消息了，会先发送到主题（SCHEDULE\_TOPIC\_XXXX）的相应时间段的Message Queue中，然后通过一个定时任务轮询这些队列，到期后，把消息投递到目标Topic的队列中，然后消费者就可以正常消费这些消息。
 
+
 ![延迟消息处理流程-图片来源见水印](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-e3b68480-8006-4cd6-892a-1c72f8b0fbcb.jpg)
 
 
@@ -431,6 +455,7 @@ Broker收到延时消息了，会先发送到主题（SCHEDULE\_TOPIC\_XXXX）�
 半消息：是指暂时还不能被 Consumer 消费的消息，Producer 成功发送到 Broker 端的消息，但是此消息被标记为 “暂不可投递” 状态，只有等 Producer 端执行完本地事务后经过二次确认了之后，Consumer 才能消费此条消息。
 
 依赖半消息，可以实现分布式消息事务，其中的关键在于二次确认以及消息回查：
+
 
 ![RocketMQ实现消息事务](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-76df2fb9-0f3f-496d-88a8-aac79ad1102c.jpg)
 
@@ -468,11 +493,13 @@ RocketMQ 控制台提供对死信消息的查询、导出和重发的功能。
 
 NameServer因为是无状态，且不相互通信的，所以只要集群部署就可以保证高可用。
 
+
 ![NameServer集群](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-0ce789f4-7a47-4c24-ac08-76f0490298f7.jpg)
 
 
 
 RocketMQ的高可用主要是在体现在Broker的读和写的高可用，Broker的高可用是通过`集群`和`主从`实现的。
+
 
 ![Broker集群、主从示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-76c5eb61-9605-4620-84fb-dc960f01de85.jpg)
 
@@ -501,6 +528,7 @@ Consumer 的配置文件中，并不需要设置是从 Master 读还是从 Slave
 2.  Producer在发送消息的时候从NameServer获取Broker服务器地址，根据负载均衡算法选择一台服务器来发送消息
 3.  Conusmer消费消息的时候同样从NameServer获取Broker地址，然后主动拉取消息来消费
 
+
 ![RocketMQ整体工作流程](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-ec571bd4-fa24-4ada-87ab-f761a7dfdf3f.jpg)
 
 
@@ -518,9 +546,11 @@ Kafka我们都知道采用Zookeeper作为注册中心——当然也开始逐渐
 
 RocketMQ主要的存储文件包括CommitLog文件、ConsumeQueue文件、Indexfile文件。
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-b6d13d4d-c417-43b4-bfe1-12724777888c.jpg)
 
 消息存储的整体的设计：
+
 
 ![消息存储整体设计-来源官网](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-ddbf8773-1d71-4d1a-a186-46f6985b621e.jpg)
 
@@ -529,6 +559,7 @@ RocketMQ主要的存储文件包括CommitLog文件、ConsumeQueue文件、Indexf
 *   **CommitLog**：消息主体以及元数据的存储主体，存储Producer端写入的消息主体内容,消息内容不是定长的。单个文件大小默认1G, 文件名长度为20位，左边补零，剩余为起始偏移量，比如00000000000000000000代表了第一个文件，起始偏移量为0，文件大小为1G=1073741824；当第一个文件写满了，第二个文件为00000000001073741824，起始偏移量为1073741824，以此类推。消息主要是顺序写入日志文件，当文件满了，写入下一个文件。
 
 CommitLog文件保存于${Rocket\_Home}/store/commitlog目录中，从图中我们可以明显看出来文件名的偏移量，每个文件默认1G，写满后自动生成一个新的文件。
+
 
 ![CommitLog](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-a76f7365-8a8c-4b91-9505-9d427cf3bde4.jpg)
 
@@ -539,10 +570,12 @@ Consumer即可根据ConsumeQueue来查找待消费的消息。其中，ConsumeQu
 
 ConsumeQueue文件可以看成是基于Topic的CommitLog索引文件，故ConsumeQueue文件夹的组织方式如下：topic/queue/file三层组织结构，具体存储路径为：$HOME/store/consumequeue/{topic}/{queueId}/{fileName}。同样ConsumeQueue文件采取定长设计，每一个条目共20个字节，分别为8字节的CommitLog物理偏移量、4字节的消息长度、8字节tag hashcode，单个文件由30W个条目组成，可以像数组一样随机访问每一个条目，每个ConsumeQueue文件大小约5.72M；
 
+
 ![Comsumer Queue](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-c8b22760-35c2-436b-81ed-be49a107357b.jpg)
 
 
 *   **IndexFile**：IndexFile（索引文件）提供了一种可以通过key或时间区间来查询消息的方法。Index文件的存储位置是： {fileName}，文件名fileName是以创建时的时间戳命名的，固定的单个IndexFile文件大小约为400M，一个IndexFile可以保存 2000W个索引，IndexFile的底层存储设计为在文件系统中实现HashMap结构，故RocketMQ的索引文件其底层实现为hash索引。
+
 
 ![IndexFile文件示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-f06f306b-fd87-48ff-b1cb-e39750d308e7.jpg)
 
@@ -555,6 +588,7 @@ RocketMQ的混合型存储结构(多个Topic的消息实体内容都存储于一
 只要消息被刷盘持久化至磁盘文件CommitLog中，那么Producer发送的消息就不会丢失。正因为如此，Consumer也就肯定有机会去消费这条消息。当无法拉取到消息后，可以等下一次消息拉取，同时服务端也支持长轮询模式，如果一个消息拉取请求未拉取到消息，Broker允许等待30s的时间，只要这段时间内有新消息到达，将直接返回给消费端。
 
 这里，RocketMQ的具体做法是，使用Broker端的后台服务线程—ReputMessageService不停地分发请求并异步构建ConsumeQueue（逻辑消费队列）和IndexFile（索引文件）数据。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-80af9918-2d4b-4b43-b83a-d44bfc0f30bc.jpg)
 
@@ -578,6 +612,7 @@ RocketMQ对文件的读写巧妙地利用了操作系统的一些高效文件读
 
 在操作系统中，使用传统的方式，数据需要经历几次拷贝，还要经历用户态/内核态切换。
 
+
 ![传统文件传输示意图-来源《图解操作系统》](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-35fd884c-8d1b-4d04-8f09-23ed2f945b23.jpg)
 
 
@@ -588,6 +623,7 @@ RocketMQ对文件的读写巧妙地利用了操作系统的一些高效文件读
 4.  最后是从网络驱动的内核态内存复制到网卡中进行传输。
 
 所以，可以通过零拷贝的方式，**减少用户态与内核态的上下文切换**和**内存拷贝的次数**，用来提升I/O的性能。零拷贝比较常见的实现方式是**mmap**，这种机制在Java中是通过MappedByteBuffer实现的。
+
 
 ![mmap示意图-来源《图解操作系统》](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-3ebab020-e411-4239-b91e-72147190c7b1.jpg)
 
@@ -606,6 +642,7 @@ RocketMQ提供了两种刷盘策略：同步刷盘和异步刷盘
 
 异步而言，只是唤醒对应的线程，不保证执行的时机，流程如图所示。
 
+
 ![异步刷盘](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-10a2361b-5e23-462f-86bf-1a9bce2342e5.jpg)
 
 
@@ -617,6 +654,7 @@ RocketMQ中的负载均衡都在Client端完成，具体来说的话，主要可
 ##### Producer的负载均衡
 
 Producer端在发送消息的时候，会先根据Topic找到指定的TopicPublishInfo，在获取了TopicPublishInfo路由信息后，RocketMQ的客户端在默认方式下selectOneMessageQueue()方法会从TopicPublishInfo中的messageQueueList中选择一个队列（MessageQueue）进行发送消息。具这里有一个sendLatencyFaultEnable开关变量，如果开启，在随机递增取模的基础上，再过滤掉not available的Broker代理。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-5f254411-502b-4bd3-89b5-d3157964617b.jpg)
 
@@ -638,6 +676,7 @@ Producer端在发送消息的时候，会先根据Topic找到指定的TopicPubli
 
 rebalanceByTopic()方法会根据消费者通信类型为“广播模式”还是“集群模式”做不同的逻辑处理。这里主要来看下集群模式下的主要处理流程：
 
+
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-7cbfd097-5186-47ba-9641-687bc9381d0b.jpg)
 
 
@@ -647,11 +686,13 @@ rebalanceByTopic()方法会根据消费者通信类型为“广播模式”还�
 
 (3) 先对Topic下的消息消费队列、消费者Id排序，然后用消息队列分配策略算法（默认为：消息队列的平均分配算法），计算出待拉取的消息队列。这里的平均分配算法，类似于分页的算法，将所有MessageQueue排好序类似于记录，将所有消费端Consumer排好序类似页数，并求出每一页需要包含的平均size和每个页面记录的范围range，最后遍历整个range而计算出当前Consumer端应该分配到的的MessageQueue。
 
+
 ![Cosumer分配](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-6d1c69e7-5245-495f-8f8d-b5e48162df6f.jpg)
 
 
 
 (4) 然后，调用updateProcessQueueTableInRebalance()方法，具体的做法是，先将分配到的消息队列集合（mqSet）与processQueueTable做一个过滤比对。
+
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-c84236ed-77a6-45e9-b086-4927d72ce21a.jpg)
 
@@ -664,6 +705,7 @@ rebalanceByTopic()方法会根据消费者通信类型为“广播模式”还�
 ### 23.RocketMQ消息长轮询了解吗？
 
 所谓的长轮询，就是Consumer 拉取消息，如果对应的 Queue 如果没有数据，Broker 不会立即返回，而是把 PullReuqest hold起来，等待 queue 有了消息后，或者长轮询阻塞时间到了，再重新处理该 queue 上的所有 PullRequest。
+
 
 ![长轮询简单示意图](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mianznxrocketmqessw-5a715dea-8e18-471e-9a74-e97299901658.jpg)
 

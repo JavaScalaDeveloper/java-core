@@ -426,6 +426,7 @@ public void doHandle(Map<String, Object> attributes, AnnotatedBeanDefinition bea
 
 从代码上看，`ServletRegistrationBean`、`FilterRegistrationBean` 与 `ServletListenerRegistrationBean` 都是 `ServletContextInitializer` 接口的实现类，`ServletRegistrationBean` 的继承结构如下：
 
+
 ![图片来自网络](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-0397d56cfb328683ae349d0822db2320231.png)
 
 `ServletContextInitializer` 中只有一个方法 `onStartup(...)`：
@@ -585,6 +586,7 @@ class TomcatStarter implements ServletContainerInitializer {
 那么 `TomcatStarter` 是如何添加到 tomcat 容器中的呢？虽然 `servlt 3.0` 规范可以通过 `spi` 技术扫描到 `ServletContainerInitializer` 的实现，但是这里明显不是这样做的，因为如果由 tomcat 通过 `spi` 扫描得到 `TomcatStarter` 的实例，那它的成员变量 `initializers` 就无法赋值了，所以在添加到 tomcat 前，`TomcatStarter` 就要实例化并且 `initializers` 就要被赋值。
 
 经过多次调试，发现 `TomcatStarter` 是在 `TomcatServletWebServerFactory#configureContext` 中添加到 tomcat 容器的，关键代码如下:
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-6625407ce4d1dad8de736db00db124a2a99.png)
 

@@ -9,6 +9,7 @@ tag:
 
 ## 建立连接-TCP 三次握手
 
+
 ![TCP 三次握手图解](https://oss.javaguide.cn/github/javaguide/cs-basics/network/tcp-shakes-hands-three-times.png)
 
 建立一个 TCP 连接需要“三次握手”，缺一不可：
@@ -38,6 +39,7 @@ tag:
 > SYN 同步序列编号(Synchronize Sequence Numbers) 是 TCP/IP 建立连接时使用的握手信号。在客户机和服务器之间建立正常的 TCP 网络连接时，客户机首先发出一个 SYN 消息，服务器使用 SYN-ACK 应答表示接收到了这个消息，最后客户机再以 ACK(Acknowledgement）消息响应。这样在客户机和服务器之间才能建立起可靠的 TCP 连接，数据才可以在客户机和服务器之间传递。
 
 ## 断开连接-TCP 四次挥手
+
 
 ![TCP 四次挥手图解](https://oss.javaguide.cn/github/javaguide/cs-basics/network/tcp-waves-four-times.png)
 

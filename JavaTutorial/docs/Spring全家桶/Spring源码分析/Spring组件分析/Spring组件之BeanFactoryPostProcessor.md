@@ -62,9 +62,13 @@ void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
 
 该方法中只有一个参数：`ConfigurableListableBeanFactory`，我们想了解 `BeanFactoryPostProcessor` 能为我们做什么，需要知道这个参数提供了哪些功能：
 
-我们先来看看它的 `set` 方法： ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-63b39c81bcae0b10c60a2f847c6b47af932.png)
+我们先来看看它的 `set` 方法： 
 
-除此之外，还有 `register` 方法： ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-50c48da9b50dcf18abcd99db09142644c6c.png)
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-63b39c81bcae0b10c60a2f847c6b47af932.png)
+
+除此之外，还有 `register` 方法： 
+
+![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-50c48da9b50dcf18abcd99db09142644c6c.png)
 
 有了这些方法，我们就可以定制化 `beanFactory` 的一些行为了。
 
@@ -79,6 +83,7 @@ void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry)
 ```
 
 这个方法的参数是 `BeanDefinitionRegistry`，从字面意义来看，这是个 `BeanDefinition 注册器`，它提供了如下方法：
+
 
 ![](https://java-tutorial.oss-cn-shanghai.aliyuncs.com/up-5812a2cac994c5940d57c7e6ab55c23a63e.png)
 

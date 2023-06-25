@@ -1,7 +1,9 @@
 # 面试官：说说你对图的理解？相关操作有哪些？
 
 
- ![](https://static.vue-js.com/7876c2f0-2059-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/7876c2f0-2059-11ec-8e64-91fdec0f05a1.png)
 
 
 ## 一、是什么
@@ -24,7 +26,9 @@
 
 通过使用一个二维数组`G[N][N]`进行表示`N`个点到`N-1`编号，通过邻接矩阵可以立刻看出两顶点之间是否存在一条边，只需要检查邻接矩阵行`i`和列`j`是否是非零值，对于无向图，邻接矩阵是对称的
 
- ![](https://static.vue-js.com/881d4300-2059-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/881d4300-2059-11ec-a752-75723a64e8f5.png)
 
 
 
@@ -32,7 +36,9 @@
 
 存储方式如下图所示：
 
- ![](https://static.vue-js.com/949fedd0-2059-11ec-a752-75723a64e8f5.png)
+ 
+
+![](https://static.vue-js.com/949fedd0-2059-11ec-a752-75723a64e8f5.png)
 
 在`javascript`中，可以使用`Object`进行表示，如下：
 
@@ -65,7 +71,9 @@ const graph = {
 
 首先构建一个图的邻接矩阵表示，如下面的图：
 
- ![](https://static.vue-js.com/a1311790-2059-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/a1311790-2059-11ec-8e64-91fdec0f05a1.png)
 
 用代码表示则如下：
 
@@ -147,7 +155,9 @@ const dfs = (n) => {
 
 图实际是很复杂的，后续还可以延伸出无向图和带权图，对应如下图所示：
 
- ![](https://static.vue-js.com/b0d88200-2059-11ec-8e64-91fdec0f05a1.png)
+ 
+
+![](https://static.vue-js.com/b0d88200-2059-11ec-8e64-91fdec0f05a1.png)
 
 
 
