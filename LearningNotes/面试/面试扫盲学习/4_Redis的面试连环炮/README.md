@@ -513,7 +513,7 @@ info server，可以看到master run id
 
 从节点使用psync从master node进行复制，psync runid offset master node会根据自身的情况返回响应信息，可能是FULLRESYNC runid offset触发全量复制，可能是CONTINUE触发增量复制
 
-![maste run id的作用](images/maste run id的作用.png)
+![maste run id的作用](images/maste-run-id的作用.png)
 
 #### 全量复制
 
