@@ -222,7 +222,7 @@ SHOW INDEX ON emp;
 - 具有自动重写的物化视图 (Materialized View) 可以产生与索引相似的效果（Hive 2.3.0 增加了对物化视图的支持，在 3.0 之后正式引入）。
 - 使用列式存储文件格式（Parquet，ORC）进行存储时，这些格式支持选择性扫描，可以跳过不需要的文件或块。
 
-> ORC 内置的索引功能可以参阅这篇文章：[Hive 性能优化之 ORC 索引–Row Group Index vs Bloom Filter Index](images/http://lxw1234.com/archives/2016/04/632.htm)
+> ORC 内置的索引功能可以参阅这篇文章：[Hive 性能优化之 ORC 索引–Row Group Index vs Bloom Filter Index](http://lxw1234.com/archives/2016/04/632.htm)
 
 
 
@@ -232,5 +232,5 @@ SHOW INDEX ON emp;
 
 1. [Create/Drop/Alter View](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Create/Drop/AlterView)
 2. [Materialized views](images/https://cwiki.apache.org/confluence/display/Hive/Materialized+views)
-3. [Hive 索引](images/http://lxw1234.com/archives/2015/05/207.htm)
+3. [Hive 索引](http://lxw1234.com/archives/2015/05/207.htm)
 4. [Overview of Hive Indexes](images/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Indexing)

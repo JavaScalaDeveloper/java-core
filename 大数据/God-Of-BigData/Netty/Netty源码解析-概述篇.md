@@ -106,7 +106,7 @@ Netty的源码非常好，质量极高，是Java中质量最高的开源项目�
 
 ![components in Netty][2]
 
-具体的解释可以看这里：[http://netty.io/3.7/guide/#architecture](images/http://netty.io/3.7/guide/#architecture)。图中可以看到，除了之前说到的事件驱动机制之外，Netty的核心功能还包括两部分：
+具体的解释可以看这里：[http://netty.io/3.7/guide/#architecture](http://netty.io/3.7/guide/#architecture)。图中可以看到，除了之前说到的事件驱动机制之外，Netty的核心功能还包括两部分：
 
 * Zero-Copy-Capable Rich Byte Buffer
 
@@ -124,9 +124,9 @@ Netty的源码非常好，质量极高，是Java中质量最高的开源项目�
 
 ### 参考资料：
 
-* Netty 3.7 User Guide [http://netty.io/3.7/guide/](images/http://netty.io/3.7/guide/)
+* Netty 3.7 User Guide [http://netty.io/3.7/guide/](http://netty.io/3.7/guide/)
 
-* What is Netty? [http://ayedo.github.io/netty/2013/06/19/what-is-netty.html](images/http://ayedo.github.io/netty/2013/06/19/what-is-netty.html)
+* What is Netty? [http://ayedo.github.io/netty/2013/06/19/what-is-netty.html](http://ayedo.github.io/netty/2013/06/19/what-is-netty.html)
 
   [1]: http://static.oschina.net/uploads/space/2013/0921/174032_18rb_190591.png
   [2]: http://static.oschina.net/uploads/space/2013/0921/225721_R0w2_190591.png

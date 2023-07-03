@@ -448,7 +448,7 @@ Full thread dump Java HotSpot(TM) 64-Bit Server VM (24.71-b01 mixed mode):
         - None
       .....
 ```
-这里有一篇文章解释的很好 [分析打印出的文件内容](images/http://www.hollischuang.com/archives/110)
+这里有一篇文章解释的很好 [分析打印出的文件内容](http://www.hollischuang.com/archives/110)
 jinfo
 jinfo(JVM Configuration info)这个命令作用是实时查看和调整虚拟机运行参数。 之前的jps -v口令只能查看到显示指定的参数，如果想要查看未被显示指定的参数的值就要使用jinfo口令
 

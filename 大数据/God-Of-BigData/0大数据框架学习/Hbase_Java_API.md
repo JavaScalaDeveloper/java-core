@@ -757,5 +757,5 @@ connection = ConnectionFactory.createConnection(config);
 ## 参考资料
 
 1. [连接 HBase 的正确姿势](images/https://yq.aliyun.com/articles/581702?spm=a2c4e.11157919.spm-cont-list.1.146c27aeFxoMsN%20%E8%BF%9E%E6%8E%A5HBase%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF)
-2. [Apache HBase ™ Reference Guide](images/http://hbase.apache.org/book.htm)
+2. [Apache HBase ™ Reference Guide](http://hbase.apache.org/book.htm)
 

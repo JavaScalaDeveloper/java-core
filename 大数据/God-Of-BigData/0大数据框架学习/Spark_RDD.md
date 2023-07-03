@@ -227,7 +227,7 @@ RDD(s) 及其之间的依赖关系组成了 DAG(有向无环图)，DAG 定义了
 
 1. 张安站 . Spark 技术内幕：深入解析 Spark 内核架构设计与实现原理[M] . 机械工业出版社 . 2015-09-01
 2. [RDD Programming Guide](images/https://spark.apache.org/docs/latest/rdd-programming-guide.html#rdd-programming-guide)
-3. [RDD：基于内存的集群计算容错抽象](images/http://shiyanjun.cn/archives/744.html)
+3. [RDD：基于内存的集群计算容错抽象](http://shiyanjun.cn/archives/744.html)
 
 
 

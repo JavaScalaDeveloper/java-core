@@ -158,4 +158,4 @@ Exception: Replication factor: 3 larger than available brokers: 1.
 ## 参考资料
 
 1. Neha Narkhede, Gwen Shapira ,Todd Palino(著) , 薛命灯 (译) . Kafka 权威指南 . 人民邮电出版社 . 2017-12-26
-2. [Kafka 高性能架构之道](images/http://www.jasongj.com/kafka/high_throughput/)
+2. [Kafka 高性能架构之道](http://www.jasongj.com/kafka/high_throughput/)

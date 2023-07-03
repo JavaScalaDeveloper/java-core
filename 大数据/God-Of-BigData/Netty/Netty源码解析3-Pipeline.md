@@ -136,4 +136,4 @@ DefaultChannelPipeline里还有些机制，像添加/删除/替换Handler，以�
 
 参考资料：
 
-* Sink [http://en.wikipedia.org/wiki/Sink_\(computing\)](images/http://en.wikipedia.org/wiki/Sink_\(computing\))
+* Sink [http://en.wikipedia.org/wiki/Sink_\(computing\)](http://en.wikipedia.org/wiki/Sink_\(computing\))

@@ -7,7 +7,7 @@
 > 1. Java 7+ (Apache Storm 1.x is tested through travis ci against both java 7 and java 8 JDKs)
 > 2. Python 2.6.6 (Python 3.x should work too, but is not tested as part of our CI enviornment)
 
-按照[官方文档](images/http://storm.apache.org/releases/1.2.2/Setting-up-a-Storm-cluster.html) 的说明：storm 运行依赖于 Java 7+ 和 Python 2.6.6 +，所以需要预先安装这两个软件。由于这两个软件在多个框架中都有依赖，其安装步骤单独整理至  ：
+按照[官方文档](http://storm.apache.org/releases/1.2.2/Setting-up-a-Storm-cluster.html) 的说明：storm 运行依赖于 Java 7+ 和 Python 2.6.6 +，所以需要预先安装这两个软件。由于这两个软件在多个框架中都有依赖，其安装步骤单独整理至  ：
 
 + [Linux 环境下 JDK 安装](images/https://github.com/heibaiying/BigData-Notes/blob/master/notes/installation/Linux下JDK安装.md)
 

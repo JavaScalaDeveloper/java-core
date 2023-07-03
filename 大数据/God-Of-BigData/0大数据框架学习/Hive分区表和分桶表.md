@@ -81,7 +81,7 @@ LOAD DATA LOCAL INPATH "/usr/file/emp30.txt" OVERWRITE INTO TABLE emp_partition 
 
 <div align="center"> <img width="600px"  src="../pictures/HashMap-HashTable.png"/> </div>
 
-> 图片引用自：[HashMap vs. Hashtable](images/http://www.itcuties.com/java/hashmap-hashtable/)
+> 图片引用自：[HashMap vs. Hashtable](http://www.itcuties.com/java/hashmap-hashtable/)
 
 ### 1.3 创建分桶表
 

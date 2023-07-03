@@ -193,4 +193,4 @@ hbase> restore_snapshot '快照名'
 ## 参考资料
 
 1. [Online Apache HBase Backups with CopyTable](images/https://blog.cloudera.com/blog/2012/06/online-hbase-backups-with-copytable-2/)
-2. [Apache HBase ™ Reference Guide](images/http://hbase.apache.org/book.htm)
+2. [Apache HBase ™ Reference Guide](http://hbase.apache.org/book.htm)

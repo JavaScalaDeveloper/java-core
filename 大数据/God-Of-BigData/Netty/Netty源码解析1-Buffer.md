@@ -105,7 +105,7 @@ TCP报文有个比较大的特点，就是它传输的时候，会先把应用�
 
 在创建Buffer时，我们注意到了这样一个方法：`public static ChannelBuffer buffer(ByteOrder endianness, int capacity);`，其中`ByteOrder`是什么意思呢？
 
-这里有个很基础的概念：字节序(ByteOrder/Endianness)。它规定了多余一个字节的数字(int啊long什么的)，如何在内存中表示。BIG_ENDIAN(大端序)表示高位在前，整型数`12`会被存储为`0 0 0 12`四字节，而LITTLE_ENDIAN则正好相反。可能搞C/C++的程序员对这个会比较熟悉，而Javaer则比较陌生一点，因为Java已经把内存给管理好了。但是在网络编程方面，根据协议的不同，不同的字节序也可能会被用到。目前大部分协议还是采用大端序，可参考[RFC1700](images/http://tools.ietf.org/html/rfc1700)。
+这里有个很基础的概念：字节序(ByteOrder/Endianness)。它规定了多余一个字节的数字(int啊long什么的)，如何在内存中表示。BIG_ENDIAN(大端序)表示高位在前，整型数`12`会被存储为`0 0 0 12`四字节，而LITTLE_ENDIAN则正好相反。可能搞C/C++的程序员对这个会比较熟悉，而Javaer则比较陌生一点，因为Java已经把内存给管理好了。但是在网络编程方面，根据协议的不同，不同的字节序也可能会被用到。目前大部分协议还是采用大端序，可参考[RFC1700](http://tools.ietf.org/html/rfc1700)。
 
 了解了这些知识，我们也很容易就知道为什么会有`BigEndianHeapChannelBuffer`和`LittleEndianHeapChannelBuffer`了！
 
@@ -192,6 +192,6 @@ DynamicChannelBuffer是一个很方便的Buffer，之所以叫Dynamic是因为�
 
 参考资料：
 
-* TCP/IP协议 [http://zh.wikipedia.org/zh-cn/TCP/IP%E5%8D%8F%E8%AE%AE](images/http://zh.wikipedia.org/zh-cn/TCP/IP%E5%8D%8F%E8%AE%AE)
-* Data_buffer [http://en.wikipedia.org/wiki/Data_buffer](images/http://en.wikipedia.org/wiki/Data_buffer)
-* Endianness [http://en.wikipedia.org/wiki/Endianness](images/http://en.wikipedia.org/wiki/Endianness)
+* TCP/IP协议 [http://zh.wikipedia.org/zh-cn/TCP/IP%E5%8D%8F%E8%AE%AE](http://zh.wikipedia.org/zh-cn/TCP/IP%E5%8D%8F%E8%AE%AE)
+* Data_buffer [http://en.wikipedia.org/wiki/Data_buffer](http://en.wikipedia.org/wiki/Data_buffer)
+* Endianness [http://en.wikipedia.org/wiki/Endianness](http://en.wikipedia.org/wiki/Endianness)

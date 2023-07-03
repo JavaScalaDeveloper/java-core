@@ -151,9 +151,9 @@ Task 是组成 Component 的代码单元。Topology 启动后，1 个 Component 
 
 ## 参考资料
 
-1. [storm documentation -> Concepts](images/http://storm.apache.org/releases/1.2.2/Concepts.html)
+1. [storm documentation -> Concepts](http://storm.apache.org/releases/1.2.2/Concepts.html)
 
 2. [Internal Working of Apache Storm](images/https://www.spritle.com/blogs/2016/04/04/apache-storm/)
-3. [Understanding the Parallelism of a Storm Topology](images/http://storm.apache.org/releases/1.2.2/Understanding-the-parallelism-of-a-Storm-topology.html)
+3. [Understanding the Parallelism of a Storm Topology](http://storm.apache.org/releases/1.2.2/Understanding-the-parallelism-of-a-Storm-topology.html)
 4. [Storm nimbus 单节点宕机的处理](images/https://blog.csdn.net/daiyutage/article/details/52049519)
 

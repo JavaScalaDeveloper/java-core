@@ -68,7 +68,7 @@ Flume 中的每一个组件都提供了丰富的类型，适用于不同场景�
 
 - Channel 类型 ：`Memory Channel`，`JDBC Channel`，`Kafka Channel`，`File Channel` 等。
 
-对于 Flume 的使用，除非有特别的需求，否则通过组合内置的各种类型的 Source，Sink 和 Channel 就能满足大多数的需求。在 [Flume 官网](images/http://flume.apache.org/releases/content/1.9.0/FlumeUserGuide.html) 上对所有类型组件的配置参数均以表格的方式做了详尽的介绍，并附有配置样例；同时不同版本的参数可能略有所不同，所以使用时建议选取官网对应版本的 User Guide 作为主要参考资料。
+对于 Flume 的使用，除非有特别的需求，否则通过组合内置的各种类型的 Source，Sink 和 Channel 就能满足大多数的需求。在 [Flume 官网](http://flume.apache.org/releases/content/1.9.0/FlumeUserGuide.html) 上对所有类型组件的配置参数均以表格的方式做了详尽的介绍，并附有配置样例；同时不同版本的参数可能略有所不同，所以使用时建议选取官网对应版本的 User Guide 作为主要参考资料。
 
    
 

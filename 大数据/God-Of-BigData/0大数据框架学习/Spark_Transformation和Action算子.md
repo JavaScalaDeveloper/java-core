@@ -414,5 +414,5 @@ sc.parallelize(list).saveAsTextFile("/usr/file/temp")
 
 ## 参考资料
 
-[RDD Programming Guide](images/http://spark.apache.org/docs/latest/rdd-programming-guide.html#rdd-programming-guide)
+[RDD Programming Guide](http://spark.apache.org/docs/latest/rdd-programming-guide.html#rdd-programming-guide)
 

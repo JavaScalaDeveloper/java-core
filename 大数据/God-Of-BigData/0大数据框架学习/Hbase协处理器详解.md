@@ -485,6 +485,6 @@ hbase > get 'magazine','rowkey1','article:content'
 
 ## 参考资料
 
-1. [Apache HBase Coprocessors](images/http://hbase.apache.org/book.html#cp)
+1. [Apache HBase Coprocessors](http://hbase.apache.org/book.html#cp)
 2. [Apache HBase Coprocessor Introduction](images/https://blogs.apache.org/hbase/entry/coprocessor_introduction)
 3. [HBase 高階知識](images/https://www.itread01.com/content/1546245908.html)

@@ -22,7 +22,7 @@
 
 Hadoop MapReduce 是一个分布式计算框架，用于编写批处理应用程序。编写好的程序可以提交到 Hadoop 集群上用于并行处理大规模的数据集。
 
-MapReduce 作业通过将输入的数据集拆分为独立的块，这些块由 `map` 以并行的方式处理，框架对 `map` 的输出进行排序，然后输入到 `reduce` 中。MapReduce 框架专门用于 `<key，value>` 键值对处理，它将作业的输入视为一组 `<key，value>` 对，并生成一组 `<key，value>` 对作为输出。输出和输出的 `key` 和 `value` 都必须实现[Writable](images/http://hadoop.apache.org/docs/stable/api/org/apache/hadoop/io/Writable.html) 接口。
+MapReduce 作业通过将输入的数据集拆分为独立的块，这些块由 `map` 以并行的方式处理，框架对 `map` 的输出进行排序，然后输入到 `reduce` 中。MapReduce 框架专门用于 `<key，value>` 键值对处理，它将作业的输入视为一组 `<key，value>` 对，并生成一组 `<key，value>` 对作为输出。输出和输出的 `key` 和 `value` 都必须实现[Writable](http://hadoop.apache.org/docs/stable/api/org/apache/hadoop/io/Writable.html) 接口。
 
 ```
 (input) <k1, v1> -> map -> <k2, v2> -> combine -> <k2, v2> -> reduce -> <k3, v3> (output)
@@ -377,7 +377,7 @@ job.setNumReduceTasks(WordCountDataUtils.WORD_LIST.size());
 ## 参考资料
 
 1. [分布式计算框架 MapReduce](images/https://zhuanlan.zhihu.com/p/28682581)
-2. [Apache Hadoop 2.9.2 > MapReduce Tutorial](images/http://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)
+2. [Apache Hadoop 2.9.2 > MapReduce Tutorial](http://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)
 3. [MapReduce - Combiners](images/ https://www.tutorialscampus.com/tutorials/map-reduce/combiners.htm)
 
 

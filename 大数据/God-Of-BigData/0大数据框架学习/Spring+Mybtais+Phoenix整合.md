@@ -112,7 +112,7 @@ phoenix.url=jdbc:phoenix:192.168.0.105:2181
 
 ### 2.5 Mybtais参数配置
 
-新建 mybtais 配置文件，按照需求配置额外参数， 更多 settings 配置项可以参考[官方文档](images/http://www.mybatis.org/mybatis-3/zh/configuration.html)
+新建 mybtais 配置文件，按照需求配置额外参数， 更多 settings 配置项可以参考[官方文档](http://www.mybatis.org/mybatis-3/zh/configuration.html)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>

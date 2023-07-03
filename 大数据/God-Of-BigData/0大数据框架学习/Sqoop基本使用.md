@@ -384,4 +384,4 @@ $ sqoop import ... --map-column-java id=String,value=Integer
 
 ## 参考资料
 
-[Sqoop User Guide (v1.4.7)](images/http://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html)
+[Sqoop User Guide (v1.4.7)](http://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html)

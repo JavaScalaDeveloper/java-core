@@ -507,5 +507,5 @@ private String productData() {
 
 ## 参考资料
 
-1. [Running Topologies on a Production Cluster](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/Running-topologies-on-a-production-cluster.html)
-2. [Pre-defined Descriptor Files](images/http://maven.apache.org/plugins/maven-assembly-plugin/descriptor-refs.html)
+1. [Running Topologies on a Production Cluster](http://storm.apache.org/releases/2.0.0-SNAPSHOT/Running-topologies-on-a-production-cluster.html)
+2. [Pre-defined Descriptor Files](http://maven.apache.org/plugins/maven-assembly-plugin/descriptor-refs.html)

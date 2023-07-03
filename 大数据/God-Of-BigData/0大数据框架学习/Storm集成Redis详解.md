@@ -652,4 +652,4 @@ public class CustomRedisCountApp {
 
 ## 参考资料
 
-1. [Storm Redis Integration](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-redis.html)
+1. [Storm Redis Integration](http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-redis.html)

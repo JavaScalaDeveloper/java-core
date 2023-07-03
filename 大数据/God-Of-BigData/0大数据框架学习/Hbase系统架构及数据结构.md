@@ -176,7 +176,7 @@ HBase 系统遵循 Master/Salve 架构，由三种不同类型的组件组成：
 
 7. 判断 Memstore 存储是否已满，如果存储已满则需要 flush 为 Store Hfile 文件。
 
-> 更为详细写入流程可以参考：[HBase － 数据写入流程解析](images/http://hbasefly.com/2016/03/23/hbase_writer/)
+> 更为详细写入流程可以参考：[HBase － 数据写入流程解析](http://hbasefly.com/2016/03/23/hbase_writer/)
 
 
 
@@ -198,9 +198,9 @@ HBase 系统遵循 Master/Salve 架构，由三种不同类型的组件组成：
 
 > 更为详细读取数据流程参考：
 >
-> [HBase 原理－数据读取流程解析](images/http://hbasefly.com/2016/12/21/hbase-getorscan/)
+> [HBase 原理－数据读取流程解析](http://hbasefly.com/2016/12/21/hbase-getorscan/)
 >
-> [HBase 原理－迟到的‘数据读取流程部分细节](images/http://hbasefly.com/2017/06/11/hbase-scan-2/)
+> [HBase 原理－迟到的‘数据读取流程部分细节](http://hbasefly.com/2017/06/11/hbase-scan-2/)
 
 
 

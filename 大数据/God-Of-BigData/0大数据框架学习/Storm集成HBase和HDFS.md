@@ -485,5 +485,5 @@ SimpleHBaseMapper mapper = new SimpleHBaseMapper()
 
 ## 参考资料
 
-1. [Apache HDFS Integration](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-hdfs.html)
-2. [Apache HBase Integration](images/http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-hbase.html)
+1. [Apache HDFS Integration](http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-hdfs.html)
+2. [Apache HBase Integration](http://storm.apache.org/releases/2.0.0-SNAPSHOT/storm-hbase.html)
