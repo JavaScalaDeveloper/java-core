@@ -85,7 +85,9 @@ val dataRDD = sc.parallelize(data,2)
 
 执行结果如下：
 
+
 <div align="center"> <img src="../pictures/scala-分区数.png"/> </div>
+
 ### 2.2 引用外部存储系统中的数据集
 
 引用外部存储系统中的数据集，例如本地文件系统，HDFS，HBase 或支持 Hadoop InputFormat 的任何数据源。

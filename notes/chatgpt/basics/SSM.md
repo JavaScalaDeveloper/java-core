@@ -194,6 +194,71 @@ new MyMethodInterceptor(targetObject)
 
 需要注意的是，Spring 会根据对象的作用域和配置来确定是否使用代理。对于单例模式的对象，默认情况下 Spring 会使用代理来管理对象的生命周期和增强功能。而对于非单例的对象，默认情况下 Spring 会通过 new 关键字直接实例化对象。
 
+## Spring是怎样通过@Transactional注解实现事务管理的？
+在 Spring 框架中，@Transactional 注解用于实现事务管理。通过 @Transactional 注解，可以将一个方法或类标记为事务性操作，从而使得 Spring 在方法调用时处理事务的提交和回滚。
+
+Spring 通过 AOP (Aspect-Oriented Programming) 织入的方式来实现 @Transactional 注解的事务管理，具体的实现步骤如下：
+
+- 使用 @EnableTransactionManagement 注解启用事务管理功能。在 Spring 配置类上添加该注解，表示开启对 @Transactional 注解的支持。
+
+- 配置事务管理器（TransactionManager）。Spring 使用事务管理器来管理事务的提交和回滚。可以根据具体的需求选择合适的事务管理器，如 DataSourceTransactionManager 或 JpaTransactionManager。
+
+- 在需要进行事务管理的方法或类上使用 @Transactional 注解。该注解可以修饰方法和类，加在方法上表示该方法需要进行事务管理，加在类上表示该类下的所有方法都需要进行事务管理。
+
+- 当调用被 @Transactional 注解修饰的方法时，Spring 就会通过 AOP 代理来拦截方法的调用，对事务进行管理。在方法调用之前，Spring 开启一个事务；如果方法正常执行完成，Spring 提交事务；如果方法中出现异常，Spring 回滚事务。
+
+需要注意的是，@Transactional 注解有一些属性可以配置事务的传播行为、隔离级别、超时时间等。通过配置这些属性，可以对事务的行为进行进一步的控制和定制。
+
+总结来说，Spring 通过 AOP 和代理机制，在 @Transactional 注解修饰的方法调用时自动管理事务。通过启用事务管理、配置事务管理器、使用 @Transactional 注解，并根据注解属性的配置，Spring 能够在方法调用期间处理事务的开启、提交或回滚。这样能够简化事务管理的代码，并提供了灵活的配置选项来适应各种事务场景需求。
+
+## Spring的编程式事务管理和声明式事务管理是怎么实现的？
+
+在 Spring 中，事务管理主要有两种方式：编程式事务管理和声明式事务管理。
+
+- 编程式事务管理：
+
+在编程式事务管理中，开发人员通过手动编写代码来控制事务的开始、提交或回滚。通常使用编程式事务管理时，需要在事务的开始和结束之间显式地调用相关的事务操作方法。
+
+以下是使用编程式事务管理的基本步骤：
+
+- 获取事务管理器（PlatformTransactionManager）
+
+- 创建事务定义（TransactionDefinition），包括隔离级别、传播行为、超时等设置
+
+- 开启事务（beginTransaction）
+- 执行业务逻辑
+- 根据业务结果判断是否提交或回滚事务（commitTransaction 或 rollbackTransaction）
+
+- 编程式事务管理提供了更精细的控制能力，适用于一些复杂的事务场景，但由于需要手动编写代码，会增加开发的复杂性。
+
+- 声明式事务管理：
+
+声明式事务管理是通过 AOP（面向切面编程）实现的，开发人员只需要在配置文件或使用注解的方式上添加相应的事务管理配置，而无需在业务代码中显示处理事务的代码。Spring 提供了 @Transactional 注解来进行声明式事务管理。使用声明式事务管理时，Spring 将在运行时自动为标注了 @Transactional 注解的方法添加事务管理逻辑，包括事务的开始、提交或回滚等操作。
+
+在声明式事务管理中，需要配置事务管理器（PlatformTransactionManager）和事务通知（TransactionAdvice），以及指定事务切入点（Pointcut）来确定哪些方法会被事务管理。
+
+优点是代码简洁，事务与业务逻辑分离，减少了重复代码和提高了可重用性。同时，可以通过配置灵活地调整事务的传播行为、隔离级别、超时等设置。
+
+总而言之，编程式事务管理需要手动编写事务控制代码，而声明式事务管理则通过 AOP 和注解的方式实现自动化的事务管理，为开发人员提供了更加便捷和灵活的事务控制方式。
+
+## Spring的懒加载是什么意思？
+在 Spring 中，懒加载（Lazy Loading）是一种延迟加载的机制。通常情况下，Spring 默认使用的是饿加载（Eager Loading）策略，即在容器启动时就会创建和初始化所有的 bean。而懒加载则是将 bean 的初始化推迟到第一次使用时进行。
+
+使用懒加载机制可以提高应用程序的性能和资源利用效率。当一个应用程序存在大量的 bean，并且某些 bean 在启动时并不会立即被使用到，这时通过懒加载可以避免不必要的初始化和资源占用。
+
+在 Spring 中，可以通过以下方式实现懒加载：
+
+- 对于单个 bean，可以在 bean 的定义上添加 @Lazy 注解，表示该 bean 是懒加载的。在使用时，Spring 容器会在首次访问该 bean 时才进行初始化。
+
+- 对于整个配置类或 XML 配置文件中的所有 bean，可以使用 @Configuration 或 <beans> 标签的 default-lazy-init 属性来进行设置。设置为 true 表示所有 bean 都是懒加载的。
+
+需要注意的是，懒加载仅适用于单例作用域（Singleton Scope）的 bean。对于原型作用域（Prototype Scope）的 bean，无论是否懒加载，Spring 都会在每次请求时创建一个新的实例。
+
+懒加载对于优化启动时间和减少不必要的资源占用是有益的，但也需要根据具体业务需求谨慎使用。懒加载可能会影响应用程序的实时性和响应性，因为在首次访问时可能会引入一定的延迟。因此，需要根据具体情况和性能需求来权衡是否使用懒加载。
+
+
+
+
 # SpringMVC
 
 ## 简述SpringMVC的执行流程
@@ -258,7 +323,6 @@ public interface UserMapper {
 ```
 
 ```xml
-
 <mapper namespace="com.example.mapper.UserMapper">
     <select id="getUserById" resultType="com.example.entity.User">
         SELECT * FROM user WHERE id = #{id}
@@ -329,34 +393,31 @@ MyBatis 本身并不提供数据库字段加解密的功能，但可以通过自
 ```java
 public class AesTypeHandler extends BaseTypeHandler<String> {
 
-    private final String key = "your-aes-key";
+  private final String key = "your-aes-key";
 
-    @Override
-    public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException {
-        String encrypted = AESUtil.encrypt(parameter, key);
-        ps.setString(i, encrypted);
-    }
+  @Override
+  public void setNonNullParameter(PreparedStatement ps, int i, String parameter, JdbcType jdbcType) throws SQLException {
+    String encrypted = AESUtil.encrypt(parameter, key);
+    ps.setString(i, encrypted);
+  }
 
-    @Override
-    public String getNullableResult(ResultSet resultSet, String columnName) throws SQLException {
-        String encrypted = resultSet.getString(columnName);
-        String decrypted = AESUtil.decrypt(encrypted, key);
-        return decrypted;
-    }
+  @Override
+  public String getNullableResult(ResultSet resultSet, String columnName) throws SQLException {
+    String encrypted = resultSet.getString(columnName);
+    return AESUtil.decrypt(encrypted, key);
+  }
 
-    @Override
-    public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
-        String encrypted = rs.getString(columnIndex);
-        String decrypted = AESUtil.decrypt(encrypted, key);
-        return decrypted;
-    }
+  @Override
+  public String getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
+    String encrypted = rs.getString(columnIndex);
+    return AESUtil.decrypt(encrypted, key);
+  }
 
-    @Override
-    public String getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
-        String encrypted = cs.getString(columnIndex);
-        String decrypted = AESUtil.decrypt(encrypted, key);
-        return decrypted;
-    }
+  @Override
+  public String getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
+    String encrypted = cs.getString(columnIndex);
+    return AESUtil.decrypt(encrypted, key);
+  }
 }
 ```
 
@@ -374,7 +435,7 @@ public class AesTypeHandler extends BaseTypeHandler<String> {
 
 总之，MyBatis 可以通过自定义 TypeHandler 和拦截器来实现对数据库字段的加解密处理，开发者可以根据具体的业务需求进行实现。
 
-# Mybatis的核心流程是什么？
+## Mybatis的核心流程是什么？
 
 Mybatis 的核心流程主要包括 Configuration、SqlSessionFactoryBuilder、SqlSessionFactory、SqlSession 和 Executor，其大致流程如下：
 
@@ -409,3 +470,25 @@ Mybatis 的核心流程主要包括 Configuration、SqlSessionFactoryBuilder、S
 - Executor 将执行结果进行处理，并将结果映射为 Java 对象返回给调用方。
 
 总之，Mybatis 的核心流程是 Configuration、SqlSessionFactoryBuilder、SqlSessionFactory、SqlSession 和 Executor 围绕着数据源和 Sql 语句进行的，其内部使用了许多设计模式和技术实现，并使得 Mybatis 成为一款强大的 ORM 框架。
+
+## Mybatis缓存
+- 一级缓存（本地缓存）：
+
+  - 默认情况下，MyBatis启用了一级缓存。它是基于线程的缓存，在同一个SqlSession中，执行相同的SQL语句时，返回的结果会被缓存起来。
+  - 一级缓存的范围是SqlSession级别，当SqlSession关闭或进行了更新操作（插入、更新、删除），缓存将被清空。
+  - 可以通过手动清除缓存（调用clearCache()方法）或配置参数来禁用一级缓存。
+- 二级缓存（全局缓存）：
+
+  - 二级缓存是一个跨SqlSession的缓存，可以被多个SqlSession共享。它默认是禁用的，需要手动在Mapper XML或配置文件中进行配置开启。
+  - 二级缓存是基于namespace的，同一个namespace下的语句执行结果会被缓存起来。
+  - 二级缓存的范围是Mapper级别，当进行了更新操作并提交（或回滚）后，缓存将被清空。
+  - 可以通过手动清除缓存（调用clearCache()方法）或配置参数来禁用二级缓存。
+
+注意事项：
+
+  - 一级缓存和二级缓存是两个独立的机制，相互之间没有关系。
+  - 对于数据表的更新操作（插入、更新、删除），要保证缓存的一致性，需要及时清空缓存或更新缓存中对应的数据。
+  - 缓存对于多表关联查询、复杂查询等情况下的性能提升有限，需要在实际使用中进行评估。
+  - 对于并发环境下的数据一致性问题，需要谨慎使用缓存并考虑合适的缓存策略（如使用定时刷新或失效时间等）。
+
+总结：MyBatis的缓存功能可以有效减少数据库访问次数，提高系统性能。一级缓存在SqlSession级别进行缓存，而二级缓存在Mapper级别进行缓存，使用时需要根据具体情况选择合适的缓存级别和缓存策略。
