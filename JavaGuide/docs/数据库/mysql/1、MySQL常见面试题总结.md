@@ -155,7 +155,7 @@ MyISAM 不提供事务支持。
 
 InnoDB 提供事务支持，实现了 SQL 标准定义了四个隔离级别，具有提交(commit)和回滚(rollback)事务的能力。并且，InnoDB 默认使用的 REPEATABLE-READ（可重读）隔离级别是可以解决幻读问题发生的（基于 MVCC 和 Next-Key Lock）。
 
-关于 MySQL 事务的详细介绍，可以看看我写的这篇文章：[MySQL 事务隔离级别详解](./transaction-isolation-level.md)。
+关于 MySQL 事务的详细介绍，可以看看我写的这篇文章：[MySQL 事务隔离级别详解](./6、事务隔离级别.md)。
 
 **3.是否支持外键**
 
@@ -448,7 +448,7 @@ mysql> SELECT @@tx_isolation;
 +-----------------+
 ```
 
-关于 MySQL 事务隔离级别的详细介绍，可以看看我写的这篇文章：[MySQL 事务隔离级别详解](./transaction-isolation-level.md)。
+关于 MySQL 事务隔离级别的详细介绍，可以看看我写的这篇文章：[MySQL 事务隔离级别详解](./6、事务隔离级别.md)。
 
 ## MySQL 锁
 
@@ -609,7 +609,7 @@ CREATE TABLE `sequence_id` (
 
 ## MySQL 性能优化
 
-关于 MySQL 性能优化的建议总结，请看这篇文章：[MySQL 高性能优化规范建议总结](./mysql-high-performance-optimization-specification-recommendations.md) 。
+关于 MySQL 性能优化的建议总结，请看这篇文章：[MySQL 高性能优化规范建议总结](./5、MySQL高性能优化规范建议总结.md) 。
 
 ### 能用 MySQL 直接存储文件（比如图片）吗？
 
