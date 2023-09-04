@@ -277,3 +277,8 @@ network.memory.fraction：指定可供网络缓冲使用的堆内存比例，默
 io.file.buffer.size：指定文件 I/O 操作的缓冲区大小，默认为 4096。根据文件读写的性能要求，可以适当增加或减少该值。
 
 注意，Flink 的参数设置不仅限于上述内容，还有其他参数可以根据具体的应用场景进行优化。你可以通过修改 Flink 的配置文件（flink-conf.yaml 或 flink-conf.sh）或在代码中使用 ExecutionConfig 来设置这些参数。同时，也建议参考官方文档和相关资源，深入了解这些参数的含义和用法。
+
+# flink运行时的组件
+![img.png](../../images/flink架构图)
+
+Flink运行时架构主要包括四个不同的组件，它们会在运行流处理应用程序时协同工作：作业管理器（JobManager）、资源管理器（ResourceManager）、任务管理器（TaskManager），以及分发器（Dispatcher）。

@@ -102,64 +102,6 @@ Elasticsearch和HBase是两个不同的系统，它们的数据模型、存储�
 综上所述，保证ElasticSearch高可用性需要考虑多方面的因素，包括集群容错、副本机制、负载均衡、监控和告警、数据恢复和备份等。通过这些手段的使用和优化，可以确保ElasticSearch系统的可靠性和稳定性。
 
 
-# 在Java项目里，怎样通过日志监控ElasticSearch？
-
-在Java项目中，可以通过使用Elasticsearch官方提供的Java客户端API来与Elasticsearch进行交互，并通过日志监控工具来监控Elasticsearch的运行状况和性能。以下是一个简单的例子：
-
-```java
-import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.client.indices.CreateIndexRequest;
-import org.elasticsearch.client.indices.CreateIndexResponse;
-import org.elasticsearch.common.settings.Settings;
-import org.elasticsearch.common.xcontent.XContentType;
-
-public class ElasticsearchExample {
-
-    public static void main(String[] args) throws Exception {
-        
-        // 创建Elasticsearch客户端连接
-        RestHighLevelClient client = new RestHighLevelClient(
-                RestClient.builder(new HttpHost("localhost", 9200, "http")));
-
-        // 创建索引请求
-        CreateIndexRequest request = new CreateIndexRequest("my_index");
-
-        // 设置索引的一些属性
-        request.settings(Settings.builder().put("index.number_of_shards", 3)
-                                             .put("index.number_of_replicas", 2));
-
-        // 设置索引的Mapping
-        String mapping = "{\n" + 
-                "  \"properties\": {\n" + 
-                "    \"message\": {\n" + 
-                "      \"type\": \"text\"\n" + 
-                "    },\n" + 
-                "    \"timestamp\": {\n" + 
-                "      \"type\": \"date\"\n" + 
-                "    }\n" + 
-                "  }\n" + 
-                "}";
-        request.mapping(mapping, XContentType.JSON);
-
-        // 创建索引
-        CreateIndexResponse response = client.indices().create(request, RequestOptions.DEFAULT);
-        System.out.println(response.toString());
-        
-        // 关闭Elasticsearch客户端连接
-        client.close();
-    }
-}
-```
-在代码中，我们创建了一个名为my_index的索引，并设置了分片数和副本数。同时，还设置了索引的Mapping，包括两个字段：message和timestamp。这些操作都可以通过Elasticsearch的Java客户端API来实现。
-
-除了使用Java客户端API，还可以使用诸如Logstash等日志监控工具来监控Elasticsearch的运行状况和性能。Logstash支持对Elasticsearch的查询、增删改操作进行监控，并可将监控数据导入到Elasticsearch中进行保存和分析。可以通过以下步骤来实现：
-
-安装Logstash，并添加Elasticsearch插件。
-配置logstash.conf文件，指定Elasticsearch的地址、监控事件等相关信息。
-运行Logstash，并查看监控数据。
-综上所述，可以通过Elasticsearch的Java客户端API和日志监控工具来监控Elasticsearch的运行状况和性能，从而保证系统的稳定性和可靠性。
-
-
 # 为了保证ElasticSearch高可用，需要对哪些指标进行监控和告警？
 
 为了保证ElasticSearch高可用性，需要对以下指标进行监控和告警：
@@ -212,3 +154,5 @@ IP地址类型（IP）：用于存储IP地址相关信息，支持基于IP地址
 请注意，以上步骤适用于具有多个节点的 Elasticsearch 集群。在单节点环境中，如果节点挂掉，可以直接将数据目录迁移到新的节点上。
 
 为了确保数据的可用性和完整性，建议在生产环境中使用 Elasticsearch 的高可用部署模式，例如使用主分片和副本分片来实现数据冗余和故障恢复。这样即使某个节点挂掉，数据仍然可靠地存在于其他节点上，并且集群可以自动恢复。
+
+# 

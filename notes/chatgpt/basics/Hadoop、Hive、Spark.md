@@ -1,4 +1,25 @@
 # Hadoop
+## Hadoop有哪些调优参数？
+mapreduce.tasktracker.map.tasks.maximum：控制每个TaskTracker节点上并行执行的最大Map任务数。
+
+mapreduce.tasktracker.reduce.tasks.maximum：控制每个TaskTracker节点上并行执行的最大Reduce任务数。
+
+mapreduce.task.io.sort.mb：控制Map任务和Reduce任务的中间结果排序时所使用的内存大小。
+
+mapreduce.map.memory.mb：控制每个Map任务的最大内存使用量。
+
+mapreduce.reduce.memory.mb：控制每个Reduce任务的最大内存使用量。
+
+mapred.reduce.slowstart.completed.maps：控制Reduce任务启动前所需完成的Map任务的百分比。
+
+io.sort.factor：控制Map任务和Reduce任务进行归并排序时所用的文件流数目。
+
+dfs.replication：控制HDFS文件的数据副本数。
+
+mapreduce.job.maps：显式设置Map任务的数量。
+
+mapreduce.job.reduces：显式设置Reduce任务的数量。
+
 
 # Hive
 
