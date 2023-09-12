@@ -7,7 +7,7 @@
 - Monitor	统计服务的调用次数和调用时间的监控中心
 - Container	服务运行容器
 
-![img.png](源码流程图)
+![img.png](../../images/源码流程图)
 
 # Dubbo和Feign底层通过什么方式实现RPC调用的？
 

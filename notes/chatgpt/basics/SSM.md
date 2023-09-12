@@ -94,6 +94,17 @@ Spring 框架是基于依赖注入设计的，因此在应用程序中很容易�
 
 总之，Spring 使用构造器注入和三级缓存等方式解决循环依赖问题，但如果出现复杂的情况，则需要开发人员自行解决。
 
+三级缓存：
+```java
+// 一级缓存Map 存放完整的Bean（流程跑完的）
+private final Map<String, Object> singletonObjects = new ConcurrentHashMap(256);
+
+// 二级缓存Map 存放不完整的Bean（只实例化完，还没属性赋值、初始化）
+private final Map<String, Object> earlySingletonObjects = new ConcurrentHashMap(16);
+
+// 三级缓存Map 存放一个Bean的lambda表达式（也是刚实例化完）
+private final Map<String, ObjectFactory<?>> singletonFactories = new HashMap(16);
+```
 ## Spring中BeanFactory和FactoryBean的区别？
 
 在 Spring 框架中，BeanFactory 和 FactoryBean 是两个不同的概念。
