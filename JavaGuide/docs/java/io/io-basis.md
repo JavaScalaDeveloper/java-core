@@ -6,6 +6,8 @@ tag:
   - Java基础
 ---
 
+<!-- @include: @small-advertisement.snippet.md -->
+
 ## IO 流简介
 
 IO 即 `Input/Output`，输入和输出。数据输入到计算机内存的过程即输入，反之输出到外部存储（比如数据库，文件，远程主机）的过程即输出。数据传输过程类似于水流，因此称为 IO 流。IO 流在 Java 中分为输入流和输出流，而根据数据的处理方式又分为字节流和字符流。
@@ -58,12 +60,11 @@ try (InputStream fis = new FileInputStream("input.txt")) {
 
 `input.txt` 文件内容：
 
-
 ![](https://oss.javaguide.cn/github/javaguide/java/image-20220419155214614.png)
 
 输出：
 
-```
+```plain
 Number of remaining bytes:11
 The actual number of bytes skipped:2
 The content read from file:JavaGuide
@@ -81,7 +82,7 @@ String result = new String(bufferedInputStream.readAllBytes());
 System.out.println(result);
 ```
 
-`DataInputStream` 用于读取指定类型数据，不能单独使用，必须结合 `FileInputStream` 。
+`DataInputStream` 用于读取指定类型数据，不能单独使用，必须结合其它流，比如 `FileInputStream` 。
 
 ```java
 FileInputStream fileInputStream = new FileInputStream("input.txt");
@@ -130,7 +131,6 @@ try (FileOutputStream output = new FileOutputStream("output.txt")) {
 
 运行结果：
 
-
 ![](https://oss.javaguide.cn/github/javaguide/java/image-20220419155514392.png)
 
 类似于 `FileInputStream`，`FileOutputStream` 通常也会配合 `BufferedOutputStream`（字节缓冲输出流，后文会讲到）来使用。
@@ -140,7 +140,7 @@ FileOutputStream fileOutputStream = new FileOutputStream("output.txt");
 BufferedOutputStream bos = new BufferedOutputStream(fileOutputStream)
 ```
 
-**`DataOutputStream`** 用于写入指定类型数据，不能单独使用，必须结合 `FileOutputStream`
+**`DataOutputStream`** 用于写入指定类型数据，不能单独使用，必须结合其它流，比如 `FileOutputStream` 。
 
 ```java
 // 输出流
@@ -169,7 +169,6 @@ output.writeObject(person);
 - 如果我们不知道编码类型就很容易出现乱码问题。
 
 乱码问题这个很容易就可以复现，我们只需要将上面提到的 `FileInputStream` 代码示例中的 `input.txt` 文件内容改为中文即可，原代码不需要改动。
-
 
 ![](https://oss.javaguide.cn/github/javaguide/java/image-20220419154632551.png)
 
@@ -230,12 +229,11 @@ try (FileReader fileReader = new FileReader("input.txt");) {
 
 `input.txt` 文件内容：
 
-
 ![](https://oss.javaguide.cn/github/javaguide/java/image-20220419154632551.png)
 
 输出：
 
-```
+```plain
 The actual number of bytes skipped:3
 The content read from file:我是Guide。
 ```
@@ -279,7 +277,6 @@ try (Writer output = new FileWriter("output.txt")) {
 
 输出结果：
 
-
 ![](https://oss.javaguide.cn/github/javaguide/java/image-20220419155802288.png)
 
 ## 字节缓冲流
@@ -299,7 +296,7 @@ BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputS
 
 我使用 `write(int b)` 和 `read()` 方法，分别通过字节流和字节缓冲流复制一个 `524.9 mb` 的 PDF 文件耗时对比如下：
 
-```
+```plain
 使用缓冲流复制PDF文件总耗时:15428 毫秒
 使用普通字节流复制PDF文件总耗时:2555062 毫秒
 ```
@@ -350,7 +347,7 @@ void copy_pdf_to_another_pdf_stream() {
 
 这次我们使用 `read(byte b[])` 和 `write(byte b[], int off, int len)` 方法，分别通过字节流和字节缓冲流复制一个 524.9 mb 的 PDF 文件耗时对比如下：
 
-```
+```plain
 使用缓冲流复制PDF文件总耗时:695 毫秒
 使用普通字节流复制PDF文件总耗时:989 毫秒
 ```
@@ -515,12 +512,11 @@ System.out.println("读取之前的偏移量：" + randomAccessFile.getFilePoint
 
 `input.txt` 文件内容：
 
-
 ![](https://oss.javaguide.cn/github/javaguide/java/image-20220421162050158.png)
 
 输出：
 
-```
+```plain
 读取之前的偏移量：0,当前读取到的字符A，读取之后的偏移量：1
 读取之前的偏移量：6,当前读取到的字符G，读取之后的偏移量：7
 读取之前的偏移量：0,当前读取到的字符A，读取之后的偏移量：1
@@ -541,12 +537,12 @@ randomAccessFile.write(new byte[]{'H', 'I', 'J', 'K'});
 
 `RandomAccessFile` 可以帮助我们合并文件分片，示例代码如下：
 
-
 ![](https://oss.javaguide.cn/github/javaguide/java/io/20210609164749122.png)
 
 我在[《Java 面试指北》](https://javaguide.cn/zhuanlan/java-mian-shi-zhi-bei.html)中详细介绍了大文件的上传问题。
 
-
 ![](https://oss.javaguide.cn/github/javaguide/java/image-20220428104115362.png)
 
 `RandomAccessFile` 的实现依赖于 `FileDescriptor` (文件描述符) 和 `FileChannel` （内存映射文件）。
+
+<!-- @include: @article-footer.snippet.md -->

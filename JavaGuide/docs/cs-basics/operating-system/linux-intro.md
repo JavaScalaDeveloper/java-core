@@ -10,6 +10,8 @@ head:
       content: 简单介绍一下 Java 程序员必知的 Linux 的一些概念以及常见命令。
 ---
 
+<!-- @include: @small-advertisement.snippet.md -->
+
 简单介绍一下 Java 程序员必知的 Linux 的一些概念以及常见命令。
 
 ## 初探 Linux
@@ -22,7 +24,6 @@ head:
 - **Linux 本质是指 Linux 内核**：严格来讲，Linux 这个词本身只表示 Linux 内核，单独的 Linux 内核并不能成为一个可以正常工作的操作系统。所以，就有了各种 Linux 发行版。
 - **Linux 之父(林纳斯·本纳第克特·托瓦兹 Linus Benedict Torvalds)**：一个编程领域的传奇式人物，真大佬！我辈崇拜敬仰之楷模。他是 **Linux 内核** 的最早作者，随后发起了这个开源项目，担任 Linux 内核的首要架构师。他还发起了 Git 这个开源项目，并为主要的开发者。
 
-
 ![Linux 之父](https://oss.javaguide.cn/github/javaguide/cs-basics/operating-system/linux/linux-father.png)
 
 ### Linux 诞生
@@ -33,11 +34,9 @@ head:
 
 1991 年，Linus Torvalds 开源了 Linux 内核。Linux 以一只可爱的企鹅作为标志，象征着敢作敢为、热爱生活。
 
-
 ![OPINION: Make the switch to a Linux operating system | Opinion ...](https://oss.javaguide.cn/github/javaguide/cs-basics/operating-system/linux/Linux-Logo.png)
 
 ### 常见的 Linux 发行版本
-
 
 ![Linux 操作系统](https://oss.javaguide.cn/github/javaguide/cs-basics/operating-system/linux/linux.png)
 
@@ -84,7 +83,6 @@ inode 是 Linux/Unix 文件系统的基础。那 inode 到是什么?有什么作
 - **inode**：记录文件的属性信息，可以使用 `stat` 命令查看 inode 信息。
 - **block**：实际文件的内容，如果一个文件大于一个块时候，那么将占用多个 block，但是一个块只能存放一个文件。（因为数据是由 inode 指向的，如果有两个文件的数据存放在同一个块中，就会乱套了）
 
-
 ![文件inode信息](./images/文件inode信息.png)
 
 可以看出，Linux/Unix 操作系统使用 inode 区分不同的文件。这样做的好处是，即使文件名被修改或删除，文件的 inode 号码不会改变，从而可以避免一些因文件重命名、移动或删除导致的错误。同时，inode 也可以提供更高的文件系统性能，因为 inode 的访问速度非常快，可以直接通过 inode 号码定位到文件的元数据信息，无需遍历整个文件系统。
@@ -105,7 +103,7 @@ inode 是 Linux/Unix 文件系统的基础。那 inode 到是什么?有什么作
 **2、软链接（Symbolic Link 或 Symlink）**
 
 - 软链接和源文件的 inode 节点号不同，而是指向一个文件路径。
-- 源文件删除后，硬链接依然存在，但是指向的是一个无效的文件路径。
+- 源文件删除后，软链接依然存在，但是指向的是一个无效的文件路径。
 - 软连接类似于 Windows 系统中的快捷方式。
 - 不同于硬链接，可以对目录或者不存在的文件创建软链接，并且，软链接可以跨越文件系统。
 - `ln -s` 命令用于创建软链接。
@@ -144,7 +142,6 @@ srwxrwxrwx  1 user  group    0 Apr 14 10:00 socket
 ### Linux 目录树
 
 Linux 使用一种称为目录树的层次结构来组织文件和目录。目录树由根目录（/）作为起始点，向下延伸，形成一系列的目录和子目录。每个目录可以包含文件和其他子目录。结构层次鲜明，就像一棵倒立的树。
-
 ![Linux的目录结构](./images/Linux目录树.png)
 
 **常见目录说明：**
@@ -169,13 +166,11 @@ Linux 使用一种称为目录树的层次结构来组织文件和目录。目�
 
 下面只是给出了一些比较常用的命令。
 
-推荐一个 Linux 命令快查网站，非常不错，大家如果遗忘某些命令或者对某些命令不理解都可以在这里得到解决。Linux 命令在线速查手册：https://wangchujiang.com/linux-command/ 。
-
+推荐一个 Linux 命令快查网站，非常不错，大家如果遗忘某些命令或者对某些命令不理解都可以在这里得到解决。Linux 命令在线速查手册：<https://wangchujiang.com/linux-command/> 。
 
 ![ Linux 命令快查](https://oss.javaguide.cn/github/javaguide/cs-basics/operating-system/linux/linux-command-search.png)
 
 另外，[shell.how](https://www.shell.how/) 这个网站可以用来解释常见命令的意思，对你学习 Linux 基本命令以及其他常用命令（如 Git、NPM）。
-
 
 ![shell.how 使用示例](https://oss.javaguide.cn/github/javaguide/cs-basics/operating-system/linux/shell-now.png)
 
@@ -242,17 +237,15 @@ Linux 中的打包文件一般是以 `.tar` 结尾的，压缩的命令一般是
 
 ### 文件权限
 
-操作系统中每个文件都拥有特定的权限、所属用户和所属组。权限是操作系统用来限制资源访问的机制，在 Linux 中权限一般分为读(readable)、写(writable)和执行(excutable)，分为三组。分别对应文件的属主(owner)，属组(group)和其他用户(other)，通过这样的机制来限制哪些用户、哪些组可以对特定的文件进行什么样的操作。
+操作系统中每个文件都拥有特定的权限、所属用户和所属组。权限是操作系统用来限制资源访问的机制，在 Linux 中权限一般分为读(readable)、写(writable)和执行(executable)，分为三组。分别对应文件的属主(owner)，属组(group)和其他用户(other)，通过这样的机制来限制哪些用户、哪些组可以对特定的文件进行什么样的操作。
 
 通过 **`ls -l`** 命令我们可以 查看某个目录下的文件或目录的权限
 
 示例：在随意某个目录下`ls -l`
 
-
 ![](./images/Linux权限命令.png)
 
 第一列的内容的信息解释如下：
-
 
 ![](./images/Linux权限解读.png)
 
@@ -305,7 +298,6 @@ Linux 中的打包文件一般是以 `.tar` 结尾的，压缩的命令一般是
 示例：修改/test 下的 aaa.txt 的权限为文件所有者有全部权限，文件所有者所在的组有读写权限，其他用户只有读的权限。
 
 **`chmod u=rwx,g=rw,o=r aaa.txt`** 或者 **`chmod 764 aaa.txt`**
-
 
 ![](./images/修改文件权限.png)
 
@@ -383,7 +375,7 @@ Linux 系统是一个多用户多任务的分时操作系统，任何一个要�
 - 用户级别环境变量 : `~/.bashrc`、`~/.bash_profile`。
 - 系统级别环境变量 : `/etc/bashrc`、`/etc/environment`、`/etc/profile`、`/etc/profile.d`。
 
-上述配置文件执行先后顺序为：`/etc/enviroment` –> `/etc/profile` –> `/etc/profile.d` –> `~/.bash_profile` –> `/etc/bashrc` –> `~/.bashrc`
+上述配置文件执行先后顺序为：`/etc/environment` –> `/etc/profile` –> `/etc/profile.d` –> `~/.bash_profile` –> `/etc/bashrc` –> `~/.bashrc`
 
 如果要修改系统级别环境变量文件，需要管理员具备对该文件的写入权限。
 
@@ -435,3 +427,5 @@ vim ~/.bash_profile
 ```bash
 source /etc/profile
 ```
+
+<!-- @include: @article-footer.snippet.md -->
