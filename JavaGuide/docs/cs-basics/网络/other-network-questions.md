@@ -43,7 +43,7 @@ tag:
 
 ![TCP/IP 四层模型](https://oss.javaguide.cn/github/javaguide/cs-basics/network/tcp-ip-4-model.png)
 
-关于每一层作用的详细介绍，请看 [OSI 和 TCP/IP 网络分层模型详解（基础）](./osi-and-tcp-ip-model.md) 这篇文章。
+关于每一层作用的详细介绍，请看 [OSI 和 TCP/IP 网络分层模型详解（基础）](./OSI 和TCP-IP网络分层模型详解（基础）) 这篇文章。
 
 #### 为什么网络要分层？
 

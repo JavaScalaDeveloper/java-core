@@ -141,7 +141,7 @@ NAT 不光可以缓解 IPv4 地址资源短缺的问题，还可以隐藏内部�
 
 ![NAT 实现 IP地址转换](https://oss.javaguide.cn/github/javaguide/cs-basics/network/network-address-translation.png)
 
-相关阅读：[NAT 协议详解（网络层）](./nat.md)。
+相关阅读：[NAT 协议详解（网络层）](./NAT 协议详解（网络层）)。
 
 ## ARP
 
@@ -168,7 +168,7 @@ ARP 协议，全称 **地址解析协议（Address Resolution Protocol）**，�
 
 ### ARP 协议的工作原理？
 
-[ARP 协议详解(网络层)](./arp.md)
+[ARP 协议详解(网络层)](./ARP 协议详解(网络层))
 
 ## 复习建议
 
