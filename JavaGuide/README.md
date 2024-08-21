@@ -146,7 +146,7 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8 ](https://docs.oracle
 
 - [计算机网络常见知识点&面试题总结(上)](docs/cs-basics/网络/other-network-questions.md)
 - [计算机网络常见知识点&面试题总结(下)](docs/cs-basics/网络/other-network-questions2.md)
-- [谢希仁老师的《计算机网络》内容总结（补充）](docs/cs-basics/网络/computer-network-xiexiren-summary.md)
+- [谢希仁老师的《计算机网络》内容总结（补充）](docs/cs-basics/网络/《计算机网络》（谢希仁）内容总结)
 
 **重要知识点详解**：
 
