@@ -151,7 +151,7 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8 ](https://docs.oracle
 **重要知识点详解**：
 
 - [OSI 和 TCP/IP 网络分层模型详解（基础）](docs/cs-basics/网络/osi-and-tcp-ip-model.md)
-- [应用层常见协议总结（应用层）](docs/cs-basics/网络/application-layer-protocol.md)
+- [应用层常见协议总结（应用层）](docs/cs-basics/网络/应用层常见协议总结（应用层）)
 - [HTTP vs HTTPS（应用层）](docs/cs-basics/网络/HTTP vs HTTPS（应用层）.md)
 - [HTTP 1.0 vs HTTP 1.1（应用层）](docs/cs-basics/网络/HTTP 1.0 vs HTTP 1.1（应用层）.md)
 - [HTTP 常见状态码（应用层）](docs/cs-basics/网络/HTTP 常见状态码总结（应用层）.md)
