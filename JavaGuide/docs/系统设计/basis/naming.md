@@ -19,11 +19,9 @@ category: 代码质量
 
 大名鼎鼎的《重构》的作者老马（Martin Fowler）曾经在[TwoHardThings](https://martinfowler.com/bliki/TwoHardThings.html)这篇文章中提到过 CS 领域有两大最难的事情：一是 **缓存失效** ，一是 **程序命名** 。
 
-
 ![](https://oss.javaguide.cn/java-guide-blog/marting-naming.png)
 
 这个句话实际上也是老马引用别人的，类似的表达还有很多。比如分布式系统领域有两大最难的事情：一是 **保证消息顺序** ，一是 **严格一次传递** 。
-
 
 ![](https://oss.javaguide.cn/java-guide-blog/20210629104844645.png)
 
@@ -140,7 +138,6 @@ void shouldGet200StatusCodeWhenRequestIsValid() {
 
 建议项目文件夹名称使用串式命名法（kebab-case），比如 dubbo 项目的各个模块的命名是下面这样的。
 
-
 ![](https://oss.javaguide.cn/java-guide-blog/dubbo-naming.png)
 
 ## 常见命名规范
@@ -226,11 +223,9 @@ Codelf 提供了在线网站版本，网址：[https://unbug.github.io/codelf/](
 
 我选择了 Java 编程语言，然后搜索了“序列化”这个关键词，然后它就返回了很多关于序列化的命名。
 
-
 ![](./pictures/Codelf.png)
 
 并且，Codelf 还提供了 VS code 插件，看这个评价，看来大家还是很喜欢这款命名工具的。
-
 
 ![](./pictures/vscode-codelf.png)
 
@@ -247,8 +242,10 @@ Codelf 提供了在线网站版本，网址：[https://unbug.github.io/codelf/](
 
 好的命名对于其他人（包括你自己）理解你的代码有着很大的帮助！你的代码越容易被理解，可维护性就越强，侧面也就说明你的代码设计的也就越好！
 
-在日常编码过程中，我们需要谨记常见命名规范比如类名需要使用大驼峰命名法、不要使用拼音，更不要使用中文......。
+在日常编码过程中，我们需要谨记常见命名规范比如类名需要使用大驼峰命名法、不要使用拼音，更不要使用中文……。
 
 另外，国人开发的一个叫做 Codelf 的网站被很多人称为“变量命名神器”，当你为命名而头疼的时候，你可以去参考一下上面提供的一些命名示例。
 
 最后，祝愿大家都不用再为命名而困扰!
+
+<!-- @include: @article-footer.snippet.md -->

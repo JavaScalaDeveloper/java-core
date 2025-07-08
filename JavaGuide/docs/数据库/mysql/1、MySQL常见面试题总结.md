@@ -690,7 +690,7 @@ mysql> EXPLAIN SELECT `score`,`name` FROM `cus_order` ORDER BY `score` DESC;
 
 ## MySQL 学习资料推荐
 
-[**书籍推荐**](../../books/database.md#mysql) 。
+[**书籍推荐**](../../ignore/books/database.md#mysql) 。
 
 **文章推荐** :
 
