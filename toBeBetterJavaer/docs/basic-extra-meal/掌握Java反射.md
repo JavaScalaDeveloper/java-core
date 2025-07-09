@@ -1,6 +1,6 @@
 ---
 title: Java 反射详解：动态创建实例、调用方法和访问字段
-shortTitle: 掌握 Java 反射
+shortTitle: 掌握Java反射
 category:
   - Java核心
 tag:

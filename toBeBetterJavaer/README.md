@@ -108,19 +108,19 @@
 
 ## Java基础语法
 
-- [Java编程基础：48个关键字及2个保留字全解析](docs/basic-extra-meal/48-keywords.md)
+- [Java编程基础：48个关键字及2个保留字全解析](docs/basic-extra-meal/Java关键字和保留字.md)
 - [了解Java注释：单行、多行与文档注释的使用方法](docs/basic-grammar/javadoc.md)
 - [Java数据类型全解析：基本数据类型与引用数据类型](docs/basic-grammar/basic-data-type.md)
 - [Java数据类型转换：自动类型转换与强制类型转换](docs/basic-grammar/type-cast.md)
-- [Java基本数据类型缓存池剖析（IntegerCache）](docs/basic-extra-meal/int-cache.md)
+- [Java基本数据类型缓存池剖析（IntegerCache）](docs/basic-extra-meal/Java基本数据类型缓存池.md)
 - [Java运算符详解：掌握各类运算符的使用与技巧](docs/basic-grammar/operator.md)
 - [Java流程控制语句详解：带你轻松学会各类控制结构](docs/basic-grammar/flow-control.md)
 
 ## 数组&字符串
 
 - [掌握Java数组：一个非常特殊的对象](docs/array/array.md)
-- [掌握 Java二维数组：从基本概念到实际应用](docs/array/double-array.md)
-- [如何优雅地打印Java数组？](docs/array/print.md)
+- [掌握 Java二维数组：从基本概念到实际应用](docs/array/掌握Java二维数组.md)
+- [如何优雅地打印Java数组？](docs/array/打印Java数组.md)
 - [深入解读String类源码及其应用技巧](docs/string/string-source.md)
 - [为什么Java字符串String是不可变的？](docs/string/immutable.md)
 - [深入理解Java字符串常量池](docs/string/constant-pool.md)
@@ -136,7 +136,7 @@
 - [Java中的包：如何创建、导入和使用 package 来优化代码结构](docs/oo/package.md)
 - [Java变量：了解局部变量、成员变量、静态变量和常量的特点与用途](docs/oo/var.md)
 - [Java方法：实例方法、静态方法与抽象方法的区别与应用](docs/oo/method.md)
-- [Java可变参数详解：实现更灵活的方法调用](docs/basic-extra-meal/varables.md)
+- [Java可变参数详解：实现更灵活的方法调用](docs/basic-extra-meal/Java可变参数.md)
 - [手把手教你用 C语言实现 Java native 本地方法](docs/oo/native-method.md)
 - [Java构造方法：打开Java对象创建之门的钥匙](docs/oo/construct.md)
 - [Java访问权限修饰符：掌握封装的核心原则](docs/oo/access-control.md)
@@ -148,11 +148,11 @@
 - [详解Java this与super关键字的用法与区别](docs/oo/this-super.md)
 - [详解Java static 关键字的作用：静态变量、静态方法、静态代码块、静态内部类](docs/oo/static.md)
 - [详解Java final 关键字](docs/oo/final.md)
-- [掌握Java instanceof关键字](docs/basic-extra-meal/instanceof.md)
-- [聊聊Java中的不可变对象](docs/basic-extra-meal/immutable.md)
-- [方法重写 Override 和方法重载 Overload 有什么区别？](docs/basic-extra-meal/override-overload.md)
-- [深入理解Java中的注解](docs/basic-extra-meal/annotation.md)
-- [Java枚举：小小enum，优雅而干净](docs/basic-extra-meal/enum.md)
+- [掌握Java instanceof关键字](docs/basic-extra-meal/Java instanceof关键字.md)
+- [聊聊Java中的不可变对象](docs/basic-extra-meal/Java不可变对象.md)
+- [方法重写 Override 和方法重载 Overload 有什么区别？](docs/basic-extra-meal/Java方法重写和方法重载.md)
+- [深入理解Java中的注解](docs/basic-extra-meal/Java注解.md)
+- [Java枚举：小小enum，优雅而干净](docs/basic-extra-meal/Java枚举（enum）.md)
 
 ## 集合框架（容器）
 
@@ -161,7 +161,7 @@
 - [深入探讨 Java ArrayList：从源码分析到实践应用](docs/collection/arraylist.md)
 - [深入探讨 Java LinkedList：从源码分析到实践应用](docs/collection/linkedlist.md)
 - [ArrayList和LinkedList的区别：如何选择？](docs/collection/list-war-2.md)
-- [Java 泛型深入解析：理解泛型原理与实际应用方法](docs/basic-extra-meal/generic.md)
+- [Java 泛型深入解析：理解泛型原理与实际应用方法](docs/basic-extra-meal/Java泛型.md)
 - [Java迭代器Iterator和Iterable有什么区别？](docs/collection/iterator-iterable.md)
 - [阿里Java开发规约：禁止在foreach里执行元素的删除操作](docs/collection/fail-fast.md)
 - [Java HashMap详解：源码分析与实际应用指南](docs/collection/hashmap.md)
@@ -169,7 +169,7 @@
 - [Java TreeMap详解：从源码分析到实践应用](docs/collection/treemap.md)
 - [Java 双端队列 ArrayDeque详解：从源码分析到实践应用](docs/collection/arraydeque.md)
 - [Java 优先级队列PriorityQueue详解：从源码分析到实践应用](docs/collection/PriorityQueue.md)
-- [Java Comparable和Comparator的区别](docs/basic-extra-meal/comparable-omparator.md)
+- [Java Comparable和Comparator的区别](docs/basic-extra-meal/Comparable和Comparator的区别.md)
 
 ## Java IO
 
@@ -227,14 +227,14 @@
 
 ## 重要知识点
 
-- [Java命名规范：编写可读性强的代码](docs/basic-extra-meal/java-naming.md)
+- [Java命名规范：编写可读性强的代码](docs/basic-extra-meal/Java命名规范.md)
 - [解决中文乱码：字符编码全攻略 - ASCII、Unicode、UTF-8、GB2312详解](docs/basic-extra-meal/java-unicode.md)
-- [深入浅出Java拆箱与装箱：理解自动类型转换与包装类的关系](docs/basic-extra-meal/box.md)
-- [深入理解Java浅拷贝与深拷贝：实战案例与技巧](docs/basic-extra-meal/deep-copy.md)
-- [Java hashCode方法解析：C++实现的高效本地方法](docs/basic-extra-meal/hashcode.md)
-- [Java到底是值传递还是引用传递？](docs/basic-extra-meal/pass-by-value.md)
-- [Java 泛型背后的秘密：为什么无法实现真正的泛型？](docs/basic-extra-meal/true-generic.md)
-- [Java 反射详解：动态创建实例、调用方法和访问字段](docs/basic-extra-meal/fanshe.md)
+- [深入浅出Java拆箱与装箱：理解自动类型转换与包装类的关系](docs/basic-extra-meal/深入剖析Java中的拆箱和装箱.md)
+- [深入理解Java浅拷贝与深拷贝：实战案例与技巧](docs/basic-extra-meal/深入理解Java浅拷贝与深拷贝.md)
+- [Java hashCode方法解析：C++实现的高效本地方法](docs/basic-extra-meal/Java hashCode方法解析.md)
+- [Java到底是值传递还是引用传递？](docs/basic-extra-meal/Java是值传递还是引用传递.md)
+- [Java 泛型背后的秘密：为什么无法实现真正的泛型？](docs/basic-extra-meal/Java为什么无法实现真正的泛型.md)
+- [Java 反射详解：动态创建实例、调用方法和访问字段](docs/basic-extra-meal/掌握Java反射.md)
 
 ## Java并发编程
 
