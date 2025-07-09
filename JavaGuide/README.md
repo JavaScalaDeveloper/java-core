@@ -271,16 +271,16 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8 ](https://docs.oracle
 
 ## 系统设计
 
-- [系统设计常见面试题总结](docs/系统设计/system-design-questions.md)
-- [设计模式常见面试题总结](docs/系统设计/design-pattern.md)
+- [系统设计常见面试题总结](docs/系统设计/系统设计常见面试题总结(付费).md)
+- [设计模式常见面试题总结](docs/系统设计/设计模式常见面试题总结(无).md)
 
 ### 基础
 
-- [RestFul API 简明教程](docs/系统设计/basis/RESTfulAPI.md)
-- [软件工程简明教程简明教程](docs/系统设计/basis/software-engineering.md)
-- [代码命名指南](docs/系统设计/basis/naming.md)
-- [代码重构指南](docs/系统设计/basis/refactoring.md)
-- [单元测试指南](docs/系统设计/basis/unit-test.md)
+- [RestFul API 简明教程](docs/系统设计/基础/RestFul API 简明教程.md)
+- [软件工程简明教程简明教程](docs/系统设计/基础/软件工程简明教程.md)
+- [代码命名指南](docs/系统设计/基础/代码命名指南.md)
+- [代码重构指南](docs/系统设计/基础/代码重构指南.md)
+- [单元测试指南](docs/系统设计/基础/单元测试到底是什么.md)
 
 ### 常用框架
 
@@ -301,17 +301,17 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8 ](https://docs.oracle
 
 #### MyBatis
 
-[MyBatis 常见面试题总结](docs/计算机基础/SSM框架/mybatis/mybatis-interview.md)
+[MyBatis 常见面试题总结](docs/计算机基础/SSM框架/mybatis/MyBatis常见面试题总结.md)
 
 ### 安全
 
 #### 认证授权
 
-- [认证授权基础概念详解](docs/系统设计/security/basis-of-authority-certification.md)
-- [JWT 基础概念详解](docs/系统设计/security/jwt-intro.md)
-- [JWT 优缺点分析以及常见问题解决方案](docs/系统设计/security/advantages-and-disadvantages-of-jwt.md)
-- [SSO 单点登录详解](docs/系统设计/security/sso-intro.md)
-- [权限系统设计详解](docs/系统设计/security/design-of-authority-system.md)
+- [认证授权基础概念详解](docs/系统设计/安全/认证授权基础概念详解.md)
+- [JWT 基础概念详解](docs/系统设计/安全/JWT基础概念详解.md)
+- [JWT 优缺点分析以及常见问题解决方案](docs/系统设计/安全/JWT身份认证优缺点分析.md)
+- [SSO 单点登录详解](docs/系统设计/安全/SSO单点登录详解.md)
+- [权限系统设计详解](docs/系统设计/安全/权限系统设计详解.md)
 
 #### 数据脱敏
 
@@ -319,11 +319,11 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8 ](https://docs.oracle
 
 #### 敏感词过滤
 
-[敏感词过滤方案总结](docs/系统设计/security/sentive-words-filter.md)
+[敏感词过滤方案总结](docs/系统设计/安全/敏感词过滤方案总结.md)
 
 ### 定时任务
 
-[Java 定时任务详解](docs/系统设计/schedule-task.md)
+[Java 定时任务详解](docs/系统设计/Java 定时任务详解.md)
 
 ### Web 实时消息推送
 
@@ -384,11 +384,11 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8 ](https://docs.oracle
 
 ### SQL 优化
 
-[常见 SQL 优化手段总结](docs/高性能/sql-optimization.md)
+[常见 SQL 优化手段总结](docs/高性能/常见SQL优化手段总结（付费）.md)
 
 ### CDN
 
-[CDN（内容分发网络）常见知识点&面试题总结](docs/高性能/cdn.md)
+[CDN（内容分发网络）常见知识点&面试题总结](docs/高性能/CDN工作原理详解.md)
 
 ### 消息队列
 
@@ -404,7 +404,7 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8 ](https://docs.oracle
 
 ### 冗余设计
 
-[冗余设计详解](docs/高可用/redundancy.md)
+[冗余设计详解](docs/高可用/冗余设计详解.md)
 
 ### 限流
 
@@ -412,7 +412,7 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8 ](https://docs.oracle
 
 ### 降级&熔断
 
-[降级&熔断详解](docs/高可用/fallback-and-circuit-breaker.md)
+[降级&熔断详解](docs/高可用/降级&熔断详解(付费).md)
 
 ### 超时&重试
 
