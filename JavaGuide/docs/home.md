@@ -86,14 +86,14 @@ title: JavaGuide（Java学习&面试指南）
 
 JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html) 和周志明老师的[《深入理解 Java 虚拟机（第 3 版）》](https://book.douban.com/subject/34907497/) （强烈建议阅读多遍！）。
 
-- **[Java 内存区域](./java/jvm/memory-area.md)**
-- **[JVM 垃圾回收](./java/jvm/jvm-garbage-collection.md)**
-- [类文件结构](./java/jvm/class-file-structure.md)
-- **[类加载过程](./java/jvm/class-loading-process.md)**
-- [类加载器](./java/jvm/classloader.md)
-- [【待完成】最重要的 JVM 参数总结（翻译完善了一半）](./java/jvm/jvm-parameters-intro.md)
-- [【加餐】大白话带你认识 JVM](./java/jvm/jvm-intro.md)
-- [JDK 监控和故障处理工具](./java/jvm/jdk-monitoring-and-troubleshooting-tools.md)
+- **[Java 内存区域](./java/jvm/Java内存区域详解（重点）)**
+- **[JVM 垃圾回收](./java/jvm/JVM垃圾回收详解（重点）)**
+- [类文件结构](./java/jvm/类文件结构详解)
+- **[类加载过程](./java/jvm/类加载过程详解)**
+- [类加载器](./java/jvm/类加载器详解（重点）)
+- [【待完成】最重要的 JVM 参数总结（翻译完善了一半）](./java/jvm/最重要的JVM参数总结)
+- [【加餐】大白话带你认识 JVM](./java/jvm/大白话带你认识 JVM)
+- [JDK 监控和故障处理工具](./java/jvm/JDK监控和故障处理工具总结)
 
 ### 新特性
 
@@ -183,7 +183,7 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 - [NoSQL 基础知识总结](数据库v2/nosql.md)
 - [字符集详解](数据库v2/字符集详解.md)
 - SQL :
-  - [SQL 语法基础知识总结](数据库v2/sql/sql-syntax-summary.md)
+  - [SQL 语法基础知识总结](数据库v2/sql/SQL语法基础知识总结)
   - [SQL 常见面试题总结](数据库v2/sql/sql-questions-01.md)
 
 ### MySQL
@@ -230,7 +230,7 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 
 ## 搜索引擎
 
-[Elasticsearch 常见面试题总结(付费)](数据库v2/elasticsearch/elasticsearch-questions-01.md)
+[Elasticsearch 常见面试题总结(付费)](数据库v2/elasticsearch/Elasticsearch常见面试题总结(付费))
 
 ![JavaGuide 官方公众号](https://oss.javaguide.cn/github/javaguide/gongzhonghaoxuanchuan.png)
 
@@ -343,7 +343,7 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 
 ### 分布式 ID
 
-- [分布式 ID 常见知识点&面试题总结](分布式/分布式ID介绍&实现方案总结.md)
+- [分布式 ID 常见知识点&面试题总结](分布式/分布式ID介绍_实现方案总结)
 - [分布式 ID 设计指南](分布式/分布式ID设计指南.md)
 
 ### 分布式锁
