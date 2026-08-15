@@ -522,7 +522,7 @@ JVM (Java Virtual Machine) ，也就是 Java 虚拟机，由一套字节码指�
 
 如果你用[谷歌](https://tobebetterjavaer.com/nice-article/itmind/)去搜“JDK”关键字，能搜到官方的下载链接。
 
-> [https://www.oracle.com/java/technologies/downloads/](https://www.oracle.com/java/technologies/downloads/)
+> [https://www.oracle.com/👏下载→Java程序员常读书单📚/technologies/downloads/](https://www.oracle.com/👏下载→Java程序员常读书单📚/technologies/downloads/)
 
 好，如果你想安装 JDK ，到官方下载。
 
@@ -565,15 +565,15 @@ JVM (Java Virtual Machine) ，也就是 Java 虚拟机，由一套字节码指�
 
 再说一种高级点的安装方法。
 
-Windows 用户建议先安装 [Chocolatey](https://tobebetterjavaer.com/gongju/choco.html)，这是一个 Windows 下的命令行软件管理器，可以方便开发者像在 Linux 下使用 yum 命令来安装软件，或者像在 macOS 下使用 brew 命令来安装软件，非常酷炫。
+Windows 用户建议先安装 [Chocolatey](https://tobebetterjavaer.com/工具/choco.html)，这是一个 Windows 下的命令行软件管理器，可以方便开发者像在 Linux 下使用 yum 命令来安装软件，或者像在 macOS 下使用 brew 命令来安装软件，非常酷炫。
 
 安装完成后，直接执行 `choco install jdk8` 就可以安装 JDK 8 了，并且会自动将 Java 加入到环境变量中，不用再去「我的电脑」「环境变量」中新建 JAVA_HOME 并复制 JDK 安装路径配置 PATH 变量了
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/choco-80a6ced8-c25d-4371-8096-b95be48af768)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/工具/choco-80a6ced8-c25d-4371-8096-b95be48af768)
 
 ### 03、macOS 安装 JDK
 
-macOS 用户建议先安装 [Homebrew](https://tobebetterjavaer.com/gongju/brew.html)，这是一个 macOS 下的命令行软件管理器，可以通过一行命令安装 Apple（或 Linux 系统）没有预装但你需要的软件。
+macOS 用户建议先安装 [Homebrew](https://tobebetterjavaer.com/工具/brew.html)，这是一个 macOS 下的命令行软件管理器，可以通过一行命令安装 Apple（或 Linux 系统）没有预装但你需要的软件。
 
 安装完成后，直接执行 `brew install openjdk@8` 就可以安装 JDK 8 了。
 
@@ -628,7 +628,7 @@ JDK 的安装路径可以通过两种方法 get 到。
 jenv global 17
 ```
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/gongju/brew-cc01fad8-53e9-4474-8923-08e97ac7090a.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/工具/brew-cc01fad8-53e9-4474-8923-08e97ac7090a.png)
 
 是不是贼方便？再也不用整这 `echo 'export PATH="/usr/local/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc` 玩意添加 JDK 到 PATH 环境变量了！
 
@@ -654,7 +654,7 @@ IDEA 产于捷克，开发人员以严谨著称的东欧程序员为主，分为
 
 #### 下载 IDEA
 
-IntelliJ IDEA 的官方下载地址为：[https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download)
+IntelliJ IDEA 的官方下载地址为：[https://www.jetbrains.com/idea/下载/](https://www.jetbrains.com/idea/download)
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-d7ac2335-4c65-442c-931e-994e00db4235.png)
 
@@ -706,7 +706,7 @@ UItimate 为付费版，主要针对的是企业级开发用户；Community 为�
 
 #### 下载 IDEA
 
-1、打开 [https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/download/#section=mac)，点击 Download 按钮
+1、打开 [https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/下载/#section=mac)，点击 Download 按钮
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/IDEA-install-config-38cc7637-ed3f-44c0-b244-aafafd3634b6.png)
 
 2、选择 Community 版本，旗舰版需要激活，你可以戳这里[激活](https://tobebetterjavaer.com/nice-article/itmind/)）。
@@ -832,12 +832,12 @@ public class HelloWorld {
 }
 ```
 
-- class 关键字：用于在 Java 中声明一个[类](https://tobebetterjavaer.com/oo/object-class.html)。
-- public 关键字：一个表示可见性的[访问修饰符](https://tobebetterjavaer.com/oo/access-control.html)。
-- [static 关键字](https://tobebetterjavaer.com/oo/static.html)：我们可以用它来声明任何一个方法，被 static 修饰后的方法称之为静态方法。静态方法不需要为其创建对象就能调用。
+- class 关键字：用于在 Java 中声明一个[类](https://tobebetterjavaer.com/面向对象/object-class.html)。
+- public 关键字：一个表示可见性的[访问修饰符](https://tobebetterjavaer.com/面向对象/access-control.html)。
+- [static 关键字](https://tobebetterjavaer.com/面向对象/static.html)：我们可以用它来声明任何一个方法，被 static 修饰后的方法称之为静态方法。静态方法不需要为其创建对象就能调用。
 - void 关键字：表示该方法不返回任何值。
 - main 关键字：表示该方法为主方法，也就是程序运行的入口。`main()` 方法由 Java 虚拟机执行，配合上 static 关键字后，可以不用创建对象就可以调用，可以节省不少内存空间。
-- `String [] args`：`main()` 方法的参数，类型为 [String](https://tobebetterjavaer.com/string/immutable.html) [数组](https://tobebetterjavaer.com/array/array.html)，参数名为 args。
+- `String [] args`：`main()` 方法的参数，类型为 [String](https://tobebetterjavaer.com/字符串/immutable.html) [数组](https://tobebetterjavaer.com/数组/array.html)，参数名为 args。
 - `System.out.println()`：一个 Java 语句，一般情况下是将传递的参数打印到控制台。System 是 java.lang 包中的一个 final 类，该类提供的设施包括标准输入，标准输出和错误输出流等等。out 是 System 类的静态成员字段，类型为 [PrintStream](https://tobebetterjavaer.com/io/print.html)，它与主机的标准输出控制台进行映射。println 是 PrintStream 类的一个方法，通过调用 print 方法并添加一个换行符实现的。
 
 “实在记不住也没关系，我们后面还会讲哦（可以跳转的地方都会展开细讲）。”我的话令三妹感到非常开心。
@@ -859,7 +859,7 @@ class 文件在 target 目录下，classes 为 src/main 目录下的 class 文�
 
 “不错不错，都能挖掘到这个点了。”
 
-.java 是源代码，也就是我们开发人员可以看懂的，可以编写的；.class 是字节码文件，是经过 javac 编译后的文件，是交给 [JVM](https://tobebetterjavaer.com/jvm/what-is-jvm.html) 执行的文件。
+.java 是源代码，也就是我们开发人员可以看懂的，可以编写的；.class 是字节码文件，是经过 javac 编译后的文件，是交给 [JVM](https://tobebetterjavaer.com/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/what-is-jvm.html) 执行的文件。
 
 “三妹，这里再顺带给你讲一下，Java 是编译型语言还是解释型语言。”
 
@@ -873,7 +873,7 @@ Java 的第一道工序是通过 javac 命令把 Java 源码编译成字节码�
 之后，我们可以通过 java 命令运行字节码（比如说 `java Hello`），此时就有 2 种处理方式了。
 
 - 1、字节码由 JVM 逐条解释执行。
-- 2、部分字节码可能由 [JIT（即时编译，戳链接了解](https://tobebetterjavaer.com/jvm/jit.html)）编译为机器指令直接执行。
+- 2、部分字节码可能由 [JIT（即时编译，戳链接了解](https://tobebetterjavaer.com/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/jit.html)）编译为机器指令直接执行。
 
 ①、逐条解释执行：
 
@@ -887,7 +887,7 @@ Java 的第一道工序是通过 javac 命令把 Java 源码编译成字节码�
 
 ②、JIT 即时编译：
 
-为了提高 Java 程序的执行效率，Java 虚拟机引入了即时编译（[JIT，Just-In-Time Compilation](https://tobebetterjavaer.com/jvm/jit.html)）技术。在 JIT 模式下，Java 虚拟机会在运行时将频繁执行的字节码编译为本地机器码，这样就可以直接在硬件上运行，而不需要再次解释。这样做的结果是显著提高了程序的执行速度。需要注意的是，JIT 编译器并不会编译所有的字节码，而是根据一定的策略，仅编译被频繁调用的代码段（热点代码）。
+为了提高 Java 程序的执行效率，Java 虚拟机引入了即时编译（[JIT，Just-In-Time Compilation](https://tobebetterjavaer.com/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/jit.html)）技术。在 JIT 模式下，Java 虚拟机会在运行时将频繁执行的字节码编译为本地机器码，这样就可以直接在硬件上运行，而不需要再次解释。这样做的结果是显著提高了程序的执行速度。需要注意的是，JIT 编译器并不会编译所有的字节码，而是根据一定的策略，仅编译被频繁调用的代码段（热点代码）。
 
 总结一下 JIT 即时编译的特点：
 
@@ -919,7 +919,7 @@ Java 的第一道工序是通过 javac 命令把 Java 源码编译成字节码�
 
 >PS：这里我们按照首字母的自然顺序排列来简述一下，了解即可，记不住没关系哦。这些关键字我们在后续的学习中会详细讲解的，直到你搞懂为止。
 
-**1、abstract：** 用于声明[抽象类](https://tobebetterjavaer.com/oo/abstract.html)，以及抽象方法。
+**1、abstract：** 用于声明[抽象类](https://tobebetterjavaer.com/面向对象/abstract.html)，以及抽象方法。
 
 ```java
 abstract class Animal {
@@ -982,7 +982,7 @@ byte maxByte = 127;
 
 例子我们直接放到 switch 中一起讲。
 
-**6、catch：** 用于捕获 try 语句中的[异常](https://tobebetterjavaer.com/exception/gailan.html)。在 try 块中可能会抛出异常，而在 catch 块中可以捕获这些异常并进行处理。catch 块可以有多个，每个 catch 块可以捕获特定类型的异常。在 catch 块中，可以根据需要进行异常处理，例如输出错误信息、进行日志记录、恢复程序状态等。
+**6、catch：** 用于捕获 try 语句中的[异常](https://tobebetterjavaer.com/异常/gailan.html)。在 try 块中可能会抛出异常，而在 catch 块中可以捕获这些异常并进行处理。catch 块可以有多个，每个 catch 块可以捕获特定类型的异常。在 catch 块中，可以根据需要进行异常处理，例如输出错误信息、进行日志记录、恢复程序状态等。
 
 ```java
 try {
@@ -994,7 +994,7 @@ try {
 
 这个程序使用 try-catch 语句捕获 NumberFormatException 异常。在 try 块中，尝试将字符串 "abc" 转换为整数类型，由于这个字符串不是有效的数字格式，将会抛出 NumberFormatException 异常。在 catch 块中，捕获到了这个异常，并输出一条错误信息。
 
-**7、char：** 用于声明一个字符类型的变量。char 类型的变量可以存储任意的 [Unicode 字符](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)，可以使用单引号将字符括起来来表示。
+**7、char：** 用于声明一个字符类型的变量。char 类型的变量可以存储任意的 [Unicode 字符](https://tobebetterjavaer.com/基础加餐/java-unicode.html)，可以使用单引号将字符括起来来表示。
 
 ```java
 char c = 'A';
@@ -1002,7 +1002,7 @@ char c = 'A';
 
 这个程序创建了一个 char 类型的变量 c，并将其赋值为大写字母 A。
 
-**8、class：** 用于声明一个[类](https://tobebetterjavaer.com/oo/object-class.html)。
+**8、class：** 用于声明一个[类](https://tobebetterjavaer.com/面向对象/object-class.html)。
 
 ```java
 public class Person {
@@ -1064,7 +1064,7 @@ if (score >= 60) {
 }
 ```
 
-**14、enum：** 用于定义一组固定的常量（[枚举](https://tobebetterjavaer.com/basic-extra-meal/enum.html)）。
+**14、enum：** 用于定义一组固定的常量（[枚举](https://tobebetterjavaer.com/基础加餐/enum.html)）。
 
 ```java
 public enum PlayerType {
@@ -1074,7 +1074,7 @@ public enum PlayerType {
 }
 ```
 
-**15、extends：** 用于指示一个类是从另一个类或接口[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)的。
+**15、extends：** 用于指示一个类是从另一个类或接口[继承](https://tobebetterjavaer.com/面向对象/extends-bigsai.html)的。
 
 ```java
 class Animal {
@@ -1100,7 +1100,7 @@ public class ExtendsDemo {
 
 Animal 类中有一个 `eat()` 方法，输出字符串 "动物正在吃东西"。Dog 类继承自 Animal 类，并定义了一个 `bark()` 方法，输出字符串 "狗在汪汪叫"。
 
-**16、final：** [用于表示某个变量、方法或类是最终的，不能被修改或继承](https://tobebetterjavaer.com/oo/final.html)。
+**16、final：** [用于表示某个变量、方法或类是最终的，不能被修改或继承](https://tobebetterjavaer.com/面向对象/final.html)。
 
 ①、final 变量：表示一个常量，一旦被赋值，其值就不能再被修改。这在声明不可变的值时非常有用。
 
@@ -1132,7 +1132,7 @@ public class Main {
 }
 ```
 
-③、final 类表示一个不能被继承的类。这在设计类时，确保其不会被其他类继承时非常有用。[String 类就是 final 的](https://tobebetterjavaer.com/oo/final.html)。
+③、final 类表示一个不能被继承的类。这在设计类时，确保其不会被其他类继承时非常有用。[String 类就是 final 的](https://tobebetterjavaer.com/面向对象/final.html)。
 
 ```java
 final class Animal {
@@ -1199,7 +1199,7 @@ if (n > 0) {
 }
 ```
 
-**21、implements：** 用于实现[接口](https://tobebetterjavaer.com/oo/interface.html)。
+**21、implements：** 用于实现[接口](https://tobebetterjavaer.com/面向对象/interface.html)。
 
 下面是一个实现了 Runnable 接口的类的示例：
 
@@ -1217,7 +1217,7 @@ public class MyThread implements Runnable {
 import java.util.ArrayList;
 ```
 
-**23、instanceof：** [用于判断对象是否属于某个类型（class）](https://tobebetterjavaer.com/basic-extra-meal/instanceof.html)。
+**23、instanceof：** [用于判断对象是否属于某个类型（class）](https://tobebetterjavaer.com/基础加餐/instanceof.html)。
 
 ```java
 例如，假设有一个 Person 类和一个 Student 类，Student 类继承自 Person 类，可以使用 instanceof 运算符来判断一个对象是否为 Person 类或其子类的实例：
@@ -1255,7 +1255,7 @@ x = 10000000000L; // 将长整数值 10000000000 赋给变量 x，需要在数�
 long y = 20000000000L; // 声明并初始化一个 long 类型的变量 y，赋值为长整数值 20000000000
 ```
 
-**27、native：** [用于声明一个本地方法](https://tobebetterjavaer.com/oo/native-method.html)，本地方法是指在 Java 代码中声明但在本地代码（通常是 C 或 C++ 代码）中实现的方法，它通常用于与操作系统或其他本地库进行交互。
+**27、native：** [用于声明一个本地方法](https://tobebetterjavaer.com/面向对象/native-method.html)，本地方法是指在 Java 代码中声明但在本地代码（通常是 C 或 C++ 代码）中实现的方法，它通常用于与操作系统或其他本地库进行交互。
 
 ```java
 public native void nativeMethod();
@@ -1275,20 +1275,20 @@ ClassName obj = new ClassName();
 int[] arr = new int[10];
 ```
 
-**29、null：** 如果一个变量是空的（什么引用也没有指向），就可以将它赋值为 null，和[空指针](https://tobebetterjavaer.com/exception/npe.html)异常息息相关。
+**29、null：** 如果一个变量是空的（什么引用也没有指向），就可以将它赋值为 null，和[空指针](https://tobebetterjavaer.com/异常/npe.html)异常息息相关。
 
 ```java
 String str = null; // 声明一个字符串引用，初始化为 null
 MyClass obj = null; // 声明一个 MyClass 类型的引用，初始化为 null
 ```
 
-**30、package：** 用于声明类所在的[包](https://tobebetterjavaer.com/oo/package.html)。
+**30、package：** 用于声明类所在的[包](https://tobebetterjavaer.com/面向对象/package.html)。
 
 ```java
 package com.example.mypackage;
 ```
 
-**31、private：** 一个[访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)，表示方法或变量只对当前类可见。
+**31、private：** 一个[访问权限修饰符](https://tobebetterjavaer.com/面向对象/access-control.html)，表示方法或变量只对当前类可见。
 
 ```java
 public class MyClass {
@@ -1370,7 +1370,7 @@ short x = 10; // 声明一个 short 类型的变量 x，赋值为 10
 short y = 20; // 声明一个 short 类型的变量 y，赋值为 20
 ```
 
-**37、static：** 表示该变量或方法是[静态变量或静态方法](https://tobebetterjavaer.com/oo/static.html)。
+**37、static：** 表示该变量或方法是[静态变量或静态方法](https://tobebetterjavaer.com/面向对象/static.html)。
 
 ```java
 public class MyClass {
@@ -1456,7 +1456,7 @@ public class Ieee754Demo {
 - 单精度浮点数的加法：变量 a 和 b 分别存储了 0.1 和 0.2，它们的和 c 等于 0.3。由于浮点数表示的精度限制，c 的实际值可能与理论值略有误差。
 - 特殊值：变量 x、y 和 z 分别存储了正无穷（+∞）、负无穷（-∞）和非数值（NaN）。这些特殊值是由除法运算产生的，当被除数为 0 或结果无法表示时，会返回相应的特殊值。
 
-**39、super：** 可用于[调用父类的方法或者字段](https://tobebetterjavaer.com/oo/this-super.html)。
+**39、super：** 可用于[调用父类的方法或者字段](https://tobebetterjavaer.com/面向对象/this-super.html)。
 
 ```java
 class Animal {
@@ -1526,7 +1526,7 @@ public class Main {
 
 在这个示例中，我们定义了一个名为 dayOfWeek 的整数变量，并赋予了一个值。然后，我们使用 switch 语句根据 dayOfWeek 的值来输出对应的星期几。每个 case 子句表示 dayOfWeek 可能的值，后面紧跟着要执行的代码。使用 break 语句跳出 switch 语句，避免执行其他 case 子句的代码。如果 dayOfWeek 的值不在 case 子句中，default 子句将被执行。
 
-**41、synchronized：** [用于指定多线程代码中的同步方法、变量或者代码块](https://tobebetterjavaer.com/thread/synchronized-1.html)。
+**41、synchronized：** [用于指定多线程代码中的同步方法、变量或者代码块](https://tobebetterjavaer.com/线程/synchronized-1.html)。
 
 ```java
 public class MyClass {
@@ -1544,7 +1544,7 @@ public class MyClass {
 }
 ```
 
-**42、this：** [可用于在方法或构造方法中引用当前对象](https://tobebetterjavaer.com/oo/this-super.html)。
+**42、this：** [可用于在方法或构造方法中引用当前对象](https://tobebetterjavaer.com/面向对象/this-super.html)。
 
 ```java
 public class MyClass {
@@ -1566,7 +1566,7 @@ public class MyClass {
 
 在这个示例中，MyClass 类有一个私有成员变量 num，并定义了一个构造方法、一个方法和一个返回当前对象的方法。在构造方法中，使用 this 关键字引用当前对象的成员变量，并将传入的参数赋值给该成员变量。在方法 `doSomething()` 中，使用 this 关键字引用当前对象的成员变量，并输出该成员变量的值。在方法 `getThis()` 中，直接返回当前对象本身。
 
-**43、throw：** 主动抛出[异常](https://tobebetterjavaer.com/exception/gailan.html)。
+**43、throw：** 主动抛出[异常](https://tobebetterjavaer.com/异常/gailan.html)。
 
 ```java
 public class MyClass {
@@ -1641,7 +1641,7 @@ public void doSomething() {
 }
 ```
 
-**47、volatile：** 保证不同线程对它修饰的变量进行操作时的[可见性](https://tobebetterjavaer.com/thread/volatile.html)，即一个线程修改了某个变量的值，新值对其他线程来说是立即可见的。
+**47、volatile：** 保证不同线程对它修饰的变量进行操作时的[可见性](https://tobebetterjavaer.com/线程/volatile.html)，即一个线程修改了某个变量的值，新值对其他线程来说是立即可见的。
 
 ```java
 public class MyThread extends Thread {
@@ -1892,11 +1892,11 @@ default 和 private 修饰的字段和方法的注释将会被忽略掉。因为
 
 1）类、字段、方法必须使用文档注释，不能使用单行注释和多行注释。因为注释文档在 IDE 编辑窗口中可以悬浮提示，提高编码效率。
 
-比如说，在使用 [String 类](https://tobebetterjavaer.com/string/immutable.html)的时候，鼠标悬停在 String 上时可以得到以下提示。
+比如说，在使用 [String 类](https://tobebetterjavaer.com/字符串/immutable.html)的时候，鼠标悬停在 String 上时可以得到以下提示。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/overview/fourteen-09.png)
 
-2）所有的[抽象方法](https://tobebetterjavaer.com/oo/abstract.html)(包括接口中的方法)必须要用 Javadoc 注释、除了返回值、参数、 异常说明外，还必须指出该方法做什么事情，实现什么功能。
+2）所有的[抽象方法](https://tobebetterjavaer.com/面向对象/abstract.html)(包括接口中的方法)必须要用 Javadoc 注释、除了返回值、参数、 异常说明外，还必须指出该方法做什么事情，实现什么功能。
 
 3）所有的类都必须添加创建者和创建日期。
 
@@ -1927,7 +1927,7 @@ public class Test {
 }
 ```
 
-4）所有的[枚举](https://tobebetterjavaer.com/basic-extra-meal/enum.html)类型字段必须要有注释，说明每个数据项的用途。
+4）所有的[枚举](https://tobebetterjavaer.com/基础加餐/enum.html)类型字段必须要有注释，说明每个数据项的用途。
 
 5）代码修改的同时，注释也要进行相应的修改。
 
@@ -1952,13 +1952,13 @@ Java 中的数据类型可分为 2 种：
 
 2）**引用数据类型**。
 
-除了基本数据类型以外的类型，都是所谓的引用类型。常见的有[数组](https://tobebetterjavaer.com/array/array.html)（对，没错，数组是引用类型，后面我们会讲）、class（也就是[类](https://tobebetterjavaer.com/oo/object-class.html)），以及[接口](https://tobebetterjavaer.com/oo/interface.html)（指向的是实现接口的类的对象）。
+除了基本数据类型以外的类型，都是所谓的引用类型。常见的有[数组](https://tobebetterjavaer.com/数组/array.html)（对，没错，数组是引用类型，后面我们会讲）、class（也就是[类](https://tobebetterjavaer.com/面向对象/object-class.html)），以及[接口](https://tobebetterjavaer.com/面向对象/interface.html)（指向的是实现接口的类的对象）。
 
 来个思维导图，感受下。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/core-grammar/nine-01.png)
 
-[变量](https://tobebetterjavaer.com/oo/var.html)可以分为局部变量、成员变量、静态变量。
+[变量](https://tobebetterjavaer.com/面向对象/var.html)可以分为局部变量、成员变量、静态变量。
 
 当变量是局部变量的时候，必须得先初始化，否则编译器不允许你使用它。拿 int 来举例吧，看下图。
 
@@ -2105,7 +2105,7 @@ double 是双精度浮点数（双精度浮点数的有效数字大约为 15 到
 double myDouble = 3.141592653589793;
 ```
 
-在进行金融计算或需要精确小数计算的场景中，可以使用 [BigDecimal 类](https://tobebetterjavaer.com/basic-grammar/bigdecimal-biginteger.html)来避免浮点数舍入误差。BigDecimal 可以表示一个任意大小且精度完全准确的浮点数。
+在进行金融计算或需要精确小数计算的场景中，可以使用 [BigDecimal 类](https://tobebetterjavaer.com/基础语法/bigdecimal-biginteger.html)来避免浮点数舍入误差。BigDecimal 可以表示一个任意大小且精度完全准确的浮点数。
 
 > 在实际开发中，如果不是特别大的金额（精确到 0.01 元，也就是一分钱），一般建议乘以 100 转成整型进行处理。
 
@@ -2119,7 +2119,7 @@ char 用于表示 Unicode 字符，占 16 位（2 字节）的存储空间，取
 char letterA = 'A'; // 用英文的单引号包裹住。
 ```
 
-注意，字符字面量应该用单引号（''）包围，而不是双引号（""），因为[双引号表示字符串字面量](https://tobebetterjavaer.com/string/constant-pool.html)。
+注意，字符字面量应该用单引号（''）包围，而不是双引号（""），因为[双引号表示字符串字面量](https://tobebetterjavaer.com/字符串/constant-pool.html)。
 
 ### 03、单精度和双精度
 
@@ -2159,7 +2159,7 @@ char letterA = 'A'; // 用英文的单引号包裹住。
 
 int 和 char 之间比较特殊，可以互转，也会在以后的学习当中经常遇到。
 
-1）可以通过[强制类型转换](https://tobebetterjavaer.com/basic-grammar/type-cast.html)将整型 int 转换为字符 char。
+1）可以通过[强制类型转换](https://tobebetterjavaer.com/基础语法/type-cast.html)将整型 int 转换为字符 char。
 
 ```java
 int value_int = 65;
@@ -2167,7 +2167,7 @@ char value_char  = (char) value_int;
 System.out.println(value_char);
 ```
 
-输出 `A`(其 [ASCII 值](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)可以通过整数 65 来表示)。
+输出 `A`(其 [ASCII 值](https://tobebetterjavaer.com/基础加餐/java-unicode.html)可以通过整数 65 来表示)。
 
 2）可以使用 `Character.forDigit()` 方法将整型 int 转换为字符 char，参数 radix 为基数，十进制为 10，十六进制为 16。。
 
@@ -2196,11 +2196,11 @@ System.out.println(value_char );
 int a = 'a';
 ```
 
-因为发生了[自动类型转换](https://tobebetterjavaer.com/basic-grammar/type-cast.html)，后面会细讲。
+因为发生了[自动类型转换](https://tobebetterjavaer.com/基础语法/type-cast.html)，后面会细讲。
 
 ### 05、包装器类型
 
-包装器类型（Wrapper Types）是 Java 中的一种特殊类型，用于将基本数据类型（如 int、float、char 等）转换为对应的[对象类型](https://tobebetterjavaer.com/oo/object-class.html)。
+包装器类型（Wrapper Types）是 Java 中的一种特殊类型，用于将基本数据类型（如 int、float、char 等）转换为对应的[对象类型](https://tobebetterjavaer.com/面向对象/object-class.html)。
 
 Java 提供了以下包装器类型，与基本数据类型一一对应：
 
@@ -2238,13 +2238,13 @@ System.out.println("字符是个数字.");
 }
 ```
 
-上面的示例中，我们创建了一个 [Integer 类型](https://tobebetterjavaer.com/basic-extra-meal/int-cache.html)的对象 integerValue 并为其赋值 42。然后，我们将其值打印到控制台。
+上面的示例中，我们创建了一个 [Integer 类型](https://tobebetterjavaer.com/基础加餐/int-cache.html)的对象 integerValue 并为其赋值 42。然后，我们将其值打印到控制台。
 
-我们有一个包含数字的[字符串](https://tobebetterjavaer.com/string/immutable.html) numberString。我们使用 `Integer.parseInt()` 方法将其转换为整数 parsedNumber。然后，我们将转换后的值打印到控制台。
+我们有一个包含数字的[字符串](https://tobebetterjavaer.com/字符串/immutable.html) numberString。我们使用 `Integer.parseInt()` 方法将其转换为整数 parsedNumber。然后，我们将转换后的值打印到控制台。
 
 我们有一个字符变量 testChar，并为其赋值字符 '9'。我们使用 `Character.isDigit()` 方法检查 testChar 是否为数字字符。如果是数字字符，我们将输出一条消息到控制台。
 
-从 Java 5 开始，[自动装箱（Autoboxing）和自动拆箱（Unboxing）机制](https://tobebetterjavaer.com/basic-extra-meal/box.html)允许我们在基本数据类型和包装器类型之间自动转换，无需显式地调用构造方法或转换方法（链接里会细讲）。
+从 Java 5 开始，[自动装箱（Autoboxing）和自动拆箱（Unboxing）机制](https://tobebetterjavaer.com/基础加餐/box.html)允许我们在基本数据类型和包装器类型之间自动转换，无需显式地调用构造方法或转换方法（链接里会细讲）。
 
 ```java
 Integer integerValue = 42; // 自动装箱，等同于 new Integer(42)
@@ -2255,7 +2255,7 @@ int primitiveValue = integerValue; // 自动拆箱，等同于 integerValue.intV
 
 基本数据类型在作为成员变量和静态变量的时候有默认值，引用数据类型也有的（学完数组&字符串，以及面向对象编程后会更加清楚，这里先简单过一下）。
 
-[String](https://tobebetterjavaer.com/string/immutable.html) 是最典型的引用数据类型，所以我们就拿 String 类举例，看下面这段代码：
+[String](https://tobebetterjavaer.com/字符串/immutable.html) 是最典型的引用数据类型，所以我们就拿 String 类举例，看下面这段代码：
 
 ```java
 /**
@@ -2280,11 +2280,11 @@ null
 null
 ```
 
-null 在 Java 中是一个很神奇的存在，在你以后的程序生涯中，见它的次数不会少，尤其是伴随着令人烦恼的“[空指针异常](https://tobebetterjavaer.com/exception/npe.html)”，也就是所谓的 `NullPointerException`。
+null 在 Java 中是一个很神奇的存在，在你以后的程序生涯中，见它的次数不会少，尤其是伴随着令人烦恼的“[空指针异常](https://tobebetterjavaer.com/异常/npe.html)”，也就是所谓的 `NullPointerException`。
 
 也就是说，引用数据类型的默认值为 null，包括数组和接口。
 
-那你是不是很好奇，为什么[数组](https://tobebetterjavaer.com/array/array.html)和[接口](https://tobebetterjavaer.com/oo/interface.html)也是引用数据类型啊？
+那你是不是很好奇，为什么[数组](https://tobebetterjavaer.com/数组/array.html)和[接口](https://tobebetterjavaer.com/面向对象/interface.html)也是引用数据类型啊？
 
 先来看数组：
 
@@ -2324,13 +2324,13 @@ List<String> list = new ArrayList<>();
 System.out.println(list);
 ```
 
-[List](https://tobebetterjavaer.com/collection/gailan.html) 是一个非常典型的接口：
+[List](https://tobebetterjavaer.com/集合/gailan.html) 是一个非常典型的接口：
 
 ```java
 public interface List<E> extends Collection<E> {}
 ```
 
-而 [ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 是 List 接口的一个实现：
+而 [ArrayList](https://tobebetterjavaer.com/集合/arraylist.html) 是 List 接口的一个实现：
 
 ```java
 public class ArrayList<E> extends AbstractList<E>
@@ -2376,7 +2376,7 @@ public class ArrayList<E> extends AbstractList<E>
 
 用图来表示一下，左侧是栈，右侧是堆。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-grammar/basic-data-type-dc26645a-3ed8-4ad4-815d-52528ad12d6b.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/基础语法/basic-data-type-dc26645a-3ed8-4ad4-815d-52528ad12d6b.png)
 
 这里再补充一些额外的知识点，能看懂就继续吸收，看不懂可以先去学下一节，以后再来补，没关系的。学习就是这样，可以跳过，可以温故。
 
@@ -2386,7 +2386,7 @@ public class ArrayList<E> extends AbstractList<E>
 String a = new String("沉默王二")
 ```
 
-这段代码会先在堆里创建一个 沉默王二的字符串对象，然后再把对象的引用 a 放到栈里面。这里面还会涉及到[字符串常量池](https://tobebetterjavaer.com/string/constant-pool.html)，后面会讲。
+这段代码会先在堆里创建一个 沉默王二的字符串对象，然后再把对象的引用 a 放到栈里面。这里面还会涉及到[字符串常量池](https://tobebetterjavaer.com/字符串/constant-pool.html)，后面会讲。
 
 那么对于这样一段代码，有基本数据类型的变量，有引用类型的变量，堆和栈都是如何存储他们的呢？
 
@@ -2401,7 +2401,7 @@ public void test()
 
 我来画个图表示下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-grammar/basic-data-type-3d5b3e40-1abb-4624-8282-b83e58388825.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/基础语法/basic-data-type-3d5b3e40-1abb-4624-8282-b83e58388825.png)
 
 应该一目了然了吧？
 
@@ -2644,7 +2644,7 @@ private static class IntegerCache {
 
 需要注意的是，如果使用 `new Integer()` 创建对象，即使值在 -128 到 127 范围内，也不会被缓存，每次都会创建新的对象。因此，推荐使用 `Integer.valueOf()` 方法获取整数对象。
 
-[学习 static 关键字](https://tobebetterjavaer.com/oo/static.html)的时候，会详细解释静态代码块，你暂时先记住，三妹，静态代码块通常用来初始化一些静态变量，它会优先于 main() 方法执行。
+[学习 static 关键字](https://tobebetterjavaer.com/面向对象/static.html)的时候，会详细解释静态代码块，你暂时先记住，三妹，静态代码块通常用来初始化一些静态变量，它会优先于 main() 方法执行。
 
 在静态代码块中，low 为 -128，也就是缓存池的最小值；high 默认为 127，也就是缓存池的最大值，共计 256 个。
 
@@ -2739,7 +2739,7 @@ System.out.println(a % b);//1
 
 对于初学者来说，加法（+）、减法（-）、乘法（*）很好理解，但除法（/）和取余（%）会有一点点疑惑。在以往的认知里，10/3 是除不尽的，结果应该是 3.333333...，而不应该是 3。相应的，余数也不应该是 1。这是为什么呢？
 
-因为数字在程序中可以分为两种，一种是整型，一种是浮点型（不清楚的同学可以回头看看[数据类型那篇](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)），整型和整型的运算结果就是整型，不会出现浮点型。否则，就会出现浮点型。
+因为数字在程序中可以分为两种，一种是整型，一种是浮点型（不清楚的同学可以回头看看[数据类型那篇](https://tobebetterjavaer.com/基础语法/basic-data-type.html)），整型和整型的运算结果就是整型，不会出现浮点型。否则，就会出现浮点型。
 
 ```java
 int a = 10;
@@ -2760,7 +2760,7 @@ System.out.println(0.0 / 0.0); // NaN
 
 Infinity 的中文意思是无穷大，NaN 的中文意思是这不是一个数字（Not a Number）。
 
-当整数除以 0 的时候（`10 / 0`），会抛出[异常](https://tobebetterjavaer.com/exception/gailan.html)：
+当整数除以 0 的时候（`10 / 0`），会抛出[异常](https://tobebetterjavaer.com/异常/gailan.html)：
 
 ```
 Exception in thread "main" java.lang.ArithmeticException: / by zero
@@ -3186,7 +3186,7 @@ if (age >= 20) {
 
 ### 02、switch 语句
 
-switch 语句用来判断变量与多个值之间的相等性。变量的类型可以是 byte、short、int 或者 char，或者对应的包装器类型 Byte、Short、Integer、Character，以及[字符串](https://tobebetterjavaer.com/string/immutable.html)和[枚举](https://tobebetterjavaer.com/basic-extra-meal/enum.html)类型。
+switch 语句用来判断变量与多个值之间的相等性。变量的类型可以是 byte、short、int 或者 char，或者对应的包装器类型 Byte、Short、Integer、Character，以及[字符串](https://tobebetterjavaer.com/字符串/immutable.html)和[枚举](https://tobebetterjavaer.com/基础加餐/enum.html)类型。
 
 来看一下 switch 语句的格式：
 
@@ -3787,7 +3787,7 @@ do{
 
 ## 4.1 掌握Java数组
 
-“二哥，我看你公众号的一篇文章里提到，[ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 的内部是用数组实现的，我就对数组非常感兴趣，想深入地了解一下，今天终于到这个环节了，好期待呀！”三妹的语气里显得很兴奋。
+“二哥，我看你公众号的一篇文章里提到，[ArrayList](https://tobebetterjavaer.com/集合/arraylist.html) 的内部是用数组实现的，我就对数组非常感兴趣，想深入地了解一下，今天终于到这个环节了，好期待呀！”三妹的语气里显得很兴奋。
 
 “的确是的，看 ArrayList 的源码就一清二楚了。”我一边说，一边打开 Intellij IDEA，并找到了 ArrayList 的源码。
 
@@ -3846,9 +3846,9 @@ int anOtherArray[];
 int[] anArray = new int[10];
 ```
 
-看到了没？上面这行代码中使用了 new 关键字，这就意味着数组的确是一个对象，只有对象的创建才会用到 new 关键字，[基本数据类型](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)是不用的。然后，我们需要在方括号中指定数组的长度。
+看到了没？上面这行代码中使用了 new 关键字，这就意味着数组的确是一个对象，只有对象的创建才会用到 new 关键字，[基本数据类型](https://tobebetterjavaer.com/基础语法/basic-data-type.html)是不用的。然后，我们需要在方括号中指定数组的长度。
 
-这时候，数组中的每个元素都会被初始化为默认值，int 类型的就为 0，Object 类型的就为 null。 不同数据类型的默认值不同，可以参照[之前的文章](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)。
+这时候，数组中的每个元素都会被初始化为默认值，int 类型的就为 0，Object 类型的就为 null。 不同数据类型的默认值不同，可以参照[之前的文章](https://tobebetterjavaer.com/基础语法/basic-data-type.html)。
 
 另外，还可以使用大括号的方式，直接初始化数组中的元素：
 
@@ -4239,7 +4239,7 @@ public class YangHuiTriangle {
 
 ## 4.3 打印Java数组
 
-“哥，[之前听你说，数组也是一个对象](https://tobebetterjavaer.com/array/array.html)，但 Java 中并未明确的定义这样一个类。”看来三妹有在用心地学习。
+“哥，[之前听你说，数组也是一个对象](https://tobebetterjavaer.com/数组/array.html)，但 Java 中并未明确的定义这样一个类。”看来三妹有在用心地学习。
 
 “是的，因此数组也就没有机会覆盖 `Object.toString()` 方法。如果尝试直接打印数组的话，输出的结果并不是我们预期的结果。”我接着三妹的话继续说。
 
@@ -4336,17 +4336,17 @@ for (String s : cmowers) {
 
 ### Arrays 工具类打印 Java 数组
 
-“哥，你难道忘了[上一篇](https://tobebetterjavaer.com/common-tool/arrays.html)在讲 Arrays 工具类的时候，提到过另外一种方法 `Arrays.toString()` 吗？”三妹看我一直说不到点子上，有点着急了。
+“哥，你难道忘了[上一篇](https://tobebetterjavaer.com/常用工具/arrays.html)在讲 Arrays 工具类的时候，提到过另外一种方法 `Arrays.toString()` 吗？”三妹看我一直说不到点子上，有点着急了。
 
 “当然没有了，我认为 `Arrays.toString()` 是打印数组的最佳方式，没有之一。”我的情绪有点激动。
 
 `Arrays.toString()` 可以将任意类型的数组转成字符串，包括基本类型数组和引用类型数组。该方法有多种重载形式。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/array/print-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/数组/print-01.png)
 
 使用 `Arrays.toString()` 方法来打印数组再优雅不过了，就像，就像，就像蒙娜丽莎的微笑。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/array/print-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/数组/print-02.png)
 
 （三妹看到这么一副图的时候忍不住地笑了）
 
@@ -4386,7 +4386,7 @@ System.out.println(Arrays.deepToString(deepArray));
 
 “说到打印，三妹，哥给你提醒一点。阿里巴巴的 Java 开发手册上有这样一条规约，你看。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/array/print-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/数组/print-03.png)
 
 “什么是 POJO 呢，就是 Plain Ordinary Java Object 的缩写，一般在 Web 应用程序中建立一个数据库的映射对象时，我们称它为 POJO，这类对象不继承或不实现任何其它 Java 框架的类或接口。”
 
@@ -4409,7 +4409,7 @@ System.out.println(Arrays.deepToString(deepArray));
 
 “三妹，你回来的真及时，今天我们打算讲 Java 中的字符串呢。”等三妹换鞋的时候我说。
 
-“哦，可以呀，哥。听说字符串的细节特别多，什么[字符串常量池](https://tobebetterjavaer.com/string/constant-pool.html)了、字符串不可变性了、[字符串拼接](https://tobebetterjavaer.com/string/join.html)了、字符串长度限制了等等，你最好慢慢讲，否则我可能一时半会消化不了。”三妹的态度显得很诚恳。
+“哦，可以呀，哥。听说字符串的细节特别多，什么[字符串常量池](https://tobebetterjavaer.com/字符串/constant-pool.html)了、字符串不可变性了、[字符串拼接](https://tobebetterjavaer.com/字符串/join.html)了、字符串长度限制了等等，你最好慢慢讲，否则我可能一时半会消化不了。”三妹的态度显得很诚恳。
 
 “嗯，我已经想好了，今天就只带你大概认识一下字符串，主要读一读它的源码，其他的细节咱们后面再慢慢讲，保证你能及时消化。”
 
@@ -4425,11 +4425,11 @@ public final class String
 }
 ```
 
-“第一，String 类是 [final](https://tobebetterjavaer.com/oo/final.html) 的，意味着它不能被子类继承。”
+“第一，String 类是 [final](https://tobebetterjavaer.com/面向对象/final.html) 的，意味着它不能被子类继承。”
 
 “第二，String 类实现了 [Serializable 接口](https://tobebetterjavaer.com/io/Serializbale.html)，意味着它可以[序列化](https://tobebetterjavaer.com/io/serialize.html)。”
 
-“第三，String 类实现了 [Comparable 接口](https://tobebetterjavaer.com/basic-extra-meal/comparable-omparator.html)，意味着最好不要用‘==’来[比较两个字符串是否相等](https://tobebetterjavaer.com/string/equals.html)，而应该用 `compareTo()` 方法去比较。”
+“第三，String 类实现了 [Comparable 接口](https://tobebetterjavaer.com/基础加餐/comparable-omparator.html)，意味着最好不要用‘==’来[比较两个字符串是否相等](https://tobebetterjavaer.com/字符串/equals.html)，而应该用 `compareTo()` 方法去比较。”
 
 因为 == 是用来比较两个对象的地址，这个在讲字符串比较的时候会详细讲。如果只是说比较字符串内容的话，可以使用 String 类的 equals 方法：
 
@@ -4457,7 +4457,7 @@ public boolean equals(Object anObject) {
 }
 ```
 
-“第四，[StringBuffer、StringBuilder 和 String](https://tobebetterjavaer.com/string/builder-buffer.html) 一样，都实现了 CharSequence 接口，所以它们仨属于近亲。由于 String 是不可变的，所以遇到字符串拼接的时候就可以考虑一下 String 的另外两个好兄弟，StringBuffer 和 StringBuilder，它俩是可变的。”
+“第四，[StringBuffer、StringBuilder 和 String](https://tobebetterjavaer.com/字符串/builder-buffer.html) 一样，都实现了 CharSequence 接口，所以它们仨属于近亲。由于 String 是不可变的，所以遇到字符串拼接的时候就可以考虑一下 String 的另外两个好兄弟，StringBuffer 和 StringBuilder，它俩是可变的。”
 
 ### String 类的底层实现
 
@@ -4465,7 +4465,7 @@ public boolean equals(Object anObject) {
 private final char value[];
 ```
 
-“第五，Java 9 以前，String 是用 char 型[数组](https://tobebetterjavaer.com/array/array.html)实现的，之后改成了 byte 型数组实现，并增加了 coder 来表示编码。这样做的好处是在 Latin1 字符为主的程序里，可以把 String 占用的内存减少一半。当然，天下没有免费的午餐，这个改进在节省内存的同时引入了编码检测的开销。”
+“第五，Java 9 以前，String 是用 char 型[数组](https://tobebetterjavaer.com/数组/array.html)实现的，之后改成了 byte 型数组实现，并增加了 coder 来表示编码。这样做的好处是在 Latin1 字符为主的程序里，可以把 String 占用的内存减少一半。当然，天下没有免费的午餐，这个改进在节省内存的同时引入了编码检测的开销。”
 
 >Latin1（Latin-1）是一种单字节字符集（即每个字符只使用一个字节的编码方式），也称为ISO-8859-1（国际标准化组织8859-1），它包含了西欧语言中使用的所有字符，包括英语、法语、德语、西班牙语、葡萄牙语、意大利语等等。在Latin1编码中，每个字符使用一个8位（即一个字节）的编码，可以表示256种不同的字符，其中包括ASCII字符集中的所有字符，即0x00到0x7F，以及其他西欧语言中的特殊字符，例如é、ü、ñ等等。由于Latin1只使用一个字节表示一个字符，因此在存储和传输文本时具有较小的存储空间和较快的速度
 
@@ -4487,7 +4487,7 @@ public final class String
 
 以我正在运行着的[编程喵](https://github.com/itwanger/coding-more)项目实例（基于 Java 8）来说，结果是这样的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/jdk9-char-byte-string-d826ce88-bbbe-47a3-a1a9-4dd86dd3632f.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/基础加餐/jdk9-char-byte-string-d826ce88-bbbe-47a3-a1a9-4dd86dd3632f.png)
 
 其中 String 对象有 17638 个，占用了 423312 个字节的内存，排在第三位。
 
@@ -4497,7 +4497,7 @@ public final class String
 
 那也就是说优化 String 节省内存空间是非常有必要的，如果是去优化一个使用频率没有 String 这么高的类，就没什么必要，对吧？
 
-众所周知，char 类型的数据在 JVM 中是占用两个字节的，并且使用的是 UTF-8 [编码](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)，其值范围在 '\u0000'（0）和 '\uffff'（65,535）（包含）之间。
+众所周知，char 类型的数据在 JVM 中是占用两个字节的，并且使用的是 UTF-8 [编码](https://tobebetterjavaer.com/基础加餐/java-unicode.html)，其值范围在 '\u0000'（0）和 '\uffff'（65,535）（包含）之间。
 
 也就是说，使用 `char[]` 来表示 String 就会导致，即使 String 中的字符只用一个字节就能表示，也得占用两个字节。
 
@@ -4571,7 +4571,7 @@ Java 会根据字符串的内容自动设置为相应的编码，要么 Latin-1 
 
 ### String 类的 hashCode 方法
 
-“第六，每一个字符串都会有一个 hash 值，这个哈希值在很大概率是不会重复的，因此 String 很适合来作为 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 的键值。”
+“第六，每一个字符串都会有一个 hash 值，这个哈希值在很大概率是不会重复的，因此 String 很适合来作为 [HashMap](https://tobebetterjavaer.com/集合/hashmap.html) 的键值。”
 
 来看 String 类的 hashCode 方法。
 
@@ -4604,7 +4604,7 @@ H(s) = (s[0] * 31^(n-1)) + (s[1] * 31^(n-2)) + ... + (s[n-1] * 31^0)
 
 31倍哈希法的优点在于简单易实现，计算速度快，同时也比较均匀地分布在哈希表中。
 
-[hashCode 方法](https://tobebetterjavaer.com/basic-extra-meal/hashcode.html)，我们会在另外一个章节里详细讲，戳前面的链接了解。
+[hashCode 方法](https://tobebetterjavaer.com/基础加餐/hashcode.html)，我们会在另外一个章节里详细讲，戳前面的链接了解。
 
 我们可以通过以下方法模拟 String 的 hashCode 方法：
 
@@ -4654,7 +4654,7 @@ public String substring(int beginIndex) {
 }
 ```
 
-substring 方法首先检查参数的有效性，如果参数无效，则抛出 StringIndexOutOfBoundsException [异常](https://tobebetterjavaer.com/exception/gailan.html)。接下来，方法根据参数计算子字符串的长度。如果子字符串长度小于零，抛出StringIndexOutOfBoundsException异常。
+substring 方法首先检查参数的有效性，如果参数无效，则抛出 StringIndexOutOfBoundsException [异常](https://tobebetterjavaer.com/异常/gailan.html)。接下来，方法根据参数计算子字符串的长度。如果子字符串长度小于零，抛出StringIndexOutOfBoundsException异常。
 
 如果 beginIndex 为 0，且 endIndex 等于字符串的长度，说明子串与原字符串相同，因此直接返回原字符串。否则，使用 value 数组（原字符串的字符数组）的一部分创建一个新的 String 对象并返回。
 
@@ -4829,7 +4829,7 @@ public String trim() {
 
 举例：`"  沉默王二   ".trim()` 会返回"沉默王二"
 
-除此之外，还有 [split](https://tobebetterjavaer.com/string/split.html)、[equals](https://tobebetterjavaer.com/string/equals.html)、[join](https://tobebetterjavaer.com/string/join.html) 等这些方法，我们后面会一一来细讲。
+除此之外，还有 [split](https://tobebetterjavaer.com/字符串/split.html)、[equals](https://tobebetterjavaer.com/字符串/equals.html)、[join](https://tobebetterjavaer.com/字符串/join.html) 等这些方法，我们后面会一一来细讲。
 
 ---
 
@@ -4839,7 +4839,7 @@ String 可能是 Java 中使用频率最高的引用类型了，因此 String �
 
 比如说 String 的不可变性。
 
-- String 类被 [final 关键字](https://tobebetterjavaer.com/oo/final.html)修饰，所以它不会有子类，这就意味着没有子类可以[重写](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)它的方法，改变它的行为。
+- String 类被 [final 关键字](https://tobebetterjavaer.com/面向对象/final.html)修饰，所以它不会有子类，这就意味着没有子类可以[重写](https://tobebetterjavaer.com/基础加餐/override-overload.html)它的方法，改变它的行为。
 - String 类的数据存储在 `char[]` 数组中，而这个数组也被 final 关键字修饰了，这就表示 String 对象是没法被修改的，只要初始化一次，值就确定了。
 
 ```java
@@ -4906,7 +4906,7 @@ public class StringSecurityExample {
 
 在这个示例中，尽管我们尝试修改 getUserCredentials 返回的字符串数组（即用户名和密码），但原始 User 对象中的用户名和密码保持不变。这证明了字符串的不可变性有助于保护 String 对象的安全性。
 
-第二，保证哈希值不会频繁变更。毕竟要经常作为[哈希表](https://tobebetterjavaer.com/collection/hashmap.html)的键值，经常变更的话，哈希表的性能就会很差劲。
+第二，保证哈希值不会频繁变更。毕竟要经常作为[哈希表](https://tobebetterjavaer.com/集合/hashmap.html)的键值，经常变更的话，哈希表的性能就会很差劲。
 
 在 String 类中，哈希值是在第一次计算时缓存的，后续对该哈希值的请求将直接使用缓存值。这有助于提高哈希表等数据结构的性能。以下是一个简单的示例，演示了字符串的哈希值缓存机制：
 
@@ -4932,7 +4932,7 @@ System.out.println("text2 直接使用缓存: " + hashCode2);
 
 由于 String 对象是不可变的，其哈希值在创建后不会发生变化。这使得 String 类可以缓存哈希值，提高哈希表等数据结构的性能。如果 String 是可变的，那么在每次修改时都需要重新计算哈希值，这会降低性能。
 
-第三，可以实现[字符串常量池](https://tobebetterjavaer.com/string/constant-pool.html)，Java 会将相同内容的字符串存储在字符串常量池中。这样，具有相同内容的字符串变量可以指向同一个 String 对象，节省内存空间。
+第三，可以实现[字符串常量池](https://tobebetterjavaer.com/字符串/constant-pool.html)，Java 会将相同内容的字符串存储在字符串常量池中。这样，具有相同内容的字符串变量可以指向同一个 String 对象，节省内存空间。
 
 “由于字符串的不可变性，String 类的一些方法实现最终都返回了新的字符串对象。”等三妹稍微缓了一会后，我继续说到。
 
@@ -5006,7 +5006,7 @@ public String concat(String str) {
 String s = new String("二哥");
 ```
 
-“这行代码创建了几个[对象](https://tobebetterjavaer.com/oo/object-class.html)？”
+“这行代码创建了几个[对象](https://tobebetterjavaer.com/面向对象/object-class.html)？”
 
 “不就一个吗？”三妹不假思索地回答。
 
@@ -5016,7 +5016,7 @@ String s = new String("二哥");
 
 我画图表示一下，会更加清楚。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-6dee151e-3a13-4f85-b870-3c9d1797557a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/字符串//constant-pool-6dee151e-3a13-4f85-b870-3c9d1797557a.png)
 
 在Java中，栈上存储的是基本数据类型的变量和对象的引用，而对象本身则存储在堆上。
 
@@ -5037,7 +5037,7 @@ String s = "三妹";
 当执行 `String s = "三妹"` 时，Java 虚拟机会先在字符串常量池中查找有没有“三妹”这个字符串对象，如果有，则不创建任何对象，直接将字符串常量池中这个“三妹”的对象地址返回，赋给变量 s；如果没有，在字符串常量池中创建“三妹”这个对象，然后将其地址返回，赋给变量 s。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-80ca8b18-2446-431e-98e3-b194e1c608e3.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/字符串//constant-pool-80ca8b18-2446-431e-98e3-b194e1c608e3.png)
 
 Java 虚拟机创建了一个字符串对象 "三妹"，它被添加到了字符串常量池中，同时引用变量 s 存储在栈上，它指向字符串常量池中的字符串对象 "三妹"。你看，是不是省了一步，比之前高效了。
 
@@ -5087,7 +5087,7 @@ String s1 = "三妹";
 画幅图，大概就是这个样子。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-ed6518ec-1d51-4718-ab8a-e1e2cda774bd.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/字符串//constant-pool-ed6518ec-1d51-4718-ab8a-e1e2cda774bd.png)
 
 
 #### Java 7
@@ -5098,7 +5098,7 @@ String s1 = "三妹";
 
 再画幅图，大概就是这样子。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-f5231378-a442-421e-a470-8256da1715e8.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/字符串//constant-pool-f5231378-a442-421e-a470-8256da1715e8.png)
 
 #### Java 8
 
@@ -5113,7 +5113,7 @@ String s1 = "三妹";
 再画幅图，对比来看一下，就会一目了然。
 
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string//constant-pool-422e3214-97df-41ec-bcb5-132cfc76b669.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/字符串//constant-pool-422e3214-97df-41ec-bcb5-132cfc76b669.png)
 
 ### 永久代、方法区、元空间
 
@@ -5122,7 +5122,7 @@ String s1 = "三妹";
 
 “可以呀。”
 
-- 方法区是 Java 虚拟机规范中的一个概念，就像是一个[接口](https://tobebetterjavaer.com/oo/interface.html)吧；
+- 方法区是 Java 虚拟机规范中的一个概念，就像是一个[接口](https://tobebetterjavaer.com/面向对象/interface.html)吧；
 - 永久代是 HotSpot 虚拟机中对方法区的一个实现，就像是接口的实现类；
 - Java 8 的时候，移除了永久代，取而代之的是元空间，是方法区的另外一种实现，更灵活了。
 
@@ -5150,7 +5150,7 @@ String s1 = "三妹";
 
 “好是好，但我就是看不懂！”三妹委屈地说，“哥，还是你亲自给我讲讲吧？”
 
-“好吧，上次学的[字符串常量池](https://tobebetterjavaer.com/string/constant-pool.html)你都搞清楚了吧？”
+“好吧，上次学的[字符串常量池](https://tobebetterjavaer.com/字符串/constant-pool.html)你都搞清楚了吧？”
 
 “嗯。”三妹微微的点了点头。
 
@@ -5200,7 +5200,7 @@ false
 
 “我来画幅图，帮助你理解下。”看到三妹惊讶的表情，我耐心地说。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/intern-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/字符串/intern-01.png)
 
 “这下理解了吧？”我问三妹。
 
@@ -5232,7 +5232,7 @@ true
 
 “我再来画幅图，帮助你理解下。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/intern-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/字符串/intern-02.png)
 
 “哇，我明白了！”三妹长舒一口气，大有感慨 intern 也没什么难理解的意味，“不过，我有一个疑惑，“二哥三妹”这个对象是什么时候创建的呢？”
 
@@ -5257,7 +5257,7 @@ new StringBuilder().append("二哥").append("三妹").toString();
 - 在 StringBuilder 对象上调用 append("三妹")，将 "三妹" 追加到 StringBuilder 中。
 - 在 StringBuilder 对象上调用 toString() 方法，将 StringBuilder 转换为一个新的字符串对象，内容为 "二哥三妹"。
 
-关于 [StringBuilder](https://tobebetterjavaer.com/string/builder-buffer.html)，我们随后会详细地讲到。今天先了解到这。
+关于 [StringBuilder](https://tobebetterjavaer.com/字符串/builder-buffer.html)，我们随后会详细地讲到。今天先了解到这。
 
 不过需要注意的是，尽管 intern 可以确保所有具有相同内容的字符串共享相同的内存空间，但也不要烂用 intern，因为任何的缓存池都是有大小限制的，不能无缘无故就占用了相对稀缺的缓存空间，导致其他字符串没有坑位可占。
 
@@ -5273,11 +5273,11 @@ new StringBuilder().append("二哥").append("三妹").toString();
 
 ## 4.8 String、StringBuilder、StringBuffer
 
-“哥，[上一篇深入理解 String.intern()](https://tobebetterjavaer.com/string/intern.html) 讲到了 StringBuilder，这一节我们就来聊聊吧！”三妹很期待。
+“哥，[上一篇深入理解 String.intern()](https://tobebetterjavaer.com/字符串/intern.html) 讲到了 StringBuilder，这一节我们就来聊聊吧！”三妹很期待。
 
 “好啊，它们之间的关系还真的是挺和谐的。”看着三妹好奇的样子，我感到学技术就应该是这个样子才对。
 
-由于字符串是不可变的，所以当遇到[字符串拼接](https://tobebetterjavaer.com/string/join.html)（尤其是使用`+`号操作符）的时候，就需要考量性能的问题，你不能毫无顾虑地生产太多 String 对象，对珍贵的内存造成不必要的压力。
+由于字符串是不可变的，所以当遇到[字符串拼接](https://tobebetterjavaer.com/字符串/join.html)（尤其是使用`+`号操作符）的时候，就需要考量性能的问题，你不能毫无顾虑地生产太多 String 对象，对珍贵的内存造成不必要的压力。
 
 于是 Java 就设计了一个专门用来解决此问题的 StringBuffer 类。
 
@@ -5301,9 +5301,9 @@ public final class StringBuffer extends AbstractStringBuilder implements Seriali
 }
 ```
 
-不过，由于 StringBuffer 操作字符串的方法加了 [`synchronized` 关键字](https://tobebetterjavaer.com/thread/synchronized-1.html)进行了同步，主要是考虑到多线程环境下的安全问题，所以执行效率会比较低。
+不过，由于 StringBuffer 操作字符串的方法加了 [`synchronized` 关键字](https://tobebetterjavaer.com/线程/synchronized-1.html)进行了同步，主要是考虑到多线程环境下的安全问题，所以执行效率会比较低。
 
-于是 Java 就给 StringBuffer “生了个兄弟”，名叫 StringBuilder，说，“孩子，你别管线程安全了，你就在单线程环境下使用，这样效率会高得多，如果要在多线程环境下修改字符串，你到时候可以使用 [`ThreadLocal`](https://tobebetterjavaer.com/thread/ThreadLocal.html) 来避免多线程冲突。”
+于是 Java 就给 StringBuffer “生了个兄弟”，名叫 StringBuilder，说，“孩子，你别管线程安全了，你就在单线程环境下使用，这样效率会高得多，如果要在多线程环境下修改字符串，你到时候可以使用 [`ThreadLocal`](https://tobebetterjavaer.com/线程/ThreadLocal.html) 来避免多线程冲突。”
 
 ```java
 public final class StringBuilder extends AbstractStringBuilder
@@ -5337,7 +5337,7 @@ new StringBuilder().append("二哥").append("三妹").toString();
 
 这个过程是我们看不见的，但这正是 Java 的“智能”之处，它可以在编译的时候偷偷地帮我们做很多优化，这样既可以提高我们的开发效率（`+` 号写起来比创建 StringBuilder 对象便捷得多），也不会影响 JVM 的执行效率。
 
-当然了，如果我们使用 [javap](https://tobebetterjavaer.com/jvm/bytecode.html) 反编译 `new String("二哥") + new String("三妹")` 的字节码的时候，也是能看出 StringBuilder 的影子的。
+当然了，如果我们使用 [javap](https://tobebetterjavaer.com/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/bytecode.html) 反编译 `new String("二哥") + new String("三妹")` 的字节码的时候，也是能看出 StringBuilder 的影子的。
 
 ```
 0: new           #2                  // class java/lang/StringBuilder
@@ -5388,7 +5388,7 @@ public StringBuilder() {
 }
 ```
 
-随着字符串的拼接，value 数组的长度会不断增加，因此在 StringBuilder 对象的实现中，value 数组的长度是可以[动态扩展的，就像ArrayList那样](https://tobebetterjavaer.com/collection/arraylist.html)。
+随着字符串的拼接，value 数组的长度会不断增加，因此在 StringBuilder 对象的实现中，value 数组的长度是可以[动态扩展的，就像ArrayList那样](https://tobebetterjavaer.com/集合/arraylist.html)。
 
 继续来看 StringBuilder 的 toString 方法：
 
@@ -5474,7 +5474,7 @@ void expandCapacity(int minimumCapacity) {
 
 在进行扩容之前，`ensureCapacityInternal(int minimumCapacity)` 方法会先检查当前字符序列的容量是否足够，如果不足就会调用 `expandCapacity(int minimumCapacity)` 方法进行扩容。`expandCapacity(int minimumCapacity)` 方法首先计算出新容量，然后使用 `Arrays.copyOf(char[] original, int newLength)` 方法将原字符数组扩容到新容量的大小。
 
-关于扩容，后面在讲[ArrayList](https://tobebetterjavaer.com/collection/arraylist.html)的时候会再次说明，今天就先聊到这吧。
+关于扩容，后面在讲[ArrayList](https://tobebetterjavaer.com/集合/arraylist.html)的时候会再次说明，今天就先聊到这吧。
 
 “我想，关于 String、StringBuilder、StringBuilder 之间的差别，你都搞清楚了吧？”我问。
 
@@ -5500,7 +5500,7 @@ void expandCapacity(int minimumCapacity) {
 
 有一对双胞胎，姐姐叫阿丽塔，妹妹叫洛丽塔。我们普通人可能完全无法分辨谁是姐姐谁是妹妹，可她们的妈妈却可以轻而易举地辨认出。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/equals-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/字符串/equals-01.png)
 
 
 `.equals()` 就好像我们普通人，看见阿丽塔以为是洛丽塔，看见洛丽塔以为是阿丽塔，看起来一样就觉得她们是同一个人；“==”操作符就好像她们的妈妈，要求更严格，观察更细致，一眼就能分辨出谁是姐姐谁是妹妹。
@@ -5527,7 +5527,7 @@ public boolean equals(Object obj) {
 
 但实际情况中，有不少类重写了 `.equals()` 方法，因为比较内存地址的要求比较严格，不太符合现实中所有的场景需求。拿 String 类来说，我们在比较字符串的时候，的确只想判断它们俩的内容是相等的就可以了，并不想比较它们俩是不是同一个对象。
 
-况且，字符串有[字符串常量池](https://tobebetterjavaer.com/string/constant-pool.html)的概念，本身就推荐使用 `String s = "字符串"` 这种形式来创建字符串对象，而不是通过 new 关键字的方式，因为可以把字符串缓存在字符串常量池中，方便下次使用，不用遇到 new 就在堆上开辟一块新的空间。
+况且，字符串有[字符串常量池](https://tobebetterjavaer.com/字符串/constant-pool.html)的概念，本身就推荐使用 `String s = "字符串"` 这种形式来创建字符串对象，而不是通过 new 关键字的方式，因为可以把字符串缓存在字符串常量池中，方便下次使用，不用遇到 new 就在堆上开辟一块新的空间。
 
 “哦，我明白了。”三妹说。
 
@@ -5647,7 +5647,7 @@ new String("小萝莉") == new String("小萝莉")
 
 “由于‘小’和‘萝莉’都在字符串常量池，所以编译器在遇到‘+’操作符的时候将其自动优化为“小萝莉”，所以返回 true。”
 
-PS：至于为什么，查看这篇[String、StringBuilder、StringBuffer](https://tobebetterjavaer.com/string/builder-buffer.html)
+PS：至于为什么，查看这篇[String、StringBuilder、StringBuffer](https://tobebetterjavaer.com/字符串/builder-buffer.html)
 
 第六题：
 
@@ -5657,7 +5657,7 @@ new String("小萝莉").intern() == "小萝莉"
 
 “`new String("小萝莉")` 在执行的时候，会先在字符串常量池中创建对象，然后再在堆中创建对象；执行 `intern()` 方法的时候发现字符串常量池中已经有了‘小萝莉’这个对象，所以就直接返回字符串常量池中的对象引用了，那再与字符串常量池中的‘小萝莉’比较，当然会返回 true 了。”三妹说。
 
-PS：[intern](https://tobebetterjavaer.com/string/intern.html) 方法我们之前已经深究过了。
+PS：[intern](https://tobebetterjavaer.com/字符串/intern.html) 方法我们之前已经深究过了。
 
 哇，不得不说，三妹前几节的字符串相关内容都完全学会了呀！
 
@@ -5776,7 +5776,7 @@ public boolean contentEquals(CharSequence cs) {
 
 “哥，你让我看的《[Java 开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)》上有这么一段内容：循环体内，拼接字符串最好使用 StringBuilder 的 `append()` 方法，而不是 + 号操作符。这是为什么呀？”三妹疑惑地问。
 
-“其实这个问题，我们之前已经[聊过](https://tobebetterjavaer.com/string/builder-buffer.html)。”我慢吞吞地回答道，“不过，三妹，哥今天来给你深入地讲讲。”
+“其实这个问题，我们之前已经[聊过](https://tobebetterjavaer.com/字符串/builder-buffer.html)。”我慢吞吞地回答道，“不过，三妹，哥今天来给你深入地讲讲。”
 
 PS：三妹能在学习的过程中不断地发现问题，让我感到非常的开心。其实很多时候，我们不应该只是把知识点记在心里，还应该问一问自己，到底是为什么，只有迈出去这一步，才能真正的成长起来。
 
@@ -6135,7 +6135,7 @@ public static String join(final Object[] array, String separator, final int star
 
 内部使用的仍然是 StringBuilder。
 
-“好了，三妹，关于字符串拼接的知识点我们就讲到这吧。注意 Java 9 以后，对 + 号操作符的解释和之前发生了变化，字节码指令已经不同了，等后面你学了[字节码指令](https://tobebetterjavaer.com/jvm/zijiema-zhiling.html)后我们再详细地讲一次。”我说。
+“好了，三妹，关于字符串拼接的知识点我们就讲到这吧。注意 Java 9 以后，对 + 号操作符的解释和之前发生了变化，字节码指令已经不同了，等后面你学了[字节码指令](https://tobebetterjavaer.com/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/zijiema-zhiling.html)后我们再详细地讲一次。”我说。
 
 “嗯，哥，你休息吧，我把这些例子再重新跑一遍。”三妹说。
 
@@ -6230,7 +6230,7 @@ cmower.split("[.]");
 
 除此之外， 还可以使用 Pattern 类的 `quote()` 方法来包裹英文逗点“.”，该方法会返回一个使用 `\Q\E` 包裹的字符串。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/split-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/字符串/split-01.png)
 
 来看示例：
 
@@ -6321,7 +6321,7 @@ String [] parts = cmower.split("(?=，)");
 
 “它其实是正则表达式中的断言模式。”我说，“你有时间的话，可以看看前面我推荐的两份开源文档。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/split-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/字符串/split-02.png)
 
 “`split()` 方法可以传递 2 个参数，第一个为分隔符，第二个为拆分的字符串个数。”我说。
 
@@ -6335,7 +6335,7 @@ if (cmower.contains("，")) {
 
 进入 debug 模式的话，可以看到以下内容：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/string/split-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/字符串/split-03.png)
 
 也就是说，传递 2 个参数的时候，会直接调用 `substring()` 进行截取，第二个分隔符后的就不再拆分了。
 
@@ -6424,13 +6424,13 @@ public class Person {
 - 方法（Method）
 - 构造方法（Constructor）
 
-在 Person 类中，字段有 3 个，分别是 name、age 和 sex，它们也称为成员[变量](https://tobebetterjavaer.com/oo/var.html)——在类内部但在方法外部，方法内部的叫临时变量。
+在 Person 类中，字段有 3 个，分别是 name、age 和 sex，它们也称为成员[变量](https://tobebetterjavaer.com/面向对象/var.html)——在类内部但在方法外部，方法内部的叫临时变量。
 
 成员变量有时候也叫做实例变量，在编译时不占用内存空间，在运行时获取内存，也就是说，只有在对象实例化（`new Person()`）后，字段才会获取到内存，这也正是它被称作“实例”变量的原因。
 
-[方法](https://tobebetterjavaer.com/oo/method.html)有 3 个，分别是 `eat()`、`sleep()` 和 `dadoudou()`，表示 Person 这个对象可以做什么，也就是吃饭睡觉打豆豆。
+[方法](https://tobebetterjavaer.com/面向对象/method.html)有 3 个，分别是 `eat()`、`sleep()` 和 `dadoudou()`，表示 Person 这个对象可以做什么，也就是吃饭睡觉打豆豆。
 
-那三妹是不是要问，“怎么没有[构造方法](https://tobebetterjavaer.com/oo/construct.html)呢？”
+那三妹是不是要问，“怎么没有[构造方法](https://tobebetterjavaer.com/面向对象/construct.html)呢？”
 
 的确在 Person 类的源码文件（.java）中没看到，但在反编译后的字节码文件（.class）中是可以看得到的。
 
@@ -6506,7 +6506,7 @@ null
 
 第二种：`main()` 方法不在 Person 类中，而在另外一个类中。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/16-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/16-01.png)
 
 实际开发中，我们通常不在当前类中直接创建对象并使用它，而是放在使用对象的类中，比如说上图中的 PersonTest 类。
 
@@ -6570,7 +6570,7 @@ public class Person {
 
 person 被称为对象 Person 的引用变量，见下图：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/16-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/16-02.png)
 
 通过对象的引用变量，可以直接对字段进行初始化（`person.name = "沉默王二"`），所以以上代码输出结果如下所示：
 
@@ -6679,7 +6679,7 @@ Smalltalk 是历史上第一门获得成功的面向对象语言，也为 Java �
 
 一旦创建了一个类，就可以用它创建任意多个对象。面向对象编程语言遇到的最大一个挑战就是，如何把现实/虚拟的元素抽象为 Java 中的对象。
 
-对象能够接收什么样的请求是由它的[接口](https://tobebetterjavaer.com/oo/interface.html)定义的。具体是怎么做到的，就由它的实现方法来实现。
+对象能够接收什么样的请求是由它的[接口](https://tobebetterjavaer.com/面向对象/interface.html)定义的。具体是怎么做到的，就由它的实现方法来实现。
 
 #### **3）访问权限修饰符**
 
@@ -6693,7 +6693,7 @@ JDK 就给我们提供了 Java 的基础实现，JDK 的作者也就是基础 AP
 
 API 创建者在创建新的类的时候，只暴露必要的接口，而隐藏其他所有不必要的信息，之所以要这么做，是因为如果这些信息对调用者是不可见的，那么创建者就可以随意修改隐藏的信息，而不用担心对调用者的影响。
 
-这里就必须要讲到 [Java 的权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)。
+这里就必须要讲到 [Java 的权限修饰符](https://tobebetterjavaer.com/面向对象/access-control.html)。
 
 访问权限修饰符的第一个作用是，防止类的调用者接触到他们不该接触的内部实现；第二个作用是，让类的创建者可以轻松修改内部机制而不用担心影响到调用者的使用。
 
@@ -6709,7 +6709,7 @@ API 创建者在创建新的类的时候，只暴露必要的接口，而隐藏�
 
 #### **5）继承**
 
-[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)是 Java 中非常重要的一个概念，子类继承父类，也就拥有了父类中 protected 和 public 修饰的方法和字段，同时，子类还可以扩展一些自己的方法和字段，也可以重写继承过来方法。
+[继承](https://tobebetterjavaer.com/面向对象/extends-bigsai.html)是 Java 中非常重要的一个概念，子类继承父类，也就拥有了父类中 protected 和 public 修饰的方法和字段，同时，子类还可以扩展一些自己的方法和字段，也可以重写继承过来方法。
 
 常见的例子，就是形状可以有子类圆形、方形、三角形，它们的基础接口是相同的，比如说都有一个 `draw()` 的方法，子类可以继承这个方法实现自己的绘制方法。
 
@@ -6771,7 +6771,7 @@ public class Test {
 
 在测试类中，shape1 的类型为 Shape，shape2 的类型也为 Shape，但调用 `draw()` 方法后，却能自动调用子类 Line 和 Circle 的 `draw()` 方法，这是为什么呢？
 
-其实就是 Java 中的[多态](https://tobebetterjavaer.com/oo/polymorphism.html)。
+其实就是 Java 中的[多态](https://tobebetterjavaer.com/面向对象/polymorphism.html)。
 
 ### 06、小结
 
@@ -7069,7 +7069,7 @@ JDK 的其它常用类定义在`java.util.*`，`java.math.*`，`java.text.*`，�
 
 “三妹啊，搬个凳子坐我旁边，听二哥来给你慢慢说啊。”
 
-Java 变量就好像一个容器，可以保存程序在运行过程中的值，它在声明的时候会定义对应的[数据类型](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)（Java 分为两种数据类型：基本数据类型和引用数据类型）。变量按照作用域的范围又可分为三种类型：局部变量，成员变量和静态变量。
+Java 变量就好像一个容器，可以保存程序在运行过程中的值，它在声明的时候会定义对应的[数据类型](https://tobebetterjavaer.com/基础语法/basic-data-type.html)（Java 分为两种数据类型：基本数据类型和引用数据类型）。变量按照作用域的范围又可分为三种类型：局部变量，成员变量和静态变量。
 
 比如说，`int data = 88;`，其中 data 就是一个变量，它的值为 88，类型为整型（int）。
 
@@ -7134,7 +7134,7 @@ public class InstanceVariable {
 
 ### 03、静态变量
 
-通过 [static 关键字](https://tobebetterjavaer.com/oo/static.html)声明的变量被称为静态变量（类变量），它可以直接被类访问，来看下面这个示例：
+通过 [static 关键字](https://tobebetterjavaer.com/面向对象/static.html)声明的变量被称为静态变量（类变量），它可以直接被类访问，来看下面这个示例：
 
 ```java
 /**
@@ -7163,7 +7163,7 @@ public class StaticVariable {
 
 ### 04、常量
 
-在 Java 中，有些数据的值是不会发生改变的，这些数据被叫做常量——使用 [final 关键字](https://tobebetterjavaer.com/oo/final.html)修饰的成员变量。常量的值一旦给定就无法改变！
+在 Java 中，有些数据的值是不会发生改变的，这些数据被叫做常量——使用 [final 关键字](https://tobebetterjavaer.com/面向对象/final.html)修饰的成员变量。常量的值一旦给定就无法改变！
 
 常量在程序运行过程中主要有 2 个作用：
 
@@ -7213,9 +7213,9 @@ public class FinalVariable {
 
 方法的声明反映了方法的一些信息，比如说可见性、返回类型、方法名和参数。如下图所示。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/17-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/17-01.png)
 
-**访问权限**：它指定了方法的可见性。Java 提供了四种[访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)：
+**访问权限**：它指定了方法的可见性。Java 提供了四种[访问权限修饰符](https://tobebetterjavaer.com/面向对象/access-control.html)：
 
 - public：该方法可以被所有类访问。
 - private：该方法只能在定义它的类中访问。
@@ -7262,7 +7262,7 @@ public class PredefinedMethodDemo {
 
 我们可以通过集成开发工具查看预先定义方法的方法签名，当我们把鼠标停留在 `println()` 方法上面时，就会显示下图中的内容：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/17-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/17-02.png)
 
 `println()` 方法的访问权限修饰符是 public，返回类型为 void，方法名为 println，参数为 `String x`，以及 Javadoc（方法是干嘛的）。
 
@@ -7316,7 +7316,7 @@ public class EvenOddDemo {
 
 ### 04、什么是实例方法？
 
-没有使用 [static 关键字](https://tobebetterjavaer.com/oo/static.html)修饰，但在类中声明的方法被称为实例方法，在调用实例方法之前，必须创建类的对象。
+没有使用 [static 关键字](https://tobebetterjavaer.com/面向对象/static.html)修饰，但在类中声明的方法被称为实例方法，在调用实例方法之前，必须创建类的对象。
 
 ```java
 /**
@@ -7382,7 +7382,7 @@ getter 方法以 get 开头，setter 方法以 set 开头。
 
 ### 05、什么是静态方法？
 
-相应的，有 [static 关键字](https://tobebetterjavaer.com/oo/static.html)修饰的方法就叫做静态方法。
+相应的，有 [static 关键字](https://tobebetterjavaer.com/面向对象/static.html)修饰的方法就叫做静态方法。
 
 ```java
 /**
@@ -7415,7 +7415,7 @@ Hutool 的存在就是为了减少代码搜索成本，避免网络上参差不�
 
 ### 06、什么是抽象方法？
 
-没有方法体的方法被称为抽象方法，它总是在[抽象类](https://tobebetterjavaer.com/oo/abstract.html)中声明。这意味着如果类有抽象方法的话，这个类就必须是抽象的。可以使用 atstract 关键字创建抽象方法和抽象类。
+没有方法体的方法被称为抽象方法，它总是在[抽象类](https://tobebetterjavaer.com/面向对象/abstract.html)中声明。这意味着如果类有抽象方法的话，这个类就必须是抽象的。可以使用 atstract 关键字创建抽象方法和抽象类。
 
 ```java
 /**
@@ -7485,11 +7485,11 @@ public static void print(String... strs) {
 
 说到可变参数，我想起来[阿里巴巴开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)上有这样一条规约。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/varables-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/基础加餐/varables-01.png)
 
 意思就是尽量不要使用可变参数，如果要用的话，可变参数必须要在参数列表的最后一位。既然坑位有限，只能在最后，那么可变参数就只能有一个（悠着点，悠着点）。如果可变参数不在最后一位，IDE 就会提示对应的错误，如下图所示。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/varables-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/基础加餐/varables-02.png)
 
 可变参数看起来就像是个语法糖，它背后究竟隐藏了什么呢？让我们来一探究竟，在追求真理这条路上我们要执着。
 
@@ -7527,7 +7527,7 @@ System.out.println(String.format("年纪是: %d 名字是: %s", 18, "沉默王�
 
 如果不使用可变参数，那需要格式化的参数就必须使用“+”号操作符拼接起来了。麻烦也就惹上身了。
 
-在实际的项目代码中，[slf4j](https://tobebetterjavaer.com/gongju/slf4j.html) 的日志输出就经常要用到可变参数（[log4j](https://tobebetterjavaer.com/gongju/log4j.html) 就没法使用可变参数，日志中需要记录多个参数时就痛苦不堪了）。就像下面这样。
+在实际的项目代码中，[slf4j](https://tobebetterjavaer.com/工具/slf4j.html) 的日志输出就经常要用到可变参数（[log4j](https://tobebetterjavaer.com/工具/log4j.html) 就没法使用可变参数，日志中需要记录多个参数时就痛苦不堪了）。就像下面这样。
 
 ```java
 protected Logger logger = LoggerFactory.getLogger(getClass());
@@ -7565,7 +7565,7 @@ public static void print(Integer... ints) {
 
 这时候，编译器完全不知道该调用哪个 `print()` 方法，`print(String... strs)` 还是 `print(Integer... ints)`，傻傻分不清。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/varables-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/基础加餐/varables-03.png)
 
 假如真的需要重载带有可变参数的方法，就必须在调用方法的时候给出明确的指示，不要让编译器去猜。
 
@@ -7596,7 +7596,7 @@ public static void print(Integer... ints) {
 
 ## 5.6 Java native方法
 
-“三妹，之前我们学习了 Java 中的[基本方法](https://tobebetterjavaer.com/oo/method.html)，其实 Java 还有一种方法，本地方法，或者叫 native 方法，它与之前的方法有很大的不同。”我放下手中的手机，扭过脸来对三妹说。
+“三妹，之前我们学习了 Java 中的[基本方法](https://tobebetterjavaer.com/面向对象/method.html)，其实 Java 还有一种方法，本地方法，或者叫 native 方法，它与之前的方法有很大的不同。”我放下手中的手机，扭过脸来对三妹说。
 
 “听起来挺有意思的。”三妹很期待。
 
@@ -7634,7 +7634,7 @@ protected native Object clone() throws CloneNotSupportedException;
 
 JNI 一开始是为了本地已编译语言，尤其是 C 和 C++而设计的，但是它并不妨碍你使用其他语言，只要调用约定受支持就可以了。使用 Java 与本地已编译的代码交互，通常会丧失平台可移植性，但是，有些情况下这样做是可以接受的，甚至是必须的，比如，使用一些旧的库，与硬件、操作系统进行交互，或者为了提高程序的性能。JNI 标准至少保证本地代码能工作能在任何 Java 虚拟机实现下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-2a6fd1da-8b64-4fe1-bf3b-fbb117774549.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/native-method-2a6fd1da-8b64-4fe1-bf3b-fbb117774549.png)
 
 通过 JNI，我们就可以通过 Java 程序（代码）调用到操作系统相关的技术实现的库函数，从而与其他技术和系统交互；同时其他技术和系统也可以通过 JNI 提供的相应原生接口调用 Java 应用系统内部实现的功能。
 
@@ -7653,7 +7653,7 @@ JNI 的缺点：
 
 “上面讲解了什么是 JNI，接下来我们来写个例子：如何用 Java 代码调用本地的 C 程序。”我扭头对三妹说，“你注意📢看。”
 
->官方文档如下：[https://docs.oracle.com/javase/8/docs/technotes/guides/jni/spec/jniTOC.html](https://docs.oracle.com/javase/8/docs/technotes/guides/jni/spec/jniTOC.html)
+>官方文档如下：[https://docs.oracle.com/面渣逆袭（Java基础篇面试题八股文）必看👍/8/docs/technotes/guides/jni/spec/jniTOC.html](https://docs.oracle.com/面渣逆袭（Java基础篇面试题八股文）必看👍/8/docs/technotes/guides/jni/spec/jniTOC.html)
 
 步骤如下： 　　 
 
@@ -7696,23 +7696,23 @@ public class HelloJNI {
 
 `System.loadLibrary("hello")`：加载动态库，参数 hello 是动态库的名字。我们可以这样理解：程序中的方法 helloJNI() 在程序中没有实现，但是我们下面要调用这个方法，怎么办呢？
 
-我们就需要对这个方法进行初始化，所以用了 [static 代码块进行初始化](https://tobebetterjavaer.com/oo/static.html)，后面会讲到。
+我们就需要对这个方法进行初始化，所以用了 [static 代码块进行初始化](https://tobebetterjavaer.com/面向对象/static.html)，后面会讲到。
 
 #### 02）编译 HelloJNI.java
 
 在命令行通过 `javac HelloJNI.java` 来编译源代码。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-41e11e7f-31c1-4611-9b85-63ec211ff31b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/native-method-41e11e7f-31c1-4611-9b85-63ec211ff31b.png)
 
 #### 03）使用 `javah -jni HelloJNI` 生成扩展名为 h 的头文件
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-0b08bf51-7bd9-4d06-a0dc-4262c1a71fd5.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/native-method-0b08bf51-7bd9-4d06-a0dc-4262c1a71fd5.png)
 
 >PS：Java 9 以后，javah 被弃用，取而代之的是使用 -h 选项来生成头文件，例如 `javac -h . ClassName.java`。
 
 执行完毕后，会在 HelloJNI.java 所在目录下生成一个名为 HelloJNI.h 的头文件。打开 HelloJNI.h 文件，可以看到如下代码。　　
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-e5c34f63-84df-4a99-96e1-b45ea04929df.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/native-method-e5c34f63-84df-4a99-96e1-b45ea04929df.png)
 
 看不懂没关系，无所谓，直到它是自动生成的就好。
 
@@ -7762,17 +7762,17 @@ sh compile.sh
 
 执行完毕后，会在当前目录下生成一个名为 libhello.dylib 的动态链接库。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-e93c8fa8-6e33-4374-81da-8bd9360d1bb4.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/native-method-e93c8fa8-6e33-4374-81da-8bd9360d1bb4.png)
 
 #### 07）运行 HelloJNI
 
 执行`java HelloJNI`命令运行 HelloJNI，如果一切正常，就会在终端上输出 Hello, JNI!。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-34beba0f-8fe8-48d0-aa48-b25c1b504b59.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/native-method-34beba0f-8fe8-48d0-aa48-b25c1b504b59.png)
 
 ### **3、JNI 调用 C 的流程图**
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/native-method-6673cf73-c4dd-4434-b821-0d705f756a73.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/native-method-6673cf73-c4dd-4434-b821-0d705f756a73.png)
 
 
 ### **4、native 关键字**
@@ -7801,7 +7801,7 @@ native 语法：
 
 ## 5.7 Java构造方法
 
-“三妹，[上一节](https://tobebetterjavaer.com/oo/method.html)学了 Java 中的方法，接着学构造方法的话，难度就小很多了。”刚吃完中午饭，虽然有些困意，但趁机学个 10 分钟也是不错的，睡眠会更心满意足一些，于是我面露微笑地对三妹说。
+“三妹，[上一节](https://tobebetterjavaer.com/面向对象/method.html)学了 Java 中的方法，接着学构造方法的话，难度就小很多了。”刚吃完中午饭，虽然有些困意，但趁机学个 10 分钟也是不错的，睡眠会更心满意足一些，于是我面露微笑地对三妹说。
 
 “在 Java 中，构造方法是一种特殊的方法，当一个类被实例化的时候，就会调用构造方法。只有在构造方法被调用的时候，对象才会被分配内存空间。每次使用 `new` 关键字创建对象的时候，构造方法至少会被调用一次。”
 
@@ -7864,7 +7864,7 @@ public class Demo {
 
 `public Demo() {}` 才是真正的无参构造方法。
 
-不过，可以使用[访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)（private、protected、public、default）来修饰构造方法，访问权限修饰符决定了构造方法的创建方式。
+不过，可以使用[访问权限修饰符](https://tobebetterjavaer.com/面向对象/access-control.html)（private、protected、public、default）来修饰构造方法，访问权限修饰符决定了构造方法的创建方式。
 
 
 ### 02、默认构造方法
@@ -7896,7 +7896,7 @@ public class Bike {
 
 通常情况下，无参构造方法是可以缺省的，我们开发者并不需要显式的声明无参构造方法，把这项工作交给编译器就可以了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/18-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/18-01.png)
 
 “二哥，默认构造方法的目的是什么？它为什么是一个空的啊？”三妹疑惑地看着我，提出了这个尖锐的问题。
 
@@ -7969,7 +7969,7 @@ new ParamConstructorPerson("沉默王三",16);
 
 ### 04、重载构造方法
 
-在 Java 中，构造方法和方法类似，只不过没有返回类型。它也可以像方法一样被[重载](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)。构造方法的重载也很简单，只需要提供不同的参数列表即可。编译器会通过参数的数量来决定应该调用哪一个构造方法。
+在 Java 中，构造方法和方法类似，只不过没有返回类型。它也可以像方法一样被[重载](https://tobebetterjavaer.com/基础加餐/override-overload.html)。构造方法的重载也很简单，只需要提供不同的参数列表即可。编译器会通过参数的数量来决定应该调用哪一个构造方法。
 
 ```java
 /**
@@ -8012,7 +8012,7 @@ public class OverloadingConstrutorPerson {
 
 构造方法和方法之间的区别还是蛮多的，比如说下面这些：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/18-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/18-02.png)
 
 
 
@@ -8133,7 +8133,7 @@ public class ClonePerson implements Cloneable {
 
 通过 `clone()` 方法复制对象的时候，ClonePerson 必须先实现 Cloneable 接口的 `clone()` 方法，然后再调用 `clone()` 方法（`ClonePerson p2 = (ClonePerson) p1.clone()`）。
 
->拓展阅读：[浅拷贝与深拷贝](https://tobebetterjavaer.com/basic-extra-meal/deep-copy.html)
+>拓展阅读：[浅拷贝与深拷贝](https://tobebetterjavaer.com/基础加餐/deep-copy.html)
 
 ### 07、ending
 
@@ -8158,7 +8158,7 @@ public class ClonePerson implements Cloneable {
 
 ## 5.8 Java访问权限修饰符
 
-“我们先来讨论一下为什么需要访问权限控制。其实之前我们在讲[类和对象](https://tobebetterjavaer.com/oo/object-class.html)的时候有提到，今天我们来详细地聊一聊，三妹。”我开门见山地说，“三妹，你打开思维导图，记得做笔记哦。”
+“我们先来讨论一下为什么需要访问权限控制。其实之前我们在讲[类和对象](https://tobebetterjavaer.com/面向对象/object-class.html)的时候有提到，今天我们来详细地聊一聊，三妹。”我开门见山地说，“三妹，你打开思维导图，记得做笔记哦。”
 
 “好的。”三妹应声回答。
 
@@ -8441,7 +8441,7 @@ public class Man extends People {
 
 “哥，今天我们要学习的内容是‘代码初始化块’，对吧？”看来三妹已经提前预习了我上次留给她的作业。
 
-“是的，三妹。代码初始化块用于初始化一些[成员变量](https://tobebetterjavaer.com/oo/var.html)。 ”我面带着朴实无华的微笑回答着她，“对象在创建的时候会执行代码初始化块，又称实例初始化块，主要和静态初始化块做区分。”
+“是的，三妹。代码初始化块用于初始化一些[成员变量](https://tobebetterjavaer.com/面向对象/var.html)。 ”我面带着朴实无华的微笑回答着她，“对象在创建的时候会执行代码初始化块，又称实例初始化块，主要和静态初始化块做区分。”
 
 “可以直接通过‘=’操作符对成员变量进行初始化，但通过代码初始化块可以做更多的事情，比如说打印出成员变量初始化后的值。”
 
@@ -8475,7 +8475,7 @@ public class Bike {
 
 “如果只使用‘=’操作符的话，是没办法完成集合初始化的，对吧？‘=’ 后面只能 new 出集合，却没办法填充值，代码初始化就可以完成这项工作。”
 
-“[构造方法](https://tobebetterjavaer.com/oo/construct.html)执行得早还是代码初始化块啊，哥？”三妹这个问题问的还是挺有水平的。
+“[构造方法](https://tobebetterjavaer.com/面向对象/construct.html)执行得早还是代码初始化块啊，哥？”三妹这个问题问的还是挺有水平的。
 
 “不要着急，三妹，先来看下面这个例子。”
 
@@ -8510,7 +8510,7 @@ public class Car {
 
 说完这句话，我打开 draw.io，使上了吃奶的劲，画出了下面这幅图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/22-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/22-01.png)
 
 “哦，原来如此啊！”三妹仿佛发现了新大陆，意味深长地说，“编译器把代码初始化块放到了构造方法中，怪不得。”
 
@@ -8555,7 +8555,7 @@ public class B extends A{
 
 “这个例子再次印证了之前的第二条规则：代码初始化块是放在构造方法中执行的，只不过比较靠前。”
 
-除了这种实例化代码初始化块，还有静态初始化，不过我们会放到 [static 关键字](https://tobebetterjavaer.com/oo/static.html)中去讲，这里先大致了解一下。
+除了这种实例化代码初始化块，还有静态初始化，不过我们会放到 [static 关键字](https://tobebetterjavaer.com/面向对象/static.html)中去讲，这里先大致了解一下。
 
 下面是一个 Java 示例代码，演示实例初始化块和静态初始化块的用法：
 
@@ -8643,7 +8643,7 @@ abstract class AbstractPlayer {
 
 抽象类是不能实例化的，尝试通过 `new` 关键字实例化的话，编译器会报错，提示“类是抽象的，不能实例化”。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/abstract-01.png)
 
 虽然抽象类不能实例化，但可以有子类。子类通过 `extends` 关键字来继承抽象类。就像下面这样。
 
@@ -8656,11 +8656,11 @@ public class BasketballPlayer extends AbstractPlayer {
 
 当我们尝试在一个普通类中定义抽象方法的时候，编译器会有两处错误提示。第一处在类级别上，提示“这个类必须通过 `abstract` 关键字定义”，见下图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/abstract-02.png)
 
 第二处在尝试定义 abstract 的方法上，提示“抽象方法所在的类不是抽象的”，见下图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/abstract-03.png)
 
 抽象类中既可以定义抽象方法，也可以定义普通方法，就像下面这样：
 
@@ -8687,7 +8687,7 @@ public class BasketballPlayer extends AbstractPlayer {
 
 如果没有实现的话，编译器会提示“子类必须实现抽象方法”，见下图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/abstract-04.png)
 
 ### 03、抽象类的应用场景
 
@@ -8771,7 +8771,7 @@ public class FootballPlayer extends AbstractPlayer {
 
 为了进一步展示抽象类的特性，我们再来看一个具体的示例。
 
->PS：[网站](https://tobebetterjavaer.com/oo/abstract.html)评论区说涉及到了文件的读写以及 Java 8 的新特性，不适合新人，如果觉得自己实在是看不懂，跳过，等学了 IO 流再来看也行。如果说是为了复习 Java 基础知识，就不存在这个问题了。
+>PS：[网站](https://tobebetterjavaer.com/面向对象/abstract.html)评论区说涉及到了文件的读写以及 Java 8 的新特性，不适合新人，如果觉得自己实在是看不懂，跳过，等学了 IO 流再来看也行。如果说是为了复习 Java 基础知识，就不存在这个问题了。
 
 假设现在有一个文件，里面的内容非常简单，只有一个“Hello World”，现在需要有一个读取器将内容从文件中读取出来，最好能按照大写的方式，或者小写的方式来读。
 
@@ -8867,7 +8867,7 @@ public class FileReaderTest {
 
 在项目的 resource 目录下建一个文本文件，名字叫 helloworld.txt，里面的内容就是“Hello World”。文件的具体位置如下图所示，我用的集成开发环境是 Intellij IDEA。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/abstract-05.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/abstract-05.png)
 
 
 在 resource 目录下的文件可以通过 `ClassLoader.getResource()` 的方式获取到 URI 路径，然后就可以取到文本内容了。
@@ -8900,11 +8900,11 @@ public class FileReaderTest {
 
 ## 5.11 Java接口
 
-“今天开始讲 Java 的接口。”我对三妹说，“对于面向对象编程来说，抽象是一个极具魅力的特征。如果一个程序员的抽象思维很差，那他在编程中就会遇到很多困难，无法把业务变成具体的代码。在 Java 中，可以通过两种形式来达到抽象的目的，一种上一篇的主角——[抽象类](https://tobebetterjavaer.com/oo/abstract.html)，另外一种就是今天的主角——[接口](https://tobebetterjavaer.com/oo/interface.html)。”
+“今天开始讲 Java 的接口。”我对三妹说，“对于面向对象编程来说，抽象是一个极具魅力的特征。如果一个程序员的抽象思维很差，那他在编程中就会遇到很多困难，无法把业务变成具体的代码。在 Java 中，可以通过两种形式来达到抽象的目的，一种上一篇的主角——[抽象类](https://tobebetterjavaer.com/面向对象/abstract.html)，另外一种就是今天的主角——[接口](https://tobebetterjavaer.com/面向对象/interface.html)。”
 
 “二哥，开讲之前，先恭喜你呀。我看你朋友圈说《[Java进阶之路](https://github.com/itwanger/toBeBetterJavaer)》开源知识库在 GitHub 上收到了第一笔赞赏呀，虽然只有一块钱，但我也替你感到开心。”三妹的脸上洋溢着自信的微笑，仿佛这钱是打给她的一样。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/interface-01.png)
 
 >PS：2021-04-29到2023-02-11期间，《二哥的 Java 进阶之路》收到了 58 笔赞赏，真的非常感谢大家的认可和支持😍，我会继续肝下去的。
 
@@ -8912,7 +8912,7 @@ public class FileReaderTest {
 
 “有了这份鼓励，我相信你更新下去的动力更足了！”三妹今天说的话真的是特别令人喜欢。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/interface-02.png)
 
 “是呀是呀，让我们开始吧！”
 
@@ -8988,7 +8988,7 @@ Java 官方文档上有这样的声明：
 
 **4）接口中允许定义 `default` 方法**也是从 Java 8 开始的，比如说上例中的 `printDescription()` 方法，它始终由一个代码块组成，为实现该接口而不覆盖该方法的类提供默认实现。既然要提供默认实现，就要有方法体，换句话说，默认方法后面不能直接使用“;”号来结束——编译器会报错。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/interface-03.png)
 
 “为什么要在接口中定义默认方法呢？”三妹好奇地问到。
 
@@ -9005,7 +9005,7 @@ Java 官方文档上有这样的声明：
 
 **1）接口不允许直接实例化**，否则编译器会报错。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/interface-04.png)
 
 需要定义一个类去实现接口，见下例。
 
@@ -9040,11 +9040,11 @@ Serializable 接口用来为序列化的具体实现提供一个标记，也就�
 
 **3）不要在定义接口的时候使用 final 关键字**，否则会报编译错误，因为接口就是为了让子类实现的，而 final 阻止了这种行为。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-05.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/interface-05.png)
 
 **4）接口的抽象方法不能是 private、protected 或者 final**，否则编译器都会报错。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-06.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/interface-06.png)
 
 **5）接口的变量是隐式 `public static final`（常量）**，所以其值无法改变。
 
@@ -9101,7 +9101,7 @@ Exception in thread "main" java.lang.CloneNotSupportedException: com.cmower.bael
 
 如果有两个类共同继承（extends）一个父类，那么父类的方法就会被两个子类重写。然后，如果有一个新类同时继承了这两个子类，那么在调用重写方法的时候，编译器就不能识别要调用哪个类的方法了。这也正是著名的菱形问题，见下图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/object-class/interface-07.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java面向对象编程基础-探讨类和对象的概念与实现/interface-07.png)
 
 
 简单解释下，ClassC 同时继承了 ClassA 和 ClassB，ClassC 的对象在调用 ClassA 和 ClassB 中重写的方法时，就不知道该调用 ClassA 的方法，还是 ClassB 的方法。
@@ -9539,7 +9539,7 @@ public class Wangsan {
 
 局部内部类就好像一个局部变量一样，它是不能被权限修饰符修饰的，比如说 public、protected、private 和 static 等。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/inner-class-26fc0242-134a-4588-a52d-7da962fc3fb9.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/inner-class-26fc0242-134a-4588-a52d-7da962fc3fb9.png)
 
 ### **3）匿名内部类**
 
@@ -9562,7 +9562,7 @@ public class ThreadDemo {
 匿名内部类就好像一个方法的参数一样，用完就没了，以至于我们都不需要为它专门写一个构造方法，它的名字也是由系统自动命名的。仔细观察编译后的字节码文件也可以发现，匿名内部类连名字都不配拥有，哈哈，直接借用的外部类，然后 `$1` 就搞定了。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/inner-class-c0b9bdf5-cb12-45fc-b362-cb14d5d44fdc.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/inner-class-c0b9bdf5-cb12-45fc-b362-cb14d5d44fdc.png)
 
 
 匿名内部类是唯一一种没有构造方法的类。就上面的写法来说，匿名内部类也不允许我们为其编写构造方法，因为它就像是直接通过 new 关键字创建出来的一个对象。
@@ -9571,7 +9571,7 @@ public class ThreadDemo {
 
 ### **4）静态内部类**
 
-静态内部类和成员内部类类似，只是多了一个 [static 关键字](https://tobebetterjavaer.com/oo/static.html)。
+静态内部类和成员内部类类似，只是多了一个 [static 关键字](https://tobebetterjavaer.com/面向对象/static.html)。
 
 ```java
 public class Wangsi {
@@ -9589,7 +9589,7 @@ public class Wangsi {
 由于 static 关键字的存在，静态内部类是不允许访问外部类中非 static 的变量和方法的，这一点也非常好理解：你一个静态的内部类访问我非静态的成员变量干嘛？
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/inner-class-69523196-37fe-43c6-a52e-5a8c94fdd2d8.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/inner-class-69523196-37fe-43c6-a52e-5a8c94fdd2d8.png)
 
 “为什么要使用内部类呢？”三妹问。
 
@@ -9617,7 +9617,7 @@ public class Wangsi {
 
 ## 5.13 Java封装继承多态
 
-在谈 Java 面向对象的时候，不得不提到面向对象的三大特征：[封装](https://tobebetterjavaer.com/oo/encapsulation.html)、[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)、[多态](https://tobebetterjavaer.com/oo/polymorphism.html)。三大特征紧密联系而又有区别，合理使用继承能大大减少重复代码，**提高代码复用性。**
+在谈 Java 面向对象的时候，不得不提到面向对象的三大特征：[封装](https://tobebetterjavaer.com/面向对象/encapsulation.html)、[继承](https://tobebetterjavaer.com/面向对象/extends-bigsai.html)、[多态](https://tobebetterjavaer.com/面向对象/polymorphism.html)。三大特征紧密联系而又有区别，合理使用继承能大大减少重复代码，**提高代码复用性。**
 
 ### 1）封装
 
@@ -9882,7 +9882,7 @@ Java 语言是非常典型的面向对象的语言，在 Java 语言中**继承�
 
 在 Java 语言中实现 Cat 和 Dog 等类的时候，就需要继承 Animal 这个类。继承之后 Cat、Dog 等具体动物类就是子类，Animal 类就是父类。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-bf43b473-4a05-4727-a543-c4edd44e5437.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-bf43b473-4a05-4727-a543-c4edd44e5437.png)
 
 #### 02、为什么需要继承
 
@@ -9892,7 +9892,7 @@ Java 语言是非常典型的面向对象的语言，在 Java 语言中**继承�
 
 这时继承的优势就出来了：可以直接使用父类的属性和方法，自己也可以有自己新的属性和方法满足拓展，父类的方法如果自己有需求更改也可以重写。这样**使用继承不仅大大的减少了代码量，也使得代码结构更加清晰可见**。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-eeee7ea3-30d5-4bb1-9c9d-5e3bf427e805.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-eeee7ea3-30d5-4bb1-9c9d-5e3bf427e805.png)
 
 所以这样从代码的层面上来看我们设计这个完整的 Animal 类是这样的：
 
@@ -9962,8 +9962,8 @@ class Chicken extends Animal{
 
 继承 | 定义 | 优缺点 |
 ---| ---- | ------ |
-单继承![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-62bbc6a2-4e0e-4150-9f83-fceb65c56667.png)|一个子类只拥有一个父类|优点：在类层次结构上比较清晰<br>缺点：结构的丰富度有时不能满足使用需求|
-多继承（Java 不支持，但可以用其它方式满足多继承使用需求）![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-e2ebc65a-5385-44a0-8ef3-a1b17e0252f1.png)|一个子类拥有多个直接的父类|优点：子类的丰富度很高<br>缺点：容易造成混乱|
+单继承![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-62bbc6a2-4e0e-4150-9f83-fceb65c56667.png)|一个子类只拥有一个父类|优点：在类层次结构上比较清晰<br>缺点：结构的丰富度有时不能满足使用需求|
+多继承（Java 不支持，但可以用其它方式满足多继承使用需求）![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-e2ebc65a-5385-44a0-8ef3-a1b17e0252f1.png)|一个子类拥有多个直接的父类|优点：子类的丰富度很高<br>缺点：容易造成混乱|
 
 ##### **单继承**
 
@@ -9973,21 +9973,21 @@ class Chicken extends Animal{
 
 多继承，一个子类有多个直接的父类。这样做的好处是子类拥有所有父类的特征，**子类的丰富度很高，但是缺点就是容易造成混乱**。下图为一个混乱的例子。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-ab4c9fef-63be-4bba-a871-7e5fb9bf711a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-ab4c9fef-63be-4bba-a871-7e5fb9bf711a.png)
 
 Java 虽然不支持多继承，但是 Java 有三种实现多继承效果的方式，**分别是**内部类、多层继承和实现接口。
 
-[内部类](https://tobebetterjavaer.com/oo/inner-class.html)可以继承一个与外部类无关的类，保证了内部类的独立性，正是基于这一点，可以达到多继承的效果。
+[内部类](https://tobebetterjavaer.com/面向对象/inner-class.html)可以继承一个与外部类无关的类，保证了内部类的独立性，正是基于这一点，可以达到多继承的效果。
 
 **多层继承：**子类继承父类，父类如果还继承其他的类，那么这就叫**多层继承**。这样子类就会拥有所有被继承类的属性和方法。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-d3789496-09f8-4a62-8424-e5c45e224320.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-d3789496-09f8-4a62-8424-e5c45e224320.png)
 
-[实现接口](https://tobebetterjavaer.com/oo/interface.html)无疑是满足多继承使用需求的最好方式，一个类可以实现多个接口满足自己在丰富性和复杂环境的使用需求。
+[实现接口](https://tobebetterjavaer.com/面向对象/interface.html)无疑是满足多继承使用需求的最好方式，一个类可以实现多个接口满足自己在丰富性和复杂环境的使用需求。
 
 类和接口相比，**类就是一个实体，有属性和方法，而接口更倾向于一组方法**。举个例子，就拿斗罗大陆的唐三来看，他存在的继承关系可能是这样的：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-c06ece50-32e5-4b03-a31b-05ef03592d0c.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-c06ece50-32e5-4b03-a31b-05ef03592d0c.png)
 
 #### 04、如何实现继承
 
@@ -10027,7 +10027,7 @@ public class test {
 
 点击运行的时候 Dog 子类可以直接使用 Animal 父类的方法。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-2ba4864f-af39-4bd7-b59c-db53ec1c38f6.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-2ba4864f-af39-4bd7-b59c-db53ec1c38f6.png)
 
 ##### **implements 关键字**
 
@@ -10065,17 +10065,17 @@ public class test2 {
 
 Cat 类实现 doA 和 doB 接口的时候，需要实现其声明的方法，点击运行结果如下，这就是一个类实现接口的简单案例：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-32bdceb5-e838-47cb-ad96-b7453abae6a5.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-32bdceb5-e838-47cb-ad96-b7453abae6a5.png)
 
 #### 05、继承的特点
 
-继承的主要内容就是子类继承父类，并重写父类的方法。使用子类的属性或方法时候，首先要创建一个对象，而对象通过[构造方法](https://tobebetterjavaer.com/oo/construct.html)去创建，在构造方法中我们可能会调用子父类的一些属性和方法，所以就需要提前掌握 [this 和 super关键字](https://tobebetterjavaer.com/oo/this-super.html)。
+继承的主要内容就是子类继承父类，并重写父类的方法。使用子类的属性或方法时候，首先要创建一个对象，而对象通过[构造方法](https://tobebetterjavaer.com/面向对象/construct.html)去创建，在构造方法中我们可能会调用子父类的一些属性和方法，所以就需要提前掌握 [this 和 super关键字](https://tobebetterjavaer.com/面向对象/this-super.html)。
 
-创建完这个对象之后，再调用**重写**父类后的方法，注意[重写和重载的区别](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)。
+创建完这个对象之后，再调用**重写**父类后的方法，注意[重写和重载的区别](https://tobebetterjavaer.com/基础加餐/override-overload.html)。
 
 ##### this 和 super 关键字
 
->[后面](https://tobebetterjavaer.com/oo/this-super.html)会详细讲，这里先来简单了解一下。
+>[后面](https://tobebetterjavaer.com/面向对象/this-super.html)会详细讲，这里先来简单了解一下。
 
 this 和 super 关键字是继承中**非常重要的知识点**，分别表示当前对象的引用和父类对象的引用，两者有很大相似又有一些区别。
 
@@ -10097,7 +10097,7 @@ super() // 表示调用父类构造方法
 
 ##### 构造方法
 
-[构造方法](https://tobebetterjavaer.com/oo/construct.html)是一种特殊的方法，**它是一个与类同名的方法**。在继承中**构造方法是一种比较特殊的方法**（比如不能继承），所以要了解和学习在继承中构造方法的规则和要求。
+[构造方法](https://tobebetterjavaer.com/面向对象/construct.html)是一种特殊的方法，**它是一个与类同名的方法**。在继承中**构造方法是一种比较特殊的方法**（比如不能继承），所以要了解和学习在继承中构造方法的规则和要求。
 
 继承中的构造方法有以下几点需要注意：
 
@@ -10132,11 +10132,11 @@ class B extends A{
 
 你可能有时候在写继承的时候子类并没有使用 super()调用，程序依然没问题，其实这样是为了节省代码，系统执行时会自动添加父类的无参构造方式，如果不信的话我们对上面的类稍作修改执行：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-33980b57-857b-4428-8b27-47d6d5060f29.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-33980b57-857b-4428-8b27-47d6d5060f29.png)
 
 ##### 方法重写(Override)
 
-[方法重写](https://tobebetterjavaer.com/basic-extra-meal/Overriding.html)也就是子类中出现和父类中一模一样的方法(包括返回值类型，方法名，参数列表)，它建立在继承的基础上。你可以理解为方法的**外壳不变，但是核心内容重写**。
+[方法重写](https://tobebetterjavaer.com/基础加餐/Overriding.html)也就是子类中出现和父类中一模一样的方法(包括返回值类型，方法名，参数列表)，它建立在继承的基础上。你可以理解为方法的**外壳不变，但是核心内容重写**。
 
 在这里提供一个简单易懂的方法重写案例：
 
@@ -10158,7 +10158,7 @@ class E2 extends E1{
 
 ##### 方法重载(Overload)
 
-如果有两个方法的**方法名相同**，但参数不一致，那么可以说一个方法是另一个方法的[重载](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)。
+如果有两个方法的**方法名相同**，但参数不一致，那么可以说一个方法是另一个方法的[重载](https://tobebetterjavaer.com/基础加餐/override-overload.html)。
 
 重载可以通常理解为完成同一个事情的方法名相同，但是参数列表不同其他条件也可能不同。一个简单的方法重载的例子，类 E3 中的 add()方法就是一个重载方法。
 
@@ -10182,7 +10182,7 @@ Java 修饰符的作用就是对类或类成员进行修饰或限制，每个修
 
 Java 语言提供了很多修饰符，修饰符用来定义类、方法或者变量，通常放在语句的最前端。主要分为以下两类：
 
-- [访问权限修饰符](https://tobebetterjavaer.com/oo/access-control.html)，也就是 public、private、protected 等
+- [访问权限修饰符](https://tobebetterjavaer.com/面向对象/access-control.html)，也就是 public、private、protected 等
 - 非访问修饰符，也就是 static、final、abstract 等
 
 ##### 访问修饰符
@@ -10191,7 +10191,7 @@ Java 子类重写继承的方法时，**不可以降低方法的访问权限**�
 
 如果还是不太清楚可以看几个小案例就很容易搞懂，写一个 A1 类中用四种修饰词实现四个方法，用子类 A2 继承 A1，重写 A1 方法时候你就会发现父类私有方法不能重写，非私有方法重写使用的修饰符作用域不能变小(大于等于)。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-ec684196-f877-46af-9f1e-087a5d313beb.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-ec684196-f877-46af-9f1e-087a5d313beb.png)
 
 正确的案例应该为：
 
@@ -10217,7 +10217,7 @@ class A2 extends A1{
 
 还要注意的是，**继承当中子类抛出的异常必须是父类抛出的异常或父类抛出异常的子异常**。下面的一个案例四种方法测试可以发现子类方法的异常不可大于父类对应方法抛出异常的范围。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-6d5118fb-0807-4d78-a767-d6c4282e4b2b.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-6d5118fb-0807-4d78-a767-d6c4282e4b2b.png)
 
 正确的案例应该为：
 
@@ -10247,7 +10247,7 @@ class B2 extends B1{
 
 访问修饰符用来控制访问权限，而非访问修饰符每个都有各自的作用，下面针对 static、final、abstract 修饰符进行介绍。
 
-[static 修饰符](https://tobebetterjavaer.com/oo/static.html)
+[static 修饰符](https://tobebetterjavaer.com/面向对象/static.html)
 
 static 翻译为“静态的”，能够与变量，方法和类一起使用，**称为静态变量，静态方法(也称为类变量、类方法)**。如果在一个类中使用 static 修饰变量或者方法的话，它们**可以直接通过类访问，不需要创建一个类的对象来访问成员。**
 
@@ -10255,7 +10255,7 @@ static 翻译为“静态的”，能够与变量，方法和类一起使用，*
 
 可以看以下的案例证明上述规则：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-6a6ab068-2ef1-401a-ab2f-86a84b29dbbb.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-6a6ab068-2ef1-401a-ab2f-86a84b29dbbb.png)
 
 源代码为：
 
@@ -10277,7 +10277,7 @@ class C2 extends C1{
 }
 ```
 
-[final 修饰符](https://tobebetterjavaer.com/oo/final.html)
+[final 修饰符](https://tobebetterjavaer.com/面向对象/final.html)
 
 final 变量：
 
@@ -10293,7 +10293,7 @@ final 类：
 
 所以无论是变量、方法还是类被 final 修饰之后，都有代表最终、最后的意思。内容无法被修改。
 
-[abstract 修饰符](https://tobebetterjavaer.com/oo/abstract.html)
+[abstract 修饰符](https://tobebetterjavaer.com/面向对象/abstract.html)
 
 abstract 英文名为“抽象的”，主要用来修饰类和方法，称为抽象类和抽象方法。
 
@@ -10301,7 +10301,7 @@ abstract 英文名为“抽象的”，主要用来修饰类和方法，称为�
 
 **抽象类**：**有抽象方法的类必须是抽象类**，抽象类可以表达概念但是无法构造实体的类。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-c9cd573a-39e9-40a0-b6f5-6a0fe925487d.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-c9cd573a-39e9-40a0-b6f5-6a0fe925487d.png)
 
 比如我们可以这样设计一个 People 抽象类以及一个抽象方法，在子类中具体完成：
 
@@ -10339,7 +10339,7 @@ Java 向上和向下转型在 Java 中运用很多，也是建立在继承的基
 
 1.  Object 是类层次结构的**根类**，所有的类都隐式的继承自 Object 类。
 2.  Java 中，所有的对象都拥有 Object 的默认方法。
-3.  Object 类有一个[构造方法](https://tobebetterjavaer.com/oo/construct.html)，并且是**无参构造方法**。
+3.  Object 类有一个[构造方法](https://tobebetterjavaer.com/面向对象/construct.html)，并且是**无参构造方法**。
 
 Object 是 Java 所有类的父类，是整个类继承结构的顶端，也是最抽象的一个类。
 
@@ -10349,15 +10349,15 @@ toString()方法表示返回该对象的字符串，由于各个对象构造不�
 
 **如果重写 toString()方法后**直接调用 toString()方法就可以返回我们自定义的该类转成字符串类型的内容输出，而不需要每次都手动的拼凑成字符串内容输出，大大简化输出操作。
 
-equals()方法主要比较两个对象是否相等，因为对象的相等不一定非要严格要求两个对象地址上的相同，有时内容上的相同我们就会认为它相等，比如 String 类就重写了euqals()方法，通过[字符串的内容比较是否相等](https://tobebetterjavaer.com/string/equals.html)。
+equals()方法主要比较两个对象是否相等，因为对象的相等不一定非要严格要求两个对象地址上的相同，有时内容上的相同我们就会认为它相等，比如 String 类就重写了euqals()方法，通过[字符串的内容比较是否相等](https://tobebetterjavaer.com/字符串/equals.html)。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-1caee9d0-ccbc-41cd-82e2-115b86c57a5a.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-1caee9d0-ccbc-41cd-82e2-115b86c57a5a.png)
 
 ##### 向上转型
 
 **向上转型** : 通过子类对象(小范围)实例化父类对象(大范围)，这种属于自动转换。用一张图就能很好地表示向上转型的逻辑：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-0cd258c9-b897-4be3-bdb2-2ddd9c073609.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-0cd258c9-b897-4be3-bdb2-2ddd9c073609.png)
 
 父类引用变量指向子类对象后，只能使用父类已声明的方法，但方法如果被重写会执行子类的方法，如果方法未被重写那么将执行父类的方法。
 
@@ -10365,7 +10365,7 @@ equals()方法主要比较两个对象是否相等，因为对象的相等不一
 
 **向下转型** : 通过父类对象(大范围)实例化子类对象(小范围)，在书写上父类对象需要加括号`()`强制转换为子类类型。但父类引用变量实际引用必须是子类对象才能成功转型，这里也用一张图就能很好表示向下转型的逻辑：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-ef0d4716-8b4f-4adf-845e-dd293871b7a7.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-ef0d4716-8b4f-4adf-845e-dd293871b7a7.png)
 
 子类引用变量指向父类引用变量指向的对象后(一个 Son()对象)，就完成向下转型，就可以调用一些子类特有而父类没有的方法 。
 
@@ -10433,7 +10433,7 @@ public class test9 {
 
 执行结果：
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-d23e0bbf-a4a4-4d20-ad21-f437fcee1c82.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-d23e0bbf-a4a4-4d20-ad21-f437fcee1c82.png)
 
 
 ### 3）多态
@@ -10628,7 +10628,7 @@ class Wangsi {
 
 最后送你一张图捋一捋其中的关系吧。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/oo/extends-bigsai-2bf1876f-0c1c-4e83-8721-e6f48d6451c0.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/面向对象/extends-bigsai-2bf1876f-0c1c-4e83-8721-e6f48d6451c0.png)
 
 “好的，二哥，我来消化一下，今天内容真不少。你先去休息一下。”三妹回应到。
 
@@ -11621,7 +11621,7 @@ public class Actor {
 
 “一个类是 final 的，和一个类不是 final，但它所有的方法都是 final 的，考虑一下，它们之间有什么区别？”
 
-“我能想到的一点，就是前者不能被[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)，也就是说方法无法被重写；后者呢，可以被继承，然后追加一些非 final 的方法。”还没等我把水咽下去，三妹就回答好了，着实惊呆了我。
+“我能想到的一点，就是前者不能被[继承](https://tobebetterjavaer.com/面向对象/extends-bigsai.html)，也就是说方法无法被重写；后者呢，可以被继承，然后追加一些非 final 的方法。”还没等我把水咽下去，三妹就回答好了，着实惊呆了我。
 
 “嗯嗯嗯，没毛病没毛病，进步很大啊！”
 
@@ -11653,7 +11653,7 @@ public final class String
 
 “想了解更详细的原因，可以一会看看我之前写的这篇文章。”
 
-[为什么 Java 字符串是不可变的？](https://tobebetterjavaer.com/string/immutable.html)
+[为什么 Java 字符串是不可变的？](https://tobebetterjavaer.com/字符串/immutable.html)
 
 “任何尝试从 final 类继承的行为将会引发编译错误。来看这段代码。”
 
@@ -11689,7 +11689,7 @@ System.out.println(writer.getName()); // 沉默王二
 
 “关于不可变类，我们留到后面来细讲。”
 
-[不可变类](https://tobebetterjavaer.com/basic-extra-meal/immutable.html)
+[不可变类](https://tobebetterjavaer.com/基础加餐/immutable.html)
 
 “把一个类设计成 final 的，有其安全方面的考虑，但不应该故意为之，因为把一个类定义成 final 的，意味着它没办法继承，假如这个类的一些方法存在一些问题的话，我们就无法通过重写的方式去修复它。”
 
@@ -11871,11 +11871,11 @@ if (obj instanceof String s) {
 
 #### 1）常量池的需要
 
-[字符串常量池](https://tobebetterjavaer.com/string/constant-pool.html)是 Java 堆内存中一个特殊的存储区域，当创建一个 String 对象时，假如此字符串在常量池中不存在，那么就创建一个；假如已经存，就不会再创建了，而是直接引用已经存在的对象。这样做能够减少 JVM 的内存开销，提高效率。
+[字符串常量池](https://tobebetterjavaer.com/字符串/constant-pool.html)是 Java 堆内存中一个特殊的存储区域，当创建一个 String 对象时，假如此字符串在常量池中不存在，那么就创建一个；假如已经存，就不会再创建了，而是直接引用已经存在的对象。这样做能够减少 JVM 的内存开销，提高效率。
 
 #### 2）hashCode 需要
 
-因为字符串是不可变的，所以在它创建的时候，其 hashCode 就被缓存了，因此非常适合作为哈希值（比如说作为 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 的键），多次调用只返回同一个值，来提高效率。
+因为字符串是不可变的，所以在它创建的时候，其 hashCode 就被缓存了，因此非常适合作为哈希值（比如说作为 [HashMap](https://tobebetterjavaer.com/集合/hashmap.html) 的键），多次调用只返回同一个值，来提高效率。
 
 #### 3）线程安全
 
@@ -12184,7 +12184,7 @@ String[] args
 
 “由于可以通过改变参数类型的方式实现方法重载，那么当传递的参数没有找到匹配的方法时，就会发生隐式的类型转换。”
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/override-overload-0d30f41f-1f53-4988-b506-731d79ed16d1.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/基础加餐/override-overload-0d30f41f-1f53-4988-b506-731d79ed16d1.png)
 
 “如上图所示，byte 可以向上转换为 short、int、long、float 和 double，short 可以向上转换为 int、long、float 和 double，char 可以向上转换为 int、long、float 和 double，依次类推。”
 
@@ -12340,7 +12340,7 @@ class Vehicle {
 
 #### **规则一：只能重写继承过来的方法**。
 
-因为重写是在子类重新实现从父类[继承](https://tobebetterjavaer.com/oo/extends-bigsai.html)过来的方法时发生的，所以只能重写继承过来的方法，这很好理解。这就意味着，只能重写那些被 public、protected 或者 default 修饰的方法，private 修饰的方法无法被重写。
+因为重写是在子类重新实现从父类[继承](https://tobebetterjavaer.com/面向对象/extends-bigsai.html)过来的方法时发生的，所以只能重写继承过来的方法，这很好理解。这就意味着，只能重写那些被 public、protected 或者 default 修饰的方法，private 修饰的方法无法被重写。
 
 Animal 类有 `move()`、`eat()` 和 `sleep()` 三个方法：
 
@@ -12384,7 +12384,7 @@ public class Dog extends Animal {
 
 #### **规则二：final、static 的方法不能被重写**。
 
-一个方法是 [final](https://tobebetterjavaer.com/oo/final.html) 的就意味着它无法被子类继承到，所以就没办法重写。
+一个方法是 [final](https://tobebetterjavaer.com/面向对象/final.html) 的就意味着它无法被子类继承到，所以就没办法重写。
 
 ```java
 public class Animal {
@@ -12394,9 +12394,9 @@ public class Animal {
 
 由于父类 Animal 中的 `move()` 是 final 的，所以子类在尝试重写该方法的时候就出现编译错误了！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/基础加餐/Overriding-2.png)
 
-同样的，如果一个方法是 [static](https://tobebetterjavaer.com/oo/static.html) 的，也不允许重写，因为静态方法可用于父类以及子类的所有实例。
+同样的，如果一个方法是 [static](https://tobebetterjavaer.com/面向对象/static.html) 的，也不允许重写，因为静态方法可用于父类以及子类的所有实例。
 
 ```java
 public class Animal {
@@ -12406,7 +12406,7 @@ public class Animal {
 
 重写的目的在于根据对象的类型不同而表现出多态，而静态方法不需要创建对象就可以使用。没有了对象，重写所需要的“对象的类型”也就没有存在的意义了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-3.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/基础加餐/Overriding-3.png)
 
 #### **规则三：重写的方法必须有相同的参数列表**。
 
@@ -12456,7 +12456,7 @@ public class Dog extends Animal {
 
 于是就编译出错了（返回类型不兼容）。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-4.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/基础加餐/Overriding-4.png)
 
 #### **规则五：重写的方法不能使用限制等级更严格的权限修饰符**。
 
@@ -12484,11 +12484,11 @@ public class Dog extends Animal {
 
 如果子类中的方法用了更严格的权限修饰符，编译器就报错了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/Overriding-5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/基础加餐/Overriding-5.png)
 
 #### **规则六：重写后的方法不能抛出比父类中更高级别的异常**。
 
-举例来说，如果父类中的方法抛出的是 IOException，那么子类中重写的方法不能抛出 Exception，可以是 IOException 的子类或者不抛出任何[异常](https://tobebetterjavaer.com/exception/gailan.html)。这条规则只适用于可检查的异常。
+举例来说，如果父类中的方法抛出的是 IOException，那么子类中重写的方法不能抛出 Exception，可以是 IOException 的子类或者不抛出任何[异常](https://tobebetterjavaer.com/异常/gailan.html)。这条规则只适用于可检查的异常。
 
 可检查（checked）异常必须在源代码中显式地进行捕获处理，不检查（unchecked）异常就是所谓的运行时异常，比如说 NullPointerException、ArrayIndexOutOfBoundsException 之类的，不会在编译器强制要求。
 
@@ -12575,7 +12575,7 @@ public class Dog extends Animal {
 
 #### **规则八：构造方法不能被重写**。
 
-因为[构造方法](https://tobebetterjavaer.com/oo/construct.html)很特殊，而且子类的构造方法不能和父类的构造方法同名（类名不同），所以构造方法和重写之间没有任何关系。
+因为[构造方法](https://tobebetterjavaer.com/面向对象/construct.html)很特殊，而且子类的构造方法不能和父类的构造方法同名（类名不同），所以构造方法和重写之间没有任何关系。
 
 #### **规则九：如果一个类继承了抽象类，抽象类中的抽象方法必须在子类中被重写**。
 
@@ -12617,11 +12617,11 @@ public class BullDog extends AbstractDog {
 
 #### **规则十：synchronized 关键字对重写规则没有任何影响**。
 
-[synchronized 关键字](https://tobebetterjavaer.com/thread/synchronized-1.html)用于在多线程环境中获取和释放监听对象，因此它对重写规则没有任何影响，这就意味着 synchronized 方法可以去重写一个非同步方法。
+[synchronized 关键字](https://tobebetterjavaer.com/线程/synchronized-1.html)用于在多线程环境中获取和释放监听对象，因此它对重写规则没有任何影响，这就意味着 synchronized 方法可以去重写一个非同步方法。
 
 #### **规则十一：strictfp 关键字对重写规则没有任何影响**。
 
-如果你想让浮点运算更加精确，而且不会因为硬件平台的不同导致执行的结果不一致的话，可以在方法上添加 [strictfp 关键字，之前讲过](https://tobebetterjavaer.com/basic-extra-meal/48-keywords.html)。因此 strictfp 关键字和重写规则无关。
+如果你想让浮点运算更加精确，而且不会因为硬件平台的不同导致执行的结果不一致的话，可以在方法上添加 [strictfp 关键字，之前讲过](https://tobebetterjavaer.com/基础加餐/48-keywords.html)。因此 strictfp 关键字和重写规则无关。
 
 ### 03、总结
 
@@ -12650,7 +12650,7 @@ public class BullDog extends AbstractDog {
 
 “二哥，这节讲注解吗？”三妹问。
 
-“是的。”我说，“注解是 Java 中非常重要的一部分，但经常被忽视也是真的。之所以这么说是因为我们更倾向成为一名注解的使用者而不是创建者。`@Override` 注解用过吧？[方法重写](https://tobebetterjavaer.com/basic-extra-meal/override-overload.html)的时候用到过。但你知道怎么自定义一个注解吗？”
+“是的。”我说，“注解是 Java 中非常重要的一部分，但经常被忽视也是真的。之所以这么说是因为我们更倾向成为一名注解的使用者而不是创建者。`@Override` 注解用过吧？[方法重写](https://tobebetterjavaer.com/基础加餐/override-overload.html)的时候用到过。但你知道怎么自定义一个注解吗？”
 
 三妹毫不犹豫地摇摇头，摆摆手，不好意思地承认自己的确没有自定义过。
 
@@ -13024,7 +13024,7 @@ public enum PlayerType {
 
 “来吧，我准备好了。”
 
-“EnumSet 是一个专门针对枚举类型的 [Set 接口](https://tobebetterjavaer.com/collection/gailan.html)（后面会讲）的实现类，它是处理枚举类型数据的一把利器，非常高效。”我说，“从名字上就可以看得出，EnumSet 不仅和 Set 有关系，和枚举也有关系。”
+“EnumSet 是一个专门针对枚举类型的 [Set 接口](https://tobebetterjavaer.com/集合/gailan.html)（后面会讲）的实现类，它是处理枚举类型数据的一把利器，非常高效。”我说，“从名字上就可以看得出，EnumSet 不仅和 Set 有关系，和枚举也有关系。”
 
 “因为 EnumSet 是一个抽象类，所以创建 EnumSet 时不能使用 new 关键字。不过，EnumSet 提供了很多有用的静态工厂方法。”
 
@@ -13073,7 +13073,7 @@ EnumMap<PlayerType, String> enumMap = new EnumMap<>(PlayerType.class);
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/enum/enum-04.png)
 
-和 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html)（后面会讲）的使用方法大致相同，来看下面的例子。
+和 [HashMap](https://tobebetterjavaer.com/集合/hashmap.html)（后面会讲）的使用方法大致相同，来看下面的例子。
 
 ```java
 EnumMap<PlayerType, String> enumMap = new EnumMap<>(PlayerType.class);
@@ -13133,7 +13133,7 @@ public class Singleton {
 }
 ```
 
-“要用到 [volatile](https://tobebetterjavaer.com/thread/volatile.html)、[synchronized](https://tobebetterjavaer.com/thread/synchronized-1.html) 关键字等等，但枚举的出现，让代码量减少到极致。”
+“要用到 [volatile](https://tobebetterjavaer.com/线程/volatile.html)、[synchronized](https://tobebetterjavaer.com/线程/synchronized-1.html) 关键字等等，但枚举的出现，让代码量减少到极致。”
 
 ```java
 public enum EasySingleton{
@@ -13165,7 +13165,7 @@ public enum EasySingleton{
 
 “好吧。”我只好摊摊手地说，“那我先画张集合框架的结构图等着你。”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/gailan-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/gailan-01.png)
 
 
 “完了没？三妹。”
@@ -13222,7 +13222,7 @@ for (String s : list) {
 }
 ```
 
-简单介绍一下 ArrayList 的特征，[后面还会详细讲](https://tobebetterjavaer.com/collection/arraylist.html)。
+简单介绍一下 ArrayList 的特征，[后面还会详细讲](https://tobebetterjavaer.com/集合/arraylist.html)。
 
 - ArrayList 是由数组实现的，支持随机存取，也就是可以通过下标直接存取元素；
 - 从尾部插入和删除元素会比较快捷，从中间插入和删除元素会比较低效，因为涉及到数组元素的复制和移动；
@@ -13265,7 +13265,7 @@ for (String s : list) {
 }
 ```
 
-不过，LinkedList 和 ArrayList 仍然有较大的不同，[后面也会详细地讲](https://tobebetterjavaer.com/collection/linkedlist.html)。
+不过，LinkedList 和 ArrayList 仍然有较大的不同，[后面也会详细地讲](https://tobebetterjavaer.com/集合/linkedlist.html)。
 
 - LinkedList 是由双向链表实现的，不支持随机存取，只能从一端开始遍历，直到找到需要的元素后返回；
 - 任意位置插入和删除元素都很方便，因为只需要改变前一个节点和后一个节点的引用即可，不像 ArrayList 那样需要复制和移动数组元素；
@@ -13284,11 +13284,11 @@ public synchronized boolean add(E e) {
 }
 ```
 
-这种加了同步方法的类，注定会被淘汰掉，就像[StringBuilder取代StringBuffer](https://tobebetterjavaer.com/string/builder-buffer.html)那样。JDK 源码也说了：
+这种加了同步方法的类，注定会被淘汰掉，就像[StringBuilder取代StringBuffer](https://tobebetterjavaer.com/字符串/builder-buffer.html)那样。JDK 源码也说了：
 
 >如果不需要线程安全，建议使用ArrayList代替Vector。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection//gailan-20bfd65a-1f1d-4de7-a3e3-3dda739e6f9d.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合//gailan-20bfd65a-1f1d-4de7-a3e3-3dda739e6f9d.png)
 
 Stack 是 Vector 的一个子类，本质上也是由动态数组实现的，只不过还实现了先进后出的功能（在 get、set、add 方法的基础上追加了 pop「返回并移除栈顶的元素」、peek「只返回栈顶元素」等方法），所以叫栈。
 
@@ -13386,7 +13386,7 @@ System.out.println("HashSet after modification: " + set); // output: [陈清扬,
 
 #### **2）LinkedHashSet**
 
-LinkedHashSet 虽然继承自 HashSet，其实是由 [LinkedHashMap](https://tobebetterjavaer.com/collection/linkedhashmap.html) 实现的。
+LinkedHashSet 虽然继承自 HashSet，其实是由 [LinkedHashMap](https://tobebetterjavaer.com/集合/linkedhashmap.html) 实现的。
 
 这是 LinkedHashSet 的无参构造方法：
 
@@ -13396,7 +13396,7 @@ public LinkedHashSet() {
 }
 ```
 
-[super](https://tobebetterjavaer.com/oo/this-super.html) 的意思是它将调用父类的 HashSet 的一个有参构造方法：
+[super](https://tobebetterjavaer.com/面向对象/this-super.html) 的意思是它将调用父类的 HashSet 的一个有参构造方法：
 
 ```java
 HashSet(int initialCapacity, float loadFactor, boolean dummy) {
@@ -13404,7 +13404,7 @@ HashSet(int initialCapacity, float loadFactor, boolean dummy) {
 }
 ```
 
-看到 [LinkedHashMap](https://tobebetterjavaer.com/collection/linkedhashmap.html) 了吧，这个我们后面会去讲。
+看到 [LinkedHashMap](https://tobebetterjavaer.com/集合/linkedhashmap.html) 了吧，这个我们后面会去讲。
 
 好吧，来看一段 LinkedHashSet 的增删改查吧。
 
@@ -13434,7 +13434,7 @@ LinkedHashSet是一种基于哈希表实现的Set接口，它继承自HashSet，
 
 #### **3）TreeSet**
 
-“二哥，不用你讲了，我能猜到，TreeSet 是由 [TreeMap（后面会讲）](https://tobebetterjavaer.com/collection/treemap.html) 实现的，只不过同样操作的键位，值由一个固定的 Object 对象填充。”
+“二哥，不用你讲了，我能猜到，TreeSet 是由 [TreeMap（后面会讲）](https://tobebetterjavaer.com/集合/treemap.html) 实现的，只不过同样操作的键位，值由一个固定的 Object 对象填充。”
 
 哇，三妹都学会了推理。
 
@@ -13486,7 +13486,7 @@ Queue，也就是队列，通常遵循先进先出（FIFO）的原则，新元�
 
 这是一个包含了 4 个元素的双端队列，和一个包含了 5 个元素的双端队列。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/gailan-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/gailan-02.png)
 
 head 指向队首的第一个有效的元素，tail 指向队尾第一个可以插入元素的空位，因为是循环数组，所以 head 不一定从是从 0 开始，tail 也不一定总是比 head 大。
 
@@ -13609,7 +13609,7 @@ for (String element : queue) {
 }
 ```
 
-要想有优先级，元素就需要实现 [Comparable 接口或者 Comparator 接口](https://tobebetterjavaer.com/basic-extra-meal/comparable-omparator.html)（我们后面会讲）。
+要想有优先级，元素就需要实现 [Comparable 接口或者 Comparator 接口](https://tobebetterjavaer.com/基础加餐/comparable-omparator.html)（我们后面会讲）。
 
 这里先来一段通过实现 Comparator 接口按照年龄姓名排序的优先级队列吧。
 
@@ -13694,7 +13694,7 @@ PriorityQueue 是一个优先级队列，参数为 StudentComparator，然后我
 Student{name='陈清扬', 总成绩=190} Student{name='小驼铃', 总成绩=185} Student{name='沉默', 总成绩=170} Student{name='王二', 总成绩=170} 
 ```
 
-我们使用 offer 方法添加元素，最后用 while 循环遍历元素（通过 poll 方法取出元素），从结果可以看得出，[PriorityQueue](https://tobebetterjavaer.com/collection/PriorityQueue.html)按照学生的总成绩由高到低进行了排序。
+我们使用 offer 方法添加元素，最后用 while 循环遍历元素（通过 poll 方法取出元素），从结果可以看得出，[PriorityQueue](https://tobebetterjavaer.com/集合/PriorityQueue.html)按照学生的总成绩由高到低进行了排序。
 
 
 ### 04、Map
@@ -13703,7 +13703,7 @@ Map 保存的是键值对，键要求保持唯一性，值可以重复。
 
 #### **1）HashMap**
 
-HashMap 实现了 Map 接口，可以根据键快速地查找对应的值——通过哈希函数将键映射到哈希表中的一个索引位置，从而实现快速访问。[后面会详细聊到](https://tobebetterjavaer.com/collection/hashmap.html)。
+HashMap 实现了 Map 接口，可以根据键快速地查找对应的值——通过哈希函数将键映射到哈希表中的一个索引位置，从而实现快速访问。[后面会详细聊到](https://tobebetterjavaer.com/集合/hashmap.html)。
 
 这里先大致了解一下 HashMap 的特点：
 
@@ -13743,7 +13743,7 @@ for (String key : hashMap.keySet()) {
 
 #### **2）LinkedHashMap**
 
-HashMap 已经非常强大了，但它是无序的。如果我们需要一个有序的Map，就要用到 [LinkedHashMap](https://tobebetterjavaer.com/collection/linkedhashmap.html)。LinkedHashMap 是 HashMap 的子类，它使用链表来记录插入/访问元素的顺序。
+HashMap 已经非常强大了，但它是无序的。如果我们需要一个有序的Map，就要用到 [LinkedHashMap](https://tobebetterjavaer.com/集合/linkedhashmap.html)。LinkedHashMap 是 HashMap 的子类，它使用链表来记录插入/访问元素的顺序。
 
 LinkedHashMap 可以看作是 HashMap + LinkedList 的合体，它使用了哈希表来存储数据，又用了双向链表来维持顺序。
 
@@ -13799,7 +13799,7 @@ HashMap 没有维持键值对的插入顺序，对吧？
 
 #### **3）TreeMap**
 
-[TreeMap](https://tobebetterjavaer.com/collection/treemap.html) 实现了 SortedMap 接口，可以自动将键按照自然顺序或指定的比较器顺序排序，并保证其元素的顺序。内部使用红黑树来实现键的排序和查找。
+[TreeMap](https://tobebetterjavaer.com/集合/treemap.html) 实现了 SortedMap 接口，可以自动将键按照自然顺序或指定的比较器顺序排序，并保证其元素的顺序。内部使用红黑树来实现键的排序和查找。
 
 同样来一个增删改查的 demo：
 
@@ -13883,7 +13883,7 @@ c: cat
 
 “二哥，为什么要讲时间复杂度呀？”三妹问。
 
-“因为接下来要用到啊。后面我们学习 [ArrayList](https://tobebetterjavaer.com/collection/arraylist.html)、[LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html) 的时候，会比较两者在增删改查时的执行效率，而时间复杂度是衡量执行效率的一个重要标准。”我说。
+“因为接下来要用到啊。后面我们学习 [ArrayList](https://tobebetterjavaer.com/集合/arraylist.html)、[LinkedList](https://tobebetterjavaer.com/集合/linkedlist.html) 的时候，会比较两者在增删改查时的执行效率，而时间复杂度是衡量执行效率的一个重要标准。”我说。
 
 “到时候跑一下代码，统计一下前后的时间差不更准确吗？”三妹反问道。
 
@@ -14270,7 +14270,7 @@ ArrayList 在第一次执行 add 后会扩容为 10，那 ArrayList 第二次扩
 
 你可以通过在 ArrayList 中添加第 11 个元素来 debug 验证一下。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection//arraylist-d01f248c-114f-47e3-af18-7135feac2a5e.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合//arraylist-d01f248c-114f-47e3-af18-7135feac2a5e.png)
 
 ### 04、向 ArrayList 的指定位置添加元素
 
@@ -14301,7 +14301,7 @@ public void add(int index, E element) {
 }
 ```
 
-`add(int index, E element)`方法会调用到一个非常重要的[本地方法](https://tobebetterjavaer.com/oo/native-method.html) `System.arraycopy()`，它会对数组进行复制（要插入位置上的元素往后复制）。
+`add(int index, E element)`方法会调用到一个非常重要的[本地方法](https://tobebetterjavaer.com/面向对象/native-method.html) `System.arraycopy()`，它会对数组进行复制（要插入位置上的元素往后复制）。
 
 来细品一下。
 
@@ -14326,7 +14326,7 @@ System.arraycopy(elementData, index, elementData, index + 1, size - index);
 
 “三妹，注意看，我画幅图来表示下。”我认真地做起了图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraylist-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/arraylist-01.png)
 
 ### 05、更新 ArrayList 中的元素
 
@@ -14432,7 +14432,7 @@ public boolean remove(Object o) {
 注意：
 
 - 有相同元素时，只会删除第一个。
-- 判断两个元素是否相等，可以参考[Java如何判断两个字符串是否相等](https://tobebetterjavaer.com/string/equals.html)
+- 判断两个元素是否相等，可以参考[Java如何判断两个字符串是否相等](https://tobebetterjavaer.com/字符串/equals.html)
 
 继续往后面跟，来看一下 `fastRemove()` 方法：
 
@@ -14455,7 +14455,7 @@ private void fastRemove(int index) {
 
 “三妹，注意看，我画幅图来表示下。”我认真地做起了图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraylist-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/arraylist-02.png)
 
 ### 07、查找 ArrayList 中的元素
 
@@ -14530,7 +14530,7 @@ public boolean contains(Object o) {
 
 如果 ArrayList 中的元素是经过排序的，就可以使用二分查找法，效率更快。
 
-[`Collections`](https://tobebetterjavaer.com/common-tool/collections.html) 类的 `sort()` 方法可以对 ArrayList 进行排序，该方法会按照字母顺序对 String 类型的列表进行排序。如果是自定义类型的列表，还可以指定 Comparator 进行排序。
+[`Collections`](https://tobebetterjavaer.com/常用工具/collections.html) 类的 `sort()` 方法可以对 ArrayList 进行排序，该方法会按照字母顺序对 String 类型的列表进行排序。如果是自定义类型的列表，还可以指定 Comparator 进行排序。
 
 这里先简单地了解一下，后面会详细地讲。
 
@@ -14709,7 +14709,7 @@ private static class Node<E> {
 
 我画幅图给你们展示下吧。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/linkedlist-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/linkedlist-01.png)
 
 - 对于第一个节点来说，prev 为 null；
 - 对于最后一个节点来说，next 为 null；
@@ -14778,7 +14778,7 @@ void linkLast(E e) {
 
 此时还不能称之为链表，因为前后节点都是断裂的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/linkedlist-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/linkedlist-02.png)
 
 - 添加第二个元素的时候，first 和 last 都指向的是第一个节点。
 - 然后新建一个节点 newNode，它的 prev 指向的是第一个节点，next 为 null。
@@ -14786,7 +14786,7 @@ void linkLast(E e) {
 
 此时的链表还不完整。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/linkedlist-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/linkedlist-03.png)
 
 - 添加第三个元素的时候，first 指向的是第一个节点，last 指向的是最后一个节点。
 - 然后新建一个节点 newNode，它的 prev 指向的是第二个节点，next 为 null。
@@ -14794,7 +14794,7 @@ void linkLast(E e) {
 
 此时的链表已经完整了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/linkedlist-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/linkedlist-04.png)
 
 我这个增的招式，还可以演化成另外两个版本：
 
@@ -15109,7 +15109,7 @@ public E get(int index) {
 
 无论外人怎么看待我们，在我眼里，师兄永远都是一哥，我敬重他，他也愿意保护我。
 
-[好戏在后头](https://tobebetterjavaer.com/collection/list-war-2.html)，等着瞧吧。
+[好戏在后头](https://tobebetterjavaer.com/集合/list-war-2.html)，等着瞧吧。
 
 我这里先简单聊一下，权当抛砖引玉。
 
@@ -15123,7 +15123,7 @@ public E get(int index) {
 
 ## 6.5 ArrayList和LinkedList的区别
 
-“终于，二哥，我们要聊 [LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html) 和 [ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 之间的差别了，我期待了很久。”三妹嘟囔着说。
+“终于，二哥，我们要聊 [LinkedList](https://tobebetterjavaer.com/集合/linkedlist.html) 和 [ArrayList](https://tobebetterjavaer.com/集合/arraylist.html) 之间的差别了，我期待了很久。”三妹嘟囔着说。
 
 “其实经过前面两节的分析，差别已经很清晰了。”我喃喃道。
 
@@ -15137,7 +15137,7 @@ public E get(int index) {
 
 ArrayList 实现了 List 接口，继承了 AbstractList 抽象类。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/list-war-2-01.png)
 
 底层是基于数组实现的，并且实现了动态扩容（当需要添加新元素时，如果 elementData 数组已满，则会自动扩容，新的容量将是原来的 1.5 倍），来看一下 ArrayList 的部分源码。
 
@@ -15185,7 +15185,7 @@ E elementData(int index) {
 }
 ```
 
-ArrayList 还实现了 Cloneable 接口，这表明 ArrayList 是支持[拷贝](https://tobebetterjavaer.com/basic-extra-meal/deep-copy.html)的。ArrayList 内部的确也重写了 Object 类的 `clone()` 方法。
+ArrayList 还实现了 Cloneable 接口，这表明 ArrayList 是支持[拷贝](https://tobebetterjavaer.com/基础加餐/deep-copy.html)的。ArrayList 内部的确也重写了 Object 类的 `clone()` 方法。
 
 ```java
 /**
@@ -15224,7 +15224,7 @@ public interface Serializable {
 
 ArrayList 不想像数组这样活着，它想能屈能伸，所以它实现了动态扩容。一旦在添加元素的时候，发现容量用满了 `s == elementData.length`，就按照原来数组的 1.5 倍（`oldCapacity >> 1`）进行扩容。扩容之后，再将原有的数组复制到新分配的内存地址上 `Arrays.copyOf(elementData, newCapacity)`。
 
-这部分源码我们在之前讲 [ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 的时候就已经讲的很清楚了，这里就一笔带过。
+这部分源码我们在之前讲 [ArrayList](https://tobebetterjavaer.com/集合/arraylist.html) 的时候就已经讲的很清楚了，这里就一笔带过。
 
 动态扩容意味着什么？
 
@@ -15302,7 +15302,7 @@ private void readObject(java.io.ObjectInputStream s)
 
 LinkedList 是一个继承自 AbstractSequentialList 的双向链表，因此它也可以被当作堆栈、队列或双端队列进行操作。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/list-war-2-02.png)
 
 
 来看一下部分源码：
@@ -15320,7 +15320,7 @@ public class LinkedList<E>
 }
 ```
 
- LinkedList 内部定义了一个 Node 节点，它包含 3 个部分：元素内容 item，前引用 prev 和后引用 next。这个在讲 [LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html) 的时候也讲过了，这里略过。
+ LinkedList 内部定义了一个 Node 节点，它包含 3 个部分：元素内容 item，前引用 prev 和后引用 next。这个在讲 [LinkedList](https://tobebetterjavaer.com/集合/linkedlist.html) 的时候也讲过了，这里略过。
 
 LinkedList 还实现了 Cloneable 接口，这表明 LinkedList 是支持拷贝的。
 
@@ -15385,7 +15385,7 @@ void linkLast(E e) {
 
 ArrayList 新增元素有两种情况，一种是直接将元素添加到数组末尾，一种是将元素插入到指定位置。
 
-添加到数组末尾的源码（这部分前面讲 [ArrayList](https://tobebetterjavaer.com/collection/arraylist.html) 的时候讲过了，这里再温故一下）：
+添加到数组末尾的源码（这部分前面讲 [ArrayList](https://tobebetterjavaer.com/集合/arraylist.html) 的时候讲过了，这里再温故一下）：
 
 ```java
 public boolean add(E e) {
@@ -15492,7 +15492,7 @@ void linkBefore(E e, LinkedList.Node<E> succ) {
 
 找到指定位置上的元素（参数succ）之后，就开始执行 `linkBefore()` 方法，先将 succ 的前一个节点（prev）存放到临时变量 pred 中，然后生成新的 Node 节点（newNode），并将 succ 的前一个节点变更为 newNode，如果 pred 为 null，说明插入的是队头，所以 first 为新节点；否则将 pred 的后一个节点变更为 newNode。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/list-war-2-03.png)
 
 经过源码分析以后，你是不是在想：“好像 ArrayList 在新增元素的时候效率并不一定比 LinkedList 低啊！”
 
@@ -15902,7 +15902,7 @@ public int indexOf(Object o) {
 
 需要遍历整个链表，和 ArrayList 的 `indexOf()` 类似。
 
-那在我们对集合遍历的时候，通常有两种做法，一种是使用 for 循环，一种是使用[迭代器（Iterator）](https://tobebetterjavaer.com/collection/iterator-iterable.html)。
+那在我们对集合遍历的时候，通常有两种做法，一种是使用 for 循环，一种是使用[迭代器（Iterator）](https://tobebetterjavaer.com/集合/iterator-iterable.html)。
 
 如果使用的是 for 循环，可想而知 LinkedList 在 get 的时候性能会非常差，因为每一次外层的 for 循环，都要执行一次 `node(int)` 方法进行前后半段的遍历。
 
@@ -15935,7 +15935,7 @@ for (Iterator<String> it = list.iterator(); it.hasNext();) {
 
 迭代器只会调用一次 `node(int)` 方法，在执行 `list.iterator()` 的时候：先调用 AbstractSequentialList 类的 `iterator()` 方法，再调用 AbstractList 类的 `listIterator()` 方法，再调用 LinkedList 类的 `listIterator(int)` 方法，如下图所示。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/list-war-2-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/list-war-2-04.png)
 
 最后返回的是 LinkedList 类的内部私有类 ListItr 对象：
 
@@ -16603,7 +16603,7 @@ Dog dog = (Dog) animal;
 
 那天，小二去海康威视面试，面试官老王一上来就甩给了他一道面试题：请问 Iterator与Iterable有什么区别？
 
-小二表示很开心，因为他3 天前刚好在《[二哥的Java进阶之路](https://tobebetterjavaer.com/collection/iterator-iterable.html)》上读过这篇文章，所以回答得胸有成竹。
+小二表示很开心，因为他3 天前刚好在《[二哥的Java进阶之路](https://tobebetterjavaer.com/集合/iterator-iterable.html)》上读过这篇文章，所以回答得胸有成竹。
 
 以下↓是小二当时读过的文章内容，他印象深刻。
 
@@ -16703,7 +16703,7 @@ list.forEach(new Consumer<Integer>() {
 
 如果我们仔细观察ArrayList 或者 LinkedList 的“户口本”就会发现，并没有直接找到 Iterator 的影子。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/iterator-iterable-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/iterator-iterable-01.png)
 
 反而找到了 Iterable！
 
@@ -16982,7 +16982,7 @@ System.out.println(list);
 
 这段代码看起来没有任何问题，但运行起来就报错了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/fail-fast-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/fail-fast-01.png)
 
 
 根据错误的堆栈信息，我们可以定位到 ArrayList 的第 901 行代码。
@@ -16998,7 +16998,7 @@ final void checkForComodification() {
 
 为什么会执行 `checkForComodification` 方法呢？
 
-是因为 for-each 本质上是个语法糖，底层是通过[迭代器 Iterator](https://tobebetterjavaer.com/collection/iterator-iterable.html) 配合 while 循环实现的，来看一下反编译后的字节码。
+是因为 for-each 本质上是个语法糖，底层是通过[迭代器 Iterator](https://tobebetterjavaer.com/集合/iterator-iterable.html) 配合 while 循环实现的，来看一下反编译后的字节码。
 
 ```java
 List<String> list = new ArrayList();
@@ -17121,7 +17121,7 @@ final void checkForComodification() {
 
 那其实在阿里巴巴的 Java 开发手册里也提到了，不要在 for-each 循环里进行元素的 remove/add 操作。remove 元素请使用 Iterator 方式。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/fail-fast-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/fail-fast-02.png)
 
 那原因其实就是我们上面分析的这些，出于 fail-fast 保护机制。
 
@@ -17247,7 +17247,7 @@ list = list.stream().filter(s -> !s.equals("陈清扬")).collect(Collectors.toLi
 
 ## 6.9 HashMap详解（附源码）
 
-这篇文章将通过源码的方式，详细透彻地讲清楚 Java 的 HashMap，包括 hash 方法的原理、HashMap 的扩容机制、HashMap的加载因子为什么是 0.75 而不是 0.6、0.8，以及 HashMap 为什么是线程不安全的，基本上 HashMap 的[常见面试题](https://tobebetterjavaer.com/interview/java-hashmap-13.html)，都会在这一篇文章里讲明白。
+这篇文章将通过源码的方式，详细透彻地讲清楚 Java 的 HashMap，包括 hash 方法的原理、HashMap 的扩容机制、HashMap的加载因子为什么是 0.75 而不是 0.6、0.8，以及 HashMap 为什么是线程不安全的，基本上 HashMap 的[常见面试题](https://tobebetterjavaer.com/面试/java-hashmap-13.html)，都会在这一篇文章里讲明白。
 
 HashMap 是 Java 中常用的数据结构之一，用于存储键值对。在 HashMap 中，每个键都映射到一个唯一的值，可以通过键来快速访问对应的值。
 
@@ -17505,7 +17505,7 @@ final Node<K,V> getNode(int hash, Object key) {
 
 看下面这个图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hash-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hash-01.png)
 
 某哈希值为 `11111111 11111111 11110000 1110 1010`，将它右移 16 位（h >>> 16），刚好是 `00000000 00000000 11111111 11111111`，再进行异或操作（h ^ (h >>> 16)），结果是 `11111111 11111111 00001111 00010101`
 
@@ -17571,7 +17571,7 @@ hash 方法的原理是，先获取 key 对象的 hashCode 值，然后将其高
 
 好，理解了 hash 方法后我们来看第二个问题，HashMap 的扩容机制。
 
-大家都知道，数组一旦初始化后大小就无法改变了，所以就有了 [ArrayList](https://tobebetterjavaer.com/collection/arraylist.html)这种“动态数组”，可以自动扩容。
+大家都知道，数组一旦初始化后大小就无法改变了，所以就有了 [ArrayList](https://tobebetterjavaer.com/集合/arraylist.html)这种“动态数组”，可以自动扩容。
 
 HashMap 的底层用的也是数组。向 HashMap 里不停地添加元素，当数组无法装载更多元素时，就需要对数组进行扩容，以便装入更多的元素；除此之外，容量的提升也会相应地提高查询效率，因为“桶（坑）”更多了嘛，原来需要通过链表存储的（查询的时候需要遍历），扩容后可能就有自己专属的“坑位”了（直接就能查出来）。
 
@@ -17616,7 +17616,7 @@ wanger的hash值 : -795084437 的索引 : 11
 - fangxiaowan（方小婉）和 yaoxiaojuan（姚小娟）的索引都是 6；
 - chenqingyang（陈清扬）和yexin（叶辛）的索引都是 9
 
-这就意味着，要采用拉链法（后面会讲）将他们放在同一个索引的链表上。查询的时候，就不能直接通过索引的方式直接拿到（[时间复杂度](https://tobebetterjavaer.com/collection/time-complexity.html)为 O(1)），而要通过遍历的方式（时间复杂度为 O(n)）。
+这就意味着，要采用拉链法（后面会讲）将他们放在同一个索引的链表上。查询的时候，就不能直接通过索引的方式直接拿到（[时间复杂度](https://tobebetterjavaer.com/集合/time-complexity.html)为 O(1)），而要通过遍历的方式（时间复杂度为 O(n)）。
 
 那假如把数组的长度由 16 扩容为 32 呢？
 
@@ -17780,7 +17780,7 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 取模运算后，哈希冲突都到 table[1] 上了，因为余数为 1。那么扩容前的样子如下图所示。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-resize-01.png)
 
 数组的容量为 2， key 3、7、5 都在 table[1] 的链表上。
 
@@ -17792,7 +17792,7 @@ void transfer(Entry[] newTable, boolean rehash) {
 - key 7 取模（7%4）后是 3，放在 table[3] 上的链表头部。
 - key 5 取模（5%4）后是 1，放在 table[1] 上。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-resize-02.png)
 
 按照我们的预期，扩容后的 7 仍然应该在 3 这条链表的后面，但实际上呢？ 7 跑到 3 这条链表的头部了。
 
@@ -17800,7 +17800,7 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 看下面这张图。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-resize-03.png)
 
 n 为 table 的长度，默认值为 16。
 
@@ -17824,12 +17824,12 @@ n 为 table 的长度，默认值为 16。
 - 扩容后的容量是 32
 - 扩容后的索引是 21（*1* 0101），也就是 5+16，也就是原来的索引+原来的容量
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-resize-04.png)
 
 
 也就是说，JDK 8 不需要像 JDK 7 那样重新计算 hash，只需要看原来的hash值新增的那个bit是1还是0就好了，是0的话就表示索引没变，是1的话，索引就变成了“原索引+原来的容量”。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-resize-05.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-resize-05.png)
 
 JDK 8 的这个设计非常巧妙，既省去了重新计算hash的时间，同时，由于新增的1 bit是0还是1是随机的，因此扩容的过程，可以均匀地把之前的节点分散到新的位置上。
 
@@ -18013,11 +18013,11 @@ static final float DEFAULT_LOAD_FACTOR = 0.75f;
 
 阮一峰老师曾在一篇博文中详细的介绍了泊松分布和指数分布，大家可以去看一下。
 
->链接：[https://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html](https://www.ruanyifeng.com/blog/2015/06/poisson-distribution.html)
+>链接：[https://www.ruanyifeng.com/博客/2015/06/poisson-distribution.html](https://www.ruanyifeng.com/博客/2015/06/poisson-distribution.html)
 
 具体是用这么一个公式来表示的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-loadfactor-01.png)
 
 等号的左边，P 表示概率，N表示某种函数关系，t 表示时间，n 表示数量。
 
@@ -18051,9 +18051,9 @@ more: less than 1 in ten million
 
 为了便于大家的理解，这里来重温一下 HashMap 的拉链法和红黑树结构。
 
-Java 8 之前，HashMap 使用链表来解决冲突，即当两个或者多个键映射到同一个桶时，它们被放在同一个桶的链表上。当链表上的节点（Node）过多时，链表会变得很长，查找的效率（[LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html) 的查找效率为 O（n））就会受到影响。
+Java 8 之前，HashMap 使用链表来解决冲突，即当两个或者多个键映射到同一个桶时，它们被放在同一个桶的链表上。当链表上的节点（Node）过多时，链表会变得很长，查找的效率（[LinkedList](https://tobebetterjavaer.com/集合/linkedlist.html) 的查找效率为 O（n））就会受到影响。
 
-Java 8 中，当链表的节点数超过一个阈值（8）时，链表将转为红黑树（节点为TreeNode），红黑树（在讲[TreeMap](https://tobebetterjavaer.com/collection/treemap.html)时会细说）是一种高效的平衡树结构，能够在 O(log n) 的时间内完成插入、删除和查找等操作。这种结构在节点数很多时，可以提高 HashMap 的性能和可伸缩性。
+Java 8 中，当链表的节点数超过一个阈值（8）时，链表将转为红黑树（节点为TreeNode），红黑树（在讲[TreeMap](https://tobebetterjavaer.com/集合/treemap.html)时会细说）是一种高效的平衡树结构，能够在 O(log n) 的时间内完成插入、删除和查找等操作。这种结构在节点数很多时，可以提高 HashMap 的性能和可伸缩性。
 
 好，有了这个背景，我们来把上面的 doc 文档翻译为中文：
 
@@ -18102,35 +18102,35 @@ Java 8 中，当链表的节点数超过一个阈值（8）时，链表将转为
 
 于是，n次事件里面，碰撞为0的概率，由上面公式得：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-loadfactor-02.png)
 
 这个概率值需要大于0.5，我们认为这样的hashmap可以提供很低的碰撞率。所以：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-03png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-loadfactor-03png)
 
 这时候，我们对于该公式其实最想求的时候长度s的时候，n为多少次就应该进行扩容了？而负载因子则是$n/s$的值。所以推导如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-loadfactor-04.png)
 
 所以可以得到
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-05.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-loadfactor-05.png)
 
 其中
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-06.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-loadfactor-06.png)
 
 这就是一个求 `∞⋅0`函数极限问题，这里我们先令$s = m+1（m \to \infty）$则转化为
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-07.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-loadfactor-07.png)
 
 我们再令 $x = \frac{1}{m} （x \to 0）$ 则有，
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-08.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-loadfactor-08.png)
 
 所以
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-loadfactor-09.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-loadfactor-09.png)
 
 
 考虑到 HashMap的容量有一个要求：它必须是2的n 次幂。当加载因子选择了0.75就可以保证它与容量的乘积为整数。
@@ -18156,7 +18156,7 @@ HashMap 的加载因子（load factor，直译为加载因子，意译为负载�
 
 ### 04、线程不安全
 
-其实这个问题也不用说太多，但考虑到[面试的时候有些面试官会问](https://tobebetterjavaer.com/interview/java-hashmap-13.html)，那就简单说一下。
+其实这个问题也不用说太多，但考虑到[面试的时候有些面试官会问](https://tobebetterjavaer.com/面试/java-hashmap-13.html)，那就简单说一下。
 
 三方面原因：
 
@@ -18232,33 +18232,33 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 扩容前的样子假如是下面这样子。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-thread-nosafe-01.png)
 
 那么正常扩容后就是下面这样子。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-thread-nosafe-02.png)
 
 假设现在有两个线程同时进行扩容，线程 A 在执行到 `newTable[i] = e;` 被挂起，此时线程 A 中：e=3、next=7、e.next=null
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-thread-nosafe-03.png)
 
 
 线程 B 开始执行，并且完成了数据转移。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-thread-nosafe-04.png)
 
 
 此时，7 的 next 为 3，3 的 next 为 null。
 
 随后线程A获得CPU时间片继续执行 `newTable[i] = e`，将3放入新数组对应的位置，执行完此轮循环后线程A的情况如下：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-05.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-thread-nosafe-05.png)
 
 执行下一轮循环，此时 e=7，原本线程 A 中 7 的 next 为 5，但由于 table 是线程 A 和线程 B 共享的，而线程 B 顺利执行完后，7 的 next 变成了 3，那么此时线程 A 中，7 的 next 也为 3 了。
 
 采用头部插入的方式，变成了下面这样子：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-06.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-thread-nosafe-06.png)
 
 好像也没什么问题，此时 next = 3，e = 3。
 
@@ -18266,7 +18266,7 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 接下来当执行完 `e.next=newTable[i]` 即 3.next=7 后，3 和 7 之间就相互链接了，执行完 `newTable[i]=e` 后，3 被头插法重新插入到链表中，执行结果如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-07.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-thread-nosafe-07.png)
 
 套娃开始，元素 5 也就成了弃婴，惨~~~
 
@@ -18276,7 +18276,7 @@ void transfer(Entry[] newTable, boolean rehash) {
 
 正常情况下，当发生哈希冲突时，HashMap 是这样的：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-08.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-thread-nosafe-08.png)
 
 但多线程同时执行 put 操作时，如果计算出来的索引位置是相同的，那会造成前一个 key 被后一个 key 覆盖，从而导致元素的丢失。
 
@@ -18354,11 +18354,11 @@ if ((p = tab[i = (n - 1) & hash]) == null)
 
 两个线程都执行了 if 语句，假设线程 A 先执行了 ` tab[i] = newNode(hash, key, value, null)`，那 table 是这样的：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-09.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-thread-nosafe-09.png)
 
 接着，线程 B 执行了 ` tab[i] = newNode(hash, key, value, null)`，那 table 是这样的：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/hashmap-thread-nosafe-10.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/hashmap-thread-nosafe-10.png)
 
 3 被干掉了。
 
@@ -18417,19 +18417,19 @@ final Node<K,V>[] resize() {
 
 HashMap 是线程不安全的主要是因为它在进行插入、删除和扩容等操作时可能会导致链表的结构发生变化，从而破坏了 HashMap 的不变性。具体来说，如果在一个线程正在遍历 HashMap 的链表时，另外一个线程对该链表进行了修改（比如添加了一个节点），那么就会导致链表的结构发生变化，从而破坏了当前线程正在进行的遍历操作，可能导致遍历失败或者出现死循环等问题。
 
-为了解决这个问题，Java 提供了线程安全的 HashMap 实现类 [ConcurrentHashMap](https://tobebetterjavaer.com/thread/ConcurrentHashMap.html)。ConcurrentHashMap 内部采用了分段锁（Segment），将整个 Map 拆分为多个小的 HashMap，每个小的 HashMap 都有自己的锁，不同的线程可以同时访问不同的小 Map，从而实现了线程安全。在进行插入、删除和扩容等操作时，只需要锁住当前小 Map，不会对整个 Map 进行锁定，提高了并发访问的效率。
+为了解决这个问题，Java 提供了线程安全的 HashMap 实现类 [ConcurrentHashMap](https://tobebetterjavaer.com/线程/ConcurrentHashMap.html)。ConcurrentHashMap 内部采用了分段锁（Segment），将整个 Map 拆分为多个小的 HashMap，每个小的 HashMap 都有自己的锁，不同的线程可以同时访问不同的小 Map，从而实现了线程安全。在进行插入、删除和扩容等操作时，只需要锁住当前小 Map，不会对整个 Map 进行锁定，提高了并发访问的效率。
 
 ### 05、总结
 
 HashMap是Java中最常用的集合之一，它是一种键值对存储的数据结构，可以根据键来快速访问对应的值。以下是对HashMap的总结：
 
 - HashMap采用数组+链表/红黑树的存储结构，能够在O(1)的时间复杂度内实现元素的添加、删除、查找等操作。
-- HashMap是线程不安全的，因此在多线程环境下需要使用[ConcurrentHashMap](https://tobebetterjavaer.com/thread/ConcurrentHashMap.html)来保证线程安全。
+- HashMap是线程不安全的，因此在多线程环境下需要使用[ConcurrentHashMap](https://tobebetterjavaer.com/线程/ConcurrentHashMap.html)来保证线程安全。
 - HashMap的扩容机制是通过扩大数组容量和重新计算hash值来实现的，扩容时需要重新计算所有元素的hash值，因此在元素较多时扩容会影响性能。
 - 在Java 8中，HashMap的实现引入了拉链法、树化等机制来优化大量元素存储的情况，进一步提升了性能。
 - HashMap中的key是唯一的，如果要存储重复的key，则后面的值会覆盖前面的值。
 - HashMap的初始容量和加载因子都可以设置，初始容量表示数组的初始大小，加载因子表示数组的填充因子。一般情况下，初始容量为16，加载因子为0.75。
-- HashMap在遍历时是无序的，因此如果需要有序遍历，可以使用[TreeMap](https://tobebetterjavaer.com/collection/treemap.html)。
+- HashMap在遍历时是无序的，因此如果需要有序遍历，可以使用[TreeMap](https://tobebetterjavaer.com/集合/treemap.html)。
 
 综上所述，HashMap是一种高效的数据结构，具有快速查找和插入元素的能力，但需要注意线程安全和性能问题。
 
@@ -18441,11 +18441,11 @@ HashMap是Java中最常用的集合之一，它是一种键值对存储的数据
 
 俗话说了，“金无足赤人无完人”，HashMap 也不例外，有一种需求它就满足不了，假如我们需要一个按照插入顺序来排列的键值对集合，那 HashMap 就无能为力了。那该怎么办呢？必须得上今天这篇文章的主角：LinkedHashMap。
 
-同学们好啊，还记得 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 那篇吗？我自己感觉写得非常棒啊，既通俗易懂，又深入源码，真的是分析得透透彻彻、清清楚楚、明明白白的。（一不小心又甩了三个成语，有文化吧？）HashMap 哪哪都好，真的，只要你想用键值对，第一时间就应该想到它。
+同学们好啊，还记得 [HashMap](https://tobebetterjavaer.com/集合/hashmap.html) 那篇吗？我自己感觉写得非常棒啊，既通俗易懂，又深入源码，真的是分析得透透彻彻、清清楚楚、明明白白的。（一不小心又甩了三个成语，有文化吧？）HashMap 哪哪都好，真的，只要你想用键值对，第一时间就应该想到它。
 
 为了提高查找效率，HashMap 在插入的时候对键做了一次哈希算法，这就导致插入的元素是无序的。
 
-对这一点还不太明白的同学，可以再回到 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 那一篇，看看 hash 方法，再看看我对 `put()` 方法的讲解，就能明白了，我们这里再来回顾一下。
+对这一点还不太明白的同学，可以再回到 [HashMap](https://tobebetterjavaer.com/集合/hashmap.html) 那一篇，看看 hash 方法，再看看我对 `put()` 方法的讲解，就能明白了，我们这里再来回顾一下。
 
 ```java
 final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
@@ -18517,7 +18517,7 @@ static class Entry<K,V> extends HashMap.Node<K,V> {
 }
 ```
 
-关于双向链表，同学们可以回头看一遍我写的 [LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html) 那篇文章，会对理解本篇的 LinkedHashMap 有很大的帮助。
+关于双向链表，同学们可以回头看一遍我写的 [LinkedList](https://tobebetterjavaer.com/集合/linkedlist.html) 那篇文章，会对理解本篇的 LinkedHashMap 有很大的帮助。
 
 用 LinkedHashMap 替换 HashMap，再来对比一下输出结果。
 
@@ -18550,7 +18550,7 @@ Key: chenqingyang, Value: 陈清扬
 
 ### 01、插入顺序
 
-在 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 那篇文章里，我有讲解到一点，不知道同学们记不记得，就是 null 会插入到 HashMap 的第一位。
+在 [HashMap](https://tobebetterjavaer.com/集合/hashmap.html) 那篇文章里，我有讲解到一点，不知道同学们记不记得，就是 null 会插入到 HashMap 的第一位。
 
 ```java
 Map<String, String> hashMap = new HashMap<>();
@@ -18674,7 +18674,7 @@ LinkedHashMap 不仅能够维持插入顺序，还能够维持访问顺序。访
 LinkedHashMap<String, String> map = new LinkedHashMap<>(16, .75f, true);
 ```
 
-第一个参数和第二个参数，看过 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 的同学们应该很熟悉了，指的是初始容量和负载因子。
+第一个参数和第二个参数，看过 [HashMap](https://tobebetterjavaer.com/集合/hashmap.html) 的同学们应该很熟悉了，指的是初始容量和负载因子。
 
 第三个参数如果为 true 的话，就表示 LinkedHashMap 要维护访问顺序；否则，维护插入顺序。默认是 false。
 
@@ -18895,13 +18895,13 @@ LinkedHashMap 还提供了两个构造方法来指定排序方式，分别是按
 
 >下面有请王老师上台，来给大家讲一讲 TreeMap，鼓掌了！
 
-之前 [LinkedHashMap](https://tobebetterjavaer.com/collection/linkedhashmap.html) 那篇文章里提到过了，HashMap 是无序的，所以有了 LinkedHashMap，加上了双向链表后，就可以保持元素的插入顺序和访问顺序，那 TreeMap 呢？
+之前 [LinkedHashMap](https://tobebetterjavaer.com/集合/linkedhashmap.html) 那篇文章里提到过了，HashMap 是无序的，所以有了 LinkedHashMap，加上了双向链表后，就可以保持元素的插入顺序和访问顺序，那 TreeMap 呢？
 
 TreeMap 由红黑树实现，可以保持元素的自然顺序，或者实现了 Comparator 接口的自定义顺序。
 
 可能有些同学不了解红黑树，我这里来普及一下：
 
-> 红黑树（英语：Red–black tree）是一种自平衡的二叉查找树（Binary Search Tree），结构复杂，但却有着良好的性能，完成查找、插入和删除的[时间复杂度](https://tobebetterjavaer.com/collection/time-complexity.html)均为 log(n)。
+> 红黑树（英语：Red–black tree）是一种自平衡的二叉查找树（Binary Search Tree），结构复杂，但却有着良好的性能，完成查找、插入和删除的[时间复杂度](https://tobebetterjavaer.com/集合/time-complexity.html)均为 log(n)。
 
 二叉查找树是一种常见的树形结构，它的每个节点都包含一个键值对。每个节点的左子树节点的键值小于该节点的键值，右子树节点的键值大于该节点的键值，这个特性使得二叉查找树非常适合进行数据的查找和排序操作。
 
@@ -18982,7 +18982,7 @@ TreeMap 由红黑树实现，可以保持元素的自然顺序，或者实现了
 
 这种极度不平衡的二叉查找树会导致查找、插入和删除操作的效率急剧下降，因为每次操作都只能在右子树中进行，而左子树几乎没有被利用到。
 
-查找的效率就要从 log(n) 变成 o(n) 了（戳[这里](https://tobebetterjavaer.com/collection/time-complexity.html)了解时间复杂度），对吧？
+查找的效率就要从 log(n) 变成 o(n) 了（戳[这里](https://tobebetterjavaer.com/集合/time-complexity.html)了解时间复杂度），对吧？
 
 必须要平衡一下，对吧？于是就有了平衡二叉树，左右两个子树的高度差的绝对值不超过 1，就像下图这样：
 
@@ -19294,7 +19294,7 @@ headMap、tailMap、subMap方法分别获取了小于3、大于等于4、大于�
 
 ### 04、如何选择 Map
 
-在学习 TreeMap 之前，我们已经学习了 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 和 [LinkedHashMap](https://tobebetterjavaer.com/collection/linkedhashmap.html) ，那如何从它们三个中间选择呢？
+在学习 TreeMap 之前，我们已经学习了 [HashMap](https://tobebetterjavaer.com/集合/hashmap.html) 和 [LinkedHashMap](https://tobebetterjavaer.com/集合/linkedhashmap.html) ，那如何从它们三个中间选择呢？
 
 需要考虑以下因素：
 
@@ -19328,9 +19328,9 @@ Java 里有一个叫做*Stack*的类，却没有叫做*Queue*的类（它只是�
 public interface Queue<E> extends Collection<E> {}
 ```
 
-当需要使用栈时，Java 已不推荐使用*Stack*，而是推荐使用更高效的*ArrayDeque*（双端队列），原因我们第一次讲[集合框架](https://tobebetterjavaer.com/collection/gailan.html)的时候，其实已经聊过了，Stack 是一个“原始”类，它的核心方法上都加了 `synchronized` 关键字以确保线程安全，当我们不需要线程安全（比如说单线程环境下）性能就会比较差。
+当需要使用栈时，Java 已不推荐使用*Stack*，而是推荐使用更高效的*ArrayDeque*（双端队列），原因我们第一次讲[集合框架](https://tobebetterjavaer.com/集合/gailan.html)的时候，其实已经聊过了，Stack 是一个“原始”类，它的核心方法上都加了 `synchronized` 关键字以确保线程安全，当我们不需要线程安全（比如说单线程环境下）性能就会比较差。
 
-![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection//arraydeque-51e3552c-af39-4d00-8494-1ff0a4913357.png)
+![](http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合//arraydeque-51e3552c-af39-4d00-8494-1ff0a4913357.png)
 
 也就是说，当需要使用栈时候，请首选*ArrayDeque*。
 
@@ -19423,7 +19423,7 @@ while (iterator.hasNext()) {
 
 在上面的示例中，我们先创建了一个 ArrayDeque 对象，然后使用 offer 方法向队列中添加了三个元素。接着使用 peek 方法获取队首元素，使用 poll 方法弹出队首元素，使用 poll 和 offer 方法修改队列中的元素，使用迭代器查找元素在队列中的位置。
 
-[我们前面讲了](https://tobebetterjavaer.com/collection/gailan.html)，LinkedList不只是个 List，还是一个 Queue，它也实现了 Deque 接口。
+[我们前面讲了](https://tobebetterjavaer.com/集合/gailan.html)，LinkedList不只是个 List，还是一个 Queue，它也实现了 Deque 接口。
 
 ```java
 public class LinkedList<E>
@@ -19432,7 +19432,7 @@ public class LinkedList<E>
 {}
 ```
 
-所以，当我们需要使用队列时，还可以选择[LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html)。
+所以，当我们需要使用队列时，还可以选择[LinkedList](https://tobebetterjavaer.com/集合/linkedlist.html)。
 
 ```java
 // 创建一个 LinkedList 对象
@@ -19503,13 +19503,13 @@ while (iterator.hasNext()) {
 
 **虽然*Deque*的接口有 12 个之多，但无非就是对容器的两端进行操作，或添加，或删除，或查看**。明白了这一点讲解起来就会非常简单。
 
-*ArrayDeque*和*LinkedList*是*Deque*的两个通用实现，由于官方更推荐使用*ArrayDeque*用作栈和队列，加之上一篇已经讲解过[LinkedList](https://tobebetterjavaer.com/collection/linkedlist.html)，本文将着重讲解*ArrayDeque*的具体实现。
+*ArrayDeque*和*LinkedList*是*Deque*的两个通用实现，由于官方更推荐使用*ArrayDeque*用作栈和队列，加之上一篇已经讲解过[LinkedList](https://tobebetterjavaer.com/集合/linkedlist.html)，本文将着重讲解*ArrayDeque*的具体实现。
 
 从名字可以看出*ArrayDeque*底层通过数组实现，为了满足可以同时在数组两端插入或删除元素的需求，该数组还必须是循环的，即**循环数组（circular array）**，也就是说数组的任何一点都可能被看作起点或者终点。
 
 *ArrayDeque*是非线程安全的（not thread-safe），当多个线程同时使用的时候，需要手动同步；另外，该容器不允许放入`null`元素。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-1e7086a3-3d31-4553-aa16-5eaf2193649e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/arraydeque-1e7086a3-3d31-4553-aa16-5eaf2193649e.png)
 
 
 上图中我们看到，**`head`指向首端第一个有效元素，`tail`指向尾端第一个可以插入元素的空位**。因为是循环数组，所以`head`不一定总等于 0，`tail`也不一定总是比`head`大。
@@ -19521,7 +19521,7 @@ while (iterator.hasNext()) {
 `addFirst(E e)`的作用是在*Deque*的首端插入元素，也就是在`head`的前面插入元素，在空间足够且下标没有越界的情况下，只需要将`elements[--head] = e`即可。
 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-459afbba-2778-4241-97fb-f01a29b79458.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/arraydeque-459afbba-2778-4241-97fb-f01a29b79458.png)
 
 实际需要考虑：
 
@@ -19548,7 +19548,7 @@ public void addFirst(E e) {
 
 下面再说说扩容函数`doubleCapacity()`，其逻辑是申请一个更大的数组（原数组的两倍），然后将原数组复制过去。过程如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-f1386b63-10be-4998-bb6d-bf6560cca7ee.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/arraydeque-f1386b63-10be-4998-bb6d-bf6560cca7ee.png)
 
 图中我们看到，复制分两次进行，第一次复制`head`右边的元素，第二次复制`head`左边的元素。
 
@@ -19581,7 +19581,7 @@ private void doubleCapacity() {
 
 `addLast(E e)`的作用是在*Deque*的尾端插入元素，也就是在`tail`的位置插入元素，由于`tail`总是指向下一个可以插入的空位，因此只需要`elements[tail] = e;`即可。插入完成后再检查空间，如果空间已经用光，则调用`doubleCapacity()`进行扩容。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/arraydeque-832c796a-6c24-4546-9f91-22ed39884363.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/arraydeque-832c796a-6c24-4546-9f91-22ed39884363.png)
 
 ```java
 public void addLast(E e) {
@@ -19823,7 +19823,7 @@ Huffman编码是一种基于霍夫曼树的压缩算法，用于将一个字符�
 
 好，我们画幅图再来理解一下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/PriorityQueue-8dca2f55-a7c7-49e1-95a5-df1a34f2aef5.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/PriorityQueue-8dca2f55-a7c7-49e1-95a5-df1a34f2aef5.png)
 
 上图中我们给每个元素按照层序遍历的方式进行了编号，如果你足够细心，会发现父节点和子节点的编号是有联系的，更确切的说父子节点的编号之间有如下关系：
 
@@ -19843,7 +19843,7 @@ parentNo = (nodeNo-1)/2
 
 `add(E e)`和`offer(E e)`的语义相同，都是向优先队列中插入元素，只是`Queue`接口规定二者对插入失败时的处理不同，前者在插入失败时抛出异常，后则则会返回`false`。对于*PriorityQueue*这两个方法其实没什么差别。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/PriorityQueue-0fb89aa7-c8fa-4fad-adbb-40c61c3bb0e9.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/PriorityQueue-0fb89aa7-c8fa-4fad-adbb-40c61c3bb0e9.png)
 
 新加入的元素可能会破坏小顶堆的性质，因此需要进行必要的调整。
 
@@ -19888,7 +19888,7 @@ private void siftUp(int k, E x) {
 
 `element()`和`peek()`的语义完全相同，都是获取但不删除队首元素，也就是队列中权值最小的那个元素，二者唯一的区别是当方法失败时前者抛出异常，后者返回`null`。根据小顶堆的性质，堆顶那个元素就是全局最小的那个；由于堆用数组表示，根据下标关系，`0`下标处的那个元素既是堆顶元素。所以**直接返回数组`0`下标处的那个元素即可**。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/PriorityQueue-5059f157-845e-4d1c-b993-5cfe539d5607.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/PriorityQueue-5059f157-845e-4d1c-b993-5cfe539d5607.png)
 
 代码也就非常简洁：
 
@@ -19905,7 +19905,7 @@ public E peek() {
 
 `remove()`和`poll()`方法的语义也完全相同，都是获取并删除队首元素，区别是当方法失败时前者抛出异常，后者返回`null`。由于删除操作会改变队列的结构，为维护小顶堆的性质，需要进行必要的调整。
 
-![PriorityQueue_poll.png](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/PriorityQueue-e25ba931-2e6f-4c17-84b8-9b959733d541.png)
+![PriorityQueue_poll.png](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/PriorityQueue-e25ba931-2e6f-4c17-84b8-9b959733d541.png)
 
 代码如下：
 
@@ -19956,7 +19956,7 @@ private void siftDown(int k, E x) {
 1. 删除的是最后一个元素。直接删除即可，不需要调整。
 2. 删除的不是最后一个元素，从删除点开始以最后一个元素为参照调用一次`siftDown()`即可。此处不再赘述。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/collection/PriorityQueue-ed0d08d3-b38e-44a1-a710-ee7a01afda62.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/集合/PriorityQueue-ed0d08d3-b38e-44a1-a710-ee7a01afda62.png)
 
 具体代码如下：
 
@@ -19996,9 +19996,9 @@ PriorityQueue 是一个非常常用的数据结构，它是一种特殊的堆（
 
 ## 6.14 Comparable和Comparator的区别
 
->在前面学习[优先级队列](https://tobebetterjavaer.com/collection/PriorityQueue.html)的时候，我们曾提到过 Comparable和Comparator，那这篇继续以面试官的角度去切入，一起来看。
+>在前面学习[优先级队列](https://tobebetterjavaer.com/集合/PriorityQueue.html)的时候，我们曾提到过 Comparable和Comparator，那这篇继续以面试官的角度去切入，一起来看。
 
-那天，小二去马蜂窝面试，面试官老王一上来就甩给了他一道面试题：请问Comparable和Comparator有什么区别？小二差点笑出声，因为三年前，也就是 2021 年，他在《[二哥的Java进阶之路](https://tobebetterjavaer.com/basic-extra-meal/comparable-omparator.html)》上看到过这题😆。
+那天，小二去马蜂窝面试，面试官老王一上来就甩给了他一道面试题：请问Comparable和Comparator有什么区别？小二差点笑出声，因为三年前，也就是 2021 年，他在《[二哥的Java进阶之路](https://tobebetterjavaer.com/基础加餐/comparable-omparator.html)》上看到过这题😆。
 
 Comparable 和 Comparator 是 Java 的两个接口，从名字上我们就能够读出来它们俩的相似性：以某种方式来比较两个对象。
 
@@ -20048,7 +20048,7 @@ public class Cmower implements Comparable<Cmower> {
 
 程序输出的结果是“沉默王三比较年轻有为”，因为他比沉默王二小三岁。这个结果有什么凭证吗？
 
-凭证就在于 `compareTo()` 方法，该方法的返回值可能为负数，零或者正数，代表的意思是该对象按照排序的规则小于、等于或者大于要比较的对象。如果指定对象的类型与此对象不能进行比较，则引发 `ClassCastException` 异常（自从有了[泛型](https://tobebetterjavaer.com/basic-extra-meal/generic.html)，这种情况就少有发生了）。
+凭证就在于 `compareTo()` 方法，该方法的返回值可能为负数，零或者正数，代表的意思是该对象按照排序的规则小于、等于或者大于要比较的对象。如果指定对象的类型与此对象不能进行比较，则引发 `ClassCastException` 异常（自从有了[泛型](https://tobebetterjavaer.com/基础加餐/generic.html)，这种情况就少有发生了）。
 
 ### 02、Comparator
 
@@ -20158,7 +20158,7 @@ public void sort(Comparator<? super E> c) {
 }
 ```
 
-可以看到，参数就是一个 Comparator 接口，并且使用了[泛型](https://tobebetterjavaer.com/basic-extra-meal/generic.html) `Comparator<? super E> c`。
+可以看到，参数就是一个 Comparator 接口，并且使用了[泛型](https://tobebetterjavaer.com/基础加餐/generic.html) `Comparator<? super E> c`。
 
 ### 03、到底该用哪一个？
 
@@ -20222,7 +20222,7 @@ Java 中是通过流处理IO 的，那么什么是流？
 
 具体还要看字符编码，比如说在 UTF-8 编码下，一个英文字母（不分大小写）为一个字节，一个中文汉字为三个字节；在 Unicode 编码中，一个英文字母为一个字节，一个中文汉字为两个字节。
 
->PS：关于字符编码，可以看前面的章节：[锟斤拷](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)
+>PS：关于字符编码，可以看前面的章节：[锟斤拷](https://tobebetterjavaer.com/基础加餐/java-unicode.html)
 
 明白了字节与字符的区别，再来看字节流和字符流就会轻松多了。
 
@@ -20809,7 +20809,7 @@ try (ObjectInputStream input = new ObjectInputStream(new FileInputStream(
 具体的执行过程如下：
 
 - 创建一个 ByteArrayOutputStream 对象 buffer，用于存储数据。
-- 使用 [try-with-resources](https://tobebetterjavaer.com/exception/try-with-resources.html) 语句创建一个 ObjectOutputStream 对象 output，并将其与 buffer 关联。
+- 使用 [try-with-resources](https://tobebetterjavaer.com/异常/try-with-resources.html) 语句创建一个 ObjectOutputStream 对象 output，并将其与 buffer 关联。
 - 使用 writeUTF() 方法将字符串 "沉默王二" 写入到缓冲区中。
 - 当 try-with-resources 语句执行完毕时，会自动调用 output 的 close() 方法关闭输出流，释放资源。
 - 使用 toByteArray() 方法将缓冲区中的数据转换成字节数组。
@@ -21216,7 +21216,7 @@ try (RandomAccessFile raf = new RandomAccessFile(file, "rw")) {
 
 接下来，我们使用 writeUTF 方法将字符串"Hello, 沉默王二!"写入文件。然后，我们使用 seek 方法将文件指针移动到文件开头，并使用 readUTF 方法读取文件内容。输出应该是"Hello, 沉默王二!"。
 
-最后，我们使用[try-with-resources](https://tobebetterjavaer.com/exception/try-with-resources.html)语句确保 RandomAccessFile 在操作完成后被正确关闭。
+最后，我们使用[try-with-resources](https://tobebetterjavaer.com/异常/try-with-resources.html)语句确保 RandomAccessFile 在操作完成后被正确关闭。
 
 ### Apache FileUtils 类
 
@@ -21401,7 +21401,7 @@ fos.write(99); // 第3个字节
 fos.close();
 ```
 
-字符 a 的 [ASCII 值](https://tobebetterjavaer.com/basic-extra-meal/java-unicode.html)为 97，字符 b 的ASCII 值为 98，字符 b 的ASCII 值为 99。也就是说，以上代码可以写成：
+字符 a 的 [ASCII 值](https://tobebetterjavaer.com/基础加餐/java-unicode.html)为 97，字符 b 的ASCII 值为 98，字符 b 的ASCII 值为 99。也就是说，以上代码可以写成：
 
 ```java
 // 使用文件名称创建流对象
@@ -21823,7 +21823,7 @@ try(FileReader reader = new FileReader(textFile);) {
 
 在这个例子中，使用 FileReader 从文件中读取字符数据，并将其存储到一个大小为 1024 的字符数组中。每次读取 len 个字符，然后使用 String 构造方法将其转换为字符串并输出。
 
-FileReader 实现了 AutoCloseable 接口，因此可以使用 [try-with-resources](https://tobebetterjavaer.com/exception/try-with-resources.html) 语句自动关闭资源，避免了手动关闭资源的繁琐操作。
+FileReader 实现了 AutoCloseable 接口，因此可以使用 [try-with-resources](https://tobebetterjavaer.com/异常/try-with-resources.html) 语句自动关闭资源，避免了手动关闭资源的繁琐操作。
 
 ### 02、字符输出流（Writer）
 
@@ -22249,7 +22249,7 @@ public synchronized int read() throws IOException {
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/buffer-20230321154534.png)
 
-在这段代码中，`read0()` 方法是一个[本地方法](https://tobebetterjavaer.com/oo/native-method.html)，它的实现是由底层操作系统提供的，并不是 Java 语言实现的。在不同的操作系统上，`read0()` 方法的实现可能会有所不同，但是它们的功能都是相同的，都是用于**读取一个字节**。
+在这段代码中，`read0()` 方法是一个[本地方法](https://tobebetterjavaer.com/面向对象/native-method.html)，它的实现是由底层操作系统提供的，并不是 Java 语言实现的。在不同的操作系统上，`read0()` 方法的实现可能会有所不同，但是它们的功能都是相同的，都是用于**读取一个字节**。
 
 再来看一下 BufferedOutputStream 的 `write(byte b[], int off, int len)` 方法：
 
@@ -22536,7 +22536,7 @@ for (int i = 1; i <= lineMap.size(); i++) {
 bw.close();
 ```
 
-这里面用到的知识都是我们前面学过的，比如说 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html)，[字符串分割](https://tobebetterjavaer.com/string/split.html)，包括刚刚学习的字符缓冲流。
+这里面用到的知识都是我们前面学过的，比如说 [HashMap](https://tobebetterjavaer.com/集合/hashmap.html)，[字符串分割](https://tobebetterjavaer.com/字符串/split.html)，包括刚刚学习的字符缓冲流。
 
 
 来看输出结果
@@ -22800,7 +22800,7 @@ OutputStreamWriter 类的常用方法包括：
 
 * 可以自动进行数据类型转换：打印流可以将各种数据类型转换为字符串，并输出到指定的输出流中。
 * 可以自动进行换行操作：打印流可以在输出字符串的末尾自动添加换行符，方便输出多个字符串时的格式控制。
-* 可以输出到控制台或者文件中：打印流可以将数据输出到控制台或者文件中，方便调试和日志记录（尽管生产环境下更推荐使用 [Logback](https://tobebetterjavaer.com/gongju/logback.html)、ELK 等）。
+* 可以输出到控制台或者文件中：打印流可以将数据输出到控制台或者文件中，方便调试和日志记录（尽管生产环境下更推荐使用 [Logback](https://tobebetterjavaer.com/工具/logback.html)、ELK 等）。
 
 PrintStream 类的常用方法包括：
 
@@ -23013,7 +23013,7 @@ try (FileInputStream fileIn = new FileInputStream(filename);
 
 - 可移植性差：Java 特有的，无法跨语言进行序列化和反序列化。
 - 性能差：序列化后的字节体积大，增加了传输/保存成本。
-- 安全问题：攻击者可以通过构造恶意数据来实现远程代码执行，从而对系统造成严重的安全威胁。相关阅读：[Java 反序列化漏洞之殇](https://cryin.github.io/blog/secure-development-java-deserialization-vulnerability/) 。
+- 安全问题：攻击者可以通过构造恶意数据来实现远程代码执行，从而对系统造成严重的安全威胁。相关阅读：[Java 反序列化漏洞之殇](https://cryin.github.io/博客/secure-development-java-deserialization-vulnerability/) 。
 
 Kryo 是一个优秀的 Java 序列化和反序列化库，具有高性能、高效率和易于使用和扩展等特点，有效地解决了 JDK 自带的序列化机制的痛点。
 
@@ -23318,7 +23318,7 @@ private void defaultReadFields(Object obj, ObjectStreamClass desc) throws IOExce
 
 ### 03、再来点注意事项
 
-开门见山的说吧，[`static`](https://tobebetterjavaer.com/oo/static.html) 和 [`transient`](https://tobebetterjavaer.com/io/transient.html) 修饰的字段是不会被序列化的。
+开门见山的说吧，[`static`](https://tobebetterjavaer.com/面向对象/static.html) 和 [`transient`](https://tobebetterjavaer.com/io/transient.html) 修饰的字段是不会被序列化的。
 
 为什么呢？我们先来证明，再来解释原因。
 
@@ -23779,7 +23779,7 @@ password: null
 
 2）transient 关键字只能修饰字段，而不能修饰方法和类。
 
-3）被 transient 关键字修饰的字段不能被序列化，一个静态变量（[static关键字](https://tobebetterjavaer.com/oo/static.html)修饰）不管是否被 transient 修饰，均不能被序列化，[前面讲到过](https://tobebetterjavaer.com/io/Serializbale.html)。
+3）被 transient 关键字修饰的字段不能被序列化，一个静态变量（[static关键字](https://tobebetterjavaer.com/面向对象/static.html)修饰）不管是否被 transient 修饰，均不能被序列化，[前面讲到过](https://tobebetterjavaer.com/io/Serializbale.html)。
 
 来看示例：
 
@@ -24040,7 +24040,7 @@ Class clz = Class.forName("com.itwanger.s41.Demo1");
 
 如果没做处理，比如说在 Intellij IDEA 环境下，就会提示你这行代码可能会抛出 `java.lang.ClassNotFoundException`。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/gailan-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/异常/gailan-02.png)
 
 建议你要么使用 try-catch 进行捕获：
 
@@ -24149,7 +24149,7 @@ Exception in thread "main" java.lang.ArithmeticException: 年纪未满 18 岁，
 
 `Class.forName()` 方法在执行的时候可能会遇到 `java.lang.ClassNotFoundException` 异常，一个检查型异常，如果没有做处理，IDEA 就会提示你，要么在方法签名上声明，要么放在 try-catch 中。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/throw-throws-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/异常/throw-throws-01.png)
 
 “那什么情况下使用 throws 而不是 try-catch 呢？”三妹问。
 
@@ -24334,7 +24334,7 @@ try {
 }
 ```
 
-在没有 [`try-with-resources`](https://tobebetterjavaer.com/exception/try-with-resources.html) 之前，finally 块常用来关闭一些连接资源，比如说 socket、数据库链接、IO 输入输出流等。
+在没有 [`try-with-resources`](https://tobebetterjavaer.com/异常/try-with-resources.html) 之前，finally 块常用来关闭一些连接资源，比如说 socket、数据库链接、IO 输入输出流等。
 
 ```java
 OutputStream osf = new FileOutputStream( "filename" );
@@ -24386,7 +24386,7 @@ static int test2 () {
 
 “三妹，来看一下源码的文档注释就全明白了！”
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/try-catch-finally-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/异常/try-catch-finally-01.png)
 
 至于参数 status 的值也很好理解，如果是异常退出，设置为非 0 即可，通常用 1 来表示；如果是想正常退出程序，用 0 表示即可。
 
@@ -24761,7 +24761,7 @@ public void doNotCloseResourceInTry() {
 
 “为什么呢？”三妹问。
 
-“原因也很简单，因为一旦 `close()` 之前发生了异常，那么资源就无法关闭。直接使用 [try-with-resource](https://tobebetterjavaer.com/exception/try-with-resources.html) 来处理是最佳方式。”我说。
+“原因也很简单，因为一旦 `close()` 之前发生了异常，那么资源就无法关闭。直接使用 [try-with-resource](https://tobebetterjavaer.com/异常/try-with-resources.html) 来处理是最佳方式。”我说。
 
 ```java
 public void automaticallyCloseResource() {
@@ -25011,7 +25011,7 @@ finally 块用于定义一段代码，无论 try 块中是否出现异常，都�
 - `printStackTrace()` 方法会将堆栈跟踪信息输出到标准错误流中，这可能会影响程序的性能和稳定性。在高并发的生产环境中，大量的异常堆栈跟踪信息可能会导致系统崩溃或出现意外的行为。
 - 由于生产环境中往往是多线程、分布式的复杂系统，`printStackTrace()` 方法输出的堆栈跟踪信息可能并不完整或准确。
 
-在生产环境中，应该使用日志系统来记录异常信息，例如 [log4j](https://tobebetterjavaer.com/gongju/log4j.html)、[slf4j](https://tobebetterjavaer.com/gongju/slf4j.html)、[logback](https://tobebetterjavaer.com/gongju/logback.html) 等。日志系统可以将异常信息记录到文件或数据库中，而不会暴露敏感信息，也不会影响程序的性能和稳定性。同时，日志系统也提供了更多的功能，如级别控制、滚动日志、邮件通知等。
+在生产环境中，应该使用日志系统来记录异常信息，例如 [log4j](https://tobebetterjavaer.com/工具/log4j.html)、[slf4j](https://tobebetterjavaer.com/工具/slf4j.html)、[logback](https://tobebetterjavaer.com/工具/logback.html) 等。日志系统可以将异常信息记录到文件或数据库中，而不会暴露敏感信息，也不会影响程序的性能和稳定性。同时，日志系统也提供了更多的功能，如级别控制、滚动日志、邮件通知等。
 
 ```java
 例如，可以使用 logback 记录异常信息，如下所示：
@@ -25124,7 +25124,7 @@ public class Demo {
 }
 ```
 
-虽然这个示例可以正确地处理输入字符串中的非数字字符，但是它使用异常进行流程控制，这就导致代码变得混乱、难以理解。应该使用其他合适的[控制结构](https://tobebetterjavaer.com/basic-grammar/flow-control.html)（如 if、switch、循环等）来管理程序的流程。
+虽然这个示例可以正确地处理输入字符串中的非数字字符，但是它使用异常进行流程控制，这就导致代码变得混乱、难以理解。应该使用其他合适的[控制结构](https://tobebetterjavaer.com/基础语法/flow-control.html)（如 if、switch、循环等）来管理程序的流程。
 
 ### 16、尽早验证用户输入以在请求处理的早期捕获异常
 
@@ -25452,7 +25452,7 @@ Object听到这话，皱了皱眉，他沉默了一会儿，缓缓站起身子�
 
 我见他好像魔怔了，仿佛在思考什么，于是迈步走到他刚才站立的地方看着前面，原来，这是他们的族谱！这里是异常的祠堂！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/exception/npe-1.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/异常/npe-1.jpg)
 
 看完这张族谱，我恍然大悟，好像明白了什么。突然，我的脑袋里出现了一个冰冷的机器声音：“获取异常族谱，历练完成度+100。”
 
@@ -25567,7 +25567,7 @@ public class TryCatchTest {
 
 在这里，请允许我补充一些概念，以便大家能更好的理解这段代码。
 
->第一个：`@Benchmark` 是一个来自于 JMH（Java Microbenchmark Harness）库的注解，用来标记一个方法作为基准测试方法。JMH 是一个专门用于编写 [Java 微基准测试](https://hezhiqiang8909.gitbook.io/java/docs/javalib/jmh)的工具包，包含了一些用于测试 Java 代码性能和微调 JVM 的工具和库。使用 `@Benchmark` 注解标记的方法将被 JMH 自动识别为基准测试方法，并在运行时进行基准测试。在基准测试期间，JMH 会运行被标记的方法多次，并测量方法的执行时间、吞吐量、延迟等指标，并生成统计结果。
+>第一个：`@Benchmark` 是一个来自于 JMH（Java Microbenchmark Harness）库的注解，用来标记一个方法作为基准测试方法。JMH 是一个专门用于编写 [Java 微基准测试](https://hezhiqiang8909.gitbook.io/👏下载→Java程序员常读书单📚/docs/javalib/jmh)的工具包，包含了一些用于测试 Java 代码性能和微调 JVM 的工具和库。使用 `@Benchmark` 注解标记的方法将被 JMH 自动识别为基准测试方法，并在运行时进行基准测试。在基准测试期间，JMH 会运行被标记的方法多次，并测量方法的执行时间、吞吐量、延迟等指标，并生成统计结果。
 
 >第二个：在 JMH 进行基准测试时，为了避免 JIT 编译器优化掉测试代码中的某些操作，我们需要在测试代码中使用一些占位符，以便让编译器认为这些操作是有意义的，不应该被优化掉。`Blackhole.consume()` 方法就是这样的一个占位符。它用来占用一些 CPU 时间和内存空间，以确保测试结果的准确性和可靠性。
 
@@ -25910,7 +25910,7 @@ while ((result = scanner.findWithinHorizon(pattern, 0)) != null) {
 
 ## 9.2 Arrays工具类
 
-“哥，数组专用工具类是专门用来操作[数组](https://tobebetterjavaer.com/array/array.html)的吗？比如说创建数组、数组排序、数组检索等等。”三妹的提问其实已经把答案说了出来。
+“哥，数组专用工具类是专门用来操作[数组](https://tobebetterjavaer.com/数组/array.html)的吗？比如说创建数组、数组排序、数组检索等等。”三妹的提问其实已经把答案说了出来。
 
 “是滴，这里说的数组专用工具类指的是 `java.util.Arrays` 类，基本上常见的数组操作，这个类都提供了静态方法可供直接调用。毕竟数组本身想完成这些操作还是挺麻烦的，有了这层封装，就方便多了。”在回答三妹的同时，我打开 Intellij IDEA，找到了 Arrays 类的源码。
 
@@ -26196,7 +26196,7 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: origin(2) >
 [Ljava.lang.String;@3d075dc0
 ```
 
-[最优雅的打印方式](https://tobebetterjavaer.com/array/print.html)，是使用 `Arrays.toString()`，其实前面讲过。来看一下该方法的源码：
+[最优雅的打印方式](https://tobebetterjavaer.com/数组/print.html)，是使用 `Arrays.toString()`，其实前面讲过。来看一下该方法的源码：
 
 ```java
 public static String toString(Object[] a) {
@@ -26234,7 +26234,7 @@ public static String toString(Object[] a) {
 
 ### 07、数组转 List
 
-尽管数组非常强大，但它自身可以操作的工具方法很少，比如说判断数组中是否包含某个值。如果能转成 List 的话，就简便多了，因为 Java 的[集合框架 List](https://tobebetterjavaer.com/collection/gailan.html) 中封装了很多常用的方法。
+尽管数组非常强大，但它自身可以操作的工具方法很少，比如说判断数组中是否包含某个值。如果能转成 List 的话，就简便多了，因为 Java 的[集合框架 List](https://tobebetterjavaer.com/集合/gailan.html) 中封装了很多常用的方法。
 
 ```java
 String[] intro = new String[] { "沉", "默", "王", "二" };
@@ -26242,7 +26242,7 @@ List<String> rets = Arrays.asList(intro);
 System.out.println(rets.contains("二"));
 ```
 
-不过需要注意的是，`Arrays.asList()` 返回的是 `java.util.Arrays.ArrayList`，并不是  [`java.util.ArrayList`](https://tobebetterjavaer.com/collection/arraylist.html)，它的长度是固定的，无法进行元素的删除或者添加。
+不过需要注意的是，`Arrays.asList()` 返回的是 `java.util.Arrays.ArrayList`，并不是  [`java.util.ArrayList`](https://tobebetterjavaer.com/集合/arraylist.html)，它的长度是固定的，无法进行元素的删除或者添加。
 
 ```java
 rets.add("三");
@@ -26334,9 +26334,9 @@ System.out.println(Arrays.toString(arr));
 
 ## 9.3 StringUtils工具类
 
-`字符串`（[String](https://tobebetterjavaer.com/string/immutable.html)）在我们的日常工作中，用得非常非常非常多。
+`字符串`（[String](https://tobebetterjavaer.com/字符串/immutable.html)）在我们的日常工作中，用得非常非常非常多。
 
-在我们的代码中经常需要对字符串判空，截取字符串、转换大小写、[分隔字符串](https://tobebetterjavaer.com/string/split.html)、[比较字符串](https://tobebetterjavaer.com/string/equals.html)、去掉多余空格、[拼接字符串](https://tobebetterjavaer.com/string/join.html)、使用正则表达式等等。
+在我们的代码中经常需要对字符串判空，截取字符串、转换大小写、[分隔字符串](https://tobebetterjavaer.com/字符串/split.html)、[比较字符串](https://tobebetterjavaer.com/字符串/equals.html)、去掉多余空格、[拼接字符串](https://tobebetterjavaer.com/字符串/join.html)、使用正则表达式等等。
 
 如果只用 String 类提供的那些方法，我们需要手写大量的额外代码，不然容易出现各种异常。
 
@@ -26503,7 +26503,7 @@ a,b,c
 
 ## 9.4 Objects工具类
 
-Java 的 Objects 类是一个实用工具类，包含了一系列静态方法，用于处理对象。它位于 java.util 包中，自 Java 7 引入。Objects 类的主要目的是降低代码中的[空指针异常](https://tobebetterjavaer.com/exception/npe.html) (NullPointerException) 风险，同时提供一些非常实用的方法供我们使用。
+Java 的 Objects 类是一个实用工具类，包含了一系列静态方法，用于处理对象。它位于 java.util 包中，自 Java 7 引入。Objects 类的主要目的是降低代码中的[空指针异常](https://tobebetterjavaer.com/异常/npe.html) (NullPointerException) 风险，同时提供一些非常实用的方法供我们使用。
 
 ### 对象判空
 
@@ -26523,7 +26523,7 @@ if (Objects.nonNull(integer)) {
 
 ### 对象为空时抛异常
 
-如果我们想在对象为空时，抛出[空指针异常](https://tobebetterjavaer.com/exception/npe.html)，可以使用 Objects 的 `requireNonNull` 方法。例如：
+如果我们想在对象为空时，抛出[空指针异常](https://tobebetterjavaer.com/异常/npe.html)，可以使用 Objects 的 `requireNonNull` 方法。例如：
 
 ```java
 Integer integer1 = new Integer(128);
@@ -26626,7 +26626,7 @@ System.out.println(Objects.hashCode(str));
 
 ### 比较两个对象
 
-`compare()` 方法用于比较两个对象，通常用于自定义排序。它需要一个[比较器 (Comparator) ](https://tobebetterjavaer.com/basic-extra-meal/comparable-omparator.html)作为参数。如果比较器为 null，则使用自然顺序。以下是一个 `compare()` 方法的示例：
+`compare()` 方法用于比较两个对象，通常用于自定义排序。它需要一个[比较器 (Comparator) ](https://tobebetterjavaer.com/基础加餐/comparable-omparator.html)作为参数。如果比较器为 null，则使用自然顺序。以下是一个 `compare()` 方法的示例：
 
 ```java
 class ObjectsCompareDemo {
@@ -26653,7 +26653,7 @@ class PersonCompare {
 
 ### 比较两个数组
 
-`deepEquals()` 用于比较两个[数组类型](https://tobebetterjavaer.com/array/array.html)的对象，当对象是非数组的话，行为和 `equals()` 一致。
+`deepEquals()` 用于比较两个[数组类型](https://tobebetterjavaer.com/数组/array.html)的对象，当对象是非数组的话，行为和 `equals()` 一致。
 
 ```java
 int[] array1 = {1, 2, 3};
@@ -26672,7 +26672,7 @@ System.out.println(Objects.deepEquals(string1, string2)); // 输出：true（因
 System.out.println(Objects.deepEquals(string1, string3)); // 输出：false（因为 string1 和 string3 不同）
 ```
 
-再来个[二维数组](https://tobebetterjavaer.com/array/double-array.html)的：
+再来个[二维数组](https://tobebetterjavaer.com/数组/double-array.html)的：
 
 ```java
 String[][] nestedArray1 = {{"A", "B"}, {"C", "D"}};
@@ -26687,7 +26687,7 @@ System.out.println(Objects.deepEquals(nestedArray1, nestedArray3)); // 输出：
 
 除了上面提到的这些方法，Objects 还提供了一些其他的方法，比如说 toString，感兴趣的话可以试一下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/Objects-83489814-9784-4274-841a-27ee75c046ac.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/Objects-83489814-9784-4274-841a-27ee75c046ac.jpg)
 
 总之，Objects 类提供的这些方法在许多情况下还是非常有用得，可以简化代码并减少出错的可能性。
 
@@ -26697,11 +26697,11 @@ System.out.println(Objects.deepEquals(nestedArray1, nestedArray3)); // 输出：
 
 Collections 是 JDK 提供的一个工具类，位于 java.util 包下，提供了一系列的静态方法，方便我们对集合进行各种骚操作，算是集合框架的一个大管家。
 
-还记得我们前面讲过的 [Arrays 工具类](https://tobebetterjavaer.com/common-tool/arrays.html)吗？可以回去温习下。
+还记得我们前面讲过的 [Arrays 工具类](https://tobebetterjavaer.com/常用工具/arrays.html)吗？可以回去温习下。
 
 Collections 的用法很简单，在 Intellij IDEA 中敲完 `Collections.` 之后就可以看到它提供的方法了，大致看一下方法名和参数就能知道这个方法是干嘛的。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/collections-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/collections-01.png)
 
 为了节省大家的学习时间，我将这些方法做了一些分类，并列举了一些简单的例子。
 
@@ -26793,9 +26793,9 @@ System.out.println("填充后的结果：" + list);
 
 ### 03、同步控制
 
-[HashMap 是线程不安全](https://tobebetterjavaer.com/collection/hashmap.html#_04%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8)的，这个我们前面讲到了。那其实 ArrayList 也是线程不安全的，没法在多线程环境下使用，那 Collections 工具类中提供了多个 synchronizedXxx 方法，这些方法会返回一个同步的对象，从而解决多线程中访问集合时的安全问题。
+[HashMap 是线程不安全](https://tobebetterjavaer.com/集合/hashmap.html#_04%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8)的，这个我们前面讲到了。那其实 ArrayList 也是线程不安全的，没法在多线程环境下使用，那 Collections 工具类中提供了多个 synchronizedXxx 方法，这些方法会返回一个同步的对象，从而解决多线程中访问集合时的安全问题。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/collections-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/collections-02.png)
 
 使用起来也非常的简单：
 
@@ -26803,7 +26803,7 @@ System.out.println("填充后的结果：" + list);
 SynchronizedList synchronizedList = Collections.synchronizedList(list);
 ```
 
-看一眼 SynchronizedList 的源码就明白了，不过是在方法里面使用 [synchronized 关键字](https://tobebetterjavaer.com/thread/synchronized-1.html)加了一层锁而已。
+看一眼 SynchronizedList 的源码就明白了，不过是在方法里面使用 [synchronized 关键字](https://tobebetterjavaer.com/线程/synchronized-1.html)加了一层锁而已。
 
 ```java
 static class SynchronizedList<E>
@@ -26835,7 +26835,7 @@ static class SynchronizedList<E>
 }
 ```
 
-那这样的话，其实效率和那些直接在方法上加 synchronized 关键字的 [Vector、Hashtable](https://tobebetterjavaer.com/collection/gailan.html) 差不多（JDK 1.0 时期就有了），而这些集合类基本上已经废弃了，几乎不怎么用。
+那这样的话，其实效率和那些直接在方法上加 synchronized 关键字的 [Vector、Hashtable](https://tobebetterjavaer.com/集合/gailan.html) 差不多（JDK 1.0 时期就有了），而这些集合类基本上已经废弃了，几乎不怎么用。
 
 ```java
 public class Vector<E>
@@ -26869,7 +26869,7 @@ public class Vector<E>
 }
 ```
 
-正确的做法是使用并发包下的 [CopyOnWriteArrayList](https://tobebetterjavaer.com/thread/CopyOnWriteArrayList.html)、[ConcurrentHashMap](https://tobebetterjavaer.com/thread/ConcurrentHashMap.html)。这些我们放到并发编程时再讲。
+正确的做法是使用并发包下的 [CopyOnWriteArrayList](https://tobebetterjavaer.com/线程/CopyOnWriteArrayList.html)、[ConcurrentHashMap](https://tobebetterjavaer.com/线程/ConcurrentHashMap.html)。这些我们放到并发编程时再讲。
 
 ### 04、不可变集合
 
@@ -27038,7 +27038,7 @@ Hutool 的作者在[官网](https://hutool.cn/)上说，Hutool 是 Hu+tool 的�
 
 看了一下开发团队的一个成员介绍，一个 Java 后端工具的作者竟然爱前端、爱数码，爱美女，嗯嗯嗯，确实“难得糊涂”（手动狗头）。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/hutool-01.png)
 
 废话就说到这，来吧，实操走起！
 
@@ -27063,7 +27063,7 @@ Hutool 的设计思想是尽量减少重复的定义，让项目中的 util 包�
 
 Hutool 对不仅对 JDK 底层的文件、流、加密解密、转码、正则、线程、XML等做了封装，还提供了以下这些组件：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-02.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/hutool-02.png)
 
 非常多，非常全面，鉴于此，我只挑选一些我喜欢的来介绍下（偷偷地告诉你，我就是想偷懒）。
 
@@ -27179,11 +27179,11 @@ long copySize = IoUtil.copy(in, out, IoUtil.DEFAULT_BUFFER_SIZE);
 
 在实际编码当中，我们通常需要从某些文件里面读取一些数据，比如配置文件、文本文件、图片等等，那这些文件通常放在什么位置呢？
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/hutool-03.png)
 
 放在项目结构图中的 resources 目录下，当项目编译后，会出现在 classes 目录下。对应磁盘上的目录如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-04.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/hutool-04.png)
 
 当我们要读取文件的时候，我是不建议使用绝对路径的，因为操作系统不一样的话，文件的路径标识符也是不一样的。最好使用相对路径。
 
@@ -27336,7 +27336,7 @@ public class ConsoleDemo {
 - 是不是电话号码
 - 等等
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-05.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/hutool-05.png)
 
 ```java
 Validator.isEmail("沉默王二");
@@ -27345,7 +27345,7 @@ Validator.isMobile("itwanger.com");
 
 ### 12、双向查找 Map
 
-[Guava](https://tobebetterjavaer.com/common-tool/guava.html) 中提供了一种特殊的 Map 结构，叫做 BiMap，实现了一种双向查找的功能，可以根据 key 查找 value，也可以根据 value 查找 key，Hutool 也提供这种 Map 结构。
+[Guava](https://tobebetterjavaer.com/常用工具/guava.html) 中提供了一种特殊的 Map 结构，叫做 BiMap，实现了一种双向查找的功能，可以根据 key 查找 value，也可以根据 value 查找 key，Hutool 也提供这种 Map 结构。
 
 ```java
 BiMap<String, String> biMap = new BiMap<>(new HashMap<>());
@@ -27363,7 +27363,7 @@ biMap.getKey("沉默王三");
 
 在实际的开发工作中，其实我更倾向于使用 Guava 的 BiMap，而不是 Hutool 的。这里提一下，主要是我发现了 Hutool 在线文档上的一处错误，提了个 issue（从中可以看出我一颗一丝不苟的心和一双清澈明亮的大眼睛啊）。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-06.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/hutool-06.png)
 
 ### 13、图片工具
 
@@ -27405,7 +27405,7 @@ ImgUtil.pressText(//
 
 趁机让大家欣赏一下二哥帅气的真容。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/hutool-07.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/hutool-07.png)
 
 ### 14、配置文件
 
@@ -27583,7 +27583,7 @@ Hutool 中的类库还有很多，尤其是一些对第三方类库的进一步�
 
 我由 Google 公司开源，目前在 GitHub 上已经有 39.9k 的铁粉了，由此可以证明我的受欢迎程度。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-01.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/guava-01.png)
 
 我的身体里主要包含有这些常用的模块：集合 [collections] 、缓存 [caching] 、原生类型支持 [primitives support] 、并发库 [concurrency libraries] 、通用注解 [common annotations] 、字符串处理 [string processing] 、I/O 等。新版的 JDK 中已经直接把我引入了，可想而知我有多优秀，忍不住骄傲了。
 
@@ -27605,7 +27605,7 @@ Hutool 中的类库还有很多，尤其是一些对第三方类库的进一步�
 
 ### 03、基本工具
 
-Doug Lea，java.util.concurrent 包的作者，曾说过一句话：“[null 真糟糕](https://tobebetterjavaer.com/exception/npe.html)”。Tony Hoare，图灵奖得主、快速排序算法的作者，当然也是 null 的创建者，也曾说过类似的话：“null 的使用，让我损失了十亿美元。”鉴于此，我用 Optional 来表示可能为 null 的对象。
+Doug Lea，java.util.concurrent 包的作者，曾说过一句话：“[null 真糟糕](https://tobebetterjavaer.com/异常/npe.html)”。Tony Hoare，图灵奖得主、快速排序算法的作者，当然也是 null 的创建者，也曾说过类似的话：“null 的使用，让我损失了十亿美元。”鉴于此，我用 Optional 来表示可能为 null 的对象。
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/guava-20230329172935.png)
 
@@ -27642,7 +27642,7 @@ possible.get(); // returns 5
 
 与 JDK 中提供的不可变集合相比，我提供的 Immutable 才是真正的不可变，我为什么这么说呢？来看下面这个示例。
 
-下面的代码利用 JDK 的 [`Collections.unmodifiableList(list)`](https://tobebetterjavaer.com/common-tool/collections.html) 得到一个不可修改的集合 unmodifiableList。
+下面的代码利用 JDK 的 [`Collections.unmodifiableList(list)`](https://tobebetterjavaer.com/常用工具/collections.html) 得到一个不可修改的集合 unmodifiableList。
 
 ```java
 List list = new ArrayList();
@@ -27890,7 +27890,7 @@ list的原始顺序是312，使用`reverse`方法颠倒顺序之后，变成了2
 
 Lists还有其他的好用的工具，我在这里只是抛砖引玉，有兴趣的小伙伴，可以仔细研究一下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-4b962b06-a626-4707-9fe9-f5729536d9c5.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/guava-4b962b06-a626-4707-9fe9-f5729536d9c5.jpg)
 
 ### 08、尾声
 
@@ -27898,13 +27898,13 @@ Lists还有其他的好用的工具，我在这里只是抛砖引玉，有兴趣
 
 我觉得适用于每一个 Java 项目，至于其他的一些功能，比如说散列、事件总线、数学运算、反射，就等待你去发掘了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/guava-03.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/guava-03.png)
 
 ----
 
 ## 9.8 其他常用工具类
 
-除了我们前面提到的 Java 原生工具类，比如说 [Arrays](https://tobebetterjavaer.com/common-tool/arrays.html)、[Objects](https://tobebetterjavaer.com/common-tool/Objects.html)、[Collections](https://tobebetterjavaer.com/common-tool/collections.html)、[Scanner](https://tobebetterjavaer.com/common-tool/scanner.html) 等，还有一些第三方的工具类，比如说 [Hutool](https://tobebetterjavaer.com/common-tool/hutool.html)、[Guava](https://tobebetterjavaer.com/common-tool/guava.html) 等，以及我们今天介绍的 IpUtil、CollectionUtils、StringUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils 等等，在很大程度上能够提高我们的生产效率。
+除了我们前面提到的 Java 原生工具类，比如说 [Arrays](https://tobebetterjavaer.com/常用工具/arrays.html)、[Objects](https://tobebetterjavaer.com/常用工具/Objects.html)、[Collections](https://tobebetterjavaer.com/常用工具/collections.html)、[Scanner](https://tobebetterjavaer.com/常用工具/scanner.html) 等，还有一些第三方的工具类，比如说 [Hutool](https://tobebetterjavaer.com/常用工具/hutool.html)、[Guava](https://tobebetterjavaer.com/常用工具/guava.html) 等，以及我们今天介绍的 IpUtil、CollectionUtils、StringUtils、MDC、ClassUtils、BeanUtils、ReflectionUtils 等等，在很大程度上能够提高我们的生产效率。
 
 当然了，如果能好好看一下它们的源码，对技术功底的提升，也是有很大帮助的。
 
@@ -28039,9 +28039,9 @@ IPUtil 类中定义了两个方法，分别是 `getLocalIpByNetcard()` 和 `getL
 
 ### MDC：一个线程安全的参数传递工具类
 
-`MDC` 是 [`org.slf4j`](https://tobebetterjavaer.com/gongju/slf4j.html) 包下的一个类，它的全称是 Mapped Diagnostic Context，我们可以认为它是一个线程安全的存放诊断日志的容器。
+`MDC` 是 [`org.slf4j`](https://tobebetterjavaer.com/工具/slf4j.html) 包下的一个类，它的全称是 Mapped Diagnostic Context，我们可以认为它是一个线程安全的存放诊断日志的容器。
 
-MDC 的底层是用了 [`ThreadLocal`](https://tobebetterjavaer.com/thread/ThreadLocal.html) 来保存数据的。
+MDC 的底层是用了 [`ThreadLocal`](https://tobebetterjavaer.com/线程/ThreadLocal.html) 来保存数据的。
 
 我们可以用它传递参数。
 
@@ -28168,7 +28168,7 @@ System.out.println(ClassUtils.isCglibProxy(new User()));
 
 ClassUtils 还有很多有用的方法，等待着你去发掘。感兴趣的小伙伴，可以看看下面的内容：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-c58920ac-cf04-4d95-ad29-90339a086569.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/utils-c58920ac-cf04-4d95-ad29-90339a086569.jpg)
 
 ### BeanUtils
 
@@ -28221,7 +28221,7 @@ System.out.println(propertyForMethod.getName());
 
 如果你对 BeanUtils 比较感兴趣，可以看看下面内容：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-629ecd75-259b-46aa-b1dd-82606cfc92ee.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/utils-629ecd75-259b-46aa-b1dd-82606cfc92ee.jpg)
 
 ### ReflectionUtils
 
@@ -28273,7 +28273,7 @@ System.out.println(ReflectionUtils.isEqualsMethod(method));
 
 当然这个类还有不少有趣的方法，感兴趣的朋友，可以看看下面内容：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/common-tool/utils-0a4ecb9c-b9d2-4090-a7b7-c626a0672b94.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/常用工具/utils-0a4ecb9c-b9d2-4090-a7b7-c626a0672b94.jpg)
 
 >参考链接：[https://juejin.cn/post/7102418518599008286](https://juejin.cn/post/7102418518599008286) 作者：苏三，编辑：沉默王二
 
@@ -28597,7 +28597,7 @@ Collectors 是一个收集器的工具类，内置了一系列收集器实现，
 
 ## 10.2 Optional最佳指南
 
-想学习，永远都不晚，尤其是针对 Java 8 里面的好东西，Optional 就是其中之一，该类提供了一种用于表示可选值而非空引用的类级别解决方案。作为一名 Java 程序员，我真的是烦透了 [NullPointerException（NPE）](https://tobebetterjavaer.com/exception/npe.html)，尽管和它熟得就像一位老朋友，知道它也是迫不得已——程序正在使用一个对象却发现这个对象的值为 null，于是 Java 虚拟机就怒发冲冠地把它抛了出来当做替罪羊。
+想学习，永远都不晚，尤其是针对 Java 8 里面的好东西，Optional 就是其中之一，该类提供了一种用于表示可选值而非空引用的类级别解决方案。作为一名 Java 程序员，我真的是烦透了 [NullPointerException（NPE）](https://tobebetterjavaer.com/异常/npe.html)，尽管和它熟得就像一位老朋友，知道它也是迫不得已——程序正在使用一个对象却发现这个对象的值为 null，于是 Java 虚拟机就怒发冲冠地把它抛了出来当做替罪羊。
 
 当然了，我们程序员是富有责任心的，不会坐视不管，于是就有了大量的 null 值检查。尽管有时候这种检查完全没有必要，但我们已经习惯了例行公事。终于，Java 8 看不下去了，就引入了 Optional，以便我们编写的代码不再那么刻薄呆板。
 
@@ -29074,7 +29074,7 @@ public static void main(String[] args) {
 这个问题发生的原因是因为 Java 规范中是这样规定的：
 
 >Any local variable, formal parameter, or exception parameter used but not declared in a lambda expression
-must either be declared final or be effectively final [(§4.12.4)](http://docs.oracle.com/javase/specs/jls/se8/html/jls-4.html#jls-4.12.4),
+must either be declared final or be effectively final [(§4.12.4)](http://docs.oracle.com/面渣逆袭（Java基础篇面试题八股文）必看👍/specs/jls/se8/html/jls-4.html#jls-4.12.4),
 or a compile-time error occurs where the use is attempted.
 
 大致的意思就是说，Lambda 表达式中要用到的，但又未在 Lambda 表达式中声明的变量，必须声明为 final 或者是 effectively final，否则就会出现编译错误。
@@ -29385,7 +29385,7 @@ public class NewInstanceOf {
 
 ### 02、Records
 
-在之前的一篇文章中，我谈到了[类的不可变性](https://tobebetterjavaer.com/basic-extra-meal/immutable.html)，它是这样定义的：
+在之前的一篇文章中，我谈到了[类的不可变性](https://tobebetterjavaer.com/基础加餐/immutable.html)，它是这样定义的：
 
 ```java
 public final class Writer {
@@ -29686,7 +29686,7 @@ UDP 协议（User Datagram Protocol）是一种数据报文协议，它是无连
 
 在古代，由于通信不便利，一些聪明的人就利用鸽子会飞且飞得比较快、会辨认方向的优点，对其进行了驯化，用来进行消息的传递——也就是所谓的“飞鸽传书”。而在 Java 中，网络套接字（Socket）扮演了同样的角色。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-a1a012de-33e5-424a-a4cf-bd929cd60200.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java Socket-飞鸽传书的网络套接字/socket-a1a012de-33e5-424a-a4cf-bd929cd60200.jpg)
 
 套接字（Socket）是一个抽象层，应用程序可以通过它发送或接收数据；就像操作文件那样可以打开、读写和关闭。套接字允许应用程序将 I/O 应用于网络中，并与其他应用程序进行通信。网络套接字是 IP 地址与端口的组合。
 
@@ -29704,18 +29704,18 @@ ping，一种计算机网络工具，用来测试数据包能否透过 IP 协议
 
 例如，我们 ping 一下博客园。截图如下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-ce54bbbe-3627-4af4-9f9c-4c041a7ef2a7.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java Socket-飞鸽传书的网络套接字/socket-ce54bbbe-3627-4af4-9f9c-4c041a7ef2a7.jpg)
 
 
 telnet，Internet 远程登录服务的标准协议和主要方式，可以让我们坐在家里的计算机面前，登录到另一台远在天涯海角的远程计算机上。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-f94e1fa5-16d0-4414-9a53-a2aa43b2a512.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java Socket-飞鸽传书的网络套接字/socket-f94e1fa5-16d0-4414-9a53-a2aa43b2a512.jpg)
 
 在 Windows 系统中，telnet 一般是默认安装的，但未激活（可以在控制面板中激活它）。
 
 例如，我们 telnet 一下火（shui）土（mu）社区。截图如下。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-9d7051d9-e7de-48a8-9b28-b482d84f56c9.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java Socket-飞鸽传书的网络套接字/socket-9d7051d9-e7de-48a8-9b28-b482d84f56c9.jpg)
 
 使用 telnet 登录远程计算机时，需要远程计算机上运行一个服务，它一直不停地等待那些希望和它进行连接的网络请求；当接收到一个客户端的网络连接时，它便唤醒正在监听网络连接请求的服务器进程，并为两者建立连接。连接会一直保持，直到某一方中止。
 
@@ -29771,7 +29771,7 @@ while (scanner.hasNextLine()) {
 
 部分结果（完整结果自己亲手实践一下哦）如下图所示：
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-6b60e4b2-14d0-4d95-bb5c-146bc6a06147.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java Socket-飞鸽传书的网络套接字/socket-6b60e4b2-14d0-4d95-bb5c-146bc6a06147.jpg)
 
 
 ### 03、ServerSocket 实例
@@ -29845,7 +29845,7 @@ while (!done && scanner.hasNextLine()) {
 
 运行该服务后，可以通过 `telnet localhost 8888` 命令连接该远程服务，不出所料，你将会看到以下信息。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/socket-fac025fa-8cbf-448d-8a6d-cd8993ba87f4.jpg)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java Socket-飞鸽传书的网络套接字/socket-fac025fa-8cbf-448d-8a6d-cd8993ba87f4.jpg)
 
 PS：可以在当前命令窗口中输入 2048，服务端收到该消息后会中断该套接字连接（当前窗口会显示“遗失对主机的连接”）。
 
@@ -29901,7 +29901,7 @@ try {
 
 ### 05、加入多线程
 
-[多线程](https://tobebetterjavaer.com/thread/wangzhe-thread.html)我们后面会详细讲，这里就主要是写个例子，好让大家感觉更有趣一些，其实也非常简单。
+[多线程](https://tobebetterjavaer.com/线程/wangzhe-thread.html)我们后面会详细讲，这里就主要是写个例子，好让大家感觉更有趣一些，其实也非常简单。
 
 来看服务端：
 
@@ -30070,7 +30070,7 @@ public class UDPClient {
 
 #### 1\. Socket 编程基础
 
-我们这里主要是利用 [ServerSocket](https://tobebetterjavaer.com/socket/socket.html) 来绑定端口，提供 TCP 服务，基本使用姿势也比较简单，一般套路如下
+我们这里主要是利用 [ServerSocket](https://tobebetterjavaer.com/Java Socket-飞鸽传书的网络套接字/socket.html) 来绑定端口，提供 TCP 服务，基本使用姿势也比较简单，一般套路如下
 
 - 创建 ServerSocket 对象，绑定监听端口
 - 通过 `accept()` 方法监听客户端请求
@@ -30095,11 +30095,11 @@ out.flush();;
 socket.close()
 ```
 
-具体的代码，我们前面的章节详细地讲过了，第一次来的小伙伴可以[戳链接](https://tobebetterjavaer.com/socket/socket.html)去学习一下。
+具体的代码，我们前面的章节详细地讲过了，第一次来的小伙伴可以[戳链接](https://tobebetterjavaer.com/Java Socket-飞鸽传书的网络套接字/socket.html)去学习一下。
 
 #### 2\. HTTP 协议
 
-ServerSocket 走的是 [TCP 协议](https://tobebetterjavaer.com/socket/network-base.html)，HTTP 协议本身是在 TCP 协议之上的一层。
+ServerSocket 走的是 [TCP 协议](https://tobebetterjavaer.com/Java Socket-飞鸽传书的网络套接字/network-base.html)，HTTP 协议本身是在 TCP 协议之上的一层。
 
 TCP 是一种面向连接的、可靠的、基于字节流的传输层协议。TCP 在两个网络节点之间提供了一条可靠的通信信道，确保数据在传输过程中不会丢失、重复或乱序。TCP 使用握手过程建立连接，通过确认和重传机制确保数据可靠传输，并使用流量控制和拥塞控制算法来优化网络性能。
 
@@ -30606,11 +30606,11 @@ public class BasicHttpServer {
 
 一个完整的 post 请求如下
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/http-f314ade3-9006-4caa-b905-5726121826c4.gif)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java Socket-飞鸽传书的网络套接字/http-f314ade3-9006-4caa-b905-5726121826c4.gif)
 
 接下来我们看下打印出返回头的情况
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/socket/http-59db6211-792a-494f-b01a-9d5848eceed1.gif)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/Java Socket-飞鸽传书的网络套接字/http-59db6211-792a-494f-b01a-9d5848eceed1.gif)
 
 ### II. 其他
 
@@ -30644,7 +30644,7 @@ public class BasicHttpServer {
 
 ![](https://cdn.tobebetterjavaer.com/stutymore/nio-better-io-20230406180538.png)
 
-[传统 IO](https://tobebetterjavaer.com/io/shangtou.html) 基于字节流或字符流（如 FileInputStream、BufferedReader 等）进行文件读写，以及使用 [Socket 和 ServerSocket](https://tobebetterjavaer.com/socket/socket.html) 进行网络传输。
+[传统 IO](https://tobebetterjavaer.com/io/shangtou.html) 基于字节流或字符流（如 FileInputStream、BufferedReader 等）进行文件读写，以及使用 [Socket 和 ServerSocket](https://tobebetterjavaer.com/Java Socket-飞鸽传书的网络套接字/socket.html) 进行网络传输。
 
 NIO 使用[通道（Channel）和缓冲区（Buffer）](https://tobebetterjavaer.com/nio/buffer-channel.html)进行文件操作，以及使用 SocketChannel 和 ServerSocketChannel 进行网络传输。
 
@@ -30769,7 +30769,7 @@ NIO（New I/O）的设计目标是解决传统 I/O（BIO，Blocking I/O）在处
 
 来看服务器端代码的差别。
 
-IO，用的[套接字](https://tobebetterjavaer.com/socket/socket.html)，代码比较简单，我就不加注释了，之前学过，应该都能看得懂，用 while 循环监听客户端 Socket：
+IO，用的[套接字](https://tobebetterjavaer.com/Java Socket-飞鸽传书的网络套接字/socket.html)，代码比较简单，我就不加注释了，之前学过，应该都能看得懂，用 while 循环监听客户端 Socket：
 
 ```java
 public class IOServer {
@@ -30861,7 +30861,7 @@ public class NIOServer {
 
 上面的代码创建了一个基于 Java NIO 的简单 TCP 服务器。它使用 [ServerSocketChannel 和 Selector（后面会讲）](https://tobebetterjavaer.com/nio/buffer-channel.html) 实现了非阻塞 I/O 和 I/O 多路复用。服务器循环监听事件，当有新的连接请求时，接受连接并将新的 SocketChannel 注册到 Selector，关注 OP_READ 事件。当有数据可读时，从 SocketChannel 中读取数据并写入 ByteBuffer，然后将数据从 ByteBuffer 写回到 SocketChannel。
 
-这里简单说一下 [Socket 和 ServerSocket](https://tobebetterjavaer.com/socket/socket.html)，以及 ServerSocketChannel 和 SocketChannel。
+这里简单说一下 [Socket 和 ServerSocket](https://tobebetterjavaer.com/Java Socket-飞鸽传书的网络套接字/socket.html)，以及 ServerSocketChannel 和 SocketChannel。
 
 Socket 和 ServerSocket 是传统的阻塞式 I/O 编程方式，用于建立和管理 TCP 连接。
 
@@ -31574,7 +31574,7 @@ AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(file, Standar
 
 AsynchronousFileChannel 提供了两种异步操作的方式：
 
-**①、Future 方式**：使用 [Future](https://tobebetterjavaer.com/thread/callable-future-futuretask.html) 对象来跟踪异步操作的完成情况。当我们调用一个异步操作（如 `read()` 或 `write()`）时，它会立即返回一个 Future 对象。可以使用这个对象来检查操作是否完成，以及获取操作的结果。这种方式适用于不需要在操作完成时立即执行其他操作的场景。
+**①、Future 方式**：使用 [Future](https://tobebetterjavaer.com/线程/callable-future-futuretask.html) 对象来跟踪异步操作的完成情况。当我们调用一个异步操作（如 `read()` 或 `write()`）时，它会立即返回一个 Future 对象。可以使用这个对象来检查操作是否完成，以及获取操作的结果。这种方式适用于不需要在操作完成时立即执行其他操作的场景。
 
 举个例子：
 
@@ -31694,9 +31694,9 @@ public static void readAllBytes(Path path) throws IOException, InterruptedExcept
 
 2、创建一个大小为 1024 的 ByteBuffer 来存储从文件中读取的数据。
 
-3、使用 [AtomicLong](https://tobebetterjavaer.com/thread/atomic.html) 类型的 position 变量来记录当前读取的文件位置。初始值为 0。
+3、使用 [AtomicLong](https://tobebetterjavaer.com/线程/atomic.html) 类型的 position 变量来记录当前读取的文件位置。初始值为 0。
 
-4、创建一个 [CountDownLatch](https://tobebetterjavaer.com/thread/CountDownLatch.html) 对象，用于在异步操作完成时通知主线程。初始值为 1。
+4、创建一个 [CountDownLatch](https://tobebetterjavaer.com/线程/CountDownLatch.html) 对象，用于在异步操作完成时通知主线程。初始值为 1。
 
 5、使用 `fileChannel.read()` 方法启动异步读取操作。这个方法的参数包括：用于存储数据的缓冲区、当前读取位置、附加对象（在这个例子中不需要，所以传递 null）以及一个实现了 CompletionHandler 接口的对象，用于在读取操作完成时回调。
 
@@ -32086,7 +32086,7 @@ Paths 和 Files 是 Java NIO 中的两个核心类。Paths 提供了一系列静
 
 ## 12.5 NIO 实现简易版聊天室
 
-在此之前，我们曾利用 Java 的套接字 Socket 和 ServerSocket 完成[网络编程](https://tobebetterjavaer.com/socket/socket.html)，但 Socket 和 ServerSocket 是基于 Java IO 的，在网络编程方面，性能会比较差。[原因我们在之前也讲过](https://tobebetterjavaer.com/nio/nio-better-io.html)。
+在此之前，我们曾利用 Java 的套接字 Socket 和 ServerSocket 完成[网络编程](https://tobebetterjavaer.com/Java Socket-飞鸽传书的网络套接字/socket.html)，但 Socket 和 ServerSocket 是基于 Java IO 的，在网络编程方面，性能会比较差。[原因我们在之前也讲过](https://tobebetterjavaer.com/nio/nio-better-io.html)。
 
 那 Java NIO 的 SocketChannel 和 ServerSocketChannel 性能怎么样呢？
 
@@ -32533,7 +32533,7 @@ new CompletionHandler<AsynchronousSocketChannel, Void>() {
 }
 ```
 
-在 completed 方法中，我们首先调用 `server.accept()` 来接收下一个连接请求。然后，我们创建一个缓冲区 ByteBuffer 并使用 `client.read()` 从客户端读取数据。在这个示例中，我们使用了一个 [Future](https://tobebetterjavaer.com/thread/callable-future-futuretask.html) 对象来等待读取操作完成。当读取完成时，我们将缓冲区的内容打印到控制台。
+在 completed 方法中，我们首先调用 `server.accept()` 来接收下一个连接请求。然后，我们创建一个缓冲区 ByteBuffer 并使用 `client.read()` 从客户端读取数据。在这个示例中，我们使用了一个 [Future](https://tobebetterjavaer.com/线程/callable-future-futuretask.html) 对象来等待读取操作完成。当读取完成时，我们将缓冲区的内容打印到控制台。
 
 ④、为了让服务器继续运行并接收客户端连接，我们需要阻止 main 线程退出。
 
@@ -32986,7 +32986,7 @@ Java NIO 是 Java 1.4 版本引入的，基于通道（Channel）和缓冲区（
 
 I/O 多路复用（I/O Multiplexing）模型使用操作系统提供的多路复用功能（如 select、poll、epoll 等），使得单个线程可以同时处理多个 I/O 事件。当某个连接上的数据准备好时，操作系统会通知应用程序。这样，应用程序可以在一个线程中处理多个并发连接，而不需要为每个连接创建一个线程。
 
-- select 是 Unix 系统中最早的 I/O 多路复用技术。它允许一个线程同时监视多个文件描述符（如[套接字](https://tobebetterjavaer.com/socket/socket.html)），并等待某个文件描述符上的 I/O 事件（如可读、可写或异常）。select 的主要问题是性能受限，特别是在处理大量文件描述符时。这是因为它使用一个位掩码来表示文件描述符集，每次调用都需要传递这个掩码，并在内核和用户空间之间进行复制。
+- select 是 Unix 系统中最早的 I/O 多路复用技术。它允许一个线程同时监视多个文件描述符（如[套接字](https://tobebetterjavaer.com/Java Socket-飞鸽传书的网络套接字/socket.html)），并等待某个文件描述符上的 I/O 事件（如可读、可写或异常）。select 的主要问题是性能受限，特别是在处理大量文件描述符时。这是因为它使用一个位掩码来表示文件描述符集，每次调用都需要传递这个掩码，并在内核和用户空间之间进行复制。
 
 - poll 是对 select 的改进。它使用一个文件描述符数组而不是位掩码来表示文件描述符集。这样可以避免 select 中的性能问题。然而，poll 仍然需要遍历整个文件描述符数组，以检查每个文件描述符的状态。因此，在处理大量文件描述符时，性能仍然受限。
 
@@ -33490,7 +33490,7 @@ GPT4：
 
 ## 13.3 深入剖析Java中的拆箱和装箱
 
-“哥，听说 Java 的每个[基本类型](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)都对应了一个包装类型，比如说 int 的包装类型为 Integer，double 的包装类型为 Double，是这样吗？”从三妹这句话当中，能听得出来，她已经提前预习这块内容了。
+“哥，听说 Java 的每个[基本类型](https://tobebetterjavaer.com/基础语法/basic-data-type.html)都对应了一个包装类型，比如说 int 的包装类型为 Integer，double 的包装类型为 Double，是这样吗？”从三妹这句话当中，能听得出来，她已经提前预习这块内容了。
 
 “是的，三妹。基本类型和包装类型的区别主要有以下 4 点，我来带你学习一下。”我回答说。我们家的斜对面刚好是一所小学，所以时不时还能听到朗朗的读书声，让人心情非常愉快。
 
@@ -33531,7 +33531,7 @@ class Writer {
 
 “《[阿里巴巴 Java 开发手册](https://tobebetterjavaer.com/pdf/ali-java-shouce.html)》上有详细的说明，你看。”我打开 PDF，并翻到了对应的内容，指着屏幕念道。
 
->数据库的查询结果可能是 null，如果使用基本类型的话，因为要自动拆箱，就会抛出 [NullPointerException 的异常](https://tobebetterjavaer.com/exception/npe.html)。
+>数据库的查询结果可能是 null，如果使用基本类型的话，因为要自动拆箱，就会抛出 [NullPointerException 的异常](https://tobebetterjavaer.com/异常/npe.html)。
 
 “什么是自动拆箱呢？”
 
@@ -33550,7 +33550,7 @@ List<Integer> list = new ArrayList<>();
 
 “为什么呢？”三妹及时地问道。
 
-“因为[泛型](https://tobebetterjavaer.com/basic-extra-meal/generic.html)在编译时会进行类型擦除，最后只保留原始类型，而原始类型只能是 Object 类及其子类——基本类型是个例外。”
+“因为[泛型](https://tobebetterjavaer.com/基础加餐/generic.html)在编译时会进行类型擦除，最后只保留原始类型，而原始类型只能是 Object 类及其子类——基本类型是个例外。”
 
 “那，接下来，我们来说第三点，**基本类型比包装类型更高效**。”我喝了一口茶继续说道。
 
@@ -33680,7 +33680,7 @@ public static Integer valueOf(int i) {
 }
 ```
 
-是不是看到了一个之前从来没见过的类——[IntegerCache](https://tobebetterjavaer.com/basic-extra-meal/int-cache.html)？
+是不是看到了一个之前从来没见过的类——[IntegerCache](https://tobebetterjavaer.com/基础加餐/int-cache.html)？
 
 “难道说是 Integer 的缓存类？”三妹做出了自己的判断。
 
@@ -33747,7 +33747,7 @@ System.out.println(t2-t1);
 
 “哥，听说浅拷贝和深拷贝是 Java 面试中经常会被问到的一个问题，是这样吗？”
 
-“还真的是，而且了解浅拷贝和深拷贝的原理，对 [Java 是值传递还是引用传递](https://tobebetterjavaer.com/basic-extra-meal/pass-by-value.html)也会有更深的理解。”我肯定地回答。
+“还真的是，而且了解浅拷贝和深拷贝的原理，对 [Java 是值传递还是引用传递](https://tobebetterjavaer.com/基础加餐/pass-by-value.html)也会有更深的理解。”我肯定地回答。
 
 “不管是浅拷贝还是深拷贝，都可以通过调用 Object 类的 `clone()` 方法来完成。”我一边说，一边打开 Intellij IDEA，并找到了 `clone()` 方法的源码。
 
@@ -34166,21 +34166,21 @@ Object 类中就包含了 `hashCode()` 方法：
 public native int hashCode();
 ```
 
-意味着所有的类都会有一个 `hashCode()` 方法，该方法会返回一个 int 类型的值。由于 `hashCode()` 方法是一个[本地方法](https://tobebetterjavaer.com/oo/native-method.html)（`native` 关键字修饰的方法，用 `C/C++` 语言实现，由 Java 调用），意味着 Object 类中并没有给出具体的实现。
+意味着所有的类都会有一个 `hashCode()` 方法，该方法会返回一个 int 类型的值。由于 `hashCode()` 方法是一个[本地方法](https://tobebetterjavaer.com/面向对象/native-method.html)（`native` 关键字修饰的方法，用 `C/C++` 语言实现，由 Java 调用），意味着 Object 类中并没有给出具体的实现。
 
 具体的实现可以参考 `jdk/src/hotspot/share/runtime/synchronizer.cpp`（源码可以到 [GitHub 上 OpenJDK 的仓库中下载](https://github.com/openjdk/jdk/blob/master/src/hotspot/share/runtime/synchronizer.cpp)）。`get_next_hash()` 方法会根据 hashCode 的取值来决定采用哪一种哈希值的生成策略。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/hashcode-1.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/基础加餐/hashcode-1.png)
 
 Java 9 之后，`hashCode()` 方法会被 `@HotSpotIntrinsicCandidate` 注解修饰，表明它在 HotSpot 虚拟机中有一套高效的实现，基于 CPU 指令。
 
 那大家有没有想过这样一个问题：**为什么 Object 类需要一个 `hashCode()` 方法呢**？
 
-在 Java 中，`hashCode()` 方法的主要作用就是为了配合[哈希表](https://tobebetterjavaer.com/collection/hashmap.html)使用的。
+在 Java 中，`hashCode()` 方法的主要作用就是为了配合[哈希表](https://tobebetterjavaer.com/集合/hashmap.html)使用的。
 
 哈希表（Hash Table），也叫散列表，是一种可以通过关键码值（key-value）直接访问的数据结构，它最大的特点就是可以快速实现查找、插入和删除。其中用到的算法叫做哈希，就是把任意长度的输入，变换成固定长度的输出，该输出就是哈希值。像 MD5、SHA1 都用的是哈希算法。
 
-像 Java 中的 HashSet、Hashtable（注意是小写的 t）、HashMap 都是基于哈希表的具体实现。其中的 [HashMap](https://tobebetterjavaer.com/collection/hashmap.html) 就是最典型的代表，不仅面试官经常问，工作中的使用频率也非常的高。
+像 Java 中的 HashSet、Hashtable（注意是小写的 t）、HashMap 都是基于哈希表的具体实现。其中的 [HashMap](https://tobebetterjavaer.com/集合/hashmap.html) 就是最典型的代表，不仅面试官经常问，工作中的使用频率也非常的高。
 
 大家想一下，如果没有哈希表，但又需要这样一个数据结构，它里面存放的数据是不允许重复的，该怎么办呢？
 
@@ -34290,7 +34290,7 @@ HashMap 的 `get()` 方法会调用 `hash(key.hashCode())` 计算对象的哈希
  }
 ```
 
-[Objects 类](https://tobebetterjavaer.com/common-tool/Objects.html)的 `hash()` 方法可以针对不同数量的参数生成新的 `hashCode()` 值。
+[Objects 类](https://tobebetterjavaer.com/常用工具/Objects.html)的 `hash()` 方法可以针对不同数量的参数生成新的 `hashCode()` 值。
 
 ```java
 public static int hashCode(Object a[]) {
@@ -34308,7 +34308,7 @@ public static int hashCode(Object a[]) {
 
 代码似乎很简单，归纳出的数学公式如下所示（n 为字符串长度）。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/basic-extra-meal/hashcode-2.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/基础加餐/hashcode-2.png)
 
 注意：31 是个奇质数，不大不小，一般质数都非常适合哈希计算，偶数相当于移位运算，容易溢出，造成数据信息丢失。
 
@@ -34374,7 +34374,7 @@ static inline intptr_t get_next_hash(Thread* current, oop obj) {
 
 在 Java 中，`hashCode()`方法是定义在 `java.lang.Object` 类中的一个方法，该类是所有 Java 所有类的父类。因此，每个 Java 对象都可以调用 `hashCode()`方法。`hashCode()`方法主要用于支持哈希表（如 java.util.HashMap），这些数据结构使用哈希算法能实现快速查找、插入和删除操作。
 
-`hashCode()`方法的主要目的是返回一个整数，这个整数称为哈希码，它代表了对象在内存中的一种近似表示。哈希码用于将对象映射到哈希表中的一个特定的位置。两个相等的对象（根据 [`equals()`方法比较](https://tobebetterjavaer.com/string/equals.html)）应该具有相同的哈希码。然而，具有相同哈希码的两个对象并不一定相等。
+`hashCode()`方法的主要目的是返回一个整数，这个整数称为哈希码，它代表了对象在内存中的一种近似表示。哈希码用于将对象映射到哈希表中的一个特定的位置。两个相等的对象（根据 [`equals()`方法比较](https://tobebetterjavaer.com/字符串/equals.html)）应该具有相同的哈希码。然而，具有相同哈希码的两个对象并不一定相等。
 
 当你创建一个自定义类并覆盖 `equals()`方法时，通常也需要覆盖 `hashCode()`方法，以确保相等的对象具有相同的哈希码。这有助于提高哈希表在使用自定义类的对象作为键时的准确性。
 
@@ -34387,7 +34387,7 @@ static inline intptr_t get_next_hash(Thread* current, oop obj) {
 
 “哥，说说 Java 到底是值传递还是引用传递吧？”三妹一脸的困惑，看得出来她被这个问题折磨得不轻。
 
-“说实在的，我在一开始学 Java 的时候也被这个问题折磨得够呛，总以为[基本数据类型](https://tobebetterjavaer.com/basic-grammar/basic-data-type.html)在传参的时候是值传递，而引用类型是引用传递。”我对三妹袒露了心声，为的就是让她不再那么焦虑，她哥当年也是这么过来的。
+“说实在的，我在一开始学 Java 的时候也被这个问题折磨得够呛，总以为[基本数据类型](https://tobebetterjavaer.com/基础语法/basic-data-type.html)在传参的时候是值传递，而引用类型是引用传递。”我对三妹袒露了心声，为的就是让她不再那么焦虑，她哥当年也是这么过来的。
 
 [C 语言](https://tobebetterjavaer.com/xuexiluxian/c.html)是很多编程语言的母胎，包括 Java，那么对于 C 语言来说，所有的方法参数都是“通过值”传递的，也就是说，传递给被调用方法的参数值存放在临时变量中，而不是存放在原来的变量中。这就意味着，被调用的方法不能修改调用方法中变量的值，而只能修改其私有变量的临时副本的值。
 
@@ -34520,7 +34520,7 @@ class ReferenceTypeDemo {
 
 “二哥，为啥 Java 不能实现真正的泛型啊？”三妹开门见山地问。
 
-简单来回顾一下[类型擦除](https://tobebetterjavaer.com/basic-extra-meal/generic.html)，看下面这段代码。
+简单来回顾一下[类型擦除](https://tobebetterjavaer.com/基础加餐/generic.html)，看下面这段代码。
 
 ```java
 public class Cmower {
@@ -35058,15 +35058,15 @@ Method[] methods2 = System.class.getMethods();
 
 这里简单总结下。
 
-反射是 Java 中的一个强大特性，它允许在运行时检查和操作[类](https://tobebetterjavaer.com/oo/object-class.html)、[接口](https://tobebetterjavaer.com/oo/interface.html)、[字段](https://tobebetterjavaer.com/oo/var.html)和[方法](https://tobebetterjavaer.com/oo/method.html)。反射是 Java 的核心组件，支持各种框架和库的实现，如 Spring、Hibernate 等。使用反射，可以在运行时动态地创建对象、调用方法和访问字段，而无需在编译时了解这些对象的具体实现。
+反射是 Java 中的一个强大特性，它允许在运行时检查和操作[类](https://tobebetterjavaer.com/面向对象/object-class.html)、[接口](https://tobebetterjavaer.com/面向对象/interface.html)、[字段](https://tobebetterjavaer.com/面向对象/var.html)和[方法](https://tobebetterjavaer.com/面向对象/method.html)。反射是 Java 的核心组件，支持各种框架和库的实现，如 Spring、Hibernate 等。使用反射，可以在运行时动态地创建对象、调用方法和访问字段，而无需在编译时了解这些对象的具体实现。
 
 反射的主要类位于 `java.lang.reflect` 包中，主要包括以下几个关键类：
 
 - Class：代表一个类或接口，包含了类的结构信息（如名称、构造函数、方法、字段等）。通过 Class 对象，可以获取类的元数据并操作类的实例。
-- Constructor：代表类的[构造方法](https://tobebetterjavaer.com/oo/construct.html)，用于创建类的实例。
+- Constructor：代表类的[构造方法](https://tobebetterjavaer.com/面向对象/construct.html)，用于创建类的实例。
 - Method：代表类的方法，可以通过它调用类的实例方法。
 - Field：代表类的字段，可以获取或修改字段的值。
-- Modifier：包含方法、字段和类的[访问修饰符（如 public、private 等）](https://tobebetterjavaer.com/oo/access-control.html)。
+- Modifier：包含方法、字段和类的[访问修饰符（如 public、private 等）](https://tobebetterjavaer.com/面向对象/access-control.html)。
 
 使用反射时，需要注意以下几点：
 
@@ -35295,13 +35295,13 @@ public class ReflectionDemo {
 
 ## 四、优质八股文
 
-这里给大家推荐两份 Java 并发编程方面的八股文，一份来自[三分恶滴滴的面渣逆袭](https://tobebetterjavaer.com/sidebar/sanfene/javathread.html)，一份来自小牛，先截图给大家看一下 Java 并发方面都有哪些高频的面试题。
+这里给大家推荐两份 Java 并发编程方面的八股文，一份来自[三分恶滴滴的面渣逆袭](https://tobebetterjavaer.com/侧边栏/三份/javathread.html)，一份来自小牛，先截图给大家看一下 Java 并发方面都有哪些高频的面试题。
 
 ![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java-thread-7.png)
 
 为了方便大家的阅读和背诵，我已经将其整理到了二哥的小破站《Java进阶之路》上，面渣逆袭 Java 并发篇：
 
->[https://tobebetterjavaer.com/sidebar/sanfene/javathread.html](https://tobebetterjavaer.com/sidebar/sanfene/javathread.html)
+>[https://tobebetterjavaer.com/侧边栏/三份/javathread.html](https://tobebetterjavaer.com/侧边栏/三份/javathread.html)
 
 Java 并发编程八股文（背诵版）：
 
@@ -35381,7 +35381,7 @@ Java 提供的并发组件，大致可以分为两类：
 
 2020 年的时候，通读了一遍周志明老师的《深入理解 Java 虚拟机：JVM 高级特性与最佳实践》第三版，读完之后受益匪浅，这让我对 Java 虚拟机有了一个更完整的认识。毫无疑问，《深入理解 Java 虚拟机》是 JVM 书籍中最好的一本书了，国产技术书的天花板。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-7036a048-4034-4965-92a6-e35d0211ba71.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/👏下载→Java程序员常读书单📚/jvm-7036a048-4034-4965-92a6-e35d0211ba71.png)
 
 如果觉得这本书太厚了，可以阅读我公众号上的这篇文章，对 JVM 会有一个系统的梳理。
 
@@ -35405,14 +35405,14 @@ Java 提供的并发组件，大致可以分为两类：
 
 明白了学习 JVM 的重要性，那我们就开搞吧！
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-4cbbdc72-3bdd-4b14-9d8d-ecd7764afb11.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/👏下载→Java程序员常读书单📚/jvm-4cbbdc72-3bdd-4b14-9d8d-ecd7764afb11.png)
 
 
 ## 二、JVM 学习路线图
 
 这是我最近整理的一张关于 JVM 的思维导图，大的方向可以分为三个部分：字节码与类的加载、内存与垃圾回收、性能监控和调优。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-b4ec034b-9f20-40b9-a2a3-e77afffd2abf.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/👏下载→Java程序员常读书单📚/jvm-b4ec034b-9f20-40b9-a2a3-e77afffd2abf.png)
 
 字节码与类的加载包括：
 
@@ -35446,7 +35446,7 @@ Java 提供的并发组件，大致可以分为两类：
 
 进去直接找「Java 核心」里面的 Java 虚拟机就对了。我按照前面的思维导图整理了 19 篇文章，全部都是硬核级别的，跟着学就对了。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-cc84fead-278b-46aa-a8ab-a3b07acefc12.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/👏下载→Java程序员常读书单📚/jvm-cc84fead-278b-46aa-a8ab-a3b07acefc12.png)
 
 ### **2）视频**
 
@@ -35456,7 +35456,7 @@ Java 提供的并发组件，大致可以分为两类：
 - 字节码与类的加载篇
 - 性能监控和调优篇
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-59c829ce-7fe3-45a5-b074-35dacb08941e.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/👏下载→Java程序员常读书单📚/jvm-59c829ce-7fe3-45a5-b074-35dacb08941e.png)
 
 >视频地址：[https://www.bilibili.com/video/BV1PJ411n7xZ](https://www.bilibili.com/video/BV1PJ411n7xZ)
 
@@ -35485,7 +35485,7 @@ Java 提供的并发组件，大致可以分为两类：
 - 说说垃圾回收算法
 - 说说  JVM 内存结构 
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-be0910d8-7669-46cb-b8b9-2399162e723d.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/👏下载→Java程序员常读书单📚/jvm-be0910d8-7669-46cb-b8b9-2399162e723d.png)
 
 >视频地址：[https://www.bilibili.com/video/BV1iJ411d7jS](https://www.bilibili.com/video/BV1iJ411d7jS)
 
@@ -35493,13 +35493,13 @@ Java 提供的并发组件，大致可以分为两类：
 
 纸质书只推荐一本周志明老师的神书《[深入理解 Java 虚拟机](https://book.douban.com/subject/34907497/)》，基本上学习 JVM 的小伙伴人手一本。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-3f6065c5-2fbf-4107-804e-393b32a4f9ab.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/👏下载→Java程序员常读书单📚/jvm-3f6065c5-2fbf-4107-804e-393b32a4f9ab.png)
 
 这是一部从工作原理和工程实践两个维度深入剖析JVM的著作，是计算机领域公认的经典。
 
 全书分为五个部分，第一部分为走近 Java，主要是对 JVM 的发展历史进行了介绍，其中第二部分自动内存管理和第三部分虚拟机执行子系统需要重点掌握，这两部分的内容也是最多的。
 
-第四部分程序编译与代码优化中需要重点掌握的是 JIT 部分，第五部分高效并发最好和[Java 并发编程](https://tobebetterjavaer.com/xuexiluxian/java/thread.html)（我前面也做了学习路线的总结）这块内容结合起来学习。
+第四部分程序编译与代码优化中需要重点掌握的是 JIT 部分，第五部分高效并发最好和[Java 并发编程](https://tobebetterjavaer.com/xuexiluxian/👏下载→Java程序员常读书单📚/thread.html)（我前面也做了学习路线的总结）这块内容结合起来学习。
 
 可以配合 GitHub 上这个开源的阅读笔记学习：
 
@@ -35507,9 +35507,9 @@ Java 提供的并发组件，大致可以分为两类：
 
 ### **4）开源电子书**
 
-推荐 doocs 社区的 [JVM 底层原理最全知识总结](https://doocs.github.io/jvm/)，算是《深入理解 Java 虚拟机》这本书的一个精简知识点梳理。
+推荐 doocs 社区的 [JVM 底层原理最全知识总结](https://doocs.github.io/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/)，算是《深入理解 Java 虚拟机》这本书的一个精简知识点梳理。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-f2e2e5c4-c193-4af5-b1bc-fea8df2006af.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/👏下载→Java程序员常读书单📚/jvm-f2e2e5c4-c193-4af5-b1bc-fea8df2006af.png)
 
 
 >GitHub 地址：[https://github.com/doocs/jvm](https://github.com/doocs/jvm)
@@ -35524,7 +35524,7 @@ Java 提供的并发组件，大致可以分为两类：
 
 为了方便大家的学习，我也将其整理成了 PDF，内容包含了 Java 内存区域、垃圾收集算法、经典垃圾收集器、虚拟机类加载机制、程序编译和代码优化，手绘图也非常的漂亮。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-2beabbe4-2ddd-4180-8690-1bc3224e6b41.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/👏下载→Java程序员常读书单📚/jvm-2beabbe4-2ddd-4180-8690-1bc3224e6b41.png)
 
 需要的小伙伴可以微信搜索「**沉默王二**」回复关键字「**java**」就可以拉取到了。
 
@@ -35538,14 +35538,14 @@ Java 提供的并发组件，大致可以分为两类：
 
 ## 四、JVM 八股文
 
-这里给大家推荐两份 Java 虚拟机方面的八股文，一份来自读者[三分恶](https://tobebetterjavaer.com/sidebar/sanfene/jvm.html)，一份来自读者小牛，先截图给大家看一下 Java 虚拟机的理解版八股文，图文并茂，非常容易消化和吸收。
+这里给大家推荐两份 Java 虚拟机方面的八股文，一份来自读者[三分恶](https://tobebetterjavaer.com/侧边栏/三份/jvm.html)，一份来自读者小牛，先截图给大家看一下 Java 虚拟机的理解版八股文，图文并茂，非常容易消化和吸收。
 
-![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/java/jvm-a11893df-e518-4bdc-a166-884b168a8cf0.png)
+![](https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/xuexiluxian/👏下载→Java程序员常读书单📚/jvm-a11893df-e518-4bdc-a166-884b168a8cf0.png)
 
 
 为了方便大家的阅读和背诵，我已经将其整理到了《二哥的Java进阶之路》上，面渣逆袭 Java 虚拟机篇：
 
->[https://tobebetterjavaer.com/sidebar/sanfene/jvm.html](https://tobebetterjavaer.com/sidebar/sanfene/jvm.html)
+>[https://tobebetterjavaer.com/侧边栏/三份/jvm.html](https://tobebetterjavaer.com/侧边栏/三份/jvm.html)
 
 Java 虚拟机八股文（背诵版）：
 
@@ -35561,18 +35561,18 @@ Java 虚拟机八股文（背诵版）：
 
 一旦出现内存溢出或者内存泄露，排查问题还是挺困难的，所以知道逊尼基到底是怎么管理内存的就变得十分重要了。
 
-[JVM 的垃圾回收](https://tobebetterjavaer.com/jvm/gc.html)，其实就是收拾那些不再使用的 Java 对象，把他们曾经占用的内存重新释放出来。所以我们要搞清楚：
+[JVM 的垃圾回收](https://tobebetterjavaer.com/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/gc.html)，其实就是收拾那些不再使用的 Java 对象，把他们曾经占用的内存重新释放出来。所以我们要搞清楚：
 
-- [对象是如何创建的](https://tobebetterjavaer.com/jvm/whereis-the-object.html)？对象是如何被访问的？到底哪些对象是废弃的？于是我们就需要搞清楚对象的生和死。
-- 这些废弃了的对象到底放在哪？于是就需要了解[JVM 的内存结构](https://tobebetterjavaer.com/jvm/neicun-jiegou.html)：方法区、堆、程序计数器、虚拟机栈和本地方法栈。
+- [对象是如何创建的](https://tobebetterjavaer.com/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/whereis-the-object.html)？对象是如何被访问的？到底哪些对象是废弃的？于是我们就需要搞清楚对象的生和死。
+- 这些废弃了的对象到底放在哪？于是就需要了解[JVM 的内存结构](https://tobebetterjavaer.com/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/neicun-jiegou.html)：方法区、堆、程序计数器、虚拟机栈和本地方法栈。
 - 这些废弃了的对象会不会造成内存泄露（OOM，OutOfMemoryError）？于是我们就需要了解每个分区的 OOM。
 - 这些废弃了对象什么时候被回收？于是我们就需要了解垃圾回收算法，比如说清除算法、复制算法、标记整理算法和分代收集算法。
 
 知道了一个对象在内存中的生和死，我们还需要知道类是如何在内存中变成对象的？对象的方法是如何执行的？
 
-于是我们开始学习 Java 虚拟机的执行过程，学习[字节码文件](https://tobebetterjavaer.com/jvm/class-file-jiegou.html)（ .class 文件），学习[类的加载机制](https://tobebetterjavaer.com/jvm/class-load.html)，学习[虚拟机栈的栈帧结构](https://tobebetterjavaer.com/jvm/how-jvm-run-zijiema-zhiling.html)，学习方法的调用过程，学习[字节码指令](https://tobebetterjavaer.com/jvm/zijiema-zhiling.html)等等。
+于是我们开始学习 Java 虚拟机的执行过程，学习[字节码文件](https://tobebetterjavaer.com/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/class-file-jiegou.html)（ .class 文件），学习[类的加载机制](https://tobebetterjavaer.com/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/class-load.html)，学习[虚拟机栈的栈帧结构](https://tobebetterjavaer.com/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/how-jvm-run-zijiema-zhiling.html)，学习方法的调用过程，学习[字节码指令](https://tobebetterjavaer.com/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/zijiema-zhiling.html)等等。
 
-为了监控虚拟机和故障排查，我们需要学习[常用的 JDK 命令行工具](https://tobebetterjavaer.com/jvm/problem-tools.html)，掌握必要的线上问题排查方法；此外，还需要了解 JIT (Just In Time)并不是简单的将热点代码编译成机器码就收工的，它还会对代码的执行进行优化（[方法内联和逃逸分析](https://tobebetterjavaer.com/jvm/jit.html)）。
+为了监控虚拟机和故障排查，我们需要学习[常用的 JDK 命令行工具](https://tobebetterjavaer.com/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/problem-tools.html)，掌握必要的线上问题排查方法；此外，还需要了解 JIT (Just In Time)并不是简单的将热点代码编译成机器码就收工的，它还会对代码的执行进行优化（[方法内联和逃逸分析](https://tobebetterjavaer.com/面渣逆袭（Java 虚拟机-JVM面试题八股文）必看👍/jit.html)）。
 
 JVM 相关的知识已经成为面试必考的科目了，但老实讲，JVM 相关的知识还真的不太好用在项目中，或者说不太好在项目中体现出来。
 
