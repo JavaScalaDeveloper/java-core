@@ -9,11 +9,11 @@ tag:
 
 如果是串行（按顺序依次执行每个任务）执行的话，接口的响应速度会非常慢。考虑到这些任务之间有大部分都是 **无前后顺序关联** 的，可以 **并行执行** ，就比如说调用获取商品详情的时候，可以同时调用获取物流信息。通过并行执行多个任务的方式，接口的响应速度会得到大幅优化。
 
-![](https://oss.javaguide.cn/github/javaguide/high-performance/serial-to-parallel.png)
+![](https://oss.javaguide.cn/github/javaguide/高性能/serial-to-parallel.png)
 
 对于存在前后调用顺序关系的任务，可以进行任务编排。
 
-![](https://oss.javaguide.cn/github/javaguide/high-performance/serial-to-parallel2.png)
+![](https://oss.javaguide.cn/github/javaguide/高性能/serial-to-parallel2.png)
 
 1. 获取用户信息之后，才能调用商品详情和物流信息接口。
 2. 成功获取商品详情和物流信息之后，才能调用商品推荐接口。
@@ -78,7 +78,7 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
 
 可以看到，`CompletableFuture` 同时实现了 `Future` 和 `CompletionStage` 接口。
 
-![](https://oss.javaguide.cn/github/javaguide/java/concurrent/completablefuture-class-diagram.jpg)
+![](https://oss.javaguide.cn/github/javaguide/java/并发/completablefuture-class-diagram.jpg)
 
 `CompletionStage` 接口描述了一个异步计算的阶段。很多计算可以分成多个阶段或步骤，此时可以通过它将所有步骤组合起来，形成异步计算的流水线。
 
@@ -324,7 +324,6 @@ public CompletableFuture<T> whenComplete(
     BiConsumer<? super T, ? super Throwable> action) {
     return uniWhenCompleteStage(null, action);
 }
-
 
 public CompletableFuture<T> whenCompleteAsync(
     BiConsumer<? super T, ? super Throwable> action) {
@@ -718,7 +717,7 @@ CompletableFuture.runAsync(() -> {
 
 实际使用中，我们还可以利用或者参考现成的异步任务编排框架，比如京东的 [asyncTool](https://gitee.com/jd-platform-opensource/asyncTool) 。
 
-![asyncTool README 文档](https://oss.javaguide.cn/github/javaguide/java/concurrent/asyncTool-readme.png)
+![asyncTool README 文档](https://oss.javaguide.cn/github/javaguide/java/并发/asyncTool-readme.png)
 
 ## 后记
 
@@ -728,5 +727,3 @@ CompletableFuture.runAsync(() -> {
 - [读 RocketMQ 源码，学习并发编程三大神器 - 勇哥 java 实战分享](https://mp.weixin.qq.com/s/32Ak-WFLynQfpn0Cg0N-0A)：这篇文章介绍了 RocketMQ 对`CompletableFuture`的应用。具体来说，从 RocketMQ 4.7 开始，RocketMQ 引入了 `CompletableFuture`来实现异步消息处理 。
 
 另外，建议 G 友们可以看看京东的 [asyncTool](https://gitee.com/jd-platform-opensource/asyncTool) 这个并发框架，里面大量使用到了 `CompletableFuture` 。
-
-<!-- @include: @article-footer.snippet.md -->

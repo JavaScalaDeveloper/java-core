@@ -164,7 +164,7 @@ MySQL830 mysql:8.0.32
 
 我们再看下日志文件组的文件数是多少：
 
-![](images/redo-log.png)
+![](图片/redo-log.png)
 
 可以看到刚好是 32 个，并且每个日志文件的大小是 `671088640 / 32 = 20971520`
 
@@ -344,5 +344,3 @@ MySQL 数据库的**数据备份、主备、主主、主从**都离不开 binlog
 - 《从零开始带你成为 MySQL 实战优化高手》
 - 《MySQL 是怎样运行的：从根儿上理解 MySQL》
 - 《MySQL 技术 Innodb 存储引擎》
-
-<!-- @include: @article-footer.snippet.md -->

@@ -21,13 +21,13 @@ JDK 提供的这些容器大部分在 `java.util.concurrent` 包中。
 
 在 JDK1.7 的时候，`ConcurrentHashMap` 对整个桶数组进行了分割分段(`Segment`，分段锁)，每一把锁只锁容器其中一部分数据（下面有示意图），多线程访问容器里不同数据段的数据，就不会存在锁竞争，提高并发访问率。
 
-![Java7 ConcurrentHashMap 存储结构](https://oss.javaguide.cn/github/javaguide/java/collection/java7_concurrenthashmap.png)
+![Java7 ConcurrentHashMap 存储结构](https://oss.javaguide.cn/github/javaguide/java/集合/java7_concurrenthashmap.png)
 
 到了 JDK1.8 的时候，`ConcurrentHashMap` 取消了 `Segment` 分段锁，采用 `Node + CAS + synchronized` 来保证并发安全。数据结构跟 `HashMap` 1.8 的结构类似，数组+链表/红黑二叉树。Java 8 在链表长度超过一定阈值（8）时将链表（寻址时间复杂度为 O(N)）转换为红黑树（寻址时间复杂度为 O(log(N))）。
 
 Java 8 中，锁粒度更细，`synchronized` 只锁定当前链表或红黑二叉树的首节点，这样只要 hash 不冲突，就不会产生并发，就不会影响其他 Node 的读写，效率大幅提升。
 
-![Java8 ConcurrentHashMap 存储结构](https://oss.javaguide.cn/github/javaguide/java/collection/java8_concurrenthashmap.png)
+![Java8 ConcurrentHashMap 存储结构](https://oss.javaguide.cn/github/javaguide/java/集合/java8_concurrenthashmap.png)
 
 关于 `ConcurrentHashMap` 的详细介绍，请看我写的这篇文章：[`ConcurrentHashMap` 源码分析](../Java集合/ConcurrentHashMap 源码分析.md)。
 
@@ -157,5 +157,3 @@ private static ArrayBlockingQueue<Integer> blockingQueue = new ArrayBlockingQueu
 - 《实战 Java 高并发程序设计》
 - <https://javadoop.com/post/java-concurrent-queue>
 - <https://juejin.im/post/5aeebd02518825672f19c546>
-
-<!-- @include: @article-footer.snippet.md -->

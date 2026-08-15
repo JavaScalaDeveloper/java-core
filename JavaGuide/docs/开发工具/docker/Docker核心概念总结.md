@@ -25,7 +25,7 @@ tag:
 
 如果需要通俗地描述容器的话，我觉得容器就是一个存放东西的地方，就像书包可以装各种文具、衣柜可以放各种衣服、鞋架可以放各种鞋子一样。我们现在所说的容器存放的东西可能更偏向于应用比如网站、程序甚至是系统环境。
 
-![认识容器](https://oss.javaguide.cn/github/javaguide/tools/docker/container.png)
+![认识容器](https://oss.javaguide.cn/github/javaguide/开发工具/docker/container.png)
 
 ### 图解物理机,虚拟机与容器
 
@@ -33,11 +33,11 @@ tag:
 
 **物理机：**
 
-![物理机](https://oss.javaguide.cn/github/javaguide/tools/docker/%E7%89%A9%E7%90%86%E6%9C%BA%E5%9B%BE%E8%A7%A3.jpeg)
+![物理机](https://oss.javaguide.cn/github/javaguide/开发工具/docker/%E7%89%A9%E7%90%86%E6%9C%BA%E5%9B%BE%E8%A7%A3.jpeg)
 
 **虚拟机：**
 
-![虚拟机](https://oss.javaguide.cn/github/javaguide/tools/docker/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%9B%BE%E8%A7%A3.jpeg)
+![虚拟机](https://oss.javaguide.cn/github/javaguide/开发工具/docker/%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%9B%BE%E8%A7%A3.jpeg)
 
 **容器：**
 
@@ -109,7 +109,7 @@ Docker 中有非常重要的三个基本概念：镜像（Image）、容器（Co
 
 理解了这三个概念，就理解了 Docker 的整个生命周期。
 
-![](https://oss.javaguide.cn/github/javaguide/tools/docker/docker-build-run.jpeg)
+![](https://oss.javaguide.cn/github/javaguide/开发工具/docker/docker-build-run.jpeg)
 
 ### 镜像(Image):一个特殊的文件系统
 
@@ -151,7 +151,7 @@ Docker 设计时，就充分利用 **Union FS** 的技术，将其设计为**分
 
 比如我们想要搜索自己想要的镜像：
 
-![利用Docker Hub 搜索镜像](https://oss.javaguide.cn/github/javaguide/tools/docker/Screen%20Shot%202019-11-04%20at%208.21.39%20PM.png)
+![利用Docker Hub 搜索镜像](https://oss.javaguide.cn/github/javaguide/开发工具/docker/Screen%20Shot%202019-11-04%20at%208.21.39%20PM.png)
 
 在 Docker Hub 的搜索结果中，有几项关键的信息有助于我们选择合适的镜像：
 
@@ -177,7 +177,7 @@ mysql/mysql-server                Optimized MySQL Server Docker images. Create�
 
 下面这一张图很形象地展示了 Image、Container、Repository 和 Registry/Hub 这四者的关系：
 
-![Docker 架构](https://oss.javaguide.cn/github/javaguide/tools/docker/docker-regitstry.png)
+![Docker 架构](https://oss.javaguide.cn/github/javaguide/开发工具/docker/docker-regitstry.png)
 
 - Dockerfile 是一个文本文件，包含了一系列的指令和参数，用于定义如何构建一个 Docker 镜像。运行 `docker build`命令并指定一个 Dockerfile 时，Docker 会读取 Dockerfile 中的指令，逐步构建一个新的镜像，并将其保存在本地。
 - `docker pull` 命令可以从指定的 Registry/Hub 下载一个镜像到本地，默认使用 Docker Hub。
@@ -192,7 +192,7 @@ Docker 的概念基本上已经讲完，我们再来谈谈：Build, Ship, and Ru
 
 如果你搜索 Docker 官网，会发现如下的字样：**“Docker - Build, Ship, and Run Any App, Anywhere”**。那么 Build, Ship, and Run 到底是在干什么呢？
 
-![](https://oss.javaguide.cn/github/javaguide/tools/docker/docker-build-ship-run.jpg)
+![](https://oss.javaguide.cn/github/javaguide/开发工具/docker/docker-build-ship-run.jpg)
 
 - **Build（构建镜像）**：镜像就像是集装箱包括文件以及运行环境等等资源。
 - **Ship（运输镜像）**：主机和仓库间运输，这里的仓库就像是超级码头一样。
@@ -281,7 +281,7 @@ docker push harbor.example.com/ubuntu:18.04
 1. 数据卷（Volumes）
 2. 挂载主机目录 (Bind mounts)
 
-![Docker 数据管理](https://oss.javaguide.cn/github/javaguide/tools/docker/docker-data-management.png)
+![Docker 数据管理](https://oss.javaguide.cn/github/javaguide/开发工具/docker/docker-data-management.png)
 
 数据卷是由 Docker 管理的数据存储区域，有如下这些特点：
 
@@ -473,11 +473,11 @@ LXC 技术主要是借助 Linux 内核中提供的 CGroup 功能和 namespace �
 
 ## 总结
 
-本文主要把 Docker 中的一些常见概念和命令做了详细的阐述。从零到上手实战可以看[Docker 从入门到上手干事](https://javaguide.cn/tools/docker/docker-in-action.html)这篇文章，内容非常详细！
+本文主要把 Docker 中的一些常见概念和命令做了详细的阐述。从零到上手实战可以看[Docker 从入门到上手干事](https://javaguide.cn/开发工具/docker/docker-in-action.html)这篇文章，内容非常详细！
 
 另外，再给大家推荐一本质量非常高的开源书籍[《Docker 从入门到实践》](https://yeasy.gitbook.io/docker_practice/introduction/why "《Docker 从入门到实践》") ，这本书的内容非常新，毕竟书籍的内容是开源的，可以随时改进。
 
-![《Docker 从入门到实践》网站首页](https://oss.javaguide.cn/github/javaguide/tools/docker/docker-getting-started-practice-website-homepage.png)
+![《Docker 从入门到实践》网站首页](https://oss.javaguide.cn/github/javaguide/开发工具/docker/docker-getting-started-practice-website-homepage.png)
 
 ## 参考
 
@@ -485,5 +485,3 @@ LXC 技术主要是借助 Linux 内核中提供的 CGroup 功能和 namespace �
 - [Linux Namespace 和 Cgroup](https://segmentfault.com/a/1190000009732550 "Linux Namespace和Cgroup")
 - [LXC vs Docker: Why Docker is Better](https://www.upguard.com/articles/docker-vs-lxc "LXC vs Docker: Why Docker is Better")
 - [CGroup 介绍、应用实例及原理描述](https://www.ibm.com/developerworks/cn/linux/1506_cgroup/index.html "CGroup 介绍、应用实例及原理描述")
-
-<!-- @include: @article-footer.snippet.md -->

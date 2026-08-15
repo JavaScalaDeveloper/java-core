@@ -266,7 +266,7 @@ finalize()是 Object 类的一个方法、一个对象的 finalize()方法只会
 
 ### 3.4 垃圾回收算法
 
-关于常见垃圾回收算法的详细介绍，建议阅读这篇：[JVM 垃圾回收详解（重点）](https://javaguide.cn/java/jvm/jvm-garbage-collection.html)。
+关于常见垃圾回收算法的详细介绍，建议阅读这篇：[JVM 垃圾回收详解（重点）](https://javaguide.cn/java/jvm/JVM垃圾回收详解（重点）(2).html)。
 
 ### 3.5 （了解）各种各样的垃圾回收器
 
@@ -529,5 +529,3 @@ JDK5.0 以后每个线程堆栈大小为 1M，以前每个线程堆栈大小为 
 ## finally
 
 真的扯了很久这东西，参考了多方的资料，有极客时间的《深入拆解虚拟机》和《Java 核心技术面试精讲》，也有百度，也有自己在学习的一些线上课程的总结。希望对你有所帮助，谢谢。
-
-<!-- @include: @article-footer.snippet.md -->

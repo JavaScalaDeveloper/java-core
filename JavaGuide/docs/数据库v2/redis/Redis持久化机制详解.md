@@ -22,7 +22,7 @@ Redis 不同于 Memcached 的很重要一点就是，Redis 支持持久化，而
 
 官方文档地址：<https://redis.io/topics/persistence> 。
 
-![](https://oss.javaguide.cn/github/javaguide/database/redis/redis4.0-persitence.png)
+![](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis4.0-persitence.png)
 
 ## RDB 持久化
 
@@ -84,7 +84,7 @@ AOF 持久化功能的实现可以简单分为 5 步：
 
 AOF 工作流程图如下：
 
-![AOF 工作基本流程](https://oss.javaguide.cn/github/javaguide/database/redis/aof-work-process.png)
+![AOF 工作基本流程](https://oss.javaguide.cn/github/javaguide/数据库/redis/aof-work-process.png)
 
 ### AOF 持久化方式有哪些？
 
@@ -112,7 +112,7 @@ Multi Part AOF 不是重点，了解即可，详细介绍可以看看阿里开�
 
 关系型数据库（如 MySQL）通常都是执行命令之前记录日志（方便故障恢复），而 Redis AOF 持久化机制是在执行完命令之后再记录日志。
 
-![AOF 记录日志过程](https://oss.javaguide.cn/github/javaguide/database/redis/redis-aof-write-log-disc.png)
+![AOF 记录日志过程](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis-aof-write-log-disc.png)
 
 **为什么是在执行完命令之后记录日志呢？**
 
@@ -128,7 +128,7 @@ Multi Part AOF 不是重点，了解即可，详细介绍可以看看阿里开�
 
 当 AOF 变得太大时，Redis 能够在后台自动重写 AOF 产生一个新的 AOF 文件，这个新的 AOF 文件和原有的 AOF 文件所保存的数据库状态一样，但体积更小。
 
-![AOF 重写](https://oss.javaguide.cn/github/javaguide/database/redis/aof-rewrite.png)
+![AOF 重写](https://oss.javaguide.cn/github/javaguide/数据库/redis/aof-rewrite.png)
 
 > AOF 重写（rewrite） 是一个有歧义的名字，该功能是通过读取数据库中的键值对来实现的，程序无须对现有 AOF 文件进行任何读入、分析或者写入操作。
 
@@ -183,7 +183,7 @@ RDB 部分校验通过后，Redis 随后逐条解析 AOF 部分的增量命令�
 
 官方文档地址：<https://redis.io/topics/persistence>
 
-![](https://oss.javaguide.cn/github/javaguide/database/redis/redis4.0-persitence.png)
+![](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis4.0-persitence.png)
 
 ## 如何选择 RDB 和 AOF？
 
@@ -212,6 +212,4 @@ RDB 部分校验通过后，Redis 随后逐条解析 AOF 部分的增量命令�
 - Redis persistence - Redis 官方文档：<https://redis.io/docs/management/persistence/>
 - The difference between AOF and RDB persistence：<https://www.sobyte.net/post/2022-04/redis-rdb-and-aof/>
 - Redis AOF 持久化详解 - 程序员历小冰：<http://remcarpediem.net/article/376c55d8/>
-- Redis RDB 与 AOF 持久化 · Analyze：<https://wingsxdu.com/posts/database/redis/rdb-and-aof/>
-
-<!-- @include: @article-footer.snippet.md -->
+- Redis RDB 与 AOF 持久化 · Analyze：<https://wingsxdu.com/posts/数据库/redis/rdb-and-aof/>

@@ -9,7 +9,7 @@ tag:
 
 ## 建立连接-TCP 三次握手
 
-![TCP 三次握手图解](https://oss.javaguide.cn/github/javaguide/cs-basics/network/tcp-shakes-hands-three-times.png)
+![TCP 三次握手图解](https://oss.javaguide.cn/github/javaguide/计算机基础/计算机网络/tcp-shakes-hands-three-times.png)
 
 建立一个 TCP 连接需要“三次握手”，缺一不可：
 
@@ -54,7 +54,7 @@ tag:
 
 ## 断开连接-TCP 四次挥手
 
-![TCP 四次挥手图解](https://oss.javaguide.cn/github/javaguide/cs-basics/network/tcp-waves-four-times.png)
+![TCP 四次挥手图解](https://oss.javaguide.cn/github/javaguide/计算机基础/计算机网络/tcp-waves-four-times.png)
 
 断开一个 TCP 连接则需要“四次挥手”，缺一不可：
 
@@ -99,5 +99,3 @@ TCP 是全双工通信，可以双向传输数据。任何一方都可以在数�
 - TCP and UDP Tutorial：<https://www.9tut.com/tcp-and-udp-tutorial>
 
 - 从一次线上问题说起，详解 TCP 半连接队列、全连接队列：<https://mp.weixin.qq.com/s/YpSlU1yaowTs-pF6R43hMw>
-
-<!-- @include: @article-footer.snippet.md -->

@@ -5,8 +5,6 @@ tag:
   - Spring
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 这篇文章主要是想通过一些问题，加深大家对于 Spring 的理解，所以不会涉及太多的代码！
 
 下面的很多问题我自己在使用 Spring 的过程中也并没有注意，自己也是临时查阅了很多资料和书籍补上的。网上也有一些很多关于 Spring 常见问题/面试题整理的文章，我感觉大部分都是互相 copy，而且很多问题也不是很好，有些回答也存在问题。所以，自己花了一周的业余时间整理了一下，希望对大家有帮助。
@@ -19,7 +17,7 @@ Spring 是一款开源的轻量级 Java 开发框架，旨在提高开发人员�
 
 我们一般说 Spring 框架指的都是 Spring Framework，它是很多模块的集合，使用这些模块可以很方便地协助我们进行开发，比如说 Spring 支持 IoC（Inversion of Control:控制反转） 和 AOP(Aspect-Oriented Programming:面向切面编程)、可以很方便地对数据库进行访问、可以很方便地集成第三方组件（电子邮件，任务，调度，缓存等等）、对单元测试支持比较好、支持 RESTful Java 应用程序的开发。
 
-![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/38ef122122de4375abcd27c3de8f60b4.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/38ef122122de4375abcd27c3de8f60b4.png)
 
 Spring 最核心的思想就是不重新造轮子，开箱即用，提高开发效率。
 
@@ -36,17 +34,17 @@ Spring 提供的核心功能主要是 IoC 和 AOP。学习 Spring ，一定要�
 
 **Spring4.x 版本**：
 
-![Spring4.x主要模块](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/jvme0c60b4606711fc4a0b6faf03230247a.png)
+![Spring4.x主要模块](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/jvme0c60b4606711fc4a0b6faf03230247a.png)
 
 **Spring5.x 版本**：
 
-![Spring5.x主要模块](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/20200831175708.png)
+![Spring5.x主要模块](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/20200831175708.png)
 
 Spring5.x 版本中 Web 模块的 Portlet 组件已经被废弃掉，同时增加了用于异步响应式处理的 WebFlux 组件。
 
 Spring 各个模块的依赖关系如下：
 
-![Spring 各个模块的依赖关系](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/20200902100038.png)
+![Spring 各个模块的依赖关系](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/20200902100038.png)
 
 #### Core Container
 
@@ -149,7 +147,7 @@ Spring 时代我们一般通过 XML 文件来配置 Bean，后来开发人员觉
 
 下图简单地展示了 IoC 容器如何使用配置元数据来管理对象。
 
-![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/062b422bd7ac4d53afd28fb74b2bc94d.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/062b422bd7ac4d53afd28fb74b2bc94d.png)
 
 `org.springframework.beans`和 `org.springframework.context` 这两个包是 IoC 实现的基础，如果想要研究 IoC 相关的源码的话，可以去看看
 
@@ -336,7 +334,7 @@ public class UserService {
 
 ### 构造函数注入还是 Setter 注入？
 
-Spring 官方有对这个问题的回答：<https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html#beans-setter-injection>。
+Spring 官方有对这个问题的回答：<https://docs.spring.io/spring-框架/reference/core/beans/dependencies/factory-collaborators.html#beans-setter-injection>。
 
 我这里主要提取总结完善一下 Spring 官方的建议。
 
@@ -556,7 +554,7 @@ public interface InitializingBean {
 
 最后，再分享一张清晰的图解（图源：[如何记忆 Spring Bean 的生命周期](https://chaycao.github.io/2020/02/15/如何记忆Spring-Bean的生命周期.html)）。
 
-![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/spring-bean-lifestyle.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/spring-bean-lifestyle.png)
 
 ## Spring AOP
 
@@ -566,7 +564,7 @@ AOP(Aspect-Oriented Programming:面向切面编程)能够将那些与业务无�
 
 Spring AOP 就是基于动态代理的，如果要代理的对象，实现了某个接口，那么 Spring AOP 会使用 **JDK Proxy**，去创建代理对象，而对于没有实现接口的对象，就无法使用 JDK Proxy 去进行代理了，这时候 Spring AOP 会使用 **Cglib** 生成一个被代理对象的子类来作为代理，如下图所示：
 
-![SpringAOPProcess](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/230ae587a322d6e4d09510161987d346.jpeg)
+![SpringAOPProcess](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/230ae587a322d6e4d09510161987d346.jpeg)
 
 当然你也可以使用 **AspectJ** ！Spring AOP 已经集成了 AspectJ ，AspectJ 应该算的上是 Java 生态系统中最完整的 AOP 框架了。
 
@@ -601,7 +599,7 @@ AOP 切面编程涉及到的一些专业术语：
 
 ### AOP 常见的通知类型有哪些？
 
-![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/aspectj-advice-types.jpg)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/aspectj-advice-types.jpg)
 
 - **Before**（前置通知）：目标对象的方法调用之前触发
 - **After** （后置通知）：目标对象的方法调用之后触发
@@ -648,7 +646,7 @@ MVC 是模型(Model)、视图(View)、控制器(Controller)的简写，其核心
 
 网上有很多人说 MVC 不是设计模式，只是软件设计规范，我个人更倾向于 MVC 同样是众多设计模式中的一种。**[java-design-patterns](https://github.com/iluwatar/java-design-patterns)** 项目中就有关于 MVC 的相关介绍。
 
-![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/159b3d3e70dd45e6afa81bf06d09264e.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/159b3d3e70dd45e6afa81bf06d09264e.png)
 
 想要真正理解 Spring MVC，我们先来看看 Model 1 和 Model 2 这两个没有 Spring MVC 的时代。
 
@@ -696,7 +694,7 @@ MVC 是一种设计模式，Spring MVC 是一款很优秀的 MVC 框架。Spring
 
 > SpringMVC 工作原理的图解我没有自己画，直接图省事在网上找了一个非常清晰直观的，原出处不明。
 
-![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/de6d2b213f112297298f3e223bf08f28.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/de6d2b213f112297298f3e223bf08f28.png)
 
 **流程说明（重要）：**
 
@@ -770,7 +768,7 @@ public class GlobalExceptionHandler {
 
 ## Spring 框架中用到了哪些设计模式？
 
-> 关于下面这些设计模式的详细介绍，可以看我写的 [Spring 中的设计模式详解](https://javaguide.cn/system-design/framework/spring/spring-design-patterns-summary.html) 这篇文章。
+> 关于下面这些设计模式的详细介绍，可以看我写的 [Spring 中的设计模式详解](https://javaguide.cn/系统设计/框架/spring/spring-design-patterns-summary.html) 这篇文章。
 
 - **工厂设计模式** : Spring 使用工厂模式通过 `BeanFactory`、`ApplicationContext` 创建 bean 对象。
 - **代理设计模式** : Spring AOP 功能的实现。
@@ -941,7 +939,7 @@ SpringBoot 2.6.x 以后，如果你不想重构循环依赖的代码的话，也
 
 ## Spring 事务
 
-关于 Spring 事务的详细介绍，可以看我写的 [Spring 事务详解](https://javaguide.cn/system-design/framework/spring/spring-transaction.html) 这篇文章。
+关于 Spring 事务的详细介绍，可以看我写的 [Spring 事务详解](https://javaguide.cn/系统设计/框架/spring/spring-transaction.html) 这篇文章。
 
 ### Spring 管理事务的方式有几种？
 
@@ -1022,7 +1020,7 @@ public enum Isolation {
 
 `@Transactional` 注解默认回滚策略是只有在遇到`RuntimeException`(运行时异常) 或者 `Error` 时才会回滚事务，而不会回滚 `Checked Exception`（受检查异常）。这是因为 Spring 认为`RuntimeException`和 Error 是不可预期的错误，而受检异常是可预期的错误，可以通过业务逻辑来处理。
 
-![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/spring-transactional-rollbackfor.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/spring-transactional-rollbackfor.png)
 
 如果想要修改默认的回滚策略，可以使用 `@Transactional` 注解的 `rollbackFor` 和 `noRollbackFor` 属性来指定哪些异常需要回滚，哪些异常不需要回滚。例如，如果想要让所有的异常都回滚事务，可以使用如下的注解：
 
@@ -1135,7 +1133,7 @@ Spring Security 重要的是实战，这里仅对小部分知识点进行总结�
 
 ### 有哪些控制请求访问权限的方法？
 
-![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/image-20220728201854641.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/image-20220728201854641.png)
 
 - `permitAll()`：无条件允许任何形式访问，不管你登录还是没有登录。
 - `anonymous()`：允许匿名访问，也就是没有登录才可以访问。
@@ -1173,7 +1171,7 @@ public interface PasswordEncoder {
 }
 ```
 
-![](https://oss.javaguide.cn/github/javaguide/system-design/framework/spring/image-20220728183540954.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/image-20220728183540954.png)
 
 官方推荐使用基于 bcrypt 强哈希函数的加密算法实现类。
 
@@ -1191,10 +1189,8 @@ public interface PasswordEncoder {
 - 《从零开始深入学习 Spring》：<https://juejin.cn/book/6857911863016390663>
 - <http://www.cnblogs.com/wmyskxz/p/8820371.html>
 - <https://www.journaldev.com/2696/spring-interview-questions-and-answers>
-- <https://www.edureka.co/blog/interview-questions/spring-interview-questions/>
+- <https://www.edureka.co/blog/面试题/spring-面试题/>
 - <https://www.cnblogs.com/clwydjgs/p/9317849.html>
-- <https://howtodoinjava.com/interview-questions/top-spring-interview-questions-with-answers/>
+- <https://howtodoinjava.com/面试题/top-spring-interview-questions-with-answers/>
 - <http://www.tomaszezula.com/2014/02/09/spring-series-part-5-component-vs-bean/>
 - <https://stackoverflow.com/questions/34172888/difference-between-bean-and-autowired>
-
-<!-- @include: @article-footer.snippet.md -->

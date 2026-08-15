@@ -169,7 +169,7 @@ Spring 框架中，事务管理相关最重要的 3 个接口如下：
 
 **`PlatformTransactionManager` 接口的具体实现如下:**
 
-![](./images/spring-transaction/PlatformTransactionManager.png)
+![](./图片/Spring事务/PlatformTransactionManager.png)
 
 `PlatformTransactionManager`接口中定义了三个方法：
 
@@ -193,7 +193,7 @@ public interface PlatformTransactionManager {
 
 主要是因为要将事务管理行为抽象出来，然后不同的平台去实现它，这样我们可以保证提供给外部的行为不变，方便我们扩展。
 
-我前段时间在我的[知识星球](https://javaguide.cn/about-the-author/zhishixingqiu-two-years.html)分享过：**“为什么我们要用接口？”** 。
+我前段时间在我的[知识星球](https://javaguide.cn/关于作者/zhishixingqiu-two-years.html)分享过：**“为什么我们要用接口？”** 。
 
 > 《设计模式》（GOF 那本）这本书在很多年前都提到过说要基于接口而非实现编程，你真的知道为什么要基于接口编程么？
 >
@@ -546,7 +546,7 @@ public enum Isolation {
 - **`TransactionDefinition.ISOLATION_REPEATABLE_READ`** : 对同一字段的多次读取结果都是一致的，除非数据是被本身事务自己所修改，**可以阻止脏读和不可重复读，但幻读仍有可能发生。**
 - **`TransactionDefinition.ISOLATION_SERIALIZABLE`** : 最高的隔离级别，完全服从 ACID 的隔离级别。所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，**该级别可以防止脏读、不可重复读以及幻读**。但是这将严重影响程序的性能。通常情况下也不会用到该级别。
 
-相关阅读：[MySQL 事务隔离级别详解](https://javaguide.cn/database/mysql/transaction-isolation-level.html)。
+相关阅读：[MySQL 事务隔离级别详解](https://javaguide.cn/数据库/mysql/transaction-isolation-level.html)。
 
 #### 事务超时属性
 
@@ -588,7 +588,7 @@ public interface TransactionDefinition {
 
 这些规则定义了哪些异常会导致事务回滚而哪些不会。默认情况下，事务只有遇到运行期异常（`RuntimeException` 的子类）时才会回滚，`Error` 也会导致事务回滚，但是，在遇到检查型（Checked）异常时不会回滚。
 
-![](./images/spring-transaction/roollbackFor.png)
+![](./图片/Spring事务/roollbackFor.png)
 
 如果你想要回滚你定义的特定的异常类型的话，可以这样：
 
@@ -748,5 +748,3 @@ private void method1() {
 - Spring 事务的传播特性：[https://github.com/love-somnus/Spring/wiki/Spring 事务的传播特性](https://github.com/love-somnus/Spring/wiki/Spring事务的传播特性)
 - [Spring 事务传播行为详解](https://segmentfault.com/a/1190000013341344)：[https://segmentfault.com/a/1190000013341344](https://segmentfault.com/a/1190000013341344)
 - 全面分析 Spring 的编程式事务管理及声明式事务管理：[https://www.ibm.com/developerworks/cn/education/opensource/os-cn-spring-trans/index.html](https://www.ibm.com/developerworks/cn/education/opensource/os-cn-spring-trans/index.html)
-
-<!-- @include: @article-footer.snippet.md -->

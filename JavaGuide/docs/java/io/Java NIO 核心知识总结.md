@@ -6,7 +6,7 @@ tag:
   - Java基础
 ---
 
-在学习 NIO 之前，需要先了解一下计算机 I/O 模型的基础理论知识。还不了解的话，可以参考我写的这篇文章：[Java IO 模型详解](https://javaguide.cn/java/io/io-model.html)。
+在学习 NIO 之前，需要先了解一下计算机 I/O 模型的基础理论知识。还不了解的话，可以参考我写的这篇文章：[Java IO 模型详解](https://javaguide.cn/java/io/Java IO 模型详解(2).html)。
 
 ## NIO 简介
 
@@ -14,7 +14,7 @@ tag:
 
 为了解决这个问题，在 Java1.4 版本引入了一种新的 I/O 模型 — **NIO** （New IO，也称为 Non-blocking IO） 。NIO 弥补了同步阻塞 I/O 的不足，它在标准 Java 代码中提供了非阻塞、面向缓冲、基于通道的 I/O，可以使用少量的线程来处理多个连接，大大提高了 I/O 效率和并发。
 
-下图是 BIO、NIO 和 AIO 处理客户端请求的简单对比图（关于 AIO 的介绍，可以看我写的这篇文章：[Java IO 模型详解](https://javaguide.cn/java/io/io-model.html)，不是重点，了解即可）。
+下图是 BIO、NIO 和 AIO 处理客户端请求的简单对比图（关于 AIO 的介绍，可以看我写的这篇文章：[Java IO 模型详解](https://javaguide.cn/java/io/Java IO 模型详解(2).html)，不是重点，了解即可）。
 
 ![BIO、NIO 和 AIO 对比](https://oss.javaguide.cn/github/javaguide/java/nio/bio-aio-nio.png)
 
@@ -388,5 +388,3 @@ private void loadFileIntoMemory(File xmlFile) throws IOException {
 - 面试官：Java NIO 了解？<https://mp.weixin.qq.com/s/mZobf-U8OSYQfHfYBEB6KA>
 
 - Java NIO：Buffer、Channel 和 Selector：<https://www.javadoop.com/post/java-nio>
-
-<!-- @include: @article-footer.snippet.md -->

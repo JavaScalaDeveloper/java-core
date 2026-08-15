@@ -13,8 +13,6 @@ head:
       content: 一篇文章总结MySQL常见的知识点和面试题，涵盖MySQL基础、MySQL基础架构、MySQL存储引擎、MySQL查询缓存、MySQL事务、MySQL锁等内容。
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 ## MySQL 基础
 
 ### 什么是关系型数据库？
@@ -442,7 +440,7 @@ MySQL 日志常见的面试题有：
 - undo log 如何保证事务的原子性？
 - ……
 
-上诉问题的答案可以在[《Java 面试指北》(付费)](../../zhuanlan/java-mian-shi-zhi-bei.md) 的 **「技术面试题篇」** 中找到。
+上诉问题的答案可以在[《Java 面试指北》(付费)](../../专栏/java-mian-shi-zhi-bei.md) 的 **「技术面试题篇」** 中找到。
 
 ![《Java 面试指北》技术面试题篇](https://oss.javaguide.cn/javamianshizhibei/technical-interview-questions.png)
 
@@ -515,7 +513,7 @@ COMMIT;
 
 《Designing Data-Intensive Application（数据密集型应用系统设计）》这本书强推一波，值得读很多遍！豆瓣有接近 90% 的人看了这本书之后给了五星好评。另外，中文翻译版本已经在 GitHub 开源，地址：[https://github.com/Vonng/ddia](https://github.com/Vonng/ddia) 。
 
-![](https://oss.javaguide.cn/github/javaguide/books/ddia.png)
+![](https://oss.javaguide.cn/github/javaguide/技术书籍/ddia.png)
 
 ### 并发事务带来了哪些问题?
 
@@ -527,7 +525,7 @@ COMMIT;
 
 例如：事务 1 读取某表中的数据 A=20，事务 1 修改 A=A-1，事务 2 读取到 A = 19,事务 1 回滚导致对 A 的修改并未提交到数据库， A 的值还是 20。
 
-![脏读](./images/concurrency-consistency-issues-dirty-reading.png)
+![脏读](./图片/concurrency-consistency-issues-dirty-reading.png)
 
 #### 丢失修改（Lost to modify）
 
@@ -535,7 +533,7 @@ COMMIT;
 
 例如：事务 1 读取某表中的数据 A=20，事务 2 也读取 A=20，事务 1 先修改 A=A-1，事务 2 后来也修改 A=A-1，最终结果 A=19，事务 1 的修改被丢失。
 
-![丢失修改](./images/concurrency-consistency-issues-missing-modifications.png)
+![丢失修改](./图片/concurrency-consistency-issues-missing-modifications.png)
 
 #### 不可重复读（Unrepeatable read）
 
@@ -543,7 +541,7 @@ COMMIT;
 
 例如：事务 1 读取某表中的数据 A=20，事务 2 也读取 A=20，事务 1 修改 A=A-1，事务 2 再次读取 A =19，此时读取的结果和第一次读取的结果不同。
 
-![不可重复读](./images/concurrency-consistency-issues-unrepeatable-read.png)
+![不可重复读](./图片/concurrency-consistency-issues-unrepeatable-read.png)
 
 #### 幻读（Phantom read）
 
@@ -551,7 +549,7 @@ COMMIT;
 
 例如：事务 2 读取某个范围的数据，事务 1 在这个范围插入了新的数据，事务 2 再次读取这个范围的数据发现相比于第一次读取的结果多了新的数据。
 
-![幻读](./images/concurrency-consistency-issues-phantom-read.png)
+![幻读](./图片/concurrency-consistency-issues-phantom-read.png)
 
 ### 不可重复读和幻读有什么区别？
 
@@ -813,7 +811,7 @@ MySQL 提供了两个方法来处理 ip 地址
 
 ### 有哪些常见的 SQL 优化手段？
 
-[《Java 面试指北》(付费)](../../zhuanlan/java-mian-shi-zhi-bei.md) 的 **「技术面试题篇」** 有一篇文章详细介绍了常见的 SQL 优化手段，非常全面，清晰易懂！
+[《Java 面试指北》(付费)](../../专栏/java-mian-shi-zhi-bei.md) 的 **「技术面试题篇」** 有一篇文章详细介绍了常见的 SQL 优化手段，非常全面，清晰易懂！
 
 ![常见的 SQL 优化手段](https://oss.javaguide.cn/javamianshizhibei/javamianshizhibei-sql-optimization.png)
 
@@ -911,7 +909,7 @@ MySQL 性能优化是一个系统性工程，涉及多个方面，在面试中�
 
 ## MySQL 学习资料推荐
 
-[**书籍推荐**](../../ignore/books/database.md#mysql) 。
+[**书籍推荐**](../../忽略/技术书籍/database.md#mysql) 。
 
 **文章推荐** :
 
@@ -936,5 +934,3 @@ MySQL 性能优化是一个系统性工程，涉及多个方面，在面试中�
 - 详解 MySQL InnoDB 中意向锁的作用：<https://juejin.cn/post/6844903666332368909>
 - 深入剖析 MySQL 自增锁：<https://juejin.cn/post/6968420054287253540>
 - 在数据库中不可重复读和幻读到底应该怎么分？：<https://www.zhihu.com/question/392569386>
-
-<!-- @include: @article-footer.snippet.md -->

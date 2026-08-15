@@ -7,7 +7,7 @@ category: 分布式
 
 微服务背景下，一个系统被拆分为多个服务，但是像安全认证，流量控制，日志，监控等功能是每个服务都需要的，没有网关的话，我们就需要在每个服务中单独实现，这使得我们做了很多重复的事情并且没有一个全局的视图来统一管理这些功能。
 
-![网关示意图](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/api-gateway-overview.png)
+![网关示意图](https://oss.javaguide.cn/github/javaguide/系统设计/分布式/api-gateway-overview.png)
 
 一般情况下，网关可以为我们提供请求转发、安全认证（身份/权限认证）、流量控制、负载均衡、降级熔断、日志、监控、参数校验、协议转换等功能。
 
@@ -17,7 +17,7 @@ category: 分布式
 
 如下图所示，网关服务外层通过 Nginx（其他负载均衡设备/软件也行） 进⾏负载转发以达到⾼可⽤。Nginx 在部署的时候，尽量也要考虑高可用，避免单点风险。
 
-![基于 Nginx 的服务端负载均衡](https://oss.javaguide.cn/github/javaguide/high-performance/load-balancing/server-load-balancing.png)
+![基于 Nginx 的服务端负载均衡](https://oss.javaguide.cn/github/javaguide/高性能/load-balancing/server-load-balancing.png)
 
 ## 网关能提供哪些功能？
 
@@ -41,7 +41,7 @@ category: 分布式
 
 下图来源于[百亿规模 API 网关服务 Shepherd 的设计与实现 - 美团技术团队 - 2021](https://mp.weixin.qq.com/s/iITqdIiHi3XGKq6u6FRVdg)这篇文章。
 
-![](https://oss.javaguide.cn/github/javaguide/distributed-system/api-gateway/up-35e102c633bbe8e0dea1e075ea3fee5dcfb.png)
+![](https://oss.javaguide.cn/github/javaguide/分布式/API网关/up-35e102c633bbe8e0dea1e075ea3fee5dcfb.png)
 
 ## 有哪些常见的网关系统？
 
@@ -51,11 +51,11 @@ Zuul 是 Netflix 开发的一款提供动态路由、监控、弹性、安全的
 
 Zuul 核心架构如下：
 
-![Zuul 核心架构](https://oss.javaguide.cn/github/javaguide/distributed-system/api-gateway/zuul-core-architecture.webp)
+![Zuul 核心架构](https://oss.javaguide.cn/github/javaguide/分布式/API网关/zuul-core-architecture.webp)
 
 Zuul 主要通过过滤器（类似于 AOP）来过滤请求，从而实现网关必备的各种功能。
 
-![Zuul 请求声明周期](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/api-gateway/zuul-request-lifecycle.webp)
+![Zuul 请求声明周期](https://oss.javaguide.cn/github/javaguide/系统设计/分布式/API网关/zuul-request-lifecycle.webp)
 
 我们可以自定义过滤器来处理请求，并且，Zuul 生态本身就有很多现成的过滤器供我们使用。就比如限流可以直接用国外朋友写的 [spring-cloud-zuul-ratelimit](https://github.com/marcosbarbero/spring-cloud-zuul-ratelimit) (这里只是举例说明，一般是配合 hystrix 来做限流)：
 
@@ -73,7 +73,7 @@ Zuul 主要通过过滤器（类似于 AOP）来过滤请求，从而实现网�
 
 [Zuul 1.x](https://netflixtechblog.com/announcing-zuul-edge-service-in-the-cloud-ab3af5be08ee) 基于同步 IO，性能较差。[Zuul 2.x](https://netflixtechblog.com/open-sourcing-zuul-2-82ea476cb2b3) 基于 Netty 实现了异步 IO，性能得到了大幅改进。
 
-![Zuul2 架构](https://oss.javaguide.cn/github/javaguide/distributed-system/api-gateway/zuul2-core-architecture.png)
+![Zuul2 架构](https://oss.javaguide.cn/github/javaguide/分布式/API网关/zuul2-core-architecture.png)
 
 - GitHub 地址： <https://github.com/Netflix/zuul>
 - 官方 Wiki： <https://github.com/Netflix/zuul/wiki>
@@ -84,7 +84,7 @@ SpringCloud Gateway 属于 Spring Cloud 生态系统中的网关，其诞生的�
 
 为了提升网关的性能，SpringCloud Gateway 基于 Spring WebFlux 。Spring WebFlux 使用 Reactor 库来实现响应式编程模型，底层基于 Netty 实现同步非阻塞的 I/O。
 
-![](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/api-gateway/springcloud-gateway-%20demo.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/分布式/API网关/springcloud-gateway-%20demo.png)
 
 Spring Cloud Gateway 不仅提供统一的路由方式，并且基于 Filter 链的方式提供了网关基本的功能，例如：安全，监控/指标，限流。
 
@@ -99,7 +99,7 @@ Spring Cloud Gateway 和 Zuul 2.x 的差别不大，也是通过过滤器来处�
 
 > OpenResty 是一个基于 Nginx 与 Lua 的高性能 Web 平台，其内部集成了大量精良的 Lua 库、第三方模块以及大多数的依赖项。用于方便地搭建能够处理超高并发、扩展性极高的动态 Web 应用、Web 服务和动态网关。
 
-![OpenResty 和 Nginx 以及 Lua 的关系](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/api-gatewaynginx-lua-openresty.png)
+![OpenResty 和 Nginx 以及 Lua 的关系](https://oss.javaguide.cn/github/javaguide/系统设计/分布式/api-gatewaynginx-lua-openresty.png)
 
 OpenResty 基于 Nginx，主要还是看中了其优秀的高并发能力。不过，由于 Nginx 采用 C 语言开发，二次开发门槛较高。如果想在 Nginx 上实现一些自定义的逻辑或功能，就需要编写 C 语言的模块，并重新编译 Nginx。
 
@@ -120,7 +120,7 @@ Kong 是一款基于 [OpenResty](https://github.com/openresty/) （Nginx + Lua�
 - Apache Cassandra/PostgreSQL：用来存储操作数据。
 - Kong Dashboard：官方推荐 UI 管理工具，当然，也可以使用 RESTful 方式 管理 Admin api。
 
-![](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/api-gateway/kong-way.webp)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/分布式/API网关/kong-way.webp)
 
 由于默认使用 Apache Cassandra/PostgreSQL 存储数据，Kong 的整个架构比较臃肿，并且会带来高可用的问题。
 
@@ -135,7 +135,7 @@ $ curl -X POST http://kong:8001/services/{service}/plugins \
 
 Kong 本身就是一个 Lua 应用程序，并且是在 Openresty 的基础之上做了一层封装的应用。归根结底就是利用 Lua 嵌入 Nginx 的方式，赋予了 Nginx 可编程的能力，这样以插件的形式在 Nginx 这一层能够做到无限想象的事情。例如限流、安全访问策略、路由、负载均衡等等。编写一个 Kong 插件，就是按照 Kong 插件编写规范，写一个自己自定义的 Lua 脚本，然后加载到 Kong 中，最后引用即可。
 
-![](https://oss.javaguide.cn/github/javaguide/system-design/distributed-system/api-gateway/kong-gateway-overview.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/分布式/API网关/kong-gateway-overview.png)
 
 除了 Lua，Kong 还可以基于 Go 、JavaScript、Python 等语言开发插件，得益于对应的 PDK（插件开发工具包）。
 
@@ -152,7 +152,7 @@ APISIX 是一款基于 OpenResty 和 etcd 的高性能、云原生、可扩展�
 
 与传统 API 网关相比，APISIX 具有动态路由和插件热加载，特别适合微服务系统下的 API 管理。并且，APISIX 与 SkyWalking（分布式链路追踪系统）、Zipkin（分布式链路追踪系统）、Prometheus（监控系统） 等 DevOps 生态工具对接都十分方便。
 
-![APISIX 架构图](https://oss.javaguide.cn/github/javaguide/distributed-system/api-gateway/apisix-architecture.png)
+![APISIX 架构图](https://oss.javaguide.cn/github/javaguide/分布式/API网关/apisix-architecture.png)
 
 作为 Nginx 和 Kong 的替代项目，APISIX 目前已经是 Apache 顶级开源项目，并且是最快毕业的国产开源项目。国内目前已经有很多知名企业（比如金山、有赞、爱奇艺、腾讯、贝壳）使用 APISIX 处理核心的业务流量。
 
@@ -165,7 +165,7 @@ APISIX 同样支持定制化的插件开发。开发者除了能够使用 Lua �
 
 > Wasm 是基于堆栈的虚拟机的二进制指令格式，一种低级汇编语言，旨在非常接近已编译的机器代码，并且非常接近本机性能。Wasm 最初是为浏览器构建的，但是随着技术的成熟，在服务器端看到了越来越多的用例。
 
-![](https://oss.javaguide.cn/github/javaguide/distributed-system/api-gateway/up-a240d3b113cde647f5850f4c7cc55d4ff5c.png)
+![](https://oss.javaguide.cn/github/javaguide/分布式/API网关/up-a240d3b113cde647f5850f4c7cc55d4ff5c.png)
 
 - Github 地址：<https://github.com/apache/apisix>
 - 官网地址： <https://apisix.apache.org/zh/>
@@ -181,7 +181,7 @@ APISIX 同样支持定制化的插件开发。开发者除了能够使用 Lua �
 
 Shenyu 是一款基于 WebFlux 的可扩展、高性能、响应式网关，Apache 顶级开源项目。
 
-![Shenyu 架构](https://oss.javaguide.cn/github/javaguide/distributed-system/api-gateway/shenyu-architecture.png)
+![Shenyu 架构](https://oss.javaguide.cn/github/javaguide/分布式/API网关/shenyu-architecture.png)
 
 Shenyu 通过插件扩展功能，插件是 ShenYu 的灵魂，并且插件也是可扩展和热插拔的。不同的插件实现不同的功能。Shenyu 自带了诸如限流、熔断、转发、重写、重定向、和路由监控等插件。
 
@@ -206,6 +206,4 @@ Kong 和 APISIX 功能更丰富，性能更强大，技术架构更贴合云原�
 - Kong 插件开发教程[通俗易懂]：<https://cloud.tencent.com/developer/article/2104299>
 - API 网关 Kong 实战：<https://xie.infoq.cn/article/10e4dab2de0bdb6f2c3c93da6>
 - Spring Cloud Gateway 原理介绍和应用：<https://blog.fintopia.tech/60e27b0e2078082a378ec5ed/>
-- 微服务为什么要用到 API 网关？：<https://apisix.apache.org/zh/blog/2023/03/08/why-do-microservices-need-an-api-gateway/>
-
-<!-- @include: @article-footer.snippet.md -->
+- 微服务为什么要用到 API 网关？：<https://apisix.apache.org/zh/blog/2023/03/08/why-do-microservices-need-an-API网关/>

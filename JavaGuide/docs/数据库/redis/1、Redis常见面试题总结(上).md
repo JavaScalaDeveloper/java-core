@@ -12,8 +12,6 @@ head:
       content: 一篇文章总结Redis常见的知识点和面试题，涵盖Redis基础、Redis常见数据结构、Redis线程模型、Redis内存管理、Redis事务、Redis性能优化等内容。
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 ## Redis 基础
 
 ### 什么是 Redis？
@@ -26,8 +24,7 @@ Redis 没有外部依赖，Linux 和 OS X 是 Redis 开发和测试最多的两�
 
 个人学习的话，你可以自己本机安装 Redis 或者通过 Redis 官网提供的[在线 Redis 环境](https://try.redis.io/)（少部分命令无法使用）来实际体验 Redis。
 
-
-![try-redis](https://oss.javaguide.cn/github/javaguide/database/redis/try.redis.io.png)
+![try-redis](https://oss.javaguide.cn/github/javaguide/数据库/redis/try.redis.io.png)
 
 全世界有非常多的网站使用到了 Redis ，[techstacks.io](https://techstacks.io/) 专门维护了一个[使用 Redis 的热门站点列表](https://techstacks.io/tech/redis) ，感兴趣的话可以看看。
 
@@ -41,8 +38,7 @@ Redis 内部做了非常多的性能优化，比较重要的有下面 3 点：
 
 下面这张图片总结的挺不错的，分享一下，出自 [Why is Redis so fast?](https://twitter.com/alexxubyte/status/1498703822528544770) 。
 
-
-![why-redis-so-fast](./images/why-redis-so-fast.png)
+![why-redis-so-fast](./图片/why-redis-so-fast.png)
 
 ### 分布式缓存常见的技术选型方案有哪些？
 
@@ -99,13 +95,13 @@ Memcached 是分布式缓存最开始兴起的那会，比较常用的。后来�
 
 ### 常见的缓存读写策略有哪些？
 
-关于常见的缓存读写策略的详细介绍，可以看我写的这篇文章：[3 种常用的缓存读写策略详解](https://javaguide.cn/database/redis/3-commonly-used-cache-read-and-write-strategies.html) 。
+关于常见的缓存读写策略的详细介绍，可以看我写的这篇文章：[3 种常用的缓存读写策略详解](https://javaguide.cn/数据库/redis/3-commonly-used-cache-read-and-write-strategies.html) 。
 
 ## Redis 应用
 
 ### Redis 除了做缓存，还能做什么？
 
-- **分布式锁**：通过 Redis 来做分布式锁是一种比较常见的方式。通常情况下，我们都是基于 Redisson 来实现分布式锁。关于 Redis 实现分布式锁的详细介绍，可以看我写的这篇文章：[分布式锁详解](https://javaguide.cn/distributed-system/distributed-lock.html) 。
+- **分布式锁**：通过 Redis 来做分布式锁是一种比较常见的方式。通常情况下，我们都是基于 Redisson 来实现分布式锁。关于 Redis 实现分布式锁的详细介绍，可以看我写的这篇文章：[分布式锁详解](https://javaguide.cn/分布式/distributed-lock.html) 。
 - **限流**：一般是通过 Redis + Lua 脚本的方式来实现限流。相关阅读：[《我司用了 6 年的 Redis 分布式限流器，可以说是非常厉害了！》](https://mp.weixin.qq.com/s/kyFAWH3mVNJvurQDt4vchA)。
 - **消息队列**：Redis 自带的 list 数据结构可以作为一个简单的队列使用。Redis 5.0 中增加的 Stream 类型的数据结构更加适合用来做消息队列。它比较类似于 Kafka，有主题和消费组的概念，支持消息持久化以及 ACK 机制。
 - **复杂业务场景**：通过 Redis 以及 Redis 扩展（比如 Redisson）提供的数据结构，我们可以很方便地完成很多复杂的业务场景比如通过 bitmap 统计活跃用户、通过 sorted set 维护排行榜。
@@ -113,7 +109,7 @@ Memcached 是分布式缓存最开始兴起的那会，比较常用的。后来�
 
 ### 如何基于 Redis 实现分布式锁？
 
-关于 Redis 实现分布式锁的详细介绍，可以看我写的这篇文章：[分布式锁详解](https://javaguide.cn/distributed-system/distributed-lock.html) 。
+关于 Redis 实现分布式锁的详细介绍，可以看我写的这篇文章：[分布式锁详解](https://javaguide.cn/分布式/distributed-lock.html) 。
 
 ### Redis 可以做消息队列么？
 
@@ -151,8 +147,7 @@ null
 
 **Redis 2.0 引入了发布订阅 (pub/sub) 功能，解决了 List 实现消息队列没有广播机制的问题。**
 
-
-![Redis 发布订阅 (pub/sub) 功能](https://oss.javaguide.cn/github/javaguide/database/redis/redis-pub-sub.png)
+![Redis 发布订阅 (pub/sub) 功能](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis-pub-sub.png)
 
 pub/sub 中引入了一个概念叫 **channel（频道）**，发布订阅机制的实现就是基于这个 channel 来做的。
 
@@ -163,8 +158,7 @@ pub/sub 涉及发布者（Publisher）和订阅者（Subscriber，也叫消费�
 
 我们这里启动 3 个 Redis 客户端来简单演示一下：
 
-
-![pub/sub 实现消息队列演示](https://oss.javaguide.cn/github/javaguide/database/redis/redis-pubsub-message-queue.png)
+![pub/sub 实现消息队列演示](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis-pubsub-message-queue.png)
 
 pub/sub 既能单播又能广播，还支持 channel 的简单正则匹配。不过，消息丢失（客户端断开连接或者 Redis 宕机都会导致消息丢失）、消息堆积（发布者发布消息的时候不会管消费者的具体消费能力如何）等问题依然没有一个比较好的解决办法。
 
@@ -184,8 +178,8 @@ pub/sub 既能单播又能广播，还支持 channel 的简单正则匹配。不
 
 > 关于 Redis 5 种基础数据结构和 3 种特殊数据结构的详细介绍请看下面这两篇文章：
 >
-> - [Redis 5 种基本数据结构详解](https://javaguide.cn/database/redis/redis-data-structures-01.html)
-> - [Redis 3 种特殊数据结构详解](https://javaguide.cn/database/redis/redis-data-structures-02.html)
+> - [Redis 5 种基本数据结构详解](https://javaguide.cn/数据库/redis/redis-data-structures-01.html)
+> - [Redis 3 种特殊数据结构详解](https://javaguide.cn/数据库/redis/redis-data-structures-02.html)
 
 ### Redis 常用的数据结构有哪些？
 
@@ -203,7 +197,7 @@ String 的常见应用场景如下：
 - 分布式锁(利用 `SETNX key value` 命令可以实现一个最简易的分布式锁)；
 - ......
 
-关于 String 的详细介绍请看这篇文章：[Redis 5 种基本数据结构详解](https://javaguide.cn/database/redis/redis-data-structures-01.html)。
+关于 String 的详细介绍请看这篇文章：[Redis 5 种基本数据结构详解](https://javaguide.cn/数据库/redis/redis-data-structures-01.html)。
 
 ### String 还是 Hash 存储对象数据更好呢？
 
@@ -296,8 +290,7 @@ struct sdshdr {
 - 用户 id 为 key
 - 商品 id 为 field，商品数量为 value
 
-
-![Hash维护简单的购物车信息](https://oss.javaguide.cn/github/javaguide/database/redis/hash-shopping-cart.png)
+![Hash维护简单的购物车信息](https://oss.javaguide.cn/github/javaguide/数据库/redis/hash-shopping-cart.png)
 
 那用户购物车信息的维护具体应该怎么操作呢？
 
@@ -315,13 +308,11 @@ Redis 中有一个叫做 `sorted set` 的数据结构经常被用在各种排行
 
 相关的一些 Redis 命令: `ZRANGE` (从小到大排序)、 `ZREVRANGE` （从大到小排序）、`ZREVRANK` (指定元素排名)。
 
+![](https://oss.javaguide.cn/github/javaguide/数据库/redis/2021060714195385.png)
 
-![](https://oss.javaguide.cn/github/javaguide/database/redis/2021060714195385.png)
+[《Java 面试指北》](https://javaguide.cn/专栏/java-mian-shi-zhi-bei.html) 的「技术面试题篇」就有一篇文章详细介绍如何使用 Sorted Set 来设计制作一个排行榜，感兴趣的小伙伴可以看看。
 
-[《Java 面试指北》](https://javaguide.cn/zhuanlan/java-mian-shi-zhi-bei.html) 的「技术面试题篇」就有一篇文章详细介绍如何使用 Sorted Set 来设计制作一个排行榜，感兴趣的小伙伴可以看看。
-
-
-![](https://oss.javaguide.cn/github/javaguide/database/redis/image-20220719071115140.png)
+![](https://oss.javaguide.cn/github/javaguide/数据库/redis/image-20220719071115140.png)
 
 ### Set 的应用场景是什么？
 
@@ -347,8 +338,7 @@ Bitmap 存储的是连续的二进制数字（0 和 1），通过 Bitmap, 只需
 
 你可以将 Bitmap 看作是一个存储二进制数字（0 和 1）的数组，数组中每个元素的下标叫做 offset（偏移量）。
 
-
-![img](https://oss.javaguide.cn/github/javaguide/database/redis/image-20220720194154133.png)
+![img](https://oss.javaguide.cn/github/javaguide/数据库/redis/image-20220720194154133.png)
 
 如果想要使用 Bitmap 统计活跃用户的话，可以使用日期（精确到天）作为 key，然后用户 ID 为 offset，如果当日活跃过就设置为 1。
 
@@ -402,7 +392,7 @@ PFCOUNT PAGE_1:UV
 
 ## Redis 持久化机制（重要）
 
-Redis 持久化机制（RDB 持久化、AOF 持久化、RDB 和 AOF 的混合持久化） 相关的问题比较多，也比较重要，于是我单独抽了一篇文章来总结 Redis 持久化机制相关的知识点和问题：[Redis 持久化机制详解](https://javaguide.cn/database/redis/redis-persistence.html) 。
+Redis 持久化机制（RDB 持久化、AOF 持久化、RDB 和 AOF 的混合持久化） 相关的问题比较多，也比较重要，于是我单独抽了一篇文章来总结 Redis 持久化机制相关的知识点和问题：[Redis 持久化机制详解](https://javaguide.cn/数据库/redis/redis-persistence.html) 。
 
 ## Redis 线程模型（重要）
 
@@ -434,8 +424,7 @@ Redis 通过 **IO 多路复用程序** 来监听来自客户端的大量连接�
 - 文件事件分派器（将 socket 关联到相应的事件处理器）
 - 事件处理器（连接应答处理器、命令请求处理器、命令回复处理器）
 
-
-![文件事件处理器（file event handler）](https://oss.javaguide.cn/github/javaguide/database/redis/redis-event-handler.png)
+![文件事件处理器（file event handler）](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis-event-handler.png)
 
 相关阅读：[Redis 事件机制详解](http://remcarpediem.net/article/1aa2da89/) 。
 
@@ -447,8 +436,7 @@ Redis 通过 **IO 多路复用程序** 来监听来自客户端的大量连接�
 
 为此，Redis 4.0 之后新增了`UNLINK`（可以看作是 `DEL` 的异步版本）、`FLUSHALL ASYNC`（清空所有数据库的所有 key，不仅仅是当前 `SELECT` 的数据库）、`FLUSHDB ASYNC`（清空当前 `SELECT` 数据库中的所有 key）等异步命令。
 
-
-![redis4.0 more thread](https://oss.javaguide.cn/github/javaguide/database/redis/redis4.0-more-thread.png)
+![redis4.0 more thread](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis4.0-more-thread.png)
 
 大体上来说，Redis 6.0 之前主要还是单线程处理。
 
@@ -554,8 +542,7 @@ OK
 
 Redis 通过一个叫做过期字典（可以看作是 hash 表）来保存数据过期的时间。过期字典的键指向 Redis 数据库中的某个 key(键)，过期字典的值是一个 long long 类型的整数，这个整数保存了 key 所指向的数据库键的过期时间（毫秒精度的 UNIX 时间戳）。
 
-
-![redis过期字典](https://oss.javaguide.cn/github/javaguide/database/redis/redis-expired-dictionary.png)
+![redis过期字典](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis-expired-dictionary.png)
 
 过期字典是存储在 redisDb 这个结构里的：
 
@@ -734,8 +721,7 @@ QUEUED
 
 Redis 官网相关介绍 [https://redis.io/topics/transactions](https://redis.io/topics/transactions) 如下：
 
-
-![Redis 事务](https://oss.javaguide.cn/github/javaguide/database/redis/redis-transactions.png)
+![Redis 事务](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis-transactions.png)
 
 ### Redis 事务支持原子性吗？
 
@@ -750,8 +736,7 @@ Redis 事务在运行错误的情况下，除了执行过程中出现错误的�
 
 Redis 官网也解释了自己为啥不支持回滚。简单来说就是 Redis 开发者们觉得没必要支持回滚，这样更简单便捷并且性能更好。Redis 开发者觉得即使命令执行错误也应该在开发过程中就被发现而不是生产过程中。
 
-
-![Redis 为什么不支持回滚](https://oss.javaguide.cn/github/javaguide/database/redis/redis-rollback.png)
+![Redis 为什么不支持回滚](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis-rollback.png)
 
 **相关 issue** :
 
@@ -795,7 +780,7 @@ Redis 从 2.6 版本开始支持执行 Lua 脚本，它的功能和事务非常�
 除了下面介绍的内容之外，再推荐两篇不错的文章：
 
 - [你的 Redis 真的变慢了吗？性能优化如何做 - 阿里开发者](https://mp.weixin.qq.com/s/nNEuYw0NlYGhuKKKKoWfcQ)
-- [Redis 常见阻塞原因总结 - JavaGuide](https://javaguide.cn/database/redis/redis-common-blocking-problems-summary.html)
+- [Redis 常见阻塞原因总结 - JavaGuide](https://javaguide.cn/数据库/redis/redis-common-blocking-problems-summary.html)
 
 ### 使用批量操作减少网络传输
 
@@ -833,7 +818,7 @@ Redis 中有一些原生支持批量操作的命令，比如：
 
 > Redis Cluster 并没有使用一致性哈希，采用的是 **哈希槽分区** ，每一个键值对都属于一个 **hash slot**（哈希槽） 。当客户端发送命令请求的时候，需要先根据 key 通过上面的计算公示找到的对应的哈希槽，然后再查询哈希槽和节点的映射关系，即可找到目标 Redis 节点。
 >
-> 我在 [Redis 集群详解（付费）](https://javaguide.cn/database/redis/redis-cluster.html) 这篇文章中详细介绍了 Redis Cluster 这部分的内容，感兴趣地可以看看。
+> 我在 [Redis 集群详解（付费）](https://javaguide.cn/数据库/redis/redis-cluster.html) 这篇文章中详细介绍了 Redis Cluster 这部分的内容，感兴趣地可以看看。
 
 #### pipeline
 
@@ -854,8 +839,7 @@ Redis 中有一些原生支持批量操作的命令，比如：
 
 > 事务可以看作是一个原子操作，但其实并不满足原子性。当我们提到 Redis 中的原子操作时，主要指的是这个操作（比如事务、Lua 脚本）不会被其他操作（比如其他事务、Lua 脚本）打扰，并不能完全保证这个操作中的所有写命令要么都执行要么都不执行。这主要也是因为 Redis 是不支持回滚操作。
 
-
-![](https://oss.javaguide.cn/github/javaguide/database/redis/redis-pipeline-vs-transaction.png)
+![](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis-pipeline-vs-transaction.png)
 
 另外，pipeline 不适用于执行顺序有依赖关系的一批命令。就比如说，你需要将前一个命令的结果给后续的命令使用，pipeline 就没办法满足你的需求了。对于这种需求，我们可以使用 **Lua 脚本** 。
 
@@ -942,8 +926,7 @@ Biggest string found '"ballcat:oauth:refresh_auth:f6cdb384-9a9d-4f2f-af01-dc3f28
 
 这里以阿里云 Redis 为例说明，它支持 bigkey 实时分析、发现，文档地址：<https://www.alibabacloud.com/help/zh/apsaradb-for-redis/latest/use-the-real-time-key-statistics-feature> 。
 
-
-![阿里云Key分析](https://oss.javaguide.cn/github/javaguide/database/redis/aliyun-key-analysis.png)
+![阿里云Key分析](https://oss.javaguide.cn/github/javaguide/数据库/redis/aliyun-key-analysis.png)
 
 #### 如何处理 bigkey？
 
@@ -1030,8 +1013,7 @@ OK
 
 京东零售的 [hotkey](https://gitee.com/jd-platform-opensource/hotkey) 这个项目不光支持 hotkey 的发现，还支持 hotkey 的处理。
 
-
-![京东零售开源的 hotkey](https://oss.javaguide.cn/github/javaguide/database/redis/jd-hotkey.png)
+![京东零售开源的 hotkey](https://oss.javaguide.cn/github/javaguide/数据库/redis/jd-hotkey.png)
 
 **4、根据业务情况提前预估。**
 
@@ -1047,8 +1029,7 @@ OK
 
 这里以阿里云 Redis 为例说明，它支持 hotkey 实时分析、发现，文档地址：<https://www.alibabacloud.com/help/zh/apsaradb-for-redis/latest/use-the-real-time-key-statistics-feature> 。
 
-
-![阿里云Key分析](https://oss.javaguide.cn/github/javaguide/database/redis/aliyun-key-analysis.png)
+![阿里云Key分析](https://oss.javaguide.cn/github/javaguide/数据库/redis/aliyun-key-analysis.png)
 
 #### 如何解决 hotkey？
 
@@ -1062,8 +1043,7 @@ hotkey 的常见处理以及优化办法如下（这些方法可以配合起来�
 
 这里以阿里云 Redis 为例说明，它支持通过代理查询缓存功能（Proxy Query Cache）优化热点 Key 问题。
 
-
-![通过阿里云的Proxy Query Cache优化热点Key问题](https://oss.javaguide.cn/github/javaguide/database/redis/aliyun-hotkey-proxy-query-cache.png)
+![通过阿里云的Proxy Query Cache优化热点Key问题](https://oss.javaguide.cn/github/javaguide/数据库/redis/aliyun-hotkey-proxy-query-cache.png)
 
 ### 慢查询命令
 
@@ -1170,7 +1150,7 @@ OK
 1. 什么是内存碎片?为什么会有 Redis 内存碎片?
 2. 如何清理 Redis 内存碎片？
 
-**参考答案**：[Redis 内存碎片详解](https://javaguide.cn/database/redis/redis-memory-fragmentation.html)。
+**参考答案**：[Redis 内存碎片详解](https://javaguide.cn/数据库/redis/redis-memory-fragmentation.html)。
 
 ## Redis 生产问题（重要）
 
@@ -1180,8 +1160,7 @@ OK
 
 缓存穿透说简单点就是大量请求的 key 是不合理的，**根本不存在于缓存中，也不存在于数据库中** 。这就导致这些请求直接到了数据库上，根本没有经过缓存这一层，对数据库造成了巨大的压力，可能直接就被这么多请求弄宕机了。
 
-
-![缓存穿透](https://oss.javaguide.cn/github/javaguide/database/redis/redis-cache-penetration.png)
+![缓存穿透](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis-cache-penetration.png)
 
 举个例子：某个黑客故意制造一些非法的 key 发起大量请求，导致大量请求落到数据库，结果数据库上也没有查到对应的数据。也就是说这些请求最终都落到了数据库上，对数据库造成了巨大的压力。
 
@@ -1226,8 +1205,7 @@ public Object getObjectInclNullById(Integer id) {
 
 加入布隆过滤器之后的缓存处理流程图如下。
 
-
-![加入布隆过滤器之后的缓存处理流程图](https://oss.javaguide.cn/github/javaguide/database/redis/redis-cache-penetration-bloom-filter.png)
+![加入布隆过滤器之后的缓存处理流程图](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis-cache-penetration-bloom-filter.png)
 
 但是，需要注意的是布隆过滤器可能会存在误判的情况。总结来说就是：**布隆过滤器说某个元素存在，小概率会误判。布隆过滤器说某个元素不在，那么这个元素一定不在。**
 
@@ -1245,7 +1223,7 @@ _为什么会出现误判的情况呢? 我们还要从布隆过滤器的原理�
 
 然后，一定会出现这样一种情况：**不同的字符串可能哈希出来的位置相同。** （可以适当增加位数组大小或者调整我们的哈希函数来降低概率）
 
-更多关于布隆过滤器的内容可以看我的这篇原创：[《不了解布隆过滤器？一文给你整的明明白白！》](https://javaguide.cn/cs-basics/data-structure/bloom-filter/) ，强烈推荐，个人感觉网上应该找不到总结的这么明明白白的文章了。
+更多关于布隆过滤器的内容可以看我的这篇原创：[《不了解布隆过滤器？一文给你整的明明白白！》](https://javaguide.cn/计算机基础/数据结构/bloom-filter/) ，强烈推荐，个人感觉网上应该找不到总结的这么明明白白的文章了。
 
 ### 缓存击穿
 
@@ -1253,8 +1231,7 @@ _为什么会出现误判的情况呢? 我们还要从布隆过滤器的原理�
 
 缓存击穿中，请求的 key 对应的是 **热点数据** ，该数据 **存在于数据库中，但不存在于缓存中（通常是因为缓存中的那份数据已经过期）** 。这就可能会导致瞬时大量的请求直接打到了数据库上，对数据库造成了巨大的压力，可能直接就被这么多请求弄宕机了。
 
-
-![缓存击穿](https://oss.javaguide.cn/github/javaguide/database/redis/redis-cache-breakdown.png)
+![缓存击穿](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis-cache-breakdown.png)
 
 举个例子：秒杀进行过程中，缓存中的某个秒杀商品的数据突然过期，这就导致瞬时大量对该商品的请求直接落到数据库上，对数据库造成了巨大的压力。
 
@@ -1280,8 +1257,7 @@ _为什么会出现误判的情况呢? 我们还要从布隆过滤器的原理�
 
 另外，缓存服务宕机也会导致缓存雪崩现象，导致所有的请求都落到了数据库上。
 
-
-![缓存雪崩](https://oss.javaguide.cn/github/javaguide/database/redis/redis-cache-avalanche.png)
+![缓存雪崩](https://oss.javaguide.cn/github/javaguide/数据库/redis/redis-cache-avalanche.png)
 
 举个例子：数据库中的大量数据在同一时间过期，这个时候突然有大量的请求需要访问这些过期的数据。这就导致大量的请求直接落到数据库上，对数据库造成了巨大的压力。
 
@@ -1319,7 +1295,7 @@ Cache Aside Pattern 中遇到写请求是这样的：更新 DB，然后直接删
 
 ### 哪些情况可能会导致 Redis 阻塞？
 
-单独抽了一篇文章来总结可能会导致 Redis 阻塞的情况：[Redis 常见阻塞原因总结](https://javaguide.cn/database/redis/redis-common-blocking-problems-summary.html)。
+单独抽了一篇文章来总结可能会导致 Redis 阻塞的情况：[Redis 常见阻塞原因总结](https://javaguide.cn/数据库/redis/redis-common-blocking-problems-summary.html)。
 
 ## Redis 集群
 
@@ -1343,7 +1319,7 @@ Cache Aside Pattern 中遇到写请求是这样的：更新 DB，然后直接删
 6. Redis Cluster 扩容缩容期间可以提供服务吗？
 7. Redis Cluster 中的节点是怎么进行通信的？
 
-**参考答案**：[Redis 集群详解（付费）](https://javaguide.cn/database/redis/redis-cluster.html)。
+**参考答案**：[Redis 集群详解（付费）](https://javaguide.cn/数据库/redis/redis-cluster.html)。
 
 ## Redis 使用规范
 

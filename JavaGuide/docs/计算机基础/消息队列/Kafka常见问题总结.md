@@ -1,9 +1,17 @@
 ---
 title: Kafka常见问题总结
+description: 本文总结 Kafka 常见面试题与核心知识点，涵盖 Kafka 架构（Broker/Topic/Partition/Consumer Group）、高性能原理（零拷贝/顺序写/批量处理）、消息可靠性（ACK机制/ISR副本）、消息顺序性、Rebalance 机制、Kafka 与 RocketMQ 对比等，助力 Kafka 学习与面试。
 category: 高性能
 tag:
   - 消息队列
+head:
+  - - meta
+    - name: keywords
+      content: Kafka,消息队列,Kafka分区,Kafka副本,ISR,消费者组,Rebalance,零拷贝,Kafka面试
 ---
+
+## Kafka 基础
+
 ### Kafka 是什么？主要应用场景有哪些？
 
 Kafka 是一个分布式流式处理平台。这到底是什么意思呢？
@@ -36,7 +44,7 @@ Kafka 主要有两大应用场景：
 
 #### 队列模型：早期的消息模型
 
-![队列模型](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/队列模型23.png)
+![队列模型](https://oss.javaguide.cn/github/javaguide/高性能/消息队列/%E9%98%9F%E5%88%97%E6%A8%A1%E5%9E%8B23.png)
 
 **使用队列（Queue）作为消息通信载体，满足生产者与消费者模式，一条消息只能被一个消费者使用，未被消费的消息在队列中保留直到被消费或超时。** 比如：我们生产者发送 100 条消息的话，两个消费者来消费一般情况下两个消费者会按照消息发送的顺序各自消费一半（也就是你一个我一个的消费。）
 
@@ -60,11 +68,13 @@ Kafka 主要有两大应用场景：
 
 > **RocketMQ 的消息模型和 Kafka 基本是完全一样的。唯一的区别是 Kafka 中没有队列这个概念，与之对应的是 Partition（分区）。**
 
+## Kafka 核心概念
+
 ### 什么是 Producer、Consumer、Broker、Topic、Partition？
 
 Kafka 将生产者发布的消息发送到 **Topic（主题）** 中，需要这些消息的消费者可以订阅这些 **Topic（主题）**，如下图所示：
 
-![](https://oss.javaguide.cn/github/javaguide/high-performance/message-queue20210507200944439.png)
+![](https://oss.javaguide.cn/github/javaguide/高性能/message-queue20210507200944439.png)
 
 上面这张图也为我们引出了，Kafka 比较重要的几个概念：
 
@@ -90,22 +100,34 @@ Kafka 将生产者发布的消息发送到 **Topic（主题）** 中，需要这
 1. Kafka 通过给特定 Topic 指定多个 Partition, 而各个 Partition 可以分布在不同的 Broker 上, 这样便能提供比较好的并发能力（负载均衡）。
 2. Partition 可以指定对应的 Replica 数, 这也极大地提高了消息存储的安全性, 提高了容灾能力，不过也相应的增加了所需要的存储空间。
 
-### Zookeeper 在 Kafka 中的作用知道吗？
+## ZooKeeper 和 Kafka
 
-> **要想搞懂 zookeeper 在 Kafka 中的作用 一定要自己搭建一个 Kafka 环境然后自己进 zookeeper 去看一下有哪些文件夹和 Kafka 有关，每个节点又保存了什么信息。** 一定不要光看不实践，这样学来的也终会忘记！这部分内容参考和借鉴了这篇文章：https://www.jianshu.com/p/a036405f989c 。
+### ZooKeeper 在 Kafka 中的作用是什么？
 
-下图就是我的本地 Zookeeper ，它成功和我本地的 Kafka 关联上（以下文件夹结构借助 idea 插件 Zookeeper tool 实现）。
+> 要想搞懂 zookeeper 在 Kafka 中的作用 一定要自己搭建一个 Kafka 环境然后自己进 zookeeper 去看一下有哪些文件夹和 Kafka 有关，每个节点又保存了什么信息。 一定不要光看不实践，这样学来的也终会忘记！这部分内容参考和借鉴了这篇文章：<https://www.jianshu.com/p/a036405f989c> 。
 
-<img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/zookeeper-kafka.jpg" style="zoom:50%;" />
+下图就是我的本地 ZooKeeper，它成功和我本地的 Kafka 关联上（以下文件夹结构借助 idea 插件 ZooKeeper tool 实现）。
+
+![ZooKeeper 中与 Kafka 相关的节点信息](https://oss.javaguide.cn/github/javaguide/高性能/消息队列/zookeeper-kafka.jpg)
 
 ZooKeeper 主要为 Kafka 提供元数据的管理的功能。
 
-从图中我们可以看出，Zookeeper 主要为 Kafka 做了下面这些事情：
+从图中我们可以看出，ZooKeeper 主要为 Kafka 做了下面这些事情：
 
-1. **Broker 注册**：在 Zookeeper 上会有一个专门**用来进行 Broker 服务器列表记录**的节点。每个 Broker 在启动时，都会到 Zookeeper 上进行注册，即到 `/brokers/ids` 下创建属于自己的节点。每个 Broker 就会将自己的 IP 地址和端口等信息记录到该节点中去
-2. **Topic 注册**：在 Kafka 中，同一个**Topic 的消息会被分成多个分区**并将其分布在多个 Broker 上，**这些分区信息及与 Broker 的对应关系**也都是由 Zookeeper 在维护。比如我创建了一个名字为 my-topic 的主题并且它有两个分区，对应到 zookeeper 中会创建这些文件夹：`/brokers/topics/my-topic/Partitions/0`、`/brokers/topics/my-topic/Partitions/1`
-3. **负载均衡**：上面也说过了 Kafka 通过给特定 Topic 指定多个 Partition, 而各个 Partition 可以分布在不同的 Broker 上, 这样便能提供比较好的并发能力。 对于同一个 Topic 的不同 Partition，Kafka 会尽力将这些 Partition 分布到不同的 Broker 服务器上。当生产者产生消息后也会尽量投递到不同 Broker 的 Partition 里面。当 Consumer 消费的时候，Zookeeper 可以根据当前的 Partition 数量以及 Consumer 数量来实现动态负载均衡。
-4. ......
+1. **Broker 注册**：在 ZooKeeper 上会有一个专门**用来进行 Broker 服务器列表记录**的节点。每个 Broker 在启动时，都会到 ZooKeeper 上进行注册，即到 `/brokers/ids` 下创建属于自己的节点。每个 Broker 就会将自己的 IP 地址和端口等信息记录到该节点中去
+2. **Topic 注册**：在 Kafka 中，同一个**Topic 的消息会被分成多个分区**并将其分布在多个 Broker 上，**这些分区信息及与 Broker 的对应关系**也都是由 ZooKeeper 在维护。比如我创建了一个名字为 my-topic 的主题并且它有两个分区，对应到 ZooKeeper 中会创建这些文件夹：`/brokers/topics/my-topic/Partitions/0`、`/brokers/topics/my-topic/Partitions/1`
+3. **负载均衡**：上面也说过了 Kafka 通过给特定 Topic 指定多个 Partition, 而各个 Partition 可以分布在不同的 Broker 上, 这样便能提供比较好的并发能力。 对于同一个 Topic 的不同 Partition，Kafka 会尽力将这些 Partition 分布到不同的 Broker 服务器上。当生产者产生消息后也会尽量投递到不同 Broker 的 Partition 里面。当 Consumer 消费的时候，ZooKeeper 可以根据当前的 Partition 数量以及 Consumer 数量来实现动态负载均衡。
+4. ……
+
+### 使用 Kafka 能否不引入 ZooKeeper？
+
+在 Kafka 2.8 之前，Kafka 最被大家诟病的就是其重度依赖于 ZooKeeper。Kafka 2.8 引入了基于 Raft 协议的 KRaft 模式，但当时还属于 Early Access；Kafka 3.3.x 开始，KRaft 面向新集群被标记为生产可用；Kafka 4.0 起，ZooKeeper 模式已经移除，Kafka 只支持 KRaft 模式。
+
+不过，要提示一下：老集群从 ZooKeeper 模式迁移到 KRaft 模式需要按官方迁移流程执行，不能简单改配置重启。新集群建议优先按官方当前推荐模式部署。
+
+![](https://oss.javaguide.cn/github/javaguide/高性能/消息队列/kafka3.3.1-kraft-production-ready.png)
+
+## Kafka 消费顺序、消息丢失和重复消费
 
 ### Kafka 如何保证消息的消费顺序？
 
@@ -116,9 +138,9 @@ ZooKeeper 主要为 Kafka 提供元数据的管理的功能。
 
 假如这两条消息的消费顺序不一样造成的最终结果就会截然不同。
 
-我们知道 Kafka 中 Partition(分区)是真正保 存消息的地方，我们发送的消息都被放在了这里。而我们的 Partition(分区) 又存在于 Topic(主题) 这个概念中，并且我们可以给特定 Topic 指定多个 Partition。
+我们知道 Kafka 中 Partition(分区)是真正保存消息的地方，我们发送的消息都被放在了这里。而我们的 Partition(分区) 又存在于 Topic(主题) 这个概念中，并且我们可以给特定 Topic 指定多个 Partition。
 
-![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/KafkaTopicPartionsLayout.png)
+![](https://oss.javaguide.cn/github/javaguide/高性能/消息队列/KafkaTopicPartionsLayout.png)
 
 每次添加消息到 Partition(分区) 的时候都会采用尾加法，如上图所示。 **Kafka 只能为我们保证 Partition(分区) 中的消息有序。**
 
@@ -133,9 +155,16 @@ Kafka 中发送 1 条消息的时候，可以指定 topic, partition, key,data�
 1. 1 个 Topic 只对应一个 Partition。
 2. （推荐）发送消息的时候指定 key/Partition。
 
-当然不仅仅只有上面两种方法，上面两种方法是我觉得比较好理解的，
+当然不仅仅只有上面两种方法，上面两种方法是我觉得比较好理解的。
 
-### Kafka 如何保证消息不丢失
+顺序消费还要注意两个边界：
+
+- **只能保证同一分区内有序**：多个分区之间天然并行，不保证全局顺序。
+- **失败重试可能打乱业务效果**：如果某条消息处理失败，而后续消息已经被处理，业务层仍然需要状态机或版本号兜底。
+
+所以，生产上通常是“同一业务 key 进同一分区 + 单分区内顺序消费 + 消费端幂等/状态机校验”一起使用。
+
+### Kafka 如何保证消息不丢失？
 
 #### 生产者丢失消息的情况
 
@@ -163,13 +192,13 @@ if (sendResult.getRecordMetadata() != null) {
 
 如果消息发送失败的话，我们检查失败的原因之后重新发送即可！
 
-**另外这里推荐为 Producer 的`retries `（重试次数）设置一个比较合理的值，一般是 3 ，但是为了保证消息不丢失的话一般会设置比较大一点。设置完成之后，当出现网络问题之后能够自动重试消息发送，避免消息丢失。另外，建议还要设置重试间隔，因为间隔太小的话重试的效果就不明显了，网络波动一次你 3 次一下子就重试完了**
+另外，这里推荐为 Producer 的`retries`（重试次数）设置一个比较合理的值，一般是 3 ，但是为了保证消息不丢失的话一般会设置比较大一点。设置完成之后，当出现网络问题之后能够自动重试消息发送，避免消息丢失。另外，建议还要设置重试间隔，因为间隔太小的话重试的效果就不明显了，网络波动一次你 3 次一下子就重试完了。
 
 #### 消费者丢失消息的情况
 
 我们知道消息在被追加到 Partition(分区)的时候都会分配一个特定的偏移量（offset）。偏移量（offset)表示 Consumer 当前消费到的 Partition(分区)的所在的位置。Kafka 通过偏移量（offset）可以保证消息在分区内的顺序性。
 
-![kafka offset](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/kafka-offset.jpg)
+![kafka offset](https://oss.javaguide.cn/github/javaguide/高性能/消息队列/kafka-offset.jpg)
 
 当消费者拉取到了分区的某个消息之后，消费者会自动提交了 offset。自动提交的话会有一个问题，试想一下，当消费者刚拿到这个消息准备进行真正消费的时候，突然挂掉了，消息实际上并没有被消费，但是 offset 却被自动提交了。
 
@@ -203,7 +232,15 @@ acks 的默认值即为 1，代表我们的消息被 leader 副本接收之后�
 
 我们最开始也说了我们发送的消息会被发送到 leader 副本，然后 follower 副本才能从 leader 副本中拉取消息进行同步。多个 follower 副本之间的消息同步情况不一样，当我们配置了 **unclean.leader.election.enable = false** 的话，当 leader 副本发生故障时就不会从 follower 副本中和 leader 同步程度达不到要求的副本中选择出 leader ，这样降低了消息丢失的可能性。
 
-### Kafka 如何保证消息不重复消费
+生产环境还建议同时关注生产者端配置：
+
+- 开启幂等生产者，避免生产者重试导致重复写入同一分区。
+- 合理设置 `delivery.timeout.ms`、`request.timeout.ms` 和 `linger.ms`，在可靠性、延迟和吞吐之间取舍。
+- 对关键业务消息记录发送失败日志或本地消息表，方便后续补偿。
+
+Kafka 的可靠性不是某一个参数决定的，而是 Topic 副本、ISR、Producer ACK、Consumer offset 提交时机和业务幂等一起决定的。
+
+### Kafka 如何保证消息不重复消费？
 
 **kafka 出现消息重复消费的原因：**
 
@@ -217,7 +254,303 @@ acks 的默认值即为 1，代表我们的消息被 leader 副本接收之后�
   - 处理完消息再提交：依旧有消息重复消费的风险，和自动提交一样
   - 拉取到消息即提交：会有消息丢失的风险。允许消息延时的场景，一般会采用这种方式。然后，通过定时任务在业务不繁忙（比如凌晨）的时候做数据兜底。
 
-### Reference
+## Rebalance 有什么风险？如何减少影响？
 
-- Kafka 官方文档：https://kafka.apache.org/documentation/
+Consumer Group 中消费者数量变化、订阅 Topic 变化、消费者长时间没有发送心跳，都可能触发 Rebalance。Rebalance 期间，分区会被重新分配，部分消费者会暂停消费，严重时会造成消费抖动和重复消费。
+
+常见优化思路：
+
+- 控制消费者实例的频繁上下线，发布时尽量滚动、分批。
+- 合理设置 `max.poll.interval.ms`，避免单批消息处理太久导致消费者被踢出组。
+- 控制单次拉取数量，避免一次拉太多导致处理时间超过心跳或 poll 间隔。
+- 使用静态成员或更平滑的分区分配策略，减少不必要的分区迁移。
+- 消费端必须幂等，因为 Rebalance 前后 offset 提交和业务处理之间仍然可能出现重复。
+
+面试里如果被问到 Rebalance，不要只说“消费者重新分配分区”。更关键的是讲清楚它会带来短暂停顿、重复消费风险，以及如何通过参数、发布策略和幂等设计降低影响。
+
+## Kafka 重试机制
+
+在 Kafka 如何保证消息不丢失这里，我们提到了 Kafka 的重试机制。由于这部分内容较为重要，我们这里再来详细介绍一下。
+
+网上关于 Spring Kafka 的默认重试机制文章很多，但大多都是过时的，和实际运行结果完全不一样。以下是根据 [spring-kafka-2.9.3](https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka/2.9.3) 源码重新梳理一下。
+
+### 消费失败会怎么样？
+
+在消费过程中，当其中一个消息消费异常时，会不会卡住后续队列消息的消费？这样业务岂不是卡住了？
+
+生产者代码：
+
+```Java
+ for (int i = 0; i < 10; i++) {
+   kafkaTemplate.send(KafkaConst.TEST_TOPIC, String.valueOf(i))
+ }
+```
+
+消费者消代码：
+
+```Java
+   @KafkaListener(topics = {KafkaConst.TEST_TOPIC},groupId = "apple")
+   private void customer(String message) throws InterruptedException {
+       log.info("kafka customer:{}",message);
+       Integer n = Integer.parseInt(message);
+       if (n%5==0){
+           throw new  RuntimeException();
+       }
+   }
+```
+
+在默认配置下，当消费异常会进行重试，重试多次后会跳过当前消息，继续进行后续消息的消费，不会一直卡在当前消息。下面是一段消费的日志，可以看出当 `test-0@95` 重试多次后会被跳过。
+
+```Java
+2023-08-10 12:03:32.918 DEBUG 9700 --- [ntainer#0-0-C-1] o.s.kafka.listener.DefaultErrorHandler   : Skipping seek of: test-0@95
+2023-08-10 12:03:32.918 TRACE 9700 --- [ntainer#0-0-C-1] o.s.kafka.listener.DefaultErrorHandler   : Seeking: test-0 to: 96
+2023-08-10 12:03:32.918  INFO 9700 --- [ntainer#0-0-C-1] o.a.k.clients.consumer.KafkaConsumer     : [Consumer clientId=consumer-apple-1, groupId=apple] Seeking to offset 96 for partition test-0
+
+```
+
+因此，即使某个消息消费异常，Kafka 消费者仍然能够继续消费后续的消息，不会一直卡在当前消息，保证了业务的正常进行。
+
+### 默认会重试多少次？
+
+默认配置下，消费异常会进行重试，重试次数是多少, 重试是否有时间间隔？
+
+看源码 `FailedRecordTracker` 类有个 `recovered` 函数，返回 Boolean 值判断是否要进行重试，下面是这个函数中判断是否重试的逻辑：
+
+```java
+	@Override
+	public boolean recovered(ConsumerRecord<?, ?> record, Exception exception,
+	    @Nullable MessageListenerContainer container,
+	    @Nullable Consumer<?, ?> consumer) throws InterruptedException {
+
+	    if (this.noRetries) {
+         // 不支持重试
+	        attemptRecovery(record, exception, null, consumer);
+	        return true;
+	    }
+     // 取已经失败的消费记录集合
+	    Map < TopicPartition, FailedRecord > map = this.failures.get();
+	    if (map == null) {
+	        this.failures.set(new HashMap < > ());
+	        map = this.failures.get();
+	    }
+     //  获取消费记录所在的Topic和Partition
+	    TopicPartition topicPartition = new TopicPartition(record.topic(), record.partition());
+	    FailedRecord failedRecord = getFailedRecordInstance(record, exception, map, topicPartition);
+     // 通知注册的重试监听器，消息投递失败
+	    this.retryListeners.forEach(rl - >
+	        rl.failedDelivery(record, exception, failedRecord.getDeliveryAttempts().get()));
+	    // 获取下一次重试的时间间隔
+    long nextBackOff = failedRecord.getBackOffExecution().nextBackOff();
+	    if (nextBackOff != BackOffExecution.STOP) {
+	        this.backOffHandler.onNextBackOff(container, exception, nextBackOff);
+	        return false;
+	    } else {
+	        attemptRecovery(record, exception, topicPartition, consumer);
+	        map.remove(topicPartition);
+	        if (map.isEmpty()) {
+	            this.failures.remove();
+	        }
+	        return true;
+	    }
+	}
+```
+
+其中， `BackOffExecution.STOP` 的值为 -1。
+
+```java
+@FunctionalInterface
+public interface BackOffExecution {
+
+	long STOP = -1;
+	long nextBackOff();
+
+}
+```
+
+`nextBackOff` 的值调用 `BackOff` 类的 `nextBackOff()` 函数。如果当前执行次数大于最大执行次数则返回 `STOP`，既超过这个最大执行次数后才会停止重试。
+
+```Java
+public long nextBackOff() {
+  this.currentAttempts++;
+  if (this.currentAttempts <= getMaxAttempts()) {
+    return getInterval();
+  }
+  else {
+    return STOP;
+  }
+}
+```
+
+那么这个 `getMaxAttempts` 的值又是多少呢？回到最开始，当执行出错会进入 `DefaultErrorHandler` 。`DefaultErrorHandler` 默认的构造函数是：
+
+```Java
+public DefaultErrorHandler() {
+  this(null, SeekUtils.DEFAULT_BACK_OFF);
+}
+```
+
+`SeekUtils.DEFAULT_BACK_OFF` 定义的是:
+
+```Java
+public static final int DEFAULT_MAX_FAILURES = 10;
+
+public static final FixedBackOff DEFAULT_BACK_OFF = new FixedBackOff(0, DEFAULT_MAX_FAILURES - 1);
+```
+
+`DEFAULT_MAX_FAILURES` 的值是 10，`currentAttempts` 从 0 到 9，所以总共会执行 10 次，每次重试的时间间隔为 0。
+
+最后，简单总结一下：Kafka 消费者在默认配置下会进行最多 10 次 的重试，每次重试的时间间隔为 0，即立即进行重试。如果在 10 次重试后仍然无法成功消费消息，则不再进行重试，消息将被视为消费失败。
+
+### 如何自定义重试次数以及时间间隔?
+
+从上面的代码可以知道，默认错误处理器的重试次数以及时间间隔是由 `FixedBackOff` 控制的，`FixedBackOff` 是 `DefaultErrorHandler` 初始化时默认的。所以自定义重试次数以及时间间隔，只需要在 `DefaultErrorHandler` 初始化的时候传入自定义的 `FixedBackOff` 即可。重新实现一个 `KafkaListenerContainerFactory` ，调用 `setCommonErrorHandler` 设置新的自定义的错误处理器就可以实现。
+
+```Java
+@Bean
+public KafkaListenerContainerFactory kafkaListenerContainerFactory(ConsumerFactory<String, String> consumerFactory) {
+    ConcurrentKafkaListenerContainerFactory factory = new ConcurrentKafkaListenerContainerFactory();
+    // 自定义重试时间间隔以及次数
+    FixedBackOff fixedBackOff = new FixedBackOff(1000, 5);
+    factory.setCommonErrorHandler(new DefaultErrorHandler(fixedBackOff));
+    factory.setConsumerFactory(consumerFactory);
+    return factory;
+}
+```
+
+### 如何在重试失败后进行告警?
+
+自定义重试失败后逻辑，需要手动实现，以下是一个简单的例子，重写 `DefaultErrorHandler` 的 `handleRemaining` 函数，加上自定义的告警等操作。
+
+```Java
+@Slf4j
+public class DelErrorHandler extends DefaultErrorHandler {
+
+    public DelErrorHandler(FixedBackOff backOff) {
+        super(null,backOff);
+    }
+
+    @Override
+    public void handleRemaining(Exception thrownException, List<ConsumerRecord<?, ?>> records, Consumer<?, ?> consumer, MessageListenerContainer container) {
+        super.handleRemaining(thrownException, records, consumer, container);
+        log.info("重试多次失败");
+        // 自定义操作
+    }
+}
+```
+
+`DefaultErrorHandler` 只是默认的一个错误处理器，Spring Kafka 还提供了 `CommonErrorHandler` 接口。手动实现 `CommonErrorHandler` 就可以实现更多的自定义操作，有很高的灵活性。例如根据不同的错误类型，实现不同的重试逻辑以及业务逻辑等。
+
+### 重试失败后的数据如何再次处理?
+
+当达到最大重试次数后，数据会直接被跳过，继续向后进行。当代码修复后，如何重新消费这些重试失败的数据呢？
+
+**死信队列（Dead Letter Queue，简称 DLQ）** 是消息中间件中的一种特殊队列。它主要用于处理无法被消费者正确处理的消息，通常是因为消息格式错误、处理失败、消费超时等情况导致的消息被“丢弃”或“死亡”的情况。当消息进入队列后，消费者会尝试处理它。如果处理失败，或者超过一定的重试次数仍无法被成功处理，消息可以发送到死信队列中，而不是被永久性地丢弃。在死信队列中，可以进一步分析、处理这些无法正常消费的消息，以便定位问题、修复错误，并采取适当的措施。
+
+`@RetryableTopic` 是 Spring Kafka 中的一个注解,它用于配置某个 Topic 支持消息重试，更推荐使用这个注解来完成重试。
+
+```Java
+// 重试 5 次，重试间隔 100 毫秒,最大间隔 1 秒
+@RetryableTopic(
+        attempts = "5",
+        backoff = @Backoff(delay = 100, maxDelay = 1000)
+)
+@KafkaListener(topics = {KafkaConst.TEST_TOPIC}, groupId = "apple")
+private void customer(String message) {
+    log.info("kafka customer:{}", message);
+    Integer n = Integer.parseInt(message);
+    if (n % 5 == 0) {
+        throw new RuntimeException();
+    }
+    System.out.println(n);
+}
+```
+
+当达到最大重试次数后，如果仍然无法成功处理消息，消息会被发送到对应的死信队列中。对于死信队列的处理，既可以用 `@DltHandler` 处理，也可以使用 `@KafkaListener` 重新消费。
+
+## Kafka 进阶面试题（补充）
+
+### ISR、HW、LEO 分别是什么？和消息可见性有何关系？
+
+- **LEO（Log End Offset）**：某副本日志下一条将要写入的 offset（即当前日志末尾）。  
+- **HW（High Watermark）**：所有 **ISR** 副本都已追上的最大 offset；消费者通常只能读到 HW 之前，避免读到尚未在 ISR 内对齐的数据。  
+- **ISR（In-Sync Replicas）**：与 Leader 保持同步的副本集合。落后太多会踢出 ISR。  
+
+面试抓手：`acks=all` 时，要等 ISR 内副本达到要求后才算提交；ISR 收缩会影响可用吞吐与耐久性权衡。
+
+### Kafka 如何保证分区内顺序？如何实现全局顺序？
+
+- **分区内**：单分区单写者顺序追加，同分区消费顺序可读。  
+- **全局顺序**：只能「单分区」或业务层合并排序；多分区无法天然全局有序。  
+- 业务上常用 **相同业务键 hash 到同一分区**（如 orderId）保证「同一实体」有序。
+
+### 分区数是不是越多越好？怎么评估？
+
+不是。分区多 → 并行度高，但也带来：
+
+1. 打开更多文件/索引，内存与端点压力上升  
+2. 再均衡、选举、事务元数据更重  
+3. 单消费者处理能力不足时，分区再多也会积压  
+
+经验：按目标吞吐与消费者并行度估算，预留增长，避免频繁大幅变更分区（有序键场景变更分区尤其危险）。
+
+### 消费者 Rebalance 什么时候发生？如何减少 Stop-The-World？
+
+常见触发：成员加入/离开、订阅变化、会话超时、分区数变化。
+
+优化思路：
+
+1. 合理 `session.timeout` / `max.poll.interval`，避免处理过慢被踢  
+2. 缩短单次 `poll` 处理时间，重活异步化  
+3. 使用合作再均衡（避免长时间全体暂停，具体能力随版本演进）  
+4. 静态成员（group.instance.id）减少滚动发布时的剧烈再均衡  
+
+### Exactly-Once 在 Kafka 里怎么理解？
+
+分清三层：
+
+1. **生产幂等**：`enable.idempotence`，防网络重试导致重复写  
+2. **事务**：跨分区原子写入 + 与消费位移同事务提交（consume-transform-produce）  
+3. **端到端 exactly-once**：还依赖下游是否幂等；Kafka 事务不能替代表业务幂等  
+
+面试别说「开了 EOS 就绝对不重复」——要说清楚范围与下游约束。
+
+### 消息重复消费怎么彻底规避？
+
+Kafka 侧只能降低概率（幂等生产、事务、正确提交位移）。业务侧必须：
+
+1. 唯一键去重表 / 状态机  
+2. 下游写操作天然幂等  
+3. 以业务 ID 做幂等键，而不是只靠 offset  
+
+### Consumer Lag 如何监控与处理？
+
+监控：按 group+partition 看 `lag = 末尾 offset - 已提交位移`。
+
+处理：扩消费者、优化处理、批量拉取、跳过坏消息进死信、限流生产、检查是否热点分区（key 倾斜）。
+
+### Kafka 副本机制下，Leader 挂了会发生什么？
+
+控制器（KRaft/ZK 时代都有控制器角色）从 ISR 中选举新 Leader，客户端刷新元数据后切主。若 `unclean.leader.election` 开启，可能选到落后副本 → **缩短不可用但可能丢已提交数据**。生产环境通常关闭 unclean 选举。
+
+### KRaft 相对 ZooKeeper 模式的收益？
+
+1. 去掉 ZK 依赖，部署更简单  
+2. 元数据管理更贴近 Kafka 自身  
+3. 大规模分区下元数据性能更好（官方主推方向）  
+
+迁移要走官方流程，不是改一个配置就能切。
+
+### Kafka 与 RocketMQ、RabbitMQ 怎么快速对比？
+
+| 维度 | Kafka | RocketMQ | RabbitMQ |
+|------|-------|----------|----------|
+| 强项 | 吞吐、日志流、大数据生态 | 业务消息（事务/延时/顺序） | 灵活路由、低延迟、协议丰富 |
+| 模型 | 分区日志 + Group | Topic/Queue 语义丰富 | Exchange + Queue |
+| 典型场景 | 采集、流计算 | 订单、交易事件 | 微服务解耦、复杂路由 |
+
+与 **Pulsar** 的详细对比见：[Pulsar 常见面试题总结](./Pulsar常见面试题总结.md)。
+
+## 参考
+
+- Kafka 官方文档：<https://kafka.apache.org/documentation/>
 - 极客时间—《Kafka 核心技术与实战》第 11 节：无消息丢失配置怎么实现？

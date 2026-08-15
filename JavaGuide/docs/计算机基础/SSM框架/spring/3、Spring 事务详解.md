@@ -31,7 +31,6 @@ tag:
 
 万一在这两个操作之间突然出现错误比如银行系统崩溃或者网络故障，导致小明余额减少而小红的余额没有增加，这样就不对了。事务就是保证这两个关键操作要么都成功，要么都要失败。
 
-
 ![事务示意图](https://oss.javaguide.cn/github/javaguide/mysql/%E4%BA%8B%E5%8A%A1%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
 
 ```java
@@ -66,7 +65,6 @@ public class OrdersService {
 4. **持久性**（`Durability`）：一个事务被提交之后。它对数据库中数据的改变是持久的，即使数据库发生故障也不应该对其有任何影响。
 
 🌈 这里要额外补充一点：**只有保证了事务的持久性、原子性、隔离性之后，一致性才能得到保障。也就是说 A、I、D 是手段，C 是目的！** 想必大家也和我一样，被 ACID 这个概念被误导了很久! 我也是看周志明老师的公开课[《周志明的软件架构课》](https://time.geekbang.org/opencourse/intro/100064201)才搞清楚的（多看好书！！！）。
-
 
 ![AID->C](https://oss.javaguide.cn/github/javaguide/mysql/AID->C.png)
 
@@ -171,8 +169,7 @@ Spring 框架中，事务管理相关最重要的 3 个接口如下：
 
 **`PlatformTransactionManager` 接口的具体实现如下:**
 
-
-![](images/spring-transaction/PlatformTransactionManager.png)
+![](图片/Spring事务/PlatformTransactionManager.png)
 
 `PlatformTransactionManager`接口中定义了三个方法：
 
@@ -196,7 +193,7 @@ public interface PlatformTransactionManager {
 
 主要是因为要将事务管理行为抽象出来，然后不同的平台去实现它，这样我们可以保证提供给外部的行为不变，方便我们扩展。
 
-我前段时间在我的[知识星球](https://javaguide.cn/about-the-author/zhishixingqiu-two-years.html)分享过：**“为什么我们要用接口？”** 。
+我前段时间在我的[知识星球](https://javaguide.cn/关于作者/zhishixingqiu-two-years.html)分享过：**“为什么我们要用接口？”** 。
 
 > 《设计模式》（GOF 那本）这本书在很多年前都提到过说要基于接口而非实现编程，你真的知道为什么要基于接口编程么？
 >
@@ -516,7 +513,7 @@ public enum Isolation {
 - **`TransactionDefinition.ISOLATION_REPEATABLE_READ`** : 对同一字段的多次读取结果都是一致的，除非数据是被本身事务自己所修改，**可以阻止脏读和不可重复读，但幻读仍有可能发生。**
 - **`TransactionDefinition.ISOLATION_SERIALIZABLE`** : 最高的隔离级别，完全服从 ACID 的隔离级别。所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，**该级别可以防止脏读、不可重复读以及幻读**。但是这将严重影响程序的性能。通常情况下也不会用到该级别。
 
-相关阅读：[MySQL 事务隔离级别详解](https://javaguide.cn/database/mysql/transaction-isolation-level.html)。
+相关阅读：[MySQL 事务隔离级别详解](https://javaguide.cn/数据库/mysql/transaction-isolation-level.html)。
 
 #### 事务超时属性
 
@@ -558,8 +555,7 @@ public interface TransactionDefinition {
 
 这些规则定义了哪些异常会导致事务回滚而哪些不会。默认情况下，事务只有遇到运行期异常（`RuntimeException` 的子类）时才会回滚，`Error` 也会导致事务回滚，但是，在遇到检查型（Checked）异常时不会回滚。
 
-
-![](images/spring-transaction/roollbackFor.png)
+![](图片/Spring事务/roollbackFor.png)
 
 如果你想要回滚你定义的特定的异常类型的话，可以这样：
 

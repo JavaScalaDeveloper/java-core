@@ -114,5 +114,3 @@ SQL 脚本 1 在第一次查询工资为 500 的记录时只有一条，SQL 脚�
 - <https://dev.MySQL.com/doc/refman/5.7/en/>
 - [Mysql 锁：灵魂七拷问](https://tech.youzan.com/seven-questions-about-the-lock-of-MySQL/)
 - [Innodb 中的事务隔离级别和锁的关系](https://tech.meituan.com/2014/08/20/innodb-lock.html)
-
-<!-- @include: @article-footer.snippet.md -->

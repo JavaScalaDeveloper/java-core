@@ -12,8 +12,6 @@ head:
       content: Java并发常见知识点和面试题总结（含详细解答），希望对你有帮助！
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 ## 线程
 
 ### ⭐️什么是线程和进程?
@@ -80,7 +78,7 @@ JDK 1.2 之前，Java 线程是基于绿色线程（Green Threads）实现的，
 2. 多对一（多个用户线程映射到一个内核线程）
 3. 多对多（多个用户线程映射到多个内核线程）
 
-![常见的三种线程模型](https://oss.javaguide.cn/github/javaguide/java/concurrent/three-types-of-thread-models.png)
+![常见的三种线程模型](https://oss.javaguide.cn/github/javaguide/java/并发/three-types-of-thread-models.png)
 
 在 Windows 和 Linux 等主流操作系统中，Java 线程采用的是一对一的线程模型，也就是一个 Java 线程对应一个系统内核线程。Solaris 系统是一个特例（Solaris 系统本身就支持多对多的线程模型），HotSpot VM 在 Solaris 上支持多对多和一对一。具体可以参考 R 大的回答: [JVM 中的线程模型是用户级的么？](https://www.zhihu.com/question/23096638/answer/29617153)。
 
@@ -145,7 +143,7 @@ Java 线程在运行的生命周期中的指定时刻只可能处于下面 6 种
 
 Java 线程状态变迁图(图源：[挑错 |《Java 并发编程的艺术》中关于线程状态的三处错误](https://mp.weixin.qq.com/s/UOrXql_LhOD8dhTq_EPI0w))：
 
-![Java 线程状态变迁图](https://oss.javaguide.cn/github/javaguide/java/concurrent/640.png)
+![Java 线程状态变迁图](https://oss.javaguide.cn/github/javaguide/java/并发/640.png)
 
 由上图可以看出：线程创建之后它将处于 **NEW（新建）** 状态，调用 `start()` 方法后开始运行，线程这时候处于 **READY（可运行）** 状态。可运行状态的线程获得了 CPU 时间片（timeslice）后就处于 **RUNNING（运行）** 状态。
 
@@ -341,7 +339,7 @@ Thread[线程 2,5,main]waiting get resource1
 
 首先，我们要找到 JDK 的 bin 目录，找到 jconsole 并双击打开。
 
-![jconsole](https://oss.javaguide.cn/github/javaguide/java/concurrent/jdk-home-bin-jconsole.png)
+![jconsole](https://oss.javaguide.cn/github/javaguide/java/并发/jdk-home-bin-jconsole.png)
 
 对于 MAC 用户来说，可以通过 `/usr/libexec/java_home -V`查看 JDK 安装目录，找到后通过 `open . + 文件夹地址`打开即可。例如，我本地的某个 JDK 的路径是：
 
@@ -351,9 +349,9 @@ Thread[线程 2,5,main]waiting get resource1
 
 打开 jconsole 后，连接对应的程序，然后进入线程界面选择检测死锁即可！
 
-![jconsole 检测死锁](https://oss.javaguide.cn/github/javaguide/java/concurrent/jconsole-check-deadlock.png)
+![jconsole 检测死锁](https://oss.javaguide.cn/github/javaguide/java/并发/jconsole-check-deadlock.png)
 
-![jconsole 检测到死锁](https://oss.javaguide.cn/github/javaguide/java/concurrent/jconsole-check-deadlock-done.png)
+![jconsole 检测到死锁](https://oss.javaguide.cn/github/javaguide/java/并发/jconsole-check-deadlock-done.png)
 
 ### 如何预防和避免线程死锁?
 
@@ -414,5 +412,3 @@ Process finished with exit code 0
 3. 虚拟线程有什么优点和缺点？
 4. 如何创建虚拟线程？
 5. 虚拟线程的底层原理是什么？
-
-<!-- @include: @article-footer.snippet.md -->

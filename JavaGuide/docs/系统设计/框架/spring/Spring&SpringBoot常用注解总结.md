@@ -428,7 +428,7 @@ public class UserRegisterRequest {
 
 这样我们的后端就可以直接把 json 格式的数据映射到我们的 `UserRegisterRequest` 类上。
 
-![](./images/spring-annotations/@RequestBody.png)
+![](./图片/Spring注解/@RequestBody.png)
 
 **注意**：
 
@@ -512,7 +512,6 @@ public class Person {
     @NotNull(message = "email 不能为空")
     private String email;
 }
-
 
 @RestController
 @RequestMapping("/api")
@@ -1019,5 +1018,3 @@ public class MyServiceTest extends TestBase { // Assuming TestBase provides Spri
     }
 }
 ```
-
-<!-- @include: @article-footer.snippet.md -->

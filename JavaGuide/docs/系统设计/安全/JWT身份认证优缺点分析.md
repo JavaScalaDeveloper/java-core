@@ -9,7 +9,7 @@ tag:
 
 JWT 不是银弹，也有很多缺陷，很多时候并不是最优的选择。这篇文章，我们一起探讨一下 JWT 身份认证的优缺点以及常见问题的解决办法，来看看为什么很多人不再推荐使用 JWT 了。
 
-关于 JWT 的基本概念介绍请看我写的这篇文章： [JWT 基本概念详解](https://javaguide.cn/system-design/security/jwt-intro.html)。
+关于 JWT 的基本概念介绍请看我写的这篇文章： [JWT 基本概念详解](https://javaguide.cn/系统设计/安全/jwt-intro.html)。
 
 ## JWT 的优势
 
@@ -172,7 +172,7 @@ JWT 结构复杂（Header、Payload 和 Signature），包含了更多额外的�
 
 JWT 组成:
 
-![JWT 组成](https://oss.javaguide.cn/javaguide/system-design/jwt/jwt-composition.png)
+![JWT 组成](https://oss.javaguide.cn/javaguide/系统设计/jwt/jwt-composition.png)
 
 JWT 示例：
 
@@ -202,5 +202,3 @@ JWT 也不是银弹，也有很多缺陷，具体是选择 JWT 还是 Session �
 - How to log out when using JWT：<https://medium.com/devgorilla/how-to-log-out-when-using-jwt-a8c7823e8a6>
 - CSRF protection with JSON Web JWTs：<https://medium.com/@agungsantoso/csrf-protection-with-json-web-JWTs-83e0f2fcbcc>
 - Invalidating JSON Web JWTs：<https://stackoverflow.com/questions/21978658/invalidating-json-web-JWTs>
-
-<!-- @include: @article-footer.snippet.md -->

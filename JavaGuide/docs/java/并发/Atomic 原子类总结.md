@@ -211,7 +211,6 @@ class Person {
     //省略getter/setter和toString
 }
 
-
 // 创建 AtomicReference 对象并设置初始值
 AtomicReference<Person> ar = new AtomicReference<>(new Person("SnailClimb", 22));
 
@@ -395,5 +394,3 @@ Final Person: Name: SnailClimb, Age: 30
 ## 参考
 
 - 《Java 并发编程的艺术》
-
-<!-- @include: @article-footer.snippet.md -->

@@ -1,21 +1,19 @@
 ---
 title: Web 实时消息推送详解
+description: 消息推送通常是指网站的运营工作等人员，通过某种工具对用户当前网页或移动设备 APP 进行的主动消息推送。
 category: 系统设计
-icon: "messages"
+icon: "mdi:message-text-outline"
 head:
   - - meta
     - name: keywords
-      content: 消息推送,短轮询,长轮询,SSE,Websocket,MQTT
-  - - meta
-    - name: description
-      content: 消息推送通常是指网站的运营工作等人员，通过某种工具对用户当前网页或移动设备 APP 进行的主动消息推送。
+      content: Web消息推送,实时消息,WebSocket,SSE,长轮询,短轮询,MQTT,实时通信方案
 ---
 
 > 原文地址：<https://juejin.cn/post/7122014462181113887，JavaGuide> 对本文进行了完善总结。
 
 我有一个朋友做了一个小破站，现在要实现一个站内信 Web 消息推送的功能，对，就是下图这个小红点，一个很常用的功能。
 
-![站内信 Web 消息推送](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/1460000042192380.png)
+![站内信 Web 消息推送](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/1460000042192380.png)
 
 不过他还没想好用什么方式做，这里我帮他整理了一下几种方案，并简单做了实现。
 
@@ -29,21 +27,23 @@ head:
 
 移动端消息推送示例：
 
-![移动端消息推送示例](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/IKleJ9auR1Ojdicyr0bH.png)
+![移动端消息推送示例](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/IKleJ9auR1Ojdicyr0bH.png)
 
 Web 端消息推送示例：
 
-![Web 端消息推送示例](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/image-20220819100512941.png)
+![Web 端消息推送示例](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/image-20220819100512941.png)
 
 在具体实现之前，咱们再来分析一下前边的需求，其实功能很简单，只要触发某个事件（主动分享了资源或者后台主动推送消息），Web 页面的通知小红点就会实时的 `+1` 就可以了。
 
 通常在服务端会有若干张消息推送表，用来记录用户触发不同事件所推送不同类型的消息，前端主动查询（拉）或者被动接收（推）用户所有未读的消息数。
 
-![消息推送表](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/1460000042192384.png)
+![消息推送表](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/1460000042192384.png)
 
 消息推送无非是推（push）和拉（pull）两种形式，下边我们逐个了解下。
 
 ## 消息推送常见方案
+
+![Web 实时消息推送方案总览](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/web-real-time-message-push-overview.webp)
 
 ### 短轮询
 
@@ -76,13 +76,13 @@ setInterval(() => {
 
 这次我使用 Apollo 配置中心实现长轮询的方式，应用了一个类`DeferredResult`，它是在 Servlet3.0 后经过 Spring 封装提供的一种异步请求机制，直意就是延迟结果。
 
-![长轮询示意图](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/1460000042192386.png)
+![长轮询示意图](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/1460000042192386.png)
 
-`DeferredResult`可以允许容器线程快速释放占用的资源，不阻塞请求线程，以此接受更多的请求提升系统的吞吐量，然后启动异步工作线程处理真正的业务逻辑，处理完成调用`DeferredResult.setResult(200)`提交响应结果。
+`DeferredResult` 可以让容器先释放处理当前请求的 Servlet 线程，稍后再由应用选择的任意线程、消息回调或其他事件源调用 `setResult()` 恢复响应处理。`DeferredResult` 本身不会自动启动一个工作线程，实际业务在哪个线程上执行由应用决定。
 
 下边我们用长轮询来实现消息推送。
 
-因为一个 ID 可能会被多个长轮询请求监听，所以我采用了 Guava 包提供的`Multimap`结构存放长轮询，一个 key 可以对应多个 value。一旦监听到 key 发生变化，对应的所有长轮询都会响应。前端得到非请求超时的状态码，知晓数据变更，主动查询未读消息数接口，更新页面数据。
+因为一个 ID 可能会被多个长轮询请求监听，所以我采用了 Guava 包提供的 `Multimap` 结构存放长轮询，一个 key 可以对应多个 value。一旦监听到 key 发生变化，对应的所有长轮询都会响应。前端收到新的版本号后，主动查询未读消息数接口并更新页面数据。
 
 ```java
 @Controller
@@ -91,59 +91,62 @@ public class PollingController {
 
     // 存放监听某个Id的长轮询集合
     // 线程同步结构
-    public static Multimap<String, DeferredResult<String>> watchRequests = Multimaps.synchronizedMultimap(HashMultimap.create());
+    private static final Multimap<String, DeferredResult<String>> watchRequests =
+            Multimaps.synchronizedMultimap(HashMultimap.create());
+    // 演示用的内存版本号；生产环境通常应使用业务数据自身的持久化版本
+    private static final Map<String, Long> versions = new HashMap<>();
 
     /**
      * 设置监听
      */
     @GetMapping(path = "watch/{id}")
     @ResponseBody
-    public DeferredResult<String> watch(@PathVariable String id) {
+    public DeferredResult<String> watch(@PathVariable String id,
+                                        @RequestParam(defaultValue = "0") long version) {
         // 延迟对象设置超时时间
-        DeferredResult<String> deferredResult = new DeferredResult<>(TIME_OUT);
+        DeferredResult<String> deferredResult = new DeferredResult<>(TIME_OUT, "timeout");
         // 异步请求完成时移除 key，防止内存溢出
         deferredResult.onCompletion(() -> {
             watchRequests.remove(id, deferredResult);
         });
-        // 注册长轮询请求
-        watchRequests.put(id, deferredResult);
+        // 版本比较和监听注册必须处于同一临界区，避免发布发生在二者之间而丢通知
+        synchronized (watchRequests) {
+            long currentVersion = versions.getOrDefault(id, 0L);
+            if (currentVersion != version) {
+                deferredResult.setResult(Long.toString(currentVersion));
+            } else {
+                watchRequests.put(id, deferredResult);
+            }
+        }
         return deferredResult;
     }
 
     /**
      * 变更数据
      */
-    @GetMapping(path = "publish/{id}")
+    @PostMapping(path = "publish/{id}")
     @ResponseBody
     public String publish(@PathVariable String id) {
-        // 数据变更 取出监听ID的所有长轮询请求，并一一响应处理
-        if (watchRequests.containsKey(id)) {
-            Collection<DeferredResult<String>> deferredResults = watchRequests.get(id);
-            for (DeferredResult<String> deferredResult : deferredResults) {
-                deferredResult.setResult("我更新了" + new Date());
-            }
+        // 在同一同步块内先更新版本，再移除并复制监听快照
+        Collection<DeferredResult<String>> deferredResults;
+        long currentVersion;
+        synchronized (watchRequests) {
+            currentVersion = versions.merge(id, 1L, Long::sum);
+            deferredResults = new ArrayList<>(watchRequests.removeAll(id));
+        }
+        for (DeferredResult<String> deferredResult : deferredResults) {
+            deferredResult.setResult(Long.toString(currentVersion));
         }
         return "success";
-    }
-```
-
-当请求超过设置的超时时间，会抛出`AsyncRequestTimeoutException`异常，这里直接用`@ControllerAdvice`全局捕获统一返回即可，前端获取约定好的状态码后再次发起长轮询请求，如此往复调用。
-
-```kotlin
-@ControllerAdvice
-public class AsyncRequestTimeoutHandler {
-
-    @ResponseStatus(HttpStatus.NOT_MODIFIED)
-    @ResponseBody
-    @ExceptionHandler(AsyncRequestTimeoutException.class)
-    public String asyncRequestTimeoutHandler(AsyncRequestTimeoutException e) {
-        System.out.println("异步请求超时");
-        return "304";
     }
 }
 ```
 
-我们来测试一下，首先页面发起长轮询请求`/polling/watch/10086`监听消息更变，请求被挂起，不变更数据直至超时，再次发起了长轮询请求；紧接着手动变更数据`/polling/publish/10086`，长轮询得到响应，前端处理业务逻辑完成后再次发起请求，如此循环往复。
+这里通过 `DeferredResult` 的超时结果返回约定好的 `"timeout"`，前端收到后携带原版本号立即发起下一次长轮询。收到新版本号时，前端先查询最新业务数据，再把该版本号用于下一次监听。版本比较、监听注册和发布递增版本都在同一个临界区内完成，因此即使更新恰好发生在两次请求交接期间，下一次监听也会立即发现版本变化。示例中的内存版本会随进程重启丢失，生产环境应优先使用数据库版本、消息位点等持久化标识，并设计清理策略。
+
+不要把 HTTP 304 用作普通的“请求超时”状态：304 专用于条件请求中表示已缓存的表现仍未修改，且不能包含响应内容。生产项目也可以约定 204 等无内容响应，关键是让服务端和客户端对超时语义保持一致。
+
+我们来测试一下，首先页面携带已知版本发起长轮询请求 `/polling/watch/10086?version=0` 监听消息变更，请求被挂起；紧接着手动变更数据 `/polling/publish/10086`，长轮询返回新版本。前端查询最新数据后，再携带新版本发起下一次请求，如此循环往复。
 
 长轮询相比于短轮询在性能上提升了很多，但依然会产生较多的请求，这是它的一点不完美的地方。
 
@@ -153,7 +156,7 @@ iframe 流就是在页面中插入一个隐藏的`<iframe>`标签，通过在`sr
 
 传输的数据通常是 HTML、或是内嵌的 JavaScript 脚本，来达到实时更新页面的效果。
 
-![iframe 流示意图](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/1460000042192388.png)
+![iframe 流示意图](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/1460000042192388.png)
 
 这种方式实现简单，前端只要一个`<iframe>`标签搞定了
 
@@ -161,31 +164,11 @@ iframe 流就是在页面中插入一个隐藏的`<iframe>`标签，通过在`sr
 <iframe src="/iframe/message" style="display:none"></iframe>
 ```
 
-服务端直接组装 HTML、JS 脚本数据向 response 写入就行了
-
-```java
-@Controller
-@RequestMapping("/iframe")
-public class IframeController {
-    @GetMapping(path = "message")
-    public void message(HttpServletResponse response) throws IOException, InterruptedException {
-        while (true) {
-            response.setHeader("Pragma", "no-cache");
-            response.setDateHeader("Expires", 0);
-            response.setHeader("Cache-Control", "no-cache,no-store");
-            response.setStatus(HttpServletResponse.SC_OK);
-            response.getWriter().print(" <script type=\"text/javascript\">\n" +
-                    "parent.document.getElementById('clock').innerHTML = \"" + count.get() + "\";" +
-                    "parent.document.getElementById('count').innerHTML = \"" + count.get() + "\";" +
-                    "</script>");
-        }
-    }
-}
-```
+服务端需要保持响应并在有新数据时写入、及时刷新缓冲区。不能在 Servlet 请求线程中使用不带等待、中断和异常处理的 `while (true)` 循环持续写响应：这会空转消耗 CPU、长时间占用容器线程，还无法在客户端断开时正常收敛。如果必须维护旧式 iframe 流，应使用容器异步 I/O 和事件驱动的写入模型；新系统通常直接选择 SSE 或 WebSocket。
 
 iframe 流的服务器开销很大，而且 IE、Chrome 等浏览器一直会处于 loading 状态，图标会不停旋转，简直是强迫症杀手。
 
-![iframe 流效果](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/1460000042192389.png)
+![iframe 流效果](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/1460000042192389.png)
 
 iframe 流非常不友好，强烈不推荐。
 
@@ -193,31 +176,33 @@ iframe 流非常不友好，强烈不推荐。
 
 很多人可能不知道，服务端向客户端推送消息，其实除了可以用`WebSocket`这种耳熟能详的机制外，还有一种服务器发送事件(Server-Sent Events)，简称 SSE。这是一种服务器端到客户端(浏览器)的单向消息推送。
 
-大名鼎鼎的 ChatGPT 就是采用的 SSE。对于需要长时间等待响应的对话场景，ChatGPT 采用了一种巧妙的策略：它会将已经计算出的数据“推送”给用户，并利用 SSE 技术在计算过程中持续返回数据。这样做的好处是可以避免用户因等待时间过长而选择关闭页面。
+流式对话是 SSE 的一个典型应用场景。服务端可以把已经生成的部分内容持续写入事件流，用户无需等到全部计算完成才看到结果。
 
-![ChatGPT 使用 SSE 实现对话](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/chatgpt-sse.png)
+![ChatGPT 使用 SSE 实现对话](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/chatgpt-sse.png)
 
-SSE 基于 HTTP 协议的，我们知道一般意义上的 HTTP 协议是无法做到服务端主动向客户端推送消息的，但 SSE 是个例外，它变换了一种思路。
+SSE 基于 HTTP，它不是让服务端在没有请求的情况下凭空建立连接，而是让客户端先发起请求，服务端保持该 HTTP 响应并持续写入事件。
 
-![](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/1460000042192390.png)
+![SSE 图解](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/1460000042192390.png)
 
 SSE 在服务器和客户端之间打开一个单向通道，服务端响应的不再是一次性的数据包而是`text/event-stream`类型的数据流信息，在有数据变更时从服务器流式传输到客户端。
 
 整体的实现思路有点类似于在线视频播放，视频流会连续不断的推送到浏览器，你也可以理解成，客户端在完成一次用时很长（网络不畅）的下载。
 
-![SSE 示意图](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/1460000042192391.png)
+![SSE 示意图](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/1460000042192391.png)
 
 SSE 与 WebSocket 作用相似，都可以建立服务端与浏览器之间的通信，实现服务端向客户端推送消息，但还是有些许不同：
 
-- SSE 是基于 HTTP 协议的，它们不需要特殊的协议或服务器实现即可工作；WebSocket 需单独服务器来处理协议。
+- SSE 使用 HTTP 和 `text/event-stream`，通常更容易接入现有 Web 服务；WebSocket 需要服务器或容器支持协议升级和 WebSocket 帧。它不要求必须单独部署一台服务器。
 - SSE 单向通信，只能由服务端向客户端单向通信；WebSocket 全双工通信，即通信的双方可以同时发送和接受信息。
 - SSE 实现简单开发成本低，无需引入其他组件；WebSocket 传输数据需做二次解析，开发门槛高一些。
 - SSE 默认支持断线重连；WebSocket 则需要自己实现。
 - SSE 只能传送文本消息，二进制数据需要经过编码后传送；WebSocket 默认支持传送二进制数据。
 
+![SSE 和 WebSocket 对比](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/sse-vs-websocket-comparison.webp)
+
 **SSE 与 WebSocket 该如何选择？**
 
-> 技术并没有好坏之分，只有哪个更合适
+> 技术并没有好坏之分，只有哪个更合适。
 
 SSE 好像一直不被大家所熟知，一部分原因是出现了 WebSocket，这个提供了更丰富的协议来执行双向、全双工通信。对于游戏、即时通信以及需要双向近乎实时更新的场景，拥有双向通道更具吸引力。
 
@@ -263,7 +248,7 @@ private static Map<String, SseEmitter> sseEmitterMap = new ConcurrentHashMap<>()
  */
 public static SseEmitter connect(String userId) {
     try {
-        // 设置超时时间，0表示不过期。默认30秒
+        // 0 表示不设置应用层超时，并非“默认 30 秒”
         SseEmitter sseEmitter = new SseEmitter(0L);
         // 注册回调
         sseEmitter.onCompletion(completionCallBack(userId));
@@ -294,9 +279,11 @@ public static void sendMessage(String userId, String message) {
 }
 ```
 
+上面的 `Map<String, SseEmitter>` 示例每个用户只保留一个连接，新连接会覆盖旧连接。如果要支持多标签页或多设备，应为每个用户维护一组 `SseEmitter`，并在完成、超时和错误回调中移除对应连接。`0L` 也不代表代理、网关和容器永不会断开连接，生产环境需要配置心跳、超时和客户端重连策略。
+
 **注意：** SSE 不支持 IE 浏览器，对其他主流浏览器兼容性做的还不错。
 
-![SSE 兼容性](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/1460000042192393.png)
+![SSE 兼容性](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/1460000042192393.png)
 
 ### Websocket
 
@@ -304,7 +291,7 @@ Websocket 应该是大家都比较熟悉的一种实现消息推送的方式，�
 
 这是一种在 TCP 连接上进行全双工通信的协议，建立客户端和服务器之间的通信渠道。浏览器和服务器仅需一次握手，两者之间就直接可以创建持久性的连接，并进行双向数据传输。
 
-![Websocket 示意图](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/1460000042192394.png)
+![Websocket 示意图](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/1460000042192394.png)
 
 WebSocket 的工作过程可以分为以下几个步骤：
 
@@ -325,7 +312,7 @@ SpringBoot 整合 WebSocket，先引入 WebSocket 相关的工具包，和 SSE �
 </dependency>
 ```
 
-服务端使用`@ServerEndpoint`注解标注当前类为一个 WebSocket 服务器，客户端可以通过`ws://localhost:7777/webSocket/10086`来连接到 WebSocket 服务器端。
+服务端使用 `@ServerEndpoint` 注解标注当前类为一个 WebSocket 端点，客户端可以通过 `ws://localhost:7777/websocket/10086` 连接到服务端。路径中的 `userId` 只适合用于演示路由；生产环境必须在握手时验证用户身份，并把连接绑定到已认证的主体，不能相信客户端自行填写的 `userId`。
 
 ```java
 @Component
@@ -334,9 +321,10 @@ SpringBoot 整合 WebSocket，先引入 WebSocket 相关的工具包，和 SSE �
 public class WebSocketServer {
     //与某个客户端的连接会话，需要通过它来给客户端发送数据
     private Session session;
+    private String userId;
     private static final CopyOnWriteArraySet<WebSocketServer> webSockets = new CopyOnWriteArraySet<>();
     // 用来存在线连接数
-    private static final Map<String, Session> sessionPool = new HashMap<String, Session>();
+    private static final Map<String, Session> sessionPool = new ConcurrentHashMap<>();
     /**
      * 链接成功调用的方法
      */
@@ -344,11 +332,27 @@ public class WebSocketServer {
     public void onOpen(Session session, @PathParam(value = "userId") String userId) {
         try {
             this.session = session;
+            this.userId = userId;
             webSockets.add(this);
             sessionPool.put(userId, session);
             log.info("websocket消息: 有新的连接，总数为:" + webSockets.size());
         } catch (Exception e) {
+            log.error("WebSocket 连接初始化失败，userId={}", userId, e);
         }
+    }
+    /**
+     * 连接关闭时清理当前会话
+     */
+    @OnClose
+    public void onClose() {
+        webSockets.remove(this);
+        if (userId != null && session != null) {
+            sessionPool.remove(userId, session);
+        }
+    }
+    @OnError
+    public void onError(Throwable error) {
+        log.error("WebSocket 连接异常，userId={}", userId, error);
     }
     /**
      * 收到客户端消息后调用的方法
@@ -360,21 +364,44 @@ public class WebSocketServer {
     /**
      * 此为单点消息
      */
-    public void sendOneMessage(String userId, String message) {
+    public static boolean sendOneMessage(String userId, String message) {
         Session session = sessionPool.get(userId);
         if (session != null && session.isOpen()) {
             try {
                 log.info("websocket消: 单点消息:" + message);
                 session.getAsyncRemote().sendText(message);
+                return true;
             } catch (Exception e) {
-                e.printStackTrace();
+                log.error("WebSocket 消息发送失败，userId={}", userId, e);
             }
         }
+        return false;
     }
 }
 ```
 
-服务端还需要注入`ServerEndpointerExporter`，这个 Bean 就会自动注册使用了`@ServerEndpoint`注解的 WebSocket 服务器。
+该示例的 `sessionPool` 同样只保留每个 `userId` 的一个连接。支持多标签页或多设备时，应将值改为会话集合，并为每个连接独立执行发送、心跳、背压和清理逻辑。
+
+如果希望通过 HTTP 接口触发一次服务端推送，可以增加一个与前端参数保持一致的控制器：
+
+```java
+@RestController
+@RequestMapping("/socket")
+public class SocketController {
+
+    @PostMapping("/publish")
+    public ResponseEntity<Void> publish(@RequestParam String userId,
+                                        @RequestParam String message) {
+        return WebSocketServer.sendOneMessage(userId, message)
+                ? ResponseEntity.accepted().build()
+                : ResponseEntity.notFound().build();
+    }
+}
+```
+
+这个控制器只用于演示请求契约。生产环境还必须对发布接口进行身份认证和授权，不能允许调用方通过任意 `userId` 向其他用户推送消息；同时应限制消息大小和请求频率。
+
+在使用内嵌 Servlet 容器的 Spring Boot 应用中，通常还需要注入 `ServerEndpointExporter`，由它注册使用了 `@ServerEndpoint` 注解的 WebSocket 端点。
 
 ```java
 @Configuration
@@ -394,7 +421,7 @@ public class WebSocketConfiguration {
 
 ```javascript
 <script>
-    var ws = new WebSocket('ws://localhost:7777/webSocket/10086');
+    var ws = new WebSocket('ws://localhost:7777/websocket/10086');
     // 获取连接状态
     console.log('ws连接状态：' + ws.readyState);
     //监听是否连接成功
@@ -422,9 +449,9 @@ public class WebSocketConfiguration {
     function sendMessage() {
         var content = $("#message").val();
         $.ajax({
-            url: '/socket/publish?userId=10086&message=' + content,
-            type: 'GET',
-            data: { "id": "7777", "content": content },
+            url: '/socket/publish',
+            type: 'POST',
+            data: { "userId": "10086", "message": content },
             success: function (data) {
                 console.log(data)
             }
@@ -435,27 +462,27 @@ public class WebSocketConfiguration {
 
 页面初始化建立 WebSocket 连接，之后就可以进行双向通信了，效果还不错。
 
-![](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/1460000042192395.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/1460000042192395.png)
 
 ### MQTT
 
 **什么是 MQTT 协议？**
 
-MQTT (Message Queue Telemetry Transport)是一种基于发布/订阅（publish/subscribe）模式的轻量级通讯协议，通过订阅相应的主题来获取消息，是物联网（Internet of Thing）中的一个标准传输协议。
+MQTT 是一种基于发布/订阅（publish/subscribe）模式的轻量级消息协议，通过订阅主题来获取消息，广泛应用于物联网场景。当前 OASIS 规范直接使用“MQTT”这一名称，不再将其展开为“Message Queue Telemetry Transport”。
 
 该协议将消息的发布者（publisher）与订阅者（subscriber）进行分离，因此可以在不可靠的网络环境中，为远程连接的设备提供可靠的消息服务，使用方式与传统的 MQ 有点类似。
 
-![MQTT 协议示例](https://oss.javaguide.cn/github/javaguide/system-design/web-real-time-message-push/1460000022986325.png)
+![MQTT 协议示例](https://oss.javaguide.cn/github/javaguide/系统设计/web-real-time-message-push/1460000022986325.png)
 
-TCP 协议位于传输层，MQTT 协议位于应用层，MQTT 协议构建于 TCP/IP 协议上，也就是说只要支持 TCP/IP 协议栈的地方，都可以使用 MQTT 协议。
+MQTT 位于应用层，需要运行在有序、无损、双向的字节流传输上。最常见的承载方式是 TCP（生产环境通常配合 TLS），也可以通过 WebSocket 等能提供这种字节流语义的传输承载，因此不应简化为“只要有 TCP/IP 就一定能直接使用”。
 
 **为什么要用 MQTT 协议？**
 
 MQTT 协议为什么在物联网（IOT）中如此受偏爱？而不是其它协议，比如我们更为熟悉的 HTTP 协议呢？
 
-- 首先 HTTP 协议它是一种同步协议，客户端请求后需要等待服务器的响应。而在物联网（IOT）环境中，设备会很受制于环境的影响，比如带宽低、网络延迟高、网络通信不稳定等，显然异步消息协议更为适合 IOT 应用程序。
-- HTTP 是单向的，如果要获取消息客户端必须发起连接，而在物联网（IOT）应用程序中，设备或传感器往往都是客户端，这意味着它们无法被动地接收来自网络的命令。
-- 通常需要将一条命令或者消息，发送到网络上的所有设备上。HTTP 要实现这样的功能不但很困难，而且成本极高。
+- 经典的短连接 HTTP 请求-响应模式需要设备定期请求或保持长连接才能获取服务端更新；MQTT 则直接提供长连接上的异步发布/订阅模型。HTTP 本身不能笼统定义为“同步协议”，HTTP/2、HTTP/3、SSE 和 WebSocket 升级等机制的行为并不等同于经典的短轮询。
+- HTTP 请求由客户端发起，但不意味着服务端永远无法流式返回数据，也不意味着设备不能接收命令。MQTT 的优势是把长连接、主题路由、订阅、QoS 和会话状态等能力标准化了。
+- 需要向多个设备发送命令时，MQTT broker 可以按主题将消息分发给所有订阅者；HTTP 也能实现类似功能，但往往需要应用自行管理连接、设备组和重试语义。
 
 具体的 MQTT 协议介绍和实践，这里我就不再赘述了，大家可以参考我之前的两篇文章，里边写的也都很详细了。
 
@@ -474,5 +501,3 @@ MQTT 协议为什么在物联网（IOT）中如此受偏爱？而不是其它协
 | SSE       | 一种服务器端到客户端(浏览器)的单向消息推送。                                                                  | 简单、易实现，功能丰富 | 不支持双向通信                                       |
 | WebSocket | 除了最初建立连接时用 HTTP 协议，其他时候都是直接基于 TCP 协议进行通信的，可以实现客户端和服务端的全双工通信。 | 性能高、开销小         | 对开发人员要求更高，实现相对复杂一些                 |
 | MQTT      | 基于发布/订阅（publish/subscribe）模式的轻量级通讯协议，通过订阅相应的主题来获取消息。                        | 成熟稳定，轻量级       | 对开发人员要求更高，实现相对复杂一些                 |
-
-<!-- @include: @article-footer.snippet.md -->

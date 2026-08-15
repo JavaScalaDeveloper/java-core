@@ -22,7 +22,7 @@ Paxos 算法是 Leslie Lamport（[莱斯利·兰伯特](https://zh.wikipedia.org
 
 《Paxos Made Simple》这篇论文就 14 页，相比于 《The Part-Time Parliament》的 33 页精简了不少。最关键的是这篇论文的摘要就一句话：
 
-![](./images/paxos/paxos-made-simple.png)
+![](./图片/paxos/paxos-made-simple.png)
 
 > The Paxos algorithm, when presented in plain English, is very simple.
 
@@ -39,7 +39,7 @@ Paxos 算法是第一个被证明完备的分布式系统共识算法。共识�
 - **Basic Paxos 算法**：描述的是多节点之间如何就某个值(提案 Value)达成共识。
 - **Multi-Paxos 思想**：描述的是执行多个 Basic Paxos 实例，就一系列值达成共识。Multi-Paxos 说白了就是执行多次 Basic Paxos ，核心还是 Basic Paxos 。
 
-由于 Paxos 算法在国际上被公认的非常难以理解和实现，因此不断有人尝试简化这一算法。到了 2013 年才诞生了一个比 Paxos 算法更易理解和实现的共识算法—[Raft 算法](https://javaguide.cn/distributed-system/theorem&algorithm&protocol/raft-algorithm.html) 。更具体点来说，Raft 是 Multi-Paxos 的一个变种，其简化了 Multi-Paxos 的思想，变得更容易被理解以及工程实现。
+由于 Paxos 算法在国际上被公认的非常难以理解和实现，因此不断有人尝试简化这一算法。到了 2013 年才诞生了一个比 Paxos 算法更易理解和实现的共识算法—[Raft 算法](https://javaguide.cn/分布式/theorem&algorithm&分布式理论/raft-algorithm.html) 。更具体点来说，Raft 是 Multi-Paxos 的一个变种，其简化了 Multi-Paxos 的思想，变得更容易被理解以及工程实现。
 
 针对没有恶意节点的情况，除了 Raft 算法之外，当前最常用的一些共识算法比如 **ZAB 协议**、 **Fast Paxos** 算法都是基于 Paxos 算法改进的。
 
@@ -61,7 +61,7 @@ Basic Paxos 中存在 3 个重要的角色：
 2. **接受者（Acceptor）**：也可以叫做投票员（voter），负责对提议者的提案进行投票，同时需要记住自己的投票历史；
 3. **学习者（Learner）**：如果有超过半数接受者就某个提议达成了共识，那么学习者就需要接受这个提议，并就该提议作出运算，然后将运算结果返回给客户端。
 
-![](https://oss.javaguide.cn/github/javaguide/distributed-system/protocol/up-890fa3212e8bf72886a595a34654918486c.png)
+![](https://oss.javaguide.cn/github/javaguide/分布式/分布式理论/up-890fa3212e8bf72886a595a34654918486c.png)
 
 为了减少实现该算法所需的节点数，一个节点可以身兼多个角色。并且，一个提案被选定需要被半数以上的 Acceptor 接受。这样的话，Basic Paxos 算法还具备容错性，在少于一半的节点出现故障时，集群仍能正常工作。
 
@@ -79,5 +79,3 @@ Basic Paxos 算法的仅能就单个值达成共识，为了能够对一系列�
 
 - <https://zh.wikipedia.org/wiki/Paxos>
 - 分布式系统中的一致性与共识算法：<http://www.xuyasong.com/?p=1970>
-
-<!-- @include: @article-footer.snippet.md -->

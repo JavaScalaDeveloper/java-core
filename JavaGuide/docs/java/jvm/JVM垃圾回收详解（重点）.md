@@ -122,7 +122,7 @@ public class GCTest {
 
 > 修正（[issue552](https://github.com/Snailclimb/JavaGuide/issues/552)）：“Hotspot 遍历所有对象时，按照年龄从小到大对其所占用的大小进行累积，当累积的某个年龄大小超过了 survivor 区的 50% 时（默认值是 50%，可以通过 `-XX:TargetSurvivorRatio=percent` 来设置，参见 [issue1199](https://github.com/Snailclimb/JavaGuide/issues/1199) ），取这个年龄和 MaxTenuringThreshold 中更小的一个值，作为新的晋升年龄阈值”。
 >
-> jdk8 官方文档引用：<https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html>。
+> jdk8 官方文档引用：<https://docs.oracle.com/javase/8/docs/technotes/开发工具/unix/java.html>。
 >
 > ![](https://oss.javaguide.cn/java-guide-blog/image-20210523201742303.png)
 >
@@ -149,7 +149,7 @@ public class GCTest {
 > ```
 >
 > 额外补充说明([issue672](https://github.com/Snailclimb/JavaGuide/issues/672))：**关于默认的晋升年龄是 15，这个说法的来源大部分都是《深入理解 Java 虚拟机》这本书。**
-> 如果你去 Oracle 的官网阅读[相关的虚拟机参数](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/java.html)，你会发现`-XX:MaxTenuringThreshold=threshold`这里有个说明
+> 如果你去 Oracle 的官网阅读[相关的虚拟机参数](https://docs.oracle.com/javase/8/docs/technotes/开发工具/unix/java.html)，你会发现`-XX:MaxTenuringThreshold=threshold`这里有个说明
 >
 > **Sets the maximum tenuring threshold for use in adaptive GC sizing. The largest value is 15. The default value is 15 for the parallel (throughput) collector, and 6 for the CMS collector.默认晋升年龄并不都是 15，这个是要区分垃圾收集器的，CMS 就是 6.**
 
@@ -551,5 +551,3 @@ java -XX:+UseZGC -XX:+ZGenerational className
 
 - 《深入理解 Java 虚拟机：JVM 高级特性与最佳实践（第二版》
 - The Java® Virtual Machine Specification - Java SE 8 Edition：<https://docs.oracle.com/javase/specs/jvms/se8/html/index.html>
-
-<!-- @include: @article-footer.snippet.md -->

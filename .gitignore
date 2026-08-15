@@ -2,3 +2,10 @@
 
 *.class
 *.iml
+
+# VuePress (only generated; keep docs/.vuepress/ config source)
+**/.vuepress/.cache/
+**/.vuepress/.temp/
+**/docs/.vuepress/dist/
+dist/
+node_modules/

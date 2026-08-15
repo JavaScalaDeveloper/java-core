@@ -1,7 +1,6 @@
 ---
 span
 ---
-<!-- @include: @small-advertisement.snippet.md -->
 
 ## MySQL 基础
 
@@ -60,7 +59,7 @@ MySQL 主要具有下面这些优点：
 
 ## MySQL 基础架构
 
-> 建议配合 [SQL 语句在 MySQL 中的执行过程](./how-sql-executed-in-mysql.md) 这篇文章来理解 MySQL 基础架构。另外，“一个 SQL 语句在 MySQL 中的执行流程”也是面试中比较常问的一个问题。
+> 建议配合 [SQL 语句在 MySQL 中的执行过程](./1、MySQL常见面试题总结.md) 这篇文章来理解 MySQL 基础架构。另外，“一个 SQL 语句在 MySQL 中的执行流程”也是面试中比较常问的一个问题。
 
 下图是 MySQL 的一个简要架构图，从下图你可以很清晰的看到客户端的一条 SQL 语句在 MySQL 内部是如何执行的。
 
@@ -270,7 +269,7 @@ SELECT sql_no_cache COUNT(*) FROM usr;
 - undo log 如何保证事务的原子性？
 - ......
 
-上诉问题的答案可以在[《Java 面试指北》(付费)](../../zhuanlan/java-mian-shi-zhi-bei.md) 的 **「技术面试题篇」** 中找到。
+上诉问题的答案可以在[《Java 面试指北》(付费)](../../专栏/java-mian-shi-zhi-bei.md) 的 **「技术面试题篇」** 中找到。
 
 ![《Java 面试指北》技术面试题篇](https://oss.javaguide.cn/javamianshizhibei/technical-interview-questions.png)
 
@@ -343,7 +342,7 @@ COMMIT;
 
 《Designing Data-Intensive Application（数据密集型应用系统设计）》这本书强推一波，值得读很多遍！豆瓣有接近 90% 的人看了这本书之后给了五星好评。另外，中文翻译版本已经在 GitHub 开源，地址：[https://github.com/Vonng/ddia](https://github.com/Vonng/ddia) 。
 
-![](https://oss.javaguide.cn/github/javaguide/books/ddia.png)
+![](https://oss.javaguide.cn/github/javaguide/技术书籍/ddia.png)
 
 ### 并发事务带来了哪些问题?
 
@@ -355,7 +354,7 @@ COMMIT;
 
 例如：事务 1 读取某表中的数据 A=20，事务 1 修改 A=A-1，事务 2 读取到 A = 19,事务 1 回滚导致对 A 的修改并为提交到数据库， A 的值还是 20。
 
-![脏读](./images/concurrency-consistency-issues-dirty-reading.png)
+![脏读](./图片/concurrency-consistency-issues-dirty-reading.png)
 
 #### 丢失修改（Lost to modify）
 
@@ -363,7 +362,7 @@ COMMIT;
 
 例如：事务 1 读取某表中的数据 A=20，事务 2 也读取 A=20，事务 1 先修改 A=A-1，事务 2 后来也修改 A=A-1，最终结果 A=19，事务 1 的修改被丢失。
 
-![丢失修改](./images/concurrency-consistency-issues-missing-modifications.png)
+![丢失修改](./图片/concurrency-consistency-issues-missing-modifications.png)
 
 #### 不可重复读（Unrepeatable read）
 
@@ -371,7 +370,7 @@ COMMIT;
 
 例如：事务 1 读取某表中的数据 A=20，事务 2 也读取 A=20，事务 1 修改 A=A-1，事务 2 再次读取 A =19，此时读取的结果和第一次读取的结果不同。
 
-![不可重复读](./images/concurrency-consistency-issues-unrepeatable-read.png)
+![不可重复读](./图片/concurrency-consistency-issues-unrepeatable-read.png)
 
 #### 幻读（Phantom read）
 
@@ -379,7 +378,7 @@ COMMIT;
 
 例如：事务 2 读取某个范围的数据，事务 1 在这个范围插入了新的数据，事务 2 再次读取这个范围的数据发现相比于第一次读取的结果多了新的数据。
 
-![幻读](./images/concurrency-consistency-issues-phantom-read.png)
+![幻读](./图片/concurrency-consistency-issues-phantom-read.png)
 
 ### 不可重复读和幻读有什么区别？
 
@@ -420,7 +419,6 @@ SQL 标准定义了四个隔离级别：
 - **SERIALIZABLE(可串行化)**：最高的隔离级别，完全服从 ACID 的隔离级别。所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，该级别可以防止脏读、不可重复读以及幻读。
 
 ---
-
 
 |     隔离级别     | 脏读 | 不可重复读 | 幻读 |
 | :--------------: | :--: | :--------: | :--: |
@@ -492,7 +490,6 @@ InnoDB 行锁是通过对索引数据页上的记录加锁实现的，MySQL Inno
 
 排他锁与任何的锁都不兼容，共享锁仅和共享锁兼容。
 
-
 |      | S 锁   | X 锁 |
 | :--- | :----- | :--- |
 | S 锁 | 不冲突 | 冲突 |
@@ -520,14 +517,12 @@ SELECT ... FOR UPDATE;
 
 意向锁之间是互相兼容的。
 
-
 |       | IS 锁 | IX 锁 |
 | ----- | ----- | ----- |
 | IS 锁 | 兼容  | 兼容  |
 | IX 锁 | 兼容  | 兼容  |
 
 意向锁和共享锁和排它锁互斥（这里指的是表级别的共享锁和排他锁，意向锁不会与行级的共享锁和排他锁互斥）。
-
 
 |      | IS 锁 | IX 锁 |
 | ---- | ----- | ----- |
@@ -592,7 +587,6 @@ CREATE TABLE `sequence_id` (
 
 如果一个事务正在插入数据到有自增列的表时，会先获取自增锁，拿不到就可能会被阻塞住。这里的阻塞行为只是自增锁行为的其中一种，可以理解为自增锁就是一个接口，其具体的实现有多种。具体的配置项为 `innodb_autoinc_lock_mode` （MySQL 5.1.22 引入），可以选择的值如下：
 
-
 | innodb_autoinc_lock_mode | 介绍                           |
 | :----------------------- | :----------------------------- |
 | 0                        | 传统模式                       |
@@ -638,7 +632,7 @@ MySQL 提供了两个方法来处理 ip 地址
 
 ### 有哪些常见的 SQL 优化手段？
 
-[《Java 面试指北》(付费)](../../zhuanlan/java-mian-shi-zhi-bei.md) 的 **「技术面试题篇」** 有一篇文章详细介绍了常见的 SQL 优化手段，非常全面，清晰易懂！
+[《Java 面试指北》(付费)](../../专栏/java-mian-shi-zhi-bei.md) 的 **「技术面试题篇」** 有一篇文章详细介绍了常见的 SQL 优化手段，非常全面，清晰易懂！
 
 ![常见的 SQL 优化手段](https://oss.javaguide.cn/javamianshizhibei/javamianshizhibei-sql-optimization.png)
 
@@ -666,7 +660,6 @@ mysql> EXPLAIN SELECT `score`,`name` FROM `cus_order` ORDER BY `score` DESC;
 
 各个字段的含义如下：
 
-
 | **列名**      | **含义**                                     |
 | ------------- | -------------------------------------------- |
 | id            | SELECT 查询的序列标识符                      |
@@ -686,11 +679,11 @@ mysql> EXPLAIN SELECT `score`,`name` FROM `cus_order` ORDER BY `score` DESC;
 
 ### 读写分离和分库分表了解吗？
 
-读写分离和分库分表相关的问题比较多，于是，我单独写了一篇文章来介绍：[读写分离和分库分表详解](../../高性能/读写分离和分库分表常见问题总结.md)。
+读写分离和分库分表相关的问题比较多，于是，我单独写了一篇文章来介绍：[读写分离和分库分表详解](../../高性能/读写分离和分库分表详解.md)。
 
 ## MySQL 学习资料推荐
 
-[**书籍推荐**](../../ignore/books/database.md#mysql) 。
+[**书籍推荐**](../../忽略/技术书籍/database.md#mysql) 。
 
 **文章推荐** :
 

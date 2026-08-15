@@ -5,8 +5,6 @@ tag:
   - 安全
 ---
 
-<!-- @include: @article-header.snippet.md -->
-
 ## 什么是 JWT?
 
 JWT （JSON Web Token） 是目前最流行的跨域认证解决方案，是一种基于 Token 的认证授权机制。 从 JWT 的全称可以看出，JWT 本身也是 Token，一种规范化之后的 JSON 结构的 Token。
@@ -25,7 +23,7 @@ JWT 自身包含了身份验证所需要的所有信息，因此，我们的服�
 
 ## JWT 由哪些部分组成？
 
-![JWT 组成](https://oss.javaguide.cn/javaguide/system-design/jwt/jwt-composition.png)
+![JWT 组成](https://oss.javaguide.cn/javaguide/系统设计/jwt/jwt-composition.png)
 
 JWT 本质上就是一组字串，通过（`.`）切分成三个为 Base64 编码的部分：
 
@@ -47,7 +45,7 @@ SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
 
 Header 和 Payload 都是 JSON 格式的数据，Signature 由 Payload、Header 和 Secret(密钥)通过特定的计算公式和加密算法得到。
 
-![](https://oss.javaguide.cn/javaguide/system-design/jwt/jwt.io.png)
+![](https://oss.javaguide.cn/javaguide/系统设计/jwt/jwt.io.png)
 
 ### Header
 
@@ -129,7 +127,7 @@ HMACSHA256(
 
 在基于 JWT 进行身份验证的的应用程序中，服务器通过 Payload、Header 和 Secret(密钥)创建 JWT 并将 JWT 发送给客户端。客户端接收到 JWT 之后，会将其保存在 Cookie 或者 localStorage 里面，以后客户端发出的所有请求都会携带这个令牌。
 
-![ JWT 身份验证示意图](https://oss.javaguide.cn/github/javaguide/system-design/jwt/jwt-authentication%20process.png)
+![ JWT 身份验证示意图](https://oss.javaguide.cn/github/javaguide/系统设计/jwt/jwt-authentication%20process.png)
 
 简化后的步骤如下：
 
@@ -165,5 +163,3 @@ HMACSHA256(
 5. 密钥一定保管好，一定不要泄露出去。JWT 安全的核心在于签名，签名安全的核心在密钥。
 6. Payload 要加入 `exp` （JWT 的过期时间），永久有效的 JWT 不合理。并且，JWT 的过期时间不宜过长。
 7. ……
-
-<!-- @include: @article-footer.snippet.md -->

@@ -249,7 +249,7 @@ JConsole 是基于 JMX 的可视化监视、管理工具。可以很方便的监
 
 #### 连接 Jconsole
 
-![连接 Jconsole](./pictures/jdk监控和故障处理工具总结/1JConsole连接.png)
+![连接 Jconsole](./图片/jdk监控和故障处理工具总结/1JConsole连接.png)
 
 如果需要使用 JConsole 连接远程进程，可以在远程 Java 程序启动时加上下面这些参数:
 
@@ -268,7 +268,7 @@ JConsole 是基于 JMX 的可视化监视、管理工具。可以很方便的监
 
 #### 查看 Java 程序概况
 
-![查看 Java 程序概况 ](./pictures/jdk监控和故障处理工具总结/2查看Java程序概况.png)
+![查看 Java 程序概况 ](./图片/jdk监控和故障处理工具总结/2查看Java程序概况.png)
 
 #### 内存监控
 
@@ -279,7 +279,7 @@ JConsole 可以显示当前内存的详细信息。不仅包括堆内存/非堆�
 > - **新生代 GC（Minor GC）**:指发生新生代的的垃圾收集动作，Minor GC 非常频繁，回收速度一般也比较快。
 > - **老年代 GC（Major GC/Full GC）**:指发生在老年代的 GC，出现了 Major GC 经常会伴随至少一次的 Minor GC（并非绝对），Major GC 的速度一般会比 Minor GC 的慢 10 倍以上。
 
-![内存监控 ](./pictures/jdk监控和故障处理工具总结/3内存监控.png)
+![内存监控 ](./图片/jdk监控和故障处理工具总结/3内存监控.png)
 
 #### 线程监控
 
@@ -287,7 +287,7 @@ JConsole 可以显示当前内存的详细信息。不仅包括堆内存/非堆�
 
 最下面有一个"检测死锁 (D)"按钮，点击这个按钮可以自动为你找到发生死锁的线程以及它们的详细信息 。
 
-![线程监控 ](./pictures/jdk监控和故障处理工具总结/4线程监控.png)
+![线程监控 ](./图片/jdk监控和故障处理工具总结/4线程监控.png)
 
 ### Visual VM:多合一故障处理工具
 
@@ -321,5 +321,3 @@ MAT（Memory Analyzer Tool）是一款快速便捷且功能强大丰富的 JVM �
 
 - [JVM 内存分析工具 MAT 的深度讲解与实践—入门篇](https://juejin.cn/post/6908665391136899079)
 - [JVM 内存分析工具 MAT 的深度讲解与实践—进阶篇](https://juejin.cn/post/6911624328472133646)
-
-<!-- @include: @article-footer.snippet.md -->
