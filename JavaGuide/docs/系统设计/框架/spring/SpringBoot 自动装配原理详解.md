@@ -243,7 +243,7 @@ AutoConfigurationEntry getAutoConfigurationEntry(AutoConfigurationMetadata autoC
 在本文采用的 Spring Boot 2.1.x 源码中，获取需要自动装配的所有配置类时会读取 `META-INF/spring.factories`：
 
 ```plain
-spring-boot/spring-boot-项目/spring-boot-autoconfigure/src/main/resources/META-INF/spring.factories
+spring-boot/spring-boot-project/spring-boot-autoconfigure/src/main/resources/META-INF/spring.factories
 ```
 
 ![](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/58c51920efea4757aa1ec29c6d5f9e36~tplv-k3u1fbpfcp-watermark.png)
@@ -327,3 +327,5 @@ public class RabbitAutoConfiguration {
 ## 总结
 
 Spring Boot 通过`@EnableAutoConfiguration`开启自动装配，并加载类路径中注册的候选自动配置类。Spring Boot 2.6 及更早版本主要通过 `spring.factories` 注册，Spring Boot 2.7 及以上版本使用 `AutoConfiguration.imports`。自动配置类会结合 `@Conditional` 系列注解按需生效；Starter 的主要作用是聚合常用依赖，并不是自动配置生效所要求的固定包名。
+
+<!-- @include: @article-footer.snippet.md -->

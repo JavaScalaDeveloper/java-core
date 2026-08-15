@@ -1,6 +1,18 @@
-# Servlet 总结
+---
+title: J2EE 基础知识
+description: J2EE基础知识详解，涵盖Servlet生命周期、请求转发与重定向、Session与Cookie机制等Java Web核心概念。
+category: 系统设计
+head:
+  - - meta
+    - name: keywords
+      content: J2EE,Java Web,Servlet,JSP,HTTP请求响应,Servlet生命周期,Session,Cookie
+---
 
-在 Java Web 程序中，**Servlet**主要负责接收用户请求 `HttpServletRequest`,在`doGet()`,`doPost()`中做相应的处理，并将回应`HttpServletResponse`反馈给用户。**Servlet** 可以设置初始化参数，供 Servlet 内部使用。一个 Servlet 类只会有一个实例，在它初始化时调用`init()`方法，销毁时调用`destroy()`方法**。**Servlet 需要在 web.xml 中配置（MyEclipse 中创建 Servlet 会自动配置），**一个 Servlet 可以设置多个 URL 访问**。**Servlet 不是线程安全**，因此要谨慎使用类变量。
+## Servlet 总结
+
+> 说明：J2EE 是历史名称，后续更名为 Java EE，当前规范名称为 Jakarta EE。本文主要介绍传统 Servlet/JSP 编程模型。
+
+在 Java Web 程序中，**Servlet** 主要负责接收用户请求 `HttpServletRequest`，在 `doGet()`、`doPost()` 等方法中进行处理，并通过 `HttpServletResponse` 返回响应。Servlet 可以设置初始化参数，供 Servlet 内部使用。在非分布式环境中，Servlet 容器通常为**每个 Servlet 声明**使用一个实例；同一个 Servlet 类如果有多个声明，仍可能有多个实例。容器在初始化时调用 `init()`，在实例退出服务时调用 `destroy()`。Servlet 可以通过 `@WebServlet`、`web.xml` 或程序化 API 声明，一个 Servlet 声明也可映射多个 URL。容器可能让多个线程并发执行同一实例的 `service()` 方法，因此不要在实例字段中保存每次请求的可变状态。
 
 ## 阐述 Servlet 和 CGI 的区别?
 
@@ -48,12 +60,12 @@ Servlet 接口定义了 5 个方法，其中**前三个方法与 Servlet 生命�
 
 GET 和 POST 是 HTTP 协议中两种常用的请求方法，它们在不同的场景和目的下有不同的特点和用法。一般来说，可以从以下几个方面来区分它们：
 
-- 语义上的区别：GET 通常用于获取或查询资源，而 POST 通常用于创建或修改资源。GET 请求应该是幂等的，即多次重复执行不会改变资源的状态，而 POST 请求则可能有副作用，即每次执行可能会产生不同的结果或影响资源的状态。
-- 格式上的区别：GET 请求的参数通常放在 URL 中，形成查询字符串（querystring），而 POST 请求的参数通常放在请求体（body）中，可以有多种编码格式，如 application/x-www-form-urlencoded、multipart/form-data、application/json 等。GET 请求的 URL 长度受到浏览器和服务器的限制，而 POST 请求的 body 大小则没有明确的限制。
-- 缓存上的区别：由于 GET 请求是幂等的，它可以被浏览器或其他中间节点（如代理、网关）缓存起来，以提高性能和效率。而 POST 请求则不适合被缓存，因为它可能有副作用，每次执行可能需要实时的响应。
+- 语义上的区别：GET 用于获取目标资源的表现，是安全且幂等的方法。POST 用于请求目标资源按其自身语义处理请求内容，常用于创建资源、提交数据或触发操作，默认不具有幂等语义。
+- 格式上的区别：GET 请求的查询条件通常放在 URL 的查询字符串（query string）中，POST 则通常通过请求内容传递数据，可以使用 `application/x-www-form-urlencoded`、`multipart/form-data`、`application/json` 等媒体类型。HTTP 规范没有为 URL 或 POST 请求内容规定一个通用的固定上限，实际限制由浏览器、服务器、网关等组件决定。
+- 缓存上的区别：GET 响应默认可缓存，但仍会受 `Cache-Control` 等响应头约束。POST 响应也不是绝对不能缓存，只是需要服务端显式给出可缓存信息，实践中较少这样使用。
 - 安全性上的区别：GET 请求和 POST 请求都不是绝对安全的，因为 HTTP 协议本身是明文传输的，无论是 URL、header 还是 body 都可能被窃取或篡改。为了保证安全性，必须使用 HTTPS 协议来加密传输数据。不过，在一些场景下，GET 请求相比 POST 请求更容易泄露敏感数据，因为 GET 请求的参数会出现在 URL 中，而 URL 可能会被记录在浏览器历史、服务器日志、代理日志等地方。因此，一般情况下，私密数据传输应该使用 POST + body。
 
-重点搞清了，两者在语义上的区别即可。不过，也有一些项目所有的请求都用 POST，这个并不是固定的，项目组达成共识即可。
+重点是根据 HTTP 方法的标准语义选择 GET 或 POST。将所有请求都设计为 POST 虽然在技术上可行，但会失去 GET 在缓存、安全重试和中间组件语义上的优势，不应只以“团队达成共识”作为设计依据。
 
 ## 什么情况下调用 doGet()和 doPost()
 
@@ -70,7 +82,7 @@ Form 标签里的 method 的属性为 get 时调用 doGet()，为 post 时调用
      request.getRequestDispatcher("login_success.jsp").forward(request, response);
 ```
 
-**重定向（Redirect）** 是利用服务器返回的状态码来实现的。客户端浏览器请求服务器的时候，服务器会返回一个状态码。服务器通过 `HttpServletResponse` 的 `setStatus(int status)` 方法设置状态码。如果服务器返回 301 或者 302，则浏览器会到新的网址重新请求该资源。
+**重定向（Redirect）** 由服务端返回 3xx 状态码和 `Location` 响应头，客户端再向新地址发起请求。Servlet 中通常使用 `HttpServletResponse#sendRedirect()`，也可以手动设置状态码和 `Location`。301、302、303在历史实现中可能将 POST 后续请求改为 GET；需要明确保留原请求方法时，应根据场景使用 307 或 308。
 
 1. **从地址栏显示来说**
 
@@ -94,13 +106,13 @@ Form 标签里的 method 的属性为 get 时调用 doGet()，为 post 时调用
 
 ## 自动刷新(Refresh)
 
-自动刷新不仅可以实现一段时间之后自动跳转到另一个页面，还可以实现一段时间之后自动刷新本页面。Servlet 中通过 HttpServletResponse 对象设置 Header 属性实现自动刷新例如：
+部分浏览器支持非标准的 `Refresh` 响应头，可以实现延时刷新或跳转。Servlet 中可以通过 `HttpServletResponse` 设置：
 
 ```java
-Response.setHeader("Refresh","5;URL=http://localhost:8080/servlet/example.htm");
+response.setHeader("Refresh", "5; url=http://localhost:8080/servlet/example.htm");
 ```
 
-其中 5 为时间，单位为秒。URL 指定就是要跳转的页面（如果设置自己的路径，就会实现每过 5 秒自动刷新本页面一次）
+其中 5 的单位为秒。由于 `Refresh` 不是标准 HTTP 响应头，不应用它替代标准 3xx 重定向；页面刷新也可以根据需求在前端实现。
 
 ## Servlet 与线程安全
 
@@ -115,13 +127,13 @@ Response.setHeader("Refresh","5;URL=http://localhost:8080/servlet/example.htm");
 
 ## JSP 工作原理
 
-JSP 是一种 Servlet，但是与 HttpServlet 的工作方式不太一样。HttpServlet 是先由源代码编译为 class 文件后部署到服务器下，为先编译后部署。而 JSP 则是先部署后编译。JSP 会在客户端第一次请求 JSP 文件时被编译为 HttpJspPage 类（接口 Servlet 的一个子类）。该类会被服务器临时存放在服务器工作目录里面。下面通过实例给大家介绍。
+JSP 页面会由 JSP 容器转换为 Servlet 实现类并编译。对于 HTTP，生成的实现类需要实现 `HttpJspPage` 接口，而 `HttpJspPage` 继承自 `JspPage`。在常见的按需编译配置中，转换和编译发生在第一次请求时；容器也可以预编译 JSP，因此这不是固定发生在首次请求的步骤。生成的 Java 源码和 class 文件通常保存在容器的工作目录中。下面通过实例介绍按需编译的情况。
 工程 JspLoginDemo 下有一个名为 login.jsp 的 Jsp 文件，把工程第一次部署到服务器上后访问这个 Jsp 文件，我们发现这个目录下多了下图这两个东东。
 .class 文件便是 JSP 对应的 Servlet。编译完毕后再运行 class 文件来响应客户端请求。以后客户端访问 login.jsp 的时候，Tomcat 将不再重新编译 JSP 文件，而是直接调用 class 文件来响应客户端请求。
 
 ![JSP工作原理](https://oss.javaguide.cn/github/javaguide/1.jpeg)
 
-由于 JSP 只会在客户端第一次请求的时候被编译 ，因此第一次请求 JSP 时会感觉比较慢，之后就会感觉快很多。如果把服务器保存的 class 文件删除，服务器也会重新编译 JSP。
+在按需编译模式下，首次请求需要完成转换和编译，通常会比后续请求慢。如果删除容器生成的 class 文件，容器在需要该页面时会重新编译 JSP。
 
 开发 Web 程序时经常需要修改 JSP。Tomcat 能够自动检测到 JSP 程序的改动。如果检测到 JSP 源代码发生了改动。Tomcat 会在下次客户端请求 JSP 时重新编译 JSP，而不需要重启 Tomcat。这种自动检测功能是默认开启的，检测改动会消耗少量的时间，在部署 Web 应用的时候可以在 web.xml 中将它关掉。
 
@@ -149,7 +161,8 @@ JSP 有 9 个内置对象：
 - `getAttribute(String name)`：返回由 name 指定的属性值
 - `getAttributeNames()`：返回 request 对象所有属性的名字集合，结果是一个枚举的实例
 - `getCookies()`：返回客户端的所有 Cookie 对象，结果是一个 Cookie 数组
-- `getCharacterEncoding()`：返回请求中的字符编码方式 = getContentLength()`：返回请求的 Body 的长度
+- `getCharacterEncoding()`：返回请求使用的字符编码
+- `getContentLength()`：返回请求体的字节数，长度未知或超过 `int` 范围时返回 -1；大请求可使用 `getContentLengthLong()`
 - `getHeader(String name)`：获得 HTTP 协议定义的文件头信息
 - `getHeaders(String name)`：返回指定名字的 request Header 的所有值，结果是一个枚举的实例
 - `getHeaderNames()`：返回所以 request Header 的名字，结果是一个枚举的实例
@@ -160,10 +173,11 @@ JSP 有 9 个内置对象：
 - `getParameterValues(String name)`：获得有 name 指定的参数的所有值
 - `getProtocol()`：获取客户端向服务器端传送数据所依据的协议名称
 - `getQueryString()`：获得查询字符串
-- `getRequestURI()`：获取发出请求字符串的客户端地址
+- `getRequestURI()`：获取请求行中从协议名到查询字符串之间的 URI 路径部分
 - `getRemoteAddr()`：获取客户端的 IP 地址
 - `getRemoteHost()`：获取客户端的名字
-- `getSession([Boolean create])`：返回和请求相关 Session
+- `getSession()`：返回与请求关联的 Session，不存在时创建
+- `getSession(boolean create)`：返回与请求关联的 Session；当 `create` 为 `false` 且 Session 不存在时返回 `null`
 - `getServerName()`：获取服务器的名字
 - `getServletPath()`：获取客户端所请求的脚本文件的路径
 - `getServerPort()`：获取服务器的端口号
@@ -171,27 +185,9 @@ JSP 有 9 个内置对象：
 
 ## request.getAttribute()和 request.getParameter()有何区别
 
-**从获取方向来看：**
+`getParameter()` 读取客户端随请求提交的参数，例如 URL 查询字符串或已解析的表单字段。它返回 `String`，同名参数有多个值时可使用 `getParameterValues()`。
 
-`getParameter()`是获取 POST/GET 传递的参数值；
-
-`getAttribute()`是获取对象容器中的数据值；
-
-**从用途来看：**
-
-`getParameter()`用于客户端重定向时，即点击了链接或提交按扭时传值用，即用于在用表单或 url 重定向传值时接收数据用。
-
-`getAttribute()` 用于服务器端重定向时，即在 sevlet 中使用了 forward 函数,或 struts 中使用了
-mapping.findForward。 getAttribute 只能收到程序用 setAttribute 传过来的值。
-
-另外，可以用 `setAttribute()`,`getAttribute()` 发送接收对象.而 `getParameter()` 显然只能传字符串。
-`setAttribute()` 是应用服务器把这个对象放在该页面所对应的一块内存中去，当你的页面服务器重定向到另一个页面时，应用服务器会把这块内存拷贝另一个页面所对应的内存中。这样`getAttribute()`就能取得你所设下的值，当然这种方法可以传对象。session 也一样，只是对象在内存中的生命周期不一样而已。`getParameter()`只是应用服务器在分析你送上来的 request 页面的文本时，取得你设在表单或 url 重定向时的值。
-
-**总结：**
-
-`getParameter()`返回的是 String,用于读取提交的表单中的值;（获取之后会根据实际需要转换为自己需要的相应类型，比如整型，日期类型啊等等）
-
-`getAttribute()`返回的是 Object，需进行转换,可用`setAttribute()`设置成任意对象，使用很灵活，可随时用
+`getAttribute()` 读取服务端代码通过 `setAttribute()` 绑定到当前请求的对象，返回类型为 `Object`。在 `forward` 等服务端请求转发过程中，各组件处理的仍是同一个请求对象，因此可以共享 request attribute；客户端重定向会创建新请求，不会保留原请求的 attribute。这个过程不是容器在页面之间拷贝一块内存。
 
 ## include 指令 include 的行为的区别
 
@@ -214,14 +210,11 @@ JSP 中的四种作用域包括 page、request、session 和 application，具�
 - **session**代表与某个用户与服务器建立的一次会话相关的对象和属性。跟某个用户相关的数据应该放在用户自己的 session 中。
 - **application**代表与整个 Web 应用程序相关的对象和属性，它实质上是跨越整个 Web 应用程序，包括多个页面、请求和会话的一个全局作用域。
 
-## 如何实现 JSP 或 Servlet 的单线程模式
+## Servlet 并发请求应该如何处理
 
-对于 JSP 页面，可以通过 page 指令进行设置。
-`<%@page isThreadSafe="false"%>`
+历史上，JSP 提供过 `<%@ page isThreadSafe="false" %>`，Servlet 也提供过 `SingleThreadModel` 标记接口。`SingleThreadModel` 从 Servlet 2.4 起已废弃，并在 Jakarta Servlet 6.0 中删除；它也不能保证 Session 和静态状态的线程安全，不应作为当前解决方案。
 
-对于 Servlet，可以让自定义的 Servlet 实现 SingleThreadModel 标识接口。
-
-说明：如果将 JSP 或 Servlet 设置成单线程工作模式，会导致每个请求创建一个 Servlet 实例，这种实践将导致严重的性能问题（服务器的内存压力很大，还会导致频繁的垃圾回收），所以通常情况下并不会这么做。
+正确做法是尽量让 Servlet 保持无状态，把每次请求的可变数据放在方法局部变量中，不在 Servlet 实例字段中保存。必须共享状态时，应使用适当的并发控制或线程安全数据结构，并尽量缩小临界区。
 
 ## 实现会话跟踪的技术有哪些
 
@@ -243,10 +236,11 @@ JSP 中的四种作用域包括 page、request、session 和 application，具�
    if(cookies !=null){
       for(int i= 0;i<cookies.length;i++){
        Cookie cookie =cookies[i];
-       if(name.equals(cookis.getName()))
-       //something is here.
-       //you can get the value
-       cookie.getValue();
+       if(name.equals(cookie.getName())) {
+         // something is here.
+         // you can get the value
+         cookie.getValue();
+       }
 
       }
     }
@@ -277,7 +271,7 @@ JSP 中的四种作用域包括 page、request、session 和 application，具�
 
 4. HttpSession
 
-   在所有会话跟踪技术中，HttpSession 对象是最强大也是功能最多的。当一个用户第一次访问某个网站时会自动创建 HttpSession，每个用户可以访问他自己的 HttpSession。可以通过 HttpServletRequest 对象的 getSession 方 法获得 HttpSession，通过 HttpSession 的 setAttribute 方法可以将一个值放在 HttpSession 中，通过调用 HttpSession 对象的 getAttribute 方法，同时传入属性名就可以获取保存在 HttpSession 中的对象。与上面三种方式不同的 是，HttpSession 放在服务器的内存中，因此不要将过大的对象放在里面，即使目前的 Servlet 容器可以在内存将满时将 HttpSession 中的对象移到其他存储设备中，但是这样势必影响性能。添加到 HttpSession 中的值可以是任意 Java 对象，这个对象最好实现了 Serializable 接口，这样 Servlet 容器在必要的时候可以将其序列化到文件中，否则在序列化时就会出现异常。
+   HttpSession 不会仅因为用户第一次访问网站就必然自动创建。当代码调用 `HttpServletRequest#getSession()`，或某个框架/JSP 功能为当前请求要求 Session 时，容器才会在不存在时创建它。可以通过 `setAttribute()` 和 `getAttribute()` 保存、读取会话属性。HttpSession 数据由服务端管理，具体可保存在内存、分布式存储或持久化介质中，因此不要放入过大对象。在分布式部署或需要会话持久化时，属性通常还需要可序列化，具体要求由容器和会话存储方案决定。
 
 ## Cookie 和 Session 的区别
 
@@ -287,4 +281,6 @@ Cookie 和 Session 都是用来跟踪浏览器用户身份的会话方式，但�
 
 Cookie 数据保存在客户端(浏览器端)，Session 数据保存在服务器端。
 
-Cookie 存储在客户端中，而 Session 存储在服务器上，相对来说 Session 安全性更高。如果使用 Cookie 的一些敏感信息不要写入 Cookie 中，最好能将 Cookie 信息加密然后使用到的时候再去服务器端解密。
+Cookie 保存在客户端，Session 状态通常由服务端管理，但这不意味着只要使用 Session 就天然更安全。常见的 Session 仍依赖 Cookie 传递会话标识，该标识一旦被窃取就可能被重放。会话 Cookie 应使用高强度、无业务含义的随机标识，通过 HTTPS 传输，并根据场景设置 `Secure`、`HttpOnly`、`SameSite`、`Path` 和 `Domain` 等属性。不应把密码、银行卡号等敏感业务数据直接写入 Cookie；加密也不能替代完整性保护、过期、撤销和服务端授权校验。
+
+<!-- @include: @article-footer.snippet.md -->

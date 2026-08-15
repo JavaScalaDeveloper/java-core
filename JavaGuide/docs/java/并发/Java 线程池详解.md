@@ -74,7 +74,7 @@ public class ScheduledThreadPoolExecutor
 
 **`Executor` 框架的使用示意图**：
 
-![Executor 框架的使用示意图](./图片/Java线程池/Executor框架的使用示意图.png)
+![Executor 框架的使用示意图](./images/Java 线程池详解/Executor框架的使用示意图.png)
 
 1. 主线程首先要创建实现 `Runnable` 或者 `Callable` 接口的任务对象。
 2. 把创建完成的实现 `Runnable`/`Callable` 接口的 对象直接交给 `ExecutorService` 执行: `ExecutorService.execute（Runnable command）`）或者也可以把 `Runnable` 对象或 `Callable` 对象提交给 `ExecutorService` 执行（`ExecutorService.submit（Runnable task）` 或 `ExecutorService.submit（Callable <T> task）`）。
@@ -484,6 +484,7 @@ Finished all threads  // 任务全部执行完了才会跳出来，因为executo
         return c < SHUTDOWN;
     }
 
+
     /**
      * 添加新的工作线程到线程池
      * @param firstTask 要执行
@@ -722,7 +723,7 @@ Exception in thread "main" java.util.concurrent.TimeoutException
 
 `FixedThreadPool` 的 `execute()` 方法运行示意图（该图片来源：《Java 并发编程的艺术》）：
 
-![FixedThreadPool的execute()方法运行示意图](./图片/Java线程池/FixedThreadPool.png)
+![FixedThreadPool的execute()方法运行示意图](./images/Java 线程池详解/FixedThreadPool.png)
 
 **上图说明：**
 
@@ -773,7 +774,7 @@ Exception in thread "main" java.util.concurrent.TimeoutException
 
 `SingleThreadExecutor` 的运行示意图（该图片来源：《Java 并发编程的艺术》）：
 
-![SingleThreadExecutor的运行示意图](./图片/Java线程池/SingleThreadExecutor.png)
+![SingleThreadExecutor的运行示意图](./images/Java 线程池详解/SingleThreadExecutor.png)
 
 **上图说明** :
 
@@ -818,7 +819,7 @@ Exception in thread "main" java.util.concurrent.TimeoutException
 
 `CachedThreadPool` 的 `execute()` 方法的执行示意图（该图片来源：《Java 并发编程的艺术》）：
 
-![CachedThreadPool的execute()方法的执行示意图](./图片/Java线程池/CachedThreadPool-execute.png)
+![CachedThreadPool的execute()方法的执行示意图](./images/Java 线程池详解/CachedThreadPool-execute.png)
 
 **上图说明：**
 
@@ -873,5 +874,7 @@ public class ScheduledThreadPoolExecutor
 
 - 《Java 并发编程的艺术》
 - [Java Scheduler ScheduledExecutorService ScheduledThreadPoolExecutor Example](https://www.journaldev.com/2340/java-scheduler-scheduledexecutorservice-scheduledthreadpoolexecutor-example "Java Scheduler ScheduledExecutorService ScheduledThreadPoolExecutor Example")
-- [java.util.concurrent.ScheduledThreadPoolExecutor Example](https://examples.javacodegeeks.com/core-java/util/并发/scheduledthreadpoolexecutor/java-util-concurrent-scheduledthreadpoolexecutor-example/ "java.util.concurrent.ScheduledThreadPoolExecutor Example")
+- [java.util.concurrent.ScheduledThreadPoolExecutor Example](https://examples.javacodegeeks.com/core-java/util/concurrent/scheduledthreadpoolexecutor/java-util-concurrent-scheduledthreadpoolexecutor-example/ "java.util.concurrent.ScheduledThreadPoolExecutor Example")
 - [ThreadPoolExecutor – Java Thread Pool Example](https://www.journaldev.com/1069/threadpoolexecutor-java-thread-pool-example-executorservice "ThreadPoolExecutor – Java Thread Pool Example")
+
+<!-- @include: @article-footer.snippet.md -->

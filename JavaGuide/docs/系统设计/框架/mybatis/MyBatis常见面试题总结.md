@@ -1,16 +1,14 @@
 ---
 title: MyBatis常见面试题总结
+description: MyBatis常见面试题详解，涵盖#{}与${}区别、动态SQL、一级二级缓存、分页插件及Mapper映射原理。
 category: 框架
-icon: "database"
+icon: "mdi:database-outline"
 tag:
   - MyBatis
 head:
   - - meta
     - name: keywords
-      content: MyBatis
-  - - meta
-    - name: description
-      content: 几道常见的 MyBatis 常见
+      content: MyBatis,MyBatis面试题,#{}与${},动态SQL,一级缓存,二级缓存,分页插件,Mapper映射
 ---
 
 > 本篇文章由 JavaGuide 收集自网络，原出处不明。
@@ -31,9 +29,9 @@ head:
 select * from users order by ${orderCols}
 ```
 
-`orderCols`可以是 `name`、`name desc`、`name,sex asc`等，实现灵活的排序。
+`orderCols`可以是 `name`、`name desc`、`name,sex asc`等固定片段，实现灵活的排序。但 `${}` 不会使用预编译参数，也不会自动转义内容，因此 `orderCols` 不能直接来自用户输入。实际项目应把前端传入的排序字段和方向映射为服务端预定义的枚举或白名单 SQL 片段，并拒绝白名单以外的值，否则会产生 SQL 注入风险。
 
-- `#{}`是 sql 的参数占位符，MyBatis 会将 sql 中的`#{}`替换为? 号，在 sql 执行前会使用 PreparedStatement 的参数设置方法，按序给 sql 的? 号占位符设置参数值，比如 ps.setInt(0, parameterValue)，`#{item.name}` 的取值方式为使用反射从参数对象中获取 item 对象的 name 属性值，相当于 `param.getItem().getName()`。
+- `#{}`是 sql 的参数占位符，MyBatis 会将 sql 中的`#{}`替换为? 号，在 sql 执行前会使用 PreparedStatement 的参数设置方法，按序给 sql 的? 号占位符设置参数值，比如 ps.setInt(1, parameterValue)（JDBC 参数下标从 1 开始），`#{item.name}` 的取值方式为使用反射从参数对象中获取 item 对象的 name 属性值，相当于 `param.getItem().getName()`。
 
 ### xml 映射文件中，除了常见的 select、insert、update、delete 标签之外，还有哪些标签？
 
@@ -49,7 +47,7 @@ select * from users order by ${orderCols}
 
 ~~Dao 接口里的方法，是不能重载的，因为是全限名+方法名的保存和寻找策略。~~
 
-Dao 接口里的方法可以重载，但是 Mybatis 的 xml 里面的 ID 不允许重复。
+Java 接口允许声明重载方法，但 MyBatis 根据“接口全限定名 + 方法名”查找 `MappedStatement`，不会使用参数签名区分重载方法。因此，多个重载方法只能共享同一个映射，XML 中的 ID 也不能重复。只有当这个映射能够兼容各重载方法的参数和返回类型时，调用才可能正常执行，实际开发中不建议在 Mapper 接口中使用重载。
 
 Mybatis 版本 3.3.0，亲测如下：
 
@@ -78,9 +76,9 @@ public interface StuMapper {
 </select>
 ```
 
-能正常运行，并能得到相应的结果，这样就实现了在 Dao 接口中写重载方法。
+这个特定示例能够正常运行，是因为两个重载方法最终调用的是同一个动态 SQL 映射，并不是 MyBatis 能够按方法签名选择不同的 SQL。
 
-**Mybatis 的 Dao 接口可以有多个重载方法，但是多个接口对应的映射必须只有一个，否则启动会报错。**
+**MyBatis 的 Mapper XML 无法按重载签名分派 SQL。即使某些共享映射的重载示例可以运行，也应优先使用不同的方法名表达不同查询。**
 
 相关 issue：[更正：Dao 接口里的方法可以重载，但是 Mybatis 的 xml 里面的 ID 不允许重复！](https://github.com/Snailclimb/JavaGuide/issues/1122)。
 
@@ -88,10 +86,7 @@ Dao 接口的工作原理是 JDK 动态代理，MyBatis 运行时会使用 JDK �
 
 **补充**：
 
-Dao 接口方法可以重载，但是需要满足以下条件：
-
-1. 仅有一个无参方法和一个有参方法
-2. 多个有参方法时，参数数量必须一致。且使用相同的 `@Param` ，或者使用 `param1` 这种
+下面的测试用于展示共享映射时不同参数组合的行为，不是 MyBatis 对方法重载定义的通用规则。
 
 **测试如下**：
 
@@ -165,7 +160,7 @@ public V get(Object key) {
 
 注：我出的。
 
-答：**(1)** MyBatis 使用 RowBounds 对象进行分页，它是针对 ResultSet 结果集执行的内存分页，而非物理分页；**(2)** 可以在 sql 内直接书写带有物理分页的参数来完成物理分页功能，**(3)** 也可以使用分页插件来完成物理分页。
+答：**(1)** MyBatis 使用 RowBounds 对象进行分页，它不会改写 SQL，而是在 JDBC ResultSet 上跳过 offset 行并限制返回数量，属于客户端结果集分页而非物理分页，效率取决于 JDBC 驱动和结果集类型；**(2)** 可以在 sql 内直接书写带有物理分页的参数来完成物理分页功能，**(3)** 也可以使用分页插件来完成物理分页。对于大数据量和较大的 offset，通常应优先使用物理分页。
 
 分页插件的基本原理是使用 MyBatis 提供的插件接口，实现自定义插件，在插件的拦截方法内拦截待执行的 sql，然后重写 sql，根据 dialect 方言，添加对应的物理分页语句和物理分页参数。
 
@@ -215,9 +210,9 @@ MyBatis 提供了 9 种动态 sql 标签:
 
 注：我出的。
 
-答：能，MyBatis 不仅可以执行一对一、一对多的关联查询，还可以执行多对一，多对多的关联查询，多对一查询，其实就是一对一查询，只需要把 `selectOne()` 修改为 `selectList()` 即可；多对多查询，其实就是一对多查询，只需要把 `selectOne()` 修改为 `selectList()` 即可。
+答：能。MyBatis 通常使用 `<association>` 映射“有一个”关系（如一对一、多对一），使用 `<collection>` 映射“有多个”关系（如一对多、多对多）。关系的基数由对象属性和映射结构决定，并不是简单地把 `selectOne()` 修改为 `selectList()`。
 
-关联对象查询，有两种实现方式，一种是单独发送一个 sql 去查询关联对象，赋给主对象，然后返回主对象。另一种是使用嵌套查询，嵌套查询的含义为使用 join 查询，一部分列是 A 对象的属性值，另外一部分列是关联对象 B 的属性值，好处是只发一个 sql 查询，就可以把主对象和其关联对象查出来。
+关联对象查询主要有两种实现方式：一种是 Nested Select，即执行另一个 mapped statement 查询关联对象，使用不当可能产生 N+1 查询；另一种是 Nested Results，即通过 join 得到包含重复数据的结果集，再使用嵌套结果映射组装对象图。后者只需执行一次 SQL，但需要正确配置主对象和关联对象的 `<id>` 映射。
 
 那么问题来了，join 查询出来 100 条记录，如何确定主对象是 5 个，而不是 100 个？其去重复的原理是 `<resultMap>` 标签内的 `<id>` 子标签，指定了唯一确定一条记录的 id 列，MyBatis 根据 `<id>` 列值来完成 100 条记录的去重复功能， `<id>` 可以有多个，代表了联合主键的语意。
 
@@ -240,7 +235,7 @@ MyBatis 提供了 9 种动态 sql 标签:
 
 答：MyBatis 仅支持 association 关联对象和 collection 关联集合对象的延迟加载，association 指的就是一对一，collection 指的就是一对多查询。在 MyBatis 配置文件中，可以配置是否启用延迟加载 `lazyLoadingEnabled=true|false。`
 
-它的原理是，使用 `CGLIB` 创建目标对象的代理对象，当调用目标方法时，进入拦截器方法，比如调用 `a.getB().getName()` ，拦截器 `invoke()` 方法发现 `a.getB()` 是 null 值，那么就会单独发送事先保存好的查询关联 B 对象的 sql，把 B 查询上来，然后调用 a.setB(b)，于是 a 的对象 b 属性就有值了，接着完成 `a.getB().getName()` 方法的调用。这就是延迟加载的基本原理。
+它的原理是，为结果对象创建代理，在访问尚未加载的属性时由代理触发预先登记的关联查询，再将查询结果写入目标属性。MyBatis 3.3 及以上版本默认使用 Javassist 创建延迟加载代理；CGLIB 是旧版本可选方案，并已从 MyBatis 3.5.10 起被弃用。具体关联还可以通过 `fetchType` 覆盖全局 `lazyLoadingEnabled` 配置。
 
 当然了，不光是 MyBatis，几乎所有的包括 Hibernate，支持延迟加载的原理都是一样的。
 
@@ -248,9 +243,9 @@ MyBatis 提供了 9 种动态 sql 标签:
 
 注：我出的。
 
-答：不同的 xml 映射文件，如果配置了 namespace，那么 id 可以重复；如果没有配置 namespace，那么 id 不能重复；毕竟 namespace 不是必须的，只是最佳实践而已。
+答：不同的 xml 映射文件，id 可以重复。
 
-原因就是 namespace+id 是作为 `Map<String, MappedStatement>` 的 key 使用的，如果没有 namespace，就剩下 id，那么，id 重复会导致数据互相覆盖。有了 namespace，自然 id 就可以重复，namespace 不同，namespace+id 自然也就不同。
+原因就是 namespace+id 是作为 `Map<String, MappedStatement>` 的 key 使用的，如果 namespace 不同，即使 id 重复，key (namespace+id) 也是不同的。
 
 ### MyBatis 中如何执行批处理？
 
@@ -297,7 +292,7 @@ MyBatis 提供了 9 种动态 sql 标签:
 
 注：我出的
 
-答：MyBatis 将所有 xml 配置信息都封装到 All-In-One 重量级对象 Configuration 内部。在 xml 映射文件中， `<parameterMap>` 标签会被解析为 `ParameterMap` 对象，其每个子元素会被解析为 ParameterMapping 对象。 `<resultMap>` 标签会被解析为 `ResultMap` 对象，其每个子元素会被解析为 `ResultMapping` 对象。每一个 `<select>、<insert>、<update>、<delete>` 标签均会被解析为 `MappedStatement` 对象，标签内的 sql 会被解析为 BoundSql 对象。
+答：MyBatis 将 xml 配置信息解析并保存到 `Configuration` 中。在 xml 映射文件中， `<parameterMap>` 标签会被解析为 `ParameterMap` 对象，其每个子元素会被解析为 `ParameterMapping` 对象。 `<resultMap>` 标签会被解析为 `ResultMap` 对象，其每个子元素会被解析为 `ResultMapping` 对象。每一个 `<select>、<insert>、<update>、<delete>` 标签均会被解析为 `MappedStatement` 对象，标签内的 SQL 会被解析为 `SqlSource`；执行时，`SqlSource` 再根据实际参数生成 `BoundSql`。
 
 ### 为什么说 MyBatis 是半自动 ORM 映射工具？它与全自动的区别在哪里？
 
@@ -306,6 +301,8 @@ MyBatis 提供了 9 种动态 sql 标签:
 答：Hibernate 属于全自动 ORM 映射工具，使用 Hibernate 查询关联对象或者关联集合对象时，可以根据对象关系模型直接获取，所以它是全自动的。而 MyBatis 在查询关联对象或关联集合对象时，需要手动编写 sql 来完成，所以，称之为半自动 ORM 映射工具。
 
 面试题看似都很简单，但是想要能正确回答上来，必定是研究过源码且深入的人，而不是仅会使用的人或者用的很熟的人，以上所有面试题及其答案所涉及的内容，在我的 MyBatis 系列博客中都有详细讲解和原理分析。
+
+<!-- @include: @article-footer.snippet.md -->
 
 ### 文章推荐
 

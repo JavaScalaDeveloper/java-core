@@ -87,7 +87,7 @@ inode 是 Linux/Unix 文件系统的基础。那 inode 到底是什么？有什�
 - **inode**：记录文件的属性信息，可以使用 `stat` 命令查看 inode 信息。
 - **block/extent**：用于保存文件内容或描述连续的数据块范围。具体分配和共享方式取决于文件系统，不能概括成“一个块永远只属于一个文件”。
 
-![stat 命令查看文件 inode 信息](./图片/文件inode信息.png)
+![stat 命令查看文件 inode 信息](./images/文件inode信息.png)
 
 Linux/Unix 文件系统使用 inode 标识文件系统对象。同一文件系统内重命名文件时，通常只是修改目录项，inode 号不会改变；删除最后一个硬链接后，如果也没有进程继续打开该文件，inode 会被释放，其编号以后可能被复用。通过路径访问文件时仍要先解析目录项，不能绕过路径查找直接把 inode 号当成稳定的全局文件标识。
 
@@ -147,7 +147,7 @@ srwxrwxrwx  1 user  group    0 Apr 14 10:00 socket
 
 Linux 使用一种称为目录树的层次结构来组织文件和目录。目录树由根目录（/）作为起始点，向下延伸，形成一系列的目录和子目录。每个目录可以包含文件和其他子目录。结构层次鲜明，就像一棵倒立的树。
 
-![Linux的目录结构](./图片/Linux目录树.png)
+![Linux的目录结构](./images/Linux目录树.png)
 
 **常见目录说明：**
 
@@ -248,11 +248,11 @@ Linux 中的打包文件一般是以 `.tar` 结尾的，压缩的命令一般是
 
 示例：在随意某个目录下 `ls -l`
 
-![Linux 文件权限命令示例](./图片/Linux权限命令.png)
+![Linux 文件权限命令示例](./images/Linux权限命令.png)
 
 第一列的内容的信息解释如下：
 
-![Linux 文件权限字段解读](./图片/Linux权限解读.png)
+![Linux 文件权限字段解读](./images/Linux权限解读.png)
 
 > 下面将详细讲解文件的类型、Linux 中权限以及文件有所有者、所在组、其它组具体是什么？
 
@@ -304,7 +304,7 @@ Linux 中的打包文件一般是以 `.tar` 结尾的，压缩的命令一般是
 
 **`chmod u=rwx,g=rw,o=r aaa.txt`** 或者 **`chmod 764 aaa.txt`**
 
-![chmod 修改 Linux 文件权限示例](./图片/修改文件权限.png)
+![chmod 修改 Linux 文件权限示例](./images/修改文件权限.png)
 
 **补充一个比较常用的东西：**
 
@@ -441,3 +441,5 @@ vim ~/.bash_profile
 ```bash
 source ~/.bash_profile
 ```
+
+<!-- @include: @article-footer.snippet.md -->

@@ -181,8 +181,10 @@ GET    /classes?page=1&size=10 //指定第1页，每页10个数据
 
 - <https://juejin.im/entry/59e460c951882542f578f2f0>
 
-- <https://phauer.com/2016/testing-RESTful-services-java-best-实践/>
+- <https://phauer.com/2016/testing-RESTful-services-java-best-practices/>
 
 - <https://www.seobility.net/en/wiki/REST_API>
 
 - <https://dev.to/duomly/rest-api-vs-graphql-comparison-3j6g>
+
+<!-- @include: @article-footer.snippet.md -->

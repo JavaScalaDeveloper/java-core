@@ -51,6 +51,7 @@ Timer timer = new Timer("Timer");
 long delay = 1000L;
 timer.schedule(task, delay);
 
+
 //输出：
 当前时间: Fri May 28 15:18:47 CST 2021
 线程名称: main
@@ -172,7 +173,7 @@ Kafka、Dubbo、ZooKeeper、Netty、Caffeine、Akka 中都有对时间轮的实�
 
 下图是一个有 12 个时间格的时间轮，转完一圈需要 12 s。当我们需要新建一个 3s 后执行的定时任务，只需要将定时任务放在下标为 3 的时间格中即可。当我们需要新建一个 9s 后执行的定时任务，只需要将定时任务放在下标为 9 的时间格中即可。
 
-![](https://oss.javaguide.cn/github/javaguide/系统设计/schedule-task/one-layers-of-time-wheel.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/Java 定时任务详解/one-layers-of-time-wheel.png)
 
 那当我们需要创建一个 13s 后执行的定时任务怎么办呢？这个时候可以引入 **圈数/轮数** 的概念。任务仍位于下标为 1 的时间格，同时记录它需要等待的剩余轮数，完整走过一轮再经过 1s 后才执行。不同实现对“当前格是否计入轮数”的约定可能不同，不应脱离具体实现固定写成 2 圈。
 
@@ -180,7 +181,7 @@ Kafka、Dubbo、ZooKeeper、Netty、Caffeine、Akka 中都有对时间轮的实�
 
 针对下图的时间轮，我来举一个例子便于大家理解。
 
-![](https://oss.javaguide.cn/github/javaguide/系统设计/schedule-task/three-layers-of-time-wheel.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/Java 定时任务详解/three-layers-of-time-wheel.png)
 
 上图的时间轮(ms -> s)，第 1 层的时间精度为 1 ，第 2 层的时间精度为 20 ，第 3 层的时间精度为 400。假如我们需要添加一个 350s 后执行的任务 A 的话（当前时间是 0s），这个任务会被放在第 2 层（因为第二层的时间跨度为 20\*20=400>350）的第 350/20=17 个时间格子。
 
@@ -247,11 +248,11 @@ ElasticJob 最初由当当网开源，历史上曾分为 ElasticJob-Lite 和 Ela
 
 `ElasticJob` 支持任务在分布式场景下的分片和高可用、任务可视化管理等功能。
 
-![](https://oss.javaguide.cn/github/javaguide/系统设计/schedule-task/elasticjob-feature-list.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/Java 定时任务详解/elasticjob-feature-list.png)
 
 下面是早期 ElasticJob-Lite 以 ZooKeeper 为注册中心的架构图，用于理解其去中心化调度思路；当前版本还支持 etcd，不能把图中的组件当成唯一部署方式。
 
-![ElasticJob-Lite 的架构设计](https://oss.javaguide.cn/github/javaguide/系统设计/schedule-task/elasticjob-lite-architecture-design.png)
+![ElasticJob-Lite 的架构设计](https://oss.javaguide.cn/github/javaguide/系统设计/Java 定时任务详解/elasticjob-lite-architecture-design.png)
 
 在这种部署中，ElasticJob 不设置中心化调度服务，而是使用 ZooKeeper 协调各节点的任务分片。当前版本也可以选择 etcd 作为注册中心。
 
@@ -301,7 +302,7 @@ elasticjob:
 
 `XXL-JOB` 于 2015 年开源，是一款优秀的轻量级分布式任务调度框架，支持任务可视化管理、弹性扩容缩容、任务失败重试和告警、任务分片等功能，
 
-![](https://oss.javaguide.cn/github/javaguide/系统设计/schedule-task/xxljob-feature-list.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/Java 定时任务详解/xxljob-feature-list.png)
 
 根据 `XXL-JOB` 官网介绍，其解决了很多 Quartz 的不足。
 
@@ -316,7 +317,7 @@ elasticjob:
 
 `XXL-JOB` 的架构设计如下图所示：
 
-![](https://oss.javaguide.cn/github/javaguide/系统设计/schedule-task/xxljob-architecture-design-v2.1.0.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/Java 定时任务详解/xxljob-architecture-design-v2.1.0.png)
 
 从上图可以看出，`XXL-JOB` 由 **调度中心** 和 **执行器** 两大部分组成。调度中心主要负责任务管理、执行器管理以及日志管理。执行器主要是接收调度信号并处理。另外，调度中心进行任务调度时，是通过自研 RPC 来实现的。
 
@@ -339,7 +340,7 @@ public class MyApiJobHandler {
 }
 ```
 
-![](https://oss.javaguide.cn/github/javaguide/系统设计/schedule-task/xxljob-admin-task-management.png)
+![](https://oss.javaguide.cn/github/javaguide/系统设计/Java 定时任务详解/xxljob-admin-task-management.png)
 
 **相关地址：**
 
@@ -392,3 +393,5 @@ Quartz、Elastic-Job、XXL-JOB 和 PowerJob 这几个是专门用来做分布式
 XXL-JOB 2015 年推出，使用门槛相对较低，采用中心化调度；ElasticJob 采用去中心化调度，并通过 ZooKeeper 或 etcd 协调任务分片。两者的架构和运维依赖不同，不能据此直接断言某一个框架“性能更好”。选型时应针对实际版本、任务数量、触发频率、分片规模、故障恢复要求和数据库或注册中心负载进行压测。PowerJob 等其他框架也应按相同维度验证，不宜只依据项目方的功能对比表下结论。
 
 这篇文章并没有介绍到实际使用，但是，并不代表实际使用不重要。我在写这篇文章之前，已经动手写过相应的 Demo。像 Quartz，我在大学那会就用过。不过，当时用的是 Spring 。为了能够更好地体验，我自己又在 Spring Boot 上实际体验了一下。如果你并没有实际使用某个框架，就直接说它并不好用的话，是站不住脚的。
+
+<!-- @include: @article-footer.snippet.md -->

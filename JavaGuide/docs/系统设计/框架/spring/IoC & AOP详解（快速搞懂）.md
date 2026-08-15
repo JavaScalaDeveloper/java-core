@@ -1,8 +1,13 @@
 ---
 title: IoC & AOP详解（快速搞懂）
+description: Spring IoC与AOP核心原理详解，深入讲解控制反转、依赖注入、切面编程及动态代理的实现机制。
 category: 框架
 tag:
   - Spring
+head:
+  - - meta
+    - name: keywords
+      content: IoC,DI,AOP,Spring IoC容器,依赖注入,切面编程,动态代理,Spring原理
 ---
 
 这篇文章会从下面从以下几个问题展开对 IoC & AOP 的解释
@@ -114,7 +119,7 @@ AOP 可以将横切关注点（如日志记录、事务管理、权限控制、�
 
 ![](https://oss.javaguide.cn/github/javaguide/系统设计/框架/spring/crosscut-logic-and-businesslogic-separation%20%20%20%20%20%20.png)
 
-以日志记录为例进行介绍，假如我们需要对某些方法进行统一格式的日志记录，没有使用 AOP 技术之前，我们需要挨个写日志记录的逻辑代码，全是重复的的逻辑。
+以日志记录为例进行介绍，假如我们需要对某些方法进行统一格式的日志记录，没有使用 AOP 技术之前，我们需要挨个写日志记录的逻辑代码，全是重复的逻辑。
 
 ```java
 public CommonResponse<Object> method1() {
@@ -216,7 +221,7 @@ Spring AOP 就是基于动态代理的，如果要代理的对象，实现了某
 
 **Spring Boot 和 Spring 的动态代理的策略是不是也是一样的呢？**其实不一样，很多人都理解错了。
 
-Spring Boot 2.0 之前，默认使用 **JDK 动态代理**。如果目标类没有实现接口，会抛出异常，开发者必须显式配置（`spring.aop.proxy-target-class=true`）使用 **CGLIB 动态代理** 或者注入接口来解决。Spring Boot 1.5.x 自动配置 AOP 代码如下：
+Spring Boot 2.0 之前，`spring.aop.proxy-target-class` 默认值为 `false`，有用户接口时通常使用 **JDK 动态代理**；如果目标类没有可用接口，Spring AOP 仍会回退到 **CGLIB 动态代理**，并不会仅仅因为目标类没有实现接口就抛出异常。Spring Boot 1.5.x 自动配置 AOP 代码如下：
 
 ```java
 @Configuration
@@ -277,7 +282,7 @@ public class AopAutoConfiguration {
 
 当然你也可以使用 **AspectJ** ！Spring AOP 已经集成了 AspectJ ，AspectJ 应该算的上是 Java 生态系统中最完整的 AOP 框架了。
 
-**Spring AOP 属于运行时增强，而 AspectJ 是编译时增强。** Spring AOP 基于代理(Proxying)，而 AspectJ 基于字节码操作(Bytecode Manipulation)。
+**Spring AOP 属于运行时增强，AspectJ 支持编译时、后编译以及类加载时织入。** Spring AOP 基于代理(Proxying)，而 AspectJ 基于字节码操作(Bytecode Manipulation)。
 
 Spring AOP 已经集成了 AspectJ ，AspectJ 应该算的上是 Java 生态系统中最完整的 AOP 框架了。AspectJ 相比于 Spring AOP 功能更加强大，但是 Spring AOP 相对来说更简单。
 
@@ -286,4 +291,4 @@ Spring AOP 已经集成了 AspectJ ，AspectJ 应该算的上是 Java 生态系�
 ## 参考
 
 - AOP in Spring Boot, is it a JDK dynamic proxy or a Cglib dynamic proxy?：<https://www.springcloud.io/post/2022-01/springboot-aop/>
-- Spring Proxying Mechanisms：<https://docs.spring.io/spring-框架/reference/core/aop/proxying.html>
+- Spring Proxying Mechanisms：<https://docs.spring.io/spring-framework/reference/core/aop/proxying.html>

@@ -1,13 +1,18 @@
 ---
 title: CompletableFuture 详解
+description: CompletableFuture异步编程详解：全面讲解CompletableFuture核心API、异步任务编排、thenCompose/thenCombine组合、allOf/anyOf聚合、线程池配置与最佳实践。
 category: Java
 tag:
   - Java并发
+head:
+  - - meta
+    - name: keywords
+      content: CompletableFuture,异步编程,异步编排,Future,thenCompose,thenCombine,allOf,并行任务
 ---
 
 实际项目中，一个接口可能需要同时获取多种不同的数据，然后再汇总返回，这种场景还是挺常见的。举个例子：用户请求获取订单信息，可能需要同时获取用户信息、商品详情、物流信息、商品推荐等数据。
 
-如果是串行（按顺序依次执行每个任务）执行的话，接口的响应速度会非常慢。考虑到这些任务之间有大部分都是 **无前后顺序关联** 的，可以 **并行执行** ，就比如说调用获取商品详情的时候，可以同时调用获取物流信息。通过并行执行多个任务的方式，接口的响应速度会得到大幅优化。
+如果是串行（按顺序依次执行每个任务）执行的话，接口的响应速度会非常慢。考虑到这些任务之间有大部分都是 **无前后顺序关联** 的，可以 **并行执行**，就比如说调用获取商品详情的时候，可以同时调用获取物流信息。通过并行执行多个任务的方式，接口的响应速度会得到大幅优化。
 
 ![](https://oss.javaguide.cn/github/javaguide/高性能/serial-to-parallel.png)
 
@@ -30,11 +35,11 @@ tag:
 
 ## Future 介绍
 
-`Future` 类是异步思想的典型运用，主要用在一些需要执行耗时任务的场景，避免程序一直原地等待耗时任务执行完成，执行效率太低。具体来说是这样的：当我们执行某一耗时的任务时，可以将这个耗时任务交给一个子线程去异步执行，同时我们可以干点其他事情，不用傻傻等待耗时任务执行完成。等我们的事情干完后，我们再通过 `Future` 类获取到耗时任务的执行结果。这样一来，程序的执行效率就明显提高了。
+`Future` 接口是异步思想的典型运用，主要用在一些需要执行耗时任务的场景，避免程序一直原地等待耗时任务执行完成，执行效率太低。具体来说是这样的：当我们执行某一耗时的任务时，可以将这个耗时任务交给一个子线程去异步执行，同时我们可以干点其他事情，不用傻傻等待耗时任务执行完成。等我们的事情干完后，我们再通过 `Future` 获取到耗时任务的执行结果。这样一来，程序的执行效率就明显提高了。
 
 这其实就是多线程中经典的 **Future 模式**，你可以将其看作是一种设计模式，核心思想是异步调用，主要用在多线程领域，并非 Java 语言独有。
 
-在 Java 中，`Future` 类只是一个泛型接口，位于 `java.util.concurrent` 包下，其中定义了 5 个方法，主要包括下面这 4 个功能：
+在 Java 中，`Future` 是一个泛型接口，位于 `java.util.concurrent` 包下。它有 5 个经典抽象方法，主要包括下面 4 类功能；JDK 19 起又增加了 `resultNow()`、`exceptionNow()` 和 `state()` 三个默认查询方法。
 
 - 取消任务；
 - 判断任务是否被取消;
@@ -53,11 +58,9 @@ public interface Future<V> {
     boolean isDone();
     // 获取任务执行结果
     V get() throws InterruptedException, ExecutionException;
-    // 指定时间内没有返回计算结果就抛出 TimeOutException 异常
+    // 指定时间内没有返回计算结果就抛出 TimeoutException 异常
     V get(long timeout, TimeUnit unit)
-
-        throws InterruptedException, ExecutionException, TimeoutExceptio
-
+        throws InterruptedException, ExecutionException, TimeoutException;
 }
 ```
 
@@ -67,7 +70,7 @@ public interface Future<V> {
 
 `Future` 在实际使用过程中存在一些局限性，比如不支持异步任务的编排组合、获取计算结果的 `get()` 方法为阻塞调用。
 
-Java 8 才被引入`CompletableFuture` 类可以解决`Future` 的这些缺陷。`CompletableFuture` 除了提供了更为好用和强大的 `Future` 特性之外，还提供了函数式编程、异步任务编排组合（可以将多个异步任务串联起来，组成一个完整的链式调用）等能力。
+Java 8 才被引入 `CompletableFuture` 类可以解决 `Future` 的这些缺陷。`CompletableFuture` 除了提供了更为好用和强大的 `Future` 特性之外，还提供了函数式编程、异步任务编排组合（可以将多个异步任务串联起来，组成一个完整的链式调用）等能力。
 
 下面我们来简单看看 `CompletableFuture` 类的定义。
 
@@ -79,8 +82,6 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
 可以看到，`CompletableFuture` 同时实现了 `Future` 和 `CompletionStage` 接口。
 
 ![](https://oss.javaguide.cn/github/javaguide/java/并发/completablefuture-class-diagram.jpg)
-
-`CompletionStage` 接口描述了一个异步计算的阶段。很多计算可以分成多个阶段或步骤，此时可以通过它将所有步骤组合起来，形成异步计算的流水线。
 
 `CompletableFuture` 除了提供了更为好用和强大的 `Future` 特性之外，还提供了函数式编程的能力。
 
@@ -109,7 +110,7 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
 常见的创建 `CompletableFuture` 对象的方法如下：
 
 1. 通过 new 关键字。
-2. 基于 `CompletableFuture` 自带的静态工厂方法：`runAsync()`、`supplyAsync()` 。
+2. 基于 `CompletableFuture` 自带的静态工厂方法：`runAsync()`、`supplyAsync()`。
 
 #### new 关键字
 
@@ -146,7 +147,7 @@ public boolean isDone() {
 rpcResponse = completableFuture.get();
 ```
 
-如果你已经知道计算的结果的话，可以使用静态方法 `completedFuture()` 来创建 `CompletableFuture` 。
+如果你已经知道计算的结果的话，可以使用静态方法 `completedFuture()` 来创建 `CompletableFuture`。
 
 ```java
 CompletableFuture<String> future = CompletableFuture.completedFuture("hello!");
@@ -174,7 +175,7 @@ static CompletableFuture<Void> runAsync(Runnable runnable);
 static CompletableFuture<Void> runAsync(Runnable runnable, Executor executor);
 ```
 
-`runAsync()` 方法接受的参数是 `Runnable` ，这是一个函数式接口，不允许返回值。当你需要异步操作且不关心返回结果的时候可以使用 `runAsync()` 方法。
+`runAsync()` 方法接受的参数是 `Runnable`，这是一个函数式接口，不允许返回值。当你需要异步操作且不关心返回结果的时候可以使用 `runAsync()` 方法。
 
 ```java
 @FunctionalInterface
@@ -183,7 +184,7 @@ public interface Runnable {
 }
 ```
 
-`supplyAsync()` 方法接受的参数是 `Supplier<U>` ，这也是一个函数式接口，`U` 是返回结果值的类型。
+`supplyAsync()` 方法接受的参数是 `Supplier<U>`，这也是一个函数式接口，`U` 是返回结果值的类型。
 
 ```java
 @FunctionalInterface
@@ -198,7 +199,7 @@ public interface Supplier<T> {
 }
 ```
 
-当你需要异步操作且关心返回结果的时候,可以使用 `supplyAsync()` 方法。
+当你需要异步操作且关心返回结果的时候，可以使用 `supplyAsync()` 方法。
 
 ```java
 CompletableFuture<Void> future = CompletableFuture.runAsync(() -> System.out.println("hello!"));
@@ -219,7 +220,7 @@ assertEquals("hello!", future2.get());
 `thenApply()` 方法接受一个 `Function` 实例，用它来处理结果。
 
 ```java
-// 沿用上一个任务的线程池
+// 非异步回调：可能由完成上一个阶段的线程执行；如果阶段已经完成，也可能由当前调用线程执行
 public <U> CompletableFuture<U> thenApply(
     Function<? super T,? extends U> fn) {
     return uniApplyStage(null, fn);
@@ -258,7 +259,7 @@ assertEquals("hello!world!nice!", future.get());
 
 **如果你不需要从回调函数中获取返回结果，可以使用 `thenAccept()` 或者 `thenRun()`。这两个方法的区别在于 `thenRun()` 不能访问异步计算的结果。**
 
-`thenAccept()` 方法的参数是 `Consumer<? super T>` 。
+`thenAccept()` 方法的参数是 `Consumer<? super T>`。
 
 ```java
 public CompletableFuture<Void> thenAccept(Consumer<? super T> action) {
@@ -290,7 +291,7 @@ public interface Consumer<T> {
 }
 ```
 
-`thenRun()` 的方法是的参数是 `Runnable` 。
+`thenRun()` 的方法是的参数是 `Runnable`。
 
 ```java
 public CompletableFuture<Void> thenRun(Runnable action) {
@@ -317,13 +318,14 @@ CompletableFuture.completedFuture("hello!")
         .thenApply(s -> s + "world!").thenApply(s -> s + "nice!").thenRun(() -> System.out.println("hello!"));//hello!
 ```
 
-`whenComplete()` 的方法的参数是 `BiConsumer<? super T, ? super Throwable>` 。
+`whenComplete()` 的方法的参数是 `BiConsumer<? super T, ? super Throwable>`。
 
 ```java
 public CompletableFuture<T> whenComplete(
     BiConsumer<? super T, ? super Throwable> action) {
     return uniWhenCompleteStage(null, action);
 }
+
 
 public CompletableFuture<T> whenCompleteAsync(
     BiConsumer<? super T, ? super Throwable> action) {
@@ -336,7 +338,7 @@ public CompletableFuture<T> whenCompleteAsync(
 }
 ```
 
-相对于 `Consumer` ， `BiConsumer` 可以接收 2 个输入对象然后进行“消费”。
+相对于 `Consumer`， `BiConsumer` 可以接收 2 个输入对象然后进行“消费”。
 
 ```java
 @FunctionalInterface
@@ -480,11 +482,11 @@ assertEquals("hello!world!nice!", completableFuture.get());
 **那 `thenCompose()` 和 `thenCombine()` 有什么区别呢？**
 
 - `thenCompose()` 可以链接两个 `CompletableFuture` 对象，并将前一个任务的返回结果作为下一个任务的参数，它们之间存在着先后顺序。
-- `thenCombine()` 会在两个任务都执行完成后，把两个任务的结果合并。两个任务是并行执行的，它们之间并没有先后依赖顺序。
+- `thenCombine()` 会在两个阶段都正常完成后，把它们的结果合并。这两个阶段可以彼此独立，但是否并行执行取决于它们的创建方式和所用执行器，`thenCombine()` 本身不负责启动任务。
 
 除了 `thenCompose()` 和 `thenCombine()` 之外， 还有一些其他的组合 `CompletableFuture` 的方法用于实现不同的效果，满足不同的业务需求。
 
-例如，如果我们想要实现 task1 和 task2 中的任意一个任务执行完后就执行 task3 的话，可以使用 `acceptEither()`。
+例如，在 task1 和 task2 都正常完成的场景中，可以使用 `acceptEither()`，让 task3 接收其中一个先完成任务的结果。需要注意，它不能作为可靠的“第一个成功结果”选择器：只要其中一个阶段异常完成，返回阶段的结果就要遵循 `CompletionStage` 对 either 组合的异常规则。
 
 ```java
 public CompletableFuture<Void> acceptEither(
@@ -547,11 +549,11 @@ try {
 任务2执行完毕，当前时间：1695088059523
 ```
 
-任务组合操作`acceptEitherAsync()`会在异步任务 1 和异步任务 2 中的任意一个完成时触发执行任务 3，但是需要注意，这个触发时机是不确定的。如果任务 1 和任务 2 都还未完成，那么任务 3 就不能被执行。
+当两个阶段都正常完成时，`acceptEitherAsync()` 会使用其中一个已完成阶段的结果异步执行任务 3，通常是先完成者的结果。不过，如果其中一个阶段异常完成，而另一个尚未完成或正常完成，规范并不保证返回阶段最终一定正常完成还是异常完成。因此，不能依赖该方法忽略先发生的异常并继续等待另一个成功结果。
 
-### 并行运行多个 CompletableFuture
+### 等待多个 CompletableFuture 完成
 
-你可以通过 `CompletableFuture` 的 `allOf()`这个静态方法来并行运行多个 `CompletableFuture` 。
+你可以通过 `CompletableFuture` 的 `allOf()` 静态方法等待多个 `CompletableFuture` 全部完成。`allOf()` 只组合已有阶段的完成状态，不负责启动这些任务；任务是否并行取决于它们的创建方式和执行器。
 
 实际项目中，我们经常需要并行运行多个互不相关的任务，这些任务之间没有依赖关系，可以互相独立地运行。
 
@@ -608,7 +610,7 @@ CompletableFuture<String> future2 = CompletableFuture.supplyAsync(() -> {
 });
 ```
 
-调用 `join()` 可以让程序等`future1` 和 `future2` 都运行完了之后再继续执行。
+调用 `join()` 可以让程序等 `future1` 和 `future2` 都运行完了之后再继续执行。
 
 ```java
 CompletableFuture<Void> completableFuture = CompletableFuture.allOf(future1, future2);
@@ -652,7 +654,7 @@ abc
 
 我们上面的代码示例中，为了方便，都没有选择自定义线程池。实际项目中，这是不可取的。
 
-`CompletableFuture` 默认使用全局共享的 `ForkJoinPool.commonPool()` 作为执行器，所有未指定执行器的异步任务都会使用该线程池。这意味着应用程序、多个库或框架（如 Spring、第三方库）若都依赖 `CompletableFuture`，默认情况下它们都会共享同一个线程池。
+在 `CompletableFuture` 的默认实现中，没有显式传入 `Executor` 的异步方法通常使用全局共享的 `ForkJoinPool.commonPool()`；子类可以通过重写 `defaultExecutor()` 改变非静态异步方法的默认执行器。这意味着应用程序、多个库或框架若都使用默认实现，相关异步任务通常会共享同一个线程池。
 
 虽然 `ForkJoinPool` 效率很高，但当同时提交大量任务时，可能会导致资源竞争和线程饥饿，进而影响系统性能。
 
@@ -674,7 +676,7 @@ CompletableFuture.runAsync(() -> {
 
 ### 尽量避免使用 get()
 
-`CompletableFuture`的`get()`方法是阻塞的，尽量避免使用。如果必须要使用的话，需要添加超时时间，否则可能会导致主线程一直等待，无法执行其他任务。
+`CompletableFuture` 的 `get()` 方法是阻塞的，尽量避免使用。如果必须要使用的话，需要添加超时时间，否则可能会导致主线程一直等待，无法执行其他任务。
 
 ```java
     CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
@@ -701,29 +703,31 @@ CompletableFuture.runAsync(() -> {
 
 ### 正确进行异常处理
 
-使用 `CompletableFuture`的时候一定要以正确的方式进行异常处理，避免异常丢失或者出现不可控问题。
+使用 `CompletableFuture` 的时候一定要以正确的方式进行异常处理，避免异常丢失或者出现不可控问题。
 
 下面是一些建议：
 
-- 使用 `whenComplete` 方法可以在任务完成时触发回调函数，并正确地处理异常，而不是让异常被吞噬或丢失。
-- 使用 `exceptionally` 方法可以处理异常并重新抛出，以便异常能够传播到后续阶段，而不是让异常被忽略或终止。
-- 使用 `handle` 方法可以处理正常的返回结果和异常，并返回一个新的结果，而不是让异常影响正常的业务逻辑。
-- 使用 `CompletableFuture.allOf` 方法可以组合多个 `CompletableFuture`，并统一处理所有任务的异常，而不是让异常处理过于冗长或重复。
+- `whenComplete` 会在阶段正常或异常完成时执行回调，适合观察结果和记录异常；它默认保留原阶段的结果或异常，不用于把异常转换为正常结果。
+- `exceptionally` 只在阶段异常完成时执行，并用回调的返回值恢复为正常结果；如果需要继续传播异常，可以在回调中显式抛出异常。
+- `handle` 无论阶段正常还是异常完成都会执行，并根据结果和异常生成一个新的结果。
+- `CompletableFuture.allOf` 可以等待多个阶段全部完成；只要其中一个阶段异常完成，返回的 `CompletableFuture` 也会异常完成，但仍需分别检查各阶段才能获得每个任务的结果或异常。
 - ……
 
 ### 合理组合多个异步任务
 
-正确使用 `thenCompose()` 、 `thenCombine()` 、`acceptEither()`、`allOf()`、`anyOf()`等方法来组合多个异步任务，以满足实际业务的需求，提高程序执行效率。
+正确使用 `thenCompose()`、 `thenCombine()`、`acceptEither()`、`allOf()`、`anyOf()` 等方法来组合多个异步任务，以满足实际业务的需求，提高程序执行效率。
 
-实际使用中，我们还可以利用或者参考现成的异步任务编排框架，比如京东的 [asyncTool](https://gitee.com/jd-platform-opensource/asyncTool) 。
+实际使用中，我们还可以利用或者参考现成的异步任务编排框架，比如京东的 [asyncTool](https://gitee.com/jd-platform-opensource/asyncTool)。
 
 ![asyncTool README 文档](https://oss.javaguide.cn/github/javaguide/java/并发/asyncTool-readme.png)
 
 ## 后记
 
-这篇文章只是简单介绍了 `CompletableFuture` 的核心概念和比较常用的一些 API 。如果想要深入学习的话，还可以多找一些书籍和博客看，比如下面几篇文章就挺不错：
+这篇文章只是简单介绍了 `CompletableFuture` 的核心概念和比较常用的一些 API。如果想要深入学习的话，还可以多找一些书籍和博客看，比如下面几篇文章就挺不错：
 
 - [CompletableFuture 原理与实践-外卖商家端 API 的异步化 - 美团技术团队](https://tech.meituan.com/2022/05/12/principles-and-practices-of-completablefuture.html)：这篇文章详细介绍了 `CompletableFuture` 在实际项目中的运用。参考这篇文章，可以对项目中类似的场景进行优化，也算是一个小亮点了。这种性能优化方式比较简单且效果还不错！
-- [读 RocketMQ 源码，学习并发编程三大神器 - 勇哥 java 实战分享](https://mp.weixin.qq.com/s/32Ak-WFLynQfpn0Cg0N-0A)：这篇文章介绍了 RocketMQ 对`CompletableFuture`的应用。具体来说，从 RocketMQ 4.7 开始，RocketMQ 引入了 `CompletableFuture`来实现异步消息处理 。
+- [读 RocketMQ 源码，学习并发编程三大神器 - 勇哥 java 实战分享](https://mp.weixin.qq.com/s/32Ak-WFLynQfpn0Cg0N-0A)：这篇文章介绍了 RocketMQ 对 `CompletableFuture` 的应用。具体来说，从 RocketMQ 4.7 开始，RocketMQ 引入了 `CompletableFuture` 来实现异步消息处理。
 
-另外，建议 G 友们可以看看京东的 [asyncTool](https://gitee.com/jd-platform-opensource/asyncTool) 这个并发框架，里面大量使用到了 `CompletableFuture` 。
+另外，建议 G 友们可以看看京东的 [asyncTool](https://gitee.com/jd-platform-opensource/asyncTool) 这个并发框架，里面大量使用到了 `CompletableFuture`。
+
+<!-- @include: @article-footer.snippet.md -->

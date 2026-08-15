@@ -1,25 +1,30 @@
 ---
 title: Java 线程池最佳实践
+description: Java线程池最佳实践总结：详解线程池参数配置、避免Executors工厂方法OOM风险、拒绝策略选择、线程池监控、线程命名规范等生产级实践。
 category: Java
 tag:
   - Java并发
+head:
+  - - meta
+    - name: keywords
+      content: 线程池最佳实践,ThreadPoolExecutor配置,Executors陷阱,OOM风险,拒绝策略,线程池监控,线程命名
 ---
 
 简单总结一下我了解的使用线程池的时候应该注意的东西，网上似乎还没有专门写这方面的文章。
 
 ## 1、正确声明线程池
 
-**线程池必须手动通过 `ThreadPoolExecutor` 的构造函数来声明，避免使用`Executors` 类创建线程池，会有 OOM 风险。**
+**线程池必须手动通过 `ThreadPoolExecutor` 的构造函数来声明，避免使用 `Executors` 类创建线程池，会有 OOM 风险。**
 
-`Executors` 返回线程池对象的弊端如下(后文会详细介绍到)：
+`Executors` 返回线程池对象的弊端如下（后文会详细介绍到）：
 
 - **`FixedThreadPool` 和 `SingleThreadExecutor`**：使用的是阻塞队列 `LinkedBlockingQueue`，任务队列的默认长度和最大长度为 `Integer.MAX_VALUE`，可以看作是无界队列，可能堆积大量的请求，从而导致 OOM。
-- **`CachedThreadPool`**：使用的是同步队列 `SynchronousQueue`，允许创建的线程数量为 `Integer.MAX_VALUE` ，可能会创建大量线程，从而导致 OOM。
-- **`ScheduledThreadPool` 和 `SingleThreadScheduledExecutor`** : 使用的无界的延迟阻塞队列`DelayedWorkQueue`，任务队列最大长度为 `Integer.MAX_VALUE`，可能堆积大量的请求，从而导致 OOM。
+- **`CachedThreadPool`**：使用的是同步队列 `SynchronousQueue`，允许创建的线程数量为 `Integer.MAX_VALUE`，可能会创建大量线程，从而导致 OOM。
+- **`ScheduledThreadPool` 和 `SingleThreadScheduledExecutor`** : 使用的无界的延迟阻塞队列 `DelayedWorkQueue`，任务队列最大长度为 `Integer.MAX_VALUE`，可能堆积大量的请求，从而导致 OOM。
 
 说白了就是：**使用有界队列，控制线程创建数量。**
 
-除了避免 OOM 的原因之外，不推荐使用 `Executors`提供的两种快捷的线程池的原因还有：
+除了避免 OOM 的原因之外，不推荐使用 `Executors` 提供的两种快捷的线程池的原因还有：
 
 - 实际使用中需要根据自己机器的性能、业务场景来手动配置线程池的参数比如核心线程数、使用的任务队列、饱和策略等等。
 - 我们应该显示地给我们的线程池命名，这样有助于我们定位问题。
@@ -28,11 +33,11 @@ tag:
 
 你可以通过一些手段来检测线程池的运行状态比如 SpringBoot 中的 Actuator 组件。
 
-除此之外，我们还可以利用 `ThreadPoolExecutor` 的相关 API 做一个简陋的监控。从下图可以看出， `ThreadPoolExecutor`提供了获取线程池当前的线程数和活跃线程数、已经执行完成的任务数、正在排队中的任务数等等。
+除此之外，我们还可以利用 `ThreadPoolExecutor` 的相关 API 做一个简陋的监控。从下图可以看出， `ThreadPoolExecutor` 提供了获取线程池当前的线程数和活跃线程数、已经执行完成的任务数、正在排队中的任务数等等。
 
 ![](https://oss.javaguide.cn/github/javaguide/java/并发/threadpool-methods-information.png)
 
-下面是一个简单的 Demo。`printThreadPoolStatus()`会每隔一秒打印出线程池的线程数、活跃线程数、完成的任务数、以及队列中的任务数。
+下面是一个简单的 Demo。`printThreadPoolStatus()` 会每隔一秒打印出线程池的线程数、活跃线程数、完成的任务数、以及队列中的任务数。
 
 ```java
 /**
@@ -41,7 +46,7 @@ tag:
  * @param threadPool 线程池对象
  */
 public static void printThreadPoolStatus(ThreadPoolExecutor threadPool) {
-    ScheduledExecutorService scheduledExecutorService = new ScheduledThreadPoolExecutor(1, createThreadFactory("print-图片/thread-pool-status", false));
+    ScheduledExecutorService scheduledExecutorService = new ScheduledThreadPoolExecutor(1, createThreadFactory("print-images/thread-pool-status", false));
     scheduledExecutorService.scheduleAtFixedRate(() -> {
         log.info("=========================");
         log.info("ThreadPool Size: [{}]", threadPool.getPoolSize());
@@ -59,13 +64,13 @@ public static void printThreadPoolStatus(ThreadPoolExecutor threadPool) {
 
 一般建议是不同的业务使用不同的线程池，配置线程池的时候根据当前业务的情况对当前线程池进行配置，因为不同的业务的并发以及对资源的使用情况都不同，重心优化系统性能瓶颈相关的业务。
 
-**我们再来看一个真实的事故案例！** (本案例来源自：[《线程池运用不当的一次线上事故》](https://heapdump.cn/article/646639) ，很精彩的一个案例)
+**我们再来看一个真实的事故案例！** (本案例来源自：[《线程池运用不当的一次线上事故》](https://heapdump.cn/article/646639)，很精彩的一个案例)
 
 ![案例代码概览](https://oss.javaguide.cn/github/javaguide/java/并发/production-accident-threadpool-sharing-example.png)
 
 上面的代码可能会存在死锁的情况，为什么呢？画个图给大家捋一捋。
 
-试想这样一种极端情况：假如我们线程池的核心线程数为 **n**，父任务（扣费任务）数量为 **n**，父任务下面有两个子任务（扣费任务下的子任务），其中一个已经执行完成，另外一个被放在了任务队列中。由于父任务把线程池核心线程资源用完，所以子任务因为无法获取到线程资源无法正常执行，一直被阻塞在队列中。父任务等待子任务执行完成，而子任务等待父任务释放线程池资源，这也就造成了 **"死锁"** 。
+试想这样一种极端情况：假如我们线程池的核心线程数为 **n**，父任务（扣费任务）数量为 **n**，父任务下面有两个子任务（扣费任务下的子任务），其中一个已经执行完成，另外一个被放在了任务队列中。由于父任务把线程池核心线程资源用完，所以子任务因为无法获取到线程资源无法正常执行，一直被阻塞在队列中。父任务等待子任务执行完成，而子任务等待父任务释放线程池资源，这也就造成了 **“死锁”**。
 
 ![线程池使用不当导致死锁](https://oss.javaguide.cn/github/javaguide/java/并发/production-accident-threadpool-sharing-deadlock.png)
 
@@ -144,7 +149,7 @@ public final class NamingThreadFactory implements ThreadFactory {
 有一个简单并且适用面比较广的公式：
 
 - **CPU 密集型任务 (N)：** 这种任务消耗的主要是 CPU 资源，线程数应设置为 N（CPU 核心数）。由于任务主要瓶颈在于 CPU 计算能力，与核心数相等的线程数能够最大化 CPU 利用率，过多线程反而会导致竞争和上下文切换开销。
-- **I/O 密集型任务(M \* N)：** 这类任务大部分时间处理 I/O 交互，线程在等待 I/O 时不占用 CPU。 为了充分利用 CPU 资源，线程数可以设置为 M \* N，其中 N 是 CPU 核心数，M 是一个大于 1 的倍数，建议默认设置为 2 ，具体取值取决于 I/O 等待时间和任务特点，需要通过测试和监控找到最佳平衡点。
+- **I/O 密集型任务(M \* N)：** 这类任务大部分时间处理 I/O 交互，线程在等待 I/O 时不占用 CPU。 为了充分利用 CPU 资源，线程数可以设置为 M \* N，其中 N 是 CPU 核心数，M 是一个大于 1 的倍数，建议默认设置为 2，具体取值取决于 I/O 等待时间和任务特点，需要通过测试和监控找到最佳平衡点。
 
 CPU 密集型任务不再推荐 N+1，原因如下：
 
@@ -175,9 +180,9 @@ IO 密集型任务下，几乎全是线程等待时间，从理论上来说，�
 
 美团技术团队的思路是主要对线程池的核心参数实现自定义可配置。这三个核心参数是：
 
-- **`corePoolSize` :** 核心线程数定义了最小可以同时运行的线程数量。
+- **`corePoolSize` :** 核心线程数决定了线程池优先维持的工作线程数量；默认情况下核心线程也要等有任务时才创建，也可以通过 `prestartCoreThread()` 或 `prestartAllCoreThreads()` 提前启动。
 - **`maximumPoolSize` :** 当队列中存放的任务达到队列容量的时候，当前可以同时运行的线程数量变为最大线程数。
-- **`workQueue`:** 当新任务来的时候会先判断当前运行的线程数量是否达到核心线程数，如果达到的话，新任务就会被存放在队列中。
+- **`workQueue`:** 当新任务来的时候会先判断当前工作线程总数是否达到核心线程数；如果达到的话，新任务就会被优先存放在队列中，等空闲工作线程来处理。
 
 **为什么是这三个参数？**
 
@@ -187,9 +192,9 @@ IO 密集型任务下，几乎全是线程等待时间，从理论上来说，�
 
 ![](https://oss.javaguide.cn/github/javaguide/java/并发/threadpoolexecutor-methods.png)
 
-格外需要注意的是`corePoolSize`， 程序运行期间的时候，我们调用 `setCorePoolSize（）`这个方法的话，线程池会首先判断当前工作线程数是否大于`corePoolSize`，如果大于的话就会回收工作线程。
+格外需要注意的是 `corePoolSize`。程序运行期间调用 `setCorePoolSize()` 时，如果新的值小于当前工作线程数，多出的线程会在下一次空闲时被终止；如果新的值更大，则会按需启动新线程处理队列中的任务。
 
-另外，你也看到了上面并没有动态指定队列长度的方法，美团的方式是自定义了一个叫做 `ResizableCapacityLinkedBlockIngQueue` 的队列（主要就是把`LinkedBlockingQueue`的 capacity 字段的 final 关键字修饰给去掉了，让它变为可变的）。
+另外，你也看到了上面并没有动态指定队列长度的方法，美团的方式是自定义了一个叫做 `ResizableCapacityLinkedBlockIngQueue` 的队列（主要就是把 `LinkedBlockingQueue` 的 capacity 字段的 final 关键字修饰给去掉了，让它变为可变的）。
 
 最终实现的可动态修改线程池参数效果如下。👏👏👏
 
@@ -207,9 +212,9 @@ IO 密集型任务下，几乎全是线程等待时间，从理论上来说，�
 线程池提供了两个关闭方法：
 
 - **`shutdown（）`** :关闭线程池，线程池的状态变为 `SHUTDOWN`。线程池不再接受新任务了，但是队列里的任务得执行完毕。
-- **`shutdownNow（）`** :关闭线程池，线程池的状态变为 `STOP`。线程池会终止当前正在运行的任务，停止处理排队的任务并返回正在等待执行的 List。
+- **`shutdownNow()`**：关闭线程池，线程池的状态变为 `STOP`。线程池会尝试中断正在执行的任务，停止处理排队的任务并返回尚未开始执行的任务列表；任务如果不响应中断，不能保证立即终止。
 
-调用完 `shutdownNow` 和 `shuwdown` 方法后，并不代表线程池已经完成关闭操作，它只是异步的通知线程池进行关闭处理。如果要同步等待线程池彻底关闭后才继续往下执行，需要调用`awaitTermination`方法进行同步等待。
+调用完 `shutdownNow` 和 `shuwdown` 方法后，并不代表线程池已经完成关闭操作，它只是异步的通知线程池进行关闭处理。如果要同步等待线程池彻底关闭后才继续往下执行，需要调用 `awaitTermination` 方法进行同步等待。
 
 在调用 `awaitTermination()` 方法时，应该设置合理的超时时间，以避免程序长时间阻塞而导致性能问题。另外。由于线程池中的任务可能会被取消或抛出异常，因此在使用 `awaitTermination()` 方法时还需要进行异常处理。`awaitTermination()` 方法会抛出 `InterruptedException` 异常，需要捕获并处理该异常，以避免程序崩溃或者无法正常退出。
 
@@ -224,7 +229,8 @@ try {
         System.err.println("线程池未能在5分钟内完全关闭");
     }
 } catch (InterruptedException e) {
-    // 异常处理
+    // 恢复中断状态，由上层决定如何结束当前流程
+    Thread.currentThread().interrupt();
 }
 ```
 
@@ -232,7 +238,7 @@ try {
 
 线程池本身的目的是为了提高任务执行效率，避免因频繁创建和销毁线程而带来的性能开销。如果将耗时任务提交到线程池中执行，可能会导致线程池中的线程被长时间占用，无法及时响应其他任务，甚至会导致线程池崩溃或者程序假死。
 
-因此，在使用线程池时，我们应该尽量避免将耗时任务提交到线程池中执行。对于一些比较耗时的操作，如网络请求、文件读写等，可以采用 `CompletableFuture` 等其他异步操作的方式来处理，以避免阻塞线程池中的线程。
+因此，在使用线程池时，不应让耗时任务长期占满一个还承担其他业务的共享线程池。`CompletableFuture` 只是组织异步任务，本身不会把阻塞式网络请求或文件读写变成非阻塞操作；这类任务可以使用隔离的专用线程池、真正的异步 I/O，或者在合适的 JDK 版本中使用虚拟线程。
 
 ## 8、线程池使用的一些小坑
 
@@ -285,7 +291,7 @@ public class ThreadPoolExecutorConfig {
 
 ### 线程池和 ThreadLocal 共用的坑
 
-线程池和 `ThreadLocal`共用，可能会导致线程从`ThreadLocal`获取到的是旧值/脏数据。这是因为线程池会复用线程对象，与线程对象绑定的类的静态属性 `ThreadLocal` 变量也会被重用，这就导致一个线程可能获取到其他线程的`ThreadLocal` 值。
+线程池和 `ThreadLocal` 共用，可能会导致任务从 `ThreadLocal` 获取到旧值。这是因为线程池会复用线程对象：如果前一个任务没有清理该工作线程上的 `ThreadLocal` 值，后续复用同一线程的任务就可能读取到它。不同线程之间的 `ThreadLocal` 值本身不会相互读取。
 
 不要以为代码中没有显示使用线程池就不存在线程池了，像常用的 Web 服务器 Tomcat 处理任务为了提高并发量，就使用到了线程池，并且使用的是基于原生 Java 线程池改进完善得到的自定义线程池。
 
@@ -295,6 +301,8 @@ public class ThreadPoolExecutorConfig {
 server.tomcat.max-threads=1
 ```
 
-解决上述问题比较建议的办法是使用阿里巴巴开源的 `TransmittableThreadLocal`(`TTL`)。`TransmittableThreadLocal`类继承并加强了 JDK 内置的`InheritableThreadLocal`类，在使用线程池等会池化复用线程的执行组件情况下，提供`ThreadLocal`值的传递功能，解决异步执行时上下文传递的问题。
+解决上述问题比较建议的办法是使用阿里巴巴开源的 `TransmittableThreadLocal`(`TTL`)。`TransmittableThreadLocal` 类继承并加强了 JDK 内置的 `InheritableThreadLocal` 类，在使用线程池等会池化复用线程的执行组件情况下，提供 `ThreadLocal` 值的传递功能，解决异步执行时上下文传递的问题。
 
-`TransmittableThreadLocal` 项目地址：<https://github.com/alibaba/transmittable-thread-local> 。
+`TransmittableThreadLocal` 项目地址：<https://github.com/alibaba/transmittable-thread-local>。
+
+<!-- @include: @article-footer.snippet.md -->

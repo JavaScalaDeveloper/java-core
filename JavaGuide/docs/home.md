@@ -11,13 +11,15 @@ head:
       content: Java面试,Java面试指南,Java八股文,Java面试题,Java基础面试,JVM面试,并发面试,线程池面试,Spring面试,MySQL面试,Redis面试,系统设计面试,分布式面试,后端面试
 ---
 
+<!-- @include: @small-advertisement.snippet.md -->
+
 <!-- markdownlint-disable MD024 -->
 
 JavaGuide 是一份系统化的 **Java 面试指南** 和**后端通用面试复习资料**，内容覆盖 Java 基础、集合、并发编程、JVM、Spring/Spring Boot、MySQL、Redis、分布式、高并发、高可用和系统设计等核心知识点。
 
-如果你正在准备校招、社招或跳槽面试，可以从 [Java 后端面试通关计划](./面试准备/backend-interview-plan.md) 开始，再按下面的模块逐步复习高频 Java 八股文和后端面试题。
+如果你正在准备校招、社招或跳槽面试，可以从 [Java 后端面试通关计划](./面试准备/2026 最新版 Java 后端面试通关计划（涵盖后端通用体系）.md) 开始，再按下面的模块逐步复习高频 Java 八股文和后端面试题。
 
-本站所有内容都已免费开源，欢迎一起[维护完善](http://localhost:8080/javaguide/贡献指南.html)，有帮助的话，欢迎 Star！
+本站所有内容都已免费开源，欢迎一起[维护完善](http://localhost:8080/javaguide/contribution-guideline.html)，有帮助的话，欢迎 Star！
 
 - **项目地址**：<https://github.com/Snailclimb/JavaGuide>
 - **在线阅读**：<https://javaguide.cn/>
@@ -25,14 +27,14 @@ JavaGuide 是一份系统化的 **Java 面试指南** 和**后端通用面试复
 ## 延伸资料
 
 - [Java 优质开源项目](./开源项目/)：精选 Gitee/GitHub 上适合学习、实战和写进简历的 Java 开源项目。
-- [优质技术书籍推荐](./技术书籍/)：覆盖计算机基础、数据库、搜索引擎、分布式系统、高可用架构等方向。
+- [优质技术书籍推荐](./书籍/)：覆盖计算机基础、数据库、搜索引擎、分布式系统、高可用架构等方向。
 
 ## 面试准备
 
-- [⭐Java 后端面试通关计划（涵盖后端通用体系）](./面试准备/backend-interview-plan.md) (一定要看 :+1:)
-- [如何高效准备 Java 面试？](./面试准备/teach-you-how-to-prepare-for-the-interview-hand-in-hand.md)
-- [Java 后端面试重点总结](./面试准备/key-points-of-interview.md)
-- [Java 学习路线（最新版，4w+ 字）](./面试准备/2026 最新版 Java 后端面试通关计划（涵盖后端通用体系）.md)
+- [⭐Java 后端面试通关计划（涵盖后端通用体系）](./面试准备/2026 最新版 Java 后端面试通关计划（涵盖后端通用体系）.md) (一定要看 :+1:)
+- [如何高效准备 Java 面试？](./面试准备/如何高效准备Java面试？.md)
+- [Java 后端面试重点总结](./面试准备/2026最新版Java后端面试重点总结.md)
+- [Java 学习路线（最新版，4w+ 字）](./面试准备/Java 后端学习路线（2026 最新版）.md)
 - [程序员简历编写指南](./面试准备/程序员简历编写指南.md)
 - [项目经验指南](./面试准备/项目经验指南.md)
 - [面试太紧张怎么办？](./面试准备/面试太紧张怎么办？.md)
@@ -44,13 +46,13 @@ JavaGuide 是一份系统化的 **Java 面试指南** 和**后端通用面试复
 
 **知识点/面试题总结** : (必看:+1: )：
 
-- [Java 基础常见知识点&面试题总结(上)](./java/基础/java-basic-questions-01.md)
-- [Java 基础常见知识点&面试题总结(中)](./java/基础/java-basic-questions-02.md)
-- [Java 基础常见知识点&面试题总结(下)](./java/基础/java-basic-questions-03.md)
+- [Java 基础常见知识点&面试题总结(上)](./java/基础/Java基础常见面试题总结(上).md)
+- [Java 基础常见知识点&面试题总结(中)](./java/基础/Java基础常见面试题总结(中).md)
+- [Java 基础常见知识点&面试题总结(下)](./java/基础/Java基础常见面试题总结(下).md)
 
 **重要知识点详解**：
 
-- [为什么 Java 中只有值传递？](./java/基础/why-there-only-value-passing-in-java.md)
+- [为什么 Java 中只有值传递？](./java/基础/Java 值传递详解.md)
 - [Java 序列化详解](./java/基础/Java 序列化详解.md)
 - [泛型&通配符详解](./java/基础/泛型&通配符详解.md)
 - [Java 反射机制详解](./java/基础/Java 反射机制详解.md)
@@ -64,36 +66,35 @@ JavaGuide 是一份系统化的 **Java 面试指南** 和**后端通用面试复
 
 **知识点/面试题总结**：
 
-- [Java 集合常见知识点&面试题总结(上)](./java/集合/java-collection-questions-01.md) (必看 :+1:)
-- [Java 集合常见知识点&面试题总结(下)](./java/集合/java-collection-questions-02.md) (必看 :+1:)
-- [Java 集合使用注意事项总结](./java/集合/java-collection-precautions-for-use.md)
+- [Java 集合常见知识点&面试题总结(上)](./java/集合/Java集合常见面试题总结(上).md) (必看 :+1:)
+- [Java 集合常见知识点&面试题总结(下)](./java/集合/Java集合常见面试题总结(下).md) (必看 :+1:)
+- [Java 集合使用注意事项总结](./java/集合/Java集合使用注意事项总结.md)
 
 **源码分析**：
 
 - [ArrayList 核心源码+扩容机制分析](./java/集合/ArrayList 源码分析.md)
 - [LinkedList 核心源码分析](./java/集合/LinkedList 源码分析.md)
-- [HashMap 核心源码+底层数据结构分析](./java/集合/hashmap-source-code.md)
+- [HashMap 核心源码+底层数据结构分析](./java/集合/HashMap 源码分析.md)
 - [ConcurrentHashMap 核心源码+底层数据结构分析](./java/集合/ConcurrentHashMap 源码分析.md)
 - [LinkedHashMap 核心源码分析](./java/集合/LinkedHashMap 源码分析.md)
 - [CopyOnWriteArrayList 核心源码分析](./java/集合/CopyOnWriteArrayList 源码分析.md)
 - [ArrayBlockingQueue 核心源码分析](./java/集合/ArrayBlockingQueue 源码分析.md)
-- [PriorityQueue 核心源码分析](./java/集合/PriorityQueue 源码分析（付费）.md)
 - [DelayQueue 核心源码分析](./java/集合/DelayQueue 源码分析.md)
 
 ### IO
 
-- [IO 基础知识总结](./java/io/Java IO 基础知识总结(2).md)
-- [IO 设计模式总结](./java/io/Java IO 设计模式总结(2).md)
-- [IO 模型详解](./java/io/Java IO 模型详解(2).md)
-- [NIO 核心知识总结](./java/io/Java NIO 核心知识总结(2).md)
+- [IO 基础知识总结](./java/io/Java IO 基础知识总结.md)
+- [IO 设计模式总结](./java/io/Java IO 设计模式总结.md)
+- [IO 模型详解](./java/io/Java IO 模型详解.md)
+- [NIO 核心知识总结](./java/io/Java NIO 核心知识总结.md)
 
 ### 并发
 
 **知识点/面试题总结** : (必看 :+1:)
 
-- [Java 并发常见知识点&面试题总结（上）](./java/并发/java-concurrent-questions-01.md)
-- [Java 并发常见知识点&面试题总结（中）](./java/并发/java-concurrent-questions-02.md)
-- [Java 并发常见知识点&面试题总结（下）](./java/并发/java-concurrent-questions-03.md)
+- [Java 并发常见知识点&面试题总结（上）](./java/并发/Java并发常见面试题总结（上）.md)
+- [Java 并发常见知识点&面试题总结（中）](./java/并发/Java并发常见面试题总结（中）.md)
+- [Java 并发常见知识点&面试题总结（下）](./java/并发/Java并发常见面试题总结（下）.md)
 
 **重要知识点详解**：
 
@@ -102,7 +103,7 @@ JavaGuide 是一份系统化的 **Java 面试指南** 和**后端通用面试复
 - [JMM（Java 内存模型）详解](./java/并发/JMM（Java 内存模型）详解.md)
 - **线程池**：[Java 线程池详解](./java/并发/Java 线程池详解.md)、[Java 线程池最佳实践](./java/并发/Java 线程池最佳实践.md)
 - [ThreadLocal 详解](./java/并发/ThreadLocal 详解.md)
-- [Java 并发容器总结](./java/并发/java-concurrent-collections.md)
+- [Java 并发容器总结](./java/并发/Java 常见并发容器总结.md)
 - [Atomic 原子类总结](./java/并发/Atomic 原子类总结.md)
 - [AQS 详解](./java/并发/AQS 详解.md)
 - [CompletableFuture 详解](./java/并发/CompletableFuture 详解.md)
@@ -111,21 +112,21 @@ JavaGuide 是一份系统化的 **Java 面试指南** 和**后端通用面试复
 
 JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.com/javase/specs/jvms/se8/html/index.html) 和周志明老师的[《深入理解 Java 虚拟机（第 3 版）》](https://book.douban.com/subject/34907497/) （强烈建议阅读多遍！）。
 
-- **[Java 内存区域](./java/jvm/Java内存区域详解（重点）(2).md)**
-- **[JVM 垃圾回收](./java/jvm/JVM垃圾回收详解（重点）(2).md)**
-- [类文件结构](./java/jvm/类文件结构详解(2).md)
-- **[类加载过程](./java/jvm/类加载过程详解(2).md)**
-- [类加载器](./java/jvm/类加载器详解（重点）(2).md)
-- [【待完成】最重要的 JVM 参数总结（翻译完善了一半）](./java/jvm/最重要的JVM参数总结(2).md)
-- [【加餐】大白话带你认识 JVM](./java/jvm/大白话带你认识 JVM(2).md)
-- [JDK 监控和故障处理工具](./java/jvm/JDK监控和故障处理工具总结(2).md)
+- **[Java 内存区域](./java/jvm/Java内存区域详解（重点）.md)**
+- **[JVM 垃圾回收](./java/jvm/JVM垃圾回收详解（重点）_2.md)**
+- [类文件结构](./java/jvm/类文件结构详解_2.md)
+- **[类加载过程](./java/jvm/类加载过程详解_2.md)**
+- [类加载器](./java/jvm/类加载器详解（重点）_2.md)
+- [【待完成】最重要的 JVM 参数总结（翻译完善了一半）](./java/jvm/最重要的JVM参数总结_2.md)
+- [【加餐】大白话带你认识 JVM](./java/jvm/大白话带你认识 JVM_2.md)
+- [JDK 监控和故障处理工具](./java/jvm/JDK监控和故障处理工具总结_2.md)
 
 ### 新特性
 
-- **Java 8**：[Java 8 新特性总结（翻译）](./java/新特性/java8-tutorial-translate.md)、[Java8 常用新特性总结](./java/新特性/java8-common-new-features.md)
+- **Java 8**：[Java 8 新特性总结（翻译）](./java/新特性/《Java8 指南》中文翻译.md)、[Java8 常用新特性总结](./java/新特性/Java8 新特性实战.md)
 - [Java 9 新特性概览](./java/新特性/Java 9 新特性概览.md)
 - [Java 10 新特性概览](./java/新特性/Java 10 新特性概览.md)
-- [Java 11 新特性概览](./java/新特性/Java 11 新特性概览.md)
+- [Java 11 新特性概览](./java/新特性/Java 11 新特性概览（重要）.md)
 - [Java 12 & 13 新特性概览](./java/新特性/Java 12 & 13 新特性概览.md)
 - [Java 14 & 15 新特性概览](./java/新特性/Java 14 & 15 新特性概览.md)
 - [Java 16 新特性概览](./java/新特性/Java 16 新特性概览.md)
@@ -142,64 +143,61 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 
 > 计算机基础（计算机网络、操作系统、数据结构与算法）已独立为单独模块，详见 [计算机基础知识总结](./计算机基础/)。
 
+[![Banner](https://oss.javaguide.cn/xingqiu/xingqiu.png)](./关于作者/JavaGuide 知识星球介绍-Java 面试资料、简历修改与实战项目.md)
+
 ## 数据库
 
 ### 基础
 
-- [数据库基础知识总结](./数据库/数据库基础.md)
-- [NoSQL 基础知识总结](./数据库/NoSQL基础知识总结.md)
-- [字符集详解](./数据库/字符集.md)
+- [数据库基础知识总结](./数据库/数据库基础常见面试题总结.md)
+- [NoSQL 基础知识总结](./数据库/NoSQL基础常见面试题总结.md)
+- [字符集详解](./数据库/字符集详解-字符集是什么？怎么用？.md)
 - SQL :
   - [SQL 语法基础知识总结](./数据库/sql/SQL语法基础知识总结.md)
-  - [SQL 常见面试题总结](./数据库/sql/SQL常见面试题总结.md)
+  - [SQL 常见面试题总结](./数据库/sql/SQL常见面试题总结（1）.md)
 
 ### MySQL
 
 **知识点/面试题总结：**
 
-- **[MySQL 常见知识点&面试题总结](./数据库/mysql/1、MySQL常见面试题总结.md)** (必看 :+1:)
-- [MySQL 高性能优化规范建议总结](./数据库/mysql/mysql-high-performance-optimization-specification-recommendations.md)
+- **[MySQL 常见知识点&面试题总结](./数据库/mysql/MySQL常见面试题总结.md)** (必看 :+1:)
+- [MySQL 高性能优化规范建议总结](./数据库/mysql/MySQL高性能优化规范建议总结.md)
 
 **重要知识点：**
 
-- [MySQL 索引详解](./数据库/mysql/1、MySQL常见面试题总结.md)
-- [MySQL 索引失效场景总结](./数据库/mysql/mysql-index-invalidation.md)
-- [MySQL 事务隔离级别图文详解)](./数据库/mysql/transaction-isolation-level.md)
-- [MySQL 三大日志(binlog、redo log 和 undo log)详解](./数据库/mysql/1、MySQL常见面试题总结.md)
-- [InnoDB 存储引擎对 MVCC 的实现](./数据库/mysql/2、InnoDB存储引擎对MVCC的实现.md)
+- [MySQL 索引详解](./数据库/mysql/MySQL索引详解.md)
+- [MySQL 索引失效场景总结](./数据库/mysql/MySQL索引失效场景总结.md)
+- [MySQL 事务隔离级别图文详解)](./数据库/mysql/MySQL事务隔离级别详解.md)
+- [MySQL 三大日志(binlog、redo log 和 undo log)详解](./数据库/mysql/MySQL三大日志(binlog、redo log和undo log)详解.md)
+- [InnoDB 存储引擎对 MVCC 的实现](./数据库/mysql/InnoDB存储引擎对MVCC的实现.md)
 - [SQL 语句在 MySQL 中的执行过程](./数据库/mysql/SQL语句在MySQL中的执行过程.md)
 - [MySQL 查询缓存详解](./数据库/mysql/MySQL查询缓存详解.md)
 - [MySQL 执行计划分析](./数据库/mysql/MySQL执行计划分析.md)
-- [MySQL 自增主键一定是连续的吗](./数据库/mysql/MySQL自增主键一定是连续的吗.md)
-- [MySQL 时间类型数据存储建议](./数据库/mysql/MySQL时间类型数据存储建议.md)
+- [MySQL 自增主键一定是连续的吗](./数据库/mysql/MySQL自增主键一定是连续的吗？.md)
+- [MySQL 时间类型数据存储建议](./数据库/mysql/MySQL日期类型选择建议.md)
 - [MySQL 隐式转换造成索引失效](./数据库/mysql/MySQL隐式转换造成索引失效.md)
 
 ### Redis
 
 **知识点/面试题总结** : (必看:+1: )：
 
-- [Redis 常见知识点&面试题总结(上)](./数据库/redis/1、Redis常见面试题总结(上).md)
-- [Redis 常见知识点&面试题总结(下)](./数据库/redis/1、Redis常见面试题总结(上).md)
+- [Redis 常见知识点&面试题总结(上)](./数据库/redis/Redis常见面试题总结(上).md)
+- [Redis 常见知识点&面试题总结(下)](./数据库/redis/Redis常见面试题总结(下).md)
 
 **重要知识点：**
 
-- [3 种常用的缓存读写策略详解](./数据库/redis/3-commonly-used-cache-read-and-write-strategies.md)
-- [Redis 能做消息队列吗？怎么实现？](./数据库/redis/1、Redis常见面试题总结(上).md)
+- [3 种常用的缓存读写策略详解](./数据库/redis/3种常用的缓存读写策略详解.md)
+- [Redis 能做消息队列吗？怎么实现？](./数据库/redis/如何基于Redis实现消息队列？.md)
 - [Redis 5 种基本数据结构详解](./数据库/redis/Redis 5 种基本数据类型详解.md)
 - [Redis 3 种特殊数据结构详解](./数据库/redis/Redis 3 种特殊数据类型详解.md)
-- [Redis 持久化机制详解](./数据库/redis/1、Redis常见面试题总结(上).md)
-- [Redis 内存碎片详解](./数据库/redis/redis-memory-fragmentation.md)
-- [Redis 常见阻塞原因总结](./数据库/redis/redis-common-blocking-problems-summary.md)
-- [Redis 集群详解](./数据库/redis/1、Redis常见面试题总结(上).md)
+- [Redis 持久化机制详解](./数据库/redis/Redis持久化机制详解.md)
+- [Redis 内存碎片详解](./数据库/redis/Redis内存碎片详解.md)
+- [Redis 常见阻塞原因总结](./数据库/redis/Redis常见阻塞原因总结.md)
 
 ### MongoDB
 
 - [MongoDB 常见知识点&面试题总结(上)](./数据库/mongodb/MongoDB常见面试题总结（上）.md)
-- [MongoDB 常见知识点&面试题总结(下)](./数据库/mongodb/MongoDB常见面试题总结（上）.md)
-
-## 搜索引擎
-
-[Elasticsearch 常见面试题总结(付费)](./数据库/elasticsearch/Elasticsearch常见面试题总结(付费).md)
+- [MongoDB 常见知识点&面试题总结(下)](./数据库/mongodb/MongoDB常见面试题总结（下）.md)
 
 ## 开发工具
 
@@ -210,21 +208,20 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 
 ### Gradle
 
-[Gradle 核心概念总结](./开发工具/gradle/Gradle核心概念总结.md)（可选，目前国内还是使用 Maven 普遍一些）
+[Gradle 核心概念总结](./开发工具/gradle/Gradle 核心概念总结.md)（可选，目前国内还是使用 Maven 普遍一些）
 
 ### Docker
 
-- [Docker 核心概念总结](./开发工具/docker/Docker 实战.md)
+- [Docker 核心概念总结](./开发工具/docker/Docker 核心概念总结.md)
 - [Docker 实战](./开发工具/docker/Docker 实战.md)
 
 ### Git
 
-- [Git 核心概念总结](./开发工具/git/Git核心概念总结.md)
-- [GitHub 实用小技巧总结](./开发工具/git/Github实用小技巧总结.md)
+- [Git 核心概念总结](./开发工具/git/Git 核心概念总结.md)
+- [GitHub 实用小技巧总结](./开发工具/git/GitHub 实用小技巧总结.md)
 
 ## 系统设计
 
-- [⭐系统设计常见面试题总结](./系统设计/system-design-questions.md)
 - [⭐设计模式常见面试题总结](https://interview.javaguide.cn/系统设计/design-pattern.html)
 
 ### 基础
@@ -233,7 +230,7 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 - [软件工程简明教程](./系统设计/基础/软件工程简明教程.md)
 - [代码命名指南](./系统设计/基础/代码命名指南.md)
 - [代码重构指南](./系统设计/基础/代码重构指南.md)
-- [单元测试指南](./系统设计/基础/unit-test.md)
+- [单元测试指南](./系统设计/基础/单元测试到底是什么？应该怎么做？.md)
 
 ### 常用框架
 
@@ -241,15 +238,14 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 
 **知识点/面试题总结** :
 
-- [Spring 常见知识点&面试题总结](./系统设计/框架/spring/spring-knowledge-and-questions-summary.md)
-- [SpringBoot 常见知识点&面试题总结](./系统设计/框架/spring/springboot-knowledge-and-questions-summary.md)
-- [Spring/Spring Boot 常用注解总结](./系统设计/框架/spring/spring-common-annotations.md)
+- [Spring 常见知识点&面试题总结](./系统设计/框架/spring/Spring常见面试题总结.md)
+- [Spring/Spring Boot 常用注解总结](./系统设计/框架/spring/Spring&SpringMVC&SpringBoot常用注解总结.md)
 - [SpringBoot 入门指南](https://github.com/Snailclimb/springboot-guide)
 
 **重要知识点详解**：
 
 - [IoC & AOP 详解（快速搞懂）](./系统设计/框架/spring/IoC & AOP详解（快速搞懂）.md)
-- [Spring 事务详解](./系统设计/框架/spring/Spring Boot核心源码解读（付费）.md)
+- [Spring 事务详解](./系统设计/框架/spring/Spring 事务详解.md)
 - [Spring 中的设计模式详解](./系统设计/框架/spring/Spring 中的设计模式详解.md)
 - [SpringBoot 自动装配原理详解](./系统设计/框架/spring/SpringBoot 自动装配原理详解.md)
 
@@ -263,7 +259,7 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 
 - [认证授权基础概念详解](./系统设计/安全/认证授权基础概念详解.md)
 - [JWT 基础概念详解](./系统设计/安全/JWT 基础概念详解.md)
-- [JWT 优缺点分析以及常见问题解决方案](./系统设计/安全/advantages-and-disadvantages-of-jwt.md)
+- [JWT 优缺点分析以及常见问题解决方案](./系统设计/安全/JWT 身份认证优缺点分析.md)
 - [SSO 单点登录详解](./系统设计/安全/SSO 单点登录详解.md)
 - [权限系统设计详解](./系统设计/安全/权限系统设计详解.md)
 
@@ -272,7 +268,7 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 - [常见加密算法总结](./系统设计/安全/常见加密算法总结.md)
 - [敏感词过滤方案总结](./系统设计/安全/敏感词过滤方案总结.md)
 - [数据脱敏方案总结](./系统设计/安全/数据脱敏方案总结.md)
-- [为什么前后端都要做数据校验](./系统设计/安全/为什么前后端都要做数据校验.md)
+- [为什么前后端都要做数据校验](./系统设计/安全/为什么前后端都要做数据校验？.md)
 - [为什么忘记密码时只能重置，不能告诉你原密码？](./系统设计/安全/为什么忘记密码时只能重置，不能告诉你原密码？.md)
 
 ### 定时任务
@@ -286,40 +282,40 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 ## 分布式
 
 - [⭐分布式高频面试题](https://interview.javaguide.cn/分布式/distributed-system.html)
-- [分布式系统入门](./分布式/distributed-system-intro.md)
+- [分布式系统入门](./分布式/分布式系统详解-核心概念、架构演进、典型特征与学习路线.md)
 
 ### 理论&算法&协议
 
-- [CAP 理论和 BASE 理论解读](./分布式/分布式理论/CAP 定理与 BASE 理论详解：一致性、可用性、分区容错与最终一致性.md)
-- [分布式协调详解](./分布式/分布式理论/分布式协调详解：Leader、Quorum、Lease、Fencing Token 与 Gossip.md)
-- [拜占庭将军问题详解](./分布式/分布式理论/拜占庭将军问题详解：分布式共识、3m+1 节点与 BFT 容错.md)
-- [Paxos 算法解读](./分布式/分布式理论/Paxos 算法详解.md)
-- [Raft 算法解读](./分布式/分布式理论/Paxos 算法详解：Basic Paxos、Multi-Paxos、角色流程与 Raft 对比.md)
-- [ZAB 协议解读](./分布式/分布式理论/ZAB 协议详解：ZooKeeper 原子广播、消息广播、崩溃恢复与 Leader 选举.md)
-- [Gossip 协议详解](./分布式/分布式理论/Gossip 协议详解.md)
-- [一致性哈希算法详解](./分布式/分布式理论/一致性哈希算法详解：哈希环、虚拟节点、数据倾斜与分布式缓存应用.md)
+- [CAP 理论和 BASE 理论解读](./分布式/协议/CAP 定理与 BASE 理论详解-一致性、可用性、分区容错与最终一致性.md)
+- [分布式协调详解](./分布式/协议/分布式协调详解-Leader、Quorum、Lease、Fencing Token 与 Gossip.md)
+- [拜占庭将军问题详解](./分布式/协议/拜占庭将军问题详解-分布式共识、3m+1 节点与 BFT 容错.md)
+- [Paxos 算法解读](./分布式/协议/Paxos 算法详解-Basic Paxos、Multi-Paxos、角色流程与 Raft 对比.md)
+- [Raft 算法解读](./分布式/协议/Raft 算法详解-Leader 选举、日志复制、安全性与成员变更.md)
+- [ZAB 协议解读](./分布式/协议/ZAB 协议详解-ZooKeeper 原子广播、消息广播、崩溃恢复与 Leader 选举.md)
+- [Gossip 协议详解](./分布式/协议/Gossip 协议详解-反熵、谣言传播、SWIM 与最终一致性.md)
+- [一致性哈希算法详解](./分布式/协议/一致性哈希算法详解-哈希环、虚拟节点、数据倾斜与分布式缓存应用.md)
 
 ### RPC
 
-- [RPC 基础知识总结](./分布式/rpc/http&rpc.md)
-- [Dubbo 常见知识点&面试题总结](./分布式/rpc/Dubbo常见问题总结.md)
+- [RPC 基础知识总结](./分布式/rpc/RPC 远程过程调用详解-原理、调用流程、序列化协议与框架选型.md)
+- [Dubbo 常见知识点&面试题总结](./分布式/rpc/Dubbo 面试题总结-架构原理、SPI、负载均衡、服务治理与集群容错.md)
 
 ### ZooKeeper
 
 > 这两篇文章可能有内容重合部分，推荐都看一遍。
 
-- [ZooKeeper 相关概念总结(入门)](./分布式/分布式流程协调/zookeeper/1ZooKeeper相关概念总结(入门).md)
-- [ZooKeeper 相关概念总结(进阶)](./分布式/分布式流程协调/zookeeper/1ZooKeeper相关概念总结(入门).md)
+- [ZooKeeper 相关概念总结(入门)](./分布式/分布式流程协调/zookeeper/ZooKeeper 入门指南-核心概念、ZNode、Watcher、ACL 与典型应用场景.md)
+- [ZooKeeper 相关概念总结(进阶)](./分布式/分布式流程协调/zookeeper/ZooKeeper 进阶详解-ZAB 协议、Leader 选举、集群部署与会话机制.md)
 
 ### API 网关
 
-- [API 网关基础知识总结](./分布式/API 网关详解：核心功能、工作原理与 Spring Cloud Gateway Kong APISIX 选型.md)
-- [Spring Cloud Gateway 常见知识点&面试题总结](./分布式/API 网关详解：核心功能、工作原理与 Spring Cloud Gateway Kong APISIX 选型.md)
+- [API 网关基础知识总结](./分布式/API 网关详解-核心功能、工作原理与 Spring Cloud Gateway Kong APISIX 选型.md)
+- [Spring Cloud Gateway 常见知识点&面试题总结](./分布式/Spring Cloud Gateway 面试题总结-路由、Predicate、Filter、限流熔断与工作原理.md)
 
 ### 分布式 ID
 
-- [分布式 ID 常见知识点&面试题总结](./分布式/distributed-id.md)
-- [分布式 ID 设计指南](./分布式/distributed-id-design.md)
+- [分布式 ID 常见知识点&面试题总结](./分布式/分布式 ID 生成方案详解-UUID、Snowflake、号段模式、Leaf 与 Tinyid 对比.md)
+- [分布式 ID 设计指南](./分布式/分布式 ID 设计实战-订单号、优惠券、一码付与业务 ID 生成策略.md)
 
 ### 分布式锁
 
@@ -328,24 +324,24 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 
 ### 分布式事务
 
-[分布式事务常见知识点&面试题总结](./分布式/distributed-transaction.md)
+[分布式事务常见知识点&面试题总结](./分布式/分布式事务解决方案详解-XA、AT、TCC、Saga、本地消息表与事务消息.md)
 
 ### 分布式配置中心
 
-[分布式配置中心常见知识点&面试题总结](./分布式/distributed-configuration-center.md)
+[分布式配置中心常见知识点&面试题总结](./分布式/分布式配置中心详解-Apollo、Nacos、Spring Cloud Config 与 K8s ConfigMap 对比.md)
 
 ## 高性能
 
 ### 数据库优化
 
-- [数据库读写分离和分库分表](./高性能/read-and-write-separation-and-library-subtable.md)
+- [数据库读写分离和分库分表](./高性能/读写分离和分库分表详解.md)
 - [数据冷热分离](./高性能/数据冷热分离详解.md)
 - [常见 SQL 优化手段总结](./高性能/常见SQL优化手段总结.md)
 - [深度分页介绍及优化建议](./高性能/深度分页介绍及优化建议.md)
 
 ### 负载均衡
 
-[负载均衡常见知识点&面试题总结](./高性能/load-balancing.md)
+[负载均衡常见知识点&面试题总结](./高性能/负载均衡原理及算法详解.md)
 
 ### CDN
 
@@ -361,23 +357,23 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 
 ## 高可用
 
-[高可用系统设计指南](./高可用/高可用系统设计指南.md)
+[高可用系统设计指南](./高可用/高可用系统设计详解-SLA、限流熔断、降级容灾、缓存与灰度发布.md)
 
 ### 冗余设计
 
-[冗余设计详解](./高可用/冗余设计详解.md)
+[冗余设计详解](./高可用/冗余设计详解-RTORPO、高可用集群、同城灾备与异地多活.md)
 
 ### 限流
 
-[服务限流详解](./高可用/服务限流详解.md)
+[服务限流详解](./高可用/服务限流详解-固定窗口、滑动窗口、令牌桶、漏桶与分布式限流.md)
 
 ### 降级&熔断
 
-[降级&熔断详解](./高可用/降级&熔断详解(付费).md)
+[降级&熔断详解](./高可用/服务降级与熔断详解-Fallback、熔断器状态机与 Sentinel Hystrix Resilience4j 选型.md)
 
 ### 超时&重试
 
-[超时&重试详解](./高可用/超时&重试详解.md)
+[超时&重试详解](./高可用/超时和重试机制详解-超时设置、指数退避、随机抖动、重试风暴与幂等.md)
 
 ### 集群
 
@@ -395,3 +391,9 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 ## Star 趋势
 
 ![Stars](https://api.star-history.com/svg?repos=Snailclimb/JavaGuide&type=Date)
+
+## 公众号
+
+如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号“**JavaGuide**”。
+
+![JavaGuide 官方公众号](https://oss.javaguide.cn/github/javaguide/gongzhonghaoxuanchuan.png)

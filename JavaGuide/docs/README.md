@@ -20,6 +20,9 @@ actions:
   - text: 开始阅读
     link: /home.md
     type: primary
+  - text: 知识星球
+    link: /关于作者/JavaGuide 知识星球介绍-Java 面试资料、简历修改与实战项目.md
+    type: default
 footer: |-
   <a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2020015769号-1</a> | 主题: <a href="https://theme-hope.vuejs.press/" target="_blank">VuePress Theme Hope</a>
 ---
@@ -30,48 +33,46 @@ footer: |-
 
 - **后端面试主线**：[后端面试指南](./home.md)（⭐网站核心）：系统整理 Java 面试八股文和后端高频面试题，覆盖 Java 基础、集合、并发、JVM、Spring、MySQL、Redis、分布式、高并发、高可用和系统设计。
 - **计算机基础**：[计算机基础面试指南](./计算机基础/)：系统梳理计算机网络、操作系统、数据结构与算法等后端面试底层基础，适合补齐基础短板。
-- **AI 应用开发**：[AI 应用开发面试指南](./ai/)（⭐新增）：面向后端开发者梳理大模型基础、Prompt、Agent、RAG、MCP、LLM API 工程和 AI 系统设计等高频知识；系统学习可配合 [学习路线](./学习路线/)。
-- **AI 编程实战**：[AI 编程实践指南](./ai编程/)（⭐新增）：聚焦 Claude Code、Codex、AI IDE、CLI Agent、上下文管理和 AI 辅助开发工作流。
-- **学习路线**：[学习路线合集](./学习路线/)：整理 Java 后端、AI 应用开发、AI Agent 和全栈开发等方向的系统学习建议。
-
-## `0-ALL.md` / `0-ALL-Cursor.md` / `0-ALL-重点.md` 的区别
-
-各一级、二级内容目录下提供三类汇总文件（文件名以 `0-` 开头，方便排在目录最前）：
-
-| 文件 | 定位 | 内容来源 | 适合做什么 |
-|------|------|----------|------------|
-| **`0-ALL.md`** | **原文汇总存档** | 将该目录（及一级目录下子目录）文章 **按原文拼接**；排除 `README.md`、`TODO.md` | 需要完整原文、对照单篇、全文检索 |
-| **`0-ALL-Cursor.md`** | **Cursor 精整复习版** | 基于 `0-ALL.md`：去广告、理顺导读；**一级目录**文末有补充清单 | 日常复习、串讲、丢给 AI 当上下文 |
-| **`0-ALL-重点.md`** | **面试重点精简版** | 基于 `0-ALL.md` **只保留面试高频**：问答向小节、核心原理与对比；软文、次要新特性、低优先级内容会省略 | **冲刺面试、快速过考点** |
-
-补充说明：
-
-1. 推荐路径：`0-ALL-重点.md` 扫考点 → 不懂再看 `0-ALL-Cursor.md` / 单篇 → 需要逐字原文再回 `0-ALL.md`。  
-2. 部分目录（如优质技术文章、专栏、技术书籍等）未生成重点版，因其面试硬核价值较低。  
-3. 三类文件都会尽量去掉知识星球 / 公众号等营销内容。
-
-示例（AI / 消息队列）：
-
-- [ai/0-ALL-重点.md](./ai/0-ALL-重点.md) — AI 面试重点  
-- [高性能/消息队列/0-ALL-重点.md](./高性能/消息队列/0-ALL-重点.md) — MQ 重点（含 Kafka / Pulsar）  
-- [高性能/消息队列/Pulsar常见面试题总结.md](./高性能/消息队列/Pulsar常见面试题总结.md) — Pulsar 与 Kafka 对比专题  
+- **AI 应用开发**：[AI 应用开发面试指南](./ai/)（⭐新增）：面向后端开发者梳理大模型基础、Prompt、Agent、RAG、MCP、LLM API 工程和 AI 系统设计等高频知识；如果想系统学习，可以配合 [AI 应用开发与 Agent 学习路线（2026 最新版）](./学习路线/Java与Go 开发者 AI 应用开发与 Agent 学习路线（2026 最新版）.md) 和 [后端转 AI Agent 学习建议（2026 最新版）](./学习路线/后端开发者转型 AI Agent 学习建议（2026 最新版）.md)。
+- **AI 编程实战**：[AI 编程实践指南](./AI编程/)（⭐新增）：聚焦 Claude Code、Codex、AI IDE、CLI Agent、上下文管理和 AI 辅助开发工作流，帮助你把 AI 真正用进日常编码。
+- **学习路线**：[学习路线合集（2026 最新版）](./学习路线/)：整理 Java 后端、AI 应用开发、AI Agent 和全栈开发等方向的系统学习建议。
+- **延伸资料**：
+  - [《Java 面试指北》](https://javaguide.cn/专栏/java-mian-shi-zhi-bei.html)：四年打磨，和 JavaGuide 开源版的内容互补，带你从零开始系统准备后端面试！
+  - [《后端面试高频系统设计&场景题》](https://javaguide.cn/专栏/back-end-interview-high-frequency-system-design-and-scenario-questions.html)：30+ 道高频系统设计和场景面试，助你应对当下中大厂面试趋势。
+  - [⭐AI 智能面试辅助平台 + RAG 知识库](https://javaguide.cn/专栏/interview-guide.html)：基于 Spring Boot 4.0 + Java 21 + Spring AI 2.0 的大模型实战项目，适合作为学习和简历项目。
 
 ## 精选文章
 
-- **冲刺面试**：优先打开各目录 [`0-ALL-重点.md`](./java/0-ALL-重点.md)（例如 [java](./java/0-ALL-重点.md)、[数据库](./数据库/0-ALL-重点.md)、[分布式](./分布式/0-ALL-重点.md)、[消息队列](./高性能/消息队列/0-ALL-重点.md)）。
-- **系统复习**：[面试准备/0-ALL-Cursor.md](./面试准备/0-ALL-Cursor.md)、[计算机基础/0-ALL-Cursor.md](./计算机基础/0-ALL-Cursor.md)、[ai/0-ALL-Cursor.md](./ai/0-ALL-Cursor.md)、[ai编程/0-ALL-Cursor.md](./ai编程/0-ALL-Cursor.md)。
+- **后端面试路径**：[Java 后端面试通关计划](./面试准备/2026 最新版 Java 后端面试通关计划（涵盖后端通用体系）.md)、[Java 学习路线（2026 最新版）](./面试准备/Java 后端学习路线（2026 最新版）.md)、[Java 后端面试重点总结](./面试准备/2026最新版Java后端面试重点总结.md)。不知道从哪里开始复习时，优先看这一组。
+- **Java、数据库与分布式高频题**：[Java 基础](./java/基础/Java基础常见面试题总结(上).md)、[Java 集合](./java/集合/Java集合常见面试题总结(上).md)、[Java 并发](./java/并发/Java并发常见面试题总结（上）.md)、[JVM](./java/jvm/README.md)、[MySQL](./数据库/mysql/MySQL常见面试题总结.md)、[Redis](./数据库/redis/Redis常见面试题总结(上).md)、[分布式](./分布式/2026 最新分布式系统面试题总结-CAP、Raft、RPC、分布式锁、事务与 ID.md)。适合集中刷核心八股和后端通用高频题。
+- **计算机基础补强**：[计算机网络](./计算机基础/计算机网络/计算机网络常见面试题总结（上）.md)、[操作系统](./计算机基础/操作系统/操作系统常见面试题总结（上）.md)、[进程和线程](./计算机基础/操作系统/进程与线程详解-区别、状态、通信、上下文切换与虚拟线程.md)、[数据结构与算法](./计算机基础/算法/)。适合补齐校招、社招和大厂面试都绕不开的基础能力。
+- **AI 应用开发进阶**：[AI 应用开发与 Agent 学习路线（2026 最新版）](./学习路线/Java与Go 开发者 AI 应用开发与 Agent 学习路线（2026 最新版）.md)、[后端转 AI Agent 学习建议（2026 最新版）](./学习路线/后端开发者转型 AI Agent 学习建议（2026 最新版）.md)、[AI 应用开发知识体系](./ai/)、[LLM API 工程实践](./ai/llm基础/llm-api工程.md)、[RAG 基础概念](./ai/rag/rag基础.md)、[AI 应用系统设计](./ai/系统设计/ai应用架构.md)。适合后端开发者先明确学习路径，再从模型调用走向可上线的 AI 应用。
+- **AI 编程效率提升**：[AI 编程实战指南](./AI编程/)、[Claude Code 使用指南](./AI编程/实践/Claude Code 使用指南-配置、工作流与进阶技巧.md)、[Codex 使用指南](./AI编程/实践/Codex 使用指南-配置、AGENTS.md 与 Agentic 工作流.md)、[AI IDE 选型与实践](./AI编程/实践/10 道 AI 编程相关的开放性面试问题.md)。适合把 AI 编程工具真正接入日常开发、重构和排障流程。
 
 ## 关于 JavaGuide
 
-JavaGuide 是面向 Java / 后端开发者的开源知识库（GitHub **156K+ Star**），从面试复习扩展为覆盖后端核心技术、工程实践与 AI 应用开发的学习指南。自 2018 年开源以来持续维护。
+JavaGuide 是一份面向 Java 和后端开发者的开源知识库，已在 GitHub 获得 **156K+ Star**。项目从 Java 面试复习出发，逐步扩展为覆盖后端核心技术、工程实践和 AI 应用开发的系统化学习指南。
+
+JavaGuide 自 2018 年开源以来持续维护，累计提交 **6200+** commit ，共有 **640+** 多位贡献者共同参与维护和完善。
+
+![JavaGuide 目前的 Star、Fork、Issue 和 PR 情况](https://oss.javaguide.cn/github/javaguide/项目介绍/javaguide-star-issue-pr.png)
 
 网站内容覆盖：
 
-- **后端面试**：Java 基础、集合、并发、JVM、MySQL、Redis、分布式、系统设计等。
-- **AI 应用开发**：LLM 基础、Agent、RAG、MCP 等。
+- **后端面试**：Java 基础、集合、并发、JVM、MySQL、Redis、分布式、系统设计等核心知识。
+- **AI 应用开发**：大模型（LLM）基础、Agent 智能体、RAG 检索增强生成、MCP 协议等前沿技术。
 
-- [项目介绍](./javaguide/项目介绍.md)
-- [贡献指南](./javaguide/贡献指南.md)
-- [常见问题](./javaguide/常见问题.md)
+真心希望能够把这个项目做好，真正能够帮助到有需要的朋友！
 
-开源仓库：[GitHub](https://github.com/Snailclimb/JavaGuide) | [Gitee](https://gitee.com/SnailClimb/JavaGuide)
+如果觉得 JavaGuide 的内容对你有帮助的话，还请点个免费的 Star（绝不强制点 Star，觉得内容不错有收获再点赞就好），这是对我最大的鼓励，感谢各位一路同行，共勉！传送门：[GitHub](https://github.com/Snailclimb/JavaGuide) | [Gitee](https://gitee.com/SnailClimb/JavaGuide)。
+
+- [项目介绍](./javaguide/项目介绍.md)（JavaGuide 的诞生）
+- [贡献指南](./javaguide/贡献指南.md)（期待你的贡献，奖励丰富）
+- [常见问题](./javaguide/常见问题.md)（统一回复大家的一些疑问）
+
+## PDF 版本 & 微信联系
+
+- 如果你更喜欢 **PDF**（比如通勤/离线阅读/打印学习），扫描下方二维码，后台回复“**PDF**”即可获取最新版（持续更新，详细介绍见：**[2026 最新后端面试 PDF 资料](./面试准备/2026最新Java面试+后端面试PDF资料.md)**）。
+- 如果你想加我的微信，可以扫描下方二维码，后台回复“**微信**”。我会在朋友圈分享一些优质技术内容、学习资料和项目更新。
+
+<img src="https://oss.javaguide.cn/github/javaguide/gongzhonghao-javaguide.png" alt="JavaGuide 公众号" style="zoom: 43%; display: block; margin: 0 auto;" />
