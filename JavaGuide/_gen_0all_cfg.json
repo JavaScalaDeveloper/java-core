@@ -115,9 +115,10 @@
   "ai_filename": "0-ALL.-AI.md",
   "focus_title_suffix": " 重点汇总",
   "ai_title_suffix": " AI优化汇总",
-  "focus_intro": "> 从 0-ALL.md 筛选：面试常问与企业开发常用内容。",
-  "ai_intro_full": "> 基于 0-ALL.md 的 AI 优化版：保留原文并补充知识地图、易漏考点与工程清单。",
-  "ai_intro_large": "> 基于 0-ALL.md 的 AI 优化版（原文较大）：正文收录重点篇并补充体系化内容；完整原文见 0-ALL.md。",
+  "focus_intro": "> 从 0-ALL.md 筛选的面试/工程重点篇目索引（不含正文，避免与 0-ALL.md 重复；全文见同目录 `0-ALL.md`）。",
+  "ai_intro_full": "> AI 优化索引：知识地图、易漏考点与工程清单 + 篇目 TOC（不含正文；全文见同目录 `0-ALL.md`）。",
+  "ai_intro_large": "> AI 优化索引（目录原文较大）：补充体系化内容 + 重点篇 TOC（不含正文；全文见同目录 `0-ALL.md`）。",
+  "toc_hint": "> 正文请到同目录 [0-ALL.md](./0-ALL.md) 中按 source 注释检索对应章节。",
   "path_aliases": {
     "高可用": "高可用高性能",
     "高性能": "高可用高性能"

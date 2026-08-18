@@ -89,7 +89,9 @@ function Get-AiExtra([string]$rel) {
   return ($lines -join "`n")
 }
 
-function Write-Agg([string]$outPath, [string]$title, [string]$intro, $sections, [string]$extra) {
+# Index-only writer: TOC + optional AI extra. Do NOT embed article bodies
+# (bodies already live in 0-ALL.md; embedding them caused ~2x duplicate).
+function Write-Index([string]$outPath, [string]$title, [string]$intro, $sections, [string]$extra) {
   $secs = Normalize-Sections $sections
   $sb = New-Object System.Text.StringBuilder
   [void]$sb.AppendLine('---')
@@ -110,24 +112,16 @@ function Write-Agg([string]$outPath, [string]$title, [string]$intro, $sections, 
   } else {
     [void]$sb.AppendLine('## TOC')
     [void]$sb.AppendLine('')
+    [void]$sb.AppendLine([string]$cfg.toc_hint)
+    [void]$sb.AppendLine('')
     $n = 1
+    $tick = [char]96  # backtick
     foreach ($s in $secs) {
-      [void]$sb.AppendLine(('{0}. {1} (`{2}`)' -f $n, [string]$s.Title, [string]$s.Source))
+      $line = '{0}. {1} ({2}{3}{2})' -f $n, [string]$s.Title, $tick, [string]$s.Source
+      [void]$sb.AppendLine($line)
       $n++
     }
     [void]$sb.AppendLine('')
-    $n = 1
-    foreach ($s in $secs) {
-      [void]$sb.AppendLine('---')
-      [void]$sb.AppendLine('')
-      [void]$sb.AppendLine(('<!-- source: {0} -->' -f [string]$s.Source))
-      [void]$sb.AppendLine('')
-      [void]$sb.AppendLine(('## [{0}] {1}' -f $n, [string]$s.Title))
-      [void]$sb.AppendLine('')
-      [void]$sb.AppendLine([string]$s.Body)
-      [void]$sb.AppendLine('')
-      $n++
-    }
   }
   [IO.File]::WriteAllText($outPath, $sb.ToString(), $utf8)
 }
@@ -157,14 +151,14 @@ Get-ChildItem $DOCS -Recurse -Filter '0-ALL.md' -File | Where-Object {
   }
 
   $focusIntro = [string]$cfg.focus_intro
-  Write-Agg (Join-Path $dir ([string]$cfg.focus_filename)) ($dirName + [string]$cfg.focus_title_suffix) $focusIntro $important $null
+  Write-Index (Join-Path $dir ([string]$cfg.focus_filename)) ($dirName + [string]$cfg.focus_title_suffix) $focusIntro $important $null
 
   $useAll = ($_.Length -lt 180KB)
   $aiSections = if ($useAll) { $sections } else { $important }
   $aiIntro = if ($useAll) { [string]$cfg.ai_intro_full } else { [string]$cfg.ai_intro_large }
-  Write-Agg (Join-Path $dir ([string]$cfg.ai_filename)) ($dirName + [string]$cfg.ai_title_suffix) $aiIntro $aiSections (Get-AiExtra $rel)
+  Write-Index (Join-Path $dir ([string]$cfg.ai_filename)) ($dirName + [string]$cfg.ai_title_suffix) $aiIntro $aiSections (Get-AiExtra $rel)
 
-  Write-Host ('OK {0} total={1} focus={2} ai={3}' -f $rel, $sections.Count, $important.Count, $aiSections.Count)
+  Write-Host ('OK {0} total={1} focus={2} ai={3}' -f $rel, $sections.Count, $important.Count, @(Normalize-Sections $aiSections).Count)
 }
 
 Write-Host 'DONE'
