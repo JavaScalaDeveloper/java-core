@@ -87,6 +87,6 @@ Java 基础是后续学习集合、并发、JVM、Spring 和各类中间件的�
 - [Java 集合专题](../集合/)
 - [Java 并发编程专题](../并发/)
 - [JVM 专题](../jvm/)
-- [Spring](../../系统设计-SSM/框架/spring/)
+- [Spring](../../系统设计/框架/spring/)
 
 <!-- @include: @article-footer.snippet.md -->

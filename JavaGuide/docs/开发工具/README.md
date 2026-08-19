@@ -86,7 +86,7 @@ head:
 
 - [面试准备](../面试准备/)
 - [Java 基础](../java/基础/Java基础常见面试题总结(上).md)
-- [Spring&Spring Boot](../系统设计-SSM/框架/spring/)
+- [Spring&Spring Boot](../系统设计/框架/spring/)
 - [开源项目](../开源项目/)
 
 <!-- @include: @article-footer.snippet.md -->
