@@ -1,137 +1,3 @@
-# 怎样使用Flink将日志数据和ODPS元表做JOIN？
-## 方案1：使用Java代码
-要使用Flink将日志数据和ODPS元表做JOIN，可以按照以下步骤进行：
-
-- 1.使用Flink读取ODPS元表数据，并将数据转换成流。
-
-- 2.使用Flink读取日志数据，并将数据转换成流。
-
-- 3.通过Flink的JOIN算子将两个流合并，实现数据关联和JOIN操作。
-
-- 4.将JOIN后的数据写入目标输出，如Kafka、HDFS等。
-
-具体实现可以参考以下代码：
-
-```java
-//读取ODPS元表数据
-DataStream<Row> metaStream = env.createInput(odpsMetaInputFormat);
-//将元表数据转换成KeyedStream
-KeyedStream<Tuple2<String, String>, String> metaKeyedStream = metaStream.map(new MapFunction<Row, Tuple2<String, String>>() {
-    @Override
-    public Tuple2<String, String> map(Row row) throws Exception {
-        return Tuple2.of(row.getField(0).toString(), row.getField(1).toString());
-    }
-}).keyBy(new KeySelector<Tuple2<String, String>, String>() {
-    @Override
-    public String getKey(Tuple2<String, String> tuple) throws Exception {
-        return tuple.getField(0);
-    }
-});
-
-//读取日志数据
-DataStream<Row> logStream = env.createInput(logInputFormat);
-//将日志数据转换成KeyedStream
-KeyedStream<Tuple2<String, String>, String> logKeyedStream = logStream.map(new MapFunction<Row, Tuple2<String, String>>() {
-    @Override
-    public Tuple2<String, String> map(Row row) throws Exception {
-        return Tuple2.of(row.getField(0).toString(), row.getField(1).toString());
-    }
-}).keyBy(new KeySelector<Tuple2<String, String>, String>() {
-    @Override
-    public String getKey(Tuple2<String, String> tuple) throws Exception {
-        return tuple.getField(0);
-    }
-});
-
-//JOIN操作
-DataStream<Tuple3<String, String, String>> joinedStream = logKeyedStream.join(metaKeyedStream)
-    .where(new KeySelector<Tuple2<String, String>, String>() {
-        @Override
-        public String getKey(Tuple2<String, String> tuple) throws Exception {
-            return tuple.getField(0);
-        }
-    })
-    .equalTo(new KeySelector<Tuple2<String, String>, String>() {
-        @Override
-        public String getKey(Tuple2<String, String> tuple) throws Exception {
-            return tuple.getField(0);
-        }
-    })
-    .window(TumblingEventTimeWindows.of(Time.seconds(10)))
-    .apply(new JoinFunction<Tuple2<String, String>, Tuple2<String, String>, Tuple3<String, String, String>>() {
-        @Override
-        public Tuple3<String, String, String> join(Tuple2<String, String> log, Tuple2<String, String> meta) throws Exception {
-            return Tuple3.of(log.getField(0), log.getField(1), meta.getField(1));
-        }
-    });
-
-//将JOIN后的数据写入输出
-joinedStream.writeAsText(outputPath);
-```
-其中，odpsMetaInputFormat和logInputFormat是读取ODPS元表和日志数据的输入格式，可以根据实际情况进行定义和实现。JOIN算子的详细说明可以参考Flink官方文档。
-
-## 方案二：使用SQL
-假设有一张表t，记录了a和b字段的映射关系，现在有个JSON格式的日志作为数据源，日志里包含a字段，怎样通过Flink SQL的方式解析出SQL的a字段并用来和t表做join拿到对应的b值并把日志里的a值替换成b值，然后通过消息队列输出？
-
-要通过Flink SQL的方式解析JSON格式的日志，并将其与表t进行Join操作，获取对应的b值并替换日志中的a值，最后将结果通过消息队列输出，可以按照以下步骤进行：
-
-- 定义表结构：首先需要定义表t和日志数据源的表结构。假设表t的结构为(a STRING, b STRING)，日志数据源的结构为(log JSON)。
-
-创建表：使用Flink SQL的CREATE TABLE语句创建表t和日志数据源的临时表。
-
-```sql
-CREATE TABLE t (
-a STRING,
-b STRING
-) WITH (
-'connector.type' = 'filesystem',
-'format.type' = 'csv',
-'connector.path' = '/path/to/t'
-);
-
-CREATE TABLE logSource (
-log JSON
-) WITH (
-'connector.type' = 'kafka',
-'connector.version' = 'universal',
-'connector.topic' = 'your-topic',
--- 设置Kafka相关配置
-...
-);
-```
-以上示例中，表t是以CSV文件形式存储在文件系统中，可根据实际情况进行调整，在connector.path中指定实际的文件路径。日志数据源使用Kafka作为连接器，并指定相关的Kafka配置。
-
-- 解析JSON字段并进行Join操作：使用Flink SQL的内置函数对日志数据源中的JSON字段进行解析，并与表t进行Join操作，获取对应的b值，并将结果插入到临时表中。
-```sql
-INSERT INTO joinedLog
-SELECT
-CAST(JSON_VALUE(log, '$.a') AS STRING) AS a,
-t.b
-FROM logSource
-JOIN t
-ON JSON_VALUE(log, '$.a') = t.a;
-```
-上述示例中，我们使用JSON_VALUE函数从log字段中提取出a字段，并将其转换为字符串类型，然后与表t按照a字段进行Join操作。最后，将a字段和对应的b值插入到名为joinedLog的临时表中。
-
-替换日志中的a字段为b值：使用Flink SQL的UPDATE语句根据Join操作的结果，替换日志数据中的a字段为对应的b值。
-```sql
-UPDATE logSource
-SET log = JSON_REPLACE(log, '$.a', j.b)
-FROM joinedLog j
-WHERE CAST(JSON_VALUE(log, '$.a') AS STRING) = j.a;
-```
-上述示例中，我们使用JSON_REPLACE函数将日志数据中的a字段替换为Join操作结果中对应的b值。该更新操作将直接修改logSource表中的数据，将a字段替换为b值。
-
-- 输出至消息队列：使用Flink SQL的INSERT INTO语句将更新后的日志数据发送至消息队列。
-```sql
-INSERT INTO outputTopic
-SELECT log
-FROM logSource;
-```
-以上示例中，我们将更新后的日志数据从logSource表中提取出来，并发送到名为outputTopic的消息队列中。
-
-最后，通过上述步骤，在Flink SQL中可以解析日志、进行Join操作，获取对应的b值，并将日志中的a字段替换为b值，最终将结果发送至消息队列。请根据实际情况调整相关的代码和配置，确保能够正确解析日志、进行Join操作并输出至消息队列。
-
 # 什么是有界流和无界流？什么事滑动窗口、滚动窗口、会话窗口？
 有界流和无界流是 Flink 中流处理的两种基本类型。其中，有界流（Bounded Streams）指的是具有固定大小的数据集，例如从文件或数据库中读取的数据，这些数据集是有限的，可以被精确地计算和处理。相对地，无界流（Unbounded Streams）则是指在时间上不断增长的数据流，例如传感器数据、网络流量等实时数据，这些数据流通常无法预先知道其大小，并且无法进行精确的计算和处理。
 
@@ -282,3 +148,284 @@ io.file.buffer.size：指定文件 I/O 操作的缓冲区大小，默认为 4096
 ![img.png](../../../images/flink架构图)
 
 Flink运行时架构主要包括四个不同的组件，它们会在运行流处理应用程序时协同工作：作业管理器（JobManager）、资源管理器（ResourceManager）、任务管理器（TaskManager），以及分发器（Dispatcher）。
+
+---
+
+# Flink 面试题补充
+
+## 时间语义再问一遍：Processing / Event / Ingestion 怎么选？
+
+| 类型 | 含义 | 适用 |
+|------|------|------|
+| Processing Time | 算子本地处理时刻 | 低延迟、可接受近似；不关心乱序 |
+| Event Time | 事件自带时间戳 | 对账、指标、窗口统计要正确；乱序/延迟常见 |
+| Ingestion Time | 进入 Flink Source 的时间 | 折中：比 Processing 稳一点，比 Event 实现简单 |
+
+面试结论：**生产统计多用 Event Time + Watermark**；监控大盘可 Processing Time。
+
+---
+
+## 窗口怎么理解？滚动 / 滑动 / 会话 / 全局有何区别？
+
+- **滚动（Tumbling）**：窗口大小 = 滑动步长，窗口互不重叠。例：每 5 分钟统计一次。
+- **滑动（Sliding）**：窗口大小 > 滑动步长，窗口重叠。例：每 1 分钟算一次最近 5 分钟。
+- **会话（Session）**：按 gap（一段时间无数据）切分；适合用户会话、活跃区间。
+- **全局（Global）**：一个 key 一个大窗口，通常配合自定义 Trigger，少用。
+
+按 key：`keyBy` 后是 **Keyed Window**（状态按 key 隔离，可并行）；不 keyBy 是 **Non-Keyed Window**（并行度多为 1，慎用）。
+
+还可以分：
+
+- **CountWindow**：按条数；**TimeWindow**：按时间。
+- **Window Function**：`ReduceFunction` / `AggregateFunction`（增量，省内存）vs `ProcessWindowFunction`（能拿到全窗口元素和窗口元信息，贵）。
+
+触发相关：
+
+- **Trigger**：决定何时计算/清空；默认事件时间窗口在 Watermark 越过窗口 end 时触发。
+- **Evictor**：触发前后踢掉部分元素（少用）。
+- **Allowed Lateness**：允许迟到数据；迟到仍可能更新结果，并可用侧输出拿“太迟”的数据。
+
+---
+
+## Watermark（水位线）是什么？乱序怎么处理？
+
+**Watermark = 事件时间进度的全局声明**：表示「小于等于该时间的事件，大概率都到了」。
+
+常见生成方式：
+
+1. **周期性（Periodic）**：每隔一段时间根据当前最大事件时间生成，如 `maxEventTime - maxOutOfOrderness`。
+2. **标记性（Punctuated）**：某些特殊事件自带水位（少见）。
+
+乱序处理套路：
+
+```text
+事件时间戳 t
+Watermark ≈ max(t) - 乱序容忍度
+当 Watermark >= windowEnd 时，关闭/触发窗口
+```
+
+要点：
+
+- Watermark **单调不减**（多并行度取最小的上游 Watermark 向下游传播）。
+- 容忍度越大：结果越准、延迟越大；越小：延迟低、易丢迟到数据。
+- 迟到数据：`allowedLateness` 内可再更新；之外走 **side output**。
+- 空闲分片：某 Kafka 分区长时间无数据会卡住 Watermark → 用 **watermark 空闲检测（idleness）**。
+
+一句话：**窗口按 Event Time 切，Watermark 决定何时关窗。**
+
+---
+
+## Flink 的 Watermark 解决了什么问题？
+
+核心就一个问题：**在 Event Time 下，怎么知道「某个时间窗口的数据可以开始算了」**。
+
+无界流 + 乱序到达时会出现：
+
+1. **不知道何时关窗**：按事件时间切的窗口，总可能还有更早时间戳的数据在路上；若无限等，窗口永不触发。
+2. **乱序无法处理**：后发先至时，若按到达顺序立刻关窗，结果会少算/错算。
+3. **延迟与正确性的权衡无从落地**：系统需要一个可配置的「最多再等多久」的信号。
+
+Watermark 提供的就是这个信号：
+
+- 声明「事件时间已推进到 W」→ 认为时间戳 ≤ W 的数据基本到齐。
+- 窗口在 `Watermark >= windowEnd` 时触发计算。
+- 用 **乱序容忍度** 换正确性；再用 **allowedLateness / side output** 兜底真正迟到的数据。
+
+它不解决的问题：外部系统事务、状态容错（那是 Checkpoint）、数据倾斜等。  
+**对比 Processing Time**：用本地时钟，无需 Watermark，但遇到乱序/延迟事件时窗口边界与业务时间不一致。
+
+---
+
+## 状态（State）面试常问
+
+### 状态分类
+
+| 类型 | 特点 | 例子 |
+|------|------|------|
+| Keyed State | 绑定 key，随 `keyBy` 分区 | `ValueState` / `ListState` / `MapState` / `ReducingState` / `AggregatingState` |
+| Operator State | 绑定并行子任务 | Source 的 offset 列表、Broadcast 前的缓冲 |
+
+Broadcast State：广播流状态，常用于动态规则下发。
+
+### 状态后端
+
+- **HashMapStateBackend**：堆内存，快；状态大易 OOM；适合小状态 + 改 Checkpoint 到文件系统。
+- **EmbeddedRocksDBStateBackend**：本地 RocksDB，状态可很大；序列化/IO 有开销；生产大数据量常用。
+
+### 状态生命周期
+
+- **TTL**：超时清理，防状态无限涨。
+- **Checkpoint**：自动、周期性，用于故障恢复。
+- **Savepoint**：手动，用于停机扩缩容、版本升级、迁移。
+
+Keyed State 访问必须在 **keyed context**（`keyBy` 后的算子）里。
+
+---
+
+## Checkpoint / Barrier / Exactly-Once
+
+**Checkpoint 流程（简化）**：
+
+1. JobManager 向 Source 注入 **Checkpoint Barrier**。
+2. Barrier 随数据在拓扑中对齐（对齐模式）或近似对齐。
+3. 算子收到 Barrier 后把状态快照到 State Backend。
+4. 全部完成 → Checkpoint 成功；失败可从最近成功点恢复。
+
+**Barrier 对齐**：多输入要等所有通道 Barrier 到齐再拍快照，保证 Exactly-Once；可能引入延迟。  
+**非对齐 Checkpoint（Unaligned）**：反压严重时减少对齐等待，仍可 Exactly-Once（实现更复杂）。
+
+端到端 Exactly-Once 还要求：
+
+- Source 可重放（如 Kafka）。
+- Sink 支持事务 / 幂等（两阶段提交 `TwoPhaseCommitSinkFunction`，Kafka 事务等）。
+
+对比：
+
+| | Checkpoint | Savepoint |
+|--|------------|-----------|
+| 触发 | 自动周期 | 用户手动 |
+| 目的 | 容错恢复 | 运维变更、升级 |
+| 格式 | 可更短命 | 更强调兼容、可移植 |
+
+---
+
+## Checkpoint 同步和异步有什么区别？
+
+这里说的「同步 / 异步」主要指 **状态快照写到持久化存储时，是否阻塞主数据处理线程**（State Backend 的 snapshot 方式），不是指 Barrier 对齐本身。
+
+| | 同步快照（Synchronous） | 异步快照（Asynchronous） |
+|--|-------------------------|--------------------------|
+| 做法 | 暂停（或阻塞）处理，把状态完整写完再继续 | 先快速拿到状态的一致性视图（如 copy-on-write / 增量句柄），**后台线程**再慢慢写存储 |
+| 对作业影响 | Checkpoint 期间处理停顿明显，易拉高延迟、加重反压 | 主线程停顿短，吞吐更稳，生产默认更倾向这种方式 |
+| 实现成本 | 实现简单 | 需要 COW、增量 Checkpoint 等支持 |
+| 典型场景 | 小状态、调试、或后端不支持异步 | RocksDB 增量 Checkpoint、大状态作业 |
+
+结合 State Backend 理解：
+
+- **Heap（HashMapStateBackend）**：同步时往往要把堆上状态拷出去再写；也可配合异步机制，但大状态时拷贝贵、易 GC。
+- **RocksDB**：常用 **异步 + 增量 Checkpoint**——同步阶段 mainly 做 RocksDB 快照/文件引用，真正上传 SST 在异步阶段完成，对主链路影响小。
+
+注意区分容易混的几组概念：
+
+1. **同步 vs 异步快照**：快照 IO 是否挡住 processElement（本题）。
+2. **对齐 vs 非对齐 Checkpoint**：多输入 Barrier 是否等齐（反压场景）。
+3. **全量 vs 增量 Checkpoint**：每次传全部状态还是只传变化（RocksDB 增量）。
+
+面试一句话：**同步快照 = 写盘时卡住算子；异步快照 = 先打轻量一致点，写盘放到后台，用短暂同步换长时间不阻塞。**
+
+---
+
+## 反压（Backpressure）是什么？怎么排查？
+
+**反压**：下游处理慢 → 上游发送阻塞 → 压力沿链路向上游传递，最终拖慢 Source 消费。
+
+常见原因：
+
+- 某算子逻辑重（复杂 JSON、大状态、热点 key）。
+- 数据倾斜（某 key 流量巨大）。
+- 网络 / 磁盘（RocksDB、Checkpoint IO）瓶颈。
+- Sink 外部系统慢（Kafka/DB 写不动）。
+- 窗口/状态过大导致 GC。
+
+排查：
+
+1. Flink UI：**BackPressure** 面板看 high/low；看各 Task 的 `busy` / `backpressured` 时间占比。
+2. 看哪一级开始反压 → 瓶颈通常在 **第一个忙且被反压的下游**。
+3. Metrics：`outPoolUsage`、`inPoolUsage`、checkpoint 时长、GC、反压时长。
+4. 热点：打日志 / key 采样；用 `rescale`、加盐 key、拆分算子。
+
+缓解：
+
+- 提高并行度、优化热点 key（加盐再聚合）。
+- 换 RocksDB、调内存与块缓存；减少状态大小、开 TTL。
+- 异步 IO（`AsyncFunction`）打外部系统。
+- 调网络缓冲、checkpoint 间隔；必要时非对齐 checkpoint。
+- Sink 侧批量写、限流、隔离慢下游。
+
+---
+
+## 并行度、Slot、Chain 关系？
+
+- **并行度（Parallelism）**：算子子任务个数。
+- **Task Slot**：TaskManager 资源槽；一个 Slot 可跑多个算子的子任务（资源共享）。
+- **Operator Chain**：一对一、同并行度的算子可链进同一线程，减序列化/网络开销。
+- `disableChaining` / `startNewChain` / `slotSharingGroup` 用于隔离资源或打断链式。
+
+---
+
+## Flink 与 Spark Streaming / Storm 对比（口述版）
+
+| | Flink | Spark Streaming(DStream) | 结构化流 / Micro-batch |
+|--|-------|--------------------------|-------------------------|
+| 模型 | 真正流（事件驱动） | 微批 | 微批为主 |
+| 延迟 | 可达毫秒～秒级 | 通常秒级 | 秒级 |
+| 状态 / 窗口 | 原生强 | 有，但历史包袱重 | 增强中 |
+| 容错 | Checkpoint + Barrier | RDD 血缘 / WAL 等 | Checkpoint |
+
+---
+
+## 数据倾斜怎么处理？
+
+- key 加盐（`key + random`）局部聚合，再去盐全局聚合。
+- 热点 key 单独分流。
+- 调整并行度；避免 `Non-Keyed` 大窗口。
+- 两阶段聚合：`pre-agg → shuffle → final-agg`。
+
+---
+
+## Watermark 卡住 / 窗口不触发怎么查？
+
+1. 是否设置了 Event Time 与 TimestampAssigner。
+2. 是否有空闲源/空闲 Kafka 分区拖住最小 Watermark。
+3. 乱序阈值是否过大导致迟迟达不到 `windowEnd`。
+4. 上游反压导致事件/Watermark 推进慢。
+5. 时间戳单位是否搞错（秒 vs 毫秒）。
+
+---
+
+## 常见代码级问题（口述）
+
+**滚动事件时间窗口示例：**
+
+```java
+data.assignTimestampsAndWatermarks(
+        WatermarkStrategy
+            .<Event>forBoundedOutOfOrderness(Duration.ofSeconds(5))
+            .withTimestampAssigner((e, ts) -> e.getEventTime()))
+    .keyBy(Event::getKey)
+    .window(TumblingEventTimeWindows.of(Time.minutes(1)))
+    .aggregate(new MyAgg());
+```
+
+**ValueState 计数：**
+
+```java
+public class CountFn extends KeyedProcessFunction<String, Event, String> {
+    private ValueState<Long> cnt;
+    @Override public void open(Configuration conf) {
+        cnt = getRuntimeContext().getState(new ValueStateDescriptor<>("cnt", Long.class));
+    }
+    @Override public void processElement(Event e, Context ctx, Collector<String> out) throws Exception {
+        Long c = cnt.value();
+        if (c == null) c = 0L;
+        cnt.update(c + 1);
+        out.collect(e.getKey() + ":" + (c + 1));
+    }
+}
+```
+
+---
+
+## 面试速记
+
+| 主题 | 一句话 |
+|------|--------|
+| 三种时间 | 处理时间本地钟；事件时间业务钟；摄取时间进站钟 |
+| 窗口 | 滚动不重叠；滑动重叠；会话靠 gap |
+| Watermark | 解决 Event Time「何时关窗/如何容忍乱序」；时间进度信号 |
+| 状态 | Keyed / Operator；堆 or RocksDB；TTL 防膨胀 |
+| Checkpoint | Barrier 对齐拍状态；容错；Savepoint 给人用 |
+| 同步/异步 Checkpoint | 同步写盘阻塞处理；异步先打一致点再后台上传 |
+| Exactly-Once | Checkpoint + 可重放 Source + 事务/幂等 Sink |
+| 反压 | 下游慢向上传；UI 看反压；治热点与慢 Sink |
+| 倾斜 | 加盐、两阶段聚合、拆热点 |

@@ -1,56 +1,13 @@
+# 怎样解决 Maven 依赖冲突？
 
-# 怎样解决maven依赖冲突？
+同一坐标被引入多个版本时会发生冲突（近者优先、路径短者优先等调解规则）。处理思路：
 
+1. **看清冲突**：`mvn dependency:tree`（或 `-Dverbose` / IDEA 依赖分析）定位谁拉了哪个版本。
+2. **排除**：在直接依赖上 `<exclusions>` 去掉不想要的传递依赖。
+3. **统一版本**：父 POM `dependencyManagement` 或 `<properties>` 锁定版本；Spring 系优先用 BOM（如 `spring-boot-dependencies`）。
+4. **必要时显式声明**：自己在当前模块声明目标版本，覆盖传递依赖。
 
-Maven依赖冲突是指在一个Maven项目中，两个或多个依赖库引用了同一个Jar包的不同版本，这时候就可能会出现冲突问题。为了解决这个问题，可以采取以下几种方法：
-
-排除依赖：对于那些直接依赖冲突的依赖库，可以通过排除其中一个依赖或者更改它的版本号来解决依赖冲突。例如，在pom.xml文件中添加以下代码：
-```xml
-<dependency>
-    <groupId>com.example</groupId>
-    <artifactId>example-artifact</artifactId>
-    <version>1.0</version>
-    <exclusions>
-        <exclusion>
-            <groupId>com.example.external</groupId>
-            <artifactId>external-artifact</artifactId>
-        </exclusion>
-    </exclusions>
-</dependency>
-```
-引入统一的依赖版本号：可以在pom.xml文件中定义一个全局的依赖版本，并让所有引用这个依赖的库都使用同一个版本。例如：
-```xml
-<properties>
-    <junit.version>4.12</junit.version>
-</properties>
-<dependencies>
-    <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${junit.version}</version>
-    </dependency>
-    ...
-</dependencies>
-```
-使用maven-dependency-plugin插件分析依赖关系：可以使用maven-dependency-plugin插件来查看依赖的冲突情况。在命令行输入以下命令：
-
-mvn dependency:tree
-这将会输出项目的所有依赖关系树。可以通过查看这个树来确定哪些库依赖了同一个Jar包的不同版本。
-
-使用dependencyManagement标签：使用dependencyManagement标签可以在父pom文件中管理所有子模块的依赖。在父pom文件中，使用dependencyManagement标签统一定义所有子模块所需要的依赖，例如：
-```xml
-<dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>5.2.0.RELEASE</version>
-        </dependency>
-        ...
-    </dependencies>
-</dependencyManagement>
-```
-总之，要解决Maven依赖冲突问题，首先需要了解项目的依赖关系，然后采用合适的方式进行处理，以保证项目能够正常构建和运行。
+优先用 BOM / `dependencyManagement` 管版本，排除作补充；改完再跑一遍 tree 确认只剩一个版本。
 
 # SpringCloud多模块怎样避免循环依赖？
 
@@ -304,3 +261,225 @@ nacos 是一个基于云原生架构的服务注册中心和配置中心，它�
 动态配置管理：Nacos 还可以作为配置中心使用，支持动态配置管理。应用程序可以通过 Nacos 的 API 或 SDK 获取配置信息，并在配置变更时接收通知更新配置。这样就可以避免因为配置问题导致的应用程序故障。
 
 总之，Nacos 实现服务注册中心的原理是基于分布式协调服务实现服务管理和配置管理等功能。同时，Nacos 还提供了海量服务的注册和发现、服务治理等高级功能，使得应用程序的运维更加简单、高效和可靠。
+
+---
+
+# Spring Cloud 常用组件面试题
+
+> 覆盖 Netflix 系与 Spring Cloud Alibaba；面试按「干什么 → 原理 → 对比 → 踩坑」答。
+
+## 组件全景（先画一张图）
+
+```text
+客户端 → Gateway（路由/鉴权/限流）
+           ↓
+     负载均衡（Ribbon / LoadBalancer）
+           ↓
+     服务发现（Eureka / Nacos / Consul）
+           ↓
+     业务服务 ←→ 配置中心（Config / Nacos）
+           ↓
+     熔断限流降级（Hystrix / Sentinel / Resilience4j）
+           ↓
+     链路追踪（Sleuth+Zipkin / SkyWalking）  调用：OpenFeign
+```
+
+| 能力 | Netflix / 原生 | Alibaba 常见 |
+|------|----------------|--------------|
+| 注册发现 | Eureka、Consul | Nacos |
+| 配置中心 | Spring Cloud Config | Nacos |
+| 网关 | Gateway（Zuul 1 已老） | Gateway + Sentinel |
+| 负载均衡 | Ribbon → Spring Cloud LoadBalancer | 同左 + Nacos 权重 |
+| 熔断限流 | Hystrix（停更）→ Resilience4j | Sentinel |
+| RPC 声明式 | OpenFeign | OpenFeign / Dubbo |
+| 分布式事务 | — | Seata |
+
+---
+
+## 注册中心：解决什么问题？原理？
+
+**解决**：服务实例动态增减时，调用方如何找到可用地址（服务发现），并摘除宕机节点。
+
+**通用流程**：
+
+1. 服务启动 → 注册（ip/port/metadata）到注册中心  
+2. 定时心跳 / 健康检查维持「存活」  
+3. 消费方拉取或订阅服务列表 → 本地缓存  
+4. 结合负载均衡选实例发起调用  
+
+### Eureka vs Nacos vs ZooKeeper / Consul
+
+| | Eureka | Nacos | ZK（当注册中心） | Consul |
+|--|--------|-------|------------------|--------|
+| 定位 | 服务发现 | 发现 + 配置 | CP 协调为主 | 发现 + 健康检查等 |
+| 一致性 | AP（自我保护） | CP/AP 可切（命名空间/集群模式相关） | CP | 偏 CP |
+| 健康检查 | 客户端心跳 | 心跳 + 可主动探测 | 会话 | 丰富检查 |
+| 国内现状 | 少用、Netflix 停更 | 主流之一 | 仍见，偏中间件协调 | 有，不如 Nacos 普及 |
+
+**Nacos 注册原理（口述）**：客户端向 Nacos Server 注册实例；Server 持久化/内存管理实例；消费者订阅或轮询拉取；实例心跳超时被剔除；支持临时实例与持久实例。
+
+**Eureka 自我保护**：短时间大量心跳失败时，保护注册表不大量剔除（宁可保留「可能已死」的实例，避免网络分区误杀）→ 偏 AP。
+
+**调用方如何感知挂掉**：注册中心摘除 + 本地缓存刷新；同时还有超时、重试、熔断。不只靠注册中心。
+
+---
+
+## 配置中心：解决什么问题？怎样动态刷新？
+
+**解决**：配置与代码分离；多环境/多集群统一管理；运行期变更（开关、限流阈值、下游地址等）。
+
+### Spring Cloud Config
+
+- Config Server 拉 Git/SVN/本地仓库配置  
+- 客户端启动时拉取；变更常靠 **Spring Cloud Bus**（Kafka/Rabbit）广播 `/actuator/busrefresh`  
+- `@RefreshScope`：刷新时销毁并重建 scope 内 Bean  
+
+### Nacos 配置
+
+- DataId / Group / Namespace 隔离  
+- 客户端长轮询监听配置变更（推改感）  
+- `@NacosConfigListener` 或 `@RefreshScope` + `nacos.config` 刷新  
+- 可加密、灰度、历史版本回滚  
+
+**面试对比**：Config 强依赖 Git 与 Bus；Nacos 一体（注册+配置）、控制台友好、国内更常见。
+
+**注意**：不是所有 Bean 改配置都会生效；`@Value` 注入到无 RefreshScope 的单例可能不更新；连接池等需专门处理。
+
+---
+
+## 网关：Gateway 做什么？和 Nginx 区别？
+
+**Spring Cloud Gateway**（WebFlux）：统一入口——路由、鉴权、限流、灰度、日志、协议转换。
+
+核心概念：
+
+- **Route**：断言（Path/Host/Header…）+ 过滤器 + 目标 uri  
+- **Predicate**：是否匹配  
+- **Filter**：全局/局部；如鉴权、改请求头、限流  
+
+与 Nginx：
+
+| | Gateway | Nginx |
+|--|---------|-------|
+| 位置 | 应用层，易与注册中心/鉴权集成 | 更偏流量入口、静态、反向代理 |
+| 动态路由 | 易对接服务发现 | 需额外模块/配置中心 |
+| 语言生态 | Java 过滤器、与 Spring Security 集成方便 | 高性能、运维成熟 |
+
+常一起用：Nginx/SLB → Gateway → 微服务。
+
+---
+
+## 负载均衡：Ribbon 与 LoadBalancer、常见策略
+
+老项目：**Ribbon**（停更）；新项目：**Spring Cloud LoadBalancer**。
+
+常见策略：轮询、随机、加权、最少并发（视实现）、重试。
+
+与注册中心关系：从服务列表选实例；可结合 Nacos 权重、集群就近路由。
+
+**Feign / RestTemplate / WebClient** 通过 `@LoadBalanced` 或 Feign 集成实现「服务名」调用，而不是写死 IP。
+
+---
+
+## OpenFeign 调用链路（口述）
+
+1. 接口 + `@FeignClient(name="user-service")`  
+2. 启动时生成代理  
+3. 解析服务名 → LoadBalancer 选实例  
+4. HTTP 发请求（可配超时、日志、编码器）  
+5. 失败：重试（慎用非幂等）、解码异常、走降级（Sentinel/Resilience4j）
+
+超时要分层：连接超时、读超时；网关超时 ≥ Feign 超时 ≥ 下游处理时间，避免误杀。
+
+---
+
+## 限流 / 熔断 / 降级 / 隔离（高可用四件套）
+
+| 手段 | 目的 | 典型实现 |
+|------|------|----------|
+| 限流 | 保护系统不被打满 | Sentinel QPS/线程数、Gateway RequestRateLimiter、Nginx |
+| 熔断 | 故障快速失败，防雪崩 | Sentinel、Resilience4j；Hystrix 已停更 |
+| 降级 | 兜底返回，保主链路 | fallback 方法、默认值、缓存 |
+| 隔离 | 故障隔离资源 | 线程池隔离 / 信号量；舱壁 |
+
+### Sentinel 常问
+
+- **资源**：接口、方法、或自定义 resource name  
+- **规则**：流量控制、熔断降级、热点参数、系统规则、授权规则  
+- **流控模式**：直接、关联、链路  
+- **流控效果**：快速失败、Warm Up、排队等待  
+- **熔断策略**：慢调用比例、异常比例、异常数；半开探测恢复  
+- 与 Gateway、Feign、Dubbo 有适配器  
+
+### Hystrix → Sentinel / Resilience4j
+
+Hystrix 停更；Spring Cloud 推荐 Resilience4j 或上 Alibaba 用 Sentinel。答面试时说明项目选型理由即可。
+
+---
+
+## 限流算法（常结合组件问）
+
+| 算法 | 特点 |
+|------|------|
+| 固定窗口 | 实现简单，窗口边界突刺 |
+| 滑动窗口 | 更平滑 |
+| 漏桶 | 平滑出水，应对突发弱 |
+| 令牌桶 | 允许一定突发，常用 |
+
+Sentinel 底层结合滑动窗口统计；Gateway Redis 限流常用令牌桶思想。
+
+---
+
+## 链路追踪与监控
+
+- **Sleuth + Zipkin / Brave**：traceId / spanId 贯穿日志  
+- **Micrometer + Prometheus + Grafana**：QPS、延迟、错误率  
+- **Spring Boot Admin**：实例健康  
+- Alibaba：**Sentinel Dashboard**、Nacos 控制台；也可 SkyWalking  
+
+没有追踪时排障难：一次请求跨多少服务、慢在哪一跳。
+
+---
+
+## 分布式事务（常挂在 Spring Cloud 体系下问）
+
+微服务避免强事务；需要时：
+
+- **Seata**：AT / TCC / Saga / XA  
+- 可靠消息、本地消息表、Outbox  
+- 尽量 **最终一致**，幂等 + 补偿  
+
+详见同目录 `分布式事务.md`。
+
+---
+
+## 服务雪崩怎么形成？怎么防？
+
+形成：下游慢/挂 → 上游线程打满 → 层层拖垮。
+
+防护组合：超时、限流、熔断、降级、隔离、舱壁、缓存、异步化、合理重试（指数退避 + 幂等）、隔离线程池。
+
+---
+
+## 灰度发布 / 金丝雀怎么做？
+
+- Gateway 按 header/userId 路由到新版本实例  
+- Nacos/注册中心 metadata 打版本标签，LoadBalancer 过滤  
+- 配置中心开关控制新逻辑  
+
+---
+
+## 面试速记
+
+| 组件 | 一句话 |
+|------|--------|
+| 注册中心 | 实例注册、心跳、发现、摘除 |
+| 配置中心 | 配置外置、动态推送/刷新 |
+| Gateway | 统一入口：路由、鉴权、限流 |
+| LoadBalancer | 从服务列表选实例 |
+| OpenFeign | 声明式 HTTP 客户端 |
+| Sentinel | 限流熔断降级热点规则 |
+| Seata | 分布式事务（慎用，优先业务方案） |
+| 追踪 | Trace 把调用链串起来 |
+
+**选型口述**：国内常见 **Nacos + Gateway + OpenFeign + Sentinel + Seata(按需)**；老项目可能仍见 Eureka/Ribbon/Hystrix，需说明迁移点。
