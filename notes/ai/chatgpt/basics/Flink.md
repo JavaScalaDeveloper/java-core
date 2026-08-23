@@ -429,3 +429,139 @@ public class CountFn extends KeyedProcessFunction<String, Event, String> {
 | Exactly-Once | Checkpoint + 可重放 Source + 事务/幂等 Sink |
 | 反压 | 下游慢向上传；UI 看反压；治热点与慢 Sink |
 | 倾斜 | 加盐、两阶段聚合、拆热点 |
+| Blink | 已并入 Flink；默认 SQL 规划器；changelog/MiniBatch/流批一体 |
+
+---
+
+## Blink 是什么？和 Flink 什么关系？（面试高频）
+
+**Blink** 是阿里巴巴基于 Flink 深度改造并开源的 **流计算引擎**，在 **TPC-DS 等基准** 上做过大量 SQL 与运行时优化。  
+**2019 年捐赠并入 Apache Flink**；核心能力逐步成为 Flink 主线，而不是独立产品。
+
+```text
+Blink（阿里内部流引擎）
+  → 捐赠 Apache Flink
+  → Flink 1.9  可选 blink planner
+  → Flink 1.11 blink 成为默认 SQL 规划器，old planner 废弃
+  → Flink 1.14 移除 old planner
+  → 今天「Flink SQL / Table API」默认就是 Blink 规划器路线
+```
+
+面试一句话：**Blink 不是单独部署的组件，而是已融入 Flink 的 Table/SQL 规划器与流批一体优化。**
+
+---
+
+## Blink 给 Flink 带来了什么？
+
+| 能力 | 说明 |
+|------|------|
+| **Blink Planner** | 新一代 SQL 优化器：流/批统一逻辑计划、规则与代价优化 |
+| **流批一体** | 同一套 Table API / SQL，批可当「有界流」在流运行时执行 |
+| **Changelog 语义** | 表以 `+I/-U/+U/-D` 变更流表示，支撑 SQL 聚合、Join 正确性 |
+| **MiniBatch 聚合** | 微批缓冲再计算，换延迟换吞吐，大流量 GROUP BY 常用 |
+| **Local-Global 聚合** | 本地预聚合 + 全局汇总，减少 Shuffle 数据量 |
+| **异步 Lookup Join** | 维表关联异步 IO，减轻同步查库反压 |
+| **运行时优化** | 算子链、状态访问、序列化等，SQL 整体性能提升 |
+
+---
+
+## Blink Planner vs 老 Planner（old planner）
+
+| 维度 | Old Planner（已移除） | Blink Planner（现默认） |
+|------|----------------------|-------------------------|
+| 状态 | Flink 1.14 前已废弃 | **默认且唯一** |
+| 流/批 | 两套计划差异大 | **统一优化框架** |
+| SQL 能力 | 功能弱、优化少 | 窗口、TopN、维表 Join、CDC 等更完整 |
+| 性能 | 一般 | TPC 类场景明显更好 |
+| 开启方式 | 1.9～1.10：`table.planner: blink` | 1.11+ **无需配置** |
+
+---
+
+## Changelog / Retract（变更流）
+
+Blink SQL 里表不仅是「插入行」，而是 **带变更类型的流**：
+
+| 类型 | 含义 |
+|------|------|
+| `+I` | Insert，新增 |
+| `-U` | Update Before，更新前旧值 |
+| `+U` | Update After，更新后新值 |
+| `-D` | Delete，删除 |
+
+**为什么需要？**  
+流上 SQL 聚合、Join 会产生 **结果修正**（计数从 10→11 要先撤回 10 再发 11）。Changelog 让下游正确更新状态。
+
+面试答：**流式 SQL 结果会更新，Blink 用 changelog 表达行的增删改。**
+
+---
+
+## MiniBatch 聚合（经典优化）
+
+**问题**：逐条聚合 → 状态读写频繁、吞吐低。  
+**做法**：缓冲一小批（条数或时间阈值）再触发计算。
+
+```sql
+SET 'table.exec.mini-batch.enabled' = 'true';
+SET 'table.exec.mini-batch.allow-latency' = '5s';
+SET 'table.exec.mini-batch.size' = '5000';
+```
+
+| 项 | 说明 |
+|----|------|
+| 优点 | 吞吐高、状态访问少 |
+| 代价 | 延迟增加（最多到 allow-latency） |
+| 场景 | 大流量 `GROUP BY`、窗口聚合 |
+
+---
+
+## Local-Global 两阶段聚合
+
+```text
+Local 聚合（各 subtask 预聚合）→ Shuffle → Global 聚合
+```
+
+类似 Combiner + Reduce，减少 Shuffle 量；与 **加盐两阶段** 治倾斜思路相通。
+
+---
+
+## 流批一体
+
+| | 流 | 批 |
+|--|-----|-----|
+| 数据 | 无界 | 有界 |
+| Blink | 同一套 Table API / SQL 逻辑计划，批当有界流优化执行 |
+
+一套 SQL 可复用于离线 + 实时；批作业注意并行度与 Checkpoint 策略（批常可关或稀疏）。
+
+---
+
+## 异步 Lookup Join
+
+同步维表 Join 每条事件查一次外部库 → 易反压。  
+**Async Lookup**：并发请求维表 + 回调输出，常配合 LRU 缓存。适合事实流关联缓慢变化维表。
+
+---
+
+## Blink 面试追问
+
+| 问题 | 答法 |
+|------|------|
+| 还要单独学 Blink 吗？ | 不用单独部署；掌握并入 Flink 的 SQL 优化、changelog、MiniBatch |
+| SQL vs DataStream？ | SQL 做指标/ETL/维表 Join；DataStream 做复杂 CEP、细粒度状态 |
+| CDC 常见链路？ | MySQL CDC → Flink SQL → Kafka / OLAP |
+| MiniBatch vs 窗口？ | MiniBatch 是算子微批优化；窗口是时间边界；可并存 |
+| vs Spark 结构化流？ | Flink 更低延迟、原生状态强；Spark 离线生态统一强 |
+
+---
+
+## Blink 速记
+
+| 主题 | 一句话 |
+|------|--------|
+| 定位 | 阿里流引擎，已捐赠合并进 Flink |
+| Planner | 现今默认 Flink SQL 引擎 |
+| Changelog | +I/-U/+U/-D，流式结果可更新 |
+| MiniBatch | 微批聚合，换延迟换吞吐 |
+| Local-Global | 本地预聚合减 Shuffle |
+| 流批一体 | 同一 SQL，批当有界流 |
+| Lookup | 异步维表 Join 减反压 |

@@ -1,78 +1,270 @@
-# HBase是怎么做容灾与备份的？
+# HBase 是什么？适合什么场景？
 
-HBase是一个分布式的开源NoSQL数据库，它提供了一些机制来实现容灾和备份。下面是HBase在容灾和备份方面的几个重要特性：
+Apache HBase 是建立在 **HDFS** 之上的分布式 **宽列（Wide-Column）NoSQL**，面向海量数据的随机读写与扫描，典型场景：用户画像、订单流水、监控指标、日志明细、时序类大表。
 
-- 数据复制（Replication）：HBase支持数据复制功能，可以将数据从一个集群复制到另一个集群。通过配置复制表和列族，可以指定哪些数据需要进行复制。数据复制可以用于容灾目的，当主集群发生故障时，副本集群可以继续提供服务。
+| 适合 | 不适合 |
+|------|--------|
+| 百亿/千亿行、TB～PB 级 | 复杂 SQL、多表 JOIN |
+| 按 RowKey 点查、范围扫描 | 高频小事务、强 ACID |
+| 稀疏列、列可动态增 | 频繁行级 UPDATE/DELETE |
+| 写多读少、追加写为主 | 纯全文检索（更偏 ES） |
 
-- 自动故障转移（Automatic Failover）：HBase在高可用性方面采用了ZooKeeper作为协调服务，利用ZooKeeper来进行主节点选举和自动故障转移。当主节点发生故障时，ZooKeeper会触发选举过程，选择新的主节点来接管服务，从而实现故障转移。
+和 MySQL：HBase 换 **横向扩展 + 顺序写 HFile**，牺牲关系模型与事务。
 
-- 数据备份（Data Backup）：HBase提供了数据备份功能，可以将数据备份到其他存储系统，如Hadoop的HDFS或其他远程存储。通过将数据备份到其他位置，可以防止数据丢失。备份可以通过HBase内置的ExportSnapshot命令或第三方工具来执行。
+---
 
-- 分布式文件系统支持（Distributed File System Support）：HBase通常会结合Hadoop的HDFS进行部署，而HDFS本身提供了数据冗余和容错机制。HDFS通过将数据均匀分布在多个节点上，并保存多个副本来实现容灾和备份。
+## 架构：各组件干什么？
 
-- 数据恢复（Data Recovery）：HBase在节点故障或数据损坏时，可以通过数据复制和日志恢复机制来实现数据的恢复。数据复制确保了数据的冗余性，而日志恢复可以从写入日志中恢复数据，使其回到一致状态。
+```text
+Client
+  ↓
+ZooKeeper（集群协调：Master 选举、Region 元数据入口等）
+  ↓
+HMaster（管理：建删表、Region 分配、负载均衡、故障恢复协调）
+  ↓
+RegionServer × N（真正存数据、处理读写）
+  ↓
+HDFS（HFile、WAL 等文件持久化）
+```
 
-# HBase是通过什么方式实现数据恢复？
-日志恢复（Log Recovery）：HBase通过WAL（Write Ahead Log）来记录所有的写操作。WAL是一种预写日志机制，它在数据更新之前将操作写入到持久化的日志文件中。当节点发生故障或数据损坏时，HBase可以使用WAL中的操作日志进行恢复。具体步骤如下：
+| 组件 | 职责 |
+|------|------|
+| **HMaster** | 表 DDL、Region 分配到 RS、宕机 Region 重新上线；**不处理客户端读写**（2.x 可多 Master 主备） |
+| **RegionServer** | 托管多个 **Region**；写 MemStore、刷 HFile、读 BlockCache、执行 Compaction |
+| **Region** | 表按 RowKey 范围切分的**水平分片**，是负载均衡与扩展的基本单位 |
+| **ZooKeeper** | Master 选举、`.META.` 表位置、RS 心跳与协调 |
+| **HDFS** | 底层存储；多副本容错 |
 
-a. 当节点出现故障时，HBase会自动将该节点上的WAL传输到其他正常节点。
+**扩展方式**：加 RegionServer；Region 随数据量 **Split** 分裂，由 Master 重新分布——**按 RowKey 范围分片**，不是 Redis 那种一致性哈希槽。
 
-b. 正常节点接收到故障节点的WAL后，会将其中的操作应用到自己的数据中，以保持数据的一致性。
+---
 
-c. 一旦节点恢复正常，它会通过读取WAL日志文件来检查最后一次写操作之后发生的事情，并将数据恢复到一致状态。
+## 数据模型（面试必画）
 
-# HBase存在HDFS里的数据是关系型的吗？
+逻辑结构：
 
-HBase存储在HDFS（Hadoop分布式文件系统）中的数据不是关系型的，而是属于列族存储（Column Family Store）的NoSQL数据模型。HBase采用了一种称为"列式存储"的数据模型，与传统的关系型数据库不同。
+```text
+Table
+ └─ Row（由 RowKey 唯一标识）
+     └─ Column Family（列族，建表时定义，数量宜少）
+         └─ Column Qualifier（列名，可动态）
+             └─ Cell = { value, timestamp }   # 多版本
+```
 
-在HBase中，数据以行和列族的形式进行组织。一个表可以包含多个列族，每个列族可以包含多个列限定符（Column Qualifier）和对应的值。这种数据组织结构的设计，使得HBase可以支持高扩展性、高吞吐量和千兆字节级别的存储，并提供快速的读写操作。
+| 概念 | 说明 |
+|------|------|
+| RowKey | 行唯一键，**字典序**排序，决定数据落在哪个 Region |
+| Column Family | 物理存储单元；列族不同 → 不同 HFile；一般 1～3 个 |
+| Column Qualifier | 列标识，无需预建全部列 |
+| Timestamp | 多版本时间戳；默认保留最新若干版本（`VERSIONS`） |
+| Cell | 最小存储单元：RowKey + CF + CQ + TS → Value |
 
-相比于关系型数据库，HBase具有以下特点：
+特点：
 
-- 无模式（Schemaless）：HBase没有预定义的模式（Schema），每行数据可以拥有不同的列族和列，不需要提前定义表结构。这使得HBase在面对半结构化或非结构化数据时更加灵活。
+- **无固定 Schema**：不同行可有不同列（稀疏宽表）。
+- **列族存储**：同一列族数据存一起，**不是** ClickHouse 那种纯列存分析引擎；常说「面向列族」而非「列式 OLAP」。
+- **仅 RowKey 有序**：表全局按 RowKey 字典序；列族内按行存，**没有**面向任意列的全局二级索引（除非自建协处理器/二级索引方案）。
 
-- 横向扩展（Horizontal Scalability）：HBase可以通过添加更多的Region Server节点进行横向扩展，以支持海量数据的存储和处理需求。
+---
 
-- 高吞吐量（High Throughput）：HBase的底层存储是基于HDFS，具备高吞吐量的特性，可以并行处理多个读写请求。
+## 读写路径（高频）
 
-- 弱一致性（Eventual Consistency）：HBase的数据复制机制使得数据在集群中的各个节点存在副本，但副本之间可能会有一定的延迟。因此，HBase在一致性方面追求的是"最终一致性"而非"强一致性"。
+### 写路径
 
-总而言之，HBase存储在HDFS中的数据被组织为列族，并采用无模式的数据模型。这种特点使得HBase能够适应大规模数据处理和高性能需求，尤其适合处理半结构化或非结构化数据。
+```text
+Client → RegionServer
+  → 写 WAL（预写日志，顺序追加，崩溃恢复）
+  → 写 MemStore（内存有序结构）
+  → MemStore 达阈值 → Flush 成 HFile（落 HDFS，不可变）
+  → 小 HFile 多了 → Compaction 合并成大 HFile
+```
 
-# 为什么HBase能存海量的数据，查询起来还能那么快？
+- **WAL**：先日志后内存，RS 宕机可从 WAL 重放未刷盘数据。
+- **MemStore**：按 RowKey 排序；Flush 生成新 HFile。
+- **HFile**：磁盘上的有序键值文件；读多写少，靠合并减少文件数。
 
-- 分布式存储和计算：HBase基于Hadoop生态系统中的HDFS和分布式计算框架（如MapReduce或Apache Spark）进行存储和计算。HDFS提供了高可靠性和高扩展性的分布式文件系统，使得数据可以水平切分并存储在多个节点上。同时，HBase利用分布式计算框架实现并行处理和查询，将工作负载分散到多台机器上，从而加快数据处理速度。
+### 读路径
 
-- 列式存储模型：HBase采用了列族存储（Column Family Store）的数据模型，将数据按照列族进行组织。相比于传统的行式存储模型，在查询时可以只选择特定的列族进行检索，避免了不必要的数据读取，从而提高了查询效率。
+```text
+Client → 先查 META 表定位 RowKey 所在 Region/RS
+  → RegionServer
+  → BlockCache（读缓存）命中？
+  → HFile（可能多个）+ MemStore 合并视图
+  → Bloom Filter 跳过不含该 RowKey 的 HFile
+  → 二分/索引块定位 Data Block → 返回 Cell
+```
 
-- 稀疏存储和压缩技术：HBase以稀疏矩阵的形式存储数据，对于空白的单元格不占用存储空间，节约了存储资源。此外，HBase支持数据压缩技术，可以在存储数据时进行压缩，减少磁盘占用，提高读写性能。
+- **BlockCache**：缓存 HFile 的 Data Block，热点读加速。
+- **Bloom Filter**：每个 StoreFile 布隆过滤器，**快速判断 RowKey 是否可能存在**，减少无效 IO。
+- 一次读可能要合并 **多个 HFile + MemStore**（版本多的原因）。
 
-- 分布式索引和缓存：HBase在每个Region Server上维护了一个内存中的块缓存（Block Cache），用于缓存热点数据和磁盘读取的块。同时，HBase还使用B树索引和布隆过滤器等技术来加速数据的查找，并减少对磁盘的IO操作。
+### Compaction
 
-- 水平扩展和负载均衡：HBase利用水平扩展的方式，通过添加更多的Region Server节点来扩展集群规模。这种方式可以将数据分散到更多的机器上并实现负载均衡，提高整体的查询吞吐量和性能。
+| 类型 | 作用 |
+|------|------|
+| Minor | 合并少量小 HFile，减少文件数 |
+| Major | 合并某列族全部 HFile，清理删除标记、过期版本；IO 重，常低峰调度 |
 
-综上所述，HBase通过分布式存储和计算、列式存储模型、稀疏存储和压缩技术、分布式索引和缓存以及水平扩展和负载均衡等手段，使得它能够高效地存储和查询海量数据。这些特性使得HBase成为适用于大规模数据处理和高性能查询的选择之一。
+Compaction 类似 LSM 的 **merge**：用后台合并换写入吞吐，但 Major 时易打满磁盘 IO。
 
-# HBase根据rowKey查找和根据列查找的效率为什么不同？
-HBase根据rowKey查找和根据列查找的效率不同的原因主要有以下几点：
+---
 
-数据存储方式：HBase是按照行存储数据的，即将具有相同rowKey的数据存储在一起。这样设计的目的是为了支持高效的行级别读取和写入操作。当根据rowKey进行查找时，HBase可以直接通过定位到对应的Region Server和文件来获取数据，因此效率较高。
+## 为什么能存海量数据还快？
 
-列族存储模型：HBase采用了列族存储的数据模型，将数据按照列族进行组织。在列族内部，数据是按照行存储的；而在列族之间，数据则是按照列存储的。当根据列进行查找时，HBase需要遍历整个列族，然后再找到对应的列数据。相比于根据rowKey查找，这种方式需要更多的IO操作，因此效率较低。
+1. **水平分片**：Region 按 RowKey 范围分布到多台 RS，并行读写。
+2. **LSM 式写入**：顺序写 WAL + 批量刷 HFile，避免随机写磁盘。
+3. **稀疏存储**：空列不占空间，适合宽表稀疏场景。
+4. **按 RowKey 有序**：范围扫描连续读 HFile；配合 **BlockCache + Bloom** 加速点查。
+5. **列族隔离**：查询只读涉及列族的 HFile（仍要扫该族内行，但不必读其他族）。
+6. **压缩**：HFile 支持 SNAPPY/LZ4/GZ 等，减磁盘与网络。
 
-索引结构：HBase通过使用B树或稀疏索引等技术，在内存中维护了一个索引结构，用于加速根据rowKey进行查找。通过索引结构，HBase可以直接找到指定rowKey所在的位置，从而快速获取对应的数据。而对于根据列进行查找，HBase并没有内置的索引结构，需要遍历整个列族才能找到对应的列数据。
+**不是**：全表任意列都有索引；复杂分析聚合不如 ClickHouse/Spark SQL。
 
-综上所述，HBase根据rowKey进行查找效率较高，主要是因为数据的存储方式和索引结构的支持。而根据列进行查找效率较低，需要遍历整个列族来获取对应的列数据。因此，在设计HBase表时，应尽量根据业务需求选择合适的数据组织方式，并在查询时优先使用rowKey进行查找，以获得更好的性能和效率。
+---
 
-# HBase、ElasticSearch是通过什么算法实现水平拓展的？
-- 一致性哈希算法（Consistent Hashing）：一致性哈希算法是分布式系统中常用的数据分片和路由算法。在 HBase 和 Elasticsearch 中，一致性哈希算法用于将数据分片到不同的节点上。通过将节点和数据都映射到一个统一的哈希环上，可以快速确定数据应该存储在哪个节点上。
+## RowKey 设计（核心考点）
 
-- 节点间数据复制和数据冗余：HBase 和 Elasticsearch 都采用了数据复制和冗余的机制，以提高数据的可靠性和容错性。对于 HBase 而言，它使用多副本机制来存储数据，确保在节点故障时数据仍然可用。Elasticsearch 则支持多个分片的副本，以提供冗余和高可用性。
+原则：**散列、有序、短、符合访问模式**。
 
-- 自动数据迁移和负载均衡：为了保持各个节点的负载均衡，HBase 和 Elasticsearch 都具备自动数据迁移和负载均衡的机制。当集群中新增或删除节点时，系统会自动调整和迁移数据，使得各个节点上的数据量相对均衡，减少热点和压力集中。
+| 反例 | 问题 |
+|------|------|
+| 单调递增（时间戳前缀） | 所有新写打在同一 Region → **热点** |
+| 过长 RowKey | 索引与缓存浪费 |
+| 与查询模式无关 | 点查、范围扫都慢 |
 
-- ZooKeeper 的协调机制：HBase 和 Elasticsearch 都使用 Apache ZooKeeper 进行分布式协调和管理。ZooKeeper 提供了元数据存储、节点状态管理和分布式锁等功能，通过它来实现集群中节点的一致性和同步。
+常见技巧：
 
-- 路由和查询优化：在 Elasticsearch 中，通过分片键（Shard Key）来决定将文档存储在哪个分片上，并决定查询时需要搜索哪些分片。这将相关的数据存储在同一个分片上，提高查询效率。
+- **反转时间戳**、**加盐（前缀随机桶）**、**哈希前缀 + 业务键** 打散热点。
+- 把 **最常过滤的维度** 放在 RowKey 前缀，支持高效 **Scan**（如 `userId + reverseTimestamp`）。
 
-综上所述，HBase 和 Elasticsearch 通过一致性哈希算法、数据复制、自动迁移和负载均衡机制以及分布式协调工具（如ZooKeeper）等算法和技术，实现了水平拓展能力，提供高性能、高可扩展性和高可用性的分布式存储和搜索服务。
+查询模式决定 RowKey，**先定访问模式再建表**。
+
+---
+
+## 按 RowKey 查 vs 按列查，效率为何不同？
+
+| | 按 RowKey（Get/带前缀 Scan） | 按列值查（无 RowKey） |
+|--|------------------------------|------------------------|
+| 定位 | META → Region → Bloom → HFile 内按 RowKey 有序定位 | **无原生全局列索引**，只能全表/大范围 Scan |
+| IO | 少量 HFile + 精准块读 | 扫大量 HFile，过滤列值 |
+| 结论 | **主路径，快** | **极慢**，生产应避免 |
+
+HBase **为 RowKey 访问优化**；按列查要靠：
+
+- 业务侧 **二级索引**（如 Phoenix、协处理器建索引表，写放大与一致性要评估）
+- 或同步到 **ES/Hive/ClickHouse** 做检索分析
+
+之前说「列族之间按列存储、遍历列族」容易误导；准确说法是：**没有 RowKey 就无法利用有序性与 Bloom，只能扫描。**
+
+---
+
+## 水平扩展用什么算法？（纠正：不是一致性哈希）
+
+| 系统 | 分片方式 |
+|------|----------|
+| **HBase** | RowKey **范围** → Region；过大则 **Split**；Master **负载均衡** 迁移 Region |
+| Redis Cluster | 16384 **哈希槽** + 一致性哈希思想 |
+| Elasticsearch | 文档 `_id` 路由到 **Shard**（`hash(routing) % num_shards`） |
+
+HBase 扩展：
+
+1. 加 RegionServer  
+2. 大 Region 分裂成两个子 Region（按中间 RowKey）  
+3. Master 把 Region 迁到空闲 RS  
+4. 客户端通过 `.META.` / `hbase:meta` 查 RowKey 落在哪  
+
+**热点 Region** 比「哈希不均」更常见——RowKey 设计问题，不是没用到一致性哈希。
+
+与 ES 共同点：都靠 **分片 + 副本 + 协调服务（ZK）+ 自动迁移** 做水平扩展；**分片键算法不同**。
+
+---
+
+## 一致性：强一致还是最终一致？
+
+- **单行 RowKey 级别**：同一 RowKey 的读写，在单 Region 内可视为 **强一致**（单 RS 串行处理该 Region）。
+- **跨行/跨 Region**：无跨行事务（除非 Phoenix 等扩展）；**不是**关系库 ACID。
+- **多副本**：HDFS 三副本；HBase **Replication** 跨集群是异步，**最终一致**。
+
+面试答：**单行强一致，跨行弱/无事务，跨集群复制最终一致。**
+
+---
+
+## 容灾、备份与恢复
+
+| 手段 | 说明 |
+|------|------|
+| **HDFS 多副本** | 节点/磁盘故障，块自动恢复 |
+| **WAL + MemStore 恢复** | RS 宕机：未刷盘数据从 WAL 重放；Region 迁到其他 RS |
+| **Replication** | 主集群 → 备集群异步复制，容灾切换 |
+| **Snapshot** | 表级快照（HDFS 上），用于备份、迁移、恢复 |
+| **Export/Import、CopyTable** | 数据导出导入、集群间拷贝 |
+| **MOB / 冷热分离** | 大对象、冷数据策略（按版本） |
+
+### WAL 恢复流程（口述）
+
+1. 写请求先 append **WAL** 再写 MemStore。  
+2. RS 故障，Region 由其他 RS 接管。  
+3. 新 RS **重放 WAL** 中未持久化到 HFile 的 edits。  
+4. RS 恢复后也可能回放本地残留 WAL。  
+
+与 HDFS 关系：HFile/WAL 都是 HDFS 上的文件；**HBase 管逻辑表，HDFS 管块副本**。
+
+---
+
+## HDFS 里的数据是关系型吗？
+
+**不是。** HBase 是 **宽列、稀疏、无模式** 的 NoSQL：
+
+- 无 SQL 表连接；无固定列集。
+- 按 **RowKey + 列族 + 列限定符 + 时间戳** 定位 Cell。
+- 底层 HFile 是 KV 有序文件，不是 MySQL 那种行存页。
+
+---
+
+## 与相近技术对比
+
+| | HBase | MySQL | ClickHouse | Elasticsearch | HDFS |
+|--|-------|-------|------------|---------------|------|
+| 模型 | 宽列 KV | 关系行存 | 列存 OLAP | 文档+倒排 | 文件系统 |
+| 查询 | Get/Scan | SQL | SQL 聚合 | 全文/检索 | 读文件 |
+| 扩展 | Region 水平拆 | 分库分表 | Shard | Shard | 加 DataNode |
+| 事务 | 弱 | 强 | 弱 | 无 | 无 |
+| 典型 | 海量明细、画像 | 交易 OLTP | 报表分析 | 搜索日志 | 存大文件 |
+
+---
+
+## 常见面试坑与排障
+
+| 现象 | 可能原因 |
+|------|----------|
+| 写入抖动 | Region 热点、Split 频繁、MemStore 过大、Compaction 风暴 |
+| 读延迟高 | 过多 HFile（Compaction 跟不上）、BlockCache 不够、RowKey 设计差导致大范围 Scan |
+| Region 不均 | RowKey 单调递增、加盐不合理 |
+| 磁盘涨 | 版本过多、删除未 Major Compact、TTL 未配 |
+| Full GC | 大 Scan 返回过多数据、堆外/缓存配置不当 |
+
+调优方向：RowKey、列族数量、`TTL`/`VERSIONS`、Compaction 策略、预分区（建表时指定 Region 边界避免单 Region 过大）、批量写 `BufferedMutator`。
+
+---
+
+## 口述题：HBase 读写流程
+
+**写**：Client → 定位 Region → RS 写 WAL → MemStore → 触发 Flush → HFile → 后台 Compaction。
+
+**读**：Client → `hbase:meta` 定位 Region → RS → BlockCache / Bloom → HFile + MemStore 合并 → 返回 Cell。
+
+---
+
+## 面试速记
+
+| 主题 | 一句话 |
+|------|--------|
+| 架构 | Master 管 Region；RS 存数据；ZK 协调；HDFS 落盘 |
+| 模型 | RowKey + 列族 + 列 + 时间戳；仅 RowKey 全局有序 |
+| 写 | WAL → MemStore → HFile（LSM 思路） |
+| 读 | Bloom + BlockCache + 多 HFile 合并 |
+| RowKey | 决定 Region 与热点；设计比调参重要 |
+| 扩展 | RowKey 范围 Region + Split，非一致性哈希 |
+| 列查 | 无 RowKey 只能扫；用 ES/二级索引 |
+| 一致 | 单行强一致；跨行弱；复制最终一致 |
+| 容灾 | HDFS 副本 + WAL + Snapshot + Replication |
