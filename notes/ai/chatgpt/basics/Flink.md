@@ -429,7 +429,68 @@ public class CountFn extends KeyedProcessFunction<String, Event, String> {
 | Exactly-Once | Checkpoint + 可重放 Source + 事务/幂等 Sink |
 | 反压 | 下游慢向上传；UI 看反压；治热点与慢 Sink |
 | 倾斜 | 加盐、两阶段聚合、拆热点 |
+| 水平扩容 | 加 TM/Slot、提 parallelism；Savepoint rescale |
 | Blink | 已并入 Flink；默认 SQL 规划器；changelog/MiniBatch/流批一体 |
+
+---
+
+## 水平扩容（面试专题）
+
+Flink 水平扩展 = **加 TaskManager（Slot）+ 提高算子并行度**；状态随 key 分区，扩容时要考虑 **状态迁移与 rescale**。
+
+### 运行时与并行度
+
+```text
+JobManager（调度、Checkpoint 协调）
+TaskManager × N（每个提供若干 Slot）
+算子 Parallelism = 子任务（SubTask）个数
+```
+
+| 概念 | 含义 |
+|------|------|
+| **Slot** | TM 上资源槽；一个 Slot 跑一条任务链 |
+| **Parallelism** | 算子并行度，默认常 ≤ 总 Slot 数 |
+| **Operator Chain** | 链内算子共享线程，减网络开销 |
+
+### 怎么扩？
+
+| 目标 | 做法 |
+|------|------|
+| **提高吞吐** | 加 TM 节点 / 每 TM slot 数；提高 `parallelism.default` 或算子 `setParallelism` |
+| **治反压** | 先找瓶颈算子，只扩该算子并行度 |
+| **扩集群资源** | `taskmanager.numberOfTaskSlots`、内存、网络 |
+| **作业升级** | **Savepoint** 停作业 → 改并行度 → 从 Savepoint 启（支持 rescale） |
+
+### Keyed 状态与扩容
+
+- `keyBy` 后状态按 **key 的 hash % parallelism** 分到 subtask。  
+- **改并行度** → key 到 subtask 映射变 → 需 **状态 rescale**（从 Savepoint/Checkpoint 恢复时指定新并行度）。  
+- 状态大（RocksDB）：rescale 耗时长，占磁盘 IO。
+
+### 与 Kafka 分区对齐（常见架构）
+
+```text
+Kafka Partition 数 P
+Flink Source 并行度 ≈ P（或 P 的约数）
+  → 一个 subtask 消费若干分区，避免过多空闲
+```
+
+- Source 并行度 **> Kafka 分区** → 部分 subtask 无分区可读。  
+- Source **< 分区** → 一 subtask 消费多分区，可接受但单 subtask 更重。
+
+### 不能线性扩的情况
+
+- **Non-Keyed Window** 并行度常为 1。  
+- **全局聚合**、**单点状态** → 瓶颈在单并行度。  
+- **数据倾斜**：某 key 过大，加并行度无效 → 加盐、两阶段聚合。  
+- Checkpoint 过大：并行度上去，状态总量不变但 rescale/对齐开销变。
+
+### K8s / YARN 弹性（了解）
+
+- 原生 on K8s 可 **主动扩缩 TM**（需配合调度与 Savepoint 策略）。  
+- 批作业：并行度按数据量估；流作业：按峰值 lag 与反压调。
+
+**30 秒收口：** Flink 水平扩靠 **加 TaskManager/Sslot 和提高 parallelism**；有状态作业用 Savepoint rescale；Source 并行度宜与 Kafka 分区对齐；倾斜 key 加并行度没用。
 
 ---
 

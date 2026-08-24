@@ -182,6 +182,52 @@ RocketMQ 常见是 **至少一次**：超时、重试、Rebalance、ACK 丢失�
 
 ---
 
+## 水平扩容（面试专题）
+
+RocketMQ 水平扩展靠 **Broker 集群 + Topic 读写队列（Queue）**，不是 Kafka 那种全局分区槽。
+
+### 扩展模型
+
+```text
+Topic
+  ├─ 写队列 Q0..Qn-1   （Producer 轮询 / 选择队列）
+  └─ 读队列（通常与写队列对应）
+Consumer Group：队列在组内分配给各 Consumer 实例
+有效消费并行 ≤ 该 Topic 的队列数
+```
+
+| 扩容动作 | 扩什么 | 注意 |
+|----------|--------|------|
+| **加 Broker** | 集群吞吐与存储 | 需规划 Topic 分布在哪些 Broker |
+| **增加读写队列数** | 并行度 | **需改 Topic 配置**；历史消息仍在旧队列 |
+| **加 Consumer** | 消费速度 | **> 队列数则空闲** |
+| **主从 / DLedger** | HA，不直接扩写并行 | 主承担写，从同步 |
+
+### 扩队列 vs 扩 Consumer
+
+- 消费慢、Consumer 数 < 队列数 → **先加 Consumer**。  
+- Consumer 已等于队列数仍慢 → **扩队列**（`writeQueueNums` / `readQueueNums`）+ 加 Consumer。  
+- 顺序消息：同业务键进同 Queue；**扩队列会改变 hash 映射**，要谨慎。
+
+### 与 Kafka 对比
+
+| | RocketMQ | Kafka |
+|--|------------|-------|
+| 并行单元 | Queue | Partition |
+| 扩并行 | 扩 Queue + Consumer | 扩 Partition + Consumer |
+| 消费 > 并行单元 | Consumer 空闲 | 同左 |
+| 路由 | 队列选择 / 业务 Key | Partition key hash |
+
+### 扩容注意
+
+- NameServer 轻量，通常 **多实例** 即可，不是瓶颈。  
+- 跨 Broker 迁移主题较 **运维向**，需平台化均衡 Topic。  
+- 磁盘与 commitlog 顺序写；加 Broker 要均衡 Topic 分布，防单机热点。
+
+**30 秒收口：** RocketMQ 水平扩 = **加 Broker + 扩 Topic 队列数 + 加 Consumer（≤队列数）**；顺序场景扩队列要评估 Key 路由；HA 靠主从/DLedger，不等于写并行翻倍。
+
+---
+
 ## 面试速答清单
 
 - **顺序**：同键进同 Queue + 顺序消费；全局单 Queue。  
@@ -189,4 +235,5 @@ RocketMQ 常见是 **至少一次**：超时、重试、Rebalance、ACK 丢失�
 - **延迟**：`delayTimeLevel` / 定时消息。  
 - **再均衡**：组内按 Queue 分配；上下线触发；靠幂等。  
 - **积压**：看 Diff → 优化消费 → 加实例/扩队列 → 治死信。  
+- **水平扩容**：扩 Queue + Consumer（≤队列）；加 Broker。  
 - **丢/重**：同步落盘复制 + 正确 ACK；重复靠幂等。  

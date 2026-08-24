@@ -255,6 +255,50 @@ HBase 扩展：
 
 ---
 
+## 水平扩容（面试专题）
+
+HBase 水平扩展单位是 **Region**（RowKey 范围），不是一致性哈希槽。
+
+### 怎么扩？
+
+```text
+1. 加 RegionServer 节点（加 CPU/内存/磁盘）
+2. Master 将 Region 迁移到新 RS（Load Balancer）
+3. Region 过大 → Split 成两个子 Region
+4. 过小/过多 → Merge（较少手动）
+```
+
+| 手段 | 作用 |
+|------|------|
+| **加 RegionServer** | 提高集群总吞吐与存储 |
+| **Region Split** | 单表数据涨 → 拆范围，并行度↑ |
+| **Region Move** | 均衡热点 RS、新节点接货 |
+| **预分区** | 建表时指定 Region 边界，避免首 Region 过大 |
+
+### 并行度上限
+
+- 有效并行 ≈ **Region 数量**（各 Region 可分布在不同 RS）。  
+- **不是**「加线程就能线性加速」：单 Region 内仍串行读写路径。  
+- RowKey **单调递增** → 新写全打最后一个 Region → **扩容无效**，要先改 RowKey。
+
+### 和 MySQL 分库、Kafka 分区对比
+
+| | HBase | MySQL 分表 | Kafka |
+|--|-------|------------|-------|
+| 分片键 | RowKey 范围 | shard key 哈希 | partition key |
+| 自动分裂 | Split | 人工迁数据 | 自动分区（有限） |
+| 扩节点 | Master 调度 Region | 中间件/脚本 | Broker + 分区 |
+
+### 扩容注意
+
+- Split 太频繁 → Meta 压力大、小 Region 过多。  
+- 迁移 Region 期间仍有短暂 IO；高峰谨慎。  
+- HDFS 也要能跟上（DN 容量与带宽）。
+
+**30 秒收口：** 加 RegionServer，靠 **Region 分裂与迁移** 水平扩展；并行度看 Region 数和 RowKey 是否打散热点；预分区 + 合理 RowKey 比事后加机器更重要。
+
+---
+
 ## 面试速记
 
 | 主题 | 一句话 |
@@ -265,6 +309,7 @@ HBase 扩展：
 | 读 | Bloom + BlockCache + 多 HFile 合并 |
 | RowKey | 决定 Region 与热点；设计比调参重要 |
 | 扩展 | RowKey 范围 Region + Split，非一致性哈希 |
+| 水平扩容 | 加 RS + Region Split/Move；RowKey 防热点 |
 | 列查 | 无 RowKey 只能扫；用 ES/二级索引 |
 | 一致 | 单行强一致；跨行弱；复制最终一致 |
 | 容灾 | HDFS 副本 + WAL + Snapshot + Replication |
