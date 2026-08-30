@@ -256,6 +256,86 @@ feign:
 - **OpenFeign fallback**：降级返回默认值或缓存  
 - **Gateway**：路由级限流熔断  
 
+### 单机限流原理
+
+```text
+请求进入 → SlotChain（责任链）
+  NodeSelectorSlot   选上下文 Node
+  ClusterBuilderSlot 构建/选择集群 Node
+  StatisticSlot      统计 pass/block/RT/异常
+  FlowSlot           匹配 FlowRule，超限则 block
+  DegradeSlot        熔断规则
+  ...
+```
+
+**核心数据结构：LeapArray（滑动窗口）**
+
+- 把时间轴切成多个 **bucket**（如 1s 内 2 个 bucket，每个 500ms）。  
+- 每个 bucket 存 passQps、blockQps、RT、异常数等；窗口 **向前滑动**，统计近 N 秒。  
+- **Node 树**：`EntranceNode → DefaultNode → ClusterNode`，同一资源在不同入口可分开统计（链路限流）。
+
+**QPS 限流判断（直接模式）**
+
+```text
+当前窗口 pass + 1 <= threshold → 通过
+否则 → 按 controlBehavior 处理（快速失败 / WarmUp / 匀速排队）
+```
+
+**并发线程数限流**：用 `CurThreadCounter` 记录当前占用线程，acquire/release，超阈值 block。
+
+### 集群限流原理
+
+**问题**：单机限流 threshold=1000，10 台实例 → 集群实际可过 **10000**，入口总流量仍可能打垮下游。
+
+**Sentinel 集群模式**
+
+| 模式 | 说明 |
+|------|------|
+| **集群限流（Token Server）** | 指定一台（或独立部署）为 **Token Server**，各 Client 向它 **申请 token**；全局 threshold 在 Server 统一扣减 |
+| **Client 模式** | 普通实例，发请求前向 Token Server 拿许可 |
+| **Server 模式** | 维护全局计数/令牌，返回是否允许 |
+
+```text
+Gateway/Service 实例 A ──┐
+Service 实例 B ─────────┼──► Token Server（全局 QPS=5000）
+Service 实例 C ─────────┘         │
+                                  ▼
+                            全集群共享 5000，而非每机 5000
+```
+
+- 规则里 `clusterMode=true`，配置 **flowId**、**单机均摊 fallback**（Token Server 不可用时降级为本地限流或失败）。  
+- 适用：**网关入口**、**共享稀缺资源**（DB、第三方 API）的全局配额。
+
+### 限流算法：漏桶 vs 令牌桶 vs Sentinel
+
+| 算法 | 机制 | 突发流量 | 典型用途 |
+|------|------|----------|----------|
+| **固定窗口** | 每窗口计数 | 窗口边界双倍突刺 | 简单计数 |
+| **滑动窗口** | 多 bucket 滑动求和 | 较平滑 | **Sentinel 统计底层** |
+| **漏桶（Leaky Bucket）** | 请求进桶，**固定速率**出水处理 | **不允许**超过出水速率的突发（排队或丢弃） | 下游处理速率固定、要绝对平滑 |
+| **令牌桶（Token Bucket）** | **固定速率**放令牌，有令牌才过 | **允许**一定突发（桶内预存令牌） | 允许短峰、限制长期均值 |
+
+**漏桶 vs 令牌桶（面试必背）**
+
+```text
+漏桶：  进水任意 → 出水恒定     「削峰填谷」，突发进来也要排队等匀速出
+令牌桶：发令牌恒定 → 有令牌就过  「允许合理突发」，桶满时可瞬间消耗存量令牌
+```
+
+| 对比项 | 漏桶 | 令牌桶 |
+|--------|------|--------|
+| 突发 | 强平滑，突发被排队/拒绝 | 可消化有限突发 |
+| 形象 | 漏斗，出水速度固定 | 地铁闸机，有票（令牌）就能进 |
+| Gateway Redis | 部分实现偏漏桶思想 | `RequestRateLimiter` 常用令牌桶 |
+
+**Sentinel 流控效果与算法对应**
+
+| controlBehavior | 行为 | 接近 |
+|-----------------|------|------|
+| **直接拒绝** | 超 QPS 立即 block | 滑动窗口 + 阈值 |
+| **Warm Up** | 冷启动 gradually 升到 threshold | 令牌桶预热（冷系统逐步放量） |
+| **匀速排队** | 超阈值请求排队，**匀速通过** | **漏桶**（Leaky Bucket / Rate Limiter） |
+
 ### 规则持久化
 
 默认规则在内存，重启丢失；生产常 **持久化到 Nacos**，Dashboard 改规则同步到各节点。
@@ -366,188 +446,150 @@ Spring Cloud Stream 或 `spring-cloud-starter-stream-rocketmq` 做事件驱动�
 
 ---
 
-# SpringCloud项目中，主要通过日志监控哪些指标？
+## 10. 面试补充专题（SLA / RPC / 感知 / 对比）
 
-在Spring Cloud项目中，通过日志监控可以获得以下指标：
+> 与前文组件章节衔接；以 **Sentinel + Nacos + OpenFeign** 为准，Hystrix 仅作历史背景。
 
-请求处理时间：通过日志可以监控每个请求的处理时间，以便及时发现和解决慢响应和性能瓶颈等问题。
+### 日志与监控看哪些指标？
 
-错误率和异常情况：通过日志记录，可以了解服务运行过程中出现的错误和异常情况，方便及时排查和解决问题。
+| 类别 | 指标 | 用途 |
+|------|------|------|
+| **请求** | RT、P95/P99、QPS、错误率 | 慢接口、容量 |
+| **调用链** | TraceId、上下游服务、Feign 耗时 | 定位哪一跳慢/错 |
+| **业务** | 订单量、支付成功率 | 与 SLA 对齐 |
+| **资源** | CPU、堆、GC、线程池队列、连接池 | 是否逼近瓶颈 |
+| **治理** | Sentinel block 数、熔断状态、降级次数 | 限流熔断是否过紧 |
+| **安全** | 登录/鉴权失败、异常 IP、敏感操作审计 | 风控 |
 
-服务访问量：通过记录服务的访问量，可以了解系统的负载情况，以便进行合理的资源调度和容量规划。
+日志里务必打 **traceId**；指标用 Prometheus + Grafana，追踪用 SkyWalking，与「只看日志文件」互补。
 
-服务间调用情况：通过日志记录服务之间的调用情况，可以了解服务间的依赖关系和调用路径，并及时发现调用异常和服务瓶颈等问题。
 
-性能指标：通过日志记录系统的各项性能指标，如CPU使用率、内存使用率、磁盘IO、网络IO等，可以了解系统的资源使用情况，以便进行优化和调整。
+### SLA 与高可用 / 超时怎么落地？
 
-安全和访问控制：通过监控日志，可以了解谁、什么时候、从哪里访问了系统，以及访问是否符合预期，有没有异常行为，以便进行安全防范和访问控制。
+**SLA** = 对延迟、可用性、错误率的承诺；在微服务里落实为 **可配置 + 可观测 + 可降级**：
 
-总之，在Spring Cloud项目中，通过日志监控可以及时发现和解决系统的各种问题，保证系统的稳定性、可靠性和安全性。
+| 手段 | Alibaba 栈落点 |
+|------|----------------|
+| **超时** | Gateway、Feign `connectTimeout` / `readTimeout` 分层；**网关 ≥ Feign ≥ 下游** |
+| **限流** | Sentinel Flow（接口/网关）；集群限流 Token Server |
+| **熔断** | Sentinel Degrade（慢调用/异常比例/异常数） |
+| **降级** | `@SentinelResource` fallback、Feign `fallbackFactory` |
+| **负载均衡** | LoadBalancer + Nacos 权重/元数据灰度 |
+| **动态调参** | 超时/阈值放 **Nacos 配置** + `@RefreshScope` 或 Sentinel 规则持久化到 Nacos |
 
+老资料写 Hystrix Dashboard 动态改超时；现网等价做法：**Nacos 改 Feign 超时 + Sentinel 规则热更新**，用链路 P99 反推阈值。
 
-# SpringCloud怎么通过SLA实现高可用和超时管理？
 
-在Spring Cloud中，通过服务级别协议（SLA）可以实现高可用和超时管理，具体可以采用以下措施：
 
-限流和熔断：通过设置限流和熔断规则，可以控制系统的流量和请求并发数，避免系统因过载而崩溃或响应变慢。可以使用Netflix Hystrix组件来实现熔断和限流功能。
+### RPC 超时怎么兜底？
 
-负载均衡：通过负载均衡算法，将请求分摊到多个服务实例上，以提高系统的吞吐量和可用性。Spring Cloud自带了Ribbon负载均衡组件，也支持第三方负载均衡组件如Nginx等。
+| 策略 | 说明 | 注意 |
+|------|------|------|
+| **超时** | 先设合理 readTimeout，避免线程长期占用 | 分层超时 |
+| **有限重试** | 仅 **幂等读**；带退避 | 写操作慎重重试 |
+| **降级** | 返回默认值、缓存、静态页 | Feign fallback |
+| **熔断** | 连续失败/慢调用 → 快速失败 | Sentinel Degrade |
+| **异步化** | 非核心路径 MQ 解耦 | Stream / RocketMQ |
+| **缓存** | 读多写少接口短时缓存 | Caffeine/Redis |
 
-超时管理：通过设置请求超时时间，可以及时释放系统资源，避免因请求阻塞而导致系统崩溃或响应变慢。可以使用Spring Cloud的RestTemplate组件，在发送HTTP请求时设置超时时间。
+**口述**：「超时释放连接；熔断防雪崩；降级保主链路；重试只给幂等读。」
 
-服务降级：通过在不同场景下提供不同的服务响应，可以避免整个系统崩溃，提高业务的可用性。可以使用Netflix Turbine和Hystrix Dashboard等组件来监控和管理服务降级情况。
 
-总之，在Spring Cloud中，通过SLA可以实现高可用和超时管理，同时可以采用限流、熔断、负载均衡等策略来提高系统的可用性和性能。通过以上措施，可以保证系统在高并发、大流量、复杂场景下进行稳定运行。
+### 动态修改超时时间
 
+1. **配置中心**：Feign 超时、`spring.cloud.gateway.httpclient.response-timeout` 放 Nacos，`@RefreshScope` 或 `@ConfigurationProperties` 刷新。  
+2. **Sentinel**：Degrade 的 **maxRt**、Flow 的 **count** 通过 Dashboard → Nacos 数据源推送，**无需重启**。  
+3. **网关路由**：Gateway 路由与过滤器配置可 Nacos 动态加载。
 
+不建议运行时改 JVM 内散落常量；统一 **配置外置 + 监听**。
 
-# 当RPC超时，怎样实现兜底？
 
-当RPC超时时，为保证系统的稳定性和可用性，可以采用以下方式来实现兜底：
+### Sentinel 实现服务高可用（步骤）
 
-超时重试：通过在客户端上设置重试次数和间隔时间，在一定范围内进行多次重试，以尽可能地完成请求，避免因网络波动导致的偶发故障。在Spring Cloud中，可以使用Feign Client组件来实现超时重试。
+1. 引入 `spring-cloud-starter-alibaba-sentinel`，接 Dashboard（可选）。  
+2. **定义资源**：Controller 方法、Feign（`feign.sentinel.enabled=true`）、Gateway 路由、Dubbo 接口。  
+3. **配规则**：Flow / Degrade / System / HotSpot；生产 **持久化 Nacos**。  
+4. **入口集群限流**：网关或核心接口开 **clusterMode**，部署 Token Server。  
+5. **降级**：blockHandler / fallback；配合 Nacos 注册摘除与超时。
 
-降级处理：当RPC服务响应超时时，可以提供降级服务，即提供一个默认或备用的返回结果，以保证系统的正常运行。可以通过Netflix Hystrix等组件来实现服务降级，同时可以在监控面板上查看降级情况。
+单机/集群限流与漏桶令牌桶详见 **§4 Sentinel**。
 
-异步调用：通过将RPC调用转化为异步方式，使用消息队列、事件驱动等方式，在不影响当前请求的前提下，继续处理其他请求，提高系统的并发处理能力并减少全局阻塞。可以使用Spring Cloud Stream等组件来实现异步调用。
+参考：[Sentinel 文档](https://sentinelguard.io/zh-cn/docs/basic-api-resource-rule.html)
 
-请求缓存：如果RPC请求的结果具有较高的可重用性和一致性，可以考虑在客户端或服务端缓存结果，避免频繁的RPC调用。可以使用Spring Cache等组件实现缓存功能。
 
-综上所述，在RPC超时的情况下，可以采用超时重试、降级处理、异步调用和请求缓存等策略来进行兜底，保证系统的稳定性和可用性。
+### SOA 与微服务区别
 
+| 维度 | SOA | 微服务 |
+|------|-----|--------|
+| 范围 | 企业级系统整合 | 单应用拆细粒度服务 |
+| 粒度 | 较粗，偏 ESB 总线 | 细，单职责有界上下文 |
+| 技术栈 | 常统一中间件/ESB | 可异构，轻量 HTTP/gRPC |
+| 协议 | SOAP/WS-* 常见 | REST/gRPC 为主 |
+| 数据 | 常共享企业服务总线 | 倾向 **每服务独立库** |
+| 适用 | 遗留系统集成 | 云原生、独立部署扩缩 |
 
-# SpringCloud怎么通过SLA动态修改超时时间？
+### Spring Cloud RPC 核心流程（现栈）
 
-在Spring Cloud中，可以通过服务级别协议（SLA）来动态修改超时时间，具体实现如下：
+```text
+1. @FeignClient("order-service") 发起调用
+2. LoadBalancer 从 Nacos 拉实例列表（本地缓存 + 订阅推送）
+3. 按策略选实例（轮询/随机/权重/metadata）
+4. HTTP 请求目标实例
+5. Sentinel 统计 RT/异常 → 触发限流/熔断
+6. 失败 → 重试（可选）/ fallback / 向上抛错
+7. SkyWalking 等携带 TraceId 写日志
+```
 
-定义SLA：在服务上定义服务级别协议，包括服务等级、服务质量、响应时间、错误率、负载等因素，并为其指定默认的超时时间。
+与老式「Eureka + Ribbon + Hystrix」同构，组件已换 **Nacos + LoadBalancer + Sentinel**。
 
-监控和管理：通过使用Netflix Hystrix Dashboard等监控和管理工具，实时监控服务的运行情况，分析系统瓶颈和性能瓶颈，评估和调整服务响应能力和超时时间。
+### 被调用方挂掉，调用方如何感知？
 
-动态调整：根据服务实际情况，通过设置Hystrix命令属性等方式，动态调整服务的超时时间。可以通过调用Hystrix Command的withExecutionTimeoutInMilliseconds()方法，从而在运行时动态修改命令执行的最长超时时间，实现动态调整超时时间的功能。
+**多通道叠加，不只靠注册中心：**
 
-全局配置：如果需要全局统一配置命令的超时时间，可以在配置文件中设置spring.cloud.hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds属性的值，从而为所有命令设置相同的超时时间。
+| 通道 | 机制 |
+|------|------|
+| **注册中心** | Nacos 心跳超时 → 实例 unhealthy → 剔除；消费者订阅后列表更新 |
+| **调用失败** | 连接拒绝、读超时 → 客户端立即感知 |
+| **熔断** | Sentinel 统计异常/慢调用 → OPEN → 后续快速失败 |
+| **负载均衡** | 剔除仍可能因 **本地缓存延迟** 调到死实例 → 靠超时+熔断兜底 |
+| **健康检查** | K8s readiness、Actuator `/actuator/health` 配合摘流 |
 
-综上所述，在Spring Cloud中，可以通过定义SLA、监控和管理、动态调整和全局配置等方式，来实现动态修改超时时间的功能，以提高系统的可用性和性能。
+**口述**：「注册中心异步摘除 + 调用超时/连接失败同步感知 + Sentinel 熔断防重试风暴。」
 
+### SOFAStack 相对 Dubbo / Spring Cloud（简述）
 
-# 怎样通过SpringCloud Alibaba的Sentinel实现服务高可用？
+蚂蚁 **SOFAStack**：偏金融级，**SOFARPC**、**SOFATracer**、**SOFABoot**、与 **Seata** 同源生态；强调模块化、类隔离（Ark）、分布式事务与运维控制台。Dubbo 偏 RPC 框架；Spring Cloud 偏完整微服务套件；SOFA 偏 **企业金融一体化平台**。
 
-使用 SpringCloud Alibaba 的 Sentinel 实现服务高可用，可以考虑采用以下几个步骤：
+### Nacos 动态配置原理（与 §2 互补）
 
-- 引入 Sentinel 相关依赖和配置：在项目中引入 Sentinel 相关的依赖和配置，例如 spring-cloud-starter-alibaba-sentinel 和 sentinel.yml 文件等。
+```text
+发布：控制台/API 写配置 → Nacos Server 持久化（Derby/MySQL）→ 集群 Raft/Distro 同步
+拉取：Client 启动全量拉取 → 本地缓存 + md5
+监听：Client 长轮询（带 md5）→ 变更则立即返回新内容
+刷新：Spring 发布 RefreshEvent → @RefreshScope 重建 Bean / @NacosConfigListener 回调
+```
 
-- 定义应用资源和规则：在 Sentinel 中，对于需要进行流量控制和熔断的服务，需要将其定义为 Sentinel 的资源（Resource），以便后续进行规则配置。同时，需要根据实际需要，定义不同的规则（Rule）类型，例如流量控制规则（Flow Rule）、熔断规则（Degrade Rule）、系统保护规则（System Rule）等。这些规则可以通过 Sentinel Dashboard 进行可视化配置。
+### @RefreshScope vs @NacosConfigListener
 
-- 集成 Sentinel 和 Dubbo：如果使用 Sentinel 对 Dubbo 服务进行流量控制或熔断处理，需要将 Sentinel 和 Dubbo 进行集成。这可以通过使用 Sentinel 的 Dubbo Adapter 实现，具体可以参考 Dubbo 的 Sentinel 扩展模块。
+| | @RefreshScope | @NacosConfigListener |
+|--|---------------|----------------------|
+| 归属 | Spring Cloud 通用 | Nacos 专用 |
+| 触发 | `/actuator/refresh` 或 Nacos 触发的 Refresh | Nacos 配置变更 **推送** |
+| 行为 | 销毁并重建标注 Bean | 执行监听方法，自定义逻辑 |
+| 适用 | 简单 `@Value` 注入字段 | 复杂对象、连接池重建、规则热加载 |
 
-- 监控 Sentinel 实时状态：为了更好地观察服务运行情况，我们可以使用 Sentinel Dashboard 来实现 Sentinel 监控的可视化，从而实时查看 Sentinel 的资源使用情况、规则生效情况等数据。
+可组合：Nacos 变更 → Refresh → RefreshScope Bean 更新；特殊资源用 Listener 手动处理。
 
-综上所述，通过上述步骤，我们就可以使用 SpringCloud Alibaba 的 Sentinel 实现服务高可用，提高服务的稳定性和可靠性，并且可以随时对资源进行限流和熔断处理，以应对不同的流量峰值和异常情况。需要注意的是，在使用 Sentinel 进行配置时，需要根据实际需求进行规则调整和优化，并且与其他的服务治理组件（例如 Spring Cloud Gateway、Nacos 等）进行配合，才能实现完整的服务高可用架构。
+### Nacos 注册中心原理（与 §1 互补）
 
-参考：[Sentinel官网](https://sentinelguard.io/zh-cn/docs/basic-api-resource-rule.html)
+```text
+服务注册：Instance(ip, port, weight, metadata) → Server 内存注册表 + 持久化（可选）
+健康：客户端定时心跳；超时 mark unhealthy 并剔除（临时实例）
+发现：Subscribe 推送 / 定时拉取；Client 本地 ServiceInfo 缓存
+一致性：集群间 Distro（临时实例 AP 同步）/ Raft（持久数据 CP）
+```
 
-
-# SOA和微服务的区别？
-SOA（Service Oriented Architecture，面向服务的架构）和微服务都是一种基于服务的架构风格，它们都能够帮助实现系统解耦和灵活性的提高，但是它们有以下几个不同点：
-
-- 范围不同。SOA 是一种宏观的架构模式，其设计思想主要在于整合企业中各个系统之间的互操作性，将应用系统划分为相互独立且自治的服务；而微服务是一种更加细粒度的架构模式，将一个大的应用拆分成多个小的、独立的、可组合和可替换的服务。
-
-- 服务粒度不同。SOA 的服务通常比较粗粒度，因为它需要处理大量的业务逻辑；而微服务的服务粒度更加细致，每个服务只需专注于自己的一部分业务逻辑，并且具有明确的边界，避免了因为服务过于庞大而难以维护的风险。
-
-- 部署方式不同。SOA 中的服务通常使用统一的技术栈和框架进行开发和部署，而微服务的服务可以使用不同的技术栈和框架进行开发和部署，这意味着微服务可以更加灵活地满足业务需求。
-
-- 交互方式不同。在 SOA 中，服务之间的通讯通常使用 SOAP 和 REST 等标准协议进行交互；而在微服务中，服务之间的通讯通常使用轻量级的通信协议，如 HTTP/REST、gRPC 等协议。
-
-总的来说，SOA 更加适用于大型企业级应用系统的整合，其设计思想主要在于提高系统内部各个子系统之间的协作效率；而微服务则更加适用于分布式应用的开发和部署，其设计思想主要在于提高系统的可伸缩性、可维护性和可测试性。
-
-# SpringCloud的rpc核心流程
-
-SpringCloud 的 RPC 核心流程主要依赖于 SpringCloud 的服务治理和分布式技术，其大致流程如下：
-
-- 客户端调用远程服务：客户端通过调用本地的代理对象（例如使用 Feign 或者 RestTemplate 请求）来发起对远程服务的调用请求。
-
-- 服务注册与发现：服务注册中心通过使用 Eureka 等注册中心技术，将服务提供者注册到服务注册中心，并以心跳方式保持心跳维护。
-
-- 负载均衡：基于 Netflix Ribbon 实现的负载均衡策略，在一组相同功能的服务集群中进行负载均衡，根据负载均衡算法选择其中一个服务节点。
-
-- 服务调用：客户端发起的服务请求被路由到具体的服务实例上，服务实例接收请求并处理后返回处理结果。
-
-- 服务熔断：通过使用 Hystrix 等熔断器技术，当服务出现故障或负载过高时，自动切换到降级服务，防止系统崩溃。
-
-- 服务监控：通过使用 SpringCloud Admin 等监控技术，可以实时查看服务的健康状态、性能指标、调用情况等信息。
-
-总之，SpringCloud 的 RPC 核心流程是基于服务注册发现、负载均衡、服务调用、服务熔断和服务监控等技术实现的。在这些技术的支持下，SpringCloud 可以快速构建微服务架构，并提供优秀的性能和可维护性，是一款流行的微服务框架。
-
-# 当被调用方节点挂掉了，调用方如何感知到的？
-在 SpringCloud 中，当被调用方节点挂掉了，调用方可以通过 Hystrix 等熔断器技术来感知到。
-
-具体来说，当被调用方节点出现故障时，由于网络异常或者服务响应时间过长等原因，调用方的请求会超时或者失败。这时，Hystrix 会通过自身的熔断机制，防止调用方不断发送请求导致系统崩溃。其熔断机制主要有以下几个步骤：
-
-- 监控服务调用情况：Hystrix 会通过统计每个服务的成功率、失败率等指标，来监控服务调用情况。
-
-- 判断是否触发熔断：一旦 Hystrix 检测到某个服务调用失败率达到预设值，就会触发熔断器，断开该服务节点与调用方的连接。
-
-- 切换到降级服务：当熔断器被触发后，Hystrix 会将调用方请求切换到预设的降级服务上，避免请求失败或者超时的情况。
-
-- 定期恢复服务：Hystrix 会定期检查熔断器状态，如果发现被切换的节点已经恢复正常，则会重新将调用方的请求切换到该节点上，保证服务的正常运行。
-
-总之，当被调用方节点挂掉时，Hystrix 通过自身的熔断机制来感知到，并进行熔断操作，避免系统崩溃。同时，它会自动调用降级服务，确保系统的稳定性和可靠性。
-
-在 SpringCloud Alibaba 中，当被调用方节点挂掉了，调用方可以通过 Sentinel 等熔断器技术来感知到。
-
-具体来说，当被调用方节点出现故障时，由于网络异常或者服务响应时间过长等原因，调用方的请求会超时或者失败。这时，Sentinel 会通过自身的熔断机制，防止调用方不断发送请求导致系统崩溃。其熔断机制主要有以下几个步骤：
-
-- 定义资源：Sentinel 会将系统资源，如接口方法、数据库连接等，作为独立的资源进行定义。
-
-- 监控服务调用情况：Sentinel 通过统计每个资源的成功率、失败率等指标，来监控服务调用情况。
-
-- 判断是否触发熔断：一旦 Sentinel 检测到某个资源调用失败率达到预设值，就会触发熔断器，断开该资源与调用方的连接。
-
-- 切换到降级服务：当熔断器被触发后，Sentinel 会将调用方请求切换到预设的降级服务上，避免请求失败或者超时的情况。
-
-- 定期恢复服务：Sentinel 会定期检查熔断器状态，如果发现被切换的资源已经恢复正常，则会重新将调用方的请求切换到该资源上，保证服务的正常运行。
-
-总之，当被调用方节点挂掉时，Sentinel 通过自身的熔断机制来感知到，并进行熔断操作，避免系统崩溃。同时，它会自动调用降级服务，确保系统的稳定性和可靠性。
-
-# 蚂蚁集团的开源金融微服务框架SOFA相对于Dubbo和SpringCloud来说有哪些特性？
-SOFA 在分布式事务、性能优化、弹性伸缩和高度可定制等方面具有独特的特性，适用于金融领域的微服务架构设计和实践。
-
-# Nacos怎样实现动态配置？
-注册配置：
-- 在使用 Nacos 前，需要在 Nacos 配置中心注册配置信息。可以通过 Nacos 提供的 API 或管理界面进行配置注册，将配置信息存储在 Nacos 服务端。
-
-获取配置：
-- 应用程序通过 Nacos 提供的客户端 SDK，向 Nacos 服务端发送请求，获取配置信息。在应用程序启动时，可以使用合适的方法从 Nacos 拉取配置，并将配置信息加载到应用程序中。
-
-监听配置变化：
-- Nacos 提供了监听机制，应用程序可以注册监听器来监控配置的变化。当配置发生修改时，Nacos 会通知应用程序。应用程序收到通知后，可以根据新的配置更新应用程序的状态或执行相应的逻辑。
-
-配置更新：
-- 当配置发生变化时，Nacos 会自动通知所有监听该配置的应用程序。应用程序接收到通知后，可以根据新的配置进行相应的业务逻辑更新。
-
-# @RefreshScope和@NacosConfigListener的作用分别是什么？
-
-@RefreshScope 和 @NacosConfigListener 是 Spring Cloud 和 Nacos 在配置管理方面提供的两种不同的机制。
-
-@RefreshScope 是 Spring Cloud 提供的注解，用于实现配置的动态刷新。它的作用是在配置发生变化时，重新加载被注解标记的 Bean，以便获取最新的配置值。当应用程序接收到 /actuator/refresh 请求时，被 @RefreshScope 注解标记的 Bean 会被销毁并重新创建，从而更新配置。使用 @RefreshScope 注解可以实现对特定 Bean 的配置动态更新。
-
-@NacosConfigListener 是 Nacos 提供的注解，用于监听 Nacos 配置的修改。它的作用是当 Nacos 配置发生变化时，自动触发被注解标记的方法，并执行相应的逻辑。通过使用 @NacosConfigListener 注解，可以方便地实现对 Nacos 配置的动态监听和处理。与 @RefreshScope 不同，@NacosConfigListener 主要针对 Nacos 配置中心，并且是基于推送的方式进行监听，不需要手动发送刷新请求。
-
-总结起来，@RefreshScope 注解的作用是在应用程序接收到 /actuator/refresh 请求时，重新加载被注解标记的 Bean，从而实现对特定 Bean 的配置动态刷新。而 @NacosConfigListener 注解的作用是在 Nacos 配置发生变化时，自动触发被注解标记的方法进行处理，实现对 Nacos 配置的动态监听和处理。两者可以结合使用，实现更灵活、精确的配置管理。
-
-# nacos实现注册中心的原理是什么？
-nacos 是一个基于云原生架构的服务注册中心和配置中心，它采用了类似于 ZooKeeper 的分布式协调服务来实现服务注册和发现、动态配置管理等功能。其主要原理如下：
-
-服务注册：服务提供者启动后，通过 Nacos 的 API 或 SDK 将自己的服务信息（包括 IP 地址、端口号等）向 Nacos 注册中心进行注册。Nacos 注册中心负责存储服务提供者的注册信息，并为服务提供者生成一个唯一的服务 ID。
-
-服务发现：服务消费者通过调用 Nacos 注册中心的 API 或 SDK 获取可用的服务列表。Nacos 同时也提供了服务动态更新和服务路由策略等高级功能，可以更加灵活地控制服务发现过程。
-
-服务治理：Nacos 还提供了服务降级、限流、熔断等服务治理功能。通过对服务提供方和消费方的控制，Nacos 可以确保服务可用性和稳定性。
-
-动态配置管理：Nacos 还可以作为配置中心使用，支持动态配置管理。应用程序可以通过 Nacos 的 API 或 SDK 获取配置信息，并在配置变更时接收通知更新配置。这样就可以避免因为配置问题导致的应用程序故障。
-
-总之，Nacos 实现服务注册中心的原理是基于分布式协调服务实现服务管理和配置管理等功能。同时，Nacos 还提供了海量服务的注册和发现、服务治理等高级功能，使得应用程序的运维更加简单、高效和可靠。
+限流熔断在 **Sentinel**；Nacos 负责 **地址与配置**，不做 RPC 层面的熔断。
 
 ---
 
@@ -696,24 +738,25 @@ nacos 是一个基于云原生架构的服务注册中心和配置中心，它�
 - **流控模式**：直接、关联、链路  
 - **流控效果**：快速失败、Warm Up、排队等待  
 - **熔断策略**：慢调用比例、异常比例、异常数；半开探测恢复  
+- **单机限流**：LeapArray 滑动窗口 + SlotChain；Entrance/Default/Cluster Node  
+- **集群限流**：Token Server 统一发 token，全集群共享 threshold  
 - 与 Gateway、Feign、Dubbo 有适配器  
+
+### 限流算法（漏桶 / 令牌桶 / Sentinel）
+
+| 算法 | 特点 | 突发 |
+|------|------|------|
+| 固定窗口 | 实现简单 | 窗口边界突刺 |
+| 滑动窗口 | 多 bucket 平滑 | 较平滑；**Sentinel 统计底层** |
+| **漏桶** | 进水任意、**出水恒定**；可排队 | **不允许**超出水速率的突发 |
+| **令牌桶** | **恒定放令牌**；有令牌才过 | **允许**桶内存量带来的突发 |
+
+**对比**：漏桶「削峰填谷、绝对平滑」；令牌桶「限制长期均值、允许合理短峰」。  
+Sentinel **匀速排队 ≈ 漏桶**；**Warm Up ≈ 令牌桶预热**；Gateway Redis 限流常用 **令牌桶**。
 
 ### Hystrix → Sentinel / Resilience4j
 
-Hystrix 停更；Spring Cloud 推荐 Resilience4j 或上 Alibaba 用 Sentinel。答面试时说明项目选型理由即可。
-
----
-
-## 限流算法（常结合组件问）
-
-| 算法 | 特点 |
-|------|------|
-| 固定窗口 | 实现简单，窗口边界突刺 |
-| 滑动窗口 | 更平滑 |
-| 漏桶 | 平滑出水，应对突发弱 |
-| 令牌桶 | 允许一定突发，常用 |
-
-Sentinel 底层结合滑动窗口统计；Gateway Redis 限流常用令牌桶思想。
+Hystrix 停更；Spring Cloud 推荐 **Resilience4j** 或 Alibaba **Sentinel**。面试说明项目选型与迁移点即可。
 
 ---
 
@@ -765,7 +808,7 @@ Sentinel 底层结合滑动窗口统计；Gateway Redis 限流常用令牌桶思
 | Gateway | 统一入口：路由、鉴权、限流 |
 | LoadBalancer | 从服务列表选实例 |
 | OpenFeign | 声明式 HTTP 客户端 |
-| Sentinel | 限流熔断降级热点规则 |
+| Sentinel | 限流熔断降级；单机 LeapArray + 集群 Token Server |
 | Seata | 分布式事务（慎用，优先业务方案） |
 | 追踪 | Trace 把调用链串起来 |
 

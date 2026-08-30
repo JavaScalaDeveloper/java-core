@@ -1,274 +1,304 @@
+# SSM 面试笔记
+
+Spring / SpringMVC / MyBatis。事务与循环依赖为高频，先抓结论再记细节。
+
+---
+
 # Spring
 
-## Spring的事务传播机制有哪些？
+> 下面按 **资深面试官追问** 深度写：不只「会不会」，还要「源码怎么走、边界在哪、和 JDBC/AOP 如何咬合」。
 
-Spring 事务传播机制是指在一个方法调用过程中涉及到多个事务操作时，如何定义这些事务的传播行为，以保证在多个事务之间进行协调与交互，从而实现事务的一致性和可靠性。Spring 事务传播机制是通过设置 @Transactional 注解的
-propagation 属性来实现的。
+---
 
-- REQUIRED：如果当前已经存在一个事务，则加入该事务；否则新建一个事务。适用于增删改操作，例如在事务中新增一条记录或者删除一些数据。
+## 事务传播行为（propagation）
 
-- SUPPORTS：如果当前已经存在一个事务，则加入该事务；否则以非事务的方式继续执行。适用于只读的查询操作，例如统计某个表中数据的数量等操作。
+| 传播 | 行为 | 典型场景 |
+|------|------|----------|
+| **REQUIRED**（默认） | 有则加入，无则新建 | 普通增删改 |
+| **REQUIRES_NEW** | 总是新事务，外层挂起 | 独立日志、审计 |
+| **NESTED** | 有则嵌套（保存点），无则同 REQUIRED | 局部可回滚 |
+| **SUPPORTS** | 有则加入，无则非事务 | 只读查询 |
+| **NOT_SUPPORTED** | 非事务执行，有则挂起 | 不需要事务 |
+| **MANDATORY** | 必须已有事务，否则异常 | 强制外层开事务 |
+| **NEVER** | 必须无事务，否则异常 | 禁止事务中执行 |
 
-- MANDATORY：如果当前已经存在一个事务，则加入该事务；否则抛出异常。必须在事务中执行，通常用于调用方法必须在事务内部执行的业务场景。
+### 追问：NESTED 和 REQUIRES_NEW 在连接/回滚上差在哪？
 
-- REQUIRES_NEW：无论当前是否存在事务，都新建一个事务执行该方法，如果原来存在事务，则将其挂起。常用于与原有事务无关的独立操作，例如发送邮件或者审核某些数据。
+| | REQUIRES_NEW | NESTED |
+|--|--------------|--------|
+| 物理事务 | **新连接/新事务**（外层挂起） | **同一连接**，JDBC Savepoint |
+| 内层提交 | 真正 commit，外层回滚 **滚不掉** 已提交内层 | 只是释放保存点；最终随外层 commit |
+| 内层回滚 | 只滚内层 | 回滚到保存点，外层还可继续 |
+| 支持 | 普遍 | 依赖 `DataSourceTransactionManager` + JDBC 保存点；部分 JPA 场景行为不同 |
 
-- NOT_SUPPORTED：以非事务方式执行该方法，如果当前存在事务，则将其挂起。常用于特定场景下的非事务操作，例如获取某个锁或者资源等待。
+**坑：** 内层 `REQUIRES_NEW` 已成功写库，外层再抛错 → 内层数据还在，易出现「半成功」业务，要靠补偿或调整传播。
 
-- NEVER：以非事务方式执行该方法，如果当前存在事务，则抛出异常。通常用于需要禁止在事务中执行的业务场景。
+### 追问：挂起（suspend）时 ThreadLocal 里发生了什么？
 
-- NESTED：如果当前已经存在一个事务，则开启一个子事务来执行该方法；如果不存在事务，则行为与 REQUIRED
-  一样。但是如果出现异常，只会回滚该子事务，而不影响父事务的提交。适用于需要基于当前事务创建嵌套事务的业务场景，例如支付中心退款等。
+Spring 用 `TransactionSynchronizationManager`（ThreadLocal）绑定：
 
-通过选择合适的事务传播行为，可以保证在多个事务操作之间进行协调与交互，从而实现事务的一致性和可靠性。实际使用中，应该根据业务需求选择合适的事务传播行为，并且合理地设置 @Transactional 注解的属性，以达到最佳的事务控制效果。
+- 当前 `Connection` / `EntityManager`
+- 同步回调 `TransactionSynchronization`
+- 事务名、只读、隔离级别等资源
 
-## 当Spring的一个方法用了@Transactional注解以后，方法里面调用的字方法没有用@Transactional注解，这时候字方法里出异常了，数据库会回滚吗？
+`REQUIRES_NEW` / `NOT_SUPPORTED`：**挂起** = 把当前资源从 ThreadLocal 摘下压栈，新事务绑新资源；结束后 **恢复** 外层。  
+所以事务是 **线程绑定** 的 → 换线程不会自动带过去（`@Async` 要小心）。
 
-如果 Spring 的一个方法用了 @Transactional 注解，并且调用了另外一个未使用 @Transactional 注解的方法，那么如果在调用该方法中发生异常，则 Spring 会回滚当前事务。
+---
 
-具体来说，当一个方法被声明为 @Transactional 注解时，Spring 会为该方法创建一个代理对象，在运行时该对象会被 Spring 事务管理器拦截。当该方法执行过程中调用了其他未使用 @Transactional
-注解的方法时，如果在调用的方法中抛出异常，则整个事务都会回滚。
+## 父子方法与 @Transactional
 
-但是，如果在调用的方法中捕获了异常并进行处理，那么事务就不会回滚。此时可以在调用的方法中手动抛出一个 RuntimeException 或 Error，这样整个事务就会回滚。
+| 场景 | 结果 |
+|------|------|
+| 外层有事务，内层无注解，异常冒泡 | **整段回滚**（同一事务） |
+| 外层无事务，内层有注解 | 仅内层事务 |
+| **this 自调用** | 内层注解常 **失效** |
+| 内层 catch 不抛 | 默认 **不回滚**（除非 setRollbackOnly） |
 
-总之，Spring 的事务管理器只对使用了 @Transactional 注解的方法进行事务管理，如果需要控制多个方法的事务，应该将它们放到一个使用 @Transactional 注解的方法中。同时，在使用 @Transactional
-注解时，需要注意设置合适的传播属性和隔离级别，以保证事务的一致性和可靠性。
+### 追问：内层抛错被外层 catch，事务还会滚吗？
 
-## 如果父方法没有使用@Transactional注解，而子方法使用了@Transactional注解，子方法出异常了，父方法里的事务会回滚吗？
+会进入「**rollback-only**」标记场景：
 
-如果在 Spring 的父方法没有使用 @Transactional 注解的情况下，子方法使用了 @Transactional 注解，并且在子方法中发生了异常，那么父方法中的事务不会自动回滚。
+1. 内层与外层同属 REQUIRED 大事务，内层抛错被事务拦截器标记 `rollbackOnly`。  
+2. 外层 catch 住，方法「正常返回」。  
+3. 提交时发现 rollback-only → 抛 `UnexpectedRollbackException`，**仍然回滚**。  
 
-原因是，Spring 事务机制的本质是基于 AOP 的实现，通过动态代理的方式为使用了 @Transactional 注解的方法增加事务切面，从而实现事务的控制。但是，对于父方法没有使用 @Transactional
-注解的情况，Spring 并没有为其创建事务代理对象，也就无法对其进行事务管理。
+**不会**出现「外层以为成功却提交」——除非你根本没走代理 / 异常类型不触发回滚。
 
-所以，如果需要在父方法中控制子方法的事务，应该在父方法中添加 @Transactional 注解，则父方法和子方法都会由 Spring 事务管理器来进行事务管理，如果子方法发生异常，则整个事务都会自动回滚。
+---
 
-总之，在使用 Spring 事务管理器时，应该根据业务场景的需求，合理地设置 @Transactional 注解的属性，确保事务的一致性和可靠性。
+## Spring 事务失效的场景及解决（含深挖）
 
-## Spring怎样使用RabbitMQ作为第三方事务管理？
+### 1. 非 public
 
-在 Spring 中使用 RabbitMQ 作为第三方事务管理器，需要借助于 RabbitMQ 提供的 AMQP（Advanced Message Queuing Protocol）规范以及 Spring 提供的 RabbitMQ
-支持。具体实现步骤如下：
+代理模式下 Spring 对 `@Transactional` 的基础设施 Advisor 通常只拦 **public**。  
+**解决：** 改 public；或 `mode = AdviceMode.ASPECTJ` 编译/加载时织入（能拦 private，运维成本高）。
 
-- 首先，在 Spring 项目中引入 RabbitMQ 相关依赖，可以通过 Maven 或 Gradle 等方式进行依赖管理。
+### 2. 同类 this 自调用
 
-- 创建一个 RabbitMQ 的连接工厂对象，并设置相应的连接参数，如 host、port、username 和 password 等。可以继承 AbstractRoutingConnectionFactory 抽象类实现动态切换多个
-  RabbitMQ 的连接。
-
-- 使用 RabbitTemplate 对象来发送消息到 RabbitMQ 中。RabbitTemplate 是 Spring 对 RabbitMQ 客户端 API 的封装，支持消息的发送和接收，以及声明队列、交换器等操作。
-
-- 在代码层面，需要在需要开启事务的方法上添加 @Transactional 注解。Spring 提供了 RabbitMQ 的 TransactionManager 实现类，可以将 RabbitMQ
-  作为一个独立的事务管理器来使用。需要在配置文件中配置对应的 TransactionManager，如 RabbitTransactionManager，并将其注册到 Spring 容器中。
-
-- 接下来，需要创建一个 RabbitMQ 的消息监听器，在消息消费前通过 Channel.txSelect() 方法开启 RabbitMQ 事务，消息消费后通过 Channel.txCommit() 或
-  Channel.txRollback() 方法提交或回滚事务。
-
-代码示例：
-
-```java
-@Bean
-public ConnectionFactory connectionFactory(){
-        CachingConnectionFactory connectionFactory=new CachingConnectionFactory();
-        return connectionFactory;
-        }
-
-@Bean
-public RabbitTransactionManager rabbitTransactionManager(ConnectionFactory connectionFactory){
-        return new RabbitTransactionManager(connectionFactory);
-        }
+```text
+a() 有事务 → this.b() 也有事务  ⇒  b 的传播/开关事务不生效
 ```
 
-通过以上步骤，就可以在 Spring 中使用 RabbitMQ 作为第三方事务管理器了。需要注意的是，如果在消息消费过程中出现异常，需要手动回滚事务，否则该消息会一直占用 RabbitMQ 的资源，从而影响整个系统的性能和稳定性。
+**解决：** 拆 Bean；`@Lazy` 自注入代理；`AopContext.currentProxy()`（`exposeProxy=true`）；AspectJ。
 
-## Spring如何解决循环依赖？
+**追问：自注入会不会又循环依赖？**  
+同类自依赖是「自己依赖自己」的特殊环：单例 + `@Lazy`/`@Autowired` 自身通常能起来；仍建议拆模块更清晰。
 
-Spring 框架是基于依赖注入设计的，因此在应用程序中很容易出现循环依赖的问题，即两个或多个 Bean 之间存在相互依赖关系，这会导致 Bean 的创建过程陷入死循环。Spring 框架通过以下两种方式解决循环依赖问题：
+### 3. 异常类型 / 被吞
 
-- 构造器注入：Spring 优先采用构造器注入的方式实现依赖注入，因为它可以保证在 Bean 实例化时所有依赖项都已经准备好了，从而避免了循环依赖的问题。
+| 情况 | 默认 |
+|------|------|
+| RuntimeException / Error | 回滚 |
+| 受检 Exception | **不回滚** |
+| catch 后不抛 | **不回滚** |
 
-- 三级缓存：当使用属性注入或者 setter 方法注入时，Spring 会将正在创建的 Bean 放到一个 “Early Bean” 缓存中，如果另一个 Bean 需要引用该 Bean，则 Spring 会尝试提前暴露这个早期的 Bean
-  实例，将其放到“Singleton Factory”缓存池中。如果发现另一个 Bean 也处于创建状态并且需要引用当前的 Bean，那么 Spring 就会将之前创建的 Bean 利用 CGLIB 进行代理，并将代理对象放到“Early
-  Bean”缓存池中。等到所有 Bean 都创建完成后，在第三个步骤中进行依赖注入。
+**解决：** `rollbackFor`；`setRollbackOnly()`；再抛出。  
+**追问：** `rollbackFor` 与 `noRollbackFor` 同时匹配时以更具体规则为准，配置要避免打架。
 
-- 当然，有些复杂的情况，构造器注入也无法解决，比如循环依赖的类中存在单例实例的情况。对此，Spring 官方提供了一个解决方案，即使用 @Lazy 注解进行懒加载，并且在需要依赖注入时，通过代理来实现循环依赖的解决。
+### 4. 传播 / 管理器 / 引擎 / 异步
 
-总之，Spring 使用构造器注入和三级缓存等方式解决循环依赖问题，但如果出现复杂的情况，则需要开发人员自行解决。
+传播用错、未托管、`transactionManager` 名字错、MyISAM、`@Async` 新线程无绑定 —— 见上表解决。
 
-三级缓存：
-```java
-// 一级缓存Map 存放完整的Bean（流程跑完的）
-private final Map<String, Object> singletonObjects = new ConcurrentHashMap(256);
+### 5. 深挖：只读事务、超时、隔离级别
 
-// 二级缓存Map 存放不完整的Bean（只实例化完，还没属性赋值、初始化）
-private final Map<String, Object> earlySingletonObjects = new ConcurrentHashMap(16);
+| 属性 | 深问点 |
+|------|--------|
+| `readOnly=true` | 给 ORM/驱动提示；**不保证** DB 拒绝写；可优化 flush；写操作仍可能成功 |
+| `timeout` | 到点标记回滚；看具体 TM 实现 |
+| `isolation` | 改隔离可能 **不能** 在已存在事务上中途改；REQUIRED 加入外层时用的是外层隔离 |
 
-// 三级缓存Map 存放一个Bean的lambda表达式（也是刚实例化完）
-private final Map<String, ObjectFactory<?>> singletonFactories = new HashMap(16);
+### 6. 深挖：多数据源事务
+
+单 `@Transactional` 只管 **一个** `PlatformTransactionManager`。  
+跨库要：`ChainedTransactionManager`（旧）、**JTA/Atomikos**、或业务层 TCC/Saga/本地消息表——Spring 注解 **不是** 分布式事务银弹。
+
+### 失效速记
+
+| 原因 | 解决 |
+|------|------|
+| 非 public / 自调用 / 无代理 | public、拆 Bean、走代理 |
+| 异常类型/被吞 | rollbackFor / setRollbackOnly |
+| 传播与多 TM | 核对边界与 Bean 名 |
+| 跨线程 | 事务边界放在异步之前或各自独立开事务 |
+
+---
+
+## @Transactional 实现链路（源码向口述）
+
+```text
+@EnableTransactionManagement
+  → 注册 InfrastructureAdvisorAutoProxyCreator / AnnotationTransactionAttributeSource
+  → Bean 初始化后包装成 AOP 代理（TransactionInterceptor）
+
+方法调用：
+  TransactionInterceptor.invoke
+    → 解析 @Transactional（类/方法，方法优先）
+    → AbstractPlatformTransactionManager.getTransaction（传播决策）
+    → 绑定 Connection 到 TransactionSynchronizationManager
+    → proceed 业务
+    → commit / rollback（含 rollback-only 检查）
 ```
-## Spring中BeanFactory和FactoryBean的区别？
 
-在 Spring 框架中，BeanFactory 和 FactoryBean 是两个不同的概念。
+| 点 | 说明 |
+|----|------|
+| JDK vs CGLIB | 有接口且允许时 JDK 代理；否则 CGLIB 子类；`final` 方法 CGLIB **拦不住** |
+| 注解放哪 | 建议放在 **实现类方法**；仅标接口在代理模式下部分场景不生效（经典坑） |
+| 连接从哪来 | `DataSourceUtils.getConnection` 与事务同步，保证 DAO 与事务同一连接 |
 
-- BeanFactory
-BeanFactory 是 Spring 中最基础的工厂接口，它是 Spring IOC 容器管理 Bean 的核心接口。BeanFactory 的主要职责是加载和管理 Bean，包括创建 Bean 实例、维护 Bean 之间的依赖关系、配置 Bean 的属性等。常用的 BeanFactory 实现类包括 DefaultListableBeanFactory 和 XmlBeanFactory。
+**编程式：** `TransactionTemplate.execute` —— 无代理问题，适合框架级代码。
 
-- FactoryBean
-FactoryBean 接口是一个高级工厂，它允许开发者自定义实例化 Bean 的逻辑。FactoryBean 接口实现类本身也是一个 Bean，可以交由 Spring IOC 容器进行管理。通过 FactoryBean，开发者可以控制 Bean 的创建过程，并且可以在 Bean 创建前后执行一些自定义的操作，比如根据条件判断是否需要创建 Bean 实例、使用缓存来提高 Bean 的创建速度等。
+---
 
-需要注意的是，FactoryBean 接口实现类中的 getObject() 方法返回的不是所需的 Bean 实例本身，而是一个由 FactoryBean 管理的另一个对象，它可以是一个单独的 Bean，也可以是其他工厂类的实例。在获取 FactoryBean 管理的对象时，如果需要获取实际的 Bean 实例，可以通过使用"&"前缀来区分获取 FactoryBean 对象和其所管理的 Bean 对象。
+## 循环依赖：三级缓存与解不了的环（深挖）
 
-因此，BeanFactory 是 Spring IOC 容器最基本的管理 Bean 的接口，而 FactoryBean 则是一个更高级的工厂，它可以帮助开发者自定义实例化 Bean 的过程。两者之间的区别在于，BeanFactory 直接管理和维护 Bean 实例，而 FactoryBean 通过 getObject() 方法委托给外部方法来创建 Bean 实例。
+### 能解的前提
 
-## 简述Spring Bean的生命周期
-Spring Bean的生命周期由以下几个阶段组成：
+单例 + **构造完成后再注入**（Setter/字段）→ 可提前暴露「半成品/早期引用」。
 
-- 实例化（Instantiation）：在该阶段，Spring容器会根据配置或注解创建Bean的实例。这可以通过构造函数实例化、工厂方法或者其他方式完成。
+### 三级缓存职责
 
-- 属性赋值（Population）：在实例化后，Spring会通过依赖注入或者其他方式为Bean的属性进行赋值。这可以使用@Autowired、@Value等注解来完成。
-
-- 初始化（Initialization）：在属性赋值完成后，Spring会调用Bean的初始化方法，可以自定义初始化逻辑。常用的初始化方法有@PostConstruct注解、实现InitializingBean接口和配置init-method。
-
-- 使用（In Use）：在初始化完成后，Bean进入可使用状态。此时，容器将Bean交给相关的组件使用。
-
-- 销毁（Destruction）：当Bean不再需要时，容器会调用Bean的销毁方法进行资源释放和清理工作。常用的销毁方法有@PreDestroy注解、实现DisposableBean接口和配置destroy-method。
-
-需要注意的是，Spring容器并不管理原型作用域（prototype scope）的Bean的销毁，因此如果某个Bean是原型作用域的，在使用完后需要手动进行资源的清理。
-
-整个生命周期过程中，可以通过实现一些扩展接口或使用注解来对Bean的行为进行定制，例如BeanPostProcessor接口可以在Bean实例化前后进行一些处理，BeanFactoryPostProcessor接口可以对BeanFactory的配置进行修改等。
-
-总之，Spring Bean的生命周期涵盖了实例化、属性赋值、初始化、使用和销毁等阶段。通过控制每个阶段的行为，我们可以灵活地管理和定制Bean的创建和管理过程。
-
-## 简述Spring的启动流程
-Spring的启动流程可以分为以下几个主要步骤：
-
-- 加载配置文件：Spring会加载配置文件（通常是XML文件或注解配置）来获取应用程序的配置信息。
-
-- 创建IOC容器：Spring容器会根据配置文件创建一个IOC（Inversion of Control）容器，用于管理Bean对象及其依赖关系。
-
-- 扫描组件：Spring会扫描配置文件中指定的包或目录，查找带有特定注解的类（例如@Controller、@Service、@Repository等），并将它们注册为Bean对象。
-
-- 创建Bean对象：在IOC容器创建过程中，Spring会根据配置信息通过反射机制实例化每个Bean对象，并将其放入IOC容器中。同时，Spring会注入依赖关系，将相互依赖的Bean对象进行关联。
-
-- 属性赋值和初始化：在创建Bean对象后，Spring会根据配置文件中的属性注入方式，对Bean的属性进行赋值。这可以通过构造函数注入、Setter方法注入或字段注入实现。之后，Spring会调用初始化回调方法，如@PostConstruct注解、InitializingBean接口的afterPropertiesSet()方法或配置文件中的init-method来进行初始化操作。
-
-- 就绪状态：完成属性赋值和初始化后，Bean对象进入就绪状态，表示它已经可以被其他组件使用。
-
-- 应用程序使用Bean：在IOC容器初始化完毕后，应用程序可以通过获取Bean对象的方式来使用它们。这可以通过依赖注入、ApplicationContext的getBean()方法或使用注解进行自动装配来实现。
-
-以上是Spring的基本启动流程，但实际情况可能因为具体的配置和使用方式而有所差异。另外，还有一些细节的处理过程，如AOP代理的创建、事件的发布等，这些步骤会在Spring的启动流程中被执行。
-
-## Spring的自动配置是怎么实现的？
-
-Spring的自动配置是通过条件化配置和Spring Boot的约定大于配置原则来实现的。下面是自动配置的实现方式：
-
-- 条件化配置（Conditional Configuration）：Spring使用条件注解（@Conditional）来根据特定的条件来决定是否应用某个配置。条件注解可以标记在配置类上或者配置方法上，当满足条件时，相应的配置将会被启用。
-
-- Spring Boot的约定大于配置原则：Spring Boot遵循一系列的约定来自动配置应用程序。例如，如果在类路径下存在某个特定的依赖关系，Spring Boot将自动配置相应的bean。Spring Boot提供了许多可以自动配置的场景，如数据源、视图解析器、事务管理器等。
-
-- 自动扫描和组件注册：Spring Boot使用自动扫描机制来查找应用程序中的注解。通过对指定包及其子包进行扫描，Spring Boot能够自动检测到带有特定注解的组件，并将其注册为Spring管理的bean。
-
-- 配置属性绑定：Spring Boot允许通过将配置属性绑定到Java类来自动配置应用程序。它提供了一种方便的方式来定义和使用配置属性，并通过自动绑定将这些属性与组件关联起来。
-
-总之，Spring的自动配置利用条件化配置、约定大于配置原则、自动扫描和组件注册以及配置属性绑定等机制来自动根据应用程序的环境和依赖来进行配置，并为开发者提供了一种简化配置的方式。
-
-## Spring使用IOC创建对象时，什么时候使用new？什么时候使用代理？
-
-在 Spring 中，IoC（控制反转）容器负责创建和管理对象的生命周期。对于对象的创建，通常有两种方式：使用 new 关键字直接实例化对象和使用代理。
-
-使用 new 关键字实例化对象：这是最常见和直接的方式，直接利用 new 关键字在代码中创建对象实例。这种方式适用于那些不需要额外的增强或扩展功能的普通类，可以直接通过构造函数进行实例化。
-```java
-MyClass myObject = new MyClass();
+```text
+singletonObjects       // L1 成品
+earlySingletonObjects  // L2 早期暴露的对象（原始或已是代理）
+singletonFactories     // L3 ObjectFactory：按需 create early ref（可走 getEarlyBeanReference）
 ```
-使用代理：Spring 提供了 AOP（面向切面编程）的支持，并且可以通过代理来实现对目标对象的增强。代理可以在目标对象的方法执行前、执行后或者执行过程中添加额外的逻辑，例如日志记录、事务管理等。Spring 使用代理将切面逻辑织入到目标对象的方法调用中。
-Spring 使用动态代理和静态代理两种方式来实现代理。动态代理是在运行时通过生成代理对象的方式实现的，包括 JDK 动态代理和 CGLIB 动态代理。静态代理则是在编译时手动编写代理类。
 
-```java
-// 基于接口的动态代理
-MyInterface proxy = (MyInterface) Proxy.newProxyInstance(
-getClass().getClassLoader(),
-new Class[] { MyInterface.class },
-new MyInvocationHandler(targetObject)
-);
+### 标准互依流程（A ↔ B）
+
+略（见前：A 曝 L3 → 建 B → B 要 A 时从 L3 取早期引用进 L2 → B 成品入 L1 → A 完成入 L1）。
+
+### 追问 1：为什么必须三级？二级不够吗？
+
+若只有二级、一开始就把原始 A 放进去：
+
+- A 稍后被 `BeanPostProcessor` 升成 **事务/AOP 代理**；  
+- B 手里却握着 **原始 A** → 调 B 里注入的 A **无事务**。  
+
+三级把「是否创建代理」推迟到 **第一次被别的 Bean 依赖时**，通过  
+`SmartInstantiationAwareBeanPostProcessor.getEarlyBeanReference`（如 `AbstractAutoProxyCreator`）生成早期代理，保证 **注入出去的和最终暴露的是同一代理**。
+
+### 追问 2：循环依赖发生时，AOP 代理何时创建？
+
+正常无环：代理多在 `initializeBean` 末尾 `postProcessAfterInitialization`。  
+有环且需提前注入：在 **getEarlyBeanReference** 阶段就可能创建代理，初始化后再用同一引用。
+
+### 追问 3：构造器注入为什么解不了？
+
+`doCreateBean` 必须先 `createBeanInstance`（调构造）才可能放 L3。  
+构造参数要求对方 **已存在** → 双方都卡在实例化 → `BeanCurrentlyInCreationException`。
+
+### 追问 4：还有哪些解不了 / 很刁钻？
+
+| 场景 | 说明 |
+|------|------|
+| 构造器环 | 默认失败 |
+| `@Lookup` / 多例注入进构造 | 复杂生命周期，易炸 |
+| prototype ↔ prototype | 不走单例三级缓存 |
+| 构造依赖 + 字段反依 | 仍卡在构造 |
+| FactoryBean 环 | 另论，别和普通 Bean 混为一谈 |
+
+### 追问 5：`@Async` / `@Transactional` 和循环依赖一起出现？
+
+早期暴露的代理类型、Advisor 顺序可能导致：拿到的代理 **缺某个切面**，或初始化顺序敏感。  
+原则：**能拆环就拆**；不要靠三级缓存硬扛复杂 AOP 图。
+
+### 业务解环
+
+Setter/`@Lazy` / 事件 / 中介接口 / 合并 Bean；**不要**把三级缓存当设计目标。
+
+---
+
+## Bean 生命周期（加深）
+
+```text
+InstantiationAwareBeanPostProcessor（可短路实例化）
+→ 实例化（策略：构造 / 工厂方法）
+→ 属性填充（@Autowired 在这里；循环依赖窗口也在这）
+→ Aware（BeanName/Factory/ApplicationContext…）
+→ BeanPostProcessor.before
+→ 初始化 @PostConstruct / InitializingBean / init-method
+→ BeanPostProcessor.after  ※ 常规 AOP 代理点
+→ 注册 DisposableBean
+→ 使用
+→ 销毁
 ```
-```java
-// 基于类的动态代理（CGLIB）
-MyClass proxy = (MyClass) Enhancer.create(
-MyClass.class,
-new MyMethodInterceptor(targetObject)
-);
+
+### 追问
+
+| 问题 | 答法 |
+|------|------|
+| `@PostConstruct` 和 `InitializingBean` 顺序？ | 通常 PostConstruct（CommonAnnotationBPP）在 `InitializingBean.afterPropertiesSet` **之前**（以具体 BPP 顺序为准） |
+| `BeanFactoryPostProcessor` vs `BeanPostProcessor`？ | 前者改 **BeanDefinition**（容器级，早）；后者加工 **Bean 实例** |
+| 为何构造里不能用 `@Autowired` 字段？ | 字段注入在属性填充阶段，构造时还未注入（构造器注入参数除外） |
+
+---
+
+## BeanFactory vs FactoryBean（加深）
+
+- `&beanName`：拿 FactoryBean 本身。  
+- FactoryBean 常延迟 `getObject`；`isSingleton` 决定产品是否缓存。  
+- **追问：** FactoryBean 与 `@Bean` 方法返回值的代理/作用域差异——Boot 里大量 starter 用 `@Bean`，不一定走 FactoryBean。
+
+---
+
+## IOC：new 与代理
+
+- 容器 `new`/反射出 **目标实例**；若有 Advisor，对外发布 **代理**。  
+- **追问：** `AopUtils.getTargetClass` / `((Advised)proxy).getTargetSource()` 如何拿原对象（调试用，业务慎用）。  
+- `final` 类：CGLIB 难增强；`final` 方法：子类代理拦不住。
+
+---
+
+## 启动与自动配置（加深）
+
+```text
+SpringApplication.run
+→ 准备 Environment、ApplicationContext
+→ 加载 starters 的 AutoConfiguration（spring.factories / AutoConfiguration.imports）
+→ @ConditionalOnClass/Bean/Property 过滤
+→ 刷新上下文：BFPP → 单例预实例化 → 事件
 ```
-使用代理的情况包括但不限于：
 
-- AOP 面向切面编程：在目标对象的方法执行前、执行后或者执行过程中添加额外的逻辑，例如事务管理、日志记录等。
-- 对象的延迟加载：当一个对象被使用时再进行创建，以避免不必要的资源消耗。
-- 事务代理：将事务的起始、提交、回滚等操作封装到代理对象中，以确保事务的一致性。
+**追问：** 自定义 starter 如何写？`@AutoConfiguration` + `@Conditional` + `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports`。
 
-需要注意的是，Spring 会根据对象的作用域和配置来确定是否使用代理。对于单例模式的对象，默认情况下 Spring 会使用代理来管理对象的生命周期和增强功能。而对于非单例的对象，默认情况下 Spring 会通过 new 关键字直接实例化对象。
+---
 
-## Spring是怎样通过@Transactional注解实现事务管理的？
-在 Spring 框架中，@Transactional 注解用于实现事务管理。通过 @Transactional 注解，可以将一个方法或类标记为事务性操作，从而使得 Spring 在方法调用时处理事务的提交和回滚。
+## @Lazy 深问
 
-Spring 通过 AOP (Aspect-Oriented Programming) 织入的方式来实现 @Transactional 注解的事务管理，具体的实现步骤如下：
+- Bean 定义 lazy：启动不建，首次 getBean 再建。  
+- 注入点 lazy：注入 **懒加载代理**，第一次方法调用才拿真实 Bean → 可打断 **构造期** 依赖。  
+- **追问：** lazy 代理第一次调用若目标创建失败，异常出现在业务路径而非启动路径——排障更难。
 
-- 使用 @EnableTransactionManagement 注解启用事务管理功能。在 Spring 配置类上添加该注解，表示开启对 @Transactional 注解的支持。
+---
 
-- 配置事务管理器（TransactionManager）。Spring 使用事务管理器来管理事务的提交和回滚。可以根据具体的需求选择合适的事务管理器，如 DataSourceTransactionManager 或 JpaTransactionManager。
+## 资深连环追问（事务 + 循环依赖）
 
-- 在需要进行事务管理的方法或类上使用 @Transactional 注解。该注解可以修饰方法和类，加在方法上表示该方法需要进行事务管理，加在类上表示该类下的所有方法都需要进行事务管理。
+| 面试官问 | 答要点 |
+|----------|--------|
+| 事务注解标在接口上行为？ | 代理模式建议标实现类；接口上可能失效 |
+| 同一类两个方法不同传播如何生效？ | 必须经代理调用；this 调无效 |
+| 只读事务里调了写方法？ | 未必报错；靠纪律与代码 review |
+| 如何证明当前在事务里？ | `TransactionSynchronizationManager.isActualTransactionActive()` |
+| 三级缓存取出后为何删 L3？ | 早期引用只需生成一次，进 L2，避免重复创建代理 |
+| 循环依赖一定是坏设计吗？ | 简单互调可接受；复杂领域环应拆 |
+| 为何 Spring Boot 2.6+ 默认可禁循环依赖？ | `spring.main.allow-circular-references`；鼓励显式设计 |
 
-- 当调用被 @Transactional 注解修饰的方法时，Spring 就会通过 AOP 代理来拦截方法的调用，对事务进行管理。在方法调用之前，Spring 开启一个事务；如果方法正常执行完成，Spring 提交事务；如果方法中出现异常，Spring 回滚事务。
+---
 
-需要注意的是，@Transactional 注解有一些属性可以配置事务的传播行为、隔离级别、超时时间等。通过配置这些属性，可以对事务的行为进行进一步的控制和定制。
+## Spring 面试速记（含深度）
 
-总结来说，Spring 通过 AOP 和代理机制，在 @Transactional 注解修饰的方法调用时自动管理事务。通过启用事务管理、配置事务管理器、使用 @Transactional 注解，并根据注解属性的配置，Spring 能够在方法调用期间处理事务的开启、提交或回滚。这样能够简化事务管理的代码，并提供了灵活的配置选项来适应各种事务场景需求。
+| 主题 | 一句话 |
+|------|--------|
+| 传播 | REQUIRED 共用；REQUIRES_NEW 真新事务；NESTED 保存点 |
+| 挂起 | ThreadLocal 资源压栈/恢复 |
+| 失效 | 自调用、非 public、异常、无代理；注意 rollback-only |
+| 实现 | TransactionInterceptor + PlatformTransactionManager |
+| 循环依赖 | L3 工厂为 AOP 早期代理；构造器环必死 |
+| 生命周期 | 属性填充窗口解环；after 里常规代理 |
+| 多数据源 | 单 TM 不够，上 JTA 或分布式方案 |
 
-## Spring的编程式事务管理和声明式事务管理是怎么实现的？
-
-在 Spring 中，事务管理主要有两种方式：编程式事务管理和声明式事务管理。
-
-- 编程式事务管理：
-
-在编程式事务管理中，开发人员通过手动编写代码来控制事务的开始、提交或回滚。通常使用编程式事务管理时，需要在事务的开始和结束之间显式地调用相关的事务操作方法。
-
-以下是使用编程式事务管理的基本步骤：
-
-- 获取事务管理器（PlatformTransactionManager）
-
-- 创建事务定义（TransactionDefinition），包括隔离级别、传播行为、超时等设置
-
-- 开启事务（beginTransaction）
-- 执行业务逻辑
-- 根据业务结果判断是否提交或回滚事务（commitTransaction 或 rollbackTransaction）
-
-- 编程式事务管理提供了更精细的控制能力，适用于一些复杂的事务场景，但由于需要手动编写代码，会增加开发的复杂性。
-
-- 声明式事务管理：
-
-声明式事务管理是通过 AOP（面向切面编程）实现的，开发人员只需要在配置文件或使用注解的方式上添加相应的事务管理配置，而无需在业务代码中显示处理事务的代码。Spring 提供了 @Transactional 注解来进行声明式事务管理。使用声明式事务管理时，Spring 将在运行时自动为标注了 @Transactional 注解的方法添加事务管理逻辑，包括事务的开始、提交或回滚等操作。
-
-在声明式事务管理中，需要配置事务管理器（PlatformTransactionManager）和事务通知（TransactionAdvice），以及指定事务切入点（Pointcut）来确定哪些方法会被事务管理。
-
-优点是代码简洁，事务与业务逻辑分离，减少了重复代码和提高了可重用性。同时，可以通过配置灵活地调整事务的传播行为、隔离级别、超时等设置。
-
-总而言之，编程式事务管理需要手动编写事务控制代码，而声明式事务管理则通过 AOP 和注解的方式实现自动化的事务管理，为开发人员提供了更加便捷和灵活的事务控制方式。
-
-## Spring的懒加载是什么意思？
-在 Spring 中，懒加载（Lazy Loading）是一种延迟加载的机制。通常情况下，Spring 默认使用的是饿加载（Eager Loading）策略，即在容器启动时就会创建和初始化所有的 bean。而懒加载则是将 bean 的初始化推迟到第一次使用时进行。
-
-使用懒加载机制可以提高应用程序的性能和资源利用效率。当一个应用程序存在大量的 bean，并且某些 bean 在启动时并不会立即被使用到，这时通过懒加载可以避免不必要的初始化和资源占用。
-
-在 Spring 中，可以通过以下方式实现懒加载：
-
-- 对于单个 bean，可以在 bean 的定义上添加 @Lazy 注解，表示该 bean 是懒加载的。在使用时，Spring 容器会在首次访问该 bean 时才进行初始化。
-
-- 对于整个配置类或 XML 配置文件中的所有 bean，可以使用 @Configuration 或 <beans> 标签的 default-lazy-init 属性来进行设置。设置为 true 表示所有 bean 都是懒加载的。
-
-需要注意的是，懒加载仅适用于单例作用域（Singleton Scope）的 bean。对于原型作用域（Prototype Scope）的 bean，无论是否懒加载，Spring 都会在每次请求时创建一个新的实例。
-
-懒加载对于优化启动时间和减少不必要的资源占用是有益的，但也需要根据具体业务需求谨慎使用。懒加载可能会影响应用程序的实时性和响应性，因为在首次访问时可能会引入一定的延迟。因此，需要根据具体情况和性能需求来权衡是否使用懒加载。
-
-
-
+---
 
 # SpringMVC
 

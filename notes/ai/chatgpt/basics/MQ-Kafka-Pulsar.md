@@ -17,13 +17,225 @@ Topic 按 Partition 并行，Partition 内有序；Producer 写 Leader，Followe
 
 ## 消息顺序如何保证？
 
-- **分区内有序**：同一 Partition 追加写入，单线程消费该分区即可保序。
-- **跨分区无序**：多 Partition 之间没有全局顺序。
-- **局部有序做法**：业务键（如 `orderId`）作为 Key，哈希到同一分区；该 Key 下消息有序。
-- **全局有序**：只能 **单分区**（吞吐差），一般不推荐。
-- **消费侧破坏顺序**：同分区若多线程并发处理，仍会乱序 → 要么单线程处理，要么按 Key 再哈希到有序工作队列。
+> **分层答**：Broker 只保证 **存储顺序**（分区内/log 顺序）；**消费端是否按序处理** 完全取决于线程模型与 Ack/Offset 策略。  
+> 下文 **默认生产端已正确**（同 Key 进同一分区 / Pulsar Key 路由），只讲 **消费侧** 怎么不弄乱。
 
-面试答法：Kafka **不保证全局有序，保证分区内有序**；业务用 Key 路由做局部有序。
+### 一、先建立正确预期
+
+| 范围 | Kafka | Pulsar |
+|------|-------|--------|
+| Broker 保证 | **分区内** 追加顺序 | **单分区 / Key 路由范围内** 投递顺序（视订阅模式） |
+| 不保证 | 跨分区全局有序 | Shared 模式跨消息无序 |
+| 消费端 | **框架不替你保序**，乱开线程必乱 | Key_Shared 只保证 **同 Key 到同消费者**，不保证消费者内多线程有序 |
+
+**面试第一句**：「Broker 有序 ≠ 业务有序；消费端要 **单线程串行处理 + 顺序提交进度**，或 **按 Key 进有序队列**。」
+
+---
+
+### 二、Kafka：消费端怎样保证有序？（深入）
+
+#### 2.1 消费有序的必要条件（四条同时满足）
+
+```text
+① 该分区同一时刻只被一个消费者实例消费（Consumer Group 分区独占）
+② 对该分区的消息：poll → 处理 → commit，在「保序粒度」内串行
+③ Offset 提交顺序与处理完成顺序一致（不能先 commit 后序再 commit 前序）
+④ Rebalance 前 commit 已处理完的消息（见 2.6）
+```
+
+只满足 ① 不够——**最常见翻车** 是 ②：一个 Consumer 实例分到 3 个分区，用 **一个线程池** 处理 3 个分区的消息。
+
+#### 2.2 谁在消费端破坏顺序？
+
+| 破坏方式 | 后果 |
+|----------|------|
+| **同分区多线程处理** | msg#100 比 #99 先处理完 → 下游看到乱序 |
+| **poll 一批后并行处理** | `max.poll.records=500` 丢线程池 → 批内乱序 |
+| **异步回调乱序完成** | CompletableFuture 各自完成，提交 Offset 乱 |
+| **提前 commit** | 自动提交 / commit 了 #99 但 #98 还在处理 → Rebalance 后丢失或重复且乱序 |
+| **跨分区合并写下游** | 分区 A、B 各有序，合并写同一行仍可能交错 |
+| **Rebalance 中途** | 分区移交时未 commit 的在途消息与新实例交错 |
+
+#### 2.3 消费端保序方案（由强到弱）
+
+**方案 A：每分区单线程（最常用、最稳）**
+
+```text
+Consumer 实例内：
+  poll 线程（或每分区一线程）循环：
+    records = poll()
+    for record in records:        // 分区内顺序遍历
+        process(record)
+        commitSync(offset+1)     // 或攒批但按序 commit
+```
+
+- 一个实例消费多个分区 → **每个分区绑定一个串行 Executor**（分区级单线程池），互不共享 worker。  
+- `KafkaConsumer` **非线程安全**：只能 **一个线程 poll**；可以是 poll 线程顺序处理，或 poll 后 **按 partition 投递到分区队列**。
+
+**方案 B：业务 Key 二级有序（要吞吐又要 Key 内有序）**
+
+```text
+poll 线程只负责拉取 + 路由：
+  executor = executors[hash(key) % N]   // 每个 executor 单线程
+  executor.submit(() -> process(msg))
+```
+
+- **不同 Key 并行，同一 Key 串行**（与生产端 Key→分区 配合）。  
+- Offset 提交：**不能**按完成顺序 commit（会乱），常见两种做法：  
+  - **保守**：仍由 poll 线程顺序 process（不用线程池）。  
+  - **进阶**：维护 **每分区连续位点表**（见 2.4）。
+
+**方案 C：内存有序队列 + 单 committer**
+
+```text
+Worker 并行处理（允许完成乱序）
+  → 结果写入 per-partition 顺序缓冲区
+  → 单独 commit 线程从低位连续提交「已连续完成」的最大 offset
+```
+
+- 未完成 #98 时不能 commit #99。实现复杂，适合重 CPU 且必须分区内有序的场景。
+
+**方案 D：牺牲顺序换吞吐（明确放弃保序）**
+
+- 全线程池并行 + commit 最大 offset → **只 at-least-once，不保证顺序**；下游用版本号丢弃旧更新。
+
+#### 2.4 Offset 提交与顺序（面试爱追问）
+
+| 提交方式 | 是否保序 | 说明 |
+|----------|----------|------|
+| **逐条 sync commit** | 最强 | 慢，一般不用 |
+| **批内顺序处理完再 commit 本批最大 offset** | 强 | 常用；批内必须串行 |
+| **auto commit** | 弱 | 可能在处理完前推进 offset → 假丢 |
+| **async commit** | 弱 | 提交顺序不确定 |
+| **并行处理 + commit 最大 offset** | **乱序** | 有序场景禁止 |
+
+**关键原则**：commit 的含义是「**此 offset 及之前都已处理完**」。#99 先完成并 commit、#98 仍在跑 → 崩溃则 **98 假丢** 且下游已按 99 更新 → **逻辑乱序**。
+
+#### 2.5 `max.poll.records` 与 `pause`/`resume`
+
+- 拉太多 → 超 `max.poll.interval.ms` 被踢 → Rebalance。  
+- 有序场景：**减小 batch**；处理不过来 **`consumer.pause(partition)`** 反压，poll 线程仍要定期 poll 心跳。
+
+#### 2.6 Rebalance 与顺序
+
+```text
+onPartitionsRevoked:
+  1. 停止向该分区 worker 投新活
+  2. 等待在途处理完成
+  3. commit 已完成 offset
+  4. 再交出分区
+```
+
+未 commit 即被踢 + 旧实例仍在处理 → **双消费交错**，顺序彻底乱。**静态成员**、**协作式再均衡** 减停顿；**保序靠 revoke 时 commit**。
+
+#### 2.7 多实例时的「有序」边界
+
+```text
+Partition-0: [m1, m2, m3]  → Consumer-A 串行 → 有序
+Partition-1: [m4, m5]        → Consumer-B 串行 → 有序
+合并写 orderId=X             → m2 与 m5 仍可能交错（跨分区无序）
+```
+
+**口述**：「消费有序 = **分区内有序**；orderId 全局有序需 **同 orderId 同分区** + 该分区串行。」
+
+#### 2.8 消费端 checklist
+
+```text
+□ 每分区串行（或 Key 级串行 executor）
+□ 单线程 poll
+□ 处理成功后再 commit；不用 auto commit
+□ Rebalance revoke 时 commit + 停 worker
+□ max.poll.records / max.poll.interval 与耗时匹配
+□ 下游幂等（仍可能重复，但不靠乱 commit）
+```
+
+**Kafka 30 秒（仅消费端）**：「分区内 Broker 已有序；消费 **每分区单线程串行**，**按序 commit**；Key 并行用 **Key→单线程 executor**；禁止并行处理后 commit 最大 offset；Rebalance 前 **revoke 回调 commit**。」
+
+---
+
+### 三、Pulsar：消费端怎样保证有序？（深入）
+
+进度在 **服务端 Cursor**，确认靠 **Ack**；**订阅模式 + 消费线程模型** 共同决定最终是否有序。
+
+#### 3.1 订阅模式 × 消费端
+
+| 模式 | Broker 侧 | 消费端还要做什么 |
+|------|-----------|------------------|
+| **Exclusive / Failover** | 单活跃消费者 | **单线程 receive → process → ack** |
+| **Key_Shared** | 同 Key → 同一消费者 | 该消费者内 **同 Key 必须串行** |
+| **Shared** | 消息级竞争 | **不保序**；要顺序就换模式 |
+
+**陷阱**：「Key_Shared 已有序」→ **错**。只保证 **同 Key 到同一个人**，**同 Key 多线程仍乱序**。
+
+#### 3.2 Ack 类型与顺序
+
+| Ack 方式 | 行为 | 与有序 |
+|----------|------|--------|
+| **Individual ack** | 逐条确认 | 多线程谁先完谁先 ack → 乱序 + redelivery 交错 |
+| **Cumulative ack** | 确认到 N 则 ≤N 均视为已消费 | **适合单线程顺序**；不能并行再 cum ack 中间条 |
+
+**有序推荐**：
+
+```text
+单线程：receive → process → acknowledge(msg)
+或 cumulative：处理完第 N 条后 acknowledgeCumulative(msgN)
+```
+
+#### 3.3 Key_Shared 正确姿势
+
+```text
+receive 线程（单线程）：
+  msg = consumer.receive()
+  keyExecutors[hash(key) % N].execute(() -> {
+      process(msg)
+      consumer.acknowledge(msg)   // 同 Key 串行线程里 ack
+  })
+```
+
+每个 **keyExecutor 单线程** → 同 Key 有序；ack 在 process 成功后执行。
+
+#### 3.4 未 Ack / 超时 redelivery
+
+```text
+顺序收到 m1, m2, m3；m2 极慢，m1/m3 已 ack
+  → m2 超时 redelivery，可能在 m4、m5 之后再到
+```
+
+**严格顺序**：一条不 ack 完不下一条（吞吐最低），或应用层 **按 sequenceId 重排**。业务可接受则用 **幂等 + 版本号**。
+
+#### 3.5 Nack / DLQ
+
+- Nack 延迟重投 → 消息 **插入后续流**；有序场景需 **失败阻塞后续** 或 DLQ skip（产品决策）。
+
+#### 3.6 Batch receive
+
+- `receive(maxMessages)` 一批 → 批内 **for 串行** 或 **按 Key 投队列**；勿整批丢无序线程池。
+
+#### 3.7 Kafka vs Pulsar 消费保序
+
+| 维度 | Kafka | Pulsar |
+|------|-------|--------|
+| 进度 | 客户端 Offset | 服务端 Cursor |
+| 确认 | commit offset | Ack / Cumulative / Nack |
+| Key 级有序 | 分区内串行 | Key_Shared + 同 Key 串行 |
+| 典型翻车 | 线程池 + commit 最大 offset | 线程池 + individual ack 乱序 |
+
+**Pulsar 30 秒（仅消费端）**：「Exclusive **单线程 ack**；Key_Shared **同 Key 单线程 executor**；Shared 不保序。Individual ack 须 **处理与 ack 同序**；严格序用 Cumulative + 串行。」
+
+---
+
+### 四、通用工程模式
+
+```text
+1. 明确保序粒度：全局 / 分区 / Key / 无
+2. 粒度内单线程或单队列 actor
+3. Offset/Ack 在「前序都成功」之后
+4. 失败：阻塞 vs DLQ（和产品对齐）
+5. 下游：版本号、状态机 CAS
+```
+
+**局部有序（99%）**：orderId/userId 为 Key → 消费 **Key 级串行**。  
+**全局有序（极少）**：单分区 + **单线程消费**。
 
 ---
 
@@ -380,10 +592,11 @@ Kafka Broker 把分区日志以 **顺序文件** 形式放在磁盘上，热点�
 
 - **丢**：acks 弱；先提交后处理；unclean 选举  
 - **重**：至少一次 + Rebalance → **幂等**  
-- **乱**：跨分区无序；同分区多线程乱序  
+- **乱**：跨分区无序；消费端 **同分区多线程/并行 commit 最大 offset** 必乱 → **分区内串行+顺序 commit** 或 Key 级单线程 executor  
 - **积压**：先查 Lag，再优化消费/加实例/加分区  
 - **并行度**：同组有效并发 ≤ 分区数；多了空闲；单分区多线程易乱序  
 - **水平扩容**：加分区+Broker；Consumer≤分区；Pulsar 另可扩 Bookie/Broker  
+- **百亿写 CH**：攒批+控 part；至少一次+唯一键去重；lag/反压/对账  
 - **延迟**：原生弱，靠应用或多级 Topic  
 - **事务**：幂等+事务 Producer 保 Kafka 内 EOS，跨 DB 另案  
 - **幂等**：生产 `enable.idempotence`（PID+序号 Broker 去重）；消费靠业务唯一键/状态机  
@@ -412,10 +625,26 @@ Kafka Broker 把分区日志以 **顺序文件** 形式放在磁盘上，热点�
 
 ## 消息顺序如何保证？
 
-- **单分区 Topic**：分区内有序。  
-- **Key_Shared 订阅**：同 Key 路由到同一消费者，**Key 级有序**且可并行。  
-- **Shared 订阅**：消息级竞争，**不保证顺序**。  
-- Exclusive / Failover：单活跃消费者，顺序取决于 Topic 分区模型。
+> **Broker 侧** 与 **消费端** 完整深挖见上文 Kafka 章节 **「消息顺序如何保证？」**（含 Pulsar 第三节）。此处为 Pulsar 速查 + 消费端要点。
+
+### Broker / 订阅模式（生产端略）
+
+| 模式 | 顺序语义 |
+|------|----------|
+| **单分区 / Partitioned Topic 单分区内** | 分区内有序 |
+| **Key_Shared** | 同 **Message Key** 路由到同一消费者（**Key 级有序前提**） |
+| **Shared** | 消息级竞争，**完全不保序** |
+| **Exclusive / Failover** | 单活跃消费者；顺序取决于分区内 log |
+
+### 消费端怎样不弄乱顺序？（面试重点）
+
+1. **Exclusive / Failover**：`receive → process → ack` **单线程串行**；可用 **Cumulative ack** 强化「前序都已完」语义。  
+2. **Key_Shared**：同 Key **必须** 进 **单线程 executor** 再 process + **Individual ack**；不同 Key 可并行。  
+3. **禁止**：Shared 模式 + 想要顺序；Key_Shared + 同 Key 多线程 + 谁先完谁先 ack。  
+4. **Ack 超时 redelivery**：未 ack 的消息会再次投递，可能 **插在新消息之间** → 严格顺序要串行或应用层重排。  
+5. **Nack / DLQ**：失败重投破坏严格顺序，需 **阻塞后续** 或 **版本号幂等**。
+
+**Pulsar 消费端 30 秒**：「Key_Shared + 同 Key 单线程 ack；Exclusive 单线程 cumulative ack；Shared 不保序；未 Ack 会 redelivery，别并行 ack。」
 
 ---
 
@@ -562,7 +791,7 @@ Pulsar 数据在 **BookKeeper**，Broker 更偏代理，和 Kafka「Broker 本�
 ## Pulsar 面试速答
 
 - 架构：Broker 无状态 + BookKeeper 存盘  
-- 顺序：分区 / Key_Shared；Shared 不保序  
+- 顺序：分区 / Key_Shared（Broker）；消费端 **同 Key 单线程 ack**；Shared 不保序  
 - 延迟/重试/DLQ：原生能力强于 Kafka  
 - 进度：服务端 Cursor + Ack  
 - 积压：扩订阅消费者 + 查 backlog + 治毒消息  
@@ -657,3 +886,168 @@ Pulsar：数据在 Bookie，Broker 挂了换台继续服务
 | 运维 | KRaft/ZK + 副本分配 | Broker + Bookie + 元数据 |
 
 **30 秒收口：** Kafka 水平扩核心是 **加分区 + 加 Consumer（≤分区）+ 加 Broker**；Pulsar 还可 **独立扩 Bookie 存盘、扩 Broker 无状态**，Shared 订阅下消费并行更灵活。
+
+---
+
+# 面试题：每小时百亿级经 Kafka/Pulsar 写入 ClickHouse，要考虑什么？
+
+> 量级口述：**约 1e10 条/小时** → 平均约 **278 万条/秒**（峰值更高）。链路一般是：  
+> `采集 → MQ → 消费/Flink/写入服务 → 批量 INSERT → ClickHouse`  
+> 下面按 **性能、不丢、去重、稳定、运维可观测** 答。
+
+## 1. 先定链路形态（别口嗨）
+
+```text
+Producer（多实例）
+    ↓  高并发、批量、压缩
+Kafka / Pulsar（足够分区 + 副本）
+    ↓  多消费者 / Flink
+攒批写入服务（Buffer / 微批）
+    ↓  大批量 INSERT（千万行级/批看规格）
+ClickHouse（多分片 + 副本，MergeTree）
+```
+
+| 方式 | 适用 |
+|------|------|
+| Flink + JDBC/ClickHouse Connector | 要背压、状态、EOS 语义时 |
+| 自研消费 + 批量 HTTP/Native | 简单、可控批大小 |
+| Kafka Engine / 物化视图直连 | 小中流量可；**百亿/小时慎用**，易把 CH 打成 part 工厂 |
+
+**百亿级优先：MQ 削峰 + 专用写入层攒批，而不是每条直插 CH。**
+
+---
+
+## 2. 性能（写得进、查得动）
+
+### MQ 侧
+
+| 项 | 要点 |
+|----|------|
+| **分区/并行** | Kafka：分区数 ≥ 消费者并行；Pulsar：Partitioned Topic 或 Shared 扩消费者 |
+| **批量发送** | `linger.ms` + `batch.size`；Pulsar batch；压缩 lz4/zstd |
+| **副本与 ack** | 性能与安全权衡：`acks=all` / 多副本换延迟；异步刷盘提吞吐 |
+| **热点** | Key 打散；避免单分区扛百亿 |
+| **Broker/Bookie 盘** | 顺序写、足够吞吐；Pulsar 独立扩 Bookie |
+
+粗算：278 万/s，若单消费者 5～10 万/s，需要 **几十～上百** 并行消费实例（再乘峰值系数）。
+
+### 写入 ClickHouse 侧
+
+| 项 | 要点 |
+|----|------|
+| **禁止逐行 INSERT** | 必须 **大批量**（如数万～百万行/批，按延迟与 part 权衡） |
+| **异步_insert / Buffer** | 可减轻小批，但百亿仍要上游控批 |
+| **分片** | Distributed 或直写各 shard；sharding key 打散 |
+| **分区** | 按天/小时 `PARTITION BY`，利于 TTL 与裁剪 |
+| **ORDER BY** | 对齐查询；过乱导致合并与查询差 |
+| **part 爆炸** | 小批过多 → merge 跟不上 → 读写恶化；监控 `Parts`、merge 队列 |
+| **副本** | 写入走主副本；复制延迟监控 |
+| **资源** | CPU（压缩/merge）、磁盘 IO、网络；写入与查询隔离或限流大查询 |
+
+### 端到端吞吐公式（面试口述）
+
+```text
+集群可写 QPS ≈ min(
+  MQ 生产/消费能力,
+  写入服务并发 × 批大小 / 批耗时,
+  CH 各分片 ingest + merge 能力
+)
+瓶颈常在：CH part merge、单分区热点、写入未攒批
+```
+
+---
+
+## 3. 数据丢失（可靠性）
+
+| 环节 | 防丢手段 |
+|------|----------|
+| **生产 → MQ** | 重试 + 幂等 Producer（Kafka）；超时重发；成功以 ack 为准 |
+| **MQ 持久化** | 多副本；`acks=all` / 法定副本；刷盘策略按 SLA |
+| **消费** | 处理成功再提交 offset/cursor；失败重试；勿「先 commit 再写 CH」 |
+| **写 CH** | 批次失败整批重试；幂等或下游可去重；异常进死信/旁路盘 |
+| **CH 自身** | 副本；Keeper；磁盘与故障切换演练 |
+
+**至少一次（at-least-once）是常态** → 必然可能重复 → **必须有去重策略**（见下）。  
+若强依赖 EOS：Flink Checkpoint + 两阶段 Sink / 幂等表引擎，成本更高，百亿级要评估。
+
+---
+
+## 4. 去重（重复与乱序）
+
+MQ 至少一次 + 消费重试 → **重复写入几乎难免**。
+
+| 策略 | 说明 |
+|------|------|
+| **业务唯一键** | 如 `event_id`；ReplacingMergeTree / 查询端 `argMax` / `GROUP BY` 折叠 |
+| **Replacing / Collapsing** | 最终一致去重；注意合并前可能短暂重复 |
+| **写入前去重** | 短窗口 Bloom/Redis（仅挡热重复，不能替代引擎） |
+| **Flink 状态去重** | 有界窗口去重；状态体积与百亿吞吐要谨慎 |
+| **幂等设计** | 同一批次重试内容一致，避免「重试生成新 id」 |
+
+**面试收口：** 链路按至少一次设计，**CH 用可去重表引擎 + 唯一键**，不幻想 MQ 全局恰好一次。
+
+---
+
+## 5. 稳定性（别半夜炸）
+
+| 风险 | 应对 |
+|------|------|
+| **流量尖峰** | MQ 堆积扛峰；写入限流；自动扩消费者 |
+| **反压** | 消费速度跟写入；Pulsar/Kafka 监控 lag；打满则暂停拉取 |
+| **CH 过载** | 限并发 INSERT；隔离查询；merge 线程与写入内存调优 |
+| **故障恢复** | 消费组重平衡；写入服务无状态可扩；CH 副本切换 |
+| **毒消息** | 坏 JSON 进 DLQ，不堵主链路 |
+| **Schema 变更** | 兼容演进；未知字段策略；避免写挂整批 |
+| **磁盘打满** | TTL、监控 free space；MQ 保留期与 CH TTL 对齐 |
+| **雪崩** | 下游超时熔断；重试抖动退避；熔断后降级落盘 |
+
+---
+
+## 6. 数据质量与正确性
+
+- 时钟：事件时间 vs 处理时间；分区字段别用错。  
+- 乱序：允许延迟窗口或按事件时间分区。  
+- 采样对账：MQ 入流量 vs CH 入行数（按分钟）；缺口告警。  
+- 大字段/嵌套：控制行宽，避免单批内存爆。
+
+---
+
+## 7. 可观测与容量
+
+| 监控 | 为何 |
+|------|------|
+| MQ 生产速率、消费 lag、磁盘 | 是否堆积、是否丢连 |
+| 写入批次大小、失败率、重试 | 写入健康度 |
+| CH：insert 速率、parts 数、merge、副本延迟、ZooKeeper/Keeper | 是否 part 爆炸、是否跟得上 |
+| 端到端延迟（事件时间→可查） | SLA |
+| 对账：条数/校验和 | 丢与重 |
+
+容量规划：**峰值 = 平均 × 2～3**；预留 merge 与查询余量，不能 100% 打满写入。
+
+---
+
+## 8. Kafka vs Pulsar 在该场景的差异（加分）
+
+| 点 | Kafka | Pulsar |
+|----|-------|--------|
+| 极高吞吐日志 | 生态成熟、顺序写、大数据标配 | 也能扛，存算分离扩盘更灵活 |
+| 堆积 | 扩分区+消费者，盘在 Broker | 扩 Bookie 存、扩 Broker 服务 |
+| 多订阅 | 一消息多消费组 | 多订阅模型清晰 |
+| 运维 | 分区与副本重分配要熟练 | 组件更多（Broker+Bookie+元数据） |
+
+百亿级 **两者都能做**；选团队更熟、磁盘与扩容更顺的那套，重点在 **攒批写 CH + 防 part 爆炸**。
+
+---
+
+## 9. 面试 60 秒答法
+
+「每小时百亿先换算到约三百万每秒，必须 **MQ 高分区批量进出 + 写入层大攒批**，禁止逐条插 ClickHouse。可靠性上生产 ack、多副本、成功再提交消费位点，接受至少一次。重复用 **唯一键 + Replacing 类引擎** 做最终去重。稳定性靠 lag/parts/磁盘监控、反压限流、毒消息隔离和 TTL。瓶颈通常在 CH merge 与小 part，而不是 MQ 本身传不动。」
+
+### 检查清单（速记）
+
+| 维度 | 必答点 |
+|------|--------|
+| 性能 | 分区并行、压缩批量、CH 大批量、分片打散、控 part |
+| 不丢 | ack/副本、先写后提交位点、失败重试与落盘 |
+| 去重 | 至少一次前提 + 唯一键/Replacing |
+| 稳定 | 堆积削峰、反压、熔断、TTL、对账告警 |

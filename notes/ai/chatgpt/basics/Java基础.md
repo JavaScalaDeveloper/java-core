@@ -1,6 +1,6 @@
 # Java 基础面试笔记
 
-多线程 / 集合并发 → JVM 内存与 GC → **JDK 21 & ZGC**。口述优先结论，再补细节。
+多线程 / 集合并发 → JVM（含 G1/ZGC/OOM）→ **常用数据结构源码** → JDK 21。口述优先结论，再补细节。
 
 ---
 
@@ -340,6 +340,79 @@ Java 8 时代不少生产仍用 CMS。现在新项目优先 **G1 / ZGC**。
 
 ---
 
+## ZGC（面试专题）
+
+### ZGC 是什么？
+
+**Z Garbage Collector**：面向 **超大堆、低延迟** 的垃圾收集器。目标：**停顿时间与堆大小弱相关**（亚毫秒～毫秒级 Pause 目标，具体以版本与负载为准）。
+
+| 项 | 说明 |
+|----|------|
+| 启用 | `-XX:+UseZGC`（分代：`-XX:+ZGenerational`，JDK21+ 推荐） |
+| 堆 | 大堆友好（数十 G～TB 级场景常被提及） |
+| 染色指针 | 用指针元数据做标记/重定位状态（Colored Pointers） |
+| 读屏障 | Load Barrier，应用线程读引用时协助维护并发正确性 |
+| 整理 | 并发转移，减少碎片 |
+
+### 为什么能低延迟？
+
+```text
+并发标记 → 并发转移/重定位 → 极短 STW 做根扫描等必要阶段
+停顿不随堆变大而线性恶化（设计目标）
+```
+
+- 多数重活与业务线程 **并发**。  
+- **染色指针 + 读屏障**：迁移后仍能正确访问对象。  
+- 对比 CMS：少碎片问题；对比 G1：更极致延迟，吞吐/CPU 占用需权衡。
+
+### Generational ZGC（JDK 21 重点）
+
+| | 非分代 ZGC | **分代 ZGC（21+）** |
+|--|------------|---------------------|
+| 想法 | 整堆同等对待 | **年轻代 / 老年代**，热点收年轻对象 |
+| 收益 | 实现相对简单 | **吞吐更好、分配率高时更稳**、CPU 更省 |
+| 面试点 | 低延迟鼻祖路线 | **21 默认推荐形态**（启用 ZGC 时走分代） |
+
+**口述：** 对象朝生夕灭，分代 ZGC 把回收火力打在年轻对象上，保留 ZGC 低延迟，补上吞吐短板。
+
+### ZGC vs G1 vs Parallel（怎么选）
+
+| 收集器 | 更适合 |
+|--------|--------|
+| **Parallel** | 吞吐优先、可忍受停顿 |
+| **G1** | 通用默认；平衡吞吐与停顿；大多数业务 |
+| **ZGC** | **延迟敏感**、大堆、要稳定尾延迟（P99） |
+| **Shenandoah** | 同类低延迟竞品（偏 OpenJDK 某些发行版） |
+
+**不要说「ZGC 全面替代 G1」：** ZGC 更吃 CPU/内存带宽；小堆、纯吞吐任务 G1/Parallel 可能更香。
+
+### ZGC 常见追问
+
+| 问题 | 答法 |
+|------|------|
+| 停顿真是 0？ | **不是**；仍有极短 STW，但是 **目标与堆大小解耦** |
+| 和 G1 Region？ | ZGC 也有类似页面/多映射思想，实现不同；主打染色指针与并发转移 |
+| 调参多吗？ | 相对少；常设堆大小 + UseZGC；再观察分配速率与 CPU |
+| 大页 / NUMA？ | 大堆生产常配合大页、NUMA 感知，属运维加分项 |
+| 中断 / safepoint？ | 仍依赖 safepoint 做少量全局工作，但设计上缩短停顿 |
+
+### 典型参数
+
+```text
+-XX:+UseZGC
+-XX:+ZGenerational          # JDK21+ 分代
+-Xms32g -Xmx32g             # 示例：大堆
+-Xlog:gc*:file=gc.log:time,uptime,level,tags
+```
+
+### Full GC 与 ZGC
+
+- 正常路径以 **并发循环** 为主，少谈传统「Young/Full」话术。  
+- 仍可能出现分配失败、GC 跟不上分配等 → 监控 **分配停顿、heap capacity、GC cycle**。  
+- 泄漏一样会导致频繁回收与最终 OOM，换 ZGC 治不好泄漏。
+
+---
+
 ## 线上 OOM 故障排查（面试专题）
 
 ### OOM 有哪些类型？（先分类再查）
@@ -487,7 +560,183 @@ Java **只有值传递**：基本类型传副本；引用类型传 **引用副�
 
 ---
 
-# 三、JDK 21 面试专题
+# 三、常用数据结构与源码（面试高频）
+
+集合框架口诀：**List 有序可重复；Set 无序（或有序）不重复；Map 键值对。** 源码按 JDK8+ 口述。
+
+## 总览对比
+
+| 类 | 底层 | 特点 | 线程安全 |
+|----|------|------|----------|
+| **ArrayList** | 动态数组 `Object[]` | 随机访问 O(1)；尾插均摊 O(1)；中间插删 O(n) | 否 |
+| **LinkedList** | 双向链表 | 头尾插删 O(1)；按下标访问 O(n) | 否 |
+| **Vector** | 动态数组 | 方法 synchronized，少用 | 是（粗粒度） |
+| **HashMap** | 数组 + 链表/红黑树 | 无序；允许 null key/value | 否 |
+| **LinkedHashMap** | HashMap + 双向链表 | 插入/访问有序 | 否 |
+| **TreeMap** | 红黑树 | 按 key 有序 | 否 |
+| **ConcurrentHashMap** | 数组 + 链表/红黑树 | 高并发 Map | **是**（JDK8 锁桶） |
+| **HashSet** | 包装 HashMap | 去重靠 key | 否 |
+| **TreeSet** | 包装 TreeMap | 有序去重 | 否 |
+| **CopyOnWriteArrayList** | 写时复制数组 | 读多写少 | 是 |
+
+---
+
+## ArrayList 源码要点
+
+```text
+Object[] elementData
+size                 // 逻辑长度
+DEFAULT_CAPACITY = 10  // 空参构造首次 add 才扩到 10
+```
+
+### 扩容
+
+```text
+add → 不够则 grow
+newCapacity = oldCapacity + (oldCapacity >> 1)   // 1.5 倍
+```
+
+| 点 | 说明 |
+|----|------|
+| 随机访问 | `get(i)` 直接下标，O(1) |
+| 尾插 | 多数情况 O(1)；偶发扩容拷贝 |
+| 中间插删 | `System.arraycopy` 搬移，O(n) |
+| fail-fast | `modCount`；迭代中结构改 → `ConcurrentModificationException` |
+
+**口述：** ArrayList = 可扩容数组；扩容 1.5 倍；查快改中间慢。
+
+---
+
+## LinkedList 源码要点
+
+```text
+Node { E item; Node prev; Node next; }
+first / last
+```
+
+| 操作 | 复杂度 |
+|------|--------|
+| `addFirst` / `addLast` | O(1) |
+| `get(i)` | 从头或尾走近的一端，O(n) |
+| 已知节点删插 | O(1) |
+
+**vs ArrayList：** 随机访问选 ArrayList；频繁头尾插删可选 LinkedList（实际缓存不友好，多数业务仍 ArrayList）。  
+还可当 **Deque**（队列/栈）。
+
+---
+
+## HashMap 源码（必考）
+
+### 结构（JDK8）
+
+```text
+Node<K,V>[] table          // 桶数组，长度 2 的幂
+Node: hash, key, value, next
+树化后：TreeNode（红黑树）
+```
+
+```text
+put → hash(key) → (n-1) & hash 定位桶
+  ├─ 空桶：直接放
+  ├─ 链表：头插已改为 **尾插**（JDK8）；equals 相同则覆盖
+  └─ 链表长 ≥ 8 且 table 长 ≥ 64 → **树化**；否则先扩容
+get → 同定位 → 比 hash + equals
+```
+
+### hash 扰动
+
+```java
+// 大致：高 16 位与低 16 位异或，减少碰撞
+(h = key.hashCode()) ^ (h >>> 16)
+```
+
+索引：`(n - 1) & hash`（等价于 `% n`，因 n 为 2^k）。
+
+### 重要参数
+
+| 参数 | 默认 | 含义 |
+|------|------|------|
+| initialCapacity | 16 | 表长（向上取 2 的幂） |
+| loadFactor | **0.75** | 负载因子 |
+| 扩容阈值 | capacity × loadFactor | 超则 **2 倍扩容** + rehash |
+| TREEIFY_THRESHOLD | 8 | 链表→树 |
+| UNTREEIFY_THRESHOLD | 6 | 树→链表（缩容/拆分时） |
+| MIN_TREEIFY_CAPACITY | 64 | 未到 64 优先扩容不树化 |
+
+### 为何 0.75？为何树化？
+
+- **0.75**：空间与碰撞的折中；更高更省内存但冲突多，更低更费内存。  
+- **树化**：防哈希碰撞极端（甚至攻击）导致链表 O(n)；红黑树查改 O(log n)。  
+- **允许一个 null key**；多 null value。
+
+### 扩容时发生什么？
+
+```text
+新表长 = 旧 × 2
+每个节点：要么仍在原下标 i，要么到 i + oldCap
+（看 hash 新增那一位是 0 还是 1）
+```
+
+### 线程安全？
+
+**不安全。** 并发 put 可能丢数据、死循环（JDK7 头插扩容经典问题；JDK8 尾插缓解死循环但仍会丢/错）。  
+并发用 **ConcurrentHashMap**。
+
+**口述收口：** HashMap = 数组拉链 + 超 8 且表够大转红黑树；hash 扰动；0.75 扩容翻倍；非线程安全。
+
+---
+
+## ConcurrentHashMap（JDK8 对照）
+
+| | JDK7 | JDK8+ |
+|--|------|-------|
+| 结构 | Segment 分段锁 | Node[] + 链表/树 |
+| 锁 | 锁 Segment | **CAS + synchronized 锁桶头** |
+| size | 各段求和 | 计数单元 CounterCell（类似 LongAdder） |
+
+put：桶空 CAS 插；有节点则 **锁该桶头** 再链表/树操作。  
+**不允许 null key/value**（与 HashMap 不同）。
+
+---
+
+## HashSet / TreeSet
+
+| | HashSet | TreeSet |
+|--|---------|---------|
+| 底层 | HashMap（value 固定 PRESENT） | TreeMap |
+| 顺序 | 无 | 自然序 / Comparator |
+| 复杂度 | 均摊 O(1) | O(log n) |
+
+`add` → `map.put(e, PRESENT) == null`。
+
+---
+
+## LinkedHashMap / TreeMap / 其他
+
+| 类 | 要点 |
+|----|------|
+| **LinkedHashMap** | 维护插入序或访问序；可做 **LRU**（`removeEldestEntry`） |
+| **TreeMap** | 红黑树；`NavigableMap`；范围查询 |
+| **PriorityQueue** | 二叉堆；出队最小/最大；非线程安全 |
+| **ArrayDeque** | 循环数组双端队列；作栈/队列优于 Stack/LinkedList |
+
+---
+
+## 怎么选？（面试）
+
+| 需求 | 选型 |
+|------|------|
+| 常按下标访问、尾部增删 | **ArrayList** |
+| 要去重、不管顺序 | **HashSet** |
+| 要排序去重 | **TreeSet** / 排序 List |
+| 键值、单线程 | **HashMap** |
+| 键值、高并发 | **ConcurrentHashMap** |
+| 要插入顺序 / LRU | **LinkedHashMap** |
+| 读极多写极少 | **CopyOnWriteArrayList** |
+
+---
+
+# 四、JDK 21 面试专题
 
 JDK 21 = **LTS**（继 11、17）。面试常问：为什么升、虚拟线程、模式匹配、GC 默认、与 17 差异。
 
@@ -547,96 +796,13 @@ try (var exec = Executors.newVirtualThreadPerTaskExecutor()) {
 | **String Templates**（预览） | 更安全的字符串插值（注意版本是否最终转正） |
 | **Foreign Function & Memory API** | 替代部分 JNI，更安全访问堆外/本地库 |
 | **Structured Concurrency**（预览） | 结构化启动/取消子任务，防线程泄漏 |
-| **Generational ZGC** | 见下一节 |
+| **Generational ZGC** | 见上文 **JVM · ZGC** |
 
 ### 与 JDK 17 对比（速答）
 
 - 17：密封类、模式匹配 instanceof 等已 LTS。  
 - 21：虚拟线程转正、分代 ZGC、Sequenced 集合、更多语法打磨。  
 - 升 21 最大业务动机常是：**Loom + LTS + GC/性能**。
-
----
-
-# 四、ZGC 面试专题
-
-## ZGC 是什么？
-
-**Z Garbage Collector**：面向 **超大堆、低延迟** 的垃圾收集器。目标：**停顿时间与堆大小弱相关**（亚毫秒～毫秒级 Pause 目标，具体以版本与负载为准）。
-
-| 项 | 说明 |
-|----|------|
-| 启用 | `-XX:+UseZGC`（分代：`-XX:+ZGenerational`，JDK21+ 推荐） |
-| 堆 | 大堆友好（数十 G～TB 级场景常被提及） |
-| 染色指针 | 用指针元数据做标记/重定位状态（Colored Pointers） |
-| 读屏障 | Load Barrier，应用线程读引用时协助维护并发正确性 |
-| 整理 | 并发转移，减少碎片 |
-
----
-
-## 为什么能低延迟？
-
-```text
-并发标记 → 并发转移/重定位 → 极短 STW 做根扫描等必要阶段
-停顿不随堆变大而线性恶化（设计目标）
-```
-
-- 多数重活与业务线程 **并发**。  
-- **染色指针 + 读屏障**：迁移后仍能正确访问对象。  
-- 对比 CMS：少碎片问题；对比 G1：更极致延迟，吞吐/CPU 占用需权衡。
-
----
-
-## Generational ZGC（JDK 21 重点）
-
-| | 非分代 ZGC | **分代 ZGC（21+）** |
-|--|------------|---------------------|
-| 想法 | 整堆同等对待 | **年轻代 / 老年代**，热点收年轻对象 |
-| 收益 | 实现相对简单 | **吞吐更好、分配率高时更稳**、CPU 更省 |
-| 面试点 | 低延迟鼻祖路线 | **21 默认推荐形态**（启用 ZGC 时走分代） |
-
-**口述：** 对象朝生夕灭，分代 ZGC 把回收火力打在年轻对象上，保留 ZGC 低延迟，补上吞吐短板。
-
----
-
-## ZGC vs G1 vs Parallel（怎么选）
-
-| 收集器 | 更适合 |
-|--------|--------|
-| **Parallel** | 吞吐优先、可忍受停顿 |
-| **G1** | 通用默认；平衡吞吐与停顿；大多数业务 |
-| **ZGC** | **延迟敏感**、大堆、要稳定尾延迟（P99） |
-| **Shenandoah** | 同类低延迟竞品（偏 OpenJDK 某些发行版） |
-
-**不要说「ZGC 全面替代 G1」：** ZGC 更吃 CPU/内存带宽；小堆、纯吞吐任务 G1/Parallel 可能更香。
-
----
-
-## ZGC 常见追问
-
-| 问题 | 答法 |
-|------|------|
-| 停顿真是 0？ | **不是**；仍有极短 STW，但是 **目标与堆大小解耦** |
-| 和 G1 Region？ | ZGC 也有类似页面/多映射思想，实现不同；主打染色指针与并发转移 |
-| 调参多吗？ | 相对少；常设堆大小 + UseZGC；再观察分配速率与 CPU |
-| 大页/ NUMA？ | 大堆生产常配合大页、NUMA 感知，属运维加分项 |
-| 中断/ safepoint？ | 仍依赖 safepoint 做少量全局工作，但设计上缩短停顿 |
-
-### 典型参数
-
-```text
--XX:+UseZGC
--XX:+ZGenerational          # JDK21+ 分代
--Xms32g -Xmx32g             # 示例：大堆
--Xlog:gc*:file=gc.log:time,uptime,level,tags
-```
-
----
-
-## Full GC 与 ZGC
-
-- 正常路径以 **并发循环** 为主，少谈传统「Young/Full」话术。  
-- 仍可能出现分配失败、GC 跟不上分配等 → 监控 **分配停顿、heap capacity、GC cycle**。  
-- 泄漏一样会导致频繁回收与最终 OOM，换 ZGC 治不好泄漏。
 
 ---
 
@@ -651,9 +817,12 @@ try (var exec = Executors.newVirtualThreadPerTaskExecutor()) {
 | ThreadLocal | 弱 key 仍要 remove 防泄漏 |
 | 对象在哪 | 实例在堆，引用常在栈 |
 | G1 | Region + RSet/CSet；Young/Mixed；可预期停顿；Garbage-First |
+| **ZGC** | 低延迟大堆；染色指针+读屏障；21 分代更优 |
 | OOM 排查 | 先分类型 → dump/日志 → MAT 找 GC Roots → 泄漏或容量 |
+| ArrayList | 数组；1.5 倍扩容；随机访问快 |
+| HashMap | 数组+链表/树；0.75；非线程安全；JDK8 尾插+树化 |
+| CHM | JDK8 CAS + 锁桶头；禁 null |
 | **JDK21** | LTS；**虚拟线程**；分代 ZGC |
 | **虚拟线程** | 轻量、扛海量阻塞 IO；小心 pinning |
-| **ZGC** | 低延迟大堆；染色指针+读屏障；21 分代更优 |
 
-**收口：** 并发抓「可见性/原子/锁升级/线程池」；JVM 抓「G1 Region 模型与 OOM 分类排查」；21 抓「虚拟线程 + ZGC」。
+**收口：** 并发抓「可见性/原子/锁升级/线程池」；JVM 抓「G1/ZGC 与 OOM」；集合抓「ArrayList 扩容 + HashMap 树化」；21 抓「虚拟线程」。

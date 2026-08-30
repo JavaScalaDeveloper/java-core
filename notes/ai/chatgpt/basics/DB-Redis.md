@@ -462,6 +462,193 @@ save 900 1                   # RDB 策略按需保留
 
 ---
 
+# Redis 大 Key：危害与治理（面试高频）
+
+## 1. 什么叫大 Key？
+
+Redis 官方没有硬阈值，工程上常用 **经验线**（需结合实例内存、QPS 调整）：
+
+| 类型 | 常见判定 |
+|------|----------|
+| **String** | value **> 10KB**（有的团队用 1MB） |
+| **Hash / List / Set / ZSet** | 元素 **> 5000～10000**，或 **单 Key 内存 > 1MB** |
+| **Cluster** | 单 Key 过大 → **整 Key 占单 slot**，无法拆到多节点 |
+
+用 **`MEMORY USAGE key`**（Redis 4.0+）或 **`DEBUG OBJECT key`** 看占用；生产用 **`redis-cli --bigkeys`**、RDB 分析工具扫描。
+
+---
+
+## 2. 危害（为什么必须治理）
+
+Redis **命令执行单线程**（主线程），大 Key 会拖垮整条实例。
+
+### 2.1 阻塞主线程（最致命）
+
+| 操作 | 问题 |
+|------|------|
+| **DEL 大 Key** | 同步释放内存，**毫秒～秒级**阻塞，全实例卡顿 |
+| **LRANGE 0 -1 / HGETALL / SMEMBERS** | 一次返回海量数据，**CPU + 网络** 飙高 |
+| **RDB BGSAVE / AOF rewrite** | fork 后 COW；大 Key 复制页多，**内存翻倍 + 持久化慢** |
+| **Cluster 迁槽** | 大 Key 作为迁移单元，**迁移时间长**，期间 **MOVED/ASK** 增多 |
+| **主从全量同步** | 大 Key 拉长 RDB 传输，从库 **长时间 lag** |
+
+```text
+一个 500MB 的 Hash 被 DEL
+  → 主线程阻塞数秒
+  → 该实例上所有请求 RT 飙升
+  → 可能触发连锁超时、哨兵误判（视配置）
+```
+
+### 2.2 内存与集群倾斜
+
+- 单 Key 再大也只能在 Cluster **一个 slot / 一个主节点** → **无法水平分摊**。  
+- 与其它小 Key 混部时，某节点 **内存 OOM** 而其它节点空闲。
+
+### 2.3 网络与客户端
+
+- 大 value 一次响应 → **带宽打满**、客户端 **反序列化慢**、**超时**。  
+- 连接占用时间久 → **连接池耗尽**。
+
+### 2.4 过期与删除策略
+
+- 惰性删除：访问大 Key 时才删 → **读路径卡顿**。  
+- 定期删除：一次抽样删大 Key → **同样阻塞**。
+
+### 2.5 业务风险
+
+- 排行榜 / inbox **全塞一个 ZSet** → 百万 member 见 [排行榜.md](../场景/排行榜.md) 分桶方案。  
+- 购物车、Session **大 Hash** → 改一个 field 也拖着整个 Key 的内存与序列化成本。
+
+---
+
+## 3. 发现与监控
+
+| 手段 | 说明 |
+|------|------|
+| **`redis-cli --bigkeys`** | 采样扫描，各类型最大的 Key（**生产低峰跑**，仍有开销） |
+| **`MEMORY USAGE key`** | 精确单 Key 字节数 |
+| **`SCAN` + `MEMORY USAGE`** | 脚本遍历，可接 Prometheus |
+| **RDB 离线分析** | `redis-rdb-tools` 等，全量统计 Top Key |
+| **Redis 4.0+ LATENCY DOCTOR** | 辅助看延迟 spike |
+| **客户端 / 代理层** | 记录超大响应；Codis/Proxy 可打慢日志 |
+| **规范** | 上线前 Code Review：**禁止** unbounded 集合 |
+
+**告警**：单 Key > 阈值、实例 maxmemory 使用率、命令耗时 P99、`blocked_clients`。
+
+---
+
+## 4. 治理方案（预防 > 拆分 > 异步删 > 迁移）
+
+### 4.1 设计期预防（最重要）
+
+| 原则 | 做法 |
+|------|------|
+| **限制规模** | Hash/List/ZSet 设上限；超限分页或归档到 DB |
+| **拆分 Key** | `cart:{userId}` → `cart:{userId}:0` … `cart:{userId}:n` 按 sku hash |
+| **只存 ID** | 大 JSON 放 DB/OSS，Redis 只存 id、计数 |
+| **压缩** | 大 String 用 gzip/snappy（客户端压，注意 CPU） |
+| **选对结构** | 小对象用 Hash 而非整段 JSON String；超大规模用 **DB + 缓存索引** |
+| **TTL** | 临时数据必过期，避免无限涨 |
+
+### 4.2 大 Key 拆分示例
+
+**Hash 分片**：
+
+```text
+field 路由：shard = crc32(field) % N
+Key：user:profile:{userId}:{shard}
+读全量：SCAN 各 shard 或 业务不需要全量读
+```
+
+**ZSet 分桶**（百万榜）：
+
+```text
+board:shard:0 … board:shard:K
+TopN 各桶取 Top M 再归并
+```
+
+**List 分段**：
+
+```text
+queue:{biz}:seg:1001  每段最多 1000 条
+消费完删段或 UNLINK
+```
+
+### 4.3 安全删除（已有大 Key）
+
+| 方法 | 命令/做法 |
+|------|-----------|
+| **异步删（首选）** | **`UNLINK key`**（Redis 4.0+）后台线程释放，不阻塞主线程 |
+| **集合渐进删** | `HSCAN` + `HDEL` 分批；`ZSCAN` + `ZREM`；`SSCAN` + `SREM` |
+| **List** | `LPOP`/`RPOP` 循环或 `LTRIM` 分段 |
+| **Huge String** | 置空 `SET key ""` 再 UNLINK，或分片后删 |
+| **禁** | 生产 **`KEYS *` + DEL**、对大 Hash **`HGETALL` 再删** |
+
+```text
+// 伪代码：分批删 Hash
+cursor = 0
+repeat
+  (cursor, fields) = HSCAN key cursor COUNT 100
+  HDEL key fields...
+until cursor == 0
+UNLINK key   // 最后删空壳
+```
+
+### 4.4 持久化与迁移侧
+
+- 大 Key 多 → **AOF rewrite / RDB** 前先治理，否则 fork 风险大。  
+- Cluster **reshard 前** 先拆分大 Key，否则 **迁移阻塞** 久。  
+- 从库 **`DEBUG SLEEP`** 类操作勿在大 Key 实例乱用。
+
+### 4.5 读路径治理
+
+- **禁止** `LRANGE key 0 -1`、`HGETALL` 无上限；改 **分页 SCAN/HSCAN/ZSCAN**。  
+- 只取 TopN：`ZREVRANGE 0 99`，不要拉全量 ZSet。  
+- 本地缓存 **Top 结果**，减少反复读大 Key。
+
+### 4.6 配置辅助
+
+```conf
+# Redis 4.0+  lazyfree：异步释放
+lazyfree-lazy-user-del yes
+lazyfree-lazy-expire yes
+lazyfree-lazy-server-del yes
+```
+
+`DEL` 在大 Key 上也可能走 lazyfree（取决于配置和大小阈值 `lazyfree-lazy-user-del`）。
+
+---
+
+## 5. 大 Key vs 热 Key（对比）
+
+| | 大 Key | 热 Key |
+|--|--------|--------|
+| **问题** | 体积大、操作慢、阻塞 | QPS 极高、单 slot/单核打满 |
+| **治理** | 拆分、UNLINK、分批删 | 本地缓存、多副本 Key、读写分离 |
+| **Cluster** | 单 Key 单节点内存 | 单 slot 单节点 CPU |
+
+两者可能叠加：**又大又热** 最危险，必须 **拆分 + 本地缓存**。
+
+---
+
+## 6. 面试追问
+
+| 追问 | 要点 |
+|------|------|
+| DEL 和 UNLINK 区别？ | DEL 同步释放可能阻塞；UNLINK 主线程 unlink 后后台 free |
+| 怎么找大 Key？ | `--bigkeys`、`MEMORY USAGE`、RDB 分析 |
+| 百万粉丝 inbox 一个大 ZSet？ | 大 Key + 写扩散；改拉模型或分片 inbox |
+| 删大 Key 时服务能停吗？ | 用 UNLINK/HSCAN 分批；低峰；必要时双写新结构再切 |
+| 为什么 RDB 会受大 Key 影响？ | fork COW、序列化体积大、save 时间长 |
+
+---
+
+## 7. 30 秒收口
+
+「大 Key 危害：**单线程阻塞**（DEL/全量读/持久化/迁槽）、**内存倾斜**、**网络打满**。发现用 **`--bigkeys`/`MEMORY USAGE`**。治理：**设计拆分**、读用 **SCAN 分页**、删用 **UNLINK + HSCAN 分批**，Cluster 迁槽前先拆；配置 **lazyfree**。」
+
+---
+
 # 其他 Redis 面试常问
 
 ## 单线程为什么还快？
@@ -476,8 +663,8 @@ save 900 1                   # RDB 策略按需保留
 
 ## 大 Key / 热 Key
 
-- **大 Key**：删除/迁移阻塞、集群迁槽慢 → 拆分、压缩结构、异步删（`UNLINK`）。  
-- **热 Key**：单分片打满 → 本地缓存、多副本 key（加随机后缀再聚合）、Redis Cluster 难自动拆热 key。
+- **大 Key**：阻塞、迁槽慢、内存倾斜 → 详见上文 **「Redis 大 Key：危害与治理」**；`UNLINK`、拆分、分批删。  
+- **热 Key**：单分片打满 → 本地缓存、多副本 key（加随机后缀再聚合）、读从库。
 
 ## 分布式锁注意点
 
@@ -552,6 +739,7 @@ Cluster 下 **多 key 命令** 要求在同一 slot（可用 Hash Tag `{userId}:
 | 备份 | 定时 RDB/AOF、从库 BGSAVE、异地副本 |
 | 一致性 | Cache Aside 先更库再删缓存；Canal/延迟双删/TTL |
 | 穿透/击穿/雪崩 | 布隆/互斥/随机过期 |
+| 大 Key | 阻塞/倾斜；UNLINK、拆分、HSCAN 分批删、lazyfree |
 | 高可用 | 主从 + 哨兵 / Cluster |
 | 单线程 | 内存+epoll+简单模型；6.0 IO 线程 |
 | 水平扩容 | Cluster 迁 slot；主从只扩读；防热 key |
